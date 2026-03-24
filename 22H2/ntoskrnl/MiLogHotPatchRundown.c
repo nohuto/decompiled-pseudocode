@@ -1,462 +1,492 @@
 /*
- * XREFs of MiLogHotPatchRundown @ 0x140A39720
+ * XREFs of MiLogHotPatchRundown @ 0x1408CC00C
  * Callers:
- *     MiTracingEnabledCallback @ 0x140866350 (MiTracingEnabledCallback.c)
+ *     MiTracingEnabledCallback @ 0x1408D7A60 (MiTracingEnabledCallback.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MiFillLogProcessInfo @ 0x14025B340 (MiFillLogProcessInfo.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     PsGetProcessId @ 0x1402FA490 (PsGetProcessId.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367920 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgCreate1Sz_char @ 0x1403C3CBC (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MmAcquireLoadLock @ 0x140704660 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x1407049E0 (MmReleaseLoadLock.c)
- *     PsGetNextProcess @ 0x1407446C0 (PsGetNextProcess.c)
- *     MiGetProcessHotPatchContext @ 0x140A37300 (MiGetProcessHotPatchContext.c)
- *     MiIsActiveSystemHotPatch @ 0x140A37FA0 (MiIsActiveSystemHotPatch.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiFillLogProcessInfo @ 0x1403182E0 (MiFillLogProcessInfo.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14032C1BC (_tlgWriteEx_EtwWriteEx.c)
+ *     PsGetProcessId @ 0x1403446B0 (PsGetProcessId.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     _tlgCreate1Sz_char @ 0x14034B7DC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PsGetNextProcess @ 0x14062BFA0 (PsGetNextProcess.c)
+ *     MmReleaseLoadLock @ 0x1406FE9E0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406FEA40 (MmAcquireLoadLock.c)
+ *     MiGetProcessHotPatchContext @ 0x1408CA248 (MiGetProcessHotPatchContext.c)
+ *     MiIsActiveSystemHotPatch @ 0x1408CABF0 (MiIsActiveSystemHotPatch.c)
  */
 
 struct _EX_RUNDOWN_REF *MiLogHotPatchRundown()
 {
   struct _EX_RUNDOWN_REF *result; // rax
-  struct _KTHREAD *CurrentThread; // r15
-  unsigned __int64 v2; // rbx
-  _QWORD *v3; // rax
+  struct _KTHREAD *CurrentThread; // r12
+  _QWORD *v2; // rax
   unsigned __int64 i; // rbx
-  __int64 v5; // r8
-  __int64 v6; // r10
-  _QWORD **v7; // rax
-  unsigned __int64 v8; // rcx
-  _QWORD *v9; // rcx
-  _QWORD *v10; // rax
+  __int64 v4; // r8
+  __int64 v5; // r10
+  _QWORD **v6; // rax
+  unsigned __int64 v7; // rcx
+  _QWORD *v8; // rcx
+  _QWORD *v9; // rax
   unsigned __int64 k; // rdi
-  _QWORD *v12; // rax
+  _QWORD *v11; // rax
   unsigned __int64 j; // rbx
-  __int64 v14; // r8
-  __int64 v15; // r10
-  int v16; // eax
-  _QWORD **v17; // rax
-  unsigned __int64 v18; // rcx
-  _QWORD *v19; // rcx
-  _QWORD **v20; // rax
-  unsigned __int64 v21; // rcx
-  _QWORD *v22; // rcx
-  bool v23; // zf
-  _QWORD *v24; // rax
+  __int64 v13; // r8
+  __int64 v14; // r10
+  int v15; // eax
+  _QWORD **v16; // rax
+  unsigned __int64 v17; // rcx
+  _QWORD *v18; // rcx
+  _QWORD **v19; // rax
+  unsigned __int64 v20; // rcx
+  _QWORD *v21; // rcx
+  _QWORD *v22; // rax
   unsigned __int64 m; // rbx
-  __int64 v26; // r8
-  __int64 v27; // r10
-  _QWORD **v28; // rax
-  unsigned __int64 v29; // rcx
-  _QWORD *v30; // rcx
+  __int64 v24; // r8
+  __int64 v25; // r10
+  _QWORD **v26; // rax
+  unsigned __int64 v27; // rcx
+  _QWORD *v28; // rcx
   PVOID *n; // rbx
-  int v32; // eax
-  __int64 v33; // r8
-  __int64 v34; // r9
-  __int64 v35; // r10
+  __int64 v30; // r8
+  __int64 v31; // r9
+  __int64 v32; // r10
   _QWORD *ii; // rcx
-  __int64 *ProcessHotPatchContext; // r14
-  unsigned __int64 v38; // rsi
-  __int64 *jj; // rsi
-  __int64 v40; // r12
-  int v41; // ecx
-  __int64 v42; // r8
-  __int64 v43; // rbx
-  int v44; // [rsp+28h] [rbp-E0h]
-  int v45; // [rsp+30h] [rbp-D8h]
-  int v46; // [rsp+48h] [rbp-C0h] BYREF
-  int v47; // [rsp+4Ch] [rbp-BCh] BYREF
-  int v48; // [rsp+50h] [rbp-B8h] BYREF
-  int v49; // [rsp+54h] [rbp-B4h] BYREF
-  int v50; // [rsp+58h] [rbp-B0h] BYREF
-  int v51; // [rsp+5Ch] [rbp-ACh] BYREF
-  int v52; // [rsp+60h] [rbp-A8h] BYREF
-  int v53; // [rsp+64h] [rbp-A4h] BYREF
-  int v54; // [rsp+68h] [rbp-A0h] BYREF
-  int v55; // [rsp+6Ch] [rbp-9Ch] BYREF
-  int v56; // [rsp+70h] [rbp-98h] BYREF
-  int v57; // [rsp+74h] [rbp-94h] BYREF
-  int v58; // [rsp+78h] [rbp-90h] BYREF
-  int v59; // [rsp+7Ch] [rbp-8Ch] BYREF
-  unsigned int ProcessId; // [rsp+80h] [rbp-88h] BYREF
-  int v61; // [rsp+84h] [rbp-84h] BYREF
-  int v62; // [rsp+88h] [rbp-80h] BYREF
-  int v63; // [rsp+8Ch] [rbp-7Ch] BYREF
-  int v64; // [rsp+90h] [rbp-78h] BYREF
-  int v65; // [rsp+94h] [rbp-74h] BYREF
-  int v66; // [rsp+98h] [rbp-70h] BYREF
-  const CHAR *v67; // [rsp+A8h] [rbp-60h] BYREF
-  int v68; // [rsp+B0h] [rbp-58h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v69; // [rsp+B8h] [rbp-50h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v70; // [rsp+E8h] [rbp-20h] BYREF
-  int *v71; // [rsp+108h] [rbp+0h]
-  __int64 v72; // [rsp+110h] [rbp+8h]
-  int *v73; // [rsp+118h] [rbp+10h]
-  __int64 v74; // [rsp+120h] [rbp+18h]
-  int *v75; // [rsp+128h] [rbp+20h]
-  __int64 v76; // [rsp+130h] [rbp+28h]
-  int *v77; // [rsp+138h] [rbp+30h]
-  __int64 v78; // [rsp+140h] [rbp+38h]
-  int *v79; // [rsp+148h] [rbp+40h]
-  __int64 v80; // [rsp+150h] [rbp+48h]
-  _DWORD *v81; // [rsp+158h] [rbp+50h]
-  __int64 v82; // [rsp+160h] [rbp+58h]
-  __int64 v83; // [rsp+168h] [rbp+60h]
-  _DWORD v84[2]; // [rsp+170h] [rbp+68h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v85; // [rsp+178h] [rbp+70h] BYREF
-  int *v86; // [rsp+198h] [rbp+90h]
-  __int64 v87; // [rsp+1A0h] [rbp+98h]
-  int *v88; // [rsp+1A8h] [rbp+A0h]
-  __int64 v89; // [rsp+1B0h] [rbp+A8h]
-  int *v90; // [rsp+1B8h] [rbp+B0h]
-  __int64 v91; // [rsp+1C0h] [rbp+B8h]
-  int *v92; // [rsp+1C8h] [rbp+C0h]
-  __int64 v93; // [rsp+1D0h] [rbp+C8h]
-  int *v94; // [rsp+1D8h] [rbp+D0h]
-  __int64 v95; // [rsp+1E0h] [rbp+D8h]
-  _DWORD *v96; // [rsp+1E8h] [rbp+E0h]
-  __int64 v97; // [rsp+1F0h] [rbp+E8h]
-  PVOID v98; // [rsp+1F8h] [rbp+F0h]
-  _DWORD v99[2]; // [rsp+200h] [rbp+F8h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v100; // [rsp+208h] [rbp+100h] BYREF
-  unsigned int *p_ProcessId; // [rsp+228h] [rbp+120h]
-  __int64 v102; // [rsp+230h] [rbp+128h]
-  char v103[16]; // [rsp+238h] [rbp+130h] BYREF
-  int *v104; // [rsp+248h] [rbp+140h]
-  __int64 v105; // [rsp+250h] [rbp+148h]
-  int *v106; // [rsp+258h] [rbp+150h]
-  __int64 v107; // [rsp+260h] [rbp+158h]
-  int *v108; // [rsp+268h] [rbp+160h]
-  __int64 v109; // [rsp+270h] [rbp+168h]
-  int *v110; // [rsp+278h] [rbp+170h]
-  __int64 v111; // [rsp+280h] [rbp+178h]
-  int *v112; // [rsp+288h] [rbp+180h]
-  __int64 v113; // [rsp+290h] [rbp+188h]
-  _DWORD *v114; // [rsp+298h] [rbp+190h]
-  __int64 v115; // [rsp+2A0h] [rbp+198h]
-  __int64 v116; // [rsp+2A8h] [rbp+1A0h]
-  _DWORD v117[2]; // [rsp+2B0h] [rbp+1A8h] BYREF
-  int *v118; // [rsp+2B8h] [rbp+1B0h]
-  __int64 v119; // [rsp+2C0h] [rbp+1B8h]
-  struct _EVENT_DATA_DESCRIPTOR v120; // [rsp+2C8h] [rbp+1C0h] BYREF
-  int *v121; // [rsp+2E8h] [rbp+1E0h]
-  __int64 v122; // [rsp+2F0h] [rbp+1E8h]
-  int *v123; // [rsp+2F8h] [rbp+1F0h]
-  __int64 v124; // [rsp+300h] [rbp+1F8h]
-  _DWORD *v125; // [rsp+308h] [rbp+200h]
-  __int64 v126; // [rsp+310h] [rbp+208h]
-  __int64 v127; // [rsp+318h] [rbp+210h]
-  _DWORD v128[2]; // [rsp+320h] [rbp+218h] BYREF
-  unsigned __int64 v129; // [rsp+328h] [rbp+220h]
-  int v130; // [rsp+330h] [rbp+228h]
-  int v131; // [rsp+334h] [rbp+22Ch]
-  struct _EVENT_DATA_DESCRIPTOR v132; // [rsp+338h] [rbp+230h] BYREF
-  int *v133; // [rsp+358h] [rbp+250h]
-  __int64 v134; // [rsp+360h] [rbp+258h]
-  int *v135; // [rsp+368h] [rbp+260h]
-  __int64 v136; // [rsp+370h] [rbp+268h]
-  _DWORD *v137; // [rsp+378h] [rbp+270h]
-  __int64 v138; // [rsp+380h] [rbp+278h]
-  __int64 v139; // [rsp+388h] [rbp+280h]
-  _DWORD v140[2]; // [rsp+390h] [rbp+288h] BYREF
+  _DWORD *v34; // r9
+  unsigned __int64 ProcessHotPatchContext; // rbx
+  signed __int64 *v36; // rsi
+  __int64 v37; // rax
+  unsigned __int64 jj; // rbx
+  __int64 v39; // r14
+  __int64 v40; // rcx
+  __int64 v41; // r8
+  _QWORD **v42; // rax
+  unsigned __int64 v43; // rcx
+  _QWORD *v44; // rcx
+  __int64 v45; // rdi
+  int v46; // [rsp+28h] [rbp-E0h]
+  int v47; // [rsp+30h] [rbp-D8h]
+  int v48; // [rsp+48h] [rbp-C0h] BYREF
+  int v49; // [rsp+4Ch] [rbp-BCh] BYREF
+  int v50; // [rsp+50h] [rbp-B8h] BYREF
+  int v51; // [rsp+54h] [rbp-B4h] BYREF
+  int v52; // [rsp+58h] [rbp-B0h] BYREF
+  int v53; // [rsp+5Ch] [rbp-ACh] BYREF
+  int v54; // [rsp+60h] [rbp-A8h] BYREF
+  int v55; // [rsp+64h] [rbp-A4h] BYREF
+  int v56; // [rsp+68h] [rbp-A0h] BYREF
+  int v57; // [rsp+6Ch] [rbp-9Ch] BYREF
+  int v58; // [rsp+70h] [rbp-98h] BYREF
+  int v59; // [rsp+74h] [rbp-94h] BYREF
+  int v60; // [rsp+78h] [rbp-90h] BYREF
+  unsigned int ProcessId; // [rsp+7Ch] [rbp-8Ch] BYREF
+  int v62; // [rsp+80h] [rbp-88h] BYREF
+  int v63; // [rsp+84h] [rbp-84h] BYREF
+  int v64; // [rsp+88h] [rbp-80h] BYREF
+  int v65; // [rsp+8Ch] [rbp-7Ch] BYREF
+  int v66; // [rsp+90h] [rbp-78h] BYREF
+  int v67; // [rsp+94h] [rbp-74h] BYREF
+  const CHAR *v68; // [rsp+98h] [rbp-70h] BYREF
+  int v69; // [rsp+A0h] [rbp-68h] BYREF
+  __int64 v70; // [rsp+A8h] [rbp-60h] BYREF
+  _OWORD v71[3]; // [rsp+B8h] [rbp-50h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v72; // [rsp+E8h] [rbp-20h] BYREF
+  int *v73; // [rsp+108h] [rbp+0h]
+  __int64 v74; // [rsp+110h] [rbp+8h]
+  int *v75; // [rsp+118h] [rbp+10h]
+  __int64 v76; // [rsp+120h] [rbp+18h]
+  int *v77; // [rsp+128h] [rbp+20h]
+  __int64 v78; // [rsp+130h] [rbp+28h]
+  int *v79; // [rsp+138h] [rbp+30h]
+  __int64 v80; // [rsp+140h] [rbp+38h]
+  int *v81; // [rsp+148h] [rbp+40h]
+  __int64 v82; // [rsp+150h] [rbp+48h]
+  _DWORD *v83; // [rsp+158h] [rbp+50h]
+  __int64 v84; // [rsp+160h] [rbp+58h]
+  __int64 v85; // [rsp+168h] [rbp+60h]
+  _DWORD v86[2]; // [rsp+170h] [rbp+68h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v87; // [rsp+178h] [rbp+70h] BYREF
+  unsigned int *p_ProcessId; // [rsp+198h] [rbp+90h]
+  __int64 v89; // [rsp+1A0h] [rbp+98h]
+  char v90[16]; // [rsp+1A8h] [rbp+A0h] BYREF
+  __int64 *v91; // [rsp+1B8h] [rbp+B0h]
+  __int64 v92; // [rsp+1C0h] [rbp+B8h]
+  int *v93; // [rsp+1C8h] [rbp+C0h]
+  __int64 v94; // [rsp+1D0h] [rbp+C8h]
+  int *v95; // [rsp+1D8h] [rbp+D0h]
+  __int64 v96; // [rsp+1E0h] [rbp+D8h]
+  int *v97; // [rsp+1E8h] [rbp+E0h]
+  __int64 v98; // [rsp+1F0h] [rbp+E8h]
+  int *v99; // [rsp+1F8h] [rbp+F0h]
+  __int64 v100; // [rsp+200h] [rbp+F8h]
+  _DWORD *v101; // [rsp+208h] [rbp+100h]
+  __int64 v102; // [rsp+210h] [rbp+108h]
+  __int64 v103; // [rsp+218h] [rbp+110h]
+  _DWORD v104[2]; // [rsp+220h] [rbp+118h] BYREF
+  int *v105; // [rsp+228h] [rbp+120h]
+  __int64 v106; // [rsp+230h] [rbp+128h]
+  int *v107; // [rsp+238h] [rbp+130h]
+  __int64 v108; // [rsp+240h] [rbp+138h]
+  struct _EVENT_DATA_DESCRIPTOR v109; // [rsp+248h] [rbp+140h] BYREF
+  int *v110; // [rsp+268h] [rbp+160h]
+  __int64 v111; // [rsp+270h] [rbp+168h]
+  int *v112; // [rsp+278h] [rbp+170h]
+  __int64 v113; // [rsp+280h] [rbp+178h]
+  int *v114; // [rsp+288h] [rbp+180h]
+  __int64 v115; // [rsp+290h] [rbp+188h]
+  int *v116; // [rsp+298h] [rbp+190h]
+  __int64 v117; // [rsp+2A0h] [rbp+198h]
+  _DWORD *v118; // [rsp+2A8h] [rbp+1A0h]
+  __int64 v119; // [rsp+2B0h] [rbp+1A8h]
+  PVOID v120; // [rsp+2B8h] [rbp+1B0h]
+  _DWORD v121[2]; // [rsp+2C0h] [rbp+1B8h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v122; // [rsp+2C8h] [rbp+1C0h] BYREF
+  int *v123; // [rsp+2E8h] [rbp+1E0h]
+  __int64 v124; // [rsp+2F0h] [rbp+1E8h]
+  int *v125; // [rsp+2F8h] [rbp+1F0h]
+  __int64 v126; // [rsp+300h] [rbp+1F8h]
+  _DWORD *v127; // [rsp+308h] [rbp+200h]
+  __int64 v128; // [rsp+310h] [rbp+208h]
+  __int64 v129; // [rsp+318h] [rbp+210h]
+  _DWORD v130[2]; // [rsp+320h] [rbp+218h] BYREF
+  unsigned __int64 v131; // [rsp+328h] [rbp+220h]
+  int v132; // [rsp+330h] [rbp+228h]
+  int v133; // [rsp+334h] [rbp+22Ch]
+  struct _EVENT_DATA_DESCRIPTOR v134; // [rsp+338h] [rbp+230h] BYREF
+  int *v135; // [rsp+358h] [rbp+250h]
+  __int64 v136; // [rsp+360h] [rbp+258h]
+  int *v137; // [rsp+368h] [rbp+260h]
+  __int64 v138; // [rsp+370h] [rbp+268h]
+  _DWORD *v139; // [rsp+378h] [rbp+270h]
+  __int64 v140; // [rsp+380h] [rbp+278h]
+  __int64 v141; // [rsp+388h] [rbp+280h]
+  _DWORD v142[2]; // [rsp+390h] [rbp+288h] BYREF
   _UNKNOWN *retaddr; // [rsp+3D0h] [rbp+2C8h] BYREF
 
   result = (struct _EX_RUNDOWN_REF *)&retaddr;
-  memset(&v69, 0, sizeof(v69));
-  v67 = 0LL;
-  if ( *(_QWORD *)&qword_140C699E8 && dword_140C6997C )
+  memset(v71, 0, sizeof(v71));
+  v68 = 0LL;
+  if ( *(_QWORD *)&qword_140C4EEE0 && dword_140C4CCB0 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
-    v2 = KeAbPreAcquire((__int64)&xmmword_140C69948, 0LL);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&xmmword_140C69948, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx((signed __int64 *)&xmmword_140C69948, 0LL, v2, (__int64)&xmmword_140C69948);
-    if ( v2 )
-      *(_BYTE *)(v2 + 18) = 1;
-    v3 = *(_QWORD **)&xmmword_140C69930;
+    ExAcquirePushLockSharedEx((ULONG_PTR)&MiHotPatchListLock, 0LL);
+    v2 = *(_QWORD **)&MiGlobalHotPatchList;
     i = 0LL;
-    while ( v3 )
+    while ( v2 )
     {
-      i = (unsigned __int64)v3;
-      v3 = (_QWORD *)*v3;
+      i = (unsigned __int64)v2;
+      v2 = (_QWORD *)*v2;
     }
     while ( i )
     {
-      if ( **(_DWORD **)&qword_140C699E8 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C699E8, 32LL) )
+      if ( **(_DWORD **)&qword_140C4EEE0 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 32LL) )
       {
-        v46 = *(_DWORD *)(i + 24);
-        v134 = 4LL;
-        v133 = &v46;
-        v47 = *(_DWORD *)(i + 28);
-        v135 = &v47;
-        v137 = v140;
-        v139 = *(_QWORD *)(i + 40);
-        v140[0] = *(unsigned __int16 *)(i + 32);
+        v48 = *(_DWORD *)(i + 24);
         v136 = 4LL;
-        v138 = 2LL;
-        v140[1] = 0;
-        tlgWriteEx_EtwWriteEx(v6, (unsigned __int8 *)&word_140038C66, v5, 1u, v44, v45, 6u, &v132);
+        v135 = &v48;
+        v49 = *(_DWORD *)(i + 28);
+        v137 = &v49;
+        v139 = v142;
+        v141 = *(_QWORD *)(i + 40);
+        v142[0] = *(unsigned __int16 *)(i + 32);
+        v138 = 4LL;
+        v140 = 2LL;
+        v142[1] = 0;
+        tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)&byte_14002618B, v4, 1u, v46, v47, 6u, &v134);
       }
-      v7 = *(_QWORD ***)(i + 8);
-      v8 = i;
-      if ( v7 )
+      v6 = *(_QWORD ***)(i + 8);
+      v7 = i;
+      if ( v6 )
       {
-        v9 = *v7;
-        for ( i = *(_QWORD *)(i + 8); v9; v9 = (_QWORD *)*v9 )
-          i = (unsigned __int64)v9;
+        v8 = *v6;
+        for ( i = *(_QWORD *)(i + 8); v8; v8 = (_QWORD *)*v8 )
+          i = (unsigned __int64)v8;
       }
       else
       {
         while ( 1 )
         {
           i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-          if ( !i || *(_QWORD *)i == v8 )
+          if ( !i || *(_QWORD *)i == v7 )
             break;
-          v8 = i;
+          v7 = i;
         }
       }
     }
-    v10 = (_QWORD *)qword_140C69928;
+    v9 = (_QWORD *)MiUserSidPatchLists;
     k = 0LL;
-    while ( v10 )
+    while ( v9 )
     {
-      k = (unsigned __int64)v10;
-      v10 = (_QWORD *)*v10;
+      k = (unsigned __int64)v9;
+      v9 = (_QWORD *)*v9;
     }
     while ( k )
     {
-      v12 = *(_QWORD **)(k + 24);
+      v11 = *(_QWORD **)(k + 24);
       j = 0LL;
-      while ( v12 )
+      while ( v11 )
       {
-        j = (unsigned __int64)v12;
-        v12 = (_QWORD *)*v12;
+        j = (unsigned __int64)v11;
+        v11 = (_QWORD *)*v11;
       }
       while ( j )
       {
-        if ( **(_DWORD **)&qword_140C699E8 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C699E8, 32LL) )
+        if ( **(_DWORD **)&qword_140C4EEE0 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 32LL) )
         {
-          v48 = *(_DWORD *)(j + 24);
-          v122 = 4LL;
-          v121 = &v48;
-          v49 = *(_DWORD *)(j + 28);
-          v123 = &v49;
-          v125 = v128;
-          v127 = *(_QWORD *)(j + 40);
-          v128[0] = *(unsigned __int16 *)(j + 32);
-          v129 = k + 40;
-          v16 = *(unsigned __int8 *)(k + 41);
+          v50 = *(_DWORD *)(j + 24);
           v124 = 4LL;
-          v126 = 2LL;
-          v128[1] = 0;
-          v131 = 0;
-          v130 = 4 * v16 + 8;
-          tlgWriteEx_EtwWriteEx(v15, (unsigned __int8 *)&byte_140038CB9, v14, 1u, v44, v45, 7u, &v120);
+          v123 = &v50;
+          v51 = *(_DWORD *)(j + 28);
+          v125 = &v51;
+          v127 = v130;
+          v129 = *(_QWORD *)(j + 40);
+          v130[0] = *(unsigned __int16 *)(j + 32);
+          v131 = k + 40;
+          v15 = *(unsigned __int8 *)(k + 41);
+          v126 = 4LL;
+          v128 = 2LL;
+          v130[1] = 0;
+          v133 = 0;
+          v132 = 4 * v15 + 8;
+          tlgWriteEx_EtwWriteEx(v14, (unsigned __int8 *)&word_1400261DE, v13, 1u, v46, v47, 7u, &v122);
         }
-        v17 = *(_QWORD ***)(j + 8);
-        v18 = j;
-        if ( v17 )
+        v16 = *(_QWORD ***)(j + 8);
+        v17 = j;
+        if ( v16 )
         {
-          v19 = *v17;
-          for ( j = *(_QWORD *)(j + 8); v19; v19 = (_QWORD *)*v19 )
-            j = (unsigned __int64)v19;
+          v18 = *v16;
+          for ( j = *(_QWORD *)(j + 8); v18; v18 = (_QWORD *)*v18 )
+            j = (unsigned __int64)v18;
         }
         else
         {
           while ( 1 )
           {
             j = *(_QWORD *)(j + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-            if ( !j || *(_QWORD *)j == v18 )
+            if ( !j || *(_QWORD *)j == v17 )
               break;
-            v18 = j;
+            v17 = j;
           }
         }
       }
-      v20 = *(_QWORD ***)(k + 8);
-      v21 = k;
-      if ( v20 )
+      v19 = *(_QWORD ***)(k + 8);
+      v20 = k;
+      if ( v19 )
       {
-        v22 = *v20;
-        for ( k = *(_QWORD *)(k + 8); v22; v22 = (_QWORD *)*v22 )
-          k = (unsigned __int64)v22;
+        v21 = *v19;
+        for ( k = *(_QWORD *)(k + 8); v21; v21 = (_QWORD *)*v21 )
+          k = (unsigned __int64)v21;
       }
       else
       {
         while ( 1 )
         {
           k = *(_QWORD *)(k + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-          if ( !k || *(_QWORD *)k == v21 )
+          if ( !k || *(_QWORD *)k == v20 )
             break;
-          v21 = k;
+          v20 = k;
         }
       }
     }
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&xmmword_140C69948, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&xmmword_140C69948);
-    KeAbPostRelease((ULONG_PTR)&xmmword_140C69948);
-    v23 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v23 && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery();
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&MiHotPatchListLock, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&MiHotPatchListLock);
+    KeAbPostRelease((ULONG_PTR)&MiHotPatchListLock);
+    KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     MmAcquireLoadLock();
-    v24 = (_QWORD *)qword_140C69940;
+    v22 = (_QWORD *)MiSecureImageActivePatches;
     m = 0LL;
-    while ( v24 )
+    while ( v22 )
     {
-      m = (unsigned __int64)v24;
-      v24 = (_QWORD *)*v24;
+      m = (unsigned __int64)v22;
+      v22 = (_QWORD *)*v22;
     }
     while ( m )
     {
-      if ( **(_DWORD **)&qword_140C699E8 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C699E8, 32LL) )
+      if ( **(_DWORD **)&qword_140C4EEE0 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 32LL) )
       {
-        v50 = *(_DWORD *)(m + 24);
-        v72 = 4LL;
-        v71 = &v50;
-        v51 = *(_DWORD *)(m + 28);
-        v73 = &v51;
-        v52 = *(_DWORD *)(m + 32);
-        v75 = &v52;
-        v53 = *(_DWORD *)(m + 36);
-        v77 = &v53;
-        v54 = *(_DWORD *)(m + 40);
-        v79 = &v54;
-        v81 = v84;
-        v83 = *(_QWORD *)(m + 56);
-        v84[0] = *(unsigned __int16 *)(m + 48);
+        v52 = *(_DWORD *)(m + 24);
         v74 = 4LL;
+        v73 = &v52;
+        v53 = *(_DWORD *)(m + 28);
+        v75 = &v53;
+        v54 = *(_DWORD *)(m + 32);
+        v77 = &v54;
+        v55 = *(_DWORD *)(m + 36);
+        v79 = &v55;
+        v56 = *(_DWORD *)(m + 40);
+        v81 = &v56;
+        v83 = v86;
+        v85 = *(_QWORD *)(m + 56);
+        v86[0] = *(unsigned __int16 *)(m + 48);
         v76 = 4LL;
         v78 = 4LL;
         v80 = 4LL;
-        v82 = 2LL;
-        v84[1] = 0;
-        tlgWriteEx_EtwWriteEx(v27, (unsigned __int8 *)&dword_140038D1C, v26, 1u, v44, v45, 9u, &v70);
+        v82 = 4LL;
+        v84 = 2LL;
+        v86[1] = 0;
+        tlgWriteEx_EtwWriteEx(v25, (unsigned __int8 *)&byte_140026241, v24, 1u, v46, v47, 9u, &v72);
       }
-      v28 = *(_QWORD ***)(m + 8);
-      v29 = m;
-      if ( v28 )
+      v26 = *(_QWORD ***)(m + 8);
+      v27 = m;
+      if ( v26 )
       {
-        v30 = *v28;
-        for ( m = *(_QWORD *)(m + 8); v30; v30 = (_QWORD *)*v30 )
-          m = (unsigned __int64)v30;
+        v28 = *v26;
+        for ( m = *(_QWORD *)(m + 8); v28; v28 = (_QWORD *)*v28 )
+          m = (unsigned __int64)v28;
       }
       else
       {
         while ( 1 )
         {
           m = *(_QWORD *)(m + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-          if ( !m || *(_QWORD *)m == v29 )
+          if ( !m || *(_QWORD *)m == v27 )
             break;
-          v29 = m;
+          v27 = m;
         }
       }
     }
     for ( n = (PVOID *)PsLoadedModuleList; n != &PsLoadedModuleList; n = (PVOID *)*n )
     {
-      LOBYTE(v32) = MiIsActiveSystemHotPatch((__int64)n);
-      if ( v32 && **(_DWORD **)&qword_140C699E8 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C699E8, 32LL) )
+      if ( MiIsActiveSystemHotPatch((__int64)n)
+        && **(_DWORD **)&qword_140C4EEE0 > 5u
+        && tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 32LL) )
       {
-        v55 = *(_DWORD *)(v34 + 120);
-        v87 = 4LL;
-        v86 = &v55;
-        v56 = *(_DWORD *)(v34 + 156);
-        v88 = &v56;
-        v57 = *((_DWORD *)n + 30);
-        v90 = &v57;
-        v58 = *((_DWORD *)n + 39);
-        v92 = &v58;
-        v59 = *((_DWORD *)n + 78);
-        v94 = &v59;
-        v96 = v99;
-        v98 = n[10];
-        v99[0] = *((unsigned __int16 *)n + 36);
-        v89 = 4LL;
-        v91 = 4LL;
-        v93 = 4LL;
-        v95 = 4LL;
-        v97 = 2LL;
-        v99[1] = 0;
-        tlgWriteEx_EtwWriteEx(v35, (unsigned __int8 *)&word_140038DB2, v33, 1u, v44, v45, 9u, &v85);
+        v57 = *(_DWORD *)(v31 + 120);
+        v111 = 4LL;
+        v110 = &v57;
+        v58 = *(_DWORD *)(v31 + 156);
+        v112 = &v58;
+        v59 = *((_DWORD *)n + 30);
+        v114 = &v59;
+        v60 = *((_DWORD *)n + 39);
+        v116 = &v60;
+        v118 = v121;
+        v120 = n[10];
+        v121[0] = *((unsigned __int16 *)n + 36);
+        v113 = 4LL;
+        v115 = 4LL;
+        v117 = 4LL;
+        v119 = 2LL;
+        v121[1] = 0;
+        tlgWriteEx_EtwWriteEx(v32, (unsigned __int8 *)&byte_1400262D7, v30, 1u, v46, v47, 8u, &v109);
       }
     }
     MmReleaseLoadLock((__int64)CurrentThread);
-    for ( ii = 0LL; ; ii = (_QWORD *)v43 )
+    for ( ii = 0LL; ; ii = (_QWORD *)v45 )
     {
       result = (struct _EX_RUNDOWN_REF *)PsGetNextProcess(ii);
-      v43 = (__int64)result;
+      v45 = (__int64)result;
       if ( !result )
+        return result;
+      if ( ExAcquireRundownProtection(result + 139) )
         break;
-      if ( ExAcquireRundownProtection_0(result + 139) )
+LABEL_92:
+      ;
+    }
+    KiStackAttachProcess((_KPROCESS *)v45, 0LL, (__int64)v71, v34);
+    ProcessHotPatchContext = (unsigned __int64)MiGetProcessHotPatchContext(v45, 0);
+    if ( !ProcessHotPatchContext )
+    {
+LABEL_91:
+      KiUnstackDetachProcess((__int64)v71, 0);
+      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v45 + 1112));
+      goto LABEL_92;
+    }
+    MiFillLogProcessInfo(v45 + 1664, &v69, &v68);
+    --CurrentThread->SpecialApcDisable;
+    v36 = (signed __int64 *)(ProcessHotPatchContext + 16);
+    ExAcquirePushLockSharedEx(ProcessHotPatchContext + 16, 0LL);
+    v37 = *(_QWORD *)(ProcessHotPatchContext + 8);
+    if ( (v37 & 1) != 0 )
+    {
+      if ( v37 == 1 )
       {
-        KiStackAttachProcess((_KPROCESS *)v43, 0, (__int64)&v69);
-        ProcessHotPatchContext = MiGetProcessHotPatchContext(v43, 0);
-        if ( ProcessHotPatchContext )
+LABEL_88:
+        if ( _InterlockedCompareExchange64(v36, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared(v36);
+        KeAbPostRelease((ULONG_PTR)v36);
+        KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+        goto LABEL_91;
+      }
+      jj = v37 ^ (ProcessHotPatchContext | 1);
+    }
+    else
+    {
+      jj = *(_QWORD *)(ProcessHotPatchContext + 8);
+    }
+    while ( jj )
+    {
+      if ( *(_DWORD *)(jj + 88) )
+      {
+        v39 = *(_QWORD *)&qword_140C4EEE0;
+        if ( **(_DWORD **)&qword_140C4EEE0 > 5u )
         {
-          MiFillLogProcessInfo(v43 + 1664, &v68, &v67);
-          --CurrentThread->SpecialApcDisable;
-          v38 = KeAbPreAcquire((__int64)(ProcessHotPatchContext + 2), 0LL);
-          if ( _InterlockedCompareExchange64(ProcessHotPatchContext + 2, 17LL, 0LL) )
-            ExfAcquirePushLockSharedEx(ProcessHotPatchContext + 2, 0LL, v38, (__int64)(ProcessHotPatchContext + 2));
-          if ( v38 )
-            *(_BYTE *)(v38 + 18) = 1;
-          for ( jj = (__int64 *)*ProcessHotPatchContext; jj != ProcessHotPatchContext; jj = (__int64 *)*jj )
+          if ( tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 32LL) )
           {
-            v40 = *(_QWORD *)&qword_140C699E8;
-            if ( **(_DWORD **)&qword_140C699E8 > 5u && tlgKeywordOn(*(__int64 *)&qword_140C699E8, 32LL) )
-            {
-              ProcessId = (unsigned int)PsGetProcessId((PEPROCESS)v43);
-              v102 = 4LL;
-              p_ProcessId = &ProcessId;
-              tlgCreate1Sz_char((__int64)v103, v67);
-              v41 = *((_DWORD *)jj + 8);
-              v104 = &v61;
-              v62 = *((_DWORD *)jj + 9);
-              v106 = &v62;
-              v63 = *((_DWORD *)jj + 14);
-              v108 = &v63;
-              v64 = *((_DWORD *)jj + 15);
-              v110 = &v64;
-              v65 = *((_DWORD *)jj + 16);
-              v112 = &v65;
-              v114 = v117;
-              v116 = jj[6];
-              v117[0] = *((unsigned __int16 *)jj + 20);
-              v66 = *((_DWORD *)jj + 4);
-              v118 = &v66;
-              v61 = v41;
-              v105 = 4LL;
-              v107 = 4LL;
-              v109 = 4LL;
-              v111 = 4LL;
-              v113 = 4LL;
-              v115 = 2LL;
-              v117[1] = v42;
-              v119 = 4LL;
-              tlgWriteEx_EtwWriteEx(v40, (unsigned __int8 *)&byte_140038E3F, v42, v42 + 1, v44, v45, 0xCu, &v100);
-            }
-          }
-          if ( _InterlockedCompareExchange64(ProcessHotPatchContext + 2, 0LL, 17LL) != 17 )
-            ExfReleasePushLockShared(ProcessHotPatchContext + 2);
-          KeAbPostRelease((ULONG_PTR)(ProcessHotPatchContext + 2));
-          v23 = CurrentThread->SpecialApcDisable++ == -1;
-          if ( v23
-            && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-          {
-            KiCheckForKernelApcDelivery();
+            ProcessId = (unsigned int)PsGetProcessId((PEPROCESS)v45);
+            p_ProcessId = &ProcessId;
+            v89 = 4LL;
+            tlgCreate1Sz_char((__int64)v90, v68);
+            v40 = *(_QWORD *)(jj + 24);
+            v91 = &v70;
+            v62 = *(_DWORD *)(jj + 48);
+            v93 = &v62;
+            v63 = *(_DWORD *)(jj + 52);
+            v95 = &v63;
+            v64 = *(_DWORD *)(jj + 80);
+            v97 = &v64;
+            v65 = *(_DWORD *)(jj + 84);
+            v99 = &v65;
+            v101 = v104;
+            v103 = *(_QWORD *)(jj + 72);
+            v104[0] = *(unsigned __int16 *)(jj + 64);
+            v66 = *(_DWORD *)(jj + 88);
+            v105 = &v66;
+            v67 = *(_DWORD *)(jj + 32);
+            v107 = &v67;
+            v70 = v40;
+            v92 = 8LL;
+            v94 = 4LL;
+            v96 = 4LL;
+            v98 = 4LL;
+            v100 = 4LL;
+            v102 = 2LL;
+            v104[1] = 0;
+            v106 = 4LL;
+            v108 = 4LL;
+            tlgWriteEx_EtwWriteEx(v39, (unsigned __int8 *)&byte_14002634F, v41, 1u, v46, v47, 0xDu, &v87);
           }
         }
-        KiUnstackDetachProcess(&v69);
-        ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v43 + 1112));
+      }
+      v42 = *(_QWORD ***)(jj + 8);
+      v43 = jj;
+      if ( v42 )
+      {
+        v44 = *v42;
+        for ( jj = *(_QWORD *)(jj + 8); v44; v44 = (_QWORD *)*v44 )
+          jj = (unsigned __int64)v44;
+      }
+      else
+      {
+        while ( 1 )
+        {
+          jj = *(_QWORD *)(jj + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+          if ( !jj || *(_QWORD *)jj == v43 )
+            break;
+          v43 = jj;
+        }
       }
     }
+    goto LABEL_88;
   }
   return result;
 }

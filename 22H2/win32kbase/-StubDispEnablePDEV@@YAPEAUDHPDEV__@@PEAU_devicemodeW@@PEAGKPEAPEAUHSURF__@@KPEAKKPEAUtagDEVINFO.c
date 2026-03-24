@@ -1,14 +1,14 @@
 /*
- * XREFs of ?StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C0090D20
+ * XREFs of ?StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C007B8A0
  * Callers:
  *     <none>
  * Callees:
- *     EngFreeMem @ 0x1C0077DB0 (EngFreeMem.c)
- *     EngCreatePalette @ 0x1C0090E40 (EngCreatePalette.c)
- *     EngAllocMem @ 0x1C0090F40 (EngAllocMem.c)
- *     ?bInitGdiInfo@@YAHPEAU_devicemodeW@@PEAU_GDIINFO@@@Z @ 0x1C0091198 (-bInitGdiInfo@@YAHPEAU_devicemodeW@@PEAU_GDIINFO@@@Z.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     EngCreatePalette @ 0x1C007B9C0 (EngCreatePalette.c)
+ *     EngAllocMem @ 0x1C007BAC0 (EngAllocMem.c)
+ *     ?bInitGdiInfo@@YAHPEAU_devicemodeW@@PEAU_GDIINFO@@@Z @ 0x1C007BC28 (-bInitGdiInfo@@YAHPEAU_devicemodeW@@PEAU_GDIINFO@@@Z.c)
+ *     EngFreeMem @ 0x1C007E1D0 (EngFreeMem.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 struct DHPDEV__ *__fastcall StubDispEnablePDEV(
@@ -38,7 +38,7 @@ struct DHPDEV__ *__fastcall StubDispEnablePDEV(
       v11 = 312LL;
       if ( Size <= 0x138 )
         v11 = Size;
-      memmove(a8, &unk_1C0248BF0, v11);
+      memmove(a8, &unk_1C020DFF0, v11);
       if ( a5 < 0x140 )
         v9 = a5;
       memmove(a6, &Src, v9);

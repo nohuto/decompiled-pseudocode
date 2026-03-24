@@ -1,23 +1,22 @@
 /*
- * XREFs of UsbhReset1Complete @ 0x1C001BA90
+ * XREFs of UsbhReset1Complete @ 0x1C0018F50
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhReset2Complete @ 0x1C000A9D0 (UsbhReset2Complete.c)
- *     UsbhEtwLogHubIrpEvent @ 0x1C000C920 (UsbhEtwLogHubIrpEvent.c)
- *     UsbhCancelResetTimeout @ 0x1C000DCF0 (UsbhCancelResetTimeout.c)
- *     UsbhRawWait @ 0x1C001A650 (UsbhRawWait.c)
- *     UsbhResetPort @ 0x1C001AB54 (UsbhResetPort.c)
- *     Usbh_UsbdReadFrameCounter @ 0x1C001AE7C (Usbh_UsbdReadFrameCounter.c)
- *     UsbhAllocateTimeoutObject @ 0x1C001B058 (UsbhAllocateTimeoutObject.c)
- *     UsbhCreateDevice @ 0x1C001BC70 (UsbhCreateDevice.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     UsbhWait @ 0x1C002D834 (UsbhWait.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhClearTt @ 0x1C003664C (UsbhClearTt.c)
- *     UsbhSetEnumerationFailed @ 0x1C004E0C8 (UsbhSetEnumerationFailed.c)
+ *     UsbhAllocateTimeoutObject @ 0x1C000174C (UsbhAllocateTimeoutObject.c)
+ *     UsbhResetPort @ 0x1C00018E8 (UsbhResetPort.c)
+ *     Usbh_UsbdReadFrameCounter @ 0x1C0001BF8 (Usbh_UsbdReadFrameCounter.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhReset2Complete @ 0x1C0010540 (UsbhReset2Complete.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C0012400 (UsbhEtwLogHubIrpEvent.c)
+ *     UsbhCancelResetTimeout @ 0x1C0013AE0 (UsbhCancelResetTimeout.c)
+ *     UsbhWait @ 0x1C001853C (UsbhWait.c)
+ *     UsbhCreateDevice @ 0x1C0019118 (UsbhCreateDevice.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhClearTt @ 0x1C003796C (UsbhClearTt.c)
+ *     UsbhSetEnumerationFailed @ 0x1C004F4D8 (UsbhSetEnumerationFailed.c)
  */
 
 __int64 __fastcall UsbhReset1Complete(__int64 a1, __int64 a2, __int64 a3)
@@ -27,7 +26,7 @@ __int64 __fastcall UsbhReset1Complete(__int64 a1, __int64 a2, __int64 a3)
   KIRQL v8; // al
   int FrameCounter; // eax
   int v10; // ecx
-  int v11; // r9d
+  int v11; // eax
   int v13; // eax
   PVOID v14; // rbx
   int v15; // ebp
@@ -59,25 +58,17 @@ __int64 __fastcall UsbhReset1Complete(__int64 a1, __int64 a2, __int64 a3)
   FrameCounter = Usbh_UsbdReadFrameCounter(a1);
   v10 = *(_DWORD *)(a2 + 544);
   *(_DWORD *)(a2 + 852) = FrameCounter;
-  v20[0] = FrameCounter - *(_DWORD *)(a2 + 848);
-  LOWORD(FrameCounter) = *(_WORD *)(a2 + 4);
+  v11 = FrameCounter - *(_DWORD *)(a2 + 848);
   v20[1] = v10;
-  v21 = FrameCounter;
-  if ( v10 )
-  {
-    UsbhWait(a1, 100LL);
-  }
-  else
-  {
-    Log(a1, 8, 2002872692, 32LL, 0LL);
-    UsbhRawWait(v11);
-  }
+  v20[0] = v11;
+  v21 = *(_WORD *)(a2 + 4);
+  UsbhWait(a1, v10 != 0 ? 100 : 32);
   if ( (int)UsbhCreateDevice(a1) < 0 )
-    goto LABEL_16;
+    goto LABEL_13;
   UsbhEtwLogHubIrpEvent(a1, 0LL, 0LL, &USBHUB_ETW_EVENT_ENUM_CREATE_DEVICE_COMPLETE);
   if ( (*(_WORD *)(a2 + 420) & 0x400) != 0
     && !*(_DWORD *)(a2 + 544)
-    && !dword_1C006A6CC
+    && !dword_1C006C62C
     && (FdoExt(a1)[640] & 0x8000000) == 0 )
   {
     return UsbhReset2Complete(a1, a2, a3);
@@ -88,13 +79,13 @@ __int64 __fastcall UsbhReset1Complete(__int64 a1, __int64 a2, __int64 a3)
   if ( v13 >= 0 )
   {
     v6 = 2;
-LABEL_20:
+LABEL_17:
     UsbhResetPort(a1, a2, (__int64)v14);
     return v6;
   }
   if ( !P )
   {
-LABEL_16:
+LABEL_13:
     v16 = UsbhAllocateTimeoutObject(a1, a2, &P);
     v14 = P;
     v15 = v16;
@@ -107,10 +98,10 @@ LABEL_16:
   else if ( v14 )
   {
     UsbhEtwLogHubIrpEvent(a1, 0LL, 0LL, &USBHUB_ETW_EVENT_HUB_ENUM_RETRY);
-    UsbhWait(a1, 500LL);
+    UsbhWait(a1, 0x1F4u);
     ++*(_DWORD *)(a2 + 544);
     UsbhClearTt(a1);
-    goto LABEL_20;
+    goto LABEL_17;
   }
   UsbhSetEnumerationFailed(a1, (int)v20, v15, v17, v18, 1509);
   return 0LL;

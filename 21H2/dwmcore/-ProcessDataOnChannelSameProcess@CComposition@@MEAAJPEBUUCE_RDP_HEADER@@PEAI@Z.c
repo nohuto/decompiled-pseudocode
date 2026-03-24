@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessDataOnChannelSameProcess@CComposition@@MEAAJPEBUUCE_RDP_HEADER@@PEAI@Z @ 0x180193690
+ * XREFs of ?ProcessDataOnChannelSameProcess@CComposition@@MEAAJPEBUUCE_RDP_HEADER@@PEAI@Z @ 0x18014F380
  * Callers:
  *     <none>
  * Callees:
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall __noreturn CComposition::ProcessDataOnChannelSameProcess(

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsAllowedToGrow@VIDMM_DMA_POOL@@IEAAHKKK@Z @ 0x1C00EF908
+ * XREFs of ?IsAllowedToGrow@VIDMM_DMA_POOL@@IEAAHKKK@Z @ 0x1C00807E8
  * Callers:
- *     ?AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z @ 0x1C00B1628 (-AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z.c)
+ *     ?AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z @ 0x1C0080610 (-AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z.c)
  * Callees:
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C002EDF4 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0024930 (McTemplateK0pq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall VIDMM_DMA_POOL::IsAllowedToGrow(
@@ -20,9 +20,9 @@ __int64 __fastcall VIDMM_DMA_POOL::IsAllowedToGrow(
   __int64 v10; // rdx
   __int64 v11; // rax
   __int64 v12; // rcx
-  bool v13; // cc
   bool v14; // cc
   bool v15; // cc
+  bool v16; // cc
 
   v5 = a2 + *((_DWORD *)this + 32);
   v6 = a3 + *((_DWORD *)this + 33);
@@ -34,45 +34,45 @@ __int64 __fastcall VIDMM_DMA_POOL::IsAllowedToGrow(
     return 0LL;
   v11 = *((_QWORD *)this + 2);
   v12 = VIDMM_DMA_POOL::_MaxNbDmaBuffers;
-  if ( *(_DWORD *)(*(_QWORD *)(v11 + 24) + 464LL) == 2 )
+  if ( *(_DWORD *)(*(_QWORD *)(v11 + 24) + 432LL) == 2 )
     v12 = VIDMM_DMA_POOL::_MaxNbCddDmaBuffers;
   if ( *((_DWORD *)this + 23) >= (unsigned int)v12 )
   {
-    if ( !bTracingEnabled || (byte_1C0076981 & 1) == 0 )
+    if ( !bTracingEnabled || (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
       return 0LL;
-    goto LABEL_27;
+    goto LABEL_30;
   }
-  if ( (int)v5 <= VIDMM_DMA_POOL::_FairDmaBufferBytes )
-    v13 = v7 <= VIDMM_DMA_POOL::_HighDmaBufferBytes;
+  if ( (int)v5 > VIDMM_DMA_POOL::_FairDmaBufferBytes )
+    v14 = v7 <= VIDMM_DMA_POOL::_LowDmaBufferBytes;
   else
-    v13 = v7 <= VIDMM_DMA_POOL::_LowDmaBufferBytes;
-  if ( !v13 )
-  {
-    if ( !bTracingEnabled || (byte_1C0076981 & 1) == 0 )
-      return 0LL;
-    goto LABEL_27;
-  }
-  if ( (int)v6 <= VIDMM_DMA_POOL::_FairAllocationListBytes )
-    v14 = v8 <= VIDMM_DMA_POOL::_HighAllocationListBytes;
-  else
-    v14 = v8 <= VIDMM_DMA_POOL::_LowAllocationListBytes;
+    v14 = v7 <= VIDMM_DMA_POOL::_HighDmaBufferBytes;
   if ( !v14 )
   {
-    if ( !bTracingEnabled || (byte_1C0076981 & 1) == 0 )
+    if ( !bTracingEnabled || (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
       return 0LL;
-    goto LABEL_27;
-  }
-  if ( (int)v9 <= VIDMM_DMA_POOL::_FairPatchLocationListBytes )
-    v15 = v10 <= VIDMM_DMA_POOL::_HighPatchLocationListBytes;
-  else
-    v15 = v10 <= VIDMM_DMA_POOL::_LowPatchLocationListBytes;
-  if ( !v15 )
-  {
-    if ( !bTracingEnabled || (byte_1C0076981 & 1) == 0 )
-      return 0LL;
-LABEL_27:
+LABEL_30:
     McTemplateK0pq_EtwWriteTransfer(v12, &EventDmaPoolTrimmingPolicy, v9);
     return 0LL;
+  }
+  if ( (int)v6 > VIDMM_DMA_POOL::_FairAllocationListBytes )
+    v15 = v8 <= VIDMM_DMA_POOL::_LowAllocationListBytes;
+  else
+    v15 = v8 <= VIDMM_DMA_POOL::_HighAllocationListBytes;
+  if ( !v15 )
+  {
+    if ( !bTracingEnabled || (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
+      return 0LL;
+    goto LABEL_30;
+  }
+  if ( (int)v9 > VIDMM_DMA_POOL::_FairPatchLocationListBytes )
+    v16 = v10 <= VIDMM_DMA_POOL::_LowPatchLocationListBytes;
+  else
+    v16 = v10 <= VIDMM_DMA_POOL::_HighPatchLocationListBytes;
+  if ( !v16 )
+  {
+    if ( !bTracingEnabled || (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
+      return 0LL;
+    goto LABEL_30;
   }
   return 1LL;
 }

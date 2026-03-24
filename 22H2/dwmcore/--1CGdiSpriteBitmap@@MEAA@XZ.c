@@ -1,58 +1,68 @@
 /*
- * XREFs of ??1CGdiSpriteBitmap@@MEAA@XZ @ 0x1800AA114
+ * XREFs of ??1CGdiSpriteBitmap@@MEAA@XZ @ 0x180033A54
  * Callers:
- *     ??_ECGdiSpriteBitmap@@MEAAPEAXI@Z @ 0x1800AC160 (--_ECGdiSpriteBitmap@@MEAAPEAXI@Z.c)
+ *     ??_ECGdiSpriteBitmap@@MEAAPEAXI@Z @ 0x1800331B0 (--_ECGdiSpriteBitmap@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1CRegionShape@@UEAA@XZ @ 0x180045FF0 (--1CRegionShape@@UEAA@XZ.c)
- *     ?ReleaseBitmapResources@CGdiSpriteBitmap@@AEAAXXZ @ 0x1800A95AC (-ReleaseBitmapResources@CGdiSpriteBitmap@@AEAAXXZ.c)
- *     ?UnRegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAXXZ @ 0x1800AC110 (-UnRegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAXXZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DBB94 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?ReleaseBitmapResources@CGdiSpriteBitmap@@AEAAXXZ @ 0x180033728 (-ReleaseBitmapResources@CGdiSpriteBitmap@@AEAAXXZ.c)
+ *     ?UnRegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAXXZ @ 0x180033A18 (-UnRegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAXXZ.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180065C00 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ??1CRegionShape@@UEAA@XZ @ 0x18009BA90 (--1CRegionShape@@UEAA@XZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CGdiSpriteBitmap::~CGdiSpriteBitmap(CGdiSpriteBitmap *this)
 {
-  __int64 v2; // rdx
+  __int64 v2; // rcx
   __int64 v3; // rcx
-  __int64 *v4; // rdi
-  __int64 v5; // rdx
-  __int64 *v6; // rsi
-  __int64 v7; // rcx
+  CDrawListEntry *v4; // rcx
+  __int64 *v5; // rdi
+  __int64 v6; // rdx
+  __int64 *v7; // rbp
+  __int64 *v8; // rsi
+  __int64 v9; // rcx
 
-  *(_QWORD *)this = &CGdiSpriteBitmap::`vftable'{for `CGdiSpriteBitmapGeneratedT<CGdiSpriteBitmap,CResource>'};
-  *((_QWORD *)this + 12) = &CGdiSpriteBitmap::`vftable'{for `IPixelFormat'};
-  *((_QWORD *)this + 14) = &CGdiSpriteBitmap::`vftable'{for `IDeviceResourceNotify'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 13) + 4LL) + 104) = &CGdiSpriteBitmap::`vftable'{for `IUnknown'};
-  v2 = *(int *)(*((_QWORD *)this + 13) + 4LL);
-  *(_DWORD *)((char *)this + v2 + 100) = v2 - 376;
+  *(_QWORD *)this = &CGdiSpriteBitmap::`vftable'{for `CResource'};
+  *((_QWORD *)this + 7) = &CGdiSpriteBitmap::`vftable'{for `ISpriteImage'};
+  *((_QWORD *)this + 9) = &CGdiSpriteBitmap::`vftable'{for `IDeviceResourceNotify'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 4LL) + 64) = &CGdiSpriteBitmap::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 8LL) + 64) = &CGdiSpriteBitmap::`vftable'{for `IPixelFormat'};
+  v2 = *(int *)(*((_QWORD *)this + 8) + 4LL);
+  *(_DWORD *)((char *)this + v2 + 60) = v2 - 456;
+  v3 = *(int *)(*((_QWORD *)this + 8) + 8LL);
+  *(_DWORD *)((char *)this + v3 + 60) = v3 - 472;
   CGdiSpriteBitmap::ReleaseBitmapResources(this);
   CGdiSpriteBitmap::UnRegisterWithSurfaceManager(this);
-  v3 = *((_QWORD *)this + 15);
-  if ( v3 )
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(v3);
-  v4 = (__int64 *)*((_QWORD *)this + 56);
+  v4 = (CDrawListEntry *)*((_QWORD *)this + 11);
   if ( v4 )
-  {
-    v6 = (__int64 *)*((_QWORD *)this + 57);
-    while ( v4 != v6 )
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(v4++);
-    std::_Deallocate<16,0>(
-      *((_QWORD *)this + 56),
-      (*((_QWORD *)this + 58) - *((_QWORD *)this + 56)) & 0xFFFFFFFFFFFFFFF8uLL);
-    *((_QWORD *)this + 56) = 0LL;
-    *((_QWORD *)this + 57) = 0LL;
-    *((_QWORD *)this + 58) = 0LL;
-  }
-  v5 = *((_QWORD *)this + 55);
+    CDrawListEntry::Release(v4);
+  v5 = (__int64 *)*((_QWORD *)this + 61);
   if ( v5 )
   {
-    v7 = v5 + 8 + *(int *)(*(_QWORD *)(v5 + 8) + 4LL);
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+    v7 = (__int64 *)*((_QWORD *)this + 62);
+    v8 = (__int64 *)*((_QWORD *)this + 61);
+    if ( v5 != v7 )
+    {
+      do
+        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(v8++);
+      while ( v8 != v7 );
+    }
+    std::_Deallocate<16,0>(v5, (*((_QWORD *)this + 63) - (_QWORD)v5) & 0xFFFFFFFFFFFFFFF8uLL);
+    *((_QWORD *)this + 61) = 0LL;
+    *((_QWORD *)this + 62) = 0LL;
+    *((_QWORD *)this + 63) = 0LL;
   }
-  CRegionShape::~CRegionShape((CGdiSpriteBitmap *)((char *)this + 240));
-  FastRegion::CRegion::FreeMemory((CGdiSpriteBitmap *)((char *)this + 168));
+  v6 = *((_QWORD *)this + 60);
+  if ( v6 )
+  {
+    v9 = v6 + 8 + *(int *)(*(_QWORD *)(v6 + 8) + 4LL);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
+  }
+  CRegionShape::~CRegionShape((CGdiSpriteBitmap *)((char *)this + 296));
+  FastRegion::CRegion::FreeMemory((CGdiSpriteBitmap *)((char *)this + 224));
+  DynArrayImpl<0>::~DynArrayImpl<0>((char *)this + 184);
   CResource::~CResource(this);
 }

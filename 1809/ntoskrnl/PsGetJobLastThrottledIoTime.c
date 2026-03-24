@@ -1,11 +1,11 @@
 /*
- * XREFs of PsGetJobLastThrottledIoTime @ 0x1402E9F60
+ * XREFs of PsGetJobLastThrottledIoTime @ 0x1402EA060
  * Callers:
- *     MiNoPagesLastChance @ 0x1402C0420 (MiNoPagesLastChance.c)
+ *     MiNoPagesLastChance @ 0x1402C0520 (MiNoPagesLastChance.c)
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PsGetJobLastThrottledIoTime(__int64 a1)

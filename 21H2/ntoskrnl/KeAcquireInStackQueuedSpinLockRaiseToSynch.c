@@ -1,9 +1,9 @@
 /*
- * XREFs of KeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x14056E3D0
+ * XREFs of KeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x1405160A0
  * Callers:
- *     DifKeAcquireInStackQueuedSpinLockRaiseToSynchWrapper @ 0x140612160 (DifKeAcquireInStackQueuedSpinLockRaiseToSynchWrapper.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchCommon @ 0x1409DA868 (VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchCommon.c)
  * Callees:
- *     KxAcquireQueuedSpinLock @ 0x1403119F0 (KxAcquireQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
  */
 
 __int64 __fastcall KeAcquireInStackQueuedSpinLockRaiseToSynch(volatile __int64 *a1, __int64 a2)

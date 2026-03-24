@@ -1,21 +1,19 @@
 /*
- * XREFs of ?bDiagonalizeSubPath@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02DFE30
+ * XREFs of ?bDiagonalizeSubPath@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02C08EC
  * Callers:
- *     ?bDiagonalizePath@RTP_PATHMEMOBJ@@QEAAHPEAVEPATHOBJ@@@Z @ 0x1C02DFD94 (-bDiagonalizePath@RTP_PATHMEMOBJ@@QEAAHPEAVEPATHOBJ@@@Z.c)
+ *     ?bDiagonalizePath@RTP_PATHMEMOBJ@@QEAAHPEAVEPATHOBJ@@@Z @ 0x1C02C0850 (-bDiagonalizePath@RTP_PATHMEMOBJ@@QEAAHPEAVEPATHOBJ@@@Z.c)
  * Callees:
- *     ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z @ 0x1C015A700 (-bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z.c)
- *     ?bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C015A8B2 (-bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
- *     ?bFetchNextPoint@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02E0080 (-bFetchNextPoint@RTP_PATHMEMOBJ@@AEAAHXZ.c)
- *     ?bWritePoint@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02E0194 (-bWritePoint@RTP_PATHMEMOBJ@@AEAAHXZ.c)
+ *     ?bFetchNextPoint@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02C0B4C (-bFetchNextPoint@RTP_PATHMEMOBJ@@AEAAHXZ.c)
+ *     ?bWritePoint@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02C0C74 (-bWritePoint@RTP_PATHMEMOBJ@@AEAAHXZ.c)
  */
 
-__int64 __fastcall RTP_PATHMEMOBJ::bDiagonalizeSubPath(RTP_PATHMEMOBJ *this)
+int __fastcall RTP_PATHMEMOBJ::bDiagonalizeSubPath(RTP_PATHMEMOBJ *this)
 {
   int v2; // edi
   struct _POINTL *v3; // r8
   int v4; // edi
   int v5; // r14d
-  __int64 result; // rax
+  int result; // eax
   int v7; // r15d
   int v8; // r12d
   int v9; // ebp
@@ -32,7 +30,7 @@ __int64 __fastcall RTP_PATHMEMOBJ::bDiagonalizeSubPath(RTP_PATHMEMOBJ *this)
     || !(unsigned int)RTP_PATHMEMOBJ::bFetchNextPoint(this)
     || !(unsigned int)RTP_PATHMEMOBJ::bFetchNextPoint(this) )
   {
-    return 0LL;
+    return 0;
   }
   v2 = *((_DWORD *)this + 54);
   v3 = (struct _POINTL *)((char *)this + 204);
@@ -49,18 +47,14 @@ __int64 __fastcall RTP_PATHMEMOBJ::bDiagonalizeSubPath(RTP_PATHMEMOBJ *this)
   result = EPATHOBJ::bMoveTo(*((EPATHOBJ **)this + 19), 0LL, v3);
   v7 = 1;
   v8 = 2;
-  if ( (_DWORD)result )
+  if ( result )
   {
     v9 = 0;
     do
     {
       v15 = v9;
       if ( (*((_DWORD *)this + v9 + 48) & 1) != 0 )
-        return (unsigned int)EPATHOBJ::bPolyLineTo(
-                               *((EPATHOBJ **)this + 19),
-                               0LL,
-                               (struct _POINTL *)((char *)this + 164),
-                               2u)
+        return EPATHOBJ::bPolyLineTo(*((EPATHOBJ **)this + 19), 0LL, (struct _POINTL *)((char *)this + 164), 2u)
             && EPATHOBJ::bCloseFigure(*((EPATHOBJ **)this + 19));
       v10 = v8;
       if ( v5 )
@@ -69,7 +63,7 @@ __int64 __fastcall RTP_PATHMEMOBJ::bDiagonalizeSubPath(RTP_PATHMEMOBJ *this)
         if ( v4 <= 0 || v4 != 16 && v11 != -16 )
         {
           result = RTP_PATHMEMOBJ::bFetchNextPoint(this);
-          if ( !(_DWORD)result )
+          if ( !result )
             return result;
           v5 ^= 1u;
 LABEL_29:
@@ -81,16 +75,12 @@ LABEL_29:
           goto LABEL_30;
         }
         if ( (*((_DWORD *)this + v7 + 48) & 1) != 0 )
-          return (unsigned int)EPATHOBJ::bPolyLineTo(
-                                 *((EPATHOBJ **)this + 19),
-                                 0LL,
-                                 (struct _POINTL *)((char *)this + 164),
-                                 2u)
+          return EPATHOBJ::bPolyLineTo(*((EPATHOBJ **)this + 19), 0LL, (struct _POINTL *)((char *)this + 164), 2u)
               && EPATHOBJ::bCloseFigure(*((EPATHOBJ **)this + 19));
         if ( !(unsigned int)RTP_PATHMEMOBJ::bFetchNextPoint(this)
           || !(unsigned int)RTP_PATHMEMOBJ::bFetchNextPoint(this) )
         {
-          return 0LL;
+          return 0;
         }
         v12 = v9;
         v9 = v8;
@@ -104,22 +94,18 @@ LABEL_29:
         if ( v11 >= 0 || v4 != 16 && v11 != -16 )
         {
           result = RTP_PATHMEMOBJ::bFetchNextPoint(this);
-          if ( !(_DWORD)result )
+          if ( !result )
             return result;
           v5 = 1;
           goto LABEL_29;
         }
         if ( (*((_DWORD *)this + v7 + 48) & 1) != 0 )
-          return (unsigned int)EPATHOBJ::bPolyLineTo(
-                                 *((EPATHOBJ **)this + 19),
-                                 0LL,
-                                 (struct _POINTL *)((char *)this + 164),
-                                 2u)
+          return EPATHOBJ::bPolyLineTo(*((EPATHOBJ **)this + 19), 0LL, (struct _POINTL *)((char *)this + 164), 2u)
               && EPATHOBJ::bCloseFigure(*((EPATHOBJ **)this + 19));
         if ( !(unsigned int)RTP_PATHMEMOBJ::bFetchNextPoint(this)
           || !(unsigned int)RTP_PATHMEMOBJ::bFetchNextPoint(this) )
         {
-          return 0LL;
+          return 0;
         }
         v13 = v9;
         v9 = v8;
@@ -130,7 +116,7 @@ LABEL_29:
 LABEL_30:
       result = RTP_PATHMEMOBJ::bWritePoint(this);
     }
-    while ( (_DWORD)result );
+    while ( result );
   }
   return result;
 }

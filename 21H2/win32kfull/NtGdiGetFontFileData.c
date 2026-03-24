@@ -1,16 +1,16 @@
 /*
- * XREFs of NtGdiGetFontFileData @ 0x1C02BA5F0
+ * XREFs of NtGdiGetFontFileData @ 0x1C02BC020
  * Callers:
  *     <none>
  * Callees:
- *     EngMapFontFileFDInternal @ 0x1C000FAC4 (EngMapFontFileFDInternal.c)
- *     EngUnmapFontFileFD @ 0x1C0011220 (EngUnmapFontFileFD.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z @ 0x1C0112B1C (-GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z.c)
- *     ??0CFixPred@Prediction@@QEAA@XZ @ 0x1C0123CC0 (--0CFixPred@Prediction@@QEAA@XZ.c)
- *     ??1PFFREFOBJ@@QEAA@XZ @ 0x1C015F378 (--1PFFREFOBJ@@QEAA@XZ.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     ?MapFontFileInKernel@@YAJPEAXPEAPEAX@Z @ 0x1C02A612C (-MapFontFileInKernel@@YAJPEAXPEAPEAX@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     EngMapFontFileFDInternal @ 0x1C00A4F5C (EngMapFontFileFDInternal.c)
+ *     EngUnmapFontFileFD @ 0x1C011DA70 (EngUnmapFontFileFD.c)
+ *     ??0CFixPred@Prediction@@QEAA@XZ @ 0x1C0137AB0 (--0CFixPred@Prediction@@QEAA@XZ.c)
+ *     ?GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z @ 0x1C01613EC (-GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z.c)
+ *     ??1PFFREFOBJ@@QEAA@XZ @ 0x1C016D3E0 (--1PFFREFOBJ@@QEAA@XZ.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     ?MapFontFileInKernel@@YAJPEAXPEAPEAX@Z @ 0x1C02A7F38 (-MapFontFileInKernel@@YAJPEAXPEAPEAX@Z.c)
  */
 
 __int64 __fastcall NtGdiGetFontFileData(unsigned int a1, unsigned int a2, size_t *a3, char *a4, size_t Size)

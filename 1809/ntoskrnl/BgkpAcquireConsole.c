@@ -1,9 +1,9 @@
 /*
- * XREFs of BgkpAcquireConsole @ 0x14027DC28
+ * XREFs of BgkpAcquireConsole @ 0x14027DD28
  * Callers:
- *     BgkDisplayStringEx @ 0x14027DA44 (BgkDisplayStringEx.c)
- *     BgkSetTextColor @ 0x14027DB60 (BgkSetTextColor.c)
- *     BgkSolidColorFill @ 0x14027DBB0 (BgkSolidColorFill.c)
+ *     BgkDisplayStringEx @ 0x14027DB44 (BgkDisplayStringEx.c)
+ *     BgkSetTextColor @ 0x14027DC60 (BgkSetTextColor.c)
+ *     BgkSolidColorFill @ 0x14027DCB0 (BgkSolidColorFill.c)
  *     BgkDisplayCharacter @ 0x140953230 (BgkDisplayCharacter.c)
  *     BgkGetConsoleState @ 0x140953300 (BgkGetConsoleState.c)
  *     BgkGetCursorState @ 0x140953350 (BgkGetCursorState.c)

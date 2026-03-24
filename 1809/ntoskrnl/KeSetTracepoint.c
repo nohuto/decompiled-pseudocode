@@ -1,5 +1,5 @@
 /*
- * XREFs of KeSetTracepoint @ 0x140844E20
+ * XREFs of KeSetTracepoint @ 0x140844E00
  * Callers:
  *     <none>
  * Callees:
@@ -7,16 +7,16 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1400F3430 (RtlSectionTableFromVirtualAddress.c)
- *     RtlPcToFileHeader @ 0x14012F650 (RtlPcToFileHeader.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     KiTpWriteMemory @ 0x14029C218 (KiTpWriteMemory.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1400F3450 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlPcToFileHeader @ 0x14012F670 (RtlPcToFileHeader.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     KiTpWriteMemory @ 0x14029C318 (KiTpWriteMemory.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     KeIsValidTraceCallbackTarget @ 0x140844940 (KeIsValidTraceCallbackTarget.c)
- *     KiTpSetupCompletion @ 0x140845DAC (KiTpSetupCompletion.c)
+ *     KeIsValidTraceCallbackTarget @ 0x140844920 (KeIsValidTraceCallbackTarget.c)
+ *     KiTpSetupCompletion @ 0x140845D8C (KiTpSetupCompletion.c)
  */
 
 __int64 __fastcall KeSetTracepoint(__int64 a1, unsigned __int64 a2, int a3, unsigned __int64 a4, __int64 a5)

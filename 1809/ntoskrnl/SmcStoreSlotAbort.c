@@ -1,8 +1,8 @@
 /*
- * XREFs of SmcStoreSlotAbort @ 0x1408AF8B8
+ * XREFs of SmcStoreSlotAbort @ 0x1408AF898
  * Callers:
- *     SmcStoreCreate @ 0x1408AF110 (SmcStoreCreate.c)
- *     SmcStoreSlotReserve @ 0x1408AF9F4 (SmcStoreSlotReserve.c)
+ *     SmcStoreCreate @ 0x1408AF0F0 (SmcStoreCreate.c)
+ *     SmcStoreSlotReserve @ 0x1408AF9D4 (SmcStoreSlotReserve.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)

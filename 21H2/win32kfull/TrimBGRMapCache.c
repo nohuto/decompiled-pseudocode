@@ -1,10 +1,10 @@
 /*
- * XREFs of TrimBGRMapCache @ 0x1C025F768
+ * XREFs of TrimBGRMapCache @ 0x1C02628D8
  * Callers:
- *     AddBGRMapCache @ 0x1C025E564 (AddBGRMapCache.c)
- *     FindBGRMapCache @ 0x1C025F284 (FindBGRMapCache.c)
+ *     AddBGRMapCache @ 0x1C02616D8 (AddBGRMapCache.c)
+ *     FindBGRMapCache @ 0x1C02623F4 (FindBGRMapCache.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 TrimBGRMapCache()
@@ -17,14 +17,14 @@ __int64 TrimBGRMapCache()
   int v5; // eax
 
   v0 = 0;
-  EngAcquireSemaphore(qword_1C0336428);
-  v1 = dword_1C0336448;
-  if ( dword_1C0336448 > 5 && HIDWORD(qword_1C033644C) )
+  EngAcquireSemaphore(qword_1C033AF88);
+  v1 = dword_1C033AFA8;
+  if ( dword_1C033AFA8 > 5 && HIDWORD(qword_1C033AFAC) )
   {
     v2 = (PVOID *)Src;
-    v0 = dword_1C0336448;
+    v0 = dword_1C033AFA8;
     v3 = (PVOID *)Src;
-    for ( i = dword_1C0336448; i; v2 += 2 )
+    for ( i = dword_1C033AFA8; i; v2 += 2 )
     {
       --i;
       if ( v1 <= 5 )
@@ -38,9 +38,9 @@ __int64 TrimBGRMapCache()
       else
       {
         EngFreeMem(*v2);
-        v1 = dword_1C0336448 - 1;
-        --HIDWORD(qword_1C033644C);
-        --dword_1C0336448;
+        v1 = dword_1C033AFA8 - 1;
+        --HIDWORD(qword_1C033AFAC);
+        --dword_1C033AFA8;
       }
     }
     if ( v0 != v1 )
@@ -54,6 +54,6 @@ __int64 TrimBGRMapCache()
       v0 -= v1;
     }
   }
-  EngReleaseSemaphore(qword_1C0336428);
+  EngReleaseSemaphore(qword_1C033AF88);
   return v0;
 }

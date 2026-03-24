@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgParseArgs @ 0x1C006BA24
+ * XREFs of DbgParseArgs @ 0x1C006B794
  * Callers:
- *     DbgExecuteCmd @ 0x1C0067FB4 (DbgExecuteCmd.c)
+ *     DbgExecuteCmd @ 0x1C0066B0C (DbgExecuteCmd.c)
  * Callees:
- *     DbgParseOneArg @ 0x1C006BAA0 (DbgParseOneArg.c)
+ *     DbgParseOneArg @ 0x1C006B810 (DbgParseOneArg.c)
  */
 
 __int64 __fastcall DbgParseArgs(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a4, char **Context)

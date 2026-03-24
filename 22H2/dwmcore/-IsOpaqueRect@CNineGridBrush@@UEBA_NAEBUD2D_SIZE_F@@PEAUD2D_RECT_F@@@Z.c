@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOpaqueRect@CNineGridBrush@@UEBA_NAEBUD2D_SIZE_F@@PEAUD2D_RECT_F@@@Z @ 0x1800EA630
+ * XREFs of ?IsOpaqueRect@CNineGridBrush@@UEBA_NAEBUD2D_SIZE_F@@PEAUD2D_RECT_F@@@Z @ 0x18001B530
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CNineGridBrush::IsOpaqueRect(CNineGridBrush *this, const struct D2D_SIZE_F *a2, struct D2D_RECT_F *a3)
@@ -12,11 +12,11 @@ char __fastcall CNineGridBrush::IsOpaqueRect(CNineGridBrush *this, const struct 
   __int64 v5; // rcx
 
   v3 = 0;
-  if ( !*((_BYTE *)this + 152) )
+  if ( !*((_BYTE *)this + 144) )
   {
-    v5 = *((_QWORD *)this + 11);
+    v5 = *((_QWORD *)this + 10);
     if ( v5 )
-      return (*(unsigned __int8 (__fastcall **)(__int64, const struct D2D_SIZE_F *, struct D2D_RECT_F *))(*(_QWORD *)v5 + 296LL))(
+      return (*(unsigned __int8 (__fastcall **)(__int64, const struct D2D_SIZE_F *, struct D2D_RECT_F *))(*(_QWORD *)v5 + 304LL))(
                v5,
                a2,
                a3) != 0;

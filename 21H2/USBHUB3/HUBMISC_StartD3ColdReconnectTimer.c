@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMISC_StartD3ColdReconnectTimer @ 0x1C002F948
+ * XREFs of HUBMISC_StartD3ColdReconnectTimer @ 0x1C002F2A8
  * Callers:
- *     HUBPSM30_StartingTimerForAllowingReconnectOnResumingFromD3Cold @ 0x1C0011D00 (HUBPSM30_StartingTimerForAllowingReconnectOnResumingFromD3Cold.c)
+ *     HUBPSM30_StartingTimerForAllowingReconnectOnResumingFromD3Cold @ 0x1C0011800 (HUBPSM30_StartingTimerForAllowingReconnectOnResumingFromD3Cold.c)
  * Callees:
- *     WPP_RECORDER_SF_qd @ 0x1C0002DA0 (WPP_RECORDER_SF_qd.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C0002BC4 (WPP_RECORDER_SF_qd.c)
  */
 
 __int64 __fastcall HUBMISC_StartD3ColdReconnectTimer(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall HUBMISC_StartD3ColdReconnectTimer(__int64 a1)
       4u,
       4u,
       0x38u,
-      (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       a1,
       v3);
   }

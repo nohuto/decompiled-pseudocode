@@ -1,18 +1,18 @@
 /*
- * XREFs of ?CitpSetSpeechRecognitionInfo@@YAJPEAT_CIT_SI_INFOFLAGS@@PEAT_CIT_SI_INFO@@@Z @ 0x1C0240768
+ * XREFs of ?CitpSetSpeechRecognitionInfo@@YAJPEAT_CIT_SI_INFOFLAGS@@PEAT_CIT_SI_INFO@@@Z @ 0x1C01FEB14
  * Callers:
- *     CitSetInfo @ 0x1C009D150 (CitSetInfo.c)
+ *     CitSetInfo @ 0x1C0046F70 (CitSetInfo.c)
  * Callees:
- *     ?CitpStatIncrement@@YAXPEAGG@Z @ 0x1C0017404 (-CitpStatIncrement@@YAXPEAGG@Z.c)
- *     ?CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z @ 0x1C0017428 (-CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z.c)
- *     ?CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_PROCESS@@G@Z @ 0x1C0017574 (-CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT.c)
+ *     ?CitpStatIncrement@@YAXPEAGG@Z @ 0x1C00463BC (-CitpStatIncrement@@YAXPEAGG@Z.c)
+ *     ?CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z @ 0x1C00463E0 (-CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z.c)
+ *     ?CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_PROCESS@@G@Z @ 0x1C00464E8 (-CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT.c)
  */
 
 __int64 __fastcall CitpSetSpeechRecognitionInfo(union _CIT_SI_INFOFLAGS *a1, union _CIT_SI_INFO *a2)
 {
   struct _CIT_IMPACT_CONTEXT *v2; // rbx
   struct _CIT_PROCESS **CurrentProcessWin32Process; // r11
-  unsigned __int16 v7; // r8
+  __int64 v7; // r8
   unsigned __int64 v8; // rdx
   unsigned __int64 v9; // r9
   unsigned __int16 v10; // dx
@@ -28,17 +28,17 @@ __int64 __fastcall CitpSetSpeechRecognitionInfo(union _CIT_SI_INFOFLAGS *a1, uni
   struct tagPROCESSINFO **v20; // rax
   struct _CIT_INTERACTION_SUMMARY *v21; // rax
 
-  v2 = xmmword_1C029A230;
-  if ( (unsigned int)dword_1C028F04C < MEMORY[0xFFFFF7800000037C] )
-    EtwTelemetryCoverageReport(&off_1C028F040);
+  v2 = xmmword_1C0255560;
+  if ( (unsigned int)dword_1C024BB14 < MEMORY[0xFFFFF7800000037C] )
+    EtwTelemetryCoverageReport(&off_1C024BB08);
   CurrentProcessWin32Process = (struct _CIT_PROCESS **)PsGetCurrentProcessWin32Process(a1);
   if ( (*(_DWORD *)a2 & 0x10000) != 0 )
     CurrentProcessWin32Process = (struct _CIT_PROCESS **)*((_QWORD *)v2 + 15);
   if ( !CurrentProcessWin32Process )
     return 3221226021LL;
-  v7 = *((_WORD *)a1 + 1);
-  if ( v7 >= 0x40u )
-    v7 = 64;
+  v7 = *(_QWORD *)a1 >> 24;
+  if ( (unsigned __int16)v7 >= 0x40u )
+    LOWORD(v7) = 64;
   v8 = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
       * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64;
   if ( v8 >= 0x3E800000000LL )
@@ -46,7 +46,7 @@ __int64 __fastcall CitpSetSpeechRecognitionInfo(union _CIT_SI_INFOFLAGS *a1, uni
   else
     v9 = v8 / 0x3E8;
   v10 = v9;
-  if ( v7 <= (unsigned int)v9 )
+  if ( (unsigned __int16)v7 <= (unsigned int)v9 )
     v10 = v7;
   if ( (unsigned int)v9 >= 0x40 )
   {

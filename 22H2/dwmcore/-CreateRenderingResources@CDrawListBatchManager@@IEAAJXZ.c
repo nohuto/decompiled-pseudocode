@@ -1,107 +1,77 @@
 /*
- * XREFs of ?CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ @ 0x1800D0228
+ * XREFs of ?CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ @ 0x18002AF30
  * Callers:
- *     ?Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z @ 0x1800CFCEC (-Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z.c)
+ *     ?Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z @ 0x18002AC38 (-Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z.c)
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??0CSharedDirect3DResources@CDrawListEntryBatch@@AEAA@XZ @ 0x1800D0350 (--0CSharedDirect3DResources@CDrawListEntryBatch@@AEAA@XZ.c)
- *     ?Init@CSharedDirect3DResources@CDrawListEntryBatch@@AEAAJPEAVCD3DDevice@@@Z @ 0x1800D0690 (-Init@CSharedDirect3DResources@CDrawListEntryBatch@@AEAAJPEAVCD3DDevice@@@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DBB94 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ??0CBatchOptimizer@@QEAA@PEAVCDrawListBatchManager@@@Z @ 0x1800E2FEC (--0CBatchOptimizer@@QEAA@PEAVCDrawListBatchManager@@@Z.c)
- *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1800EED38 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ??0CBatchOptimizer@@QEAA@PEAVCDrawListBatchManager@@@Z @ 0x18002A00C (--0CBatchOptimizer@@QEAA@PEAVCDrawListBatchManager@@@Z.c)
+ *     ?Create@CSharedDirect3DResources@CDrawListEntryBatch@@SAJPEAVCD3DDevice@@PEAPEAV12@@Z @ 0x18002B430 (-Create@CSharedDirect3DResources@CDrawListEntryBatch@@SAJPEAVCD3DDevice@@PEAPEAV12@@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x180094D90 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
  */
 
 __int64 __fastcall CDrawListBatchManager::CreateRenderingResources(CDrawListBatchManager *this)
 {
-  __int64 v2; // rax
-  bool v3; // zf
-  unsigned __int64 v4; // rbx
-  __int64 v5; // rcx
-  unsigned int v6; // edi
-  __int64 v7; // rcx
-  struct CD3DDevice *v8; // rdi
-  CDrawListEntryBatch::CSharedDirect3DResources *v9; // rax
-  __int64 v10; // rcx
-  __int64 v11; // rax
-  CDrawListEntryBatch::CSharedDirect3DResources *v12; // rbx
-  int v13; // eax
-  __int64 v14; // rcx
-  __int64 v15; // rax
-  CBatchOptimizer *v17; // rax
-  _QWORD *v18; // rbx
-  __int64 v19; // rcx
-  int v20; // ebx
-  unsigned int v21; // [rsp+20h] [rbp-18h]
+  __int64 v1; // rbp
+  __int64 v3; // rax
+  unsigned int v4; // ecx
+  unsigned int v5; // ebx
+  CDrawListEntry *v6; // rcx
+  int v7; // eax
+  unsigned int v8; // ecx
+  CBatchOptimizer *v10; // rax
+  _QWORD *v11; // rsi
+  unsigned int v12; // [rsp+20h] [rbp-18h]
 
-  v2 = (__int64)this + 1064;
-  v3 = this == 0LL;
-  v4 = (unsigned __int64)this - 24;
-  v5 = 1088LL;
-  if ( v3 )
-    v2 = 1088LL;
-  v6 = *(_DWORD *)v2;
-  if ( *(int *)v2 < 0 )
+  v1 = (__int64)this - 24;
+  if ( !this )
+    v1 = -24LL;
+  v3 = (__int64)this + 1104;
+  v4 = 1128;
+  if ( !this )
+    v3 = 1128LL;
+  v5 = *(_DWORD *)v3;
+  if ( *(int *)v3 < 0 )
   {
-    v21 = 100;
-    goto LABEL_25;
+    v12 = 100;
+    goto LABEL_21;
   }
-  v7 = *((_QWORD *)this + 15);
-  *((_QWORD *)this + 15) = 0LL;
-  if ( v7 )
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(v7);
-  v8 = (struct CD3DDevice *)(v4 & -(__int64)(this != 0LL));
-  v9 = (CDrawListEntryBatch::CSharedDirect3DResources *)DefaultHeap::Alloc(0x4E0uLL);
-  if ( !v9
-    || (v11 = CDrawListEntryBatch::CSharedDirect3DResources::CSharedDirect3DResources(v9),
-        (v12 = (CDrawListEntryBatch::CSharedDirect3DResources *)v11) == 0LL) )
+  v6 = (CDrawListEntry *)*((_QWORD *)this + 20);
+  *((_QWORD *)this + 20) = 0LL;
+  if ( v6 )
+    CDrawListEntry::Release(v6);
+  v7 = CDrawListEntryBatch::CSharedDirect3DResources::Create(
+         (struct CD3DDevice *)(v1 & -(__int64)(this != 0LL)),
+         (struct CDrawListEntryBatch::CSharedDirect3DResources **)this + 20);
+  v5 = v7;
+  if ( v7 < 0 )
   {
-    v6 = -2147024882;
-    v20 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2147024882, 0x18u, 0LL);
-    goto LABEL_23;
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x67u, 0LL);
   }
-  CMILRefCountImpl::AddReference((CMILRefCountImpl *)(v11 + 8));
-  v13 = CDrawListEntryBatch::CSharedDirect3DResources::Init(v12, v8);
-  v6 = v13;
-  if ( v13 < 0 )
+  else if ( CCommonRegistryData::EnablePrimitiveReordering
+         && (!*(_QWORD *)((v1 & -(__int64)(this != 0LL)) + 0x260) || CCommonRegistryData::UseHWDrawListEntriesOnWARP) )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x19u, 0LL);
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(v12);
-    v20 = v6;
-LABEL_23:
-    MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v20, 0x67u, 0LL);
-    return v6;
-  }
-  *((_QWORD *)this + 15) = v12;
-  if ( CCommonRegistryData::EnablePrimitiveReordering )
-  {
-    v15 = (__int64)this + 544;
-    if ( !this )
-      v15 = 568LL;
-    if ( !*(_QWORD *)v15 || CCommonRegistryData::UseHWDrawListEntriesOnWARP )
+    v10 = (CBatchOptimizer *)DefaultHeap::Alloc(0x1098uLL);
+    if ( v10 )
+      v10 = CBatchOptimizer::CBatchOptimizer(v10, this);
+    v11 = (_QWORD *)*((_QWORD *)this + 22);
+    *((_QWORD *)this + 22) = v10;
+    if ( v11 )
     {
-      v17 = (CBatchOptimizer *)DefaultHeap::Alloc(0x1098uLL);
-      if ( v17 )
-        v17 = CBatchOptimizer::CBatchOptimizer(v17, this);
-      v18 = (_QWORD *)*((_QWORD *)this + 17);
-      *((_QWORD *)this + 17) = v17;
-      if ( v18 )
-      {
-        *v18 = &CBatchOptimizer::`vftable';
-        `vector destructor iterator'(v18 + 10, 0x208uLL, 8uLL, (void (*)(void *))SharedStateLayer::~SharedStateLayer);
-        operator delete(v18, 0x1098uLL);
-      }
-      if ( !*((_QWORD *)this + 17) )
-      {
-        v6 = -2147024882;
-        v21 = 112;
-LABEL_25:
-        MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v6, v21, 0LL);
-      }
+      *v11 = &CBatchOptimizer::`vftable';
+      `vector destructor iterator'(v11 + 10, 0x208uLL, 8uLL, (void (*)(void *))SharedStateLayer::~SharedStateLayer);
+      operator delete(v11, 0x1098uLL);
+      v10 = (CBatchOptimizer *)*((_QWORD *)this + 22);
+    }
+    if ( !v10 )
+    {
+      v5 = -2147024882;
+      v12 = 113;
+LABEL_21:
+      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v5, v12, 0LL);
     }
   }
-  return v6;
+  return v5;
 }

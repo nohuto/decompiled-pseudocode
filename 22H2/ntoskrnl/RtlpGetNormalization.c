@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpGetNormalization @ 0x1409C896C
+ * XREFs of RtlpGetNormalization @ 0x14091B870
  * Callers:
- *     RtlIsNormalizedString @ 0x1409C1C70 (RtlIsNormalizedString.c)
- *     RtlNormalizeString @ 0x1409C1D00 (RtlNormalizeString.c)
+ *     RtlIsNormalizedString @ 0x140918E40 (RtlIsNormalizedString.c)
+ *     RtlNormalizeString @ 0x140918ED0 (RtlNormalizeString.c)
  * Callees:
- *     ZwGetNlsSectionPtr @ 0x14041C6A0 (ZwGetNlsSectionPtr.c)
- *     NormalizationListEntry_Alloc @ 0x1405B5AF0 (NormalizationListEntry_Alloc.c)
- *     NormalizationList__InsertTail @ 0x1405B5B14 (NormalizationList__InsertTail.c)
- *     NormalizationList__Lock @ 0x1405B5B48 (NormalizationList__Lock.c)
- *     NormalizationList__Lookup @ 0x1405B5B78 (NormalizationList__Lookup.c)
- *     NormalizationList__Unlock @ 0x1405B5BA8 (NormalizationList__Unlock.c)
- *     Normalization__LoadTables @ 0x1409C10A8 (Normalization__LoadTables.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ZwGetNlsSectionPtr @ 0x1403FB960 (ZwGetNlsSectionPtr.c)
+ *     NormalizationListEntry_Alloc @ 0x14059425C (NormalizationListEntry_Alloc.c)
+ *     NormalizationList__InsertTail @ 0x140594284 (NormalizationList__InsertTail.c)
+ *     NormalizationList__Lock @ 0x1405942B8 (NormalizationList__Lock.c)
+ *     NormalizationList__Lookup @ 0x1405942E8 (NormalizationList__Lookup.c)
+ *     NormalizationList__Unlock @ 0x140594318 (NormalizationList__Unlock.c)
+ *     Normalization__LoadTables @ 0x1409182A0 (Normalization__LoadTables.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpGetNormalization(unsigned int a1, char **a2)
@@ -22,7 +22,7 @@ __int64 __fastcall RtlpGetNormalization(unsigned int a1, char **a2)
   char *v7; // rax
   __int64 v8; // rdx
   int NlsSectionPtr; // ebx
-  __int64 v10; // rax
+  char *v10; // rax
   _DWORD *v11; // rbx
   int Tables; // ebp
   unsigned __int64 v13; // [rsp+58h] [rbp+10h]
@@ -50,8 +50,8 @@ __int64 __fastcall RtlpGetNormalization(unsigned int a1, char **a2)
       if ( NlsSectionPtr < 0 )
         goto LABEL_12;
     }
-    v10 = NormalizationListEntry_Alloc();
-    v11 = (_DWORD *)v10;
+    v10 = (char *)NormalizationListEntry_Alloc();
+    v11 = v10;
     if ( !v10 )
     {
       NlsSectionPtr = -1073741801;
@@ -59,8 +59,8 @@ LABEL_12:
       NormalizationList__Unlock();
       return (unsigned int)NlsSectionPtr;
     }
-    v6 = (char *)(v10 + 24);
-    Tables = Normalization__LoadTables(a1, v14, v13, (_DWORD *)(v10 + 24));
+    v6 = v10 + 24;
+    Tables = Normalization__LoadTables(a1, v14, v13, (_DWORD *)v10 + 6);
     if ( Tables < 0 )
     {
       ExFreePoolWithTag(v11, 0);

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpValidateAsciiStd3AndLength @ 0x1409BF5C8
+ * XREFs of RtlpValidateAsciiStd3AndLength @ 0x1409167A8
  * Callers:
- *     RtlpNameprepAsciiRealWorker @ 0x1405AFF9C (RtlpNameprepAsciiRealWorker.c)
+ *     RtlpNameprepAsciiRealWorker @ 0x14058D3F4 (RtlpNameprepAsciiRealWorker.c)
  * Callees:
- *     FindEmailAt @ 0x1405AFC14 (FindEmailAt.c)
- *     ValidateStd3Range @ 0x1405B02F8 (ValidateStd3Range.c)
+ *     FindEmailAt @ 0x14058D034 (FindEmailAt.c)
+ *     ValidateStd3Range @ 0x14058D740 (ValidateStd3Range.c)
  */
 
 bool __fastcall RtlpValidateAsciiStd3AndLength(unsigned __int64 a1, int a2, char a3, char a4)
@@ -58,14 +58,8 @@ bool __fastcall RtlpValidateAsciiStd3AndLength(unsigned __int64 a1, int a2, char
       return 0;
     }
   }
-  if ( v6 )
-    return 1;
-  if ( (__int64)(((char *)v9 - (char *)v4) & 0xFFFFFFFFFFFFFFFEuLL) > 128
-    || (__int64)((__int64)v9 - v10) >> 1 > 256LL - ((_WORD)v8 != 46) )
-  {
-    return 0;
-  }
-  if ( a4 )
-    return (_WORD)v8 != 45;
-  return 1;
+  return v6
+      || (__int64)(((char *)v9 - (char *)v4) & 0xFFFFFFFFFFFFFFFEuLL) <= 128
+      && (__int64)((__int64)v9 - v10) >> 1 <= 256LL - ((_WORD)v8 != 46)
+      && (!a4 || (_WORD)v8 != 45);
 }

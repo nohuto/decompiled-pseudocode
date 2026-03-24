@@ -1,187 +1,212 @@
 /*
- * XREFs of DpiFdoExcludeAdapterAccess @ 0x1C0389190
+ * XREFs of DpiFdoExcludeAdapterAccess @ 0x1C02C9C10
  * Callers:
  *     <none>
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01B32DC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
- *     DpiRequestIoPowerState @ 0x1C01F0D70 (DpiRequestIoPowerState.c)
- *     DxgkRequestAsyncDisplaySwitchCallout @ 0x1C030D550 (DxgkRequestAsyncDisplaySwitchCallout.c)
- *     DxgkRequestSyncDisplaySwitchCallout @ 0x1C030D618 (DxgkRequestSyncDisplaySwitchCallout.c)
- *     DpiDxgkDdiProtectedCallback @ 0x1C0397018 (DpiDxgkDdiProtectedCallback.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4B0 (DpiCheckForOutstandingD3Requests.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C013AB0C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DpiRequestIoPowerState @ 0x1C01775E0 (DpiRequestIoPowerState.c)
+ *     DxgkRequestAsyncDisplaySwitchCallout @ 0x1C026C320 (DxgkRequestAsyncDisplaySwitchCallout.c)
+ *     DxgkRequestSyncDisplaySwitchCallout @ 0x1C026C3C4 (DxgkRequestSyncDisplaySwitchCallout.c)
+ *     DpiDxgkDdiProtectedCallback @ 0x1C02D89C0 (DpiDxgkDdiProtectedCallback.c)
  */
 
 void __fastcall DpiFdoExcludeAdapterAccess(_QWORD *IoObject, _QWORD *Context, PIO_WORKITEM IoWorkItem)
 {
-  char *v5; // rcx
-  char v6; // r13
-  char v7; // r12
-  __int64 v8; // rbx
+  __int64 v3; // rbx
+  struct _DXGK_DISPLAY_SCENARIO_CONTEXT *v4; // r12
+  char v7; // r13
+  char v8; // r15
   __int64 SDCFlags; // rdi
-  __int64 v10; // rdx
+  __int64 v10; // rax
   __int64 v11; // rdx
   __int64 v12; // rdx
-  int v13; // eax
-  __int64 v14; // r8
-  __int64 v15; // r8
-  __int64 v16; // rax
-  struct _DXGK_DISPLAY_SCENARIO_CONTEXT *v17; // r15
-  __int64 v18; // rdx
-  __int64 v19; // r9
-  int v20; // eax
-  __int64 v21; // r8
-  int v22; // eax
-  struct _DXGK_WIN32K_PARAM_DATA v23; // [rsp+30h] [rbp-D0h] BYREF
-  PIO_WORKITEM IoWorkItema; // [rsp+50h] [rbp-B0h]
-  _OWORD v25[5]; // [rsp+60h] [rbp-A0h] BYREF
-  _DWORD v26[8]; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 v27; // [rsp+D0h] [rbp-30h]
-  __int64 v28; // [rsp+D8h] [rbp-28h]
-  int v29; // [rsp+E0h] [rbp-20h]
-  ULONG v30; // [rsp+E4h] [rbp-1Ch]
-  __int64 v31; // [rsp+E8h] [rbp-18h]
-  __int64 v32; // [rsp+F0h] [rbp-10h]
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // r8
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  int v19; // eax
+  __int64 v20; // r8
+  __int64 v21; // rax
+  __int64 v22; // rdx
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // rax
+  int v26; // eax
+  __int64 v27; // r8
+  int v28; // eax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // rax
+  char v32; // [rsp+30h] [rbp-D0h]
+  struct _DXGK_WIN32K_PARAM_DATA v33; // [rsp+38h] [rbp-C8h] BYREF
+  PIO_WORKITEM IoWorkItema; // [rsp+58h] [rbp-A8h]
+  _OWORD v35[5]; // [rsp+60h] [rbp-A0h] BYREF
+  _DWORD v36[8]; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v37; // [rsp+D0h] [rbp-30h]
+  __int64 v38; // [rsp+D8h] [rbp-28h]
+  int v39; // [rsp+E0h] [rbp-20h]
+  ULONG v40; // [rsp+E4h] [rbp-1Ch]
+  __int64 v41; // [rsp+E8h] [rbp-18h]
+  __int64 v42; // [rsp+F0h] [rbp-10h]
 
+  v3 = IoObject[8];
+  v4 = (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)(Context + 4);
   IoWorkItema = IoWorkItem;
-  v5 = (char *)(Context + 4);
-  v6 = 0;
+  v32 = 0;
   v7 = 0;
-  v8 = IoObject[8];
-  if ( *(_BYTE *)(v8 + 480) )
+  v8 = 0;
+  if ( *(_BYTE *)(v3 + 480) )
   {
-    SDCFlags = -1073741637LL;
+    LODWORD(SDCFlags) = -1073741637;
+    v10 = WdLogNewEntry5_WdError(IoObject, Context);
+    *(_QWORD *)(v10 + 24) = -1073741637LL;
 LABEL_3:
-    v10 = SDCFlags;
-LABEL_4:
-    WdLogSingleEntry1(2LL, v10);
-LABEL_17:
-    DpiDxgkDdiProtectedCallback(*(_QWORD *)(v8 + 48), *Context, Context[1], (unsigned int)SDCFlags);
+    WdLogEvent5_WdError(v10);
+    goto LABEL_23;
+  }
+  if ( (Context[2] & 1) == 0 )
+    goto LABEL_12;
+  v11 = *(_QWORD *)(v3 + 5936);
+  LOBYTE(IoWorkItem) = 1;
+  v42 = *(_QWORD *)(v3 + 2672);
+  v33.PathsArray = (PVOID)4;
+  memset(&v33.ModesArray, 0, 24);
+  v38 = 0LL;
+  v36[0] = 30;
+  v36[1] = 72;
+  v37 = 0LL;
+  memset(&v36[2], 0, 24);
+  v39 = 43;
+  v41 = 0LL;
+  SMgrGdiCallout(&v33, v11, IoWorkItem, 0LL, 0LL, v4);
+  v12 = *(_QWORD *)(v3 + 5936);
+  SDCFlags = (int)v33.SDCFlags;
+  v40 = v33.SDCFlags;
+  DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v36, v12);
+  if ( (int)SDCFlags >= 0 )
+  {
+LABEL_12:
+    if ( (Context[2] & 2) == 0 )
+    {
+      KeEnterCriticalRegion();
+      if ( *(_BYTE *)(v3 + 484) )
+        DpiCheckForOutstandingD3Requests(v3);
+      ExAcquireResourceSharedLite(*(PERESOURCE *)(v3 + 168), 1u);
+      KeWaitForSingleObject((PVOID)(v3 + 176), Executive, 0, 0, 0LL);
+      v7 = 1;
+      if ( *(_DWORD *)(v3 + 236) != 2 || *(_DWORD *)(v3 + 3976) == 1 || *(_DWORD *)(v3 + 284) != 1 )
+      {
+        LODWORD(SDCFlags) = -1073741661;
+        v10 = WdLogNewEntry5_WdError(v18, v17);
+        *(_QWORD *)(v10 + 24) = -1073741661LL;
+        goto LABEL_3;
+      }
+    }
+    v19 = DpiRequestIoPowerState((__int64)IoObject, 5, (__int64)IoWorkItem, *((_DWORD *)Context + 4));
+    LODWORD(SDCFlags) = v19;
+    if ( v19 >= 0 )
+    {
+      v32 = 1;
+      DpiDxgkDdiProtectedCallback(*(_QWORD *)(v3 + 48), *Context, Context[1], (unsigned int)v19);
+      LODWORD(SDCFlags) = DpiRequestIoPowerState((__int64)IoObject, 6, v20, *((_DWORD *)Context + 4));
+      if ( (int)SDCFlags >= 0 )
+        goto LABEL_24;
+      LODWORD(SDCFlags) = 0;
+    }
+    else if ( v19 != -1071775482 )
+    {
+      goto LABEL_20;
+    }
+    v8 = 1;
     goto LABEL_20;
   }
-  if ( (Context[2] & 1) != 0 )
-  {
-    v11 = *(_QWORD *)(v8 + 5728);
-    LOBYTE(IoWorkItem) = 1;
-    v32 = *(_QWORD *)(v8 + 2672);
-    v23.PathsArray = (PVOID)4;
-    memset(&v23.ModesArray, 0, 24);
-    v28 = 0LL;
-    v26[0] = 30;
-    v26[1] = 72;
-    v27 = 0LL;
-    memset(&v26[2], 0, 24);
-    v29 = 43;
-    v31 = 0LL;
-    SMgrGdiCallout(&v23, v11, IoWorkItem, 0LL, 0LL, v5);
-    v12 = *(_QWORD *)(v8 + 5728);
-    SDCFlags = (int)v23.SDCFlags;
-    v30 = v23.SDCFlags;
-    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v26, v12);
-    if ( (int)SDCFlags < 0 )
-      goto LABEL_3;
-  }
-  if ( (Context[2] & 2) == 0 )
-  {
-    KeEnterCriticalRegion();
-    if ( *(_BYTE *)(v8 + 484) )
-      DpiCheckForOutstandingD3Requests(v8);
-    ExAcquireResourceSharedLite(*(PERESOURCE *)(v8 + 168), 1u);
-    KeWaitForSingleObject((PVOID)(v8 + 176), Executive, 0, 0, 0LL);
-    v6 = 1;
-    if ( *(_DWORD *)(v8 + 236) != 2 || *(_DWORD *)(v8 + 3984) == 1 || *(_DWORD *)(v8 + 284) != 1 )
-    {
-      v10 = -1073741661LL;
-      LODWORD(SDCFlags) = -1073741661;
-      goto LABEL_4;
-    }
-  }
-  v13 = DpiRequestIoPowerState((__int64)IoObject, 5, (__int64)IoWorkItem, *((_DWORD *)Context + 4));
-  LODWORD(SDCFlags) = v13;
-  if ( v13 < 0 )
-  {
-    if ( v13 == -1071775482 )
-      v7 = 1;
-    goto LABEL_17;
-  }
-  DpiDxgkDdiProtectedCallback(*(_QWORD *)(v8 + 48), *Context, Context[1], (unsigned int)v13);
-  LODWORD(SDCFlags) = DpiRequestIoPowerState((__int64)IoObject, 6, v14, *((_DWORD *)Context + 4));
-  if ( (int)SDCFlags < 0 )
-  {
-    LODWORD(SDCFlags) = 0;
-    v7 = 1;
-  }
+  v15 = WdLogNewEntry5_WdError(v14, v13);
+  *(_QWORD *)(v15 + 24) = SDCFlags;
+  WdLogEvent5_WdError(v15);
 LABEL_20:
-  if ( v6 == 1 )
-  {
-    KeReleaseMutex((PRKMUTEX)(v8 + 176), 0);
-    if ( *(_BYTE *)(v8 + 484) )
-      DpiEnableD3Requests(*(_QWORD *)(v8 + 24));
-    ExReleaseResourceLite(*(PERESOURCE *)(v8 + 168));
-    KeLeaveCriticalRegion();
-  }
-  memset(v25, 0, 0x48uLL);
-  if ( (Context[2] & 1) != 0 )
-  {
-    memset(&v25[1], 0, 32);
-    v16 = *(_QWORD *)(v8 + 2672);
-    LOBYTE(v15) = 1;
-    v17 = (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)(Context + 4);
-    *((_QWORD *)&v25[1] + 1) = 0LL;
-    *((_QWORD *)&v25[3] + 1) = 0LL;
-    v25[0] = 0x480000001EuLL;
-    *(_OWORD *)((char *)v25 + 8) = 0LL;
-    LODWORD(v25[3]) = 44;
-    *(_QWORD *)&v25[4] = v16;
-    v18 = *(_QWORD *)(v8 + 5728);
-    v23.PathsArray = (PVOID)4;
-    *(_QWORD *)&v23.SDCFlags = 0LL;
-    *(_QWORD *)&v23.NumPathArrayElements = 1LL;
-    v23.ModesArray = 0LL;
-    SMgrGdiCallout(&v23, v18, v15, 0LL, 0LL, Context + 4);
-    DWORD1(v25[3]) = v23.SDCFlags;
-    SDCFlags = (int)v23.SDCFlags;
-    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v25, *(_QWORD *)(v8 + 5728));
-    if ( (v23.SDCFlags & 0x80000000) != 0 )
-      WdLogSingleEntry1(2LL, SDCFlags);
-  }
-  else
-  {
-    v17 = (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)(Context + 4);
-  }
+  if ( (int)SDCFlags >= 0 )
+    goto LABEL_24;
+  if ( v32 == 1 )
+    DpiRequestIoPowerState((__int64)IoObject, 6, v16, *((_DWORD *)Context + 4));
+LABEL_23:
+  DpiDxgkDdiProtectedCallback(*(_QWORD *)(v3 + 48), *Context, Context[1], (unsigned int)SDCFlags);
+LABEL_24:
   if ( v7 == 1 )
   {
-    *(_OWORD *)&v23.NumPathArrayElements = 0LL;
-    v23.SDCFlags = 143;
-    *(_OWORD *)&v23.PathsArray = 0LL;
-    memset(v25, 0, 0x48uLL);
-    *(_QWORD *)&v25[4] = *(_QWORD *)(v8 + 2672);
-    v20 = *((_DWORD *)Context + 4);
-    *((_QWORD *)&v25[1] + 1) = 0LL;
-    v25[0] = 0x480000001EuLL;
-    DWORD2(v25[2]) = 0;
-    *(_QWORD *)&v25[2] = 0LL;
-    v25[3] = 0x2DuLL;
-    v21 = *(_QWORD *)(v8 + 5728);
-    if ( (v20 & 2) != 0 )
+    KeReleaseMutex((PRKMUTEX)(v3 + 176), 0);
+    if ( *(_BYTE *)(v3 + 484) )
+      DpiEnableD3Requests(*(_QWORD *)(v3 + 24));
+    ExReleaseResourceLite(*(PERESOURCE *)(v3 + 168));
+    KeLeaveCriticalRegion();
+  }
+  if ( (Context[2] & 1) != 0 )
+  {
+    memset(&v35[1], 0, 32);
+    v21 = *(_QWORD *)(v3 + 2672);
+    LOBYTE(v16) = 1;
+    *((_QWORD *)&v35[1] + 1) = 0LL;
+    *((_QWORD *)&v35[3] + 1) = 0LL;
+    *(_QWORD *)&v35[4] = v21;
+    v35[0] = 0x480000001EuLL;
+    *(_OWORD *)((char *)v35 + 8) = 0LL;
+    LODWORD(v35[3]) = 44;
+    v22 = *(_QWORD *)(v3 + 5936);
+    v33.PathsArray = (PVOID)4;
+    *(_QWORD *)&v33.SDCFlags = 0LL;
+    *(_QWORD *)&v33.NumPathArrayElements = 1LL;
+    v33.ModesArray = 0LL;
+    SMgrGdiCallout(&v33, v22, v16, 0LL, 0LL, v4);
+    DWORD1(v35[3]) = v33.SDCFlags;
+    SDCFlags = (int)v33.SDCFlags;
+    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v35, *(_QWORD *)(v3 + 5936));
+    if ( (v33.SDCFlags & 0x80000000) != 0 )
     {
-      DxgkRequestAsyncDisplaySwitchCallout(&v23, v17, v21, v19);
+      v25 = WdLogNewEntry5_WdError(v24, v23);
+      *(_QWORD *)(v25 + 24) = SDCFlags;
+      WdLogEvent5_WdError(v25);
+    }
+  }
+  if ( v8 == 1 )
+  {
+    *(_OWORD *)&v33.NumPathArrayElements = 0LL;
+    v33.SDCFlags = 143;
+    *(_OWORD *)&v33.PathsArray = 0LL;
+    memset(v35, 0, 0x48uLL);
+    *(_QWORD *)&v35[4] = *(_QWORD *)(v3 + 2672);
+    v26 = *((_DWORD *)Context + 4);
+    *((_QWORD *)&v35[1] + 1) = 0LL;
+    v35[0] = 0x480000001EuLL;
+    DWORD2(v35[2]) = 0;
+    *(_QWORD *)&v35[2] = 0LL;
+    v35[3] = 0x2DuLL;
+    v27 = *(_QWORD *)(v3 + 5936);
+    if ( (v26 & 2) != 0 )
+    {
+      DxgkRequestAsyncDisplaySwitchCallout(&v33, v4, v27);
     }
     else
     {
-      v22 = DxgkRequestSyncDisplaySwitchCallout(&v23, v17, v21, v19);
-      LODWORD(SDCFlags) = v22;
-      if ( v22 < 0 )
-        WdLogSingleEntry1(2LL, v22);
+      v28 = DxgkRequestSyncDisplaySwitchCallout(&v33, v4, v27);
+      SDCFlags = v28;
+      if ( v28 < 0 )
+      {
+        v31 = WdLogNewEntry5_WdError(v30, v29);
+        *(_QWORD *)(v31 + 24) = SDCFlags;
+        WdLogEvent5_WdError(v31);
+      }
     }
-    DWORD1(v25[3]) = SDCFlags;
-    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v25, *(_QWORD *)(v8 + 5728));
+    DWORD1(v35[3]) = SDCFlags;
+    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v35, *(_QWORD *)(v3 + 5936));
   }
   if ( (Context[2] & 2) != 0 )
     KeSetEvent((PRKEVENT)Context[3], 0, 0);
   ExFreePoolWithTag(Context, 0);
   IoFreeWorkItem(IoWorkItema);
-  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v8 + 64), IoWorkItema, 0x20u);
+  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v3 + 64), IoWorkItema, 0x20u);
 }

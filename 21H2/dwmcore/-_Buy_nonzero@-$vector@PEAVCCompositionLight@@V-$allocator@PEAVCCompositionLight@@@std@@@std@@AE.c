@@ -1,25 +1,24 @@
 /*
- * XREFs of ?_Buy_nonzero@?$vector@PEAVCCompositionLight@@V?$allocator@PEAVCCompositionLight@@@std@@@std@@AEAAX_K@Z @ 0x1801E6E50
+ * XREFs of ?_Buy_nonzero@?$vector@PEAVCCompositionLight@@V?$allocator@PEAVCCompositionLight@@@std@@@std@@AEAAX_K@Z @ 0x18019F550
  * Callers:
- *     ??$?0V?$span_iterator@PEAVCCompositionLight@@@details@gsl@@$0A@@?$vector@PEAVCCompositionLight@@V?$allocator@PEAVCCompositionLight@@@std@@@std@@QEAA@V?$span_iterator@PEAVCCompositionLight@@@details@gsl@@0AEBV?$allocator@PEAVCCompositionLight@@@1@@Z @ 0x1801E6580 (--$-0V-$span_iterator@PEAVCCompositionLight@@@details@gsl@@$0A@@-$vector@PEAVCCompositionLight@@.c)
+ *     ??$?0V?$span_iterator@V?$span@PEAVCCompositionLight@@$0?0@gsl@@$0A@@details@gsl@@X@?$vector@PEAVCCompositionLight@@V?$allocator@PEAVCCompositionLight@@@std@@@std@@QEAA@V?$span_iterator@V?$span@PEAVCCompositionLight@@$0?0@gsl@@$0A@@details@gsl@@0AEBV?$allocator@PEAVCCompositionLight@@@1@@Z @ 0x18019EDA8 (--$-0V-$span_iterator@V-$span@PEAVCCompositionLight@@$0-0@gsl@@$0A@@details@gsl@@X@-$vector@PEAV.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B7030 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050B88 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
  */
 
-unsigned __int64 __fastcall std::vector<CCompositionLight *>::_Buy_nonzero(__int64 *a1, unsigned __int64 a2)
+__int64 __fastcall std::vector<CCompositionLight *>::_Buy_nonzero(__int64 *a1, unsigned __int64 a2)
 {
-  SIZE_T size_of; // rax
-  __int64 v5; // rax
-  unsigned __int64 result; // rax
+  __int64 v3; // rbx
+  __int64 v4; // rax
+  __int64 result; // rax
 
   if ( a2 > 0x1FFFFFFFFFFFFFFFLL )
-    std::_Xlength_error("vector too long");
-  size_of = std::_Get_size_of_n<8>(a2);
-  v5 = std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
-  *a1 = v5;
-  a1[1] = v5;
-  result = v5 + 8 * a2;
+    std::_Xlength_error("vector<T> too long");
+  v3 = 8 * a2;
+  v4 = std::_Allocate<16,std::_Default_allocate_traits,0>(8 * a2);
+  *a1 = v4;
+  a1[1] = v4;
+  result = v3 + v4;
   a1[2] = result;
   return result;
 }

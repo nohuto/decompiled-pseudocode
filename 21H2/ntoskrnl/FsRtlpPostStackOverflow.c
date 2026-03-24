@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlpPostStackOverflow @ 0x140542FC4
+ * XREFs of FsRtlpPostStackOverflow @ 0x1404F16D4
  * Callers:
- *     FsRtlPostPagingFileStackOverflow @ 0x140542F10 (FsRtlPostPagingFileStackOverflow.c)
- *     FsRtlPostStackOverflow @ 0x140542F30 (FsRtlPostStackOverflow.c)
+ *     FsRtlPostPagingFileStackOverflow @ 0x1404F1620 (FsRtlPostPagingFileStackOverflow.c)
+ *     FsRtlPostStackOverflow @ 0x1404F1640 (FsRtlPostStackOverflow.c)
  * Callees:
- *     KeInsertQueue @ 0x1402624D0 (KeInsertQueue.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     KeInsertQueue @ 0x1402CCD30 (KeInsertQueue.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 LONG __fastcall FsRtlpPostStackOverflow(
@@ -17,22 +17,22 @@ LONG __fastcall FsRtlpPostStackOverflow(
         unsigned __int8 a4)
 {
   __int64 v5; // rbx
-  struct _LIST_ENTRY *Pool2; // rax
+  struct _LIST_ENTRY *PoolWithTag; // rax
 
   v5 = a4;
-  Pool2 = (struct _LIST_ENTRY *)ExAllocatePool2(66LL, 56LL, 1936872262LL);
-  if ( !Pool2 )
+  PoolWithTag = (struct _LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x73725346u);
+  if ( !PoolWithTag )
   {
     if ( !(_BYTE)v5 )
-      RtlRaiseStatus(-1073741670);
+      RtlRaiseStatus(0xC000009A);
     KeWaitForSingleObject(&StackOverflowFallbackSerialEvent, Executive, 0, 0, 0LL);
-    Pool2 = (struct _LIST_ENTRY *)&StackOverflowFallback;
+    PoolWithTag = (struct _LIST_ENTRY *)&StackOverflowFallback;
   }
-  Pool2[2].Blink = a1;
-  Pool2[3].Flink = a2;
-  Pool2[2].Flink = a3;
-  Pool2->Flink = 0LL;
-  Pool2[1].Flink = (struct _LIST_ENTRY *)FsRtlStackOverflowRead;
-  Pool2[1].Blink = Pool2;
-  return KeInsertQueue((PRKQUEUE)&FsRtlWorkerQueues + v5, Pool2);
+  PoolWithTag[2].Blink = a1;
+  PoolWithTag[3].Flink = a2;
+  PoolWithTag[2].Flink = a3;
+  PoolWithTag->Flink = 0LL;
+  PoolWithTag[1].Flink = (struct _LIST_ENTRY *)FsRtlStackOverflowRead;
+  PoolWithTag[1].Blink = PoolWithTag;
+  return KeInsertQueue((PRKQUEUE)&FsRtlWorkerQueues + v5, PoolWithTag);
 }

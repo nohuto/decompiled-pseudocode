@@ -1,12 +1,12 @@
 /*
- * XREFs of PiUEventGetDeviceInstanceIdFromUserHandle @ 0x1406C9680
+ * XREFs of PiUEventGetDeviceInstanceIdFromUserHandle @ 0x14076E25C
  * Callers:
- *     PiUEventHandleRegistration @ 0x14078D764 (PiUEventHandleRegistration.c)
+ *     PiUEventHandleRegistration @ 0x1406E20B0 (PiUEventHandleRegistration.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PnpGetRelatedTargetDevice @ 0x1402D2E74 (PnpGetRelatedTargetDevice.c)
- *     PsIsProcessAppContainer @ 0x1406C9928 (PsIsProcessAppContainer.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     PnpGetRelatedTargetDevice @ 0x14036185C (PnpGetRelatedTargetDevice.c)
+ *     PsIsProcessAppContainer @ 0x1406AD854 (PsIsProcessAppContainer.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall PiUEventGetDeviceInstanceIdFromUserHandle(void *a1, _QWORD *a2, _QWORD *a3)
@@ -16,19 +16,19 @@ __int64 __fastcall PiUEventGetDeviceInstanceIdFromUserHandle(void *a1, _QWORD *a
   NTSTATUS v7; // ebx
   int RelatedTargetDevice; // eax
   __int64 v9; // rcx
-  char IsProcessAppContainer; // al
+  bool IsProcessAppContainer; // al
   __int64 v12; // [rsp+50h] [rbp+18h] BYREF
-  PVOID Object; // [rsp+58h] [rbp+20h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+58h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   *a3 = 0LL;
   PreviousMode = CurrentThread->PreviousMode;
   v12 = 0LL;
-  Object = 0LL;
-  v7 = ObReferenceObjectByHandle(a1, 0, (POBJECT_TYPE)IoFileObjectType, PreviousMode, &Object, 0LL);
+  DmaAdapter = 0LL;
+  v7 = ObReferenceObjectByHandle(a1, 0, (POBJECT_TYPE)IoFileObjectType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
   if ( v7 >= 0 )
   {
-    RelatedTargetDevice = PnpGetRelatedTargetDevice((PFILE_OBJECT)Object, &v12);
+    RelatedTargetDevice = PnpGetRelatedTargetDevice((PFILE_OBJECT)DmaAdapter, &v12);
     v9 = v12;
     v7 = RelatedTargetDevice;
     if ( RelatedTargetDevice >= 0 )
@@ -40,9 +40,9 @@ __int64 __fastcall PiUEventGetDeviceInstanceIdFromUserHandle(void *a1, _QWORD *a
         *a3 = *(_QWORD *)(v12 + 32);
     }
     if ( v9 )
-      ObfDereferenceObject(*(PVOID *)(v9 + 32));
+      HalPutDmaAdapter(*(PADAPTER_OBJECT *)(v9 + 32));
   }
-  if ( Object )
-    ObfDereferenceObject(Object);
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
   return (unsigned int)v7;
 }

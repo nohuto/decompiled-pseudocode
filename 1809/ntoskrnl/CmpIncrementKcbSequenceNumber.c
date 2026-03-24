@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpIncrementKcbSequenceNumber @ 0x1407F1154
+ * XREFs of CmpIncrementKcbSequenceNumber @ 0x1407F1134
  * Callers:
- *     CmDeleteLayeredKey @ 0x14026CBCC (CmDeleteLayeredKey.c)
- *     CmpCreateTombstone @ 0x14026D05C (CmpCreateTombstone.c)
+ *     CmDeleteLayeredKey @ 0x14026CCCC (CmDeleteLayeredKey.c)
+ *     CmpCreateTombstone @ 0x14026D15C (CmpCreateTombstone.c)
  * Callees:
  *     <none>
  */

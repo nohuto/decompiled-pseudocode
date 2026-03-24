@@ -1,192 +1,160 @@
 /*
- * XREFs of MiInsertLargePageChain @ 0x1402C15F0
+ * XREFs of MiInsertLargePageChain @ 0x1402FE784
  * Callers:
- *     MiInsertDemotedPages @ 0x140268654 (MiInsertDemotedPages.c)
+ *     MiInsertDemotedPages @ 0x1402918D0 (MiInsertDemotedPages.c)
  * Callees:
- *     MiIsFreeZeroPfnCold @ 0x140268620 (MiIsFreeZeroPfnCold.c)
- *     MiInsertLargePageInNodeList @ 0x1402BEEA0 (MiInsertLargePageInNodeList.c)
- *     MiConvertEntireLargePageToSmall @ 0x1402C6AA0 (MiConvertEntireLargePageToSmall.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUpdatePageFileHighInPte @ 0x14033B6A0 (MiUpdatePageFileHighInPte.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MiWakeLargePageWaiters @ 0x1405B05A0 (MiWakeLargePageWaiters.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiInsertLargePageInNodeList @ 0x1402FEA50 (MiInsertLargePageInNodeList.c)
+ *     MiIsFreeZeroPfnCold @ 0x140303120 (MiIsFreeZeroPfnCold.c)
+ *     MiSetPfnPageState @ 0x140329F00 (MiSetPfnPageState.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     MiSetFreeZeroPfnCold @ 0x1403B1490 (MiSetFreeZeroPfnCold.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1403F5C28 (MiConvertEntireLargePageToSmall.c)
+ *     MiLockPageAtDpc @ 0x14054F91C (MiLockPageAtDpc.c)
+ *     MiWakeLargePageWaiters @ 0x140557D7C (MiWakeLargePageWaiters.c)
  */
 
-void __fastcall MiInsertLargePageChain(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5, int a6)
+void __fastcall MiInsertLargePageChain(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
-  int v9; // eax
-  __int64 v10; // r8
-  unsigned __int64 v11; // r10
-  __int64 v12; // r12
-  unsigned __int64 v13; // r14
-  unsigned __int64 v14; // rsi
-  unsigned __int64 v15; // rdi
-  unsigned __int64 v16; // rbx
-  __int64 v17; // r15
-  char v18; // r12
-  unsigned __int64 v19; // r8
-  __int64 v20; // r9
-  char v21; // cl
-  __int64 v22; // rax
-  unsigned __int64 v23; // rcx
-  unsigned __int64 v24; // rax
-  unsigned int v25; // eax
-  bool v26; // zf
-  __int64 v27; // rbx
-  __int64 v28; // rdx
-  char v29; // al
-  int v30; // [rsp+48h] [rbp-29h]
-  int v31; // [rsp+4Ch] [rbp-25h] BYREF
-  __int64 v32; // [rsp+50h] [rbp-21h] BYREF
-  __int128 v33; // [rsp+58h] [rbp-19h] BYREF
-  __int128 v34; // [rsp+68h] [rbp-9h]
+  BOOL v7; // r14d
+  int v8; // r9d
+  unsigned int IsFreeZeroPfnCold; // r12d
+  unsigned __int64 v10; // r8
+  __int64 v11; // r8
+  __int64 v12; // r9
+  unsigned __int64 v13; // r13
+  unsigned __int64 v14; // r15
+  unsigned __int64 v15; // rsi
+  __int64 v16; // rbx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  __int64 v21; // r9
+  char v22; // r9
+  unsigned int v23; // eax
+  bool v24; // zf
+  __int64 v25; // r8
+  __int64 v26; // rbx
+  unsigned int v27; // [rsp+30h] [rbp-50h]
+  unsigned int v28; // [rsp+30h] [rbp-50h]
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+38h] [rbp-48h] BYREF
+  __int64 v30; // [rsp+50h] [rbp-30h]
+  __int128 v31; // [rsp+58h] [rbp-28h] BYREF
+  __int64 v32; // [rsp+68h] [rbp-18h]
 
-  v32 = a4;
-  v33 = 0LL;
-  v34 = 0LL;
-  LOBYTE(v9) = MiIsFreeZeroPfnCold(a2);
-  v30 = v9;
-  v11 = MiLargePageSizes[v10];
-  if ( (_DWORD)v10 == 2 )
+  v30 = a3;
+  v32 = 0LL;
+  v7 = (*(_DWORD *)(a2 + 16) & 0x3E0LL) != 0;
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  v31 = 0LL;
+  IsFreeZeroPfnCold = MiIsFreeZeroPfnCold(a2, a2, a3, a4);
+  v10 = MiLargePageSizes[v8];
+  if ( v8 == 2 )
   {
-    MiConvertEntireLargePageToSmall(a2, 2, 1, a3, 0LL, 0LL, 0LL);
+    MiConvertEntireLargePageToSmall(a2, 2, 1, v7, 0LL, 0LL);
   }
   else
   {
-    v12 = (unsigned int)(v10 + 1);
+    v12 = (unsigned int)(v8 + 1);
+    v27 = v12;
     v13 = MiLargePageSizes[v12];
-    v14 = v11 / v13;
-    v31 = 0;
-    v15 = v11 + 0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4) - v13;
-    v16 = 48 * (v11 - v13) + a2;
-    while ( _interlockedbittestandset64((volatile signed __int32 *)(v16 + 24), 0x3FuLL) )
-    {
-      do
-        KeYieldProcessorEx(&v31);
-      while ( *(__int64 *)(v16 + 24) < 0 );
-    }
-    *(_QWORD *)&v33 = v15;
-    *((_QWORD *)&v33 + 1) = a3 | 0x300000000LL;
-    LOBYTE(v34) = 2;
-    ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 22848));
-    v17 = v32;
-    v18 = ~(_BYTE)v12 & 3;
-LABEL_4:
-    v19 = 0x7FFFFFFFFFFFFFFFLL;
-    v20 = 4294967293LL;
+    v14 = v10 / v13;
+    v15 = v10 + (a2 + 0x58000000000LL) / 48 - v13;
+    v16 = 48 * (v10 - v13) + a2;
+    MiLockPageAtDpc(v16);
+    LockHandle.LockQueue.Next = 0LL;
+    *((_QWORD *)&v31 + 1) = v7 | 0x300000000LL;
+    *(_QWORD *)&v31 = v15;
+    LOBYTE(v32) = 2;
+    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 4328);
+    KxAcquireQueuedSpinLock(&LockHandle, a1 + 4328, v17);
+    v18 = v27;
+    LOBYTE(v18) = ~(_BYTE)v27 & 3;
+    v28 = v18;
     while ( 1 )
     {
-      v21 = *(_BYTE *)(v16 + 34);
-      if ( (v21 & 7) == 6 )
+      if ( (*(_BYTE *)(v16 + 34) & 7) == 6 )
       {
-        v22 = *(_QWORD *)(v16 + 16);
-        *(_BYTE *)(v16 + 34) = v21 & 0xF8 | 5;
-        v23 = 0LL;
-        if ( v30 )
-          v23 = 0xFFFFFFFD00000000uLL;
-        if ( v22 && qword_140C50780 )
-        {
-          if ( (v22 & 0x10) != 0 )
-            LODWORD(v22) = v22 & 0xFFFFFFEF;
-          else
-            LODWORD(v22) = ~(_DWORD)qword_140C50780 & v22;
-        }
-        v24 = v23 | (unsigned int)v22;
-        if ( qword_140C50780 )
-        {
-          if ( (qword_140C50780 & v24) != 0 )
-            v24 |= 0x10uLL;
-          else
-            v24 |= qword_140C50780;
-        }
-        *(_QWORD *)(v16 + 16) = v24;
-        *(_BYTE *)(v16 + 34) = *(_BYTE *)(v16 + 34) & 0xF8 | 6;
+        MiSetPfnPageState(v16, 5LL, v11, v18);
+        MiSetFreeZeroPfnCold(v19, IsFreeZeroPfnCold);
+        MiSetPfnPageState(v16, 6LL, v20, v21);
       }
       else
       {
-        v28 = 0LL;
-        if ( v30 )
-          v28 = v20;
-        *(_QWORD *)(v16 + 16) = MiUpdatePageFileHighInPte(*(_QWORD *)(v16 + 16), v28);
+        MiSetFreeZeroPfnCold(v16, IsFreeZeroPfnCold);
       }
-      *(_BYTE *)(v16 + 36) = v18 | *(_BYTE *)(v16 + 36) & 0xFC;
-      if ( v16 == v17 )
+      *(_BYTE *)(v16 + 39) = v22 | *(_BYTE *)(v16 + 39) & 0xFC;
+      if ( (_DWORD)v14 == 1 )
       {
-        v29 = *(_BYTE *)(v16 + 34);
-        *(_QWORD *)v16 = 0LL;
-        *(_BYTE *)(v16 + 34) = v29 & 0xF8 | 5;
-        _InterlockedAnd64((volatile signed __int64 *)(v16 + 24), v19);
+        if ( v30 )
+          break;
+      }
+      v24 = *(_QWORD *)(a1 + 4352) == 0LL;
+      *(_QWORD *)&v31 = v15;
+      if ( v24 )
+      {
+        HIDWORD(v31) |= 2u;
       }
       else
       {
-        v26 = *(_QWORD *)(a1 + 22904) == 0LL;
-        *(_QWORD *)&v33 = v15;
-        if ( v26 )
-        {
-          HIDWORD(v33) |= 2u;
-        }
-        else
-        {
-          ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 22848));
-          HIDWORD(v33) &= ~2u;
-        }
-        MiInsertLargePageInNodeList((__int64)&v33);
-        v19 = 0x7FFFFFFFFFFFFFFFLL;
-        v20 = 4294967293LL;
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+        HIDWORD(v31) &= ~2u;
       }
+      MiInsertLargePageInNodeList(&v31);
       LODWORD(v14) = v14 - 1;
       if ( !(_DWORD)v14 )
-        break;
+        goto LABEL_21;
       v15 -= v13;
       v16 += -48LL * v13;
-      v25 = HIDWORD(v33);
-      v26 = (BYTE12(v33) & 2) == 0;
-      if ( (BYTE12(v33) & 2) != 0 )
+      v23 = HIDWORD(v31);
+      v24 = (BYTE12(v31) & 2) == 0;
+      if ( (BYTE12(v31) & 2) != 0 )
       {
         if ( _interlockedbittestandset64((volatile signed __int32 *)(v16 + 24), 0x3FuLL) )
         {
-          ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 22848));
-          v20 = 4294967293LL;
-          v25 = HIDWORD(v33) & 0xFFFFFFFD;
-          v19 = 0x7FFFFFFFFFFFFFFFLL;
-          HIDWORD(v33) &= ~2u;
+          KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+          v23 = HIDWORD(v31) & 0xFFFFFFFD;
+          HIDWORD(v31) &= ~2u;
         }
         else
         {
-          v25 = HIDWORD(v33);
+          v23 = HIDWORD(v31);
         }
-        v26 = (v25 & 2) == 0;
+        v24 = (v23 & 2) == 0;
       }
-      if ( v26 )
+      v18 = v28;
+      if ( v24 )
       {
-        LODWORD(v32) = 0;
-        HIDWORD(v33) = v25 | 2;
-        while ( _interlockedbittestandset64((volatile signed __int32 *)(v16 + 24), 0x3FuLL) )
-        {
-          do
-            KeYieldProcessorEx(&v32);
-          while ( *(__int64 *)(v16 + 24) < 0 );
-        }
-        ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 22848));
-        goto LABEL_4;
+        HIDWORD(v31) = v23 | 2;
+        MiLockPageAtDpc(v16);
+        LockHandle.LockQueue.Next = 0LL;
+        LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 4328);
+        KxAcquireQueuedSpinLock(&LockHandle, a1 + 4328, v25);
+        v18 = v28;
       }
     }
+    _InterlockedAnd64((volatile signed __int64 *)(v16 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   }
-  if ( a6 )
+LABEL_21:
+  if ( a5 )
   {
-    if ( (BYTE12(v33) & 2) == 0 )
-      ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 22848));
-    v27 = *(_QWORD *)(a1 + 22792);
-    --*(_DWORD *)(a1 + 22788);
-    *(_QWORD *)(a1 + 22792) = 0LL;
-    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 22848));
-    if ( v27 )
-      MiWakeLargePageWaiters(v27);
+    if ( (BYTE12(v31) & 2) == 0 )
+    {
+      LockHandle.LockQueue.Next = 0LL;
+      LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 4328);
+      KxAcquireQueuedSpinLock(&LockHandle, a1 + 4328, v11);
+    }
+    v26 = *(_QWORD *)(a1 + 4288);
+    *(_QWORD *)(a1 + 4288) = 0LL;
+    --*(_DWORD *)(a1 + 4284);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    if ( v26 )
+      MiWakeLargePageWaiters(v26);
   }
-  else if ( (BYTE12(v33) & 2) != 0 )
+  else if ( (BYTE12(v31) & 2) != 0 )
   {
-    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 22848));
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   }
 }

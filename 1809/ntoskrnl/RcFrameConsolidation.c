@@ -1,11 +1,11 @@
 /*
- * XREFs of RcFrameConsolidation @ 0x1401C5A40
+ * XREFs of RcFrameConsolidation @ 0x1401C5A60
  * Callers:
- *     RtlRestoreContext @ 0x1401C5780 (RtlRestoreContext.c)
+ *     RtlRestoreContext @ 0x1401C57A0 (RtlRestoreContext.c)
  * Callees:
- *     KeCheckStackAndTargetAddress @ 0x1400CC2A0 (KeCheckStackAndTargetAddress.c)
- *     ZwContinue @ 0x1401B89D0 (ZwContinue.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KeCheckStackAndTargetAddress @ 0x1400CC2C0 (KeCheckStackAndTargetAddress.c)
+ *     ZwContinue @ 0x1401B89F0 (ZwContinue.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 // positive sp value has been detected, the output may be wrong!

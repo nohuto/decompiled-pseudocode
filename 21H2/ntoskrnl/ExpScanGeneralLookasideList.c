@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpScanGeneralLookasideList @ 0x1402226C0
+ * XREFs of ExpScanGeneralLookasideList @ 0x140290EA0
  * Callers:
- *     KeBalanceSetManager @ 0x1403C81D0 (KeBalanceSetManager.c)
+ *     KeBalanceSetManager @ 0x1403B90E0 (KeBalanceSetManager.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpScanGeneralLookasideList(_QWORD *a1, KSPIN_LOCK *a2)
@@ -15,9 +15,9 @@ __int64 __fastcall ExpScanGeneralLookasideList(_QWORD *a1, KSPIN_LOCK *a2)
   unsigned __int64 v6; // rsi
   int v7; // edx
   unsigned int v8; // ecx
-  int v9; // r10d
-  int v10; // r9d
-  int v11; // r9d
+  int v9; // r9d
+  int v10; // r10d
+  int v11; // r10d
   __int64 result; // rax
   unsigned int v13; // eax
   unsigned int v14; // edx

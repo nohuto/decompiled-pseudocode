@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlAddAccessDeniedAceEx @ 0x140739D40
+ * XREFs of RtlAddAccessDeniedAceEx @ 0x140739D20
  * Callers:
  *     PiAuCreateStandardSecurityObject @ 0x1409C6C8C (PiAuCreateStandardSecurityObject.c)
  * Callees:

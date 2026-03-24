@@ -1,8 +1,8 @@
 /*
- * XREFs of PspStorageFreeSlot @ 0x14088F4D4
+ * XREFs of PspStorageFreeSlot @ 0x14088F4B4
  * Callers:
- *     PsFreeSiloContextSlot @ 0x140886670 (PsFreeSiloContextSlot.c)
- *     PsUnregisterSiloMonitor @ 0x14088BAA0 (PsUnregisterSiloMonitor.c)
+ *     PsFreeSiloContextSlot @ 0x140886650 (PsFreeSiloContextSlot.c)
+ *     PsUnregisterSiloMonitor @ 0x14088BA80 (PsUnregisterSiloMonitor.c)
  *     PspInitializeSiloStructures @ 0x1409B01B8 (PspInitializeSiloStructures.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)

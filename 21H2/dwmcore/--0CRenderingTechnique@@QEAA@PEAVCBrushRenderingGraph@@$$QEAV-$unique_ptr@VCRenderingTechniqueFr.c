@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CRenderingTechnique@@QEAA@PEAVCBrushRenderingGraph@@$$QEAV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@@Z @ 0x1800374CC
+ * XREFs of ??0CRenderingTechnique@@QEAA@PEAVCBrushRenderingGraph@@$$QEAV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@@Z @ 0x18004B2B8
  * Callers:
- *     ?CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@PEAI@Z @ 0x18003740C (-CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV-$unique_ptr@VCRenderingTech.c)
+ *     ?CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@PEAI@Z @ 0x18004B1EC (-CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV-$unique_ptr@VCRenderingTech.c)
  * Callees:
- *     ?CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ @ 0x180037844 (-CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ.c)
+ *     ?CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ @ 0x18004DB0C (-CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ.c)
  */
 
 CRenderingTechnique *__fastcall CRenderingTechnique::CRenderingTechnique(
@@ -25,8 +25,7 @@ CRenderingTechnique *__fastcall CRenderingTechnique::CRenderingTechnique(
   *((_QWORD *)this + 7) = 0LL;
   *((_DWORD *)this + 16) = 0;
   *(_QWORD *)((char *)this + 244) = 0LL;
-  *((_QWORD *)this + 32) = 0LL;
-  *((_BYTE *)this + 264) = 0;
+  *((_BYTE *)this + 252) = 0;
   CRenderingTechnique::CollectStateFromAllFragments(this);
   return this;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhInitializeTtHub @ 0x1C002C898
+ * XREFs of UsbhInitializeTtHub @ 0x1C002DCB8
  * Callers:
- *     UsbhInitialize @ 0x1C002C450 (UsbhInitialize.c)
- *     UsbhReinitialize @ 0x1C002CD6C (UsbhReinitialize.c)
+ *     UsbhInitialize @ 0x1C002D870 (UsbhInitialize.c)
+ *     UsbhReinitialize @ 0x1C002E168 (UsbhReinitialize.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     Usbh_HubDerefDeviceHandle @ 0x1C002D868 (Usbh_HubDerefDeviceHandle.c)
- *     Usbh_HubInitialize20Hub @ 0x1C002D924 (Usbh_HubInitialize20Hub.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhGetDeviceHandle @ 0x1C003772C (UsbhGetDeviceHandle.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     Usbh_HubDerefDeviceHandle @ 0x1C002EC44 (Usbh_HubDerefDeviceHandle.c)
+ *     Usbh_HubInitialize20Hub @ 0x1C002ED00 (Usbh_HubInitialize20Hub.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhGetDeviceHandle @ 0x1C00389F4 (UsbhGetDeviceHandle.c)
  */
 
 __int64 __fastcall UsbhInitializeTtHub(__int64 a1, __int64 a2)

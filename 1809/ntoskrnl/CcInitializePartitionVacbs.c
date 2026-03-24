@@ -1,15 +1,15 @@
 /*
- * XREFs of CcInitializePartitionVacbs @ 0x14018AE8C
+ * XREFs of CcInitializePartitionVacbs @ 0x14018AEAC
  * Callers:
- *     CcInitializePartition @ 0x14018A590 (CcInitializePartition.c)
+ *     CcInitializePartition @ 0x14018A5B0 (CcInitializePartition.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     CcGetVacbFromFreeList @ 0x1400219C0 (CcGetVacbFromFreeList.c)
  *     CcSetVacbInFreeList @ 0x140079BD0 (CcSetVacbInFreeList.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     CcInsertVacbArray @ 0x14016AC44 (CcInsertVacbArray.c)
- *     CcAllocateInitializeVacbArray @ 0x14016AFC4 (CcAllocateInitializeVacbArray.c)
- *     MmReserveViewInSystemCache @ 0x1407501BC (MmReserveViewInSystemCache.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     CcInsertVacbArray @ 0x14016AC64 (CcInsertVacbArray.c)
+ *     CcAllocateInitializeVacbArray @ 0x14016AFE4 (CcAllocateInitializeVacbArray.c)
+ *     MmReserveViewInSystemCache @ 0x14075019C (MmReserveViewInSystemCache.c)
  */
 
 char __fastcall CcInitializePartitionVacbs(__int64 a1)

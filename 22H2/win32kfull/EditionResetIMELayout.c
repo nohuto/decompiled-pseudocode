@@ -1,26 +1,21 @@
 /*
- * XREFs of EditionResetIMELayout @ 0x1C00B5ED0
+ * XREFs of EditionResetIMELayout @ 0x1C012ED20
  * Callers:
  *     <none>
  * Callees:
- *     ?xxxImmLoadLayout@@YAPEAUtagIMEINFOEX@@PEAUHKL__@@@Z @ 0x1C00B5F40 (-xxxImmLoadLayout@@YAPEAUtagIMEINFOEX@@PEAUHKL__@@@Z.c)
+ *     xxxImmLoadLayout @ 0x1C012ED8C (xxxImmLoadLayout.c)
  */
 
-__int64 __fastcall EditionResetIMELayout(int a1, int a2, struct tagIMEINFOEX **a3)
+_BOOL8 __fastcall EditionResetIMELayout(int a1, int a2, __int64 *a3)
 {
-  struct tagIMEINFOEX *Layout; // rax
-  unsigned int v6; // ecx
+  __int64 Layout; // rax
 
   if ( (HIWORD(a1) & 0xF000) != 0xE000 && (*gpsi & 4) == 0 )
   {
     *a3 = 0LL;
     return 1LL;
   }
-  Layout = xxxImmLoadLayout((HKL)a1);
-  v6 = 0;
+  Layout = xxxImmLoadLayout(a1);
   *a3 = Layout;
-  if ( Layout )
-    return 1LL;
-  LOBYTE(v6) = (a2 & 0xC0000000) != 0;
-  return v6;
+  return Layout || (a2 & 0xC0000000) != 0;
 }

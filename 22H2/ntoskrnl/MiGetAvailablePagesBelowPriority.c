@@ -1,45 +1,35 @@
 /*
- * XREFs of MiGetAvailablePagesBelowPriority @ 0x14025B9B0
+ * XREFs of MiGetAvailablePagesBelowPriority @ 0x14033A92C
  * Callers:
- *     MiComputeSystemTrimCriteria @ 0x1402201DC (MiComputeSystemTrimCriteria.c)
- *     MiComputeAgingPercent @ 0x1402205B4 (MiComputeAgingPercent.c)
- *     MiUseLowIoPriorityForModifiedPages @ 0x140222EF8 (MiUseLowIoPriorityForModifiedPages.c)
- *     MiStoreUpdateMemoryConditions @ 0x140222F90 (MiStoreUpdateMemoryConditions.c)
- *     MiAgeWorkingSet @ 0x14025B650 (MiAgeWorkingSet.c)
- *     MiGetHardFaultPages @ 0x1402DF274 (MiGetHardFaultPages.c)
- *     MiResolveMappedFileFault @ 0x1402E05E0 (MiResolveMappedFileFault.c)
- *     MiComputeZeroClusterMaximum @ 0x1402F28B0 (MiComputeZeroClusterMaximum.c)
- *     MmGetAvailablePagesBelowPriority @ 0x1402F59FC (MmGetAvailablePagesBelowPriority.c)
- *     MiPrefetchNormally @ 0x14033E440 (MiPrefetchNormally.c)
- *     MiTrimWorkingSetTail @ 0x14034F710 (MiTrimWorkingSetTail.c)
- *     MiPreUnlockWorkingSetShared @ 0x14035CF20 (MiPreUnlockWorkingSetShared.c)
- *     MiForcedTrim @ 0x140634950 (MiForcedTrim.c)
- *     MiGetExtendedStandbyPage @ 0x140650720 (MiGetExtendedStandbyPage.c)
- *     MiResolvePageFileFault @ 0x14066B52C (MiResolvePageFileFault.c)
- *     MiAllocateCrcList @ 0x1407E5574 (MiAllocateCrcList.c)
+ *     MiResolveMappedFileFault @ 0x140299B10 (MiResolveMappedFileFault.c)
+ *     MiResolvePageFileFault @ 0x1402E0F08 (MiResolvePageFileFault.c)
+ *     MmGetAvailablePagesBelowPriority @ 0x14032833C (MmGetAvailablePagesBelowPriority.c)
+ *     MiStoreUpdateMemoryConditions @ 0x14033A2F4 (MiStoreUpdateMemoryConditions.c)
+ *     MiComputeSystemTrimCriteria @ 0x14033A450 (MiComputeSystemTrimCriteria.c)
+ *     MiComputeAgingPercent @ 0x14033A7E8 (MiComputeAgingPercent.c)
+ *     MiPrefetchNormally @ 0x14033A8E8 (MiPrefetchNormally.c)
+ *     MiUseLowIoPriorityForModifiedPages @ 0x14033A9BC (MiUseLowIoPriorityForModifiedPages.c)
+ *     MiComputeZeroClusterMaximum @ 0x14033D4AC (MiComputeZeroClusterMaximum.c)
+ *     MiGetHardFaultPages @ 0x1403592E4 (MiGetHardFaultPages.c)
+ *     MiForcedTrim @ 0x14036BE70 (MiForcedTrim.c)
+ *     MiAllocateCrcList @ 0x140727A78 (MiAllocateCrcList.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MiGetAvailablePagesBelowPriority(_QWORD *a1, unsigned int a2)
 {
-  __int64 *v2; // r8
-  __int64 v3; // r10
-  unsigned __int64 v4; // rax
-  __int64 v5; // rcx
+  _QWORD *v2; // r9
+  __int64 result; // rax
+  unsigned __int64 v4; // rdx
 
-  v2 = a1 + 368;
-  v3 = a1[320] + a1[336];
-  v4 = (unsigned __int64)&a1[11 * a2 + 368];
-  if ( (unsigned __int64)(a1 + 368) < v4 )
+  v2 = a1 + 304;
+  result = a1[280] + a1[288];
+  v4 = (unsigned __int64)&a1[5 * a2 + 304];
+  while ( (unsigned __int64)v2 < v4 )
   {
-    do
-    {
-      v5 = *v2;
-      v2 += 11;
-      v3 += v5;
-    }
-    while ( (unsigned __int64)v2 < v4 );
+    result += *v2;
+    v2 += 5;
   }
-  return v3;
+  return result;
 }

@@ -1,37 +1,37 @@
 /*
- * XREFs of SdbGetTagDataSize @ 0x14079422C
+ * XREFs of SdbGetTagDataSize @ 0x14075A340
  * Callers:
- *     SdbpGetIndex @ 0x14075B638 (SdbpGetIndex.c)
- *     SdbpGetFirstIndexedRecord @ 0x14075B8A0 (SdbpGetFirstIndexedRecord.c)
- *     SdbpReadTagData @ 0x140791084 (SdbpReadTagData.c)
- *     SdbpGetNextTagId @ 0x1407941A4 (SdbpGetNextTagId.c)
- *     SdbQueryDataExTagID @ 0x1408411FC (SdbQueryDataExTagID.c)
- *     SdbpGetNextIndexedRecord @ 0x140842C30 (SdbpGetNextIndexedRecord.c)
- *     KsepDbReadKData @ 0x140963CD0 (KsepDbReadKData.c)
- *     SdbpGetMatchingTextAttributes @ 0x140A124A4 (SdbpGetMatchingTextAttributes.c)
- *     SdbpGetRegistryMatchingAttributes @ 0x140A126D0 (SdbpGetRegistryMatchingAttributes.c)
+ *     SdbpGetIndex @ 0x140759B94 (SdbpGetIndex.c)
+ *     SdbpGetFirstIndexedRecord @ 0x140759CAC (SdbpGetFirstIndexedRecord.c)
+ *     SdbpReadTagData @ 0x140759F40 (SdbpReadTagData.c)
+ *     SdbpGetNextTagId @ 0x14075A2B8 (SdbpGetNextTagId.c)
+ *     SdbpGetNextIndexedRecord @ 0x1407C0E0C (SdbpGetNextIndexedRecord.c)
+ *     SdbQueryDataExTagID @ 0x1407C1768 (SdbQueryDataExTagID.c)
+ *     KsepDbReadKData @ 0x1408BFC50 (KsepDbReadKData.c)
+ *     SdbpGetMatchingTextAttributes @ 0x1409659A8 (SdbpGetMatchingTextAttributes.c)
+ *     SdbpGetRegistryMatchingAttributes @ 0x140965BD4 (SdbpGetRegistryMatchingAttributes.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     SdbGetTagFromTagID @ 0x14079499C (SdbGetTagFromTagID.c)
- *     SdbpReadMappedData @ 0x140797F3C (SdbpReadMappedData.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbGetTagFromTagID @ 0x14075A3F4 (SdbGetTagFromTagID.c)
+ *     SdbpReadMappedData @ 0x14075A42C (SdbpReadMappedData.c)
  */
 
-__int64 __fastcall SdbGetTagDataSize(__int64 a1, __int64 a2)
+__int64 __fastcall SdbGetTagDataSize(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  int v2; // ebx
-  int v4; // eax
+  int v4; // ebx
+  int v6; // eax
   __int64 result; // rax
-  unsigned int v6; // [rsp+38h] [rbp+10h] BYREF
+  unsigned int v8; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = a2;
-  v4 = SdbGetTagFromTagID(a1, a2) & 0xF000;
-  switch ( v4 )
+  v4 = a2;
+  v6 = SdbGetTagFromTagID(a1, a2, a3, a4) & 0xF000;
+  switch ( v6 )
   {
     case 12288:
       result = 2LL;
       break;
-    case 16384:
     case 24576:
+    case 16384:
       result = 4LL;
       break;
     case 20480:
@@ -44,13 +44,13 @@ __int64 __fastcall SdbGetTagDataSize(__int64 a1, __int64 a2)
       result = 1LL;
       break;
     default:
-      v6 = 0;
-      if ( !(unsigned int)SdbpReadMappedData(a1, (unsigned int)(v2 + 2), &v6, 4LL) )
+      v8 = 0;
+      if ( !(unsigned int)SdbpReadMappedData(a1, (unsigned int)(v4 + 2), &v8, 4LL) )
         AslLogCallPrintf(1LL);
-      result = v6;
+      result = v8;
       break;
   }
-  if ( (int)result + v2 < (unsigned int)result || (unsigned int)(result + v2) > *(_DWORD *)(a1 + 20) )
+  if ( (int)result + v4 < (unsigned int)result || (unsigned int)(result + v4) > *(_DWORD *)(a1 + 20) )
   {
     AslLogCallPrintf(1LL);
     return 0xFFFFFFFFLL;

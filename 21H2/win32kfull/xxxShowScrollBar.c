@@ -1,11 +1,11 @@
 /*
- * XREFs of xxxShowScrollBar @ 0x1C0142434
+ * XREFs of xxxShowScrollBar @ 0x1C0115EF4
  * Callers:
- *     NtUserShowScrollBar @ 0x1C0142340 (NtUserShowScrollBar.c)
+ *     NtUserShowScrollBar @ 0x1C0115E00 (NtUserShowScrollBar.c)
  * Callees:
- *     xxxSetWindowPos @ 0x1C0048A4C (xxxSetWindowPos.c)
- *     _InitPwSB @ 0x1C006884C (_InitPwSB.c)
- *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z @ 0x1C00699A0 (-xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z.c)
+ *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EK@Z @ 0x1C0049254 (-xxxShowWindowEx@@YAHPEAUtagWND@@EK@Z.c)
+ *     _InitPwSB @ 0x1C0063EC0 (_InitPwSB.c)
+ *     xxxSetWindowPos @ 0x1C006BC54 (xxxSetWindowPos.c)
  */
 
 __int64 __fastcall xxxShowScrollBar(struct tagWND *a1, int a2, int a3)
@@ -14,8 +14,8 @@ __int64 __fastcall xxxShowScrollBar(struct tagWND *a1, int a2, int a3)
   int v5; // esi
   int v6; // r9d
   int v7; // edx
-  __int64 v8; // rcx
-  int v9; // eax
+  __int64 v8; // rdx
+  int v9; // ecx
   int v11; // edx
 
   v3 = 0;
@@ -30,7 +30,7 @@ __int64 __fastcall xxxShowScrollBar(struct tagWND *a1, int a2, int a3)
       if ( !v11 )
       {
         LOBYTE(v3) = a3 != 0;
-        xxxShowWindowEx((ULONG_PTR)a1, a3 != 0, gdwPUDFlags & 0x10000 | v3 & 0x10000);
+        xxxShowWindowEx(a1, a3 != 0, gdwPUDFlags & 0x10000 | v3 & 0x10000);
         return 1LL;
       }
       if ( v11 == 1 )
@@ -46,9 +46,9 @@ __int64 __fastcall xxxShowScrollBar(struct tagWND *a1, int a2, int a3)
     v6 = 0x100000;
   }
   v8 = *((_QWORD *)a1 + 5);
+  v9 = *(_DWORD *)(v8 + 28);
   if ( !a3 )
   {
-    v9 = *(_DWORD *)(v8 + 28);
     if ( (v9 & v6) == 0 )
       return 1LL;
     *(_DWORD *)(v8 + 28) = v9 & ~v6;
@@ -56,10 +56,10 @@ LABEL_17:
     xxxSetWindowPos(a1, 0LL, 0LL, 0LL, 0, 0, 55);
     return 1LL;
   }
-  if ( (v6 & *(_DWORD *)(v8 + 28)) != v6 )
+  if ( (v6 & v9) != v6 )
   {
     v5 = 1;
-    *(_DWORD *)(v8 + 28) |= v6;
+    *(_DWORD *)(v8 + 28) = v6 | v9;
   }
   if ( !*((_QWORD *)a1 + 19) )
     InitPwSB((__int64)a1);

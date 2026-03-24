@@ -1,93 +1,97 @@
 /*
- * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x140672F78
+ * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x1405C5480
  * Callers:
- *     KiBugCheckProgress @ 0x1405698D0 (KiBugCheckProgress.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x140672F78 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     KiBugCheckProgress @ 0x140517E30 (KiBugCheckProgress.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x1405C5480 (BgpFwDisplayBugCheckProgressUpdate.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x1402C3000 (KeStallExecutionProcessor.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     BcpConvertProgressToString @ 0x1406721AC (BcpConvertProgressToString.c)
- *     BcpDisplayProgress @ 0x140672970 (BcpDisplayProgress.c)
- *     BcpGetDisplayType @ 0x140672D10 (BcpGetDisplayType.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x140672F78 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     KeStallExecutionProcessor @ 0x14022A1F0 (KeStallExecutionProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     BcpConvertProgressToString @ 0x1405C46BC (BcpConvertProgressToString.c)
+ *     BcpDisplayProgress @ 0x1405C4E80 (BcpDisplayProgress.c)
+ *     BcpGetDisplayType @ 0x1405C5218 (BcpGetDisplayType.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x1405C5480 (BgpFwDisplayBugCheckProgressUpdate.c)
  */
 
 __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_STRING **a2, char a3)
 {
-  unsigned int v3; // ebp
+  unsigned int v3; // esi
   LARGE_INTEGER v7; // rax
   LARGE_INTEGER v8; // rbx
-  LONGLONG v9; // rcx
+  LARGE_INTEGER v9; // r8
   LONGLONG v10; // rax
-  LARGE_INTEGER v11; // rsi
-  __int64 v12; // rdi
-  int DisplayType; // eax
-  __int64 v14; // r8
-  LARGE_INTEGER v15; // rax
-  LARGE_INTEGER v16; // r8
-  UNICODE_STRING *v17; // rax
-  UNICODE_STRING *v18; // rcx
+  LARGE_INTEGER v11; // r8
+  LONGLONG v12; // rcx
+  LARGE_INTEGER v13; // rbp
+  __int64 v14; // rdi
+  unsigned int DisplayType; // eax
+  __int64 v16; // r8
+  LARGE_INTEGER v17; // rax
+  LARGE_INTEGER v18; // r8
   UNICODE_STRING *v19; // rax
-  _DWORD v21[14]; // [rsp+20h] [rbp-38h] BYREF
-  LARGE_INTEGER v22; // [rsp+78h] [rbp+20h] BYREF
+  UNICODE_STRING *v20; // rcx
+  UNICODE_STRING *v21; // rax
+  _DWORD v23[14]; // [rsp+20h] [rbp-38h] BYREF
+  LARGE_INTEGER v24; // [rsp+78h] [rbp+20h] BYREF
 
   v3 = 0;
-  v22.QuadPart = 0LL;
-  if ( (dword_140C0E4B0 & 0x400000) != 0 || (dword_140C0E4B0 & 0x10) == 0 )
+  v24.QuadPart = 0LL;
+  if ( (dword_140C134F0 & 0x400000) != 0 || (dword_140C134F0 & 0x10) == 0 )
     return 0LL;
-  v7 = KeQueryPerformanceCounter(&v22);
-  v8 = v22;
-  v9 = v7.QuadPart - BcpLastProgressUpdateTicks;
+  v7 = KeQueryPerformanceCounter(&v24);
+  v8 = v24;
+  v9 = v7;
   v10 = v7.QuadPart - BcpStartTicks;
-  v11.QuadPart = 2 * v22.QuadPart;
-  if ( a3 && v10 < v11.QuadPart )
-    v12 = 100 * v10 / v11.QuadPart;
+  v11.QuadPart = v9.QuadPart - BcpLastProgressUpdateTicks;
+  v12 = 10 * v24.QuadPart;
+  v13.QuadPart = 2 * v24.QuadPart;
+  if ( a3 && v10 < v12 )
+    v14 = 100 * v10 / v12;
   else
-    LODWORD(v12) = 100;
-  if ( a1 <= (unsigned int)v12 )
-    LODWORD(v12) = a1;
-  if ( v9 < v11.QuadPart || (unsigned int)v12 < BcpLastProgressDisplayed )
+    LODWORD(v14) = 100;
+  if ( a1 <= (unsigned int)v14 )
+    LODWORD(v14) = a1;
+  if ( v11.QuadPart < v13.QuadPart || (unsigned int)v14 < BcpLastProgressDisplayed )
   {
-    LODWORD(v12) = BcpLastProgressDisplayed;
+    LODWORD(v14) = BcpLastProgressDisplayed;
   }
   else
   {
-    v21[0] = DWORD2(BgInternal);
-    v21[1] = DWORD1(BgInternal);
-    v21[2] = HIDWORD(BgInternal);
-    DisplayType = BcpGetDisplayType(v21);
-    dword_140C64B30 = dword_140C0E3D8;
+    v23[0] = DWORD2(BgInternal);
+    v23[1] = DWORD1(BgInternal);
+    v23[2] = HIDWORD(BgInternal);
+    DisplayType = BcpGetDisplayType(v23);
+    dword_140C4C5E0 = dword_140C13448;
     BcpCursor = BcpProgressOffset;
-    BcpDisplayProgress(v12, DisplayType, v14);
+    BcpDisplayProgress(v14, DisplayType, v16);
     BcpLastProgressUpdateTicks = KeQueryPerformanceCounter(0LL).QuadPart;
-    BcpLastProgressDisplayed = v12;
+    BcpLastProgressDisplayed = v14;
   }
-  if ( a1 != 100 || (_DWORD)v12 == 100 )
+  if ( a1 != 100 || (_DWORD)v14 == 100 )
   {
-    v17 = &stru_140C70B60;
+    v19 = &stru_140C53DF0;
     if ( !a3 )
-      v17 = &stru_140C70B70;
-    *a2 = v17;
-    BcpConvertProgressToString(v12, (__int64)(a2 + 3));
-    v18 = &stru_140C70BB0;
+      v19 = &stru_140C53E00;
+    *a2 = v19;
+    BcpConvertProgressToString(v14, (__int64)(a2 + 3));
+    v20 = &stru_140C53E40;
     if ( a1 != 1 )
-      v18 = &stru_140C70BD0;
-    v19 = &stru_140C70BA0;
+      v20 = &stru_140C53E60;
+    v21 = &stru_140C53E30;
     if ( a1 != 1 )
-      v19 = &stru_140C70BC0;
-    a2[1] = v19;
-    a2[2] = v18;
+      v21 = &stru_140C53E50;
+    a2[1] = v21;
+    a2[2] = v20;
   }
   else
   {
-    v15.QuadPart = *(_QWORD *)&KeQueryPerformanceCounter(0LL) - BcpLastProgressUpdateTicks;
-    if ( v15.QuadPart < v11.QuadPart )
-      KeStallExecutionProcessor(1000000 * (v11.QuadPart - v15.QuadPart) / v8.QuadPart);
-    LOBYTE(v16.LowPart) = a3;
+    v17.QuadPart = *(_QWORD *)&KeQueryPerformanceCounter(0LL) - BcpLastProgressUpdateTicks;
+    if ( v17.QuadPart < v13.QuadPart )
+      KeStallExecutionProcessor(1000000 * (v13.QuadPart - v17.QuadPart) / v8.QuadPart);
+    LOBYTE(v18.LowPart) = a3;
     return (unsigned int)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))BgpFwDisplayBugCheckProgressUpdate)(
                            100LL,
                            a2,
-                           (LARGE_INTEGER)v16.QuadPart);
+                           (LARGE_INTEGER)v18.QuadPart);
   }
   return v3;
 }

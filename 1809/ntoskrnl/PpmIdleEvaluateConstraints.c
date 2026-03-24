@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmIdleEvaluateConstraints @ 0x140180674
+ * XREFs of PpmIdleEvaluateConstraints @ 0x140180694
  * Callers:
- *     PpmIdleSelectStates @ 0x140180070 (PpmIdleSelectStates.c)
+ *     PpmIdleSelectStates @ 0x140180090 (PpmIdleSelectStates.c)
  * Callees:
  *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
- *     PoAllProcessorsDeepIdle @ 0x1400FCB74 (PoAllProcessorsDeepIdle.c)
+ *     PoAllProcessorsDeepIdle @ 0x1400FCB94 (PoAllProcessorsDeepIdle.c)
  */
 
 LARGE_INTEGER __fastcall PpmIdleEvaluateConstraints(__int64 a1, __int64 *a2)
@@ -49,7 +49,7 @@ LARGE_INTEGER __fastcall PpmIdleEvaluateConstraints(__int64 a1, __int64 *a2)
   }
   else
   {
-    v6 = BYTE2(PpmCurrentProfile[341 * dword_14041810C + 24]);
+    v6 = BYTE2(PpmCurrentProfile[341 * dword_1404180CC + 24]);
     *(_BYTE *)(v2 + 542) = v6;
     if ( v6 )
       *(_WORD *)(v2 + 48) |= 0x4000u;

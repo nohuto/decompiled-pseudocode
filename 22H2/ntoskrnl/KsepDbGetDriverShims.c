@@ -1,26 +1,26 @@
 /*
- * XREFs of KsepDbGetDriverShims @ 0x140694A54
+ * XREFs of KsepDbGetDriverShims @ 0x140758450
  * Callers:
- *     KsepGetShimsForDriver @ 0x140694008 (KsepGetShimsForDriver.c)
+ *     KsepGetShimsForDriver @ 0x140758368 (KsepGetShimsForDriver.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x140209ED0 (KsepPoolAllocatePaged.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     KsepDbGetDriverShimsInternal @ 0x140694B7C (KsepDbGetDriverShimsInternal.c)
- *     KseShimDatabaseOpen @ 0x140694C20 (KseShimDatabaseOpen.c)
- *     KsepDbFreeDriverShims @ 0x140694D3C (KsepDbFreeDriverShims.c)
- *     KseShimDatabaseClose @ 0x140694D78 (KseShimDatabaseClose.c)
+ *     KsepPoolAllocatePaged @ 0x140371F2C (KsepPoolAllocatePaged.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     KseShimDatabaseClose @ 0x140758578 (KseShimDatabaseClose.c)
+ *     KsepDbGetDriverShimsInternal @ 0x14075867C (KsepDbGetDriverShimsInternal.c)
+ *     KsepDbFreeDriverShims @ 0x140758720 (KsepDbFreeDriverShims.c)
+ *     KseShimDatabaseOpen @ 0x14075A8D0 (KseShimDatabaseOpen.c)
  */
 
 __int64 __fastcall KsepDbGetDriverShims(__int64 a1, int a2, int a3, _QWORD *a4, unsigned int *a5)
 {
-  int v6; // r14d
+  int v6; // r15d
   const void *v7; // rsi
   unsigned int v8; // edi
   int v9; // eax
   _QWORD *v10; // r13
   unsigned int v11; // ebx
   unsigned int DriverShimsInternal; // eax
-  __int64 v13; // r14
+  __int64 v13; // r15
   __int64 v14; // rcx
   void *v16; // rax
   unsigned int v17; // [rsp+40h] [rbp-20h] BYREF

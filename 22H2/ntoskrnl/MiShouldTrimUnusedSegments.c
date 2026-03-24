@@ -1,20 +1,13 @@
 /*
- * XREFs of MiShouldTrimUnusedSegments @ 0x14046B4C8
+ * XREFs of MiShouldTrimUnusedSegments @ 0x14052AA64
  * Callers:
- *     MiCheckControlArea @ 0x14029FAA0 (MiCheckControlArea.c)
- *     MiFreeExcessSegments @ 0x140624A8C (MiFreeExcessSegments.c)
- *     MiRemoveUnusedSegments @ 0x140625B94 (MiRemoveUnusedSegments.c)
+ *     MiFreeExcessSegments @ 0x1402953D0 (MiFreeExcessSegments.c)
+ *     MiRemoveUnusedSegments @ 0x14052A63C (MiRemoveUnusedSegments.c)
  * Callees:
  *     <none>
  */
 
-__int64 MiShouldTrimUnusedSegments()
+_BOOL8 MiShouldTrimUnusedSegments()
 {
-  unsigned int v0; // r9d
-
-  v0 = 0;
-  if ( !qword_140C65658 )
-    return 0LL;
-  LOBYTE(v0) = (unsigned __int64)qword_140C65658 >> 12 > 3 * (qword_140C6FA98 / 0x64uLL);
-  return v0;
+  return qword_140C4C998 && (unsigned __int64)qword_140C4C998 >> 12 > 3 * (qword_140C52B28 / 0x64uLL);
 }

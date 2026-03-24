@@ -1,131 +1,160 @@
 /*
- * XREFs of DxgkReleaseHandleDataCB @ 0x1C01C9830
+ * XREFs of DxgkReleaseHandleDataCB @ 0x1C0115BB0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C0015214 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C017D000 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
- *     ?DxgkThreadObjectCreateDxgThread@@YAPEAVDXGTHREAD@@XZ @ 0x1C018B028 (-DxgkThreadObjectCreateDxgThread@@YAPEAVDXGTHREAD@@XZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C00067D8 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C00FBBF0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
+ *     ?DxgkThreadObjectCreateDxgThread@@YAPEAVDXGTHREAD@@XZ @ 0x1C015BF70 (-DxgkThreadObjectCreateDxgThread@@YAPEAVDXGTHREAD@@XZ.c)
  */
 
 void __fastcall DxgkReleaseHandleDataCB(__int64 *a1)
 {
-  __int64 v1; // rsi
+  __int64 v1; // rbp
   __int64 v3; // rdx
   __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
   __int64 CurrentProcess; // rax
   __int64 ProcessDxgProcess; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
   __int64 v9; // rbx
-  __int64 v10; // rdi
-  struct DXGTHREAD *DxgThread; // rbx
-  __int64 v12; // rdi
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  int v15; // eax
-  struct _EX_RUNDOWN_REF *v16; // rcx
-  int v18; // r9d
   struct DXGTHREAD *Current; // rax
-  __int64 v20; // rbx
-  struct DXGTHREAD *v21; // [rsp+50h] [rbp-68h] BYREF
-  char v22[8]; // [rsp+58h] [rbp-60h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+60h] [rbp-58h] BYREF
+  __int64 v11; // rsi
+  struct _KTHREAD *CurrentThread; // rdi
+  __int64 v13; // rax
+  int CurrentProcessSessionId; // r14d
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  __int64 v18; // rbx
+  void *v19; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // rax
+  int ProcessSessionId; // ebx
+  __int64 CurrentThreadProcess; // rax
+  __int64 ThreadWin32Thread; // rax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  int *ThreadProperty; // rbx
+  __int64 v29; // rdi
+  __int64 v30; // rax
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  __int64 v33; // r8
+  int v34; // r9d
+  __int64 v35; // rsi
+  struct _EX_RUNDOWN_REF *v36; // rcx
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  _QWORD *v40; // rax
+  __int64 v41; // rax
+  char v42[8]; // [rsp+20h] [rbp-68h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+28h] [rbp-60h] BYREF
 
   v1 = *a1;
   if ( *a1 )
   {
-    DXGVALIDATIONPROCESSREATTACH::DXGVALIDATIONPROCESSREATTACH((DXGVALIDATIONPROCESSREATTACH *)v22);
-    CurrentProcess = PsGetCurrentProcess(v4, v3, v5, v6);
+    DXGVALIDATIONPROCESSREATTACH::DXGVALIDATIONPROCESSREATTACH((DXGVALIDATIONPROCESSREATTACH *)v42);
+    CurrentProcess = PsGetCurrentProcess(v4, v3);
     ProcessDxgProcess = PsGetProcessDxgProcess(CurrentProcess);
     v9 = ProcessDxgProcess;
-    if ( ProcessDxgProcess && (*(_DWORD *)(ProcessDxgProcess + 424) & 0x80) == 0
-      || (Current = DXGTHREAD::GetCurrent()) == 0LL
-      || (v10 = *((_QWORD *)Current + 3)) == 0 )
+    if ( ProcessDxgProcess && (*(_BYTE *)(ProcessDxgProcess + 347) & 0x10) == 0
+      || (Current = DXGTHREAD::GetCurrent(v8, v7)) == 0LL
+      || (v11 = *((_QWORD *)Current + 1)) == 0 )
     {
-      v10 = v9;
+      v11 = v9;
     }
-    v21 = 0LL;
-    if ( (int)PsTlsGetValue(g_DxgkThreadTlsId, &v21) < 0 )
+    CurrentThread = KeGetCurrentThread();
+    if ( !CurrentThread )
     {
-      DxgThread = 0LL;
+      v13 = WdLogNewEntry5_WdAssertion(v8, v7);
+      *(_QWORD *)(v13 + 24) = 507LL;
+      WdLogEvent5_WdAssertion(v13);
+    }
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v8, v7);
+    v17 = PsGetCurrentProcess(v16, v15);
+    v18 = PsGetProcessDxgProcess(v17);
+    if ( CurrentProcessSessionId
+      && (unsigned int)PsGetThreadSessionId(CurrentThread) == CurrentProcessSessionId
+      && v18
+      && (v19 = *(void **)(v18 + 88)) != 0LL
+      && v19 != &gDxgkWin32kEngInterface
+      && (!(unsigned __int8)KeIsAttachedProcess()
+       || (v22 = PsGetCurrentProcess(v21, v20),
+           ProcessSessionId = PsGetProcessSessionIdEx(v22),
+           CurrentThreadProcess = PsGetCurrentThreadProcess(),
+           ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)))
+      && (ThreadWin32Thread = PsGetThreadWin32Thread(CurrentThread)) != 0
+      && *(_QWORD *)ThreadWin32Thread )
+    {
+      ThreadProperty = *(int **)(*(_QWORD *)ThreadWin32Thread + 80LL);
     }
     else
     {
-      DxgThread = v21;
-      if ( !v21 )
-      {
-        DxgThread = DxgkThreadObjectCreateDxgThread();
-        v21 = DxgThread;
-      }
+      ThreadProperty = (int *)PsGetThreadProperty(KeGetCurrentThread(), 0x68547844uLL, 0);
+      if ( ThreadProperty || (ThreadProperty = (int *)DxgkThreadObjectCreateDxgThread()) != 0LL )
+        ObfDereferenceObject(ThreadProperty);
+      else
+        ThreadProperty = 0LL;
     }
-    v12 = v10 + 248;
-    if ( v12 && *(struct _KTHREAD **)(v12 + 8) == KeGetCurrentThread() )
+    v29 = v11 + 208;
+    if ( v11 != -208 && *(struct _KTHREAD **)(v11 + 216) == KeGetCurrentThread() )
     {
-      WdLogSingleEntry1(1LL, 1425LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"bAllowAcquireRecursive || pPushLock == NULL || !m_pPushLock->IsExclusiveOwner()",
-        1425LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v30 = WdLogNewEntry5_WdAssertion(v27, v26);
+      *(_QWORD *)(v30 + 24) = 1571LL;
+      WdLogEvent5_WdAssertion(v30);
     }
     KeEnterCriticalRegion();
-    if ( !(unsigned __int8)ExTryAcquirePushLockSharedEx(v12, 0LL) )
+    if ( !(unsigned __int8)ExTryAcquirePushLockSharedEx(v11 + 208, 0LL) )
     {
       if ( bTracingEnabled )
       {
-        v18 = *(_DWORD *)(v12 + 24);
-        if ( v18 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-          McTemplateK0q_EtwWriteTransfer(v13, (const EVENT_DESCRIPTOR *)"g", v14, v18);
+        v34 = *(_DWORD *)(v11 + 232);
+        if ( v34 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+          McTemplateK0q_EtwWriteTransfer(v32, &EventBlockThread, v33, v34);
       }
-      ExAcquirePushLockSharedEx(v12, 0LL);
+      ExAcquirePushLockSharedEx(v11 + 208, 0LL);
     }
-    v15 = *((_DWORD *)a1 + 2);
-    if ( v15 == 1 )
+    v35 = *((int *)a1 + 2);
+    if ( (_DWORD)v35 == 1 )
     {
-      v16 = (struct _EX_RUNDOWN_REF *)(v1 + 88);
+      v36 = (struct _EX_RUNDOWN_REF *)(v1 + 88);
     }
     else
     {
-      if ( v15 != 2 )
+      if ( (_DWORD)v35 != 2 )
       {
-        v20 = *((int *)a1 + 2);
-        WdLogSingleEntry1(2LL, v20);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Driver supplied invalid handle type (0x%I64x), cannot release reference",
-          v20,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-LABEL_17:
-        ExReleasePushLockSharedEx(v12, 0LL);
+        v41 = WdLogNewEntry5_WdError(v32, v31);
+        *(_QWORD *)(v41 + 24) = v35;
+        WdLogEvent5_WdError(v41);
+LABEL_40:
+        ExReleasePushLockSharedEx(v29, 0LL);
         KeLeaveCriticalRegion();
-        if ( v22[0] )
+        if ( v42[0] )
           KeUnstackDetachProcess(&ApcState);
         return;
       }
-      DXGFASTMUTEX::Release((struct _KTHREAD **)(v1 + 80));
-      v16 = (struct _EX_RUNDOWN_REF *)(v1 + 72);
+      DXGFASTMUTEX::Release((struct _KTHREAD **)(v1 + 80), v31);
+      v36 = (struct _EX_RUNDOWN_REF *)(v1 + 72);
     }
-    ExReleaseRundownProtection(v16);
-    if ( DxgThread )
+    ExReleaseRundownProtection(v36);
+    if ( ThreadProperty )
     {
-      if ( --*((_DWORD *)DxgThread + 12) < 0 )
-        WdLogSingleEntry5(0LL, 275LL, 38LL, *((int *)DxgThread + 12), 0LL, 0LL);
+      if ( --ThreadProperty[8] < 0 )
+      {
+        v40 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v38, v37);
+        v40[3] = 275LL;
+        v40[4] = 38LL;
+        v40[5] = ThreadProperty[8];
+        v40[6] = 0LL;
+        v40[7] = 0LL;
+        WdLogEvent5_WdCriticalError(v40);
+      }
     }
-    goto LABEL_17;
+    goto LABEL_40;
   }
 }

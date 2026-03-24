@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwWriteStartScenario @ 0x14085E060
+ * XREFs of EtwWriteStartScenario @ 0x140788390
  * Callers:
- *     PopDiagTracePowerTransitionStart @ 0x1409911F8 (PopDiagTracePowerTransitionStart.c)
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
- *     PerfDiagInitialize @ 0x140B706A8 (PerfDiagInitialize.c)
+ *     PnpDiagnosticTraceDriverInitPhaseStart @ 0x1403CF3BC (PnpDiagnosticTraceDriverInitPhaseStart.c)
+ *     PopDiagTracePowerTransitionStart @ 0x1407748D8 (PopDiagTracePowerTransitionStart.c)
+ *     PerfDiagInitialize @ 0x140A41FEC (PerfDiagInitialize.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     EtwGetProviderIdFromHandle @ 0x140368FC4 (EtwGetProviderIdFromHandle.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwTraceControl @ 0x14041E100 (ZwTraceControl.c)
- *     WdipStartEndScenario @ 0x1407E5A1C (WdipStartEndScenario.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     EtwGetProviderIdFromHandle @ 0x14039E928 (EtwGetProviderIdFromHandle.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwTraceControl @ 0x1403FD2C0 (ZwTraceControl.c)
+ *     WdipStartEndScenario @ 0x14078946C (WdipStartEndScenario.c)
  */
 
 __int64 __fastcall EtwWriteStartScenario(
@@ -45,7 +45,7 @@ __int64 __fastcall EtwWriteStartScenario(
           || (ProviderIdFromHandle = ZwTraceControl(12LL, 0LL), ProviderIdFromHandle >= 0) )
         {
           ProviderIdFromHandle = EtwWrite((REGHANDLE)RegHandle, EventDescriptor, ActivityId, UserDataCount, UserData);
-          WdipStartEndScenario((__int64)&v11, (__int64)ActivityId, &EventDescriptor->Id, 10);
+          WdipStartEndScenario(&v11, ActivityId, EventDescriptor, 10LL);
         }
       }
     }

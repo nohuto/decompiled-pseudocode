@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetSize@CHolographicInteropTarget@@$4PPPPPPPM@A@EBA?AUD2D_SIZE_U@@XZ @ 0x18010AC30
+ * XREFs of ?GetSize@CHolographicInteropTarget@@$4PPPPPPPM@A@EBA?AUD2D_SIZE_U@@XZ @ 0x1800F84F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-struct D2D_SIZE_U __fastcall CHolographicInteropTarget::GetSize(__int64 a1, _DWORD *a2)
+_DWORD *__fastcall CHolographicInteropTarget::GetSize(__int64 a1, _DWORD *a2)
 {
-  return CHolographicInteropTarget::GetSize((CHolographicInteropTarget *)(a1 - *(int *)(a1 - 4)), a2);
+  return EmitterShapes::CPointSpawner::GetRandomPoint(a1 - *(int *)(a1 - 4), a2);
 }

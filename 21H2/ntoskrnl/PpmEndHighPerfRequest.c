@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmEndHighPerfRequest @ 0x14025DC0C
+ * XREFs of PpmEndHighPerfRequest @ 0x1403A6C60
  * Callers:
- *     PopUserShutdownCancelled @ 0x1406EADD4 (PopUserShutdownCancelled.c)
- *     PopIssueActionRequest @ 0x1407FF888 (PopIssueActionRequest.c)
- *     PoClearBroadcast @ 0x1408025E8 (PoClearBroadcast.c)
- *     PdcPoPerfOverride @ 0x14080877C (PdcPoPerfOverride.c)
- *     PopSetupHighPerfPowerRequest @ 0x140864980 (PopSetupHighPerfPowerRequest.c)
+ *     PopIssueActionRequest @ 0x140775A08 (PopIssueActionRequest.c)
+ *     PoClearBroadcast @ 0x1407781E0 (PoClearBroadcast.c)
+ *     PopUserShutdownCancelled @ 0x140779E84 (PopUserShutdownCancelled.c)
+ *     PopSetupHighPerfPowerRequest @ 0x1407D4A40 (PopSetupHighPerfPowerRequest.c)
+ *     PdcPoPerfOverride @ 0x1408EF908 (PdcPoPerfOverride.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x1402E2D20 (KiSetTimerEx.c)
- *     PopPowerRequestReferenceRelease @ 0x140369FDC (PopPowerRequestReferenceRelease.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     PoClearPowerRequestInternal @ 0x140281F9C (PoClearPowerRequestInternal.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PpmEndHighPerfRequest(int a1)
@@ -19,7 +19,7 @@ __int64 __fastcall PpmEndHighPerfRequest(int a1)
   __int64 v1; // rbx
   unsigned __int64 v2; // rdi
   __int64 v3; // rdx
-  int v4; // eax
+  __int64 v4; // rax
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -29,7 +29,7 @@ __int64 __fastcall PpmEndHighPerfRequest(int a1)
   v2 = KeAcquireSpinLockRaiseToDpc(&PpmHighPerfRequestLock);
   if ( !PpmHighPerfDuration[v1] || PpmHighPerfDeferredEndDisabled )
   {
-    PopPowerRequestReferenceRelease(PpmHighPerfPowerRequest);
+    PoClearPowerRequestInternal(PpmHighPerfPowerRequest, 4u);
   }
   else
   {
@@ -41,7 +41,7 @@ __int64 __fastcall PpmEndHighPerfRequest(int a1)
       v4 = v3 + MEMORY[0xFFFFF78000000008];
       PpmHighPerfDeferredEndTime = v3 + MEMORY[0xFFFFF78000000008];
     }
-    KiSetTimerEx((unsigned int)&PpmHighPerfEndTimer, MEMORY[0xFFFFF78000000008] - v4, 0, 0, (__int64)&PpmHighPerfEndDpc);
+    KiSetTimerEx((__int64)&PpmHighPerfEndTimer, MEMORY[0xFFFFF78000000008] - v4, 0, 0, (__int64)&PpmHighPerfEndDpc);
   }
   KxReleaseSpinLock(&PpmHighPerfRequestLock);
   result = (unsigned int)KiIrqlFlags;

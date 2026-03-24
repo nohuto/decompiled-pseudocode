@@ -1,19 +1,19 @@
 /*
- * XREFs of ??1CScanPipeline@@UEAA@XZ @ 0x1802AEFB0
+ * XREFs of ??1CScanPipeline@@UEAA@XZ @ 0x180218FB8
  * Callers:
- *     ??1CFormatConverter@@MEAA@XZ @ 0x1802AEF10 (--1CFormatConverter@@MEAA@XZ.c)
- *     ??_GCScanPipeline@@UEAAPEAXI@Z @ 0x1802AF090 (--_GCScanPipeline@@UEAAPEAXI@Z.c)
+ *     ??1CFormatConverter@@UEAA@XZ @ 0x180218F0C (--1CFormatConverter@@UEAA@XZ.c)
+ *     ??_GCScanPipeline@@UEAAPEAXI@Z @ 0x180219090 (--_GCScanPipeline@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x1800656F0 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CScanPipeline::~CScanPipeline(void **this)
 {
   *this = &CScanPipeline::`vftable';
-  DefaultHeap::Free(this[80]);
+  operator delete(this[80]);
   this[80] = 0LL;
-  DynArrayImpl<1>::~DynArrayImpl<1>(this + 74);
-  DynArrayImpl<1>::~DynArrayImpl<1>(this + 67);
-  DynArrayImpl<1>::~DynArrayImpl<1>(this + 1);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)(this + 74));
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)(this + 67));
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)(this + 1));
 }

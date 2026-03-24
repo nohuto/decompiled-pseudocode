@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetProcessAttributionNoRef@CResource@@UEBAPEAVCProcessAttribution@@XZ @ 0x1800CA450
+ * XREFs of ?GetProcessAttributionNoRef@CResource@@UEBAPEAVCProcessAttribution@@XZ @ 0x1800BB520
  * Callers:
  *     <none>
  * Callees:
@@ -12,6 +12,6 @@ struct CProcessAttribution *__fastcall CResource::GetProcessAttributionNoRef(CRe
 
   result = (struct CProcessAttribution *)*((_QWORD *)this + 6);
   if ( result )
-    return (struct CProcessAttribution *)*((_QWORD *)result + 6);
+    return (struct CProcessAttribution *)*((_QWORD *)result + 5);
   return result;
 }

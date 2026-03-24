@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceChangeDisplayModeBroadcast @ 0x1C00C5050
+ * XREFs of EtwTraceChangeDisplayModeBroadcast @ 0x1C00B7820
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C00DF278 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124850 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceChangeDisplayModeBroadcast(__int64 a1)

@@ -1,43 +1,33 @@
 /*
- * XREFs of ?ReadSettingsFromRegKey@DelayZonePalmRejection@@AEAAXXZ @ 0x1C006D960
+ * XREFs of ?ReadSettingsFromRegKey@DelayZonePalmRejection@@AEAAXXZ @ 0x1C006CF28
  * Callers:
- *     ?Initialize@DelayZonePalmRejection@@AEAAXXZ @ 0x1C0081CF0 (-Initialize@DelayZonePalmRejection@@AEAAXXZ.c)
+ *     ?Initialize@DelayZonePalmRejection@@AEAAXXZ @ 0x1C006CB90 (-Initialize@DelayZonePalmRejection@@AEAAXXZ.c)
  * Callees:
- *     RIMRegQueryDWord @ 0x1C006DA64 (RIMRegQueryDWord.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     RIMRegQueryDWord @ 0x1C006D048 (RIMRegQueryDWord.c)
  */
 
 void __fastcall DelayZonePalmRejection::ReadSettingsFromRegKey(DelayZonePalmRejection *this)
 {
-  const wchar_t **v2; // rdi
-  struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-60h] BYREF
-  const wchar_t *v4; // [rsp+30h] [rbp-50h] BYREF
-  int v5; // [rsp+38h] [rbp-48h]
-  int v6; // [rsp+3Ch] [rbp-44h]
-  const wchar_t *v7; // [rsp+40h] [rbp-40h]
-  int v8; // [rsp+48h] [rbp-38h]
-  int v9; // [rsp+4Ch] [rbp-34h]
-  const wchar_t *v10; // [rsp+50h] [rbp-30h]
-  int v11; // [rsp+58h] [rbp-28h]
-  int v12; // [rsp+5Ch] [rbp-24h]
-  const wchar_t *v13; // [rsp+60h] [rbp-20h]
-  int v14; // [rsp+68h] [rbp-18h]
-  int v15; // [rsp+6Ch] [rbp-14h]
-  __int64 v16; // [rsp+70h] [rbp-10h] BYREF
+  DelayZonePalmRejection **v2; // rdi
+  struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
-  v4 = L"RejectionEnabled";
-  v2 = &v4;
-  v5 = 1;
-  v6 = 1;
-  v7 = L"DelayZonePalmRejectionThresholdMS";
-  v8 = 175;
-  v9 = 175;
-  v10 = L"DelayZonePalmRejectionExtensionSizeDips";
-  v11 = 250;
-  v12 = 250;
-  v13 = L"DisableTimeThreshold";
-  v14 = 60000;
-  v15 = 60000;
+  if ( (dword_1C02510CC & 1) == 0 )
+  {
+    dword_1C0250DD8 = 1;
+    dword_1C02510CC |= 1u;
+    qword_1C0250DD0 = (__int64)L"RejectionEnabled";
+    qword_1C0250DE0 = (__int64)L"DelayZonePalmRejectionThresholdMS";
+    dword_1C0250DE8 = 175;
+    dword_1C0250DEC = 175;
+    qword_1C0250DF0 = (__int64)L"DelayZonePalmRejectionExtensionSizeDips";
+    dword_1C0250DF8 = 250;
+    dword_1C0250DFC = 250;
+    qword_1C0250E00 = (__int64)L"DisableTimeThreshold";
+    dword_1C0250E08 = 60000;
+    dword_1C0250E0C = 60000;
+    dword_1C0250DDC = 1;
+  }
+  v2 = (DelayZonePalmRejection **)&qword_1C0250DD0;
   do
   {
     DestinationString = 0LL;
@@ -47,9 +37,9 @@ void __fastcall DelayZonePalmRejection::ReadSettingsFromRegKey(DelayZonePalmReje
     RIMRegQueryDWord(&DestinationString, *v2, *((unsigned int *)v2 + 2), (char *)v2 + 12);
     v2 += 2;
   }
-  while ( v2 != (const wchar_t **)&v16 );
-  *((_DWORD *)this + 24) = v6;
-  *((_DWORD *)this + 25) = v9;
-  *((_DWORD *)this + 26) = v12;
-  *((_DWORD *)this + 27) = v15;
+  while ( v2 != &DelayZonePalmRejection::s_instance );
+  *((_DWORD *)this + 24) = dword_1C0250DDC;
+  *((_DWORD *)this + 25) = dword_1C0250DEC;
+  *((_DWORD *)this + 26) = dword_1C0250DFC;
+  *((_DWORD *)this + 27) = dword_1C0250E0C;
 }

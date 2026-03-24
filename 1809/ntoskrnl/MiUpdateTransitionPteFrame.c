@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdateTransitionPteFrame @ 0x140118984
+ * XREFs of MiUpdateTransitionPteFrame @ 0x1401189A4
  * Callers:
- *     MiInvalidateCollidedIos @ 0x140117D28 (MiInvalidateCollidedIos.c)
- *     MiReplaceTransitionPage @ 0x14011844C (MiReplaceTransitionPage.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x140151F00 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiSplitDirectMapPage @ 0x1402B6C24 (MiSplitDirectMapPage.c)
- *     MiSwapNumaStandbyPage @ 0x1402C0F10 (MiSwapNumaStandbyPage.c)
- *     MiDuplicateCloneLeaf @ 0x1402C98D8 (MiDuplicateCloneLeaf.c)
- *     MiSwapHardFaultPage @ 0x1402CFE5C (MiSwapHardFaultPage.c)
+ *     MiInvalidateCollidedIos @ 0x140117D48 (MiInvalidateCollidedIos.c)
+ *     MiReplaceTransitionPage @ 0x14011846C (MiReplaceTransitionPage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140151F20 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiSplitDirectMapPage @ 0x1402B6D24 (MiSplitDirectMapPage.c)
+ *     MiSwapNumaStandbyPage @ 0x1402C1010 (MiSwapNumaStandbyPage.c)
+ *     MiDuplicateCloneLeaf @ 0x1402C99D8 (MiDuplicateCloneLeaf.c)
+ *     MiSwapHardFaultPage @ 0x1402CFF5C (MiSwapHardFaultPage.c)
  * Callees:
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  */

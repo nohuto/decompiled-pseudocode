@@ -1,18 +1,18 @@
 /*
- * XREFs of PopSetModernStandbyTransitionReason @ 0x14039A8F4
+ * XREFs of PopSetModernStandbyTransitionReason @ 0x140576774
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140809838 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudyStartNextSession @ 0x140774CD8 (PopSleepstudyStartNextSession.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlGetInterruptTimePrecise @ 0x140303490 (RtlGetInterruptTimePrecise.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopSetModernStandbyTransitionReason(char a1, int a2)
 {
   __int64 InterruptTimePrecise; // rbp
-  unsigned __int64 v5; // rdi
+  unsigned __int64 v5; // rbx
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -22,17 +22,17 @@ __int64 __fastcall PopSetModernStandbyTransitionReason(char a1, int a2)
   v10.QuadPart = 0LL;
   InterruptTimePrecise = RtlGetInterruptTimePrecise(&v10);
   v5 = KeAcquireSpinLockRaiseToDpc(&PopModernStandbyTransitionInfo);
-  if ( byte_140C09758 != a1 )
+  if ( byte_140C11770 != a1 )
   {
-    byte_140C09758 = a1;
+    byte_140C11770 = a1;
     if ( a1 )
     {
-      dword_140C0975C = a2;
+      dword_140C11774 = a2;
     }
     else
     {
-      dword_140C09760 = a2;
-      qword_140C09768 = InterruptTimePrecise;
+      dword_140C11778 = a2;
+      qword_140C11780 = InterruptTimePrecise;
     }
   }
   KxReleaseSpinLock(&PopModernStandbyTransitionInfo);
@@ -50,7 +50,7 @@ __int64 __fastcall PopSetModernStandbyTransitionReason(char a1, int a2)
         v9 = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
         if ( v9 )
-          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
   }

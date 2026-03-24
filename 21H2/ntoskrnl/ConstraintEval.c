@@ -1,41 +1,41 @@
 /*
- * XREFs of ConstraintEval @ 0x1407731E8
+ * XREFs of ConstraintEval @ 0x14062E324
  * Callers:
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407762E4 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14062E878 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     memcmp @ 0x1403E1D90 (memcmp.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     SimplifyFilter @ 0x1406DCCC8 (SimplifyFilter.c)
- *     FilterEval @ 0x1407795E4 (FilterEval.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SimplifyFilter @ 0x14062DF1C (SimplifyFilter.c)
+ *     FilterEval @ 0x140633644 (FilterEval.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a4, __int64 a5)
 {
   unsigned int v7; // r15d
   size_t v9; // rsi
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
   char *v11; // r12
   int v12; // esi
   char *v13; // rdi
   int v14; // ebx
-  __int64 v15; // rcx
-  const wchar_t *v16; // rcx
-  const wchar_t *v17; // rdx
-  int v18; // ebx
+  __int64 v16; // rcx
+  const wchar_t *v17; // rcx
+  const wchar_t *v18; // rdx
   int v19; // ebx
   int v20; // ebx
-  int v21; // eax
   unsigned int i; // r14d
-  char *v23; // rbx
-  __int64 v25; // rcx
-  const wchar_t *v26; // rcx
-  const wchar_t *v27; // rdx
-  int v28; // esi
-  unsigned int v29; // eax
+  char *v22; // rbx
+  __int64 v23; // rcx
+  const wchar_t *v24; // rcx
+  const wchar_t *v25; // rdx
+  int v26; // esi
+  unsigned int v27; // eax
+  int v28; // ebx
+  int v29; // eax
   void *v30; // rcx
   unsigned int v31; // [rsp+30h] [rbp-50h] BYREF
   int v32; // [rsp+34h] [rbp-4Ch] BYREF
@@ -56,18 +56,18 @@ __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a
     return (unsigned int)-1073741811;
   if ( !a1 )
     return (unsigned int)-1073741823;
-  Pool2 = (char *)ExAllocatePool2(256LL, 56LL * a1, 1381256262LL);
-  v11 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 56LL * a1, 0x52544C46u);
+  v11 = PoolWithTag;
+  if ( !PoolWithTag )
     return (unsigned int)-1073741801;
   if ( (*a2 & 0xFF00000) != 0 )
   {
-    SimplifyFilter(v7, (__int64)a2, &v31, (__int64)Pool2);
+    SimplifyFilter(v7, (__int64)a2, &v31, (__int64)PoolWithTag);
     v7 = v31;
   }
   else
   {
-    memmove(Pool2, a2, v9);
+    memmove(PoolWithTag, a2, v9);
   }
   v12 = 0;
   if ( !v7 )
@@ -77,14 +77,14 @@ __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a
     v13 = &v11[56 * v12];
     if ( *((_DWORD *)v13 + 6) == *(_DWORD *)(a3 + 16) )
     {
-      v15 = *((_QWORD *)v13 + 1) - *(_QWORD *)a3;
-      if ( !v15 )
-        v15 = *((_QWORD *)v13 + 2) - *(_QWORD *)(a3 + 8);
-      if ( !v15 && *((_DWORD *)v13 + 7) == *(_DWORD *)(a3 + 20) )
+      v16 = *((_QWORD *)v13 + 1) - *(_QWORD *)a3;
+      if ( !v16 )
+        v16 = *((_QWORD *)v13 + 2) - *(_QWORD *)(a3 + 8);
+      if ( !v16 && *((_DWORD *)v13 + 7) == *(_DWORD *)(a3 + 20) )
       {
-        v16 = (const wchar_t *)*((_QWORD *)v13 + 4);
-        v17 = *(const wchar_t **)(a3 + 24);
-        if ( (v16 == v17 || v16 && v17 && !wcsicmp(v16, v17)) && *(_DWORD *)v13 == a4 )
+        v17 = (const wchar_t *)*((_QWORD *)v13 + 4);
+        v18 = *(const wchar_t **)(a3 + 24);
+        if ( (v17 == v18 || v17 && v18 && !wcsicmp(v17, v18)) && *(_DWORD *)v13 == a4 )
           break;
       }
     }
@@ -96,28 +96,28 @@ __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a
   v34 = *(_OWORD *)(v13 + 8);
   v35 = *(_OWORD *)(v13 + 24);
   v36 = *(_OWORD *)(v13 + 40);
-  v18 = a4 - 1;
-  if ( v18 )
+  v19 = a4 - 1;
+  if ( v19 )
   {
-    v19 = v18 - 1;
-    if ( v19 )
+    v20 = v19 - 1;
+    if ( v20 )
     {
-      v20 = v19 - 0x10000;
-      if ( v20 )
+      v28 = v20 - 0x10000;
+      if ( v28 )
       {
-        if ( v20 != 0x10000 )
+        if ( v28 != 0x10000 )
           goto LABEL_9;
-        v21 = *((_DWORD *)v13 + 10);
-        if ( v21 != 18 && v21 != 25 && v21 != 8210 )
+        v29 = *((_DWORD *)v13 + 10);
+        if ( v29 != 18 && v29 != 25 && v29 != 8210 )
           goto LABEL_9;
       }
       else
       {
         if ( (_DWORD)v36 != 17 )
           goto LABEL_9;
-        v30 = &unk_140D04CE8;
+        v30 = &unk_140CFA4D1;
         if ( **((_BYTE **)&v36 + 1) != 0xFF )
-          v30 = &unk_140C0DAE0;
+          v30 = &unk_140C12FF8;
         *((_QWORD *)&v36 + 1) = v30;
       }
     }
@@ -125,31 +125,31 @@ __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a
   else
   {
     *(_QWORD *)&v36 = 0x400000007LL;
-    *((_QWORD *)&v36 + 1) = &unk_140D04CE4;
+    *((_QWORD *)&v36 + 1) = &unk_140CFA4D4;
   }
   for ( i = 0; i < v7; ++i )
   {
-    v23 = &v11[56 * i];
-    if ( v23 != v13 && *((_DWORD *)v23 + 6) == *((_DWORD *)v13 + 6) )
+    v22 = &v11[56 * i];
+    if ( v22 != v13 && *((_DWORD *)v22 + 6) == *((_DWORD *)v13 + 6) )
     {
-      v25 = *((_QWORD *)v23 + 1) - *((_QWORD *)v13 + 1);
-      if ( !v25 )
-        v25 = *((_QWORD *)v23 + 2) - *((_QWORD *)v13 + 2);
-      if ( !v25 && *((_DWORD *)v23 + 7) == *((_DWORD *)v13 + 7) )
+      v23 = *((_QWORD *)v22 + 1) - *((_QWORD *)v13 + 1);
+      if ( !v23 )
+        v23 = *((_QWORD *)v22 + 2) - *((_QWORD *)v13 + 2);
+      if ( !v23 && *((_DWORD *)v22 + 7) == *((_DWORD *)v13 + 7) )
       {
-        v26 = (const wchar_t *)*((_QWORD *)v23 + 4);
-        v27 = (const wchar_t *)*((_QWORD *)v13 + 4);
-        if ( v26 == v27 || v26 && v27 && !wcsicmp(v26, v27) )
+        v24 = (const wchar_t *)*((_QWORD *)v22 + 4);
+        v25 = (const wchar_t *)*((_QWORD *)v13 + 4);
+        if ( v24 == v25 || v24 && v25 && !wcsicmp(v24, v25) )
         {
-          v28 = *(_DWORD *)v23;
-          if ( *(_DWORD *)v23 != *(_DWORD *)v13 )
+          v26 = *(_DWORD *)v22;
+          if ( *(_DWORD *)v22 != *(_DWORD *)v13 )
             goto LABEL_9;
-          if ( *((_DWORD *)v23 + 10) != *((_DWORD *)v13 + 10) )
+          if ( *((_DWORD *)v22 + 10) != *((_DWORD *)v13 + 10) )
             goto LABEL_9;
-          v29 = *((_DWORD *)v23 + 11);
-          if ( v29 != *((_DWORD *)v13 + 11) || memcmp(*((const void **)v23 + 6), *((const void **)v13 + 6), v29) )
+          v27 = *((_DWORD *)v22 + 11);
+          if ( v27 != *((_DWORD *)v13 + 11) || memcmp(*((const void **)v22 + 6), *((const void **)v13 + 6), v27) )
             goto LABEL_9;
-          *(_DWORD *)v23 = v28 ^ 0x10000;
+          *(_DWORD *)v22 = v26 ^ 0x10000;
         }
       }
     }
@@ -159,7 +159,7 @@ __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a
   LODWORD(v33) = 1;
   v14 = FilterEval((unsigned int)GetPropertyFromPropArray, (unsigned int)&v33, v7, (_DWORD)v11, (__int64)&v32);
   if ( v14 < 0 )
-    goto LABEL_28;
+    goto LABEL_10;
   if ( !v32 )
   {
     *(_OWORD *)a5 = *(_OWORD *)v13;
@@ -167,11 +167,11 @@ __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a
     *(_OWORD *)(a5 + 32) = *((_OWORD *)v13 + 2);
     *(_QWORD *)(a5 + 48) = *((_QWORD *)v13 + 6);
     *(_DWORD *)a5 ^= 0x10000u;
-    goto LABEL_28;
+    goto LABEL_10;
   }
 LABEL_9:
   v14 = -1073741823;
-LABEL_28:
+LABEL_10:
   ExFreePoolWithTag(v11, 0x52544C46u);
   return (unsigned int)v14;
 }

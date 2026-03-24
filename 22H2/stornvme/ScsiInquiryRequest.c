@@ -1,47 +1,54 @@
 /*
- * XREFs of ScsiInquiryRequest @ 0x1C0019CE4
+ * XREFs of ScsiInquiryRequest @ 0x1C0005E04
  * Callers:
- *     ScsiToNVMe @ 0x1C00015C0 (ScsiToNVMe.c)
+ *     ScsiToNVMe @ 0x1C0004A30 (ScsiToNVMe.c)
  * Callees:
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
- *     FormInquiryBlockLimitsData @ 0x1C0011FDC (FormInquiryBlockLimitsData.c)
- *     FormInquiryBlockProvisioningData @ 0x1C0012204 (FormInquiryBlockProvisioningData.c)
- *     FormInquiryDeviceCharacteristicsData @ 0x1C00122F4 (FormInquiryDeviceCharacteristicsData.c)
- *     FormInquiryDeviceIdentifiersData @ 0x1C0012368 (FormInquiryDeviceIdentifiersData.c)
- *     FormInquirySerialNumberData @ 0x1C00125B8 (FormInquirySerialNumberData.c)
- *     FormInquiryStandardData @ 0x1C00127C4 (FormInquiryStandardData.c)
- *     FormInquiryVpdSupportedPagesData @ 0x1C00129E4 (FormInquiryVpdSupportedPagesData.c)
- *     NVMeSetSenseData @ 0x1C00241F8 (NVMeSetSenseData.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     FormInquiryBlockLimitsData @ 0x1C0005D3C (FormInquiryBlockLimitsData.c)
+ *     FormInquiryBlockProvisioningData @ 0x1C0011DB0 (FormInquiryBlockProvisioningData.c)
+ *     FormInquiryDeviceCharacteristicsData @ 0x1C0011E94 (FormInquiryDeviceCharacteristicsData.c)
+ *     FormInquiryDeviceIdentifiersData @ 0x1C0011EFC (FormInquiryDeviceIdentifiersData.c)
+ *     FormInquirySerialNumberData @ 0x1C0012140 (FormInquirySerialNumberData.c)
+ *     FormInquiryStandardData @ 0x1C0012348 (FormInquiryStandardData.c)
+ *     FormInquiryVpdSupportedPagesData @ 0x1C00124F4 (FormInquiryVpdSupportedPagesData.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  */
 
 __int64 __fastcall ScsiInquiryRequest(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rsi
   __int64 v5; // rbx
-  void *SrbDataBuffer; // rax
+  void *v7; // rcx
+  __int64 v8; // rax
   __int64 v9; // rcx
   int v10; // ecx
   int v11; // ecx
   int v12; // ecx
-  __int64 v13; // rcx
-  unsigned int *v14; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v14; // rcx
 
   v4 = a3;
   v5 = a2;
   if ( (*(_BYTE *)(a3 + 1) & 1) == 0 )
   {
     if ( !*(_BYTE *)(a3 + 2) )
-      return FormInquiryStandardData(a1, a2);
-    goto LABEL_4;
+      return FormInquiryStandardData();
+    goto LABEL_14;
   }
-  v14 = 0LL;
-  SrbDataBuffer = (void *)GetSrbDataBuffer(a2, &v14);
-  if ( SrbDataBuffer )
+  if ( *(_BYTE *)(a2 + 2) == 40 )
   {
-    a2 = *v14;
+    v7 = *(void **)(a2 + 64);
+    v8 = 60LL;
+  }
+  else
+  {
+    v7 = *(void **)(a2 + 24);
+    v8 = 16LL;
+  }
+  if ( v7 )
+  {
+    a2 = *(unsigned int *)(a2 + v8);
     if ( (_DWORD)a2 )
-      NVMeZeroMemory(SrbDataBuffer, a2);
+      NVMeZeroMemory(v7, a2);
   }
   v9 = *(unsigned __int8 *)(v4 + 2);
   if ( !*(_BYTE *)(v4 + 2) )
@@ -54,18 +61,18 @@ __int64 __fastcall ScsiInquiryRequest(__int64 a1, __int64 a2, __int64 a3, __int6
     return FormInquiryDeviceIdentifiersData(a1, v5);
   v12 = v11 - 45;
   if ( !v12 )
-    return FormInquiryBlockLimitsData(a1, v5);
-  v13 = (unsigned int)(v12 - 1);
-  if ( !(_DWORD)v13 )
-    return FormInquiryDeviceCharacteristicsData(v13, v5);
-  if ( (_DWORD)v13 != 1 )
+    return FormInquiryBlockLimitsData(a1, v5, a3, a4);
+  v14 = (unsigned int)(v12 - 1);
+  if ( (_DWORD)v14 )
   {
-LABEL_4:
+    if ( (_DWORD)v14 == 1 )
+      return FormInquiryBlockProvisioningData(a1, v5);
+LABEL_14:
     LOBYTE(a4) = 36;
     LOBYTE(a3) = 5;
     LOBYTE(a2) = 6;
     NVMeSetSenseData(v5, a2, a3, a4);
     return 3238002694LL;
   }
-  return FormInquiryBlockProvisioningData(a1, v5);
+  return FormInquiryDeviceCharacteristicsData(v14, v5);
 }

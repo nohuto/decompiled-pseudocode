@@ -1,17 +1,17 @@
 /*
- * XREFs of CcUnmapInactiveViews @ 0x14053B3F8
+ * XREFs of CcUnmapInactiveViews @ 0x1404EB3E0
  * Callers:
- *     CcGetVacbMiss @ 0x1402858A0 (CcGetVacbMiss.c)
- *     MiObtainSystemCacheView @ 0x140286210 (MiObtainSystemCacheView.c)
- *     MiDereferenceSegmentThread @ 0x1403CBBF0 (MiDereferenceSegmentThread.c)
- *     MiRemoveUnusedSegments @ 0x14058BEE4 (MiRemoveUnusedSegments.c)
+ *     CcGetVacbMiss @ 0x1403109C0 (CcGetVacbMiss.c)
+ *     MiObtainSystemCacheView @ 0x140312500 (MiObtainSystemCacheView.c)
+ *     MiDereferenceSegmentThread @ 0x1403BD430 (MiDereferenceSegmentThread.c)
+ *     MiRemoveUnusedSegments @ 0x14052A6FC (MiRemoveUnusedSegments.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     CcDereferencePartition @ 0x140276728 (CcDereferencePartition.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     PsGetNextPartitionUnsafe @ 0x140363D98 (PsGetNextPartitionUnsafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     CcUnmapInactiveViewsInternal @ 0x14053B55C (CcUnmapInactiveViewsInternal.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     CcDereferencePartition @ 0x1402F6D2C (CcDereferencePartition.c)
+ *     PsGetNextPartitionUnsafe @ 0x1402F8D08 (PsGetNextPartitionUnsafe.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1404EB544 (CcUnmapInactiveViewsInternal.c)
  */
 
 __int64 __fastcall CcUnmapInactiveViews(_QWORD *a1)
@@ -46,9 +46,9 @@ __int64 __fastcall CcUnmapInactiveViews(_QWORD *a1)
     v2 = KeAcquireSpinLockRaiseToDpc(&CcGlobalPartitionLock);
     v3 = (__int64)NextPartitionUnsafe[1];
     v4 = v2;
-    if ( v3 && *(_BYTE *)(v3 + 1230) < 2u )
+    if ( v3 && *(_BYTE *)(v3 + 966) < 2u )
     {
-      if ( _InterlockedIncrement64((volatile signed __int64 *)(v3 + 1232)) <= 1 )
+      if ( _InterlockedIncrement64((volatile signed __int64 *)(v3 + 968)) <= 1 )
         __fastfail(0xEu);
     }
     else

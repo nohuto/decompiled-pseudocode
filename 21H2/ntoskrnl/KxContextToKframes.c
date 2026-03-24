@@ -1,67 +1,64 @@
 /*
- * XREFs of KxContextToKframes @ 0x14022E3B0
+ * XREFs of KxContextToKframes @ 0x140279000
  * Callers:
- *     KiInitializeContextThread @ 0x1402F444C (KiInitializeContextThread.c)
- *     KeContextToKframes @ 0x14041F500 (KeContextToKframes.c)
+ *     KiInitializeContextThread @ 0x140278B0C (KiInitializeContextThread.c)
+ *     KeContextToKframes @ 0x1403FE020 (KeContextToKframes.c)
  * Callees:
- *     RtlXRestoreS @ 0x14022E800 (RtlXRestoreS.c)
- *     VslKernelShadowStackAssist @ 0x14054EA40 (VslKernelShadowStackAssist.c)
- *     KiCopyXStateArea @ 0x14056FC20 (KiCopyXStateArea.c)
+ *     RtlXRestoreS @ 0x140381D18 (RtlXRestoreS.c)
+ *     KiCopyXStateArea @ 0x140519F90 (KiCopyXStateArea.c)
  */
 
 __int64 __fastcall KxContextToKframes(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
 {
-  unsigned __int8 v5; // r14
+  unsigned __int8 v5; // r15
   int v10; // eax
-  int v11; // r8d
-  int v12; // eax
-  int v13; // r8d
-  __int64 v14; // rcx
-  __int16 v15; // ax
+  int v11; // eax
+  __int64 v12; // rcx
+  __int16 v13; // ax
   __int64 result; // rax
+  unsigned __int64 v15; // rax
+  unsigned __int64 v16; // rax
   unsigned __int64 v17; // rax
   unsigned __int64 v18; // rax
-  unsigned __int64 v19; // rax
-  __int64 v20; // rax
-  __int64 v21; // rax
+  __int64 v19; // rax
   struct _KTHREAD *CurrentThread; // rcx
-  bool v23; // zf
+  bool v21; // zf
+  __int64 v22; // r8
   _QWORD *SparePtr; // rcx
-  _QWORD *v25; // rdx
-  __int64 v26; // rcx
-  __int64 v28; // r13
+  _QWORD *v24; // rdx
+  __int64 v25; // rcx
 
   v5 = 0;
   if ( (a4 & 0x100001) == 0x100001 )
   {
     v10 = *(_DWORD *)(a3 + 68);
-    v11 = v10 & 0x210DD5;
-    v12 = v10 & 0x250FD5;
-    v13 = v11 | 0x200;
-    if ( !a5 )
-      v13 = v12;
-    *(_DWORD *)(a1 + 376) = v13;
-    v14 = *(_QWORD *)(a3 + 248);
-    *(_QWORD *)(a1 + 360) = v14;
+    if ( a5 )
+      v11 = v10 & 0x210DD5 | 0x200;
+    else
+      v11 = v10 & 0x250FD5;
+    *(_DWORD *)(a1 + 376) = v11;
+    v12 = *(_QWORD *)(a3 + 248);
+    *(_QWORD *)(a1 + 360) = v12;
     *(_QWORD *)(a1 + 384) = *(_QWORD *)(a3 + 152);
     if ( a5 == 1 )
     {
       *(_WORD *)(a1 + 392) = 43;
-      v15 = 51;
+      v13 = 51;
       if ( *(_WORD *)(a3 + 56) != 51 )
-        v15 = 35;
-      *(_WORD *)(a1 + 368) = v15;
-      if ( v15 == 35 )
-        v14 = (unsigned int)v14;
+        v13 = 35;
+      *(_WORD *)(a1 + 368) = v13;
+      v12 = *(_QWORD *)(a1 + 360);
+      if ( v13 == 35 )
+        v12 = (unsigned int)v12;
       else
-        v14 = v14 << 16 >> 16;
+        v12 = v12 << 16 >> 16;
     }
     else
     {
       *(_WORD *)(a1 + 368) = 16;
       *(_WORD *)(a1 + 392) = 24;
     }
-    *(_QWORD *)(a1 + 360) = v14;
+    *(_QWORD *)(a1 + 360) = v12;
   }
   if ( (a4 & 0x100002) == 0x100002 )
   {
@@ -83,45 +80,26 @@ __int64 __fastcall KxContextToKframes(__int64 a1, __int64 a2, __int64 a3, int a4
   }
   if ( (a4 & 0x100040) == 0x100040 && a5 == 1 )
   {
+    v22 = *(int *)(a3 + 1248) + a3 + 720;
     SparePtr = KeGetCurrentThread()->WaitBlock[1].SparePtr;
     if ( !SparePtr )
-      goto LABEL_34;
-    v25 = (_QWORD *)*SparePtr;
+      goto LABEL_42;
+    v24 = (_QWORD *)*SparePtr;
     if ( *SparePtr )
     {
       do
       {
-        SparePtr = v25;
-        v25 = (_QWORD *)*v25;
+        SparePtr = v24;
+        v24 = (_QWORD *)*v24;
       }
-      while ( v25 );
+      while ( v24 );
     }
-    v26 = SparePtr[5];
-    if ( v26 )
-      KiCopyXStateArea(v26, MEMORY[0xFFFFF780000003E0] & 0xFFFFFFFFFFFFFFFCuLL, *(int *)(a3 + 1248) + a3 + 720);
+    v25 = SparePtr[5];
+    if ( v25 )
+      KiCopyXStateArea(v25, MEMORY[0xFFFFF780000003E0] & 0xFFFFFFFFFFFFFFFCuLL);
     else
-LABEL_34:
-      RtlXRestoreS(
-        *(int *)(a3 + 1248) + a3 + 720,
-        (MEMORY[0xFFFFF780000003E0] | MEMORY[0xFFFFF78000000708]) & 0xFFFFFFFFFFFFFFFCuLL);
-  }
-  if ( (a4 & 0x100080) == 0x100080 && !a5 )
-  {
-    _R12 = *(_QWORD **)(a1 + 216);
-    v28 = *(int *)(a3 + 1256);
-    _RCX = *(_QWORD *)(v28 + a3 + 1240);
-    if ( _R12[1] != _RCX )
-    {
-      if ( (*(_BYTE *)(v28 + a3 + 1250) & 1) != 0 )
-        __asm { wrssq   qword ptr [r12+8], rcx }
-      else
-        VslKernelShadowStackAssist(3, (_DWORD)_R12, 0, 0, _RCX, 4);
-    }
-    if ( (*(_BYTE *)(v28 + a3 + 1250) & 2) != 0 )
-    {
-      _RAX = *_R12 + 8LL;
-      __asm { wrssq   qword ptr [r12], rax }
-    }
+LABEL_42:
+      RtlXRestoreS(v22, (MEMORY[0xFFFFF780000003E0] | MEMORY[0xFFFFF78000000708]) & 0xFFFFFFFFFFFFFFFCuLL);
   }
   if ( (a4 & 0x100008) == 0x100008 )
   {
@@ -151,35 +129,31 @@ LABEL_34:
   }
   if ( (a4 & 0x100010) != 0x100010 )
     return v5;
-  v17 = *(_QWORD *)(a3 + 72);
-  if ( a5 )
-  {
-    *(_QWORD *)(a1 + 216) = v17 > 0x7FFFFFFEFFFFLL ? 0LL : v17;
-    v18 = *(_QWORD *)(a3 + 80);
-    *(_QWORD *)(a1 + 224) = v18 > 0x7FFFFFFEFFFFLL ? 0LL : v18;
-    v19 = *(_QWORD *)(a3 + 88);
-    *(_QWORD *)(a1 + 232) = v19 > 0x7FFFFFFEFFFFLL ? 0LL : v19;
-    v20 = 0LL;
-    if ( *(_QWORD *)(a3 + 96) <= 0x7FFFFFFEFFFFuLL )
-      v20 = *(_QWORD *)(a3 + 96);
-  }
-  else
-  {
-    *(_QWORD *)(a1 + 216) = v17;
-    *(_QWORD *)(a1 + 224) = *(_QWORD *)(a3 + 80);
-    *(_QWORD *)(a1 + 232) = *(_QWORD *)(a3 + 88);
-    v20 = *(_QWORD *)(a3 + 96);
-  }
-  *(_QWORD *)(a1 + 240) = v20;
+  v15 = *(_QWORD *)(a3 + 72);
+  if ( a5 && v15 > 0x7FFFFFFEFFFFLL )
+    v15 = 0LL;
+  *(_QWORD *)(a1 + 216) = v15;
+  v16 = *(_QWORD *)(a3 + 80);
+  if ( a5 && v16 > 0x7FFFFFFEFFFFLL )
+    v16 = 0LL;
+  *(_QWORD *)(a1 + 224) = v16;
+  v17 = *(_QWORD *)(a3 + 88);
+  if ( a5 && v17 > 0x7FFFFFFEFFFFLL )
+    v17 = 0LL;
+  *(_QWORD *)(a1 + 232) = v17;
+  v18 = *(_QWORD *)(a3 + 96);
+  if ( a5 && v18 > 0x7FFFFFFEFFFFLL )
+    v18 = 0LL;
+  *(_QWORD *)(a1 + 240) = v18;
   *(_QWORD *)(a1 + 248) = 0LL;
-  v21 = *(_DWORD *)(a3 + 112) & 0xFFFF0355;
-  *(_QWORD *)(a1 + 256) = v21;
+  v19 = *(_DWORD *)(a3 + 112) & 0xFFFF0355;
+  *(_QWORD *)(a1 + 256) = v19;
   if ( !a5 )
     return v5;
   CurrentThread = KeGetCurrentThread();
-  v23 = (v21 & 0x355) == 0;
+  v21 = (v19 & 0x355) == 0;
   result = v5;
-  if ( v23 )
+  if ( v21 )
     _interlockedbittestandreset(&CurrentThread->Header.Lock, 0x18u);
   else
     _interlockedbittestandset(&CurrentThread->Header.Lock, 0x18u);

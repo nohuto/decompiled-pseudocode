@@ -1,16 +1,16 @@
 /*
- * XREFs of ?CalculateCenterPointForAxis@CInteractionTracker@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@W4ScrollAxis@@PEAM@Z @ 0x180219564
+ * XREFs of ?CalculateCenterPointForAxis@CInteractionTracker@@AEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@W4ScrollAxis@@PEAM@Z @ 0x1801C8434
  * Callers:
- *     ?UpdateCenterPointForState@CInteractionTracker@@QEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@@Z @ 0x18021E688 (-UpdateCenterPointForState@CInteractionTracker@@QEAAJPEAVCExpressionValueStack@@_KW4ScrollState@.c)
+ *     ?UpdateCenterPointForState@CInteractionTracker@@QEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@@Z @ 0x1801CD660 (-UpdateCenterPointForState@CInteractionTracker@@QEAAJPEAVCExpressionValueStack@@_KW4ScrollState@.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ @ 0x180113E5C (-HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ.c)
- *     ?ProcessConditionalExpression@CConditionalExpression@@SAJPEAV1@PEAVCExpressionValueStack@@_KW4OutputCoordinate@@PEA_NPEAM@Z @ 0x180211668 (-ProcessConditionalExpression@CConditionalExpression@@SAJPEAV1@PEAVCExpressionValueStack@@_KW4Ou.c)
- *     ?GetMostRecentCenterPoint@CInteractionTracker@@QEBAMW4ScrollState@@W4ScrollAxis@@@Z @ 0x18021AE58 (-GetMostRecentCenterPoint@CInteractionTracker@@QEBAMW4ScrollState@@W4ScrollAxis@@@Z.c)
- *     ?WasInertiaStartedByImpulse@CInteractionTracker@@QEBA_NW4ScrollAxis@@@Z @ 0x18021E828 (-WasInertiaStartedByImpulse@CInteractionTracker@@QEBA_NW4ScrollAxis@@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
- *     ?GetActiveManipulationCenterpoint@InteractionSourceManager@@QEBA?AUD2DVector3@@XZ @ 0x180264074 (-GetActiveManipulationCenterpoint@InteractionSourceManager@@QEBA-AUD2DVector3@@XZ.c)
- *     ?GetSourceCenterpointModifierForActiveManipulation@InteractionSourceManager@@QEBAPEAVCConditionalExpression@@W4ScrollAxis@@@Z @ 0x18026436C (-GetSourceCenterpointModifierForActiveManipulation@InteractionSourceManager@@QEBAPEAVCConditiona.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ProcessConditionalExpression@CConditionalExpression@@SAJPEAV1@PEAVCExpressionValueStack@@_KW4OutputCoordinate@@PEA_NPEAM@Z @ 0x1801BE214 (-ProcessConditionalExpression@CConditionalExpression@@SAJPEAV1@PEAVCExpressionValueStack@@_KW4Ou.c)
+ *     ?GetMostRecentCenterPoint@CInteractionTracker@@QEBAMW4ScrollState@@W4ScrollAxis@@@Z @ 0x1801C9A80 (-GetMostRecentCenterPoint@CInteractionTracker@@QEBAMW4ScrollState@@W4ScrollAxis@@@Z.c)
+ *     ?HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ @ 0x1801C9EE4 (-HasActiveManipulation@InteractionSourceManager@@QEBA_NXZ.c)
+ *     ?WasInertiaStartedByImpulse@CInteractionTracker@@QEBA_NW4ScrollAxis@@@Z @ 0x1801CD800 (-WasInertiaStartedByImpulse@CInteractionTracker@@QEBA_NW4ScrollAxis@@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
+ *     ?GetActiveManipulationCenterpoint@InteractionSourceManager@@QEBA?AUD2DVector3@@XZ @ 0x18021315C (-GetActiveManipulationCenterpoint@InteractionSourceManager@@QEBA-AUD2DVector3@@XZ.c)
+ *     ?GetSourceCenterpointModifierForActiveManipulation@InteractionSourceManager@@QEBAPEAVCConditionalExpression@@W4ScrollAxis@@@Z @ 0x180213450 (-GetSourceCenterpointModifierForActiveManipulation@InteractionSourceManager@@QEBAPEAVCConditiona.c)
  */
 
 __int64 __fastcall CInteractionTracker::CalculateCenterPointForAxis(
@@ -24,12 +24,11 @@ __int64 __fastcall CInteractionTracker::CalculateCenterPointForAxis(
   float *v6; // rsi
   unsigned int v8; // ebx
   CConditionalExpression *SourceCenterpointModifierForActiveManipulation; // r10
-  wchar_t *v11; // r11
   int v13; // eax
   __int64 v14; // rcx
   unsigned int v15; // ebp
   float MostRecentCenterPoint; // xmm0_4
-  __int64 v17; // rcx
+  __int64 v17; // r10
   _DWORD v19[10]; // [rsp+30h] [rbp-28h] BYREF
   void *retaddr; // [rsp+58h] [rbp+0h]
   bool v21; // [rsp+78h] [rbp+20h] BYREF
@@ -37,16 +36,15 @@ __int64 __fastcall CInteractionTracker::CalculateCenterPointForAxis(
   v6 = (float *)a6;
   v8 = a5;
   SourceCenterpointModifierForActiveManipulation = 0LL;
-  v11 = a3;
   if ( a4 == 1 )
   {
     SourceCenterpointModifierForActiveManipulation = (CConditionalExpression *)InteractionSourceManager::GetSourceCenterpointModifierForActiveManipulation(
-                                                                                 a1 + 50,
+                                                                                 a1 + 48,
                                                                                  a5);
   }
   else if ( a4 == 2 )
   {
-    SourceCenterpointModifierForActiveManipulation = *(CConditionalExpression **)&a1[2 * a5 + 92];
+    SourceCenterpointModifierForActiveManipulation = *(CConditionalExpression **)&a1[2 * a5 + 90];
   }
   v21 = 0;
   if ( !SourceCenterpointModifierForActiveManipulation )
@@ -54,7 +52,7 @@ __int64 __fastcall CInteractionTracker::CalculateCenterPointForAxis(
   v13 = CConditionalExpression::ProcessConditionalExpression(
           SourceCenterpointModifierForActiveManipulation,
           a2,
-          v11,
+          a3,
           v8 != 2,
           &v21,
           v6);
@@ -72,16 +70,16 @@ LABEL_9:
         {
           if ( v8 != 1 )
             ModuleFailFastForHRESULT(2147500037LL, retaddr);
-          MostRecentCenterPoint = a1[134];
+          MostRecentCenterPoint = a1[132];
         }
         else
         {
-          MostRecentCenterPoint = a1[133];
+          MostRecentCenterPoint = a1[131];
         }
         goto LABEL_24;
       }
     }
-    else if ( a4 == 1 && InteractionSourceManager::HasActiveManipulation((InteractionSourceManager *)(a1 + 50)) )
+    else if ( a4 == 1 && InteractionSourceManager::HasActiveManipulation((InteractionSourceManager *)(a1 + 48)) )
     {
       InteractionSourceManager::GetActiveManipulationCenterpoint(v17, v19);
       if ( v8 )
@@ -101,6 +99,6 @@ LABEL_24:
     *v6 = MostRecentCenterPoint;
     return 0;
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0x1752u);
+  MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x1734u, 0LL);
   return v15;
 }

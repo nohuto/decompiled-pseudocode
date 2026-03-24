@@ -1,5 +1,5 @@
 /*
- * XREFs of ?UpdatePendingResourceReserveCB@VIDMM_SEGMENT@@SAXPEAU_VIDMM_GLOBAL_ALLOC@@_K@Z @ 0x1C00B46D0
+ * XREFs of ?UpdatePendingResourceReserveCB@VIDMM_SEGMENT@@SAXPEAU_VIDMM_GLOBAL_ALLOC@@_K@Z @ 0x1C00890F0
  * Callers:
  *     <none>
  * Callees:
@@ -10,9 +10,9 @@ void __fastcall VIDMM_SEGMENT::UpdatePendingResourceReserveCB(struct _VIDMM_GLOB
 {
   __int64 v2; // rax
 
-  *((_QWORD *)a1 + 23) = *((_QWORD *)a1 + 17);
-  v2 = *((_QWORD *)a1 + 15);
-  *((_QWORD *)a1 + 25) = v2;
-  *((_QWORD *)a1 + 24) = a2;
+  *((_QWORD *)a1 + 25) = *((_QWORD *)a1 + 18);
+  v2 = *((_QWORD *)a1 + 16);
+  *((_QWORD *)a1 + 27) = v2;
+  *((_QWORD *)a1 + 26) = a2;
   *(_BYTE *)(v2 + 472) = 1;
 }

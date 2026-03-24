@@ -1,19 +1,19 @@
 /*
- * XREFs of SepReadAndInsertCaps @ 0x1409D1DBC
+ * XREFs of SepReadAndInsertCaps @ 0x140925A1C
  * Callers:
- *     SepBuildCapPolicyTable @ 0x1403ADEDC (SepBuildCapPolicyTable.c)
+ *     SepBuildCapPolicyTable @ 0x1403CB46C (SepBuildCapPolicyTable.c)
  * Callees:
- *     RtlInsertEntryHashTable @ 0x1402266A0 (RtlInsertEntryHashTable.c)
- *     RtlStringCchPrintfW @ 0x14022A92C (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQueryKey @ 0x14041A960 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x14041ACE0 (ZwEnumerateKey.c)
- *     SepRmCapPoolExpand @ 0x1405B9914 (SepRmCapPoolExpand.c)
- *     SepRegOpenKey @ 0x1407F5978 (SepRegOpenKey.c)
- *     SepReadSingleCap @ 0x1409D2118 (SepReadSingleCap.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInsertEntryHashTable @ 0x140250E50 (RtlInsertEntryHashTable.c)
+ *     RtlStringCchPrintfW @ 0x140348150 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwQueryKey @ 0x1403F9CE0 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x1403FA060 (ZwEnumerateKey.c)
+ *     SepRmCapPoolExpand @ 0x140597D60 (SepRmCapPoolExpand.c)
+ *     SepRegOpenKey @ 0x14070E324 (SepRegOpenKey.c)
+ *     SepReadSingleCap @ 0x140925D78 (SepReadSingleCap.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepReadAndInsertCaps(HANDLE KeyHandle, int a2, __int64 a3)
@@ -21,7 +21,7 @@ __int64 __fastcall SepReadAndInsertCaps(HANDLE KeyHandle, int a2, __int64 a3)
   int v3; // eax
   ULONG v4; // r14d
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v6; // rsi
-  unsigned int *Pool2; // rdi
+  unsigned int *PoolWithTag; // rdi
   NTSTATUS v8; // ebx
   ULONG v9; // r13d
   ULONG v10; // r15d
@@ -48,111 +48,112 @@ __int64 __fastcall SepReadAndInsertCaps(HANDLE KeyHandle, int a2, __int64 a3)
   KeyHandlea = 0LL;
   Length = 0;
   v21 = v3;
-  Pool2 = (unsigned int *)ExAllocatePool2(256LL, (unsigned int)(a2 + 50), 1884513619LL);
-  if ( !Pool2 )
-  {
-LABEL_2:
-    v8 = -1073741670;
-    goto LABEL_30;
-  }
-  v8 = ZwQueryKey(KeyHandle, KeyFullInformation, Pool2, v4, &Length);
+  PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, (unsigned int)(a2 + 50), 0x70536553u);
+  if ( !PoolWithTag )
+    goto LABEL_2;
+  v8 = ZwQueryKey(KeyHandle, KeyFullInformation, PoolWithTag, v4, &Length);
   if ( v8 >= 0 )
     goto LABEL_8;
   if ( v8 != -2147483643 && v8 != -1073741789 )
   {
 LABEL_28:
+    if ( v8 >= 0 )
+      goto LABEL_33;
+LABEL_29:
     if ( v6 )
       ExFreePoolWithTag(v6, 0x70536553u);
-    goto LABEL_30;
+    goto LABEL_31;
   }
-  Pool2 = (unsigned int *)SepRmCapPoolExpand(Pool2, Length);
-  if ( !Pool2 )
-    goto LABEL_2;
+  PoolWithTag = (unsigned int *)SepRmCapPoolExpand(PoolWithTag, Length);
+  if ( !PoolWithTag )
+  {
+LABEL_2:
+    v8 = -1073741670;
+    goto LABEL_31;
+  }
   v4 = Length;
-  v8 = ZwQueryKey(KeyHandle, KeyFullInformation, Pool2, Length, &Length);
+  v8 = ZwQueryKey(KeyHandle, KeyFullInformation, PoolWithTag, Length, &Length);
   if ( v8 >= 0 )
   {
 LABEL_8:
-    v9 = Pool2[5];
+    v9 = PoolWithTag[5];
     v10 = 0;
-    if ( !v9 )
+    if ( v9 )
     {
-LABEL_33:
-      ExFreePoolWithTag(Pool2, 0x70536553u);
-      return (unsigned int)v8;
-    }
-    while ( 1 )
-    {
-      v11 = ZwEnumerateKey(KeyHandle, v10, KeyBasicInformation, Pool2, v4, &Length);
-      v8 = v11;
-      if ( v11 < 0 )
+      while ( 1 )
       {
-        if ( v11 != -2147483643 && v11 != -1073741789 )
-          goto LABEL_28;
-        Pool2 = (unsigned int *)SepRmCapPoolExpand(Pool2, Length);
-        if ( !Pool2 )
-          goto LABEL_2;
-        v4 = Length;
-        v8 = ZwEnumerateKey(KeyHandle, v10, KeyBasicInformation, Pool2, Length, &Length);
+        v11 = ZwEnumerateKey(KeyHandle, v10, KeyBasicInformation, PoolWithTag, v4, &Length);
+        v8 = v11;
+        if ( v11 < 0 )
+        {
+          if ( v11 != -2147483643 && v11 != -1073741789 )
+            goto LABEL_28;
+          PoolWithTag = (unsigned int *)SepRmCapPoolExpand(PoolWithTag, Length);
+          if ( !PoolWithTag )
+            goto LABEL_2;
+          v4 = Length;
+          v8 = ZwEnumerateKey(KeyHandle, v10, KeyBasicInformation, PoolWithTag, Length, &Length);
+          if ( v8 < 0 )
+            goto LABEL_31;
+        }
+        *((_WORD *)PoolWithTag + ((unsigned __int64)PoolWithTag[3] >> 1) + 8) = 0;
+        v8 = RtlStringCchPrintfW(
+               pszDest,
+               0x156uLL,
+               L"%s\\%s",
+               L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Lsa\\CentralizedAccessPolicies\\CAPs",
+               PoolWithTag + 4);
         if ( v8 < 0 )
-          break;
-      }
-      *((_WORD *)Pool2 + ((unsigned __int64)Pool2[3] >> 1) + 8) = 0;
-      v8 = RtlStringCchPrintfW(
-             pszDest,
-             0x156uLL,
-             L"%s\\%s",
-             L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Lsa\\CentralizedAccessPolicies\\CAPs",
-             Pool2 + 4);
-      if ( v8 < 0 )
-        break;
-      v8 = SepRegOpenKey(pszDest, 0x201u, &KeyHandlea);
-      if ( v8 < 0 )
-        break;
-      v12 = ZwQueryKey(KeyHandlea, KeyFullInformation, Pool2, v4, &Length);
-      v8 = v12;
-      if ( v12 < 0 )
-      {
-        if ( v12 != -2147483643 && v12 != -1073741789 )
-          goto LABEL_28;
-        Pool2 = (unsigned int *)SepRmCapPoolExpand(Pool2, Length);
-        if ( !Pool2 )
-          goto LABEL_2;
-        v4 = Length;
-        v8 = ZwQueryKey(KeyHandlea, KeyFullInformation, Pool2, Length, &Length);
+          goto LABEL_31;
+        v8 = SepRegOpenKey(pszDest, 0x201u, &KeyHandlea);
         if ( v8 < 0 )
-          break;
+          goto LABEL_31;
+        v12 = ZwQueryKey(KeyHandlea, KeyFullInformation, PoolWithTag, v4, &Length);
+        v8 = v12;
+        if ( v12 < 0 )
+        {
+          if ( v12 != -2147483643 && v12 != -1073741789 )
+            goto LABEL_28;
+          PoolWithTag = (unsigned int *)SepRmCapPoolExpand(PoolWithTag, Length);
+          if ( !PoolWithTag )
+            goto LABEL_2;
+          v4 = Length;
+          v8 = ZwQueryKey(KeyHandlea, KeyFullInformation, PoolWithTag, Length, &Length);
+          if ( v8 < 0 )
+            goto LABEL_31;
+        }
+        SingleCap = SepReadSingleCap(KeyHandlea, (__int64)&Entry);
+        v6 = Entry;
+        v8 = SingleCap;
+        if ( SingleCap < 0 )
+          goto LABEL_29;
+        v14 = HashTable;
+        Entry[1].Linkage.Blink = (struct _LIST_ENTRY *)HashTable;
+        v15 = *((unsigned int *)&v6[1].Linkage.Flink->Flink + (unsigned int)BYTE1(v6[1].Linkage.Flink->Flink) + 1);
+        v16 = v15 + 1;
+        if ( (_DWORD)v15 )
+          v16 = *((unsigned int *)&v6[1].Linkage.Flink->Flink + (unsigned int)BYTE1(v6[1].Linkage.Flink->Flink) + 1);
+        if ( !RtlInsertEntryHashTable(v14, v6, v16, 0LL) )
+        {
+          v8 = -1073741670;
+          goto LABEL_28;
+        }
+        v6 = 0LL;
+        Entry = 0LL;
+        ZwClose(KeyHandlea);
+        ++v10;
+        KeyHandlea = 0LL;
+        if ( v10 >= v9 )
+          goto LABEL_28;
       }
-      SingleCap = SepReadSingleCap(KeyHandlea, (__int64)&Entry);
-      v6 = Entry;
-      v8 = SingleCap;
-      if ( SingleCap < 0 )
-        goto LABEL_28;
-      v14 = HashTable;
-      Entry[1].Linkage.Blink = (struct _LIST_ENTRY *)HashTable;
-      v15 = *((unsigned int *)&v6[1].Linkage.Flink->Flink + (unsigned int)BYTE1(v6[1].Linkage.Flink->Flink) + 1);
-      v16 = v15 + 1;
-      if ( (_DWORD)v15 )
-        v16 = *((unsigned int *)&v6[1].Linkage.Flink->Flink + (unsigned int)BYTE1(v6[1].Linkage.Flink->Flink) + 1);
-      if ( !RtlInsertEntryHashTable(v14, v6, v16, 0LL) )
-      {
-        v8 = -1073741670;
-        goto LABEL_28;
-      }
-      v6 = 0LL;
-      Entry = 0LL;
-      ZwClose(KeyHandlea);
-      ++v10;
-      KeyHandlea = 0LL;
-      if ( v10 >= v9 )
-        goto LABEL_32;
     }
+    goto LABEL_28;
   }
-LABEL_30:
+LABEL_31:
   if ( KeyHandlea )
     ZwClose(KeyHandlea);
-LABEL_32:
-  if ( Pool2 )
-    goto LABEL_33;
+LABEL_33:
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x70536553u);
   return (unsigned int)v8;
 }

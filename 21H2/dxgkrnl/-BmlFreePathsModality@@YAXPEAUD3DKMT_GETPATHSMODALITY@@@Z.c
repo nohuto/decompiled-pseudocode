@@ -1,13 +1,13 @@
 /*
- * XREFs of ?BmlFreePathsModality@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C018A1E0
+ * XREFs of ?BmlFreePathsModality@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0136884
  * Callers:
- *     DxgkDisplayConfigDeviceInfo @ 0x1C01A0EB0 (DxgkDisplayConfigDeviceInfo.c)
- *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C01AEBD8 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
- *     DxgkFreePathsModality @ 0x1C01E9DC0 (DxgkFreePathsModality.c)
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C012C020 (DxgkDisplayConfigDeviceInfo.c)
+ *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C0136844 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
+ *     DxgkFreePathsModality @ 0x1C016EEE0 (DxgkFreePathsModality.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 void __fastcall BmlFreePathsModality(struct D3DKMT_GETPATHSMODALITY *a1)
@@ -28,19 +28,19 @@ void __fastcall BmlFreePathsModality(struct D3DKMT_GETPATHSMODALITY *a1)
       {
         do
         {
-          v4 = 296LL * v3;
-          operator delete(*(void **)((char *)a1 + v4 + 304));
-          memset((char *)a1 + v4 + 56, 0, 0x128uLL);
+          v4 = 272LL * v3;
+          operator delete(*(void **)((char *)a1 + v4 + 272));
+          memset((char *)a1 + v4 + 48, 0, 0x110uLL);
           ++v3;
         }
         while ( v3 < *((unsigned __int16 *)a1 + 11) );
       }
-      v5 = (void *)*((_QWORD *)a1 + 6);
+      v5 = (void *)*((_QWORD *)a1 + 5);
       if ( v5 )
       {
         operator delete[](v5);
-        *((_QWORD *)a1 + 6) = 0LL;
-        *((_DWORD *)a1 + 10) = 0;
+        *((_QWORD *)a1 + 5) = 0LL;
+        *((_DWORD *)a1 + 9) = 0;
       }
     }
   }

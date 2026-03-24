@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GFxUsbIdleInfo@@QEAAPEAXI@Z @ 0x1C008A79C
+ * XREFs of ??_GFxUsbIdleInfo@@QEAAPEAXI@Z @ 0x1C0086394
  * Callers:
- *     ??1FxPowerPolicyOwnerSettings@@QEAA@XZ @ 0x1C008A700 (--1FxPowerPolicyOwnerSettings@@QEAA@XZ.c)
- *     ?InitUsbSS@FxPowerPolicyMachine@@QEAAJXZ @ 0x1C008A8C4 (-InitUsbSS@FxPowerPolicyMachine@@QEAAJXZ.c)
+ *     ??1FxPowerPolicyOwnerSettings@@QEAA@XZ @ 0x1C00862EC (--1FxPowerPolicyOwnerSettings@@QEAA@XZ.c)
+ *     ?InitUsbSS@FxPowerPolicyMachine@@QEAAJXZ @ 0x1C0086780 (-InitUsbSS@FxPowerPolicyMachine@@QEAAJXZ.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
  */
 
 FxUsbIdleInfo *__fastcall FxUsbIdleInfo::`scalar deleting destructor'(FxUsbIdleInfo *this)

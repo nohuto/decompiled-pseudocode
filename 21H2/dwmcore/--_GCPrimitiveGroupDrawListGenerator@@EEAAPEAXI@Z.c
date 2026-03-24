@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCPrimitiveGroupDrawListGenerator@@EEAAPEAXI@Z @ 0x18000B730
+ * XREFs of ??_GCPrimitiveGroupDrawListGenerator@@EEAAPEAXI@Z @ 0x180062C30
  * Callers:
  *     <none>
  * Callees:
- *     ??1CPrimitiveGroupDrawListGenerator@@EEAA@XZ @ 0x18000B76C (--1CPrimitiveGroupDrawListGenerator@@EEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1CPrimitiveGroupDrawListGenerator@@EEAA@XZ @ 0x180062C6C (--1CPrimitiveGroupDrawListGenerator@@EEAA@XZ.c)
  */
 
 CPrimitiveGroupDrawListGenerator *__fastcall CPrimitiveGroupDrawListGenerator::`scalar deleting destructor'(
@@ -13,6 +13,6 @@ CPrimitiveGroupDrawListGenerator *__fastcall CPrimitiveGroupDrawListGenerator::`
 {
   CPrimitiveGroupDrawListGenerator::~CPrimitiveGroupDrawListGenerator(this);
   if ( (a2 & 1) != 0 )
-    operator delete(this, 0x68uLL);
+    operator delete(this);
   return this;
 }

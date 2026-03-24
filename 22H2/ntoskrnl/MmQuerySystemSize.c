@@ -1,5 +1,5 @@
 /*
- * XREFs of MmQuerySystemSize @ 0x1403B6350
+ * XREFs of MmQuerySystemSize @ 0x1403A7540
  * Callers:
  *     <none>
  * Callees:

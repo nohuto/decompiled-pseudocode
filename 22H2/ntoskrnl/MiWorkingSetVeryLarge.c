@@ -1,42 +1,37 @@
 /*
- * XREFs of MiWorkingSetVeryLarge @ 0x14061C440
+ * XREFs of MiWorkingSetVeryLarge @ 0x1405306C4
  * Callers:
- *     MiOrderTrimList @ 0x14046B68E (MiOrderTrimList.c)
+ *     MiOrderTrimList @ 0x14053B580 (MiOrderTrimList.c)
  * Callees:
- *     MiGetStandbyRepurposed @ 0x14022051C (MiGetStandbyRepurposed.c)
+ *     MiGetStandbyRepurposed @ 0x14033A7B4 (MiGetStandbyRepurposed.c)
  */
 
-__int64 __fastcall MiWorkingSetVeryLarge(__int64 a1, __int64 a2)
+_BOOL8 __fastcall MiWorkingSetVeryLarge(__int64 a1)
 {
-  unsigned __int64 v2; // r8
-  unsigned __int64 v3; // r9
-  int v4; // edi
-  _QWORD *v5; // rbx
-  unsigned __int64 v6; // rcx
-  __int64 v8; // rsi
-  unsigned int v9; // r10d
-  unsigned __int64 v10; // r11
+  unsigned __int64 v1; // r8
+  unsigned __int64 v2; // r9
+  _QWORD *v3; // r10
+  unsigned __int64 v4; // rcx
+  unsigned __int64 v5; // rdi
+  __int64 v6; // rbx
+  __int64 v7; // r10
+  unsigned __int64 v8; // r11
 
-  v2 = *(_QWORD *)(a1 + 144);
-  v3 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 32LL);
-  if ( v2 <= v3 )
+  v1 = *(_QWORD *)(a1 + 136);
+  v2 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 32LL);
+  if ( v1 <= v2 )
     return 0LL;
-  v4 = 0;
-  v5 = *(_QWORD **)(qword_140C674C8 + 8LL * *(unsigned __int16 *)(a1 + 174));
-  v6 = v5[2130];
-  if ( !a2 || ((v2 ^ (v2 + a2)) & 0xFFFFFFFFFFFFFFC0uLL) != 0 )
-  {
-    v4 = 1;
-    if ( v5[2152] < v6 >> 4 && v2 >= v6 >> 4 )
-      return 1LL;
-  }
-  if ( v2 - v3 < 3 * (v6 >> 2) )
+  v3 = *(_QWORD **)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a1 + 174));
+  v4 = v3[866];
+  v5 = v1 & 0x3F;
+  if ( (v1 & 0x3F) == 0 && v3[888] < v4 / 0x14 && v1 >= v4 / 0x14 )
+    return 1LL;
+  if ( v1 - v2 < 3 * (v4 >> 2) )
     return 0LL;
-  v8 = v5[2115];
-  if ( (unsigned int)MiGetStandbyRepurposed((__int64)v5, 1u) == *(_DWORD *)(v8 + 44) )
+  v6 = v3[856];
+  if ( (unsigned int)MiGetStandbyRepurposed((__int64)v3, 1u) == *(_DWORD *)(v6 + 44) )
     return 0LL;
-  if ( !v4 )
-    v10 = v5[2152];
-  LOBYTE(v9) = v10 < 8LL * *(_QWORD *)(v8 + 2384);
-  return v9;
+  if ( v5 )
+    v8 = *(_QWORD *)(v7 + 7104);
+  return v8 < 10LL * *(_QWORD *)(v6 + 2384);
 }

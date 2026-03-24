@@ -1,35 +1,29 @@
 /*
- * XREFs of RtlpValidateKeyTrust @ 0x1407D9934
+ * XREFs of RtlpValidateKeyTrust @ 0x14069BF64
  * Callers:
- *     RtlpCallQueryRegistryRoutine @ 0x1406C5F84 (RtlpCallQueryRegistryRoutine.c)
+ *     RtlpCallQueryRegistryRoutine @ 0x1406B9D10 (RtlpCallQueryRegistryRoutine.c)
  * Callees:
- *     ZwQueryKey @ 0x14041A960 (ZwQueryKey.c)
+ *     ZwQueryKey @ 0x1403F9CE0 (ZwQueryKey.c)
  */
 
-__int64 __fastcall RtlpValidateKeyTrust(void *a1, __int16 a2)
+NTSTATUS __fastcall RtlpValidateKeyTrust(void *a1, __int16 a2)
 {
-  unsigned int v2; // ebx
-  NTSTATUS v4; // eax
+  NTSTATUS result; // eax
   int KeyInformation; // [rsp+48h] [rbp+10h] BYREF
   ULONG ResultLength; // [rsp+50h] [rbp+18h] BYREF
 
-  v2 = 0;
   KeyInformation = 0;
   ResultLength = 0;
-  if ( (a2 & 0x100) == 0 )
+  if ( (a2 & 0x100) != 0 )
+    return 0;
+  result = ZwQueryKey(a1, KeyTrustInformation, &KeyInformation, 4u, &ResultLength);
+  if ( result >= 0 )
   {
-    v4 = ZwQueryKey(a1, KeyTrustInformation, &KeyInformation, 4u, &ResultLength);
-    if ( v4 < 0 )
-    {
-      v2 = v4;
-      if ( v4 == -1073741431 )
-        return v2;
-    }
-    else if ( (KeyInformation & 1) != 0 )
-    {
-      return v2;
-    }
-    __fastfail(9u);
+    if ( (KeyInformation & 1) != 0 )
+      return 0;
+    result = -1073741790;
   }
-  return v2;
+  if ( result != -1073741431 )
+    __fastfail(9u);
+  return result;
 }

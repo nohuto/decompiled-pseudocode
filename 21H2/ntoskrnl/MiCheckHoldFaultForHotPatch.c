@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCheckHoldFaultForHotPatch @ 0x1405A2E3C
+ * XREFs of MiCheckHoldFaultForHotPatch @ 0x14053E2DC
  * Callers:
- *     MiUserFault @ 0x14031CD90 (MiUserFault.c)
+ *     MiUserFault @ 0x14020D770 (MiUserFault.c)
  * Callees:
- *     MiUnlockFaultWorkingSet @ 0x14024D050 (MiUnlockFaultWorkingSet.c)
- *     MiGetSharedVm @ 0x140282AD0 (MiGetSharedVm.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockFaultWorkingSet @ 0x14028DD1C (MiUnlockFaultWorkingSet.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
  */
 
-__int64 __fastcall MiCheckHoldFaultForHotPatch(__int64 a1, __int64 *a2)
+__int64 __fastcall MiCheckHoldFaultForHotPatch(__int64 a1, unsigned __int64 *a2)
 {
   __int64 v2; // r13
   bool v3; // zf
@@ -19,7 +19,7 @@ __int64 __fastcall MiCheckHoldFaultForHotPatch(__int64 a1, __int64 *a2)
   unsigned __int64 v8; // rcx
   _QWORD *v9; // r14
   _QWORD *v10; // rcx
-  volatile LONG *SharedVm; // rbx
+  LONG *SharedVm; // rbx
   __int128 v13; // [rsp+30h] [rbp-30h] BYREF
   __int128 Object; // [rsp+40h] [rbp-20h] BYREF
   char *v15; // [rsp+50h] [rbp-10h]
@@ -29,7 +29,7 @@ __int64 __fastcall MiCheckHoldFaultForHotPatch(__int64 a1, __int64 *a2)
   v15 = 0LL;
   v13 = 0LL;
   Object = 0LL;
-  if ( v3 || (unsigned __int64)*a2 > 0x7FFFFFFEFFFFLL )
+  if ( v3 || *a2 > 0x7FFFFFFEFFFFLL )
     return 0LL;
   v5 = 0;
   v6 = (_QWORD *)(a1 + 24);
@@ -61,12 +61,12 @@ __int64 __fastcall MiCheckHoldFaultForHotPatch(__int64 a1, __int64 *a2)
     *(_QWORD *)&v13 = v9 + 4;
     *v10 = &v13;
     v9[5] = &v13;
-    MiUnlockFaultWorkingSet(a2 + 7, (__int64)&v13);
+    MiUnlockFaultWorkingSet((__int64)(a2 + 7));
     v5 = 1;
     KeWaitForSingleObject(&Object, WrKernel, 0, 0, 0LL);
-    SharedVm = (volatile LONG *)MiGetSharedVm(v2);
+    SharedVm = MiGetSharedVm(v2);
     ExAcquireSpinLockExclusive(SharedVm);
-    *((_DWORD *)SharedVm + 1) = 0;
+    SharedVm[1] = 0;
     *((_BYTE *)a2 + 69) |= 1u;
   }
   return v5;

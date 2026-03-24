@@ -1,7 +1,7 @@
 /*
- * XREFs of InbvPortTerminate @ 0x14065465C
+ * XREFs of InbvPortTerminate @ 0x1405C9F2C
  * Callers:
- *     HdlspEnableTerminal @ 0x140AA9594 (HdlspEnableTerminal.c)
+ *     HdlspEnableTerminal @ 0x1409EF52C (HdlspEnableTerminal.c)
  * Callees:
  *     <none>
  */

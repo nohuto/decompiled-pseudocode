@@ -1,35 +1,24 @@
 /*
- * XREFs of EditionInitGlobalCursorSizes @ 0x1C0121A20
+ * XREFs of EditionInitGlobalCursorSizes @ 0x1C0135FA0
  * Callers:
  *     <none>
  * Callees:
- *     ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C009A8A4 (-zzzRefreshSizes@CCursorSizes@@QEAAXXZ.c)
+ *     ??0CCursorSizes@@QEAA@XZ @ 0x1C0135FEC (--0CCursorSizes@@QEAA@XZ.c)
  */
 
 __int64 EditionInitGlobalCursorSizes()
 {
-  __int64 v0; // rbx
-  __int64 result; // rax
+  CCursorSizes *v0; // rax
+  unsigned int v1; // ebx
+  CCursorSizes *v2; // rax
 
-  v0 = Win32AllocPoolZInit(80LL, 1919964227LL);
-  result = 0LL;
+  v0 = (CCursorSizes *)Win32AllocPoolZInit(88LL, 1919964227LL);
+  v1 = 0;
   if ( v0 )
-  {
-    *(_DWORD *)v0 = 32;
-    *(_DWORD *)(v0 + 4) = 32;
-    *(_OWORD *)(v0 + 8) = 0LL;
-    *(_OWORD *)(v0 + 24) = 0LL;
-    *(_OWORD *)(v0 + 40) = 0LL;
-    *(_QWORD *)(v0 + 56) = 0LL;
-    *(_QWORD *)(v0 + 64) = 0LL;
-    *(_QWORD *)(v0 + 72) = 0LL;
-    CCursorSizes::zzzRefreshSizes((CCursorSizes *)v0);
-    result = 1LL;
-    gpCursorSizes = (CCursorSizes *)v0;
-  }
+    v2 = CCursorSizes::CCursorSizes(v0);
   else
-  {
-    gpCursorSizes = 0LL;
-  }
-  return result;
+    v2 = 0LL;
+  gpCursorSizes = v2;
+  LOBYTE(v1) = v2 != 0LL;
+  return v1;
 }

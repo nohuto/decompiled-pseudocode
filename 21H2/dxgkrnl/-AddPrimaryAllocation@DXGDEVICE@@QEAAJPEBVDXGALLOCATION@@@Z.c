@@ -1,93 +1,72 @@
 /*
- * XREFs of ?AddPrimaryAllocation@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@@Z @ 0x1C01C5F88
+ * XREFs of ?AddPrimaryAllocation@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@@Z @ 0x1C016C0A4
  * Callers:
- *     ?CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@IPEAU_EPROCESS@@PEAIPEA_K6PEAU_D3DKMT_CREATESTANDARDALLOCATION@@PEAXI@Z @ 0x1C0191710 (-CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEB.c)
+ *     ?CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@IPEAU_EPROCESS@@PEAIPEA_K6PEAU_D3DKMT_CREATESTANDARDALLOCATION@@PEAXI@Z @ 0x1C00F2BE0 (-CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEB.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?InsertPrimaryAllocation@DXGDEVICE@@QEAA_NIPEBVDXGALLOCATION@@AEAH@Z @ 0x1C001417C (-InsertPrimaryAllocation@DXGDEVICE@@QEAA_NIPEBVDXGALLOCATION@@AEAH@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?InsertPrimaryAllocation@DXGDEVICE@@QEAA_NIPEBVDXGALLOCATION@@AEAH@Z @ 0x1C001A680 (-InsertPrimaryAllocation@DXGDEVICE@@QEAA_NIPEBVDXGALLOCATION@@AEAH@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall DXGDEVICE::AddPrimaryAllocation(DXGDEVICE *this, const struct DXGALLOCATION *a2)
+__int64 __fastcall DXGDEVICE::AddPrimaryAllocation(DXGADAPTER **this, const struct DXGALLOCATION *a2)
 {
-  unsigned int v4; // esi
-  _QWORD *v5; // r8
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  unsigned int v6; // esi
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  DXGADAPTER *v12; // rdx
   __int64 result; // rax
-  int v7; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v14; // rax
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rax
+  _QWORD *v18; // rax
+  int v19; // [rsp+50h] [rbp+8h] BYREF
 
   if ( (*(_DWORD *)(*((_QWORD *)a2 + 6) + 4LL) & 1) == 0 )
   {
-    WdLogSingleEntry1(1LL, 3655LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pAllocation->m_pAllocation->m_Primary",
-      3655LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v14 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v14 + 24) = 3656LL;
+    WdLogEvent5_WdAssertion(v14);
   }
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*((_QWORD *)this + 2) + 16LL)) )
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*((DXGADAPTER **)this[2] + 2)) )
   {
-    WdLogSingleEntry1(1LL, 3656LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetRenderCore()->IsCoreResourceSharedOwner()",
-      3656LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v15 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v15 + 24) = 3657LL;
+    WdLogEvent5_WdAssertion(v15);
   }
-  v4 = (*(_DWORD *)(*((_QWORD *)a2 + 6) + 4LL) >> 6) & 0xF;
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*((DXGADAPTER **)this + 231)) )
+  v6 = (*(_DWORD *)(*((_QWORD *)a2 + 6) + 4LL) >> 6) & 0xF;
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[231]) )
   {
-    WdLogSingleEntry1(1LL, 3660LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetDisplayAdapter(VidPnSourceId)->IsCoreResourceSharedOwner()",
-      3660LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v16 = WdLogNewEntry5_WdAssertion(v8, v7);
+    *(_QWORD *)(v16 + 24) = 3661LL;
+    WdLogEvent5_WdAssertion(v16);
   }
-  if ( v4 >= *((_DWORD *)this + 464) )
+  if ( v6 >= *((_DWORD *)this + 464) )
   {
-    WdLogSingleEntry1(1LL, 3661LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"VidPnSourceId < GetNumVidPnSources()",
-      3661LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v17 = WdLogNewEntry5_WdAssertion(v8, v7);
+    *(_QWORD *)(v17 + 24) = 3662LL;
+    WdLogEvent5_WdAssertion(v17);
   }
-  v7 = 0;
-  if ( DXGDEVICE::InsertPrimaryAllocation((struct _KTHREAD **)this, v4, a2, &v7) )
+  v19 = 0;
+  if ( DXGDEVICE::InsertPrimaryAllocation(this, v6, a2, &v19) )
   {
-    v5 = (_QWORD *)*((_QWORD *)this + 2);
-    if ( !v7 )
+    v12 = this[2];
+    if ( !v19 )
       return 0LL;
-    if ( *((_QWORD *)this + 231) != v5[2] )
+    if ( this[231] != *((DXGADAPTER **)v12 + 2) )
       return 0LL;
     if ( *((_DWORD *)this + 108) != 1 )
       return 0LL;
     if ( (*((_DWORD *)a2 + 18) & 0x800) != 0 )
       return 0LL;
-    result = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))(*(_QWORD *)(v5[81] + 8LL)
+    result = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))(*(_QWORD *)(*((_QWORD *)v12 + 80) + 8LL)
                                                                                        + 232LL))(
-               v5[82],
+               *((_QWORD *)v12 + 81),
                *((_QWORD *)a2 + 3),
                0LL,
                0LL,
@@ -98,7 +77,11 @@ __int64 __fastcall DXGDEVICE::AddPrimaryAllocation(DXGDEVICE *this, const struct
   }
   else
   {
-    WdLogSingleEntry3(3LL, this, a2, -1073741801LL);
+    v18 = (_QWORD *)WdLogNewEntry5_WdWarning(v10, v9, v11);
+    v18[3] = this;
+    v18[5] = -1073741801LL;
+    v18[4] = a2;
+    WdLogEvent5_WdWarning(v18);
     return 3221225495LL;
   }
   return result;

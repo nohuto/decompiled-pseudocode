@@ -1,68 +1,75 @@
 /*
- * XREFs of ObpInitStackAndObjectTables @ 0x14097D018
+ * XREFs of ObpInitStackAndObjectTables @ 0x1408DE9C0
  * Callers:
- *     ObpStartRuntimeStackTrace @ 0x14097D664 (ObpStartRuntimeStackTrace.c)
- *     ObpInitStackTrace @ 0x140B725E0 (ObpInitStackTrace.c)
+ *     ObpStartRuntimeStackTrace @ 0x1408DF008 (ObpStartRuntimeStackTrace.c)
+ *     ObpInitStackTrace @ 0x140A709B0 (ObpInitStackTrace.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x140428870 (RtlpInterlockedFlushSList.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x140407030 (RtlpInterlockedFlushSList.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 ObpInitStackAndObjectTables()
 {
-  __int64 Pool2; // rax
-  __int64 v1; // rax
-  _WORD *v2; // rcx
-  int v3; // ebx
-  struct _SLIST_ENTRY *v4; // rax
-  PSLIST_ENTRY v6; // rbx
-  PSLIST_ENTRY v7; // rcx
-  void *v8; // rcx
+  char *PoolWithTag; // rax
+  char *v1; // rbx
+  PVOID v2; // rax
+  _WORD *v3; // rbx
+  PVOID v4; // rax
+  int v5; // ebx
+  struct _SLIST_ENTRY *v6; // rax
+  PSLIST_ENTRY v8; // rbx
+  PSLIST_ENTRY v9; // rcx
+  void *v10; // rcx
 
-  Pool2 = ExAllocatePool2(64LL, 32904LL, 1951556175LL);
-  ObpStackTable = (PVOID)Pool2;
-  if ( Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x8088uLL, 0x7452624Fu);
+  ObpStackTable = PoolWithTag;
+  v1 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memset((void *)(Pool2 + 136), 255, 0x7FFAuLL);
-    v1 = ExAllocatePool2(64LL, 0x20000LL, 1951556175LL);
-    v2 = ObpStackTable;
-    *((_QWORD *)ObpStackTable + 1) = v1;
-    if ( v1 )
+    memset(PoolWithTag, 0, 0x88uLL);
+    memset(v1 + 136, 255, 0x7FFAuLL);
+    v2 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x20000uLL, 0x7452624Fu);
+    v3 = ObpStackTable;
+    *((_QWORD *)ObpStackTable + 1) = v2;
+    if ( v2 )
     {
-      v2[1] = 1024;
-      ObpObjectTable = (PVOID)ExAllocatePool2(64LL, 3208LL, 1951556175LL);
-      if ( !ObpObjectTable )
+      memset(v2, 0, 0x20000uLL);
+      v3[1] = 1024;
+      v4 = ExAllocatePoolWithTag(NonPagedPoolNx, 0xC88uLL, 0x7452624Fu);
+      ObpObjectTable = v4;
+      if ( !v4 )
       {
 LABEL_14:
-        v8 = (void *)*((_QWORD *)ObpStackTable + 1);
-        if ( v8 )
-          ExFreePoolWithTag(v8, 0x7452624Fu);
+        v10 = (void *)*((_QWORD *)ObpStackTable + 1);
+        if ( v10 )
+          ExFreePoolWithTag(v10, 0x7452624Fu);
         ExFreePoolWithTag(ObpStackTable, 0x7452624Fu);
         return 3221225495LL;
       }
+      memset(v4, 0, 0xC88uLL);
       if ( ((unsigned __int8)&ObpWorkItemFreeList & 0xF) != 0 )
-        RtlRaiseStatus(-2147483646);
-      v3 = 0;
+        RtlRaiseStatus(0x80000002);
+      v5 = 0;
       ObpWorkItemFreeList = 0LL;
       while ( 1 )
       {
-        v4 = (struct _SLIST_ENTRY *)ExAllocatePool2(64LL, 176LL, 1951556175LL);
-        if ( !v4 )
+        v6 = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0xB0uLL, 0x7452624Fu);
+        if ( !v6 )
           break;
-        RtlpInterlockedPushEntrySList(&ObpWorkItemFreeList, v4);
-        if ( (unsigned int)++v3 >= 0x1F4 )
+        RtlpInterlockedPushEntrySList(&ObpWorkItemFreeList, v6);
+        if ( (unsigned int)++v5 >= 0x1F4 )
           return 0LL;
       }
-      v6 = RtlpInterlockedFlushSList(&ObpWorkItemFreeList);
-      while ( v6 )
+      v8 = RtlpInterlockedFlushSList(&ObpWorkItemFreeList);
+      while ( v8 )
       {
-        v7 = v6;
-        v6 = v6->Next;
-        ExFreePoolWithTag(v7, 0x7452624Fu);
+        v9 = v8;
+        v8 = v8->Next;
+        ExFreePoolWithTag(v9, 0x7452624Fu);
       }
     }
     if ( ObpObjectTable )

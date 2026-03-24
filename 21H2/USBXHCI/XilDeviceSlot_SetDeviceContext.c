@@ -1,14 +1,14 @@
 /*
- * XREFs of XilDeviceSlot_SetDeviceContext @ 0x1C00105E0
+ * XREFs of XilDeviceSlot_SetDeviceContext @ 0x1C000F634
  * Callers:
- *     UsbDevice_EnableCompletion @ 0x1C00109B0 (UsbDevice_EnableCompletion.c)
+ *     UsbDevice_EnableCompletion @ 0x1C000E630 (UsbDevice_EnableCompletion.c)
  * Callees:
- *     Controller_IsControllerAccessible @ 0x1C0004288 (Controller_IsControllerAccessible.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     XilCoreDeviceSlot_SetDeviceContext @ 0x1C0010670 (XilCoreDeviceSlot_SetDeviceContext.c)
- *     DeviceSlot_GetXilCoreDeviceSlotData @ 0x1C0010840 (DeviceSlot_GetXilCoreDeviceSlotData.c)
- *     WPP_RECORDER_SF_sds @ 0x1C003609C (WPP_RECORDER_SF_sds.c)
- *     XilDeviceSlot_SendSetDeviceContextRequest @ 0x1C0037038 (XilDeviceSlot_SendSetDeviceContextRequest.c)
+ *     Controller_IsControllerAccessible @ 0x1C0007380 (Controller_IsControllerAccessible.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     XilCoreDeviceSlot_SetDeviceContext @ 0x1C000F6C4 (XilCoreDeviceSlot_SetDeviceContext.c)
+ *     DeviceSlot_GetXilCoreDeviceSlotData @ 0x1C000F894 (DeviceSlot_GetXilCoreDeviceSlotData.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     XilDeviceSlot_SendSetDeviceContextRequest @ 0x1C0036DF8 (XilDeviceSlot_SendSetDeviceContextRequest.c)
  */
 
 __int64 __fastcall XilDeviceSlot_SetDeviceContext(__int64 a1, __int64 a2, unsigned int a3)
@@ -59,7 +59,7 @@ __int64 __fastcall XilDeviceSlot_SetDeviceContext(__int64 a1, __int64 a2, unsign
             v9,
             10,
             25,
-            (__int64)&WPP_d32df481b5d7314fe4e9c81d9c040203_Traceguids,
+            (__int64)&WPP_0ef60bba37223f5f44eaee70871e7dcd_Traceguids,
             v8);
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v14, v15, v16);

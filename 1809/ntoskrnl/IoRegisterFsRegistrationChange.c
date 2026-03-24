@@ -1,9 +1,9 @@
 /*
- * XREFs of IoRegisterFsRegistrationChange @ 0x14081C860
+ * XREFs of IoRegisterFsRegistrationChange @ 0x14081C840
  * Callers:
  *     <none>
  * Callees:
- *     IoRegisterFsRegistrationChangeMountAware @ 0x14075BF80 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x14075BF60 (IoRegisterFsRegistrationChangeMountAware.c)
  */
 
 NTSTATUS __stdcall IoRegisterFsRegistrationChange(

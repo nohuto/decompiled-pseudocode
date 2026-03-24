@@ -1,82 +1,66 @@
 /*
- * XREFs of CmpStartSiloRegistryNamespace @ 0x14077D410
+ * XREFs of CmpStartSiloRegistryNamespace @ 0x1406A630C
  * Callers:
- *     CmInitSiloNamespace @ 0x14077D2D8 (CmInitSiloNamespace.c)
- *     CmInitServerSiloState @ 0x14080EBB4 (CmInitServerSiloState.c)
+ *     CmInitSiloNamespace @ 0x1405D2580 (CmInitSiloNamespace.c)
+ *     CmInitServerSiloState @ 0x1407A5B58 (CmInitServerSiloState.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     CmpCleanupParseContext @ 0x140692A84 (CmpCleanupParseContext.c)
- *     CmpUnlockKcbStack @ 0x1406D5418 (CmpUnlockKcbStack.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7C1C (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpLockKcbStackExclusive @ 0x140710868 (CmpLockKcbStackExclusive.c)
- *     CmpCreateKeyBody @ 0x14072F7D0 (CmpCreateKeyBody.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     CmpCleanupKcbStack @ 0x140648A80 (CmpCleanupKcbStack.c)
+ *     CmpUnlockKcbStack @ 0x140648B60 (CmpUnlockKcbStack.c)
+ *     CmpCreateKeyBody @ 0x140649DB0 (CmpCreateKeyBody.c)
+ *     CmpCleanupParseContext @ 0x1406CE840 (CmpCleanupParseContext.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1406DEB20 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpLockKcbStackExclusive @ 0x1406E4F28 (CmpLockKcbStackExclusive.c)
  */
 
 __int64 __fastcall CmpStartSiloRegistryNamespace(__int64 a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 *v6; // rbx
-  _QWORD *v7; // rbx
+  struct _DMA_ADAPTER *v2; // rbx
+  _QWORD *v3; // rbx
   int KeyBody; // edi
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  signed __int64 v13; // rax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  __int64 v19; // [rsp+48h] [rbp-C0h] BYREF
-  signed __int64 v20; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v21[2]; // [rsp+58h] [rbp-B0h] BYREF
-  __int128 v22; // [rsp+68h] [rbp-A0h]
-  _OWORD v23[19]; // [rsp+78h] [rbp-90h] BYREF
+  signed __int64 v5; // rax
+  __int64 v7; // [rsp+48h] [rbp-C0h] BYREF
+  _BYTE v8[40]; // [rsp+50h] [rbp-B8h] BYREF
+  _OWORD v9[19]; // [rsp+78h] [rbp-90h] BYREF
 
-  LOBYTE(v19) = 0;
-  *(_OWORD *)v21 = 0LL;
-  WORD1(v21[0]) = -1;
-  v22 = 0LL;
-  memset(v23, 0, 0x128uLL);
-  LODWORD(v23[6]) = -1;
-  *((_QWORD *)&v23[9] + 1) = &v23[9];
-  *(_QWORD *)&v23[9] = &v23[9];
-  memset((char *)&v23[13] + 8, 0, 0x50uLL);
-  v6 = 0LL;
-  v20 = 0LL;
+  LOBYTE(v7) = 0;
+  memset(&v8[8], 0, 32);
+  *(_WORD *)&v8[10] = -1;
+  memset(v9, 0, 0x128uLL);
+  LODWORD(v9[6]) = -1;
+  *((_QWORD *)&v9[9] + 1) = &v9[9];
+  *(_QWORD *)&v9[9] = &v9[9];
+  memset((char *)&v9[13] + 8, 0, 0x50uLL);
+  v2 = 0LL;
+  *(_QWORD *)v8 = 0LL;
   if ( *(_QWORD *)(a1 + 32) )
     goto LABEL_4;
-  CmpLockRegistry(v3, v2, v4, v5);
-  v7 = CmpRegistryRootObject;
-  CmpStartKcbStackForTopLayerKcb((__int64)v21, *((_QWORD *)CmpRegistryRootObject + 1));
-  CmpLockKcbStackExclusive((__int64)v21);
-  KeyBody = CmpCreateKeyBody(v7[1], 0, (__int64)v23, 0LL, 3, (__int64)v21, (__int64 **)&v20, (bool *)&v19);
+  CmpLockRegistry();
+  v3 = CmpRegistryRootObject;
+  CmpStartKcbStackForTopLayerKcb(&v8[8], *((_QWORD *)CmpRegistryRootObject + 1));
+  CmpLockKcbStackExclusive(&v8[8]);
+  KeyBody = CmpCreateKeyBody(v3[1], 0, (__int64)v9, 0LL, 1, (__int64)&v8[8], (ULONG_PTR **)v8, (bool *)&v7);
   if ( KeyBody >= 0 )
   {
-    CmpUnlockKcbStack((__int64)v21);
-    CmpUnlockRegistry(v10, v9, v11, v12);
-    v13 = -_InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 32), v20, 0LL);
-    v6 = (__int64 *)(v20 & -(__int64)(v13 != 0));
+    CmpUnlockKcbStack((__int64)&v8[8]);
+    CmpUnlockRegistry();
+    v5 = -_InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 32), *(signed __int64 *)v8, 0LL);
+    v2 = (struct _DMA_ADAPTER *)(*(_QWORD *)v8 & -(__int64)(v5 != 0));
 LABEL_4:
     KeyBody = 0;
     goto LABEL_5;
   }
-  CmpUnlockKcbStack((__int64)v21);
-  CmpUnlockRegistry(v16, v15, v17, v18);
-  v6 = (__int64 *)v20;
+  CmpUnlockKcbStack((__int64)&v8[8]);
+  CmpUnlockRegistry();
+  v2 = *(struct _DMA_ADAPTER **)v8;
 LABEL_5:
-  if ( *((_QWORD *)&v22 + 1) )
-    CmSiFreeMemory(*((PPRIVILEGE_SET *)&v22 + 1));
-  CmpCleanupParseContext(v23, 0LL);
-  if ( v6 )
-    ObfDereferenceObject(v6);
+  CmpCleanupKcbStack((__int64)&v8[8]);
+  CmpCleanupParseContext(v9, 0LL);
+  if ( v2 )
+    HalPutDmaAdapter(v2);
   return (unsigned int)KeyBody;
 }

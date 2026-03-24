@@ -1,12 +1,12 @@
 /*
- * XREFs of CheckHandleFlag @ 0x1C005DFC4
+ * XREFs of CheckHandleFlag @ 0x1C0066758
  * Callers:
- *     zzzSetDesktop @ 0x1C005DB40 (zzzSetDesktop.c)
- *     _GetUserObjectInformation @ 0x1C00727B0 (_GetUserObjectInformation.c)
- *     OkayToCloseWindowStation @ 0x1C00FE120 (OkayToCloseWindowStation.c)
- *     OkayToCloseDesktop @ 0x1C00FE910 (OkayToCloseDesktop.c)
+ *     OkayToCloseWindowStation @ 0x1C0065DB0 (OkayToCloseWindowStation.c)
+ *     OkayToCloseDesktop @ 0x1C0065E30 (OkayToCloseDesktop.c)
+ *     zzzSetDesktop @ 0x1C0065EC0 (zzzSetDesktop.c)
+ *     _GetUserObjectInformation @ 0x1C0069DA4 (_GetUserObjectInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CheckHandleFlag(PRKPROCESS PROCESS, __int64 a2, __int64 a3, __int64 a4)

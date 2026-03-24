@@ -1,11 +1,11 @@
 /*
- * XREFs of ArbDeleteMmConfigRange @ 0x140B26F8C
+ * XREFs of ArbDeleteMmConfigRange @ 0x140A6CB54
  * Callers:
- *     HalpPciReportMmConfigAddressRange @ 0x140B26D98 (HalpPciReportMmConfigAddressRange.c)
+ *     HalpPciReportMmConfigAddressRange @ 0x140A6C94C (HalpPciReportMmConfigAddressRange.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
  */
 
 NTSTATUS ArbDeleteMmConfigRange()
@@ -18,14 +18,15 @@ NTSTATUS ArbDeleteMmConfigRange()
   HANDLE Handle; // [rsp+78h] [rbp+18h] BYREF
 
   KeyHandle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   Handle = 0LL;
   *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
   ObjectAttributes.RootDirectory = 0LL;
   ValueName.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Arbiters";
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ObjectAttributes.ObjectName = &ValueName;
   *(_DWORD *)&ValueName.Length = 7733366;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   result = ZwOpenKey(&KeyHandle, 0x2001Fu, &ObjectAttributes);
   if ( result >= 0 )

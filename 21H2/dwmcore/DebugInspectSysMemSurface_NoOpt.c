@@ -1,24 +1,23 @@
 /*
- * XREFs of DebugInspectSysMemSurface_NoOpt @ 0x1802629C0
+ * XREFs of DebugInspectSysMemSurface_NoOpt @ 0x180210228
  * Callers:
- *     ?DebugInspectSysMemSurface@@YAXPEAXIIW4DXGI_FORMAT@@I@Z @ 0x1802629B4 (-DebugInspectSysMemSurface@@YAXPEAXIIW4DXGI_FORMAT@@I@Z.c)
+ *     ?DebugInspectSysMemSurface@@YAXPEAXIIW4DXGI_FORMAT@@I@Z @ 0x18021021C (-DebugInspectSysMemSurface@@YAXPEAXIIW4DXGI_FORMAT@@I@Z.c)
  * Callees:
- *     ?reserve@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z @ 0x1800CEA58 (-reserve@-$vector@EV-$allocator@E@std@@@std@@QEAAX_K@Z.c)
- *     ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@AEAAXXZ @ 0x1800E006C (-_Tidy@-$vector@EV-$allocator@E@std@@@std@@AEAAXXZ.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
- *     IsSolidColorSurface @ 0x180263068 (IsSolidColorSurface.c)
- *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x18026C098 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ *     ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@AEAAXXZ @ 0x1800D44BC (-_Tidy@-$vector@EV-$allocator@E@std@@@std@@AEAAXXZ.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
+ *     ?reserve@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z @ 0x1801F07E8 (-reserve@-$vector@EV-$allocator@E@std@@@std@@QEAAX_K@Z.c)
+ *     IsSolidColorSurface @ 0x180210A10 (IsSolidColorSurface.c)
  */
 
-bool __fastcall DebugInspectSysMemSurface_NoOpt(void *a1, __int64 a2, int a3, __int64 a4, int a5)
+char __fastcall DebugInspectSysMemSurface_NoOpt(void *a1, __int64 a2, int a3, __int64 a4, int a5)
 {
-  volatile bool result; // al
+  char result; // al
   char v6; // [rsp+30h] [rbp-28h]
   void *v7[2]; // [rsp+38h] [rbp-20h] BYREF
   __int64 v8; // [rsp+48h] [rbp-10h]
 
-  result = g_fSurfaceDebugDisableBreak;
-  if ( !g_fSurfaceDebugDisableBreak )
+  result = byte_180346840;
+  if ( byte_180346840 )
   {
     v6 = IsSolidColorSurface(a1, a5);
     if ( g_TouchOnDebugReadSurface )
@@ -30,7 +29,7 @@ bool __fastcall DebugInspectSysMemSurface_NoOpt(void *a1, __int64 a2, int a3, __
       g_TouchOnDebugReadSurface = 1;
       std::vector<unsigned char>::_Tidy((__int64)v7);
     }
-    else if ( IsDebuggerPresent() || (unsigned int)IsKernelDebuggerPresent() )
+    else
     {
       __debugbreak();
     }

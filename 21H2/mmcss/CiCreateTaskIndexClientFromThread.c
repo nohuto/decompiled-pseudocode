@@ -1,42 +1,36 @@
 /*
- * XREFs of CiCreateTaskIndexClientFromThread @ 0x1C000A380
+ * XREFs of CiCreateTaskIndexClientFromThread @ 0x1C000B600
  * Callers:
- *     CiDispatchFastIoDeviceControl @ 0x1C000AA20 (CiDispatchFastIoDeviceControl.c)
+ *     CiDispatchFastIoDeviceControl @ 0x1C000A6C0 (CiDispatchFastIoDeviceControl.c)
  * Callees:
- *     CiTaskIndexDereference @ 0x1C0002070 (CiTaskIndexDereference.c)
- *     CiThreadReferenceTaskIndex @ 0x1C0002ED0 (CiThreadReferenceTaskIndex.c)
- *     __security_check_cookie @ 0x1C0003170 (__security_check_cookie.c)
- *     memset @ 0x1C00036C0 (memset.c)
- *     WPP_SF_d @ 0x1C00048F4 (WPP_SF_d.c)
+ *     CiTaskIndexDereference @ 0x1C0001B60 (CiTaskIndexDereference.c)
+ *     CiThreadReferenceTaskIndex @ 0x1C0001D30 (CiThreadReferenceTaskIndex.c)
+ *     __security_check_cookie @ 0x1C0002FD0 (__security_check_cookie.c)
+ *     memset @ 0x1C0003480 (memset.c)
+ *     WPP_SF_d @ 0x1C0004644 (WPP_SF_d.c)
  */
 
 __int64 __fastcall CiCreateTaskIndexClientFromThread(__int64 a1, _DWORD *a2)
 {
-  _QWORD *v4; // rdi
+  void *v4; // rdi
   NTSTATUS v5; // eax
   unsigned int v6; // esi
   void *FileHandle[2]; // [rsp+88h] [rbp-1A0h] BYREF
   _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-190h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+C8h] [rbp-160h] BYREF
-  __int64 EaBuffer; // [rsp+E0h] [rbp-148h] BYREF
-  int v12; // [rsp+E8h] [rbp-140h]
-  int v13; // [rsp+ECh] [rbp-13Ch]
-  _QWORD *v14; // [rsp+F0h] [rbp-138h]
-  _BYTE v15[252]; // [rsp+F8h] [rbp-130h] BYREF
+  _QWORD EaBuffer[36]; // [rsp+E0h] [rbp-148h] BYREF
 
-  v13 = 0;
-  memset(v15, 0, sizeof(v15));
+  memset(EaBuffer, 0, 0x118uLL);
   IoStatusBlock = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   FileHandle[0] = 0LL;
-  v4 = (_QWORD *)CiThreadReferenceTaskIndex(a1);
+  v4 = (void *)CiThreadReferenceTaskIndex(a1);
   FileHandle[1] = v4;
   if ( !v4 )
     return 3221225865LL;
-  EaBuffer = 0x10F000000000000LL;
-  v12 = 0;
-  v14 = v4;
+  HIWORD(EaBuffer[0]) = 271;
+  EaBuffer[2] = v4;
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
   if ( ExGetPreviousMode() )
@@ -55,7 +49,7 @@ __int64 __fastcall CiCreateTaskIndexClientFromThread(__int64 a1, _DWORD *a2)
          0,
          0,
          0,
-         &EaBuffer,
+         EaBuffer,
          0x118u,
          CreateFileTypeNone,
          0LL,
@@ -68,13 +62,13 @@ __int64 __fastcall CiCreateTaskIndexClientFromThread(__int64 a1, _DWORD *a2)
       WPP_SF_d(
         (__int64)WPP_GLOBAL_Control->AttachedDevice,
         0x11u,
-        (__int64)&WPP_0f75fd9923be30bc1807a9ff104f69db_Traceguids,
+        (__int64)&WPP_f2567f649f8e330a8ddb4ba7f0878bc2_Traceguids,
         v5);
   }
   else
   {
     *a2 = FileHandle[0];
   }
-  CiTaskIndexDereference(v4);
+  CiTaskIndexDereference((volatile signed __int64 *)v4);
   return v6;
 }

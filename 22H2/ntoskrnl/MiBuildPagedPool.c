@@ -1,12 +1,12 @@
 /*
- * XREFs of MiBuildPagedPool @ 0x140B46E94
+ * XREFs of MiBuildPagedPool @ 0x140A4E614
  * Callers:
- *     MiInitNucleus @ 0x140B44F88 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A42364 (MiInitNucleus.c)
  * Callees:
- *     MiSystemVaToDynamicBitmap @ 0x140210FE4 (MiSystemVaToDynamicBitmap.c)
- *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
- *     MiBuildDynamicRegion @ 0x14037685C (MiBuildDynamicRegion.c)
- *     MiInitializeSystemWorkingSetList @ 0x1407AA178 (MiInitializeSystemWorkingSetList.c)
+ *     MiGetAnyMultiplexedVm @ 0x14027D77C (MiGetAnyMultiplexedVm.c)
+ *     MiSystemVaToDynamicBitmap @ 0x14030B7CC (MiSystemVaToDynamicBitmap.c)
+ *     MiBuildDynamicRegion @ 0x1403B5924 (MiBuildDynamicRegion.c)
+ *     MiInitializeSystemWorkingSetList @ 0x1407866BC (MiInitializeSystemWorkingSetList.c)
  */
 
 __int64 MiBuildPagedPool()
@@ -19,19 +19,19 @@ __int64 MiBuildPagedPool()
   v0 = MiSystemVaToDynamicBitmap(6);
   if ( !(unsigned int)MiBuildDynamicRegion(v0, v1, 0x100000000000uLL) )
     return 0LL;
-  qword_140C69A38 = 0x100000000LL;
+  qword_140C4EF38 = 0x100000000LL;
   MmSizeOfPagedPoolInBytes = 0x100000000000LL;
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(2);
   if ( !(unsigned int)MiInitializeSystemWorkingSetList(
-                        (__int64)MiSystemPartition,
+                        &MiSystemPartition,
                         (__int64)AnyMultiplexedVm,
-                        3,
-                        0x100000000LL) )
+                        3u,
+                        (_DWORD *)0x100000000LL) )
     return 0LL;
-  qword_140C69A18 = 0LL;
-  qword_140C69A20 = qword_140C69A38;
+  qword_140C4EF18 = 0LL;
+  qword_140C4EF20 = qword_140C4EF38;
   result = 1LL;
-  qword_140C655A0 = 7680LL;
-  qword_140C655A8 = 15360LL;
+  qword_140C4C8E8 = 7680LL;
+  qword_140C4C8F0 = 15360LL;
   return result;
 }

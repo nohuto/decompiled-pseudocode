@@ -5,7 +5,7 @@
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     PiDmGetObject @ 0x1405989C8 (PiDmGetObject.c)
  *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)
  *     PiDmGetCacheKeys @ 0x140598E7C (PiDmGetCacheKeys.c)

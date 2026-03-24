@@ -1,47 +1,68 @@
 /*
- * XREFs of ?_GetEmergencySimulatedMonitor@MONITOR_MGR@@QEAAJPEAPEAVDXGMONITOR@@@Z @ 0x1C0207674
+ * XREFs of ?_GetEmergencySimulatedMonitor@MONITOR_MGR@@QEAAJPEAPEAVDXGMONITOR@@@Z @ 0x1C0191394
  * Callers:
- *     ?_HandleCreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAU_DXGK_CONNECTION_USB4_INFO@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02076C0 (-_HandleCreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAU_DXGK_CONNECTION_USB4.c)
- *     ?_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03B3D18 (-_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEA.c)
+ *     ?_HandleCreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0191114 (-_HandleCreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAU_DXGK_DISPLAY_SCENARI.c)
+ *     ?_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEAPEAV3@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F2238 (-_HandleCreateSimulatedMonitor@MONITOR_MGR@@QEAAJIW4_DMM_VIDPN_MONITOR_TYPE@@PEAVDXGMONITOR@@PEA.c)
  * Callees:
- *     ??0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z @ 0x1C0012EA0 (--0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z.c)
- *     ??1MUTEX_LOCK@@QEAA@XZ @ 0x1C0012ED0 (--1MUTEX_LOCK@@QEAA@XZ.c)
+ *     ?_GetAttachedPhysicalMonitor@DXGMONITOR@@QEAAPEAV1@XZ @ 0x1C005DEC8 (-_GetAttachedPhysicalMonitor@DXGMONITOR@@QEAAPEAV1@XZ.c)
  */
 
-__int64 __fastcall MONITOR_MGR::_GetEmergencySimulatedMonitor(MONITOR_MGR *this, struct DXGMONITOR **a2)
+__int64 __fastcall MONITOR_MGR::_GetEmergencySimulatedMonitor(struct _FAST_MUTEX *this, struct DXGMONITOR **a2)
 {
-  char *v4; // rcx
+  struct _FAST_MUTEX *v4; // rbx
+  __int64 v5; // rdx
+  ULONG *p_Contention; // rcx
   char *i; // rax
-  char *v6; // rbx
-  unsigned int v7; // edi
-  struct _KTHREAD **v9; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v9; // rax
+  __int64 v10; // rax
+  char *v11; // rdi
+  unsigned int v12; // esi
+  __int64 v13; // rax
+  __int64 v14; // rax
 
   if ( !a2 )
-    WdLogSingleEntry0(1LL);
-  MUTEX_LOCK::MUTEX_LOCK((MUTEX_LOCK *)&v9, (MONITOR_MGR *)((char *)this + 80));
-  v4 = (char *)this + 40;
-  for ( i = (char *)*((_QWORD *)this + 5); ; i = (char *)*((_QWORD *)v6 + 19) )
   {
-    if ( i == v4 )
-      goto LABEL_10;
-    v6 = i - 152;
+    v9 = WdLogNewEntry5_WdAssertion(this, 0LL);
+    WdLogEvent5_WdAssertion(v9);
+  }
+  v4 = this + 3;
+  if ( this == (struct _FAST_MUTEX *)-168LL )
+  {
+    v10 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v10);
+  }
+  KeAcquireGuardedMutex(this + 3);
+  p_Contention = &this[2].Contention;
+  for ( i = *(char **)&this[2].Contention; ; i = (char *)*((_QWORD *)v11 + 2) )
+  {
+    if ( i == (char *)p_Contention )
+      goto LABEL_15;
+    v11 = i - 16;
     if ( !i )
-      v6 = 0LL;
-    if ( !v6 )
+      v11 = 0LL;
+    if ( !v11 )
     {
-LABEL_10:
-      v7 = -1073741275;
-      v6 = 0LL;
-      goto LABEL_11;
+LABEL_15:
+      v12 = -1073741275;
+      v11 = 0LL;
+      goto LABEL_6;
     }
-    if ( *((_DWORD *)v6 + 78) == 5 )
+    if ( *((_DWORD *)v11 + 108) == 5 )
       break;
   }
-  if ( *((_QWORD *)v6 + 40) )
-    WdLogSingleEntry0(1LL);
-  v7 = 0;
-LABEL_11:
-  *a2 = (struct DXGMONITOR *)v6;
-  MUTEX_LOCK::~MUTEX_LOCK(&v9);
-  return v7;
+  if ( DXGMONITOR::_GetAttachedPhysicalMonitor((DXGMONITOR *)v11, v5) )
+  {
+    v13 = WdLogNewEntry5_WdAssertion(p_Contention, v5);
+    WdLogEvent5_WdAssertion(v13);
+  }
+  v12 = 0;
+LABEL_6:
+  *a2 = (struct DXGMONITOR *)v11;
+  if ( !v4 )
+  {
+    v14 = WdLogNewEntry5_WdAssertion(p_Contention, v5);
+    WdLogEvent5_WdAssertion(v14);
+  }
+  KeReleaseGuardedMutex(v4);
+  return v12;
 }

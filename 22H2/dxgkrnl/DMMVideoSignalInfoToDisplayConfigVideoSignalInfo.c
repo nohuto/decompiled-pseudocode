@@ -1,9 +1,9 @@
 /*
- * XREFs of DMMVideoSignalInfoToDisplayConfigVideoSignalInfo @ 0x1C017BE14
+ * XREFs of DMMVideoSignalInfoToDisplayConfigVideoSignalInfo @ 0x1C01478E0
  * Callers:
- *     ?ConvertPathModalityToDisplayConfig@@YAJPEAUD3DKMT_GETPATHSMODALITY@@_N1AEAUQDC_CONTEXT@@@Z @ 0x1C017C618 (-ConvertPathModalityToDisplayConfig@@YAJPEAUD3DKMT_GETPATHSMODALITY@@_N1AEAUQDC_CONTEXT@@@Z.c)
- *     DxgkDisplayConfigDeviceInfo @ 0x1C01AD190 (DxgkDisplayConfigDeviceInfo.c)
- *     DxgkEnumerateModesForPathsModality @ 0x1C0302520 (DxgkEnumerateModesForPathsModality.c)
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C0135B50 (DxgkDisplayConfigDeviceInfo.c)
+ *     ?ConvertPathModalityToDisplayConfig@@YAJPEAUD3DKMT_GETPATHSMODALITY@@_N1PEAU_QDC_CONTEXT@@@Z @ 0x1C01461EC (-ConvertPathModalityToDisplayConfig@@YAJPEAUD3DKMT_GETPATHSMODALITY@@_N1PEAU_QDC_CONTEXT@@@Z.c)
+ *     DxgkEnumerateModesForPathsModality @ 0x1C0295710 (DxgkEnumerateModesForPathsModality.c)
  * Callees:
  *     <none>
  */

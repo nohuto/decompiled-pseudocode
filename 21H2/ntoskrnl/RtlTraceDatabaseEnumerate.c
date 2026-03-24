@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlTraceDatabaseEnumerate @ 0x1405EE040
+ * XREFs of RtlTraceDatabaseEnumerate @ 0x14058EA80
  * Callers:
  *     <none>
  * Callees:
- *     RtlpTraceDatabaseAcquireLock @ 0x1405EE200 (RtlpTraceDatabaseAcquireLock.c)
- *     RtlpTraceDatabaseReleaseLock @ 0x1405EE4E0 (RtlpTraceDatabaseReleaseLock.c)
+ *     RtlpTraceDatabaseAcquireLock @ 0x14058EC40 (RtlpTraceDatabaseAcquireLock.c)
+ *     RtlpTraceDatabaseReleaseLock @ 0x14058EF18 (RtlpTraceDatabaseReleaseLock.c)
  */
 
 char __fastcall RtlTraceDatabaseEnumerate(__int64 a1, __int64 a2, _QWORD *a3)

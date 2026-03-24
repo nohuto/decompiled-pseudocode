@@ -1,159 +1,157 @@
 /*
- * XREFs of KeSignalGate @ 0x14024B0B4
+ * XREFs of KeSignalGate @ 0x1402C2B70
  * Callers:
- *     MiUnlockControlAreaSectionExtend @ 0x14022C984 (MiUnlockControlAreaSectionExtend.c)
- *     MmDetachSession @ 0x140231240 (MmDetachSession.c)
- *     MiDereferencePageRunsEx @ 0x14023FD0C (MiDereferencePageRunsEx.c)
- *     MiZeroInParallelWorker @ 0x14026C240 (MiZeroInParallelWorker.c)
- *     MiAttachThreadDone @ 0x14027D8DC (MiAttachThreadDone.c)
- *     MiCheckControlArea @ 0x140287660 (MiCheckControlArea.c)
- *     MiReleaseControlAreaWaiters @ 0x1402879F8 (MiReleaseControlAreaWaiters.c)
- *     MiWriteComplete @ 0x14028C230 (MiWriteComplete.c)
- *     KiRetireDpcList @ 0x1402A8980 (KiRetireDpcList.c)
- *     MiProcessWorkingSets @ 0x14030BBF0 (MiProcessWorkingSets.c)
- *     MiFinishVadDeletion @ 0x14030FEC0 (MiFinishVadDeletion.c)
- *     MiReturnWsToExpansionList @ 0x14036DAE4 (MiReturnWsToExpansionList.c)
- *     MiZeroLargePageThread @ 0x1403C6B00 (MiZeroLargePageThread.c)
- *     MiSignalZeroingPassComplete @ 0x1403C6CDC (MiSignalZeroingPassComplete.c)
- *     MiZeroNodePages @ 0x1403D3960 (MiZeroNodePages.c)
- *     MiNodeCompletedBootZeroing @ 0x1403D3D2C (MiNodeCompletedBootZeroing.c)
- *     KiEpfComplete @ 0x14057AFDC (KiEpfComplete.c)
- *     MiSubsectionProtosCreated @ 0x1405A0FD8 (MiSubsectionProtosCreated.c)
- *     MiWakeExtentDeletionWaiters @ 0x1405A1C08 (MiWakeExtentDeletionWaiters.c)
- *     MiIncrementAweMapCount @ 0x1405AB148 (MiIncrementAweMapCount.c)
- *     MiWakeLargePageWaiters @ 0x1405B05A0 (MiWakeLargePageWaiters.c)
- *     PsWatchWorkingSet @ 0x1405E0600 (PsWatchWorkingSet.c)
- *     MiScrubMemoryWorker @ 0x140983B10 (MiScrubMemoryWorker.c)
+ *     MiProcessWorkingSets @ 0x140207BA0 (MiProcessWorkingSets.c)
+ *     KiRetireDpcList @ 0x1402466B0 (KiRetireDpcList.c)
+ *     MiWriteComplete @ 0x140255170 (MiWriteComplete.c)
+ *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
+ *     MiUnlockControlAreaSectionExtend @ 0x1402A1234 (MiUnlockControlAreaSectionExtend.c)
+ *     MiDereferencePageRunsEx @ 0x1402C34F8 (MiDereferencePageRunsEx.c)
+ *     MiZeroInParallel @ 0x1402E2D60 (MiZeroInParallel.c)
+ *     MiZeroInParallelWorker @ 0x1402E6010 (MiZeroInParallelWorker.c)
+ *     MiAttachThreadDone @ 0x1402EF448 (MiAttachThreadDone.c)
+ *     MiCheckControlArea @ 0x140314AB0 (MiCheckControlArea.c)
+ *     MiFinishVadDeletion @ 0x140316DC0 (MiFinishVadDeletion.c)
+ *     MiReleaseControlAreaWaiters @ 0x140357284 (MiReleaseControlAreaWaiters.c)
+ *     MiReturnWsToExpansionList @ 0x14035E6F8 (MiReturnWsToExpansionList.c)
+ *     MiZeroNodePages @ 0x1403B0220 (MiZeroNodePages.c)
+ *     MiNodeCompletedBootZeroing @ 0x1403B0EE8 (MiNodeCompletedBootZeroing.c)
+ *     MiZeroLargePageThread @ 0x1403B3D10 (MiZeroLargePageThread.c)
+ *     MiSignalZeroingPassComplete @ 0x1403B404C (MiSignalZeroingPassComplete.c)
+ *     PspGetSetContextSpecialApc @ 0x140407790 (PspGetSetContextSpecialApc.c)
+ *     KiEpfComplete @ 0x14052404C (KiEpfComplete.c)
+ *     MiSubsectionProtosCreated @ 0x140542484 (MiSubsectionProtosCreated.c)
+ *     MiWakeExtentDeletionWaiters @ 0x140542800 (MiWakeExtentDeletionWaiters.c)
+ *     MiIncrementAweMapCount @ 0x14054C674 (MiIncrementAweMapCount.c)
+ *     MiWakeLargePageWaiters @ 0x140557D7C (MiWakeLargePageWaiters.c)
+ *     PsWatchWorkingSet @ 0x140581550 (PsWatchWorkingSet.c)
+ *     MiScrubMemoryWorker @ 0x1408DBFA0 (MiScrubMemoryWorker.c)
+ *     PspRelinquishUmsThreadSpecialApc @ 0x14090EB70 (PspRelinquishUmsThreadSpecialApc.c)
  * Callees:
- *     KiExitDispatcher @ 0x1402B0820 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1402F6A70 (KiWakeQueueWaiter.c)
- *     KiTryUnwaitThread @ 0x1402F6BC0 (KiTryUnwaitThread.c)
- *     KeInsertQueueDpc @ 0x140345170 (KeInsertQueueDpc.c)
- *     KiWakeOtherQueueWaiters @ 0x14035B550 (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x14056B1E4 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x14062DA60 (EtwTraceEnqueueWork.c)
+ *     KiWakeOtherQueueWaiters @ 0x140243310 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x14024C4F0 (KiWakeQueueWaiter.c)
+ *     KiTryUnwaitThread @ 0x140342820 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KeIsThreadRunning @ 0x140513054 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405A77C0 (EtwTraceEnqueueWork.c)
  */
 
-__int64 __fastcall KeSignalGate(_DWORD *SystemArgument1, int a2)
+__int64 __fastcall KeSignalGate(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // rsi
-  unsigned __int16 *v5; // r12
-  _DWORD *SchedulerAssist; // r9
-  __int64 v8; // rax
-  unsigned __int16 *v9; // rbx
-  void **v10; // rcx
-  char v11; // al
-  bool v12; // zf
-  __int64 v13; // rsi
-  _QWORD *v14; // r14
-  unsigned __int8 v15; // cl
-  _DWORD *v16; // r9
-  struct _KPRCB *v17; // r15
+  _QWORD *v7; // rdx
+  __int64 v8; // r8
+  _DWORD *v9; // r9
+  _QWORD *v10; // r15
+  _QWORD *v11; // rax
+  __int64 v12; // rbx
+  _QWORD *v13; // rcx
+  char v14; // al
+  bool v15; // zf
+  __int64 v17; // rsi
+  _QWORD *v18; // r14
+  unsigned __int8 v19; // cl
+  struct _KPRCB *v20; // r13
   _KTHREAD *CurrentThread; // rbp
-  __int64 v19; // r8
-  int v20; // ecx
-  unsigned __int16 **v21; // rdx
-  struct _KPRCB *v22; // [rsp+70h] [rbp+8h]
-  char v24; // [rsp+80h] [rbp+18h]
+  __int64 v22; // r8
+  int v23; // ecx
+  struct _KPRCB *v24; // [rsp+70h] [rbp+8h]
+  int v25; // [rsp+78h] [rbp+10h]
+  char v26; // [rsp+80h] [rbp+18h]
 
+  v25 = a2;
   CurrentIrql = KeGetCurrentIrql();
-  v24 = CurrentIrql;
+  v26 = CurrentIrql;
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+    a2 = (-1LL << (CurrentIrql + 1)) & 4;
+    a3 = (unsigned int)a2 | SchedulerAssist[5];
+    SchedulerAssist[5] = a3;
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  v22 = CurrentPrcb;
-  KiAcquireKobjectLockSafe(SystemArgument1);
-  if ( !SystemArgument1[1] )
+  v24 = CurrentPrcb;
+  KiAcquireKobjectLockSafe((volatile signed __int32 *)a1, a2, a3, (__int64)SchedulerAssist);
+  if ( !*(_DWORD *)(a1 + 4) )
   {
-    SystemArgument1[1] = 1;
-    v5 = (unsigned __int16 *)*((_QWORD *)SystemArgument1 + 1);
-    while ( v5 != (unsigned __int16 *)(SystemArgument1 + 2) )
+    *(_DWORD *)(a1 + 4) = 1;
+    v10 = *(_QWORD **)(a1 + 8);
+    while ( v10 != (_QWORD *)(a1 + 8) )
     {
-      v8 = *(_QWORD *)v5;
-      v9 = v5;
-      v5 = (unsigned __int16 *)v8;
-      v10 = (void **)*((_QWORD *)v9 + 1);
-      if ( *(unsigned __int16 **)(v8 + 8) != v9 || *v10 != v9 )
-LABEL_10:
+      v11 = (_QWORD *)*v10;
+      v12 = (__int64)v10;
+      v10 = v11;
+      v13 = *(_QWORD **)(v12 + 8);
+      if ( v11[1] != v12 || *v13 != v12 )
+LABEL_6:
         __fastfail(3u);
-      *v10 = (void *)v8;
-      *(_QWORD *)(v8 + 8) = v10;
-      v11 = *((_BYTE *)v9 + 16);
-      switch ( v11 )
+      *v13 = v11;
+      v11[1] = v13;
+      v14 = *(_BYTE *)(v12 + 16);
+      if ( v14 == 1 )
       {
-        case 1:
-          if ( (unsigned __int8)KiTryUnwaitThread(CurrentPrcb, v9, v9[9], 0LL) )
-          {
-            v12 = SystemArgument1[1]-- == 1;
-            if ( v12 )
-              goto LABEL_5;
-          }
+        if ( (unsigned __int8)KiTryUnwaitThread(CurrentPrcb, v12, *(unsigned __int16 *)(v12 + 18), 0LL) )
+        {
+          v15 = (*(_DWORD *)(a1 + 4))-- == 1;
+          if ( v15 )
+            break;
+        }
+      }
+      else if ( v14 == 2 )
+      {
+        *(_BYTE *)(v12 + 17) = 5;
+        v17 = *(_QWORD *)(v12 + 24);
+        *(_QWORD *)v12 = 0LL;
+        v18 = (_QWORD *)(v17 + 8);
+        v19 = KeGetCurrentIrql();
+        __writecr8(2uLL);
+        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v19 <= 0xFu )
+        {
+          v9 = KeGetCurrentPrcb()->SchedulerAssist;
+          v7 = (_QWORD *)((-1LL << (v19 + 1)) & 4);
+          v8 = (unsigned int)v7 | v9[5];
+          v9[5] = v8;
+        }
+        v20 = KeGetCurrentPrcb();
+        CurrentThread = v20->CurrentThread;
+        if ( (DWORD1(PerfGlobalGroupMask) & 0x1000000) != 0 )
+        {
+          LOBYTE(v22) = KeIsThreadRunning(v20->CurrentThread);
+          EtwTraceEnqueueWork(CurrentThread, v12, v22);
+        }
+        KiAcquireKobjectLockSafe((volatile signed __int32 *)v17, (__int64)v7, v8, (__int64)v9);
+        if ( (_QWORD *)*v18 == v18
+          || *(_DWORD *)(v17 + 40) >= *(_DWORD *)(v17 + 44)
+          || CurrentThread->Queue == (_DISPATCHER_HEADER *volatile)v17 && CurrentThread->WaitReason == 15
+          || !KiWakeQueueWaiter((__int64)v20, v17, v12, (__int64)v9) )
+        {
+          v23 = *(_DWORD *)(v17 + 4);
+          *(_DWORD *)(v17 + 4) = v23 + 1;
+          v7 = *(_QWORD **)(v17 + 32);
+          if ( *v7 != v17 + 24 )
+            goto LABEL_6;
+          *(_QWORD *)v12 = v17 + 24;
+          *(_QWORD *)(v12 + 8) = v7;
+          *v7 = v12;
+          *(_QWORD *)(v17 + 32) = v12;
+          if ( !v23 && (_QWORD *)*v18 != v18 )
+            KiWakeOtherQueueWaiters((__int64)v20, v17);
+        }
+        _InterlockedAnd((volatile signed __int32 *)v17, 0xFFFFFF7F);
+        v15 = (*(_DWORD *)(a1 + 4))-- == 1;
+        if ( v15 )
           break;
-        case 2:
-          *((_BYTE *)v9 + 17) = 5;
-          v13 = *((_QWORD *)v9 + 3);
-          *(_QWORD *)v9 = 0LL;
-          v14 = (_QWORD *)(v13 + 8);
-          v15 = KeGetCurrentIrql();
-          __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v15 <= 0xFu )
-          {
-            v16 = KeGetCurrentPrcb()->SchedulerAssist;
-            v16[5] |= (-1 << (v15 + 1)) & 4;
-          }
-          v17 = KeGetCurrentPrcb();
-          CurrentThread = v17->CurrentThread;
-          if ( (DWORD1(PerfGlobalGroupMask) & 0x1000000) != 0 )
-          {
-            LOBYTE(v19) = KeIsThreadRunning(v17->CurrentThread);
-            EtwTraceEnqueueWork(CurrentThread, v9, v19);
-          }
-          KiAcquireKobjectLockSafe(v13);
-          if ( (_QWORD *)*v14 == v14
-            || *(_DWORD *)(v13 + 40) >= *(_DWORD *)(v13 + 44)
-            || CurrentThread->Queue == (_DISPATCHER_HEADER *volatile)v13 && CurrentThread->WaitReason == 15
-            || !(unsigned __int8)KiWakeQueueWaiter(v17, v13, v9) )
-          {
-            v20 = *(_DWORD *)(v13 + 4);
-            *(_DWORD *)(v13 + 4) = v20 + 1;
-            v21 = *(unsigned __int16 ***)(v13 + 32);
-            if ( *v21 != (unsigned __int16 *)(v13 + 24) )
-              goto LABEL_10;
-            *(_QWORD *)v9 = v13 + 24;
-            *((_QWORD *)v9 + 1) = v21;
-            *v21 = v9;
-            *(_QWORD *)(v13 + 32) = v9;
-            if ( !v20 && (_QWORD *)*v14 != v14 )
-              KiWakeOtherQueueWaiters(v17, v13);
-          }
-          else
-          {
-            *(_QWORD *)v9 = 0LL;
-          }
-          _InterlockedAnd((volatile signed __int32 *)v13, 0xFFFFFF7F);
-          v12 = SystemArgument1[1]-- == 1;
-          if ( v12 )
-            goto LABEL_5;
-          CurrentPrcb = v22;
-          break;
-        case 4:
-          *((_BYTE *)v9 + 17) = 5;
-          SystemArgument1[1] = 0;
-          KeInsertQueueDpc(*((PRKDPC *)v9 + 3), SystemArgument1, v9);
-          break;
-        default:
-          KiTryUnwaitThread(CurrentPrcb, v9, 256LL, 0LL);
-          break;
+        CurrentPrcb = v24;
+      }
+      else
+      {
+        KiTryUnwaitThread(CurrentPrcb, v12, 256LL, 0LL);
       }
     }
   }
-LABEL_5:
-  _InterlockedAnd(SystemArgument1, 0xFFFFFF7F);
-  return KiExitDispatcher((_DWORD)v22, 0, 1, a2, v24);
+  _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
+  return KiExitDispatcher((_DWORD)v24, 0, 1, v25, v26);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x1409F7288
+ * XREFs of ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x14094B060
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     ZwEnumerateBootEntries @ 0x14041C340 (ZwEnumerateBootEntries.c)
- *     ZwQueryBootEntryOrder @ 0x14041CFA0 (ZwQueryBootEntryOrder.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     ZwEnumerateBootEntries @ 0x1403FB600 (ZwEnumerateBootEntries.c)
+ *     ZwQueryBootEntryOrder @ 0x1403FC220 (ZwQueryBootEntryOrder.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpQueryPortableWorkspaceEfiLauncherInformation(bool *a1, int a2, _DWORD *a3)
@@ -16,25 +16,25 @@ __int64 __fastcall ExpQueryPortableWorkspaceEfiLauncherInformation(bool *a1, int
   int v7; // ebx
   int v9; // eax
   bool v10; // al
-  __int64 Pool2; // rax
+  unsigned int *PoolWithQuotaTag; // rax
   int BootEntryOrder; // eax
-  __int64 v13; // rax
+  _DWORD *v13; // rax
   unsigned int *v14; // r8
   unsigned int *i; // rcx
   __int64 v16; // rdx
   __int64 v17; // rax
   unsigned int v18; // [rsp+28h] [rbp-40h] BYREF
-  __int64 v19; // [rsp+30h] [rbp-38h]
-  __int64 v20; // [rsp+38h] [rbp-30h]
-  unsigned int v21; // [rsp+88h] [rbp+20h] BYREF
+  unsigned int *v19; // [rsp+30h] [rbp-38h]
+  _DWORD *v20; // [rsp+38h] [rbp-30h]
+  SIZE_T NumberOfBytes; // [rsp+88h] [rbp+20h] BYREF
 
-  v21 = 0;
+  LODWORD(NumberOfBytes) = 0;
   v18 = 0;
   v5 = 0LL;
   v19 = 0LL;
   v6 = 0LL;
   v20 = 0LL;
-  if ( dword_140C31AF0 != 2 )
+  if ( dword_140C197B0 != 2 )
   {
     v7 = -1073741821;
     goto LABEL_3;
@@ -45,18 +45,21 @@ __int64 __fastcall ExpQueryPortableWorkspaceEfiLauncherInformation(bool *a1, int
     v7 = -1073741820;
     goto LABEL_3;
   }
-  v9 = ZwEnumerateBootEntries(0LL, (__int64)&v21);
+  v9 = ZwEnumerateBootEntries(0LL, (__int64)&NumberOfBytes);
   v7 = v9;
   if ( v9 < 0 )
   {
     if ( v9 != -1073741789 )
       goto LABEL_3;
-    Pool2 = ExAllocatePool2(257LL, v21, 1868983881LL);
-    v5 = (unsigned int *)Pool2;
-    v19 = Pool2;
-    if ( !Pool2 )
+    PoolWithQuotaTag = (unsigned int *)ExAllocatePoolWithQuotaTag(
+                                         (POOL_TYPE)9,
+                                         (unsigned int)NumberOfBytes,
+                                         0x6F666E49u);
+    v5 = PoolWithQuotaTag;
+    v19 = PoolWithQuotaTag;
+    if ( !PoolWithQuotaTag )
       goto LABEL_14;
-    v7 = ZwEnumerateBootEntries(Pool2, (__int64)&v21);
+    v7 = ZwEnumerateBootEntries((__int64)PoolWithQuotaTag, (__int64)&NumberOfBytes);
     if ( v7 < 0 )
       goto LABEL_3;
     BootEntryOrder = ZwQueryBootEntryOrder(0LL, (__int64)&v18);
@@ -65,8 +68,8 @@ __int64 __fastcall ExpQueryPortableWorkspaceEfiLauncherInformation(bool *a1, int
       goto LABEL_11;
     if ( BootEntryOrder != -1073741789 )
       goto LABEL_3;
-    v13 = ExAllocatePool2(257LL, 4LL * v18, 1868983881LL);
-    v6 = (_DWORD *)v13;
+    v13 = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, 4LL * v18, 0x6F666E49u);
+    v6 = v13;
     v20 = v13;
     if ( !v13 )
     {
@@ -74,7 +77,7 @@ LABEL_14:
       v7 = -1073741670;
       goto LABEL_3;
     }
-    v7 = ZwQueryBootEntryOrder(v13, (__int64)&v18);
+    v7 = ZwQueryBootEntryOrder((__int64)v13, (__int64)&v18);
     if ( v7 < 0 )
       goto LABEL_3;
     v14 = 0LL;

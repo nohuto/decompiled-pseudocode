@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPluginQuerySocSubsystemCount @ 0x14086AE04
+ * XREFs of PopPluginQuerySocSubsystemCount @ 0x14086ADE4
  * Callers:
- *     PopFxInitializeSocSubsystemStaticInfo @ 0x1408696B0 (PopFxInitializeSocSubsystemStaticInfo.c)
+ *     PopFxInitializeSocSubsystemStaticInfo @ 0x140869690 (PopFxInitializeSocSubsystemStaticInfo.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x1402D73C0 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopPluginQuerySocSubsystemCount(__int64 a1, __int64 a2)

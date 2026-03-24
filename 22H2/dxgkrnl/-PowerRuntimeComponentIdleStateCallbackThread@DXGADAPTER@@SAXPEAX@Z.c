@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PowerRuntimeComponentIdleStateCallbackThread@DXGADAPTER@@SAXPEAX@Z @ 0x1C02B8B30
+ * XREFs of ?PowerRuntimeComponentIdleStateCallbackThread@DXGADAPTER@@SAXPEAX@Z @ 0x1C020EBA0
  * Callers:
  *     <none>
  * Callees:
- *     ?PowerRuntimeComponentIdleStateCallback_Thread@DXGADAPTER@@QEAAXXZ @ 0x1C02B8B48 (-PowerRuntimeComponentIdleStateCallback_Thread@DXGADAPTER@@QEAAXXZ.c)
+ *     ?PowerRuntimeComponentIdleStateCallback_Thread@DXGADAPTER@@QEAAXXZ @ 0x1C020EBB8 (-PowerRuntimeComponentIdleStateCallback_Thread@DXGADAPTER@@QEAAXXZ.c)
  */
 
 void __fastcall DXGADAPTER::PowerRuntimeComponentIdleStateCallbackThread(DXGADAPTER *StartContext)

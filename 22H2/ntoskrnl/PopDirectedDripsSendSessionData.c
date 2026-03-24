@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsSendSessionData @ 0x140983D58
+ * XREFs of PopDirectedDripsSendSessionData @ 0x1408E39B4
  * Callers:
- *     PopDirectedDripsNotify @ 0x1408759B4 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsNotify @ 0x14078DA18 (PopDirectedDripsNotify.c)
  * Callees:
- *     PopDirectedDripsQueryMitigationStatus @ 0x140885BC0 (PopDirectedDripsQueryMitigationStatus.c)
- *     PopDirectedDripsDiagNotifySessionStop @ 0x14099E328 (PopDirectedDripsDiagNotifySessionStop.c)
+ *     PopDirectedDripsQueryMitigationStatus @ 0x1408E37F8 (PopDirectedDripsQueryMitigationStatus.c)
+ *     PopDirectedDripsDiagNotifySessionStop @ 0x1408F71F4 (PopDirectedDripsDiagNotifySessionStop.c)
  */
 
 __int64 __fastcall PopDirectedDripsSendSessionData(__int64 a1)

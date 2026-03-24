@@ -1,8 +1,8 @@
 /*
- * XREFs of ?FindIAMThread@@YAPEAUtagIAM_THREAD@@QEBUtagTHREADINFO@@@Z @ 0x1C0023284
+ * XREFs of ?FindIAMThread@@YAPEAUtagIAM_THREAD@@QEBUtagTHREADINFO@@@Z @ 0x1C0038024
  * Callers:
- *     IAMThreadAccessGranted @ 0x1C0023254 (IAMThreadAccessGranted.c)
- *     _EnableIAMThreadAccess @ 0x1C00F88D0 (_EnableIAMThreadAccess.c)
+ *     _EnableIAMThreadAccess @ 0x1C0037894 (_EnableIAMThreadAccess.c)
+ *     IAMThreadAccessGranted @ 0x1C0037FF4 (IAMThreadAccessGranted.c)
  * Callees:
  *     <none>
  */

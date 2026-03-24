@@ -1,134 +1,136 @@
 /*
- * XREFs of PiDevCfgResolveVariable @ 0x14087F0D0
+ * XREFs of PiDevCfgResolveVariable @ 0x14077B470
  * Callers:
- *     PiDevCfgQueryResolveValue @ 0x140562368 (PiDevCfgQueryResolveValue.c)
- *     PiDevCfgConfigureDeviceInterfaces @ 0x14087D270 (PiDevCfgConfigureDeviceInterfaces.c)
- *     PiDevCfgCopyDeviceKey @ 0x14087E8F4 (PiDevCfgCopyDeviceKey.c)
- *     PiDevCfgResolveVariableExpression @ 0x140960200 (PiDevCfgResolveVariableExpression.c)
- *     PiDevCfgResolveVariableFormatString @ 0x140961490 (PiDevCfgResolveVariableFormatString.c)
- *     PiDevCfgResolveVariableKeyHandle @ 0x140961B9C (PiDevCfgResolveVariableKeyHandle.c)
- *     PiDevCfgResolveVariableKeyValue @ 0x140962330 (PiDevCfgResolveVariableKeyValue.c)
- *     PiDevCfgResolveVariableSwitchCase @ 0x140962510 (PiDevCfgResolveVariableSwitchCase.c)
+ *     PiDevCfgQueryResolveValue @ 0x14050E3E4 (PiDevCfgQueryResolveValue.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x140766FC4 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     PiDevCfgCopyDeviceKey @ 0x14076942C (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgResolveVariableExpression @ 0x1408A8160 (PiDevCfgResolveVariableExpression.c)
+ *     PiDevCfgResolveVariableFormatString @ 0x1408A93D0 (PiDevCfgResolveVariableFormatString.c)
+ *     PiDevCfgResolveVariableKeyHandle @ 0x1408A9ADC (PiDevCfgResolveVariableKeyHandle.c)
+ *     PiDevCfgResolveVariableKeyValue @ 0x1408AA2B0 (PiDevCfgResolveVariableKeyValue.c)
+ *     PiDevCfgResolveVariableSwitchCase @ 0x1408AA490 (PiDevCfgResolveVariableSwitchCase.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     PnpValidateRegistryString @ 0x1403CDBD4 (PnpValidateRegistryString.c)
- *     PnpStringToDwordValue @ 0x1403CE1DC (PnpStringToDwordValue.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     RtlHashUnicodeString @ 0x1406D94E0 (RtlHashUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x1407FB710 (RtlCreateUnicodeString.c)
- *     PiDevCfgResolveVariableConstant @ 0x140960130 (PiDevCfgResolveVariableConstant.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     PnpValidateRegistryString @ 0x14036E3FC (PnpValidateRegistryString.c)
+ *     PnpStringToDwordValue @ 0x1403811DC (PnpStringToDwordValue.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     RtlHashUnicodeString @ 0x1406AFA80 (RtlHashUnicodeString.c)
+ *     RtlCreateUnicodeString @ 0x1406ED6B0 (RtlCreateUnicodeString.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     PiDevCfgResolveVariableConstant @ 0x1408A8090 (PiDevCfgResolveVariableConstant.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiDevCfgResolveVariable(__int64 a1, const WCHAR *a2, __int64 *a3)
+__int64 __fastcall PiDevCfgResolveVariable(__int64 a1, const WCHAR *a2, _QWORD *a3)
 {
   __int64 v3; // rdi
-  unsigned int *v4; // r14
-  __int64 (__fastcall *v5)(__int64, HANDLE, __int64); // r13
-  unsigned int v6; // r15d
-  NTSTATUS v7; // eax
-  unsigned int v8; // ecx
-  const UNICODE_STRING **v9; // r12
-  const UNICODE_STRING *v10; // rsi
-  NTSTATUS v11; // eax
-  unsigned int v12; // ebx
+  unsigned int v4; // ebx
+  unsigned int *v5; // r14
+  __int64 (__fastcall *v6)(__int64, HANDLE, _OWORD *); // r13
+  unsigned int v7; // r15d
+  NTSTATUS v8; // eax
+  unsigned int v9; // ecx
+  _QWORD *v10; // r12
+  _QWORD *v11; // rsi
+  void *v12; // rax
+  NTSTATUS v13; // eax
   NTSTATUS RegistryValue; // eax
-  unsigned int v14; // r10d
   const wchar_t **v15; // r13
   const wchar_t *v16; // rax
   unsigned int v17; // edi
   const wchar_t **v18; // r15
-  unsigned int v19; // edi
-  __int64 Pool2; // rdi
-  __int64 *v22; // rax
-  int v23; // eax
-  wchar_t **v24; // rax
-  _WORD *v25; // rsi
-  __int64 v26; // rax
-  unsigned int v27; // eax
-  void *v28; // rax
-  unsigned int *v29; // rax
-  __int64 v30; // rcx
-  _QWORD *v31; // rax
-  unsigned int v32; // [rsp+28h] [rbp-59h] BYREF
-  HANDLE KeyHandle; // [rsp+30h] [rbp-51h] BYREF
-  PVOID P; // [rsp+40h] [rbp-41h] BYREF
-  void *Src; // [rsp+48h] [rbp-39h]
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-31h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-21h] BYREF
-  const wchar_t *HashValue; // [rsp+100h] [rbp+7Fh] BYREF
+  __int64 v19; // rdi
+  _OWORD *PoolWithTag; // rax
+  _OWORD *v22; // rdi
+  _QWORD *v23; // rax
+  int v24; // eax
+  wchar_t **v25; // rax
+  _WORD *v26; // rsi
+  __int64 v27; // rax
+  unsigned int v28; // eax
+  PVOID v29; // rax
+  _DWORD *v30; // rax
+  __int64 v31; // rax
+  _QWORD *v32; // rcx
+  unsigned int v33; // [rsp+28h] [rbp-49h] BYREF
+  HANDLE KeyHandle; // [rsp+30h] [rbp-41h] BYREF
+  PVOID P; // [rsp+38h] [rbp-39h] BYREF
+  void *Src; // [rsp+40h] [rbp-31h]
+  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-29h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-19h] BYREF
+  const wchar_t *HashValue; // [rsp+F0h] [rbp+7Fh] BYREF
 
   v3 = a1;
-  LODWORD(HashValue) = 0;
-  v4 = 0LL;
-  KeyHandle = 0LL;
+  v4 = 0;
   v5 = 0LL;
+  LODWORD(HashValue) = 0;
+  v6 = 0LL;
+  KeyHandle = 0LL;
+  v7 = 0;
   P = 0LL;
-  v6 = 0;
-  Src = 0LL;
   DestinationString = 0LL;
-  v32 = 0;
+  Src = 0LL;
+  v33 = 0;
   if ( !*a2 )
     return (unsigned int)-1073741772;
   *a3 = 0LL;
   RtlInitUnicodeString(&DestinationString, a2);
-  v7 = RtlHashUnicodeString(&DestinationString, 1u, 0, (PULONG)&HashValue);
-  v8 = (unsigned int)HashValue;
-  if ( v7 < 0 )
-    v8 = 0;
-  v9 = (const UNICODE_STRING **)(*(_QWORD *)(v3 + 24) + 16LL * (v8 % 0x7F));
-  v10 = *v9;
-  if ( *v9 != (const UNICODE_STRING *)v9 )
+  v8 = RtlHashUnicodeString(&DestinationString, 1u, 0, (PULONG)&HashValue);
+  v9 = (unsigned int)HashValue;
+  if ( v8 < 0 )
+    v9 = 0;
+  v10 = (_QWORD *)(*(_QWORD *)(v3 + 24) + 16LL * (v9 % 0x7F));
+  v11 = (_QWORD *)*v10;
+  if ( (_QWORD *)*v10 != v10 )
   {
-    v12 = 0;
     do
     {
-      Pool2 = (__int64)v10;
-      if ( RtlEqualUnicodeString(&DestinationString, v10 + 1, 1u) )
+      v22 = v11;
+      if ( RtlEqualUnicodeString(&DestinationString, (PCUNICODE_STRING)v11 + 1, 1u) )
         break;
-      v10 = *(const UNICODE_STRING **)&v10->Length;
-      Pool2 = 0LL;
+      v11 = (_QWORD *)*v11;
+      v22 = 0LL;
     }
-    while ( v10 != (const UNICODE_STRING *)v9 );
-    if ( Pool2 )
+    while ( v11 != v10 );
+    if ( v22 )
     {
-      if ( *(_DWORD *)(Pool2 + 32) != -1 )
-        goto LABEL_27;
-      v12 = -1073741823;
-      goto LABEL_18;
+      if ( *((_DWORD *)v22 + 8) == -1 )
+        return (unsigned int)-1073741823;
+      goto LABEL_27;
     }
     v3 = a1;
   }
-  ObjectAttributes.RootDirectory = *(HANDLE *)(v3 + 16);
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  v12 = *(void **)(v3 + 16);
+  *(&ObjectAttributes.Length + 1) = 0;
+  memset(&ObjectAttributes.Attributes + 1, 0, 20);
+  ObjectAttributes.RootDirectory = v12;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.ObjectName = &DestinationString;
-  *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  v11 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
-  v12 = v11;
-  if ( v11 >= 0 )
+  ObjectAttributes.Attributes = 576;
+  v13 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+  v4 = v13;
+  if ( v13 >= 0 )
   {
-    RegistryValue = IopGetRegistryValue(KeyHandle, (const WCHAR *)&dword_140A805A4, 0, &P);
-    v4 = (unsigned int *)P;
-    v12 = RegistryValue;
+    RegistryValue = IopGetRegistryValue(KeyHandle, (const WCHAR *)&dword_14098BF44, 0, &P);
+    v5 = (unsigned int *)P;
+    v4 = RegistryValue;
     if ( RegistryValue < 0 )
-      goto LABEL_28;
+      goto LABEL_29;
     if ( !PnpValidateRegistryString(P) )
     {
-      v12 = -1073741823;
-      goto LABEL_28;
+      v4 = -1073741823;
+      goto LABEL_29;
     }
-    v15 = (const wchar_t **)&off_140A7A0D0;
-    v16 = (const wchar_t *)((char *)v4 + v4[2]);
-    v17 = v14;
+    v15 = (const wchar_t **)&off_140985A10;
+    v16 = (const wchar_t *)((char *)v5 + v5[2]);
     HashValue = v16;
+    v17 = 0;
     while ( wcsicmp(*v15, v16) )
     {
       v16 = HashValue;
@@ -137,124 +139,131 @@ __int64 __fastcall PiDevCfgResolveVariable(__int64 a1, const WCHAR *a2, __int64 
       if ( v17 >= 8 )
         goto LABEL_11;
     }
-    v5 = (__int64 (__fastcall *)(__int64, HANDLE, __int64))*(&funcs_14087F32E + 2 * v17);
-    if ( !v5 )
+    v6 = (__int64 (__fastcall *)(__int64, HANDLE, _OWORD *))*(&funcs_14077B6D6 + 2 * v17);
+    if ( !v6 )
     {
 LABEL_11:
-      v12 = -1073741772;
-      goto LABEL_28;
+      v4 = -1073741772;
+      goto LABEL_29;
     }
 LABEL_22:
-    Pool2 = ExAllocatePool2(256LL, 48LL, 1667526736LL);
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x63647050u);
+    v22 = PoolWithTag;
+    if ( !PoolWithTag )
     {
-      v12 = -1073741670;
-      goto LABEL_28;
+      v4 = -1073741670;
+      goto LABEL_29;
     }
-    v22 = (__int64 *)v9[1];
-    if ( (const UNICODE_STRING **)*v22 != v9 )
-LABEL_56:
+    *PoolWithTag = 0LL;
+    PoolWithTag[1] = 0LL;
+    PoolWithTag[2] = 0LL;
+    v23 = (_QWORD *)v10[1];
+    if ( (_QWORD *)*v23 != v10 )
+LABEL_57:
       __fastfail(3u);
-    *(_QWORD *)Pool2 = v9;
-    *(_QWORD *)(Pool2 + 8) = v22;
-    *v22 = Pool2;
-    v9[1] = (const UNICODE_STRING *)Pool2;
-    if ( RtlCreateUnicodeString((PUNICODE_STRING)(Pool2 + 16), a2) )
+    *(_QWORD *)v22 = v10;
+    *((_QWORD *)v22 + 1) = v23;
+    *v23 = v22;
+    v10[1] = v22;
+    if ( RtlCreateUnicodeString((PUNICODE_STRING)v22 + 1, a2) )
     {
-      if ( v5 )
+      if ( v6 )
       {
-        *(_DWORD *)(Pool2 + 32) = -1;
-        v23 = v5(a1, KeyHandle, Pool2);
-        v12 = v23;
-        if ( v23 >= 0 )
+        *((_DWORD *)v22 + 8) = -1;
+        v24 = v6(a1, KeyHandle, v22);
+        v4 = v24;
+        if ( v24 >= 0 )
         {
 LABEL_27:
-          *a3 = Pool2;
+          *a3 = v22;
+          v22 = 0LL;
           goto LABEL_28;
         }
-        if ( v23 == -1073741772 )
-          v12 = -1073741823;
-LABEL_53:
-        v30 = *(_QWORD *)Pool2;
-        if ( *(_QWORD *)(*(_QWORD *)Pool2 + 8LL) == Pool2 )
-        {
-          v31 = *(_QWORD **)(Pool2 + 8);
-          if ( *v31 == Pool2 )
-          {
-            *v31 = v30;
-            *(_QWORD *)(v30 + 8) = v31;
-            ExFreePoolWithTag((PVOID)Pool2, 0);
+        if ( v24 == -1073741772 )
+          v4 = -1073741823;
 LABEL_28:
-            if ( v4 )
-              ExFreePoolWithTag(v4, 0);
+        if ( !v22 )
+          goto LABEL_29;
+        v31 = *(_QWORD *)v22;
+        if ( *(_OWORD **)(*(_QWORD *)v22 + 8LL) == v22 )
+        {
+          v32 = (_QWORD *)*((_QWORD *)v22 + 1);
+          if ( (_OWORD *)*v32 == v22 )
+          {
+            *v32 = v31;
+            *(_QWORD *)(v31 + 8) = v32;
+            ExFreePoolWithTag(v22, 0);
+LABEL_29:
+            if ( v5 )
+              ExFreePoolWithTag(v5, 0);
             goto LABEL_18;
           }
         }
-        goto LABEL_56;
+        goto LABEL_57;
       }
-      v25 = Src;
+      v26 = Src;
       if ( Src )
       {
-        *(_DWORD *)(Pool2 + 32) = 1;
-        v26 = -1LL;
+        *((_DWORD *)v22 + 8) = 1;
+        v27 = -1LL;
         do
-          ++v26;
-        while ( v25[v26] );
-        v27 = 2 * v26 + 2;
-        *(_DWORD *)(Pool2 + 36) = v27;
-        v28 = (void *)ExAllocatePool2(256LL, v27, 1667526736LL);
-        *(_QWORD *)(Pool2 + 40) = v28;
-        if ( v28 )
+          ++v27;
+        while ( v26[v27] );
+        v28 = 2 * v27 + 2;
+        *((_DWORD *)v22 + 9) = v28;
+        v29 = ExAllocatePoolWithTag(PagedPool, v28, 0x63647050u);
+        *((_QWORD *)v22 + 5) = v29;
+        if ( v29 )
         {
-          memmove(v28, v25, *(unsigned int *)(Pool2 + 36));
+          memmove(v29, v26, *((unsigned int *)v22 + 9));
           goto LABEL_27;
         }
       }
       else
       {
-        *(_DWORD *)(Pool2 + 32) = 4;
-        *(_DWORD *)(Pool2 + 36) = 4;
-        v29 = (unsigned int *)ExAllocatePool2(256LL, 4LL, 1667526736LL);
-        *(_QWORD *)(Pool2 + 40) = v29;
-        if ( v29 )
+        *((_DWORD *)v22 + 8) = 4;
+        *((_DWORD *)v22 + 9) = 4;
+        v30 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
+        *((_QWORD *)v22 + 5) = v30;
+        if ( v30 )
         {
-          *v29 = v6;
+          *v30 = v7;
           goto LABEL_27;
         }
       }
     }
-    v12 = -1073741670;
-    goto LABEL_53;
+    v4 = -1073741670;
+    goto LABEL_28;
   }
-  if ( v11 == -1073741772 )
+  if ( v13 == -1073741772 )
   {
-    v12 = 0;
-    v18 = (const wchar_t **)&off_140A79B20;
-    v19 = 0;
+    v4 = 0;
+    v18 = (const wchar_t **)&off_140985460;
+    v19 = 0LL;
     while ( wcsicmp(*v18, a2) )
     {
-      ++v19;
+      v19 = (unsigned int)(v19 + 1);
       v18 += 3;
-      if ( v19 >= 4 )
+      if ( (unsigned int)v19 >= 4 )
         goto LABEL_16;
     }
-    v24 = &(&off_140A79B20)[3 * v19];
-    if ( v24 )
+    v25 = &(&off_140985460)[3 * v19];
+    if ( v25 )
     {
-      v6 = *((_DWORD *)v24 + 4);
-      Src = v24[1];
+      v7 = *((_DWORD *)v25 + 4);
+      Src = v25[1];
       goto LABEL_22;
     }
 LABEL_16:
-    if ( PnpStringToDwordValue((__int64)a2, &v32) )
+    if ( PnpStringToDwordValue((__int64)a2, &v33) )
     {
-      v6 = v32;
+      v7 = v33;
       goto LABEL_22;
     }
-    v12 = -1073741772;
+    v4 = -1073741772;
   }
 LABEL_18:
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  return v12;
+  return v4;
 }

@@ -1,25 +1,25 @@
 /*
- * XREFs of NtAlpcCreatePortSection @ 0x14076C740
+ * XREFs of NtAlpcCreatePortSection @ 0x140701AE0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     AlpcpDeleteBlob @ 0x14071C18C (AlpcpDeleteBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E9AC (AlpcpDereferenceBlobEx.c)
- *     AlpcpCreateSection @ 0x14076C8D8 (AlpcpCreateSection.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x1405EA09C (AlpcpDeleteBlob.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     AlpcpCreateSection @ 0x140701CAC (AlpcpCreateSection.c)
  */
 
-__int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, void *a4, _QWORD *a5, _QWORD *a6)
+__int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, __int64 a4, _QWORD *a5, _QWORD *a6)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r14
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  KPROCESSOR_MODE v12; // r9
   NTSTATUS Section; // ebx
-  PVOID v14; // rsi
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  KPROCESSOR_MODE v13; // r9
+  struct _DMA_ADAPTER *v14; // rsi
   ULONG_PTR v15; // rdi
   ULONG_PTR BugCheckParameter2; // [rsp+30h] [rbp-18h] BYREF
   PVOID Object; // [rsp+38h] [rbp-10h] BYREF
@@ -36,21 +36,21 @@ __int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, vo
   {
     if ( PreviousMode )
     {
-      v10 = 0x7FFFFFFF0000LL;
       v11 = 0x7FFFFFFF0000LL;
+      v12 = 0x7FFFFFFF0000LL;
       if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v11 = (__int64)a5;
-      *(_QWORD *)v11 = *(_QWORD *)v11;
+        v12 = (__int64)a5;
+      *(_QWORD *)v12 = *(_QWORD *)v12;
       if ( (unsigned __int64)a6 < 0x7FFFFFFF0000LL )
-        v10 = (__int64)a6;
-      *(_QWORD *)v10 = *(_QWORD *)v10;
+        v11 = (__int64)a6;
+      *(_QWORD *)v11 = *(_QWORD *)v11;
     }
-    v12 = KeGetCurrentThread()->PreviousMode;
+    v13 = KeGetCurrentThread()->PreviousMode;
     Object = 0LL;
-    Section = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, v12, &Object, 0LL);
+    Section = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, v13, &Object, 0LL);
     if ( Section >= 0 )
     {
-      v14 = Object;
+      v14 = (struct _DMA_ADAPTER *)Object;
       Section = AlpcpCreateSection(Object, a4, (__int64)&BugCheckParameter2);
       if ( Section >= 0 )
       {
@@ -59,7 +59,7 @@ __int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, vo
         *a6 = *(_QWORD *)(v15 + 8);
         AlpcpDereferenceBlobEx(v15, 1);
       }
-      ObfDereferenceObject(v14);
+      HalPutDmaAdapter(v14);
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());

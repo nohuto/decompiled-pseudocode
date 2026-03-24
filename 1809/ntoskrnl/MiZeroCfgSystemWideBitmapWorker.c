@@ -1,7 +1,7 @@
 /*
  * XREFs of MiZeroCfgSystemWideBitmapWorker @ 0x140080940
  * Callers:
- *     MiZeroCfgSystemWideBitmap @ 0x14012DB20 (MiZeroCfgSystemWideBitmap.c)
+ *     MiZeroCfgSystemWideBitmap @ 0x14012DB40 (MiZeroCfgSystemWideBitmap.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiLockProtoPoolPage @ 0x14002F030 (MiLockProtoPoolPage.c)
@@ -19,16 +19,16 @@
  *     MiReleasePageFileSpace @ 0x1400823A4 (MiReleasePageFileSpace.c)
  *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
  *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiLocatePagefileSubsection @ 0x140119D28 (MiLocatePagefileSubsection.c)
- *     MiCapturePageFileInfoInline @ 0x140119DB0 (MiCapturePageFileInfoInline.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120EE4 (MiLockNestedPageAtDpcInline.c)
- *     MiDiscardTransitionPte @ 0x14015827C (MiDiscardTransitionPte.c)
- *     KeZeroSinglePage @ 0x1401C08D0 (KeZeroSinglePage.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiLocatePagefileSubsection @ 0x140119D48 (MiLocatePagefileSubsection.c)
+ *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
+ *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
+ *     KeZeroSinglePage @ 0x1401C08F0 (KeZeroSinglePage.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MiZeroCfgSystemWideBitmapWorker(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

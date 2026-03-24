@@ -1,7 +1,7 @@
 /*
- * XREFs of Crashdump_Register_Initialize @ 0x1C004B720
+ * XREFs of Crashdump_Register_Initialize @ 0x1C004ACAC
  * Callers:
- *     Crashdump_UcxEvtGetDumpData @ 0x1C004B0C0 (Crashdump_UcxEvtGetDumpData.c)
+ *     Crashdump_UcxEvtGetDumpData @ 0x1C004A630 (Crashdump_UcxEvtGetDumpData.c)
  * Callees:
  *     <none>
  */
@@ -16,9 +16,9 @@ __int64 __fastcall Crashdump_Register_Initialize(__int64 a1, __int64 a2, __int64
   v3 = *(_QWORD *)(a3 + 136);
   *(_QWORD *)a1 = a2;
   *(_OWORD *)(a1 + 8) = *(_OWORD *)(a3 + 336);
-  result = *(unsigned int *)(a2 + 80);
+  result = *(unsigned int *)(a2 + 84);
   *(_DWORD *)(a1 + 24) = (unsigned __int8)result;
-  v6 = *(_DWORD *)(a2 + 92);
+  v6 = *(_DWORD *)(a2 + 96);
   *(_DWORD *)(a1 + 28) = v6;
   if ( v6 )
   {

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CountPDOs@PDOBaseEnum@@SAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C01EA500
+ * XREFs of ?CountPDOs@PDOBaseEnum@@SAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C016F770
  * Callers:
  *     <none>
  * Callees:

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?RemoveEntry@FxCollectionInternal@@QEAAJPEAVFxCollectionEntry@@@Z @ 0x1C0021CB4
+ * XREFs of ?RemoveEntry@FxCollectionInternal@@QEAAJPEAVFxCollectionEntry@@@Z @ 0x1C00619C4
  * Callers:
- *     ?Remove@FxCollectionInternal@@QEAAJK@Z @ 0x1C0021C84 (-Remove@FxCollectionInternal@@QEAAJK@Z.c)
- *     ?RemoveAndDelete@FxResourceCollection@@QEAAEK@Z @ 0x1C0034A84 (-RemoveAndDelete@FxResourceCollection@@QEAAEK@Z.c)
- *     imp_WdfCmResourceListRemoveByDescriptor @ 0x1C006F710 (imp_WdfCmResourceListRemoveByDescriptor.c)
- *     imp_WdfIoResourceListRemoveByDescriptor @ 0x1C006F9C0 (imp_WdfIoResourceListRemoveByDescriptor.c)
- *     imp_WdfIoResourceRequirementsListRemoveByIoResList @ 0x1C006FBF0 (imp_WdfIoResourceRequirementsListRemoveByIoResList.c)
+ *     imp_WdfCmResourceListRemoveByDescriptor @ 0x1C005C6F0 (imp_WdfCmResourceListRemoveByDescriptor.c)
+ *     imp_WdfIoResourceListRemoveByDescriptor @ 0x1C005CB30 (imp_WdfIoResourceListRemoveByDescriptor.c)
+ *     imp_WdfIoResourceRequirementsListRemoveByIoResList @ 0x1C005CF60 (imp_WdfIoResourceRequirementsListRemoveByIoResList.c)
+ *     ?RemoveAndDelete@FxResourceCollection@@QEAAEK@Z @ 0x1C0061690 (-RemoveAndDelete@FxResourceCollection@@QEAAEK@Z.c)
+ *     ?Remove@FxCollectionInternal@@QEAAJK@Z @ 0x1C0061994 (-Remove@FxCollectionInternal@@QEAAJK@Z.c)
  * Callees:
- *     ?CleanupEntry@FxCollectionInternal@@QEAAXPEAVFxCollectionEntry@@@Z @ 0x1C0014AF8 (-CleanupEntry@FxCollectionInternal@@QEAAXPEAVFxCollectionEntry@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?CleanupEntry@FxCollectionInternal@@QEAAXPEAVFxCollectionEntry@@@Z @ 0x1C00618E4 (-CleanupEntry@FxCollectionInternal@@QEAAXPEAVFxCollectionEntry@@@Z.c)
  */
 
 __int64 __fastcall FxCollectionInternal::RemoveEntry(FxCollectionInternal *this, FX_POOL_TRACKER *Entry)

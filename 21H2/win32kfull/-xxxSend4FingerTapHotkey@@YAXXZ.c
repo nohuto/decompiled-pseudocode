@@ -1,11 +1,11 @@
 /*
- * XREFs of ?xxxSend4FingerTapHotkey@@YAXXZ @ 0x1C02123C8
+ * XREFs of ?xxxSend4FingerTapHotkey@@YAXXZ @ 0x1C02139E4
  * Callers:
- *     Send4FingerTapHotkey @ 0x1C02125F0 (Send4FingerTapHotkey.c)
+ *     Send4FingerTapHotkey @ 0x1C0213DE0 (Send4FingerTapHotkey.c)
  * Callees:
- *     xxxSendInput @ 0x1C007EDD4 (xxxSendInput.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     xxxSendInput @ 0x1C00C0268 (xxxSendInput.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 void xxxSend4FingerTapHotkey(void)

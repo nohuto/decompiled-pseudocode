@@ -1,87 +1,82 @@
 /*
- * XREFs of DpiPdoHandleQueryDeviceRelations @ 0x1C01E8B70
+ * XREFs of DpiPdoHandleQueryDeviceRelations @ 0x1C016B200
  * Callers:
  *     <none>
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0005C0C (DpiCheckForOutstandingD3Requests.c)
- *     DpiEnableD3Requests @ 0x1C01987EC (DpiEnableD3Requests.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001FC54 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiEnableD3Requests @ 0x1C00ECD4C (DpiEnableD3Requests.c)
  */
 
 __int64 __fastcall DpiPdoHandleQueryDeviceRelations(_QWORD *Object, __int64 a2)
 {
   __int64 v4; // rbx
-  int v5; // r9d
-  int v6; // r9d
-  int v7; // r9d
-  __int64 Pool2; // rax
-  __int64 v9; // rbx
-  unsigned int v10; // edi
-  int v12; // ecx
-  unsigned int v13; // eax
-  unsigned int *v14; // r14
-  unsigned int i; // edi
-  __int64 v16; // rdx
-  unsigned int v17; // eax
+  int v5; // ecx
+  _QWORD *PoolWithTag; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  _QWORD *v11; // rbx
+  unsigned int v12; // edi
+  __int64 v14; // rax
+  int v15; // ecx
+  unsigned int v16; // eax
+  _DWORD *v17; // r14
+  unsigned int i; // ebp
+  __int64 v19; // rdx
 
   v4 = *(_QWORD *)(*(_QWORD *)(Object[8] + 32LL) + 64LL);
   v5 = *(_DWORD *)(*(_QWORD *)(a2 + 184) + 8LL);
-  if ( !v5 )
-    return *(unsigned int *)(a2 + 48);
-  v6 = v5 - 1;
-  if ( !v6 )
-    return *(unsigned int *)(a2 + 48);
-  v7 = v6 - 1;
-  if ( v7 )
+  if ( v5 == 4 )
   {
-    if ( v7 == 2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x74727044u);
+    v11 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      Pool2 = ExAllocatePool2(256LL, 16LL, 1953656900LL);
-      v9 = Pool2;
-      if ( Pool2 )
-      {
-        *(_DWORD *)Pool2 = 1;
-        *(_QWORD *)(Pool2 + 8) = Object;
-        ObfReferenceObject(Object);
-        v10 = 0;
-        *(_QWORD *)(a2 + 56) = v9;
-        return v10;
-      }
-LABEL_9:
-      v10 = -1073741801;
-      WdLogSingleEntry1(6LL, -1073741801LL);
-      return v10;
+      *(_DWORD *)PoolWithTag = 1;
+      PoolWithTag[1] = Object;
+      ObfReferenceObject(Object);
+      v12 = 0;
+      *(_QWORD *)(a2 + 56) = v11;
+      return v12;
     }
-    return *(unsigned int *)(a2 + 48);
+LABEL_7:
+    v12 = -1073741801;
+    v14 = WdLogNewEntry5_WdLowResource(v8, v7, v9, v10);
+    *(_QWORD *)(v14 + 24) = -1073741801LL;
+    WdLogEvent5_WdLowResource(v14);
+    return v12;
   }
+  if ( v5 != 2 )
+    return *(unsigned int *)(a2 + 48);
   KeEnterCriticalRegion();
   if ( *(_BYTE *)(v4 + 484) )
     DpiCheckForOutstandingD3Requests(v4);
   ExAcquireResourceSharedLite(*(PERESOURCE *)(v4 + 168), 1u);
-  v12 = *(_DWORD *)(v4 + 236);
-  if ( v12 != 2 && (*(_DWORD *)(v4 + 240) != 2 || ((v12 - 3) & 0xFFFFFFFC) != 0 || v12 == 4)
-    || (v13 = *(_DWORD *)(v4 + 2736), v13 < 2) )
+  v15 = *(_DWORD *)(v4 + 236);
+  if ( v15 != 2 && (*(_DWORD *)(v4 + 240) != 2 || ((v15 - 3) & 0xFFFFFFFC) != 0 || v15 == 4)
+    || (v16 = *(_DWORD *)(v4 + 2736), v16 < 2) )
   {
-    v10 = *(_DWORD *)(a2 + 48);
+    v12 = *(_DWORD *)(a2 + 48);
   }
   else
   {
-    v14 = (unsigned int *)ExAllocatePool2(256LL, 8LL * (v13 - 2) + 16, 1953656900LL);
-    if ( !v14 )
-      goto LABEL_9;
+    v17 = ExAllocatePoolWithTag(PagedPool, 8LL * (v16 - 2) + 16, 0x74727044u);
+    if ( !v17 )
+      goto LABEL_7;
     for ( i = 1; i < *(_DWORD *)(v4 + 2736); ++i )
     {
-      v16 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v4 + 2728) + 8LL * i) + 64LL);
-      *(_QWORD *)&v14[2 * i] = *(_QWORD *)(v16 + 152);
-      ObfReferenceObject(*(PVOID *)(v16 + 152));
+      v19 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v4 + 2728) + 8LL * i) + 64LL);
+      *(_QWORD *)&v17[2 * i] = *(_QWORD *)(v19 + 152);
+      ObfReferenceObject(*(PVOID *)(v19 + 152));
     }
-    v17 = i - 1;
-    v10 = 0;
-    *v14 = v17;
-    *(_QWORD *)(a2 + 56) = v14;
+    v12 = 0;
+    *v17 = i - 1;
+    *(_QWORD *)(a2 + 56) = v17;
   }
   if ( *(_BYTE *)(v4 + 484) )
     DpiEnableD3Requests(*(_QWORD *)(v4 + 24));
   ExReleaseResourceLite(*(PERESOURCE *)(v4 + 168));
   KeLeaveCriticalRegion();
-  return v10;
+  return v12;
 }

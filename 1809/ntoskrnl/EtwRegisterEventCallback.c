@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwRegisterEventCallback @ 0x1408BDDD0
+ * XREFs of EtwRegisterEventCallback @ 0x1408BDDB0
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)
  *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)
- *     KeIsValidTraceCallbackTarget @ 0x140844940 (KeIsValidTraceCallbackTarget.c)
+ *     KeIsValidTraceCallbackTarget @ 0x140844920 (KeIsValidTraceCallbackTarget.c)
  */
 
 __int64 __fastcall EtwRegisterEventCallback(unsigned int a1, unsigned __int64 a2, __int64 a3)

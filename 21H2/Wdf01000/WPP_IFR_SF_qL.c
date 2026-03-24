@@ -1,23 +1,23 @@
 /*
- * XREFs of WPP_IFR_SF_ql @ 0x1C0053CE8
+ * XREFs of WPP_IFR_SF_ql @ 0x1C002FAEC
  * Callers:
- *     ?DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z @ 0x1C0009550 (-DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z.c)
- *     ?ProcessModificationsLocked@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0018288 (-ProcessModificationsLocked@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     imp_WdfDmaTransactionSetSingleTransferRequirement @ 0x1C0054CC0 (imp_WdfDmaTransactionSetSingleTransferRequirement.c)
- *     imp_WdfDmaTransactionWdmGetTransferContext @ 0x1C0054F20 (imp_WdfDmaTransactionWdmGetTransferContext.c)
- *     ?ReleaseAdapter@FxDmaPacketTransaction@@QEAAXXZ @ 0x1C0056064 (-ReleaseAdapter@FxDmaPacketTransaction@@QEAAXXZ.c)
- *     ?ReserveAdapter@FxDmaPacketTransaction@@QEAAJKW4_WDF_DMA_DIRECTION@@P6AXPEAUWDFDMATRANSACTION__@@PEAX@Z2@Z @ 0x1C00561E4 (-ReserveAdapter@FxDmaPacketTransaction@@QEAAJKW4_WDF_DMA_DIRECTION@@P6AXPEAUWDFDMATRANSACTION__@.c)
- *     ?CancelResourceAllocation@FxDmaTransactionBase@@QEAAEXZ @ 0x1C0058F8C (-CancelResourceAllocation@FxDmaTransactionBase@@QEAAEXZ.c)
- *     ?Dispose@FxDmaTransactionBase@@UEAAEXZ @ 0x1C00590A0 (-Dispose@FxDmaTransactionBase@@UEAAEXZ.c)
- *     ?DmaCompleted@FxDmaTransactionBase@@QEAAE_KPEAJW4FxDmaCompletionType@@@Z @ 0x1C00591A4 (-DmaCompleted@FxDmaTransactionBase@@QEAAE_KPEAJW4FxDmaCompletionType@@@Z.c)
- *     ?Execute@FxDmaTransactionBase@@QEAAJPEAX@Z @ 0x1C0059478 (-Execute@FxDmaTransactionBase@@QEAAJPEAX@Z.c)
- *     ?GetTransferInfo@FxDmaTransactionBase@@QEAAXPEAK0@Z @ 0x1C00595A8 (-GetTransferInfo@FxDmaTransactionBase@@QEAAXPEAK0@Z.c)
- *     ?Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_DMA_DIRECTION@@PEAU_SCATTER_GATHER_LIST@@@Z3PEAU_MDL@@_KK@Z @ 0x1C0059728 (-Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_.c)
- *     ?ReleaseForReuse@FxDmaTransactionBase@@QEAAXE@Z @ 0x1C0059C18 (-ReleaseForReuse@FxDmaTransactionBase@@QEAAXE@Z.c)
- *     ?SetImmediateExecution@FxDmaTransactionBase@@QEAAXE@Z @ 0x1C0059DF0 (-SetImmediateExecution@FxDmaTransactionBase@@QEAAXE@Z.c)
+ *     ?DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z @ 0x1C0008440 (-DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z.c)
+ *     ?ProcessModificationsLocked@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C000FC54 (-ProcessModificationsLocked@FxChildList@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     imp_WdfDmaTransactionSetSingleTransferRequirement @ 0x1C0030DC0 (imp_WdfDmaTransactionSetSingleTransferRequirement.c)
+ *     imp_WdfDmaTransactionWdmGetTransferContext @ 0x1C0031020 (imp_WdfDmaTransactionWdmGetTransferContext.c)
+ *     ?ReleaseAdapter@FxDmaPacketTransaction@@QEAAXXZ @ 0x1C00331E8 (-ReleaseAdapter@FxDmaPacketTransaction@@QEAAXXZ.c)
+ *     ?ReserveAdapter@FxDmaPacketTransaction@@QEAAJKW4_WDF_DMA_DIRECTION@@P6AXPEAUWDFDMATRANSACTION__@@PEAX@Z2@Z @ 0x1C0033364 (-ReserveAdapter@FxDmaPacketTransaction@@QEAAJKW4_WDF_DMA_DIRECTION@@P6AXPEAUWDFDMATRANSACTION__@.c)
+ *     ?CancelResourceAllocation@FxDmaTransactionBase@@QEAAEXZ @ 0x1C003631C (-CancelResourceAllocation@FxDmaTransactionBase@@QEAAEXZ.c)
+ *     ?Dispose@FxDmaTransactionBase@@UEAAEXZ @ 0x1C0036430 (-Dispose@FxDmaTransactionBase@@UEAAEXZ.c)
+ *     ?DmaCompleted@FxDmaTransactionBase@@QEAAE_KPEAJW4FxDmaCompletionType@@@Z @ 0x1C0036534 (-DmaCompleted@FxDmaTransactionBase@@QEAAE_KPEAJW4FxDmaCompletionType@@@Z.c)
+ *     ?Execute@FxDmaTransactionBase@@QEAAJPEAX@Z @ 0x1C00367FC (-Execute@FxDmaTransactionBase@@QEAAJPEAX@Z.c)
+ *     ?GetTransferInfo@FxDmaTransactionBase@@QEAAXPEAK0@Z @ 0x1C003692C (-GetTransferInfo@FxDmaTransactionBase@@QEAAXPEAK0@Z.c)
+ *     ?Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_DMA_DIRECTION@@PEAU_SCATTER_GATHER_LIST@@@Z3PEAU_MDL@@_KK@Z @ 0x1C0036AA0 (-Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_.c)
+ *     ?ReleaseForReuse@FxDmaTransactionBase@@QEAAXE@Z @ 0x1C0036F8C (-ReleaseForReuse@FxDmaTransactionBase@@QEAAXE@Z.c)
+ *     ?SetImmediateExecution@FxDmaTransactionBase@@QEAAXE@Z @ 0x1C0037164 (-SetImmediateExecution@FxDmaTransactionBase@@QEAAXE@Z.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_ql(

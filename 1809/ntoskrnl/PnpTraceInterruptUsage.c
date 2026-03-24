@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpTraceInterruptUsage @ 0x14016DABC
+ * XREFs of PnpTraceInterruptUsage @ 0x14016DADC
  * Callers:
- *     IoDisconnectInterrupt @ 0x140710370 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x14071076C (IopConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x140710350 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x14071074C (IopConnectInterrupt.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     InsertEventEntryInLookUpTable @ 0x140012AF4 (InsertEventEntryInLookUpTable.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall PnpTraceInterruptUsage(int a1)
@@ -45,10 +45,10 @@ char __fastcall PnpTraceInterruptUsage(int a1)
       v23 = 8LL;
       *(_DWORD *)&EventDescriptor.Level = 5;
       UserData.Ptr = (ULONGLONG)stru_1403FFBC8.ProviderMetadataPtr;
-      *(_DWORD *)&EventDescriptor.Id = ((unsigned int)&unk_14036D2CF - (unsigned int)&TraceLoggingMetadata) | 0xB000000;
+      *(_DWORD *)&EventDescriptor.Id = ((unsigned int)&unk_14036D3DF - (unsigned int)&TraceLoggingMetadata) | 0xB000000;
       EventDescriptor.Keyword = v2;
       UserData.Size = *stru_1403FFBC8.ProviderMetadataPtr;
-      v19 = &unk_14036D2DA;
+      v19 = &unk_14036D3EA;
       v1 = TlgAggregateInternalRegisteredProviderEtwCallback;
       UserData.Reserved = 2;
       v20 = 43;
@@ -56,13 +56,13 @@ char __fastcall PnpTraceInterruptUsage(int a1)
       if ( (ETWENABLECALLBACK *)stru_1403FFBC8.EnableCallback == TlgAggregateInternalRegisteredProviderEtwCallback )
       {
         v4 = 0;
-        v5 = (char *)&unk_14036D2DC;
+        v5 = (char *)&unk_14036D3EC;
         do
           v6 = *v5++;
         while ( v6 < 0 );
         while ( *v5++ )
           ;
-        if ( v5 >= (char *)&unk_14036D305 )
+        if ( v5 >= (char *)&unk_14036D415 )
           goto LABEL_21;
         do
         {
@@ -93,7 +93,7 @@ char __fastcall PnpTraceInterruptUsage(int a1)
           v14 = v4++;
           *((_BYTE *)&v23 + 16 * v14 + 5) = v13;
         }
-        while ( v5 < (char *)&unk_14036D305 );
+        while ( v5 < (char *)&unk_14036D415 );
 LABEL_19:
         if ( v4 )
           LOBYTE(v1) = InsertEventEntryInLookUpTable(

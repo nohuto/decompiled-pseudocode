@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vSetRendering@DC@@QEAAXXZ @ 0x1C0096100
+ * XREFs of ?vSetRendering@DC@@QEAAXXZ @ 0x1C0081260
  * Callers:
  *     <none>
  * Callees:
@@ -8,21 +8,21 @@
 
 void __fastcall DC::vSetRendering(DC *this)
 {
-  __int64 v2; // rdx
-  int v3; // eax
+  int v2; // r8d
+  __int64 v3; // rdx
   bool v4; // zf
   __int64 v5; // rcx
 
-  v2 = *((_DWORD *)this + 10) & 1;
-  *((_DWORD *)this + 256) = *((_DWORD *)this + 2 * v2 + 254);
-  *((_DWORD *)this + 257) = *((_DWORD *)this + 2 * v2 + 255);
+  v2 = *((_DWORD *)this + 10) | 1;
+  v3 = *((_DWORD *)this + 10) & 1;
+  v4 = (*((_DWORD *)this + 9) & 0x4000) == 0;
+  *((_DWORD *)this + 256) = *((_DWORD *)this + 2 * v3 + 254);
+  *((_DWORD *)this + 257) = *((_DWORD *)this + 2 * v3 + 255);
   *((_DWORD *)this + 262) = *((_DWORD *)this + 258);
   *((_DWORD *)this + 263) = *((_DWORD *)this + 259);
   *((_DWORD *)this + 264) = *((_DWORD *)this + 260);
-  v3 = *((_DWORD *)this + 261);
-  *((_DWORD *)this + 10) |= 1u;
-  v4 = (*((_DWORD *)this + 9) & 0x4000) == 0;
-  *((_DWORD *)this + 265) = v3;
+  *((_DWORD *)this + 265) = *((_DWORD *)this + 261);
+  *((_DWORD *)this + 10) = v2;
   if ( !v4 )
   {
     v5 = *((_QWORD *)this + 62);

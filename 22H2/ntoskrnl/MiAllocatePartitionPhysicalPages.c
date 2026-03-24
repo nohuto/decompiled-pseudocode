@@ -1,385 +1,317 @@
 /*
- * XREFs of MiAllocatePartitionPhysicalPages @ 0x140A4438C
+ * XREFs of MiAllocatePartitionPhysicalPages @ 0x1408DA9C8
  * Callers:
- *     MiReleasePartitionHugeIoSpace @ 0x140622540 (MiReleasePartitionHugeIoSpace.c)
- *     MmManagePartitionMoveMemory @ 0x140A45828 (MmManagePartitionMoveMemory.c)
+ *     MiReleasePartitionHugeIoSpace @ 0x1405337C8 (MiReleasePartitionHugeIoSpace.c)
+ *     MmManagePartitionMoveMemory @ 0x1408DBB30 (MmManagePartitionMoveMemory.c)
  * Callees:
- *     MiAllocateAcceleratorDescriptor @ 0x140222100 (MiAllocateAcceleratorDescriptor.c)
- *     MiFreeMdlPageRun @ 0x1402C89B0 (MiFreeMdlPageRun.c)
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     MiZeroLargePage @ 0x1402EC08C (MiZeroLargePage.c)
- *     MiAllocatePagesForMdl @ 0x1402F8CDC (MiAllocatePagesForMdl.c)
- *     MiSelectEngine @ 0x14035B1FC (MiSelectEngine.c)
- *     MiGetHugeRangeFromNode @ 0x1403C4A84 (MiGetHugeRangeFromNode.c)
- *     MiFindLargeNodePage @ 0x14061D6D8 (MiFindLargeNodePage.c)
- *     MiGetHugeBadRangeFromNode @ 0x14061FCB0 (MiGetHugeBadRangeFromNode.c)
- *     MiHugeRangeIsZeroed @ 0x140620D9C (MiHugeRangeIsZeroed.c)
- *     MiInsertHugeRangeInList @ 0x14062103C (MiInsertHugeRangeInList.c)
- *     MiLockHugePfn @ 0x140621464 (MiLockHugePfn.c)
- *     MiUnlockHugePfn @ 0x140622D10 (MiUnlockHugePfn.c)
- *     MiDeleteAcceleratorDescriptor @ 0x140654A6C (MiDeleteAcceleratorDescriptor.c)
- *     MiAddMdlToPartitionTree @ 0x140658AA0 (MiAddMdlToPartitionTree.c)
- *     MiAddRangeToPartitionTree @ 0x140658B8C (MiAddRangeToPartitionTree.c)
- *     MiFreePartitionTree @ 0x140659F08 (MiFreePartitionTree.c)
- *     MiInsertPartitionPages @ 0x14065A4F0 (MiInsertPartitionPages.c)
- *     MiReleaseNonPagedResources @ 0x1406610DC (MiReleaseNonPagedResources.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x140A452F8 (MiUpdatePartitionLargePfnBitMap.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiFreePagesFromMdl @ 0x14027FB6C (MiFreePagesFromMdl.c)
+ *     MiFreeMdlPageRun @ 0x140280378 (MiFreeMdlPageRun.c)
+ *     MiReleaseNonPagedResources @ 0x1402E9CE0 (MiReleaseNonPagedResources.c)
+ *     MiZeroLargePage @ 0x14030E918 (MiZeroLargePage.c)
+ *     MiAllocatePagesForMdl @ 0x140354954 (MiAllocatePagesForMdl.c)
+ *     MiAcquireNonPagedResources @ 0x1403571F0 (MiAcquireNonPagedResources.c)
+ *     MiFindLargeNodePage @ 0x1403947D0 (MiFindLargeNodePage.c)
+ *     MiGetHugeRangeFromNode @ 0x140532994 (MiGetHugeRangeFromNode.c)
+ *     MiHugeRangeIsZeroed @ 0x1405332B8 (MiHugeRangeIsZeroed.c)
+ *     MiInsertHugeRangeInList @ 0x140533548 (MiInsertHugeRangeInList.c)
+ *     MiAddMdlToPartitionTree @ 0x140560FC0 (MiAddMdlToPartitionTree.c)
+ *     MiAddRangeToPartitionTree @ 0x1405610AC (MiAddRangeToPartitionTree.c)
+ *     MiFreePartitionTree @ 0x14056227C (MiFreePartitionTree.c)
+ *     MiInsertPartitionPages @ 0x140562480 (MiInsertPartitionPages.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x1408DB7C8 (MiUpdatePartitionLargePfnBitMap.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocatePartitionPhysicalPages(
-        unsigned __int16 *a1,
-        __int64 a2,
+        ULONG_PTR *a1,
+        unsigned __int64 a2,
         unsigned __int64 a3,
-        int a4,
+        unsigned int a4,
         __int16 a5,
         unsigned int a6)
 {
-  unsigned __int16 *v6; // r13
-  int v9; // ecx
-  unsigned int v10; // eax
-  __int64 v11; // r9
-  __int64 v12; // r8
-  int v13; // r14d
-  int v15; // r15d
-  unsigned int v16; // edi
-  unsigned int *v17; // r12
-  unsigned __int64 v18; // rax
-  BOOL v19; // ecx
-  int v20; // eax
-  int v21; // eax
-  __int64 v22; // rcx
-  unsigned __int64 v23; // r14
-  unsigned int v24; // r12d
-  unsigned __int8 IsZeroed; // r9
-  BOOL v26; // r14d
-  __int64 i; // rax
-  __int64 v28; // rcx
-  unsigned __int64 v29; // r12
-  unsigned __int64 v30; // rdx
-  __int64 v31; // r8
-  __int64 v32; // r14
-  unsigned __int8 v33; // di
-  __int64 v34; // rdi
-  int updated; // edi
-  __int64 v36; // rax
-  __int64 v37; // rdi
-  unsigned int v38; // r14d
-  bool v39; // cf
-  __int64 v40; // r10
-  unsigned __int64 v41; // rax
-  unsigned __int64 v42; // rdx
+  int v6; // eax
+  ULONG_PTR *v7; // r10
+  unsigned int v8; // esi
+  unsigned __int64 v9; // r11
+  int HugeRangeFromNode; // edi
+  unsigned __int64 v11; // r14
+  int v12; // eax
+  int v13; // ecx
+  int v14; // r13d
+  int v15; // ebx
+  unsigned __int64 v17; // r12
+  BOOL v18; // ecx
+  int v19; // r15d
+  unsigned int v20; // ebx
+  unsigned int v21; // eax
+  unsigned int v22; // ebx
+  __int64 v23; // rbx
+  BOOL IsZeroed; // eax
+  int v25; // r9d
+  __int64 LargeNodePage; // rax
+  unsigned __int64 v27; // r13
+  BOOL v28; // eax
+  __int64 v29; // r9
+  __int64 v30; // r15
+  unsigned __int64 v31; // rdi
+  int updated; // ebx
+  __int64 v33; // rax
+  char v34; // r12
+  __int64 v35; // rbx
+  int v36; // edi
+  unsigned int v37; // edi
+  unsigned __int64 v38; // rdx
+  unsigned __int64 v39; // rcx
   __int64 PagesForMdl; // rax
-  unsigned int *v44; // r12
-  int v45; // eax
-  unsigned int v46; // [rsp+58h] [rbp-79h] BYREF
-  int v47; // [rsp+5Ch] [rbp-75h]
-  unsigned int v48; // [rsp+60h] [rbp-71h]
-  __int64 v49; // [rsp+68h] [rbp-69h]
-  int v50; // [rsp+70h] [rbp-61h] BYREF
-  int v51; // [rsp+74h] [rbp-5Dh]
-  unsigned __int64 v52; // [rsp+78h] [rbp-59h] BYREF
-  unsigned int *v53; // [rsp+80h] [rbp-51h]
-  unsigned __int64 v54; // [rsp+88h] [rbp-49h]
-  __int64 v55; // [rsp+90h] [rbp-41h]
-  __int64 v56; // [rsp+98h] [rbp-39h]
-  int v57; // [rsp+A0h] [rbp-31h]
-  int v58; // [rsp+A4h] [rbp-2Dh]
-  __int64 v59; // [rsp+A8h] [rbp-29h]
-  __int64 v60; // [rsp+B0h] [rbp-21h] BYREF
-  __int64 v61; // [rsp+B8h] [rbp-19h]
-  _OWORD v62[2]; // [rsp+C0h] [rbp-11h] BYREF
-  unsigned int v63[14]; // [rsp+E0h] [rbp+Fh] BYREF
+  unsigned int *v41; // r15
+  __int64 v42; // r8
+  int v43; // edi
+  unsigned __int64 v44; // rsi
+  __int32 v45; // eax
+  ULONG_PTR *v46; // [rsp+40h] [rbp-59h]
+  int v47; // [rsp+48h] [rbp-51h]
+  int v48; // [rsp+4Ch] [rbp-4Dh]
+  unsigned __int64 v49; // [rsp+50h] [rbp-49h] BYREF
+  __int64 v50; // [rsp+58h] [rbp-41h]
+  __int64 v51; // [rsp+60h] [rbp-39h]
+  unsigned int v52; // [rsp+68h] [rbp-31h]
+  unsigned __int64 v53; // [rsp+70h] [rbp-29h]
+  __m256i v54; // [rsp+78h] [rbp-21h] BYREF
+  BOOL v55; // [rsp+F0h] [rbp+57h] BYREF
+  unsigned __int64 v56; // [rsp+F8h] [rbp+5Fh]
+  unsigned __int64 v57; // [rsp+100h] [rbp+67h]
+  int v58; // [rsp+108h] [rbp+6Fh]
 
-  v6 = MiSystemPartition;
-  v52 = 0LL;
-  if ( a1 )
-    v6 = a1;
-  v9 = 0x100000;
-  v58 = a5 & 0x400;
-  memset(v62, 0, sizeof(v62));
-  v10 = 1048577;
-  if ( (a5 & 0x400) == 0 )
-  {
-    if ( (*(_BYTE *)(a2 + 4) & 0x20) == 0 )
-      v9 = 1048577;
-    v10 = v9;
-  }
-  v11 = v10;
-  LODWORD(v11) = v10 | 0x8000;
-  v51 = a5 & 4;
+  v57 = a3;
+  v56 = a2;
+  v6 = *(_DWORD *)(a2 + 4);
+  v7 = &MiSystemPartition;
+  v8 = a4;
+  v52 = a4;
+  v9 = a3;
   v49 = 0LL;
-  v12 = 0LL;
+  HugeRangeFromNode = 0;
+  v50 = 0LL;
+  if ( a1 )
+    v7 = a1;
+  v11 = 0LL;
+  v46 = v7;
+  v48 = a5 & 4;
+  v12 = ((v6 & 0x40) == 0) | 0x100000;
+  v13 = v12 | 0x8000;
+  *(_OWORD *)v54.m256i_i8 = 0LL;
   if ( (a5 & 4) == 0 )
-    v11 = v10;
-  v13 = a5 & 0x200;
-  v48 = v11;
+    v13 = v12;
+  v14 = v13 | 0x4000;
+  *(_OWORD *)&v54.m256i_u64[2] = 0LL;
+  if ( (a5 & 0x12) != 0 )
+    v14 = v13;
+  v15 = a5 & 0x200;
+  v58 = v15;
+  v47 = v14;
   if ( (a5 & 0x200) == 0 )
   {
-    if ( (int)MiAcquireNonPagedResources((unsigned __int64)v6, a3, 0LL, 0) < 0 )
+    if ( (int)MiAcquireNonPagedResources(v7, a3, 0LL, 0) < 0 )
       return 3221225626LL;
-    v11 = v48;
-    v12 = 0LL;
+    v7 = v46;
+    v9 = v57;
   }
-  v15 = 1;
-  v16 = a4;
-  v57 = a5 & 1;
-  if ( (a5 & 1) != 0 )
-  {
-    v17 = (unsigned int *)(qword_140C65B98 + 4LL * a4 * (unsigned int)(unsigned __int16)KeNumberNodes);
-    v53 = v17;
-    v59 = (__int64)&v17[(unsigned __int16)KeNumberNodes];
-  }
-  else
-  {
-    v17 = 0LL;
-    v53 = 0LL;
-    v59 = 4LL;
-  }
-  v55 = 0x40000LL;
+  v51 = 0x40000LL;
   while ( 1 )
   {
-    v18 = a3 - v12;
-    v54 = a3 - v12;
-    if ( a3 - v12 < 0x200 )
-      goto LABEL_54;
-    v19 = 1;
+    v17 = v9 - v11;
+    v53 = v9 - v11;
+    if ( v9 - v11 < 0x200 )
+      goto LABEL_39;
+    v18 = 1;
     if ( (a5 & 0x60) == 0 )
-      v19 = v18 < 0x40000;
-    v46 = v19;
-    v47 = 0;
-    if ( v13 )
+      v18 = v17 < 0x40000;
+    HugeRangeFromNode &= 0xFFFC0000;
+    v55 = v18;
+    v19 = 0;
+    if ( v15 )
     {
-      v20 = a5 & 0x800;
-      v46 = v20;
-      while ( 1 )
+      v20 = 0;
+      if ( KeNumberNodes )
       {
-        v21 = v20
-            ? MiGetHugeBadRangeFromNode((__int64)v6, v16)
-            : MiGetHugeRangeFromNode((__int64)v6, v16, (v11 & 1) == 0, 0LL);
-        if ( (v21 & 0x3FFFFF) != 0 )
-          break;
-        v53 = ++v17;
-        if ( v17 == (unsigned int *)v59 )
-          goto LABEL_53;
-        v16 = *v17;
-        v20 = v46;
-        LOBYTE(v11) = v48;
+        do
+        {
+          HugeRangeFromNode = MiGetHugeRangeFromNode(v46, v20, (v14 & 1) == 0);
+          if ( (*(_QWORD *)&HugeRangeFromNode & 0x3FFFFLL) != 0 || (a5 & 1) == 0 )
+            break;
+          v21 = v20 + 1;
+          v22 = 0;
+          if ( v21 != (unsigned __int16)KeNumberNodes )
+            v22 = v21;
+          v20 = v22 + 1;
+        }
+        while ( v20 < (unsigned __int16)KeNumberNodes );
+        v8 = v52;
+        v17 = v53;
+        v9 = v57;
       }
-      v23 = (unsigned __int64)(v21 & 0x3FFFFF) << 18;
-      v24 = 0;
-      v46 = 0;
-      IsZeroed = MiHugeRangeIsZeroed(v22, v21);
-      v47 = IsZeroed;
+      if ( (HugeRangeFromNode & 0x3FFFF) == 0 )
+        goto LABEL_38;
+      v23 = (unsigned __int64)(HugeRangeFromNode & 0x3FFFF) << 18;
+      v55 = 0;
+      IsZeroed = MiHugeRangeIsZeroed(HugeRangeFromNode);
+      v19 = v25;
+      LOBYTE(v19) = IsZeroed;
     }
     else
     {
-      v26 = (a5 & 0x580) == 0;
-      for ( i = MiFindLargeNodePage((__int64)v6, v16, (int *)&v46, v26, v11, 1, 1u);
-            ;
-            i = MiFindLargeNodePage((__int64)v6, *v17, (int *)&v46, v26, v48, 1, 1u) )
+      LargeNodePage = MiFindLargeNodePage((__int64)v7, v8, (unsigned int *)&v55, 1, v14, 1u, 1u);
+      if ( !LargeNodePage )
       {
-        v61 = i;
-        if ( i )
-          break;
-        v53 = ++v17;
-        if ( v17 == (unsigned int *)v59 )
-          goto LABEL_53;
-        v16 = *v17;
+        v9 = v57;
+        goto LABEL_39;
       }
-      v24 = v46;
-      v28 = 0xAAAAAAAAAAAAAAABuLL;
-      v23 = 0xAAAAAAAAAAAAAAABuLL * ((i + 0x220000000000LL) >> 4);
-      if ( (*(_DWORD *)(i + 16) & 0x3E0LL) == 0 )
+      v23 = (LargeNodePage + 0x58000000000LL) / 48;
+      if ( (*(_DWORD *)(LargeNodePage + 16) & 0x3E0LL) != 0 )
       {
-        v47 = 1;
-LABEL_35:
-        IsZeroed = 1;
-        goto LABEL_36;
+        if ( (v14 & 1) != 0 )
+          goto LABEL_30;
+        MiZeroLargePage(LargeNodePage, v55);
       }
-      if ( (v48 & 1) == 0 )
-      {
-        v50 = 0;
-        v60 = 0LL;
-        v56 = 0LL;
-        if ( v46 <= 1
-          && !(unsigned int)MiSelectEngine(v16, 0, &v50, v63)
-          && v50 == v16
-          && (unsigned int)MiAllocateAcceleratorDescriptor(0LL, v50, v31, &v60) )
-        {
-          v56 = v60 + 32;
-        }
-        MiZeroLargePage(v28, v61, v24, 1u);
-        v47 = 1;
-        if ( !v56 )
-          goto LABEL_35;
-        MiDeleteAcceleratorDescriptor(v56);
-      }
-      IsZeroed = v47;
+      v19 = 1;
     }
-LABEL_36:
-    v29 = MiLargePageSizes[v24];
-    if ( !(unsigned int)MiAddRangeToPartitionTree(&v52, v23, v29, IsZeroed) )
+LABEL_30:
+    v27 = MiLargePageSizes[v55];
+    v28 = MiAddRangeToPartitionTree(&v49, v23, v27, v19);
+    v29 = 0LL;
+    if ( !v28 )
       break;
-    v13 = a5 & 0x200;
-    if ( v6 == MiSystemPartition && (a5 & 0x200) == 0 )
-      _InterlockedExchangeAdd64(&qword_140C69AB0, v29);
-    v30 = a3;
-    v12 = v29 + v49;
-    v49 = v12;
-    if ( v12 == a3 )
-      goto LABEL_62;
-    v17 = v53;
-    v11 = v48;
+    v7 = v46;
+    v15 = v58;
+    if ( v46 == &MiSystemPartition && !v58 )
+      _InterlockedExchangeAdd64(&qword_140C4EFB8, v27);
+    v9 = v57;
+    v11 += v27;
+    if ( v11 == v57 )
+      goto LABEL_48;
+    v14 = v47;
   }
-  if ( (a5 & 0x200) != 0 )
+  if ( v58 )
   {
-    v32 = qword_140C67EF0;
-    v33 = MiLockHugePfn(qword_140C67EF0);
-    MiInsertHugeRangeInList(0LL, 0LL, 2 * v47);
-    MiUnlockHugePfn(v32, v33);
-LABEL_53:
-    v13 = a5 & 0x200;
-    v18 = v54;
-    v12 = v49;
-LABEL_54:
-    v34 = 0LL;
-    goto LABEL_55;
+    MiInsertHugeRangeInList(HugeRangeFromNode, v19, 0LL);
+    v9 = v57;
+LABEL_38:
+    v15 = v58;
+LABEL_39:
+    v30 = v50;
+    goto LABEL_40;
   }
-  v36 = MiFreeMdlPageRun(v23, v29, v47, 0LL);
-  v12 = v49;
-  v34 = v36;
-  v18 = v54;
-  v13 = 0;
-LABEL_55:
-  v30 = a3;
-  if ( v12 != a3 )
+  v33 = MiFreeMdlPageRun(v23, v27, v19);
+  v9 = v57;
+  v30 = v33;
+  v15 = v58;
+LABEL_40:
+  if ( v11 == v9 )
   {
-    if ( v13 )
+    LODWORD(v7) = (_DWORD)v46;
+    v29 = 0LL;
+  }
+  else
+  {
+    v31 = (unsigned __int64)v46;
+    if ( v15 || (MiReleaseNonPagedResources((__int64)v46, v17 - v30), (a5 & 0xA2) != 0) || (v29 = 0LL, v30) )
     {
-      updated = -1073741801;
-LABEL_84:
-      MiFreePartitionTree((__int16 *)v6, &v52, 1, 1);
-      return (unsigned int)updated;
-    }
-    MiReleaseNonPagedResources((__int64)v6, v18 - v34);
-    if ( (a5 & 0xA2) != 0 || v34 )
-    {
-LABEL_81:
       updated = -1073741670;
-      goto LABEL_84;
+      goto LABEL_74;
     }
-    v12 = v49;
-    v30 = a3;
+    v9 = v57;
+    LODWORD(v7) = (_DWORD)v46;
   }
-LABEL_62:
-  v37 = 0LL;
-  v38 = v48 & 1 | (2 * (v57 ^ 1) + 0x400000) | 0x10;
-  v39 = v51 != 0;
-  v51 = -v51;
-  v40 = -(__int64)v39 & 0x100000000LL;
-  v56 = v40;
+LABEL_48:
+  v34 = a5;
+  v35 = 0LL;
+  v36 = v47 & 1 | 2;
+  if ( (a5 & 1) != 0 )
+    v36 = v47 & 1;
+  v37 = v36 | 0x10;
   if ( (a5 & 0x10) != 0 )
   {
-    v38 = v48 & 1 | (2 * (v57 ^ 1) + 0x400000) | 0x50;
-    v37 = 0x200000LL;
-    v41 = 0x40000LL;
+    v37 |= 0x40u;
+    v35 = 0x200000LL;
+    v38 = 0x40000LL;
   }
   else
   {
     if ( (a5 & 0x40) != 0 )
     {
-      v38 = v48 & 1 | (2 * (v57 ^ 1) + 0x400000) | 0x50;
-      v41 = 512LL;
-      v37 = 0x200000LL;
+      v37 |= 0x40u;
+      v38 = 512LL;
+      v35 = 0x200000LL;
     }
     else if ( (a5 & 0x100) != 0 )
     {
-      v38 = v48 & 1 | (2 * (v57 ^ 1) + 0x400000) | 0x50;
-      v41 = 0x40000LL;
-      v37 = 0x40000000LL;
+      v37 |= 0x40u;
+      v38 = 0x40000LL;
+      v35 = 0x40000000LL;
     }
     else
     {
-      v41 = 0xFFFFFLL;
+      v38 = 1048574LL;
     }
-    v55 = v41;
+    v51 = v38;
   }
-  if ( v12 != v30 )
+  if ( v11 == v9 )
   {
-    while ( 1 )
+LABEL_71:
+    v43 = v58;
+    v44 = v56;
+    if ( !v58 )
     {
-      v42 = v30 - v12;
-      if ( v42 > v41 )
-        v42 = v41;
-      PagesForMdl = MiAllocatePagesForMdl(
-                      (int)v6,
-                      v40,
-                      -1LL,
-                      v37,
-                      v42 << 12,
-                      1,
-                      a4,
-                      v38,
-                      (__int64)KeGetCurrentThread()->ApcState.Process,
-                      0LL);
-      v44 = (unsigned int *)PagesForMdl;
-      if ( PagesForMdl )
-      {
-        if ( !(unsigned int)MiAddMdlToPartitionTree((__int64)&v52, PagesForMdl, v38) )
-        {
-          MiFreePagesFromMdl((ULONG_PTR)v44, 0);
-          ExFreePoolWithTag(v44, 0);
-          goto LABEL_81;
-        }
-        v49 += (unsigned __int64)v44[10] >> 12;
-        ExFreePoolWithTag(v44, 0);
-      }
-      else
-      {
-        if ( (v38 & 0x40) == 0 )
-          goto LABEL_81;
-        v38 = v38 & 0xFFFFFF9F | 0x20;
-      }
-      v12 = v49;
-      v30 = a3;
-      if ( v49 == a3 )
-        break;
-      v40 = v56;
-      v41 = v55;
+      updated = MiUpdatePartitionLargePfnBitMap(v56, &v49, a3, v29);
+      if ( updated < 0 )
+        goto LABEL_73;
     }
+    v54.m256i_i64[0] = (__int64)&v49;
+    v45 = 3;
+    *(_OWORD *)&v54.m256i_u64[1] = 0LL;
+    if ( (v34 & 8) != 0 )
+      v45 = 7;
+    v54.m256i_i32[6] = v45;
+    if ( v43 )
+      v54.m256i_i32[6] = v45 | 0x10;
+    return (unsigned int)MiInsertPartitionPages((unsigned __int64)v46, v44, (__int64)&v54, v11, a6);
   }
-  v45 = a5 & 0x200;
-  if ( (a5 & 0x200) == 0 )
+  while ( 2 )
   {
-    updated = MiUpdatePartitionLargePfnBitMap(a2, &v52, v12, v11);
-    if ( updated < 0 )
-      goto LABEL_84;
-    v12 = v49;
-    v45 = 0;
+    v39 = v38;
+    if ( v9 - v11 <= v38 )
+      v39 = v9 - v11;
+    PagesForMdl = MiAllocatePagesForMdl((int)v7, -(__int64)(v48 != 0) & 0x100000000LL, -1LL, v35, v39 << 12, 1, v8, v37);
+    v41 = (unsigned int *)PagesForMdl;
+    if ( !PagesForMdl )
+    {
+      if ( (v37 & 0x40) == 0 )
+        goto LABEL_70;
+      v37 = v37 & 0xFFFFFF9F | 0x20;
+      goto LABEL_67;
+    }
+    if ( (unsigned int)MiAddMdlToPartitionTree((__int64)&v49, PagesForMdl, v37) )
+    {
+      v11 += (unsigned __int64)v41[10] >> 12;
+      ExFreePoolWithTag(v41, 0);
+LABEL_67:
+      v9 = v57;
+      if ( v11 == v57 )
+        goto LABEL_71;
+      LODWORD(v7) = (_DWORD)v46;
+      v38 = v51;
+      continue;
+    }
+    break;
   }
-  *(_QWORD *)&v62[0] = &v52;
-  if ( v58 )
-    v15 = 33;
-  DWORD2(v62[1]) = v15;
-  *(_OWORD *)((char *)v62 + 8) = 0LL;
-  if ( v6 != (unsigned __int16 *)a2 )
-  {
-    v15 |= 2u;
-    DWORD2(v62[1]) = v15;
-  }
-  if ( (a5 & 8) != 0 )
-  {
-    v15 |= 4u;
-    DWORD2(v62[1]) = v15;
-  }
-  if ( v45 )
-  {
-    v15 |= 0x10u;
-    DWORD2(v62[1]) = v15;
-  }
-  if ( (*((_DWORD *)v6 + 1) & 0x80u) != 0 )
-    DWORD2(v62[1]) = v15 | 0x400;
-  return (unsigned int)MiInsertPartitionPages((__int16 *)v6, a2, (__int64)v62, v12, a6);
+  MiFreePagesFromMdl((ULONG_PTR)v41, 0, v42);
+  ExFreePoolWithTag(v41, 0);
+LABEL_70:
+  updated = -1073741670;
+LABEL_73:
+  v31 = (unsigned __int64)v46;
+LABEL_74:
+  MiFreePartitionTree(v31, &v49, 1, 1);
+  return (unsigned int)updated;
 }

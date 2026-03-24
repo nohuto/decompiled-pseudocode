@@ -1,9 +1,9 @@
 /*
- * XREFs of ??$destruct_range@UContentEntry@CDrawListCacheSet@@@detail@@YAXPEAUContentEntry@CDrawListCacheSet@@0@Z @ 0x1800FC7C0
+ * XREFs of ??$destruct_range@UContentEntry@CDrawListCacheSet@@@detail@@YAXPEAUContentEntry@CDrawListCacheSet@@0@Z @ 0x1800DC7EC
  * Callers:
- *     ?ensure_extra_capacity@?$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x18003F258 (-ensure_extra_capacity@-$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_p.c)
+ *     ?ensure_extra_capacity@?$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x180052404 (-ensure_extra_capacity@-$buffer_impl@UContentEntry@CDrawListCacheSet@@$01$00Vliberal_expansion_p.c)
  * Callees:
- *     ??_GContentEntry@CDrawListCacheSet@@QEAAPEAXI@Z @ 0x1800FC7F8 (--_GContentEntry@CDrawListCacheSet@@QEAAPEAXI@Z.c)
+ *     ??_GContentEntry@CDrawListCacheSet@@QEAAPEAXI@Z @ 0x1800DC824 (--_GContentEntry@CDrawListCacheSet@@QEAAPEAXI@Z.c)
  */
 
 void *__fastcall detail::destruct_range<CDrawListCacheSet::ContentEntry>(

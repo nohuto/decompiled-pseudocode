@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDirectedDripsDiagTraceBroadcastVisit @ 0x14099F220
+ * XREFs of PopDirectedDripsDiagTraceBroadcastVisit @ 0x1408F8110
  * Callers:
- *     PopDirectedDripsVisitDevice @ 0x1409A02C0 (PopDirectedDripsVisitDevice.c)
+ *     PopDirectedDripsVisitDevice @ 0x1408F91C0 (PopDirectedDripsVisitDevice.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14099E17C (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x1408F6FA0 (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
  */
 
-signed __int32 __fastcall PopDirectedDripsDiagTraceBroadcastVisit(__int64 a1, __int64 a2, int a3)
+char __fastcall PopDirectedDripsDiagTraceBroadcastVisit(__int64 a1, __int64 a2, int a3)
 {
   int v5; // eax
   _QWORD *DeviceDiagnostic; // rbx
@@ -55,48 +55,52 @@ signed __int32 __fastcall PopDirectedDripsDiagTraceBroadcastVisit(__int64 a1, __
     v5 = -1;
   v15 = v5;
   DeviceDiagnostic = *(_QWORD **)(v18 + 776);
-  if ( DeviceDiagnostic
-    || (DeviceDiagnostic = PopDirectedDripsDiagCreateDeviceDiagnostic(v18), v5 = v15, DeviceDiagnostic) )
+  if ( !DeviceDiagnostic )
   {
-    v7 = (DeviceDiagnostic[19] & 0x20000) == 0;
-    *((_DWORD *)DeviceDiagnostic + 37) = v5;
-    v8 = v14;
-    if ( !v7 )
-      v8 = 1;
-    v14 = v8;
-    if ( PopDiagHandleRegistered )
-    {
-      v9 = PopDiagHandle;
-      if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_DRIPS_DEVICE_VISIT) )
-      {
-        v10 = *(unsigned __int16 *)(v18 + 40);
-        UserData.Reserved = 0;
-        v22 = 0;
-        v25 = 0;
-        v28 = 0;
-        v16 = v10 >> 1;
-        UserData.Ptr = (ULONGLONG)&v15;
-        v20 = &v14;
-        v23 = &v18;
-        v26 = &v16;
-        UserData.Size = 4;
-        v21 = 4;
-        v27 = 4;
-        v24 = 8;
-        v11 = *(_QWORD *)(v18 + 48);
-        v12 = *(unsigned __int16 *)(v18 + 40);
-        v31 = 0;
-        v34 = 0;
-        v29 = v11;
-        v32 = &v17;
-        v30 = v12;
-        v33 = 4;
-        v17 = a3;
-        EtwWrite(v9, &POP_ETW_EVENT_DIRECTED_DRIPS_DEVICE_VISIT, 0LL, 6u, &UserData);
-      }
-    }
-    *((_DWORD *)DeviceDiagnostic + 38) |= 0x40000u;
+    DeviceDiagnostic = PopDirectedDripsDiagCreateDeviceDiagnostic(v18);
+    if ( !DeviceDiagnostic )
+      goto LABEL_13;
+    v5 = v15;
   }
+  v7 = (DeviceDiagnostic[19] & 0x20000) == 0;
+  *((_DWORD *)DeviceDiagnostic + 37) = v5;
+  v8 = v14;
+  if ( !v7 )
+    v8 = 1;
+  v14 = v8;
+  if ( PopDiagHandleRegistered )
+  {
+    v9 = PopDiagHandle;
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_DRIPS_DEVICE_VISIT) )
+    {
+      v10 = *(unsigned __int16 *)(v18 + 40);
+      UserData.Reserved = 0;
+      v22 = 0;
+      v25 = 0;
+      v28 = 0;
+      v16 = v10 >> 1;
+      UserData.Ptr = (ULONGLONG)&v15;
+      v20 = &v14;
+      v23 = &v18;
+      v26 = &v16;
+      UserData.Size = 4;
+      v21 = 4;
+      v27 = 4;
+      v24 = 8;
+      v11 = *(_QWORD *)(v18 + 48);
+      v12 = *(unsigned __int16 *)(v18 + 40);
+      v31 = 0;
+      v34 = 0;
+      v29 = v11;
+      v32 = &v17;
+      v30 = v12;
+      v33 = 4;
+      v17 = a3;
+      EtwWrite(v9, &POP_ETW_EVENT_DIRECTED_DRIPS_DEVICE_VISIT, 0LL, 6u, &UserData);
+    }
+  }
+  *((_DWORD *)DeviceDiagnostic + 38) |= 0x40000u;
+LABEL_13:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopDirectedDripsDiagLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&PopDirectedDripsDiagLock);
   return KeAbPostRelease((ULONG_PTR)&PopDirectedDripsDiagLock);

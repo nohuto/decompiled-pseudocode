@@ -1,10 +1,10 @@
 /*
- * XREFs of ?VidSchiCompleteAllWaitsPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0035690
+ * XREFs of ?VidSchiCompleteAllWaitsPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C002A898
  * Callers:
- *     VidSchiSignalRegisteredSyncObjects @ 0x1C00018B8 (VidSchiSignalRegisteredSyncObjects.c)
+ *     VidSchiSignalRegisteredSyncObjects @ 0x1C0015E8C (VidSchiSignalRegisteredSyncObjects.c)
  * Callees:
- *     VidSchiUnwaitWaitQueuePacket @ 0x1C00021F0 (VidSchiUnwaitWaitQueuePacket.c)
- *     VidSchiUnblockUnorderedWaitQueuePacket @ 0x1C003C7D8 (VidSchiUnblockUnorderedWaitQueuePacket.c)
+ *     VidSchiUnwaitWaitQueuePacket @ 0x1C0010CF4 (VidSchiUnwaitWaitQueuePacket.c)
+ *     VidSchiUnblockUnorderedWaitQueuePacket @ 0x1C00165C4 (VidSchiUnblockUnorderedWaitQueuePacket.c)
  */
 
 void __fastcall VidSchiCompleteAllWaitsPacket(struct HwQueueStagingList *a1, struct _VIDSCH_QUEUE_PACKET *a2)
@@ -17,7 +17,7 @@ void __fastcall VidSchiCompleteAllWaitsPacket(struct HwQueueStagingList *a1, str
     if ( (v4 & 1) == 0 )
     {
       if ( (v4 & 4) != 0 )
-        VidSchiUnblockUnorderedWaitQueuePacket(a1, a2, 0LL);
+        VidSchiUnblockUnorderedWaitQueuePacket((__int64)a1, (__int64)a2, 0);
       VidSchiUnwaitWaitQueuePacket((__int64)a1, (__int64)a2, 0LL, 0LL);
     }
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmIdleCheckCoordinatedDependencies @ 0x1405C7638
+ * XREFs of PpmIdleCheckCoordinatedDependencies @ 0x140565FE0
  * Callers:
- *     PpmIdleCheckCoordinatedDependency @ 0x1405C7798 (PpmIdleCheckCoordinatedDependency.c)
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x1405C7A38 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x140566140 (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x140566410 (PpmIdleCheckCoordinatedStateEligibility.c)
  * Callees:
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     PpmIdleCheckCoordinatedDependency @ 0x1405C7798 (PpmIdleCheckCoordinatedDependency.c)
- *     PpmIdleSelectCoordinatedProcessorDependency @ 0x1405C8420 (PpmIdleSelectCoordinatedProcessorDependency.c)
- *     PpmTestAndLockProcessor @ 0x1405C8D78 (PpmTestAndLockProcessor.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x140566140 (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleSelectCoordinatedProcessorDependency @ 0x140566D14 (PpmIdleSelectCoordinatedProcessorDependency.c)
+ *     PpmTestAndLockProcessor @ 0x140567A2C (PpmTestAndLockProcessor.c)
  */
 
 __int64 __fastcall PpmIdleCheckCoordinatedDependencies(
@@ -52,7 +52,7 @@ __int64 __fastcall PpmIdleCheckCoordinatedDependencies(
       Prcb = KeGetPrcb(v16);
       if ( (int)PpmTestAndLockProcessor(Prcb, a10, v14) >= 0 )
         result = *(_BYTE *)(PpmPlatformStates + 12)
-              && *(_DWORD *)(344LL * *(unsigned int *)(Prcb + 33660) + *(_QWORD *)(Prcb + 33600) + 1384) > a4
+              && *(_DWORD *)(248LL * *(unsigned int *)(Prcb + 32820) + *(_QWORD *)(Prcb + 0x8000) + 1000) > a4
                ? 2147483650LL
                : 0LL;
       else

@@ -1,20 +1,20 @@
 /*
- * XREFs of ?GetPresentFlags@CLegacyStereoRenderTarget@@MEBAIXZ @ 0x1801C4700
+ * XREFs of ?GetPresentFlags@CLegacyStereoRenderTarget@@MEBAIXZ @ 0x18016E660
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ?GetPresentFlags@CLegacyRenderTarget@@MEBAIXZ @ 0x1800CB230 (-GetPresentFlags@CLegacyRenderTarget@@MEBAIXZ.c)
  */
 
 __int64 __fastcall CLegacyStereoRenderTarget::GetPresentFlags(CLegacyStereoRenderTarget *this)
 {
   __int64 result; // rax
 
-  result = 0LL;
-  if ( *((_BYTE *)this + 18712) )
+  result = CLegacyRenderTarget::GetPresentFlags(this);
+  if ( *((_BYTE *)this + 18624) )
   {
-    if ( !*(_DWORD *)(*((_QWORD *)this + 2) + 436LL) )
-      return 32LL;
+    if ( !*(_DWORD *)(*((_QWORD *)this + 2) + 284LL) )
+      return (unsigned int)result | 0x20;
   }
   return result;
 }

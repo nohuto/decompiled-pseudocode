@@ -1,11 +1,11 @@
 /*
- * XREFs of ExprOp1_32 @ 0x1C0069F64
+ * XREFs of ExprOp1_32 @ 0x1C00692E4
  * Callers:
- *     ExprOp1 @ 0x1C002BDB0 (ExprOp1.c)
+ *     ExprOp1 @ 0x1C002FC20 (ExprOp1.c)
  * Callees:
- *     ValidateArgTypes @ 0x1C00162B0 (ValidateArgTypes.c)
- *     WriteObject @ 0x1C0017010 (WriteObject.c)
- *     ValidateTarget @ 0x1C0018344 (ValidateTarget.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ValidateTarget @ 0x1C000B264 (ValidateTarget.c)
  */
 
 __int64 __fastcall ExprOp1_32(struct _SLIST_ENTRY *a1, _QWORD *a2)

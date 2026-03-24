@@ -1,91 +1,90 @@
 /*
- * XREFs of InitIllegalIOAddressListFromHAL @ 0x1C00AB6B0
+ * XREFs of InitIllegalIOAddressListFromHAL @ 0x1C00BDA5C
  * Callers:
- *     AMLIInitialize @ 0x1C00AAAC0 (AMLIInitialize.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     FreellegalIOAddressList @ 0x1C00AB65C (FreellegalIOAddressList.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     FreellegalIOAddressList @ 0x1C00C08F4 (FreellegalIOAddressList.c)
  */
 
 void InitIllegalIOAddressListFromHAL()
 {
   int v0; // eax
-  const void *v1; // rdx
-  int v2; // ecx
-  int v3; // eax
-  size_t v4; // rbx
-  void *Pool2; // rax
-  unsigned int v6; // [rsp+40h] [rbp+8h] BYREF
+  int v1; // eax
+  SIZE_T v2; // rbx
+  PVOID PoolWithTag; // rax
+  const void *v4; // rdx
+  int v5; // ecx
+  SIZE_T NumberOfBytes; // [rsp+40h] [rbp+8h] BYREF
 
-  v6 = 0;
+  LODWORD(NumberOfBytes) = 0;
   if ( !gpBadIOAddressList )
   {
-    v0 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, unsigned int *))HalDispatchTable->HalQuerySystemInformation)(
+    v0 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, SIZE_T *))HalDispatchTable->HalQuerySystemInformation)(
            16LL,
            0LL,
            0LL,
-           &v6);
+           &NumberOfBytes);
     if ( v0 != -1073741820 )
     {
       if ( v0 == -1073741496 )
       {
-        v1 = 0LL;
-        v2 = 74;
+        v4 = 0LL;
+        v5 = 74;
       }
       else
       {
-        v1 = (const void *)v0;
-        v2 = 73;
+        v4 = (const void *)v0;
+        v5 = 73;
       }
-      goto LABEL_16;
+      goto LABEL_17;
     }
-    if ( !v6 )
+    if ( !(_DWORD)NumberOfBytes )
     {
-      v1 = 0LL;
-      v2 = 75;
-      goto LABEL_16;
+      v4 = 0LL;
+      v5 = 75;
+      goto LABEL_17;
     }
-    gpBadIOAddressList = (PVOID)ExAllocatePool2(64LL, v6, 1231842625LL);
+    gpBadIOAddressList = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)NumberOfBytes, 0x496C6D41u);
     if ( !gpBadIOAddressList )
     {
       LogError(-1073741670);
       AcpiDiagTraceAmlError(0LL, -1073741670);
-      v1 = 0LL;
-      v2 = 71;
-LABEL_16:
-      PrintDebugMessage(v2, v1, 0LL, 0LL, 0LL);
-      return;
+      v4 = 0LL;
+      v5 = 71;
+      goto LABEL_17;
     }
-    v3 = ((__int64 (__fastcall *)(__int64, _QWORD, PVOID, unsigned int *))HalDispatchTable->HalQuerySystemInformation)(
+    v1 = ((__int64 (__fastcall *)(__int64, _QWORD, PVOID, SIZE_T *))HalDispatchTable->HalQuerySystemInformation)(
            16LL,
-           v6,
+           (unsigned int)NumberOfBytes,
            gpBadIOAddressList,
-           &v6);
-    if ( v3 )
+           &NumberOfBytes);
+    if ( v1 )
     {
-      PrintDebugMessage(73, (const void *)v3, 0LL, 0LL, 0LL);
+      PrintDebugMessage(73, (const void *)v1, 0LL, 0LL, 0LL);
       FreellegalIOAddressList();
       return;
     }
-    if ( v6 / 0x18 != 1 )
+    if ( (unsigned int)NumberOfBytes / 0x18 != 1 )
     {
-      v4 = 4LL * (v6 / 0x18 - 1);
-      Pool2 = (void *)ExAllocatePool2(64LL, v4, 1231842625LL);
-      gpBadIOErrorLogDoneList = Pool2;
-      if ( Pool2 )
+      v2 = 4LL * ((unsigned int)NumberOfBytes / 0x18 - 1);
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v2, 0x496C6D41u);
+      gpBadIOErrorLogDoneList = PoolWithTag;
+      if ( PoolWithTag )
       {
-        memset(Pool2, 0, v4);
+        memset(PoolWithTag, 0, v2);
         return;
       }
       LogError(-1073741670);
       AcpiDiagTraceAmlError(0LL, -1073741670);
-      v1 = 0LL;
-      v2 = 72;
-      goto LABEL_16;
+      v4 = 0LL;
+      v5 = 72;
+LABEL_17:
+      PrintDebugMessage(v5, v4, 0LL, 0LL, 0LL);
     }
   }
 }

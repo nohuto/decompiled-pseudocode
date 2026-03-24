@@ -1,15 +1,15 @@
 /*
- * XREFs of BiTranslateFilePath @ 0x1408F47A8
+ * XREFs of BiTranslateFilePath @ 0x1408F4788
  * Callers:
- *     BiCreateBootEntry @ 0x1408F2A38 (BiCreateBootEntry.c)
- *     BiCreateMergedBootEntry @ 0x1408F2F98 (BiCreateMergedBootEntry.c)
- *     BiGetDeviceFromEfiPath @ 0x1408F3B1C (BiGetDeviceFromEfiPath.c)
+ *     BiCreateBootEntry @ 0x1408F2A18 (BiCreateBootEntry.c)
+ *     BiCreateMergedBootEntry @ 0x1408F2F78 (BiCreateMergedBootEntry.c)
+ *     BiGetDeviceFromEfiPath @ 0x1408F3AFC (BiGetDeviceFromEfiPath.c)
  * Callees:
- *     ZwTranslateFilePath @ 0x1401BB910 (ZwTranslateFilePath.c)
+ *     ZwTranslateFilePath @ 0x1401BB930 (ZwTranslateFilePath.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiReleasePrivilege @ 0x1407114C4 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x140711514 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x1407114A4 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x1407114F4 (BiAcquirePrivilege.c)
  */
 
 __int64 __fastcall BiTranslateFilePath(PFILE_PATH InputFilePath, ULONG OutputType, struct _FILE_PATH **a3)

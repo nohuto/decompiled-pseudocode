@@ -1,27 +1,21 @@
 /*
- * XREFs of InitializeHidRequestList @ 0x1C00BDDC0
+ * XREFs of InitializeHidRequestList @ 0x1C0136E50
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_QWORD *__fastcall InitializeHidRequestList(__int64 a1)
+__int64 *InitializeHidRequestList()
 {
-  _QWORD *v1; // rax
-  __int64 v2; // rcx
-  _QWORD *v3; // rax
-  __int64 v4; // rcx
-  _QWORD *result; // rax
+  __int64 *result; // rax
 
-  v1 = (_QWORD *)(SGDGetUserSessionState(a1) + 376);
-  v1[1] = v1;
-  *v1 = v1;
-  v3 = (_QWORD *)(SGDGetUserSessionState(v2) + 392);
-  v3[1] = v3;
-  *v3 = v3;
-  result = (_QWORD *)(SGDGetUserSessionState(v4) + 408);
-  result[1] = result;
-  *result = result;
+  qword_1C033A958 = (__int64)&gHidRequestTable;
+  gHidRequestTable = (__int64)&gHidRequestTable;
+  qword_1C033A968 = (__int64)&qword_1C033A960;
+  qword_1C033A960 = (__int64)&qword_1C033A960;
+  result = &qword_1C033A970;
+  qword_1C033A978 = (__int64)&qword_1C033A970;
+  qword_1C033A970 = (__int64)&qword_1C033A970;
   return result;
 }

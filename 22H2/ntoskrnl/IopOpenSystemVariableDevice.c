@@ -1,15 +1,15 @@
 /*
- * XREFs of IopOpenSystemVariableDevice @ 0x14068779C
+ * XREFs of IopOpenSystemVariableDevice @ 0x14089AABC
  * Callers:
- *     IoGetEnvironmentVariableEx @ 0x1406876A0 (IoGetEnvironmentVariableEx.c)
- *     IoEnumerateEnvironmentVariablesEx @ 0x1408407B0 (IoEnumerateEnvironmentVariablesEx.c)
- *     IoQueryEnvironmentVariableInfoEx @ 0x14095039C (IoQueryEnvironmentVariableInfoEx.c)
- *     IoSetEnvironmentVariableEx @ 0x140950524 (IoSetEnvironmentVariableEx.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x14089993C (IoEnumerateEnvironmentVariablesEx.c)
+ *     IoGetEnvironmentVariableEx @ 0x140899A9C (IoGetEnvironmentVariableEx.c)
+ *     IoQueryEnvironmentVariableInfoEx @ 0x140899C24 (IoQueryEnvironmentVariableInfoEx.c)
+ *     IoSetEnvironmentVariableEx @ 0x140899DAC (IoSetEnvironmentVariableEx.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     IoGetDeviceObjectPointer @ 0x14075B770 (IoGetDeviceObjectPointer.c)
- *     IopGetDeviceInterfaces @ 0x140787900 (IopGetDeviceInterfaces.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     IoGetDeviceObjectPointer @ 0x140621240 (IoGetDeviceObjectPointer.c)
+ *     IopGetDeviceInterfaces @ 0x1406B32E8 (IopGetDeviceInterfaces.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopOpenSystemVariableDevice(
@@ -17,16 +17,13 @@ __int64 __fastcall IopOpenSystemVariableDevice(
         PDEVICE_OBJECT *DeviceObject,
         __int64 (__fastcall ***a3)(int, int, int, int, __int64, __int64, __int64))
 {
-  PVOID v3; // rbx
-  int DeviceInterfaces; // eax
-  NTSTATUS v8; // eax
   NTSTATUS DeviceObjectPointer; // edi
-  __int64 (__fastcall **v10)(int, int, int, int, __int64, __int64, __int64); // rax
+  __int64 (__fastcall **v7)(int, int, int, int, __int64, __int64, __int64); // rax
+  WCHAR *v8; // rbp
+  NTSTATUS v9; // eax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
-  PVOID P; // [rsp+78h] [rbp+20h] BYREF
+  PCWSTR SourceString; // [rsp+78h] [rbp+20h] BYREF
 
-  v3 = 0LL;
-  P = 0LL;
   DestinationString = 0LL;
   if ( (IopSysEnvOverrideFlags & 1) != 0 )
   {
@@ -34,45 +31,41 @@ __int64 __fastcall IopOpenSystemVariableDevice(
     DeviceObjectPointer = IoGetDeviceObjectPointer(&DestinationString, 0x10000000u, FileObject, DeviceObject);
     if ( DeviceObjectPointer >= 0 )
     {
-      *a3 = (__int64 (__fastcall **)(int, int, int, int, __int64, __int64, __int64))&IopSysEnvFunctionTableTrEE;
+LABEL_3:
+      v7 = (__int64 (__fastcall **)(int, int, int, int, __int64, __int64, __int64))&IopSysEnvFunctionTableTrEE;
+LABEL_13:
+      *a3 = v7;
       return (unsigned int)DeviceObjectPointer;
     }
+    goto LABEL_8;
   }
-  else
+  SourceString = 0LL;
+  if ( (int)IopGetDeviceInterfaces((int *)&GUID_EFI_VARIABLE_SERVICE, 0LL, 0, 0, &SourceString, 0LL) < 0
+    || (v8 = (WCHAR *)SourceString, !*SourceString) )
   {
-    DeviceInterfaces = IopGetDeviceInterfaces((unsigned int)&GUID_EFI_VARIABLE_SERVICE, 0, 0, 0, (__int64)&P, 0LL);
-    v3 = P;
-    if ( DeviceInterfaces >= 0 && *(_WORD *)P )
-    {
-      RtlInitUnicodeString(&DestinationString, (PCWSTR)P);
-      DeviceObjectPointer = IoGetDeviceObjectPointer(&DestinationString, 0x10000000u, FileObject, DeviceObject);
-      if ( DeviceObjectPointer >= 0 )
-      {
-        v10 = (__int64 (__fastcall **)(int, int, int, int, __int64, __int64, __int64))&IopSysEnvFunctionTableTrEE;
-        goto LABEL_7;
-      }
-      goto LABEL_8;
-    }
-  }
-  RtlInitUnicodeString(&DestinationString, L"\\Device\\SysEnv");
-  v8 = IoGetDeviceObjectPointer(&DestinationString, 0x10000000u, FileObject, DeviceObject);
-  DeviceObjectPointer = v8;
-  if ( v8 >= 0 )
-  {
-    v10 = (__int64 (__fastcall **)(int, int, int, int, __int64, __int64, __int64))&IopSysEnvFunctionTableSysEnv;
-    goto LABEL_7;
-  }
-  if ( (unsigned int)(v8 + 1073741773) <= 1 || v8 == -1073741766 )
-  {
-    *FileObject = 0LL;
-    v10 = &IopSysEnvFunctionTableHal;
-    *DeviceObject = 0LL;
-    DeviceObjectPointer = 0;
-LABEL_7:
-    *a3 = v10;
-  }
 LABEL_8:
-  if ( v3 )
-    ExFreePoolWithTag(v3, 0);
+    RtlInitUnicodeString(&DestinationString, L"\\Device\\SysEnv");
+    v9 = IoGetDeviceObjectPointer(&DestinationString, 0x10000000u, FileObject, DeviceObject);
+    DeviceObjectPointer = v9;
+    if ( v9 >= 0 )
+    {
+      v7 = (__int64 (__fastcall **)(int, int, int, int, __int64, __int64, __int64))&IopSysEnvFunctionTableSysEnv;
+      goto LABEL_13;
+    }
+    if ( (unsigned int)(v9 + 1073741773) <= 1 || v9 == -1073741766 )
+    {
+      *FileObject = 0LL;
+      v7 = &IopSysEnvFunctionTableHal;
+      *DeviceObject = 0LL;
+      DeviceObjectPointer = 0;
+      goto LABEL_13;
+    }
+    return (unsigned int)DeviceObjectPointer;
+  }
+  RtlInitUnicodeString(&DestinationString, SourceString);
+  DeviceObjectPointer = IoGetDeviceObjectPointer(&DestinationString, 0x10000000u, FileObject, DeviceObject);
+  ExFreePoolWithTag(v8, 0);
+  if ( DeviceObjectPointer >= 0 )
+    goto LABEL_3;
   return (unsigned int)DeviceObjectPointer;
 }

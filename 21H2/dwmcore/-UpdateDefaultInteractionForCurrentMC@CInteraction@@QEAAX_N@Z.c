@@ -1,56 +1,54 @@
 /*
- * XREFs of ?UpdateDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z @ 0x1801F3160
+ * XREFs of ?UpdateDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z @ 0x1801C7320
  * Callers:
- *     ?BuildInteractionChainAndUpdateTree@CManipulationContext@@SAXPEAVCDesktopTree@@PEAVCInteraction@@IW4InputType@@_NPEAVCInteractionChain@@PEA_N@Z @ 0x180181FE0 (-BuildInteractionChainAndUpdateTree@CManipulationContext@@SAXPEAVCDesktopTree@@PEAVCInteraction@.c)
- *     ?RevalidateMCTree@CManipulationContext@@AEAAXPEAUMCCollections@@@Z @ 0x180184570 (-RevalidateMCTree@CManipulationContext@@AEAAXPEAUMCCollections@@@Z.c)
+ *     ?BuildInteractionChainAndUpdateTree@CManipulationContext@@SAXPEAVCDesktopTree@@PEAVCInteraction@@IW4InputType@@_NPEAVCInteractionChain@@PEA_N@Z @ 0x180233B38 (-BuildInteractionChainAndUpdateTree@CManipulationContext@@SAXPEAVCDesktopTree@@PEAVCInteraction@.c)
+ *     ?RevalidateMCTree@CManipulationContext@@AEAAXPEAUMCCollections@@@Z @ 0x180235D70 (-RevalidateMCTree@CManipulationContext@@AEAAXPEAUMCCollections@@@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x180074108 (_tlgKeywordOn.c)
- *     ?IsDefaultInteractionStateLocked@CInteraction@@AEAA_NXZ @ 0x1800E0C84 (-IsDefaultInteractionStateLocked@CInteraction@@AEAA_NXZ.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1801F19C4 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
- *     ?Add@?$CArray@PEAVCInteraction@@V?$CArrayEqualHelper@PEAVCInteraction@@@@@@QEAAHAEBQEAVCInteraction@@@Z @ 0x1801F1CA0 (-Add@-$CArray@PEAVCInteraction@@V-$CArrayEqualHelper@PEAVCInteraction@@@@@@QEAAHAEBQEAVCInteract.c)
+ *     ?IsDefaultInteractionStateLocked@CInteraction@@AEAA_NXZ @ 0x1800E1234 (-IsDefaultInteractionStateLocked@CInteraction@@AEAA_NXZ.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1801C5D24 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
+ *     ?Add@?$CArray@PEAVCInteraction@@V?$CArrayEqualHelper@PEAVCInteraction@@@@@@QEAAHAEBQEAVCInteraction@@@Z @ 0x1801C5F84 (-Add@-$CArray@PEAVCInteraction@@V-$CArrayEqualHelper@PEAVCInteraction@@@@@@QEAAHAEBQEAVCInteract.c)
  */
 
 void __fastcall CInteraction::UpdateDefaultInteractionForCurrentMC(CInteraction *this)
 {
-  __int64 v2; // rcx
-  char v3; // r9
-  char v4; // al
-  __int64 v5; // r8
-  __int64 v6; // r9
-  unsigned int v7; // ecx
-  __int64 v8; // rcx
-  CInteraction *v9; // [rsp+40h] [rbp-18h] BYREF
-  CInteraction *v10; // [rsp+70h] [rbp+18h] BYREF
-  int v11; // [rsp+78h] [rbp+20h] BYREF
+  bool IsDefaultInteractionStateLocked; // al
+  __int64 v3; // rcx
+  char v4; // r9
+  char v5; // r8
+  unsigned __int8 v6; // al
+  __int64 v7; // r8
+  __int64 v8; // r9
+  unsigned int v9; // ecx
+  __int64 v10; // rcx
+  CInteraction *v11; // [rsp+40h] [rbp-18h] BYREF
+  CInteraction *v12; // [rsp+70h] [rbp+18h] BYREF
+  int v13; // [rsp+78h] [rbp+20h] BYREF
 
-  if ( !CInteraction::IsDefaultInteractionStateLocked(this) )
+  IsDefaultInteractionStateLocked = CInteraction::IsDefaultInteractionStateLocked(this);
+  v5 = 0;
+  if ( !IsDefaultInteractionStateLocked )
   {
-    LOBYTE(v2) = *(_BYTE *)(v2 + 192);
-    if ( v3 )
-      v4 = 0;
-    else
-      v4 = (unsigned __int8)v2 >> 4;
-    v10 = this;
-    *((_BYTE *)this + 192) = v2 ^ (v2 ^ (32 * v4)) & 0x20;
-    CArray<CInteraction *,CArrayEqualHelper<CInteraction *>>::Add(v2, &v10);
-    if ( (unsigned int)dword_1803D0EF0 > 4 )
+    v6 = *(_BYTE *)(v3 + 184);
+    if ( !v4 )
+      v5 = v6 >> 3;
+    v12 = this;
+    *(_BYTE *)(v3 + 184) = v6 ^ (v6 ^ (16 * v5)) & 0x10;
+    CArray<CInteraction *,CArrayEqualHelper<CInteraction *>>::Add(v3, &v12);
+    if ( (unsigned int)dword_180344EF0 > 4 && (qword_180344F00 & 2) != 0 && (qword_180344F08 & 2) == qword_180344F08 )
     {
-      if ( tlgKeywordOn((__int64)&dword_1803D0EF0, 2LL) )
-      {
-        v7 = *((unsigned __int8 *)this + 192);
-        v9 = this;
-        LODWORD(v10) = (v7 >> 4) & 1;
-        v8 = (v7 >> 5) & 1;
-        v11 = v8;
-        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-          v8,
-          byte_18036FCD7,
-          v5,
-          v6,
-          (__int64)&v9,
-          (__int64)&v11,
-          (__int64)&v10);
-      }
+      v9 = *((unsigned __int8 *)this + 184);
+      v11 = this;
+      LODWORD(v12) = (v9 >> 3) & 1;
+      v10 = (v9 >> 4) & 1;
+      v13 = v10;
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+        v10,
+        byte_1802E8BBD,
+        v7,
+        v8,
+        (__int64)&v11,
+        (__int64)&v13,
+        (__int64)&v12);
     }
   }
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of ?GetProperty@CInteractionTracker@@MEAAJIPEAVCExpressionValue@@@Z @ 0x180232B20
+ * XREFs of ?GetProperty@CInteractionTracker@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C9740
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x1801329B2 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
- *     ?GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1802329A8 (-GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
- *     ?GetScaleAdjustedPositionIfNeeded@CInteractionTracker@@AEBA?AUD2DVector3@@AEBU2@@Z @ 0x180232E04 (-GetScaleAdjustedPositionIfNeeded@CInteractionTracker@@AEBA-AUD2DVector3@@AEBU2@@Z.c)
- *     ?HasDefaultAnimations@CInteractionTracker@@QEBA_NXZ @ 0x180232F38 (-HasDefaultAnimations@CInteractionTracker@@QEBA_NXZ.c)
- *     ?HasImpulse@CInteractionTracker@@QEBA_NXZ @ 0x180232F58 (-HasImpulse@CInteractionTracker@@QEBA_NXZ.c)
- *     ?GetNaturalEndpoint@CScrollAnimation@@QEBAMXZ @ 0x180265028 (-GetNaturalEndpoint@CScrollAnimation@@QEBAMXZ.c)
- *     ?GetNaturalEndpoint@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x180266224 (-GetNaturalEndpoint@CScrollPositionKeyframeAnimation@@QEBA-AUD2DVector3@@XZ.c)
- *     ?GetNaturalEndpoint@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x18026674C (-GetNaturalEndpoint@CScrollScaleKeyframeAnimation@@QEBAMXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x1801C7FE0 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1801C95D0 (-GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
+ *     ?GetScaleAdjustedPositionIfNeeded@CInteractionTracker@@AEBA?AUD2DVector3@@AEBU2@@Z @ 0x1801C9A00 (-GetScaleAdjustedPositionIfNeeded@CInteractionTracker@@AEBA-AUD2DVector3@@AEBU2@@Z.c)
+ *     ?HasDefaultAnimations@CInteractionTracker@@QEBA_NXZ @ 0x1801C9B60 (-HasDefaultAnimations@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?HasImpulse@CInteractionTracker@@QEBA_NXZ @ 0x1801C9B80 (-HasImpulse@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?GetNaturalEndpoint@CScrollAnimation@@QEBAMXZ @ 0x180203954 (-GetNaturalEndpoint@CScrollAnimation@@QEBAMXZ.c)
+ *     ?GetNaturalEndpoint@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x180204BA8 (-GetNaturalEndpoint@CScrollPositionKeyframeAnimation@@QEBA-AUD2DVector3@@XZ.c)
+ *     ?GetNaturalEndpoint@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x180205134 (-GetNaturalEndpoint@CScrollScaleKeyframeAnimation@@QEBAMXZ.c)
  */
 
 __int64 __fastcall CInteractionTracker::GetProperty(
@@ -66,15 +66,15 @@ __int64 __fastcall CInteractionTracker::GetProperty(
       {
         if ( CInteractionTracker::AreInteractionAnimationsAlive(this) )
         {
-          NaturalEndpoint = CScrollAnimation::GetNaturalEndpoint(*(CScrollAnimation **)(v28 + 328));
+          NaturalEndpoint = CScrollAnimation::GetNaturalEndpoint(*(CScrollAnimation **)(v28 + 320));
         }
         else
         {
-          v29 = *(CScrollScaleKeyframeAnimation **)(v28 + 472);
+          v29 = *(CScrollScaleKeyframeAnimation **)(v28 + 464);
           if ( v29 )
             NaturalEndpoint = CScrollScaleKeyframeAnimation::GetNaturalEndpoint(v29);
           else
-            NaturalEndpoint = *((float *)this + 34);
+            NaturalEndpoint = *((float *)this + 32);
         }
         goto LABEL_39;
       }
@@ -87,7 +87,7 @@ __int64 __fastcall CInteractionTracker::GetProperty(
           v19 = v18 - 1;
           if ( !v19 )
           {
-            v24 = *((_BYTE *)this + 540) & 1;
+            v24 = *((_BYTE *)this + 532) & 1;
             *((_DWORD *)a3 + 18) = 17;
             *(_BYTE *)a3 = v24;
             goto LABEL_21;
@@ -96,14 +96,14 @@ __int64 __fastcall CInteractionTracker::GetProperty(
           if ( !v20 )
           {
             *((_DWORD *)a3 + 18) = 52;
-            *(_QWORD *)a3 = *(_QWORD *)((char *)this + 116);
-            v14 = *((_DWORD *)this + 31);
+            *(_QWORD *)a3 = *(_QWORD *)((char *)this + 108);
+            v14 = *((_DWORD *)this + 29);
             goto LABEL_20;
           }
           v21 = v20 - 3;
           if ( !v21 )
           {
-            v13 = *((_DWORD *)this + 43);
+            v13 = *((_DWORD *)this + 41);
             goto LABEL_18;
           }
           if ( v21 != 5 )
@@ -136,8 +136,8 @@ LABEL_39:
     {
       if ( CInteractionTracker::AreInteractionAnimationsAlive(this) )
       {
-        v31 = CScrollAnimation::GetNaturalEndpoint(*(CScrollAnimation **)(v30 + 336));
-        v32 = (CScrollAnimation *)*((_QWORD *)this + 43);
+        v31 = CScrollAnimation::GetNaturalEndpoint(*(CScrollAnimation **)(v30 + 328));
+        v32 = (CScrollAnimation *)*((_QWORD *)this + 42);
         *(float *)&v39 = v31;
         v33 = CScrollAnimation::GetNaturalEndpoint(v32);
         v27 = v40;
@@ -146,11 +146,11 @@ LABEL_39:
       }
       else
       {
-        v35 = *(_QWORD *)(v30 + 464);
+        v35 = *(_QWORD *)(v30 + 456);
         if ( v35 )
           v36 = (char *)CScrollPositionKeyframeAnimation::GetNaturalEndpoint(v35, &v39);
         else
-          v36 = (char *)this + 80;
+          v36 = (char *)this + 72;
         ScaleAdjustedPositionIfNeeded = CInteractionTracker::GetScaleAdjustedPositionIfNeeded(this, v41, v36);
         v34 = *(_QWORD *)ScaleAdjustedPositionIfNeeded;
         v27 = *(_DWORD *)(ScaleAdjustedPositionIfNeeded + 8);
@@ -167,31 +167,31 @@ LABEL_39:
   if ( !v6 )
   {
     *((_DWORD *)a3 + 18) = 52;
-    *(_QWORD *)a3 = *((_QWORD *)this + 10);
-    v14 = *((_DWORD *)this + 22);
+    *(_QWORD *)a3 = *((_QWORD *)this + 9);
+    v14 = *((_DWORD *)this + 20);
     goto LABEL_20;
   }
   v7 = v6 - 1;
   if ( !v7 )
   {
 LABEL_17:
-    v13 = *((_DWORD *)this + 34);
+    v13 = *((_DWORD *)this + 32);
     goto LABEL_18;
   }
   v8 = v7 - 21;
   if ( !v8 )
   {
     *((_DWORD *)a3 + 18) = 52;
-    *(_QWORD *)a3 = *(_QWORD *)((char *)this + 92);
-    v14 = *((_DWORD *)this + 25);
+    *(_QWORD *)a3 = *(_QWORD *)((char *)this + 84);
+    v14 = *((_DWORD *)this + 23);
     goto LABEL_20;
   }
   v9 = v8 - 3;
   if ( !v9 )
   {
     *((_DWORD *)a3 + 18) = 52;
-    *(_QWORD *)a3 = *((_QWORD *)this + 13);
-    v14 = *((_DWORD *)this + 28);
+    *(_QWORD *)a3 = *((_QWORD *)this + 12);
+    v14 = *((_DWORD *)this + 26);
 LABEL_20:
     *((_DWORD *)a3 + 2) = v14;
     goto LABEL_21;
@@ -199,24 +199,24 @@ LABEL_20:
   v10 = v9 - 3;
   if ( !v10 )
   {
-    v13 = *((_DWORD *)this + 35);
+    v13 = *((_DWORD *)this + 33);
     goto LABEL_18;
   }
   v11 = v10 - 1;
   if ( !v11 )
   {
-    v13 = *((_DWORD *)this + 36);
+    v13 = *((_DWORD *)this + 34);
     goto LABEL_18;
   }
   v12 = v11 - 22;
   if ( !v12 )
   {
-    v13 = *((_DWORD *)this + 20);
+    v13 = *((_DWORD *)this + 18);
     goto LABEL_18;
   }
   if ( v12 == 1 )
   {
-    v13 = *((_DWORD *)this + 21);
+    v13 = *((_DWORD *)this + 19);
 LABEL_18:
     *(_DWORD *)a3 = v13;
     *((_DWORD *)a3 + 18) = 18;
@@ -226,6 +226,6 @@ LABEL_21:
   }
 LABEL_30:
   v22 = -2147024809;
-  MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x4FDu, 0LL);
+  MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x4FAu, 0LL);
   return v22;
 }

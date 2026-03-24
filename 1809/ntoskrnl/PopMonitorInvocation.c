@@ -1,15 +1,15 @@
 /*
- * XREFs of PopMonitorInvocation @ 0x1406DC1A8
+ * XREFs of PopMonitorInvocation @ 0x1406DC188
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopIsInputSuppressionEngaged @ 0x14086DE9C (PopIsInputSuppressionEngaged.c)
- *     PopProcessSessionDisplayStateChange @ 0x14086F458 (PopProcessSessionDisplayStateChange.c)
- *     PopDiagTraceMonitorOnWithLidClosed @ 0x140873308 (PopDiagTraceMonitorOnWithLidClosed.c)
- *     PopTraceMonitorOnRequestUserInput @ 0x140875358 (PopTraceMonitorOnRequestUserInput.c)
+ *     PopIsInputSuppressionEngaged @ 0x14086DE7C (PopIsInputSuppressionEngaged.c)
+ *     PopProcessSessionDisplayStateChange @ 0x14086F438 (PopProcessSessionDisplayStateChange.c)
+ *     PopDiagTraceMonitorOnWithLidClosed @ 0x1408732E8 (PopDiagTraceMonitorOnWithLidClosed.c)
+ *     PopTraceMonitorOnRequestUserInput @ 0x140875338 (PopTraceMonitorOnRequestUserInput.c)
  */
 
 __int64 __fastcall PopMonitorInvocation(__int64 a1)

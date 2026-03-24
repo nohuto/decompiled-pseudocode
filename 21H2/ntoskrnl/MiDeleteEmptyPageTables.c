@@ -1,184 +1,114 @@
 /*
- * XREFs of MiDeleteEmptyPageTables @ 0x14029F6FC
+ * XREFs of MiDeleteEmptyPageTables @ 0x1403F4F90
  * Callers:
- *     MiWriteAwePtes @ 0x1405ACB84 (MiWriteAwePtes.c)
- *     MmFreeVirtualMemory @ 0x1407B99C0 (MmFreeVirtualMemory.c)
+ *     MiWriteAwePtes @ 0x14054E298 (MiWriteAwePtes.c)
+ *     MmFreeVirtualMemory @ 0x1406ED600 (MmFreeVirtualMemory.c)
  * Callees:
- *     KiAbThreadRemoveBoostsSlow @ 0x14022B568 (KiAbThreadRemoveBoostsSlow.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140281A58 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiUnlockVad @ 0x140281C44 (MiUnlockVad.c)
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     MiUnlockWorkingSetShared @ 0x1402B0CE0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402CF4F0 (MiLockWorkingSetShared.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     MiWalkPageTables @ 0x14030CF90 (MiWalkPageTables.c)
- *     MiLocateAddress @ 0x1403126F0 (MiLocateAddress.c)
- *     MiVadPureReserve @ 0x140319990 (MiVadPureReserve.c)
- *     MiTbFlushType @ 0x140333AA0 (MiTbFlushType.c)
- *     KiAbEntryRemoveFromTree @ 0x14034EE30 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
+ *     MiVadPureReserve @ 0x14021B990 (MiVadPureReserve.c)
+ *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
+ *     MiUnlockVad @ 0x140314658 (MiUnlockVad.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x140314860 (UNLOCK_ADDRESS_SPACE.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14031528C (LOCK_ADDRESS_SPACE.c)
+ *     MiLockVad @ 0x140316758 (MiLockVad.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140316788 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14031698C (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiTbFlushType @ 0x140337208 (MiTbFlushType.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall MiDeleteEmptyPageTables(__int64 a1, unsigned __int64 a2, char a3)
+char __fastcall MiDeleteEmptyPageTables(unsigned __int64 a1, unsigned __int64 a2, char a3)
 {
   struct _KTHREAD *CurrentThread; // rsi
-  __int64 Process; // r13
-  __int64 Address; // rax
-  __int64 v9; // r15
+  __int64 Process; // r14
+  __int64 v8; // rdi
+  __int64 **Address; // rax
   int v10; // edx
   __int64 v11; // rax
   unsigned __int64 v12; // rcx
-  ULONG_PTR v13; // r12
-  int v14; // eax
-  unsigned __int8 v15; // dl
-  __int64 v16; // rcx
-  unsigned __int8 v17; // al
-  __int64 v18; // rdx
-  __int64 result; // rax
-  struct _KTHREAD *v20; // rdi
-  unsigned int SessionId; // ecx
-  char *p_Process; // rbx
-  __int64 v23; // rdx
-  __int64 v24; // r8
-  int v25; // r9d
-  _OWORD v29[3]; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v30; // [rsp+70h] [rbp-90h]
-  _QWORD v31[22]; // [rsp+80h] [rbp-80h] BYREF
-  _QWORD v32[20]; // [rsp+130h] [rbp+30h] BYREF
-  _QWORD v33[24]; // [rsp+1D0h] [rbp+D0h] BYREF
+  int v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  _DWORD *v16; // r9
+  char v17; // al
+  char result; // al
+  _OWORD v19[3]; // [rsp+20h] [rbp-E0h] BYREF
+  _QWORD v20[22]; // [rsp+50h] [rbp-B0h] BYREF
+  _QWORD v21[20]; // [rsp+100h] [rbp+0h] BYREF
+  _QWORD v22[24]; // [rsp+1A0h] [rbp+A0h] BYREF
 
-  memset(v33, 0, 0xB8uLL);
-  v30 = 0LL;
-  memset(v29, 0, sizeof(v29));
-  memset(v32, 0, 0x98uLL);
-  memset(v31, 0, sizeof(v31));
+  memset(v22, 0, 0xB8uLL);
   CurrentThread = KeGetCurrentThread();
   Process = (__int64)CurrentThread->ApcState.Process;
   if ( (a3 & 1) != 0 )
   {
-    v13 = Process + 1232;
-    v9 = 0LL;
+    v8 = 0LL;
   }
   else
   {
-    --CurrentThread->SpecialApcDisable;
-    ExAcquirePushLockExclusiveEx(Process + 1224, 0LL);
-    LOBYTE(CurrentThread[1].Queue) |= 1u;
+    LOCK_ADDRESS_SPACE((__int64)CurrentThread, (__int64)CurrentThread->ApcState.Process);
     if ( (*(_DWORD *)(Process + 1124) & 0x20) != 0 )
-      return UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, Process);
+      return UNLOCK_ADDRESS_SPACE((__int64)CurrentThread, Process);
     Address = MiLocateAddress(a1);
-    v9 = Address;
+    v8 = (__int64)Address;
     if ( !Address
-      || a2 >> 12 > (*(unsigned int *)(Address + 28) | ((unsigned __int64)*(unsigned __int8 *)(Address + 33) << 32)) )
+      || a2 >> 12 > (*((unsigned int *)Address + 7) | ((unsigned __int64)*((unsigned __int8 *)Address + 33) << 32)) )
     {
-      return UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, Process);
+      return UNLOCK_ADDRESS_SPACE((__int64)CurrentThread, Process);
     }
-    --CurrentThread->SpecialApcDisable;
-    ExAcquirePushLockExclusiveEx(Address + 40, 0LL);
-    LOBYTE(CurrentThread[1].Queue) |= 0x80u;
-    if ( (*(_DWORD *)(v9 + 48) & 0x200000) == 0
-      || !(unsigned int)MiVadPureReserve(v9)
-      || (v10 & 0x6200000) == 0x4200000
-      || (v11 = *(unsigned int *)(v9 + 52),
+    MiLockVad((__int64)CurrentThread, (__int64)Address);
+    if ( (*(_DWORD *)(v8 + 48) & 0x100000) == 0
+      || !(unsigned int)MiVadPureReserve(v8)
+      || (v10 & 0x1000000) == 0 && (v10 & 0x2000000) != 0
+      || (v11 = *(unsigned int *)(v8 + 52),
           LODWORD(v11) = v11 & 0x7FFFFFFF,
-          v12 = v11 | ((unsigned __int64)*(unsigned __int8 *)(v9 + 34) << 31),
+          v12 = v11 | ((unsigned __int64)*(unsigned __int8 *)(v8 + 34) << 31),
           v12 == 0x7FFFFFFFDLL)
       || (v10 & 4) != 0
       || v12 >= 0x7FFFFFFFDLL && v12 != 0x7FFFFFFFELL )
     {
-LABEL_32:
-      MiUnlockVad((__int64)CurrentThread, v9);
-      return UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, Process);
+LABEL_19:
+      MiUnlockVad((__int64)CurrentThread, v8);
+      return UNLOCK_ADDRESS_SPACE((__int64)CurrentThread, Process);
     }
-    --CurrentThread->SpecialApcDisable;
-    v13 = Process + 1232;
-    ExAcquirePushLockExclusiveEx(Process + 1232, 0LL);
+    LOCK_PAGE_TABLE_COMMITMENT((__int64)CurrentThread, Process);
   }
-  v32[12] = v9;
-  v32[2] = v29;
-  LODWORD(v32[13]) = 128;
-  v14 = MiTbFlushType(Process + 1664);
-  WORD2(v33[0]) = 0;
-  LODWORD(v33[0]) = v14;
-  v31[2] = v33;
-  v17 = BYTE4(v32[13]);
-  if ( (v15 & BYTE4(PerfGlobalGroupMask)) != 0 )
-    v17 = v15;
-  v33[2] = 0LL;
-  BYTE4(v32[13]) = v17;
-  LODWORD(v33[1]) = 20;
-  v33[3] = 0LL;
-  BYTE4(v31[0]) = BYTE4(v31[0]) & 0xE3 | 4;
-  v31[21] = v32;
-  v31[19] = MiDeleteEmptyPageTable;
-  v31[20] = MiDeleteEmptyPageTableTail;
-  v31[4] = a1;
-  v31[5] = a2;
-  LODWORD(v31[0]) = 7;
-  HIDWORD(v31[1]) = 0;
-  v31[3] = Process + 1664;
-  HIBYTE(v31[0]) = MiLockWorkingSetShared(v16);
-  MiWalkPageTables(v31);
-  LOBYTE(v18) = HIBYTE(v31[0]);
-  result = MiUnlockWorkingSetShared(Process + 1664, v18);
-  if ( v9 )
+  memset(v19, 0, sizeof(v19));
+  memset(v21, 0, 0x98uLL);
+  memset(v20, 0, sizeof(v20));
+  v21[12] = v8;
+  v21[2] = v19;
+  LODWORD(v21[13]) = 128;
+  v13 = MiTbFlushType(Process + 1664);
+  WORD2(v22[0]) = 0;
+  v22[2] = 0LL;
+  v22[3] = 0LL;
+  LODWORD(v22[0]) = v13;
+  v20[2] = v22;
+  v17 = BYTE4(v21[13]);
+  if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
+    v17 = 1;
+  LODWORD(v22[1]) = 20;
+  LODWORD(v20[1]) = 0;
+  BYTE4(v21[13]) = v17;
+  v20[4] = a1;
+  v20[5] = a2;
+  BYTE2(v20[0]) = BYTE2(v20[0]) & 0xE3 | 4;
+  v20[21] = v21;
+  LOWORD(v20[0]) = 7;
+  v20[3] = Process + 1664;
+  v20[19] = MiDeleteEmptyPageTable;
+  v20[20] = MiDeleteEmptyPageTableTail;
+  BYTE6(v20[0]) = MiLockWorkingSetShared(Process + 1664, v14, v15, v16);
+  MiWalkPageTables((__int64)v20);
+  result = MiUnlockWorkingSetShared(Process + 1664, BYTE6(v20[0]));
+  if ( v8 )
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v13, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v13);
-    v20 = KeGetCurrentThread();
-    if ( v13 - qword_140C50630 < 0x8000000000LL )
-      SessionId = MmGetSessionIdEx((__int64)v20->ApcState.Process);
-    else
-      SessionId = -1;
-    _disable();
-    p_Process = (char *)&v20[1].Process;
-    v23 = 0LL;
-    v24 = v13 & 0x7FFFFFFFFFFFFFFCLL;
-    while ( (*(_QWORD *)p_Process & 0x7FFFFFFFFFFFFFFCLL) != v24
-         || !p_Process[18]
-         || (*(_DWORD *)p_Process & 1) != 0
-         || *((_DWORD *)p_Process + 2) != SessionId )
-    {
-      v23 = (unsigned int)(v23 + 1);
-      p_Process += 96;
-      if ( (unsigned int)v23 >= 6 )
-        goto LABEL_36;
-    }
-    p_Process[18] = 0;
-    if ( p_Process )
-    {
-      if ( *(__int64 *)p_Process < 0 )
-      {
-        *p_Process |= 2u;
-        _enable();
-        KiAbEntryRemoveFromTree(p_Process, v23, v24);
-        _disable();
-      }
-      v25 = *((_DWORD *)p_Process + 22);
-      *((_DWORD *)p_Process + 22) = 0;
-      p_Process[17] = 0;
-      *(_QWORD *)p_Process = 0LL;
-      v20->AbEntrySummary |= 1 << p_Process[16];
-      _enable();
-      if ( v25 )
-        KiAbThreadRemoveBoostsSlow((ULONG_PTR)v20, v13, v25);
-      goto LABEL_29;
-    }
-LABEL_36:
-    if ( (*((_DWORD *)&v20->0 + 1) & 0x10000) == 0 )
-      KeBugCheckEx(0x162u, (ULONG_PTR)v20, v13, SessionId, 0LL);
-    _enable();
-LABEL_29:
-    if ( CurrentThread->SpecialApcDisable++ == -1
-      && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    {
-      KiCheckForKernelApcDelivery();
-    }
-    goto LABEL_32;
+    UNLOCK_PAGE_TABLE_COMMITMENT((__int64)CurrentThread, Process);
+    goto LABEL_19;
   }
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmiPublishDeviceEnumerationEvents @ 0x1409A1D70
+ * XREFs of TtmiPublishDeviceEnumerationEvents @ 0x1408FC310
  * Callers:
- *     TtmiWriteEnumerationEventsToQueue @ 0x1409A50EC (TtmiWriteEnumerationEventsToQueue.c)
+ *     TtmiWriteEnumerationEventsToQueue @ 0x1408FF4DC (TtmiWriteEnumerationEventsToQueue.c)
  * Callees:
- *     TtmpPublishDeviceEvent @ 0x1409A29D4 (TtmpPublishDeviceEvent.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
+ *     TtmpPublishDeviceEvent @ 0x1408FCF70 (TtmpPublishDeviceEvent.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmiPublishDeviceEnumerationEvents(__int64 a1, __int64 a2)
@@ -27,6 +27,6 @@ __int64 __fastcall TtmiPublishDeviceEnumerationEvents(__int64 a1, __int64 a2)
         break;
     }
   }
-  TtmiLogError("TtmiPublishDeviceEnumerationEvents", 1054LL, (unsigned int)v6, (unsigned int)v6);
+  TtmiLogError("TtmiPublishDeviceEnumerationEvents", 1055LL, (unsigned int)v6, (unsigned int)v6);
   return v7;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?vSolidLine@@YAXPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_POINTFIX@@PEAU_CLIPOBJ@@K@Z @ 0x1C01339D0
+ * XREFs of ?vSolidLine@@YAXPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_POINTFIX@@PEAU_CLIPOBJ@@K@Z @ 0x1C0149910
  * Callers:
- *     EngStrokePath @ 0x1C0132A40 (EngStrokePath.c)
- *     EngLineTo @ 0x1C01338B0 (EngLineTo.c)
+ *     EngStrokePath @ 0x1C01494D0 (EngStrokePath.c)
+ *     EngLineTo @ 0x1C01497F0 (EngLineTo.c)
  * Callees:
- *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C0009AF4 (-bUMPDSecurityGateEx@@YAHXZ.c)
- *     ?vDrawLine@@YAXPEAU_POINTFIX@@0PEAEJKPEAU_RECTL@@KPEAU_W32KCDD_ENG_CALLBACKS@@@Z @ 0x1C0133C2C (-vDrawLine@@YAXPEAU_POINTFIX@@0PEAEJKPEAU_RECTL@@KPEAU_W32KCDD_ENG_CALLBACKS@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C00CFBA8 (-bUMPDSecurityGateEx@@YAHXZ.c)
+ *     ?vDrawLine@@YAXPEAU_POINTFIX@@0PEAEJKPEAU_RECTL@@KPEAU_W32KCDD_ENG_CALLBACKS@@@Z @ 0x1C0149B70 (-vDrawLine@@YAXPEAU_POINTFIX@@0PEAEJKPEAU_RECTL@@KPEAU_W32KCDD_ENG_CALLBACKS@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall vSolidLine(
@@ -81,15 +81,15 @@ void __fastcall vSolidLine(
       goto LABEL_8;
     case 2u:
       v29 = (16 * a5) | a5;
-      goto LABEL_34;
+      goto LABEL_35;
     case 3u:
       v29 = a5;
-LABEL_34:
+LABEL_35:
       v28 = (v29 << 8) | v29;
-      goto LABEL_35;
+      goto LABEL_36;
     case 4u:
       v28 = a5;
-LABEL_35:
+LABEL_36:
       v13 = (v28 << 16) | v28;
 LABEL_8:
       if ( a4 && a4->iDComplexity == 1 )

@@ -1,14 +1,14 @@
 /*
- * XREFs of WPP_RECORDER_SF_Sd @ 0x1C00507CC
+ * XREFs of WPP_RECORDER_SF_Sd @ 0x1C0051E1C
  * Callers:
- *     UsbhBuildClassCompatibleID @ 0x1C004E528 (UsbhBuildClassCompatibleID.c)
- *     UsbhBuildDeviceID @ 0x1C004F128 (UsbhBuildDeviceID.c)
- *     UsbhBuildHardwareID @ 0x1C004F438 (UsbhBuildHardwareID.c)
- *     CheckUSBFnConfiguration @ 0x1C005B99C (CheckUSBFnConfiguration.c)
- *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C005C1EC (ReadUSBFnFeaturesFromCurrentConfiguration.c)
- *     UpdateUcmIsPresentBit @ 0x1C005C3A0 (UpdateUcmIsPresentBit.c)
+ *     UsbhBuildClassCompatibleID @ 0x1C004F94C (UsbhBuildClassCompatibleID.c)
+ *     UsbhBuildDeviceID @ 0x1C005068C (UsbhBuildDeviceID.c)
+ *     UsbhBuildHardwareID @ 0x1C00509B0 (UsbhBuildHardwareID.c)
+ *     CheckUSBFnConfiguration @ 0x1C005D03C (CheckUSBFnConfiguration.c)
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C005D870 (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ *     UpdateUcmIsPresentBit @ 0x1C005DA24 (UpdateUcmIsPresentBit.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_Sd(
@@ -51,7 +51,7 @@ __int64 WPP_RECORDER_SF_Sd(
     v13 = a6;
     if ( !a6 )
       v13 = L"NULL";
-    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, __int64, _QWORD, const wchar_t *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, __int64, _QWORD, const wchar_t *, __int64, char *, __int64, _QWORD))WPP_MAIN_CB.SecurityDescriptor)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
       a5,

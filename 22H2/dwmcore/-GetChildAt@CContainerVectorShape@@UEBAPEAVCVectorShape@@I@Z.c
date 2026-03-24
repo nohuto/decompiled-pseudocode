@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetChildAt@CContainerVectorShape@@UEBAPEAVCVectorShape@@I@Z @ 0x180105AC0
+ * XREFs of ?GetChildAt@CContainerVectorShape@@UEBAPEAVCVectorShape@@I@Z @ 0x1800E1DA0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct CVectorShape *__fastcall CContainerVectorShape::GetChildAt(CContainerVectorShape *this, unsigned int a2)
 {
-  return *(struct CVectorShape **)(*((_QWORD *)this + 13) + 8LL * a2);
+  return *(struct CVectorShape **)(*((_QWORD *)this + 12) + 8LL * a2);
 }

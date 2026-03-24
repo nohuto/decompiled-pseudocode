@@ -1,375 +1,233 @@
 /*
- * XREFs of VhdiMountVhdFile @ 0x140A7328C
+ * XREFs of VhdiMountVhdFile @ 0x140A94C98
  * Callers:
- *     VhdiAutoAttachOneVhd @ 0x140681468 (VhdiAutoAttachOneVhd.c)
- *     VhdInitialize @ 0x140B3F4DC (VhdInitialize.c)
+ *     VhdInitialize @ 0x140A73778 (VhdInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoBuildDeviceIoControlRequest @ 0x140251430 (IoBuildDeviceIoControlRequest.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     wcscat_s @ 0x1403DF690 (wcscat_s.c)
- *     Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage @ 0x14040F7B4 (Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateFile @ 0x14041B140 (ZwCreateFile.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     IoGetDeviceInterfaces @ 0x1406878A0 (IoGetDeviceInterfaces.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     IoGetDeviceObjectPointer @ 0x14075B770 (IoGetDeviceObjectPointer.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IopBuildDeviceIoControlRequest @ 0x14022B300 (IopBuildDeviceIoControlRequest.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     wcscat_s @ 0x1403D7AD0 (wcscat_s.c)
+ *     ZwCreateFile @ 0x1403FA4C0 (ZwCreateFile.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IoGetDeviceObjectPointer @ 0x140621240 (IoGetDeviceObjectPointer.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     IoGetDeviceInterfaces @ 0x14069C660 (IoGetDeviceInterfaces.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall VhdiMountVhdFile(wchar_t *Src, int a2, char a3, _OWORD *a4)
+__int64 __fastcall VhdiMountVhdFile(wchar_t *Src)
 {
-  PZZWSTR v5; // r15
-  void *v6; // r14
-  PZZWSTR v7; // rsi
-  NTSTATUS DeviceObjectPointer; // ebx
-  char v9; // r13
-  NTSTATUS DeviceInterfaces; // eax
-  __int64 v11; // rdi
-  __int64 v12; // rax
-  unsigned int v13; // ebx
-  __int64 Pool2; // rax
-  ULONG v15; // r12d
-  int v16; // ecx
-  unsigned int v17; // esi
-  PZZWSTR v18; // r12
-  IRP *v19; // rax
-  char *v21; // rbx
-  unsigned int v22; // esi
-  __int128 v23; // xmm0
-  int IsEnabledDeviceUsage; // eax
-  HANDLE *p_Handle; // rcx
-  int v26; // eax
-  HANDLE v27; // rcx
-  NTSTATUS v28; // eax
-  PDEVICE_OBJECT v29; // r12
-  struct _DEVICE_OBJECT *RelatedDeviceObject; // rdi
-  _OWORD *v31; // rsi
-  PIRP v32; // rax
-  PIRP v33; // rax
-  ULONG OutputBufferLength; // [rsp+30h] [rbp-D8h]
-  PZZWSTR SymbolicLinkList; // [rsp+70h] [rbp-98h] BYREF
-  ULONG InputBufferLength[2]; // [rsp+78h] [rbp-90h] BYREF
-  PDEVICE_OBJECT DeviceObject; // [rsp+80h] [rbp-88h] BYREF
-  HANDLE Handle; // [rsp+88h] [rbp-80h] BYREF
-  int v40; // [rsp+90h] [rbp-78h]
+  NTSTATUS DeviceInterfaces; // ebx
+  PZZWSTR v3; // r12
+  __int64 v4; // r14
+  __int64 v5; // rax
+  unsigned int v6; // ebx
+  unsigned int v7; // r13d
+  char *PoolWithTag; // rax
+  const void *v9; // rdi
+  unsigned int v10; // ebx
+  _DWORD *v11; // rsi
+  IRP *v12; // rax
+  char *v13; // rbx
+  __int128 v14; // xmm0
+  PZZWSTR v15; // r14
+  struct _DEVICE_OBJECT *RelatedDeviceObject; // rbx
+  IRP *v17; // rax
+  struct _KEVENT Object_8; // [rsp+68h] [rbp-A0h] BYREF
+  PZZWSTR SymbolicLinkList; // [rsp+80h] [rbp-88h] BYREF
+  PDEVICE_OBJECT DeviceObject; // [rsp+88h] [rbp-80h] BYREF
+  PFILE_OBJECT FileObject; // [rsp+90h] [rbp-78h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+98h] [rbp-70h] BYREF
-  struct _KEVENT Event; // [rsp+A8h] [rbp-60h] BYREF
-  PVOID Object; // [rsp+C0h] [rbp-48h]
-  PFILE_OBJECT FileObject; // [rsp+C8h] [rbp-40h] BYREF
-  _OWORD *v45; // [rsp+D0h] [rbp-38h]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D8h] [rbp-30h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+108h] [rbp+0h] BYREF
-  UNICODE_STRING v48; // [rsp+118h] [rbp+10h] BYREF
-  _OWORD OutputBuffer[8]; // [rsp+128h] [rbp+20h] BYREF
-  __int128 InputBuffer; // [rsp+1A8h] [rbp+A0h] BYREF
-  __int128 v51; // [rsp+1B8h] [rbp+B0h]
-  __int128 v52; // [rsp+1C8h] [rbp+C0h]
-  __int64 v53; // [rsp+1D8h] [rbp+D0h]
-  _DWORD EaBuffer[2]; // [rsp+1E8h] [rbp+E0h] BYREF
-  __int64 v55; // [rsp+1F0h] [rbp+E8h]
-  GUID v56; // [rsp+1F8h] [rbp+F0h]
-  __int128 v57; // [rsp+208h] [rbp+100h]
-  __int128 v58; // [rsp+218h] [rbp+110h]
-  __int128 v59; // [rsp+228h] [rbp+120h]
-  __int128 v60; // [rsp+238h] [rbp+130h]
-  int v61; // [rsp+248h] [rbp+140h]
-  int v62; // [rsp+24Ch] [rbp+144h]
+  UNICODE_STRING DestinationString; // [rsp+A8h] [rbp-60h] BYREF
+  UNICODE_STRING v25; // [rsp+B8h] [rbp-50h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+C8h] [rbp-40h] BYREF
+  _OWORD v27[6]; // [rsp+F8h] [rbp-10h] BYREF
+  _OWORD v28[3]; // [rsp+158h] [rbp+50h] BYREF
+  __int64 v29; // [rsp+188h] [rbp+80h]
+  _DWORD EaBuffer[2]; // [rsp+198h] [rbp+90h] BYREF
+  __int64 v31; // [rsp+1A0h] [rbp+98h]
+  GUID v32; // [rsp+1A8h] [rbp+A0h]
+  __int128 v33; // [rsp+1B8h] [rbp+B0h]
+  __int128 v34; // [rsp+1C8h] [rbp+C0h]
+  __int128 v35; // [rsp+1D8h] [rbp+D0h]
+  __int128 v36; // [rsp+1E8h] [rbp+E0h]
+  int v37; // [rsp+1F8h] [rbp+F0h]
+  int v38; // [rsp+1FCh] [rbp+F4h]
+  __int64 retaddr; // [rsp+240h] [rbp+138h]
 
-  v45 = a4;
-  v40 = a2;
-  Handle = 0LL;
   DeviceObject = 0LL;
-  v5 = 0LL;
-  v6 = 0LL;
-  v7 = 0LL;
-  v53 = 0LL;
-  Object = 0LL;
   SymbolicLinkList = 0LL;
+  v29 = 0LL;
   FileObject = 0LL;
   DestinationString = 0LL;
-  memset(&Event, 0, sizeof(Event));
-  v48 = 0LL;
+  memset(&Object_8, 0, sizeof(Object_8));
+  v25 = 0LL;
   IoStatusBlock = 0LL;
-  memset(&ObjectAttributes, 0, 44);
-  InputBuffer = 0LL;
-  v51 = 0LL;
-  v52 = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  memset(v28, 0, sizeof(v28));
   if ( !Src )
   {
-    DeviceObjectPointer = -1073741811;
-    v9 = a3;
-    goto LABEL_20;
+    DeviceInterfaces = -1073741811;
+    goto LABEL_3;
   }
-  memset(&OutputBuffer[2], 0, 0x54uLL);
+  memset(v27, 0, 0x54uLL);
   DeviceInterfaces = IoGetDeviceInterfaces(&GUID_DEVINTERFACE_SURFACE_VIRTUAL_DRIVE, 0LL, 0, &SymbolicLinkList);
-  v5 = SymbolicLinkList;
-  DeviceObjectPointer = DeviceInterfaces;
   if ( DeviceInterfaces < 0 )
-    goto LABEL_19;
+    goto LABEL_3;
+  v3 = SymbolicLinkList;
   if ( !*SymbolicLinkList )
   {
-    DeviceObjectPointer = -1073741275;
-LABEL_19:
-    v9 = a3;
-    goto LABEL_20;
+    DeviceInterfaces = -1073741275;
+    goto LABEL_3;
   }
   RtlInitUnicodeString(&DestinationString, SymbolicLinkList);
-  DeviceObjectPointer = IoGetDeviceObjectPointer(&DestinationString, 0x10000000u, &FileObject, &DeviceObject);
-  if ( DeviceObjectPointer < 0 )
-    goto LABEL_19;
-  v11 = -1LL;
-  v12 = -1LL;
+  DeviceInterfaces = IoGetDeviceObjectPointer(&DestinationString, 0x10000000u, &FileObject, &DeviceObject);
+  if ( DeviceInterfaces < 0 )
+    goto LABEL_3;
+  v4 = -1LL;
+  v5 = -1LL;
   do
-    ++v12;
-  while ( Src[v12] );
-  v13 = 2 * v12 + 2;
-  InputBufferLength[0] = 2 * v12 + 34;
-  Pool2 = ExAllocatePool2(64LL, InputBufferLength[0], 1113876566LL);
-  v6 = (void *)Pool2;
-  if ( !Pool2 )
+    ++v5;
+  while ( Src[v5] );
+  v6 = 2 * v5 + 2;
+  v7 = 2 * v5 + 34;
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v7, 0x42646856u);
+  v9 = PoolWithTag;
+  if ( !PoolWithTag )
+    goto LABEL_11;
+  *((_DWORD *)PoolWithTag + 1) = 0;
+  *(_OWORD *)(PoolWithTag + 8) = VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN;
+  *(_DWORD *)PoolWithTag = 1;
+  *((_DWORD *)PoolWithTag + 6) = 32;
+  *((_DWORD *)PoolWithTag + 7) = v6;
+  memmove(PoolWithTag + 32, Src, v6);
+  v10 = v6 + 540;
+  v11 = ExAllocatePoolWithTag(NonPagedPoolNx, v10, 0x42646856u);
+  if ( !v11 )
   {
-    DeviceObjectPointer = -1073741801;
-    goto LABEL_19;
+LABEL_11:
+    DeviceInterfaces = -1073741801;
+    goto LABEL_3;
   }
-  *(_QWORD *)Pool2 = 1LL;
-  *(_DWORD *)(Pool2 + 24) = 32;
-  *(_OWORD *)(Pool2 + 8) = VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN;
-  *(_DWORD *)(Pool2 + 28) = v13;
-  memmove((void *)(Pool2 + 32), Src, v13);
-  if ( (unsigned int)Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage() )
-  {
-    v15 = v13 + 542;
-    v16 = 1;
-  }
-  else
-  {
-    v15 = v13 + 540;
-    v16 = 0;
-  }
-  v17 = v16 != 0 ? v13 + 514 : 0;
-  SymbolicLinkList = (PZZWSTR)ExAllocatePool2(64LL, v15, 1113876566LL);
-  if ( !SymbolicLinkList )
-  {
-    DeviceObjectPointer = -1073741801;
-    v7 = 0LL;
-    goto LABEL_19;
-  }
-  KeInitializeEvent(&Event, SynchronizationEvent, 0);
-  OutputBufferLength = v15;
-  v18 = SymbolicLinkList;
-  v19 = IoBuildDeviceIoControlRequest(
-          0x2D592Cu,
-          DeviceObject,
-          v6,
-          InputBufferLength[0],
-          SymbolicLinkList,
-          OutputBufferLength,
+  Object_8.Header.WaitListHead.Blink = &Object_8.Header.WaitListHead;
+  Object_8.Header.SignalState = 0;
+  Object_8.Header.WaitListHead.Flink = &Object_8.Header.WaitListHead;
+  LOWORD(Object_8.Header.Lock) = 1;
+  Object_8.Header.Size = 6;
+  v12 = IopBuildDeviceIoControlRequest(
+          2971948,
+          (__int64)DeviceObject,
+          v9,
+          v7,
+          v11,
+          v10,
           0,
-          &Event,
-          &IoStatusBlock);
-  if ( !v19 )
+          &Object_8,
+          &IoStatusBlock,
+          retaddr);
+  if ( !v12 )
+    goto LABEL_14;
+  DeviceInterfaces = IofCallDriver(DeviceObject, v12);
+  if ( DeviceInterfaces == 259 )
   {
-    DeviceObjectPointer = -1073741670;
-LABEL_18:
-    v7 = v18;
-    goto LABEL_19;
+    KeWaitForSingleObject(&Object_8, Executive, 0, 0, 0LL);
+    DeviceInterfaces = IoStatusBlock.Status;
   }
-  DeviceObjectPointer = IofCallDriver(DeviceObject, v19);
-  if ( DeviceObjectPointer == 259 )
-  {
-    KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-    DeviceObjectPointer = IoStatusBlock.Status;
-  }
-  if ( DeviceObjectPointer < 0 )
-    goto LABEL_18;
-  v21 = (char *)v18 + *((unsigned int *)v18 + 5);
-  if ( *(_WORD *)v21 == 92 && *((_WORD *)v21 + 1) == 92 && *((_WORD *)v21 + 2) == 46 && *((_WORD *)v21 + 3) == 92 )
-    *(_DWORD *)(v21 + 2) = 4128831;
-  if ( (unsigned int)Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage() )
-  {
-    v22 = v17 >> 1;
-    do
-      ++v11;
-    while ( *(_WORD *)&v21[2 * v11] );
-    if ( *(_WORD *)&v21[2 * v11 - 2] != 92 && *Src != 92 )
-      wcscat_s((wchar_t *)v21, v22, L"\\");
-  }
-  else
-  {
-    do
-      ++v11;
-    while ( Src[v11] );
-    v22 = v11 + 257;
-  }
-  wcscat_s((wchar_t *)v21, v22, Src);
-  RtlInitUnicodeString(&v48, (PCWSTR)v21);
+  if ( DeviceInterfaces < 0 )
+    goto LABEL_3;
+  v13 = (char *)v11 + (unsigned int)v11[5];
+  if ( *(_WORD *)v13 == 92 && *((_WORD *)v13 + 1) == 92 && *((_WORD *)v13 + 2) == 46 && *((_WORD *)v13 + 3) == 92 )
+    *(_DWORD *)(v13 + 2) = 4128831;
+  do
+    ++v4;
+  while ( Src[v4] );
+  wcscat_s((wchar_t *)v13, (unsigned int)(v4 + 257), Src);
+  RtlInitUnicodeString(&v25, (PCWSTR)v13);
+  ObjectAttributes.ObjectName = &v25;
   ObjectAttributes.Length = 48;
+  v38 = 0;
   ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.ObjectName = &v48;
-  ObjectAttributes.Attributes = 512;
-  v62 = 0;
-  EaBuffer[0] = 0;
-  v55 = 0x4B534454524956LL;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  ObjectAttributes.Attributes = 512;
+  *(_QWORD *)((char *)&v27[2] + 4) = 0x400000054LL;
+  v31 = 0x4B534454524956LL;
+  EaBuffer[0] = 0;
   EaBuffer[1] = 5506944;
-  DWORD1(OutputBuffer[4]) = 84;
-  v9 = a3;
-  if ( (unsigned int)Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage() )
-    DWORD2(OutputBuffer[4]) = a3 != 0 ? 4 : 0;
-  else
-    DWORD2(OutputBuffer[4]) = 4;
-  v23 = *(_OWORD *)v18;
-  LODWORD(OutputBuffer[4]) = *((_DWORD *)v18 + 4);
-  v57 = v23;
-  v58 = OutputBuffer[4];
-  DWORD1(OutputBuffer[5]) = 2;
-  v60 = OutputBuffer[6];
-  v56 = GUID_DEVINTERFACE_SURFACE_VIRTUAL_DRIVE;
-  v59 = OutputBuffer[5];
-  v61 = OutputBuffer[7];
-  IsEnabledDeviceUsage = Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage();
-  p_Handle = &Handle;
-  if ( !IsEnabledDeviceUsage )
-    p_Handle = &FileHandle;
-  DeviceObjectPointer = ZwCreateFile(
-                          p_Handle,
-                          0x80000000,
-                          &ObjectAttributes,
-                          &IoStatusBlock,
-                          0LL,
-                          0x80u,
-                          1u,
-                          2u,
-                          0,
-                          EaBuffer,
-                          0x67u);
-  if ( DeviceObjectPointer >= 0 )
+  v14 = *(_OWORD *)v11;
+  LODWORD(v27[2]) = v11[4];
+  v33 = v14;
+  DWORD1(v27[3]) = 2;
+  v37 = v27[5];
+  v32 = GUID_DEVINTERFACE_SURFACE_VIRTUAL_DRIVE;
+  v34 = v27[2];
+  v35 = v27[3];
+  v36 = v27[4];
+  DeviceInterfaces = ZwCreateFile(
+                       &FileHandle,
+                       0x80000000,
+                       &ObjectAttributes,
+                       &IoStatusBlock,
+                       0LL,
+                       0x80u,
+                       1u,
+                       2u,
+                       0,
+                       EaBuffer,
+                       0x67u);
+  if ( DeviceInterfaces < 0 )
+    goto LABEL_3;
+  SymbolicLinkList = 0LL;
+  DeviceInterfaces = ObReferenceObjectByHandle(FileHandle, 0xC0100000, 0LL, 0, (PVOID *)&SymbolicLinkList, 0LL);
+  if ( DeviceInterfaces < 0 )
+    goto LABEL_3;
+  v15 = SymbolicLinkList;
+  RelatedDeviceObject = IoGetRelatedDeviceObject((PFILE_OBJECT)SymbolicLinkList);
+  LODWORD(v28[0]) = 1;
+  LOWORD(Object_8.Header.Lock) = 1;
+  Object_8.Header.WaitListHead.Blink = &Object_8.Header.WaitListHead;
+  Object_8.Header.Size = 6;
+  Object_8.Header.WaitListHead.Flink = &Object_8.Header.WaitListHead;
+  Object_8.Header.SignalState = 0;
+  v17 = IopBuildDeviceIoControlRequest(
+          2955548,
+          (__int64)RelatedDeviceObject,
+          v28,
+          0x38u,
+          0LL,
+          0,
+          0,
+          &Object_8,
+          &IoStatusBlock,
+          retaddr);
+  if ( !v17 )
   {
-    v26 = Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage();
-    v27 = FileHandle;
-    if ( v26 )
-      v27 = Handle;
-    DeviceObject = 0LL;
-    v28 = ObReferenceObjectByHandle(v27, 0xC0100000, 0LL, 0, (PVOID *)&DeviceObject, 0LL);
-    v29 = DeviceObject;
-    DeviceObjectPointer = v28;
-    Object = DeviceObject;
-    if ( v28 < 0 )
-      goto LABEL_64;
-    RelatedDeviceObject = IoGetRelatedDeviceObject((PFILE_OBJECT)DeviceObject);
-    if ( (unsigned int)Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage() )
-    {
-      v31 = v45;
-      if ( v45 )
-      {
-        memset(OutputBuffer, 0, 32);
-        KeInitializeEvent(&Event, SynchronizationEvent, 0);
-        InputBufferLength[0] = 14;
-        v32 = IoBuildDeviceIoControlRequest(
-                0x2D1940u,
-                RelatedDeviceObject,
-                InputBufferLength,
-                4u,
-                OutputBuffer,
-                0x20u,
-                0,
-                &Event,
-                &IoStatusBlock);
-        if ( !v32 )
-        {
-LABEL_63:
-          DeviceObjectPointer = -1073741670;
-LABEL_64:
-          v7 = SymbolicLinkList;
-          goto LABEL_20;
-        }
-        v32->Tail.Overlay.CurrentStackLocation[-1].FileObject = (PFILE_OBJECT)v29;
-        DeviceObjectPointer = IofCallDriver(RelatedDeviceObject, v32);
-        if ( DeviceObjectPointer == 259 )
-        {
-          KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-          DeviceObjectPointer = IoStatusBlock.Status;
-        }
-        if ( DeviceObjectPointer < 0 )
-          goto LABEL_64;
-        if ( *v31 != *(_OWORD *)((char *)OutputBuffer + 8) )
-        {
-          DeviceObjectPointer = -1069940684;
-          goto LABEL_64;
-        }
-      }
-    }
-    InputBuffer = 0LL;
-    LODWORD(InputBuffer) = 1;
-    v51 = 0LL;
-    v53 = 0LL;
-    v52 = 0LL;
-    if ( (unsigned int)Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage() )
-      DWORD1(InputBuffer) = v40 | 4;
-    KeInitializeEvent(&Event, SynchronizationEvent, 0);
-    v33 = IoBuildDeviceIoControlRequest(
-            0x2D191Cu,
-            RelatedDeviceObject,
-            &InputBuffer,
-            0x38u,
-            0LL,
-            0,
-            0,
-            &Event,
-            &IoStatusBlock);
-    if ( v33 )
-    {
-      v33->Tail.Overlay.CurrentStackLocation[-1].FileObject = (PFILE_OBJECT)v29;
-      DeviceObjectPointer = IofCallDriver(RelatedDeviceObject, v33);
-      if ( DeviceObjectPointer == 259 )
-      {
-        KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-        DeviceObjectPointer = IoStatusBlock.Status;
-      }
-      goto LABEL_64;
-    }
-    goto LABEL_63;
+LABEL_14:
+    DeviceInterfaces = -1073741670;
+    goto LABEL_3;
   }
-  v7 = v18;
-LABEL_20:
-  if ( (unsigned int)Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage() )
+  v17->Tail.Overlay.CurrentStackLocation[-1].FileObject = (PFILE_OBJECT)v15;
+  DeviceInterfaces = IofCallDriver(RelatedDeviceObject, v17);
+  if ( DeviceInterfaces == 259 )
   {
-    if ( v9 )
-    {
-      if ( DeviceObjectPointer >= 0 )
-      {
-        FileHandle = Handle;
-        goto LABEL_24;
-      }
-LABEL_78:
-      KeBugCheckEx(0x12Fu, 5uLL, DeviceObjectPointer, 0LL, 0LL);
-    }
-    ZwClose(Handle);
+    KeWaitForSingleObject(&Object_8, Executive, 0, 0, 0LL);
+    DeviceInterfaces = IoStatusBlock.Status;
   }
-  else if ( DeviceObjectPointer < 0 )
-  {
-    goto LABEL_78;
-  }
-LABEL_24:
-  if ( v6 )
-    ExFreePoolWithTag(v6, 0x42646856u);
-  if ( v7 )
-    ExFreePoolWithTag(v7, 0x42646856u);
-  if ( Object )
-    ObfDereferenceObject(Object);
+  if ( DeviceInterfaces < 0 )
+LABEL_3:
+    KeBugCheckEx(0x12Fu, 5uLL, DeviceInterfaces, 0LL, 0LL);
+  ExFreeHeapPool((ULONG_PTR)v9);
+  ExFreeHeapPool((ULONG_PTR)v11);
+  if ( v15 )
+    ObfDereferenceObjectWithTag(v15, 0x746C6644u);
   if ( FileObject )
-    ObfDereferenceObject(FileObject);
-  if ( v5 )
-    ExFreePoolWithTag(v5, 0);
-  return (unsigned int)DeviceObjectPointer;
+    ObfDereferenceObjectWithTag(FileObject, 0x746C6644u);
+  ExFreeHeapPool((ULONG_PTR)v3);
+  return (unsigned int)DeviceInterfaces;
 }

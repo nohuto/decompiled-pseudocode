@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitShapes@CShapeVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021C3B8
+ * XREFs of ?EmitShapes@CShapeVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E5D5C
  * Callers:
- *     ?EmitUpdateCommands@CShapeVisualMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021C410 (-EmitUpdateCommands@CShapeVisualMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CShapeVisualMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E5DB0 (-EmitUpdateCommands@CShapeVisualMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_778e4044449296c5ab55ebb36926d680___lambda_f91f4cf09ba95a878c6ebb7809dc9a5a___ @ 0x1C021C214 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_778e4044449296c5ab55ebb36926d68.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_778e4044449296c5ab55ebb36926d680___lambda_f91f4cf09ba95a878c6ebb7809dc9a5a___ @ 0x1C01E5BC4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_778e4044449296c5ab55ebb36926d68.c)
  */
 
 char __fastcall DirectComposition::CShapeVisualMarshaler::EmitShapes(
@@ -17,22 +17,22 @@ char __fastcall DirectComposition::CShapeVisualMarshaler::EmitShapes(
   __int64 v8; // [rsp+20h] [rbp-18h]
   DirectComposition::CShapeVisualMarshaler *v9; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = *((_DWORD *)this + 102);
-  v4 = *((_DWORD *)this + 100);
+  v2 = *((_DWORD *)this + 98);
+  v4 = *((_DWORD *)this + 96);
   v9 = this;
   if ( (v2 & 2) == 0 )
     return 1;
   updated = DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_778e4044449296c5ab55ebb36926d680___lambda_f91f4cf09ba95a878c6ebb7809dc9a5a___(
               (__int64)this,
               a2,
-              (unsigned int *)this + 101,
+              (unsigned int *)this + 97,
               v4,
               v8,
               (__int64)&v9);
   v6 = 0;
   if ( updated )
   {
-    *((_DWORD *)this + 102) &= ~2u;
+    *((_DWORD *)this + 98) &= ~2u;
     return 1;
   }
   return v6;

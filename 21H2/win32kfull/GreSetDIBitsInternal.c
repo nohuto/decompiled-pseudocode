@@ -1,14 +1,14 @@
 /*
- * XREFs of GreSetDIBitsInternal @ 0x1C014A310
+ * XREFs of GreSetDIBitsInternal @ 0x1C0122108
  * Callers:
- *     GreCreateDIBitmapComp @ 0x1C014A20C (GreCreateDIBitmapComp.c)
- *     GreSetDIBits @ 0x1C02BFD38 (GreSetDIBits.c)
+ *     GreCreateDIBitmapComp @ 0x1C0122004 (GreCreateDIBitmapComp.c)
+ *     GreSetDIBits @ 0x1C02C1398 (GreSetDIBits.c)
  * Callees:
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0028338 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     GreSetDIBitsToDeviceInternal @ 0x1C002E3F0 (GreSetDIBitsToDeviceInternal.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C008393C (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF5A0 (GreSetDIBitsToDeviceInternal.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreSetDIBitsInternal(
@@ -21,65 +21,64 @@ __int64 __fastcall GreSetDIBitsInternal(
         unsigned int a7,
         unsigned int a8,
         unsigned int a9,
-        __int64 a10)
+        struct _SURFOBJ *a10)
 {
   __int64 v10; // r15
   unsigned int v11; // r13d
-  int v12; // r12d
-  int v15; // r14d
-  signed int v16; // esi
+  int v14; // esi
   HDC CompatibleDC; // rbx
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  __int64 v21; // rbp
-  _BYTE v23[32]; // [rsp+80h] [rbp-98h] BYREF
-  __int64 v24; // [rsp+A0h] [rbp-78h]
-  _QWORD v25[2]; // [rsp+A8h] [rbp-70h] BYREF
-  _BYTE v26[96]; // [rsp+B8h] [rbp-60h] BYREF
-  unsigned int v28; // [rsp+130h] [rbp+18h]
+  HDC v16; // r12
+  __int64 v17; // rdx
+  int v18; // r14d
+  __int64 v19; // rbp
+  _BYTE v21[32]; // [rsp+80h] [rbp-98h] BYREF
+  __int64 v22; // [rsp+A0h] [rbp-78h]
+  _QWORD v23[2]; // [rsp+A8h] [rbp-70h] BYREF
+  _BYTE v24[96]; // [rsp+B8h] [rbp-60h] BYREF
+  int v26; // [rsp+130h] [rbp+18h]
 
   v10 = 0LL;
   v11 = 0;
-  v12 = 0;
-  if ( a6 && ((v15 = 1, *a6 < 0x28) || a6[4] - 4 > 1) )
+  if ( a6 && (*a6 < 0x28 || a6[4] - 4 > 1) )
   {
-    v16 = a6[2];
-    v28 = a6[1];
-    if ( v16 < 0 )
-      v16 = -v16;
+    v14 = a6[2];
+    v26 = a6[1];
+    if ( v14 < 0 )
+      v14 = -v14;
     GreAcquireSemaphoreSharedInternal(ghsemDynamicModeChange);
     EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
-    SURFREF::SURFREF((SURFREF *)v23, a2);
-    if ( v24 && (*(_DWORD *)(v24 + 112) & 0x4000000) != 0 )
+    SURFREF::SURFREF((SURFREF *)v21, a2);
+    if ( v22 && (*(_DWORD *)(v22 + 112) & 0x4000000) != 0 )
     {
-      if ( *(_DWORD *)(v24 + 168) )
-        CompatibleDC = *(HDC *)(v24 + 160);
+      if ( *(_DWORD *)(v22 + 168) )
+        CompatibleDC = *(HDC *)(v22 + 160);
       else
         CompatibleDC = 0LL;
+      v16 = CompatibleDC;
       EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
       GreReleaseSemaphoreInternal(ghsemDynamicModeChange);
-      if ( CompatibleDC || (CompatibleDC = (HDC)GreCreateCompatibleDC(a1, v18, v19, v20), v12 = 1, CompatibleDC) )
+      if ( CompatibleDC || (CompatibleDC = (HDC)GreCreateCompatibleDC(a1)) != 0LL )
       {
+        v18 = 1;
         if ( !a1
           || a1 == CompatibleDC
-          || ((DCOBJ::DCOBJ((DCOBJ *)v25, a1), v25[0])
-            ? (v10 = GreSelectPalette(CompatibleDC, *(_QWORD *)(v25[0] + 80LL), 1LL))
-            : (EngSetLastError(6u), v15 = 0),
-              MDCOBJ::~MDCOBJ((MDCOBJ *)v25),
-              UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v26),
-              v15) )
+          || ((DCOBJ::DCOBJ((DCOBJ *)v23, a1), v23[0])
+            ? (v10 = GreSelectPalette(CompatibleDC, *(_QWORD *)(v23[0] + 80LL), 1LL))
+            : (EngSetLastError(6u), v18 = 0),
+              MDCOBJ::~MDCOBJ((MDCOBJ *)v23),
+              UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v24),
+              v18) )
         {
-          v21 = GreSelectBitmap(CompatibleDC, a2);
-          if ( v21 )
+          v19 = GreSelectBitmap(CompatibleDC, a2);
+          if ( v19 )
           {
-            v11 = GreSetDIBitsToDeviceInternal(CompatibleDC, 0, 0, v28, v16, 0, 0, 0, a4, a5, a6, a7, a8, a9, 0, a10);
+            v11 = GreSetDIBitsToDeviceInternal(CompatibleDC, 0, 0, v26, v14, 0, 0, 0, a4, a5, a6, a7, a8, a9, 0, a10);
             if ( v10 )
               GreSelectPalette(CompatibleDC, v10, 1LL);
-            GreSelectBitmap(CompatibleDC, v21);
+            GreSelectBitmap(CompatibleDC, v19);
           }
         }
-        if ( v12 )
+        if ( !v16 )
           bDeleteDCInternal(CompatibleDC, 1LL, 0LL);
       }
     }
@@ -89,9 +88,9 @@ __int64 __fastcall GreSetDIBitsInternal(
       EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
       GreReleaseSemaphoreInternal(ghsemDynamicModeChange);
     }
-    if ( v24 )
-      DEC_SHARE_REF_CNT(v24);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v23);
+    if ( v22 )
+      DEC_SHARE_REF_CNT(v22, v17);
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v21);
   }
   else
   {

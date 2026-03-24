@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapGenerateETWEvents @ 0x140320E88
+ * XREFs of WheapGenerateETWEvents @ 0x140320F88
  * Callers:
- *     WheaReportHwError @ 0x14031FC20 (WheaReportHwError.c)
- *     WheapProcessWorkQueueItem @ 0x1403203D0 (WheapProcessWorkQueueItem.c)
- *     WheapEtwEnableCallback @ 0x1407614A0 (WheapEtwEnableCallback.c)
+ *     WheaReportHwError @ 0x14031FD20 (WheaReportHwError.c)
+ *     WheapProcessWorkQueueItem @ 0x1403204D0 (WheapProcessWorkQueueItem.c)
+ *     WheapEtwEnableCallback @ 0x140761480 (WheapEtwEnableCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall WheapGenerateETWEvents(__int64 a1)

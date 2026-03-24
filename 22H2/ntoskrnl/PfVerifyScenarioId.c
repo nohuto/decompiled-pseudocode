@@ -1,8 +1,8 @@
 /*
- * XREFs of PfVerifyScenarioId @ 0x14074C2C0
+ * XREFs of PfVerifyScenarioId @ 0x14062D3F4
  * Callers:
- *     PfVerifyScenarioBuffer @ 0x14074A530 (PfVerifyScenarioBuffer.c)
- *     PfVerifyTraceBuffer @ 0x14074C144 (PfVerifyTraceBuffer.c)
+ *     PfVerifyScenarioBuffer @ 0x14062C430 (PfVerifyScenarioBuffer.c)
+ *     PfVerifyTraceBuffer @ 0x14062D278 (PfVerifyTraceBuffer.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of bSetFntCacheReg @ 0x1C00E214C
+ * XREFs of bSetFntCacheReg @ 0x1C00E5CE4
  * Callers:
- *     bServicingStackModifiedFonts @ 0x1C00E20F8 (bServicingStackModifiedFonts.c)
- *     InitFNTCache @ 0x1C00E2390 (InitFNTCache.c)
- *     EngCloseFNTCache @ 0x1C00EF2AC (EngCloseFNTCache.c)
- *     EngFntCacheFault @ 0x1C0286140 (EngFntCacheFault.c)
+ *     InitFNTCache @ 0x1C00E56F0 (InitFNTCache.c)
+ *     bServicingStackModifiedFonts @ 0x1C00E5C90 (bServicingStackModifiedFonts.c)
+ *     EngCloseFNTCache @ 0x1C00E6540 (EngCloseFNTCache.c)
+ *     EngFntCacheFault @ 0x1C0289200 (EngFntCacheFault.c)
  * Callees:
  *     <none>
  */

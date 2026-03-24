@@ -4,7 +4,7 @@
  *     PopUpdateUpgradeInProgress @ 0x140582490 (PopUpdateUpgradeInProgress.c)
  *     PopLogDisabledSleepReason @ 0x1405B0874 (PopLogDisabledSleepReason.c)
  *     PopFilterCapabilities @ 0x1405B0968 (PopFilterCapabilities.c)
- *     PopEnableHiberFile @ 0x140745F9C (PopEnableHiberFile.c)
+ *     PopEnableHiberFile @ 0x140745F7C (PopEnableHiberFile.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PopGetReasonListByReasonCode @ 0x1405B0B2C (PopGetReasonListByReasonCode.c)

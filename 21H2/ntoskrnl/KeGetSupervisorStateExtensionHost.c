@@ -1,7 +1,7 @@
 /*
- * XREFs of KeGetSupervisorStateExtensionHost @ 0x14056FC0C
+ * XREFs of KeGetSupervisorStateExtensionHost @ 0x140519E50
  * Callers:
- *     IoCaptureLiveDump @ 0x14093A0B8 (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x140896298 (IoCaptureLiveDump.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxAcpiUnregisterDevice @ 0x1405DE108
+ * XREFs of PopFxAcpiUnregisterDevice @ 0x14057E188
  * Callers:
- *     PopFxAcpiDispatchNotification @ 0x1405DDBE0 (PopFxAcpiDispatchNotification.c)
+ *     PopFxAcpiDispatchNotification @ 0x14057DC68 (PopFxAcpiDispatchNotification.c)
  * Callees:
- *     IoAcquireRemoveLockEx @ 0x1403553A0 (IoAcquireRemoveLockEx.c)
- *     IoReleaseRemoveLockAndWaitEx @ 0x1403A7530 (IoReleaseRemoveLockAndWaitEx.c)
- *     PopFxDestroyDeviceCommon @ 0x1403DCBDC (PopFxDestroyDeviceCommon.c)
- *     PopFxRemoveAcpiDevice @ 0x1405CD9A0 (PopFxRemoveAcpiDevice.c)
- *     PopPluginAcpiNotificationStrict @ 0x1405DFA70 (PopPluginAcpiNotificationStrict.c)
+ *     IoAcquireRemoveLockEx @ 0x1402607C0 (IoAcquireRemoveLockEx.c)
+ *     IoReleaseRemoveLockAndWaitEx @ 0x14039AE40 (IoReleaseRemoveLockAndWaitEx.c)
+ *     PopFxDestroyDeviceCommon @ 0x1403CD734 (PopFxDestroyDeviceCommon.c)
+ *     PopFxRemoveAcpiDevice @ 0x14056C394 (PopFxRemoveAcpiDevice.c)
+ *     PopPluginAcpiNotificationStrict @ 0x14057FB9C (PopPluginAcpiNotificationStrict.c)
  */
 
 __int64 __fastcall PopFxAcpiUnregisterDevice(char *P, ULONG_PTR a2)

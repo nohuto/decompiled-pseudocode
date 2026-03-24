@@ -1,108 +1,117 @@
 /*
- * XREFs of MiGetNextSession @ 0x14035E6B8
+ * XREFs of MiGetNextSession @ 0x140263DF8
  * Callers:
- *     MiEmptyAccessLogs @ 0x1402005B0 (MiEmptyAccessLogs.c)
- *     MmGetNextSession @ 0x14035E6A0 (MmGetNextSession.c)
- *     PsQueryCpuQuotaInformation @ 0x1403B60F8 (PsQueryCpuQuotaInformation.c)
+ *     ExpHpCompactSessionPools @ 0x14026368C (ExpHpCompactSessionPools.c)
+ *     MmGetNextSession @ 0x140263DE0 (MmGetNextSession.c)
+ *     MiEmptyAccessLogs @ 0x1403A2D30 (MiEmptyAccessLogs.c)
+ *     PsQueryCpuQuotaInformation @ 0x1403CF8B4 (PsQueryCpuQuotaInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     MiSelectSessionAttachProcess @ 0x1402C1EB8 (MiSelectSessionAttachProcess.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     PsGetThreadServerSilo @ 0x140206500 (PsGetThreadServerSilo.c)
+ *     MiSelectSessionAttachProcess @ 0x14020653C (MiSelectSessionAttachProcess.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2494 (KeIsExecutingInArbitraryThreadContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-_QWORD *__fastcall MiGetNextSession(_QWORD *Object)
+struct _DMA_ADAPTER *__fastcall MiGetNextSession(PADAPTER_OBJECT DmaAdapter, __int64 a2)
 {
-  _QWORD *v2; // rdi
-  __int64 CurrentServerSilo; // r14
-  __int64 v4; // rbx
-  __int64 *v5; // rbx
-  _QWORD *v6; // rax
+  __int64 ThreadServerSilo; // rbp
+  struct _DMA_ADAPTER *v4; // rdi
+  _DMA_OPERATIONS *DmaOperations; // rbx
+  __int64 *GetDmaAdapterInfo; // rbx
+  unsigned __int64 v7; // rbx
+  unsigned __int8 v8; // al
+  struct _KPRCB *v9; // r10
+  _DWORD *v10; // r8
+  int v11; // eax
+  bool v12; // zf
+  struct _DMA_ADAPTER *v14; // rax
   unsigned __int64 OldIrql; // rbx
-  unsigned __int64 v9; // rbx
-  unsigned __int8 v10; // al
-  struct _KPRCB *v11; // r10
-  _DWORD *v12; // r8
-  int v13; // eax
-  bool v14; // zf
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r8
-  int v18; // eax
+  int v19; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v2 = 0LL;
-  CurrentServerSilo = PsGetCurrentServerSilo();
-  if ( Object )
-    v4 = Object[171];
+  if ( (unsigned int)KeIsExecutingInArbitraryThreadContext(DmaAdapter, a2) )
+    ThreadServerSilo = 0LL;
   else
-    v4 = 0LL;
-  KeAcquireInStackQueuedSpinLock(&qword_140C698C0, &LockHandle);
-  if ( v4 )
+    ThreadServerSilo = PsGetThreadServerSilo((__int64)KeGetCurrentThread());
+  v4 = 0LL;
+  if ( DmaAdapter )
+    DmaOperations = DmaAdapter[85].DmaOperations;
+  else
+    DmaOperations = 0LL;
+  KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
+  if ( DmaOperations )
   {
-    v5 = *(__int64 **)(v4 + 120);
-    goto LABEL_5;
-  }
-  v5 = (__int64 *)qword_140C69A00;
-  if ( qword_140C69A00 )
-  {
-LABEL_5:
-    while ( v5 != &qword_140C69A00 )
+    GetDmaAdapterInfo = (__int64 *)DmaOperations->GetDmaAdapterInfo;
+LABEL_24:
+    while ( GetDmaAdapterInfo != &qword_140C4EF00 )
     {
-      v6 = MiSelectSessionAttachProcess((__int64)(v5 - 15));
-      v2 = v6;
-      if ( v6 )
+      v14 = (struct _DMA_ADAPTER *)MiSelectSessionAttachProcess((__int64)(GetDmaAdapterInfo - 16));
+      v4 = v14;
+      if ( v14 )
       {
-        if ( !CurrentServerSilo || v5[83] == CurrentServerSilo )
+        if ( !ThreadServerSilo || GetDmaAdapterInfo[115] == ThreadServerSilo )
           break;
-        ObfDereferenceObject(v6);
-        v2 = 0LL;
+        HalPutDmaAdapter(v14);
+        v4 = 0LL;
       }
-      v5 = (__int64 *)*v5;
+      GetDmaAdapterInfo = (__int64 *)*GetDmaAdapterInfo;
     }
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v18 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v14 = (v18 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v18;
-        if ( v14 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v19 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v12 = (v19 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v19;
+          if ( v12 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(OldIrql);
-    if ( Object )
-      ObfDereferenceObject(Object);
-    return v2;
+    if ( DmaAdapter )
+      HalPutDmaAdapter(DmaAdapter);
+    return v4;
   }
   else
   {
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-    v9 = LockHandle.OldIrql;
+    GetDmaAdapterInfo = (__int64 *)qword_140C4EF00;
+    if ( qword_140C4EF00 )
+      goto LABEL_24;
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    v7 = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      v10 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && LockHandle.OldIrql <= 0xFu && v10 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v11 = KeGetCurrentPrcb();
-        v12 = v11->SchedulerAssist;
-        v13 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v14 = (v13 & v12[5]) == 0;
-        v12[5] &= v13;
-        if ( v14 )
-          KiRemoveSystemWorkPriorityKick(v11);
+        v8 = KeGetCurrentIrql();
+        if ( v8 <= 0xFu && LockHandle.OldIrql <= 0xFu && v8 >= 2u )
+        {
+          v9 = KeGetCurrentPrcb();
+          v10 = v9->SchedulerAssist;
+          v11 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v12 = (v11 & v10[5]) == 0;
+          v10[5] &= v11;
+          if ( v12 )
+            KiRemoveSystemWorkPriorityKick(v9);
+        }
       }
     }
-    __writecr8(v9);
+    __writecr8(v7);
     return 0LL;
   }
 }

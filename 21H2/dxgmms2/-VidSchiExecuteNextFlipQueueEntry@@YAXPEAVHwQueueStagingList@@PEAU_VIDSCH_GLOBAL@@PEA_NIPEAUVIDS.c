@@ -1,181 +1,230 @@
 /*
- * XREFs of ?VidSchiExecuteNextFlipQueueEntry@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@PEA_NIPEAUVIDSCH_FLIP_QUEUE@@@Z @ 0x1C0017910
+ * XREFs of ?VidSchiExecuteNextFlipQueueEntry@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@PEA_NIPEAUVIDSCH_FLIP_QUEUE@@@Z @ 0x1C00102CC
  * Callers:
- *     VidSchiProcessDpcVSyncCookie @ 0x1C0003BC0 (VidSchiProcessDpcVSyncCookie.c)
+ *     VidSchiProcessDpcVSyncCookie @ 0x1C0005790 (VidSchiProcessDpcVSyncCookie.c)
  * Callees:
- *     VidSchiExecuteMmIoFlip @ 0x1C000DBA0 (VidSchiExecuteMmIoFlip.c)
- *     ?VidSchiCheckPendingFlipsForThisEntry@@YA_NPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_PRESENT_INFO@@PEAU_VIDSCH_FLIP_QUEUE_ENTRY@@PEAUVIDSCH_FLIP_QUEUE@@@Z @ 0x1C000E394 (-VidSchiCheckPendingFlipsForThisEntry@@YA_NPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_PRESENT_INFO@@PEAU_VI.c)
- *     VidSchiCompleteFlipEntry @ 0x1C0010190 (VidSchiCompleteFlipEntry.c)
- *     VidSchiVirtualizeFlipInterval @ 0x1C0017A90 (VidSchiVirtualizeFlipInterval.c)
- *     ?VidSchiSelectPresentAtFlip@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IPEAUVIDSCH_FLIP_QUEUE@@PEAKPEAPEAU_VIDSCH_FLIP_QUEUE_ENTRY@@@Z @ 0x1C00356F4 (-VidSchiSelectPresentAtFlip@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IPEAUVIDSCH_FLIP_QUE.c)
- *     VidSchiRestartQueuedFlip @ 0x1C003A160 (VidSchiRestartQueuedFlip.c)
+ *     VidSchiCompleteFlipEntry @ 0x1C0004180 (VidSchiCompleteFlipEntry.c)
+ *     VidSchiExecuteMmIoFlip @ 0x1C000EB20 (VidSchiExecuteMmIoFlip.c)
+ *     ?VidSchiSelectPresentAtFlip@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IPEAUVIDSCH_FLIP_QUEUE@@PEAKPEAPEAUVIDSCH_FLIP_QUEUE_ENTRY@@@Z @ 0x1C002BE30 (-VidSchiSelectPresentAtFlip@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IPEAUVIDSCH_FLIP_QUE.c)
+ *     VidSchiRestartQueuedFlip @ 0x1C003153C (VidSchiRestartQueuedFlip.c)
  */
 
 void __fastcall VidSchiExecuteNextFlipQueueEntry(
         struct HwQueueStagingList *a1,
         struct _VIDSCH_GLOBAL *a2,
         bool *a3,
-        struct VIDSCH_FLIP_QUEUE *a4,
+        unsigned int a4,
         struct VIDSCH_FLIP_QUEUE *a5)
 {
   struct VIDSCH_FLIP_QUEUE *v5; // rdi
-  unsigned int v7; // r13d
-  __int64 v8; // rsi
-  struct _VIDSCH_PRESENT_INFO *v9; // r15
-  struct _VIDSCH_FLIP_QUEUE_ENTRY *v10; // rbx
-  bool v11; // zf
-  unsigned int v12; // r14d
-  struct _VIDSCH_PRESENT_INFO *v13; // r13
-  char *v14; // r15
-  int v15; // ecx
-  __int64 v16; // rax
-  _DWORD *v17; // r14
-  int v18; // ecx
-  __int64 v19; // r14
-  struct VIDSCH_FLIP_QUEUE *v20; // r9
-  int v21; // eax
-  int v22; // eax
-  unsigned int v23; // r14d
-  _DWORD *v24; // r15
-  int v25; // eax
-  int v26; // eax
-  unsigned int v27; // edx
-  struct _VIDSCH_FLIP_QUEUE_ENTRY *v28; // [rsp+40h] [rbp-18h] BYREF
-  struct HwQueueStagingList *v29; // [rsp+A0h] [rbp+48h]
-  struct _VIDSCH_PRESENT_INFO *v30; // [rsp+A8h] [rbp+50h]
-  unsigned int v32; // [rsp+B8h] [rbp+60h] BYREF
+  struct HwQueueStagingList *v8; // r11
+  __int64 v9; // r10
+  char *v10; // rsi
+  _DWORD *v11; // r13
+  unsigned int v12; // ebx
+  struct VIDSCH_FLIP_QUEUE_ENTRY *v13; // rsi
+  bool v14; // zf
+  unsigned int v15; // r8d
+  __int64 v16; // r11
+  unsigned int i; // edx
+  int v18; // edx
+  int v19; // eax
+  int v20; // edx
+  _DWORD *v21; // r9
+  char v22; // r15
+  unsigned int j; // edx
+  int v24; // r8d
+  int v25; // edx
+  int v26; // edx
+  struct HwQueueStagingList *v27; // r15
+  int v28; // r11d
+  char k; // r9
+  unsigned int v30; // r9d
+  char *v31; // r10
+  unsigned int m; // edx
+  int v33; // edx
+  int v34; // eax
+  int v35; // r8d
+  unsigned int v36; // ecx
+  struct VIDSCH_FLIP_QUEUE_ENTRY *v38; // [rsp+98h] [rbp+50h] BYREF
+  _BYTE *v39; // [rsp+A0h] [rbp+58h]
+  char v40; // [rsp+A8h] [rbp+60h] BYREF
 
-  v32 = (unsigned int)a4;
-  v29 = a1;
+  v39 = a3;
   v5 = a5;
-  v7 = (unsigned int)a4;
-  v8 = *((unsigned int *)a5 + 16);
-  v9 = (struct _VIDSCH_PRESENT_INFO *)*((_QWORD *)a2 + (unsigned int)a4 + 400);
-  v30 = v9;
-  v10 = (struct VIDSCH_FLIP_QUEUE *)((char *)a5 + 1376 * v8 + 120);
-  LODWORD(a5) = *((_DWORD *)a5 + 16);
-  v11 = *((_DWORD *)v9 + 747) == 0;
-  v28 = v10;
-  if ( !v11 )
+  v8 = a1;
+  v10 = (char *)a5 + 88;
+  v11 = (_DWORD *)*((_QWORD *)a2 + a4 + 388);
+  v12 = *((_DWORD *)a5 + 10);
+  LODWORD(a5) = v12;
+  v9 = v12;
+  v13 = (struct VIDSCH_FLIP_QUEUE_ENTRY *)&v10[1344 * v12];
+  v14 = v11[585] == 0;
+  v38 = v13;
+  if ( !v14 )
   {
-    v12 = ((_BYTE)v8 + 1) & 0x3F;
-    if ( v12 != (_DWORD)v8 )
+    v15 = ((_BYTE)v12 + 1) & 0x3F;
+    if ( v15 != v12 )
     {
-      v13 = v9;
       do
       {
-        v14 = (char *)v5 + 1376 * v12;
-        v15 = *((_DWORD *)v14 + 293);
-        if ( (unsigned int)(v15 - 2) > 1 && v15 != 14
-          || VidSchiCheckPendingFlipsForThisEntry(a2, v13, (struct _VIDSCH_FLIP_QUEUE_ENTRY *)(v14 + 120), a4) )
-        {
+        v16 = (__int64)v5 + 1344 * v15 + 88;
+        if ( (unsigned int)(*(_DWORD *)(v16 + 1052) - 2) > 1 )
           break;
-        }
-        if ( v14[1196] )
+        if ( !*((_BYTE *)a2 + 148) )
+          goto LABEL_17;
+        for ( i = *((_DWORD *)v5 + 12); i != (((unsigned __int8)*((_DWORD *)v5 + 11) - 1) & 0x3F); i = ((_BYTE)i - 1) & 0x3F )
         {
-          v10 = (struct _VIDSCH_FLIP_QUEUE_ENTRY *)(v14 + 120);
-          LODWORD(a5) = v12;
-          v28 = (struct _VIDSCH_FLIP_QUEUE_ENTRY *)(v14 + 120);
-          LODWORD(v8) = v12;
+          if ( *((_DWORD *)v5 + 336 * i + 285) == 14 )
+            goto LABEL_24;
         }
-        v12 = ((_BYTE)v12 + 1) & 0x3F;
+        v18 = *(_DWORD *)(v16 + 1136);
+        if ( (v18 & 0x10) != 0 )
+          v19 = ((unsigned __int16)**(_DWORD **)(v16 + 1176) | (unsigned __int16)(**(_DWORD **)(v16 + 1176) >> 10)) & 0x3FF;
+        else
+          v19 = (1 << *((_DWORD *)a2 + 36)) - 1;
+        if ( (v19 & v11[589]) != 0 )
+          break;
+        if ( *((_DWORD *)a2 + 38) <= 1u || v11[1] == 3 || (v18 & 0x100) != 0 || (v18 & 0x80u) == 0 )
+        {
+LABEL_17:
+          if ( (*(_DWORD *)(v16 + 1136) & 0x10) != 0 )
+            v20 = ((unsigned __int16)**(_DWORD **)(v16 + 1176) | (unsigned __int16)(**(_DWORD **)(v16 + 1176) >> 10)) & 0x3FF;
+          else
+            v20 = (1 << *((_DWORD *)a2 + 36)) - 1;
+          if ( (v20 & v11[588]) != 0 )
+            break;
+        }
+        if ( *(_BYTE *)(v16 + 1076) )
+        {
+          v12 = v15;
+          v38 = (struct VIDSCH_FLIP_QUEUE *)((char *)v5 + 1344 * v15 + 88);
+          LODWORD(a5) = v15;
+          v13 = v38;
+        }
+        v15 = ((_BYTE)v15 + 1) & 0x3F;
       }
-      while ( v12 != *((_DWORD *)v5 + 16) );
-      v7 = v32;
-      v9 = v30;
-      a1 = v29;
+      while ( v15 != (_DWORD)v9 );
+LABEL_24:
+      v8 = a1;
     }
-    v16 = *((unsigned int *)v5 + 16);
-    if ( (_DWORD)v8 == (_DWORD)v16 )
+    if ( v12 != (_DWORD)v9 )
     {
-      v17 = (_DWORD *)((char *)v10 + 1052);
-      v18 = *((_DWORD *)v10 + 263);
-      if ( (unsigned int)(v18 - 2) <= 1 || v18 == 14 )
+      VidSchiRestartQueuedFlip((_DWORD)v8, *((_QWORD *)v5 + 168 * v9 + 141), a4, (_DWORD)v5, v12);
+      *((_DWORD *)v13 + 263) = 4;
+      goto LABEL_48;
+    }
+    v21 = (_DWORD *)((char *)v13 + 1052);
+    if ( (unsigned int)(*((_DWORD *)v13 + 263) - 2) > 1 )
+      goto LABEL_48;
+    v13 = v38;
+    *((_QWORD *)v38 + 138) = MEMORY[0xFFFFF78000000320];
+    v22 = *((_BYTE *)a2 + 148);
+    if ( v22 )
+    {
+      for ( j = *((_DWORD *)v5 + 12); j != (((unsigned __int8)*((_DWORD *)v5 + 11) - 1) & 0x3F); j = ((_BYTE)j - 1) & 0x3F )
       {
-        if ( !*((_BYTE *)a2 + 59) )
-        {
-          v10 = v28;
-          LODWORD(v8) = (_DWORD)a5;
-          *((_QWORD *)v28 + 138) = MEMORY[0xFFFFF78000000320];
-        }
-        if ( !VidSchiCheckPendingFlipsForThisEntry(a2, v9, v10, a4) )
-        {
-          v21 = *((_DWORD *)v10 + 284);
-          if ( (v21 & 0x2000) != 0 )
-          {
-            v19 = (__int64)v29;
-            VidSchiSelectPresentAtFlip(v29, a2, v7, v5, (unsigned int *)&a5, &v28);
-            LODWORD(v8) = (_DWORD)a5;
-            v10 = v28;
-LABEL_11:
-            if ( *((_DWORD *)v10 + 263) == 4 )
-              VidSchiExecuteMmIoFlip(v19, (__int64)a2, v7, (__int64)v5, v8, a3);
-            return;
-          }
-          if ( !*((_DWORD *)v5 + 28) )
-          {
-            if ( (v21 & 0x80u) != 0 )
-            {
-              v22 = *((_DWORD *)v5 + 16);
-              v23 = ((_BYTE)v22 + 1) & 0x3F;
-              if ( v23 != v22 )
-              {
-                do
-                {
-                  v24 = (_DWORD *)((char *)v5 + 1376 * v23);
-                  v25 = v24[293];
-                  if ( v25 != 2 && v25 != 14 )
-                    break;
-                  if ( VidSchiCheckPendingFlipsForThisEntry(a2, v30, (struct _VIDSCH_FLIP_QUEUE_ENTRY *)(v24 + 30), v20) )
-                    break;
-                  v26 = v24[314];
-                  v10 = (struct _VIDSCH_FLIP_QUEUE_ENTRY *)(v24 + 30);
-                  LODWORD(v8) = v23;
-                  if ( (v26 & 0x80u) == 0 )
-                  {
-                    if ( (v26 & 0x1000) != 0 )
-                      v24[314] = v26 & 0xFFFFEFFF;
-                    break;
-                  }
-                  v23 = ((_BYTE)v23 + 1) & 0x3F;
-                }
-                while ( v23 != *((_DWORD *)v5 + 16) );
-                v9 = v30;
-              }
-              v27 = *((_DWORD *)v5 + 16);
-              v19 = (__int64)v29;
-              if ( (_DWORD)v8 != v27 )
-              {
-                LOBYTE(v32) = 0;
-                VidSchiCompleteFlipEntry(
-                  (__int64)v29,
-                  (__int64)a2,
-                  v7,
-                  (__int64)v5,
-                  v27,
-                  ((_BYTE)v8 - 1) & 0x3F,
-                  6u,
-                  &v32);
-              }
-            }
-            else
-            {
-              v19 = (__int64)v29;
-            }
-            VidSchiVirtualizeFlipInterval(v9, v10);
-            *((_DWORD *)v10 + 263) = 4;
-            goto LABEL_11;
-          }
-          *v17 = 3;
-        }
+        if ( *((_DWORD *)v5 + 336 * j + 285) == 14 )
+          goto LABEL_47;
       }
+      v24 = *((_DWORD *)v13 + 284);
+      if ( (v24 & 0x10) != 0 )
+        v25 = ((unsigned __int16)**((_DWORD **)v13 + 147) | (unsigned __int16)(**((_DWORD **)v13 + 147) >> 10)) & 0x3FF;
+      else
+        v25 = (1 << *((_DWORD *)a2 + 36)) - 1;
+      if ( (v25 & v11[589]) != 0 )
+        goto LABEL_47;
+      if ( *((_DWORD *)a2 + 38) > 1u && v11[1] != 3 && (v24 & 0x100) == 0 && (v24 & 0x80u) != 0 )
+        goto LABEL_45;
     }
-    else
+    v24 = *((_DWORD *)v13 + 284);
+    v26 = (v24 & 0x10) != 0
+        ? ((unsigned __int16)**((_DWORD **)v13 + 147) | (unsigned __int16)(**((_DWORD **)v13 + 147) >> 10)) & 0x3FF
+        : (1 << *((_DWORD *)a2 + 36)) - 1;
+    if ( (v26 & v11[588]) == 0 )
     {
-      VidSchiRestartQueuedFlip(a1, *((_QWORD *)v5 + 172 * v16 + 145), v7, v5, (_DWORD)v8);
-      *((_DWORD *)v10 + 263) = 4;
+LABEL_45:
+      if ( (v24 & 0x2000) == 0 )
+      {
+        v12 = (unsigned int)a5;
+        if ( !*((_DWORD *)v5 + 20) )
+        {
+          if ( (v24 & 0x80u) == 0 )
+          {
+            v27 = a1;
+          }
+          else
+          {
+            v28 = *((_DWORD *)v5 + 10);
+            for ( k = v28 + 1; ; k = v30 + 1 )
+            {
+              v30 = k & 0x3F;
+              if ( v30 == v28 )
+                break;
+              v31 = (char *)v5 + 1344 * v30;
+              if ( *((_DWORD *)v31 + 285) != 2 )
+                break;
+              if ( !v22 )
+                goto LABEL_70;
+              for ( m = *((_DWORD *)v5 + 12);
+                    m != (((unsigned __int8)*((_DWORD *)v5 + 11) - 1) & 0x3F);
+                    m = ((_BYTE)m - 1) & 0x3F )
+              {
+                if ( *((_DWORD *)v5 + 336 * m + 285) == 14 )
+                  goto LABEL_78;
+              }
+              v33 = *((_DWORD *)v31 + 306);
+              if ( (v33 & 0x10) != 0 )
+                v34 = ((unsigned __int16)**((_DWORD **)v31 + 158) | (unsigned __int16)(**((_DWORD **)v31 + 158) >> 10)) & 0x3FF;
+              else
+                v34 = (1 << *((_DWORD *)a2 + 36)) - 1;
+              if ( (v34 & v11[589]) != 0 )
+                break;
+              if ( *((_DWORD *)a2 + 38) <= 1u || v11[1] == 3 || (v33 & 0x100) != 0 || (v33 & 0x80u) == 0 )
+              {
+LABEL_70:
+                v33 = *((_DWORD *)v31 + 306);
+                if ( (v33 & 0x10) != 0 )
+                  v35 = ((unsigned __int16)**((_DWORD **)v31 + 158) | (unsigned __int16)(**((_DWORD **)v31 + 158) >> 10)) & 0x3FF;
+                else
+                  v35 = (1 << *((_DWORD *)a2 + 36)) - 1;
+                if ( (v35 & v11[588]) != 0 )
+                  break;
+              }
+              v13 = (struct VIDSCH_FLIP_QUEUE_ENTRY *)(v31 + 88);
+              v12 = v30;
+              if ( (v33 & 0x80u) == 0 )
+              {
+                if ( (v33 & 0x1000) != 0 )
+                  *((_DWORD *)v31 + 306) = v33 & 0xFFFFEFFF;
+                break;
+              }
+            }
+LABEL_78:
+            v36 = *((_DWORD *)v5 + 10);
+            v27 = a1;
+            if ( v12 != v36 )
+            {
+              v40 = 0;
+              VidSchiCompleteFlipEntry((__int64)a1, (__int64)a2, a4, (__int64)v5, v36, ((_BYTE)v12 - 1) & 0x3F, 6, &v40);
+            }
+          }
+          *((_DWORD *)v13 + 263) = 4;
+          goto LABEL_49;
+        }
+        *v21 = 3;
+LABEL_48:
+        v27 = a1;
+LABEL_49:
+        if ( *((_DWORD *)v13 + 263) == 4 )
+          VidSchiExecuteMmIoFlip(v27, (__int64)a2, a4, (__int64)v5, v12, v39);
+        return;
+      }
+      VidSchiSelectPresentAtFlip(v8, a2, a4, v5, (unsigned int *)&a5, &v38);
+      v13 = v38;
     }
-    v19 = (__int64)v29;
-    goto LABEL_11;
+LABEL_47:
+    v12 = (unsigned int)a5;
+    goto LABEL_48;
   }
 }

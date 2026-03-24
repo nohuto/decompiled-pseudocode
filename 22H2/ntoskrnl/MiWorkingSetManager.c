@@ -1,143 +1,117 @@
 /*
- * XREFs of MiWorkingSetManager @ 0x14021D610
+ * XREFs of MiWorkingSetManager @ 0x14033BC70
  * Callers:
- *     KeBalanceSetManager @ 0x140392980 (KeBalanceSetManager.c)
- *     MiPartitionWorkingSetManager @ 0x1406295C0 (MiPartitionWorkingSetManager.c)
+ *     KeBalanceSetManager @ 0x1403B8A80 (KeBalanceSetManager.c)
+ *     MiPartitionWorkingSetManager @ 0x140535680 (MiPartitionWorkingSetManager.c)
  * Callees:
- *     MiSignalLargePageRebuild @ 0x14021D444 (MiSignalLargePageRebuild.c)
- *     MiNumberWsSwapPagefiles @ 0x14021D8E0 (MiNumberWsSwapPagefiles.c)
- *     MiScanPagefiles @ 0x14021D91C (MiScanPagefiles.c)
- *     MiWakeBadPageSignalThread @ 0x14021D9D8 (MiWakeBadPageSignalThread.c)
- *     MiReclaimUnusedUltraMdlMaps @ 0x14021DA38 (MiReclaimUnusedUltraMdlMaps.c)
- *     MiAdjustPteBins @ 0x14021DD08 (MiAdjustPteBins.c)
- *     MiPruneProcessLargePageCaches @ 0x14021E6B0 (MiPruneProcessLargePageCaches.c)
- *     MiWakePageZeroing @ 0x14021E7C4 (MiWakePageZeroing.c)
- *     MiAdjustCachedStacks @ 0x14021E8DC (MiAdjustCachedStacks.c)
- *     MiCheckLogPinDriverAddresses @ 0x14021EBE8 (MiCheckLogPinDriverAddresses.c)
- *     MiFreeUnusedSlabPages @ 0x14021ED2C (MiFreeUnusedSlabPages.c)
- *     MiAdjustModifiedPageLoad @ 0x14021F254 (MiAdjustModifiedPageLoad.c)
- *     MiScheduleZeroPageThreads @ 0x14021F3EC (MiScheduleZeroPageThreads.c)
- *     MiLogPeriodicTelemetry @ 0x14021F674 (MiLogPeriodicTelemetry.c)
- *     MiProcessWorkingSets @ 0x14021FA30 (MiProcessWorkingSets.c)
- *     KePulseEvent @ 0x1402206C0 (KePulseEvent.c)
- *     KeQueryUnbiasedInterruptTime @ 0x1402235C0 (KeQueryUnbiasedInterruptTime.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     MiEmptyDecayClusterTimers @ 0x14025AE00 (MiEmptyDecayClusterTimers.c)
- *     MiReleaseSystemCacheView @ 0x1402A0020 (MiReleaseSystemCacheView.c)
- *     ExQueueWorkItemToPartition @ 0x1402B956C (ExQueueWorkItemToPartition.c)
- *     PsReferencePartitionSafe @ 0x1402F9C1C (PsReferencePartitionSafe.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiHandleForceTrimWorkingSets @ 0x140634B30 (MiHandleForceTrimWorkingSets.c)
- *     MiQueueExtentPfnDeletion @ 0x14063F128 (MiQueueExtentPfnDeletion.c)
+ *     MiProcessWorkingSets @ 0x140207B60 (MiProcessWorkingSets.c)
+ *     MiWakePageZeroing @ 0x14027F7A8 (MiWakePageZeroing.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     MiEnumerateSlabAllocators @ 0x1403103EC (MiEnumerateSlabAllocators.c)
+ *     KePulseEvent @ 0x14033AAD0 (KePulseEvent.c)
+ *     MiDeleteStaleCacheMaps @ 0x14033ABE0 (MiDeleteStaleCacheMaps.c)
+ *     MiReclaimUnusedUltraMdlMaps @ 0x14033AC50 (MiReclaimUnusedUltraMdlMaps.c)
+ *     MiCheckLogPinDriverAddresses @ 0x14033ACF8 (MiCheckLogPinDriverAddresses.c)
+ *     MiEmptyDecayClusterTimers @ 0x14033AE10 (MiEmptyDecayClusterTimers.c)
+ *     MiAdjustPteBins @ 0x14033B2E8 (MiAdjustPteBins.c)
+ *     MiAdjustCachedStacks @ 0x14033B548 (MiAdjustCachedStacks.c)
+ *     MiAdjustModifiedPageLoad @ 0x14033BADC (MiAdjustModifiedPageLoad.c)
+ *     MiScheduleZeroPageThreads @ 0x14033BE94 (MiScheduleZeroPageThreads.c)
+ *     MiSignalLargePageRebuild @ 0x14033BFF0 (MiSignalLargePageRebuild.c)
+ *     MiCheckTrimUnusedPageFileRegions @ 0x14033C19C (MiCheckTrimUnusedPageFileRegions.c)
+ *     MiScanPagefiles @ 0x14033C2FC (MiScanPagefiles.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiQueueExtentPfnDeletion @ 0x140541EAC (MiQueueExtentPfnDeletion.c)
  */
 
 __int64 __fastcall MiWorkingSetManager(__int64 a1, int a2)
 {
-  __int64 v4; // rdi
-  int v5; // ebp
-  int v6; // eax
+  __int64 v4; // r8
+  __int64 v5; // rdi
+  int v6; // ebp
   int v7; // eax
   int v8; // eax
-  __int64 v9; // rdx
-  char v10; // si
-  ULONGLONG UnbiasedInterruptTime; // rax
+  __int64 v9; // rcx
+  char v10; // al
+  char v11; // si
   unsigned __int64 v12; // rax
   unsigned __int64 v13; // rcx
-  signed __int32 v15[8]; // [rsp+0h] [rbp-B8h] BYREF
-  _BYTE v16[112]; // [rsp+20h] [rbp-98h] BYREF
+  _BYTE v15[112]; // [rsp+20h] [rbp-98h] BYREF
 
-  memset(v16, 0, sizeof(v16));
-  v4 = *(_QWORD *)(a1 + 16920);
-  v5 = 0;
-  if ( !*(_QWORD *)(v4 + 88) )
-    *(_QWORD *)(v4 + 88) = KeGetCurrentThread();
-  MiWakePageZeroing(a1, 0LL, 2LL);
-  if ( (_UNKNOWN *)a1 == &MiSystemPartition )
+  memset(v15, 0, sizeof(v15));
+  v5 = *(_QWORD *)(a1 + 6848);
+  v6 = 0;
+  if ( !*(_QWORD *)(v5 + 88) )
+    *(_QWORD *)(v5 + 88) = KeGetCurrentThread();
+  MiWakePageZeroing(a1, 0LL, v4);
+  if ( (ULONG_PTR *)a1 == &MiSystemPartition )
   {
+    MiDeleteStaleCacheMaps();
     MiReclaimUnusedUltraMdlMaps();
     MiCheckLogPinDriverAddresses();
-    MiWakeBadPageSignalThread();
   }
   MiEmptyDecayClusterTimers(a1);
-  MiFreeUnusedSlabPages(a1);
-  MiPruneProcessLargePageCaches(a1, 1LL);
-  MiReleaseSystemCacheView(a1, 0LL);
-  v6 = *(_DWORD *)(v4 + 32) + 1;
-  *(_DWORD *)(v4 + 32) = v6;
-  if ( v6 == *(_DWORD *)(v4 + 36) )
+  if ( (*(_DWORD *)(a1 + 4) & 0x18) != 0 )
+    MiEnumerateSlabAllocators(
+      a1,
+      (unsigned int (__fastcall *)(__int64, unsigned __int64, __int64))MiFreeSlabEntries,
+      0LL);
+  if ( ++*(_DWORD *)(v5 + 32) == *(_DWORD *)(v5 + 36) )
   {
-    v7 = *(_DWORD *)(v4 + 24);
-    *(_DWORD *)(v4 + 32) = 0;
+    v7 = *(_DWORD *)(v5 + 24);
+    *(_DWORD *)(v5 + 32) = 0;
     v8 = ((_BYTE)v7 + 1) & 0xF;
-    *(_DWORD *)(v4 + 24) = v8;
+    *(_DWORD *)(v5 + 24) = v8;
     v9 = ((_BYTE)v8 - 8) & 0xF;
-    if ( *(_QWORD *)(88 * v9 + a1 + 5312) )
-      KeSetEvent((PRKEVENT)(a1 + 24 * (v9 + 293)), 0, 0);
+    if ( *(_QWORD *)(a1 + 40 * v9 + 3456) )
+      KeSetEvent((PRKEVENT)(a1 + 8 * (v9 + 2 * v9 + 551)), 0, 0);
   }
-  if ( (_UNKNOWN *)a1 == &MiSystemPartition && !a2 )
-    KePulseEvent(&Event, 0, 0);
-  MiLogPeriodicTelemetry(a1);
-  v16[4] = 1;
-  while ( 1 )
+  if ( (ULONG_PTR *)a1 == &MiSystemPartition && !a2 )
+    KePulseEvent(&stru_140C4EE50, 0, 0);
+  v15[4] = 1;
+  MiProcessWorkingSets(a1, (__int64)v15);
+  v10 = v15[4];
+  if ( v15[4] != 1 )
   {
-    v10 = v16[4];
-    MiProcessWorkingSets(a1, v16);
-    if ( (*(_DWORD *)(v4 + 40) & 0x400) != 0 )
-      MiHandleForceTrimWorkingSets(a1);
-    if ( v16[4] == 1 )
-      break;
-    if ( v10 == v16[4] )
+    v11 = 1;
+    do
     {
-      v16[4] = 1;
-      ++*(_DWORD *)(v4 + 2576);
+      if ( v11 == v10 )
+      {
+        v15[4] = 1;
+        ++*(_DWORD *)(v5 + 2576);
+      }
+      else
+      {
+        MiAdjustModifiedPageLoad(a1, *(_QWORD *)(v5 + 2336), *(_DWORD *)(v5 + 120));
+        ++*(_DWORD *)(v5 + 2572);
+        MiScanPagefiles(a1);
+        v6 = 1;
+      }
+      v11 = v15[4];
+      MiProcessWorkingSets(a1, (__int64)v15);
+      v10 = v15[4];
     }
-    else
-    {
-      MiAdjustModifiedPageLoad(a1, *(_QWORD *)(v4 + 2336), *(unsigned int *)(v4 + 120));
-      ++*(_DWORD *)(v4 + 2572);
-      MiScanPagefiles(a1);
-      v5 = 1;
-    }
+    while ( v15[4] != 1 );
   }
-  if ( (_UNKNOWN *)a1 == &MiSystemPartition )
+  if ( (ULONG_PTR *)a1 == &MiSystemPartition )
   {
     MiAdjustPteBins();
-    if ( byte_140C6582A )
+    MiAdjustCachedStacks();
+    if ( byte_140C4CB32 == 1 )
       MiQueueExtentPfnDeletion(0LL);
   }
-  MiAdjustCachedStacks(a1);
-  if ( !v5 )
+  if ( !v6 )
   {
-    MiAdjustModifiedPageLoad(a1, *(_QWORD *)(v4 + 2336), *(unsigned int *)(v4 + 120));
+    MiAdjustModifiedPageLoad(a1, *(_QWORD *)(v5 + 2336), *(_DWORD *)(v5 + 120));
     MiScanPagefiles(a1);
   }
-  if ( (unsigned int)MiNumberWsSwapPagefiles(a1) )
-  {
-    if ( !*(_QWORD *)(a1 + 1112) )
-    {
-      _InterlockedOr(v15, 0);
-      UnbiasedInterruptTime = KeQueryUnbiasedInterruptTime();
-      if ( UnbiasedInterruptTime - *(_QWORD *)(a1 + 1120) >= 0x861C46800LL )
-      {
-        if ( byte_140C67F41 )
-        {
-          *(_QWORD *)(a1 + 1120) = UnbiasedInterruptTime - 33000000000LL;
-        }
-        else if ( (unsigned __int8)PsReferencePartitionSafe(*(_QWORD *)(a1 + 200)) )
-        {
-          *(_QWORD *)(a1 + 1088) = 0LL;
-          *(_QWORD *)(a1 + 1104) = MiTrimUnusedPageFileRegionsWorker;
-          *(_QWORD *)(a1 + 1112) = a1;
-          ExQueueWorkItemToPartition(a1 + 1088);
-        }
-      }
-    }
-  }
-  v12 = *(_QWORD *)(a1 + 17600);
-  v13 = *(_QWORD *)(a1 + 17824);
+  MiCheckTrimUnusedPageFileRegions(a1);
+  v12 = *(_QWORD *)(a1 + 7488);
+  v13 = *(_QWORD *)(a1 + 7600);
   if ( v12 > v13 && v12 - v13 >= 0x320 )
-    KeSetEvent((PRKEVENT)(a1 + 832), 0, 0);
+    KeSetEvent((PRKEVENT)(a1 + 792), 0, 0);
   MiSignalLargePageRebuild(a1);
   return MiScheduleZeroPageThreads(a1);
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of imp_WdfIoResourceListCreate @ 0x1C006F870
+ * XREFs of imp_WdfIoResourceListCreate @ 0x1C005C850
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C0005B30 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
- *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C00062C0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ??0FxIoResList@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxIoResReqList@@@Z @ 0x1C001DFC0 (--0FxIoResList@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxIoResReqList@@@Z.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000A0E0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
+ *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C000B520 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
+ *     ??0FxIoResList@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxIoResReqList@@@Z @ 0x1C005C06C (--0FxIoResList@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxIoResReqList@@@Z.c)
  */
 
 __int64 __fastcall imp_WdfIoResourceListCreate(
@@ -25,13 +25,12 @@ __int64 __fastcall imp_WdfIoResourceListCreate(
   FxObject *v9; // rax
   FxObject *v10; // rbx
   int v11; // edi
-  FxPoolTypeOrPoolFlags v12; // [rsp+40h] [rbp-18h] BYREF
-  ULONG_PTR retaddr; // [rsp+58h] [rbp+0h]
-  FxIoResReqList *pIoResReqList; // [rsp+60h] [rbp+8h] BYREF
+  ULONG_PTR retaddr; // [rsp+48h] [rbp+0h]
+  FxIoResReqList *pIoResReqList; // [rsp+50h] [rbp+8h] BYREF
 
   pIoResReqList = 0LL;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)RequirementsList,
     0x1037u,
     (void **)&pIoResReqList);
@@ -42,12 +41,26 @@ __int64 __fastcall imp_WdfIoResourceListCreate(
   result = FxValidateObjectAttributes(m_Globals, Attributes, 1);
   if ( (int)result >= 0 )
   {
-    *(_QWORD *)&v12.UsePoolType = 0LL;
-    v12.u.PoolFlags = 64LL;
-    v8 = (FxIoResList *)FxObjectHandleAllocCommon(m_Globals, &v12, 0xA0uLL, 0, Attributes, 0, FxObjectTypeExternal);
-    if ( v8 && (FxIoResList::FxIoResList(v8, m_Globals, pIoResReqList), (v10 = v9) != 0LL) )
+    v8 = (FxIoResList *)FxObjectHandleAlloc(
+                          m_Globals,
+                          ExDefaultNonPagedPoolType,
+                          0xA0uLL,
+                          0,
+                          Attributes,
+                          0,
+                          FxObjectTypeExternal);
+    if ( v8 )
     {
-      v11 = FxObject::Commit(v9, (_FX_DRIVER_GLOBALS *)Attributes, (void **)ResourceList, pIoResReqList, 1u);
+      FxIoResList::FxIoResList(v8, m_Globals, pIoResReqList);
+      v10 = v9;
+    }
+    else
+    {
+      v10 = 0LL;
+    }
+    if ( v10 )
+    {
+      v11 = FxObject::Commit(v10, (_FX_DRIVER_GLOBALS *)Attributes, (void **)ResourceList, pIoResReqList, 1u);
       if ( v11 < 0 )
       {
         FxObject::ClearEvtCallbacks(v10);

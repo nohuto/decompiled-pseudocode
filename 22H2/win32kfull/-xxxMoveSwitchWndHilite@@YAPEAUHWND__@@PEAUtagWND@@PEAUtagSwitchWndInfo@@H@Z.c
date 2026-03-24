@@ -1,16 +1,16 @@
 /*
- * XREFs of ?xxxMoveSwitchWndHilite@@YAPEAUHWND__@@PEAUtagWND@@PEAUtagSwitchWndInfo@@H@Z @ 0x1C01C961C
+ * XREFs of ?xxxMoveSwitchWndHilite@@YAPEAUHWND__@@PEAUtagWND@@PEAUtagSwitchWndInfo@@H@Z @ 0x1C01F2C5C
  * Callers:
- *     xxxNextWindow @ 0x1C01CA504 (xxxNextWindow.c)
- *     xxxOldNextWindow @ 0x1C01CACD8 (xxxOldNextWindow.c)
+ *     xxxNextWindow @ 0x1C01F3B6C (xxxNextWindow.c)
+ *     xxxOldNextWindow @ 0x1C01F43B0 (xxxOldNextWindow.c)
  * Callees:
- *     xxxWindowEvent @ 0x1C00E71B0 (xxxWindowEvent.c)
- *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C013BB08 (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z @ 0x1C01C9008 (-Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z.c)
- *     ?NextPrevPhwnd@@YAPEAPEAUHWND__@@PEAUtagSwitchWndInfo@@PEAPEAU1@H@Z @ 0x1C01C93BC (-NextPrevPhwnd@@YAPEAPEAUHWND__@@PEAUtagSwitchWndInfo@@PEAPEAU1@H@Z.c)
- *     ?NextPrevTaskIndex@@YAHPEAUtagSwitchWndInfo@@HHH@Z @ 0x1C01C93F8 (-NextPrevTaskIndex@@YAHPEAUtagSwitchWndInfo@@HHH@Z.c)
- *     ?xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR@@@Z @ 0x1C01C984C (-xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR.c)
+ *     xxxWindowEvent @ 0x1C0081440 (xxxWindowEvent.c)
+ *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C0168AB4 (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z @ 0x1C01F2620 (-Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z.c)
+ *     ?NextPrevPhwnd@@YAPEAPEAUHWND__@@PEAUtagSwitchWndInfo@@PEAPEAU1@H@Z @ 0x1C01F29F0 (-NextPrevPhwnd@@YAPEAPEAUHWND__@@PEAUtagSwitchWndInfo@@PEAPEAU1@H@Z.c)
+ *     ?NextPrevTaskIndex@@YAHPEAUtagSwitchWndInfo@@HHH@Z @ 0x1C01F2A2C (-NextPrevTaskIndex@@YAHPEAUtagSwitchWndInfo@@HHH@Z.c)
+ *     ?xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR@@@Z @ 0x1C01F2E90 (-xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR.c)
  */
 
 __int64 __fastcall xxxMoveSwitchWndHilite(struct tagWND *a1, struct tagSwitchWndInfo *a2, int a3)
@@ -28,12 +28,12 @@ __int64 __fastcall xxxMoveSwitchWndHilite(struct tagWND *a1, struct tagSwitchWnd
   struct tagSwitchWndInfo *v16; // rcx
   __int64 v18; // rbx
   struct tagSwitchWndInfo *v19; // rax
-  int v20; // [rsp+20h] [rbp-58h]
+  unsigned int v20; // [rsp+20h] [rbp-58h]
 
   v3 = 0;
   v5 = 0;
   if ( a2 != Getpswi(a1) )
-    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTellMeIf", 0x20000, 1480);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTellMeIf", 0x20000, 1483);
   v8 = *((_DWORD *)a2 + 17);
   v9 = *((_DWORD *)a2 + 18);
   if ( a3 )
@@ -111,15 +111,18 @@ LABEL_25:
     *((_DWORD *)v15 + 18) = v9;
     *((_DWORD *)v15 + 17) = v11;
     v18 = **((_QWORD **)v15 + 4);
-    if ( !v5
-      || (xxxPaintIconsInSwitchWindow(a1, v15, DCEx, *((_DWORD *)v15 + 13), v20, 0, 1, v3, 0LL),
-          (v16 = Getpswi(a1)) != 0LL) )
+    if ( v5 )
+    {
+      xxxPaintIconsInSwitchWindow(a1, v15, DCEx, *((_DWORD *)v15 + 13), v20, 0, 1, v3, 0LL);
+      v16 = Getpswi(a1);
+    }
+    if ( v16 )
     {
       xxxDrawSwitchWndHilite(v16, DCEx, v11, v9, 1);
       _ReleaseDC(DCEx);
       v19 = Getpswi(a1);
       if ( v19 )
-        xxxWindowEvent(0x8005u, a1, -4, *((_DWORD *)v19 + 14) * v9 + v11 + 1, 1);
+        xxxWindowEvent(0x8005u, a1, -4, v11 + v9 * *((_DWORD *)v19 + 14) + 1, 1u);
     }
     else
     {

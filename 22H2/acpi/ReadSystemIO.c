@@ -1,44 +1,51 @@
 /*
- * XREFs of ReadSystemIO @ 0x1C0052EFC
+ * XREFs of ReadSystemIO @ 0x1C0027528
  * Callers:
- *     DebugInPort @ 0x1C004DA30 (DebugInPort.c)
- *     AccessBaseField @ 0x1C00517D0 (AccessBaseField.c)
+ *     AccessBaseField @ 0x1C0001970 (AccessBaseField.c)
+ *     DebugInPort @ 0x1C0066040 (DebugInPort.c)
  * Callees:
- *     CheckSystemIOAddressValidity @ 0x1C0051C78 (CheckSystemIOAddressValidity.c)
+ *     CheckSystemIOAddressValidity @ 0x1C0027590 (CheckSystemIOAddressValidity.c)
  */
 
-__int64 __fastcall ReadSystemIO(unsigned int a1, unsigned int a2, int a3)
+__int64 __fastcall ReadSystemIO(__int64 a1, unsigned int a2, int a3)
 {
-  unsigned __int16 v5; // di
-  unsigned int v6; // ebx
-  unsigned int v7; // ebx
-  unsigned __int32 v8; // eax
-  unsigned int v10; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v5; // r8
+  unsigned __int16 v6; // di
+  __int64 v7; // rdx
+  unsigned int v8; // ebx
+  unsigned __int32 v9; // eax
+  unsigned int v11; // ebx
+  unsigned __int32 v12; // [rsp+40h] [rbp+18h] BYREF
 
-  v10 = 0;
-  v5 = a1;
-  if ( !CheckSystemIOAddressValidity(1, (const char *)a1, a2, &v10) )
-    goto LABEL_8;
-  v6 = a2 - 1;
-  if ( !v6 )
+  v12 = 0;
+  v5 = a2;
+  v6 = a1;
+  v7 = (unsigned int)a1;
+  LOBYTE(a1) = 1;
+  if ( !(unsigned __int8)CheckSystemIOAddressValidity(a1, v7, v5, &v12) )
   {
-    LOBYTE(v8) = __inbyte(v5);
-    v8 = (unsigned __int8)v8;
-    return a3 & v8;
+LABEL_5:
+    v9 = v12;
+    return a3 & v9;
   }
-  v7 = v6 - 1;
-  if ( !v7 )
+  v8 = a2 - 1;
+  if ( v8 )
   {
-    LOWORD(v8) = __inword(v5);
-    v8 = (unsigned __int16)v8;
-    return a3 & v8;
+    v11 = v8 - 1;
+    if ( !v11 )
+    {
+      LOWORD(v9) = __inword(v6);
+      v9 = (unsigned __int16)v9;
+      return a3 & v9;
+    }
+    if ( v11 == 2 )
+    {
+      v9 = __indword(v6);
+      return a3 & v9;
+    }
+    goto LABEL_5;
   }
-  if ( v7 != 2 )
-  {
-LABEL_8:
-    v8 = v10;
-    return a3 & v8;
-  }
-  v8 = __indword(v5);
-  return a3 & v8;
+  LOBYTE(v9) = __inbyte(v6);
+  v9 = (unsigned __int8)v9;
+  return a3 & v9;
 }

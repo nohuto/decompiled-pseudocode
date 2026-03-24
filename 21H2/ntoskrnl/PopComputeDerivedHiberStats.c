@@ -1,8 +1,8 @@
 /*
- * XREFs of PopComputeDerivedHiberStats @ 0x1407FE004
+ * XREFs of PopComputeDerivedHiberStats @ 0x140774840
  * Callers:
- *     PopDiagTraceHiberStats @ 0x1407FDC18 (PopDiagTraceHiberStats.c)
- *     PopDiagTracePerfTrackData @ 0x1407FE0BC (PopDiagTracePerfTrackData.c)
+ *     PopDiagTracePerfTrackData @ 0x140774314 (PopDiagTracePerfTrackData.c)
+ *     PopDiagTraceHiberStats @ 0x14077444C (PopDiagTraceHiberStats.c)
  * Callees:
  *     <none>
  */

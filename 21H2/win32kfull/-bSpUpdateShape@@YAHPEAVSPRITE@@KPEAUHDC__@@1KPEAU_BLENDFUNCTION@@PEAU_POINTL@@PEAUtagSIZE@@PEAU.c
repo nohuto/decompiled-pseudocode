@@ -1,29 +1,29 @@
 /*
- * XREFs of ?bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU_RECTL@@@Z @ 0x1C0156B64
+ * XREFs of ?bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU_RECTL@@@Z @ 0x1C0164ED8
  * Callers:
- *     ?bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPEAU_RECTL@@@Z @ 0x1C00857A4 (-bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPE.c)
+ *     ?bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPEAU_RECTL@@@Z @ 0x1C00EFA8C (-bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPE.c)
  * Callees:
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001F4EC (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C002C61C (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
- *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C002C6B0 (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
- *     ?bIsSourceBGRA@@YAHPEAVSURFACE@@@Z @ 0x1C002D3AC (-bIsSourceBGRA@@YAHPEAVSURFACE@@@Z.c)
- *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C0031090 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00398B0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C0086018 (-vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z.c)
- *     ?vLockShared@SPRITERANGELOCK@@QEAAXXZ @ 0x1C0086C30 (-vLockShared@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ?bRedirectionBitmap@SURFACE@@QEAAHXZ @ 0x1C0086C6C (-bRedirectionBitmap@SURFACE@@QEAAHXZ.c)
- *     ?SrcSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C008A13C (-SrcSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z.c)
- *     ?vSpDeleteShape@@YAXPEAVSPRITE@@@Z @ 0x1C00B58D8 (-vSpDeleteShape@@YAXPEAVSPRITE@@@Z.c)
- *     XLATEOBJ_iXlate @ 0x1C00D5950 (XLATEOBJ_iXlate.c)
- *     ?bSpCreateShape@@YAHPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAVPALETTE@@KK4@Z @ 0x1C01571DC (-bSpCreateShape@@YAHPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAVPALETT.c)
- *     ?bSpUpdateAlpha@@YAHPEAVSPRITE@@PEAU_BLENDFUNCTION@@H@Z @ 0x1C015740C (-bSpUpdateAlpha@@YAHPEAVSPRITE@@PEAU_BLENDFUNCTION@@H@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
- *     ?vSpUpdatePerPixelAlphaFromColorKey@@YAXPEAU_SURFOBJ@@KPEAU_RECTL@@PEAPEAE@Z @ 0x1C0281978 (-vSpUpdatePerPixelAlphaFromColorKey@@YAXPEAU_SURFOBJ@@KPEAU_RECTL@@PEAPEAE@Z.c)
- *     ?bConvertDfbDcToDib@@YA_NPEAVXDCOBJ@@@Z @ 0x1C02B9380 (-bConvertDfbDcToDib@@YA_NPEAVXDCOBJ@@@Z.c)
- *     ?pConvertDfbSurfaceToDibPostNKAPC@@YAHPEAUHSURF__@@@Z @ 0x1C02B952C (-pConvertDfbSurfaceToDibPostNKAPC@@YAHPEAUHSURF__@@@Z.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084EE0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C00ACD0C (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
+ *     ?bIsSourceBGRA@@YAHPEAVSURFACE@@@Z @ 0x1C00ACD38 (-bIsSourceBGRA@@YAHPEAVSURFACE@@@Z.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00B157C (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C00B59BC (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     XLATEOBJ_iXlate @ 0x1C00C8500 (XLATEOBJ_iXlate.c)
+ *     ?vSpDeleteShape@@YAXPEAVSPRITE@@@Z @ 0x1C00EDB20 (-vSpDeleteShape@@YAXPEAVSPRITE@@@Z.c)
+ *     ?vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C00EE310 (-vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z.c)
+ *     ?vLockShared@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00F019C (-vLockShared@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?bRedirectionBitmap@SURFACE@@QEAAHXZ @ 0x1C00F01D8 (-bRedirectionBitmap@SURFACE@@QEAAHXZ.c)
+ *     ?SrcSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C010A0D0 (-SrcSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z.c)
+ *     ?pConvertDfbSurfaceToDibPostNKAPC@@YAHPEAUHSURF__@@@Z @ 0x1C015FC4C (-pConvertDfbSurfaceToDibPostNKAPC@@YAHPEAUHSURF__@@@Z.c)
+ *     ?bSpCreateShape@@YAHPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAVPALETTE@@KK4@Z @ 0x1C0165548 (-bSpCreateShape@@YAHPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAVPALETT.c)
+ *     ?bSpUpdateAlpha@@YAHPEAVSPRITE@@PEAU_BLENDFUNCTION@@H@Z @ 0x1C0165770 (-bSpUpdateAlpha@@YAHPEAVSPRITE@@PEAU_BLENDFUNCTION@@H@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
+ *     ?vSpUpdatePerPixelAlphaFromColorKey@@YAXPEAU_SURFOBJ@@KPEAU_RECTL@@PEAPEAE@Z @ 0x1C0284D14 (-vSpUpdatePerPixelAlphaFromColorKey@@YAXPEAU_SURFOBJ@@KPEAU_RECTL@@PEAPEAE@Z.c)
+ *     ?bConvertDfbDcToDib@@YA_NPEAVXDCOBJ@@@Z @ 0x1C02BB110 (-bConvertDfbDcToDib@@YA_NPEAVXDCOBJ@@@Z.c)
  */
 
 __int64 __fastcall bSpUpdateShape(
@@ -40,69 +40,73 @@ __int64 __fastcall bSpUpdateShape(
   struct _SPRITESTATE *v11; // rcx
   int v13; // r15d
   unsigned int v14; // r14d
-  __int64 v15; // r8
-  __int64 v16; // r13
-  __int64 v17; // rcx
-  struct _SPRITESTATE *v18; // rdi
-  __int64 v19; // rdx
-  __int64 v20; // rax
-  int v21; // edx
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  __int64 v18; // r13
+  __int64 v19; // rcx
+  struct _SPRITESTATE *v20; // rdi
+  __int64 v21; // rdx
+  __int64 v22; // rax
+  int v23; // edx
   LONG x; // ecx
   int y; // edx
-  LONG v24; // r8d
-  __int64 v25; // r13
-  LONG v26; // r9d
-  LONG v27; // ecx
-  LONG v28; // eax
-  SPRITERANGELOCK *v29; // r14
-  _DWORD *v30; // rbx
-  XLATEOBJ *v31; // r8
-  __int64 v32; // rcx
-  __int64 v33; // rdi
-  struct _BLENDFUNCTION v34; // eax
-  int v35; // ebx
-  struct PALETTE *v36; // rcx
-  struct PALETTE *v37; // rax
-  int v38; // ebx
-  ULONG v39; // eax
-  char v40; // r8
-  int v41; // eax
-  HSURF v42; // rcx
-  bool v43; // zf
-  struct _RECTL *v44; // rbx
-  struct _SURFOBJ *v45; // rcx
-  unsigned int v46; // ebx
+  LONG v26; // r8d
+  __int64 v27; // r13
+  LONG v28; // r9d
+  LONG v29; // ecx
+  LONG v30; // eax
+  SPRITERANGELOCK *v31; // r14
+  _DWORD *v32; // rbx
+  XLATEOBJ *v33; // r8
+  __int64 v34; // rcx
+  __int64 v35; // rdi
+  struct _BLENDFUNCTION v36; // eax
+  int v37; // ebx
+  struct PALETTE *v38; // rcx
+  struct PALETTE *v39; // rax
+  int v40; // ebx
+  ULONG v41; // eax
+  char v42; // r8
+  int v43; // eax
+  HSURF v44; // rcx
+  bool v45; // zf
+  struct _RECTL *v46; // rbx
+  struct _SURFOBJ *v47; // rcx
+  __int64 v48; // rdx
+  unsigned int v49; // ebx
   ULONG NearestIndexFromColorref; // [rsp+60h] [rbp-A0h]
-  struct _BLENDFUNCTION v49; // [rsp+64h] [rbp-9Ch] BYREF
-  int v50; // [rsp+68h] [rbp-98h]
-  int v51; // [rsp+6Ch] [rbp-94h]
-  __int64 v52; // [rsp+70h] [rbp-90h] BYREF
-  struct PALETTE *v53; // [rsp+78h] [rbp-88h] BYREF
-  LONG v54; // [rsp+80h] [rbp-80h]
-  LONG v55; // [rsp+84h] [rbp-7Ch]
-  int v56; // [rsp+88h] [rbp-78h]
-  int v57; // [rsp+8Ch] [rbp-74h]
-  unsigned int v58; // [rsp+90h] [rbp-70h]
-  unsigned int v59; // [rsp+94h] [rbp-6Ch]
-  struct _SPRITESTATE *v60; // [rsp+98h] [rbp-68h]
-  XLATEOBJ *pxlo; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v62; // [rsp+A8h] [rbp-58h] BYREF
-  struct PALETTE *v63; // [rsp+B0h] [rbp-50h]
-  struct _RECTL *v64; // [rsp+B8h] [rbp-48h]
-  _QWORD v65[2]; // [rsp+C0h] [rbp-40h] BYREF
-  char v66[32]; // [rsp+D0h] [rbp-30h] BYREF
-  _QWORD v67[2]; // [rsp+F0h] [rbp-10h] BYREF
-  _BYTE v68[32]; // [rsp+100h] [rbp+0h] BYREF
-  struct _RECTL v69; // [rsp+120h] [rbp+20h] BYREF
+  struct _BLENDFUNCTION v52; // [rsp+64h] [rbp-9Ch] BYREF
+  int v53; // [rsp+68h] [rbp-98h]
+  __int64 v54; // [rsp+70h] [rbp-90h] BYREF
+  struct PALETTE *v55; // [rsp+78h] [rbp-88h] BYREF
+  LONG v56; // [rsp+80h] [rbp-80h]
+  LONG v57; // [rsp+84h] [rbp-7Ch]
+  int v58; // [rsp+88h] [rbp-78h]
+  int v59; // [rsp+8Ch] [rbp-74h]
+  unsigned int v60; // [rsp+90h] [rbp-70h]
+  unsigned int v61; // [rsp+94h] [rbp-6Ch]
+  int v62; // [rsp+98h] [rbp-68h]
+  struct _SPRITESTATE *v63; // [rsp+A0h] [rbp-60h]
+  XLATEOBJ *pxlo; // [rsp+A8h] [rbp-58h] BYREF
+  __int64 v65; // [rsp+B0h] [rbp-50h] BYREF
+  struct PALETTE *v66; // [rsp+B8h] [rbp-48h]
+  struct _RECTL *v67; // [rsp+C0h] [rbp-40h]
+  _QWORD v68[2]; // [rsp+C8h] [rbp-38h] BYREF
+  char v69[32]; // [rsp+D8h] [rbp-28h] BYREF
+  _QWORD v70[2]; // [rsp+F8h] [rbp-8h] BYREF
+  _BYTE v71[32]; // [rsp+108h] [rbp+8h] BYREF
+  struct _RECTL v72; // [rsp+128h] [rbp+28h] BYREF
 
   v11 = (struct _SPRITESTATE *)*((_QWORD *)a1 + 2);
   v13 = a2;
-  v64 = a9;
-  v52 = *(_QWORD *)v11;
-  v51 = 0;
-  v69.bottom = 0;
-  v49 = 0;
-  v60 = v11;
+  v67 = a9;
+  v54 = *(_QWORD *)v11;
+  v53 = 0;
+  v72.bottom = 0;
+  NearestIndexFromColorref = 0;
+  v52 = 0;
+  v63 = v11;
   if ( a2 == 0x2000000 )
   {
     *((_DWORD *)a1 + 1) = 0x2000000;
@@ -122,242 +126,235 @@ __int64 __fastcall bSpUpdateShape(
   }
   if ( !a7 || !a8 || !a6 && (v13 & 2) != 0 )
     return 0;
-  DCOBJ::DCOBJ((DCOBJ *)v65, a4);
-  if ( !v65[0] )
+  DCOBJ::DCOBJ((DCOBJ *)v68, a4);
+  if ( !v68[0] )
     goto LABEL_78;
-  if ( (unsigned int)XDCOBJ::bFullScreen((XDCOBJ *)v65) )
+  if ( (unsigned int)XDCOBJ::bFullScreen((XDCOBJ *)v68) )
     goto LABEL_78;
-  if ( !(unsigned int)SrcSurfaceAccessCheck(*(struct SURFACE **)(v15 + 496)) )
+  if ( !(unsigned int)SrcSurfaceAccessCheck(*(struct SURFACE **)(v16 + 496), v15, v16, v17) )
     goto LABEL_78;
-  v16 = v65[0];
-  v17 = *(_QWORD *)(v65[0] + 48LL);
-  if ( v17 != *(_QWORD *)v60 && v17 != *(_QWORD *)(v52 + 24) )
+  v18 = v68[0];
+  v19 = *(_QWORD *)(v68[0] + 48LL);
+  if ( v19 != *(_QWORD *)v63 && v19 != *(_QWORD *)(v54 + 24) )
     goto LABEL_78;
   if ( a3 )
   {
-    DCOBJ::DCOBJ((DCOBJ *)v67, a3);
-    if ( v67[0] )
+    DCOBJ::DCOBJ((DCOBJ *)v70, a3);
+    if ( v70[0] )
     {
-      v19 = *(_QWORD *)(v67[0] + 48LL);
-      if ( v19 == *(_QWORD *)(v65[0] + 48LL) )
+      v21 = *(_QWORD *)(v70[0] + 48LL);
+      if ( v21 == *(_QWORD *)(v68[0] + 48LL) )
       {
-        v18 = v60;
-        if ( v19 == *(_QWORD *)v60 || v19 == *(_QWORD *)(v52 + 24) )
+        v20 = v63;
+        if ( v21 == *(_QWORD *)v63 || v21 == *(_QWORD *)(v54 + 24) )
         {
-          v20 = *(_QWORD *)(v67[0] + 976LL);
-          v63 = *(struct PALETTE **)(v67[0] + 88LL);
-          v21 = *(_DWORD *)(v20 + 184);
-          v56 = *(_DWORD *)(v20 + 176);
-          LODWORD(v20) = *(_DWORD *)(v67[0] + 120LL);
-          v57 = v21;
-          v58 = v20;
-          MDCOBJ::~MDCOBJ((MDCOBJ *)v67);
-          UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v68);
-          v16 = v65[0];
+          v22 = *(_QWORD *)(v70[0] + 976LL);
+          v66 = *(struct PALETTE **)(v70[0] + 88LL);
+          v23 = *(_DWORD *)(v22 + 184);
+          v58 = *(_DWORD *)(v22 + 176);
+          LODWORD(v22) = *(_DWORD *)(v70[0] + 120LL);
+          v59 = v23;
+          v60 = v22;
+          MDCOBJ::~MDCOBJ((MDCOBJ *)v70);
+          UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v71);
+          v18 = v68[0];
           goto LABEL_21;
         }
       }
     }
-    MDCOBJ::~MDCOBJ((MDCOBJ *)v67);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v68);
+    MDCOBJ::~MDCOBJ((MDCOBJ *)v70);
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v71);
 LABEL_78:
-    v46 = 0;
+    v49 = 0;
     goto LABEL_79;
   }
-  v18 = v60;
-  v57 = 0xFFFFFF;
-  v56 = 0;
-  v63 = ppalDefault;
+  v20 = v63;
+  v59 = 0xFFFFFF;
   v58 = 0;
+  v66 = ppalDefault;
+  v60 = 0;
 LABEL_21:
   x = a7->x;
   y = a7->y;
-  v24 = a7->x + a8->cx;
-  v25 = *(_QWORD *)(v16 + 496);
-  v26 = y + a8->cy;
-  v69.left = a7->x;
-  v69.right = v24;
-  v69.top = y;
-  v69.bottom = v26;
-  if ( !v25 )
+  v26 = a7->x + a8->cx;
+  v27 = *(_QWORD *)(v18 + 496);
+  v28 = y + a8->cy;
+  v72.left = a7->x;
+  v72.right = v26;
+  v72.top = y;
+  v72.bottom = v28;
+  if ( !v27 )
     goto LABEL_76;
   if ( x < 0 )
     goto LABEL_76;
   if ( y < 0 )
     goto LABEL_76;
-  if ( x >= v24 )
+  if ( x >= v26 )
     goto LABEL_76;
-  if ( y >= v26 )
+  if ( y >= v28 )
     goto LABEL_76;
-  v27 = *(_DWORD *)(v25 + 56);
-  if ( v24 > v27 )
+  v29 = *(_DWORD *)(v27 + 56);
+  if ( v26 > v29 )
     goto LABEL_76;
-  v28 = *(_DWORD *)(v25 + 60);
-  if ( v26 > v28 )
+  v30 = *(_DWORD *)(v27 + 60);
+  if ( v28 > v30 )
     goto LABEL_76;
-  if ( v64 )
+  if ( v67 )
   {
-    v53 = 0LL;
-    v54 = v27;
-    v55 = v28;
-    ERECTL::operator*=(&v64->left, (int *)&v53);
+    v55 = 0LL;
+    v56 = v29;
+    v57 = v30;
+    ERECTL::operator*=(&v67->left, (int *)&v55);
   }
-  v29 = (struct _SPRITESTATE *)((char *)v18 + 120);
-  SPRITERANGELOCK::vLockShared((struct _SPRITESTATE *)((char *)v18 + 120));
-  v30 = (_DWORD *)*((_QWORD *)a1 + 16);
-  v31 = 0LL;
-  if ( v30 && (unsigned int)SURFACE::bRedirectionBitmap((SURFACE *)(v30 - 6)) )
+  v31 = (struct _SPRITESTATE *)((char *)v20 + 120);
+  SPRITERANGELOCK::vLockShared((struct _SPRITESTATE *)((char *)v20 + 120));
+  v32 = (_DWORD *)*((_QWORD *)a1 + 16);
+  v33 = 0LL;
+  if ( v32 && (unsigned int)SURFACE::bRedirectionBitmap((SURFACE *)(v32 - 6)) )
   {
-    W32PIDLOCK::vLockSingleThread((W32PIDLOCK *)(v30 + 62));
+    W32PIDLOCK::vLockSingleThread((W32PIDLOCK *)(v32 + 62));
     if ( (*(_DWORD *)a1 & 0x200) != 0 )
     {
-      v53 = 0LL;
-      v54 = v30[8];
-      v55 = v30[9];
-      ERECTL::operator*=(&v69.left, (int *)&v53);
+      v55 = 0LL;
+      v56 = v32[8];
+      v57 = v32[9];
+      ERECTL::operator*=(&v72.left, (int *)&v55);
     }
-    W32PIDLOCK::vUnlockSingleThread((W32PIDLOCK *)(v30 + 62));
-    v31 = 0LL;
+    W32PIDLOCK::vUnlockSingleThread((W32PIDLOCK *)(v32 + 62));
+    v33 = 0LL;
   }
-  v32 = *(_QWORD *)(v25 + 128);
-  pxlo = v31;
-  v33 = *(_QWORD *)(v65[0] + 88LL);
-  v62 = v32;
-  if ( v32 )
-    INC_SHARE_REF_CNT(v32);
-  SPRITERANGELOCK::vUnlock(v29);
+  v34 = *(_QWORD *)(v27 + 128);
+  pxlo = v33;
+  v35 = *(_QWORD *)(v68[0] + 88LL);
+  v65 = v34;
+  if ( v34 )
+    INC_SHARE_REF_CNT(v34);
+  SPRITERANGELOCK::vUnlock(v31);
   if ( v13 != 3 || a6->AlphaFormat )
   {
-    v50 = 0;
-    v35 = 0;
-    NearestIndexFromColorref = 0;
-    if ( v13 != 2 )
-    {
-      v50 = 0;
-      NearestIndexFromColorref = 0;
-      goto LABEL_44;
-    }
+    v37 = 0;
+    v62 = 0;
   }
   else
   {
-    v34 = *a6;
+    v36 = *a6;
     v13 = 2;
-    a6 = &v49;
-    v49 = v34;
-    v49.AlphaFormat = 1;
-    v50 = 1;
-    NearestIndexFromColorref = rgbFromColorref(gppalRGB, v33);
-    v35 = 1;
+    a6 = &v52;
+    v52 = v36;
+    v52.AlphaFormat = 1;
+    v62 = 1;
+    NearestIndexFromColorref = rgbFromColorref(gppalRGB, v35);
+    v37 = 1;
   }
-  if ( (a6->AlphaFormat & 1) != 0 )
+  if ( v13 == 2 && (a6->AlphaFormat & 1) != 0 )
   {
-    v59 = 6;
-    v36 = gppalRGB;
-    v37 = ppalDefault;
-    goto LABEL_45;
+    v61 = 6;
+    v38 = gppalRGB;
+    v39 = ppalDefault;
   }
-LABEL_44:
-  v59 = 0;
-  v36 = *(struct PALETTE **)(v52 + 1776);
-  v37 = v63;
-LABEL_45:
-  v53 = v36;
+  else
+  {
+    v61 = 0;
+    v38 = *(struct PALETTE **)(v54 + 1808);
+    v39 = v66;
+  }
+  v55 = v38;
   if ( (unsigned int)EXLATEOBJ::bInitXlateObj(
                        (__int64 *)&pxlo,
                        0LL,
+                       v60,
+                       v65,
+                       (__int64)v38,
+                       v35,
+                       (__int64)v39,
+                       v59,
                        v58,
-                       v62,
-                       (__int64)v36,
-                       v33,
-                       (__int64)v37,
-                       v57,
-                       v56,
                        0,
                        0) )
   {
-    v51 = 1;
+    v53 = 1;
     *((_DWORD *)a1 + 1) = v13;
-    *((struct _RECTL *)a1 + 6) = v69;
+    *((struct _RECTL *)a1 + 6) = v72;
     if ( v13 == 4 )
     {
       *(_DWORD *)a1 |= 8u;
-      v38 = 1;
+      v40 = 1;
       goto LABEL_69;
     }
     if ( v13 == 1 )
     {
-      NearestIndexFromColorref = ulGetNearestIndexFromColorref(v62, v33, a5, 1LL);
-      v39 = XLATEOBJ_iXlate(pxlo, NearestIndexFromColorref);
+      NearestIndexFromColorref = ulGetNearestIndexFromColorref(v65, v35, a5, 1LL);
+      v41 = XLATEOBJ_iXlate(pxlo, NearestIndexFromColorref);
       *(_DWORD *)a1 &= ~8u;
-      *((_DWORD *)a1 + 51) = v39;
-      v38 = *(_DWORD *)(v52 + 44) & 4;
+      *((_DWORD *)a1 + 51) = v41;
+      v40 = *(_DWORD *)(v54 + 44) & 4;
       goto LABEL_61;
     }
     if ( v13 == 2 && (unsigned int)bSpUpdateAlpha(a1, a6, 0) )
     {
-      v40 = a6->AlphaFormat & 1;
-      if ( !v40 || (unsigned int)bIsSourceBGRA((struct SURFACE *)v25) )
+      v42 = a6->AlphaFormat & 1;
+      if ( !v42 || (unsigned int)bIsSourceBGRA((struct SURFACE *)v27) )
       {
-        if ( !v35 )
+        if ( !v37 )
         {
-          if ( v40 )
-            v38 = *(_DWORD *)(v52 + 44) & 2;
+          if ( v42 )
+            v40 = *(_DWORD *)(v54 + 44) & 2;
           else
-            v38 = *(_DWORD *)(v52 + 44) & 1;
+            v40 = *(_DWORD *)(v54 + 44) & 1;
 LABEL_61:
-          if ( v38 )
+          if ( v40 )
             goto LABEL_69;
           goto LABEL_62;
         }
       }
-      else if ( !v35 )
+      else if ( !v37 )
       {
         goto LABEL_74;
       }
-      v38 = 0;
+      v40 = 0;
 LABEL_62:
-      if ( *(_WORD *)(v25 + 100) || (*(_BYTE *)(v25 + 102) & 0x20) != 0 )
+      if ( *(_WORD *)(v27 + 100) || (*(_BYTE *)(v27 + 102) & 0x20) != 0 )
       {
-        if ( PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v52) )
+        if ( PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v54) )
         {
-          v41 = *(_DWORD *)(v25 + 116);
-          if ( (v41 & 0x20) == 0 )
+          v43 = *(_DWORD *)(v27 + 116);
+          if ( (v43 & 0x20) == 0 )
           {
-            v42 = *(HSURF *)(v25 + 32);
-            *(_DWORD *)(v25 + 116) = v41 | 0x20;
-            pConvertDfbSurfaceToDibPostNKAPC(v42);
+            v44 = *(HSURF *)(v27 + 32);
+            *(_DWORD *)(v27 + 116) = v43 | 0x20;
+            pConvertDfbSurfaceToDibPostNKAPC(v44);
           }
         }
         else
         {
-          bConvertDfbDcToDib((struct XDCOBJ *)v65);
+          bConvertDfbDcToDib((struct XDCOBJ *)v68);
         }
-        v25 = *(_QWORD *)(v65[0] + 496LL);
+        v27 = *(_QWORD *)(v68[0] + 496LL);
       }
 LABEL_69:
-      vSpDirectDriverAccess(v60, 0);
-      v43 = v38 == 0;
-      v44 = v64;
+      vSpDirectDriverAccess(v63, 0);
+      v45 = v40 == 0;
+      v46 = v67;
       bSpCreateShape(
         a1,
         &gptlZero,
-        (struct _SURFOBJ *)((v25 + 24) & -(__int64)(v25 != 0)),
+        (struct _SURFOBJ *)((v27 + 24) & -(__int64)(v27 != 0)),
         pxlo,
-        &v69,
-        v53,
-        v59,
-        v43,
-        v64);
-      vSpDirectDriverAccess(v60, 1);
-      v45 = (struct _SURFOBJ *)*((_QWORD *)a1 + 16);
-      if ( v45 )
+        &v72,
+        v55,
+        v61,
+        v45,
+        v67);
+      vSpDirectDriverAccess(v63, 1);
+      v47 = (struct _SURFOBJ *)*((_QWORD *)a1 + 16);
+      if ( v47 )
       {
-        if ( v50 )
+        if ( v62 )
         {
           if ( (*(_DWORD *)a1 & 0x40) != 0 )
             *((_DWORD *)a1 + 51) = NearestIndexFromColorref;
           else
-            vSpUpdatePerPixelAlphaFromColorKey(v45, NearestIndexFromColorref, v44, 0LL);
+            vSpUpdatePerPixelAlphaFromColorKey(v47, NearestIndexFromColorref, v46, 0LL);
         }
         goto LABEL_75;
       }
@@ -365,15 +362,15 @@ LABEL_69:
 LABEL_74:
     vSpDeleteShape(a1);
     *((_DWORD *)a1 + 1) = 4;
-    v51 = 0;
+    v53 = 0;
   }
 LABEL_75:
-  XEPALOBJ::vUnrefPalette((XEPALOBJ *)&v62);
-  EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&pxlo);
+  XEPALOBJ::vUnrefPalette((XEPALOBJ *)&v65);
+  EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&pxlo, v48);
 LABEL_76:
-  v46 = v51;
+  v49 = v53;
 LABEL_79:
-  MDCOBJ::~MDCOBJ((MDCOBJ *)v65);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v66);
-  return v46;
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v68);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v69);
+  return v49;
 }

@@ -1,47 +1,48 @@
 /*
- * XREFs of PcisuppIsPciDevice @ 0x1C0099F78
+ * XREFs of PcisuppIsPciDevice @ 0x1C0093BD0
  * Callers:
- *     IrqArbAddAllocation @ 0x1C009C4C0 (IrqArbAddAllocation.c)
- *     IrqArbCommitAllocation @ 0x1C009D050 (IrqArbCommitAllocation.c)
- *     IrqArbFindSuitableRange @ 0x1C009D280 (IrqArbFindSuitableRange.c)
- *     IrqArbGetNextAllocationRange @ 0x1C009D3C0 (IrqArbGetNextAllocationRange.c)
- *     IrqArbQueryConflict @ 0x1C009D830 (IrqArbQueryConflict.c)
+ *     IrqArbFindSuitableRange @ 0x1C00918B0 (IrqArbFindSuitableRange.c)
+ *     IrqArbAddAllocation @ 0x1C0092810 (IrqArbAddAllocation.c)
+ *     IrqArbCommitAllocation @ 0x1C0093900 (IrqArbCommitAllocation.c)
+ *     IrqArbGetNextAllocationRange @ 0x1C0093DA0 (IrqArbGetNextAllocationRange.c)
+ *     IrqArbQueryConflict @ 0x1C00B70E0 (IrqArbQueryConflict.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0002180 (memset.c)
- *     PcisuppGetProgConfigHeader @ 0x1C0099B60 (PcisuppGetProgConfigHeader.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     PcisuppGetProgConfigHeader @ 0x1C0091F04 (PcisuppGetProgConfigHeader.c)
  */
 
 __int64 __fastcall PcisuppIsPciDevice(__int64 a1, bool *a2)
 {
   int v4; // edi
-  char v6; // [rsp+60h] [rbp-19h] BYREF
-  _BYTE v7[3]; // [rsp+61h] [rbp-18h] BYREF
-  int v8; // [rsp+64h] [rbp-15h] BYREF
-  int v9; // [rsp+68h] [rbp-11h] BYREF
-  _BYTE v10[64]; // [rsp+70h] [rbp-9h] BYREF
+  int ProgConfigHeader; // eax
+  char v7; // [rsp+60h] [rbp-19h] BYREF
+  _BYTE v8[3]; // [rsp+61h] [rbp-18h] BYREF
+  int v9; // [rsp+64h] [rbp-15h] BYREF
+  int v10; // [rsp+68h] [rbp-11h] BYREF
+  _BYTE v11[64]; // [rsp+70h] [rbp-9h] BYREF
 
+  v10 = 0;
+  memset(v11, 0, sizeof(v11));
   v9 = 0;
-  memset(v10, 0, sizeof(v10));
-  v8 = 0;
-  v6 = 0;
-  v7[0] = 0;
+  v7 = 0;
+  v8[0] = 0;
   KeEnterCriticalRegion();
   ExAcquireResourceSharedLite(&PciRouteInterfaceLock, 1u);
   if ( InterruptRouting )
   {
+    v10 = -1;
     v9 = -1;
-    v8 = -1;
     v4 = (*((__int64 (__fastcall **)(__int64, int *, int *, _QWORD, _QWORD, char *, _BYTE *, _QWORD, _QWORD, _QWORD, _QWORD))InterruptRouting
           + 4))(
            a1,
+           &v10,
            &v9,
-           &v8,
            0LL,
            0LL,
-           &v6,
-           v7,
+           &v7,
+           v8,
            0LL,
            0LL,
            0LL,
@@ -53,6 +54,9 @@ __int64 __fastcall PcisuppIsPciDevice(__int64 a1, bool *a2)
   }
   ExReleaseResourceLite(&PciRouteInterfaceLock);
   KeLeaveCriticalRegion();
-  *a2 = v4 >= 0 && (v6 != 1 || v7[0] != 1 || (int)PcisuppGetProgConfigHeader(a1, (__int64)v10) < 0 || (v10[9] & 5) != 0);
+  *a2 = v4 >= 0
+     && (v7 != 1
+      || v8[0] != 1
+      || (ProgConfigHeader = PcisuppGetProgConfigHeader(a1, (__int64)v11), ProgConfigHeader < 0 || (v11[9] & 5) != 0));
   return 0LL;
 }

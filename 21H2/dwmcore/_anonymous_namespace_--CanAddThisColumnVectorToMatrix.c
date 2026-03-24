@@ -1,10 +1,10 @@
 /*
- * XREFs of _anonymous_namespace_::CanAddThisColumnVectorToMatrix @ 0x18018ADE0
+ * XREFs of _anonymous_namespace_::CanAddThisColumnVectorToMatrix @ 0x18022C2C0
  * Callers:
- *     ?ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA?AUD2DMatrix@@PEAV?$DynArray@UAxisWithType@@$0A@@@@Z @ 0x18018C4C0 (-ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA-AUD2DMatrix@@PEAV-$DynArray@UAxisWi.c)
+ *     ?ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA?AUD2DMatrix@@PEAV?$DynArray@UAxisWithType@@$0A@@@@Z @ 0x18022CD7C (-ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA-AUD2DMatrix@@PEAV-$DynArray@UAxisWi.c)
  * Callees:
- *     _anonymous_namespace_::VectorInsideAngleThreshold @ 0x18018F458 (_anonymous_namespace_--VectorInsideAngleThreshold.c)
- *     ?D3DXVectorAreCloseToZero@@YAHAEBUD2DVector3@@@Z @ 0x18026F2B8 (-D3DXVectorAreCloseToZero@@YAHAEBUD2DVector3@@@Z.c)
+ *     ?D3DXVectorAreCloseToZero@@YAHAEBUD2DVector3@@@Z @ 0x18021ED48 (-D3DXVectorAreCloseToZero@@YAHAEBUD2DVector3@@@Z.c)
+ *     _anonymous_namespace_::VectorInsideAngleThreshold @ 0x18022F874 (_anonymous_namespace_--VectorInsideAngleThreshold.c)
  */
 
 char __fastcall anonymous_namespace_::CanAddThisColumnVectorToMatrix(float *a1, int a2, __int64 a3)
@@ -14,7 +14,7 @@ char __fastcall anonymous_namespace_::CanAddThisColumnVectorToMatrix(float *a1, 
   float *v8; // r14
 
   v6 = 1;
-  if ( (unsigned int)D3DXVectorAreCloseToZero((const struct D2DVector3 *)a3) )
+  if ( D3DXVectorAreCloseToZero((const struct D2DVector3 *)a3) )
     return 0;
   if ( (unsigned __int8)anonymous_namespace_::VectorInsideAngleThreshold(a1, v7) )
     return 0;

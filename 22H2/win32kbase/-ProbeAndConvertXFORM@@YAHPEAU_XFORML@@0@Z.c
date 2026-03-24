@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProbeAndConvertXFORM@@YAHPEAU_XFORML@@0@Z @ 0x1C00030B0
+ * XREFs of ?ProbeAndConvertXFORM@@YAHPEAU_XFORML@@0@Z @ 0x1C0023890
  * Callers:
- *     NtGdiExtCreateRegion @ 0x1C007C780 (NtGdiExtCreateRegion.c)
+ *     NtGdiExtCreateRegion @ 0x1C0023AD0 (NtGdiExtCreateRegion.c)
  * Callees:
- *     ?bConvertDwordToFloat@@YAHKPEAM@Z @ 0x1C0003170 (-bConvertDwordToFloat@@YAHKPEAM@Z.c)
+ *     ?bConvertDwordToFloat@@YAHKPEAM@Z @ 0x1C0023950 (-bConvertDwordToFloat@@YAHKPEAM@Z.c)
  */
 
 __int64 __fastcall ProbeAndConvertXFORM(struct _XFORML *a1, struct _XFORML *a2)

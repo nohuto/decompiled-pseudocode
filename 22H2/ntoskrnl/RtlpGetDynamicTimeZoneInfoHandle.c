@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpGetDynamicTimeZoneInfoHandle @ 0x1408411EC
+ * XREFs of RtlpGetDynamicTimeZoneInfoHandle @ 0x1407AAA10
  * Callers:
- *     RtlpCheckDynamicTimeZoneInformation @ 0x1408410A8 (RtlpCheckDynamicTimeZoneInformation.c)
+ *     RtlpCheckDynamicTimeZoneInformation @ 0x1407AA8CC (RtlpCheckDynamicTimeZoneInformation.c)
  * Callees:
- *     RtlStringCbCatW @ 0x140370FC4 (RtlStringCbCatW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlpGetRegistryHandle @ 0x1406C6270 (RtlpGetRegistryHandle.c)
+ *     RtlStringCbCatW @ 0x14032E278 (RtlStringCbCatW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlpGetRegistryHandle @ 0x1406BB240 (RtlpGetRegistryHandle.c)
  */
 
 NTSTATUS __fastcall RtlpGetDynamicTimeZoneInfoHandle(NTSTRSAFE_PCWSTR pszSrc, HANDLE *a2)
@@ -15,14 +15,14 @@ NTSTATUS __fastcall RtlpGetDynamicTimeZoneInfoHandle(NTSTRSAFE_PCWSTR pszSrc, HA
   wchar_t v5; // ax
   wchar_t *v6; // rax
   NTSTATUS result; // eax
-  __int64 v8; // rdx
+  __int64 v8; // rcx
   wchar_t *v9; // rax
-  __int64 v10; // r8
+  __int64 v10; // rdx
   wchar_t *v11; // rcx
   __int64 v12; // rbx
   __int64 v13; // rax
-  char *v14; // rdx
-  wchar_t v15; // r8
+  char *v14; // r8
+  wchar_t v15; // dx
   wchar_t *v16; // rax
   WCHAR pszDest[256]; // [rsp+20h] [rbp-218h] BYREF
 
@@ -61,8 +61,11 @@ NTSTATUS __fastcall RtlpGetDynamicTimeZoneInfoHandle(NTSTRSAFE_PCWSTR pszSrc, HA
         --v8;
       }
       while ( v8 );
-      v10 = (256 - v8) & -(__int64)(v8 != 0);
       result = v8 == 0 ? 0xC000000D : 0;
+      if ( v8 )
+        v10 = 256 - v8;
+      else
+        v10 = 0LL;
       if ( v8 )
       {
         v11 = &pszDest[v10];

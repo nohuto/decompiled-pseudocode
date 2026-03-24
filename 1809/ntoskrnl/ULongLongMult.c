@@ -1,17 +1,17 @@
 /*
- * XREFs of ULongLongMult @ 0x14026D6E8
+ * XREFs of ULongLongMult @ 0x14026D7E8
  * Callers:
- *     VrpHandleIoctlInitializeJobForVreg @ 0x140808CA0 (VrpHandleIoctlInitializeJobForVreg.c)
- *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1408098D0 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
- *     VrpAddNamespaceNodeToList @ 0x140809B1C (VrpAddNamespaceNodeToList.c)
- *     VrpDestroyNamespaceNode @ 0x14080A1BC (VrpDestroyNamespaceNode.c)
- *     VrpDestroyNamespaceNodeList @ 0x14080A460 (VrpDestroyNamespaceNodeList.c)
- *     VrpFindNamespaceNode @ 0x14080A534 (VrpFindNamespaceNode.c)
- *     SdbpCheckPackageAttributes @ 0x1408E6F60 (SdbpCheckPackageAttributes.c)
- *     SdbpFreePackageAttributes @ 0x1408E72E8 (SdbpFreePackageAttributes.c)
- *     AslPathWildcardFindFirst @ 0x1408EA508 (AslPathWildcardFindFirst.c)
- *     AslPathWildcardFindNext @ 0x1408EAAE4 (AslPathWildcardFindNext.c)
- *     AslpPathWildcardFreeFindContext @ 0x1408EBA2C (AslpPathWildcardFreeFindContext.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140808C80 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1408098B0 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     VrpAddNamespaceNodeToList @ 0x140809AFC (VrpAddNamespaceNodeToList.c)
+ *     VrpDestroyNamespaceNode @ 0x14080A19C (VrpDestroyNamespaceNode.c)
+ *     VrpDestroyNamespaceNodeList @ 0x14080A440 (VrpDestroyNamespaceNodeList.c)
+ *     VrpFindNamespaceNode @ 0x14080A514 (VrpFindNamespaceNode.c)
+ *     SdbpCheckPackageAttributes @ 0x1408E6F40 (SdbpCheckPackageAttributes.c)
+ *     SdbpFreePackageAttributes @ 0x1408E72C8 (SdbpFreePackageAttributes.c)
+ *     AslPathWildcardFindFirst @ 0x1408EA4E8 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindNext @ 0x1408EAAC4 (AslPathWildcardFindNext.c)
+ *     AslpPathWildcardFreeFindContext @ 0x1408EBA0C (AslpPathWildcardFreeFindContext.c)
  * Callees:
  *     <none>
  */

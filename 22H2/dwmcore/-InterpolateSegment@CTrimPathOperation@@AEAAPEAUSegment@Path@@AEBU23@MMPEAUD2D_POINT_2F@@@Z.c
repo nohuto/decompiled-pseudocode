@@ -1,11 +1,11 @@
 /*
- * XREFs of ?InterpolateSegment@CTrimPathOperation@@AEAAPEAUSegment@Path@@AEBU23@MMPEAUD2D_POINT_2F@@@Z @ 0x180015A34
+ * XREFs of ?InterpolateSegment@CTrimPathOperation@@AEAAPEAUSegment@Path@@AEBU23@MMPEAUD2D_POINT_2F@@@Z @ 0x18025EB28
  * Callers:
- *     ?TrimToEndAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z @ 0x1800153E0 (-TrimToEndAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z.c)
- *     ?TrimToStartAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z @ 0x1802AFAD8 (-TrimToStartAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z.c)
+ *     ?TrimToEndAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z @ 0x18025F240 (-TrimToEndAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z.c)
+ *     ?TrimToStartAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z @ 0x18025F2EC (-TrimToStartAt@CTrimPathOperation@@AEAAXAEBUSegment@Path@@M@Z.c)
  * Callees:
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
- *     ?InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z @ 0x1802AF8A8 (-InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
+ *     ?InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z @ 0x18025E8FC (-InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -16,25 +16,41 @@ struct Path::Segment *__fastcall CTrimPathOperation::InterpolateSegment(
         float a4,
         struct D2D_POINT_2F *a5)
 {
-  float v6; // xmm6_4
+  float v7; // xmm7_4
   char *v8; // rdi
-  float *v9; // rax
-  float v10; // xmm1_4
-  struct D2D_POINT_2F v12; // xmm0_8
-  __m128 v13; // xmm3
-  float v14; // xmm5_4
-  float v15; // xmm4_4
-  float v16; // xmm2_4
-  __m128 v17; // xmm0
-  __m128 v18; // xmm1
-  __m128 v19; // xmm2
-  void *retaddr; // [rsp+48h] [rbp+0h]
+  struct D2D_POINT_2F v9; // xmm0_8
+  __m128 v10; // xmm3
+  float v11; // xmm1_4
+  __m128 v12; // xmm1
+  __m128 v13; // xmm1
+  __m128 v14; // xmm2
+  float v15; // xmm1_4
+  float v16; // xmm0_4
+  const void *retaddr; // [rsp+48h] [rbp+0h]
 
-  v6 = *(float *)&a3;
-  if ( *(_BYTE *)a2 != 2 )
+  v7 = *(float *)&a3;
+  if ( *(_BYTE *)a2 == 2 )
+  {
+    v8 = (char *)this + 64;
+    *((_QWORD *)this + 8) = *(_QWORD *)a2;
+    *((_QWORD *)this + 9) = *((_QWORD *)a2 + 1);
+    if ( a5 )
+    {
+      v13 = *(__m128 *)&a3;
+      v14 = (__m128)(unsigned int)FLOAT_1_0;
+      v14.m128_f32[0] = (float)((float)(1.0 - v7) * *((float *)this + 10)) + (float)(v7 * *((float *)this + 19));
+      v13.m128_f32[0] = (float)(v7 * *((float *)this + 18)) + (float)((float)(1.0 - v7) * *((float *)this + 9));
+      *a5 = (struct D2D_POINT_2F)_mm_unpacklo_ps(v13, v14).m128_u64[0];
+    }
+    v15 = a4 * *((float *)this + 18);
+    v16 = (float)(1.0 - a4) * *((float *)this + 9);
+    *((float *)this + 19) = (float)(a4 * *((float *)this + 19)) + (float)((float)(1.0 - a4) * *((float *)this + 10));
+    *((float *)this + 18) = v15 + v16;
+  }
+  else
   {
     if ( *(_BYTE *)a2 != 5 )
-      ModuleFailFastForHRESULT(2147549183LL, retaddr);
+      ModuleFailFastForHRESULT(-2147418113, retaddr);
     v8 = (char *)this + 80;
     *((_QWORD *)this + 10) = *(_QWORD *)a2;
     *((_QWORD *)this + 11) = *((_QWORD *)a2 + 1);
@@ -44,45 +60,33 @@ struct Path::Segment *__fastcall CTrimPathOperation::InterpolateSegment(
     {
       *(_OWORD *)((char *)this + 88) = *(_OWORD *)((char *)this + 120);
       *((_QWORD *)this + 13) = *((_QWORD *)this + 17);
-      if ( !a5 )
-        return (struct Path::Segment *)v8;
-      v12 = (struct D2D_POINT_2F)*((_QWORD *)this + 14);
+      if ( a5 )
+      {
+        v9 = (struct D2D_POINT_2F)*((_QWORD *)this + 14);
+LABEL_9:
+        *a5 = v9;
+      }
     }
     else
     {
-      v13 = (__m128)(unsigned int)FLOAT_1_0;
-      v8 = (char *)this + 64;
+      v10 = (__m128)(unsigned int)FLOAT_1_0;
       *((_BYTE *)this + 65) = *((_BYTE *)this + 81);
-      v14 = *((float *)this + 9);
-      v15 = *((float *)this + 26);
-      v16 = (float)((float)(1.0 - a4) * *((float *)this + 10)) + (float)(a4 * *((float *)this + 27));
-      *((float *)this + 18) = (float)(v15 * a4) + (float)(v14 * (float)(1.0 - a4));
-      *((float *)this + 19) = v16;
-      if ( !a5 )
-        return (struct Path::Segment *)v8;
-      v13.m128_f32[0] = 1.0 - v6;
-      v17 = v13;
-      v13.m128_f32[0] = (float)((float)(1.0 - v6) * *((float *)this + 10)) + (float)(v6 * *((float *)this + 27));
-      v17.m128_f32[0] = (float)(v17.m128_f32[0] * v14) + (float)(v15 * v6);
-      v12 = (struct D2D_POINT_2F)_mm_unpacklo_ps(v17, v13).m128_u64[0];
+      v8 = (char *)this + 64;
+      v11 = (float)((float)(1.0 - a4) * *((float *)this + 9)) + (float)(a4 * *((float *)this + 26));
+      *((float *)this + 19) = (float)((float)(1.0 - a4) * *((float *)this + 10)) + (float)(a4 * *((float *)this + 27));
+      *((float *)this + 18) = v11;
+      if ( a5 )
+      {
+        v10.m128_f32[0] = 1.0 - *(float *)&a3;
+        v12 = v10;
+        v10.m128_f32[0] = (float)((float)(1.0 - *(float *)&a3) * *((float *)this + 10))
+                        + (float)(*(float *)&a3 * *((float *)this + 27));
+        v12.m128_f32[0] = (float)(v12.m128_f32[0] * *((float *)this + 9))
+                        + (float)(*(float *)&a3 * *((float *)this + 26));
+        v9 = (struct D2D_POINT_2F)_mm_unpacklo_ps(v12, v10).m128_u64[0];
+        goto LABEL_9;
+      }
     }
-    *a5 = v12;
-    return (struct Path::Segment *)v8;
   }
-  v8 = (char *)this + 64;
-  *((_QWORD *)this + 8) = *(_QWORD *)a2;
-  v9 = (float *)((char *)this + 72);
-  *((_QWORD *)this + 9) = *((_QWORD *)a2 + 1);
-  if ( a5 )
-  {
-    v18 = *(__m128 *)&a3;
-    v19 = (__m128)(unsigned int)FLOAT_1_0;
-    v19.m128_f32[0] = (float)((float)(1.0 - v6) * *((float *)this + 10)) + (float)(v6 * *((float *)this + 19));
-    v18.m128_f32[0] = (float)(v6 * *v9) + (float)((float)(1.0 - v6) * *((float *)this + 9));
-    *a5 = (struct D2D_POINT_2F)_mm_unpacklo_ps(v18, v19).m128_u64[0];
-  }
-  v10 = (float)(a4 * *v9) + (float)((float)(1.0 - a4) * *((float *)this + 9));
-  *((float *)this + 19) = (float)((float)(1.0 - a4) * *((float *)this + 10)) + (float)(a4 * *((float *)this + 19));
-  *v9 = v10;
   return (struct Path::Segment *)v8;
 }

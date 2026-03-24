@@ -1,59 +1,57 @@
 /*
- * XREFs of NtGdiAddFontMemResourceEx @ 0x1C02C1CF0
+ * XREFs of NtGdiAddFontMemResourceEx @ 0x1C02ADA00
  * Callers:
  *     <none>
  * Callees:
- *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C01110BC (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     GreAddFontMemResourceEx @ 0x1C028B7DC (GreAddFontMemResourceEx.c)
- *     GreRemoveFontMemResourceEx @ 0x1C028E564 (GreRemoveFontMemResourceEx.c)
+ *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C009B854 (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     GreAddFontMemResourceEx @ 0x1C0289E28 (GreAddFontMemResourceEx.c)
+ *     GreRemoveFontMemResourceEx @ 0x1C028AE28 (GreRemoveFontMemResourceEx.c)
  */
 
 __int64 __fastcall NtGdiAddFontMemResourceEx(
         struct tagDOWNLOADFONTHEADER *a1,
         unsigned int a2,
-        _BYTE *a3,
+        _DWORD *a3,
         unsigned int a4,
         ULONG64 a5)
 {
   __int64 v5; // r12
-  _BYTE *v6; // r15
+  _DWORD *v6; // r15
   int v7; // ebx
   int v9; // edi
   __int64 v10; // r14
-  __int64 v11; // rcx
-  _DWORD *v12; // rsi
-  unsigned int v14; // [rsp+30h] [rbp-C8h] BYREF
-  int v15; // [rsp+34h] [rbp-C4h]
-  unsigned int v16; // [rsp+38h] [rbp-C0h]
-  unsigned int v17; // [rsp+40h] [rbp-B8h]
-  _BYTE *v18; // [rsp+48h] [rbp-B0h]
-  unsigned int v19[2]; // [rsp+50h] [rbp-A8h]
-  struct tagDOWNLOADFONTHEADER *v20; // [rsp+58h] [rbp-A0h]
-  _BYTE v21[4]; // [rsp+60h] [rbp-98h] BYREF
-  unsigned int v22; // [rsp+64h] [rbp-94h]
+  _DWORD *v11; // rsi
+  unsigned int v13; // [rsp+30h] [rbp-C8h] BYREF
+  int v14; // [rsp+34h] [rbp-C4h]
+  unsigned int v15; // [rsp+38h] [rbp-C0h]
+  unsigned int v16; // [rsp+40h] [rbp-B8h]
+  _DWORD *v17; // [rsp+48h] [rbp-B0h]
+  unsigned int v18[2]; // [rsp+50h] [rbp-A8h]
+  struct tagDOWNLOADFONTHEADER *v19; // [rsp+58h] [rbp-A0h]
+  _DWORD v20[20]; // [rsp+60h] [rbp-98h] BYREF
 
   v5 = a4;
   v6 = a3;
   v7 = a2;
-  v14 = a2;
-  v20 = a1;
-  v16 = a2;
-  v18 = a3;
-  v17 = a4;
+  v13 = a2;
+  v19 = a1;
+  v15 = a2;
+  v17 = a3;
+  v16 = a4;
   v9 = 1;
-  v15 = 1;
+  v14 = 1;
   v10 = 0LL;
-  memset_0(v21, 0, 0x48uLL);
-  if ( UmfdHostLifeTimeManager::WaitForSessionRasterizerInitialization(v11) < 0 )
+  memset(v20, 0, 0x48uLL);
+  if ( UmfdHostLifeTimeManager::WaitForSessionRasterizerInitialization() < 0 )
     return 0LL;
   if ( !v7 )
     return 0LL;
   if ( !a1 )
     return 0LL;
-  v12 = (_DWORD *)a5;
+  v11 = (_DWORD *)a5;
   if ( !a5 )
     return 0LL;
   if ( (_DWORD)v5 )
@@ -61,38 +59,38 @@ __int64 __fastcall NtGdiAddFontMemResourceEx(
     if ( (unsigned int)v5 > 0x48 )
     {
       v9 = 0;
-      v15 = 0;
+      v14 = 0;
     }
     else
     {
       if ( (unsigned __int64)v6 >= MmUserProbeAddress )
-        v6 = (_BYTE *)MmUserProbeAddress;
-      memmove(v21, v6, (unsigned int)v5);
-      v6 = v21;
-      v18 = v21;
-      if ( v5 != 4LL * v22 + 8 )
+        v6 = (_DWORD *)MmUserProbeAddress;
+      memmove(v20, v6, (unsigned int)v5);
+      v6 = v20;
+      v17 = v20;
+      if ( v5 != 4LL * v20[1] + 8 )
       {
         v9 = 0;
-        v15 = 0;
+        v14 = 0;
       }
-      v7 = v14;
+      v7 = v13;
     }
   }
   else
   {
     v6 = 0LL;
-    v18 = 0LL;
+    v17 = 0LL;
   }
   if ( v9 )
   {
-    v14 = 0;
-    v10 = GreAddFontMemResourceEx(a1, v7, (struct tagDESIGNVECTOR *)v6, v5, &v14);
-    *(_QWORD *)v19 = v10;
+    v13 = 0;
+    v10 = GreAddFontMemResourceEx(a1, v7, (struct tagDESIGNVECTOR *)v6, v5, &v13);
+    *(_QWORD *)v18 = v10;
     if ( v10 )
     {
       if ( a5 >= MmUserProbeAddress )
-        v12 = (_DWORD *)MmUserProbeAddress;
-      *v12 = v14;
+        v11 = (_DWORD *)MmUserProbeAddress;
+      *v11 = v13;
     }
   }
   return v10;

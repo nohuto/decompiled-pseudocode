@@ -2,14 +2,14 @@
  * XREFs of WmipFindRegEntryByProviderId @ 0x14008DA68
  * Callers:
  *     WmipForwardWmiIrp @ 0x1405FB974 (WmipForwardWmiIrp.c)
- *     IoWMISystemControl @ 0x1406CC11C (IoWMISystemControl.c)
+ *     IoWMISystemControl @ 0x1406CC0FC (IoWMISystemControl.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
  *     WmipDoFindRegEntryByProviderId @ 0x14008DB00 (WmipDoFindRegEntryByProviderId.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall WmipFindRegEntryByProviderId(unsigned int a1)

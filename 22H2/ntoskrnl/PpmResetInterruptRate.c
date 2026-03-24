@@ -1,36 +1,19 @@
 /*
- * XREFs of PpmResetInterruptRate @ 0x1404631E0
+ * XREFs of PpmResetInterruptRate @ 0x14057C3B0
  * Callers:
  *     <none>
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     <none>
  */
 
 __int64 __fastcall PpmResetInterruptRate(_DWORD *a1)
 {
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *SchedulerAssist; // r8
-  signed __int32 v3; // eax
-  signed __int32 v4; // ett
+  int v1; // eax
 
   _disable();
+  v1 = a1[8096];
   a1[2921] = 0;
-  a1[2920] = a1[8272];
-  CurrentPrcb = KeGetCurrentPrcb();
-  SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-  if ( SchedulerAssist )
-  {
-    _m_prefetchw(SchedulerAssist);
-    v3 = *SchedulerAssist;
-    do
-    {
-      v4 = v3;
-      v3 = _InterlockedCompareExchange(SchedulerAssist, v3 & 0xFFDFFFFF, v3);
-    }
-    while ( v4 != v3 );
-    if ( (v3 & 0x200000) != 0 )
-      KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-  }
+  a1[2920] = v1;
   _enable();
   return 0LL;
 }

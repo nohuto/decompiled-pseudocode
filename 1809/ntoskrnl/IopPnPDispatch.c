@@ -1,20 +1,20 @@
 /*
- * XREFs of IopPnPDispatch @ 0x140702B50
+ * XREFs of IopPnPDispatch @ 0x140702B30
  * Callers:
  *     <none>
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     IoDeleteDevice @ 0x1400DAAC0 (IoDeleteDevice.c)
- *     IoInvalidateDeviceRelations @ 0x14015EF30 (IoInvalidateDeviceRelations.c)
- *     IopPnPCompleteRequest @ 0x140160F80 (IopPnPCompleteRequest.c)
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     IoDeleteDevice @ 0x1400DAAE0 (IoDeleteDevice.c)
+ *     IoInvalidateDeviceRelations @ 0x14015EF50 (IoInvalidateDeviceRelations.c)
+ *     IopPnPCompleteRequest @ 0x140160FA0 (IopPnPCompleteRequest.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PiGetDeviceRegProperty @ 0x140587C10 (PiGetDeviceRegProperty.c)
  *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
- *     IopGetRootDevices @ 0x1406DA414 (IopGetRootDevices.c)
- *     PnpGetDeviceResourcesFromRegistry @ 0x1406FB8C0 (PnpGetDeviceResourcesFromRegistry.c)
+ *     IopGetRootDevices @ 0x1406DA3F4 (IopGetRootDevices.c)
+ *     PnpGetDeviceResourcesFromRegistry @ 0x1406FB8A0 (PnpGetDeviceResourcesFromRegistry.c)
  */
 
 __int64 __fastcall IopPnPDispatch(PDEVICE_OBJECT DeviceObject, IRP *a2)

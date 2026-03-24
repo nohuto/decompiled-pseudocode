@@ -1,97 +1,112 @@
 /*
- * XREFs of MiReturnSystemVa @ 0x140213B74
+ * XREFs of MiReturnSystemVa @ 0x14027AC68
  * Callers:
- *     MiExpandPtes @ 0x140210C98 (MiExpandPtes.c)
- *     MmFreePoolMemory @ 0x140212244 (MmFreePoolMemory.c)
- *     MiReturnSystemPtes @ 0x140345E38 (MiReturnSystemPtes.c)
- *     MiExpandSystemCache @ 0x140355238 (MiExpandSystemCache.c)
- *     MiGetPageTablesForLargeMap @ 0x14038CA78 (MiGetPageTablesForLargeMap.c)
- *     MiDeleteBootRange @ 0x14038E378 (MiDeleteBootRange.c)
- *     MiReturnSystemCacheRegionsToKva @ 0x1403D39F8 (MiReturnSystemCacheRegionsToKva.c)
- *     MiUnmapLargePages @ 0x1403D62BC (MiUnmapLargePages.c)
- *     MmFreeSecurePoolMemory @ 0x140641AC8 (MmFreeSecurePoolMemory.c)
- *     MiReleaseLargePdeMappings @ 0x14065F844 (MiReleaseLargePdeMappings.c)
- *     MiReserveDriverPtes @ 0x140696DF0 (MiReserveDriverPtes.c)
- *     MiReleaseDriverPtes @ 0x140697280 (MiReleaseDriverPtes.c)
+ *     MmFreePoolMemory @ 0x14027AEC8 (MmFreePoolMemory.c)
+ *     MiReleaseSystemCacheView @ 0x14029037C (MiReleaseSystemCacheView.c)
+ *     MiObtainSystemCacheView @ 0x140292B80 (MiObtainSystemCacheView.c)
+ *     MiExpandPtes @ 0x14030A9E8 (MiExpandPtes.c)
+ *     MiReturnSystemPtes @ 0x14031B16C (MiReturnSystemPtes.c)
+ *     MiUnmapLargePages @ 0x140394BE4 (MiUnmapLargePages.c)
+ *     MiDeleteBootRange @ 0x1403B4B18 (MiDeleteBootRange.c)
+ *     MiGetPageTablesForLargeMap @ 0x1403B8764 (MiGetPageTablesForLargeMap.c)
+ *     MmFreeSecurePoolMemory @ 0x140544E48 (MmFreeSecurePoolMemory.c)
+ *     MiReleaseLargePteMappings @ 0x140553EFC (MiReleaseLargePteMappings.c)
+ *     MiReleaseDriverPtes @ 0x14075F4E0 (MiReleaseDriverPtes.c)
+ *     MiReserveDriverPtes @ 0x14075F694 (MiReserveDriverPtes.c)
+ *     MiMapBBTMemory @ 0x140A552A8 (MiMapBBTMemory.c)
  * Callees:
- *     MiMakeSystemRangeAvailable @ 0x140212AB8 (MiMakeSystemRangeAvailable.c)
- *     MiDeleteSystemPageTables @ 0x140212D2C (MiDeleteSystemPageTables.c)
- *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MiGetAnyMultiplexedVm @ 0x14027D77C (MiGetAnyMultiplexedVm.c)
+ *     MiMakeSystemRangeAvailable @ 0x14027DB94 (MiMakeSystemRangeAvailable.c)
+ *     MiDeleteSystemPageTables @ 0x14027DDDC (MiDeleteSystemPageTables.c)
+ *     MiGetSessionVm @ 0x14029281C (MiGetSessionVm.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-unsigned __int64 __fastcall MiReturnSystemVa(unsigned __int64 a1, unsigned __int64 a2, int a3, _QWORD *a4)
+__int64 __fastcall MiReturnSystemVa(unsigned __int64 a1, unsigned __int64 a2, int a3)
 {
-  unsigned __int64 v8; // rbx
-  unsigned __int64 result; // rax
-  unsigned __int64 v10; // rdi
-  __int64 v11; // rdi
-  __int64 v12; // rbx
-  __int64 AnyMultiplexedVm; // rax
-  int v14; // r8d
-  unsigned int v15; // r9d
-  char v16; // r10
-  unsigned int v17; // edx
-  unsigned int v18; // edx
-  unsigned int v19; // edx
-  __int64 v20; // rcx
-  _QWORD v21[24]; // [rsp+40h] [rbp-F8h] BYREF
+  unsigned __int64 v6; // rbx
+  __int64 result; // rax
+  unsigned __int64 v8; // rdi
+  __int64 v9; // rdi
+  ULONG_PTR v10; // rbx
+  int v11; // eax
+  int AnyMultiplexedVm; // eax
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  unsigned int v15; // r10d
+  __int64 v16; // rdx
+  int v17; // edx
+  int v18; // edx
+  __int64 v19; // rcx
+  int v20; // edx
+  int v21; // edx
+  int v22; // edx
+  _QWORD v23[24]; // [rsp+30h] [rbp-E8h] BYREF
 
-  memset(v21, 0, 0xB8uLL);
-  v8 = (((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x97FFFFFF001LL) & 0xFFFFFFFFFFFFF000uLL;
+  memset(v23, 0, 0xB8uLL);
+  v6 = (((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x97FFFFFF001LL) & 0xFFFFFFFFFFFFF000uLL;
   result = 0xFFFFF68000000000uLL;
-  v10 = (((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) & 0xFFFFFFFFFFFFF000uLL;
-  if ( v8 < v10 )
+  v8 = (((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) & 0xFFFFFFFFFFFFF000uLL;
+  if ( v6 < v8 )
   {
-    v11 = (__int64)(v10 << 25) >> 16;
-    v12 = (__int64)(v8 << 25) >> 16;
-    if ( (unsigned __int64)a4 <= 2 )
-    {
-      v21[3] = 0LL;
-      a4 = v21;
-      LODWORD(v21[1]) = 20;
-    }
+    v9 = (__int64)(v8 << 25) >> 16;
+    v10 = (__int64)(v6 << 25) >> 16;
+    v11 = 2;
+    WORD2(v23[0]) = 0;
+    v23[2] = 0LL;
+    v23[3] = 0LL;
+    LODWORD(v23[1]) = 20;
+    if ( a3 != 1 )
+      v11 = 0;
+    LODWORD(v23[0]) = v11;
     AnyMultiplexedVm = MiGetAnyMultiplexedVm(5LL);
-    if ( a3 == 1 )
-      return MiMakeSystemRangeAvailable(v12, v11 - v12, a3);
-    v16 = 1;
-    switch ( a3 )
+    v16 = a3 - v15;
+    if ( a3 == v15 )
     {
-      case 6:
-        v20 = 2LL;
-        goto LABEL_14;
-      case 8:
-        v20 = 0LL;
-        goto LABEL_14;
-      case 9:
-        goto LABEL_13;
+      AnyMultiplexedVm = MiGetSessionVm(v13, v16, v14);
+      goto LABEL_11;
     }
-    v17 = a3 - 9 - v15;
-    if ( !v17 )
+    v17 = v16 - 5;
+    if ( v17 )
     {
-      v20 = 1LL;
-      goto LABEL_14;
-    }
-    v18 = v17 - 1;
-    if ( !v18 )
-    {
-LABEL_13:
-      v20 = v15;
+      v18 = v17 - v14;
+      if ( v18 )
+      {
+        v19 = (unsigned int)(v14 + 1);
+        v20 = v18 - v15;
+        if ( v20 )
+        {
+          v21 = v20 - v19;
+          if ( v21 )
+          {
+            v22 = v21 - v15;
+            if ( v22 )
+            {
+              if ( v22 != v15 )
+                goto LABEL_11;
+              v19 = 4LL;
+            }
+          }
+          else
+          {
+            v19 = v15;
+          }
+        }
+      }
+      else
+      {
+        v19 = 0LL;
+      }
     }
     else
     {
-      v19 = v18 - 1;
-      if ( v19 && v19 != 2 )
-        goto LABEL_15;
-      v20 = 4LL;
+      v19 = (unsigned int)v14;
     }
-LABEL_14:
-    AnyMultiplexedVm = MiGetAnyMultiplexedVm(v20);
-LABEL_15:
-    if ( AnyMultiplexedVm )
-      MiDeleteSystemPageTables(AnyMultiplexedVm, a3, v12, v11 - 1, v16, (__int64)a4, v14);
-    return MiMakeSystemRangeAvailable(v12, v11 - v12, a3);
+    AnyMultiplexedVm = MiGetAnyMultiplexedVm(v19);
+LABEL_11:
+    MiDeleteSystemPageTables(AnyMultiplexedVm, a3, v10, v9 - 1, v15, (__int64)v23);
+    return MiMakeSystemRangeAvailable(v10, v9 - v10);
   }
   return result;
 }

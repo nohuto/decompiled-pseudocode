@@ -1,17 +1,26 @@
 /*
- * XREFs of BltIcon @ 0x1C00BE16C
+ * XREFs of BltIcon @ 0x1C004438C
  * Callers:
- *     _DrawIconEx @ 0x1C00BDD48 (_DrawIconEx.c)
- *     ?BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z @ 0x1C0242E14 (-BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z.c)
+ *     _DrawIconEx @ 0x1C0043F94 (_DrawIconEx.c)
+ *     ?BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z @ 0x1C02472D8 (-BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z.c)
  * Callees:
- *     GreStretchBltInternal @ 0x1C002AF84 (GreStretchBltInternal.c)
- *     NtGdiAlphaBlend @ 0x1C0039BB0 (NtGdiAlphaBlend.c)
- *     GreSetStretchBltMode @ 0x1C00BE37C (GreSetStretchBltMode.c)
- *     GreSetTextColor @ 0x1C00BE3F8 (GreSetTextColor.c)
- *     GreSetBkColor @ 0x1C00BE480 (GreSetBkColor.c)
+ *     GreSetStretchBltMode @ 0x1C004459C (GreSetStretchBltMode.c)
+ *     GreSetTextColor @ 0x1C0044618 (GreSetTextColor.c)
+ *     GreSetBkColor @ 0x1C00446A0 (GreSetBkColor.c)
+ *     NtGdiAlphaBlend @ 0x1C00851E0 (NtGdiAlphaBlend.c)
+ *     GreStretchBltInternal @ 0x1C00B4D10 (GreStretchBltInternal.c)
  */
 
-__int64 __fastcall BltIcon(HDC a1, int a2, int a3, int a4, int a5, HDC a6, __int64 a7, int a8, int a9)
+__int64 __fastcall BltIcon(
+        HDC a1,
+        unsigned int a2,
+        unsigned int a3,
+        unsigned int a4,
+        int a5,
+        HDC a6,
+        __int64 a7,
+        int a8,
+        int a9)
 {
   int v9; // esi
   __int64 v14; // rdi
@@ -44,11 +53,11 @@ LABEL_2:
     LOBYTE(v17) = 0;
     HIWORD(v17) = 511;
     BYTE1(v17) = a9 < 0 ? 0 : 0x80;
-    NtGdiAlphaBlend(a1, a2, a3, a4, a5, a6, 0, v9, *(_DWORD *)(a7 + 140), *(_DWORD *)(a7 + 144) >> 1, v17);
+    NtGdiAlphaBlend(a1, a2, a3, a4, a5, a6, 0, v9, *(_DWORD *)(a7 + 140), *(_DWORD *)(a7 + 144) >> 1, v17, 0LL);
   }
   else
   {
-    GreStretchBltInternal(a1, a2, a3, a4, a5, a6, 0, v9, *(_DWORD *)(a7 + 140), *(_DWORD *)(a7 + 144) >> 1, a9, -1, 0);
+    GreStretchBltInternal(a1, a2, a5, a6, 0, v9, *(_DWORD *)(a7 + 140), *(_DWORD *)(a7 + 144) >> 1, a9, -1, 0);
   }
   GreSetStretchBltMode(a1);
   GreSetTextColor(a1);

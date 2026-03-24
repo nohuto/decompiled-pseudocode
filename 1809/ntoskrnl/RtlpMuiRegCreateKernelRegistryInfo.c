@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlpMuiRegCreateKernelRegistryInfo @ 0x140182840
+ * XREFs of RtlpMuiRegCreateKernelRegistryInfo @ 0x140182860
  * Callers:
- *     MUIRegistrySystemRoutine @ 0x14073D910 (MUIRegistrySystemRoutine.c)
+ *     MUIRegistrySystemRoutine @ 0x14073D8F0 (MUIRegistrySystemRoutine.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     DownLevelLangIDToLanguageName @ 0x140161010 (DownLevelLangIDToLanguageName.c)
- *     _MuiRegAllocArray @ 0x14018254C (_MuiRegAllocArray.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1401B9B90 (ZwDeleteValueKey.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     DownLevelLangIDToLanguageName @ 0x140161030 (DownLevelLangIDToLanguageName.c)
+ *     _MuiRegAllocArray @ 0x14018256C (_MuiRegAllocArray.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     RtlUnicodeStringToInteger @ 0x140695970 (RtlUnicodeStringToInteger.c)
- *     RtlpMuiRegLoadRegistryInfo @ 0x14073D994 (RtlpMuiRegLoadRegistryInfo.c)
- *     RtlpMuiRegFreeRegistryInfo @ 0x14073DB20 (RtlpMuiRegFreeRegistryInfo.c)
- *     LdrpQueryValueKey @ 0x14073E390 (LdrpQueryValueKey.c)
- *     LdrpOpenKey @ 0x14073E728 (LdrpOpenKey.c)
- *     _RtlpMuiRegSerializeRegistryInfo @ 0x14073E840 (_RtlpMuiRegSerializeRegistryInfo.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x14073EB20 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
- *     RtlpMuiRegCreateRegistryInfo @ 0x14073F0EC (RtlpMuiRegCreateRegistryInfo.c)
+ *     RtlUnicodeStringToInteger @ 0x140695950 (RtlUnicodeStringToInteger.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x14073D974 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x14073DB00 (RtlpMuiRegFreeRegistryInfo.c)
+ *     LdrpQueryValueKey @ 0x14073E370 (LdrpQueryValueKey.c)
+ *     LdrpOpenKey @ 0x14073E708 (LdrpOpenKey.c)
+ *     _RtlpMuiRegSerializeRegistryInfo @ 0x14073E820 (_RtlpMuiRegSerializeRegistryInfo.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x14073EB00 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     RtlpMuiRegCreateRegistryInfo @ 0x14073F0CC (RtlpMuiRegCreateRegistryInfo.c)
  */
 
 __int64 __fastcall RtlpMuiRegCreateKernelRegistryInfo(

@@ -1,71 +1,83 @@
 /*
- * XREFs of PpmReapplyPerfPolicy @ 0x14082E210
+ * XREFs of PpmReapplyPerfPolicy @ 0x1407BAEC0
  * Callers:
- *     PpmSetProfilePolicySetting @ 0x14082DAD0 (PpmSetProfilePolicySetting.c)
- *     PpmReinitializeHeteroEngine @ 0x140830CF8 (PpmReinitializeHeteroEngine.c)
- *     PpmCompareAndApplyPolicySettings @ 0x140992EFC (PpmCompareAndApplyPolicySettings.c)
- *     PpmPerfProcCapFloorSettingCallback @ 0x140993220 (PpmPerfProcCapFloorSettingCallback.c)
+ *     PpmSetProfilePolicySetting @ 0x1406F2DF0 (PpmSetProfilePolicySetting.c)
+ *     PpmReinitializeHeteroEngine @ 0x1407BA2A8 (PpmReinitializeHeteroEngine.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x1408F0810 (PpmCompareAndApplyPolicySettings.c)
+ *     PpmPerfProcCapFloorSettingCallback @ 0x1408F0B30 (PpmPerfProcCapFloorSettingCallback.c)
  * Callees:
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C0F0 (PpmAcquireLock.c)
- *     PpmParkApplyPolicy @ 0x140390A80 (PpmParkApplyPolicy.c)
- *     PpmCheckApplyParkConstraints @ 0x1403914DC (PpmCheckApplyParkConstraints.c)
- *     PpmPerfUpdateDomainPolicy @ 0x1407A6860 (PpmPerfUpdateDomainPolicy.c)
- *     PpmUpdateProcessorPolicy @ 0x14082E300 (PpmUpdateProcessorPolicy.c)
- *     PpmCheckReInit @ 0x14082E63C (PpmCheckReInit.c)
- *     PopInitializeHeteroProcessors @ 0x14082E9E0 (PopInitializeHeteroProcessors.c)
- *     PpmCheckInitProcessors @ 0x14082FE14 (PpmCheckInitProcessors.c)
- *     PpmPerfResizeHistoryAll @ 0x140986B7C (PpmPerfResizeHistoryAll.c)
+ *     PpmReleaseLock @ 0x14022A470 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x14034AA84 (PpmAcquireLock.c)
+ *     PpmParkApplyPolicy @ 0x1403C18E4 (PpmParkApplyPolicy.c)
+ *     PpmCheckApplyParkConstraints @ 0x1403C1CA8 (PpmCheckApplyParkConstraints.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x14078B4DC (PpmPerfUpdateDomainPolicy.c)
+ *     PpmUpdateProcessorPolicy @ 0x14078C7D0 (PpmUpdateProcessorPolicy.c)
+ *     PpmCheckInitProcessors @ 0x1407BA2D8 (PpmCheckInitProcessors.c)
+ *     PpmCheckReInit @ 0x1407BAFA4 (PpmCheckReInit.c)
+ *     PopInitializeHeteroProcessors @ 0x1407BB3CC (PopInitializeHeteroProcessors.c)
+ *     PpmPerfResizeHistoryAll @ 0x1408E63F4 (PpmPerfResizeHistoryAll.c)
  */
 
-void __fastcall PpmReapplyPerfPolicy(_DWORD *a1)
+char __fastcall PpmReapplyPerfPolicy(_DWORD *a1)
 {
-  char v1; // bp
-  _DWORD *v2; // rbx
-  char v3; // al
-  __int64 v4; // rdx
-  __int64 v5; // rcx
+  _WORD *v1; // rbx
+  char v2; // al
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  int v5; // eax
   char v6; // si
   char v7; // di
 
-  v1 = 0;
-  v2 = a1;
+  v1 = a1;
   if ( (*a1 & 0x1800) != 0 )
   {
     LOBYTE(a1) = (*a1 & 0x800) != 0;
-    v3 = PopInitializeHeteroProcessors(a1);
-    if ( (*v2 & 0x800) != 0 || v3 )
-    {
-      v1 = 1;
-      *v2 |= 0x200Eu;
-    }
+    v2 = PopInitializeHeteroProcessors(a1);
+    if ( (*(_DWORD *)v1 & 0x800) != 0 || v2 )
+      *(_DWORD *)v1 |= 0x200Eu;
   }
-  PpmUpdateProcessorPolicy(v2, 0LL);
-  if ( (*v2 & 4) != 0 )
-    PpmParkApplyPolicy(v5);
-  if ( (*v2 & 0x10) != 0 )
+  PpmUpdateProcessorPolicy(v1, 0LL);
+  v5 = *(_DWORD *)v1;
+  if ( (*(_DWORD *)v1 & 4) != 0 )
+  {
+    PpmParkApplyPolicy();
+    v5 = *(_DWORD *)v1;
+  }
+  if ( (v5 & 0x10) != 0 )
+  {
     PpmPerfResizeHistoryAll();
-  if ( (*v2 & 8) != 0 )
-    PpmCheckReInit(v5, v4);
+    v5 = *(_DWORD *)v1;
+  }
+  if ( (v5 & 8) != 0 )
+  {
+    PpmCheckReInit(v4, v3);
+    v5 = *(_DWORD *)v1;
+  }
   v6 = 0;
   v7 = 1;
-  if ( (*v2 & 2) != 0 )
+  if ( (v5 & 2) != 0 )
   {
     v7 = 0;
     v6 = 1;
-    PpmPerfUpdateDomainPolicy(v1);
+    PpmPerfUpdateDomainPolicy(0);
+    v5 = *(_DWORD *)v1;
   }
-  if ( (*v2 & 4) != 0 )
+  if ( (v5 & 4) != 0 )
   {
     if ( v6 )
+    {
       PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
-    if ( (*v2 & 0x2000) != 0 )
-      PpmCheckInitProcessors(1LL, (*v2 >> 14) & 1);
-    else
-      PpmCheckApplyParkConstraints();
+      v5 = *(_DWORD *)v1;
+    }
+    v7 = 0;
+    if ( (v5 & 0x2000) != 0 )
+    {
+      LOBYTE(v5) = PpmCheckInitProcessors(1);
+      return v5;
+    }
+    LOBYTE(v5) = PpmCheckApplyParkConstraints();
   }
-  else if ( v7 )
-  {
-    PpmReleaseLock(&PpmPerfPolicyLock);
-  }
+  if ( v7 )
+    LOBYTE(v5) = PpmReleaseLock(&PpmPerfPolicyLock);
+  return v5;
 }

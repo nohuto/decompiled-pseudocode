@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeChannelRangesTemporary @ 0x140B3142C
+ * XREFs of MiInitializeChannelRangesTemporary @ 0x140A74154
  * Callers:
- *     MiInitNucleus @ 0x140AF47DC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 MiInitializeChannelRangesTemporary()
@@ -30,211 +30,214 @@ __int64 MiInitializeChannelRangesTemporary()
   char *v18; // rdx
   __int64 j; // r9
   unsigned int v20; // edx
-  unsigned int v21; // edx
-  unsigned __int64 v22; // rax
-  unsigned int v23; // r10d
-  int v24; // ebx
-  char *v25; // rsi
-  unsigned int v26; // r9d
-  unsigned int v27; // eax
-  unsigned int v28; // edi
-  unsigned int v29; // ecx
-  char *v30; // rdx
+  unsigned __int64 v21; // rax
+  unsigned int v22; // edx
+  unsigned int v23; // ecx
+  unsigned int v24; // r10d
+  int v25; // ebx
+  char *v26; // rsi
+  unsigned int v27; // r9d
+  unsigned int v28; // eax
+  unsigned int v29; // edi
+  unsigned int v30; // ecx
+  char *v31; // rdx
   __int64 k; // r8
-  unsigned int v32; // edx
-  unsigned int v33; // eax
+  unsigned int v33; // edx
   unsigned __int64 v34; // rax
   unsigned int v35; // eax
-  int v36; // edx
+  unsigned int v36; // r8d
   unsigned int v37; // eax
-  unsigned __int16 *v38; // r8
-  _QWORD *v39; // [rsp+30h] [rbp-50h] BYREF
-  int v40; // [rsp+38h] [rbp-48h] BYREF
-  int v41; // [rsp+3Ch] [rbp-44h]
-  unsigned int v42; // [rsp+40h] [rbp-40h]
-  _OWORD v43[2]; // [rsp+50h] [rbp-30h] BYREF
+  int v38; // r8d
+  unsigned int v39; // eax
+  unsigned __int16 *v40; // rdx
+  _QWORD *v41; // [rsp+30h] [rbp-50h] BYREF
+  _DWORD v42[4]; // [rsp+38h] [rbp-48h] BYREF
+  unsigned int v43; // [rsp+48h] [rbp-38h]
+  _OWORD v44[2]; // [rsp+58h] [rbp-28h] BYREF
   _UNKNOWN *retaddr; // [rsp+98h] [rbp+18h] BYREF
 
   result = (__int64)&retaddr;
-  v40 = 0;
-  v39 = 0LL;
-  memset(v43, 0, sizeof(v43));
-  if ( !dword_140D051C8 )
-    return result;
-  if ( byte_140C53445 )
-    return result;
-  if ( !dword_140D051DC )
-    return result;
-  v42 = 256;
-  result = ((__int64 (__fastcall *)(__int64, __int64, _QWORD **, int *))off_140C020D8[0])(31LL, 8LL, &v39, &v40);
-  v1 = v39;
-  if ( !v39 )
-    return result;
-  v2 = 0;
-  v3 = 0;
-  if ( *v39 == -1LL )
-    goto LABEL_17;
-  v4 = (char *)v39 + 14;
-  do
+  v42[0] = 0;
+  v41 = 0LL;
+  memset(v44, 0, sizeof(v44));
+  if ( dword_140CFB188 )
   {
-    v5 = *((unsigned __int16 *)v4 - 1);
-    if ( v2 <= v5 )
-      v2 = *((unsigned __int16 *)v4 - 1);
-    if ( *v4 )
+    if ( byte_140C4EEDD != 1 )
     {
-      v3 = 1;
-    }
-    else
-    {
-      v6 = *((unsigned __int16 *)v4 - 2);
-      if ( v6 < 0x40 && (unsigned __int16)v5 < 4u )
+      if ( dword_140CFB19C )
       {
-        _bittestandset((signed __int32 *)v43, v5 + 4 * v6);
-        v1 = v39;
-      }
-    }
-    v7 = v4;
-    v4 += 16;
-    result = (v7 - (_BYTE *)v1 - 14) >> 4;
-    dword_140C506D4 = result;
-  }
-  while ( *(_QWORD *)(v4 - 14) != -1LL );
-  if ( !v3 )
+        v43 = 256;
+        result = ((__int64 (__fastcall *)(__int64, __int64, _QWORD **, _DWORD *))off_140C00A68[0])(31LL, 8LL, &v41, v42);
+        v1 = v41;
+        if ( v41 )
+        {
+          v2 = 0;
+          v3 = 0;
+          if ( *v41 == -1LL )
+            goto LABEL_17;
+          v4 = (char *)v41 + 14;
+          do
+          {
+            v5 = *((unsigned __int16 *)v4 - 1);
+            if ( v2 <= v5 )
+              v2 = *((unsigned __int16 *)v4 - 1);
+            if ( *v4 == 1 )
+            {
+              v3 = 1;
+            }
+            else
+            {
+              v6 = *((unsigned __int16 *)v4 - 2);
+              if ( v6 < 0x40 && (unsigned __int16)v5 < 4u )
+              {
+                _bittestandset((signed __int32 *)v44, v5 + 4 * v6);
+                v1 = v41;
+              }
+            }
+            v7 = v4;
+            v4 += 16;
+            result = (v7 - (_BYTE *)v1 - 14) >> 4;
+            dword_140C4DE94 = result;
+          }
+          while ( *(_QWORD *)(v4 - 14) != -1LL );
+          if ( !v3 )
 LABEL_17:
-    v2 = 0;
-  v8 = v2 + 1;
-  MmNumberOfChannels = v8;
-  if ( v8 == 1 )
-    return result;
-  if ( v8 > 4 )
-  {
-    for ( i = (char *)v1 + 12; ; i += 16 )
-    {
-      if ( *(_QWORD *)(i - 12) == -1LL )
-      {
-        MmNumberOfChannels = 4;
-        break;
-      }
-      if ( *(_WORD *)i < 4u )
-        continue;
-      v10 = *((unsigned __int16 *)i - 1);
-      if ( v10 >= 0x40 )
-        continue;
-      v11 = 4 * v10;
-      v12 = v42 - 1;
-      v13 = v11 < v42 ? v11 : 0;
-      v14 = ((unsigned __int64)v43 & 4) != 0 ? 0x20 : 0;
-      v15 = (char *)v43 + (-(__int64)(((unsigned __int64)v43 & 4) != 0) & 0xFFFFFFFFFFFFFFFCuLL);
-      while ( 1 )
-      {
-        v41 = 0;
-        v16 = v14 + v12;
-        v17 = v14 + v13;
-        if ( v12 - v13 == -1 )
-          goto LABEL_27;
-        v18 = &v15[8 * ((unsigned __int64)v17 >> 6)];
-        for ( j = ~*(_QWORD *)v18 | ((1LL << (v17 & 0x3F)) - 1); j == -1; j = ~*(_QWORD *)v18 )
-        {
-          v18 += 8;
-          if ( v18 > &v15[8 * ((unsigned __int64)v16 >> 6)] )
-            goto LABEL_27;
-        }
-        _BitScanForward64(&v22, ~j);
-        v20 = v22 + ((unsigned int)((v18 - v15) >> 3) << 6);
-        if ( v20 > v16 )
-        {
+            v2 = 0;
+          v8 = v2 + 1;
+          MmNumberOfChannels = v8;
+          if ( v8 != 1 )
+          {
+            if ( v8 > 4 )
+            {
+              for ( i = (char *)v1 + 12; *(_QWORD *)(i - 12) != -1LL; i += 16 )
+              {
+                if ( *(_WORD *)i >= 4u )
+                {
+                  v10 = *((unsigned __int16 *)i - 1);
+                  if ( v10 < 0x40 )
+                  {
+                    v11 = 4 * v10;
+                    v12 = v43 - 1;
+                    v13 = v11 < v43 ? v11 : 0;
+                    v14 = ((unsigned __int64)v44 & 4) != 0 ? 0x20 : 0;
+                    v15 = (char *)v44 + (-(__int64)(((unsigned __int64)v44 & 4) != 0) & 0xFFFFFFFFFFFFFFFCuLL);
+                    while ( 1 )
+                    {
+                      v42[1] = 0;
+                      v16 = v14 + v12;
+                      v17 = v14 + v13;
+                      if ( v12 - v13 == -1 )
+                        goto LABEL_27;
+                      v18 = &v15[8 * ((unsigned __int64)v17 >> 6)];
+                      for ( j = ~*(_QWORD *)v18 | ((1LL << (v17 & 0x3F)) - 1); j == -1; j = ~*(_QWORD *)v18 )
+                      {
+                        v18 += 8;
+                        if ( v18 > &v15[8 * ((unsigned __int64)v16 >> 6)] )
+                          goto LABEL_27;
+                      }
+                      _BitScanForward64(&v21, ~j);
+                      v20 = v21 + ((unsigned int)((v18 - v15) >> 3) << 6);
+                      if ( v20 > v16 )
+                      {
 LABEL_27:
-          v20 = -1;
-          goto LABEL_28;
-        }
-        if ( v20 != -1 )
-          break;
-LABEL_28:
-        if ( !v13 )
-          goto LABEL_38;
-        v21 = v11 + 1;
-        if ( v11 + 1 > v42 )
-          v21 = v42;
-        v12 = v21 - 1;
-        v13 = 0;
-      }
-      v20 -= v14;
-LABEL_38:
-      if ( v20 < v11 || v20 >= v11 + 4 )
-      {
-        i[2] = 0;
-        *(_WORD *)i = 3;
-      }
-      else
-      {
-        *(_WORD *)i = v20 & 3;
-      }
-    }
-  }
-  v23 = 0;
-  v24 = ((unsigned __int64)v43 & 4) != 0 ? 0x20 : 0;
-  v25 = (char *)v43 - (-(__int64)(((unsigned __int64)v43 & 4) != 0) & 4);
-  while ( 2 )
-  {
-    v26 = v23 < v42 ? v23 : 0;
-    v27 = v42 - 1;
-    while ( 1 )
-    {
-      v41 = 0;
-      v28 = v24 + v27;
-      v29 = v24 + v26;
-      if ( v27 - v26 == -1 )
-        goto LABEL_48;
-      v30 = &v25[8 * ((unsigned __int64)v29 >> 6)];
-      for ( k = ~*(_QWORD *)v30 | ((1LL << (v29 & 0x3F)) - 1); k == -1; k = ~*(_QWORD *)v30 )
-      {
-        v30 += 8;
-        if ( v30 > &v25[8 * ((unsigned __int64)v28 >> 6)] )
-          goto LABEL_48;
-      }
-      _BitScanForward64(&v34, ~k);
-      v32 = v34 + ((unsigned int)((v30 - v25) >> 3) << 6);
-      if ( v32 > v28 )
-      {
-LABEL_48:
-        v32 = -1;
-        goto LABEL_49;
-      }
-      if ( v32 != -1 )
-        break;
+                        v20 = -1;
+                      }
+                      else if ( v20 != -1 )
+                      {
+                        break;
+                      }
+                      if ( !v13 )
+                        break;
+                      v22 = v11 + 1;
+                      if ( v11 + 1 > v43 )
+                        v22 = v43;
+                      v12 = v22 - 1;
+                      v13 = 0;
+                    }
+                    v23 = v20 - v14;
+                    if ( v20 == -1 )
+                      v23 = -1;
+                    if ( v23 < v11 || v23 >= v11 + 4 )
+                    {
+                      i[2] = 0;
+                      *(_WORD *)i = 3;
+                    }
+                    else
+                    {
+                      *(_WORD *)i = v23 & 3;
+                    }
+                  }
+                }
+              }
+              MmNumberOfChannels = 4;
+            }
+            v24 = 0;
+            v25 = ((unsigned __int64)v44 & 4) != 0 ? 0x20 : 0;
+            v26 = (char *)v44 - (-(__int64)(((unsigned __int64)v44 & 4) != 0) & 4);
+            while ( 1 )
+            {
+              v27 = v24 < v43 ? v24 : 0;
+              v28 = v43 - 1;
+              while ( 1 )
+              {
+                v42[2] = 0;
+                v29 = v25 + v28;
+                v30 = v25 + v27;
+                if ( v28 - v27 == -1 )
+                  goto LABEL_49;
+                v31 = &v26[8 * ((unsigned __int64)v30 >> 6)];
+                for ( k = ~*(_QWORD *)v31 | ((1LL << (v30 & 0x3F)) - 1); k == -1; k = ~*(_QWORD *)v31 )
+                {
+                  v31 += 8;
+                  if ( v31 > &v26[8 * ((unsigned __int64)v29 >> 6)] )
+                    goto LABEL_49;
+                }
+                _BitScanForward64(&v34, ~k);
+                v33 = v34 + ((unsigned int)((v31 - v26) >> 3) << 6);
+                if ( v33 > v29 )
+                {
 LABEL_49:
-      if ( !v26 )
-        goto LABEL_59;
-      v33 = v23 + 1;
-      if ( v23 + 1 > v42 )
-        v33 = v42;
-      v27 = v33 - 1;
-      v26 = 0;
-    }
-    v32 -= v24;
-LABEL_59:
-    if ( v32 != -1 && v32 >= v23 )
-    {
-      v23 = v32 + 1;
-      v35 = v32;
-      v36 = v32 & 3;
-      v37 = v35 >> 2;
-      if ( *v39 != -1LL )
-      {
-        v38 = (unsigned __int16 *)v39 + 6;
-        do
-        {
-          if ( *(v38 - 1) == v37 && *v38 == v36 )
-            *((_BYTE *)v38 + 2) = 0;
-          v38 += 8;
+                  v33 = -1;
+                }
+                else if ( v33 != -1 )
+                {
+                  break;
+                }
+                if ( !v27 )
+                  break;
+                v35 = v24 + 1;
+                if ( v24 + 1 > v43 )
+                  v35 = v43;
+                v28 = v35 - 1;
+                v27 = 0;
+              }
+              v36 = v33 - v25;
+              if ( v33 == -1 )
+                v36 = -1;
+              if ( v36 == -1 || v36 < v24 )
+                break;
+              v24 = v36 + 1;
+              v37 = v36;
+              v38 = v36 & 3;
+              v39 = v37 >> 2;
+              if ( *v41 != -1LL )
+              {
+                v40 = (unsigned __int16 *)v41 + 6;
+                do
+                {
+                  if ( *(v40 - 1) == v39 && *v40 == v38 )
+                    *((_BYTE *)v40 + 2) = 0;
+                  v40 += 8;
+                }
+                while ( *(_QWORD *)(v40 - 6) != -1LL );
+              }
+            }
+            result = (__int64)v41;
+            qword_140C4DED0 = v41;
+          }
         }
-        while ( *(_QWORD *)(v38 - 6) != -1LL );
       }
-      continue;
     }
-    break;
   }
-  result = (__int64)v39;
-  qword_140C50710 = v39;
   return result;
 }

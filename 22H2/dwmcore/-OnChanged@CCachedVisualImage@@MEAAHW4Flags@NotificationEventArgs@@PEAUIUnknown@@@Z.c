@@ -1,20 +1,25 @@
 /*
- * XREFs of ?OnChanged@CCachedVisualImage@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18003A6F0
+ * XREFs of ?OnChanged@CCachedVisualImage@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800D3B80
  * Callers:
  *     <none>
  * Callees:
- *     ?MarkAllTargetsDirty@CCachedVisualImage@@QEAAXXZ @ 0x18003A714 (-MarkAllTargetsDirty@CCachedVisualImage@@QEAAXXZ.c)
+ *     ?MarkAllTargetsDirty@CCachedVisualImage@@IEAAXXZ @ 0x1800D3BB8 (-MarkAllTargetsDirty@CCachedVisualImage@@IEAAXXZ.c)
  */
 
 __int64 __fastcall CCachedVisualImage::OnChanged(CCachedVisualImage *a1)
 {
-  __int64 result; // rax
+  char v1; // di
+  unsigned int v2; // ebx
+  bool v3; // zf
 
-  result = 0LL;
-  if ( !*((_BYTE *)a1 + 1776) )
+  v1 = *((_BYTE *)a1 + 1800);
+  v2 = 0;
+  v3 = v1 == 0;
+  if ( !v1 )
   {
     CCachedVisualImage::MarkAllTargetsDirty(a1);
-    return 1LL;
+    v3 = 1;
   }
-  return result;
+  LOBYTE(v2) = v3;
+  return v2;
 }

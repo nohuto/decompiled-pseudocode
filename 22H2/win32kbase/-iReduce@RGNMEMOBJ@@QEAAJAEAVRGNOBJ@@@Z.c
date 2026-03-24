@@ -1,43 +1,57 @@
 /*
- * XREFs of ?iReduce@RGNMEMOBJ@@QEAAJAEAVRGNOBJ@@@Z @ 0x1C0157418
+ * XREFs of ?iReduce@RGNMEMOBJ@@QEAAJAEAVRGNOBJ@@@Z @ 0x1C00BDCFC
  * Callers:
- *     GreExtCreateRegion @ 0x1C007C890 (GreExtCreateRegion.c)
+ *     GreExtCreateRegion @ 0x1C0024210 (GreExtCreateRegion.c)
  * Callees:
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C003D9E0 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C003E0F4 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
- *     ?vSet@RGNOBJ@@QEAAXXZ @ 0x1C003E4A0 (-vSet@RGNOBJ@@QEAAXXZ.c)
- *     ?vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z @ 0x1C003ED80 (-vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z.c)
- *     ?iComplexity@RGNCOREOBJ@@QEBAJXZ @ 0x1C0044530 (-iComplexity@RGNCOREOBJ@@QEBAJXZ.c)
- *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C004C7D0 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
- *     ?bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z @ 0x1C007DF50 (-bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C002C4A8 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C002CBC0 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C002CCE4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C0031758 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     ?bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z @ 0x1C0035490 (-bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z.c)
+ *     ?vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z @ 0x1C0035D50 (-vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z.c)
  */
 
-__int64 __fastcall RGNMEMOBJ::iReduce(RGNMEMOBJ *this, struct RGNOBJ *a2)
+__int64 __fastcall RGNMEMOBJ::iReduce(RGNMEMOBJ *this, struct RGNOBJ *a2, __int64 a3)
 {
-  unsigned int v2; // ebx
-  int v5; // r9d
-  struct _RECTL si128; // [rsp+20h] [rbp-18h] BYREF
-  PVOID v8; // [rsp+50h] [rbp+18h] BYREF
-  __int64 v9; // [rsp+58h] [rbp+20h] BYREF
+  unsigned int v3; // ebx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  struct _RECTL *v9; // [rsp+20h] [rbp-20h] BYREF
+  int v10; // [rsp+28h] [rbp-18h]
+  struct _RECTL v11; // [rsp+30h] [rbp-10h] BYREF
 
-  v2 = 0;
-  v8 = 0LL;
-  RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v8, 0x70u);
-  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v8);
-  if ( v8
-    && (si128 = (struct _RECTL)_mm_load_si128((const __m128i *)&_xmm),
-        RGNOBJ::vSet((RGNOBJ *)&v8, &si128),
-        LOBYTE(v5) = 8,
-        *(__m128i *)(*(_QWORD *)this + 56LL) = _mm_load_si128((const __m128i *)&_xmm),
-        (unsigned int)RGNOBJ::bMerge(this, (struct RGNOBJ *)&v8, a2, v5)) )
+  v3 = 0;
+  v9 = 0LL;
+  v10 = 0;
+  RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v9, 112LL, a3);
+  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v9);
+  v11.left = -134217728;
+  v11.right = 0x7FFFFFF;
+  v11.top = -134217728;
+  v11.bottom = 0x7FFFFFF;
+  if ( v9
+    && (RGNOBJ::vSet(&v9, &v11),
+        *(_DWORD *)(*(_QWORD *)this + 96LL) = 0x7FFFFFFF,
+        *(_DWORD *)(*(_QWORD *)this + 100LL) = 0x7FFFFFFF,
+        *(_DWORD *)(*(_QWORD *)this + 104LL) = 0x80000000,
+        *(_DWORD *)(*(_QWORD *)this + 108LL) = 0x80000000,
+        (unsigned int)RGNOBJ::bMerge(this, (struct RGNOBJ *)&v9, a2, 8u)) )
   {
-    v9 = (*(_QWORD *)this + 24LL) & -(__int64)(*(_QWORD *)this != 0LL);
-    v2 = RGNCOREOBJ::iComplexity((RGNCOREOBJ *)&v9);
+    v3 = RGNOBJ::iComplexity(this);
   }
   else
   {
-    RGNOBJ::vSet(this);
+    v7 = *(_QWORD *)this;
+    *(_DWORD *)(v7 + 80) = 16;
+    *(_DWORD *)(v7 + 84) = 1;
+    *(_QWORD *)(v7 + 96) = 0LL;
+    *(_QWORD *)(v7 + 104) = 0LL;
+    v8 = *(_QWORD *)(v7 + 88);
+    *(_DWORD *)v8 = 0;
+    *(_DWORD *)(v8 + 4) = 0x80000000;
+    *(_QWORD *)(v8 + 8) = 0x7FFFFFFFLL;
+    *(_QWORD *)(v7 + 40) = v8 + 16;
   }
-  RGNMEMOBJTMP::~RGNMEMOBJTMP(&v8);
-  return v2;
+  RGNMEMOBJTMP::~RGNMEMOBJTMP((REGION **)&v9);
+  return v3;
 }

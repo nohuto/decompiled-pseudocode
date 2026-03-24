@@ -1,14 +1,14 @@
 /*
- * XREFs of StringExHandleOtherFlagsW @ 0x14055F878
+ * XREFs of StringExHandleOtherFlagsW @ 0x14050C2D8
  * Callers:
- *     RtlStringCbPrintfExW @ 0x140226370 (RtlStringCbPrintfExW.c)
- *     RtlStringCchCopyExW @ 0x14022B258 (RtlStringCchCopyExW.c)
- *     RtlStringCchPrintfExW @ 0x14022B740 (RtlStringCchPrintfExW.c)
- *     RtlStringCchCopyNExW @ 0x14022B880 (RtlStringCchCopyNExW.c)
- *     RtlStringCbCopyExW @ 0x14034E1C0 (RtlStringCbCopyExW.c)
- *     StringCchPrintfExW @ 0x140671290 (StringCchPrintfExW.c)
+ *     RtlStringCbPrintfExW @ 0x14024F030 (RtlStringCbPrintfExW.c)
+ *     RtlStringCbCopyExW @ 0x14031BC50 (RtlStringCbCopyExW.c)
+ *     RtlStringCchCopyExW @ 0x14032E518 (RtlStringCchCopyExW.c)
+ *     RtlStringCchCopyNExW @ 0x14032E654 (RtlStringCchCopyNExW.c)
+ *     RtlStringCchPrintfExW @ 0x14032EBA4 (RtlStringCchPrintfExW.c)
+ *     StringCchPrintfExW @ 0x1405C3720 (StringCchPrintfExW.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 HRESULT __stdcall StringExHandleOtherFlagsW(
@@ -20,7 +20,7 @@ HRESULT __stdcall StringExHandleOtherFlagsW(
         DWORD dwFlags)
 {
   size_t v7; // rdi
-  wchar_t *v10; // rax
+  wchar_t *v9; // rax
 
   v7 = cbDest >> 1;
   if ( cbDest >> 1 && (dwFlags & 0x1000) != 0 )
@@ -29,28 +29,25 @@ HRESULT __stdcall StringExHandleOtherFlagsW(
     *pcchRemaining = v7;
     *pszDest = 0;
   }
-  if ( (dwFlags & 0x400) == 0 )
+  if ( (dwFlags & 0x400) != 0 )
   {
-LABEL_7:
-    if ( !v7 )
-      return 0;
-    goto LABEL_8;
+    memset(pszDest, (unsigned __int8)dwFlags, cbDest);
+    if ( (_BYTE)dwFlags )
+    {
+      if ( !v7 )
+        return 0;
+      *pcchRemaining = 1LL;
+      v9 = &pszDest[v7 - 1];
+      *ppszDestEnd = v9;
+      *v9 = 0;
+    }
+    else
+    {
+      *ppszDestEnd = pszDest;
+      *pcchRemaining = v7;
+    }
   }
-  memset(pszDest, (unsigned __int8)dwFlags, cbDest);
-  if ( !(_BYTE)dwFlags )
-  {
-    *ppszDestEnd = pszDest;
-    *pcchRemaining = v7;
-    goto LABEL_7;
-  }
-  if ( !v7 )
-    return 0;
-  *pcchRemaining = 1LL;
-  v10 = &pszDest[v7 - 1];
-  *ppszDestEnd = v10;
-  *v10 = 0;
-LABEL_8:
-  if ( (dwFlags & 0x800) != 0 )
+  if ( v7 && (dwFlags & 0x800) != 0 )
   {
     *ppszDestEnd = pszDest;
     *pcchRemaining = v7;

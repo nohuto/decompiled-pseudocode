@@ -5,7 +5,7 @@
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     WmipSendEnableRequest @ 0x1406CE2F4 (WmipSendEnableRequest.c)
+ *     WmipSendEnableRequest @ 0x1406CE2D4 (WmipSendEnableRequest.c)
  */
 
 __int64 __fastcall WmipEnableCollectOrEvent(ULONG_PTR BugCheckParameter2, int a2, _BYTE *a3)

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?vTransparentCopyS32D24@@YAXPEAUBLTINFO@@@Z @ 0x1C0296E40
+ * XREFs of ?vTransparentCopyS32D24@@YAXPEAUBLTINFO@@@Z @ 0x1C0292350
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ @ 0x1C02DCAF8 (-pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ.c)
+ *     ?pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ @ 0x1C014FD54 (-pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall vTransparentCopyS32D24(struct BLTINFO *a1)
 {
   int v2; // r14d
-  unsigned int (*v3)(struct _XLATEOBJ *, unsigned int); // rax
+  __int64 (__fastcall *v3)(struct _XLATEOBJ *, unsigned int); // rax
   int v4; // r9d
   __int64 v5; // rcx
   __int64 v6; // rdx
@@ -22,7 +22,7 @@ void __fastcall vTransparentCopyS32D24(struct BLTINFO *a1)
   _BYTE *v12; // r15
   int v13; // edx
   __int64 v14; // rax
-  unsigned int (*v15)(struct _XLATEOBJ *, unsigned int); // [rsp+20h] [rbp-58h]
+  __int64 (__fastcall *v15)(struct _XLATEOBJ *, unsigned int); // [rsp+20h] [rbp-58h]
   int v16; // [rsp+88h] [rbp+10h]
   __int64 v17; // [rsp+98h] [rbp+20h]
 

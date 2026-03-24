@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMirrorNodeLargePages @ 0x140152B88
+ * XREFs of MiMirrorNodeLargePages @ 0x140152BA8
  * Callers:
- *     MiMirrorGatherBrownPages @ 0x140152540 (MiMirrorGatherBrownPages.c)
- *     MiMirrorReduceBlackWrites @ 0x140152DC0 (MiMirrorReduceBlackWrites.c)
+ *     MiMirrorGatherBrownPages @ 0x140152560 (MiMirrorGatherBrownPages.c)
+ *     MiMirrorReduceBlackWrites @ 0x140152DE0 (MiMirrorReduceBlackWrites.c)
  * Callees:
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiMirrorAddPagesToBrownList @ 0x14015279C (MiMirrorAddPagesToBrownList.c)
- *     MiMirrorOmitPagesFromCopy @ 0x140152FDC (MiMirrorOmitPagesFromCopy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiMirrorAddPagesToBrownList @ 0x1401527BC (MiMirrorAddPagesToBrownList.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x140152FFC (MiMirrorOmitPagesFromCopy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiMirrorNodeLargePages(__int64 a1, __int64 a2, __int64 a3)

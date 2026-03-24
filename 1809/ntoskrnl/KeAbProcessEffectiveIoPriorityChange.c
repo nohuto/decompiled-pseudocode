@@ -1,12 +1,12 @@
 /*
- * XREFs of KeAbProcessEffectiveIoPriorityChange @ 0x1400D139C
+ * XREFs of KeAbProcessEffectiveIoPriorityChange @ 0x1400D13BC
  * Callers:
- *     ExpApplyPriorityBoost @ 0x1400CEA00 (ExpApplyPriorityBoost.c)
- *     PsBoostThreadIoQoS @ 0x14010A65C (PsBoostThreadIoQoS.c)
+ *     ExpApplyPriorityBoost @ 0x1400CEA20 (ExpApplyPriorityBoost.c)
+ *     PsBoostThreadIoQoS @ 0x14010A67C (PsBoostThreadIoQoS.c)
  * Callees:
- *     KiAbQueueAutoBoostDpc @ 0x14010EDBC (KiAbQueueAutoBoostDpc.c)
- *     KiAbThreadInsertList @ 0x140128DB8 (KiAbThreadInsertList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAbQueueAutoBoostDpc @ 0x14010EDDC (KiAbQueueAutoBoostDpc.c)
+ *     KiAbThreadInsertList @ 0x140128DD8 (KiAbThreadInsertList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KeAbProcessEffectiveIoPriorityChange(__int64 a1, int a2)

@@ -1,21 +1,24 @@
 /*
- * XREFs of EtwTraceWakeRIT @ 0x1C00BE7A0
+ * XREFs of EtwTraceWakeRIT @ 0x1C00B0F80
  * Callers:
  *     <none>
  * Callees:
- *     ?GetCallbackCount@@YACXZ @ 0x1C00DEF46 (-GetCallbackCount@@YACXZ.c)
- *     McTemplateK0cd_EtwWriteTransfer @ 0x1C00DF2BC (McTemplateK0cd_EtwWriteTransfer.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     McTemplateK0cd_EtwWriteTransfer @ 0x1C0124900 (McTemplateK0cd_EtwWriteTransfer.c)
  */
 
 void __fastcall EtwTraceWakeRIT(int a1)
 {
-  __int64 v2; // r9
-  __int64 v3; // rcx
-  __int64 v4; // r8
+  __int64 v2; // rcx
+  __int64 v3; // r8
+  __int64 v4; // r9
 
   if ( (Microsoft_Windows_Win32kEnableBits & 0x4000) != 0 )
   {
-    LOBYTE(v2) = GetCallbackCount();
-    McTemplateK0cd_EtwWriteTransfer(v3, &EtwWakeRIT, v4, v2, a1);
+    if ( W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) )
+      LOBYTE(v4) = *(_BYTE *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1248);
+    else
+      LOBYTE(v4) = -1;
+    McTemplateK0cd_EtwWriteTransfer(v2, &EtwWakeRIT, v3, v4, a1);
   }
 }

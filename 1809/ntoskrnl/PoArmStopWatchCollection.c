@@ -1,8 +1,8 @@
 /*
- * XREFs of PoArmStopWatchCollection @ 0x1402E90D0
+ * XREFs of PoArmStopWatchCollection @ 0x1402E91D0
  * Callers:
- *     PopStatsNotifyPowerRequestDamPhase @ 0x14087B210 (PopStatsNotifyPowerRequestDamPhase.c)
- *     PopStatsNotifyPowerRequestLpePhase @ 0x14087B28C (PopStatsNotifyPowerRequestLpePhase.c)
+ *     PopStatsNotifyPowerRequestDamPhase @ 0x14087B1F0 (PopStatsNotifyPowerRequestDamPhase.c)
+ *     PopStatsNotifyPowerRequestLpePhase @ 0x14087B26C (PopStatsNotifyPowerRequestLpePhase.c)
  * Callees:
  *     PopInternalUpdateActiveStopWatchesCollectionState @ 0x140001E98 (PopInternalUpdateActiveStopWatchesCollectionState.c)
  *     PopInternalUpdateStopWatchState @ 0x140001EF8 (PopInternalUpdateStopWatchState.c)

@@ -1,20 +1,30 @@
 /*
- * XREFs of HalpReserveHalPtes @ 0x140AF9C84
+ * XREFs of HalpReserveHalPtes @ 0x140A64880
  * Callers:
- *     HalpWheaInitDiscard @ 0x140AF9508 (HalpWheaInitDiscard.c)
+ *     HalpWheaInitDiscard @ 0x140A63B9C (HalpWheaInitDiscard.c)
  * Callees:
- *     HalpMmGetPteAddressSafe @ 0x1403BF580 (HalpMmGetPteAddressSafe.c)
+ *     HalpMmGetPteAddressSafe @ 0x1403BBB00 (HalpMmGetPteAddressSafe.c)
  */
 
-__int64 HalpReserveHalPtes()
+unsigned __int64 HalpReserveHalPtes()
 {
-  __int64 v0; // rbx
+  unsigned __int64 v0; // rbx
+  int v1; // edi
   _BYTE *PteAddressSafe; // rax
 
-  v0 = HalpHeapEnd - 4096;
-  PteAddressSafe = (_BYTE *)HalpMmGetPteAddressSafe(HalpHeapEnd - 4096);
-  if ( !PteAddressSafe || (*PteAddressSafe & 1) != 0 )
-    return 0LL;
-  HalpHeapEnd = v0;
-  return v0;
+  v0 = HalpHeapEnd;
+  v1 = 0;
+  while ( 1 )
+  {
+    v0 -= 4096LL;
+    PteAddressSafe = (_BYTE *)HalpMmGetPteAddressSafe(v0);
+    if ( !PteAddressSafe || (*PteAddressSafe & 1) != 0 )
+      break;
+    if ( ++v1 )
+    {
+      HalpHeapEnd = v0;
+      return v0;
+    }
+  }
+  return 0LL;
 }

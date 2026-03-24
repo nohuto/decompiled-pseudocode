@@ -1,16 +1,16 @@
 /*
- * XREFs of ACPIBusIrpQueryDeviceRelations @ 0x1C007FA00
+ * XREFs of ACPIBusIrpQueryDeviceRelations @ 0x1C008F4A0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
- *     WPP_RECORDER_SF_qsdqss @ 0x1C000A844 (WPP_RECORDER_SF_qsdqss.c)
- *     ACPIBusAndFilterIrpQueryRemovalRelations @ 0x1C0016248 (ACPIBusAndFilterIrpQueryRemovalRelations.c)
- *     ACPIBusAndFilterIrpQueryEjectRelations @ 0x1C007DDAC (ACPIBusAndFilterIrpQueryEjectRelations.c)
- *     ACPIBusIrpQueryBusRelations @ 0x1C007EC88 (ACPIBusIrpQueryBusRelations.c)
- *     ACPIBusIrpQueryTargetRelation @ 0x1C00812FC (ACPIBusIrpQueryTargetRelation.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     WPP_RECORDER_SF_qsdqss @ 0x1C002B5AC (WPP_RECORDER_SF_qsdqss.c)
+ *     ACPIBusAndFilterIrpQueryRemovalRelations @ 0x1C004D120 (ACPIBusAndFilterIrpQueryRemovalRelations.c)
+ *     ACPIBusIrpQueryTargetRelation @ 0x1C008F638 (ACPIBusIrpQueryTargetRelation.c)
+ *     ACPIBusIrpQueryBusRelations @ 0x1C00A2AC0 (ACPIBusIrpQueryBusRelations.c)
+ *     ACPIBusAndFilterIrpQueryEjectRelations @ 0x1C00AD9B0 (ACPIBusAndFilterIrpQueryEjectRelations.c)
  */
 
 __int64 __fastcall ACPIBusIrpQueryDeviceRelations(PVOID Object, PIRP Irp)
@@ -18,21 +18,20 @@ __int64 __fastcall ACPIBusIrpQueryDeviceRelations(PVOID Object, PIRP Irp)
   _IO_STACK_LOCATION *CurrentStackLocation; // rbx
   unsigned __int8 MinorFunction; // r12
   __int64 DeviceExtension; // rax
-  __int64 v7; // rcx
   unsigned int Length; // ebx
-  const char *v9; // r15
-  char v10; // bp
-  __int64 v11; // rsi
-  char *IrpText; // rax
-  __int64 v13; // rdx
-  const char *v14; // r8
-  char v15; // r10
-  const char *v16; // r11
-  int EjectRelations; // eax
+  const char *v8; // r15
+  char v9; // bp
+  __int64 v10; // rsi
+  int RemovalRelations; // eax
   unsigned int Status; // ebx
-  __int64 v19; // rcx
-  char *v20; // rax
-  const char *v21; // r8
+  __int64 v13; // rcx
+  char *v14; // rax
+  const char *v15; // r8
+  char *IrpText; // rax
+  __int64 v18; // rdx
+  const char *v19; // r8
+  char v20; // r10
+  const char *v21; // r11
   unsigned __int64 Information; // [rsp+98h] [rbp+10h] BYREF
 
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
@@ -40,86 +39,88 @@ __int64 __fastcall ACPIBusIrpQueryDeviceRelations(PVOID Object, PIRP Irp)
   MinorFunction = CurrentStackLocation->MinorFunction;
   DeviceExtension = ACPIInternalGetDeviceExtension((ULONG_PTR)Object);
   Length = CurrentStackLocation->Parameters.Read.Length;
-  v9 = byte_1C00622D0;
-  v10 = 0;
-  v11 = DeviceExtension;
+  v8 = byte_1C00701BA;
+  v9 = 0;
+  v10 = DeviceExtension;
   if ( Length )
   {
     switch ( Length )
     {
       case 1u:
-        EjectRelations = ACPIBusAndFilterIrpQueryEjectRelations((ULONG_PTR)Object, (char)Irp, (PVOID *)&Information);
+        RemovalRelations = ACPIBusAndFilterIrpQueryEjectRelations(Object, Irp, &Information);
         break;
       case 3u:
-        EjectRelations = ACPIBusAndFilterIrpQueryRemovalRelations((ULONG_PTR)Object, (PVOID *)&Information);
+        RemovalRelations = ACPIBusAndFilterIrpQueryRemovalRelations((ULONG_PTR)Object, (PVOID *)&Information);
         break;
       case 4u:
-        EjectRelations = ACPIBusIrpQueryTargetRelation(Object);
+        RemovalRelations = ACPIBusIrpQueryTargetRelation(Object);
         break;
       default:
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          IrpText = ACPIDebugGetIrpText(v7, MinorFunction);
+          IrpText = ACPIDebugGetIrpText(0x200000000000LL, MinorFunction);
           WPP_RECORDER_SF_qsdqss(
             (__int64)WPP_GLOBAL_Control->DeviceExtension,
-            v13,
-            (__int64)v14,
+            v18,
+            (__int64)v19,
             0x24u,
-            (__int64)&WPP_efe410a963c03a77fa130710cec25e42_Traceguids,
+            (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
             (char)Irp,
             IrpText,
             Length,
-            v15,
-            v16,
-            v14);
+            v20,
+            v21,
+            v19);
         }
-        goto LABEL_16;
+        goto LABEL_22;
     }
   }
   else
   {
-    EjectRelations = ACPIBusIrpQueryBusRelations((ULONG_PTR)Object, (char)Irp, (PVOID *)&Information);
+    RemovalRelations = ACPIBusIrpQueryBusRelations(Object, Irp, &Information);
   }
-  Status = EjectRelations;
-  if ( EjectRelations < 0 )
+  Status = RemovalRelations;
+  if ( RemovalRelations < 0 )
   {
-    if ( EjectRelations == -1073741637 || Information )
+    if ( RemovalRelations != -1073741637 && !Information )
     {
-LABEL_16:
-      Status = Irp->IoStatus.Status;
-      goto LABEL_17;
+      Irp->IoStatus.Status = RemovalRelations;
+      Irp->IoStatus.Information = 0LL;
+      goto LABEL_5;
     }
-    Irp->IoStatus.Status = EjectRelations;
-    Irp->IoStatus.Information = 0LL;
+LABEL_22:
+    Status = Irp->IoStatus.Status;
+    goto LABEL_5;
   }
-  else
-  {
-    Irp->IoStatus.Status = EjectRelations;
-    Irp->IoStatus.Information = Information;
-  }
-LABEL_17:
+  Irp->IoStatus.Status = RemovalRelations;
+  Irp->IoStatus.Information = Information;
+LABEL_5:
   IofCompleteRequest(Irp, 0);
-  if ( v11 )
+  if ( v10 )
   {
-    v10 = v11;
-    if ( (*(_QWORD *)(v11 + 8) & 0x200000000000LL) != 0 )
-      v9 = *(const char **)(v11 + 608);
+    v13 = 0x200000000000LL;
+    v9 = v10;
+    if ( (*(_QWORD *)(v10 + 8) & 0x200000000000LL) != 0 )
+    {
+      v8 = *(const char **)(v10 + 568);
+      v13 = 0x400000000000LL;
+    }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v20 = ACPIDebugGetIrpText(v19, MinorFunction);
+    v14 = ACPIDebugGetIrpText(v13, MinorFunction);
     WPP_RECORDER_SF_qsLqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       5u,
       0x25u,
-      (__int64)&WPP_efe410a963c03a77fa130710cec25e42_Traceguids,
+      (__int64)&WPP_aa0188d95df637fd68421574d89cc32b_Traceguids,
       (char)Irp,
-      (__int64)v20,
+      v14,
       Status,
-      v10,
       v9,
-      v21);
+      v8,
+      v15);
   }
   return Status;
 }

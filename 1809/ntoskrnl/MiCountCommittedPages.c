@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCountCommittedPages @ 0x1402BD054
+ * XREFs of MiCountCommittedPages @ 0x1402BD154
  * Callers:
- *     MiLoadSectionIntoVsmEnclave @ 0x14085A39C (MiLoadSectionIntoVsmEnclave.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x14085A37C (MiLoadSectionIntoVsmEnclave.c)
  * Callees:
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)

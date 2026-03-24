@@ -1,21 +1,21 @@
 /*
- * XREFs of ?TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z @ 0x1C01D7F3C
+ * XREFs of ?TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z @ 0x1C019F35C
  * Callers:
- *     ?EndQFrameNodeDeferment@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@PEAUCPointerInfoNode@@PEAUCPointerInputFrame@@_K@Z @ 0x1C01C2494 (-EndQFrameNodeDeferment@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@PEAUCPointerInfoNode@@PEAUCPoi.c)
- *     ?PopulateReferencedInputFrame@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@PEAU2@KPEAURIMCOMPLETEFRAME@@@Z @ 0x1C01CE8B0 (-PopulateReferencedInputFrame@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@PEAU2@KPEAURIMCOMPLET.c)
- *     ?SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAXPEAUTELEMETRY_POINTER_FRAME_TIMES@@H@Z @ 0x1C01D358C (-SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAXPEAUTELEMETRY_POINTER_FRAME_TIMES@@H.c)
+ *     ?EndQFrameNodeDeferment@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@PEAUCPointerInfoNode@@PEAUCPointerInputFrame@@_K@Z @ 0x1C018E0A4 (-EndQFrameNodeDeferment@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@PEAUCPointerInfoNode@@PEAUCPoi.c)
+ *     ?PopulateReferencedInputFrame@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@PEAU2@KPEAURIMCOMPLETEFRAME@@@Z @ 0x1C01983C8 (-PopulateReferencedInputFrame@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@PEAU2@KPEAURIMCOMPLET.c)
+ *     ?SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAX@Z @ 0x1C019BBCC (-SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAX@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C0079E14 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C00E4A4E (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
- *     EtwTraceBeginPointerFrameCoalesce @ 0x1C0138B40 (EtwTraceBeginPointerFrameCoalesce.c)
- *     EtwTraceEndPointerFrameCoalesce @ 0x1C01393C0 (EtwTraceEndPointerFrameCoalesce.c)
- *     EtwTracePointerNoCoalesce @ 0x1C013AEF0 (EtwTracePointerNoCoalesce.c)
- *     ?CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@KH@Z @ 0x1C01BD108 (-CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@.c)
- *     ?CreateAndReferenceMsgData@CTouchProcessor@@AEAA_KGKKIH@Z @ 0x1C01BFDA4 (-CreateAndReferenceMsgData@CTouchProcessor@@AEAA_KGKKIH@Z.c)
- *     ?FreePointerInfoNodeInt@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@KW4CPointerInputFramePhase@@@Z @ 0x1C01C3DC4 (-FreePointerInfoNodeInt@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@KW4CPointerInputFramePhase.c)
- *     ?TrackCoalesceOnArrival@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@W4CPointerCoalesce@@@Z @ 0x1C01D7C58 (-TrackCoalesceOnArrival@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@W4CPointerCoalesce@@@Z.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     ?FreePointerInfoNodeInt@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@KW4CPointerInputFramePhase@@@Z @ 0x1C00CCFA0 (-FreePointerInfoNodeInt@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@KW4CPointerInputFramePhase.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     EtwTraceBeginPointerFrameCoalesce @ 0x1C0121BA0 (EtwTraceBeginPointerFrameCoalesce.c)
+ *     EtwTraceEndPointerFrameCoalesce @ 0x1C0122320 (EtwTraceEndPointerFrameCoalesce.c)
+ *     EtwTracePointerNoCoalesce @ 0x1C0123AE0 (EtwTracePointerNoCoalesce.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C018625C (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
+ *     ?CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@KH@Z @ 0x1C018A058 (-CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@.c)
+ *     ?CreateAndReferenceMsgData@CTouchProcessor@@AEAA_KGKKIH@Z @ 0x1C018C32C (-CreateAndReferenceMsgData@CTouchProcessor@@AEAA_KGKKIH@Z.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01970E4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?TrackCoalesceOnArrival@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@W4CPointerCoalesce@@@Z @ 0x1C019F264 (-TrackCoalesceOnArrival@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@W4CPointerCoalesce@@@Z.c)
  */
 
 void __fastcall CTouchProcessor::TryCoalesceQFrame(
@@ -32,33 +32,32 @@ void __fastcall CTouchProcessor::TryCoalesceQFrame(
   char v11; // r12
   unsigned int v12; // ebp
   int v13; // eax
-  unsigned int v14; // edx
-  __int64 v15; // rcx
-  unsigned int v16; // edx
-  int v17; // esi
-  _DWORD *v18; // r14
-  unsigned int i; // r15d
-  __int64 v20; // rbp
-  __int64 v21; // rax
-  __int16 v22; // dx
-  int v23; // ecx
-  int v24; // eax
-  __int64 v25; // r8
-  __int64 v26; // r9
-  int v27; // esi
-  char v28; // [rsp+44h] [rbp-54h]
-  _QWORD v29[10]; // [rsp+48h] [rbp-50h] BYREF
-  int v31; // [rsp+A8h] [rbp+10h] BYREF
-  struct CPointerInputFrame *v32; // [rsp+B0h] [rbp+18h]
-  __int64 v33; // [rsp+B8h] [rbp+20h] BYREF
+  int v14; // edx
+  int v15; // ecx
+  _DWORD *v16; // rsi
+  int v17; // r15d
+  unsigned int i; // r14d
+  __int64 v19; // rbp
+  _QWORD *v20; // rax
+  __int16 v21; // dx
+  int v22; // ecx
+  int v23; // eax
+  __int64 v24; // r8
+  __int64 v25; // r9
+  int v26; // eax
+  char v27; // [rsp+44h] [rbp-54h]
+  __int64 v28[10]; // [rsp+48h] [rbp-50h] BYREF
+  int v30; // [rsp+A8h] [rbp+10h] BYREF
+  struct CPointerInputFrame *v31; // [rsp+B0h] [rbp+18h]
+  __int64 v32; // [rsp+B8h] [rbp+20h] BYREF
 
-  v32 = a3;
-  v4 = *((_QWORD *)a2 + 31);
+  v31 = a3;
+  v4 = *((_QWORD *)a2 + 18);
   v5 = 0;
-  v28 = 0;
+  v27 = 0;
   v7 = *((_DWORD *)a2 + 12);
   v8 = 0;
-  v31 = 0;
+  v30 = 0;
   v10 = 0;
   v11 = 1;
   v12 = 0;
@@ -71,33 +70,40 @@ void __fastcall CTouchProcessor::TryCoalesceQFrame(
       if ( !a4 || a4 == (const struct CPointerQFrame *)v4 )
       {
         v13 = *(_DWORD *)(v4 + 140);
-        if ( ((v13 & 1) == 0 || (v13 & 8) != 0 || *(_QWORD *)(v4 + 8) == -1LL) && (v13 & 2) != 0 )
+        if ( (v13 & 1) == 0 || (v13 & 8) != 0 || (v14 = *(_DWORD *)(v4 + 140), *(_QWORD *)(v4 + 8) == -1LL) )
         {
-          LODWORD(v33) = 0x20000;
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9212);
+          v14 = *(_DWORD *)(v4 + 140);
+          if ( (v13 & 2) != 0 )
+          {
+            LODWORD(v32) = 0x20000;
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 8611);
+            v14 = *(_DWORD *)(v4 + 140);
+          }
         }
-        v14 = *(_DWORD *)(v4 + 140);
         if ( (v14 & 2) == 0 )
           goto LABEL_17;
-        v15 = *(unsigned int *)(*(_QWORD *)(v4 + 152) + 136LL);
-        if ( *(_DWORD *)(v4 + 136) != (_DWORD)v15 )
+        v15 = *(_DWORD *)(*(_QWORD *)(v4 + 152) + 136LL);
+        if ( *(_DWORD *)(v4 + 136) != v15 )
         {
-          CTouchProcessor::TrackCoalesceOnArrival(v15, v4, 17);
-          v14 = *(_DWORD *)(v4 + 140) & 0xFFFFFFFD;
-          *(_DWORD *)(v4 + 140) = v14;
+          CTouchProcessor::TrackCoalesceOnArrival(v15, (int *)v4, 17);
+          *(_DWORD *)(v4 + 140) &= ~2u;
+          v14 = *(_DWORD *)(v4 + 140);
         }
         if ( (v14 & 2) != 0 )
         {
           if ( *(_DWORD *)(v4 + 144) != 1 )
-            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9223);
-          *(_DWORD *)(v4 + 140) |= 4u;
+          {
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 8622);
+            v14 = *(_DWORD *)(v4 + 140);
+          }
           v8 = 1;
-          v31 = 1;
+          *(_DWORD *)(v4 + 140) = v14 | 4;
+          v30 = 1;
         }
         else
         {
 LABEL_17:
-          v8 = v31;
+          v8 = v30;
         }
         *(_QWORD *)(v4 + 152) = 0LL;
       }
@@ -106,99 +112,101 @@ LABEL_17:
       v4 += 160LL;
     }
     while ( v12 < v7 );
-    if ( v8 )
-      EtwTraceBeginPointerFrameCoalesce(*((unsigned int *)a2 + 10), v7, 0LL);
     v5 = 0;
   }
-  v16 = *((_DWORD *)a2 + 12);
-  v17 = 1;
-  v18 = (_DWORD *)*((_QWORD *)a2 + 30);
-  for ( i = 0; i < v16; v18 += 120 )
+  if ( v8 )
   {
-    if ( (unsigned __int64)v18 >= *((_QWORD *)a2 + 30) + 480 * (unsigned __int64)v16 )
+    EtwTraceBeginPointerFrameCoalesce(*((_DWORD *)a2 + 10), v7, 0);
+    v7 = *((_DWORD *)a2 + 12);
+    v5 = 0;
+  }
+  v16 = (_DWORD *)*((_QWORD *)a2 + 17);
+  v17 = 1;
+  for ( i = 0; i < v7; v16 += 120 )
+  {
+    if ( (unsigned __int64)v16 >= *((_QWORD *)a2 + 17) + 480 * (unsigned __int64)v7 )
     {
-      LODWORD(v33) = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 9255);
+      LODWORD(v32) = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 8654);
     }
-    if ( (unsigned int)CPointerInfoNode::IsValid((CPointerInfoNode *)v18) )
+    if ( (unsigned int)CPointerInfoNode::IsValid((CPointerInfoNode *)v16) )
     {
-      v20 = *((_QWORD *)a2 + 31) + 160LL * (unsigned int)v18[2];
-      if ( (a4 || *(_QWORD *)(v20 + 8) == -1LL) && a4 != (const struct CPointerQFrame *)v20 )
+      v19 = *((_QWORD *)a2 + 18) + 160LL * (unsigned int)v16[2];
+      if ( (a4 || *(_QWORD *)(v19 + 8) == -1LL) && a4 != (const struct CPointerQFrame *)v19 )
       {
-        v17 = (*(_BYTE *)(v20 + 140) & 4) != 0 ? v17 : 0;
+        v17 = (*(_BYTE *)(v19 + 140) & 4) != 0 ? v17 : 0;
       }
       else
       {
-        *(_DWORD *)(v20 + 140) |= 0x10u;
-        if ( (*(_DWORD *)(v20 + 140) & 2) != 0 )
+        if ( (*(_DWORD *)(v19 + 140) & 2) != 0 )
         {
-          *((_QWORD *)v18 + 2) = CTouchProcessor::CoalesceNodeWithPrevious(
+          *((_QWORD *)v16 + 2) = CTouchProcessor::CoalesceNodeWithPrevious(
                                    this,
                                    a2,
-                                   v32,
-                                   (struct CPointerInfoNode *)v18,
+                                   v31,
+                                   (struct CPointerInfoNode *)v16,
                                    i,
                                    v5);
         }
         else
         {
           v17 = v5;
-          v21 = CTouchProcessor::CreateAndReferenceMsgData(
+          v20 = CTouchProcessor::CreateAndReferenceMsgData(
                   this,
-                  *((_WORD *)v18 + 86),
+                  *((_WORD *)v16 + 86),
                   *((_DWORD *)a2 + 10),
                   i,
-                  v18[45],
-                  -__CFSHR__(*v18, 7));
-          v22 = *((_WORD *)v18 + 86);
-          v23 = *((unsigned __int16 *)v18 + 80);
-          *((_QWORD *)v18 + 2) = v21;
-          EtwTracePointerNoCoalesce(v23, v22, *(_DWORD *)(v20 + 144), 0);
+                  v16[45],
+                  -__CFSHR__(*v16, 7));
+          v21 = *((_WORD *)v16 + 86);
+          v22 = *((unsigned __int16 *)v16 + 80);
+          *((_QWORD *)v16 + 2) = v20;
+          EtwTracePointerNoCoalesce(v22, v21, *(_DWORD *)(v19 + 144), 0);
         }
         v5 = 0;
-        if ( !*((_QWORD *)v18 + 2) )
+        if ( !*((_QWORD *)v16 + 2) )
         {
           CTouchProcessor::FreePointerInfoNodeInt((__int64)this, (__int64)a2, i);
           v5 = 0;
         }
       }
-      if ( *(_QWORD *)(v20 + 8) != -1LL )
+      if ( *(_QWORD *)(v19 + 8) != -1LL )
         v11 = v5;
     }
     if ( !a4 )
     {
-      if ( (unsigned int)CPointerInfoNode::IsValid((CPointerInfoNode *)v18) )
+      if ( (unsigned int)CPointerInfoNode::IsValid((CPointerInfoNode *)v16) )
       {
-        v24 = v18[45];
-        if ( (v24 & 0x2000) != 0 )
+        v23 = v16[45];
+        if ( (v23 & 0x2000) != 0 )
         {
-          v28 = 1;
-          if ( (v24 & 0x10000) != 0 )
+          v27 = 1;
+          if ( (v23 & 0x10000) != 0 )
             v10 = 1;
         }
       }
     }
-    v16 = *((_DWORD *)a2 + 12);
+    v7 = *((_DWORD *)a2 + 12);
     ++i;
   }
-  if ( v31 != v5 )
-    EtwTraceEndPointerFrameCoalesce(*((unsigned int *)a2 + 10), v16, 0LL);
-  if ( v17 && (unsigned int)dword_1C0289810 > 4 && tlgKeywordOn((__int64)&dword_1C0289810, 32LL) )
+  if ( v30 != v5 )
+    EtwTraceEndPointerFrameCoalesce(*((_DWORD *)a2 + 10), v7, 0);
+  if ( v17 && (unsigned int)dword_1C024AA90 > 4 && tlgKeywordOn((__int64)&dword_1C024AA90, 32LL) )
   {
-    v31 = *((_DWORD *)a2 + 10);
-    v33 = *((_QWORD *)a2 + 9);
-    v29[0] = *((_QWORD *)a2 + 27);
+    v30 = *((_DWORD *)a2 + 10);
+    v32 = *((_QWORD *)a2 + 9);
+    v28[0] = *((_QWORD *)a2 + 14);
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
-      (int)&dword_1C0289810,
-      (int)&unk_1C025B607,
+      (__int64)&dword_1C024AA90,
+      byte_1C021D3B1,
+      v24,
       v25,
-      v26,
-      (__int64)v29,
-      (__int64)&v33,
-      (__int64)&v31);
+      (__int64)v28,
+      (__int64)&v32,
+      (__int64)&v30);
   }
-  v27 = *((_DWORD *)a2 + 57) ^ (*((_DWORD *)a2 + 57) ^ v17) & 1;
-  *((_DWORD *)a2 + 57) = v27;
+  v26 = *((_DWORD *)a2 + 31) ^ (v17 ^ *((_DWORD *)a2 + 31)) & 1;
+  *((_DWORD *)a2 + 31) = v26;
   if ( !a4 )
-    *((_DWORD *)a2 + 57) = v27 & 0xFFFFFFF1 | (2 * (v11 & 1 | (2 * (v28 & 1 | (2 * (v10 & 1))))));
+    *((_DWORD *)a2 + 31) = v26 & 0xFFFFFFF1 | (2 * (v11 & 1 | (2 * (v27 & 1 | (2 * (v10 & 1))))));
 }

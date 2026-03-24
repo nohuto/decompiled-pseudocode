@@ -1,9 +1,7 @@
 /*
- * XREFs of ZwQueryInformationProcess @ 0x14041BA80
+ * XREFs of ZwQueryInformationProcess @ 0x1403FA6C0
  * Callers:
- *     RtlCheckXfgFailureInformation @ 0x1405EE7E0 (RtlCheckXfgFailureInformation.c)
- *     DifZwQueryInformationProcessWrapper @ 0x140624A80 (DifZwQueryInformationProcessWrapper.c)
- *     BiLogFileOwnerProcess @ 0x14064CD50 (BiLogFileOwnerProcess.c)
+ *     BiLogFileOwnerProcess @ 0x1405C3B80 (BiLogFileOwnerProcess.c)
  * Callees:
  *     <none>
  */

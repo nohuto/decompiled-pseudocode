@@ -1,12 +1,12 @@
 /*
- * XREFs of RawInputManagerObjectCreateKernelHandle @ 0x1C004A880
+ * XREFs of RawInputManagerObjectCreateKernelHandle @ 0x1C000A5E0
  * Callers:
- *     RIMIDECreatePseudoMouseOrKeyboardDevice @ 0x1C00046D4 (RIMIDECreatePseudoMouseOrKeyboardDevice.c)
- *     ?HandleRemoteLocalDeviceDetached@CBaseInput@@AEAAJXZ @ 0x1C00496B0 (-HandleRemoteLocalDeviceDetached@CBaseInput@@AEAAJXZ.c)
- *     ?GetKernelHandleToRimObj@CHidInput@@QEAAJPEAPEAX@Z @ 0x1C004A840 (-GetKernelHandleToRimObj@CHidInput@@QEAAJPEAPEAX@Z.c)
- *     RIMIDECreatePseudoHIDDevice @ 0x1C019C4FC (RIMIDECreatePseudoHIDDevice.c)
+ *     ?GetKernelHandleToRimObj@CHidInput@@QEAAJPEAPEAX@Z @ 0x1C000A5A0 (-GetKernelHandleToRimObj@CHidInput@@QEAAJPEAPEAX@Z.c)
+ *     ?HandleRemoteLocalDeviceDetached@CBaseInput@@AEAAJXZ @ 0x1C0056410 (-HandleRemoteLocalDeviceDetached@CBaseInput@@AEAAJXZ.c)
+ *     RIMIDECreatePseudoHIDDevice @ 0x1C0168074 (RIMIDECreatePseudoHIDDevice.c)
+ *     RIMIDECreatePseudoMouseOrKeyboardDevice @ 0x1C0168340 (RIMIDECreatePseudoMouseOrKeyboardDevice.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall RawInputManagerObjectCreateKernelHandle(
@@ -16,21 +16,18 @@ __int64 __fastcall RawInputManagerObjectCreateKernelHandle(
         KPROCESSOR_MODE AccessMode,
         PHANDLE Handle)
 {
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  NTSTATUS v7; // ebx
-  __int64 v8; // r8
+  NTSTATUS v5; // ebx
 
   *Handle = (void *)-1LL;
   if ( a1[1] == 1 )
   {
-    v7 = ObOpenObjectByPointer(a1, 2 * a3 + 512, 0LL, a2, ExRawInputManagerObjectType, AccessMode, Handle);
-    if ( v7 < 0 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v6, v5, v8);
+    v5 = ObOpenObjectByPointer(a1, 2 * a3 + 512, 0LL, a2, ExRawInputManagerObjectType, AccessMode, Handle);
+    if ( v5 < 0 )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 731LL);
   }
   else
   {
     return (unsigned int)-1073741788;
   }
-  return (unsigned int)v7;
+  return (unsigned int)v5;
 }

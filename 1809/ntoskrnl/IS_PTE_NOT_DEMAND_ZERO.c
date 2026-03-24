@@ -7,13 +7,13 @@
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
  *     MiConvertPrivateToProto @ 0x140082EB0 (MiConvertPrivateToProto.c)
  *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
- *     MiPrefetchJumpVad @ 0x1402AF0C4 (MiPrefetchJumpVad.c)
- *     MiGetClusterPage @ 0x1402C66BC (MiGetClusterPage.c)
- *     MiBuildForkPte @ 0x1402C7AF0 (MiBuildForkPte.c)
+ *     MiPrefetchJumpVad @ 0x1402AF1C4 (MiPrefetchJumpVad.c)
+ *     MiGetClusterPage @ 0x1402C67BC (MiGetClusterPage.c)
+ *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
  *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
  *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
  *     MmHardFaultBytesRequired @ 0x140638920 (MmHardFaultBytesRequired.c)
- *     MiAllocatePerSessionProtos @ 0x1406C9210 (MiAllocatePerSessionProtos.c)
+ *     MiAllocatePerSessionProtos @ 0x1406C91F0 (MiAllocatePerSessionProtos.c)
  * Callees:
  *     <none>
  */

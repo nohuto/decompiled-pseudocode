@@ -1,12 +1,12 @@
 /*
- * XREFs of WPP_IFR_SF_qsd @ 0x1C0062B38
+ * XREFs of WPP_IFR_SF_qsd @ 0x1C0046EE0
  * Callers:
- *     imp_WdfDeviceSetPowerCapabilities @ 0x1C002B0D0 (imp_WdfDeviceSetPowerCapabilities.c)
- *     imp_WdfDeviceSetPnpCapabilities @ 0x1C002B1D0 (imp_WdfDeviceSetPnpCapabilities.c)
- *     imp_WdfDeviceSetDeviceState @ 0x1C0063530 (imp_WdfDeviceSetDeviceState.c)
+ *     imp_WdfDeviceSetDeviceState @ 0x1C0048580 (imp_WdfDeviceSetDeviceState.c)
+ *     imp_WdfDeviceSetPnpCapabilities @ 0x1C00487A0 (imp_WdfDeviceSetPnpCapabilities.c)
+ *     imp_WdfDeviceSetPowerCapabilities @ 0x1C00488C0 (imp_WdfDeviceSetPowerCapabilities.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qsd(

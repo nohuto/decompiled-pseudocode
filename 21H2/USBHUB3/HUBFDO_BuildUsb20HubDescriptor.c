@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBFDO_BuildUsb20HubDescriptor @ 0x1C000D474
+ * XREFs of HUBFDO_BuildUsb20HubDescriptor @ 0x1C000D098
  * Callers:
- *     HUBFDO_IoctlGetNodeInformation @ 0x1C0076044 (HUBFDO_IoctlGetNodeInformation.c)
- *     WMI_QueryInstanceHubNodeInfo @ 0x1C00861A0 (WMI_QueryInstanceHubNodeInfo.c)
+ *     HUBFDO_IoctlGetNodeInformation @ 0x1C0074CA8 (HUBFDO_IoctlGetNodeInformation.c)
+ *     WMI_QueryInstanceHubNodeInfo @ 0x1C0084540 (WMI_QueryInstanceHubNodeInfo.c)
  * Callees:
- *     memset @ 0x1C0043B00 (memset.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 char __fastcall HUBFDO_BuildUsb20HubDescriptor(__int64 a1, _OWORD *a2)

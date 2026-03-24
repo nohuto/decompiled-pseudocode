@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpKeyEnumStackAdvance @ 0x1407FEECC
+ * XREFs of CmpKeyEnumStackAdvance @ 0x1407FEEAC
  * Callers:
- *     CmpEnumerateLayeredKey @ 0x1407EFDA0 (CmpEnumerateLayeredKey.c)
- *     CmpSubtreeEnumeratorAdvance @ 0x1407FA5CC (CmpSubtreeEnumeratorAdvance.c)
- *     CmpGetSubKeyCountForKeyNodeStack @ 0x1407FEDFC (CmpGetSubKeyCountForKeyNodeStack.c)
- *     CmpPartialPromoteSubkeys @ 0x140805410 (CmpPartialPromoteSubkeys.c)
+ *     CmpEnumerateLayeredKey @ 0x1407EFD80 (CmpEnumerateLayeredKey.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x1407FA5AC (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x1407FEDDC (CmpGetSubKeyCountForKeyNodeStack.c)
+ *     CmpPartialPromoteSubkeys @ 0x1408053F0 (CmpPartialPromoteSubkeys.c)
  * Callees:
- *     CmpGetEffectiveKeyNodeSemantics @ 0x1407F9ECC (CmpGetEffectiveKeyNodeSemantics.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FA038 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpKeyEnumStackAdvanceInternal @ 0x1407FEF60 (CmpKeyEnumStackAdvanceInternal.c)
- *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x1407FF888 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x1407F9EAC (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FA018 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpKeyEnumStackAdvanceInternal @ 0x1407FEF40 (CmpKeyEnumStackAdvanceInternal.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x1407FF868 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackAdvance(__int16 *a1)

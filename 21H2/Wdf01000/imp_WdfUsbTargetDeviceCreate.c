@@ -1,10 +1,10 @@
 /*
- * XREFs of imp_WdfUsbTargetDeviceCreate @ 0x1C0078080
+ * XREFs of imp_WdfUsbTargetDeviceCreate @ 0x1C006AC30
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     FxUsbTargetDeviceCreate @ 0x1C0077950 (FxUsbTargetDeviceCreate.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     FxUsbTargetDeviceCreate @ 0x1C006A510 (FxUsbTargetDeviceCreate.c)
  */
 
 __int64 __fastcall imp_WdfUsbTargetDeviceCreate(
@@ -16,6 +16,10 @@ __int64 __fastcall imp_WdfUsbTargetDeviceCreate(
   FxDeviceBase *pDevice; // [rsp+40h] [rbp+8h] BYREF
 
   pDevice = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Device, 0x1030u, (void **)&pDevice);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Device,
+    0x1030u,
+    (void **)&pDevice);
   return FxUsbTargetDeviceCreate(pDevice->m_Globals, pDevice, 0xFFFFFFFF, Attributes, UsbDevice);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AddResponseItem@CPartitionVerticalBlankScheduler@@UEAAJPEAVCResponseItemBase@@@Z @ 0x1801ADE90
+ * XREFs of ?AddResponseItem@CPartitionVerticalBlankScheduler@@UEAAJPEAVCResponseItemBase@@@Z @ 0x180153FB0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddResponse@CFrameInfo@@QEAAJPEAVCResponseItemBase@@@Z @ 0x1801CA67C (-AddResponse@CFrameInfo@@QEAAJPEAVCResponseItemBase@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddResponse@CFrameInfo@@QEAAJPEAVCResponseItemBase@@@Z @ 0x1801564A0 (-AddResponse@CFrameInfo@@QEAAJPEAVCResponseItemBase@@@Z.c)
  */
 
 __int64 __fastcall CPartitionVerticalBlankScheduler::AddResponseItem(
@@ -16,14 +16,14 @@ __int64 __fastcall CPartitionVerticalBlankScheduler::AddResponseItem(
   int v4; // eax
   __int64 v5; // rcx
 
-  v2 = (CFrameInfo *)*((_QWORD *)this + 564);
+  v2 = (CFrameInfo *)*((_QWORD *)this + 629);
   v3 = -2003292412;
   if ( v2 )
   {
     v4 = CFrameInfo::AddResponse(v2, a2);
     v3 = v4;
     if ( v4 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, v4, 0x6DFu);
+      MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x77Au, 0LL);
   }
   return v3;
 }

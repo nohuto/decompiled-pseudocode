@@ -1,51 +1,47 @@
 /*
- * XREFs of ?SignalCrossAdapterSyncObjects@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02C1FD8
+ * XREFs of ?SignalCrossAdapterSyncObjects@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02176B0
  * Callers:
- *     ?NotifyAdapterRemoval@DXGGLOBAL@@QEAAXXZ @ 0x1C0313778 (-NotifyAdapterRemoval@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?NotifyAdapterRemoval@DXGGLOBAL@@QEAAXXZ @ 0x1C026A6B4 (-NotifyAdapterRemoval@DXGGLOBAL@@QEAAXXZ.c)
  * Callees:
- *     ?Release@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C0008040 (-Release@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C00081B8 (-AcquireExclusive@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
- *     ??0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z @ 0x1C000A8D0 (--0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C0005090 (-Release@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
+ *     ??0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z @ 0x1C0008C04 (--0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?AcquireExclusive@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C003BCA0 (-AcquireExclusive@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
  */
 
-void __fastcall ADAPTER_RENDER::SignalCrossAdapterSyncObjects(ADAPTER_RENDER *this)
+void __fastcall ADAPTER_RENDER::SignalCrossAdapterSyncObjects(ADAPTER_RENDER *this, __int64 a2)
 {
-  struct DXGGLOBAL *Global; // rax
+  PERESOURCE *Global; // rax
+  __int64 v4; // rdx
   __int64 *i; // rbx
-  __int64 v4; // rax
-  int v5; // [rsp+40h] [rbp-28h]
-  _BYTE v6[16]; // [rsp+50h] [rbp-18h] BYREF
-  __int64 v7; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v8; // [rsp+78h] [rbp+10h] BYREF
+  __int64 v6; // rax
+  _BYTE v7[16]; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v8; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v9; // [rsp+78h] [rbp+10h] BYREF
 
-  if ( !*(_BYTE *)(*((_QWORD *)this + 2) + 209LL) )
+  Global = (PERESOURCE *)DXGGLOBAL::GetGlobal((__int64)this, a2);
+  DXGSYNCOBJECTLOCK::DXGSYNCOBJECTLOCK((DXGSYNCOBJECTLOCK *)v7, Global, 0);
+  DXGSYNCOBJECTLOCK::AcquireExclusive((DXGSYNCOBJECTLOCK *)v7, v4);
+  for ( i = (__int64 *)*((_QWORD *)this + 29); i != (__int64 *)((char *)this + 232) && i; i = (__int64 *)*i )
   {
-    Global = DXGGLOBAL::GetGlobal();
-    DXGSYNCOBJECTLOCK::DXGSYNCOBJECTLOCK((DXGSYNCOBJECTLOCK *)v6, Global, 0);
-    DXGSYNCOBJECTLOCK::AcquireExclusive((DXGSYNCOBJECTLOCK *)v6);
-    for ( i = (__int64 *)*((_QWORD *)this + 30); i != (__int64 *)((char *)this + 240) && i; i = (__int64 *)*i )
+    if ( *((_BYTE *)i + 26) )
     {
-      if ( *((_BYTE *)i + 26) )
-      {
-        v4 = i[4];
-        v7 = -1LL;
-        v8 = v4;
-        LOBYTE(v5) = 0;
-        (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, int, __int64 *, _DWORD, __int64 *, int))(*(_QWORD *)(*((_QWORD *)this + 92) + 8LL) + 640LL))(
-          0LL,
-          0LL,
-          0LL,
-          0LL,
-          1,
-          &v8,
-          0,
-          &v7,
-          v5);
-      }
+      v6 = i[4];
+      v8 = -1LL;
+      v9 = v6;
+      (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, int, __int64 *, _DWORD, __int64 *))(*(_QWORD *)(*((_QWORD *)this + 77) + 8LL)
+                                                                                                + 640LL))(
+        0LL,
+        0LL,
+        0LL,
+        0LL,
+        1,
+        &v9,
+        0,
+        &v8);
     }
-    if ( v6[8] )
-      DXGSYNCOBJECTLOCK::Release((DXGSYNCOBJECTLOCK *)v6);
   }
+  if ( v7[8] )
+    DXGSYNCOBJECTLOCK::Release((DXGSYNCOBJECTLOCK *)v7);
 }

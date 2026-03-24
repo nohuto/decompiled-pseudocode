@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAlpcDeleteSectionView @ 0x14041C7A0
+ * XREFs of ZwAlpcDeleteSectionView @ 0x1403FB3E0
  * Callers:
  *     <none>
  * Callees:

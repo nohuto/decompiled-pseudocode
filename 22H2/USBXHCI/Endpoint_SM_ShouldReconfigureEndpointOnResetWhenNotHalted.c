@@ -1,13 +1,13 @@
 /*
- * XREFs of Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted @ 0x1C003BBF0
+ * XREFs of Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted @ 0x1C0039C00
  * Callers:
- *     ESM_CheckingIfEndpointShouldBeReconfiguredOnResetWhenNotHalted @ 0x1C0051500 (ESM_CheckingIfEndpointShouldBeReconfiguredOnResetWhenNotHalted.c)
+ *     ESM_CheckingIfEndpointShouldBeReconfiguredOnResetWhenNotHalted @ 0x1C004E990 (ESM_CheckingIfEndpointShouldBeReconfiguredOnResetWhenNotHalted.c)
  * Callees:
- *     WPP_RECORDER_SF_ddq @ 0x1C000C330 (WPP_RECORDER_SF_ddq.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Endpoint_AreTransfersPending @ 0x1C0039740 (Endpoint_AreTransfersPending.c)
- *     WPP_RECORDER_SF_ddqqD @ 0x1C003D904 (WPP_RECORDER_SF_ddqqD.c)
+ *     WPP_RECORDER_SF_ddq @ 0x1C0009428 (WPP_RECORDER_SF_ddq.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Endpoint_AreTransfersPending @ 0x1C0037CA8 (Endpoint_AreTransfersPending.c)
+ *     WPP_RECORDER_SF_ddqqD @ 0x1C003B5D0 (WPP_RECORDER_SF_ddqqD.c)
  */
 
 __int64 __fastcall Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted(__i
   _OWORD v9[2]; // [rsp+50h] [rbp-38h] BYREF
   __int64 v10; // [rsp+70h] [rbp-18h]
 
-  v1 = *(_QWORD *)(a1 + 280);
+  v1 = *(_QWORD *)(a1 + 272);
   memset(v9, 0, sizeof(v9));
   v10 = 0LL;
   LOWORD(v9[0]) = 40;
@@ -35,7 +35,7 @@ __int64 __fastcall Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted(__i
   {
     if ( *(_BYTE *)(a1 + 37) )
     {
-      *(_DWORD *)(a1 + 288) = -1073741823;
+      *(_DWORD *)(a1 + 280) = -1073741823;
       return 21LL;
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -46,13 +46,13 @@ __int64 __fastcall Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted(__i
         v7,
         13,
         118,
-        (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
         *(_BYTE *)(*(_QWORD *)(a1 + 16) + 135LL),
         *(_DWORD *)(a1 + 144),
         *(_QWORD *)(a1 + 88));
     }
 LABEL_10:
-    *(_DWORD *)(a1 + 288) = 0;
+    *(_DWORD *)(a1 + 280) = 0;
     return 21LL;
   }
   return 33LL;

@@ -1,43 +1,42 @@
 /*
- * XREFs of AlpcpProbeForWriteMessageHeader @ 0x14071BFD8
+ * XREFs of AlpcpProbeForWriteMessageHeader @ 0x1405EAC18
  * Callers:
- *     AlpcpProcessConnectionRequest @ 0x140715C44 (AlpcpProcessConnectionRequest.c)
- *     NtRequestWaitReplyPort @ 0x14071B560 (NtRequestWaitReplyPort.c)
- *     NtReplyWaitReceivePortEx @ 0x14071BAA0 (NtReplyWaitReceivePortEx.c)
- *     AlpcpReceiveLegacyMessage @ 0x14071BC00 (AlpcpReceiveLegacyMessage.c)
- *     NtReplyWaitReplyPort @ 0x1409787F0 (NtReplyWaitReplyPort.c)
+ *     AlpcpProcessConnectionRequest @ 0x1405DECC8 (AlpcpProcessConnectionRequest.c)
+ *     NtReplyWaitReceivePortEx @ 0x1405EAA60 (NtReplyWaitReceivePortEx.c)
+ *     NtRequestWaitReplyPort @ 0x140680F20 (NtRequestWaitReplyPort.c)
+ *     NtReplyWaitReplyPort @ 0x1408C2190 (NtReplyWaitReplyPort.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 char __fastcall AlpcpProbeForWriteMessageHeader(unsigned __int64 a1, int a2)
 {
-  __int64 v3; // rcx
+  __int64 v2; // rdx
   char result; // al
-  __int64 v5; // rcx
+  __int64 v4; // rdx
 
-  if ( a2 >= 0 || (a2 & 0x40000000) != 0 )
+  if ( (a2 & 0xC0000000) != 0x80000000 )
   {
     if ( (a1 & 3) == 0 )
     {
-      v3 = 0x7FFFFFFF0000LL;
+      v2 = 0x7FFFFFFF0000LL;
       if ( a1 < 0x7FFFFFFF0000LL )
-        v3 = a1;
-      *(_BYTE *)v3 = *(_BYTE *)v3;
-      result = *(_BYTE *)(v3 + 39);
-      *(_BYTE *)(v3 + 39) = result;
+        v2 = a1;
+      *(_BYTE *)v2 = *(_BYTE *)v2;
+      result = *(_BYTE *)(v2 + 39);
+      *(_BYTE *)(v2 + 39) = result;
       return result;
     }
-LABEL_6:
+LABEL_10:
     ExRaiseDatatypeMisalignment();
   }
   if ( (a1 & 3) != 0 )
-    goto LABEL_6;
-  v5 = 0x7FFFFFFF0000LL;
+    goto LABEL_10;
+  v4 = 0x7FFFFFFF0000LL;
   if ( a1 < 0x7FFFFFFF0000LL )
-    v5 = a1;
-  *(_BYTE *)v5 = *(_BYTE *)v5;
-  result = *(_BYTE *)(v5 + 23);
-  *(_BYTE *)(v5 + 23) = result;
+    v4 = a1;
+  *(_BYTE *)v4 = *(_BYTE *)v4;
+  result = *(_BYTE *)(v4 + 23);
+  *(_BYTE *)(v4 + 23) = result;
   return result;
 }

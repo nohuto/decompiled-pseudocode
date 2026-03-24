@@ -4,7 +4,7 @@
  *     RtlAddAtomToAtomTableEx @ 0x1400895B0 (RtlAddAtomToAtomTableEx.c)
  *     RtlLookupAtomInAtomTable @ 0x1405F5280 (RtlLookupAtomInAtomTable.c)
  * Callees:
- *     RtlUnicodeStringToInteger @ 0x140695970 (RtlUnicodeStringToInteger.c)
+ *     RtlUnicodeStringToInteger @ 0x140695950 (RtlUnicodeStringToInteger.c)
  */
 
 char __fastcall RtlGetIntegerAtom(unsigned __int64 a1, _WORD *a2)

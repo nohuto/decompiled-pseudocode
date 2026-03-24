@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SmpDeviceIoCompletion@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x1405CD370
+ * XREFs of ?SmpDeviceIoCompletion@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x14059F8B0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     IoFreeIrp @ 0x1402AF1E0 (IoFreeIrp.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140344CA4 (SmKmStoreRefFromStoreIndex.c)
- *     ?SmStWorkItemQueue@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z @ 0x1405C2910 (-SmStWorkItemQueue@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140267428 (SmKmStoreRefFromStoreIndex.c)
+ *     ?SmStWorkItemQueue@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z @ 0x140267590 (-SmStWorkItemQueue@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     IoFreeIrp @ 0x1402D3CF0 (IoFreeIrp.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
  */
 
 __int64 __fastcall SmpDeviceIoCompletion(struct _DEVICE_OBJECT *a1, struct _IRP *a2, _QWORD *a3)
@@ -50,9 +50,9 @@ __int64 __fastcall SmpDeviceIoCompletion(struct _DEVICE_OBJECT *a1, struct _IRP 
   }
   else
   {
-    SMKM_STORE<SM_TRAITS>::SmStWorkItemQueue(v5, (__int64)a3, 1);
-    v8 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(*(_QWORD *)(v5 + 6728), *(_DWORD *)(v5 + 6016) & 0x3FF);
-    ExReleaseRundownProtection_0(v8 + 1);
+    SMKM_STORE<SM_TRAITS>::SmStWorkItemQueue(v5, (unsigned __int64)a3, 1);
+    v8 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex((__int64)&SmGlobals, *(_DWORD *)(v5 + 6016) & 0x3FF);
+    ExReleaseRundownProtection(v8 + 1);
   }
   return 3221225494LL;
 }

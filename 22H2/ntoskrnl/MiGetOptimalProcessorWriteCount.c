@@ -1,12 +1,23 @@
 /*
- * XREFs of MiGetOptimalProcessorWriteCount @ 0x14036E9B4
+ * XREFs of MiGetOptimalProcessorWriteCount @ 0x1403539E4
  * Callers:
- *     MiInitializeZeroEngines @ 0x1406B27F4 (MiInitializeZeroEngines.c)
+ *     MiCreateColorAnchors @ 0x1403538F4 (MiCreateColorAnchors.c)
+ *     MiZeroNodePages @ 0x1403AB040 (MiZeroNodePages.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall MiGetOptimalProcessorWriteCount(unsigned int a1, int a2)
+__int64 __fastcall MiGetOptimalProcessorWriteCount(unsigned int a1)
 {
-  return *(unsigned int *)(*(_QWORD *)(376LL * a1 + qword_140C65BA0 + 368) + 96LL * a2 + 108);
+  unsigned int *v1; // rax
+  __int64 result; // rax
+
+  if ( a1 == -1 )
+    v1 = (unsigned int *)&unk_140C52674;
+  else
+    v1 = (unsigned int *)(4544LL * a1 + qword_140C50D90 + 4380);
+  result = *v1;
+  if ( !(_DWORD)result )
+    return 1LL;
+  return result;
 }

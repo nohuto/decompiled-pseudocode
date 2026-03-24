@@ -1,37 +1,35 @@
 /*
- * XREFs of MiFindUserSidHotPatchContext @ 0x140A36F3C
+ * XREFs of MiFindUserSidHotPatchContext @ 0x1408C9E9C
  * Callers:
- *     MiFindProcessImageHotPatchRecord @ 0x140A36D7C (MiFindProcessImageHotPatchRecord.c)
- *     MiQueryLoadedPatches @ 0x140A3B330 (MiQueryLoadedPatches.c)
- *     MiUnloadHotPatchForUserSid @ 0x140A3C0F0 (MiUnloadHotPatchForUserSid.c)
+ *     MiFindProcessImageHotPatchRecord @ 0x1408C9D40 (MiFindProcessImageHotPatchRecord.c)
+ *     MiQueryLoadedPatches @ 0x1408CDCA8 (MiQueryLoadedPatches.c)
+ *     MiUnloadHotPatchForUserSid @ 0x1408CE964 (MiUnloadHotPatchForUserSid.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A60 (RtlLengthSid.c)
- *     RtlHashBytes2 @ 0x140419DA8 (RtlHashBytes2.c)
- *     MiCompareUserSidHotPatchNodes @ 0x140A366A4 (MiCompareUserSidHotPatchNodes.c)
+ *     RtlLengthSid @ 0x140347A80 (RtlLengthSid.c)
+ *     RtlHashBytes2 @ 0x1403F80A4 (RtlHashBytes2.c)
+ *     MiCompareUserSidHotPatchNodes @ 0x1408C98AC (MiCompareUserSidHotPatchNodes.c)
  */
 
 _QWORD *__fastcall MiFindUserSidHotPatchContext(void *a1)
 {
   _QWORD *v1; // rbx
-  ULONG v4; // eax
-  __int64 v5; // r8
-  unsigned __int64 v6; // r9
-  int v7; // eax
-  _QWORD v8[3]; // [rsp+20h] [rbp-18h] BYREF
+  ULONG v3; // eax
+  int v4; // eax
+  _QWORD v6[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v1 = (_QWORD *)qword_140C69928;
-  if ( !qword_140C69928 )
+  v1 = (_QWORD *)MiUserSidPatchLists;
+  if ( !MiUserSidPatchLists )
     return 0LL;
-  v4 = RtlLengthSid(a1);
-  v8[0] = RtlHashBytes2((const unsigned __int8 *)a1, v4, v5, v6);
-  v8[1] = a1;
-  while ( v1 )
+  v3 = RtlLengthSid(a1);
+  v6[0] = RtlHashBytes2((const unsigned __int8 *)a1, v3);
+  v6[1] = a1;
+  do
   {
-    v7 = MiCompareUserSidHotPatchNodes(v8, (__int64)v1);
-    if ( v7 >= 0 )
+    v4 = MiCompareUserSidHotPatchNodes(v6, (__int64)v1);
+    if ( v4 >= 0 )
     {
-      if ( v7 <= 0 )
-        return v1;
+      if ( v4 <= 0 )
+        break;
       v1 = (_QWORD *)v1[1];
     }
     else
@@ -39,5 +37,9 @@ _QWORD *__fastcall MiFindUserSidHotPatchContext(void *a1)
       v1 = (_QWORD *)*v1;
     }
   }
-  return v1;
+  while ( v1 );
+  if ( v1 )
+    return v1;
+  else
+    return 0LL;
 }

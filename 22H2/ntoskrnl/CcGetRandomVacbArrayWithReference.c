@@ -1,13 +1,13 @@
 /*
- * XREFs of CcGetRandomVacbArrayWithReference @ 0x140538094
+ * XREFs of CcGetRandomVacbArrayWithReference @ 0x1404EB088
  * Callers:
- *     CcUnmapInactiveViewsInternal @ 0x140538490 (CcUnmapInactiveViewsInternal.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1404EB484 (CcUnmapInactiveViewsInternal.c)
  * Callees:
- *     CcReferenceVacbArray @ 0x14029F4CC (CcReferenceVacbArray.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     CcRecalculateVacbArrayHighwaterMark @ 0x140538134 (CcRecalculateVacbArrayHighwaterMark.c)
- *     RtlRandom @ 0x1407E6960 (RtlRandom.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     CcReferenceVacbArray @ 0x140293434 (CcReferenceVacbArray.c)
+ *     CcRecalculateVacbArrayHighwaterMark @ 0x1404EB128 (CcRecalculateVacbArrayHighwaterMark.c)
+ *     RtlRandom @ 0x14069FF60 (RtlRandom.c)
  */
 
 _DWORD *CcGetRandomVacbArrayWithReference()

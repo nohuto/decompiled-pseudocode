@@ -1,47 +1,45 @@
 /*
- * XREFs of MiAddLockedPageCharge @ 0x140274508
+ * XREFs of MiAddLockedPageCharge @ 0x14031A408
  * Callers:
- *     MiDoubleLockMdlPage @ 0x14021372C (MiDoubleLockMdlPage.c)
- *     MiHandleCollidedFault @ 0x14023EB78 (MiHandleCollidedFault.c)
- *     MiPrivateFixup @ 0x14024076C (MiPrivateFixup.c)
- *     MiLockPagedAddress @ 0x140245DF4 (MiLockPagedAddress.c)
- *     MiSwapStackPage @ 0x140249930 (MiSwapStackPage.c)
- *     MiMakeProtoAddressValid @ 0x14024C5E0 (MiMakeProtoAddressValid.c)
- *     MiCopyDataPageToImagePage @ 0x14026F180 (MiCopyDataPageToImagePage.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x14026FA0C (MiTryLockProtoPoolPageAtDpc.c)
- *     MiObtainProtoReference @ 0x14027449C (MiObtainProtoReference.c)
- *     MiRelockProtoPoolPage @ 0x14027FE9C (MiRelockProtoPoolPage.c)
- *     MiWaitForCollidedFaultComplete @ 0x14027FEF8 (MiWaitForCollidedFaultComplete.c)
- *     MmCopyToCachedPage @ 0x1402BE8E0 (MmCopyToCachedPage.c)
- *     MiLockCode @ 0x140312BB0 (MiLockCode.c)
- *     MiMigratePfn @ 0x140327C60 (MiMigratePfn.c)
- *     MiMakeDriverPagesPrivate @ 0x14033F41C (MiMakeDriverPagesPrivate.c)
- *     MiMirrorPerformBrownWrites @ 0x140399444 (MiMirrorPerformBrownWrites.c)
- *     MiLockDriverPageRange @ 0x140581D58 (MiLockDriverPageRange.c)
- *     MiMapSystemCachePage @ 0x140591F50 (MiMapSystemCachePage.c)
- *     MiSwitchToTransition @ 0x1405954F4 (MiSwitchToTransition.c)
- *     MiBuildReservationCluster @ 0x14059B62C (MiBuildReservationCluster.c)
- *     MiPurgeBadFileOnlyPages @ 0x1405A032C (MiPurgeBadFileOnlyPages.c)
- *     MiSplitDirectMapPage @ 0x1405A0B10 (MiSplitDirectMapPage.c)
- *     MiDbgMarkPfnModified @ 0x1405A4940 (MiDbgMarkPfnModified.c)
- *     MiBuildForkPageTable @ 0x1405B85F8 (MiBuildForkPageTable.c)
- *     MiLockDownWorkingSet @ 0x1405BB938 (MiLockDownWorkingSet.c)
- *     MiIdealClusterPage @ 0x1405C3C6C (MiIdealClusterPage.c)
+ *     MiFinishHardFault @ 0x140239890 (MiFinishHardFault.c)
+ *     MiHandleCollidedFault @ 0x14028BEFC (MiHandleCollidedFault.c)
+ *     MiWaitForCollidedFaultComplete @ 0x14028C1F0 (MiWaitForCollidedFaultComplete.c)
+ *     MiPrivateFixup @ 0x14028CA28 (MiPrivateFixup.c)
+ *     MiMakeProtoAddressValid @ 0x1402C4514 (MiMakeProtoAddressValid.c)
+ *     MiSwapStackPage @ 0x1402C605C (MiSwapStackPage.c)
+ *     MiMakeDriverPagesPrivate @ 0x1402E6EF4 (MiMakeDriverPagesPrivate.c)
+ *     MiCopyDataPageToImagePage @ 0x1403043E8 (MiCopyDataPageToImagePage.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x140304CB4 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiObtainProtoReference @ 0x14031A00C (MiObtainProtoReference.c)
+ *     MiRelockProtoPoolPage @ 0x14031A078 (MiRelockProtoPoolPage.c)
+ *     MiLockCode @ 0x1403235B0 (MiLockCode.c)
+ *     MmCopyToCachedPage @ 0x140331500 (MmCopyToCachedPage.c)
+ *     MiLockPagedAddress @ 0x14036B924 (MiLockPagedAddress.c)
+ *     MiDoubleLockMdlPage @ 0x14037D1AC (MiDoubleLockMdlPage.c)
+ *     MiMirrorPerformBrownWrites @ 0x1403822B8 (MiMirrorPerformBrownWrites.c)
+ *     MiMapSystemCachePage @ 0x1405370A4 (MiMapSystemCachePage.c)
+ *     MiSwitchToTransition @ 0x140539F14 (MiSwitchToTransition.c)
+ *     MiPurgeBadFileOnlyPages @ 0x1405418F0 (MiPurgeBadFileOnlyPages.c)
+ *     MiSplitDirectMapPage @ 0x14054213C (MiSplitDirectMapPage.c)
+ *     MiDbgMarkPfnModified @ 0x140545CEC (MiDbgMarkPfnModified.c)
+ *     MiIdealClusterPage @ 0x140555E14 (MiIdealClusterPage.c)
+ *     MiBuildForkPageTable @ 0x140557FCC (MiBuildForkPageTable.c)
+ *     MiLockDownWorkingSet @ 0x14055B2F8 (MiLockDownWorkingSet.c)
  * Callees:
- *     MiAreChargesNeededToLockPage @ 0x140337EA0 (MiAreChargesNeededToLockPage.c)
- *     MiChargeForLockedPage @ 0x140337F60 (MiChargeForLockedPage.c)
+ *     MiAreChargesNeededToLockPage @ 0x140323430 (MiAreChargesNeededToLockPage.c)
+ *     MiChargeForLockedPage @ 0x140328AA0 (MiChargeForLockedPage.c)
  */
 
-__int64 __fastcall MiAddLockedPageCharge(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiAddLockedPageCharge(__int64 a1, char a2)
 {
   unsigned int locked; // r9d
-  unsigned int v5; // r10d
+  unsigned int v4; // r10d
 
   if ( (a2 & 1) == 0 && *(_WORD *)(a1 + 32) >= 0x7FFFu )
     return 0LL;
-  if ( (unsigned int)MiAreChargesNeededToLockPage(a1, a2, a3, 1LL) )
+  if ( (unsigned int)MiAreChargesNeededToLockPage(a1) )
   {
-    locked = MiChargeForLockedPage(a1, v5);
+    locked = MiChargeForLockedPage(a1, v4);
     if ( !locked )
       return 0LL;
   }

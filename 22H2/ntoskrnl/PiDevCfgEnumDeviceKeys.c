@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDevCfgEnumDeviceKeys @ 0x14087D4F4
+ * XREFs of PiDevCfgEnumDeviceKeys @ 0x1407670D8
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x14087CF74 (PiDevCfgConfigureDeviceKeys.c)
- *     PiDevCfgResetDeviceKeys @ 0x140960044 (PiDevCfgResetDeviceKeys.c)
+ *     PiDevCfgResetDeviceKeys @ 0x140730BC8 (PiDevCfgResetDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x140766C04 (PiDevCfgConfigureDeviceKeys.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     CmIsStateSeparationEnabled @ 0x140367128 (CmIsStateSeparationEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     _CmGetDeviceRegProp @ 0x1406CD50C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     _PnpCtxOpenContextBaseKey @ 0x14087D7F0 (_PnpCtxOpenContextBaseKey.c)
- *     _PnpCtxOpenContextNodeBaseKey @ 0x140A60A70 (_PnpCtxOpenContextNodeBaseKey.c)
+ *     CmIsStateSeparationEnabled @ 0x140323318 (CmIsStateSeparationEnabled.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     _CmGetDeviceRegProp @ 0x1406BA24C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxOpenContextBaseKey @ 0x14077C808 (_PnpCtxOpenContextBaseKey.c)
+ *     _PnpCtxOpenContextNodeBaseKey @ 0x140974810 (_PnpCtxOpenContextNodeBaseKey.c)
  */
 
 __int64 __fastcall PiDevCfgEnumDeviceKeys(
@@ -25,45 +25,51 @@ __int64 __fastcall PiDevCfgEnumDeviceKeys(
         __int64 (__fastcall *a6)(__int64, __int64, int *, HANDLE),
         __int64 a7)
 {
-  int *v7; // rbx
-  unsigned int v10; // edi
-  unsigned int v11; // esi
-  int DeviceRegProp; // eax
-  int v14; // r8d
-  int v15; // edx
-  int v16; // ecx
-  int v17; // r8d
-  WCHAR *v18; // rdx
-  int v19; // eax
-  __int64 v20; // rdx
-  int v21; // [rsp+20h] [rbp-E0h]
-  int v22; // [rsp+28h] [rbp-D8h]
+  int *v7; // rsi
+  void *v8; // rbx
+  unsigned int v11; // edi
+  unsigned int v12; // r14d
+  NTSTATUS v13; // eax
+  int v15; // r8d
+  int DeviceRegProp; // ebx
+  int v17; // edx
+  int v18; // ecx
+  int v19; // r8d
+  int v20; // eax
+  const WCHAR *v21; // rdx
+  __int64 v22; // rdx
+  NTSTATUS v23; // eax
+  int v24; // [rsp+20h] [rbp-E0h]
+  int v25; // [rsp+28h] [rbp-D8h]
   HANDLE Handle; // [rsp+40h] [rbp-C0h] BYREF
   HANDLE KeyHandle; // [rsp+48h] [rbp-B8h] BYREF
-  int v25; // [rsp+50h] [rbp-B0h] BYREF
-  int v26; // [rsp+54h] [rbp-ACh] BYREF
-  HANDLE v27; // [rsp+58h] [rbp-A8h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
-  void *v30; // [rsp+A0h] [rbp-60h]
-  __int64 v31; // [rsp+A8h] [rbp-58h]
-  __int64 v32; // [rsp+B0h] [rbp-50h]
-  __int64 (__fastcall *v33)(__int64, __int64, int *, HANDLE); // [rsp+B8h] [rbp-48h]
-  WCHAR SourceString[40]; // [rsp+C0h] [rbp-40h] BYREF
+  int v28; // [rsp+50h] [rbp-B0h] BYREF
+  int v29; // [rsp+54h] [rbp-ACh] BYREF
+  HANDLE v30; // [rsp+58h] [rbp-A8h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v32; // [rsp+70h] [rbp-90h]
+  __int64 v33; // [rsp+78h] [rbp-88h]
+  __int64 (__fastcall *v34)(__int64, __int64, int *, HANDLE); // [rsp+80h] [rbp-80h]
+  void *v35; // [rsp+88h] [rbp-78h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-70h] BYREF
+  OBJECT_ATTRIBUTES v37; // [rsp+C0h] [rbp-40h] BYREF
+  _BYTE v38[76]; // [rsp+F0h] [rbp-10h] BYREF
+  __int16 v39; // [rsp+13Ch] [rbp+3Ch]
 
-  v7 = &dword_140A7A42C;
-  v33 = a6;
-  v31 = a7;
-  v30 = a3;
-  v10 = 0;
-  v32 = a1;
+  v7 = &dword_140985B3C;
+  v34 = a6;
+  v8 = a3;
+  v32 = a7;
+  v35 = a3;
+  v33 = a1;
   v11 = 0;
-  DestinationString = 0LL;
   KeyHandle = 0LL;
+  DestinationString = 0LL;
   Handle = 0LL;
-  v27 = 0LL;
-  v25 = 0;
-  v26 = 0;
+  v12 = 0;
+  v30 = 0LL;
+  v28 = 0;
+  v29 = 0;
   while ( 1 )
   {
     if ( (a4 & *(v7 - 1)) == 0 )
@@ -71,118 +77,123 @@ __int64 __fastcall PiDevCfgEnumDeviceKeys(
     RtlInitUnicodeString(&DestinationString, *(PCWSTR *)(v7 - 3));
     *(_QWORD *)&ObjectAttributes.Length = 48LL;
     KeyHandle = 0LL;
-    ObjectAttributes.RootDirectory = v30;
     *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
     ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.RootDirectory = v8;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    DeviceRegProp = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
-    if ( DeviceRegProp == -1073741772 )
+    v13 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+    if ( v13 == -1073741772 )
       goto LABEL_4;
-    if ( DeviceRegProp < 0 )
-      break;
-    v14 = v7[1];
-    if ( v14 )
+    if ( v13 < 0 )
+      goto LABEL_26;
+    v15 = v7[1];
+    if ( v15 )
     {
       DeviceRegProp = CmOpenDeviceRegKey(
                         *(__int64 *)&PiPnpRtlCtx,
                         *(_QWORD *)(a2 + 8),
-                        v14,
+                        v15,
                         0,
                         983103,
                         a5,
                         (__int64)&Handle,
                         0LL);
-LABEL_19:
-      if ( DeviceRegProp == -1073741772 )
-        goto LABEL_35;
-      if ( DeviceRegProp < 0 )
-        break;
-LABEL_21:
-      v19 = (int)Handle;
-      goto LABEL_22;
-    }
-    if ( !CmIsStateSeparationEnabled() )
-      goto LABEL_13;
-    if ( v15 == 4 )
-    {
-      v15 = 4;
-LABEL_13:
-      DeviceRegProp = PnpCtxOpenContextBaseKey(v16, v15, v17, 983103, (__int64)&Handle);
       goto LABEL_14;
     }
-    if ( v15 == 6 )
-      goto LABEL_35;
-    DeviceRegProp = PnpCtxOpenContextNodeBaseKey(v16, v15, v17, v15, v21, v22, (__int64)&Handle);
-LABEL_14:
-    if ( DeviceRegProp < 0 )
-      goto LABEL_19;
+    if ( !CmIsStateSeparationEnabled() )
+      goto LABEL_20;
+    if ( v17 == 4 )
+    {
+      v17 = 4;
+LABEL_20:
+      v20 = PnpCtxOpenContextBaseKey(v18, v17, v19, 983103, (__int64)&Handle);
+      goto LABEL_21;
+    }
+    if ( v17 == 6 )
+      goto LABEL_36;
+    v20 = PnpCtxOpenContextNodeBaseKey(v18, v17, v19, v17, v24, v25, (__int64)&Handle);
+LABEL_21:
+    DeviceRegProp = v20;
+    if ( v20 < 0 )
+      goto LABEL_14;
     if ( *v7 == 7 )
     {
-      v20 = *(_QWORD *)(a2 + 8);
-      v25 = 78;
+      v22 = *(_QWORD *)(a2 + 8);
+      v28 = 78;
       DeviceRegProp = CmGetDeviceRegProp(
                         *(__int64 *)&PiPnpRtlCtx,
-                        v20,
+                        v22,
                         0LL,
                         9,
-                        (__int64)&v26,
-                        (__int64)SourceString,
-                        (__int64)&v25,
+                        (__int64)&v29,
+                        (__int64)v38,
+                        (__int64)&v28,
                         0);
       if ( DeviceRegProp < 0 )
-        goto LABEL_19;
-      if ( v26 != 1 )
+        goto LABEL_14;
+      if ( v29 != 1 )
       {
-LABEL_35:
+LABEL_36:
         ZwClose(KeyHandle);
         KeyHandle = 0LL;
         goto LABEL_4;
       }
-      SourceString[38] = 0;
-      v18 = SourceString;
+      v39 = 0;
+      v21 = (const WCHAR *)v38;
     }
     else
     {
-      v18 = *(WCHAR **)(v7 + 3);
-      if ( !v18 )
-        goto LABEL_21;
+      v21 = *(const WCHAR **)(v7 + 3);
     }
-    RtlInitUnicodeString(&DestinationString, v18);
-    *(_QWORD *)&ObjectAttributes.Length = 48LL;
-    v27 = 0LL;
-    ObjectAttributes.RootDirectory = Handle;
-    *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-    ObjectAttributes.ObjectName = &DestinationString;
-    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    DeviceRegProp = ZwOpenKey(&v27, 0xF003Fu, &ObjectAttributes);
-    if ( DeviceRegProp < 0 )
-      goto LABEL_19;
-    ZwClose(Handle);
-    v19 = (int)v27;
-    Handle = v27;
-LABEL_22:
-    v22 = v31;
-    v21 = v19;
-    DeviceRegProp = v33(v32, a2, v7 - 3, KeyHandle);
-    if ( DeviceRegProp == -1073741248 )
-      goto LABEL_5;
+    if ( v21 )
+    {
+      RtlInitUnicodeString(&DestinationString, v21);
+      *(_QWORD *)&v37.Length = 48LL;
+      v30 = 0LL;
+      v37.RootDirectory = Handle;
+      *(_QWORD *)&v37.Attributes = 576LL;
+      v37.ObjectName = &DestinationString;
+      *(_OWORD *)&v37.SecurityDescriptor = 0LL;
+      v23 = ZwOpenKey(&v30, 0xF003Fu, &v37);
+      DeviceRegProp = v23;
+      if ( v23 >= 0 )
+      {
+        ZwClose(Handle);
+        Handle = v30;
+      }
+    }
+LABEL_14:
+    if ( DeviceRegProp == -1073741772 )
+      goto LABEL_36;
     if ( DeviceRegProp < 0 )
       break;
+    v25 = v32;
+    v24 = (int)Handle;
+    v13 = v34(v33, a2, v7 - 3, KeyHandle);
+    if ( v13 == -1073741248 )
+      goto LABEL_6;
+    if ( v13 < 0 )
+    {
+LABEL_26:
+      v11 = v13;
+      goto LABEL_6;
+    }
     ZwClose(KeyHandle);
     KeyHandle = 0LL;
     ZwClose(Handle);
     Handle = 0LL;
 LABEL_4:
-    ++v11;
+    ++v12;
     v7 += 8;
-    if ( v11 >= 7 )
-      goto LABEL_5;
+    if ( v12 >= 7 )
+      goto LABEL_6;
+    v8 = v35;
   }
-  v10 = DeviceRegProp;
-LABEL_5:
+  v11 = DeviceRegProp;
+LABEL_6:
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( Handle )
     ZwClose(Handle);
-  return v10;
+  return v11;
 }

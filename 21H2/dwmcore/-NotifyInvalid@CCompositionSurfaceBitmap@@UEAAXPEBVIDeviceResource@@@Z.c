@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyInvalid@CCompositionSurfaceBitmap@@UEAAXPEBVIDeviceResource@@@Z @ 0x1801A1810
+ * XREFs of ?NotifyInvalid@CCompositionSurfaceBitmap@@UEAAXPEBVIDeviceResource@@@Z @ 0x18016FCD0
  * Callers:
  *     <none>
  * Callees:
@@ -10,5 +10,5 @@ void __fastcall CCompositionSurfaceBitmap::NotifyInvalid(
         CCompositionSurfaceBitmap *this,
         const struct IDeviceResource *a2)
 {
-  CResource::NotifyOnChanged((__int64)this - 88, 5u, 0LL);
+  CResource::NotifyOnChanged((__int64)this - 80, 5u, 0LL);
 }

@@ -1,25 +1,23 @@
 /*
- * XREFs of strncpy_s @ 0x1403DF3C0
+ * XREFs of strncpy_s @ 0x1403D7810
  * Callers:
- *     _splitpath_s @ 0x1403DE7E0 (_splitpath_s.c)
- *     HalGetEnvironmentVariable @ 0x1405048F0 (HalGetEnvironmentVariable.c)
- *     CmpGetToken @ 0x140B5E42C (CmpGetToken.c)
+ *     _splitpath_s @ 0x1403D6C20 (_splitpath_s.c)
+ *     HalGetEnvironmentVariable @ 0x1404BBA60 (HalGetEnvironmentVariable.c)
+ *     CmpGetToken @ 0x140A62394 (CmpGetToken.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl strncpy_s(char *a1, rsize_t SizeInBytes, const char *Src, rsize_t MaxCount)
 {
-  rsize_t v4; // r10
-  errno_t v6; // ebx
-  char *v7; // r11
+  errno_t v5; // ebx
+  char *v6; // r11
+  rsize_t v7; // r10
   signed __int64 v8; // r11
   char v9; // al
   signed __int64 v10; // r8
   char v11; // al
-  rsize_t v12; // rbx
 
-  v4 = SizeInBytes;
   if ( MaxCount )
   {
     if ( !a1 )
@@ -44,58 +42,53 @@ LABEL_4:
   }
   if ( Src )
   {
-    v7 = a1;
+    v6 = a1;
+    v7 = SizeInBytes;
     if ( MaxCount == -1LL )
     {
       v8 = a1 - Src;
-      while ( 1 )
+      do
       {
         v9 = *Src;
         Src[v8] = *Src;
         ++Src;
         if ( !v9 )
           break;
-        if ( !--SizeInBytes )
-          goto LABEL_25;
+        --v7;
       }
+      while ( v7 );
     }
     else
     {
       v10 = Src - a1;
-      while ( 1 )
+      do
       {
-        v11 = v7[v10];
-        v12 = MaxCount;
-        *v7++ = v11;
+        v11 = v6[v10];
+        *v6++ = v11;
         if ( !v11 )
           break;
-        if ( --SizeInBytes )
-        {
-          if ( --MaxCount )
-            continue;
-        }
-        MaxCount = v12 - 1;
-        if ( !SizeInBytes )
-          MaxCount = v12;
-        if ( !MaxCount )
-          *v7 = 0;
-LABEL_25:
-        if ( SizeInBytes )
-          return 0;
-        if ( MaxCount == -1LL )
-        {
-          a1[v4 - 1] = 0;
-          return 80;
-        }
-        v6 = 34;
-        goto LABEL_29;
+        if ( !--v7 )
+          break;
+        --MaxCount;
       }
+      while ( MaxCount );
+      if ( !MaxCount )
+        *v6 = 0;
     }
-    return 0;
+    if ( v7 )
+      return 0;
+    if ( MaxCount == -1LL )
+    {
+      a1[SizeInBytes - 1] = 0;
+      return 80;
+    }
+    v5 = 34;
   }
-  v6 = 22;
-LABEL_29:
+  else
+  {
+    v5 = 22;
+  }
   *a1 = 0;
   xHalTimerWatchdogStop();
-  return v6;
+  return v5;
 }

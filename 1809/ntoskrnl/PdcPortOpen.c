@@ -1,13 +1,13 @@
 /*
- * XREFs of PdcPortOpen @ 0x1407453A0
+ * XREFs of PdcPortOpen @ 0x140745380
  * Callers:
- *     PdcTaskClientRegister @ 0x1407452F0 (PdcTaskClientRegister.c)
- *     PdcNotificationClientRegister @ 0x14089A964 (PdcNotificationClientRegister.c)
+ *     PdcTaskClientRegister @ 0x1407452D0 (PdcTaskClientRegister.c)
+ *     PdcNotificationClientRegister @ 0x14089A944 (PdcNotificationClientRegister.c)
  * Callees:
- *     ZwPowerInformation @ 0x1401B8D50 (ZwPowerInformation.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ZwPowerInformation @ 0x1401B8D70 (ZwPowerInformation.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PdcpPortReleaseResources @ 0x14089A68C (PdcpPortReleaseResources.c)
+ *     PdcpPortReleaseResources @ 0x14089A66C (PdcpPortReleaseResources.c)
  */
 
 __int64 __fastcall PdcPortOpen(

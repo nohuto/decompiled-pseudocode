@@ -1,24 +1,25 @@
 /*
- * XREFs of IopLiveDumpAddTriageDumpData @ 0x140A9A2A0
+ * XREFs of IopLiveDumpAddTriageDumpData @ 0x1409AB3C0
  * Callers:
- *     <none>
+ *     IopLiveDumpMarkImportantDumpData @ 0x1409ACB98 (IopLiveDumpMarkImportantDumpData.c)
  * Callees:
- *     KiValidateTriageDumpDataArray @ 0x1403A7BA4 (KiValidateTriageDumpDataArray.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KeValidateBugCheckCallbackRecord @ 0x140569588 (KeValidateBugCheckCallbackRecord.c)
- *     KiValidateComponentName @ 0x14056AD04 (KiValidateComponentName.c)
- *     MmAddRangeToCrashDump @ 0x1406301B0 (MmAddRangeToCrashDump.c)
+ *     KiValidateTriageDumpDataArray @ 0x1403C9ABC (KiValidateTriageDumpDataArray.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x140517AD8 (KeValidateBugCheckCallbackRecord.c)
+ *     KiValidateComponentName @ 0x140518A80 (KiValidateComponentName.c)
+ *     MmAddRangeToCrashDump @ 0x140538518 (MmAddRangeToCrashDump.c)
  */
 
-__int64 __fastcall IopLiveDumpAddTriageDumpData(int *a1, __int64 a2)
+char __fastcall IopLiveDumpAddTriageDumpData(int *a1, __int64 (__fastcall **a2)(_QWORD, __int64, __int64))
 {
   PVOID *v2; // rbx
-  int v5; // eax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
+  char result; // al
+  int v6; // eax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
   __int64 i; // rdi
-  unsigned __int64 v9; // rdx
-  __int64 v10; // r8
+  unsigned __int64 v10; // rdx
+  __int64 v11; // r8
   __int128 v12; // [rsp+30h] [rbp-40h] BYREF
   __int128 v13; // [rsp+40h] [rbp-30h]
   __int128 v14; // [rsp+50h] [rbp-20h]
@@ -27,46 +28,52 @@ __int64 __fastcall IopLiveDumpAddTriageDumpData(int *a1, __int64 a2)
   PVOID *v17; // [rsp+B8h] [rbp+48h] BYREF
 
   v2 = (PVOID *)KeBugCheckReasonCallbackListHead;
+  result = 0;
   v16 = 0;
   v15 = 0LL;
   v12 = 0LL;
   v13 = 0LL;
   v14 = 0LL;
-  if ( KeBugCheckReasonCallbackListHead && qword_140C42248 )
+  if ( KeBugCheckReasonCallbackListHead && qword_140C321A8 )
   {
     v17 = &KeBugCheckReasonCallbackListHead;
     while ( v2 != &KeBugCheckReasonCallbackListHead )
     {
-      if ( KeValidateBugCheckCallbackRecord((__int64)v2, 7, &v17) )
+      result = KeValidateBugCheckCallbackRecord((__int64)v2, 7, &v17);
+      if ( result )
       {
-        v5 = *a1;
+        v6 = *a1;
         *(_QWORD *)&v12 = 0LL;
-        LODWORD(v13) = v5;
+        LODWORD(v13) = v6;
         *((_QWORD *)&v13 + 1) = *((_QWORD *)a1 + 1);
         v14 = *((_OWORD *)a1 + 1);
         v15 = *((_QWORD *)a1 + 4);
         HIDWORD(v12) = 0x2000000;
-        ((void (__fastcall *)(__int64, PVOID *, __int128 *))v2[2])(7LL, v2, &v12);
+        result = ((__int64 (__fastcall *)(__int64, PVOID *, __int128 *))v2[2])(7LL, v2, &v12);
         if ( (_QWORD)v12 )
         {
-          if ( KiValidateTriageDumpDataArray(v12, v6, 0x2000000u) )
+          result = KiValidateTriageDumpDataArray(v12, v7, 0x2000000u);
+          if ( result )
           {
-            if ( KiValidateComponentName((__int64)v2[3], &v16) )
+            result = KiValidateComponentName((__int64)v2[3], &v16);
+            if ( result )
             {
+              result = v12;
               if ( *(_DWORD *)(v12 + 16) )
               {
-                MmAddRangeToCrashDump(a2, (unsigned __int64)v2[3], v16 + 1LL);
-                v7 = v12;
-                for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v7 + 16); i = (unsigned int)(i + 1) )
+                result = MmAddRangeToCrashDump(a2, (unsigned __int64)v2[3], v16 + 1LL);
+                v8 = v12;
+                for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v8 + 16); i = (unsigned int)(i + 1) )
                 {
-                  v9 = *(_QWORD *)(v7 + 16 * (i + 3));
-                  if ( v9 )
+                  result = 2 * (i + 3);
+                  v10 = *(_QWORD *)(v8 + 16 * (i + 3));
+                  if ( v10 )
                   {
-                    v10 = *(_QWORD *)(v7 + 16LL * (unsigned int)i + 56);
-                    if ( v10 )
+                    v11 = *(_QWORD *)(v8 + 16LL * (unsigned int)i + 56);
+                    if ( v11 )
                     {
-                      MmAddRangeToCrashDump(a2, v9, v10);
-                      v7 = v12;
+                      result = MmAddRangeToCrashDump(a2, v10, v11);
+                      v8 = v12;
                     }
                   }
                 }
@@ -77,10 +84,10 @@ __int64 __fastcall IopLiveDumpAddTriageDumpData(int *a1, __int64 a2)
       }
       else if ( !v17 )
       {
-        return 0LL;
+        return result;
       }
       v2 = (PVOID *)*v2;
     }
   }
-  return 0LL;
+  return result;
 }

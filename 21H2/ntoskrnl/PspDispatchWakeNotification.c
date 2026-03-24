@@ -1,32 +1,32 @@
 /*
- * XREFs of PspDispatchWakeNotification @ 0x140679280
+ * XREFs of PspDispatchWakeNotification @ 0x14067FC24
  * Callers:
- *     PspAllocateAndQueryNotificationChannel @ 0x140678C4C (PspAllocateAndQueryNotificationChannel.c)
- *     PspFreezeJobTree @ 0x140679034 (PspFreezeJobTree.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x14067F620 (PspAllocateAndQueryNotificationChannel.c)
+ *     PspFreezeJobTree @ 0x14067F9E8 (PspFreezeJobTree.c)
  * Callees:
- *     PspSendWakeNotification @ 0x1406792F4 (PspSendWakeNotification.c)
+ *     PspSendWakeNotification @ 0x140616198 (PspSendWakeNotification.c)
  */
 
-__int64 __fastcall PspDispatchWakeNotification(PVOID Object, _DWORD *a2, __int64 a3)
+char __fastcall PspDispatchWakeNotification(PVOID Object, _DWORD *a2, __int64 a3)
 {
-  __int64 result; // rax
-  unsigned int v5; // ebx
-  _QWORD *v6; // rdi
+  int v4; // eax
+  unsigned int v6; // ebx
+  unsigned __int64 *v7; // rdi
 
-  result = (unsigned int)(*a2 | a2[1]);
+  v4 = *a2 | a2[1];
   if ( *(_QWORD *)a2 )
   {
-    v5 = 0;
-    v6 = (_QWORD *)(a3 + 8);
+    v6 = 0;
+    v7 = (unsigned __int64 *)(a3 + 8);
     do
     {
-      result = PspSendWakeNotification(Object, *v6 != 0LL ? 3 : 0);
-      if ( (_BYTE)result )
+      LOBYTE(v4) = PspSendWakeNotification(Object, v6, a2, *v7, *v7 != 0 ? 3 : 0);
+      if ( (_BYTE)v4 )
         break;
-      ++v5;
       ++v6;
+      ++v7;
     }
-    while ( v5 < 7 );
+    while ( v6 < 7 );
   }
-  return result;
+  return v4;
 }

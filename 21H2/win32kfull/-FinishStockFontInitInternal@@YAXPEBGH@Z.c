@@ -1,14 +1,14 @@
 /*
- * XREFs of ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00C83A0
+ * XREFs of ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00E49D0
  * Callers:
- *     FinishStockFontInit @ 0x1C00C81E0 (FinishStockFontInit.c)
+ *     FinishStockFontInit @ 0x1C00E4810 (FinishStockFontInit.c)
  * Callees:
- *     ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C00149E4 (-StringCchCatW@@YAJPEAG_KPEBG@Z.c)
- *     ?bGetRegString@@YA_NPEAXPEBGPEAGK@Z @ 0x1C00C8610 (-bGetRegString@@YA_NPEAXPEBGPEAGK@Z.c)
- *     ?bOpenKey@@YAHPEBGPEAPEAX@Z @ 0x1C00C87D4 (-bOpenKey@@YAHPEBGPEAPEAX@Z.c)
- *     bDeleteFont @ 0x1C00C88C0 (bDeleteFont.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     bInitOneStockFontInternal @ 0x1C03906EC (bInitOneStockFontInternal.c)
+ *     ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C00A0B98 (-StringCchCatW@@YAJPEAG_KPEBG@Z.c)
+ *     ?bGetRegString@@YA_NPEAXPEBGPEAGK@Z @ 0x1C00E4C40 (-bGetRegString@@YA_NPEAXPEBGPEAGK@Z.c)
+ *     ?bOpenKey@@YAHPEBGPEAPEAX@Z @ 0x1C00E4F30 (-bOpenKey@@YAHPEBGPEAPEAX@Z.c)
+ *     bDeleteFont @ 0x1C00E5020 (bDeleteFont.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     bInitOneStockFontInternal @ 0x1C0393720 (bInitOneStockFontInternal.c)
  */
 
 void __fastcall FinishStockFontInitInternal(const unsigned __int16 *a1, int a2)
@@ -57,7 +57,7 @@ void __fastcall FinishStockFontInitInternal(const unsigned __int16 *a1, int a2)
   v5 = (unsigned __int16 *)AllocFreeTmpBuffer(260LL);
   v6 = AllocFreeTmpBuffer(260LL);
   v8 = gahStockObjects96;
-  v9 = (int *)&unk_1C02DD7AC;
+  v9 = (int *)&unk_1C02E1DCC;
   v10 = (unsigned __int16 *)v6;
   v11 = 0;
   if ( !a2 )

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpGetPlatformTimerInformation @ 0x140366450
+ * XREFs of HalpGetPlatformTimerInformation @ 0x1403295F4
  * Callers:
- *     HaliQuerySystemInformation @ 0x140A88510 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x14098F9D0 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */
@@ -14,11 +14,12 @@ __int64 __fastcall HalpGetPlatformTimerInformation(_DWORD *a1)
   int v5; // ecx
   int v6; // ecx
   int v7; // ecx
-  int v9; // ecx
+  int v8; // ecx
   int v10; // ecx
+  int v11; // ecx
 
   v2 = *(_DWORD *)(HalpClockTimer + 228);
-  if ( v2 == 11 )
+  if ( v2 == 12 )
     v2 = *(_DWORD *)(*(_QWORD *)&HalpVpptPhysicalTimer + 228LL);
   *a1 = 1;
   v3 = v2 - 2;
@@ -36,30 +37,38 @@ __int64 __fastcall HalpGetPlatformTimerInformation(_DWORD *a1)
           v7 = v6 - 1;
           if ( v7 )
           {
-            v9 = v7 - 1;
-            if ( v9 )
+            v8 = v7 - 1;
+            if ( v8 )
             {
-              v10 = v9 - 3;
+              v10 = v8 - 1;
               if ( v10 )
               {
-                if ( v10 == 4086 )
-                  a1[1] = 11;
+                v11 = v10 - 3;
+                if ( v11 )
+                {
+                  if ( v11 == 4085 )
+                    a1[1] = 11;
+                  else
+                    a1[1] = 0;
+                }
                 else
-                  a1[1] = 0;
+                {
+                  a1[1] = 13;
+                }
               }
               else
               {
-                a1[1] = 13;
+                a1[1] = 10;
               }
             }
             else
             {
-              a1[1] = 10;
+              a1[1] = 9;
             }
           }
           else
           {
-            a1[1] = 9;
+            a1[1] = 8;
           }
         }
         else
@@ -92,16 +101,19 @@ __int64 __fastcall HalpGetPlatformTimerInformation(_DWORD *a1)
     case 5:
       a1[2] = 6;
       break;
-    case 7:
-      a1[2] = 7;
+    case 6:
+      a1[2] = 8;
       break;
     case 8:
-      a1[2] = 4;
+      a1[2] = 7;
       break;
     case 9:
-      a1[2] = 12;
+      a1[2] = 4;
       break;
     case 0xA:
+      a1[2] = 12;
+      break;
+    case 0xB:
       a1[1] = 13;
       break;
     case 0x1000:

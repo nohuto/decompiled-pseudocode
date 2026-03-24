@@ -1,9 +1,9 @@
 /*
- * XREFs of Normalization__AppendDecomposedChar @ 0x1409BCCCC
+ * XREFs of Normalization__AppendDecomposedChar @ 0x14091766C
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x1409BDBFC (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x140918590 (Normalization__NormalizeCharacter.c)
  * Callees:
- *     Normalization__NormalizeCharacter @ 0x1409BDBFC (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x140918590 (Normalization__NormalizeCharacter.c)
  */
 
 __int64 __fastcall Normalization__AppendDecomposedChar(__int64 a1, int a2, __int64 a3)
@@ -34,15 +34,11 @@ __int64 __fastcall Normalization__AppendDecomposedChar(__int64 a1, int a2, __int
     v6 = *(_WORD *)(v7 + 2LL * i + 2);
   }
   v10 = v6 >> 13;
-  v11 = v6 & 0x1FFF;
   if ( v10 == 7 )
-  {
     v10 = 100;
-    goto LABEL_10;
-  }
+  v11 = v6 & 0x1FFF;
   if ( v10 )
   {
-LABEL_10:
     do
     {
       v12 = *(_QWORD *)(a1 + 80);

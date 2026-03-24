@@ -1,9 +1,9 @@
 /*
- * XREFs of ?xxxMKButtonClick@@YAHG@Z @ 0x1C01B9BE0
+ * XREFs of ?xxxMKButtonClick@@YAHG@Z @ 0x1C0183E10
  * Callers:
- *     ?xxxMKButtonDoubleClick@@YAHG@Z @ 0x1C01B9C20 (-xxxMKButtonDoubleClick@@YAHG@Z.c)
+ *     ?xxxMKButtonDoubleClick@@YAHG@Z @ 0x1C0183E50 (-xxxMKButtonDoubleClick@@YAHG@Z.c)
  * Callees:
- *     ?xxxMKButtonSetState@@YAHG@Z @ 0x1C01B9C40 (-xxxMKButtonSetState@@YAHG@Z.c)
+ *     ?xxxMKButtonSetState@@YAHG@Z @ 0x1C0183E70 (-xxxMKButtonSetState@@YAHG@Z.c)
  */
 
 __int64 __fastcall xxxMKButtonClick()

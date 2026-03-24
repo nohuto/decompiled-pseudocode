@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HasSwapChainContent@CDropShadow@@UEBA_NXZ @ 0x18022A5F0
+ * XREFs of ?HasSwapChainContent@CDropShadow@@UEBA_NXZ @ 0x1801BF0B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CDropShadow::HasSwapChainContent(CDropShadow *this)
@@ -12,11 +12,11 @@ char __fastcall CDropShadow::HasSwapChainContent(CDropShadow *this)
   __int64 v2; // rcx
 
   v1 = 0;
-  if ( !*((_DWORD *)this + 31) )
+  if ( !*((_DWORD *)this + 33) )
   {
-    v2 = *((_QWORD *)this + 22);
+    v2 = *((_QWORD *)this + 18);
     if ( v2 )
-      return (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v2 + 256LL))(v2) != 0;
+      return (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v2 + 264LL))(v2) != 0;
   }
   return v1;
 }

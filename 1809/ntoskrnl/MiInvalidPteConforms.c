@@ -10,7 +10,7 @@
  *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
  *     MiGetWorkingSetInfoList @ 0x1400965F0 (MiGetWorkingSetInfoList.c)
  *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
- *     MiMakeOutswappedPageResident @ 0x1402A4268 (MiMakeOutswappedPageResident.c)
+ *     MiMakeOutswappedPageResident @ 0x1402A4368 (MiMakeOutswappedPageResident.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,24 @@
 /*
- * XREFs of ??1DXGALLOCATION@@QEAA@XZ @ 0x1C01BAEE0
+ * XREFs of ??1DXGALLOCATION@@QEAA@XZ @ 0x1C010E508
  * Callers:
- *     ??_GDXGALLOCATION@@QEAAPEAXI@Z @ 0x1C00479C4 (--_GDXGALLOCATION@@QEAAPEAXI@Z.c)
- *     ?DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C01B7900 (-DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U.c)
- *     ?DestroyDeferredAllocations@DXGDEVICE@@QEAAXPEAVDXGTERMINATIONTRACKER@@@Z @ 0x1C01BA7A0 (-DestroyDeferredAllocations@DXGDEVICE@@QEAAXPEAVDXGTERMINATIONTRACKER@@@Z.c)
+ *     ??_GDXGALLOCATION@@QEAAPEAXI@Z @ 0x1C003F6B8 (--_GDXGALLOCATION@@QEAAPEAXI@Z.c)
+ *     ?DestroyDeferredAllocations@DXGDEVICE@@QEAAXPEAVDXGTERMINATIONTRACKER@@@Z @ 0x1C010DD90 (-DestroyDeferredAllocations@DXGDEVICE@@QEAAXPEAVDXGTERMINATIONTRACKER@@@Z.c)
+ *     ?DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C0134134 (-DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U.c)
  * Callees:
- *     ?UnlockParavirtualizedAllocationOnGuest@@YAXPEAVDXGALLOCATION@@E@Z @ 0x1C02D8E98 (-UnlockParavirtualizedAllocationOnGuest@@YAXPEAVDXGALLOCATION@@E@Z.c)
+ *     ?DxgkUnreferenceDxgResource@@YAXPEAVDXGRESOURCE@@@Z @ 0x1C0117170 (-DxgkUnreferenceDxgResource@@YAXPEAVDXGRESOURCE@@@Z.c)
+ *     ?UnlockParavirtualizedAllocationOnGuest@@YAXPEAVDXGALLOCATION@@E@Z @ 0x1C022976C (-UnlockParavirtualizedAllocationOnGuest@@YAXPEAVDXGALLOCATION@@E@Z.c)
  */
 
 void __fastcall DXGALLOCATION::~DXGALLOCATION(DXGALLOCATION *this)
 {
-  if ( (*((_DWORD *)this + 18) & 0x40000) != 0 )
+  int v1; // eax
+
+  v1 = *((_DWORD *)this + 18);
+  if ( (v1 & 0x40000) != 0 )
+  {
     UnlockParavirtualizedAllocationOnGuest(this, 1u);
-  if ( (*((_DWORD *)this + 18) & 0x100000) != 0 )
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*((_QWORD *)this + 5) + 72LL));
+    v1 = *((_DWORD *)this + 18);
+  }
+  if ( (v1 & 0x100000) != 0 )
+    DxgkUnreferenceDxgResource(*((struct DXGRESOURCE **)this + 5));
 }

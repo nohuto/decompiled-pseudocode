@@ -1,10 +1,10 @@
 /*
- * XREFs of Controller_PopulateTestRegistrySettings @ 0x1C00155D8
+ * XREFs of Controller_PopulateTestRegistrySettings @ 0x1C001A0E4
  * Callers:
- *     Controller_PopulateDeviceFlags @ 0x1C006DA94 (Controller_PopulateDeviceFlags.c)
+ *     Controller_PopulateDeviceFlags @ 0x1C006BE84 (Controller_PopulateDeviceFlags.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Controller_PopulateTestRegistrySettings(__int64 a1)
@@ -27,21 +27,7 @@ __int64 __fastcall Controller_PopulateTestRegistrySettings(__int64 a1)
                131097LL,
                0LL,
                &v5);
-    if ( (int)result < 0 )
-    {
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v3) = 3;
-        result = WPP_RECORDER_SF_d(
-                   *(_QWORD *)(a1 + 72),
-                   v3,
-                   4,
-                   168,
-                   (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
-                   result);
-      }
-    }
-    else
+    if ( (int)result >= 0 )
     {
       result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, unsigned int *, _QWORD, _QWORD))(WdfFunctions_01023 + 1880))(
                  WdfDriverGlobals,
@@ -64,6 +50,17 @@ __int64 __fastcall Controller_PopulateTestRegistrySettings(__int64 a1)
           *(_DWORD *)(a1 + 820) &= ~1u;
         }
       }
+    }
+    else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v3) = 3;
+      result = WPP_RECORDER_SF_d(
+                 *(_QWORD *)(a1 + 72),
+                 v3,
+                 4,
+                 167,
+                 (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
+                 result);
     }
     if ( v5 )
       return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01023 + 1848))(WdfDriverGlobals);

@@ -1,23 +1,23 @@
 /*
- * XREFs of xxxEndScroll @ 0x1C0241878
+ * XREFs of xxxEndScroll @ 0x1C0245904
  * Callers:
- *     ?xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z @ 0x1C0107A0C (-xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z.c)
- *     xxxTrackBox @ 0x1C0242A00 (xxxTrackBox.c)
- *     xxxTrackThumb @ 0x1C0242B70 (xxxTrackThumb.c)
+ *     ?xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z @ 0x1C00468C8 (-xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z.c)
+ *     xxxTrackBox @ 0x1C0246B40 (xxxTrackBox.c)
+ *     xxxTrackThumb @ 0x1C0246CB0 (xxxTrackThumb.c)
  * Callees:
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     xxxWindowEvent @ 0x1C0073AB0 (xxxWindowEvent.c)
- *     PtInRect @ 0x1C0077984 (PtInRect.c)
- *     xxxReleaseCapture @ 0x1C00AA35C (xxxReleaseCapture.c)
- *     _GetMessagePos @ 0x1C0101D84 (_GetMessagePos.c)
- *     FindTimer @ 0x1C01041A4 (FindTimer.c)
- *     safe_cast_fnid_to_PSBWND @ 0x1C01D0504 (safe_cast_fnid_to_PSBWND.c)
- *     zzzShowCaret @ 0x1C023AA6C (zzzShowCaret.c)
- *     ??$UserFreeIsolatedType@V?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C023FDC0 (--$UserFreeIsolatedType@V-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@@@YAXPEAX@Z.c)
- *     ?DrawCtlThumb@@YAXPEAUtagSBWND@@@Z @ 0x1C02402EC (-DrawCtlThumb@@YAXPEAUtagSBWND@@@Z.c)
- *     ?xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z @ 0x1C0240A10 (-xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z.c)
- *     ?xxxDrawThumb@@YAXPEAUtagWND@@PEAUtagSBCALC@@H@Z @ 0x1C0240ACC (-xxxDrawThumb@@YAXPEAUtagWND@@PEAUtagSBCALC@@H@Z.c)
- *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C0241180 (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
+ *     PtInRect @ 0x1C004DEBC (PtInRect.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     xxxWindowEvent @ 0x1C00814D0 (xxxWindowEvent.c)
+ *     xxxReleaseCapture @ 0x1C00DAE50 (xxxReleaseCapture.c)
+ *     _GetMessagePos @ 0x1C010FD20 (_GetMessagePos.c)
+ *     ??$UserFreeIsolatedType@V?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C0169F60 (--$UserFreeIsolatedType@V-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     safe_cast_fnid_to_PSBWND @ 0x1C01D47C8 (safe_cast_fnid_to_PSBWND.c)
+ *     zzzShowCaret @ 0x1C02418E4 (zzzShowCaret.c)
+ *     ?DrawCtlThumb@@YAXPEAUtagSBWND@@@Z @ 0x1C0244394 (-DrawCtlThumb@@YAXPEAUtagSBWND@@@Z.c)
+ *     ?xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z @ 0x1C0244A80 (-xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z.c)
+ *     ?xxxDrawThumb@@YAXPEAUtagWND@@PEAUtagSBCALC@@H@Z @ 0x1C0244B74 (-xxxDrawThumb@@YAXPEAUtagWND@@PEAUtagSBCALC@@H@Z.c)
+ *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C0245214 (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
  */
 
 unsigned __int8 **__fastcall xxxEndScroll(struct tagWND *a1, int a2)
@@ -28,13 +28,14 @@ unsigned __int8 **__fastcall xxxEndScroll(struct tagWND *a1, int a2)
   __int64 (__fastcall *v7)(struct tagWND *); // rax
   struct tagSBCALC *v8; // rdx
   struct tagSBWND *v9; // rax
+  __int64 (__fastcall *v10)(struct tagWND *); // rcx
   int MessagePos; // eax
-  __int64 v11; // r8
-  struct tagWND *v12; // rdx
+  __int64 v12; // r8
   struct tagWND *v13; // rdx
-  unsigned int v14; // r8d
-  struct tagWND *v15; // rcx
-  unsigned __int64 v16; // [rsp+50h] [rbp+8h]
+  struct tagWND *v14; // rdx
+  unsigned int v15; // r8d
+  struct tagWND *v16; // rcx
+  unsigned __int64 v17; // [rsp+50h] [rbp+8h]
 
   result = (unsigned __int8 **)*((_QWORD *)a1 + 2);
   v5 = (__int64)result[90];
@@ -54,6 +55,7 @@ unsigned __int8 **__fastcall xxxEndScroll(struct tagWND *a1, int a2)
   v7 = *(__int64 (__fastcall **)(struct tagWND *))(v5 + 48);
   if ( (char *)v7 != (char *)xxxTrackThumb )
   {
+    v10 = xxxTrackBox;
     if ( v7 == xxxTrackBox )
     {
       if ( *(_QWORD *)(v5 + 64) )
@@ -61,14 +63,14 @@ unsigned __int8 **__fastcall xxxEndScroll(struct tagWND *a1, int a2)
         FindTimer((__int64)a1, 65534LL, 2u, 1, 0LL);
         *(_QWORD *)(v5 + 64) = 0LL;
       }
-      MessagePos = GetMessagePos();
-      v11 = *((_QWORD *)a1 + 5);
-      if ( (*(_BYTE *)(v11 + 26) & 0x40) != 0 )
-        LODWORD(v16) = *(_DWORD *)(v11 + 96) - (__int16)MessagePos;
+      MessagePos = GetMessagePos((__int64)v10);
+      v12 = *((_QWORD *)a1 + 5);
+      if ( (*(_BYTE *)(v12 + 26) & 0x40) != 0 )
+        LODWORD(v17) = *(_DWORD *)(v12 + 96) - (__int16)MessagePos;
       else
-        LODWORD(v16) = (__int16)MessagePos - *(_DWORD *)(v11 + 88);
-      HIDWORD(v16) = SHIWORD(MessagePos) - *(_DWORD *)(v11 + 92);
-      if ( PtInRect((_DWORD *)(v5 + 32), v16) )
+        LODWORD(v17) = (__int16)MessagePos - *(_DWORD *)(v12 + 88);
+      HIDWORD(v17) = SHIWORD(MessagePos) - *(_DWORD *)(v12 + 92);
+      if ( PtInRect((_DWORD *)(v5 + 32), v17) )
         zzzDrawInvertScrollArea(a1, (struct tagSBTRACK *)v5, 0, v6);
     }
     goto LABEL_22;
@@ -77,7 +79,7 @@ unsigned __int8 **__fastcall xxxEndScroll(struct tagWND *a1, int a2)
     *(_DWORD *)(v5 + 80) = *(_DWORD *)(*(_QWORD *)(v5 + 96) + 12LL);
   v8 = *(struct tagSBCALC **)(v5 + 24);
   if ( !v8
-    || (xxxDoScroll(*(struct tagWND **)(v5 + 16), v8, 4LL, *(unsigned int *)(v5 + 80), (*(_DWORD *)v5 >> 1) & 1),
+    || (xxxDoScroll(*(struct _LARGE_STRING ***)(v5 + 16), v8, 4u, *(_DWORD *)(v5 + 80), (*(_DWORD *)v5 >> 1) & 1),
         result = (unsigned __int8 **)*((_QWORD *)a1 + 2),
         (unsigned __int8 *)v5 == result[90]) )
   {
@@ -95,34 +97,34 @@ LABEL_22:
     result = (unsigned __int8 **)*((_QWORD *)a1 + 2);
     if ( (unsigned __int8 *)v5 == result[90] )
     {
-      v12 = *(struct tagWND **)(v5 + 24);
-      if ( !v12
-        || (xxxDoScroll(*(struct tagWND **)(v5 + 16), v12, 8LL, 0LL, (*(_DWORD *)v5 >> 1) & 1),
+      v13 = *(struct tagWND **)(v5 + 24);
+      if ( !v13
+        || (xxxDoScroll(*(struct _LARGE_STRING ***)(v5 + 16), v13, 8u, 0, (*(_DWORD *)v5 >> 1) & 1),
             result = (unsigned __int8 **)*((_QWORD *)a1 + 2),
             (unsigned __int8 *)v5 == result[90]) )
       {
-        SetOrClrWF(0, a1, 0x610u, 1);
-        SetOrClrWF(0, a1, 0x620u, 1);
+        SetOrClrWF(0, (__int64)a1, 0x610u, 1);
+        SetOrClrWF(0, (__int64)a1, 0x620u, 1);
         if ( gpqForeground )
         {
-          v13 = *(struct tagWND **)(gpqForeground + 112LL);
-          if ( v13 )
+          v14 = *(struct tagWND **)(gpqForeground + 112LL);
+          if ( v14 )
           {
             if ( gpqForeground == *(_QWORD *)(gptiCurrent + 432LL) )
-              xxxWindowEvent(0x80000005, v13, 0, 3u, 33);
+              xxxWindowEvent(0x80000005, v14, 0, 3u, 0x21u);
           }
         }
         if ( (*(_DWORD *)v5 & 4) != 0 )
-          v14 = -4;
+          v15 = -4;
         else
-          v14 = ((*(_DWORD *)v5 & 2) != 0) | 0xFFFFFFFA;
-        xxxWindowEvent(0x13u, a1, v14, 0, 0);
+          v15 = ((*(_DWORD *)v5 & 2) != 0) | 0xFFFFFFFA;
+        xxxWindowEvent(0x13u, a1, v15, 0, 0);
         result = (unsigned __int8 **)*((_QWORD *)a1 + 2);
         if ( (unsigned __int8 *)v5 == result[90] )
         {
-          v15 = *(struct tagWND **)(v5 + 16);
-          if ( !v15
-            || (zzzShowCaret(v15), result = (unsigned __int8 **)*((_QWORD *)a1 + 2), (unsigned __int8 *)v5 == result[90]) )
+          v16 = *(struct tagWND **)(v5 + 16);
+          if ( !v16
+            || (zzzShowCaret(v16), result = (unsigned __int8 **)*((_QWORD *)a1 + 2), (unsigned __int8 *)v5 == result[90]) )
           {
             *(_QWORD *)(v5 + 48) = 0LL;
             *(_QWORD *)(*((_QWORD *)a1 + 2) + 720LL) = 0LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bXform@EXFORMOBJ@@QEAAHPEAVVECTORFL@@0_K@Z @ 0x1C00310C0
+ * XREFs of ?bXform@EXFORMOBJ@@QEAAHPEAVVECTORFL@@0_K@Z @ 0x1C0022D10
  * Callers:
- *     ?bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z @ 0x1C0169BF0 (-bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z.c)
+ *     ?bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z @ 0x1C013C7B0 (-bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z.c)
  * Callees:
- *     EngSetLastError @ 0x1C008B610 (EngSetLastError.c)
- *     bCvtVts_FlToFl @ 0x1C00AB2DC (bCvtVts_FlToFl.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     bCvtVts_FlToFl @ 0x1C0022044 (bCvtVts_FlToFl.c)
+ *     EngSetLastError @ 0x1C009E670 (EngSetLastError.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall EXFORMOBJ::bXform(__m128 **this, struct VECTORFL *a2, struct VECTORFL *a3, __int64 a4)
@@ -31,7 +31,7 @@ __int64 __fastcall EXFORMOBJ::bXform(__m128 **this, struct VECTORFL *a2, struct 
   {
     if ( (v6 & 0x20) != 0 )
     {
-      v8 = bCvtVts_FlToFl(v5, a2, a3);
+      v8 = bCvtVts_FlToFl(v5->m128_f32, (float *)a2, (float *)a3, a4);
     }
     else
     {
@@ -39,14 +39,14 @@ __int64 __fastcall EXFORMOBJ::bXform(__m128 **this, struct VECTORFL *a2, struct 
       if ( (v6 & 8) != 0 )
       {
         *v5 = _mm_mul_ps(v7, (__m128)_xmm);
-        v8 = bCvtVts_FlToFl(v5, a2, a3);
+        v8 = bCvtVts_FlToFl(v5->m128_f32, (float *)a2, (float *)a3, a4);
         v10 = *v9;
         v11 = _mm_mul_ps(**v9, (__m128)_xmm);
       }
       else
       {
         *v5 = _mm_mul_ps(v7, (__m128)_xmm);
-        v8 = bCvtVts_FlToFl(v5, a2, a3);
+        v8 = bCvtVts_FlToFl(v5->m128_f32, (float *)a2, (float *)a3, a4);
         v10 = *v13;
         v11 = _mm_mul_ps(**v13, (__m128)_xmm);
       }

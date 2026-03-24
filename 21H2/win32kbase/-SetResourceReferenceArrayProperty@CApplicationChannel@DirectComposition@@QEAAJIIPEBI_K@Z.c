@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetResourceReferenceArrayProperty@CApplicationChannel@DirectComposition@@QEAAJIIPEBI_K@Z @ 0x1C0085808
+ * XREFs of ?SetResourceReferenceArrayProperty@CApplicationChannel@DirectComposition@@QEAAJIIPEBI_K@Z @ 0x1C0025CD8
  * Callers:
- *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C008A134 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C007E324 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
  * Callees:
- *     ?AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0030874 (-AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C0085EE4 (-PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C00263C8 (-PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@.c)
+ *     Win32AllocPoolWithQuota @ 0x1C00295D0 (Win32AllocPoolWithQuota.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::SetResourceReferenceArrayProperty(
@@ -16,100 +16,92 @@ __int64 __fastcall DirectComposition::CApplicationChannel::SetResourceReferenceA
         const unsigned int *a4,
         unsigned __int64 a5)
 {
-  __int64 v6; // r8
+  __int64 v5; // r14
+  unsigned __int64 v6; // r11
   unsigned __int64 v7; // r10
-  _QWORD *Quota; // rdi
-  DirectComposition::CApplicationChannel *v10; // rsi
-  __int64 v11; // rax
-  struct DirectComposition::CResourceMarshaler *v12; // r14
-  unsigned __int64 v13; // rbp
-  signed int v14; // ebx
-  __int64 v15; // r8
-  unsigned int v16; // ecx
-  unsigned __int64 v17; // rdx
-  __int64 v18; // rdx
-  char v20; // [rsp+78h] [rbp+10h] BYREF
+  struct DirectComposition::CResourceMarshaler *v11; // rsi
+  unsigned __int64 v12; // rbp
+  signed int v13; // ebx
+  __int64 v14; // r9
+  unsigned int v15; // ecx
+  unsigned __int64 v16; // r8
+  __int64 v17; // r8
+  char v19; // [rsp+78h] [rbp+10h] BYREF
 
-  v20 = 0;
+  v5 = 0LL;
+  v19 = 0;
   v6 = 0LL;
   v7 = (unsigned int)(a2 - 1);
-  Quota = 0LL;
-  v10 = this;
   if ( a2 && v7 < *((_QWORD *)this + 10) )
   {
     _mm_lfence();
-    v11 = *((_QWORD *)this + 7);
-    this = (DirectComposition::CApplicationChannel *)(v7 * *((_QWORD *)this + 11));
-    v12 = *(struct DirectComposition::CResourceMarshaler **)((char *)this + v11);
+    v11 = *(struct DirectComposition::CResourceMarshaler **)(v7 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7));
   }
   else
   {
-    v12 = 0LL;
+    v11 = 0LL;
   }
-  v13 = a5;
-  v14 = v12 == 0LL ? 0xC0000022 : 0;
+  v12 = a5;
+  v13 = v11 == 0LL ? 0xC0000022 : 0;
   if ( a5 )
   {
-    if ( v12 )
+    if ( v11 )
     {
       v6 = 8 * a5;
       if ( is_mul_ok(a5, 8uLL) )
       {
-        v14 = 0;
+        v13 = 0;
       }
       else
       {
         v6 = -1LL;
-        v14 = -1073741675;
+        v13 = -1073741675;
       }
     }
-    if ( v14 >= 0 )
+    if ( v13 >= 0 )
     {
-      Quota = (_QWORD *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuota(this, 260LL, v6, 1717715780);
-      if ( !Quota )
-        return (unsigned int)-1073741801;
+      v5 = Win32AllocPoolWithQuota(v6, 1717715780LL);
+      if ( !v5 )
+        v13 = -1073741801;
     }
-    v15 = 0LL;
-    if ( v14 < 0 )
+    v14 = 0LL;
+    if ( v13 < 0 )
       goto LABEL_27;
-    while ( (unsigned int)v15 < v13 )
+    do
     {
-      v16 = a4[v15];
-      v17 = v16 - 1;
-      if ( v16 && v17 < *((_QWORD *)v10 + 10) )
-        v18 = *(_QWORD *)(v17 * *((_QWORD *)v10 + 11) + *((_QWORD *)v10 + 7));
+      if ( (unsigned int)v14 >= v12 )
+        break;
+      v15 = a4[v14];
+      v16 = v15 - 1;
+      if ( v15 && v16 < *((_QWORD *)this + 10) )
+        v17 = *(_QWORD *)(v16 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7));
       else
-        v18 = 0LL;
-      Quota[v15] = v18;
-      if ( !v18 )
-      {
-        v14 = -1073741811;
-        goto LABEL_27;
-      }
-      v15 = (unsigned int)(v15 + 1);
+        v17 = 0LL;
+      *(_QWORD *)(v5 + 8 * v14) = v17;
+      if ( !v17 )
+        v13 = -1073741811;
+      v14 = (unsigned int)(v14 + 1);
+    }
+    while ( v13 >= 0 );
+  }
+  if ( v13 >= 0 )
+  {
+    v13 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, DirectComposition::CApplicationChannel *, _QWORD, __int64, unsigned __int64, char *))(*(_QWORD *)v11 + 160LL))(
+            v11,
+            this,
+            a3,
+            v5,
+            v12,
+            &v19);
+    if ( v13 >= 0 )
+    {
+      if ( v19 )
+        DirectComposition::CApplicationChannel::PutResourceOnUpdatedList(this, v11);
+      return (unsigned int)v13;
     }
   }
-  else if ( !v12 )
-  {
-    return (unsigned int)v14;
-  }
-  v14 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, DirectComposition::CApplicationChannel *, _QWORD, _QWORD *, unsigned __int64, char *))(*(_QWORD *)v12 + 160LL))(
-          v12,
-          v10,
-          a3,
-          Quota,
-          v13,
-          &v20);
-  if ( v14 < 0 )
-  {
 LABEL_27:
-    if ( Quota )
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        Quota);
-    return (unsigned int)v14;
-  }
-  if ( v20 )
-    DirectComposition::CApplicationChannel::PutResourceOnUpdatedList(v10, v12);
-  return (unsigned int)v14;
+  if ( v5 )
+    Win32FreePool(v5);
+  return (unsigned int)v13;
 }

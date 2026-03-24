@@ -1,39 +1,44 @@
 /*
- * XREFs of ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C001F2E4
+ * XREFs of ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00AE020
  * Callers:
- *     DrvUpdateGraphicsDeviceList @ 0x1C001CDB0 (DrvUpdateGraphicsDeviceList.c)
- *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C00246E4 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
- *     DrvAddMirrorDriversToRemoteList @ 0x1C00CAEC4 (DrvAddMirrorDriversToRemoteList.c)
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001F350 (DrvUpdateGraphicsDeviceList.c)
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C002AC30 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ *     ?DrvAddMirrorDriversToRemoteList@@YAHXZ @ 0x1C00C3560 (-DrvAddMirrorDriversToRemoteList@@YAHXZ.c)
+ *     WmsgpConnect @ 0x1C027E818 (WmsgpConnect.c)
  * Callees:
- *     _vsnwprintf @ 0x1C00CE184 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x1C00C55C4 (_vsnwprintf.c)
  */
 
-__int64 StringCchPrintfW(unsigned __int16 *a1, __int64 a2, const unsigned __int16 *a3, ...)
+__int64 StringCchPrintfW(wchar_t *Dest, __int64 a2, const unsigned __int16 *a3, ...)
 {
-  unsigned __int64 v4; // rsi
-  unsigned int v5; // edi
+  int v4; // edi
+  unsigned __int64 v5; // rbx
   int v6; // eax
   va_list Args; // [rsp+78h] [rbp+20h] BYREF
 
   va_start(Args, a3);
-  if ( (unsigned __int64)(a2 - 1) <= 0x7FFFFFFE )
+  v4 = 0;
+  if ( (unsigned __int64)(a2 - 1) > 0x7FFFFFFE )
+    v4 = -2147024809;
+  if ( v4 < 0 )
   {
-    v4 = a2 - 1;
-    v5 = 0;
-    v6 = vsnwprintf(a1, a2 - 1, a3, Args);
-    if ( v6 < 0 || v6 > v4 )
-    {
-      v5 = -2147024774;
-    }
-    else if ( v6 != v4 )
-    {
-      return v5;
-    }
-    a1[v4] = 0;
-    return v5;
+    if ( a2 )
+      *Dest = 0;
   }
-  v5 = -2147024809;
-  if ( a2 )
-    *a1 = 0;
-  return v5;
+  else
+  {
+    v5 = a2 - 1;
+    v4 = 0;
+    v6 = vsnwprintf(Dest, a2 - 1, a3, Args);
+    if ( v6 < 0 || v6 > v5 )
+    {
+      Dest[v5] = 0;
+      return (unsigned int)-2147024774;
+    }
+    else if ( v6 == v5 )
+    {
+      Dest[v5] = 0;
+    }
+  }
+  return (unsigned int)v4;
 }

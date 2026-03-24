@@ -1,40 +1,29 @@
 /*
- * XREFs of CmSiProcessTupleStartFromHandle @ 0x1403748F4
+ * XREFs of CmSiProcessTupleStartFromHandle @ 0x1403AEEAC
  * Callers:
- *     CmpInitializeRegistryProcess @ 0x14080D05C (CmpInitializeRegistryProcess.c)
+ *     CmpInitializeRegistryProcess @ 0x140799280 (CmpInitializeRegistryProcess.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     CmSipQueryProcessWorkingSetLimits @ 0x1403749C4 (CmSipQueryProcessWorkingSetLimits.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall CmSiProcessTupleStartFromHandle(__int64 a1, void *a2)
 {
-  NTSTATUS ProcessWorkingSetLimits; // ebx
-  __int64 v4; // rcx
-  PVOID Object; // [rsp+30h] [rbp-48h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v7; // [rsp+38h] [rbp-40h] BYREF
+  NTSTATUS v3; // ebx
+  PVOID Object; // [rsp+40h] [rbp+8h] BYREF
 
   Object = 0LL;
-  memset(&v7, 0, sizeof(v7));
-  ProcessWorkingSetLimits = ObReferenceObjectByHandle(a2, 0x1FFFFFu, 0LL, 0, &Object, 0LL);
-  if ( ProcessWorkingSetLimits < 0 )
+  v3 = ObReferenceObjectByHandle(a2, 0x1FFFFFu, 0LL, 0, &Object, 0LL);
+  if ( v3 < 0 )
   {
     if ( Object )
       ObfDereferenceObjectWithTag(Object, 0x746C6644u);
   }
   else
   {
-    *(_QWORD *)&CmpRegistryProcess = a2;
+    v3 = 0;
     *((_QWORD *)&CmpRegistryProcess + 1) = Object;
-    KiStackAttachProcess((_KPROCESS *)Object, 0, (__int64)&v7);
-    ProcessWorkingSetLimits = CmSipQueryProcessWorkingSetLimits(v4, &xmmword_140C13F40, (char *)&xmmword_140C13F40 + 8);
-    KiUnstackDetachProcess(&v7);
-    if ( ProcessWorkingSetLimits >= 0 )
-      return 0;
+    *(_QWORD *)&CmpRegistryProcess = a2;
   }
-  return (unsigned int)ProcessWorkingSetLimits;
+  return (unsigned int)v3;
 }

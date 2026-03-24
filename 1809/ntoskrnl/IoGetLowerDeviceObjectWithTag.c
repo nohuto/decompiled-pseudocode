@@ -1,15 +1,15 @@
 /*
- * XREFs of IoGetLowerDeviceObjectWithTag @ 0x14013668C
+ * XREFs of IoGetLowerDeviceObjectWithTag @ 0x1401366AC
  * Callers:
- *     IoGetLowerDeviceObject @ 0x140136670 (IoGetLowerDeviceObject.c)
+ *     IoGetLowerDeviceObject @ 0x140136690 (IoGetLowerDeviceObject.c)
  *     IoBuildPoDeviceNotifyList @ 0x14056CE10 (IoBuildPoDeviceNotifyList.c)
  *     IopCheckDeviceFlags @ 0x14056D404 (IopCheckDeviceFlags.c)
  *     IopSynchronousCall @ 0x1405A2CE0 (IopSynchronousCall.c)
- *     PiControlGetDeviceStack @ 0x14083B8D4 (PiControlGetDeviceStack.c)
+ *     PiControlGetDeviceStack @ 0x14083B8B4 (PiControlGetDeviceStack.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
  */
 
 void *__fastcall IoGetLowerDeviceObjectWithTag(__int64 a1, ULONG a2)

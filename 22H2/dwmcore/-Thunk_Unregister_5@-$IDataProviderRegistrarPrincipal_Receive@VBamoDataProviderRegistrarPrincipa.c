@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Thunk_Unregister_5@?$IDataProviderRegistrarPrincipal_Receive@VBamoDataProviderRegistrarPrincipalImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x1801E14B0
+ * XREFs of ?Thunk_Unregister_5@?$IDataProviderRegistrarPrincipal_Receive@VBamoDataProviderRegistrarPrincipalImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x18017ECC0
  * Callers:
  *     <none>
  * Callees:

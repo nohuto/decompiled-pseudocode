@@ -1,7 +1,7 @@
 /*
- * XREFs of MiExpandSpecialPool @ 0x1402AC35C
+ * XREFs of MiExpandSpecialPool @ 0x1402AC45C
  * Callers:
- *     MmAllocateSpecialPool @ 0x1402ACA64 (MmAllocateSpecialPool.c)
+ *     MmAllocateSpecialPool @ 0x1402ACB64 (MmAllocateSpecialPool.c)
  * Callees:
  *     MiMakeZeroedPageTables @ 0x140026644 (MiMakeZeroedPageTables.c)
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
@@ -10,12 +10,12 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     InsertTailListPte @ 0x140079D00 (InsertTailListPte.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiObtainSystemVa @ 0x1400F6944 (MiObtainSystemVa.c)
- *     MiObtainSessionVa @ 0x1400F7284 (MiObtainSessionVa.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiObtainSystemVa @ 0x1400F6964 (MiObtainSystemVa.c)
+ *     MiObtainSessionVa @ 0x1400F72A4 (MiObtainSessionVa.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiExpandSpecialPool(char a1)

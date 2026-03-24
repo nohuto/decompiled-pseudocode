@@ -1,11 +1,11 @@
 /*
- * XREFs of ?QueryUsbCapability@FxUsbDevice@@QEAAJPEBU_GUID@@KPEAXPEAK@Z @ 0x1C007FFD4
+ * XREFs of ?QueryUsbCapability@FxUsbDevice@@QEAAJPEBU_GUID@@KPEAXPEAK@Z @ 0x1C0073768
  * Callers:
- *     imp_WdfUsbTargetDeviceQueryUsbCapability @ 0x1C0078820 (imp_WdfUsbTargetDeviceQueryUsbCapability.c)
+ *     imp_WdfUsbTargetDeviceQueryUsbCapability @ 0x1C006B470 (imp_WdfUsbTargetDeviceQueryUsbCapability.c)
  * Callees:
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     WPP_IFR_SF__guid_d @ 0x1C00806B8 (WPP_IFR_SF__guid_d.c)
- *     USBD_QueryUsbCapability @ 0x1C0090A40 (USBD_QueryUsbCapability.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     WPP_IFR_SF__guid_d @ 0x1C0073E3C (WPP_IFR_SF__guid_d.c)
+ *     USBD_QueryUsbCapability @ 0x1C008FD30 (USBD_QueryUsbCapability.c)
  */
 
 __int64 __fastcall FxUsbDevice::QueryUsbCapability(

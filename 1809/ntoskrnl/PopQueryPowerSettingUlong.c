@@ -1,9 +1,9 @@
 /*
- * XREFs of PopQueryPowerSettingUlong @ 0x1406E1FEC
+ * XREFs of PopQueryPowerSettingUlong @ 0x1406E1FCC
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x14057DA10 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
- *     PopDeferDoze @ 0x14086F730 (PopDeferDoze.c)
+ *     PopDeferDoze @ 0x14086F710 (PopDeferDoze.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)

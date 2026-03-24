@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpFastFlushAddressSpaceTbEx @ 0x140549964
+ * XREFs of HvlpFastFlushAddressSpaceTbEx @ 0x1404FAA14
  * Callers:
- *     HvlFlushAddressSpaceTb @ 0x1403CB938 (HvlFlushAddressSpaceTb.c)
+ *     HvlFlushAddressSpaceTb @ 0x14038FCEC (HvlFlushAddressSpaceTb.c)
  * Callees:
- *     HvcallFastExtended @ 0x1403CBB50 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvlpAffinityToHvProcessorSet @ 0x140549750 (HvlpAffinityToHvProcessorSet.c)
+ *     HvcallFastExtended @ 0x14038FC00 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1404FA7B0 (HvlpAffinityToHvProcessorSet.c)
  */
 
 __int64 __fastcall HvlpFastFlushAddressSpaceTbEx(__int64 a1, __int64 a2, char a3)
@@ -21,5 +21,5 @@ __int64 __fastcall HvlpFastFlushAddressSpaceTbEx(__int64 a1, __int64 a2, char a3
     v3 = a3 != 0 ? 0 : 4;
   v6[1] = v3;
   v4 = HvlpAffinityToHvProcessorSet(a2, v7, 0x50u);
-  return HvcallFastExtended(((v4 + 7) << 14) & 0x3FE0000 | 0x10013u, (__int64)v6, v4 + 32, 0LL, 0);
+  return HvcallFastExtended(((v4 + 7) << 14) & 0x3FE0000 | 0x10013u, (__int64)v6, (unsigned int)(v4 + 32), 0LL, 0);
 }

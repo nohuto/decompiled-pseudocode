@@ -1,23 +1,25 @@
 /*
- * XREFs of ??_ECSharedSection@@UEAAPEAXI@Z @ 0x1800EAA10
+ * XREFs of ??_ECSharedSection@@UEAAPEAXI@Z @ 0x1800D8D00
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ??1CSharedSectionBase@@MEAA@XZ @ 0x1800EAA5C (--1CSharedSectionBase@@MEAA@XZ.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ??1CSharedSectionBase@@MEAA@XZ @ 0x1800D8D4C (--1CSharedSectionBase@@MEAA@XZ.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
 CSharedSection *__fastcall CSharedSection::`vector deleting destructor'(CSharedSection *this, char a2)
 {
+  unsigned int v4; // r8d
+
   *(_QWORD *)this = &CSharedSection::`vftable';
   CSharedSectionBase::~CSharedSectionBase(this);
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this, 0x58uLL);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x50, v4);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of MmIsRecursiveIoFault @ 0x1400DE940
+ * XREFs of MmIsRecursiveIoFault @ 0x1400DE960
  * Callers:
- *     IoPageReadEx @ 0x1400DE720 (IoPageReadEx.c)
+ *     IoPageReadEx @ 0x1400DE740 (IoPageReadEx.c)
  * Callees:
  *     <none>
  */

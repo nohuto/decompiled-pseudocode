@@ -1,11 +1,10 @@
 /*
- * XREFs of KeInsertByKeyDeviceQueue @ 0x14045A4A0
+ * XREFs of KeInsertByKeyDeviceQueue @ 0x14051A8C0
  * Callers:
- *     IoStartPacket @ 0x1402576D0 (IoStartPacket.c)
- *     DifKeInsertByKeyDeviceQueueWrapper @ 0x140613660 (DifKeInsertByKeyDeviceQueueWrapper.c)
+ *     IoStartPacket @ 0x140506440 (IoStartPacket.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockForDpc @ 0x140257B30 (KeAcquireInStackQueuedSpinLockForDpc.c)
- *     KeReleaseInStackQueuedSpinLockForDpc @ 0x140257B80 (KeReleaseInStackQueuedSpinLockForDpc.c)
+ *     KeAcquireInStackQueuedSpinLockForDpc @ 0x140516650 (KeAcquireInStackQueuedSpinLockForDpc.c)
+ *     KeReleaseInStackQueuedSpinLockForDpc @ 0x1405166E0 (KeReleaseInStackQueuedSpinLockForDpc.c)
  */
 
 BOOLEAN __stdcall KeInsertByKeyDeviceQueue(

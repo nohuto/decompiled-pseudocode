@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhDerefPdo @ 0x1C00108A0
+ * XREFs of UsbhDerefPdo @ 0x1C0003770
  * Callers:
- *     UsbhReset2Complete @ 0x1C000A9D0 (UsbhReset2Complete.c)
- *     UsbhBusResume_Action @ 0x1C0013AB0 (UsbhBusResume_Action.c)
- *     UsbhBusPause_Action @ 0x1C0014220 (UsbhBusPause_Action.c)
- *     UsbhBusUnlatchPdo @ 0x1C004C104 (UsbhBusUnlatchPdo.c)
- *     UsbhResetPortData @ 0x1C0056EB0 (UsbhResetPortData.c)
+ *     UsbhBusResume_Action @ 0x1C0005CF0 (UsbhBusResume_Action.c)
+ *     UsbhBusPause_Action @ 0x1C0006460 (UsbhBusPause_Action.c)
+ *     UsbhReset2Complete @ 0x1C0010540 (UsbhReset2Complete.c)
+ *     UsbhBusUnlatchPdo @ 0x1C004D510 (UsbhBusUnlatchPdo.c)
+ *     UsbhResetPortData @ 0x1C0058588 (UsbhResetPortData.c)
  * Callees:
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 void __fastcall UsbhDerefPdo(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

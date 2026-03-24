@@ -1,18 +1,19 @@
 /*
- * XREFs of TtmiWriteEventToSingleQueue @ 0x1409AC358
+ * XREFs of TtmiWriteEventToSingleQueue @ 0x14090574C
  * Callers:
- *     TtmpPublishDeviceEvent @ 0x1409A3994 (TtmpPublishDeviceEvent.c)
- *     TtmiWriteEnumerationEventsToQueue @ 0x1409A4ECC (TtmiWriteEnumerationEventsToQueue.c)
- *     TtmiWriteEventToAllQueues @ 0x1409A4F68 (TtmiWriteEventToAllQueues.c)
- *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x1409A5F90 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
+ *     TtmpPublishDeviceEvent @ 0x1408FCFC0 (TtmpPublishDeviceEvent.c)
+ *     TtmiWriteEnumerationEventsToQueue @ 0x1408FF52C (TtmiWriteEnumerationEventsToQueue.c)
+ *     TtmiWriteEventToAllQueues @ 0x1408FF5C8 (TtmiWriteEventToAllQueues.c)
+ *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x140900638 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
- *     TtmiLogQueueEnqueueEvent @ 0x1409A8FD8 (TtmiLogQueueEnqueueEvent.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
+ *     TtmiLogQueueEnqueueEvent @ 0x140903558 (TtmiLogQueueEnqueueEvent.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall TtmiWriteEventToSingleQueue(__int64 a1, _OWORD *a2)
@@ -20,7 +21,7 @@ __int64 __fastcall TtmiWriteEventToSingleQueue(__int64 a1, _OWORD *a2)
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v5; // ebx
   int v6; // edx
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v8; // rdi
   __int64 v9; // rcx
   _OWORD *v10; // rax
@@ -39,16 +40,17 @@ LABEL_3:
     TtmiLogError("TtmiWriteEventToSingleQueue", v6, -1, v5);
     goto LABEL_11;
   }
-  Pool2 = ExAllocatePool2(256LL, 560LL, 1902998612LL);
-  v8 = (_QWORD *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x230uLL, 0x716D7454u);
+  v8 = PoolWithTag;
+  if ( !PoolWithTag )
   {
     v5 = -1073741670;
     v6 = 425;
     goto LABEL_3;
   }
+  memset(PoolWithTag, 0, 0x230uLL);
   v9 = 4LL;
-  v10 = (_OWORD *)(Pool2 + 16);
+  v10 = v8 + 2;
   do
   {
     *v10 = *a2;
@@ -78,6 +80,6 @@ LABEL_3:
   KeSetEvent((PRKEVENT)(a1 + 128), 0, 0);
 LABEL_11:
   ExReleaseResourceLite((PERESOURCE)(a1 + 24));
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v5;
 }

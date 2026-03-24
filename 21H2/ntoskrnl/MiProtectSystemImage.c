@@ -1,77 +1,74 @@
 /*
- * XREFs of MiProtectSystemImage @ 0x14082B6F0
+ * XREFs of MiProtectSystemImage @ 0x1407A168C
  * Callers:
- *     MiDriverLoadSucceeded @ 0x140761234 (MiDriverLoadSucceeded.c)
- *     MiWriteProtectSystemImages @ 0x14082B668 (MiWriteProtectSystemImages.c)
+ *     MiDriverLoadSucceeded @ 0x14075C644 (MiDriverLoadSucceeded.c)
+ *     MiWriteProtectSystemImages @ 0x1407A1604 (MiWriteProtectSystemImages.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402FDD20 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiGetPteAddress @ 0x140313C70 (MiGetPteAddress.c)
- *     MiSetSystemCodeProtection @ 0x14033EF50 (MiSetSystemCodeProtection.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MiComputeDriverProtection @ 0x14082BA10 (MiComputeDriverProtection.c)
- *     MiActOnLargeKernelHalPages @ 0x14082BA68 (MiActOnLargeKernelHalPages.c)
+ *     MiSetSystemCodeProtection @ 0x1402E6818 (MiSetSystemCodeProtection.c)
+ *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiComputeDriverProtection @ 0x1407A1990 (MiComputeDriverProtection.c)
+ *     MiActOnLargeKernelHalPages @ 0x1407A19EC (MiActOnLargeKernelHalPages.c)
  */
 
-_OWORD *__fastcall MiProtectSystemImage(__int64 a1)
+unsigned __int64 __fastcall MiProtectSystemImage(__int64 a1)
 {
   unsigned __int64 v1; // rbx
-  __int64 v2; // rdi
-  _OWORD *result; // rax
-  __int64 v4; // r15
-  BOOL v5; // r12d
-  __int64 v6; // rbp
+  unsigned __int64 result; // rax
+  __int64 v4; // r13
+  BOOL v5; // r15d
+  __int64 v6; // r14
   int v7; // r10d
   _OWORD *v8; // rsi
-  unsigned int *v9; // r8
-  unsigned __int64 v10; // r9
-  unsigned int v11; // ecx
-  unsigned __int64 v12; // r10
-  unsigned __int64 PteAddress; // r13
-  __int64 v14; // r11
-  unsigned __int64 v15; // rax
-  unsigned __int64 v16; // r11
-  int v17; // ebp
+  __int64 v9; // rdi
+  unsigned int *v10; // r8
+  unsigned __int64 v11; // r9
+  unsigned int v12; // ecx
+  unsigned __int64 v13; // r9
+  __int64 v14; // rax
+  ULONG_PTR v15; // rdi
+  int v16; // r14d
+  unsigned __int64 v17; // r12
   unsigned int v18; // edx
-  unsigned int v19; // r9d
-  unsigned __int64 v20; // r10
-  unsigned __int64 v21; // r14
+  unsigned __int64 v19; // rbp
+  unsigned int v20; // r8d
+  unsigned __int64 v21; // r9
   __int64 v22; // rdx
   unsigned int v23; // edi
-  __int64 v24; // rax
-  int v25; // edx
-  unsigned int v26; // r8d
+  int v24; // edx
+  unsigned int v25; // r8d
+  unsigned __int64 v26; // r11
   unsigned __int64 v27; // r10
   unsigned int v28; // r9d
-  unsigned __int64 v29; // r10
-  unsigned __int64 v30; // r8
-  __int64 v31; // rcx
-  unsigned int v32; // eax
-  unsigned int v33; // eax
-  unsigned __int64 v34; // r11
-  unsigned __int64 v35; // rax
-  unsigned int v36; // [rsp+20h] [rbp-A8h]
-  unsigned int v37; // [rsp+24h] [rbp-A4h]
-  unsigned int v38; // [rsp+28h] [rbp-A0h]
-  int v39; // [rsp+2Ch] [rbp-9Ch]
-  unsigned __int64 v40; // [rsp+30h] [rbp-98h]
-  unsigned __int64 v41; // [rsp+38h] [rbp-90h]
-  unsigned __int64 v42; // [rsp+40h] [rbp-88h]
-  char *v43; // [rsp+48h] [rbp-80h]
-  unsigned __int64 v45; // [rsp+58h] [rbp-70h]
-  _OWORD v46[2]; // [rsp+68h] [rbp-60h] BYREF
-  __int64 v47; // [rsp+88h] [rbp-40h]
+  ULONG_PTR v29; // r10
+  ULONG_PTR v30; // r11
+  ULONG_PTR v31; // r8
+  __int64 v32; // rcx
+  unsigned __int64 v33; // rdx
+  unsigned int v34; // eax
+  __int64 v35; // rax
+  unsigned int v36; // [rsp+20h] [rbp-98h]
+  unsigned int v37; // [rsp+24h] [rbp-94h]
+  unsigned int v38; // [rsp+28h] [rbp-90h]
+  int v39; // [rsp+2Ch] [rbp-8Ch]
+  __int64 PteAddress; // [rsp+30h] [rbp-88h]
+  ULONG_PTR v41; // [rsp+38h] [rbp-80h]
+  unsigned __int64 v42; // [rsp+40h] [rbp-78h]
+  char *v44; // [rsp+50h] [rbp-68h]
+  _OWORD v45[2]; // [rsp+58h] [rbp-60h] BYREF
+  __int64 v46; // [rsp+78h] [rbp-40h]
 
   v1 = *(_QWORD *)(a1 + 48);
-  v2 = a1;
-  memset(v46, 0, sizeof(v46));
-  v47 = 0LL;
-  result = (_OWORD *)MI_IS_PHYSICAL_ADDRESS(v1);
+  memset(v45, 0, sizeof(v45));
+  v46 = 0LL;
+  result = MI_IS_PHYSICAL_ADDRESS(v1);
   if ( (_DWORD)result )
   {
     if ( v1 == PsNtosImageBase || v1 == PsHalImageBase )
-      return (_OWORD *)MiActOnLargeKernelHalPages(v1, MiProtectLargeKernelHalRange);
+      return MiActOnLargeKernelHalPages(v1, MiProtectLargeKernelHalRange);
   }
   else
   {
@@ -81,24 +78,25 @@ _OWORD *__fastcall MiProtectSystemImage(__int64 a1)
     if ( (unsigned int)MiGetSystemRegionType(v1) == 1 )
       v37 = 1;
     else
-      v5 = (*(_DWORD *)(v2 + 104) & 0x8000000) == 0;
+      v5 = (*(_DWORD *)(a1 + 104) & 0x8000000) == 0;
     v6 = *(unsigned __int16 *)(v4 + 6);
     v7 = *(unsigned __int16 *)(v4 + 6);
     v8 = (_OWORD *)(v4 + *(unsigned __int16 *)(v4 + 20) + 24LL);
-    result = (_OWORD *)v1;
+    v9 = (*(_DWORD *)(v4 + 80) >> 12) + (unsigned int)((*(_DWORD *)(v4 + 80) & 0xFFF) != 0);
+    result = v1;
     if ( *(_WORD *)(v4 + 6) )
     {
-      v9 = (unsigned int *)(v8 + 1);
+      v10 = (unsigned int *)(v8 + 1);
       while ( 1 )
       {
-        v10 = v1 + *(v9 - 1);
-        if ( v10 < (unsigned __int64)result )
+        v11 = v1 + *(v10 - 1);
+        if ( v11 < result )
           break;
-        v11 = *v9;
-        if ( *v9 < *(v9 - 2) )
-          v11 = *(v9 - 2);
-        v9 += 10;
-        result = (_OWORD *)(-(__int64)*(unsigned int *)(v4 + 56) & (v10 + *(unsigned int *)(v4 + 56) + v11 - 1LL));
+        v12 = *v10;
+        if ( *v10 < *(v10 - 2) )
+          v12 = *(v10 - 2);
+        v10 += 10;
+        result = -(__int64)*(unsigned int *)(v4 + 56) & (v11 + *(unsigned int *)(v4 + 56) + v12 - 1LL);
         if ( !--v7 )
           goto LABEL_10;
       }
@@ -107,95 +105,89 @@ _OWORD *__fastcall MiProtectSystemImage(__int64 a1)
     {
 LABEL_10:
       v39 = -1073741824;
-      v43 = (char *)v8 + 40 * v6 - 1;
+      v44 = (char *)v8 + 40 * v6 - 1;
       PteAddress = MiGetPteAddress(v1);
       v36 = 0;
-      v15 = PteAddress + 8 * v14;
-      v16 = 0LL;
-      v42 = v15;
-      v17 = v6 + 1;
-      v40 = 0LL;
+      v14 = PteAddress + 8 * v9;
+      v15 = 0LL;
+      v41 = 0LL;
+      v16 = v6 + 1;
+      v42 = v14;
       do
       {
-        v45 = v16;
-        if ( v17 == 1 )
+        if ( v16 == 1 )
         {
-          HIDWORD(v47) = 0;
-          v8 = v46;
-          v41 = 0LL;
+          HIDWORD(v46) = 0;
+          v8 = v45;
+          v17 = 0LL;
           v38 = 0;
-          v21 = MiGetPteAddress(v12) + 8;
+          v19 = MiGetPteAddress(v13) + 8;
         }
         else
         {
-          v41 = v1 + *((unsigned int *)v8 + 3);
-          v21 = MiGetPteAddress(v41);
-          if ( v19 < v18 )
-            v19 = v18;
+          v17 = v1 + *((unsigned int *)v8 + 3);
+          v19 = MiGetPteAddress(v17);
+          if ( v20 < v18 )
+            v20 = v18;
           v22 = v36;
-          v38 = v19;
+          v38 = v20;
         }
-        if ( v16 )
+        if ( v15 && v19 > v15 )
         {
-          if ( v21 > v16 )
-          {
-            v33 = MiComputeDriverProtection(v37, v22);
-            MiSetSystemCodeProtection(v2, v34, v34, v33);
-            v20 = (unsigned __int64)v43;
+          v34 = MiComputeDriverProtection(v37, v22);
+          MiSetSystemCodeProtection(a1, v15, v15, v34);
+          v21 = (unsigned __int64)v44;
+          v35 = PteAddress + 8;
+          if ( v15 != PteAddress )
             v35 = PteAddress;
-            PteAddress += 8LL;
-            v16 = 0LL;
-            v40 = 0LL;
-            v36 = 0;
-            if ( v45 != v35 )
-              PteAddress = v35;
-          }
+          PteAddress = v35;
+          v41 = 0LL;
+          v36 = 0;
         }
-        if ( v21 >= v42 )
+        if ( v19 >= v42 )
         {
-          result = v46;
-          if ( v8 != v46 )
+          result = (unsigned __int64)v45;
+          if ( v8 != v45 )
             break;
         }
         v23 = *((_DWORD *)v8 + 9) & 0xE0000000;
-        if ( v5 && ((MiFlags & 0x8000) == 0 || (*((_DWORD *)v8 + 9) & 0x20000000) == 0) )
+        if ( v5 && ((MiFlags & 0x10000) == 0 || (*((_DWORD *)v8 + 9) & 0x20000000) == 0) )
           v23 = *((_DWORD *)v8 + 9) & 0x60000000 | 0x80000000;
-        if ( v23 == v39 && (v32 = *(_DWORD *)(v4 + 56), v32 <= 0x1000) )
+        if ( v23 == v39 && (result = *(unsigned int *)(v4 + 56), (unsigned int)result <= 0x1000) )
         {
-          v31 = v32;
+          v32 = (unsigned int)result;
+          v33 = result + v38 - 1LL;
         }
         else
         {
-          v24 = MiGetPteAddress(v20);
-          v27 = v24;
-          if ( v24 == v21 )
+          result = MiGetPteAddress(v21);
+          v27 = result;
+          if ( result == v19 )
           {
-            v40 = v21;
-            v27 = v24 - 8;
-            v16 = v21;
-            v36 = v26 | v23 | v25;
+            v41 = v19;
+            v27 = result - 8;
+            v36 = v25 | v23 | v24;
           }
-          if ( v27 >= PteAddress )
+          if ( v27 >= v26 )
           {
-            v28 = MiComputeDriverProtection(v37, v26);
-            v30 = v42 - 8;
+            v28 = MiComputeDriverProtection(v37, v25);
+            v31 = v42 - 8;
             if ( v29 < v42 )
-              v30 = v29;
-            MiSetSystemCodeProtection(a1, PteAddress, v30, v28);
-            v16 = v40;
+              v31 = v29;
+            result = MiSetSystemCodeProtection(a1, v30, v31, v28);
           }
-          v31 = *(unsigned int *)(v4 + 56);
-          PteAddress = v21;
+          v32 = *(unsigned int *)(v4 + 56);
+          v33 = v32 + v38 - 1LL;
+          PteAddress = v19;
           v39 = v23;
         }
+        v15 = v41;
         v8 = (_OWORD *)((char *)v8 + 40);
-        result = (_OWORD *)(v31 + v38);
-        v2 = a1;
-        v12 = (-v31 & ((unsigned __int64)result + v41 - 1)) - 1;
-        v43 = (char *)v12;
-        --v17;
+        v13 = (-v32 & (v17 + v33)) - 1;
+        v44 = (char *)v13;
+        --v16;
       }
-      while ( v17 );
+      while ( v16 );
     }
   }
   return result;

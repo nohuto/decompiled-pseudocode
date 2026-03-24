@@ -1,236 +1,216 @@
 /*
- * XREFs of ?Generate@CGradientSource@@IEAAJPEAVCD3DDevice@@AEBVRetrievalParams@1@V?$span@$$CBUD2D1_GRADIENT_STOP@@$0?0@gsl@@_N33W4D2D1_EXTEND_MODE@@@Z @ 0x1800B74E8
+ * XREFs of ?Generate@CGradientSource@@IEAAJPEAVCD3DDevice@@AEBVRetrievalParams@1@V?$span@$$CBUD2D1_GRADIENT_STOP@@$0?0@gsl@@_N33W4D2D1_EXTEND_MODE@@@Z @ 0x180209C74
  * Callers:
- *     ?Generate@CGradientBrush@@AEAAJPEAVCD3DDevice@@AEBVRetrievalParams@CGradientSource@@@Z @ 0x1800B739C (-Generate@CGradientBrush@@AEAAJPEAVCD3DDevice@@AEBVRetrievalParams@CGradientSource@@@Z.c)
+ *     ?Generate@CGradientBrush@@AEAAJPEAVCD3DDevice@@AEBVRetrievalParams@CGradientSource@@@Z @ 0x1801E6A34 (-Generate@CGradientBrush@@AEAAJPEAVCD3DDevice@@AEBVRetrievalParams@CGradientSource@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x1800255BC (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180034304 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CF54 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?Create@CAtlasBitmapResource@@SAJPEAVIAtlasEntryOwner@@PEAVCD3DDevice@@PEAPEAV1@@Z @ 0x1800B77CC (-Create@CAtlasBitmapResource@@SAJPEAVIAtlasEntryOwner@@PEAVCD3DDevice@@PEAPEAV1@@Z.c)
- *     ??4?$com_ptr_t@VCAtlasBitmapResource@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCAtlasBitmapResource@@@Z @ 0x1800B7874 (--4-$com_ptr_t@VCAtlasBitmapResource@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCAtlasBit.c)
- *     ?Update@CAtlasBitmapResource@@QEAAJV?$span@$$CBE$0?0@gsl@@_N@Z @ 0x1800B7984 (-Update@CAtlasBitmapResource@@QEAAJV-$span@$$CBE$0-0@gsl@@_N@Z.c)
- *     ?GenerateGradientPixels@CD2DFactory@@QEAAJPEBUD2D1_GRADIENT_STOP@@IW4D2D1_GRADIENT_PIXEL_USAGE@@W4D2D1_COLOR_SPACE@@22W4D2D1_EXTEND_MODE@@W4D2D1_COLOR_INTERPOLATION_MODE@@W4DXGI_FORMAT@@PEAXI@Z @ 0x1800B79D8 (-GenerateGradientPixels@CD2DFactory@@QEAAJPEBUD2D1_GRADIENT_STOP@@IW4D2D1_GRADIENT_PIXEL_USAGE@@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E9DB4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?reserve_region@?$vector_facade@V?$com_ptr_t@VCD2DBrush@@Uerr_returncode_policy@wil@@@wil@@V?$buffer_impl@V?$com_ptr_t@VCD2DBrush@@Uerr_returncode_policy@wil@@@wil@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAV?$com_ptr_t@VCD2DBrush@@Uerr_returncode_policy@wil@@@wil@@_K0@Z @ 0x1800F12E8 (-reserve_region@-$vector_facade@V-$com_ptr_t@VCD2DBrush@@Uerr_returncode_policy@wil@@@wil@@V-$bu.c)
- *     ?Create@CD2DBrush@@SAJPEAVCD2DResourceManager@@PEAUID2D1Brush@@PEAPEAV1@@Z @ 0x1800F13C0 (-Create@CD2DBrush@@SAJPEAVCD2DResourceManager@@PEAUID2D1Brush@@PEAPEAV1@@Z.c)
- *     ?CreateGradientStopCollection@CD2DContext@@QEAAJV?$span@$$CBUD2D1_GRADIENT_STOP@@$0?0@gsl@@W4D2D1_GAMMA@@W4D2D1_EXTEND_MODE@@PEAPEAUID2D1GradientStopCollection@@@Z @ 0x1800FA890 (-CreateGradientStopCollection@CD2DContext@@QEAAJV-$span@$$CBUD2D1_GRADIENT_STOP@@$0-0@gsl@@W4D2D.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?find@?$_Tree@V?$_Tset_traits@PEAVCInteractionTracker@@U?$less@PEAVCInteractionTracker@@@std@@V?$allocator@PEAVCInteractionTracker@@@3@$0A@@std@@@std@@QEAA?AV?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@PEAVCInteractionTracker@@@std@@@std@@@2@AEBQEAVCInteractionTracker@@@Z @ 0x18018A2CC (-find@-$_Tree@V-$_Tset_traits@PEAVCInteractionTracker@@U-$less@PEAVCInteractionTracker@@@std@@V-.c)
+ *     ?Create@CAtlasBitmapResource@@SAJPEAVIAtlasEntryOwner@@PEAVCD3DDevice@@PEAPEAV1@@Z @ 0x18020A2C4 (-Create@CAtlasBitmapResource@@SAJPEAVIAtlasEntryOwner@@PEAVCD3DDevice@@PEAPEAV1@@Z.c)
+ *     ?Update@CAtlasBitmapResource@@QEAAJV?$span@$$CBE$0?0@gsl@@_N@Z @ 0x18020A690 (-Update@CAtlasBitmapResource@@QEAAJV-$span@$$CBE$0-0@gsl@@_N@Z.c)
+ *     ?CreateGradientStopCollection@CD2DContext@@QEAAJV?$span@$$CBUD2D1_GRADIENT_STOP@@$0?0@gsl@@W4D2D1_GAMMA@@W4D2D1_EXTEND_MODE@@PEAPEAUID2D1GradientStopCollection@@@Z @ 0x18023B2B8 (-CreateGradientStopCollection@CD2DContext@@QEAAJV-$span@$$CBUD2D1_GRADIENT_STOP@@$0-0@gsl@@W4D2D.c)
  */
 
 __int64 __fastcall CGradientSource::Generate(
-        struct IAtlasEntryOwner *a1,
-        struct CD2DResourceManager **a2,
+        __int64 **a1,
+        struct CD3DDevice *a2,
         __int64 a3,
         unsigned int *a4,
         unsigned __int8 a5,
         char a6,
         unsigned __int8 a7,
-        unsigned int a8)
+        int a8)
 {
-  struct CD2DBrush **v8; // rax
-  unsigned int v13; // edi
+  unsigned int v11; // r14d
+  __int64 *v12; // rsi
+  struct CAtlasBitmapResource **v13; // rdi
   int v14; // eax
-  unsigned int v15; // ecx
-  unsigned int v16; // ecx
-  struct ID2D1Brush *v17; // rbx
-  int GradientPixels; // eax
-  unsigned int v19; // ecx
-  gsl::details *v20; // rcx
+  __int64 v15; // rcx
+  LPVOID v16; // rax
+  __int64 v17; // rcx
+  void *v18; // rbx
+  int v19; // eax
+  __int64 v20; // rcx
   __int64 v21; // r8
-  struct CD2DBrush *v22; // r14
+  struct CAtlasBitmapResource *v22; // rdi
   int v23; // eax
-  unsigned int v24; // ecx
-  struct CD2DBrush **v25; // rax
+  __int64 v24; // rcx
+  struct CAtlasBitmapResource **v25; // rax
   _QWORD *v26; // rax
   int GradientStopCollection; // eax
-  unsigned int v29; // ecx
-  struct CD2DResourceManager *v30; // rcx
+  __int64 v28; // rcx
+  int v29; // eax
+  __int64 v30; // rcx
   int v31; // eax
-  unsigned int v32; // ecx
-  struct ID2D1Brush *v33; // rbx
-  struct ID2D1Brush *v34; // r14
-  struct ID2D1Brush *v35; // r15
-  int v36; // eax
-  unsigned int v37; // ecx
-  struct CD2DBrush *v38; // rbx
-  __int64 v39; // rsi
-  char *v40; // rcx
-  __int64 v41; // rdx
-  int v42; // eax
-  unsigned int v43; // ecx
-  struct CD2DBrush *v44[2]; // [rsp+60h] [rbp-59h] BYREF
-  struct ID2D1Brush *v45[2]; // [rsp+70h] [rbp-49h] BYREF
-  struct ID2D1Brush *v46; // [rsp+80h] [rbp-39h] BYREF
-  __int64 v47; // [rsp+88h] [rbp-31h] BYREF
-  struct IAtlasEntryOwner *v48; // [rsp+90h] [rbp-29h] BYREF
-  __int128 v49; // [rsp+98h] [rbp-21h] BYREF
-  __int64 v50; // [rsp+A8h] [rbp-11h]
+  __int64 v32; // rcx
+  __int64 v33; // rbx
+  __int64 v34; // rax
+  unsigned int *v36; // [rsp+70h] [rbp-49h] BYREF
+  __int64 *v37; // [rsp+78h] [rbp-41h] BYREF
+  __int64 v38[2]; // [rsp+80h] [rbp-39h] BYREF
+  __int128 v39; // [rsp+90h] [rbp-29h] BYREF
+  __int128 v40; // [rsp+A0h] [rbp-19h] BYREF
+  __int64 v41; // [rsp+B0h] [rbp-9h]
 
-  v8 = *(struct CD2DBrush ***)a3;
-  v48 = a1;
-  v13 = 0;
-  if ( v8 && !*v8 )
+  v38[0] = (__int64)a2;
+  v36 = a4;
+  v11 = 0;
+  std::_Tree<std::_Tset_traits<CInteractionTracker *,std::less<CInteractionTracker *>,std::allocator<CInteractionTracker *>,0>>::find(
+    a1 + 1,
+    &v37,
+    v38);
+  v12 = v37;
+  v13 = (struct CAtlasBitmapResource **)(v37 + 5);
+  if ( !v37[5] )
   {
-    v44[0] = 0LL;
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset(v44);
-    v14 = CAtlasBitmapResource::Create(a1, (struct CD3DDevice *)a2, v44);
-    v13 = v14;
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(v37 + 5);
+    v14 = CAtlasBitmapResource::Create((struct IAtlasEntryOwner *)a1, a2, v13);
+    v11 = v14;
     if ( v14 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x92u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x7Fu, 0LL);
+      return v11;
+    }
+  }
+  if ( *(_QWORD *)a3 && !**(_QWORD **)a3 )
+  {
+    v16 = DefaultHeap::Alloc(0x2000uLL);
+    v18 = v16;
+    if ( !v16 )
+    {
+      v11 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, -2147024882, 0x89u, 0LL);
+      return v11;
+    }
+    v19 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, int, unsigned int, int, int, _DWORD, int, LPVOID, int))(*(_QWORD *)*(&g_DeviceManager + 1) + 40LL))(
+            *(&g_DeviceManager + 1),
+            *((_QWORD *)v36 + 1),
+            *v36,
+            a7 ^ 1u,
+            1,
+            (unsigned int)a5 + 1,
+            1,
+            a8,
+            0,
+            87,
+            v16,
+            0x2000);
+    v11 = v19;
+    if ( v19 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x95u, 0LL);
     }
     else
     {
-      v17 = (struct ID2D1Brush *)DefaultHeap::Alloc(0x2000uLL);
-      if ( v17 )
+      v22 = *v13;
+      v38[0] = (__int64)v22;
+      if ( v22 )
+        (*(void (__fastcall **)(struct CAtlasBitmapResource *))(*(_QWORD *)v22 + 8LL))(v22);
+      LOBYTE(v21) = a6;
+      *(_QWORD *)&v39 = 0x2000LL;
+      *((_QWORD *)&v39 + 1) = v18;
+      v23 = CAtlasBitmapResource::Update(v22, &v39, v21);
+      v11 = v23;
+      if ( v23 >= 0 )
       {
-        GradientPixels = CD2DFactory::GenerateGradientPixels(a8, *((_QWORD *)a4 + 1), *a4, a7 ^ 1u);
-        v13 = GradientPixels;
-        if ( GradientPixels < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, GradientPixels, 0xA4u, 0LL);
-        }
-        else
-        {
-          gsl::details::extent_type<-1>::extent_type<-1>((gsl::details *)v45, 0x2000LL);
-          if ( v45[0] == (struct ID2D1Brush *)-1LL )
-          {
-            gsl::details::terminate(v20);
-            JUMPOUT(0x1800B77C2LL);
-          }
-          v22 = v44[0];
-          LOBYTE(v21) = a6;
-          v45[1] = v17;
-          v23 = CAtlasBitmapResource::Update(v44[0], v45, v21);
-          v13 = v23;
-          if ( v23 >= 0 )
-          {
-            wil::com_ptr_t<CAtlasBitmapResource,wil::err_returncode_policy>::operator=((char *)v48 + 16, v22);
-            v25 = *(struct CD2DBrush ***)a3;
-            v44[0] = 0LL;
-            *v25 = v22;
-            operator delete(v17);
-            wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)v44);
-            goto LABEL_9;
-          }
-          MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v23, 0xA7u, 0LL);
-        }
-        operator delete(v17);
+        v25 = *(struct CAtlasBitmapResource ***)a3;
+        v38[0] = 0LL;
+        *v25 = v22;
+        Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(v38);
+        operator delete(v18);
+        goto LABEL_13;
       }
-      else
-      {
-        v13 = -2147024882;
-        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, -2147024882, 0x98u, 0LL);
-      }
+      MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v23, 0x9Cu, 0LL);
+      Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(v38);
     }
-    wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)v44);
-    return v13;
+    operator delete(v18);
+    return v11;
   }
-LABEL_9:
+LABEL_13:
   v26 = *(_QWORD **)(a3 + 8);
   if ( v26 && !*v26 )
   {
-    *(_OWORD *)v45 = *(_OWORD *)a4;
-    v46 = 0LL;
-    v44[0] = 0LL;
-    v47 = 0LL;
+    v37 = 0LL;
+    v38[0] = 0LL;
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v37);
+    v39 = *(_OWORD *)v36;
     GradientStopCollection = CD2DContext::CreateGradientStopCollection(
                                (int)a2 + 16,
-                               (unsigned int)v45,
+                               (unsigned int)&v39,
                                a5,
                                a8,
-                               (__int64)&v47);
-    v13 = GradientStopCollection;
+                               (__int64)&v37);
+    v11 = GradientStopCollection;
     if ( GradientStopCollection < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, GradientStopCollection, 0xBEu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, GradientStopCollection, 0xAAu, 0LL);
     }
     else
     {
-      v30 = a2[27];
-      v49 = 0LL;
-      v45[0] = 0LL;
+      v40 = 0LL;
+      v36 = 0LL;
       if ( a7 )
       {
-        v31 = (*(__int64 (__fastcall **)(struct CD2DResourceManager *, __int128 *, _QWORD, __int64, struct ID2D1Brush **))(*(_QWORD *)v30 + 80LL))(
-                v30,
-                &v49,
+        Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v36);
+        v29 = (*(__int64 (__fastcall **)(_QWORD, __int128 *, _QWORD, __int64 *, unsigned int **))(**((_QWORD **)a2 + 32)
+                                                                                                + 80LL))(
+                *((_QWORD *)a2 + 32),
+                &v40,
                 0LL,
-                v47,
-                v45);
-        v13 = v31;
-        if ( v31 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v32, 0LL, 0, v31, 0xCAu, 0LL);
-          if ( v45[0] )
-            (*(void (__fastcall **)(struct ID2D1Brush *))(*(_QWORD *)v45[0] + 16LL))(v45[0]);
-          goto LABEL_20;
-        }
-        v33 = v45[0];
-        v46 = v45[0];
-        v34 = v45[0];
-        goto LABEL_16;
+                v37,
+                &v36);
+        v11 = v29;
+        if ( v29 >= 0 )
+          goto LABEL_24;
+        MilInstrumentationCheckHR_MaybeFailFast(v30, 0LL, 0, v29, 0xB6u, 0LL);
+        Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v36);
       }
-      v50 = 0LL;
-      v42 = (*(__int64 (__fastcall **)(struct CD2DResourceManager *, __int128 *, _QWORD, __int64, struct ID2D1Brush **))(*(_QWORD *)v30 + 88LL))(
-              v30,
-              &v49,
-              0LL,
-              v47,
-              v45);
-      v13 = v42;
-      if ( v42 >= 0 )
+      else
       {
-        v33 = v45[0];
-        v45[0] = 0LL;
-        v34 = v33;
-        v46 = v33;
-        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)v45);
-LABEL_16:
-        v35 = v33;
-        v36 = CD2DBrush::Create(a2[23], v33, v44);
-        v13 = v36;
-        if ( v36 < 0 )
+        v41 = 0LL;
+        Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v36);
+        v31 = (*(__int64 (__fastcall **)(_QWORD, __int128 *, _QWORD, __int64 *, unsigned int **))(**((_QWORD **)a2 + 32)
+                                                                                                + 88LL))(
+                *((_QWORD *)a2 + 32),
+                &v40,
+                0LL,
+                v37,
+                &v36);
+        v11 = v31;
+        if ( v31 >= 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v36, 0xDCu, 0LL);
+LABEL_24:
+          v33 = (__int64)v36;
+          v36 = 0LL;
+          *(_QWORD *)&v39 = 0LL;
+          Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v39);
+          Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v36);
+          v34 = v12[6];
+          if ( v34 != v33 )
+          {
+            if ( v33 )
+            {
+              (*(void (__fastcall **)(__int64))(*(_QWORD *)v33 + 8LL))(v33);
+              v34 = v12[6];
+            }
+            *(_QWORD *)&v39 = v34;
+            v12[6] = v33;
+            Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v39);
+          }
+          **(_QWORD **)(a3 + 8) = v33;
+          goto LABEL_31;
         }
-        else
-        {
-          v38 = v44[0];
-          v39 = (__int64)v48;
-          v40 = (char *)v44[0] + *(int *)(*((_QWORD *)v44[0] + 2) + 8LL) + 16;
-          (*(void (__fastcall **)(char *, unsigned __int64))(*(_QWORD *)v40 + 40LL))(
-            v40,
-            ((unsigned __int64)v48 + 8) & -(__int64)(v48 != 0LL));
-          v44[0] = 0LL;
-          v41 = *(_QWORD *)(v39 + 32) - *(_QWORD *)(v39 + 24);
-          v45[0] = 0LL;
-          v48 = 0LL;
-          *(_QWORD *)detail::vector_facade<wil::com_ptr_t<CD2DBrush,wil::err_returncode_policy>,detail::buffer_impl<wil::com_ptr_t<CD2DBrush,wil::err_returncode_policy>,2,1,detail::liberal_expansion_policy>>::reserve_region(
-                       v39 + 24,
-                       v41 >> 3) = v38;
-          wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)&v48);
-          wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)v45);
-          v46 = 0LL;
-          if ( !v39 )
-            v34 = v35;
-          **(_QWORD **)(a3 + 8) = v34;
-        }
-        goto LABEL_20;
+        MilInstrumentationCheckHR_MaybeFailFast(v32, 0LL, 0, v31, 0xC3u, 0LL);
+        Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v36);
       }
-      MilInstrumentationCheckHR_MaybeFailFast(v43, 0LL, 0, v42, 0xD7u, 0LL);
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)v45);
     }
-LABEL_20:
-    wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)v44);
-    wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)&v46);
-    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v47);
+LABEL_31:
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(v38);
+    Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v37);
   }
-  return v13;
+  return v11;
 }

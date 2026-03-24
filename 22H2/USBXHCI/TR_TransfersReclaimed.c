@@ -1,13 +1,13 @@
 /*
- * XREFs of TR_TransfersReclaimed @ 0x1C000E5A8
+ * XREFs of TR_TransfersReclaimed @ 0x1C000BBB4
  * Callers:
- *     Bulk_ProcessTransferCompletion @ 0x1C000E3F8 (Bulk_ProcessTransferCompletion.c)
- *     Control_EP_ReclaimTransfers @ 0x1C0042350 (Control_EP_ReclaimTransfers.c)
- *     Control_ProcessTransferCompletion @ 0x1C0042604 (Control_ProcessTransferCompletion.c)
- *     Isoch_ProcessTransferCompletion @ 0x1C0044A2C (Isoch_ProcessTransferCompletion.c)
+ *     Bulk_ProcessTransferCompletion @ 0x1C000BA38 (Bulk_ProcessTransferCompletion.c)
+ *     Control_ProcessTransferCompletion @ 0x1C0019B38 (Control_ProcessTransferCompletion.c)
+ *     Control_EP_ReclaimTransfers @ 0x1C0019E60 (Control_EP_ReclaimTransfers.c)
+ *     Isoch_ProcessTransferCompletion @ 0x1C0041DC0 (Isoch_ProcessTransferCompletion.c)
  * Callees:
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall TR_TransfersReclaimed(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall TR_TransfersReclaimed(__int64 a1)
   if ( !*(_BYTE *)(v2 + 37)
     || (v5 = *(_QWORD *)(v2 + 136), _InterlockedIncrement((volatile signed __int32 *)(v5 + 20)) == *(_DWORD *)(v5 + 8)) )
   {
-    ESM_AddEvent((KSPIN_LOCK *)(v2 + 296), 138);
+    ESM_AddEvent((KSPIN_LOCK *)(v2 + 288), 138);
   }
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01023 + 1632))(
          WdfDriverGlobals,

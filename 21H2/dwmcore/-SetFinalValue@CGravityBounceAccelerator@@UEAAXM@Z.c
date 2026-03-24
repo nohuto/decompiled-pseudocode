@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetFinalValue@CGravityBounceAccelerator@@UEAAXM@Z @ 0x1800FB630
+ * XREFs of ?SetFinalValue@CGravityBounceAccelerator@@UEAAXM@Z @ 0x1800E2CB0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall CGravityBounceAccelerator::SetFinalValue(CGravityBounceAccelerator *this, float a2)
 {
-  *((float *)this + 4) = a2;
+  *((float *)this + 6) = a2;
 }

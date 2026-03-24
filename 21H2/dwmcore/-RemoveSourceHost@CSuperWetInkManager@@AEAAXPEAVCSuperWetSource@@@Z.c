@@ -1,41 +1,31 @@
 /*
- * XREFs of ?RemoveSourceHost@CSuperWetInkManager@@AEAAXPEAVCSuperWetSource@@@Z @ 0x1801A7F7C
+ * XREFs of ?RemoveSourceHost@CSuperWetInkManager@@AEAAXPEAVCSuperWetSource@@@Z @ 0x1801959DC
  * Callers:
- *     ?RemoveSource@CSuperWetInkManager@@QEAAXPEAVCSuperWetSource@@@Z @ 0x1801A7F3C (-RemoveSource@CSuperWetInkManager@@QEAAXPEAVCSuperWetSource@@@Z.c)
+ *     ?RemoveSource@CSuperWetInkManager@@QEAAXPEAVCSuperWetSource@@@Z @ 0x18019599C (-RemoveSource@CSuperWetInkManager@@QEAAXPEAVCSuperWetSource@@@Z.c)
  * Callees:
- *     memmove_0 @ 0x18010518B (memmove_0.c)
- *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180193D74 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?DeactivateCurrentSource@CSuperWetInkManager@@AEAAXXZ @ 0x1801A73B8 (-DeactivateCurrentSource@CSuperWetInkManager@@AEAAXXZ.c)
- *     ?SendMessageToHostForDestruction@CSuperWetSource@@QEAAJ_K@Z @ 0x180216BE4 (-SendMessageToHostForDestruction@CSuperWetSource@@QEAAJ_K@Z.c)
+ *     memmove_0 @ 0x1800F47E7 (memmove_0.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801852C4 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?SendMessageToHostForDestruction@CSuperWetSource@@QEAAJ_K@Z @ 0x1801C3D74 (-SendMessageToHostForDestruction@CSuperWetSource@@QEAAJ_K@Z.c)
  */
 
 void __fastcall CSuperWetInkManager::RemoveSourceHost(CSuperWetInkManager *this, struct CSuperWetSource *a2)
 {
-  CSuperWetSource **i; // rbx
-  CSuperWetSource *v4; // rcx
-  int v5; // eax
+  __int64 i; // rbx
+  int v4; // eax
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
-  for ( i = (CSuperWetSource **)*((_QWORD *)this + 8); i != *((CSuperWetSource ***)this + 9); i += 15 )
+  for ( i = *((_QWORD *)this + 4); i != *((_QWORD *)this + 5) && *(struct CSuperWetSource **)i != a2; i += 88LL )
+    ;
+  if ( i != *((_QWORD *)this + 5) )
   {
-    if ( *i == a2 )
-    {
-      v4 = *i;
-      if ( *i == *((CSuperWetSource **)this + 1) )
-      {
-        CSuperWetInkManager::DeactivateCurrentSource((struct CSuperWetSource **)this);
-        v4 = *i;
-      }
-      v5 = CSuperWetSource::SendMessageToHostForDestruction(v4, (unsigned __int64)i[3]);
-      if ( v5 < 0 )
-        wil::details::in1diag3::_Log_Hr(
-          retaddr,
-          141LL,
-          (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\globalsuperwetinkmanager.cpp",
-          (const char *)(unsigned int)v5);
-      memmove_0(i, i + 15, *((_QWORD *)this + 9) - (_QWORD)(i + 15));
-      *((_QWORD *)this + 9) -= 120LL;
-      return;
-    }
+    v4 = CSuperWetSource::SendMessageToHostForDestruction(*(CSuperWetSource **)i, *(_QWORD *)(i + 16));
+    if ( v4 < 0 )
+      wil::details::in1diag3::_Log_Hr(
+        retaddr,
+        (void *)0x74,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\superwetinkmanager.cpp",
+        (const char *)(unsigned int)v4);
+    memmove_0((void *)i, (const void *)(i + 88), *((_QWORD *)this + 5) - (i + 88));
+    *((_QWORD *)this + 5) -= 88LL;
   }
 }

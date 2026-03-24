@@ -1,7 +1,7 @@
 /*
- * XREFs of ??1NEEDDDILOCK@@QEAA@XZ @ 0x1C0279B48
+ * XREFs of ??1NEEDDDILOCK@@QEAA@XZ @ 0x1C027DA50
  * Callers:
- *     ?vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C02815EC (-vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     GreGetDIBitsInternal @ 0x1C0082984 (GreGetDIBitsInternal.c)
  * Callees:
  *     <none>
  */

@@ -1,53 +1,53 @@
 /*
- * XREFs of KiVerifyPdata @ 0x140B19FB4
+ * XREFs of KiVerifyPdata @ 0x140A66914
  * Callers:
- *     KiVerifyScopesExecute @ 0x140B198D0 (KiVerifyScopesExecute.c)
+ *     KiVerifyScopesExecute @ 0x140A66230 (KiVerifyScopesExecute.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x140297AE0 (RtlpxLookupFunctionTable.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     RtlpxLookupFunctionTable @ 0x14021EBB0 (RtlpxLookupFunctionTable.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-unsigned __int64 __fastcall KiVerifyPdata(ULONG_PTR BugCheckParameter2)
+__int64 __fastcall KiVerifyPdata(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned __int64 result; // rax
-  unsigned int *v3; // r9
-  unsigned int v4; // edx
-  unsigned int *v5; // rdx
+  unsigned int *v5; // r9
+  __int64 result; // rax
+  unsigned int v7; // edx
+  unsigned int *v8; // rdx
   unsigned int *BugCheckParameter4; // rcx
-  __int128 v7; // [rsp+30h] [rbp-28h] BYREF
+  __int128 v10; // [rsp+30h] [rbp-28h] BYREF
   ULONG_PTR BugCheckParameter3; // [rsp+40h] [rbp-18h]
 
   BugCheckParameter3 = 0LL;
-  v7 = 0LL;
-  if ( BugCheckParameter2 < *((_QWORD *)&xmmword_140E00030 + 1)
-    || (result = *((_QWORD *)&xmmword_140E00030 + 1) + (unsigned int)qword_140E00040, BugCheckParameter2 >= result) )
+  v10 = 0LL;
+  if ( BugCheckParameter2 < *(&xmmword_140E00020 + 1)
+    || BugCheckParameter2 >= *(&xmmword_140E00020 + 1) + (unsigned int)qword_140E00030 )
   {
-    result = (unsigned __int64)RtlpxLookupFunctionTable(BugCheckParameter2, (__int64)&v7);
-    v3 = (unsigned int *)result;
+    v5 = (unsigned int *)RtlpxLookupFunctionTable(BugCheckParameter2, (unsigned __int64)&v10, a3, a4);
   }
   else
   {
-    v3 = (unsigned int *)xmmword_140E00030;
-    BugCheckParameter3 = qword_140E00040;
+    v5 = (unsigned int *)xmmword_140E00020;
+    BugCheckParameter3 = qword_140E00030;
   }
-  if ( v3 )
+  result = 0LL;
+  if ( v5 )
   {
-    v4 = HIDWORD(BugCheckParameter3) / 0xC;
+    v7 = HIDWORD(BugCheckParameter3) / 0xC;
     if ( HIDWORD(BugCheckParameter3) % 0xCuLL )
       KeBugCheckEx(0x14Du, 0xFFFFFFFDuLL, BugCheckParameter2, HIDWORD(BugCheckParameter3), 0LL);
-    result = v4;
-    v5 = &v3[3 * v4];
+    result = v7;
+    v8 = &v5[3 * v7];
     BugCheckParameter4 = 0LL;
-    while ( v3 != v5 )
+    while ( v5 != v8 )
     {
       if ( BugCheckParameter4 )
       {
-        result = *v3;
+        result = *v5;
         if ( *BugCheckParameter4 >= (unsigned int)result )
-          KeBugCheckEx(0x14Du, 0xFFFFFFFEuLL, BugCheckParameter2, (ULONG_PTR)v3, (ULONG_PTR)BugCheckParameter4);
+          KeBugCheckEx(0x14Du, 0xFFFFFFFEuLL, BugCheckParameter2, (ULONG_PTR)v5, (ULONG_PTR)BugCheckParameter4);
       }
-      BugCheckParameter4 = v3;
-      v3 += 3;
+      BugCheckParameter4 = v5;
+      v5 += 3;
     }
   }
   return result;

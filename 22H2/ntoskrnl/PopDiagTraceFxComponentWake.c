@@ -1,52 +1,49 @@
 /*
- * XREFs of PopDiagTraceFxComponentWake @ 0x1405930E8
+ * XREFs of PopDiagTraceFxComponentWake @ 0x140571D5C
  * Callers:
- *     PoFxSetComponentWake @ 0x140588920 (PoFxSetComponentWake.c)
+ *     PoFxSetComponentWake @ 0x1405691E0 (PoFxSetComponentWake.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     PopFxAddLogEntry @ 0x140312914 (PopFxAddLogEntry.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     PopFxAddLogEntry @ 0x140260514 (PopFxAddLogEntry.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-BOOLEAN __fastcall PopDiagTraceFxComponentWake(__int64 a1, int a2, unsigned __int8 a3)
+void __fastcall PopDiagTraceFxComponentWake(__int64 a1, int a2, unsigned __int8 a3)
 {
   int v3; // edi
-  BOOLEAN result; // al
-  REGHANDLE v5; // rbx
-  int v6; // [rsp+48h] [rbp+7h] BYREF
-  __int64 v7; // [rsp+50h] [rbp+Fh] BYREF
+  REGHANDLE v4; // rbx
+  int v5; // [rsp+48h] [rbp+7h] BYREF
+  __int64 v6; // [rsp+50h] [rbp+Fh] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+58h] [rbp+17h] BYREF
-  int *v9; // [rsp+68h] [rbp+27h]
-  int v10; // [rsp+70h] [rbp+2Fh]
-  int v11; // [rsp+74h] [rbp+33h]
-  int *v12; // [rsp+78h] [rbp+37h]
-  int v13; // [rsp+80h] [rbp+3Fh]
-  int v14; // [rsp+84h] [rbp+43h]
-  int v15; // [rsp+B0h] [rbp+6Fh] BYREF
+  int *v8; // [rsp+68h] [rbp+27h]
+  int v9; // [rsp+70h] [rbp+2Fh]
+  int v10; // [rsp+74h] [rbp+33h]
+  int *v11; // [rsp+78h] [rbp+37h]
+  int v12; // [rsp+80h] [rbp+3Fh]
+  int v13; // [rsp+84h] [rbp+43h]
+  int v14; // [rsp+B0h] [rbp+6Fh] BYREF
 
-  v15 = a2;
+  v14 = a2;
   v3 = a3;
-  v7 = a1;
-  result = (unsigned __int8)PopFxAddLogEntry(a1, a2, 11, a3);
+  v6 = a1;
+  PopFxAddLogEntry(a1, a2, 11, a3);
   if ( PopDiagHandleRegistered )
   {
-    v5 = PopDiagHandle;
-    result = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_COMPONENT_WAKE);
-    if ( result )
+    v4 = PopDiagHandle;
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_COMPONENT_WAKE) )
     {
       UserData.Reserved = 0;
-      v11 = 0;
-      v14 = 0;
-      UserData.Ptr = (ULONGLONG)&v7;
-      v10 = 4;
-      v9 = &v15;
-      v13 = 4;
-      v12 = &v6;
-      v6 = v3;
+      v10 = 0;
+      v13 = 0;
+      UserData.Ptr = (ULONGLONG)&v6;
+      v9 = 4;
+      v8 = &v14;
+      v12 = 4;
+      v11 = &v5;
+      v5 = v3;
       UserData.Size = 8;
-      return EtwWriteEx(v5, &POP_ETW_EVENT_COMPONENT_WAKE, 0LL, 0, 0LL, 0LL, 3u, &UserData);
+      EtwWriteEx(v4, &POP_ETW_EVENT_COMPONENT_WAKE, 0LL, 0, 0LL, 0LL, 3u, &UserData);
     }
   }
-  return result;
 }

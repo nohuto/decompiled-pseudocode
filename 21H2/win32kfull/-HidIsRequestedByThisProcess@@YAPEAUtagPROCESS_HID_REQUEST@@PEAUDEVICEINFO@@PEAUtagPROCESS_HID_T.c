@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HidIsRequestedByThisProcess@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUDEVICEINFO@@PEAUtagPROCESS_HID_TABLE@@@Z @ 0x1C01D0AA8
+ * XREFs of ?HidIsRequestedByThisProcess@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUDEVICEINFO@@PEAUtagPROCESS_HID_TABLE@@@Z @ 0x1C01D4E64
  * Callers:
- *     xxxProcessHidInput @ 0x1C01D1B50 (xxxProcessHidInput.c)
+ *     xxxProcessHidInput @ 0x1C01D60A0 (xxxProcessHidInput.c)
  * Callees:
- *     ?InProcessDeviceTypeRequestTable@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@GG@Z @ 0x1C00AE29C (-InProcessDeviceTypeRequestTable@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@GG@Z.c)
+ *     ?InProcessDeviceTypeRequestTable@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@GG@Z @ 0x1C0108290 (-InProcessDeviceTypeRequestTable@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@GG@Z.c)
  */
 
 struct tagPROCESS_HID_REQUEST *__fastcall HidIsRequestedByThisProcess(
@@ -17,7 +17,7 @@ struct tagPROCESS_HID_REQUEST *__fastcall HidIsRequestedByThisProcess(
 
   if ( !a2 )
     return 0LL;
-  v4 = *((_QWORD *)a1 + 57);
+  v4 = *((_QWORD *)a1 + 58);
   v5 = *(_WORD *)(v4 + 42);
   v6 = *(_WORD *)(v4 + 40);
   if ( __PAIR32__(*((_WORD *)a2 + 48), *((_WORD *)a2 + 49)) == __PAIR32__(v5, v6) )

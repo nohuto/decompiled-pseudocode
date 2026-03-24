@@ -1,14 +1,14 @@
 /*
- * XREFs of ?CreateSystemResource@CConnection@DirectComposition@@QEAAJIPEAVResourceHandle@@@Z @ 0x1C0014E40
+ * XREFs of ?CreateSystemResource@CConnection@DirectComposition@@QEAAJIPEAVResourceHandle@@@Z @ 0x1C005C9EC
  * Callers:
- *     ?CreateSystemVisualForCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIPEAVResourceHandle@@@Z @ 0x1C000232C (-CreateSystemVisualForCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIPEAVR.c)
- *     ?ObjectInit@ResourceObject@DirectComposition@@KAJPEAUCompositionObject@@PEAXPEAPEAVICompositionObject@@@Z @ 0x1C00165E0 (-ObjectInit@ResourceObject@DirectComposition@@KAJPEAUCompositionObject@@PEAXPEAPEAVICompositionO.c)
+ *     ?CreateSystemVisualForCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIPEAVResourceHandle@@@Z @ 0x1C00027B4 (-CreateSystemVisualForCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIPEAVR.c)
+ *     ?ObjectInit@ResourceObject@DirectComposition@@KAJPEAUCompositionObject@@PEAXPEAPEAVICompositionObject@@@Z @ 0x1C005C160 (-ObjectInit@ResourceObject@DirectComposition@@KAJPEAUCompositionObject@@PEAXPEAPEAVICompositionO.c)
  * Callees:
- *     ?Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z @ 0x1C001229C (-Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z.c)
- *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0013C00 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
- *     ?ReleaseSystemResource@CSystemChannel@DirectComposition@@QEAAXVResourceHandle@@@Z @ 0x1C001400C (-ReleaseSystemResource@CSystemChannel@DirectComposition@@QEAAXVResourceHandle@@@Z.c)
- *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C001520C (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00285B4 (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
+ *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0059A80 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
+ *     ?Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z @ 0x1C005D8B4 (-Commit@CApplicationChannel@DirectComposition@@QEAAJPEA_N_NPEBUSynchronizationObject@2@@Z.c)
+ *     ?ReleaseSystemResource@CSystemChannel@DirectComposition@@QEAAXVResourceHandle@@@Z @ 0x1C005F78C (-ReleaseSystemResource@CSystemChannel@DirectComposition@@QEAAXVResourceHandle@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CConnection::CreateSystemResource(
@@ -18,8 +18,8 @@ __int64 __fastcall DirectComposition::CConnection::CreateSystemResource(
 {
   struct _ERESOURCE *v6; // rbx
   DirectComposition::CApplicationChannel *v7; // rcx
-  int v8; // ebp
-  int v9; // ebx
+  int v8; // esi
+  unsigned int v9; // ebx
   __int64 v10; // rdi
   struct _ERESOURCE *v12; // rbx
   struct _ERESOURCE *v13; // rbx
@@ -32,19 +32,17 @@ __int64 __fastcall DirectComposition::CConnection::CreateSystemResource(
   ExAcquireResourceExclusiveLite(v6, 1u);
   v7 = (DirectComposition::CApplicationChannel *)*((_QWORD *)this + 19);
   v16 = 0LL;
-  v8 = DirectComposition::CApplicationChannel::CreateInternalResource(v7, (DirectComposition *)a2, &v16);
+  v8 = DirectComposition::CApplicationChannel::CreateInternalResource(v7, a2, &v16);
   if ( v8 >= 0 )
   {
-    v9 = *((_DWORD *)v16 + 8);
+    v9 = *((_DWORD *)v16 + 6);
     v8 = DirectComposition::CApplicationChannel::Commit(
            *((DirectComposition::CApplicationChannel **)this + 19),
            0LL,
            0,
            0LL);
     if ( v8 < 0 )
-      DirectComposition::CSystemChannel::ReleaseSystemResource(
-        *((DirectComposition::CApplicationChannel **)this + 19),
-        v9);
+      DirectComposition::CSystemChannel::ReleaseSystemResource(*((_QWORD *)this + 19), v9);
     else
       *(_DWORD *)a3 = v9;
   }

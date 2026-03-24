@@ -3,11 +3,11 @@
  * Callers:
  *     EmpParseTargetRules @ 0x1409BEFF4 (EmpParseTargetRules.c)
  * Callees:
- *     RtlStringCopyWorkerA_0 @ 0x14012A81C (RtlStringCopyWorkerA_0.c)
- *     strchr @ 0x140196EA0 (strchr.c)
+ *     RtlStringCopyWorkerA_0 @ 0x14012A83C (RtlStringCopyWorkerA_0.c)
+ *     strchr @ 0x140196EC0 (strchr.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlCharToInteger @ 0x14072CDF0 (RtlCharToInteger.c)
+ *     RtlCharToInteger @ 0x14072CDD0 (RtlCharToInteger.c)
  *     EmpInfParseGetStringIndexFromName @ 0x1409BF484 (EmpInfParseGetStringIndexFromName.c)
  */
 

@@ -1,35 +1,24 @@
 /*
- * XREFs of MiIsPageSecured @ 0x1402EED30
+ * XREFs of MiIsPageSecured @ 0x14030C4B8
  * Callers:
- *     MiCopySinglePage @ 0x1402EE8BC (MiCopySinglePage.c)
- *     MmTryIdentifyPage @ 0x1406267A0 (MmTryIdentifyPage.c)
- *     MiAddNonSecuredPagesToDump @ 0x14062F398 (MiAddNonSecuredPagesToDump.c)
- *     MiFilterCrashDumpPte @ 0x14062FA70 (MiFilterCrashDumpPte.c)
+ *     MiCopySinglePage @ 0x14030C314 (MiCopySinglePage.c)
+ *     MmTryIdentifyPage @ 0x1405347A8 (MmTryIdentifyPage.c)
+ *     MiAddNonSecuredPagesToDump @ 0x1405377A4 (MiAddNonSecuredPagesToDump.c)
+ *     MiAddRangeToCrashDump @ 0x140537D28 (MiAddRangeToCrashDump.c)
  * Callees:
- *     MiIsFreeSlabPage @ 0x140657108 (MiIsFreeSlabPage.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F3F48 (MI_PFN_IS_PROTO.c)
+ *     MiIsFreeSlabPage @ 0x140553278 (MiIsFreeSlabPage.c)
  */
 
-__int64 __fastcall MiIsPageSecured(__int64 a1)
+_BOOL8 __fastcall MiIsPageSecured(__int64 a1)
 {
-  unsigned int v2; // ebx
-  unsigned __int64 v3; // rdi
+  __int64 v1; // rcx
+  unsigned __int64 v2; // r9
 
-  if ( (MiFlags & 0x4000) == 0 )
-    return 0LL;
-  if ( ((*(_QWORD *)(a1 + 40) >> 60) & 7) != 3 )
-    return 0LL;
-  v2 = 0;
-  if ( *(__int64 *)(a1 + 40) < 0 )
-    return 0LL;
-  v3 = *(_QWORD *)(a1 + 8);
-  if ( v3 && (!(unsigned int)MiIsFreeSlabPage() || v3 != -2LL) )
-  {
-    if ( v3 <= 0xFFFFF6BFFFFFFF78uLL )
-    {
-      LOBYTE(v2) = v3 >= 0xFFFFF68000000000uLL;
-      return v2;
-    }
-    return 0LL;
-  }
-  return 1LL;
+  return (MiFlags & 0x8000) != 0
+      && ((*(_QWORD *)(a1 + 40) >> 60) & 7) == 3
+      && !(unsigned int)MI_PFN_IS_PROTO(a1)
+      && (!*(_QWORD *)(v1 + 8)
+       || (unsigned int)MiIsFreeSlabPage() && v2 == -2LL
+       || v2 <= 0xFFFFF6BFFFFFFF78uLL && v2 >= 0xFFFFF68000000000uLL);
 }

@@ -1,28 +1,27 @@
 /*
- * XREFs of ObpGetTraceIndex @ 0x140985DE4
+ * XREFs of ObpGetTraceIndex @ 0x1408DE788
  * Callers:
- *     ObpPushRefDerefInfo @ 0x140986190 (ObpPushRefDerefInfo.c)
+ *     ObpPushRefDerefInfo @ 0x1408DEB70 (ObpPushRefDerefInfo.c)
  * Callees:
- *     RtlCompareMemory @ 0x14042A1E0 (RtlCompareMemory.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObpGetTraceIndex(unsigned __int16 *Source2)
 {
   unsigned int v1; // ebp
-  _OWORD *v2; // rbx
+  _OWORD *v2; // rdi
   __int64 v3; // r8
   int v4; // edx
   int v5; // eax
-  unsigned __int16 *v6; // r8
-  char *v7; // r14
-  unsigned __int16 v8; // bp
-  unsigned int v9; // esi
-  __int64 i; // rax
-  unsigned int v11; // edi
-  __int64 Pool2; // rax
-  unsigned __int64 v14; // rdx
-  __int64 v15; // rcx
+  _QWORD *v6; // r14
+  unsigned __int16 v7; // bp
+  unsigned int v8; // esi
+  unsigned int v9; // ebx
+  unsigned __int16 *v10; // r8
+  PVOID PoolWithTag; // rax
+  unsigned __int64 v13; // rdx
+  __int64 v14; // rcx
 
   v1 = 0;
   v2 = Source2;
@@ -36,47 +35,44 @@ __int64 __fastcall ObpGetTraceIndex(unsigned __int16 *Source2)
     --v3;
   }
   while ( v3 );
-  v6 = (unsigned __int16 *)ObpStackTable;
-  v7 = (char *)ObpStackTable + 8;
-  v8 = v1 % 0x3FFD;
-  LOWORD(v9) = v8;
-  for ( i = v8; ; i = (unsigned __int16)v9 )
+  v6 = ObpStackTable;
+  v7 = v1 % 0x3FFD;
+  LOWORD(v8) = v7;
+  LOWORD(v9) = *((_WORD *)ObpStackTable + v7 + 68);
+  while ( (_WORD)v9 != 0xFFFF )
   {
-    LOWORD(v11) = v6[i + 68];
-    if ( (_WORD)v11 == 0xFFFF )
-      break;
     if ( RtlCompareMemory(
-           (const void *)(*(_QWORD *)&v7[8 * ((unsigned __int64)v6[i + 68] >> 10)]
-                        + ((unsigned __int64)(v6[i + 68] & 0x3FF) << 7)),
+           (const void *)(v6[((unsigned __int64)(unsigned __int16)v9 >> 10) + 1] + ((unsigned __int64)(v9 & 0x3FF) << 7)),
            v2,
            0x80uLL) == 128 )
-      return (unsigned __int16)v11;
-    v9 = ((unsigned int)(unsigned __int16)v9 + 1) % 0x3FFD;
-    if ( (_WORD)v9 == v8 )
+      return (unsigned __int16)v9;
+    v8 = ((unsigned int)(unsigned __int16)v8 + 1) % 0x3FFD;
+    if ( (_WORD)v8 == v7 )
       return 16381LL;
-    v6 = (unsigned __int16 *)ObpStackTable;
+    LOWORD(v9) = *((_WORD *)ObpStackTable + (unsigned __int16)v8 + 68);
   }
-  if ( *v6 == v6[1] )
+  v10 = (unsigned __int16 *)ObpStackTable;
+  if ( *(_WORD *)ObpStackTable == *((_WORD *)ObpStackTable + 1) )
   {
-    Pool2 = ExAllocatePool2(64LL, 0x20000LL, 1951556175LL);
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x20000uLL, 0x7452624Fu);
+    if ( !PoolWithTag )
       return 16381LL;
-    v6 = (unsigned __int16 *)ObpStackTable;
-    *((_QWORD *)ObpStackTable + ((unsigned __int64)*((unsigned __int16 *)ObpStackTable + 1) >> 10) + 1) = Pool2;
-    v6[1] += 1024;
+    v10 = (unsigned __int16 *)ObpStackTable;
+    *((_QWORD *)ObpStackTable + ((unsigned __int64)*((unsigned __int16 *)ObpStackTable + 1) >> 10) + 1) = PoolWithTag;
+    v10[1] += 1024;
   }
-  v11 = *v6;
-  v14 = (unsigned __int64)(*v6 & 0x3FF) << 7;
-  v6[(unsigned __int16)v9 + 68] = v11;
-  v15 = *(_QWORD *)&v6[4 * ((unsigned __int64)v11 >> 10) + 4];
-  *(_OWORD *)(v15 + v14) = *v2;
-  *(_OWORD *)(v15 + v14 + 16) = v2[1];
-  *(_OWORD *)(v15 + v14 + 32) = v2[2];
-  *(_OWORD *)(v15 + v14 + 48) = v2[3];
-  *(_OWORD *)(v15 + v14 + 64) = v2[4];
-  *(_OWORD *)(v15 + v14 + 80) = v2[5];
-  *(_OWORD *)(v15 + v14 + 96) = v2[6];
-  *(_OWORD *)(v15 + v14 + 112) = v2[7];
-  ++*v6;
-  return (unsigned __int16)v11;
+  v9 = *v10;
+  v13 = (unsigned __int64)(*v10 & 0x3FF) << 7;
+  v10[(unsigned __int16)v8 + 68] = v9;
+  v14 = *(_QWORD *)&v10[4 * ((unsigned __int64)v9 >> 10) + 4];
+  *(_OWORD *)(v14 + v13) = *v2;
+  *(_OWORD *)(v14 + v13 + 16) = v2[1];
+  *(_OWORD *)(v14 + v13 + 32) = v2[2];
+  *(_OWORD *)(v14 + v13 + 48) = v2[3];
+  *(_OWORD *)(v14 + v13 + 64) = v2[4];
+  *(_OWORD *)(v14 + v13 + 80) = v2[5];
+  *(_OWORD *)(v14 + v13 + 96) = v2[6];
+  *(_OWORD *)(v14 + v13 + 112) = v2[7];
+  ++*v10;
+  return (unsigned __int16)v9;
 }

@@ -1,296 +1,284 @@
 /*
- * XREFs of ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0060D08
+ * XREFs of ?zzzUpdateUserScreen@@YAJXZ @ 0x1C00C77F4
  * Callers:
- *     xxxResetDisplayDevice @ 0x1C00138D0 (xxxResetDisplayDevice.c)
- *     InitUserScreen @ 0x1C005CD6C (InitUserScreen.c)
- *     ?SetDPIinSetup@@YAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00CD994 (-SetDPIinSetup@@YAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     InitUserScreen @ 0x1C006B23C (InitUserScreen.c)
+ *     xxxResetDisplayDevice @ 0x1C0077600 (xxxResetDisplayDevice.c)
  * Callees:
- *     HdevFromMonitor @ 0x1C0011FC0 (HdevFromMonitor.c)
- *     ?OnDisplayStateChange@CInputConfig@@QEAAXXZ @ 0x1C0018FA8 (-OnDisplayStateChange@CInputConfig@@QEAAXXZ.c)
- *     SetOrCreateRectRgnIndirectPublic @ 0x1C003EDB0 (SetOrCreateRectRgnIndirectPublic.c)
- *     GreCreateRectRgnIndirect @ 0x1C003F2F0 (GreCreateRectRgnIndirect.c)
- *     GreDeleteObject @ 0x1C00472A0 (GreDeleteObject.c)
- *     W32SetCurrentThreadDpiAwarenessContext @ 0x1C004D160 (W32SetCurrentThreadDpiAwarenessContext.c)
- *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C004D320 (W32GetCurrentThreadDpiAwarenessContext.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     MonitorFromHdev @ 0x1C005B370 (MonitorFromHdev.c)
- *     GreCombineRgn @ 0x1C005C1D0 (GreCombineRgn.c)
- *     InitLoadResources @ 0x1C005D508 (InitLoadResources.c)
- *     GreGetDeviceCaps @ 0x1C005D880 (GreGetDeviceCaps.c)
- *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C00624B4 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
- *     ApiSetzzzUpdateCursorSizes @ 0x1C00640F8 (ApiSetzzzUpdateCursorSizes.c)
- *     EnforceColorDependentSettings @ 0x1C0064130 (EnforceColorDependentSettings.c)
- *     DestroyMonitor @ 0x1C00A04C0 (DestroyMonitor.c)
- *     ??4?$SharedMixedObjectPointerFieldpMonitorFirst@UtagMONITOR@@@tagKERNELDISPLAYINFO@@QEAAPEAUtagMONITOR@@PEAU2@@Z @ 0x1C00A0634 (--4-$SharedMixedObjectPointerFieldpMonitorFirst@UtagMONITOR@@@tagKERNELDISPLAYINFO@@QEAAPEAUtagM.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     DestroyMonitor @ 0x1C0008F50 (DestroyMonitor.c)
+ *     MonitorFromHdev @ 0x1C0022738 (MonitorFromHdev.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C002BEF4 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     SetOrCreateRectRgnIndirectPublic @ 0x1C0035990 (SetOrCreateRectRgnIndirectPublic.c)
+ *     GreDeleteObject @ 0x1C0039970 (GreDeleteObject.c)
+ *     GreCombineRgn @ 0x1C003ACD0 (GreCombineRgn.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     ?OnDisplayStateChange@CInputConfig@@QEAAXXZ @ 0x1C006E02C (-OnDisplayStateChange@CInputConfig@@QEAAXXZ.c)
+ *     InitLoadResources @ 0x1C0070130 (InitLoadResources.c)
+ *     EnforceColorDependentSettings @ 0x1C00922B0 (EnforceColorDependentSettings.c)
+ *     GreGetDeviceCaps @ 0x1C0092320 (GreGetDeviceCaps.c)
+ *     HdevFromMonitor @ 0x1C00AE440 (HdevFromMonitor.c)
+ *     W32SetCurrentThreadDpiAwarenessContext @ 0x1C00B2BE8 (W32SetCurrentThreadDpiAwarenessContext.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ApiSetzzzUpdateCursorSizes @ 0x1C00CDD90 (ApiSetzzzUpdateCursorSizes.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C011E928 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
  */
 
 __int64 zzzUpdateUserScreen(void)
 {
   __int64 v0; // r14
   struct tagMONITOR **v1; // rdi
-  struct tagMONITOR **v2; // rbx
-  char v3; // dl
-  int v4; // esi
-  int v5; // r15d
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  struct tagMONITOR **v8; // rsi
-  struct tagMONITOR **v9; // r15
-  unsigned int v10; // eax
-  unsigned int i; // ebx
-  struct tagMONITOR *v12; // rax
-  struct tagMONITOR *v13; // r9
-  __int64 v14; // rbx
-  unsigned __int16 v15; // si
-  unsigned __int16 v16; // di
-  __int64 v17; // rax
-  __int64 j; // rcx
-  int v19; // r14d
-  int v20; // r9d
-  int v21; // r10d
-  int v22; // r11d
-  int v23; // ebx
-  _QWORD *k; // rdx
-  _DWORD *v25; // r8
-  int v26; // eax
+  __int64 v2; // rbx
+  int v3; // r15d
+  char CurrentThreadDpiAwarenessContext; // al
+  int v5; // esi
+  struct tagMONITOR *v6; // rsi
+  struct tagMONITOR **v7; // r15
+  unsigned int v8; // eax
+  struct tagMONITOR *v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rdx
+  __int64 v12; // r9
+  unsigned __int16 v13; // r8
+  __int64 v14; // rax
+  int v15; // r15d
+  signed int v16; // r9d
+  signed int v17; // r10d
+  signed int v18; // r11d
+  signed int v19; // r8d
+  _QWORD *v20; // rdx
+  _DWORD *v21; // rcx
+  int v22; // eax
+  int v23; // eax
+  int v24; // eax
+  int v25; // eax
+  __int64 v26; // rcx
   int v27; // eax
-  int v28; // eax
-  int v29; // eax
-  int v30; // eax
-  unsigned int v31; // eax
-  PVOID v32; // rdx
-  __int64 v33; // rcx
-  CInputConfig *v34; // rcx
-  __int64 v35; // rdx
-  __int64 v36; // rcx
-  __int64 v37; // r8
-  __int64 v38; // r9
-  __int64 v39; // rax
-  __int64 v40; // rbx
-  int v41; // esi
-  __int64 v42; // rcx
-  struct HOBJ__ *RectRgnIndirect; // rax
-  HPALETTE v44; // rdi
-  __int64 v45; // rdx
-  __int64 m; // r8
-  __int64 n; // r9
+  unsigned int v28; // eax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  CInputConfig *v31; // rcx
+  int v32; // eax
+  __int64 v33; // rbx
+  int v34; // r14d
+  unsigned int v35; // esi
+  struct HOBJ__ **v36; // rdi
+  __int64 v37; // rdx
+  __int64 i; // r8
+  __int64 j; // r9
   unsigned __int8 DeviceCaps; // al
-  __int16 v49; // r9
-  __int128 v51; // [rsp+40h] [rbp-30h]
-  __int128 v52; // [rsp+50h] [rbp-20h]
+  __int16 v41; // r9
+  __int128 v43; // [rsp+30h] [rbp-30h]
+  __int128 v44; // [rsp+40h] [rbp-20h]
 
-  v0 = *((_QWORD *)gpDispInfo + 2);
-  v1 = (struct tagMONITOR **)((char *)gpDispInfo + 104);
-  v2 = (struct tagMONITOR **)*((_QWORD *)gpDispInfo + 13);
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x2000) == 0
-    || (v3 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    v3 = 0;
-  }
-  if ( v3 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v3,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
+  v0 = *(_QWORD *)(gpDispInfo + 16);
+  v1 = (struct tagMONITOR **)(gpDispInfo + 104);
+  v2 = *(_QWORD *)(gpDispInfo + 104);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_(
       WPP_MAIN_CB.Queue.ListEntry.Flink,
       4,
       14,
       10,
-      (__int64)&WPP_a7da67abce9c330eea32ee74e85516b9_Traceguids);
-  v4 = 0;
-  v5 = 0;
-  if ( (W32GetCurrentThreadDpiAwarenessContext() & 0xF) == 0 )
-  {
-    v5 = W32SetCurrentThreadDpiAwarenessContext(18);
-    v4 = 1;
-  }
-  InitLoadResources(1, v6, v7);
-  if ( v4 )
-    W32SetCurrentThreadDpiAwarenessContext(v5);
+      (__int64)&WPP_6c8a7949f294354c3e3996abc6998fe2_Traceguids);
+  v3 = 0;
+  CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext();
+  v5 = CurrentThreadDpiAwarenessContext & 0xF;
+  if ( (CurrentThreadDpiAwarenessContext & 0xF) == 0 )
+    v3 = W32SetCurrentThreadDpiAwarenessContext(v5 + 18);
+  InitLoadResources(1);
+  if ( !v5 )
+    W32SetCurrentThreadDpiAwarenessContext(v3);
   while ( v2 )
   {
-    v8 = v2;
-    v9 = v2 + 7;
-    v2 = (struct tagMONITOR **)v2[7];
-    v10 = HdevFromMonitor((__int64)v8);
-    if ( v10 == -1 )
+    v6 = (struct tagMONITOR *)v2;
+    v7 = (struct tagMONITOR **)(v2 + 56);
+    v2 = *(_QWORD *)(v2 + 56);
+    v8 = HdevFromMonitor((__int64)v6);
+    if ( v8 == -1 )
     {
-      DestroyMonitor(v8);
+      DestroyMonitor(v6);
     }
     else
     {
-      SetMonitorData((struct tagMONITOR *)v8, v10);
-      v1 = v9;
+      SetMonitorData(v6, v8);
+      v1 = v7;
     }
   }
-  for ( i = 0; i < *(_DWORD *)(v0 + 20); ++i )
+  if ( *(_DWORD *)(v0 + 20) )
   {
-    if ( !MonitorFromHdev(*(_QWORD *)(56LL * i + v0 + 40)) )
+    do
     {
-      v12 = SetMonitorData(0LL, i);
-      v13 = v12;
-      if ( v12 )
+      if ( !MonitorFromHdev(*(_QWORD *)(56LL * (unsigned int)v2 + v0 + 40)) )
       {
-        if ( *((_QWORD *)gpDispInfo + 13) )
+        v9 = SetMonitorData(0LL, v2);
+        if ( v9 )
         {
-          *((_QWORD *)*(v1 - 2) + 2) = *((_QWORD *)v12 + 6);
-          *v1 = v12;
+          v10 = gpDispInfo;
+          if ( *(_QWORD *)(gpDispInfo + 104) )
+          {
+            *((_QWORD *)*(v1 - 2) + 2) = *((_QWORD *)v9 + 6);
+            *v1 = v9;
+          }
+          else
+          {
+            *(_QWORD *)(*(_QWORD *)gpDispInfo + 16LL) = *((_QWORD *)v9 + 6);
+            *(_QWORD *)(v10 + 104) = v9;
+          }
+          v1 = (struct tagMONITOR **)((char *)v9 + 56);
         }
-        else
-        {
-          tagKERNELDISPLAYINFO::SharedMixedObjectPointerFieldpMonitorFirst<tagMONITOR>::operator=(
-            (char *)gpDispInfo + 104,
-            v12);
-        }
-        v1 = (struct tagMONITOR **)((char *)v13 + 56);
       }
+      LODWORD(v2) = v2 + 1;
     }
+    while ( (unsigned int)v2 < *(_DWORD *)(v0 + 20) );
   }
-  v14 = *((_QWORD *)gpDispInfo + 13);
-  if ( !v14 || !*((_QWORD *)gpDispInfo + 12) )
+  v11 = *(_QWORD *)(gpDispInfo + 104);
+  if ( !v11 || !*(_QWORD *)(gpDispInfo + 96) )
     return 3221225495LL;
-  v15 = *(_WORD *)(*(_QWORD *)(v14 + 40) + 60LL);
-  v16 = v15;
+  v12 = *(_QWORD *)(gpDispInfo + 104);
+  v13 = *(_WORD *)(*(_QWORD *)(v11 + 40) + 64LL);
   do
   {
-    if ( v15 )
-    {
-      if ( v15 != *(_WORD *)(*(_QWORD *)(v14 + 40) + 60LL) )
-      {
-        v15 = 0;
-        if ( qword_1C0296E28 )
-        {
-          if ( (int)qword_1C0296E28() >= 0 && qword_1C0296E30 )
-            qword_1C0296E30();
-        }
-      }
-    }
-    v17 = *(_QWORD *)(v14 + 40);
-    v14 = *(_QWORD *)(v14 + 56);
-    if ( v16 >= *(_WORD *)(v17 + 60) )
-      v16 = *(_WORD *)(v17 + 60);
+    v14 = *(_QWORD *)(v12 + 40);
+    v12 = *(_QWORD *)(v12 + 56);
+    if ( v13 >= *(_WORD *)(v14 + 64) )
+      v13 = *(_WORD *)(v14 + 64);
   }
-  while ( v14 );
-  WPP_MAIN_CB.DeviceLock.Header.SignalState = v15;
-  for ( j = *((_QWORD *)gpDispInfo + 13); j; j = *(_QWORD *)(j + 56) )
-    *(_WORD *)(*(_QWORD *)(j + 40) + 62LL) = v16;
+  while ( v12 );
+  do
+  {
+    *(_WORD *)(*(_QWORD *)(v11 + 40) + 66LL) = v13;
+    v11 = *(_QWORD *)(v11 + 56);
+  }
+  while ( v11 );
   ApiSetzzzUpdateCursorSizes();
   *((_DWORD *)gpsi + 555) = (*(_DWORD *)(v0 + 16) & 1) == 0;
-  v19 = GreGetDeviceCaps(*((HDC *)gpDispInfo + 7), 38) & 0x100;
-  v51 = 0LL;
-  v20 = 0;
-  v21 = 0;
-  v22 = 0;
-  v23 = 0;
-  *((_DWORD *)gpDispInfo + 33) = *((_DWORD *)gpDispInfo + 33) & 0xFFFFFFFD | (v19 != 0 ? 2 : 0);
+  v15 = GreGetDeviceCaps(*(HDC *)(gpDispInfo + 56), 38) & 0x100;
+  v43 = 0LL;
+  v16 = 0;
+  v17 = 0;
+  v18 = 0;
+  *(_DWORD *)(gpDispInfo + 132) = *(_DWORD *)(gpDispInfo + 132) & 0xFFFFFFFD | (v15 != 0 ? 2 : 0);
+  v19 = 0;
   **(_DWORD **)gpDispInfo = 0;
-  for ( k = (_QWORD *)*((_QWORD *)gpDispInfo + 13); k; k = (_QWORD *)k[7] )
+  v20 = *(_QWORD **)(gpDispInfo + 104);
+  if ( v20 )
   {
-    v25 = (_DWORD *)k[5];
-    if ( (v25[6] & 1) != 0 )
+    do
     {
-      v26 = v25[7];
-      if ( v23 < v26 )
-        v26 = v23;
-      v23 = v26;
-      LODWORD(v51) = v26;
-      v27 = v25[8];
-      if ( v22 < v27 )
-        v27 = v22;
-      v22 = v27;
-      DWORD1(v51) = v27;
-      v28 = v25[9];
-      if ( v21 > v28 )
-        v28 = v21;
-      v21 = v28;
-      DWORD2(v51) = v28;
-      v29 = v25[10];
-      if ( v20 > v29 )
-        v29 = v20;
-      v20 = v29;
-      HIDWORD(v51) = v29;
-      ++**(_DWORD **)gpDispInfo;
-      v25 = (_DWORD *)k[5];
-    }
-    if ( *((_DWORD *)gpsi + 555) )
-    {
-      v30 = v25[6];
-      if ( v19 )
-        v31 = v30 | 2;
-      else
-        v31 = v30 & 0xFFFFFFFD;
-      v25[6] = v31;
-    }
-    else if ( (*(_DWORD *)(k[10] + 2140LL) & 0x100) != 0 )
-    {
-      v25[6] |= 2u;
-      *((_DWORD *)gpDispInfo + 33) |= 2u;
-    }
-  }
-  v32 = gpDispInfo;
-  v52 = *(_OWORD *)(*(_QWORD *)gpDispInfo + 24LL);
-  v33 = v51 - v52;
-  if ( (_QWORD)v51 == (_QWORD)v52 )
-    v33 = *((_QWORD *)&v51 + 1) - *((_QWORD *)&v52 + 1);
-  *(_DWORD *)(*(_QWORD *)gpDispInfo + 24LL) = v23;
-  *(_DWORD *)(*(_QWORD *)v32 + 28LL) = v22;
-  *(_DWORD *)(*(_QWORD *)v32 + 32LL) = v21;
-  *(_DWORD *)(*(_QWORD *)v32 + 36LL) = v20;
-  if ( gfRemotingConsole && gpConsoleShadowDisplayChangeEvent && v33 )
-    KeSetEvent(gpConsoleShadowDisplayChangeEvent, 1, 0);
-  v34 = *(CInputConfig **)gpDispInfo;
-  *((_DWORD *)gpsi + 554) = **(_DWORD **)gpDispInfo;
-  CInputConfig::OnDisplayStateChange(v34);
-  v39 = SGDGetUserSessionState(v36, v35, v37, v38);
-  memset((void *)(v39 + 14368), 0, 0x600uLL);
-  if ( qword_1C0295F18 && (int)qword_1C0295F18() >= 0 && qword_1C0295F20 )
-    qword_1C0295F20();
-  SetOrCreateRectRgnIndirectPublic((HRGN *)gpDispInfo + 15, (struct _RECTL *)&gZero);
-  if ( *((_QWORD *)gpDispInfo + 15) )
-  {
-    v40 = *((_QWORD *)gpDispInfo + 13);
-    v41 = 0;
-    while ( v40 )
-    {
-      v42 = *(_QWORD *)(v40 + 40);
-      if ( (*(_DWORD *)(v42 + 24) & 1) != 0 )
+      v21 = (_DWORD *)v20[5];
+      if ( (v21[6] & 1) != 0 )
       {
-        RectRgnIndirect = GreCreateRectRgnIndirect((struct _RECTL *)(v42 + 28));
-        v44 = (HPALETTE)RectRgnIndirect;
-        if ( RectRgnIndirect )
-        {
-          v41 = GreCombineRgn(*((HRGN *)gpDispInfo + 15), *((HRGN *)gpDispInfo + 15), (HRGN)RectRgnIndirect, 2);
-          GreDeleteObject(v44);
-        }
+        v22 = v21[7];
+        if ( v18 < v22 )
+          v22 = v18;
+        v18 = v22;
+        v23 = v21[8];
+        if ( v17 < v23 )
+          v23 = v17;
+        v17 = v23;
+        v24 = v21[9];
+        if ( v16 > v24 )
+          v24 = v16;
+        v16 = v24;
+        v25 = v21[10];
+        if ( v19 > v25 )
+          v25 = v19;
+        v19 = v25;
+        ++**(_DWORD **)gpDispInfo;
       }
-      v40 = *(_QWORD *)(v40 + 56);
+      if ( *((_DWORD *)gpsi + 555) )
+      {
+        v26 = v20[5];
+        v27 = *(_DWORD *)(v26 + 24);
+        if ( v15 )
+          v28 = v27 | 2;
+        else
+          v28 = v27 & 0xFFFFFFFD;
+        *(_DWORD *)(v26 + 24) = v28;
+      }
+      else if ( (*(_DWORD *)(v20[29] + 2172LL) & 0x100) != 0 )
+      {
+        *(_DWORD *)(v20[5] + 24LL) |= 2u;
+        *(_DWORD *)(gpDispInfo + 132) |= 2u;
+      }
+      v20 = (_QWORD *)v20[7];
     }
-    *((_DWORD *)gpDispInfo + 33) = *((_DWORD *)gpDispInfo + 33) & 0xFFFFFFFE | (v41 == 2);
+    while ( v20 );
+    *((_QWORD *)&v43 + 1) = __PAIR64__(v19, v16);
+    *(_QWORD *)&v43 = __PAIR64__(v17, v18);
   }
-  v45 = 0LL;
-  if ( (*((_DWORD *)gpDispInfo + 33) & 1) == 0 )
-    v45 = *((_QWORD *)gpDispInfo + 15);
-  for ( m = grpWinStaList; m; m = *(_QWORD *)(m + 8) )
+  v29 = gpDispInfo;
+  v44 = *(_OWORD *)(*(_QWORD *)gpDispInfo + 24LL);
+  v30 = v43 - v44;
+  if ( (_QWORD)v43 == (_QWORD)v44 )
+    v30 = *((_QWORD *)&v43 + 1) - *((_QWORD *)&v44 + 1);
+  *(_DWORD *)(*(_QWORD *)gpDispInfo + 24LL) = v18;
+  *(_DWORD *)(*(_QWORD *)v29 + 28LL) = v17;
+  *(_DWORD *)(*(_QWORD *)v29 + 32LL) = v16;
+  *(_DWORD *)(*(_QWORD *)v29 + 36LL) = v19;
+  if ( gfRemotingConsole && gpConsoleShadowDisplayChangeEvent && v30 )
+    KeSetEvent(gpConsoleShadowDisplayChangeEvent, 1, 0);
+  v31 = *(CInputConfig **)gpDispInfo;
+  *((_DWORD *)gpsi + 554) = **(_DWORD **)gpDispInfo;
+  CInputConfig::OnDisplayStateChange(v31);
+  memset(&gaptMouse, 0, 0x600uLL);
+  if ( qword_1C0256B08 )
+    v32 = qword_1C0256B08();
+  else
+    v32 = -1073741637;
+  if ( v32 >= 0 && qword_1C0256B10 )
+    qword_1C0256B10();
+  SetOrCreateRectRgnIndirectPublic((HRGN *)(gpDispInfo + 120), (struct _RECTL *)&gZero);
+  if ( *(_QWORD *)(gpDispInfo + 120) )
   {
-    for ( n = *(_QWORD *)(m + 16); n; n = *(_QWORD *)(n + 32) )
-      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(n + 8) + 24LL) + 40LL) + 168LL) = v45;
+    v33 = *(_QWORD *)(gpDispInfo + 104);
+    v34 = 0;
+    while ( v33 )
+    {
+      if ( (unsigned int)SetOrCreateRectRgnIndirectPublic(
+                           (HRGN *)(v33 + 72),
+                           (struct _RECTL *)(*(_QWORD *)(v33 + 40) + 28LL))
+        && (*(_DWORD *)(*(_QWORD *)(v33 + 40) + 24LL) & 1) != 0 )
+      {
+        v34 = GreCombineRgn(*(HRGN *)(gpDispInfo + 120), *(HRGN *)(gpDispInfo + 120), *(HRGN *)(v33 + 72), 2);
+      }
+      v35 = 0;
+      v36 = (struct HOBJ__ **)(v33 + 80);
+      do
+      {
+        if ( *v36 )
+        {
+          GreDeleteObject(*v36);
+          *v36 = 0LL;
+        }
+        ++v35;
+        ++v36;
+      }
+      while ( v35 < 0x12 );
+      v33 = *(_QWORD *)(v33 + 56);
+    }
+    *(_DWORD *)(gpDispInfo + 132) = *(_DWORD *)(gpDispInfo + 132) & 0xFFFFFFFE | (v34 == 2);
   }
-  *((_BYTE *)gpsi + 7002) = GreGetDeviceCaps(*((HDC *)gpDispInfo + 7), 14);
-  DeviceCaps = GreGetDeviceCaps(*((HDC *)gpDispInfo + 7), 12);
+  if ( (*(_DWORD *)(gpDispInfo + 132) & 1) != 0 )
+    v37 = 0LL;
+  else
+    v37 = *(_QWORD *)(gpDispInfo + 120);
+  for ( i = grpWinStaList; i; i = *(_QWORD *)(i + 8) )
+  {
+    for ( j = *(_QWORD *)(i + 16); j; j = *(_QWORD *)(j + 32) )
+      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(j + 8) + 24LL) + 40LL) + 168LL) = v37;
+  }
+  *((_BYTE *)gpsi + 7002) = GreGetDeviceCaps(*(HDC *)(gpDispInfo + 56), 14);
+  DeviceCaps = GreGetDeviceCaps(*(HDC *)(gpDispInfo + 56), 12);
   *((_BYTE *)gpsi + 7003) = DeviceCaps;
-  v49 = *((unsigned __int8 *)gpsi + 7002) * DeviceCaps;
-  *((_WORD *)gpsi + 3498) = v49;
-  *((_WORD *)gpDispInfo + 64) = v49;
-  if ( v19 )
+  v41 = *((unsigned __int8 *)gpsi + 7002) * DeviceCaps;
+  *((_WORD *)gpsi + 3498) = v41;
+  *(_WORD *)(gpDispInfo + 128) = v41;
+  if ( v15 )
     *((_DWORD *)gpsi + 1751) |= 1u;
   else
     *((_DWORD *)gpsi + 1751) &= ~1u;
   EnforceColorDependentSettings();
-  if ( qword_1C0296E98 && (int)qword_1C0296E98() >= 0 && qword_1C0296EA0 )
-    qword_1C0296EA0();
   return 0LL;
 }

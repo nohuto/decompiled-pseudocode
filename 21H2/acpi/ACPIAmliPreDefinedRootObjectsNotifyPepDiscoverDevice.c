@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice @ 0x1C000230C
+ * XREFs of ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice @ 0x1C002A884
  * Callers:
- *     ACPIRootInitialize @ 0x1C008F8C0 (ACPIRootInitialize.c)
+ *     ACPIRootInitialize @ 0x1C0097FAC (ACPIRootInitialize.c)
  * Callees:
- *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C0002434 (AcpiNotifyPlExtDiscoverDeviceAsync.c)
+ *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C002A9AC (AcpiNotifyPlExtDiscoverDeviceAsync.c)
  */
 
 __int64 ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice()
@@ -32,9 +32,9 @@ __int64 ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice()
   do
   {
     v4 = *(_QWORD *)((char *)&AmliGlobalPreDefinedRootObjects + v1);
-    dword_1C0081AC8 = 0;
+    dword_1C0082908 = 0;
     v5 = v4 + 120;
-    byte_1C0081ACC = 0;
+    pszDest = 0;
     if ( (gdwfAMLI & 4) != 0 )
       _InterlockedIncrement((volatile signed __int32 *)(v5 + 8));
     *(_QWORD *)((char *)&AcpiAmliPreDefinedRootAcpiObjects + v1) = v5;
@@ -47,9 +47,9 @@ __int64 ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice()
   do
   {
     v7 = *(_QWORD *)((char *)&AcpiAmliPreDefinedRootAcpiObjects + v6);
-    if ( v7 == *(_QWORD *)(v0 + 760) )
+    if ( v7 == *(_QWORD *)(v0 + 720) )
     {
-      v9 = *(_QWORD *)(v0 + 944);
+      v9 = *(_QWORD *)(v0 + 904);
 LABEL_14:
       *(_QWORD *)((char *)&AcpiAmliPreDefinedRootNativeHandles + v6) = v9;
       goto LABEL_11;

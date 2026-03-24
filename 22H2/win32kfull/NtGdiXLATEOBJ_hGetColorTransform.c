@@ -1,33 +1,36 @@
 /*
- * XREFs of NtGdiXLATEOBJ_hGetColorTransform @ 0x1C02CE300
+ * XREFs of NtGdiXLATEOBJ_hGetColorTransform @ 0x1C02B5500
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C013E01C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     BRUSHOBJ_hGetColorTransform @ 0x1C0265010 (BRUSHOBJ_hGetColorTransform.c)
- *     ??$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z @ 0x1C02C6D88 (--$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CF88C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ??$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z @ 0x1C013D588 (--$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z.c)
+ *     BRUSHOBJ_hGetColorTransform @ 0x1C026CCB0 (BRUSHOBJ_hGetColorTransform.c)
  */
 
-struct UMPDOBJ *__fastcall NtGdiXLATEOBJ_hGetColorTransform(__int64 a1)
+HANDLE __fastcall NtGdiXLATEOBJ_hGetColorTransform(__int64 a1)
 {
   struct _W32THREAD *ThreadWin32Thread; // rax
-  struct UMPDOBJ *result; // rax
+  struct UMPDOBJ *ThreadCurrentObj; // rax
   struct UMPDOBJ *v4; // rbx
   BRUSHOBJ *v5; // rax
-  HANDLE ColorTransform; // r9
+  HANDLE result; // rax
 
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  result = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v4 = result;
-  if ( result )
+  ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
+  v4 = ThreadCurrentObj;
+  if ( ThreadCurrentObj
+    && (++*((_DWORD *)ThreadCurrentObj + 105),
+        (v5 = (BRUSHOBJ *)UMPDOBJ::GetDDIOBJ<_XLATEOBJ>((__int64)ThreadCurrentObj, a1)) != 0LL) )
   {
-    ++*((_DWORD *)result + 109);
-    v5 = (BRUSHOBJ *)UMPDOBJ::GetDDIOBJ<_XLATEOBJ>((__int64)result, a1);
-    if ( v5 )
-      ColorTransform = BRUSHOBJ_hGetColorTransform(v5);
-    --*((_DWORD *)v4 + 109);
-    return (struct UMPDOBJ *)ColorTransform;
+    result = BRUSHOBJ_hGetColorTransform(v5);
   }
+  else
+  {
+    result = 0LL;
+  }
+  if ( v4 )
+    --*((_DWORD *)v4 + 105);
   return result;
 }

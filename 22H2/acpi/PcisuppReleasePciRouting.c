@@ -1,8 +1,8 @@
 /*
- * XREFs of PcisuppReleasePciRouting @ 0x1C009A1C4
+ * XREFs of PcisuppReleasePciRouting @ 0x1C00B6C48
  * Callers:
- *     PcisuppAcquirePciInterfaces @ 0x1C00998A4 (PcisuppAcquirePciInterfaces.c)
- *     PcisuppReleasePciInterfaces @ 0x1C009A0BC (PcisuppReleasePciInterfaces.c)
+ *     PcisuppAcquirePciInterfaces @ 0x1C00906FC (PcisuppAcquirePciInterfaces.c)
+ *     PcisuppReleasePciInterfaces @ 0x1C00B6B38 (PcisuppReleasePciInterfaces.c)
  * Callees:
  *     <none>
  */

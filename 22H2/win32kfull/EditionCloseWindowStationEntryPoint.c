@@ -1,5 +1,5 @@
 /*
- * XREFs of EditionCloseWindowStationEntryPoint @ 0x1C00BE1E0
+ * XREFs of EditionCloseWindowStationEntryPoint @ 0x1C012AC40
  * Callers:
  *     <none>
  * Callees:
@@ -9,14 +9,11 @@
 __int64 __fastcall EditionCloseWindowStationEntryPoint(__int64 a1)
 {
   __int64 v2; // rdx
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
+  __int64 v3; // rcx
 
-  EnterCrit(1LL, 0LL);
+  EnterCrit(0LL, 1LL);
   LOBYTE(v2) = 1;
   LODWORD(a1) = _CloseWindowStation(a1, v2);
-  UserSessionSwitchLeaveCrit(v4, v3, v5, v6);
+  UserSessionSwitchLeaveCrit(v3);
   return (unsigned int)a1;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?_TTUpdateBestTarget@@YAXPEAUtagPNTRWINDOWHITTTESTARGS@@PEAUtagWND@@IPEBUtagPOINT@@PEAUtagRECT@@HU4@K@Z @ 0x1C02052C8
+ * XREFs of ?_TTUpdateBestTarget@@YAXPEAUtagPNTRWINDOWHITTTESTARGS@@PEAUtagWND@@IPEBUtagPOINT@@PEAUtagRECT@@HU4@K@Z @ 0x1C021597C
  * Callers:
- *     ?xxxPointerInsideNCTargeting@@YAXPEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@UtagRECT@@K@Z @ 0x1C02053A4 (-xxxPointerInsideNCTargeting@@YAXPEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@UtagRECT@.c)
- *     ?xxxTargetingHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@1PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHUtagRECT@@KW4tagTARGETING_PROPERTY@@@Z @ 0x1C0205E2C (-xxxTargetingHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@1PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHU.c)
- *     ?xxxWindowHitTestFromTargetingProperty@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHW4tagTARGETING_PROPERTY@@UtagRECT@@@Z @ 0x1C0206590 (-xxxWindowHitTestFromTargetingProperty@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHI.c)
+ *     ?xxxPointerInsideNCTargeting@@YAXPEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@UtagRECT@@K@Z @ 0x1C0215AD0 (-xxxPointerInsideNCTargeting@@YAXPEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@UtagRECT@.c)
+ *     ?xxxTargetingHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@1PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHUtagRECT@@KW4tagTARGETING_PROPERTY@@@Z @ 0x1C02160E8 (-xxxTargetingHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@1PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHU.c)
+ *     ?xxxWindowHitTestFromTargetingProperty@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHW4tagTARGETING_PROPERTY@@UtagRECT@@@Z @ 0x1C02168F4 (-xxxWindowHitTestFromTargetingProperty@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHI.c)
  * Callees:
- *     IntersectRect @ 0x1C004CD28 (IntersectRect.c)
- *     ?IsCompositionInputWindow@@YAHPEBUtagWND@@@Z @ 0x1C006D640 (-IsCompositionInputWindow@@YAHPEBUtagWND@@@Z.c)
- *     ?TransformRect@@YAXPEBU_D3DMATRIX@@PEAUtagRECT@@H@Z @ 0x1C02051A8 (-TransformRect@@YAXPEBU_D3DMATRIX@@PEAUtagRECT@@H@Z.c)
+ *     ?IsCompositionInputWindow@@YAHPEBUtagWND@@@Z @ 0x1C006B91C (-IsCompositionInputWindow@@YAHPEBUtagWND@@@Z.c)
+ *     IntersectRect @ 0x1C0075160 (IntersectRect.c)
+ *     ?TransformRect@@YAXPEBU_D3DMATRIX@@PEAUtagRECT@@H@Z @ 0x1C021585C (-TransformRect@@YAXPEBU_D3DMATRIX@@PEAUtagRECT@@H@Z.c)
  */
 
 void __fastcall _TTUpdateBestTarget(
@@ -22,12 +22,10 @@ void __fastcall _TTUpdateBestTarget(
 {
   struct tagRECT *v9; // rax
   struct tagRECT *v10; // rdi
-  int v11; // ecx
-  unsigned int v12; // ecx
+  int v11; // eax
+  unsigned int v12; // eax
   unsigned int v13; // eax
-  int v14; // ecx
-  unsigned int v15; // eax
-  const struct _D3DMATRIX *v16; // rcx
+  const struct _D3DMATRIX *v14; // rcx
 
   *((_QWORD *)a1 + 7) = *(_QWORD *)a2;
   v9 = a5;
@@ -43,22 +41,21 @@ void __fastcall _TTUpdateBestTarget(
     v12 = v11 | 1;
   else
     v12 = v11 & 0xFFFFFFFE;
-  v13 = v12;
-  v14 = v12 | 2;
-  v15 = v13 & 0xFFFFFFFD;
-  if ( a8 != 3 )
-    v14 = v15;
-  *((_DWORD *)a1 + 44) = v14;
+  if ( a8 == 3 )
+    v13 = v12 | 2;
+  else
+    v13 = v12 & 0xFFFFFFFD;
+  *((_DWORD *)a1 + 44) = v13;
   if ( !(unsigned int)IsCompositionInputWindow(a2) )
     IntersectRect(v10, &v10->left, &a7->left);
   if ( *((_DWORD *)a1 + 21) )
   {
-    v16 = (const struct _D3DMATRIX *)*((_QWORD *)a1 + 12);
-    if ( v16 )
+    v14 = (const struct _D3DMATRIX *)*((_QWORD *)a1 + 12);
+    if ( v14 )
     {
-      *((_DWORD *)a1 + 12) = (int)(float)((float)*((int *)a1 + 12) * v16->_11);
-      *((_DWORD *)a1 + 13) = (int)(float)((float)*((int *)a1 + 13) * v16->_22);
-      TransformRect(v16, v10, 0);
+      *((_DWORD *)a1 + 12) = (int)(float)((float)*((int *)a1 + 12) * v14->_11);
+      *((_DWORD *)a1 + 13) = (int)(float)((float)*((int *)a1 + 13) * v14->_22);
+      TransformRect(v14, v10, 0);
     }
   }
 }

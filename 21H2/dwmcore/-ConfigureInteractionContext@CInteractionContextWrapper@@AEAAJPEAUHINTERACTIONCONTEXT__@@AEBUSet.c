@@ -1,13 +1,12 @@
 /*
- * XREFs of ?ConfigureInteractionContext@CInteractionContextWrapper@@AEAAJPEAUHINTERACTIONCONTEXT__@@AEBUSetupInfo@@@Z @ 0x180272EBC
+ * XREFs of ?ConfigureInteractionContext@CInteractionContextWrapper@@AEAAJPEAUHINTERACTIONCONTEXT__@@AEBUSetupInfo@@@Z @ 0x180230154
  * Callers:
- *     ?ApplySetupInfo@CInteractionContextWrapper@@UEAAJAEBUSetupInfo@@@Z @ 0x180115F10 (-ApplySetupInfo@CInteractionContextWrapper@@UEAAJAEBUSetupInfo@@@Z.c)
- *     ?EnsureInteractionContext@CInteractionContextWrapper@@AEAAJXZ @ 0x180273300 (-EnsureInteractionContext@CInteractionContextWrapper@@AEAAJXZ.c)
+ *     ?ApplySetupInfo@CInteractionContextWrapper@@UEAAJAEBUSetupInfo@@@Z @ 0x18022FFA0 (-ApplySetupInfo@CInteractionContextWrapper@@UEAAJAEBUSetupInfo@@@Z.c)
+ *     ?EnsureInteractionContext@CInteractionContextWrapper@@AEAAJXZ @ 0x180230580 (-EnsureInteractionContext@CInteractionContextWrapper@@AEAAJXZ.c)
  * Callees:
- *     _tlgKeywordOn @ 0x180074108 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@444@Z @ 0x1801F1A60 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@@-$_tlgWriteTemplate@$$A6AJP.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@444@Z @ 0x1801C5DC0 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@@-$_tlgWriteTemplate@$$A6AJP.c)
  */
 
 __int64 __fastcall CInteractionContextWrapper::ConfigureInteractionContext(
@@ -129,7 +128,9 @@ __int64 __fastcall CInteractionContextWrapper::ConfigureInteractionContext(
           v30[4] = 4;
           v30[5] = v24 ? 5 : 0;
           v11 = SetInteractionConfigurationInteractionContext(v5, 3LL, v30);
-          if ( (unsigned int)dword_1803D0EF0 > 4 && tlgKeywordOn((__int64)&dword_1803D0EF0, 2LL) )
+          if ( (unsigned int)dword_180344EF0 > 4
+            && (qword_180344F00 & 2) != 0
+            && (qword_180344F08 & 2) == qword_180344F08 )
           {
             v25 = v11;
             v26 = v24 ? 5 : 0;
@@ -138,7 +139,7 @@ __int64 __fastcall CInteractionContextWrapper::ConfigureInteractionContext(
             v29 = this;
             _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
               v18,
-              byte_180372AF9,
+              byte_1802EC661,
               v19,
               v20,
               (__int64)&v29,
@@ -155,10 +156,10 @@ __int64 __fastcall CInteractionContextWrapper::ConfigureInteractionContext(
                     this);
             if ( v11 >= 0 )
             {
-              if ( (v21 = (_DWORD *)((char *)this + 24), !v23) && *v21 == 2 || !v24 && *v21 == 4 )
+              if ( (v21 = (_DWORD *)((char *)this + 32), !v23) && *v21 == 2 || !v24 && *v21 == 4 )
               {
                 *v21 = 0;
-                *((_DWORD *)this + 7) = 0;
+                *((_DWORD *)this + 9) = 0;
               }
             }
           }

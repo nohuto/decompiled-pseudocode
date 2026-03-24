@@ -1,8 +1,8 @@
 /*
- * XREFs of KiMcaDeferredRecoveryService @ 0x14042C360
+ * XREFs of KiMcaDeferredRecoveryService @ 0x14040A2E0
  * Callers:
- *     KiScanQueues @ 0x140648720 (KiScanQueues.c)
- *     KiSchedulerDpc @ 0x140648750 (KiSchedulerDpc.c)
+ *     KiScanQueues @ 0x1405BFBD0 (KiScanQueues.c)
+ *     KiSchedulerDpc @ 0x1405BFC00 (KiSchedulerDpc.c)
  * Callees:
  *     <none>
  */

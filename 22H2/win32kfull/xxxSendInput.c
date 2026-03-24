@@ -1,269 +1,177 @@
 /*
- * XREFs of xxxSendInput @ 0x1C000A4E4
+ * XREFs of xxxSendInput @ 0x1C00BFF08
  * Callers:
- *     NtUserSendInput @ 0x1C000A260 (NtUserSendInput.c)
- *     ?xxxSend3FingerTapHotkey@@YAXXZ @ 0x1C01F66F8 (-xxxSend3FingerTapHotkey@@YAXXZ.c)
- *     ?xxxSend4FingerTapHotkey@@YAXXZ @ 0x1C01F6860 (-xxxSend4FingerTapHotkey@@YAXXZ.c)
- *     ?SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z @ 0x1C0247BAC (-SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z.c)
- *     ?SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z @ 0x1C0247C84 (-SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z.c)
+ *     NtUserSendInput @ 0x1C00C00F0 (NtUserSendInput.c)
+ *     ?xxxSend3FingerTapHotkey@@YAXXZ @ 0x1C02132BC (-xxxSend3FingerTapHotkey@@YAXXZ.c)
+ *     ?xxxSend4FingerTapHotkey@@YAXXZ @ 0x1C0213424 (-xxxSend4FingerTapHotkey@@YAXXZ.c)
+ *     ?SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z @ 0x1C0258EA0 (-SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z.c)
+ *     ?SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z @ 0x1C0258F78 (-SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z.c)
  * Callees:
- *     xxxInternalKeyEventDirect @ 0x1C000A61C (xxxInternalKeyEventDirect.c)
- *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C006D000 (WPP_RECORDER_AND_TRACE_SF_d.c)
- *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00BFCAC (WPP_RECORDER_AND_TRACE_SF_dd.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?xxxMouseEventDirect@@YAHKKKK_K00H@Z @ 0x1C01AB63C (-xxxMouseEventDirect@@YAHKKKK_K00H@Z.c)
- *     xxxSynchronizeDWMWindowChanges @ 0x1C01ACED8 (xxxSynchronizeDWMWindowChanges.c)
- *     xxxWaitForDITMouseInjectionFlush @ 0x1C01ACF24 (xxxWaitForDITMouseInjectionFlush.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0013114 (WPP_RECORDER_SF_dd.c)
+ *     xxxSynchronizeDWMWindowChanges @ 0x1C002E77C (xxxSynchronizeDWMWindowChanges.c)
+ *     WPP_RECORDER_SF_d @ 0x1C003AC94 (WPP_RECORDER_SF_d.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?xxxMouseEventDirect@@YAHKKKK_K00H@Z @ 0x1C010316C (-xxxMouseEventDirect@@YAHKKKK_K00H@Z.c)
+ *     xxxInternalKeyEventDirect @ 0x1C0103524 (xxxInternalKeyEventDirect.c)
+ *     xxxWaitForDITMouseInjectionFlush @ 0x1C011C824 (xxxWaitForDITMouseInjectionFlush.c)
  */
 
 __int64 __fastcall xxxSendInput(unsigned int a1, __int64 a2)
 {
-  int v4; // r14d
-  unsigned __int16 v5; // bp
-  unsigned int v6; // esi
-  int v7; // r12d
-  unsigned int *v8; // rdi
-  __int64 v9; // rdx
+  int v3; // r14d
+  BOOL v4; // r12d
+  unsigned int v5; // esi
+  unsigned __int16 v6; // bp
+  unsigned int *v7; // rdi
+  _UNKNOWN **v8; // rdx
+  const ULONG_PTR *v9; // r8
   int v10; // ecx
-  __int64 v11; // r9
-  __int64 v12; // r8
-  unsigned __int64 v13; // rcx
-  int v14; // ecx
-  int v15; // r8d
-  int v16; // edx
-  __int16 v18; // ax
-  bool v19; // cf
-  __int16 v20; // r9
-  unsigned __int64 v21; // rbx
-  unsigned __int64 v22; // rax
+  __int64 v11; // rcx
+  int v12; // r8d
+  int v13; // edx
+  int v14; // r8d
+  unsigned __int64 v16; // rbx
+  unsigned __int64 v17; // rax
+  int v18; // r9d
+  int v19; // r9d
 
-  v4 = 0;
-  v5 = *(_WORD *)(gptiCurrent + 632LL);
-  v6 = 0;
-  v7 = *(_DWORD *)(SGDGetUserSessionState() + 15976);
+  v3 = 0;
+  v4 = glDitMouseHandling == 0;
+  v5 = 0;
+  v6 = *(_WORD *)(gptiCurrent + 632LL);
   if ( !a1 )
-    return v6;
-  v8 = (unsigned int *)(a2 + 24);
-  v9 = 1LL;
+    return v5;
+  v7 = (unsigned int *)(a2 + 24);
+  v8 = &WPP_RECORDER_INITIALIZED;
+  v9 = &WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids;
   do
   {
-    v10 = *(v8 - 6);
-    v11 = 1281LL;
-    v12 = 0x80000LL;
+    v10 = *(v7 - 6);
     if ( v10 )
     {
-      v13 = (unsigned int)(v10 - 1);
-      if ( (_DWORD)v13 )
+      v11 = (unsigned int)(v10 - 1);
+      if ( (_DWORD)v11 )
       {
-        if ( (_DWORD)v13 != 1 )
-          goto LABEL_11;
-        v13 = (unsigned __int64)WPP_GLOBAL_Control;
-        if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80000) == 0
-          || BYTE1(WPP_GLOBAL_Control->Timer) < 2u )
+        if ( (_DWORD)v11 == 1 )
         {
-          LOBYTE(v9) = 0;
-        }
-        LOBYTE(v12) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        if ( (_BYTE)v9 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          WPP_RECORDER_AND_TRACE_SF_dd(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v9,
-            v12,
-            (_DWORD)gFullLog,
-            2,
-            20,
-            34,
-            (__int64)&WPP_b7341d90d8e73367f780bbfd3745e9b8_Traceguids,
-            v6,
-            v5 >= 0x501u);
-          v11 = 1281LL;
-        }
-        if ( v5 >= 0x501u )
-        {
-          UserSetLastError(120LL);
-          return v6;
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LOBYTE(v8) = 2;
+            WPP_RECORDER_SF_dd(
+              1,
+              (_DWORD)v8,
+              (unsigned int)&WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids,
+              31,
+              (__int64)&WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids,
+              v5,
+              v6 >= 0x501u);
+          }
+          if ( v6 >= 0x501u )
+          {
+            UserSetLastError(120LL, (__int64)v8, (__int64)v9);
+            return v5;
+          }
         }
         goto LABEL_10;
       }
-      v14 = gpsi;
+      v11 = gpsi;
       if ( (*gpsi & 0x2000) == 0 )
       {
-        if ( v4 )
+        if ( v3 )
+          xxxWaitForDITMouseInjectionFlush(
+            gpsi,
+            &WPP_RECORDER_INITIALIZED,
+            &WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids);
+        v12 = *(v7 - 3);
+        v3 = 0;
+        if ( (v12 & 4) != 0 && !*((_WORD *)v7 - 8) && (v12 & 0xFFFFFFF9) == 0 )
         {
-          v4 = 0;
-          xxxWaitForDITMouseInjectionFlush(gpsi, 1LL, 0x80000LL, 1281LL);
-        }
-        v15 = *(v8 - 3);
-        if ( (v15 & 4) == 0 || *((_WORD *)v8 - 8) || (v15 & 0xFFFFFFF9) != 0 )
-        {
-          LOBYTE(v14) = *((_BYTE *)v8 - 16);
-          if ( !(unsigned __int8)xxxInternalKeyEventDirect(
-                                   v14,
-                                   *((unsigned __int8 *)v8 - 14),
-                                   v15,
-                                   *(v8 - 2),
-                                   *(_QWORD *)v8) )
+          LOBYTE(v11) = -25;
+          if ( !(unsigned int)xxxInternalKeyEventDirect(
+                                v11,
+                                *((unsigned __int16 *)v7 - 7),
+                                v12,
+                                *(v7 - 2),
+                                *(_QWORD *)v7) )
           {
-            v13 = (unsigned __int64)WPP_GLOBAL_Control;
-            if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80000) == 0
-              || BYTE1(WPP_GLOBAL_Control->Timer) < 2u )
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
             {
-              LOBYTE(v16) = 0;
+              v19 = 29;
+              goto LABEL_39;
             }
-            else
-            {
-              v16 = 1;
-            }
-            LOBYTE(v12) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            if ( (_BYTE)v16 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            {
-              v19 = v5 < 0x501u;
-              v20 = 33;
-              goto LABEL_76;
-            }
-LABEL_77:
-            if ( v5 >= 0x501u )
-              return v6;
+LABEL_40:
+            if ( v6 >= 0x501u )
+              return v5;
           }
-        }
-        else
-        {
-          LOBYTE(v14) = -25;
-          if ( !(unsigned __int8)xxxInternalKeyEventDirect(
-                                   v14,
-                                   *((unsigned __int16 *)v8 - 7),
-                                   v15,
-                                   *(v8 - 2),
-                                   *(_QWORD *)v8) )
-          {
-            v13 = (unsigned __int64)WPP_GLOBAL_Control;
-            if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80000) == 0
-              || BYTE1(WPP_GLOBAL_Control->Timer) < 2u )
-            {
-              LOBYTE(v16) = 0;
-            }
-            else
-            {
-              v16 = 1;
-            }
-            LOBYTE(v12) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            if ( (_BYTE)v16 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            {
-              v19 = v5 < 0x501u;
-              v20 = 32;
-LABEL_76:
-              WPP_RECORDER_AND_TRACE_SF_dd(
-                *(_QWORD *)(v13 + 24),
-                v16,
-                v12,
-                (_DWORD)gFullLog,
-                2,
-                20,
-                v20,
-                (__int64)&WPP_b7341d90d8e73367f780bbfd3745e9b8_Traceguids,
-                v6,
-                !v19);
-              goto LABEL_77;
-            }
-            goto LABEL_77;
-          }
-        }
 LABEL_10:
-        v9 = 1LL;
-LABEL_11:
-        v8 += 10;
-        goto LABEL_12;
+          v7 += 10;
+          goto LABEL_11;
+        }
+        LOBYTE(v11) = *((_BYTE *)v7 - 16);
+        if ( (unsigned int)xxxInternalKeyEventDirect(v11, *((unsigned __int8 *)v7 - 14), v12, *(v7 - 2), *(_QWORD *)v7) )
+          goto LABEL_10;
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          goto LABEL_40;
+        v19 = 30;
+LABEL_39:
+        LOBYTE(v13) = 2;
+        WPP_RECORDER_SF_dd(
+          v11,
+          v13,
+          v14,
+          v19,
+          (__int64)&WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids,
+          v5,
+          v6 >= 0x501u);
+        goto LABEL_40;
       }
-      v13 = (unsigned __int64)WPP_GLOBAL_Control;
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80000) == 0
-        || BYTE1(WPP_GLOBAL_Control->Timer) < 2u )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v9) = 0;
-      }
-      LOBYTE(v12) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( (_BYTE)v9 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        v18 = 31;
-LABEL_34:
-        WPP_RECORDER_AND_TRACE_SF_d(
-          *(_QWORD *)(v13 + 24),
-          v9,
-          v12,
-          (_DWORD)gFullLog,
-          2,
-          20,
-          v18,
-          (__int64)&WPP_b7341d90d8e73367f780bbfd3745e9b8_Traceguids,
-          v6);
+        v18 = 28;
+        goto LABEL_34;
       }
     }
     else
     {
+      v11 = gpsi;
       if ( (*gpsi & 0x2000) == 0 )
       {
-        if ( (*(v8 - 1) & 0xAA) != 0 )
-          xxxSynchronizeDWMWindowChanges(gpsi, 1LL, 0x80000LL, 1281LL);
-        v21 = UpconvertTime(*v8, v9, v12, v11);
-        v22 = MilliSecsToQpcCount(v21);
-        if ( v7 )
-          v4 = 1;
-        if ( !(unsigned int)xxxMouseEventDirect(
-                              *(v8 - 4),
-                              *(v8 - 3),
-                              *(v8 - 2),
-                              *(v8 - 1),
-                              v21,
-                              v22,
-                              *((_QWORD *)v8 + 1),
-                              v7 == 0) )
-        {
-          v13 = (unsigned __int64)WPP_GLOBAL_Control;
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80000) == 0
-            || BYTE1(WPP_GLOBAL_Control->Timer) < 2u )
-          {
-            LOBYTE(v16) = 0;
-          }
-          else
-          {
-            v16 = 1;
-          }
-          LOBYTE(v12) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          if ( (_BYTE)v16 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            v19 = v5 < 0x501u;
-            v20 = 30;
-            goto LABEL_76;
-          }
-          goto LABEL_77;
-        }
-        goto LABEL_10;
+        if ( (*(v7 - 1) & 0xAA) != 0 )
+          xxxSynchronizeDWMWindowChanges(gpsi, (__int64)&WPP_RECORDER_INITIALIZED);
+        v16 = UpconvertTime(*v7);
+        v17 = MilliSecsToQpcCount(v16);
+        if ( !v4 )
+          v3 = 1;
+        if ( (unsigned int)xxxMouseEventDirect(
+                             *(v7 - 4),
+                             *(v7 - 3),
+                             *(v7 - 2),
+                             *(v7 - 1),
+                             v16,
+                             v17,
+                             *((_QWORD *)v7 + 1),
+                             v4) )
+          goto LABEL_10;
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          goto LABEL_40;
+        v19 = 27;
+        goto LABEL_39;
       }
-      v13 = (unsigned __int64)WPP_GLOBAL_Control;
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80000) == 0
-        || BYTE1(WPP_GLOBAL_Control->Timer) < 2u )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v9) = 0;
-      }
-      LOBYTE(v12) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( (_BYTE)v9 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        v18 = 29;
-        goto LABEL_34;
+        v18 = 26;
+LABEL_34:
+        LOBYTE(v8) = 2;
+        WPP_RECORDER_SF_d(v11, (_DWORD)v8, 20, v18, (__int64)&WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids, v5);
+LABEL_11:
+        v8 = &WPP_RECORDER_INITIALIZED;
+        v9 = &WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids;
       }
     }
-    v9 = 1LL;
-LABEL_12:
-    ++v6;
+    ++v5;
   }
-  while ( v6 < a1 );
-  if ( v4 )
-    xxxWaitForDITMouseInjectionFlush(v13, 1LL, v12, v11);
-  return v6;
+  while ( v5 < a1 );
+  if ( v3 )
+    xxxWaitForDITMouseInjectionFlush(v11, &WPP_RECORDER_INITIALIZED, &WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids);
+  return v5;
 }

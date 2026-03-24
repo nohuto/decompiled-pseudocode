@@ -1,114 +1,114 @@
 /*
- * XREFs of ?IterateProcessAndApplyCSFn@DXGGLOBAL@@QEAAXW4_PROCESS_CSFN_TYPE@@@Z @ 0x1C02E64B8
+ * XREFs of ?IterateProcessAndApplyCSFn@DXGGLOBAL@@QEAAXW4_PROCESS_CSFN_TYPE@@@Z @ 0x1C02BF87C
  * Callers:
- *     ?PDCIdleResiliencyEngagedCallBackFn@@YAJPEBU_GUID@@PEAXK1@Z @ 0x1C022FBC0 (-PDCIdleResiliencyEngagedCallBackFn@@YAJPEBU_GUID@@PEAXK1@Z.c)
+ *     ?PDCIdleResiliencyEngagedCallBackFn@@YAJPEBU_GUID@@PEAXK1@Z @ 0x1C02BFA80 (-PDCIdleResiliencyEngagedCallBackFn@@YAJPEBU_GUID@@PEAXK1@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?AcquireReference@DXGPROCESS@@QEAAXXZ @ 0x1C000859C (-AcquireReference@DXGPROCESS@@QEAAXXZ.c)
- *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C00085C0 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ??0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ @ 0x1C00150D4 (--0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ.c)
- *     ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGGLOBAL@@VDXGPROCESS@@@@QEBAPEAVDXGPROCESS@@XZ @ 0x1C00223F4 (-GetCurrent@ITERATOR@-$DXGNODELIST@VDXGGLOBAL@@VDXGPROCESS@@@@QEBAPEAVDXGPROCESS@@XZ.c)
- *     ?ApplyCsFunction@DXGPROCESS@@QEAAXW4_PROCESS_CSFN_TYPE@@@Z @ 0x1C0232AF4 (-ApplyCsFunction@DXGPROCESS@@QEAAXW4_PROCESS_CSFN_TYPE@@@Z.c)
+ *     ??0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ @ 0x1C0002D44 (--0DXGPROCESSCALLOUTMUTEX@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C0008594 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?AcquireReference@DXGPROCESS@@QEAAXXZ @ 0x1C0008660 (-AcquireReference@DXGPROCESS@@QEAAXXZ.c)
+ *     ?GetCurrent@ITERATOR@?$DXGNODELIST@VDXGGLOBAL@@VDXGPROCESS@@@@QEBAPEAVDXGPROCESS@@XZ @ 0x1C0024248 (-GetCurrent@ITERATOR@-$DXGNODELIST@VDXGGLOBAL@@VDXGPROCESS@@@@QEBAPEAVDXGPROCESS@@XZ.c)
+ *     ?ApplyCsFunction@DXGPROCESS@@QEAAXW4_PROCESS_CSFN_TYPE@@@Z @ 0x1C0284748 (-ApplyCsFunction@DXGPROCESS@@QEAAXW4_PROCESS_CSFN_TYPE@@@Z.c)
  */
 
-void __fastcall DXGGLOBAL::IterateProcessAndApplyCSFn(__int64 a1, int a2)
+void __fastcall DXGGLOBAL::IterateProcessAndApplyCSFn(__int64 a1, unsigned int a2)
 {
-  __int64 v4; // rdi
-  _QWORD *v5; // rsi
+  __int64 v4; // rsi
+  _QWORD *v5; // rdi
   DXGPROCESS *Current; // rax
-  DXGPROCESS *v7; // rbx
-  _QWORD *v8; // rax
-  __int64 v9; // rcx
-  _QWORD *v10; // rax
+  __int64 v7; // rdx
+  DXGPROCESS *v8; // rbx
+  _QWORD *v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  __int64 v14; // rcx
+  _QWORD *v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rdx
   _QWORD *i; // rbx
-  __int64 v12; // rbx
-  __int64 v13; // rax
-  _QWORD v14[2]; // [rsp+58h] [rbp+17h] BYREF
-  _BYTE v15[16]; // [rsp+68h] [rbp+27h] BYREF
-  _BYTE v16[16]; // [rsp+78h] [rbp+37h] BYREF
-  _QWORD v17[2]; // [rsp+88h] [rbp+47h] BYREF
+  __int64 v19; // rdx
+  __int64 v20; // rdx
+  __int64 v21; // rdx
+  __int64 v22; // rbx
+  __int64 v23; // rax
+  __int64 v24; // rdx
+  _QWORD v25[2]; // [rsp+20h] [rbp-30h] BYREF
+  _BYTE v26[16]; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v27; // [rsp+40h] [rbp-10h] BYREF
+  _QWORD *v28; // [rsp+48h] [rbp-8h]
 
-  DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)v15);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v15);
-  v14[1] = v14;
-  v4 = a1 + 432;
-  v14[0] = v14;
+  DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX((DXGPROCESSCALLOUTMUTEX *)v26);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v26);
+  v25[1] = v25;
+  v25[0] = v25;
   KeEnterCriticalRegion();
-  ExAcquirePushLockSharedEx(a1 + 432, 0LL);
-  _InterlockedIncrement((volatile signed __int32 *)(a1 + 448));
-  v5 = *(_QWORD **)(a1 + 416);
-  v17[0] = a1 + 416;
+  v4 = a1 + 376;
+  ExAcquirePushLockSharedEx(a1 + 376, 0LL);
+  v5 = *(_QWORD **)(a1 + 360);
+  v27 = a1 + 360;
   while ( 1 )
   {
-    v17[1] = v5;
-    Current = (DXGPROCESS *)DXGNODELIST<DXGGLOBAL,DXGPROCESS>::ITERATOR::GetCurrent(v17);
-    v7 = Current;
+    v28 = v5;
+    Current = (DXGPROCESS *)DXGNODELIST<DXGGLOBAL,DXGPROCESS>::ITERATOR::GetCurrent(&v27);
+    v8 = Current;
     if ( !Current )
       break;
-    DXGPROCESS::AcquireReference(Current);
-    v8 = (_QWORD *)operator new[](0x18uLL, 0x4B677844u, 256LL);
-    if ( !v8 )
+    DXGPROCESS::AcquireReference(Current, v7);
+    v9 = operator new(0x18uLL, 0x4B677844u, 1, PagedPool);
+    if ( !v9 )
     {
-      WdLogSingleEntry1(6LL, 655LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"IterateProcessAndApplyCSFn: Failed to allocate ProcessListEntry",
-        655LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v16 = WdLogNewEntry5_WdLowResource(v11, v10, v12, v13);
+      *(_QWORD *)(v16 + 24) = 655LL;
+      WdLogEvent5_WdLowResource(v16);
       break;
     }
-    *v8 = v7;
-    v9 = v14[0];
-    v10 = v8 + 1;
-    if ( *(_QWORD **)(v14[0] + 8LL) != v14 )
+    *v9 = v8;
+    v14 = v25[0];
+    v15 = v9 + 1;
+    if ( *(_QWORD **)(v25[0] + 8LL) != v25 )
 LABEL_17:
       __fastfail(3u);
-    *v10 = v14[0];
-    v10[1] = v14;
-    *(_QWORD *)(v9 + 8) = v10;
-    v14[0] = v10;
+    *v15 = v25[0];
+    v15[1] = v25;
+    *(_QWORD *)(v14 + 8) = v15;
+    v25[0] = v15;
     v5 = (_QWORD *)*v5;
   }
-  _InterlockedDecrement((volatile signed __int32 *)(v4 + 16));
   ExReleasePushLockSharedEx(v4, 0LL);
   KeLeaveCriticalRegion();
-  DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v15);
-  for ( i = (_QWORD *)v14[0]; i != v14; i = (_QWORD *)*i )
+  DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v26, v17);
+  for ( i = (_QWORD *)v25[0]; i != v25; i = (_QWORD *)*i )
   {
-    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v16, (struct DXGFASTMUTEX *const)(*(i - 1) + 104LL), 0);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v16);
+    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)&v27, *(struct DXGFASTMUTEX *const *)(*(i - 1) + 104LL), 0);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v27);
     DXGPROCESS::ApplyCsFunction(*(i - 1), a2);
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v16);
-    if ( v16[8] )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v16);
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v27, v19);
+    if ( (_BYTE)v28 )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v27, v20);
   }
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v15);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v26);
   while ( 1 )
   {
-    v12 = v14[0];
-    if ( (_QWORD *)v14[0] == v14 )
+    v22 = v25[0];
+    if ( (_QWORD *)v25[0] == v25 )
       break;
-    if ( *(_QWORD **)(v14[0] + 8LL) != v14 )
+    if ( *(_QWORD **)(v25[0] + 8LL) != v25 )
       goto LABEL_17;
-    v13 = *(_QWORD *)v14[0];
-    if ( *(_QWORD *)(*(_QWORD *)v14[0] + 8LL) != v14[0] )
+    v23 = *(_QWORD *)v25[0];
+    if ( *(_QWORD *)(*(_QWORD *)v25[0] + 8LL) != v25[0] )
       goto LABEL_17;
-    v14[0] = *(_QWORD *)v14[0];
-    *(_QWORD *)(v13 + 8) = v14;
-    DXGPROCESS::ReleaseReference(*(DXGPROCESS **)(v12 - 8));
-    operator delete((void *)(v12 - 8));
+    v25[0] = *(_QWORD *)v25[0];
+    *(_QWORD *)(v23 + 8) = v25;
+    DXGPROCESS::ReleaseReference(*(DXGPROCESS **)(v22 - 8), v21);
+    operator delete((void *)(v22 - 8));
   }
-  DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v15);
-  if ( v15[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v15);
+  DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v26, v21);
+  if ( v26[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v26, v24);
 }

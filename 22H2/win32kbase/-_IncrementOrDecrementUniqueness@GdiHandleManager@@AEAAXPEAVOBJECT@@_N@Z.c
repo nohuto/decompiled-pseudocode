@@ -1,58 +1,56 @@
 /*
- * XREFs of ?_IncrementOrDecrementUniqueness@GdiHandleManager@@AEAAXPEAVOBJECT@@_N@Z @ 0x1C0236010
+ * XREFs of ?_IncrementOrDecrementUniqueness@GdiHandleManager@@AEAAXPEAVOBJECT@@_N@Z @ 0x1C0017368
  * Callers:
- *     ?bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BASEOBJECT@@@Z @ 0x1C003D250 (-bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BA.c)
+ *     ?bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BASEOBJECT@@@Z @ 0x1C0036120 (-bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BA.c)
  * Callees:
- *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C0043040 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00442B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
- *     ?GetEtwGdiHandleType@@YA?AW4EtwGdiHandleType@@E@Z @ 0x1C0046EB0 (-GetEtwGdiHandleType@@YA-AW4EtwGdiHandleType@@E@Z.c)
- *     EtwTraceGdiTransformHandle @ 0x1C0060CBC (EtwTraceGdiTransformHandle.c)
+ *     EtwTraceGdiTransformHandle @ 0x1C00175DC (EtwTraceGdiTransformHandle.c)
+ *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C002FE00 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00313F0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?GetEtwGdiHandleType@@YA?AW4EtwGdiHandleType@@E@Z @ 0x1C00335E0 (-GetEtwGdiHandleType@@YA-AW4EtwGdiHandleType@@E@Z.c)
  */
 
-void __fastcall GdiHandleManager::_IncrementOrDecrementUniqueness(
-        GdiHandleEntryDirectory **this,
-        struct OBJECT *a2,
-        char a3)
+void __fastcall GdiHandleManager::_IncrementOrDecrementUniqueness(GdiHandleManager *this, struct OBJECT *a2, char a3)
 {
   __int64 v3; // rbx
   __int64 v7; // rbp
+  __int64 v8; // rcx
   struct _ENTRY *EntryFromObject; // r10
-  char v9; // cl
-  char v10; // dl
-  char v11; // cl
-  unsigned __int64 v12; // rcx
-  unsigned __int64 v13; // r8
-  __int64 v14; // rax
+  char v10; // cl
+  char v11; // dl
+  char v12; // cl
+  unsigned __int64 v13; // rcx
+  unsigned __int64 v14; // r8
+  __int64 v15; // rax
   unsigned int EtwGdiHandleType; // eax
-  __int64 v16; // r9
   __int64 v17; // rdx
 
   v3 = *(_QWORD *)a2;
-  v7 = (unsigned int)GdiHandleManager::DecodeIndex(
-                       this,
-                       (unsigned __int16)*(_QWORD *)a2 | ((unsigned int)*(_QWORD *)a2 >> 8) & 0xFF0000);
+  v7 = GdiHandleManager::DecodeIndex(
+         this,
+         (unsigned __int16)*(_QWORD *)a2 | ((unsigned int)*(_QWORD *)a2 >> 8) & 0xFF0000);
   EntryFromObject = GdiHandleManager::GetEntryFromObject(this, a2);
   if ( (unsigned int)v7 >= 0x10000 || *(_DWORD *)this > 0x10000u )
   {
-    EtwGdiHandleType = GetEtwGdiHandleType(*((_BYTE *)EntryFromObject + 14));
+    LOBYTE(v8) = *((_BYTE *)EntryFromObject + 14);
+    EtwGdiHandleType = GetEtwGdiHandleType(v8);
     v17 = v3;
   }
   else
   {
-    v9 = *((_BYTE *)EntryFromObject + 13);
-    v10 = v9 - 1;
-    v11 = v9 + 1;
+    v10 = *((_BYTE *)EntryFromObject + 13);
+    v11 = v10 - 1;
+    v12 = v10 + 1;
     if ( !a3 )
-      v11 = v10;
-    *((_BYTE *)EntryFromObject + 13) = v11;
-    v12 = v7 | ((unsigned __int64)*((unsigned __int16 *)EntryFromObject + 6) << 16);
-    *(_QWORD *)a2 = v12;
-    v13 = *(_QWORD *)EntryFromObject & 0xFFFFFFFFFF000000uLL | ((unsigned int)v12 >> 8) & 0xFF0000;
-    v14 = (unsigned __int16)v12;
-    LOBYTE(v12) = *((_BYTE *)EntryFromObject + 14);
-    *(_QWORD *)EntryFromObject = v14 | v13;
-    EtwGdiHandleType = GetEtwGdiHandleType(v12);
+      v12 = v11;
+    *((_BYTE *)EntryFromObject + 13) = v12;
+    v13 = v7 | ((unsigned __int64)*((unsigned __int16 *)EntryFromObject + 6) << 16);
+    *(_QWORD *)a2 = v13;
+    v14 = *(_QWORD *)EntryFromObject & 0xFFFFFFFFFF000000uLL | ((unsigned int)v13 >> 8) & 0xFF0000;
+    v15 = (unsigned __int16)v13;
+    LOBYTE(v13) = *((_BYTE *)EntryFromObject + 14);
+    *(_QWORD *)EntryFromObject = v15 | v14;
+    EtwGdiHandleType = GetEtwGdiHandleType(v13);
     v17 = *(_QWORD *)a2;
   }
-  EtwTraceGdiTransformHandle(v3, v17, EtwGdiHandleType, v16);
+  EtwTraceGdiTransformHandle(v3, v17, EtwGdiHandleType);
 }

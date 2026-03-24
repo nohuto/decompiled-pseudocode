@@ -1,8 +1,8 @@
 /*
- * XREFs of MiReleaseLargePteMappings @ 0x1402C389C
+ * XREFs of MiReleaseLargePteMappings @ 0x1402C399C
  * Callers:
  *     MiInsertCachedPte @ 0x1400344D0 (MiInsertCachedPte.c)
- *     MiEmptyPteBins @ 0x1400EFBF0 (MiEmptyPteBins.c)
+ *     MiEmptyPteBins @ 0x1400EFC10 (MiEmptyPteBins.c)
  * Callees:
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
@@ -12,11 +12,11 @@
  *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiInsertLargeTbFlushEntry @ 0x140121464 (MiInsertLargeTbFlushEntry.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiInsertLargeTbFlushEntry @ 0x140121484 (MiInsertLargeTbFlushEntry.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiReleaseLargePteMappings(__int64 a1, _DWORD *a2, BOOL a3)

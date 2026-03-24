@@ -1,18 +1,17 @@
 /*
- * XREFs of HUBPDO_EvtDeviceD0Exit @ 0x1C00188D0
+ * XREFs of HUBPDO_EvtDeviceD0Exit @ 0x1C00183B0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000C094 (McTemplateK0pqq_EtwWriteTransfer.c)
- *     McTemplateK0pqqh_EtwWriteTransfer @ 0x1C000C10C (McTemplateK0pqqh_EtwWriteTransfer.c)
- *     HUBMISC_WaitForSignal @ 0x1C0030194 (HUBMISC_WaitForSignal.c)
- *     HUBIDLE_AddEvent @ 0x1C003C168 (HUBIDLE_AddEvent.c)
- *     SleepstudyHelper_ComponentInactive @ 0x1C00423B8 (SleepstudyHelper_ComponentInactive.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     WMI_FireNotification @ 0x1C0086B48 (WMI_FireNotification.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000BCAC (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqh_EtwWriteTransfer @ 0x1C000BD24 (McTemplateK0pqqh_EtwWriteTransfer.c)
+ *     HUBMISC_WaitForSignal @ 0x1C002FAF4 (HUBMISC_WaitForSignal.c)
+ *     HUBIDLE_AddEvent @ 0x1C003BAF4 (HUBIDLE_AddEvent.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     WMI_FireNotification @ 0x1C0084F0C (WMI_FireNotification.c)
  */
 
 __int64 __fastcall HUBPDO_EvtDeviceD0Exit(unsigned __int64 a1, int a2)
@@ -41,14 +40,14 @@ __int64 __fastcall HUBPDO_EvtDeviceD0Exit(unsigned __int64 a1, int a2)
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, unsigned __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00670F8);
+         off_1C00660D0);
   v5 = *(_QWORD *)(v4 + 24);
   *(_DWORD *)(v4 + 384) = a2;
   v24 = 0LL;
   if ( (*(_DWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
                       WdfDriverGlobals,
                       WdfDriverGlobals->Driver,
-                      off_1C00671E8)
+                      off_1C00661C0)
                   + 4) & 0x1000) != 0
     && EtwActivityIdControl(3u, (LPGUID)(v5 + 2176)) >= 0 )
   {
@@ -81,8 +80,6 @@ __int64 __fastcall HUBPDO_EvtDeviceD0Exit(unsigned __int64 a1, int a2)
   else if ( !v8 && (*(_DWORD *)(v5 + 1632) & 0x400) == 0 )
   {
     v17 = 0LL;
-    DWORD1(v19) = 0;
-    HIDWORD(v18[0]) = 0;
     _InterlockedOr((volatile signed __int32 *)(v5 + 1632), 0x400u);
     v23 = 0LL;
     v18[0] = 24LL;
@@ -110,7 +107,7 @@ __int64 __fastcall HUBPDO_EvtDeviceD0Exit(unsigned __int64 a1, int a2)
         2u,
         2u,
         0x48u,
-        (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
         v16);
     }
   }
@@ -136,7 +133,7 @@ __int64 __fastcall HUBPDO_EvtDeviceD0Exit(unsigned __int64 a1, int a2)
             3u,
             5u,
             0x49u,
-            (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+            (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
             v16);
         }
         _InterlockedAnd((volatile signed __int32 *)(v4 + 32), 0xFFFFFFFB);
@@ -158,8 +155,6 @@ LABEL_26:
   v13 = *(_QWORD *)(v4 + 392);
   if ( v13 )
     SleepstudyHelper_ComponentInactive();
-  if ( (*(_DWORD *)(*(_QWORD *)(v5 + 8) + 204LL) & 0x800) != 0 )
-    PoFxIdleComponent(*(_QWORD *)(*(_QWORD *)v5 + 2608LL), 0LL, 2LL);
   if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink & 4) != 0 )
   {
     LODWORD(v16) = v8;

@@ -1,7 +1,7 @@
 /*
- * XREFs of Short2Bcd @ 0x1C004E4A4
+ * XREFs of Short2Bcd @ 0x1C004F8C8
  * Callers:
- *     UsbhGetLocationIdString @ 0x1C004FDBC (UsbhGetLocationIdString.c)
+ *     UsbhGetLocationIdString @ 0x1C0051374 (UsbhGetLocationIdString.c)
  * Callees:
  *     <none>
  */

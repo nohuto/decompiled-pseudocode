@@ -1,9 +1,9 @@
 /*
- * XREFs of NVMeWriteBufferFirmwareDownloadCompletion @ 0x1C0018650
+ * XREFs of NVMeWriteBufferFirmwareDownloadCompletion @ 0x1C0015E70
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
  */
 
 __int64 __fastcall NVMeWriteBufferFirmwareDownloadCompletion(__int64 a1, __int64 a2)
@@ -15,13 +15,13 @@ __int64 __fastcall NVMeWriteBufferFirmwareDownloadCompletion(__int64 a1, __int64
 
   result = GetSrbExtension(a2);
   v4 = result;
-  if ( (*(_DWORD *)(v3 + 64) & 8) != 0 || (v5 = *(_QWORD *)(result + 4216)) == 0 )
+  if ( (*(_DWORD *)(v3 + 56) & 8) != 0 || (v5 = *(_QWORD *)(result + 4216)) == 0 )
   {
     *(_DWORD *)(result + 4216) = 0;
   }
   else
   {
-    result = StorPortExtendedFunction(1LL, v3, v5);
+    result = StorPortExtendedFunction(1LL, v3, v5, v3);
     *(_QWORD *)(v4 + 4216) = 0LL;
   }
   *(_BYTE *)(v4 + 4253) |= 8u;

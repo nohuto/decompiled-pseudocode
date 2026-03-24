@@ -1,12 +1,13 @@
 /*
- * XREFs of CmpAddSubKey @ 0x1408AC1BE
+ * XREFs of CmpAddSubKey @ 0x14087A3E8
  * Callers:
- *     CmpCreateTombstone @ 0x140616EBC (CmpCreateTombstone.c)
+ *     CmpCreateTombstone @ 0x1404ED49C (CmpCreateTombstone.c)
+ *     CmpCreateChild @ 0x1406E08C4 (CmpCreateChild.c)
  * Callees:
- *     CmpAddSubKeyEx @ 0x140708618 (CmpAddSubKeyEx.c)
+ *     CmpAddSubKeyEx @ 0x1406E19D4 (CmpAddSubKeyEx.c)
  */
 
-__int64 __fastcall CmpAddSubKey(ULONG_PTR a1, ULONG_PTR a2, unsigned int a3)
+char __fastcall CmpAddSubKey(ULONG_PTR a1, __int64 a2, unsigned int a3)
 {
   return CmpAddSubKeyEx(a1, a2, a3, 0);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpCheckLowMemoryPreSleep @ 0x140A96E08
+ * XREFs of HalpCheckLowMemoryPreSleep @ 0x1409A81DC
  * Callers:
- *     HaliAcpiSleep @ 0x140528000 (HaliAcpiSleep.c)
+ *     HaliAcpiSleep @ 0x140385840 (HaliAcpiSleep.c)
  * Callees:
- *     IoGetStackLimits @ 0x14022E950 (IoGetStackLimits.c)
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     RtlClearAllBits @ 0x140290C30 (RtlClearAllBits.c)
- *     HalpUnmapVirtualAddress @ 0x14037E7D0 (HalpUnmapVirtualAddress.c)
- *     HalpMapPhysicalMemory64 @ 0x14040F0F0 (HalpMapPhysicalMemory64.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpSimpleCheck @ 0x140A97250 (HalpSimpleCheck.c)
+ *     IoGetStackLimits @ 0x1402D0BB0 (IoGetStackLimits.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     RtlClearAllBits @ 0x140361940 (RtlClearAllBits.c)
+ *     HalpUnmapVirtualAddress @ 0x1403BB230 (HalpUnmapVirtualAddress.c)
+ *     HalpMapPhysicalMemory64 @ 0x1403EF780 (HalpMapPhysicalMemory64.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpSimpleCheck @ 0x1409A82FC (HalpSimpleCheck.c)
  */
 
 void __fastcall HalpCheckLowMemoryPreSleep(int a1)
@@ -18,11 +18,10 @@ void __fastcall HalpCheckLowMemoryPreSleep(int a1)
   unsigned __int64 v2; // rdi
   PHYSICAL_ADDRESS v3; // rax
   unsigned __int64 i; // rbx
-  unsigned __int64 v5; // r8
-  unsigned __int64 v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  unsigned __int64 v9; // r9
+  unsigned __int64 v5; // rax
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  unsigned __int64 v8; // r9
   unsigned __int64 LowLimit; // [rsp+38h] [rbp+10h] BYREF
   unsigned __int64 HighLimit; // [rsp+40h] [rbp+18h] BYREF
 
@@ -38,21 +37,20 @@ void __fastcall HalpCheckLowMemoryPreSleep(int a1)
     {
       v3.QuadPart = MmGetPhysicalAddress(v1).QuadPart >> 12;
       if ( v3.QuadPart < 0x100uLL )
-        *((_BYTE *)HalpLowMemoryMapStack.Buffer + ((unsigned __int64)v3.LowPart >> 3)) |= 1 << (v3.LowPart & 7);
+        _bittestandset((signed __int32 *)HalpLowMemoryMapStack.Buffer, v3.LowPart);
       v1 += 4096;
     }
     memset(HalpPhysicalMemoryCheckSums, 0, sizeof(HalpPhysicalMemoryCheckSums));
     for ( i = 0LL; i < 0x100; ++i )
     {
-      v5 = (unsigned __int64)(unsigned int)i >> 3;
-      if ( ((*((char *)HalpLowMemoryMap.Buffer + v5) >> (i & 7)) & 1) == 0
-        && ((*((char *)HalpLowMemoryMapStack.Buffer + v5) >> (i & 7)) & 1) == 0 )
+      if ( !_bittest((const signed __int32 *)HalpLowMemoryMap.Buffer, i)
+        && !_bittest((const signed __int32 *)HalpLowMemoryMapStack.Buffer, i) )
       {
-        v6 = HalpMapPhysicalMemory64(i << 12, 1LL, 0, 4LL);
-        if ( v6 )
+        v5 = HalpMapPhysicalMemory64(i << 12, 1LL, 0, 4LL);
+        if ( v5 )
         {
-          HalpPhysicalMemoryCheckSums[i] = HalpSimpleCheck(v6, v7, v8, v6);
-          HalpUnmapVirtualAddress(v9, 1LL, 0LL);
+          HalpPhysicalMemoryCheckSums[i] = HalpSimpleCheck(v5, v6, v7, v5);
+          HalpUnmapVirtualAddress(v8, 1LL, 0LL);
         }
       }
     }

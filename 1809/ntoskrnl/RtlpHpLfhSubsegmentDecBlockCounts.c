@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentDecBlockCounts @ 0x1402FD530
+ * XREFs of RtlpHpLfhSubsegmentDecBlockCounts @ 0x1402FD630
  * Callers:
- *     RtlpHpLfhSubsegmentFreeBlock @ 0x1400BEE10 (RtlpHpLfhSubsegmentFreeBlock.c)
- *     RtlpHpLfhSubsegmentCommitBlock @ 0x1402FD218 (RtlpHpLfhSubsegmentCommitBlock.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x1402FD5FC (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x1400BEE30 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpHpLfhSubsegmentCommitBlock @ 0x1402FD318 (RtlpHpLfhSubsegmentCommitBlock.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x1402FD6FC (RtlpHpLfhSubsegmentDecommitPages.c)
  * Callees:
  *     <none>
  */

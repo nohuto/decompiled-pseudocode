@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlDestroyAtomTable @ 0x1406AB410
+ * XREFs of RtlDestroyAtomTable @ 0x1406A1340
  * Callers:
- *     RtlDereferenceAtomTable @ 0x140232ED8 (RtlDereferenceAtomTable.c)
+ *     RtlDereferenceAtomTable @ 0x1402BC5EC (RtlDereferenceAtomTable.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     RtlpFreeAtom @ 0x1406AB544 (RtlpFreeAtom.c)
- *     ExpFreeHandleTable @ 0x1406AC130 (ExpFreeHandleTable.c)
- *     ExpRemoveHandleTable @ 0x1406AC404 (ExpRemoveHandleTable.c)
- *     RtlpLockAtomTable @ 0x1407A0EA0 (RtlpLockAtomTable.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExpFreeHandleTable @ 0x140604378 (ExpFreeHandleTable.c)
+ *     ExpRemoveHandleTable @ 0x140604524 (ExpRemoveHandleTable.c)
+ *     RtlpLockAtomTable @ 0x14061BA14 (RtlpLockAtomTable.c)
+ *     RtlpFreeAtom @ 0x1406A156C (RtlpFreeAtom.c)
  */
 
 __int64 __fastcall RtlDestroyAtomTable(__int64 a1)
@@ -18,14 +18,14 @@ __int64 __fastcall RtlDestroyAtomTable(__int64 a1)
   _QWORD **i; // r14
   _QWORD *v4; // rsi
   _QWORD *v5; // r15
-  void *v6; // rbx
+  _QWORD *v6; // rbx
   _QWORD **v8; // r12
   _QWORD *v9; // rcx
   _QWORD *v10; // rax
 
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4), 0xFFFFFFFF) != 1 )
     return 0LL;
-  if ( (unsigned __int8)RtlpLockAtomTable() )
+  if ( RtlpLockAtomTable((_DWORD *)a1) )
   {
     v2 = 0;
     for ( i = (_QWORD **)(a1 + 32); v2 < *(_DWORD *)(a1 + 28); ++v2 )
@@ -59,8 +59,8 @@ __int64 __fastcall RtlDestroyAtomTable(__int64 a1)
       ExfTryToWakePushLock(a1 + 8);
     KeAbPostRelease(a1 + 8);
     KeLeaveCriticalRegion();
-    v6 = *(void **)(a1 + 16);
-    ExpRemoveHandleTable(v6);
+    v6 = *(_QWORD **)(a1 + 16);
+    ExpRemoveHandleTable((__int64)v6);
     ExpFreeHandleTable(v6);
     *(_OWORD *)a1 = 0LL;
     *(_OWORD *)(a1 + 16) = 0LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of CreateNewEventEntry @ 0x1C0046940
+ * XREFs of CreateNewEventEntry @ 0x1C003DD44
  * Callers:
- *     InsertEventEntryInLookUpTable @ 0x1C0046DB4 (InsertEventEntryInLookUpTable.c)
+ *     InsertEventEntryInLookUpTable @ 0x1C003E1C0 (InsertEventEntryInLookUpTable.c)
  * Callees:
- *     memmove @ 0x1C001D980 (memmove.c)
- *     memset @ 0x1C001DC40 (memset.c)
- *     CBufferGetNextOffset @ 0x1C00467F0 (CBufferGetNextOffset.c)
+ *     memmove @ 0x1C0018C00 (memmove.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     CBufferGetNextOffset @ 0x1C003DBF4 (CBufferGetNextOffset.c)
  */
 
 __int64 __fastcall CreateNewEventEntry(
@@ -19,15 +19,15 @@ __int64 __fastcall CreateNewEventEntry(
 {
   unsigned __int8 v7; // di
   __int64 v8; // rbp
-  __int64 v11; // r9
-  __int64 v12; // r8
-  unsigned __int8 v13; // r10
+  __int64 v11; // r8
+  __int64 v12; // r10
+  unsigned __int8 v13; // r9
   unsigned int *v14; // rdx
   __int64 v15; // rcx
   __int64 v16; // rax
-  SIZE_T v18; // rsi
+  SIZE_T v18; // r14
   PVOID PoolWithTag; // rax
-  __int64 v20; // r14
+  __int64 v20; // rbx
   __int64 NextOffset; // r12
   unsigned int v22; // edx
   void *v23; // rbx
@@ -66,18 +66,19 @@ __int64 __fastcall CreateNewEventEntry(
       v11 = v16;
     }
     while ( v13 < (unsigned __int8)v8 );
-    if ( (unsigned __int64)(v12 + v16) > 0xFFFF )
-      return 3221225621LL;
   }
+  if ( (unsigned __int64)(v12 + v11) > 0xFFFF )
+    return 3221225621LL;
   v18 = v12 + 16 * v8 + 46;
   if ( !v18 )
     return 3221225495LL;
   PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)(a1 != 0 ? PagedPool : 512), v18, 0x47417254u);
   v20 = (__int64)PoolWithTag;
-  if ( !PoolWithTag )
-    return 3221225495LL;
-  memset(PoolWithTag, 0, v18);
+  if ( PoolWithTag )
+    memset(PoolWithTag, 0, v18);
   v35[0] = v20;
+  if ( !v20 )
+    return 3221225495LL;
   v35[1] = v18;
   NextOffset = CBufferGetNextOffset(v35, 16 * v8);
   if ( a5 != -2 )

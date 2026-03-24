@@ -1,82 +1,76 @@
 /*
- * XREFs of ??$AcquireDdiEnumeratorCachedModeInfo@V?$binder2nd@V?$mem_fun1_t@PEAVDMMVIDPNTARGETMODE@@VDMMVIDPNTARGETMODESET@@PEBV1@@KM_STL@@@KM_STL@@@DMMVIDPNTARGETMODESET@@QEAAJV?$binder2nd@V?$mem_fun1_t@PEAVDMMVIDPNTARGETMODE@@VDMMVIDPNTARGETMODESET@@PEBV1@@KM_STL@@@KM_STL@@PEAPEBU_D3DKMDT_VIDPN_TARGET_MODE@@@Z @ 0x1C0206E40
+ * XREFs of ??$AcquireDdiEnumeratorCachedModeInfo@V?$binder2nd@V?$mem_fun1_t@PEAVDMMVIDPNTARGETMODE@@VDMMVIDPNTARGETMODESET@@PEBV1@@KM_STL@@@KM_STL@@@DMMVIDPNTARGETMODESET@@QEAAJV?$binder2nd@V?$mem_fun1_t@PEAVDMMVIDPNTARGETMODE@@VDMMVIDPNTARGETMODESET@@PEBV1@@KM_STL@@@KM_STL@@PEAPEBU_D3DKMDT_VIDPN_TARGET_MODE@@@Z @ 0x1C011DF6C
  * Callers:
- *     ?AcquireNextModeInfo@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@QEBU_D3DKMDT_VIDPN_TARGET_MODE@@PEAPEBU3@@Z @ 0x1C0206CE0 (-AcquireNextModeInfo@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMOD.c)
- *     ?AcquireNextModeInfo@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@QEBU_D3DKMDT_VIDPN_TARGET_MODE@@PEAPEBU3@@Z @ 0x1C03B7940 (-AcquireNextModeInfo@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODES.c)
+ *     ?AcquireNextModeInfo@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@QEBU_D3DKMDT_VIDPN_TARGET_MODE@@PEAPEBU3@@Z @ 0x1C011DDF0 (-AcquireNextModeInfo@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODES.c)
+ *     ?AcquireNextModeInfo@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@QEBU_D3DKMDT_VIDPN_TARGET_MODE@@PEAPEBU3@@Z @ 0x1C011E440 (-AcquireNextModeInfo@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMOD.c)
  * Callees:
- *     ?CreateInstance@?$SetEnumerator@U_D3DKMDT_VIDPN_TARGET_MODE@@@?$Set@VDMMVIDPNTARGETMODE@@@@SAPEAV12@QEBVDMMVIDPNTARGETMODE@@@Z @ 0x1C0002818 (-CreateInstance@-$SetEnumerator@U_D3DKMDT_VIDPN_TARGET_MODE@@@-$Set@VDMMVIDPNTARGETMODE@@@@SAPEA.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?SupportVirtualRefreshRate@DMMVIDPNTARGETMODE@@QEBA_NXZ @ 0x1C01735E4 (-SupportVirtualRefreshRate@DMMVIDPNTARGETMODE@@QEBA_NXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
 __int64 __fastcall DMMVIDPNTARGETMODESET::AcquireDdiEnumeratorCachedModeInfo<KM_STL::binder2nd<KM_STL::mem_fun1_t<DMMVIDPNTARGETMODE *,DMMVIDPNTARGETMODESET,DMMVIDPNTARGETMODE const *>>>(
         __int64 a1,
         __int64 a2,
-        __int64 *a3)
+        _QWORD *a3)
 {
   unsigned int v3; // ebx
-  __int64 v7; // rax
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rbp
-  __int64 Instance; // rdi
-  __int64 v14; // rdi
-  __int64 v15; // rsi
-  __int64 v16; // rsi
-  __int64 v17; // rsi
-  int v18; // eax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rbp
+  _QWORD *v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  _QWORD *v15; // rdi
+  __int128 v16; // xmm0
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
 
   v3 = 0;
   if ( !a3 )
-    WdLogSingleEntry0(1LL);
+  {
+    v18 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v18);
+  }
   *a3 = 0LL;
   if ( *(_BYTE *)(a1 + 136) )
   {
-    v7 = (*(__int64 (__fastcall **)(__int64, _QWORD))a2)(a1 + *(int *)(a2 + 8), *(_QWORD *)(a2 + 16));
-    v12 = v7;
-    if ( v7 )
+    v9 = (*(__int64 (__fastcall **)(__int64, _QWORD))a2)(a1 + *(int *)(a2 + 8), *(_QWORD *)(a2 + 16));
+    if ( v9 )
     {
-      Instance = Set<DMMVIDPNTARGETMODE>::SetEnumerator<_D3DKMDT_VIDPN_TARGET_MODE>::CreateInstance(v7);
-      if ( Instance )
+      v10 = operator new[](0x58uLL, 0x4E506456u, PagedPool);
+      v15 = v10;
+      if ( v10 )
       {
-        operator delete(0LL);
-        v14 = Instance + 16;
-        *(_DWORD *)v14 = *(_DWORD *)(v12 + 24);
-        *(_OWORD *)(v14 + 8) = *(_OWORD *)(v12 + 72);
-        *(_OWORD *)(v14 + 24) = *(_OWORD *)(v12 + 88);
-        *(_OWORD *)(v14 + 40) = *(_OWORD *)(v12 + 104);
-        *(_QWORD *)(v14 + 56) = *(_QWORD *)(v12 + 120);
-        *(_DWORD *)(v14 + 64) = *(_DWORD *)(v12 + 128);
-        if ( DMMVIDPNTARGETMODE::SupportVirtualRefreshRate((DMMVIDPNTARGETMODE *)v12) )
-        {
-          *(_QWORD *)(v14 + 68) = *(_QWORD *)(v12 + 144);
-        }
-        else
-        {
-          v15 = *(_QWORD *)(a1 + 112);
-          if ( !*(_QWORD *)(v15 + 40) )
-            WdLogSingleEntry0(1LL);
-          v16 = *(_QWORD *)(v15 + 40);
-          if ( !*(_QWORD *)(v16 + 72) )
-            WdLogSingleEntry0(1LL);
-          v17 = *(_QWORD *)(*(_QWORD *)(v16 + 72) + 48LL);
-          if ( !*(_QWORD *)(v17 + 8) )
-            WdLogSingleEntry0(1LL);
-          if ( (*(_DWORD *)(*(_QWORD *)(v17 + 8) + 24LL) & 0x20) != 0 )
-            v18 = -2;
-          else
-            v18 = -1;
-          *(_DWORD *)(v14 + 72) = v18;
-          *(_DWORD *)(v14 + 68) = v18;
-        }
-        *a3 = v14;
+        *(_DWORD *)v10 = 305419896;
+        v10[1] = v9;
+        memset(v10 + 2, 0, 0x48uLL);
       }
       else
       {
-        WdLogSingleEntry1(6LL, a1);
+        v15 = 0LL;
+      }
+      if ( v15 )
+      {
+        operator delete(0LL);
+        *((_DWORD *)v15 + 4) = *(_DWORD *)(v9 + 24);
+        v16 = *(_OWORD *)(v9 + 72);
+        *a3 = v15 + 2;
+        *(_OWORD *)(v15 + 3) = v16;
+        *(_OWORD *)(v15 + 5) = *(_OWORD *)(v9 + 88);
+        *(_OWORD *)(v15 + 7) = *(_OWORD *)(v9 + 104);
+        v15[9] = *(_QWORD *)(v9 + 120);
+        *((_DWORD *)v15 + 20) = *(_DWORD *)(v9 + 128);
+      }
+      else
+      {
+        v20 = WdLogNewEntry5_WdLowResource(v12, v11, v13, v14);
+        *(_QWORD *)(v20 + 24) = a1;
+        WdLogEvent5_WdLowResource(v20);
         v3 = -1073741801;
       }
       operator delete(0LL);
@@ -84,13 +78,15 @@ __int64 __fastcall DMMVIDPNTARGETMODESET::AcquireDdiEnumeratorCachedModeInfo<KM_
     }
     else
     {
-      *(_QWORD *)(WdLogNewEntry5_WdTrace(v9, v8, v10, v11) + 24) = a2;
+      *(_QWORD *)(WdLogNewEntry5_WdTrace(v8, v7) + 24) = a2;
       return 3223192394LL;
     }
   }
   else
   {
-    WdLogSingleEntry1(2LL, a1);
+    v19 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v19 + 24) = a1;
+    WdLogEvent5_WdError(v19);
     return 3223192352LL;
   }
 }

@@ -1,7 +1,7 @@
 /*
  * XREFs of MiGatherMappedPages @ 0x14007E6B0
  * Callers:
- *     MiMappedPageWriter @ 0x140180780 (MiMappedPageWriter.c)
+ *     MiMappedPageWriter @ 0x1401807A0 (MiMappedPageWriter.c)
  * Callees:
  *     MiMarkPfnVerified @ 0x14000F960 (MiMarkPfnVerified.c)
  *     FsRtlReleaseFileForModWrite @ 0x14001AF98 (FsRtlReleaseFileForModWrite.c)
@@ -22,16 +22,16 @@
  *     CcNotifyOfMappedWrite @ 0x14007D960 (CcNotifyOfMappedWrite.c)
  *     MiBuildMappedCluster @ 0x14007FF80 (MiBuildMappedCluster.c)
  *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     IoDiskIoAttributionDereference @ 0x140105834 (IoDiskIoAttributionDereference.c)
- *     MiDereferenceControlAreaPfnList @ 0x140119E0C (MiDereferenceControlAreaPfnList.c)
- *     MiReferencePageForModifiedWrite @ 0x14011BB74 (MiReferencePageForModifiedWrite.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     IoAsynchronousPageWrite @ 0x140134FF4 (IoAsynchronousPageWrite.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFlushFileOnlyMdl @ 0x1402B5D6C (MiFlushFileOnlyMdl.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     IoDiskIoAttributionDereference @ 0x140105854 (IoDiskIoAttributionDereference.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140119E2C (MiDereferenceControlAreaPfnList.c)
+ *     MiReferencePageForModifiedWrite @ 0x14011BB94 (MiReferencePageForModifiedWrite.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     IoAsynchronousPageWrite @ 0x140135014 (IoAsynchronousPageWrite.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFlushFileOnlyMdl @ 0x1402B5E6C (MiFlushFileOnlyMdl.c)
  */
 
 __int64 __fastcall MiGatherMappedPages(__int64 a1, unsigned int a2, __int64 a3)

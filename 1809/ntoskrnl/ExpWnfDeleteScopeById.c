@@ -2,15 +2,15 @@
  * XREFs of ExpWnfDeleteScopeById @ 0x140608860
  * Callers:
  *     ExWnfExitProcess @ 0x140607A48 (ExWnfExitProcess.c)
- *     MiDereferenceSessionFinal @ 0x1406E05D8 (MiDereferenceSessionFinal.c)
+ *     MiDereferenceSessionFinal @ 0x1406E05B8 (MiDereferenceSessionFinal.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
  *     ExpWnfFindScopeInstance @ 0x140610984 (ExpWnfFindScopeInstance.c)
- *     ExpWnfFreeScopeInstance @ 0x1406CBFE0 (ExpWnfFreeScopeInstance.c)
+ *     ExpWnfFreeScopeInstance @ 0x1406CBFC0 (ExpWnfFreeScopeInstance.c)
  */
 
 _QWORD *__fastcall ExpWnfDeleteScopeById(unsigned int a1, __int64 a2, unsigned int a3)

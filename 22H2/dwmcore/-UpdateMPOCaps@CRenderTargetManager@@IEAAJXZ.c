@@ -1,43 +1,54 @@
 /*
- * XREFs of ?UpdateMPOCaps@CRenderTargetManager@@IEAAJXZ @ 0x18010AC54
+ * XREFs of ?UpdateMPOCaps@CRenderTargetManager@@IEAAJXZ @ 0x1801638E8
  * Callers:
- *     ?ProcessComposition@CComposition@@IEAAXPEA_N@Z @ 0x18004F0DC (-ProcessComposition@CComposition@@IEAAXPEA_N@Z.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x180070200 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?InternalQueryInterface@?$CMILCOMBaseT@UIUnknown@@@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180051778 (-InternalQueryInterface@-$CMILCOMBaseT@UIUnknown@@@@IEAAJAEBU_GUID@@PEAPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?EndTargetEnumeration@CRenderTargetManager@@AEAAXXZ @ 0x1800F9510 (-EndTargetEnumeration@CRenderTargetManager@@AEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?EndTargetEnumeration@CRenderTargetManager@@AEAAXXZ @ 0x18006C7D0 (-EndTargetEnumeration@CRenderTargetManager@@AEAAXXZ.c)
+ *     ?InternalQueryInterface@CMILCOMBase@@QEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18006EFD0 (-InternalQueryInterface@CMILCOMBase@@QEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRenderTargetManager::UpdateMPOCaps(CRenderTargetManager *this)
 {
-  __int64 *v2; // r14
-  int v3; // edi
-  __int64 *i; // rbx
-  __int64 v6; // rcx
+  CMILCOMBase **v1; // r14
+  int v3; // ebx
+  __int64 v4; // rbp
+  unsigned __int64 v5; // rsi
+  CMILCOMBase *v6; // rcx
   int v7; // eax
   __int64 v8; // rcx
-  int v9; // ebp
-  __int64 v10; // [rsp+50h] [rbp+8h] BYREF
+  int v9; // edi
+  void *v11; // [rsp+60h] [rbp+8h] BYREF
 
-  *((_BYTE *)this + 576) = 1;
-  v2 = (__int64 *)*((_QWORD *)this + 2);
+  *((_BYTE *)this + 128) = 1;
+  v1 = (CMILCOMBase **)*((_QWORD *)this + 1);
   v3 = 0;
-  for ( i = (__int64 *)*((_QWORD *)this + 1); i != v2; ++i )
+  v4 = 0LL;
+  v5 = (unsigned __int64)(*((_QWORD *)this + 2) - (_QWORD)v1 + 7LL) >> 3;
+  if ( (unsigned __int64)v1 > *((_QWORD *)this + 2) )
+    v5 = 0LL;
+  if ( v5 )
   {
-    v6 = *i;
-    v10 = 0LL;
-    if ( (int)CMILCOMBaseT<IUnknown>::InternalQueryInterface(v6, &GUID_246c9be3_da00_417e_8eb0_aefc3aebe2a9, &v10) >= 0 )
+    do
     {
-      v7 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v10 + 72LL))(v10);
-      v9 = v7;
-      if ( v7 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x1BBu, 0LL);
-      if ( !v3 || v3 >= 0 && v9 < 0 )
-        v3 = v9;
+      v6 = *v1;
+      v11 = 0LL;
+      if ( (int)CMILCOMBase::InternalQueryInterface(v6, &GUID_246c9be3_da00_417e_8eb0_aefc3aebe2a9, &v11) >= 0 )
+      {
+        v7 = (*(__int64 (__fastcall **)(void *, _QWORD))(*(_QWORD *)v11 + 72LL))(v11, 0LL);
+        v9 = v7;
+        if ( v7 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x1B6u, 0LL);
+        if ( !v3 || v3 >= 0 && v9 < 0 )
+          v3 = v9;
+      }
+      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v11);
+      ++v1;
+      ++v4;
     }
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v10);
+    while ( v4 != v5 );
   }
   CRenderTargetManager::EndTargetEnumeration(this);
   return (unsigned int)v3;

@@ -1,86 +1,85 @@
 /*
- * XREFs of xInsertMetricsRFONTOBJ @ 0x1C015EB50
+ * XREFs of xInsertMetricsRFONTOBJ @ 0x1C009D620
  * Callers:
- *     ?bInsertMetrics@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z @ 0x1C02B47AC (-bInsertMetrics@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z.c)
+ *     ?bInsertMetrics@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z @ 0x1C009D7AC (-bInsertMetrics@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z.c)
  * Callees:
- *     ?bCheckMetricsCache@RFONTOBJ@@QEAAHXZ @ 0x1C007F750 (-bCheckMetricsCache@RFONTOBJ@@QEAAHXZ.c)
- *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C0080918 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
- *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C0080E54 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C0099730 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
+ *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C009A248 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
+ *     ?bCheckMetricsCache@RFONTOBJ@@QEAAHXZ @ 0x1C009CB0C (-bCheckMetricsCache@RFONTOBJ@@QEAAHXZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-__int64 __fastcall xInsertMetricsRFONTOBJ(RFONTOBJ *this, _QWORD *a2, __int64 a3)
+__int64 __fastcall xInsertMetricsRFONTOBJ(RFONTOBJ *this, _QWORD *a2, unsigned __int16 a3)
 {
-  __int64 v5; // r9
-  __int64 v6; // rbp
-  unsigned int v7; // esi
-  __int64 v8; // rbx
-  __int64 v9; // rcx
-  __int64 v11; // rbp
-  BOOL v12; // r14d
-  bool v13; // zf
-  struct _GLYPHDATA *v14; // rax
-  __int64 v15; // rax
-  unsigned __int16 v16; // [rsp+40h] [rbp-98h] BYREF
-  unsigned int v17; // [rsp+48h] [rbp-90h] BYREF
-  __int64 v18; // [rsp+50h] [rbp-88h] BYREF
-  struct _GLYPHDATA v19; // [rsp+60h] [rbp-78h] BYREF
+  __int64 v3; // rdi
+  unsigned int v4; // ebx
+  __int64 v7; // r14
+  unsigned int v8; // ebp
+  __int64 v9; // r14
+  BOOL v10; // r15d
+  struct _GLYPHDATA *v11; // rax
+  __int64 v12; // rax
+  __int64 v14; // rax
+  unsigned __int16 v15; // [rsp+40h] [rbp-A8h] BYREF
+  unsigned int v16; // [rsp+48h] [rbp-A0h] BYREF
+  __int64 v17; // [rsp+50h] [rbp-98h] BYREF
+  struct _GLYPHDATA v18; // [rsp+60h] [rbp-88h] BYREF
 
-  v5 = *(unsigned int *)(*(_QWORD *)this + 84LL);
-  v6 = *(_QWORD *)(*(_QWORD *)this + 480LL);
-  if ( (v5 & 2) != 0 )
+  v3 = *(_QWORD *)this;
+  v4 = 0;
+  v7 = *(_QWORD *)(*(_QWORD *)this + 480LL);
+  if ( (*(_DWORD *)(*(_QWORD *)this + 84LL) & 2) != 0 )
   {
-    v17 = 0;
-    v16 = a3;
-    RFONTOBJ::vXlatGlyphArray(this, &v16, 1, &v17, 0, 0);
-    v7 = v17;
+    v15 = a3;
+    v16 = 0;
+    RFONTOBJ::vXlatGlyphArray(this, &v15, 1, &v16, 0, 0);
+    v8 = v16;
+    v3 = *(_QWORD *)this;
   }
   else
   {
-    v7 = (unsigned __int16)a3;
+    v8 = a3;
   }
-  v8 = *(_QWORD *)this;
-  if ( v7 == *(_DWORD *)(*(_QWORD *)this + 460LL) )
+  if ( v8 == *(_DWORD *)(v3 + 460) && (v14 = *(_QWORD *)(v7 + 8)) != 0 )
   {
-    v9 = *(_QWORD *)(v6 + 8);
-    if ( v9 )
-    {
-      *a2 = v9;
-      return 1LL;
-    }
+    *a2 = v14;
+    return 1LL;
   }
-  if ( (unsigned int)RFONTOBJ::bCheckMetricsCache(this, (__int64)a2, a3, v5) )
+  else if ( (unsigned int)RFONTOBJ::bCheckMetricsCache(this) )
   {
-    v11 = *(_QWORD *)this;
-    v12 = *(_DWORD *)(*(_QWORD *)this + 88LL) == 2;
-    memset_0(&v19, 0, sizeof(v19));
-    v13 = *(_DWORD *)(v11 + 640) == 0;
-    v18 = *(_QWORD *)(v11 + 128);
-    v14 = &v19;
-    if ( v13 )
-      v14 = *(struct _GLYPHDATA **)(v8 + 512);
+    v9 = *(_QWORD *)this;
+    v10 = *(_DWORD *)(*(_QWORD *)this + 88LL) == 2;
+    memset(&v18, 0, sizeof(v18));
+    v17 = *(_QWORD *)(v9 + 128);
+    v11 = &v18;
+    if ( !*(_DWORD *)(v9 + 640) )
+      v11 = *(struct _GLYPHDATA **)(v3 + 512);
     if ( (unsigned int)PFFOBJ::QueryFontData(
-                         (PFFOBJ *)&v18,
-                         *(struct DHPDEV__ **)(v11 + 112),
-                         (struct _FONTOBJ *)v11,
-                         v12 + 1,
-                         v7,
-                         v14,
+                         (PFFOBJ *)&v17,
+                         *(struct DHPDEV__ **)(v9 + 112),
+                         (struct _FONTOBJ *)v9,
+                         v10 + 1,
+                         v8,
+                         v11,
                          0LL,
                          0) != -1 )
     {
       if ( *(_DWORD *)(*(_QWORD *)this + 640LL) )
       {
-        v15 = *(_QWORD *)(v8 + 512);
-        *(_OWORD *)v15 = *(_OWORD *)&v19.gdf.pgb;
-        *(_QWORD *)(v15 + 16) = *(_QWORD *)&v19.fxA;
+        v12 = *(_QWORD *)(v3 + 512);
+        *(_OWORD *)v12 = *(_OWORD *)&v18.gdf.pgb;
+        *(_QWORD *)(v12 + 16) = *(_QWORD *)&v18.fxA;
       }
-      **(_QWORD **)(v8 + 512) = 0LL;
-      *a2 = *(_QWORD *)(v8 + 512);
-      *(_QWORD *)(v8 + 512) += (-(__int64)(*(_DWORD *)(*(_QWORD *)this + 640LL) != 0) & 0xFFFFFFFFFFFFFFD8uLL) + 64;
-      return 1LL;
+      **(_QWORD **)(v3 + 512) = 0LL;
+      v4 = 1;
+      *a2 = *(_QWORD *)(v3 + 512);
+      *(_QWORD *)(v3 + 512) += (-(__int64)(*(_DWORD *)(*(_QWORD *)this + 640LL) != 0) & 0xFFFFFFFFFFFFFFD8uLL) + 64;
     }
+    return v4;
   }
-  return 0LL;
+  else
+  {
+    return 0LL;
+  }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of __scrt_dllmain_exception_filter @ 0x1801008F4
+ * XREFs of __scrt_dllmain_exception_filter @ 0x1800E70C4
  * Callers:
- *     dllmain_dispatch @ 0x180100E1C (dllmain_dispatch.c)
+ *     dllmain_dispatch @ 0x1800E7600 (dllmain_dispatch.c)
  * Callees:
- *     __scrt_is_ucrt_dll_in_use @ 0x180101460 (__scrt_is_ucrt_dll_in_use.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __scrt_is_ucrt_dll_in_use @ 0x1800E7E44 (__scrt_is_ucrt_dll_in_use.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 int __fastcall _scrt_dllmain_exception_filter(

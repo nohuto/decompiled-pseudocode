@@ -1,24 +1,24 @@
 /*
- * XREFs of PfpParametersRead @ 0x140848128
+ * XREFs of PfpParametersRead @ 0x1407BF8DC
  * Callers:
- *     PfpParametersWatcher @ 0x140980230 (PfpParametersWatcher.c)
- *     PfpParametersInitialize @ 0x140B655B0 (PfpParametersInitialize.c)
+ *     PfpParametersWatcher @ 0x1408E0C50 (PfpParametersWatcher.c)
+ *     PfpParametersInitialize @ 0x140A6A864 (PfpParametersInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PfpGetParameter @ 0x140848844 (PfpGetParameter.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PfpGetParameter @ 0x1407C0000 (PfpGetParameter.c)
  */
 
 __int64 __fastcall PfpParametersRead(__int64 a1)
 {
   __int128 v1; // xmm0
-  void *v2; // rsi
+  void *v2; // rdi
   __int64 v3; // xmm1_8
-  unsigned int v5; // edi
+  void *v5; // rcx
   void *v6; // rcx
   void *v7; // rcx
-  void *v8; // rcx
-  bool v9; // zf
-  int v10; // ecx
+  int v8; // ecx
+  int v9; // edx
+  bool v10; // zf
   __int128 v11; // xmm0
   __int64 v12; // xmm1_8
   __int64 v14; // [rsp+30h] [rbp-30h] BYREF
@@ -33,43 +33,45 @@ __int64 __fastcall PfpParametersRead(__int64 a1)
   v16 = v3;
   LODWORD(v14) = 4;
   v15 = v1;
-  v5 = 0;
   if ( (int)PfpGetParameter(v2, (__int64)&v14) < 0 || (_DWORD)InitSafeBootMode )
     LODWORD(v15) = 0x80000000;
   LODWORD(v14) = 4;
   PfpGetParameter(v2, (__int64)&v14);
   LODWORD(v14) = 4;
   PfpGetParameter(v2, (__int64)&v14);
+  v5 = *(void **)(a1 + 8);
+  LODWORD(v14) = 4;
+  PfpGetParameter(v5, (__int64)&v14);
   v6 = *(void **)(a1 + 8);
   LODWORD(v14) = 4;
   PfpGetParameter(v6, (__int64)&v14);
   v7 = *(void **)(a1 + 8);
   LODWORD(v14) = 4;
   PfpGetParameter(v7, (__int64)&v14);
-  v8 = *(void **)(a1 + 8);
-  LODWORD(v14) = 4;
-  PfpGetParameter(v8, (__int64)&v14);
+  v8 = -1073741811;
+  v9 = v17;
   if ( (int)v15 < 0 )
-    v9 = (_DWORD)v15 == 0x80000000;
+    v10 = (_DWORD)v15 == 0x80000000;
   else
-    v9 = (v15 & 0xFFFFFFFC) == 0;
-  if ( v9
+    v10 = (v15 & 0xFFFFFFFC) == 0;
+  if ( v10
     && DWORD2(v15) <= 0x10000
     && HIDWORD(v15) <= 0x10000
     && (unsigned int)(v16 - 2500) <= 0xE09C
     && (unsigned int)(HIDWORD(v16) - 5000) <= 0xD6D8
-    && (v10 = v17, (unsigned int)(v17 - 2500) <= 0xE09C) )
+    && (unsigned int)(v17 - 2500) <= 0xE09C )
+  {
+    v8 = 0;
+  }
+  if ( v8 >= 0 )
   {
     v11 = v15;
+    v8 = 0;
     ++*(_DWORD *)(a1 + 512);
     v12 = v16;
     *(_OWORD *)(a1 + 68) = v11;
     *(_QWORD *)(a1 + 84) = v12;
-    *(_DWORD *)(a1 + 92) = v10;
+    *(_DWORD *)(a1 + 92) = v9;
   }
-  else
-  {
-    return (unsigned int)-1073741811;
-  }
-  return v5;
+  return (unsigned int)v8;
 }

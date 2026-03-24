@@ -1,14 +1,17 @@
 /*
- * XREFs of ?DxgkCddUnsubscribeWnfStateChange@@YAXPEAU_CDD_WNF_CALLBACK_CONTEXT@@@Z @ 0x1C01E9BB0
+ * XREFs of ?DxgkCddUnsubscribeWnfStateChange@@YAXPEAU_CDD_WNF_CALLBACK_CONTEXT@@@Z @ 0x1C016ECD0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 void __fastcall DxgkCddUnsubscribeWnfStateChange(struct _EX_RUNDOWN_REF *Context)
 {
   struct _IO_WORKITEM *WorkItem; // rax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rax
 
   ExWaitForRundownProtectionRelease(Context + 4);
   WorkItem = IoAllocateWorkItem((PDEVICE_OBJECT)g_pDriverObject);
@@ -18,16 +21,8 @@ void __fastcall DxgkCddUnsubscribeWnfStateChange(struct _EX_RUNDOWN_REF *Context
   }
   else
   {
-    WdLogSingleEntry1(2LL, 3961LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed allocating workitem to unsubscribe the WNF callback.",
-      3961LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v5 = WdLogNewEntry5_WdError(v4, v3);
+    *(_QWORD *)(v5 + 24) = 3917LL;
+    WdLogEvent5_WdError(v5);
   }
 }

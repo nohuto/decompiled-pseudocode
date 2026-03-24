@@ -1,10 +1,10 @@
 /*
- * XREFs of MiStoreFaultComplete @ 0x140394B24
+ * XREFs of MiStoreFaultComplete @ 0x1402CCA70
  * Callers:
- *     MiWaitForInPageComplete @ 0x14027AA30 (MiWaitForInPageComplete.c)
- *     MiMakeOutswappedPageResident @ 0x1405803C8 (MiMakeOutswappedPageResident.c)
+ *     MiWaitForInPageComplete @ 0x14031B1F0 (MiWaitForInPageComplete.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BAC0 (MiMakeOutswappedPageResident.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiStoreFaultComplete(ULONG_PTR BugCheckParameter2, _DWORD *a2)
@@ -20,7 +20,7 @@ __int64 __fastcall MiStoreFaultComplete(ULONG_PTR BugCheckParameter2, _DWORD *a2
     result = 65537LL;
     if ( v4 == -1073741275 )
     {
-      if ( (*(_QWORD *)(48LL * *(_QWORD *)(BugCheckParameter2 + 320) - 0x21FFFFFFFFE8LL) & 0x4000000000000000LL) == 0 )
+      if ( (*(_QWORD *)(48LL * *(_QWORD *)(BugCheckParameter2 + 320) - 0x57FFFFFFFE8LL) & 0x4000000000000000LL) == 0 )
         KeBugCheckEx(0x1Au, 0x6000uLL, BugCheckParameter2, 0xFFFFFFFFC0000225uLL, 0LL);
     }
     else if ( v4 != -1073741791 )

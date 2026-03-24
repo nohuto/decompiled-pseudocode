@@ -1,37 +1,29 @@
 /*
- * XREFs of xxxEnableWindow @ 0x1C000BA8C
+ * XREFs of xxxEnableWindow @ 0x1C0037170
  * Callers:
- *     NtUserEnableWindow @ 0x1C000B9B0 (NtUserEnableWindow.c)
- *     xxxEnableScrollBar @ 0x1C009E260 (xxxEnableScrollBar.c)
- *     xxxDestroyWindow @ 0x1C00E8400 (xxxDestroyWindow.c)
+ *     xxxDestroyWindow @ 0x1C007DC00 (xxxDestroyWindow.c)
+ *     xxxEnableScrollBar @ 0x1C00F63B0 (xxxEnableScrollBar.c)
  * Callees:
- *     ?xxxEnableWindowWorker@@YAHPEAUtagWND@@H@Z @ 0x1C000BB08 (-xxxEnableWindowWorker@@YAHPEAUtagWND@@H@Z.c)
- *     IsNonImmersiveBand @ 0x1C00CEFB4 (IsNonImmersiveBand.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ExemptedFromImmersiveRestrictions @ 0x1C01B3190 (ExemptedFromImmersiveRestrictions.c)
+ *     ?xxxEnableWindowWorker@@YAHPEAUtagWND@@H@Z @ 0x1C00371DC (-xxxEnableWindowWorker@@YAHPEAUtagWND@@H@Z.c)
+ *     IsNonImmersiveBand @ 0x1C00372D4 (IsNonImmersiveBand.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ExemptedFromImmersiveRestrictions @ 0x1C01D2848 (ExemptedFromImmersiveRestrictions.c)
  */
 
 __int64 __fastcall xxxEnableWindow(struct tagWND *a1, int a2)
 {
-  int v4; // ebx
+  __int64 v4; // rcx
+  int v5; // ebx
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v7; // rdx
 
-  v4 = 0;
-  if ( (unsigned int)IsNonImmersiveBand() )
-    goto LABEL_2;
-  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process();
-  if ( CurrentProcessWin32Process )
-  {
-    v7 = -*(_QWORD *)CurrentProcessWin32Process;
-    CurrentProcessWin32Process &= -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-  }
-  if ( !(unsigned int)IsDesktopApp(CurrentProcessWin32Process, v7)
+  v5 = 0;
+  if ( (unsigned int)IsNonImmersiveBand(a1)
+    || (CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v4),
+        !(unsigned int)IsDesktopApp(CurrentProcessWin32Process))
     || (unsigned int)ExemptedFromImmersiveRestrictions(gptiCurrent) )
   {
-LABEL_2:
-    LOBYTE(v4) = a2 != 0;
-    return xxxEnableWindowWorker(a1, v4);
+    LOBYTE(v5) = a2 != 0;
+    return xxxEnableWindowWorker(a1, v5);
   }
   else
   {

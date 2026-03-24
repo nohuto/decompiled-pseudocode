@@ -1,5 +1,5 @@
 /*
- * XREFs of NtIsOneCoreTransformMode @ 0x1C00A8AA0
+ * XREFs of NtIsOneCoreTransformMode @ 0x1C0095810
  * Callers:
  *     <none>
  * Callees:

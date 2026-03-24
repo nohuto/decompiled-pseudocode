@@ -1,26 +1,26 @@
 /*
- * XREFs of HUBMISC_WaitForSignal @ 0x1C0030194
+ * XREFs of HUBMISC_WaitForSignal @ 0x1C002FAF4
  * Callers:
- *     HUBHTX_GetPortStatusForBootDevice @ 0x1C00062B4 (HUBHTX_GetPortStatusForBootDevice.c)
- *     HUBFDO_EvtDeviceD0Entry @ 0x1C000C530 (HUBFDO_EvtDeviceD0Entry.c)
- *     HUBFDO_EvtDeviceD0Exit @ 0x1C000C900 (HUBFDO_EvtDeviceD0Exit.c)
- *     HUBFDO_EvtDeviceCleanupCallback @ 0x1C000CCA0 (HUBFDO_EvtDeviceCleanupCallback.c)
- *     HUBPDO_EvtDeviceWdmIrpQueryDeviceTextPreprocess @ 0x1C0016E98 (HUBPDO_EvtDeviceWdmIrpQueryDeviceTextPreprocess.c)
- *     HUBPDO_EvtDeviceWdmIrpQueryIdPreprocess @ 0x1C001720C (HUBPDO_EvtDeviceWdmIrpQueryIdPreprocess.c)
- *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C00173D0 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
- *     HUBPDO_EvtDeviceD0Entry @ 0x1C00186C0 (HUBPDO_EvtDeviceD0Entry.c)
- *     HUBPDO_EvtDeviceD0Exit @ 0x1C00188D0 (HUBPDO_EvtDeviceD0Exit.c)
- *     HUBPDO_EvtDeviceCleanup @ 0x1C0018CF0 (HUBPDO_EvtDeviceCleanup.c)
- *     HUBPDO_EvtDeviceDisableWakeAtBus @ 0x1C001A440 (HUBPDO_EvtDeviceDisableWakeAtBus.c)
- *     HUBFDO_EvtDeviceAdd @ 0x1C0074380 (HUBFDO_EvtDeviceAdd.c)
- *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0075090 (HUBFDO_EvtDevicePrepareHardware.c)
- *     HUBFDO_EvtDeviceReleaseHardware @ 0x1C0075A50 (HUBFDO_EvtDeviceReleaseHardware.c)
- *     HUBPDO_EvtDeviceReleaseHardware @ 0x1C0079DC0 (HUBPDO_EvtDeviceReleaseHardware.c)
- *     HUBPDO_EvtDeviceResourceRequirementsQuery @ 0x1C007BF80 (HUBPDO_EvtDeviceResourceRequirementsQuery.c)
+ *     HUBHTX_GetPortStatusForBootDevice @ 0x1C0006034 (HUBHTX_GetPortStatusForBootDevice.c)
+ *     HUBFDO_EvtDeviceD0Entry @ 0x1C000C140 (HUBFDO_EvtDeviceD0Entry.c)
+ *     HUBFDO_EvtDeviceD0Exit @ 0x1C000C510 (HUBFDO_EvtDeviceD0Exit.c)
+ *     HUBFDO_EvtDeviceCleanupCallback @ 0x1C000C8C0 (HUBFDO_EvtDeviceCleanupCallback.c)
+ *     HUBPDO_EvtDeviceWdmIrpQueryDeviceTextPreprocess @ 0x1C00169D0 (HUBPDO_EvtDeviceWdmIrpQueryDeviceTextPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpQueryIdPreprocess @ 0x1C0016D48 (HUBPDO_EvtDeviceWdmIrpQueryIdPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0016F00 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ *     HUBPDO_EvtDeviceD0Entry @ 0x1C00181C0 (HUBPDO_EvtDeviceD0Entry.c)
+ *     HUBPDO_EvtDeviceD0Exit @ 0x1C00183B0 (HUBPDO_EvtDeviceD0Exit.c)
+ *     HUBPDO_EvtDeviceCleanup @ 0x1C00187A0 (HUBPDO_EvtDeviceCleanup.c)
+ *     HUBPDO_EvtDeviceDisableWakeAtBus @ 0x1C0019EF0 (HUBPDO_EvtDeviceDisableWakeAtBus.c)
+ *     HUBFDO_EvtDeviceAdd @ 0x1C00732C0 (HUBFDO_EvtDeviceAdd.c)
+ *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0073E00 (HUBFDO_EvtDevicePrepareHardware.c)
+ *     HUBFDO_EvtDeviceReleaseHardware @ 0x1C00746B0 (HUBFDO_EvtDeviceReleaseHardware.c)
+ *     HUBPDO_EvtDeviceReleaseHardware @ 0x1C00788B0 (HUBPDO_EvtDeviceReleaseHardware.c)
+ *     HUBPDO_EvtDeviceResourceRequirementsQuery @ 0x1C007AA20 (HUBPDO_EvtDeviceResourceRequirementsQuery.c)
  * Callees:
- *     WPP_RECORDER_SF_dqqs @ 0x1C002B6F4 (WPP_RECORDER_SF_dqqs.c)
- *     WPP_RECORDER_SF_qsqd @ 0x1C002B894 (WPP_RECORDER_SF_qsqd.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_dqqs @ 0x1C002B014 (WPP_RECORDER_SF_dqqs.c)
+ *     WPP_RECORDER_SF_qsqd @ 0x1C002B1B4 (WPP_RECORDER_SF_qsqd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 NTSTATUS __fastcall HUBMISC_WaitForSignal(PVOID Object, const char *a2, const void *a3)
@@ -43,7 +43,7 @@ NTSTATUS __fastcall HUBMISC_WaitForSignal(PVOID Object, const char *a2, const vo
   v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00671E8);
+         off_1C00661C0);
   v18.QuadPart = -600000000LL;
   v8 = v7;
   for ( result = KeWaitForSingleObject(Object, Executive, 0, 0, &v18);

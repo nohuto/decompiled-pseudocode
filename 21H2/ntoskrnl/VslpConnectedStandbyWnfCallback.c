@@ -1,17 +1,17 @@
 /*
- * XREFs of VslpConnectedStandbyWnfCallback @ 0x140933280
+ * XREFs of VslpConnectedStandbyWnfCallback @ 0x140890700
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExQueryWnfStateData @ 0x1407EEE10 (ExQueryWnfStateData.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExQueryWnfStateData @ 0x1406BB180 (ExQueryWnfStateData.c)
  */
 
-__int64 __fastcall VslpConnectedStandbyWnfCallback(__int64 a1)
+NTSTATUS __fastcall VslpConnectedStandbyWnfCallback(__int64 a1)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v3; // rcx
   char v4; // al
   unsigned int v5; // [rsp+20h] [rbp-69h] BYREF
@@ -25,7 +25,7 @@ __int64 __fastcall VslpConnectedStandbyWnfCallback(__int64 a1)
   memset(v9, 0, 0x68uLL);
   v5 = 24;
   result = ExQueryWnfStateData(a1, &v6, &v7, &v5);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v3 = v7 - *(_QWORD *)&GUID_SPM_LOW_POWER_CS.Data1;
     if ( (_QWORD)v7 == *(_QWORD *)&GUID_SPM_LOW_POWER_CS.Data1 )
@@ -36,7 +36,7 @@ __int64 __fastcall VslpConnectedStandbyWnfCallback(__int64 a1)
     LODWORD(v9[3]) = 0;
     LOBYTE(v9[1]) = v4;
     v9[2] = v8;
-    return VslpEnterIumSecureMode(2u, 62, 0, (__int64)v9);
+    return VslpEnterIumSecureMode(2u, 60, 0, (__int64)v9);
   }
   return result;
 }

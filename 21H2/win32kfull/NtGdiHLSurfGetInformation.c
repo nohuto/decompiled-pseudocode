@@ -1,12 +1,12 @@
 /*
- * XREFs of NtGdiHLSurfGetInformation @ 0x1C00221E0
+ * XREFs of NtGdiHLSurfGetInformation @ 0x1C00BC920
  * Callers:
  *     <none>
  * Callees:
- *     GreSfmGetDirtyRgn @ 0x1C00223E8 (GreSfmGetDirtyRgn.c)
- *     GreDwmGetSurfaceData @ 0x1C00855CC (GreDwmGetSurfaceData.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     GreDwmGetRedirectionStyle @ 0x1C026D294 (GreDwmGetRedirectionStyle.c)
+ *     GreDwmGetSurfaceData @ 0x1C00170D8 (GreDwmGetSurfaceData.c)
+ *     GreSfmGetDirtyRgn @ 0x1C00BCB28 (GreSfmGetDirtyRgn.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     GreDwmGetRedirectionStyle @ 0x1C026F574 (GreDwmGetRedirectionStyle.c)
  */
 
 __int64 __fastcall NtGdiHLSurfGetInformation(__int64 a1, int a2, void *a3, ULONG64 a4)
@@ -104,7 +104,7 @@ LABEL_11:
   if ( !v14 )
   {
     HDEV = UserGetHDEV();
-    SurfaceData = GreDwmGetSurfaceData(HDEV, a1, &Src);
+    SurfaceData = GreDwmGetSurfaceData(HDEV, a1, (struct tagDWMSURFACEDATA *)&Src);
     goto LABEL_14;
   }
   v15 = v14 - 1;

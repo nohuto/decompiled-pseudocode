@@ -1,11 +1,11 @@
 /*
- * XREFs of WritePointerDeviceSettingsFull @ 0x1C021122C
+ * XREFs of WritePointerDeviceSettingsFull @ 0x1C0209C3C
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
  * Callees:
- *     ?SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C0210CC4 (-SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
- *     ?SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z @ 0x1C0210E68 (-SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z.c)
- *     ?WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z @ 0x1C0211054 (-WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z.c)
+ *     ?SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C02096D8 (-SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ *     ?SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z @ 0x1C020987C (-SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z.c)
+ *     ?WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z @ 0x1C0209A68 (-WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z.c)
  */
 
 __int64 __fastcall WritePointerDeviceSettingsFull(int a1, __int64 a2, const unsigned __int16 *a3)
@@ -36,17 +36,17 @@ __int64 __fastcall WritePointerDeviceSettingsFull(int a1, __int64 a2, const unsi
             v8 = *(_DWORD *)(a2 + 4);
             if ( v8 <= 0x3C )
             {
-              dword_1C03266BC[0] = *(_DWORD *)(a2 + 4);
-              HIDWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) = v8;
+              dword_1C032B68C[0] = *(_DWORD *)(a2 + 4);
+              glTOUCH_DRIVER_HW_STACK_LATENCY = v8;
             }
             v9 = *(_DWORD *)(a2 + 8);
             if ( v9 <= 0x3C )
             {
-              dword_1C03266CC = *(_DWORD *)(a2 + 8);
-              LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) = v9;
+              dword_1C032B69C = *(_DWORD *)(a2 + 8);
+              glTOUCH_DRIVER_HW_STACK_SAMPLETIME = v9;
             }
-            dword_1C03266DC = *(_DWORD *)(a2 + 12);
-            LODWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) = dword_1C03266DC;
+            dword_1C032B6AC = *(_DWORD *)(a2 + 12);
+            gbTOUCH_DRIVER_HW_STACK_TIMESTAMP = dword_1C032B6AC;
             result = 1LL;
             if ( (_DWORD)a3 )
               return WritePredictionSettings(v7, (const unsigned __int16 *)a2, a3);
@@ -64,13 +64,13 @@ __int64 __fastcall WritePointerDeviceSettingsFull(int a1, __int64 a2, const unsi
     }
     else
     {
-      dword_1C03267AC = *(_DWORD *)a2;
-      dword_1C03267BC = *(_DWORD *)(a2 + 4);
-      dword_1C03267CC = *(_DWORD *)(a2 + 8);
-      dword_1C03267DC = *(_DWORD *)(a2 + 12);
-      dword_1C03267EC = *(_DWORD *)(a2 + 16);
-      dword_1C03267FC = *(_DWORD *)(a2 + 20);
-      dword_1C032680C = *(_DWORD *)(a2 + 24);
+      dword_1C032B6BC = *(_DWORD *)a2;
+      dword_1C032B6CC = *(_DWORD *)(a2 + 4);
+      dword_1C032B6DC = *(_DWORD *)(a2 + 8);
+      dword_1C032B6EC = *(_DWORD *)(a2 + 12);
+      dword_1C032B6FC = *(_DWORD *)(a2 + 16);
+      dword_1C032B70C = *(_DWORD *)(a2 + 20);
+      dword_1C032B71C = *(_DWORD *)(a2 + 24);
       result = 1LL;
       if ( !(_DWORD)a3 || (result = WriteSettingValues(7LL, &gaModeSettings, 7LL, a2), (_DWORD)result) )
       {
@@ -81,14 +81,14 @@ __int64 __fastcall WritePointerDeviceSettingsFull(int a1, __int64 a2, const unsi
   }
   else
   {
-    dword_1C032681C = *(_DWORD *)a2;
-    dword_1C032682C = *(_DWORD *)(a2 + 4);
-    dword_1C032683C = *(_DWORD *)(a2 + 8);
-    dword_1C032684C = *(_DWORD *)(a2 + 12);
-    dword_1C032685C = *(_DWORD *)(a2 + 16);
-    dword_1C032686C = *(_DWORD *)(a2 + 20);
-    dword_1C032687C = *(_DWORD *)(a2 + 24);
-    dword_1C032688C = *(_DWORD *)(a2 + 28);
+    dword_1C032B7EC = *(_DWORD *)a2;
+    dword_1C032B7FC = *(_DWORD *)(a2 + 4);
+    dword_1C032B80C = *(_DWORD *)(a2 + 8);
+    dword_1C032B81C = *(_DWORD *)(a2 + 12);
+    dword_1C032B82C = *(_DWORD *)(a2 + 16);
+    dword_1C032B83C = *(_DWORD *)(a2 + 20);
+    dword_1C032B84C = *(_DWORD *)(a2 + 24);
+    dword_1C032B85C = *(_DWORD *)(a2 + 28);
     result = 1LL;
     if ( !(_DWORD)a3 || (result = WriteSettingValues(4LL, &gaPenParameters, 8LL, a2), (_DWORD)result) )
     {

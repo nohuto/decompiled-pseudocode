@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPIInterruptServiceRoutineDPC @ 0x1C0003E70
+ * XREFs of ACPIInterruptServiceRoutineDPC @ 0x1C0025DB0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInterruptDispatchEvents @ 0x1C0003AE8 (ACPIInterruptDispatchEvents.c)
- *     ACPIAcquireHardwareGlobalLock @ 0x1C0004C30 (ACPIAcquireHardwareGlobalLock.c)
- *     ACPIButtonEvent @ 0x1C00189F0 (ACPIButtonEvent.c)
- *     ACPIPccProcessSci @ 0x1C0033B5C (ACPIPccProcessSci.c)
- *     WRITE_PM1_ENABLE @ 0x1C00390B4 (WRITE_PM1_ENABLE.c)
- *     ACPIStartNextGlobalLockRequest @ 0x1C0039524 (ACPIStartNextGlobalLockRequest.c)
+ *     ACPIStartNextGlobalLockRequest @ 0x1C000EAE0 (ACPIStartNextGlobalLockRequest.c)
+ *     ACPIAcquireHardwareGlobalLock @ 0x1C000FC24 (ACPIAcquireHardwareGlobalLock.c)
+ *     ACPIInterruptDispatchEvents @ 0x1C00266A8 (ACPIInterruptDispatchEvents.c)
+ *     WRITE_PM1_ENABLE @ 0x1C00269B0 (WRITE_PM1_ENABLE.c)
+ *     ACPIButtonEvent @ 0x1C003000C (ACPIButtonEvent.c)
+ *     ACPIPccProcessSci @ 0x1C005984C (ACPIPccProcessSci.c)
  */
 
 void __fastcall ACPIInterruptServiceRoutineDPC(
@@ -22,10 +22,8 @@ void __fastcall ACPIInterruptServiceRoutineDPC(
   signed __int32 v7; // ecx
   __int64 v8; // rcx
   __int64 v9; // rdx
-  char v10; // di
-  __int64 v11; // r8
-  __int64 v12; // r9
-  _QWORD *v13; // rdx
+  bool v10; // di
+  KIRQL v11; // r9
 
   while ( 1 )
   {
@@ -59,17 +57,16 @@ void __fastcall ACPIInterruptServiceRoutineDPC(
     if ( (v6 & 0x20) != 0 )
     {
       v10 = 0;
-      LOBYTE(v12) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)AcpiInformation + 8);
-      v13 = (_QWORD *)((char *)AcpiInformation + 48);
-      if ( (_QWORD *)*v13 != v13 )
-        v10 = ACPIAcquireHardwareGlobalLock(*((_QWORD *)AcpiInformation + 5), v13, v11, v12);
-      KeReleaseSpinLock((PKSPIN_LOCK)AcpiInformation + 8, v12);
+      v11 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)AcpiInformation + 8);
+      if ( *((_UNKNOWN **)AcpiInformation + 6) != (_UNKNOWN *)((char *)AcpiInformation + 48) )
+        v10 = ACPIAcquireHardwareGlobalLock(*((volatile signed __int32 **)AcpiInformation + 5));
+      KeReleaseSpinLock((PKSPIN_LOCK)AcpiInformation + 8, v11);
       if ( v10 )
         ACPIStartNextGlobalLockRequest();
     }
     if ( (v6 & 0x20000) != 0 )
       ACPIPccProcessSci(v8, v9, SystemArgument1, SystemArgument2);
     if ( (v6 & 0x10000) != 0 )
-      ACPIInterruptDispatchEvents();
+      ACPIInterruptDispatchEvents(v8, v9, SystemArgument1, SystemArgument2);
   }
 }

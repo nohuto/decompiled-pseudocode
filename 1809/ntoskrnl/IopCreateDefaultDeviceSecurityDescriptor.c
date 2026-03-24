@@ -1,16 +1,16 @@
 /*
- * XREFs of IopCreateDefaultDeviceSecurityDescriptor @ 0x140652904
+ * XREFs of IopCreateDefaultDeviceSecurityDescriptor @ 0x1406528E4
  * Callers:
- *     IoCreateDevice @ 0x1406529F0 (IoCreateDevice.c)
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x1406F05A8 (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     IoCreateDevice @ 0x1406529D0 (IoCreateDevice.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x1406F0588 (PipChangeDeviceObjectFromRegistryProperties.c)
  * Callees:
- *     RtlGetNtProductType @ 0x14012AC20 (RtlGetNtProductType.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlGetNtProductType @ 0x14012AC40 (RtlGetNtProductType.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
  *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     IopCreateSecurityDescriptorPerType @ 0x1406527CC (IopCreateSecurityDescriptorPerType.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     IopCreateSecurityDescriptorPerType @ 0x1406527AC (IopCreateSecurityDescriptorPerType.c)
  */
 
 void *__fastcall IopCreateDefaultDeviceSecurityDescriptor(

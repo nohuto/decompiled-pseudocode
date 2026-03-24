@@ -1,30 +1,33 @@
 /*
- * XREFs of ?IsCopyProtectionSchemeSupported@DMMVIDPNPRESENTPATH@@QEAAEW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@@Z @ 0x1C0023808
+ * XREFs of ?IsCopyProtectionSchemeSupported@DMMVIDPNPRESENTPATH@@QEAAEW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@@Z @ 0x1C000E110
  * Callers:
- *     ?SetCopyProtectionScheme@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@@Z @ 0x1C00237B8 (-SetCopyProtectionScheme@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_.c)
- *     ?DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@I@Z @ 0x1C0171B1C (-DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_C.c)
+ *     ?SetCopyProtectionScheme@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@@Z @ 0x1C000E0C0 (-SetCopyProtectionScheme@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_.c)
+ *     ?DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@I@Z @ 0x1C00EC44C (-DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_C.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int8 __fastcall DMMVIDPNPRESENTPATH::IsCopyProtectionSchemeSupported(
-        DMMVIDPNPRESENTPATH *this,
-        enum _D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE a2)
+unsigned __int8 __fastcall DMMVIDPNPRESENTPATH::IsCopyProtectionSchemeSupported(DMMVIDPNPRESENTPATH *this, __int64 a2)
 {
-  int v2; // eax
+  __int64 v2; // rbx
+  int v3; // eax
+  __int64 v5; // rax
 
-  switch ( a2 )
+  v2 = (int)a2;
+  switch ( (_DWORD)a2 )
   {
-    case D3DKMDT_VPPMT_NOPROTECTION:
-      LOBYTE(v2) = *((_BYTE *)this + 168);
-      return v2 & 1;
-    case D3DKMDT_VPPMT_MACROVISION_APSTRIGGER:
-      v2 = *((_DWORD *)this + 42) >> 1;
-      return v2 & 1;
-    case D3DKMDT_VPPMT_MACROVISION_FULLSUPPORT:
-      v2 = *((_DWORD *)this + 42) >> 2;
-      return v2 & 1;
+    case 1:
+      LOBYTE(v3) = *((_BYTE *)this + 168);
+      return v3 & 1;
+    case 2:
+      v3 = *((_DWORD *)this + 42) >> 1;
+      return v3 & 1;
+    case 3:
+      v3 = *((_DWORD *)this + 42) >> 2;
+      return v3 & 1;
   }
-  WdLogSingleEntry1(2LL, a2);
+  v5 = WdLogNewEntry5_WdError(this, a2);
+  *(_QWORD *)(v5 + 24) = v2;
+  WdLogEvent5_WdError(v5);
   return 0;
 }

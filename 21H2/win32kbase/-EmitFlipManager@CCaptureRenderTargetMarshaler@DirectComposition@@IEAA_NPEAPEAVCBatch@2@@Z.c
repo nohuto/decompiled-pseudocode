@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitFlipManager@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0235740
+ * XREFs of ?EmitFlipManager@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4E90
  * Callers:
- *     ?EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02357E0 (-EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4F30 (-EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CCaptureRenderTargetMarshaler::EmitFlipManager(
@@ -21,14 +21,14 @@ char __fastcall DirectComposition::CCaptureRenderTargetMarshaler::EmitFlipManage
   if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x14uLL, &v7) )
   {
     v6 = 0LL;
-    v3 = (void *)*((_QWORD *)this + 15);
+    v3 = (void *)*((_QWORD *)this + 14);
     if ( !v3 || (int)DxgkOpenDwmHandleForCompositionObjectReference(v3, &v6) < 0 )
       v6 = 0LL;
     v4 = (char *)v7;
     *(_DWORD *)v7 = 20;
     *(_OWORD *)(v4 + 4) = 0LL;
-    *((_DWORD *)v4 + 1) = 41;
-    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v4 + 1) = 42;
+    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
     *(_QWORD *)(v4 + 12) = v6;
     *((_DWORD *)this + 4) &= ~0x40u;
     return 1;

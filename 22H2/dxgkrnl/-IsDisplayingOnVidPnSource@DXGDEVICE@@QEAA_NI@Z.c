@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsDisplayingOnVidPnSource@DXGDEVICE@@QEAA_NI@Z @ 0x1C02EB948
+ * XREFs of ?IsDisplayingOnVidPnSource@DXGDEVICE@@QEAA_NI@Z @ 0x1C0255C34
  * Callers:
- *     DXGDEVICE_IsDisplayingOnVidPnSource @ 0x1C0049050 (DXGDEVICE_IsDisplayingOnVidPnSource.c)
+ *     DXGDEVICE_IsDisplayingOnVidPnSource @ 0x1C0042730 (DXGDEVICE_IsDisplayingOnVidPnSource.c)
  * Callees:
- *     ?IsVidPnSourceVisible@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C001651C (-IsVidPnSourceVisible@ADAPTER_DISPLAY@@QEBAEI@Z.c)
- *     ?IsVidPnSourcePrimaryValid@DXGDEVICE@@QEAAEI@Z @ 0x1C01EA5E4 (-IsVidPnSourcePrimaryValid@DXGDEVICE@@QEAAEI@Z.c)
+ *     ?IsVidPnSourceVisible@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C000A478 (-IsVidPnSourceVisible@ADAPTER_DISPLAY@@QEBAEI@Z.c)
+ *     ?IsVidPnSourcePrimaryValid@DXGDEVICE@@QEAAEI@Z @ 0x1C016D7B8 (-IsVidPnSourcePrimaryValid@DXGDEVICE@@QEAAEI@Z.c)
  */
 
 bool __fastcall DXGDEVICE::IsDisplayingOnVidPnSource(DXGDEVICE *this, unsigned int a2)
@@ -13,9 +13,17 @@ bool __fastcall DXGDEVICE::IsDisplayingOnVidPnSource(DXGDEVICE *this, unsigned i
   unsigned int v3; // r8d
   __int64 v4; // rcx
   ADAPTER_DISPLAY *v5; // rcx
+  bool result; // al
 
-  if ( DXGDEVICE::IsVidPnSourcePrimaryValid(this, a2) )
-    return 1;
-  v4 = *(_QWORD *)(*(_QWORD *)(v2 + 16) + 16LL);
-  return v4 && (v5 = *(ADAPTER_DISPLAY **)(v4 + 2920)) != 0LL && ADAPTER_DISPLAY::IsVidPnSourceVisible(v5, v3) != 0;
+  result = 1;
+  if ( !DXGDEVICE::IsVidPnSourcePrimaryValid(this, a2) )
+  {
+    v4 = *(_QWORD *)(*(_QWORD *)(v2 + 16) + 16LL);
+    if ( !v4 )
+      return 0;
+    v5 = *(ADAPTER_DISPLAY **)(v4 + 2696);
+    if ( !v5 || !ADAPTER_DISPLAY::IsVidPnSourceVisible(v5, v3) )
+      return 0;
+  }
+  return result;
 }

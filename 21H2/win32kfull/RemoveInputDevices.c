@@ -1,33 +1,31 @@
 /*
- * XREFs of RemoveInputDevices @ 0x1C0123850
+ * XREFs of RemoveInputDevices @ 0x1C0128BB0
  * Callers:
- *     xxxRemoteDisconnect @ 0x1C0123098 (xxxRemoteDisconnect.c)
- *     xxxRemoteReconnect @ 0x1C01528E0 (xxxRemoteReconnect.c)
+ *     xxxRemoteDisconnect @ 0x1C0128460 (xxxRemoteDisconnect.c)
+ *     xxxRemoteReconnect @ 0x1C0162570 (xxxRemoteReconnect.c)
  * Callees:
  *     <none>
  */
 
 __int64 RemoveInputDevices()
 {
-  int v0; // ebx
+  unsigned int i; // ebx
   _QWORD *v1; // rcx
 
-  v0 = 0;
-  while ( !v0 )
+  for ( i = 0; i <= 2; ++i )
   {
-    v1 = (_QWORD *)gpMouseSensor;
-LABEL_6:
+    if ( i )
+    {
+      v1 = (_QWORD *)gpHidInput;
+      if ( i != 2 )
+        v1 = (_QWORD *)gpKeyboardSensor;
+    }
+    else
+    {
+      v1 = (_QWORD *)gpMouseSensor;
+    }
     CBaseInput::HandleTSRequest(*v1, 3LL);
-    if ( (unsigned int)++v0 > 2 )
-      goto LABEL_7;
   }
-  if ( v0 != 2 )
-  {
-    v1 = (_QWORD *)gpKeyboardSensor;
-    goto LABEL_6;
-  }
-  CBaseInput::HandleTSRequest(gpHidInput, 3LL);
-LABEL_7:
   CBaseInput::HandleTSRequest(gpMouseSensor, 1LL);
   CBaseInput::HandleTSRequest(gpKeyboardSensor, 1LL);
   CBaseInput::HandleTSRequest(gpHidInput, 1LL);

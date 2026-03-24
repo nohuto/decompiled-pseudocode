@@ -1,15 +1,15 @@
 /*
- * XREFs of MiIsRangeFullyCommitted @ 0x1407BBF50
+ * XREFs of MiIsRangeFullyCommitted @ 0x1406F02C0
  * Callers:
- *     MmSecureVirtualMemoryAgainstWrites @ 0x1407A4A8C (MmSecureVirtualMemoryAgainstWrites.c)
- *     MmProtectVirtualMemory @ 0x1407B9FA0 (MmProtectVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1405FA060 (MmProtectVirtualMemory.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x1406621F8 (MmSecureVirtualMemoryAgainstWrites.c)
  * Callees:
- *     MiReadPteShadow @ 0x14027D890 (MiReadPteShadow.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     MiGetProtoPteAddress @ 0x140319600 (MiGetProtoPteAddress.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     MiReadPteShadow @ 0x140305A30 (MiReadPteShadow.c)
+ *     MiGetProtoPteAddress @ 0x140330B40 (MiGetProtoPteAddress.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall MiIsRangeFullyCommitted(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -24,15 +24,16 @@ __int64 __fastcall MiIsRangeFullyCommitted(__int64 a1, unsigned __int64 a2, unsi
   __int64 v12; // r10
   unsigned __int64 v13; // r9
   __int64 PteShadow; // rax
-  __int64 v17; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v18; // [rsp+68h] [rbp+10h] BYREF
+  $C459BD0D405E8E46662177FB3D0A143F *v17; // rcx
+  __int64 v18; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v19; // [rsp+68h] [rbp+10h] BYREF
 
-  v17 = 0LL;
   v18 = 0LL;
-  ProtoPteAddress = (__int64 *)MiGetProtoPteAddress(a1, a2 >> 12, 2, &v17);
+  v19 = 0LL;
+  ProtoPteAddress = (__int64 *)MiGetProtoPteAddress(a1, a2 >> 12, 2, &v18);
   if ( !ProtoPteAddress )
     return 0LL;
-  v6 = MiGetProtoPteAddress(a1, a3 >> 12, 2, &v18);
+  v6 = MiGetProtoPteAddress(a1, a3 >> 12, 2, &v19);
   if ( !v6 )
     return 0LL;
   CurrentThread = KeGetCurrentThread();
@@ -41,8 +42,8 @@ __int64 __fastcall MiIsRangeFullyCommitted(__int64 a1, unsigned __int64 a2, unsi
   --CurrentThread->SpecialApcDisable;
   v10 = (signed __int64 *)(v9 + 40);
   ExAcquirePushLockSharedEx((ULONG_PTR)v10, 0LL);
-  v11 = v18;
-  v12 = v17;
+  v11 = v19;
+  v12 = v18;
   while ( 1 )
   {
     if ( v12 == v11 )
@@ -62,15 +63,15 @@ __int64 __fastcall MiIsRangeFullyCommitted(__int64 a1, unsigned __int64 a2, unsi
         if ( !PteShadow )
           break;
         if ( (unsigned __int64)++ProtoPteAddress > v13 )
-          goto LABEL_12;
+          goto LABEL_10;
       }
       v8 = 0;
     }
-LABEL_12:
+LABEL_10:
     if ( v12 == v11 )
       break;
     v12 = *(_QWORD *)(v12 + 16);
-    v17 = v12;
+    v18 = v12;
     ProtoPteAddress = *(__int64 **)(v12 + 8);
     if ( !ProtoPteAddress )
     {
@@ -81,10 +82,11 @@ LABEL_12:
   if ( _InterlockedCompareExchange64(v10, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v10);
   KeAbPostRelease((ULONG_PTR)v10);
-  if ( CurrentThread->SpecialApcDisable++ == -1
-    && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( CurrentThread->SpecialApcDisable++ == -1 )
   {
-    KiCheckForKernelApcDelivery();
+    v17 = &CurrentThread->152;
+    if ( ($C459BD0D405E8E46662177FB3D0A143F *)v17->ApcState.ApcListHead[0].Flink != v17 )
+      KiCheckForKernelApcDelivery((__int64)v17);
   }
   return v8;
 }

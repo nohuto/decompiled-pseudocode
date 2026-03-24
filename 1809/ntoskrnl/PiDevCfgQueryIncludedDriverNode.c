@@ -1,24 +1,24 @@
 /*
- * XREFs of PiDevCfgQueryIncludedDriverNode @ 0x14082E028
+ * XREFs of PiDevCfgQueryIncludedDriverNode @ 0x14082E008
  * Callers:
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1406F6C90 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1406F6C70 (PiDevCfgQueryIncludedDriverConfigurations.c)
  * Callees:
- *     PnpDuplicateUnicodeString @ 0x14015D998 (PnpDuplicateUnicodeString.c)
- *     PnpValidateRegistryMultiSz @ 0x1401698F8 (PnpValidateRegistryMultiSz.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PiDevCfgGetDriverConfigurationKeyScope @ 0x140288FC8 (PiDevCfgGetDriverConfigurationKeyScope.c)
+ *     PnpDuplicateUnicodeString @ 0x14015D9B8 (PnpDuplicateUnicodeString.c)
+ *     PnpValidateRegistryMultiSz @ 0x140169918 (PnpValidateRegistryMultiSz.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PiDevCfgGetDriverConfigurationKeyScope @ 0x1402890C8 (PiDevCfgGetDriverConfigurationKeyScope.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _PnpOpenObjectRegKey @ 0x140597118 (_PnpOpenObjectRegKey.c)
  *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlCreateUnicodeString @ 0x14065AA30 (RtlCreateUnicodeString.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
- *     PiDevCfgGetDriverPackageId @ 0x1406F5694 (PiDevCfgGetDriverPackageId.c)
- *     PiDevCfgOpenDriverConfiguration @ 0x1406F66DC (PiDevCfgOpenDriverConfiguration.c)
- *     PiDevCfgFreeDriverNode @ 0x1406F67C0 (PiDevCfgFreeDriverNode.c)
+ *     RtlCreateUnicodeString @ 0x14065AA10 (RtlCreateUnicodeString.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
+ *     PiDevCfgGetDriverPackageId @ 0x1406F5674 (PiDevCfgGetDriverPackageId.c)
+ *     PiDevCfgOpenDriverConfiguration @ 0x1406F66BC (PiDevCfgOpenDriverConfiguration.c)
+ *     PiDevCfgFreeDriverNode @ 0x1406F67A0 (PiDevCfgFreeDriverNode.c)
  */
 
 __int64 __fastcall PiDevCfgQueryIncludedDriverNode(__int64 a1, const wchar_t *a2, const WCHAR *a3, int a4, __int64 *a5)
@@ -226,9 +226,9 @@ LABEL_68:
               v32 = *i;
               if ( !*i )
                 goto LABEL_68;
-              v26 = *i - asc_140766B40[0];
+              v26 = *i - asc_140766B20[0];
               if ( !v26 )
-                v26 = i[1] - asc_140766B40[1];
+                v26 = i[1] - asc_140766B20[1];
               if ( !v26 )
               {
                 *(_DWORD *)(v23 + 104) = -1;

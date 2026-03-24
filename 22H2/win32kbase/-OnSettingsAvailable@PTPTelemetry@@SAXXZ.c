@@ -1,12 +1,12 @@
 /*
- * XREFs of ?OnSettingsAvailable@PTPTelemetry@@SAXXZ @ 0x1C01DFCF0
+ * XREFs of ?OnSettingsAvailable@PTPTelemetry@@SAXXZ @ 0x1C01A6700
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void __fastcall PTPTelemetry::OnSettingsAvailable(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void PTPTelemetry::OnSettingsAvailable(void)
 {
-  *(_BYTE *)(SGDGetUserSessionState(a1, a2, a3, a4) + 11809) = 1;
+  PTPTelemetry::s_SettingsReady = 1;
 }

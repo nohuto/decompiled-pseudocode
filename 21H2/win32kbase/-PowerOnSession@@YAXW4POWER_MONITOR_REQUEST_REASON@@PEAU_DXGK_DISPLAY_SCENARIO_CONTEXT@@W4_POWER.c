@@ -1,12 +1,13 @@
 /*
- * XREFs of ?PowerOnSession@@YAXW4POWER_MONITOR_REQUEST_REASON@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@W4_POWERON_LOC@@@Z @ 0x1C0146DE0
+ * XREFs of ?PowerOnSession@@YAXW4POWER_MONITOR_REQUEST_REASON@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@W4_POWERON_LOC@@@Z @ 0x1C01186E4
  * Callers:
- *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C007C7B0 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
+ *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C0076B30 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
  * Callees:
- *     EtwTracePowerOnMonitorEnd @ 0x1C007D59C (EtwTracePowerOnMonitorEnd.c)
- *     EtwTracPowerOnMonitoreBegin @ 0x1C007D9E8 (EtwTracPowerOnMonitoreBegin.c)
- *     ?UpdateSessionPowerState@@YAXHW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C014747C (-UpdateSessionPowerState@@YAXHW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
- *     SqmPowerState @ 0x1C0147FA0 (SqmPowerState.c)
+ *     PowerInputEvent @ 0x1C0077440 (PowerInputEvent.c)
+ *     EtwTracePowerOnMonitorEnd @ 0x1C00778A0 (EtwTracePowerOnMonitorEnd.c)
+ *     EtwTracPowerOnMonitoreBegin @ 0x1C0077C28 (EtwTracPowerOnMonitoreBegin.c)
+ *     SqmPowerState @ 0x1C00788B0 (SqmPowerState.c)
+ *     ?UpdateSessionPowerState@@YAXHW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C0118FDC (-UpdateSessionPowerState@@YAXHW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
  */
 
 __int64 __fastcall PowerOnSession(enum POWER_MONITOR_REQUEST_REASON a1, __int64 a2, __int64 a3)
@@ -22,8 +23,9 @@ __int64 __fastcall PowerOnSession(enum POWER_MONITOR_REQUEST_REASON a1, __int64 
   if ( !gProtocolType )
   {
     v8 = 1;
-    ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_LOGICAL_STATE, &v8, 4LL, 0LL, 0LL);
+    ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_LOGICAL_STATE, &v8, 4LL, 0LL, 0LL, 0, 0);
     v4 = 1;
+    PowerInputEvent(1u);
     if ( gSqmIsOptedIn )
       SqmPowerState();
   }
@@ -31,7 +33,7 @@ __int64 __fastcall PowerOnSession(enum POWER_MONITOR_REQUEST_REASON a1, __int64 
   if ( v4 )
   {
     v8 = 3;
-    ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_LOGICAL_STATE, &v8, 4LL, 0LL, 0LL);
+    ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_LOGICAL_STATE, &v8, 4LL, 0LL, 0LL, 0, 0);
   }
   return EtwTracePowerOnMonitorEnd(0LL, v5, v6);
 }

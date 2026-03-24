@@ -9,9 +9,9 @@
  *     PsGetCurrentServerSilo @ 0x14004D270 (PsGetCurrentServerSilo.c)
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C00 (PsIsCurrentThreadInServerSilo.c)
- *     SepGetAnonymousToken @ 0x1400DD4EC (SepGetAnonymousToken.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
+ *     SepGetAnonymousToken @ 0x1400DD50C (SepGetAnonymousToken.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     SepCopyAnonymousTokenAndSetSilo @ 0x1405828D0 (SepCopyAnonymousTokenAndSetSilo.c)
  *     SepRegQueryDwordValue @ 0x1405B99BC (SepRegQueryDwordValue.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
@@ -19,7 +19,7 @@
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
  *     PsImpersonateClient @ 0x140637B70 (PsImpersonateClient.c)
- *     SepDuplicateToken @ 0x1406494A0 (SepDuplicateToken.c)
+ *     SepDuplicateToken @ 0x140649480 (SepDuplicateToken.c)
  */
 
 NTSTATUS __stdcall NtImpersonateAnonymousToken(HANDLE ThreadHandle)

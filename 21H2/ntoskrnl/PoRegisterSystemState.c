@@ -1,52 +1,55 @@
 /*
- * XREFs of PoRegisterSystemState @ 0x140201CD0
+ * XREFs of PoRegisterSystemState @ 0x14056EF10
  * Callers:
  *     <none>
  * Callees:
- *     PopDiagTraceRegisterSystemState @ 0x140201D94 (PopDiagTraceRegisterSystemState.c)
- *     PopGetLegacyPowerRequestFlags @ 0x140369870 (PopGetLegacyPowerRequestFlags.c)
- *     PopApplyLegacyPowerRequestFlags @ 0x1403698C4 (PopApplyLegacyPowerRequestFlags.c)
- *     PopPowerRequestCreateCommon @ 0x14036A698 (PopPowerRequestCreateCommon.c)
- *     PoDestroyReasonContext @ 0x14036B090 (PoDestroyReasonContext.c)
- *     PoCaptureReasonContext @ 0x14036B98C (PoCaptureReasonContext.c)
- *     PoSetSystemState @ 0x1405CFE90 (PoSetSystemState.c)
+ *     PoDestroyReasonContext @ 0x140282BD8 (PoDestroyReasonContext.c)
+ *     PoCaptureReasonContext @ 0x14028363C (PoCaptureReasonContext.c)
+ *     PopGetLegacyPowerRequestFlags @ 0x140284054 (PopGetLegacyPowerRequestFlags.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x1402840A8 (PopApplyLegacyPowerRequestFlags.c)
+ *     PoSetSystemState @ 0x14056EFF0 (PoSetSystemState.c)
+ *     PopDiagTraceRegisterSystemState @ 0x140572EBC (PopDiagTraceRegisterSystemState.c)
+ *     PopCreateKernelPowerRequest @ 0x1407727C8 (PopCreateKernelPowerRequest.c)
  */
 
 PVOID __stdcall PoRegisterSystemState(PVOID StateHandle, EXECUTION_STATE Flags)
 {
-  PVOID v2; // rbx
-  int v5; // r9d
-  int v6; // eax
-  PVOID v7; // rsi
+  _QWORD *v2; // rbx
+  _DWORD *v3; // rdi
+  int v4; // r14d
+  int v7; // eax
   int v8; // eax
-  PVOID v10; // [rsp+50h] [rbp+18h] BYREF
-  PVOID P; // [rsp+58h] [rbp+20h] BYREF
+  char LegacyPowerRequestFlags; // al
+  char v10; // dl
+  _DWORD *v12; // [rsp+60h] [rbp+18h] BYREF
+  PVOID P; // [rsp+68h] [rbp+20h] BYREF
 
-  P = 0LL;
   v2 = 0LL;
+  v3 = 0LL;
+  v4 = 0;
+  P = 0LL;
   if ( (Flags & 0x7FFFFFF8) == 0 )
   {
-    if ( (int)Flags > 0 )
+    if ( (int)Flags <= 0 )
     {
-      PoSetSystemState(Flags);
+      PopDiagTraceRegisterSystemState(Flags, StateHandle);
+      v12 = StateHandle;
+      v3 = StateHandle;
+      if ( !StateHandle
+        && ((v7 = PoCaptureReasonContext(0LL, 0LL, 0LL, 1, 0LL, &P), v2 = P, v7 < 0)
+         || (v8 = PopCreateKernelPowerRequest(&v12, P), v3 = v12, v4 = v8, v8 < 0))
+        || (LegacyPowerRequestFlags = PopGetLegacyPowerRequestFlags(v3, Flags, 0LL),
+            PopApplyLegacyPowerRequestFlags(v3, v10, LegacyPowerRequestFlags),
+            v4 < 0) )
+      {
+        if ( v2 )
+          PoDestroyReasonContext(v2);
+      }
     }
     else
     {
-      PopDiagTraceRegisterSystemState(Flags, StateHandle);
-      v2 = StateHandle;
-      v10 = StateHandle;
-      if ( StateHandle
-        || (LOBYTE(v5) = 1, v6 = PoCaptureReasonContext(0, 0, 0, v5, 0LL, (__int64)&P), v7 = P, v6 >= 0)
-        && (v8 = PopPowerRequestCreateCommon(P, 0LL, &v10), v2 = v10, v8 >= 0) )
-      {
-        PopGetLegacyPowerRequestFlags(v2, Flags, 0LL);
-        PopApplyLegacyPowerRequestFlags(v2);
-      }
-      else if ( v7 )
-      {
-        PoDestroyReasonContext(v7);
-      }
+      PoSetSystemState(Flags);
     }
   }
-  return v2;
+  return v3;
 }

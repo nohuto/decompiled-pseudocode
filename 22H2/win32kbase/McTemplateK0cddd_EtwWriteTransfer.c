@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0cddd_EtwWriteTransfer @ 0x1C013BD5C
+ * XREFs of McTemplateK0cddd_EtwWriteTransfer @ 0x1C0124978
  * Callers:
- *     EtwTraceBeginInjectMouse @ 0x1C0138AB0 (EtwTraceBeginInjectMouse.c)
- *     EtwTraceEndInjectMouse @ 0x1C0139330 (EtwTraceEndInjectMouse.c)
+ *     EtwTraceEndInjectMouse @ 0x1C00AA070 (EtwTraceEndInjectMouse.c)
+ *     EtwTraceBeginInjectMouse @ 0x1C00AA0B0 (EtwTraceBeginInjectMouse.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0cddd_EtwWriteTransfer(

@@ -1,9 +1,9 @@
 /*
  * XREFs of MmQueryVirtualMemory @ 0x1405EE910
  * Callers:
- *     ?SmStCheckResident@?$SMKM_STORE@USM_TRAITS@@@@SA?AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z @ 0x140145B9C (-SmStCheckResident@-$SMKM_STORE@USM_TRAITS@@@@SA-AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z.c)
+ *     ?SmStCheckResident@?$SMKM_STORE@USM_TRAITS@@@@SA?AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z @ 0x140145BBC (-SmStCheckResident@-$SMKM_STORE@USM_TRAITS@@@@SA-AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z.c)
  *     NtQueryVirtualMemory @ 0x1405EE8E0 (NtQueryVirtualMemory.c)
- *     PfpVirtualQuery @ 0x140865098 (PfpVirtualQuery.c)
+ *     PfpVirtualQuery @ 0x140865078 (PfpVirtualQuery.c)
  * Callees:
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
@@ -24,17 +24,17 @@
  *     MiQueryAddressSpan @ 0x140075EA0 (MiQueryAddressSpan.c)
  *     MiLockVad @ 0x1400769A4 (MiLockVad.c)
  *     MiGetWorkingSetInfoList @ 0x1400965F0 (MiGetWorkingSetInfoList.c)
- *     MiIsSoftwareEnclave @ 0x1401211DC (MiIsSoftwareEnclave.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlCompareMemoryUlong @ 0x1401C5C30 (RtlCompareMemoryUlong.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     VslQueryVirtualMemory @ 0x14027B970 (VslQueryVirtualMemory.c)
- *     MiGetWorkingSetInfo @ 0x1402BEBC4 (MiGetWorkingSetInfo.c)
- *     MiWaitForVadDeletion @ 0x1402CB050 (MiWaitForVadDeletion.c)
+ *     MiIsSoftwareEnclave @ 0x1401211FC (MiIsSoftwareEnclave.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlCompareMemoryUlong @ 0x1401C5C50 (RtlCompareMemoryUlong.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     VslQueryVirtualMemory @ 0x14027BA70 (VslQueryVirtualMemory.c)
+ *     MiGetWorkingSetInfo @ 0x1402BECC4 (MiGetWorkingSetInfo.c)
+ *     MiWaitForVadDeletion @ 0x1402CB150 (MiWaitForVadDeletion.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     ObQueryNameStringMode @ 0x140660F70 (ObQueryNameStringMode.c)
- *     ExRaiseAccessViolation @ 0x1408D65C0 (ExRaiseAccessViolation.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ObQueryNameStringMode @ 0x140660F50 (ObQueryNameStringMode.c)
+ *     ExRaiseAccessViolation @ 0x1408D65A0 (ExRaiseAccessViolation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MmQueryVirtualMemory(

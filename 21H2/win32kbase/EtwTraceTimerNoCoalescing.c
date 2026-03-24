@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceTimerNoCoalescing @ 0x1C014E6F0
+ * XREFs of EtwTraceTimerNoCoalescing @ 0x1C0123AE0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0szzqqq_EtwWriteTransfer @ 0x1C0151838 (McTemplateK0szzqqq_EtwWriteTransfer.c)
+ *     McTemplateK0szzqqq_EtwWriteTransfer @ 0x1C01271B8 (McTemplateK0szzqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceTimerNoCoalescing(int a1, __int64 a2, __int64 a3, char a4, char a5, char a6)

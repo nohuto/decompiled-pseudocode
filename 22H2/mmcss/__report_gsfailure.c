@@ -1,7 +1,7 @@
 /*
- * XREFs of __report_gsfailure @ 0x1C0003080
+ * XREFs of __report_gsfailure @ 0x1C0003000
  * Callers:
- *     __security_check_cookie @ 0x1C0003050 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0002FD0 (__security_check_cookie.c)
  * Callees:
  *     <none>
  */

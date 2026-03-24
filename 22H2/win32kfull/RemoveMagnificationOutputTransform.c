@@ -1,9 +1,9 @@
 /*
- * XREFs of RemoveMagnificationOutputTransform @ 0x1C00A79F0
+ * XREFs of RemoveMagnificationOutputTransform @ 0x1C0110170
  * Callers:
  *     <none>
  * Callees:
- *     MagpRemoveTransformOutputMagFac @ 0x1C00A7A08 (MagpRemoveTransformOutputMagFac.c)
+ *     MagpRemoveTransformOutputMagFac @ 0x1C0110188 (MagpRemoveTransformOutputMagFac.c)
  */
 
 __int64 __fastcall RemoveMagnificationOutputTransform(__int64 a1)

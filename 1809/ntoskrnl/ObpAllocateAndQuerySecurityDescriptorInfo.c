@@ -4,7 +4,7 @@
  *     NtSetSecurityObject @ 0x1405B9CF0 (NtSetSecurityObject.c)
  *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeQuerySecurityDescriptorInfo @ 0x1405CB720 (SeQuerySecurityDescriptorInfo.c)

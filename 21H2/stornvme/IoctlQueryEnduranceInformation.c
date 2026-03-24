@@ -1,15 +1,15 @@
 /*
- * XREFs of IoctlQueryEnduranceInformation @ 0x1C001B91C
+ * XREFs of IoctlQueryEnduranceInformation @ 0x1C00130A4
  * Callers:
- *     IoctlToNVMe @ 0x1C0002DE0 (IoctlToNVMe.c)
+ *     IoctlToNVMe @ 0x1C0002660 (IoctlToNVMe.c)
  * Callees:
- *     NVMeZeroMemory @ 0x1C0005100 (NVMeZeroMemory.c)
- *     GetNamespaceId @ 0x1C00051C8 (GetNamespaceId.c)
- *     SrbAssignQueueId @ 0x1C0005238 (SrbAssignQueueId.c)
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     BuildGetLogPageCommand @ 0x1C0005458 (BuildGetLogPageCommand.c)
- *     NVMeAllocateDmaBuffer @ 0x1C00055C4 (NVMeAllocateDmaBuffer.c)
- *     memset @ 0x1C00109C0 (memset.c)
+ *     BuildGetLogPageCommand @ 0x1C0002AA4 (BuildGetLogPageCommand.c)
+ *     GetNamespaceId @ 0x1C00058D4 (GetNamespaceId.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C0005B00 (NVMeAllocateDmaBuffer.c)
+ *     memset @ 0x1C0008040 (memset.c)
  */
 
 __int64 __fastcall IoctlQueryEnduranceInformation(__int64 a1, __int64 a2)
@@ -41,7 +41,7 @@ __int64 __fastcall IoctlQueryEnduranceInformation(__int64 a1, __int64 a2)
     v8 = *(_DWORD **)(a2 + 24);
     v9 = 16LL;
   }
-  v10 = *(_DWORD *)(a2 + v9);
+  v10 = *(_DWORD *)(v9 + a2);
   if ( v10 >= 0x54 )
   {
     NVMeZeroMemory(v8 + 7, v10 - 28);

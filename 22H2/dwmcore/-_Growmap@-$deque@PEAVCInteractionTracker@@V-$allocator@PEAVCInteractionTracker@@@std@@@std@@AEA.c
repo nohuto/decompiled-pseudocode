@@ -1,26 +1,25 @@
 /*
- * XREFs of ?_Growmap@?$deque@PEAVCInteractionTracker@@V?$allocator@PEAVCInteractionTracker@@@std@@@std@@AEAAX_K@Z @ 0x180239864
+ * XREFs of ?_Growmap@?$deque@PEAVCInteractionTracker@@V?$allocator@PEAVCInteractionTracker@@@std@@@std@@AEAAX_K@Z @ 0x1801D0A38
  * Callers:
- *     ??$_Emplace_back_internal@AEBQEAVCInteractionTracker@@@?$deque@PEAVCInteractionTracker@@V?$allocator@PEAVCInteractionTracker@@@std@@@std@@AEAAXAEBQEAVCInteractionTracker@@@Z @ 0x18023653C (--$_Emplace_back_internal@AEBQEAVCInteractionTracker@@@-$deque@PEAVCInteractionTracker@@V-$alloc.c)
- *     ??$emplace_front@AEBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@?$deque@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAA?A_TAEBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@Z @ 0x180273E50 (--$emplace_front@AEBV-$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@-$deque@V-$c.c)
- *     ??$emplace_front@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@?$deque@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAA?A_T$$QEAV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@Z @ 0x180273F2C (--$emplace_front@V-$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@-$deque@V-$com_.c)
+ *     ?_Push_back_internal@?$deque@PEAVCInteractionTracker@@V?$allocator@PEAVCInteractionTracker@@@std@@@std@@AEAAXAEBQEAVCInteractionTracker@@@Z @ 0x1801D0BB0 (-_Push_back_internal@-$deque@PEAVCInteractionTracker@@V-$allocator@PEAVCInteractionTracker@@@std.c)
+ *     ?push_front@?$deque@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAX$$QEAV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@Z @ 0x1802146DC (-push_front@-$deque@V-$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V-$allocator@.c)
+ *     ?push_front@?$deque@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAXAEBV?$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@@Z @ 0x1802147A8 (-push_front@-$deque@V-$com_ptr_t@VCManipulation@@Uerr_returncode_policy@wil@@@wil@@_ea_1802147A8.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800861C0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9D60 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050D58 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
  */
 
 void __fastcall std::deque<CInteractionTracker *>::_Growmap(_QWORD *a1)
 {
-  unsigned __int64 v1; // rdx
+  unsigned __int64 v2; // rdx
   unsigned __int64 v3; // rcx
   unsigned __int64 v4; // rbp
   unsigned __int64 v5; // r12
-  SIZE_T size_of; // rax
-  __int64 v7; // r15
-  char *v8; // r14
+  SIZE_T v6; // rcx
+  char *v7; // r14
+  __int64 v8; // r15
   size_t v9; // rbx
   const void *v10; // rdx
   char *v11; // rbx
@@ -28,45 +27,47 @@ void __fastcall std::deque<CInteractionTracker *>::_Growmap(_QWORD *a1)
   char *v13; // rcx
   void *v14; // rcx
 
-  v1 = a1[2];
-  v3 = 1LL;
-  if ( v1 )
-    v3 = v1;
+  v2 = 1LL;
+  v3 = a1[2];
+  if ( v3 )
+    v2 = v3;
   while ( 1 )
   {
-    v4 = v3 - v1;
-    if ( v3 != v1 && v3 >= 8 )
+    v4 = v2 - v3;
+    if ( v2 != v3 && v2 >= 8 )
       break;
-    if ( 0xFFFFFFFFFFFFFFFLL - v3 < v3 )
+    if ( 0xFFFFFFFFFFFFFFFLL - v2 < v2 )
       std::_Xlength_error("deque<T> too long");
-    v3 *= 2LL;
+    v2 *= 2LL;
   }
   v5 = a1[3] >> 1;
-  size_of = std::_Get_size_of_n<8>(v3);
-  v7 = 8 * v5;
-  v8 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
+  v6 = 8 * v2;
+  if ( v2 > 0x1FFFFFFFFFFFFFFFLL )
+    v6 = -1LL;
+  v7 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(v6);
+  v8 = 8 * v5;
   v9 = 8LL * a1[2] - 8 * v5;
-  memmove_0(&v8[8 * v5], (const void *)(a1[1] + 8 * v5), v9);
+  memmove_0(&v7[8 * v5], (const void *)(a1[1] + 8 * v5), v9);
   v10 = (const void *)a1[1];
-  v11 = &v8[8 * v5 + v9];
+  v11 = &v7[8 * v5 + v9];
   if ( v5 > v4 )
   {
     memmove_0(v11, v10, 8 * v4);
-    memmove_0(v8, (const void *)(8 * v4 + a1[1]), v7 - 8 * v4);
-    v13 = &v8[v7 - 8 * v4];
+    memmove_0(v7, (const void *)(8 * v4 + a1[1]), v8 - 8 * v4);
+    v13 = &v7[v8 - 8 * v4];
     v12 = 8 * v4;
   }
   else
   {
     memmove_0(v11, v10, 8 * v5);
-    memset_0(&v11[v7], 0, 8 * (v4 - v5));
+    memset_0(&v11[v8], 0, 8 * (v4 - v5));
     v12 = 8 * v5;
-    v13 = v8;
+    v13 = v7;
   }
   memset_0(v13, 0, v12);
   v14 = (void *)a1[1];
   if ( v14 )
     std::_Deallocate<16,0>(v14, 8LL * a1[2]);
-  a1[1] = v8;
   a1[2] += v4;
+  a1[1] = v7;
 }

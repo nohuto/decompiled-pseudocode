@@ -5,9 +5,9 @@
  *     KiEnableKvaShadowing @ 0x140572BD8 (KiEnableKvaShadowing.c)
  * Callees:
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1400F3430 (RtlSectionTableFromVirtualAddress.c)
- *     MmCreateShadowMapping @ 0x14072A178 (MmCreateShadowMapping.c)
- *     MmDeleteShadowMapping @ 0x140858EEC (MmDeleteShadowMapping.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1400F3450 (RtlSectionTableFromVirtualAddress.c)
+ *     MmCreateShadowMapping @ 0x14072A158 (MmCreateShadowMapping.c)
+ *     MmDeleteShadowMapping @ 0x140858ECC (MmDeleteShadowMapping.c)
  */
 
 __int64 __fastcall KiShadowProcessorAllocation(__int64 a1, __int64 a2)

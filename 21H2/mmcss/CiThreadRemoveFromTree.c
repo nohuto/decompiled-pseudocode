@@ -1,7 +1,7 @@
 /*
- * XREFs of CiThreadRemoveFromTree @ 0x1C0002C10
+ * XREFs of CiThreadRemoveFromTree @ 0x1C0001CC0
  * Callers:
- *     CiThreadCleanup @ 0x1C000A680 (CiThreadCleanup.c)
+ *     CiThreadCleanup @ 0x1C000B8E0 (CiThreadCleanup.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,21 @@
 /*
- * XREFs of ?Blt@BLTENTRY@@QEAAJXZ @ 0x1C03BB35C
+ * XREFs of ?Blt@BLTENTRY@@QEAAJXZ @ 0x1C02FC944
  * Callers:
- *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C01CEBF4 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
+ *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C015E550 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?PresentDisplayOnly@BLTQUEUE@@QEAAJPEAU_DXGKARG_PRESENT_DISPLAYONLY@@IW4BltQueuePresentDisplayOnlySource@1@@Z @ 0x1C03BDC58 (-PresentDisplayOnly@BLTQUEUE@@QEAAJPEAU_DXGKARG_PRESENT_DISPLAYONLY@@IW4BltQueuePresentDisplayOn.c)
- *     ?WaitFence@BLTQUEUE@@QEAAJ_KPEAVDXGDEVICE@@@Z @ 0x1C03BF798 (-WaitFence@BLTQUEUE@@QEAAJ_KPEAVDXGDEVICE@@@Z.c)
+ *     ?PresentDisplayOnly@BLTQUEUE@@QEAAJPEAU_DXGKARG_PRESENT_DISPLAYONLY@@@Z @ 0x1C02FEDB0 (-PresentDisplayOnly@BLTQUEUE@@QEAAJPEAU_DXGKARG_PRESENT_DISPLAYONLY@@@Z.c)
+ *     ?WaitFence@BLTQUEUE@@QEAAJ_KPEAVDXGDEVICE@@@Z @ 0x1C0300510 (-WaitFence@BLTQUEUE@@QEAAJ_KPEAVDXGDEVICE@@@Z.c)
  */
 
 __int64 __fastcall BLTENTRY::Blt(BLTENTRY *this)
 {
   struct DXGDEVICE *v2; // r8
   int v3; // eax
-  __int64 v4; // rsi
+  __int64 v4; // rdi
   int v5; // eax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
 
   *((LARGE_INTEGER *)this + 68) = KeQueryPerformanceCounter(0LL);
   if ( (*((_DWORD *)this + 16) & 8) != 0 )
@@ -29,21 +31,16 @@ __int64 __fastcall BLTENTRY::Blt(BLTENTRY *this)
           LODWORD(v4) = v3,
           v3 >= 0) )
     {
-      v5 = BLTQUEUE::PresentDisplayOnly(*((_QWORD *)this + 3), (char *)this + 72, *((unsigned int *)this + 15), 0LL);
+      v5 = BLTQUEUE::PresentDisplayOnly(
+             *((BLTQUEUE **)this + 3),
+             (struct _DXGKARG_PRESENT_DISPLAYONLY *)((char *)this + 72));
       v4 = v5;
       if ( v5 < 0 )
       {
-        WdLogSingleEntry2(2LL, v5, this);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"DdiPresentDisplayOnly return 0x%I64x for 0x%I64x",
-          v4,
-          (__int64)this,
-          0LL,
-          0LL,
-          0LL);
+        v8 = WdLogNewEntry5_WdError(v7, v6);
+        *(_QWORD *)(v8 + 24) = v4;
+        *(_QWORD *)(v8 + 32) = this;
+        WdLogEvent5_WdError(v8);
       }
     }
   }

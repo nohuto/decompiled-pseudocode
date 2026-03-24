@@ -1,17 +1,18 @@
 /*
- * XREFs of EtwpGetSoftRestartInformation @ 0x1409ED3E4
+ * XREFs of EtwpGetSoftRestartInformation @ 0x1409485C4
  * Callers:
- *     EtwQueryPerformanceTraceInformation @ 0x140860054 (EtwQueryPerformanceTraceInformation.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x140937EBC (EtwQueryPerformanceTraceInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
- *     EtwpCheckLoggerControlAccess @ 0x1406BDB0C (EtwpCheckLoggerControlAccess.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402D19C0 (PsIsCurrentThreadInServerSilo.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1406BBBBC (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BC864 (EtwpAcquireLoggerContextByLoggerId.c)
  */
 
-__int64 __fastcall EtwpGetSoftRestartInformation(__int64 a1, unsigned int a2, _DWORD *a3)
+__int64 __fastcall EtwpGetSoftRestartInformation(__int64 a1, __int64 a2, _DWORD *a3)
 {
+  unsigned int v4; // edi
   char v6; // r14
   unsigned int v8; // edx
   struct _KTHREAD *CurrentThread; // rax
@@ -20,15 +21,16 @@ __int64 __fastcall EtwpGetSoftRestartInformation(__int64 a1, unsigned int a2, _D
   int v12; // ebx
   __int64 v13; // rax
 
+  v4 = a2;
   v6 = 0;
-  if ( !EtwpKsrCallbackObject || PsIsCurrentThreadInServerSilo() )
+  if ( !EtwpKsrCallbackObject || PsIsCurrentThreadInServerSilo(a1, a2) )
     return 3221225659LL;
   *a3 = 24;
-  if ( a2 < 0x18 )
+  if ( v4 < 0x18 )
     return 3221225476LL;
   v8 = (unsigned __int16)*(_QWORD *)(a1 + 8);
   if ( v8 == 0xFFFF )
-    v8 = *(unsigned __int8 *)(EtwpHostSiloState + 4232);
+    v8 = *(unsigned __int8 *)(EtwpHostSiloState + 4208);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v10 = EtwpAcquireLoggerContextByLoggerId(EtwpHostSiloState, v8, 1);
@@ -38,7 +40,7 @@ __int64 __fastcall EtwpGetSoftRestartInformation(__int64 a1, unsigned int a2, _D
     v12 = EtwpCheckLoggerControlAccess(1u, (__int64)v10);
     if ( v12 >= 0 )
     {
-      v13 = *((_QWORD *)v11 + 136);
+      v13 = *((_QWORD *)v11 + 134);
       if ( v13 )
         v6 = *(_BYTE *)(v13 + 32);
     }

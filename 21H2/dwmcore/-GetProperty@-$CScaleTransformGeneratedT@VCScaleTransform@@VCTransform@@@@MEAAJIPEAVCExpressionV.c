@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetProperty@?$CScaleTransformGeneratedT@VCScaleTransform@@VCTransform@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801A0860
+ * XREFs of ?GetProperty@?$CScaleTransformGeneratedT@VCScaleTransform@@VCTransform@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x18016EE80
  * Callers:
  *     <none>
  * Callees:
@@ -24,21 +24,21 @@ __int64 __fastcall CScaleTransformGeneratedT<CScaleTransform,CTransform>::GetPro
       {
         if ( v5 != 1 )
           return 2147942487LL;
-        v6 = a1[43];
+        v6 = a1[41];
       }
       else
       {
-        v6 = a1[42];
+        v6 = a1[40];
       }
     }
     else
     {
-      v6 = a1[41];
+      v6 = a1[39];
     }
   }
   else
   {
-    v6 = a1[40];
+    v6 = a1[38];
   }
   *(_DWORD *)a3 = v6;
   *(_BYTE *)(a3 + 76) = 1;

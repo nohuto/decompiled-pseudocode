@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenEvent @ 0x14068C7E0
+ * XREFs of NtOpenEvent @ 0x14067DAA0
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x14068C9D0 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x1406CEA10 (ObOpenObjectByName.c)
  */
 
 __int64 __fastcall NtOpenEvent(_QWORD *a1, int a2, int a3)

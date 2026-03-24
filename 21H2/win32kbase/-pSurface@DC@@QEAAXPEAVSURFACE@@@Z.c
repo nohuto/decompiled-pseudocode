@@ -1,16 +1,16 @@
 /*
- * XREFs of ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C00CBE2C
+ * XREFs of ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C00204F8
  * Callers:
- *     GreCreateDisplayDC @ 0x1C002F6A0 (GreCreateDisplayDC.c)
- *     vDynamicConvertNewSurfaceDCs @ 0x1C0061570 (vDynamicConvertNewSurfaceDCs.c)
- *     bDynamicModeChange @ 0x1C00C9250 (bDynamicModeChange.c)
- *     ?bMakeInfoDC@DC@@QEAAHH@Z @ 0x1C00CBD30 (-bMakeInfoDC@DC@@QEAAHH@Z.c)
- *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C00DAA60 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
- *     ?UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z @ 0x1C016AB74 (-UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z.c)
+ *     vDynamicConvertNewSurfaceDCs @ 0x1C000D7B0 (vDynamicConvertNewSurfaceDCs.c)
+ *     ?bMakeInfoDC@DC@@QEAAHH@Z @ 0x1C00203D0 (-bMakeInfoDC@DC@@QEAAHH@Z.c)
+ *     GreCreateDisplayDC @ 0x1C003B650 (GreCreateDisplayDC.c)
+ *     bDynamicModeChange @ 0x1C00BA730 (bDynamicModeChange.c)
+ *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C00C9DD0 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
+ *     ?UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z @ 0x1C013DBB4 (-UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z.c)
  * Callees:
- *     ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C0062EA8 (-bDpiScaledSurface@DC@@QEBAHXZ.c)
- *     ?vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z @ 0x1C0169B38 (-vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z.c)
- *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C0169B88 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
+ *     ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C00205AC (-bDpiScaledSurface@DC@@QEBAHXZ.c)
+ *     ?vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z @ 0x1C013C704 (-vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z.c)
+ *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C013C754 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
  */
 
 void __fastcall DC::pSurface(DC *this, struct SURFACE *a2)

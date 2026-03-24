@@ -1,15 +1,15 @@
 /*
- * XREFs of XilEndpoint_FreeStreamContextArray @ 0x1C0037764
+ * XREFs of XilEndpoint_FreeStreamContextArray @ 0x1C00375C0
  * Callers:
- *     Endpoint_Disable_Internal @ 0x1C0004DBC (Endpoint_Disable_Internal.c)
- *     Endpoint_EndpointStaticStreamsDisableCompletion @ 0x1C00384A0 (Endpoint_EndpointStaticStreamsDisableCompletion.c)
- *     Endpoint_EndpointStaticStreamsEnableCompletion @ 0x1C00386E0 (Endpoint_EndpointStaticStreamsEnableCompletion.c)
- *     Endpoint_EvtStaticStreamsCleanupCallback @ 0x1C0038930 (Endpoint_EvtStaticStreamsCleanupCallback.c)
- *     Endpoint_UcxEvtEndpointStaticStreamsDisable @ 0x1C003B0F0 (Endpoint_UcxEvtEndpointStaticStreamsDisable.c)
- *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003B3B0 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
+ *     Endpoint_Disable_Internal @ 0x1C000ABD4 (Endpoint_Disable_Internal.c)
+ *     Endpoint_EndpointStaticStreamsDisableCompletion @ 0x1C0037F10 (Endpoint_EndpointStaticStreamsDisableCompletion.c)
+ *     Endpoint_EndpointStaticStreamsEnableCompletion @ 0x1C00381D0 (Endpoint_EndpointStaticStreamsEnableCompletion.c)
+ *     Endpoint_EvtStaticStreamsCleanupCallback @ 0x1C00386B0 (Endpoint_EvtStaticStreamsCleanupCallback.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsDisable @ 0x1C003ABD0 (Endpoint_UcxEvtEndpointStaticStreamsDisable.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003AEA0 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
  * Callees:
- *     CommonBuffer_ReleaseBuffer @ 0x1C000182C (CommonBuffer_ReleaseBuffer.c)
- *     XilEndpoint_SendRequestToFreeSecureStreamContextArray @ 0x1C0037990 (XilEndpoint_SendRequestToFreeSecureStreamContextArray.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C0019D40 (CommonBuffer_ReleaseBuffer.c)
+ *     XilEndpoint_SendRequestToFreeSecureStreamContextArray @ 0x1C00377EC (XilEndpoint_SendRequestToFreeSecureStreamContextArray.c)
  */
 
 void __fastcall XilEndpoint_FreeStreamContextArray(_QWORD *a1)

@@ -1,21 +1,21 @@
 /*
  * XREFs of PiDqDispatch @ 0x140590640
  * Callers:
- *     PiDaDispatch @ 0x1406A6B60 (PiDaDispatch.c)
+ *     PiDaDispatch @ 0x1406A6B40 (PiDaDispatch.c)
  * Callees:
  *     IoIs32bitProcess @ 0x140006A40 (IoIs32bitProcess.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     wcscmp @ 0x1401976E0 (wcscmp.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     wcscmp @ 0x140197700 (wcscmp.c)
  *     PiDqObjectManagerUnregisterQuery @ 0x140590038 (PiDqObjectManagerUnregisterQuery.c)
  *     PiDqQueryRelease @ 0x1405900AC (PiDqQueryRelease.c)
  *     PiDqQueryGetObjectManager @ 0x140590290 (PiDqQueryGetObjectManager.c)
  *     PiDqQueryCreate @ 0x140590864 (PiDqQueryCreate.c)
  *     PiDqIrpQueryCreate @ 0x140590B08 (PiDqIrpQueryCreate.c)
- *     PiDqIrpQueryGetResult @ 0x1406BE1FC (PiDqIrpQueryGetResult.c)
- *     PiDqIrpPropertySet @ 0x1406D58FC (PiDqIrpPropertySet.c)
+ *     PiDqIrpQueryGetResult @ 0x1406BE1DC (PiDqIrpQueryGetResult.c)
+ *     PiDqIrpPropertySet @ 0x1406D58DC (PiDqIrpPropertySet.c)
  */
 
 __int64 __fastcall PiDqDispatch(__int64 a1, IRP *a2)

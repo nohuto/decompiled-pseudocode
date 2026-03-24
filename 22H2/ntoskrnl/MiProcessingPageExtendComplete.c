@@ -1,10 +1,10 @@
 /*
- * XREFs of MiProcessingPageExtendComplete @ 0x1406256D0
+ * XREFs of MiProcessingPageExtendComplete @ 0x14052A17C
  * Callers:
- *     MiProcessDereferenceList @ 0x140625124 (MiProcessDereferenceList.c)
+ *     MiProcessDereferenceList @ 0x14038746C (MiProcessDereferenceList.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
  */
 
 KIRQL __fastcall MiProcessingPageExtendComplete(__int64 a1, struct _KEVENT *a2, __int64 a3)
@@ -12,7 +12,7 @@ KIRQL __fastcall MiProcessingPageExtendComplete(__int64 a1, struct _KEVENT *a2, 
   volatile LONG *v5; // rcx
   KIRQL v6; // di
 
-  v5 = (volatile LONG *)(a3 + 1408);
+  v5 = (volatile LONG *)(a3 + 1344);
   if ( (*(_BYTE *)(a1 + 79) & 4) != 0 )
   {
     _InterlockedExchange(&a2[3].Header.Lock, 0);

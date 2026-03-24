@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCheckNotificationAccess @ 0x14078EE9C
+ * XREFs of EtwpCheckNotificationAccess @ 0x1406E3214
  * Callers:
- *     EtwpValidateEnableNotification @ 0x14078FE24 (EtwpValidateEnableNotification.c)
- *     EtwpUpdatePeriodicCaptureState @ 0x1409EC088 (EtwpUpdatePeriodicCaptureState.c)
+ *     EtwpValidateEnableNotification @ 0x1406E2CE0 (EtwpValidateEnableNotification.c)
+ *     EtwpUpdatePeriodicCaptureState @ 0x14093F664 (EtwpUpdatePeriodicCaptureState.c)
  * Callees:
- *     EtwCheckSecurityLoggerAccess @ 0x1406E0450 (EtwCheckSecurityLoggerAccess.c)
- *     EtwpCheckGuidAccess @ 0x140790CA8 (EtwpCheckGuidAccess.c)
+ *     EtwpCheckSecurityLoggerAccess @ 0x1406C38A4 (EtwpCheckSecurityLoggerAccess.c)
+ *     EtwpCheckGuidAccess @ 0x1406E3280 (EtwpCheckGuidAccess.c)
  */
 
 __int64 __fastcall EtwpCheckNotificationAccess(_QWORD *a1, __int64 a2)
@@ -25,9 +25,7 @@ __int64 __fastcall EtwpCheckNotificationAccess(_QWORD *a1, __int64 a2)
       if ( *a1 == s_ProviderThreatInt )
         v6 = a1[1] - 0x44D38D4D0F04D8F1LL;
       if ( !v6 )
-        return (unsigned int)EtwCheckSecurityLoggerAccess(
-                               (__int64)KeGetCurrentThread()->ApcState.Process,
-                               KeGetCurrentThread()->PreviousMode);
+        return (unsigned int)EtwpCheckSecurityLoggerAccess((__int64)KeGetCurrentThread()->ApcState.Process);
       return v5;
     }
   }

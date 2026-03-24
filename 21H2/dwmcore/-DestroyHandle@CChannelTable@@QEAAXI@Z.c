@@ -1,13 +1,13 @@
 /*
- * XREFs of ?DestroyHandle@CChannelTable@@QEAAXI@Z @ 0x1801A9A4C
+ * XREFs of ?DestroyHandle@CChannelTable@@QEAAXI@Z @ 0x18014F41C
  * Callers:
- *     ?CreateChannel@CInternalMilCmdConnection@@QEAAJPEAPEAVCChannel@@@Z @ 0x18002CD68 (-CreateChannel@CInternalMilCmdConnection@@QEAAJPEAPEAVCChannel@@@Z.c)
- *     ?DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z @ 0x180193A64 (-DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z.c)
+ *     ?CreateKernelChannel@CInternalMilCmdConnection@@AEAAJPEAPEAVCChannel@@@Z @ 0x1800277C0 (-CreateKernelChannel@CInternalMilCmdConnection@@AEAAJPEAPEAVCChannel@@@Z.c)
+ *     ?DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z @ 0x18014F08C (-DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z.c)
  * Callees:
- *     ?GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x18002D830 (-GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     ?GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x180028320 (-GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
 void __fastcall CChannelTable::DestroyHandle(struct _RTL_CRITICAL_SECTION *this, unsigned int a2)
@@ -23,7 +23,7 @@ void __fastcall CChannelTable::DestroyHandle(struct _RTL_CRITICAL_SECTION *this,
   MasterTableEntry = CChannelTable::GetMasterTableEntry((CChannelTable *)this, a2, &v6);
   if ( MasterTableEntry < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, MasterTableEntry, 0x5Cu);
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, MasterTableEntry, 0x50u, 0LL);
   }
   else
   {

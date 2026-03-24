@@ -1,64 +1,56 @@
 /*
- * XREFs of VidSchNotifyDeviceRemoved @ 0x1C003FFE0
+ * XREFs of VidSchNotifyDeviceRemoved @ 0x1C0034FF0
  * Callers:
- *     VidSchiNotifyDeviceRemoved @ 0x1C0047360 (VidSchiNotifyDeviceRemoved.c)
+ *     VidSchiNotifyDeviceRemoved @ 0x1C003CF58 (VidSchiNotifyDeviceRemoved.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
+ *     <none>
  */
 
 void __fastcall VidSchNotifyDeviceRemoved(PVOID IoObject, PVOID Context, PIO_WORKITEM IoWorkItem)
 {
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 v7; // rax
   int updated; // eax
-  __int64 v5; // rbx
-  _CLIENT_ID ClientId; // [rsp+50h] [rbp+7h] BYREF
-  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+17h] BYREF
-  int v8; // [rsp+B8h] [rbp+6Fh] BYREF
-  void *ProcessHandle; // [rsp+C0h] [rbp+77h] BYREF
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // rdi
+  _CLIENT_ID ClientId; // [rsp+40h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
+  int v15; // [rsp+98h] [rbp+18h] BYREF
+  void *ProcessHandle; // [rsp+A0h] [rbp+20h] BYREF
 
-  ClientId.UniqueProcess = Context;
   ProcessHandle = 0LL;
   ClientId.UniqueThread = 0LL;
-  ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.ObjectName = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  memset(&ObjectAttributes.Length + 1, 0, 20);
+  memset(&ObjectAttributes.Attributes + 1, 0, 20);
+  ClientId.UniqueProcess = Context;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 576;
   if ( ZwOpenProcess(&ProcessHandle, 0x2000000u, &ObjectAttributes, &ClientId) >= 0 )
   {
-    v8 = 1;
-    updated = ZwUpdateWnfStateData(&WNF_DX_DEVICE_REMOVAL, &v8, 4LL);
-    if ( updated < 0 )
-    {
-      v5 = updated;
-      WdLogSingleEntry1(1LL, updated);
-      ((void (__fastcall *)(_QWORD, __int64, __int64, const wchar_t *, __int64, _QWORD, _QWORD, _QWORD, _QWORD))DxgCoreInterface[86])(
-        0LL,
-        0x40000LL,
-        0xFFFFFFFFLL,
-        L"UpdateWnfStateData failed in VidSchNotifyDeviceRemoved: 0x%x",
-        v5,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    }
+    v15 = 1;
+    updated = ZwUpdateWnfStateData(&WNF_DX_DEVICE_REMOVAL, &v15, 4LL);
+    v12 = updated;
+    if ( updated >= 0 )
+      goto LABEL_7;
+    v7 = WdLogNewEntry5_WdAssertion(v10, v9, v11);
+    *(_QWORD *)(v7 + 24) = v12;
   }
   else
   {
-    WdLogSingleEntry1(1LL, ClientId.UniqueProcess);
-    ((void (__fastcall *)(_QWORD, __int64, __int64, const wchar_t *, HANDLE, _QWORD, _QWORD, _QWORD, _QWORD))DxgCoreInterface[86])(
-      0LL,
-      0x40000LL,
-      0xFFFFFFFFLL,
-      L"Failed to open process handle for process id 0x%I64x",
-      ClientId.UniqueProcess,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    if ( !ProcessHandle )
+      goto LABEL_9;
+    v7 = WdLogNewEntry5_WdAssertion(v5, v4, v6);
+    *(_QWORD *)(v7 + 24) = ClientId.UniqueProcess;
   }
+  WdLogEvent5_WdAssertion(v7);
+LABEL_7:
   if ( ProcessHandle )
     ZwClose(ProcessHandle);
+LABEL_9:
   if ( IoWorkItem )
     IoFreeWorkItem(IoWorkItem);
 }

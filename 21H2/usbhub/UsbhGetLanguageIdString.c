@@ -1,39 +1,41 @@
 /*
- * XREFs of UsbhGetLanguageIdString @ 0x1C004FB20
+ * XREFs of UsbhGetLanguageIdString @ 0x1C00510CC
  * Callers:
- *     UsbhSetupDevice @ 0x1C0038CE8 (UsbhSetupDevice.c)
+ *     UsbhSetupDevice @ 0x1C0039FD8 (UsbhSetupDevice.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_dD @ 0x1C002DCEC (WPP_RECORDER_SF_dD.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
- *     UsbhValidateStringDescriptor @ 0x1C00527D4 (UsbhValidateStringDescriptor.c)
- *     UsbhGetStringFromDevice @ 0x1C0053F4C (UsbhGetStringFromDevice.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C002F0C8 (WPP_RECORDER_SF_dD.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
+ *     UsbhValidateStringDescriptor @ 0x1C0053E24 (UsbhValidateStringDescriptor.c)
+ *     UsbhGetStringFromDevice @ 0x1C00555D8 (UsbhGetStringFromDevice.c)
  */
 
 __int64 __fastcall UsbhGetLanguageIdString(__int64 a1, __int64 a2, __int64 a3)
 {
-  int v5; // edi
-  _DWORD *v6; // rsi
+  int v5; // esi
+  _DWORD *v6; // rdi
   PDEVICE_OBJECT v7; // rcx
   unsigned __int16 v8; // r9
-  _WORD *Pool2; // rbx
-  int StringFromDevice; // edi
-  __int64 v11; // rcx
-  int v12; // ebp
-  __int64 v13; // r8
-  __int64 v14; // rdx
-  _WORD *v15; // rsi
-  __int64 v16; // rcx
-  _WORD *v17; // rdi
-  int v18; // ebp
-  __int64 v20; // [rsp+28h] [rbp-60h]
-  __int64 v21; // [rsp+30h] [rbp-58h]
-  int v22[4]; // [rsp+50h] [rbp-38h] BYREF
-  unsigned __int16 v23; // [rsp+A8h] [rbp+20h] BYREF
+  _WORD *PoolWithTag; // rax
+  _WORD *v10; // rbx
+  int StringFromDevice; // esi
+  __int64 v12; // rcx
+  int v13; // ebp
+  __int64 v14; // r8
+  __int64 v15; // rdx
+  _WORD *v16; // rsi
+  __int64 v17; // rcx
+  _WORD *v18; // rdi
+  int v19; // ebp
+  __int64 v21; // [rsp+28h] [rbp-60h]
+  __int64 v22; // [rsp+30h] [rbp-58h]
+  int v23[4]; // [rsp+50h] [rbp-38h] BYREF
+  unsigned __int16 v24; // [rsp+A8h] [rbp+20h] BYREF
 
-  v22[0] = 0;
+  v23[0] = 0;
   v5 = a2;
   v6 = PdoExt(a2);
   if ( !*((_BYTE *)v6 + 1415) )
@@ -46,16 +48,18 @@ __int64 __fastcall UsbhGetLanguageIdString(__int64 a1, __int64 a2, __int64 a3)
     v8 = 23;
     goto LABEL_26;
   }
-  Pool2 = (_WORD *)ExAllocatePool2(64LL, 255LL, 1112885333LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), 0xFFuLL, 0x42554855u);
+  v10 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  v23 = 255;
-  StringFromDevice = UsbhGetStringFromDevice(a1, v5, (unsigned int)v22, (_DWORD)Pool2, (__int64)&v23, 0, 0);
-  v11 = StringFromDevice & 0xC0000000;
-  if ( (_DWORD)v11 == -1073741824 || (v12 = v23, !(unsigned __int8)UsbhValidateStringDescriptor(v11, Pool2, v23, v22)) )
+  memset(PoolWithTag, 0, 0xFFuLL);
+  v24 = 255;
+  StringFromDevice = UsbhGetStringFromDevice(a1, v5, (unsigned int)v23, (_DWORD)v10, (__int64)&v24, 0, 0);
+  v12 = StringFromDevice & 0xC0000000;
+  if ( (_DWORD)v12 == -1073741824 || (v13 = v24, !(unsigned __int8)UsbhValidateStringDescriptor(v12, v10, v24, v23)) )
   {
-    UsbhException(a1, *((_WORD *)v6 + 714), 0x3Fu, Pool2, v23, StringFromDevice, v22[0], usbfile_idstring_c, 1762, 0);
-    ExFreePoolWithTag(Pool2, 0);
+    UsbhException(a1, *((_WORD *)v6 + 714), 0x3Fu, v10, v24, StringFromDevice, v23[0], usbfile_idstring_c, 1768, 0);
+    ExFreePoolWithTag(v10, 0);
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       return 3221225659LL;
     v7 = WPP_GLOBAL_Control;
@@ -63,55 +67,55 @@ __int64 __fastcall UsbhGetLanguageIdString(__int64 a1, __int64 a2, __int64 a3)
       return 3221225659LL;
     v8 = 24;
 LABEL_26:
-    WPP_RECORDER_SF_((__int64)v7->DeviceExtension, 0, 1u, v8, (__int64)&WPP_864ab6fa16ac30e9f4a04b6140161349_Traceguids);
+    WPP_RECORDER_SF_((__int64)v7->DeviceExtension, 0, 1u, v8, (__int64)&WPP_702859756c5835a51fae8c331fd03d9d_Traceguids);
     return 3221225659LL;
   }
-  v14 = (*(unsigned __int8 *)Pool2 >> 1) - 1;
-  if ( *(unsigned __int8 *)Pool2 >> 1 == 1 )
+  v15 = (*(unsigned __int8 *)v10 >> 1) - 1;
+  if ( *(unsigned __int8 *)v10 >> 1 == 1 )
   {
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(v10, 0);
     return 3221225659LL;
   }
-  v15 = Pool2 + 1;
-  v16 = (unsigned int)v14;
-  v17 = Pool2;
-  while ( v16 )
+  v16 = v10 + 1;
+  v17 = (unsigned int)v15;
+  v18 = v10;
+  while ( v17 )
   {
-    *v17++ = *v15++;
-    --v16;
+    *v18++ = *v16++;
+    --v17;
   }
-  Pool2[(unsigned int)v14] = 0;
-  *(_DWORD *)(a3 + 4) = v12;
-  *(_QWORD *)(a3 + 8) = Pool2;
+  v10[(unsigned int)v15] = 0;
+  *(_DWORD *)(a3 + 4) = v13;
+  *(_QWORD *)(a3 + 8) = v10;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LODWORD(v20) = v14;
+    LODWORD(v21) = v15;
     WPP_RECORDER_SF_d(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       0,
       1u,
       0x19u,
-      (__int64)&WPP_864ab6fa16ac30e9f4a04b6140161349_Traceguids,
-      v20);
+      (__int64)&WPP_702859756c5835a51fae8c331fd03d9d_Traceguids,
+      v21);
   }
-  v18 = 0;
-  while ( *Pool2 )
+  v19 = 0;
+  while ( *v10 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     {
-      LODWORD(v21) = (unsigned __int16)*Pool2;
-      LODWORD(v20) = v18;
+      LODWORD(v22) = (unsigned __int16)*v10;
+      LODWORD(v21) = v19;
       WPP_RECORDER_SF_dD(
         (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        v15,
         v14,
-        v13,
         0x1Au,
-        (__int64)&WPP_864ab6fa16ac30e9f4a04b6140161349_Traceguids,
-        v20,
-        v21);
-      ++v18;
+        (__int64)&WPP_702859756c5835a51fae8c331fd03d9d_Traceguids,
+        v21,
+        v22);
+      ++v19;
     }
-    ++Pool2;
+    ++v10;
   }
   return 0LL;
 }

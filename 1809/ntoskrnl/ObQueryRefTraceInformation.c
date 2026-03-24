@@ -1,5 +1,5 @@
 /*
- * XREFs of ObQueryRefTraceInformation @ 0x140862854
+ * XREFs of ObQueryRefTraceInformation @ 0x140862834
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  * Callees:
@@ -7,8 +7,8 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
  */
 

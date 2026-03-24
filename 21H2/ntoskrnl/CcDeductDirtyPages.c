@@ -1,29 +1,37 @@
 /*
- * XREFs of CcDeductDirtyPages @ 0x14028AD10
+ * XREFs of CcDeductDirtyPages @ 0x140312DEC
  * Callers:
- *     CcDeleteMbcb @ 0x14023F250 (CcDeleteMbcb.c)
- *     CcAcquireByteRangeForWrite @ 0x140289260 (CcAcquireByteRangeForWrite.c)
- *     CcUnpinFileDataEx @ 0x14028A370 (CcUnpinFileDataEx.c)
- *     CcDeleteBcbs @ 0x140388FC8 (CcDeleteBcbs.c)
+ *     CcDeleteBcbs @ 0x1402D2640 (CcDeleteBcbs.c)
+ *     CcDeleteMbcb @ 0x1402F293C (CcDeleteMbcb.c)
+ *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
+ *     CcAcquireByteRangeForWrite @ 0x14030FF40 (CcAcquireByteRangeForWrite.c)
  * Callees:
- *     CcDeductDirtyPagesInternal @ 0x14028AD4C (CcDeductDirtyPagesInternal.c)
+ *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall CcDeductDirtyPages(__int64 a1, __int64 a2)
+__int64 __fastcall CcDeductDirtyPages(__int64 a1, unsigned int a2)
 {
-  __int64 v2; // r9
-  __int64 v3; // r8
+  __int64 v2; // rdi
+  __int64 result; // rax
 
-  v2 = 0LL;
+  v2 = a2;
+  if ( a1 )
+    result = CcGetPartition(a1);
+  else
+    result = *((_QWORD *)PspSystemPartition + 1);
+  *(_QWORD *)(result + 640) -= v2;
   if ( a1 )
   {
-    v3 = *(_QWORD *)(a1 + 528);
-    if ( CcEnablePerVolumeLazyWriter == 1 )
-      v2 = *(_QWORD *)(a1 + 592);
+    if ( (_DWORD)v2 == -1 )
+      KeBugCheckEx(0x34u, 0x1637uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+    *(_DWORD *)(a1 + 112) -= v2;
+    result = _InterlockedExchangeAdd64((volatile signed __int64 *)(*(_QWORD *)(a1 + 504) + 32LL), -v2);
+    if ( (*(_DWORD *)(a1 + 152) & 0x1000000) != 0 )
+    {
+      result = *(_QWORD *)(a1 + 240);
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(result + 24), -v2);
+    }
   }
-  else
-  {
-    v3 = *((_QWORD *)PspSystemPartition + 1);
-  }
-  return CcDeductDirtyPagesInternal(a1, a2, v3, v2);
+  return result;
 }

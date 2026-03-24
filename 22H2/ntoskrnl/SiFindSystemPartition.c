@@ -1,12 +1,12 @@
 /*
- * XREFs of SiFindSystemPartition @ 0x140A5F444
+ * XREFs of SiFindSystemPartition @ 0x1409736B8
  * Callers:
- *     SyspartGetPhysicalPartitions @ 0x140A5F27C (SyspartGetPhysicalPartitions.c)
+ *     SyspartGetPhysicalPartitions @ 0x1409734EC (SyspartGetPhysicalPartitions.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403DDD60 (swprintf_s.c)
- *     SiGetDriveLayoutInformation @ 0x140A5F628 (SiGetDriveLayoutInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D61F0 (swprintf_s.c)
+ *     SiGetDriveLayoutInformation @ 0x14077AC0C (SiGetDriveLayoutInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SiFindSystemPartition(__int64 a1)

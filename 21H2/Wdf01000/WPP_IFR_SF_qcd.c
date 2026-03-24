@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_qcd @ 0x1C008187C
+ * XREFs of WPP_IFR_SF_qcd @ 0x1C0075484
  * Callers:
- *     ?ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU_IRP@@2@Z2@Z @ 0x1C00811D0 (-ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU.c)
+ *     ?ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU_IRP@@2@Z2@Z @ 0x1C0074A60 (-ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_qcd(
@@ -23,7 +23,7 @@ void __fastcall WPP_IFR_SF_qcd(
     FxWmiTraceMessage(
       (unsigned __int64)WPP_GLOBAL_WDF_Control.CurrentIrp,
       43LL,
-      WPP_FxPkgIo_cpp_Traceguids,
+      (_GUID *)&WPP_FxPkgIo_cpp_Traceguids,
       0x16u,
       &flags,
       8LL,
@@ -32,5 +32,5 @@ void __fastcall WPP_IFR_SF_qcd(
       _a3,
       4LL,
       0LL);
-  FxIFR(globals, 2u, 0x12u, WPP_FxPkgIo_cpp_Traceguids, 0x16u, &flags, 8LL, &id, 1LL, _a3, 4LL, 0LL);
+  FxIFR(globals, 2u, 0x12u, (_GUID *)&WPP_FxPkgIo_cpp_Traceguids, 0x16u, &flags, 8LL, &id, 1LL, _a3, 4LL, 0LL);
 }

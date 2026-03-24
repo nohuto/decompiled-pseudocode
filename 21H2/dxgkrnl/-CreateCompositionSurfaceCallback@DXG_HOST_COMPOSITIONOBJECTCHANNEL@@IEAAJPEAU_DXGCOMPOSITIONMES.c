@@ -1,15 +1,14 @@
 /*
- * XREFs of ?CreateCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE@@PEAU_DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE_RETURN@@@Z @ 0x1C02DF1F4
+ * XREFs of ?CreateCompositionSurfaceCallback@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAAJPEAU_DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE@@PEAU_DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE_RETURN@@@Z @ 0x1C028C7EC
  * Callers:
- *     ?ProcessChannelMessage@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAAJPEAXI@Z @ 0x1C02E0840 (-ProcessChannelMessage@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAAJPEAXI@Z.c)
+ *     ?ProcessChannelMessage@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAAJPEAXI@Z @ 0x1C028D990 (-ProcessChannelMessage@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAAJPEAXI@Z.c)
  * Callees:
- *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C0005A8C (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C00138D4 (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
- *     ?Release@DxgkCompositionObject@@QEBA_JXZ @ 0x1C001EF50 (-Release@DxgkCompositionObject@@QEBA_JXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?Create@CompositionSurfaceObject@@SAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAPEAX@Z @ 0x1C0077B14 (-Create@CompositionSurfaceObject@@SAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAPEAX@Z.c)
+ *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C000D12C (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
+ *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C00168A4 (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
+ *     ?Release@DxgkCompositionObject@@QEBA_JXZ @ 0x1C001AAD0 (-Release@DxgkCompositionObject@@QEBA_JXZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?Create@CompositionSurfaceObject@@SAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAPEAX@Z @ 0x1C0065DF4 (-Create@CompositionSurfaceObject@@SAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAPEAX@Z.c)
  */
 
 __int64 __fastcall DXG_HOST_COMPOSITIONOBJECTCHANNEL::CreateCompositionSurfaceCallback(
@@ -18,100 +17,106 @@ __int64 __fastcall DXG_HOST_COMPOSITIONOBJECTCHANNEL::CreateCompositionSurfaceCa
         struct _DXGCOMPOSITIONMESSAGE_CREATECOMPOSITIONSURFACE_RETURN *a3,
         __int64 a4)
 {
-  struct CompositionSurfaceObject *v6; // rdi
+  DxgkCompositionObject *v6; // rdi
   int v7; // eax
-  __int64 v8; // r8
-  __int64 v9; // rbx
-  int v10; // eax
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rbx
-  HANDLE v16; // rdi
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // rbx
+  __int64 v12; // rax
+  int v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
   __int64 CurrentProcess; // rax
   int v18; // eax
-  int v19; // eax
-  struct _KPROCESS *v20; // rdx
-  struct CompositionSurfaceObject *v22; // [rsp+50h] [rbp-59h] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp-51h] BYREF
-  HANDLE v24; // [rsp+60h] [rbp-49h] BYREF
-  struct _OBJECT_ATTRIBUTES v25; // [rsp+68h] [rbp-41h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+98h] [rbp-11h] BYREF
-  char v27; // [rsp+C8h] [rbp+1Fh]
+  __int64 v19; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // r8
+  __int64 v23; // r9
+  int v24; // r15d
+  __int64 v25; // rax
+  struct _KPROCESS *v26; // rdx
+  struct CompositionSurfaceObject *v28; // [rsp+40h] [rbp-59h] BYREF
+  HANDLE Handle; // [rsp+48h] [rbp-51h] BYREF
+  HANDLE v30; // [rsp+50h] [rbp-49h] BYREF
+  struct _OBJECT_ATTRIBUTES v31; // [rsp+58h] [rbp-41h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+88h] [rbp-11h] BYREF
+  char v33; // [rsp+B8h] [rbp+1Fh]
 
-  v25.SecurityDescriptor = (PVOID)*((_QWORD *)this + 6);
-  v24 = 0LL;
+  v31.SecurityDescriptor = (PVOID)*((_QWORD *)this + 6);
+  v30 = 0LL;
   Handle = 0LL;
-  *(_QWORD *)&v25.Length = 48LL;
-  v22 = 0LL;
+  *(_QWORD *)&v31.Length = 48LL;
+  v28 = 0LL;
   v6 = 0LL;
-  memset(&v25.RootDirectory, 0, 24);
-  v25.SecurityQualityOfService = 0LL;
-  v7 = CompositionSurfaceObject::Create(0LL, &v25, 3u, a4, &v24);
-  LODWORD(v9) = v7;
+  memset(&v31.RootDirectory, 0, 24);
+  v31.SecurityQualityOfService = 0LL;
+  v7 = CompositionSurfaceObject::Create(0LL, &v31, 3u, a4, &v30);
+  v11 = v7;
   if ( v7 >= 0 )
   {
-    v10 = CompositionSurfaceObject::ResolveHandle(v24, 2u, v8, &v22);
-    v9 = v10;
-    if ( v10 >= 0
-      && (v15 = *((_QWORD *)this + 4),
-          v16 = v24,
-          CurrentProcess = PsGetCurrentProcess(v12, v11, v13, v14),
-          v18 = ObDuplicateObject(CurrentProcess, v16, v15, &Handle, 0, 0, 6, 1),
-          v9 = v18,
+    v13 = CompositionSurfaceObject::ResolveHandle(v30, 2u, v10, &v28);
+    v11 = v13;
+    if ( v13 >= 0
+      && (CurrentProcess = PsGetCurrentProcess(v15, v14),
+          v18 = ObDuplicateObject(CurrentProcess, v30, *((_QWORD *)this + 4), &Handle, 0, 0, 6, 1),
+          v11 = v18,
           v18 >= 0) )
     {
-      v6 = v22;
-      v19 = (*(__int64 (__fastcall **)(_QWORD, struct CompositionSurfaceObject *, __int64))(**((_QWORD **)this + 1)
+      v6 = v28;
+      v24 = (*(__int64 (__fastcall **)(_QWORD, struct CompositionSurfaceObject *, __int64))(**((_QWORD **)this + 1)
                                                                                           + 56LL))(
               *((_QWORD *)this + 1),
-              v22,
+              v28,
               17LL);
-      if ( v19 )
+      if ( v24 )
       {
-        *((_DWORD *)a3 + 3) = v19;
         v6 = 0LL;
-        *((_QWORD *)a3 + 2) = Handle;
-        goto LABEL_12;
       }
-      LODWORD(v9) = -1073741801;
-      WdLogSingleEntry1(6LL, -1073741801LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"AllocateHandle failed. Returning 0x%I64x",
-        -1073741801LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      else
+      {
+        LODWORD(v11) = -1073741801;
+        v25 = WdLogNewEntry5_WdLowResource(v21, v20, v22, v23);
+        *(_QWORD *)(v25 + 24) = -1073741801LL;
+        WdLogEvent5_WdLowResource(v25);
+      }
+      if ( (int)v11 >= 0 )
+      {
+        *((_QWORD *)a3 + 2) = Handle;
+        *((_DWORD *)a3 + 3) = v24;
+        goto LABEL_14;
+      }
     }
     else
     {
-      WdLogSingleEntry1(3LL, v9);
-      v6 = v22;
+      v19 = WdLogNewEntry5_WdWarning(v15, v14, v16);
+      *(_QWORD *)(v19 + 24) = v11;
+      WdLogEvent5_WdWarning(v19);
+      v6 = v28;
     }
   }
   else
   {
-    WdLogSingleEntry1(3LL, v7);
+    v12 = WdLogNewEntry5_WdWarning(v9, v8, v10);
+    *(_QWORD *)(v12 + 24) = v11;
+    WdLogEvent5_WdWarning(v12);
   }
   if ( Handle )
   {
-    v20 = (struct _KPROCESS *)*((_QWORD *)this + 4);
-    v27 = 0;
-    CPROCESSATTACHHELPER::Attach(&ApcState, v20);
+    v26 = (struct _KPROCESS *)*((_QWORD *)this + 4);
+    v33 = 0;
+    CPROCESSATTACHHELPER::Attach(&ApcState, v26);
     ObCloseHandle(Handle, 1);
-    if ( v27 )
+    if ( v33 )
       KeUnstackDetachProcess(&ApcState);
   }
-LABEL_12:
-  if ( v24 )
-    ObCloseHandle(v24, 1);
+LABEL_14:
+  if ( v30 )
+    ObCloseHandle(v30, 1);
   if ( v6 )
     DxgkCompositionObject::Release(v6);
-  *((_DWORD *)a3 + 1) = v9;
-  return (unsigned int)v9;
+  *((_DWORD *)a3 + 1) = v11;
+  return (unsigned int)v11;
 }

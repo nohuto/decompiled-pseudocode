@@ -1,114 +1,107 @@
 /*
- * XREFs of MiInitializeGapFrames @ 0x140AF6B44
+ * XREFs of MiInitializeGapFrames @ 0x140A66B10
  * Callers:
- *     MiInitNucleus @ 0x140AF47DC (MiInitNucleus.c)
- *     MiFillPfnGaps @ 0x140AF6A74 (MiFillPfnGaps.c)
+ *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
+ *     MiFillPfnGaps @ 0x140A66AC0 (MiFillPfnGaps.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402294F0 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140229550 (MiPteHasShadow.c)
- *     MiAcquireNonPagedResources @ 0x14026A784 (MiAcquireNonPagedResources.c)
- *     MiReleasePtes @ 0x1402BB6D0 (MiReleasePtes.c)
- *     MiMakeValidPte @ 0x1402CBD10 (MiMakeValidPte.c)
- *     MiReservePtes @ 0x1403095B0 (MiReservePtes.c)
- *     MiPteInShadowRange @ 0x140317A80 (MiPteInShadowRange.c)
- *     MiGetPage @ 0x1403250B0 (MiGetPage.c)
+ *     MiGetPage @ 0x140213610 (MiGetPage.c)
+ *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
+ *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
+ *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
+ *     MiAcquireNonPagedResources @ 0x1402E5C90 (MiAcquireNonPagedResources.c)
+ *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
  */
 
-__int64 __fastcall MiInitializeGapFrames(__int64 a1, __int64 *a2)
+__int64 __fastcall MiInitializeGapFrames(__int64 a1, __int64 *a2, __int64 a3, unsigned __int64 a4)
 {
-  int v2; // ebp
-  __int64 v4; // r14
-  _QWORD *v5; // r12
-  unsigned int v6; // esi
-  __int64 *v7; // r15
+  int v4; // ebp
+  __int64 v6; // r14
+  _QWORD *v7; // r12
+  unsigned int v8; // esi
+  __int64 *v9; // r15
   __int64 Page; // rax
-  __int64 v9; // rcx
-  unsigned __int64 v10; // rax
-  __int64 v11; // rbx
+  __int64 v11; // rcx
+  unsigned __int64 v12; // rax
+  __int64 v13; // rbx
   unsigned __int64 ValidPte; // rdi
-  BOOL v13; // eax
-  __int64 v14; // r11
-  bool v15; // zf
-  __int64 v16; // rdi
+  __int64 v15; // r8
+  bool v16; // zf
   int v17; // r8d
-  unsigned __int64 v18; // rax
+  __int64 v18; // rdi
 
-  v2 = 0;
+  v4 = 0;
   if ( a1 )
   {
     if ( a1 != -1 )
       return 0LL;
-    v4 = qword_140C53278;
+    v6 = qword_140C4ED68;
   }
   else
   {
-    v4 = qword_140C53290;
+    v6 = qword_140C4ED80;
   }
-  v5 = (_QWORD *)MiReservePtes((__int64)&qword_140C534C0, 3u);
-  if ( v5 && (int)MiAcquireNonPagedResources((__int64)&MiSystemPartition, 3LL, 0LL, 2u) >= 0 )
+  v7 = (_QWORD *)MiReservePtes((__int64)&qword_140C4EF40, 3u, a3, a4);
+  if ( v7 && (int)MiAcquireNonPagedResources(&MiSystemPartition, 3uLL, 0LL, 2u) >= 0 )
   {
-    v6 = 0;
-    v7 = a2;
-    while ( !v6 )
+    v8 = 0;
+    v9 = a2;
+    while ( !v8 )
     {
-LABEL_26:
-      *v7 = v4;
-      ++v6;
-      ++v7;
-      if ( v6 >= 4 )
+LABEL_23:
+      *v9 = v6;
+      ++v8;
+      ++v9;
+      if ( v8 >= 4 )
       {
-        MiReleasePtes((__int64)&qword_140C534C0, v5, 3u);
+        MiReleasePtes((__int64)&qword_140C4EF40, v7, 3u);
         return 1LL;
       }
     }
-    Page = MiGetPage((__int64)&MiSystemPartition, v6, 0x208u);
-    v4 = Page;
+    Page = MiGetPage((__int64)&MiSystemPartition, v8, 520LL);
+    v6 = Page;
     if ( Page == -1 )
       return 0LL;
-    v9 = 48 * Page - 0x220000000000LL;
-    *(_QWORD *)(v9 + 40) &= ~0x8000000000000000uLL;
-    v10 = *(_QWORD *)(v9 + 24) & 0xC000000000000001uLL;
-    *(_WORD *)(v9 + 32) = 1;
-    *(_QWORD *)(v9 + 24) = v10 | 1;
-    v11 = (__int64)&v5[v6 - 1];
-    ValidPte = MiMakeValidPte((unsigned __int64)&v5[v6], v4, -1610612732);
-    v13 = MiPteInShadowRange(v11);
-    v14 = 0LL;
-    if ( v13 )
+    v11 = 48 * Page - 0x58000000000LL;
+    *(_QWORD *)(v11 + 40) &= ~0x8000000000000000uLL;
+    v12 = *(_QWORD *)(v11 + 24) & 0xC000000000000001uLL;
+    *(_WORD *)(v11 + 32) = 1;
+    *(_QWORD *)(v11 + 24) = v12 | 1;
+    v13 = (__int64)&v7[v8 - 1];
+    ValidPte = MiMakeValidPte((unsigned __int64)&v7[v8], v6, -1610612732);
+    if ( MiPteInShadowRange(v13) )
     {
       if ( (unsigned int)MiPteHasShadow() )
       {
-        v2 = v14 + 1;
-        if ( HIBYTE(word_140C51864) == (_BYTE)v14 )
+        v4 = 1;
+        if ( !HIBYTE(word_140C4E008) )
         {
-          v15 = ((unsigned __int8)ValidPte & (unsigned __int8)v2) == 0;
+          v16 = (ValidPte & 1) == 0;
           goto LABEL_16;
         }
       }
       else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
       {
-        v15 = (ValidPte & 1) == 0;
+        v16 = (ValidPte & 1) == 0;
 LABEL_16:
-        if ( !v15 )
+        if ( !v16 )
           ValidPte |= 0x8000000000000000uLL;
       }
     }
-    *(_QWORD *)v11 = ValidPte;
-    if ( v2 )
-      MiWritePteShadow(v11, ValidPte);
-    v16 = v11 << 25 >> 16;
+    *(_QWORD *)v13 = ValidPte;
+    if ( v4 )
+      MiWritePteShadow(v13, ValidPte, v15);
     v17 = 536870913;
-    if ( v6 != 1 )
+    v4 = 0;
+    v18 = v13 << 25 >> 16;
+    if ( v8 != 1 )
     {
-      v11 = v14;
       v17 = -1476395004;
+      v13 = 0LL;
     }
-    v18 = MiMakeValidPte(v11, a2[v6 - 1], v17);
-    if ( (MiFlags & 0x4000000) == 0 && ((unsigned __int8)(1 << (v6 - 1)) & (unsigned __int8)byte_140C506CE) != 0 )
-      v18 &= ~0x20uLL;
-    v2 = 0;
-    memset64((void *)v16, v18, 0x200uLL);
-    goto LABEL_26;
+    memset64((void *)v18, MiMakeValidPte(v13, a2[v8 - 1], v17), 0x200uLL);
+    goto LABEL_23;
   }
   return 0LL;
 }

@@ -1,34 +1,35 @@
 /*
- * XREFs of ?RecordFeatureUsageWddmVersion@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C01FFDE0
+ * XREFs of ?RecordFeatureUsageWddmVersion@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0185F78
  * Callers:
- *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01FECEC (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01845A8 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?ConsiderForMultiAdapterFeatureUsage@DXGGLOBAL@@AEAAEPEAVDXGADAPTER@@@Z @ 0x1C01FFE58 (-ConsiderForMultiAdapterFeatureUsage@DXGGLOBAL@@AEAAEPEAVDXGADAPTER@@@Z.c)
- *     ?RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z @ 0x1C0203160 (-RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?ConsiderForMultiAdapterFeatureUsage@DXGGLOBAL@@AEAAEPEAVDXGADAPTER@@@Z @ 0x1C0185FF0 (-ConsiderForMultiAdapterFeatureUsage@DXGGLOBAL@@AEAAEPEAVDXGADAPTER@@@Z.c)
+ *     ?RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z @ 0x1C018942C (-RecordFeatureUsage@DXGGLOBAL@@QEAAJW4_DxgKrnlFeature@1@K@Z.c)
  */
 
 void __fastcall DXGGLOBAL::RecordFeatureUsageWddmVersion(DXGGLOBAL *this, struct DXGADAPTER *a2)
 {
   __int64 v3; // rdx
-  unsigned int v4; // ebx
+  __int64 v4; // rcx
+  unsigned int v5; // ebx
   struct DXGGLOBAL *Global; // rax
-  struct DXGGLOBAL *v6; // rax
+  struct DXGGLOBAL *v7; // rax
 
   if ( DXGGLOBAL::ConsiderForMultiAdapterFeatureUsage(this, a2) )
   {
-    v4 = *(_DWORD *)(v3 + 2692);
-    if ( v4 > *((_DWORD *)this + 76213) )
+    v5 = *(_DWORD *)(v3 + 2596);
+    if ( v5 > *((_DWORD *)this + 76151) )
     {
-      Global = DXGGLOBAL_GetGlobal();
-      DXGGLOBAL::RecordFeatureUsage(Global, 11LL, v4);
-      *((_DWORD *)this + 76213) = v4;
+      Global = DXGGLOBAL::GetGlobal(v4, v3);
+      DXGGLOBAL::RecordFeatureUsage(Global, 11LL, v5);
+      *((_DWORD *)this + 76151) = v5;
     }
-    if ( v4 < *((_DWORD *)this + 76212) )
+    if ( v5 < *((_DWORD *)this + 76150) )
     {
-      v6 = DXGGLOBAL_GetGlobal();
-      DXGGLOBAL::RecordFeatureUsage(v6, 10LL, v4);
-      *((_DWORD *)this + 76212) = v4;
+      v7 = DXGGLOBAL::GetGlobal(v4, v3);
+      DXGGLOBAL::RecordFeatureUsage(v7, 10LL, v5);
+      *((_DWORD *)this + 76150) = v5;
     }
   }
 }

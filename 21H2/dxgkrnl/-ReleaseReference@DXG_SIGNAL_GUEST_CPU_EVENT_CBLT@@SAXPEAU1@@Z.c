@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?ReleaseReference@DXG_SIGNAL_GUEST_CPU_EVENT_CBLT@@SAXPEAU1@@Z @ 0x1C00D8140
+ * Callers:
+ *     ?VmBusSendSignalGuestEventCblt@DXG_HOST_GLOBAL_VMBUS@@SAXPEAX@Z @ 0x1C002743C (-VmBusSendSignalGuestEventCblt@DXG_HOST_GLOBAL_VMBUS@@SAXPEAX@Z.c)
+ *     ?VmBusCreateSyncObjectCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00D8EF0 (-VmBusCreateSyncObjectCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusSignalSyncObjectCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00DB040 (-VmBusSignalSyncObjectCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusWaitForSyncObjectFromCpuCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00DB9E0 (-VmBusWaitForSyncObjectFromCpuCblt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?Stop@DXGADAPTERSYNCOBJECT@@QEAAXXZ @ 0x1C015C568 (-Stop@DXGADAPTERSYNCOBJECT@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall DXG_SIGNAL_GUEST_CPU_EVENT_CBLT::ReleaseReference(struct DXG_SIGNAL_GUEST_CPU_EVENT_CBLT *a1)
+{
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1 + 8, 0xFFFFFFFF) == 1 )
+  {
+    ExFreePoolWithTag(a1, 0);
+    _InterlockedDecrement(&g_VgpuNumGuestCpuEventObjects);
+  }
+}

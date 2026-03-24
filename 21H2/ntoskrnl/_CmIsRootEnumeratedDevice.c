@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmIsRootEnumeratedDevice @ 0x140778D60
+ * XREFs of _CmIsRootEnumeratedDevice @ 0x140639EA8
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x1406E2EEC (PiDevCfgMigrateDevice.c)
- *     PiPnpRtlSetDeviceRegProperty @ 0x1406E5574 (PiPnpRtlSetDeviceRegProperty.c)
- *     PiDevCfgProcessDevice @ 0x140747740 (PiDevCfgProcessDevice.c)
- *     PiPnpRtlSetObjectProperty @ 0x140771524 (PiPnpRtlSetObjectProperty.c)
- *     PiControlGetUserFlagsFromDeviceNode @ 0x140778C00 (PiControlGetUserFlagsFromDeviceNode.c)
- *     PiPnpRtlCmActionCallback @ 0x140779F10 (PiPnpRtlCmActionCallback.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14094AA64 (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x14094B864 (PiDevCfgFindDeviceMigrationNode.c)
- *     PiCMDeleteDevice @ 0x140954E2C (PiCMDeleteDevice.c)
- *     PipResetDevice @ 0x140B4FCB0 (PipResetDevice.c)
+ *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
+ *     PiControlGetUserFlagsFromDeviceNode @ 0x140639D48 (PiControlGetUserFlagsFromDeviceNode.c)
+ *     PiCMDeleteDevice @ 0x14072B66C (PiCMDeleteDevice.c)
+ *     PiPnpRtlSetDeviceRegProperty @ 0x140739C9C (PiPnpRtlSetDeviceRegProperty.c)
+ *     PiDevCfgProcessDevice @ 0x140739D90 (PiDevCfgProcessDevice.c)
+ *     PiPnpRtlSetObjectProperty @ 0x14074578C (PiPnpRtlSetObjectProperty.c)
+ *     PiDevCfgMigrateDevice @ 0x14076E804 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x1408A4F1C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x1408A5E04 (PiDevCfgFindDeviceMigrationNode.c)
+ *     PipResetDevice @ 0x140A90620 (PipResetDevice.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     RtlPrefixUnicodeString @ 0x14077F870 (RtlPrefixUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
  */
 
 BOOLEAN __fastcall CmIsRootEnumeratedDevice(PCWSTR SourceString)
@@ -24,5 +24,5 @@ BOOLEAN __fastcall CmIsRootEnumeratedDevice(PCWSTR SourceString)
   if ( RtlInitUnicodeStringEx(&DestinationString, SourceString) < 0 )
     return 0;
   else
-    return RtlPrefixUnicodeString(&stru_140002408, &DestinationString, 1u);
+    return RtlPrefixUnicodeString(&stru_1400019C8, &DestinationString, 1u);
 }

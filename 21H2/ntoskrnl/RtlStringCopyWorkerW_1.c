@@ -1,7 +1,8 @@
 /*
- * XREFs of RtlStringCopyWorkerW_1 @ 0x1402E0480
+ * XREFs of RtlStringCopyWorkerW_1 @ 0x14027F218
  * Callers:
- *     RtlStringCchCopyExW @ 0x1402E0340 (RtlStringCchCopyExW.c)
+ *     RtlStringCbCopyNW @ 0x14027F1B8 (RtlStringCbCopyNW.c)
+ *     RtlStringCchCopyNW @ 0x140371570 (RtlStringCchCopyNW.c)
  * Callees:
  *     <none>
  */
@@ -13,42 +14,34 @@ NTSTATUS __stdcall RtlStringCopyWorkerW_1(
         STRSAFE_PCNZWCH pszSrc,
         size_t cchToCopy)
 {
-  NTSTATUS v5; // ebx
-  size_t v6; // r11
-  __int64 v7; // r10
-  signed __int64 v8; // r9
-  wchar_t v9; // ax
+  NTSTRSAFE_PWSTR v5; // r8
+  signed __int64 v7; // r9
+  wchar_t v8; // cx
+  NTSTRSAFE_PWSTR v9; // rcx
   NTSTATUS result; // eax
 
-  v5 = 0;
-  v6 = 0LL;
+  v5 = pszDest;
   if ( cchDest )
   {
-    v7 = 2147483646LL;
-    v8 = (char *)pszSrc - (char *)pszDest;
-    while ( v7 )
+    v7 = (char *)pszSrc - (char *)pszDest;
+    do
     {
-      v9 = *(NTSTRSAFE_PWSTR)((char *)pszDest + v8);
-      if ( !v9 )
+      if ( !cchToCopy )
         break;
-      *pszDest = v9;
-      --v7;
-      ++pszDest;
-      ++v6;
-      if ( !--cchDest )
-        goto LABEL_6;
+      v8 = *(NTSTRSAFE_PWSTR)((char *)v5 + v7);
+      if ( !v8 )
+        break;
+      *v5 = v8;
+      --cchToCopy;
+      ++v5;
+      --cchDest;
     }
+    while ( cchDest );
   }
-  else
-  {
-LABEL_6:
-    --pszDest;
-    v5 = -2147483643;
-    --v6;
-  }
-  *pszDest = 0;
-  result = v5;
-  if ( pcchNewDestLength )
-    *pcchNewDestLength = v6;
+  v9 = v5 - 1;
+  result = cchDest == 0 ? 0x80000005 : 0;
+  if ( cchDest )
+    v9 = v5;
+  *v9 = 0;
   return result;
 }

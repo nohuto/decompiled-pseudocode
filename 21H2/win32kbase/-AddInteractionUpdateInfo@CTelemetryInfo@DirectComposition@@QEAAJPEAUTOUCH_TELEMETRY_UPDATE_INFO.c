@@ -1,52 +1,36 @@
 /*
- * XREFs of ?AddInteractionUpdateInfo@CTelemetryInfo@DirectComposition@@QEAAJPEAUTOUCH_TELEMETRY_UPDATE_INFO@@@Z @ 0x1C0006F94
+ * XREFs of ?AddInteractionUpdateInfo@CTelemetryInfo@DirectComposition@@QEAAJPEAUTOUCH_TELEMETRY_UPDATE_INFO@@@Z @ 0x1C0003364
  * Callers:
- *     NtDCompositionTelemetryTouchInteractionUpdate @ 0x1C00076D0 (NtDCompositionTelemetryTouchInteractionUpdate.c)
+ *     NtDCompositionTelemetryTouchInteractionUpdate @ 0x1C0003260 (NtDCompositionTelemetryTouchInteractionUpdate.c)
  * Callees:
- *     ?AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0030874 (-AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     Win32AllocPoolWithQuota @ 0x1C00295D0 (Win32AllocPoolWithQuota.c)
  */
 
 __int64 __fastcall DirectComposition::CTelemetryInfo::AddInteractionUpdateInfo(
-        DirectComposition::CTelemetryInfo ***this,
+        DirectComposition::CTelemetryInfo *this,
         struct TOUCH_TELEMETRY_UPDATE_INFO *a2)
 {
   unsigned int v4; // ebx
-  _OWORD *Quota; // rax
-  __int128 v6; // xmm0
-  char *v7; // rdi
-  DirectComposition::CTelemetryInfo **v8; // rcx
+  __int64 v5; // rax
+  DirectComposition::CTelemetryInfo **v6; // rdx
 
   v4 = 0;
-  Quota = NSInstrumentation::CLeakTrackingAllocator::AllocateQuota(
-            (NSInstrumentation::CLeakTrackingAllocator *)this,
-            0x104uLL,
-            0xE8uLL,
-            0x6F744344u);
-  if ( Quota )
+  v5 = Win32AllocPoolWithQuota(104LL, 1869890372LL);
+  if ( v5 )
   {
-    Quota[1] = *(_OWORD *)a2;
-    Quota[2] = *((_OWORD *)a2 + 1);
-    Quota[3] = *((_OWORD *)a2 + 2);
-    Quota[4] = *((_OWORD *)a2 + 3);
-    Quota[5] = *((_OWORD *)a2 + 4);
-    Quota[6] = *((_OWORD *)a2 + 5);
-    Quota[7] = *((_OWORD *)a2 + 6);
-    v6 = *((_OWORD *)a2 + 7);
-    v7 = (char *)a2 + 128;
-    Quota[8] = v6;
-    Quota[9] = *(_OWORD *)v7;
-    Quota[10] = *((_OWORD *)v7 + 1);
-    Quota[11] = *((_OWORD *)v7 + 2);
-    Quota[12] = *((_OWORD *)v7 + 3);
-    Quota[13] = *((_OWORD *)v7 + 4);
-    *((_QWORD *)Quota + 28) = *((_QWORD *)v7 + 10);
-    v8 = this[3];
-    if ( *v8 != (DirectComposition::CTelemetryInfo *)(this + 2) )
+    *(_OWORD *)(v5 + 16) = *(_OWORD *)a2;
+    *(_OWORD *)(v5 + 32) = *((_OWORD *)a2 + 1);
+    *(_OWORD *)(v5 + 48) = *((_OWORD *)a2 + 2);
+    *(_OWORD *)(v5 + 64) = *((_OWORD *)a2 + 3);
+    *(_OWORD *)(v5 + 80) = *((_OWORD *)a2 + 4);
+    *(_QWORD *)(v5 + 96) = *((_QWORD *)a2 + 10);
+    v6 = (DirectComposition::CTelemetryInfo **)*((_QWORD *)this + 3);
+    if ( *v6 != (DirectComposition::CTelemetryInfo *)((char *)this + 16) )
       __fastfail(3u);
-    *(_QWORD *)Quota = this + 2;
-    *((_QWORD *)Quota + 1) = v8;
-    *v8 = (DirectComposition::CTelemetryInfo *)Quota;
-    this[3] = (DirectComposition::CTelemetryInfo **)Quota;
+    *(_QWORD *)v5 = (char *)this + 16;
+    *(_QWORD *)(v5 + 8) = v6;
+    *v6 = (DirectComposition::CTelemetryInfo *)v5;
+    *((_QWORD *)this + 3) = v5;
   }
   else
   {

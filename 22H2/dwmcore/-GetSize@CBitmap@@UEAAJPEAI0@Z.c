@@ -1,27 +1,28 @@
 /*
- * XREFs of ?GetSize@CBitmap@@UEAAJPEAI0@Z @ 0x1802818E0
+ * XREFs of ?GetSize@CBitmap@@UEAAJPEAI0@Z @ 0x180217AB0
  * Callers:
- *     ?GetSize@CBitmap@@WDA@EAAJPEAI0@Z @ 0x18011D320 (-GetSize@CBitmap@@WDA@EAAJPEAI0@Z.c)
+ *     ?GetSize@CBitmap@@WCI@EAAJPEAI0@Z @ 0x1800F5500 (-GetSize@CBitmap@@WCI@EAAJPEAI0@Z.c)
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034CA4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
  */
 
-__int64 __fastcall CBitmap::GetSize(CBitmap *this, unsigned int *a2, unsigned int *a3)
+__int64 __fastcall CBitmap::GetSize(struct _RTL_CRITICAL_SECTION *this, LONG *a2, LONG *a3)
 {
-  struct _RTL_CRITICAL_SECTION *v7; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v6; // ebx
+  struct _RTL_CRITICAL_SECTION *v8; // [rsp+30h] [rbp+8h] BYREF
 
-  v7 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 56);
-  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 56));
+  v8 = this + 3;
+  EnterCriticalSection(this + 3);
+  v6 = 0;
   if ( a2 && a3 )
   {
-    *a2 = *((_DWORD *)this + 26);
-    *a3 = *((_DWORD *)this + 27);
-    CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v7);
-    return 0LL;
+    *a2 = this[4].LockCount;
+    *a3 = this[4].RecursionCount;
   }
   else
   {
-    CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v7);
-    return 2147942487LL;
+    v6 = -2147024809;
   }
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v8);
+  return v6;
 }

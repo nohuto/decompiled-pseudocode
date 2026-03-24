@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIDockIntfDereference @ 0x1C0049070
+ * XREFs of ACPIDockIntfDereference @ 0x1C004A5D0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C00071F0 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C0017F40 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
  */
 
 LONG_PTR __fastcall ACPIDockIntfDereference(PVOID Object)

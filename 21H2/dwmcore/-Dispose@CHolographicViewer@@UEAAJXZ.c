@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Dispose@CHolographicViewer@@UEAAJXZ @ 0x18029C870
+ * XREFs of ?Dispose@CHolographicViewer@@UEAAJXZ @ 0x18025A260
  * Callers:
- *     ??1CHolographicViewer@@MEAA@XZ @ 0x18029C63C (--1CHolographicViewer@@MEAA@XZ.c)
- *     ?DetachFromChannel@CHolographicViewer@@UEAAXPEAVCChannelContext@@_N@Z @ 0x18029C800 (-DetachFromChannel@CHolographicViewer@@UEAAXPEAVCChannelContext@@_N@Z.c)
+ *     ??1CHolographicViewer@@MEAA@XZ @ 0x18025A038 (--1CHolographicViewer@@MEAA@XZ.c)
+ *     ?DetachFromChannel@CHolographicViewer@@UEAAXPEAVCChannelContext@@_N@Z @ 0x18025A1F0 (-DetachFromChannel@CHolographicViewer@@UEAAXPEAVCChannelContext@@_N@Z.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
  */
 
 __int64 __fastcall CHolographicViewer::Dispose(CHolographicViewer *this)

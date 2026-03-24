@@ -1,11 +1,12 @@
 /*
- * XREFs of ?GetRectangles@CRegionShape@@UEBA_NPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@I@Z @ 0x180014250
+ * XREFs of ?GetRectangles@CRegionShape@@UEBA_NPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@I@Z @ 0x1800188C0
  * Callers:
  *     <none>
  * Callees:
- *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800B4B40 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     ?GetRectangleCount@CRegion@FastRegion@@QEBAIXZ @ 0x1800B84E0 (-GetRectangleCount@CRegion@FastRegion@@QEBAIXZ.c)
- *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800D2754 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ?GetRectangleCount@CRegion@FastRegion@@QEBAIXZ @ 0x18009B318 (-GetRectangleCount@CRegion@FastRegion@@QEBAIXZ.c)
+ *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x18009B354 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800C4980 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 char __fastcall CRegionShape::GetRectangles(__int64 a1, __int64 a2, int a3)
@@ -18,12 +19,12 @@ char __fastcall CRegionShape::GetRectangles(__int64 a1, __int64 a2, int a3)
   FastRegion::Internal::CRgnData *v9; // rcx
   float v10; // xmm0_4
   __m128i v11; // xmm1
-  _BYTE v13[8]; // [rsp+20h] [rbp-48h] BYREF
-  unsigned __int64 v14; // [rsp+28h] [rbp-40h]
-  unsigned __int64 v15; // [rsp+30h] [rbp-38h]
-  __int64 v16; // [rsp+38h] [rbp-30h]
-  int v17; // [rsp+40h] [rbp-28h]
-  float v18[6]; // [rsp+50h] [rbp-18h]
+  _BYTE v13[8]; // [rsp+20h] [rbp-58h] BYREF
+  unsigned __int64 v14; // [rsp+28h] [rbp-50h]
+  unsigned __int64 v15; // [rsp+30h] [rbp-48h]
+  __int64 v16; // [rsp+38h] [rbp-40h]
+  int v17; // [rsp+40h] [rbp-38h]
+  __int128 v18; // [rsp+50h] [rbp-28h]
 
   v3 = 0;
   if ( a3 )
@@ -36,12 +37,12 @@ char __fastcall CRegionShape::GetRectangles(__int64 a1, __int64 a2, int a3)
       {
         v9 = (FastRegion::Internal::CRgnData *)(2 * v17);
         v10 = (float)*(int *)(v16 + 4LL * (_QWORD)v9);
-        v18[1] = (float)*(int *)v15;
+        *((float *)&v18 + 1) = (float)*(int *)v15;
         v11 = _mm_cvtsi32_si128(*(_DWORD *)(v15 + 8));
-        v18[0] = v10;
-        v18[2] = (float)*(int *)(v16 + 4LL * (_QWORD)v9 + 4);
-        LODWORD(v18[3]) = _mm_cvtepi32_ps(v11).m128_u32[0];
-        *(_OWORD *)(a2 + 16LL * v8) = *(_OWORD *)v18;
+        *(float *)&v18 = v10;
+        *((float *)&v18 + 2) = (float)*(int *)(v16 + 4LL * (_QWORD)v9 + 4);
+        HIDWORD(v18) = _mm_cvtepi32_ps(v11).m128_u32[0];
+        *(_OWORD *)(a2 + 16LL * v8) = v18;
         FastRegion::Internal::CRgnData::StepIterator(v9, (struct FastRegion::CRegion::Iterator *)v13);
       }
       return 1;

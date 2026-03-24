@@ -1,43 +1,73 @@
 /*
- * XREFs of EtwpAddUmRegEntry @ 0x1406BFA94
+ * XREFs of EtwpAddUmRegEntry @ 0x1405EAD90
  * Callers:
- *     EtwpRegisterUMProvider @ 0x1406BF260 (EtwpRegisterUMProvider.c)
+ *     EtwpRegisterUMGuid @ 0x1405EBAF0 (EtwpRegisterUMGuid.c)
  * Callees:
- *     ObReferenceObjectByPointer @ 0x14022A9A0 (ObReferenceObjectByPointer.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     EtwpInitializeRegEntry @ 0x1406BF610 (EtwpInitializeRegEntry.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByPointer @ 0x14035F490 (ObReferenceObjectByPointer.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     EtwpReferenceGuidEntry @ 0x1405EBAA4 (EtwpReferenceGuidEntry.c)
+ *     ObCreateObjectEx @ 0x140651EA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall EtwpAddUmRegEntry(ULONG_PTR a1, int a2, __int16 a3, __int64 a4, _QWORD *a5, __int64 a6)
+__int64 __fastcall EtwpAddUmRegEntry(
+        ULONG_PTR BugCheckParameter2,
+        int a2,
+        __int16 a3,
+        __int64 a4,
+        _QWORD *a5,
+        __int64 a6)
 {
-  __int64 v6; // rsi
   int Object; // ebx
-  __int64 v12; // [rsp+60h] [rbp-1h] BYREF
-  _QWORD v13[3]; // [rsp+68h] [rbp+7h] BYREF
-  int v14; // [rsp+80h] [rbp+1Fh]
-  int v15; // [rsp+84h] [rbp+23h]
-  __int128 v16; // [rsp+88h] [rbp+27h]
+  _KPROCESS *Process; // rbx
+  __int64 v12; // rcx
+  __int64 v14; // [rsp+60h] [rbp-1h] BYREF
+  _DWORD v15[2]; // [rsp+68h] [rbp+7h] BYREF
+  __int64 v16; // [rsp+70h] [rbp+Fh]
+  __int64 v17; // [rsp+78h] [rbp+17h]
+  int v18; // [rsp+80h] [rbp+1Fh]
+  int v19; // [rsp+84h] [rbp+23h]
+  __int128 v20; // [rsp+88h] [rbp+27h]
 
-  v12 = 0LL;
-  v6 = a4;
-  v15 = 0;
-  v13[1] = 0LL;
-  v13[2] = 0LL;
-  LOBYTE(a4) = 1;
-  v13[0] = 48LL;
-  v14 = 64;
+  v14 = 0LL;
+  v15[1] = 0;
+  v19 = 0;
   v16 = 0LL;
-  Object = ObCreateObjectEx(0, (_DWORD)EtwpRegistrationObjectType, (unsigned int)v13, a4);
+  v17 = 0LL;
+  v15[0] = 48;
+  v18 = 64;
+  v20 = 0LL;
+  Object = ObCreateObjectEx(0, (_DWORD)EtwpRegistrationObjectType, (unsigned int)v15, 1);
   if ( Object >= 0 )
   {
-    EtwpInitializeRegEntry(a1, 1, a2, v6, 0LL, a3, 0LL);
+    memset(0LL, 0, 0x70uLL);
+    Process = KeGetCurrentThread()->ApcState.Process;
+    ObfReferenceObjectWithTag(Process, 0x52777445u);
+    MEMORY[0x50] = Process;
+    _InterlockedOr16((volatile signed __int16 *)0x62, 2u);
+    if ( a2 == 2 )
+      _InterlockedOr16((volatile signed __int16 *)0x62, 8u);
+    MEMORY[0x60] = a3;
+    MEMORY[0x58] = a4;
+    EtwpReferenceGuidEntry(BugCheckParameter2);
+    MEMORY[0x20] = BugCheckParameter2;
+    v12 = *(_QWORD *)(BugCheckParameter2 + 56);
+    if ( *(_QWORD *)(v12 + 8) != BugCheckParameter2 + 56 )
+      __fastfail(3u);
+    MEMORY[8] = BugCheckParameter2 + 56;
+    MEMORY[0] = v12;
+    *(_QWORD *)(v12 + 8) = 0LL;
+    *(_QWORD *)(BugCheckParameter2 + 56) = 0LL;
+    MEMORY[0x18] = 16LL;
+    MEMORY[0x10] = 16LL;
+    _InterlockedOr16((volatile signed __int16 *)0x62, 0x80u);
     ObReferenceObjectByPointer(0LL, 0, EtwpRegistrationObjectType, 0);
-    Object = ObInsertObjectEx(0LL, 0LL, 0, (__int64)&v12, a6);
+    Object = ObInsertObjectEx(0LL, 0, (__int64)&v14, a6);
     *a5 = 0LL;
     if ( Object >= 0 )
-      ObfDereferenceObject(0LL);
+      HalPutDmaAdapter(0LL);
   }
   return (unsigned int)Object;
 }

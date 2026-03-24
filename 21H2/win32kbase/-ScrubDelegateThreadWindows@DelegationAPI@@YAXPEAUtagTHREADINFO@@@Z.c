@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ScrubDelegateThreadWindows@DelegationAPI@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C0097C70
+ * XREFs of ?ScrubDelegateThreadWindows@DelegationAPI@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C00912B8
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C00C64AC (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C003EFB0 (xxxDestroyThreadInfo.c)
  * Callees:
- *     _anonymous_namespace_::ScrubDelegatedWindow_tagWND___ @ 0x1C0097CF8 (_anonymous_namespace_--ScrubDelegatedWindow_tagWND___.c)
- *     _anonymous_namespace_::ScrubDelegatedWindow_tagBWND___ @ 0x1C0149910 (_anonymous_namespace_--ScrubDelegatedWindow_tagBWND___.c)
+ *     _anonymous_namespace_::ScrubDelegatedWindow_tagWND___ @ 0x1C0091340 (_anonymous_namespace_--ScrubDelegatedWindow_tagWND___.c)
+ *     _anonymous_namespace_::ScrubDelegatedWindow_tagBWND___ @ 0x1C011DDD0 (_anonymous_namespace_--ScrubDelegatedWindow_tagBWND___.c)
  */
 
 void __fastcall DelegationAPI::ScrubDelegateThreadWindows(DelegationAPI *this, struct tagTHREADINFO *a2)
@@ -17,7 +17,7 @@ void __fastcall DelegationAPI::ScrubDelegateThreadWindows(DelegationAPI *this, s
 
   v2 = 0;
   v3 = (__int64 *)gpKernelHandleTable;
-  v4 = (char *)qword_1C0294B68 + 24;
+  v4 = (char *)qword_1C024FD58 + 24;
   do
   {
     v6 = *v3;

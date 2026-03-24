@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetScanLineEmulation@BLTQUEUE@@QEAAXPEAIPEAE@Z @ 0x1C03BC2EC
+ * XREFs of ?GetScanLineEmulation@BLTQUEUE@@QEAAXPEAIPEAE@Z @ 0x1C02FD6F0
  * Callers:
- *     DxgkGetScanLine @ 0x1C01EB450 (DxgkGetScanLine.c)
- *     ?GetScanLine@REMOTE_VSYNC@@QEAAJPEAU_DXGKARG_GETSCANLINE@@@Z @ 0x1C033D398 (-GetScanLine@REMOTE_VSYNC@@QEAAJPEAU_DXGKARG_GETSCANLINE@@@Z.c)
+ *     DxgkGetScanLine @ 0x1C01702A0 (DxgkGetScanLine.c)
+ *     ?GetScanLine@REMOTE_VSYNC@@QEAAJPEAU_DXGKARG_GETSCANLINE@@@Z @ 0x1C028A510 (-GetScanLine@REMOTE_VSYNC@@QEAAJPEAU_DXGKARG_GETSCANLINE@@@Z.c)
  * Callees:
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
  */
 
 void __fastcall BLTQUEUE::GetScanLineEmulation(struct _KTHREAD **this, unsigned int *a2, unsigned __int8 *a3)
@@ -20,26 +20,26 @@ void __fastcall BLTQUEUE::GetScanLineEmulation(struct _KTHREAD **this, unsigned 
   DXGPUSHLOCK *v12; // [rsp+28h] [rbp-20h]
   int v13; // [rsp+30h] [rbp-18h]
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v11, this + 51, 0);
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v11, this + 50, 0);
   DXGPUSHLOCK::AcquireExclusive(v12);
   v13 = 2;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  v7 = (__int64)this[58];
+  v7 = (__int64)this[57];
   v8 = 0;
   if ( v7 )
   {
-    v9 = *((unsigned int *)this + 120);
-    v10 = v9 * (PerformanceCounter.QuadPart - (__int64)this[55]) / v7;
-    if ( ((_DWORD)this[119] & 2) != 0 )
+    v9 = *((unsigned int *)this + 118);
+    v10 = v9 * (PerformanceCounter.QuadPart - (__int64)this[54]) / v7;
+    if ( ((_DWORD)this[117] & 2) != 0 )
     {
       if ( (unsigned int)v10 >= (unsigned int)v9 )
-        LODWORD(v10) = *((_DWORD *)this + 120);
+        LODWORD(v10) = *((_DWORD *)this + 118);
     }
     else
     {
       LODWORD(v10) = (unsigned int)v10 % (unsigned int)v9;
     }
-    if ( (unsigned int)v10 < *((_DWORD *)this + 118) || (unsigned int)v10 > *((_DWORD *)this + 119) )
+    if ( (unsigned int)v10 < *((_DWORD *)this + 116) || (unsigned int)v10 > *((_DWORD *)this + 117) )
       v8 = 1;
     *a3 = v8;
     *a2 = v10;

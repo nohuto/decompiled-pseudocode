@@ -1,5 +1,5 @@
 /*
- * XREFs of PfSnScenarioAlloc @ 0x1406CBB30
+ * XREFs of PfSnScenarioAlloc @ 0x1406CBB10
  * Callers:
  *     <none>
  * Callees:

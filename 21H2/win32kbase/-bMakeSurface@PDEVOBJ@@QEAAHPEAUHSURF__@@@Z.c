@@ -1,17 +1,17 @@
 /*
- * XREFs of ?bMakeSurface@PDEVOBJ@@QEAAHPEAUHSURF__@@@Z @ 0x1C016AE70
+ * XREFs of ?bMakeSurface@PDEVOBJ@@QEAAHPEAUHSURF__@@@Z @ 0x1C013DEC0
  * Callers:
- *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C00771B8 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
- *     ?UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z @ 0x1C016AB74 (-UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z.c)
+ *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C0013658 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
+ *     ?UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z @ 0x1C013DBB4 (-UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z.c)
  * Callees:
- *     ??1SURFREF@@QEAA@XZ @ 0x1C001F08C (--1SURFREF@@QEAA@XZ.c)
- *     INC_SHARE_REF_CNT @ 0x1C0020410 (INC_SHARE_REF_CNT.c)
- *     HmgShareLock @ 0x1C0021AA0 (HmgShareLock.c)
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0063C24 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ?vFilterDriverHooks@PDEVOBJ@@QEAAXXZ @ 0x1C00BFFBC (-vFilterDriverHooks@PDEVOBJ@@QEAAXXZ.c)
- *     vEnableSynchronize @ 0x1C00C3134 (vEnableSynchronize.c)
- *     bSpEnableSprites @ 0x1C00C4470 (bSpEnableSprites.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C001C608 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002B724 (--1SURFREF@@QEAA@XZ.c)
+ *     INC_SHARE_REF_CNT @ 0x1C002CE70 (INC_SHARE_REF_CNT.c)
+ *     HmgShareLock @ 0x1C002E7A0 (HmgShareLock.c)
+ *     ?vFilterDriverHooks@PDEVOBJ@@QEAAXXZ @ 0x1C00AE80C (-vFilterDriverHooks@PDEVOBJ@@QEAAXXZ.c)
+ *     vEnableSynchronize @ 0x1C00B3D38 (vEnableSynchronize.c)
+ *     bSpEnableSprites @ 0x1C00B54EC (bSpEnableSprites.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall PDEVOBJ::bMakeSurface(PDEVOBJ *this, HSURF a2)
@@ -21,52 +21,52 @@ __int64 __fastcall PDEVOBJ::bMakeSurface(PDEVOBJ *this, HSURF a2)
   HSURF v4; // rax
   __int64 (__fastcall *v7)(_QWORD); // rax
   __int64 v8; // rcx
-  unsigned int v9; // ebp
-  _BYTE v10[32]; // [rsp+30h] [rbp-38h] BYREF
-  unsigned int *v11; // [rsp+50h] [rbp-18h]
+  int v9; // eax
+  unsigned int v10; // ebp
+  _BYTE v11[32]; // [rsp+30h] [rbp-38h] BYREF
+  unsigned int *v12; // [rsp+50h] [rbp-18h]
 
   v2 = *(_QWORD *)this;
   v3 = 0;
   v4 = a2;
-  if ( *(_QWORD *)(*(_QWORD *)this + 2528LL) )
+  if ( *(_QWORD *)(*(_QWORD *)this + 2552LL) )
     return 1LL;
   if ( a2
-    || (v7 = *(__int64 (__fastcall **)(_QWORD))(v2 + 2688)) != 0LL && (v4 = (HSURF)v7(*(_QWORD *)(v2 + 1768))) != 0LL )
+    || (v7 = *(__int64 (__fastcall **)(_QWORD))(v2 + 2712)) != 0LL && (v4 = (HSURF)v7(*(_QWORD *)(v2 + 1800))) != 0LL )
   {
-    SURFREF::SURFREF((SURFREF *)v10, v4);
-    if ( v11 )
+    SURFREF::SURFREF((SURFREF *)v11, v4);
+    if ( v12 )
     {
-      v11[28] |= 0x80000000;
+      v12[28] |= 0x80000000;
       if ( (*(_DWORD *)(v2 + 40) & 0x8000) == 0 )
-        INC_SHARE_REF_CNT(v11);
-      *(_QWORD *)(*(_QWORD *)this + 2528LL) = v11;
-      if ( !v11[24] )
-        v11[24] = *(_DWORD *)(*(_QWORD *)this + 2076LL);
-      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 2528LL) + 128LL) = *(_QWORD *)(*(_QWORD *)this + 1776LL);
+        INC_SHARE_REF_CNT(v12);
+      *(_QWORD *)(*(_QWORD *)this + 2552LL) = v12;
+      if ( !v12[24] )
+        v12[24] = *(_DWORD *)(*(_QWORD *)this + 2108LL);
+      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 2552LL) + 128LL) = *(_QWORD *)(*(_QWORD *)this + 1808LL);
       v8 = *(_QWORD *)this;
-      if ( (*(_DWORD *)(*(_QWORD *)this + 1792LL) & 0x8000000) != 0 )
+      if ( (*(_DWORD *)(*(_QWORD *)this + 1824LL) & 0x8000000) != 0 )
       {
-        v11[28] |= 0x80000u;
+        v12[28] |= 0x80000u;
         v8 = *(_QWORD *)this;
       }
-      HmgShareLock(**(_QWORD **)(v8 + 1776), 8);
-      if ( (*(_DWORD *)(*(_QWORD *)this + 40LL) & 1) != 0
-        && qword_1C029B4A0
-        && (int)qword_1C029B4A0() >= 0
-        && qword_1C029B4A8 )
+      HmgShareLock(**(_QWORD **)(v8 + 1808), 8);
+      if ( (*(_DWORD *)(*(_QWORD *)this + 40LL) & 1) != 0 )
       {
-        qword_1C029B4A8(v2, 0xFFFFFFFFLL, 0xFFFFFFFFLL, 1LL);
+        v9 = qword_1C0256730 ? qword_1C0256730() : -1073741637;
+        if ( v9 >= 0 && qword_1C0256738 )
+          qword_1C0256738(v2, 0xFFFFFFFFLL, 0xFFFFFFFFLL, 1LL);
       }
       PDEVOBJ::vFilterDriverHooks(this);
-      v9 = (unsigned int)bSpEnableSprites();
+      v10 = (unsigned int)bSpEnableSprites();
       vEnableSynchronize();
-      if ( *(_QWORD *)(*(_QWORD *)this + 1744LL) )
-        (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)this + 1744LL))(
-          (*(_QWORD *)(*(_QWORD *)this + 2528LL) + 24LL) & -(__int64)(*(_QWORD *)(*(_QWORD *)this + 2528LL) != 0LL),
+      if ( *(_QWORD *)(*(_QWORD *)this + 1776LL) )
+        (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)this + 1776LL))(
+          (*(_QWORD *)(*(_QWORD *)this + 2552LL) + 24LL) & -(__int64)(*(_QWORD *)(*(_QWORD *)this + 2552LL) != 0LL),
           4LL);
-      v3 = v9;
+      v3 = v10;
     }
-    SURFREF::~SURFREF((SURFREF *)v10);
+    SURFREF::~SURFREF((SURFREF *)v11);
   }
   return v3;
 }

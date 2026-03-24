@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIGetWorkerForNothing @ 0x1C002B7A0
+ * XREFs of ACPIGetWorkerForNothing @ 0x1C0030690
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     FreeDataBuffs @ 0x1C004B52C (FreeDataBuffs.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall ACPIGetWorkerForNothing(__int64 a1, int a2, __int64 a3, _DWORD *a4)
@@ -17,9 +17,9 @@ void __fastcall ACPIGetWorkerForNothing(__int64 a1, int a2, __int64 a3, _DWORD *
   a4[18] = a2;
   if ( a2 >= 0 )
   {
-    dword_1C006F938 = 0;
+    dword_1C0082908 = 0;
     pszDest = 0;
-    FreeDataBuffs(a3, 1LL);
+    FreeDataBuffs(a3, 1u);
   }
   if ( (*a4 & 0x10000000) == 0 )
   {

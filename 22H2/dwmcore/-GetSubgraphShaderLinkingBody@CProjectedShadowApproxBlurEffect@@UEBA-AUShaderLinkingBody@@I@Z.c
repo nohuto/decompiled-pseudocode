@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSubgraphShaderLinkingBody@CProjectedShadowApproxBlurEffect@@UEBA?AUShaderLinkingBody@@I@Z @ 0x1801090A0
+ * XREFs of ?GetSubgraphShaderLinkingBody@CProjectedShadowApproxBlurEffect@@UEBA?AUShaderLinkingBody@@I@Z @ 0x1800E39E0
  * Callers:
  *     <none>
  * Callees:
@@ -13,11 +13,11 @@ __int64 __fastcall CProjectedShadowApproxBlurEffect::GetSubgraphShaderLinkingBod
   __int128 v4; // xmm0
 
   result = a2;
-  v3 = *(_OWORD *)(a1 + 56);
-  *(_OWORD *)a2 = *(_OWORD *)(a1 + 40);
-  v4 = *(_OWORD *)(a1 + 72);
+  v3 = *(_OWORD *)(a1 + 104);
+  *(_OWORD *)a2 = *(_OWORD *)(a1 + 88);
+  v4 = *(_OWORD *)(a1 + 120);
   *(_OWORD *)(a2 + 16) = v3;
-  *(_QWORD *)&v3 = *(_QWORD *)(a1 + 88);
+  *(_QWORD *)&v3 = *(_QWORD *)(a1 + 136);
   *(_OWORD *)(a2 + 32) = v4;
   *(_QWORD *)(a2 + 48) = v3;
   return result;

@@ -1,26 +1,26 @@
 /*
- * XREFs of KiGetCpuVendor @ 0x140A56B08
+ * XREFs of KiGetCpuVendor @ 0x14099BF68
  * Callers:
- *     KiGetIptInfo @ 0x1403BF914 (KiGetIptInfo.c)
- *     HvlpProcessIommu @ 0x14054B568 (HvlpProcessIommu.c)
- *     EtwSetPerformanceTraceInformation @ 0x1409DEFB8 (EtwSetPerformanceTraceInformation.c)
- *     EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x1409DFC30 (EtwpAddMicroarchitecturalPmcToPmcGroup.c)
- *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1409DFF60 (EtwpAddMicroarchitecturalPmcToRegistry.c)
- *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1409E1200 (EtwpLoadMicroarchitecturalProfileGroup.c)
- *     EtwpLoadMicroarchitecturalProfileSource @ 0x1409E1514 (EtwpLoadMicroarchitecturalProfileSource.c)
- *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1409E1B94 (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
- *     KiIsNXSupported @ 0x140A560D0 (KiIsNXSupported.c)
- *     KiGetProcessorSignature @ 0x140A56A48 (KiGetProcessorSignature.c)
- *     KiInitializeNxSupportDiscard @ 0x140AFB154 (KiInitializeNxSupportDiscard.c)
+ *     KiGetIptInfo @ 0x1403AD944 (KiGetIptInfo.c)
+ *     HvlpProcessIommu @ 0x1404F97D8 (HvlpProcessIommu.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140938560 (EtwSetPerformanceTraceInformation.c)
+ *     EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x140939160 (EtwpAddMicroarchitecturalPmcToPmcGroup.c)
+ *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x140939480 (EtwpAddMicroarchitecturalPmcToRegistry.c)
+ *     EtwpLoadMicroarchitecturalProfileGroup @ 0x14093A58C (EtwpLoadMicroarchitecturalProfileGroup.c)
+ *     EtwpLoadMicroarchitecturalProfileSource @ 0x14093A870 (EtwpLoadMicroarchitecturalProfileSource.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x14093AE40 (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
+ *     KiIsNXSupported @ 0x14099BBF0 (KiIsNXSupported.c)
+ *     KiGetProcessorSignature @ 0x14099BEA8 (KiGetProcessorSignature.c)
+ *     KiInitializeNxSupportDiscard @ 0x140A3A9E4 (KiInitializeNxSupportDiscard.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     strncmp @ 0x1403E0910 (strncmp.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     strncmp @ 0x1403D1540 (strncmp.c)
  */
 
 __int64 KiGetCpuVendor()
 {
   struct _KPRCB *CurrentPrcb; // r8
-  char Str1[16]; // [rsp+20h] [rbp-20h] BYREF
+  char Str1[16]; // [rsp+20h] [rbp-28h] BYREF
 
   _RAX = 0LL;
   CurrentPrcb = KeGetCurrentPrcb();
@@ -37,9 +37,5 @@ __int64 KiGetCpuVendor()
     return 2LL;
   if ( !strncmp(&Str1[4], "CentaurHauls", 0xCuLL) )
     return 3LL;
-  if ( !strncmp(&Str1[4], "HygonGenuine", 0xCuLL) )
-    return 1LL;
-  if ( strncmp(&Str1[4], "  Shanghai  ", 0xCuLL) )
-    return 0LL;
-  return 3LL;
+  return !strncmp(&Str1[4], "HygonGenuine", 0xCuLL);
 }

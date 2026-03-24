@@ -1,7 +1,7 @@
 /*
  * XREFs of NtQuerySystemInformation @ 0x140626240
  * Callers:
- *     AlpcpInitSystem @ 0x14075D2AC (AlpcpInitSystem.c)
+ *     AlpcpInitSystem @ 0x14075D28C (AlpcpInitSystem.c)
  * Callees:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  */

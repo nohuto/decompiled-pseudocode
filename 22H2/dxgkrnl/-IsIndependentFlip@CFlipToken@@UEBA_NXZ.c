@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsIndependentFlip@CFlipToken@@UEBA_NXZ @ 0x1C001A190
+ * XREFs of ?IsIndependentFlip@CFlipToken@@UEBA_NXZ @ 0x1C001B9B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CFlipToken::IsIndependentFlip(CFlipToken *this)
 {
-  return *((_BYTE *)this + 560);
+  return *((_BYTE *)this + 556);
 }

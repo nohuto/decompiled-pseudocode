@@ -1,21 +1,21 @@
 /*
- * XREFs of Endpoint_OnResetSetDequeuePointer @ 0x1C003B54C
+ * XREFs of Endpoint_OnResetSetDequeuePointer @ 0x1C0039624
  * Callers:
- *     Endpoint_OnResetEndpointResetCompletion @ 0x1C003B310 (Endpoint_OnResetEndpointResetCompletion.c)
+ *     Endpoint_OnResetEndpointResetCompletion @ 0x1C00393F0 (Endpoint_OnResetEndpointResetCompletion.c)
  * Callees:
- *     Command_SendCommand @ 0x1C000A850 (Command_SendCommand.c)
- *     Endpoint_GetDequeuePointer @ 0x1C000CF0C (Endpoint_GetDequeuePointer.c)
- *     memset @ 0x1C0020600 (memset.c)
- *     Endpoint_IsTransferRingEmpty @ 0x1C003A65C (Endpoint_IsTransferRingEmpty.c)
- *     Endpoint_StreamsOnResetSetDequeuePointerComplete @ 0x1C003C3D0 (Endpoint_StreamsOnResetSetDequeuePointerComplete.c)
+ *     Command_SendCommand @ 0x1C0006C80 (Command_SendCommand.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C0008334 (Endpoint_GetDequeuePointer.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Endpoint_IsTransferRingEmpty @ 0x1C003874C (Endpoint_IsTransferRingEmpty.c)
+ *     Endpoint_StreamsOnResetSetDequeuePointerComplete @ 0x1C003A3E4 (Endpoint_StreamsOnResetSetDequeuePointerComplete.c)
  */
 
 char __fastcall Endpoint_OnResetSetDequeuePointer(__int64 *a1, unsigned int a2)
 {
   __int64 v2; // rdi
   __int64 v6; // rbx
-  unsigned int v7; // r9d
-  int v8; // r9d
+  unsigned int v7; // r10d
+  int v8; // r10d
 
   v2 = *a1;
   if ( *(_BYTE *)(*a1 + 37) )

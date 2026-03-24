@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMISC_ConvertUsbDeviceIdsToString @ 0x1C00315C8
+ * XREFs of HUBMISC_ConvertUsbDeviceIdsToString @ 0x1C0030EE4
  * Callers:
- *     HUBFDO_QueryHubErrataFlags @ 0x1C00789BC (HUBFDO_QueryHubErrataFlags.c)
- *     HUBMISC_QueryAndCacheRegistryValuesForDevice @ 0x1C007DC90 (HUBMISC_QueryAndCacheRegistryValuesForDevice.c)
- *     HUBREG_AssignUsbflagsValueForDevice @ 0x1C007EEF0 (HUBREG_AssignUsbflagsValueForDevice.c)
+ *     HUBFDO_QueryHubErrataFlags @ 0x1C007760C (HUBFDO_QueryHubErrataFlags.c)
+ *     HUBMISC_QueryAndCacheRegistryValuesForDevice @ 0x1C007C6B4 (HUBMISC_QueryAndCacheRegistryValuesForDevice.c)
+ *     HUBREG_AssignUsbflagsValueForDevice @ 0x1C007D8C8 (HUBREG_AssignUsbflagsValueForDevice.c)
  * Callees:
  *     RtlStringCchPrintfA @ 0x1C00010B0 (RtlStringCchPrintfA.c)
  */

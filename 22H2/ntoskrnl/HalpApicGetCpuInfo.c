@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpApicGetCpuInfo @ 0x1403A47B0
+ * XREFs of HalpApicGetCpuInfo @ 0x1403CD838
  * Callers:
- *     HalpApicRegisterIoUnit @ 0x1403A4514 (HalpApicRegisterIoUnit.c)
- *     HalpApicIsCmciImplemented @ 0x1403A4710 (HalpApicIsCmciImplemented.c)
+ *     HalpApicRegisterIoUnit @ 0x1403B1E00 (HalpApicRegisterIoUnit.c)
+ *     HalpApicIsCmciImplemented @ 0x1403CD798 (HalpApicIsCmciImplemented.c)
  * Callees:
- *     HalSocRequestApi @ 0x140378A3C (HalSocRequestApi.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalSocRequestApi @ 0x1403A199C (HalSocRequestApi.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 char __fastcall HalpApicGetCpuInfo(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ObpDeleteDirectoryEntry @ 0x1406A6CBC
+ * XREFs of ObpDeleteDirectoryEntry @ 0x1406A6C9C
  * Callers:
  *     ObpDeleteNameCheck @ 0x1405A9740 (ObpDeleteNameCheck.c)
  *     ObpInsertOrLocateNamedObject @ 0x1405C85A8 (ObpInsertOrLocateNamedObject.c)

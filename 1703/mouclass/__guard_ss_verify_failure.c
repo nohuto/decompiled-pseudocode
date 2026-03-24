@@ -1,1 +1,12 @@
-/*\n * XREFs of __guard_ss_verify_failure @ 0x1C0002BC0\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\nvoid __noreturn _guard_ss_verify_failure()\n{\n  _guard_ss_verify_failure_fptr();\n}\n
+/*
+ * XREFs of __guard_ss_verify_failure @ 0x1C0002BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __noreturn _guard_ss_verify_failure()
+{
+  _guard_ss_verify_failure_fptr();
+}

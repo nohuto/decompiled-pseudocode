@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pjqq_EtwWriteTransfer @ 0x1C0036B3C
+ * XREFs of McTemplateK0pjqq_EtwWriteTransfer @ 0x1C0035010
  * Callers:
- *     Controller_UcxEvtQueryUsbCapability @ 0x1C001B310 (Controller_UcxEvtQueryUsbCapability.c)
+ *     Controller_UcxEvtQueryUsbCapability @ 0x1C0016D60 (Controller_UcxEvtQueryUsbCapability.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022398 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0pjqq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

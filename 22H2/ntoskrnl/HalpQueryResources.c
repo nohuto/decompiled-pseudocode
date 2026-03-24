@@ -1,72 +1,77 @@
 /*
- * XREFs of HalpQueryResources @ 0x14082AA3C
+ * XREFs of HalpQueryResources @ 0x1407B99D4
  * Callers:
- *     HalpDispatchPnp @ 0x140829D70 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x1407645A0 (HalpDispatchPnp.c)
  * Callees:
- *     HalpQueryAcpiResourceRequirements @ 0x140820B60 (HalpQueryAcpiResourceRequirements.c)
- *     HalConvertDeviceIdtToIrql @ 0x14082AB70 (HalConvertDeviceIdtToIrql.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalConvertDeviceIdtToIrql @ 0x14076ED80 (HalConvertDeviceIdtToIrql.c)
+ *     HalpQueryAcpiResourceRequirements @ 0x1407B9B04 (HalpQueryAcpiResourceRequirements.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpQueryResources(__int64 a1, _QWORD *a2)
 {
-  __int64 v2; // rcx
-  unsigned int v3; // r14d
+  __int64 v2; // rax
+  unsigned int v3; // ebp
+  int v5; // eax
   __int64 result; // rax
-  _DWORD *v6; // rbp
-  _DWORD *Pool2; // rax
-  _DWORD *v8; // rsi
-  __int64 v9; // rdi
-  __int64 v10; // rbx
-  __int16 v11; // ax
+  _DWORD *v7; // r14
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v9; // rsi
+  __int64 v10; // rdi
+  __int64 v11; // rbx
+  __int16 v12; // ax
   PVOID P; // [rsp+50h] [rbp+8h] BYREF
 
   v2 = *(_QWORD *)(a1 + 64);
   v3 = 0;
   P = 0LL;
-  if ( *(_DWORD *)(v2 + 32) == 129 )
+  v5 = *(_DWORD *)(v2 + 32);
+  if ( v5 != 129 )
+    return (unsigned int)(v5 - 130) > 1 ? 0xC00000BB : 0;
+  result = HalpQueryAcpiResourceRequirements(&P);
+  if ( (int)result >= 0 )
   {
-    result = HalpQueryAcpiResourceRequirements((unsigned int **)&P);
-    if ( (int)result < 0 )
-      return result;
-    v6 = P;
-    Pool2 = (_DWORD *)ExAllocatePool2(256LL, (unsigned int)(20 * *((_DWORD *)P + 9) + 39), 1886150984LL);
-    v8 = Pool2;
-    if ( !Pool2 )
+    v7 = P;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)(20 * *((_DWORD *)P + 9) + 39), 0x206C6148u);
+    v9 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      ExFreePoolWithTag(v6, 0);
+      PoolWithTag[2] = 0LL;
+      PoolWithTag[3] = 0LL;
+      PoolWithTag[4] = 0LL;
+      *((_DWORD *)PoolWithTag + 2) = -1;
+      *(_DWORD *)PoolWithTag = 1;
+      *((_DWORD *)PoolWithTag + 1) = 15;
+      *((_DWORD *)PoolWithTag + 3) = 65537;
+      *((_DWORD *)PoolWithTag + 4) = v7[9];
+      if ( v7[9] )
+      {
+        do
+        {
+          v10 = 8LL * v3;
+          v11 = 5LL * v3;
+          *((_BYTE *)v9 + 4 * v11 + 20) = BYTE1(v7[v10 + 10]);
+          *((_BYTE *)v9 + 4 * v11 + 21) = BYTE2(v7[v10 + 10]);
+          *((_WORD *)v9 + 2 * v11 + 11) = v7[v10 + 11];
+          ++v3;
+          *((_WORD *)v9 + 2 * v11 + 12) = (unsigned __int8)HalConvertDeviceIdtToIrql(v7[v10 + 12]);
+          *((_DWORD *)v9 + v11 + 7) = v7[v10 + 12];
+          v12 = HIWORD(v7[v10 + 14]);
+          *(_QWORD *)((char *)v9 + 4 * v11 + 32) = -1LL;
+          *((_WORD *)v9 + 2 * v11 + 13) = v12;
+        }
+        while ( v3 < v7[9] );
+      }
+      *a2 = v9;
+      ExFreePoolWithTag(v7, 0);
+      return 0LL;
+    }
+    else
+    {
+      ExFreePoolWithTag(v7, 0);
       return 3221225626LL;
     }
-    Pool2[2] = -1;
-    *Pool2 = 1;
-    Pool2[1] = 15;
-    Pool2[3] = 65537;
-    Pool2[4] = v6[9];
-    if ( v6[9] )
-    {
-      do
-      {
-        v9 = 8LL * v3;
-        v10 = 5LL * v3;
-        LOBYTE(v8[v10 + 5]) = BYTE1(v6[v9 + 10]);
-        BYTE1(v8[v10 + 5]) = BYTE2(v6[v9 + 10]);
-        HIWORD(v8[v10 + 5]) = v6[v9 + 11];
-        ++v3;
-        LOWORD(v8[v10 + 6]) = (unsigned __int8)HalConvertDeviceIdtToIrql((unsigned int)v6[v9 + 12]);
-        v8[v10 + 7] = v6[v9 + 12];
-        v11 = HIWORD(v6[v9 + 14]);
-        *(_QWORD *)&v8[v10 + 8] = -1LL;
-        HIWORD(v8[v10 + 6]) = v11;
-      }
-      while ( v3 < v6[9] );
-    }
-    *a2 = v8;
-    ExFreePoolWithTag(v6, 0);
   }
-  else if ( *(_DWORD *)(v2 + 32) != 130 && (unsigned int)(*(_DWORD *)(v2 + 32) - 131) >= 2 )
-  {
-    return 3221225659LL;
-  }
-  return 0LL;
+  return result;
 }

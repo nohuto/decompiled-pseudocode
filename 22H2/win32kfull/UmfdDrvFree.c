@@ -1,10 +1,10 @@
 /*
- * XREFs of UmfdDrvFree @ 0x1C00ABAB0
+ * XREFs of UmfdDrvFree @ 0x1C01220D0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z @ 0x1C00B8848 (-ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z.c)
- *     UmfdDrvFreeInternal @ 0x1C0306060 (UmfdDrvFreeInternal.c)
+ *     ?ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z @ 0x1C009F51C (-ReleaseKernelmodeAllocation@UmfdAllocation@@SAXPEAX@Z.c)
+ *     UmfdDrvFreeInternal @ 0x1C02DE200 (UmfdDrvFreeInternal.c)
  */
 
 void __fastcall UmfdDrvFree(char *a1, __int64 a2)

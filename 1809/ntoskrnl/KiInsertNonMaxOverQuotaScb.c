@@ -1,11 +1,11 @@
 /*
- * XREFs of KiInsertNonMaxOverQuotaScb @ 0x14011701C
+ * XREFs of KiInsertNonMaxOverQuotaScb @ 0x14011703C
  * Callers:
- *     KiTransitionSchedulingGroupGeneration @ 0x1400D3260 (KiTransitionSchedulingGroupGeneration.c)
- *     KiAddThreadToScbQueue @ 0x140116F74 (KiAddThreadToScbQueue.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x1400D3280 (KiTransitionSchedulingGroupGeneration.c)
+ *     KiAddThreadToScbQueue @ 0x140116F94 (KiAddThreadToScbQueue.c)
  * Callees:
- *     KiInsertSchedulingGroupQueue @ 0x14011707C (KiInsertSchedulingGroupQueue.c)
- *     KiResortScbQueue @ 0x140117190 (KiResortScbQueue.c)
+ *     KiInsertSchedulingGroupQueue @ 0x14011709C (KiInsertSchedulingGroupQueue.c)
+ *     KiResortScbQueue @ 0x1401171B0 (KiResortScbQueue.c)
  */
 
 char __fastcall KiInsertNonMaxOverQuotaScb(__int64 a1, __int64 a2, __int64 a3)

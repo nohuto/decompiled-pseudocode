@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDereferenceWakeInfos @ 0x14058E47C
+ * XREFs of PopDereferenceWakeInfos @ 0x14038B284
  * Callers:
- *     PopGetWakeSource @ 0x140987418 (PopGetWakeSource.c)
+ *     PopGetWakeSource @ 0x1407786B8 (PopGetWakeSource.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopWakeInfoDereference @ 0x14058E8E8 (PopWakeInfoDereference.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     PopWakeInfoDereference @ 0x14038B318 (PopWakeInfoDereference.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDereferenceWakeInfos(unsigned int a1, _QWORD *a2)
@@ -20,11 +20,11 @@ void __fastcall PopDereferenceWakeInfos(unsigned int a1, _QWORD *a2)
   _DWORD *SchedulerAssist; // r9
   int v9; // eax
   bool v10; // zf
-  struct _KLOCK_QUEUE_HANDLE v11; // [rsp+20h] [rbp-28h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v2 = a1;
-  memset(&v11, 0, sizeof(v11));
-  KeAcquireInStackQueuedSpinLock(&PopWakeSourceLock, &v11);
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  KeAcquireInStackQueuedSpinLock(&PopWakeSourceLock, &LockHandle);
   if ( (_DWORD)v2 )
   {
     v4 = a2;
@@ -35,20 +35,23 @@ void __fastcall PopDereferenceWakeInfos(unsigned int a1, _QWORD *a2)
     }
     while ( v2 );
   }
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&v11);
-  OldIrql = v11.OldIrql;
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v11.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v9 = ~(unsigned __int16)(-1LL << (v11.OldIrql + 1));
-      v10 = (v9 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v9;
-      if ( v10 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v9 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v10 = (v9 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v9;
+        if ( v10 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);

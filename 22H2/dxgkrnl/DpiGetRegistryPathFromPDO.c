@@ -1,79 +1,101 @@
 /*
- * XREFs of DpiGetRegistryPathFromPDO @ 0x1C001D360
+ * XREFs of DpiGetRegistryPathFromPDO @ 0x1C00226D4
  * Callers:
- *     DpiGetDeviceRegistryPaths @ 0x1C001D298 (DpiGetDeviceRegistryPaths.c)
- *     ?DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ @ 0x1C02B63B0 (-DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ.c)
- *     ?VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z @ 0x1C0389F28 (-VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z.c)
+ *     DpiGetDeviceRegistryPaths @ 0x1C002260C (DpiGetDeviceRegistryPaths.c)
+ *     ?DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ @ 0x1C020C6D8 (-DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ.c)
+ *     ?VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z @ 0x1C0249868 (-VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z.c)
  * Callees:
- *     memmove @ 0x1C0028340 (memmove.c)
- *     memset @ 0x1C0028640 (memset.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
 __int64 __fastcall DpiGetRegistryPathFromPDO(struct _DEVICE_OBJECT *a1, int a2, unsigned __int16 *a3)
 {
   NTSTATUS v4; // eax
-  unsigned int v5; // ebx
-  unsigned __int16 *Pool2; // rax
-  unsigned __int16 *v7; // rdi
-  NTSTATUS v8; // eax
-  unsigned __int16 v9; // r8
-  void *v10; // rax
-  __int64 v12; // rdx
-  __int64 v13; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rbx
+  unsigned __int16 *PoolWithTag; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  unsigned __int16 *v13; // rsi
+  NTSTATUS v14; // eax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  SIZE_T v17; // rdx
+  PVOID v18; // rax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rax
   ULONG Length; // [rsp+58h] [rbp+10h] BYREF
   HANDLE KeyHandle; // [rsp+68h] [rbp+20h] BYREF
 
   KeyHandle = 0LL;
   Length = 0;
   v4 = IoOpenDeviceRegistryKey(a1, 2 - (a2 != 0), 0x20019u, &KeyHandle);
-  v5 = v4;
+  v7 = v4;
   if ( v4 < 0 )
   {
-    WdLogSingleEntry1(2LL, v4);
-    return v5;
+    v24 = WdLogNewEntry5_WdError(v6, v5);
+    *(_QWORD *)(v24 + 24) = v7;
+    WdLogEvent5_WdError(v24);
   }
-  v5 = ZwQueryKey(KeyHandle, KeyNameInformation, 0LL, 0, &Length);
-  if ( v5 == -1073741789 )
+  else
   {
-    Pool2 = (unsigned __int16 *)ExAllocatePool2(256LL, Length, 1953656900LL);
-    v7 = Pool2;
-    if ( !Pool2 )
+    LODWORD(v7) = ZwQueryKey(KeyHandle, KeyNameInformation, 0LL, 0, &Length);
+    if ( (_DWORD)v7 == -1073741789 )
     {
-      v5 = -1073741801;
-      WdLogSingleEntry1(6LL, -1073741801LL);
-      goto LABEL_8;
-    }
-    memset(Pool2, 0, Length);
-    v8 = ZwQueryKey(KeyHandle, KeyNameInformation, v7, Length, &Length);
-    v5 = v8;
-    if ( v8 < 0 )
-    {
-      v12 = v8;
-      v13 = 2LL;
-    }
-    else
-    {
-      v9 = *v7;
-      *a3 = *v7;
-      a3[1] = v9 + 2;
-      v10 = (void *)ExAllocatePool2(256LL, (unsigned __int16)(v9 + 2), 1953656900LL);
-      *((_QWORD *)a3 + 1) = v10;
-      if ( v10 )
+      PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, Length, 0x74727044u);
+      v13 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        memset(v10, 0, a3[1]);
-        memmove(*((void **)a3 + 1), v7 + 2, *a3);
-LABEL_7:
-        ExFreePoolWithTag(v7, 0x74727044u);
-        goto LABEL_8;
+        memset(PoolWithTag, 0, Length);
+        v14 = ZwQueryKey(KeyHandle, KeyNameInformation, v13, Length, &Length);
+        v7 = v14;
+        if ( v14 < 0 )
+        {
+          v26 = WdLogNewEntry5_WdError(v16, v15);
+          *(_QWORD *)(v26 + 24) = v7;
+          WdLogEvent5_WdError(v26);
+        }
+        else
+        {
+          v17 = (unsigned __int16)(*v13 + 2);
+          a3[1] = v17;
+          *a3 = *v13;
+          v18 = ExAllocatePoolWithTag(PagedPool, v17, 0x74727044u);
+          *((_QWORD *)a3 + 1) = v18;
+          if ( v18 )
+          {
+            memset(v18, 0, a3[1]);
+            memmove(*((void **)a3 + 1), v13 + 2, *a3);
+          }
+          else
+          {
+            LODWORD(v7) = -1073741801;
+            v27 = WdLogNewEntry5_WdLowResource(v20, v19, v21, v22);
+            *(_QWORD *)(v27 + 24) = -1073741801LL;
+            WdLogEvent5_WdLowResource(v27);
+          }
+        }
+        ExFreePoolWithTag(v13, 0x74727044u);
       }
-      v12 = -1073741801LL;
-      v5 = -1073741801;
-      v13 = 6LL;
+      else
+      {
+        LODWORD(v7) = -1073741801;
+        v25 = WdLogNewEntry5_WdLowResource(v10, v9, v11, v12);
+        *(_QWORD *)(v25 + 24) = -1073741801LL;
+        WdLogEvent5_WdLowResource(v25);
+      }
     }
-    WdLogSingleEntry1(v13, v12);
-    goto LABEL_7;
+    ZwClose(KeyHandle);
   }
-LABEL_8:
-  ZwClose(KeyHandle);
-  return v5;
+  return (unsigned int)v7;
 }

@@ -1,49 +1,46 @@
 /*
- * XREFs of NtUserCheckWindowThreadDesktop @ 0x1C01CD720
+ * XREFs of NtUserCheckWindowThreadDesktop @ 0x1C01F6C00
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     GetConsoleDesktop @ 0x1C01BEB28 (GetConsoleDesktop.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     GetConsoleDesktop @ 0x1C01E92BC (GetConsoleDesktop.c)
  */
 
-__int64 __fastcall NtUserCheckWindowThreadDesktop(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserCheckWindowThreadDesktop(__int64 a1, unsigned int a2)
 {
-  unsigned int v3; // esi
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  int v10; // ebx
-  __int64 v11; // rdi
-  __int64 v12; // rax
-  _QWORD v14[3]; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v15; // [rsp+50h] [rbp+18h] BYREF
-  __int64 v16; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v4; // rax
+  __int64 v5; // rcx
+  int v6; // ebx
+  __int64 v7; // rdi
+  __int64 v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  _QWORD v12[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v13; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v14; // [rsp+58h] [rbp+20h] BYREF
 
-  v3 = a2;
-  EnterSharedCrit(a1, a2, a3);
-  v5 = ValidateHwnd(a1);
-  v10 = 0;
-  v11 = v5;
-  if ( v5 )
+  EnterSharedCrit(0LL, 1LL);
+  v4 = ValidateHwnd(a1);
+  v6 = 0;
+  v7 = v4;
+  if ( v4 )
   {
-    v12 = PtiFromThreadId(v3);
-    if ( v12 )
+    v8 = PtiFromThreadId(a2);
+    if ( v8 )
     {
-      v10 = ValidatePwndDesktop(v11, v12);
+      v6 = ValidatePwndDesktop(v7, v8);
     }
     else
     {
-      v16 = 0LL;
-      v15 = 0LL;
-      if ( (int)GetConsoleDesktop(v3, v14, &v15, &v16) < 0 )
-        UserSetLastError(87);
+      v14 = 0LL;
+      v13 = 0LL;
+      if ( (int)GetConsoleDesktop(a2, v12, &v13, &v14) < 0 )
+        UserSetLastError(87LL, v9, v10);
       else
-        LOBYTE(v10) = *(_QWORD *)(v11 + 24) == v15;
+        LOBYTE(v6) = *(_QWORD *)(v7 + 24) == v13;
     }
   }
-  UserSessionSwitchLeaveCrit(v7, v6, v8, v9);
-  return v10;
+  UserSessionSwitchLeaveCrit(v5);
+  return v6;
 }

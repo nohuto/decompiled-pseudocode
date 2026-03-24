@@ -1,18 +1,18 @@
 /*
- * XREFs of EmClientRuleEvaluate @ 0x140A47E30
+ * XREFs of EmClientRuleEvaluate @ 0x140990340
  * Callers:
- *     PopPepInitializeVetoMasks @ 0x1405D5704 (PopPepInitializeVetoMasks.c)
- *     PoRegisterPowerSettingCallback @ 0x140762500 (PoRegisterPowerSettingCallback.c)
- *     PopReadErrataSkipMemoryOverwriteRequestControlLockAction @ 0x140B30E08 (PopReadErrataSkipMemoryOverwriteRequestControlLockAction.c)
+ *     PopPepInitializeVetoMasks @ 0x140574D9C (PopPepInitializeVetoMasks.c)
+ *     PoRegisterPowerSettingCallback @ 0x14067BD00 (PoRegisterPowerSettingCallback.c)
+ *     PopReadErrataSkipMemoryOverwriteRequestControlLockAction @ 0x140A73DD8 (PopReadErrataSkipMemoryOverwriteRequestControlLockAction.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     EmpEvaluateTargetRule @ 0x1402DC420 (EmpEvaluateTargetRule.c)
- *     EmpSearchTargetRuleList @ 0x1402DCBD4 (EmpSearchTargetRuleList.c)
- *     EmpSearchRuleDatabase @ 0x1402DCBFC (EmpSearchRuleDatabase.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     EmpReleasePagingReference @ 0x140A47F30 (EmpReleasePagingReference.c)
- *     EmpAcquirePagingReference @ 0x140A47FAC (EmpAcquirePagingReference.c)
+ *     EmpSearchRuleDatabase @ 0x140281B64 (EmpSearchRuleDatabase.c)
+ *     EmpSearchTargetRuleList @ 0x140281B9C (EmpSearchTargetRuleList.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     EmpEvaluateTargetRule @ 0x140373ED8 (EmpEvaluateTargetRule.c)
+ *     EmpReleasePagingReference @ 0x14098F708 (EmpReleasePagingReference.c)
+ *     EmpAcquirePagingReference @ 0x14098F784 (EmpAcquirePagingReference.c)
  */
 
 __int64 __fastcall EmClientRuleEvaluate(_QWORD *a1, __int64 a2, int a3, _DWORD *a4)
@@ -26,7 +26,7 @@ __int64 __fastcall EmClientRuleEvaluate(_QWORD *a1, __int64 a2, int a3, _DWORD *
   if ( a1 && a2 && a4 && a3 )
   {
     *a4 = 1;
-    if ( (unsigned __int8)EmpAcquirePagingReference() )
+    if ( EmpAcquirePagingReference() )
     {
       ExAcquirePushLockExclusiveEx((ULONG_PTR)&EmpDatabaseLock, 0LL);
       v9 = EmpSearchRuleDatabase(a1);

@@ -1,114 +1,99 @@
 /*
- * XREFs of HvpApplyLegacyLogFile @ 0x140924E08
+ * XREFs of HvpApplyLegacyLogFile @ 0x14088154C
  * Callers:
- *     HvApplyLogFiles @ 0x140924C14 (HvApplyLogFiles.c)
+ *     HvApplyLogFile @ 0x140881224 (HvApplyLogFile.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140209960 (RtlNumberOfSetBits.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HvpGenerateLogMetadata @ 0x1406881CC (HvpGenerateLogMetadata.c)
- *     HvpApplyLogEntryDataToFileBackedHive @ 0x14091A9EC (HvpApplyLogEntryDataToFileBackedHive.c)
- *     HvpIsMetadataArrayCoherent @ 0x140925504 (HvpIsMetadataArrayCoherent.c)
- *     HvpUpdateRecoveryVector @ 0x140925A18 (HvpUpdateRecoveryVector.c)
+ *     RtlNumberOfSetBits @ 0x140253830 (RtlNumberOfSetBits.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HvpGenerateLogMetadata @ 0x1406464B8 (HvpGenerateLogMetadata.c)
+ *     HvpApplyLogEntryDataToFileBackedHive @ 0x140873D3C (HvpApplyLogEntryDataToFileBackedHive.c)
+ *     HvpRecoverDataReadRoutine @ 0x1408746E0 (HvpRecoverDataReadRoutine.c)
+ *     HvpIsMetadataArrayCoherent @ 0x1408818E4 (HvpIsMetadataArrayCoherent.c)
+ *     HvpUpdateRecoveryVector @ 0x140881DF8 (HvpUpdateRecoveryVector.c)
  */
 
 __int64 __fastcall HvpApplyLegacyLogFile(
         _DWORD *a1,
         __int64 a2,
-        __int64 a3,
-        ULONG_PTR a4,
-        __int64 (__fastcall *a5)(_QWORD, _QWORD, __int64),
-        void (__fastcall *a6)(__int64, _QWORD),
-        __int64 a7)
+        unsigned int *a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 (__fastcall *a6)(_QWORD, _QWORD, __int64),
+        void *(__fastcall *a7)(_POOL_TYPE, unsigned __int64, unsigned int, _LOOKASIDE_LIST_EX *),
+        __int64 a8)
 {
-  unsigned int v9; // eax
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 (__fastcall *v12)(__int64, __int64, __int64, _DWORD **); // rax
-  int v13; // ebx
-  ULONG v14; // r14d
-  unsigned int v15; // r14d
-  __int64 v16; // rax
-  __int64 v17; // rsi
-  unsigned int v18; // r15d
-  unsigned int v20; // [rsp+30h] [rbp-61h] BYREF
-  _DWORD *v21; // [rsp+38h] [rbp-59h] BYREF
-  unsigned int v22; // [rsp+40h] [rbp-51h]
-  _DWORD BitMapHeader[5]; // [rsp+44h] [rbp-4Dh] BYREF
-  ULONG_PTR BugCheckParameter2; // [rsp+58h] [rbp-39h]
-  void (__fastcall *v25)(__int64, _QWORD); // [rsp+60h] [rbp-31h]
-  _DWORD v26[2]; // [rsp+68h] [rbp-29h] BYREF
-  __int64 v27; // [rsp+70h] [rbp-21h]
-  int v28; // [rsp+78h] [rbp-19h]
-  unsigned int v29; // [rsp+7Ch] [rbp-15h]
-  __int128 v30; // [rsp+80h] [rbp-11h]
+  unsigned int v9; // r13d
+  unsigned int v10; // r13d
+  int v11; // ebx
+  ULONG v12; // r14d
+  unsigned int v13; // r14d
+  __int64 v14; // rax
+  __int64 v15; // rsi
+  unsigned int v16; // r15d
+  unsigned int v18; // [rsp+30h] [rbp-69h] BYREF
+  struct _LOOKASIDE_LIST_EX v19; // [rsp+38h] [rbp-61h] BYREF
 
-  v25 = a6;
+  *(_QWORD *)&v19.L.Tag = a5;
   v9 = a1[10];
-  v10 = *(_QWORD *)(a2 + 16);
-  v22 = v9 >> 12;
-  BugCheckParameter2 = a4;
-  BitMapHeader[0] = 0;
-  v11 = (v9 >> 12) + 4;
-  BitMapHeader[2] = 0;
-  v12 = *(__int64 (__fastcall **)(__int64, __int64, __int64, _DWORD **))(a2 + 8);
-  v21 = 0LL;
-  v27 = 0LL;
-  v30 = 0LL;
-  v20 = 0;
-  v13 = v12(v10, 512LL, v11, &v21);
-  if ( v13 >= 0 )
+  v19.L.AllocateEx = a7;
+  v10 = v9 >> 12;
+  *(_QWORD *)&v19.L.FreeMisses = a3;
+  *((_DWORD *)&v19.L.SingleListHead + 2) = 0;
+  v19.L.TotalAllocates = 0;
+  v19.L.ListHead.Alignment = 0LL;
+  v19.L.ListEntry.Flink = 0LL;
+  *(_OWORD *)&v19.L.LastTotalAllocates = 0LL;
+  v18 = 0;
+  v11 = HvpRecoverDataReadRoutine(a3, 0x200u, v10 + 4, &v19);
+  if ( v11 >= 0 )
   {
-    if ( *v21 == 1414678852 )
+    if ( *(_DWORD *)v19.L.ListHead.Alignment == 1414678852 )
     {
-      BitMapHeader[1] = a1[10] >> 9;
-      *(_QWORD *)&BitMapHeader[3] = v21 + 1;
-      v14 = RtlNumberOfSetBits((PRTL_BITMAP)&BitMapHeader[1]);
-      if ( v14 )
+      *(_DWORD *)&v19.L.Depth = a1[10] >> 9;
+      *(_QWORD *)&v19.L.AllocateMisses = v19.L.ListHead.Alignment + 4;
+      v12 = RtlNumberOfSetBits((PRTL_BITMAP)&v19.L.Depth);
+      if ( v12 )
       {
-        v15 = v14 << 9;
-        HvpGenerateLogMetadata((PRTL_BITMAP)&BitMapHeader[1], 0LL, &v20);
-        v16 = a5(8 * v20, 0LL, 859000131LL);
-        v17 = v16;
-        if ( v16 )
+        v13 = v12 << 9;
+        HvpGenerateLogMetadata((PRTL_BITMAP)&v19.L.Depth, 0LL, &v18);
+        v14 = a6(8 * v18, 0LL, 859000131LL);
+        v15 = v14;
+        if ( v14 )
         {
-          HvpGenerateLogMetadata((PRTL_BITMAP)&BitMapHeader[1], v16, &v20);
-          v18 = v20;
-          v28 = a1[10];
-          v26[0] = 1162638920;
-          v29 = v20;
-          v26[1] = v15 + 8 * (v20 + 5);
-          if ( (unsigned __int8)HvpIsMetadataArrayCoherent(v26, v17, v20) )
+          HvpGenerateLogMetadata((PRTL_BITMAP)&v19.L.Depth, v14, &v18);
+          v16 = v18;
+          LODWORD(v19.L.ListEntry.Blink) = a1[10];
+          LODWORD(v19.L.FreeEx) = 1162638920;
+          HIDWORD(v19.L.ListEntry.Blink) = v18;
+          HIDWORD(v19.L.Free) = v13 + 8 * (v18 + 5);
+          if ( (unsigned __int8)HvpIsMetadataArrayCoherent(&v19.L.56, v15, v18) )
           {
-            v13 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _DWORD **))(a2 + 8))(
-                    *(_QWORD *)(a2 + 16),
-                    (v22 + 1027) & 0xFFFFFE00,
-                    v15,
-                    &v21);
-            if ( v13 >= 0 )
+            v11 = HvpRecoverDataReadRoutine(*(unsigned int **)&v19.L.FreeMisses, (v10 + 1027) & 0xFFFFFE00, v13, &v19);
+            if ( v11 >= 0 )
             {
-              v13 = HvpApplyLogEntryDataToFileBackedHive(
-                      BugCheckParameter2,
-                      (__int64)v26,
-                      v17,
-                      (__int64)v21,
+              v11 = HvpApplyLogEntryDataToFileBackedHive(
+                      *(ULONG_PTR *)&v19.L.Tag,
+                      (__int64)&v19.L.56,
                       v15,
-                      BitMapHeader);
-              if ( v13 >= 0 )
+                      v19.L.ListHead.Alignment,
+                      v13,
+                      (_DWORD *)&v19.L.SingleListHead + 2);
+              if ( v11 >= 0 )
               {
-                if ( (v27 & 1) != 0 )
+                if ( ((__int64)v19.L.ListEntry.Flink & 1) != 0 )
                   a1[36] |= 1u;
-                if ( a7 )
-                  HvpUpdateRecoveryVector(v17, v18, a7);
-                v13 = 1073741833;
+                if ( a8 )
+                  HvpUpdateRecoveryVector(v15, v16, a8);
+                v11 = 1073741833;
               }
             }
           }
           else
           {
-            v13 = -1073741492;
+            v11 = -1073741492;
           }
-          v25(v17, 8 * v18);
+          ((void (__fastcall *)(__int64, _QWORD))v19.L.AllocateEx)(v15, 8 * v16);
         }
         else
         {
@@ -120,7 +105,7 @@ __int64 __fastcall HvpApplyLegacyLogFile(
         return 0;
       }
     }
-    else if ( BYTE3(NlsMbOemCodePageTag) || (CmpBootType & 6) != 0 )
+    else if ( BYTE3(NlsMbCodePageTag) || (CmpBootType & 6) != 0 )
     {
       a1[1022] |= 4u;
       return 1073741833;
@@ -130,5 +115,5 @@ __int64 __fastcall HvpApplyLegacyLogFile(
       return (unsigned int)-1073741492;
     }
   }
-  return (unsigned int)v13;
+  return (unsigned int)v11;
 }

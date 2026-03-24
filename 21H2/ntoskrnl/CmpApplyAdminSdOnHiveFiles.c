@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpApplyAdminSdOnHiveFiles @ 0x1404172B8
+ * XREFs of CmpApplyAdminSdOnHiveFiles @ 0x1403F0488
  * Callers:
- *     CmpLoadHiveThread @ 0x14083C870 (CmpLoadHiveThread.c)
+ *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
  * Callees:
- *     ZwSetSecurityObject @ 0x14041EDA0 (ZwSetSecurityObject.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     ZwSetSecurityObject @ 0x1403FD8C0 (ZwSetSecurityObject.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CmpApplyAdminSdOnHiveFiles(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
@@ -15,17 +15,17 @@ __int64 __fastcall CmpApplyAdminSdOnHiveFiles(ULONG_PTR BugCheckParameter2, ULON
   void *v7; // rcx
   void *v8; // rcx
 
-  v4 = ZwSetSecurityObject(*(HANDLE *)(BugCheckParameter2 + 1544), 4u, CmpAdminSystemFileSecurityDescriptor);
+  v4 = ZwSetSecurityObject(*(HANDLE *)(BugCheckParameter2 + 1536), 4u, CmpAdminSystemFileSecurityDescriptor);
   v5 = v4;
   if ( v4 < 0 )
     KeBugCheckEx(0x51u, 0x13uLL, BugCheckParameter2, BugCheckParameter3, v4);
-  v6 = *(void **)(BugCheckParameter2 + 1576);
+  v6 = *(void **)(BugCheckParameter2 + 1568);
   if ( v6 )
     ZwSetSecurityObject(v6, 4u, CmpAdminSystemFileSecurityDescriptor);
-  v7 = *(void **)(BugCheckParameter2 + 1584);
+  v7 = *(void **)(BugCheckParameter2 + 1576);
   if ( v7 )
     ZwSetSecurityObject(v7, 4u, CmpAdminSystemFileSecurityDescriptor);
-  v8 = *(void **)(BugCheckParameter2 + 1552);
+  v8 = *(void **)(BugCheckParameter2 + 1544);
   if ( v8 )
     ZwSetSecurityObject(v8, 4u, CmpAdminSystemFileSecurityDescriptor);
   return v5;

@@ -1,24 +1,24 @@
 /*
- * XREFs of PnpRestoreResourcesInternal @ 0x14096D7E4
+ * XREFs of PnpRestoreResourcesInternal @ 0x1408B3398
  * Callers:
- *     PnpReallocateResources @ 0x14096D5F8 (PnpReallocateResources.c)
+ *     PnpReallocateResources @ 0x1408B31B0 (PnpReallocateResources.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     PnpDetermineResourceListSize @ 0x1407906DC (PnpDetermineResourceListSize.c)
- *     PnpFindBestConfiguration @ 0x1408182A0 (PnpFindBestConfiguration.c)
- *     IopWriteAllocatedResourcesToRegistry @ 0x1408186D4 (IopWriteAllocatedResourcesToRegistry.c)
- *     PnpFreeResourceRequirementsForAssignTable @ 0x1408187CC (PnpFreeResourceRequirementsForAssignTable.c)
- *     PnpCmResourcesToIoResources @ 0x140819624 (PnpCmResourcesToIoResources.c)
- *     IopResourceRequirementsListToReqList @ 0x140819FE8 (IopResourceRequirementsListToReqList.c)
- *     IopCommitConfiguration @ 0x140850CEC (IopCommitConfiguration.c)
- *     IopRearrangeReqList @ 0x1408541EC (IopRearrangeReqList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x14074EE3C (IopWriteAllocatedResourcesToRegistry.c)
+ *     PnpDetermineResourceListSize @ 0x14075020C (PnpDetermineResourceListSize.c)
+ *     IopRearrangeReqList @ 0x1407506EC (IopRearrangeReqList.c)
+ *     IopResourceRequirementsListToReqList @ 0x140751044 (IopResourceRequirementsListToReqList.c)
+ *     IopCommitConfiguration @ 0x140751E30 (IopCommitConfiguration.c)
+ *     PnpFindBestConfiguration @ 0x140751ED4 (PnpFindBestConfiguration.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140752800 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     PnpCmResourcesToIoResources @ 0x1407B64B0 (PnpCmResourcesToIoResources.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpRestoreResourcesInternal(__int64 a1)
 {
   _DWORD *v1; // rdx
-  _DWORD *v4; // rbx
+  char *v4; // rbx
   int BestConfiguration; // esi
   __int64 v6; // rbx
   _DWORD *v7; // rbx
@@ -38,7 +38,7 @@ __int64 __fastcall PnpRestoreResourcesInternal(__int64 a1)
   v10[0] = *(_QWORD *)(a1 + 32);
   v10[3] = v4;
   HIDWORD(v10[1]) = 4;
-  BestConfiguration = IopResourceRequirementsListToReqList((__int64)v10, (int **)&v10[4]);
+  BestConfiguration = IopResourceRequirementsListToReqList((__int64)v10, &v10[4]);
   if ( BestConfiguration >= 0 && (v6 = v10[4]) != 0 )
   {
     IopRearrangeReqList(v10[4]);

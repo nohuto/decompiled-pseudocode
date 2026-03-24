@@ -1,78 +1,60 @@
 /*
- * XREFs of RIMIDECreatePseudoMouseOrKeyboardDevice @ 0x1C0005F38
+ * XREFs of RIMIDECreatePseudoMouseOrKeyboardDevice @ 0x1C0168270
  * Callers:
- *     NtUserInjectKeyboardInput @ 0x1C0003D50 (NtUserInjectKeyboardInput.c)
- *     NtUserInjectMouseInput @ 0x1C0148360 (NtUserInjectMouseInput.c)
+ *     NtUserInjectKeyboardInput @ 0x1C0131680 (NtUserInjectKeyboardInput.c)
+ *     NtUserInjectMouseInput @ 0x1C0131AA0 (NtUserInjectMouseInput.c)
  * Callees:
- *     RIMIDECreateDeviceInstancePath @ 0x1C000612C (RIMIDECreateDeviceInstancePath.c)
- *     rimFindReferencedRimObj @ 0x1C0006280 (rimFindReferencedRimObj.c)
- *     RIMAddInjectionDeviceOfType @ 0x1C00063E0 (RIMAddInjectionDeviceOfType.c)
- *     RawInputManagerObjectCreateKernelHandle @ 0x1C0078710 (RawInputManagerObjectCreateKernelHandle.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     RawInputManagerObjectCreateKernelHandle @ 0x1C000BA60 (RawInputManagerObjectCreateKernelHandle.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     rimFindReferencedRimObj @ 0x1C015274C (rimFindReferencedRimObj.c)
+ *     rimInputTypeFromDeviceTypeAndUsages @ 0x1C01528B8 (rimInputTypeFromDeviceTypeAndUsages.c)
+ *     RIMAddInjectionDeviceOfType @ 0x1C01547D0 (RIMAddInjectionDeviceOfType.c)
+ *     RIMIDECreateDeviceInstancePath @ 0x1C01672B0 (RIMIDECreateDeviceInstancePath.c)
  */
 
 __int64 __fastcall RIMIDECreatePseudoMouseOrKeyboardDevice(unsigned int a1, __int64 *a2)
 {
   int ReferencedRimObj; // ebx
   unsigned int v5; // ebx
-  __int64 v6; // rax
-  __int64 v7; // rcx
-  __int64 CurrentProcessWin32Process; // rax
+  __int64 v6; // rcx
+  HANDLE Handle; // [rsp+38h] [rbp-C8h] BYREF
   PVOID Object; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v11; // [rsp+48h] [rbp-B8h] BYREF
-  _QWORD v12[2]; // [rsp+50h] [rbp-B0h] BYREF
-  _QWORD v13[18]; // [rsp+60h] [rbp-A0h] BYREF
-  char v14; // [rsp+F0h] [rbp-10h] BYREF
+  __int64 v10; // [rsp+48h] [rbp-B8h] BYREF
+  _QWORD v11[2]; // [rsp+50h] [rbp-B0h] BYREF
+  _OWORD v12[9]; // [rsp+60h] [rbp-A0h] BYREF
+  char v13; // [rsp+F0h] [rbp-10h] BYREF
 
   if ( a1 >= 2 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 868LL);
-  v12[0] = 0x1000000LL;
-  v12[1] = &v14;
-  v11 = -1LL;
-  memset(v13, 0, sizeof(v13));
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 865);
+  v11[0] = 0x1000000LL;
+  v11[1] = &v13;
+  Handle = (HANDLE)-1LL;
+  v10 = -1LL;
+  memset(v12, 0, sizeof(v12));
   Object = 0LL;
-  ReferencedRimObj = RIMIDECreateDeviceInstancePath(a1, 0LL, 0LL, v12);
+  ReferencedRimObj = RIMIDECreateDeviceInstancePath();
   if ( ReferencedRimObj >= 0 )
   {
-    v5 = 1;
-    if ( a1 )
-    {
-      if ( a1 == 1 )
-      {
-        v5 = 2;
-      }
-      else
-      {
-        v5 = 0;
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 882LL);
-      }
-    }
-    ReferencedRimObj = rimFindReferencedRimObj(v5, 0LL, 0LL, &Object);
+    v5 = rimInputTypeFromDeviceTypeAndUsages(a1, 0, 0);
+    if ( v5 - 1 > 1 )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 879);
+    ReferencedRimObj = rimFindReferencedRimObj(v5, 0, 0, (struct _LIST_ENTRY **)&Object);
     if ( ReferencedRimObj >= 0 )
     {
-      ReferencedRimObj = RawInputManagerObjectCreateKernelHandle(Object, 3LL, 0LL);
+      ReferencedRimObj = RawInputManagerObjectCreateKernelHandle(Object, 3u, 0, 0, &Handle);
       if ( ReferencedRimObj >= 0 )
       {
-        HIDWORD(v13[1]) &= 0xFFFFFFF8;
-        v13[10] = 0LL;
-        LODWORD(v13[11]) = 0;
-        v6 = ((__int64 (*)(void))PsGetCurrentProcessWin32Process)();
-        if ( v6 )
-        {
-          v7 = -*(_QWORD *)v6;
-          v6 &= -(__int64)(*(_QWORD *)v6 != 0LL);
-        }
-        *(_QWORD *)((char *)&v13[14] + 4) = *(_QWORD *)(v6 + 888);
-        CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v7);
-        if ( CurrentProcessWin32Process )
-          CurrentProcessWin32Process &= -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-        HIDWORD(v13[15]) = *(_DWORD *)(CurrentProcessWin32Process + 12) & 0x80000000;
-        ReferencedRimObj = RIMAddInjectionDeviceOfType(-1, (unsigned int)v12, a1, (unsigned int)v13, 0, (__int64)&v11);
+        HIDWORD(v12[0]) &= 0xFFFFFFF8;
+        *(_QWORD *)&v12[5] = 0LL;
+        DWORD2(v12[5]) = 0;
+        *(_QWORD *)((char *)&v12[7] + 4) = *(_QWORD *)(PsGetCurrentProcessWin32Process(v6) + 880);
+        HIDWORD(v12[7]) = *(_DWORD *)(PsGetCurrentProcessWin32Process(*(_QWORD *)((char *)&v12[7] + 4)) + 12) & 0x80000000;
+        ReferencedRimObj = RIMAddInjectionDeviceOfType((char *)Handle, (__int64)v11, a1, v12, 0, &v10);
         if ( ReferencedRimObj >= 0 )
-          *a2 = v11;
-        ZwClose((HANDLE)0xFFFFFFFFFFFFFFFFLL);
+          *a2 = v10;
+        ZwClose(Handle);
       }
       ObfDereferenceObject(Object);
     }

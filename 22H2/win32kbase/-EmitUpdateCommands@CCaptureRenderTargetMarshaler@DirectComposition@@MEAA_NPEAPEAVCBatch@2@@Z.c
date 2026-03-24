@@ -1,16 +1,15 @@
 /*
- * XREFs of ?EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022DDA0
+ * XREFs of ?EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4E60
  * Callers:
- *     ?EmitUpdateCommands@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022E5B0 (-EmitUpdateCommands@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAV.c)
+ *     ?EmitUpdateCommands@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F5610 (-EmitUpdateCommands@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAV.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_586f7d666185bfabb4d1f720c8bdca68___ @ 0x1C022D954 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_586f7d666185bfabb4d1f720c8bdca6.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ccd8af630c07cb465808c0d50cd17ed3___ @ 0x1C022D9C8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_ccd8af630c07cb465808c0d50cd17ed.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_db3a9a0bc6c40d3efa1a6011c34c0237___ @ 0x1C022DA3C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_db3a9a0bc6c40d3efa1a6011c34c023.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ee857a2675ec8f1e621a8e3bf5b6d12e___ @ 0x1C022DAB4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_ee857a2675ec8f1e621a8e3bf5b6d12.c)
- *     ?EmitAdapterLUID@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022DB28 (-EmitAdapterLUID@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022DB98 (-EmitBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
- *     ?EmitFlipManager@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022DD04 (-EmitFlipManager@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_586f7d666185bfabb4d1f720c8bdca68___ @ 0x1C01F4A88 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_586f7d666185bfabb4d1f720c8bdca6.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ccd8af630c07cb465808c0d50cd17ed3___ @ 0x1C01F4AFC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_ccd8af630c07cb465808c0d50cd17ed.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_db3a9a0bc6c40d3efa1a6011c34c0237___ @ 0x1C01F4B70 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_db3a9a0bc6c40d3efa1a6011c34c023.c)
+ *     ?EmitAdapterLUID@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4BE8 (-EmitAdapterLUID@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4C58 (-EmitBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitFlipManager@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4DC0 (-EmitFlipManager@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
  */
 
 char __fastcall DirectComposition::CCaptureRenderTargetMarshaler::EmitUpdateCommands(
@@ -34,11 +33,11 @@ char __fastcall DirectComposition::CCaptureRenderTargetMarshaler::EmitUpdateComm
     *v10 = 16;
     *(_QWORD *)(v5 + 1) = 0LL;
     v5[3] = 0;
-    v5[1] = 39;
-    v5[2] = *((_DWORD *)this + 8);
+    v5[1] = 41;
+    v5[2] = *((_DWORD *)this + 6);
     v6 = *((_QWORD *)this + 15);
     if ( v6 )
-      v7 = *(_DWORD *)(v6 + 32);
+      v7 = *(_DWORD *)(v6 + 24);
     else
       v7 = 0;
     v5[3] = v7;
@@ -72,25 +71,14 @@ char __fastcall DirectComposition::CCaptureRenderTargetMarshaler::EmitUpdateComm
       v8 = *((_DWORD *)this + 4);
     }
     v10 = this;
-    if ( (v8 & 0x800) != 0 )
-    {
-      if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_586f7d666185bfabb4d1f720c8bdca68___(
-              (__int64)this,
-              a2,
-              (__int64)&v10) )
-        return v2;
-      *((_DWORD *)this + 4) &= ~0x800u;
-      v8 = *((_DWORD *)this + 4);
-    }
-    v10 = this;
-    if ( (v8 & 0x1000) == 0 )
+    if ( (v8 & 0x800) == 0 )
       return 1;
-    if ( DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ee857a2675ec8f1e621a8e3bf5b6d12e___(
+    if ( DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_586f7d666185bfabb4d1f720c8bdca68___(
            (__int64)this,
            a2,
            (__int64)&v10) )
     {
-      *((_DWORD *)this + 4) &= ~0x1000u;
+      *((_DWORD *)this + 4) &= ~0x800u;
       return 1;
     }
   }

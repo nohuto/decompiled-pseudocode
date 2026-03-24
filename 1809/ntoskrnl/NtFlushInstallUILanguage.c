@@ -1,14 +1,14 @@
 /*
- * XREFs of NtFlushInstallUILanguage @ 0x140761780
+ * XREFs of NtFlushInstallUILanguage @ 0x140761760
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     MigrateOOBELanguageToInstallationLanguage @ 0x14031F1E0 (MigrateOOBELanguageToInstallationLanguage.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     MigrateOOBELanguageToInstallationLanguage @ 0x14031F2E0 (MigrateOOBELanguageToInstallationLanguage.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     MUIInitializeResourceLock @ 0x14070F47C (MUIInitializeResourceLock.c)
+ *     MUIInitializeResourceLock @ 0x14070F45C (MUIInitializeResourceLock.c)
  */
 
 __int64 __fastcall NtFlushInstallUILanguage(int a1, int a2)

@@ -1,50 +1,51 @@
 /*
- * XREFs of PiCMSetProblem @ 0x14065F700
+ * XREFs of PiCMSetProblem @ 0x14072F648
  * Callers:
- *     PiCMDeviceAction @ 0x14065F3BC (PiCMDeviceAction.c)
- *     PiCMSetDeviceProblem @ 0x14095618C (PiCMSetDeviceProblem.c)
+ *     PiCMSetDeviceProblem @ 0x14072EC10 (PiCMSetDeviceProblem.c)
+ *     PiCMDeviceAction @ 0x14072EF74 (PiCMDeviceAction.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwPlugPlayControl @ 0x14041DE80 (ZwPlugPlayControl.c)
- *     _CmGetDeviceStatus @ 0x14078A470 (_CmGetDeviceStatus.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwPlugPlayControl @ 0x1403FCA00 (ZwPlugPlayControl.c)
+ *     _CmGetDeviceStatus @ 0x1406A0340 (_CmGetDeviceStatus.c)
  */
 
 __int64 __fastcall PiCMSetProblem(PCWSTR SourceString, int a2, int a3)
 {
   __int64 result; // rax
   int v7; // edi
-  int v8; // [rsp+40h] [rbp-30h] BYREF
+  unsigned int v8; // [rsp+30h] [rbp-40h]
+  int v9; // [rsp+40h] [rbp-30h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-28h] BYREF
-  __int128 v10; // [rsp+58h] [rbp-18h]
-  __int64 v11; // [rsp+68h] [rbp-8h]
-  int v12; // [rsp+A0h] [rbp+30h] BYREF
-  int v13; // [rsp+A8h] [rbp+38h] BYREF
+  __int128 v11; // [rsp+58h] [rbp-18h]
+  __int64 v12; // [rsp+68h] [rbp-8h]
+  int v13; // [rsp+A0h] [rbp+30h] BYREF
+  int v14; // [rsp+A8h] [rbp+38h] BYREF
 
-  v8 = 0;
-  v12 = 0;
+  v9 = 0;
   v13 = 0;
+  v14 = 0;
   if ( (unsigned int)(a3 - 1) > 1 )
     return 3221225485LL;
-  result = CmGetDeviceStatus(PiPnpRtlCtx, (_DWORD)SourceString, 0, (unsigned int)&v13, (__int64)&v12, (__int64)&v8);
+  result = CmGetDeviceStatus(*(__int64 *)&PiPnpRtlCtx, SourceString, 0LL, &v14, &v13, &v9, v8);
   if ( (int)result >= 0 )
   {
-    v7 = v12;
-    if ( a2 && (v13 & 0x400) != 0 && v12 != a2 && a3 != 2 )
+    v7 = v13;
+    if ( a2 && (v14 & 0x400) != 0 && a3 != 2 && v13 != a2 )
       return 3221225485LL;
     DestinationString = 0LL;
+    v12 = 0LL;
     v11 = 0LL;
-    v10 = 0LL;
     RtlInitUnicodeString(&DestinationString, SourceString);
-    DWORD1(v10) = 1024;
+    DWORD1(v11) = 1024;
     if ( a2 )
     {
-      LODWORD(v10) = 1;
-      DWORD2(v10) = a2;
+      LODWORD(v11) = 1;
+      DWORD2(v11) = a2;
     }
     else
     {
-      LODWORD(v10) = 2;
-      DWORD2(v10) = v7;
+      LODWORD(v11) = 2;
+      DWORD2(v11) = v7;
     }
     return ZwPlugPlayControl(14LL, (__int64)&DestinationString);
   }

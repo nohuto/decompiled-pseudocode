@@ -1,10 +1,10 @@
 /*
- * XREFs of IrqPolicyConfigure @ 0x1C00AC2B4
+ * XREFs of IrqPolicyConfigure @ 0x1C00BC884
  * Callers:
- *     AcpiIrqLibConfigureLibrary @ 0x1C00ABA58 (AcpiIrqLibConfigureLibrary.c)
+ *     AcpiIrqLibConfigureLibrary @ 0x1C00BD584 (AcpiIrqLibConfigureLibrary.c)
  * Callees:
- *     OSGetRegistryValue @ 0x1C008DCBC (OSGetRegistryValue.c)
- *     OSOpenUnicodeHandle @ 0x1C008E3EC (OSOpenUnicodeHandle.c)
+ *     OSOpenUnicodeHandle @ 0x1C008FC50 (OSOpenUnicodeHandle.c)
+ *     OSGetRegistryValue @ 0x1C0094F04 (OSGetRegistryValue.c)
  */
 
 __int64 IrqPolicyConfigure()

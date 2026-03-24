@@ -1,52 +1,52 @@
 /*
- * XREFs of PspCreateSilo @ 0x1406E4FA4
+ * XREFs of PspCreateSilo @ 0x1405D90DC
  * Callers:
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     PspJobHasChildren @ 0x1406E5090 (PspJobHasChildren.c)
- *     PspAllocStorage @ 0x1406E50B4 (PspAllocStorage.c)
- *     PspUnlockJob @ 0x1406FFE90 (PspUnlockJob.c)
- *     PspLockJobExclusive @ 0x1406FFED4 (PspLockJobExclusive.c)
- *     PspFreeStorage @ 0x1407F7A80 (PspFreeStorage.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
+ *     PspJobHasChildren @ 0x1405D91D4 (PspJobHasChildren.c)
+ *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x140618774 (PspLockJobExclusive.c)
+ *     PspAllocStorage @ 0x1406C2B10 (PspAllocStorage.c)
+ *     PspFreeStorage @ 0x14090EDD8 (PspFreeStorage.c)
  */
 
-__int64 __fastcall PspCreateSilo(__int64 a1)
+__int64 __fastcall PspCreateSilo(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rbp
-  PVOID v2; // rdi
+  void *v3; // rdi
   __int64 result; // rax
-  __int64 v5; // rcx
   unsigned int v6; // esi
-  PVOID P; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v7; // rcx
+  unsigned __int64 v8; // [rsp+38h] [rbp+10h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v2 = 0LL;
-  P = 0LL;
-  if ( PsIsCurrentThreadInServerSilo() )
+  v3 = 0LL;
+  v8 = 0LL;
+  if ( PsIsCurrentThreadInServerSilo(a1, a2) )
     return 3221225569LL;
-  if ( !*(_QWORD *)(a1 + 1496) )
+  if ( !*(_QWORD *)(a1 + 1304) )
   {
-    result = PspAllocStorage(&P);
+    result = PspAllocStorage(&v8);
     if ( (int)result < 0 )
       return result;
-    v2 = P;
+    v3 = (void *)v8;
   }
   PspLockJobExclusive(a1, CurrentThread);
   if ( (unsigned __int8)PspJobHasChildren(a1) )
   {
     v6 = -1073740529;
   }
-  else if ( (*(_DWORD *)(a1 + 1512) & 0x40000000) != 0 )
+  else if ( (*(_DWORD *)(a1 + 1320) & 0x40000000) != 0 )
   {
     v6 = -1073740536;
   }
   else if ( (*(_DWORD *)(a1 + 256) & 0x402000) != 0 )
   {
-    v5 = -(__int64)(_InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 1496), (signed __int64)v2, 0LL) != 0);
-    P = (PVOID)(v5 & (unsigned __int64)P);
-    _InterlockedOr((volatile signed __int32 *)(a1 + 1512), 0x40000000u);
-    v2 = P;
+    v7 = -(__int64)(_InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 1304), (signed __int64)v3, 0LL) != 0);
+    v8 &= v7;
+    _InterlockedOr((volatile signed __int32 *)(a1 + 1320), 0x40000000u);
+    v3 = (void *)v8;
     v6 = 0;
   }
   else
@@ -54,7 +54,7 @@ __int64 __fastcall PspCreateSilo(__int64 a1)
     v6 = -1073741811;
   }
   PspUnlockJob(a1, CurrentThread);
-  if ( v2 )
-    PspFreeStorage(v2);
+  if ( v3 )
+    PspFreeStorage(v3);
   return v6;
 }

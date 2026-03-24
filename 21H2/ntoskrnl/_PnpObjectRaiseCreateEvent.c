@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpObjectRaiseCreateEvent @ 0x14076A960
+ * XREFs of _PnpObjectRaiseCreateEvent @ 0x14074BB14
  * Callers:
- *     _CmRaiseCreateEvent @ 0x14076A8FC (_CmRaiseCreateEvent.c)
- *     _PnpCreateObjectDispatch @ 0x140A26D58 (_PnpCreateObjectDispatch.c)
+ *     _PnpCreateObjectDispatch @ 0x1407323EC (_PnpCreateObjectDispatch.c)
+ *     _CmRaiseCreateEvent @ 0x14074BAB0 (_CmRaiseCreateEvent.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall *__fastcall PnpObjectRaiseCreateEvent(

@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtInvalidateRemappingTableEntry @ 0x14035FBD0
+ * XREFs of IvtInvalidateRemappingTableEntry @ 0x1404E0750
  * Callers:
  *     <none>
  * Callees:
- *     IvtInvalidateRemappingTableEntries @ 0x14035FBF0 (IvtInvalidateRemappingTableEntries.c)
+ *     IvtInvalidateRemappingTableEntries @ 0x1404E06FC (IvtInvalidateRemappingTableEntries.c)
  */
 
 __int64 __fastcall IvtInvalidateRemappingTableEntry(__int64 a1, int a2)

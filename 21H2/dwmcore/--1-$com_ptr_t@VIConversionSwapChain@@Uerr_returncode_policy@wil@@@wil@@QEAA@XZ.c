@@ -1,7 +1,7 @@
 /*
- * XREFs of ??1?$com_ptr_t@VIConversionSwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001DE40
+ * XREFs of ??1?$com_ptr_t@VIConversionSwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800254C0
  * Callers:
- *     ?OnSwapChainCreated@COverlayContext@@QEAAJXZ @ 0x18001DB98 (-OnSwapChainCreated@COverlayContext@@QEAAJXZ.c)
+ *     ?OnSwapChainCreated@COverlayContext@@QEAAJXZ @ 0x1800252B8 (-OnSwapChainCreated@COverlayContext@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */

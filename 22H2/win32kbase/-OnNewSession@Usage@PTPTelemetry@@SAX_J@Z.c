@@ -1,31 +1,23 @@
 /*
- * XREFs of ?OnNewSession@Usage@PTPTelemetry@@SAX_J@Z @ 0x1C01DFC2C
+ * XREFs of ?OnNewSession@Usage@PTPTelemetry@@SAX_J@Z @ 0x1C01A66A8
  * Callers:
- *     ?OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z @ 0x1C01DFD20 (-OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z.c)
+ *     ?OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z @ 0x1C01A6710 (-OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall PTPTelemetry::Usage::OnNewSession(LARGE_INTEGER a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall PTPTelemetry::Usage::OnNewSession(__int64 a1)
 {
-  LARGE_INTEGER *v5; // rax
-  LARGE_INTEGER *v6; // rdi
   LARGE_INTEGER PerformanceCounter; // rax
 
-  v5 = (LARGE_INTEGER *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))SGDGetUserSessionState)(
-                          (LARGE_INTEGER)a1.QuadPart,
-                          a2,
-                          a3,
-                          a4);
-  v6 = v5;
-  if ( v5[1496].QuadPart >= a1.QuadPart )
+  if ( PTPTelemetry::Usage::gTPTelemTimings >= a1 )
   {
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
-    v6[1501].HighPart = 0;
-    v6[1499] = PerformanceCounter;
+    dword_1C0250D8C = 0;
+    qword_1C0250D78 = PerformanceCounter.QuadPart;
   }
   else
   {
-    v5[1496] = KeQueryPerformanceCounter(0LL);
+    PTPTelemetry::Usage::gTPTelemTimings = KeQueryPerformanceCounter(0LL);
   }
 }

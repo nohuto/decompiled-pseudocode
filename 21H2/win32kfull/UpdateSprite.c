@@ -1,23 +1,23 @@
 /*
- * XREFs of UpdateSprite @ 0x1C0020D60
+ * XREFs of UpdateSprite @ 0x1C00BEA24
  * Callers:
- *     _SetLayeredWindowAttributes @ 0x1C0020688 (_SetLayeredWindowAttributes.c)
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C006E60C (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
- *     OffsetWindow @ 0x1C0084A28 (OffsetWindow.c)
- *     zzzUpdateLayeredWindow @ 0x1C008FE60 (zzzUpdateLayeredWindow.c)
- *     UnsetLayeredWindow @ 0x1C00B3964 (UnsetLayeredWindow.c)
- *     UpdateSpriteArea @ 0x1C010C8C8 (UpdateSpriteArea.c)
- *     xxxCompositedPaint @ 0x1C0239C94 (xxxCompositedPaint.c)
+ *     OffsetWindow @ 0x1C004CB10 (OffsetWindow.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068330 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     _SetLayeredWindowAttributes @ 0x1C00BD548 (_SetLayeredWindowAttributes.c)
+ *     UnsetLayeredWindow @ 0x1C00EF178 (UnsetLayeredWindow.c)
+ *     zzzUpdateLayeredWindow @ 0x1C00F1FE4 (zzzUpdateLayeredWindow.c)
+ *     UpdateSpriteArea @ 0x1C015B5D4 (UpdateSpriteArea.c)
+ *     xxxCompositedPaint @ 0x1C023E5B0 (xxxCompositedPaint.c)
  * Callees:
- *     GreUpdateSprite @ 0x1C0020E98 (GreUpdateSprite.c)
- *     ?InitializeMiniWinInfo@@YAXQEBUtagWND@@PEAUtagMINIWINDOWINFO@@@Z @ 0x1C0020F78 (-InitializeMiniWinInfo@@YAXQEBUtagWND@@PEAUtagMINIWINDOWINFO@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     GreUpdateSprite @ 0x1C00BEB60 (GreUpdateSprite.c)
+ *     ?InitializeMiniWinInfo@@YAXQEAUtagWND@@PEAUtagMINIWINDOWINFO@@@Z @ 0x1C00BEC40 (-InitializeMiniWinInfo@@YAXQEAUtagWND@@PEAUtagMINIWINDOWINFO@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall UpdateSprite(
         HDEV a1,
-        const struct tagWND *a2,
+        struct tagWND *a2,
         __int64 a3,
         HDC a4,
         struct tagPOINT *a5,

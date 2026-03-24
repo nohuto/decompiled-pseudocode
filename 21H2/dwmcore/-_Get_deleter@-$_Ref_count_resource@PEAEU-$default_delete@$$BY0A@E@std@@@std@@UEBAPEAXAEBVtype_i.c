@@ -1,5 +1,5 @@
 /*
- * XREFs of ?_Get_deleter@?$_Ref_count_resource@PEAEU?$default_delete@$$BY0A@E@std@@@std@@UEBAPEAXAEBVtype_info@@@Z @ 0x180241DE0
+ * XREFs of ?_Get_deleter@?$_Ref_count_resource@PEAEU?$default_delete@$$BY0A@E@std@@@std@@UEBAPEAXAEBVtype_info@@@Z @ 0x1801F0590
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@ __int64 __fastcall std::_Ref_count_resource<unsigned char *,std::default_delete<
         __int64 a1,
         __int64 a2)
 {
-  if ( (unsigned int)__std_type_info_compare(a2 + 8, &qword_1803D13F8) )
+  if ( (unsigned int)__std_type_info_compare(a2 + 8, &qword_180345528) )
     return 0LL;
   else
     return a1 + 16;

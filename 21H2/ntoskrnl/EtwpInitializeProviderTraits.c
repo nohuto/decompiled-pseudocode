@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpInitializeProviderTraits @ 0x140864124
+ * XREFs of EtwpInitializeProviderTraits @ 0x1407D42D4
  * Callers:
- *     EtwpInitialize @ 0x140B0433C (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
  * Callees:
- *     KeInitializeGuardedMutex @ 0x1402E0710 (KeInitializeGuardedMutex.c)
+ *     KeInitializeGuardedMutex @ 0x1402EE570 (KeInitializeGuardedMutex.c)
  */
 
 void EtwpInitializeProviderTraits()
 {
   KeInitializeGuardedMutex(&EtwpProviderTraitsKmMutex);
-  EtwpProviderTraitsKmTree = 0LL;
+  *(_OWORD *)&EtwpProviderTraitsKmTree = 0LL;
   KeInitializeGuardedMutex(&EtwpProviderTraitsUmMutex);
-  EtwpProviderTraitsUmTree = 0LL;
+  *(_OWORD *)&EtwpProviderTraitsUmTree = 0LL;
 }

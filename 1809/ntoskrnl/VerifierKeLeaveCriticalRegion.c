@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     ViKeLogCriticalRegionStackTrace @ 0x14030B0DC (ViKeLogCriticalRegionStackTrace.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ViKeLogCriticalRegionStackTrace @ 0x14030B1DC (ViKeLogCriticalRegionStackTrace.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  */
 

@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWnfCheckCallerAccess @ 0x140794654
+ * XREFs of ExpWnfCheckCallerAccess @ 0x14060FAA0
  * Callers:
- *     ExpWnfCheckCrossScopeAccess @ 0x14075ADF8 (ExpWnfCheckCrossScopeAccess.c)
- *     NtQueryWnfStateNameInformation @ 0x140791110 (NtQueryWnfStateNameInformation.c)
- *     NtDeleteWnfStateName @ 0x1407920F0 (NtDeleteWnfStateName.c)
- *     ExpWnfValidatePubSubPreconditions @ 0x1407945D4 (ExpWnfValidatePubSubPreconditions.c)
- *     ExpWnfSubscribeWnfStateChange @ 0x14079982C (ExpWnfSubscribeWnfStateChange.c)
- *     ExpNtDeleteWnfStateData @ 0x14085EB0C (ExpNtDeleteWnfStateData.c)
+ *     NtDeleteWnfStateName @ 0x14060D3C0 (NtDeleteWnfStateName.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x14060EAF4 (ExpWnfSubscribeWnfStateChange.c)
+ *     ExpWnfValidatePubSubPreconditions @ 0x14060FA20 (ExpWnfValidatePubSubPreconditions.c)
+ *     ExpWnfCheckCrossScopeAccess @ 0x14062C0FC (ExpWnfCheckCrossScopeAccess.c)
+ *     NtQueryWnfStateNameInformation @ 0x1406A68E0 (NtQueryWnfStateNameInformation.c)
+ *     ExpNtDeleteWnfStateData @ 0x1407CD80C (ExpNtDeleteWnfStateData.c)
  * Callees:
- *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
+ *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
  */
 
 __int64 __fastcall ExpWnfCheckCallerAccess(PSECURITY_DESCRIPTOR SecurityDescriptor, ACCESS_MASK DesiredAccess)

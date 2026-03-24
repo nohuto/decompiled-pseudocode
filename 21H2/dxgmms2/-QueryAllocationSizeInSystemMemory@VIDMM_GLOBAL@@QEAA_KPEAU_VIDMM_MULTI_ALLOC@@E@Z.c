@@ -1,7 +1,7 @@
 /*
- * XREFs of ?QueryAllocationSizeInSystemMemory@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MULTI_ALLOC@@E@Z @ 0x1C00A5424
+ * XREFs of ?QueryAllocationSizeInSystemMemory@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MULTI_ALLOC@@E@Z @ 0x1C00896D8
  * Callers:
- *     VidMmQueryAllocationSizeInSystemMemory @ 0x1C0017B30 (VidMmQueryAllocationSizeInSystemMemory.c)
+ *     VidMmQueryAllocationSizeInSystemMemory @ 0x1C00149D0 (VidMmQueryAllocationSizeInSystemMemory.c)
  * Callees:
  *     <none>
  */

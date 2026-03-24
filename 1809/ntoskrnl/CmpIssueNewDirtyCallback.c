@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpIssueNewDirtyCallback @ 0x1406CAFC4
+ * XREFs of CmpIssueNewDirtyCallback @ 0x1406CAFA4
  * Callers:
  *     HvpMarkDirty @ 0x1405FAD2C (HvpMarkDirty.c)
- *     HvMarkBaseBlockDirty @ 0x1406CAF54 (HvMarkBaseBlockDirty.c)
+ *     HvMarkBaseBlockDirty @ 0x1406CAF34 (HvMarkBaseBlockDirty.c)
  * Callees:
- *     PoIssueCoalescingNotification @ 0x1402DB650 (PoIssueCoalescingNotification.c)
+ *     PoIssueCoalescingNotification @ 0x1402DB750 (PoIssueCoalescingNotification.c)
  */
 
 void CmpIssueNewDirtyCallback()

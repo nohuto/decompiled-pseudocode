@@ -1,8 +1,8 @@
 /*
- * XREFs of MiComputePagedPoolSegmentBytes @ 0x1402A0C74
+ * XREFs of MiComputePagedPoolSegmentBytes @ 0x1402D7E0C
  * Callers:
- *     MiInsertUnusedSegment @ 0x1402A0B78 (MiInsertUnusedSegment.c)
- *     MiUnlinkUnusedControlArea @ 0x1402A0E78 (MiUnlinkUnusedControlArea.c)
+ *     MiUnlinkUnusedControlArea @ 0x1402D7C78 (MiUnlinkUnusedControlArea.c)
+ *     MiInsertUnusedSegment @ 0x1402D7D10 (MiInsertUnusedSegment.c)
  * Callees:
  *     <none>
  */
@@ -27,7 +27,7 @@ __int64 __fastcall MiComputePagedPoolSegmentBytes(__int64 a1)
   v5 = 8 * v2;
   if ( (unsigned __int64)(8 * v2) > 0xFE0 )
   {
-    if ( ((8 * (_WORD)v2) & 0xFFFu) > 0xFC0 || v5 >= 0x10000 )
+    if ( v5 >= 0x10000 || ((8 * (_WORD)v2) & 0xFFFu) > 0xFC0 )
     {
       v7 = (v5 + 4095) & 0xFFFFFFFFFFFFF000uLL;
       return v7 + 176;

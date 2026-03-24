@@ -4,9 +4,9 @@
  *     WbHeapExecuteCall @ 0x140624ABC (WbHeapExecuteCall.c)
  * Callees:
  *     RtlUIntAdd @ 0x140001568 (RtlUIntAdd.c)
- *     ?RtlULongMult@@YAJKKPEAK@Z @ 0x140323D48 (-RtlULongMult@@YAJKKPEAK@Z.c)
+ *     ?RtlULongMult@@YAJKKPEAK@Z @ 0x140323E48 (-RtlULongMult@@YAJKKPEAK@Z.c)
  *     sub_1406245B4 @ 0x1406245B4 (sub_1406245B4.c)
- *     WbReAlloc @ 0x1406918D0 (WbReAlloc.c)
+ *     WbReAlloc @ 0x1406918B0 (WbReAlloc.c)
  */
 
 NTSTATUS __fastcall sub_1406244D4(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)

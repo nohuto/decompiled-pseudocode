@@ -1,18 +1,18 @@
 /*
- * XREFs of xxxSendUAHInitMenuMessage @ 0x1C00BD464
+ * XREFs of xxxSendUAHInitMenuMessage @ 0x1C0043500
  * Callers:
- *     xxxPaintMenuBar @ 0x1C00BCDEC (xxxPaintMenuBar.c)
- *     xxxMenuDraw @ 0x1C00BD4E0 (xxxMenuDraw.c)
- *     xxxMNCompute @ 0x1C00BEB88 (xxxMNCompute.c)
+ *     xxxMenuDraw @ 0x1C0043708 (xxxMenuDraw.c)
+ *     xxxMNCompute @ 0x1C0047C44 (xxxMNCompute.c)
+ *     xxxPaintMenuBar @ 0x1C0102100 (xxxPaintMenuBar.c)
  * Callees:
- *     xxxSendMessage @ 0x1C0050D34 (xxxSendMessage.c)
- *     MNInitUAHMenu @ 0x1C00BE950 (MNInitUAHMenu.c)
+ *     MNInitUAHMenu @ 0x1C0044D20 (MNInitUAHMenu.c)
+ *     xxxSendMessage @ 0x1C005D634 (xxxSendMessage.c)
  */
 
 __int64 __fastcall xxxSendUAHInitMenuMessage(__int64 a1, __int64 ***a2, __int64 a3)
 {
   __int64 *v3; // rcx
-  ULONG_PTR v5; // r10
+  __int64 v5; // r10
   unsigned int v6; // r8d
   __int128 v8; // [rsp+20h] [rbp-28h] BYREF
   __int64 v9; // [rsp+30h] [rbp-18h]
@@ -23,7 +23,7 @@ __int64 __fastcall xxxSendUAHInitMenuMessage(__int64 a1, __int64 ***a2, __int64 
   if ( !v3 )
     v3 = **a2;
   MNInitUAHMenu(v3, a3, &v8);
-  v6 = xxxSendMessage(v5);
+  v6 = xxxSendMessage(v5, 147LL, 0LL, &v8);
   if ( v6 )
     *(_DWORD *)((**a2)[5] + 40) |= 0x800u;
   else

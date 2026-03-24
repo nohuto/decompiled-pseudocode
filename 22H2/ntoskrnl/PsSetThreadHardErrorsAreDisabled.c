@@ -1,5 +1,5 @@
 /*
- * XREFs of PsSetThreadHardErrorsAreDisabled @ 0x1403C70B0
+ * XREFs of PsSetThreadHardErrorsAreDisabled @ 0x14039A720
  * Callers:
  *     <none>
  * Callees:
@@ -9,7 +9,7 @@
 void __fastcall PsSetThreadHardErrorsAreDisabled(__int64 a1, char a2)
 {
   if ( a2 )
-    _InterlockedOr((volatile signed __int32 *)(a1 + 1376), 0x10u);
+    _InterlockedOr((volatile signed __int32 *)(a1 + 1296), 0x10u);
   else
-    _InterlockedAnd((volatile signed __int32 *)(a1 + 1376), 0xFFFFFFEF);
+    _InterlockedAnd((volatile signed __int32 *)(a1 + 1296), 0xFFFFFFEF);
 }

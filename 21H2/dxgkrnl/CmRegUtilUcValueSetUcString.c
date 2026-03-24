@@ -1,11 +1,11 @@
 /*
- * XREFs of CmRegUtilUcValueSetUcString @ 0x1C038636C
+ * XREFs of CmRegUtilUcValueSetUcString @ 0x1C02C567C
  * Callers:
- *     PpRegStateReadCreateClassCreationSettings @ 0x1C0385C50 (PpRegStateReadCreateClassCreationSettings.c)
- *     CmRegUtilWstrValueSetWstrString @ 0x1C0386518 (CmRegUtilWstrValueSetWstrString.c)
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C02C4F64 (PpRegStateReadCreateClassCreationSettings.c)
+ *     CmRegUtilWstrValueSetWstrString @ 0x1C02C5828 (CmRegUtilWstrValueSetWstrString.c)
  * Callees:
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     CmpRegUtilAllocateUnicodeString @ 0x1C0386574 (CmpRegUtilAllocateUnicodeString.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     CmpRegUtilAllocateUnicodeString @ 0x1C02C5884 (CmpRegUtilAllocateUnicodeString.c)
  */
 
 __int64 __fastcall CmRegUtilUcValueSetUcString(HANDLE KeyHandle, PUNICODE_STRING ValueName, unsigned __int16 *a3)

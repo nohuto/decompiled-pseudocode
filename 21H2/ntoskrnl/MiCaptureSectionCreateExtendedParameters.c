@@ -1,102 +1,96 @@
 /*
- * XREFs of MiCaptureSectionCreateExtendedParameters @ 0x1406FE1A0
+ * XREFs of MiCaptureSectionCreateExtendedParameters @ 0x14070775C
  * Callers:
- *     MmCreateSectionEx @ 0x14066BFB8 (MmCreateSectionEx.c)
- *     MiCreateSectionCommon @ 0x1406FD140 (MiCreateSectionCommon.c)
+ *     MmCreateSectionEx @ 0x1406D4704 (MmCreateSectionEx.c)
+ *     MiCreateSectionCommon @ 0x140707430 (MiCreateSectionCommon.c)
  * Callees:
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
  */
 
 __int64 __fastcall MiCaptureSectionCreateExtendedParameters(
-        _BYTE *Address,
-        unsigned int a2,
-        char a3,
-        char a4,
-        __int64 a5)
+        _QWORD *Address,
+        ULONGLONG ullMultiplicand,
+        __int64 a3,
+        __int64 a4)
 {
-  _BYTE *v6; // rbx
-  __int64 result; // rax
+  _QWORD *v5; // rbx
+  NTSTATUS v6; // ecx
   __int64 v8; // r14
-  SIZE_T v9; // rcx
-  int v10; // esi
-  _BYTE *v11; // r14
+  char v9; // r10
+  int v10; // edi
+  _QWORD *v11; // r14
   int v12; // ecx
   int v13; // eax
   int v14; // ecx
-  int v15; // ecx
-  int v16; // eax
+  int v15; // eax
+  ULONGLONG pullResult; // [rsp+30h] [rbp-28h] BYREF
+  _QWORD *v17; // [rsp+38h] [rbp-20h]
+  _QWORD *v18; // [rsp+48h] [rbp-10h]
 
-  v6 = Address;
-  *(_OWORD *)a5 = 0LL;
-  *(_QWORD *)(a5 + 16) = 0LL;
-  if ( (a3 & 1) != 0 )
-    *(_DWORD *)(a5 + 20) = 1;
-  if ( !a2 )
-    return Address != 0LL ? 0xC000000D : 0;
-  if ( !Address )
-    return 3221225485LL;
-  v8 = a2;
-  v9 = 16LL * a2;
-  if ( is_mul_ok(a2, 0x10uLL) )
+  v5 = Address;
+  pullResult = 0LL;
+  *(_OWORD *)a4 = 0LL;
+  if ( (_DWORD)ullMultiplicand )
   {
-    result = 0LL;
+    if ( Address )
+    {
+      v8 = (unsigned int)ullMultiplicand;
+      v6 = RtlULongLongMult((unsigned int)ullMultiplicand, 0x10uLL, &pullResult);
+      if ( v6 >= 0 )
+      {
+        v10 = 0;
+        if ( v9 )
+          ProbeForWrite(v5, pullResult, 8u);
+        v17 = v5;
+        v11 = &v5[2 * v8];
+        v18 = v11;
+        while ( v5 < v11 )
+        {
+          v12 = (unsigned __int8)*(_DWORD *)v5;
+          if ( (unsigned int)(v12 - 1) > 1 || *v5 >= 0x100uLL )
+            return (unsigned int)-1073741811;
+          v13 = 1 << v12;
+          if ( ((1 << v12) & 6) == 0 )
+            return (unsigned int)-1073741811;
+          if ( (v13 & v10) != 0 )
+            return (unsigned int)-1073741811;
+          v10 |= v13;
+          v14 = v12 - 1;
+          if ( v14 )
+          {
+            if ( v14 != 1 )
+              return (unsigned int)-1073741811;
+            if ( v5[1] > 0xFFFFFFFFuLL )
+              return (unsigned int)-1073741811;
+            v15 = *((_DWORD *)v5 + 2);
+            *(_DWORD *)(a4 + 8) = v15;
+            if ( v15 == -1 )
+              return (unsigned int)-1073741811;
+            *(_DWORD *)(a4 + 8) = v15 + 1;
+          }
+          else
+          {
+            if ( (v5[1] & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
+              return (unsigned int)-1073741811;
+            *(_BYTE *)a4 = 1;
+            *(_DWORD *)(a4 + 4) = *((_DWORD *)v5 + 2);
+          }
+          v5 += 2;
+          v17 = v5;
+        }
+        *(_DWORD *)(a4 + 12) = v10;
+        return 0;
+      }
+    }
+    else
+    {
+      return (unsigned int)-1073741811;
+    }
   }
   else
   {
-    v9 = -1LL;
-    result = 3221225621LL;
+    return Address != 0LL ? 0xC000000D : 0;
   }
-  if ( (int)result >= 0 )
-  {
-    v10 = 0;
-    if ( a4 )
-      ProbeForWrite(v6, v9, 8u);
-    v11 = &v6[16 * v8];
-    while ( v6 < v11 )
-    {
-      v12 = (unsigned __int8)*(_DWORD *)v6;
-      if ( (unsigned int)(v12 - 1) > 2 || *(_QWORD *)v6 >= 0x100uLL )
-        return 3221225485LL;
-      v13 = 1 << v12;
-      if ( ((1 << v12) & 0xE) == 0 )
-        return 3221225485LL;
-      if ( (v13 & v10) != 0 )
-        return 3221225485LL;
-      v10 |= v13;
-      v14 = v12 - 1;
-      if ( v14 )
-      {
-        v15 = v14 - 1;
-        if ( v15 )
-        {
-          if ( v15 != 1 )
-            return 3221225485LL;
-          if ( a4 )
-            return 3221225485LL;
-          *(_BYTE *)(a5 + 12) = v6[8];
-        }
-        else
-        {
-          if ( *((_QWORD *)v6 + 1) > 0xFFFFFFFFuLL )
-            return 3221225485LL;
-          v16 = *((_DWORD *)v6 + 2);
-          *(_DWORD *)(a5 + 8) = v16;
-          if ( v16 == -1 )
-            return 3221225485LL;
-          *(_DWORD *)(a5 + 8) = v16 + 1;
-        }
-      }
-      else
-      {
-        if ( (*((_QWORD *)v6 + 1) & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
-          return 3221225485LL;
-        *(_BYTE *)a5 = 1;
-        *(_DWORD *)(a5 + 4) = *((_DWORD *)v6 + 2);
-      }
-      v6 += 16;
-    }
-    *(_DWORD *)(a5 + 16) = v10;
-    return 0LL;
-  }
-  return result;
+  return (unsigned int)v6;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PdcPoCsEnterExitReason @ 0x14086EC30
+ * XREFs of PdcPoCsEnterExitReason @ 0x14086EC10
  * Callers:
  *     <none>
  * Callees:
- *     PopEvaluateAggressiveStandbyActions @ 0x140868BE8 (PopEvaluateAggressiveStandbyActions.c)
- *     PopSetModernStandbyTransitionReason @ 0x14086F550 (PopSetModernStandbyTransitionReason.c)
+ *     PopEvaluateAggressiveStandbyActions @ 0x140868BC8 (PopEvaluateAggressiveStandbyActions.c)
+ *     PopSetModernStandbyTransitionReason @ 0x14086F530 (PopSetModernStandbyTransitionReason.c)
  */
 
 __int64 __fastcall PdcPoCsEnterExitReason(char a1)

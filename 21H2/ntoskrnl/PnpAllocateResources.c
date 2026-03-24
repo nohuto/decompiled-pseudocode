@@ -1,66 +1,63 @@
 /*
- * XREFs of PnpAllocateResources @ 0x140747FB4
+ * XREFs of PnpAllocateResources @ 0x14074FCE8
  * Callers:
- *     PnpAssignResourcesToDevices @ 0x140747E9C (PnpAssignResourcesToDevices.c)
- *     IopLegacyResourceAllocation @ 0x14081F570 (IopLegacyResourceAllocation.c)
+ *     PnpAssignResourcesToDevices @ 0x14074FBD0 (PnpAssignResourcesToDevices.c)
+ *     IopLegacyResourceAllocation @ 0x140753474 (IopLegacyResourceAllocation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseSemaphore @ 0x1402D3440 (KeReleaseSemaphore.c)
- *     qsort @ 0x1403E1E70 (qsort.c)
- *     PnpGetResourceRequirementsForAssignTable @ 0x1407483B4 (PnpGetResourceRequirementsForAssignTable.c)
- *     PipSetDevNodeFlags @ 0x14076FB70 (PipSetDevNodeFlags.c)
- *     PipClearDevNodeFlags @ 0x14076FBEC (PipClearDevNodeFlags.c)
- *     PnpBuildCmResourceLists @ 0x14081FCD8 (PnpBuildCmResourceLists.c)
- *     PnpFreeResourceRequirementsForAssignTable @ 0x14081FECC (PnpFreeResourceRequirementsForAssignTable.c)
- *     PnpFindBestConfiguration @ 0x14081FF24 (PnpFindBestConfiguration.c)
- *     IopReleaseFilteredBootResources @ 0x140831280 (IopReleaseFilteredBootResources.c)
- *     IopCommitConfiguration @ 0x140854DB4 (IopCommitConfiguration.c)
- *     PnpRebalance @ 0x14095A02C (PnpRebalance.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeReleaseSemaphore @ 0x14029AC70 (KeReleaseSemaphore.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     qsort @ 0x1403D2AC0 (qsort.c)
+ *     PipSetDevNodeFlags @ 0x14074561C (PipSetDevNodeFlags.c)
+ *     PipClearDevNodeFlags @ 0x140746A74 (PipClearDevNodeFlags.c)
+ *     PnpBuildCmResourceLists @ 0x14074F54C (PnpBuildCmResourceLists.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x1407500CC (PnpGetResourceRequirementsForAssignTable.c)
+ *     IopCommitConfiguration @ 0x140752640 (IopCommitConfiguration.c)
+ *     PnpFindBestConfiguration @ 0x1407526E4 (PnpFindBestConfiguration.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140753010 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     IopReleaseFilteredBootResources @ 0x140753138 (IopReleaseFilteredBootResources.c)
+ *     PnpRebalance @ 0x1408B87A4 (PnpRebalance.c)
  */
 
 __int64 __fastcall PnpAllocateResources(unsigned int a1, _DWORD *a2, char a3, _BYTE *a4)
 {
   __int64 v4; // r14
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 v9; // rdi
+  unsigned __int64 v9; // rbx
   int ResourceRequirementsForAssignTable; // ebp
-  int v12; // edx
+  __int64 v12; // rdx
   __int64 v13; // r9
   int v14; // r15d
   __int64 v15; // r8
   _DWORD *v16; // rax
   _QWORD *v17; // rcx
-  __int64 v18; // rdx
-  unsigned int v19; // ebx
-  int *v20; // rcx
-  __int64 v21; // rax
-  __int64 v22; // rdx
-  int v23; // r15d
-  _DWORD *v24; // rbx
-  __int64 v25; // r14
+  unsigned int v18; // edi
+  int *v19; // rcx
+  __int64 v20; // rax
+  int v21; // r15d
+  _DWORD *v22; // rdi
+  __int64 v23; // r14
   int BestConfiguration; // eax
-  int v27; // eax
+  __int64 v25; // rdx
+  int v26; // eax
+  unsigned int v27; // eax
   _DWORD *v28; // rcx
-  _OWORD *v29; // rdx
+  _DWORD *v29; // rcx
   __int128 v30; // xmm2
   __int128 v31; // xmm3
   __int128 v32; // xmm4
   __int128 v33; // xmm5
-  unsigned int v34; // eax
-  _DWORD *v35; // rcx
-  _DWORD *v36; // rax
-  unsigned __int64 v37; // rcx
-  int v38; // eax
-  _DWORD *i; // rbx
-  int v40; // eax
-  _DWORD *v41; // rcx
-  unsigned __int64 v42; // rax
-  __int128 v43; // [rsp+30h] [rbp-38h] BYREF
+  _DWORD *v34; // rcx
+  unsigned __int64 v35; // rax
+  unsigned __int64 i; // rdi
+  int v37; // eax
+  _DWORD *v38; // rcx
+  unsigned __int64 v39; // rax
+  __int128 v40; // [rsp+30h] [rbp-38h] BYREF
   size_t NumOfElements; // [rsp+80h] [rbp+18h] BYREF
 
   v4 = a1;
-  v43 = 0LL;
+  v40 = 0LL;
   if ( a4 )
     *a4 = 0;
   if ( !a3 )
@@ -74,7 +71,7 @@ __int64 __fastcall PnpAllocateResources(unsigned int a1, _DWORD *a2, char a3, _B
   ResourceRequirementsForAssignTable = PnpGetResourceRequirementsForAssignTable(a2, v9, &NumOfElements);
   if ( ResourceRequirementsForAssignTable < 0 )
     goto LABEL_6;
-  v12 = 0;
+  v12 = 0LL;
   v13 = 3221226029LL;
   v14 = 1;
   v15 = 64LL;
@@ -89,35 +86,35 @@ __int64 __fastcall PnpAllocateResources(unsigned int a1, _DWORD *a2, char a3, _B
         if ( (unsigned __int64)v16 >= v9 )
           goto LABEL_14;
       }
-      v12 = 1;
+      v12 = 1LL;
     }
 LABEL_14:
     if ( v16 != (_DWORD *)v9 && (unsigned __int64)a2 < v9 )
     {
-      v36 = a2 + 2;
-      v37 = ((unsigned __int64)((v4 << 6) - 1) >> 6) + 1;
+      v34 = a2 + 2;
+      v35 = ((unsigned __int64)((v4 << 6) - 1) >> 6) + 1;
       do
       {
-        if ( (int)v36[12] < 0 || *((_QWORD *)v36 + 2) )
+        if ( (int)v34[12] < 0 || *((_QWORD *)v34 + 2) )
         {
-          *v36 |= 0x20u;
-          v36[12] = -1073741267;
+          *v34 |= 0x20u;
+          v34[12] = -1073741267;
         }
-        v36 += 16;
-        --v37;
+        v34 += 16;
+        --v35;
       }
-      while ( v37 );
+      while ( v35 );
     }
-    if ( v12 )
-      goto LABEL_43;
+    if ( (_DWORD)v12 )
+      goto LABEL_45;
   }
   v17 = a2;
   if ( (unsigned __int64)a2 < v9 )
   {
     while ( 1 )
     {
-      v18 = *v17 ? *(_QWORD *)(*(_QWORD *)(*v17 + 312LL) + 40LL) : 0LL;
-      if ( (*(_DWORD *)(v18 + 396) & 0x40) != 0 && v17[3] )
+      v12 = *v17 ? *(_QWORD *)(*(_QWORD *)(*v17 + 312LL) + 40LL) : 0LL;
+      if ( (*(_DWORD *)(v12 + 396) & 0x40) != 0 && v17[3] )
         break;
       v17 += 8;
       if ( (unsigned __int64)v17 >= v9 )
@@ -128,186 +125,181 @@ LABEL_14:
 LABEL_22:
   if ( v17 == (_QWORD *)v9 || (unsigned __int64)a2 >= v9 )
   {
-    v19 = NumOfElements;
+    v18 = NumOfElements;
   }
   else
   {
-    v19 = NumOfElements;
-    v20 = a2 + 2;
+    v18 = NumOfElements;
+    v19 = a2 + 2;
     do
     {
-      v21 = *((_QWORD *)v20 - 1);
-      if ( v21 )
-        v22 = *(_QWORD *)(*(_QWORD *)(v21 + 312) + 40LL);
+      v20 = *((_QWORD *)v19 - 1);
+      if ( v20 )
+        v12 = *(_QWORD *)(*(_QWORD *)(v20 + 312) + 40LL);
       else
-        v22 = 0LL;
-      if ( (*(_DWORD *)(v22 + 396) & 0x40) == 0 || !*((_QWORD *)v20 + 2) )
+        v12 = 0LL;
+      if ( (*(_DWORD *)(v12 + 396) & 0x40) == 0 || !*((_QWORD *)v19 + 2) )
       {
-        v27 = *v20;
-        if ( (*v20 & 0x20) == 0 )
+        v26 = *v19;
+        if ( (*v19 & 0x20) == 0 )
         {
-          v20[12] = -1073741267;
-          *v20 = v27 | 0x20;
-          --v19;
+          v19[12] = -1073741267;
+          *v19 = v26 | 0x20;
+          --v18;
         }
       }
-      v20 += 16;
+      v19 += 16;
     }
-    while ( (unsigned __int64)(v20 - 2) < v9 );
+    while ( (unsigned __int64)(v19 - 2) < v9 );
   }
-  if ( !v19 )
+  if ( !v18 )
   {
     ResourceRequirementsForAssignTable = -1073741823;
-    goto LABEL_43;
+    goto LABEL_45;
   }
-  if ( v19 != (_DWORD)v4 )
+  if ( v18 != (_DWORD)v4 )
   {
-    v28 = a2;
+    v29 = a2;
     if ( (unsigned __int64)a2 < v9 )
     {
-      v29 = (_OWORD *)(v9 - 64);
+      v12 = v9 - 64;
       do
       {
-        if ( (v28[2] & 0x20) != 0 )
+        if ( (v29[2] & 0x20) != 0 )
         {
           v9 -= 64LL;
-          v30 = *(_OWORD *)v28;
-          v31 = *((_OWORD *)v28 + 1);
-          v32 = *((_OWORD *)v28 + 2);
-          v33 = *((_OWORD *)v28 + 3);
-          *(_OWORD *)v28 = *v29;
-          *((_OWORD *)v28 + 1) = v29[1];
-          *((_OWORD *)v28 + 2) = v29[2];
-          *((_OWORD *)v28 + 3) = v29[3];
-          *v29 = v30;
-          v29[1] = v31;
-          v29[2] = v32;
-          v29[3] = v33;
-          v29 -= 4;
+          v30 = *(_OWORD *)v29;
+          v31 = *((_OWORD *)v29 + 1);
+          v32 = *((_OWORD *)v29 + 2);
+          v33 = *((_OWORD *)v29 + 3);
+          *(_OWORD *)v29 = *(_OWORD *)v12;
+          *((_OWORD *)v29 + 1) = *(_OWORD *)(v12 + 16);
+          *((_OWORD *)v29 + 2) = *(_OWORD *)(v12 + 32);
+          *((_OWORD *)v29 + 3) = *(_OWORD *)(v12 + 48);
+          *(_OWORD *)v12 = v30;
+          *(_OWORD *)(v12 + 16) = v31;
+          *(_OWORD *)(v12 + 32) = v32;
+          *(_OWORD *)(v12 + 48) = v33;
+          v12 -= 64LL;
         }
         else
         {
-          v28 += 16;
+          v29 += 16;
         }
       }
-      while ( (unsigned __int64)v28 < v9 );
+      while ( (unsigned __int64)v29 < v9 );
     }
   }
-  if ( v19 > 1 )
+  if ( v18 > 1 )
   {
-    v34 = 0;
-    v35 = a2 + 5;
+    v27 = 0;
+    v28 = a2 + 5;
     do
     {
-      *v35 = v34++;
-      v35 += 16;
+      *v28 = v27++;
+      v28 += 16;
     }
-    while ( v34 < v19 );
-    qsort(a2, v19, 0x40uLL, PnpCompareResourceRequestPriority);
+    while ( v27 < v18 );
+    qsort(a2, v18, 0x40uLL, PnpCompareResourceRequestPriority);
   }
   if ( v14 )
-  {
-    ResourceRequirementsForAssignTable = PnpFindBestConfiguration(a2, v19, &v43, v13);
-    if ( ResourceRequirementsForAssignTable >= 0 )
-    {
-      v38 = IopCommitConfiguration(&v43);
-      ResourceRequirementsForAssignTable = v38;
-      for ( i = a2; (unsigned __int64)i < v9; i += 16 )
-      {
-        if ( ResourceRequirementsForAssignTable < 0 )
-          i[14] = -1073741800;
-        else
-          PnpBuildCmResourceLists(i, i + 16, 0LL);
-      }
-      goto LABEL_42;
-    }
-  }
+    ResourceRequirementsForAssignTable = PnpFindBestConfiguration(a2, v18, &v40, v13);
   else
-  {
     ResourceRequirementsForAssignTable = -1073741823;
+  if ( ResourceRequirementsForAssignTable >= 0 )
+  {
+    ResourceRequirementsForAssignTable = IopCommitConfiguration(&v40, v12, v15, v13);
+    for ( i = (unsigned __int64)a2; i < v9; i += 64LL )
+    {
+      if ( ResourceRequirementsForAssignTable < 0 )
+        *(_DWORD *)(i + 56) = -1073741800;
+      else
+        PnpBuildCmResourceLists(i, i + 64, 0);
+    }
+    goto LABEL_44;
   }
-  v23 = 0;
-  v24 = a2;
+  v21 = 0;
+  v22 = a2;
   if ( (unsigned __int64)a2 >= v9 )
-    goto LABEL_42;
+    goto LABEL_44;
   while ( 1 )
   {
-    if ( *(_QWORD *)v24 )
-      v25 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v24 + 312LL) + 40LL);
+    if ( *(_QWORD *)v22 )
+      v23 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v22 + 312LL) + 40LL);
     else
-      v25 = 0LL;
-    BestConfiguration = PnpFindBestConfiguration(v24, 1LL, &v43, v13);
+      v23 = 0LL;
+    BestConfiguration = PnpFindBestConfiguration(v22, 1LL, &v40, v13);
     ResourceRequirementsForAssignTable = BestConfiguration;
     if ( BestConfiguration >= 0 )
     {
-      v23 = 1;
-      ResourceRequirementsForAssignTable = IopCommitConfiguration(&v43);
+      v21 = 1;
+      ResourceRequirementsForAssignTable = IopCommitConfiguration(&v40, v25, v15, v13);
       if ( ResourceRequirementsForAssignTable < 0 )
-        v24[14] = -1073741800;
+        v22[14] = -1073741800;
       else
-        PnpBuildCmResourceLists(v24, v24 + 16, 0LL);
-      goto LABEL_41;
+        PnpBuildCmResourceLists((unsigned __int64)v22, (unsigned __int64)(v22 + 16), 0);
+      goto LABEL_42;
     }
     if ( BestConfiguration == -1073741670 )
-      goto LABEL_60;
-    if ( !v23 && (a2[2] & 0x80u) == 0 )
+      goto LABEL_43;
+    if ( !v21 && (a2[2] & 0x80u) == 0 )
       break;
-    v24[2] |= 0x20u;
-    v24[14] = -1073741267;
-LABEL_41:
-    v24 += 16;
-    if ( (unsigned __int64)v24 >= v9 )
-      goto LABEL_42;
+    v22[2] |= 0x20u;
+    v22[14] = -1073741267;
+LABEL_42:
+    v22 += 16;
+    if ( (unsigned __int64)v22 >= v9 )
+      goto LABEL_43;
   }
-  PipSetDevNodeFlags(v25, 0x40000LL);
-  ResourceRequirementsForAssignTable = PnpRebalance(v25, v24, 1LL, 0LL);
-  PipClearDevNodeFlags(v25, 0x40000LL);
+  PipSetDevNodeFlags(v23, 0x40000);
+  ResourceRequirementsForAssignTable = PnpRebalance(v23, v22, 1LL, 0LL);
+  PipClearDevNodeFlags(v23, 0x40000);
   if ( ResourceRequirementsForAssignTable < 0 )
   {
-    v40 = -1073741800;
+    v37 = -1073741800;
     if ( ResourceRequirementsForAssignTable == -1073739512 )
-      v40 = -1073739512;
-    v24[14] = v40;
-    goto LABEL_41;
+      v37 = -1073739512;
+    v22[14] = v37;
+    goto LABEL_42;
   }
   if ( a4 )
     *a4 = 1;
-  v24 += 16;
-LABEL_60:
-  if ( (unsigned __int64)v24 < v9 )
+  v22 += 16;
+LABEL_43:
+  if ( (unsigned __int64)v22 < v9 )
   {
     if ( ResourceRequirementsForAssignTable == -1073741670 )
     {
       do
       {
-        v24[14] = -1073741670;
-        v24 += 16;
+        v22[14] = -1073741670;
+        v22 += 16;
       }
-      while ( (unsigned __int64)v24 < v9 );
+      while ( (unsigned __int64)v22 < v9 );
     }
     else
     {
-      v41 = v24 + 2;
-      v42 = ((v9 - (unsigned __int64)v24 - 1) >> 6) + 1;
+      v38 = v22 + 2;
+      v39 = ((v9 - (unsigned __int64)v22 - 1) >> 6) + 1;
       do
       {
-        *v41 |= 0x20u;
-        v41[12] = -1073741267;
-        v41 += 16;
-        --v42;
+        *v38 |= 0x20u;
+        v38[12] = -1073741267;
+        v38 += 16;
+        --v39;
       }
-      while ( v42 );
+      while ( v39 );
     }
   }
-LABEL_42:
+LABEL_44:
   IopReleaseFilteredBootResources(a2, v9, v15, v13);
-LABEL_43:
+LABEL_45:
   PnpFreeResourceRequirementsForAssignTable(a2, v9, v15, v13);
 LABEL_6:
   if ( !a3 )
   {
     KeReleaseSemaphore(&PpRegistrySemaphore, 0, 1, 0);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   return (unsigned int)ResourceRequirementsForAssignTable;
 }

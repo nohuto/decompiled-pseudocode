@@ -1,15 +1,15 @@
 /*
  * XREFs of ExAcquireAutoExpandPushLockShared @ 0x1400050F0
  * Callers:
- *     MiLockAwePagesShared @ 0x1402B11B8 (MiLockAwePagesShared.c)
- *     MiLockAweVadsShared @ 0x1402B1214 (MiLockAweVadsShared.c)
+ *     MiLockAwePagesShared @ 0x1402B12B8 (MiLockAwePagesShared.c)
+ *     MiLockAweVadsShared @ 0x1402B1314 (MiLockAweVadsShared.c)
  * Callees:
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030F934 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
  */
 
 ULONG_PTR __fastcall ExAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)

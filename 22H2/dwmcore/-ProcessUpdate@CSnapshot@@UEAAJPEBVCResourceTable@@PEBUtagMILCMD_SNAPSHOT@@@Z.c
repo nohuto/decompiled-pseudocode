@@ -1,67 +1,66 @@
 /*
- * XREFs of ?ProcessUpdate@CSnapshot@@UEAAJPEBVCResourceTable@@PEBUtagMILCMD_SNAPSHOT@@@Z @ 0x180257430
+ * XREFs of ?ProcessUpdate@CSnapshot@@UEAAJPEBVCResourceTable@@PEBUtagMILCMD_SNAPSHOT@@@Z @ 0x1801F4D90
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ @ 0x1800527A0 (-GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x18009EFC0 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?CreateCVI@CSnapshot@@AEAAJPEAVCVisual@@@Z @ 0x18025719C (-CreateCVI@CSnapshot@@AEAAJPEAVCVisual@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ @ 0x18006EEF8 (-GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3484 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?reset@?$com_ptr_t@VCDDisplaySwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180184F2C (-reset@-$com_ptr_t@VCDDisplaySwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?CreateCVI@CSnapshot@@AEAAJPEAVCVisual@@@Z @ 0x1801F4B70 (-CreateCVI@CSnapshot@@AEAAJPEAVCVisual@@@Z.c)
  */
 
 __int64 __fastcall CSnapshot::ProcessUpdate(
-        CSnapshot *this,
+        CRenderTargetBitmap **this,
         const struct CResourceTable *a2,
         const struct tagMILCMD_SNAPSHOT *a3)
 {
   unsigned int v5; // edi
-  __int64 Resource; // rax
-  __int64 v7; // rcx
-  struct CVisual *v8; // rbp
+  struct CVisual *Resource; // rbp
   struct IMonitorTarget *PrimaryMonitorTarget; // rax
-  __int64 v10; // rcx
+  struct IMonitorTarget *v8; // rcx
+  unsigned int v9; // ecx
+  unsigned int v10; // eax
   unsigned int v11; // ecx
-  unsigned int v12; // eax
   int CVI; // eax
-  __int64 v14; // rcx
-  unsigned int v16; // [rsp+40h] [rbp+8h] BYREF
-  unsigned int v17; // [rsp+44h] [rbp+Ch]
+  __int64 v13; // rcx
+  unsigned int v15; // [rsp+40h] [rbp+8h] BYREF
+  unsigned int v16; // [rsp+44h] [rbp+Ch]
 
   v5 = 0;
-  Resource = CResourceTable::GetResource((__int64)a2, *((_DWORD *)a3 + 2), 0xC4u);
-  v7 = *((_QWORD *)this + 9);
-  v8 = (struct CVisual *)Resource;
-  *((_QWORD *)this + 9) = 0LL;
-  if ( v7 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
-  if ( v8 )
+  Resource = (struct CVisual *)CResourceTable::GetResource((__int64)a2, *((_DWORD *)a3 + 2), 0xC3u);
+  wil::com_ptr_t<CDDisplaySwapChain,wil::err_returncode_policy>::reset(this + 8);
+  if ( Resource )
   {
     if ( *((_DWORD *)a3 + 3) )
     {
       if ( *((_DWORD *)a3 + 4) )
       {
         PrimaryMonitorTarget = CRenderTargetManager::GetPrimaryMonitorTarget(*((CRenderTargetManager **)g_pComposition
-                                                                             + 27));
+                                                                             + 11));
         if ( PrimaryMonitorTarget )
         {
-          v10 = (__int64)PrimaryMonitorTarget + *(int *)(*((_QWORD *)PrimaryMonitorTarget + 1) + 12LL) + 8;
-          (*(void (__fastcall **)(__int64, unsigned int *))(*(_QWORD *)v10 + 16LL))(v10, &v16);
-          v11 = v16;
-          if ( v16 <= v17 )
-            v11 = v17;
-          v12 = v11;
-          if ( *((_DWORD *)a3 + 3) < v11 )
-            v12 = *((_DWORD *)a3 + 3);
-          *((_DWORD *)this + 20) = v12;
-          if ( *((_DWORD *)a3 + 4) < v11 )
-            v11 = *((_DWORD *)a3 + 4);
-          *((_DWORD *)this + 21) = v11;
-          *((_BYTE *)this + 88) = *((_BYTE *)a3 + 20) != 0;
-          CVI = CSnapshot::CreateCVI(this, v8);
+          v8 = (struct IMonitorTarget *)((char *)PrimaryMonitorTarget
+                                       + *(int *)(*((_QWORD *)PrimaryMonitorTarget + 1) + 12LL)
+                                       + 8);
+          (**(void (__fastcall ***)(struct IMonitorTarget *, unsigned int *))v8)(v8, &v15);
+          v9 = *((_DWORD *)a3 + 3);
+          v10 = v15;
+          if ( v15 <= v16 )
+            v10 = v16;
+          if ( v9 >= v10 )
+            v9 = v10;
+          *((_DWORD *)this + 18) = v9;
+          v11 = *((_DWORD *)a3 + 4);
+          if ( v11 >= v10 )
+            v11 = v10;
+          *((_DWORD *)this + 19) = v11;
+          *((_BYTE *)this + 80) = *((_BYTE *)a3 + 20) != 0;
+          CVI = CSnapshot::CreateCVI((CSnapshot *)this, Resource);
           v5 = CVI;
           if ( CVI < 0 )
-            MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, CVI, 0x8Cu, 0LL);
+            MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, CVI, 0x8Cu, 0LL);
         }
       }
     }

@@ -1,10 +1,10 @@
 /*
- * XREFs of IsLoggingEnabledAndNeeded @ 0x1C002C030
+ * XREFs of IsLoggingEnabledAndNeeded @ 0x1C0060018
  * Callers:
- *     ?PnpEventStarted@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C002BF80 (-PnpEventStarted@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
+ *     ?PnpEventStarted@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007B240 (-PnpEventStarted@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
  * Callees:
- *     RegistryReadLastLoggedTime @ 0x1C002C0B8 (RegistryReadLastLoggedTime.c)
- *     WPP_IFR_SF_iii @ 0x1C0071CE0 (WPP_IFR_SF_iii.c)
+ *     RegistryReadLastLoggedTime @ 0x1C0060618 (RegistryReadLastLoggedTime.c)
+ *     WPP_IFR_SF_iii @ 0x1C0060B40 (WPP_IFR_SF_iii.c)
  */
 
 bool __fastcall IsLoggingEnabledAndNeeded(_FX_DRIVER_GLOBALS *DriverGlobals)

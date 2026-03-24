@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetPowerCaps@FxPkgPnp@@QEAAXPEAU_WDF_DEVICE_POWER_CAPABILITIES@@@Z @ 0x1C002B27C
+ * XREFs of ?SetPowerCaps@FxPkgPnp@@QEAAXPEAU_WDF_DEVICE_POWER_CAPABILITIES@@@Z @ 0x1C0082C78
  * Callers:
- *     imp_WdfDeviceSetPowerCapabilities @ 0x1C002B0D0 (imp_WdfDeviceSetPowerCapabilities.c)
+ *     imp_WdfDeviceSetPowerCapabilities @ 0x1C00488C0 (imp_WdfDeviceSetPowerCapabilities.c)
  * Callees:
  *     <none>
  */

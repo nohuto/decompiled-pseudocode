@@ -1,24 +1,23 @@
 /*
- * XREFs of MiFreeRotateView @ 0x14096D000
+ * XREFs of MiFreeRotateView @ 0x1408C857C
  * Callers:
- *     MiInitializePartialVad @ 0x14079D7A8 (MiInitializePartialVad.c)
- *     MiDeleteNewlyCreatedPartialVads @ 0x14097ECFC (MiDeleteNewlyCreatedPartialVads.c)
+ *     MiDeletePartialVad @ 0x1402FD8DC (MiDeletePartialVad.c)
  * Callees:
- *     MiGetVadWakeList @ 0x14030E280 (MiGetVadWakeList.c)
- *     MiFreeRotateVadEvent @ 0x1406EB238 (MiFreeRotateVadEvent.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiGetVadWakeList @ 0x140318020 (MiGetVadWakeList.c)
+ *     MiFreeRotateVadEvent @ 0x1406C1A28 (MiFreeRotateVadEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiFreeRotateView(__int64 a1)
+void __fastcall MiFreeRotateView(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  unsigned __int64 VadWakeList; // rax
-  void *v2; // rbx
+  __int64 *VadWakeList; // rax
+  __int64 *v5; // rbx
 
-  VadWakeList = MiGetVadWakeList(a1, 8);
-  v2 = (void *)VadWakeList;
+  VadWakeList = MiGetVadWakeList(a1, 8, a3, a4);
+  v5 = VadWakeList;
   if ( VadWakeList )
   {
-    MiFreeRotateVadEvent(VadWakeList);
-    ExFreePoolWithTag(v2, 0);
+    MiFreeRotateVadEvent((__int64)VadWakeList);
+    ExFreePoolWithTag(v5, 0);
   }
 }

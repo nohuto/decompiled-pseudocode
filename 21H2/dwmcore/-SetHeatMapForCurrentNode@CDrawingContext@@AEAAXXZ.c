@@ -1,87 +1,77 @@
 /*
- * XREFs of ?SetHeatMapForCurrentNode@CDrawingContext@@AEAAXXZ @ 0x1801B405C
+ * XREFs of ?SetHeatMapForCurrentNode@CDrawingContext@@AEAAXXZ @ 0x1801785C4
  * Callers:
- *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18009FA80 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18007B940 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?SetHeatMapProperties@CVisual@@QEAAXUHeatMapProperty@1@@Z @ 0x1801B4180 (-SetHeatMapProperties@CVisual@@QEAAXUHeatMapProperty@1@@Z.c)
+ *     ?GetCurrentVisual@CDrawingContext@@UEBAPEAVCVisual@@XZ @ 0x1800BA7B0 (-GetCurrentVisual@CDrawingContext@@UEBAPEAVCVisual@@XZ.c)
+ *     ?SetHeatMapProperties@CVisual@@QEAAXUHeatMapProperty@1@@Z @ 0x1801786D8 (-SetHeatMapProperties@CVisual@@QEAAXUHeatMapProperty@1@@Z.c)
  */
 
 void __fastcall CDrawingContext::SetHeatMapForCurrentNode(CDrawingContext *this)
 {
-  __int64 v1; // rax
+  struct CVisual *CurrentVisual; // rax
   int v2; // edx
-  __int64 v3; // r9
-  struct CComposition *v4; // r8
-  __int64 v5; // rbx
-  char v6; // cl
-  char v7; // al
-  int v8; // eax
-  char v9; // al
-  __int128 v10; // [rsp+20h] [rbp-28h] BYREF
-  int v11; // [rsp+30h] [rbp-18h]
+  struct CComposition *v3; // r8
+  struct CVisual *v4; // rbx
+  char v5; // cl
+  char v6; // al
+  int v7; // eax
+  char v8; // al
+  __int128 v9; // [rsp+20h] [rbp-28h] BYREF
+  int v10; // [rsp+30h] [rbp-18h]
 
-  v1 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)this + 3) + 32LL))((char *)this + 24);
+  CurrentVisual = CDrawingContext::GetCurrentVisual((CDrawingContext *)((char *)this + 24));
   v2 = g_HeatMaps_Type;
-  v3 = 0xFFFFFFFFLL;
-  v4 = g_pComposition;
-  v5 = v1;
-  v6 = *(_BYTE *)(v1 + 101);
-  if ( (v6 & 0x20) != 0 && g_HeatMaps_Type != 1 )
+  v3 = g_pComposition;
+  v4 = CurrentVisual;
+  v5 = *((_BYTE *)CurrentVisual + 93);
+  if ( (v5 & 0x40) != 0 && g_HeatMaps_Type != 1 )
   {
-    --*((_DWORD *)g_pComposition + 308);
-    *(_BYTE *)(v1 + 101) &= ~0x20u;
-    v6 = *(_BYTE *)(v1 + 101);
+    --*((_DWORD *)g_pComposition + 269);
+    *((_BYTE *)CurrentVisual + 93) &= ~0x40u;
+    v5 = *((_BYTE *)CurrentVisual + 93);
   }
-  v7 = v6;
-  if ( (v6 & 0x10) != 0 && v2 != 2 )
+  v6 = v5;
+  if ( (v5 & 0x20) != 0 && v2 != 2 )
   {
-    v7 = v6 & 0xEF;
+    v6 = v5 & 0xDF;
     g_HeatMaps_OverdrawContentKinds = 0;
-    *(_BYTE *)(v5 + 101) = v6 & 0xEF;
+    *((_BYTE *)v4 + 93) = v5 & 0xDF;
   }
-  if ( (v7 & 4) != 0 && v2 != 3 )
+  if ( (v6 & 8) != 0 && v2 != 3 )
   {
-    *(_BYTE *)(v5 + 101) = v7 & 0xF3;
-    --*((_DWORD *)v4 + 306);
+    *((_BYTE *)v4 + 93) = v6 & 0xE7;
+    --*((_DWORD *)v3 + 268);
   }
   if ( v2 == 1 )
   {
-    if ( (*(_BYTE *)(v5 + 101) & 0x20) != 0 )
+    if ( (*((_BYTE *)v4 + 93) & 0x40) != 0 )
       return;
-    ++*((_DWORD *)v4 + 308);
-    *(_BYTE *)(v5 + 101) |= 0x20u;
-    v11 = 0;
-    v10 = _xmm;
-    ((void (__fastcall *)(__int64, __int128 *, struct CComposition *, __int64))CVisual::SetHeatMapProperties)(
-      v5,
-      &v10,
-      v4,
-      0xFFFFFFFFLL);
+    ++*((_DWORD *)v3 + 269);
+    *((_BYTE *)v4 + 93) |= 0x40u;
+    v10 = 0;
+    v9 = _xmm;
+    CVisual::SetHeatMapProperties(v4, &v9);
     v2 = g_HeatMaps_Type;
-    v4 = g_pComposition;
+    v3 = g_pComposition;
   }
   if ( v2 == 2 )
   {
-    v8 = g_HeatMaps_OverdrawContentKinds;
-    *(_BYTE *)(v5 + 101) |= 0x10u;
-    v10 = _xmm;
-    v11 = v8;
-    ((void (__fastcall *)(__int64, __int128 *, struct CComposition *, __int64))CVisual::SetHeatMapProperties)(
-      v5,
-      &v10,
-      v4,
-      v3);
+    v7 = g_HeatMaps_OverdrawContentKinds;
+    *((_BYTE *)v4 + 93) |= 0x20u;
+    v9 = _xmm;
+    v10 = v7;
+    CVisual::SetHeatMapProperties(v4, &v9);
     v2 = g_HeatMaps_Type;
-    v4 = g_pComposition;
+    v3 = g_pComposition;
   }
   if ( v2 == 3 )
   {
-    v9 = *(_BYTE *)(v5 + 101);
-    if ( (v9 & 8) == 0 )
+    v8 = *((_BYTE *)v4 + 93);
+    if ( (v8 & 0x10) == 0 )
     {
-      *(_BYTE *)(v5 + 101) = v9 | 0xC;
-      ++*((_DWORD *)v4 + 306);
+      *((_BYTE *)v4 + 93) = v8 | 0x18;
+      ++*((_DWORD *)v3 + 268);
     }
   }
 }

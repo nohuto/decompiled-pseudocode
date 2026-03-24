@@ -1,84 +1,75 @@
 /*
- * XREFs of GreAddBitmapD3DDirtyRgn @ 0x1C015982A
+ * XREFs of GreAddBitmapD3DDirtyRgn @ 0x1C026E9EC
  * Callers:
- *     DxgkEngAddRedirBitmapD3DDirtyRgn @ 0x1C015A0F0 (DxgkEngAddRedirBitmapD3DDirtyRgn.c)
+ *     DxgkEngAddRedirBitmapD3DDirtyRgn @ 0x1C0276670 (DxgkEngAddRedirBitmapD3DDirtyRgn.c)
  * Callees:
- *     ??0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C000B2A0 (--0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
- *     ?bSpDwmNotifyDirty@@YAHPEAUHSPRITE__@@PEAVSFMLOGICALSURFACE@@K_K@Z @ 0x1C0078BB0 (-bSpDwmNotifyDirty@@YAHPEAUHSPRITE__@@PEAVSFMLOGICALSURFACE@@K_K@Z.c)
- *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C007AD98 (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C007E800 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0080520 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     IsDwmActive @ 0x1C00D4B60 (IsDwmActive.c)
- *     ?vSpUpdateDirtyRgn@@YAXPEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUHDC__@@PEAUtagRECT@@PEAKH@Z @ 0x1C00D92B0 (-vSpUpdateDirtyRgn@@YAXPEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUHDC__@@PEAUtagRECT@@PEAKH@Z.c)
+ *     ??0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C0017434 (--0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     ?bSpDwmNotifyDirty@@YAHPEAUHSPRITE__@@PEAVSFMLOGICALSURFACE@@K_K@Z @ 0x1C001755C (-bSpDwmNotifyDirty@@YAHPEAUHSPRITE__@@PEAVSFMLOGICALSURFACE@@K_K@Z.c)
+ *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C0017620 (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
+ *     ?vSpUpdateDirtyRgn@@YAXPEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUHDC__@@PEAUtagRECT@@PEAKH@Z @ 0x1C00913E0 (-vSpUpdateDirtyRgn@@YAXPEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUHDC__@@PEAUtagRECT@@PEAKH@Z.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BCDE8 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BCE1C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
  */
 
-__int64 __fastcall GreAddBitmapD3DDirtyRgn(Gre::Base *a1, unsigned int a2, const struct _RECTL *a3)
+struct DwmState *__fastcall GreAddBitmapD3DDirtyRgn(HWND a1, unsigned int a2, struct _RECTL *a3)
 {
-  unsigned int v3; // esi
-  int v7; // ebp
-  __int64 result; // rax
-  Gre::Base *v9; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v10; // r15
-  Gre::Base *v11; // rcx
-  struct DWMSPRITE *v12; // rbx
-  __int64 v13; // rdi
-  __int64 v14; // rsi
-  __int64 v15; // rax
-  __int64 v16; // r9
-  struct DWMSPRITE *v17; // [rsp+30h] [rbp-38h] BYREF
-  _BYTE v18[48]; // [rsp+38h] [rbp-30h] BYREF
-  unsigned int v19; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v3; // rdi
+  struct DwmState *result; // rax
+  int v8; // r14d
+  unsigned int v9; // ebp
+  struct DWMSPRITE *v10; // rbx
+  __int64 v11; // rsi
+  __int64 v12; // rbp
+  __int64 v13; // rax
+  __int64 v14; // rdx
+  struct DWMSPRITE *v15; // [rsp+30h] [rbp-38h] BYREF
+  _BYTE v16[48]; // [rsp+38h] [rbp-30h] BYREF
+  unsigned int v17; // [rsp+88h] [rbp+20h] BYREF
 
-  v3 = 0;
-  v19 = 0;
-  v7 = 0;
-  result = IsDwmActive(a1);
-  if ( (_DWORD)result )
+  v3 = 0LL;
+  v17 = 0;
+  result = g_pDwmState;
+  v8 = 0;
+  v9 = 0;
+  if ( g_pDwmState )
   {
-    v10 = Gre::Base::Globals(v9);
-    GreAcquireSemaphoreSharedInternal(*((_QWORD *)v10 + 9));
-    EtwTraceGreLockAcquireSemaphoreShared(L"GreBaseGlobals.hsemDwmState", *((_QWORD *)v10 + 9));
-    if ( IsDwmActive(v11) )
+    GreAcquireSemaphoreSharedInternal(ghsemDwmState);
+    EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDwmState", ghsemDwmState);
+    DWMALTSPRITEREF::DWMALTSPRITEREF((DWMALTSPRITEREF *)&v15, a1);
+    v10 = v15;
+    if ( v15 )
     {
-      DWMALTSPRITEREF::DWMALTSPRITEREF((DWMALTSPRITEREF *)&v17, (HWND)a1);
-      v12 = v17;
-      if ( v17 )
+      PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v16, (struct DWMSPRITE *)((char *)v15 + 88));
+      v11 = *((_QWORD *)v10 + 21);
+      PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v15, (struct _EX_PUSH_LOCK *)(v11 + 256));
+      if ( (unsigned int)SFMLOGICALSURFACE::bDeviceBitmap((SFMLOGICALSURFACE *)v11) )
       {
-        PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v18, (struct DWMSPRITE *)((char *)v17 + 88));
-        v13 = *((_QWORD *)v12 + 18);
-        PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v17, (struct _EX_PUSH_LOCK *)(v13 + 256));
-        if ( (unsigned int)SFMLOGICALSURFACE::bDeviceBitmap((SFMLOGICALSURFACE *)v13) )
+        v8 = 1;
+        if ( a2 )
         {
-          v7 = 1;
-          if ( a2 )
+          v12 = a2;
+          do
           {
-            v14 = a2;
-            do
-            {
-              vSpUpdateDirtyRgn(v12, (struct SFMLOGICALSURFACE *)v13, 0LL, a3++, &v19, 0);
-              --v14;
-            }
-            while ( v14 );
-            v3 = v19;
+            vSpUpdateDirtyRgn(v10, (struct SFMLOGICALSURFACE *)v11, 0LL, a3++, &v17, 0);
+            --v12;
           }
+          while ( v12 );
+          v9 = v17;
         }
-        PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v17);
-        if ( v7 )
-        {
-          v15 = *(_QWORD *)(v13 + 184);
-          if ( v15 )
-            v16 = *(_QWORD *)(v15 + 8);
-          else
-            v16 = 0LL;
-          bSpDwmNotifyDirty(*(_QWORD *)v12, (struct SFMLOGICALSURFACE *)v13, v3, v16);
-        }
-        PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v18);
-        if ( v12 )
-          DEC_SHARE_REF_CNT(v12);
       }
+      PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v15);
+      if ( v8 )
+      {
+        v13 = *(_QWORD *)(v11 + 184);
+        if ( v13 )
+          v3 = *(_QWORD *)(v13 + 8);
+        bSpDwmNotifyDirty(*(HSPRITE *)v10, (struct SFMLOGICALSURFACE *)v11, v9, v3);
+      }
+      PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v16);
+      DEC_SHARE_REF_CNT(v10, v14);
     }
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDwmState");
-    return GreReleaseSemaphoreInternal(*((_QWORD *)v10 + 9));
+    EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
+    return (struct DwmState *)GreReleaseSemaphoreInternal(ghsemDwmState);
   }
   return result;
 }

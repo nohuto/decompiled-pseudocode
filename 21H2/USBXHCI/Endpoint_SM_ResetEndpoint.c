@@ -1,15 +1,15 @@
 /*
- * XREFs of Endpoint_SM_ResetEndpoint @ 0x1C0039E54
+ * XREFs of Endpoint_SM_ResetEndpoint @ 0x1C0039AA4
  * Callers:
- *     ESM_ResettingEndpoint @ 0x1C004F980 (ESM_ResettingEndpoint.c)
+ *     ESM_ResettingEndpoint @ 0x1C004EE30 (ESM_ResettingEndpoint.c)
  * Callees:
- *     Command_SendCommand @ 0x1C0003D94 (Command_SendCommand.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0019CC0 (memset.c)
+ *     Command_SendCommand @ 0x1C0006C80 (Command_SendCommand.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
-__int64 __fastcall Endpoint_SM_ResetEndpoint(__int64 a1)
+char __fastcall Endpoint_SM_ResetEndpoint(__int64 a1)
 {
   __int64 v1; // rdx
   __int64 v3; // rbp
@@ -35,7 +35,7 @@ __int64 __fastcall Endpoint_SM_ResetEndpoint(__int64 a1)
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          *(_QWORD *)(a1 + 272),
-         off_1C0061090);
+         off_1C0060090);
   v5 = *(_QWORD *)(*(_QWORD *)a1 + 144LL);
   memset((void *)(v4 + 16), 0, 0x60uLL);
   v6 = *(_DWORD *)(v4 + 52);

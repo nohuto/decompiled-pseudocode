@@ -1,11 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CCompositionMipmapSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0237400
+ * XREFs of ?SetBufferProperty@CCompositionMipmapSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F71A0
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C0029550 (Win32AllocPoolWithQuotaZInit.c)
  */
 
 __int64 __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::SetBufferProperty(
@@ -18,19 +16,14 @@ __int64 __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::SetBuf
 {
   unsigned int v7; // ebx
   int v8; // r8d
-  unsigned int v9; // r15d
-  unsigned int v10; // r14d
-  unsigned __int64 v11; // r13
-  unsigned int v12; // eax
-  unsigned __int64 v13; // rcx
-  PVOID v14; // rbp
-  __int64 v15; // rax
-  __int64 Pool2; // rsi
-  char v17; // r12
-  __int64 v19; // rax
-  unsigned int v20; // [rsp+20h] [rbp-D8h]
-  PVOID BackTrace[20]; // [rsp+30h] [rbp-C8h] BYREF
-  unsigned int v22; // [rsp+110h] [rbp+18h]
+  unsigned int v9; // ebp
+  unsigned int v10; // esi
+  unsigned int v11; // r12d
+  unsigned int v12; // r13d
+  unsigned __int64 v13; // r14
+  unsigned int v14; // eax
+  void *v15; // rax
+  __int64 v17; // rax
 
   v7 = 0;
   *a6 = 0;
@@ -39,13 +32,13 @@ __int64 __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::SetBuf
   {
     if ( a5 == 16 )
     {
-      v19 = *((unsigned int *)this + 18);
-      if ( (unsigned int)v19 < *((_DWORD *)this + 21) )
+      v17 = *((unsigned int *)this + 16);
+      if ( (unsigned int)v17 < *((_DWORD *)this + 19) )
       {
         *((_DWORD *)this + 4) |= 0x40u;
-        *(_OWORD *)(*((_QWORD *)this + 8) + 24 * v19 + 8) = *(_OWORD *)a4;
+        *(_OWORD *)(*((_QWORD *)this + 7) + 24 * v17 + 8) = *(_OWORD *)a4;
         *a6 = 1;
-        *((_DWORD *)this + 24) |= 1 << *((_BYTE *)this + 72);
+        *((_DWORD *)this + 22) |= 1 << *((_BYTE *)this + 64);
         return v7;
       }
     }
@@ -57,89 +50,52 @@ __int64 __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::SetBuf
     return (unsigned int)-1073741811;
   v9 = *a4;
   v10 = a4[1];
-  v20 = a4[3];
-  v22 = a4[4];
+  v11 = a4[3];
+  v12 = a4[4];
   if ( !*a4 )
     return (unsigned int)-1073741811;
   if ( !v10 )
     return (unsigned int)-1073741811;
-  v11 = a4[2];
-  if ( (unsigned int)(v11 - 1) > 0xE )
+  v13 = a4[2];
+  if ( (unsigned int)(v13 - 1) > 0xE )
     return (unsigned int)-1073741811;
-  v12 = *a4;
+  v14 = *a4;
   if ( v9 <= v10 )
-    v12 = a4[1];
-  if ( v12 < 1 << (v11 - 1) )
+    v14 = a4[1];
+  if ( v14 < 1 << (v13 - 1) )
     return (unsigned int)-1073741811;
-  if ( *((_DWORD *)this + 19)
-    || *((_DWORD *)this + 20)
+  if ( *((_DWORD *)this + 17)
+    || *((_DWORD *)this + 18)
+    || *((_DWORD *)this + 19)
     || *((_DWORD *)this + 21)
-    || *((_DWORD *)this + 23)
-    || *((_DWORD *)this + 22)
-    || *((_QWORD *)this + 8) )
+    || *((_DWORD *)this + 20)
+    || *((_QWORD *)this + 7) )
   {
     return 3221225485LL;
   }
-  v13 = 24 * v11;
-  if ( !is_mul_ok(v11, 0x18uLL) )
-    return (unsigned int)-1073741675;
-  v14 = gpLeakTrackingAllocator;
-  if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x6D6D4344) != 0x6D6D4344
-    || (v15 = 0LL, !*((_DWORD *)gpLeakTrackingAllocator + 11)) )
+  if ( is_mul_ok(v13, 0x18uLL) )
   {
-LABEL_21:
-    Pool2 = ExAllocatePool2(261LL, 24 * v11);
-    goto LABEL_22;
-  }
-  while ( *((_DWORD *)gpLeakTrackingAllocator + v15) != 1835877188 )
-  {
-    if ( ++v15 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-      goto LABEL_21;
-  }
-  v17 = 0;
-  if ( v13 < 0x1000 || (v13 & 0xFFF) != 0 )
-  {
-    v17 = 1;
-    v13 += 16LL;
-  }
-  Pool2 = ExAllocatePool2(261LL, v13);
-  if ( !Pool2 )
-    return (unsigned int)-1073741801;
-  memset(BackTrace, 0, sizeof(BackTrace));
-  RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-  if ( !v17 || (unsigned __int64)(Pool2 & 0xFFF) + 16 >= 0x1000 )
-  {
-    if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-           (__int64)v14,
-           Pool2,
-           (struct NSInstrumentation::CBackTrace *)BackTrace) )
+    v15 = Win32AllocPoolWithQuotaZInit(24LL * a4[2], 0x6D6D4344u);
+    if ( v15 )
     {
-      goto LABEL_34;
+      *((_DWORD *)this + 22) = 0;
+      *((_DWORD *)this + 17) = v9;
+      *((_DWORD *)this + 18) = v10;
+      *((_DWORD *)this + 19) = v13;
+      *((_DWORD *)this + 21) = v12;
+      *((_DWORD *)this + 20) = v11;
+      *((_QWORD *)this + 7) = v15;
+      *a6 = 1;
+      *((_DWORD *)this + 4) |= 0x20u;
     }
-LABEL_33:
-    ExFreePoolWithTag((PVOID)Pool2, 0);
-    return (unsigned int)-1073741801;
+    else
+    {
+      return (unsigned int)-1073741801;
+    }
   }
-  if ( !NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-          (__int64)v14,
-          (const void *)Pool2,
-          (struct NSInstrumentation::CBackTrace *)BackTrace) )
-    goto LABEL_33;
-  Pool2 += 16LL;
-LABEL_22:
-  if ( Pool2 )
+  else
   {
-LABEL_34:
-    *((_DWORD *)this + 24) = 0;
-    *((_DWORD *)this + 23) = v22;
-    *((_DWORD *)this + 22) = v20;
-    *((_DWORD *)this + 19) = v9;
-    *((_DWORD *)this + 20) = v10;
-    *((_DWORD *)this + 21) = v11;
-    *((_QWORD *)this + 8) = Pool2;
-    *a6 = 1;
-    *((_DWORD *)this + 4) |= 0x20u;
-    return v7;
+    return (unsigned int)-1073741675;
   }
-  return (unsigned int)-1073741801;
+  return v7;
 }

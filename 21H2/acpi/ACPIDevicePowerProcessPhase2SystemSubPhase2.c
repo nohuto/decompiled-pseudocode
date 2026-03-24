@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIDevicePowerProcessPhase2SystemSubPhase2 @ 0x1C0050680
+ * XREFs of ACPIDevicePowerProcessPhase2SystemSubPhase2 @ 0x1C0051320
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDeviceCompleteGenericPhase @ 0x1C000EB80 (ACPIDeviceCompleteGenericPhase.c)
- *     WPP_RECORDER_SF_qd @ 0x1C0051AC8 (WPP_RECORDER_SF_qd.c)
- *     LinkNodeRestoreHardwareState @ 0x1C006C22C (LinkNodeRestoreHardwareState.c)
+ *     ACPIDeviceCompleteGenericPhase @ 0x1C001FEE0 (ACPIDeviceCompleteGenericPhase.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00525D8 (WPP_RECORDER_SF_qd.c)
+ *     LinkNodeRestoreHardwareState @ 0x1C006BF7C (LinkNodeRestoreHardwareState.c)
  */
 
 __int64 __fastcall ACPIDevicePowerProcessPhase2SystemSubPhase2(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall ACPIDevicePowerProcessPhase2SystemSubPhase2(__int64 a1)
       4,
       10,
       64,
-      (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       a1,
       5);
   if ( *(_DWORD *)(a1 + 104) != 1 || (v2 = LinkNodeRestoreHardwareState(v3, a1), result = 259LL, v2 != 259) )

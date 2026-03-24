@@ -1,106 +1,109 @@
 /*
- * XREFs of HvUnCOWReconciledPages @ 0x14020B270
+ * XREFs of HvUnCOWReconciledPages @ 0x140362560
  * Callers:
- *     CmpFlushHive @ 0x1406885A4 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
  * Callees:
- *     RtlMergeBitMaps @ 0x14020AF90 (RtlMergeBitMaps.c)
- *     HvpViewMapUnCOWAndSealRange @ 0x14068DCD4 (HvpViewMapUnCOWAndSealRange.c)
+ *     RtlMergeBitMaps @ 0x1403629A8 (RtlMergeBitMaps.c)
+ *     HvpViewMapUnCOWAndSealRange @ 0x140723AF8 (HvpViewMapUnCOWAndSealRange.c)
  */
 
 void __fastcall HvUnCOWReconciledPages(__int64 a1)
 {
   unsigned int *v2; // rsi
-  unsigned int v3; // ecx
-  __int64 v4; // rax
-  __int64 v5; // r9
-  int v6; // edx
-  struct _KTHREAD *v7; // rcx
-  unsigned __int64 v8; // r9
-  _DWORD *v9; // rdx
-  unsigned int v10; // edi
-  _DWORD *v11; // r8
-  int v12; // ebx
+  unsigned int v3; // edx
+  __int64 v4; // r10
+  int *v5; // r9
+  int v6; // r8d
+  int v7; // r8d
+  struct _KTHREAD *v8; // r10
+  unsigned __int64 v9; // r9
+  _DWORD *v10; // rdx
+  unsigned int v11; // edi
+  _DWORD *v12; // r8
+  int v13; // ebx
   unsigned int i; // eax
-  unsigned int v14; // r8d
-  __int64 v15; // rdx
-  unsigned int v16; // r10d
-  __int64 v17; // rdx
-  _DWORD *v18; // r8
-  int v19; // edx
+  unsigned int v15; // r8d
+  __int64 v16; // rdx
+  unsigned int v17; // r10d
+  __int64 v18; // rdx
+  _DWORD *v19; // r8
+  int v20; // eax
+  int v21; // edx
   unsigned int j; // eax
-  _DWORD *v21; // r8
-  _DWORD *v22; // rdx
+  _DWORD *v23; // r8
+  _DWORD *v24; // rdx
 
   if ( (*(_DWORD *)(a1 + 160) & 0x20000) != 0 )
   {
-    v2 = (unsigned int *)(a1 + 1736);
-    if ( *(struct _KTHREAD **)(a1 + 4192) == KeGetCurrentThread() )
-      RtlMergeBitMaps(a1 + 1736, (unsigned int *)(a1 + 1688));
+    v2 = (unsigned int *)(a1 + 1728);
+    if ( *(struct _KTHREAD **)(a1 + 4232) == KeGetCurrentThread() )
+      RtlMergeBitMaps(a1 + 1728, a1 + 1680);
     v3 = *v2;
     v4 = 0LL;
-    if ( *v2 )
+    while ( v3 )
     {
-      while ( 1 )
+      v5 = (int *)(*((_QWORD *)v2 + 1) + 4 * v4);
+      v6 = *v5;
+      if ( v3 < 0x20 )
       {
-        v5 = *((_QWORD *)v2 + 1);
-        v6 = *(_DWORD *)(v5 + 4 * v4);
-        if ( v3 < 0x20 )
-          break;
-        *(_DWORD *)(v5 + 4 * v4) = ~v6;
-        v4 = (unsigned int)(v4 + 1);
+        v20 = 1 << v3;
+        v3 = 0;
+        v7 = (v20 - 1) ^ v6;
+      }
+      else
+      {
         v3 -= 32;
-        if ( !v3 )
-          goto LABEL_7;
+        v7 = ~v6;
       }
-      *(_DWORD *)(v5 + 4LL * (unsigned int)v4) = v6 ^ ((1 << v3) - 1);
+      *v5 = v7;
+      v4 = (unsigned int)(v4 + 1);
     }
-LABEL_7:
-    RtlMergeBitMaps((__int64)v2, (unsigned int *)(a1 + 88));
-    RtlMergeBitMaps((__int64)v2, (unsigned int *)(a1 + 112));
-    v7 = *(struct _KTHREAD **)(a1 + 4192);
-    if ( v7 && v7 != KeGetCurrentThread() )
-      RtlMergeBitMaps((__int64)v2, (unsigned int *)(a1 + 1688));
-    v8 = *v2;
-    if ( (_DWORD)v8 )
+    RtlMergeBitMaps(v2, a1 + 88);
+    RtlMergeBitMaps(v2, a1 + 112);
+    v8 = *(struct _KTHREAD **)(a1 + 4232);
+    if ( v8 && v8 != KeGetCurrentThread() )
+      RtlMergeBitMaps(v2, a1 + 1680);
+    v9 = *v2;
+    if ( (_DWORD)v9 )
     {
-      v9 = (_DWORD *)*((_QWORD *)v2 + 1);
-      v10 = 0;
-      v11 = &v9[(unsigned __int64)(unsigned int)(v8 - 1) >> 5];
-      if ( v9 != v11 && *v9 == -1 )
+      v10 = (_DWORD *)*((_QWORD *)v2 + 1);
+      v11 = 0;
+      v12 = &v10[(unsigned __int64)(unsigned int)(v9 - 1) >> 5];
+      if ( v10 != v12 && *v10 == -1 )
       {
-        v10 = 32;
-        for ( ++v9; v9 < v11 && *v9 == -1; ++v9 )
-          v10 += 32;
+        v11 = 32;
+        for ( ++v10; v10 < v12 && *v10 == -1; ++v10 )
+          v11 += 32;
       }
-      for ( ; v10 < (unsigned int)v8; ++v10 )
+      for ( ; v11 < (unsigned int)v9; ++v11 )
       {
-        if ( !_bittest(*((const signed __int32 **)v2 + 1), v10) )
+        if ( !_bittest(*((const signed __int32 **)v2 + 1), v11) )
           break;
       }
-      v12 = 0;
-      if ( v9 != v11 )
+      v13 = 0;
+      if ( v10 != v12 )
       {
-        v8 = v10 & 0x1F;
-        if ( (*v9 & ~*((_DWORD *)qword_140015FA0 + v8)) == 0 )
+        v9 = v11 & 0x1F;
+        if ( (*v10 & ~*((_DWORD *)qword_140011C70 + v9)) == 0 )
         {
-          v12 = 32 - v8;
-          if ( (_DWORD)v8 == 33 )
-            goto LABEL_25;
-          v22 = v9 + 1;
-          while ( v22 < v11 && !*v22 )
+          v13 = 32 - v9;
+          if ( (_DWORD)v9 == 33 )
+            goto LABEL_26;
+          v24 = v10 + 1;
+          while ( v24 < v12 && !*v24 )
           {
-            ++v22;
-            v12 += 32;
-            if ( v12 == -1 )
-              goto LABEL_25;
+            ++v24;
+            v13 += 32;
+            if ( v13 == -1 )
+              goto LABEL_26;
           }
         }
       }
-      for ( i = v12 + v10; i < *v2; ++v12 )
+      for ( i = v13 + v11; i < *v2; ++v13 )
       {
         if ( _bittest(*((const signed __int32 **)v2 + 1), i) )
           break;
-        if ( v12 == -1 )
+        if ( v13 == -1 )
           break;
         ++i;
       }
@@ -108,58 +111,58 @@ LABEL_7:
       {
         while ( 1 )
         {
-LABEL_25:
-          if ( !v12 )
+LABEL_26:
+          if ( !v13 )
             return;
-          v14 = ((v10 << 9) + (v12 << 9)) & 0xFFFFF000;
-          v15 = ((v10 << 9) + 4095) & 0xFFFFF000;
-          if ( (_DWORD)v15 != v14 )
-            HvpViewMapUnCOWAndSealRange(a1 + 224, v15, v14 - (unsigned int)v15, v8);
-          v16 = *v2;
-          v10 += v12;
-          if ( *v2 <= v10 )
+          v15 = ((v11 << 9) + (v13 << 9)) & 0xFFFFF000;
+          v16 = ((v11 << 9) + 4095) & 0xFFFFF000;
+          if ( (_DWORD)v16 != v15 )
+            HvpViewMapUnCOWAndSealRange(a1 + 216, v16, v15 - (unsigned int)v16, v9);
+          v17 = *v2;
+          v11 += v13;
+          if ( *v2 <= v11 )
             return;
-          v17 = *((_QWORD *)v2 + 1);
-          v8 = v17 + 4 * ((unsigned __int64)(v16 - 1) >> 5);
-          v18 = (_DWORD *)(v17 + 4 * ((unsigned __int64)v10 >> 5));
-          if ( v18 != (_DWORD *)v8 && (*v18 | *((_DWORD *)qword_140015FA0 + (v10 & 0x1F))) == -1 )
+          v18 = *((_QWORD *)v2 + 1);
+          v9 = v18 + 4 * ((unsigned __int64)(v17 - 1) >> 5);
+          v19 = (_DWORD *)(v18 + 4 * ((unsigned __int64)v11 >> 5));
+          if ( v19 != (_DWORD *)v9 && (*v19 | *((_DWORD *)qword_140011C70 + (v11 & 0x1F))) == -1 )
           {
-            v10 = v10 - (v10 & 0x1F) + 32;
-            for ( ++v18; (unsigned __int64)v18 < v8 && *v18 == -1; ++v18 )
-              v10 += 32;
+            v11 = v11 - (v11 & 0x1F) + 32;
+            for ( ++v19; (unsigned __int64)v19 < v9 && *v19 == -1; ++v19 )
+              v11 += 32;
           }
-          for ( ; v10 < v16; ++v10 )
+          for ( ; v11 < v17; ++v11 )
           {
-            if ( !_bittest(*((const signed __int32 **)v2 + 1), v10) )
+            if ( !_bittest(*((const signed __int32 **)v2 + 1), v11) )
               break;
           }
-          v12 = 0;
-          if ( v18 != (_DWORD *)v8 )
+          v13 = 0;
+          if ( v19 != (_DWORD *)v9 )
           {
-            v19 = v10 & 0x1F;
-            if ( (*v18 & ~*((_DWORD *)qword_140015FA0 + (v10 & 0x1F))) == 0 )
+            v21 = v11 & 0x1F;
+            if ( (*v19 & ~*((_DWORD *)qword_140011C70 + (v11 & 0x1F))) == 0 )
               break;
           }
 LABEL_42:
-          for ( j = v12 + v10; j < *v2; ++v12 )
+          for ( j = v13 + v11; j < *v2; ++v13 )
           {
             if ( _bittest(*((const signed __int32 **)v2 + 1), j) )
               break;
-            if ( v12 == -1 )
+            if ( v13 == -1 )
               break;
             ++j;
           }
         }
-        v12 = 32 - v19;
-        if ( v19 != 33 )
+        v13 = 32 - v21;
+        if ( v21 != 33 )
         {
-          v21 = v18 + 1;
-          while ( (unsigned __int64)v21 < v8 && !*v21 )
+          v23 = v19 + 1;
+          while ( (unsigned __int64)v23 < v9 && !*v23 )
           {
-            ++v21;
-            v12 += 32;
-            if ( v12 == -1 )
-              goto LABEL_25;
+            ++v23;
+            v13 += 32;
+            if ( v13 == -1 )
+              goto LABEL_26;
           }
           goto LABEL_42;
         }

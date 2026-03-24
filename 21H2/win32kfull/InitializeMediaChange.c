@@ -1,9 +1,9 @@
 /*
- * XREFs of InitializeMediaChange @ 0x1C011E970
+ * XREFs of InitializeMediaChange @ 0x1C01338C0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall InitializeMediaChange(HANDLE Handle)
@@ -52,16 +52,16 @@ __int64 __fastcall InitializeMediaChange(HANDLE Handle)
   }
   else
   {
-    qword_1C03364B0 = (__int64)&gCDROMNotifyList;
+    qword_1C033B260 = (__int64)&gCDROMNotifyList;
     gCDROMNotifyList.Flink = &gCDROMNotifyList;
     Object = 0LL;
-    qword_1C03364A0 = (__int64)&gMediaChangeList;
+    qword_1C033B270 = (__int64)&gMediaChangeList;
     gMediaChangeList.Flink = &gMediaChangeList;
     v2 = ObReferenceObjectByHandle(Handle, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 0, &Object, 0LL);
     gpEventMediaChange = Object;
     if ( v2 >= 0 )
     {
-      v3 = (struct _FAST_MUTEX *)Win32AllocPoolNonPagedZInit(56LL, 1886417749LL);
+      v3 = (struct _FAST_MUTEX *)Win32AllocPoolNonPaged(56LL, 1886417749LL);
       gMediaChangeMutex = v3;
       if ( v3 )
       {

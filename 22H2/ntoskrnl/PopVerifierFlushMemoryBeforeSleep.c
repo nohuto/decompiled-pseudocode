@@ -1,10 +1,10 @@
 /*
- * XREFs of PopVerifierFlushMemoryBeforeSleep @ 0x140AA78F4
+ * XREFs of PopVerifierFlushMemoryBeforeSleep @ 0x140999190
  * Callers:
- *     PoBroadcastSystemState @ 0x140AA6B28 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140992AC4 (PoBroadcastSystemState.c)
  * Callees:
- *     MmPerformMemoryListCommand @ 0x140A884BC (MmPerformMemoryListCommand.c)
- *     MmIsVerifierEnabled @ 0x140ABE2C0 (MmIsVerifierEnabled.c)
+ *     MmPerformMemoryListCommand @ 0x14099AB3C (MmPerformMemoryListCommand.c)
+ *     MmIsVerifierEnabled @ 0x1409C2610 (MmIsVerifierEnabled.c)
  */
 
 __int64 PopVerifierFlushMemoryBeforeSleep()
@@ -15,19 +15,21 @@ __int64 PopVerifierFlushMemoryBeforeSleep()
 
   VerifierFlags = 0;
   MmIsVerifierEnabled(&VerifierFlags);
-  result = (unsigned int)PopSimulate;
-  if ( (PopSimulate & 0x80u) != 0 || (VerifierFlags & 2) != 0 )
+  result = (VerifierFlags & 2) != 0;
+  if ( (PopSimulate & 0x80u) != 0 )
+    result = 1LL;
+  if ( (_BYTE)result )
   {
     v1 = 2LL;
     do
     {
-      MmPerformMemoryListCommand();
-      MmPerformMemoryListCommand();
-      MmPerformMemoryListCommand();
+      MmPerformMemoryListCommand(2LL);
+      MmPerformMemoryListCommand(3LL);
+      MmPerformMemoryListCommand(3LL);
       --v1;
     }
     while ( v1 );
-    return MmPerformMemoryListCommand();
+    return MmPerformMemoryListCommand(4LL);
   }
   return result;
 }

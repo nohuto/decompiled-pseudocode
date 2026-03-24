@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitData@CSaturationEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0217114
+ * XREFs of ?EmitData@CSaturationEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E0F64
  * Callers:
- *     ?EmitUpdateCommands@CSaturationEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0217180 (-EmitUpdateCommands@CSaturationEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CSaturationEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E0FD0 (-EmitUpdateCommands@CSaturationEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CSaturationEffectMarshaler::EmitData(
@@ -20,8 +20,8 @@ char __fastcall DirectComposition::CSaturationEffectMarshaler::EmitData(
   *(_DWORD *)v5 = 16;
   *(_QWORD *)(v3 + 4) = 0LL;
   *((_DWORD *)v3 + 3) = 0;
-  *((_DWORD *)v3 + 1) = 492;
-  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-  *((_DWORD *)v3 + 3) = *((_DWORD *)this + 30);
+  *((_DWORD *)v3 + 1) = 497;
+  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+  *((_DWORD *)v3 + 3) = *((_DWORD *)this + 28);
   return 1;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetVirtualAddressOfPageTable@CVirtualAddressAllocator@@QEBA_KI_KE@Z @ 0x1C00A8238
+ * XREFs of ?GetVirtualAddressOfPageTable@CVirtualAddressAllocator@@QEBA_KI_KE@Z @ 0x1C008C618
  * Callers:
- *     ?MemoryTransferUsingGpuVaWorker@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMENT@@1PEAU_MDL@@2131U_DXGK_TRANSFERFLAGS@@1@Z @ 0x1C00A7C8C (-MemoryTransferUsingGpuVaWorker@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMEN.c)
+ *     ?MemoryTransferUsingGpuVaWorker@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMENT@@1PEAU_MDL@@2131U_DXGK_TRANSFERFLAGS@@1@Z @ 0x1C008C090 (-MemoryTransferUsingGpuVaWorker@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMEN.c)
  * Callees:
- *     ?GetNumPde@CVirtualAddressAllocator@@QEBAIPEAVVIDMM_PAGE_DIRECTORY@@@Z @ 0x1C0014CA4 (-GetNumPde@CVirtualAddressAllocator@@QEBAIPEAVVIDMM_PAGE_DIRECTORY@@@Z.c)
- *     ?IsResident@VIDMM_PAGE_TABLE_BASE@@QEBAEXZ @ 0x1C0014DA8 (-IsResident@VIDMM_PAGE_TABLE_BASE@@QEBAEXZ.c)
- *     ?GetGpuVirtualAddress@VIDMM_ALLOC@@QEAA_KI@Z @ 0x1C00A5CA8 (-GetGpuVirtualAddress@VIDMM_ALLOC@@QEAA_KI@Z.c)
+ *     ?GetNumPde@CVirtualAddressAllocator@@QEBAIPEAVVIDMM_PAGE_DIRECTORY@@@Z @ 0x1C0014874 (-GetNumPde@CVirtualAddressAllocator@@QEBAIPEAVVIDMM_PAGE_DIRECTORY@@@Z.c)
+ *     ?IsResident@VIDMM_PAGE_TABLE_BASE@@QEBAEXZ @ 0x1C00148E0 (-IsResident@VIDMM_PAGE_TABLE_BASE@@QEBAEXZ.c)
+ *     ?GetGpuVirtualAddress@VIDMM_ALLOC@@QEAA_KI@Z @ 0x1C0089594 (-GetGpuVirtualAddress@VIDMM_ALLOC@@QEAA_KI@Z.c)
  */
 
 __int64 __fastcall CVirtualAddressAllocator::GetVirtualAddressOfPageTable(
@@ -26,7 +26,7 @@ __int64 __fastcall CVirtualAddressAllocator::GetVirtualAddressOfPageTable(
   unsigned int NumPde; // eax
   __int64 v17; // r10
 
-  v6 = *(_QWORD *)(*((_QWORD *)this + 11) + 40224LL) + 1584LL * a2;
+  v6 = *(_QWORD *)(*((_QWORD *)this + 11) + 40216LL) + 1584LL * a2;
   v7 = a3 >> 12;
   v8 = *(_QWORD *)(32LL * a2 + *((_QWORD *)this + 15));
   if ( *(int *)(v6 + 428) <= 0 )

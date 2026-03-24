@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Store@MaterialProperty@@QEAAJPEBUResourceObject@DirectComposition@@@Z @ 0x1C0057B44
+ * XREFs of ?Store@MaterialProperty@@QEAAJPEBUResourceObject@DirectComposition@@@Z @ 0x1C009D404
  * Callers:
- *     NtDCompositionSetMaterialProperty @ 0x1C0057A50 (NtDCompositionSetMaterialProperty.c)
+ *     NtDCompositionSetMaterialProperty @ 0x1C009D310 (NtDCompositionSetMaterialProperty.c)
  * Callees:
  *     <none>
  */

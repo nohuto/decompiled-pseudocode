@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueryTimeZoneKeyNameRoutine @ 0x140863150
+ * XREFs of RtlpQueryTimeZoneKeyNameRoutine @ 0x1407D1ED0
  * Callers:
  *     <none>
  * Callees:
- *     wcsnlen @ 0x1403DB480 (wcsnlen.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     wcsnlen @ 0x1403D39D0 (wcsnlen.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall RtlpQueryTimeZoneKeyNameRoutine(

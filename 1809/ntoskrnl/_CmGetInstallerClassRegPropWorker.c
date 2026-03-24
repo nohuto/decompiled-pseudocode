@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmGetInstallerClassRegPropWorker @ 0x1406F13C8
+ * XREFs of _CmGetInstallerClassRegPropWorker @ 0x1406F13A8
  * Callers:
- *     _CmGetInstallerClassRegProp @ 0x1406F1254 (_CmGetInstallerClassRegProp.c)
+ *     _CmGetInstallerClassRegProp @ 0x1406F1234 (_CmGetInstallerClassRegProp.c)
  * Callees:
- *     _MapCmClassPropertyToRegValue @ 0x14015B58C (_MapCmClassPropertyToRegValue.c)
- *     _CmClassPropertyRead @ 0x14015B5FC (_CmClassPropertyRead.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     _MapCmClassPropertyToRegValue @ 0x14015B5AC (_MapCmClassPropertyToRegValue.c)
+ *     _CmClassPropertyRead @ 0x14015B61C (_CmClassPropertyRead.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     _PnpOpenPropertiesKey @ 0x14059AA2C (_PnpOpenPropertiesKey.c)
  *     _CmOpenInstallerClassRegKey @ 0x14059EB8C (_CmOpenInstallerClassRegKey.c)
  *     _PnpCtxRegQueryValueIndirect @ 0x1405C6E94 (_PnpCtxRegQueryValueIndirect.c)

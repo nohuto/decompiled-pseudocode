@@ -1,7 +1,7 @@
 /*
- * XREFs of RIMApplyDisplayOrientationToPointerProps @ 0x1C018F2E4
+ * XREFs of RIMApplyDisplayOrientationToPointerProps @ 0x1C01640A0
  * Callers:
- *     RIMApplyTransforms @ 0x1C018F430 (RIMApplyTransforms.c)
+ *     RIMApplyTransforms @ 0x1C01642B8 (RIMApplyTransforms.c)
  * Callees:
  *     <none>
  */

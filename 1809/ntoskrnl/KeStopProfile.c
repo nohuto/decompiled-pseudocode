@@ -1,15 +1,15 @@
 /*
- * XREFs of KeStopProfile @ 0x140295C40
+ * XREFs of KeStopProfile @ 0x140295D40
  * Callers:
- *     EtwpDisableKernelTrace @ 0x1406C5A4C (EtwpDisableKernelTrace.c)
- *     EtwpCoverageSamplerStop @ 0x1408C8E50 (EtwpCoverageSamplerStop.c)
- *     ExpProfileDelete @ 0x1408DA0C0 (ExpProfileDelete.c)
- *     NtStopProfile @ 0x1408DA660 (NtStopProfile.c)
+ *     EtwpDisableKernelTrace @ 0x1406C5A2C (EtwpDisableKernelTrace.c)
+ *     EtwpCoverageSamplerStop @ 0x1408C8E30 (EtwpCoverageSamplerStop.c)
+ *     ExpProfileDelete @ 0x1408DA0A0 (ExpProfileDelete.c)
+ *     NtStopProfile @ 0x1408DA640 (NtStopProfile.c)
  * Callees:
- *     KeIpiGenericCall @ 0x140175910 (KeIpiGenericCall.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     KiStopProfileTarget @ 0x140296220 (KiStopProfileTarget.c)
+ *     KeIpiGenericCall @ 0x140175930 (KeIpiGenericCall.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     KiStopProfileTarget @ 0x140296320 (KiStopProfileTarget.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

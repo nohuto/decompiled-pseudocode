@@ -1,9 +1,9 @@
 /*
- * XREFs of Controller_RemoveControllerFromGlobalControllerList @ 0x1C0032A64
+ * XREFs of Controller_RemoveControllerFromGlobalControllerList @ 0x1C00329E4
  * Callers:
- *     Controller_WdfEvtCleanupCallback @ 0x1C0034C30 (Controller_WdfEvtCleanupCallback.c)
+ *     Controller_WdfEvtCleanupCallback @ 0x1C00349C0 (Controller_WdfEvtCleanupCallback.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Controller_RemoveControllerFromGlobalControllerList(_QWORD *a1)
@@ -32,7 +32,7 @@ __int64 __fastcall Controller_RemoveControllerFromGlobalControllerList(_QWORD *a
              WdfDriverGlobals,
              a1[1],
              Controller_AddControllerToGlobalControllerList,
-             7524LL,
+             7504LL,
              "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\controller.c");
   }
   return result;

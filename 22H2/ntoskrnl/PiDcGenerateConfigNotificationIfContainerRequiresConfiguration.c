@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x14081515C
+ * XREFs of PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x140772660
  * Callers:
- *     PiDcHandleContainerEvent @ 0x1407AA7E4 (PiDcHandleContainerEvent.c)
- *     PiDcInit @ 0x140B42CC0 (PiDcInit.c)
+ *     PiDcHandleContainerEvent @ 0x14075B204 (PiDcHandleContainerEvent.c)
+ *     PiDcInit @ 0x140A53024 (PiDcInit.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x14079708C (_PnpSetObjectProperty.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x1407420C4 (_PnpSetObjectProperty.c)
  */
 
 __int64 __fastcall PiDcGenerateConfigNotificationIfContainerRequiresConfiguration(__int64 a1)
@@ -52,30 +52,31 @@ __int64 __fastcall PiDcGenerateConfigNotificationIfContainerRequiresConfiguratio
     if ( v3 >= 0 )
     {
       if ( v7 != 7 )
-        goto LABEL_11;
+        goto LABEL_10;
       if ( !v5[0] )
         return (unsigned int)ObjectProperty;
-      if ( v7 != 7 )
-        goto LABEL_11;
     }
-    if ( v3 == -1073741275 )
+    if ( v3 != -1073741275 )
     {
-LABEL_11:
-      ObjectProperty = PnpSetObjectProperty(
-                         *(__int64 *)&PiPnpRtlCtx,
-                         a1,
-                         5u,
-                         0LL,
-                         0LL,
-                         (__int64)&DEVPKEY_DeviceContainer_ConfigFlags,
-                         7,
-                         (__int64)&unconfiguredConfigFlags,
-                         4u,
-                         0);
-      if ( ObjectProperty < 0 )
-        return (unsigned int)ObjectProperty;
+LABEL_9:
+      ZwUpdateWnfStateData((__int64)&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL);
+      return (unsigned int)ObjectProperty;
     }
-    ZwUpdateWnfStateData((__int64)&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL);
+LABEL_10:
+    ObjectProperty = PnpSetObjectProperty(
+                       *(__int64 *)&PiPnpRtlCtx,
+                       a1,
+                       5u,
+                       0LL,
+                       0LL,
+                       (__int64)&DEVPKEY_DeviceContainer_ConfigFlags,
+                       7,
+                       (__int64)&unconfiguredConfigFlags,
+                       4u,
+                       0);
+    if ( ObjectProperty < 0 )
+      return (unsigned int)ObjectProperty;
+    goto LABEL_9;
   }
   return (unsigned int)ObjectProperty;
 }

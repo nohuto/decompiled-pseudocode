@@ -1,15 +1,18 @@
 /*
- * XREFs of PnpDisableWatchdog @ 0x14074D6EC
+ * XREFs of PnpDisableWatchdog @ 0x1406774E0
  * Callers:
- *     PnpDeviceCompletionRequestDestroyWorkItem @ 0x1402D3290 (PnpDeviceCompletionRequestDestroyWorkItem.c)
- *     PnpDeviceEventWorker @ 0x1407D5E30 (PnpDeviceEventWorker.c)
+ *     PnpDeviceCompletionRequestDestroyWorkItem @ 0x14037E000 (PnpDeviceCompletionRequestDestroyWorkItem.c)
+ *     PnpDeviceEventWorker @ 0x1406E78D0 (PnpDeviceEventWorker.c)
+ *     PnpDelayedRemoveWorker @ 0x140735EC0 (PnpDelayedRemoveWorker.c)
+ *     PnpCallAddDevice @ 0x14073E92C (PnpCallAddDevice.c)
+ *     PnpProcessCompletedEject @ 0x1408A24B0 (PnpProcessCompletedEject.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     PnpFreeWatchdog @ 0x1402D3C18 (PnpFreeWatchdog.c)
- *     ExDeleteTimer @ 0x1402D3D40 (ExDeleteTimer.c)
- *     PnpRecordBlackbox @ 0x14074ED04 (PnpRecordBlackbox.c)
- *     PnpWatchdogEtwWrite @ 0x140950084 (PnpWatchdogEtwWrite.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PnpFreeWatchdog @ 0x14027F8C4 (PnpFreeWatchdog.c)
+ *     ExDeleteTimer @ 0x14027F910 (ExDeleteTimer.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     PnpRecordBlackbox @ 0x1406775B0 (PnpRecordBlackbox.c)
+ *     PnpWatchdogEtwWrite @ 0x1408AB894 (PnpWatchdogEtwWrite.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpDisableWatchdog(__int64 a1)

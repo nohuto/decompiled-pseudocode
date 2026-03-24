@@ -1,20 +1,20 @@
 /*
- * XREFs of GreUpdateSprite @ 0x1C00D5F08
+ * XREFs of GreUpdateSprite @ 0x1C00BE800
  * Callers:
- *     UpdateSprite @ 0x1C00D5D64 (UpdateSprite.c)
- *     ?GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0107D28 (-GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z.c)
- *     ?bSpDwmUpdateCursor@@YAHPEAUHSPRITE__@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_BLENDFUNCTION@@@Z @ 0x1C0133EB8 (-bSpDwmUpdateCursor@@YAHPEAUHSPRITE__@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_BLENDFUNCT.c)
- *     ?DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z @ 0x1C0134710 (-DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z.c)
- *     ?zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z @ 0x1C01BCAE4 (-zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z.c)
- *     ?SpDdCreateFullscreenSprite@@YAJPEAUHDC__@@KPEAPEAXPEAPEAU1@@Z @ 0x1C0265A70 (-SpDdCreateFullscreenSprite@@YAJPEAUHDC__@@KPEAPEAXPEAPEAU1@@Z.c)
- *     ?bSetPreviewRectContent@@YAHPEAU_SPRITESTATE@@PEBU_RECTL@@@Z @ 0x1C027D618 (-bSetPreviewRectContent@@YAHPEAU_SPRITESTATE@@PEBU_RECTL@@@Z.c)
- *     bMoveDevDragRect @ 0x1C0283DA0 (bMoveDevDragRect.c)
- *     bMoveDevPreviewRect @ 0x1C028407C (bMoveDevPreviewRect.c)
+ *     ?GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z @ 0x1C00902E0 (-GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z.c)
+ *     UpdateSprite @ 0x1C00BE6C4 (UpdateSprite.c)
+ *     ?DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z @ 0x1C00EBA74 (-DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z.c)
+ *     ?bSpDwmUpdateCursor@@YAHPEAUHSPRITE__@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_BLENDFUNCTION@@@Z @ 0x1C00EC064 (-bSpDwmUpdateCursor@@YAHPEAUHSPRITE__@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_BLENDFUNCT.c)
+ *     ?zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z @ 0x1C01E7584 (-zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z.c)
+ *     ?SpDdCreateFullscreenSprite@@YAJPEAUHDC__@@KPEAPEAXPEAPEAU1@@Z @ 0x1C026D53C (-SpDdCreateFullscreenSprite@@YAJPEAUHDC__@@KPEAPEAXPEAPEAU1@@Z.c)
+ *     ?bSetPreviewRectContent@@YAHPEAU_SPRITESTATE@@PEBU_RECTL@@@Z @ 0x1C027FAF8 (-bSetPreviewRectContent@@YAHPEAU_SPRITESTATE@@PEBU_RECTL@@@Z.c)
+ *     bMoveDevDragRect @ 0x1C0285678 (bMoveDevDragRect.c)
+ *     bMoveDevPreviewRect @ 0x1C028594C (bMoveDevPreviewRect.c)
  * Callees:
- *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HHK@Z @ 0x1C00D8400 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
+ *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HH@Z @ 0x1C00907A0 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
  */
 
-__int64 __fastcall GreUpdateSprite(
+int __fastcall GreUpdateSprite(
         HDEV a1,
         HWND a2,
         void *a3,
@@ -29,21 +29,19 @@ __int64 __fastcall GreUpdateSprite(
         struct tagRECT *a12,
         struct tagMINIWINDOWINFO *a13,
         int a14,
-        int a15,
-        unsigned int a16)
+        int a15)
 {
-  NTSTATUS v21; // eax
-  unsigned int v22; // ecx
+  NTSTATUS v20; // eax
+  int v21; // ecx
   _QWORD Parameter[11]; // [rsp+88h] [rbp-69h] BYREF
-  unsigned int v24; // [rsp+E0h] [rbp-11h]
-  unsigned int v25; // [rsp+E4h] [rbp-Dh]
-  int v26; // [rsp+E8h] [rbp-9h]
-  int v27; // [rsp+ECh] [rbp-5h]
-  unsigned int v28; // [rsp+F0h] [rbp-1h]
-  unsigned int v29; // [rsp+F4h] [rbp+3h]
+  unsigned int v23; // [rsp+E0h] [rbp-11h]
+  unsigned int v24; // [rsp+E4h] [rbp-Dh]
+  int v25; // [rsp+E8h] [rbp-9h]
+  int v26; // [rsp+ECh] [rbp-5h]
+  __int64 v27; // [rsp+F0h] [rbp-1h]
 
   if ( !(unsigned int)GreStackExpansionRequired(0x2000LL) )
-    return GreUpdateSpriteInternal(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16);
+    return GreUpdateSpriteInternal(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15);
   Parameter[4] = a5;
   Parameter[5] = a6;
   Parameter[6] = a7;
@@ -51,19 +49,18 @@ __int64 __fastcall GreUpdateSprite(
   Parameter[8] = a10;
   Parameter[9] = a12;
   Parameter[10] = a13;
-  v24 = a9;
-  v25 = a11;
-  v26 = a14;
-  v27 = a15;
-  v28 = a16;
+  v23 = a9;
+  v24 = a11;
+  v25 = a14;
+  v26 = a15;
+  v27 = 0LL;
   Parameter[0] = a1;
   Parameter[1] = a2;
   Parameter[2] = a3;
   Parameter[3] = a4;
-  v29 = 0;
-  v21 = KeExpandKernelStackAndCalloutEx(GreUpdateSpriteCallout, Parameter, 0x2000uLL, 1u, 0LL);
-  v22 = v29;
-  if ( v21 < 0 )
+  v20 = KeExpandKernelStackAndCalloutEx(GreUpdateSpriteCallout, Parameter, 0x2000uLL, 1u, 0LL);
+  v21 = v27;
+  if ( v20 < 0 )
     return 0;
-  return v22;
+  return v21;
 }

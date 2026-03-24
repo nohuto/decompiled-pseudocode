@@ -1,48 +1,35 @@
 /*
- * XREFs of RemoteDisableScreen @ 0x1C0049DF8
+ * XREFs of RemoteDisableScreen @ 0x1C01286A0
  * Callers:
- *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C006DCB0 (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
- *     xxxRemoteStopScreenUpdates @ 0x1C0130758 (xxxRemoteStopScreenUpdates.c)
+ *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C00D84E8 (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ *     xxxRemoteStopScreenUpdates @ 0x1C01284B0 (xxxRemoteStopScreenUpdates.c)
  * Callees:
- *     PopAndFreeW32ThreadLock @ 0x1C0062180 (PopAndFreeW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     xxxSwitchDesktop @ 0x1C006BB2C (xxxSwitchDesktop.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     xxxSwitchDesktop @ 0x1C0029864 (xxxSwitchDesktop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1530 (PopAndFreeW32ThreadLock.c)
  */
 
 __int64 __fastcall RemoteDisableScreen(_QWORD *a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  _QWORD *v4; // rsi
-  unsigned int v7; // ebx
-  char v8; // dl
-  void *v9; // rdi
-  __int128 v11; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v12; // [rsp+50h] [rbp-38h]
-  __int128 v13; // [rsp+58h] [rbp-30h] BYREF
-  __int64 v14; // [rsp+68h] [rbp-20h]
+  _QWORD *v4; // rbx
+  unsigned int v7; // esi
+  void *v8; // rdi
+  __int128 v10; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v11; // [rsp+40h] [rbp-38h]
+  __int128 v12; // [rsp+48h] [rbp-30h] BYREF
+  __int64 v13; // [rsp+58h] [rbp-20h]
 
   v4 = gspdeskDisconnect;
+  v10 = 0LL;
   v11 = 0LL;
   v12 = 0LL;
   v13 = 0LL;
-  v14 = 0LL;
   v7 = 0;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) == 0
-    || (v8 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    v8 = 0;
-  }
-  if ( v8 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v8,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      14,
-      4,
-      3,
-      14,
-      (__int64)&WPP_713a73a9a0bc322488e80543f5fb9642_Traceguids);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_((_DWORD)a1, 4, 9, 20, (__int64)&WPP_edddbb69987e325f9f0b7090eb098db8_Traceguids);
+  W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   if ( v4 )
   {
     if ( a1 == v4 )
@@ -51,17 +38,17 @@ __int64 __fastcall RemoteDisableScreen(_QWORD *a1, __int64 a2, __int64 a3, _DWOR
     }
     else
     {
-      v9 = (void *)v4[5];
+      v8 = (void *)v4[5];
       LockObjectAssignment(gspdeskShouldBeForeground, a1);
       *a4 = 1;
-      PushW32ThreadLock(v9, &v13, UserDereferenceObject);
-      if ( v9 )
-        ObfReferenceObject(v9);
-      PushW32ThreadLock(v4, &v11, UserDereferenceObject);
+      PushW32ThreadLock((__int64)v8, &v12, UserDereferenceObject);
+      if ( v8 )
+        ObfReferenceObject(v8);
+      PushW32ThreadLock((__int64)v4, &v10, UserDereferenceObject);
       ObfReferenceObject(v4);
-      v7 = xxxSwitchDesktop(v9, v4, 2LL, 0LL);
-      PopAndFreeW32ThreadLock(&v11);
-      PopAndFreeW32ThreadLock(&v13);
+      v7 = xxxSwitchDesktop((__int64)v8, (__int64)v4, 2);
+      PopAndFreeW32ThreadLock((__int64)&v10);
+      PopAndFreeW32ThreadLock((__int64)&v12);
     }
   }
   return v7;

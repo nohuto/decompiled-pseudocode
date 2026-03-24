@@ -1,55 +1,54 @@
 /*
- * XREFs of _GetAncestor @ 0x1C0048CF8
+ * XREFs of _GetAncestor @ 0x1C010ACE8
  * Callers:
- *     NtUserShutdownBlockReasonCreate @ 0x1C0048B40 (NtUserShutdownBlockReasonCreate.c)
- *     ?ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@@Z @ 0x1C00E28EC (-ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@@Z.c)
- *     HasMessageRootWindow @ 0x1C01F2D08 (HasMessageRootWindow.c)
+ *     NtUserShutdownBlockReasonCreate @ 0x1C010A7F0 (NtUserShutdownBlockReasonCreate.c)
+ *     ?ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@PEAPEAUtagWND@@@Z @ 0x1C010A9B8 (-ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@PEAPEAUtagWND@@@Z.c)
+ *     HasMessageRootWindow @ 0x1C0208B48 (HasMessageRootWindow.c)
  * Callees:
- *     _GetParent @ 0x1C009470C (_GetParent.c)
- *     _GetDesktopWindow @ 0x1C00ECDE0 (_GetDesktopWindow.c)
+ *     _GetDesktopWindow @ 0x1C0070420 (_GetDesktopWindow.c)
+ *     _GetParent @ 0x1C00D3424 (_GetParent.c)
  */
 
-__int64 __fastcall GetAncestor(__int64 a1, __int64 a2)
+_QWORD *__fastcall GetAncestor(__int64 a1, int a2)
 {
-  __int64 v2; // r10
+  __int64 v2; // r9
   __int64 v3; // rax
-  __int64 v4; // r8
+  _QWORD *v4; // r8
   __int64 DesktopWindow; // rax
   int v6; // edx
-  __int64 v7; // r10
-  __int64 v8; // rax
+  __int64 v7; // r9
+  _QWORD *v8; // rax
   int v9; // edx
   int v11; // edx
   __int64 v12; // rax
-  __int64 v13; // rdx
+  _QWORD *v13; // rdx
   int v14; // edx
-  __int64 v15; // rdx
-  __int64 v16; // rax
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // rax
+  __int64 v15; // rax
+  _QWORD *v16; // rdx
+  __int64 v17; // rcx
+  _QWORD *v18; // rax
   __int64 Parent; // rax
-  __int64 v21; // rcx
-  __int64 v22; // rax
+  __int64 v20; // rcx
+  _QWORD *v21; // rax
 
   v2 = *(_QWORD *)(a1 + 24);
   v3 = 0LL;
-  v4 = a1;
+  v4 = (_QWORD *)a1;
   if ( v2 )
     v3 = *(_QWORD *)(v2 + 104);
-  if ( a1 == v3 && (_DWORD)a2 == 4 )
+  if ( a1 == v3 && a2 == 4 )
     return v4;
-  DesktopWindow = GetDesktopWindow(a1, a2);
-  if ( v4 != DesktopWindow )
+  DesktopWindow = GetDesktopWindow(a1);
+  if ( v4 != (_QWORD *)DesktopWindow )
   {
     v8 = 0LL;
     if ( v7 )
-      v8 = *(_QWORD *)(v7 + 104);
-    if ( v4 != v8 && *(_QWORD *)(v4 + 104) )
+      v8 = *(_QWORD **)(v7 + 104);
+    if ( v4 != v8 && v4[13] )
     {
       v9 = v6 - 1;
       if ( !v9 )
-        return *(_QWORD *)(v4 + 104);
+        return (_QWORD *)v4[13];
       v11 = v9 - 1;
       if ( v11 )
       {
@@ -58,21 +57,18 @@ __int64 __fastcall GetAncestor(__int64 a1, __int64 a2)
         {
           if ( v14 == 1 )
           {
-            while ( 1 )
+            while ( v4[13] )
             {
-              v15 = *(_QWORD *)(v4 + 104);
-              if ( !v15 )
+              v15 = GetDesktopWindow((__int64)v4);
+              if ( v16 == (_QWORD *)v15 )
                 break;
-              v16 = GetDesktopWindow(v4, v15);
-              if ( v17 == v16 )
+              v17 = v4[3];
+              v18 = 0LL;
+              if ( v17 )
+                v18 = *(_QWORD **)(v17 + 104);
+              if ( v4 == v18 )
                 break;
-              v18 = *(_QWORD *)(v4 + 24);
-              v19 = 0LL;
-              if ( v18 )
-                v19 = *(_QWORD *)(v18 + 104);
-              if ( v4 == v19 )
-                break;
-              v4 = v17;
+              v4 = v16;
             }
           }
         }
@@ -83,7 +79,7 @@ __int64 __fastcall GetAncestor(__int64 a1, __int64 a2)
             Parent = GetParent(v4);
             if ( !Parent )
               break;
-            v4 = Parent;
+            v4 = (_QWORD *)Parent;
           }
         }
       }
@@ -91,14 +87,14 @@ __int64 __fastcall GetAncestor(__int64 a1, __int64 a2)
       {
         while ( 1 )
         {
-          v12 = GetDesktopWindow(v4, *(_QWORD *)(v4 + 104));
-          if ( v13 == v12 )
+          v12 = GetDesktopWindow((__int64)v4);
+          if ( v13 == (_QWORD *)v12 )
             break;
-          v21 = *(_QWORD *)(v4 + 24);
-          v22 = 0LL;
-          if ( v21 )
-            v22 = *(_QWORD *)(v21 + 104);
-          if ( v13 == v22 )
+          v20 = v4[3];
+          v21 = 0LL;
+          if ( v20 )
+            v21 = *(_QWORD **)(v20 + 104);
+          if ( v13 == v21 )
             break;
           v4 = v13;
         }

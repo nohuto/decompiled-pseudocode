@@ -1,11 +1,10 @@
 /*
- * XREFs of ?InitializeDeviceTransform@CVisualCapture@@MEAAXPEAVCMILMatrix@@@Z @ 0x180256080
+ * XREFs of ?InitializeDeviceTransform@CVisualCapture@@MEAAXPEAVCMILMatrix@@@Z @ 0x1801F1E10
  * Callers:
  *     <none>
  * Callees:
- *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180071B00 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ?GetRootTransform@CVisual@@QEBA_NPEAVCMILMatrix@@_N1@Z @ 0x1800E8118 (-GetRootTransform@CVisual@@QEBA_NPEAVCMILMatrix@@_N1@Z.c)
+ *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180041988 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
+ *     ?GetRootTransform@CVisual@@QEBAXPEAVCMILMatrix@@@Z @ 0x18006C578 (-GetRootTransform@CVisual@@QEBAXPEAVCMILMatrix@@@Z.c)
  */
 
 void __fastcall CVisualCapture::InitializeDeviceTransform(CVisual **this, struct CMILMatrix *a2)
@@ -14,19 +13,12 @@ void __fastcall CVisualCapture::InitializeDeviceTransform(CVisual **this, struct
   _BYTE v5[64]; // [rsp+20h] [rbp-58h] BYREF
   int v6; // [rsp+60h] [rbp-18h]
 
-  if ( *((_BYTE *)this + 1900) )
+  CVisual::GetRootTransform(this[236], a2);
+  v4 = this[235];
+  if ( v4 )
   {
-    CMILMatrix::SetToIdentity(a2);
-  }
-  else
-  {
-    CVisual::GetRootTransform(this[234], a2, 0);
-    v4 = this[233];
-    if ( v4 )
-    {
-      v6 = 0;
-      CVisual::GetRootTransform(v4, (struct CMILMatrix *)v5, 0);
-      CMILMatrix::Multiply(a2, (const struct CMILMatrix *)v5);
-    }
+    v6 = 0;
+    CVisual::GetRootTransform(v4, (struct CMILMatrix *)v5);
+    CMILMatrix::Multiply(a2, (const struct CMILMatrix *)v5);
   }
 }

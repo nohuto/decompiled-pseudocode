@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpHpHeapCreate @ 0x140140AC0
+ * XREFs of RtlpHpHeapCreate @ 0x140140AE0
  * Callers:
- *     RtlpHpMetadataHeapCreate @ 0x140140A80 (RtlpHpMetadataHeapCreate.c)
- *     ExCreateHeap @ 0x140170208 (ExCreateHeap.c)
+ *     RtlpHpMetadataHeapCreate @ 0x140140AA0 (RtlpHpMetadataHeapCreate.c)
+ *     ExCreateHeap @ 0x140170228 (ExCreateHeap.c)
  * Callees:
  *     RtlpHpEnvGetHeapManager @ 0x14000CE30 (RtlpHpEnvGetHeapManager.c)
- *     RtlpHpSegContextInitialize @ 0x140140DB8 (RtlpHpSegContextInitialize.c)
- *     RtlpHpSegContextReserve @ 0x140140EDC (RtlpHpSegContextReserve.c)
- *     RtlpHpLfhContextInitialize @ 0x140140F64 (RtlpHpLfhContextInitialize.c)
- *     RtlpHpHeapAllocate @ 0x1401410B0 (RtlpHpHeapAllocate.c)
- *     RtlpHpRegisterEnvironment @ 0x140141340 (RtlpHpRegisterEnvironment.c)
- *     RtlpHpHeapDestroy @ 0x1401544A4 (RtlpHpHeapDestroy.c)
- *     RtlpHpVsContextInitialize @ 0x14015FE10 (RtlpHpVsContextInitialize.c)
- *     RtlpHpEnvQueryProcessorCount @ 0x1401B6324 (RtlpHpEnvQueryProcessorCount.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlRunOnceInitialize @ 0x1406DA190 (RtlRunOnceInitialize.c)
+ *     RtlpHpSegContextInitialize @ 0x140140DD8 (RtlpHpSegContextInitialize.c)
+ *     RtlpHpSegContextReserve @ 0x140140EFC (RtlpHpSegContextReserve.c)
+ *     RtlpHpLfhContextInitialize @ 0x140140F84 (RtlpHpLfhContextInitialize.c)
+ *     RtlpHpHeapAllocate @ 0x1401410D0 (RtlpHpHeapAllocate.c)
+ *     RtlpHpRegisterEnvironment @ 0x140141360 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpHeapDestroy @ 0x1401544C4 (RtlpHpHeapDestroy.c)
+ *     RtlpHpVsContextInitialize @ 0x14015FE30 (RtlpHpVsContextInitialize.c)
+ *     RtlpHpEnvQueryProcessorCount @ 0x1401B6344 (RtlpHpEnvQueryProcessorCount.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlRunOnceInitialize @ 0x1406DA170 (RtlRunOnceInitialize.c)
  */
 
 __int64 __fastcall RtlpHpHeapCreate(unsigned int a1, __int64 a2, __int64 a3, __int128 *a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?GetRealization@CComponentTransform3D@@UEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x1800DAC20
+ * XREFs of ?GetRealization@CComponentTransform3D@@UEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x1800C32D0
  * Callers:
  *     <none>
  * Callees:
- *     ?Translate@CMILMatrix@@QEAAXMMM@Z @ 0x18005F260 (-Translate@CMILMatrix@@QEAAXMMM@Z.c)
- *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180071B00 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
- *     ?Scale@CMILMatrix@@QEAAXMMM@Z @ 0x1800DB9D8 (-Scale@CMILMatrix@@QEAAXMMM@Z.c)
- *     ?GetScaleRotationTranslationRealization@CComponentTransform3D@@AEAAXPEAVCMILMatrix@@@Z @ 0x1802225C4 (-GetScaleRotationTranslationRealization@CComponentTransform3D@@AEAAXPEAVCMILMatrix@@@Z.c)
- *     ?SetRotation@CMILMatrix@@QEAAXAEBUfloat3@Numerics@Foundation@Windows@@M@Z @ 0x1802709A0 (-SetRotation@CMILMatrix@@QEAAXAEBUfloat3@Numerics@Foundation@Windows@@M@Z.c)
- *     ?SetRotation@CMILMatrix@@QEAAXAEBUquaternion@Numerics@Foundation@Windows@@@Z @ 0x180270A30 (-SetRotation@CMILMatrix@@QEAAXAEBUquaternion@Numerics@Foundation@Windows@@@Z.c)
+ *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180041988 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
+ *     ?Translate@CMILMatrix@@QEAAXMMM@Z @ 0x180041AB0 (-Translate@CMILMatrix@@QEAAXMMM@Z.c)
+ *     ?Scale@CMILMatrix@@QEAAXMMM@Z @ 0x18004226C (-Scale@CMILMatrix@@QEAAXMMM@Z.c)
+ *     ?GetScaleRotationTranslationRealization@CComponentTransform3D@@AEAAXPEAVCMILMatrix@@@Z @ 0x1801B8700 (-GetScaleRotationTranslationRealization@CComponentTransform3D@@AEAAXPEAVCMILMatrix@@@Z.c)
+ *     ?SetRotation@CMILMatrix@@QEAAXAEBUfloat3@Numerics@Foundation@Windows@@M@Z @ 0x18021170C (-SetRotation@CMILMatrix@@QEAAXAEBUfloat3@Numerics@Foundation@Windows@@M@Z.c)
+ *     ?SetRotation@CMILMatrix@@QEAAXAEBUquaternion@Numerics@Foundation@Windows@@@Z @ 0x1802117A8 (-SetRotation@CMILMatrix@@QEAAXAEBUquaternion@Numerics@Foundation@Windows@@@Z.c)
  */
 
 void __fastcall CComponentTransform3D::GetRealization(
@@ -38,7 +38,7 @@ void __fastcall CComponentTransform3D::GetRealization(
   _BYTE v24[64]; // [rsp+38h] [rbp-9h] BYREF
   int v25; // [rsp+78h] [rbp+37h]
 
-  if ( *((_BYTE *)this + 300) )
+  if ( *((_BYTE *)this + 292) )
   {
     CComponentTransform3D::GetScaleRotationTranslationRealization(this, a3);
   }
@@ -48,64 +48,64 @@ void __fastcall CComponentTransform3D::GetRealization(
     v6 = 0.0;
     if ( a2 )
     {
-      v5 = *((float *)this + 40) * a2->width;
-      v6 = *((float *)this + 41) * a2->height;
+      v5 = *((float *)this + 38) * a2->width;
+      v6 = *((float *)this + 39) * a2->height;
     }
-    v7 = *(_OWORD *)((char *)this + 252);
+    v7 = *(_OWORD *)((char *)this + 244);
     v8 = 0;
-    v9 = *(_OWORD *)((char *)this + 268);
-    v10 = *(_OWORD *)((char *)this + 284);
-    *(_OWORD *)a3 = *(_OWORD *)((char *)this + 236);
+    v9 = *(_OWORD *)((char *)this + 260);
+    v10 = *(_OWORD *)((char *)this + 276);
+    *(_OWORD *)a3 = *(_OWORD *)((char *)this + 228);
     *((_OWORD *)a3 + 1) = v7;
     *((_OWORD *)a3 + 2) = v9;
     *((_OWORD *)a3 + 3) = v10;
     *((_DWORD *)a3 + 16) = 0;
-    v11 = *((float *)this + 42);
-    if ( v11 != 0.0 || *((float *)this + 43) != 0.0 || *((float *)this + 44) != 0.0 || v5 != 0.0 || v6 != 0.0 )
+    v11 = *((float *)this + 40);
+    if ( v11 != 0.0 || *((float *)this + 41) != 0.0 || *((float *)this + 42) != 0.0 || v5 != 0.0 || v6 != 0.0 )
     {
       CMILMatrix::Translate(
         a3,
         COERCE_FLOAT(COERCE_UNSIGNED_INT(v11 + v5) ^ _xmm),
-        COERCE_FLOAT(COERCE_UNSIGNED_INT(v6 + *((float *)this + 43)) ^ _xmm),
-        COERCE_FLOAT(*((_DWORD *)this + 44) ^ _xmm));
+        COERCE_FLOAT(COERCE_UNSIGNED_INT(v6 + *((float *)this + 41)) ^ _xmm),
+        COERCE_FLOAT(*((_DWORD *)this + 42) ^ _xmm));
       v8 = 1;
     }
-    if ( COERCE_FLOAT(*((_DWORD *)this + 45) & _xmm) >= 0.0000011920929
-      || COERCE_FLOAT(*((_DWORD *)this + 46) & _xmm) >= 0.0000011920929
-      || COERCE_FLOAT(*((_DWORD *)this + 47) & _xmm) >= 0.0000011920929 )
+    if ( COERCE_FLOAT(*((_DWORD *)this + 43) & _xmm) >= 0.0000011920929
+      || COERCE_FLOAT(*((_DWORD *)this + 44) & _xmm) >= 0.0000011920929
+      || COERCE_FLOAT(*((_DWORD *)this + 45) & _xmm) >= 0.0000011920929 )
     {
-      CMILMatrix::Translate(a3, *((float *)this + 45), *((float *)this + 46), *((float *)this + 47));
+      CMILMatrix::Translate(a3, *((float *)this + 43), *((float *)this + 44), *((float *)this + 45));
     }
-    v12 = *((float *)this + 51);
-    if ( v12 != 1.0 || *((float *)this + 52) != 1.0 || *((float *)this + 53) != 1.0 )
-      CMILMatrix::Scale(a3, v12, *((float *)this + 52), *((float *)this + 53));
-    v13 = *((float *)this + 58);
+    v12 = *((float *)this + 49);
+    if ( v12 != 1.0 || *((float *)this + 50) != 1.0 || *((float *)this + 51) != 1.0 )
+      CMILMatrix::Scale(a3, v12, *((float *)this + 50), *((float *)this + 51));
+    v13 = *((float *)this + 56);
     if ( v13 != 0.0 )
     {
-      v15 = *((float *)this + 48);
-      v16 = *((_DWORD *)this + 49);
+      v15 = *((float *)this + 46);
+      v16 = *((_DWORD *)this + 47);
       v25 = 0;
       v20 = v15;
-      v22 = *((_DWORD *)this + 50);
+      v22 = *((_DWORD *)this + 48);
       v21 = v16;
       CMILMatrix::SetRotation((CMILMatrix *)v24, (const struct Windows::Foundation::Numerics::float3 *)&v20, v13);
       CMILMatrix::Multiply(a3, (const struct CMILMatrix *)v24);
     }
-    v14 = *((float *)this + 54);
-    if ( v14 != 0.0 || *((float *)this + 55) != 0.0 || *((float *)this + 56) != 0.0 || *((float *)this + 57) != 1.0 )
+    v14 = *((float *)this + 52);
+    if ( v14 != 0.0 || *((float *)this + 53) != 0.0 || *((float *)this + 54) != 0.0 || *((float *)this + 55) != 1.0 )
     {
-      v17 = *((_DWORD *)this + 55);
+      v17 = *((_DWORD *)this + 53);
       v25 = 0;
       v21 = v17;
-      v18 = *((_DWORD *)this + 57);
+      v18 = *((_DWORD *)this + 55);
       v20 = v14;
-      v19 = *((_DWORD *)this + 56);
+      v19 = *((_DWORD *)this + 54);
       v23 = v18;
       v22 = v19;
       CMILMatrix::SetRotation((CMILMatrix *)v24, (const struct Windows::Foundation::Numerics::quaternion *)&v20);
       CMILMatrix::Multiply(a3, (const struct CMILMatrix *)v24);
     }
     if ( v8 )
-      CMILMatrix::Translate(a3, *((float *)this + 42), *((float *)this + 43), *((float *)this + 44));
+      CMILMatrix::Translate(a3, *((float *)this + 40), *((float *)this + 41), *((float *)this + 42));
   }
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x14026FECC
+ * XREFs of FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x14026FFCC
  * Callers:
  *     FsRtlpOplockCleanup @ 0x14001794C (FsRtlpOplockCleanup.c)
  *     FsRtlpRequestShareableOplock @ 0x140017E60 (FsRtlpRequestShareableOplock.c)
  *     FsRtlpOplockBreakByCacheFlags @ 0x140018CB0 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockBreakToNone @ 0x14013AAEC (FsRtlpOplockBreakToNone.c)
- *     FsRtlpRequestExclusiveOplock @ 0x14015E0EC (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpCancelReadOnlyOplockIrp @ 0x14026FA88 (FsRtlpCancelReadOnlyOplockIrp.c)
+ *     FsRtlpOplockBreakToNone @ 0x14013AB0C (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x14015E10C (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpCancelReadOnlyOplockIrp @ 0x14026FB88 (FsRtlpCancelReadOnlyOplockIrp.c)
  *     FsRtlCheckUpperOplock @ 0x1405854A0 (FsRtlCheckUpperOplock.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
  */
 
 void __fastcall FsRtlpRemoveAndCompleteReadOnlyIrp(_QWORD *a1, int a2, unsigned int a3)

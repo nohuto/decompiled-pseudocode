@@ -1,7 +1,7 @@
 /*
  * XREFs of __report_rangecheckfailure @ 0x1C0003010
  * Callers:
- *     sub_1C000DD00 @ 0x1C000DD00 (sub_1C000DD00.c)
+ *     CiConfigQueryValue @ 0x1C000DD00 (CiConfigQueryValue.c)
  * Callees:
  *     <none>
  */

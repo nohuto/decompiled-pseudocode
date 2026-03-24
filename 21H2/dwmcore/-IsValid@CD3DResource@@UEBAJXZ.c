@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsValid@CD3DResource@@UEBAJXZ @ 0x1800F4AD0
+ * XREFs of ?IsValid@CD3DResource@@UEBAJXZ @ 0x1800DB0F0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CD3DResource::IsValid(CD3DResource *this)
 {
-  return *((_BYTE *)this + 70) == 0 ? 0x8898008D : 0;
+  return *((_BYTE *)this + 62) == 0 ? 0x8898008D : 0;
 }

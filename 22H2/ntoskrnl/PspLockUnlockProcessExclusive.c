@@ -1,14 +1,14 @@
 /*
- * XREFs of PspLockUnlockProcessExclusive @ 0x1403613D8
+ * XREFs of PspLockUnlockProcessExclusive @ 0x14031C374
  * Callers:
- *     PspDisablePrimaryTokenExchange @ 0x14076FDF0 (PspDisablePrimaryTokenExchange.c)
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
- *     NtGetNextProcess @ 0x1407D4BE0 (NtGetNextProcess.c)
- *     PspAssignPrimaryToken @ 0x140841EB8 (PspAssignPrimaryToken.c)
- *     PspSetProcessAffinityUpdateMode @ 0x1409AFAC8 (PspSetProcessAffinityUpdateMode.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1406C068C (PspDisablePrimaryTokenExchange.c)
+ *     PspSetProcessAffinityUpdateMode @ 0x14077CD80 (PspSetProcessAffinityUpdateMode.c)
+ *     NtGetNextProcess @ 0x14078A7B0 (NtGetNextProcess.c)
+ *     PspAssignPrimaryToken @ 0x1407BC200 (PspAssignPrimaryToken.c)
  * Callees:
- *     ExfAcquireReleasePushLockExclusive @ 0x140201DF4 (ExfAcquireReleasePushLockExclusive.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x14031C3B4 (ExfAcquireReleasePushLockExclusive.c)
  */
 
 _QWORD *__fastcall PspLockUnlockProcessExclusive(__int64 a1, __int64 a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiStoreMarkLockedPagesModified @ 0x140153EB0
+ * XREFs of MiStoreMarkLockedPagesModified @ 0x140153ED0
  * Callers:
- *     MmStoreProbeAndLockPages @ 0x140153D54 (MmStoreProbeAndLockPages.c)
+ *     MmStoreProbeAndLockPages @ 0x140153D74 (MmStoreProbeAndLockPages.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiCapturePageFileInfoInline @ 0x140119DB0 (MiCapturePageFileInfoInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall MiStoreMarkLockedPagesModified(_DWORD *a1)

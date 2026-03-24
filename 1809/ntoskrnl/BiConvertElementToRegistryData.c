@@ -1,16 +1,16 @@
 /*
- * XREFs of BiConvertElementToRegistryData @ 0x140713EB4
+ * XREFs of BiConvertElementToRegistryData @ 0x140713E94
  * Callers:
- *     BcdSetElementDataWithFlags @ 0x140713390 (BcdSetElementDataWithFlags.c)
+ *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     BiConvertNtDeviceToBootEnvironment @ 0x14071431C (BiConvertNtDeviceToBootEnvironment.c)
- *     BiConvertQualifiedPartitionToBootEnvironment @ 0x1408F103C (BiConvertQualifiedPartitionToBootEnvironment.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x1407142FC (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiConvertQualifiedPartitionToBootEnvironment @ 0x1408F101C (BiConvertQualifiedPartitionToBootEnvironment.c)
  */
 
 __int64 __fastcall BiConvertElementToRegistryData(

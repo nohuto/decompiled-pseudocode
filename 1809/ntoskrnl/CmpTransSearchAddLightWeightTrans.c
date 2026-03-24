@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpTransSearchAddLightWeightTrans @ 0x140693F0C
+ * XREFs of CmpTransSearchAddLightWeightTrans @ 0x140693EEC
  * Callers:
- *     CmpTransSearchAddTransFromHive @ 0x140693E1C (CmpTransSearchAddTransFromHive.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x140693E70 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpTransSearchAddTransFromHive @ 0x140693DFC (CmpTransSearchAddTransFromHive.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x140693E50 (CmpTransSearchAddTransFromKeyBody.c)
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpTransReferenceTransaction @ 0x140694058 (CmpTransReferenceTransaction.c)
- *     CmpTransDereferenceTransaction @ 0x1406940B4 (CmpTransDereferenceTransaction.c)
- *     CmpTransAllocateTrans @ 0x1406940CC (CmpTransAllocateTrans.c)
- *     CmpBindHiveToTrans @ 0x1406941BC (CmpBindHiveToTrans.c)
+ *     CmpTransReferenceTransaction @ 0x140694038 (CmpTransReferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x140694094 (CmpTransDereferenceTransaction.c)
+ *     CmpTransAllocateTrans @ 0x1406940AC (CmpTransAllocateTrans.c)
+ *     CmpBindHiveToTrans @ 0x14069419C (CmpBindHiveToTrans.c)
  */
 
 __int64 __fastcall CmpTransSearchAddLightWeightTrans(__int64 a1, __int64 a2, int a3, __int64 *a4)

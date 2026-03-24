@@ -1,10 +1,10 @@
 /*
- * XREFs of IoCreateSynchronizationEvent @ 0x14081C300
+ * XREFs of IoCreateSynchronizationEvent @ 0x14081C2E0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ZwCreateEvent @ 0x1401B8A70 (ZwCreateEvent.c)
+ *     ZwCreateEvent @ 0x1401B8A90 (ZwCreateEvent.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */
 

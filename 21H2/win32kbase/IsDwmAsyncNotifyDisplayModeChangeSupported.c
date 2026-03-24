@@ -1,16 +1,16 @@
 /*
- * XREFs of IsDwmAsyncNotifyDisplayModeChangeSupported @ 0x1C0078CB4
+ * XREFs of IsDwmAsyncNotifyDisplayModeChangeSupported @ 0x1C0015228
  * Callers:
- *     xxxResetDisplayDevice @ 0x1C005D650 (xxxResetDisplayDevice.c)
- *     UserNotifyDisplayChange @ 0x1C0078BB0 (UserNotifyDisplayChange.c)
+ *     UserNotifyDisplayChange @ 0x1C00150E0 (UserNotifyDisplayChange.c)
+ *     xxxResetDisplayDevice @ 0x1C0075F20 (xxxResetDisplayDevice.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 IsDwmAsyncNotifyDisplayModeChangeSupported()
 {
-  if ( qword_1C029CAB0 )
-    return qword_1C029CAB0();
+  if ( qword_1C0257E90 )
+    return qword_1C0257E90();
   else
     return 3221225659LL;
 }

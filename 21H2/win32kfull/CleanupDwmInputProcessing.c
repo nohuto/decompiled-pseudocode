@@ -1,5 +1,5 @@
 /*
- * XREFs of CleanupDwmInputProcessing @ 0x1C0121300
+ * XREFs of CleanupDwmInputProcessing @ 0x1C0135B70
  * Callers:
  *     <none>
  * Callees:
@@ -7,47 +7,42 @@
  */
 
 // write access to const memory has been detected, the output may be wrong!
-NTSTATUS CleanupDwmInputProcessing()
+void CleanupDwmInputProcessing()
 {
-  NTSTATUS result; // eax
-
   CInputManager::DestroySessionGlobal();
   if ( gpkeDITTouchInjectionResponseEvent )
   {
     Win32FreePool(gpkeDITTouchInjectionResponseEvent);
     gpkeDITTouchInjectionResponseEvent = 0LL;
   }
-  result = ghMITEvent;
-  if ( ghMITEvent )
+  if ( ghDITEvent )
   {
-    ZwClose(ghMITEvent);
-    result = ghMITEvent;
-    ghMITEvent = 0LL;
+    ZwClose(ghDITEvent);
+    ghDITEvent = 0LL;
   }
   if ( ghDITRITEvent )
   {
-    result = ZwClose(ghDITRITEvent);
+    ZwClose(ghDITRITEvent);
     ghDITRITEvent = 0LL;
   }
   if ( gpkeDITMouseInjectionResponseEvent )
   {
-    result = Win32FreePool(gpkeDITMouseInjectionResponseEvent);
+    Win32FreePool(gpkeDITMouseInjectionResponseEvent);
     gpkeDITMouseInjectionResponseEvent = 0LL;
   }
   if ( gpkeDITCompositionInputSinkQueryResponseEvent )
   {
-    result = Win32FreePool(gpkeDITCompositionInputSinkQueryResponseEvent);
+    Win32FreePool(gpkeDITCompositionInputSinkQueryResponseEvent);
     gpkeDITCompositionInputSinkQueryResponseEvent = 0LL;
   }
-  if ( gpkeComputeInputSinkInfo )
+  if ( WPP_MAIN_CB.DeviceQueue.Lock )
   {
-    result = Win32FreePool(gpkeComputeInputSinkInfo);
-    gpkeComputeInputSinkInfo = 0LL;
+    Win32FreePool((void *)WPP_MAIN_CB.DeviceQueue.Lock);
+    WPP_MAIN_CB.DeviceQueue.Lock = 0LL;
   }
   if ( gpsemDITMouseInjectionWaiters )
   {
-    result = Win32FreePool(gpsemDITMouseInjectionWaiters);
+    Win32FreePool(gpsemDITMouseInjectionWaiters);
     gpsemDITMouseInjectionWaiters = 0LL;
   }
-  return result;
 }

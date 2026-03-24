@@ -1,5 +1,5 @@
 /*
- * XREFs of ?FlushTransitions@VIDMM_PROCESS_HEAP@@UEAAJXZ @ 0x1C0018FA0
+ * XREFs of ?FlushTransitions@VIDMM_PROCESS_HEAP@@UEAAJXZ @ 0x1C00161F0
  * Callers:
  *     <none>
  * Callees:

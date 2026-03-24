@@ -1,70 +1,63 @@
 /*
- * XREFs of HalpIommuFlushDmaDomain @ 0x140518020
+ * XREFs of HalpIommuFlushDmaDomain @ 0x1404C93C8
  * Callers:
- *     HalpIommuFlushDomainTbs @ 0x140518154 (HalpIommuFlushDomainTbs.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9274 (HalpIommuDomainUnmapLogicalRange.c)
+ *     IommuMapIdentityRange @ 0x1404DA710 (IommuMapIdentityRange.c)
+ *     IommuUnmapIdentityRange @ 0x1404DABA0 (IommuUnmapIdentityRange.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpIommuFlushDomainTB @ 0x14045CA4A (HalpIommuFlushDomainTB.c)
- *     IommuFlushTb @ 0x140522E10 (IommuFlushTb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpIommuFlushDomainTB @ 0x1404CBD9C (HalpIommuFlushDomainTB.c)
  */
 
-void __fastcall HalpIommuFlushDmaDomain(__int64 a1, __int64 a2)
+char __fastcall HalpIommuFlushDmaDomain(_QWORD *a1, __int64 a2)
 {
-  KIRQL v3; // di
+  _UNKNOWN **v2; // rax
+  unsigned __int8 v4; // di
   unsigned __int8 CurrentIrql; // bp
-  _QWORD *j; // r14
-  volatile signed __int64 *v6; // rcx
-  _QWORD *i; // r14
-  unsigned __int8 v8; // al
+  _QWORD *i; // rsi
+  unsigned __int8 v7; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r8
-  int v11; // eax
-  bool v12; // zf
-  __int64 v13; // [rsp+48h] [rbp+10h] BYREF
+  _DWORD *SchedulerAssist; // r9
+  int v10; // eax
+  bool v11; // zf
+  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
+  __int64 v14; // [rsp+38h] [rbp+10h] BYREF
 
-  v13 = a2;
-  v3 = 0;
+  v2 = &retaddr;
+  v14 = a2;
+  v4 = 0;
   CurrentIrql = KeGetCurrentIrql();
-  if ( *(_DWORD *)(a1 + 8) )
+  if ( CurrentIrql != 15 )
   {
-    if ( CurrentIrql != 15 )
-      v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 88));
-    for ( i = *(_QWORD **)(a1 + 72); i != (_QWORD *)(a1 + 72); i = (_QWORD *)*i )
-      IommuFlushTb(i[3], 1LL, &v13);
-    if ( CurrentIrql != 15 )
+    LOBYTE(v2) = KeAcquireSpinLockRaiseToDpc(a1 + 2);
+    v4 = (unsigned __int8)v2;
+  }
+  for ( i = (_QWORD *)*a1; i != a1; i = (_QWORD *)*i )
+    LOBYTE(v2) = HalpIommuFlushDomainTB(i[3], i + 4, 1LL, &v14);
+  if ( CurrentIrql != 15 )
+  {
+    KxReleaseSpinLock(a1 + 2);
+    if ( KiIrqlFlags )
     {
-      v6 = (volatile signed __int64 *)(a1 + 88);
-LABEL_16:
-      KxReleaseSpinLock(v6);
-      if ( KiIrqlFlags )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v8 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && v3 <= 0xFu && v8 >= 2u )
+        v7 = KeGetCurrentIrql();
+        if ( v7 <= 0xFu && v4 <= 0xFu && v7 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v11 = ~(unsigned __int16)(-1LL << (v3 + 1));
-          v12 = (v11 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v11;
-          if ( v12 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          v10 = ~(unsigned __int16)(-1LL << (v4 + 1));
+          v11 = (v10 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v10;
+          if ( v11 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
-      __writecr8(v3);
     }
+    LOBYTE(v2) = v4;
+    __writecr8(v4);
   }
-  else
-  {
-    if ( CurrentIrql != 15 )
-      v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 32));
-    for ( j = *(_QWORD **)(a1 + 16); j != (_QWORD *)(a1 + 16); j = (_QWORD *)*j )
-      HalpIommuFlushDomainTB(j[3], (__int64)(j + 4), 1u, (__int64)&v13);
-    if ( CurrentIrql != 15 )
-    {
-      v6 = (volatile signed __int64 *)(a1 + 32);
-      goto LABEL_16;
-    }
-  }
+  return (char)v2;
 }

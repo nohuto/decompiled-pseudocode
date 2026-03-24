@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlReleasePrivilege @ 0x1406C6584
+ * XREFs of RtlReleasePrivilege @ 0x1406C6564
  * Callers:
- *     PspAllocateProcess @ 0x14064BCD8 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
  * Callees:
- *     ZwSetInformationThread @ 0x1401B8310 (ZwSetInformationThread.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwAdjustPrivilegesToken @ 0x1401B8990 (ZwAdjustPrivilegesToken.c)
+ *     ZwSetInformationThread @ 0x1401B8330 (ZwSetInformationThread.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwAdjustPrivilegesToken @ 0x1401B89B0 (ZwAdjustPrivilegesToken.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

@@ -1,26 +1,27 @@
 /*
- * XREFs of BgpRasGetGlyphAdvanceWidth @ 0x1406734CC
+ * XREFs of BgpRasGetGlyphAdvanceWidth @ 0x1405C59CC
  * Callers:
- *     BgpFoGetAdvanceWidth @ 0x140671FE0 (BgpFoGetAdvanceWidth.c)
- *     BgpFoGetStringAdvanceWidth @ 0x140672000 (BgpFoGetStringAdvanceWidth.c)
- *     BcpDisplayCriticalString @ 0x14067237C (BcpDisplayCriticalString.c)
+ *     BgpFoGetAdvanceWidth @ 0x1405C44F0 (BgpFoGetAdvanceWidth.c)
+ *     BgpFoGetStringAdvanceWidth @ 0x1405C4510 (BgpFoGetStringAdvanceWidth.c)
+ *     BcpDisplayCriticalString @ 0x1405C488C (BcpDisplayCriticalString.c)
  * Callees:
- *     RaspGetXExtent @ 0x140384EA4 (RaspGetXExtent.c)
+ *     RaspGetXExtent @ 0x1403ACF24 (RaspGetXExtent.c)
  */
 
-__int64 __fastcall BgpRasGetGlyphAdvanceWidth(__int64 a1, unsigned __int16 a2, _DWORD *a3, __int64 a4, __int128 *a5)
+__int64 __fastcall BgpRasGetGlyphAdvanceWidth(__int64 a1, unsigned __int16 a2, _DWORD *a3, __int64 a4, __int64 *a5)
 {
-  __int128 *v5; // rbx
+  __int64 *v5; // rbx
   __int64 result; // rax
-  __int128 v7; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v8; // [rsp+40h] [rbp-18h]
+  int v7; // [rsp+20h] [rbp-38h]
+  __int128 v8; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v9; // [rsp+40h] [rbp-18h]
 
-  v5 = &v7;
-  v8 = 0LL;
+  v5 = (__int64 *)&v8;
+  v9 = 0LL;
   if ( a5 )
     v5 = a5;
-  v7 = 0LL;
-  result = RaspGetXExtent(a2, a1, a3);
-  *((_QWORD *)v5 + 2) = 0LL;
+  v8 = 0LL;
+  result = RaspGetXExtent(a2, a1, a3, a2, v7, v5);
+  v5[2] = 0LL;
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCoverageSamplerFreeTable @ 0x1409F2898
+ * XREFs of EtwpCoverageSamplerFreeTable @ 0x140946338
  * Callers:
- *     EtwpCovSampContextAddSamples @ 0x1409EF4C4 (EtwpCovSampContextAddSamples.c)
- *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x1409F12F0 (EtwpCovSampHashMakeRoomAndAcquireLock.c)
- *     EtwpCoverageSamplerCleanup @ 0x1409F26E8 (EtwpCoverageSamplerCleanup.c)
- *     EtwpCoverageSamplerQuery @ 0x1409F2984 (EtwpCoverageSamplerQuery.c)
+ *     EtwpCovSampContextAddSamples @ 0x140942DEC (EtwpCovSampContextAddSamples.c)
+ *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x140944D40 (EtwpCovSampHashMakeRoomAndAcquireLock.c)
+ *     EtwpCoverageSamplerCleanup @ 0x140946194 (EtwpCoverageSamplerCleanup.c)
+ *     EtwpCoverageSamplerQuery @ 0x140946424 (EtwpCoverageSamplerQuery.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpCoverageSamplerFreeTable(_QWORD *P)

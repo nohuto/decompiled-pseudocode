@@ -1,17 +1,17 @@
 /*
- * XREFs of UsbhFdoDxPoComplete_Action @ 0x1C0006150
+ * XREFs of UsbhFdoDxPoComplete_Action @ 0x1C000CC80
  * Callers:
  *     <none>
  * Callees:
- *     UsbhReleasePowerContext @ 0x1C00035EC (UsbhReleasePowerContext.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhEtwLogHubPowerEvent @ 0x1C000C730 (UsbhEtwLogHubPowerEvent.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhEtwLogHubPowerEvent @ 0x1C0012210 (UsbhEtwLogHubPowerEvent.c)
+ *     UsbhReleasePowerContext @ 0x1C0018750 (UsbhReleasePowerContext.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
 void __fastcall UsbhFdoDxPoComplete_Action(
-        __int64 DeviceObject,
+        PDEVICE_OBJECT DeviceObject,
         UCHAR MinorFunction,
         POWER_STATE PowerState,
         _QWORD *Context,
@@ -41,7 +41,7 @@ void __fastcall UsbhFdoDxPoComplete_Action(
   v5 = (IRP *)Context[7];
   v8 = MinorFunction;
   v10 = FdoExt(DeviceObject);
-  Log(DeviceObject, 16, 1685606467, (_DWORD)Context, v8);
+  Log((_DWORD)DeviceObject, 16, 1685606467, (_DWORD)Context, v8);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     WPP_RECORDER_SF_d(
       WPP_GLOBAL_Control->DeviceExtension,
@@ -86,15 +86,15 @@ void __fastcall UsbhFdoDxPoComplete_Action(
     &USBHUB_ETW_EVENT_HUB_POWER_SET_DX_COMPLETE,
     (POWER_STATE)PowerState.SystemState,
     Status);
-  UsbhReleasePowerContext(DeviceObject, (__int64)Context);
+  UsbhReleasePowerContext(DeviceObject, Context);
   v20 = FdoExt(DeviceObject);
   CurrentStackLocation = (__int64)v5->Tail.Overlay.CurrentStackLocation;
   v22 = v20;
   v23 = *(unsigned int *)(CurrentStackLocation + 16);
   if ( (unsigned int)v23 <= 1 )
   {
-    Log(DeviceObject, 16, 1347374641, *(_QWORD *)(v22 + 8 * v23 + 840), (__int64)v5);
-    Log(DeviceObject, 16, 1347374642, *(_QWORD *)(v25 + 8 * v24 + 856), CurrentStackLocation);
+    Log((_DWORD)DeviceObject, 16, 1347374641, *(_QWORD *)(v22 + 8 * v23 + 840), (__int64)v5);
+    Log((_DWORD)DeviceObject, 16, 1347374642, *(_QWORD *)(v25 + 8 * v24 + 856), CurrentStackLocation);
     *(_QWORD *)(v27 + 8 * v26 + 840) = 0LL;
     *(_QWORD *)(v27 + 8 * v26 + 856) = 0LL;
     *(_DWORD *)(v27 + 4 * v26 + 872) = 1913;

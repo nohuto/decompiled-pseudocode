@@ -1,45 +1,46 @@
 /*
- * XREFs of FilterEvalImpliedAnd @ 0x14078DB48
+ * XREFs of FilterEvalImpliedAnd @ 0x1406A81E8
  * Callers:
- *     FilterEval @ 0x140788970 (FilterEval.c)
+ *     FilterEval @ 0x1406AC424 (FilterEval.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PropertyEval @ 0x14078A2F0 (PropertyEval.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PropertyEval @ 0x1406A8F84 (PropertyEval.c)
  */
 
 __int64 __fastcall FilterEvalImpliedAnd(
-        __int64 (__fastcall *a1)(__int64, __int64, unsigned int *, unsigned int *, wchar_t **),
+        __int64 (__fastcall *a1)(__int64, __int64, unsigned int *, unsigned int *, _QWORD *),
         __int64 a2,
         unsigned int a3,
         __int64 a4,
-        int *a5)
+        _DWORD *a5)
 {
-  int *v5; // r14
+  _DWORD *v5; // r14
   unsigned int v6; // ebx
   unsigned int v7; // esi
   int v10; // ebp
-  __int64 (__fastcall *v12)(__int64, __int64, unsigned int *, unsigned int *, wchar_t **); // r10
-  wchar_t **v13; // rdi
+  __int64 (__fastcall *v12)(__int64, __int64, unsigned int *, unsigned int *, _QWORD *); // r10
+  _QWORD *v13; // rdi
   unsigned int v14; // eax
-  unsigned int v16; // [rsp+40h] [rbp-48h] BYREF
-  wchar_t *v17; // [rsp+48h] [rbp-40h] BYREF
-  unsigned int v19; // [rsp+A0h] [rbp+18h] BYREF
+  __int64 v16; // [rsp+20h] [rbp-68h]
+  unsigned int v17; // [rsp+40h] [rbp-48h] BYREF
+  _QWORD v18[8]; // [rsp+48h] [rbp-40h] BYREF
+  unsigned int v20; // [rsp+A0h] [rbp+18h] BYREF
 
   v5 = a5;
   v6 = 0;
-  v16 = 0;
+  v17 = 0;
   v7 = 0;
-  v17 = 0LL;
-  v19 = 0;
+  v18[0] = 0LL;
+  v20 = 0;
   *a5 = 0;
   v10 = 1;
   v12 = a1;
   if ( a3 )
   {
-    v13 = (wchar_t **)(a4 + 48);
+    v13 = (_QWORD *)(a4 + 48);
     while ( (*(_DWORD *)(v13 - 6) & 0xFF00000) == 0 )
     {
-      v14 = v12(a2, 56LL * v7 + a4 + 8, &v16, &v19, &v17);
+      v14 = v12(a2, 56LL * v7 + a4 + 8, &v17, &v20, v18);
       v6 = v14;
       if ( v14 == -1073741275 )
       {
@@ -50,7 +51,8 @@ __int64 __fastcall FilterEvalImpliedAnd(
       {
         if ( v14 )
           goto LABEL_10;
-        PropertyEval(v16, v17, v19, *((_DWORD *)v13 - 12), *((_DWORD *)v13 - 2), *v13, *((_DWORD *)v13 - 1), v5);
+        LODWORD(v16) = *((_DWORD *)v13 - 2);
+        PropertyEval(v17, v18[0], v20, *((unsigned int *)v13 - 12), v16, *v13, *((_DWORD *)v13 - 1), v5);
         if ( *v5 == v6 )
           return 0LL;
       }

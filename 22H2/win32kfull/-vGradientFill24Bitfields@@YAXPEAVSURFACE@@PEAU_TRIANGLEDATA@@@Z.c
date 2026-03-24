@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vGradientFill24Bitfields@@YAXPEAVSURFACE@@PEAU_TRIANGLEDATA@@@Z @ 0x1C02F9770
+ * XREFs of ?vGradientFill24Bitfields@@YAXPEAVSURFACE@@PEAU_TRIANGLEDATA@@@Z @ 0x1C02D2770
  * Callers:
  *     <none>
  * Callees:

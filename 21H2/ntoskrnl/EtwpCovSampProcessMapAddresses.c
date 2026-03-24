@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCovSampProcessMapAddresses @ 0x1409F1DF4
+ * XREFs of EtwpCovSampProcessMapAddresses @ 0x140945840
  * Callers:
- *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1409EE8FC (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
- *     EtwpCovSampContextAddAddresses @ 0x1409EF3C8 (EtwpCovSampContextAddAddresses.c)
+ *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x14094207C (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampContextAddAddresses @ 0x140942CF0 (EtwpCovSampContextAddAddresses.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     EtwpCovSampProcessUpperBoundModule @ 0x140883C0C (EtwpCovSampProcessUpperBoundModule.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     EtwpCovSampProcessUpperBoundModule @ 0x140945AF4 (EtwpCovSampProcessUpperBoundModule.c)
  */
 
 __int64 __fastcall EtwpCovSampProcessMapAddresses(
@@ -26,10 +26,10 @@ __int64 __fastcall EtwpCovSampProcessMapAddresses(
   struct _KTHREAD *CurrentThread; // rax
   volatile signed __int64 *v13; // r14
   unsigned __int64 v14; // r8
-  __int64 v15; // r13
-  unsigned __int64 *v16; // r15
-  unsigned __int64 *v17; // r14
-  unsigned __int64 v18; // r12
+  __int64 v15; // r12
+  unsigned __int64 *v16; // r13
+  unsigned __int64 *v17; // rcx
+  unsigned __int64 v18; // r15
   unsigned __int64 v19; // rdx
   unsigned int v20; // eax
   _QWORD *v21; // rcx
@@ -39,7 +39,7 @@ __int64 __fastcall EtwpCovSampProcessMapAddresses(
   volatile signed __int32 *v25; // rax
   int v27; // [rsp+20h] [rbp-48h]
   unsigned __int64 v28; // [rsp+28h] [rbp-40h]
-  int v29; // [rsp+70h] [rbp+8h]
+  unsigned int v29; // [rsp+70h] [rbp+8h]
 
   v7 = a7;
   v9 = a2;
@@ -64,38 +64,40 @@ __int64 __fastcall EtwpCovSampProcessMapAddresses(
   while ( 1 )
   {
     v18 = *v17;
+    v19 = 0LL;
     if ( v16 )
     {
       if ( v18 < v14 || v18 >= *v16 )
-      {
         v16 = 0LL;
-      }
       else
-      {
         v19 = v16[1];
-        if ( v19 )
-          goto LABEL_14;
-      }
+      if ( v19 )
+        break;
     }
     v20 = EtwpCovSampProcessUpperBoundModule(a1, *v17);
     if ( v20 >= *(_DWORD *)(a1 + 32) )
     {
       v14 = v28;
-      goto LABEL_19;
     }
-    v21 = (_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL * v20);
-    v19 = v21[1];
-    v14 = *v21 - *(_QWORD *)(v19 + 40);
-    v28 = v14;
-    if ( v18 >= v14 )
-      break;
+    else
+    {
+      v21 = (_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL * v20);
+      v19 = v21[1];
+      v14 = *v21 - *(_QWORD *)(v19 + 40);
+      v28 = v14;
+      if ( v18 >= v14 )
+      {
+        v16 = (unsigned __int64 *)(*(_QWORD *)(a1 + 24) + 16LL * v20);
+        break;
+      }
+    }
 LABEL_19:
-    ++v17;
-    if ( ++v29 >= a4 )
+    v17 = a3 + 1;
+    ++v29;
+    ++a3;
+    if ( v29 >= a4 )
       goto LABEL_20;
   }
-  v16 = (unsigned __int64 *)(*(_QWORD *)(a1 + 24) + 16LL * v20);
-LABEL_14:
   v22 = *(_DWORD *)(v19 + 132) == 0;
   *(_DWORD *)(v19 + 136) = v27;
   if ( v22 )
@@ -109,9 +111,9 @@ LABEL_14:
 LABEL_20:
   v9 = a2;
   v13 = (volatile signed __int64 *)(a1 + 8);
-LABEL_21:
   v7 = a7;
-  *a7 = v15;
+LABEL_21:
+  *v7 = v15;
 LABEL_22:
   if ( *(struct _KTHREAD **)(a1 + 16) == KeGetCurrentThread() )
   {

@@ -1,24 +1,24 @@
 /*
- * XREFs of xxxSetWindowNCMetrics @ 0x1C00C7060
+ * XREFs of xxxSetWindowNCMetrics @ 0x1C00E262C
  * Callers:
- *     xxxUpdatePerUserSystemParameters @ 0x1C00B8188 (xxxUpdatePerUserSystemParameters.c)
- *     xxxInitWindowStation @ 0x1C00D42E4 (xxxInitWindowStation.c)
- *     UserOnGreTextReady @ 0x1C00EE588 (UserOnGreTextReady.c)
- *     ?xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C01580A8 (-xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z.c)
+ *     xxxInitWindowStation @ 0x1C000C0B8 (xxxInitWindowStation.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C0026814 (xxxUpdatePerUserSystemParameters.c)
+ *     UserOnGreTextReady @ 0x1C00E62DC (UserOnGreTextReady.c)
+ *     ?xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C01D7528 (-xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z.c)
  * Callees:
- *     xxxSetNCFonts @ 0x1C00C3874 (xxxSetNCFonts.c)
- *     CreateBitmapStrip @ 0x1C00C6030 (CreateBitmapStrip.c)
- *     ?GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z @ 0x1C00C72CC (-GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z.c)
- *     ?SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C00C77B4 (-SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C00DB810 (-SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z.c)
+ *     ?GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z @ 0x1C00E2884 (-GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z.c)
+ *     CreateBitmapStrip @ 0x1C00E29D0 (CreateBitmapStrip.c)
+ *     xxxSetNCFonts @ 0x1C00E2C88 (xxxSetNCFonts.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 _BOOL8 __fastcall xxxSetWindowNCMetrics(struct _UNICODE_STRING *a1, struct tagNONCLIENTMETRICSW *a2, int a3)
 {
-  int v6; // eax
-  int v7; // ecx
-  int v8; // edi
+  int v6; // ecx
+  int v7; // edi
+  int v8; // eax
   int v9; // ecx
   int v10; // eax
   int v11; // ecx
@@ -39,7 +39,7 @@ _BOOL8 __fastcall xxxSetWindowNCMetrics(struct _UNICODE_STRING *a1, struct tagNO
   _DWORD v27[128]; // [rsp+20h] [rbp-E0h] BYREF
 
   memset(v27, 0, 0x1F8uLL);
-  if ( !(unsigned int)xxxSetNCFonts(a1, (__int64)a2) )
+  if ( !(unsigned int)xxxSetNCFonts(a1, a2) )
     return 0LL;
   if ( !a2 )
   {
@@ -59,21 +59,15 @@ _BOOL8 __fastcall xxxSetWindowNCMetrics(struct _UNICODE_STRING *a1, struct tagNO
     v27[125] = GetTWIPSMetricById(a1, 0x9Eu, 0);
     a2 = (struct tagNONCLIENTMETRICSW *)v27;
   }
-  v6 = *((_DWORD *)a2 + 1);
-  if ( v6 <= 1 )
-  {
-    v6 = 1;
-LABEL_8:
-    v7 = v6;
-    goto LABEL_9;
-  }
-  v7 = 50;
+  v6 = 1;
+  if ( *((int *)a2 + 1) > 1 )
+    v6 = *((_DWORD *)a2 + 1);
+  v7 = 8;
+  v8 = 50;
   if ( v6 < 50 )
-    goto LABEL_8;
-LABEL_9:
-  *((_DWORD *)a2 + 1) = v7;
-  v8 = 8;
+    v8 = v6;
   v9 = *((_DWORD *)a2 + 125);
+  *((_DWORD *)a2 + 1) = v8;
   v10 = 100;
   if ( v9 <= 0 )
     v9 = 0;
@@ -114,8 +108,8 @@ LABEL_9:
     v22 = v25;
   *((_DWORD *)a2 + 30) = v22;
   if ( v24 > 8 )
-    v8 = v24;
-  *((_DWORD *)a2 + 54) = v8;
+    v7 = v24;
+  *((_DWORD *)a2 + 54) = v7;
   if ( v20 <= *(_DWORD *)(v21 + 28) )
     v20 = *(_DWORD *)(v21 + 28);
   *((_DWORD *)a2 + 55) = v20;

@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0CWARPDrawListEntry@@AEAA@AEBUWARPDrawListEntryParams@@@Z @ 0x1801E7814
+ * XREFs of ??0CWARPDrawListEntry@@AEAA@AEBUWARPDrawListEntryParams@@@Z @ 0x1801A19D0
  * Callers:
- *     ?Create@CWARPDrawListEntry@@SAJAEBUWARPDrawListEntryParams@@PEAPEAV1@@Z @ 0x1801E7BEC (-Create@CWARPDrawListEntry@@SAJAEBUWARPDrawListEntryParams@@PEAPEAV1@@Z.c)
+ *     ?Create@CWARPDrawListEntry@@SAJAEBUWARPDrawListEntryParams@@PEAPEAV1@@Z @ 0x1801A1DDC (-Create@CWARPDrawListEntry@@SAJAEBUWARPDrawListEntryParams@@PEAPEAV1@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ??4WARPDrawListEntryBitmapDesc@@QEAAAEAU0@AEBU0@@Z @ 0x1801E79BC (--4WARPDrawListEntryBitmapDesc@@QEAAAEAU0@AEBU0@@Z.c)
- *     ??0CDrawListEntry@@IEAA@AEBUDrawListEntryParams@@@Z @ 0x1801EBE24 (--0CDrawListEntry@@IEAA@AEBUDrawListEntryParams@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ??4WARPDrawListEntryBitmapDesc@@QEAAAEAU0@AEBU0@@Z @ 0x1801A1BF0 (--4WARPDrawListEntryBitmapDesc@@QEAAAEAU0@AEBU0@@Z.c)
+ *     ??0CDrawListEntry@@IEAA@AEBUDrawListEntryParams@@@Z @ 0x1801A3BE4 (--0CDrawListEntry@@IEAA@AEBUDrawListEntryParams@@@Z.c)
  */
 
 CWARPDrawListEntry *__fastcall CWARPDrawListEntry::CWARPDrawListEntry(
@@ -14,33 +14,43 @@ CWARPDrawListEntry *__fastcall CWARPDrawListEntry::CWARPDrawListEntry(
 {
   const __m128i *v4; // rax
   __m128 v5; // xmm2
-  float *v6; // rax
-  __int64 v7; // rdx
+  float *v6; // rdx
+  __int64 v7; // rax
   char *v8; // r8
   char *v9; // r9
   float v10; // xmm0_4
   float v12[3]; // [rsp+20h] [rbp-28h] BYREF
   float v13; // [rsp+2Ch] [rbp-1Ch]
 
-  CDrawListEntry::CDrawListEntry(this, a2);
-  *(_QWORD *)this = &CWARPDrawListEntry::`vftable'{for `CDrawListEntry'};
-  *((_QWORD *)this + 8) = &CWARPDrawListEntry::`vftable'{for `CRenderingEffect'};
-  *(_OWORD *)((char *)this + 72) = *(_OWORD *)((char *)a2 + 40);
-  *((_DWORD *)this + 22) = *((_DWORD *)a2 + 14);
-  *((_DWORD *)this + 23) = *((_DWORD *)a2 + 15);
-  *((_QWORD *)this + 14) = 0LL;
-  *((_QWORD *)this + 15) = 0LL;
-  *((_BYTE *)this + 128) = 0;
-  *((_QWORD *)this + 24) = 0LL;
-  *((_QWORD *)this + 25) = 0LL;
-  *((_BYTE *)this + 208) = 0;
-  *((_BYTE *)this + 272) = *((_BYTE *)a2 + 240);
-  *((_BYTE *)this + 273) = *((_BYTE *)a2 + 241);
-  *((_OWORD *)this + 6) = *((_OWORD *)a2 + 4);
+  *((_DWORD *)this + 2) = 0;
+  CDrawListEntry::CDrawListEntry((CWARPDrawListEntry *)((char *)this + 16), a2);
+  *(_QWORD *)this = &CWARPDrawListEntry::`vftable';
+  *((_QWORD *)this + 2) = &CWARPDrawListEntry::`vftable'{for `CMILRefCountBase'};
+  *((_QWORD *)this + 4) = &CWARPDrawListEntry::`vftable'{for `CBaseDrawListEntry'};
+  *((_DWORD *)this + 54) = *((_DWORD *)a2 + 14);
+  *((_DWORD *)this + 55) = *((_DWORD *)a2 + 15);
+  *((_QWORD *)this + 30) = 0LL;
+  *((_QWORD *)this + 31) = 0LL;
+  *(_QWORD *)((char *)this + 268) = 0LL;
+  *((_DWORD *)this + 69) = 0;
+  *((_QWORD *)this + 32) = 0LL;
+  *((_DWORD *)this + 66) = 0;
+  *((_BYTE *)this + 280) = 0;
+  *((_QWORD *)this + 43) = 0LL;
+  *((_QWORD *)this + 44) = 0LL;
+  *(_QWORD *)((char *)this + 372) = 0LL;
+  *((_DWORD *)this + 95) = 0;
+  *((_QWORD *)this + 45) = 0LL;
+  *((_DWORD *)this + 92) = 0;
+  *((_BYTE *)this + 384) = 0;
+  *((_BYTE *)this + 448) = *((_BYTE *)a2 + 288);
+  *((_BYTE *)this + 449) = *((_BYTE *)a2 + 289);
+  *(_OWORD *)((char *)this + 200) = *(_OWORD *)((char *)a2 + 40);
+  *((_OWORD *)this + 14) = *((_OWORD *)a2 + 4);
   v4 = (const __m128i *)*((_QWORD *)a2 + 2);
   if ( v4 )
   {
-    v5 = (__m128)_mm_loadu_si128(v4 + 4);
+    v5 = (__m128)_mm_loadu_si128(v4 + 7);
     v6 = (float *)*((_QWORD *)a2 + 3);
     v7 = 4LL;
     v8 = (char *)(this - (CWARPDrawListEntry *)v6);
@@ -52,12 +62,12 @@ CWARPDrawListEntry *__fastcall CWARPDrawListEntry::CWARPDrawListEntry(
     do
     {
       v10 = *(float *)((char *)v6 + (_QWORD)v9) * *v6;
-      *(float *)((char *)++v6 + (_QWORD)v8 + 92) = v10;
+      *(float *)((char *)++v6 + (_QWORD)v8 + 220) = v10;
       --v7;
     }
     while ( v7 );
   }
-  WARPDrawListEntryBitmapDesc::operator=((char *)this + 112, (char *)a2 + 80);
-  WARPDrawListEntryBitmapDesc::operator=((char *)this + 192, (char *)a2 + 160);
+  WARPDrawListEntryBitmapDesc::operator=((char *)this + 240, (char *)a2 + 80);
+  WARPDrawListEntryBitmapDesc::operator=((char *)this + 344, (char *)a2 + 184);
   return this;
 }

@@ -1,22 +1,23 @@
 /*
- * XREFs of ?OnChanged@CNineGridBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180036080
+ * XREFs of ?OnChanged@CNineGridBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800492D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CNineGridBrush::OnChanged(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall CNineGridBrush::OnChanged(__int64 a1, int a2)
 {
-  bool v5; // al
+  __int64 v3; // r9
+  bool v4; // al
 
-  if ( (_DWORD)a2 == 14 )
+  if ( a2 == 14 )
   {
-    a4 = *(_QWORD *)(a1 + 88);
-    v5 = 0;
-    if ( a4 )
-      v5 = *(_BYTE *)(a4 + 80) != 0;
-    *(_BYTE *)(a1 + 80) = v5;
+    v3 = *(_QWORD *)(a1 + 80);
+    v4 = 0;
+    if ( v3 )
+      v4 = *(_BYTE *)(v3 + 72) != 0;
+    *(_BYTE *)(a1 + 72) = v4;
   }
-  return CBrush::OnChanged(a1, a2, a3, a4);
+  return CBrush::OnChanged();
 }

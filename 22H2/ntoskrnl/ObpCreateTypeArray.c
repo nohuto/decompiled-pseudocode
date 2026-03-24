@@ -1,33 +1,31 @@
 /*
- * XREFs of ObpCreateTypeArray @ 0x14097C02C
+ * XREFs of ObpCreateTypeArray @ 0x1408DDB50
  * Callers:
- *     ObEnumerateObjectsByType @ 0x14097B904 (ObEnumerateObjectsByType.c)
- *     ObGetObjectInformation @ 0x14097B9C4 (ObGetObjectInformation.c)
+ *     ObEnumerateObjectsByType @ 0x1408DD3FC (ObEnumerateObjectsByType.c)
+ *     ObGetObjectInformation @ 0x1408DD4C8 (ObGetObjectInformation.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     ObReferenceObjectSafe @ 0x140337570 (ObReferenceObjectSafe.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     ObReferenceObjectSafe @ 0x1402F1E80 (ObReferenceObjectSafe.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-unsigned int *__fastcall ObpCreateTypeArray(_QWORD **a1)
+_DWORD *__fastcall ObpCreateTypeArray(_QWORD **a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 *v2; // r15
+  ULONG_PTR v3; // r15
   _QWORD *v4; // rax
-  unsigned int *v5; // rsi
+  _DWORD *v5; // rsi
   unsigned int v6; // ebx
   __int64 v7; // rcx
-  unsigned int *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   __int64 v9; // rbp
   _QWORD *v10; // rbx
-  struct _KTHREAD *v11; // rax
-  bool v12; // zf
 
   CurrentThread = KeGetCurrentThread();
-  v2 = (__int64 *)(a1 + 23);
   --CurrentThread->SpecialApcDisable;
+  v3 = (ULONG_PTR)(a1 + 23);
   ExAcquirePushLockExclusiveEx((ULONG_PTR)(a1 + 23), 0LL);
   v4 = *a1;
   v5 = 0LL;
@@ -42,11 +40,11 @@ unsigned int *__fastcall ObpCreateTypeArray(_QWORD **a1)
     while ( v4 != a1 );
     if ( v6 )
     {
-      Pool2 = (unsigned int *)ExAllocatePool2(256LL, 8 * v7 + 16, 1916887631LL);
-      v5 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8 * v7 + 16, 0x7241624Fu);
+      v5 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        *Pool2 = v6;
+        *PoolWithTag = v6;
         v9 = 0LL;
         v10 = *a1;
         while ( v10 != a1 )
@@ -60,10 +58,7 @@ unsigned int *__fastcall ObpCreateTypeArray(_QWORD **a1)
       }
     }
   }
-  ExReleasePushLockEx(v2, 0LL);
-  v11 = KeGetCurrentThread();
-  v12 = v11->SpecialApcDisable++ == -1;
-  if ( v12 && ($C71981A45BEB2B45F82C232A7085991E *)v11->ApcState.ApcListHead[0].Flink != &v11->152 )
-    KiCheckForKernelApcDelivery();
+  ExReleasePushLockEx(v3, 0LL);
+  KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   return v5;
 }

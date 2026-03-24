@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlInitMinimalBarrier @ 0x140AD25B8
+ * XREFs of RtlInitMinimalBarrier @ 0x140A11550
  * Callers:
- *     sub_1403ED150 @ 0x1403ED150 (sub_1403ED150.c)
- *     FsRtlMdlReadCompleteDevEx @ 0x140AB9010 (FsRtlMdlReadCompleteDevEx.c)
+ *     sub_1403DDE50 @ 0x1403DDE50 (sub_1403DDE50.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x1409F8010 (FsRtlMdlReadCompleteDevEx.c)
  * Callees:
  *     <none>
  */

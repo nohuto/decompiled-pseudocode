@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Uninitialize@ServerPorts@CoreMessagingK@@SAXXZ @ 0x1C00C1258
+ * XREFs of ?Uninitialize@ServerPorts@CoreMessagingK@@SAXXZ @ 0x1C00B4B7C
  * Callers:
- *     CoreMsgUninitialize @ 0x1C00C115C (CoreMsgUninitialize.c)
+ *     CoreMsgUninitialize @ 0x1C00B4A80 (CoreMsgUninitialize.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of ?NotifyVector3PropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2DVector3@@@Z @ 0x180047888
+ * XREFs of ?NotifyVector3PropertyChanged@CPropertyChangeResource@@IEBAJIAEBUD2DVector3@@@Z @ 0x1800659B8
  * Callers:
- *     ?NotifyCurrentPropertyValues@CVisual@@MEBAJI@Z @ 0x1800205B0 (-NotifyCurrentPropertyValues@CVisual@@MEBAJI@Z.c)
- *     ?SetRotationAxis@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800206E0 (-SetRotationAxis@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z.c)
- *     ?SetOffset@CVisual@@QEAAXMMM@Z @ 0x180047600 (-SetOffset@CVisual@@QEAAXMMM@Z.c)
- *     ?NotifyPropertyValue@CPropertySet@@AEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x180047FBC (-NotifyPropertyValue@CPropertySet@@AEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
- *     ?NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180048504 (-NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@.c)
- *     ?SetRelativeOffset@CVisual@@QEAAXMMM@Z @ 0x1800E941C (-SetRelativeOffset@CVisual@@QEAAXMMM@Z.c)
+ *     ?SetOffset@CVisual@@QEAAXMMM@Z @ 0x1800658E0 (-SetOffset@CVisual@@QEAAXMMM@Z.c)
+ *     ?NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180065DA4 (-NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@.c)
+ *     ?NotifyPropertyValue@CPropertySet@@AEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800BD120 (-NotifyPropertyValue@CPropertySet@@AEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z.c)
+ *     ?NotifyCurrentPropertyValues@CVisual@@MEBAJI@Z @ 0x1800C77F0 (-NotifyCurrentPropertyValues@CVisual@@MEBAJI@Z.c)
+ *     ?SetRotationAxis@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800C78E0 (-SetRotationAxis@CComponentTransform3D@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z.c)
+ *     ?SetRelativeOffset@CVisual@@QEAAXMMM@Z @ 0x1800D216C (-SetRelativeOffset@CVisual@@QEAAXMMM@Z.c)
  * Callees:
- *     ?ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z @ 0x1800483E8 (-ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z @ 0x180065C94 (-ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z.c)
  */
 
 __int64 __fastcall CPropertyChangeResource::NotifyVector3PropertyChanged(
@@ -17,38 +17,50 @@ __int64 __fastcall CPropertyChangeResource::NotifyVector3PropertyChanged(
         unsigned int a2,
         const struct D2DVector3 *a3)
 {
-  unsigned int v3; // ebx
+  int v3; // ebx
   __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // rax
-  __int64 v7; // r10
-  unsigned int v8; // ecx
-  int v9; // eax
-  unsigned int v10; // ecx
-  _QWORD v12[3]; // [rsp+50h] [rbp-18h] BYREF
+  __int64 *v5; // r10
+  int v6; // r11d
+  __int64 v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // r9
+  __int64 v11; // rax
+  __int64 v12; // rbx
+  unsigned int v13; // ecx
+  __int64 v14; // rcx
+  __int64 v15; // [rsp+40h] [rbp-28h] BYREF
+  int v16; // [rsp+48h] [rbp-20h]
+  _QWORD v17[3]; // [rsp+50h] [rbp-18h] BYREF
 
   v3 = 0;
   if ( CPropertyChangeResource::ShouldNotify(this, a2) )
   {
-    v5 = *(unsigned int *)(v4 + 64);
-    v6 = *(_QWORD *)(v4 + 48);
-    v7 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v4 + 16) + 1240LL) + 40LL);
-    if ( v6 )
-      v8 = *(_DWORD *)(v6 + 76);
+    v8 = *(_QWORD *)(v4 + 16);
+    v9 = *(unsigned int *)(v4 + 56);
+    v15 = *v5;
+    v10 = *(_QWORD *)(v8 + 1080);
+    v16 = *((_DWORD *)v5 + 2);
+    v11 = *(_QWORD *)(v4 + 48);
+    v12 = *(_QWORD *)(v10 + 48);
+    if ( v11 )
+      v13 = *(_DWORD *)(v11 + 68);
     else
-      v8 = 0;
-    v12[0] = v8;
-    v12[1] = v5;
-    v9 = CoreUICallSend(v7, v12, 2LL, 15LL, 3, &unk_18032C42B);
-    v3 = v9;
-    if ( v9 == -2018375675 )
-    {
-      return 0;
-    }
-    else if ( v9 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x14Au, 0LL);
-    }
+      v13 = 0;
+    v17[0] = v13;
+    v17[1] = v9;
+    v3 = ((__int64 (__fastcall *)(__int64, _QWORD *, __int64, __int64, __int16, void *, int, __int64 *))CoreUICallSend)(
+           v12,
+           v17,
+           2LL,
+           13LL,
+           3,
+           &unk_1802CE7A5,
+           v6,
+           &v15);
+    if ( v3 == -2018375675 )
+      v3 = 0;
+    if ( v3 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v3, 0x14Au, 0LL);
   }
-  return v3;
+  return (unsigned int)v3;
 }

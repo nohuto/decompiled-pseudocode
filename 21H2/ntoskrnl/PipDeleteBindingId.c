@@ -1,19 +1,18 @@
 /*
- * XREFs of PipDeleteBindingId @ 0x1409429D4
+ * XREFs of PipDeleteBindingId @ 0x14089DBD4
  * Callers:
- *     IoResolveDependency @ 0x1403CBF80 (IoResolveDependency.c)
+ *     IoResolveDependency @ 0x1403BE1B0 (IoResolveDependency.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
- *     PipFreeBindingId @ 0x14085CB2C (PipFreeBindingId.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     PipFreeBindingId @ 0x1407CD7C4 (PipFreeBindingId.c)
  */
 
 __int64 __fastcall PipDeleteBindingId(__int64 a1, const UNICODE_STRING *a2)
 {
-  __int64 v2; // rdi
+  __int64 v2; // rsi
   UNICODE_STRING *v4; // rbx
-  unsigned int v5; // esi
-  BOOLEAN v6; // al
-  __int64 v7; // rcx
+  unsigned int v5; // ebp
+  __int64 v6; // rdi
   wchar_t *Buffer; // rax
 
   v2 = a1 + 56;
@@ -23,18 +22,17 @@ __int64 __fastcall PipDeleteBindingId(__int64 a1, const UNICODE_STRING *a2)
   {
     while ( 1 )
     {
-      v6 = RtlEqualUnicodeString(v4 + 1, a2, 0);
-      v7 = *(_QWORD *)&v4->Length;
-      if ( v6 )
+      v6 = *(_QWORD *)&v4->Length;
+      if ( RtlEqualUnicodeString(v4 + 1, a2, 0) )
         break;
-      v4 = *(UNICODE_STRING **)&v4->Length;
-      if ( v7 == v2 )
+      v4 = (UNICODE_STRING *)v6;
+      if ( v6 == v2 )
         return v5;
     }
-    if ( *(UNICODE_STRING **)(v7 + 8) != v4 || (Buffer = v4->Buffer, *(UNICODE_STRING **)Buffer != v4) )
+    if ( *(UNICODE_STRING **)(v6 + 8) != v4 || (Buffer = v4->Buffer, *(UNICODE_STRING **)Buffer != v4) )
       __fastfail(3u);
-    *(_QWORD *)Buffer = v7;
-    *(_QWORD *)(v7 + 8) = Buffer;
+    *(_QWORD *)Buffer = v6;
+    *(_QWORD *)(v6 + 8) = Buffer;
     PipFreeBindingId(v4);
     return 0;
   }

@@ -1,73 +1,63 @@
 /*
- * XREFs of ?NotifyRenderedRect@CLegacyRenderTarget@@AEAAXPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_N@Z @ 0x1801E79D4
+ * XREFs of ?NotifyRenderedRect@CLegacyRenderTarget@@AEAAXPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_N@Z @ 0x1801847A8
  * Callers:
- *     ?RenderComposeTop@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVCComposeTop@@_N@Z @ 0x18002200C (-RenderComposeTop@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVCComposeTop@@_N@Z.c)
- *     ?RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion@@IAEBV?$span@PEBVCVisual@@$0?0@gsl@@PEAVCComposeTop@@@Z @ 0x18008B5D8 (-RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion@@IAEBV-$span@.c)
- *     ?RenderDebugFrameCounter@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x1801E7C3C (-RenderDebugFrameCounter@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCComposeTop@@@Z @ 0x180091458 (-RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCCompose.c)
+ *     ?RenderComposeTop@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVCComposeTop@@_N@Z @ 0x18018489C (-RenderComposeTop@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVCComposeTop@@_N@Z.c)
+ *     ?RenderDebugFrameCounter@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x180184BC8 (-RenderDebugFrameCounter@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@@Z.c)
  * Callees:
- *     ?PixelAlign@@YA?AV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@AEBUMilRectF@@@Z @ 0x180061AA4 (-PixelAlign@@YA-AV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUnique.c)
- *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800C2F90 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?PixelAlign@@YAHMW4Enum@PixelAlignMode@@@Z @ 0x180077744 (-PixelAlign@@YAHMW4Enum@PixelAlignMode@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?DesktopRectToRenderTargetRect@CLegacyRenderTarget@@IEAAX_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x1801843D4 (-DesktopRectToRenderTargetRect@CLegacyRenderTarget@@IEAAX_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRec.c)
  */
 
-_QWORD *__fastcall CLegacyRenderTarget::NotifyRenderedRect(__int64 a1, struct MilRectF *a2, char a3)
+__int64 __fastcall CLegacyRenderTarget::NotifyRenderedRect(__int64 a1, float *a2, char a3)
 {
-  bool v4; // cf
-  int *v5; // rax
-  __int64 v6; // rcx
-  _QWORD *result; // rax
-  int v8; // r9d
-  int v9; // r10d
-  _DWORD *v10; // rdx
-  __int128 v11; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v12; // [rsp+30h] [rbp-38h] BYREF
-  int v13[4]; // [rsp+40h] [rbp-28h] BYREF
+  int v4; // eax
+  __int64 v5; // r8
+  float v6; // xmm0_4
+  int v7; // edx
+  int v8; // eax
+  __int64 v9; // r8
+  float v10; // xmm0_4
+  int v11; // eax
+  __int64 v12; // r8
+  float v13; // xmm0_4
+  int v14; // edx
+  __int64 v15; // rcx
+  __int128 *v16; // rdx
+  __int64 result; // rax
+  __int128 v18; // [rsp+20h] [rbp-28h] BYREF
 
   if ( a2 )
   {
-    v11 = 0LL;
-    if ( !a3 )
+    v18 = 0LL;
+    if ( a3 )
     {
-      v4 = *(_BYTE *)(a1 + 11225) != 0;
-      v12 = 0LL;
-      CMILMatrix::Transform2DBoundsHelper<0>((CMILMatrix *)(a1 + (v4 ? 18352LL : 18216LL)), a2, (float *)&v12);
-      a2 = (struct MilRectF *)&v12;
+      CLegacyRenderTarget::DesktopRectToRenderTargetRect(a1, (__int64)a2, (__int64)a2, &v18);
     }
-    v5 = PixelAlign(v13, (float *)a2);
-    v6 = *(_QWORD *)(a1 + 184);
-    v11 = *(_OWORD *)v5;
-    result = (_QWORD *)(*(__int64 (__fastcall **)(__int64, __int128 *))(*(_QWORD *)v6 + 16LL))(v6, &v11);
+    else
+    {
+      v4 = PixelAlign(*a2, 0);
+      v6 = *(float *)(v5 + 4);
+      LODWORD(v18) = v4;
+      v8 = PixelAlign(v6, v7);
+      v10 = *(float *)(v9 + 8);
+      DWORD1(v18) = v8;
+      v11 = PixelAlign(v10, 1);
+      v13 = *(float *)(v12 + 12);
+      DWORD2(v18) = v11;
+      HIDWORD(v18) = PixelAlign(v13, v14);
+    }
+    v15 = *(_QWORD *)(a1 + 160);
+    v16 = &v18;
   }
   else
   {
-    (*(void (__fastcall **)(_QWORD, _QWORD))(**(_QWORD **)(a1 + 184) + 16LL))(*(_QWORD *)(a1 + 184), 0LL);
-    result = *(_QWORD **)(a1 + 18656);
-    if ( result )
-    {
-      v8 = *(_DWORD *)(a1 + 104);
-      v9 = *(_DWORD *)(a1 + 108);
-      if ( v8 <= 0 || v9 <= 0 )
-      {
-        result = (_QWORD *)*result;
-        *(_DWORD *)result = 0;
-      }
-      else
-      {
-        v10 = (_DWORD *)*result;
-        v10[1] = 0;
-        v10[7] = 0;
-        v10[3] = 0;
-        v10[8] = v8;
-        v10[4] = 16;
-        result = v10 + 5;
-        *v10 = 2;
-        v10[2] = v8;
-        v10[6] = 16;
-        v10[5] = v9;
-      }
-    }
+    v15 = *(_QWORD *)(a1 + 160);
+    v16 = 0LL;
   }
-  *(_BYTE *)(a1 + 18700) = 1;
+  result = (*(__int64 (__fastcall **)(__int64, __int128 *))(*(_QWORD *)v15 + 16LL))(v15, v16);
+  *(_BYTE *)(a1 + 18586) = 1;
   return result;
 }

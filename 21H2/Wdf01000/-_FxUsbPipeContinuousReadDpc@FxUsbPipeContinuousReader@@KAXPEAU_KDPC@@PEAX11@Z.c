@@ -1,5 +1,5 @@
 /*
- * XREFs of ?_FxUsbPipeContinuousReadDpc@FxUsbPipeContinuousReader@@KAXPEAU_KDPC@@PEAX11@Z @ 0x1C0039630
+ * XREFs of ?_FxUsbPipeContinuousReadDpc@FxUsbPipeContinuousReader@@KAXPEAU_KDPC@@PEAX11@Z @ 0x1C006C480
  * Callers:
  *     <none>
  * Callees:

@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPIIoctlCalculateOutputBufferV1 @ 0x1C001BF00
+ * XREFs of ACPIIoctlCalculateOutputBufferV1 @ 0x1C000BF6C
  * Callers:
- *     ACPIIoctlEvalPostProcessingV1 @ 0x1C001BE20 (ACPIIoctlEvalPostProcessingV1.c)
- *     ACPIIoctlCalculateOutputBufferV1 @ 0x1C001BF00 (ACPIIoctlCalculateOutputBufferV1.c)
- *     AcpiConvertObjDataToMethodArguments @ 0x1C005BB40 (AcpiConvertObjDataToMethodArguments.c)
- *     ACPIProcessorContainerFillIoctlBuffer @ 0x1C005E054 (ACPIProcessorContainerFillIoctlBuffer.c)
+ *     ACPIIoctlEvalPostProcessingV1 @ 0x1C000BD98 (ACPIIoctlEvalPostProcessingV1.c)
+ *     ACPIIoctlCalculateOutputBufferV1 @ 0x1C000BF6C (ACPIIoctlCalculateOutputBufferV1.c)
+ *     AcpiConvertObjDataToMethodArguments @ 0x1C005AC44 (AcpiConvertObjDataToMethodArguments.c)
+ *     ACPIProcessorContainerFillIoctlBuffer @ 0x1C005D368 (ACPIProcessorContainerFillIoctlBuffer.c)
  * Callees:
- *     ACPIIoctlCalculateOutputBufferV1 @ 0x1C001BF00 (ACPIIoctlCalculateOutputBufferV1.c)
- *     ACPIIoctlCalculateOutputBufferSizeV1 @ 0x1C001C0A0 (ACPIIoctlCalculateOutputBufferSizeV1.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     ACPIIoctlCalculateOutputBufferSizeV1 @ 0x1C000BE70 (ACPIIoctlCalculateOutputBufferSizeV1.c)
+ *     ACPIIoctlCalculateOutputBufferV1 @ 0x1C000BF6C (ACPIIoctlCalculateOutputBufferV1.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall ACPIIoctlCalculateOutputBufferV1(__int64 a1, __int64 a2, char a3)
@@ -16,15 +16,15 @@ __int64 __fastcall ACPIIoctlCalculateOutputBufferV1(__int64 a1, __int64 a2, char
   __int16 v4; // cx
   char *v6; // rbx
   __int64 result; // rax
-  unsigned int *v8; // r12
+  unsigned int *v8; // r14
   __int64 v9; // r8
   char v10; // r11
-  int v11; // eax
-  unsigned int v12; // ecx
-  unsigned int v13; // ebp
-  char *v14; // r14
-  __int64 v15; // rax
-  int v16; // [rsp+30h] [rbp-38h] BYREF
+  unsigned int v11; // ecx
+  unsigned int v12; // ebp
+  char *v13; // r15
+  __int64 v14; // rax
+  int v15; // eax
+  int v16[4]; // [rsp+30h] [rbp-38h] BYREF
   int v17; // [rsp+70h] [rbp+8h] BYREF
 
   v4 = *(_WORD *)(a1 + 2);
@@ -54,40 +54,42 @@ __int64 __fastcall ACPIIoctlCalculateOutputBufferV1(__int64 a1, __int64 a2, char
   if ( v4 != 4 )
     return 3222536207LL;
   v8 = *(unsigned int **)(a1 + 32);
+  if ( !*v8 )
+    return 3222536207LL;
   v17 = 0;
-  v16 = 0;
-  result = ACPIIoctlCalculateOutputBufferSizeV1(a1, (unsigned int)&v17, (unsigned int)&v16, a3, 1);
+  v16[0] = 0;
+  result = ACPIIoctlCalculateOutputBufferSizeV1(a1, &v17, v16, a3, 1);
   if ( (int)result >= 0 )
   {
     if ( v10 )
     {
-      v12 = (unsigned __int16)v17;
+      v11 = (unsigned __int16)v17;
     }
     else
     {
       *(_WORD *)v6 = 3;
-      LOWORD(v11) = v17;
+      LOWORD(v15) = v17;
       *((_WORD *)v6 + 1) = v17;
       v6 += 4;
-      if ( (unsigned __int16)v11 < 4u )
-        v11 = 4;
+      if ( (unsigned __int16)v15 < 4u )
+        v15 = 4;
       else
-        v11 = (unsigned __int16)v11;
-      v12 = v11 + 4;
+        v15 = (unsigned __int16)v15;
+      v11 = v15 + 4;
     }
-    v13 = 0;
-    v14 = &v6[v12];
-    while ( v6 < v14 && v13 < *v8 )
+    v12 = 0;
+    v13 = &v6[v11];
+    while ( v6 < v13 && v12 < *v8 )
     {
       LOBYTE(v9) = a3;
-      result = ACPIIoctlCalculateOutputBufferV1(&v8[8 * v13 + 2 + 2 * v13], v6, v9, 0LL);
+      result = ACPIIoctlCalculateOutputBufferV1(&v8[8 * v12 + 2 + 2 * v12], v6, v9, 0LL);
       if ( (int)result < 0 )
         return result;
-      v15 = *((unsigned __int16 *)v6 + 1);
-      ++v13;
-      if ( (unsigned __int16)v15 < 4u )
-        v15 = 4LL;
-      v6 += v15 + 4;
+      v14 = *((unsigned __int16 *)v6 + 1);
+      ++v12;
+      if ( (unsigned __int16)v14 < 4u )
+        v14 = 4LL;
+      v6 += v14 + 4;
     }
     return 0LL;
   }

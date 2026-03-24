@@ -1,68 +1,64 @@
 /*
- * XREFs of HalpHpetDiscover @ 0x140377E30
+ * XREFs of HalpHpetDiscover @ 0x1403B25CC
  * Callers:
- *     HalpTimerRegisterBuiltinPlugins @ 0x1403A3BEC (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403B174C (HalpTimerRegisterBuiltinPlugins.c)
  * Callees:
- *     HalSocRequestConfigurationData @ 0x140378418 (HalSocRequestConfigurationData.c)
- *     HalpTimerRegister @ 0x140379104 (HalpTimerRegister.c)
- *     HalMapIoSpace @ 0x14037E780 (HalMapIoSpace.c)
- *     HalpUnmapVirtualAddress @ 0x14037E7D0 (HalpUnmapVirtualAddress.c)
- *     HalRegisterPermanentAddressUsage @ 0x1403803E0 (HalRegisterPermanentAddressUsage.c)
- *     HalSocGetAcpiTable @ 0x1403A447C (HalSocGetAcpiTable.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalSocRequestConfigurationData @ 0x1403A179C (HalSocRequestConfigurationData.c)
+ *     HalpTimerRegister @ 0x1403B2D90 (HalpTimerRegister.c)
+ *     HalRegisterPermanentAddressUsage @ 0x1403B31C0 (HalRegisterPermanentAddressUsage.c)
+ *     HalSocGetAcpiTable @ 0x1403B32D4 (HalSocGetAcpiTable.c)
+ *     HalMapIoSpace @ 0x1403B3460 (HalMapIoSpace.c)
+ *     HalpUnmapVirtualAddress @ 0x1403BB230 (HalpUnmapVirtualAddress.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 HalpHpetDiscover()
 {
   __int64 AcpiTable; // rax
   __int64 v1; // rdx
-  __int64 v2; // r14
-  unsigned int *v3; // r15
+  __int64 v2; // r15
+  unsigned int *v3; // r14
   unsigned int v4; // esi
-  unsigned int v5; // ebx
+  unsigned int v5; // r8d
   unsigned __int64 v6; // rax
   int v7; // r12d
-  int v8; // esi
-  bool v9; // zf
-  unsigned int v10; // esi
-  unsigned int v11; // r13d
-  __int64 v12; // rbx
-  unsigned int *v13; // r15
-  __int64 v14; // rdx
+  unsigned int v8; // r13d
+  unsigned int v9; // esi
+  __int64 v10; // rbx
+  unsigned int *v11; // r14
+  __int64 v12; // rdx
+  unsigned int v13; // ebx
+  int v14; // edi
   int v15; // eax
-  unsigned int v16; // ebx
-  int v17; // edi
-  int v18; // eax
-  char v19; // cl
-  int v21; // r9d
-  unsigned __int8 v22; // dl
-  signed __int32 v23[8]; // [rsp+8h] [rbp-100h] BYREF
-  int v24; // [rsp+28h] [rbp-E0h] BYREF
-  unsigned int v25; // [rsp+30h] [rbp-D8h]
-  _QWORD v26[18]; // [rsp+38h] [rbp-D0h] BYREF
-  __int64 v27; // [rsp+C8h] [rbp-40h]
-  unsigned int *v28; // [rsp+D0h] [rbp-38h]
-  unsigned __int64 v29; // [rsp+D8h] [rbp-30h]
-  _OWORD v30[2]; // [rsp+E0h] [rbp-28h] BYREF
-  __int64 v31; // [rsp+100h] [rbp-8h]
+  char v16; // cl
+  int v18; // r9d
+  unsigned __int8 v19; // dl
+  signed __int32 v20[8]; // [rsp+8h] [rbp-100h] BYREF
+  int v21; // [rsp+28h] [rbp-E0h] BYREF
+  unsigned int v22; // [rsp+30h] [rbp-D8h]
+  _QWORD v23[18]; // [rsp+38h] [rbp-D0h] BYREF
+  __int64 v24; // [rsp+C8h] [rbp-40h]
+  unsigned int *v25; // [rsp+D0h] [rbp-38h]
+  unsigned __int64 v26; // [rsp+D8h] [rbp-30h]
+  _OWORD v27[2]; // [rsp+E0h] [rbp-28h] BYREF
+  __int64 v28; // [rsp+100h] [rbp-8h]
 
-  LOWORD(v24) = 0;
-  memset(v30, 0, sizeof(v30));
-  v31 = 0LL;
+  LOWORD(v21) = 0;
+  memset(v27, 0, sizeof(v27));
+  v28 = 0LL;
   AcpiTable = HalSocGetAcpiTable(1413828680LL);
   v2 = AcpiTable;
   if ( AcpiTable )
   {
-    if ( !*(_BYTE *)(AcpiTable + 40) && (int)HalSocRequestConfigurationData(1LL, v1, (char *)&v24 + 1) >= 0 )
+    if ( !*(_BYTE *)(AcpiTable + 40) && (int)HalSocRequestConfigurationData(1, v1, (char *)&v21 + 1) >= 0 )
     {
       HalpHpetPhysicalAddress = *(LARGE_INTEGER *)(v2 + 44);
-      if ( !HalpHpetPhysicalAddress.HighPart || BYTE1(v24) )
+      if ( !HalpHpetPhysicalAddress.HighPart || BYTE1(v21) )
       {
-        v28 = (unsigned int *)HalMapIoSpace(HalpHpetPhysicalAddress, 0x400uLL, MmNonCached);
-        v3 = v28;
-        if ( v28 )
+        v25 = (unsigned int *)HalMapIoSpace(HalpHpetPhysicalAddress, 0x400uLL, MmNonCached);
+        v3 = v25;
+        if ( v25 )
         {
           if ( HalRegisterPermanentAddressUsage(HalpHpetPhysicalAddress, 0x400u) >= 0 )
           {
@@ -72,148 +68,142 @@ __int64 HalpHpetDiscover()
             {
               if ( v5 != 0xFFFF )
               {
-                HalpHpetComparatorLatchDelay = 2;
-                if ( RtlCompareMemory((const void *)(v2 + 10), "VMWARE", 6uLL) == 6 )
-                  HalpHpetComparatorLatchDelay = 1;
                 if ( (v4 & 0x8000) != 0 )
                   HalpHpetLegacyInterrupts = 1;
                 v6 = (((unsigned __int64)v3[1] >> 1) + 1000000000000000LL) / v3[1];
-                v29 = v6;
+                v26 = v6;
                 if ( v5 != 4318 )
                 {
                   v7 = 1;
-                  v8 = (v4 >> 8) & 0x1F;
-                  v9 = v8 == -1;
-                  v10 = v8 + 1;
-                  v11 = 0;
-                  if ( v9 )
-                    goto LABEL_29;
-                  v12 = (unsigned int)v6;
-                  v13 = v3 + 64;
-                  v27 = (unsigned int)v6;
+                  v8 = 0;
+                  v9 = ((v4 >> 8) & 0x1F) + 1;
+                  if ( !v9 )
+                    goto LABEL_27;
+                  v10 = (unsigned int)v6;
+                  v11 = v3 + 64;
+                  v24 = (unsigned int)v6;
                   while ( 1 )
                   {
-                    memset(v26, 0, sizeof(v26));
-                    v26[11] = v30;
-                    v31 = 0LL;
-                    v26[1] = HalpHpetInitialize;
-                    v26[13] = v12;
-                    v26[3] = HalpHpetAcknowledgeInterrupt;
-                    memset((char *)v30 + 4, 0, 20);
-                    v26[0] = 0x9000000001LL;
-                    v26[4] = HalpHpetArmTimer;
-                    v26[5] = HalpHpetStop;
-                    v15 = (v11 + 1) | (*(unsigned __int8 *)(v2 + 52) << 16);
-                    LODWORD(v30[0]) = v11;
-                    HIDWORD(v26[17]) = v15;
-                    *((LARGE_INTEGER *)&v30[1] + 1) = HalpHpetPhysicalAddress;
-                    v16 = *v13 & 0xFFFFBFFB;
-                    v26[12] = 0x1F00000028LL;
-                    v26[16] = 0x100000001LL;
-                    LODWORD(v26[17]) = 3;
-                    v26[14] = 0x3000000001LL;
-                    *v13 = v16;
-                    v25 = v11 + 1;
-                    _InterlockedOr(v23, 0);
-                    if ( (v16 & 0x10) != 0 )
+                    memset(v23, 0, sizeof(v23));
+                    v28 = 0LL;
+                    v23[11] = v27;
+                    v23[0] = 0x9000000001LL;
+                    v23[1] = HalpHpetInitialize;
+                    v23[3] = HalpHpetAcknowledgeInterrupt;
+                    v23[4] = HalpHpetArmTimer;
+                    v23[5] = HalpHpetStop;
+                    memset((char *)v27 + 4, 0, 20);
+                    HIDWORD(v23[17]) = (v8 + 1) | (*(unsigned __int8 *)(v2 + 52) << 16);
+                    *((LARGE_INTEGER *)&v27[1] + 1) = HalpHpetPhysicalAddress;
+                    v23[13] = v10;
+                    v23[12] = 0x1F00000028LL;
+                    v23[16] = 0x100000001LL;
+                    LODWORD(v23[17]) = 3;
+                    v23[14] = 0x3000000001LL;
+                    v22 = v8 + 1;
+                    LODWORD(v27[0]) = v8;
+                    v13 = *v11 & 0xFFFFBFFB;
+                    *v11 = v13;
+                    _InterlockedOr(v20, 0);
+                    if ( (v13 & 0x10) != 0 )
                     {
-                      v17 = 112;
-                      BYTE12(v30[0]) = 1;
-                      HIDWORD(v26[14]) = 112;
+                      v14 = 112;
+                      BYTE12(v27[0]) = 1;
+                      HIDWORD(v23[14]) = 112;
                     }
                     else
                     {
-                      v17 = HIDWORD(v26[14]);
+                      v14 = HIDWORD(v23[14]);
                     }
-                    if ( (v16 & 0x20) != 0 )
+                    if ( (v13 & 0x20) != 0 )
                     {
-                      *v13 = v16 | 0x100;
-                      _InterlockedOr(v23, 0);
-                      v16 = *v13;
-                      if ( (*v13 & 0x100) == 0 )
-                        goto LABEL_27;
-                      v17 = HIDWORD(v26[14]);
+                      *v11 = v13 | 0x100;
+                      _InterlockedOr(v20, 0);
+                      v13 = *v11;
+                      if ( (*v11 & 0x100) == 0 )
+                        goto LABEL_25;
+                      v14 = HIDWORD(v23[14]);
                     }
-                    LODWORD(v31) = v16;
+                    LODWORD(v28) = v13;
                     if ( HalpHpetLegacyInterrupts )
                     {
-                      v18 = HalSocRequestConfigurationData(2LL, v14, &v24);
-                      v19 = v24;
-                      if ( v18 < 0 )
-                        v19 = 0;
-                      LOBYTE(v24) = v19;
-                      if ( !v11 )
+                      v15 = HalSocRequestConfigurationData(2, v12, (char *)&v21);
+                      v16 = v21;
+                      if ( v15 < 0 )
+                        v16 = 0;
+                      LOBYTE(v21) = v16;
+                      if ( !v8 )
                       {
-                        v17 |= 0x100u;
-                        LODWORD(v26[15]) = v19 == 0 ? 2 : 0;
+                        v14 |= 0x100u;
+                        LODWORD(v23[15]) = v16 == 0 ? 2 : 0;
                         v7 |= 4u;
-LABEL_33:
-                        HIDWORD(v26[14]) = v17;
-LABEL_25:
-                        if ( (v17 & 0xF00) != 0 )
-                          HalpTimerRegister(v26, 0LL);
-                        goto LABEL_27;
-                      }
-                      if ( v11 == 1 )
-                      {
-                        LODWORD(v26[15]) = 8;
-                        v17 |= 0x100u;
-                        v7 |= 0x100u;
-                        goto LABEL_33;
-                      }
-                      if ( (v16 & 0x8000) != 0 )
+LABEL_31:
+                        HIDWORD(v23[14]) = v14;
+LABEL_23:
+                        if ( (v14 & 0xF00) != 0 )
+                          HalpTimerRegister(v23, 0LL);
                         goto LABEL_25;
+                      }
+                      if ( v8 == 1 )
+                      {
+                        LODWORD(v23[15]) = 8;
+                        v14 |= 0x100u;
+                        v7 |= 0x100u;
+                        goto LABEL_31;
+                      }
+                      if ( (v13 & 0x8000) != 0 )
+                        goto LABEL_23;
                     }
                     else
                     {
-                      v21 = ~v7 & v13[1];
-                      if ( v21 )
+                      v18 = ~v7 & v11[1];
+                      if ( v18 )
                       {
-                        v22 = 0;
-                        while ( ((1 << v22) & v21) == 0 )
+                        v19 = 0;
+                        while ( ((1 << v19) & v18) == 0 )
                         {
-                          if ( ++v22 >= 0x20u )
+                          if ( ++v19 >= 0x20u )
                           {
-                            LOWORD(v17) = WORD2(v26[14]);
-                            goto LABEL_25;
+                            LOWORD(v14) = WORD2(v23[14]);
+                            goto LABEL_23;
                           }
                         }
-                        v17 = HIDWORD(v26[14]) | 0x200;
-                        HIDWORD(v26[15]) = v22 + (unsigned __int16)HalpHpetGsiOffset;
-                        v7 |= 1 << v22;
-                        BYTE4(v30[0]) = v22;
-                        goto LABEL_33;
+                        v14 = HIDWORD(v23[14]) | 0x200;
+                        HIDWORD(v23[15]) = v19 + (unsigned __int16)HalpHpetGsiOffset;
+                        v7 |= 1 << v19;
+                        BYTE4(v27[0]) = v19;
+                        goto LABEL_31;
                       }
                     }
-LABEL_27:
-                    v11 = v25;
-                    v13 += 8;
-                    v12 = v27;
-                    if ( v25 >= v10 )
+LABEL_25:
+                    v8 = v22;
+                    v11 += 8;
+                    v10 = v24;
+                    if ( v22 >= v9 )
                     {
-                      v3 = v28;
-                      goto LABEL_29;
+                      v3 = v25;
+                      goto LABEL_27;
                     }
                   }
                 }
                 HalpHpetLegacyInterrupts = 0;
-LABEL_29:
-                memset(v26, 0, sizeof(v26));
-                v26[0] = 0x9000000001LL;
-                v31 = 0LL;
-                v26[13] = (unsigned int)v29;
-                memset(v30, 0, sizeof(v30));
-                LODWORD(v30[0]) = -1;
-                v26[11] = v30;
-                v26[1] = HalpHpetInitialize;
-                v26[2] = HalpHpetQueryCounter;
-                v26[3] = HalpHpetAcknowledgeInterrupt;
-                v26[4] = HalpHpetArmTimer;
-                HIDWORD(v26[17]) = *(unsigned __int8 *)(v2 + 52) << 16;
-                v26[12] = 0x2000000028LL;
-                LODWORD(v26[17]) = 3;
-                v26[14] = 0x200000001LL;
-                HalpTimerRegister(v26, 0LL);
+LABEL_27:
+                memset(v23, 0, sizeof(v23));
+                v23[0] = 0x9000000001LL;
+                v28 = 0LL;
+                v23[13] = (unsigned int)v26;
+                memset(v27, 0, sizeof(v27));
+                LODWORD(v27[0]) = -1;
+                v23[11] = v27;
+                v23[1] = HalpHpetInitialize;
+                v23[2] = HalpHpetQueryCounter;
+                v23[3] = HalpHpetAcknowledgeInterrupt;
+                v23[4] = HalpHpetArmTimer;
+                HIDWORD(v23[17]) = *(unsigned __int8 *)(v2 + 52) << 16;
+                v23[12] = 0x2000000028LL;
+                LODWORD(v23[17]) = 3;
+                v23[14] = 0x200000001LL;
+                HalpTimerRegister(v23, 0LL);
               }
             }
           }

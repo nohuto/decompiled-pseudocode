@@ -3,9 +3,9 @@
  * Callers:
  *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
  *     MiGetChannelInformation @ 0x1406086FC (MiGetChannelInformation.c)
- *     MiAddPhysicalMemory @ 0x14084C8B4 (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x14084D56C (MiRemovePhysicalMemory.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x140860848 (MiUpdatePartitionLargePfnBitMap.c)
+ *     MiAddPhysicalMemory @ 0x14084C894 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x14084D54C (MiRemovePhysicalMemory.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x140860828 (MiUpdatePartitionLargePfnBitMap.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  */

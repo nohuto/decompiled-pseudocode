@@ -1,17 +1,16 @@
 /*
- * XREFs of vGetJpn98FixPitch @ 0x1C0088030
+ * XREFs of vGetJpn98FixPitch @ 0x1C00E5790
  * Callers:
  *     <none>
  * Callees:
- *     ?GetGreRegKey@@YAJPEAPEAXKPEBG@Z @ 0x1C0088490 (-GetGreRegKey@@YAJPEAPEAXKPEBG@Z.c)
- *     bQueryFntCacheReg @ 0x1C0088820 (bQueryFntCacheReg.c)
+ *     ?GetGreRegKey@@YAJPEAPEAXKPEBG@Z @ 0x1C00E5708 (-GetGreRegKey@@YAJPEAPEAXKPEBG@Z.c)
+ *     bQueryFntCacheReg @ 0x1C00E5868 (bQueryFntCacheReg.c)
  */
 
-NTSTATUS vGetJpn98FixPitch()
+int vGetJpn98FixPitch()
 {
   int v0; // ebx
-  NTSTATUS result; // eax
-  __int64 v2; // rcx
+  int result; // eax
   HANDLE Handle; // [rsp+38h] [rbp+10h] BYREF
 
   v0 = 0;
@@ -25,7 +24,7 @@ NTSTATUS vGetJpn98FixPitch()
     if ( (unsigned int)bQueryFntCacheReg(Handle) )
     {
       LOBYTE(v0) = 0;
-      *(_DWORD *)(*(_QWORD *)(SGDGetSessionState(v2) + 32) + 19400LL) = v0;
+      gbJpn98FixPitch = v0;
     }
     return ZwClose(Handle);
   }

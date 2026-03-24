@@ -1,18 +1,18 @@
 /*
- * XREFs of PiAuditDeviceOperation @ 0x14083CFB8
+ * XREFs of PiAuditDeviceOperation @ 0x14083CF98
  * Callers:
- *     PiPnpRtlSetObjectProperty @ 0x1406E5270 (PiPnpRtlSetObjectProperty.c)
- *     PiAuditDeviceEnableDisableAction @ 0x14083CF44 (PiAuditDeviceEnableDisableAction.c)
- *     PiAuditDeviceEnableDisableRequest @ 0x14083CF78 (PiAuditDeviceEnableDisableRequest.c)
- *     PiAuditDeviceStart @ 0x14083D590 (PiAuditDeviceStart.c)
+ *     PiPnpRtlSetObjectProperty @ 0x1406E5250 (PiPnpRtlSetObjectProperty.c)
+ *     PiAuditDeviceEnableDisableAction @ 0x14083CF24 (PiAuditDeviceEnableDisableAction.c)
+ *     PiAuditDeviceEnableDisableRequest @ 0x14083CF58 (PiAuditDeviceEnableDisableRequest.c)
+ *     PiAuditDeviceStart @ 0x14083D570 (PiAuditDeviceStart.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PnpFindAlternateStringData @ 0x140587E34 (PnpFindAlternateStringData.c)
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
- *     SeAuditPlugAndPlay @ 0x14089D128 (SeAuditPlugAndPlay.c)
+ *     SeAuditPlugAndPlay @ 0x14089D108 (SeAuditPlugAndPlay.c)
  */
 
 __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)

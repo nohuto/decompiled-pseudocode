@@ -1,12 +1,12 @@
 /*
- * XREFs of Control_WdfEvtIoCanceledOnQueue @ 0x1C0042E70
+ * XREFs of Control_WdfEvtIoCanceledOnQueue @ 0x1C0040150
  * Callers:
  *     <none>
  * Callees:
- *     Control_TransferData_Initialize @ 0x1C00070DC (Control_TransferData_Initialize.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_DDi @ 0x1C0041F7C (WPP_RECORDER_SF_DDi.c)
+ *     Control_TransferData_Initialize @ 0x1C00050E4 (Control_TransferData_Initialize.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C003FA6C (WPP_RECORDER_SF_DDi.c)
  */
 
 __int64 __fastcall Control_WdfEvtIoCanceledOnQueue(__int64 a1, __int64 a2)
@@ -32,11 +32,11 @@ __int64 __fastcall Control_WdfEvtIoCanceledOnQueue(__int64 a1, __int64 a2)
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0063388);
+         off_1C0060388);
   v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a2,
-         off_1C0063090);
+         off_1C0060090);
   v7 = *((_QWORD *)&v13[0] + 1);
   v8 = v5;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -49,7 +49,7 @@ __int64 __fastcall Control_WdfEvtIoCanceledOnQueue(__int64 a1, __int64 a2)
       v9,
       v6,
       39,
-      (__int64)&WPP_1132998d7a983e6252cacd8244985166_Traceguids,
+      (__int64)&WPP_d233b597c96c378d294c2d5b80e0f0a8_Traceguids,
       v10,
       *(_DWORD *)(*(_QWORD *)(v4 + 56) + 144LL),
       a2);

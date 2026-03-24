@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpQueuePendingEject @ 0x140828560
+ * XREFs of PnpQueuePendingEject @ 0x140828540
  * Callers:
- *     IopEjectDevice @ 0x14083AE20 (IopEjectDevice.c)
+ *     IopEjectDevice @ 0x14083AE00 (IopEjectDevice.c)
  * Callees:
  *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
  *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)

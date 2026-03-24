@@ -1,201 +1,182 @@
 /*
- * XREFs of _CmDeleteDevicePanelRegKeyWorker @ 0x140A281F8
+ * XREFs of _CmDeleteDevicePanelRegKeyWorker @ 0x140977EBC
  * Callers:
- *     _CmDeleteDevicePanelRegKey @ 0x140A280B8 (_CmDeleteDevicePanelRegKey.c)
+ *     _CmDeleteDevicePanelRegKey @ 0x140977D7C (_CmDeleteDevicePanelRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     wcsrchr @ 0x1403E34B0 (wcsrchr.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     RtlPrefixUnicodeString @ 0x14077F870 (RtlPrefixUnicodeString.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x14078014C (_PnpCtxGetCachedContextBaseKey.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140862B44 (_RegRtlDeleteKeyTransacted.c)
- *     _CmGetDevicePanelRegKeyPath @ 0x140A28CA4 (_CmGetDevicePanelRegKeyPath.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A2CF6C (_SysCtxRegOpenCurrentUserKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     wcsrchr @ 0x1403D4100 (wcsrchr.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x14072D458 (_SysCtxRegOpenCurrentUserKey.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140766D58 (_RegRtlDeleteKeyTransacted.c)
+ *     _CmGetDevicePanelRegKeyPath @ 0x1409785E0 (_CmGetDevicePanelRegKeyPath.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeleteDevicePanelRegKeyWorker(__int64 a1, int a2, int a3, __int64 a4, char a5)
 {
-  int v6; // ebx
-  int v8; // r13d
-  wchar_t *pszDest; // rdi
-  unsigned __int64 v10; // r12
-  int v11; // r9d
-  int DevicePanelRegKeyPath; // eax
-  int inited; // ebx
+  wchar_t *pszDest; // rsi
+  unsigned __int64 v9; // r14
+  SIZE_T i; // rdx
+  int DevicePanelRegKeyPath; // ebx
+  int v12; // r9d
   unsigned __int16 Length; // bx
-  const WCHAR *v16; // r15
-  char *v17; // r12
-  __int64 v18; // rcx
-  __int64 v19; // rax
-  __int64 v20; // r8
-  int v21; // eax
-  __int64 v22; // rax
-  __int64 v23; // r8
-  wchar_t *v24; // rax
-  __int64 v25; // rax
-  __int64 v26; // r8
-  wchar_t *v27; // rax
-  __int64 v28; // rax
-  __int64 v29; // r8
+  BOOLEAN v14; // r12
+  const WCHAR *v15; // r14
+  char *v16; // r15
+  _QWORD *v17; // rcx
+  __int64 v18; // rax
+  __int64 v19; // r8
+  int v20; // eax
+  __int64 v21; // rax
+  __int64 v22; // r8
+  wchar_t *v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // r8
+  wchar_t *v26; // rax
+  __int64 v27; // rax
+  __int64 v28; // r8
   int v30; // [rsp+20h] [rbp-40h]
   size_t cchDest; // [rsp+30h] [rbp-30h]
   HANDLE Handle; // [rsp+40h] [rbp-20h] BYREF
   char *v33; // [rsp+48h] [rbp-18h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-10h] BYREF
-  __int64 v36; // [rsp+B8h] [rbp+58h] BYREF
+  __int64 v35; // [rsp+A8h] [rbp+48h] BYREF
 
-  LODWORD(v36) = 0;
+  LODWORD(v35) = 0;
   v33 = 0LL;
-  v6 = a2;
   Handle = 0LL;
-  v8 = 4;
   pszDest = 0LL;
   DestinationString = 0LL;
   if ( !a3 || (a3 & 0xFFFFFE9F) != 0 )
+    goto LABEL_54;
+  LODWORD(v9) = 317;
+  for ( i = 317LL; ; i = (unsigned int)v9 )
   {
-LABEL_15:
-    inited = -1073741811;
-    goto LABEL_16;
-  }
-  LODWORD(v10) = 317;
-  pszDest = (wchar_t *)ExAllocatePool2(256LL, 317LL, 1380994640LL);
-  if ( !pszDest )
-  {
-LABEL_59:
-    inited = -1073741801;
-    goto LABEL_16;
-  }
-  while ( 1 )
-  {
-    LODWORD(cchDest) = (unsigned int)v10 >> 1;
+    pszDest = (wchar_t *)ExAllocatePoolWithTag(PagedPool, i, 0x52504E50u);
+    if ( !pszDest )
+      break;
+    LODWORD(cchDest) = (unsigned int)v9 >> 1;
     DevicePanelRegKeyPath = CmGetDevicePanelRegKeyPath(
-                              (unsigned int)v10 >> 1,
-                              v6,
+                              (unsigned int)v9 >> 1,
+                              a2,
                               a3,
-                              v11,
+                              v12,
                               v30,
                               pszDest,
                               cchDest,
-                              (__int64)&v36);
-    inited = DevicePanelRegKeyPath;
+                              (__int64)&v35);
     if ( DevicePanelRegKeyPath != -1073741789 )
-      break;
+      goto LABEL_9;
     ExFreePoolWithTag(pszDest, 0);
-    v10 = 2LL * (unsigned int)v36;
+    v9 = 2LL * (unsigned int)v35;
     pszDest = 0LL;
-    if ( v10 > 0xFFFFFFFF )
+    if ( v9 > 0xFFFFFFFF )
     {
-      inited = -1073741675;
-      goto LABEL_16;
+      DevicePanelRegKeyPath = -1073741675;
+      goto LABEL_55;
     }
-    pszDest = (wchar_t *)ExAllocatePool2(256LL, (unsigned int)v10, 1380994640LL);
-    if ( !pszDest )
-      goto LABEL_59;
-    v6 = a2;
   }
-  if ( DevicePanelRegKeyPath >= 0 )
+  DevicePanelRegKeyPath = -1073741801;
+LABEL_9:
+  if ( DevicePanelRegKeyPath < 0 )
+    goto LABEL_55;
+  if ( (a3 & 0x100) == 0 )
   {
-    if ( (a3 & 0x100) != 0 )
+    DevicePanelRegKeyPath = RtlInitUnicodeStringEx(&DestinationString, pszDest);
+    if ( DevicePanelRegKeyPath < 0 )
+      goto LABEL_55;
+    Length = DestinationString.Length;
+    if ( DestinationString.Length < (unsigned int)v9
+      && DestinationString.Length > 0x32u
+      && RtlPrefixUnicodeString(&`_CmOpenDevicePanelRegKeyWorker'::`2'::ObjectPathRootPrefix, &DestinationString, 1u) )
     {
-      v16 = pszDest;
-      v18 = 0LL;
-      if ( a1 )
-        v18 = *(_QWORD *)(a1 + 224);
-      inited = SysCtxRegOpenCurrentUserKey(v18, 0LL, 0x2000000LL, &Handle);
-      if ( inited < 0 )
-        goto LABEL_16;
-      v17 = (char *)Handle;
-    }
-    else
-    {
-      inited = RtlInitUnicodeStringEx(&DestinationString, pszDest);
-      if ( inited < 0 )
-        goto LABEL_16;
-      Length = DestinationString.Length;
-      if ( DestinationString.Length >= (unsigned int)v10
-        || DestinationString.Length <= 0x32u
-        || !RtlPrefixUnicodeString(
-              &`_CmDeleteDeviceContainerRegKeyWorker'::`2'::ObjectPathRootPrefix,
-              &DestinationString,
-              1u) )
-      {
-        goto LABEL_15;
-      }
-      v16 = pszDest + 25;
       DestinationString.MaximumLength -= 50;
       DestinationString.Buffer = pszDest + 25;
       DestinationString.Length = Length - 50;
-      if ( RtlPrefixUnicodeString(
-             &`_CmDeleteDevicePanelRegKeyWorker'::`2'::DevicePanelsKeyPrefix,
-             &DestinationString,
-             1u) )
-      {
-        v8 = 11;
-        v16 = pszDest + 46;
-      }
-      inited = PnpCtxGetCachedContextBaseKey(a1, v8, (__int64)&v33);
-      if ( inited < 0 )
-        goto LABEL_16;
-      v17 = v33;
+      v14 = RtlPrefixUnicodeString(
+              &`_CmDeleteDevicePanelRegKeyWorker'::`2'::DevicePanelsKeyPrefix,
+              &DestinationString,
+              1u);
+      DevicePanelRegKeyPath = PnpCtxGetCachedContextBaseKey(a1, v14 != 0 ? 11 : 4, (__int64)&v33);
+      if ( DevicePanelRegKeyPath < 0 )
+        goto LABEL_55;
+      v15 = pszDest + 46;
+      if ( !v14 )
+        v15 = pszDest + 25;
+      v16 = v33;
+      goto LABEL_24;
     }
-    if ( a5 )
-    {
-      if ( a1 && (v19 = *(_QWORD *)(a1 + 224)) != 0 )
-        v20 = *(_QWORD *)(v19 + 8);
-      else
-        v20 = 0LL;
-      v21 = RegRtlDeleteTreeInternal((__int64)v17, (__int64)v16, v20, 0);
-    }
-    else
-    {
-      if ( a1 && (v22 = *(_QWORD *)(a1 + 224)) != 0 )
-        v23 = *(_QWORD *)(v22 + 8);
-      else
-        v23 = 0LL;
-      v21 = RegRtlDeleteKeyTransacted(v17, v16, v23);
-    }
-    if ( v21 == -1073741444 )
-      goto LABEL_16;
-    if ( v21 < 0 )
-      goto LABEL_42;
-    v24 = wcsrchr(v16, 0x5Cu);
-    if ( !v24 )
-      goto LABEL_44;
-    *v24 = 0;
-    if ( a1 && (v25 = *(_QWORD *)(a1 + 224)) != 0 )
-      v26 = *(_QWORD *)(v25 + 8);
-    else
-      v26 = 0LL;
-    v21 = RegRtlDeleteKeyTransacted(v17, v16, v26);
-    if ( v21 != -1073741535 )
-    {
-      if ( v21 < 0 )
-        goto LABEL_42;
-      v27 = wcsrchr(v16, 0x5Cu);
-      if ( !v27 )
-      {
-LABEL_44:
-        inited = -1073741595;
-        goto LABEL_16;
-      }
-      *v27 = 0;
-      if ( a1 && (v28 = *(_QWORD *)(a1 + 224)) != 0 )
-        v29 = *(_QWORD *)(v28 + 8);
-      else
-        v29 = 0LL;
-      v21 = RegRtlDeleteKeyTransacted(v17, v16, v29);
-      if ( v21 != -1073741535 && v21 < 0 )
-LABEL_42:
-        inited = v21;
-    }
+LABEL_54:
+    DevicePanelRegKeyPath = -1073741811;
+    goto LABEL_55;
   }
-LABEL_16:
+  v15 = pszDest;
+  v17 = 0LL;
+  if ( a1 )
+    v17 = *(_QWORD **)(a1 + 224);
+  DevicePanelRegKeyPath = SysCtxRegOpenCurrentUserKey(v17, 0, 0x2000000u, (__int64)&Handle);
+  if ( DevicePanelRegKeyPath < 0 )
+    goto LABEL_55;
+  v16 = (char *)Handle;
+LABEL_24:
+  if ( a5 )
+  {
+    if ( a1 && (v18 = *(_QWORD *)(a1 + 224)) != 0 )
+      v19 = *(_QWORD *)(v18 + 8);
+    else
+      v19 = 0LL;
+    v20 = RegRtlDeleteTreeInternal(v16, v15, v19, 0);
+  }
+  else
+  {
+    if ( a1 && (v21 = *(_QWORD *)(a1 + 224)) != 0 )
+      v22 = *(_QWORD *)(v21 + 8);
+    else
+      v22 = 0LL;
+    v20 = RegRtlDeleteKeyTransacted(v16, v15, v22);
+  }
+  if ( v20 == -1073741444 )
+    goto LABEL_55;
+  if ( v20 < 0 )
+    goto LABEL_37;
+  v23 = wcsrchr(v15, 0x5Cu);
+  if ( !v23 )
+    goto LABEL_39;
+  *v23 = 0;
+  if ( a1 && (v24 = *(_QWORD *)(a1 + 224)) != 0 )
+    v25 = *(_QWORD *)(v24 + 8);
+  else
+    v25 = 0LL;
+  v20 = RegRtlDeleteKeyTransacted(v16, v15, v25);
+  if ( v20 != -1073741535 )
+  {
+    if ( v20 < 0 )
+      goto LABEL_37;
+    v26 = wcsrchr(v15, 0x5Cu);
+    if ( !v26 )
+    {
+LABEL_39:
+      DevicePanelRegKeyPath = -1073741595;
+      goto LABEL_55;
+    }
+    *v26 = 0;
+    if ( a1 && (v27 = *(_QWORD *)(a1 + 224)) != 0 )
+      v28 = *(_QWORD *)(v27 + 8);
+    else
+      v28 = 0LL;
+    v20 = RegRtlDeleteKeyTransacted(v16, v15, v28);
+    if ( (int)(v20 + 0x80000000) >= 0 && v20 != -1073741535 )
+LABEL_37:
+      DevicePanelRegKeyPath = v20;
+  }
+LABEL_55:
   if ( Handle )
     ZwClose(Handle);
   if ( pszDest )
     ExFreePoolWithTag(pszDest, 0);
-  return (unsigned int)inited;
+  return (unsigned int)DevicePanelRegKeyPath;
 }

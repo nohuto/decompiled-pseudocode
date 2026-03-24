@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwOpenThreadToken @ 0x14041AB20
+ * XREFs of ZwOpenThreadToken @ 0x1403F9EA0
  * Callers:
- *     DifZwOpenThreadTokenWrapper @ 0x1405F29A0 (DifZwOpenThreadTokenWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

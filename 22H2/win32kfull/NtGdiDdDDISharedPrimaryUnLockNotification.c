@@ -1,16 +1,19 @@
 /*
- * XREFs of NtGdiDdDDISharedPrimaryUnLockNotification @ 0x1C0270170
+ * XREFs of NtGdiDdDDISharedPrimaryUnLockNotification @ 0x1C0277B20
  * Callers:
  *     <none>
  * Callees:
- *     ?DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z @ 0x1C026E9E0 (-DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z.c)
+ *     ?DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z @ 0x1C0275B98 (-DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z.c)
  */
 
-__int64 __fastcall NtGdiDdDDISharedPrimaryUnLockNotification(struct _LUID *a1)
+__int64 __fastcall NtGdiDdDDISharedPrimaryUnLockNotification(ULONG64 a1)
 {
-  if ( (unsigned int)DxDdIsTearDownLddmSpriteDisabled() )
+  struct _LUID *v1; // rdx
+
+  v1 = (struct _LUID *)a1;
+  if ( gbDisableLddmSpriteTearDown )
     return 0LL;
-  if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-    a1 = (struct _LUID *)MmUserProbeAddress;
-  return DxLddmSharedPrimaryUnLockNotification(*a1, a1[1].LowPart);
+  if ( a1 >= MmUserProbeAddress )
+    v1 = (struct _LUID *)MmUserProbeAddress;
+  return DxLddmSharedPrimaryUnLockNotification(*v1, v1[1].LowPart);
 }

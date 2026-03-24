@@ -6,9 +6,9 @@
  *     KiComputeDueTime @ 0x14001E090 (KiComputeDueTime.c)
  *     KiCancelTimer @ 0x14001E100 (KiCancelTimer.c)
  *     KiInsertTimerTable @ 0x1400581E0 (KiInsertTimerTable.c)
- *     KiExitDispatcher @ 0x1400C2F50 (KiExitDispatcher.c)
- *     KiTimerWaitTest @ 0x1400C7B50 (KiTimerWaitTest.c)
- *     KiTraceSetTimer @ 0x14029B868 (KiTraceSetTimer.c)
+ *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
+ *     KiTimerWaitTest @ 0x1400C7B70 (KiTimerWaitTest.c)
+ *     KiTraceSetTimer @ 0x14029B968 (KiTraceSetTimer.c)
  */
 
 BOOLEAN __stdcall KeSetTimerEx(PKTIMER Timer, LARGE_INTEGER DueTime, LONG Period, PKDPC Dpc)

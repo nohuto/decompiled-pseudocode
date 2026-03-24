@@ -1,8 +1,8 @@
 /*
- * XREFs of UserGetHwndProcess @ 0x1C0134CC8
+ * XREFs of UserGetHwndProcess @ 0x1C0013060
  * Callers:
- *     GreTransferSpriteStateToDwmState @ 0x1C00597AC (GreTransferSpriteStateToDwmState.c)
- *     ?bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@PEAPEAV3@@Z @ 0x1C0134444 (-bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@P.c)
+ *     ?bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@PEAPEAV3@@Z @ 0x1C0016788 (-bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@P.c)
+ *     GreTransferSpriteStateToDwmState @ 0x1C00EA26C (GreTransferSpriteStateToDwmState.c)
  * Callees:
  *     <none>
  */
@@ -10,11 +10,11 @@
 __int64 __fastcall UserGetHwndProcess(__int64 a1)
 {
   __int64 v1; // rax
-  __int64 v3; // rax
+  __int64 v2; // rax
 
   v1 = ValidateHwnd(a1);
-  if ( v1 && (v3 = *(_QWORD *)(v1 + 16)) != 0 )
-    return **(_QWORD **)(v3 + 424);
+  if ( v1 && (v2 = *(_QWORD *)(v1 + 16)) != 0 )
+    return **(_QWORD **)(v2 + 424);
   else
     return 0LL;
 }

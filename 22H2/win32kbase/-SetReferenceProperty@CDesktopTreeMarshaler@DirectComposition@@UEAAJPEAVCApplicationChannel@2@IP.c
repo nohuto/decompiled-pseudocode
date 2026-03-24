@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetReferenceProperty@CDesktopTreeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C00C0F40
+ * XREFs of ?SetReferenceProperty@CDesktopTreeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C00B61A0
  * Callers:
  *     <none>
  * Callees:
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C003019C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     ?ReleaseRootVisual@CDesktopTreeMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00C1000 (-ReleaseRootVisual@CDesktopTreeMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseRootVisual@CDesktopTreeMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00B6268 (-ReleaseRootVisual@CDesktopTreeMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CDesktopTreeMarshaler::SetReferenceProperty(
@@ -15,43 +15,37 @@ __int64 __fastcall DirectComposition::CDesktopTreeMarshaler::SetReferencePropert
         struct DirectComposition::CResourceMarshaler *a4,
         bool *a5)
 {
-  unsigned int v5; // edi
-  __int64 v9; // rax
-  DirectComposition::CResourceMarshaler *v10; // rbx
-  DirectComposition::CDesktopTreeMarshaler *v11; // rax
+  unsigned int v5; // ebx
+  DirectComposition::CDesktopTreeMarshaler *v9; // rax
 
   v5 = 0;
   if ( a3 != 1 )
     return (unsigned int)-1073741811;
   if ( a4 )
   {
-    v9 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *))(*(_QWORD *)a4 + 168LL))(a4);
-    v10 = (DirectComposition::CResourceMarshaler *)v9;
-    if ( v9 )
+    if ( (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+           a4,
+           195LL) )
     {
-      v11 = *(DirectComposition::CDesktopTreeMarshaler **)(v9 + 192);
-      if ( v11 && v11 != this )
-        return (unsigned int)-1073741811;
-      goto LABEL_5;
+      v9 = (DirectComposition::CDesktopTreeMarshaler *)*((_QWORD *)a4 + 24);
+      if ( !v9 )
+      {
+        DirectComposition::CDesktopTreeMarshaler::ReleaseRootVisual(this, a2);
+        *((_QWORD *)a4 + 24) = this;
+        *((_QWORD *)this + 8) = a4;
+        DirectComposition::CResourceMarshaler::AddRef(a4);
+        *((_DWORD *)this + 4) |= 0x40u;
+        *a5 = 1;
+        return v5;
+      }
+      if ( v9 == this )
+        return v5;
     }
-  }
-  else
-  {
-    v10 = 0LL;
-  }
-  if ( a4 )
     return (unsigned int)-1073741811;
-LABEL_5:
-  if ( v10 != *((DirectComposition::CResourceMarshaler **)this + 8) )
+  }
+  if ( *((_QWORD *)this + 8) )
   {
-    if ( v10 )
-    {
-      DirectComposition::CResourceMarshaler::AddRef(v10);
-      *((_QWORD *)v10 + 24) = this;
-    }
     DirectComposition::CDesktopTreeMarshaler::ReleaseRootVisual(this, a2);
-    *((_DWORD *)this + 4) |= 0x40u;
-    *((_QWORD *)this + 8) = v10;
     *a5 = 1;
   }
   return v5;

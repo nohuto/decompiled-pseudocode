@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpAcpiGetTableWork @ 0x140213AC0
+ * XREFs of HalpAcpiGetTableWork @ 0x140294700
  * Callers:
- *     HalpAcpiGetTable @ 0x140213A40 (HalpAcpiGetTable.c)
- *     HalpAcpiGetTableFromBios @ 0x140214F98 (HalpAcpiGetTableFromBios.c)
- *     HalpAcpiGetFacsMapping @ 0x1403B8198 (HalpAcpiGetFacsMapping.c)
- *     HalpAcpiGetAllTablesWork @ 0x1403BED70 (HalpAcpiGetAllTablesWork.c)
+ *     HalpAcpiGetTable @ 0x140294680 (HalpAcpiGetTable.c)
+ *     HalpAcpiGetTableFromBios @ 0x140294A30 (HalpAcpiGetTableFromBios.c)
+ *     HalpAcpiGetFacsMapping @ 0x1403BA7C8 (HalpAcpiGetFacsMapping.c)
+ *     HalpAcpiGetAllTablesWork @ 0x1403BB4F4 (HalpAcpiGetAllTablesWork.c)
  * Callees:
- *     HalpAcpiGetCachedTable @ 0x140213BD4 (HalpAcpiGetCachedTable.c)
- *     HalpAcpiIsCachedTableCompromised @ 0x140213C5C (HalpAcpiIsCachedTableCompromised.c)
- *     HalpAcpiGetTableFromBios @ 0x140214F98 (HalpAcpiGetTableFromBios.c)
- *     MmUnmapIoSpace @ 0x140215660 (MmUnmapIoSpace.c)
- *     HalpAcpiCacheTable @ 0x1403BEF40 (HalpAcpiCacheTable.c)
- *     HalpAcpiCopyBiosTable @ 0x1403BEFA8 (HalpAcpiCopyBiosTable.c)
- *     HalpUnmapVirtualAddress @ 0x1403BF310 (HalpUnmapVirtualAddress.c)
+ *     HalpAcpiGetCachedTable @ 0x140294814 (HalpAcpiGetCachedTable.c)
+ *     HalpAcpiIsCachedTableCompromised @ 0x14029489C (HalpAcpiIsCachedTableCompromised.c)
+ *     HalpAcpiGetTableFromBios @ 0x140294A30 (HalpAcpiGetTableFromBios.c)
+ *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
+ *     HalpAcpiCacheTable @ 0x1403BB6C0 (HalpAcpiCacheTable.c)
+ *     HalpAcpiCopyBiosTable @ 0x1403BB728 (HalpAcpiCopyBiosTable.c)
+ *     HalpUnmapVirtualAddress @ 0x1403BB890 (HalpUnmapVirtualAddress.c)
  */
 
 void *__fastcall HalpAcpiGetTableWork(__int64 a1, unsigned int a2, char *a3, char *a4)

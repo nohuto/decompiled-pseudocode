@@ -1,13 +1,13 @@
 /*
- * XREFs of ArbFindSuitableRange @ 0x1C009D5B0
+ * XREFs of ArbFindSuitableRange @ 0x1C0091950
  * Callers:
- *     IrqArbpFindSuitableRangeMsi @ 0x1C009D410 (IrqArbpFindSuitableRangeMsi.c)
- *     IrqArbFindSuitableRange @ 0x1C009D510 (IrqArbFindSuitableRange.c)
- *     AcpiMemarbFindSuitableRange @ 0x1C00AF700 (AcpiMemarbFindSuitableRange.c)
+ *     IrqArbpFindSuitableRangeMsi @ 0x1C00917A4 (IrqArbpFindSuitableRangeMsi.c)
+ *     IrqArbFindSuitableRange @ 0x1C00918B0 (IrqArbFindSuitableRange.c)
+ *     AcpiMemarbFindSuitableRange @ 0x1C00B0250 (AcpiMemarbFindSuitableRange.c)
  * Callees:
- *     RtlFindRange_0 @ 0x1C002F21F (RtlFindRange_0.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     ArbShareDriverExclusive @ 0x1C00B82FC (ArbShareDriverExclusive.c)
+ *     RtlFindRange_0 @ 0x1C0031D5F (RtlFindRange_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     ArbShareDriverExclusive @ 0x1C00B8644 (ArbShareDriverExclusive.c)
  */
 
 char __fastcall ArbFindSuitableRange(__int64 a1, __int64 a2)
@@ -15,9 +15,11 @@ char __fastcall ArbFindSuitableRange(__int64 a1, __int64 a2)
   ULONGLONG v2; // r10
   ULONGLONG v4; // r8
   __int64 v6; // r9
-  int v7; // ecx
+  unsigned int v7; // ecx
   int v8; // edx
+  int v9; // ecx
   ULONG Flags; // r11d
+  UCHAR AttributeAvailableMask; // cl
 
   v2 = *(_QWORD *)(a2 + 16);
   v4 = *(_QWORD *)(a2 + 24);
@@ -32,13 +34,18 @@ char __fastcall ArbFindSuitableRange(__int64 a1, __int64 a2)
   }
   if ( (*(_DWORD *)(*(_QWORD *)(a2 + 32) + 40LL) & 0xFFFFFFFD) == 0 )
     *(_BYTE *)(a2 + 67) |= 1u;
-  v7 = *(_DWORD *)(v6 + 36);
-  v8 = (*(unsigned __int16 *)(a2 + 64) >> 2) & 2;
-  Flags = v8 | 1;
-  if ( (v7 & 1) == 0 )
-    Flags = v8;
-  if ( (v7 & 8) != 0 )
-    *(_BYTE *)(a2 + 67) |= 0x40u;
+  v7 = *(unsigned __int16 *)(a2 + 64);
+  v8 = *(_DWORD *)(v6 + 36);
+  v9 = (v7 >> 2) & 2;
+  Flags = v9 | 1;
+  if ( (v8 & 1) == 0 )
+    Flags = v9;
+  AttributeAvailableMask = *(_BYTE *)(a2 + 67);
+  if ( (v8 & 8) != 0 )
+  {
+    AttributeAvailableMask |= 0x40u;
+    *(_BYTE *)(a2 + 67) = AttributeAvailableMask;
+  }
   if ( RtlFindRange_0(
          *(PRTL_RANGE_LIST *)(a1 + 48),
          v2,
@@ -46,7 +53,7 @@ char __fastcall ArbFindSuitableRange(__int64 a1, __int64 a2)
          *(_QWORD *)(v6 + 16),
          *(_QWORD *)(v6 + 24),
          Flags,
-         *(_BYTE *)(a2 + 67),
+         AttributeAvailableMask,
          *(PVOID *)(a1 + 328),
          *(PRTL_CONFLICT_RANGE_CALLBACK *)(a1 + 336),
          (PULONGLONG)a2) >= 0 )

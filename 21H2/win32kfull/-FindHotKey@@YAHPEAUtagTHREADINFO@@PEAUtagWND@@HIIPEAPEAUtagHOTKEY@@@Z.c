@@ -1,7 +1,7 @@
 /*
- * XREFs of ?FindHotKey@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@HIIPEAPEAUtagHOTKEY@@@Z @ 0x1C009E480
+ * XREFs of ?FindHotKey@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@HIIPEAPEAUtagHOTKEY@@@Z @ 0x1C0032FE0
  * Callers:
- *     _RegisterHotKey @ 0x1C009E114 (_RegisterHotKey.c)
+ *     _RegisterHotKey @ 0x1C0032C74 (_RegisterHotKey.c)
  * Callees:
  *     <none>
  */

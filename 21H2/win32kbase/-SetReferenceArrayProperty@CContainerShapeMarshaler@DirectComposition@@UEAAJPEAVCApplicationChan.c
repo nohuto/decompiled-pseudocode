@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetReferenceArrayProperty@CContainerShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C021EC40
+ * XREFs of ?SetReferenceArrayProperty@CContainerShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C01E84D0
  * Callers:
  *     <none>
  * Callees:
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ?ClearShapes@CContainerShapeMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C021EB00 (-ClearShapes@CContainerShapeMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
+ *     ?ClearShapes@CContainerShapeMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01E8390 (-ClearShapes@CContainerShapeMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CContainerShapeMarshaler::SetReferenceArrayProperty(
@@ -17,38 +17,46 @@ __int64 __fastcall DirectComposition::CContainerShapeMarshaler::SetReferenceArra
         bool *a6)
 {
   unsigned int v6; // ebx
-  unsigned int i; // esi
-  unsigned int v11; // esi
+  int v9; // esi
+  unsigned int v10; // r12d
 
   v6 = 0;
+  v9 = 0;
   *a6 = 0;
   if ( (a4 || !a5) && a3 == 1 )
   {
-    for ( i = 0; i < a5; ++i )
+    v10 = 0;
+    do
     {
-      if ( !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4[i] + 96LL))(
-              a4[i],
+      if ( v10 >= a5 )
+        break;
+      if ( !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4[v10] + 96LL))(
+              a4[v10],
               192LL) )
-        return (unsigned int)-1073741811;
+        v9 = -1073741811;
+      ++v10;
     }
-    DirectComposition::CContainerShapeMarshaler::ClearShapes(this, a2);
-    *((_DWORD *)this + 20) = a5;
-    v11 = 0;
-    *((_QWORD *)this + 9) = a4;
-    *((_DWORD *)this + 21) = 0;
-    *a6 = 1;
-    *((_DWORD *)this + 4) |= 0x40u;
-    if ( *((_DWORD *)this + 20) )
+    while ( v9 >= 0 );
+    if ( v9 >= 0 )
     {
-      do
-        DirectComposition::CResourceMarshaler::AddRef(*(DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 9)
-                                                                                                + 8LL * v11++));
-      while ( v11 < *((_DWORD *)this + 20) );
+      DirectComposition::CContainerShapeMarshaler::ClearShapes(this, a2);
+      *((_DWORD *)this + 18) = a5;
+      *((_QWORD *)this + 8) = a4;
+      *((_DWORD *)this + 19) = 0;
+      *a6 = 1;
+      *((_DWORD *)this + 4) |= 0x40u;
+      if ( *((_DWORD *)this + 18) )
+      {
+        do
+          DirectComposition::CResourceMarshaler::AddRef(*(DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 8)
+                                                                                                  + 8LL * v6++));
+        while ( v6 < *((_DWORD *)this + 18) );
+      }
     }
   }
   else
   {
     return (unsigned int)-1073741811;
   }
-  return v6;
+  return (unsigned int)v9;
 }

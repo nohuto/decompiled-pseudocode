@@ -1,22 +1,22 @@
 /*
- * XREFs of NtFlushKey @ 0x1406BFF90
+ * XREFs of NtFlushKey @ 0x1406BFF70
  * Callers:
- *     ExpWatchProductTypeWork @ 0x1406BF930 (ExpWatchProductTypeWork.c)
+ *     ExpWatchProductTypeWork @ 0x1406BF910 (ExpWatchProductTypeWork.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E900 (EtwGetKernelTraceTimestamp.c)
- *     CmpDoFlushAll @ 0x1401579E8 (CmpDoFlushAll.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x1401B2F98 (CmpIsRegistryLockAcquired.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
+ *     CmpDoFlushAll @ 0x140157A08 (CmpDoFlushAll.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpLockRegistryFreezeAware @ 0x1405B1640 (CmpLockRegistryFreezeAware.c)
  *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
  *     CmObReferenceObjectByHandle @ 0x1405CD4CC (CmObReferenceObjectByHandle.c)
@@ -24,8 +24,8 @@
  *     CmpPerformKeyBodyDeletionCheck @ 0x1405D68BC (CmpPerformKeyBodyDeletionCheck.c)
  *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
  *     CmpCallCallBacksEx @ 0x1405E5AE0 (CmpCallCallBacksEx.c)
- *     CmPostCallbackNotificationEx @ 0x14063FAC0 (CmPostCallbackNotificationEx.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
+ *     CmPostCallbackNotificationEx @ 0x14063FAA0 (CmPostCallbackNotificationEx.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
  */
 
 NTSTATUS __stdcall NtFlushKey(HANDLE KeyHandle)

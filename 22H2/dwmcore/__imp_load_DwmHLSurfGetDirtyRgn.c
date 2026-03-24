@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_DwmHLSurfGetDirtyRgn @ 0x1801110BE
+ * XREFs of __imp_load_DwmHLSurfGetDirtyRgn @ 0x1800E8CE6
  * Callers:
  *     <none>
  * Callees:

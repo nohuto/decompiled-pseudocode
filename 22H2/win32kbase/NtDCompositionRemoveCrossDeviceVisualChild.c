@@ -1,9 +1,9 @@
 /*
- * XREFs of NtDCompositionRemoveCrossDeviceVisualChild @ 0x1C00082A0
+ * XREFs of NtDCompositionRemoveCrossDeviceVisualChild @ 0x1C01D2910
  * Callers:
  *     <none>
  * Callees:
- *     ?RemoveCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIII@Z @ 0x1C00082B8 (-RemoveCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIII@Z.c)
+ *     ?RemoveCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIII@Z @ 0x1C01D4F6C (-RemoveCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIII@Z.c)
  */
 
 __int64 __fastcall NtDCompositionRemoveCrossDeviceVisualChild(

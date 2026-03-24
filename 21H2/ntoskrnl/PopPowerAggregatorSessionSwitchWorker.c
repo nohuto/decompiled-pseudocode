@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerAggregatorSessionSwitchWorker @ 0x140995E60
+ * XREFs of PopPowerAggregatorSessionSwitchWorker @ 0x1408EEA60
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     KeSetTimer2 @ 0x140353C40 (KeSetTimer2.c)
- *     PopPowerAggregatorScheduleWorker @ 0x140809508 (PopPowerAggregatorScheduleWorker.c)
- *     PdcTaskClientRequest @ 0x1409C56F0 (PdcTaskClientRequest.c)
+ *     KeSetTimer2 @ 0x14022C550 (KeSetTimer2.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorScheduleWorker @ 0x140776390 (PopPowerAggregatorScheduleWorker.c)
+ *     PdcTaskClientRequest @ 0x14091B9A0 (PdcTaskClientRequest.c)
  */
 
 void PopPowerAggregatorSessionSwitchWorker()
@@ -21,15 +21,15 @@ void PopPowerAggregatorSessionSwitchWorker()
   v0 = 0;
   v1 = 0;
   PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
-  if ( byte_140C20C19 )
+  if ( byte_140C217E9 )
   {
-    unk_140C20C18 = 0;
+    unk_140C217E8 = 0;
     v0 = 1;
     PopPowerAggregatorScheduleWorker((__int64)&PopPowerAggregatorContext);
   }
   else
   {
-    byte_140C20C19 = 1;
+    byte_140C217E9 = 1;
     v1 = 1;
   }
   PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorLock);
@@ -43,6 +43,6 @@ void PopPowerAggregatorSessionSwitchWorker()
     PdcTaskClientRequest(v3, v2);
     v4[0] = 0LL;
     v4[1] = -1LL;
-    KeSetTimer2((__int64)&unk_140C20C40, -50000000LL, 0LL, (__int64)v4);
+    KeSetTimer2((__int64)&unk_140C21810, -50000000LL, 0LL, (__int64)v4);
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of GetAdjustedPointerPixelLocation @ 0x1C01E7A90
+ * XREFs of GetAdjustedPointerPixelLocation @ 0x1C01AE7D0
  * Callers:
- *     GetAdjustedPointerLocations @ 0x1C00E8EB0 (GetAdjustedPointerLocations.c)
- *     ?UpdatePointerInfoTarget@CTouchProcessor@@QEAAH_KUtagINPUTDEST@@HHPEAUtagPOINT@@2@Z @ 0x1C01D9E70 (-UpdatePointerInfoTarget@CTouchProcessor@@QEAAH_KUtagINPUTDEST@@HHPEAUtagPOINT@@2@Z.c)
+ *     ?UpdatePointerInfoTarget@CTouchProcessor@@QEAAH_KUtagINPUTDEST@@HHPEAUtagPOINT@@2@Z @ 0x1C01A0C20 (-UpdatePointerInfoTarget@CTouchProcessor@@QEAAH_KUtagINPUTDEST@@HHPEAUtagPOINT@@2@Z.c)
+ *     GetAdjustedPointerLocations @ 0x1C01AE720 (GetAdjustedPointerLocations.c)
  * Callees:
- *     LongLongToLong @ 0x1C003C44C (LongLongToLong.c)
+ *     LongLongToLong @ 0x1C007FFEC (LongLongToLong.c)
  */
 
 _BOOL8 __fastcall GetAdjustedPointerPixelLocation(__int64 a1, __int64 a2, LONG *a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCheckHardErrorEmpty @ 0x14027E878
+ * XREFs of IopCheckHardErrorEmpty @ 0x14027E978
  * Callers:
- *     IopHardErrorThread @ 0x140819F80 (IopHardErrorThread.c)
+ *     IopHardErrorThread @ 0x140819F60 (IopHardErrorThread.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char IopCheckHardErrorEmpty()

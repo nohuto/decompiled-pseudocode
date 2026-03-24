@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlUnlockBootStatusData @ 0x140718BC0
+ * XREFs of RtlUnlockBootStatusData @ 0x140718BA0
  * Callers:
- *     PopBootStatSet @ 0x1407184E4 (PopBootStatSet.c)
- *     PoClearTransitionMarker @ 0x140744FE0 (PoClearTransitionMarker.c)
- *     PopBootStatGet @ 0x1407530B0 (PopBootStatGet.c)
- *     PopBootStatCheckIntegrity @ 0x140877270 (PopBootStatCheckIntegrity.c)
- *     PopBootStatRestoreDefaults @ 0x1408774D8 (PopBootStatRestoreDefaults.c)
- *     PopBootStatUnlock @ 0x1408775BC (PopBootStatUnlock.c)
+ *     PopBootStatSet @ 0x1407184C4 (PopBootStatSet.c)
+ *     PoClearTransitionMarker @ 0x140744FC0 (PoClearTransitionMarker.c)
+ *     PopBootStatGet @ 0x140753090 (PopBootStatGet.c)
+ *     PopBootStatCheckIntegrity @ 0x140877250 (PopBootStatCheckIntegrity.c)
+ *     PopBootStatRestoreDefaults @ 0x1408774B8 (PopBootStatRestoreDefaults.c)
+ *     PopBootStatUnlock @ 0x14087759C (PopBootStatUnlock.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwFsControlFile @ 0x1401B8890 (ZwFsControlFile.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwFsControlFile @ 0x1401B88B0 (ZwFsControlFile.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

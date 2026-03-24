@@ -1,12 +1,12 @@
 /*
- * XREFs of PopNewProcessorCallback @ 0x1409893F0
+ * XREFs of PopNewProcessorCallback @ 0x1408E0EA0
  * Callers:
  *     <none>
  * Callees:
- *     PpmIdleRegisterDefaultStates @ 0x14082975C (PpmIdleRegisterDefaultStates.c)
- *     PpmCheckInitProcessors @ 0x140849690 (PpmCheckInitProcessors.c)
- *     PpmEnableWmiInterface @ 0x1408565CC (PpmEnableWmiInterface.c)
- *     PopCheckSkipTick @ 0x140865194 (PopCheckSkipTick.c)
+ *     PpmIdleRegisterDefaultStates @ 0x140796658 (PpmIdleRegisterDefaultStates.c)
+ *     PpmCheckInitProcessors @ 0x1407B9B18 (PpmCheckInitProcessors.c)
+ *     PpmEnableWmiInterface @ 0x1407C76AC (PpmEnableWmiInterface.c)
+ *     PopCheckSkipTick @ 0x1407D5470 (PopCheckSkipTick.c)
  */
 
 void __fastcall PopNewProcessorCallback(

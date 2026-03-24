@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceTouchPadConfidenceCleared @ 0x1C013B2E0
+ * XREFs of EtwTraceTouchPadConfidenceCleared @ 0x1C0123F30
  * Callers:
- *     rimConfidenceBitPolicyUpdateStateAndApply @ 0x1C01A7D40 (rimConfidenceBitPolicyUpdateStateAndApply.c)
+ *     ApiSetEtwTraceTouchPadConfidenceCleared @ 0x1C01CEB20 (ApiSetEtwTraceTouchPadConfidenceCleared.c)
  * Callees:
- *     McTemplateK0qtt_EtwWriteTransfer @ 0x1C013E6EC (McTemplateK0qtt_EtwWriteTransfer.c)
+ *     McTemplateK0qtt_EtwWriteTransfer @ 0x1C0127408 (McTemplateK0qtt_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceTouchPadConfidenceCleared(int a1, int a2, int a3)

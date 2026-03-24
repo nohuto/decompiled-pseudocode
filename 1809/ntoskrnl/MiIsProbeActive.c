@@ -1,14 +1,14 @@
 /*
- * XREFs of MiIsProbeActive @ 0x140122E5C
+ * XREFs of MiIsProbeActive @ 0x140122E7C
  * Callers:
- *     MiReplaceRotateWithDemandZero @ 0x1401229D0 (MiReplaceRotateWithDemandZero.c)
- *     MmIsIoSpaceActive @ 0x1402ABC80 (MmIsIoSpaceActive.c)
- *     MiSwitchToTransition @ 0x1402AF540 (MiSwitchToTransition.c)
+ *     MiReplaceRotateWithDemandZero @ 0x1401229F0 (MiReplaceRotateWithDemandZero.c)
+ *     MmIsIoSpaceActive @ 0x1402ABD80 (MmIsIoSpaceActive.c)
+ *     MiSwitchToTransition @ 0x1402AF640 (MiSwitchToTransition.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiIsProbeActive(unsigned __int64 a1, __int64 a2, char a3)

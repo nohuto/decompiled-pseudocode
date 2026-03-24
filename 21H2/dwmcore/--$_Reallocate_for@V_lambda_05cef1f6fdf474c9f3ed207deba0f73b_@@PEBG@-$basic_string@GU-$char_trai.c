@@ -1,13 +1,13 @@
 /*
- * XREFs of ??$_Reallocate_for@V_lambda_05cef1f6fdf474c9f3ed207deba0f73b_@@PEBG@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AEAAAEAV01@_KV_lambda_05cef1f6fdf474c9f3ed207deba0f73b_@@PEBG@Z @ 0x180061BF8
+ * XREFs of ??$_Reallocate_for@V_lambda_05cef1f6fdf474c9f3ed207deba0f73b_@@PEBG@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AEAAAEAV01@_KV_lambda_05cef1f6fdf474c9f3ed207deba0f73b_@@PEBG@Z @ 0x180035274
  * Callers:
- *     ?assign@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEAAAEAV12@QEBG_K@Z @ 0x180061B90 (-assign@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@QEAAAEAV12@QEBG_K@Z.c)
+ *     ?assign@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@QEAAAEAV12@QEBG_K@Z @ 0x18003520C (-assign@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@QEAAAEAV12@QEBG_K@Z.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
- *     ?_Throw_bad_array_new_length@std@@YAXXZ @ 0x1801854E8 (-_Throw_bad_array_new_length@std@@YAXXZ.c)
- *     ?_Xlen_string@std@@YAXXZ @ 0x1801A99A8 (-_Xlen_string@std@@YAXXZ.c)
+ *     ?_Calculate_growth@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AEBA_K_K@Z @ 0x18003532C (-_Calculate_growth@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@AEBA_K_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050B88 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
+ *     ?_Xlen@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@CAXXZ @ 0x180151E04 (-_Xlen@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@CAXXZ.c)
  */
 
 _QWORD *__fastcall std::wstring::_Reallocate_for<_lambda_05cef1f6fdf474c9f3ed207deba0f73b_,unsigned short const *>(
@@ -16,40 +16,27 @@ _QWORD *__fastcall std::wstring::_Reallocate_for<_lambda_05cef1f6fdf474c9f3ed207
         __int64 a3,
         const void *a4)
 {
-  __int64 v4; // rbx
-  unsigned __int64 v8; // rsi
-  unsigned __int64 v9; // rcx
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  _WORD *v12; // rax
-  _WORD *v13; // rbp
+  unsigned __int64 v7; // r14
+  __int64 v8; // rbx
+  SIZE_T v9; // rcx
+  _WORD *v10; // rax
+  _WORD *v11; // rbp
 
-  v4 = 0x7FFFFFFFFFFFFFFELL;
   if ( a2 > 0x7FFFFFFFFFFFFFFELL )
-    std::_Xlen_string();
-  v8 = a1[3];
-  v9 = a2 | 7;
-  if ( (a2 | 7) > 0x7FFFFFFFFFFFFFFELL || (v10 = v8 >> 1, v8 > 0x7FFFFFFFFFFFFFFELL - (v8 >> 1)) )
-  {
-    v11 = 0x7FFFFFFFFFFFFFFFLL;
-  }
-  else
-  {
-    v4 = v10 + v8;
-    if ( v9 >= v10 + v8 )
-      v4 = v9;
-    v11 = v4 + 1;
-    if ( (unsigned __int64)(v4 + 1) > 0x7FFFFFFFFFFFFFFFLL )
-      std::_Throw_bad_array_new_length();
-  }
-  v12 = (_WORD *)std::_Allocate<16,std::_Default_allocate_traits,0>(2 * v11);
-  a1[3] = v4;
+    std::wstring::_Xlen();
+  v7 = a1[3];
+  v8 = std::wstring::_Calculate_growth();
+  v9 = 2 * (v8 + 1);
+  if ( (unsigned __int64)(v8 + 1) > 0x7FFFFFFFFFFFFFFFLL )
+    v9 = -1LL;
+  v10 = (_WORD *)std::_Allocate<16,std::_Default_allocate_traits,0>(v9);
+  a1[3] = v8;
   a1[2] = a2;
-  v13 = v12;
-  memcpy_0(v12, a4, 2 * a2);
-  v13[a2] = 0;
-  if ( v8 >= 8 )
-    std::_Deallocate<16,0>(*a1, 2 * v8 + 2);
-  *a1 = v13;
+  v11 = v10;
+  memcpy_0(v10, a4, 2 * a2);
+  v11[a2] = 0;
+  if ( v7 >= 8 )
+    std::_Deallocate<16,0>(*a1, 2 * v7 + 2);
+  *a1 = v11;
   return a1;
 }

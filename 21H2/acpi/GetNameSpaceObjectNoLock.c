@@ -1,17 +1,17 @@
 /*
- * XREFs of GetNameSpaceObjectNoLock @ 0x1C0015310
+ * XREFs of GetNameSpaceObjectNoLock @ 0x1C0009160
  * Callers:
- *     ParseNameObj @ 0x1C000BCC4 (ParseNameObj.c)
- *     CreateNameSpaceObject @ 0x1C0013250 (CreateNameSpaceObject.c)
- *     ParseTerm @ 0x1C0013680 (ParseTerm.c)
- *     ParseSuperName @ 0x1C0015500 (ParseSuperName.c)
- *     AMLIGetNameSpaceObjectNoLock @ 0x1C001817C (AMLIGetNameSpaceObjectNoLock.c)
- *     GetNameSpaceObject @ 0x1C0019AC8 (GetNameSpaceObject.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     ParseTerm @ 0x1C0007480 (ParseTerm.c)
+ *     ParseSuperName @ 0x1C0009350 (ParseSuperName.c)
+ *     AMLIGetNameSpaceObjectNoLock @ 0x1C000AF30 (AMLIGetNameSpaceObjectNoLock.c)
+ *     ACPIDockIsDockDevice @ 0x1C0020C40 (ACPIDockIsDockDevice.c)
+ *     GetNameSpaceObject @ 0x1C002183C (GetNameSpaceObject.c)
  * Callees:
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall GetNameSpaceObjectNoLock(const char *Src, __int64 a2, __int64 *a3, int a4)
@@ -20,7 +20,7 @@ __int64 __fastcall GetNameSpaceObjectNoLock(const char *Src, __int64 a2, __int64
   int v7; // r14d
   const char *i; // rsi
   unsigned __int64 v9; // rax
-  char v10; // r12
+  char v10; // r13
   _QWORD *v11; // rbx
   __int64 v12; // rax
   __int64 v13; // rdi

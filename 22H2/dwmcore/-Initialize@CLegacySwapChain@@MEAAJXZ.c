@@ -1,167 +1,184 @@
 /*
- * XREFs of ?Initialize@CLegacySwapChain@@MEAAJXZ @ 0x1800ED120
+ * XREFs of ?Initialize@CLegacySwapChain@@MEAAJXZ @ 0x1800D9EC0
  * Callers:
- *     ?Initialize@CConversionSwapChain@@MEAAJXZ @ 0x1802A2500 (-Initialize@CConversionSwapChain@@MEAAJXZ.c)
+ *     ?Initialize@CConversionSwapChain@@MEAAJXZ @ 0x18024F6A0 (-Initialize@CConversionSwapChain@@MEAAJXZ.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$_Emplace_reallocate@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@@?$vector@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@V?$allocator@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@@2@@std@@QEAAPEAV?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@1@QEAV21@$$QEAV21@@Z @ 0x1800ED364 (--$_Emplace_reallocate@V-$unique_ptr@VCSwapChainBuffer@@U-$default_delete@VCSwapChainBuffer@@@st.c)
- *     ??1CSwapChainBuffer@@QEAA@XZ @ 0x180101CE0 (--1CSwapChainBuffer@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D0818 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ??$_Emplace_reallocate@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@@?$vector@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@V?$allocator@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@@2@@std@@QEAAPEAV?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@1@QEAV21@$$QEAV21@@Z @ 0x1800DA0C0 (--$_Emplace_reallocate@V-$unique_ptr@VCSwapChainBuffer@@U-$default_delete@VCSwapChainBuffer@@@st.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CLegacySwapChain::Initialize(CLegacySwapChain *this)
 {
-  _QWORD *v1; // rax
+  __int64 v1; // rax
   int v3; // eax
   __int64 v4; // rcx
-  int v5; // esi
-  int v6; // eax
-  __int64 v7; // rcx
-  __int64 v8; // rcx
-  int v9; // eax
+  int v5; // edi
+  __int64 v6; // rdi
+  __int64 (__fastcall *v7)(__int64, _QWORD, GUID *, __int64 (__fastcall ****)(_QWORD, GUID *, char *)); // rbx
+  int v8; // eax
+  __int64 v9; // rcx
   __int64 v10; // rcx
-  void (__fastcall ***v11)(_QWORD, __int64 *); // rcx
-  int v12; // r15d
-  int v13; // ebx
-  CSwapChainBuffer *v14; // r14
-  _DWORD *v15; // rax
-  __int64 v16; // rcx
-  _DWORD *v17; // rdx
+  int v11; // eax
+  __int64 v12; // rcx
+  void (__fastcall ***v13)(_QWORD, __int64 *); // rcx
+  int v14; // r15d
+  int v15; // ebx
+  void *v16; // r14
+  _DWORD *v17; // rax
   __int64 v18; // rcx
-  _DWORD *v19; // rax
-  CSwapChainBuffer *v20; // rbx
-  CSwapChainBuffer **v21; // rdx
-  CSwapChainBuffer *v22; // rbx
-  CSwapChainBuffer *v24; // rbx
-  CSwapChainBuffer *v25; // [rsp+38h] [rbp-29h] BYREF
-  __int64 (__fastcall ***v26)(_QWORD, GUID *, char *); // [rsp+40h] [rbp-21h] BYREF
-  __int64 v27; // [rsp+48h] [rbp-19h] BYREF
-  __int64 v28; // [rsp+50h] [rbp-11h]
-  _BYTE v29[48]; // [rsp+58h] [rbp-9h] BYREF
+  void *v19; // rbx
+  _QWORD *v20; // rdx
+  void **v21; // rbx
+  char *v22; // rcx
+  CDrawListEntry *v24; // rcx
+  CDrawListEntry *v25; // rcx
+  void **v26; // rbx
+  CDrawListEntry *v27; // rcx
+  void *v28; // [rsp+38h] [rbp-29h] BYREF
+  __int64 (__fastcall ***v29)(_QWORD, GUID *, char *); // [rsp+40h] [rbp-21h] BYREF
+  __int64 v30; // [rsp+48h] [rbp-19h] BYREF
+  __int64 v31; // [rsp+50h] [rbp-11h]
+  _BYTE v32[48]; // [rsp+58h] [rbp-9h] BYREF
 
-  v1 = *(_QWORD **)this;
-  v26 = 0LL;
-  v3 = ((__int64 (__fastcall *)(CLegacySwapChain *))v1[34])(this);
+  v1 = *(_QWORD *)this;
+  v29 = 0LL;
+  v3 = (*(__int64 (__fastcall **)(CLegacySwapChain *))(v1 + 56))(this);
   v5 = v3;
   if ( v3 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x62u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x39u, 0LL);
   }
   else
   {
-    v6 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, GUID *, __int64 (__fastcall ****)(_QWORD, GUID *, char *)))(**((_QWORD **)this + 28) + 72LL))(
-           *((_QWORD *)this + 28),
-           (unsigned int)(*((_DWORD *)this + 79) - 1),
-           &GUID_6f15aaf2_d208_4e89_9ab4_489535d34f9c,
-           &v26);
-    v5 = v6;
-    if ( v6 < 0 )
+    v6 = *((_QWORD *)this + 9);
+    v7 = *(__int64 (__fastcall **)(__int64, _QWORD, GUID *, __int64 (__fastcall ****)(_QWORD, GUID *, char *)))(*(_QWORD *)v6 + 72LL);
+    wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset((__int64 *)&v29);
+    v8 = v7(v6, (unsigned int)(*((_DWORD *)this + 44) - 1), &GUID_6f15aaf2_d208_4e89_9ab4_489535d34f9c, &v29);
+    v5 = v8;
+    if ( v8 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x66u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x3Du, 0LL);
     }
     else
     {
-      v8 = *((_QWORD *)this + 30);
-      *((_QWORD *)this + 30) = 0LL;
-      if ( v8 )
-        (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
-      v9 = (**v26)(v26, &GUID_dc8e63f3_d12b_4952_b47b_5e45026a862d, (char *)this + 240);
-      v5 = v9;
-      if ( v9 < 0 )
+      v10 = *((_QWORD *)this + 12);
+      *((_QWORD *)this + 12) = 0LL;
+      if ( v10 )
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 16LL))(v10);
+      v11 = (**v29)(v29, &GUID_dc8e63f3_d12b_4952_b47b_5e45026a862d, (char *)this + 96);
+      v5 = v11;
+      if ( v11 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x68u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x3Fu, 0LL);
       }
       else
       {
-        v11 = (void (__fastcall ***)(_QWORD, __int64 *))(*((_QWORD *)this + 16)
+        v13 = (void (__fastcall ***)(_QWORD, __int64 *))(*((_QWORD *)this + 10)
                                                        + 8LL
-                                                       + *(int *)(*(_QWORD *)(*((_QWORD *)this + 16) + 8LL) + 16LL));
-        (**v11)(v11, &v27);
-        v12 = 0;
-        if ( *((_DWORD *)this + 79) )
+                                                       + *(int *)(*(_QWORD *)(*((_QWORD *)this + 10) + 8LL) + 16LL));
+        (**v13)(v13, &v30);
+        v14 = 0;
+        if ( *((_DWORD *)this + 44) )
         {
           while ( 1 )
           {
-            v13 = v27;
-            v28 = v27;
+            v15 = v30;
+            v31 = v30;
             v5 = 0;
-            v25 = 0LL;
-            v14 = 0LL;
-            v15 = DefaultHeap::Alloc(0xB0uLL);
-            v17 = v15;
-            if ( v15 )
+            v28 = 0LL;
+            v16 = 0LL;
+            v17 = DefaultHeap::Alloc(0x68uLL);
+            if ( v17 )
             {
-              v14 = (CSwapChainBuffer *)v15;
-              v15[3] = HIDWORD(v28);
-              v18 = (__int64)(v15 + 6);
-              *(_QWORD *)v15 = 0LL;
-              v15[2] = v13;
-              *((_QWORD *)v15 + 2) = v15 + 6;
-              v15[6] = 0;
-              v15[22] = v12;
-              *((_QWORD *)v15 + 12) = 0LL;
-              v19 = v15 + 28;
-              *((_QWORD *)v17 + 13) = v19;
-              *v19 = 0;
+              v17[3] = HIDWORD(v31);
+              v18 = (__int64)(v17 + 6);
+              *(_QWORD *)v17 = 0LL;
+              v17[2] = v15;
+              *((_QWORD *)v17 + 2) = v17 + 6;
+              v17[6] = 0;
+              v17[22] = v14;
+              *((_QWORD *)v17 + 12) = 0LL;
+            }
+            else
+            {
+              v17 = 0LL;
+            }
+            if ( v17 )
+            {
+              v16 = v17;
             }
             else
             {
               v5 = -2147024882;
-              MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, -2147024882, 0x17u, 0LL);
+              MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, -2147024882, 0x17u, 0LL);
             }
-            v20 = v25;
-            v25 = v14;
-            if ( v20 )
+            v19 = v28;
+            v28 = v16;
+            if ( v19 )
             {
-              CSwapChainBuffer::~CSwapChainBuffer(v20);
-              operator delete(v20, 0xB0uLL);
-              v14 = v25;
+              v24 = (CDrawListEntry *)*((_QWORD *)v19 + 12);
+              if ( v24 )
+                CDrawListEntry::Release(v24);
+              FastRegion::CRegion::FreeMemory((void **)v19 + 2);
+              operator delete(v19);
+              v16 = v28;
             }
             if ( v5 < 0 )
               break;
-            v21 = (CSwapChainBuffer **)*((_QWORD *)this + 32);
-            if ( v21 == *((CSwapChainBuffer ***)this + 33) )
+            v20 = (_QWORD *)*((_QWORD *)this + 14);
+            if ( *((_QWORD **)this + 15) == v20 )
             {
               std::vector<std::unique_ptr<CSwapChainBuffer>>::_Emplace_reallocate<std::unique_ptr<CSwapChainBuffer>>(
-                (char *)this + 248,
-                v21,
-                &v25);
+                (char *)this + 104,
+                v20,
+                &v28);
             }
             else
             {
-              v25 = 0LL;
-              *v21 = v14;
-              *((_QWORD *)this + 32) += 8LL;
+              v28 = 0LL;
+              *v20 = v16;
+              *((_QWORD *)this + 14) += 8LL;
             }
-            v22 = v25;
-            if ( v25 )
+            v21 = (void **)v28;
+            if ( v28 )
             {
-              CSwapChainBuffer::~CSwapChainBuffer(v25);
-              operator delete(v22, 0xB0uLL);
+              v25 = (CDrawListEntry *)*((_QWORD *)v28 + 12);
+              if ( v25 )
+                CDrawListEntry::Release(v25);
+              FastRegion::CRegion::FreeMemory(v21 + 2);
+              operator delete(v21);
             }
-            if ( (unsigned int)++v12 >= *((_DWORD *)this + 79) )
+            if ( (unsigned int)++v14 >= *((_DWORD *)this + 44) )
               goto LABEL_17;
           }
-          MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v5, 0x73u, 0LL);
-          v24 = v25;
-          if ( v25 )
+          MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v5, 0x4Au, 0LL);
+          v26 = (void **)v28;
+          if ( v28 )
           {
-            CSwapChainBuffer::~CSwapChainBuffer(v25);
-            operator delete(v24, 0xB0uLL);
+            v27 = (CDrawListEntry *)*((_QWORD *)v28 + 12);
+            if ( v27 )
+              CDrawListEntry::Release(v27);
+            FastRegion::CRegion::FreeMemory(v26 + 2);
+            operator delete(v26);
           }
         }
         else
         {
 LABEL_17:
-          (*(void (__fastcall **)(CLegacySwapChain *, _BYTE *))(*(_QWORD *)this + 136LL))(this, v29);
+          v22 = (char *)this + *(int *)(*((_QWORD *)this + 3) + 16LL) + 24;
+          (*(void (__fastcall **)(char *, _BYTE *))(*(_QWORD *)v22 + 72LL))(v22, v32);
         }
       }
     }
   }
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v26);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v29);
   return (unsigned int)v5;
 }

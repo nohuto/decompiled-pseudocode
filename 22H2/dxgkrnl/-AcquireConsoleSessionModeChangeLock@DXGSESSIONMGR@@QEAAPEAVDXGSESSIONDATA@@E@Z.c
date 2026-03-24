@@ -1,38 +1,37 @@
 /*
- * XREFs of ?AcquireConsoleSessionModeChangeLock@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@E@Z @ 0x1C0167D78
+ * XREFs of ?AcquireConsoleSessionModeChangeLock@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@E@Z @ 0x1C0170400
  * Callers:
- *     ?DxgkpDelayPresentCddPrimary@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C0167B20 (-DxgkpDelayPresentCddPrimary@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z.c)
- *     DxgkGetDisplayModeList @ 0x1C01A7B20 (DxgkGetDisplayModeList.c)
+ *     DxgkGetDisplayModeList @ 0x1C016FC30 (DxgkGetDisplayModeList.c)
+ *     ?DxgkpDelayPresentCddPrimary@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C0212D30 (-DxgkpDelayPresentCddPrimary@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z.c)
  * Callees:
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008AF8 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
  */
 
 struct DXGSESSIONDATA *__fastcall DXGSESSIONMGR::AcquireConsoleSessionModeChangeLock(DXGSESSIONMGR *this)
 {
   __int64 v2; // rdx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  __int64 v5; // rcx
-  __int64 v6; // rbx
-  _BYTE v8[24]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v3; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rbx
+  _BYTE v7[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v8, this, 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v8);
-  v5 = *((_QWORD *)this + 17);
-  if ( v5 )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v7, this, 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v7);
+  v3 = *((_QWORD *)this + 15);
+  if ( v3 )
   {
-    DXGPUSHLOCK::AcquireShared((DXGPUSHLOCK *)(v5 + 18544));
-    v6 = *((_QWORD *)this + 17);
+    DXGPUSHLOCK::AcquireShared((DXGPUSHLOCK *)(v3 + 18528));
+    v5 = *((_QWORD *)this + 15);
   }
   else
   {
-    v6 = 0LL;
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(0LL, v2, v3, v4) + 24) = 5714LL;
+    v5 = 0LL;
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(0LL, v2) + 24) = 5521LL;
   }
-  if ( v8[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v8);
-  return (struct DXGSESSIONDATA *)v6;
+  if ( v7[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v7, v4);
+  return (struct DXGSESSIONDATA *)v5;
 }

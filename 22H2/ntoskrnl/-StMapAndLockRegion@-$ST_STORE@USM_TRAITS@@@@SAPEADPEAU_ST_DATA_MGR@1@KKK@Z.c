@@ -1,104 +1,110 @@
 /*
- * XREFs of ?StMapAndLockRegion@?$ST_STORE@USM_TRAITS@@@@SAPEADPEAU_ST_DATA_MGR@1@KKK@Z @ 0x1405C8C34
+ * XREFs of ?StMapAndLockRegion@?$ST_STORE@USM_TRAITS@@@@SAPEADPEAU_ST_DATA_MGR@1@KKK@Z @ 0x14034EEC0
  * Callers:
- *     ?StDmCurrentRegionSet@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x140345794 (-StDmCurrentRegionSet@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z.c)
- *     ?StCompactionPerformEmergency@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x1405C3908 (-StCompactionPerformEmergency@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
- *     ?StCompactionPerformInMem@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@K@Z @ 0x1405C3B98 (-StCompactionPerformInMem@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StCompactionPerformInMem@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@K@Z @ 0x14034E9A0 (-StCompactionPerformInMem@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StDmCurrentRegionSet@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x14034EC64 (-StDmCurrentRegionSet@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z.c)
+ *     ?StCompactionPerformEmergency@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14059A218 (-StCompactionPerformEmergency@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
  * Callees:
- *     SmFpFree @ 0x140465A48 (SmFpFree.c)
- *     ?SmStAllocatePhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z @ 0x1405C04E8 (-SmStAllocatePhysicalRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z.c)
- *     ?SmStAllocateVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z @ 0x1405C0594 (-SmStAllocateVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z.c)
- *     ?SmStIsRegionBusy@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@K@Z @ 0x1405C0DEC (-SmStIsRegionBusy@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@K@Z.c)
- *     ?SmStMapRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z @ 0x1405C1068 (-SmStMapRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z.c)
- *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1405C2484 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
- *     ?StDmUpdateRegionLazyCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KK@Z @ 0x1405C7914 (-StDmUpdateRegionLazyCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KK@Z.c)
- *     ?StReleaseRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x1405C941C (-StReleaseRegion@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     SmFpFree @ 0x1402686A4 (SmFpFree.c)
+ *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x14026C418 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
+ *     ?SmStMapRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z @ 0x14026C5B0 (-SmStMapRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z.c)
+ *     ?StReleaseRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14034DAEC (-StReleaseRegion@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?SmStAllocateVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z @ 0x14034F028 (-SmStAllocateVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z.c)
+ *     ?SmStIsRegionBusy@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@K@Z @ 0x14034F750 (-SmStIsRegionBusy@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@K@Z.c)
+ *     ?SmStAllocatePhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z @ 0x140599440 (-SmStAllocatePhysicalRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z.c)
+ *     ?StDmUpdateRegionLazyCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KK@Z @ 0x14059C594 (-StDmUpdateRegionLazyCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KK@Z.c)
  */
 
-__int64 __fastcall ST_STORE<SM_TRAITS>::StMapAndLockRegion(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4)
+__int64 __fastcall ST_STORE<SM_TRAITS>::StMapAndLockRegion(__int64 a1, unsigned int a2, unsigned int a3, int a4)
 {
-  __int64 *v4; // r14
+  int v4; // r15d
   __int64 v5; // rsi
-  int v6; // r15d
-  __int64 v7; // rbx
-  int v8; // r12d
-  __int64 v10; // rcx
+  __int64 v7; // rdi
+  __int64 v9; // rcx
   int VirtualRegion; // eax
-  __int64 v12; // rbx
-  int v13; // edx
-  __int64 v14; // rax
-  __int64 v15; // r9
-  __int64 v16; // r8
-  int v17; // ecx
-  __int64 v18; // r9
-  __int64 v19; // rax
-  __int64 v20; // rdx
-  unsigned __int64 v21; // rcx
-  struct _MDL *v22; // rdx
-  int v24; // [rsp+20h] [rbp-38h]
+  int v11; // edx
+  __int64 v12; // rax
+  __int64 v13; // r8
+  int v14; // r9d
+  __int64 v15; // rbp
+  __int64 v16; // rdi
+  int v18; // ecx
+  __int64 v19; // r9
+  __int64 v20; // rax
+  __int64 v21; // rdx
+  unsigned __int64 v22; // rcx
+  struct _MDL *v23; // rdx
+  int v24; // [rsp+20h] [rbp-28h]
 
-  v4 = (__int64 *)(a1 + 800);
+  v4 = 0;
   v5 = a2;
-  v6 = 0;
   v7 = a3;
-  v8 = a4;
   if ( (*(_WORD *)(*(_QWORD *)(a1 + 1032) + 2LL * a2) & 0x1FFF) == 0 )
   {
-    v10 = *v4;
-    if ( (*(_BYTE *)(*v4 + 6021) & 4) != 0 )
-      VirtualRegion = SMKM_STORE<SM_TRAITS>::SmStAllocateVirtualRegion(v10, a2);
+    v9 = *(_QWORD *)(a1 + 800);
+    if ( (*(_BYTE *)(v9 + 6021) & 4) != 0 )
+      VirtualRegion = SMKM_STORE<SM_TRAITS>::SmStAllocateVirtualRegion(v9, a2);
     else
-      VirtualRegion = SMKM_STORE<SM_TRAITS>::SmStAllocatePhysicalRegion(v10, a2);
+      VirtualRegion = SMKM_STORE<SM_TRAITS>::SmStAllocatePhysicalRegion(v9, a2);
     if ( VirtualRegion < 0 )
       return 0LL;
     ++*(_DWORD *)(a1 + 8 * v7 + 1824);
     if ( !*(_BYTE *)(a1 + 776) )
       *(_WORD *)(*(_QWORD *)(a1 + 1032) + 2 * v5) = ((_WORD)v7 << 13) | *(_WORD *)(*(_QWORD *)(a1 + 1032) + 2 * v5) & 0x1FFF;
-    v6 = 1;
+    v4 = 1;
   }
   if ( *(_BYTE *)(a1 + 776) )
-    v13 = 0;
+    v11 = 0;
   else
-    v13 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 1032) + 2 * v5) >> 13;
-  v14 = SMKM_STORE<SM_TRAITS>::SmStMapRegion(*v4, v5, 0, a4, v8 | (v13 << 7) | 0x10u);
-  v12 = v14;
-  if ( v14 )
+    v11 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 1032) + 2 * v5) >> 13;
+  v12 = SMKM_STORE<SM_TRAITS>::SmStMapRegion(*(_QWORD *)(a1 + 800), v5, 0, a4, a4 | (v11 << 7) | 0x10u);
+  v15 = v12;
+  if ( v12 )
   {
-    if ( ((v14 - 1) & 0xFFFFFFFFFFFFFFFDuLL) != 0 )
+    if ( ((v12 - 1) & 0xFFFFFFFFFFFFFFFDuLL) != 0 )
     {
-      if ( (*(_DWORD *)(a1 + 776) & 0x40000) == 0 || !SMKM_STORE<SM_TRAITS>::SmStIsRegionBusy(*v4, v5) )
+      if ( (*(_DWORD *)(a1 + 776) & 0x40000) == 0
+        || !(unsigned int)SMKM_STORE<SM_TRAITS>::SmStIsRegionBusy(*(_QWORD *)(a1 + 800), (unsigned int)v5) )
       {
-        SMKM_STORE<SM_TRAITS>::SmStMapRegion(*v4, v5, 0, v15, 2);
-        return v12;
+        SMKM_STORE<SM_TRAITS>::SmStMapRegion(*(_QWORD *)(a1 + 800), v5, 0, v14, 2);
+        return v15;
       }
-      v12 = -1LL;
-      if ( *(_BYTE *)(a1 + 776) )
-        v17 = 0;
-      else
-        v17 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 1032) + 2 * v5) >> 13;
-      v18 = *v4;
-      if ( (*(_BYTE *)(*v4 + 6021) & 4) != 0 )
-      {
-        SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(v18, v5, v16, v18, v24, (16 * v17) | 4);
-      }
-      else
-      {
-        v19 = *(_QWORD *)(v18 + 6216);
-        v20 = *(_QWORD *)(v19 + 8 * v5);
-        v21 = v20 & 0xFFFFFFFFFFFFFFFDuLL;
-        v22 = (struct _MDL *)(v20 & 0xFFFFFFFFFFFFFFF8uLL);
-        *(_QWORD *)(v19 + 8 * v5) = v21;
-        if ( (v21 & 3) == 0 )
-          SmFpFree(v18 + 6608, 5, (__int64)KeGetCurrentThread(), v22);
-      }
+      v16 = -1LL;
     }
     else
     {
-      ST_STORE<SM_TRAITS>::StDmUpdateRegionLazyCleanup(a1, v5, 1);
-      v12 = (v12 != 1) - 1LL;
+      ST_STORE<SM_TRAITS>::StDmUpdateRegionLazyCleanup(a1, (unsigned int)v5, 1LL);
+      v16 = (v15 != 1) - 1LL;
+      v15 = 0LL;
+    }
+    if ( v15 )
+    {
+      if ( *(_BYTE *)(a1 + 776) )
+        v18 = 0;
+      else
+        v18 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 1032) + 2 * v5) >> 13;
+      v19 = *(_QWORD *)(a1 + 800);
+      if ( (*(_BYTE *)(v19 + 6021) & 4) != 0 )
+      {
+        SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(v19, v5, v13, v19, v24, (16 * v18) | 4);
+      }
+      else
+      {
+        v20 = *(_QWORD *)(v19 + 6216);
+        v21 = *(_QWORD *)(v20 + 8 * v5);
+        v22 = v21 & 0xFFFFFFFFFFFFFFFDuLL;
+        v23 = (struct _MDL *)(v21 & 0xFFFFFFFFFFFFFFF8uLL);
+        *(_QWORD *)(v20 + 8 * v5) = v22;
+        if ( (v22 & 3) == 0 )
+          SmFpFree(v19 + 6608, 5, (__int64)KeGetCurrentThread(), v23);
+      }
     }
   }
-  if ( v6 )
-    ST_STORE<SM_TRAITS>::StReleaseRegion(a1, (unsigned int)v5);
-  return v12;
+  else
+  {
+    v16 = 0LL;
+  }
+  if ( v4 )
+    ST_STORE<SM_TRAITS>::StReleaseRegion(a1, v5, v13);
+  return v16;
 }

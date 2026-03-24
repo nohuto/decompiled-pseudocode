@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsValidFONTDIFF@@YA_NPEBXKJ@Z @ 0x1C02A76F0
+ * XREFs of ?IsValidFONTDIFF@@YA_NPEBXKJ@Z @ 0x1C02A8F60
  * Callers:
- *     ?IsValidFONTSIM@@YA_NPEBXKJ@Z @ 0x1C02A772C (-IsValidFONTSIM@@YA_NPEBXKJ@Z.c)
+ *     ?IsValidFONTSIM@@YA_NPEBXKJ@Z @ 0x1C02A8F9C (-IsValidFONTSIM@@YA_NPEBXKJ@Z.c)
  * Callees:
  *     <none>
  */

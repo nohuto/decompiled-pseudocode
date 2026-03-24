@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateSlabEntriesFromLoaderSlab @ 0x1409F744C
+ * XREFs of MiCreateSlabEntriesFromLoaderSlab @ 0x1409F745C
  * Callers:
  *     MiCreateSlabAllocationsFromLoaderBlock @ 0x1409B9674 (MiCreateSlabAllocationsFromLoaderBlock.c)
  * Callees:
  *     MiUpdateLargePageBitMap @ 0x140027BE8 (MiUpdateLargePageBitMap.c)
  *     RtlSetAllBits @ 0x14002BDF0 (RtlSetAllBits.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiInsertSlabEntry @ 0x1402C29A4 (MiInsertSlabEntry.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiInsertSlabEntry @ 0x1402C2AA4 (MiInsertSlabEntry.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

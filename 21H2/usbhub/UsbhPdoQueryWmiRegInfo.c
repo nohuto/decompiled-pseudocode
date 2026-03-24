@@ -1,11 +1,12 @@
 /*
- * XREFs of UsbhPdoQueryWmiRegInfo @ 0x1C00491A0
+ * XREFs of UsbhPdoQueryWmiRegInfo @ 0x1C004A530
  * Callers:
  *     <none>
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     memmove @ 0x1C001F540 (memmove.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     memmove @ 0x1C001DEC0 (memmove.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 __int64 __fastcall UsbhPdoQueryWmiRegInfo(
@@ -20,7 +21,9 @@ __int64 __fastcall UsbhPdoQueryWmiRegInfo(
   _QWORD *v10; // rdx
   _DWORD *v11; // rsi
   ULONG v13; // edi
-  void *Pool2; // rbx
+  PVOID PoolWithTag; // rax
+  void *v15; // rbx
+  int v16; // [rsp+48h] [rbp-20h]
   ULONG BufferLength; // [rsp+70h] [rbp+8h] BYREF
 
   BufferLength = 0;
@@ -32,23 +35,27 @@ __int64 __fastcall UsbhPdoQueryWmiRegInfo(
   *v10 = DeviceObject;
   if ( (v9[355] & 0x400) == 0 )
   {
-    UsbhException(*((_QWORD *)v9 + 148), 0, 99, 0, 0, -1073741436, 0, usbfile_wmi_c, 1624, 0);
+    LOBYTE(v16) = 0;
+    UsbhException(*((_QWORD *)v9 + 148), 0, 99, 0, 0, -1073741436, 0, usbfile_wmi_c, 1624, v16);
     return 3221225860LL;
   }
   v13 = 80;
-  if ( IoGetDeviceProperty(DeviceObject, DevicePropertyDeviceDescription, 0x50u, (char *)v9 + 2442, &BufferLength) == -1073741789 )
+  if ( IoGetDeviceProperty(DeviceObject, DevicePropertyDeviceDescription, 0x50u, (char *)v9 + 2442, &BufferLength) != -1073741789 )
+    return 0LL;
+  PoolWithTag = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), BufferLength, 0x42554855u);
+  v15 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    Pool2 = (void *)ExAllocatePool2(64LL, BufferLength, 1112885333LL);
-    if ( !Pool2 )
-      return 3221225626LL;
-    if ( IoGetDeviceProperty(DeviceObject, DevicePropertyDeviceDescription, BufferLength, Pool2, &BufferLength) >= 0 )
+    memset(PoolWithTag, 0, BufferLength);
+    if ( IoGetDeviceProperty(DeviceObject, DevicePropertyDeviceDescription, BufferLength, v15, &BufferLength) >= 0 )
     {
       if ( BufferLength < 0x50 )
         v13 = BufferLength;
-      memmove((char *)v11 + 2442, Pool2, v13);
+      memmove((char *)v11 + 2442, v15, v13);
       *((_WORD *)v11 + 1260) = 0;
     }
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(v15, 0);
+    return 0LL;
   }
-  return 0LL;
+  return 3221225626LL;
 }

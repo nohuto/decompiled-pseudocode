@@ -1,22 +1,22 @@
 /*
- * XREFs of KeQueryNumaGraph @ 0x140B965CC
+ * XREFs of KeQueryNumaGraph @ 0x140A91590
  * Callers:
- *     MmInitSystem @ 0x140B47AB4 (MmInitSystem.c)
+ *     MmInitSystem @ 0x140A53D6C (MmInitSystem.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void *KeQueryNumaGraph()
+PVOID KeQueryNumaGraph()
 {
-  ULONG_PTR v0; // rdi
-  void *Pool2; // rax
-  void *v2; // rbx
+  SIZE_T v0; // rdi
+  PVOID PoolWithTag; // rax
+  PVOID v2; // rbx
 
   v0 = 2LL * (unsigned __int16)KeNumberNodes * (unsigned __int16)KeNumberNodes;
-  Pool2 = (void *)ExAllocatePool2(256LL, v0, 0x616D754Eu);
-  v2 = Pool2;
-  if ( Pool2 )
-    memmove(Pool2, KiNodeGraph, v0);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v0, 0x616D754Eu);
+  v2 = PoolWithTag;
+  if ( PoolWithTag )
+    memmove(PoolWithTag, KiNodeGraph, v0);
   return v2;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?HandleButtonSuppressionAndPendingUps@CPTPEngine@@AEAAXPEAUPTPInput@@H@Z @ 0x1C02016CC
+ * XREFs of ?HandleButtonSuppressionAndPendingUps@CPTPEngine@@AEAAXPEAUPTPInput@@H@Z @ 0x1C01C6084
  * Callers:
- *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C020273C (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
+ *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C01C709C (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
  * Callees:
- *     ?CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z @ 0x1C01FEFC8 (-CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z.c)
- *     ?TPAAPShouldAllowNow@CPTPEngine@@AEAAHPEAUPTPInput@@KHH@Z @ 0x1C02043C8 (-TPAAPShouldAllowNow@CPTPEngine@@AEAAHPEAUPTPInput@@KHH@Z.c)
+ *     ?CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z @ 0x1C01C39D4 (-CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z.c)
+ *     ?TPAAPShouldAllowNow@CPTPEngine@@AEAAHPEAUPTPInput@@KHH@Z @ 0x1C01C8DD8 (-TPAAPShouldAllowNow@CPTPEngine@@AEAAHPEAUPTPInput@@KHH@Z.c)
  */
 
 void __fastcall CPTPEngine::HandleButtonSuppressionAndPendingUps(CPTPEngine *this, struct PTPInput *a2, int a3)
@@ -13,17 +13,17 @@ void __fastcall CPTPEngine::HandleButtonSuppressionAndPendingUps(CPTPEngine *thi
   int v6; // edi
   int v7; // ecx
 
-  v3 = *((_DWORD *)this + 984);
+  v3 = *((_DWORD *)this + 958);
   if ( (v3 & 1) == 0 )
   {
-    v6 = *((_DWORD *)this + 910) & 0x10;
+    v6 = *((_DWORD *)this + 886) & 0x10;
     if ( (v3 & 0x1000) != 0 )
       goto LABEL_13;
     if ( v6 )
     {
       if ( *((_DWORD *)this + 26) == 2 && !(unsigned int)CPTPEngine::TPAAPShouldAllowNow(this, a2, 8u, 0, 0)
-        || *((_DWORD *)this + 903)
-        || *((_DWORD *)this + 978) && !a3 )
+        || *((_DWORD *)this + 879)
+        || *((_DWORD *)this + 952) && !a3 )
       {
         v7 = 4096;
       }
@@ -31,31 +31,31 @@ void __fastcall CPTPEngine::HandleButtonSuppressionAndPendingUps(CPTPEngine *thi
       {
         v7 = 0;
       }
-      v3 = v7 | *((_DWORD *)this + 984) & 0xFFFFEFFF;
-      *((_DWORD *)this + 984) = v3;
+      v3 = v7 | *((_DWORD *)this + 958) & 0xFFFFEFFF;
+      *((_DWORD *)this + 958) = v3;
     }
     if ( (v3 & 0x1000) != 0 )
     {
 LABEL_13:
       if ( v6 )
       {
-        *((_DWORD *)this + 910) &= ~0x10u;
+        *((_DWORD *)this + 886) &= ~0x10u;
       }
       else
       {
         v3 &= ~0x1000u;
-        *((_DWORD *)this + 984) = v3;
+        *((_DWORD *)this + 958) = v3;
       }
     }
     else if ( v6 )
     {
       CPTPEngine::CancelMouseUpTimer(this, 1);
-      v3 = *((_DWORD *)this + 984);
+      v3 = *((_DWORD *)this + 958);
     }
   }
   if ( (v3 & 2) == 0
     && (v3 & 4) == 0
-    && ((*((_DWORD *)this + 910) & 0x20) != 0 || (*((_DWORD *)this + 910) & 0x40) != 0) )
+    && ((*((_DWORD *)this + 886) & 0x20) != 0 || (*((_DWORD *)this + 886) & 0x40) != 0) )
   {
     CPTPEngine::CancelMouseUpTimer(this, 1);
   }

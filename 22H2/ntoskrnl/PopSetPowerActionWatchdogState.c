@@ -1,16 +1,16 @@
 /*
- * XREFs of PopSetPowerActionWatchdogState @ 0x14058F588
+ * XREFs of PopSetPowerActionWatchdogState @ 0x140382C90
  * Callers:
- *     PopIssueActionRequest @ 0x140989D54 (PopIssueActionRequest.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopIssueActionRequest @ 0x140776468 (PopIssueActionRequest.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x140252700 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x140252980 (KeCancelTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopPowerActionWatchdog @ 0x14058F4C0 (PopPowerActionWatchdog.c)
- *     PopUpdatePowerActionWatchdogTimeouts @ 0x14098AB78 (PopUpdatePowerActionWatchdogTimeouts.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x14025FAA0 (KeCancelTimer.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPowerActionWatchdog @ 0x14056F4D0 (PopPowerActionWatchdog.c)
+ *     PopUpdatePowerActionWatchdogTimeouts @ 0x140776190 (PopUpdatePowerActionWatchdogTimeouts.c)
  */
 
 void __fastcall PopSetPowerActionWatchdogState(unsigned int a1)
@@ -23,50 +23,49 @@ void __fastcall PopSetPowerActionWatchdogState(unsigned int a1)
   int v7; // eax
   bool v8; // zf
 
-  if ( a1 > 2 )
-    return;
-  if ( a1 == 1 )
-    PopUpdatePowerActionWatchdogTimeouts();
-  v2 = KeAcquireSpinLockRaiseToDpc(&qword_140C3CF38);
-  if ( dword_140C3CFC4 != a1 )
+  if ( a1 <= 2 )
   {
-    if ( dword_140C3CFC4 )
+    if ( a1 == 1 )
+      PopUpdatePowerActionWatchdogTimeouts();
+    v2 = KeAcquireSpinLockRaiseToDpc(&qword_140C23B58);
+    if ( dword_140C23BE4 != a1 )
     {
-      if ( !KeCancelTimer(&stru_140C3CF80) )
+      if ( dword_140C23BE4 )
       {
-        PopPowerActionWatchdog();
-        goto LABEL_15;
+        if ( !KeCancelTimer(&stru_140C23BA0) )
+          PopPowerActionWatchdog(0LL, 0LL, 0LL, 0LL);
+        qword_140C23BE8 = 0LL;
+        dword_140C23BE4 = 0;
       }
-      qword_140C3CFC8 = 0LL;
-      dword_140C3CFC4 = 0;
-    }
-    if ( a1 )
-    {
-      v3 = a1 == 1 ? PopPowerActionTransitioningWatchdogTimeout : PopPowerActionResumingWatchdogTimeout;
-      if ( v3 )
+      if ( a1 )
       {
-        qword_140C3CFC8 = MEMORY[0xFFFFF78000000008];
-        dword_140C3CFD0 = v3;
-        dword_140C3CFC4 = a1;
-        KiSetTimerEx((__int64)&stru_140C3CF80, -10000000LL * v3, 0, 0, (__int64)&dword_140C3CF40);
+        v3 = a1 == 1 ? PopPowerActionTransitioningWatchdogTimeout : PopPowerActionResumingWatchdogTimeout;
+        if ( v3 )
+        {
+          qword_140C23BE8 = MEMORY[0xFFFFF78000000008];
+          dword_140C23BE4 = a1;
+          KiSetTimerEx((__int64)&stru_140C23BA0, -10000000LL * v3, 0, 0, (__int64)&dword_140C23B60);
+        }
       }
     }
-  }
-LABEL_15:
-  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3CF38);
-  if ( KiIrqlFlags )
-  {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    KxReleaseSpinLock(&qword_140C23B58);
+    if ( KiIrqlFlags )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v7 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-      v8 = (v7 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v7;
-      if ( v8 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v7 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+          v8 = (v7 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v7;
+          if ( v8 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
+      }
     }
+    __writecr8(v2);
   }
-  __writecr8(v2);
 }

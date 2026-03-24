@@ -1,8 +1,8 @@
 /*
- * XREFs of DpiGetDbgInfoAdapters @ 0x1C005F594
+ * XREFs of DpiGetDbgInfoAdapters @ 0x1C0051488
  * Callers:
- *     ?TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N@Z @ 0x1C0052318 (-TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N@Z.c)
- *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C03052F0 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ *     ?TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N@Z @ 0x1C0044E2C (-TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N@Z.c)
+ *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0264990 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ __int64 __fastcall DpiGetDbgInfoAdapters(__int64 a1)
   unsigned int v6; // ecx
 
   v1 = 0;
-  v3 = (_QWORD *)qword_1C01304C8;
+  v3 = (_QWORD *)qword_1C00B2B40;
   if ( (_QWORD *)*v3 != v3 )
   {
     do
@@ -33,7 +33,7 @@ __int64 __fastcall DpiGetDbgInfoAdapters(__int64 a1)
             if ( v1 >= 7 )
               break;
             v5 = 2LL * v1;
-            *(_DWORD *)(a1 + 8 * v5) = *(_DWORD *)(v4[487] + 2692);
+            *(_DWORD *)(a1 + 8 * v5) = *(_DWORD *)(v4[487] + 2596);
             *(_DWORD *)(a1 + 8 * v5 + 4) = *((_DWORD *)v4 + 281);
             *(_DWORD *)(a1 + 8 * v5 + 8) = *((_DWORD *)v4 + 282);
             v6 = (*(_DWORD *)(v4[487] + 200) == 1) | *(_DWORD *)(a1 + 16LL * v1 + 12) & 0xFFFFFFFE;
@@ -47,7 +47,7 @@ __int64 __fastcall DpiGetDbgInfoAdapters(__int64 a1)
       }
       v3 = (_QWORD *)*v3;
     }
-    while ( *v3 != qword_1C01304C8 );
+    while ( *v3 != qword_1C00B2B40 );
   }
   return 0LL;
 }

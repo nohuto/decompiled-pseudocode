@@ -1,24 +1,12 @@
 /*
- * XREFs of NtCreateKey @ 0x1406923A0
+ * XREFs of NtCreateKey @ 0x1406E8440
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     CmCreateKey @ 0x140692410 (CmCreateKey.c)
+ *     CmCreateKey @ 0x1406E8480 (CmCreateKey.c)
  */
 
-__int64 NtCreateKey()
+__int64 __fastcall NtCreateKey(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v0; // r9d
-  __int64 v1; // r8
-  __int64 v2; // r10
-  unsigned int v3; // r8d
-  __int64 v5[3]; // [rsp+40h] [rbp-18h] BYREF
-
-  *(_OWORD *)v5 = 0LL;
-  CmpInitializeThreadInfo((__int64)v5);
-  CmCreateKey(v2, v0, v1);
-  CmCleanupThreadInfo(v5);
-  return v3;
+  return CmCreateKey(a1, a2, a3, a4);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetProperty@CKeyframeAnimation@@UEAAJIPEAVCExpressionValue@@@Z @ 0x180239D90
+ * XREFs of ?GetProperty@CKeyframeAnimation@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1801D11D0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ @ 0x1800BB448 (-GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ @ 0x1800AA37C (-GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::GetProperty(CKeyframeAnimation *this, int a2, struct CExpressionValue *a3)
@@ -21,7 +21,7 @@ __int64 __fastcall CKeyframeAnimation::GetProperty(CKeyframeAnimation *this, int
   v3 = a2 - 16;
   if ( !v3 )
   {
-    v10 = (float)*((int *)this + 122);
+    v10 = (float)*((int *)this + 114);
     *((_DWORD *)a3 + 18) = 42;
     *(float *)a3 = v10;
     goto LABEL_11;
@@ -38,12 +38,12 @@ __int64 __fastcall CKeyframeAnimation::GetProperty(CKeyframeAnimation *this, int
   v5 = v4 - 1;
   if ( !v5 )
   {
-    v7 = *((_DWORD *)this + 132);
+    v7 = *((_DWORD *)this + 124);
     goto LABEL_7;
   }
   if ( v5 == 2 )
   {
-    v7 = *((_DWORD *)this + 133);
+    v7 = *((_DWORD *)this + 125);
 LABEL_7:
     *(_DWORD *)a3 = v7;
     *((_DWORD *)a3 + 18) = 18;
@@ -52,6 +52,6 @@ LABEL_11:
     return 0;
   }
   v6 = -2147024809;
-  MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x8D4u, 0LL);
+  MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x886u, 0LL);
   return v6;
 }

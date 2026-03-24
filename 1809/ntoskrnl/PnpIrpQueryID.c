@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpIrpQueryID @ 0x1406EC470
+ * XREFs of PnpIrpQueryID @ 0x1406EC450
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F34 (PiProcessNewDeviceNode.c)
- *     PnpQueryID @ 0x1406EC378 (PnpQueryID.c)
- *     PpProfileCommitTransitioningDock @ 0x140832914 (PpProfileCommitTransitioningDock.c)
- *     PpProfileIncludeInHardwareProfileTransition @ 0x140832A5C (PpProfileIncludeInHardwareProfileTransition.c)
+ *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
+ *     PnpQueryID @ 0x1406EC358 (PnpQueryID.c)
+ *     PpProfileCommitTransitioningDock @ 0x1408328F4 (PpProfileCommitTransitioningDock.c)
+ *     PpProfileIncludeInHardwareProfileTransition @ 0x140832A3C (PpProfileIncludeInHardwareProfileTransition.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     IopSynchronousCall @ 0x1405A2CE0 (IopSynchronousCall.c)
  */
 

@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpPoolRunDown @ 0x1409EAB74
+ * XREFs of EtwpPoolRunDown @ 0x14093E300
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140814360 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x14079743C (EtwpKernelTraceRundown.c)
  * Callees:
- *     ExGetSessionPoolTagInfo @ 0x140230C48 (ExGetSessionPoolTagInfo.c)
- *     MmDetachSession @ 0x140231240 (MmDetachSession.c)
- *     MmAttachSession @ 0x1402312E0 (MmAttachSession.c)
- *     MmGetNextSession @ 0x1402A1770 (MmGetNextSession.c)
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     MmGetSessionId @ 0x140300B40 (MmGetSessionId.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExGetBigPoolInfo @ 0x14063A8C0 (ExGetBigPoolInfo.c)
- *     ExGetPoolTagInfo @ 0x1407F9820 (ExGetPoolTagInfo.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     MmGetSessionId @ 0x140253550 (MmGetSessionId.c)
+ *     ExGetSessionPoolTagInfo @ 0x140298C6C (ExGetSessionPoolTagInfo.c)
+ *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
+ *     MmAttachSession @ 0x140298FE0 (MmAttachSession.c)
+ *     MmGetNextSession @ 0x1402D5F90 (MmGetNextSession.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExGetBigPoolInfo @ 0x1405B375C (ExGetBigPoolInfo.c)
+ *     ExGetPoolTagInfo @ 0x1406DD4D8 (ExGetPoolTagInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
@@ -22,7 +22,7 @@ void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
   char v3; // r12
   unsigned int v5; // edi
   unsigned __int16 v6; // si
-  int *Pool2; // rax
+  int *PoolWithTag; // rax
   int PoolTagInfo; // eax
   unsigned int v9; // edi
   int *v10; // r14
@@ -37,7 +37,7 @@ void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
   unsigned int v19; // r8d
   __int64 v20; // rdx
   int v21; // eax
-  void *j; // rcx
+  struct _DMA_ADAPTER *j; // rcx
   unsigned int v23; // esi
   unsigned int v24; // r14d
   int *v25; // rax
@@ -50,12 +50,12 @@ void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
   unsigned int v32; // esi
   int *v33; // rax
   int v34; // eax
-  int *v35; // r15
-  unsigned int v36; // esi
+  unsigned int v35; // esi
+  int *v36; // r15
   unsigned int v37; // r8d
   __int64 v38; // rdx
   int v39; // eax
-  ULONG_PTR NextSession; // rax
+  _KPROCESS *NextSession; // rax
   __int64 v41; // rdi
   unsigned int v43; // [rsp+3Ch] [rbp-45h] BYREF
   unsigned int i; // [rsp+40h] [rbp-41h] BYREF
@@ -88,11 +88,11 @@ void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
   {
     if ( v2 )
       ExFreePoolWithTag(v2, 0);
-    Pool2 = (int *)ExAllocatePool2(256LL, v5, 1953985605LL);
-    v2 = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = (int *)ExAllocatePoolWithTag(PagedPool, v5, 0x74777445u);
+    v2 = PoolWithTag;
+    if ( !PoolWithTag )
       break;
-    PoolTagInfo = ExGetPoolTagInfo(Pool2, v5, (int *)&i);
+    PoolTagInfo = ExGetPoolTagInfo(PoolWithTag, v5, (int *)&i);
     if ( PoolTagInfo != -1073741820 )
     {
       if ( PoolTagInfo >= 0 )
@@ -104,7 +104,7 @@ void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
           do
           {
             v11 = *(_DWORD *)a1;
-            v12 = *(_QWORD *)(a1 + 1096);
+            v12 = *(_QWORD *)(a1 + 1080);
             v13 = v9;
             p_SessionId = v10;
             if ( v9 > 0x64 )
@@ -129,7 +129,7 @@ void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
   {
     if ( v2 )
       ExFreePoolWithTag(v2, 0);
-    v15 = (int *)ExAllocatePool2(256LL, v14, 1953985605LL);
+    v15 = (int *)ExAllocatePoolWithTag(PagedPool, v14, 0x74777445u);
     v2 = v15;
     if ( !v15 )
       break;
@@ -145,7 +145,7 @@ void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
           do
           {
             v19 = *(_DWORD *)a1;
-            v20 = *(_QWORD *)(a1 + 1096);
+            v20 = *(_QWORD *)(a1 + 1080);
             v21 = v17;
             p_SessionId = v18;
             if ( v17 > 0x64 )
@@ -164,13 +164,13 @@ void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
       break;
     }
   }
-  for ( j = 0LL; ; j = (void *)v41 )
+  for ( j = 0LL; ; j = (struct _DMA_ADAPTER *)v41 )
   {
-    NextSession = MmGetNextSession(j);
-    v41 = NextSession;
+    NextSession = (_KPROCESS *)MmGetNextSession(j);
+    v41 = (__int64)NextSession;
     if ( !NextSession )
       break;
-    if ( (int)MmAttachSession(NextSession) >= 0 )
+    if ( (int)MmAttachSession(NextSession, (__int64)v47) >= 0 )
     {
       SessionId = MmGetSessionId(v41);
       v23 = 4000;
@@ -179,7 +179,7 @@ void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
       {
         if ( v2 )
           ExFreePoolWithTag(v2, 0);
-        v25 = (int *)ExAllocatePool2(256LL, v24, 1953985605LL);
+        v25 = (int *)ExAllocatePoolWithTag(PagedPool, v24, 0x74777445u);
         v2 = v25;
         if ( !v25 )
           break;
@@ -200,7 +200,7 @@ void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
               do
               {
                 v29 = *(_DWORD *)a1;
-                v30 = *(_QWORD *)(a1 + 1096);
+                v30 = *(_QWORD *)(a1 + 1080);
                 v31 = v27;
                 v54 = v28;
                 if ( v27 > 0x64 )
@@ -224,7 +224,7 @@ void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
       {
         if ( v2 )
           ExFreePoolWithTag(v2, 0);
-        v33 = (int *)ExAllocatePool2(256LL, v32, 1953985605LL);
+        v33 = (int *)ExAllocatePoolWithTag(PagedPool, v32, 0x74777445u);
         v2 = v33;
         if ( !v33 )
           break;
@@ -234,28 +234,28 @@ void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
           if ( v34 >= 0 )
           {
             v53 = 0;
+            v35 = v2[3];
+            v36 = v2 + 4;
             p_SessionId = &SessionId;
-            v35 = v2 + 4;
             v52 = 4;
-            v36 = v2[3];
-            if ( v36 )
+            if ( v35 )
             {
               do
               {
                 v37 = *(_DWORD *)a1;
-                v38 = *(_QWORD *)(a1 + 1096);
-                v39 = v36;
-                v54 = v35;
-                if ( v36 > 0x64 )
+                v38 = *(_QWORD *)(a1 + 1080);
+                v39 = v35;
+                v54 = v36;
+                if ( v35 > 0x64 )
                   v39 = 100;
                 v56 = 0;
                 v43 = v39;
                 v55 = 24 * v39;
                 EtwpLogKernelEvent((__int64)&v48, v38, v37, 3u, 3631 - (v3 != 0), 0x401802u);
-                v35 += 6 * v43;
-                v36 -= v43;
+                v36 += 6 * v43;
+                v35 -= v43;
               }
-              while ( v36 );
+              while ( v35 );
               v3 = a2;
             }
           }

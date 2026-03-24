@@ -1,9 +1,9 @@
 /*
- * XREFs of ?xxxMKButtonDoubleClick@@YAHG@Z @ 0x1C01B6940
+ * XREFs of ?xxxMKButtonDoubleClick@@YAHG@Z @ 0x1C0183D80
  * Callers:
  *     <none>
  * Callees:
- *     ?xxxMKButtonClick@@YAHG@Z @ 0x1C01B6900 (-xxxMKButtonClick@@YAHG@Z.c)
+ *     ?xxxMKButtonClick@@YAHG@Z @ 0x1C0183D40 (-xxxMKButtonClick@@YAHG@Z.c)
  */
 
 __int64 __fastcall xxxMKButtonDoubleClick()

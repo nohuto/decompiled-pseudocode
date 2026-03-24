@@ -1,11 +1,9 @@
 /*
- * XREFs of ?Init@VIDMM_RECYCLE_RANGE@@QEAAXPEAVVIDMM_RECYCLE_BLOCK@@_K1@Z @ 0x1C0080F20
+ * XREFs of ?Init@VIDMM_RECYCLE_RANGE@@QEAAXPEAVVIDMM_RECYCLE_BLOCK@@_K1@Z @ 0x1C006168C
  * Callers:
- *     ?CreateRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_RANGE@@PEAVVIDMM_RECYCLE_BLOCK@@_K1@Z @ 0x1C007CEDC (-CreateRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_RANGE@@PEAVVIDMM_RECYCLE_BLOCK@@_K1@Z.c)
- *     ?MergeRanges@VIDMM_RECYCLE_MULTIRANGE@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@0@Z @ 0x1C007E450 (-MergeRanges@VIDMM_RECYCLE_MULTIRANGE@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@0@Z.c)
- *     ?SplitAt@VIDMM_RECYCLE_RANGE@@QEAAX_KPEA_N@Z @ 0x1C0080C40 (-SplitAt@VIDMM_RECYCLE_RANGE@@QEAAX_KPEA_N@Z.c)
+ *     ?CreateRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_RANGE@@PEAVVIDMM_RECYCLE_BLOCK@@_K1@Z @ 0x1C006161C (-CreateRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAPEAVVIDMM_RECYCLE_RANGE@@PEAVVIDMM_RECYCLE_BLOCK@@_K1@Z.c)
  * Callees:
- *     <none>
+ *     ?NotifyRangeEvent@VIDMM_RECYCLE_BLOCK@@QEAAXW4RangeOp@1@PEAX@Z @ 0x1C0002070 (-NotifyRangeEvent@VIDMM_RECYCLE_BLOCK@@QEAAXW4RangeOp@1@PEAX@Z.c)
  */
 
 void __fastcall VIDMM_RECYCLE_RANGE::Init(
@@ -15,19 +13,16 @@ void __fastcall VIDMM_RECYCLE_RANGE::Init(
         __int64 a4)
 {
   CCHAR LeastSignificantBit; // al
-  __int64 v6; // rax
-  __int64 v7; // rdi
-  _QWORD *v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // rcx
+  __int64 v6; // rdi
+  __int64 v7; // rcx
 
   *((_QWORD *)this + 9) = a2;
   *((_DWORD *)this + 6) = 0;
-  *((_DWORD *)this + 16) = 0;
-  *((_QWORD *)this + 12) = 0LL;
   *((_QWORD *)this + 4) = a3;
   *((_QWORD *)this + 5) = a4;
+  *((_DWORD *)this + 16) = 0;
   *((_QWORD *)this + 11) = 3LL;
+  *((_QWORD *)this + 12) = 0LL;
   ++*(_QWORD *)a2;
   LeastSignificantBit = RtlFindLeastSignificantBit(*((_QWORD *)this + 4));
   if ( LeastSignificantBit < 0 )
@@ -47,19 +42,5 @@ void __fastcall VIDMM_RECYCLE_RANGE::Init(
   *((_QWORD *)this + 19) = 0LL;
   *((_QWORD *)this + 20) = 0LL;
   *((_BYTE *)this + 168) = 0;
-  v8 = *(_QWORD **)(v7 + 136);
-  if ( v8 )
-  {
-    v9 = *v8 + 144LL * v8[1];
-    *(_DWORD *)v9 = 0;
-    *(_QWORD *)(v9 + 8) = this;
-    RtlCaptureStackBackTrace(1u, 0x10u, (PVOID *)(v9 + 16), 0LL);
-    ++*(_QWORD *)(*(_QWORD *)(v7 + 136) + 8LL);
-    v10 = *(_QWORD *)(v7 + 136);
-    if ( *(_QWORD *)(v10 + 8) == *(_QWORD *)(v10 + 48) )
-    {
-      *(_QWORD *)(v10 + 8) = 0LL;
-      *(_BYTE *)(*(_QWORD *)(v7 + 136) + 16LL) = 1;
-    }
-  }
+  VIDMM_RECYCLE_BLOCK::NotifyRangeEvent(v7, 0, (__int64)this);
 }

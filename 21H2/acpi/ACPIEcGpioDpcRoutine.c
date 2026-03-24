@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIEcGpioDpcRoutine @ 0x1C0052BA0
+ * XREFs of ACPIEcGpioDpcRoutine @ 0x1C00534C0
  * Callers:
  *     <none>
  * Callees:
- *     AcpiEcCommonDpcHandler @ 0x1C0052E34 (AcpiEcCommonDpcHandler.c)
- *     ACPIEcUnmaskInterrupt @ 0x1C0052EE0 (ACPIEcUnmaskInterrupt.c)
+ *     AcpiEcCommonDpcHandler @ 0x1C0053754 (AcpiEcCommonDpcHandler.c)
+ *     ACPIEcUnmaskInterrupt @ 0x1C0053800 (ACPIEcUnmaskInterrupt.c)
  */
 
 void __fastcall ACPIEcGpioDpcRoutine(

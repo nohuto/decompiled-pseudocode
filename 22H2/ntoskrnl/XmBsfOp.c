@@ -1,21 +1,19 @@
 /*
- * XREFs of XmBsfOp @ 0x1405342C0
+ * XREFs of XmBsfOp @ 0x1404E6920
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x1403B8FA8 (XmStoreResult.c)
+ *     XmStoreResult @ 0x1403966C0 (XmStoreResult.c)
  */
 
 _WORD *__fastcall XmBsfOp(__int64 a1)
 {
   int v1; // edx
-  unsigned int v2; // r8d
-  int v3; // eax
+  unsigned int v2; // eax
 
+  *(_DWORD *)(a1 + 16) |= 0x40u;
   v1 = 0;
   v2 = *(_DWORD *)(a1 + 108);
-  v3 = *(_DWORD *)(a1 + 16) | 0x40;
-  *(_DWORD *)(a1 + 16) = v3;
   if ( v2 )
   {
     while ( (v2 & 1) == 0 )
@@ -25,7 +23,7 @@ _WORD *__fastcall XmBsfOp(__int64 a1)
       if ( !v2 )
         return XmStoreResult(a1, v1);
     }
-    *(_DWORD *)(a1 + 16) = v3 & 0xFFFFFFBF;
+    *(_DWORD *)(a1 + 16) &= ~0x40u;
   }
   return XmStoreResult(a1, v1);
 }

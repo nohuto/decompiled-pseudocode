@@ -1,14 +1,14 @@
 /*
- * XREFs of MmResetDriverPaging @ 0x140760ED0
+ * XREFs of MmResetDriverPaging @ 0x1406D0A20
  * Callers:
- *     DifMmResetDriverPagingWrapper @ 0x1406176B0 (DifMmResetDriverPagingWrapper.c)
+ *     <none>
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     MiLockCode @ 0x140312BB0 (MiLockCode.c)
- *     MiGetPteAddress @ 0x140313C70 (MiGetPteAddress.c)
- *     MmImageSectionPagable @ 0x140760F98 (MmImageSectionPagable.c)
- *     MiCancelPhase0Locking @ 0x1407610B4 (MiCancelPhase0Locking.c)
- *     MiImagePagable @ 0x140761128 (MiImagePagable.c)
+ *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     MiLockCode @ 0x1403235B0 (MiLockCode.c)
+ *     MmImageSectionPagable @ 0x1406D0AEC (MmImageSectionPagable.c)
+ *     MiImagePagable @ 0x1406D0B4C (MiImagePagable.c)
+ *     MiCancelPhase0Locking @ 0x1406D0BAC (MiCancelPhase0Locking.c)
  */
 
 void __stdcall MmResetDriverPaging(PVOID AddressWithinSection)
@@ -21,8 +21,8 @@ void __stdcall MmResetDriverPaging(PVOID AddressWithinSection)
   __int64 v6; // rdi
   int v7; // ebx
   _DWORD *i; // rdi
-  unsigned int v9; // edx
-  __int64 v10; // r9
+  unsigned int v9; // ecx
+  __int64 v10; // rdx
   unsigned __int64 PteAddress; // rax
   unsigned __int64 v12; // r8
 
@@ -43,7 +43,7 @@ void __stdcall MmResetDriverPaging(PVOID AddressWithinSection)
         v9 = i[4];
         if ( v9 < i[2] )
           v9 = i[2];
-        MiGetPteAddress(v3 + i[3] + v9 - 1);
+        MiGetPteAddress((unsigned int)i[3] + (unsigned __int64)v9 + v3 - 1);
         PteAddress = MiGetPteAddress(v10 + v3);
         MiLockCode(v2, PteAddress, v12, 2);
       }

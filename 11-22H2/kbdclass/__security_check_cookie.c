@@ -1,1 +1,29 @@
-/*\n * XREFs of __security_check_cookie @ 0x1C0003010\n * Callers:\n *     sub_1C0002AE0 @ 0x1C0002AE0 (sub_1C0002AE0.c)\n *     sub_1C000309C @ 0x1C000309C (sub_1C000309C.c)\n *     sub_1C0004E50 @ 0x1C0004E50 (sub_1C0004E50.c)\n *     sub_1C000DDB0 @ 0x1C000DDB0 (sub_1C000DDB0.c)\n *     DriverReinitializationRoutine @ 0x1C000E0D0 (DriverReinitializationRoutine.c)\n *     sub_1C000F60C @ 0x1C000F60C (sub_1C000F60C.c)\n *     sub_1C0011080 @ 0x1C0011080 (sub_1C0011080.c)\n *     sub_1C0011560 @ 0x1C0011560 (sub_1C0011560.c)\n * Callees:\n *     <none>\n */\n\nvoid __cdecl _security_check_cookie(uintptr_t StackCookie)\n{\n  if ( StackCookie != _security_cookie || (unsigned __int16)__ROL8__(StackCookie, 16) )\n    __fastfail(2u);\n}\n
+/*
+ * XREFs of __security_check_cookie @ 0x1C0003010
+ * Callers:
+ *     KeyboardStart @ 0x1C0002AE0 (KeyboardStart.c)
+ *     __GSHandlerCheckCommon @ 0x1C000309C (__GSHandlerCheckCommon.c)
+ *     KbdClassTraceLoggingDeniedCreateForReadWithSFAC @ 0x1C0004E50 (KbdClassTraceLoggingDeniedCreateForReadWithSFAC.c)
+ *     KbdCreateClassObject @ 0x1C000DDB0 (KbdCreateClassObject.c)
+ *     KeyboardClassFindMorePorts @ 0x1C000E0D0 (KeyboardClassFindMorePorts.c)
+ *     KeyboardClassGetWaitWakeEnableState @ 0x1C000F60C (KeyboardClassGetWaitWakeEnableState.c)
+ *     DriverEntry @ 0x1C0011080 (DriverEntry.c)
+ *     KbdConfiguration @ 0x1C0011560 (KbdConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
+void __cdecl _security_check_cookie(uintptr_t StackCookie)
+{
+  __int64 v1; // rcx
+
+  if ( StackCookie != _security_cookie )
+ReportFailure:
+    _report_gsfailure(StackCookie);
+  v1 = __ROL8__(StackCookie, 16);
+  if ( (_WORD)v1 )
+  {
+    StackCookie = __ROR8__(v1, 16);
+    goto ReportFailure;
+  }
+}

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiSwUnassociateDeviceObject @ 0x1406D8DD4
+ * XREFs of PiSwUnassociateDeviceObject @ 0x1406D8DB4
  * Callers:
- *     PiSwProcessRemove @ 0x1406D8B6C (PiSwProcessRemove.c)
- *     PiSwDestroyDeviceObject @ 0x1406D90FC (PiSwDestroyDeviceObject.c)
+ *     PiSwProcessRemove @ 0x1406D8B4C (PiSwProcessRemove.c)
+ *     PiSwDestroyDeviceObject @ 0x1406D90DC (PiSwDestroyDeviceObject.c)
  * Callees:
- *     PiSwDeviceDereference @ 0x1406D8A30 (PiSwDeviceDereference.c)
- *     PiSwRemovePdoAssociation @ 0x1406D8E14 (PiSwRemovePdoAssociation.c)
+ *     PiSwDeviceDereference @ 0x1406D8A10 (PiSwDeviceDereference.c)
+ *     PiSwRemovePdoAssociation @ 0x1406D8DF4 (PiSwRemovePdoAssociation.c)
  */
 
 void __fastcall PiSwUnassociateDeviceObject(__int64 a1)

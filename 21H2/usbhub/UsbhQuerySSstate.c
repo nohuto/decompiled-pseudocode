@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhQuerySSstate @ 0x1C004BD78
+ * XREFs of UsbhQuerySSstate @ 0x1C004D184
  * Callers:
- *     UsbhHubSSH_PnpStart @ 0x1C0058560 (UsbhHubSSH_PnpStart.c)
+ *     UsbhHubSSH_PnpStart @ 0x1C0059C30 (UsbhHubSSH_PnpStart.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall UsbhQuerySSstate(__int64 a1, _BYTE *a2)

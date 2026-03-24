@@ -1,27 +1,26 @@
 /*
- * XREFs of PopFxPauseDeviceAccounting @ 0x14058B0B4
+ * XREFs of PopFxPauseDeviceAccounting @ 0x14056B6A4
  * Callers:
- *     PopFxStopDeviceAccounting @ 0x14058BC8C (PopFxStopDeviceAccounting.c)
- *     PdcPoCurrentPdcPhase @ 0x140599840 (PdcPoCurrentPdcPhase.c)
- *     PopPdcIdleResiliencyCallback @ 0x14099812C (PopPdcIdleResiliencyCallback.c)
+ *     PdcPoCurrentPdcPhase @ 0x140576300 (PdcPoCurrentPdcPhase.c)
+ *     PopPdcIdleResiliencyCallback @ 0x1408F009C (PopPdcIdleResiliencyCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     PopFxUpdateAccountingActiveTime @ 0x140312F90 (PopFxUpdateAccountingActiveTime.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxMergeActiveTimeAccounting @ 0x14058B010 (PopFxMergeActiveTimeAccounting.c)
- *     PopFxSetGlobalDeviceAccountingEnabled @ 0x14058BBB0 (PopFxSetGlobalDeviceAccountingEnabled.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     PopFxUpdateAccountingActiveTime @ 0x140260C04 (PopFxUpdateAccountingActiveTime.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxMergeActiveTimeAccounting @ 0x14056B660 (PopFxMergeActiveTimeAccounting.c)
+ *     PopFxSetGlobalDeviceAccountingEnabled @ 0x14056CBE4 (PopFxSetGlobalDeviceAccountingEnabled.c)
  */
 
 _QWORD *PopFxPauseDeviceAccounting()
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 v1; // r14
-  ULONG_PTR i; // rbx
+  ULONG_PTR i; // rdi
   unsigned __int64 v3; // rsi
   _QWORD *v4; // rcx
   unsigned __int8 CurrentIrql; // al
@@ -30,7 +29,7 @@ _QWORD *PopFxPauseDeviceAccounting()
   int v8; // eax
   bool v9; // zf
   unsigned int j; // esi
-  __int64 v11; // rdi
+  KSPIN_LOCK *v11; // rbx
   unsigned __int64 v12; // rbp
   _QWORD *v13; // rcx
   unsigned __int8 v14; // al
@@ -46,50 +45,53 @@ _QWORD *PopFxPauseDeviceAccounting()
   {
     if ( *(_QWORD *)(i + 48) )
     {
-      v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(i + 600));
-      if ( *(_DWORD *)(i + 616) )
+      if ( PopFxDeviceAccountingLevel < 0 )
       {
+        v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(i + 600));
         PopFxUpdateAccountingActiveTime(i + 600, v1, 0x47868C00uLL);
         PopFxMergeActiveTimeAccounting(v4);
-      }
-      KxReleaseSpinLock((volatile signed __int64 *)(i + 600));
-      if ( KiIrqlFlags )
-      {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
-        {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-          v9 = (v8 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v8;
-          if ( v9 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-        }
-      }
-      __writecr8(v3);
-      for ( j = 0; j < *(_DWORD *)(i + 828); ++j )
-      {
-        v11 = *(_QWORD *)(*(_QWORD *)(i + 832) + 8LL * j) + 200LL;
-        v12 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)v11);
-        if ( *(_DWORD *)(v11 + 16) )
-        {
-          PopFxUpdateAccountingActiveTime(v11, v1, 0x47868C00uLL);
-          PopFxMergeActiveTimeAccounting(v13);
-        }
-        KxReleaseSpinLock((volatile signed __int64 *)v11);
+        KxReleaseSpinLock((PKSPIN_LOCK)(i + 600));
         if ( KiIrqlFlags )
         {
-          v14 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v14 >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            v15 = KeGetCurrentPrcb();
-            v16 = v15->SchedulerAssist;
-            v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
-            v9 = (v17 & v16[5]) == 0;
-            v16[5] &= v17;
-            if ( v9 )
-              KiRemoveSystemWorkPriorityKick((__int64)v15);
+            CurrentIrql = KeGetCurrentIrql();
+            if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+              v9 = (v8 & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= v8;
+              if ( v9 )
+                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            }
+          }
+        }
+        __writecr8(v3);
+      }
+      for ( j = 0; j < *(_DWORD *)(i + 828); ++j )
+      {
+        v11 = (KSPIN_LOCK *)(*(_QWORD *)(*(_QWORD *)(i + 832) + 8LL * j) + 200LL);
+        v12 = KeAcquireSpinLockRaiseToDpc(v11);
+        PopFxUpdateAccountingActiveTime((__int64)v11, v1, 0x47868C00uLL);
+        PopFxMergeActiveTimeAccounting(v13);
+        KxReleaseSpinLock(v11);
+        if ( KiIrqlFlags )
+        {
+          if ( (KiIrqlFlags & 1) != 0 )
+          {
+            v14 = KeGetCurrentIrql();
+            if ( v14 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v14 >= 2u )
+            {
+              v15 = KeGetCurrentPrcb();
+              v16 = v15->SchedulerAssist;
+              v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
+              v9 = (v17 & v16[5]) == 0;
+              v16[5] &= v17;
+              if ( v9 )
+                KiRemoveSystemWorkPriorityKick((__int64)v15);
+            }
           }
         }
         __writecr8(v12);

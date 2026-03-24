@@ -1,26 +1,28 @@
 /*
- * XREFs of ?LockWndMenuWorker@@YAPEAXPEAUtagWND@@_NAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C00AF33C
+ * XREFs of ?LockWndMenuWorker@@YAPEAXPEAUtagWND@@_NAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C011AA2C
  * Callers:
- *     xxxGetSystemMenu @ 0x1C0067088 (xxxGetSystemMenu.c)
- *     xxxSetDialogSystemMenu @ 0x1C00AF934 (xxxSetDialogSystemMenu.c)
- *     xxxSetWindowData @ 0x1C00CA930 (xxxSetWindowData.c)
- *     xxxSetMenu @ 0x1C0231EDC (xxxSetMenu.c)
- *     xxxSetSystemMenu @ 0x1C0231F60 (xxxSetSystemMenu.c)
+ *     xxxSetWindowData @ 0x1C008A1A8 (xxxSetWindowData.c)
+ *     xxxGetSystemMenu @ 0x1C00DC574 (xxxGetSystemMenu.c)
+ *     xxxSetDialogSystemMenu @ 0x1C0129130 (xxxSetDialogSystemMenu.c)
+ *     xxxSetSystemMenu @ 0x1C01554D8 (xxxSetSystemMenu.c)
+ *     xxxSetMenu @ 0x1C0156DD4 (xxxSetMenu.c)
  * Callees:
- *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00635B4 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0078AA0 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
  */
 
 __int64 __fastcall LockWndMenuWorker(__int64 a1, unsigned __int8 a2, _QWORD **a3)
 {
-  __int64 v4; // r14
-  __int64 v5; // r15
+  __int64 v4; // rbp
+  __int64 v5; // r14
   __int64 v7; // rbx
   __int64 v9; // rcx
   _QWORD *v10; // rax
   _QWORD *v11; // rax
-  _QWORD *v13; // rcx
-  _QWORD v14[2]; // [rsp+20h] [rbp-38h] BYREF
-  _QWORD v15[5]; // [rsp+30h] [rbp-28h] BYREF
+  _QWORD *v12; // rcx
+  _QWORD *v14; // rcx
+  _QWORD v15[2]; // [rsp+20h] [rbp-48h] BYREF
+  _QWORD v16[2]; // [rsp+30h] [rbp-38h] BYREF
+  _QWORD v17[2]; // [rsp+40h] [rbp-28h] BYREF
 
   v4 = a1 + 168;
   v5 = a1 + 160;
@@ -28,16 +30,16 @@ __int64 __fastcall LockWndMenuWorker(__int64 a1, unsigned __int8 a2, _QWORD **a3
   v9 = *(_QWORD *)(a1 + 8 * (a2 ^ 1LL) + 160);
   if ( v9 )
   {
-    v13 = (_QWORD *)(v9 + 80);
-    if ( *v13 == a1 )
-      HMAssignmentUnlock(v13);
+    v14 = (_QWORD *)(v9 + 80);
+    if ( *v14 == a1 )
+      HMAssignmentUnlock(v14);
   }
   if ( !SmartObjStackRef<tagMENU>::operator==((__int64)a3) && !*(_QWORD *)(**a3 + 80LL) )
   {
     v10 = *a3;
-    v14[1] = a1;
-    v14[0] = *v10 + 80LL;
-    HMAssignmentLock(v14, 0LL);
+    v15[1] = a1;
+    v15[0] = *v10 + 80LL;
+    HMAssignmentLock(v15);
   }
   v11 = a3[2];
   if ( a2 )
@@ -46,8 +48,10 @@ __int64 __fastcall LockWndMenuWorker(__int64 a1, unsigned __int8 a2, _QWORD **a3
       v11 = (_QWORD *)**a3;
     if ( v11 )
       v7 = v11[6];
-    *(_QWORD *)(*(_QWORD *)(a1 + 40) + 160LL) = v7;
-    v15[0] = v5;
+    *(_QWORD *)(*(_QWORD *)(v5 - 120) + 160LL) = v7;
+    v12 = v16;
+    v16[0] = v5;
+    v16[1] = v11;
   }
   else
   {
@@ -55,9 +59,10 @@ __int64 __fastcall LockWndMenuWorker(__int64 a1, unsigned __int8 a2, _QWORD **a3
       v11 = (_QWORD *)**a3;
     if ( v11 )
       v7 = v11[6];
-    *(_QWORD *)(*(_QWORD *)(a1 + 40) + 152LL) = v7;
-    v15[0] = v4;
+    *(_QWORD *)(*(_QWORD *)(v4 - 128) + 152LL) = v7;
+    v12 = v17;
+    v17[0] = v4;
+    v17[1] = v11;
   }
-  v15[1] = v11;
-  return HMAssignmentLock(v15, 0LL);
+  return HMAssignmentLock(v12);
 }

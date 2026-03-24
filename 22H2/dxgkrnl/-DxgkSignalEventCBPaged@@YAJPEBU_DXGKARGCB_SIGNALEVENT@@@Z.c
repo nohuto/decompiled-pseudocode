@@ -1,21 +1,23 @@
 /*
- * XREFs of ?DxgkSignalEventCBPaged@@YAJPEBU_DXGKARGCB_SIGNALEVENT@@@Z @ 0x1C0373408
+ * XREFs of ?DxgkSignalEventCBPaged@@YAJPEBU_DXGKARGCB_SIGNALEVENT@@@Z @ 0x1C0239244
  * Callers:
- *     DxgkSignalEventCB @ 0x1C005DBB0 (DxgkSignalEventCB.c)
+ *     DxgkSignalEventCB @ 0x1C0041E80 (DxgkSignalEventCB.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall DxgkSignalEventCBPaged(const struct _DXGKARGCB_SIGNALEVENT *a1)
 {
-  __int64 v2; // rsi
+  __int64 v2; // rbp
   HANDLE hEvent; // rcx
   NTSTATUS v4; // eax
-  PVOID v5; // rbx
-  unsigned int v6; // ebp
-  PVOID Object; // [rsp+50h] [rbp-48h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+58h] [rbp-40h] BYREF
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  PVOID v7; // rbx
+  unsigned int v8; // esi
+  __int64 v9; // rax
+  PVOID Object; // [rsp+30h] [rbp-48h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+38h] [rbp-40h] BYREF
 
   v2 = *((_QWORD *)a1->hDxgkProcess + 4);
   memset(&ApcState, 0, sizeof(ApcState));
@@ -23,27 +25,20 @@ __int64 __fastcall DxgkSignalEventCBPaged(const struct _DXGKARGCB_SIGNALEVENT *a
   hEvent = a1->hEvent;
   Object = 0LL;
   v4 = ObReferenceObjectByHandle(hEvent, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
-  v5 = Object;
-  v6 = v4;
+  v7 = Object;
+  v8 = v4;
   if ( v4 < 0 )
   {
-    WdLogSingleEntry2(2LL, a1->hEvent, v2);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid event handle: 0x%I64x DXGPROCESS: 0x%I64x",
-      (__int64)a1->hEvent,
-      v2,
-      0LL,
-      0LL,
-      0LL);
+    v9 = WdLogNewEntry5_WdError(v6, v5);
+    *(_QWORD *)(v9 + 24) = a1->hEvent;
+    *(_QWORD *)(v9 + 32) = v2;
+    WdLogEvent5_WdError(v9);
   }
   else
   {
     KeSetEvent((PRKEVENT)Object, 0, 0);
-    ObfDereferenceObject(v5);
+    ObfDereferenceObject(v7);
   }
   KeUnstackDetachProcess(&ApcState);
-  return v6;
+  return v8;
 }

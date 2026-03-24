@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ApplyTimerDelay@@YAXPEAUtagTIMER@@@Z @ 0x1C01E5CFC
+ * XREFs of ?ApplyTimerDelay@@YAXPEAUtagTIMER@@@Z @ 0x1C00FB4D0
  * Callers:
- *     ?ReadyTimer@@YAXPEAUtagTIMER@@K@Z @ 0x1C01E5DD4 (-ReadyTimer@@YAXPEAUtagTIMER@@K@Z.c)
+ *     ?xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z @ 0x1C01687A0 (-xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z.c)
  * Callees:
  *     <none>
  */

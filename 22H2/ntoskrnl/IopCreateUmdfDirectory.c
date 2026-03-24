@@ -1,26 +1,26 @@
 /*
- * XREFs of IopCreateUmdfDirectory @ 0x140B6DFD4
+ * XREFs of IopCreateUmdfDirectory @ 0x140A5D080
  * Callers:
- *     IopCreateRootDirectories @ 0x140B6DEE4 (IopCreateRootDirectories.c)
+ *     IopCreateRootDirectories @ 0x140A5B394 (IopCreateRootDirectories.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140736A80 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     RtlInitializeSid @ 0x140782560 (RtlInitializeSid.c)
- *     RtlLengthRequiredSid @ 0x1407D1BF0 (RtlLengthRequiredSid.c)
- *     RtlAddAccessAllowedAce @ 0x1407EF9B0 (RtlAddAccessAllowedAce.c)
- *     NtCreateDirectoryObject @ 0x1407F1B70 (NtCreateDirectoryObject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IopVerifierExAllocatePool @ 0x14022C350 (IopVerifierExAllocatePool.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlLengthRequiredSid @ 0x1405DC260 (RtlLengthRequiredSid.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     NtCreateDirectoryObject @ 0x1406868C0 (NtCreateDirectoryObject.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D92C0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x1406EF9D0 (RtlAddAccessAllowedAce.c)
+ *     RtlInitializeSid @ 0x140718B40 (RtlInitializeSid.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 IopCreateUmdfDirectory()
 {
   unsigned __int8 *SeLocalSystemSid; // r14
   ULONG v1; // eax
-  _DWORD *Pool2; // rax
+  _DWORD *Pool; // rax
   _DWORD *v3; // rdi
   int Acl; // ebx
   ULONG v5; // ebx
@@ -42,19 +42,19 @@ __int64 IopCreateUmdfDirectory()
 
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   Handle = 0LL;
-  v17 = 0;
   v13 = 0;
+  v17 = 0;
   v11 = 0LL;
   *(_DWORD *)IdentifierAuthority.Value = 0;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   DestinationString = 0LL;
   SeLocalSystemSid = (unsigned __int8 *)SeExports->SeLocalSystemSid;
   v1 = RtlLengthRequiredSid(6u);
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, v1, 0x73536F49u);
-  v3 = Pool2;
-  if ( Pool2 )
+  Pool = IopVerifierExAllocatePool(PagedPool, v1);
+  v3 = Pool;
+  if ( Pool )
   {
-    Acl = RtlInitializeSid(Pool2, &IdentifierAuthority, 6u);
+    Acl = RtlInitializeSid(Pool, &IdentifierAuthority, 6u);
     if ( Acl >= 0 )
     {
       v3[2] = 80;
@@ -64,7 +64,7 @@ __int64 IopCreateUmdfDirectory()
       v3[6] = 1344795993;
       v3[7] = 749280709;
       v5 = 4 * (SeLocalSystemSid[1] + *((unsigned __int8 *)v3 + 1)) + 40;
-      v6 = (ACL *)ExAllocatePool2(256LL, v5, 0x63416F49u);
+      v6 = (ACL *)IopVerifierExAllocatePool(PagedPool, v5);
       v7 = v6;
       if ( v6 )
       {

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?STROBJ_bEnumPositionsOnlyLinked@@YAHPEAVESTROBJ@@PEAKPEAPEAU_GLYPHPOS@@@Z @ 0x1C02BC1C8
+ * XREFs of ?STROBJ_bEnumPositionsOnlyLinked@@YAHPEAVESTROBJ@@PEAKPEAPEAU_GLYPHPOS@@@Z @ 0x1C02BDC28
  * Callers:
- *     STROBJ_bEnumPositionsOnly @ 0x1C02BDEB0 (STROBJ_bEnumPositionsOnly.c)
+ *     STROBJ_bEnumPositionsOnly @ 0x1C02BF530 (STROBJ_bEnumPositionsOnly.c)
  * Callees:
  *     <none>
  */

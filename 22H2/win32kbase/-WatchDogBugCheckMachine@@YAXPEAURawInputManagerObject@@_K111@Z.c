@@ -1,9 +1,9 @@
 /*
- * XREFs of ?WatchDogBugCheckMachine@@YAXPEAURawInputManagerObject@@_K111@Z @ 0x1C0173B40
+ * XREFs of ?WatchDogBugCheckMachine@@YAXPEAURawInputManagerObject@@_K111@Z @ 0x1C0151F24
  * Callers:
- *     RIMWatchDog @ 0x1C0074320 (RIMWatchDog.c)
+ *     RIMWatchDog @ 0x1C0048040 (RIMWatchDog.c)
  * Callees:
- *     IsKernelDebuggerEnabled @ 0x1C0131F7C (IsKernelDebuggerEnabled.c)
+ *     IsKernelDebuggerEnabled @ 0x1C01178E4 (IsKernelDebuggerEnabled.c)
  */
 
 void __fastcall WatchDogBugCheckMachine(struct RawInputManagerObject *a1, ULONG_PTR a2, ULONG_PTR a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetKernelStackSwapSupport @ 0x140124014
+ * XREFs of MiGetKernelStackSwapSupport @ 0x140124034
  * Callers:
- *     MmOutSwapWorkingSet @ 0x1400E5108 (MmOutSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x1400E5128 (MmOutSwapWorkingSet.c)
  * Callees:
- *     MiAllocateWorkingSetSwapSupport @ 0x1400E5914 (MiAllocateWorkingSetSwapSupport.c)
- *     MiFindFreePageFileSpace @ 0x14012411C (MiFindFreePageFileSpace.c)
- *     MiPageFileLargestBitmapsRun @ 0x140124818 (MiPageFileLargestBitmapsRun.c)
+ *     MiAllocateWorkingSetSwapSupport @ 0x1400E5934 (MiAllocateWorkingSetSwapSupport.c)
+ *     MiFindFreePageFileSpace @ 0x14012413C (MiFindFreePageFileSpace.c)
+ *     MiPageFileLargestBitmapsRun @ 0x140124838 (MiPageFileLargestBitmapsRun.c)
  */
 
 __int64 __fastcall MiGetKernelStackSwapSupport(__int64 a1, __int64 a2)

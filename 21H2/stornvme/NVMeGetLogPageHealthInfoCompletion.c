@@ -1,11 +1,11 @@
 /*
- * XREFs of NVMeGetLogPageHealthInfoCompletion @ 0x1C001D490
+ * XREFs of NVMeGetLogPageHealthInfoCompletion @ 0x1C0014B90
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     NVMeFreeDmaBuffer @ 0x1C00053FC (NVMeFreeDmaBuffer.c)
- *     TemperatureFromKelvinToCelsius @ 0x1C0021560 (TemperatureFromKelvinToCelsius.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
+ *     TemperatureFromKelvinToCelsius @ 0x1C001773C (TemperatureFromKelvinToCelsius.c)
  */
 
 __int64 __fastcall NVMeGetLogPageHealthInfoCompletion(__int64 a1, __int64 a2)

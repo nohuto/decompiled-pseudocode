@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_InitializeData@Edgy@@YAPEAUtagEDGY_DATA@@PEAUtagDESKTOP@@@Z @ 0x1C02089E8
+ * XREFs of ?_InitializeData@Edgy@@YAPEAUtagEDGY_DATA@@PEAUtagDESKTOP@@@Z @ 0x1C020855C
  * Callers:
- *     ?_AddOrUpdateListener@Edgy@@YAHPEAUtagDESKTOP@@PEAXW4tagEDGY_LOCATION@@PEAUHWND__@@@Z @ 0x1C0207E98 (-_AddOrUpdateListener@Edgy@@YAHPEAUtagDESKTOP@@PEAXW4tagEDGY_LOCATION@@PEAUHWND__@@@Z.c)
+ *     ?_AddOrUpdateListener@Edgy@@YAHPEAUtagDESKTOP@@PEAXW4tagEDGY_LOCATION@@PEAUHWND__@@@Z @ 0x1C0207A34 (-_AddOrUpdateListener@Edgy@@YAHPEAUtagDESKTOP@@PEAXW4tagEDGY_LOCATION@@PEAUHWND__@@@Z.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 struct tagEDGY_DATA *__fastcall Edgy::_InitializeData(Edgy *this, struct tagDESKTOP *a2)
@@ -19,7 +19,7 @@ struct tagEDGY_DATA *__fastcall Edgy::_InitializeData(Edgy *this, struct tagDESK
     v5 = v4;
     if ( v4 )
     {
-      memmove((void *)(v4 + 20), &unk_1C02F4430, 0x9CuLL);
+      memmove((void *)(v4 + 20), &unk_1C02F7090, 0x9CuLL);
       *(_DWORD *)(v5 + 252) = 350;
       *(_DWORD *)(v5 + 264) = 4000;
       *(_DWORD *)(v5 + 268) = 4000;

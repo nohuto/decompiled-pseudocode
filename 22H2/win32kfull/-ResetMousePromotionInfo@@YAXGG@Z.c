@@ -1,47 +1,38 @@
 /*
- * XREFs of ?ResetMousePromotionInfo@@YAXGG@Z @ 0x1C01F84A8
+ * XREFs of ?ResetMousePromotionInfo@@YAXGG@Z @ 0x1C0218B40
  * Callers:
- *     ?HandleLossOfPrimary@@YAHAEAUtagPOINTER_INFO@@@Z @ 0x1C01F7E3C (-HandleLossOfPrimary@@YAHAEAUtagPOINTER_INFO@@@Z.c)
- *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C01F8A18 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
+ *     ?HandleLossOfPrimary@@YAHAEAUtagPOINTER_INFO@@@Z @ 0x1C0218498 (-HandleLossOfPrimary@@YAHAEAUtagPOINTER_INFO@@@Z.c)
+ *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C0219068 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
  * Callees:
- *     ?EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C003B21C (-EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z.c)
- *     ?CacheIncludesPendingPromotion@@YAHAEAUtagMOUSE_PROMOTION_CACHE@@@Z @ 0x1C01F79C4 (-CacheIncludesPendingPromotion@@YAHAEAUtagMOUSE_PROMOTION_CACHE@@@Z.c)
- *     ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C01F7D8C (-ForceCompletePendingPromotion@@YAXXZ.c)
+ *     ?EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C000BC24 (-EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z.c)
+ *     ?CacheIncludesPendingPromotion@@YAHAEAUtagMOUSE_PROMOTION_CACHE@@@Z @ 0x1C0217FA4 (-CacheIncludesPendingPromotion@@YAHAEAUtagMOUSE_PROMOTION_CACHE@@@Z.c)
+ *     ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C02183F8 (-ForceCompletePendingPromotion@@YAXXZ.c)
  */
 
-void __fastcall ResetMousePromotionInfo(__int64 a1)
+void __fastcall ResetMousePromotionInfo(__int16 a1)
 {
-  __int16 v1; // si
-  __int64 v2; // rax
-  __int64 v3; // rbx
-  __int64 v4; // rdi
-  __int64 v5; // rcx
-  __int64 v6; // rax
-  __int64 v7; // xmm1_8
+  char *v2; // rbx
+  __int64 v3; // rax
+  __int64 v4; // xmm1_8
 
-  v1 = a1;
-  v2 = SGDGetUserSessionState(a1);
-  v3 = v2 + 16056;
-  if ( *(_WORD *)(v2 + 16056) )
+  if ( word_1C0339AD0 )
   {
-    v4 = v2 + 16160;
-    if ( (unsigned int)CacheIncludesPendingPromotion((struct tagMOUSE_PROMOTION_CACHE *)(v2 + 16160)) )
-      ForceCompletePendingPromotion(v5);
-    EmptyMousePromotionQueue((struct tagMOUSE_PROMOTION_QUEUE *)(v3 + 112));
-    v6 = 4LL;
+    v2 = (char *)&unk_1C0339B38;
+    if ( (unsigned int)CacheIncludesPendingPromotion((struct tagMOUSE_PROMOTION_CACHE *)&unk_1C0339B38) )
+      ForceCompletePendingPromotion();
+    EmptyMousePromotionQueue((struct tagMOUSE_PROMOTION_QUEUE *)&unk_1C0339B40);
+    v3 = 4LL;
     do
     {
-      v7 = *(_QWORD *)(v4 - 8);
-      *(_OWORD *)v4 = *(_OWORD *)(v4 - 24);
-      *(_QWORD *)(v4 + 16) = v7;
-      v4 -= 24LL;
-      --v6;
+      v4 = *((_QWORD *)v2 - 1);
+      *(_OWORD *)v2 = *(_OWORD *)(v2 - 24);
+      *((_QWORD *)v2 + 2) = v4;
+      v2 -= 24;
+      --v3;
     }
-    while ( v6 );
-    *(_WORD *)(v3 + 8) = 0;
-    *(_QWORD *)(v3 + 16) = 0LL;
-    *(_QWORD *)(v3 + 24) = 0LL;
+    while ( v3 );
+    unk_1C0339AE0 = 0LL;
   }
-  *(_WORD *)v3 = v1;
-  *(_WORD *)(v3 + 8) = v1;
+  word_1C0339AD0 = a1;
+  word_1C0339AD8[0] = a1;
 }

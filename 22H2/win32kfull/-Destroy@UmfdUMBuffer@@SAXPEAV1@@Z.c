@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Destroy@UmfdUMBuffer@@SAXPEAV1@@Z @ 0x1C00A5ACC
+ * XREFs of ?Destroy@UmfdUMBuffer@@SAXPEAV1@@Z @ 0x1C00F43E0
  * Callers:
- *     ?Destroy@UmfdTls@@CAXPEAV1@@Z @ 0x1C00A5A98 (-Destroy@UmfdTls@@CAXPEAV1@@Z.c)
+ *     ?Destroy@UmfdTls@@CAXPEAV1@@Z @ 0x1C00F43AC (-Destroy@UmfdTls@@CAXPEAV1@@Z.c)
  * Callees:
  *     <none>
  */

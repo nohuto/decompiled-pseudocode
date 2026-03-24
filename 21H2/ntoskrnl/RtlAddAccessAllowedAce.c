@@ -1,30 +1,29 @@
 /*
- * XREFs of RtlAddAccessAllowedAce @ 0x14078ED30
+ * XREFs of RtlAddAccessAllowedAce @ 0x140676BE0
  * Callers:
- *     RtlCheckTokenCapability @ 0x140201400 (RtlCheckTokenCapability.c)
- *     SepAppendAceToTokenDefaultDacl @ 0x140257C7C (SepAppendAceToTokenDefaultDacl.c)
- *     RtlCheckTokenMembershipEx @ 0x1402E0CA0 (RtlCheckTokenMembershipEx.c)
- *     SepInitProcessAuditSd @ 0x1403CE4A4 (SepInitProcessAuditSd.c)
- *     WdipAccessCheck @ 0x14062C598 (WdipAccessCheck.c)
- *     ExpPlRunOnceInit @ 0x14063BB90 (ExpPlRunOnceInit.c)
- *     MiCreatePagingFile @ 0x14084AA8C (MiCreatePagingFile.c)
- *     ViInitializeLocalSystemDescriptor @ 0x140A820BC (ViInitializeLocalSystemDescriptor.c)
- *     SeMakeSystemToken @ 0x140B1E75C (SeMakeSystemToken.c)
- *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140B1ED10 (SeMakeAnonymousLogonTokenNoEveryone.c)
- *     SeMakeAnonymousLogonToken @ 0x140B1EFA0 (SeMakeAnonymousLogonToken.c)
- *     SepInitSystemDacls @ 0x140B2114C (SepInitSystemDacls.c)
- *     WmipInitializeSecurity @ 0x140B22DD4 (WmipInitializeSecurity.c)
- *     PspInitializeSystemPartitionPhase0 @ 0x140B28514 (PspInitializeSystemPartitionPhase0.c)
- *     IopCreateUmdfDirectory @ 0x140B2940C (IopCreateUmdfDirectory.c)
- *     SshpAlpcInitialize @ 0x140B2984C (SshpAlpcInitialize.c)
- *     ExpKeyedEventInitialization @ 0x140B2A324 (ExpKeyedEventInitialization.c)
- *     PopUmpoInitializeChannel @ 0x140B2B9FC (PopUmpoInitializeChannel.c)
- *     IopApplySystemPartitionProt @ 0x140B4F514 (IopApplySystemPartitionProt.c)
+ *     RtlCheckTokenMembershipEx @ 0x14027F450 (RtlCheckTokenMembershipEx.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x1402C91B4 (SepAppendAceToTokenDefaultDacl.c)
+ *     SepInitProcessAuditSd @ 0x1403B4648 (SepInitProcessAuditSd.c)
+ *     RtlCheckTokenCapability @ 0x140586730 (RtlCheckTokenCapability.c)
+ *     WdipAccessCheck @ 0x1405A5610 (WdipAccessCheck.c)
+ *     SepInitializationPhase1 @ 0x14079D378 (SepInitializationPhase1.c)
+ *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
+ *     ViInitializeLocalSystemDescriptor @ 0x1409C6BB8 (ViInitializeLocalSystemDescriptor.c)
+ *     SeMakeSystemToken @ 0x140A47F10 (SeMakeSystemToken.c)
+ *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140A484C0 (SeMakeAnonymousLogonTokenNoEveryone.c)
+ *     SeMakeAnonymousLogonToken @ 0x140A4874C (SeMakeAnonymousLogonToken.c)
+ *     SepInitSystemDacls @ 0x140A4A880 (SepInitSystemDacls.c)
+ *     IopCreateUmdfDirectory @ 0x140A5D080 (IopCreateUmdfDirectory.c)
+ *     WmipInitializeSecurity @ 0x140A69C2C (WmipInitializeSecurity.c)
+ *     PspInitializeSystemPartitionPhase0 @ 0x140A6DD90 (PspInitializeSystemPartitionPhase0.c)
+ *     ExpKeyedEventInitialization @ 0x140A6F2EC (ExpKeyedEventInitialization.c)
+ *     PopUmpoInitializeChannel @ 0x140A6FE7C (PopUmpoInitializeChannel.c)
+ *     IopApplySystemPartitionProt @ 0x140A8FEC0 (IopApplySystemPartitionProt.c)
  * Callees:
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
  */
 
 NTSTATUS __stdcall RtlAddAccessAllowedAce(PACL Acl, ULONG AceRevision, ACCESS_MASK AccessMask, PSID Sid)
 {
-  return RtlpAddKnownAce((int)Acl, AceRevision, 0, AccessMask, Sid, 0);
+  return RtlpAddKnownAce((__int64)Acl, AceRevision, 0, AccessMask, (unsigned __int8 *)Sid, 0);
 }

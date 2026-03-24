@@ -1,25 +1,28 @@
 /*
- * XREFs of KeInitializeTimerTable @ 0x14081FF44
+ * XREFs of KeInitializeTimerTable @ 0x14079FF64
  * Callers:
- *     KiStartDynamicProcessor @ 0x1409738B8 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140B4AC90 (KeStartAllProcessors.c)
- *     KeInitSystem @ 0x140B53548 (KeInitSystem.c)
+ *     KiStartDynamicProcessor @ 0x1408BA6C8 (KiStartDynamicProcessor.c)
+ *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
+ *     KeStartAllProcessors @ 0x140A4D568 (KeStartAllProcessors.c)
  * Callees:
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
- *     KiInitializeTimer2Data @ 0x1403B14B4 (KiInitializeTimer2Data.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiInitializeForceIdle @ 0x140820080 (KiInitializeForceIdle.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     KiInitializeTimer2Data @ 0x1403B5E30 (KiInitializeTimer2Data.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KiInitializeForceIdle @ 0x1407A00B0 (KiInitializeForceIdle.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall KeInitializeTimerTable(__int64 a1)
 {
-  __int64 v2; // rax
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v6; // rdi
-  void *Pool2; // rdx
-  __int64 v8; // rcx
+  unsigned __int8 v2; // cl
+  __int64 v3; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v7; // rdi
+  void *v8; // rsi
+  __int64 v9; // rcx
+  PVOID PoolWithTag; // rax
 
   if ( !*(_DWORD *)(a1 + 36) )
   {
@@ -30,59 +33,63 @@ __int64 __fastcall KeInitializeTimerTable(__int64 a1)
     }
     else
     {
-      KiSerializeTimerExpiration = (unsigned __int8)off_140C01C70[0]() != 0;
+      KiSerializeTimerExpiration = (unsigned __int8)off_140C00860[0]() != 0;
     }
     KiInitializeTimer2Data();
   }
-  if ( !KiPendingTimerBitmaps[2 * *(unsigned __int8 *)(a1 + 208) + 1] )
+  v2 = *(_BYTE *)(a1 + 208);
+  if ( !KiPendingTimerBitmaps[2 * v2 + 1] )
   {
-    v6 = 0x4000LL;
-    if ( *(_BYTE *)(a1 + 208) )
+    v7 = 0x4000LL;
+    if ( v2 )
     {
       if ( KiSerializeTimerExpiration )
       {
-        Pool2 = 0LL;
+        v8 = 0LL;
       }
       else
       {
-        Pool2 = (void *)ExAllocatePool2(72LL, 0x4000LL, 1649698123LL);
-        if ( !Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNxCacheAligned, 0x4000uLL, 0x6254654Bu);
+        v8 = PoolWithTag;
+        if ( !PoolWithTag )
           return 3221225626LL;
+        memset(PoolWithTag, 0, 0x4000uLL);
+        v2 = *(_BYTE *)(a1 + 208);
       }
     }
     else
     {
-      Pool2 = &KiPendingTimersMask0;
+      v8 = &KiPendingTimersMask0;
       if ( KiSerializeTimerExpiration )
-        v6 = 32LL;
+        v7 = 32LL;
     }
-    v8 = 2LL * *(unsigned __int8 *)(a1 + 208);
-    KiPendingTimerBitmaps[v8] = 8 * v6;
-    KiPendingTimerBitmaps[v8 + 1] = (__int64)Pool2;
+    v9 = 2LL * v2;
+    KiPendingTimerBitmaps[v9] = 8 * v7;
+    KiPendingTimerBitmaps[v9 + 1] = (__int64)v8;
   }
-  *(_DWORD *)(a1 + 13248) = MEMORY[0xFFFFF78000000320];
-  KeInitializeDpc((PRKDPC)(a1 + 32496), (PKDEFERRED_ROUTINE)KiTimerExpirationDpc, 0LL);
-  if ( !*(_QWORD *)(a1 + 32552) )
-    *(_WORD *)(a1 + 32498) = *(_DWORD *)(a1 + 36) + 2048;
-  v2 = a1 + 15880;
-  v3 = 2LL;
+  *(_DWORD *)(a1 + 12596) = MEMORY[0xFFFFF78000000320];
+  KeInitializeDpc((PRKDPC)(a1 + 31792), (PKDEFERRED_ROUTINE)KiTimerExpirationDpc, 0LL);
+  if ( !*(_QWORD *)(a1 + 31848) )
+    *(_WORD *)(a1 + 31794) = *(_DWORD *)(a1 + 36) + 1280;
+  v3 = a1 + 15176;
+  v4 = 2LL;
   do
   {
-    v4 = 256LL;
+    v5 = 256LL;
     do
     {
-      *(_QWORD *)(v2 - 8) = 0LL;
-      *(_DWORD *)(v2 + 20) = -1;
-      *(_DWORD *)(v2 + 16) = 0;
-      *(_QWORD *)(v2 + 8) = v2;
-      *(_QWORD *)v2 = v2;
-      v2 += 32LL;
-      --v4;
+      *(_QWORD *)(v3 - 8) = 0LL;
+      *(_DWORD *)(v3 + 20) = -1;
+      *(_DWORD *)(v3 + 16) = 0;
+      *(_QWORD *)(v3 + 8) = v3;
+      *(_QWORD *)v3 = v3;
+      v3 += 32LL;
+      --v5;
     }
-    while ( v4 );
-    --v3;
+    while ( v5 );
+    --v4;
   }
-  while ( v3 );
+  while ( v4 );
   KiInitializeForceIdle(a1);
   return 0LL;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of PoReenableSleepStates @ 0x140868AB0
+ * XREFs of PoReenableSleepStates @ 0x140868A90
  * Callers:
  *     <none>
  * Callees:

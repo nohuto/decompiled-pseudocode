@@ -1,24 +1,23 @@
 /*
- * XREFs of PoGetRequester @ 0x140209D54
+ * XREFs of PoGetRequester @ 0x14034C7C4
  * Callers:
- *     PoCaptureReasonContext @ 0x140209BF8 (PoCaptureReasonContext.c)
+ *     PoCaptureReasonContext @ 0x14034C66C (PoCaptureReasonContext.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     PopUnicodeStringDeepCopy @ 0x14085A324 (PopUnicodeStringDeepCopy.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     PopUnicodeStringDeepCopy @ 0x1406A44F0 (PopUnicodeStringDeepCopy.c)
  */
 
 __int64 __fastcall PoGetRequester(char a1, void *a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rdx
   _QWORD *Teb; // rdx
-  _KPROCESS *Process; // rcx
+  unsigned __int64 v6; // rax
   __int16 v7; // ax
-  char v8; // al
-  __int64 v9; // rax
-  _KPROCESS *v10; // rbx
+  __int64 v8; // rax
+  _KPROCESS *Process; // rbx
   __int64 result; // rax
-  __int64 v12; // [rsp+48h] [rbp+20h]
+  __int64 v11; // [rsp+48h] [rbp+20h]
 
   if ( !a1 )
   {
@@ -28,7 +27,7 @@ __int64 __fastcall PoGetRequester(char a1, void *a2, __int64 a3)
       ObfReferenceObjectWithTag(a2, 0x67446F50u);
     return 0LL;
   }
-  v12 = 0LL;
+  v11 = 0LL;
   CurrentThread = KeGetCurrentThread();
   if ( (CurrentThread->MiscFlags & 0x400) != 0 || CurrentThread->ApcStateIndex == 1 )
     Teb = 0LL;
@@ -36,28 +35,30 @@ __int64 __fastcall PoGetRequester(char a1, void *a2, __int64 a3)
     Teb = CurrentThread->Teb;
   if ( Teb )
   {
-    if ( KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[30]
-      && (Process = KeGetCurrentThread()->ApcState.Process, Process[1].Affinity.StaticBitmap[30])
-      && ((v7 = WORD2(Process[2].Affinity.StaticBitmap[20]), v7 == 332) || v7 == 452 ? (v8 = 1) : (v8 = 0), v8) )
+    if ( KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10]
+      && (v6 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[10]) != 0
+      && ((v7 = *(_WORD *)(v6 + 8), v7 == 332) || v7 == 452) )
     {
-      v9 = *((unsigned int *)Teb + 3032);
+      v8 = *((unsigned int *)Teb + 3032);
     }
     else
     {
-      v9 = Teb[740];
+      v8 = Teb[740];
     }
-    v12 = v9;
+    v11 = v8;
   }
-  *(_DWORD *)a3 = (v12 != 0) + 1;
-  v10 = KeGetCurrentThread()->ApcState.Process;
-  *(_DWORD *)(a3 + 32) = v10[1].Header.WaitListHead.Flink;
-  *(_DWORD *)(a3 + 36) = MmGetSessionIdEx(v10);
+  *(_DWORD *)a3 = (v11 != 0) + 1;
+  Process = KeGetCurrentThread()->ApcState.Process;
+  *(_DWORD *)(a3 + 32) = Process[1].Header.WaitListHead.Flink;
+  *(_DWORD *)(a3 + 36) = MmGetSessionIdEx((__int64)Process);
   result = PopUnicodeStringDeepCopy(
              (PUNICODE_STRING)(a3 + 16),
-             (PCUNICODE_STRING)v10[1].ActiveProcessors.StaticBitmap[2]);
+             (PCUNICODE_STRING)Process[1].ActiveProcessors.Bitmap[2],
+             (POOL_TYPE)256,
+             0x78435250u);
   if ( (int)result >= 0 )
   {
-    *(_DWORD *)(a3 + 40) = v12;
+    *(_DWORD *)(a3 + 40) = v11;
     return 0LL;
   }
   return result;

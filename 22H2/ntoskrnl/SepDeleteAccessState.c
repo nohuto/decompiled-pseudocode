@@ -1,44 +1,32 @@
 /*
- * XREFs of SepDeleteAccessState @ 0x140232250
+ * XREFs of SepDeleteAccessState @ 0x140345670
  * Callers:
- *     CmpCheckKeySecurityDescriptorAccess @ 0x14069A1C8 (CmpCheckKeySecurityDescriptorAccess.c)
- *     SeSubProcessToken @ 0x1406B71F8 (SeSubProcessToken.c)
- *     PspOneDirectionSecurityDomainCombine @ 0x1406B7EA8 (PspOneDirectionSecurityDomainCombine.c)
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
- *     PspInsertProcess @ 0x1406B9FA4 (PspInsertProcess.c)
- *     ObReferenceObjectByName @ 0x1406C2D00 (ObReferenceObjectByName.c)
- *     WmipCreateGuidObject @ 0x1406C50E0 (WmipCreateGuidObject.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x1406E23B0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     ObOpenObjectByNameEx @ 0x1406ED090 (ObOpenObjectByNameEx.c)
- *     PsOpenProcess @ 0x1406F3DB0 (PsOpenProcess.c)
- *     ObDuplicateObject @ 0x1406FB9A0 (ObDuplicateObject.c)
- *     ObReferenceObjectByNameEx @ 0x1407153CC (ObReferenceObjectByNameEx.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
- *     ObOpenObjectByPointer @ 0x1407379D0 (ObOpenObjectByPointer.c)
- *     NtOpenProcessTokenEx @ 0x140737BD0 (NtOpenProcessTokenEx.c)
- *     PspInsertThread @ 0x14073F3AC (PspInsertThread.c)
- *     PsOpenThread @ 0x1407BBD70 (PsOpenThread.c)
- *     PspCombineSecurityDomains @ 0x1407C729C (PspCombineSecurityDomains.c)
- *     NtGetNextProcess @ 0x1407D4BE0 (NtGetNextProcess.c)
- *     SeDeleteAccessState @ 0x1407DB4C0 (SeDeleteAccessState.c)
- *     NtGetNextThread @ 0x1407DF590 (NtGetNextThread.c)
- *     PsCreateMinimalProcess @ 0x140853DBC (PsCreateMinimalProcess.c)
- *     PspCreateProcess @ 0x14085CC20 (PspCreateProcess.c)
- *     SepCopyAnonymousTokenAndSetSilo @ 0x1409C9410 (SepCopyAnonymousTokenAndSetSilo.c)
- *     CMFCheckAccess @ 0x140A01994 (CMFCheckAccess.c)
- *     CmKeyBodyRemapToVirtual @ 0x140A18024 (CmKeyBodyRemapToVirtual.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140A182E8 (CmKeyBodyReplicateToVirtual.c)
- *     CmpDoAccessCheckOnKCB @ 0x140A18FDC (CmpDoAccessCheckOnKCB.c)
- *     CmpDoBuildVirtualStack @ 0x140A1916C (CmpDoBuildVirtualStack.c)
+ *     SeDeleteAccessState @ 0x1405DC900 (SeDeleteAccessState.c)
+ *     ObReferenceObjectByNameEx @ 0x1405DE69C (ObReferenceObjectByNameEx.c)
+ *     SeSubProcessToken @ 0x140603E44 (SeSubProcessToken.c)
+ *     PspOneDirectionSecurityDomainCombine @ 0x140607670 (PspOneDirectionSecurityDomainCombine.c)
+ *     NtCreateUserProcess @ 0x14060A630 (NtCreateUserProcess.c)
+ *     PsOpenThread @ 0x140626120 (PsOpenThread.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
+ *     ObOpenObjectByPointer @ 0x140653F10 (ObOpenObjectByPointer.c)
+ *     PspCombineSecurityDomains @ 0x140685D04 (PspCombineSecurityDomains.c)
+ *     CmpCheckKeySecurityDescriptorAccess @ 0x140688794 (CmpCheckKeySecurityDescriptorAccess.c)
+ *     WmipCreateGuidObject @ 0x1406B8578 (WmipCreateGuidObject.c)
+ *     PspInsertThread @ 0x1406C1DE8 (PspInsertThread.c)
+ *     ObOpenObjectByNameEx @ 0x1406CEA90 (ObOpenObjectByNameEx.c)
+ *     ObReferenceObjectByName @ 0x1406D9EC0 (ObReferenceObjectByName.c)
+ *     CmpDoAccessCheckOnKCB @ 0x14086FE5C (CmpDoAccessCheckOnKCB.c)
+ *     PspDeleteObjectAccessState @ 0x14090A12C (PspDeleteObjectAccessState.c)
+ *     CMFCheckAccess @ 0x1409582C4 (CMFCheckAccess.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     SeDeassignSecurity @ 0x1407BF990 (SeDeassignSecurity.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     SeDeassignSecurity @ 0x1406842B0 (SeDeassignSecurity.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepDeleteAccessState(__int64 a1)
 {
-  __int64 v2; // rbx
+  __int64 v2; // rdi
   void *v3; // rcx
   void *v4; // rcx
   void (*v5)(void); // rax
@@ -54,7 +42,7 @@ void __fastcall SepDeleteAccessState(__int64 a1)
     ExFreePoolWithTag(v4, 0);
   if ( v2 )
   {
-    if ( *(_QWORD *)(v2 + 48) && (*(_DWORD *)(a1 + 12) & 0x4000000) == 0 )
+    if ( *(_QWORD *)(v2 + 48) )
       SeDeassignSecurity((PSECURITY_DESCRIPTOR *)(v2 + 48));
     v5 = *(void (**)(void))(v2 + 72);
     if ( v5 && *(_QWORD *)(v2 + 80) )

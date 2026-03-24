@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_UpdatingHubInfoInUCX @ 0x1C0009530
+ * XREFs of HUBHSM_UpdatingHubInfoInUCX @ 0x1C0009230
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_UpdateHubInformationUsingUCXIoctl @ 0x1C0026134 (HUBUCX_UpdateHubInformationUsingUCXIoctl.c)
+ *     HUBUCX_UpdateHubInformationUsingUCXIoctl @ 0x1C0025C94 (HUBUCX_UpdateHubInformationUsingUCXIoctl.c)
  */
 
 __int64 __fastcall HUBHSM_UpdatingHubInfoInUCX(__int64 a1)

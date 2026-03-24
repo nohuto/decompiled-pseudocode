@@ -1,61 +1,59 @@
 /*
- * XREFs of ?SetProperty@?$CCompositionTextLineGeneratedT@VCCompositionTextLine@@VCTextObject@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801A4680
+ * XREFs of ?SetProperty@?$CCompositionTextLineGeneratedT@VCCompositionTextLine@@VCTextObject@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801724C0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionTextLineGeneratedT<CCompositionTextLine,CTextObject>::SetProperty(
-        __int64 a1,
+        float *a1,
         int a2,
         int a3,
-        _DWORD *a4)
+        float *a4)
 {
   int v4; // edx
   int v5; // edx
   unsigned int v6; // ebx
-  __int64 v7; // rax
-  unsigned int v9; // [rsp+20h] [rbp-18h]
+  unsigned int v8; // [rsp+20h] [rbp-18h]
 
   if ( a3 == 18 )
   {
     v4 = a2 - 3;
-    if ( !v4 )
+    if ( v4 )
     {
-      if ( *(float *)a4 != *(float *)(a1 + 88) )
+      v5 = v4 - 1;
+      if ( v5 )
       {
-        v7 = *(_QWORD *)a1;
-        *(_DWORD *)(a1 + 88) = *a4;
-        (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(v7 + 72))(a1, 0LL, 0LL);
+        if ( v5 != 1 )
+        {
+          v8 = 4771;
+          goto LABEL_7;
+        }
+        if ( *a4 != a1[24] )
+        {
+          a1[24] = *a4;
+LABEL_14:
+          (*(void (__fastcall **)(float *, _QWORD, _QWORD))(*(_QWORD *)a1 + 72LL))(a1, 0LL, 0LL);
+        }
       }
-      return 0;
-    }
-    v5 = v4 - 1;
-    if ( v5 )
-    {
-      if ( v5 != 1 )
+      else if ( *a4 != a1[23] )
       {
-        v9 = 4954;
-        goto LABEL_7;
+        a1[23] = *a4;
+        goto LABEL_14;
       }
-      if ( *(float *)a4 == *(float *)(a1 + 96) )
-        return 0;
-      *(_DWORD *)(a1 + 96) = *a4;
     }
-    else
+    else if ( *a4 != a1[22] )
     {
-      if ( *(float *)a4 == *(float *)(a1 + 92) )
-        return 0;
-      *(_DWORD *)(a1 + 92) = *a4;
+      a1[22] = *a4;
+      goto LABEL_14;
     }
-    (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)a1 + 72LL))(a1, 0LL, 0LL);
     return 0;
   }
-  v9 = 4959;
+  v8 = 4776;
 LABEL_7:
   v6 = -2147024809;
-  MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0LL, -2147024809, v9);
+  MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, v8, 0LL);
   return v6;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExIsSafeWorkItem @ 0x14019F6A0
+ * XREFs of ExIsSafeWorkItem @ 0x14019F6C0
  * Callers:
- *     EtwTraceThreadWorkItem @ 0x140310660 (EtwTraceThreadWorkItem.c)
+ *     EtwTraceThreadWorkItem @ 0x140310760 (EtwTraceThreadWorkItem.c)
  * Callees:
  *     <none>
  */
 
 _BOOL8 __fastcall ExIsSafeWorkItem(__int64 (__fastcall *a1)())
 {
-  return a1 == sub_1401A04D0;
+  return a1 == sub_1401A04F0;
 }

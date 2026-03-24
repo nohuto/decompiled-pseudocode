@@ -1,10 +1,10 @@
 /*
- * XREFs of ?LockPointer@@YA?AU_LOCKASSIGNPAIR@@PEAV?$SharedUserObjPointerFieldspwndOwner@UtagWND@@@tagWND@@PEAX@Z @ 0x1C0082580
+ * XREFs of ?LockPointer@@YA?AU_LOCKASSIGNPAIR@@PEAV?$SharedUserObjPointerFieldspwndOwner@UtagWND@@@tagWND@@PEAX@Z @ 0x1C00389A0
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     xxxSetWindowData @ 0x1C004F920 (xxxSetWindowData.c)
- *     ?zzzImeSetOwnerWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0080F68 (-zzzImeSetOwnerWindow@@YAXPEAUtagWND@@0@Z.c)
- *     ?zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z @ 0x1C00F4EEC (-zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z.c)
+ *     zzzImeSetFutureOwner @ 0x1C0034044 (zzzImeSetFutureOwner.c)
+ *     zzzImeSetOwnerWindow @ 0x1C0035BC4 (zzzImeSetOwnerWindow.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     xxxSetWindowData @ 0x1C008A238 (xxxSetWindowData.c)
  * Callees:
  *     <none>
  */
@@ -14,13 +14,12 @@ _QWORD *__fastcall LockPointer(_QWORD *a1, __int64 a2, __int64 a3)
   __int64 v3; // r9
   _QWORD *result; // rax
 
-  v3 = *(_QWORD *)(a2 - 80);
+  v3 = 0LL;
   if ( a3 )
-    *(_QWORD *)(v3 + 64) = *(_QWORD *)(a3 + 48);
-  else
-    *(_QWORD *)(v3 + 64) = 0LL;
-  *a1 = a2;
+    v3 = *(_QWORD *)(a3 + 48);
+  *(_QWORD *)(*(_QWORD *)(a2 - 80) + 64LL) = v3;
   result = a1;
+  *a1 = a2;
   a1[1] = a3;
   return result;
 }

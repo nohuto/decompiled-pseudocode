@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIRootIrpQueryCapabilities @ 0x1C0093FB0
+ * XREFs of ACPIRootIrpQueryCapabilities @ 0x1C00A16B0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
- *     ACPISystemPowerInitializeRootMapping @ 0x1C003DEC4 (ACPISystemPowerInitializeRootMapping.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPISystemPowerInitializeRootMapping @ 0x1C002BBB0 (ACPISystemPowerInitializeRootMapping.c)
  */
 
 __int64 __fastcall ACPIRootIrpQueryCapabilities(ULONG_PTR a1, IRP *a2)
@@ -16,17 +16,17 @@ __int64 __fastcall ACPIRootIrpQueryCapabilities(ULONG_PTR a1, IRP *a2)
   _IO_STACK_LOCATION *v5; // rax
   int Status; // edi
   _IO_STACK_LOCATION *v7; // rdx
-  const char *v8; // rsi
-  unsigned __int8 MinorFunction; // r15
+  const char *v8; // rbp
+  unsigned __int8 MinorFunction; // r14
   __int64 SecurityContext; // rdx
   unsigned int v11; // eax
   __int64 v12; // rcx
+  __int64 v13; // rcx
+  char *v14; // rax
+  const char *v15; // r8
   char *IrpText; // rax
-  const char *v14; // r8
-  const char *v15; // r10
-  __int64 v16; // rcx
-  char *v17; // rax
   const char *v18; // r8
+  const char *v19; // r10
   struct _KEVENT Event; // [rsp+60h] [rbp-48h] BYREF
 
   memset(&Event, 0, sizeof(Event));
@@ -43,14 +43,14 @@ __int64 __fastcall ACPIRootIrpQueryCapabilities(ULONG_PTR a1, IRP *a2)
   v5[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))ACPIRootIrpCompleteRoutine;
   v5[-1].Context = &Event;
   v5[-1].Control = -32;
-  Status = IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 776), a2);
+  Status = IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 736), a2);
   if ( Status == 259 )
   {
     KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
     Status = a2->IoStatus.Status;
   }
   v7 = a2->Tail.Overlay.CurrentStackLocation;
-  v8 = byte_1C00622D0;
+  v8 = byte_1C00701BA;
   MinorFunction = v7->MinorFunction;
   if ( Status >= 0 )
   {
@@ -69,34 +69,34 @@ __int64 __fastcall ACPIRootIrpQueryCapabilities(ULONG_PTR a1, IRP *a2)
         2u,
         5u,
         0xFu,
-        (__int64)&WPP_751107becb7a3b7b48760ac4afe26340_Traceguids,
+        (__int64)&WPP_a909ee2b802d35766e487243411108b1_Traceguids,
         (char)a2,
-        (__int64)IrpText,
+        IrpText,
         Status,
         DeviceExtension,
-        v15,
-        v14);
+        v19,
+        v18);
     }
   }
   a2->IoStatus.Status = Status;
   IofCompleteRequest(a2, 0);
   if ( (*(_QWORD *)(DeviceExtension + 8) & 0x200000000000LL) != 0 )
-    v8 = *(const char **)(DeviceExtension + 608);
+    v8 = *(const char **)(DeviceExtension + 568);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v17 = ACPIDebugGetIrpText(v16, MinorFunction);
+    v14 = ACPIDebugGetIrpText(v13, MinorFunction);
     WPP_RECORDER_SF_qsLqss(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
       4u,
       5u,
       0x10u,
-      (__int64)&WPP_751107becb7a3b7b48760ac4afe26340_Traceguids,
+      (__int64)&WPP_a909ee2b802d35766e487243411108b1_Traceguids,
       (char)a2,
-      (__int64)v17,
+      v14,
       Status,
       DeviceExtension,
       v8,
-      v18);
+      v15);
   }
   return (unsigned int)Status;
 }

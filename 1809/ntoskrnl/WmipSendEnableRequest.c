@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipSendEnableRequest @ 0x1406CE2F4
+ * XREFs of WmipSendEnableRequest @ 0x1406CE2D4
  * Callers:
  *     WmipEnableCollectOrEvent @ 0x140612CC4 (WmipEnableCollectOrEvent.c)
  * Callees:
  *     WmipUnreferenceEntry @ 0x1405FC204 (WmipUnreferenceEntry.c)
  *     WmipReferenceEntry @ 0x140612C30 (WmipReferenceEntry.c)
- *     WmipSendEnableDisableRequest @ 0x14070A88C (WmipSendEnableDisableRequest.c)
- *     WmipReleaseCollectionEnabled @ 0x14070F0F0 (WmipReleaseCollectionEnabled.c)
- *     WmipWaitForCollectionEnabled @ 0x1408B4DC0 (WmipWaitForCollectionEnabled.c)
+ *     WmipSendEnableDisableRequest @ 0x14070A86C (WmipSendEnableDisableRequest.c)
+ *     WmipReleaseCollectionEnabled @ 0x14070F0D0 (WmipReleaseCollectionEnabled.c)
+ *     WmipWaitForCollectionEnabled @ 0x1408B4DA0 (WmipWaitForCollectionEnabled.c)
  */
 
 __int64 __fastcall WmipSendEnableRequest(ULONG_PTR BugCheckParameter2, char a2)

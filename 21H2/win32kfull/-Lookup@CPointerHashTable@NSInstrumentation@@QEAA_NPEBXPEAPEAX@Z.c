@@ -1,30 +1,27 @@
 /*
- * XREFs of ?Lookup@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z @ 0x1C00DDC90
+ * XREFs of ?Lookup@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z @ 0x1C00D2310
  * Callers:
- *     ?_FindAndReferenceExistingKernelmodeAllocation@UmfdAllocation@@CAPEAV1@PEAX@Z @ 0x1C00DDC54 (-_FindAndReferenceExistingKernelmodeAllocation@UmfdAllocation@@CAPEAV1@PEAX@Z.c)
+ *     ?_FindAndReferenceExistingKernelmodeAllocation@UmfdAllocation@@CAPEAV1@PEAX@Z @ 0x1C00D22D4 (-_FindAndReferenceExistingKernelmodeAllocation@UmfdAllocation@@CAPEAV1@PEAX@Z.c)
  * Callees:
- *     ?ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ @ 0x1C00FA4B8 (-ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ.c)
+ *     ?ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ @ 0x1C01093AC (-ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ.c)
  */
 
-char __fastcall NSInstrumentation::CPointerHashTable::Lookup(
+__int64 __fastcall NSInstrumentation::CPointerHashTable::Lookup(
         NSInstrumentation::CPointerHashTable *this,
         unsigned __int64 a2,
         void **a3)
 {
-  PVOID v3; // rbx
-  char v6; // si
-  char v7; // di
-  unsigned __int64 v8; // rdx
-  unsigned int v9; // r9d
-  unsigned int v10; // r11d
-  unsigned __int64 v11; // rdx
-  unsigned int v12; // r8d
-  __int64 v13; // r10
+  PVOID v3; // rdi
+  unsigned __int64 v6; // r10
+  unsigned int v7; // r8d
+  unsigned __int64 v8; // r10
+  unsigned int v9; // r11d
+  unsigned int v10; // eax
+  __int64 v11; // r9
+  unsigned __int8 v12; // bl
 
   v3 = UmfdAllocation::s_allocationLookup;
-  v6 = 1;
-  _InterlockedAdd((volatile signed __int32 *)UmfdAllocation::s_allocationLookup + 6, 1u);
-  v7 = 0;
+  _InterlockedIncrement((volatile signed __int32 *)UmfdAllocation::s_allocationLookup + 6);
   while ( *((_DWORD *)v3 + 7) )
   {
     NSInstrumentation::CPrioritizedWriterLock::ReleaseShared((NSInstrumentation::CPrioritizedWriterLock *)v3);
@@ -32,40 +29,40 @@ char __fastcall NSInstrumentation::CPointerHashTable::Lookup(
     ExAcquirePushLockSharedEx(v3, 0LL);
     ExReleasePushLockSharedEx(v3, 0LL);
     KeLeaveCriticalRegion();
-    _InterlockedAdd((volatile signed __int32 *)v3 + 6, 1u);
+    _InterlockedIncrement((volatile signed __int32 *)v3 + 6);
   }
   if ( *((_DWORD *)v3 + 12)
-    && ((v8 = 0x9E3779B97F34A803uLL * (a2 >> 4), (*((_BYTE *)v3 + 52) & 1) == 0) || *(_QWORD *)a2 == v8) )
+    && ((v6 = 0x9E3779B97F34A803uLL * (a2 >> 4), (*((_BYTE *)v3 + 52) & 1) == 0) || *(_QWORD *)a2 == v6) )
   {
-    v9 = *((_DWORD *)v3 + 10);
-    v10 = 0;
-    v11 = v8 >> (64 - *((_BYTE *)v3 + 44));
+    v7 = *((_DWORD *)v3 + 10);
+    v8 = v6 >> (64 - *((_BYTE *)v3 + 44));
+    v9 = 0;
     while ( 1 )
     {
-      v12 = v11;
-      if ( (unsigned int)v11 < v9 )
+      v10 = v8;
+      if ( (unsigned int)v8 < v7 )
         break;
-LABEL_10:
-      ++v10;
-      v9 = v11;
-      LODWORD(v11) = 0;
-      if ( v10 >= 2 )
-        goto LABEL_11;
-    }
-    v13 = *((_QWORD *)v3 + 4);
-    while ( *(_QWORD *)(v13 + 16LL * v12) != a2 )
-    {
-      if ( ++v12 >= v9 )
+LABEL_9:
+      v7 = v8;
+      ++v9;
+      LODWORD(v8) = 0;
+      if ( v9 >= 2 )
         goto LABEL_10;
     }
-    *a3 = *(void **)(v13 + 16LL * v12 + 8);
+    v11 = *((_QWORD *)v3 + 4);
+    while ( *(_QWORD *)(v11 + 16LL * v10) != a2 )
+    {
+      if ( ++v10 >= v7 )
+        goto LABEL_9;
+    }
+    v12 = 1;
+    *a3 = *(void **)(v11 + 16LL * v10 + 8);
   }
   else
   {
-    v6 = 0;
+LABEL_10:
+    v12 = 0;
   }
-  v7 = v6;
-LABEL_11:
   NSInstrumentation::CPrioritizedWriterLock::ReleaseShared((NSInstrumentation::CPrioritizedWriterLock *)v3);
-  return v7;
+  return v12;
 }

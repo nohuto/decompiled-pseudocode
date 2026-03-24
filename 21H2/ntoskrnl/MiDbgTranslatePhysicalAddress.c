@@ -1,61 +1,58 @@
 /*
- * XREFs of MiDbgTranslatePhysicalAddress @ 0x1405A4C68
+ * XREFs of MiDbgTranslatePhysicalAddress @ 0x1405461F0
  * Callers:
- *     MiDbgCopyMemory @ 0x14028FA14 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x1405458A4 (MiDbgCopyMemory.c)
  * Callees:
- *     MiMakeProtectionPfnCompatible @ 0x14026C61C (MiMakeProtectionPfnCompatible.c)
- *     MiMakeValidPte @ 0x1402CBD10 (MiMakeValidPte.c)
- *     KeFlushSingleTb @ 0x1402EA644 (KeFlushSingleTb.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KeFlushSingleCurrentTb @ 0x1403AD304 (KeFlushSingleCurrentTb.c)
- *     MiFreezeIoPfnNode @ 0x140591724 (MiFreezeIoPfnNode.c)
- *     MiCheckPhysicalAddressRange @ 0x1405A473C (MiCheckPhysicalAddressRange.c)
- *     MiDbgUnTranslatePhysicalAddress @ 0x1405A4FB8 (MiDbgUnTranslatePhysicalAddress.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14023B9BC (MiMakeProtectionPfnCompatible.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeFlushSingleTb @ 0x14026BA08 (KeFlushSingleTb.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
+ *     KeFlushSingleCurrentTb @ 0x140389ED8 (KeFlushSingleCurrentTb.c)
+ *     MiCheckPhysicalAddressRange @ 0x1405455DC (MiCheckPhysicalAddressRange.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x1405465C4 (MiDbgUnTranslatePhysicalAddress.c)
  */
 
-unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, unsigned __int8 a2, __int64 a3)
+unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, char a2, __int64 a3)
 {
-  __int64 v3; // r12
-  int v4; // ebp
-  __int16 v7; // bx
-  __int64 v8; // rdx
-  unsigned __int64 v9; // rcx
+  __int64 v3; // r15
+  __int16 v6; // bx
+  unsigned __int64 v7; // rcx
   _DWORD *SchedulerAssist; // r9
-  __int64 v11; // r11
-  __int64 v12; // r8
-  unsigned __int64 v13; // rcx
-  unsigned __int64 v14; // r12
-  int v15; // esi
+  __int64 v9; // r8
+  unsigned __int64 v10; // r15
+  unsigned __int64 v11; // r12
+  int v12; // esi
   unsigned __int8 CurrentIrql; // r10
-  __int64 v17; // rcx
-  __int64 v18; // r15
+  __int64 v14; // rdx
+  __int64 v15; // rbp
   int ProtectionPfnCompatible; // eax
-  __int64 v20; // r9
-  __int64 v21; // r15
-  __int64 v22; // r8
-  int v23; // ecx
-  char v24; // di
-  unsigned __int64 v25; // rdx
-  unsigned __int64 v26; // rax
-  unsigned __int64 v27; // rdx
-  unsigned __int64 v28; // rax
-  unsigned int v29; // r8d
-  volatile signed __int64 *v30; // rsi
+  _QWORD *v17; // rdx
+  int v18; // r8d
+  unsigned __int64 v19; // rax
+  _QWORD *v20; // rax
+  _QWORD *v21; // rdx
+  unsigned __int64 v22; // r9
+  char v23; // di
+  unsigned __int64 v24; // rcx
+  unsigned __int64 v25; // rax
+  unsigned __int64 v26; // rcx
+  unsigned __int64 v27; // rax
+  unsigned int v28; // r8d
+  volatile signed __int64 *v29; // rsi
   unsigned __int64 ValidPte; // rax
-  _DWORD v33[14]; // [rsp+20h] [rbp-38h] BYREF
-  unsigned __int64 v34; // [rsp+78h] [rbp+20h]
+  _DWORD v32[14]; // [rsp+20h] [rbp-38h] BYREF
 
-  v3 = qword_140C52BC8;
-  v4 = 0;
-  v7 = a1;
-  if ( !qword_140C52BC8 || !(unsigned int)MiCheckPhysicalAddressRange(a1, 1LL) )
+  v3 = qword_140C4E888;
+  v6 = a1;
+  if ( !qword_140C4E888 || !(unsigned int)MiCheckPhysicalAddressRange(a1, 1LL) )
     return 0LL;
-  v12 = 2LL;
-  v13 = v9 >> 12;
-  v14 = v3 << 25 >> 16;
-  v34 = v13;
+  v9 = 2LL;
+  v10 = v3 << 25 >> 16;
+  v11 = v7 >> 12;
   *(_DWORD *)a3 = 0;
-  v15 = v11 + (((unsigned __int8)v11 & a2) != 0 ? 3 : 0);
+  v12 = (a2 & 1) != 0 ? 4 : 1;
   if ( (a2 & 4) != 0 )
   {
     CurrentIrql = 17;
@@ -64,150 +61,181 @@ unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, u
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v11) != 0 && CurrentIrql <= 0xFu )
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      v8 = SchedulerAssist[5] | ~((unsigned __int8)(v11 << ((unsigned __int8)v11 + CurrentIrql)) - (_BYTE)v11) & 4u;
-      SchedulerAssist[5] = v8;
-      v12 = 2LL;
+      SchedulerAssist[5] |= ~((unsigned __int8)(1LL << (CurrentIrql + 1)) - 1) & 4;
+      v9 = 2LL;
     }
   }
   *(_BYTE *)(a3 + 4) = CurrentIrql;
-  if ( v13 <= qword_140C50840 )
+  if ( v11 <= 0xFFFFFFFFFLL )
   {
-    v17 = 6 * v13;
-    if ( (*(_QWORD *)(8 * v17 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0 )
+    v14 = 0x4000000000000LL;
+    if ( (*(_QWORD *)(48 * v11 - 0x57FFFFFFFD8LL) & 0x4000000000000LL) != 0 )
     {
-      v18 = 8 * v17 - 0x220000000000LL;
+      v15 = 48 * v11 - 0x58000000000LL;
       if ( (a2 & 4) != 0 )
       {
-        *(_DWORD *)a3 = v11;
-        if ( _interlockedbittestandset64((volatile signed __int32 *)(v18 + 24), 0x3FuLL) )
+        *(_DWORD *)a3 = 1;
+        if ( _interlockedbittestandset64((volatile signed __int32 *)(v15 + 24), 0x3FuLL) )
         {
           if ( (a2 & 0x41) != 0 || (KiBugCheckActive & 3) == 0 )
             return 0LL;
-          dword_140C52BD0 += v11;
+          ++dword_140C4E890;
           *(_DWORD *)a3 = 4;
         }
       }
       else
       {
+        v32[0] = 0;
         *(_DWORD *)a3 = 2;
-        v33[0] = 0;
-        while ( _interlockedbittestandset64((volatile signed __int32 *)(v18 + 24), 0x3FuLL) )
+        while ( _interlockedbittestandset64((volatile signed __int32 *)(v15 + 24), 0x3FuLL) )
         {
           do
-            KeYieldProcessorEx(v33, v8, v12, (__int64)SchedulerAssist);
-          while ( *(__int64 *)(v18 + 24) < 0 );
+            KeYieldProcessorEx(v32, v14, v9, (__int64)SchedulerAssist);
+          while ( *(__int64 *)(v15 + 24) < 0 );
         }
       }
-      *(_QWORD *)(a3 + 8) = v18;
-      ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(v15, v18);
-      v20 = v34;
-      v15 = ProtectionPfnCompatible | 8;
-      if ( (*(_BYTE *)(v18 + 34) & 0xC0) != 0xC0 )
-        v15 = ProtectionPfnCompatible;
-      goto LABEL_51;
+      *(_QWORD *)(a3 + 8) = v15;
+      ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(v12, 48 * v11 - 0x58000000000LL);
+      v12 = ProtectionPfnCompatible | 8;
+      if ( (*(_BYTE *)(v15 + 34) & 0xC0) != 0xC0 )
+        v12 = ProtectionPfnCompatible;
+      goto LABEL_67;
     }
-    v13 = v34;
   }
-  v21 = a3 + 16;
-  v22 = a3 + 16;
   if ( (a2 & 4) != 0 )
   {
     *(_DWORD *)a3 = 8;
-    if ( !(unsigned int)MiFreezeIoPfnNode(v13, v11, v22) )
+    if ( !(unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(&dword_140C4EC40) )
       return 0LL;
   }
   else
   {
     *(_DWORD *)a3 = 16;
-    MiFreezeIoPfnNode(v13, 0, v22);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C4EC40);
   }
-  v23 = 3;
-  v20 = v34;
-  if ( !*(_QWORD *)v21
-    || (v23 = *(unsigned __int16 *)(*(_QWORD *)v21
-                                  + 2
-                                  * ((v34 & ((1LL << ((unsigned __int8)dword_140C50720 - 12)) - 1))
-                                   - *(_QWORD *)(*(_QWORD *)v21 + 24LL))
-                                  + 80) >> 14,
-        v23 == 3) )
+  v17 = (_QWORD *)*((_QWORD *)&xmmword_140C4EC48 + 1);
+  v18 = 3;
+  while ( v17 )
   {
+    v19 = v17[5];
+    if ( v11 < v19 )
+    {
+      v17 = (_QWORD *)*v17;
+    }
+    else
+    {
+      if ( v11 < v19 + 512 )
+        break;
+      v17 = (_QWORD *)v17[1];
+    }
+  }
+  if ( !v17 )
+    goto LABEL_36;
+  v20 = 0LL;
+  v18 = *(unsigned __int16 *)(v17[6] + 2 * ((v11 & 0xFFFFFFFFFLL) - v17[5])) >> 14;
+  if ( v18 != 3 )
+    v20 = v17;
+  if ( !v20 )
+  {
+LABEL_36:
+    v21 = (_QWORD *)qword_140C4EC58;
+    while ( v21 )
+    {
+      v22 = v21[5];
+      if ( v11 < v22 )
+      {
+        v21 = (_QWORD *)*v21;
+      }
+      else
+      {
+        if ( v11 < v22 + 512 )
+        {
+          v18 = *(unsigned __int16 *)(v21[6] + 2 * ((v11 & 0xFFFFFFFFFLL) - v22)) >> 14;
+          break;
+        }
+        v21 = (_QWORD *)v21[1];
+      }
+    }
+  }
+  if ( v18 == 3 )
+  {
+    v18 = 0;
     if ( (a2 & 4) == 0 )
-      v4 = v23;
-    v23 = v4;
+      v18 = 3;
     if ( (a2 & 0x28) == 0 )
-      goto LABEL_38;
-    v24 = a2 & 0xD7;
+      goto LABEL_50;
+    v23 = a2 & 0xD7;
   }
   else
   {
-    v24 = a2 & 0xC7;
-    if ( v23 )
+    v23 = a2 & 0xC7;
+    if ( v18 )
     {
-      if ( v23 == 2 )
-        a2 = v24 | 0x20;
+      if ( v18 == 2 )
+        a2 = v23 | 0x20;
       else
-        a2 = v24 | 8;
-      goto LABEL_38;
+        a2 = v23 | 8;
+      goto LABEL_50;
     }
   }
-  a2 = v24 | 0x10;
-LABEL_38:
+  a2 = v23 | 0x10;
+LABEL_50:
   if ( (a2 & 8) == 0 )
   {
     if ( (a2 & 0x10) != 0 )
     {
-      v25 = __readcr4();
-      if ( (v25 & 0x20080) != 0 )
+      v24 = __readcr4();
+      if ( (v24 & 0x20080) != 0 )
       {
-        __writecr4(v25 ^ 0x80);
-        __writecr4(v25);
+        __writecr4(v24 ^ 0x80);
+        __writecr4(v24);
       }
       else
       {
-        v26 = __readcr3();
-        __writecr3(v26);
+        v25 = __readcr3();
+        __writecr3(v25);
       }
-      v15 |= 8u;
+      v12 |= 8u;
     }
     else
     {
       if ( (a2 & 0x20) == 0 )
       {
-LABEL_58:
+LABEL_74:
         MiDbgUnTranslatePhysicalAddress(a3);
         return 0LL;
       }
-      v27 = __readcr4();
-      if ( (v27 & 0x20080) != 0 )
+      v26 = __readcr4();
+      if ( (v26 & 0x20080) != 0 )
       {
-        __writecr4(v27 ^ 0x80);
-        __writecr4(v27);
+        __writecr4(v26 ^ 0x80);
+        __writecr4(v26);
       }
       else
       {
-        v28 = __readcr3();
-        __writecr3(v28);
+        v27 = __readcr3();
+        __writecr3(v27);
       }
-      v15 |= 0x18u;
+      v12 |= 0x18u;
     }
   }
-  if ( v23 == 3 )
-    ++dword_140C52BD0;
-LABEL_51:
-  v29 = v15 | 0xA0000000;
-  v30 = (volatile signed __int64 *)qword_140C52BC8;
-  ValidPte = MiMakeValidPte(qword_140C52BC8, v20, v29);
+  if ( v18 == 3 )
+    ++dword_140C4E890;
+LABEL_67:
+  v28 = v12 | 0xA0000000;
+  v29 = (volatile signed __int64 *)qword_140C4E888;
+  ValidPte = MiMakeValidPte(qword_140C4E888, v11, v28);
   if ( (a2 & 0x41) != 0 )
-    byte_140C52BC0 = 1;
-  if ( _InterlockedCompareExchange64(v30, ValidPte, 0LL) )
-    goto LABEL_58;
+    byte_140C4E880 = 1;
+  if ( _InterlockedCompareExchange64(v29, ValidPte, 0LL) )
+    goto LABEL_74;
   *(_DWORD *)a3 |= 0x20u;
   if ( (*(_DWORD *)a3 & 0x12) != 0 )
-    KeFlushSingleTb(v14, 0, 1u);
+    KeFlushSingleTb(v10, 0, 1u);
   else
-    KeFlushSingleCurrentTb(v14, 0);
-  return v14 + (v7 & 0xFFF);
+    KeFlushSingleCurrentTb(v10, 0);
+  return v10 + (v6 & 0xFFF);
 }

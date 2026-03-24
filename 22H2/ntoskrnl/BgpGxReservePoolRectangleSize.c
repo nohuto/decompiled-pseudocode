@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpGxReservePoolRectangleSize @ 0x140AEFA98
+ * XREFs of BgpGxReservePoolRectangleSize @ 0x1409F1834
  * Callers:
- *     BgpTxtRegionSize @ 0x1403872DC (BgpTxtRegionSize.c)
+ *     BgpTxtRegionSize @ 0x14039B5E8 (BgpTxtRegionSize.c)
  * Callees:
- *     BgpGxRectangleSize @ 0x14038733C (BgpGxRectangleSize.c)
+ *     BgpGxRectangleSize @ 0x14039B648 (BgpGxRectangleSize.c)
  */
 
 __int64 __fastcall BgpGxReservePoolRectangleSize(int a1, int a2, int a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitAdapterLUID@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0235568
+ * XREFs of ?EmitAdapterLUID@CCaptureRenderTargetMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4CB8
  * Callers:
- *     ?EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02357E0 (-EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F4F30 (-EmitUpdateCommands@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CCaptureRenderTargetMarshaler::EmitAdapterLUID(
@@ -21,9 +21,9 @@ char __fastcall DirectComposition::CCaptureRenderTargetMarshaler::EmitAdapterLUI
     v3 = (char *)v5;
     *(_DWORD *)v5 = 20;
     *(_OWORD *)(v3 + 4) = 0LL;
-    *((_DWORD *)v3 + 1) = 38;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-    *(_QWORD *)(v3 + 12) = *(_QWORD *)((char *)this + 84);
+    *((_DWORD *)v3 + 1) = 39;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+    *(_QWORD *)(v3 + 12) = *(_QWORD *)((char *)this + 76);
     *((_DWORD *)this + 4) &= ~0x80u;
     return 1;
   }

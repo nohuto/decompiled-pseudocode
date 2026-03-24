@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpDynamicLookasideFree @ 0x1401B7B10
+ * XREFs of RtlpDynamicLookasideFree @ 0x1401B7B30
  * Callers:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 __fastcall RtlpDynamicLookasideFree(__int64 a1, struct _SLIST_ENTRY *a2, unsigned int a3)

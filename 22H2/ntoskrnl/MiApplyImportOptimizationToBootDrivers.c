@@ -1,27 +1,27 @@
 /*
- * XREFs of MiApplyImportOptimizationToBootDrivers @ 0x140B49058
+ * XREFs of MiApplyImportOptimizationToBootDrivers @ 0x140A506C4
  * Callers:
- *     MiApplyBootLoadedDriversFixups @ 0x140B493C4 (MiApplyBootLoadedDriversFixups.c)
+ *     MiReloadBootLoadedDrivers @ 0x140A4F9F0 (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140284790 (MI_IS_PHYSICAL_ADDRESS.c)
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     RtlUpdateImportRelocationsInImage @ 0x140376274 (RtlUpdateImportRelocationsInImage.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14029D260 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     RtlUpdateImportRelocationsInImage @ 0x1403B6618 (RtlUpdateImportRelocationsInImage.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall MiApplyImportOptimizationToBootDrivers(__int64 a1)
 {
-  unsigned int v1; // ebp
-  __int64 *v2; // rsi
+  unsigned int v1; // esi
+  __int64 *v2; // r14
   __int64 *v3; // rbx
-  unsigned int (*v4)(void); // r14
-  unsigned __int64 v5; // rdi
+  unsigned int (*v4)(void); // rbp
+  __int64 v5; // rdi
   __int64 v6; // rcx
   int updated; // eax
   _QWORD v9[14]; // [rsp+40h] [rbp-98h] BYREF
 
-  v1 = ((unsigned int)dword_140C6997C >> 12) + ((dword_140C6997C & 0xFFF) != 0);
+  v1 = ((unsigned int)dword_140C4CCB0 >> 12) + ((dword_140C4CCB0 & 0xFFF) != 0);
   if ( (KiSpeculationFeatures & 0x40000000000LL) != 0 )
   {
     v2 = (__int64 *)(a1 + 16);
@@ -30,20 +30,17 @@ __int64 __fastcall MiApplyImportOptimizationToBootDrivers(__int64 a1)
     while ( v3 != v2 )
     {
       v5 = v3[6];
-      if ( v5 != PsNtosImageBase
-        && v5 != PsHalImageBase
-        && !(unsigned int)MI_IS_PHYSICAL_ADDRESS(v3[6])
-        && !_bittest16((const signed __int16 *)v3 + 55, 9u) )
+      if ( v5 != PsNtosImageBase && v5 != PsHalImageBase && !(unsigned int)MI_IS_PHYSICAL_ADDRESS(v3[6]) )
       {
         if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
           v6 = v3[6] + *((_DWORD *)v3 + 16) + (v1 << 12);
         else
           v6 = 0LL;
-        if ( (MiFlags & 0x8000) != 0 )
+        if ( (MiFlags & 0x10000) != 0 )
         {
           memset(v9, 0, 0x68uLL);
           v9[1] = v5;
-          updated = VslpEnterIumSecureMode(2u, 223, 0, (__int64)v9);
+          updated = VslpEnterIumSecureMode(2u, 222, 0, (__int64)v9);
         }
         else
         {

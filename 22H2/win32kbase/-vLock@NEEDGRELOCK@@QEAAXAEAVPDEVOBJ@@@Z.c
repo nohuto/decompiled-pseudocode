@@ -1,28 +1,25 @@
 /*
- * XREFs of ?vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C0089E50
+ * XREFs of ?vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C0011010
  * Callers:
- *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C00483E0 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
- *     ?hbmCreateClone@@YAPEAUHBITMAP__@@PEAVSURFACE@@KK@Z @ 0x1C005E63C (-hbmCreateClone@@YAPEAUHBITMAP__@@PEAVSURFACE@@KK@Z.c)
- *     GreSetMagicColors @ 0x1C016C76C (GreSetMagicColors.c)
+ *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C000DEF0 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     ?hbmCreateClone@@YAPEAUHBITMAP__@@PEAVSURFACE@@KK@Z @ 0x1C001D420 (-hbmCreateClone@@YAPEAUHBITMAP__@@PEAVSURFACE@@KK@Z.c)
+ *     GreSetMagicColors @ 0x1C0149888 (GreSetMagicColors.c)
  * Callees:
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C00428F0 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
- *     ?bAllowShareAccess@PDEVOBJ@@QEAAHXZ @ 0x1C0089ED0 (-bAllowShareAccess@PDEVOBJ@@QEAAHXZ.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     ?bAllowShareAccess@PDEVOBJ@@QEAAHXZ @ 0x1C003A570 (-bAllowShareAccess@PDEVOBJ@@QEAAHXZ.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007EE00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
  */
 
 void __fastcall NEEDGRELOCK::vLock(NEEDGRELOCK *this, struct PDEVOBJ *a2)
 {
-  __int64 v4; // rcx
-  HSEMAPHORE v5; // rcx
+  __int64 v3; // rdi
 
   *(_QWORD *)this = 0LL;
-  if ( *(_QWORD *)a2
-    && !(unsigned int)PDEVOBJ::bAllowShareAccess(a2)
-    && (*(_DWORD *)(*(_QWORD *)a2 + 40LL) & 0x8000) == 0 )
+  v3 = *(_QWORD *)a2;
+  if ( *(_QWORD *)a2 && !(unsigned int)PDEVOBJ::bAllowShareAccess(a2) && (*(_DWORD *)(v3 + 40) & 0x8000) == 0 )
   {
-    v5 = *(HSEMAPHORE *)(*(_QWORD *)(SGDGetSessionState(v4) + 24) + 120LL);
-    *(_QWORD *)this = v5;
-    EngAcquireSemaphore(v5);
-    EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"hsem", *(_QWORD *)this, 2);
+    *(_QWORD *)this = ghsemGreLock;
+    EngAcquireSemaphore(ghsemGreLock);
+    EtwTraceGreLockAcquireSemaphoreExclusive(L"hsem", *(_QWORD *)this, 2LL);
   }
 }

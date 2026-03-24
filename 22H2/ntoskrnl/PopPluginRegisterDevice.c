@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPluginRegisterDevice @ 0x140395BD0
+ * XREFs of PopPluginRegisterDevice @ 0x14056DD64
  * Callers:
- *     PopFxRegisterDeviceWithPep @ 0x140395A88 (PopFxRegisterDeviceWithPep.c)
+ *     PopFxRegisterDeviceWithPep @ 0x1403BE0FC (PopFxRegisterDeviceWithPep.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x140588C70 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x14056932C (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopPluginRegisterDevice(

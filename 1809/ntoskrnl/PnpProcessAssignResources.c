@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpProcessAssignResources @ 0x1406E836C
+ * XREFs of PnpProcessAssignResources @ 0x1406E834C
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406E657C (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406E655C (PipProcessDevNodeTree.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     PipSetDevNodeState @ 0x140159DB8 (PipSetDevNodeState.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PipSetDevNodeState @ 0x140159DD8 (PipSetDevNodeState.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PipSetDevNodeFlags @ 0x1406E50FC (PipSetDevNodeFlags.c)
- *     PnpProcessAssignResourcesWorker @ 0x1406E8554 (PnpProcessAssignResourcesWorker.c)
- *     PipClearDevNodeUserFlags @ 0x1406E9DBC (PipClearDevNodeUserFlags.c)
- *     PipSetDevNodeProblem @ 0x1406EF580 (PipSetDevNodeProblem.c)
- *     PnpAssignResourcesToDevices @ 0x1406FACC4 (PnpAssignResourcesToDevices.c)
+ *     PipSetDevNodeFlags @ 0x1406E50DC (PipSetDevNodeFlags.c)
+ *     PnpProcessAssignResourcesWorker @ 0x1406E8534 (PnpProcessAssignResourcesWorker.c)
+ *     PipClearDevNodeUserFlags @ 0x1406E9D9C (PipClearDevNodeUserFlags.c)
+ *     PipSetDevNodeProblem @ 0x1406EF560 (PipSetDevNodeProblem.c)
+ *     PnpAssignResourcesToDevices @ 0x1406FACA4 (PnpAssignResourcesToDevices.c)
  */
 
 char __fastcall PnpProcessAssignResources(__int64 a1, unsigned __int8 a2, __int64 a3)

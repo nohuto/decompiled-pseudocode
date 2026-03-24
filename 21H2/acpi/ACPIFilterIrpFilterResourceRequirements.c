@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPIFilterIrpFilterResourceRequirements @ 0x1C0090CB0
+ * XREFs of ACPIFilterIrpFilterResourceRequirements @ 0x1C009BCA0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDebugGetIrpText @ 0x1C0001908 (ACPIDebugGetIrpText.c)
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_qsLqss @ 0x1C0001CCC (WPP_RECORDER_SF_qsLqss.c)
- *     WPP_RECORDER_SF_qLqss @ 0x1C0003A80 (WPP_RECORDER_SF_qLqss.c)
- *     ACPIInternalInterruptPolarityCacheStorePolarity @ 0x1C00229AC (ACPIInternalInterruptPolarityCacheStorePolarity.c)
- *     PnpBiosUpdateResourceListWithSidebandResources @ 0x1C00977CC (PnpBiosUpdateResourceListWithSidebandResources.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDebugGetIrpText @ 0x1C0002DA4 (ACPIDebugGetIrpText.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C0003050 (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIInternalInterruptPolarityCacheStorePolarity @ 0x1C0016300 (ACPIInternalInterruptPolarityCacheStorePolarity.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C001E3E0 (WPP_RECORDER_SF_qLqss.c)
+ *     PnpBiosUpdateResourceListWithSidebandResources @ 0x1C009BEAC (PnpBiosUpdateResourceListWithSidebandResources.c)
  */
 
 __int64 __fastcall ACPIFilterIrpFilterResourceRequirements(ULONG_PTR a1, IRP *a2)
@@ -55,14 +55,14 @@ __int64 __fastcall ACPIFilterIrpFilterResourceRequirements(ULONG_PTR a1, IRP *a2
   v6[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))ACPIRootIrpCompleteRoutine;
   v6[-1].Context = &Event;
   v6[-1].Control = -32;
-  Status = IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 776), a2);
+  Status = IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 736), a2);
   if ( Status == 259 )
   {
     KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
     Status = a2->IoStatus.Status;
   }
   v8 = 0x80000000LL;
-  v9 = (const char *)&unk_1C006FB8B;
+  v9 = byte_1C00701BA;
   if ( (int)(Status + 0x80000000) < 0 || Status == -1073741637 )
   {
     Information = (void *)a2->IoStatus.Information;
@@ -98,13 +98,13 @@ __int64 __fastcall ACPIFilterIrpFilterResourceRequirements(ULONG_PTR a1, IRP *a2
           v24 += 32LL;
         }
         v26 = *(_QWORD *)(DeviceExtension + 8);
-        v27 = (const char *)&unk_1C006FB8B;
-        v28 = (const char *)&unk_1C006FB8B;
+        v27 = byte_1C00701BA;
+        v28 = byte_1C00701BA;
         if ( (v26 & 0x200000000000LL) != 0 )
         {
-          v27 = *(const char **)(DeviceExtension + 608);
+          v27 = *(const char **)(DeviceExtension + 568);
           if ( (v26 & 0x400000000000LL) != 0 )
-            v28 = *(const char **)(DeviceExtension + 616);
+            v28 = *(const char **)(DeviceExtension + 576);
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_qLqss(
@@ -112,7 +112,7 @@ __int64 __fastcall ACPIFilterIrpFilterResourceRequirements(ULONG_PTR a1, IRP *a2
             2u,
             5u,
             0x12u,
-            (__int64)&WPP_e895f2808a1832dc95c5c4714d739d11_Traceguids,
+            (__int64)&WPP_22c0b63b2f1d30c22e2e761bc8912dea_Traceguids,
             (char)a2,
             updated,
             DeviceExtension,
@@ -128,7 +128,7 @@ __int64 __fastcall ACPIFilterIrpFilterResourceRequirements(ULONG_PTR a1, IRP *a2
           2u,
           5u,
           0x11u,
-          (__int64)&WPP_e895f2808a1832dc95c5c4714d739d11_Traceguids,
+          (__int64)&WPP_22c0b63b2f1d30c22e2e761bc8912dea_Traceguids,
           (char)a2,
           IrpText,
           updated,
@@ -156,7 +156,7 @@ __int64 __fastcall ACPIFilterIrpFilterResourceRequirements(ULONG_PTR a1, IRP *a2
   }
 LABEL_7:
   if ( (*(_QWORD *)(DeviceExtension + 8) & 0x200000000000LL) != 0 )
-    v9 = *(const char **)(DeviceExtension + 608);
+    v9 = *(const char **)(DeviceExtension + 568);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     v12 = ACPIDebugGetIrpText(v8, 0xDu);

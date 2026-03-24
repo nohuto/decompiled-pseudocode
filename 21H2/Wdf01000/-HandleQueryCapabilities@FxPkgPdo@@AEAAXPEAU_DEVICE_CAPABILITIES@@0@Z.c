@@ -1,8 +1,8 @@
 /*
- * XREFs of ?HandleQueryCapabilities@FxPkgPdo@@AEAAXPEAU_DEVICE_CAPABILITIES@@0@Z @ 0x1C001A3C0
+ * XREFs of ?HandleQueryCapabilities@FxPkgPdo@@AEAAXPEAU_DEVICE_CAPABILITIES@@0@Z @ 0x1C0015C60
  * Callers:
- *     ?PnpQueryCapabilities@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C001A2D8 (-PnpQueryCapabilities@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z.c)
- *     ?_QueryCapsWorkItem@FxPkgPdo@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C0083AA0 (-_QueryCapsWorkItem@FxPkgPdo@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z.c)
+ *     ?_PnpQueryCapabilities@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z @ 0x1C0015B10 (-_PnpQueryCapabilities@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z.c)
+ *     ?_QueryCapsWorkItem@FxPkgPdo@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C0079CC0 (-_QueryCapsWorkItem@FxPkgPdo@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,33 +12,52 @@ void __fastcall FxPkgPdo::HandleQueryCapabilities(
         _DEVICE_CAPABILITIES *ReportedCaps,
         _DEVICE_CAPABILITIES *ParentCaps)
 {
-  _DEVICE_POWER_STATE *v3; // r10
-  unsigned int i; // ecx
-  unsigned int v6; // eax
-  FxPnpCaps v7; // ecx
-  int v8; // ecx
-  __int16 v9; // ax
-  __int16 v10; // ax
-  __int16 v11; // ax
+  _DEVICE_POWER_STATE v4; // eax
+  _DEVICE_POWER_STATE v5; // eax
+  _DEVICE_POWER_STATE v6; // eax
+  _DEVICE_POWER_STATE v7; // eax
+  _DEVICE_POWER_STATE v8; // eax
+  _DEVICE_POWER_STATE v9; // eax
+  FxPnpCaps v10; // eax
+  int v11; // eax
   __int16 v12; // ax
   __int16 v13; // ax
   __int16 v14; // ax
-  _SYSTEM_POWER_STATE SystemWake; // eax
-  _DEVICE_POWER_STATE DeviceWake; // ecx
+  __int16 v15; // ax
+  __int16 v16; // ax
+  __int16 v17; // ax
+  _SYSTEM_POWER_STATE SystemWake; // r8d
+  _DEVICE_POWER_STATE DeviceWake; // r8d
   unsigned int D1Latency; // eax
   unsigned int D2Latency; // eax
   unsigned int D3Latency; // eax
 
-  v3 = &ReportedCaps->DeviceState[1];
-  for ( i = 4; i < 0x1C; i += 4 )
-  {
-    v6 = (this->m_PowerCaps.States & (15 << i)) >> i;
-    if ( v6 == 5 )
-      v6 = *(_DEVICE_POWER_STATE *)((char *)v3 + (char *)ParentCaps - (char *)ReportedCaps);
-    *v3++ = v6;
-  }
-  v7.ByEnum = (FxPnpCaps::<unnamed_type_ByEnum>)this->m_PnpCaps;
-  if ( (*(_BYTE *)&v7.ByEnum & 3) != 0 )
+  v4 = (this->m_PowerCaps.States >> 4) & 0xF;
+  if ( v4 == PowerDeviceMaximum )
+    v4 = ParentCaps->DeviceState[1];
+  ReportedCaps->DeviceState[1] = v4;
+  v5 = (this->m_PowerCaps.States >> 8) & 0xF;
+  if ( v5 == PowerDeviceMaximum )
+    v5 = ParentCaps->DeviceState[2];
+  ReportedCaps->DeviceState[2] = v5;
+  v6 = (unsigned __int8)HIBYTE(LOWORD(this->m_PowerCaps.States)) >> 4;
+  if ( v6 == PowerDeviceMaximum )
+    v6 = ParentCaps->DeviceState[3];
+  ReportedCaps->DeviceState[3] = v6;
+  v7 = HIWORD(this->m_PowerCaps.States) & 0xF;
+  if ( v7 == PowerDeviceMaximum )
+    v7 = ParentCaps->DeviceState[4];
+  ReportedCaps->DeviceState[4] = v7;
+  v8 = (this->m_PowerCaps.States >> 20) & 0xF;
+  if ( v8 == PowerDeviceMaximum )
+    v8 = ParentCaps->DeviceState[5];
+  ReportedCaps->DeviceState[5] = v8;
+  v9 = HIBYTE(this->m_PowerCaps.States) & 0xF;
+  if ( v9 == PowerDeviceMaximum )
+    v9 = ParentCaps->DeviceState[6];
+  ReportedCaps->DeviceState[6] = v9;
+  v10.ByEnum = (FxPnpCaps::<unnamed_type_ByEnum>)this->m_PnpCaps;
+  if ( (*(_BYTE *)&v10.ByEnum & 3) != 0 )
   {
     if ( (this->m_PnpCaps.Value & 3) == 1 )
       *((_DWORD *)ReportedCaps + 1) |= 4u;
@@ -47,140 +66,138 @@ void __fastcall FxPkgPdo::HandleQueryCapabilities(
   {
     *((_DWORD *)ReportedCaps + 1) &= ~4u;
   }
-  if ( (*(_BYTE *)&v7.ByEnum & 0xC) != 0 )
+  if ( (*(_BYTE *)&v10.ByEnum & 0xC) != 0 )
   {
-    if ( (*(_BYTE *)&v7.ByEnum & 0xC) == 4 )
+    if ( (*(_BYTE *)&v10.ByEnum & 0xC) == 4 )
       *((_DWORD *)ReportedCaps + 1) |= 8u;
   }
   else
   {
     *((_DWORD *)ReportedCaps + 1) &= ~8u;
   }
-  if ( (*(_BYTE *)&v7.ByEnum & 0x30) != 0 )
+  if ( (*(_BYTE *)&v10.ByEnum & 0x30) != 0 )
   {
-    if ( (*(_BYTE *)&v7.ByEnum & 0x30) == 0x10 )
+    if ( (*(_BYTE *)&v10.ByEnum & 0x30) == 0x10 )
       *((_DWORD *)ReportedCaps + 1) |= 0x10u;
   }
   else
   {
     *((_DWORD *)ReportedCaps + 1) &= ~0x10u;
   }
-  if ( (*(_BYTE *)&v7.ByEnum & 0xC0) != 0 )
+  if ( (*(_BYTE *)&v10.ByEnum & 0xC0) != 0 )
   {
-    if ( (*(_BYTE *)&v7.ByEnum & 0xC0) == 0x40 )
+    if ( (*(_BYTE *)&v10.ByEnum & 0xC0) == 0x40 )
       *((_DWORD *)ReportedCaps + 1) |= 0x20u;
   }
   else
   {
     *((_DWORD *)ReportedCaps + 1) &= ~0x20u;
   }
-  if ( (*(_WORD *)&v7.ByEnum & 0x300) != 0 )
+  if ( (*(_WORD *)&v10.ByEnum & 0x300) != 0 )
   {
-    if ( (*(_WORD *)&v7.ByEnum & 0x300) == 0x100 )
+    if ( (*(_WORD *)&v10.ByEnum & 0x300) == 0x100 )
       *((_DWORD *)ReportedCaps + 1) |= 0x40u;
   }
   else
   {
     *((_DWORD *)ReportedCaps + 1) &= ~0x40u;
   }
-  if ( (*(_WORD *)&v7.ByEnum & 0xC00) == 0x800 )
+  switch ( *(_WORD *)&v10.ByEnum & 0xC00 )
   {
-    if ( !this->m_RawOK )
-      goto LABEL_20;
-LABEL_70:
-    *((_DWORD *)ReportedCaps + 1) |= 0x80u;
-    goto LABEL_20;
+    case 2048:
+      if ( !this->m_RawOK )
+        break;
+LABEL_82:
+      *((_DWORD *)ReportedCaps + 1) |= 0x80u;
+      break;
+    case 0:
+      *((_DWORD *)ReportedCaps + 1) &= ~0x80u;
+      break;
+    case 1024:
+      goto LABEL_82;
   }
-  if ( (*(_WORD *)&v7.ByEnum & 0xC00) != 0 )
+  if ( (*(_WORD *)&v10.ByEnum & 0x3000) != 0 )
   {
-    if ( (*(_WORD *)&v7.ByEnum & 0xC00) != 0x400 )
-      goto LABEL_20;
-    goto LABEL_70;
-  }
-  *((_DWORD *)ReportedCaps + 1) &= ~0x80u;
-LABEL_20:
-  if ( (*(_WORD *)&v7.ByEnum & 0x3000) != 0 )
-  {
-    if ( (*(_WORD *)&v7.ByEnum & 0x3000) == 0x1000 )
+    if ( (*(_WORD *)&v10.ByEnum & 0x3000) == 0x1000 )
       *((_DWORD *)ReportedCaps + 1) |= 0x200u;
   }
   else
   {
     *((_DWORD *)ReportedCaps + 1) &= ~0x200u;
   }
-  if ( (*(_WORD *)&v7.ByEnum & 0xC000) != 0 )
+  if ( (*(_WORD *)&v10.ByEnum & 0xC000) != 0 )
   {
-    if ( (*(_WORD *)&v7.ByEnum & 0xC000) == 0x4000 )
+    if ( (*(_WORD *)&v10.ByEnum & 0xC000) == 0x4000 )
       *((_DWORD *)ReportedCaps + 1) |= 0x4000u;
   }
   else
   {
     *((_DWORD *)ReportedCaps + 1) &= ~0x4000u;
   }
-  v8 = v7.Value & 0x30000;
-  if ( v8 )
+  v11 = v10.Value & 0x30000;
+  if ( v11 )
   {
-    if ( v8 == 0x10000 )
+    if ( v11 == 0x10000 )
       *((_DWORD *)ReportedCaps + 1) |= 0x20000u;
   }
   else
   {
     *((_DWORD *)ReportedCaps + 1) &= ~0x20000u;
   }
-  v9 = this->m_PowerCaps.Caps & 0x30;
-  if ( v9 )
+  v12 = this->m_PowerCaps.Caps & 0x30;
+  if ( v12 )
   {
-    if ( v9 == 16 )
+    if ( v12 == 16 )
       *((_DWORD *)ReportedCaps + 1) |= 0x400u;
   }
   else
   {
     *((_DWORD *)ReportedCaps + 1) &= ~0x400u;
   }
-  v10 = this->m_PowerCaps.Caps & 0xC0;
-  if ( v10 )
+  v13 = this->m_PowerCaps.Caps & 0xC0;
+  if ( v13 )
   {
-    if ( v10 == 64 )
+    if ( v13 == 64 )
       *((_DWORD *)ReportedCaps + 1) |= 0x800u;
   }
   else
   {
     *((_DWORD *)ReportedCaps + 1) &= ~0x800u;
   }
-  v11 = this->m_PowerCaps.Caps & 0x300;
-  if ( v11 )
+  v14 = this->m_PowerCaps.Caps & 0x300;
+  if ( v14 )
   {
-    if ( v11 == 256 )
+    if ( v14 == 256 )
       *((_DWORD *)ReportedCaps + 1) |= 0x1000u;
   }
   else
   {
     *((_DWORD *)ReportedCaps + 1) &= ~0x1000u;
   }
-  v12 = this->m_PowerCaps.Caps & 0xC00;
-  if ( v12 )
+  v15 = this->m_PowerCaps.Caps & 0xC00;
+  if ( v15 )
   {
-    if ( v12 == 1024 )
+    if ( v15 == 1024 )
       *((_DWORD *)ReportedCaps + 1) |= 0x2000u;
   }
   else
   {
     *((_DWORD *)ReportedCaps + 1) &= ~0x2000u;
   }
-  v13 = this->m_PowerCaps.Caps & 3;
-  if ( v13 )
+  v16 = this->m_PowerCaps.Caps & 3;
+  if ( v16 )
   {
-    if ( v13 == 1 )
+    if ( v16 == 1 )
       *((_DWORD *)ReportedCaps + 1) |= 1u;
   }
   else
   {
     *((_DWORD *)ReportedCaps + 1) &= ~1u;
   }
-  v14 = this->m_PowerCaps.Caps & 0xC;
-  if ( v14 )
+  v17 = this->m_PowerCaps.Caps & 0xC;
+  if ( v17 )
   {
-    if ( v14 == 4 )
+    if ( v17 == 4 )
       *((_DWORD *)ReportedCaps + 1) |= 2u;
   }
   else
@@ -191,13 +208,15 @@ LABEL_20:
     *((_DWORD *)ReportedCaps + 1) |= 0x100u;
   ReportedCaps->UINumber = this->m_PnpCapsUINumber;
   ReportedCaps->Address = this->m_PnpCapsAddress;
-  SystemWake = this->m_PowerCaps.SystemWake;
-  if ( (_BYTE)SystemWake == PowerSystemMaximum )
+  if ( this->m_PowerCaps.SystemWake == 7 )
     SystemWake = ParentCaps->SystemWake;
+  else
+    SystemWake = this->m_PowerCaps.SystemWake;
   ReportedCaps->SystemWake = SystemWake;
-  DeviceWake = this->m_PowerCaps.DeviceWake;
   if ( this->m_PowerCaps.DeviceWake == 5 )
     DeviceWake = ParentCaps->DeviceWake;
+  else
+    DeviceWake = this->m_PowerCaps.DeviceWake;
   ReportedCaps->DeviceWake = DeviceWake;
   D1Latency = this->m_PowerCaps.D1Latency;
   if ( D1Latency == -1 )

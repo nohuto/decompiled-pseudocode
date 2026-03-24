@@ -1,54 +1,54 @@
 /*
- * XREFs of PiPnpRtlCmActionCallback @ 0x140789030
+ * XREFs of PiPnpRtlCmActionCallback @ 0x1406AE700
  * Callers:
  *     <none>
  * Callees:
- *     _CmClassPropertyRead @ 0x14020BB38 (_CmClassPropertyRead.c)
- *     _CmDevicePropertyRead @ 0x14022B404 (_CmDevicePropertyRead.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     _CmDevicePropertyWrite @ 0x14031E618 (_CmDevicePropertyWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
- *     McTemplateK0zjdd_EtwWriteTransfer @ 0x140561888 (McTemplateK0zjdd_EtwWriteTransfer.c)
- *     _CmClassPropertyWrite @ 0x140673E98 (_CmClassPropertyWrite.c)
- *     _CmGetInstallerClassRegProp @ 0x14069B694 (_CmGetInstallerClassRegProp.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBF54 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     _CmIsRootEnumeratedDevice @ 0x1406CC130 (_CmIsRootEnumeratedDevice.c)
- *     _CmGetDeviceRegProp @ 0x1406CD50C (_CmGetDeviceRegProp.c)
- *     RtlGUIDFromString @ 0x1406CF770 (RtlGUIDFromString.c)
- *     PiDmListEnumObjectsWithCallback @ 0x1406D4484 (PiDmListEnumObjectsWithCallback.c)
- *     PiDmObjectRelease @ 0x1406D6C18 (PiDmObjectRelease.c)
- *     PiDmGetObject @ 0x1406D81D0 (PiDmGetObject.c)
- *     PnpIsNullGuid @ 0x140786D44 (PnpIsNullGuid.c)
- *     PiDmAddCacheReferenceForObject @ 0x1407885C4 (PiDmAddCacheReferenceForObject.c)
- *     PiDmObjectGetCachedCmProperty @ 0x1407895F0 (PiDmObjectGetCachedCmProperty.c)
- *     PiDmObjectUpdateCachedCmProperty @ 0x140789738 (PiDmObjectUpdateCachedCmProperty.c)
- *     _CmMapCmObjectTypeToPnpObjectType @ 0x140789824 (_CmMapCmObjectTypeToPnpObjectType.c)
- *     PiPnpRtlCacheObjectBaseKey @ 0x140789868 (PiPnpRtlCacheObjectBaseKey.c)
- *     _PnpSetObjectProperty @ 0x14079708C (_PnpSetObjectProperty.c)
- *     PiDmListAddObject @ 0x1407BEAB0 (PiDmListAddObject.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x1407C2788 (PiDmRemoveCacheReferenceForObject.c)
- *     PiPnpRtlGetFilteredDeviceList @ 0x1407FC18C (PiPnpRtlGetFilteredDeviceList.c)
- *     PiPnpRtlGetFilteredDeviceInterfaceList @ 0x1407FC40C (PiPnpRtlGetFilteredDeviceInterfaceList.c)
- *     PiDmGetCmObjectListFromCache @ 0x1407FC6B4 (PiDmGetCmObjectListFromCache.c)
- *     PiDmListAddList @ 0x140882944 (PiDmListAddList.c)
- *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x140882C80 (PiPnpRtlGatherInstallerClassChangeInfo.c)
- *     PiPnpRtlFreeInstallerClassChangeInfo @ 0x14088485C (PiPnpRtlFreeInstallerClassChangeInfo.c)
- *     PnpIsValidGuidString @ 0x1408848C0 (PnpIsValidGuidString.c)
- *     PiPnpRtlFreePanelRemoveInfo @ 0x14095A3D4 (PiPnpRtlFreePanelRemoveInfo.c)
- *     PiPnpRtlFreeInterfaceDeleteInfo @ 0x14095A418 (PiPnpRtlFreeInterfaceDeleteInfo.c)
- *     PiPnpRtlGatherContainerRemoveInfo @ 0x14095A478 (PiPnpRtlGatherContainerRemoveInfo.c)
- *     PiPnpRtlGatherDeviceDeleteInfo @ 0x14095A524 (PiPnpRtlGatherDeviceDeleteInfo.c)
- *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x14095A65C (PiPnpRtlGatherInterfaceDeleteInfo.c)
- *     PiPnpRtlGatherPanelRemoveInfo @ 0x14095A90C (PiPnpRtlGatherPanelRemoveInfo.c)
- *     PiDmListRemoveList @ 0x14095AE1C (PiDmListRemoveList.c)
- *     PiDmListRemoveObject @ 0x14095AF6C (PiDmListRemoveObject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     _CmDevicePropertyRead @ 0x14032E834 (_CmDevicePropertyRead.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     McTemplateK0zjdd_EtwWriteTransfer @ 0x14036CC58 (McTemplateK0zjdd_EtwWriteTransfer.c)
+ *     _CmClassPropertyRead @ 0x14036EBC0 (_CmClassPropertyRead.c)
+ *     _CmDevicePropertyWrite @ 0x14036EC7C (_CmDevicePropertyWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
+ *     _CmClassPropertyWrite @ 0x1405C63F8 (_CmClassPropertyWrite.c)
+ *     PnpIsNullGuid @ 0x140634DDC (PnpIsNullGuid.c)
+ *     PiDmGetCmObjectListFromCache @ 0x1406A2D34 (PiDmGetCmObjectListFromCache.c)
+ *     PiDmListEnumObjectsWithCallback @ 0x1406AE5B0 (PiDmListEnumObjectsWithCallback.c)
+ *     PiDmObjectGetCachedCmProperty @ 0x1406AEF6C (PiDmObjectGetCachedCmProperty.c)
+ *     PiDmObjectUpdateCachedCmProperty @ 0x1406AF0BC (PiDmObjectUpdateCachedCmProperty.c)
+ *     _CmMapCmObjectTypeToPnpObjectType @ 0x1406AF1A8 (_CmMapCmObjectTypeToPnpObjectType.c)
+ *     PiDmGetObject @ 0x1406AF84C (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x1406AFBD0 (PiDmObjectRelease.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x1406B004C (PiPnpRtlCacheObjectBaseKey.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406B14B0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     _CmIsRootEnumeratedDevice @ 0x1406B2C88 (_CmIsRootEnumeratedDevice.c)
+ *     PiPnpRtlGetFilteredDeviceInterfaceList @ 0x1406B37BC (PiPnpRtlGetFilteredDeviceInterfaceList.c)
+ *     PiPnpRtlGetFilteredDeviceList @ 0x1406B3AD4 (PiPnpRtlGetFilteredDeviceList.c)
+ *     _CmGetDeviceRegProp @ 0x1406BA24C (_CmGetDeviceRegProp.c)
+ *     RtlGUIDFromString @ 0x1406BD650 (RtlGUIDFromString.c)
+ *     PiDmListRemoveList @ 0x140730C80 (PiDmListRemoveList.c)
+ *     PiDmListRemoveObject @ 0x140730DA4 (PiDmListRemoveObject.c)
+ *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x140733234 (PiPnpRtlGatherInterfaceDeleteInfo.c)
+ *     PiPnpRtlGatherDeviceDeleteInfo @ 0x1407348A0 (PiPnpRtlGatherDeviceDeleteInfo.c)
+ *     PiPnpRtlGatherContainerRemoveInfo @ 0x140734A94 (PiPnpRtlGatherContainerRemoveInfo.c)
+ *     PiPnpRtlFreeInterfaceDeleteInfo @ 0x140734CE0 (PiPnpRtlFreeInterfaceDeleteInfo.c)
+ *     PiPnpRtlFreePanelRemoveInfo @ 0x140734EC4 (PiPnpRtlFreePanelRemoveInfo.c)
+ *     PiPnpRtlFreeDeviceDeleteInfo @ 0x14073504C (PiPnpRtlFreeDeviceDeleteInfo.c)
+ *     PiDmListAddObject @ 0x1407353A4 (PiDmListAddObject.c)
+ *     _CmGetInstallerClassRegProp @ 0x14073BC38 (_CmGetInstallerClassRegProp.c)
+ *     _PnpSetObjectProperty @ 0x1407420C4 (_PnpSetObjectProperty.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x140744D98 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x140744E48 (PiDmAddCacheReferenceForObject.c)
+ *     PiDmObjectReleaseLock @ 0x140745C88 (PiDmObjectReleaseLock.c)
+ *     KsepCacheLock @ 0x140745CB0 (KsepCacheLock.c)
+ *     PiDmListAddList @ 0x14076E0B4 (PiDmListAddList.c)
+ *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x14076F93C (PiPnpRtlGatherInstallerClassChangeInfo.c)
+ *     PiPnpRtlFreeInstallerClassChangeInfo @ 0x140771AEC (PiPnpRtlFreeInstallerClassChangeInfo.c)
+ *     PnpIsValidGuidString @ 0x140771EF4 (PnpIsValidGuidString.c)
+ *     PiPnpRtlGatherPanelRemoveInfo @ 0x1408A3384 (PiPnpRtlGatherPanelRemoveInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlCmActionCallback(__int64 a1, const wchar_t *a2, unsigned int a3, int a4, int a5, __int64 a6)
@@ -60,19 +60,19 @@ __int64 __fastcall PiPnpRtlCmActionCallback(__int64 a1, const wchar_t *a2, unsig
   int v13; // r9d
   int FilteredDeviceInterfaceList; // eax
   unsigned int v15; // eax
-  __int64 v16; // r9
+  int v17; // r9d
   int v18; // r9d
   int v19; // r9d
-  int v20; // r9d
-  unsigned int v21; // eax
-  void *Pool2; // r12
-  int v23; // r9d
+  unsigned int v20; // eax
+  PVOID PoolWithTag; // r12
+  int v22; // r9d
+  int v23; // edx
   __int64 v24; // rcx
   int DeviceRegProp; // eax
   int v26; // esi
   bool v27; // sf
   unsigned int v28; // eax
-  _WORD *v29; // rdx
+  __int64 v29; // rdx
   int v30; // eax
   __int64 v31; // rsi
   _QWORD *v32; // rbx
@@ -80,118 +80,143 @@ __int64 __fastcall PiPnpRtlCmActionCallback(__int64 a1, const wchar_t *a2, unsig
   __int64 v34; // rdx
   unsigned int v35; // eax
   __int64 v36; // rdx
-  size_t v37; // rsi
+  _DWORD *v37; // rsi
   int v38; // eax
-  char *v39; // r14
+  PVOID v39; // r14
   int v40; // eax
   __int64 v41; // rcx
   __int64 v42; // r8
-  unsigned int v43; // r14d
+  __int64 v43; // r14
   __int64 v44; // rdx
-  struct _KTHREAD *CurrentThread; // rcx
-  int v46; // ebx
-  unsigned int v47; // eax
-  __int64 v48; // r9
-  int v49; // r9d
-  __int64 v50; // rcx
-  WCHAR *v51; // rsi
-  bool v52; // al
-  __int64 v53; // r8
+  int v45; // ebx
+  unsigned int v46; // eax
+  __int64 v47; // rax
+  __int64 v48; // rsi
+  bool v49; // al
+  __int64 v50; // r8
+  __int64 v51; // rcx
+  _QWORD *v52; // rsi
+  __int64 v53; // rdx
+  __int64 v54; // rdx
+  __int64 v55; // rdx
+  _QWORD *v56; // rbx
+  __int64 v57; // rdx
+  __int64 v58; // rcx
+  __int64 v59; // r8
+  int v60; // ecx
   bool IsNullGuid; // al
-  __int64 v55; // r8
-  _QWORD *v56; // rax
-  _DWORD *v57; // rdx
-  _QWORD *v58; // rsi
-  __int64 v59; // rdx
-  __int64 v60; // rdx
-  __int64 v61; // rdx
-  int v62; // eax
-  int v63; // eax
+  __int64 v62; // r8
+  __int64 v63; // rax
+  _DWORD *v64; // rdx
+  int v65; // eax
+  int v66; // eax
   int Object; // esi
-  __int64 *v65; // r14
-  __int64 v66; // rcx
-  _QWORD *v67; // rbx
-  __int64 v68; // rdx
+  PVOID v68; // r14
   __int64 v69; // rcx
-  __int64 v70; // r8
+  _QWORD *v70; // rbx
   __int64 v71; // rdx
-  char v72[8]; // [rsp+50h] [rbp-39h] BYREF
-  size_t Size; // [rsp+58h] [rbp-31h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-29h] BYREF
-  __int64 v75; // [rsp+70h] [rbp-19h]
-  char v76; // [rsp+78h] [rbp-11h]
-  int v77; // [rsp+79h] [rbp-10h]
-  __int16 v78; // [rsp+7Dh] [rbp-Ch]
-  char v79; // [rsp+7Fh] [rbp-Ah]
-  GUID Guid; // [rsp+80h] [rbp-9h] BYREF
+  char v72; // [rsp+50h] [rbp-B0h] BYREF
+  char v73; // [rsp+51h] [rbp-AFh] BYREF
+  char v74; // [rsp+52h] [rbp-AEh] BYREF
+  char v75; // [rsp+53h] [rbp-ADh] BYREF
+  int v76; // [rsp+54h] [rbp-ACh] BYREF
+  size_t Size; // [rsp+58h] [rbp-A8h] BYREF
+  _DWORD *v78; // [rsp+60h] [rbp-A0h] BYREF
+  _DWORD *v79; // [rsp+68h] [rbp-98h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v81; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v82; // [rsp+88h] [rbp-78h]
+  __int64 v83; // [rsp+90h] [rbp-70h] BYREF
+  _DWORD *v84; // [rsp+98h] [rbp-68h] BYREF
+  PVOID P; // [rsp+A0h] [rbp-60h] BYREF
+  void *v86; // [rsp+A8h] [rbp-58h] BYREF
+  PVOID v87; // [rsp+B0h] [rbp-50h] BYREF
+  void *v88; // [rsp+B8h] [rbp-48h] BYREF
+  __int64 v89; // [rsp+C0h] [rbp-40h] BYREF
+  __int64 v90; // [rsp+C8h] [rbp-38h] BYREF
+  _QWORD v91[3]; // [rsp+D0h] [rbp-30h] BYREF
+  char v92; // [rsp+E8h] [rbp-18h]
+  int v93; // [rsp+E9h] [rbp-17h]
+  __int16 v94; // [rsp+EDh] [rbp-13h]
+  char v95; // [rsp+EFh] [rbp-11h]
+  _QWORD v96[3]; // [rsp+F0h] [rbp-10h] BYREF
+  char v97; // [rsp+108h] [rbp+8h]
+  int v98; // [rsp+109h] [rbp+9h]
+  __int16 v99; // [rsp+10Dh] [rbp+Dh]
+  char v100; // [rsp+10Fh] [rbp+Fh]
+  __int64 v101; // [rsp+110h] [rbp+10h] BYREF
+  GUID Guid; // [rsp+118h] [rbp+18h] BYREF
 
   v9 = -1073741822;
   if ( a4 > 13 )
   {
-    v18 = a4 - 14;
-    if ( !v18 )
+    v17 = a4 - 14;
+    if ( !v17 )
     {
       if ( a5 != 1 )
       {
         if ( a3 == 5 )
         {
-          if ( *(int *)a6 < 0 )
-            return 0;
-          v67 = *(_QWORD **)(a6 + 8);
-          v72[0] = 0;
-          v68 = v67[1];
-          if ( v68 )
+          if ( *(int *)a6 >= 0 )
           {
-            if ( *v67 )
+            v56 = *(_QWORD **)(a6 + 8);
+            v73 = 0;
+            v57 = v56[1];
+            if ( v57 )
             {
-              PiDmListRemoveObject(4LL, v68, *v67, v72);
-              if ( v72[0] )
-                PiDmListRemoveList(v69, v67[1], v70, *v67);
+              if ( *v56 )
+              {
+                PiDmListRemoveObject(4LL, v57, *v56, &v73);
+                if ( v73 )
+                  PiDmListRemoveList(v58, v56[1], v59, *v56);
+              }
             }
+            PiPnpRtlFreePanelRemoveInfo(v56);
           }
         }
-        else
+        else if ( a3 == 6 && *(int *)a6 >= 0 )
         {
-          if ( a3 != 6 || *(int *)a6 < 0 )
-            return 0;
-          v67 = *(_QWORD **)(a6 + 8);
-          v71 = v67[1];
-          if ( v71 && *v67 )
-            PiDmListRemoveObject(6LL, v71, *v67, v72);
+          v70 = *(_QWORD **)(a6 + 8);
+          v71 = v70[1];
+          if ( v71 && *v70 )
+            PiDmListRemoveObject(6LL, v71, *v70, &v75);
+          PiPnpRtlFreePanelRemoveInfo(v70);
         }
-        PiPnpRtlFreePanelRemoveInfo(v67);
         return 0;
       }
       if ( a3 == 5 )
       {
-        v66 = *(_QWORD *)(a6 + 24);
-        Size = 0LL;
-        FilteredDeviceInterfaceList = PiPnpRtlGatherContainerRemoveInfo(v66, a2, &Size);
+        v51 = *(_QWORD *)(a6 + 24);
+        v89 = 0LL;
+        FilteredDeviceInterfaceList = PiPnpRtlGatherContainerRemoveInfo(v51, a2, &v89);
+        v9 = FilteredDeviceInterfaceList;
+        if ( FilteredDeviceInterfaceList < 0 )
+          goto LABEL_28;
+        v47 = v89;
       }
       else
       {
         if ( a3 != 6 )
           return v9;
-        v50 = *(_QWORD *)(a6 + 24);
-        Size = 0LL;
-        FilteredDeviceInterfaceList = PiPnpRtlGatherPanelRemoveInfo(v50, a2, &Size);
+        v69 = *(_QWORD *)(a6 + 24);
+        v90 = 0LL;
+        FilteredDeviceInterfaceList = PiPnpRtlGatherPanelRemoveInfo(v69, a2, &v90);
+        v9 = FilteredDeviceInterfaceList;
+        if ( FilteredDeviceInterfaceList < 0 )
+          goto LABEL_28;
+        v47 = v90;
       }
-LABEL_114:
-      v9 = FilteredDeviceInterfaceList;
-      if ( FilteredDeviceInterfaceList >= 0 )
-      {
-        *(_QWORD *)(a6 + 8) = Size;
-        return v9;
-      }
-      goto LABEL_31;
+LABEL_126:
+      *(_QWORD *)(a6 + 8) = v47;
+      return v9;
     }
-    v19 = v18 - 1;
-    if ( v19 )
+    v18 = v17 - 1;
+    if ( v18 )
     {
-      v20 = v19 - 1;
-      if ( v20 )
+      v19 = v18 - 1;
+      if ( v19 )
       {
-        if ( v20 != 1 || a5 != 1 || (*(_DWORD *)(a6 + 80) & 0x10000) != 0 )
+        if ( v19 != 1 || a5 != 1 || (*(_DWORD *)(a6 + 80) & 0x10000) != 0 )
           return v9;
         FilteredDeviceInterfaceList = PiPnpRtlGetFilteredDeviceInterfaceList(a6);
       }
@@ -201,10 +226,10 @@ LABEL_114:
           return v9;
         FilteredDeviceInterfaceList = PiPnpRtlGetFilteredDeviceList(a6);
       }
-LABEL_30:
+LABEL_27:
       if ( FilteredDeviceInterfaceList != -1073741802 )
       {
-LABEL_31:
+LABEL_28:
         *(_DWORD *)a6 = FilteredDeviceInterfaceList;
         return (unsigned int)-1073741536;
       }
@@ -216,57 +241,57 @@ LABEL_31:
     {
       if ( (*(_DWORD *)(a6 + 40) & 0x10000) != 0 )
         return v9;
-      v77 = 0;
-      v78 = 0;
-      v79 = 0;
-      Size = 0LL;
-      Object = PiDmGetObject(5LL, (__int64)a2, &Size);
+      v93 = 0;
+      v94 = 0;
+      v95 = 0;
+      v87 = 0LL;
+      Object = PiDmGetObject(5LL, a2, &v87);
       if ( Object < 0 )
-        goto LABEL_167;
-      v65 = (__int64 *)Size;
-      DestinationString.Buffer = *(wchar_t **)(a6 + 24);
-      v75 = *(_QWORD *)(a6 + 32);
-      *(_QWORD *)&DestinationString.Length = a1;
+        goto LABEL_179;
+      v68 = v87;
+      v91[1] = *(_QWORD *)(a6 + 24);
+      v91[2] = *(_QWORD *)(a6 + 32);
+      v91[0] = a1;
       do
       {
-        v76 = 0;
+        v92 = 0;
         Object = PiDmListEnumObjectsWithCallback(
                    4,
-                   v65,
+                   (ULONG_PTR)v68,
                    (__int64 (__fastcall *)(_QWORD, __int64, char *))PiPnpRtlEnumDevicesCallback,
-                   (__int64)&DestinationString);
+                   (__int64)v91);
       }
-      while ( Object >= 0 && v76 );
+      while ( Object >= 0 && v92 );
     }
     else
     {
       if ( a3 != 6 || (*(_DWORD *)(a6 + 40) & 0x10000) != 0 )
         return v9;
-      v77 = 0;
-      v78 = 0;
-      v79 = 0;
-      Size = 0LL;
-      Object = PiDmGetObject(6LL, (__int64)a2, &Size);
+      v98 = 0;
+      v99 = 0;
+      v100 = 0;
+      v88 = 0LL;
+      Object = PiDmGetObject(6LL, a2, &v88);
       if ( Object < 0 )
-        goto LABEL_167;
-      v65 = (__int64 *)Size;
-      DestinationString.Buffer = *(wchar_t **)(a6 + 24);
-      v75 = *(_QWORD *)(a6 + 32);
-      *(_QWORD *)&DestinationString.Length = a1;
+        goto LABEL_179;
+      v68 = v88;
+      v96[1] = *(_QWORD *)(a6 + 24);
+      v96[2] = *(_QWORD *)(a6 + 32);
+      v96[0] = a1;
       do
       {
-        v76 = 0;
+        v97 = 0;
         Object = PiDmListEnumObjectsWithCallback(
                    6,
-                   v65,
+                   (ULONG_PTR)v68,
                    (__int64 (__fastcall *)(_QWORD, __int64, char *))PiPnpRtlEnumDevicesCallback,
-                   (__int64)&DestinationString);
+                   (__int64)v96);
       }
-      while ( Object >= 0 && v76 );
+      while ( Object >= 0 && v97 );
     }
-    if ( v65 )
-      PiDmObjectRelease((char *)v65);
-LABEL_167:
+    if ( v68 )
+      PiDmObjectRelease(v68);
+LABEL_179:
     *(_DWORD *)a6 = Object;
     return (unsigned int)-1073741536;
   }
@@ -278,20 +303,20 @@ LABEL_167:
     {
       if ( *(int *)a6 < 0 )
         return 0;
-      *(_QWORD *)&Guid.Data1 = 0LL;
-      Size = 0LL;
+      P = 0LL;
+      v78 = 0LL;
       v37 = 0LL;
-      v72[0] = 0;
-      v38 = PiDmGetObject(5LL, (__int64)a2, &Guid);
-      v39 = *(char **)&Guid.Data1;
+      v72 = 0;
+      v38 = PiDmGetObject(5LL, a2, &P);
+      v39 = P;
       if ( v38 >= 0 )
       {
-        v40 = PiDmGetObject(1LL, *(_QWORD *)(a6 + 24), &Size);
-        v37 = Size;
+        v40 = PiDmGetObject(1LL, *(_QWORD *)(a6 + 24), &v78);
+        v37 = v78;
         if ( v40 >= 0 )
         {
-          PiDmListAddObject(4LL, v39, Size, v72);
-          if ( !v72[0] )
+          PiDmListAddObject(4LL, v39, v78, &v72);
+          if ( !v72 )
             PiDmListAddList(v41, v39, v42, v37);
         }
       }
@@ -300,24 +325,24 @@ LABEL_167:
     {
       if ( a3 != 6 || *(int *)a6 < 0 )
         return 0;
-      *(_QWORD *)&Guid.Data1 = 0LL;
-      Size = 0LL;
+      v86 = 0LL;
+      v79 = 0LL;
       v37 = 0LL;
-      v62 = PiDmGetObject(6LL, (__int64)a2, &Guid);
-      v39 = *(char **)&Guid.Data1;
-      if ( v62 >= 0 )
+      v65 = PiDmGetObject(6LL, a2, &v86);
+      v39 = v86;
+      if ( v65 >= 0 )
       {
-        v63 = PiDmGetObject(1LL, *(_QWORD *)(a6 + 24), &Size);
-        v37 = Size;
-        if ( v63 >= 0 )
-          PiDmListAddObject(6LL, v39, Size, v72);
+        v66 = PiDmGetObject(1LL, *(_QWORD *)(a6 + 24), &v79);
+        v37 = v79;
+        if ( v66 >= 0 )
+          PiDmListAddObject(6LL, v39, v79, &v74);
       }
     }
     if ( v39 )
       PiDmObjectRelease(v39);
     if ( !v37 )
       return 0;
-    goto LABEL_92;
+    goto LABEL_98;
   }
   v10 = a4 - 2;
   if ( !v10 )
@@ -335,22 +360,19 @@ LABEL_167:
       PiDmRemoveCacheReferenceForObject(v35, v36);
       return 0;
     }
-    Size = 0LL;
-    v43 = CmMapCmObjectTypeToPnpObjectType(a3);
-    if ( (int)PiDmGetObject(v43, v44, &Size) < 0 )
+    v84 = 0LL;
+    v43 = (unsigned int)CmMapCmObjectTypeToPnpObjectType(a3);
+    if ( (int)PiDmGetObject(v43, v44, &v84) < 0 )
       return 0;
-    CurrentThread = KeGetCurrentThread();
-    v37 = Size;
-    --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx(v37, 0LL);
-    v46 = *(_DWORD *)(v37 + 32);
-    *(_DWORD *)(v37 + 32) = v46 | 1;
-    ExReleasePushLockEx((__int64 *)v37, 0LL);
-    KeLeaveCriticalRegion();
-    if ( (v46 & 1) != 0 )
-      PiDmRemoveCacheReferenceForObject(v43, a2);
-LABEL_92:
-    PiDmObjectRelease((char *)v37);
+    v37 = v84;
+    KsepCacheLock(v84);
+    v45 = v37[8];
+    v37[8] = v45 | 1;
+    PiDmObjectReleaseLock(v37);
+    if ( (v45 & 1) != 0 )
+      PiDmRemoveCacheReferenceForObject((unsigned int)v43, a2);
+LABEL_98:
+    PiDmObjectRelease(v37);
     return 0;
   }
   v11 = v10 - 1;
@@ -360,109 +382,116 @@ LABEL_92:
     {
       if ( a3 == 1 )
       {
-        v51 = *(WCHAR **)(a6 + 8);
+        v48 = *(_QWORD *)(a6 + 8);
         DestinationString = 0LL;
         Guid = 0LL;
-        RtlInitUnicodeString(&DestinationString, v51 + 2);
+        RtlInitUnicodeString(&DestinationString, (PCWSTR)(v48 + 4));
         if ( RtlGUIDFromString(&DestinationString, &Guid) < 0 )
           Guid = 0LL;
         if ( *(int *)a6 < 0 )
         {
-          if ( (byte_140C0E20A & 0x10) != 0 )
+          if ( (byte_140C1327A & 0x10) != 0 )
           {
             IsNullGuid = PnpIsNullGuid(&Guid);
             McTemplateK0zjdd_EtwWriteTransfer(
               (unsigned int)-!IsNullGuid,
-              (const EVENT_DESCRIPTOR *)KMPnPEvt_DeviceDelete_Failure,
-              v55,
+              (__int64)KMPnPEvt_DeviceDelete_Failure,
+              v62,
               a2,
               (unsigned __int64)&Guid & -(__int64)!IsNullGuid,
-              *(_DWORD *)v51,
+              *(_DWORD *)v48,
               *(_DWORD *)a6);
           }
         }
-        else if ( (byte_140C0E20A & 8) != 0 )
+        else if ( (byte_140C1327A & 8) != 0 )
         {
-          v52 = PnpIsNullGuid(&Guid);
+          v49 = PnpIsNullGuid(&Guid);
           McTemplateK0zjdd_EtwWriteTransfer(
-            (unsigned int)-!v52,
-            (const EVENT_DESCRIPTOR *)KMPnPEvt_DeviceDelete_Success,
-            v53,
+            (unsigned int)-!v49,
+            (__int64)KMPnPEvt_DeviceDelete_Success,
+            v50,
             a2,
-            (unsigned __int64)&Guid & -(__int64)!v52,
-            *(_DWORD *)v51,
+            (unsigned __int64)&Guid & -(__int64)!v49,
+            *(_DWORD *)v48,
             *(_DWORD *)a6);
         }
         if ( *(int *)a6 >= 0 )
         {
-          if ( v51[2] )
+          if ( *(_WORD *)(v48 + 4) )
           {
-            Size = MEMORY[0xFFFFF78000000014];
+            v101 = MEMORY[0xFFFFF78000000014];
             PnpSetObjectProperty(
               a1,
-              (_DWORD)v51 + 4,
+              v48 + 4,
               2,
               0LL,
               (__int64)DEVPKEY_DeviceClass_LastDeleteDate,
               16,
-              (__int64)&Size,
+              (__int64)&v101,
               8,
               0);
           }
-          if ( CmIsRootEnumeratedDevice(a2) )
+          if ( (unsigned __int8)CmIsRootEnumeratedDevice(a2) )
           {
             RtlInitUnicodeString(&DestinationString, a2);
             if ( DestinationString.Length >= 2u )
             {
               if ( *DestinationString.Buffer )
               {
-                v56 = PnpDeviceObjectFromDeviceInstanceWithTag((__int64)&DestinationString, 0x746C6644u);
-                if ( v56 )
+                v63 = PnpDeviceObjectFromDeviceInstanceWithTag(&DestinationString, 1953261124LL);
+                if ( v63 )
                 {
-                  v57 = (_DWORD *)v56[8];
-                  if ( v57 )
-                    *v57 |= 1u;
-                  ObfDereferenceObject(v56);
+                  v64 = *(_DWORD **)(v63 + 64);
+                  if ( v64 )
+                    *v64 |= 1u;
+                  HalPutDmaAdapter((PADAPTER_OBJECT)v63);
                 }
               }
             }
           }
         }
-        if ( v51 )
-          ExFreePoolWithTag(v51, 0x47706E50u);
+        PiPnpRtlFreeDeviceDeleteInfo(v48);
       }
       else if ( a3 == 3 )
       {
-        v58 = *(_QWORD **)(a6 + 8);
-        if ( *(int *)a6 >= 0 && *v58 )
+        v52 = *(_QWORD **)(a6 + 8);
+        if ( *(int *)a6 >= 0 && *v52 )
         {
-          v59 = v58[1];
-          if ( v59 )
-            PiDmListRemoveObject(0LL, v59, *v58, 0LL);
-          v60 = v58[2];
-          if ( v60 )
-            PiDmListRemoveObject(1LL, v60, *v58, 0LL);
-          v61 = v58[3];
-          if ( v61 )
-            PiDmListRemoveObject(2LL, v61, *v58, 0LL);
+          v53 = v52[1];
+          if ( v53 )
+            PiDmListRemoveObject(0LL, v53, *v52, 0LL);
+          v54 = v52[2];
+          if ( v54 )
+            PiDmListRemoveObject(1LL, v54, *v52, 0LL);
+          v55 = v52[3];
+          if ( v55 )
+            PiDmListRemoveObject(2LL, v55, *v52, 0LL);
         }
-        PiPnpRtlFreeInterfaceDeleteInfo(v58);
+        PiPnpRtlFreeInterfaceDeleteInfo(v52);
       }
       return 0;
     }
     if ( a3 == 1 )
     {
-      Size = 0LL;
+      v82 = 0LL;
       FilteredDeviceInterfaceList = PiPnpRtlGatherDeviceDeleteInfo(a2);
+      v9 = FilteredDeviceInterfaceList;
+      if ( FilteredDeviceInterfaceList < 0 )
+        goto LABEL_28;
+      v47 = v82;
     }
     else
     {
       if ( a3 != 3 )
         return v9;
-      Size = 0LL;
-      FilteredDeviceInterfaceList = PiPnpRtlGatherInterfaceDeleteInfo(a2, &Size);
+      v83 = 0LL;
+      FilteredDeviceInterfaceList = PiPnpRtlGatherInterfaceDeleteInfo(a2, &v83);
+      v9 = FilteredDeviceInterfaceList;
+      if ( FilteredDeviceInterfaceList < 0 )
+        goto LABEL_28;
+      v47 = v83;
     }
-    goto LABEL_114;
+    goto LABEL_126;
   }
   v12 = v11 - 1;
   if ( !v12 )
@@ -476,7 +505,7 @@ LABEL_92:
                                     *(_QWORD *)(a6 + 32),
                                     *(_DWORD *)(a6 + 40),
                                     *(_QWORD *)(a6 + 48));
-    goto LABEL_30;
+    goto LABEL_27;
   }
   v13 = v12 - 5;
   if ( v13 )
@@ -513,119 +542,107 @@ LABEL_92:
     }
     v9 = 0;
     if ( (*(_DWORD *)(a6 + 44) & 0x20000) != 0
-      || ((v21 = *(_DWORD *)(a6 + 40), Pool2 = 0LL, Guid.Data1 = 0, !v21)
-       || (Pool2 = (void *)ExAllocatePool2(256LL, v21, 1198550608LL)) == 0LL)
+      || ((v20 = *(_DWORD *)(a6 + 40), PoolWithTag = 0LL, v76 = 0, !v20)
+       || (PoolWithTag = ExAllocatePoolWithTag(PagedPool, v20, 0x47706E50u)) == 0LL)
       && *(_DWORD *)(a6 + 40) )
     {
-LABEL_61:
+LABEL_57:
       if ( *(_QWORD *)(a6 + 16) )
       {
-LABEL_62:
+LABEL_58:
         if ( a3 != 1 || *(_DWORD *)(a6 + 24) != 9 )
           return v9;
         v31 = 0LL;
-        Size = 0LL;
+        v81 = 0LL;
         if ( *(_DWORD *)(a6 + 28) == 1
           && *(_DWORD *)(a6 + 40) == 78
           && (unsigned __int8)PnpIsValidGuidString(*(PCWSTR *)(a6 + 32)) )
         {
           v31 = *(_QWORD *)(a6 + 32);
         }
-        FilteredDeviceInterfaceList = PiPnpRtlGatherInstallerClassChangeInfo(a2, v31, &Size);
+        FilteredDeviceInterfaceList = PiPnpRtlGatherInstallerClassChangeInfo(a2, v31, &v81);
         v9 = FilteredDeviceInterfaceList;
         if ( FilteredDeviceInterfaceList >= 0 )
         {
-          *(_QWORD *)(a6 + 8) = Size;
+          *(_QWORD *)(a6 + 8) = v81;
           return v9;
         }
-        goto LABEL_31;
+        goto LABEL_28;
       }
-      v47 = CmMapCmObjectTypeToPnpObjectType(a3);
-      PiPnpRtlCacheObjectBaseKey(a1, a2, v47, v48);
+      v46 = CmMapCmObjectTypeToPnpObjectType(a3);
+      PiPnpRtlCacheObjectBaseKey(a1, a2, v46);
       v27 = (v9 & 0x80000000) != 0;
-LABEL_50:
+LABEL_53:
       if ( v27 )
         return v9;
-      goto LABEL_62;
+      goto LABEL_58;
     }
     LODWORD(Size) = *(_DWORD *)(a6 + 40);
     if ( a3 == 1 )
     {
-      v23 = *(_DWORD *)(a6 + 24);
-      if ( (unsigned int)(v23 - 1) > 0x24 || !CmDevicePropertyRead(a3 - 1, v23) || CmDevicePropertyWrite(v24, v23) )
+      v22 = *(_DWORD *)(a6 + 24);
+      if ( (unsigned int)(v22 - 1) > 0x24 || !CmDevicePropertyRead(a3 - 1, v22) || CmDevicePropertyWrite(v24, v23) )
       {
         DeviceRegProp = CmGetDeviceRegProp(
-                          *(__int64 *)&PiPnpRtlCtx,
-                          (__int64)a2,
+                          PiPnpRtlCtx,
+                          (_DWORD)a2,
                           *(_QWORD *)(a6 + 16),
-                          v23,
-                          (__int64)&Guid,
-                          (__int64)Pool2,
+                          v22,
+                          (__int64)&v76,
+                          (__int64)PoolWithTag,
                           (__int64)&Size,
                           0);
-        goto LABEL_42;
+        goto LABEL_45;
       }
     }
     else
     {
       if ( a3 != 2 )
-        goto LABEL_94;
-      v49 = *(_DWORD *)(a6 + 24);
-      if ( (unsigned int)(v49 - 1) > 0x24 || !CmClassPropertyRead(v49) || CmClassPropertyWrite(v49) )
+      {
+LABEL_78:
+        v9 = 0;
+LABEL_50:
+        if ( PoolWithTag )
+          ExFreePoolWithTag(PoolWithTag, 0x47706E50u);
+        v27 = (v9 & 0x80000000) != 0;
+        if ( v9 )
+          goto LABEL_53;
+        goto LABEL_57;
+      }
+      v60 = *(_DWORD *)(a6 + 24);
+      if ( (unsigned int)(v60 - 1) > 0x24 || !CmClassPropertyRead(v60) || CmClassPropertyWrite(v60) )
       {
         DeviceRegProp = CmGetInstallerClassRegProp(
-                          *(__int64 *)&PiPnpRtlCtx,
-                          (__int64)a2,
+                          PiPnpRtlCtx,
+                          (_DWORD)a2,
                           *(_QWORD *)(a6 + 16),
-                          v49,
-                          (__int64)&Guid,
-                          (__int64)Pool2,
+                          v60,
+                          (__int64)&v76,
+                          (__int64)PoolWithTag,
                           (__int64)&Size);
-LABEL_42:
+LABEL_45:
         v26 = DeviceRegProp;
-        if ( DeviceRegProp >= 0 )
+        if ( (DeviceRegProp < 0
+           || v76 != *(_DWORD *)(a6 + 28)
+           || (_DWORD)Size != *(_DWORD *)(a6 + 40)
+           || memcmp(PoolWithTag, *(const void **)(a6 + 32), (unsigned int)Size))
+          && (v26 != -1073741275 || *(_DWORD *)(a6 + 40))
+          && v26 != -1073741790 )
         {
-          if ( Guid.Data1 != *(_DWORD *)(a6 + 28) || (_DWORD)Size != *(_DWORD *)(a6 + 40) )
-            goto LABEL_93;
-          if ( !memcmp(Pool2, *(const void **)(a6 + 32), (unsigned int)Size) )
-          {
-LABEL_46:
-            *(_DWORD *)a6 = v26;
-            v9 = -1073741536;
-            goto LABEL_47;
-          }
+          goto LABEL_78;
         }
-        if ( v26 == -1073741275 )
-        {
-          if ( !*(_DWORD *)(a6 + 40) )
-            goto LABEL_46;
-LABEL_94:
-          v9 = 0;
-LABEL_47:
-          if ( Pool2 )
-            ExFreePoolWithTag(Pool2, 0x47706E50u);
-          v27 = (v9 & 0x80000000) != 0;
-          if ( v9 )
-            goto LABEL_50;
-          goto LABEL_61;
-        }
-LABEL_93:
-        if ( v26 == -1073741790 )
-          goto LABEL_46;
-        goto LABEL_94;
+LABEL_49:
+        *(_DWORD *)a6 = v26;
+        v9 = -1073741536;
+        goto LABEL_50;
       }
     }
     v26 = -1073741790;
-    goto LABEL_46;
+    goto LABEL_49;
   }
   if ( a5 != 1 )
   {
-    if ( *(int *)a6 < 0 )
-    {
-      if ( *(_DWORD *)a6 == -1073741275 )
-        PiDmObjectUpdateCachedCmProperty(a3, (int)a2, a3, *(_DWORD *)(a6 + 24), 0, 0LL, 0);
-    }
-    else
+    if ( *(int *)a6 >= 0 )
     {
       PiDmObjectUpdateCachedCmProperty(
         a3,
@@ -635,6 +652,10 @@ LABEL_93:
         **(_DWORD **)(a6 + 32),
         *(PCWSTR *)(a6 + 40),
         **(_DWORD **)(a6 + 48));
+    }
+    else if ( *(_DWORD *)a6 == -1073741275 )
+    {
+      PiDmObjectUpdateCachedCmProperty(a3, (int)a2, a3, *(_DWORD *)(a6 + 24), 0, 0LL, 0);
     }
     return 0;
   }
@@ -649,18 +670,18 @@ LABEL_93:
                                   *(_QWORD *)(a6 + 40),
                                   *(_QWORD *)(a6 + 48));
   if ( FilteredDeviceInterfaceList >= 0
-    || FilteredDeviceInterfaceList == -1073741789
     || FilteredDeviceInterfaceList == -1073741275
+    || FilteredDeviceInterfaceList == -1073741789
     || FilteredDeviceInterfaceList == -1073741772 )
   {
-    goto LABEL_31;
+    goto LABEL_28;
   }
   v9 = 0;
 LABEL_14:
   if ( !*(_QWORD *)(a6 + 16) )
   {
     v15 = CmMapCmObjectTypeToPnpObjectType(a3);
-    PiPnpRtlCacheObjectBaseKey(a1, a2, v15, v16);
+    PiPnpRtlCacheObjectBaseKey(a1, a2, v15);
   }
   return v9;
 }

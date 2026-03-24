@@ -1,15 +1,14 @@
 /*
- * XREFs of ?HrInit@CBitmapLock@@QEAAJPEAVIBitmapUnlock@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@_NPEAUIUnknown@@@Z @ 0x18006F31C
+ * XREFs of ?HrInit@CBitmapLock@@QEAAJPEAVIBitmapUnlock@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@_NPEAUIUnknown@@@Z @ 0x18003C05C
  * Callers:
- *     ?LockForRead@CD2DBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x180020D10 (-LockForRead@CD2DBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@.c)
- *     ?LockForRead@CSecondarySysmemBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x18006D370 (-LockForRead@CSecondarySysmemBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@Rec.c)
- *     ?HrLock@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@_NPEAUIUnknown@@@Z @ 0x18006EC34 (-HrLock@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@_NP.c)
- *     ?HrInit@CBitmapLockUnaligned@@QEAAJPEAVCBitmap@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@II@Z @ 0x180271E1C (-HrInit@CBitmapLockUnaligned@@QEAAJPEAVCBitmap@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlag.c)
+ *     ?LockForRead@CD2DBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x18003B5E0 (-LockForRead@CD2DBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@.c)
+ *     ?HrLock@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@_NPEAUIUnknown@@@Z @ 0x18003BEE4 (-HrLock@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@_NP.c)
+ *     ?LockForRead@CSecondarySysmemBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x18003D960 (-LockForRead@CSecondarySysmemBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@Rec.c)
+ *     ?HrInit@CBitmapLockUnaligned@@QEAAJPEAVCBitmap@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@II@Z @ 0x18021896C (-HrInit@CBitmapLockUnaligned@@QEAAJPEAVCBitmap@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlag.c)
  * Callees:
- *     ??$SetInterface@UIUnknown@@U1@@@YAXAEAPEAUIUnknown@@PEAU0@@Z @ 0x18006F41C (--$SetInterface@UIUnknown@@U1@@@YAXAEAPEAUIUnknown@@PEAU0@@Z.c)
- *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z @ 0x180070044 (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z @ 0x18003C160 (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBitmapLock::HrInit(
@@ -27,7 +26,7 @@ __int64 __fastcall CBitmapLock::HrInit(
 {
   int v15; // eax
   unsigned int v16; // ecx
-  unsigned int v17; // edi
+  unsigned int v17; // esi
 
   v15 = HrCheckBufferSize((enum DXGI_FORMAT)*(_DWORD *)a5, a6, a3, a4, a7);
   v17 = v15;
@@ -37,20 +36,22 @@ __int64 __fastcall CBitmapLock::HrInit(
   }
   else
   {
-    *((_BYTE *)this + 73) = a10;
-    *((_BYTE *)this + 72) = 1;
-    SetInterface<IUnknown,IUnknown>((char *)this + 80, a11);
-    *((_DWORD *)this + 22) = a3;
-    *((_DWORD *)this + 23) = a4;
-    *(_QWORD *)((char *)this + 100) = *(_QWORD *)a5;
-    *((_DWORD *)this + 27) = *((_DWORD *)a5 + 2);
-    *((_QWORD *)this + 14) = a8;
-    *((_DWORD *)this + 24) = a6;
-    *((_DWORD *)this + 30) = a7;
-    *((_QWORD *)this + 17) = a2;
+    *((_BYTE *)this + 81) = a10;
+    *((_BYTE *)this + 80) = 1;
+    *((_QWORD *)this + 11) = a11;
+    if ( a11 )
+      ((void (__fastcall *)(struct IUnknown *))a11->lpVtbl->AddRef)(a11);
+    *((_DWORD *)this + 24) = a3;
+    *((_DWORD *)this + 25) = a4;
+    *(_QWORD *)((char *)this + 108) = *(_QWORD *)a5;
+    *((_DWORD *)this + 29) = *((_DWORD *)a5 + 2);
+    *((_QWORD *)this + 15) = a8;
+    *((_DWORD *)this + 26) = a6;
+    *((_DWORD *)this + 32) = a7;
+    *((_QWORD *)this + 18) = a2;
     if ( a2 )
       (*(void (__fastcall **)(struct IBitmapUnlock *))(*(_QWORD *)a2 + 8LL))(a2);
-    *((_DWORD *)this + 32) = a9;
+    *((_DWORD *)this + 34) = a9;
   }
   return v17;
 }

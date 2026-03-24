@@ -1,31 +1,33 @@
 /*
- * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_DDISPLAY_ENUM_TARGET@@$00@@QEAAPEAU_D3DKMT_DDISPLAY_ENUM_TARGET@@I@Z @ 0x1C017F62C
+ * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_DDISPLAY_ENUM_TARGET@@$00@@QEAAPEAU_D3DKMT_DDISPLAY_ENUM_TARGET@@I@Z @ 0x1C0166280
  * Callers:
- *     DxgkDDisplayEnumInternal @ 0x1C017EB50 (DxgkDDisplayEnumInternal.c)
+ *     DxgkDDisplayEnumInternal @ 0x1C013A870 (DxgkDDisplayEnumInternal.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
-__int64 __fastcall PagedPoolZeroedArray<_D3DKMT_DDISPLAY_ENUM_TARGET,1>::AllocateElements(__int64 *a1, unsigned int a2)
+PVOID __fastcall PagedPoolZeroedArray<_D3DKMT_DDISPLAY_ENUM_TARGET,1>::AllocateElements(_DWORD *a1, unsigned int a2)
 {
-  __int64 result; // rax
-  void *v5; // rcx
+  __int64 v4; // rdi
+  PVOID result; // rax
 
+  v4 = a2;
   if ( a2 <= 1 )
   {
-    v5 = a1 + 1;
-    *a1 = (__int64)v5;
-    if ( a2 )
-      memset(v5, 0, 1076LL * a2);
-    goto LABEL_4;
+    result = a1 + 2;
   }
-  if ( 0xFFFFFFFFFFFFFFFFuLL / a2 >= 0x434 )
+  else
   {
-    *a1 = ExAllocatePool2(256LL, 1076LL * a2, 1265072196LL);
-LABEL_4:
-    result = *a1;
-    *((_DWORD *)a1 + 271) = a2;
-    return result;
+    if ( 0xFFFFFFFFFFFFFFFFuLL / a2 < 0x434 )
+      return 0LL;
+    result = ExAllocatePoolWithTag(PagedPool, 1076LL * a2, 0x4B677844u);
   }
-  return 0LL;
+  *(_QWORD *)a1 = result;
+  a1[271] = a2;
+  if ( result )
+  {
+    memset(result, 0, 1076 * v4);
+    return *(PVOID *)a1;
+  }
+  return result;
 }

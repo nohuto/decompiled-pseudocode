@@ -1,12 +1,12 @@
 /*
- * XREFs of CmGetVisibleSubkeyCount @ 0x14067E8E0
+ * XREFs of CmGetVisibleSubkeyCount @ 0x14066B1EC
  * Callers:
- *     CmDeleteKey @ 0x14067E1BC (CmDeleteKey.c)
- *     CmpQueryKeyDataFromCache @ 0x1406A4E90 (CmpQueryKeyDataFromCache.c)
- *     CmpQueryKeyDataFromNode @ 0x1407C3490 (CmpQueryKeyDataFromNode.c)
+ *     CmpQueryKeyDataFromCache @ 0x14066A75C (CmpQueryKeyDataFromCache.c)
+ *     CmpQueryKeyDataFromNode @ 0x14066AB20 (CmpQueryKeyDataFromNode.c)
+ *     CmDeleteKey @ 0x14066B9F4 (CmDeleteKey.c)
  * Callees:
- *     CmEqualTrans @ 0x140721FD0 (CmEqualTrans.c)
- *     CmListGetNextElement @ 0x140AB4218 (CmListGetNextElement.c)
+ *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
+ *     CmEqualTrans @ 0x14071D970 (CmEqualTrans.c)
  */
 
 __int64 __fastcall CmGetVisibleSubkeyCount(__int64 a1, __int64 a2, __int64 a3)
@@ -14,30 +14,29 @@ __int64 __fastcall CmGetVisibleSubkeyCount(__int64 a1, __int64 a2, __int64 a3)
   unsigned int v4; // ebx
   __int64 v6; // rbp
   __int64 NextElement; // rax
-  __int64 v8; // r8
-  __int64 v9; // rdi
-  int v10; // eax
-  __int64 v11; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v8; // rdi
+  int v9; // eax
+  __int64 v10; // [rsp+30h] [rbp+8h] BYREF
 
   v4 = *(_DWORD *)(a2 + 20) + *(_DWORD *)(a2 + 24);
-  v11 = 0LL;
+  v10 = 0LL;
   if ( a1 && a3 )
   {
     v6 = a1 + 208;
     while ( 1 )
     {
-      NextElement = CmListGetNextElement(v6, &v11, 32LL);
-      v9 = NextElement;
+      NextElement = CmListGetNextElement(v6, &v10, 32LL);
+      v8 = NextElement;
       if ( !NextElement )
         break;
-      if ( (unsigned __int8)CmEqualTrans(*(_QWORD *)(NextElement + 56), a3, v8) )
+      if ( (unsigned __int8)CmEqualTrans(*(_QWORD *)(NextElement + 56), a3) )
       {
-        v10 = *(_DWORD *)(v9 + 68);
-        if ( v10 == 1 )
+        v9 = *(_DWORD *)(v8 + 68);
+        if ( v9 == 1 )
         {
           ++v4;
         }
-        else if ( v10 == 3 )
+        else if ( v9 == 3 )
         {
           --v4;
         }

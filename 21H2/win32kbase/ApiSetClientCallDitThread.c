@@ -1,86 +1,56 @@
 /*
- * XREFs of ApiSetClientCallDitThread @ 0x1C0035488
+ * XREFs of ApiSetClientCallDitThread @ 0x1C004399C
  * Callers:
- *     ?SpeedHitTest@CSpatialProcessor@@SA?AVCInputDest@@PEAU_InputHitTestRequest@@PEAU_InputHitTestResult@@@Z @ 0x1C0034E2C (-SpeedHitTest@CSpatialProcessor@@SA-AVCInputDest@@PEAU_InputHitTestRequest@@PEAU_InputHitTestRes.c)
+ *     ?HitTest@CSpatialProcessor@@QEAA?AVCInputDest@@PEAU_InputHitTestData@@W4DIT_HITTESTATTRIBUTES@@KPEAI@Z @ 0x1C0043A84 (-HitTest@CSpatialProcessor@@QEAA-AVCInputDest@@PEAU_InputHitTestData@@W4DIT_HITTESTATTRIBUTES@@K.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C0037FE8 (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
- *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C0038050 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C00413C0 (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C00414F4 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall ApiSetClientCallDitThread(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall ApiSetClientCallDitThread(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  int (*v3)(struct _InputHitTestRequest *, struct _InputHitTestResult *); // r14
-  unsigned int v4; // edi
-  __int64 v5; // rsi
-  __int64 v6; // rbp
-  PDEVICE_OBJECT v7; // rcx
-  char v8; // bl
-  void *v9; // r9
-  void *v11; // r8
-  __int64 v12; // [rsp+70h] [rbp+8h] BYREF
+  int (*v4)(struct _InputHitTestRequest *, struct _InputHitTestResult *); // rbp
+  unsigned int v5; // ebx
+  __int64 v7; // rsi
+  int v8; // eax
+  __int64 *v10; // [rsp+60h] [rbp+8h] BYREF
 
-  v12 = a1;
-  v3 = CSpatialProcessor::_spfnInputHitTestCallback;
-  v4 = 0;
-  v5 = a3;
-  v6 = a2;
-  v7 = WPP_GLOBAL_Control;
-  v8 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  v10 = a1;
+  v4 = CSpatialProcessor::_spfnInputHitTestCallback;
+  v5 = 0;
+  v7 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(a3) = 0;
-  }
-  v9 = &WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids;
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
-      10,
-      236,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
-  if ( qword_1C029D2B0 && (int)qword_1C029D2B0(v7, a2, a3, v9) >= 0 )
-  {
-    InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(
-      (InputTraceLogging::ThreadLockedPerfRegion *)&v12,
-      "HitTestCallout",
-      0LL);
-    if ( qword_1C029D2B8 )
-      v4 = qword_1C029D2B8(v3, v6, v5);
-    InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)&v12);
-  }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-  {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v8 = 0;
-  if ( (_BYTE)a2 || v8 )
-  {
-    v11 = &WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids;
-    LOBYTE(v11) = v8;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
       a2,
-      (_DWORD)v11,
-      WPP_GLOBAL_Control->DeviceExtension,
-      5,
       10,
-      237,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
+      224,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
-  return v4;
+  if ( qword_1C0258658 )
+    v8 = qword_1C0258658();
+  else
+    v8 = -1073741637;
+  if ( v8 >= 0 )
+  {
+    InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(&v10, "HitTestCallout", 0LL, a4);
+    if ( qword_1C0258660 )
+      v5 = qword_1C0258660(v4, v7, a3);
+    InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)&v10);
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      225,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  return v5;
 }

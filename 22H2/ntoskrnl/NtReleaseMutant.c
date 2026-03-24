@@ -1,75 +1,71 @@
 /*
- * XREFs of NtReleaseMutant @ 0x1407AF880
+ * XREFs of NtReleaseMutant @ 0x140663B70
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeReleaseMutantEx @ 0x14040FD6C (KeReleaseMutantEx.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ExpReleaseCrossVmMutant @ 0x140A0600C (ExpReleaseCrossVmMutant.c)
+ *     KeReleaseMutant @ 0x1402C2B40 (KeReleaseMutant.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ExpReleaseCrossVmMutant @ 0x14095C9CC (ExpReleaseCrossVmMutant.c)
  */
 
-__int64 __fastcall NtReleaseMutant(HANDLE Handle, _DWORD *a2)
+__int64 __fastcall NtReleaseMutant(HANDLE Handle, LONG *a2)
 {
-  KPROCESSOR_MODE PreviousMode; // r14
-  __int64 v5; // rcx
-  NTSTATUS v6; // eax
-  NTSTATUS v7; // ebx
-  PVOID v8; // rdi
-  NTSTATUS v9; // eax
-  PVOID Object; // [rsp+68h] [rbp+10h] BYREF
-  int v12; // [rsp+70h] [rbp+18h] BYREF
-  PVOID v13; // [rsp+78h] [rbp+20h]
+  KPROCESSOR_MODE PreviousMode; // r15
+  NTSTATUS v5; // eax
+  NTSTATUS v6; // ebx
+  struct _DMA_ADAPTER *v7; // rdi
+  LONG v8; // eax
+  __int64 v10; // rcx
+  PVOID v11; // [rsp+40h] [rbp-48h] BYREF
+  PVOID v12; // [rsp+48h] [rbp-40h]
+  LONG v13; // [rsp+98h] [rbp+10h] BYREF
+  NTSTATUS v14; // [rsp+A0h] [rbp+18h]
+  PVOID Object; // [rsp+A8h] [rbp+20h] BYREF
 
-  v12 = 0;
+  v13 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( a2 && PreviousMode )
   {
-    v5 = 0x7FFFFFFF0000LL;
+    v10 = 0x7FFFFFFF0000LL;
     if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v5 = (__int64)a2;
-    *(_DWORD *)v5 = *(_DWORD *)v5;
+      v10 = (__int64)a2;
+    *(_DWORD *)v10 = *(_DWORD *)v10;
   }
   Object = 0LL;
-  v6 = ObReferenceObjectByHandle(Handle, 0, ExMutantObjectType, PreviousMode, &Object, 0LL);
-  v7 = v6;
-  v8 = Object;
-  v13 = Object;
-  LODWORD(Object) = v6;
-  if ( v6 < 0 )
+  v5 = ObReferenceObjectByHandle(Handle, 0, ExMutantObjectType, PreviousMode, &Object, 0LL);
+  v6 = v5;
+  v7 = (struct _DMA_ADAPTER *)Object;
+  v12 = Object;
+  v14 = v5;
+  if ( v5 < 0 )
   {
-    if ( v6 == -1073741788 )
+    if ( v5 == -1073741788 )
     {
       if ( ExCrossVmMutantObjectType )
       {
-        Object = 0LL;
-        v7 = ObReferenceObjectByHandle(Handle, 0, ExCrossVmMutantObjectType, PreviousMode, &Object, 0LL);
-        v8 = Object;
-        v13 = Object;
-        LODWORD(Object) = v7;
-        if ( v7 >= 0 )
+        v11 = 0LL;
+        v6 = ObReferenceObjectByHandle(Handle, 0, ExCrossVmMutantObjectType, PreviousMode, &v11, 0LL);
+        v7 = (struct _DMA_ADAPTER *)v11;
+        v12 = v11;
+        v14 = v6;
+        if ( v6 >= 0 )
         {
-          v7 = ExpReleaseCrossVmMutant(v8, &v12);
-          LODWORD(Object) = v7;
+          v6 = ExpReleaseCrossVmMutant(v11, &v13);
+          v14 = v6;
         }
       }
     }
+    v8 = v13;
   }
   else
   {
-    v9 = KeReleaseMutantEx((ULONG_PTR)v8, 1u, 0, &v12);
-    v7 = v9;
-    LODWORD(Object) = v9;
-    if ( v9 == 128 || v9 == -1073741754 )
-    {
-LABEL_18:
-      ObfDereferenceObject(v8);
-      return (unsigned int)v7;
-    }
+    v8 = KeReleaseMutant((PRKMUTANT)Object, 1, 0, 0);
+    v13 = v8;
   }
-  if ( v7 >= 0 && a2 )
-    *a2 = v12;
-  if ( v8 )
-    goto LABEL_18;
-  return (unsigned int)v7;
+  if ( v6 >= 0 && a2 )
+    *a2 = v8;
+  if ( v7 )
+    HalPutDmaAdapter(v7);
+  return (unsigned int)v6;
 }

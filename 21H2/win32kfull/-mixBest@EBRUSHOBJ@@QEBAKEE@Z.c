@@ -1,10 +1,10 @@
 /*
- * XREFs of ?mixBest@EBRUSHOBJ@@QEBAKEE@Z @ 0x1C0134A78
+ * XREFs of ?mixBest@EBRUSHOBJ@@QEBAKEE@Z @ 0x1C0147690
  * Callers:
- *     NtGdiFillRgn @ 0x1C012E830 (NtGdiFillRgn.c)
- *     NtGdiFrameRgn @ 0x1C0132220 (NtGdiFrameRgn.c)
- *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C0134298 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
- *     NtGdiExtFloodFill @ 0x1C02B8670 (NtGdiExtFloodFill.c)
+ *     NtGdiFrameRgn @ 0x1C013EC70 (NtGdiFrameRgn.c)
+ *     NtGdiFillRgn @ 0x1C0146850 (NtGdiFillRgn.c)
+ *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C0146E94 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
+ *     NtGdiExtFloodFill @ 0x1C02BA3E0 (NtGdiExtFloodFill.c)
  * Callees:
  *     <none>
  */

@@ -4,12 +4,12 @@
  *     ExInitSystemPhase2 @ 0x1409D56E8 (ExInitSystemPhase2.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     wcsncmp @ 0x1401977E0 (wcsncmp.c)
- *     wcscat_s @ 0x14019BC00 (wcscat_s.c)
- *     wcscpy_s @ 0x14019BCA0 (wcscpy_s.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     wcsncmp @ 0x140197800 (wcsncmp.c)
+ *     wcscat_s @ 0x14019BC20 (wcscat_s.c)
+ *     wcscpy_s @ 0x14019BCC0 (wcscpy_s.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     NtNotifyChangeKey @ 0x1405CF350 (NtNotifyChangeKey.c)
@@ -17,9 +17,9 @@
  *     NtOpenKey @ 0x1405E04C0 (NtOpenKey.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     NtQueryKey @ 0x14063FBB0 (NtQueryKey.c)
- *     NtQueryValueKey @ 0x140640360 (NtQueryValueKey.c)
- *     ExpGetNtProductTypeFromLicenseValue @ 0x1407562A4 (ExpGetNtProductTypeFromLicenseValue.c)
+ *     NtQueryKey @ 0x14063FB90 (NtQueryKey.c)
+ *     NtQueryValueKey @ 0x140640340 (NtQueryValueKey.c)
+ *     ExpGetNtProductTypeFromLicenseValue @ 0x140756284 (ExpGetNtProductTypeFromLicenseValue.c)
  *     ExpUpdateProductSuiteTypeInRegistry @ 0x1409D5BCC (ExpUpdateProductSuiteTypeInRegistry.c)
  *     ExpLicenseWatchInitWorker @ 0x1409D5E88 (ExpLicenseWatchInitWorker.c)
  */
@@ -114,8 +114,8 @@ char __fastcall ExpWatchProductTypeInitialization(__int64 a1)
     ExpControlKey = v4;
     return 1;
   }
-  qword_140409AD0 = (__int64)ExpWatchProductTypeWork;
-  qword_140409AD8 = 0LL;
+  qword_140409AB0 = (__int64)ExpWatchProductTypeWork;
+  qword_140409AB8 = 0LL;
   *(_QWORD *)ExpWatchProductTypeWorkItem = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\ProductOptions");
   ObjectAttributes.Length = 48;
@@ -139,7 +139,7 @@ char __fastcall ExpWatchProductTypeInitialization(__int64 a1)
         KeBugCheckEx(0x9Au, 0xCuLL, (unsigned int)v8, 0LL, 0LL);
     }
     ExpControlKey = v4;
-    qword_140409A98 = v1;
+    qword_140409A48 = v1;
     ExpUpdateProductSuiteTypeInRegistry();
     RtlInitUnicodeString(&ValueName, L"ProductType");
     PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x22uLL, 0x2079654Bu);

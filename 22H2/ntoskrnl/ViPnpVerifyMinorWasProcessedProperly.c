@@ -1,179 +1,128 @@
 /*
- * XREFs of ViPnpVerifyMinorWasProcessedProperly @ 0x140AE8430
+ * XREFs of ViPnpVerifyMinorWasProcessedProperly @ 0x1409E3050
  * Callers:
- *     VfPnpVerifyIrpStackDownward @ 0x140AE7FB0 (VfPnpVerifyIrpStackDownward.c)
- *     VfPnpVerifyIrpStackUpward @ 0x140AE8140 (VfPnpVerifyIrpStackUpward.c)
+ *     VfPnpVerifyIrpStackDownward @ 0x1409E2BF0 (VfPnpVerifyIrpStackDownward.c)
+ *     VfPnpVerifyIrpStackUpward @ 0x1409E2D80 (VfPnpVerifyIrpStackUpward.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     MmIsNonPagedSystemAddressValid @ 0x14046B520 (MmIsNonPagedSystemAddressValid.c)
- *     IovUtilMarkDeviceObject @ 0x1405CFD70 (IovUtilMarkDeviceObject.c)
- *     ViErrorReport1 @ 0x1405CFEB4 (ViErrorReport1.c)
- *     ViErrorReport10 @ 0x1405CFF38 (ViErrorReport10.c)
- *     IovUtilGetBottomDeviceObjectWithTag @ 0x140AD3A00 (IovUtilGetBottomDeviceObjectWithTag.c)
- *     IovUtilIsDeviceObjectMarked @ 0x140AD3B14 (IovUtilIsDeviceObjectMarked.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x140536AD0 (MmIsNonPagedSystemAddressValid.c)
+ *     IovUtilMarkDeviceObject @ 0x1405A1CBC (IovUtilMarkDeviceObject.c)
+ *     ViErrorReport10 @ 0x1405A1EDC (ViErrorReport10.c)
+ *     IovUtilGetBottomDeviceObjectWithTag @ 0x1409D6948 (IovUtilGetBottomDeviceObjectWithTag.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x1409D6A5C (IovUtilIsDeviceObjectMarked.c)
+ *     VfErrorReport1 @ 0x1409D8018 (VfErrorReport1.c)
  */
 
 char __fastcall ViPnpVerifyMinorWasProcessedProperly(__int64 a1, __int64 a2, int a3, int a4, const void *a5, int a6)
 {
-  _UNKNOWN **v6; // rax
-  unsigned int v7; // r10d
-  unsigned int v10; // r10d
-  unsigned int v11; // r10d
-  unsigned int v12; // r10d
-  unsigned int v13; // r10d
-  unsigned int v14; // r10d
-  unsigned int v15; // r10d
-  unsigned int v16; // ecx
-  _DWORD *v17; // rdi
-  int v18; // ecx
-  int v19; // ecx
-  int v20; // ecx
+  int IsDeviceObjectMarked; // eax
+  unsigned int v9; // ecx
+  _DWORD *v10; // rdi
   __int64 i; // rsi
-  _QWORD *v22; // rbp
+  _QWORD *v12; // rbp
   _QWORD *BottomDeviceObjectWithTag; // r15
-  unsigned int v24; // ecx
-  unsigned int v25; // r10d
-  unsigned int v26; // r10d
-  unsigned int v27; // r10d
-  unsigned int v28; // r10d
-  unsigned int v29; // r10d
-  unsigned int v30; // r10d
-  unsigned int v31; // r10d
-  int v32; // ecx
-  int v33; // ecx
-  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
+  unsigned int v14; // ecx
 
-  v6 = &retaddr;
-  v7 = *(unsigned __int8 *)(a2 + 1);
-  if ( v7 > 0xA )
+  LOBYTE(IsDeviceObjectMarked) = *(_BYTE *)(a2 + 1);
+  if ( (unsigned __int8)IsDeviceObjectMarked > 0xCu )
   {
-    v25 = v7 - 11;
-    if ( v25 )
+    if ( (unsigned __int8)IsDeviceObjectMarked < 0xFu )
+      return IsDeviceObjectMarked;
+    if ( (unsigned __int8)IsDeviceObjectMarked > 0x12u )
     {
-      v26 = v25 - 1;
-      if ( v26 )
+      if ( (_BYTE)IsDeviceObjectMarked == 19 )
       {
-        v27 = v26 - 3;
-        if ( v27 )
-        {
-          v28 = v27 - 1;
-          if ( v28 )
-          {
-            v29 = v28 - 1;
-            if ( v29 )
-            {
-              v30 = v29 - 1;
-              if ( v30 )
-              {
-                v31 = v30 - 1;
-                if ( v31 )
-                {
-                  if ( v31 != 2 )
-                    return (char)v6;
-                }
-                else
-                {
-                  v32 = *(_DWORD *)(a2 + 8);
-                  if ( v32 )
-                  {
-                    v33 = v32 - 1;
-                    if ( v33 )
-                    {
-                      if ( (unsigned int)(v33 - 1) > 1 )
-                        return (char)v6;
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
+        if ( *(_DWORD *)(a2 + 8) > 3u )
+          return IsDeviceObjectMarked;
+      }
+      else if ( (_BYTE)IsDeviceObjectMarked != 21 )
+      {
+        return IsDeviceObjectMarked;
       }
     }
-    goto LABEL_54;
+    goto LABEL_41;
   }
-  if ( v7 == 10 )
+  if ( (unsigned __int8)IsDeviceObjectMarked >= 0xAu )
   {
-LABEL_54:
+LABEL_41:
     if ( !a3 || a4 != 2 )
-      return (char)v6;
-    v24 = 536;
-LABEL_57:
-    LOBYTE(v6) = ViErrorReport1(v24, a5, (const void *)a1);
-    return (char)v6;
+      return IsDeviceObjectMarked;
+    v14 = 536;
+LABEL_44:
+    LOBYTE(IsDeviceObjectMarked) = VfErrorReport1(v14, a5, (const void *)a1);
+    return IsDeviceObjectMarked;
   }
-  if ( !*(_BYTE *)(a2 + 1) )
-    goto LABEL_39;
-  v10 = v7 - 1;
-  if ( !v10 )
-    goto LABEL_39;
-  v11 = v10 - 1;
-  if ( !v11 )
+  if ( (unsigned __int8)IsDeviceObjectMarked <= 1u )
+    goto LABEL_32;
+  if ( (_BYTE)IsDeviceObjectMarked == 2 )
   {
     if ( a6 || a4 == 2 )
-      return (char)v6;
-    v24 = 774;
-    goto LABEL_57;
+      return IsDeviceObjectMarked;
+    v14 = 774;
+    goto LABEL_44;
   }
-  v12 = v11 - 1;
-  if ( !v12 || (v13 = v12 - 1) == 0 || (v14 = v13 - 1) == 0 || (v15 = v14 - 1) == 0 )
+  if ( (unsigned __int8)IsDeviceObjectMarked <= 6u )
   {
-LABEL_39:
+LABEL_32:
     if ( a6 || a4 )
-      return (char)v6;
-    v24 = 535;
-    goto LABEL_57;
+      return IsDeviceObjectMarked;
+    v14 = 535;
+    goto LABEL_44;
   }
-  if ( v15 != 1 )
-    return (char)v6;
+  if ( (_BYTE)IsDeviceObjectMarked != 7 )
+    return IsDeviceObjectMarked;
   if ( *(_DWORD *)(a2 + 8) != 4 )
-    goto LABEL_21;
+    goto LABEL_17;
   if ( a3 )
   {
-    if ( a4 != 2 )
-      goto LABEL_21;
-    v16 = 536;
-  }
-  else if ( a4 )
-  {
-    if ( *(int *)(a1 + 48) < 0 || *(_QWORD *)(a1 + 56) )
-      goto LABEL_21;
-    v16 = 555;
+    if ( a4 == 2 )
+    {
+      v9 = 536;
+LABEL_16:
+      VfErrorReport1(v9, a5, (const void *)a1);
+    }
   }
   else
   {
-    v16 = 554;
+    if ( !a4 )
+    {
+      v9 = 554;
+      goto LABEL_16;
+    }
+    if ( *(int *)(a1 + 48) >= 0 && !*(_QWORD *)(a1 + 56) )
+    {
+      v9 = 555;
+      goto LABEL_16;
+    }
   }
-  ViErrorReport1(v16, a5, (const void *)a1);
-LABEL_21:
-  LOBYTE(v6) = VfIoDisabled;
+LABEL_17:
+  LOBYTE(IsDeviceObjectMarked) = VfIoDisabled;
   if ( !VfIoDisabled && *(int *)(a1 + 48) >= 0 )
   {
-    v17 = *(_DWORD **)(a1 + 56);
-    if ( v17 )
+    v10 = *(_DWORD **)(a1 + 56);
+    if ( v10 )
     {
-      v18 = *(_DWORD *)(a2 + 8);
-      if ( !v18 || (v19 = v18 - 1) == 0 || (v20 = v19 - 1) == 0 || (unsigned int)(v20 - 1) <= 1 )
+      if ( *(_DWORD *)(a2 + 8) <= 4u )
       {
-        LOBYTE(v6) = MmIsNonPagedSystemAddressValid(*(PVOID *)(a1 + 56));
-        if ( (_BYTE)v6 )
+        LOBYTE(IsDeviceObjectMarked) = MmIsNonPagedSystemAddressValid(*(PVOID *)(a1 + 56));
+        if ( (_BYTE)IsDeviceObjectMarked )
         {
-          for ( i = 0LL; (unsigned int)i < *v17; i = (unsigned int)(i + 1) )
+          for ( i = 0LL; (unsigned int)i < *v10; i = (unsigned int)(i + 1) )
           {
-            v22 = *(_QWORD **)&v17[2 * i + 2];
-            LODWORD(v6) = IovUtilIsDeviceObjectMarked((__int64)v22, 5);
-            if ( !(_DWORD)v6 )
+            v12 = *(_QWORD **)&v10[2 * i + 2];
+            IsDeviceObjectMarked = IovUtilIsDeviceObjectMarked((__int64)v12, 5);
+            if ( !IsDeviceObjectMarked )
             {
-              BottomDeviceObjectWithTag = IovUtilGetBottomDeviceObjectWithTag(v22);
-              if ( BottomDeviceObjectWithTag != v22 )
-                ViErrorReport10(0x248u, a5, (const void *)a1, v22);
-              IovUtilMarkDeviceObject((__int64)v22, 5LL);
-              LOBYTE(v6) = ObfDereferenceObjectWithTag(BottomDeviceObjectWithTag, 0x49667256u);
+              BottomDeviceObjectWithTag = IovUtilGetBottomDeviceObjectWithTag(v12);
+              if ( BottomDeviceObjectWithTag != v12 )
+                ViErrorReport10(0x248u, a5, (const void *)a1, v12);
+              IovUtilMarkDeviceObject((__int64)v12, 5LL);
+              LOBYTE(IsDeviceObjectMarked) = ObfDereferenceObjectWithTag(BottomDeviceObjectWithTag, 0x49667256u);
             }
           }
         }
       }
     }
   }
-  return (char)v6;
+  return IsDeviceObjectMarked;
 }

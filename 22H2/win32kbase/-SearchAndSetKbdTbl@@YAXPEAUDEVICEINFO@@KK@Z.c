@@ -1,81 +1,49 @@
 /*
- * XREFs of ?SearchAndSetKbdTbl@@YAXPEAUDEVICEINFO@@KK@Z @ 0x1C01E46E8
+ * XREFs of ?SearchAndSetKbdTbl@@YAXPEAUDEVICEINFO@@KK@Z @ 0x1C01AAC50
  * Callers:
- *     ?ProcessInputNoLock@CKeyboardProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYBOARD_INPUT_DATA@@K_NPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@@Z @ 0x1C000242C (-ProcessInputNoLock@CKeyboardProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYB.c)
+ *     ?ProcessInputNoLock@CKeyboardProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYBOARD_INPUT_DATA@@K_NPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@@Z @ 0x1C01A2610 (-ProcessInputNoLock@CKeyboardProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYB.c)
  * Callees:
- *     HMAssignmentLock @ 0x1C004FF50 (HMAssignmentLock.c)
- *     SetGlobalKeyboardTableInfo @ 0x1C0066A24 (SetGlobalKeyboardTableInfo.c)
+ *     SetGlobalKeyboardTableInfo @ 0x1C000A530 (SetGlobalKeyboardTableInfo.c)
+ *     HMAssignmentLock @ 0x1C0031780 (HMAssignmentLock.c)
  */
 
-void __fastcall SearchAndSetKbdTbl(struct DEVICEINFO *a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall SearchAndSetKbdTbl(struct DEVICEINFO *a1, int a2, int a3)
 {
-  unsigned int v4; // ebp
-  unsigned int v5; // r14d
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 *v11; // rdi
-  __int64 v12; // rbx
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // r9
-  __int64 v25; // rdx
-  __int64 v26; // rcx
-  __int64 v27; // r8
-  __int64 v28; // r9
-  __int64 v29; // rax
-  __int64 v30; // rdx
-  __int64 v31; // r8
-  __int64 v32; // r9
-  __int64 *v33[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 *v4; // r9
+  __int64 v5; // rax
+  unsigned int v6; // r8d
+  __int64 v7; // rcx
+  __int64 v8; // r10
+  __int64 v9; // rax
+  __int64 *v10[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v4 = a3;
-  v5 = a2;
-  v10 = *(_QWORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 13896);
-  v11 = *(__int64 **)(v10 + 56);
-  if ( *(_QWORD *)(v11[4] + 96) != __PAIR64__(v4, v5) && (*((_DWORD *)a1 + 46) & 0x20) == 0 )
+  v4 = *(__int64 **)(gpKL + 56);
+  v5 = v4[4];
+  if ( (*(_DWORD *)(v5 + 96) != a2 || *(_DWORD *)(v5 + 100) != a3) && (*((_DWORD *)a1 + 46) & 0x20) == 0 )
   {
-    v12 = 0LL;
-    v14 = *(_QWORD *)(SGDGetUserSessionState(v8, v7, v9, v10) + 13896);
-    if ( *(_DWORD *)(v14 + 88) )
+    v6 = *(_DWORD *)(gpKL + 88);
+    v7 = 0LL;
+    if ( v6 )
     {
+      v8 = *(_QWORD *)(gpKL + 96);
       while ( 1 )
       {
-        v18 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(SGDGetUserSessionState(v14, v13, v15, v16) + 13896) + 96LL) + 8 * v12);
-        if ( *(_DWORD *)(*(_QWORD *)(v18 + 32) + 96LL) == v5 )
-        {
-          v18 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(SGDGetUserSessionState(v18, v17, v19, v20) + 13896) + 96LL) + 8 * v12);
-          if ( *(_DWORD *)(*(_QWORD *)(v18 + 32) + 100LL) == v4 )
-            break;
-        }
-        v12 = (unsigned int)(v12 + 1);
-        v14 = *(_QWORD *)(SGDGetUserSessionState(v18, v17, v19, v20) + 13896);
-        if ( (unsigned int)v12 >= *(_DWORD *)(v14 + 88) )
-          goto LABEL_9;
+        v9 = *(_QWORD *)(*(_QWORD *)(v8 + 8 * v7) + 32LL);
+        if ( *(_DWORD *)(v9 + 96) == a2 && *(_DWORD *)(v9 + 100) == a3 )
+          break;
+        v7 = (unsigned int)(v7 + 1);
+        if ( (unsigned int)v7 >= v6 )
+          goto LABEL_11;
       }
-      v14 = *(_QWORD *)(SGDGetUserSessionState(v18, v17, v19, v20) + 13896);
-      v11 = *(__int64 **)(*(_QWORD *)(v14 + 96) + 8 * v12);
+      v4 = *(__int64 **)(v8 + 8 * v7);
     }
-LABEL_9:
-    SGDGetUserSessionState(v14, v13, v15, v16);
   }
-  v22 = *(_QWORD *)(SGDGetUserSessionState(v8, v7, v9, v10) + 13896);
-  if ( *(__int64 **)(v22 + 48) != v11 )
+LABEL_11:
+  if ( *(__int64 **)(gpKL + 48) != v4 )
   {
-    v33[1] = v11;
-    v33[0] = (__int64 *)(*(_QWORD *)(SGDGetUserSessionState(v22, v21, v23, v24) + 13896) + 48LL);
-    HMAssignmentLock(v33, 0);
-    v29 = SGDGetUserSessionState(v26, v25, v27, v28);
-    SetGlobalKeyboardTableInfo(*(_QWORD *)(v29 + 13896), v30, v31, v32);
+    v10[0] = (__int64 *)(gpKL + 48);
+    v10[1] = v4;
+    HMAssignmentLock(v10);
+    SetGlobalKeyboardTableInfo(gpKL);
   }
 }

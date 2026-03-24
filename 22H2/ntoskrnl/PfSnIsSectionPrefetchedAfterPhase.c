@@ -1,7 +1,7 @@
 /*
- * XREFs of PfSnIsSectionPrefetchedAfterPhase @ 0x14075D254
+ * XREFs of PfSnIsSectionPrefetchedAfterPhase @ 0x140633584
  * Callers:
- *     PfSnGetSectionObject @ 0x14075CEB0 (PfSnGetSectionObject.c)
+ *     PfSnGetSectionObject @ 0x1406331D8 (PfSnGetSectionObject.c)
  * Callees:
  *     <none>
  */

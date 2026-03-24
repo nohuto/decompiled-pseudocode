@@ -1,87 +1,87 @@
 /*
- * XREFs of ?vSpDwmMigrateSpriteLSurfReference@@YAXPEAUHDEV__@@PEAVSFMLOGICALSURFACE@@PEAVSURFACE@@1@Z @ 0x1C02670B0
+ * XREFs of ?vSpDwmMigrateSpriteLSurfReference@@YAXPEAUHDEV__@@PEAVSFMLOGICALSURFACE@@PEAVSURFACE@@1@Z @ 0x1C00147EC
  * Callers:
- *     vSpDwmMigrateSpriteLSurfReferenceWrap @ 0x1C02689D0 (vSpDwmMigrateSpriteLSurfReferenceWrap.c)
+ *     vSpDwmMigrateSpriteLSurfReferenceWrap @ 0x1C0012980 (vSpDwmMigrateSpriteLSurfReferenceWrap.c)
  * Callees:
- *     ?SetShape@SFMLOGICALSURFACE@@QEAAHPEAUHDEV__@@PEAU_SURFOBJ@@@Z @ 0x1C007B180 (-SetShape@SFMLOGICALSURFACE@@QEAAHPEAUHDEV__@@PEAU_SURFOBJ@@@Z.c)
- *     ?SetLogicalSurface@DWMSPRITE@@QEAAXPEAUHDEV__@@PEAVSFMLOGICALSURFACE@@@Z @ 0x1C007C700 (-SetLogicalSurface@DWMSPRITE@@QEAAXPEAUHDEV__@@PEAVSFMLOGICALSURFACE@@@Z.c)
- *     ?StartSfmStateTracking@SFMLOGICALSURFACE@@QEAAXPEAUHDEV__@@PEAUSfmState@@H@Z @ 0x1C00AD880 (-StartSfmStateTracking@SFMLOGICALSURFACE@@QEAAXPEAUHDEV__@@PEAUSfmState@@H@Z.c)
- *     ?GetRedirectionInfo@SFMLOGICALSURFACE@@QEAAXPEAW4_HLSURF_REDIRECTIONSTYLE@@PEAK1PEAPEAXPEAU_LUID@@@Z @ 0x1C00B0400 (-GetRedirectionInfo@SFMLOGICALSURFACE@@QEAAXPEAW4_HLSURF_REDIRECTIONSTYLE@@PEAK1PEAPEAXPEAU_LUID.c)
- *     ?LockSpriteObj@DWMSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z @ 0x1C00C8A3C (-LockSpriteObj@DWMSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z.c)
- *     DwmAsyncUpdateSprite @ 0x1C00D5BA0 (DwmAsyncUpdateSprite.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ @ 0x1C013E508 (--0-$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ.c)
+ *     ?StartSfmStateTracking@SFMLOGICALSURFACE@@QEAAXPEAUHDEV__@@PEAUSfmState@@H@Z @ 0x1C0012998 (-StartSfmStateTracking@SFMLOGICALSURFACE@@QEAAXPEAUHDEV__@@PEAUSfmState@@H@Z.c)
+ *     ?GetRedirectionInfo@SFMLOGICALSURFACE@@QEAAXPEAW4_HLSURF_REDIRECTIONSTYLE@@PEAK1PEAPEAXPEAU_LUID@@@Z @ 0x1C0012A28 (-GetRedirectionInfo@SFMLOGICALSURFACE@@QEAAXPEAW4_HLSURF_REDIRECTIONSTYLE@@PEAK1PEAPEAXPEAU_LUID.c)
+ *     DwmAsyncUpdateSprite @ 0x1C0012AC0 (DwmAsyncUpdateSprite.c)
+ *     ?SetShape@SFMLOGICALSURFACE@@QEAAHPEAUHDEV__@@PEAU_SURFOBJ@@@Z @ 0x1C0015C80 (-SetShape@SFMLOGICALSURFACE@@QEAAHPEAUHDEV__@@PEAU_SURFOBJ@@@Z.c)
+ *     ?SetLogicalSurface@DWMSPRITE@@QEAAXPEAUHDEV__@@PEAVSFMLOGICALSURFACE@@@Z @ 0x1C0016104 (-SetLogicalSurface@DWMSPRITE@@QEAAXPEAUHDEV__@@PEAVSFMLOGICALSURFACE@@@Z.c)
+ *     ?LockSpriteObj@DWMSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z @ 0x1C00BE06C (-LockSpriteObj@DWMSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ @ 0x1C0169E84 (--0-$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ.c)
  */
 
 void __fastcall vSpDwmMigrateSpriteLSurfReference(
         HDEV a1,
-        struct SFMLOGICALSURFACE *this,
+        struct SFMLOGICALSURFACE *a2,
         struct SURFACE *a3,
         struct SFMLOGICALSURFACE *a4)
 {
   HSPRITE v4; // r13
   struct _SURFOBJ *v5; // rsi
-  Gre::Base *v9; // rcx
-  HDEV v10; // rdx
-  DWMSPRITE *v11; // r15
-  HDEV v12; // rdx
-  Gre::Base *v13; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v14; // rax
-  int v15; // eax
-  int v16; // edx
-  __int64 v17; // r14
-  int v18; // esi
-  __int64 v19; // rdi
-  __int64 v20; // rcx
-  int v21; // ebx
-  void *v22; // rax
-  int v23; // [rsp+60h] [rbp-19h] BYREF
-  __int64 v24; // [rsp+68h] [rbp-11h] BYREF
-  _OWORD v25[2]; // [rsp+70h] [rbp-9h] BYREF
-  DWMSPRITE *v26; // [rsp+90h] [rbp+17h]
-  unsigned int v27; // [rsp+E8h] [rbp+6Fh] BYREF
-  unsigned int v28; // [rsp+F0h] [rbp+77h] BYREF
+  HDEV v9; // rdx
+  DWMSPRITE *v10; // r14
+  HDEV v11; // rdx
+  unsigned int v12; // eax
+  int v13; // eax
+  int v14; // edx
+  __int64 v15; // rsi
+  __int64 v16; // r15
+  int v17; // ebx
+  BOOL v18; // edi
+  void *v19; // rax
+  DWMSPRITE *v20; // rax
+  int v21; // [rsp+60h] [rbp-19h] BYREF
+  __int64 v22; // [rsp+68h] [rbp-11h] BYREF
+  _BYTE v23[32]; // [rsp+70h] [rbp-9h] BYREF
+  DWMSPRITE *v24; // [rsp+90h] [rbp+17h]
+  unsigned int v25; // [rsp+E8h] [rbp+6Fh] BYREF
+  unsigned int v26; // [rsp+F0h] [rbp+77h] BYREF
 
-  v4 = (HSPRITE)*((_QWORD *)this + 37);
+  v4 = (HSPRITE)*((_QWORD *)a2 + 37);
   v5 = (struct _SURFOBJ *)((char *)a3 + 24);
-  v28 = 0;
-  v27 = 0;
-  v23 = 0;
-  UnexpectedThreadTerminationHandler<DWMSPRITEREF>::UnexpectedThreadTerminationHandler<DWMSPRITEREF>(v25);
-  v26 = 0LL;
-  DWMSPRITEREF::LockSpriteObj((DWMSPRITEREF *)v25, v4);
-  Gre::Base::Globals(v9);
-  v11 = v26;
-  if ( v26 )
+  v26 = 0;
+  v25 = 0;
+  v21 = 0;
+  UnexpectedThreadTerminationHandler<DWMSPRITEREF>::UnexpectedThreadTerminationHandler<DWMSPRITEREF>(v23);
+  v24 = 0LL;
+  DWMSPRITEREF::LockSpriteObj((DWMSPRITEREF *)v23, v4);
+  v10 = v24;
+  if ( v24 )
   {
-    DWMSPRITE::SetLogicalSurface(v26, v10, 0LL);
-    DWMSPRITE::SetLogicalSurface(v11, v12, a4);
-    SFMLOGICALSURFACE::SetShape(this, a1, 0LL);
+    DWMSPRITE::SetLogicalSurface(v24, v9, 0LL);
+    DWMSPRITE::SetLogicalSurface(v10, v11, a4);
+    SFMLOGICALSURFACE::SetShape(a2, a1, 0LL);
     SFMLOGICALSURFACE::SetShape(a4, a1, v5);
     if ( *((_QWORD *)a4 + 16) )
     {
-      v24 = *((_QWORD *)a4 + 16);
-      RGNOBJ::vSet((RGNOBJ *)&v24);
-      *((_DWORD *)a4 + 63) &= ~2u;
+      v22 = *((_QWORD *)a4 + 16);
+      RGNOBJ::vSet((RGNOBJ *)&v22);
+      v12 = *((_DWORD *)a4 + 63) & 0xFFFFFFFD;
     }
-    *((_DWORD *)a4 + 63) |= 8u;
-    v14 = Gre::Base::Globals(v13);
-    SFMLOGICALSURFACE::StartSfmStateTracking(a4, a1, *((struct SfmState **)v14 + 809));
-    SFMLOGICALSURFACE::GetRedirectionInfo(a4, (enum _HLSURF_REDIRECTIONSTYLE *)&v23, &v28, &v27, 0LL, 0LL);
-    v15 = *((_DWORD *)v11 + 35);
-    v16 = *((_DWORD *)a4 + 63);
-    v17 = *((_QWORD *)v11 + 13);
-    *((_QWORD *)v11 + 13) = 0LL;
-    v18 = *((_DWORD *)v11 + 29);
-    v19 = *(_QWORD *)a4;
-    v20 = v16 & 1;
-    v21 = v15 & 1 | v16 & 0xC | (2 * (v20 | v15 & 0x40 | (4 * (v15 & 0xE))));
-    v22 = (void *)UserReferenceDwmApiPort(v20);
-    DwmAsyncUpdateSprite(v22, (__int64)v4, v19, v21, (__int64)v11 + 72, 0LL, v23, v28, v27, v18 >= 1, v17);
+    else
+    {
+      v12 = *((_DWORD *)a4 + 63);
+    }
+    *((_DWORD *)a4 + 63) = v12 | 8;
+    SFMLOGICALSURFACE::StartSfmStateTracking(a4, a1, gpSfmState);
+    SFMLOGICALSURFACE::GetRedirectionInfo(a4, (enum _HLSURF_REDIRECTIONSTYLE *)&v21, &v26, &v25, 0LL, 0LL);
+    v13 = *((_DWORD *)v10 + 41);
+    v14 = *((_DWORD *)a4 + 63);
+    v15 = *((_QWORD *)v10 + 13);
+    *((_QWORD *)v10 + 13) = 0LL;
+    v16 = *(_QWORD *)a4;
+    v17 = v13 & 1 | v14 & 0xC | (2 * (v14 & 1 | v13 & 0x40 | (4 * (v13 & 0xE))));
+    v18 = *((_DWORD *)v10 + 29) >= 1;
+    v19 = (void *)UserReferenceDwmApiPort();
+    DwmAsyncUpdateSprite(v19, (__int64)v4, v16, v17, (__int64)v10 + 72, 0LL, v21, v26, v25, v18, v15);
+    v20 = v24;
     *((_DWORD *)a4 + 63) &= ~8u;
-    if ( v26 )
-      _InterlockedDecrement((volatile signed __int32 *)v26 + 3);
+    if ( v20 )
+      _InterlockedDecrement((volatile signed __int32 *)v20 + 3);
   }
-  v26 = 0LL;
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v25);
+  v24 = 0LL;
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v23);
 }

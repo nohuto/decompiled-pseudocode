@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01E74A4
+ * XREFs of ?GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01AE14C
  * Callers:
- *     GetAdjustedPointerLocations @ 0x1C00E8EB0 (GetAdjustedPointerLocations.c)
+ *     GetAdjustedPointerLocations @ 0x1C01AE720 (GetAdjustedPointerLocations.c)
  * Callees:
- *     ?GetAdjustedHimetricLong@@YAHJJJPEAJ@Z @ 0x1C01E7590 (-GetAdjustedHimetricLong@@YAHJJJPEAJ@Z.c)
- *     ?GetAdjustedHimetricWithoutRoundTripError@@YAHJJJJJJJPEAJ@Z @ 0x1C01E75EC (-GetAdjustedHimetricWithoutRoundTripError@@YAHJJJJJJJPEAJ@Z.c)
+ *     ?GetAdjustedHimetricLong@@YAHJJJPEAJ@Z @ 0x1C01AE238 (-GetAdjustedHimetricLong@@YAHJJJPEAJ@Z.c)
+ *     ?GetAdjustedHimetricWithoutRoundTripError@@YAHJJJJJJJPEAJ@Z @ 0x1C01AE294 (-GetAdjustedHimetricWithoutRoundTripError@@YAHJJJJJJJPEAJ@Z.c)
  */
 
 __int64 __fastcall GetAdjustedHimetric(

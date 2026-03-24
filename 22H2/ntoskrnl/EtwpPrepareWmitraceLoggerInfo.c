@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpPrepareWmitraceLoggerInfo @ 0x1409EBDC4
+ * XREFs of EtwpPrepareWmitraceLoggerInfo @ 0x14093CC3C
  * Callers:
- *     EtwWmitraceWorker @ 0x1409EBA9C (EtwWmitraceWorker.c)
+ *     EtwWmitraceWorker @ 0x14093C914 (EtwWmitraceWorker.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall EtwpPrepareWmitraceLoggerInfo(_DWORD *a1)

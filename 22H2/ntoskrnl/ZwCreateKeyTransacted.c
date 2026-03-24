@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwCreateKeyTransacted @ 0x14041BD20
+ * XREFs of ZwCreateKeyTransacted @ 0x1403FB020
  * Callers:
- *     DifZwCreateKeyTransactedWrapper @ 0x1405EE980 (DifZwCreateKeyTransactedWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

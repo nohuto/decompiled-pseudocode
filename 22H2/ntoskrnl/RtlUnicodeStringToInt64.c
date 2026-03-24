@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlUnicodeStringToInt64 @ 0x1409BD6D0
+ * XREFs of RtlUnicodeStringToInt64 @ 0x140914FD0
  * Callers:
- *     GetFlags @ 0x1409D3568 (GetFlags.c)
+ *     GetFlags @ 0x140927440 (GetFlags.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     wcstoxq @ 0x1403DBA5C (wcstoxq.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     __report_rangecheckfailure @ 0x1404FE1FC (__report_rangecheckfailure.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     wcstoxq @ 0x1403D3FCC (wcstoxq.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     __report_rangecheckfailure @ 0x1404B63BC (__report_rangecheckfailure.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringToInt64(PCUNICODE_STRING String, ULONG Base, PLONG64 Number, PWSTR *EndPointer)
@@ -14,9 +14,9 @@ NTSTATUS __stdcall RtlUnicodeStringToInt64(PCUNICODE_STRING String, ULONG Base, 
   __int64 Length; // r8
   wchar_t *Buffer; // rdx
   unsigned __int64 MaximumLength; // rcx
-  wint_t *v11; // rdi
-  unsigned int v12; // eax
-  unsigned __int64 v13; // rbx
+  wint_t *v11; // rbx
+  __int64 v12; // rax
+  unsigned __int64 v13; // rdi
   int v15; // [rsp+30h] [rbp-E8h] BYREF
   wint_t *v16; // [rsp+38h] [rbp-E0h] BYREF
   _WORD v17[72]; // [rsp+40h] [rbp-D8h] BYREF
@@ -30,10 +30,10 @@ NTSTATUS __stdcall RtlUnicodeStringToInt64(PCUNICODE_STRING String, ULONG Base, 
   {
     v11 = v17;
     v12 = (unsigned int)Length >> 1;
-    if ( (unsigned int)Length >> 1 >= 0x40 )
-      v12 = 64;
+    if ( (unsigned int)v12 >= 0x40 )
+      v12 = 64LL;
     v13 = v12;
-    memmove(v17, Buffer, v13 * 2);
+    memmove(v17, Buffer, 2 * v12);
     if ( v13 >= 65 )
       _report_rangecheckfailure();
     v17[v13] = 0;

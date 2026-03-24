@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpAddKnownObjectAce @ 0x1409BB5A0
+ * XREFs of RtlpAddKnownObjectAce @ 0x1409128F0
  * Callers:
- *     RtlAddAccessAllowedObjectAce @ 0x1409BAE90 (RtlAddAccessAllowedObjectAce.c)
- *     RtlAddAccessDeniedObjectAce @ 0x1409BAEF0 (RtlAddAccessDeniedObjectAce.c)
- *     RtlAddAuditAccessObjectAce @ 0x1409BB1E0 (RtlAddAuditAccessObjectAce.c)
+ *     RtlAddAccessAllowedObjectAce @ 0x1409121E0 (RtlAddAccessAllowedObjectAce.c)
+ *     RtlAddAccessDeniedObjectAce @ 0x140912240 (RtlAddAccessDeniedObjectAce.c)
+ *     RtlAddAuditAccessObjectAce @ 0x140912530 (RtlAddAuditAccessObjectAce.c)
  * Callees:
- *     RtlCopySid @ 0x140715020 (RtlCopySid.c)
- *     RtlValidAcl @ 0x140736D80 (RtlValidAcl.c)
- *     RtlValidSid @ 0x1407378A0 (RtlValidSid.c)
- *     RtlFirstFreeAce @ 0x1407F3570 (RtlFirstFreeAce.c)
+ *     RtlCopySid @ 0x140654560 (RtlCopySid.c)
+ *     RtlFirstFreeAce @ 0x1406D4640 (RtlFirstFreeAce.c)
+ *     RtlValidAcl @ 0x1406D5380 (RtlValidAcl.c)
+ *     RtlValidSid @ 0x1406D54E0 (RtlValidSid.c)
  */
 
 __int64 __fastcall RtlpAddKnownObjectAce(
@@ -22,44 +22,56 @@ __int64 __fastcall RtlpAddKnownObjectAce(
         char a8)
 {
   __int64 result; // rax
-  int v13; // r9d
-  ULONG v14; // r11d
-  unsigned __int16 v15; // r8
-  __int64 v16; // rdx
-  _OWORD *v17; // rdx
-  _QWORD v18[7]; // [rsp+20h] [rbp-38h] BYREF
+  unsigned int v13; // eax
+  int v14; // eax
+  unsigned __int16 v15; // dx
+  int v16; // r9d
+  __int64 v17; // r8
+  _OWORD *v18; // rdx
+  _QWORD v19[5]; // [rsp+20h] [rbp-28h] BYREF
 
-  v18[0] = 0LL;
+  v19[0] = 0LL;
   if ( !RtlValidSid(Sid) )
     return 3221225592LL;
   if ( *(_BYTE *)a1 > 4u || a2 != 4 )
     return 3221225561LL;
-  if ( (a3 & 0xFFFFFFE0) != 0 && (a8 != 7 || (a3 & 0xFFFFFF20) != 0) )
-    return 3221225485LL;
-  if ( !RtlValidAcl(a1) || !RtlFirstFreeAce(a1, v18) )
+  v13 = a3 & 0xFFFFFFE0;
+  if ( (a3 & 0xFFFFFFE0) != 0 )
+  {
+    if ( a8 == 7 )
+      v13 = a3 & 0xFFFFFF20;
+    if ( v13 )
+      return 3221225485LL;
+  }
+  if ( !RtlValidAcl(a1) || !RtlFirstFreeAce(a1, v19) )
     return 3221225591LL;
-  v13 = a5 != 0LL;
-  v14 = 4 * Sid[1] + 8;
-  v15 = 4 * Sid[1] + 8 + (a5 != 0LL ? 28 : 12);
+  v14 = Sid[1];
+  v15 = 4 * v14 + 20;
+  if ( a5 )
+    v15 = 4 * v14 + 36;
+  v16 = a5 != 0LL;
   if ( a6 )
   {
-    v13 |= 2u;
+    v16 |= 2u;
     v15 += 16;
   }
-  v16 = v18[0];
-  if ( !v18[0] || v18[0] + (unsigned __int64)v15 > a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
+  v17 = v19[0];
+  if ( !v19[0] || v19[0] + (unsigned __int64)v15 > a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
     return 3221225625LL;
-  *(_BYTE *)(v18[0] + 1LL) = a3;
-  *(_BYTE *)v16 = a8;
-  *(_WORD *)(v16 + 2) = v15;
-  *(_DWORD *)(v16 + 4) = a4;
-  *(_DWORD *)(v16 + 8) = v13;
-  v17 = (_OWORD *)(v16 + 12);
+  *(_WORD *)(v19[0] + 2LL) = v15;
+  v18 = (_OWORD *)(v17 + 12);
+  *(_BYTE *)(v17 + 1) = a3;
+  *(_BYTE *)v17 = a8;
+  *(_DWORD *)(v17 + 4) = a4;
+  *(_DWORD *)(v17 + 8) = v16;
   if ( a5 )
-    *v17++ = *a5;
+  {
+    *v18 = *a5;
+    v18 = (_OWORD *)(v17 + 28);
+  }
   if ( a6 )
-    *v17++ = *a6;
-  RtlCopySid(v14, v17, Sid);
+    *v18++ = *a6;
+  RtlCopySid(4 * v14 + 8, v18, Sid);
   ++*(_WORD *)(a1 + 4);
   result = 0LL;
   *(_BYTE *)a1 = 4;

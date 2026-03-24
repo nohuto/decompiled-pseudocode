@@ -1,13 +1,13 @@
 /*
- * XREFs of KiInitMachineDependent @ 0x140181580
+ * XREFs of KiInitMachineDependent @ 0x1401815A0
  * Callers:
  *     KeInitSystem @ 0x1409C4988 (KeInitSystem.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x1400D81F0 (KeRevertToUserGroupAffinityThread.c)
- *     KiSetSystemAffinityThreadToProcessor @ 0x1401816F0 (KiSetSystemAffinityThreadToProcessor.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
+ *     KiSetSystemAffinityThreadToProcessor @ 0x140181710 (KiSetSystemAffinityThreadToProcessor.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     KiInitializeMTRR @ 0x1409C56F4 (KiInitializeMTRR.c)
- *     KiInitializeCacheErrataSupport @ 0x1409F6D84 (KiInitializeCacheErrataSupport.c)
+ *     KiInitializeCacheErrataSupport @ 0x1409F6D94 (KiInitializeCacheErrataSupport.c)
  */
 
 char KiInitMachineDependent()

@@ -1,9 +1,9 @@
 /*
- * XREFs of ViTargetFreeContiguousMemoryCallback @ 0x140A8B210
+ * XREFs of ViTargetFreeContiguousMemoryCallback @ 0x1409D7470
  * Callers:
  *     <none>
  * Callees:
- *     ViTargetFreeContiguousMemoryFromNode @ 0x140A8B238 (ViTargetFreeContiguousMemoryFromNode.c)
+ *     ViTargetFreeContiguousMemoryFromNode @ 0x1409D7498 (ViTargetFreeContiguousMemoryFromNode.c)
  */
 
 _BOOL8 __fastcall ViTargetFreeContiguousMemoryCallback(__int64 a1, __int64 a2)

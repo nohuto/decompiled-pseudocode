@@ -1,23 +1,23 @@
 /*
- * XREFs of ?PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z @ 0x1C029CB80
+ * XREFs of ?PanSynchronize@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z @ 0x1C0295AF0
  * Callers:
- *     ?PanEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C029BFA0 (-PanEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
- *     ?PanMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@@Z @ 0x1C029C590 (-PanMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@@Z.c)
+ *     ?PanEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C0294E80 (-PanEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
+ *     ?PanMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@@Z @ 0x1C0295500 (-PanMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@@Z.c)
  * Callees:
- *     ?CLIPOBJ_vOffset@@YAXPEAU_CLIPOBJ@@JJ@Z @ 0x1C001AC50 (-CLIPOBJ_vOffset@@YAXPEAU_CLIPOBJ@@JJ@Z.c)
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00311EC (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ??1PANSURFLOCK@@QEAA@XZ @ 0x1C029B614 (--1PANSURFLOCK@@QEAA@XZ.c)
- *     ?vLockShadow@PANSURFLOCK@@QEAAXPEAU_RECTL@@PEAU_CLIPOBJ@@H@Z @ 0x1C029D90C (-vLockShadow@PANSURFLOCK@@QEAAXPEAU_RECTL@@PEAU_CLIPOBJ@@H@Z.c)
- *     ?vUnLock@PANDEVLOCK@@QEAAXXZ @ 0x1C029DFE0 (-vUnLock@PANDEVLOCK@@QEAAXXZ.c)
+ *     ?CLIPOBJ_vOffset@@YAXPEAU_CLIPOBJ@@JJ@Z @ 0x1C009A210 (-CLIPOBJ_vOffset@@YAXPEAU_CLIPOBJ@@JJ@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B12D0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ??1PANSURFLOCK@@QEAA@XZ @ 0x1C02944FC (--1PANSURFLOCK@@QEAA@XZ.c)
+ *     ?vLockShadow@PANSURFLOCK@@QEAAXPEAU_RECTL@@PEAU_CLIPOBJ@@H@Z @ 0x1C029687C (-vLockShadow@PANSURFLOCK@@QEAAXPEAU_RECTL@@PEAU_CLIPOBJ@@H@Z.c)
+ *     ?vUnLock@PANDEVLOCK@@QEAAXXZ @ 0x1C0296EF8 (-vUnLock@PANDEVLOCK@@QEAAXXZ.c)
  */
 
 void __fastcall PanSynchronize(struct DHPDEV__ *a1, struct _RECTL *a2)
 {
-  __int64 v3; // rdx
-  int v5; // eax
-  struct _RECTL *v6; // rdx
+  __int64 v2; // r8
+  struct _RECTL *v4; // rdx
+  int v6; // eax
   struct REGION *v7; // rdx
   __int64 v8; // r10
   __int64 v9; // rcx
@@ -38,18 +38,18 @@ void __fastcall PanSynchronize(struct DHPDEV__ *a1, struct _RECTL *a2)
   __int128 v24; // [rsp+110h] [rbp+10h] BYREF
   struct DHPDEV__ *v25; // [rsp+120h] [rbp+20h]
 
+  v2 = *((_QWORD *)a1 + 8);
   v14 = 0LL;
-  v3 = *((_QWORD *)a1 + 8);
+  v4 = (struct _RECTL *)&v14;
   v17 = 0LL;
-  v25 = a1;
-  v15 = *(_DWORD *)(v3 + 32);
-  v5 = *(_DWORD *)(v3 + 36);
-  v6 = (struct _RECTL *)&v14;
-  v16 = v5;
+  v15 = *(_DWORD *)(v2 + 32);
+  v6 = *(_DWORD *)(v2 + 36);
   if ( a2 )
-    v6 = a2;
+    v4 = a2;
+  v25 = a1;
+  v16 = v6;
   v24 = 0LL;
-  PANSURFLOCK::vLockShadow((PANSURFLOCK *)&v24, v6, 0LL, 1);
+  PANSURFLOCK::vLockShadow((PANSURFLOCK *)&v24, v4, 0LL, 1);
   v14 = (HSEMAPHORE)*((_QWORD *)a1 + 14);
   EngAcquireSemaphore(v14);
   if ( *((_DWORD *)a1 + 26) )
@@ -64,7 +64,7 @@ void __fastcall PanSynchronize(struct DHPDEV__ *a1, struct _RECTL *a2)
     if ( !ERECTL::bEmpty((ERECTL *)&v18.rclBounds) )
     {
       CLIPOBJ_vOffset(&v18, -*((_DWORD *)a1 + 4), -*((_DWORD *)a1 + 5));
-      SURFACE::dhpdev((SURFACE *)(*((_QWORD *)a1 + 9) - 24LL), *((struct DHPDEV__ **)a1 + 4));
+      *(_QWORD *)(*((_QWORD *)a1 + 9) + 16LL) = *((_QWORD *)a1 + 4);
       v8 = *((_QWORD *)a1 + 8);
       v9 = *((_QWORD *)a1 + 9) - 24LL;
       v10 = *((_QWORD *)a1 + 9);

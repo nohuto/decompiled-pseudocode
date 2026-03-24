@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAnimationScenario@CAnimation@@UEAAPEAU_GUID@@XZ @ 0x1800FB2A0
+ * XREFs of ?GetAnimationScenario@CAnimation@@UEAAPEAU_GUID@@XZ @ 0x1800E2930
  * Callers:
  *     <none>
  * Callees:

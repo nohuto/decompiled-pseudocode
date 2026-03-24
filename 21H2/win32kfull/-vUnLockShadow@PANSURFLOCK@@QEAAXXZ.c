@@ -1,35 +1,31 @@
 /*
- * XREFs of ?vUnLockShadow@PANSURFLOCK@@QEAAXXZ @ 0x1C0295158
+ * XREFs of ?vUnLockShadow@PANSURFLOCK@@QEAAXXZ @ 0x1C02976D4
  * Callers:
- *     ??1PANSURFLOCK@@QEAA@XZ @ 0x1C029253C (--1PANSURFLOCK@@QEAA@XZ.c)
+ *     ??1PANSURFLOCK@@QEAA@XZ @ 0x1C0294B2C (--1PANSURFLOCK@@QEAA@XZ.c)
  * Callees:
- *     ?ShadowUnLock@@YAXPEAU_PANDEV@@@Z @ 0x1C02940E0 (-ShadowUnLock@@YAXPEAU_PANDEV@@@Z.c)
+ *     ?ShadowUnLock@@YAXPEAU_PANDEV@@@Z @ 0x1C02966B0 (-ShadowUnLock@@YAXPEAU_PANDEV@@@Z.c)
  */
 
 void __fastcall PANSURFLOCK::vUnLockShadow(PANSURFLOCK *this)
 {
-  _BYTE *v2; // rbx
+  __int64 i; // rbx
   __int64 v3; // rdi
-  __int64 v4; // rbp
+  char *v4; // r14
 
-  v2 = (char *)this + 104;
-  v3 = 760LL;
-  do
+  for ( i = 87LL; i >= 15; i -= 9LL )
   {
-    v4 = 9LL;
+    v3 = 8LL;
+    v4 = (char *)this + i;
     do
     {
-      if ( *v2 == 1 )
+      if ( v4[v3 + 9] == 1 )
       {
-        EngReleaseSemaphore(*(HSEMAPHORE *)(*((_QWORD *)this + 2) + v3));
-        *v2 = 0;
+        EngReleaseSemaphore(*(HSEMAPHORE *)(*((_QWORD *)this + 2) + 8 * (i + v3)));
+        v4[v3 + 9] = 0;
       }
-      v3 -= 8LL;
-      --v2;
-      --v4;
+      --v3;
     }
-    while ( v4 );
+    while ( v3 >= 0 );
   }
-  while ( v3 >= 184 );
   ShadowUnLock(*((struct _PANDEV **)this + 2));
 }

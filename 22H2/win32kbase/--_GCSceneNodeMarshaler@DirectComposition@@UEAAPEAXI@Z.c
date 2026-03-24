@@ -1,18 +1,20 @@
 /*
- * XREFs of ??_GCSceneNodeMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C020DFB0
+ * XREFs of ??_GCSceneNodeMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C01D44F0
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??1CSceneNodeMarshaler@DirectComposition@@UEAA@XZ @ 0x1C020DA60 (--1CSceneNodeMarshaler@DirectComposition@@UEAA@XZ.c)
+ *     ??1CResourceMarshalerArray@DirectComposition@@QEAA@XZ @ 0x1C0025F24 (--1CResourceMarshalerArray@DirectComposition@@QEAA@XZ.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 DirectComposition::CSceneNodeMarshaler *__fastcall DirectComposition::CSceneNodeMarshaler::`scalar deleting destructor'(
-        DirectComposition::CSceneNodeMarshaler *this,
-        char a2)
+        DirectComposition::CSceneNodeMarshaler *this)
 {
-  DirectComposition::CSceneNodeMarshaler::~CSceneNodeMarshaler(this);
-  if ( (a2 & 1) != 0 && this )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)this);
+  char v2; // r9
+
+  DirectComposition::CResourceMarshalerArray::~CResourceMarshalerArray((DirectComposition::CSceneNodeMarshaler *)((char *)this + 88));
+  DirectComposition::CResourceMarshalerArray::~CResourceMarshalerArray((DirectComposition::CSceneNodeMarshaler *)((char *)this + 56));
+  if ( (v2 & 1) != 0 )
+    Win32FreePool((__int64)this);
   return this;
 }

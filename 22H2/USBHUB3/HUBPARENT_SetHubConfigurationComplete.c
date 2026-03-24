@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBPARENT_SetHubConfigurationComplete @ 0x1C0007230
+ * XREFs of HUBPARENT_SetHubConfigurationComplete @ 0x1C0006AE0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_dD @ 0x1C0002668 (WPP_RECORDER_SF_dD.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPARENT_SetHubConfigurationComplete(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -17,15 +17,15 @@ __int64 __fastcall HUBPARENT_SetHubConfigurationComplete(__int64 a1, __int64 a2,
   int v10; // ebp
   __int64 v11; // rdi
   unsigned int v12; // eax
-  __int64 v14; // [rsp+28h] [rbp-40h]
-  unsigned int v15; // [rsp+28h] [rbp-40h]
-  int v16; // [rsp+30h] [rbp-38h]
+  __int64 v14; // [rsp+28h] [rbp-30h]
+  unsigned int v15; // [rsp+28h] [rbp-30h]
+  int v16; // [rsp+30h] [rbp-28h]
 
   v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1392))(WdfDriverGlobals);
   v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          v7,
-         off_1C0069198);
+         off_1C0066170);
   v9 = *(_DWORD *)(a3 + 8);
   v10 = *(_DWORD *)(a4 + 4);
   v11 = v8;
@@ -37,16 +37,9 @@ __int64 __fastcall HUBPARENT_SetHubConfigurationComplete(__int64 a1, __int64 a2,
   *(_WORD *)(v11 + 88) = v12;
   if ( *(_WORD *)(v11 + 2458) >= 0x300u )
   {
-    if ( v12 <= 2 )
-    {
-      if ( v12 == 2 )
-        goto LABEL_11;
-    }
-    else
-    {
+    if ( v12 > 2 )
       v9 = -1073741216;
-    }
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( v12 != 2 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       v15 = v12;
       WPP_RECORDER_SF_d(
@@ -57,25 +50,24 @@ __int64 __fastcall HUBPARENT_SetHubConfigurationComplete(__int64 a1, __int64 a2,
         (__int64)&WPP_7215ce29f44d3be25ae6d82bbfc5240b_Traceguids,
         v15);
     }
-    if ( v9 < 0 )
-    {
+  }
+  if ( v9 < 0 )
+  {
 LABEL_9:
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        v16 = v10;
-        LODWORD(v14) = v9;
-        WPP_RECORDER_SF_dD(
-          *(_QWORD *)(v11 + 2520),
-          2u,
-          3u,
-          0xBu,
-          (__int64)&WPP_7215ce29f44d3be25ae6d82bbfc5240b_Traceguids,
-          v14,
-          v16);
-      }
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v16 = v10;
+      LODWORD(v14) = v9;
+      WPP_RECORDER_SF_dD(
+        *(_QWORD *)(v11 + 2520),
+        2u,
+        3u,
+        0xBu,
+        (__int64)&WPP_7215ce29f44d3be25ae6d82bbfc5240b_Traceguids,
+        v14,
+        v16);
     }
   }
-LABEL_11:
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 1664))(WdfDriverGlobals, a1);
   ExFreePoolWithTag((PVOID)a4, 0);
   return HUBSM_AddEvent(v11 + 1264, ((v9 >> 31) & 0xFFFFFFFC) + 2010);

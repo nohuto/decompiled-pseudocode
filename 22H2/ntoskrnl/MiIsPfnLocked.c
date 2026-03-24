@@ -1,27 +1,30 @@
 /*
- * XREFs of MiIsPfnLocked @ 0x14036B39C
+ * XREFs of MiIsPfnLocked @ 0x140380A58
  * Callers:
- *     MiDeletePteRun @ 0x1402D50F0 (MiDeletePteRun.c)
- *     MmAreMdlPagesLocked @ 0x140AE9198 (MmAreMdlPagesLocked.c)
+ *     MiDeletePteRun @ 0x1402365D0 (MiDeletePteRun.c)
+ *     MmAreMdlPagesLocked @ 0x1409C5CE0 (MmAreMdlPagesLocked.c)
  * Callees:
- *     MiPfnIsNonPagedPool @ 0x1406418B8 (MiPfnIsNonPagedPool.c)
+ *     MiPfnIsNonPagedPool @ 0x140544C70 (MiPfnIsNonPagedPool.c)
  */
 
-_BOOL8 __fastcall MiIsPfnLocked(__int64 a1)
+__int64 __fastcall MiIsPfnLocked(__int64 a1)
 {
-  unsigned __int64 v1; // rdx
-  __int64 v3; // rdx
+  unsigned __int64 v1; // r8
+  __int64 result; // rax
 
   v1 = *(unsigned __int16 *)(a1 + 32);
   if ( v1 > (*(_QWORD *)(a1 + 24) & 0x3FFFFFFFFFFFFFFFuLL) )
     return 1LL;
+  if ( (*(_QWORD *)(a1 + 40) & 0xFFFFFFFFFLL) == 0xFFFFFFFFDLL )
+    return 1LL;
+  if ( ((*(_QWORD *)(a1 + 40) >> 60) & 7) == 1 )
+    return 1LL;
   if ( (unsigned __int16)v1 > 1u )
     return 1LL;
-  if ( (*(_QWORD *)(a1 + 40) & 0xFFFFFFFFFFLL) == 0x3FFFFFFFFELL )
+  if ( (*(_BYTE *)a1 & 1) == 0 )
     return 1LL;
-  v3 = *(_QWORD *)(a1 + 40) >> 60;
-  LOBYTE(v3) = v3 & 7;
-  return (_BYTE)v3 == 1
-      || (*(_BYTE *)a1 & 1) == 0
-      || (unsigned int)MiPfnIsNonPagedPool(a1, v3, 0x3FFFFFFFFELL, 1LL) != 0;
+  result = MiPfnIsNonPagedPool();
+  if ( (_DWORD)result )
+    return 1LL;
+  return result;
 }

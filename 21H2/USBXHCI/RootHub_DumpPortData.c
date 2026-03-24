@@ -1,18 +1,18 @@
 /*
- * XREFs of RootHub_DumpPortData @ 0x1C00133B0
+ * XREFs of RootHub_DumpPortData @ 0x1C0013A44
  * Callers:
- *     RootHub_D0Exit @ 0x1C000D388 (RootHub_D0Exit.c)
- *     RootHub_HandlePortStatusChangeEvent @ 0x1C001171C (RootHub_HandlePortStatusChangeEvent.c)
- *     RootHub_PrepareHardware @ 0x1C006F968 (RootHub_PrepareHardware.c)
+ *     RootHub_D0Exit @ 0x1C000B838 (RootHub_D0Exit.c)
+ *     RootHub_HandlePortStatusChangeEvent @ 0x1C0011BE0 (RootHub_HandlePortStatusChangeEvent.c)
+ *     RootHub_PrepareHardware @ 0x1C006F400 (RootHub_PrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_ddd @ 0x1C0013618 (WPP_RECORDER_SF_ddd.c)
- *     XilRegister_ReadUlong @ 0x1C00139CC (XilRegister_ReadUlong.c)
- *     WPP_RECORDER_SF_qD @ 0x1C0013AB0 (WPP_RECORDER_SF_qD.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C0013E50 (WPP_RECORDER_SF_qD.c)
  */
 
 __int64 __fastcall RootHub_DumpPortData(__int64 a1, __int64 a2)
 {
-  char v3; // si
+  char v2; // si
   __int64 result; // rax
   int v5; // edx
   unsigned int v6; // ebx
@@ -24,7 +24,7 @@ __int64 __fastcall RootHub_DumpPortData(__int64 a1, __int64 a2)
   int v12; // edx
   int v13; // edx
 
-  v3 = a1;
+  v2 = a1;
   result = XilRegister_ReadUlong(*(_QWORD *)(a2 + 88), a1);
   v6 = result;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -34,8 +34,8 @@ __int64 __fastcall RootHub_DumpPortData(__int64 a1, __int64 a2)
                v5,
                11,
                12,
-               (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
-               v3,
+               (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
+               v2,
                result);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
@@ -46,7 +46,7 @@ __int64 __fastcall RootHub_DumpPortData(__int64 a1, __int64 a2)
                  v7,
                  11,
                  13,
-                 (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
+                 (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
                  v6 & 1,
                  (v6 & 2) != 0,
                  (v6 & 8) != 0);
@@ -59,7 +59,7 @@ __int64 __fastcall RootHub_DumpPortData(__int64 a1, __int64 a2)
                    v8,
                    11,
                    14,
-                   (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
+                   (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
                    (v6 & 0x10) != 0,
                    (v6 & 0x200) != 0,
                    (v6 >> 5) & 0xF);
@@ -72,7 +72,7 @@ __int64 __fastcall RootHub_DumpPortData(__int64 a1, __int64 a2)
                      v9,
                      11,
                      15,
-                     (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
+                     (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
                      (v6 >> 10) & 0xF,
                      (unsigned __int16)v6 >> 14,
                      BYTE2(v6) & 1);
@@ -85,7 +85,7 @@ __int64 __fastcall RootHub_DumpPortData(__int64 a1, __int64 a2)
                        v10,
                        11,
                        16,
-                       (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
+                       (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
                        (v6 & 0x20000) != 0,
                        (v6 & 0x40000) != 0,
                        (v6 & 0x100000) != 0);
@@ -98,7 +98,7 @@ __int64 __fastcall RootHub_DumpPortData(__int64 a1, __int64 a2)
                          v11,
                          11,
                          17,
-                         (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
+                         (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
                          (v6 & 0x80000) != 0,
                          (v6 & 0x200000) != 0,
                          (v6 & 0x400000) != 0);
@@ -111,7 +111,7 @@ __int64 __fastcall RootHub_DumpPortData(__int64 a1, __int64 a2)
                            v12,
                            11,
                            18,
-                           (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
+                           (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
                            (v6 & 0x800000) != 0,
                            (v6 & 0x2000000) != 0,
                            (v6 & 0x4000000) != 0);
@@ -123,7 +123,7 @@ __int64 __fastcall RootHub_DumpPortData(__int64 a1, __int64 a2)
                            v13,
                            11,
                            19,
-                           (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
+                           (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
                            (v6 & 0x8000000) != 0,
                            (v6 & 0x40000000) != 0,
                            (v6 & 0x80000000) != 0);

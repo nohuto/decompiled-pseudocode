@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EDID_V1_RemovePII@@YAJKPEAE@Z @ 0x1C0028C64
+ * XREFs of ?EDID_V1_RemovePII@@YAJKPEAE@Z @ 0x1C002293C
  * Callers:
- *     ?GetAnonymizedRawDescriptor@EdidMonitorDescriptor@DxgMonitor@@UEBA?AV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@wistd@@@wistd@@PEAI@Z @ 0x1C0213F70 (-GetAnonymizedRawDescriptor@EdidMonitorDescriptor@DxgMonitor@@UEBA-AV-$unique_ptr@$$BY0A@EU-$def.c)
+ *     ?_MonitorTelemetry@DXGMONITOR@@QEAAXW4_TELEMETRY_MONITOR_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C018E22C (-_MonitorTelemetry@DXGMONITOR@@QEAAXW4_TELEMETRY_MONITOR_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SC.c)
  * Callees:
- *     ?Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z @ 0x1C0018CC0 (-Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z.c)
+ *     ?Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z @ 0x1C000A26C (-Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z.c)
  */
 
-__int64 __fastcall EDID_V1_RemovePII(unsigned int a1, unsigned __int8 *a2)
+__int64 __fastcall EDID_V1_RemovePII(__int64 a1, unsigned __int8 *a2)
 {
   __int64 result; // rax
   __int64 v3; // r11
@@ -19,10 +19,10 @@ __int64 __fastcall EDID_V1_RemovePII(unsigned int a1, unsigned __int8 *a2)
   _QWORD v10[10]; // [rsp+20h] [rbp-68h] BYREF
   __int64 v11; // [rsp+70h] [rbp-18h]
 
-  if ( !a2 || a1 < 0x80 )
+  if ( !a2 )
     return 3221225485LL;
   v11 = 0LL;
-  result = MonDescParser::EDID_PARSER::Initialize((MonDescParser::EDID_PARSER *)v10, a2, a1);
+  result = MonDescParser::EDID_PARSER::Initialize((MonDescParser::EDID_PARSER *)v10, a2, 0x80u);
   if ( (int)result >= 0 )
   {
     *(_DWORD *)(v3 + 12) = 0;

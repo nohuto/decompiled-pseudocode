@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpTryConvertSharedToExclusiveLite @ 0x14060AE7C
+ * XREFs of ExpTryConvertSharedToExclusiveLite @ 0x1405B5714
  * Callers:
- *     ExTryConvertSharedToExclusiveLite @ 0x14060AABC (ExTryConvertSharedToExclusiveLite.c)
+ *     ExTryConvertSharedToExclusiveLite @ 0x1405B541C (ExTryConvertSharedToExclusiveLite.c)
  * Callees:
- *     ExpFindCurrentThread @ 0x1402600E0 (ExpFindCurrentThread.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpTryUpgradeResource @ 0x14061005C (ExpTryUpgradeResource.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExpFindCurrentThread @ 0x1402CE1E0 (ExpFindCurrentThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpTryUpgradeResource @ 0x1405B9A98 (ExpTryUpgradeResource.c)
  */
 
 char ExpTryConvertSharedToExclusiveLite()
@@ -30,7 +30,7 @@ char ExpTryConvertSharedToExclusiveLite()
   v1 = ExpTryUpgradeResource(&CmpRegistryLock);
   if ( v1 )
   {
-    v2 = (CurrentThread & 3) != 0 ? 0 : *(unsigned __int8 *)(CurrentThread + 1120);
+    v2 = (CurrentThread & 3) != 0 ? 0 : *(unsigned __int8 *)(CurrentThread + 1032);
     v3 = ExpFindCurrentThread((__int64)&CmpRegistryLock, CurrentThread, (__int64)&LockHandle, 0, 0, v2);
     if ( v3 != &CmpRegistryLock + 6 )
     {
@@ -39,20 +39,23 @@ char ExpTryConvertSharedToExclusiveLite()
       *(_OWORD *)v3 = 0LL;
     }
   }
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v8 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-      v9 = (v8 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v8;
-      if ( v9 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v8 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v9 = (v8 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v8;
+        if ( v9 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);

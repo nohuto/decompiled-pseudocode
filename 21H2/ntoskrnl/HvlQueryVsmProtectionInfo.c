@@ -1,63 +1,66 @@
 /*
- * XREFs of HvlQueryVsmProtectionInfo @ 0x140930EC4
+ * XREFs of HvlQueryVsmProtectionInfo @ 0x14088E444
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     HvlpProcessIommu @ 0x14054B568 (HvlpProcessIommu.c)
- *     HviGetHardwareFeatures @ 0x140647B00 (HviGetHardwareFeatures.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     HvlpProcessIommu @ 0x1404F97D8 (HvlpProcessIommu.c)
+ *     HviGetHardwareFeatures @ 0x1405BEF70 (HviGetHardwareFeatures.c)
  */
 
-__int64 __fastcall HvlQueryVsmProtectionInfo(void *a1, __int64 a2, unsigned int *a3, __int64 a4)
+__int64 __fastcall HvlQueryVsmProtectionInfo(__int64 a1, __int64 Size, unsigned int *a3, __int64 a4)
 {
-  unsigned int v5; // edi
-  unsigned int v7; // ebx
+  void *v5; // r14
+  unsigned int v6; // ebx
+  unsigned int v8; // edi
   char v9; // al
   _DWORD Src[2]; // [rsp+20h] [rbp-48h] BYREF
   unsigned int *v11; // [rsp+28h] [rbp-40h]
   __int128 v12; // [rsp+30h] [rbp-38h] BYREF
 
-  v5 = a2;
+  v5 = (void *)a1;
   v11 = a3;
   v12 = 0LL;
-  v7 = 0;
-  if ( (unsigned int)a2 >= 3 )
+  v6 = 0;
+  if ( (unsigned int)Size >= 3 )
   {
-    if ( (unsigned int)a2 >= 4 )
-      v5 = 4;
-    Src[1] = v5;
+    v8 = 4;
+    if ( (unsigned int)Size < 4 )
+      v8 = Size;
+    Src[1] = v8;
     Src[0] = 0;
+    LOBYTE(a1) = HvlHypervisorConnected;
     if ( !HvlHypervisorConnected )
       goto LABEL_15;
     if ( (HvlpFlags & 2) == 0 )
     {
-      if ( (HvlpFlags & 0x40) != 0 || HvlpProcessIommu() )
+      if ( (HvlpFlags & 0x40) != 0 || HvlpProcessIommu(a1, Size) )
         LOBYTE(Src[0]) = 1;
       BYTE1(Src[0]) = (HvlpFlags & 0x40) != 0;
       goto LABEL_17;
     }
     if ( HvlHypervisorConnected && (HvlpFlags & 2) != 0 )
     {
-      HviGetHardwareFeatures((__int64)&v12, a2, (__int64)a3, a4);
+      HviGetHardwareFeatures((__int64)&v12, Size, (__int64)a3, a4);
       v9 = (unsigned __int8)v12 >> 7;
       BYTE1(Src[0]) = (unsigned __int8)v12 >> 7;
     }
     else
     {
 LABEL_15:
-      v9 = HvlpProcessIommu();
+      v9 = HvlpProcessIommu(a1, Size);
       BYTE1(Src[0]) = 0;
     }
     LOBYTE(Src[0]) = v9;
 LABEL_17:
     BYTE2(Src[0]) = (HvlpFlags & 0x20000) != 0;
     HIBYTE(Src[0]) = HIBYTE(HvlpFlags) & 1;
-    memmove(a1, Src, v5);
-    *a3 = v5;
-    return v7;
+    memmove(v5, Src, v8);
+    *a3 = v8;
+    return v6;
   }
-  v7 = -1073741584;
+  v6 = -1073741584;
   *a3 = 0;
-  return v7;
+  return v6;
 }

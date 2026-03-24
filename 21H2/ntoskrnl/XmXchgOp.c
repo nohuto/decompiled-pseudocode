@@ -1,9 +1,9 @@
 /*
- * XREFs of XmXchgOp @ 0x1403A2630
+ * XREFs of XmXchgOp @ 0x140396590
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x1403A2E60 (XmStoreResult.c)
+ *     XmStoreResult @ 0x140396DC0 (XmStoreResult.c)
  */
 
 __int64 __fastcall XmXchgOp(__int64 a1)

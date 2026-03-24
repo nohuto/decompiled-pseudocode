@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserInitializePointerDeviceInjection @ 0x1C015C5C0
+ * XREFs of NtUserInitializePointerDeviceInjection @ 0x1C0130550
  * Callers:
  *     <none>
  * Callees:
- *     NtUserInitializePointerDeviceInjectionEx @ 0x1C015C5F0 (NtUserInitializePointerDeviceInjectionEx.c)
+ *     NtUserInitializePointerDeviceInjectionEx @ 0x1C0130580 (NtUserInitializePointerDeviceInjectionEx.c)
  */
 
 __int64 __fastcall NtUserInitializePointerDeviceInjection(int a1, int a2, int a3, int a4, __int64 a5)

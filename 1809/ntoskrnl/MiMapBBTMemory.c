@@ -7,10 +7,10 @@
  *     MiMakeZeroedPageTablesEx @ 0x140028584 (MiMakeZeroedPageTablesEx.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     MiObtainSystemVa @ 0x1400F6944 (MiObtainSystemVa.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KeZeroPages @ 0x1401C0910 (KeZeroPages.c)
+ *     MiObtainSystemVa @ 0x1400F6964 (MiObtainSystemVa.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KeZeroPages @ 0x1401C0930 (KeZeroPages.c)
  */
 
 unsigned __int64 __fastcall MiMapBBTMemory(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsHandleEntrySecureWorker@@YAHPEAXPEAU_HANDLEENTRY@@@Z @ 0x1C012C788
+ * XREFs of ?IsHandleEntrySecureWorker@@YAHPEAXPEAU_HANDLEENTRY@@@Z @ 0x1C0113CCC
  * Callers:
- *     HMIsHandleEntrySecure @ 0x1C00DE734 (HMIsHandleEntrySecure.c)
+ *     HMIsHandleEntrySecureWorker @ 0x1C0114070 (HMIsHandleEntrySecureWorker.c)
  * Callees:
  *     <none>
  */
@@ -10,61 +10,61 @@ __int64 __fastcall IsHandleEntrySecureWorker(void *a1, struct _HANDLEENTRY *a2)
 {
   _QWORD *v2; // rdi
   __int64 v5; // rbx
-  _QWORD *CurrentProcessWin32Process; // rax
+  __int64 CurrentProcessWin32Process; // r9
   unsigned int v7; // r8d
   __int16 v8; // cx
   __int64 v9; // rcx
   __int64 v10; // rcx
   __int64 v11; // rdx
   void **v12; // rax
-  unsigned int v13; // ecx
+  unsigned int v13; // r9d
+  unsigned int v14; // ecx
 
   v2 = gpKernelHandleTable;
-  v5 = 3LL * (unsigned int)((a2 - qword_1C028FE68) >> 5);
-  CurrentProcessWin32Process = (_QWORD *)PsGetCurrentProcessWin32Process(a1);
-  v7 = 0;
-  if ( CurrentProcessWin32Process && *CurrentProcessWin32Process )
+  v5 = 3LL * (unsigned int)((a2 - qword_1C024FA38) >> 5);
+  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
+  v7 = 1;
+  if ( !CurrentProcessWin32Process )
+    return v7;
+  v8 = *((_WORD *)&unk_1C020946C + 12 * *((unsigned __int8 *)a2 + 24));
+  if ( (v8 & 2) != 0 )
   {
-    v8 = *((_WORD *)&unk_1C024292C + 12 * *((unsigned __int8 *)a2 + 24));
-    if ( (v8 & 2) != 0 )
-    {
-      v9 = v2[v5 + 1];
-    }
-    else
-    {
-      if ( (v8 & 1) == 0 )
-        return 0LL;
-      v10 = v2[v5 + 1];
-      if ( !v10 )
-        return 0LL;
-      v9 = *(_QWORD *)(v10 + 424);
-    }
-    if ( !v9 )
+    v9 = v2[v5 + 1];
+  }
+  else
+  {
+    if ( (v8 & 1) == 0 )
       return 0LL;
+    v10 = v2[v5 + 1];
+    if ( !v10 )
+      return 0LL;
+    v9 = *(_QWORD *)(v10 + 424);
+  }
+  if ( v9 )
+  {
     if ( *(PVOID *)v9 != gpepCSRSS )
     {
-      v11 = CurrentProcessWin32Process[95];
-      if ( *(_QWORD *)(v9 + 760) != v11 )
+      v11 = *(_QWORD *)(CurrentProcessWin32Process + 768);
+      if ( *(_QWORD *)(v9 + 768) != v11 )
       {
         v12 = *(void ***)(v11 + 56);
-        if ( v12 )
+        if ( v12 && (v13 = *(_DWORD *)(v11 + 48), v14 = 0, v13) )
         {
-          v13 = *(_DWORD *)(v11 + 48);
-          if ( v13 )
+          while ( *v12 != a1 )
           {
-            while ( *v12 != a1 )
-            {
-              ++v7;
-              ++v12;
-              if ( v7 >= v13 )
-                return 0LL;
-            }
-            return 1LL;
+            ++v14;
+            ++v12;
+            if ( v14 >= v13 )
+              return 0;
           }
         }
-        return 0LL;
+        else
+        {
+          return 0;
+        }
       }
     }
+    return v7;
   }
-  return 1LL;
+  return 0LL;
 }

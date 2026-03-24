@@ -1,13 +1,13 @@
 /*
- * XREFs of ?TryCreateEffectInstance@CEffectBrush@@AEAAJXZ @ 0x18003F5B4
+ * XREFs of ?TryCreateEffectInstance@CEffectBrush@@AEAAJXZ @ 0x180049584
  * Callers:
- *     ?ProcessSetTemplate@CEffectBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_EFFECTBRUSH_SETTEMPLATE@@@Z @ 0x18003E5A0 (-ProcessSetTemplate@CEffectBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_EFFECTBRUSH_SETTEMPLATE.c)
- *     ?OnChanged@CEffectBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18003F560 (-OnChanged@CEffectBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?ProcessSetTemplate@CEffectBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_EFFECTBRUSH_SETTEMPLATE@@@Z @ 0x1800480BC (-ProcessSetTemplate@CEffectBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_EFFECTBRUSH_SETTEMPLATE.c)
+ *     ?OnChanged@CEffectBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800494D0 (-OnChanged@CEffectBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
  * Callees:
- *     ?HasValidTemplate@CEffectBrush@@AEBA_NXZ @ 0x18003F6A0 (-HasValidTemplate@CEffectBrush@@AEBA_NXZ.c)
- *     ?GetCompiledEffectNoRef@CCompiledEffectTemplate@@QEBAPEBUICompiledEffect@Composition@UI@Windows@@XZ @ 0x18003F77C (-GetCompiledEffectNoRef@CCompiledEffectTemplate@@QEBAPEBUICompiledEffect@Composition@UI@Windows@.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?HasValidTemplate@CEffectBrush@@AEBA_NXZ @ 0x180049568 (-HasValidTemplate@CEffectBrush@@AEBA_NXZ.c)
+ *     ?GetCompiledEffectNoRef@CCompiledEffectTemplate@@QEBAPEBUICompiledEffect@Composition@UI@Windows@@XZ @ 0x180049FB8 (-GetCompiledEffectNoRef@CCompiledEffectTemplate@@QEBAPEBUICompiledEffect@Composition@UI@Windows@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CEffectBrush::TryCreateEffectInstance(CEffectBrush *this)
@@ -26,34 +26,34 @@ __int64 __fastcall CEffectBrush::TryCreateEffectInstance(CEffectBrush *this)
   unsigned int v14; // ecx
 
   v1 = 0;
-  v2 = (_QWORD *)((char *)this + 112);
-  if ( !*((_QWORD *)this + 14) && CEffectBrush::HasValidTemplate(this) )
+  v2 = (_QWORD *)((char *)this + 104);
+  if ( !*((_QWORD *)this + 13) && CEffectBrush::HasValidTemplate(this) )
   {
-    v6 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v5 + 96) + 80LL) + 48LL);
+    v6 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v5 + 88) + 72LL) + 48LL);
     v7 = (*(__int64 (__fastcall **)(__int64, _QWORD *))(*(_QWORD *)v6 + 72LL))(v6, v2);
     v1 = v7;
     if ( v7 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x1D4u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x1A7u, 0LL);
       return v1;
     }
-    v9 = *((_QWORD *)this + 13);
+    v9 = *((_QWORD *)this + 12);
     if ( v9 )
-      *(_QWORD *)(v9 + 80) = ((unsigned __int64)this + 88) & -(__int64)(this != 0LL);
+      *(_QWORD *)(v9 + 72) = (char *)this + 80;
   }
   if ( *v2 )
   {
     if ( !(*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)*v2 + 64LL))(*v2) )
     {
-      if ( CCompiledEffectTemplate::GetCompiledEffectNoRef(*((CCompiledEffectTemplate **)this + 12)) )
+      if ( CCompiledEffectTemplate::GetCompiledEffectNoRef(*((CCompiledEffectTemplate **)this + 11)) )
       {
         v10 = *v2;
         v11 = *(__int64 (__fastcall **)(__int64, const struct Windows::UI::Composition::ICompiledEffect *))(*(_QWORD *)v10 + 56LL);
-        CompiledEffectNoRef = CCompiledEffectTemplate::GetCompiledEffectNoRef(*((CCompiledEffectTemplate **)this + 12));
+        CompiledEffectNoRef = CCompiledEffectTemplate::GetCompiledEffectNoRef(*((CCompiledEffectTemplate **)this + 11));
         v13 = v11(v10, CompiledEffectNoRef);
         v1 = v13;
         if ( v13 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x1E5u, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x1B8u, 0LL);
       }
     }
   }

@@ -8,13 +8,13 @@
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ObReferenceObjectSafe @ 0x14010C0F0 (ObReferenceObjectSafe.c)
- *     PsGetProcessJob @ 0x1401281D0 (PsGetProcessJob.c)
- *     PsGetJobEffectiveFreezeCount @ 0x1402E99B4 (PsGetJobEffectiveFreezeCount.c)
+ *     ObReferenceObjectSafe @ 0x14010C110 (ObReferenceObjectSafe.c)
+ *     PsGetProcessJob @ 0x1401281F0 (PsGetProcessJob.c)
+ *     PsGetJobEffectiveFreezeCount @ 0x1402E9AB4 (PsGetJobEffectiveFreezeCount.c)
  *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
  *     AlpcpCompleteDispatchMessage @ 0x1406356A0 (AlpcpCompleteDispatchMessage.c)
  *     AlpcpSetOwnerPortMessage @ 0x140636190 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406BCE10 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
+ *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406BCDF0 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
  */
 
 __int64 __fastcall AlpcpDispatchNewMessage(__int64 *a1)

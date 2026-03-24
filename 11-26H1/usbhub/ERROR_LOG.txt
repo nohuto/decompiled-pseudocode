@@ -1,3 +1,3 @@
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001A9CE108200>) 
- 
+[EXCEPTION] WPP_RECORDER_SF_S @ 0x140049A2C: Hex-Rays returned no pseudocode for 0x140049A2C
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140049A2C'), <traceback object at 0x00000196A81ED5C0>)
+

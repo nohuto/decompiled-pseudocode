@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReleaseAllReferences@CCaptureRenderTargetMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0235920
+ * XREFs of ?ReleaseAllReferences@CCaptureRenderTargetMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F5070
  * Callers:
- *     ?ReleaseAllReferences@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0236020 (-ReleaseAllReferences@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAAXPEAVCA.c)
+ *     ?ReleaseAllReferences@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F5770 (-ReleaseAllReferences@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAAXPEAVCA.c)
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ?ReleaseBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAAXXZ @ 0x1C0235978 (-ReleaseBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAAXXZ.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAAXXZ @ 0x1C01F50C4 (-ReleaseBuffers@CCaptureRenderTargetMarshaler@DirectComposition@@IEAAXXZ.c)
  */
 
 void __fastcall DirectComposition::CCaptureRenderTargetMarshaler::ReleaseAllReferences(
@@ -14,17 +14,17 @@ void __fastcall DirectComposition::CCaptureRenderTargetMarshaler::ReleaseAllRefe
   struct DirectComposition::CResourceMarshaler *v4; // rdx
   void *v5; // rcx
 
-  v4 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 16);
+  v4 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 15);
   if ( v4 )
   {
     DirectComposition::CApplicationChannel::ReleaseResource(a2, v4);
-    *((_QWORD *)this + 16) = 0LL;
+    *((_QWORD *)this + 15) = 0LL;
   }
-  v5 = (void *)*((_QWORD *)this + 15);
+  v5 = (void *)*((_QWORD *)this + 14);
   if ( v5 )
   {
     DxgkReleaseCompositionObjectReference(v5);
-    *((_QWORD *)this + 15) = 0LL;
+    *((_QWORD *)this + 14) = 0LL;
   }
   DirectComposition::CCaptureRenderTargetMarshaler::ReleaseBuffers(this);
 }

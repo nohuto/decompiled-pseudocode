@@ -1,10 +1,10 @@
 /*
- * XREFs of IopRaiseInformationalHardError @ 0x14081A770
+ * XREFs of IopRaiseInformationalHardError @ 0x14081A750
  * Callers:
  *     <none>
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExRaiseHardError @ 0x1408D6600 (ExRaiseHardError.c)
+ *     ExRaiseHardError @ 0x1408D65E0 (ExRaiseHardError.c)
  */
 
 void __fastcall IopRaiseInformationalHardError(char *P)

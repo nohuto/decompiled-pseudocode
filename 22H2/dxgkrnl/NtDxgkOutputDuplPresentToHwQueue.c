@@ -1,235 +1,222 @@
 /*
- * XREFs of NtDxgkOutputDuplPresentToHwQueue @ 0x1C0320530
+ * XREFs of NtDxgkOutputDuplPresentToHwQueue @ 0x1C0275220
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?AllocateElements@?$PagedPoolZeroedArray@E$0BA@@@QEAAPEAEI@Z @ 0x1C0316AC0 (-AllocateElements@-$PagedPoolZeroedArray@E$0BA@@@QEAAPEAEI@Z.c)
- *     ?AllocateElements@?$PagedPoolZeroedArray@I$03@@QEAAPEAII@Z @ 0x1C0316BB0 (-AllocateElements@-$PagedPoolZeroedArray@I$03@@QEAAPEAII@Z.c)
- *     ?OutputDuplPresentToHwQueue@@YAJPEAU_D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE@@PEAVDXGPROCESS@@@Z @ 0x1C031ADA4 (-OutputDuplPresentToHwQueue@@YAJPEAU_D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE@@PEAVDXGPROCESS@@@Z.c)
- *     ?TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z @ 0x1C0340E0C (-TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?AllocateElements@?$PagedPoolZeroedArray@I$03@@QEAAPEAII@Z @ 0x1C016A3E8 (-AllocateElements@-$PagedPoolZeroedArray@I$03@@QEAAPEAII@Z.c)
+ *     ?AllocateElements@?$PagedPoolZeroedArray@E$0BA@@@QEAAPEAEI@Z @ 0x1C026CDD4 (-AllocateElements@-$PagedPoolZeroedArray@E$0BA@@@QEAAPEAEI@Z.c)
+ *     ?OutputDuplPresentToHwQueue@@YAJPEAU_D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE@@PEAVDXGPROCESS@@@Z @ 0x1C026E918 (-OutputDuplPresentToHwQueue@@YAJPEAU_D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE@@PEAVDXGPROCESS@@@Z.c)
+ *     ?TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z @ 0x1C0283154 (-TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z.c)
  */
 
-__int64 __fastcall NtDxgkOutputDuplPresentToHwQueue(_OWORD *a1)
+__int64 __fastcall NtDxgkOutputDuplPresentToHwQueue(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v2; // rcx
+  __int128 *v4; // rbx
   struct DXGPROCESS *Current; // rax
-  __int64 v4; // rcx
-  struct DXGPROCESS *v5; // r14
-  __int64 CurrentProcess; // rax
+  __int64 v6; // rdx
   __int64 v7; // rcx
-  __int64 Elements; // rax
-  PVOID v10; // rcx
-  size_t v11; // r8
-  const void *v12; // rdx
-  unsigned __int64 v13; // rax
-  __int64 v14; // r15
-  unsigned int v15; // edi
-  unsigned __int64 v16; // rcx
-  unsigned int v17; // edi
-  unsigned int v18; // esi
-  unsigned int v19; // eax
-  unsigned int v20; // edx
-  char *v21; // rsi
-  struct _D3DKMT_MOVE_RECT *v22; // rbx
-  const void *v23; // rdx
-  unsigned int v24; // ecx
-  ULONG64 v25; // r9
-  unsigned int v26; // ebx
-  __int64 v27; // [rsp+28h] [rbp-D0h]
-  _OWORD v28[4]; // [rsp+50h] [rbp-A8h] BYREF
-  struct DXGPROCESS *v29; // [rsp+90h] [rbp-68h]
-  PVOID P; // [rsp+98h] [rbp-60h] BYREF
-  _BYTE v31[16]; // [rsp+A0h] [rbp-58h] BYREF
-  int v32; // [rsp+B0h] [rbp-48h]
-  PVOID v33; // [rsp+B8h] [rbp-40h] BYREF
-  _BYTE v34[16]; // [rsp+C0h] [rbp-38h] BYREF
-  int v35; // [rsp+D0h] [rbp-28h]
+  __int64 v8; // r8
+  struct DXGPROCESS *v9; // r15
+  __int64 v10; // rbx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  __int64 v15; // rcx
+  __int64 v17; // rax
+  __int64 v18; // rax
+  PVOID v19; // rax
+  PVOID v20; // rcx
+  size_t v21; // r8
+  const void *v22; // rdx
+  __int64 v23; // rdx
+  __int64 v24; // r8
+  unsigned __int64 v25; // rdi
+  unsigned __int64 v26; // rbx
+  __int64 v27; // rdx
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  __int64 v31; // r9
+  char *v32; // r14
+  __int64 v33; // rax
+  struct _D3DKMT_MOVE_RECT *v34; // rsi
+  const void *v35; // rdx
+  char *v36; // rcx
+  unsigned int v37; // ecx
+  struct _D3DKMT_MOVE_RECT *v38; // r9
+  unsigned int v39; // ebx
+  __int64 v40; // rax
+  __int128 v41; // [rsp+20h] [rbp-C8h] BYREF
+  void *Src[2]; // [rsp+30h] [rbp-B8h]
+  void *v43[2]; // [rsp+40h] [rbp-A8h]
+  struct _D3DKMT_MOVE_RECT *v44[2]; // [rsp+50h] [rbp-98h]
+  int v45; // [rsp+60h] [rbp-88h]
+  int v46; // [rsp+64h] [rbp-84h]
+  int v47; // [rsp+68h] [rbp-80h]
+  struct DXGPROCESS *v48; // [rsp+70h] [rbp-78h]
+  PVOID v49; // [rsp+78h] [rbp-70h]
+  PVOID P; // [rsp+80h] [rbp-68h] BYREF
+  _BYTE v51[16]; // [rsp+88h] [rbp-60h] BYREF
+  int v52; // [rsp+98h] [rbp-50h]
+  PVOID v53; // [rsp+A0h] [rbp-48h] BYREF
+  _BYTE v54[16]; // [rsp+A8h] [rbp-40h] BYREF
+  int v55; // [rsp+B8h] [rbp-30h]
 
-  memset(v28, 0, sizeof(v28));
-  Current = DXGPROCESS::GetCurrent(v2);
-  v5 = Current;
-  v29 = Current;
+  v4 = (__int128 *)a1;
+  Current = DXGPROCESS::GetCurrent(a1, a2, a3, a4);
+  v9 = Current;
+  v48 = Current;
   if ( !Current )
   {
-    CurrentProcess = PsGetCurrentProcess(v4);
-    WdLogSingleEntry2(2LL, -1073741811LL, CurrentProcess);
-    v27 = PsGetCurrentProcess(v7);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Presenting from unexpected process 0x%I64x 0x%I64x",
-      -1073741811LL,
-      v27,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v10 + 24) = -1073741811LL;
+    *(_QWORD *)(v10 + 32) = PsGetCurrentProcess(v12, v11, v13, v14);
+    v15 = v10;
+LABEL_3:
+    WdLogEvent5_WdError(v15);
     return 3221225485LL;
   }
-  if ( (*((_DWORD *)Current + 106) & 4) == 0 )
+  if ( !*((_BYTE *)Current + 346) )
   {
-    WdLogSingleEntry1(2LL, 2859LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Function can only be called from DWM process",
-      2859LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225485LL;
+    v17 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v17 + 24) = 2613LL;
+    v15 = v17;
+    goto LABEL_3;
   }
   P = 0LL;
-  v32 = 0;
-  if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-    a1 = (_OWORD *)MmUserProbeAddress;
-  v28[0] = *a1;
-  v28[1] = a1[1];
-  v28[2] = a1[2];
-  v28[3] = a1[3];
-  if ( !DWORD2(v28[0]) )
+  v52 = 0;
+  if ( (unsigned __int64)v4 >= MmUserProbeAddress )
+    v4 = (__int128 *)MmUserProbeAddress;
+  v41 = *v4;
+  *(_OWORD *)Src = v4[1];
+  *(_OWORD *)v43 = v4[2];
+  *(_OWORD *)v44 = v4[3];
+  if ( !DWORD2(v41) )
   {
-    WdLogSingleEntry1(3LL, 2871LL);
-    if ( P != v31 )
+    v18 = WdLogNewEntry5_WdWarning(MmUserProbeAddress, 0LL, v8);
+    *(_QWORD *)(v18 + 24) = 2625LL;
+    WdLogEvent5_WdWarning(v18);
+    if ( P != v51 )
     {
       if ( P )
         ExFreePoolWithTag(P, 0);
     }
     P = 0LL;
-    v32 = 0;
+    v52 = 0;
     return 3221225485LL;
   }
-  Elements = PagedPoolZeroedArray<unsigned int,4>::AllocateElements((__int64 *)&P, DWORD2(v28[0]));
-  v10 = P;
-  if ( !Elements )
+  v19 = PagedPoolZeroedArray<unsigned int,4>::AllocateElements(&P, DWORD2(v41));
+  v20 = P;
+  if ( !v19 )
   {
-    if ( P != v31 && P )
+    if ( P != v51 && P )
       ExFreePoolWithTag(P, 0);
     P = 0LL;
-    v32 = 0;
+    v52 = 0;
     return 3221225495LL;
   }
-  v11 = 4LL * DWORD2(v28[0]);
-  v12 = *(const void **)&v28[1];
-  if ( *(_QWORD *)&v28[1] + v11 < *(_QWORD *)&v28[1] || *(_QWORD *)&v28[1] + v11 > MmUserProbeAddress )
+  v49 = P;
+  v21 = 4LL * DWORD2(v41);
+  v22 = Src[0];
+  if ( (char *)Src[0] + v21 < Src[0] || (char *)Src[0] + v21 > (void *)MmUserProbeAddress )
     *(_BYTE *)MmUserProbeAddress = 0;
-  memmove(v10, v12, v11);
-  *(_QWORD *)&v28[1] = P;
-  v13 = 16LL * DWORD2(v28[1]);
-  v14 = 0xFFFFFFFFLL;
-  if ( v13 <= 0xFFFFFFFF )
-    v14 = (unsigned int)v13;
-  v15 = v13 > 0xFFFFFFFF ? 0xC0000095 : 0;
-  if ( v13 > 0xFFFFFFFF )
+  memmove(v20, v22, v21);
+  Src[0] = P;
+  v25 = 16LL * LODWORD(Src[1]);
+  if ( v25 > 0xFFFFFFFF )
   {
-    WdLogSingleEntry1(3LL, 2899LL);
-    if ( P != v31 && P )
+    v40 = WdLogNewEntry5_WdWarning(0xFFFFFFFFLL, v23, v24);
+    *(_QWORD *)(v40 + 24) = 2653LL;
+LABEL_57:
+    WdLogEvent5_WdWarning(v40);
+    if ( P != v51 && P )
       ExFreePoolWithTag(P, 0);
-    return v15;
+    return 3221225621LL;
   }
-  v16 = 24LL * DWORD2(v28[2]);
-  v17 = -1;
-  if ( v16 <= 0xFFFFFFFF )
-    v17 = 24 * DWORD2(v28[2]);
-  v18 = v16 > 0xFFFFFFFF ? 0xC0000095 : 0;
-  if ( v16 > 0xFFFFFFFF )
+  v45 = 16 * LODWORD(Src[1]);
+  v26 = 24LL * LODWORD(v43[1]);
+  if ( v26 > 0xFFFFFFFF )
   {
-    WdLogSingleEntry1(3LL, 2906LL);
-    goto LABEL_32;
+    v40 = WdLogNewEntry5_WdWarning(0xFFFFFFFFLL, v23, v24);
+    *(_QWORD *)(v40 + 24) = 2660LL;
+    goto LABEL_57;
   }
-  v19 = v17 + v14;
-  v20 = -1;
-  if ( v17 + (unsigned int)v14 >= v17 )
-    v20 = v17 + v14;
-  v18 = v19 < v17 ? 0xC0000095 : 0;
-  if ( v19 < v17 )
+  v46 = 24 * LODWORD(v43[1]);
+  v27 = (unsigned int)(v26 + v25);
+  if ( (unsigned int)v27 < (unsigned int)v26 )
   {
-    WdLogSingleEntry1(3LL, 2913LL);
-LABEL_32:
-    if ( P != v31 && P )
-      ExFreePoolWithTag(P, 0);
-    return v18;
+    v40 = WdLogNewEntry5_WdWarning(0xFFFFFFFFLL, v27, v24);
+    *(_QWORD *)(v40 + 24) = 2667LL;
+    goto LABEL_57;
   }
-  v33 = 0LL;
-  v35 = 0;
-  if ( v20 )
+  v47 = v26 + v25;
+  v53 = 0LL;
+  v55 = 0;
+  if ( (_DWORD)v27 )
   {
-    v21 = (char *)PagedPoolZeroedArray<unsigned char,16>::AllocateElements((__int64 *)&v33, v20);
-    if ( !v21 )
+    v32 = (char *)PagedPoolZeroedArray<unsigned char,16>::AllocateElements(&v53, v27);
+    if ( !v32 )
     {
-      WdLogSingleEntry1(6LL, 2925LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Failed to alloc buffer for kernel copy of meta data.",
-        2925LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      if ( v33 != v34 && v33 )
-        ExFreePoolWithTag(v33, 0);
-      v33 = 0LL;
-      v35 = 0;
-      if ( P != v31 && P )
+      v33 = WdLogNewEntry5_WdLowResource(v29, v28, v30, v31);
+      *(_QWORD *)(v33 + 24) = 2679LL;
+      WdLogEvent5_WdLowResource(v33);
+      if ( v53 != v54 && v53 )
+        ExFreePoolWithTag(v53, 0);
+      v53 = 0LL;
+      v55 = 0;
+      if ( P != v51 && P )
         ExFreePoolWithTag(P, 0);
       return 3221225495LL;
     }
-    v22 = (struct _D3DKMT_MOVE_RECT *)&v21[16 * DWORD2(v28[1])];
-    if ( DWORD2(v28[1]) )
+    v34 = (struct _D3DKMT_MOVE_RECT *)&v32[16 * LODWORD(Src[1])];
+    if ( LODWORD(Src[1]) )
     {
-      v23 = *(const void **)&v28[2];
-      if ( (unsigned __int64)(*(_QWORD *)&v28[2] + v14) < *(_QWORD *)&v28[2]
-        || *(_QWORD *)&v28[2] + v14 > MmUserProbeAddress )
-      {
+      v35 = v43[0];
+      v36 = (char *)v43[0] + (unsigned int)v25;
+      if ( v36 < v43[0] || (unsigned __int64)v36 > MmUserProbeAddress )
         *(_BYTE *)MmUserProbeAddress = 0;
-      }
-      memmove(v21, v23, (unsigned int)v14);
-      *(_QWORD *)&v28[2] = v21;
+      memmove(v32, v35, (unsigned int)v25);
+      v43[0] = v32;
     }
     else
     {
-      *(_QWORD *)&v28[2] = 0LL;
+      v43[0] = 0LL;
     }
-    v24 = DWORD2(v28[2]);
-    if ( DWORD2(v28[2]) )
+    v37 = (unsigned int)v43[1];
+    if ( LODWORD(v43[1]) )
     {
-      if ( v17 )
+      if ( (_DWORD)v26 )
       {
-        v25 = *(_QWORD *)&v28[3] + v17;
-        if ( v25 > MmUserProbeAddress || v25 < *(_QWORD *)&v28[3] )
+        v38 = (struct _D3DKMT_MOVE_RECT *)((char *)v44[0] + (unsigned int)v26);
+        if ( (unsigned __int64)v38 > MmUserProbeAddress || v38 < v44[0] )
         {
           *(_BYTE *)MmUserProbeAddress = 0;
-          v24 = DWORD2(v28[2]);
+          v37 = (unsigned int)v43[1];
         }
       }
-      TranslateAndCopyDWMMoveRegionToDDAMoveRegions(v24, *(const struct _D3DKMT_MOVE_RECT **)&v28[3], v22);
-      *(_QWORD *)&v28[3] = v22;
+      TranslateAndCopyDWMMoveRegionToDDAMoveRegions(v37, v44[0], v34);
+      v44[0] = v34;
     }
     else
     {
-      *(_QWORD *)&v28[3] = 0LL;
+      v44[0] = 0LL;
     }
   }
   else
   {
-    *(_QWORD *)&v28[2] = 0LL;
-    *(_QWORD *)&v28[3] = 0LL;
+    v43[0] = 0LL;
+    v44[0] = 0LL;
   }
-  v26 = OutputDuplPresentToHwQueue((struct _D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE *)v28, v5);
-  if ( v33 != v34 && v33 )
-    ExFreePoolWithTag(v33, 0);
-  v33 = 0LL;
-  v35 = 0;
-  if ( P != v31 && P )
+  v39 = OutputDuplPresentToHwQueue((struct _D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE *)&v41, v9);
+  if ( v53 != v54 && v53 )
+    ExFreePoolWithTag(v53, 0);
+  v53 = 0LL;
+  v55 = 0;
+  if ( P != v51 && P )
     ExFreePoolWithTag(P, 0);
-  return v26;
+  return v39;
 }

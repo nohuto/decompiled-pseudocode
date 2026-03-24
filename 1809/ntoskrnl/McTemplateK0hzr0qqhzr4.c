@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0hzr0qqhzr4 @ 0x140287ED0
+ * XREFs of McTemplateK0hzr0qqhzr4 @ 0x140287FD0
  * Callers:
- *     IopDeviceRemovalForResetComplete @ 0x1408269A0 (IopDeviceRemovalForResetComplete.c)
+ *     IopDeviceRemovalForResetComplete @ 0x140826980 (IopDeviceRemovalForResetComplete.c)
  * Callees:
- *     McGenEventWrite @ 0x14015D6A0 (McGenEventWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     McGenEventWrite @ 0x14015D6C0 (McGenEventWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateK0hzr0qqhzr4(

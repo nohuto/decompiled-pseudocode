@@ -1,20 +1,20 @@
 /*
- * XREFs of KsepResolveApplicableShimsForDriver @ 0x140848584
+ * XREFs of KsepResolveApplicableShimsForDriver @ 0x140848564
  * Callers:
- *     KsepGetShimsForDriver @ 0x14067DBCC (KsepGetShimsForDriver.c)
+ *     KsepGetShimsForDriver @ 0x14067DBAC (KsepGetShimsForDriver.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KsepPoolFreePaged @ 0x1400F4C94 (KsepPoolFreePaged.c)
- *     KsepLogInfo @ 0x1400F4D18 (KsepLogInfo.c)
- *     KsepLoadShimProvider @ 0x14029F95C (KsepLoadShimProvider.c)
- *     KsepDebugPrint @ 0x14029FB44 (KsepDebugPrint.c)
- *     KsepLogError @ 0x14029FDE4 (KsepLogError.c)
- *     KsepIsShimRegistered @ 0x1407285EC (KsepIsShimRegistered.c)
- *     KsepGetLoadedModulesList @ 0x14072878C (KsepGetLoadedModulesList.c)
- *     KsepResolveShimHooks @ 0x140848074 (KsepResolveShimHooks.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KsepPoolFreePaged @ 0x1400F4CB4 (KsepPoolFreePaged.c)
+ *     KsepLogInfo @ 0x1400F4D38 (KsepLogInfo.c)
+ *     KsepLoadShimProvider @ 0x14029FA5C (KsepLoadShimProvider.c)
+ *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x14029FEE4 (KsepLogError.c)
+ *     KsepIsShimRegistered @ 0x1407285CC (KsepIsShimRegistered.c)
+ *     KsepGetLoadedModulesList @ 0x14072876C (KsepGetLoadedModulesList.c)
+ *     KsepResolveShimHooks @ 0x140848054 (KsepResolveShimHooks.c)
  */
 
 __int64 __fastcall KsepResolveApplicableShimsForDriver(_QWORD *a1, unsigned int a2)

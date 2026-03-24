@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIPowerScheduleDpc @ 0x1C0022734
+ * XREFs of ACPIPowerScheduleDpc @ 0x1C001CD7C
  * Callers:
- *     ACPIBuildDeviceDpc @ 0x1C000BE30 (ACPIBuildDeviceDpc.c)
- *     ACPIDeviceCompletePhase3Common @ 0x1C001C514 (ACPIDeviceCompletePhase3Common.c)
- *     ACPIDeviceCompleteRequest @ 0x1C001C97C (ACPIDeviceCompleteRequest.c)
- *     ACPIDeviceInternalQueueRequest @ 0x1C001D4C0 (ACPIDeviceInternalQueueRequest.c)
- *     ACPITableLoadCallBack @ 0x1C003F3E0 (ACPITableLoadCallBack.c)
- *     ACPIInitStartACPI @ 0x1C00A8DF0 (ACPIInitStartACPI.c)
+ *     ACPIDeviceInternalQueueRequest @ 0x1C001CC50 (ACPIDeviceInternalQueueRequest.c)
+ *     ACPIDeviceCompletePhase3Common @ 0x1C001CD30 (ACPIDeviceCompletePhase3Common.c)
+ *     ACPIBuildDeviceDpc @ 0x1C001CDD0 (ACPIBuildDeviceDpc.c)
+ *     ACPIDeviceCompleteRequest @ 0x1C001EAE8 (ACPIDeviceCompleteRequest.c)
+ *     ACPITableLoadCallBack @ 0x1C0030360 (ACPITableLoadCallBack.c)
+ *     ACPIInitStartACPI @ 0x1C00BB534 (ACPIInitStartACPI.c)
  * Callees:
  *     <none>
  */

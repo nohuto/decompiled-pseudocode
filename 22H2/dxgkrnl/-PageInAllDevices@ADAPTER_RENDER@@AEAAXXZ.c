@@ -1,10 +1,9 @@
 /*
- * XREFs of ?PageInAllDevices@ADAPTER_RENDER@@AEAAXXZ @ 0x1C02C1708
+ * XREFs of ?PageInAllDevices@ADAPTER_RENDER@@AEAAXXZ @ 0x1C0216F10
  * Callers:
- *     ?ResumeMemorySegments@ADAPTER_RENDER@@QEAAJXZ @ 0x1C02C1F78 (-ResumeMemorySegments@ADAPTER_RENDER@@QEAAJXZ.c)
+ *     ?ResumeMemorySegments@ADAPTER_RENDER@@QEAAJXZ @ 0x1C02175A4 (-ResumeMemorySegments@ADAPTER_RENDER@@QEAAJXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall ADAPTER_RENDER::PageInAllDevices(ADAPTER_RENDER *this)
@@ -12,6 +11,9 @@ void __fastcall ADAPTER_RENDER::PageInAllDevices(ADAPTER_RENDER *this)
   char *v2; // rdi
   __int64 v3; // rbp
   char *i; // rbx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rax
 
   v2 = (char *)this + 144;
   v3 = 2LL;
@@ -19,12 +21,13 @@ void __fastcall ADAPTER_RENDER::PageInAllDevices(ADAPTER_RENDER *this)
   {
     for ( i = *(char **)v2; i != v2 && i; i = *(char **)i )
     {
-      if ( (*(int (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*((_QWORD *)this + 95) + 8LL) + 864LL))(
-             *((_QWORD *)this + 96),
-             *((_QWORD *)i + 99)) < 0 )
+      if ( (*(int (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*((_QWORD *)this + 80) + 8LL) + 872LL))(
+             *((_QWORD *)this + 81),
+             *((_QWORD *)i + 95)) < 0 )
       {
-        WdLogSingleEntry1(1LL, 3176LL);
-        DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"NT_SUCCESS(Status)", 3176LL, 0LL, 0LL, 0LL, 0LL);
+        v7 = WdLogNewEntry5_WdAssertion(v6, v5);
+        *(_QWORD *)(v7 + 24) = 2942LL;
+        WdLogEvent5_WdAssertion(v7);
       }
     }
     v2 = (char *)this + 160;

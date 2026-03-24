@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpInterruptRegisterLine @ 0x140379AF0
+ * XREFs of HalpInterruptRegisterLine @ 0x1403B2370
  * Callers:
- *     HalpApicDescribeLines @ 0x14037972C (HalpApicDescribeLines.c)
- *     HalpApicDescribeLocalLines @ 0x1403797B8 (HalpApicDescribeLocalLines.c)
- *     HalpPicDiscover @ 0x140379884 (HalpPicDiscover.c)
+ *     HalpApicDescribeLines @ 0x1403B1FA8 (HalpApicDescribeLines.c)
+ *     HalpApicDescribeLocalLines @ 0x1403B2034 (HalpApicDescribeLocalLines.c)
+ *     HalpPicDiscover @ 0x1403B2100 (HalpPicDiscover.c)
  * Callees:
- *     HalpInterruptLookupController @ 0x14031FD00 (HalpInterruptLookupController.c)
- *     HalpInterruptFindLinesForGsiRange @ 0x14031FD7C (HalpInterruptFindLinesForGsiRange.c)
- *     HalpMmAllocateMemoryInternal @ 0x14037E158 (HalpMmAllocateMemoryInternal.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalpInterruptLookupController @ 0x140378770 (HalpInterruptLookupController.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140378A18 (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BAC58 (HalpMmAllocateMemoryInternal.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall HalpInterruptRegisterLine(__int64 a1)
 {
   unsigned int v1; // edi
   int v3; // ebx
-  int v4; // r14d
+  int v4; // r15d
   int v5; // r12d
   int v6; // r13d
   ULONG_PTR *v7; // rax
@@ -23,7 +23,7 @@ __int64 __fastcall HalpInterruptRegisterLine(__int64 a1)
   int v9; // ecx
   int v10; // eax
   unsigned int v11; // ebp
-  unsigned int v12; // r14d
+  unsigned int v12; // r15d
   unsigned int v13; // ebp
   _DWORD *MemoryInternal; // rax
   _DWORD *v15; // rbx
@@ -58,12 +58,12 @@ __int64 __fastcall HalpInterruptRegisterLine(__int64 a1)
       {
         if ( v5 != 6 )
         {
-          v9 = *((_DWORD *)v7 + 74);
-          v10 = *((_DWORD *)v7 + 75);
+          v9 = *((_DWORD *)v7 + 68);
+          v10 = *((_DWORD *)v7 + 69);
           if ( v9 != v10 && v4 > v9 && v3 < v10 )
           {
-            v27 = (ULONG_PTR *)v8[33];
-            while ( v27 != v8 + 33 )
+            v27 = (ULONG_PTR *)v8[30];
+            while ( v27 != v8 + 30 )
             {
               v28 = v27;
               v27 = (ULONG_PTR *)*v27;
@@ -76,7 +76,7 @@ __int64 __fastcall HalpInterruptRegisterLine(__int64 a1)
         if ( v11 == -1 || !HalpInterruptFindLinesForGsiRange(v11, v4 + v11 - v3) )
         {
           v12 = v4 - v3;
-          if ( *((_DWORD *)v8 + 60) == 2 && v11 != -1 )
+          if ( *((_DWORD *)v8 + 54) == 2 && v11 != -1 )
           {
             v26 = 0;
             if ( HalpInterruptIoApicCount )
@@ -124,29 +124,29 @@ LABEL_12:
             *((_QWORD *)v15 + 6) = &v20[56 * v12];
             if ( v17 == 6 )
             {
-              v23 = v8 + 35;
+              v23 = v8 + 32;
               v15[4] = *(_DWORD *)(a1 + 20);
             }
             else
             {
-              v15[4] = *((_DWORD *)v8 + 64);
-              v21 = *((_DWORD *)v8 + 74);
-              v22 = *((_DWORD *)v8 + 75);
+              v15[4] = *((_DWORD *)v8 + 58);
+              v21 = *((_DWORD *)v8 + 68);
+              v22 = *((_DWORD *)v8 + 69);
               if ( v21 == v22 )
               {
-                *((_DWORD *)v8 + 74) = v16;
-                *((_DWORD *)v8 + 75) = v15[6];
+                *((_DWORD *)v8 + 68) = v16;
+                *((_DWORD *)v8 + 69) = v15[6];
               }
               else if ( v16 >= v21 )
               {
                 if ( v19 > v22 )
-                  *((_DWORD *)v8 + 75) = v19;
+                  *((_DWORD *)v8 + 69) = v19;
               }
               else
               {
-                *((_DWORD *)v8 + 74) = v16;
+                *((_DWORD *)v8 + 68) = v16;
               }
-              v23 = v8 + 33;
+              v23 = v8 + 30;
             }
             v24 = (ULONG_PTR **)v23[1];
             if ( *v24 != v23 )

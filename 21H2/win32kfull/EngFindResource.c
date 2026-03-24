@@ -1,9 +1,9 @@
 /*
- * XREFs of EngFindResource @ 0x1C027B480
+ * XREFs of EngFindResource @ 0x1C027D910
  * Callers:
  *     <none>
  * Callees:
- *     pvFindResource @ 0x1C00EE1AC (pvFindResource.c)
+ *     pvFindResource @ 0x1C0102F7C (pvFindResource.c)
  */
 
 PVOID __stdcall EngFindResource(HANDLE h, INT iName, INT iType, PULONG pulSize)

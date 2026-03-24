@@ -1,27 +1,28 @@
 /*
- * XREFs of ?EnsureD2DBitmap@CDxHandleBitmapRealization@@MEAAJXZ @ 0x18003BBC0
+ * XREFs of ?EnsureD2DBitmap@CDxHandleBitmapRealization@@MEAAJXZ @ 0x180039A00
  * Callers:
- *     ?EnsureD2DBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@MEAAJXZ @ 0x1802B1F10 (-EnsureD2DBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@MEAAJXZ.c)
- *     ?EnsureD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAJXZ @ 0x1802B3310 (-EnsureD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAJXZ.c)
+ *     ?EnsureD2DBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@MEAAJXZ @ 0x1802637D0 (-EnsureD2DBitmap@CDxHandleAdvancedDirectFlipBitmapRealization@@MEAAJXZ.c)
+ *     ?EnsureD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAJXZ @ 0x180264BF0 (-EnsureD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAJXZ.c)
  * Callees:
- *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x1800343F8 (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180034B30 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     ?CreateD2DBitmap@CD3DDevice@@QEAAJPEAX_NW4DXGI_ALPHA_MODE@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@MMPEAPEAVCD2DBitmap@@@Z @ 0x18003B5FC (-CreateD2DBitmap@CD3DDevice@@QEAAJPEAX_NW4DXGI_ALPHA_MODE@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@.c)
- *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18003D734 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?CreateD2DBitmap@CD3DDevice@@QEAAJPEAX_NW4DXGI_ALPHA_MODE@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@MMPEAPEAVCD2DBitmap@@@Z @ 0x180039B34 (-CreateD2DBitmap@CD3DDevice@@QEAAJPEAX_NW4DXGI_ALPHA_MODE@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18005F710 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?reset@?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18005FFF0 (-reset@-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180060020 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x180068DD4 (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CDxHandleBitmapRealization::EnsureD2DBitmap(CDxHandleBitmapRealization *this)
 {
   unsigned int v1; // edi
   unsigned __int64 *v2; // r14
-  struct _LUID v5; // rdx
+  CDeviceManager *v5; // rcx
   int Device; // eax
   unsigned int v7; // ecx
-  struct D3D11_SUBRESOURCE_DATA *v8; // r8
-  __int64 v9; // rcx
-  int v10; // r9d
+  __int64 v8; // r8
+  unsigned __int64 v9; // rcx
+  __int64 v10; // r9
   int D2DBitmap; // eax
   unsigned int v12; // ecx
   __int64 v13; // rcx
@@ -29,16 +30,16 @@ __int64 __fastcall CDxHandleBitmapRealization::EnsureD2DBitmap(CDxHandleBitmapRe
   CD3DDevice *v15; // [rsp+60h] [rbp+8h] BYREF
 
   v1 = 0;
-  v2 = (unsigned __int64 *)((char *)this + 376);
-  if ( *((_QWORD *)this + 47) )
+  v2 = (unsigned __int64 *)((char *)this + 344);
+  if ( *((_QWORD *)this + 43) )
     return v1;
-  v5 = (struct _LUID)*((_QWORD *)this + 32);
   v15 = 0LL;
-  Device = CDeviceManager::GetDevice((CDeviceManager *)&g_DeviceManager, v5, &v15);
+  wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(&v15);
+  Device = CDeviceManager::GetDevice(v5, *(struct _LUID *)((char *)this + 232), &v15);
   v1 = Device;
   if ( Device < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, Device, 0x15Du, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, Device, 0x15Fu, 0LL);
     v14 = v15;
     if ( !v15 )
       return v1;
@@ -47,25 +48,25 @@ __int64 __fastcall CDxHandleBitmapRealization::EnsureD2DBitmap(CDxHandleBitmapRe
   v9 = *v2;
   *v2 = 0LL;
   if ( v9 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
-  v10 = 3;
+    (*(void (__fastcall **)(unsigned __int64))(*(_QWORD *)v9 + 16LL))(v9);
+  v10 = 3LL;
   if ( *((_DWORD *)this + 24) )
-    v10 = *((_DWORD *)this + 24);
-  LOBYTE(v8) = *((_BYTE *)this + 392);
+    v10 = *((unsigned int *)this + 24);
+  LOBYTE(v8) = *((_BYTE *)this + 364);
   D2DBitmap = CD3DDevice::CreateD2DBitmap(
-                (__int64)v15,
-                *((void **)this + 31),
+                v15,
+                *((_QWORD *)this + 28),
                 v8,
                 v10,
-                *((_DWORD *)this + 36),
-                *((_DWORD *)this + 70),
-                SLODWORD(FLOAT_96_0),
-                SLODWORD(FLOAT_96_0),
+                *((_DWORD *)this + 35),
+                *((_DWORD *)this + 62),
+                LODWORD(FLOAT_96_0),
+                LODWORD(FLOAT_96_0),
                 v2);
   v1 = D2DBitmap;
   if ( D2DBitmap < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, D2DBitmap, 0x166u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, D2DBitmap, 0x168u, 0LL);
   }
   else
   {

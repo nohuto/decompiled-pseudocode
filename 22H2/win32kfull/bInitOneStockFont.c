@@ -1,11 +1,11 @@
 /*
- * XREFs of bInitOneStockFont @ 0x1C03B38D0
+ * XREFs of bInitOneStockFont @ 0x1C0392854
  * Callers:
- *     bInitStockFontsInternal @ 0x1C03B31F8 (bInitStockFontsInternal.c)
+ *     bInitStockFontsInternal @ 0x1C0392344 (bInitStockFontsInternal.c)
  * Callees:
- *     ?bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z @ 0x1C0086298 (-bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     bInitOneStockFontInternal @ 0x1C03B35E0 (bInitOneStockFontInternal.c)
+ *     ?bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z @ 0x1C00E4D78 (-bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     bInitOneStockFontInternal @ 0x1C0392720 (bInitOneStockFontInternal.c)
  */
 
 __int64 __fastcall bInitOneStockFont(

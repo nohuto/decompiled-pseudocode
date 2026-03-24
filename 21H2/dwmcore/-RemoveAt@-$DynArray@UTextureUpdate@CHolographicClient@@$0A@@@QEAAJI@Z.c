@@ -1,9 +1,9 @@
 /*
- * XREFs of ?RemoveAt@?$DynArray@UTextureUpdate@CHolographicClient@@$0A@@@QEAAJI@Z @ 0x18029F0DC
+ * XREFs of ?RemoveAt@?$DynArray@UTextureUpdate@CHolographicClient@@$0A@@@QEAAJI@Z @ 0x18025C590
  * Callers:
- *     ?DoTextureUpdates@CHolographicClient@@AEAAXXZ @ 0x18029D640 (-DoTextureUpdates@CHolographicClient@@AEAAXXZ.c)
+ *     ?DoTextureUpdates@CHolographicClient@@AEAAXXZ @ 0x18025AF4C (-DoTextureUpdates@CHolographicClient@@AEAAXXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall DynArray<CHolographicClient::TextureUpdate,0>::RemoveAt(__int64 a1)
@@ -40,7 +40,7 @@ __int64 __fastcall DynArray<CHolographicClient::TextureUpdate,0>::RemoveAt(__int
   else
   {
     v4 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0LL, -2147024809, 0x19Cu);
+    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024809, 0x19Cu, 0LL);
   }
   return v4;
 }

@@ -3,7 +3,7 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     IoCreateDriver @ 0x14073A0B0 (IoCreateDriver.c)
+ *     IoCreateDriver @ 0x14073A090 (IoCreateDriver.c)
  */
 
 int PiDaInit()

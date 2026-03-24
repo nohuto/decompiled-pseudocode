@@ -1,30 +1,28 @@
 /*
- * XREFs of ?_IsLegacyDevice@Edgy@@YAHPEAX@Z @ 0x1C016D61C
+ * XREFs of ?_IsLegacyDevice@Edgy@@YAHPEAX@Z @ 0x1C0208620
  * Callers:
- *     ?_GetArcData@Edgy@@YA?AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z @ 0x1C020804C (-_GetArcData@Edgy@@YA-AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z.c)
- *     ?_StoreLastUpDataAndPost@Edgy@@YAXAEAUtagEDGY_DATA@@QEAX@Z @ 0x1C0208E94 (-_StoreLastUpDataAndPost@Edgy@@YAXAEAUtagEDGY_DATA@@QEAX@Z.c)
+ *     ?_GetArcData@Edgy@@YA?AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z @ 0x1C0207BE8 (-_GetArcData@Edgy@@YA-AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z.c)
+ *     ?_StoreLastUpDataAndPost@Edgy@@YAXAEAUtagEDGY_DATA@@QEAX@Z @ 0x1C0208A84 (-_StoreLastUpDataAndPost@Edgy@@YAXAEAUtagEDGY_DATA@@QEAX@Z.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     _GetTouchValidationStatus @ 0x1C01D92F8 (_GetTouchValidationStatus.c)
- *     ?_GetDWordFromRegistry@Edgy@@YAHPEBG0PEAK@Z @ 0x1C0208498 (-_GetDWordFromRegistry@Edgy@@YAHPEBG0PEAK@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     _GetTouchValidationStatus @ 0x1C01DE5B8 (_GetTouchValidationStatus.c)
+ *     ?_GetDWordFromRegistry@Edgy@@YAHPEBG0PEAK@Z @ 0x1C020800C (-_GetDWordFromRegistry@Edgy@@YAHPEBG0PEAK@Z.c)
  */
 
 _BOOL8 __fastcall Edgy::_IsLegacyDevice(Edgy *this, const unsigned __int16 *a2, __int64 a3, unsigned int *a4)
 {
   int v4; // eax
-  int v5; // edi
   BOOL v6; // ebx
   __int64 v7; // rax
   _BOOL8 result; // rax
   int v9; // [rsp+38h] [rbp+10h] BYREF
 
   v4 = gForceLegacyMode;
-  v5 = (int)this;
   if ( !gForceLegacyMode )
   {
     v9 = 0;
     v6 = 1;
-    if ( (unsigned int)Edgy::_GetDWordFromRegistry(this, a2, (const unsigned __int16 *)&v9, a4) )
+    if ( (unsigned int)Edgy::_GetDWordFromRegistry(this, a2, (unsigned __int16 *)&v9, a4) )
       v6 = v9 != 1;
     v4 = v6 + 1;
     gForceLegacyMode = v6 + 1;
@@ -32,7 +30,7 @@ _BOOL8 __fastcall Edgy::_IsLegacyDevice(Edgy *this, const unsigned __int16 *a2, 
   result = 1;
   if ( v4 != 1 )
   {
-    v7 = HMValidateHandleNoSecure(v5, 19);
+    v7 = HMValidateHandleNoSecure((unsigned __int64)this, 19);
     if ( !v7 || (unsigned int)GetTouchValidationStatus(v7) == 1 )
       return 0;
   }

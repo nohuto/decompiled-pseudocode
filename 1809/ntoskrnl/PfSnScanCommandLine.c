@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnScanCommandLine @ 0x140667A14
+ * XREFs of PfSnScanCommandLine @ 0x1406679F4
  * Callers:
- *     PfSnBeginAppLaunch @ 0x140666C14 (PfSnBeginAppLaunch.c)
+ *     PfSnBeginAppLaunch @ 0x140666BF4 (PfSnBeginAppLaunch.c)
  * Callees:
- *     PfSnParsePrefetchParam @ 0x140667AA4 (PfSnParsePrefetchParam.c)
- *     PfSnCaptureParamBlockString @ 0x140667C60 (PfSnCaptureParamBlockString.c)
- *     PfSnGetUnsafeProcessParameters @ 0x140667CAC (PfSnGetUnsafeProcessParameters.c)
- *     PfSnHashUnsafeUnicodeString @ 0x1406C03E0 (PfSnHashUnsafeUnicodeString.c)
+ *     PfSnParsePrefetchParam @ 0x140667A84 (PfSnParsePrefetchParam.c)
+ *     PfSnCaptureParamBlockString @ 0x140667C40 (PfSnCaptureParamBlockString.c)
+ *     PfSnGetUnsafeProcessParameters @ 0x140667C8C (PfSnGetUnsafeProcessParameters.c)
+ *     PfSnHashUnsafeUnicodeString @ 0x1406C03C0 (PfSnHashUnsafeUnicodeString.c)
  */
 
 __int64 __fastcall PfSnScanCommandLine(_DWORD *a1, int a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetSize@CWICBitmapWrapper@@UEBA?AUD2D_SIZE_U@@XZ @ 0x1800DE1F0
+ * XREFs of ?GetSize@CWICBitmapWrapper@@UEBA?AUD2D_SIZE_U@@XZ @ 0x1800CC300
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 struct D2D_SIZE_U __fastcall CWICBitmapWrapper::GetSize(CWICBitmapWrapper *this, _DWORD *a2)

@@ -1,14 +1,14 @@
 /*
  * XREFs of CmpReportNotifyForKcbStack @ 0x1405DC11C
  * Callers:
- *     CmDeleteLayeredKey @ 0x14026CBCC (CmDeleteLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x14026CCCC (CmDeleteLayeredKey.c)
  *     CmDeleteKey @ 0x1405A9DD8 (CmDeleteKey.c)
  *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
  *     CmDeleteValueKey @ 0x1405B6634 (CmDeleteValueKey.c)
  *     CmpSetKeySecurity @ 0x1405B8548 (CmpSetKeySecurity.c)
  *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
- *     CmpPerformUnloadKey @ 0x1406923B0 (CmpPerformUnloadKey.c)
- *     CmpReportNotify @ 0x140695458 (CmpReportNotify.c)
+ *     CmpPerformUnloadKey @ 0x140692390 (CmpPerformUnloadKey.c)
+ *     CmpReportNotify @ 0x140695438 (CmpReportNotify.c)
  * Callees:
  *     CmpGetKcbAtLayerHeight @ 0x1405D8AC0 (CmpGetKcbAtLayerHeight.c)
  *     CmpReportNotifyHelper @ 0x1405DBEE0 (CmpReportNotifyHelper.c)

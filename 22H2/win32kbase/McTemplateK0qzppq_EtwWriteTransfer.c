@@ -1,63 +1,65 @@
 /*
- * XREFs of McTemplateK0qzppq_EtwWriteTransfer @ 0x1C0073468
+ * XREFs of McTemplateK0qzppq_EtwWriteTransfer @ 0x1C0056408
  * Callers:
- *     EtwTraceAuditApiSetWindowsHookEx @ 0x1C0073350 (EtwTraceAuditApiSetWindowsHookEx.c)
+ *     EtwTraceAuditApiSetWindowsHookEx @ 0x1C01217A0 (EtwTraceAuditApiSetWindowsHookEx.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
-__int64 McTemplateK0qzppq_EtwWriteTransfer(_DWORD a1, _DWORD a2, _DWORD a3, int a4, const wchar_t *a5, char a6, ...)
+__int64 __fastcall McTemplateK0qzppq_EtwWriteTransfer(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        int a4,
+        const wchar_t *a5,
+        char a6,
+        char a7,
+        char a8)
 {
-  const wchar_t *v6; // rcx
-  __int64 v7; // rax
-  int v8; // edx
-  _BYTE v10[16]; // [rsp+30h] [rbp-39h] BYREF
-  int *v11; // [rsp+40h] [rbp-29h]
-  __int64 v12; // [rsp+48h] [rbp-21h]
-  const wchar_t *v13; // [rsp+50h] [rbp-19h]
-  int v14; // [rsp+58h] [rbp-11h]
-  int v15; // [rsp+5Ch] [rbp-Dh]
-  char *v16; // [rsp+60h] [rbp-9h]
-  __int64 v17; // [rsp+68h] [rbp-1h]
-  va_list v18; // [rsp+70h] [rbp+7h]
-  __int64 v19; // [rsp+78h] [rbp+Fh]
-  va_list v20; // [rsp+80h] [rbp+17h]
-  __int64 v21; // [rsp+88h] [rbp+1Fh]
-  int v22; // [rsp+C8h] [rbp+5Fh] BYREF
-  __int64 v23; // [rsp+E0h] [rbp+77h] BYREF
-  va_list va; // [rsp+E0h] [rbp+77h]
-  va_list va1; // [rsp+E8h] [rbp+7Fh] BYREF
+  const wchar_t *v8; // rcx
+  __int64 v9; // rax
+  int v10; // edx
+  _BYTE v12[16]; // [rsp+30h] [rbp-39h] BYREF
+  int *v13; // [rsp+40h] [rbp-29h]
+  __int64 v14; // [rsp+48h] [rbp-21h]
+  const wchar_t *v15; // [rsp+50h] [rbp-19h]
+  int v16; // [rsp+58h] [rbp-11h]
+  int v17; // [rsp+5Ch] [rbp-Dh]
+  char *v18; // [rsp+60h] [rbp-9h]
+  __int64 v19; // [rsp+68h] [rbp-1h]
+  char *v20; // [rsp+70h] [rbp+7h]
+  __int64 v21; // [rsp+78h] [rbp+Fh]
+  char *v22; // [rsp+80h] [rbp+17h]
+  __int64 v23; // [rsp+88h] [rbp+1Fh]
+  int v24; // [rsp+C8h] [rbp+5Fh] BYREF
 
-  va_start(va1, a6);
-  va_start(va, a6);
-  v23 = va_arg(va1, _QWORD);
-  v22 = a4;
-  v6 = a5;
-  v11 = &v22;
-  v12 = 4LL;
+  v24 = a4;
+  v8 = a5;
+  v13 = &v24;
+  v14 = 4LL;
   if ( a5 )
   {
-    v7 = -1LL;
+    v9 = -1LL;
     do
-      ++v7;
-    while ( a5[v7] );
-    v8 = 2 * v7 + 2;
+      ++v9;
+    while ( a5[v9] );
+    v10 = 2 * v9 + 2;
   }
   else
   {
-    v8 = 10;
+    v10 = 10;
   }
-  v14 = v8;
-  v15 = 0;
+  v16 = v10;
+  v17 = 0;
   if ( !a5 )
-    v6 = L"NULL";
-  v17 = 8LL;
-  v13 = v6;
-  v16 = &a6;
+    v8 = L"NULL";
   v19 = 8LL;
-  va_copy(v18, va);
-  v21 = 4LL;
-  va_copy(v20, va1);
-  return McGenEventWrite_EtwWriteTransfer(v6, &AuditApiSetWindowsHookEx, &W32kControlGuid, 6LL, v10);
+  v15 = v8;
+  v18 = &a6;
+  v21 = 8LL;
+  v20 = &a7;
+  v23 = 4LL;
+  v22 = &a8;
+  return McGenEventWrite_EtwWriteTransfer(v8, &AuditApiSetWindowsHookEx, &W32kControlGuid, 6LL, v12);
 }

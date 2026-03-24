@@ -1,55 +1,53 @@
 /*
- * XREFs of SmcVolumePnpNotification @ 0x1409DBD60
+ * XREFs of SmcVolumePnpNotification @ 0x14092E620
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     SmcCacheDelete @ 0x1409DAC2C (SmcCacheDelete.c)
- *     SmcCacheReference @ 0x1409DAEA0 (SmcCacheReference.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     SmcCacheDelete @ 0x14092D4BC (SmcCacheDelete.c)
+ *     SmcCacheReference @ 0x14092D754 (SmcCacheReference.c)
  */
 
-__int64 __fastcall SmcVolumePnpNotification(_QWORD *NotificationStructure, struct _EX_RUNDOWN_REF *Context)
+__int64 __fastcall SmcVolumePnpNotification(_QWORD *NotificationStructure, PVOID Context)
 {
-  __int64 v3; // rax
-  __int64 v5; // rax
-  unsigned int v6; // esi
-  struct _EX_RUNDOWN_REF *v7; // r14
-  unsigned int v8; // ebx
-  __int64 v9; // rax
-  char v10; // di
-  __int64 v11; // rbx
+  __int64 v2; // rax
+  __int64 v4; // rax
+  unsigned int v5; // esi
+  _DWORD *v6; // r14
+  unsigned int v7; // ebx
+  struct _EX_RUNDOWN_REF v8; // rax
+  unsigned __int64 Count; // r15
 
-  v3 = *(_QWORD *)((char *)NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_QUERY_REMOVE.Data1;
-  if ( !v3 )
-    v3 = *(_QWORD *)((char *)NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_QUERY_REMOVE.Data4;
-  if ( !v3 )
+  v2 = *(_QWORD *)((char *)NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_QUERY_REMOVE.Data1;
+  if ( !v2 )
+    v2 = *(_QWORD *)((char *)NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_QUERY_REMOVE.Data4;
+  if ( !v2 )
     goto LABEL_7;
-  v5 = *(_QWORD *)((char *)NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data1;
-  if ( !v5 )
-    v5 = *(_QWORD *)((char *)NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data4;
-  if ( !v5 )
+  v4 = *(_QWORD *)((char *)NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data1;
+  if ( !v4 )
+    v4 = *(_QWORD *)((char *)NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_REMOVE_COMPLETE.Data4;
+  if ( !v4 )
   {
 LABEL_7:
-    v6 = 0;
-    v7 = Context + 3;
+    v5 = 0;
+    v6 = &unk_140D241D8;
     do
     {
-      v8 = v6 | (16 * (v7->Count & 0xFFF));
-      v9 = SmcCacheReference((__int64)Context, v8);
-      if ( v9 )
+      v7 = v5 | (16 * (*v6 & 0xFFF));
+      v8.Count = SmcCacheReference((__int64)&unk_140D241C0, v7).Count;
+      Count = v8.Count;
+      if ( v8.Count )
       {
-        v10 = v8;
-        v11 = 0LL;
-        if ( *(_QWORD *)(v9 + 48) == NotificationStructure[3] )
-          v11 = v9;
-        ExReleaseRundownProtection_0(&Context[4 * (v10 & 0xF) + 1]);
-        if ( v11 )
-          SmcCacheDelete((__int64)Context);
+        if ( *(_QWORD *)(v8.Count + 48) != NotificationStructure[3] )
+          Count = 0LL;
+        ExReleaseRundownProtection((PEX_RUNDOWN_REF)&unk_140D241C8 + 4 * (v7 & 0xF));
+        if ( Count )
+          SmcCacheDelete((__int64)&unk_140D241C0);
       }
-      ++v6;
-      v7 += 4;
+      ++v5;
+      v6 += 8;
     }
-    while ( v6 < 0x10 );
+    while ( v5 < 0x10 );
   }
   return 0LL;
 }

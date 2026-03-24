@@ -1,98 +1,94 @@
 /*
- * XREFs of RtlCreateRvaList @ 0x1406A7CA0
+ * XREFs of RtlCreateRvaList @ 0x14066338C
  * Callers:
- *     MiParseImageLoadConfig @ 0x1406A828C (MiParseImageLoadConfig.c)
+ *     MiParseImageLoadConfig @ 0x140662858 (MiParseImageLoadConfig.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlpCompressRvaList @ 0x1406B1D00 (RtlpCompressRvaList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlpCompressRvaList @ 0x140637580 (RtlpCompressRvaList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall RtlCreateRvaList(int a1, __int64 a2, __int64 a3, unsigned int a4, void *Src, int a6, __int64 **a7)
+__int64 __fastcall RtlCreateRvaList(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        void *Src,
+        size_t Size,
+        __int64 *a7)
 {
   __int64 v7; // r14
-  __int64 *v8; // rbx
-  int v9; // edi
-  __int64 v10; // rbp
-  unsigned __int64 v11; // rdi
-  __int64 v12; // rsi
-  unsigned __int64 v13; // r12
-  size_t v14; // r13
-  __int64 Pool2; // rax
-  __int64 v16; // rsi
-  const void *v17; // rdx
-  char *v18; // rsi
-  __int64 v21; // [rsp+88h] [rbp+10h] BYREF
-  unsigned int v22; // [rsp+90h] [rbp+18h] BYREF
-  int v23; // [rsp+94h] [rbp+1Ch]
+  __int64 v9; // rbx
+  int v10; // edi
+  __int64 v11; // rbp
+  unsigned __int64 v12; // rdi
+  __int64 v13; // rsi
+  unsigned __int64 v14; // r12
+  _QWORD *PoolWithTag; // rax
+  size_t v16; // r8
+  char *v17; // rsi
+  __int64 v18; // r8
+  __int64 v19; // r9
+  const void *v20; // rdx
+  char *v21; // rsi
+  __int64 v23; // [rsp+88h] [rbp+10h] BYREF
+  unsigned int v24; // [rsp+90h] [rbp+18h] BYREF
+  int v25; // [rsp+94h] [rbp+1Ch]
 
-  v23 = HIDWORD(a3);
-  v7 = a4;
-  v22 = 0;
-  v21 = 0LL;
-  v8 = 0LL;
-  v9 = RtlpCompressRvaList(
-         0,
-         a1,
-         (unsigned int)MiImageRvaRawEnumFirst,
-         (unsigned int)MiImageRvaRawEnumNext,
-         0LL,
-         (__int64)&v21,
-         (__int64)&v22);
-  if ( v9 >= 0 )
+  v25 = HIDWORD(a3);
+  v7 = (unsigned int)a4;
+  v24 = 0;
+  v23 = 0LL;
+  v9 = 0LL;
+  v10 = RtlpCompressRvaList(0LL, a1, a3, a4, 0LL, &v23, (int *)&v24);
+  if ( v10 >= 0 )
   {
-    v10 = v22;
+    v11 = v24;
     if ( (unsigned int)v7 <= 1 )
-      v11 = 0LL;
+      v12 = 0LL;
     else
-      v11 = (((unsigned __int64)((unsigned int)v7 * v22) + 63) >> 3) & 0x1FFFFFFFFFFFFFF8LL;
-    v12 = v21;
-    v13 = (v21 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
-    v14 = v11 + 4 * v7 + v13;
-    Pool2 = ExAllocatePool2(256LL, v14 + 64, 1281455698LL);
-    v8 = (__int64 *)Pool2;
-    if ( Pool2 )
+      v12 = (((unsigned __int64)((unsigned int)v7 * v24) + 63) >> 3) & 0x1FFFFFFFFFFFFFF8LL;
+    v13 = v23;
+    v14 = (v23 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+    Size = v12 + 4 * v7 + v14;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, Size + 64, 0x4C617652u);
+    v9 = (__int64)PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_QWORD *)(Pool2 + 24) = v12;
-      v16 = Pool2 + 64;
-      *(_QWORD *)Pool2 = v10;
-      *(_DWORD *)(Pool2 + 8) = v7;
-      *(_QWORD *)(Pool2 + 16) = Pool2 + 64;
-      memset((void *)(Pool2 + 64), 0, v14);
-      v17 = Src;
-      v18 = (char *)(v13 + v16);
+      v16 = Size;
+      PoolWithTag[3] = v13;
+      v17 = (char *)(PoolWithTag + 8);
+      *PoolWithTag = v11;
+      *((_DWORD *)PoolWithTag + 2) = v7;
+      PoolWithTag[2] = PoolWithTag + 8;
+      memset(PoolWithTag + 8, 0, v16);
+      v20 = Src;
+      v21 = &v17[v14];
       if ( Src )
       {
-        v8[6] = (__int64)v18;
-        memmove(v18, v17, 4 * v7);
-        v18 += 4 * v7;
+        *(_QWORD *)(v9 + 48) = v21;
+        memmove(v21, v20, 4 * v7);
+        v21 += 4 * v7;
       }
-      if ( v11 )
+      if ( v12 )
       {
-        v8[5] = (__int64)v18;
-        v8[4] = (unsigned int)(v7 * v10);
+        *(_QWORD *)(v9 + 40) = v21;
+        *(_QWORD *)(v9 + 32) = (unsigned int)(v7 * v11);
       }
-      v9 = RtlpCompressRvaList(
-             (_DWORD)v8,
-             a1,
-             (unsigned int)MiImageRvaRawEnumFirst,
-             (unsigned int)MiImageRvaRawEnumNext,
-             v8[2],
-             (__int64)&v21,
-             (__int64)&v22);
-      if ( v9 < 0 )
+      v10 = RtlpCompressRvaList(v9, a1, v18, v19, *(_DWORD **)(v9 + 16), &v23, (int *)&v24);
+      if ( v10 < 0 )
       {
-        ExFreePoolWithTag(v8, 0x4C617652u);
-        v8 = 0LL;
+        ExFreePoolWithTag((PVOID)v9, 0x4C617652u);
+        v9 = 0LL;
       }
     }
     else
     {
-      v9 = -1073741670;
+      v10 = -1073741670;
     }
   }
-  *a7 = v8;
-  return (unsigned int)v9;
+  *a7 = v9;
+  return (unsigned int)v10;
 }

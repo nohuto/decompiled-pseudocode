@@ -1,31 +1,42 @@
 /*
- * XREFs of xxxMNEndMenuState @ 0x1C021BF30
+ * XREFs of xxxMNEndMenuState @ 0x1C0222200
  * Callers:
- *     xxxSysCommand @ 0x1C011BA1C (xxxSysCommand.c)
- *     ?xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z @ 0x1C021B934 (-xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z.c)
- *     xxxCallHandleMenuMessages @ 0x1C02303C0 (xxxCallHandleMenuMessages.c)
- *     xxxMenuWindowProc @ 0x1C0234200 (xxxMenuWindowProc.c)
- *     xxxTrackPopupMenuEx @ 0x1C024614C (xxxTrackPopupMenuEx.c)
+ *     xxxSysCommand @ 0x1C0130714 (xxxSysCommand.c)
+ *     ?xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z @ 0x1C02217F4 (-xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z.c)
+ *     xxxCallHandleMenuMessages @ 0x1C0237090 (xxxCallHandleMenuMessages.c)
+ *     xxxMenuWindowProc @ 0x1C023BBA0 (xxxMenuWindowProc.c)
+ *     xxxTrackPopupMenuEx @ 0x1C024ABB0 (xxxTrackPopupMenuEx.c)
  * Callees:
- *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C0068D40 (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
- *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C00F227C (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
- *     ??4?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z @ 0x1C00FB014 (--4-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z.c)
- *     ??$UserFreeIsolatedType@V?$CTypeIsolation@$0GAAA@$0GA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C021AF28 (--$UserFreeIsolatedType@V-$CTypeIsolation@$0GAAA@$0GA@@NSInstrumentation@@@@YAXPEAX@Z.c)
- *     NullifyLookasideRef @ 0x1C021B890 (NullifyLookasideRef.c)
- *     MNFlushDestroyedPopups @ 0x1C021BC20 (MNFlushDestroyedPopups.c)
- *     MNFreePopup @ 0x1C021BD14 (MNFreePopup.c)
- *     MNUnlinkDelayedFreePopups @ 0x1C021BE70 (MNUnlinkDelayedFreePopups.c)
- *     xxxMNEndMenuStateInternal @ 0x1C021C050 (xxxMNEndMenuStateInternal.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C0104AC8 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z @ 0x1C010FCB4 (--4-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z.c)
+ *     ??$UserFreeIsolatedType@V?$CTypeIsolation@$0GAAA@$0GA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C0169888 (--$UserFreeIsolatedType@V-$CTypeIsolation@$0GAAA@$0GA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     NullifyLookasideRef @ 0x1C0221750 (NullifyLookasideRef.c)
+ *     MNFlushDestroyedPopups @ 0x1C0221AF0 (MNFlushDestroyedPopups.c)
+ *     MNFreePopup @ 0x1C0221D78 (MNFreePopup.c)
+ *     MNUnlinkDelayedFreePopups @ 0x1C0221FC0 (MNUnlinkDelayedFreePopups.c)
+ *     xxxMNEndMenuStateInternal @ 0x1C02223F0 (xxxMNEndMenuStateInternal.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
 _QWORD *__fastcall xxxMNEndMenuState(__int64 a1)
 {
-  __int64 v2; // rbx
-  _QWORD v4[2]; // [rsp+20h] [rbp-20h] BYREF
-  _QWORD v5[2]; // [rsp+30h] [rbp-10h] BYREF
+  __int64 v2; // rcx
+  __int64 v3; // rbx
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 v5; // rdi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v11; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 *ThreadWin32Thread; // rax
+  _QWORD *result; // rax
+  _QWORD v15[2]; // [rsp+20h] [rbp-20h] BYREF
+  void *const *v16[2]; // [rsp+30h] [rbp-10h] BYREF
 
-  SmartObjStackRefBase<tagPOPUPMENU>::Init(v4, 0LL);
+  SmartObjStackRefBase<tagPOPUPMENU>::Init(v15, 0LL);
   *(_DWORD *)(a1 + 8) |= 0x1000000u;
   if ( !*(_DWORD *)(a1 + 40) )
   {
@@ -33,28 +44,54 @@ _QWORD *__fastcall xxxMNEndMenuState(__int64 a1)
     {
       MNFlushDestroyedPopups(*(_DWORD **)a1);
       MNUnlinkDelayedFreePopups(*(_QWORD *)a1);
-      SmartObjStackRefBase<tagPOPUPMENU>::operator=(v4, *(_QWORD *)a1);
-      **(_DWORD **)v4[0] |= 0x20000000u;
-      SmartObjStackRefBase<tagPOPUPMENU>::Init(v5, *(_QWORD *)a1);
-      MNFreePopup(v5);
+      SmartObjStackRefBase<tagPOPUPMENU>::operator=(v15, *(_QWORD *)a1);
+      **(_DWORD **)v15[0] |= 0x20000000u;
+      SmartObjStackRefBase<tagPOPUPMENU>::Init(v16, *(_QWORD *)a1);
+      MNFreePopup(v16);
     }
     xxxMNEndMenuStateInternal(gptiCurrent, a1);
-    if ( !*(_QWORD *)v4[0] || (**(_DWORD **)v4[0] & 0x40000000) != 0 )
+    if ( !*(_QWORD *)v15[0] || (v2 = *(_QWORD *)v15[0], (**(_DWORD **)v15[0] & 0x40000000) != 0) )
     {
-      if ( *(_QWORD *)v4[0] )
-        **(_DWORD **)v4[0] &= ~0x20000000u;
+      if ( *(_QWORD *)v15[0] )
+      {
+        v2 = *(_QWORD *)v15[0];
+        **(_DWORD **)v15[0] &= ~0x20000000u;
+      }
     }
-    else if ( *(void *const *)v4[0] == gpopupMenu )
+    else if ( *(void *const *)v15[0] == gpopupMenu )
     {
       gdwPUDFlags &= ~0x800000u;
       NullifyLookasideRef(*((_QWORD *)&gpopupMenu + 11));
     }
     else
     {
-      v2 = *(_QWORD *)v4[0];
-      NullifyLookasideRef(*(_QWORD *)(*(_QWORD *)v4[0] + 88LL));
-      UserFreeIsolatedType<NSInstrumentation::CTypeIsolation<24576,96>>(v2);
+      v3 = *(_QWORD *)v15[0];
+      NullifyLookasideRef(*(_QWORD *)(*(_QWORD *)v15[0] + 88LL));
+      UserFreeIsolatedType<NSInstrumentation::CTypeIsolation<24576,96>>(v3);
     }
   }
-  return SmartObjStackRefBase<tagPOPUPMENU>::~SmartObjStackRefBase<tagPOPUPMENU>(v4);
+  CurrentThread = KeGetCurrentThread();
+  v5 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(v2)
+    || (CurrentProcess = PsGetCurrentProcess(v7, v6, v8),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v11),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v5 = *ThreadWin32Thread;
+  }
+  if ( v15[0] != gSmartObjNullRef && !--*(_DWORD *)(v15[0] + 8LL) )
+  {
+    if ( *(_BYTE *)(v15[0] + 12LL) )
+      Win32FreeToPagedLookasideList(gpStackRefLookAside, v15[0]);
+  }
+  result = *(_QWORD **)(v5 + 1472);
+  if ( result )
+  {
+    result = (_QWORD *)*result;
+    *(_QWORD *)(v5 + 1472) = result;
+  }
+  return result;
 }

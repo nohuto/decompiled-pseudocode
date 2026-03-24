@@ -1,53 +1,51 @@
 /*
- * XREFs of MiFreePartitionPhysicalPages @ 0x140A44B64
+ * XREFs of MiFreePartitionPhysicalPages @ 0x1408DB140
  * Callers:
- *     MiDeletePartitionResources @ 0x1406594F8 (MiDeletePartitionResources.c)
+ *     MiDeletePartitionResources @ 0x140561858 (MiDeletePartitionResources.c)
  * Callees:
- *     MiReturnResident @ 0x140292CF0 (MiReturnResident.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiIncreaseCommitLimits @ 0x1403944E4 (MiIncreaseCommitLimits.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     MiReturnPartitionPagesToParent @ 0x14065B4C8 (MiReturnPartitionPagesToParent.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x1402E9FEC (MiReturnResident.c)
+ *     MiIncreaseCommitLimits @ 0x1403BF408 (MiIncreaseCommitLimits.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     MiReturnPartitionPagesToParent @ 0x140562C04 (MiReturnPartitionPagesToParent.c)
  */
 
-void __fastcall MiFreePartitionPhysicalPages(_QWORD *a1, unsigned __int16 *a2)
+void __fastcall MiFreePartitionPhysicalPages(_QWORD *a1, ULONG_PTR *a2)
 {
-  ULONG_PTR BugCheckParameter4; // rdi
+  ULONG_PTR v2; // rdi
   unsigned int v5; // eax
   ULONG_PTR *v6; // rcx
   unsigned __int64 v7; // rbx
 
-  BugCheckParameter4 = a1[2130];
-  MiReturnPartitionPagesToParent((ULONG_PTR)a1);
+  v2 = a1[866];
+  MiReturnPartitionPagesToParent((__int64)a1);
   v5 = 0;
   if ( KeNumberNodes )
   {
-    v6 = (ULONG_PTR *)(a1[2] + 23136LL);
+    v6 = (ULONG_PTR *)(a1[2] + 4352LL);
     do
     {
       if ( *v6 )
         KeBugCheckEx(0x1Au, 0x41008uLL, *v6, 0LL, 0LL);
-      v6 += 3176;
+      v6 += 568;
       ++v5;
     }
     while ( v5 < (unsigned __int16)KeNumberNodes );
   }
-  if ( a1[840] )
-    KeBugCheckEx(0x1Au, 0x41006uLL, BugCheckParameter4, a1[2130], a1[2152]);
-  if ( a1[2130] )
-    KeBugCheckEx(0x1Au, 0x41005uLL, BugCheckParameter4, a1[2130], a1[2152]);
-  if ( a1[2152] )
-    KeBugCheckEx(0x1Au, 0x41004uLL, BugCheckParameter4, a1[2152], 0LL);
-  if ( a1[2197] )
-    KeBugCheckEx(0x1Au, 0x41009uLL, a1[2197], a1[2227], BugCheckParameter4);
-  if ( a1[2160] != BugCheckParameter4 )
-    KeBugCheckEx(0x1Au, 0x41003uLL, BugCheckParameter4, a1[2160], a1[2227]);
-  MiReturnResident((__int64)a2, a1[2160]);
-  v7 = a1[2227];
-  if ( a2 == MiSystemPartition )
+  if ( a1[512] )
+    KeBugCheckEx(0x1Au, 0x41006uLL, v2, a1[866], a1[888]);
+  if ( a1[866] )
+    KeBugCheckEx(0x1Au, 0x41005uLL, v2, a1[866], a1[888]);
+  if ( a1[888] )
+    KeBugCheckEx(0x1Au, 0x41004uLL, v2, a1[888], 0LL);
+  if ( a1[896] != v2 || a1[896] != a1[949] )
+    KeBugCheckEx(0x1Au, 0x41003uLL, v2, a1[896], a1[949]);
+  MiReturnResident((__int64)a2, a1[896]);
+  v7 = a1[949];
+  if ( a2 == &MiSystemPartition )
   {
     MiReturnCommit((__int64)a2, v7);
-    _InterlockedExchangeAdd64(&qword_140C69AB0, -(__int64)v7);
+    _InterlockedExchangeAdd64(&qword_140C4EFB8, -(__int64)v7);
   }
   else
   {

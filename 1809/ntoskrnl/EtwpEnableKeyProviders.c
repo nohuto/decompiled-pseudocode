@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpEnableKeyProviders @ 0x1407429F0
+ * XREFs of EtwpEnableKeyProviders @ 0x1407429D0
  * Callers:
- *     EtwStartAutoLogger @ 0x140741E88 (EtwStartAutoLogger.c)
+ *     EtwStartAutoLogger @ 0x140741E68 (EtwStartAutoLogger.c)
  * Callees:
  *     RtlInitializeGenericTableAvl @ 0x140006820 (RtlInitializeGenericTableAvl.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     EtwpEnumerateKeyProviders @ 0x14072389C (EtwpEnumerateKeyProviders.c)
- *     EtwpFreeKeyNameList @ 0x140742AAC (EtwpFreeKeyNameList.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwpEnumerateKeyProviders @ 0x14072387C (EtwpEnumerateKeyProviders.c)
+ *     EtwpFreeKeyNameList @ 0x140742A8C (EtwpFreeKeyNameList.c)
  */
 
 __int64 __fastcall EtwpEnableKeyProviders(__int64 a1, unsigned int a2, const WCHAR *a3, const WCHAR *a4, int a5)

@@ -1,24 +1,28 @@
 /*
- * XREFs of _pPopulateProgressiveTimingList @ 0x1C03C8BA4
+ * XREFs of _pPopulateProgressiveTimingList @ 0x1C02F8D20
  * Callers:
- *     _pLoadAdditinalMode @ 0x1C01D6DA4 (_pLoadAdditinalMode.c)
+ *     _pLoadAdditinalMode @ 0x1C019A5A0 (_pLoadAdditinalMode.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
-__int64 __fastcall pPopulateProgressiveTimingList(_DWORD *a1)
+_DWORD *__fastcall pPopulateProgressiveTimingList(_DWORD *a1)
 {
   unsigned int v1; // eax
   unsigned int v2; // ebx
-  __int64 v4; // rdx
+  _DWORD *v4; // rdx
   int v5; // esi
   _DWORD *v6; // rcx
   __int64 v7; // r8
   bool v8; // zf
   int v9; // eax
-  unsigned int v11; // r8d
+  __int64 v10; // rcx
+  __int64 v11; // r8
   __int64 v12; // r9
-  __int64 v13; // rcx
+  __int64 v13; // rax
+  unsigned int v15; // r8d
+  __int64 v16; // r9
+  __int64 v17; // rcx
 
   v1 = a1[4];
   v2 = 0;
@@ -41,24 +45,25 @@ __int64 __fastcall pPopulateProgressiveTimingList(_DWORD *a1)
     while ( v7 );
     if ( v9 )
     {
-      v4 = operator new[]((unsigned int)(28 * v9 + 20), 0x4D677844u, 256LL);
+      v4 = operator new[]((unsigned int)(28 * v9 + 20), 0x4D677844u, PagedPool);
       if ( !v4 )
       {
-        WdLogSingleEntry0(6LL);
+        v13 = WdLogNewEntry5_WdLowResource(v10, 0LL, v11, v12);
+        WdLogEvent5_WdLowResource(v13);
         return 0LL;
       }
-      v11 = 0;
-      *(_DWORD *)(v4 + 8) = a1[2];
-      *(_BYTE *)(v4 + 12) = 1;
-      for ( *(_DWORD *)(v4 + 16) = v5; v11 < a1[4]; ++v11 )
+      v15 = 0;
+      v4[2] = a1[2];
+      *((_BYTE *)v4 + 12) = 1;
+      for ( v4[4] = v5; v15 < a1[4]; ++v15 )
       {
-        v12 = 7LL * v11;
-        if ( (a1[v12 + 7] & 0x10000000) == 0 )
+        v16 = 7LL * v15;
+        if ( (a1[v16 + 7] & 0x10000000) == 0 )
         {
-          v13 = 28LL * v2++;
-          *(_OWORD *)(v13 + v4 + 20) = *(_OWORD *)&a1[v12 + 5];
-          *(_QWORD *)(v13 + v4 + 36) = *(_QWORD *)&a1[v12 + 9];
-          *(_DWORD *)(v13 + v4 + 44) = a1[v12 + 11];
+          v17 = 7LL * v2++;
+          *(_OWORD *)&v4[v17 + 5] = *(_OWORD *)&a1[v16 + 5];
+          *(_QWORD *)&v4[v17 + 9] = *(_QWORD *)&a1[v16 + 9];
+          v4[v17 + 11] = a1[v16 + 11];
         }
       }
     }

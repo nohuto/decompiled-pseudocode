@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierExEnterPriorityRegionAndAcquireResourceExclusive @ 0x140AA1310
+ * XREFs of VerifierExEnterPriorityRegionAndAcquireResourceExclusive @ 0x1409E2100
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfDeadlockAcquireResource @ 0x140A97900 (VfDeadlockAcquireResource.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5C8 (VfDeadlockAcquireResource.c)
  */
 
-__int64 __fastcall VerifierExEnterPriorityRegionAndAcquireResourceExclusive(LONG *a1)
+__int64 __fastcall VerifierExEnterPriorityRegionAndAcquireResourceExclusive(ULONG_PTR a1)
 {
   __int64 v2; // rbx
   PVOID retaddr; // [rsp+38h] [rbp+0h]

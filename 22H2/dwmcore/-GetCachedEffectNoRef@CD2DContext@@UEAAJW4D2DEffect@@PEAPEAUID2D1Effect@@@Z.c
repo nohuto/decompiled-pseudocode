@@ -1,65 +1,62 @@
 /*
- * XREFs of ?GetCachedEffectNoRef@CD2DContext@@UEAAJW4D2DEffect@@PEAPEAUID2D1Effect@@@Z @ 0x1802874A0
+ * XREFs of ?GetCachedEffectNoRef@CD2DContext@@UEAAJW4D2DEffect@@PEAPEAUID2D1Effect@@@Z @ 0x18000D560
  * Callers:
- *     ?DrawMesh2D@CGlobalDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z @ 0x1801B6500 (-DrawMesh2D@CGlobalDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z.c)
- *     ?RenderLayer@CColorTransformLayer@@EEAAJPEAVCDrawingContext@@@Z @ 0x1801F38C0 (-RenderLayer@CColorTransformLayer@@EEAAJPEAVCDrawingContext@@@Z.c)
- *     ?GenerateBlurIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVIBitmapRealization@@AEBUD2D_POINT_2F@@MPEAPEAVIRenderTargetBitmap@@@Z @ 0x1802B7D14 (-GenerateBlurIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_.c)
+ *     ?GenerateBlurIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVIBitmapRealization@@AEBUD2D_POINT_2F@@MPEAPEAVIRenderTargetBitmap@@@Z @ 0x18000D278 (-GenerateBlurIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_.c)
+ *     ?GenerateBlurIntermediate@ShadowIntermediates@CDropShadow@@CAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVIBitmapRealization@@MPEAPEAVIRenderTargetBitmap@@@Z @ 0x18000F6C8 (-GenerateBlurIntermediate@ShadowIntermediates@CDropShadow@@CAJPEAVCDrawingContext@@AEBUD2D_SIZE_.c)
+ *     ?DrawMesh2D@CDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z @ 0x18018DE40 (-DrawMesh2D@CDrawingContext@@UEAAJPEAVCGeometry2D@@PEAVCImageSource@@@Z.c)
+ *     ?RenderLayer@CColorTransformLayer@@IEAAJPEAVCDrawingContext@@@Z @ 0x18018FFE0 (-RenderLayer@CColorTransformLayer@@IEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?GenerateWhiteColorIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVIBitmapRealization@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180269430 (-GenerateWhiteColorIntermediate@ShadowHelpers@@YAJAEBVCResourceTag@@PEAVCDrawingContext@@AEBUD2D.c)
  * Callees:
- *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180074FA0 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180078718 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD2DContext::GetCachedEffectNoRef(__int64 a1, unsigned int a2, _QWORD *a3)
 {
-  __int64 v5; // rcx
-  __int64 v6; // rax
-  int v7; // edi
-  __int64 v8; // rsi
-  __int64 v9; // rax
+  __int64 v4; // rax
+  unsigned int v6; // edi
+  __int64 v7; // rsi
+  __int64 v8; // rax
   int v10; // eax
-  __int64 v11; // rcx
-  __int64 v13; // [rsp+40h] [rbp+8h] BYREF
+  unsigned int v11; // ecx
+  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
 
-  v5 = 0LL;
+  v12 = 0LL;
   *a3 = 0LL;
-  v13 = 0LL;
-  v6 = a1 + 1072;
+  v4 = a1 + 1112;
   if ( !a1 )
-    v6 = 1088LL;
-  v7 = *(_DWORD *)v6;
-  if ( *(int *)v6 < 0 )
+    v4 = 1128LL;
+  v6 = *(_DWORD *)v4;
+  if ( *(int *)v4 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0, v7, 0x5C9u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(0x468u, 0LL, 0, v6, 0x5FBu, 0LL);
   }
   else
   {
-    v8 = a2;
-    v9 = *(_QWORD *)(a1 + 8LL * a2 + 216);
-    if ( v9 )
+    v7 = a2;
+    v8 = *(_QWORD *)(a1 + 8LL * a2 + 256);
+    if ( v8 )
     {
-LABEL_7:
-      *a3 = v9;
-      goto LABEL_11;
+LABEL_5:
+      *a3 = v8;
+      return CD3DDevice::TranslateDXGIorD3DErrorInContext((a1 - 16) & -(__int64)(a1 != 0), v6, 0LL);
     }
-    v10 = (*(__int64 (__fastcall **)(_QWORD, char *, __int64 *))(**(_QWORD **)(a1 + 200) + 504LL))(
-            *(_QWORD *)(a1 + 200),
-            (char *)&xmmword_1803E4D54 + 24 * a2,
-            &v13);
-    v7 = v10;
+    v10 = (*(__int64 (__fastcall **)(_QWORD, char *, __int64 *))(**(_QWORD **)(a1 + 240) + 504LL))(
+            *(_QWORD *)(a1 + 240),
+            (char *)&xmmword_1803465C4 + 24 * a2,
+            &v12);
+    v6 = v10;
     if ( v10 >= 0 )
     {
-      v9 = v13;
-      v5 = 0LL;
-      *(_QWORD *)(a1 + 8 * v8 + 216) = v13;
-      v13 = 0LL;
-      goto LABEL_7;
+      v8 = v12;
+      v12 = 0LL;
+      *(_QWORD *)(a1 + 8 * v7 + 256) = v8;
+      goto LABEL_5;
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x5CEu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x600u, 0LL);
   }
-  v5 = v13;
-LABEL_11:
-  if ( v5 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
-  return CD3DDevice::TranslateDXGIorD3DErrorInContext((a1 - 16) & -(__int64)(a1 != 0), v7, 0);
+  if ( v12 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
+  return CD3DDevice::TranslateDXGIorD3DErrorInContext((a1 - 16) & -(__int64)(a1 != 0), v6, 0LL);
 }

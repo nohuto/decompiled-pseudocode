@@ -1,15 +1,15 @@
 /*
- * XREFs of AhcCacheQueryHwId @ 0x140A34148
+ * XREFs of AhcCacheQueryHwId @ 0x1409800CC
  * Callers:
- *     NtApphelpCacheControl @ 0x140780D40 (NtApphelpCacheControl.c)
+ *     NtApphelpCacheControl @ 0x140686430 (NtApphelpCacheControl.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     ExGetPreviousMode @ 0x1402DFD50 (ExGetPreviousMode.c)
- *     memset @ 0x140435E00 (memset.c)
- *     KseLookupHardwareId @ 0x140964B50 (KseLookupHardwareId.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExGetPreviousMode @ 0x14029DFA0 (ExGetPreviousMode.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     KseLookupHardwareId @ 0x1408C0B04 (KseLookupHardwareId.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AhcCacheQueryHwId(unsigned __int64 a1)
@@ -19,13 +19,13 @@ __int64 __fastcall AhcCacheQueryHwId(unsigned __int64 a1)
   char *v4; // rcx
   __int64 v5; // rdx
   unsigned __int16 Length; // di
-  wchar_t *Buffer; // r14
+  wchar_t *Buffer; // rsi
   unsigned __int64 v8; // rcx
   bool v9; // cl
   __int64 v10; // rax
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-1B8h] BYREF
-  char v13; // [rsp+30h] [rbp-1A8h] BYREF
-  UNICODE_STRING SourceString; // [rsp+178h] [rbp-60h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-1A8h] BYREF
+  char v13; // [rsp+30h] [rbp-198h] BYREF
+  UNICODE_STRING SourceString; // [rsp+168h] [rbp-60h] BYREF
 
   DestinationString = 0LL;
   if ( ExGetPreviousMode() == 1 )
@@ -34,7 +34,7 @@ __int64 __fastcall AhcCacheQueryHwId(unsigned __int64 a1)
     if ( a1 < 0x7FFFFFFF0000LL )
       v3 = a1;
     v4 = &v13;
-    v5 = 3LL;
+    v5 = 2LL;
     do
     {
       *(_OWORD *)v4 = *(_OWORD *)v3;
@@ -50,7 +50,14 @@ __int64 __fastcall AhcCacheQueryHwId(unsigned __int64 a1)
       --v5;
     }
     while ( v5 );
-    *(_QWORD *)v4 = *(_QWORD *)v3;
+    *(_OWORD *)v4 = *(_OWORD *)v3;
+    *((_OWORD *)v4 + 1) = *(_OWORD *)(v3 + 16);
+    *((_OWORD *)v4 + 2) = *(_OWORD *)(v3 + 32);
+    *((_OWORD *)v4 + 3) = *(_OWORD *)(v3 + 48);
+    *((_OWORD *)v4 + 4) = *(_OWORD *)(v3 + 64);
+    *((_OWORD *)v4 + 5) = *(_OWORD *)(v3 + 80);
+    *((_OWORD *)v4 + 6) = *(_OWORD *)(v3 + 96);
+    *((_QWORD *)v4 + 14) = *(_QWORD *)(v3 + 112);
     if ( SourceString.MaximumLength
       && (Length = SourceString.Length) != 0
       && (Buffer = SourceString.Buffer) != 0LL
@@ -71,8 +78,8 @@ __int64 __fastcall AhcCacheQueryHwId(unsigned __int64 a1)
           MEMORY[0x7FFFFFFF0000] = 0;
         RtlCopyUnicodeString(&DestinationString, &SourceString);
         v9 = (unsigned int)KseLookupHardwareId(DestinationString.Buffer) == 0;
-        v10 = a1 + 320;
-        if ( a1 + 320 >= 0x7FFFFFFF0000LL )
+        v10 = a1 + 304;
+        if ( a1 + 304 >= 0x7FFFFFFF0000LL )
           v10 = 0x7FFFFFFF0000LL;
         *(_BYTE *)v10 = v9;
         v2 = 0;

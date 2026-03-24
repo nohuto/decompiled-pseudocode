@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReleaseAllReferences@CEffectBrushMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00AAC30
+ * XREFs of ?ReleaseAllReferences@CEffectBrushMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C005CF20
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C002FD60 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CEffectBrushMarshaler::ReleaseAllReferences(
@@ -12,23 +12,31 @@ void __fastcall DirectComposition::CEffectBrushMarshaler::ReleaseAllReferences(
         struct DirectComposition::CApplicationChannel *a2)
 {
   struct DirectComposition::CResourceMarshaler *v4; // rdx
-  __int64 i; // rdi
-  char *v6; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rdi
 
   DirectComposition::CApplicationChannel::ReleaseResource(a2, this[9]);
   v4 = this[10];
   this[9] = 0LL;
   DirectComposition::CApplicationChannel::ReleaseResource(a2, v4);
+  v5 = (__int64)this[11];
   this[10] = 0LL;
-  if ( this[11] )
+  if ( v5 )
   {
-    for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 24); i = (unsigned int)(i + 1) )
-      DirectComposition::CApplicationChannel::ReleaseResource(
-        a2,
-        *((struct DirectComposition::CResourceMarshaler **)this[11] + i));
-    v6 = (char *)this[11];
-    if ( v6 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v6);
+    v6 = 0LL;
+    if ( *((_DWORD *)this + 24) )
+    {
+      do
+      {
+        DirectComposition::CApplicationChannel::ReleaseResource(
+          a2,
+          *((struct DirectComposition::CResourceMarshaler **)this[11] + v6));
+        v6 = (unsigned int)(v6 + 1);
+      }
+      while ( (unsigned int)v6 < *((_DWORD *)this + 24) );
+      v5 = (__int64)this[11];
+    }
+    Win32FreePool(v5);
     this[11] = 0LL;
     *((_DWORD *)this + 24) = 0;
     *((_DWORD *)this + 25) = 0;

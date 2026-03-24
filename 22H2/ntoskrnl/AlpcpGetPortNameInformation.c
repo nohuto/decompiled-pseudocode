@@ -1,34 +1,34 @@
 /*
- * XREFs of AlpcpGetPortNameInformation @ 0x1409790C0
+ * XREFs of AlpcpGetPortNameInformation @ 0x1408C3098
  * Callers:
- *     AlpcpPortQueryServerInfo @ 0x140979178 (AlpcpPortQueryServerInfo.c)
- *     AlpcpLogWaitForNewMessage @ 0x14097A62C (AlpcpLogWaitForNewMessage.c)
+ *     AlpcpPortQueryServerInfo @ 0x1408C3150 (AlpcpPortQueryServerInfo.c)
+ *     AlpcpLogWaitForNewMessage @ 0x1408C3F28 (AlpcpLogWaitForNewMessage.c)
  * Callees:
- *     ObQueryNameStringMode @ 0x14075BD04 (ObQueryNameStringMode.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObQueryNameStringMode @ 0x14070FFB0 (ObQueryNameStringMode.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AlpcpGetPortNameInformation(char *a1, _QWORD *a2, unsigned int *a3)
 {
   unsigned int v3; // edi
   int v7; // ebx
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v9; // rdi
-  unsigned int v11; // [rsp+60h] [rbp+18h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+60h] [rbp+18h] BYREF
 
   v3 = *a3;
-  v11 = 0;
-  v7 = ObQueryNameStringMode(a1, 0LL, 0, &v11, 0);
+  LODWORD(NumberOfBytes) = 0;
+  v7 = ObQueryNameStringMode(a1, 0LL, 0, &NumberOfBytes, 0);
   if ( v7 == -1073741820 )
   {
-    if ( v11 <= v3 )
+    if ( (unsigned int)NumberOfBytes <= v3 )
     {
-      Pool2 = ExAllocatePool2(256LL, v11, 1129335873LL);
-      v9 = (void *)Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x43504C41u);
+      v9 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        v7 = ObQueryNameStringMode(a1, Pool2, v11, &v11, 0);
+        v7 = ObQueryNameStringMode(a1, (__int64)PoolWithTag, NumberOfBytes, &NumberOfBytes, 0);
         if ( v7 < 0 )
           ExFreePoolWithTag(v9, 0);
         else
@@ -39,7 +39,7 @@ __int64 __fastcall AlpcpGetPortNameInformation(char *a1, _QWORD *a2, unsigned in
         v7 = -1073741801;
       }
     }
-    *a3 = v11;
+    *a3 = NumberOfBytes;
   }
   return (unsigned int)v7;
 }

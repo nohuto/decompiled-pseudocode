@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryAuxiliaryCounterFrequency @ 0x1401BA850
+ * XREFs of ZwQueryAuxiliaryCounterFrequency @ 0x1401BA870
  * Callers:
  *     <none>
  * Callees:

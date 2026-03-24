@@ -1,9 +1,10 @@
 /*
- * XREFs of SeCodeIntegrityQueryInformation @ 0x1407D7224
+ * XREFs of SeCodeIntegrityQueryInformation @ 0x1406904A0
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
+ *     PsNotifyCoreDriversInitialized @ 0x140A5EF60 (PsNotifyCoreDriversInitialized.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall SeCodeIntegrityQueryInformation(__int64 a1, __int64 a2, __int64 a3)
@@ -12,11 +13,11 @@ __int64 __fastcall SeCodeIntegrityQueryInformation(__int64 a1, __int64 a2, __int
   int v5; // ecx
 
   v3 = a3;
-  if ( !qword_140C379D8 )
+  if ( !qword_140C1DAF8 )
     return 3221225473LL;
   v5 = (unsigned __int8)SeILSigningPolicy;
   if ( !SeILSigningPolicy )
     v5 = (unsigned __int8)SeILSigningPolicyRuntime;
   LOBYTE(a3) = v5 != 0;
-  return ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64))qword_140C379D8)(a1, a2, a3, v3);
+  return ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64))qword_140C1DAF8)(a1, a2, a3, v3);
 }

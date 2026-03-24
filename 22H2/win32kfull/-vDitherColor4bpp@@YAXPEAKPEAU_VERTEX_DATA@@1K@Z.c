@@ -1,239 +1,243 @@
 /*
- * XREFs of ?vDitherColor4bpp@@YAXPEAKPEAU_VERTEX_DATA@@1K@Z @ 0x1C0288AD0
+ * XREFs of ?vDitherColor4bpp@@YAXPEAKPEAU_VERTEX_DATA@@1K@Z @ 0x1C0287C58
  * Callers:
- *     EngDitherColor @ 0x1C0289080 (EngDitherColor.c)
+ *     EngDitherColor @ 0x1C0288210 (EngDitherColor.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 void __fastcall vDitherColor4bpp(unsigned int *a1, struct _VERTEX_DATA *a2, struct _VERTEX_DATA *a3, unsigned int a4)
 {
   struct _VERTEX_DATA *v6; // r10
-  struct _VERTEX_DATA *v8; // r9
-  unsigned int v9; // ecx
-  unsigned int v10; // r8d
-  struct _VERTEX_DATA *v11; // rdx
-  unsigned int v12; // eax
-  __int64 v13; // rax
-  unsigned int *v14; // rcx
-  unsigned int v15; // edx
-  char v16; // r8
+  bool v8; // zf
+  struct _VERTEX_DATA *v9; // r9
+  unsigned int v10; // ecx
+  unsigned int v11; // r11d
+  struct _VERTEX_DATA *v12; // r8
+  bool v13; // cc
+  unsigned int v14; // edx
+  struct _VERTEX_DATA *v15; // rcx
+  __int64 v16; // rax
+  unsigned int *v17; // rcx
+  unsigned int v18; // edx
+  char v19; // r8
   unsigned int i; // edx
-  __int64 v18; // rax
-  unsigned int *v19; // rbx
-  __int64 v20; // r9
-  char *v21; // r10
-  unsigned int v22; // r8d
-  int v23; // edx
-  unsigned int *v24; // rcx
-  __int64 v25; // rax
-  char v26; // r9
-  unsigned int v27; // r8d
-  unsigned int *v28; // rcx
-  __int64 v29; // rax
-  int v30; // eax
-  int v31; // ecx
-  int v32; // edx
-  int v33; // r8d
-  int v34; // r9d
-  int v35; // r10d
-  int v36; // ebx
-  int v37; // edi
-  int v38; // ecx
-  int v39; // [rsp+0h] [rbp-50h]
-  int v40; // [rsp+4h] [rbp-4Ch]
-  int v41; // [rsp+8h] [rbp-48h]
-  int v42; // [rsp+Ch] [rbp-44h]
-  int v43; // [rsp+10h] [rbp-40h]
-  int v44; // [rsp+14h] [rbp-3Ch]
-  int v45; // [rsp+18h] [rbp-38h]
-  int v46; // [rsp+1Ch] [rbp-34h]
-  int v47; // [rsp+20h] [rbp-30h]
-  int v48; // [rsp+24h] [rbp-2Ch]
-  int v49; // [rsp+28h] [rbp-28h]
-  int v50; // [rsp+2Ch] [rbp-24h]
-  int v51; // [rsp+30h] [rbp-20h]
-  int v52; // [rsp+34h] [rbp-1Ch]
-  int v53; // [rsp+38h] [rbp-18h]
-  int v54; // [rsp+3Ch] [rbp-14h]
+  __int64 v21; // rax
+  unsigned int *v22; // r9
+  unsigned int v23; // ecx
+  char *v24; // r10
+  unsigned int v25; // r8d
+  int v26; // edx
+  unsigned int *v27; // rcx
+  __int64 v28; // rax
+  char v29; // r9
+  unsigned int v30; // r8d
+  unsigned int *v31; // rcx
+  __int64 v32; // rax
+  int v33; // eax
+  int v34; // ecx
+  int v35; // edx
+  int v36; // r8d
+  int v37; // r9d
+  int v38; // r10d
+  int v39; // r11d
+  int v40; // edi
+  int v41; // [rsp+0h] [rbp-50h]
+  int v42; // [rsp+4h] [rbp-4Ch]
+  int v43; // [rsp+8h] [rbp-48h]
+  int v44; // [rsp+Ch] [rbp-44h]
+  int v45; // [rsp+10h] [rbp-40h]
+  int v46; // [rsp+14h] [rbp-3Ch]
+  int v47; // [rsp+18h] [rbp-38h]
+  int v48; // [rsp+1Ch] [rbp-34h]
+  int v49; // [rsp+20h] [rbp-30h]
+  int v50; // [rsp+24h] [rbp-2Ch]
+  int v51; // [rsp+28h] [rbp-28h]
+  int v52; // [rsp+2Ch] [rbp-24h]
+  int v53; // [rsp+30h] [rbp-20h]
+  int v54; // [rsp+34h] [rbp-1Ch]
+  int v55; // [rsp+38h] [rbp-18h]
+  int v56; // [rsp+3Ch] [rbp-14h]
 
   v6 = a2;
+  v8 = a4 == 2;
   if ( a4 > 2 )
   {
-    v8 = (struct _VERTEX_DATA *)((char *)a2 + 16);
+    v9 = (struct _VERTEX_DATA *)((char *)a2 + 16);
     if ( a4 == 3 )
     {
-      v9 = *((_DWORD *)a2 + 2);
-      v10 = v9;
-      if ( v9 < *(_DWORD *)v8 )
-        v10 = *(_DWORD *)v8;
-      v8 = (struct _VERTEX_DATA *)((char *)a2 + (v9 < *(_DWORD *)v8 ? 16LL : 8LL));
+      v10 = *((_DWORD *)a2 + 2);
+      v11 = v10;
+      if ( v10 < *(_DWORD *)v9 )
+        v11 = *(_DWORD *)v9;
+      v9 = (struct _VERTEX_DATA *)((char *)a2 + (v10 < *(_DWORD *)v9 ? 16LL : 8LL));
     }
     else
     {
-      v10 = *(_DWORD *)v8;
-      if ( *(_DWORD *)v8 < *((_DWORD *)a2 + 6) )
+      v11 = *(_DWORD *)v9;
+      if ( *(_DWORD *)v9 < *((_DWORD *)a2 + 6) )
       {
-        v8 = (struct _VERTEX_DATA *)((char *)a2 + 24);
-        v10 = *((_DWORD *)a2 + 6);
+        v9 = (struct _VERTEX_DATA *)((char *)a2 + 24);
+        v11 = *((_DWORD *)a2 + 6);
       }
     }
-    v11 = (struct _VERTEX_DATA *)((char *)a2 + 8);
-    v12 = *(_DWORD *)v11;
-    if ( *(_DWORD *)v11 <= v10 )
+    v12 = (struct _VERTEX_DATA *)((char *)a2 + 8);
+    v13 = *((_DWORD *)a2 + 2) <= v11;
+    v14 = *((_DWORD *)a2 + 2);
+    v15 = v6;
+    if ( v13 )
     {
-      v11 = v8;
-      v12 = v10;
+      v14 = v11;
+      v12 = v9;
     }
-    if ( *(_DWORD *)v6 > v12 )
-      v11 = v6;
-    v13 = *((unsigned int *)v11 + 1);
-    *((_DWORD *)v11 + 1) = 255;
-    v39 = dword_1C0328630[v13];
-    v40 = v39;
-    v41 = v39;
-    v42 = v39;
-    v43 = v39;
-    v44 = v39;
-    v45 = v39;
-    v46 = v39;
-    v47 = v39;
-    v48 = v39;
-    v49 = v39;
-    v50 = v39;
-    v51 = v39;
-    v52 = v39;
-    v53 = v39;
-    v54 = v39;
-    v14 = (unsigned int *)&unk_1C03286B0;
+    if ( *(_DWORD *)v6 <= v14 )
+      v15 = v12;
+    v16 = *((unsigned int *)v15 + 1);
+    *((_DWORD *)v15 + 1) = 255;
+    v17 = (unsigned int *)&aulDither4bppOrder;
+    v41 = ulNibbleTo4bppDword[v16];
+    v42 = v41;
+    v43 = v41;
+    v44 = v41;
+    v45 = v41;
+    v46 = v41;
+    v47 = v41;
+    v48 = v41;
+    v49 = v41;
+    v50 = v41;
+    v51 = v41;
+    v52 = v41;
+    v53 = v41;
+    v54 = v41;
+    v55 = v41;
+    v56 = v41;
     while ( *((_DWORD *)v6 + 1) == 255 )
     {
-      v14 += *(unsigned int *)v6;
+      v17 += *(unsigned int *)v6;
 LABEL_23:
       v6 = (struct _VERTEX_DATA *)((char *)v6 + 8);
       if ( v6 >= a3 )
         goto LABEL_38;
     }
-    v15 = *(_DWORD *)v6;
-    v16 = *((_BYTE *)v6 + 4);
+    v18 = *(_DWORD *)v6;
+    v19 = *((_BYTE *)v6 + 4);
     if ( (*(_DWORD *)v6 & 3) != 1 )
     {
       if ( (*(_DWORD *)v6 & 3) != 2 )
       {
         if ( (*(_DWORD *)v6 & 3) != 3 )
           goto LABEL_21;
-        *((_BYTE *)&v39 + v14[2]) = v16;
+        *((_BYTE *)&v41 + v17[2]) = v19;
       }
-      *((_BYTE *)&v39 + v14[1]) = v16;
+      *((_BYTE *)&v41 + v17[1]) = v19;
     }
-    *((_BYTE *)&v39 + *v14) = v16;
-    v14 += v15 & 3;
+    *((_BYTE *)&v41 + *v17) = v19;
+    v17 += v18 & 3;
 LABEL_21:
-    for ( i = v15 >> 2; i; --i )
+    for ( i = v18 >> 2; i; --i )
     {
-      *((_BYTE *)&v39 + *v14) = v16;
-      *((_BYTE *)&v39 + v14[1]) = v16;
-      *((_BYTE *)&v39 + v14[2]) = v16;
-      v18 = v14[3];
-      v14 += 4;
-      *((_BYTE *)&v39 + v18) = v16;
+      *((_BYTE *)&v41 + *v17) = v19;
+      *((_BYTE *)&v41 + v17[1]) = v19;
+      *((_BYTE *)&v41 + v17[2]) = v19;
+      v21 = v17[3];
+      v17 += 4;
+      *((_BYTE *)&v41 + v21) = v19;
     }
     goto LABEL_23;
   }
-  v19 = (unsigned int *)((char *)a2 + 4);
-  if ( a4 != 2 )
+  v22 = (unsigned int *)((char *)a2 + 4);
+  if ( !v8 )
   {
-    v38 = dword_1C0328630[*v19];
-    v30 = v38 | (16 * v38);
-    v31 = v30;
-    v32 = v30;
-    v33 = v30;
-    v34 = v30;
-    v35 = v30;
-    v36 = v30;
-    v37 = v30;
+    v33 = ulNibbleTo4bppDword[*v22] | (16 * ulNibbleTo4bppDword[*v22]);
+    v34 = v33;
+    v35 = v33;
+    v36 = v33;
+    v37 = v33;
+    v38 = v33;
+    v39 = v33;
+    v40 = v33;
     goto LABEL_40;
   }
-  v20 = *(unsigned int *)a2;
-  v21 = (char *)a2 + 12;
-  v22 = *((_DWORD *)a2 + 2);
-  if ( (unsigned int)v20 < v22 )
+  v23 = *(_DWORD *)a2;
+  v24 = (char *)a2 + 12;
+  v25 = *((_DWORD *)a2 + 2);
+  if ( *(_DWORD *)a2 < v25 )
   {
-    v25 = *(unsigned int *)v21;
-    v22 = *(_DWORD *)a2;
-    v21 = (char *)a2 + 4;
-    v23 = dword_1C0328630[v25];
-    v24 = (unsigned int *)&unk_1C03286B0;
+    v28 = *(unsigned int *)v24;
+    v25 = *(_DWORD *)a2;
+    v27 = (unsigned int *)&aulDither4bppOrder;
+    v24 = (char *)a2 + 4;
+    v26 = ulNibbleTo4bppDword[v28];
   }
   else
   {
-    v23 = dword_1C0328630[*v19];
-    v24 = (unsigned int *)((char *)&unk_1C03286B0 + 4 * v20);
+    v26 = ulNibbleTo4bppDword[*v22];
+    v27 = (unsigned int *)((char *)&aulDither4bppOrder + 4 * v23);
   }
-  v26 = *v21;
-  v39 = v23;
-  v40 = v23;
-  v41 = v23;
-  v42 = v23;
-  v43 = v23;
-  v44 = v23;
-  v45 = v23;
-  v46 = v23;
-  v47 = v23;
-  v48 = v23;
-  v49 = v23;
-  v50 = v23;
-  v51 = v23;
-  v52 = v23;
-  v53 = v23;
-  v54 = v23;
-  switch ( v22 & 3 )
+  v29 = *v24;
+  v41 = v26;
+  v42 = v26;
+  v43 = v26;
+  v44 = v26;
+  v45 = v26;
+  v46 = v26;
+  v47 = v26;
+  v48 = v26;
+  v49 = v26;
+  v50 = v26;
+  v51 = v26;
+  v52 = v26;
+  v53 = v26;
+  v54 = v26;
+  v55 = v26;
+  v56 = v26;
+  switch ( v25 & 3 )
   {
     case 1u:
       goto LABEL_34;
     case 2u:
 LABEL_33:
-      *((_BYTE *)&v39 + v24[1]) = v26;
+      *((_BYTE *)&v41 + v27[1]) = v29;
 LABEL_34:
-      *((_BYTE *)&v39 + *v24) = v26;
-      v24 += v22 & 3;
+      *((_BYTE *)&v41 + *v27) = v29;
+      v27 += v25 & 3;
       break;
     case 3u:
-      *((_BYTE *)&v39 + v24[2]) = v26;
+      *((_BYTE *)&v41 + v27[2]) = v29;
       goto LABEL_33;
   }
-  v27 = v22 >> 2;
-  if ( v27 )
+  v30 = v25 >> 2;
+  if ( v30 )
   {
-    v28 = v24 + 2;
+    v31 = v27 + 2;
     do
     {
-      *((_BYTE *)&v39 + *(v28 - 2)) = v26;
-      *((_BYTE *)&v39 + *(v28 - 1)) = v26;
-      v29 = *v28;
-      v28 += 4;
-      *((_BYTE *)&v39 + v29) = v26;
-      *((_BYTE *)&v39 + *(v28 - 3)) = v26;
-      --v27;
+      *((_BYTE *)&v41 + *(v31 - 2)) = v29;
+      *((_BYTE *)&v41 + *(v31 - 1)) = v29;
+      v32 = *v31;
+      v31 += 4;
+      *((_BYTE *)&v41 + v32) = v29;
+      *((_BYTE *)&v41 + *(v31 - 3)) = v29;
+      --v30;
     }
-    while ( v27 );
+    while ( v30 );
   }
 LABEL_38:
-  v30 = v54 | (16 * v53);
-  v31 = v52 | (16 * v51);
-  v32 = v50 | (16 * v49);
-  v33 = v48 | (16 * v47);
-  v34 = v46 | (16 * v45);
-  v35 = v44 | (16 * v43);
-  v36 = v42 | (16 * v41);
-  v37 = v40 | (16 * v39);
+  v33 = v56 | (16 * v55);
+  v34 = v54 | (16 * v53);
+  v35 = v52 | (16 * v51);
+  v36 = v50 | (16 * v49);
+  v37 = v48 | (16 * v47);
+  v38 = v46 | (16 * v45);
+  v39 = v44 | (16 * v43);
+  v40 = v42 | (16 * v41);
 LABEL_40:
-  *a1 = v37;
-  a1[1] = v36;
-  a1[2] = v35;
-  a1[3] = v34;
-  a1[4] = v33;
-  a1[5] = v32;
-  a1[6] = v31;
-  a1[7] = v30;
+  *a1 = v40;
+  a1[1] = v39;
+  a1[2] = v38;
+  a1[3] = v37;
+  a1[4] = v36;
+  a1[5] = v35;
+  a1[6] = v34;
+  a1[7] = v33;
 }

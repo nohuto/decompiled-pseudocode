@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpTimeZoneWork @ 0x1409F8240
+ * XREFs of ExpTimeZoneWork @ 0x14094BC60
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     PsGetServerSiloGlobals @ 0x140297574 (PsGetServerSiloGlobals.c)
- *     PsIsHostSilo @ 0x1402AF8D0 (PsIsHostSilo.c)
- *     PsDetachSiloFromCurrentThread @ 0x14031CAB0 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CAD0 (PsAttachSiloToCurrentThread.c)
- *     ZwSetSystemTime @ 0x14041DE00 (ZwSetSystemTime.c)
+ *     PsGetServerSiloGlobals @ 0x140252678 (PsGetServerSiloGlobals.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PsIsHostSilo @ 0x1402D5230 (PsIsHostSilo.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14034C200 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14034C220 (PsAttachSiloToCurrentThread.c)
+ *     ZwSetSystemTime @ 0x1403FCFE0 (ZwSetSystemTime.c)
  */
 
 char __fastcall ExpTimeZoneWork(struct _LIST_ENTRY *Object)
@@ -18,7 +18,7 @@ char __fastcall ExpTimeZoneWork(struct _LIST_ENTRY *Object)
   char result; // al
 
   v2 = PsAttachSiloToCurrentThread(Object);
-  v3 = *((_QWORD *)PsGetServerSiloGlobals((__int64)Object) + 157);
+  v3 = *((_QWORD *)PsGetServerSiloGlobals((__int64)Object) + 133);
   do
     ZwSetSystemTime(0LL, 0LL);
   while ( _InterlockedExchangeAdd((volatile signed __int32 *)(v3 + 928), 0xFFFFFFFF) != 1 );

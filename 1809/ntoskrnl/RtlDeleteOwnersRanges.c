@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlDeleteOwnersRanges @ 0x140738D60
+ * XREFs of RtlDeleteOwnersRanges @ 0x140738D40
  * Callers:
- *     ArbDeleteOwnerRanges @ 0x1407383A0 (ArbDeleteOwnerRanges.c)
- *     ArbQueryConflict @ 0x1409055E0 (ArbQueryConflict.c)
- *     ArbRetestAllocation @ 0x140905960 (ArbRetestAllocation.c)
+ *     ArbDeleteOwnerRanges @ 0x140738380 (ArbDeleteOwnerRanges.c)
+ *     ArbQueryConflict @ 0x1409055C0 (ArbQueryConflict.c)
+ *     ArbRetestAllocation @ 0x140905940 (ArbRetestAllocation.c)
  * Callees:
- *     RtlpDeleteFromMergedRange @ 0x140738490 (RtlpDeleteFromMergedRange.c)
- *     RtlpFreeRangeListEntry @ 0x140738F18 (RtlpFreeRangeListEntry.c)
+ *     RtlpDeleteFromMergedRange @ 0x140738470 (RtlpDeleteFromMergedRange.c)
+ *     RtlpFreeRangeListEntry @ 0x140738EF8 (RtlpFreeRangeListEntry.c)
  */
 
 NTSTATUS __stdcall RtlDeleteOwnersRanges(PRTL_RANGE_LIST RangeList, PVOID Owner)

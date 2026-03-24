@@ -1,18 +1,20 @@
 /*
- * XREFs of HalpDispatchPnp @ 0x140829D70
+ * XREFs of HalpDispatchPnp @ 0x1407645A0
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     HalpPassIrpFromFdoToPdo @ 0x14038F0E4 (HalpPassIrpFromFdoToPdo.c)
- *     HalpInitializeLateSystemActions @ 0x1403B6408 (HalpInitializeLateSystemActions.c)
- *     HalpQueryAcpiResourceRequirements @ 0x140820B60 (HalpQueryAcpiResourceRequirements.c)
- *     HalpQueryInterface @ 0x140829FD4 (HalpQueryInterface.c)
- *     HalpQueryIdPdo @ 0x14082A41C (HalpQueryIdPdo.c)
- *     HalpQueryDeviceRelations @ 0x14082A4F0 (HalpQueryDeviceRelations.c)
- *     HalpQueryIdFdo @ 0x14082A98C (HalpQueryIdFdo.c)
- *     HalpQueryResources @ 0x14082AA3C (HalpQueryResources.c)
- *     HalpInitSystemHelper @ 0x140A8C358 (HalpInitSystemHelper.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     HalpPassIrpFromFdoToPdo @ 0x1403A6B9C (HalpPassIrpFromFdoToPdo.c)
+ *     HalpInitializeLateSystemActions @ 0x1403A839C (HalpInitializeLateSystemActions.c)
+ *     HalpAllocateCR3Root @ 0x1403CB3C8 (HalpAllocateCR3Root.c)
+ *     HalpQueryInterface @ 0x140764820 (HalpQueryInterface.c)
+ *     HalpQueryResources @ 0x1407B99D4 (HalpQueryResources.c)
+ *     HalpQueryAcpiResourceRequirements @ 0x1407B9B04 (HalpQueryAcpiResourceRequirements.c)
+ *     HalpQueryIdPdo @ 0x1407D08A0 (HalpQueryIdPdo.c)
+ *     HalpQueryDeviceRelations @ 0x1407D0C60 (HalpQueryDeviceRelations.c)
+ *     HalpQueryIdFdo @ 0x1407D1648 (HalpQueryIdFdo.c)
+ *     HalpInitSystemHelper @ 0x14099B988 (HalpInitSystemHelper.c)
  */
 
 NTSTATUS __fastcall HalpDispatchPnp(_QWORD *Object, PIRP Irp)
@@ -21,21 +23,23 @@ NTSTATUS __fastcall HalpDispatchPnp(_QWORD *Object, PIRP Irp)
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rdx
   unsigned int MinorFunction; // ecx
   unsigned int v7; // ecx
-  unsigned int DeviceRelations; // eax
-  unsigned int Status; // ebx
+  NTSTATUS DeviceRelations; // eax
+  NTSTATUS Status; // ebx
   unsigned int v11; // ecx
   unsigned int v12; // ecx
   unsigned int v13; // ecx
   unsigned int v14; // ecx
   unsigned int v15; // ecx
-  bool v16; // zf
   PIO_SECURITY_CONTEXT SecurityContext; // rcx
-  unsigned int v18; // eax
+  unsigned int v17; // eax
   NTSTATUS Interface; // eax
-  unsigned int v20; // ecx
-  unsigned int v21; // ecx
+  ULONG ActiveProcessorCount; // r14d
+  unsigned int i; // ebp
+  int v21; // eax
   unsigned int v22; // ecx
   unsigned int v23; // ecx
+  unsigned int v24; // ecx
+  unsigned int v25; // ecx
 
   v2 = (_DWORD *)Object[8];
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
@@ -55,30 +59,28 @@ NTSTATUS __fastcall HalpDispatchPnp(_QWORD *Object, PIRP Irp)
         if ( v2[8] == 129 )
         {
           HalpInitializeLateSystemActions();
-          HalpInitSystemHelper(25LL, 26LL, 0LL);
+          ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
+          for ( i = 0; i < ActiveProcessorCount; ++i )
+            HalpAllocateCR3Root(i);
+          HalpInitSystemHelper(25LL);
         }
-        goto LABEL_10;
+        goto LABEL_16;
       }
-      v20 = MinorFunction - 1;
-      if ( v20 )
+      v22 = MinorFunction - 1;
+      if ( !v22 )
       {
-        v21 = v20 - 1;
-        if ( v21 )
-        {
-          v22 = v21 - 1;
-          if ( v22 )
-          {
-            v23 = v22 - 1;
-            if ( v23 )
-            {
-              if ( v23 - 1 > 1 )
-                goto LABEL_7;
-            }
-          }
-        }
-        goto LABEL_10;
+        Status = -1073741823;
+        goto LABEL_16;
       }
-      Status = v2[8] != 132 ? 0xC0000001 : 0;
+      v23 = v22 - 1;
+      if ( !v23 )
+        goto LABEL_16;
+      v24 = v23 - 1;
+      if ( !v24 )
+        goto LABEL_16;
+      v25 = v24 - 1;
+      if ( !v25 || v25 - 1 <= 1 )
+        goto LABEL_16;
     }
     else
     {
@@ -98,65 +100,62 @@ LABEL_5:
         goto LABEL_6;
       }
       v11 = v7 - 1;
-      if ( v11 )
+      if ( !v11 )
       {
-        v12 = v11 - 1;
-        if ( !v12 )
+        SecurityContext = CurrentStackLocation->Parameters.Create.SecurityContext;
+        if ( WORD1(SecurityContext->SecurityQos) != 1 )
+          goto LABEL_7;
+        v17 = HIDWORD(SecurityContext->SecurityQos) & 0xFFFFFEC3;
+        SecurityContext->FullCreateOptions = 1;
+        HIDWORD(SecurityContext->SecurityQos) = v17 | 0xC0;
+        Status = 0;
+        LODWORD(SecurityContext->AccessState) = -1;
+        HIDWORD(SecurityContext->AccessState) = -1;
+        HIDWORD(SecurityContext[1].AccessState) = 4;
+        SecurityContext[1].DesiredAccess = 4;
+        *(PSECURITY_QUALITY_OF_SERVICE *)((char *)&SecurityContext[2].SecurityQos + 4) = 0LL;
+        HIDWORD(SecurityContext[2].AccessState) = 0;
+        goto LABEL_16;
+      }
+      v12 = v11 - 1;
+      if ( !v12 )
+      {
+        DeviceRelations = HalpQueryResources(Object, &Irp->IoStatus.Information);
+        goto LABEL_5;
+      }
+      v13 = v12 - 1;
+      if ( v13 )
+      {
+        v14 = v13 - 8;
+        if ( !v14 )
         {
-          DeviceRelations = HalpQueryResources(Object, &Irp->IoStatus.Information);
+          DeviceRelations = HalpQueryIdPdo(
+                              Object,
+                              CurrentStackLocation->Parameters.Read.Length,
+                              &Irp->IoStatus.Information);
           goto LABEL_5;
         }
-        v13 = v12 - 1;
-        if ( v13 )
+        v15 = v14 - 1;
+        if ( !v15 || v15 == 2 )
         {
-          v14 = v13 - 8;
-          if ( !v14 )
-          {
-            DeviceRelations = HalpQueryIdPdo(
-                                Object,
-                                CurrentStackLocation->Parameters.Read.Length,
-                                &Irp->IoStatus.Information);
-            goto LABEL_5;
-          }
-          v15 = v14 - 1;
-          if ( v15 )
-          {
-            v16 = v15 == 2;
-            goto LABEL_17;
-          }
+LABEL_15:
+          Status = 0;
+          goto LABEL_16;
         }
-        else
-        {
-          if ( v2[8] == 129 )
-          {
-            DeviceRelations = HalpQueryAcpiResourceRequirements((unsigned int **)&Irp->IoStatus.Information);
-            goto LABEL_5;
-          }
-          if ( v2[8] != 130 && v2[8] != 131 )
-          {
-            v16 = v2[8] == 132;
-LABEL_17:
-            if ( !v16 )
-              goto LABEL_7;
-          }
-        }
-        Status = 0;
-        goto LABEL_10;
       }
-      SecurityContext = CurrentStackLocation->Parameters.Create.SecurityContext;
-      if ( WORD1(SecurityContext->SecurityQos) != 1 )
-        goto LABEL_7;
-      v18 = HIDWORD(SecurityContext->SecurityQos) & 0xFFFFFEC3;
-      SecurityContext->FullCreateOptions = 1;
-      HIDWORD(SecurityContext->SecurityQos) = v18 | 0xC0;
-      Status = 0;
-      LODWORD(SecurityContext->AccessState) = -1;
-      HIDWORD(SecurityContext->AccessState) = -1;
-      HIDWORD(SecurityContext[1].AccessState) = 4;
-      SecurityContext[1].DesiredAccess = 4;
-      *(PSECURITY_QUALITY_OF_SERVICE *)((char *)&SecurityContext[2].SecurityQos + 4) = 0LL;
-      HIDWORD(SecurityContext[2].AccessState) = 0;
+      else
+      {
+        v21 = v2[8];
+        if ( v21 == 129 )
+        {
+          DeviceRelations = HalpQueryAcpiResourceRequirements(&Irp->IoStatus.Information);
+          goto LABEL_5;
+        }
+        if ( (unsigned int)(v21 - 130) <= 1 )
+          goto LABEL_15;
+      }
     }
+    Status = -1073741637;
 LABEL_6:
     if ( Status == -1073741637 )
     {
@@ -166,14 +165,14 @@ LABEL_8:
       IofCompleteRequest(Irp, 0);
       return Status;
     }
-LABEL_10:
+LABEL_16:
     Irp->IoStatus.Status = Status;
     goto LABEL_8;
   }
   if ( *v2 != 193 )
   {
     Status = -1073741808;
-    goto LABEL_10;
+    goto LABEL_6;
   }
   switch ( CurrentStackLocation->MinorFunction )
   {
@@ -201,7 +200,7 @@ LABEL_10:
   }
   Status = Interface;
   if ( (int)(Interface + 0x80000000) >= 0 && Interface != -1073741637 )
-    goto LABEL_10;
+    goto LABEL_16;
   if ( Interface != -1073741637 )
     Irp->IoStatus.Status = Interface;
   return HalpPassIrpFromFdoToPdo((__int64)Object, Irp);

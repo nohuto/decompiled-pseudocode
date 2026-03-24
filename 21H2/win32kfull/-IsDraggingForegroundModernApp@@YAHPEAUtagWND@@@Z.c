@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsDraggingForegroundModernApp@@YAHPEAUtagWND@@@Z @ 0x1C020AA34
+ * XREFs of ?IsDraggingForegroundModernApp@@YAHPEAUtagWND@@@Z @ 0x1C020B6AC
  * Callers:
- *     ?AdjustProcessPriorityForDrag@@YAXPEAUMOVESIZEDATA@@@Z @ 0x1C02094E8 (-AdjustProcessPriorityForDrag@@YAXPEAUMOVESIZEDATA@@@Z.c)
+ *     ?AdjustProcessPriorityForDrag@@YAXPEAU_MOVESIZEDATA@@@Z @ 0x1C020A68C (-AdjustProcessPriorityForDrag@@YAXPEAU_MOVESIZEDATA@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ __int64 __fastcall IsDraggingForegroundModernApp(struct tagWND *a1)
 
   v1 = *((_QWORD *)a1 + 2);
   v2 = 0;
-  if ( (*(_DWORD *)(v1 + 1256) & 0x1C0000) == 0x40000
+  if ( (*(_DWORD *)(v1 + 1232) & 0x1C0000) == 0x40000
     && *(_QWORD *)(v1 + 1400)
     && *(struct tagWND **)(v1 + 1392) == a1
     && gptiForeground )

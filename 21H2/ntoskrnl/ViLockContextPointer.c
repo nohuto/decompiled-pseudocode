@@ -1,11 +1,11 @@
 /*
- * XREFs of ViLockContextPointer @ 0x140A836B4
+ * XREFs of ViLockContextPointer @ 0x1409C855C
  * Callers:
- *     VfInsertContext @ 0x1405FE110 (VfInsertContext.c)
- *     VfRemoveContext @ 0x1405FE2E0 (VfRemoveContext.c)
- *     ViQueryObjectContext @ 0x140A836FC (ViQueryObjectContext.c)
+ *     VfInsertContext @ 0x1405A0850 (VfInsertContext.c)
+ *     VfRemoveContext @ 0x1405A0A20 (VfRemoveContext.c)
+ *     ViQueryObjectContext @ 0x1409C85A4 (ViQueryObjectContext.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
  */
 
 char __fastcall ViLockContextPointer(signed __int64 *a1, __int64 a2, __int64 a3, __int64 a4)

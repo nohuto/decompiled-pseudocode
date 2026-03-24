@@ -1,20 +1,21 @@
 /*
- * XREFs of PiDmCompareObjects @ 0x1406A9190
+ * XREFs of PiDmCompareObjects @ 0x14068FA80
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
  */
 
 __int64 __fastcall PiDmCompareObjects(struct _RTL_AVL_TABLE *Table, __int64 *FirstStruct, __int64 *SecondStruct)
 {
-  __int64 v3; // rax
-  __int64 v4; // rcx
-  unsigned int v5; // edx
-  const wchar_t *v7; // rcx
-  const wchar_t *v8; // rdx
-  const wchar_t *v9; // rcx
-  int v10; // eax
+  __int64 v3; // rcx
+  __int64 v4; // r10
+  unsigned int v5; // eax
+  bool v7; // zf
+  const wchar_t *v8; // r8
+  const wchar_t *v9; // rdx
+  const wchar_t *v10; // rcx
+  int v11; // eax
 
   v3 = *FirstStruct;
   v4 = *SecondStruct;
@@ -25,17 +26,19 @@ __int64 __fastcall PiDmCompareObjects(struct _RTL_AVL_TABLE *Table, __int64 *Fir
       return 0LL;
     if ( v5 > *(_DWORD *)(v4 + 24) )
       return 1LL;
-    v7 = *(const wchar_t **)(v4 + 16);
-    v8 = v7 + 4;
-    if ( *(_DWORD *)(v3 + 28) != 3 )
-      v8 = v7;
-    v9 = (const wchar_t *)(*(_QWORD *)(v3 + 16) + 8LL);
-    if ( *(_DWORD *)(v3 + 28) != 3 )
-      v9 = *(const wchar_t **)(v3 + 16);
-    v10 = wcsicmp(v9, v8);
-    if ( v10 < 0 )
+    v7 = *(_DWORD *)(v3 + 28) == 3;
+    v8 = *(const wchar_t **)(v3 + 16);
+    v9 = (const wchar_t *)(*(_QWORD *)(v4 + 16) + 8LL);
+    v10 = v8 + 4;
+    if ( !v7 )
+    {
+      v9 = *(const wchar_t **)(v4 + 16);
+      v10 = v8;
+    }
+    v11 = wcsicmp(v10, v9);
+    if ( v11 < 0 )
       return 0LL;
-    if ( v10 > 0 )
+    if ( v11 > 0 )
       return 1LL;
   }
   return 2LL;

@@ -1,38 +1,21 @@
 /*
- * XREFs of ?GetDriverIgnoreCCDDatabase@ADAPTER_DISPLAY@@QEBAHXZ @ 0x1C0003954
+ * XREFs of ?GetDriverIgnoreCCDDatabase@ADAPTER_DISPLAY@@QEBAHXZ @ 0x1C000CA98
  * Callers:
- *     ?CreateMonitorSetId@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@PEA_N@Z @ 0x1C01838EC (-CreateMonitorSetId@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@PEA_N@Z.c)
- *     ?IsCcdDatabaseIgnored@MONITOR_MGR@@UEBA_NXZ @ 0x1C03C7400 (-IsCcdDatabaseIgnored@MONITOR_MGR@@UEBA_NXZ.c)
+ *     ?CreateMonitorSetId@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@PEA_N@Z @ 0x1C014ABC0 (-CreateMonitorSetId@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@PEA_N@Z.c)
+ *     ?_OpenMonitorDataStore@DXGMONITOR@@AEAAJEPEAPEAX@Z @ 0x1C018464C (-_OpenMonitorDataStore@DXGMONITOR@@AEAAJEPEAPEAX@Z.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     <none>
  */
 
-__int64 __fastcall ADAPTER_DISPLAY::GetDriverIgnoreCCDDatabase(ADAPTER_DISPLAY *this)
+__int64 __fastcall ADAPTER_DISPLAY::GetDriverIgnoreCCDDatabase(ADAPTER_DISPLAY *this, __int64 a2)
 {
-  int v3; // edx
-  int v4; // ecx
-  int v5; // r8d
+  __int64 v4; // rax
 
-  if ( !*(_QWORD *)(*((_QWORD *)this + 2) + 2920LL) )
+  if ( !*(_QWORD *)(*((_QWORD *)this + 2) + 2696LL) )
   {
-    WdLogSingleEntry1(1LL, 6851LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v4,
-          v3,
-          v5,
-          0,
-          2,
-          -1,
-          (__int64)L"GetAdapter()->IsDisplayAdapter()",
-          195,
-          0,
-          0,
-          0,
-          0);
-    }
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v4 + 24) = 6661LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  return *((unsigned int *)this + 110);
+  return *((unsigned int *)this + 95);
 }

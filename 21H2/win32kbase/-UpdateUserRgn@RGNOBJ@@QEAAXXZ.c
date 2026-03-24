@@ -1,146 +1,123 @@
 /*
- * XREFs of ?UpdateUserRgn@RGNOBJ@@QEAAXXZ @ 0x1C0052470
+ * XREFs of ?UpdateUserRgn@RGNOBJ@@QEAAXXZ @ 0x1C0066670
  * Callers:
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C0027B78 (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00348A0 (--1RGNOBJAPI@@QEAA@XZ.c)
  * Callees:
- *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0022610 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C002FDB0 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00302E8 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
  */
 
-void __fastcall RGNOBJ::UpdateUserRgn(__int64 this, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall RGNOBJ::UpdateUserRgn(RGNOBJ *this)
 {
-  RGNOBJ *v4; // r15
-  _DWORD *v5; // rsi
-  unsigned int v6; // ebx
-  __int64 v7; // rdi
-  unsigned int v8; // edx
-  __int64 v9; // r8
-  int v10; // r13d
-  __int64 v11; // r14
-  __int64 v12; // r8
+  _DWORD *v2; // r14
+  unsigned int v3; // ebx
+  __int64 v4; // rsi
+  unsigned int v5; // edx
+  __int64 v6; // rdi
+  unsigned int v7; // ecx
+  __int64 v8; // r8
+  unsigned int v9; // r9d
+  __int64 v10; // r15
+  unsigned int v11; // r8d
+  unsigned int v12; // ecx
   __int64 v13; // rdx
   _DWORD *v14; // rdx
-  __int64 v15; // rbx
-  _QWORD *CurrentProcessWin32Process; // rax
-  _QWORD *v17; // rdi
-  __int64 ProcessWow64Process; // rax
-  __int64 v19; // rdx
-  int v20; // ecx
-  __int64 v21; // rcx
+  _DWORD *v15; // r8
+  int v16; // eax
+  __int64 v17; // r8
 
-  v4 = (RGNOBJ *)this;
-  v5 = *(_DWORD **)this;
+  v2 = *(_DWORD **)this;
   if ( *(_QWORD *)this )
   {
-    v6 = (unsigned __int16)*v5 | (*v5 >> 8) & 0xFF0000;
-    if ( v6 >= 0x10000 )
-    {
-      this = (__int64)gpHandleManager;
-      if ( *(_DWORD *)gpHandleManager > 0x10000u )
-      {
-        this = *((unsigned __int8 *)GdiHandleEntryDirectory::GetEntry(
-                                      *((GdiHandleEntryDirectory **)gpHandleManager + 2),
-                                      (unsigned __int16)*v5,
-                                      1)
-               + 13);
-        if ( (_DWORD)this == HIWORD(v6) )
-          v6 = (unsigned __int16)v6;
-      }
-      else
-      {
-        v6 = (unsigned __int16)*v5;
-      }
-    }
-    v7 = *((_QWORD *)gpHandleManager + 2);
-    v8 = *(_DWORD *)(v7 + 2056);
-    if ( v6 >= v8 + ((*(unsigned __int16 *)(v7 + 2) + 0xFFFF) << 16) )
-    {
-      v11 = 0LL;
-      v10 = 1;
-    }
-    else
-    {
-      if ( v6 >= v8 )
-        this = ((v6 - v8) >> 16) + 1;
-      else
-        this = 0LL;
-      v9 = *(_QWORD *)(v7 + 8 * this + 8);
-      v10 = 1;
-      if ( (_DWORD)this )
-        a4 = v6 + ((1 - (_DWORD)this) << 16) - v8;
-      else
-        a4 = v6;
-      v11 = 0LL;
-      if ( (unsigned int)a4 < *(_DWORD *)(v9 + 20) )
-      {
-        this = *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v9 + 24) + 8LL * ((unsigned int)a4 >> 8))
-                         + 16LL * (unsigned __int8)a4
-                         + 8);
-        if ( this )
-        {
-          this = 3LL * (unsigned int)a4;
-          v11 = *(_QWORD *)v9 + 24LL * (unsigned int)a4;
-        }
-      }
-    }
-    if ( v6 >= 0x10000 )
+    v3 = (unsigned __int16)*v2 | (*v2 >> 8) & 0xFF0000;
+    if ( v3 >= 0x10000 )
     {
       if ( *(_DWORD *)gpHandleManager > 0x10000u )
       {
-        this = *((unsigned __int8 *)GdiHandleEntryDirectory::GetEntry(
-                                      *((GdiHandleEntryDirectory **)gpHandleManager + 2),
-                                      (unsigned __int16)v6,
-                                      1)
-               + 13);
-        if ( (_DWORD)this == HIWORD(v6) )
-          v6 = (unsigned __int16)v6;
+        if ( *((unsigned __int8 *)GdiHandleEntryDirectory::GetEntry(
+                                    *((GdiHandleEntryDirectory **)gpHandleManager + 2),
+                                    (unsigned __int16)*v2,
+                                    1)
+             + 13) == HIWORD(v3) )
+          v3 = (unsigned __int16)v3;
       }
       else
       {
-        v6 = (unsigned __int16)v6;
+        v3 = (unsigned __int16)*v2;
       }
     }
-    v12 = *(unsigned int *)(v7 + 2056);
-    if ( v6 >= (unsigned int)v12 + ((*(unsigned __int16 *)(v7 + 2) + 0xFFFF) << 16) )
-      goto LABEL_47;
-    if ( v6 >= (unsigned int)v12 )
-      this = ((v6 - (unsigned int)v12) >> 16) + 1;
-    else
-      this = 0LL;
-    v13 = *(_QWORD *)(v7 + 8 * this + 8);
-    if ( (_DWORD)this )
-      v6 += ((1 - (_DWORD)this) << 16) - v12;
-    if ( v6 >= *(_DWORD *)(v13 + 20) )
+    v4 = *((_QWORD *)gpHandleManager + 2);
+    v5 = *(_DWORD *)(v4 + 2056);
+    if ( v3 >= v5 + ((*(unsigned __int16 *)(v4 + 2) + 0xFFFF) << 16) )
     {
-LABEL_47:
+      v6 = 0LL;
+      v10 = 0LL;
+    }
+    else
+    {
+      if ( v3 >= v5 )
+      {
+        v7 = ((v3 - v5) >> 16) + 1;
+        v6 = 0LL;
+      }
+      else
+      {
+        v6 = 0LL;
+        v7 = 0;
+      }
+      v8 = *(_QWORD *)(v4 + 8LL * v7 + 8);
+      if ( v7 )
+        v9 = v3 + ((1 - v7) << 16) - v5;
+      else
+        v9 = v3;
+      v10 = 0LL;
+      if ( v9 < *(_DWORD *)(v8 + 20)
+        && *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v8 + 24) + 8LL * (v9 >> 8)) + 16LL * (unsigned __int8)v9 + 8) )
+      {
+        v10 = *(_QWORD *)v8 + 24LL * v9;
+      }
+    }
+    if ( v3 >= 0x10000 )
+    {
+      if ( *(_DWORD *)gpHandleManager > 0x10000u )
+      {
+        if ( *((unsigned __int8 *)GdiHandleEntryDirectory::GetEntry(
+                                    (GdiHandleEntryDirectory *)v4,
+                                    (unsigned __int16)v3,
+                                    1)
+             + 13) == HIWORD(v3) )
+          v3 = (unsigned __int16)v3;
+      }
+      else
+      {
+        v3 = (unsigned __int16)v3;
+      }
+    }
+    v11 = *(_DWORD *)(v4 + 2056);
+    if ( v3 >= v11 + ((*(unsigned __int16 *)(v4 + 2) + 0xFFFF) << 16) )
+      goto LABEL_40;
+    if ( v3 >= v11 )
+      v12 = ((v3 - v11) >> 16) + 1;
+    else
+      v12 = 0;
+    v13 = *(_QWORD *)(v4 + 8LL * v12 + 8);
+    if ( v12 )
+      v3 += ((1 - v12) << 16) - v11;
+    if ( v3 >= *(_DWORD *)(v13 + 20) )
+LABEL_40:
       v14 = 0LL;
-    }
     else
-    {
-      this = 2LL * (unsigned __int8)v6;
-      v14 = *(_DWORD **)(*(_QWORD *)(**(_QWORD **)(v13 + 24) + 8LL * (v6 >> 8)) + 16LL * (unsigned __int8)v6 + 8);
-    }
-    if ( v14 != v5 )
-      v11 = 0LL;
-    v15 = *(_QWORD *)(v11 + 16);
+      v14 = *(_DWORD **)(*(_QWORD *)(**(_QWORD **)(v13 + 24) + 8LL * (v3 >> 8)) + 16LL * (unsigned __int8)v3 + 8);
+    if ( v14 == v2 )
+      v6 = v10;
+    v15 = *(_DWORD **)(v6 + 16);
     if ( v15 )
     {
-      CurrentProcessWin32Process = (_QWORD *)PsGetCurrentProcessWin32Process(this, v14, v12, a4);
-      v17 = CurrentProcessWin32Process;
-      if ( !CurrentProcessWin32Process )
-        KeBugCheckEx(0x164u, 0x29uLL, 0LL, 0LL, 0LL);
-      ProcessWow64Process = PsGetProcessWow64Process(*CurrentProcessWin32Process);
-      v19 = *((unsigned int *)v17 + 73);
-      v20 = *((_DWORD *)v17 + 73);
-      if ( ProcessWow64Process )
-        v21 = v19 ^ (unsigned int)__ROR4__(v15, 32 - (v20 & 0x1F));
-      else
-        v21 = __ROR8__(v15, 64 - (v20 & 0x3Fu)) ^ v19;
-      if ( v21 && (*(_DWORD *)v21 & 0x10) != 0 )
+      if ( (*v15 & 0x10) != 0 )
       {
-        if ( *(_DWORD *)(*(_QWORD *)v4 + 84LL) != 1 )
-          v10 = (*(_DWORD *)(*(_QWORD *)v4 + 80LL) > 0x38u) + 2;
-        *(_DWORD *)(v21 + 4) = v10;
-        *(_OWORD *)(v21 + 8) = *(_OWORD *)(*(_QWORD *)v4 + 96LL);
+        v16 = RGNOBJ::iComplexity(this);
+        *(_DWORD *)(v17 + 4) = v16;
+        *(_OWORD *)(v17 + 8) = *(_OWORD *)(*(_QWORD *)this + 96LL);
       }
     }
   }

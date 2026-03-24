@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CSceneNodeMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C02201C0
+ * XREFs of ?SetRemarshalingFlags@CSceneNodeMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DF790
  * Callers:
  *     <none>
  * Callees:
@@ -9,16 +9,17 @@
 bool __fastcall DirectComposition::CSceneNodeMarshaler::SetRemarshalingFlags(
         DirectComposition::CSceneNodeMarshaler *this)
 {
-  _DWORD *v1; // rdx
-
-  v1 = (_DWORD *)((char *)this + 16);
-  *((_QWORD *)this + 7) = 0LL;
-  if ( *((_QWORD *)this + 9) )
-    *v1 |= 0x20u;
-  *((_QWORD *)this + 10) = 0LL;
+  if ( *((_QWORD *)this + 8) )
+  {
+    *((_DWORD *)this + 4) |= 0x20u;
+    *((_DWORD *)this + 20) = 0;
+  }
   if ( *((_QWORD *)this + 12) )
-    *v1 |= 0x40u;
-  if ( *((_QWORD *)this + 13) )
-    *v1 |= 0x80u;
-  return (*v1 & 0xE0) != 0;
+  {
+    *((_DWORD *)this + 4) |= 0x40u;
+    *((_DWORD *)this + 28) = 0;
+  }
+  if ( *((_QWORD *)this + 15) )
+    *((_DWORD *)this + 4) |= 0x80u;
+  return (*((_DWORD *)this + 4) & 0xE0) != 0;
 }

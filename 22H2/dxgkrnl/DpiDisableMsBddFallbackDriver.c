@@ -1,73 +1,80 @@
 /*
- * XREFs of DpiDisableMsBddFallbackDriver @ 0x1C039A610
+ * XREFs of DpiDisableMsBddFallbackDriver @ 0x1C02C82C0
  * Callers:
- *     DpiFdoStartAdapterThreadImpl @ 0x1C02185F0 (DpiFdoStartAdapterThreadImpl.c)
+ *     DpiFdoStartAdapterThreadImpl @ 0x1C0187BE8 (DpiFdoStartAdapterThreadImpl.c)
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0005C0C (DpiCheckForOutstandingD3Requests.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?InvalidateCache@QDC_CACHE@@QEAAX_N@Z @ 0x1C0173DFC (-InvalidateCache@QDC_CACHE@@QEAAX_N@Z.c)
- *     DxgkAcquireAdapterCoreSync @ 0x1C0197F10 (DxgkAcquireAdapterCoreSync.c)
- *     DxgkReleaseAdapterCoreSync @ 0x1C01984C8 (DxgkReleaseAdapterCoreSync.c)
- *     DpiEnableD3Requests @ 0x1C01987EC (DpiEnableD3Requests.c)
- *     ?EnableMsBddFallback@DXGADAPTER@@QEAAXE@Z @ 0x1C02B7564 (-EnableMsBddFallback@DXGADAPTER@@QEAAXE@Z.c)
- *     DxgkAcquireAdapterStopResetSync @ 0x1C02C263C (DxgkAcquireAdapterStopResetSync.c)
- *     DxgkReleaseAdapterStopResetSync @ 0x1C02C32C8 (DxgkReleaseAdapterStopResetSync.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001FC54 (DpiCheckForOutstandingD3Requests.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?InvalidateCache@QDC_CACHE@@QEAAX_N@Z @ 0x1C00E6D88 (-InvalidateCache@QDC_CACHE@@QEAAX_N@Z.c)
+ *     DpiEnableD3Requests @ 0x1C00ECD4C (DpiEnableD3Requests.c)
+ *     DxgkReleaseAdapterCoreSync @ 0x1C012E1AC (DxgkReleaseAdapterCoreSync.c)
+ *     DxgkAcquireAdapterCoreSync @ 0x1C012E510 (DxgkAcquireAdapterCoreSync.c)
+ *     ?EnableMsBddFallback@DXGADAPTER@@QEAAXE@Z @ 0x1C020D72C (-EnableMsBddFallback@DXGADAPTER@@QEAAXE@Z.c)
+ *     DxgkAcquireAdapterStopResetSync @ 0x1C0217D40 (DxgkAcquireAdapterStopResetSync.c)
+ *     DxgkReleaseAdapterStopResetSync @ 0x1C0218260 (DxgkReleaseAdapterStopResetSync.c)
  */
 
-__int64 __fastcall DpiDisableMsBddFallbackDriver(__int64 a1)
+__int64 __fastcall DpiDisableMsBddFallbackDriver(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rbx
-  __int64 v4; // r8
-  __int64 v5; // r8
-  NTSTATUS v6; // eax
-  NTSTATUS v7; // eax
-  void (__fastcall *v8)(__int64, __int128 *); // rax
-  __int64 v9; // rcx
+  __int64 v3; // rax
+  __int64 v5; // rbx
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r8
+  __int64 v9; // rdx
+  NTSTATUS v10; // eax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rsi
+  __int64 v14; // rax
+  void (__fastcall *v15)(__int64, __int128 *); // rax
+  __int64 v16; // rcx
+  __int64 v17; // rdx
+  __int64 v18; // rcx
   struct DXGGLOBAL *Global; // rax
-  __int64 v11; // r8
-  __int64 v12; // r9
 
-  if ( qword_1C0140748 )
+  if ( qword_1C00B2DC0 )
   {
-    v3 = *(_QWORD *)(qword_1C0140748 + 64);
+    v5 = *(_QWORD *)(qword_1C00B2DC0 + 64);
     KeEnterCriticalRegion();
-    if ( *(_BYTE *)(v3 + 484) )
-      DpiCheckForOutstandingD3Requests(v3);
-    ExAcquireResourceExclusiveLite(*(PERESOURCE *)(v3 + 168), 1u);
-    DxgkAcquireAdapterStopResetSync(*(_QWORD *)(v3 + 3912), 1);
-    DxgkAcquireAdapterCoreSync(*(_QWORD *)(v3 + 3912), 2, v4);
-    DXGADAPTER::EnableMsBddFallback(*(DXGADAPTER **)(v3 + 3912), 0);
-    DxgkReleaseAdapterCoreSync(*(_QWORD *)(v3 + 3912), 2u, v5);
-    DxgkReleaseAdapterStopResetSync(*(_QWORD *)(v3 + 3912), 1);
-    v6 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 2744), 0);
-    if ( v6 < 0 )
-      WdLogSingleEntry1(2LL, v6);
-    if ( *(_QWORD *)(v3 + 2768) )
+    if ( *(_BYTE *)(v5 + 484) )
+      DpiCheckForOutstandingD3Requests(v5);
+    ExAcquireResourceExclusiveLite(*(PERESOURCE *)(v5 + 168), 1u);
+    DxgkAcquireAdapterStopResetSync(*(_QWORD *)(v5 + 3896), v6);
+    DxgkAcquireAdapterCoreSync(*(_QWORD *)(v5 + 3896), 2, v7);
+    DXGADAPTER::EnableMsBddFallback(*(PERESOURCE ****)(v5 + 3896), 0LL);
+    DxgkReleaseAdapterCoreSync(*(_QWORD *)(v5 + 3896), 2u, v8);
+    DxgkReleaseAdapterStopResetSync(*(_QWORD *)(v5 + 3896), v9);
+    v10 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v5 + 2744), 0);
+    v13 = v10;
+    if ( v10 < 0 )
     {
-      v7 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 2760), 0);
-      if ( v7 < 0 )
-        WdLogSingleEntry1(2LL, v7);
+      v14 = WdLogNewEntry5_WdError(v12, v11);
+      *(_QWORD *)(v14 + 24) = v13;
+      WdLogEvent5_WdError(v14);
     }
-    v8 = *(void (__fastcall **)(__int64, __int128 *))(v3 + 992);
-    v9 = *(_QWORD *)(v3 + 48);
-    *(_QWORD *)(v3 + 5648) = a1;
-    v8(v9, &xmmword_1C0140750);
-    *(_QWORD *)(v3 + 5648) = 0LL;
-    if ( qword_1C0140740 == qword_1C0140748 )
-      qword_1C0140740 = 0LL;
-    dword_1C01407F0 = 2;
-    Global = DXGGLOBAL::GetGlobal();
-    QDC_CACHE::InvalidateCache(*((QDC_CACHE **)Global + 187), 0LL, v11, v12);
-    if ( *(_BYTE *)(v3 + 484) )
-      DpiEnableD3Requests(*(_QWORD *)(v3 + 24));
-    ExReleaseResourceLite(*(PERESOURCE *)(v3 + 168));
+    v15 = *(void (__fastcall **)(__int64, __int128 *))(v5 + 992);
+    v16 = *(_QWORD *)(v5 + 48);
+    *(_QWORD *)(v5 + 5704) = a1;
+    v15(v16, &xmmword_1C00B2DC8);
+    *(_QWORD *)(v5 + 5704) = 0LL;
+    if ( qword_1C00B2DB8 == qword_1C00B2DC0 )
+      qword_1C00B2DB8 = 0LL;
+    dword_1C00B2E68 = 2;
+    Global = DXGGLOBAL::GetGlobal(v18, v17);
+    QDC_CACHE::InvalidateCache(*((struct DXGFASTMUTEX *const **)Global + 172), 0LL);
+    if ( *(_BYTE *)(v5 + 484) )
+      DpiEnableD3Requests(*(_QWORD *)(v5 + 24));
+    ExReleaseResourceLite(*(PERESOURCE *)(v5 + 168));
     KeLeaveCriticalRegion();
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(2LL, -1073741637LL);
+    v3 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v3 + 24) = -1073741637LL;
+    WdLogEvent5_WdError(v3);
     return 3221225659LL;
   }
 }

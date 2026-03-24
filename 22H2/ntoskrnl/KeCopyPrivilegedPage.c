@@ -1,16 +1,16 @@
 /*
- * XREFs of KeCopyPrivilegedPage @ 0x14056ECC8
+ * XREFs of KeCopyPrivilegedPage @ 0x140512D10
  * Callers:
- *     MiCopyPage @ 0x140283CF0 (MiCopyPage.c)
- *     MiFillPerSessionProtos @ 0x140A4A01C (MiFillPerSessionProtos.c)
- *     MiTradeBootImagePage @ 0x140B4A55C (MiTradeBootImagePage.c)
+ *     MiCopyPage @ 0x14023FB90 (MiCopyPage.c)
+ *     MiFillPerSessionProtos @ 0x1408D8030 (MiFillPerSessionProtos.c)
+ *     MiTradeBootImagePage @ 0x140A4FE60 (MiTradeBootImagePage.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall KeCopyPrivilegedPage(__int64 a1, __int128 *a2, __int64 a3, __int128 *a4, __int64 a5, char a6)
+NTSTATUS __fastcall KeCopyPrivilegedPage(__int64 a1, __int128 *a2, __int64 a3, __int128 *a4, __int64 a5, char a6)
 {
   __int128 v10; // xmm0
   __int128 v11; // xmm1

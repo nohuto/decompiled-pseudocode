@@ -1,10 +1,10 @@
 /*
- * XREFs of PfFbBufferListCleanup @ 0x140980430
+ * XREFs of PfFbBufferListCleanup @ 0x1408E0E4C
  * Callers:
- *     PfTCleanup @ 0x14097F218 (PfTCleanup.c)
+ *     PfTCleanup @ 0x1408E040C (PfTCleanup.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1404287F0 (RtlpInterlockedPopEntrySList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 PSLIST_ENTRY __fastcall PfFbBufferListCleanup(__int64 a1)
@@ -24,7 +24,7 @@ PSLIST_ENTRY __fastcall PfFbBufferListCleanup(__int64 a1)
     if ( (*((_DWORD *)&v4[2].Next + 3) & 1) != 0 )
     {
       v3 = *(_DWORD *)(a1 + 68);
-      *(_DWORD *)(a1 + 112) += (_DWORD)v4 - LODWORD(v4[2].Next);
+      *(_DWORD *)(a1 + 104) += (_DWORD)v4 - LODWORD(v4[2].Next);
       ExFreePoolWithTag(v4, v3);
     }
   }
@@ -36,7 +36,7 @@ PSLIST_ENTRY __fastcall PfFbBufferListCleanup(__int64 a1)
     if ( (*((_DWORD *)&v6[2].Next + 3) & 1) != 0 )
     {
       v5 = *(_DWORD *)(a1 + 68);
-      *(_DWORD *)(a1 + 112) += (_DWORD)v6 - LODWORD(v6[2].Next);
+      *(_DWORD *)(a1 + 104) += (_DWORD)v6 - LODWORD(v6[2].Next);
       ExFreePoolWithTag(v6, v5);
     }
   }
@@ -45,7 +45,7 @@ PSLIST_ENTRY __fastcall PfFbBufferListCleanup(__int64 a1)
     result = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(a1 + 48));
     if ( !result )
       break;
-    *(_DWORD *)(a1 + 112) -= *((_DWORD *)&result[1].Next + 2);
+    *(_DWORD *)(a1 + 104) -= *((_DWORD *)&result[1].Next + 2);
     ExFreePoolWithTag(result, *(_DWORD *)(a1 + 68));
   }
   return result;

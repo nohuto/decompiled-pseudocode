@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpPowerInitFwPerformanceTableMappings @ 0x140B2388C
+ * XREFs of HalpPowerInitFwPerformanceTableMappings @ 0x140A6967C
  * Callers:
- *     HalpPowerInitSystem @ 0x140A5B230 (HalpPowerInitSystem.c)
+ *     HalpPowerInitSystem @ 0x1409A0D80 (HalpPowerInitSystem.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140213A40 (HalpAcpiGetTable.c)
- *     MmMapIoSpaceEx @ 0x140215340 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140215660 (MmUnmapIoSpace.c)
- *     HalGetMemoryCachingRequirements @ 0x1403B4070 (HalGetMemoryCachingRequirements.c)
+ *     HalpAcpiGetTable @ 0x140294680 (HalpAcpiGetTable.c)
+ *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
+ *     HalGetMemoryCachingRequirements @ 0x1403A47D0 (HalGetMemoryCachingRequirements.c)
  */
 
 __int64 HalpPowerInitFwPerformanceTableMappings()

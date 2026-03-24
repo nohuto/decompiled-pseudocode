@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CrossedTPDragThreshold@CPTPEngine@@AEAAHPEAUCContactState@@UtagPOINT@@H@Z @ 0x1C01FF1F8
+ * XREFs of ?CrossedTPDragThreshold@CPTPEngine@@AEAAHPEAUCContactState@@UtagPOINT@@H@Z @ 0x1C01C39F4
  * Callers:
- *     ?UpdateTPStateIndicator@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUCContactState@@PEAUPTPEnginePointerNode@@PEAH@Z @ 0x1C0204AD0 (-UpdateTPStateIndicator@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUCContactState@@PEAUPTPEnginePointerNo.c)
+ *     ?UpdateTPStateIndicator@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUCContactState@@PEAUPTPEnginePointerNode@@PEAH@Z @ 0x1C01C93A4 (-UpdateTPStateIndicator@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUCContactState@@PEAUPTPEnginePointerNo.c)
  * Callees:
- *     PtInRect @ 0x1C0063154 (PtInRect.c)
+ *     PtInRect @ 0x1C00707BC (PtInRect.c)
  */
 
 __int64 __fastcall CPTPEngine::CrossedTPDragThreshold(
@@ -12,111 +12,98 @@ __int64 __fastcall CPTPEngine::CrossedTPDragThreshold(
         struct tagPOINT a3,
         int a4)
 {
-  int v4; // esi
+  int v4; // edi
   int v7; // eax
-  unsigned int v8; // ebx
+  unsigned int v8; // r11d
   _DWORD *v9; // rdx
-  int v10; // r9d
-  __int64 v11; // r10
-  int v12; // eax
-  CPTPEngine *v13; // r10
-  char v14; // r11
-  int v15; // r9d
-  __int64 v16; // rax
-  unsigned int v17; // r10d
-  __int64 v18; // r9
-  unsigned int v19; // r11d
-  __int64 v20; // rax
+  unsigned int v10; // eax
+  __int64 v11; // r9
+  bool v12; // r9
+  int v13; // edx
+  __int64 v14; // rax
+  unsigned int v15; // r10d
+  unsigned int v16; // edx
+  int v17; // r9d
+  __int64 v18; // rax
 
-  v4 = *((_DWORD *)this + 67);
-  if ( (v4 & 0x10) == 0 || (v7 = *((_DWORD *)this + 984), (v7 & 0x2000) != 0) || (v7 & 0x1000000) != 0 )
+  v4 = *((_DWORD *)this + 55);
+  if ( (v4 & 0x10) == 0
+    || (*((_DWORD *)this + 959) & 1) != 0
+    || (v7 = *((_DWORD *)this + 958), (v7 & 0x2000) != 0)
+    || (v7 & 0x1000000) != 0 )
   {
     v8 = 0;
-    v13 = this;
+    v12 = 0;
   }
   else
   {
     v8 = 0;
-    v9 = (_DWORD *)((char *)this + 1208);
+    v9 = (_DWORD *)((char *)this + 1160);
     v10 = 0;
     v11 = 6LL;
     do
     {
-      if ( (*v9 & 1) != 0 )
-      {
-        v12 = v9[1];
-        if ( (v12 & 1) != 0 || (v12 & 2) != 0 )
-          ++v10;
-      }
-      v9 += 100;
+      if ( (*v9 & 1) != 0 && (*v9 & 0x800000) == 0 )
+        ++v10;
+      v9 += 98;
       --v11;
     }
     while ( v11 );
-    v13 = this;
-    if ( v10 == 1 )
-    {
-      v14 = 1;
-      goto LABEL_14;
-    }
+    v12 = v10 <= 1;
   }
-  v14 = 0;
-LABEL_14:
-  if ( *((_DWORD *)this + 910) && *((_QWORD *)a2 + 9) > *((_QWORD *)this + 468) )
-    goto LABEL_25;
-  v15 = *(_DWORD *)a2;
-  if ( (*(_DWORD *)a2 & 0x800000) == 0
-    || (*((_DWORD *)v13 + 984) & 1) != 0 && *((_QWORD *)a2 + 9) <= *((_QWORD *)this + 468) )
+  if ( *((_DWORD *)this + 886) && *((_QWORD *)a2 + 8) > *((_QWORD *)this + 456) )
+    goto LABEL_21;
+  v13 = *(_DWORD *)a2;
+  if ( (*(_DWORD *)a2 & 0x200000) == 0 )
+    goto LABEL_24;
+  if ( (v4 & 0x40) != 0 && (int)HIDWORD(*((_QWORD *)a2 + 1)) >= *((_DWORD *)this + 943) && (v13 & 0x100000) != 0 )
   {
-    goto LABEL_28;
+    v14 = 276LL;
+    v15 = *((_DWORD *)this + 61) * *((_DWORD *)this + 61);
+    v16 = *((_DWORD *)this + 63) * *((_DWORD *)this + 63);
+    v17 = *((_DWORD *)this + 64) * *((_DWORD *)this + 64);
+    goto LABEL_26;
   }
-  if ( (v4 & 0x40) != 0 && (int)HIDWORD(*((_QWORD *)a2 + 2)) >= *((_DWORD *)this + 969) && (v15 & 0x400000) != 0 )
+  if ( !v12 )
+    goto LABEL_24;
+  if ( (v13 & 0x40000) != 0 )
   {
-    v16 = 284LL;
-    v17 = *((_DWORD *)this + 73) * *((_DWORD *)this + 73);
-    v18 = (unsigned int)(*((_DWORD *)this + 75) * *((_DWORD *)this + 75));
-    v19 = *((_DWORD *)this + 76) * *((_DWORD *)this + 76);
-    goto LABEL_30;
+LABEL_21:
+    v14 = 244LL;
+    v15 = *((_DWORD *)this + 56) * *((_DWORD *)this + 56);
+    v16 = *((_DWORD *)this + 58) * *((_DWORD *)this + 58);
+    v17 = *((_DWORD *)this + 59) * *((_DWORD *)this + 59);
+    goto LABEL_26;
   }
-  if ( !v14 )
-    goto LABEL_28;
-  if ( (v15 & 0x100000) != 0 )
+  if ( (v13 & 0x80000) != 0 )
   {
-LABEL_25:
-    v16 = 252LL;
-    v17 = *((_DWORD *)this + 68) * *((_DWORD *)this + 68);
-    v18 = (unsigned int)(*((_DWORD *)this + 70) * *((_DWORD *)this + 70));
-    v19 = *((_DWORD *)this + 71) * *((_DWORD *)this + 71);
-    goto LABEL_30;
-  }
-  if ( (v15 & 0x200000) != 0 )
-  {
-    v16 = 268LL;
-    v17 = *((_DWORD *)this + 107) * *((_DWORD *)this + 107);
-    v18 = (unsigned int)(*((_DWORD *)this + 108) * *((_DWORD *)this + 108));
+    v14 = 260LL;
+    v15 = *((_DWORD *)this + 95) * *((_DWORD *)this + 95);
+    v16 = *((_DWORD *)this + 96) * *((_DWORD *)this + 96);
   }
   else
   {
-LABEL_28:
-    v18 = *((unsigned int *)this + 53);
-    v16 = 236LL;
-    v17 = *((_DWORD *)this + 52);
+LABEL_24:
+    v16 = *((_DWORD *)this + 41);
+    v14 = 228LL;
+    v15 = *((_DWORD *)this + 40);
   }
-  v19 = v18;
-LABEL_30:
+  v17 = v16;
+LABEL_26:
   if ( (v4 & 1) != 0 )
   {
-    LOBYTE(v8) = !PtInRect((struct CContactState *)((char *)a2 + v16), *(_QWORD *)&a3);
+    LOBYTE(v8) = !PtInRect((struct CContactState *)((char *)a2 + v14), *(_QWORD *)&a3);
   }
   else
   {
     if ( a4 )
-      v20 = *((_QWORD *)a2 + 3);
+      v18 = *((_QWORD *)a2 + 2);
     else
-      v20 = *((_QWORD *)a2 + 2);
-    if ( SHIDWORD(v20) < a3.y )
-      v18 = v19;
-    LOBYTE(v8) = v18 * ((int)v20 - a3.x) * ((int)v20 - a3.x)
-               + (unsigned __int64)v17 * (HIDWORD(v20) - a3.y) * (HIDWORD(v20) - a3.y) >= v18 * (unsigned __int64)v17;
+      v18 = *((_QWORD *)a2 + 1);
+    if ( SHIDWORD(v18) < a3.y )
+      v16 = v17;
+    LOBYTE(v8) = v16 * (__int64)(((int)v18 - a3.x) * ((int)v18 - a3.x))
+               + (unsigned __int64)v15 * (HIDWORD(v18) - a3.y) * (HIDWORD(v18) - a3.y) >= v16 * (unsigned __int64)v15;
   }
   return v8;
 }

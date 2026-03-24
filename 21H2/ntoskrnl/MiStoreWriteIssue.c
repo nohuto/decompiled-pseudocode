@@ -1,10 +1,10 @@
 /*
- * XREFs of MiStoreWriteIssue @ 0x14037BB94
+ * XREFs of MiStoreWriteIssue @ 0x1402D7980
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x14037B44C (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x140266950 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     SmpPageWrite @ 0x14037BC58 (SmpPageWrite.c)
- *     ?SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z @ 0x14037D59C (-SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z.c)
+ *     SmpPageWrite @ 0x1402D7A4C (SmpPageWrite.c)
+ *     ?SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z @ 0x1402DAA1C (-SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z.c)
  */
 
 __int64 __fastcall MiStoreWriteIssue(
@@ -17,21 +17,23 @@ __int64 __fastcall MiStoreWriteIssue(
         __int64 a7,
         int a8)
 {
-  __int64 v9; // rax
+  unsigned __int64 v9; // rdx
+  __int64 v10; // rax
   __int64 result; // rax
-  __int64 v11; // r11
+  __int64 v12; // r11
 
   *(_DWORD *)(a1 + 72) = 56;
   *(_QWORD *)(a1 + 64) = 0LL;
   *(_QWORD *)(a1 + 96) = 0LL;
   *(_QWORD *)(a1 + 104) = 4096LL;
   *(_WORD *)(a1 + 74) |= 2u;
-  v9 = a7;
-  *(_QWORD *)(a1 + 112) = 0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4);
-  *(_QWORD *)(a1 + 56) = v9;
+  v9 = (__int64)((unsigned __int128)((a2 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3;
+  v10 = a7;
+  *(_QWORD *)(a1 + 112) = (v9 >> 63) + v9;
+  *(_QWORD *)(a1 + 56) = v10;
   LODWORD(a7) = 0;
   result = SmKeyConvert(a3, (union _SM_PAGE_KEY *)&a7);
   if ( (int)result >= 0 )
-    return SmpPageWrite((unsigned int)&a7, a4, a6, (int)v11 + 64, a5, v11 + 16, a8);
+    return SmpPageWrite((unsigned int)&a7, a4, a6, (int)v12 + 64, a5, v12 + 16, a8);
   return result;
 }

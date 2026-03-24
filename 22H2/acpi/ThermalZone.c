@@ -1,14 +1,14 @@
 /*
- * XREFs of ThermalZone @ 0x1C0051180
+ * XREFs of ThermalZone @ 0x1C00251A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     CreateNameSpaceObject @ 0x1C004F12C (CreateNameSpaceObject.c)
- *     PushScope @ 0x1C0053D60 (PushScope.c)
+ *     CreateNameSpaceObject @ 0x1C0006720 (CreateNameSpaceObject.c)
+ *     PushScope @ 0x1C0022A38 (PushScope.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall ThermalZone(__int64 a1, _QWORD *a2)
+__int64 __fastcall ThermalZone(__int64 a1, __int64 *a2)
 {
   __int64 *v2; // rdi
   __int64 result; // rax
@@ -16,7 +16,7 @@ __int64 __fastcall ThermalZone(__int64 a1, _QWORD *a2)
   v2 = a2 + 8;
   result = CreateNameSpaceObject(
              *(_QWORD *)(a1 + 320),
-             *(unsigned __int8 **)(a2[10] + 32LL),
+             *(unsigned __int8 **)(a2[10] + 32),
              *(_QWORD *)(a1 + 80),
              *(struct _EX_RUNDOWN_REF **)(a1 + 88),
              a2 + 8,
@@ -26,7 +26,7 @@ __int64 __fastcall ThermalZone(__int64 a1, _QWORD *a2)
     *(_WORD *)(*v2 + 66) = 13;
     if ( ghCreate )
       ghCreate(13LL, *v2 + 120);
-    return PushScope(a1, *(_QWORD *)(a1 + 120), a2[5], 0, *v2, *(_QWORD *)(a1 + 88), *(_QWORD *)(a1 + 320), a2[11]);
+    return PushScope(a1, *(_QWORD *)(a1 + 120), a2[5], 0LL, *v2, *(_QWORD *)(a1 + 88), *(_QWORD *)(a1 + 320), a2[11]);
   }
   return result;
 }

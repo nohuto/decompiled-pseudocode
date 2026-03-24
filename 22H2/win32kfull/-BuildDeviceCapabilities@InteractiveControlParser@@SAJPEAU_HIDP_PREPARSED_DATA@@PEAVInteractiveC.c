@@ -1,12 +1,12 @@
 /*
- * XREFs of ?BuildDeviceCapabilities@InteractiveControlParser@@SAJPEAU_HIDP_PREPARSED_DATA@@PEAVInteractiveControlDevice@@@Z @ 0x1C024A594
+ * XREFs of ?BuildDeviceCapabilities@InteractiveControlParser@@SAJPEAU_HIDP_PREPARSED_DATA@@PEAVInteractiveControlDevice@@@Z @ 0x1C025B74C
  * Callers:
- *     ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C02457A4 (-Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0256DD0 (-Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?BuildComponentInformation@InteractiveControlParser@@CAJPEAU_HIDP_PREPARSED_DATA@@GPEAVInteractiveControlDevice@@@Z @ 0x1C024A168 (-BuildComponentInformation@InteractiveControlParser@@CAJPEAU_HIDP_PREPARSED_DATA@@GPEAVInteracti.c)
- *     ?BuildDeviceAttributes@InteractiveControlParser@@CAJPEAU_INTERACTIVECTRL_CAPABILITIES@@PEAVInteractiveControlDevice@@@Z @ 0x1C024A50C (-BuildDeviceAttributes@InteractiveControlParser@@CAJPEAU_INTERACTIVECTRL_CAPABILITIES@@PEAVInter.c)
- *     ?FreeDeviceCapabilities@InteractiveControlParser@@SAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z @ 0x1C024ABE8 (-FreeDeviceCapabilities@InteractiveControlParser@@SAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?BuildComponentInformation@InteractiveControlParser@@CAJPEAU_HIDP_PREPARSED_DATA@@GPEAVInteractiveControlDevice@@@Z @ 0x1C025B31C (-BuildComponentInformation@InteractiveControlParser@@CAJPEAU_HIDP_PREPARSED_DATA@@GPEAVInteracti.c)
+ *     ?BuildDeviceAttributes@InteractiveControlParser@@CAJPEAU_INTERACTIVECTRL_CAPABILITIES@@PEAVInteractiveControlDevice@@@Z @ 0x1C025B6C4 (-BuildDeviceAttributes@InteractiveControlParser@@CAJPEAU_INTERACTIVECTRL_CAPABILITIES@@PEAVInter.c)
+ *     ?FreeDeviceCapabilities@InteractiveControlParser@@SAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z @ 0x1C025BE1C (-FreeDeviceCapabilities@InteractiveControlParser@@SAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z.c)
  */
 
 __int64 __fastcall InteractiveControlParser::BuildDeviceCapabilities(
@@ -23,7 +23,7 @@ __int64 __fastcall InteractiveControlParser::BuildDeviceCapabilities(
   v2 = (char *)a2 + 72;
   v5 = 0LL;
   LinkCollectionNodesLength = 0;
-  memset_0((char *)a2 + 72, 0, 0xB8uLL);
+  memset((char *)a2 + 72, 0, 0xB8uLL);
   Caps = HidP_GetCaps(PreparsedData, (PHIDP_CAPS)(v2 + 4));
   if ( Caps < 0 )
     goto LABEL_14;
@@ -32,7 +32,7 @@ __int64 __fastcall InteractiveControlParser::BuildDeviceCapabilities(
     goto LABEL_13;
   if ( LinkCollectionNodesLength > 1 )
   {
-    v7 = (struct _HIDP_LINK_COLLECTION_NODE *)Win32AllocPoolZInit(24LL * LinkCollectionNodesLength, 1819440195LL);
+    v7 = (struct _HIDP_LINK_COLLECTION_NODE *)Win32AllocPool(24LL * LinkCollectionNodesLength, 1819440195LL);
     v5 = v7;
     if ( !v7 )
     {
@@ -43,16 +43,12 @@ __int64 __fastcall InteractiveControlParser::BuildDeviceCapabilities(
     if ( Caps == 1114112 )
     {
       Caps = InteractiveControlParser::BuildComponentInformation(PreparsedData, v8, a2);
-      if ( Caps >= 0 )
-      {
-        Caps = InteractiveControlParser::BuildDeviceAttributes((struct _INTERACTIVECTRL_CAPABILITIES *)v2, a2);
-        if ( Caps >= 0 )
-        {
-          *(_DWORD *)v2 = *((_DWORD *)v2 + 20) && *((_DWORD *)v2 + 22);
-          goto LABEL_16;
-        }
-      }
-      goto LABEL_14;
+      if ( Caps < 0 )
+        goto LABEL_14;
+      Caps = InteractiveControlParser::BuildDeviceAttributes((struct _INTERACTIVECTRL_CAPABILITIES *)v2, a2);
+      if ( Caps < 0 )
+        goto LABEL_14;
+      *(_DWORD *)v2 = *((_DWORD *)v2 + 20) && *((_DWORD *)v2 + 22);
     }
 LABEL_13:
     if ( Caps >= 0 )
@@ -62,7 +58,6 @@ LABEL_14:
   InteractiveControlParser::FreeDeviceCapabilities((struct _INTERACTIVECTRL_CAPABILITIES *)v2);
 LABEL_15:
   if ( v5 )
-LABEL_16:
     Win32FreePool(v5);
   return (unsigned int)Caps;
 }

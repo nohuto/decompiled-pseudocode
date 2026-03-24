@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_atexit_destructor_for__CInteraction::s_InteractionHandleTable__ @ 0x180124450
+ * XREFs of _dynamic_atexit_destructor_for__CInteraction::s_InteractionHandleTable__ @ 0x1800F8FE0
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 void dynamic_atexit_destructor_for__CInteraction::s_InteractionHandleTable__()
 {
   CInteraction::s_InteractionHandleTable = &HANDLE_TABLE::`vftable';
-  operator delete(lpMem);
+  operator delete(qword_180345248);
 }

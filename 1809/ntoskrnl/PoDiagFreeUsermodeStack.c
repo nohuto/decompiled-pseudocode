@@ -1,7 +1,7 @@
 /*
- * XREFs of PoDiagFreeUsermodeStack @ 0x1406D6B90
+ * XREFs of PoDiagFreeUsermodeStack @ 0x1406D6B70
  * Callers:
- *     ExCleanTimerResolutionRequest @ 0x14013F838 (ExCleanTimerResolutionRequest.c)
+ *     ExCleanTimerResolutionRequest @ 0x14013F858 (ExCleanTimerResolutionRequest.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

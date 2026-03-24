@@ -1,45 +1,43 @@
 /*
- * XREFs of KseQueryDeviceData @ 0x1407EC640
+ * XREFs of KseQueryDeviceData @ 0x14075F420
  * Callers:
- *     KseQueryDeviceFlags @ 0x1407EC520 (KseQueryDeviceFlags.c)
- *     ExpGetDeviceDataInformation @ 0x1409F6464 (ExpGetDeviceDataInformation.c)
+ *     KseQueryDeviceFlags @ 0x14075F9E0 (KseQueryDeviceFlags.c)
+ *     ExpGetDeviceDataInformation @ 0x14094A178 (ExpGetDeviceDataInformation.c)
  * Callees:
- *     KsepShimDbChanged @ 0x140368A88 (KsepShimDbChanged.c)
- *     KsepLogInfo @ 0x1403C09C8 (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x14057D738 (KsepDebugPrint.c)
- *     KsepDbCacheQueryDevice @ 0x1407EC7CC (KsepDbCacheQueryDevice.c)
- *     KsepDbQueryRegistryDeviceData @ 0x1407ED310 (KsepDbQueryRegistryDeviceData.c)
- *     KsepDbCacheReadDevice @ 0x1407ED450 (KsepDbCacheReadDevice.c)
- *     KsepDbCacheQueryDeviceData @ 0x140856C0C (KsepDbCacheQueryDeviceData.c)
- *     KsepDbCacheInsertDevice @ 0x14085E788 (KsepDbCacheInsertDevice.c)
- *     KseResetDeviceCache @ 0x1409635EC (KseResetDeviceCache.c)
- *     KsepCacheDeviceFree @ 0x140965070 (KsepCacheDeviceFree.c)
+ *     KsepLogInfo @ 0x1403717A8 (KsepLogInfo.c)
+ *     KsepShimDbChanged @ 0x1403725F0 (KsepShimDbChanged.c)
+ *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
+ *     KsepDbCacheReadDevice @ 0x140755E7C (KsepDbCacheReadDevice.c)
+ *     KsepDbCacheQueryDevice @ 0x14075F5A8 (KsepDbCacheQueryDevice.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x14075F89C (KsepDbQueryRegistryDeviceData.c)
+ *     KsepDbCacheQueryDeviceData @ 0x1407C7BC4 (KsepDbCacheQueryDeviceData.c)
+ *     KsepDbCacheInsertDevice @ 0x1407CCD18 (KsepDbCacheInsertDevice.c)
+ *     KseResetDeviceCache @ 0x1408BF54C (KseResetDeviceCache.c)
+ *     KsepCacheDeviceFree @ 0x1408C1040 (KsepCacheDeviceFree.c)
  */
 
-__int64 __fastcall KseQueryDeviceData(PCWSTR SourceString, __int64 a2, _DWORD *a3, _DWORD *a4, void *a5)
+__int64 __fastcall KseQueryDeviceData(PCWSTR SourceString, __int64 a2, int *a3, _DWORD *a4, void *a5)
 {
   int v6; // edi
+  int v9; // eax
   int RegistryDeviceData; // ebx
-  int v11; // r8d
-  __int64 v12; // rdi
-  __int64 v13; // rax
-  void *v14; // [rsp+20h] [rbp-38h]
-  int v15[10]; // [rsp+30h] [rbp-28h] BYREF
+  int v12; // r8d
+  __int64 v13; // rdi
+  __int64 v14; // rax
+  void *v15; // [rsp+20h] [rbp-38h]
+  int v16[2]; // [rsp+30h] [rbp-28h] BYREF
 
-  *(_QWORD *)v15 = 0LL;
+  *(_QWORD *)v16 = 0LL;
   v6 = (int)a3;
-  if ( dword_140C54EF4 != 2 || (KseEngine & 2) != 0 )
+  if ( dword_140C505E4 != 2 || (KseEngine & 2) != 0 )
     return (unsigned int)-1073741275;
   if ( !a2 || !a3 || !a4 )
     return (unsigned int)-1073741811;
-  if ( (*a3 & 0x20000000) != 0 )
+  v9 = *a3;
+  *a3 = 0;
+  if ( (v9 & 0x20000000) == 0 )
   {
-    *a3 = 0;
-  }
-  else
-  {
-    *a3 = 0;
-    HIDWORD(v14) = HIDWORD(a5);
+    HIDWORD(v15) = HIDWORD(a5);
     RegistryDeviceData = KsepDbQueryRegistryDeviceData(SourceString);
     if ( RegistryDeviceData != -1073741275 )
       goto LABEL_14;
@@ -54,29 +52,29 @@ __int64 __fastcall KseQueryDeviceData(PCWSTR SourceString, __int64 a2, _DWORD *a
     if ( RegistryDeviceData != -1073741275 )
       goto LABEL_14;
   }
-  RegistryDeviceData = KsepDbCacheReadDevice(SourceString, v15);
+  RegistryDeviceData = KsepDbCacheReadDevice((__int64)SourceString, (__int64 *)v16);
   if ( RegistryDeviceData < 0 )
     return (unsigned int)RegistryDeviceData;
-  v11 = v6;
-  v12 = *(_QWORD *)v15;
-  RegistryDeviceData = KsepDbCacheQueryDeviceData(v15[0], a2, v11, (int)a4, a5);
+  v12 = v6;
+  v13 = *(_QWORD *)v16;
+  RegistryDeviceData = KsepDbCacheQueryDeviceData(v16[0], a2, v12, (int)a4, a5);
   if ( (int)KsepDbCacheInsertDevice(SourceString) < 0 )
-    KsepCacheDeviceFree(v12);
+    KsepCacheDeviceFree(v13);
 LABEL_14:
   if ( RegistryDeviceData >= 0 )
   {
     if ( !*a4 )
       RegistryDeviceData = -1073741275;
-    v13 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryMessagesIndex, 1u) + 1) & 0x3F;
-    HIDWORD(KsepHistoryMessages[v13]) = 0;
-    LODWORD(KsepHistoryMessages[v13]) = 592101;
+    v14 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryMessagesIndex, 1u) + 1) & 0x3F;
+    HIDWORD(KsepHistoryMessages[v14]) = 0;
+    LODWORD(KsepHistoryMessages[v14]) = 592101;
     if ( (KsepDebugFlag & 1) != 0 )
     {
-      LODWORD(v14) = RegistryDeviceData;
-      KsepDebugPrint(0LL, "KSE: Query device [%ws, %ws]: found in cache %08x\n", a2, SourceString, v14);
+      LODWORD(v15) = RegistryDeviceData;
+      KsepDebugPrint(0LL, "KSE: Query device [%ws, %ws]: found in cache %08x\n", a2, SourceString, v15);
     }
-    LODWORD(v14) = RegistryDeviceData;
-    KsepLogInfo(0, "KSE: Query device [%ws, %ws]: found in cache %08x\n", a2, SourceString, v14);
+    LODWORD(v15) = RegistryDeviceData;
+    KsepLogInfo(0LL, (__int64)"KSE: Query device [%ws, %ws]: found in cache %08x\n", a2, SourceString, v15);
   }
   return (unsigned int)RegistryDeviceData;
 }

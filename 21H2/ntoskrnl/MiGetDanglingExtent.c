@@ -1,80 +1,83 @@
 /*
- * XREFs of MiGetDanglingExtent @ 0x14059EFE4
+ * XREFs of MiGetDanglingExtent @ 0x140541220
  * Callers:
- *     MiRemovePhysicalMemory @ 0x140969850 (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-unsigned __int64 __fastcall MiGetDanglingExtent(_QWORD *a1)
+__int64 __fastcall MiGetDanglingExtent(_QWORD *a1)
 {
-  __int64 v2; // r14
-  unsigned __int64 v3; // rsi
-  unsigned __int64 v4; // rbx
-  __int64 v5; // rax
-  unsigned __int64 v6; // r9
-  __int64 v7; // r8
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
+  __int64 v2; // rsi
+  unsigned __int64 v3; // rdi
+  __int64 v4; // rax
+  unsigned __int64 v5; // r8
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r11
   _DWORD *SchedulerAssist; // r10
   bool v14; // zf
-  unsigned __int64 v16; // rbx
+  unsigned __int64 v16; // rbp
   unsigned __int64 v17; // r10
-  unsigned __int8 v18; // bp
-  volatile signed __int32 *v19; // rdi
+  unsigned __int8 v18; // r15
+  volatile signed __int32 *v19; // rbx
   unsigned __int128 v20; // rax
-  unsigned __int64 v21; // rsi
+  unsigned __int64 v21; // rdi
   unsigned __int8 v22; // al
   struct _KPRCB *v23; // r9
   _DWORD *v24; // r8
   int v25; // eax
-  int v26; // [rsp+50h] [rbp+8h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-48h] BYREF
+  int v27; // [rsp+70h] [rbp+8h] BYREF
 
   *a1 = 0LL;
   v2 = 0LL;
+  memset(&LockHandle, 0, sizeof(LockHandle));
   v3 = 0LL;
-  v4 = ExAcquireSpinLockExclusive(&dword_140C56920);
+  KeAcquireInStackQueuedSpinLock(&qword_140C51DA0, &LockHandle);
   do
   {
-    v5 = qword_140C4F2A0;
-    v6 = v3;
-    v7 = v2;
-    if ( !qword_140C4F2A0 )
+    v4 = qword_140C4CAE8;
+    v5 = v3;
+    v6 = v2;
+    if ( !qword_140C4CAE8 )
       break;
-    v8 = *(_QWORD *)qword_140C4F2A0;
+    v7 = *(_QWORD *)qword_140C4CAE8;
     ++v2;
-    qword_140C4F2A0 = *(_QWORD *)qword_140C4F2A0;
-    v3 = v5;
-    if ( v7 )
-      v3 = v6;
+    qword_140C4CAE8 = *(_QWORD *)qword_140C4CAE8;
+    v3 = v4;
+    if ( v6 )
+      v3 = v5;
   }
-  while ( v8 == v5 - 48 );
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C56920);
+  while ( v7 == v4 - 48 );
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-        v14 = ((unsigned int)v9 & SchedulerAssist[5]) == 0;
-        v10 = (unsigned int)v9 & SchedulerAssist[5];
-        SchedulerAssist[5] = v10;
+        v8 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v14 = ((unsigned int)v8 & SchedulerAssist[5]) == 0;
+        v9 = (unsigned int)v8 & SchedulerAssist[5];
+        SchedulerAssist[5] = v9;
         if ( v14 )
           KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
   }
-  __writecr8(v4);
+  __writecr8(OldIrql);
   if ( !v2 )
     return -1LL;
   v16 = v3 - 48 * v2;
@@ -83,9 +86,9 @@ unsigned __int64 __fastcall MiGetDanglingExtent(_QWORD *a1)
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v18 <= 0xFu )
   {
-    v10 = (__int64)KeGetCurrentPrcb()->SchedulerAssist;
-    v9 = (-1 << (v18 + 1)) & 4u | *(_DWORD *)(v10 + 20);
-    *(_DWORD *)(v10 + 20) = v9;
+    v9 = (__int64)KeGetCurrentPrcb()->SchedulerAssist;
+    v8 = (-1 << (v18 + 1)) & 4u | *(_DWORD *)(v9 + 20);
+    *(_DWORD *)(v9 + 20) = v8;
   }
   if ( v17 <= v3 )
   {
@@ -94,11 +97,11 @@ unsigned __int64 __fastcall MiGetDanglingExtent(_QWORD *a1)
     v21 = (v3 - v17) / 0x30 + 1;
     do
     {
-      v26 = 0;
+      v27 = 0;
       while ( _interlockedbittestandset64(v19, 0x3FuLL) )
       {
         do
-          KeYieldProcessorEx(&v26, *((__int64 *)&v20 + 1), v9, v10);
+          KeYieldProcessorEx(&v27, *((__int64 *)&v20 + 1), v8, v9);
         while ( *(__int64 *)v19 < 0 );
       }
       _InterlockedAnd64((volatile signed __int64 *)v19, 0x7FFFFFFFFFFFFFFFuLL);
@@ -126,5 +129,5 @@ unsigned __int64 __fastcall MiGetDanglingExtent(_QWORD *a1)
   }
   __writecr8(v18);
   *a1 = v2;
-  return 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v16 + 0x220000000030LL) >> 4);
+  return (__int64)(v16 + 0x58000000030LL) / 48;
 }

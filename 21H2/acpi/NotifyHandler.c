@@ -1,43 +1,50 @@
 /*
- * XREFs of NotifyHandler @ 0x1C0031890
+ * XREFs of NotifyHandler @ 0x1C002EE50
  * Callers:
- *     AcpiNativeNotifyEventHandler @ 0x1C005C300 (AcpiNativeNotifyEventHandler.c)
+ *     AcpiNativeNotifyEventHandler @ 0x1C005B440 (AcpiNativeNotifyEventHandler.c)
  * Callees:
- *     WPP_RECORDER_SF_DDD @ 0x1C0031440 (WPP_RECORDER_SF_DDD.c)
- *     DispatchNotification @ 0x1C0031624 (DispatchNotification.c)
- *     OSNotifyDeviceCheck @ 0x1C0059804 (OSNotifyDeviceCheck.c)
- *     OSNotifyDeviceEject @ 0x1C005998C (OSNotifyDeviceEject.c)
- *     OSNotifyDeviceEnum @ 0x1C0059A20 (OSNotifyDeviceEnum.c)
- *     OSNotifyDeviceWake @ 0x1C0059B80 (OSNotifyDeviceWake.c)
+ *     DispatchNotification @ 0x1C002EF54 (DispatchNotification.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C002EFC8 (WPP_RECORDER_SF_DDD.c)
+ *     OSNotifyDeviceEnum @ 0x1C002F0AC (OSNotifyDeviceEnum.c)
+ *     OSNotifyDeviceCheck @ 0x1C0058AC4 (OSNotifyDeviceCheck.c)
+ *     OSNotifyDeviceEject @ 0x1C0058C58 (OSNotifyDeviceEject.c)
+ *     OSNotifyDeviceWake @ 0x1C0058CEC (OSNotifyDeviceWake.c)
  */
 
-__int64 __fastcall NotifyHandler(__int64 a1, int a2, __int64 a3)
+__int64 __fastcall NotifyHandler(__int64 a1, unsigned int a2, __int64 a3)
 {
+  unsigned int v4; // esi
   __int64 v5; // rdi
   KIRQL v6; // al
   __int64 v7; // r8
+  char v9; // [rsp+30h] [rbp-18h]
 
+  v4 = a2;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v9 = a2;
+    LOBYTE(a2) = 4;
     WPP_RECORDER_SF_DDD(
-      (__int64)WPP_GLOBAL_Control->DeviceExtension,
-      4u,
-      2u,
-      0xAu,
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      2,
+      10,
       (__int64)&WPP_e371268d4ba533618df9ec56b8c4a796_Traceguids,
       a3,
-      a2,
-      *(unsigned __int16 *)(*(_QWORD *)a3 + 66LL));
-  if ( a2 )
+      v9,
+      *(_WORD *)(*(_QWORD *)a3 + 66LL));
+  }
+  if ( v4 )
   {
-    switch ( a2 )
+    switch ( v4 )
     {
-      case 1:
+      case 1u:
         OSNotifyDeviceCheck(a3);
         break;
-      case 2:
+      case 2u:
         OSNotifyDeviceWake(a3);
         break;
-      case 3:
+      case 3u:
         OSNotifyDeviceEject(a3);
         break;
     }
@@ -50,9 +57,9 @@ __int64 __fastcall NotifyHandler(__int64 a1, int a2, __int64 a3)
   v6 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
   v7 = *(_QWORD *)(*(_QWORD *)a3 + 104LL);
   if ( v7 && *(_DWORD *)(v7 + 16) == 1599293264 )
-    v5 = v7 + 376;
+    v5 = v7 + 336;
   KeReleaseSpinLock(&AcpiDeviceTreeLock, v6);
   if ( v5 )
-    DispatchNotification(v5 - 376, a2);
+    DispatchNotification(v5 - 336, v4);
   return 0LL;
 }

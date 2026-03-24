@@ -1,11 +1,11 @@
 /*
- * XREFs of MmMapViewOfSectionEx @ 0x1402D6B9C
+ * XREFs of MmMapViewOfSectionEx @ 0x14035E770
  * Callers:
- *     MiMapSecurePureReserveView @ 0x140755714 (MiMapSecurePureReserveView.c)
- *     MiMapProcessExecutable @ 0x1407557F0 (MiMapProcessExecutable.c)
- *     PspMapSystemDll @ 0x140756AD4 (PspMapSystemDll.c)
+ *     MiMapCfgBitMapSection @ 0x1407113FC (MiMapCfgBitMapSection.c)
+ *     MiMapProcessExecutable @ 0x140711FB0 (MiMapProcessExecutable.c)
+ *     PspMapSystemDll @ 0x140712408 (PspMapSystemDll.c)
  * Callees:
- *     MiMapViewOfSectionExCommon @ 0x140756C90 (MiMapViewOfSectionExCommon.c)
+ *     MiMapViewOfSectionExCommon @ 0x1407125A8 (MiMapViewOfSectionExCommon.c)
  */
 
 __int64 __fastcall MmMapViewOfSectionEx(
@@ -21,7 +21,8 @@ __int64 __fastcall MmMapViewOfSectionEx(
         int a10,
         __int64 a11)
 {
-  int v12; // [rsp+68h] [rbp-10h]
+  ULONGLONG ullMultiplicand; // [rsp+48h] [rbp-30h]
 
-  return MiMapViewOfSectionExCommon(a1, a2, 1, a3, a4, a5, a6, a7, a8, a9, a10, a11, 0, v12);
+  LODWORD(ullMultiplicand) = a9;
+  return MiMapViewOfSectionExCommon(a1, a2, 1, a3, a4, a5, a6, a7, a8, ullMultiplicand, a10, a11, 0, 0);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HandleAsyncResizeComplete @ 0x1C01F2228
+ * XREFs of HandleAsyncResizeComplete @ 0x1C0210AC8
  * Callers:
- *     NtUserLayoutCompleted @ 0x1C00C5C40 (NtUserLayoutCompleted.c)
+ *     NtUserLayoutCompleted @ 0x1C011C250 (NtUserLayoutCompleted.c)
  * Callees:
- *     FindTimer @ 0x1C003BF24 (FindTimer.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
  */
 
 __int64 __fastcall HandleAsyncResizeComplete(__int64 a1)
@@ -13,14 +13,20 @@ __int64 __fastcall HandleAsyncResizeComplete(__int64 a1)
 
   result = *(_QWORD *)(a1 + 16);
   v2 = *(_QWORD *)(result + 672);
-  if ( v2 && *(_QWORD *)(v2 + 16) == a1 )
+  if ( v2 )
   {
-    FindTimer(a1, 65522LL, 2u, 1, 0LL);
-    result = *(_DWORD *)(v2 + 200) & 0x40080000;
-    if ( (_DWORD)result == 1074266112 )
+    if ( *(_QWORD *)(v2 + 16) == a1 )
     {
-      *(_DWORD *)(v2 + 200) &= ~0x40000000u;
-      return GenerateMouseMove(0LL);
+      result = FindTimer(a1, 65522LL, 2u, 1, 0LL);
+      if ( (*(_DWORD *)(v2 + 196) & 0x100000) != 0 )
+      {
+        result = *(unsigned int *)(v2 + 200);
+        if ( (result & 1) != 0 )
+        {
+          *(_DWORD *)(v2 + 200) = result & 0xFFFFFFFE;
+          return GenerateMouseMove(0LL);
+        }
+      }
     }
   }
   return result;

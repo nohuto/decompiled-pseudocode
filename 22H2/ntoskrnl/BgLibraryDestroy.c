@@ -1,11 +1,12 @@
 /*
- * XREFs of BgLibraryDestroy @ 0x140AF22D8
+ * XREFs of BgLibraryDestroy @ 0x1409F65E0
  * Callers:
- *     BgkDestroy @ 0x140AEFA28 (BgkDestroy.c)
+ *     BgkDestroy @ 0x1409F4B08 (BgkDestroy.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x140384860 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403848B0 (BgpFwAcquireLock.c)
- *     BgpFwLibraryDestroy @ 0x140AEFA48 (BgpFwLibraryDestroy.c)
+ *     KeGetCurrentIrql @ 0x14021FA90 (KeGetCurrentIrql.c)
+ *     BgpFwReleaseLock @ 0x14039BBA8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039BBF8 (BgpFwAcquireLock.c)
+ *     BgpFwLibraryDestroy @ 0x1409F3F0C (BgpFwLibraryDestroy.c)
  */
 
 __int64 BgLibraryDestroy()
@@ -16,10 +17,10 @@ __int64 BgLibraryDestroy()
   if ( KeGetCurrentIrql() > 2u )
     return 3221225473LL;
   BgpFwAcquireLock();
-  v1 = dword_140C0E4B0;
+  v1 = dword_140C134F0;
   v2 = 0;
-  if ( (dword_140C0E4B0 & 1) == 0
-    || (qword_140C0E610 = 0LL, xmmword_140C0E620 = 0LL, v2 = BgpFwLibraryDestroy(), (v1 & 0xC00) != 0xC00) )
+  if ( (dword_140C134F0 & 1) == 0
+    || (qword_140C13650 = 0LL, xmmword_140C13660 = 0LL, v2 = BgpFwLibraryDestroy(), (v1 & 0xC00) != 0xC00) )
   {
     BgpFwReleaseLock();
   }

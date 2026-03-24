@@ -1,10 +1,10 @@
 /*
- * XREFs of PsQueryFullProcessImageName @ 0x1406C6384
+ * XREFs of PsQueryFullProcessImageName @ 0x1406AA56C
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall PsQueryFullProcessImageName(__int64 a1, _OWORD *a2, void *a3, unsigned int *a4)

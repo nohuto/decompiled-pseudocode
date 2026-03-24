@@ -1,8 +1,7 @@
 /*
- * XREFs of __chkstk_0 @ 0x1C002CAF0
+ * XREFs of __chkstk_0 @ 0x1C0028AD0
  * Callers:
- *     DxgkWaitForVerticalBlankEventInternal @ 0x1C0177070 (DxgkWaitForVerticalBlankEventInternal.c)
- *     DpiReportAdapter @ 0x1C01FC5E0 (DpiReportAdapter.c)
+ *     DpiReportAdapter @ 0x1C01825AC (DpiReportAdapter.c)
  * Callees:
  *     <none>
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpFindTimer @ 0x1403ACEFC
+ * XREFs of HalpFindTimer @ 0x14039D458
  * Callers:
- *     HalpTscAdvSynchLeader @ 0x1403AC640 (HalpTscAdvSynchLeader.c)
- *     HalpTimerConfigureQpcBypass @ 0x1403BAA84 (HalpTimerConfigureQpcBypass.c)
- *     HalpTimerInitializeHypervisorTimer @ 0x1403BACF8 (HalpTimerInitializeHypervisorTimer.c)
- *     HalpTimerSaveProcessorFrequency @ 0x1403BB3F0 (HalpTimerSaveProcessorFrequency.c)
- *     HalpInitializeTimers @ 0x1403BBAC8 (HalpInitializeTimers.c)
- *     HalpTimerFindIdealWatchdog @ 0x1403BBD58 (HalpTimerFindIdealWatchdog.c)
- *     HalpTimerInitializeEarlyStallSource @ 0x1403BBDD4 (HalpTimerInitializeEarlyStallSource.c)
- *     HalpTimerSelectRoles @ 0x1403BC388 (HalpTimerSelectRoles.c)
- *     HalpTimerFindBestAlwaysOnTimer @ 0x1403BC6B8 (HalpTimerFindBestAlwaysOnTimer.c)
- *     HalpTimerFindIdealPerformanceCounterSource @ 0x1403BC758 (HalpTimerFindIdealPerformanceCounterSource.c)
- *     HalpTimerNoteHpetMaskingBehavior @ 0x1403BC848 (HalpTimerNoteHpetMaskingBehavior.c)
- *     HalpTimerFindIdealClockSource @ 0x1403BEB18 (HalpTimerFindIdealClockSource.c)
- *     HalpTscSynchronization @ 0x1403DD730 (HalpTscSynchronization.c)
- *     HalpTimerQueryCycleCounter @ 0x1403DDFB0 (HalpTimerQueryCycleCounter.c)
- *     HalpTimerMeasureProcessorsWorker @ 0x14050F9E0 (HalpTimerMeasureProcessorsWorker.c)
+ *     HalpTscAdvSynchLeader @ 0x14039CC94 (HalpTscAdvSynchLeader.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403A8104 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpTimerSaveProcessorFrequency @ 0x1403A8900 (HalpTimerSaveProcessorFrequency.c)
+ *     HalpTimerInitializeEarlyStallSource @ 0x1403A9548 (HalpTimerInitializeEarlyStallSource.c)
+ *     HalpInitializeTimers @ 0x1403A9638 (HalpInitializeTimers.c)
+ *     HalpTimerSelectRoles @ 0x1403A9D9C (HalpTimerSelectRoles.c)
+ *     HalpTimerFindBestAlwaysOnTimer @ 0x1403AA0CC (HalpTimerFindBestAlwaysOnTimer.c)
+ *     HalpTimerFindIdealPerformanceCounterSource @ 0x1403AA16C (HalpTimerFindIdealPerformanceCounterSource.c)
+ *     HalpTimerNoteHpetMaskingBehavior @ 0x1403AA25C (HalpTimerNoteHpetMaskingBehavior.c)
+ *     HalpTimerFindIdealClockSource @ 0x1403AA424 (HalpTimerFindIdealClockSource.c)
+ *     HalpTimerFindIdealWatchdog @ 0x1403AA50C (HalpTimerFindIdealWatchdog.c)
+ *     HalpTimerConfigureQpcBypass @ 0x1403CDDAC (HalpTimerConfigureQpcBypass.c)
+ *     HalpTscSynchronization @ 0x1403CE6F0 (HalpTscSynchronization.c)
+ *     HalpTimerQueryCycleCounter @ 0x1403CEE40 (HalpTimerQueryCycleCounter.c)
+ *     HalpTimerMeasureProcessorsWorker @ 0x1404C35C0 (HalpTimerMeasureProcessorsWorker.c)
  * Callees:
  *     <none>
  */

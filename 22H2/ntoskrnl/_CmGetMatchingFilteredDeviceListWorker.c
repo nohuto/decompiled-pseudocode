@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmGetMatchingFilteredDeviceListWorker @ 0x140A65068
+ * XREFs of _CmGetMatchingFilteredDeviceListWorker @ 0x1409770E8
  * Callers:
- *     _CmGetMatchingFilteredDeviceList @ 0x1407C8218 (_CmGetMatchingFilteredDeviceList.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x140689F58 (_CmGetMatchingFilteredDeviceList.c)
  * Callees:
- *     _CmGetMatchingDeviceListForSubkey @ 0x14082BD40 (_CmGetMatchingDeviceListForSubkey.c)
- *     _CmGetDeviceRelationsList @ 0x1408520E4 (_CmGetDeviceRelationsList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     _CmGetMatchingDeviceListForSubkey @ 0x1407B03DC (_CmGetMatchingDeviceListForSubkey.c)
+ *     _CmGetDeviceRelationsList @ 0x140977038 (_CmGetDeviceRelationsList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetMatchingFilteredDeviceListWorker(
@@ -16,7 +16,7 @@ __int64 __fastcall CmGetMatchingFilteredDeviceListWorker(
         _QWORD *a5,
         _WORD *a6,
         unsigned int a7,
-        _DWORD *a8,
+        unsigned int *a8,
         __int16 a9)
 {
   char (__fastcall *v9)(__int64, __int64, unsigned int, __int64); // rdi
@@ -24,7 +24,7 @@ __int64 __fastcall CmGetMatchingFilteredDeviceListWorker(
   _QWORD *v11; // rax
   _WORD *v14; // [rsp+28h] [rbp-58h]
   unsigned int v15; // [rsp+30h] [rbp-50h]
-  _DWORD *v16; // [rsp+38h] [rbp-48h]
+  unsigned int *v16; // [rsp+38h] [rbp-48h]
   _QWORD v17[3]; // [rsp+40h] [rbp-40h] BYREF
   const WCHAR *v18; // [rsp+58h] [rbp-28h] BYREF
   PVOID P; // [rsp+60h] [rbp-20h]

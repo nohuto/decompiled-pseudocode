@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_ECGDIBitmapRealization@@UEAAPEAXI@Z @ 0x1800FFCD0
+ * XREFs of ??_ECGDIBitmapRealization@@UEAAPEAXI@Z @ 0x1800DB720
  * Callers:
- *     ??_ECGDIBitmapRealization@@WBEA@EAAPEAXI@Z @ 0x180122180 (--_ECGDIBitmapRealization@@WBEA@EAAPEAXI@Z.c)
+ *     ??_ECGDIBitmapRealization@@WBCA@EAAPEAXI@Z @ 0x1800F8230 (--_ECGDIBitmapRealization@@WBCA@EAAPEAXI@Z.c)
  * Callees:
- *     ??1CDxHandleBitmapRealization@@MEAA@XZ @ 0x18003DB54 (--1CDxHandleBitmapRealization@@MEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ??1CDxHandleBitmapRealization@@MEAA@XZ @ 0x18003864C (--1CDxHandleBitmapRealization@@MEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
  */
 
 CGDIBitmapRealization *__fastcall CGDIBitmapRealization::`vector deleting destructor'(
@@ -13,6 +13,6 @@ CGDIBitmapRealization *__fastcall CGDIBitmapRealization::`vector deleting destru
 {
   CDxHandleBitmapRealization::~CDxHandleBitmapRealization(this);
   if ( (a2 & 1) != 0 )
-    operator delete(this, 0x218uLL);
+    operator delete(this);
   return this;
 }

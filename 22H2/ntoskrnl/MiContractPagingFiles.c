@@ -1,79 +1,89 @@
 /*
- * XREFs of MiContractPagingFiles @ 0x140292C24
+ * XREFs of MiContractPagingFiles @ 0x1402E9D90
  * Callers:
- *     MmDeleteProcessAddressSpace @ 0x140705A98 (MmDeleteProcessAddressSpace.c)
+ *     MmDeleteProcessAddressSpace @ 0x1406601A4 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiOkToShrinkPageFiles @ 0x140292CC0 (MiOkToShrinkPageFiles.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiQueuePageFileExtension @ 0x14063B34C (MiQueuePageFileExtension.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiOkToShrinkPageFiles @ 0x1402E9E2C (MiOkToShrinkPageFiles.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiQueuePageFileExtension @ 0x140543D3C (MiQueuePageFileExtension.c)
  */
 
-void __fastcall MiContractPagingFiles(__int64 a1)
+__int64 __fastcall MiContractPagingFiles(__int64 a1)
 {
-  unsigned int v2; // r8d
-  unsigned int v3; // ecx
-  __int64 v4; // r9
-  _QWORD *v5; // rdx
-  KIRQL v6; // al
-  __int64 v7; // r8
-  unsigned __int64 v8; // rsi
-  unsigned __int8 CurrentIrql; // al
+  __int64 result; // rax
+  unsigned int v3; // r8d
+  unsigned int v4; // ecx
+  __int64 v5; // r9
+  _QWORD *v6; // rdx
+  KIRQL v7; // al
+  __int64 v8; // r8
+  unsigned __int64 v9; // rsi
   struct _KPRCB *CurrentPrcb; // r9
-  int v11; // eax
   _DWORD *SchedulerAssist; // r8
-  bool v13; // zf
+  bool v12; // zf
 
-  if ( (unsigned int)MiOkToShrinkPageFiles(*(_QWORD *)(a1 + 17576), *(_QWORD *)(a1 + 17816)) )
+  result = MiOkToShrinkPageFiles(*(_QWORD *)(a1 + 7464), *(_QWORD *)(a1 + 7592));
+  if ( (_DWORD)result )
   {
-    v2 = *(_DWORD *)(a1 + 17048);
-    v3 = 0;
-    if ( v2 )
+    v3 = *(_DWORD *)(a1 + 6936);
+    v4 = 0;
+    if ( v3 )
     {
-      v4 = a1 + 17056;
+      v5 = a1 + 6944;
       do
       {
-        v5 = *(_QWORD **)v4;
-        if ( (*(_WORD *)(*(_QWORD *)v4 + 204LL) & 0x50) == 0 && *v5 != v5[2] && v5[3] > 0x4000uLL )
-          break;
-        ++v3;
-        v4 += 8LL;
+        v6 = *(_QWORD **)v5;
+        result = *(unsigned __int16 *)(*(_QWORD *)v5 + 204LL);
+        if ( (result & 0x50) == 0 )
+        {
+          result = v6[2];
+          if ( *v6 != result && v6[3] > 0x4000uLL )
+            break;
+        }
+        ++v4;
+        v5 += 8LL;
       }
-      while ( v3 < v2 );
+      while ( v4 < v3 );
     }
-    if ( v3 != v2 )
+    if ( v4 != v3 )
     {
-      v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1408));
-      v8 = v6;
-      if ( *(_QWORD *)(a1 + 600) == -1LL )
+      v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1344));
+      v9 = v7;
+      if ( *(_QWORD *)(a1 + 560) == -1LL )
       {
-        ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1408));
+        ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 1344));
+        result = (unsigned int)KiIrqlFlags;
         if ( KiIrqlFlags )
         {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            CurrentPrcb = KeGetCurrentPrcb();
-            v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v13 = (v11 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v11;
-            if ( v13 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            result = KeGetCurrentIrql();
+            if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v9 <= 0xFu && (unsigned __int8)result >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= result;
+              if ( v12 )
+                result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            }
           }
         }
-        __writecr8(v8);
+        __writecr8(v9);
       }
       else
       {
-        *(_QWORD *)(a1 + 568) = 0LL;
-        LOBYTE(v7) = v6;
-        *(_BYTE *)(a1 + 647) |= 0x10u;
-        *(_QWORD *)(a1 + 592) = a1;
-        *(_QWORD *)(a1 + 600) = -1LL;
-        MiQueuePageFileExtension(a1 + 568, 0LL, v7);
+        *(_QWORD *)(a1 + 528) = 0LL;
+        LOBYTE(v8) = v7;
+        *(_BYTE *)(a1 + 607) |= 0x10u;
+        *(_QWORD *)(a1 + 552) = a1;
+        *(_QWORD *)(a1 + 560) = -1LL;
+        return MiQueuePageFileExtension(a1 + 528, 0LL, v8);
       }
     }
   }
+  return result;
 }

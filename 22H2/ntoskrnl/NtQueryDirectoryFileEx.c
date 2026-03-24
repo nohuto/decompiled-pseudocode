@@ -1,10 +1,10 @@
 /*
- * XREFs of NtQueryDirectoryFileEx @ 0x140765CF0
+ * XREFs of NtQueryDirectoryFileEx @ 0x1406C89B0
  * Callers:
- *     NtQueryDirectoryFile @ 0x140768510 (NtQueryDirectoryFile.c)
+ *     NtQueryDirectoryFile @ 0x1406C76D0 (NtQueryDirectoryFile.c)
  * Callees:
- *     IopSynchronousServiceTail @ 0x1406E3F40 (IopSynchronousServiceTail.c)
- *     BuildQueryDirectoryIrp @ 0x140765DB0 (BuildQueryDirectoryIrp.c)
+ *     IopSynchronousServiceTail @ 0x14064C4A0 (IopSynchronousServiceTail.c)
+ *     BuildQueryDirectoryIrp @ 0x1406C8A70 (BuildQueryDirectoryIrp.c)
  */
 
 __int64 __fastcall NtQueryDirectoryFileEx(
@@ -20,22 +20,23 @@ __int64 __fastcall NtQueryDirectoryFileEx(
         __int64 a10)
 {
   __int64 result; // rax
+  _DWORD *v11; // r9
   SIZE_T Length; // [rsp+38h] [rbp-49h]
-  __int64 v12; // [rsp+40h] [rbp-41h]
-  __int64 v13; // [rsp+58h] [rbp-29h]
-  unsigned __int8 v14; // [rsp+88h] [rbp+7h] BYREF
-  char v15[7]; // [rsp+89h] [rbp+8h] BYREF
-  struct _FILE_OBJECT *v16; // [rsp+90h] [rbp+Fh] BYREF
-  __int64 v17; // [rsp+98h] [rbp+17h] BYREF
-  struct _DEVICE_OBJECT *v18; // [rsp+A0h] [rbp+1Fh] BYREF
+  __int64 v13; // [rsp+40h] [rbp-41h]
+  __int64 v14; // [rsp+58h] [rbp-29h]
+  char v15; // [rsp+88h] [rbp+7h] BYREF
+  char v16; // [rsp+89h] [rbp+8h] BYREF
+  __int64 v17; // [rsp+90h] [rbp+Fh] BYREF
+  PIRP Irp; // [rsp+98h] [rbp+17h] BYREF
+  PDEVICE_OBJECT DeviceObject; // [rsp+A0h] [rbp+1Fh] BYREF
 
-  v18 = 0LL;
+  DeviceObject = 0LL;
+  Irp = 0LL;
   v17 = 0LL;
-  v16 = 0LL;
-  LODWORD(v12) = a8;
+  LODWORD(v13) = a8;
   LODWORD(Length) = a7;
-  v14 = 0;
-  v15[0] = 0;
+  v15 = 0;
+  v16 = 0;
   result = BuildQueryDirectoryIrp(
              a1,
              a2,
@@ -44,16 +45,19 @@ __int64 __fastcall NtQueryDirectoryFileEx(
              a5,
              a6,
              Length,
-             v12,
+             v13,
              a9,
              a10,
-             v13,
-             (__int64)&v14,
-             (__int64)&v18,
+             v14,
+             (__int64)&v15,
+             (__int64)&DeviceObject,
+             (__int64)&Irp,
              (__int64)&v17,
-             (__int64)&v16,
-             v15);
+             (PIRP)&v16);
   if ( !(_DWORD)result )
-    return IopSynchronousServiceTail(v18, v17, v16, 1, v15[0], v14, 2u);
+  {
+    LOBYTE(v11) = 1;
+    return IopSynchronousServiceTail(DeviceObject, Irp, v17, v11, v16, v15, 2u);
+  }
   return result;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiPageCombiningActive @ 0x1400EFAC0
+ * XREFs of MiPageCombiningActive @ 0x1400EFAE0
  * Callers:
- *     MiSignalLargePageRebuild @ 0x1400EF794 (MiSignalLargePageRebuild.c)
- *     MiChangePageAttribute @ 0x1400EF900 (MiChangePageAttribute.c)
+ *     MiSignalLargePageRebuild @ 0x1400EF7B4 (MiSignalLargePageRebuild.c)
+ *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
  * Callees:
  *     <none>
  */

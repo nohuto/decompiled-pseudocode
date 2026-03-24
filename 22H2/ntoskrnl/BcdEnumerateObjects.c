@@ -1,60 +1,60 @@
 /*
- * XREFs of BcdEnumerateObjects @ 0x140A5C4A0
+ * XREFs of BcdEnumerateObjects @ 0x14096ED5C
  * Callers:
- *     SepSecureBootCorrectBcd @ 0x1409D0A14 (SepSecureBootCorrectBcd.c)
+ *     SepSecureBootCorrectBcd @ 0x140924238 (SepSecureBootCorrectBcd.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     BiIsOfflineHandle @ 0x140374424 (BiIsOfflineHandle.c)
- *     RtlGUIDFromString @ 0x1406CF770 (RtlGUIDFromString.c)
- *     BiEnumerateSubKeys @ 0x140806090 (BiEnumerateSubKeys.c)
- *     BiGetObjectDescription @ 0x14080716C (BiGetObjectDescription.c)
- *     BiOpenKey @ 0x140807650 (BiOpenKey.c)
- *     BiCloseKey @ 0x1408077DC (BiCloseKey.c)
- *     BiAcquireBcdSyncMutant @ 0x140807BB4 (BiAcquireBcdSyncMutant.c)
- *     BiReleaseBcdSyncMutant @ 0x140807C5C (BiReleaseBcdSyncMutant.c)
- *     BiIsEnumerateMatch @ 0x140A5C810 (BiIsEnumerateMatch.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     BiIsOfflineHandle @ 0x14039AE9C (BiIsOfflineHandle.c)
+ *     RtlGUIDFromString @ 0x1406BD650 (RtlGUIDFromString.c)
+ *     BiGetObjectDescription @ 0x140781ED8 (BiGetObjectDescription.c)
+ *     BiEnumerateSubKeys @ 0x140783428 (BiEnumerateSubKeys.c)
+ *     BiOpenKey @ 0x140784304 (BiOpenKey.c)
+ *     BiCloseKey @ 0x14078448C (BiCloseKey.c)
+ *     BiReleaseBcdSyncMutant @ 0x140784674 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x140784838 (BiAcquireBcdSyncMutant.c)
+ *     BiIsEnumerateMatch @ 0x14096F2C4 (BiIsEnumerateMatch.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall BcdEnumerateObjects(__int64 a1, _DWORD *a2, GUID *a3, unsigned int *a4, unsigned int *a5)
+int __fastcall BcdEnumerateObjects(__int64 a1, _DWORD *a2, GUID *a3, unsigned int *a4, unsigned int *a5)
 {
   unsigned int *v5; // r12
-  GUID *v6; // r14
+  GUID *v6; // rsi
   char v8; // r15
-  NTSTATUS result; // eax
+  int result; // eax
   PCWSTR *v10; // rdi
-  int v11; // ebx
-  int v12; // eax
-  unsigned int v13; // r15d
-  __int64 v14; // r12
-  const WCHAR **v15; // rsi
+  int v11; // eax
+  void *v12; // r14
+  int v13; // ebx
+  int v14; // eax
+  unsigned int v15; // r15d
+  __int64 v16; // r13
+  const WCHAR **v17; // rsi
   int ObjectDescription; // ebx
-  unsigned __int64 v17; // rax
-  unsigned __int64 v18; // rdx
-  unsigned int v19; // ecx
-  unsigned int v20; // esi
-  unsigned int v21; // r14d
-  ULONG v22; // r12d
-  int v23; // ebx
-  _QWORD *v24; // r8
-  __int64 v25; // rax
-  char IsOfflineHandle; // [rsp+20h] [rbp-50h]
-  ULONG v27; // [rsp+24h] [rbp-4Ch] BYREF
-  void *v28; // [rsp+28h] [rbp-48h] BYREF
-  void *v29; // [rsp+30h] [rbp-40h] BYREF
-  PCWSTR *v30; // [rsp+38h] [rbp-38h] BYREF
-  __int64 v31; // [rsp+40h] [rbp-30h] BYREF
-  ULONG v32; // [rsp+48h] [rbp-28h]
-  _QWORD *v33; // [rsp+50h] [rbp-20h]
-  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-18h] BYREF
-  GUID *Guid; // [rsp+C0h] [rbp+50h]
+  unsigned __int64 v19; // rax
+  _QWORD *v20; // r13
+  unsigned __int64 v21; // rcx
+  unsigned int v22; // esi
+  unsigned int v23; // r14d
+  ULONG i; // r12d
+  int v25; // ebx
+  __int64 v26; // rax
+  char IsOfflineHandle; // [rsp+20h] [rbp-40h]
+  ULONG v28; // [rsp+24h] [rbp-3Ch] BYREF
+  void *v29; // [rsp+28h] [rbp-38h] BYREF
+  PCWSTR *v30; // [rsp+30h] [rbp-30h] BYREF
+  __int64 v31; // [rsp+38h] [rbp-28h] BYREF
+  void *v32; // [rsp+40h] [rbp-20h] BYREF
+  ULONG v33; // [rsp+48h] [rbp-18h]
+  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-10h] BYREF
+  GUID *Guid; // [rsp+B0h] [rbp+50h]
 
   Guid = a3;
   v31 = 0LL;
   v5 = a4;
-  v28 = 0LL;
+  v29 = 0LL;
   v6 = a3;
-  v27 = 0;
+  v28 = 0;
   DestinationString = 0LL;
   if ( !a3 && *a4 || !a5 || !*a2 )
     return -1073741811;
@@ -63,109 +63,104 @@ NTSTATUS __fastcall BcdEnumerateObjects(__int64 a1, _DWORD *a2, GUID *a3, unsign
   result = BiAcquireBcdSyncMutant(IsOfflineHandle);
   if ( result >= 0 )
   {
-    v29 = 0LL;
+    v32 = 0LL;
     v30 = 0LL;
     v10 = 0LL;
-    v11 = BiOpenKey(a1, L"Objects", 0x20019u, &v29);
+    v11 = BiOpenKey(a1, L"Objects", 0x20019u, &v32);
+    v12 = v32;
+    v13 = v11;
     if ( v11 >= 0 )
     {
-      v12 = BiEnumerateSubKeys(v29, &v30, &v27);
+      v14 = BiEnumerateSubKeys(v32, &v30, &v28);
       v10 = v30;
-      v11 = v12;
-      if ( v12 >= 0 )
+      v13 = v14;
+      if ( v14 >= 0 )
       {
-        v13 = 0;
-        if ( v27 )
+        v15 = 0;
+        if ( v28 )
         {
-          v14 = v27;
-          v15 = v30;
+          v16 = v28;
+          v17 = v30;
           do
           {
-            if ( (int)BiOpenKey((__int64)v29, *v15, 0x20019u, &v28) >= 0 )
+            if ( (int)BiOpenKey((__int64)v12, *v17, 0x20019u, &v29) >= 0 )
             {
-              ObjectDescription = BiGetObjectDescription((__int64)v28, &v31);
-              BiCloseKey(v28);
+              ObjectDescription = BiGetObjectDescription((__int64)v29, &v31);
+              BiCloseKey(v29);
               if ( ObjectDescription >= 0 )
               {
                 if ( (unsigned __int8)BiIsEnumerateMatch((unsigned int)a2[1], HIDWORD(v31)) )
-                  ++v13;
+                  ++v15;
               }
             }
-            ++v15;
-            --v14;
+            ++v17;
+            --v16;
           }
-          while ( v14 );
+          while ( v16 );
           v5 = a4;
           v6 = Guid;
         }
-        v17 = 24LL * v13;
-        if ( v17 > 0xFFFFFFFF
-          || (v18 = 8LL * v13, v19 = (v17 + 7) & 0xFFFFFFF8,
-                               v33 = (_QWORD *)((char *)&v6->Data1 + v19),
-                               v18 > 0xFFFFFFFF)
-          || (v20 = v19 + ((v18 + 7) & 0xFFFFFFF8), v20 < v19) )
+        v19 = 24LL * v15;
+        if ( v19 > 0xFFFFFFFF
+          || (v20 = (_QWORD *)((char *)&v6->Data1 + (unsigned int)v19), v21 = 8LL * v15, v21 > 0xFFFFFFFF)
+          || (v22 = v21 + v19, LODWORD(v30) = v21 + v19, (int)v21 + (int)v19 < (unsigned int)v19) )
         {
-          v11 = -1073741675;
+          v13 = -1073741675;
         }
-        else if ( v20 <= *v5 )
+        else if ( v22 <= *v5 )
         {
-          v32 = 0;
-          v21 = 0;
-          if ( v27 )
+          v33 = 0;
+          v23 = 0;
+          if ( v28 )
           {
-            v22 = v32;
-            LODWORD(v30) = v19 + ((v18 + 7) & 0xFFFFFFF8);
-            do
+            for ( i = v33; i < v28; ++i )
             {
-              if ( v21 >= v13 )
+              if ( v23 >= v15 )
                 break;
-              if ( (int)BiOpenKey((__int64)v29, v10[v22], 0x20019u, &v28) >= 0 )
+              if ( (int)BiOpenKey((__int64)v32, v10[i], 0x20019u, &v29) >= 0 )
               {
-                v23 = BiGetObjectDescription((__int64)v28, &v31);
-                BiCloseKey(v28);
-                if ( v23 >= 0 )
+                v25 = BiGetObjectDescription((__int64)v29, &v31);
+                BiCloseKey(v29);
+                if ( v25 >= 0 )
                 {
                   if ( (unsigned __int8)BiIsEnumerateMatch((unsigned int)a2[1], HIDWORD(v31)) )
                   {
-                    RtlInitUnicodeString(&DestinationString, v10[v22]);
+                    RtlInitUnicodeString(&DestinationString, v10[i]);
                     if ( RtlGUIDFromString(&DestinationString, Guid) >= 0 )
                     {
-                      v24 = v33;
-                      v25 = v31;
-                      *(_QWORD *)&Guid[1].Data1 = v33;
+                      v26 = v31;
+                      *(_QWORD *)&Guid[1].Data1 = v20;
+                      *v20++ = v26;
+                      ++v23;
                       Guid = (GUID *)((char *)Guid + 24);
-                      *v24 = v25;
-                      v33 = v24 + 1;
-                      ++v21;
                     }
                   }
                 }
               }
-              ++v22;
             }
-            while ( v22 < v27 );
-            v20 = (unsigned int)v30;
+            v22 = (unsigned int)v30;
             v5 = a4;
           }
-          v11 = 0;
-          *v5 = v20;
-          *a5 = v21;
+          v13 = 0;
+          *v5 = v22;
+          *a5 = v23;
+          v12 = v32;
         }
         else
         {
-          v11 = -1073741789;
-          *v5 = v20;
-          *a5 = v13;
+          v13 = -1073741789;
+          *v5 = v22;
+          *a5 = v15;
         }
         v8 = IsOfflineHandle;
       }
     }
-    if ( v29 )
-      BiCloseKey(v29);
+    if ( v12 )
+      BiCloseKey(v12);
     if ( v10 )
       ExFreePoolWithTag(v10, 0x4B444342u);
     BiReleaseBcdSyncMutant(v8);
-    return v11;
+    return v13;
   }
   return result;
 }

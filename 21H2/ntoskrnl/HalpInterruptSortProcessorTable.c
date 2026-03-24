@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInterruptSortProcessorTable @ 0x1403B8BB4
+ * XREFs of HalpInterruptSortProcessorTable @ 0x1403A9174
  * Callers:
- *     HalpInterruptParseMadt @ 0x1403B8644 (HalpInterruptParseMadt.c)
+ *     HalpInterruptParseMadt @ 0x1403A8C04 (HalpInterruptParseMadt.c)
  * Callees:
  *     <none>
  */

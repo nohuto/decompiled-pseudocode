@@ -1,16 +1,16 @@
 /*
- * XREFs of ?BindMouse@CInputConfig@@QEAAJU_LUID@@@Z @ 0x1C01E3A90
+ * XREFs of ?BindMouse@CInputConfig@@QEAAJU_LUID@@@Z @ 0x1C01B2F84
  * Callers:
- *     NtSetCursorInputSpace @ 0x1C0142810 (NtSetCursorInputSpace.c)
+ *     NtSetCursorInputSpace @ 0x1C012CA20 (NtSetCursorInputSpace.c)
  * Callees:
- *     ?FindInputSpace@CMouseConfig@CInputConfig@@QEAAXXZ @ 0x1C0063B5C (-FindInputSpace@CMouseConfig@CInputConfig@@QEAAXXZ.c)
- *     ?OnDisplayStateChange@CCursorClip@@QEAAXW4CursorDisplayChangeOptions@@@Z @ 0x1C00642EC (-OnDisplayStateChange@CCursorClip@@QEAAXW4CursorDisplayChangeOptions@@@Z.c)
+ *     ?OnDisplayStateChange@CCursorClip@@QEAAXXZ @ 0x1C006E3A4 (-OnDisplayStateChange@CCursorClip@@QEAAXXZ.c)
+ *     ?FindInputSpace@CMouseConfig@CInputConfig@@QEAAXXZ @ 0x1C006F428 (-FindInputSpace@CMouseConfig@CInputConfig@@QEAAXXZ.c)
  */
 
 __int64 __fastcall CInputConfig::BindMouse(CInputConfig *this, struct _LUID a2)
 {
   CInputConfig *v2; // rdi
-  __int64 v4; // rcx
+  CCursorClip *v4; // rcx
 
   v2 = gpInputConfig;
   KeEnterCriticalRegion();
@@ -19,6 +19,6 @@ __int64 __fastcall CInputConfig::BindMouse(CInputConfig *this, struct _LUID a2)
   CInputConfig::CMouseConfig::FindInputSpace((CInputConfig *)((char *)v2 + 16));
   ExReleaseResourceLite(CInputConfig::slock);
   KeLeaveCriticalRegion();
-  CCursorClip::OnDisplayStateChange(v4, *((_BYTE *)v2 + 1505) != 0);
+  CCursorClip::OnDisplayStateChange(v4);
   return 0LL;
 }

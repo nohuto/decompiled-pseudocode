@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpTranslateNtPath @ 0x1408D2E98
+ * XREFs of ExpTranslateNtPath @ 0x1408D2E78
  * Callers:
- *     ExpConvertArcName @ 0x1408CFC48 (ExpConvertArcName.c)
- *     NtTranslateFilePath @ 0x1408D5E80 (NtTranslateFilePath.c)
+ *     ExpConvertArcName @ 0x1408CFC28 (ExpConvertArcName.c)
+ *     NtTranslateFilePath @ 0x1408D5E60 (NtTranslateFilePath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwDeviceIoControlFile @ 0x1401B8250 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87D0 (ZwOpenFile.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwDeviceIoControlFile @ 0x1401B8270 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpCreateOutputARC @ 0x1408D0018 (ExpCreateOutputARC.c)
- *     ExpCreateOutputEFI @ 0x1408D010C (ExpCreateOutputEFI.c)
- *     ExpCreateOutputSIGNATURE @ 0x1408D03B8 (ExpCreateOutputSIGNATURE.c)
- *     ExpTranslateSymbolicLink @ 0x1408D3168 (ExpTranslateSymbolicLink.c)
+ *     ExpCreateOutputARC @ 0x1408CFFF8 (ExpCreateOutputARC.c)
+ *     ExpCreateOutputEFI @ 0x1408D00EC (ExpCreateOutputEFI.c)
+ *     ExpCreateOutputSIGNATURE @ 0x1408D0398 (ExpCreateOutputSIGNATURE.c)
+ *     ExpTranslateSymbolicLink @ 0x1408D3148 (ExpTranslateSymbolicLink.c)
  */
 
 NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned int *a4)

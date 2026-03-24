@@ -1,9 +1,9 @@
 /*
- * XREFs of xxxInvalidateWallpaperWindow @ 0x1C0122338
+ * XREFs of xxxInvalidateWallpaperWindow @ 0x1C0136C5C
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
  * Callees:
- *     xxxInternalInvalidate @ 0x1C004A420 (xxxInternalInvalidate.c)
+ *     xxxInternalInvalidate @ 0x1C0072580 (xxxInternalInvalidate.c)
  */
 
 void xxxInvalidateWallpaperWindow()

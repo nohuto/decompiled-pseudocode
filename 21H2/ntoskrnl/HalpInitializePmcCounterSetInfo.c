@@ -1,24 +1,24 @@
 /*
- * XREFs of HalpInitializePmcCounterSetInfo @ 0x140AF89EC
+ * XREFs of HalpInitializePmcCounterSetInfo @ 0x140A39690
  * Callers:
- *     HalpHwPerfCntInitSystem @ 0x140A54EF0 (HalpHwPerfCntInitSystem.c)
+ *     HalpHwPerfCntInitSystem @ 0x14099B540 (HalpHwPerfCntInitSystem.c)
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x14036FA30 (HalQueryMaximumProcessorCount.c)
- *     HalpMmAllocatePerProcessorMemory @ 0x1403BB634 (HalpMmAllocatePerProcessorMemory.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037B300 (HalQueryMaximumProcessorCount.c)
+ *     HalpMmAllocatePerProcessorMemory @ 0x1403A8B44 (HalpMmAllocatePerProcessorMemory.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-void *HalpInitializePmcCounterSetInfo()
+void *__fastcall HalpInitializePmcCounterSetInfo(__int64 a1)
 {
   __int64 MaximumProcessorCount; // rbx
   void *result; // rax
-  __int64 v2; // rdx
-  __int64 v3; // r8
-  _QWORD *v4; // rcx
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  _QWORD *v5; // rcx
 
-  MaximumProcessorCount = (unsigned int)HalQueryMaximumProcessorCount();
-  result = HalpMmAllocatePerProcessorMemory(24);
-  v2 = 0LL;
+  MaximumProcessorCount = (unsigned int)HalQueryMaximumProcessorCount(a1);
+  result = HalpMmAllocatePerProcessorMemory(24LL);
+  v3 = 0LL;
   HalpCounterSetInfo = (__int64)result;
   if ( !result )
     KeBugCheckEx(
@@ -26,21 +26,21 @@ void *HalpInitializePmcCounterSetInfo()
       24 * MaximumProcessorCount,
       0x2200uLL,
       (ULONG_PTR)"minkernel\\hals\\lib\\hwperfcnt\\profile.c",
-      0x930uLL);
+      0x851uLL);
   if ( (_DWORD)MaximumProcessorCount )
   {
-    v3 = (unsigned int)MaximumProcessorCount;
+    v4 = (unsigned int)MaximumProcessorCount;
     do
     {
-      v4 = (_QWORD *)(v2 + HalpCounterSetInfo);
-      v2 += 24LL;
-      v4[1] = v4;
-      *v4 = v4;
+      v5 = (_QWORD *)(v3 + HalpCounterSetInfo);
+      v3 += 24LL;
+      v5[1] = v5;
+      *v5 = v5;
       result = (void *)MEMORY[0xFFFFF78000000008];
-      v4[2] = MEMORY[0xFFFFF78000000008];
-      --v3;
+      v5[2] = MEMORY[0xFFFFF78000000008];
+      --v4;
     }
-    while ( v3 );
+    while ( v4 );
   }
   return result;
 }

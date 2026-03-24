@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpAddFastOwnerEntryToThreadList @ 0x14039C474
+ * XREFs of ExpAddFastOwnerEntryToThreadList @ 0x14038FA3C
  * Callers:
- *     ExAcquireFastResourceShared @ 0x14039B6B0 (ExAcquireFastResourceShared.c)
- *     ExAcquireFastResourceSharedStarveExclusive @ 0x14039BA90 (ExAcquireFastResourceSharedStarveExclusive.c)
- *     ExAcquireFastResourceExclusive @ 0x14039BDE0 (ExAcquireFastResourceExclusive.c)
- *     ExDisownFastResource @ 0x14039C100 (ExDisownFastResource.c)
+ *     ExAcquireFastResourceExclusive @ 0x14038ECD0 (ExAcquireFastResourceExclusive.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x14038F0B0 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExAcquireFastResourceShared @ 0x14038F380 (ExAcquireFastResourceShared.c)
+ *     ExDisownFastResource @ 0x14038F720 (ExDisownFastResource.c)
  * Callees:
  *     <none>
  */
@@ -18,9 +18,9 @@ __int64 *__fastcall ExpAddFastOwnerEntryToThreadList(__int64 a1, __int64 a2, cha
   *(_QWORD *)(a4 + 48) = a4 + 40;
   *(_QWORD *)(a4 + 40) = a4 + 40;
   if ( a3 )
-    result = (__int64 *)(a1 + 1680);
+    result = (__int64 *)(a1 + 1600);
   else
-    result = (__int64 *)(a1 + 1656);
+    result = (__int64 *)(a1 + 1576);
   v5 = *result;
   if ( *(__int64 **)(*result + 8) != result )
     __fastfail(3u);

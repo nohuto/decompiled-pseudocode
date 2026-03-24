@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitDwmRestartCompleted@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02284D8
+ * XREFs of ?EmitDwmRestartCompleted@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EF60C
  * Callers:
- *     ?EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0229180 (-EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F0300 (-EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitDwmRestartCompleted(
@@ -23,8 +23,8 @@ char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitDwmRestartC
       v4 = (char *)v6;
       *(_DWORD *)v6 = 12;
       *(_QWORD *)(v4 + 4) = 0LL;
-      *((_DWORD *)v4 + 1) = 201;
-      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
+      *((_DWORD *)v4 + 1) = 210;
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
       *((_DWORD *)this + 4) |= 0x4000000u;
     }
     else

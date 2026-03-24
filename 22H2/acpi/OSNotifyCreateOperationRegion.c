@@ -1,72 +1,72 @@
 /*
- * XREFs of OSNotifyCreateOperationRegion @ 0x1C003287C
+ * XREFs of OSNotifyCreateOperationRegion @ 0x1C00182E8
  * Callers:
- *     ACPIBuildMissingChildren @ 0x1C000D8BC (ACPIBuildMissingChildren.c)
- *     OSNotifyCreate @ 0x1C0032600 (OSNotifyCreate.c)
+ *     ACPIBuildMissingChildren @ 0x1C00174CC (ACPIBuildMissingChildren.c)
+ *     OSNotifyCreate @ 0x1C001D650 (OSNotifyCreate.c)
  * Callees:
- *     WPP_RECORDER_SF_qD @ 0x1C001B528 (WPP_RECORDER_SF_qD.c)
- *     ACPIInitReferenceDeviceExtension @ 0x1C002D5B4 (ACPIInitReferenceDeviceExtension.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIGetParent @ 0x1C0048744 (AMLIGetParent.c)
- *     AMLIIterateParentNext @ 0x1C00488C4 (AMLIIterateParentNext.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C0017F20 (ACPIInitReferenceDeviceExtension.c)
+ *     AMLIGetParent @ 0x1C001B348 (AMLIGetParent.c)
+ *     AMLIIterateParentNext @ 0x1C002F1F4 (AMLIIterateParentNext.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00525D8 (WPP_RECORDER_SF_qd.c)
  */
 
 __int64 __fastcall OSNotifyCreateOperationRegion(__int64 a1)
 {
   __int64 v1; // rsi
   __int64 i; // rax
-  __int64 v3; // rdi
-  __int16 v4; // ax
-  __int64 v5; // rbx
+  __int64 v3; // rbx
+  __int64 v4; // rdi
+  __int16 v5; // ax
   __int64 v6; // rdi
   unsigned __int8 v7; // cl
   unsigned int v8; // eax
   int v9; // ecx
   bool v10; // zf
-  _QWORD *Pool2; // rax
-  int v12; // edx
-  struct _WORK_QUEUE_ITEM *v13; // r8
+  _QWORD *PoolWithTag; // rax
+  int v13; // edx
+  struct _WORK_QUEUE_ITEM *v14; // r8
 
   v1 = *(_QWORD *)(*(_QWORD *)a1 + 96LL);
-  for ( i = AMLIGetParent(a1); ; i = AMLIIterateParentNext(v5) )
+  for ( i = AMLIGetParent(a1); ; i = AMLIIterateParentNext(v3) )
   {
-    v5 = i;
+    v3 = i;
     if ( !i )
       break;
-    v3 = *(_QWORD *)i;
-    v4 = *(_WORD *)(*(_QWORD *)i + 66LL);
-    if ( v4 != 8 )
+    v4 = *(_QWORD *)i;
+    v5 = *(_WORD *)(*(_QWORD *)i + 66LL);
+    if ( v5 != 8 )
     {
-      if ( v4 == 6 )
+      if ( v5 == 6 )
       {
-        v6 = *(_QWORD *)(v3 + 104);
+        v6 = *(_QWORD *)(v4 + 104);
         if ( v6 )
         {
           v7 = *(_BYTE *)(v1 + 12);
-          v8 = v7 < 0x1Fu ? 1 << v7 : 0x80000000;
-          v9 = *(_DWORD *)(v6 + 668);
+          v8 = v7 >= 0x1Fu ? 0x80000000 : 1 << v7;
+          v9 = *(_DWORD *)(v6 + 628);
           if ( (v9 & v8) == 0 )
           {
-            v10 = *(_DWORD *)(v6 + 368) == 3;
-            *(_DWORD *)(v6 + 668) = v8 | v9;
+            v10 = *(_DWORD *)(v6 + 328) == 3;
+            *(_DWORD *)(v6 + 628) = v8 | v9;
             if ( v10 && (unsigned __int8)(*(_BYTE *)(v1 + 12) - 8) <= 1u )
             {
-              Pool2 = (_QWORD *)ExAllocatePool2(64LL, 40LL, 1299211073LL);
-              if ( Pool2 )
+              PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x4D706341u);
+              if ( PoolWithTag )
               {
-                *Pool2 = 0LL;
-                Pool2[2] = OSNotifyCreateOperationRegionWorker;
-                Pool2[3] = Pool2;
+                *PoolWithTag = 0LL;
+                PoolWithTag[2] = OSNotifyCreateOperationRegionWorker;
+                PoolWithTag[3] = PoolWithTag;
                 ACPIInitReferenceDeviceExtension(v6);
-                v13[1].List.Flink = (_LIST_ENTRY *)v6;
-                ExQueueWorkItem(v13, DelayedWorkQueue);
+                v14[1].List.Flink = (_LIST_ENTRY *)v6;
+                ExQueueWorkItem(v14, DelayedWorkQueue);
               }
               else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
               {
-                LOBYTE(v12) = 2;
-                WPP_RECORDER_SF_qD(
+                LOBYTE(v13) = 2;
+                WPP_RECORDER_SF_qd(
                   WPP_GLOBAL_Control->DeviceExtension,
-                  v12,
+                  v13,
                   21,
                   14,
                   (__int64)&WPP_3b815367ceb5375a01194b74e08b1a28_Traceguids,
@@ -77,7 +77,7 @@ __int64 __fastcall OSNotifyCreateOperationRegion(__int64 a1)
           }
         }
       }
-      AMLIDereferenceHandleEx(v5);
+      AMLIDereferenceHandleEx(v3);
       return 0LL;
     }
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of VslInitializeSecureKernelCfg @ 0x14027B408
+ * XREFs of VslInitializeSecureKernelCfg @ 0x14027B508
  * Callers:
  *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     qsort @ 0x1401962C0 (qsort.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     qsort @ 0x1401962E0 (qsort.c)
  */
 
 NTSTATUS __fastcall VslInitializeSecureKernelCfg(__int64 a1, __int64 a2)

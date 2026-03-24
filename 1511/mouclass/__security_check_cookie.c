@@ -1,1 +1,27 @@
-/*\n * XREFs of __security_check_cookie @ 0x1C00029E0\n * Callers:\n *     MouseStart @ 0x1C00025B0 (MouseStart.c)\n *     __GSHandlerCheckCommon @ 0x1C0002A40 (__GSHandlerCheckCommon.c)\n *     MouseClassFindMorePorts @ 0x1C000B120 (MouseClassFindMorePorts.c)\n *     MouCreateClassObject @ 0x1C000B850 (MouCreateClassObject.c)\n *     MouseClassGetWaitWakeEnableState @ 0x1C000BD40 (MouseClassGetWaitWakeEnableState.c)\n *     DriverEntry @ 0x1C000E350 (DriverEntry.c)\n * Callees:\n *     <none>\n */\n\nvoid __cdecl _security_check_cookie(uintptr_t StackCookie)\n{\n  __int64 v1; // rcx\n\n  if ( StackCookie != _security_cookie )\nReportFailure:\n    _report_gsfailure(StackCookie);\n  v1 = __ROL8__(StackCookie, 16);\n  if ( (_WORD)v1 )\n  {\n    StackCookie = __ROR8__(v1, 16);\n    goto ReportFailure;\n  }\n}\n
+/*
+ * XREFs of __security_check_cookie @ 0x1C00029E0
+ * Callers:
+ *     MouseStart @ 0x1C00025B0 (MouseStart.c)
+ *     __GSHandlerCheckCommon @ 0x1C0002A40 (__GSHandlerCheckCommon.c)
+ *     MouseClassFindMorePorts @ 0x1C000B120 (MouseClassFindMorePorts.c)
+ *     MouCreateClassObject @ 0x1C000B850 (MouCreateClassObject.c)
+ *     MouseClassGetWaitWakeEnableState @ 0x1C000BD40 (MouseClassGetWaitWakeEnableState.c)
+ *     DriverEntry @ 0x1C000E350 (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
+void __cdecl _security_check_cookie(uintptr_t StackCookie)
+{
+  __int64 v1; // rcx
+
+  if ( StackCookie != _security_cookie )
+ReportFailure:
+    _report_gsfailure(StackCookie);
+  v1 = __ROL8__(StackCookie, 16);
+  if ( (_WORD)v1 )
+  {
+    StackCookie = __ROR8__(v1, 16);
+    goto ReportFailure;
+  }
+}

@@ -1,9 +1,9 @@
 /*
- * XREFs of EngFntCacheAlloc @ 0x1C028A3D0
+ * XREFs of EngFntCacheAlloc @ 0x1C0288AC0
  * Callers:
  *     <none>
  * Callees:
- *     EngFntCacheAllocInternal @ 0x1C028A3EC (EngFntCacheAllocInternal.c)
+ *     EngFntCacheAllocInternal @ 0x1C0288ADC (EngFntCacheAllocInternal.c)
  */
 
 PVOID __stdcall EngFntCacheAlloc(ULONG ulFastCheckSum, ULONG cjSize)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopUserShutdownCancelled @ 0x1406E2290
+ * XREFs of PopUserShutdownCancelled @ 0x1406E2270
  * Callers:
- *     PoUserShutdownCancelled @ 0x1406E2260 (PoUserShutdownCancelled.c)
- *     PopUserShutdownDelayWorkerCallback @ 0x14086C280 (PopUserShutdownDelayWorkerCallback.c)
+ *     PoUserShutdownCancelled @ 0x1406E2240 (PoUserShutdownCancelled.c)
+ *     PopUserShutdownDelayWorkerCallback @ 0x14086C260 (PopUserShutdownDelayWorkerCallback.c)
  * Callees:
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
- *     PpmEndHighPerfRequest @ 0x140177AE8 (PpmEndHighPerfRequest.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     PpmEndHighPerfRequest @ 0x140177B08 (PpmEndHighPerfRequest.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
  */

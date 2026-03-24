@@ -1,22 +1,18 @@
 /*
- * XREFs of ?DEC_SHARE_REF_CNT_LAZY0@@YAXPEAVBRUSH@@@Z @ 0x1C0021290
+ * XREFs of ?DEC_SHARE_REF_CNT_LAZY0@@YAXPEAVBRUSH@@@Z @ 0x1C002D890
  * Callers:
- *     GreDCSelectBrush @ 0x1C001DC40 (GreDCSelectBrush.c)
- *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C002F130 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
- *     ?vDeleteDCInternalWorker@@YAXPEAVXDCOBJ@@H@Z @ 0x1C002F514 (-vDeleteDCInternalWorker@@YAXPEAVXDCOBJ@@H@Z.c)
- *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C00771B8 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
- *     GreDCSelectPen @ 0x1C0098770 (GreDCSelectPen.c)
- *     GreRestoreDCInternal @ 0x1C00BEFB0 (GreRestoreDCInternal.c)
- *     ?CleanupRoutine@?$HmgShareLockResult@VBRUSH@@@@QEAAXXZ @ 0x1C00DAFA4 (-CleanupRoutine@-$HmgShareLockResult@VBRUSH@@@@QEAAXXZ.c)
- *     ?DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z @ 0x1C0170C3C (-DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z.c)
+ *     GreDCSelectPen @ 0x1C0020D90 (GreDCSelectPen.c)
+ *     GreDCSelectBrush @ 0x1C002A5E0 (GreDCSelectBrush.c)
+ *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C0092720 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
+ *     ?CleanupRoutine@?$HmgShareLockResult@VBRUSH@@@@QEAAXXZ @ 0x1C00CA860 (-CleanupRoutine@-$HmgShareLockResult@VBRUSH@@@@QEAAXXZ.c)
+ *     GreRestoreDCInternal @ 0x1C00CC090 (GreRestoreDCInternal.c)
+ *     ?vDeleteDCInternalWorker@@YAXPEAVXDCOBJ@@H@Z @ 0x1C014D3F0 (-vDeleteDCInternalWorker@@YAXPEAVXDCOBJ@@H@Z.c)
  * Callees:
- *     HmgDecrementShareReferenceCountEx @ 0x1C0021710 (HmgDecrementShareReferenceCountEx.c)
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0021FC0 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?GetEntryObject@GdiHandleEntryTable@@QEAAPEAVOBJECT@@I@Z @ 0x1C0022BD0 (-GetEntryObject@GdiHandleEntryTable@@QEAAPEAVOBJECT@@I@Z.c)
- *     ?_RetrieveTableAndTableEntryIndex@GdiHandleEntryDirectory@@AEAA_NIPEAPEAVGdiHandleEntryTable@@PEAI@Z @ 0x1C0022C00 (-_RetrieveTableAndTableEntryIndex@GdiHandleEntryDirectory@@AEAA_NIPEAPEAVGdiHandleEntryTable@@PE.c)
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C0022C40 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
- *     ?bLockHobj@HANDLELOCK@@QEAAHPEAUHOBJ__@@E@Z @ 0x1C0022F70 (-bLockHobj@HANDLELOCK@@QEAAHPEAUHOBJ__@@E@Z.c)
- *     bDeleteBrush @ 0x1C00C82E0 (bDeleteBrush.c)
+ *     bDeleteBrush @ 0x1C001C340 (bDeleteBrush.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C002E210 (HmgDecrementShareReferenceCountEx.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C002F290 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C002FF80 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?bLockHobj@HANDLELOCK@@QEAAHPEAUHOBJ__@@E@Z @ 0x1C00303A0 (-bLockHobj@HANDLELOCK@@QEAAHPEAUHOBJ__@@E@Z.c)
  */
 
 void __fastcall DEC_SHARE_REF_CNT_LAZY0(struct HOBJ__ **a1)
@@ -26,47 +22,57 @@ void __fastcall DEC_SHARE_REF_CNT_LAZY0(struct HOBJ__ **a1)
   int v3; // ebx
   GdiHandleManager *v4; // rbx
   unsigned int v5; // eax
-  GdiHandleEntryDirectory *v6; // rcx
-  struct OBJECT *EntryObject; // rax
-  _DWORD *v8; // rax
-  _DWORD *v9; // [rsp+28h] [rbp-30h] BYREF
-  int v10; // [rsp+30h] [rbp-28h]
-  unsigned int v11; // [rsp+60h] [rbp+8h] BYREF
-  GdiHandleEntryTable *v12; // [rsp+68h] [rbp+10h] BYREF
-  struct HOBJ__ *v13; // [rsp+70h] [rbp+18h]
+  unsigned int v6; // r9d
+  __int64 v7; // r8
+  unsigned int v8; // r10d
+  unsigned int v9; // edx
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  _DWORD *v12; // rax
+  _DWORD *v13; // [rsp+28h] [rbp-20h] BYREF
+  int v14; // [rsp+30h] [rbp-18h]
 
   if ( a1 )
   {
     v1 = *a1;
-    v13 = *a1;
     if ( (unsigned __int16)HmgDecrementShareReferenceCountEx(a1, 0LL) == 1 )
     {
       v2 = 0;
-      v9 = 0LL;
-      v10 = 0;
-      HANDLELOCK::bLockHobj((HANDLELOCK *)&v9, v1, 0x10u);
-      v3 = v10;
-      if ( v10 )
+      v13 = 0LL;
+      v14 = 0;
+      HANDLELOCK::bLockHobj((HANDLELOCK *)&v13, v1, 0x10u);
+      v3 = v14;
+      if ( v14 )
       {
         v4 = gpHandleManager;
-        v5 = GdiHandleManager::DecodeIndex(gpHandleManager, *v9 & 0xFFFFFF);
-        v6 = (GdiHandleEntryDirectory *)*((_QWORD *)v4 + 2);
-        v12 = 0LL;
-        v11 = 0;
-        if ( GdiHandleEntryDirectory::_RetrieveTableAndTableEntryIndex(v6, v5, &v12, &v11) )
-          EntryObject = GdiHandleEntryTable::GetEntryObject(v12, v11);
+        v5 = GdiHandleManager::DecodeIndex(gpHandleManager, *v13 & 0xFFFFFF);
+        v6 = v5;
+        v7 = *((_QWORD *)v4 + 2);
+        v8 = *(_DWORD *)(v7 + 2056);
+        if ( v5 >= v8 + ((*(unsigned __int16 *)(v7 + 2) + 0xFFFF) << 16) )
+          goto LABEL_20;
+        if ( v5 >= v8 )
+          v9 = ((v5 - v8) >> 16) + 1;
         else
-          EntryObject = 0LL;
-        v8 = (_DWORD *)*((_QWORD *)EntryObject + 6);
-        if ( v8 )
-          v2 = *v8 & 2;
-        HANDLELOCK::vUnlock((HANDLELOCK *)&v9);
-        v3 = v10;
+          v9 = 0;
+        v10 = *(_QWORD *)(v7 + 8LL * v9 + 8);
+        if ( v9 )
+          v6 = ((1 - v9) << 16) - v8 + v5;
+        if ( v6 >= *(_DWORD *)(v10 + 20) )
+LABEL_20:
+          v11 = 0LL;
+        else
+          v11 = *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v10 + 24) + 8LL * (v6 >> 8)) + 16LL * (unsigned __int8)v6 + 8);
+        v12 = *(_DWORD **)(v11 + 48);
+        if ( v12 )
+          v2 = *v12 & 2;
+        HANDLELOCK::vUnlock((HANDLELOCK *)&v13);
+        v3 = v14;
       }
       if ( v2 )
-        bDeleteBrush((HBRUSH)v1);
+        bDeleteBrush(v1, 0, 0);
       if ( v3 )
-        HANDLELOCK::vUnlock((HANDLELOCK *)&v9);
+        HANDLELOCK::vUnlock((HANDLELOCK *)&v13);
     }
   }
 }

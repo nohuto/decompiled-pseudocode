@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DisconnectEndpoint@FlipManagerObject@@QEAAJ_N@Z @ 0x1C0079E0C
+ * XREFs of ?DisconnectEndpoint@FlipManagerObject@@QEAAJ_N@Z @ 0x1C0068758
  * Callers:
- *     NtFlipObjectDisconnectEndpoint @ 0x1C007AD60 (NtFlipObjectDisconnectEndpoint.c)
+ *     NtFlipObjectDisconnectEndpoint @ 0x1C0069630 (NtFlipObjectDisconnectEndpoint.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00069FC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0007EB4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?ProcessConsumerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C007E4B8 (-ProcessConsumerDisconnect@CFlipManager@@IEAAXXZ.c)
- *     ?ProcessProducerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C007E6C4 (-ProcessProducerDisconnect@CFlipManager@@IEAAXXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0010CC4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ProcessConsumerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C006BB10 (-ProcessConsumerDisconnect@CFlipManager@@IEAAXXZ.c)
+ *     ?ProcessProducerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C006BBC4 (-ProcessProducerDisconnect@CFlipManager@@IEAAXXZ.c)
  */
 
 __int64 __fastcall FlipManagerObject::DisconnectEndpoint(FlipManagerObject *this, char a2)

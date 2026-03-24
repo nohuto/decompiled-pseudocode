@@ -1,12 +1,12 @@
 /*
- * XREFs of ?HMGrowHandleTable@@YAHXZ @ 0x1C0057420
+ * XREFs of ?HMGrowHandleTable@@YAHXZ @ 0x1C0069844
  * Callers:
- *     HMAllocObjectEx @ 0x1C002D20C (HMAllocObjectEx.c)
- *     HMCreateHandleForObject @ 0x1C004DE50 (HMCreateHandleForObject.c)
- *     HMInitHandleTable @ 0x1C02E3220 (HMInitHandleTable.c)
+ *     HMAllocObject @ 0x1C0032C10 (HMAllocObject.c)
+ *     HMCreateHandleForObject @ 0x1C006A5E0 (HMCreateHandleForObject.c)
+ *     HMInitHandleTable @ 0x1C0299B50 (HMInitHandleTable.c)
  * Callees:
- *     CommitReadOnlyMemory @ 0x1C00575F0 (CommitReadOnlyMemory.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     CommitReadOnlyMemory @ 0x1C0069A10 (CommitReadOnlyMemory.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 __int64 HMGrowHandleTable(void)
@@ -21,7 +21,7 @@ __int64 HMGrowHandleTable(void)
 
   if ( *((_QWORD *)gpsi + 1) == 65534LL )
     return 0LL;
-  v0 = (char *)qword_1C0294B68 + *((unsigned int *)gpsi + 216);
+  v0 = (char *)qword_1C024FD58 + *((unsigned int *)gpsi + 216);
   if ( v0 >= gpvSharedAlloc )
     return 0LL;
   v6 = 4096LL;
@@ -35,25 +35,25 @@ __int64 HMGrowHandleTable(void)
   if ( *((_QWORD *)gpsi + 1) > 0xFFFEuLL )
     *((_QWORD *)gpsi + 1) = 65534LL;
   v1 = gHandlePages;
-  memset((char *)qword_1C0294B68 + 32 * gHandlePages, 0, 32LL * (*((_QWORD *)gpsi + 1) - gHandlePages));
+  memset((char *)qword_1C024FD58 + 32 * gHandlePages, 0, 32LL * (*((_QWORD *)gpsi + 1) - gHandlePages));
   memset((char *)gpKernelHandleTable + 24 * v1, 0, 24 * (*((_QWORD *)gpsi + 1) - v1));
   v2 = *((_QWORD *)gpsi + 1) - 1LL;
   v3 = (char *)gpKernelHandleTable + 24 * v2;
   if ( v2 >= v1 )
   {
-    v4 = (_WORD *)((char *)qword_1C0294B68 + 32 * *((_QWORD *)gpsi + 1) - 6);
+    v4 = (_WORD *)((char *)qword_1C024FD58 + 32 * *((_QWORD *)gpsi + 1) - 6);
     do
     {
       *v4 = 1;
       if ( (v2 & 1) != 0 )
       {
-        *v3 = qword_1C0294A90;
-        qword_1C0294A90 = v2;
+        *v3 = qword_1C024FCE0;
+        qword_1C024FCE0 = v2;
       }
       else
       {
-        *v3 = qword_1C0294A88;
-        qword_1C0294A88 = v2;
+        *v3 = qword_1C024FCD8;
+        qword_1C024FCD8 = v2;
       }
       --v2;
       v4 -= 16;

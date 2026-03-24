@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsUmTestDeviceCompare @ 0x14099F320
+ * XREFs of PopDirectedDripsUmTestDeviceCompare @ 0x1408F8A40
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x1407CD7A0 (RtlCompareUnicodeStrings.c)
- *     PopDirectedDripsUmGetDeviceInstancePath @ 0x14099F084 (PopDirectedDripsUmGetDeviceInstancePath.c)
+ *     RtlCompareUnicodeStrings @ 0x140681C90 (RtlCompareUnicodeStrings.c)
+ *     PopDirectedDripsUmGetDeviceInstancePath @ 0x1408F879C (PopDirectedDripsUmGetDeviceInstancePath.c)
  */
 
 __int64 __fastcall PopDirectedDripsUmTestDeviceCompare(

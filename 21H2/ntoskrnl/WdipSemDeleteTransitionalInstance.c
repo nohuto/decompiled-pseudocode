@@ -1,14 +1,14 @@
 /*
- * XREFs of WdipSemDeleteTransitionalInstance @ 0x1408150FC
+ * XREFs of WdipSemDeleteTransitionalInstance @ 0x140788720
  * Callers:
- *     WdipTimeoutCheckRoutine @ 0x1406D9E90 (WdipTimeoutCheckRoutine.c)
- *     WdipSemEnableScenario @ 0x1406E6B08 (WdipSemEnableScenario.c)
- *     WdipSemDisableScenario @ 0x140815DC8 (WdipSemDisableScenario.c)
+ *     WdipTimeoutCheckRoutine @ 0x1406B5FF0 (WdipTimeoutCheckRoutine.c)
+ *     WdipSemDisableScenario @ 0x140789350 (WdipSemDisableScenario.c)
+ *     WdipSemEnableScenario @ 0x1407895DC (WdipSemEnableScenario.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     WdipSemFastFree @ 0x140815360 (WdipSemFastFree.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     WdipSemFastFree @ 0x140788994 (WdipSemFastFree.c)
  */
 
 __int64 __fastcall WdipSemDeleteTransitionalInstance(_QWORD *a1)
@@ -19,14 +19,14 @@ __int64 __fastcall WdipSemDeleteTransitionalInstance(_QWORD *a1)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C16818, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C1A578, 0LL);
   v3 = *a1;
   if ( *(_QWORD **)(*a1 + 8LL) != a1 || (v4 = (_QWORD *)a1[1], (_QWORD *)*v4 != a1) )
     __fastfail(3u);
   *v4 = v3;
   *(_QWORD *)(v3 + 8) = v4;
-  --dword_140C16810;
-  ExReleasePushLockEx((ULONG_PTR)&qword_140C16818, 0LL);
-  KeLeaveCriticalRegion();
+  --dword_140C1A570;
+  ExReleasePushLockEx((ULONG_PTR)&qword_140C1A578, 0LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return WdipSemFastFree(3LL, a1);
 }

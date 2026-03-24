@@ -1,12 +1,13 @@
 /*
- * XREFs of ApiSetEditionHandleAltTab @ 0x1C0206384
+ * XREFs of ApiSetEditionHandleAltTab @ 0x1C00A9DA4
  * Callers:
- *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C006B3FC (xxxUpdateGlobalsAndSendKeyEvent.c)
+ *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C004D1F0 (xxxUpdateGlobalsAndSendKeyEvent.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 (*__fastcall ApiSetEditionHandleAltTab(
+__int64 __fastcall ApiSetEditionHandleAltTab(
         char a1,
         unsigned __int16 a2,
         unsigned __int16 a3,
@@ -14,24 +15,48 @@ __int64 (*__fastcall ApiSetEditionHandleAltTab(
         __int64 a5,
         __int64 a6,
         __int64 a7,
-        __int16 a8))(void)
+        __int16 a8)
 {
-  __int64 (*result)(void); // rax
+  unsigned __int16 v10; // si
+  __int64 result; // rax
   __int64 v13; // rcx
 
-  result = qword_1C0296790;
-  if ( qword_1C0296790 )
+  v10 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    result = (__int64 (*)(void))qword_1C0296790();
-    if ( (int)result >= 0 )
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      420,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  if ( qword_1C0257538 )
+    result = qword_1C0257538();
+  else
+    result = 3221225659LL;
+  if ( (int)result >= 0 )
+  {
+    result = (__int64)qword_1C0257540;
+    if ( qword_1C0257540 )
     {
-      result = (__int64 (*)(void))qword_1C0296798;
-      if ( qword_1C0296798 )
-      {
-        v13 = a5;
-        LOBYTE(v13) = a1;
-        return (__int64 (*)(void))qword_1C0296798(v13, a2, a3, a4, a5, a6, a7, a8);
-      }
+      v13 = a5;
+      LOBYTE(v13) = a1;
+      result = qword_1C0257540(v13, v10, a3, a4, a5, a6, a7, a8);
+    }
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(a2) = 5;
+      return WPP_RECORDER_SF_(
+               WPP_GLOBAL_Control->DeviceExtension,
+               a2,
+               10,
+               421,
+               (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
     }
   }
   return result;

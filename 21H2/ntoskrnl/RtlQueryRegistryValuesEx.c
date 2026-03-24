@@ -1,24 +1,21 @@
 /*
- * XREFs of RtlQueryRegistryValuesEx @ 0x1406DEF50
+ * XREFs of RtlQueryRegistryValuesEx @ 0x1406BBF50
  * Callers:
- *     RtlCheckPortableOperatingSystem @ 0x140255FD0 (RtlCheckPortableOperatingSystem.c)
- *     RtlpFindRegTziForCurrentYear @ 0x1403C7B58 (RtlpFindRegTziForCurrentYear.c)
- *     EtwpQueryPartitionRegistryInformation @ 0x1403D35C8 (EtwpQueryPartitionRegistryInformation.c)
- *     EtwpQuerySiloRegistrySettings @ 0x1403D3830 (EtwpQuerySiloRegistrySettings.c)
- *     EtwpGetCurrentSiloMaxLoggers @ 0x1403DD97C (EtwpGetCurrentSiloMaxLoggers.c)
- *     CarReadRegistry @ 0x140604E78 (CarReadRegistry.c)
- *     DifRtlQueryRegistryValuesExWrapper @ 0x14061B950 (DifRtlQueryRegistryValuesExWrapper.c)
- *     DifRtlQueryRegistryValuesWrapper @ 0x14061BAA0 (DifRtlQueryRegistryValuesWrapper.c)
- *     sub_140639DA4 @ 0x140639DA4 (sub_140639DA4.c)
- *     IopInitCrashDumpDuringSysInit @ 0x140AF71F0 (IopInitCrashDumpDuringSysInit.c)
- *     SmQueryRegistry @ 0x140B2564C (SmQueryRegistry.c)
- *     CmIsLastKnownGoodBoot @ 0x140B2B090 (CmIsLastKnownGoodBoot.c)
- *     EtwpReadConfigParameters @ 0x140B2E06C (EtwpReadConfigParameters.c)
+ *     RtlCheckPortableOperatingSystem @ 0x1402CD240 (RtlCheckPortableOperatingSystem.c)
+ *     EtwpQueryPartitionRegistryInformation @ 0x1403AF83C (EtwpQueryPartitionRegistryInformation.c)
+ *     EtwpReadPerSiloConfigParameters @ 0x1403AFAA4 (EtwpReadPerSiloConfigParameters.c)
+ *     RtlpFindRegTziForCurrentYear @ 0x1403B7EC4 (RtlpFindRegTziForCurrentYear.c)
+ *     sub_1405B2E48 @ 0x1405B2E48 (sub_1405B2E48.c)
+ *     ExpReadTimeZoneInformation @ 0x1405D1A44 (ExpReadTimeZoneInformation.c)
+ *     SmQueryRegistry @ 0x140A4B4A4 (SmQueryRegistry.c)
+ *     IopInitCrashDumpDuringSysInit @ 0x140A6CE38 (IopInitCrashDumpDuringSysInit.c)
+ *     CmIsLastKnownGoodBoot @ 0x140A6F1BC (CmIsLastKnownGoodBoot.c)
+ *     EtwpReadConfigParameters @ 0x140A70DB4 (EtwpReadConfigParameters.c)
  * Callees:
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
  */
 
-__int64 __fastcall RtlQueryRegistryValuesEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlQueryRegistryValuesEx(__int64 a1, const WCHAR *a2, __int64 a3, __int64 a4)
 {
   return RtlpQueryRegistryValues(a1, a2, a3, a4);
 }

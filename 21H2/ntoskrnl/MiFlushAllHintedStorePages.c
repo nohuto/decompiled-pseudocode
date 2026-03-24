@@ -1,37 +1,37 @@
 /*
- * XREFs of MiFlushAllHintedStorePages @ 0x1403773D8
+ * XREFs of MiFlushAllHintedStorePages @ 0x14035BBB0
  * Callers:
- *     MmStoreFlushAllHintedPages @ 0x1407F8CD8 (MmStoreFlushAllHintedPages.c)
+ *     MmStoreFlushAllHintedPages @ 0x14070F124 (MmStoreFlushAllHintedPages.c)
  * Callees:
- *     MiWakeModifiedPageWriter @ 0x14025C460 (MiWakeModifiedPageWriter.c)
- *     MiStoreUpdateMemoryConditions @ 0x1402664E8 (MiStoreUpdateMemoryConditions.c)
- *     KeSetActualBasePriorityThread @ 0x14028FD20 (KeSetActualBasePriorityThread.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     MiCanFlushMakeProgress @ 0x140388F60 (MiCanFlushMakeProgress.c)
+ *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     MiStoreUpdateMemoryConditions @ 0x1402712E4 (MiStoreUpdateMemoryConditions.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiCanFlushMakeProgress @ 0x14035BAF0 (MiCanFlushMakeProgress.c)
+ *     MiWakeModifiedPageWriter @ 0x14035BB54 (MiWakeModifiedPageWriter.c)
  */
 
 __int64 MiFlushAllHintedStorePages()
 {
-  struct _KTHREAD *CurrentThread; // rsi
-  unsigned int v1; // edi
-  unsigned int v2; // r14d
-  __int64 v3; // r15
-  __int64 v4; // rbp
+  struct _KTHREAD *CurrentThread; // rdi
+  unsigned int v1; // ebx
+  int v2; // ebp
+  __int64 v3; // r14
+  __int64 v4; // rsi
 
   CurrentThread = KeGetCurrentThread();
   v1 = 0;
-  if ( !dword_140C55418 )
+  if ( !dword_140C51208 )
     return 1LL;
   --CurrentThread->SpecialApcDisable;
-  v2 = KeSetActualBasePriorityThread((ULONG_PTR)CurrentThread, 0x12u);
+  v2 = KeSetActualBasePriorityThread((__int64)CurrentThread, 18);
   v3 = MEMORY[0xFFFFF78000000008];
-  _InterlockedExchangeAdd(&dword_140C55410, 2u);
-  v4 = 88LL * (unsigned int)dword_140C55414;
-  while ( *(ULONG_PTR *)((char *)&MiSystemPartition + v4 + 3712) )
+  _InterlockedExchangeAdd(&dword_140C51200, 2u);
+  v4 = 5LL * (unsigned int)dword_140C51204;
+  while ( *(&MiSystemPartition + v4 + 352) )
   {
-    if ( (unsigned int)MiCanFlushMakeProgress(&MiSystemPartition, 1LL) )
+    if ( (unsigned int)MiCanFlushMakeProgress((__int64)&MiSystemPartition, 1) )
     {
       MiWakeModifiedPageWriter((__int64)&MiSystemPartition, -1LL);
       MiStoreUpdateMemoryConditions((__int64)&MiSystemPartition);
@@ -43,14 +43,10 @@ __int64 MiFlushAllHintedStorePages()
   }
   v1 = 1;
 LABEL_8:
-  _InterlockedOr(&dword_140C55410, 1u);
-  _InterlockedExchangeAdd(&dword_140C55410, 0xFFFFFFFE);
-  KeSetEvent(&stru_140C55308, 0, 0);
-  KeSetActualBasePriorityThread((ULONG_PTR)CurrentThread, v2);
-  if ( CurrentThread->SpecialApcDisable++ == -1
-    && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-  {
-    KiCheckForKernelApcDelivery();
-  }
+  _InterlockedOr(&dword_140C51200, 1u);
+  _InterlockedExchangeAdd(&dword_140C51200, 0xFFFFFFFE);
+  KeSetEvent(&stru_140C510F0, 0, 0);
+  KeSetActualBasePriorityThread((__int64)CurrentThread, v2);
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return v1;
 }

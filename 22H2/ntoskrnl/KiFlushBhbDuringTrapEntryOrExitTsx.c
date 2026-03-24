@@ -1,7 +1,7 @@
 /*
- * XREFs of KiFlushBhbDuringTrapEntryOrExitTsx @ 0x140434EC0
+ * XREFs of KiFlushBhbDuringTrapEntryOrExitTsx @ 0x140413340
  * Callers:
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x140434D00 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x140413180 (KiFlushBhbDuringTrapEntryOrExit.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@ void KiFlushBhbDuringTrapEntryOrExitTsx()
 {
   __asm
   {
-    xbegin  locret_140434ECD
+    xbegin  locret_14041334D
     xabort  0
   }
   _mm_lfence();

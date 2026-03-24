@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpCreateObjectDispatch @ 0x140A26D58
+ * XREFs of _PnpCreateObjectDispatch @ 0x1407323EC
  * Callers:
- *     _PnpCreateObject @ 0x140A26BE8 (_PnpCreateObject.c)
+ *     _PnpCreateObject @ 0x1407322DC (_PnpCreateObject.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     _PnpObjectRaiseCreateEvent @ 0x14076A960 (_PnpObjectRaiseCreateEvent.c)
- *     _PnpCtxGetObjectDispatchCallback @ 0x14077DE44 (_PnpCtxGetObjectDispatchCallback.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _PnpCtxGetObjectDispatchCallback @ 0x140637F68 (_PnpCtxGetObjectDispatchCallback.c)
+ *     _PnpObjectRaiseCreateEvent @ 0x14074BB14 (_PnpObjectRaiseCreateEvent.c)
  */
 
-__int64 __fastcall PnpCreateObjectDispatch(__int64 a1, __int64 a2, int a3, int a4, __int64 *a5, _BYTE *a6, __int16 a7)
+__int64 __fastcall PnpCreateObjectDispatch(__int64 a1, __int64 a2, int a3, int a4, _QWORD *a5, _BYTE *a6, __int16 a7)
 {
   int ObjectDispatchCallback; // ebx
   int v12; // r10d

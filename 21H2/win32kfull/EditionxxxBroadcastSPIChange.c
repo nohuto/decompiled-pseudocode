@@ -1,35 +1,27 @@
 /*
- * XREFs of EditionxxxBroadcastSPIChange @ 0x1C0158B30
+ * XREFs of EditionxxxBroadcastSPIChange @ 0x1C01D77E0
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
  * Callees:
- *     xxxBroadcastMessageEx @ 0x1C00A9E58 (xxxBroadcastMessageEx.c)
- *     RtlInitLargeUnicodeString @ 0x1C00E89FC (RtlInitLargeUnicodeString.c)
+ *     RtlInitLargeUnicodeString @ 0x1C0033FBC (RtlInitLargeUnicodeString.c)
+ *     xxxBroadcastMessageEx @ 0x1C003FE88 (xxxBroadcastMessageEx.c)
  */
 
-__int64 __fastcall EditionxxxBroadcastSPIChange(unsigned int a1, __int64 a2, int a3)
+__int64 __fastcall EditionxxxBroadcastSPIChange(unsigned int a1, __int64 a2)
 {
-  __int128 v6; // [rsp+40h] [rbp-38h] BYREF
-  _DWORD v7[2]; // [rsp+50h] [rbp-28h] BYREF
-  __int64 *v8; // [rsp+58h] [rbp-20h]
-  __int64 v9; // [rsp+60h] [rbp-18h]
-  __int64 v10; // [rsp+98h] [rbp+20h] BYREF
+  __int128 v4; // [rsp+40h] [rbp-38h] BYREF
+  _DWORD v5[2]; // [rsp+50h] [rbp-28h] BYREF
+  __int64 *v6; // [rsp+58h] [rbp-20h]
+  __int64 v7; // [rsp+60h] [rbp-18h]
+  __int64 v8; // [rsp+90h] [rbp+18h] BYREF
 
-  v9 = 0LL;
-  v10 = 0LL;
-  v6 = 0LL;
-  RtlInitLargeUnicodeString((__int64)&v6, a2);
+  v7 = 0LL;
+  v8 = 0LL;
+  v4 = 0LL;
+  RtlInitLargeUnicodeString((__int64)&v4, a2);
   UpdateInputSettingWnfState(a1);
-  v7[0] = 0;
-  v8 = &v10;
-  v7[1] = 100;
-  return xxxBroadcastMessageEx(
-           0LL,
-           26LL,
-           a1,
-           (struct _LARGE_STRING *)&v6,
-           a3 != 0 ? 6 : 1,
-           (union tagBROADCASTMSG *)v7,
-           1,
-           0);
+  v5[0] = 0;
+  v6 = &v8;
+  v5[1] = 100;
+  return xxxBroadcastMessageEx(0LL, 0x1Au, a1, (struct _LARGE_STRING *)&v4, 6u, (union tagBROADCASTMSG *)v5, 1, 0);
 }

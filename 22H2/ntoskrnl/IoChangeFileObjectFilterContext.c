@@ -1,23 +1,30 @@
 /*
- * XREFs of IoChangeFileObjectFilterContext @ 0x1402FD83C
+ * XREFs of IoChangeFileObjectFilterContext @ 0x1402D736C
  * Callers:
- *     FsRtlInsertPerFileObjectContext @ 0x1402FD4C0 (FsRtlInsertPerFileObjectContext.c)
- *     FsRtlPTeardownPerFileObjectContexts @ 0x1407657C8 (FsRtlPTeardownPerFileObjectContexts.c)
+ *     FsRtlInsertPerFileObjectContext @ 0x1402FB1E0 (FsRtlInsertPerFileObjectContext.c)
+ *     FsRtlPTeardownPerFileObjectContexts @ 0x14066C394 (FsRtlPTeardownPerFileObjectContexts.c)
  * Callees:
- *     IopGetFileObjectExtension @ 0x14030169C (IopGetFileObjectExtension.c)
+ *     IopGetFileObjectExtension @ 0x1402D6F90 (IopGetFileObjectExtension.c)
  */
 
 __int64 __fastcall IoChangeFileObjectFilterContext(__int64 a1)
 {
-  signed __int64 v1; // r10
-  char v2; // r11
+  signed __int64 v1; // r9
+  signed __int64 v2; // r11
+  char v3; // r10
+  bool v4; // zf
+  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
 
+  v6 = 0LL;
   if ( !*(_QWORD *)(a1 + 208) )
     return 3221225485LL;
-  IopGetFileObjectExtension(a1, 3LL);
-  if ( !v2 )
-    return v1 != _InterlockedCompareExchange64((volatile signed __int64 *)0x20, 0LL, v1) ? 0xC0000021 : 0;
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)0x20, v1, 0LL) )
+  IopGetFileObjectExtension(a1, 3, &v6);
+  if ( v3 )
+    v4 = _InterlockedCompareExchange64((volatile signed __int64 *)(v6 + 32), v1, 0LL) == 0;
+  else
+    v4 = v1 == _InterlockedCompareExchange64((volatile signed __int64 *)(v6 + 32), v2, v1);
+  if ( v4 )
+    return 0LL;
+  else
     return 3221225505LL;
-  return 0LL;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwRenameTransactionManager @ 0x1401BAEF0
+ * XREFs of ZwRenameTransactionManager @ 0x1401BAF10
  * Callers:
  *     <none>
  * Callees:

@@ -1,13 +1,13 @@
 /*
- * XREFs of Controller_UcxEvtQueryUsbCapability @ 0x1C001B310
+ * XREFs of Controller_UcxEvtQueryUsbCapability @ 0x1C0016D60
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0005BEC (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF__guid_ @ 0x1C001E27C (WPP_RECORDER_SF__guid_.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pjqq_EtwWriteTransfer @ 0x1C0036B3C (McTemplateK0pjqq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF__guid_ @ 0x1C00175EC (WPP_RECORDER_SF__guid_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pjqq_EtwWriteTransfer @ 0x1C0035010 (McTemplateK0pjqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Controller_UcxEvtQueryUsbCapability(
@@ -35,42 +35,45 @@ __int64 __fastcall Controller_UcxEvtQueryUsbCapability(
   v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0063428);
+         off_1C0060428);
   *a5 = 0;
   if ( RtlCompareMemory(a2, &GUID_USB_CAPABILITY_CHAINED_MDLS, 0x10uLL) == 16 )
   {
     if ( (*(_QWORD *)(v9 + 336) & 0x80u) != 0LL )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_35;
-      v17 = 188;
-      goto LABEL_34;
+        goto LABEL_23;
+      v16 = 185;
+      goto LABEL_22;
     }
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_13;
-    v16 = 189;
-    goto LABEL_19;
+    v17 = 186;
+    goto LABEL_26;
   }
   if ( RtlCompareMemory(a2, &GUID_USB_CAPABILITY_SECURE_TRANSFERS, 0x10uLL) == 16 )
   {
-    if ( !*(_BYTE *)(v9 + 601) )
+    if ( !*(_BYTE *)(v9 + 553) )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_35;
-      v17 = 190;
-      goto LABEL_34;
+        goto LABEL_23;
+      v16 = 187;
+      goto LABEL_22;
     }
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_13;
-    v16 = 191;
-    goto LABEL_19;
+    v17 = 188;
+LABEL_26:
+    LOBYTE(v10) = 4;
+    WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), v10, 4, v17, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
+    goto LABEL_13;
   }
   if ( RtlCompareMemory(a2, &GUID_USB_CAPABILITY_STATIC_STREAMS, 0x10uLL) == 16 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v10) = 4;
-      WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), v10, 4, 192, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), v10, 4, 189, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
     }
     *a5 = 2;
     if ( a3 >= 2 )
@@ -81,68 +84,62 @@ __int64 __fastcall Controller_UcxEvtQueryUsbCapability(
         *a4 = v14;
         goto LABEL_14;
       }
-      goto LABEL_47;
+      goto LABEL_52;
     }
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-LABEL_52:
+LABEL_57:
       v8 = -1073741789;
       goto LABEL_13;
     }
-    v19 = 193;
+    v19 = 190;
     LOBYTE(v10) = 4;
-LABEL_51:
-    WPP_RECORDER_SF_d(*(_QWORD *)(v9 + 72), v10, 4, v19, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, a3);
-    goto LABEL_52;
+LABEL_56:
+    WPP_RECORDER_SF_d(*(_QWORD *)(v9 + 72), v10, 4, v19, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, a3);
+    goto LABEL_57;
   }
   if ( RtlCompareMemory(a2, &GUID_USB_CAPABILITY_FUNCTION_SUSPEND, 0x10uLL) == 16 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_13;
-    v16 = 194;
-    goto LABEL_19;
+    v17 = 191;
+    goto LABEL_26;
   }
   if ( RtlCompareMemory(a2, &GUID_USB_CAPABILITY_SELECTIVE_SUSPEND, 0x10uLL) == 16 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-LABEL_13:
-      LOBYTE(v14) = 0;
-      goto LABEL_14;
-    }
-    v16 = 195;
-LABEL_19:
-    LOBYTE(v10) = 4;
-    WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), v10, 4, v16, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids);
-    goto LABEL_13;
+      goto LABEL_13;
+    v17 = 192;
+    goto LABEL_26;
   }
   if ( RtlCompareMemory(a2, &GUID_USB_CAPABILITY_TIME_SYNC, 0x10uLL) == 16 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_13;
-    v16 = 196;
-    goto LABEL_19;
+    v17 = 193;
+    goto LABEL_26;
   }
   if ( RtlCompareMemory(a2, &GUID_USB_CAPABILITY_CLEAR_TT_BUFFER_ON_ASYNC_TRANSFER_CANCEL, 0x10uLL) == 16 )
   {
-    if ( !_bittest64((const signed __int64 *)(v9 + 336), 0x20u) )
+    v11 = 0;
+    if ( (*(_QWORD *)(v9 + 336) & 0x100000000LL) == 0 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-LABEL_35:
-        v8 = -1073741637;
-        goto LABEL_13;
-      }
-      v17 = 198;
-LABEL_34:
+        goto LABEL_23;
+      v16 = 195;
+LABEL_22:
       LOBYTE(v10) = 4;
-      WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), v10, 4, v17, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids);
-      goto LABEL_35;
+      WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), v10, 4, v16, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
+LABEL_23:
+      v8 = -1073741637;
+LABEL_13:
+      LOBYTE(v14) = 0;
+      goto LABEL_14;
     }
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_13;
-    v16 = 197;
-    goto LABEL_19;
+    v17 = 194;
+    goto LABEL_26;
   }
   if ( RtlCompareMemory(a2, &GUID_USB_CAPABILITY_HIGH_BANDWIDTH_ISOCH, 0x10uLL) == 16 )
   {
@@ -150,19 +147,19 @@ LABEL_34:
     if ( a3 < 4 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_52;
-      v19 = 202;
-      goto LABEL_50;
+        goto LABEL_57;
+      v19 = 199;
+      goto LABEL_55;
     }
     if ( !a4 )
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_47;
-      v18 = 201;
-LABEL_46:
+        goto LABEL_52;
+      v18 = 198;
+LABEL_51:
       LOBYTE(v10) = 2;
-      WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), v10, 4, v18, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids);
-LABEL_47:
+      WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), v10, 4, v18, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
+LABEL_52:
       v8 = -1073741811;
       goto LABEL_13;
     }
@@ -172,16 +169,16 @@ LABEL_47:
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
         LOBYTE(v10) = 4;
-        WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), v10, 4, 199, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids);
+        WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), v10, 4, 196, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
       }
-      v11 = *(_BYTE *)(v9 + 602) != 0 ? 32 : 4;
+      v11 = *(_BYTE *)(v9 + 554) != 0 ? 32 : 4;
       *(_DWORD *)a4 = v11;
       goto LABEL_13;
     }
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_35;
-    v17 = 200;
-    goto LABEL_34;
+      goto LABEL_23;
+    v16 = 197;
+    goto LABEL_22;
   }
   if ( RtlCompareMemory(a2, &GUID_USB_CAPABILITY_ENDPOINT_OFFLOAD, 0x10uLL) != 16 )
   {
@@ -193,28 +190,28 @@ LABEL_47:
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v10) = 4;
-    WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), v10, 4, 203, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids);
+    WPP_RECORDER_SF_(*(_QWORD *)(v9 + 72), v10, 4, 200, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
   }
   *a5 = 4;
   if ( a3 < 4 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_52;
-    v19 = 205;
-LABEL_50:
+      goto LABEL_57;
+    v19 = 202;
+LABEL_55:
     LOBYTE(v10) = 2;
-    goto LABEL_51;
+    goto LABEL_56;
   }
   if ( !a4 )
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_47;
-    v18 = 204;
-    goto LABEL_46;
+      goto LABEL_52;
+    v18 = 201;
+    goto LABEL_51;
   }
-  v11 = *(_DWORD *)(v9 + 636);
+  v11 = *(_DWORD *)(v9 + 588);
   if ( !v11 )
-    goto LABEL_35;
+    goto LABEL_23;
   if ( !--v11 )
   {
     *(_DWORD *)a4 = 1;
@@ -226,8 +223,8 @@ LABEL_50:
   else
     v8 = -1073741637;
 LABEL_14:
-  LOBYTE(v11) = WPP_MAIN_CB.AlignmentRequirement;
-  if ( SLOBYTE(WPP_MAIN_CB.AlignmentRequirement) < 0 )
+  LOBYTE(v11) = WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc;
+  if ( SLOBYTE(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) < 0 )
     McTemplateK0pjqq_EtwWriteTransfer(v11, v10, v12, v20, (__int64)a2, v8, v14);
   return v8;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of CalculateTimeDurationIn100ns @ 0x1C00179B4
+ * XREFs of CalculateTimeDurationIn100ns @ 0x1C00010AC
  * Callers:
- *     NVMeHwAdapterControl @ 0x1C0005860 (NVMeHwAdapterControl.c)
- *     IoQueuesCreationAsync @ 0x1C0006850 (IoQueuesCreationAsync.c)
- *     IoQueuesCreation @ 0x1C0017D90 (IoQueuesCreation.c)
- *     NVMeIsAllowedWithinThrottleLimit @ 0x1C001DEC8 (NVMeIsAllowedWithinThrottleLimit.c)
- *     RecordCommandTimingHistory @ 0x1C0025214 (RecordCommandTimingHistory.c)
+ *     NVMeIsAllowedWithinThrottleLimit @ 0x1C0001008 (NVMeIsAllowedWithinThrottleLimit.c)
+ *     NVMeHwAdapterControl @ 0x1C0006080 (NVMeHwAdapterControl.c)
+ *     IoQueuesCreation @ 0x1C000BFD8 (IoQueuesCreation.c)
+ *     IoQueuesCreationAsync @ 0x1C000C15C (IoQueuesCreationAsync.c)
+ *     RecordCommandTimingHistory @ 0x1C001C8A4 (RecordCommandTimingHistory.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of DwmNotifyChildrenAddRemove @ 0x1C0059F3C
+ * XREFs of DwmNotifyChildrenAddRemove @ 0x1C00E9904
  * Callers:
- *     xxxDwmStopRedirection @ 0x1C0057060 (xxxDwmStopRedirection.c)
- *     zzzDwmStartRedirection @ 0x1C00588D8 (zzzDwmStartRedirection.c)
+ *     zzzDwmStartRedirection @ 0x1C00E942C (zzzDwmStartRedirection.c)
+ *     xxxDwmStopRedirection @ 0x1C00E9620 (xxxDwmStopRedirection.c)
  * Callees:
- *     ?DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z @ 0x1C0059F80 (-DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z.c)
- *     ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C005A330 (-DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z.c)
+ *     ?DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z @ 0x1C00E9948 (-DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z.c)
+ *     ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C00E9D5C (-DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z.c)
  */
 
 void __fastcall DwmNotifyChildrenAddRemove(struct tagDESKTOP *a1, int a2)

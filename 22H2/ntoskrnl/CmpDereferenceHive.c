@@ -1,13 +1,18 @@
 /*
- * XREFs of CmpDereferenceHive @ 0x14076ADA4
+ * XREFs of CmpDereferenceHive @ 0x14071BA9C
  * Callers:
- *     CmpDoFlushAll @ 0x1402F694C (CmpDoFlushAll.c)
+ *     CmpDoFlushAll @ 0x14037D80C (CmpDoFlushAll.c)
+ *     CmpLateUnloadHiveWorker @ 0x14071B940 (CmpLateUnloadHiveWorker.c)
  * Callees:
- *     CmpDeleteHive @ 0x14074EBE4 (CmpDeleteHive.c)
+ *     CmpDeleteHive @ 0x14071BAC4 (CmpDeleteHive.c)
  */
 
-void __fastcall CmpDereferenceHive(__int64 a1)
+__int64 __fastcall CmpDereferenceHive(volatile signed __int32 *a1)
 {
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4232), 0xFFFFFFFF) == 1 )
-    CmpDeleteHive((_QWORD *)a1);
+  __int64 result; // rax
+
+  result = (unsigned int)_InterlockedExchangeAdd(a1 + 1068, 0xFFFFFFFF);
+  if ( (_DWORD)result == 1 )
+    return CmpDeleteHive((PVOID)a1);
+  return result;
 }

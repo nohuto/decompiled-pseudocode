@@ -1,138 +1,155 @@
 /*
- * XREFs of IoctlCreateReservedQueuePair @ 0x1C001AFEC
+ * XREFs of IoctlCreateReservedQueuePair @ 0x1C0012778
  * Callers:
- *     IoctlToNVMe @ 0x1C0002DE0 (IoctlToNVMe.c)
+ *     IoctlToNVMe @ 0x1C0002660 (IoctlToNVMe.c)
  * Callees:
- *     memset @ 0x1C00109C0 (memset.c)
- *     GetFreeReservedQueueIndex @ 0x1C001AE30 (GetFreeReservedQueueIndex.c)
- *     NVMeIoCompletionQueueDelete @ 0x1C0023504 (NVMeIoCompletionQueueDelete.c)
- *     NVMeIoSubmissionQueueDelete @ 0x1C0023810 (NVMeIoSubmissionQueueDelete.c)
- *     NVMeReservedCompletionQueueCreate @ 0x1C0023B84 (NVMeReservedCompletionQueueCreate.c)
- *     NVMeReservedSubmissionQueueCreate @ 0x1C0023F2C (NVMeReservedSubmissionQueueCreate.c)
+ *     GetFreeReservedQueueIndex @ 0x1C00125D8 (GetFreeReservedQueueIndex.c)
+ *     NVMeIoCompletionQueueDelete @ 0x1C0019BC4 (NVMeIoCompletionQueueDelete.c)
+ *     NVMeIoSubmissionQueueDelete @ 0x1C001A2D4 (NVMeIoSubmissionQueueDelete.c)
+ *     NVMeReservedCompletionQueueCreate @ 0x1C001AD0C (NVMeReservedCompletionQueueCreate.c)
+ *     NVMeReservedSubmissionQueueCreate @ 0x1C001B080 (NVMeReservedSubmissionQueueCreate.c)
  */
 
 __int64 __fastcall IoctlCreateReservedQueuePair(__int64 a1, __int64 a2)
 {
   unsigned __int16 v2; // r11
+  __int64 v4; // rbp
   unsigned int v5; // edi
-  unsigned __int16 v6; // r13
-  __int64 v7; // r15
-  __int64 v8; // rax
-  unsigned __int64 v9; // r8
+  __int64 v6; // r15
+  __int64 v7; // rax
+  unsigned __int64 v8; // r8
+  __int64 v9; // rdx
   unsigned __int16 FreeReservedQueueIndex; // ax
   int v11; // r11d
   __int64 v12; // r12
   int v13; // ecx
-  unsigned __int16 v14; // bp
+  unsigned __int16 v14; // r14
   unsigned __int16 v15; // r11
-  unsigned __int16 i; // r15
-  __int64 v17; // rax
-  _OWORD *v18; // rdx
-  void *v20; // [rsp+D0h] [rbp-48h]
-  __int64 v21; // [rsp+138h] [rbp+20h]
+  __int64 v16; // r13
+  bool i; // cf
+  unsigned __int16 v18; // bx
+  unsigned __int16 v19; // r12
+  __int64 v20; // r13
+  __int64 v21; // rax
+  _OWORD *v22; // rcx
+  unsigned __int16 v25; // [rsp+130h] [rbp+18h]
+  __int64 v26; // [rsp+138h] [rbp+20h]
 
-  v2 = *(_WORD *)(a1 + 838);
+  v2 = *(_WORD *)(a1 + 822);
+  v4 = a2;
   v5 = 0;
-  v6 = 0;
-  if ( !v2 || *(_WORD *)(a1 + 810) >= v2 || *(_WORD *)(a1 + 808) >= v2 )
+  if ( !v2 || *(_WORD *)(a1 + 794) >= v2 || *(_WORD *)(a1 + 792) >= v2 )
   {
+    v5 = -1056964601;
     *(_BYTE *)(a2 + 3) = 6;
-    goto LABEL_35;
+    goto LABEL_34;
   }
   if ( *(_BYTE *)(a2 + 2) == 40 )
   {
-    v7 = *(_QWORD *)(a2 + 64);
-    v8 = 60LL;
+    v6 = *(_QWORD *)(a2 + 64);
+    v7 = 60LL;
   }
   else
   {
-    v7 = *(_QWORD *)(a2 + 24);
-    v8 = 16LL;
+    v6 = *(_QWORD *)(a2 + 24);
+    v7 = 16LL;
   }
-  v9 = *(unsigned int *)(a2 + v8);
-  if ( (unsigned int)v9 < 0xC4 )
+  v8 = *(unsigned int *)(v7 + a2);
+  if ( (unsigned int)v8 >= 0x9C )
   {
-    *(_BYTE *)(a2 + 3) = 18;
-    v5 = -1056964602;
-LABEL_36:
-    if ( !*(_BYTE *)(a2 + 3) )
-      *(_BYTE *)(a2 + 3) = 4;
-    if ( *(_BYTE *)(a1 + 22) )
-      StorPortExtendedFunction(87LL, a1, 0LL, 1LL);
-    return v5;
-  }
-  v20 = (void *)(v7 + *(unsigned int *)(v7 + 36) + 28LL);
-  if ( v9 < ((unsigned __int64)*(unsigned __int16 *)(v7 + 68) << 6) + 132 )
-  {
-    *(_BYTE *)(a2 + 3) = 18;
-    v5 = -1056964604;
-    goto LABEL_36;
-  }
-  if ( *(unsigned int *)(v7 + 40) < 48 * (unsigned __int64)*(unsigned __int16 *)(v7 + 68) + 56 )
-  {
-    v5 = -1056964604;
-    goto LABEL_36;
-  }
-  FreeReservedQueueIndex = GetFreeReservedQueueIndex(a1);
-  v12 = FreeReservedQueueIndex;
-  if ( FreeReservedQueueIndex == 0xFFFF
-    || (v13 = *(unsigned __int16 *)(a1 + 306), v14 = FreeReservedQueueIndex + v13 + 1, v14 > (unsigned int)(v11 + v13)) )
-  {
-LABEL_35:
-    v5 = -1056964601;
-    goto LABEL_36;
-  }
-  if ( (unsigned __int16)NVMeReservedCompletionQueueCreate(a1) )
-  {
-    *(_DWORD *)(a1 + 36) = 18;
-    v5 = -1056964607;
-    goto LABEL_36;
-  }
-  v21 = *(_QWORD *)(a1 + 824) + 48 * v12;
-  if ( !*(_WORD *)(v7 + 68) )
-  {
-LABEL_33:
-    *(_BYTE *)(a2 + 3) = 1;
-    return v5;
-  }
-  while ( !(unsigned __int16)NVMeReservedSubmissionQueueCreate(a1, v12, v6) )
-  {
-    ++v6;
-    ++*(_WORD *)(v21 + 34);
-    v15 = *(_WORD *)(v7 + 68);
-    if ( v6 < v15 )
+    v9 = *(unsigned __int16 *)(v6 + 60);
+    v26 = *(unsigned int *)(v6 + 36);
+    if ( v8 < 48 * v9 + 108 )
     {
-      LOWORD(v12) = GetFreeReservedQueueIndex(a1);
-      if ( (_WORD)v12 == 0xFFFF )
-        goto LABEL_25;
+      *(_BYTE *)(v4 + 3) = 18;
+      v5 = -1056964604;
+      goto LABEL_35;
     }
-    if ( v6 >= v15 )
-      goto LABEL_33;
-  }
-  *(_DWORD *)(a1 + 36) = 18;
-  v5 = -1056964607;
-LABEL_25:
-  if ( v14 )
-  {
-    for ( i = 0; i < *(_WORD *)(a1 + 808); ++i )
+    if ( *(unsigned int *)(v6 + 40) < (unsigned __int64)(32 * v9 + 40) )
     {
-      if ( *(_WORD *)(*(_QWORD *)(a1 + 816) + 48LL * i + 28) == v14 )
+      v5 = -1056964604;
+      goto LABEL_35;
+    }
+    FreeReservedQueueIndex = GetFreeReservedQueueIndex(a1);
+    v12 = FreeReservedQueueIndex;
+    if ( FreeReservedQueueIndex == 0xFFFF
+      || (v13 = *(unsigned __int16 *)(a1 + 290), v14 = FreeReservedQueueIndex + v13 + 1, v14 > (unsigned int)(v11 + v13)) )
+    {
+      v5 = -1056964601;
+      goto LABEL_35;
+    }
+    if ( (unsigned __int16)NVMeReservedCompletionQueueCreate(a1) )
+    {
+      *(_DWORD *)(a1 + 28) = 18;
+      v5 = -1056964607;
+      goto LABEL_35;
+    }
+    v25 = 0;
+    v15 = 0;
+    v16 = *(_QWORD *)(a1 + 808) + 32 * v12;
+    for ( i = *(_WORD *)(v6 + 60) != 0; ; i = v15 < v18 )
+    {
+      if ( !i )
       {
-        NVMeIoSubmissionQueueDelete(a1);
-        v17 = *(_QWORD *)(a1 + 816);
-        *(_OWORD *)(v17 + 48LL * i) = 0LL;
-        *(_OWORD *)(v17 + 48LL * i + 16) = 0LL;
-        *(_OWORD *)(v17 + 48LL * i + 32) = 0LL;
+        *(_BYTE *)(v4 + 3) = 1;
+        return v5;
+      }
+      if ( (unsigned __int16)NVMeReservedSubmissionQueueCreate(a1, v12, v15) )
+        break;
+      ++*(_WORD *)(v16 + 26);
+      v15 = v25 + 1;
+      v18 = *(_WORD *)(v6 + 60);
+      v25 = v15;
+      if ( v15 < v18 )
+      {
+        LOWORD(v12) = GetFreeReservedQueueIndex(a1);
+        if ( (_WORD)v12 == 0xFFFF )
+          goto LABEL_27;
       }
     }
-    NVMeIoCompletionQueueDelete(a1);
-    v18 = (_OWORD *)(*(_QWORD *)(a1 + 824) + 48LL * (v14 - *(unsigned __int16 *)(a1 + 306) - 1));
-    *v18 = 0LL;
-    v18[1] = 0LL;
-    v18[2] = 0LL;
-    memset(v20, 0, 0x68uLL);
+    *(_DWORD *)(a1 + 28) = 18;
+    v5 = -1056964607;
+LABEL_27:
+    if ( v14 )
+    {
+      v19 = 0;
+      if ( *(_WORD *)(a1 + 792) )
+      {
+        do
+        {
+          v20 = 32LL * v19;
+          if ( *(_WORD *)(*(_QWORD *)(a1 + 800) + v20 + 20) == v14 )
+          {
+            NVMeIoSubmissionQueueDelete(a1);
+            v21 = *(_QWORD *)(a1 + 800);
+            *(_OWORD *)(v21 + 32LL * v19) = 0LL;
+            *(_OWORD *)(v21 + v20 + 16) = 0LL;
+          }
+          ++v19;
+        }
+        while ( v19 < *(_WORD *)(a1 + 792) );
+        v4 = a2;
+      }
+      NVMeIoCompletionQueueDelete(a1);
+      v22 = (_OWORD *)(*(_QWORD *)(a1 + 808) + 32 * (v14 - (unsigned __int64)*(unsigned __int16 *)(a1 + 290) - 1));
+      *v22 = 0LL;
+      v22[1] = 0LL;
+      *(_OWORD *)(v26 + v6 + 28) = 0LL;
+      *(_OWORD *)(v26 + v6 + 44) = 0LL;
+      *(_OWORD *)(v26 + v6 + 60) = 0LL;
+      *(_OWORD *)(v26 + v6 + 76) = 0LL;
+      *(_QWORD *)(v26 + v6 + 92) = 0LL;
+    }
+LABEL_34:
+    if ( !v5 )
+      return v5;
+    goto LABEL_35;
   }
-  if ( v5 )
-    goto LABEL_36;
+  *(_BYTE *)(a2 + 3) = 18;
+  v5 = -1056964602;
+LABEL_35:
+  if ( !*(_BYTE *)(v4 + 3) )
+    *(_BYTE *)(v4 + 3) = 4;
+  StorPortExtendedFunction(87LL, a1, 0LL, 1LL);
   return v5;
 }

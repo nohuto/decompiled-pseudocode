@@ -1,47 +1,33 @@
 /*
- * XREFs of DXGETWPROFILER_BASE_PopProfilerEntry @ 0x1C0015C10
+ * XREFs of DXGETWPROFILER_BASE_PopProfilerEntry @ 0x1C0014990
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     <none>
  */
 
-__int64 __fastcall DXGETWPROFILER_BASE_PopProfilerEntry(__int64 a1)
+void __fastcall DXGETWPROFILER_BASE_PopProfilerEntry(__int64 a1, __int64 a2)
 {
-  __int64 v1; // rbx
-  __int64 result; // rax
-  int v5; // edx
-  int v6; // ecx
-  int v7; // r8d
+  __int64 v2; // rbx
+  int v4; // eax
+  int v5; // eax
+  __int64 v6; // rax
 
-  v1 = *(_QWORD *)(a1 + 8);
-  if ( v1 )
+  v2 = *(_QWORD *)(a1 + 8);
+  if ( v2 )
   {
-    if ( !*(_DWORD *)(v1 + 52) )
+    v4 = *(_DWORD *)(v2 + 36);
+    if ( !v4 )
     {
-      result = WdLogSingleEntry1(1LL, 170LL);
-      if ( bTracingEnabled )
-      {
-        result = BYTE3(Microsoft_Windows_DxgKrnlEnableBits);
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          result = McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-                     v6,
-                     v5,
-                     v7,
-                     0,
-                     2,
-                     -1,
-                     (__int64)L"m_ProfilerEntryCount > 0",
-                     170LL,
-                     0LL,
-                     0LL,
-                     0LL,
-                     0LL);
-      }
+      v6 = WdLogNewEntry5_WdAssertion(a1, a2);
+      *(_QWORD *)(v6 + 24) = 320LL;
+      WdLogEvent5_WdAssertion(v6);
+      v4 = *(_DWORD *)(v2 + 36);
     }
-    if ( (*(_DWORD *)(v1 + 52))-- == 1 )
-      *(_DWORD *)(v1 + 56) = -1;
+    v5 = v4 - 1;
+    *(_DWORD *)(v2 + 36) = v5;
+    if ( !v5 )
+      *(_DWORD *)(v2 + 40) = -1;
     *(_QWORD *)(a1 + 8) = 0LL;
   }
-  return result;
 }

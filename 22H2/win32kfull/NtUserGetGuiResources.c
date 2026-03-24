@@ -1,56 +1,54 @@
 /*
- * XREFs of NtUserGetGuiResources @ 0x1C0015050
+ * XREFs of NtUserGetGuiResources @ 0x1C0133D90
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 __int64 __fastcall NtUserGetGuiResources(HANDLE Handle, unsigned int a2)
 {
-  PVOID v4; // rbp
+  PVOID v4; // rsi
   __int64 v5; // rdx
   __int64 v6; // rcx
-  _DWORD *v7; // r8
-  __int64 v8; // r9
-  unsigned int v9; // esi
-  __int64 CurrentProcessWin32Process; // rax
-  unsigned int v12; // edi
-  unsigned int v13; // edi
-  unsigned int *v14; // rax
+  __int64 v7; // r8
+  unsigned int v8; // edi
+  _DWORD *CurrentProcessWin32Process; // rax
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  unsigned int v13; // ebx
+  unsigned int v14; // ebx
+  unsigned int *v15; // rax
   unsigned int PeakHandleCount; // eax
-  NTSTATUS v16; // eax
-  __int64 v17; // rcx
-  int v18; // ebx
-  __int64 ProcessWin32Process; // rax
-  unsigned int v20; // edi
-  unsigned int v21; // edi
+  NTSTATUS v17; // eax
+  unsigned int v18; // ebx
+  unsigned int v19; // ebx
   PVOID Object; // [rsp+50h] [rbp+18h] BYREF
 
   v4 = 0LL;
-  EnterSharedCrit();
-  v9 = 0;
+  EnterSharedCrit(0LL, 1LL);
+  v8 = 0;
   if ( a2 > 4 )
-    goto LABEL_12;
+    goto LABEL_11;
   if ( Handle == (HANDLE)-2LL )
   {
     if ( a2 )
     {
-      v12 = a2 - 1;
-      if ( !v12 )
+      v13 = a2 - 1;
+      if ( !v13 )
       {
-        v14 = (unsigned int *)giheCount;
-        goto LABEL_19;
+        v15 = (unsigned int *)giheCount;
+        goto LABEL_18;
       }
-      v13 = v12 - 1;
-      if ( v13 )
+      v14 = v13 - 1;
+      if ( v14 )
       {
-        if ( v13 != 2 )
-          goto LABEL_11;
-        v14 = (unsigned int *)giheCountPeak;
-LABEL_19:
-        v9 = *v14;
-        goto LABEL_11;
+        if ( v14 != 2 )
+          goto LABEL_10;
+        v15 = (unsigned int *)giheCountPeak;
+LABEL_18:
+        v8 = *v15;
+        goto LABEL_10;
       }
       PeakHandleCount = GreGetPeakHandleCount();
     }
@@ -58,76 +56,62 @@ LABEL_19:
     {
       PeakHandleCount = GreGetHandleCount();
     }
-    v9 = PeakHandleCount;
-    goto LABEL_11;
+    v8 = PeakHandleCount;
+    goto LABEL_10;
   }
   if ( Handle == (HANDLE)-1LL )
   {
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v6);
-    v7 = (_DWORD *)CurrentProcessWin32Process;
-    if ( CurrentProcessWin32Process )
-    {
-      v6 = -*(_QWORD *)CurrentProcessWin32Process;
-      v5 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-      v7 = (_DWORD *)(v5 & CurrentProcessWin32Process);
-    }
-    goto LABEL_6;
+    CurrentProcessWin32Process = (_DWORD *)PsGetCurrentProcessWin32Process(v6);
+    goto LABEL_5;
   }
   Object = 0LL;
-  v16 = ObReferenceObjectByHandle(Handle, 0x1000u, (POBJECT_TYPE)PsProcessType, 1, &Object, 0LL);
+  v17 = ObReferenceObjectByHandle(Handle, 0x1000u, (POBJECT_TYPE)PsProcessType, 1, &Object, 0LL);
   v4 = Object;
-  if ( v16 < 0 )
+  if ( v17 < 0 )
   {
-LABEL_12:
-    UserSetLastError(87LL);
-    goto LABEL_11;
+LABEL_11:
+    UserSetLastError(87LL, v5, v7);
+    goto LABEL_10;
   }
-  v18 = *(_DWORD *)SGDGetUserSessionState(v17);
-  if ( (unsigned int)PsGetProcessSessionId(v4) != v18 )
-    goto LABEL_27;
-  ProcessWin32Process = PsGetProcessWin32Process(v4);
-  v7 = (_DWORD *)ProcessWin32Process;
-  if ( ProcessWin32Process )
-  {
-    v6 = -(__int64)(*(_QWORD *)ProcessWin32Process != 0LL);
-    v7 = (_DWORD *)(v6 & ProcessWin32Process);
-  }
-LABEL_6:
-  if ( v7 )
+  if ( (unsigned int)PsGetProcessSessionId(Object) != gSessionId )
+    goto LABEL_25;
+  CurrentProcessWin32Process = (_DWORD *)PsGetProcessWin32Process(v4);
+LABEL_5:
+  if ( CurrentProcessWin32Process )
   {
     if ( a2 )
     {
-      v20 = a2 - 1;
-      if ( v20 )
+      v18 = a2 - 1;
+      if ( v18 )
       {
-        v21 = v20 - 1;
-        if ( v21 )
+        v19 = v18 - 1;
+        if ( v19 )
         {
-          if ( v21 == 2 )
-            v9 = v7[18];
+          if ( v19 == 2 )
+            v8 = CurrentProcessWin32Process[18];
         }
         else
         {
-          v9 = v7[16];
+          v8 = CurrentProcessWin32Process[16];
         }
       }
       else
       {
-        v9 = v7[17];
+        v8 = CurrentProcessWin32Process[17];
       }
     }
     else
     {
-      v9 = v7[15];
+      v8 = CurrentProcessWin32Process[15];
     }
-    goto LABEL_9;
+    goto LABEL_8;
   }
-LABEL_27:
-  UserSetLastError(87LL);
-LABEL_9:
+LABEL_25:
+  UserSetLastError(87LL, v10, v11);
+LABEL_8:
   if ( v4 )
     ObfDereferenceObject(v4);
-LABEL_11:
-  UserSessionSwitchLeaveCrit(v6, v5, v7, v8);
-  return v9;
+LABEL_10:
+  UserSessionSwitchLeaveCrit(v6);
+  return v8;
 }

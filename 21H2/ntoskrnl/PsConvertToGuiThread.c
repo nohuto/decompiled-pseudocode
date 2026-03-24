@@ -1,14 +1,13 @@
 /*
- * XREFs of PsConvertToGuiThread @ 0x1406BC9D0
+ * XREFs of PsConvertToGuiThread @ 0x14069EF80
  * Callers:
- *     KiConvertToGuiThread @ 0x140424C80 (KiConvertToGuiThread.c)
- *     PspEnsureGuiThreadAndBatchFlush @ 0x140659774 (PspEnsureGuiThreadAndBatchFlush.c)
+ *     KiConvertToGuiThread @ 0x140402B20 (KiConvertToGuiThread.c)
  * Callees:
- *     SeCaptureAtomTableCallout @ 0x140241C40 (SeCaptureAtomTableCallout.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PsQuerySectionSignatureInformation @ 0x1406BCB10 (PsQuerySectionSignatureInformation.c)
- *     PsInvokeWin32Callout @ 0x1406F83A0 (PsInvokeWin32Callout.c)
- *     EtwTimLogProhibitWin32kSystemCalls @ 0x1409E7A80 (EtwTimLogProhibitWin32kSystemCalls.c)
+ *     SeCaptureAtomTableCallout @ 0x1402BB4B4 (SeCaptureAtomTableCallout.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
+ *     PsQuerySectionSignatureInformation @ 0x14069F0B0 (PsQuerySectionSignatureInformation.c)
+ *     EtwTimLogProhibitWin32kSystemCalls @ 0x14093C430 (EtwTimLogProhibitWin32kSystemCalls.c)
  */
 
 __int64 PsConvertToGuiThread()
@@ -52,17 +51,17 @@ __int64 PsConvertToGuiThread()
   v11 = 1;
   if ( (int)PsQuerySectionSignatureInformation(Process, &v16) >= 0 )
   {
-    v6 = (char)qword_140C1B8E0;
-    if ( qword_140C1B8E0 )
+    v6 = (char)qword_140C1DB00;
+    if ( qword_140C1DB00 )
     {
       LOBYTE(v5) = v16;
       LOBYTE(v4) = 12;
-      v6 = qword_140C1B8E0(v5, v4);
+      v6 = qword_140C1DB00(v5, v4);
       v3 = v11;
     }
     v11 = ((unsigned __int8)v3 ^ (unsigned __int8)(2 * v6)) & 2 ^ v3;
   }
-  result = PsInvokeWin32Callout(0LL, &v10, 0LL, 0LL);
+  result = PsInvokeWin32Callout(0, (__int64)&v10, 0, 0LL);
   if ( (int)result >= 0 )
   {
     _interlockedbittestandset((volatile signed __int32 *)&CurrentThread->116 + 1, 7u);
@@ -71,7 +70,7 @@ __int64 PsConvertToGuiThread()
       _interlockedbittestandset((volatile signed __int32 *)&CurrentThread->116 + 1, 0x15u);
     v14 = 0;
     v13 = CurrentThread;
-    v9 = PsInvokeWin32Callout(1LL, &v13, 0LL, 0LL);
+    v9 = PsInvokeWin32Callout(1, (__int64)&v13, 0, 0LL);
     if ( v9 < 0 )
     {
       _interlockedbittestandreset((volatile signed __int32 *)&CurrentThread->116 + 1, 7u);

@@ -1,9 +1,9 @@
 /*
- * XREFs of HsaFlushDeviceTbOnly @ 0x14052F940
+ * XREFs of HsaFlushDeviceTbOnly @ 0x1404E2C00
  * Callers:
  *     <none>
  * Callees:
- *     HsaIommuSendCommand @ 0x140530678 (HsaIommuSendCommand.c)
+ *     HsaIommuSendCommand @ 0x1404E3C48 (HsaIommuSendCommand.c)
  */
 
 __int64 __fastcall HsaFlushDeviceTbOnly(__int64 a1, unsigned __int16 a2, unsigned __int8 a3)

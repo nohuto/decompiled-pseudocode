@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM20_ReturningPortErrorFromSuspended @ 0x1C0012CA0
+ * XREFs of HUBPSM20_ReturningPortErrorFromSuspended @ 0x1C0011770
  * Callers:
  *     <none>
  * Callees:

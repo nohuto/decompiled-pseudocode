@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpMuiRegConfigListAddLanguage @ 0x140A7455C
+ * XREFs of RtlpMuiRegConfigListAddLanguage @ 0x140980F24
  * Callers:
- *     RtlpPopulateLanguageConfigList @ 0x14084729C (RtlpPopulateLanguageConfigList.c)
+ *     RtlpPopulateLanguageConfigList @ 0x14078FCBC (RtlpPopulateLanguageConfigList.c)
  * Callees:
- *     RtlpMuiRegResizeLanguageConfigList @ 0x140A7503C (RtlpMuiRegResizeLanguageConfigList.c)
+ *     RtlpMuiRegResizeLanguageConfigList @ 0x1409819F8 (RtlpMuiRegResizeLanguageConfigList.c)
  */
 
 __int64 __fastcall RtlpMuiRegConfigListAddLanguage(__int64 *a1, __int16 *a2)
@@ -56,11 +56,9 @@ LABEL_9:
     {
       v13 = *a1;
       if ( v8 + 1 >= v12 )
-      {
         v13 = RtlpMuiRegResizeLanguageConfigList(v5);
-        if ( !v13 )
-          return (unsigned int)-1073741801;
-      }
+      if ( !v13 )
+        return (unsigned int)-1073741801;
       v5 = v13;
       *a1 = v13;
     }
@@ -73,7 +71,7 @@ LABEL_9:
     return v2;
   }
   v14 = 0;
-  while ( (((unsigned __int16)(v6 ^ v11) >> (2 * v14)) & 3) == 0 && v10[v14 + 3] == a2[v14 + 3] )
+  while ( (((unsigned __int16)(v11 ^ v6) >> (2 * v14)) & 3) == 0 && v10[v14 + 3] == a2[v14 + 3] )
   {
     if ( ++v14 >= 3 )
       return v2;

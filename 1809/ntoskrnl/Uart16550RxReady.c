@@ -1,9 +1,9 @@
 /*
- * XREFs of Uart16550RxReady @ 0x14032D360
+ * XREFs of Uart16550RxReady @ 0x14032D460
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 bool __fastcall Uart16550RxReady(__int64 a1, __int64 a2)

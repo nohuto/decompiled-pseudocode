@@ -5,15 +5,15 @@
  *     MiRemoveViewsFromSection @ 0x140079370 (MiRemoveViewsFromSection.c)
  *     MiDecrementSubsections @ 0x140079410 (MiDecrementSubsections.c)
  *     MiAppendSubsectionChain @ 0x140092AA4 (MiAppendSubsectionChain.c)
- *     MmPurgeSection @ 0x1400E7CE0 (MmPurgeSection.c)
- *     MiDereferenceControlAreaPfnList @ 0x140119E0C (MiDereferenceControlAreaPfnList.c)
- *     MiDeleteCachedSubsection @ 0x1402A1918 (MiDeleteCachedSubsection.c)
+ *     MmPurgeSection @ 0x1400E7D00 (MmPurgeSection.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140119E2C (MiDereferenceControlAreaPfnList.c)
+ *     MiDeleteCachedSubsection @ 0x1402A1A18 (MiDeleteCachedSubsection.c)
  * Callees:
  *     MiControlAreaUsingExtents @ 0x1400321B0 (MiControlAreaUsingExtents.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x1402C4C20 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x1402C4D20 (MiUpdateSubsectionCrossPartitionRefs.c)
  */
 
 __int64 __fastcall MiInsertUnusedSubsection(__int64 a1)

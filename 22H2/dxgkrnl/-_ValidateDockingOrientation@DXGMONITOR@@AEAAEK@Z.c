@@ -1,5 +1,5 @@
 /*
- * XREFs of ?_ValidateDockingOrientation@DXGMONITOR@@AEAAEK@Z @ 0x1C0229050
+ * XREFs of ?_ValidateDockingOrientation@DXGMONITOR@@AEAAEK@Z @ 0x1C019EBF0
  * Callers:
  *     <none>
  * Callees:

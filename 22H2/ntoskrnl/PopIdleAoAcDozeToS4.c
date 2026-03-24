@@ -1,38 +1,38 @@
 /*
- * XREFs of PopIdleAoAcDozeToS4 @ 0x14099BE00
+ * XREFs of PopIdleAoAcDozeToS4 @ 0x1408F5590
  * Callers:
  *     <none>
  * Callees:
- *     PopDeepSleepClearDisengageReason @ 0x14028E63C (PopDeepSleepClearDisengageReason.c)
- *     PopExecutePowerAction @ 0x1409898A4 (PopExecutePowerAction.c)
- *     PopTraceSystemIdleS0LowPowerDoze @ 0x140992CD8 (PopTraceSystemIdleS0LowPowerDoze.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14034A5E0 (PopDeepSleepClearDisengageReason.c)
+ *     PopExecutePowerAction @ 0x140775C28 (PopExecutePowerAction.c)
+ *     PopTraceSystemIdleS0LowPowerDoze @ 0x1408EC7A4 (PopTraceSystemIdleS0LowPowerDoze.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopIdleAoAcDozeToS4(int a1)
 {
   __int64 v1; // rdx
   __int64 v2; // rcx
-  __int64 v3; // r8
-  _DWORD v5[4]; // [rsp+30h] [rbp-30h] BYREF
-  unsigned int v6[2]; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v4; // [rsp+30h] [rbp-30h] BYREF
+  int v5; // [rsp+38h] [rbp-28h]
+  _DWORD v6[2]; // [rsp+40h] [rbp-20h] BYREF
   __int128 v7; // [rsp+48h] [rbp-18h]
 
   PopAcquirePolicyLock(a1);
   PopTraceSystemIdleS0LowPowerDoze();
-  dword_140C3CD70 = 0;
+  dword_140C23990 = 0;
   v7 = 0LL;
-  if ( dword_140C3CD88 == 1 )
+  if ( dword_140C239A8 == 1 )
     goto LABEL_10;
-  if ( dword_140C3CD88 != 2 )
+  if ( dword_140C239A8 != 2 )
   {
-    if ( dword_140C3CD88 == 3 )
+    if ( dword_140C239A8 == 3 )
     {
       v6[0] = 13;
       goto LABEL_11;
     }
-    if ( dword_140C3CD88 == 4 )
+    if ( dword_140C239A8 == 4 )
     {
       v6[0] = 14;
       goto LABEL_11;
@@ -42,19 +42,18 @@ LABEL_10:
     goto LABEL_11;
   }
   v6[0] = 11;
-  if ( qword_140C3CE78
-    && MEMORY[0xFFFFF78000000008] - qword_140C3CE78 > 10000000
+  if ( qword_140C23A98
+    && MEMORY[0xFFFFF78000000008] - qword_140C23A98 > 10000000
                                                     * (unsigned __int64)(unsigned int)PopSmartUserPresenceCheckTimeout )
   {
     v6[0] = 12;
   }
 LABEL_11:
-  v5[2] = 0;
+  v5 = 0;
   v6[1] = 128;
-  v5[0] = 3;
-  v5[1] = -2147483612;
-  PopExecutePowerAction(v6, 0, v5, 5, 1u);
-  PopReleasePolicyLock(v2, v1, v3);
-  _InterlockedAnd(&dword_140C3CD8C, 0);
+  v4 = 0x8000002400000003uLL;
+  PopExecutePowerAction((__int64)v6, 0, &v4, 5, 1u);
+  PopReleasePolicyLock(v2, v1);
+  _InterlockedAnd(&dword_140C239AC, 0);
   return PopDeepSleepClearDisengageReason(4u);
 }

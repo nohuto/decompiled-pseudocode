@@ -1,7 +1,7 @@
 /*
- * XREFs of ?AddNewReasonForProcessEntry@DripsBlockerTrackingHelper@@IEAAJ_KPEAD0W4_DXGKETW_PROFILER_TYPE@@PEAI3@Z @ 0x1C030384C
+ * XREFs of ?AddNewReasonForProcessEntry@DripsBlockerTrackingHelper@@IEAAJ_KPEAD0W4_DXGKETW_PROFILER_TYPE@@PEAI3@Z @ 0x1C02C00E0
  * Callers:
- *     ?DoGetProcessEntry@DripsBlockerTrackingHelper@@IEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@@PEAI4PEA_N@Z @ 0x1C0303B70 (-DoGetProcessEntry@DripsBlockerTrackingHelper@@IEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYP.c)
+ *     ?DoGetProcessEntry@DripsBlockerTrackingHelper@@IEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@@PEAI4PEA_N@Z @ 0x1C02C039C (-DoGetProcessEntry@DripsBlockerTrackingHelper@@IEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYP.c)
  * Callees:
  *     <none>
  */
@@ -17,30 +17,24 @@ __int64 __fastcall DripsBlockerTrackingHelper::AddNewReasonForProcessEntry(
 {
   unsigned int v11; // edi
   __int64 i; // rbx
-  __int64 v13; // r14
-  __int64 v15; // rcx
+  __int64 v14; // rcx
 
   v11 = 0;
-  for ( i = a1; ; i += 4720LL )
+  for ( i = a1;
+        !*(_BYTE *)(i + 104)
+     || *(_QWORD *)i != a2
+     || RtlCompareMemory((const void *)(4720LL * v11 + a1 + 8), a3, a4) != a4;
+        i += 4720LL )
   {
-    if ( *(_BYTE *)(i + 104) )
-    {
-      if ( *(_QWORD *)i == a2 )
-      {
-        v13 = 4720LL * v11;
-        if ( RtlCompareMemory((const void *)(v13 + a1 + 8), a3, a4) == a4 )
-          break;
-      }
-    }
     if ( ++v11 >= 0x40 )
       return 3221226021LL;
   }
-  v15 = *(unsigned int *)(v13 + a1 + 44);
-  if ( (unsigned int)v15 >= 0x40 )
+  v14 = *(unsigned int *)(4720LL * v11 + a1 + 44);
+  if ( (unsigned int)v14 >= 0x40 )
     return 2147483674LL;
   *a6 = v11;
-  *a7 = v15;
-  *(_DWORD *)(v13 + a1 + 44) = v15 + 1;
-  *(_DWORD *)(v13 + 72 * v15 + a1 + 172) = a5;
+  *a7 = v14;
+  *(_DWORD *)(4720LL * v11 + a1 + 44) = v14 + 1;
+  *(_DWORD *)(a1 + 4720LL * v11 + 72 * v14 + 172) = a5;
   return 0LL;
 }

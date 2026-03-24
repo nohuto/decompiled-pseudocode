@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlCompareMemoryUlong @ 0x1401C5C30
+ * XREFs of RtlCompareMemoryUlong @ 0x1401C5C50
  * Callers:
  *     MiEvictPageTableLock @ 0x1400983A0 (MiEvictPageTableLock.c)
- *     MiDeleteSystemPageTable @ 0x14011F030 (MiDeleteSystemPageTable.c)
- *     MiFreeUnusedPfnPages @ 0x140183FC0 (MiFreeUnusedPfnPages.c)
- *     RtlpAllocateHeap @ 0x1402EFC30 (RtlpAllocateHeap.c)
- *     RtlpCoalesceFreeBlocks @ 0x1402F0674 (RtlpCoalesceFreeBlocks.c)
- *     RtlpCreateSplitBlock @ 0x1402F0A64 (RtlpCreateSplitBlock.c)
- *     RtlScrubMemory @ 0x1402F7D8C (RtlScrubMemory.c)
+ *     MiDeleteSystemPageTable @ 0x14011F050 (MiDeleteSystemPageTable.c)
+ *     MiFreeUnusedPfnPages @ 0x140183FE0 (MiFreeUnusedPfnPages.c)
+ *     RtlpAllocateHeap @ 0x1402EFD30 (RtlpAllocateHeap.c)
+ *     RtlpCoalesceFreeBlocks @ 0x1402F0774 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpCreateSplitBlock @ 0x1402F0B64 (RtlpCreateSplitBlock.c)
+ *     RtlScrubMemory @ 0x1402F7E8C (RtlScrubMemory.c)
  *     MmQueryVirtualMemory @ 0x1405EE910 (MmQueryVirtualMemory.c)
- *     IopTrackLink @ 0x14068BD48 (IopTrackLink.c)
+ *     IopTrackLink @ 0x14068BD28 (IopTrackLink.c)
  *     MiSwitchToPfns @ 0x1409BA954 (MiSwitchToPfns.c)
  * Callees:
  *     <none>

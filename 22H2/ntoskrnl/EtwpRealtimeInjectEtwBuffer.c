@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpRealtimeInjectEtwBuffer @ 0x140708F70
+ * XREFs of EtwpRealtimeInjectEtwBuffer @ 0x1406BEC0C
  * Callers:
- *     EtwpRealtimeDeliverBuffer @ 0x140708E10 (EtwpRealtimeDeliverBuffer.c)
- *     EtwpRealtimeNotifyConsumers @ 0x1407F6B28 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x1406BEAC8 (EtwpRealtimeDeliverBuffer.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x140710C90 (EtwpRealtimeNotifyConsumers.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     EtwpFindUserBufferSpace @ 0x14070916C (EtwpFindUserBufferSpace.c)
- *     EtwpFreeUserBufferSpace @ 0x1409EFF0C (EtwpFreeUserBufferSpace.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     EtwpFindUserBufferSpace @ 0x1406BEE00 (EtwpFindUserBufferSpace.c)
+ *     EtwpFreeUserBufferSpace @ 0x140941C2C (EtwpFreeUserBufferSpace.c)
  */
 
 __int64 __fastcall EtwpRealtimeInjectEtwBuffer(_DWORD *a1, __int64 a2, __int64 a3)
 {
-  _KPROCESS **v6; // rdi
+  _DWORD *v6; // r9
   __int64 v7; // rcx
   volatile signed __int32 *v8; // rdx
   _DWORD *v9; // r8
@@ -25,18 +25,17 @@ __int64 __fastcall EtwpRealtimeInjectEtwBuffer(_DWORD *a1, __int64 a2, __int64 a
   signed __int64 v11; // rcx
   int v12; // ecx
   unsigned int v14; // ecx
-  int UserBufferSpace; // [rsp+20h] [rbp-88h]
-  void *v16; // [rsp+28h] [rbp-80h] BYREF
-  signed __int64 v17; // [rsp+30h] [rbp-78h]
-  __int64 v18; // [rsp+38h] [rbp-70h]
-  __int64 v19; // [rsp+40h] [rbp-68h]
-  __int64 v20; // [rsp+48h] [rbp-60h]
-  char *v21; // [rsp+50h] [rbp-58h]
-  $115DCDF994C6370D29323EAB0E0C9502 v22; // [rsp+58h] [rbp-50h] BYREF
+  int UserBufferSpace; // [rsp+20h] [rbp-78h]
+  void *v16; // [rsp+28h] [rbp-70h] BYREF
+  signed __int64 v17; // [rsp+30h] [rbp-68h]
+  __int64 v18; // [rsp+38h] [rbp-60h]
+  __int64 v19; // [rsp+40h] [rbp-58h]
+  char *v20; // [rsp+48h] [rbp-50h]
+  _OWORD v21[3]; // [rsp+50h] [rbp-48h] BYREF
 
-  v20 = a2;
+  v18 = a2;
   v19 = a3;
-  memset(&v22, 0, sizeof(v22));
+  memset(v21, 0, sizeof(v21));
   v16 = 0LL;
   if ( *(_WORD *)(a3 + 54) == 6 )
   {
@@ -49,14 +48,12 @@ __int64 __fastcall EtwpRealtimeInjectEtwBuffer(_DWORD *a1, __int64 a2, __int64 a
   {
     *(_DWORD *)(a2 + 84) = 0;
   }
-  v6 = (_KPROCESS **)(a2 + 24);
-  v18 = a2 + 24;
-  if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)(a2 + 24) + 1112LL)) )
+  if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(*(_QWORD *)(a2 + 24) + 1112LL)) )
     return 3221225738LL;
-  KiStackAttachProcess(*v6, 0, (__int64)&v22);
-  **(_DWORD **)(a2 + 136) = a1[60];
-  **(_DWORD **)(a2 + 144) = a1[65];
-  v7 = (unsigned int)(4 * a1[59]);
+  KiStackAttachProcess(*(_KPROCESS **)(a2 + 24), 0LL, (__int64)v21, v6);
+  **(_DWORD **)(a2 + 136) = a1[64];
+  **(_DWORD **)(a2 + 144) = a1[69];
+  v7 = (unsigned int)(4 * a1[63]);
   if ( **(_DWORD **)(a2 + 64) < (unsigned int)v7 )
   {
     UserBufferSpace = EtwpFindUserBufferSpace(v7, a2, *(unsigned int *)(a3 + 48), &v16);
@@ -67,7 +64,7 @@ __int64 __fastcall EtwpRealtimeInjectEtwBuffer(_DWORD *a1, __int64 a2, __int64 a
       v9 = (char *)v16 + 32;
       if ( (*(_BYTE *)(a2 + 90) & 0x10) != 0 )
       {
-        v21 = (char *)v16 + 32;
+        v20 = (char *)v16 + 32;
         LODWORD(v10) = *v8;
         do
         {
@@ -100,7 +97,7 @@ __int64 __fastcall EtwpRealtimeInjectEtwBuffer(_DWORD *a1, __int64 a2, __int64 a
   {
     UserBufferSpace = -1073741764;
   }
-  KiUnstackDetachProcess(&v22);
-  ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&(*v6)[1].ProfileListHead.Blink);
+  KiUnstackDetachProcess((__int64)v21, 0);
+  ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*(_QWORD *)(a2 + 24) + 1112LL));
   return (unsigned int)UserBufferSpace;
 }

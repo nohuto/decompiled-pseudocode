@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x1405B4D4C
+ * XREFs of RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x1403F7EC8
  * Callers:
- *     RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable @ 0x1409C7E38 (RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable.c)
- *     RtlpFcUpdateUsageTriggers @ 0x1409C83F4 (RtlpFcUpdateUsageTriggers.c)
- *     RtlpFcValidateFeatureUsageSubscriptionBuffer @ 0x1409C86B8 (RtlpFcValidateFeatureUsageSubscriptionBuffer.c)
+ *     RtlpFcValidateFeatureUsageSubscriptionBuffer @ 0x1405CFCFC (RtlpFcValidateFeatureUsageSubscriptionBuffer.c)
+ *     RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable @ 0x140919EE0 (RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable.c)
+ *     RtlpFcUpdateUsageTriggers @ 0x14091A738 (RtlpFcUpdateUsageTriggers.c)
  * Callees:
  *     <none>
  */
@@ -14,28 +14,26 @@ __int64 __fastcall RtlpFcCompareUsageSubscriptionToUsageSubscription(__int64 a1,
   unsigned int v3; // eax
   unsigned int v4; // eax
 
-  if ( *(_DWORD *)a1 <= *(_DWORD *)a2 )
+  if ( *(_DWORD *)a1 > *(_DWORD *)a2 )
+    return 1LL;
+  if ( *(_DWORD *)a1 < *(_DWORD *)a2 )
+    return 0xFFFFFFFFLL;
+  v2 = *(_WORD *)(a1 + 4);
+  if ( v2 > *(_WORD *)(a2 + 4) )
+    return 1LL;
+  if ( v2 < *(_WORD *)(a2 + 4) )
+    return 0xFFFFFFFFLL;
+  v3 = *(_DWORD *)(a1 + 8);
+  if ( v3 > *(_DWORD *)(a2 + 8) )
+    return 1LL;
+  if ( v3 < *(_DWORD *)(a2 + 8) )
+    return 0xFFFFFFFFLL;
+  v4 = *(_DWORD *)(a1 + 12);
+  if ( v4 <= *(_DWORD *)(a2 + 12) )
   {
-    if ( *(_DWORD *)a1 < *(_DWORD *)a2 )
-      return 0xFFFFFFFFLL;
-    v2 = *(_WORD *)(a1 + 4);
-    if ( v2 <= *(_WORD *)(a2 + 4) )
-    {
-      if ( v2 < *(_WORD *)(a2 + 4) )
-        return 0xFFFFFFFFLL;
-      v3 = *(_DWORD *)(a1 + 8);
-      if ( v3 <= *(_DWORD *)(a2 + 8) )
-      {
-        if ( v3 >= *(_DWORD *)(a2 + 8) )
-        {
-          v4 = *(_DWORD *)(a1 + 12);
-          if ( v4 <= *(_DWORD *)(a2 + 12) )
-            return (unsigned int)-(v4 < *(_DWORD *)(a2 + 12));
-          return 1LL;
-        }
-        return 0xFFFFFFFFLL;
-      }
-    }
+    if ( v4 >= *(_DWORD *)(a2 + 12) )
+      return 0LL;
+    return 0xFFFFFFFFLL;
   }
   return 1LL;
 }

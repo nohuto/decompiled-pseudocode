@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeletePageFileSectionNodes @ 0x1406F4878
+ * XREFs of MiDeletePageFileSectionNodes @ 0x1406E8298
  * Callers:
- *     MiSegmentDelete @ 0x1406F4904 (MiSegmentDelete.c)
+ *     MiSegmentDelete @ 0x1406E8110 (MiSegmentDelete.c)
  * Callees:
- *     MiUpdateSystemProtoPtesTree @ 0x14026EA80 (MiUpdateSystemProtoPtesTree.c)
- *     MiAweControlArea @ 0x14028799C (MiAweControlArea.c)
- *     MiDeleteSectionAwe @ 0x1405AA5E8 (MiDeleteSectionAwe.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x1402F8260 (MiUpdateSystemProtoPtesTree.c)
+ *     MiAweControlArea @ 0x140316048 (MiAweControlArea.c)
+ *     MiDeleteSectionAwe @ 0x14054BB08 (MiDeleteSectionAwe.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiDeletePageFileSectionNodes(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall MiDeletePageFileSectionNodes(__int64 a1)
   {
     if ( *(_QWORD *)(v2 + 8) )
     {
-      MiUpdateSystemProtoPtesTree(v2 + 56, 0);
+      MiUpdateSystemProtoPtesTree((unsigned __int64 *)(v2 + 56), 0);
       ExFreePoolWithTag(*(PVOID *)(v2 + 8), 0);
     }
     v2 = *(_QWORD *)(v2 + 16);

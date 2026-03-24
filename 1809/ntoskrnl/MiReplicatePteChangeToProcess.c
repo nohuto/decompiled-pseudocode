@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReplicatePteChangeToProcess @ 0x140175058
+ * XREFs of MiReplicatePteChangeToProcess @ 0x140175078
  * Callers:
- *     MiReplicatePteChange @ 0x140174EF4 (MiReplicatePteChange.c)
+ *     MiReplicatePteChange @ 0x140174F14 (MiReplicatePteChange.c)
  * Callees:
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiShadowTopLevelPxes @ 0x14013CDEC (MiShadowTopLevelPxes.c)
- *     MiTransformValidPteInPlace @ 0x14016A6EC (MiTransformValidPteInPlace.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiShadowTopLevelPxes @ 0x14013CE0C (MiShadowTopLevelPxes.c)
+ *     MiTransformValidPteInPlace @ 0x14016A70C (MiTransformValidPteInPlace.c)
  */
 
 void __fastcall MiReplicatePteChangeToProcess(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

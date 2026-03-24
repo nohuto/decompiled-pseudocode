@@ -1,12 +1,11 @@
 /*
- * XREFs of ?bDisposeTrgDco@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C00E9590
+ * XREFs of ?bDisposeTrgDco@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C027358C
  * Callers:
- *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C003F250 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
- *     ?vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z @ 0x1C0275B60 (-vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z.c)
+ *     ?vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z @ 0x1C0278350 (-vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z.c)
  * Callees:
- *     ?vClearRenderState@DEVLOCKBLTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C0040380 (-vClearRenderState@DEVLOCKBLTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C0113C20 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
- *     ?vUnlock@XDCOBJ@@IEAAXXZ @ 0x1C015D9B0 (-vUnlock@XDCOBJ@@IEAAXXZ.c)
+ *     ?vClearRenderState@DEVLOCKBLTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C008BB40 (-vClearRenderState@DEVLOCKBLTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00ACCE0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C01256A0 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
  */
 
 __int64 __fastcall DEVLOCKBLTOBJ::bDisposeTrgDco(DEVLOCKBLTOBJ *this)
@@ -23,15 +22,10 @@ __int64 __fastcall DEVLOCKBLTOBJ::bDisposeTrgDco(DEVLOCKBLTOBJ *this)
     if ( (*((_DWORD *)this + 28) & 0x10) != 0 )
     {
       *(_DWORD *)(v3 + 36) &= ~0x4000u;
-      DC::pSurface(*v1, *(struct SURFACE **)(v4 + 2528));
+      DC::pSurface(*v1, *(struct SURFACE **)(v4 + 2552));
     }
-    DEVLOCKBLTOBJ::vClearRenderState(this, v1);
-    if ( *v1 && *((_BYTE *)v1 + 48) )
-    {
-      *((_DWORD *)*v1 + 10) &= ~2u;
-      *((_BYTE *)v1 + 48) = 0;
-    }
-    XDCOBJ::vUnlock((XDCOBJ *)v1);
+    DEVLOCKBLTOBJ::vClearRenderState(this, (struct XDCOBJ *)v1);
+    DLODCOBJ::vUnlock((DLODCOBJ *)v1);
     *v1 = 0LL;
   }
   return 1LL;

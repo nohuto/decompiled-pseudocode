@@ -1,11 +1,10 @@
 /*
- * XREFs of ?GetAvailableIndex@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_KPEAIPEAH@Z @ 0x1C035E160
+ * XREFs of ?GetAvailableIndex@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_KPEAIPEAH@Z @ 0x1C02BCEEC
  * Callers:
- *     NtDxgkGetAvailableTrackedWorkloadIndex @ 0x1C035F920 (NtDxgkGetAvailableTrackedWorkloadIndex.c)
+ *     NtDxgkGetAvailableTrackedWorkloadIndex @ 0x1C02BE040 (NtDxgkGetAvailableTrackedWorkloadIndex.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetIndexHelper@DXGTRACKEDWORKLOAD@@IEAAJPEAI@Z @ 0x1C035E244 (-GetIndexHelper@DXGTRACKEDWORKLOAD@@IEAAJPEAI@Z.c)
- *     ?ProcessActiveInstancePairs@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_K@Z @ 0x1C035E430 (-ProcessActiveInstancePairs@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_.c)
+ *     ?GetIndexHelper@DXGTRACKEDWORKLOAD@@IEAAJPEAI@Z @ 0x1C02BCFA8 (-GetIndexHelper@DXGTRACKEDWORKLOAD@@IEAAJPEAI@Z.c)
+ *     ?ProcessActiveInstancePairs@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_K@Z @ 0x1C02BD1B4 (-ProcessActiveInstancePairs@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_.c)
  */
 
 __int64 __fastcall DXGTRACKEDWORKLOAD::GetAvailableIndex(
@@ -17,38 +16,34 @@ __int64 __fastcall DXGTRACKEDWORKLOAD::GetAvailableIndex(
         unsigned int *a6,
         int *a7)
 {
-  DXGTRACKEDWORKLOAD *v8; // rcx
-  __int64 v9; // rdi
-  struct COREDEVICEACCESS *v10; // r8
+  DXGTRACKEDWORKLOAD *v9; // rcx
+  __int64 v10; // rbx
   unsigned __int64 v11; // r10
-  struct DXGDEVICE *v12; // r11
+  struct COREDEVICEACCESS *v12; // r11
   int IndexHelper; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  _QWORD *v16; // rax
 
   *a7 = 0;
-  LODWORD(v9) = DXGTRACKEDWORKLOAD::GetIndexHelper(this, a6);
-  if ( (int)v9 < 0 )
+  LODWORD(v10) = DXGTRACKEDWORKLOAD::GetIndexHelper(this, a6);
+  if ( (int)v10 < 0 )
   {
-    LODWORD(v9) = DXGTRACKEDWORKLOAD::ProcessActiveInstancePairs(v8, v12, v10, v11, a5);
-    if ( (int)v9 >= 0 )
+    LODWORD(v10) = DXGTRACKEDWORKLOAD::ProcessActiveInstancePairs(v9, a2, v12, v11, a5);
+    if ( (int)v10 >= 0 )
     {
       *a7 = 1;
       IndexHelper = DXGTRACKEDWORKLOAD::GetIndexHelper(this, a6);
-      v9 = IndexHelper;
+      v10 = IndexHelper;
       if ( IndexHelper < 0 )
       {
-        WdLogSingleEntry3(2LL, this, IndexHelper, 1426LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"TrackedWorkload 0x%I64x: Unable to find available entry, returning 0x%I64x",
-          (__int64)this,
-          v9,
-          1426LL,
-          0LL,
-          0LL);
+        v16 = (_QWORD *)WdLogNewEntry5_WdError(v15, v14);
+        v16[3] = this;
+        v16[4] = v10;
+        v16[5] = 1350LL;
+        WdLogEvent5_WdError(v16);
       }
     }
   }
-  return (unsigned int)v9;
+  return (unsigned int)v10;
 }

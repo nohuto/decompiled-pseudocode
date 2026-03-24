@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C004F94C
+ * XREFs of ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C003492C
  * Callers:
- *     HMAllocObjectEx @ 0x1C0012A1C (HMAllocObjectEx.c)
- *     ?HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C004EC70 (-HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z.c)
- *     HMFreeObject @ 0x1C004F310 (HMFreeObject.c)
- *     HMCreateHandleForObject @ 0x1C0078820 (HMCreateHandleForObject.c)
- *     HMChangeOwnerThreadWorker @ 0x1C00A1CD8 (HMChangeOwnerThreadWorker.c)
- *     HMChangeOwnerPheProcessWorker @ 0x1C00A1FE8 (HMChangeOwnerPheProcessWorker.c)
- *     HMRemoveHandleForObject @ 0x1C00B3CF0 (HMRemoveHandleForObject.c)
+ *     HMFreeObject @ 0x1C0009390 (HMFreeObject.c)
+ *     HMRemoveHandleForObject @ 0x1C0009810 (HMRemoveHandleForObject.c)
+ *     HMAllocObject @ 0x1C0034080 (HMAllocObject.c)
+ *     ?HMDestroyUnlockedObjectWorker@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C0043ABC (-HMDestroyUnlockedObjectWorker@@YAXPEAU_HANDLEENTRY@@@Z.c)
+ *     HMCreateHandleForObject @ 0x1C006B090 (HMCreateHandleForObject.c)
+ *     HMChangeOwnerPheProcessWorker @ 0x1C009B668 (HMChangeOwnerPheProcessWorker.c)
+ *     HMChangeOwnerThreadWorker @ 0x1C00A66E4 (HMChangeOwnerThreadWorker.c)
  * Callees:
  *     <none>
  */

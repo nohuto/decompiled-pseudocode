@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmParkUnblockIdle @ 0x140356610
+ * XREFs of PpmParkUnblockIdle @ 0x140307C00
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfQueueAction @ 0x140251F58 (PpmPerfQueueAction.c)
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     KeCountSetBitsAffinityEx @ 0x1402C0190 (KeCountSetBitsAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C0280 (KeRemoveProcessorAffinityEx.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402BBB30 (KeRemoveProcessorAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x140344490 (KeCountSetBitsAffinityEx.c)
+ *     PpmPerfQueueAction @ 0x1403989CC (PpmPerfQueueAction.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 char PpmParkUnblockIdle()
@@ -30,31 +30,31 @@ char PpmParkUnblockIdle()
   v10 = 0;
   if ( PpmIsParkingEnabled )
   {
-    v6 = qword_140C0D7F8;
+    v6 = qword_140C12B98;
     v5 = (unsigned __int16 *)&PpmPerfNewUnparkedMask;
     v7 = 0;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v10, &v5) )
     {
       Prcb = KeGetPrcb(v10);
-      if ( *(_BYTE *)(Prcb + 33669) )
-        *(_BYTE *)(Prcb + 33669) = 0;
+      if ( *(_BYTE *)(Prcb + 32829) )
+        *(_BYTE *)(Prcb + 32829) = 0;
       else
         KeRemoveProcessorAffinityEx((unsigned __int16 *)&PpmPerfNewUnparkedMask, v10);
     }
-    v3 = KeCountSetBitsAffinityEx((unsigned __int16 *)&PpmPerfNewUnparkedMask);
+    v3 = KeCountSetBitsAffinityEx(&PpmPerfNewUnparkedMask);
     if ( v3 )
     {
       PpmCheckCount = v3;
-      v6 = qword_140C0D7F8;
+      v6 = qword_140C12B98;
       v7 = 0;
       v5 = (unsigned __int16 *)&PpmPerfNewUnparkedMask;
       while ( !(unsigned int)KeEnumerateNextProcessor(&v10, &v5) )
       {
         v4 = KeGetPrcb(v10);
-        PpmPerfQueueAction(v4, 5);
+        PpmPerfQueueAction(v4, 5LL);
       }
-      PpmPerfNewUnparkedMask = 2097153;
-      memset(&unk_140C0D7F4, 0, 0x104uLL);
+      PpmPerfNewUnparkedMask = 1310721;
+      memset(&unk_140C12B94, 0, 0xA4uLL);
       return 0;
     }
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bGetDEVICEMETRICS@RFONTOBJ@@QEAAHPEAU_FD_DEVICEMETRICS@@@Z @ 0x1C0015648
+ * XREFs of ?bGetDEVICEMETRICS@RFONTOBJ@@QEAAHPEAU_FD_DEVICEMETRICS@@@Z @ 0x1C009E9C8
  * Callers:
- *     ?bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_XFORM@@QEAU_POINTL@@KKHHK@Z @ 0x1C0016754 (-bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_.c)
+ *     ?bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_XFORM@@QEAU_POINTL@@KKHHK@Z @ 0x1C009D9E0 (-bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_.c)
  * Callees:
- *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C0018C7C (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
+ *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C009A2D8 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
  */
 
 __int64 __fastcall RFONTOBJ::bGetDEVICEMETRICS(POINTL **this, struct _FD_DEVICEMETRICS *a2)
@@ -13,16 +13,15 @@ __int64 __fastcall RFONTOBJ::bGetDEVICEMETRICS(POINTL **this, struct _FD_DEVICEM
   struct DHPDEV__ *v6; // rdx
   unsigned int v7; // r8d
   FLONG flRealizedType; // eax
-  FIX fxMaxAscender; // edx
-  POINTL *v10; // rcx
-  FIX fxMaxDescender; // eax
-  POINTL *v12; // rcx
+  FIX fxMaxAscender; // eax
+  FIX fxMaxDescender; // edx
+  POINTL *v11; // rcx
   LONG y; // r10d
-  __int64 v15; // rdx
-  __int64 v16; // rax
-  int v17; // edx
-  unsigned __int64 v18; // r9
-  POINTL v20; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v13; // rdx
+  __int64 v14; // rax
+  int v15; // edx
+  unsigned __int64 v16; // r9
+  POINTL v19; // [rsp+40h] [rbp-18h] BYREF
 
   v4 = *(FD_XFORM *)&(*this)[17].x;
   a2->lNonLinearExtLeading = 0x80000000;
@@ -32,8 +31,8 @@ __int64 __fastcall RFONTOBJ::bGetDEVICEMETRICS(POINTL **this, struct _FD_DEVICEM
   a2->lNonLinearAvgCharWidth = 0x80000000;
   v5 = (struct _FONTOBJ *)*this;
   v6 = (struct DHPDEV__ *)(*this)[14];
-  v20 = (*this)[16];
-  if ( (unsigned int)PFFOBJ::QueryFontData((PFFOBJ *)&v20, v6, v5, 3u, 0xFFFFFFFF, 0LL, a2, 0x7Cu) == -1 )
+  v19 = (*this)[16];
+  if ( (unsigned int)PFFOBJ::QueryFontData((PFFOBJ *)&v19, v6, v5, 3u, 0xFFFFFFFF, 0LL, a2, 0x7Cu) == -1 )
     return 0;
   v7 = 1;
   (*this)[34].y = 1;
@@ -56,19 +55,17 @@ __int64 __fastcall RFONTOBJ::bGetDEVICEMETRICS(POINTL **this, struct _FD_DEVICEM
   (*this)[37] = a2->ptlULThickness;
   (*this)[38] = a2->ptlSOThickness;
   fxMaxAscender = a2->fxMaxAscender;
-  v10 = *this;
-  fxMaxDescender = a2->fxMaxDescender;
   if ( fxMaxAscender < 0 )
-    goto LABEL_11;
-  if ( fxMaxDescender >= 0 )
   {
-    fxMaxDescender += fxMaxAscender;
-LABEL_11:
-    v10[40].y = fxMaxDescender;
-    goto LABEL_12;
+    fxMaxAscender = a2->fxMaxDescender;
   }
-  v10[40].y = fxMaxAscender;
-LABEL_12:
+  else
+  {
+    fxMaxDescender = a2->fxMaxDescender;
+    if ( fxMaxDescender >= 0 )
+      fxMaxAscender += fxMaxDescender;
+  }
+  (*this)[40].y = fxMaxAscender;
   (*this)[39].y = a2->fxMaxAscender;
   (*this)[40].x = -a2->fxMaxDescender;
   (*this)[44].x = ((*this)[39].y + 8) >> 4;
@@ -79,33 +76,33 @@ LABEL_12:
   (*this)[43].y = a2->cyMax;
   (*this)[79].x = a2->cjGlyphMax;
   (*this)[79].y = a2->cjGlyphMax;
-  v12 = *this;
+  v11 = *this;
   y = (*this)[1].y;
   if ( (y & 0x10000000) != 0 )
   {
-    v15 = (unsigned int)v12[43].y;
-    v16 = v15 * ((unsigned int)v12[43].x + 2LL);
+    v13 = (unsigned int)v11[43].y;
+    v14 = v13 * ((unsigned int)v11[43].x + 2LL);
     if ( (y & 0x20000000) != 0 )
     {
-      v16 *= 5LL;
-      v17 = (v12[43].x + 2) * (v15 + 1);
+      v14 *= 5LL;
+      v15 = (v11[43].x + 2) * (v13 + 1);
     }
     else
     {
-      v17 = v15 * (v12[43].x + 2);
+      v15 = v13 * (v11[43].x + 2);
     }
-    v18 = ((v16 + 3) & 0xFFFFFFFFFFFFFFFCuLL) + 16;
-    if ( v18 <= 0xFFFFFFFF )
+    v16 = ((v14 + 3) & 0xFFFFFFFFFFFFFFFCuLL) + 16;
+    if ( v16 <= 0xFFFFFFFF )
     {
-      v12[79].x = ((v17 + 3) & 0xFFFFFFFC) + 16;
-      (*this)[79].y = v18;
-      v12 = *this;
-      goto LABEL_14;
+      v11[79].x = ((v15 + 3) & 0xFFFFFFFC) + 16;
+      (*this)[79].y = v16;
+      v11 = *this;
+      goto LABEL_17;
     }
     return 0;
   }
-LABEL_14:
-  *(FD_XFORM *)&v12[45].x = a2->fdxQuantized;
+LABEL_17:
+  *(FD_XFORM *)&v11[45].x = a2->fdxQuantized;
   (*this)[47].x = a2->lNonLinearExtLeading;
   (*this)[47].y = a2->lNonLinearIntLeading;
   (*this)[48].x = a2->lNonLinearMaxCharWidth;

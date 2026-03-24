@@ -1,15 +1,15 @@
 /*
- * XREFs of ?Vf_VerifySubmitLocked@FxIoTarget@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequestBase@@@Z @ 0x1C00C7F18
+ * XREFs of ?Vf_VerifySubmitLocked@FxIoTarget@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxRequestBase@@@Z @ 0x1C00C6E30
  * Callers:
- *     ?SubmitLocked@FxIoTarget@@QEAAKPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@K@Z @ 0x1C000B1D0 (-SubmitLocked@FxIoTarget@@QEAAKPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@K@Z.c)
+ *     ?SubmitLocked@FxIoTarget@@QEAAKPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@K@Z @ 0x1C0001F90 (-SubmitLocked@FxIoTarget@@QEAAKPEAVFxRequestBase@@PEAU_WDF_REQUEST_SEND_OPTIONS@@K@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
- *     WPP_IFR_SF_qqdqdd @ 0x1C0074BB0 (WPP_IFR_SF_qqdqdd.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     WPP_IFR_SF_qqdqdd @ 0x1C006642C (WPP_IFR_SF_qqdqdd.c)
  */
 
 __int64 __fastcall FxIoTarget::Vf_VerifySubmitLocked(
@@ -18,21 +18,21 @@ __int64 __fastcall FxIoTarget::Vf_VerifySubmitLocked(
         FxRequestBase *Request)
 {
   unsigned int v5; // edi
+  unsigned __int8 v7; // r8
   __int16 m_VerifierFlags; // ax
-  unsigned __int64 v8; // rax
-  unsigned int _a2; // r10d
+  unsigned __int64 v9; // rax
+  unsigned int _a2; // r11d
   FxRequestBase *_a1; // rcx
-  int CurrentLocation; // r8d
   unsigned __int64 ObjectHandleUnchecked; // rax
   FxRequestBase *v13; // rcx
   ULONG_PTR v14; // rax
-  _IRP *m_Irp; // rsi
+  _IRP *m_Irp; // rbp
   unsigned __int64 v16; // rax
-  const void *_a5; // rdx
-  int _a4; // r8d
-  int v19; // r10d
-  int _a6; // r11d
-  FxRequestBase *v21; // rcx
+  int _a6; // edx
+  int v18; // r9d
+  const void *_a5; // r10
+  int v20; // r11d
+  FxRequestBase *v21; // r8
   unsigned __int8 irql; // [rsp+90h] [rbp+18h] BYREF
 
   v5 = 0;
@@ -52,8 +52,7 @@ __int64 __fastcall FxIoTarget::Vf_VerifySubmitLocked(
       FxVerifierBugCheckWorker(FxDriverGlobals, WDF_REQUEST_FATAL_ERROR, 3uLL, v14);
     }
     m_Irp = Request->m_Irp.m_Irp;
-    CurrentLocation = m_Irp->CurrentLocation;
-    if ( CurrentLocation <= this->m_TargetStackSize )
+    if ( m_Irp->CurrentLocation <= this->m_TargetStackSize )
     {
       v5 = -1073741616;
       FxObject::GetObjectHandleUnchecked(this);
@@ -63,27 +62,27 @@ __int64 __fastcall FxIoTarget::Vf_VerifySubmitLocked(
         v21 = (FxRequestBase *)v16;
       WPP_IFR_SF_qqdqdd(
         FxDriverGlobals,
-        (unsigned __int8)_a5,
+        v18 - 1,
         0xEu,
         0x1Cu,
         (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids,
         v21,
         m_Irp,
-        _a4,
+        v18 - 1,
         _a5,
         _a6,
-        v19);
+        v20);
     }
   }
   else
   {
     v5 = -1073741616;
-    v8 = FxObject::GetObjectHandleUnchecked(Request);
+    v9 = FxObject::GetObjectHandleUnchecked(Request);
     _a1 = Request;
-    if ( v8 )
-      _a1 = (FxRequestBase *)v8;
+    if ( v9 )
+      _a1 = (FxRequestBase *)v9;
     WPP_IFR_SF_qL(FxDriverGlobals, 2u, 0xEu, 0x1Au, (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids, _a1, _a2);
   }
-  FxNonPagedObject::Unlock(Request, irql, CurrentLocation);
+  FxNonPagedObject::Unlock(Request, irql, v7);
   return v5;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiMapPagesToZero @ 0x1400F90C0
+ * XREFs of MiMapPagesToZero @ 0x1400F90E0
  * Callers:
- *     MiZeroPageThread @ 0x1401791E0 (MiZeroPageThread.c)
- *     MiGetPagesToZero @ 0x140185240 (MiGetPagesToZero.c)
+ *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
+ *     MiGetPagesToZero @ 0x140185260 (MiGetPagesToZero.c)
  * Callees:
  *     MiFinalizePageAttribute @ 0x140029658 (MiFinalizePageAttribute.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     MiChangePageAttribute @ 0x1400EF900 (MiChangePageAttribute.c)
- *     MiUserPdeOrAbove @ 0x1400F962C (MiUserPdeOrAbove.c)
- *     MiRemoveFaultNode @ 0x1400F96A4 (MiRemoveFaultNode.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlNotifyLongSpinWait @ 0x1402712D0 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298230 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
+ *     MiUserPdeOrAbove @ 0x1400F964C (MiUserPdeOrAbove.c)
+ *     MiRemoveFaultNode @ 0x1400F96C4 (MiRemoveFaultNode.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall MiMapPagesToZero(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)

@@ -1,25 +1,25 @@
 /*
- * XREFs of PpmParkComputeDiff @ 0x140463070
+ * XREFs of PpmParkComputeDiff @ 0x14057CF44
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x140353230 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x140305BF0 (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     KiXorAffinityEx @ 0x14045F90C (KiXorAffinityEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KeXorAffinityEx @ 0x140513638 (KeXorAffinityEx.c)
  */
 
 __int64 PpmParkComputeDiff()
 {
-  __int64 v0; // r8
+  __int64 v0; // r9
   unsigned __int16 *v1; // rcx
   __int64 v2; // rdx
-  __int64 v3; // r9
-  __int64 v4; // rdx
-  __int64 v5; // r9
+  __int64 v3; // r8
+  __int64 v4; // r8
+  __int64 v5; // r10
 
-  PpmPerfNewCoreParkingMask[0] = 2097153;
-  memset(&unk_140C0BBB4, 0, 0x104uLL);
-  PpmParkNewSoftParkingMask = 2097153;
-  memset(&unk_140C0D5D4, 0, 0x104uLL);
+  PpmPerfNewCoreParkingMask[0] = 1310721;
+  memset(&unk_140C128D4, 0, 0xA4uLL);
+  PpmParkNewSoftParkingMask = 1310721;
+  memset(&unk_140C12A34, 0, 0xA4uLL);
   if ( PpmParkNumNodes )
   {
     v0 = (unsigned int)PpmParkNumNodes;
@@ -27,33 +27,22 @@ __int64 PpmParkComputeDiff()
     do
     {
       v2 = *v1;
-      v3 = *(_QWORD *)(v1 + 10);
+      v3 = *(_QWORD *)(v1 + 14);
       if ( LOWORD(PpmPerfNewCoreParkingMask[0]) <= (unsigned __int16)v2 )
-      {
-        if ( HIWORD(PpmPerfNewCoreParkingMask[0]) <= (unsigned __int16)v2 )
-          goto LABEL_7;
         LOWORD(PpmPerfNewCoreParkingMask[0]) = v2 + 1;
-      }
       *(_QWORD *)&PpmPerfNewCoreParkingMask[2 * v2 + 2] |= v3;
-LABEL_7:
       v4 = *v1;
-      v5 = *(_QWORD *)(v1 + 18);
-      if ( (unsigned __int16)PpmParkNewSoftParkingMask > (unsigned __int16)v4 )
-        goto LABEL_10;
-      if ( HIWORD(PpmParkNewSoftParkingMask) > (unsigned __int16)v4 )
-      {
+      v5 = *(_QWORD *)(v1 + 22);
+      if ( (unsigned __int16)PpmParkNewSoftParkingMask <= (unsigned __int16)v4 )
         LOWORD(PpmParkNewSoftParkingMask) = v4 + 1;
-LABEL_10:
-        qword_140C0D5D8[v4] |= v5;
-      }
-      v1 += 96;
+      v1 += 136;
+      qword_140C12A38[v4] |= v5;
       --v0;
     }
     while ( v0 );
   }
-  return KiXorAffinityEx(
-           (char *)PpmPerfCoreParkingMask,
-           PpmPerfNewCoreParkingMask,
-           &PpmPerfChangedCoreParkingMask,
-           word_140C0DA12);
+  return KeXorAffinityEx(
+           PpmPerfCoreParkingMask,
+           (unsigned __int16 *)PpmPerfNewCoreParkingMask,
+           PpmPerfChangedCoreParkingMask);
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of KeAbMarkCrossThreadReleasable @ 0x14039C41C
+ * XREFs of KeAbMarkCrossThreadReleasable @ 0x14038F9E4
  * Callers:
- *     ExDisownFastResource @ 0x14039C100 (ExDisownFastResource.c)
- *     KeAbCrossThreadDeleteDpcRoutine @ 0x140575C90 (KeAbCrossThreadDeleteDpcRoutine.c)
+ *     ExDisownFastResource @ 0x14038F720 (ExDisownFastResource.c)
+ *     KeAbCrossThreadDeleteDpcRoutine @ 0x140521340 (KeAbCrossThreadDeleteDpcRoutine.c)
  * Callees:
- *     KiAbForceProcessLockEntry @ 0x14039C4BC (KiAbForceProcessLockEntry.c)
+ *     KiAbForceProcessLockEntry @ 0x14038FA84 (KiAbForceProcessLockEntry.c)
  */
 
-char __fastcall KeAbMarkCrossThreadReleasable(__int64 a1, __int64 *a2)
+unsigned __int8 __fastcall KeAbMarkCrossThreadReleasable(__int64 a1, _KLOCK_ENTRY *a2)
 {
-  __int64 *v2; // rbx
-  char result; // al
+  _KLOCK_ENTRY *v2; // rbx
+  volatile unsigned __int8 result; // al
 
   v2 = a2;
   if ( ((unsigned __int8)a2 & 1) != 0 )
-    v2 = (__int64 *)(&KeGetCurrentThread()[1].Process + 12 * (unsigned __int8)((unsigned __int64)a2 >> 1));
-  if ( *v2 >= 0 )
+    v2 = &KeGetCurrentThread()->LockEntries[(unsigned __int8)((unsigned __int64)a2 >> 1)];
+  if ( (__int64)v2->LockState.LockState >= 0 )
     KiAbForceProcessLockEntry(v2);
-  result = *(_BYTE *)v2 | 1;
-  *(_BYTE *)v2 = result;
+  result = v2->CrossThreadReleasableAndBusyByte | 1;
+  v2->CrossThreadReleasableAndBusyByte = result;
   return result;
 }

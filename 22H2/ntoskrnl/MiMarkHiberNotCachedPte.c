@@ -1,54 +1,62 @@
 /*
- * XREFs of MiMarkHiberNotCachedPte @ 0x140AAC400
+ * XREFs of MiMarkHiberNotCachedPte @ 0x1409B0440
  * Callers:
  *     <none>
  * Callees:
- *     MiIsPfn @ 0x14023F0A0 (MiIsPfn.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     PoSetHiberRange @ 0x14058E930 (PoSetHiberRange.c)
+ *     MiReadPteShadow @ 0x1402860B0 (MiReadPteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiIsPfn @ 0x1402C9840 (MiIsPfn.c)
+ *     PoSetHiberRange @ 0x140387960 (PoSetHiberRange.c)
  */
 
 __int64 __fastcall MiMarkHiberNotCachedPte(__int64 a1, unsigned __int64 a2, int a3)
 {
   __int64 v4; // rax
-  char v5; // bl
-  void *v6; // rsi
-  ULONG_PTR v7; // r9
-  __int64 v8; // rcx
-  __int64 v10; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v5; // rbx
+  int v6; // eax
+  unsigned __int64 PteShadow; // rdi
+  void *v8; // rdi
+  ULONG_PTR v9; // r9
+  __int64 v10; // rcx
+  __int64 v12; // [rsp+58h] [rbp+20h] BYREF
 
   v4 = MI_READ_PTE_LOCK_FREE(a2);
-  v10 = v4;
+  v12 = v4;
   v5 = v4;
-  if ( (v4 & 1) != 0 && ((v4 & 0x10) != 0 || (v4 & 8) != 0) )
+  if ( (v4 & 1) != 0 && ((v6 = v4 & 0x10) == 0 && (v5 & 8) != 0 || v6) )
   {
-    v6 = (void *)(((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v10) >> 12) & 0xFFFFFFFFFFLL);
-    if ( (unsigned int)MiIsPfn((unsigned __int64)v6) )
+    PteShadow = v5;
+    if ( MiPteInShadowRange((unsigned __int64)&v12) )
+      PteShadow = MiReadPteShadow((unsigned __int64)&v12, v5);
+    v8 = (void *)((PteShadow >> 12) & 0xFFFFFFFFFLL);
+    if ( (unsigned int)MiIsPfn((unsigned __int64)v8) )
     {
-      if ( v5 >= 0 )
+      if ( (v5 & 0x80u) == 0LL )
       {
-        if ( !a3 )
-        {
-          v7 = 1LL;
-LABEL_13:
-          PoSetHiberRange(0LL, 0x14000u, v6, v7, 0x636E6D4Du);
-        }
+        if ( a3 )
+          return 0LL;
+        v9 = 1LL;
       }
       else
       {
-        v7 = 512LL;
+        v9 = 512LL;
         if ( a3 <= 1 )
-          goto LABEL_13;
-        v8 = (unsigned int)(a3 - 1);
+        {
+LABEL_16:
+          PoSetHiberRange(0LL, 0x14000u, v8, v9, 0x636E6D4Du);
+          return 0LL;
+        }
+        v10 = (unsigned int)(a3 - 1);
         do
         {
-          v7 <<= 9;
-          --v8;
+          v9 <<= 9;
+          --v10;
         }
-        while ( v8 );
-        if ( v7 )
-          goto LABEL_13;
+        while ( v10 );
       }
+      if ( v9 )
+        goto LABEL_16;
     }
   }
   return 0LL;

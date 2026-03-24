@@ -1,7 +1,7 @@
 /*
- * XREFs of CmTmCreateEnlistment @ 0x1407428FC
+ * XREFs of CmTmCreateEnlistment @ 0x1407672E0
  * Callers:
- *     CmpTransInitializeTransaction @ 0x140741B7C (CmpTransInitializeTransaction.c)
+ *     CmpTransInitializeTransaction @ 0x1407670BC (CmpTransInitializeTransaction.c)
  * Callees:
  *     <none>
  */

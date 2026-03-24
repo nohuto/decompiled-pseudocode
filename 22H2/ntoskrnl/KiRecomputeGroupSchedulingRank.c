@@ -1,12 +1,12 @@
 /*
- * XREFs of KiRecomputeGroupSchedulingRank @ 0x140364F20
+ * XREFs of KiRecomputeGroupSchedulingRank @ 0x14035DE50
  * Callers:
- *     KiQueueReadyThread @ 0x1402344F0 (KiQueueReadyThread.c)
- *     KiSwapThread @ 0x14023F3D0 (KiSwapThread.c)
- *     KiGroupSchedulingQuantumEnd @ 0x140307E24 (KiGroupSchedulingQuantumEnd.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x140258040 (KiGroupSchedulingQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x140258C10 (KiQueueReadyThread.c)
+ *     KiSwapThread @ 0x1402C6D60 (KiSwapThread.c)
  * Callees:
- *     KiResortScbQueue @ 0x1403055D0 (KiResortScbQueue.c)
- *     KiChargeSchedulingGroupCycleTime @ 0x140308808 (KiChargeSchedulingGroupCycleTime.c)
+ *     KiChargeSchedulingGroupCycleTime @ 0x140259900 (KiChargeSchedulingGroupCycleTime.c)
+ *     KiResortScbQueue @ 0x14035D48C (KiResortScbQueue.c)
  */
 
 void __fastcall KiRecomputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3)
@@ -25,9 +25,12 @@ void __fastcall KiRecomputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a
   v7 = *(volatile signed __int32 **)(a2 + 120);
   v8 = v6 >> 7;
   *(_QWORD *)(a2 + 24) += v8;
-  if ( v7 )
-    _InterlockedIncrement(v7);
   v9 = *(_QWORD *)(a2 + 24);
+  if ( v7 )
+  {
+    _InterlockedIncrement(v7);
+    v9 = *(_QWORD *)(a2 + 24);
+  }
   if ( *(_QWORD *)a2 > v9 )
   {
     v11 = v8 + *(_QWORD *)a2 - v9 - 1;

@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpParametersPropagate @ 0x140980100
+ * XREFs of PfpParametersPropagate @ 0x1408E0B24
  * Callers:
- *     PfpParametersWatcher @ 0x140980230 (PfpParametersWatcher.c)
+ *     PfpParametersWatcher @ 0x1408E0C50 (PfpParametersWatcher.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     PfTStart @ 0x140847C60 (PfTStart.c)
- *     PfTInitialize @ 0x140848CBC (PfTInitialize.c)
- *     PfTCleanup @ 0x14097F218 (PfTCleanup.c)
- *     PfpRpShutdown @ 0x14097F514 (PfpRpShutdown.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     PfTInitialize @ 0x1407BF500 (PfTInitialize.c)
+ *     PfTStart @ 0x1407C0200 (PfTStart.c)
+ *     PfTCleanup @ 0x1408E040C (PfTCleanup.c)
+ *     PfpRpShutdown @ 0x1408E06E8 (PfpRpShutdown.c)
  */
 
 void __fastcall PfpParametersPropagate(_DWORD *a1)
@@ -18,31 +18,33 @@ void __fastcall PfpParametersPropagate(_DWORD *a1)
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v3; // edi
   __int64 v4; // rdx
+  __int64 v5; // rdx
+  __int64 v6; // rdx
 
   CurrentThread = KeGetCurrentThread();
   v3 = 0;
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&PfTGlobals, 0LL);
-  if ( (dword_140C65248 & 1) != 0 )
-    v3 = a1[20] != dword_140C6545C;
-  if ( (dword_140C65248 & 2) != 0 && a1[19] != dword_140C65464 )
+  if ( (dword_140C4FBC8 & 1) != 0 )
+    v3 = a1[20] != dword_140C4FDDC;
+  if ( (dword_140C4FBC8 & 2) != 0 && a1[19] != dword_140C4FDE4 )
     v3 |= 2u;
-  if ( (dword_140C65248 & 3) != 0 && (a1[17] & 1) == 0 || v3 )
+  if ( (dword_140C4FBC8 & 3) != 0 && (a1[17] & 1) == 0 || v3 )
   {
-    PfTCleanup((__int64)&PfTGlobals, (__int64)&PfKernelGlobals);
-    PfTInitialize(&PfTGlobals, (unsigned __int64 *)&PfKernelGlobals, 1);
-    PfTStart((__int64)&PfTGlobals, v4, v3);
+    PfTCleanup((__int64)&PfTGlobals, v4);
+    PfTInitialize(&PfTGlobals, v5, 1);
+    PfTStart((__int64)&PfTGlobals, v6, v3);
   }
-  if ( ((a1[17] & 2) != 0) != (dword_140C651C0 & 1) )
+  if ( ((a1[17] & 2) != 0) != (dword_140C503F0 & 1) )
   {
     if ( (a1[17] & 2) != 0 )
     {
-      _InterlockedExchange64(&qword_140C651B0, 0LL);
-      dword_140C651C0 |= 1u;
+      _InterlockedExchange64(&qword_140C503E0, 0LL);
+      dword_140C503F0 |= 1u;
     }
     else
     {
-      PfpRpShutdown((__int64)&unk_140C65128);
+      PfpRpShutdown((__int64)&unk_140C50358);
     }
   }
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PfTGlobals, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

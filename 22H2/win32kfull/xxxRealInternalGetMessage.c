@@ -1,80 +1,71 @@
 /*
- * XREFs of xxxRealInternalGetMessage @ 0x1C01280D0
+ * XREFs of xxxRealInternalGetMessage @ 0x1C0055680
  * Callers:
- *     NtUserRealInternalGetMessage @ 0x1C00050A0 (NtUserRealInternalGetMessage.c)
- *     xxxInternalGetMessage @ 0x1C006A4F0 (xxxInternalGetMessage.c)
- *     NtUserGetMessage @ 0x1C01266B0 (NtUserGetMessage.c)
- *     NtUserPeekMessage @ 0x1C0127F20 (NtUserPeekMessage.c)
+ *     NtUserRealInternalGetMessage @ 0x1C0054510 (NtUserRealInternalGetMessage.c)
+ *     NtUserGetMessage @ 0x1C0055090 (NtUserGetMessage.c)
+ *     NtUserPeekMessage @ 0x1C00554C0 (NtUserPeekMessage.c)
+ *     xxxInternalGetMessage @ 0x1C00D9C60 (xxxInternalGetMessage.c)
  * Callees:
- *     IsShellFrameHangResilient @ 0x1C0006E08 (IsShellFrameHangResilient.c)
- *     IsAdaptiveQueueDetachExempted @ 0x1C0006E7C (IsAdaptiveQueueDetachExempted.c)
- *     FreeHidData @ 0x1C000E960 (FreeHidData.c)
- *     ??0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00156F0 (--0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     ??1CInpLockGuardExclusive@@QEAA@XZ @ 0x1C0015734 (--1CInpLockGuardExclusive@@QEAA@XZ.c)
- *     _IsChild @ 0x1C0016C4C (_IsChild.c)
- *     HMValidateHandleNoRip @ 0x1C00244B4 (HMValidateHandleNoRip.c)
- *     HMValidateHandle @ 0x1C002D0F8 (HMValidateHandle.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C0040AE0 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
- *     zzzReattachThreads @ 0x1C005C0B8 (zzzReattachThreads.c)
- *     PhkFirstGlobalValid @ 0x1C0071C04 (PhkFirstGlobalValid.c)
- *     xxxDoPaint @ 0x1C008BD2C (xxxDoPaint.c)
- *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C008C400 (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
- *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C008C668 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
- *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C00D3128 (-xxxCallHook@@YAHH_K_JH@Z.c)
- *     zzzCalcStartCursorHide @ 0x1C00E5F30 (zzzCalcStartCursorHide.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     ?AreMultipleThreadsAttached@tagQ@@QEBA_NXZ @ 0x1C01158D4 (-AreMultipleThreadsAttached@tagQ@@QEBA_NXZ.c)
- *     SetWakeBit @ 0x1C0118350 (SetWakeBit.c)
- *     ?xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATION@@W4tagQUEUE_COMPLETION_DRAINER@@@Z @ 0x1C011E130 (-xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATIO.c)
- *     ?StoreQMessage@@YAXPEAUtagQMSG@@PEAUtagWND@@I_K_JK2K2KPEAUtagINPUT_MESSAGE_SOURCE@@KPEAXPEAUtagUIPI_INFO@@@Z @ 0x1C011F1F0 (-StoreQMessage@@YAXPEAUtagQMSG@@PEAUtagWND@@I_K_JK2K2KPEAUtagINPUT_MESSAGE_SOURCE@@KPEAXPEAUtagU.c)
- *     WPP_RECORDER_AND_TRACE_SF_qqdd @ 0x1C011F540 (WPP_RECORDER_AND_TRACE_SF_qqdd.c)
- *     fnHkINLPMSG @ 0x1C0124E30 (fnHkINLPMSG.c)
- *     xxxSleepThread2 @ 0x1C0125E60 (xxxSleepThread2.c)
- *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C0125FC0 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
- *     xxxReceiveMessage @ 0x1C01267C0 (xxxReceiveMessage.c)
- *     ?xxxSendPostedMessage@@YAXAEBUtagMSG@@PEAU1@@Z @ 0x1C01270D4 (-xxxSendPostedMessage@@YAXAEBUtagMSG@@PEAU1@@Z.c)
- *     CalcWakeMask @ 0x1C012A4C0 (CalcWakeMask.c)
- *     ?HandleProcessSpinning@@YAHXZ @ 0x1C012A770 (-HandleProcessSpinning@@YAHXZ.c)
- *     ?xxxUpdateInputHangInfo@@YAXPEAUtagWND@@W4INPUTHANGTIME@@@Z @ 0x1C012A800 (-xxxUpdateInputHangInfo@@YAXPEAUtagWND@@W4INPUTHANGTIME@@@Z.c)
- *     ?xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIH@Z @ 0x1C012A920 (-xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIH@Z.c)
- *     ?GetMessageW@Delivery@InputTraceLogging@@SAXPEBUtagMSG@@PEBUtagTHREADINFO@@PEAUtagWND@@PEAUtagBWND@@_N@Z @ 0x1C012B230 (-GetMessageW@Delivery@InputTraceLogging@@SAXPEBUtagMSG@@PEBUtagTHREADINFO@@PEAUtagWND@@PEAUtagBW.c)
- *     WPP_RECORDER_AND_TRACE_SF_qqq @ 0x1C012B370 (WPP_RECORDER_AND_TRACE_SF_qqq.c)
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C012B430 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??B?$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ @ 0x1C0138C00 (--B-$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ.c)
- *     Feature_Servicing_win32k_timers_resilience__private_IsEnabledDeviceUsage @ 0x1C0139694 (Feature_Servicing_win32k_timers_resilience__private_IsEnabledDeviceUsage.c)
- *     Feature_AlwaysWakeTargetThread_2__private_IsEnabledDeviceUsage @ 0x1C013A08C (Feature_AlwaysWakeTargetThread_2__private_IsEnabledDeviceUsage.c)
- *     Feature_LParamOlmapi32CompatTweak__private_IsEnabledDeviceUsage @ 0x1C013A134 (Feature_LParamOlmapi32CompatTweak__private_IsEnabledDeviceUsage.c)
- *     Feature_MTestAbSh1__private_IsEnabledDeviceUsage @ 0x1C013A188 (Feature_MTestAbSh1__private_IsEnabledDeviceUsage.c)
- *     Feature_WParamOlmapi32CompatTweak__private_IsEnabledDeviceUsage @ 0x1C013A1DC (Feature_WParamOlmapi32CompatTweak__private_IsEnabledDeviceUsage.c)
- *     ?DecTimerCountAndClearReadyFlag@@YAXPEAUtagTIMER@@@Z @ 0x1C013AE70 (-DecTimerCountAndClearReadyFlag@@YAXPEAUtagTIMER@@@Z.c)
- *     xxxDoSysExpungeIfNeeded @ 0x1C013D81C (xxxDoSysExpungeIfNeeded.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C0150B38 (-_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z.c)
- *     IsMiPEnabledForWindow @ 0x1C0150E7A (IsMiPEnabledForWindow.c)
- *     ?IsPointerMessageTouchpad@@YAHPEAUtagTHREADINFO@@_KG@Z @ 0x1C01532FE (-IsPointerMessageTouchpad@@YAHPEAUtagTHREADINFO@@_KG@Z.c)
- *     xxxClientCallDefWindowProc @ 0x1C01568E4 (xxxClientCallDefWindowProc.c)
- *     xxxClientCallDelegateThread @ 0x1C01569FE (xxxClientCallDelegateThread.c)
- *     _FreeTouchInputInfo @ 0x1C01B0580 (_FreeTouchInputInfo.c)
- *     ?CallDelegateThread@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z @ 0x1C01B4FC0 (-CallDelegateThread@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z.c)
- *     ?CallShellHandwritingDelegateThread@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z @ 0x1C01B50D8 (-CallShellHandwritingDelegateThread@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z.c)
- *     ?TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z @ 0x1C01B5C70 (-TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z.c)
- *     ?UnblockDeferredInput@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C01B5FD8 (-UnblockDeferredInput@@YAXPEAUtagTHREADINFO@@@Z.c)
- *     ?_HandleShellHandwritingDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C01B6350 (-_HandleShellHandwritingDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z.c)
- *     SlowAppThreadInShellFrame @ 0x1C01B6A9C (SlowAppThreadInShellFrame.c)
- *     TryDetachShellFrame @ 0x1C01B6D5C (TryDetachShellFrame.c)
- *     ?IsPTPAllowedOnThread@@YAHPEAUtagTHREADINFO@@I_K@Z @ 0x1C01C5ACC (-IsPTPAllowedOnThread@@YAHPEAUtagTHREADINFO@@I_K@Z.c)
- *     ?PopFirstPendingDelegateCapture@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@@Z @ 0x1C01C60DC (-PopFirstPendingDelegateCapture@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@@Z.c)
- *     ?xxxNotifyCaptureChangeIfCaptured@@YAH_KPEAUtagWND@@H@Z @ 0x1C01C6364 (-xxxNotifyCaptureChangeIfCaptured@@YAH_KPEAUtagWND@@H@Z.c)
- *     ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C01F7D8C (-ForceCompletePendingPromotion@@YAXXZ.c)
- *     ?MarkPendingPromotion@PointerPromotion@@YAXPEAUtagTHREADINFO@@G@Z @ 0x1C01F7F3C (-MarkPendingPromotion@PointerPromotion@@YAXPEAUtagTHREADINFO@@G@Z.c)
- *     ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x1C01F8818 (-xxxProcessMousePromotionQueue@@YAXXZ.c)
- *     ?TraceLoggingSysQueueLockedRetryFailed@@YAXKK@Z @ 0x1C020276C (-TraceLoggingSysQueueLockedRetryFailed@@YAXKK@Z.c)
- *     _FreeGestureInfo @ 0x1C0204B90 (_FreeGestureInfo.c)
- *     xxxClientCallDefaultInputHandler @ 0x1C0211388 (xxxClientCallDefaultInputHandler.c)
+ *     FreeHidData @ 0x1C00065B0 (FreeHidData.c)
+ *     zzzReattachThreads @ 0x1C001194C (zzzReattachThreads.c)
+ *     HMValidateHandleNoRip @ 0x1C0023BCC (HMValidateHandleNoRip.c)
+ *     IsShellFrameHangResilient @ 0x1C003CD14 (IsShellFrameHangResilient.c)
+ *     IsAdaptiveQueueDetachExempted @ 0x1C003CDA0 (IsAdaptiveQueueDetachExempted.c)
+ *     SetWakeBit @ 0x1C0051880 (SetWakeBit.c)
+ *     xxxCallCtfHook @ 0x1C0052874 (xxxCallCtfHook.c)
+ *     xxxDoPaint @ 0x1C0053408 (xxxDoPaint.c)
+ *     ?xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATION@@W4tagQUEUE_COMPLETION_DRAINER@@@Z @ 0x1C0054060 (-xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATIO.c)
+ *     ?StoreQMessage@@YAXPEAUtagQMSG@@PEAUtagWND@@I_K_JK2K2KPEAUtagINPUT_MESSAGE_SOURCE@@KPEAXPEAUtagUIPI_INFO@@@Z @ 0x1C00551A0 (-StoreQMessage@@YAXPEAUtagQMSG@@PEAUtagWND@@I_K_JK2K2KPEAUtagINPUT_MESSAGE_SOURCE@@KPEAXPEAUtagU.c)
+ *     CalcWakeMask @ 0x1C0057700 (CalcWakeMask.c)
+ *     ?HandleProcessSpinning@@YAHXZ @ 0x1C00579E0 (-HandleProcessSpinning@@YAHXZ.c)
+ *     xxxUpdateInputHangInfo @ 0x1C0057A70 (xxxUpdateInputHangInfo.c)
+ *     ?GetMessageW@Delivery@InputTraceLogging@@SAXPEBUtagMSG@@PEBUtagTHREADINFO@@PEAUtagWND@@PEAUtagBWND@@_N@Z @ 0x1C0057BB0 (-GetMessageW@Delivery@InputTraceLogging@@SAXPEBUtagMSG@@PEBUtagTHREADINFO@@PEAUtagWND@@PEAUtagBW.c)
+ *     ?xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIPEAU_QMSG_POSTCHAR_FLAGS@@H@Z @ 0x1C0057C00 (-xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIPEAU_QMSG_POSTCHAR_FLAGS@@H.c)
+ *     WPP_RECORDER_SF_qqdd @ 0x1C0058500 (WPP_RECORDER_SF_qqdd.c)
+ *     xxxSleepThread2 @ 0x1C00586B0 (xxxSleepThread2.c)
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C0058830 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     xxxReceiveMessage @ 0x1C0058F60 (xxxReceiveMessage.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C005B860 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     PhkFirstGlobalValid @ 0x1C006668C (PhkFirstGlobalValid.c)
+ *     HMValidateHandle @ 0x1C0067040 (HMValidateHandle.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     zzzCalcStartCursorHide @ 0x1C007FBF0 (zzzCalcStartCursorHide.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C00C1144 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C00C1170 (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ *     ??0?$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00C14A0 (--0-$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z.c)
+ *     WPP_RECORDER_SF_qqq @ 0x1C00C1CCC (WPP_RECORDER_SF_qqq.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C1DC0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     xxxDoSysExpunge @ 0x1C011D348 (xxxDoSysExpunge.c)
+ *     ?xxxKeyboardCorrectionCallout@@YAIPEBUtagMSG@@U_QMSG_POSTCHAR_FLAGS@@@Z @ 0x1C0120DC8 (-xxxKeyboardCorrectionCallout@@YAIPEBUtagMSG@@U_QMSG_POSTCHAR_FLAGS@@@Z.c)
+ *     SlowAppThreadInShellFrame @ 0x1C0124CD4 (SlowAppThreadInShellFrame.c)
+ *     WaitMaskIncludesUserInput @ 0x1C01263C0 (WaitMaskIncludesUserInput.c)
+ *     _IsChild @ 0x1C012B78C (_IsChild.c)
+ *     ??0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C0166F70 (--0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ??1CInpLockGuardExclusive@@QEAA@XZ @ 0x1C0166FB4 (--1CInpLockGuardExclusive@@QEAA@XZ.c)
+ *     Feature_DeliverViaSendMessage__private_ReportDeviceUsage @ 0x1C01671FC (Feature_DeliverViaSendMessage__private_ReportDeviceUsage.c)
+ *     ?DecTimerCountAndClearReadyFlag@@YAXPEAUtagTIMER@@@Z @ 0x1C0167F2C (-DecTimerCountAndClearReadyFlag@@YAXPEAUtagTIMER@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     _FreeTouchInputInfo @ 0x1C01DC580 (_FreeTouchInputInfo.c)
+ *     ?CallDelegateThread@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z @ 0x1C01DF9F8 (-CallDelegateThread@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z.c)
+ *     ?TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z @ 0x1C01E0D5C (-TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z.c)
+ *     ?UnblockDeferredInput@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C01E106C (-UnblockDeferredInput@@YAXPEAUtagTHREADINFO@@@Z.c)
+ *     ?_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C01E12A0 (-_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z.c)
+ *     IsMiPEnabledForWindow @ 0x1C01E18C8 (IsMiPEnabledForWindow.c)
+ *     TryDetachShellFrame @ 0x1C01E1CA4 (TryDetachShellFrame.c)
+ *     ?IsPTPAllowedOnThread@@YAHPEAUtagTHREADINFO@@I_K@Z @ 0x1C01F0AAC (-IsPTPAllowedOnThread@@YAHPEAUtagTHREADINFO@@I_K@Z.c)
+ *     ?PopFirstPendingDelegateCapture@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@@Z @ 0x1C01F1030 (-PopFirstPendingDelegateCapture@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@@Z.c)
+ *     ?xxxNotifyCaptureChangeIfCaptured@@YAH_KPEAUtagWND@@H@Z @ 0x1C01F1328 (-xxxNotifyCaptureChangeIfCaptured@@YAH_KPEAUtagWND@@H@Z.c)
+ *     ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C02183F8 (-ForceCompletePendingPromotion@@YAXXZ.c)
+ *     ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x1C0218E30 (-xxxProcessMousePromotionQueue@@YAXXZ.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@4@Z @ 0x1C0223F50 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
+ *     ?TraceLoggingSysQueueLockedRetryFailed@@YAXKK@Z @ 0x1C02252E0 (-TraceLoggingSysQueueLockedRetryFailed@@YAXKK@Z.c)
+ *     _FreeGestureInfo @ 0x1C0227680 (_FreeGestureInfo.c)
+ *     xxxClientCallDefWindowProc @ 0x1C02311B0 (xxxClientCallDefWindowProc.c)
+ *     xxxClientCallDefaultInputHandler @ 0x1C0231320 (xxxClientCallDefaultInputHandler.c)
+ *     xxxClientCallDelegateThread @ 0x1C023149C (xxxClientCallDelegateThread.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -86,1597 +77,1483 @@ __int64 __fastcall xxxRealInternalGetMessage(
         unsigned __int64 a5,
         unsigned int a6)
 {
-  struct tagWND *v9; // rsi
-  int v11; // r11d
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  int v14; // r11d
-  unsigned int v15; // r13d
-  struct tagWND *v16; // rcx
+  struct tagWND *v9; // r13
+  unsigned int v10; // r12d
+  unsigned int v11; // r15d
+  __int64 v12; // r14
+  unsigned int v14; // eax
+  unsigned int v15; // esi
+  unsigned int v16; // eax
+  __int64 v17; // rcx
+  __int64 v18; // rcx
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  int v21; // ecx
-  unsigned __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  _UNKNOWN **v25; // r9
-  __int64 v26; // rcx
-  __int64 v27; // rsi
-  _QWORD *v28; // rdi
-  __int64 v29; // rcx
-  _QWORD *v30; // rbx
-  _QWORD *v31; // rdi
-  __int64 v32; // rsi
-  int v33; // ecx
-  int v34; // ebx
-  unsigned int v35; // eax
-  unsigned int v36; // r12d
-  int v37; // r15d
-  int v38; // r13d
-  unsigned int v39; // r14d
-  __int64 v40; // rcx
-  __int64 v41; // rcx
-  struct tagWND *k; // rcx
-  char v43; // bl
-  unsigned __int64 i; // rax
-  PERESOURCE *v45; // rax
-  _QWORD **ThreadWin32Thread; // rax
-  int v47; // ebx
-  int v48; // esi
-  int v49; // eax
-  unsigned int v50; // r13d
-  bool v51; // zf
-  int v52; // edi
-  __int16 v53; // bx
-  __int64 v54; // rcx
-  int v55; // eax
-  int v56; // eax
-  unsigned __int64 v57; // rbx
-  int v58; // r12d
-  unsigned int v59; // edx
-  unsigned int v60; // r15d
-  int v61; // ebx
-  struct tagWND *v62; // r14
-  int v63; // r12d
-  _QWORD *v64; // rax
-  _QWORD *v65; // rbx
-  __int64 v66; // rax
-  struct _KEVENT *v67; // rcx
-  int v68; // eax
-  __int64 *m; // r12
-  __int64 v70; // rdx
-  unsigned __int64 v71; // r14
-  int v72; // r8d
-  int v73; // r9d
-  unsigned int v74; // edx
-  _DWORD *v75; // rax
-  __int64 v76; // rcx
-  int v77; // edx
-  __int64 v78; // rcx
-  __int64 v79; // rbx
-  _DWORD *v80; // rdi
-  __int64 v81; // rsi
-  _DWORD *v82; // rax
-  __int64 v83; // r8
-  unsigned int *v84; // rax
-  int v85; // eax
-  _DWORD *v86; // rbx
-  __int64 v87; // rax
-  _DWORD *v88; // rax
-  int v89; // eax
-  _QWORD *v90; // rax
-  int v91; // r9d
-  char v92; // dl
-  __int64 v93; // r10
-  unsigned int v94; // edx
-  __int64 v95; // rax
-  __int64 v96; // rcx
-  __int64 v97; // rax
-  __int64 v98; // rax
-  int v99; // r8d
-  __int64 v100; // rcx
-  __int64 *v101; // rdx
-  __int64 **v102; // rax
-  _QWORD *v103; // rax
-  __int64 v104; // rdx
-  _QWORD *v105; // rcx
-  int v106; // eax
-  __int64 v107; // rax
-  char v108; // r14
-  int IsEnabledDeviceUsage; // eax
+  int v20; // ecx
+  __int64 v21; // rcx
+  unsigned int v22; // edx
+  unsigned int v23; // r14d
+  __int64 v24; // rbx
+  __int64 v25; // r8
+  __int64 v26; // r9
+  int v27; // edx
+  int v28; // ecx
+  char v29; // r8
+  int v30; // ecx
+  __int16 v31; // bx
+  __int64 v32; // rcx
   __int64 j; // rcx
-  int v111; // eax
-  tagQ *v112; // rbx
-  __int64 v113; // rbx
-  __int64 v114; // rax
-  unsigned int v115; // edx
-  int v116; // r11d
-  int v117; // eax
-  unsigned int v118; // ebx
-  struct tagWND *v119; // r14
-  int v120; // edi
-  tagQ *v121; // rcx
-  __int64 v122; // rsi
-  __int64 v123; // r14
-  __int64 v124; // rdx
-  __int64 v125; // rcx
-  __int64 v126; // r8
-  __int64 v127; // r9
-  __int64 v128; // rdx
-  __int64 v129; // rcx
-  __int64 v130; // r8
-  __int64 v131; // r9
-  BOOL v133; // eax
-  __int64 v134; // rax
-  __int64 v136; // rbx
-  int v137; // edx
-  unsigned __int64 v138; // r9
+  unsigned __int64 i; // rax
+  struct tagWND *v35; // rdx
+  int v36; // r8d
+  struct _KTHREAD *CurrentThread; // r14
+  _QWORD *v38; // rsi
+  __int64 v39; // rdx
+  __int64 v40; // rcx
+  __int64 v41; // r8
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v44; // rcx
+  __int64 CurrentThreadProcess; // rax
+  _QWORD **ThreadWin32Thread; // rax
+  int v47; // r14d
+  int v48; // eax
+  int v49; // ebx
+  int v50; // r14d
+  __int16 v51; // bx
+  struct tagWND *v52; // rsi
+  int v53; // eax
+  __int64 v54; // r9
+  struct tagWND *v55; // r14
+  int v56; // eax
+  unsigned int v57; // r10d
+  int v58; // r11d
+  int v59; // eax
+  int v60; // ebx
+  unsigned int v61; // ecx
+  __int16 v62; // dx
+  unsigned int v63; // r8d
+  int v64; // ebx
+  __int64 v65; // rbx
+  __int64 v66; // rdx
+  struct _KEVENT *v67; // rcx
+  __int64 v68; // rax
+  struct _KEVENT *v69; // rcx
+  int v70; // eax
+  __int16 v71; // dx
+  __int64 *v72; // rbx
+  struct tagWND *v73; // rdx
+  __int64 v74; // rdx
+  unsigned __int64 v75; // rsi
+  int v76; // r8d
+  int v77; // r9d
+  unsigned int v78; // edx
+  const wchar_t *v79; // rax
+  __int64 v80; // rcx
+  int v81; // edx
+  __int64 v82; // r8
+  __int64 v83; // r8
+  __int64 v84; // r8
+  __int64 v85; // r8
+  int v86; // eax
+  _DWORD *v87; // rax
+  _DWORD *v88; // rsi
+  int v89; // edx
+  int v90; // r8d
+  int v91; // r9d
+  int v92; // eax
+  _QWORD *v93; // rax
+  int v94; // eax
+  __int64 v95; // r10
+  unsigned int v96; // edx
+  __int64 v97; // rax
+  __int64 v98; // rcx
+  __int64 v99; // rax
+  __int64 v100; // rax
+  int v101; // r8d
+  _QWORD *v102; // rbx
+  __int64 v103; // rcx
+  _QWORD *v104; // rax
+  _QWORD *v105; // rcx
+  __int64 v106; // rsi
+  unsigned int v107; // ebx
+  __int64 v108; // r11
+  __int64 v109; // rax
+  int v110; // eax
+  int v111; // edx
+  int v112; // ecx
+  __int64 v113; // r11
+  int v114; // eax
+  unsigned int v115; // ebx
+  int v116; // eax
+  struct tagWND *v117; // rsi
+  int v118; // r12d
+  __int64 v119; // rcx
+  __int64 v120; // r13
+  __int64 v121; // rdx
+  __int64 v122; // r8
+  int v123; // ecx
+  unsigned int v124; // eax
+  unsigned int v125; // esi
+  int v126; // eax
+  int v127; // r14d
+  int v128; // eax
+  int v129; // r15d
+  __int64 v130; // rdx
+  __int64 v131; // r8
+  BOOL v132; // eax
+  int v133; // eax
+  __int64 v134; // rsi
+  int v135; // ecx
+  unsigned __int64 v136; // r8
+  BOOL v137; // ebx
+  unsigned __int64 v138; // r8
   int v139; // eax
-  unsigned int v140; // r12d
-  unsigned __int16 *v141; // rsi
-  __int64 v142; // r15
-  int v143; // eax
-  int v144; // edi
-  int v145; // eax
-  int v146; // eax
-  __int64 v147; // rcx
-  int v148; // eax
-  int v149; // eax
-  __int64 *v150; // rax
-  int v151; // ebx
-  __int64 v152; // rbx
-  __int64 v153; // rcx
-  __int64 v154; // rcx
-  unsigned __int16 v155; // bx
-  __int64 v156; // rcx
-  int v157; // eax
-  int v158; // eax
-  int v159; // eax
-  __int64 v160; // rax
-  int v161; // eax
-  unsigned int v162; // ebx
-  __int64 v163; // rax
+  int v140; // eax
+  int v141; // eax
+  int v142; // eax
+  int v143; // ecx
+  unsigned __int16 v144; // r8
+  int v145; // r14d
+  unsigned int v146; // ebx
   struct CInpLockGuard *TouchProcessorLock; // rax
-  void *v165; // r8
-  unsigned int v166; // ebx
+  void *v148; // r8
+  unsigned __int64 v149; // rdx
+  __int64 v150; // rax
+  __int64 v151; // rax
+  __int64 v152; // rcx
+  __int64 v153; // rax
+  __int64 v154; // rcx
+  int v155; // eax
+  __int64 v156; // rbx
+  __int64 v157; // rdx
+  __int64 v158; // rax
+  int v159; // eax
+  __int64 v160; // rcx
+  _DWORD *v161; // rdx
+  unsigned __int64 v162; // rsi
+  struct _KTHREAD *v163; // r14
+  __int64 v164; // rdx
+  __int64 v165; // rcx
+  __int64 v166; // r8
   __int64 v167; // rax
-  struct CInpLockGuard *v168; // rax
-  void *v169; // r8
-  __int64 v170; // r14
-  int v171; // eax
-  int v172; // eax
-  int v173; // eax
-  int v174; // eax
-  __int64 v175; // rax
-  __int64 v176; // r8
-  __int64 v177; // rax
-  __int64 v178; // rcx
-  char *v179; // rax
-  __int64 v180; // rcx
-  int v181; // eax
-  _QWORD *v182; // rax
-  _QWORD *v183; // rbx
-  __int64 v184; // rax
-  struct _KEVENT *v185; // rcx
-  int v186; // eax
-  _DWORD *v187; // rdx
-  __int64 v188; // rbx
-  struct tagBWND *v189; // r9
-  __int64 v190; // rdi
-  __int64 v191; // rdx
-  __int64 v192; // rcx
-  struct tagWND **v193; // rsi
-  __int64 v194; // r8
-  struct tagWND *v195; // r8
-  enum SLEEP_STATUS *v196; // [rsp+20h] [rbp-2D8h]
-  __int64 v197; // [rsp+28h] [rbp-2D0h]
-  unsigned __int64 v198; // [rsp+30h] [rbp-2C8h]
-  __int64 v199; // [rsp+38h] [rbp-2C0h]
-  int v200; // [rsp+70h] [rbp-288h]
-  char v201; // [rsp+74h] [rbp-284h]
-  unsigned int v202; // [rsp+78h] [rbp-280h]
-  unsigned int v204; // [rsp+88h] [rbp-270h]
-  int v205; // [rsp+9Ch] [rbp-25Ch]
-  struct tagQMSG *v206; // [rsp+A0h] [rbp-258h] BYREF
-  int v207; // [rsp+A8h] [rbp-250h]
-  struct tagWND *v208; // [rsp+B0h] [rbp-248h]
-  unsigned int v209; // [rsp+B8h] [rbp-240h]
-  int v210; // [rsp+BCh] [rbp-23Ch] BYREF
-  int v211; // [rsp+C0h] [rbp-238h]
-  unsigned int v212; // [rsp+C4h] [rbp-234h]
-  unsigned __int64 v213; // [rsp+C8h] [rbp-230h]
-  int v214; // [rsp+D0h] [rbp-228h]
-  int v215; // [rsp+D4h] [rbp-224h]
-  __int64 *v216; // [rsp+D8h] [rbp-220h] BYREF
-  int v217; // [rsp+E0h] [rbp-218h] BYREF
-  int v218; // [rsp+E4h] [rbp-214h] BYREF
-  int v219; // [rsp+E8h] [rbp-210h] BYREF
-  int v220[3]; // [rsp+ECh] [rbp-20Ch] BYREF
-  int v221; // [rsp+F8h] [rbp-200h]
-  unsigned int v222; // [rsp+108h] [rbp-1F0h]
-  unsigned int v223; // [rsp+10Ch] [rbp-1ECh]
-  int v224; // [rsp+110h] [rbp-1E8h]
-  __int64 *v225[2]; // [rsp+118h] [rbp-1E0h] BYREF
-  int v226; // [rsp+128h] [rbp-1D0h]
-  __int64 v227; // [rsp+130h] [rbp-1C8h] BYREF
-  __int64 *v228; // [rsp+138h] [rbp-1C0h] BYREF
-  __int64 *v229; // [rsp+140h] [rbp-1B8h] BYREF
-  __int64 *v230; // [rsp+148h] [rbp-1B0h] BYREF
-  _UNKNOWN **v231; // [rsp+150h] [rbp-1A8h] BYREF
-  __int128 v232; // [rsp+158h] [rbp-1A0h] BYREF
-  __int64 v233; // [rsp+168h] [rbp-190h]
-  _OWORD v234[3]; // [rsp+170h] [rbp-188h] BYREF
-  _OWORD v235[9]; // [rsp+1A0h] [rbp-158h] BYREF
-  _BYTE v236[48]; // [rsp+230h] [rbp-C8h] BYREF
-  _BYTE v237[48]; // [rsp+260h] [rbp-98h] BYREF
-  __int64 v238[3]; // [rsp+290h] [rbp-68h] BYREF
-  int v239; // [rsp+2A8h] [rbp-50h]
-  int v240; // [rsp+2ACh] [rbp-4Ch]
+  int v168; // ebx
+  __int64 v169; // rcx
+  __int64 v170; // rax
+  struct tagBWND *v171; // r9
+  __int64 v172; // rbx
+  __int64 v173; // rcx
+  struct tagWND **v174; // r14
+  unsigned __int64 v175; // rsi
+  int v176; // [rsp+20h] [rbp-1C8h]
+  int v177; // [rsp+28h] [rbp-1C0h]
+  unsigned int v178; // [rsp+70h] [rbp-178h]
+  int v179; // [rsp+74h] [rbp-174h]
+  unsigned int v180; // [rsp+7Ch] [rbp-16Ch]
+  unsigned int v181; // [rsp+80h] [rbp-168h]
+  int v182; // [rsp+84h] [rbp-164h]
+  _BYTE v183[4]; // [rsp+88h] [rbp-160h] BYREF
+  int v184; // [rsp+8Ch] [rbp-15Ch]
+  int v185; // [rsp+90h] [rbp-158h]
+  int v186; // [rsp+94h] [rbp-154h]
+  struct tagQMSG *v187; // [rsp+98h] [rbp-150h]
+  int v188; // [rsp+A0h] [rbp-148h] BYREF
+  struct tagWND *v189; // [rsp+A8h] [rbp-140h]
+  __int16 v190; // [rsp+B0h] [rbp-138h]
+  int v191; // [rsp+B4h] [rbp-134h]
+  int v192; // [rsp+B8h] [rbp-130h] BYREF
+  int v193; // [rsp+BCh] [rbp-12Ch]
+  int v194; // [rsp+C0h] [rbp-128h] BYREF
+  int v195; // [rsp+C4h] [rbp-124h] BYREF
+  int v196[6]; // [rsp+C8h] [rbp-120h] BYREF
+  int v197; // [rsp+E0h] [rbp-108h]
+  _BYTE v198[16]; // [rsp+E8h] [rbp-100h] BYREF
+  __int64 v199; // [rsp+F8h] [rbp-F0h] BYREF
+  char v200[8]; // [rsp+100h] [rbp-E8h] BYREF
+  char v201[8]; // [rsp+108h] [rbp-E0h] BYREF
+  __int64 v202; // [rsp+110h] [rbp-D8h] BYREF
+  __int64 v203; // [rsp+118h] [rbp-D0h]
+  __int128 v204; // [rsp+120h] [rbp-C8h] BYREF
+  __int64 v205; // [rsp+130h] [rbp-B8h]
+  _OWORD v206[3]; // [rsp+138h] [rbp-B0h] BYREF
+  char v207[24]; // [rsp+168h] [rbp-80h] BYREF
+  _BYTE v208[104]; // [rsp+180h] [rbp-68h] BYREF
+  char v210; // [rsp+1F8h] [rbp+10h]
 
-  v209 = a3;
-  v216 = (__int64 *)a1;
-  v232 = 0LL;
-  v233 = 0LL;
-  v201 = 0;
+  v204 = 0LL;
+  v205 = 0LL;
   v210 = 0;
-  v213 = 0LL;
-  v207 = 0;
-  v204 = 0;
-  v200 = 0;
+  v9 = 0LL;
+  v192 = 0;
+  v188 = 0;
+  v185 = 0;
+  v184 = 0;
+  v180 = 0;
+  v10 = 0;
+  v179 = 0;
   EtwTraceEndAppMessageProcessing(a6);
   if ( ((a2 + 1) & 0xFFFFFFFFFFFEFFFFuLL) == 0 )
   {
+    v11 = 1;
     a2 = 1LL;
 LABEL_8:
-    v9 = (struct tagWND *)a2;
-    v208 = (struct tagWND *)a2;
-    v11 = 0;
+    v12 = a2;
+    v189 = (struct tagWND *)a2;
+    v186 = 0;
     goto LABEL_9;
   }
   if ( a2 < 2 )
+  {
+    v11 = 1;
     goto LABEL_8;
-  v9 = (struct tagWND *)ValidateHwnd(a2);
-  v208 = v9;
-  if ( !v9 )
+  }
+  v12 = ValidateHwnd(a2);
+  v189 = (struct tagWND *)v12;
+  if ( !v12 )
   {
     *(_QWORD *)a1 = 0LL;
     *(_DWORD *)(a1 + 8) = 0;
     EtwTraceBeginAppMessageProcessing(a6, 16LL, a1);
     return (unsigned int)-(a6 != 0);
   }
-  *(_QWORD *)&v232 = *(_QWORD *)(gptiCurrent + 416LL);
-  *(_QWORD *)(gptiCurrent + 416LL) = &v232;
-  *((_QWORD *)&v232 + 1) = v9;
-  HMLockObject(v9);
+  *(_QWORD *)&v204 = *(_QWORD *)(gptiCurrent + 416LL);
+  *(_QWORD *)(gptiCurrent + 416LL) = &v204;
+  *((_QWORD *)&v204 + 1) = v12;
+  HMLockObject(v12);
   v11 = 1;
+  v186 = 1;
 LABEL_9:
-  v211 = v11;
   ++*(_QWORD *)(*(_QWORD *)(gptiCurrent + 480LL) + 8LL);
-  v12 = 0xFFFFFFFFLL;
+  v14 = -1;
   if ( a4 )
-    v12 = a4;
-  v212 = v12;
+    v14 = a4;
+  v181 = v14;
   _InterlockedExchange(
-    (volatile __int32 *)(*(_QWORD *)(gptiCurrent + 448LL) + 20LL),
+    (volatile __int32 *)(*(_QWORD *)(gptiCurrent + 448LL) + 12LL),
     (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24);
-  v15 = CalcWakeMask(v209, v12, WORD1(a5));
-  v202 = v15;
-  v224 = v15 & 0x1C07;
-  if ( (v15 & 0x1C07) != 0 )
+  v15 = v14;
+  v16 = CalcWakeMask(a3, v14, WORD1(a5));
+  v178 = v16;
+  v197 = v16 & 0x1C07;
+  if ( (v16 & 0x1C07) != 0 )
   {
-    v13 = MEMORY[0xFFFFF78000000320];
-    *(_DWORD *)(gptiCurrent + 1448LL) = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+    v17 = MEMORY[0xFFFFF78000000320];
+    *(_DWORD *)(gptiCurrent + 1408LL) = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
   }
-  v221 = v15 & 7;
-  if ( v221 != 7 )
+  if ( (v16 & 7) == 7 || (v16 & 6) != 0 && (v17 = gptiCurrent, *(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 104LL)) )
   {
-    if ( (v15 & 6) == 0 )
-      goto LABEL_22;
-    v13 = gptiCurrent;
-    if ( !*(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 112LL) )
-      goto LABEL_22;
-  }
-  if ( v14 )
-  {
-    if ( *((_QWORD *)v9 + 2) != gptiCurrent )
-      goto LABEL_22;
-    v16 = v9;
-  }
-  else
-  {
-    if ( a2 )
-      goto LABEL_22;
-    v16 = 0LL;
-  }
-  xxxUpdateInputHangInfo(v16, 1LL);
-LABEL_22:
-  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v13);
-  if ( CurrentProcessWin32Process && !*(_QWORD *)CurrentProcessWin32Process )
-    CurrentProcessWin32Process = 0LL;
-  v21 = *(_DWORD *)(CurrentProcessWin32Process + 12);
-  if ( (v21 & 4) != 0 )
-  {
-    *(_DWORD *)(CurrentProcessWin32Process + 12) = v21 & 0xFFFFFFFB;
-    zzzCalcStartCursorHide(0LL, 0LL);
-  }
-  xxxDoSysExpungeIfNeeded(gptiCurrent, v18, v19, v20);
-  v205 = a5 & 1;
-  if ( (a5 & 1) != 0
-    && (v15 & 0x1CBF) != 0
-    && (*(_DWORD *)(gptiCurrent + 1272LL) & 0x80000) != 0
-    && (v15 & *(_DWORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 8LL)) != 0 )
-  {
-    v26 = *((_QWORD *)PtiCurrentShared(v23, v22, v24, (__int64)v25) + 58);
-    if ( !*(_QWORD *)(v26 + 56) && !*(_QWORD *)(*((_QWORD *)PtiCurrentShared(v26, v22, v24, (__int64)v25) + 58) + 48LL) )
-      TryAttachShellFrame(gptiCurrent, v22);
-  }
-  v27 = *(_QWORD *)(gptiCurrent + 432LL);
-  if ( *(_QWORD *)(gptiCurrent + 512LL)
-    || (v28 = (_QWORD *)(v27 + 72), v29 = *(_QWORD *)(v27 + 72), v29 == gptiCurrent)
-    && *(_QWORD *)(v27 + 80) == *(_QWORD *)(gptiCurrent + 576LL) )
-  {
-    LOBYTE(v22) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-               && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) != 0
-               && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    v25 = &WPP_RECORDER_INITIALIZED;
-    LOBYTE(v24) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( (_BYTE)v22 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( v186 )
     {
-      v30 = (_QWORD *)(v27 + 72);
-      WPP_RECORDER_AND_TRACE_SF_qqq(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v22,
-        v24,
-        (_DWORD)gFullLog,
-        4,
-        18,
-        20,
-        (__int64)&WPP_0bd01f6e78ca3341e624bb2278b12953_Traceguids,
-        v27,
-        gptiCurrent,
-        *(_QWORD *)(v27 + 72));
+      if ( *(_QWORD *)(v12 + 16) != gptiCurrent )
+        goto LABEL_22;
+      v18 = v12;
     }
     else
     {
-      v30 = (_QWORD *)(v27 + 72);
+      if ( a2 )
+        goto LABEL_22;
+      v18 = 0LL;
     }
-    v31 = 0LL;
-    *v30 = 0LL;
-    v201 = 1;
+    xxxUpdateInputHangInfo(v18, 1LL);
+  }
+LABEL_22:
+  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v17);
+  v20 = *(_DWORD *)(CurrentProcessWin32Process + 12);
+  if ( (v20 & 4) != 0 )
+  {
+    *(_DWORD *)(CurrentProcessWin32Process + 12) = v20 & 0xFFFFFFFB;
+    zzzCalcStartCursorHide(0LL, 0LL);
+  }
+  v21 = *(_QWORD *)(gptiCurrent + 424LL);
+  v22 = gcSysExpunge;
+  if ( *(_DWORD *)(v21 + 400) != gcSysExpunge )
+  {
+    *(_DWORD *)(v21 + 400) = gcSysExpunge;
+    LODWORD(v21) = *(_DWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 404LL);
+    if ( ((unsigned int)v21 & (__int64)WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) != 0 )
+      xxxDoSysExpunge(gptiCurrent);
+  }
+  v182 = a5 & 1;
+  v23 = v178;
+  if ( (a5 & 1) != 0 && (v178 & 0x1CBF) != 0 && (*(_DWORD *)(gptiCurrent + 1232LL) & 0x80000) != 0 )
+  {
+    LODWORD(v21) = *(unsigned __int16 *)(*(_QWORD *)(gptiCurrent + 448LL) + 6LL);
+    if ( ((unsigned int)v21 & v178) != 0 )
+    {
+      v21 = *(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 464);
+      if ( !*(_QWORD *)(v21 + 56) )
+      {
+        v21 = *(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 464);
+        if ( !*(_QWORD *)(v21 + 48) )
+          TryAttachShellFrame(gptiCurrent, v22);
+      }
+    }
+  }
+  v24 = *(_QWORD *)(gptiCurrent + 432LL);
+  v25 = *(_QWORD *)(v24 + 64);
+  if ( *(_QWORD *)(gptiCurrent + 512LL)
+    || v25 == gptiCurrent && *(_QWORD *)(v24 + 72) == *(_QWORD *)(gptiCurrent + 576LL) )
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v22) = 4;
+      WPP_RECORDER_SF_qqq(
+        v21,
+        v22,
+        18,
+        15,
+        (__int64)&WPP_aa0cdaa0f1c33ddef9256642731d7c5d_Traceguids,
+        v24,
+        gptiCurrent,
+        *(_QWORD *)(v24 + 64));
+    }
+    v210 = 1;
   }
   else
   {
-    v30 = (_QWORD *)(v27 + 72);
-    if ( v29 && !*(_DWORD *)(v29 + 908) && PhkFirstGlobalValid(gptiCurrent, 1) )
+    v26 = *(_QWORD *)(v24 + 64);
+    if ( !v25 || *(_DWORD *)(v25 + 900) || !PhkFirstGlobalValid(gptiCurrent, 1LL) )
+      goto LABEL_46;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v22) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                 && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) != 0
-                 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      LOBYTE(v24) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( (_BYTE)v22 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_AND_TRACE_SF_qqq(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v22,
-          v24,
-          (_DWORD)gFullLog,
-          4,
-          18,
-          21,
-          (__int64)&WPP_0bd01f6e78ca3341e624bb2278b12953_Traceguids,
-          v27,
-          gptiCurrent,
-          *v28);
-      *v28 = 0LL;
+      LOBYTE(v27) = 4;
+      WPP_RECORDER_SF_qqq(
+        v28,
+        v27,
+        18,
+        16,
+        (__int64)&WPP_aa0cdaa0f1c33ddef9256642731d7c5d_Traceguids,
+        v24,
+        gptiCurrent,
+        v29);
     }
-    v31 = 0LL;
   }
-  v32 = gptiCurrent;
-  if ( *v30 != gptiCurrent )
+  v26 = 0LL;
+  *(_QWORD *)(v24 + 64) = 0LL;
+LABEL_46:
+  if ( v26 != gptiCurrent )
     **(_DWORD **)(gptiCurrent + 448LL) &= ~1u;
-  *(_WORD *)(gptiCurrent + 880LL) = 0;
+  *(_WORD *)(gptiCurrent + 872LL) = 0;
+  v193 = a5 & 2;
   if ( (a5 & 2) == 0 )
   {
-    v33 = *(_DWORD *)(gptiCurrent + 488LL);
-    if ( (v33 & 0x80000) != 0 )
+    v30 = *(_DWORD *)(gptiCurrent + 488LL);
+    if ( (v30 & 0x80000) != 0 )
     {
-      v226 = *(_DWORD *)(gptiCurrent + 488LL);
-      *(_DWORD *)(*(_QWORD *)(gptiCurrent + 480LL) + 28LL) = v33 & 0xFFF7FFFF;
-      _InterlockedOr((volatile signed __int32 *)(*(_QWORD *)(gptiCurrent + 448LL) + 8LL), 0x2000u);
-      _InterlockedOr((volatile signed __int32 *)(*(_QWORD *)(gptiCurrent + 448LL) + 4LL), 0x2000u);
+      *(_DWORD *)(*(_QWORD *)(gptiCurrent + 480LL) + 28LL) = v30 & 0xFFF7FFFF;
+      *(_WORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 6LL) |= 0x2000u;
+      *(_WORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 4LL) |= 0x2000u;
       *(_DWORD *)(gptiCurrent + 488LL) &= ~0x80000u;
     }
   }
-  v222 = v15 & 0xFFFFFFBF;
-  v223 = ~(v15 & 0xFFFFFFBF);
+  v31 = v178 & 0xFFBF;
+  v190 = ~(v178 & 0xFFBF);
+LABEL_52:
   while ( 2 )
   {
     while ( 2 )
     {
-      v34 = v200;
-LABEL_67:
       while ( 2 )
       {
         while ( 2 )
         {
           while ( 2 )
           {
-            v35 = v204;
-            while ( 1 )
+            v187 = 0LL;
+            *(_WORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 6LL) |= *(_WORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 8LL);
+            if ( *(_QWORD *)(gptiCurrent + 456LL) == gpdeskRecalcQueueAttach )
             {
-              v36 = v35;
-              v37 = v213;
-              v38 = v207;
-              v39 = v213;
-              v206 = 0LL;
-              _InterlockedOr(
-                (volatile signed __int32 *)(*(_QWORD *)(v32 + 448) + 8LL),
-                *(_DWORD *)(*(_QWORD *)(v32 + 448) + 12LL));
-              if ( *(_QWORD *)(v32 + 456) == gpdeskRecalcQueueAttach )
+              gpdeskRecalcQueueAttach = 0LL;
+              if ( *(_QWORD *)(gptiCurrent + 456LL) )
               {
-                gpdeskRecalcQueueAttach = 0LL;
-                if ( *(_QWORD *)(v32 + 456) )
+                if ( !*(_QWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 464) + 48LL)
+                  && !*(_QWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 464) + 56LL) )
                 {
-                  v40 = *((_QWORD *)PtiCurrentShared(gpdeskRecalcQueueAttach, v22, v24, (__int64)v25) + 58);
-                  if ( !*(_QWORD *)(v40 + 48)
-                    && !*(_QWORD *)(*((_QWORD *)PtiCurrentShared(v40, v22, v24, (__int64)v25) + 58) + 56LL) )
-                  {
-                    zzzReattachThreads(2, 0LL, 0LL);
-                  }
+                  zzzReattachThreads(2, 0LL, 0LL);
                 }
               }
-              v41 = *(_QWORD *)(v32 + 448);
-              *(_WORD *)(v32 + 880) |= *(_WORD *)(v41 + 4) & (unsigned __int16)v222;
-              _InterlockedAnd((volatile signed __int32 *)(v41 + 4), v223);
-              k = (struct tagWND *)*(unsigned int *)(*(_QWORD *)(v32 + 448) + 8LL);
-              if ( ((unsigned __int8)k & 0x40) != 0 )
-              {
-                if ( ((unsigned __int8)v202 & (unsigned __int8)*(_DWORD *)(*(_QWORD *)(v32 + 448) + 8LL) & 0x40) == 0 )
-                {
-                  v200 = v34 | 0x80;
-                  v50 = v34 | 0x80;
-                  goto LABEL_259;
-                }
-                do
-                {
-                  xxxReceiveMessage(v32);
-                  k = (struct tagWND *)*(unsigned int *)(*(_QWORD *)(v32 + 448) + 8LL);
-                }
-                while ( ((unsigned __int8)k & 0x40) != 0 );
-              }
-              LOBYTE(k) = v224 != 0;
-              v43 = v202;
-              if ( v224 != 0 && (v202 & 0x40) != 0 && *(_DWORD *)(v32 + 1164) )
-              {
-                do
-                {
-                  *(_DWORD *)(v32 + 1164) = 0;
-                  for ( i = PopFirstPendingDelegateCapture((struct tagTHREADINPUTPOINTERLIST *)(v32 + 1128));
-                        i;
-                        i = PopFirstPendingDelegateCapture((struct tagTHREADINPUTPOINTERLIST *)(v32 + 1128)) )
-                  {
-                    xxxNotifyCaptureChangeIfCaptured(i, (struct tagWND *)v22, v24);
-                  }
-                }
-                while ( *(_DWORD *)(v32 + 1164) );
-                v43 = v202;
-              }
-              if ( *(_QWORD *)(v32 + 1504) && (v43 & 8) != 0 )
-              {
-                v45 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(k, v22, v24, v25);
-                if ( !ExIsResourceAcquiredSharedLite(*v45) )
-                {
-                  v214 = 0x20000;
-                  MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 151LL);
-                }
-                ThreadWin32Thread = (_QWORD **)PsGetThreadWin32Thread(KeGetCurrentThread());
-                if ( ThreadWin32Thread )
-                  v31 = *ThreadWin32Thread;
-                memset(v234, 0, 32);
-                v47 = 0;
-                v217 = 0;
-                v227 = 0LL;
-                v48 = 0;
-                ZwSetIoCompletionEx(v31[183], v31[187], 0LL, 2LL, 0, 0LL);
-                do
-                {
-                  while ( 1 )
-                  {
-                    LOBYTE(v197) = 0;
-                    v49 = ZwRemoveIoCompletionEx(v31[183], v234, 1LL, &v217, &v227, v197);
-                    if ( v49 )
-                    {
-                      if ( v49 == 258 )
-                        v47 = 1;
-                    }
-                    else if ( DWORD2(v234[0]) == 1 )
-                    {
-                      v47 = 3;
-                    }
-                    else if ( DWORD2(v234[0]) == 2 )
-                    {
-                      v47 = 2;
-                    }
-                    else if ( !DWORD2(v234[0]) && v31[188] )
-                    {
-                      v47 = DWORD2(v234[0]) + 4;
-                      xxxHandleCoreMessagingQueueCompletion(
-                        (__int64)v31,
-                        (ULONG64 *)v234,
-                        (unsigned int)(DWORD2(v234[0]) + 1));
-                    }
-                    if ( v47 != 3 )
-                      break;
-                    v48 = 1;
-                    v47 = 0;
-                  }
-                  v51 = v47 == 4;
-                  v47 = 0;
-                }
-                while ( v51 );
-                if ( v48 )
-                  ZwAssociateWaitCompletionPacket(v31[186], v31[183], v31[185], 0LL, 1LL, 0, 0LL, 0LL);
-                v32 = gptiCurrent;
-              }
-              v52 = *(_DWORD *)(*(_QWORD *)(v32 + 448) + 8LL);
-              v53 = v202 & v52;
-              if ( (v202 & v52) == 0 )
-              {
-                v50 = v200 | 0x100;
-                v200 |= 0x100u;
-                v31 = 0LL;
-                goto LABEL_259;
-              }
-              v54 = *(_QWORD *)(v32 + 432);
-              if ( *(_QWORD *)(v54 + 72) == v32 && (*(_DWORD *)(v54 + 396) & 0x400) != 0 )
-              {
-                EtwTraceInputQueueNoRemoveLocker();
-                if ( (v53 & 0x3C07) != 0 )
-                {
-                  v55 = xxxScanSysQueue(v32, a1, v208, v209, v212, a5, v53 & 0x3C07, &v206);
-                  if ( v55 == 1 )
-                    goto LABEL_147;
-                  if ( !v55 )
-                    UnblockDeferredInput((struct tagTHREADINFO *)v32);
-                }
-                else if ( (v52 & 0x2000) != 0 )
-                {
-                  v50 = v200 | 0x200;
-                  v200 |= 0x200u;
-                  v31 = 0LL;
-                  goto LABEL_259;
-                }
-              }
-              if ( (v53 & 8) == 0 )
-                goto LABEL_126;
-              if ( (unsigned int)xxxReadPostMessage(
-                                   (struct tagTHREADINFO *)v32,
-                                   (struct tagMSG *)a1,
-                                   v208,
-                                   v209,
-                                   v212,
-                                   v205) )
-              {
-                if ( (a5 & 1) != 0 )
-                {
-                  v134 = *(unsigned int *)(a1 + 8);
-                  if ( (unsigned int)v134 >= 0x400 ? 0 : (unsigned __int16)MessageTable[v134] >> 15 )
-                    xxxSendPostedMessage((const struct tagMSG *)a1, (struct tagMSG *)a1);
-                }
-                v50 = v200 | 1;
-                goto LABEL_330;
-              }
-              k = v208;
-              if ( v208
-                || (v22 = v209, v209 <= v212) && v212 >= 0x200 && v209 <= 0x20E && (v209 || v212 != -1) && v209 > 0x60 )
-              {
-                if ( (*(_DWORD *)(v32 + 1272) & 0x20000000) != 0 )
-                {
-                  memset(v235, 0, 48);
-                  if ( (unsigned int)xxxReadPostMessage(
-                                       (struct tagTHREADINFO *)v32,
-                                       (struct tagMSG *)v235,
-                                       0LL,
-                                       0x60u,
-                                       0x60u,
-                                       1) )
-                    xxxSendPostedMessage((const struct tagMSG *)v235, (struct tagMSG *)v235);
-LABEL_126:
-                  k = v208;
-                }
-              }
-              if ( k == (struct tagWND *)1 )
-              {
-                v50 = v200 | 0x400;
-                v200 |= 0x400u;
-                v31 = 0LL;
-                goto LABEL_259;
-              }
-              if ( (v53 & 0x3C07) == 0 )
-              {
-                if ( (v52 & 0x2000) == 0 )
-                {
-LABEL_150:
-                  v31 = 0LL;
-                  goto LABEL_151;
-                }
-                v50 = v200 | 0x800;
-                v200 |= 0x800u;
-                v31 = 0LL;
-LABEL_259:
-                v60 = v202;
-LABEL_260:
-                v63 = a5 & 2;
-LABEL_261:
-                v107 = *(_QWORD *)(v32 + 432);
-                if ( *(_QWORD *)(v107 + 72) == v32 )
-                {
-                  *(_QWORD *)(v107 + 80) = 0LL;
-                  LOBYTE(v22) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                             && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) != 0
-                             && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-                  LOBYTE(v24) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-                  if ( (_BYTE)v22 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                    WPP_RECORDER_AND_TRACE_SF_qqq(
-                      WPP_GLOBAL_Control->AttachedDevice,
-                      v22,
-                      v24,
-                      (_DWORD)gFullLog,
-                      4,
-                      18,
-                      22,
-                      (__int64)&WPP_0bd01f6e78ca3341e624bb2278b12953_Traceguids,
-                      *(_QWORD *)(v32 + 432),
-                      v32,
-                      *(_QWORD *)(*(_QWORD *)(v32 + 432) + 72LL));
-                  *(_QWORD *)(*(_QWORD *)(v32 + 432) + 72LL) = 0LL;
-                  **(_DWORD **)(v32 + 448) &= ~1u;
-                  v108 = 1;
-                  v201 = 1;
-                }
-                else
-                {
-                  v108 = v201;
-                }
-                IsEnabledDeviceUsage = Feature_AlwaysWakeTargetThread_2__private_IsEnabledDeviceUsage(k, v22, v24);
-                j = IsEnabledDeviceUsage != 0;
-                if ( IsEnabledDeviceUsage )
-                {
-                  if ( (unsigned int)Feature_WParamOlmapi32CompatTweak__private_IsEnabledDeviceUsage()
-                    || (v111 = Feature_LParamOlmapi32CompatTweak__private_IsEnabledDeviceUsage(), j = v111 != 0, v111) )
-                  {
-                    v201 = 1;
-                    goto LABEL_277;
-                  }
-                }
-                if ( v108 )
-                {
-LABEL_277:
-                  v112 = *(tagQ **)(v32 + 432);
-                  if ( tagQ::AreMultipleThreadsAttached(v112) )
-                  {
-                    v22 = 0LL;
-                    v113 = *((_QWORD *)v112 + 3);
-                    if ( !v113 )
-                      goto LABEL_287;
-                    if ( (*(_DWORD *)(v113 + 100) & 0x10) != 0 )
-                      goto LABEL_287;
-                    v114 = *(_QWORD *)(v113 + 104);
-                    if ( v114 == v32 )
-                      goto LABEL_287;
-                    v31 = *(_QWORD **)(v113 + 104);
-                    if ( !v114 )
-                      goto LABEL_287;
-                    v115 = CalcWakeMask(*(unsigned int *)(v113 + 24), *(unsigned int *)(v113 + 24), 0LL);
-                    v117 = -8265;
-                    if ( *(_DWORD *)(v113 + 96) )
-                      v117 = -73;
-                    v22 = v117 & v115;
-                    if ( v116 != 786 )
-                      LODWORD(v22) = v22 & 0xFFFFFF7F;
-                    j = (unsigned int)v22 & *(_DWORD *)(v31[56] + 4LL);
-                    if ( (_DWORD)j != (_DWORD)v22 )
-                    {
-LABEL_287:
-                      if ( v31 )
-                        SetWakeBit((__int64)v31, v22);
-                    }
-                  }
-                }
-                if ( !a6 )
-                {
-                  if ( v63 )
-                    goto LABEL_485;
-                  v182 = (_QWORD *)PsGetCurrentProcessWin32Process(j);
-                  v183 = v182;
-                  if ( v182 && !*v182 )
-                    v183 = 0LL;
-                  v184 = *(_QWORD *)(v32 + 424);
-                  if ( !*(_QWORD *)(v184 + 328) )
-                    *(_QWORD *)(v184 + 328) = v32;
-                  if ( *(_QWORD *)(*(_QWORD *)(v32 + 424) + 328LL) == v32 )
-                  {
-                    EtwTraceWakeInputIdle(0LL, v32);
-                    v185 = (struct _KEVENT *)v183[2];
-                    if ( !v185 )
-                      goto LABEL_480;
-                    if ( v185 != (struct _KEVENT *)-1LL )
-                    {
-                      KeSetEvent(v185, 1, 0);
-                      ObfDereferenceObject((PVOID)v183[2]);
-LABEL_480:
-                      v183[2] = -1LL;
-                    }
-                  }
-                  v186 = *((_DWORD *)v183 + 3);
-                  if ( (v186 & 4) != 0 )
-                  {
-                    *((_DWORD *)v183 + 3) = v186 & 0xFFFFFFFB;
-                    zzzCalcStartCursorHide(0LL, 0LL);
-                  }
-                  for ( j = *(unsigned int *)(*(_QWORD *)(v32 + 448) + 8LL);
-                        (j & 0x40) != 0;
-                        j = *(unsigned int *)(*(_QWORD *)(v32 + 448) + 8LL) )
-                  {
-                    xxxReceiveMessage(v32);
-                  }
-                  goto LABEL_485;
-                }
-                v118 = 0;
-                if ( v211 )
-                {
-                  if ( v221 == 7 || (v60 & 6) != 0 && *(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 112LL) )
-                  {
-                    v119 = v208;
-                    if ( *((_QWORD *)v208 + 2) == gptiCurrent )
-                    {
-                      v118 = 1;
-                      xxxUpdateInputHangInfo(v208, 0LL);
-                    }
-                  }
-                  else
-                  {
-                    v119 = v208;
-                  }
-                  v120 = xxxRealSleepThread(v60, 0LL, 1, 0, 0LL);
-                  if ( v118 )
-                    xxxUpdateInputHangInfo(v119, 1LL);
-LABEL_320:
-                  if ( v120 )
-                  {
-                    v31 = 0LL;
-                    v34 = 0;
-                    v200 = 0;
-                    goto LABEL_67;
-                  }
-                  v50 |= 0x10000u;
-LABEL_485:
-                  v170 = a1;
-                  v142 = gptiCurrent;
-LABEL_486:
-                  v140 = 0;
-                  v141 = (unsigned __int16 *)(v170 + 16);
-                  goto LABEL_487;
-                }
-                v210 = 0;
-                v121 = *(tagQ **)(v32 + 432);
-                v122 = *((_QWORD *)v121 + 10);
-                v123 = *((_QWORD *)v121 + 9);
-                if ( (*(_DWORD *)(gptiCurrent + 1272LL) & 0x40000) != 0 && tagQ::AreMultipleThreadsAttached(v121) )
-                {
-                  v129 = *((_QWORD *)PtiCurrentShared(v125, v124, v126, v127) + 58);
-                  if ( !*(_QWORD *)(v129 + 48)
-                    && !*(_QWORD *)(*((_QWORD *)PtiCurrentShared(v129, v128, v130, v131) + 58) + 56LL)
-                    && !(unsigned int)IsAdaptiveQueueDetachExempted(gptiCurrent) )
-                  {
-                    v118 = gdwMDAQTimeoutDefenseInDepth;
-                    v207 = 0;
-                    v204 = 0;
-                    LODWORD(v213) = 0;
-                  }
-                }
-                v120 = xxxSleepThread2(v202, v118, 1, 0, (enum SLEEP_STATUS *)&v210);
-                v133 = 0;
-                if ( (*(_DWORD *)(gptiCurrent + 1272LL) & 0x40000) != 0
-                  && tagQ::AreMultipleThreadsAttached(*(tagQ **)(gptiCurrent + 432LL)) )
-                {
-                  j = *((_QWORD *)PtiCurrentShared(j, v22, v24, (__int64)v25) + 58);
-                  if ( !*(_QWORD *)(j + 48) )
-                  {
-                    j = *((_QWORD *)PtiCurrentShared(j, v22, v24, (__int64)v25) + 58);
-                    if ( !*(_QWORD *)(j + 56) && !(unsigned int)IsAdaptiveQueueDetachExempted(gptiCurrent) )
-                      v133 = 1;
-                  }
-                }
-                if ( !v133
-                  || (j = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 128LL), j != *(_QWORD *)(gptiCurrent + 1432LL))
-                  && j
-                  || !v210 )
-                {
-                  v32 = gptiCurrent;
-                  goto LABEL_320;
-                }
-                v31 = 0LL;
-                v176 = v122;
-                v32 = gptiCurrent;
-                v177 = SlowAppThreadInShellFrame(gptiCurrent, v123, v176, v210 == 2);
-                v34 = v200;
-                if ( v177 )
-                  TryDetachShellFrame(gptiCurrent, v177, v210 == 2, 0LL);
-                goto LABEL_67;
-              }
-              v56 = xxxScanSysQueue(v32, a1, v208, v209, v212, a5, v53 & 0x3C07, &v206);
-              if ( v56 != 2 )
-              {
-                v31 = 0LL;
-                v207 = 0;
-                v204 = 0;
-                v213 = 0LL;
-                if ( v56 != 1 )
-                  goto LABEL_151;
-LABEL_147:
-                v50 = v200 | 2;
-                goto LABEL_330;
-              }
-              if ( !(unsigned int)IsShellFrameHangResilient(v32) || (v53 & 1) == 0 )
-                goto LABEL_150;
-              v31 = 0LL;
-              if ( !a6 )
-                goto LABEL_151;
-              v57 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-              v24 = 0LL;
-              if ( v37 )
-                v24 = v36;
-              v204 = v24;
-              v58 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-              if ( v39 )
-                v58 = v38;
-              v207 = v58;
-              if ( v39 )
-                v57 = v39;
-              v213 = v57;
-              v59 = ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) - v57;
-              if ( v59 >= 0xFA )
-                break;
-              xxxSleepThread2(v202, 0xAu, 1, 0, (enum SLEEP_STATUS *)&v210);
-              v35 = ++v204;
-              v213 = v57;
-              v207 = v58;
-              v34 = v200;
             }
-            if ( v58 == (_DWORD)v57 )
+            v32 = *(_QWORD *)(gptiCurrent + 448LL);
+            *(_WORD *)(gptiCurrent + 872LL) |= *(_WORD *)(v32 + 4) & v31;
+            *(_WORD *)(v32 + 4) &= v190;
+            j = *(unsigned __int16 *)(*(_QWORD *)(gptiCurrent + 448LL) + 6LL);
+            if ( (j & 0x40) != 0 )
             {
-              TraceLoggingSysQueueLockedRetryFailed(v24, v59);
-              v207 = 0;
-              v213 = v57;
-              v24 = v204;
+              if ( ((unsigned __int8)v23 & (unsigned __int8)*(_WORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 6LL) & 0x40) == 0 )
+              {
+                v10 |= 0x80u;
+                v179 = v10;
+                goto LABEL_170;
+              }
+              do
+                xxxReceiveMessage(gptiCurrent);
+              while ( (*(_BYTE *)(*(_QWORD *)(gptiCurrent + 448LL) + 6LL) & 0x40) != 0 );
             }
-LABEL_151:
-            k = *(struct tagWND **)(v32 + 448);
-            v22 = *((_DWORD *)k + 2) & 0x40;
-            v60 = v202;
-            if ( ((unsigned __int8)v202 & *((_BYTE *)k + 8) & 0x40) == 0 )
-            {
-              if ( !(_DWORD)v22 )
-                goto LABEL_154;
-              v50 = v200 | 0x1000;
-              v200 |= 0x1000u;
-              goto LABEL_260;
-            }
-            if ( (_DWORD)v22 )
+            LOBYTE(j) = v197 != 0;
+            if ( v197 != 0 && (v23 & 0x40) != 0 && *(_DWORD *)(gptiCurrent + 1124LL) )
             {
               do
               {
-                xxxReceiveMessage(v32);
-                k = *(struct tagWND **)(v32 + 448);
-              }
-              while ( (*((_DWORD *)k + 2) & 0x40) != 0 );
-            }
-LABEL_154:
-            v61 = *((_DWORD *)k + 2);
-            if ( (v202 & v61) == 0 )
-            {
-              v50 = v200 | 0x2000;
-              v200 |= 0x2000u;
-              goto LABEL_260;
-            }
-            v62 = v208;
-            if ( ((unsigned __int8)v202 & (unsigned __int8)v61 & 0x20) == 0
-              || !(unsigned int)xxxDoPaint((__int64)v208, a1) )
-            {
-              v63 = a5 & 2;
-              if ( (a5 & 2) != 0 )
-                goto LABEL_182;
-              v64 = (_QWORD *)PsGetCurrentProcessWin32Process(k);
-              v65 = v64;
-              if ( v64 && !*v64 )
-                v65 = 0LL;
-              v66 = *(_QWORD *)(v32 + 424);
-              if ( !*(_QWORD *)(v66 + 328) )
-                *(_QWORD *)(v66 + 328) = v32;
-              if ( *(_QWORD *)(*(_QWORD *)(v32 + 424) + 328LL) == v32 )
-              {
-                EtwTraceWakeInputIdle(0LL, v32);
-                v67 = (struct _KEVENT *)v65[2];
-                if ( !v67 )
-                  goto LABEL_170;
-                if ( v67 != (struct _KEVENT *)-1LL )
+                *(_DWORD *)(gptiCurrent + 1124LL) = 0;
+                for ( i = PopFirstPendingDelegateCapture((struct tagTHREADINPUTPOINTERLIST *)(gptiCurrent + 1088LL));
+                      i;
+                      i = PopFirstPendingDelegateCapture((struct tagTHREADINPUTPOINTERLIST *)(gptiCurrent + 1088LL)) )
                 {
-                  KeSetEvent(v67, 1, 0);
-                  ObfDereferenceObject((PVOID)v65[2]);
+                  xxxNotifyCaptureChangeIfCaptured(i, v35, v36);
+                }
+              }
+              while ( *(_DWORD *)(gptiCurrent + 1124LL) );
+            }
+            if ( *(_QWORD *)(gptiCurrent + 1464LL) && (v23 & 8) != 0 )
+            {
+              CurrentThread = KeGetCurrentThread();
+              v38 = 0LL;
+              if ( !(unsigned __int8)KeIsAttachedProcess(j)
+                || (CurrentProcess = PsGetCurrentProcess(v40, v39, v41),
+                    ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+                    CurrentThreadProcess = PsGetCurrentThreadProcess(v44),
+                    ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+              {
+                ThreadWin32Thread = (_QWORD **)PsGetThreadWin32Thread(CurrentThread);
+                if ( ThreadWin32Thread )
+                  v38 = *ThreadWin32Thread;
+              }
+              memset(v206, 0, 32);
+              v194 = 0;
+              v199 = 0LL;
+              v47 = 0;
+              ZwSetIoCompletionEx(v38[178], v38[182], 0LL, 2LL, 0, 0LL);
+              while ( 1 )
+              {
+                while ( 1 )
+                {
+                  LOBYTE(v177) = 0;
+                  v48 = ZwRemoveIoCompletionEx(v38[178], v206, 1LL, &v194, &v199, v177);
+                  v49 = 0;
+                  if ( !v48 )
+                    break;
+                  if ( v48 == 258 )
+                    goto LABEL_74;
+LABEL_85:
+                  if ( v49 != 4 )
+                  {
+LABEL_74:
+                    if ( v47 )
+                      ZwAssociateWaitCompletionPacket(v38[181], v38[178], v38[180], 0LL, 1LL, 0, 0LL, 0LL);
+                    v15 = v181;
+                    goto LABEL_77;
+                  }
+                }
+                if ( DWORD2(v206[0]) != 1 )
+                {
+                  if ( DWORD2(v206[0]) == 2 )
+                    goto LABEL_74;
+                  if ( !DWORD2(v206[0]) && v38[183] )
+                  {
+                    v49 = DWORD2(v206[0]) + 4;
+                    xxxHandleCoreMessagingQueueCompletion((__int64)v38, (ULONG64 *)v206, 1);
+                  }
+                  goto LABEL_85;
+                }
+                v47 = 1;
+              }
+            }
+LABEL_77:
+            v50 = *(unsigned __int16 *)(*(_QWORD *)(gptiCurrent + 448LL) + 6LL);
+            v51 = v178 & v50;
+            if ( (v178 & v50) == 0 )
+            {
+              v10 |= 0x100u;
+              v179 = v10;
+LABEL_169:
+              v23 = v178;
 LABEL_170:
-                  v65[2] = -1LL;
-                }
-              }
-              v68 = *((_DWORD *)v65 + 3);
-              if ( (v68 & 4) != 0 )
+              v74 = *(_QWORD *)(gptiCurrent + 432LL);
+              if ( *(_QWORD *)(v74 + 64) == gptiCurrent )
               {
-                *((_DWORD *)v65 + 3) = v68 & 0xFFFFFFFB;
-                zzzCalcStartCursorHide(0LL, 0LL);
+                *(_QWORD *)(v74 + 72) = 0LL;
+                if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                {
+                  LOBYTE(v74) = 4;
+                  WPP_RECORDER_SF_qqq(
+                    *(_QWORD *)(gptiCurrent + 432LL),
+                    v74,
+                    18,
+                    17,
+                    (__int64)&WPP_aa0cdaa0f1c33ddef9256642731d7c5d_Traceguids,
+                    *(_QWORD *)(gptiCurrent + 432LL),
+                    gptiCurrent,
+                    *(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 64LL));
+                }
+                *(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 64LL) = 0LL;
+                **(_DWORD **)(gptiCurrent + 448LL) &= ~1u;
+                v210 = 1;
+                v74 = *(_QWORD *)(gptiCurrent + 432LL);
               }
-              for ( k = *(struct tagWND **)(v32 + 448); (*((_DWORD *)k + 2) & 0x40) != 0; k = *(struct tagWND **)(v32 + 448) )
-                xxxReceiveMessage(v32);
-              v22 = *((_DWORD *)k + 2) & 0x40;
-              if ( ((unsigned __int8)v202 & *((_BYTE *)k + 8) & 0x40) != 0 )
+              else if ( !v210 )
               {
-                if ( (_DWORD)v22 )
+                goto LABEL_237;
+              }
+              if ( *(_DWORD *)(v74 + 392) > 1u )
+              {
+                v106 = 0LL;
+                LOWORD(v107) = 0;
+                CLockExclusiveAllowRecursion<DLT_QUEUE>::CLockExclusiveAllowRecursion<DLT_QUEUE>(v207, v74);
+                v108 = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 24LL);
+                if ( v108 )
                 {
-                  do
+                  if ( (*(_DWORD *)(v108 + 100) & 0x10) == 0 )
                   {
-                    xxxReceiveMessage(v32);
-                    k = *(struct tagWND **)(v32 + 448);
+                    v109 = *(_QWORD *)(v108 + 104);
+                    if ( v109 != gptiCurrent )
+                    {
+                      v106 = *(_QWORD *)(v108 + 104);
+                      if ( v109 )
+                      {
+                        v110 = CalcWakeMask(*(unsigned int *)(v108 + 24), *(unsigned int *)(v108 + 24), 0LL);
+                        v112 = -8265;
+                        if ( *(_DWORD *)(v113 + 96) )
+                          v112 = -73;
+                        v114 = v112 & v110;
+                        v107 = v114 & 0xFFFFFF7F;
+                        if ( v111 == 786 )
+                          v107 = v114;
+                        j = v107 & *(_WORD *)(*(_QWORD *)(v106 + 448) + 4LL);
+                        if ( (_DWORD)j == v107 )
+                          v106 = 0LL;
+                      }
+                    }
                   }
-                  while ( (*((_DWORD *)k + 2) & 0x40) != 0 );
                 }
-LABEL_178:
-                v61 = *((_DWORD *)k + 2);
-                if ( (v61 & v202) == 0 )
+                if ( v106 )
+                  SetWakeBit(v106, v107);
+              }
+LABEL_237:
+              if ( a6 )
+              {
+                v115 = 0;
+                if ( v186 )
                 {
-                  v50 = v200 | 0x8000;
-                  v200 |= 0x8000u;
-                  goto LABEL_261;
+                  v116 = WaitMaskIncludesUserInput(v23);
+                  v117 = v189;
+                  if ( v116 && *((_QWORD *)v189 + 2) == gptiCurrent )
+                  {
+                    v115 = 1;
+                    xxxUpdateInputHangInfo(v189, 0LL);
+                  }
+                  v118 = xxxRealSleepThread(v23, 0, 1, 0, 0LL);
+                  if ( v115 )
+                    xxxUpdateInputHangInfo(v117, 1LL);
                 }
-LABEL_182:
-                if ( ((unsigned __int8)v61 & (unsigned __int8)v202 & 0x10) != 0 )
+                else
                 {
-                  for ( m = *(__int64 **)(gptiCurrent + 1256LL); ; m = (__int64 *)*m )
+                  v188 = 0;
+                  v119 = *(_QWORD *)(gptiCurrent + 432LL);
+                  v120 = *(_QWORD *)(v119 + 72);
+                  v203 = *(_QWORD *)(v119 + 64);
+                  if ( (*(_DWORD *)(gptiCurrent + 1232LL) & 0x40000) == 0
+                    || *(_DWORD *)(v119 + 392) <= 1u
+                    || *(_QWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 464) + 48LL)
+                    || *(_QWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 464) + 56LL)
+                    || IsAdaptiveQueueDetachExempted(gptiCurrent, v121, v122) )
                   {
-                    while ( 1 )
-                    {
-                      if ( m == (__int64 *)(gptiCurrent + 1256LL) )
-                      {
-                        v106 = 0;
-                        goto LABEL_255;
-                      }
-                      if ( (*(_DWORD *)(m - 1) & 0x1000) == 0 )
-                        break;
-                      v215 = 0x20000;
-                      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 1408LL);
-                      m = (__int64 *)*m;
-                    }
-                    v70 = m[4];
-                    if ( !v62 || v62 == (struct tagWND *)v70 || (unsigned int)IsChild((__int64)v62, v70) )
-                      break;
+                    v123 = 0;
                   }
-                  if ( (gdwExtraInstrumentations & 2) != 0 )
+                  else
                   {
-                    v71 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-                    v72 = v71 - *((_DWORD *)m + 18);
-                    v73 = dword_1C035E380;
-                    if ( !dword_1C035E380 )
-                      v73 = v71;
-                    dword_1C035E380 = v73;
-                    v74 = 0;
-                    v75 = &unk_1C0312ED8;
-                    do
-                    {
-                      if ( *((_DWORD *)m - 4) <= *v75 )
-                        break;
-                      ++v74;
-                      ++v75;
-                    }
-                    while ( v74 < 7 );
-                    v76 = v74 + 8LL * gTimerCoalCurrentState;
-                    ++gaTimerDeliveryDistribution[2 * v76];
-                    v77 = v72 - *((_DWORD *)m - 4) + gaTimerDeliveryDistribution[2 * v76 + 1];
-                    gaTimerDeliveryDistribution[2 * v76 + 1] = v77;
-                    if ( gaTimerDeliveryDistribution[2 * v76] >= 0x7FFFFFFFu || (v78 = 0LL, v77 >= 0x3FFFFFFF) )
-                      v78 = 1LL;
-                    if ( (_DWORD)v78 || (unsigned int)(v71 - v73) >= 0xEA60 )
-                    {
-                      v79 = 0LL;
-                      v80 = &unk_1C035DC08;
-                      v81 = 4LL;
-                      do
-                      {
-                        v82 = (_DWORD *)SGDGetUserSessionState(v78);
-                        v83 = 0LL;
-                        v78 = gServiceSessionId;
-                        if ( *v82 != gServiceSessionId )
-                          v83 = 4LL;
-                        *v80 = *((_DWORD *)&gTimerCoalescingSpec + v79 + v83);
-                        ++v79;
-                        v80 += 16;
-                        --v81;
-                      }
-                      while ( v81 );
-                      v84 = (unsigned int *)SGDGetUserSessionState(gServiceSessionId);
-                      EtwTraceTimerDelayStatistics(*v84, 8LL, 4LL, &unk_1C0312ED8, 32, 8, gaTimerDeliveryDistribution);
-                      dword_1C035E380 = v71;
-                      LODWORD(v78) = 1;
-                      v32 = gptiCurrent;
-                    }
-                    if ( (_DWORD)v78 )
-                      memset_0(gaTimerDeliveryDistribution, 0, 0x100uLL);
+                    v123 = 1;
+                    v115 = gdwMDAQTimeoutDefenseInDepth;
                   }
-                  v85 = *((_DWORD *)m + 19);
-                  if ( *((_DWORD *)m + 18) == v85 )
-                    *((_DWORD *)m + 18) = v85;
-                  if ( *(_DWORD *)(gptiCurrent + 824LL) < gUserPostMessageLimit )
+                  v124 = 0;
+                  if ( !v123 )
+                    v124 = v180;
+                  v180 = v124;
+                  v125 = v124;
+                  v126 = 0;
+                  if ( !v123 )
+                    v126 = v184;
+                  v184 = v126;
+                  v127 = v126;
+                  v128 = 0;
+                  if ( !v123 )
+                    v128 = v185;
+                  v185 = v128;
+                  v129 = v128;
+                  v118 = xxxSleepThread2(v178, v115, 1, 0, (enum SLEEP_STATUS *)&v188);
+                  v132 = 0;
+                  if ( (*(_DWORD *)(gptiCurrent + 1232LL) & 0x40000) != 0 )
                   {
-                    v87 = SGDGetUserSessionState(gUserPostMessageLimit);
-                    v88 = (_DWORD *)Win32AllocateFromPagedLookasideList(*(_QWORD *)(v87 + 16872));
-                    v86 = v88;
-                    if ( v88 )
+                    j = *(_QWORD *)(gptiCurrent + 432LL);
+                    if ( *(_DWORD *)(j + 392) > 1u )
                     {
-                      memset_0(v88, 0, 0xA0uLL);
-                      v89 = 8;
-                      if ( *(_DWORD *)(gptiCurrent + 828LL) != 2 )
-                        v89 = 4;
-                      v86[25] |= v89;
-                      v90 = *(_QWORD **)(gptiCurrent + 816LL);
-                      if ( v90 )
+                      j = *(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 464);
+                      if ( !*(_QWORD *)(j + 48) )
                       {
-                        *v90 = v86;
-                        *((_QWORD *)v86 + 1) = *(_QWORD *)(gptiCurrent + 816LL);
+                        j = *(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 464);
+                        if ( !*(_QWORD *)(j + 56) && !IsAdaptiveQueueDetachExempted(gptiCurrent, v130, v131) )
+                          v132 = 1;
                       }
-                      else
-                      {
-                        *(_QWORD *)(gptiCurrent + 808LL) = v86;
-                        *(_QWORD *)(gptiCurrent + 840LL) = 0LL;
-                      }
-                      *(_QWORD *)(gptiCurrent + 816LL) = v86;
-                      v91 = *(_DWORD *)(gptiCurrent + 824LL) + 1;
-                      *(_DWORD *)(gptiCurrent + 824LL) = v91;
-                      v92 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                         && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) != 0
-                         && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-                      if ( v92 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                        WPP_RECORDER_AND_TRACE_SF_qqdd(
-                          (__int64)WPP_GLOBAL_Control->AttachedDevice,
-                          v92,
-                          WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-                          v91,
-                          (__int64)v196,
-                          v197,
-                          v198,
-                          v199);
-                      v31 = 0LL;
                     }
-                    else
+                  }
+                  if ( v132 )
+                  {
+                    j = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 120LL);
+                    if ( j == *(_QWORD *)(gptiCurrent + 1392LL) || (v185 = v129, v184 = v127, v180 = v125, !j) )
                     {
-                      UserSetLastError(8);
-                      v31 = 0LL;
-                      v86 = 0LL;
+                      v185 = v129;
+                      v184 = v127;
+                      v180 = v125;
+                      if ( v188 )
+                      {
+                        v151 = SlowAppThreadInShellFrame(gptiCurrent, v203, v120, v188 == 2);
+                        v9 = 0LL;
+                        if ( v151 )
+                          TryDetachShellFrame(gptiCurrent, v151, v188 == 2, 0LL);
+                        v185 = v129;
+                        v184 = v127;
+                        v180 = v125;
+                        v11 = 1;
+                        v10 = v179;
+                        v23 = v178;
+                        v15 = v181;
+                        v31 = v178 & 0xFFBF;
+                        continue;
+                      }
+                    }
+                  }
+                  v9 = 0LL;
+                  v11 = 1;
+                  v23 = v178;
+                }
+                if ( v118 )
+                {
+                  v10 = 0;
+                  v179 = 0;
+                  v15 = v181;
+                  v31 = v178 & 0xFFBF;
+                  continue;
+                }
+                v10 = v179 | 0x10000;
+                goto LABEL_399;
+              }
+              if ( v193 )
+              {
+LABEL_399:
+                v134 = a1;
+                goto LABEL_400;
+              }
+              v156 = PsGetCurrentProcessWin32Process(j);
+              *(_DWORD *)(gptiCurrent + 488LL) &= ~0x2000u;
+              if ( (*(_DWORD *)(gptiCurrent + 488LL) & 0x1000) != 0 )
+              {
+                j = *(_QWORD *)(gptiCurrent + 616LL);
+                if ( *(_QWORD *)(j + 24) )
+                {
+                  EtwTraceWakeInputIdle(0LL, gptiCurrent);
+                  v157 = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 616LL) + 24LL);
+                  j = *(_QWORD *)(v157 + 32);
+                  if ( j )
+                  {
+                    if ( j != -1 )
+                    {
+                      KeSetEvent((PRKEVENT)j, 1, 0);
+                      ObfDereferenceObject(*(PVOID *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 616LL) + 24LL) + 32LL));
+                      j = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 616LL) + 24LL);
+                      *(_QWORD *)(j + 32) = -1LL;
                     }
                   }
                   else
                   {
-                    UserSetLastError(1816);
-                    v31 = 0LL;
-                    v86 = 0LL;
+                    *(_QWORD *)(v157 + 32) = -1LL;
                   }
-                  if ( v86 )
-                  {
-                    v93 = m[4];
-                    if ( v93 )
-                    {
-                      v94 = *(_DWORD *)(*(_QWORD *)(v93 + 40) + 288LL);
-                    }
-                    else
-                    {
-                      v95 = *(_QWORD *)(gptiCurrent + 432LL);
-                      v96 = *(_QWORD *)(v95 + 128);
-                      if ( v96 )
-                        v97 = *(_QWORD *)(v96 + 16);
-                      else
-                        v97 = *(_QWORD *)(v95 + 104);
-                      v94 = *(_DWORD *)(*(_QWORD *)(v97 + 424) + 280LL);
-                    }
-                    if ( (*(_DWORD *)(m - 1) & 2) == 0 || (v98 = 280LL, !*(m - 3)) )
-                      v98 = *(m - 3);
-                    v99 = 280;
-                    if ( (*(_DWORD *)(m - 1) & 2) == 0 )
-                      v99 = 275;
-                    StoreQMessage(
-                      (struct tagQMSG *)v86,
-                      (struct _EX_PUSH_LOCK **)v93,
-                      v99,
-                      m[5],
-                      v98,
-                      0,
-                      0LL,
-                      0,
-                      0LL,
-                      0,
-                      0LL,
-                      v94,
-                      0LL,
-                      0LL);
-                    if ( (*(_DWORD *)(gptiCurrent + 488LL) & 1) == 0 )
-                    {
-                      _InterlockedOr((volatile signed __int32 *)(*(_QWORD *)(gptiCurrent + 448LL) + 8LL), 0x108u);
-                      _InterlockedOr((volatile signed __int32 *)(*(_QWORD *)(gptiCurrent + 448LL) + 4LL), 0x108u);
-                      if ( (*(_DWORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 16LL) & 0x108) != 0 )
-                        KeSetEvent(*(PRKEVENT *)(gptiCurrent + 736LL), 2, 0);
-                    }
-                  }
-                  if ( (unsigned int)Feature_Servicing_win32k_timers_resilience__private_IsEnabledDeviceUsage() )
-                  {
-                    DecTimerCountAndClearReadyFlag((struct tagTIMER *)(m - 7));
-                    goto LABEL_250;
-                  }
-                  *((_DWORD *)m - 2) &= ~1u;
-                  v100 = *(m - 4);
-                  v101 = (__int64 *)*m;
-                  v102 = (__int64 **)m[1];
-                  if ( *(__int64 **)(*m + 8) != m || *v102 != m )
-                    goto LABEL_468;
-                  *v102 = v101;
-                  v101[1] = (__int64)v102;
-                  v51 = (*(_DWORD *)(v100 + 604))-- == 1;
-                  if ( v51 )
-                    _InterlockedAnd((volatile signed __int32 *)(*(_QWORD *)(v100 + 448) + 8LL), 0xFFFFFFEF);
-LABEL_250:
-                  v103 = m + 2;
-                  v104 = m[2];
-                  v105 = (_QWORD *)m[3];
-                  if ( *(__int64 **)(v104 + 8) != m + 2
-                    || (_QWORD *)*v105 != v103
-                    || (*v105 = v104,
-                        *(_QWORD *)(v104 + 8) = v105,
-                        k = (struct tagWND *)gtmrListHead[0],
-                        v22 = gtmrListHead[1],
-                        *(_QWORD *)v22 != gtmrListHead[0]) )
-                  {
-LABEL_468:
-                    __fastfail(3u);
-                  }
-                  *v103 = gtmrListHead[0];
-                  m[3] = v22;
-                  *(_QWORD *)v22 = v103;
-                  gtmrListHead[1] = v103;
-                  v106 = 1;
-LABEL_255:
-                  if ( v106 )
-                  {
-                    v34 = v200 | 8;
-                    v200 |= 8u;
-                    continue;
-                  }
-                  v50 = v200;
-                  goto LABEL_259;
                 }
-                v50 = v200;
+                goto LABEL_395;
               }
-              else
+              v158 = *(_QWORD *)(gptiCurrent + 424LL);
+              if ( !*(_QWORD *)(v158 + 328) )
               {
-                if ( !(_DWORD)v22 )
-                  goto LABEL_178;
-                v50 = v200 | 0x4000;
-                v200 |= 0x4000u;
+                *(_QWORD *)(v158 + 328) = gptiCurrent;
+                v158 = *(_QWORD *)(gptiCurrent + 424LL);
               }
-              goto LABEL_261;
+              if ( *(_QWORD *)(v158 + 328) != gptiCurrent )
+                goto LABEL_395;
+              EtwTraceWakeInputIdle(0LL, gptiCurrent);
+              j = *(_QWORD *)(v156 + 16);
+              if ( j )
+              {
+                if ( j == -1 )
+                {
+LABEL_395:
+                  v159 = *(_DWORD *)(v156 + 12);
+                  if ( (v159 & 4) != 0 )
+                  {
+                    *(_DWORD *)(v156 + 12) = v159 & 0xFFFFFFFB;
+                    zzzCalcStartCursorHide(0LL, 0LL);
+                  }
+                  while ( (*(_BYTE *)(*(_QWORD *)(gptiCurrent + 448LL) + 6LL) & 0x40) != 0 )
+                    xxxReceiveMessage(gptiCurrent);
+                  goto LABEL_399;
+                }
+                KeSetEvent((PRKEVENT)j, 1, 0);
+                ObfDereferenceObject(*(PVOID *)(v156 + 16));
+              }
+              *(_QWORD *)(v156 + 16) = -1LL;
+              goto LABEL_395;
             }
             break;
           }
-          v50 = v200 | 4;
-LABEL_330:
-          v200 = v50;
-          v136 = a1;
-          v137 = *(_DWORD *)(a1 + 8);
-          if ( v137 == 595 && *(_QWORD *)(a1 + 24) == -1LL )
-            v138 = -1LL;
-          else
-            v138 = 0LL;
-          if ( (unsigned int)(v137 - 571) <= 1 )
+          j = *(_QWORD *)(gptiCurrent + 432LL);
+          if ( *(_QWORD *)(j + 64) != gptiCurrent || (*(_DWORD *)(j + 388) & 0x400) == 0 )
+            goto LABEL_96;
+          EtwTraceInputQueueNoRemoveLocker();
+          if ( (v51 & 0x3C07) == 0 )
           {
-            v141 = (unsigned __int16 *)(a1 + 16);
-            v142 = gptiCurrent;
-            v140 = 1;
-LABEL_344:
-            v143 = 1;
-            goto LABEL_345;
-          }
-          if ( (unsigned int)(v137 - 577) <= 3 || (unsigned int)(v137 - 581) <= 5 || (unsigned int)(v137 - 593) <= 2 )
-          {
-            v140 = 1;
-            v139 = 1;
-          }
-          else
-          {
-            v139 = 0;
-            v140 = 1;
-          }
-          v141 = (unsigned __int16 *)(a1 + 16);
-          v142 = gptiCurrent;
-          if ( v139 && (unsigned int)IsPointerMessageTouchpad(gptiCurrent, v138, *v141) )
-            goto LABEL_344;
-          v143 = 0;
-LABEL_345:
-          if ( !v143
-            || (*(_DWORD *)(v142 + 1272) & 0x2000) != 0
-            || (*(_DWORD *)(v142 + 1276) & 0x40) != 0
-            || (v144 = 1,
-                (unsigned int)IsPTPAllowedOnThread((struct tagTHREADINFO *)v142, *(_DWORD *)(a1 + 8), *(_QWORD *)v141)) )
-          {
-            v144 = 0;
-          }
-          v145 = *(_DWORD *)(a1 + 8);
-          if ( v145 != 842 && v145 != 537 && v145 != 568
-            || (v146 = Feature_MTestAbSh1__private_IsEnabledDeviceUsage(), v147 = 1LL, !v146) )
-          {
-            v147 = 0LL;
-          }
-          if ( (a5 & 1) != 0
-            && ((v148 = *(_DWORD *)(a1 + 8), v148 == 258)
-             || v148 == 582
-             || v148 == 578
-             || v148 == 583
-             || v148 == 579
-             || (_DWORD)v147
-             || (v147 = 49152LL, (unsigned __int16)v148 >= 0xC000u)) )
-          {
-            v24 = (unsigned int)a5;
-            v218 = 0;
-            v147 = gpsi;
-            if ( gpsi && *(_QWORD *)(gpsi + 856LL) )
+            if ( (v50 & 0x2000) != 0 )
             {
-              if ( gptiCurrent == gptiRit
-                || (*(_DWORD *)(gptiCurrent + 488LL) & 0x1000000D) != 0
-                || !*(_QWORD *)(gptiCurrent + 456LL)
-                || ((*(_DWORD *)(gptiCurrent + 680LL) | *(_DWORD *)(**(_QWORD **)(gptiCurrent + 464LL) + 16LL)) & 0x400) != 0
-                && (v240 = 0,
-                    v238[0] = (unsigned int)PsGetThreadId((PETHREAD)*gptiCurrent),
-                    v239 = 0,
-                    v238[2] = (unsigned int)a5,
-                    v238[1] = a1,
-                    (unsigned int)xxxCallHook(0LL, 3uLL, (__int64)v238, 9LL)) )
+              v10 |= 0x200u;
+              v179 = v10;
+              goto LABEL_169;
+            }
+LABEL_96:
+            v52 = v189;
+            goto LABEL_97;
+          }
+          v176 = v15;
+          v52 = v189;
+          v53 = xxxScanSysQueue(gptiCurrent, a1, v189, a3);
+          if ( v53 == 1 )
+          {
+            v133 = 2;
+            v134 = a1;
+            goto LABEL_273;
+          }
+          if ( !v53 )
+            UnblockDeferredInput(gptiCurrent);
+LABEL_97:
+          if ( (v51 & 8) == 0
+            || !(unsigned int)xxxReadPostMessage(
+                                gptiCurrent,
+                                (struct tagMSG *)a1,
+                                v52,
+                                a3,
+                                v181,
+                                (struct _QMSG_POSTCHAR_FLAGS *)&v192,
+                                v182) )
+          {
+            if ( v189 == (struct tagWND *)1 )
+            {
+              v10 |= 0x400u;
+              v179 = v10;
+              goto LABEL_169;
+            }
+            if ( (v51 & 0x3C07) != 0 )
+            {
+              v176 = v181;
+              v55 = v189;
+              v134 = a1;
+              v56 = xxxScanSysQueue(gptiCurrent, a1, v189, a3);
+              if ( v56 == 2 )
               {
-                v136 = a1;
-              }
-              else
-              {
-                v136 = a1;
-                if ( (unsigned int)fnHkINLPMSG(
-                                     196608LL,
-                                     (unsigned int)a5,
-                                     (__int128 *)a1,
-                                     0LL,
-                                     *(_QWORD *)(gpsi + 856LL),
-                                     0,
-                                     &v218) )
+                if ( (unsigned int)IsShellFrameHangResilient(gptiCurrent) && (v51 & 1) != 0 && a6 )
                 {
-                  v149 = *(_DWORD *)(a1 + 8);
-                  if ( v149 == 258 )
+                  v57 = 0;
+                  if ( v185 )
+                    v57 = v180;
+                  v180 = v57;
+                  v58 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+                  if ( v185 )
+                    v58 = v184;
+                  v184 = v58;
+                  v59 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+                  if ( v185 )
+                    v59 = v185;
+                  v185 = v59;
+                  v60 = v59;
+                  v61 = ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) - v59;
+                  if ( v61 < 0xFA )
                   {
-                    *(_DWORD *)(a1 + 8) = 0;
-                    *(_QWORD *)v141 = 0LL;
-                    *(_QWORD *)(a1 + 24) = 0LL;
+                    v23 = v178;
+                    xxxSleepThread2(v178, 0xAu, 1, 0, (enum SLEEP_STATUS *)&v188);
+                    ++v180;
+                    v15 = v181;
+                    v31 = v178 & 0xFFBF;
+                    continue;
                   }
-                  else if ( v149 == 842 )
+                  v185 = v59;
+                  if ( v58 == v59 )
                   {
-                    *(_QWORD *)v141 = 0LL;
-                    *(_QWORD *)(a1 + 24) = 0LL;
+                    TraceLoggingSysQueueLockedRetryFailed(v57, v61);
+                    v184 = 0;
+                    v185 = v60;
                   }
                 }
               }
-              goto LABEL_377;
-            }
-            v136 = a1;
-          }
-          else
-          {
-LABEL_377:
-            v24 = (unsigned int)a5;
-          }
-          if ( ((a5 & 1) == 0 || !v206 || !*(_QWORD *)(v142 + 1304) && !*(_QWORD *)(v142 + 1320)) && !v144 )
-          {
-            v150 = *(__int64 **)(v142 + 464);
-            v147 = *v150;
-            if ( ((*(_BYTE *)(v142 + 680) | *(_BYTE *)(*v150 + 16)) & 0x10) != 0 )
-              xxxCallHook(0LL, (unsigned int)v24, v136, 3LL);
-          }
-          v151 = a5 & 1;
-          if ( (a5 & 1) != 0 )
-          {
-            if ( *(_DWORD *)(v142 + 1160) )
-            {
-              v152 = SGDGetUserSessionState(v147);
-              if ( *(_WORD *)(SGDGetUserSessionState(v153) + 16280)
-                && *(_QWORD *)(v152 + 16288) == v142
-                && *(_DWORD *)(v152 + 16284) == *(_DWORD *)(v142 + 1160) )
-              {
-                ForceCompletePendingPromotion();
-                xxxProcessMousePromotionQueue();
-              }
               else
               {
-                *(_DWORD *)(v142 + 1160) = 0;
+                v184 = 0;
+                v180 = 0;
+                v185 = 0;
+                if ( v56 == 1 )
+                {
+                  v133 = 2;
+                  goto LABEL_273;
+                }
               }
             }
-            v154 = a1;
-            if ( *(_DWORD *)(a1 + 8) == 583 && _bittest16((const signed __int16 *)(a1 + 18), 0xDu) )
+            else
             {
-              PointerPromotion::MarkPendingPromotion((PointerPromotion *)v142, (struct tagTHREADINFO *)*v141, v24);
-              v154 = a1;
+              if ( (v50 & 0x2000) != 0 )
+              {
+                v10 |= 0x800u;
+                v179 = v10;
+                goto LABEL_169;
+              }
+              v55 = v189;
+              v134 = a1;
             }
-            v155 = 0;
-            v156 = *(unsigned int *)(v154 + 8);
-            if ( (unsigned int)(v156 - 577) <= 3 )
-              goto LABEL_400;
-            if ( (unsigned int)(v156 - 581) > 0x12 || (v157 = 1, (_DWORD)v156 == 589) )
-              v157 = 0;
-            v51 = v157 == 0;
-            v158 = 0;
-            if ( !v51 )
-LABEL_400:
-              v158 = 1;
-            if ( !v158 || (v159 = 1, (_DWORD)v156 == 595) )
-              v159 = 0;
-            if ( v159 )
-              v155 = *v141;
-            v160 = SGDGetUserSessionState(v156);
-            CTouchProcessor::UpdateThreadPointerList(
-              *(CTouchProcessor **)(v160 + 3424),
-              (struct tagTHREADINPUTPOINTERLIST *)(v142 + 1128),
-              v155);
-            v151 = a5 & 1;
-          }
-          if ( !v206 )
-            goto LABEL_419;
-          v161 = *((_DWORD *)v206 + 25);
-          if ( (v161 & 0x100) == 0 )
-            goto LABEL_419;
-          if ( !v151 )
-            goto LABEL_418;
-          if ( *(_QWORD *)(v142 + 1320) )
-          {
-            InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(v225, "ShellHandwriting Delegation", 0LL);
-            InputTraceLogging::Delivery::CallShellHandwritingDelegateThread(v206);
-            InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(
-              &v228,
-              "ShellHandwriting DelegationCallout",
-              (const struct InputTraceLogging::ThreadLockedPerfRegion *)v225);
-            v32 = gptiCurrent;
-            v162 = xxxClientCallDelegateThread(*(_QWORD *)(gptiCurrent + 1320LL), a1, *(_QWORD *)(gptiCurrent + 1312LL));
-            InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)&v228);
-            if ( (*((_DWORD *)v206 + 25) & 0x20) != 0 )
+            j = *(_QWORD *)(gptiCurrent + 448LL);
+            v62 = *(_WORD *)(j + 6) & 0x40;
+            LOWORD(v63) = v178;
+            if ( ((unsigned __int8)v178 & (unsigned __int8)*(_WORD *)(j + 6) & 0x40) != 0 )
             {
-              v163 = SGDGetUserSessionState(v206);
-              TouchProcessorLock = CTouchProcessor::GetTouchProcessorLock(*(CTouchProcessor **)(v163 + 3424));
-              CInpLockGuardExclusive::CInpLockGuardExclusive((CInpLockGuardExclusive *)v237, TouchProcessorLock, v165);
-              *((_DWORD *)v206 + 25) &= ~0x100u;
-              _HandleShellHandwritingDelegatedInputWorker(gptiCurrent, v162, v206);
-              CInpLockGuardExclusive::~CInpLockGuardExclusive((CInpLockGuardExclusive *)v237);
+              if ( v62 )
+              {
+                do
+                {
+                  xxxReceiveMessage(gptiCurrent);
+                  j = *(_QWORD *)(gptiCurrent + 448LL);
+                }
+                while ( (*(_BYTE *)(j + 6) & 0x40) != 0 );
+                LOWORD(v63) = v178;
+              }
             }
-            v34 = 0x20000;
-            v200 = 0x20000;
-            InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)v225);
-            v31 = 0LL;
-            continue;
+            else if ( v62 )
+            {
+              v10 |= 0x1000u;
+              v179 = v10;
+              goto LABEL_169;
+            }
+            LOWORD(v64) = *(_WORD *)(j + 6);
+            if ( ((unsigned __int16)v63 & (unsigned __int16)v64) == 0 )
+            {
+              v10 |= 0x2000u;
+              v179 = v10;
+              goto LABEL_169;
+            }
+            if ( ((unsigned __int8)v63 & (unsigned __int8)v64 & 0x20) != 0 )
+            {
+              if ( (unsigned int)xxxDoPaint(v55, v134) )
+              {
+                v133 = 4;
+                goto LABEL_273;
+              }
+              LOBYTE(v63) = v178;
+            }
+            if ( v193 )
+            {
+LABEL_159:
+              if ( ((unsigned __int8)v64 & (unsigned __int8)v63 & 0x10) != 0 )
+              {
+                v72 = *(__int64 **)(gptiCurrent + 1216LL);
+                if ( v72 != (__int64 *)(gptiCurrent + 1216LL) )
+                {
+                  while ( 1 )
+                  {
+                    if ( (*(_DWORD *)(v72 - 1) & 0x1000) != 0 )
+                    {
+                      v191 = 0x20000;
+                      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 1292LL);
+                    }
+                    else
+                    {
+                      v73 = (struct tagWND *)v72[4];
+                      if ( !v55 || v55 == v73 || (unsigned int)IsChild(v55, v73) )
+                      {
+                        if ( (gdwExtraInstrumentations & 2) != 0 )
+                        {
+                          v75 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+                          v76 = v75 - *((_DWORD *)v72 + 18);
+                          v77 = dword_1C033A0DC;
+                          if ( !dword_1C033A0DC )
+                            v77 = v75;
+                          dword_1C033A0DC = v77;
+                          v78 = 0;
+                          v79 = L"\n";
+                          do
+                          {
+                            if ( *((_DWORD *)v72 - 4) <= *(_DWORD *)v79 )
+                              break;
+                            ++v78;
+                            v79 += 2;
+                          }
+                          while ( v78 < 7 );
+                          v80 = v78 + 8LL * gTimerCoalCurrentState;
+                          ++gaTimerDeliveryDistribution[2 * v80];
+                          v81 = v76 - *((_DWORD *)v72 - 4) + gaTimerDeliveryDistribution[2 * v80 + 1];
+                          gaTimerDeliveryDistribution[2 * v80 + 1] = v81;
+                          if ( gaTimerDeliveryDistribution[2 * v80] >= 0x7FFFFFFFu
+                            || v81 >= 0x3FFFFFFF
+                            || (unsigned int)(v75 - v77) >= 0xEA60 )
+                          {
+                            v82 = 0LL;
+                            if ( gSessionId != gServiceSessionId )
+                              v82 = 16LL;
+                            dword_1C0338C98 = *(_DWORD *)((char *)&gTimerCoalescingSpec + v82);
+                            v83 = 4LL;
+                            if ( gSessionId != gServiceSessionId )
+                              v83 = 20LL;
+                            dword_1C0338CD8 = *(_DWORD *)((char *)&gTimerCoalescingSpec + v83);
+                            v84 = 8LL;
+                            if ( gSessionId != gServiceSessionId )
+                              v84 = 24LL;
+                            dword_1C0338D18 = *(_DWORD *)((char *)&gTimerCoalescingSpec + v84);
+                            v85 = 12LL;
+                            if ( gSessionId != gServiceSessionId )
+                              v85 = 28LL;
+                            dword_1C0338D58 = *(_DWORD *)((char *)&gTimerCoalescingSpec + v85);
+                            v176 = 32;
+                            EtwTraceTimerDelayStatistics((unsigned int)gSessionId, 8LL, 4LL, L"\n");
+                            dword_1C033A0DC = v75;
+                            memset(gaTimerDeliveryDistribution, 0, 0x100uLL);
+                          }
+                        }
+                        v86 = *((_DWORD *)v72 + 19);
+                        if ( *((_DWORD *)v72 + 18) == v86 )
+                          *((_DWORD *)v72 + 18) = v86;
+                        if ( *(_DWORD *)(gptiCurrent + 824LL) < gUserPostMessageLimit )
+                        {
+                          v87 = (_DWORD *)Win32AllocateFromPagedLookasideList(QEntryLookaside);
+                          v88 = v87;
+                          if ( v87 )
+                          {
+                            memset(v87, 0, 0xA0uLL);
+                            v92 = 8;
+                            if ( *(_DWORD *)(gptiCurrent + 828LL) != 2 )
+                              v92 = 4;
+                            v88[25] |= v92;
+                            v93 = *(_QWORD **)(gptiCurrent + 816LL);
+                            if ( v93 )
+                            {
+                              *v93 = v88;
+                              *((_QWORD *)v88 + 1) = *(_QWORD *)(gptiCurrent + 816LL);
+                            }
+                            else
+                            {
+                              *(_QWORD *)(gptiCurrent + 808LL) = v88;
+                            }
+                            *(_QWORD *)(gptiCurrent + 816LL) = v88;
+                            v94 = *(_DWORD *)(gptiCurrent + 824LL) + 1;
+                            *(_DWORD *)(gptiCurrent + 824LL) = v94;
+                            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                              WPP_RECORDER_SF_qqdd(
+                                (unsigned int)&WPP_RECORDER_INITIALIZED,
+                                v89,
+                                v90,
+                                v91,
+                                v176,
+                                (char)v88,
+                                gptiCurrent + 40,
+                                *(_DWORD *)(gptiCurrent + 828LL),
+                                v94);
+                            v95 = v72[4];
+                            if ( v95 )
+                            {
+                              v96 = *(_DWORD *)(*(_QWORD *)(v95 + 40) + 288LL);
+                            }
+                            else
+                            {
+                              v97 = *(_QWORD *)(gptiCurrent + 432LL);
+                              v98 = *(_QWORD *)(v97 + 120);
+                              if ( v98 )
+                                v99 = *(_QWORD *)(v98 + 16);
+                              else
+                                v99 = *(_QWORD *)(v97 + 96);
+                              v96 = *(_DWORD *)(*(_QWORD *)(v99 + 424) + 280LL);
+                            }
+                            if ( (*(_DWORD *)(v72 - 1) & 2) == 0 || (v100 = 280LL, !*(v72 - 3)) )
+                              v100 = *(v72 - 3);
+                            v101 = 280;
+                            if ( (*(_DWORD *)(v72 - 1) & 2) == 0 )
+                              v101 = 275;
+                            StoreQMessage(
+                              (struct tagQMSG *)v88,
+                              (struct tagWND *)v95,
+                              v101,
+                              v72[5],
+                              v100,
+                              0,
+                              0LL,
+                              0,
+                              0LL,
+                              0,
+                              0LL,
+                              v96,
+                              0LL,
+                              0LL);
+                            if ( (*(_DWORD *)(gptiCurrent + 488LL) & 1) == 0 )
+                            {
+                              *(_WORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 6LL) |= 0x108u;
+                              *(_WORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 4LL) |= 0x108u;
+                              if ( (*(_WORD *)(*(_QWORD *)(gptiCurrent + 448LL) + 10LL) & 0x108) != 0 )
+                                KeSetEvent(*(PRKEVENT *)(gptiCurrent + 736LL), 2, 0);
+                            }
+                          }
+                          else
+                          {
+                            UserSetLastError(8LL);
+                          }
+                        }
+                        else
+                        {
+                          UserSetLastError(1816LL);
+                        }
+                        DecTimerCountAndClearReadyFlag((struct tagTIMER *)(v72 - 7));
+                        v102 = v72 + 2;
+                        v103 = *v102;
+                        v104 = (_QWORD *)v102[1];
+                        if ( *(_QWORD **)(*v102 + 8LL) != v102
+                          || (_QWORD *)*v104 != v102
+                          || (*v104 = v103,
+                              *(_QWORD *)(v103 + 8) = v104,
+                              v105 = (_QWORD *)gtmrListHead[1],
+                              *v105 != gtmrListHead[0]) )
+                        {
+                          __fastfail(3u);
+                        }
+                        *v102 = gtmrListHead[0];
+                        v102[1] = v105;
+                        *v105 = v102;
+                        gtmrListHead[1] = v102;
+                        v10 = v179 | 8;
+                        v179 |= 8u;
+                        v11 = 1;
+                        v23 = v178;
+                        v15 = v181;
+                        v31 = v178 & 0xFFBF;
+                        goto LABEL_52;
+                      }
+                    }
+                    v72 = (__int64 *)*v72;
+                    if ( v72 == (__int64 *)(gptiCurrent + 1216LL) )
+                    {
+                      v10 = v179;
+                      break;
+                    }
+                  }
+                }
+                v11 = 1;
+              }
+              goto LABEL_169;
+            }
+            v65 = PsGetCurrentProcessWin32Process(j);
+            *(_DWORD *)(gptiCurrent + 488LL) &= ~0x2000u;
+            if ( (*(_DWORD *)(gptiCurrent + 488LL) & 0x1000) != 0 )
+            {
+              if ( *(_QWORD *)(*(_QWORD *)(gptiCurrent + 616LL) + 24LL) )
+              {
+                EtwTraceWakeInputIdle(0LL, gptiCurrent);
+                v66 = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 616LL) + 24LL);
+                v67 = *(struct _KEVENT **)(v66 + 32);
+                if ( v67 )
+                {
+                  if ( v67 != (struct _KEVENT *)-1LL )
+                  {
+                    KeSetEvent(v67, 1, 0);
+                    ObfDereferenceObject(*(PVOID *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 616LL) + 24LL) + 32LL));
+                    *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 616LL) + 24LL) + 32LL) = -1LL;
+                  }
+                }
+                else
+                {
+                  *(_QWORD *)(v66 + 32) = -1LL;
+                }
+              }
+            }
+            else
+            {
+              v68 = *(_QWORD *)(gptiCurrent + 424LL);
+              if ( !*(_QWORD *)(v68 + 328) )
+              {
+                *(_QWORD *)(v68 + 328) = gptiCurrent;
+                v68 = *(_QWORD *)(gptiCurrent + 424LL);
+              }
+              if ( *(_QWORD *)(v68 + 328) == gptiCurrent )
+              {
+                EtwTraceWakeInputIdle(0LL, gptiCurrent);
+                v69 = *(struct _KEVENT **)(v65 + 16);
+                if ( v69 )
+                {
+                  if ( v69 == (struct _KEVENT *)-1LL )
+                    goto LABEL_147;
+                  KeSetEvent(v69, 1, 0);
+                  ObfDereferenceObject(*(PVOID *)(v65 + 16));
+                }
+                *(_QWORD *)(v65 + 16) = -1LL;
+              }
+            }
+LABEL_147:
+            v70 = *(_DWORD *)(v65 + 12);
+            if ( (v70 & 4) != 0 )
+            {
+              *(_DWORD *)(v65 + 12) = v70 & 0xFFFFFFFB;
+              zzzCalcStartCursorHide(0LL, 0LL);
+            }
+            for ( j = *(_QWORD *)(gptiCurrent + 448LL);
+                  (*(_BYTE *)(j + 6) & 0x40) != 0;
+                  j = *(_QWORD *)(gptiCurrent + 448LL) )
+            {
+              xxxReceiveMessage(gptiCurrent);
+            }
+            v71 = *(_WORD *)(j + 6) & 0x40;
+            v63 = v178;
+            if ( ((unsigned __int8)v178 & (unsigned __int8)*(_WORD *)(j + 6) & 0x40) != 0 )
+            {
+              if ( v71 )
+              {
+                do
+                {
+                  xxxReceiveMessage(gptiCurrent);
+                  j = *(_QWORD *)(gptiCurrent + 448LL);
+                }
+                while ( (*(_BYTE *)(j + 6) & 0x40) != 0 );
+                v63 = v178;
+              }
+            }
+            else if ( v71 )
+            {
+              v10 |= 0x4000u;
+              v179 = v10;
+              goto LABEL_169;
+            }
+            v64 = *(unsigned __int16 *)(j + 6);
+            if ( (v64 & v63) == 0 )
+            {
+              v10 |= 0x8000u;
+              v179 = v10;
+              goto LABEL_169;
+            }
+            goto LABEL_159;
           }
           break;
         }
-        if ( *(_QWORD *)(v142 + 1304) )
+        Feature_DeliverViaSendMessage__private_ReportDeviceUsage();
+        v133 = 1;
+        v134 = a1;
+LABEL_273:
+        v10 |= v133;
+        v179 = v10;
+        v135 = *(_DWORD *)(v134 + 8);
+        if ( v135 != 595 || (v136 = -1LL, *(_QWORD *)(v134 + 24) != -1LL) )
+          v136 = 0LL;
+        v137 = ((unsigned int)(v135 - 571) <= 1
+             || ((unsigned int)(v135 - 577) <= 3 || (unsigned int)(v135 - 581) <= 5 || (unsigned int)(v135 - 593) <= 2)
+             && CTouchProcessor::IsPointerMessageTouchpad(gpTouchProcessor, gptiCurrent, v136, *(_WORD *)(v134 + 16)))
+            && (*(_DWORD *)(gptiCurrent + 1232LL) & 0x2000) == 0
+            && !(unsigned int)IsPTPAllowedOnThread(gptiCurrent, *(_DWORD *)(v134 + 8), *(_QWORD *)(v134 + 16));
+        v138 = a5 & 1;
+        if ( ((a5 & 1) == 0 || !v187 || !*(_QWORD *)(gptiCurrent + 1256LL)) && !v137 )
         {
-          InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(&v216, "Delegation", 0LL);
-          EtwTraceBeginDelegateInputCallback(v206, a1);
-          InputTraceLogging::Delivery::CallDelegateThread(v206);
-          InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(
-            &v229,
-            "DelegationCallout",
-            (const struct InputTraceLogging::ThreadLockedPerfRegion *)&v216);
-          v32 = gptiCurrent;
-          v166 = xxxClientCallDelegateThread(*(_QWORD *)(gptiCurrent + 1304LL), a1, *(_QWORD *)(gptiCurrent + 1312LL));
-          InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)&v229);
-          EtwTraceEndDelegateInputCallback(v206, a1);
-          if ( (*((_DWORD *)v206 + 25) & 0x20) != 0 )
+          if ( (a5 & 1) == 0 )
           {
-            v167 = SGDGetUserSessionState(v206);
-            v168 = CTouchProcessor::GetTouchProcessorLock(*(CTouchProcessor **)(v167 + 3424));
-            CInpLockGuardExclusive::CInpLockGuardExclusive((CInpLockGuardExclusive *)v236, v168, v169);
-            *((_DWORD *)v206 + 25) &= ~0x100u;
-            _HandleDelegatedInputWorker(gptiCurrent, v166, v206);
-            CInpLockGuardExclusive::~CInpLockGuardExclusive((CInpLockGuardExclusive *)v236);
+LABEL_308:
+            if ( !v137
+              && ((*(_BYTE *)(gptiCurrent + 680LL) | *(_BYTE *)(**(_QWORD **)(gptiCurrent + 464LL) + 16LL)) & 0x10) != 0 )
+            {
+              xxxCallHook(0, (unsigned int)a5, v134, 3);
+              v138 = a5 & 1;
+            }
+            goto LABEL_311;
           }
-          v34 = 0x20000;
-          v200 = 0x20000;
-          InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)&v216);
-          v31 = 0LL;
-          continue;
+          if ( *(_DWORD *)(v134 + 8) == 258 && (*(_DWORD *)(gptiCurrent + 1344LL) & 1) != 0 && (v192 & 1) != 0 )
+          {
+            v139 = xxxKeyboardCorrectionCallout(v134);
+            v138 = a5 & 1;
+            if ( v139 == 1296 )
+            {
+              *(_DWORD *)(v134 + 8) = 0;
+              *(_QWORD *)(v134 + 16) = 0LL;
+              *(_QWORD *)(v134 + 24) = 0LL;
+            }
+          }
+        }
+        if ( !(_DWORD)v138 )
+          goto LABEL_308;
+        v140 = *(_DWORD *)(v134 + 8);
+        if ( v140 == 258
+          || v140 == 582
+          || v140 == 578
+          || v140 == 583
+          || v140 == 579
+          || (unsigned __int16)v140 >= 0xC000u )
+        {
+          v141 = xxxCallCtfHook(3, 0, (unsigned int)a5, v134);
+          v138 = a5 & 1;
+          if ( v141 )
+          {
+            if ( *(_DWORD *)(v134 + 8) == 258 )
+            {
+              *(_DWORD *)(v134 + 8) = 0;
+              *(_QWORD *)(v134 + 16) = 0LL;
+              *(_QWORD *)(v134 + 24) = 0LL;
+            }
+          }
+        }
+        if ( !(_DWORD)v138 || !v187 || !*(_QWORD *)(gptiCurrent + 1256LL) )
+          goto LABEL_308;
+LABEL_311:
+        if ( (_DWORD)v138 )
+        {
+          v142 = *(_DWORD *)(gptiCurrent + 1120LL);
+          if ( v142 )
+          {
+            if ( word_1C0339BB0 && qword_1C0339BB8 == gptiCurrent && dword_1C0339BB4 == v142 )
+            {
+              ForceCompletePendingPromotion();
+              xxxProcessMousePromotionQueue();
+            }
+            else
+            {
+              *(_DWORD *)(gptiCurrent + 1120LL) = 0;
+            }
+          }
+          v143 = *(_DWORD *)(v134 + 8);
+          if ( v143 == 583
+            && (*(_WORD *)(v134 + 18) & 0x2000) != 0
+            && word_1C0339BB0
+            && word_1C0339BB0 == *(_WORD *)(v134 + 16)
+            && qword_1C0339BB8 == gptiCurrent )
+          {
+            *(_DWORD *)(gptiCurrent + 1120LL) = dword_1C0339BB4;
+            v143 = *(_DWORD *)(v134 + 8);
+          }
+          v144 = 0;
+          if ( ((unsigned int)(v143 - 577) <= 3 || (unsigned int)(v143 - 581) <= 0x12 && v143 != 589) && v143 != 595 )
+            v144 = *(_WORD *)(v134 + 16);
+          CTouchProcessor::UpdateThreadPointerList(
+            gpTouchProcessor,
+            (struct tagTHREADINPUTPOINTERLIST *)(gptiCurrent + 1088LL),
+            v144);
+        }
+        if ( v187 && (*((_DWORD *)v187 + 25) & 0x100) != 0 )
+        {
+          CMultiPerObjectLockExclusivePpiPtiQ::CMultiPerObjectLockExclusivePpiPtiQ(
+            (CMultiPerObjectLockExclusivePpiPtiQ *)v183,
+            gptiCurrent);
+          v145 = a5 & 1;
+          if ( (a5 & 1) != 0 && *(_QWORD *)(gptiCurrent + 1256LL) )
+          {
+            InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(
+              (InputTraceLogging::ThreadLockedPerfRegion *)v198,
+              "Delegation",
+              0LL);
+            EtwTraceBeginDelegateInputCallback(v187, v134);
+            InputTraceLogging::Delivery::CallDelegateThread(v187);
+            InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(
+              (InputTraceLogging::ThreadLockedPerfRegion *)v200,
+              "DelegationCallout",
+              (const struct InputTraceLogging::ThreadLockedPerfRegion *)v198);
+            v146 = xxxClientCallDelegateThread(
+                     *(_QWORD *)(gptiCurrent + 1256LL),
+                     v134,
+                     *(_QWORD *)(gptiCurrent + 1264LL));
+            InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)v200);
+            EtwTraceEndDelegateInputCallback(v187, v134);
+            if ( (*((_DWORD *)v187 + 25) & 0x20) != 0 )
+            {
+              TouchProcessorLock = CTouchProcessor::GetTouchProcessorLock(gpTouchProcessor);
+              CInpLockGuardExclusive::CInpLockGuardExclusive((CInpLockGuardExclusive *)v208, TouchProcessorLock, v148);
+              *((_DWORD *)v187 + 25) &= ~0x100u;
+              _HandleDelegatedInputWorker(gptiCurrent, v146, v187);
+              CInpLockGuardExclusive::~CInpLockGuardExclusive((CInpLockGuardExclusive *)v208);
+            }
+            v10 = 0x20000;
+            v179 = 0x20000;
+            InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)v198);
+            CMultiPerObjectLockExclusivePpiPtiQ::~CMultiPerObjectLockExclusivePpiPtiQ((CMultiPerObjectLockExclusivePpiPtiQ *)v183);
+            v23 = v178;
+            v15 = v181;
+            v31 = v178 & 0xFFBF;
+            continue;
+          }
+          *((_DWORD *)v187 + 25) &= ~0x100u;
+          CMultiPerObjectLockExclusivePpiPtiQ::~CMultiPerObjectLockExclusivePpiPtiQ((CMultiPerObjectLockExclusivePpiPtiQ *)v183);
+        }
+        else
+        {
+          v145 = a5 & 1;
         }
         break;
       }
-LABEL_418:
-      *((_DWORD *)v206 + 25) = v161 & 0xFFFFFEFF;
-LABEL_419:
-      if ( v144 )
+      if ( v137 )
       {
-        InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(&v230, "PTPDownleveling", 0LL);
-        xxxClientCallDefaultInputHandler(a1);
-        memset(&v235[3], 0, 48);
-        *(_OWORD *)a1 = 0LL;
-        *(_OWORD *)(a1 + 16) = 0LL;
-        *(_OWORD *)(a1 + 32) = 0LL;
-        InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)&v230);
-        v32 = gptiCurrent;
-        v31 = 0LL;
+        InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(
+          (InputTraceLogging::ThreadLockedPerfRegion *)v201,
+          "PTPDownleveling",
+          0LL);
+        xxxClientCallDefaultInputHandler(v134);
+        *(_OWORD *)v134 = 0LL;
+        *(_OWORD *)(v134 + 16) = 0LL;
+        *(_OWORD *)(v134 + 32) = 0LL;
+        InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)v201);
+        v23 = v178;
+        v15 = v181;
+        v31 = v178 & 0xFFBF;
         continue;
       }
       break;
     }
-    v22 = *(_QWORD *)v141;
-    v170 = a1;
-    j = *(unsigned int *)(a1 + 8);
-    if ( (unsigned int)(j - 577) <= 3
-      || ((unsigned int)(j - 581) > 0x12 || (_DWORD)j == 589 ? (_QWORD *)(v31 = 0LL, v171 = 0) : (v171 = 1, v31 = 0LL),
-          v171) )
+    v149 = *(_QWORD *)(v134 + 16);
+    j = *(unsigned int *)(v134 + 8);
+    if ( (unsigned int)(j - 577) <= 3 || (unsigned int)(j - 581) <= 0x12 && (_DWORD)j != 589 )
     {
-      v172 = 1;
-      v31 = 0LL;
-    }
-    else
-    {
-      v172 = 0;
-    }
-    if ( v172 )
-    {
-      v173 = 0;
-      goto LABEL_436;
-    }
-    if ( (_DWORD)j != 528 || (v174 = 1, (_WORD)v22 != 582) )
-      v174 = 0;
-    v51 = v174 == 0;
-    v173 = 0;
-    if ( !v51 )
-    {
-      v22 >>= 16;
-LABEL_436:
-      LOBYTE(v173) = (_WORD)v22 == 1;
-    }
-    if ( v173 )
-    {
-      v175 = HMValidateHandleNoSecure(*(_QWORD *)a1, 1);
-      if ( v175 )
+LABEL_347:
+      if ( (_WORD)v149 == 1 )
       {
-        if ( !(unsigned int)IsMiPEnabledForWindow(v175) )
+        LOBYTE(v149) = 1;
+        v150 = HMValidateHandleNoSecure(*(_QWORD *)v134, v149);
+        v54 = v150;
+        if ( v150 )
         {
-          if ( (unsigned int)dword_1C0354098 > 5 )
+          if ( !(unsigned int)IsMiPEnabledForWindow(v150) )
           {
-            v219 = v151;
-            v220[0] = *(_DWORD *)(a1 + 8);
-            v231 = v25;
-            _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-              j,
-              (int)&unk_1C031C3EF,
-              v24,
-              (__int64)v25,
-              (__int64)&v231,
-              (__int64)v220,
-              (__int64)&v219);
+            if ( (unsigned int)dword_1C032A3D8 > 5 )
+            {
+              v195 = v145;
+              v196[0] = *(_DWORD *)(v134 + 8);
+              v202 = v54;
+              _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+                j,
+                (unsigned int)&unk_1C02F1EF5,
+                v138,
+                v54,
+                (__int64)&v202,
+                (__int64)v196,
+                (__int64)&v195);
+            }
+            if ( v145 )
+              xxxClientCallDefWindowProc(v134);
+            *(_OWORD *)v134 = 0LL;
+            *(_OWORD *)(v134 + 16) = 0LL;
+            *(_OWORD *)(v134 + 32) = 0LL;
+            v179 = v10;
+            v23 = v178;
+            v15 = v181;
+            v31 = v178 & 0xFFBF;
+            continue;
           }
-          if ( v151 )
-            xxxClientCallDefWindowProc(a1);
-          memset(&v235[6], 0, 48);
-          *(_OWORD *)a1 = 0LL;
-          *(_OWORD *)(a1 + 16) = 0LL;
-          *(_OWORD *)(a1 + 32) = 0LL;
-          v32 = gptiCurrent;
-          continue;
         }
       }
+      goto LABEL_358;
     }
     break;
   }
-  if ( a6 && *(_DWORD *)(a1 + 8) == 18 )
+  if ( (_DWORD)j == 528 && (_WORD)v149 == 582 )
   {
-    v50 |= 0x40000u;
-    goto LABEL_486;
+    v149 >>= 16;
+    goto LABEL_347;
   }
-  if ( v151 )
+LABEL_358:
+  if ( !a6 || *(_DWORD *)(v134 + 8) != 18 )
   {
-    v178 = *(_QWORD *)(v142 + 1104);
-    if ( v178 )
+    if ( v145 )
     {
-      v179 = (char *)HMValidateHandleNoRip(v178, 18);
-      if ( v179 )
-        FreeHidData(v179);
-      *(_QWORD *)(v142 + 1104) = 0LL;
-    }
-    v180 = *(_QWORD *)(v142 + 1112);
-    if ( v180 )
-    {
-      FreeTouchInputInfo(v180, 1LL);
-      *(_QWORD *)(v142 + 1112) = 0LL;
-    }
-    j = *(_QWORD *)(v142 + 1120);
-    if ( j )
-    {
-      FreeGestureInfo(j, 1LL);
-      *(_QWORD *)(v142 + 1120) = 0LL;
-    }
-    v181 = *(_DWORD *)(a1 + 8);
-    if ( v181 == 255 )
-    {
-      if ( *(_QWORD *)v141 <= 1uLL )
-        *(_QWORD *)(v142 + 1104) = *(_QWORD *)(a1 + 24);
-    }
-    else if ( v181 == 576 && HMValidateHandle(*(_QWORD *)(a1 + 24), 0x14u) )
-    {
-      *(_QWORD *)(v142 + 1112) = *(_QWORD *)(a1 + 24);
-    }
-    else if ( ((*(_DWORD *)(a1 + 8) - 281) & 0xFFFFFFFD) == 0 && HMValidateHandle(*(_QWORD *)(a1 + 24), 0x15u) )
-    {
-      *(_QWORD *)(v142 + 1120) = *(_QWORD *)(a1 + 24);
-    }
-  }
-LABEL_487:
-  if ( v211 )
-    ThreadUnlock1(j, v22, v24);
-  if ( !(unsigned int)HandleProcessSpinning() )
-  {
-    v140 = 0;
-    goto LABEL_498;
-  }
-  if ( v140 )
-  {
-    if ( *(_DWORD *)(v170 + 8) == 512 && (*(_DWORD *)(v142 + 1272) & 0x40000) != 0 )
-    {
-      v187 = *(_DWORD **)(v142 + 672);
-      if ( v187 )
+      v152 = *(_QWORD *)(gptiCurrent + 1064LL);
+      if ( v152 )
       {
-        if ( (v187[50] & 0x80000) != 0 && v187[69] )
+        v153 = HMValidateHandleNoRip(v152, 18);
+        if ( v153 )
+          FreeHidData(v153);
+        *(_QWORD *)(gptiCurrent + 1064LL) = 0LL;
+      }
+      v154 = *(_QWORD *)(gptiCurrent + 1072LL);
+      if ( v154 )
+      {
+        FreeTouchInputInfo(v154, 1LL);
+        *(_QWORD *)(gptiCurrent + 1072LL) = 0LL;
+      }
+      j = *(_QWORD *)(gptiCurrent + 1080LL);
+      if ( j )
+      {
+        FreeGestureInfo(j, 1LL, v138, v54);
+        *(_QWORD *)(gptiCurrent + 1080LL) = 0LL;
+      }
+      v155 = *(_DWORD *)(v134 + 8);
+      if ( v155 == 255 )
+      {
+        if ( *(_QWORD *)(v134 + 16) <= 1uLL )
+          *(_QWORD *)(gptiCurrent + 1064LL) = *(_QWORD *)(v134 + 24);
+      }
+      else if ( v155 == 576 && (LOBYTE(v149) = 20, HMValidateHandle(*(_QWORD *)(v134 + 24), v149)) )
+      {
+        *(_QWORD *)(gptiCurrent + 1072LL) = *(_QWORD *)(v134 + 24);
+      }
+      else if ( ((*(_DWORD *)(v134 + 8) - 281) & 0xFFFFFFFD) == 0 )
+      {
+        LOBYTE(v149) = 21;
+        if ( HMValidateHandle(*(_QWORD *)(v134 + 24), v149) )
+          *(_QWORD *)(gptiCurrent + 1080LL) = *(_QWORD *)(v134 + 24);
+      }
+    }
+    goto LABEL_401;
+  }
+  v10 |= 0x40000u;
+LABEL_400:
+  v11 = 0;
+LABEL_401:
+  if ( v186 )
+    ThreadUnlock1(j);
+  if ( (unsigned int)HandleProcessSpinning() )
+  {
+    if ( v11 )
+    {
+      if ( *(_DWORD *)(v134 + 8) == 512 && (*(_DWORD *)(gptiCurrent + 1232LL) & 0x40000) != 0 )
+      {
+        v161 = *(_DWORD **)(gptiCurrent + 672LL);
+        if ( v161 )
         {
-          v187[70] += ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) - v187[69];
-          ++v187[71];
-          v187[69] = 0;
+          if ( (v161[49] & 0x100000) != 0 && v161[82] )
+          {
+            v160 = (unsigned int)((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24)
+                 - v161[82];
+            v161[83] += v160;
+            ++v161[84];
+            v161[82] = 0;
+          }
         }
       }
-    }
-LABEL_498:
-    if ( v140 )
-    {
-      *(_QWORD *)(v142 + 1224) = *(_QWORD *)v170;
-      *(_DWORD *)(v142 + 1232) = *(_DWORD *)(v170 + 8);
-      *(_QWORD *)(v142 + 1240) = *(_QWORD *)v141;
-      v188 = *(_QWORD *)v170;
-      PsGetThreadWin32Thread(KeGetCurrentThread());
-      if ( (unsigned __int64)(unsigned __int16)v188 < *(_QWORD *)(gpsi + 8LL)
-        && ((v190 = gSharedInfo[1] + LODWORD(gSharedInfo[2]) * (unsigned int)(unsigned __int16)v188,
-             v193 = (struct tagWND **)HMPkheFromPhe(v190),
-             LOWORD(v188) = WORD1(v188) & 0x7FFF,
-             (WORD1(v188) & 0x7FFF) == *(_WORD *)(v190 + 26))
-         || (_WORD)v188 == 0x7FFF
-         || !(_WORD)v188 && PsGetCurrentProcessWow64Process(v192, v191, v194))
-        && (*(_BYTE *)(v190 + 25) & 1) == 0
-        && *(_BYTE *)(v190 + 24) == 1 )
+      *(_QWORD *)(gptiCurrent + 1184LL) = *(_QWORD *)v134;
+      *(_DWORD *)(gptiCurrent + 1192LL) = *(_DWORD *)(v134 + 8);
+      *(_QWORD *)(gptiCurrent + 1200LL) = *(_QWORD *)(v134 + 16);
+      v162 = *(_QWORD *)v134;
+      v163 = KeGetCurrentThread();
+      if ( !(unsigned __int8)KeIsAttachedProcess(v160)
+        || (v167 = PsGetCurrentProcess(v165, v164, v166),
+            v168 = PsGetProcessSessionIdEx(v167),
+            v170 = PsGetCurrentThreadProcess(v169),
+            v168 == (unsigned int)PsGetProcessSessionIdEx(v170)) )
       {
-        v195 = *v193;
+        PsGetThreadWin32Thread(v163);
       }
-      else
+      if ( (unsigned __int64)(unsigned __int16)v162 < *(_QWORD *)(gpsi + 8LL) )
       {
-        v195 = 0LL;
+        v172 = gSharedInfo[1] + (unsigned int)(unsigned __int16)v162 * LODWORD(gSharedInfo[2]);
+        v174 = (struct tagWND **)HMPkheFromPhe(v172);
+        v175 = v162 >> 16;
+        if ( ((_WORD)v175 == *(_WORD *)(v172 + 26)
+           || (_WORD)v175 == 0xFFFF
+           || !(_WORD)v175 && PsGetCurrentProcessWow64Process(v173))
+          && (*(_BYTE *)(v172 + 25) & 1) == 0
+          && *(_BYTE *)(v172 + 24) == 1 )
+        {
+          v9 = *v174;
+        }
       }
-      InputTraceLogging::Delivery::GetMessageW(
-        (const struct tagMSG *)v170,
-        (const struct tagTHREADINFO *)v142,
-        v195,
-        v189,
-        v205);
+      v134 = a1;
+      InputTraceLogging::Delivery::GetMessageW((const struct tagMSG *)a1, gptiCurrent, v9, v171, v182);
     }
   }
-  EtwTraceBeginAppMessageProcessing(a6, v50, v170);
-  return v140;
+  else
+  {
+    v11 = 0;
+  }
+  EtwTraceBeginAppMessageProcessing(a6, v10, v134);
+  return v11;
 }

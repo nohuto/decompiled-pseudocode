@@ -1,13 +1,13 @@
 /*
- * XREFs of SmKmVolumeQueryUniqueId @ 0x1409D75C0
+ * XREFs of SmKmVolumeQueryUniqueId @ 0x14092D09C
  * Callers:
- *     SmKmEtwAppendProductName @ 0x1405FB7C0 (SmKmEtwAppendProductName.c)
- *     SmcCacheStart @ 0x1409D7D54 (SmcCacheStart.c)
+ *     SmKmEtwAppendProductName @ 0x14059DDC8 (SmKmEtwAppendProductName.c)
+ *     SmcCacheStart @ 0x14092D830 (SmcCacheStart.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x1402A0800 (IoSetThreadHardErrorMode.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     SmSanitizeString @ 0x1405FABF8 (SmSanitizeString.c)
- *     SmKmSendDeviceControl @ 0x1409D6368 (SmKmSendDeviceControl.c)
+ *     IoSetThreadHardErrorMode @ 0x140250300 (IoSetThreadHardErrorMode.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SmSanitizeString @ 0x14059D1B0 (SmSanitizeString.c)
+ *     SmKmSendDeviceControl @ 0x14092BE64 (SmKmSendDeviceControl.c)
  */
 
 __int64 __fastcall SmKmVolumeQueryUniqueId(struct _DEVICE_OBJECT *a1, unsigned __int16 *a2, ULONG a3)
@@ -27,7 +27,7 @@ __int64 __fastcall SmKmVolumeQueryUniqueId(struct _DEVICE_OBJECT *a1, unsigned _
     if ( v11 >= 2 )
     {
       memmove(a2, a2 + 1, *a2);
-      SmSanitizeString(a2, (v11 & 0xFFFFFFFE) + 2);
+      SmSanitizeString((char *)a2, (v11 & 0xFFFFFFFE) + 2);
       v10 = 0;
     }
     else

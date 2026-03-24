@@ -1,11 +1,11 @@
 /*
- * XREFs of ?sizl@PDEVOBJ@@QEAA?AUtagSIZE@@XZ @ 0x1C0071D24
+ * XREFs of ?sizl@PDEVOBJ@@QEAA?AUtagSIZE@@XZ @ 0x1C00204CC
  * Callers:
- *     GreCreateDisplayDC @ 0x1C002F6A0 (GreCreateDisplayDC.c)
- *     DrvpDisplayConfigGetDisplayDeviceInfo @ 0x1C0070D14 (DrvpDisplayConfigGetDisplayDeviceInfo.c)
- *     bDynamicModeChange @ 0x1C00C9250 (bDynamicModeChange.c)
- *     ?bMakeInfoDC@DC@@QEAAHH@Z @ 0x1C00CBD30 (-bMakeInfoDC@DC@@QEAAHH@Z.c)
- *     ?UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z @ 0x1C016AB74 (-UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z.c)
+ *     ?bMakeInfoDC@DC@@QEAAHH@Z @ 0x1C00203D0 (-bMakeInfoDC@DC@@QEAAHH@Z.c)
+ *     DrvpDisplayConfigGetDisplayDeviceInfo @ 0x1C0020778 (DrvpDisplayConfigGetDisplayDeviceInfo.c)
+ *     GreCreateDisplayDC @ 0x1C003B650 (GreCreateDisplayDC.c)
+ *     bDynamicModeChange @ 0x1C00BA730 (bDynamicModeChange.c)
+ *     ?UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z @ 0x1C013DBB4 (-UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -17,9 +17,9 @@ struct tagSIZE __fastcall PDEVOBJ::sizl(PDEVOBJ *this, _QWORD *a2)
 
   v2 = *(_QWORD *)this;
   if ( (*(_DWORD *)(*(_QWORD *)this + 40LL) & 0x20000) != 0 )
-    v3 = *(_QWORD *)(v2 + 1688);
+    v3 = *(_QWORD *)(v2 + 1720);
   else
-    v3 = *(_QWORD *)(v2 + 2120);
+    v3 = *(_QWORD *)(v2 + 2152);
   *a2 = v3;
   return (struct tagSIZE)a2;
 }

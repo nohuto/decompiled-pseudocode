@@ -1,11 +1,11 @@
 /*
- * XREFs of Controller_EvtDeviceFileClose @ 0x1C00101E0
+ * XREFs of Controller_EvtDeviceFileClose @ 0x1C0031590
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_qd @ 0x1C0014644 (WPP_RECORDER_SF_qd.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Controller_StopTimeTrackingForHandle @ 0x1C0032F20 (Controller_StopTimeTrackingForHandle.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C0014518 (WPP_RECORDER_SF_qd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_StopTimeTrackingForHandle @ 0x1C0032EA0 (Controller_StopTimeTrackingForHandle.c)
  */
 
 __int64 __fastcall Controller_EvtDeviceFileClose(__int64 a1)
@@ -17,10 +17,10 @@ __int64 __fastcall Controller_EvtDeviceFileClose(__int64 a1)
   result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
              WdfDriverGlobals,
              a1,
-             off_1C00613B0);
-  if ( *(_BYTE *)(result + 48) )
+             off_1C00603B0);
+  if ( *(_BYTE *)(result + 40) )
   {
-    v3 = *(_QWORD *)(result + 40);
+    v3 = *(_QWORD *)(result + 32);
     result = Controller_StopTimeTrackingForHandle(v3, a1, 0LL);
     if ( (int)result < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
@@ -29,8 +29,8 @@ __int64 __fastcall Controller_EvtDeviceFileClose(__int64 a1)
                *(_QWORD *)(v3 + 72),
                v4,
                4,
-               280,
-               (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+               279,
+               (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
                a1,
                result);
     }

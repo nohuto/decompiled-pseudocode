@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogTerminalDisplayTimeouts @ 0x1409AA460
+ * XREFs of TtmiLogTerminalDisplayTimeouts @ 0x1409049E4
  * Callers:
- *     TtmiTerminalSetDisplayTimeouts @ 0x1409AB68C (TtmiTerminalSetDisplayTimeouts.c)
+ *     TtmiTerminalSetDisplayTimeouts @ 0x1408FDCBC (TtmiTerminalSetDisplayTimeouts.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogTerminalDisplayTimeouts(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
@@ -33,9 +33,9 @@ void __fastcall TtmiLogTerminalDisplayTimeouts(int a1, __int64 a2, __int64 a3, _
   __int64 *v27; // [rsp+C0h] [rbp+27h]
   __int64 v28; // [rsp+C8h] [rbp+2Fh]
 
-  if ( (unsigned int)dword_140D53948 > 5 )
+  if ( (unsigned int)dword_140D2D8C8 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140D53948, 1LL) )
+    if ( tlgKeywordOn((__int64)&dword_140D2D8C8, 1LL) )
     {
       v13 = v7;
       v26 = 8LL;
@@ -56,8 +56,8 @@ void __fastcall TtmiLogTerminalDisplayTimeouts(int a1, __int64 a2, __int64 a3, _
       v22 = 4LL;
       v24 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140D53948,
-        (unsigned __int8 *)byte_140032A55,
+        (__int64)&dword_140D2D8C8,
+        (unsigned __int8 *)word_14002AACA,
         0LL,
         0LL,
         8u,

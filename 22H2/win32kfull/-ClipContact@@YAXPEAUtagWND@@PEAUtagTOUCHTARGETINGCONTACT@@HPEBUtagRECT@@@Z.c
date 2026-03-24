@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ClipContact@@YAXPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@HPEBUtagRECT@@@Z @ 0x1C01E3F84
+ * XREFs of ?ClipContact@@YAXPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@HPEBUtagRECT@@@Z @ 0x1C02148A0
  * Callers:
- *     ?xxxWindowHitTestWithTargeting@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@UtagRECT@@W4tagTARGETING_PROPERTY@@@Z @ 0x1C01E5F80 (-xxxWindowHitTestWithTargeting@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTAR.c)
- *     xxxTouchTargetWindow @ 0x1C01E7188 (xxxTouchTargetWindow.c)
+ *     ?xxxWindowHitTestWithTargeting@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@UtagRECT@@W4tagTARGETING_PROPERTY@@@Z @ 0x1C02166DC (-xxxWindowHitTestWithTargeting@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTAR.c)
+ *     xxxTouchTargetWindow @ 0x1C0217BA8 (xxxTouchTargetWindow.c)
  * Callees:
- *     TouchTargetingClipContact @ 0x1C024DE58 (TouchTargetingClipContact.c)
+ *     TouchTargetingClipContact @ 0x1C025F114 (TouchTargetingClipContact.c)
  */
 
 void __fastcall ClipContact(
@@ -14,52 +14,52 @@ void __fastcall ClipContact(
         const struct tagRECT *a4)
 {
   __int64 v4; // rax
-  __int64 v5; // rsi
+  __int64 v6; // rcx
   int RegionData; // eax
-  unsigned int v7; // edi
-  __int64 v8; // rax
-  _DWORD *v9; // rbx
-  int v10; // eax
-  _OWORD *v11; // rdi
-  __int64 v12; // rsi
-  _OWORD v13[2]; // [rsp+20h] [rbp-28h] BYREF
+  unsigned int v8; // edi
+  __int64 v9; // rax
+  _DWORD *v10; // rbx
+  int v11; // eax
+  _OWORD *v12; // rdi
+  __int64 v13; // rsi
+  _OWORD v14[2]; // [rsp+20h] [rbp-28h] BYREF
 
   v4 = *((_QWORD *)a1 + 5);
-  v5 = *(_QWORD *)(v4 + 168);
-  if ( v5 )
+  v6 = *(_QWORD *)(v4 + 168);
+  if ( v6 )
   {
-    RegionData = GreGetRegionData(*(_QWORD *)(v4 + 168), 0LL, 0LL);
-    v7 = RegionData;
+    RegionData = GreGetRegionData(v6, 0LL, 0LL);
+    v8 = RegionData;
     if ( RegionData > 0 )
     {
-      v8 = Win32AllocPoolZInit(RegionData, 1920103253LL);
-      v9 = (_DWORD *)v8;
-      if ( v8 )
+      v9 = Win32AllocPool(RegionData, 1920103253LL);
+      v10 = (_DWORD *)v9;
+      if ( v9 )
       {
-        if ( (unsigned int)GreGetRegionData(v5, v7, v8) )
+        if ( (unsigned int)GreGetRegionData(*(_QWORD *)(*((_QWORD *)a1 + 5) + 168LL), v8, v9) )
         {
-          v10 = v9[2];
-          v11 = v9 + 8;
-          if ( v10 > 0 )
+          v11 = v10[2];
+          v12 = v10 + 8;
+          if ( v11 > 0 )
           {
-            v12 = (unsigned int)v10;
+            v13 = (unsigned int)v11;
             do
             {
-              v13[0] = *v11;
-              TouchTargetingClipContact(v13);
-              ++v11;
-              --v12;
+              v14[0] = *v12;
+              TouchTargetingClipContact(v14);
+              ++v12;
+              --v13;
             }
-            while ( v12 );
+            while ( v13 );
           }
         }
-        Win32FreePool(v9);
+        Win32FreePool(v10);
       }
     }
   }
   else
   {
-    v13[0] = *(_OWORD *)(v4 + 88);
-    TouchTargetingClipContact(v13);
+    v14[0] = *(_OWORD *)(v4 + 88);
+    TouchTargetingClipContact(v14);
   }
 }

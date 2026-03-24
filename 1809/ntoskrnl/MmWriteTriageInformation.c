@@ -1,10 +1,10 @@
 /*
- * XREFs of MmWriteTriageInformation @ 0x1402AE7D8
+ * XREFs of MmWriteTriageInformation @ 0x1402AE8D8
  * Callers:
- *     IoFillTriageDumpBuffer @ 0x14027F794 (IoFillTriageDumpBuffer.c)
+ *     IoFillTriageDumpBuffer @ 0x14027F894 (IoFillTriageDumpBuffer.c)
  * Callees:
- *     RtlGetNtProductType @ 0x14012AC20 (RtlGetNtProductType.c)
- *     ExVerifySuite @ 0x14018DD80 (ExVerifySuite.c)
+ *     RtlGetNtProductType @ 0x14012AC40 (RtlGetNtProductType.c)
+ *     ExVerifySuite @ 0x14018DDA0 (ExVerifySuite.c)
  */
 
 __int64 __fastcall MmWriteTriageInformation(_OWORD *a1)

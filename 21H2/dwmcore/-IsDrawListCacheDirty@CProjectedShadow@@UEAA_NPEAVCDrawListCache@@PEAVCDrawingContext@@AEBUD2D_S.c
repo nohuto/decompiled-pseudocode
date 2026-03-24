@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsDrawListCacheDirty@CProjectedShadow@@UEAA_NPEAVCDrawListCache@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCMILMatrix@@@Z @ 0x180234DB0
+ * XREFs of ?IsDrawListCacheDirty@CProjectedShadow@@UEAA_NPEAVCDrawListCache@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCMILMatrix@@@Z @ 0x1801E3E10
  * Callers:
  *     <none>
  * Callees:
- *     ?IsDrawListCacheDirty@CContent@@UEAA_NPEAVCDrawListCache@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCMILMatrix@@@Z @ 0x1800961B0 (-IsDrawListCacheDirty@CContent@@UEAA_NPEAVCDrawListCache@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@P.c)
- *     ?IsDrawListCachDirtyFromShadowAsset@@YA_NAEBV?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@_K@Z @ 0x180234D18 (-IsDrawListCachDirtyFromShadowAsset@@YA_NAEBV-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_p.c)
+ *     ?IsDrawListCacheDirty@CContent@@UEAA_NPEAVCDrawListCache@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCMILMatrix@@@Z @ 0x18006AC90 (-IsDrawListCacheDirty@CContent@@UEAA_NPEAVCDrawListCache@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@P.c)
+ *     ?IsDrawListCachDirtyFromShadowAsset@@YA_NAEBV?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@_K@Z @ 0x1801E3D64 (-IsDrawListCachDirtyFromShadowAsset@@YA_NAEBV-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_p.c)
  */
 
 char __fastcall CProjectedShadow::IsDrawListCacheDirty(
@@ -20,9 +20,9 @@ char __fastcall CProjectedShadow::IsDrawListCacheDirty(
   struct IRenderTargetBitmap **v12; // rcx
   __int64 *v13; // rcx
 
-  v5 = *((_DWORD *)this + 82);
+  v5 = *((_DWORD *)this + 80);
   v6 = 0;
-  v7 = *((_QWORD *)a2 + 4);
+  v7 = *((_QWORD *)a2 + 3);
   if ( v5 )
   {
     if ( v5 == 1 )
@@ -57,7 +57,7 @@ char __fastcall CProjectedShadow::IsDrawListCacheDirty(
   }
   else
   {
-    v13 = (__int64 *)((char *)this + 368);
+    v13 = (__int64 *)((char *)this + 360);
   }
   if ( IsDrawListCachDirtyFromShadowAsset(v13, v7) )
     return 1;

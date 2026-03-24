@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlGetLpIndexFromProcessorIndex @ 0x14045EDF0
+ * XREFs of HvlGetLpIndexFromProcessorIndex @ 0x1404F1E10
  * Callers:
- *     PpmScaleIdleStateValues @ 0x14034ED1C (PpmScaleIdleStateValues.c)
- *     HvlEnlightenProcessor @ 0x140382F20 (HvlEnlightenProcessor.c)
- *     HvlSharedIsr @ 0x14045ED00 (HvlSharedIsr.c)
- *     HvlSetPlatformIdleState @ 0x140546F98 (HvlSetPlatformIdleState.c)
- *     PpmPerfRegisterHvPerfStateCounters @ 0x14099DAC0 (PpmPerfRegisterHvPerfStateCounters.c)
+ *     PpmScaleIdleStateValues @ 0x140398914 (PpmScaleIdleStateValues.c)
+ *     HvlEnlightenProcessor @ 0x1403A7298 (HvlEnlightenProcessor.c)
+ *     HvlSharedIsr @ 0x1404F1B80 (HvlSharedIsr.c)
+ *     HvlSetPlatformIdleState @ 0x1404F7F4C (HvlSetPlatformIdleState.c)
+ *     PpmPerfRegisterHvPerfStateCounters @ 0x1408F69D0 (PpmPerfRegisterHvPerfStateCounters.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ __int64 __fastcall HvlGetLpIndexFromProcessorIndex(unsigned int a1)
   int *v4; // rcx
 
   v1 = 0;
-  if ( byte_140C0D0C8 )
+  if ( byte_140C12580 )
     return a1;
   v4 = HvlpLogicalProcessorRegions;
   if ( !(_DWORD)HvlpLogicalProcessorCount )

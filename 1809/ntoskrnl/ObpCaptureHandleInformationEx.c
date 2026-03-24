@@ -1,5 +1,5 @@
 /*
- * XREFs of ObpCaptureHandleInformationEx @ 0x1408617E0
+ * XREFs of ObpCaptureHandleInformationEx @ 0x1408617C0
  * Callers:
  *     <none>
  * Callees:

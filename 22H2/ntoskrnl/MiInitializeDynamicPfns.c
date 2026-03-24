@@ -1,340 +1,275 @@
 /*
- * XREFs of MiInitializeDynamicPfns @ 0x14061AF68
+ * XREFs of MiInitializeDynamicPfns @ 0x14052E4E0
  * Callers:
- *     MiMapNewPfns @ 0x140A2C980 (MiMapNewPfns.c)
- *     MiRemovePhysicalMemory @ 0x140A2CCBC (MiRemovePhysicalMemory.c)
+ *     MiMapNewPfns @ 0x1408C5D24 (MiMapNewPfns.c)
+ *     MiRemovePhysicalMemory @ 0x1408C5FDC (MiRemovePhysicalMemory.c)
  * Callees:
- *     MiInitializeAllResidentPageBasePfns @ 0x14021A014 (MiInitializeAllResidentPageBasePfns.c)
- *     MiAbortCombineScan @ 0x14021AACC (MiAbortCombineScan.c)
- *     MiPageCombiningActive @ 0x14021AB7C (MiPageCombiningActive.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiReferenceControlAreaPfn @ 0x14025B200 (MiReferenceControlAreaPfn.c)
- *     MiSearchNumaNodeTable @ 0x14026E9B0 (MiSearchNumaNodeTable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPageForce @ 0x1402DDFD4 (MiLockProtoPoolPageForce.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     KeShouldYieldProcessor @ 0x140333AD0 (KeShouldYieldProcessor.c)
- *     MiDetermineNewPfnHeatState @ 0x1403473F8 (MiDetermineNewPfnHeatState.c)
- *     MiCreatePfnTemplate @ 0x140375BA4 (MiCreatePfnTemplate.c)
- *     MiRestrictRangeToNode @ 0x140375D64 (MiRestrictRangeToNode.c)
- *     MiInitializeNewPfns @ 0x140375DC0 (MiInitializeNewPfns.c)
- *     MiEndDpcGang @ 0x140389330 (MiEndDpcGang.c)
- *     MiInitializeDpcGang @ 0x140389380 (MiInitializeDpcGang.c)
- *     MiStartDpcGang @ 0x1403897B4 (MiStartDpcGang.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiSetPfnRemovalRequested @ 0x14064DF24 (MiSetPfnRemovalRequested.c)
- *     MiUpdatePartitionChildPageCounts @ 0x14065BD74 (MiUpdatePartitionChildPageCounts.c)
+ *     MmAccessFault @ 0x14020D050 (MmAccessFault.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockProtoPoolPage @ 0x140239160 (MiUnlockProtoPoolPage.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiUpdateLargePageBitMap @ 0x140280710 (MiUpdateLargePageBitMap.c)
+ *     MiAbortCombineScan @ 0x140283DF0 (MiAbortCombineScan.c)
+ *     MiReferenceControlAreaPfn @ 0x14029A610 (MiReferenceControlAreaPfn.c)
+ *     MiLockProtoPoolPage @ 0x14029A790 (MiLockProtoPoolPage.c)
+ *     MiSearchNumaNodeTable @ 0x1402ABE20 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInitializeUnusablePfns @ 0x1403ABE00 (MiInitializeUnusablePfns.c)
+ *     MiRestrictRangeToNode @ 0x1403AC2E0 (MiRestrictRangeToNode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInitializeAllResidentPageBasePfns @ 0x1403F6248 (MiInitializeAllResidentPageBasePfns.c)
+ *     MiDetermineNewPfnHeatState @ 0x1403F7400 (MiDetermineNewPfnHeatState.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiSetPfnRemovalRequested @ 0x14054F368 (MiSetPfnRemovalRequested.c)
+ *     MiInitializeDpcGang @ 0x140560490 (MiInitializeDpcGang.c)
+ *     MiStartDpcGang @ 0x1405605EC (MiStartDpcGang.c)
  */
 
 void __fastcall MiInitializeDynamicPfns(
-        __int64 BugCheckParameter2,
+        ULONG_PTR BugCheckParameter2,
         ULONG_PTR a2,
-        unsigned __int16 *a3,
+        __int16 *a3,
         unsigned int a4,
         __int64 a5,
-        unsigned __int16 *a6)
+        __int64 a6)
 {
-  unsigned __int16 *v6; // rsi
-  unsigned __int64 v10; // rbx
-  KIRQL v11; // al
-  unsigned __int64 v12; // rsi
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  _DWORD *SchedulerAssist; // r9
+  unsigned __int64 v13; // rbx
+  char v14; // si
+  int v15; // eax
+  KIRQL v16; // al
+  unsigned __int64 v17; // rsi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v16; // eax
-  bool v17; // zf
-  int v18; // eax
-  int v19; // r9d
-  ULONG_PTR v20; // rsi
-  unsigned __int8 v21; // r13
-  ULONG_PTR v22; // rax
-  __int64 v23; // rbx
-  _QWORD *v24; // rax
-  __int64 v25; // r8
-  int v26; // eax
-  unsigned __int16 *v27; // rdx
-  unsigned __int64 v28; // rcx
-  unsigned __int64 v29; // r15
-  __int64 v30; // r12
-  unsigned __int8 v31; // di
-  _DWORD *v32; // r9
-  __int64 v33; // rdx
-  int v34; // r14d
-  unsigned __int64 v35; // rsi
-  int v36; // eax
-  __int128 v37; // xmm1
-  __int128 v38; // xmm0
-  __int128 v39; // xmm1
-  __int128 v40; // xmm0
-  unsigned __int8 v41; // cl
-  unsigned __int8 v42; // di
-  struct _KPRCB *v43; // r10
-  _DWORD *v44; // r9
+  int v20; // eax
+  bool v21; // zf
+  unsigned int v22; // r14d
+  int v23; // eax
+  int v24; // r9d
+  unsigned __int64 v25; // rsi
+  unsigned __int8 v26; // r13
+  __int64 v27; // r15
+  ULONG_PTR v28; // rax
+  unsigned __int64 v29; // rbx
+  _QWORD *v30; // rax
+  int v31; // eax
+  char v32; // al
+  unsigned __int64 v33; // rsi
+  int v34; // r15d
+  char v35; // al
+  __int128 v36; // xmm1
+  __int64 v37; // rax
+  unsigned __int64 v38; // rcx
+  __int128 v39; // xmm0
+  __int128 v40; // xmm1
+  __int128 v41; // xmm0
+  unsigned __int8 v42; // al
+  unsigned __int8 v43; // di
+  struct _KPRCB *v44; // r10
   int v45; // eax
-  _DWORD *v46; // r9
-  __int64 v47; // rdx
-  unsigned __int8 v48; // al
-  struct _KPRCB *v49; // r9
-  _DWORD *v50; // r8
-  int v51; // eax
-  unsigned __int8 v52[4]; // [rsp+40h] [rbp-C0h] BYREF
-  int v53; // [rsp+44h] [rbp-BCh] BYREF
-  __int64 v54; // [rsp+48h] [rbp-B8h]
-  unsigned __int16 *v55; // [rsp+50h] [rbp-B0h]
-  unsigned __int16 *v56; // [rsp+58h] [rbp-A8h]
-  __int128 v57; // [rsp+60h] [rbp-A0h]
-  __int128 v58; // [rsp+70h] [rbp-90h]
-  __int128 v59; // [rsp+80h] [rbp-80h]
-  __int128 v60; // [rsp+90h] [rbp-70h]
-  __int128 v61; // [rsp+A0h] [rbp-60h]
-  __int128 v62; // [rsp+B0h] [rbp-50h]
-  __m128i v63[3]; // [rsp+C0h] [rbp-40h] BYREF
-  __int64 v64[46]; // [rsp+F0h] [rbp-10h] BYREF
+  char v46[2]; // [rsp+40h] [rbp-C0h] BYREF
+  __int16 v47; // [rsp+42h] [rbp-BEh]
+  int v48; // [rsp+44h] [rbp-BCh]
+  __int64 v49; // [rsp+48h] [rbp-B8h]
+  __int64 v50; // [rsp+50h] [rbp-B0h]
+  __int16 *v51; // [rsp+58h] [rbp-A8h]
+  __int128 v52; // [rsp+60h] [rbp-A0h]
+  __int128 v53; // [rsp+70h] [rbp-90h]
+  __int128 v54; // [rsp+80h] [rbp-80h]
+  __int128 v55; // [rsp+90h] [rbp-70h]
+  __int128 v56; // [rsp+A0h] [rbp-60h]
+  __int128 v57; // [rsp+B0h] [rbp-50h]
+  _QWORD v58[48]; // [rsp+C0h] [rbp-40h] BYREF
 
-  v6 = a3;
-  v56 = a3;
-  v55 = a6;
-  v60 = 0LL;
-  v61 = 0LL;
-  v62 = 0LL;
+  v50 = a5;
+  v51 = a3;
+  v49 = a6;
+  v55 = 0LL;
+  v56 = 0LL;
   v57 = 0LL;
-  v58 = 0LL;
-  v59 = 0LL;
-  memset(v64, 0, 0x168uLL);
-  LOWORD(v53) = *v6;
-  v10 = 48 * BugCheckParameter2 - 0x220000000000LL;
-  LODWORD(v54) = 5;
-  if ( (a4 & 0x10000A) == 8 )
+  v52 = 0LL;
+  v53 = 0LL;
+  v54 = 0LL;
+  memset(v58, 0, sizeof(v58));
+  v47 = *a3;
+  v13 = 48 * BugCheckParameter2 - 0x58000000000LL;
+  v14 = 5;
+  v15 = a4 & 6;
+  v48 = v15;
+  if ( v15 == 4 )
   {
-    v11 = ExAcquireSpinLockExclusive(&dword_140C6B5E0);
-    qword_140C6F790 += a2;
-    v12 = v11;
-    byte_140C6B50C = 1;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C6B5E0);
+    v16 = ExAcquireSpinLockExclusive(&dword_140C50E48);
+    qword_140C52890 += a2;
+    v17 = v16;
+    byte_140C50D8C = 1;
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C50E48);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
-        v17 = (v16 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v16;
-        if ( v17 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v17 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v10 = -1LL << ((unsigned __int8)v17 + 1);
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v20 = ~(unsigned __int16)v10;
+          v21 = (v20 & SchedulerAssist[5]) == 0;
+          v11 = (unsigned int)v20 & SchedulerAssist[5];
+          SchedulerAssist[5] = v11;
+          if ( v21 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
-    __writecr8(v12);
-    v6 = v56;
-    LODWORD(v54) = 6;
+    __writecr8(v17);
+    v15 = v48;
+    v14 = 6;
   }
   if ( (a4 & 1) != 0 )
   {
-    memset(v63, 0, sizeof(v63));
-    if ( (a4 & 0x3000) != 0 )
+    v22 = a4 | 0x40;
+    if ( v15 != 4 )
+      v22 = a4;
+    if ( (v22 & 0x1800) != 0 )
     {
-      v18 = MiDetermineNewPfnHeatState(0, (a4 >> 12) & 1);
-      MiInitializeAllResidentPageBasePfns(v6, BugCheckParameter2, a2, v19, 1, v18 == 0, 0);
+      v23 = MiDetermineNewPfnHeatState(0, (v22 >> 11) & 1);
+      MiInitializeAllResidentPageBasePfns(
+        (unsigned __int16 *)&MiSystemPartition,
+        BugCheckParameter2,
+        a2,
+        v24,
+        1,
+        v23 == 0,
+        0);
     }
-    if ( (a4 & 2) != 0 )
+    if ( (v22 & 2) != 0 )
     {
-      v20 = *(_QWORD *)(a5 + 8);
+      v25 = *(_QWORD *)(a5 + 8);
       MiReferenceControlAreaPfn(**(_QWORD **)a5, *(_QWORD *)a5, a2);
-      a4 |= *(_DWORD *)(a5 + 16);
     }
     else
     {
-      if ( v56 != (unsigned __int16 *)&MiSystemPartition )
-        MiUpdatePartitionChildPageCounts(v56, &MiSystemPartition, BugCheckParameter2, a2);
-      v20 = 0LL;
+      v25 = 0LL;
     }
-    v54 = 0LL;
-    v21 = 17;
-    v52[0] = 17;
-    if ( a5 )
-      MiCreatePfnTemplate((__int64)v63, a4, v53);
+    v26 = 17;
+    v27 = 0LL;
+    v46[0] = 17;
     while ( a2 )
     {
-      v22 = MiRestrictRangeToNode(BugCheckParameter2, a2);
-      v23 = v22;
-      if ( a5 )
+      v28 = MiRestrictRangeToNode(BugCheckParameter2, a2);
+      v29 = v28;
+      if ( v50 )
       {
-        if ( v22 > (unsigned __int64)(4096 - (unsigned int)(v20 & 0xFFF)) >> 3 )
-          v23 = (unsigned __int64)(4096 - (unsigned int)(v20 & 0xFFF)) >> 3;
-        v54 = MiLockProtoPoolPageForce(v20, v52);
-        MiInitializeNewPfns(
-          (__m128i *)(48 * BugCheckParameter2 - 0x220000000000LL),
-          v23,
-          v63,
-          v53,
-          a4,
-          *(_QWORD *)a5,
-          (unsigned __int64 *)v20);
-        v21 = v52[0];
-      }
-      else
-      {
-        v24 = MiSearchNumaNodeTable(BugCheckParameter2);
-        MiInitializeDpcGang(v64, *((_DWORD *)v24 + 2), v25, 1u);
-        v64[21] = (__int64)v56;
-        v26 = LODWORD(v64[23]) | 4;
-        HIDWORD(v64[22]) = a4;
-        v64[0] = BugCheckParameter2;
-        v64[1] = v23;
-        LODWORD(v64[23]) |= 4u;
-        v64[20] = (__int64)v55;
-        if ( v55 )
+        if ( v28 > (unsigned __int64)(4096 - (unsigned int)(v25 & 0xFFF)) >> 3 )
+          v29 = (unsigned __int64)(4096 - (unsigned int)(v25 & 0xFFF)) >> 3;
+        while ( 1 )
         {
-          v26 |= 8u;
-          LODWORD(v64[23]) = v26;
+          v27 = MiLockProtoPoolPage(v25, (__int64)v46);
+          if ( v27 )
+            break;
+          MmAccessFault(2uLL, v25, 0, 0LL);
         }
-        if ( (a4 & 0x80000) == 0 )
-          LODWORD(v64[23]) = v26 | 2;
-        MiStartDpcGang(v64);
-        MiEndDpcGang((__int64)v64);
-      }
-      if ( v20 )
-      {
-        MiUnlockProtoPoolPage(v54, v21);
-        v20 += 8 * v23;
-      }
-      a2 -= v23;
-      BugCheckParameter2 += v23;
-      v55 += 2048 * v23;
-    }
-    return;
-  }
-  if ( (a4 & 2) == 0 )
-    MiUpdateLargePageBitMap((__int64)&MiSystemPartition, BugCheckParameter2, a2, 0, 0);
-  v27 = *(unsigned __int16 **)(qword_140C674C8 + 8 * ((*(_QWORD *)(v10 + 40) >> 43) & 0x3FFLL));
-  *((_QWORD *)&v61 + 1) |= 0x8000000000000000uLL;
-  *((_QWORD *)&v58 + 1) |= 0x8000000000000000uLL;
-  v28 = (unsigned __int64)*v27 << 43;
-  BYTE2(v59) = v54 | BYTE2(v59) & 0xF8;
-  v55 = v27;
-  *((_QWORD *)&v59 + 1) ^= (*((_QWORD *)&v59 + 1) ^ v28) & 0x1FF80000000000LL;
-  if ( v27 != (unsigned __int16 *)&MiSystemPartition )
-    MiUpdatePartitionChildPageCounts(&MiSystemPartition, v27, BugCheckParameter2, a2);
-  v29 = v10 + 48 * a2;
-  v30 = 0LL;
-  v31 = KeGetCurrentIrql();
-  __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v31 <= 0xFu )
-  {
-    v32 = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( v31 == 2 )
-      LODWORD(v33) = 4;
-    else
-      v33 = (-1LL << (v31 + 1)) & 4;
-    v32[5] |= v33;
-  }
-  v52[0] = v31;
-  if ( v10 < v29 )
-  {
-    v34 = a4 & 0x20;
-    v35 = v10 + 24;
-    while ( 1 )
-    {
-      v53 = 0;
-      while ( _interlockedbittestandset64((volatile signed __int32 *)v35, 0x3FuLL) )
-      {
-        do
-          KeYieldProcessorEx(&v53);
-        while ( *(__int64 *)v35 < 0 );
-      }
-      if ( (*(_BYTE *)(v35 + 11) & 0x40) != 0 )
-        MiSetPfnRemovalRequested(v10, 0LL, 1LL);
-      LOBYTE(v36) = MiPageCombiningActive((__int64)v55);
-      if ( v36 )
-        break;
-      if ( v34 )
-        goto LABEL_56;
-      v37 = v58;
-      *(_OWORD *)v10 = v57;
-      v38 = v59;
-LABEL_57:
-      *(_OWORD *)(v10 + 16) = v37;
-      *(_OWORD *)(v10 + 32) = v38;
-LABEL_58:
-      _InterlockedAnd64((volatile signed __int64 *)v35, 0x7FFFFFFFFFFFFFFFuLL);
-      v10 += 48LL;
-      v35 += 48LL;
-      if ( (++v30 & 0x3F) != 0 || !KeShouldYieldProcessor() )
-      {
-        v31 = v52[0];
+        MiInitializeUnusablePfns(
+          (__m128i *)(48 * BugCheckParameter2 - 0x58000000000LL),
+          v29,
+          v47,
+          v22,
+          *(_QWORD *)v50,
+          v25,
+          *(_DWORD *)(v50 + 16));
+        v26 = v46[0];
       }
       else
       {
-        if ( KiIrqlFlags && (v41 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v41 <= 0xFu )
+        v30 = MiSearchNumaNodeTable(BugCheckParameter2);
+        MiInitializeDpcGang(v58, *((unsigned int *)v30 + 2), 1LL);
+        v58[21] = v51;
+        v31 = LODWORD(v58[23]) | 4;
+        HIDWORD(v58[22]) = v22;
+        v58[0] = BugCheckParameter2;
+        v58[1] = v29;
+        v58[20] = v49;
+        if ( v49 )
+          v31 = LODWORD(v58[23]) | 0xC;
+        LODWORD(v58[23]) = v31 | 2;
+        MiStartDpcGang(v58);
+      }
+      if ( v25 )
+      {
+        MiUnlockProtoPoolPage(v27, v26);
+        v25 += 8 * v29;
+      }
+      a2 -= v29;
+      BugCheckParameter2 += v29;
+      v49 += v29 << 12;
+    }
+  }
+  else
+  {
+    if ( (a4 & 2) == 0 )
+      MiUpdateLargePageBitMap((__int64)&MiSystemPartition, BugCheckParameter2, a2, 0, 0);
+    *((_QWORD *)&v56 + 1) |= 0x8000000000000000uLL;
+    *((_QWORD *)&v53 + 1) |= 0x8000000000000000uLL;
+    v32 = v14 | BYTE2(v54) & 0xF8;
+    v33 = v13 + 48 * a2;
+    BYTE2(v54) = v32;
+    if ( v13 < v33 )
+    {
+      v34 = a4 & 0x10;
+      do
+      {
+        v35 = MiLockPageInline(v13, v10, v11, SchedulerAssist);
+        v21 = (*(_BYTE *)(v13 + 35) & 0x40) == 0;
+        v46[0] = v35;
+        if ( !v21 )
+          MiSetPfnRemovalRequested(v13, 0LL);
+        v36 = v53;
+        v37 = *((_QWORD *)&v54 + 1);
+        v38 = *((_QWORD *)&v54 + 1) ^ ((unsigned __int64)(unsigned __int16)(*(_QWORD *)(v13 + 40) >> 39) << 39);
+        *(_OWORD *)v13 = v52;
+        *((_QWORD *)&v54 + 1) = v38 & 0x1FF8000000000LL ^ v37;
+        v39 = v54;
+        *(_OWORD *)(v13 + 16) = v36;
+        *(_OWORD *)(v13 + 32) = v39;
+        MiAbortCombineScan(v13);
+        if ( v34 )
         {
-          v42 = v52[0];
-          if ( v52[0] <= 0xFu && v41 >= 2u )
+          v40 = v56;
+          *(_OWORD *)v13 = v55;
+          v41 = v57;
+          *(_OWORD *)(v13 + 16) = v40;
+          *(_OWORD *)(v13 + 32) = v41;
+        }
+        _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (v42 = KeGetCurrentIrql(), v42 <= 0xFu) )
+        {
+          v43 = v46[0];
+          if ( v46[0] <= 0xFu && v42 >= 2u )
           {
-            v43 = KeGetCurrentPrcb();
-            v44 = v43->SchedulerAssist;
-            v42 = v52[0];
-            v45 = ~(unsigned __int16)(-1LL << (v52[0] + 1));
-            v17 = (v45 & v44[5]) == 0;
-            v44[5] &= v45;
-            if ( v17 )
-              KiRemoveSystemWorkPriorityKick((__int64)v43);
+            v44 = KeGetCurrentPrcb();
+            SchedulerAssist = v44->SchedulerAssist;
+            v43 = v46[0];
+            v10 = -1LL << (v46[0] + 1);
+            v45 = ~(unsigned __int16)v10;
+            v21 = (v45 & SchedulerAssist[5]) == 0;
+            v11 = (unsigned int)v45 & SchedulerAssist[5];
+            SchedulerAssist[5] = v11;
+            if ( v21 )
+              KiRemoveSystemWorkPriorityKick((__int64)v44);
           }
         }
         else
         {
-          v42 = v52[0];
+          v43 = v46[0];
         }
-        __writecr8(v42);
-        v31 = KeGetCurrentIrql();
-        __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v31 <= 0xFu )
-        {
-          v46 = KeGetCurrentPrcb()->SchedulerAssist;
-          if ( v31 == 2 )
-            LODWORD(v47) = 4;
-          else
-            v47 = (-1LL << (v31 + 1)) & 4;
-          v46[5] |= v47;
-        }
-        v52[0] = v31;
+        __writecr8(v43);
+        v13 += 48LL;
       }
-      if ( v10 >= v29 )
-        goto LABEL_78;
-    }
-    v39 = v58;
-    *(_OWORD *)v10 = v57;
-    v40 = v59;
-    *(_OWORD *)(v10 + 16) = v39;
-    *(_OWORD *)(v10 + 32) = v40;
-    MiAbortCombineScan(v10);
-    if ( !v34 )
-      goto LABEL_58;
-LABEL_56:
-    v37 = v61;
-    *(_OWORD *)v10 = v60;
-    v38 = v62;
-    goto LABEL_57;
-  }
-LABEL_78:
-  if ( KiIrqlFlags )
-  {
-    v48 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v48 <= 0xFu && v31 <= 0xFu && v48 >= 2u )
-    {
-      v49 = KeGetCurrentPrcb();
-      v50 = v49->SchedulerAssist;
-      v31 = v52[0];
-      v51 = ~(unsigned __int16)(-1LL << (v52[0] + 1));
-      v17 = (v51 & v50[5]) == 0;
-      v50[5] &= v51;
-      if ( v17 )
-        KiRemoveSystemWorkPriorityKick((__int64)v49);
+      while ( v13 < v33 );
     }
   }
-  __writecr8(v31);
 }

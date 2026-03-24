@@ -1,5 +1,5 @@
 /*
- * XREFs of NtRecoverEnlistment @ 0x1403DFD20
+ * XREFs of NtRecoverEnlistment @ 0x1403D0A20
  * Callers:
  *     <none>
  * Callees:

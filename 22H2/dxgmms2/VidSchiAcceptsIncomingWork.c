@@ -1,14 +1,13 @@
 /*
- * XREFs of VidSchiAcceptsIncomingWork @ 0x1C000A410
+ * XREFs of VidSchiAcceptsIncomingWork @ 0x1C00095F8
  * Callers:
- *     ?VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z @ 0x1C000294C (-VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z.c)
- *     VidSchiWaitForSchedulerEvents @ 0x1C00AE030 (VidSchiWaitForSchedulerEvents.c)
- *     VidSchTerminateAdapter @ 0x1C01087F0 (VidSchTerminateAdapter.c)
+ *     VidSchiWaitForSchedulerEvents @ 0x1C007EC40 (VidSchiWaitForSchedulerEvents.c)
+ *     VidSchTerminateAdapter @ 0x1C00D1620 (VidSchTerminateAdapter.c)
  * Callees:
  *     <none>
  */
 
 bool __fastcall VidSchiAcceptsIncomingWork(__int64 a1)
 {
-  return ((*(_DWORD *)(a1 + 312) - 1) & 0xFFFFFFFD) == 0;
+  return ((*(_DWORD *)(a1 + 304) - 1) & 0xFFFFFFFD) == 0;
 }

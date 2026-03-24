@@ -1,16 +1,16 @@
 /*
- * XREFs of RawQueryFsSizeInfo @ 0x1409B5088
+ * XREFs of RawQueryFsSizeInfo @ 0x14090F488
  * Callers:
- *     RawQueryVolumeInformation @ 0x14074C12C (RawQueryVolumeInformation.c)
+ *     RawQueryVolumeInformation @ 0x14071B2AC (RawQueryVolumeInformation.c)
  * Callees:
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     RawEndOperation @ 0x1402D2B6C (RawEndOperation.c)
- *     RawBeginOperation @ 0x1402D2BA0 (RawBeginOperation.c)
- *     IoBuildDeviceIoControlRequest @ 0x140342880 (IoBuildDeviceIoControlRequest.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14022C130 (IoBuildDeviceIoControlRequest.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     RawEndOperation @ 0x140360738 (RawEndOperation.c)
+ *     RawBeginOperation @ 0x14036096C (RawBeginOperation.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RawQueryFsSizeInfo(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -51,7 +51,7 @@ __int64 __fastcall RawQueryFsSizeInfo(__int64 a1, __int64 a2, __int64 a3, _DWORD
   *(_OWORD *)a3 = 0LL;
   *(_QWORD *)(a3 + 16) = 0LL;
   KeInitializeEvent(&Event, NotificationEvent, 0);
-  v10 = *(struct _DEVICE_OBJECT **)(*(_QWORD *)(a1 + 192) + 16LL);
+  v10 = *(struct _DEVICE_OBJECT **)(*(_QWORD *)(a1 + 184) + 16LL);
   v11 = IoBuildDeviceIoControlRequest(0x70000u, v10, 0LL, 0, Timeout, 0x18u, 0, &Event, &IoStatusBlock);
   if ( !v11 )
     goto LABEL_25;

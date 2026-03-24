@@ -1,7 +1,7 @@
 /*
- * XREFs of _o__cexit_0 @ 0x1801017EA
+ * XREFs of _o__cexit_0 @ 0x1800E80EA
  * Callers:
- *     __scrt_dllmain_uninitialize_c @ 0x180100964 (__scrt_dllmain_uninitialize_c.c)
+ *     __scrt_dllmain_uninitialize_c @ 0x1800E712C (__scrt_dllmain_uninitialize_c.c)
  * Callees:
  *     <none>
  */

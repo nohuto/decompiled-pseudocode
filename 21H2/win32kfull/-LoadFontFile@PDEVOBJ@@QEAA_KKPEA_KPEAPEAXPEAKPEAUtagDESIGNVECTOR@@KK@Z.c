@@ -1,11 +1,11 @@
 /*
- * XREFs of ?LoadFontFile@PDEVOBJ@@QEAA_KKPEA_KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KK@Z @ 0x1C000CD68
+ * XREFs of ?LoadFontFile@PDEVOBJ@@QEAA_KKPEA_KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KK@Z @ 0x1C00A5980
  * Callers:
- *     _lambda_3837b0e11e5c1550d1f290a74bcd7a94_::operator() @ 0x1C00103BC (_lambda_3837b0e11e5c1550d1f290a74bcd7a94_--operator().c)
- *     GreMakeFontDir @ 0x1C02B99A8 (GreMakeFontDir.c)
- *     ?TryResurrectHff@UmfdHostLifeTimeManager@@CA_N_KPEAVPFF@@@Z @ 0x1C02C0F2C (-TryResurrectHff@UmfdHostLifeTimeManager@@CA_N_KPEAVPFF@@@Z.c)
+ *     _lambda_3837b0e11e5c1550d1f290a74bcd7a94_::operator() @ 0x1C00A6E4C (_lambda_3837b0e11e5c1550d1f290a74bcd7a94_--operator().c)
+ *     GreMakeFontDir @ 0x1C02BB588 (GreMakeFontDir.c)
+ *     ?TryResurrectHff@UmfdHostLifeTimeManager@@CA_N_KPEAVPFF@@@Z @ 0x1C02C2590 (-TryResurrectHff@UmfdHostLifeTimeManager@@CA_N_KPEAVPFF@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall PDEVOBJ::LoadFontFile(
@@ -18,7 +18,7 @@ __int64 __fastcall PDEVOBJ::LoadFontFile(
         unsigned int a7,
         unsigned int a8)
 {
-  return (*(__int64 (__fastcall **)(_QWORD, unsigned __int64 *, void **, unsigned int *, struct tagDESIGNVECTOR *, unsigned int, unsigned int))(*(_QWORD *)this + 3024LL))(
+  return (*(__int64 (__fastcall **)(_QWORD, unsigned __int64 *, void **, unsigned int *, struct tagDESIGNVECTOR *, unsigned int, unsigned int))(*(_QWORD *)this + 3048LL))(
            a2,
            a3,
            a4,

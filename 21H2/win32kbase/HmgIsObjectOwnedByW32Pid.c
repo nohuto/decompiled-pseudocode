@@ -1,10 +1,10 @@
 /*
- * XREFs of HmgIsObjectOwnedByW32Pid @ 0x1C0093110
+ * XREFs of HmgIsObjectOwnedByW32Pid @ 0x1C0079A68
  * Callers:
- *     HmgCheckDCForPrivateReferences @ 0x1C016BF28 (HmgCheckDCForPrivateReferences.c)
+ *     HmgCheckDCForPrivateReferences @ 0x1C013EF18 (HmgCheckDCForPrivateReferences.c)
  * Callees:
- *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C0021CD0 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
- *     ?bOwnedBy@ENTRYOBJ@@QEBAHK@Z @ 0x1C0093168 (-bOwnedBy@ENTRYOBJ@@QEBAHK@Z.c)
+ *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C002E990 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
+ *     ?bOwnedBy@ENTRYOBJ@@QEBAHK@Z @ 0x1C0079AC0 (-bOwnedBy@ENTRYOBJ@@QEBAHK@Z.c)
  */
 
 __int64 __fastcall HmgIsObjectOwnedByW32Pid(struct OBJECT *a1, unsigned int a2)

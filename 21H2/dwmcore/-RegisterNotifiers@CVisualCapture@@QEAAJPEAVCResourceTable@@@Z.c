@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RegisterNotifiers@CVisualCapture@@QEAAJPEAVCResourceTable@@@Z @ 0x180206FFC
+ * XREFs of ?RegisterNotifiers@CVisualCapture@@QEAAJPEAVCResourceTable@@@Z @ 0x1801B4698
  * Callers:
- *     ?ProcessUpdate@CVisualCapture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALCAPTURE@@@Z @ 0x180206DD4 (-ProcessUpdate@CVisualCapture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALCAPTURE@@@Z.c)
+ *     ?ProcessUpdate@CVisualCapture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALCAPTURE@@@Z @ 0x1801B4498 (-ProcessUpdate@CVisualCapture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALCAPTURE@@@Z.c)
  * Callees:
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180046EF0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
  */
 
 __int64 __fastcall CVisualCapture::RegisterNotifiers(struct CResource **this, struct CResourceTable *a2)
@@ -17,26 +17,26 @@ __int64 __fastcall CVisualCapture::RegisterNotifiers(struct CResource **this, st
   int v8; // eax
   __int64 v9; // rcx
 
-  v3 = CResource::RegisterNotifier((CResource *)this, this[233]);
+  v3 = CResource::RegisterNotifier((CResource *)this, this[235]);
   v5 = v3;
   if ( v3 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, v3, 0x6E8u);
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x6E7u, 0LL);
   }
   else
   {
-    v6 = CResource::RegisterNotifier((CResource *)this, this[234]);
+    v6 = CResource::RegisterNotifier((CResource *)this, this[236]);
     v5 = v6;
     if ( v6 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x6E9u);
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x6E8u, 0LL);
     }
     else
     {
-      v8 = CResource::RegisterNotifier((CResource *)this, this[235]);
+      v8 = CResource::RegisterNotifier((CResource *)this, this[237]);
       v5 = v8;
       if ( v8 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0x6EAu);
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x6E9u, 0LL);
     }
   }
   return v5;

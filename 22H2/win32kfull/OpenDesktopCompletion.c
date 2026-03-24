@@ -1,41 +1,37 @@
 /*
- * XREFs of OpenDesktopCompletion @ 0x1C0069634
+ * XREFs of OpenDesktopCompletion @ 0x1C0011364
  * Callers:
- *     _OpenDesktop @ 0x1C006737C (_OpenDesktop.c)
- *     xxxCreateDesktopEx @ 0x1C00683E4 (xxxCreateDesktopEx.c)
- *     EditionOpenInputDesktopEntryPoint @ 0x1C006B0C0 (EditionOpenInputDesktopEntryPoint.c)
- *     _OpenThreadDesktop @ 0x1C00B2854 (_OpenThreadDesktop.c)
+ *     EditionOpenInputDesktopEntryPoint @ 0x1C000EA00 (EditionOpenInputDesktopEntryPoint.c)
+ *     _OpenDesktop @ 0x1C000F208 (_OpenDesktop.c)
+ *     xxxCreateDesktopEx @ 0x1C00101D4 (xxxCreateDesktopEx.c)
+ *     _OpenThreadDesktop @ 0x1C01E9438 (_OpenThreadDesktop.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 __int64 __fastcall OpenDesktopCompletion(__int64 a1, __int64 a2, char a3)
 {
-  __int64 CurrentProcessWin32Process; // rax
-  PEPROCESS *v7; // rcx
-  __int64 v8; // rdi
+  PEPROCESS *CurrentProcessWin32Process; // rax
+  __int64 v7; // rdi
   int ProcessLuid; // ebx
-  __int64 v11; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v10; // [rsp+30h] [rbp+8h] BYREF
 
-  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
-  v7 = (PEPROCESS *)CurrentProcessWin32Process;
-  if ( CurrentProcessWin32Process )
-    v7 = (PEPROCESS *)(-(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process);
-  v8 = *(_QWORD *)(a1 + 40);
-  if ( (*(_DWORD *)(v8 + 64) & 2) == 0 || PsGetProcessId(*v7) == (HANDLE)gpidLogon )
+  CurrentProcessWin32Process = (PEPROCESS *)PsGetCurrentProcessWin32Process();
+  v7 = *(_QWORD *)(a1 + 40);
+  if ( (*(_DWORD *)(v7 + 64) & 2) == 0 || PsGetProcessId(*CurrentProcessWin32Process) == (HANDLE)gpidLogon )
     return (unsigned int)SetHandleFlag(a2, 0LL, a3 & 1) != 0 ? 0x40000000 : -1073741801;
-  v11 = 0LL;
-  ProcessLuid = GetProcessLuid(0LL, &v11);
+  v10 = 0LL;
+  ProcessLuid = GetProcessLuid(0LL, &v10);
   if ( ProcessLuid >= 0 )
   {
-    if ( v11 == *(_QWORD *)(v8 + 176) )
+    if ( v10 == *(_QWORD *)(v7 + 176) )
     {
       ProcessLuid = -1073741205;
-      goto LABEL_9;
+      goto LABEL_7;
     }
     return (unsigned int)SetHandleFlag(a2, 0LL, a3 & 1) != 0 ? 0x40000000 : -1073741801;
   }
-LABEL_9:
+LABEL_7:
   UserSetLastError(170LL);
   return (unsigned int)ProcessLuid;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0MousePerfSummary@@QEAA@XZ @ 0x1C005CFCC
+ * XREFs of ??0MousePerfSummary@@QEAA@XZ @ 0x1C008B06C
  * Callers:
- *     ??0CMouseProcessor@@IEAA@XZ @ 0x1C005CA00 (--0CMouseProcessor@@IEAA@XZ.c)
+ *     ??0CMouseProcessor@@IEAA@XZ @ 0x1C008A75C (--0CMouseProcessor@@IEAA@XZ.c)
  * Callees:
  *     <none>
  */
@@ -76,8 +76,8 @@ MousePerfSummary *__fastcall MousePerfSummary::MousePerfSummary(MousePerfSummary
   *((_QWORD *)this + 62) = 0LL;
   *((_QWORD *)this + 63) = 0LL;
   *((_QWORD *)this + 64) = 0LL;
-  *((_QWORD *)this + 65) = 0LL;
-  *((_BYTE *)this + 528) = 0;
+  *((_BYTE *)this + 520) = 0;
+  *((_QWORD *)this + 66) = 0LL;
   *((_QWORD *)this + 67) = 0LL;
   *((_QWORD *)this + 68) = 0LL;
   *((_QWORD *)this + 69) = 0LL;
@@ -88,6 +88,5 @@ MousePerfSummary *__fastcall MousePerfSummary::MousePerfSummary(MousePerfSummary
   *((_QWORD *)this + 74) = 0LL;
   *((_QWORD *)this + 75) = 0LL;
   *((_QWORD *)this + 76) = 0LL;
-  *((_QWORD *)this + 77) = 0LL;
   return result;
 }

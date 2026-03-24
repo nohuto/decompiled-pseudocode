@@ -1,44 +1,43 @@
 /*
- * XREFs of PpmPerfFeedbackCounterRead @ 0x14033C840
+ * XREFs of PpmPerfFeedbackCounterRead @ 0x1403C105C
  * Callers:
- *     PpmUpdatePerformanceFeedback @ 0x1402C6D10 (PpmUpdatePerformanceFeedback.c)
- *     PpmInstallFeedbackCounters @ 0x1403914F8 (PpmInstallFeedbackCounters.c)
+ *     PpmInstallFeedbackCounters @ 0x1403C0ED8 (PpmInstallFeedbackCounters.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall PpmPerfFeedbackCounterRead(__int64 a1, __int64 a2, _DWORD *a3)
+unsigned __int64 __fastcall PpmPerfFeedbackCounterRead(__int64 a1, __int64 a2, _DWORD *a3)
 {
-  void (__fastcall *v5)(__int64, __int64, __int64 *, __int64 *); // rax
-  bool v6; // zf
-  __int64 v7; // rcx
-  __int64 v8; // r11
-  __int64 v9; // r8
-  __int64 v10; // r10
-  __int64 v11; // rcx
-  __int64 result; // rax
-  __int64 v13; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v14; // [rsp+58h] [rbp+20h] BYREF
+  void (__fastcall *v3)(__int64, __int64, __int64 *, __int64 *); // rax
+  __int64 v5; // rcx
+  __int64 v7; // r10
+  unsigned __int64 result; // rax
+  __int64 v9; // r9
+  __int64 v10; // r8
+  __int64 v11; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v12; // [rsp+58h] [rbp+20h] BYREF
 
-  v14 = 0LL;
-  v13 = 0LL;
-  v5 = *(void (__fastcall **)(__int64, __int64, __int64 *, __int64 *))a1;
-  v6 = *(_BYTE *)(a1 + 33) == 0;
-  v7 = *(_QWORD *)(a1 + 40);
-  if ( v6 )
-    return ((__int64 (__fastcall *)(__int64, _DWORD *))v5)(v7, a3);
-  v5(v7, a2, &v13, &v14);
-  v8 = *(_QWORD *)(a1 + 16);
-  if ( v13 != v8 )
+  v3 = *(void (__fastcall **)(__int64, __int64, __int64 *, __int64 *))a1;
+  v5 = *(_QWORD *)(a1 + 40);
+  v12 = 0LL;
+  v11 = 0LL;
+  if ( !*(_BYTE *)(a1 + 33) )
+    return ((__int64 (__fastcall *)(__int64, _DWORD *))v3)(v5, a3);
+  v3(v5, a2, &v11, &v12);
+  v7 = *(_QWORD *)(a1 + 16);
+  if ( v11 == v7 )
+  {
+    result = *(unsigned int *)(a1 + 24);
+  }
+  else
   {
     v9 = *(_QWORD *)(a1 + 8);
-    v10 = v13 - v8;
-    v11 = v14 - v9;
-    *(_DWORD *)(a1 + 24) = (v14 - v9) * (unsigned __int64)*(unsigned int *)(a1 + 36) / (v13 - v8);
-    *(_QWORD *)(a1 + 16) = v10 + v8;
-    *(_QWORD *)(a1 + 8) = v11 + v9;
+    v10 = v12 - v9;
+    result = (v12 - v9) * (unsigned __int64)*(unsigned __int8 *)(a1 + 35) / (v11 - v7);
+    *(_QWORD *)(a1 + 16) = v11;
+    *(_DWORD *)(a1 + 24) = result;
+    *(_QWORD *)(a1 + 8) = v10 + v9;
   }
-  result = *(unsigned int *)(a1 + 24);
   *a3 = result;
   return result;
 }

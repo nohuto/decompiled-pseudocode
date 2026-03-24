@@ -1,10 +1,10 @@
 /*
- * XREFs of UserIsWindowGdiScaled @ 0x1C0094DF0
+ * XREFs of UserIsWindowGdiScaled @ 0x1C0085A40
  * Callers:
- *     DxgkEngGetWindowGdiDpiScalingFactor @ 0x1C0176BB0 (DxgkEngGetWindowGdiDpiScalingFactor.c)
+ *     DxgkEngGetWindowGdiDpiScalingFactor @ 0x1C014A860 (DxgkEngGetWindowGdiDpiScalingFactor.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0023390 (W32GetThreadWin32Thread.c)
- *     ValidateHwndEx @ 0x1C002CB00 (ValidateHwndEx.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
+ *     ValidateHwndEx @ 0x1C0038620 (ValidateHwndEx.c)
  */
 
 __int64 __fastcall UserIsWindowGdiScaled(__int64 a1, _WORD *a2)
@@ -15,7 +15,7 @@ __int64 __fastcall UserIsWindowGdiScaled(__int64 a1, _WORD *a2)
 
   if ( !W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) )
     return 0LL;
-  v4 = ValidateHwndEx(a1, 1LL, 0LL);
+  v4 = ValidateHwndEx(a1, 1, 0);
   if ( !v4 )
     return 0LL;
   if ( !W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) )

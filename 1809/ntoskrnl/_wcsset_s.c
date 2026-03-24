@@ -1,9 +1,9 @@
 /*
- * XREFs of _wcsset_s @ 0x140195BD0
+ * XREFs of _wcsset_s @ 0x140195BF0
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1401767E0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl wcsset_s(wchar_t *Dst, size_t SizeInWords, wchar_t Value)

@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_ConvertStringSecurityDescriptorToSecurityDescriptorW @ 0x180101B91
+ * XREFs of __imp_load_ConvertStringSecurityDescriptorToSecurityDescriptorW @ 0x1800E8458
  * Callers:
  *     <none>
  * Callees:

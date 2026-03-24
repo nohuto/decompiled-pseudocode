@@ -1,33 +1,29 @@
 /*
- * XREFs of ??$AppendAllRectangles@V?$DynArrayIA@UtagRECT@@$03$0A@@@@CRegion@@QEBAXPEAV?$DynArrayIA@UtagRECT@@$03$0A@@@@Z @ 0x180231B88
+ * XREFs of ??$AppendAllRectangles@V?$DynArrayIA@UtagRECT@@$03$0A@@@@CRegion@@QEBAXPEAV?$DynArrayIA@UtagRECT@@$03$0A@@@@Z @ 0x1801E2F70
  * Callers:
- *     ?GetTextureMemoryLayoutData@CPrimitiveGroup@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x180232170 (-GetTextureMemoryLayoutData@CPrimitiveGroup@@UEBAJAEBUD2D_SIZE_F@@AEAV-$vector@ULayoutData@CCont.c)
+ *     ?GetTextureMemoryLayoutData@CPrimitiveGroup@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x1801E34D0 (-GetTextureMemoryLayoutData@CPrimitiveGroup@@UEBAJAEBUD2D_SIZE_F@@AEAV-$vector@ULayoutData@CCont.c)
  * Callees:
- *     ?AddMultiple@?$DynArrayImpl@$0A@@@IEAAJIIPEAPEAX@Z @ 0x180018D70 (-AddMultiple@-$DynArrayImpl@$0A@@@IEAAJIIPEAPEAX@Z.c)
- *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800B4B40 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     ?GetRectangleCount@CRegion@FastRegion@@QEBAIXZ @ 0x1800B84E0 (-GetRectangleCount@CRegion@FastRegion@@QEBAIXZ.c)
- *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800D2754 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?GetRectangleCount@CRegion@FastRegion@@QEBAIXZ @ 0x18009B318 (-GetRectangleCount@CRegion@FastRegion@@QEBAIXZ.c)
+ *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x18009B354 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ?AddMultiple@?$DynArrayImpl@$0A@@@IEAAJIIPEAPEAX@Z @ 0x1800B8B68 (-AddMultiple@-$DynArrayImpl@$0A@@@IEAAJIIPEAPEAX@Z.c)
+ *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800C4980 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
-_DWORD *__fastcall CRegion::AppendAllRectangles<DynArrayIA<tagRECT,4,0>>(int **a1, __int64 a2)
+void __fastcall CRegion::AppendAllRectangles<DynArrayIA<tagRECT,4,0>>(int **a1, __int64 a2)
 {
   int RectangleCount; // eax
   unsigned int v5; // esi
   int v6; // eax
-  _DWORD *result; // rax
-  int v8; // r10d
-  int v9; // r11d
-  FastRegion::Internal::CRgnData *v10; // rcx
-  __int64 v11; // rdx
-  __int64 v12; // r9
-  int v13; // r8d
-  _BYTE v14[8]; // [rsp+20h] [rbp-38h] BYREF
-  unsigned __int64 v15; // [rsp+28h] [rbp-30h]
-  _DWORD *v16; // [rsp+30h] [rbp-28h]
-  __int64 v17; // [rsp+38h] [rbp-20h]
-  int v18; // [rsp+40h] [rbp-18h]
-  void *retaddr; // [rsp+58h] [rbp+0h]
+  __int64 v7; // rdx
+  FastRegion::Internal::CRgnData *v8; // rcx
+  __int128 v9; // [rsp+20h] [rbp-48h]
+  _BYTE v10[8]; // [rsp+30h] [rbp-38h] BYREF
+  unsigned __int64 v11; // [rsp+38h] [rbp-30h]
+  _DWORD *v12; // [rsp+40h] [rbp-28h]
+  __int64 v13; // [rsp+48h] [rbp-20h]
+  int v14; // [rsp+50h] [rbp-18h]
+  void *retaddr; // [rsp+68h] [rbp+0h]
 
   RectangleCount = FastRegion::CRegion::GetRectangleCount(a1);
   v5 = *(_DWORD *)(a2 + 24);
@@ -36,24 +32,17 @@ _DWORD *__fastcall CRegion::AppendAllRectangles<DynArrayIA<tagRECT,4,0>>(int **a
     ModuleFailFastForHRESULT((unsigned int)v6, retaddr);
   FastRegion::Internal::CRgnData::BeginIterator(
     (FastRegion::Internal::CRgnData *)*a1,
-    (struct FastRegion::CRegion::Iterator *)v14);
-  while ( 1 )
+    (struct FastRegion::CRegion::Iterator *)v10);
+  while ( (unsigned __int64)v12 < v11 )
   {
-    result = v16;
-    if ( (unsigned __int64)v16 >= v15 )
-      break;
-    v8 = *v16;
-    v9 = v16[2];
-    v10 = *(FastRegion::Internal::CRgnData **)a2;
-    v11 = 2 * v18;
-    v12 = 2LL * v5;
-    v13 = *(_DWORD *)(v17 + 4 * v11 + 4);
-    *((_DWORD *)v10 + 2 * v12) = *(_DWORD *)(v17 + 4 * v11);
-    *((_DWORD *)v10 + 2 * v12 + 1) = v8;
-    *((_DWORD *)v10 + 2 * v12 + 2) = v13;
-    *((_DWORD *)v10 + 2 * v12 + 3) = v9;
-    FastRegion::Internal::CRgnData::StepIterator(v10, (struct FastRegion::CRegion::Iterator *)v14);
+    DWORD1(v9) = *v12;
+    HIDWORD(v9) = v12[2];
+    v7 = 2 * v14;
+    LODWORD(v9) = *(_DWORD *)(v13 + 4 * v7);
+    DWORD2(v9) = *(_DWORD *)(v13 + 4 * v7 + 4);
+    v8 = (FastRegion::Internal::CRgnData *)(2LL * v5);
+    *(_OWORD *)(*(_QWORD *)a2 + 8LL * (_QWORD)v8) = v9;
+    FastRegion::Internal::CRgnData::StepIterator(v8, (struct FastRegion::CRegion::Iterator *)v10);
     ++v5;
   }
-  return result;
 }

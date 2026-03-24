@@ -1,7 +1,7 @@
 /*
  * XREFs of FsRtlCancellableWaitForSingleObject @ 0x1405A17E0
  * Callers:
- *     FsRtlpWaitOnIrp @ 0x140270070 (FsRtlpWaitOnIrp.c)
+ *     FsRtlpWaitOnIrp @ 0x140270170 (FsRtlpWaitOnIrp.c)
  * Callees:
  *     FsRtlCancellableWaitForMultipleObjects @ 0x1405A1E10 (FsRtlCancellableWaitForMultipleObjects.c)
  */

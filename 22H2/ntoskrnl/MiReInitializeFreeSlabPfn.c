@@ -1,27 +1,26 @@
 /*
- * XREFs of MiReInitializeFreeSlabPfn @ 0x140338F5C
+ * XREFs of MiReInitializeFreeSlabPfn @ 0x1403761CC
  * Callers:
- *     MiFreePageToSlabAllocator @ 0x140338DB0 (MiFreePageToSlabAllocator.c)
- *     MiGetSlabStandbyPage @ 0x140656ECC (MiGetSlabStandbyPage.c)
+ *     MiFreePageToSlabAllocator @ 0x140375F10 (MiFreePageToSlabAllocator.c)
+ *     MiAllocateSlabEntry @ 0x140392168 (MiAllocateSlabEntry.c)
+ *     MiGetSlabStandbyPage @ 0x14055300C (MiGetSlabStandbyPage.c)
  * Callees:
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402858B4 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiSetPfnBlink @ 0x1402987B0 (MiSetPfnBlink.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x1402AA5C0 (MiSetOriginalPtePfnFromFreeList.c)
  */
 
-char __fastcall MiReInitializeFreeSlabPfn(_QWORD *a1, __int64 a2)
+unsigned __int64 __fastcall MiReInitializeFreeSlabPfn(__int64 a1, __int64 a2)
 {
-  _QWORD *v2; // r8
-  unsigned __int64 *v3; // rcx
-  char result; // al
+  __int64 v3; // rax
 
-  v2 = a1;
-  a1[1] = (*(_DWORD *)(a2 + 80) != 2) - 2LL;
-  a1[3] &= 0xFFFFFF0000000000uLL;
-  *a1 = 0LL;
-  v3 = a1 + 2;
-  *v3 = ZeroPte;
-  if ( (*((_BYTE *)v2 + 34) & 7) == 1 )
-    MiSetOriginalPtePfnFromFreeList(v3);
-  result = *((_BYTE *)v2 + 34) & 0xF8 | 5;
-  *((_BYTE *)v2 + 34) = result;
-  return result;
+  if ( *(_DWORD *)(a2 + 48) || *(_DWORD *)(a2 + 52) != 2 )
+    v3 = -1LL;
+  else
+    v3 = -2LL;
+  *(_QWORD *)(a1 + 8) = v3;
+  *(_QWORD *)a1 = 0LL;
+  MiSetPfnBlink(a1, 0LL, 1);
+  *(_BYTE *)(a1 + 34) = *(_BYTE *)(a1 + 34) & 0xF8 | 5;
+  *(_QWORD *)(a1 + 16) = ZeroPte;
+  return MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(a1 + 16));
 }

@@ -1,45 +1,51 @@
 /*
- * XREFs of ?ReorderChildrenSpriteList@@YAXPEAUtagWND@@0@Z @ 0x1C00D3E98
+ * XREFs of ?ReorderChildrenSpriteList@@YAXPEAUtagWND@@0@Z @ 0x1C00BD490
  * Callers:
- *     zzzComposeDesktop @ 0x1C0058DA4 (zzzComposeDesktop.c)
- *     TrackLayeredZorder @ 0x1C00D3BE0 (TrackLayeredZorder.c)
+ *     TrackLayeredZorder @ 0x1C00BD408 (TrackLayeredZorder.c)
+ *     zzzComposeDesktop @ 0x1C00EC528 (zzzComposeDesktop.c)
  * Callees:
- *     ?GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00D3D7C (-GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
- *     GreZorderSprite @ 0x1C00D4B8C (GreZorderSprite.c)
+ *     ?GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C004C33C (-GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     GreZorderSprite @ 0x1C00BDEB4 (GreZorderSprite.c)
  */
 
 void __fastcall ReorderChildrenSpriteList(struct tagWND *a1, HWND *a2)
 {
-  struct tagWND *v2; // rax
+  __int64 v2; // rax
   struct tagWND *v4; // rbx
   struct tagWND *NextLayeredWindow; // rax
-  HWND v6; // r8
+  HWND v6; // rsi
 
-  v2 = (struct tagWND *)*((_QWORD *)a1 + 14);
+  v2 = *((_QWORD *)a1 + 14);
   if ( v2 )
   {
     do
     {
-      v4 = v2;
-      v2 = (struct tagWND *)*((_QWORD *)v2 + 14);
+      v4 = (struct tagWND *)v2;
+      v2 = *(_QWORD *)(v2 + 112);
     }
     while ( v2 );
     if ( v4 != a1 )
     {
       if ( (*(_BYTE *)(*((_QWORD *)v4 + 5) + 26LL) & 8) != 0 )
-        goto LABEL_8;
+      {
+        if ( !a2 )
+          goto LABEL_13;
+        v6 = *a2;
+        goto LABEL_10;
+      }
       while ( 1 )
       {
         NextLayeredWindow = GetNextLayeredWindow(v4);
         v4 = NextLayeredWindow;
         if ( !NextLayeredWindow || NextLayeredWindow == (struct tagWND *)a2 )
           break;
-LABEL_8:
-        IsWindowDesktopComposed(v4);
         if ( a2 )
           v6 = *a2;
         else
+LABEL_13:
           v6 = 0LL;
+LABEL_10:
+        IsWindowDesktopComposed(v4);
         GreZorderSprite(*(HDEV *)(gpDispInfo + 40LL), *(HWND *)v4, v6);
       }
     }

@@ -1,31 +1,32 @@
 /*
- * XREFs of PfpCheckPrefetchAbort @ 0x1402F88F8
+ * XREFs of PfpCheckPrefetchAbort @ 0x14026E9CC
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x1406846E8 (PfpPrefetchRequestPerform.c)
- *     PfpVolumePrefetchMetadata @ 0x140684C04 (PfpVolumePrefetchMetadata.c)
- *     PfpOpenHandleCreate @ 0x14075D594 (PfpOpenHandleCreate.c)
- *     PfpPrefetchFilesTrickle @ 0x14075D9A0 (PfpPrefetchFilesTrickle.c)
- *     PfpPrefetchDirectoryStream @ 0x1407D808C (PfpPrefetchDirectoryStream.c)
- *     PfpPrefetchFiles @ 0x14097DF94 (PfpPrefetchFiles.c)
- *     PfpPrefetchPrivatePages @ 0x14097E318 (PfpPrefetchPrivatePages.c)
+ *     PfpOpenHandleCreate @ 0x140633828 (PfpOpenHandleCreate.c)
+ *     PfpPrefetchFilesTrickle @ 0x140633C60 (PfpPrefetchFilesTrickle.c)
+ *     PfpPrefetchRequestPerform @ 0x14070AFA4 (PfpPrefetchRequestPerform.c)
+ *     PfpVolumePrefetchMetadata @ 0x14070B688 (PfpVolumePrefetchMetadata.c)
+ *     PfpPrefetchDirectoryStream @ 0x14070BA34 (PfpPrefetchDirectoryStream.c)
+ *     PfpPrefetchPrivatePages @ 0x14070C958 (PfpPrefetchPrivatePages.c)
+ *     PfpPrefetchFiles @ 0x1408DF8B0 (PfpPrefetchFiles.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall PfpCheckPrefetchAbort(_QWORD *a1)
+_BOOL8 __fastcall PfpCheckPrefetchAbort(_QWORD *a1)
 {
   __int64 v1; // rax
   __int64 v2; // rax
+  _BOOL8 result; // rax
 
   v1 = *(_QWORD *)(*a1 + 72LL);
-  if ( v1 && *(_DWORD *)(v1 + 4) )
-    return 1LL;
-  if ( (*(_DWORD *)(*a1 + 80LL) & 4) != 0 )
+  result = 1;
+  if ( !v1 || !*(_DWORD *)(v1 + 4) )
   {
+    if ( (*(_DWORD *)(*a1 + 80LL) & 4) == 0 )
+      return 0;
     v2 = a1[5];
-    if ( !*(_DWORD *)(v2 + 72) )
-      return (*(_DWORD *)(v2 + 68) >> 2) & 1;
-    return 1LL;
+    if ( !*(_DWORD *)(v2 + 72) && (*(_DWORD *)(v2 + 68) & 4) == 0 )
+      return 0;
   }
-  return 0LL;
+  return result;
 }

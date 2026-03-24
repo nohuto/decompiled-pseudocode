@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpReleaseHandleInfo @ 0x1407AD668
+ * XREFs of ObpReleaseHandleInfo @ 0x1406F7674
  * Callers:
- *     ObpDecrementHandleCount @ 0x140740464 (ObpDecrementHandleCount.c)
+ *     ObpDecrementHandleCount @ 0x1406F6CE4 (ObpDecrementHandleCount.c)
  * Callees:
- *     OBJECT_HEADER_TO_HANDLE_INFO @ 0x1403380F4 (OBJECT_HEADER_TO_HANDLE_INFO.c)
+ *     OBJECT_HEADER_TO_HANDLE_INFO @ 0x14034CE14 (OBJECT_HEADER_TO_HANDLE_INFO.c)
  */
 
 __int64 __fastcall ObpReleaseHandleInfo(__int64 a1)
@@ -21,33 +21,33 @@ __int64 __fastcall ObpReleaseHandleInfo(__int64 a1)
   v5 = result;
   if ( (*(_BYTE *)(v4 + 27) & 0x40) != 0 )
   {
-    v6 = *(_DWORD *)(result + 8);
-    *v2 = v6 & 0xFFFFFF;
-    *(_DWORD *)(result + 8) = v6 ^ (v6 ^ (v6 - 1)) & 0xFFFFFF;
+    v8 = *(_DWORD *)(result + 8);
+    *v2 = v8 & 0xFFFFFF;
+    *(_DWORD *)(result + 8) = v8 ^ (v8 ^ (v8 - 1)) & 0xFFFFFF;
   }
   else
   {
     result = *(_QWORD *)result;
-    v7 = *(_DWORD *)result;
+    v6 = *(_DWORD *)result;
     v5 = result + 8;
     if ( *(_DWORD *)result )
     {
       while ( 1 )
       {
-        v8 = *(_DWORD *)(v5 + 8);
-        result = v8 & 0xFFFFFF;
-        if ( (v8 & 0xFFFFFF) != 0 && *(_QWORD *)v5 == v3 )
+        v7 = *(_DWORD *)(v5 + 8);
+        result = v7 & 0xFFFFFF;
+        if ( (v7 & 0xFFFFFF) != 0 && *(_QWORD *)v5 == v3 )
           break;
         v5 += 16LL;
-        if ( !--v7 )
-          goto LABEL_3;
+        if ( !--v6 )
+          goto LABEL_6;
       }
       *v2 = result;
-      result = v8 ^ (v8 ^ (v8 - 1)) & 0xFFFFFFu;
+      result = v7 ^ (v7 ^ (v7 - 1)) & 0xFFFFFFu;
       *(_DWORD *)(v5 + 8) = result;
     }
   }
-LABEL_3:
+LABEL_6:
   if ( !*(_BYTE *)(v5 + 11) && (*(_DWORD *)(v5 + 8) & 0xFFFFFF) == 0 )
     *(_QWORD *)v5 = 0LL;
   return result;

@@ -1,12 +1,12 @@
 /*
- * XREFs of SearchFntCacheNewLink @ 0x1C0285C74
+ * XREFs of SearchFntCacheNewLink @ 0x1C0288D40
  * Callers:
- *     UmfdLoadFontFileView @ 0x1C0010120 (UmfdLoadFontFileView.c)
- *     ?PutFNTCacheCheckSum@@YAXKK@Z @ 0x1C00E2A70 (-PutFNTCacheCheckSum@@YAXKK@Z.c)
- *     EngFntCacheAllocInternal @ 0x1C028603C (EngFntCacheAllocInternal.c)
+ *     ?PutFNTCacheCheckSum@@YAXKK@Z @ 0x1C0288BBC (-PutFNTCacheCheckSum@@YAXKK@Z.c)
+ *     ?PutFntCacheDrvAndFileInfo@@YAXKPEAVPDEV@@KPEAPEAU_FONTFILEVIEW@@K@Z @ 0x1C0288C4C (-PutFntCacheDrvAndFileInfo@@YAXKPEAVPDEV@@KPEAPEAU_FONTFILEVIEW@@K@Z.c)
+ *     EngFntCacheAllocInternal @ 0x1C028910C (EngFntCacheAllocInternal.c)
  * Callees:
- *     SearchFNTCacheHlink @ 0x1C000D1C8 (SearchFNTCacheHlink.c)
- *     bFntCacheCreateHLink @ 0x1C0285D0C (bFntCacheCreateHLink.c)
+ *     SearchFNTCacheHlink @ 0x1C00A7374 (SearchFNTCacheHlink.c)
+ *     bFntCacheCreateHLink @ 0x1C0288DD8 (bFntCacheCreateHLink.c)
  */
 
 __int64 __fastcall SearchFntCacheNewLink(unsigned int a1)
@@ -16,9 +16,9 @@ __int64 __fastcall SearchFntCacheNewLink(unsigned int a1)
   __int64 v4; // r11
   __int64 v6; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = qword_1C0335DA8;
+  v1 = qword_1C033ABE8;
   v6 = 0LL;
-  SearchFNTCacheHlink(a1, &v6, *(_QWORD *)qword_1C0335DA8);
+  SearchFNTCacheHlink(a1, &v6, *(_QWORD *)qword_1C033ABE8);
   v4 = v6;
   if ( !v6 )
   {

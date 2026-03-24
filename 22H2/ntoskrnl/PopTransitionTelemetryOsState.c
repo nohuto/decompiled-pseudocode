@@ -1,325 +1,349 @@
 /*
- * XREFs of PopTransitionTelemetryOsState @ 0x1408037CC
+ * XREFs of PopTransitionTelemetryOsState @ 0x1407938D4
  * Callers:
- *     PopDiagTraceControlCallback @ 0x140862C00 (PopDiagTraceControlCallback.c)
- *     PopSleepstudyStartNextSession @ 0x140878B14 (PopSleepstudyStartNextSession.c)
- *     PopNotifyTelemetryOsState @ 0x1409926B4 (PopNotifyTelemetryOsState.c)
- *     PopDiagInitialize @ 0x140B38B18 (PopDiagInitialize.c)
+ *     PopNotifyTelemetryOsState @ 0x140776414 (PopNotifyTelemetryOsState.c)
+ *     PopPowerAggregatorActiveToScreenOffStateHandler @ 0x1408EDF50 (PopPowerAggregatorActiveToScreenOffStateHandler.c)
+ *     PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x1408EE170 (PopPowerAggregatorDisplayPoweringOnStateHandler.c)
+ *     PopDiagInitialize @ 0x140A40148 (PopDiagInitialize.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     EtwTelemetryCoverageReport @ 0x140364BF0 (EtwTelemetryCoverageReport.c)
- *     TelemetryCoverageStringHashInternal @ 0x140364D7C (TelemetryCoverageStringHashInternal.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopCurrentPowerState @ 0x1407A7258 (PopCurrentPowerState.c)
- *     PopMeasureEnergyChange @ 0x140802EEC (PopMeasureEnergyChange.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140253F54 (KiQueryUnbiasedInterruptTime.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     EtwTelemetryCoverageReport @ 0x140321950 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageStringHashInternal @ 0x140321B48 (TelemetryCoverageStringHashInternal.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PopCurrentPowerState @ 0x1406F1B8C (PopCurrentPowerState.c)
+ *     PopMeasureEnergyChange @ 0x1408EDD0C (PopMeasureEnergyChange.c)
  */
 
 __int64 __fastcall PopTransitionTelemetryOsState(int a1, int a2)
 {
   unsigned int v4; // esi
-  unsigned __int64 v5; // r12
-  unsigned __int64 v6; // rax
-  unsigned __int64 v7; // r13
-  unsigned __int64 v8; // rcx
-  unsigned __int64 v9; // rdx
-  unsigned int v10; // r15d
-  int v11; // r14d
-  char **v13; // rcx
-  int v14; // [rsp+38h] [rbp-D0h] BYREF
-  __int16 v15; // [rsp+3Ch] [rbp-CCh] BYREF
-  __int16 v16; // [rsp+40h] [rbp-C8h] BYREF
-  int v17; // [rsp+44h] [rbp-C4h] BYREF
-  int v18; // [rsp+48h] [rbp-C0h] BYREF
-  int v19; // [rsp+4Ch] [rbp-BCh] BYREF
-  int v20; // [rsp+50h] [rbp-B8h]
-  int v21; // [rsp+54h] [rbp-B4h]
-  int v22; // [rsp+58h] [rbp-B0h]
-  int v23; // [rsp+5Ch] [rbp-ACh] BYREF
-  int v24; // [rsp+60h] [rbp-A8h]
-  int v25; // [rsp+64h] [rbp-A4h] BYREF
-  unsigned int v26; // [rsp+68h] [rbp-A0h] BYREF
-  int v27; // [rsp+6Ch] [rbp-9Ch] BYREF
-  unsigned int v28; // [rsp+70h] [rbp-98h] BYREF
-  int v29; // [rsp+74h] [rbp-94h] BYREF
-  __int64 v30; // [rsp+78h] [rbp-90h] BYREF
-  unsigned __int64 v31; // [rsp+80h] [rbp-88h] BYREF
-  __int64 v32; // [rsp+88h] [rbp-80h] BYREF
-  __int64 v33; // [rsp+90h] [rbp-78h] BYREF
-  __int64 v34; // [rsp+98h] [rbp-70h]
-  unsigned __int64 v35; // [rsp+A0h] [rbp-68h]
-  unsigned __int64 v36; // [rsp+A8h] [rbp-60h] BYREF
-  unsigned __int64 v37; // [rsp+B0h] [rbp-58h] BYREF
-  unsigned __int64 v38; // [rsp+B8h] [rbp-50h] BYREF
-  __int64 v39; // [rsp+C0h] [rbp-48h] BYREF
-  __int64 v40; // [rsp+C8h] [rbp-40h] BYREF
-  __int128 v41; // [rsp+D0h] [rbp-38h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v42; // [rsp+F8h] [rbp-10h] BYREF
-  __int16 *v43; // [rsp+118h] [rbp+10h]
-  __int64 v44; // [rsp+120h] [rbp+18h]
-  __int16 *v45; // [rsp+128h] [rbp+20h]
-  __int64 v46; // [rsp+130h] [rbp+28h]
-  unsigned __int64 *v47; // [rsp+138h] [rbp+30h]
-  __int64 v48; // [rsp+140h] [rbp+38h]
-  int *v49; // [rsp+148h] [rbp+40h]
-  __int64 v50; // [rsp+150h] [rbp+48h]
-  __int64 *v51; // [rsp+158h] [rbp+50h]
-  __int64 v52; // [rsp+160h] [rbp+58h]
-  unsigned __int64 *v53; // [rsp+168h] [rbp+60h]
-  __int64 v54; // [rsp+170h] [rbp+68h]
-  unsigned __int64 *v55; // [rsp+178h] [rbp+70h]
-  __int64 v56; // [rsp+180h] [rbp+78h]
-  unsigned __int64 *v57; // [rsp+188h] [rbp+80h]
-  __int64 v58; // [rsp+190h] [rbp+88h]
-  int *v59; // [rsp+198h] [rbp+90h]
-  __int64 v60; // [rsp+1A0h] [rbp+98h]
-  int *v61; // [rsp+1A8h] [rbp+A0h]
-  __int64 v62; // [rsp+1B0h] [rbp+A8h]
-  int *v63; // [rsp+1B8h] [rbp+B0h]
-  __int64 v64; // [rsp+1C0h] [rbp+B8h]
-  int *v65; // [rsp+1C8h] [rbp+C0h]
-  __int64 v66; // [rsp+1D0h] [rbp+C8h]
-  unsigned int *v67; // [rsp+1D8h] [rbp+D0h]
-  __int64 v68; // [rsp+1E0h] [rbp+D8h]
-  int *v69; // [rsp+1E8h] [rbp+E0h]
-  __int64 v70; // [rsp+1F0h] [rbp+E8h]
-  unsigned int *v71; // [rsp+1F8h] [rbp+F0h]
-  __int64 v72; // [rsp+200h] [rbp+F8h]
-  __int64 *v73; // [rsp+208h] [rbp+100h]
-  __int64 v74; // [rsp+210h] [rbp+108h]
-  int *v75; // [rsp+218h] [rbp+110h]
-  __int64 v76; // [rsp+220h] [rbp+118h]
-  __int64 *v77; // [rsp+228h] [rbp+120h]
-  __int64 v78; // [rsp+230h] [rbp+128h]
-  int *v79; // [rsp+238h] [rbp+130h]
-  __int64 v80; // [rsp+240h] [rbp+138h]
-  __int64 *v81; // [rsp+248h] [rbp+140h]
-  __int64 v82; // [rsp+250h] [rbp+148h]
+  char **v6; // rcx
+  int v7; // r11d
+  unsigned __int64 v8; // r12
+  unsigned __int64 v9; // rax
+  unsigned __int64 v10; // r13
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // rdx
+  unsigned int v13; // r15d
+  int v14; // r14d
+  __int16 v15; // [rsp+38h] [rbp-D0h] BYREF
+  __int16 v16; // [rsp+3Ch] [rbp-CCh] BYREF
+  int v17; // [rsp+40h] [rbp-C8h] BYREF
+  int v18; // [rsp+44h] [rbp-C4h] BYREF
+  int v19; // [rsp+48h] [rbp-C0h] BYREF
+  int v20; // [rsp+4Ch] [rbp-BCh] BYREF
+  int v21; // [rsp+50h] [rbp-B8h] BYREF
+  int v22; // [rsp+54h] [rbp-B4h] BYREF
+  int v23; // [rsp+58h] [rbp-B0h] BYREF
+  int v24; // [rsp+5Ch] [rbp-ACh] BYREF
+  int v25; // [rsp+60h] [rbp-A8h] BYREF
+  unsigned int v26; // [rsp+64h] [rbp-A4h] BYREF
+  int v27; // [rsp+68h] [rbp-A0h] BYREF
+  unsigned int v28; // [rsp+6Ch] [rbp-9Ch] BYREF
+  int v29; // [rsp+70h] [rbp-98h] BYREF
+  int v30; // [rsp+74h] [rbp-94h] BYREF
+  __int64 v31; // [rsp+78h] [rbp-90h] BYREF
+  unsigned __int64 v32; // [rsp+80h] [rbp-88h] BYREF
+  unsigned __int64 v33; // [rsp+88h] [rbp-80h] BYREF
+  __int64 v34; // [rsp+90h] [rbp-78h] BYREF
+  int v35; // [rsp+98h] [rbp-70h] BYREF
+  int v36; // [rsp+9Ch] [rbp-6Ch] BYREF
+  int v37; // [rsp+A0h] [rbp-68h] BYREF
+  int v38; // [rsp+A4h] [rbp-64h] BYREF
+  int v39; // [rsp+A8h] [rbp-60h] BYREF
+  int v40; // [rsp+ACh] [rbp-5Ch] BYREF
+  unsigned __int64 v41; // [rsp+B0h] [rbp-58h] BYREF
+  unsigned __int64 v42; // [rsp+B8h] [rbp-50h] BYREF
+  unsigned __int64 v43; // [rsp+C0h] [rbp-48h] BYREF
+  unsigned __int64 v44; // [rsp+C8h] [rbp-40h] BYREF
+  __int64 v45; // [rsp+D0h] [rbp-38h] BYREF
+  __int64 v46; // [rsp+D8h] [rbp-30h] BYREF
+  __int128 v47; // [rsp+E0h] [rbp-28h] BYREF
+  __int128 v48; // [rsp+F0h] [rbp-18h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v49; // [rsp+118h] [rbp+10h] BYREF
+  __int16 *v50; // [rsp+138h] [rbp+30h]
+  __int64 v51; // [rsp+140h] [rbp+38h]
+  __int16 *v52; // [rsp+148h] [rbp+40h]
+  __int64 v53; // [rsp+150h] [rbp+48h]
+  unsigned __int64 *v54; // [rsp+158h] [rbp+50h]
+  __int64 v55; // [rsp+160h] [rbp+58h]
+  int *v56; // [rsp+168h] [rbp+60h]
+  __int64 v57; // [rsp+170h] [rbp+68h]
+  __int64 *v58; // [rsp+178h] [rbp+70h]
+  __int64 v59; // [rsp+180h] [rbp+78h]
+  unsigned __int64 *v60; // [rsp+188h] [rbp+80h]
+  __int64 v61; // [rsp+190h] [rbp+88h]
+  unsigned __int64 *v62; // [rsp+198h] [rbp+90h]
+  __int64 v63; // [rsp+1A0h] [rbp+98h]
+  unsigned __int64 *v64; // [rsp+1A8h] [rbp+A0h]
+  __int64 v65; // [rsp+1B0h] [rbp+A8h]
+  int *v66; // [rsp+1B8h] [rbp+B0h]
+  __int64 v67; // [rsp+1C0h] [rbp+B8h]
+  int *v68; // [rsp+1C8h] [rbp+C0h]
+  __int64 v69; // [rsp+1D0h] [rbp+C8h]
+  int *v70; // [rsp+1D8h] [rbp+D0h]
+  __int64 v71; // [rsp+1E0h] [rbp+D8h]
+  int *v72; // [rsp+1E8h] [rbp+E0h]
+  __int64 v73; // [rsp+1F0h] [rbp+E8h]
+  unsigned int *v74; // [rsp+1F8h] [rbp+F0h]
+  __int64 v75; // [rsp+200h] [rbp+F8h]
+  int *v76; // [rsp+208h] [rbp+100h]
+  __int64 v77; // [rsp+210h] [rbp+108h]
+  unsigned int *v78; // [rsp+218h] [rbp+110h]
+  __int64 v79; // [rsp+220h] [rbp+118h]
+  __int64 *v80; // [rsp+228h] [rbp+120h]
+  __int64 v81; // [rsp+230h] [rbp+128h]
+  int *v82; // [rsp+238h] [rbp+130h]
+  __int64 v83; // [rsp+240h] [rbp+138h]
+  int *v84; // [rsp+248h] [rbp+140h]
+  __int64 v85; // [rsp+250h] [rbp+148h]
+  __int64 *v86; // [rsp+258h] [rbp+150h]
+  __int64 v87; // [rsp+260h] [rbp+158h]
+  __int64 *v88; // [rsp+268h] [rbp+160h]
+  __int64 v89; // [rsp+270h] [rbp+168h]
 
-  v33 = 0LL;
-  LODWORD(v34) = 0;
-  v41 = 0LL;
   v4 = 0;
-  if ( !dword_140C03950 || !tlgKeywordOn((__int64)&dword_140C03950, 0x800000000000LL) || !byte_140C3C44C )
+  v48 = 0LL;
+  v47 = 0LL;
+  if ( !dword_140C02228 || !tlgKeywordOn((__int64)&dword_140C02228, 0x800000000000LL) || !byte_140C22E4C )
     return v4;
-  if ( a1 == 2 )
+  switch ( a1 )
   {
-    if ( a2 == 2 )
-    {
-      if ( (unsigned int)dword_140C091DC >= MEMORY[0xFFFFF7800000037C] )
-        goto LABEL_7;
-      if ( !dword_140C091D8 )
-        dword_140C091D8 = TelemetryCoverageStringHashInternal(off_140C091D0, &v14);
-      v13 = &off_140C091D0;
-    }
-    else
-    {
-      if ( (unsigned int)dword_140C09164 >= MEMORY[0xFFFFF7800000037C] )
-        goto LABEL_7;
-      if ( !dword_140C09160 )
-        dword_140C09160 = TelemetryCoverageStringHashInternal(off_140C09158, &v14);
-      v13 = &off_140C09158;
-    }
-    goto LABEL_78;
-  }
-  if ( a1 == 3 )
-  {
-    switch ( a2 )
-    {
-      case 3:
-        if ( (unsigned int)dword_140C0914C >= MEMORY[0xFFFFF7800000037C] )
-          goto LABEL_7;
-        if ( !dword_140C09148 )
-          dword_140C09148 = TelemetryCoverageStringHashInternal(off_140C09140, &v14);
-        v13 = &off_140C09140;
-        break;
-      case 4:
-        if ( (unsigned int)dword_140C09134 >= MEMORY[0xFFFFF7800000037C] )
-          goto LABEL_7;
-        if ( !dword_140C09130 )
-          dword_140C09130 = TelemetryCoverageStringHashInternal(off_140C09128, &v14);
-        v13 = &off_140C09128;
-        break;
-      case 5:
-        if ( (unsigned int)dword_140C0911C >= MEMORY[0xFFFFF7800000037C] )
-          goto LABEL_7;
-        if ( !dword_140C09118 )
-          dword_140C09118 = TelemetryCoverageStringHashInternal(off_140C09110, &v14);
-        v13 = &off_140C09110;
-        break;
-      case 6:
-        if ( (unsigned int)dword_140C091C4 >= MEMORY[0xFFFFF7800000037C] )
-          goto LABEL_7;
-        if ( !dword_140C091C0 )
-          dword_140C091C0 = TelemetryCoverageStringHashInternal(off_140C091B8, &v14);
-        v13 = &off_140C091B8;
-        break;
-      default:
-        if ( a2 == 8 && (unsigned int)dword_140C091AC < MEMORY[0xFFFFF7800000037C] )
+    case 2:
+      if ( a2 == 2 )
+      {
+        if ( (unsigned int)dword_140C0ED74 < MEMORY[0xFFFFF7800000037C] )
         {
-          if ( !dword_140C091A8 )
-            dword_140C091A8 = TelemetryCoverageStringHashInternal(off_140C091A0, &v14);
-          v13 = &off_140C091A0;
-          break;
+          if ( !dword_140C0ED70 )
+            dword_140C0ED70 = TelemetryCoverageStringHashInternal(off_140C0ED68, &v32);
+          v6 = &off_140C0ED68;
+          goto LABEL_67;
         }
-        goto LABEL_7;
-    }
-LABEL_78:
-    EtwTelemetryCoverageReport((__int64 *)v13);
-    goto LABEL_7;
-  }
-  if ( a1 != 4 )
-    goto LABEL_7;
-  switch ( a2 )
-  {
+      }
+      else if ( (unsigned int)dword_140C0ED5C < MEMORY[0xFFFFF7800000037C] )
+      {
+        if ( !dword_140C0ED58 )
+          dword_140C0ED58 = TelemetryCoverageStringHashInternal(off_140C0ED50, &v33);
+        v6 = &off_140C0ED50;
+        goto LABEL_67;
+      }
+      break;
     case 3:
-      if ( (unsigned int)dword_140C09194 >= MEMORY[0xFFFFF7800000037C] )
-        goto LABEL_7;
-      if ( !dword_140C09190 )
-        dword_140C09190 = TelemetryCoverageStringHashInternal(off_140C09188, &v14);
-      v13 = &off_140C09188;
-      goto LABEL_78;
+      switch ( a2 )
+      {
+        case 3:
+          if ( (unsigned int)dword_140C0ED44 < MEMORY[0xFFFFF7800000037C] )
+          {
+            if ( !dword_140C0ED40 )
+              dword_140C0ED40 = TelemetryCoverageStringHashInternal(off_140C0ED38, &v37);
+            v6 = &off_140C0ED38;
+            goto LABEL_67;
+          }
+          break;
+        case 4:
+          if ( (unsigned int)dword_140C0ED2C < MEMORY[0xFFFFF7800000037C] )
+          {
+            if ( !dword_140C0ED28 )
+              dword_140C0ED28 = TelemetryCoverageStringHashInternal(off_140C0ED20, &v36);
+            v6 = &off_140C0ED20;
+            goto LABEL_67;
+          }
+          break;
+        case 5:
+          if ( (unsigned int)dword_140C0ED14 < MEMORY[0xFFFFF7800000037C] )
+          {
+            if ( !dword_140C0ED10 )
+              dword_140C0ED10 = TelemetryCoverageStringHashInternal(off_140C0ED08, &v35);
+            v6 = &off_140C0ED08;
+            goto LABEL_67;
+          }
+          break;
+        case 6:
+          if ( (unsigned int)dword_140C0EE1C < MEMORY[0xFFFFF7800000037C] )
+          {
+            if ( !dword_140C0EE18 )
+              dword_140C0EE18 = TelemetryCoverageStringHashInternal(off_140C0EE10, &v40);
+            v6 = &off_140C0EE10;
+            goto LABEL_67;
+          }
+          break;
+        default:
+          if ( a2 == 8 && (unsigned int)dword_140C0EE04 < MEMORY[0xFFFFF7800000037C] )
+          {
+            if ( !dword_140C0EE00 )
+              dword_140C0EE00 = TelemetryCoverageStringHashInternal(off_140C0EDF8, &v39);
+            v6 = &off_140C0EDF8;
+            goto LABEL_67;
+          }
+          break;
+      }
+      break;
     case 4:
-      if ( (unsigned int)dword_140C0917C >= MEMORY[0xFFFFF7800000037C] )
-        goto LABEL_7;
-      if ( !dword_140C09178 )
-        dword_140C09178 = TelemetryCoverageStringHashInternal(off_140C09170, &v14);
-      v13 = &off_140C09170;
-      goto LABEL_78;
-    case 5:
-      if ( (unsigned int)dword_140C09104 >= MEMORY[0xFFFFF7800000037C] )
-        goto LABEL_7;
-      if ( !dword_140C09100 )
-        dword_140C09100 = TelemetryCoverageStringHashInternal(off_140C090F8, &v14);
-      v13 = &off_140C090F8;
-      goto LABEL_78;
-    case 6:
-      if ( (unsigned int)dword_140C090EC >= MEMORY[0xFFFFF7800000037C] )
-        goto LABEL_7;
-      if ( !dword_140C090E8 )
-        dword_140C090E8 = TelemetryCoverageStringHashInternal(off_140C090E0, &v14);
-      v13 = &off_140C090E0;
-      goto LABEL_78;
+      switch ( a2 )
+      {
+        case 3:
+          if ( (unsigned int)dword_140C0EDEC < MEMORY[0xFFFFF7800000037C] )
+          {
+            if ( !dword_140C0EDE8 )
+              dword_140C0EDE8 = TelemetryCoverageStringHashInternal(off_140C0EDE0, &v38);
+            v6 = &off_140C0EDE0;
+            goto LABEL_67;
+          }
+          break;
+        case 4:
+          if ( (unsigned int)dword_140C0EDD4 < MEMORY[0xFFFFF7800000037C] )
+          {
+            if ( !dword_140C0EDD0 )
+              dword_140C0EDD0 = TelemetryCoverageStringHashInternal(off_140C0EDC8, &v19);
+            v6 = &off_140C0EDC8;
+            goto LABEL_67;
+          }
+          break;
+        case 5:
+          if ( (unsigned int)dword_140C0EDBC < MEMORY[0xFFFFF7800000037C] )
+          {
+            if ( !dword_140C0EDB8 )
+              dword_140C0EDB8 = TelemetryCoverageStringHashInternal(off_140C0EDB0, &v20);
+            v6 = &off_140C0EDB0;
+            goto LABEL_67;
+          }
+          break;
+        case 6:
+          if ( (unsigned int)dword_140C0EDA4 < MEMORY[0xFFFFF7800000037C] )
+          {
+            if ( !dword_140C0EDA0 )
+              dword_140C0EDA0 = TelemetryCoverageStringHashInternal(off_140C0ED98, &v21);
+            v6 = &off_140C0ED98;
+            goto LABEL_67;
+          }
+          break;
+        default:
+          if ( a2 == 8 && (unsigned int)dword_140C0ED8C < MEMORY[0xFFFFF7800000037C] )
+          {
+            if ( !dword_140C0ED88 )
+              dword_140C0ED88 = TelemetryCoverageStringHashInternal(off_140C0ED80, &v22);
+            v6 = &off_140C0ED80;
+LABEL_67:
+            EtwTelemetryCoverageReport((__int64 *)v6);
+          }
+          break;
+      }
+      break;
   }
-  if ( a2 == 8 && (unsigned int)dword_140C090D4 < MEMORY[0xFFFFF7800000037C] )
-  {
-    if ( !dword_140C090D0 )
-      dword_140C090D0 = TelemetryCoverageStringHashInternal(off_140C090C8, &v14);
-    v13 = &off_140C090C8;
-    goto LABEL_78;
-  }
-LABEL_7:
   PopAcquireRwLockExclusive((ULONG_PTR)&PopTelemetryOsState);
-  v4 = dword_140C3C448;
-  if ( a1 != 5 || dword_140C3C410 == 1 || (unsigned int)(dword_140C3C410 - 4) <= 1 )
+  v4 = dword_140C22E48;
+  if ( a1 != 5 || dword_140C22E10 == 1 || (unsigned int)(dword_140C22E10 - 4) <= 1 )
   {
-    v5 = (KiQueryUnbiasedInterruptTime() - qword_140C3C428) / 0x2710uLL;
-    v6 = v5 - qword_140C3C438;
-    v7 = (MEMORY[0xFFFFF78000000008] - qword_140C3C420) / 0x2710uLL;
-    qword_140C3C438 = v5;
-    v8 = v7 - qword_140C3C430;
-    v31 = v7 - qword_140C3C430;
-    v9 = v7 - qword_140C3C430;
-    qword_140C3C430 = v7;
-    if ( v6 <= v8 )
-      v9 = v6;
-    v35 = v9;
-    v22 = ++dword_140C3C440;
-    v20 = dword_140C3C410;
-    v21 = dword_140C3C414;
+    v8 = (KiQueryUnbiasedInterruptTime() - qword_140C22E28) / 0x2710uLL;
+    v9 = v8 - qword_140C22E38;
+    v10 = (MEMORY[0xFFFFF78000000008] - qword_140C22E20) / 0x2710uLL;
+    qword_140C22E38 = v8;
+    v11 = v10 - qword_140C22E30;
+    v33 = v10 - qword_140C22E30;
+    v12 = v10 - qword_140C22E30;
+    qword_140C22E30 = v10;
+    if ( v9 <= v11 )
+      v12 = v9;
+    v32 = v12;
+    v21 = v7 + dword_140C22E40;
+    dword_140C22E40 += v7;
+    v19 = dword_140C22E10;
+    v20 = dword_140C22E14;
     if ( a1 != 5 )
     {
-      ++dword_140C3C444;
-      dword_140C3C410 = a1;
-      dword_140C3C414 = a2;
-      if ( a1 == 1 || a1 == 4 )
-        ++dword_140C3C448;
+      dword_140C22E44 += v7;
+      dword_140C22E10 = a1;
+      dword_140C22E14 = a2;
     }
-    v4 = dword_140C3C448;
-    v24 = dword_140C3C444;
-    PopReleaseRwLock(&PopTelemetryOsState);
-    PopCurrentPowerState(&v41);
-    v10 = 0;
-    v11 = DWORD2(v41);
-    if ( DWORD2(v41) )
-      v10 = (unsigned int)(100 * HIDWORD(v41)) / DWORD2(v41);
-    PopMeasureEnergyChange((__int64)&v33, (__int64)&OsStateChangeEnergyCounter);
-    v32 = qword_140C3C418;
-    if ( (unsigned int)dword_140C03950 > 5 && tlgKeywordOn((__int64)&dword_140C03950, 0x800000000000LL) )
+    if ( a1 == v7 || a1 == 4 )
+      dword_140C22E48 += v7;
+    v4 = dword_140C22E48;
+    v22 = dword_140C22E44;
+    PopReleaseRwLock((ULONG_PTR)&PopTelemetryOsState);
+    PopCurrentPowerState(&v48);
+    v13 = 0;
+    v14 = DWORD2(v48);
+    if ( DWORD2(v48) )
+      v13 = (unsigned int)(100 * HIDWORD(v48)) / DWORD2(v48);
+    PopMeasureEnergyChange(&v47, &OsStateChangeEnergyCounter);
+    v34 = qword_140C22E18;
+    if ( (unsigned int)dword_140C02228 > 5 && tlgKeywordOn((__int64)&dword_140C02228, 0x800000000000LL) )
     {
       v15 = a1;
-      v43 = &v15;
-      v45 = &v16;
-      v47 = &v31;
-      v44 = 2LL;
+      v50 = &v15;
+      v52 = &v16;
+      v41 = v33;
+      v54 = &v41;
+      v51 = 2LL;
       v16 = a2;
-      v46 = 2LL;
-      v48 = 8LL;
-      v19 = MEMORY[0xFFFFF780000002C4];
-      v49 = &v19;
-      v51 = &v32;
-      v36 = v35;
-      v53 = &v36;
-      v55 = &v37;
-      v57 = &v38;
-      LOWORD(v17) = v20;
-      v59 = &v17;
-      LOWORD(v18) = v21;
-      v61 = &v18;
-      v23 = v22;
-      v63 = &v23;
-      v25 = v24;
-      v65 = &v25;
-      v67 = &v26;
-      v69 = &v27;
-      v71 = &v28;
-      v39 = v34;
-      v73 = &v39;
-      v29 = v33;
-      v75 = &v29;
-      LODWORD(v30) = (unsigned __int8)v41;
-      v77 = &v30;
-      v50 = 4LL;
-      v52 = 8LL;
-      v54 = 8LL;
-      v37 = v7;
-      v56 = 8LL;
-      v38 = v5;
-      v58 = 8LL;
-      v60 = 2LL;
-      v62 = 2LL;
-      v64 = 4LL;
-      v66 = 4LL;
+      v53 = 2LL;
+      v55 = 8LL;
+      v23 = MEMORY[0xFFFFF780000002C4];
+      v56 = &v23;
+      v58 = &v34;
+      v42 = v32;
+      v60 = &v42;
+      v62 = &v43;
+      v64 = &v44;
+      LOWORD(v17) = v19;
+      v66 = &v17;
+      LOWORD(v18) = v20;
+      v68 = &v18;
+      v24 = v21;
+      v70 = &v24;
+      v25 = v22;
+      v72 = &v25;
+      v74 = &v26;
+      v76 = &v27;
+      v78 = &v28;
+      v45 = *((_QWORD *)&v47 + 1);
+      v80 = &v45;
+      v29 = v47;
+      v82 = &v29;
+      v30 = (unsigned __int8)v48;
+      v84 = &v30;
+      v57 = 4LL;
+      v59 = 8LL;
+      v61 = 8LL;
+      v43 = v10;
+      v63 = 8LL;
+      v44 = v8;
+      v65 = 8LL;
+      v67 = 2LL;
+      v69 = 2LL;
+      v71 = 4LL;
+      v73 = 4LL;
       v26 = v4;
-      v68 = 4LL;
-      v27 = v11;
-      v70 = 4LL;
-      v28 = v10;
-      v72 = 4LL;
-      v74 = 8LL;
-      v76 = 4LL;
-      v78 = 4LL;
-      v14 = BYTE3(v41);
-      v80 = 4LL;
-      v79 = &v14;
-      v40 = 0x1000000LL;
-      v81 = &v40;
-      v82 = 8LL;
+      v75 = 4LL;
+      v27 = v14;
+      v77 = 4LL;
+      v28 = v13;
+      v79 = 4LL;
+      v81 = 8LL;
+      v83 = 4LL;
+      v85 = 4LL;
+      LODWORD(v31) = BYTE3(v48);
+      v87 = 4LL;
+      v86 = &v31;
+      v46 = 0x1000000LL;
+      v88 = &v46;
+      v89 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03950,
-        (unsigned __int8 *)&word_14002ED36,
+        (__int64)&dword_140C02228,
+        (unsigned __int8 *)byte_140027D81,
         0LL,
         0LL,
         0x16u,
-        &v42);
+        &v49);
     }
   }
   else
   {
-    PopReleaseRwLock(&PopTelemetryOsState);
+    PopReleaseRwLock((ULONG_PTR)&PopTelemetryOsState);
   }
   return v4;
 }

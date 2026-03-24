@@ -1,67 +1,105 @@
 /*
- * XREFs of PopPowerAggregatorScreenOffEnterStateHandler @ 0x140885D10
+ * XREFs of PopPowerAggregatorScreenOffEnterStateHandler @ 0x1408EE840
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x140874ED8 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140776C08 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorEnterScreenOff @ 0x1408781A4 (PopPowerAggregatorEnterScreenOff.c)
- *     PopExecutePowerAction @ 0x1409898A4 (PopExecutePowerAction.c)
- *     PopPowerAggregatorEngageModernStandby @ 0x1409937E4 (PopPowerAggregatorEngageModernStandby.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PopPowerAggregatorStartNextSession @ 0x1407756F4 (PopPowerAggregatorStartNextSession.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140776AA8 (PopPowerAggregatorSetCurrentState.c)
+ *     PopDirectedDripsNotify @ 0x14078DA18 (PopDirectedDripsNotify.c)
+ *     PopPowerAggregatorEngageAggressiveStandbyActions @ 0x1408EE1E0 (PopPowerAggregatorEngageAggressiveStandbyActions.c)
+ *     PopPowerAggregatorLockAcquire @ 0x1408EE544 (PopPowerAggregatorLockAcquire.c)
+ *     PopPowerAggregatorLockRelease @ 0x1408EE560 (PopPowerAggregatorLockRelease.c)
+ *     PopDripsWatchdogNotifySessionStart @ 0x1408EF4A0 (PopDripsWatchdogNotifySessionStart.c)
  */
 
 __int64 __fastcall PopPowerAggregatorScreenOffEnterStateHandler(__int64 a1)
 {
-  int v2; // ebx
-  int v3; // ecx
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  unsigned __int64 v7; // [rsp+30h] [rbp-30h] BYREF
-  int v8; // [rsp+38h] [rbp-28h]
-  _DWORD v9[2]; // [rsp+40h] [rbp-20h] BYREF
-  __int128 v10; // [rsp+48h] [rbp-18h]
+  bool v1; // zf
+  int v3; // eax
+  __int64 v4; // xmm0_8
+  __int64 v5; // r14
+  unsigned __int8 v6; // r15
+  int v7; // eax
+  int v8; // ecx
+  unsigned int v9; // ebx
+  unsigned int v10; // ebx
+  __int64 v11; // rcx
+  __int64 v13; // [rsp+20h] [rbp-30h] BYREF
+  int v14; // [rsp+28h] [rbp-28h]
+  _OWORD v15[2]; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v16; // [rsp+70h] [rbp+20h] BYREF
 
-  if ( *(_QWORD *)(a1 + 32) != *(_QWORD *)(a1 + 64) )
+  v1 = *(_DWORD *)(a1 + 72) == 3;
+  memset(v15, 0, sizeof(v15));
+  if ( v1 )
   {
-    PopPowerAggregatorEnterScreenOff(a1);
+    v3 = *(_DWORD *)(a1 + 48);
+    *((_QWORD *)&v15[1] + 1) = 0LL;
+    DWORD1(v15[1]) = v3;
+    *(_OWORD *)((char *)v15 + 4) = 0LL;
+    LODWORD(v15[0]) = 4;
+    PopPowerAggregatorSetCurrentState(a1, (__int64)v15);
     return 0LL;
   }
-  if ( !*(_BYTE *)(a1 + 88) && *(_BYTE *)(a1 + 72) )
+  if ( *(_QWORD *)(a1 + 40) != *(_QWORD *)(a1 + 80) )
   {
-    if ( *(_DWORD *)(a1 + 16) == 1 )
+    DWORD1(v15[1]) = *(_DWORD *)(a1 + 48);
+    BYTE8(v15[1]) = *(_BYTE *)(a1 + 96);
+    HIDWORD(v15[1]) = *(_DWORD *)(a1 + 100);
+    LODWORD(v15[0]) = 4;
+    PopPowerAggregatorSetCurrentState(a1, (__int64)v15);
+    PopPowerAggregatorStartNextSession(1u, *(_DWORD *)(a1 + 32));
+    return 0LL;
+  }
+  v4 = *(_QWORD *)(a1 + 52);
+  v5 = *(int *)(a1 + 92);
+  v6 = *(_BYTE *)(a1 + 65);
+  v14 = *(_DWORD *)(a1 + 60);
+  v7 = *(_DWORD *)(a1 + 88);
+  v13 = v4;
+  if ( v7 < 0 )
+    return 0LL;
+  if ( v7 > 1 )
+  {
+    if ( v7 == 2 )
+      goto LABEL_13;
+    v8 = v5;
+    if ( v7 == 3 )
     {
-      PopPowerAggregatorEngageModernStandby();
+LABEL_16:
+      v10 = *(_DWORD *)(a1 + 100);
+      *((_QWORD *)&v15[1] + 1) = 0LL;
+      DWORD1(v15[1]) = v8;
+      *(_OWORD *)((char *)v15 + 4) = 0LL;
+      LODWORD(v15[0]) = 1;
+      PopPowerAggregatorSetCurrentState(a1, (__int64)v15);
+      PopPowerAggregatorStartNextSession(2u, *(_DWORD *)(a1 + 76));
+      PopPowerAggregatorLockRelease();
+      LOBYTE(v11) = v6;
+      PopDripsWatchdogNotifySessionStart(v11);
+      v16 = v6;
+      PopDirectedDripsNotify(6, (char *)&v16);
+      PopPowerAggregatorEngageAggressiveStandbyActions(v5, (__int64)&v13);
+      ((void (__fastcall *)(_QWORD))qword_140C54448)(v10);
+      PopPowerAggregatorLockAcquire();
       return 0LL;
     }
-    if ( *(_BYTE *)(a1 + 52) )
+    if ( v7 != 4 )
       return 0LL;
-    v2 = *(_DWORD *)(a1 + 44);
-    v7 = 0LL;
-    v8 = 0;
-    if ( v2 == 2 || v2 == 3 || v2 == 4 )
-    {
-      LODWORD(v7) = 2;
-    }
-    else if ( v2 == 5 )
-    {
-      v7 = 0x8000000400000003uLL;
-LABEL_17:
-      *(_BYTE *)(a1 + 52) = 1;
-      v9[0] = 7;
-      v10 = 0LL;
-      v9[1] = 128;
-      PopReleaseRwLock(&PopPowerAggregatorLock);
-      PopAcquirePolicyLock(v3);
-      PopExecutePowerAction((unsigned int)v9, 0, (unsigned int)&v7, v2, 1);
-      PopReleasePolicyLock(v5, v4, v6);
-      PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
-      return 0LL;
-    }
-    HIDWORD(v7) = -2147483644;
-    goto LABEL_17;
+  }
+  v9 = PopPowerAggregatorModernStandbyResourceMasks[v5];
+  PopPowerAggregatorLockRelease();
+  if ( qword_140C54418 )
+    qword_140C54418(v9);
+  PopPowerAggregatorLockAcquire();
+  *(_DWORD *)(a1 + 88) = 2;
+LABEL_13:
+  if ( !*(_BYTE *)(a1 + 104) && *(_BYTE *)(a1 + 96) )
+  {
+    v8 = *(_DWORD *)(a1 + 92);
+    *(_DWORD *)(a1 + 88) = 3;
+    goto LABEL_16;
   }
   return 0LL;
 }

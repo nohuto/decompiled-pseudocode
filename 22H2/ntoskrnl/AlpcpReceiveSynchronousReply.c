@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpReceiveSynchronousReply @ 0x14073E1F0
+ * XREFs of AlpcpReceiveSynchronousReply @ 0x1405E7560
  * Callers:
- *     AlpcpProcessConnectionRequest @ 0x140715C44 (AlpcpProcessConnectionRequest.c)
- *     AlpcpProcessSynchronousRequest @ 0x14073DAE0 (AlpcpProcessSynchronousRequest.c)
- *     AlpcpReceiveLegacyConnectionReply @ 0x1407C497C (AlpcpReceiveLegacyConnectionReply.c)
+ *     AlpcpReceiveLegacyConnectionReply @ 0x1405DDB60 (AlpcpReceiveLegacyConnectionReply.c)
+ *     AlpcpProcessConnectionRequest @ 0x1405DECC8 (AlpcpProcessConnectionRequest.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     AlpcpSignalAndWait @ 0x1402B6B80 (AlpcpSignalAndWait.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     AlpcpWaitForSingleObject @ 0x14034D8C0 (AlpcpWaitForSingleObject.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     AlpcpUnlockMessage @ 0x14071BF28 (AlpcpUnlockMessage.c)
- *     AlpcpInsertMessagePendingQueue @ 0x14073DA20 (AlpcpInsertMessagePendingQueue.c)
- *     AlpcpCancelMessage @ 0x14077971C (AlpcpCancelMessage.c)
- *     AlpcpLogReceiveMessage @ 0x14097A4E0 (AlpcpLogReceiveMessage.c)
+ *     AlpcpSignalAndWait @ 0x140205140 (AlpcpSignalAndWait.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     AlpcpWaitForSingleObject @ 0x14030E348 (AlpcpWaitForSingleObject.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x1405E3C64 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     AlpcpLogReceiveMessage @ 0x1408C3DE0 (AlpcpLogReceiveMessage.c)
  */
 
 __int64 __fastcall AlpcpReceiveSynchronousReply(
@@ -23,115 +23,113 @@ __int64 __fastcall AlpcpReceiveSynchronousReply(
         KPROCESSOR_MODE a2,
         __int64 *a3,
         int a4,
-        LARGE_INTEGER *a5)
+        PLARGE_INTEGER a5)
 {
-  struct _KTHREAD *CurrentThread; // rbp
-  __int64 v8; // r13
-  unsigned int v9; // edi
-  __int64 v10; // rbx
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 v8; // rbp
+  unsigned int v9; // eax
+  unsigned int v10; // edi
+  __int64 v11; // rbx
   signed __int64 BugCheckParameter4; // rax
-  int v12; // ecx
-  int v13; // eax
-  unsigned int v14; // ecx
-  int v15; // edx
-  int v16; // ecx
-  volatile signed __int64 *v18; // rbp
+  int v14; // eax
+  unsigned int v15; // ecx
+  unsigned int v16; // edx
+  int v17; // ecx
+  volatile signed __int64 *v18; // rsi
   int v19; // ecx
 
   CurrentThread = KeGetCurrentThread();
   v8 = *a1;
-  v9 = AlpcpSignalAndWait((__int64)a1, &CurrentThread[1].KernelStack, WrLpcReply, a2, a5, 1u);
-  v10 = _InterlockedExchange64((volatile __int64 *)&CurrentThread[1].RelativeTimerBias, 0LL);
-  if ( !v10 )
+  v9 = AlpcpSignalAndWait((__int64)a1, &CurrentThread[1].KernelStack, WrLpcReply, a2, a5, 1);
+  v10 = v9;
+  v11 = _InterlockedExchange64((volatile __int64 *)&CurrentThread[1].RelativeTimerBias, 0LL);
+  if ( !v11 )
   {
     if ( v9 )
       AlpcpWaitForSingleObject(&CurrentThread[1].KernelStack, WrLpcReply, 0, 0, 0LL);
     return 3221227265LL;
   }
-  ExAcquirePushLockExclusiveEx(v10 - 16, 0LL);
-  *(_BYTE *)(v10 - 32) |= 1u;
-  BugCheckParameter4 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v10 - 24), 0x10000uLL) + 0x10000;
+  ExAcquirePushLockExclusiveEx(v11 - 16, 0LL);
+  *(_BYTE *)(v11 - 32) |= 1u;
+  BugCheckParameter4 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v11 - 24), 0x10000uLL) + 0x10000;
   if ( BugCheckParameter4 <= 0 )
-    KeBugCheckEx(0x18u, 0LL, v10, 0x26uLL, BugCheckParameter4);
-  v12 = *(_DWORD *)(v10 + 40);
-  if ( (v12 & 0x800) != 0 )
+    KeBugCheckEx(0x18u, 0LL, v11, 0x26uLL, BugCheckParameter4);
+  v14 = *(_DWORD *)(v11 + 40);
+  if ( (v14 & 0x800) != 0 )
+    *(_DWORD *)(v11 + 40) = v14 & 0xFFFFF7FF;
+  --*(_WORD *)(v11 - 30);
+  if ( (*(_BYTE *)(v11 + 40) & 7) != 5 )
   {
-    v12 &= ~0x800u;
-    *(_DWORD *)(v10 + 40) = v12;
+    if ( *(struct _KTHREAD **)(v11 + 32) == CurrentThread )
+    {
+      if ( !v10 )
+        v10 = -1073740031;
+      goto LABEL_14;
+    }
+    goto LABEL_19;
   }
-  --*(_WORD *)(v10 - 30);
-  if ( (v12 & 7) != 5 )
+  v15 = *(_DWORD *)(v11 + 40) & 0xFFFFFFF8;
+  *(_DWORD *)(v11 + 40) = v15;
+  if ( v10 )
   {
-    if ( *(struct _KTHREAD **)(v10 + 32) != CurrentThread )
-      goto LABEL_39;
-    if ( !v9 )
-      v9 = -1073740031;
-    goto LABEL_30;
+    if ( *(struct _KTHREAD **)(v11 + 32) == CurrentThread )
+    {
+LABEL_14:
+      *(_QWORD *)(v11 + 32) = 0LL;
+      --*(_WORD *)(v11 - 30);
+      if ( (*(_DWORD *)(v11 + 40) & 0x80u) != 0 )
+        AlpcpUnlockMessage(v11);
+      else
+        AlpcpCancelMessage(v8, v11, 0);
+      return v10;
+    }
+    AlpcpWaitForSingleObject(&CurrentThread[1].KernelStack, WrLpcReply, 0, 0, 0LL);
+    v15 = *(_DWORD *)(v11 + 40);
+    v10 = 0;
   }
-  *(_DWORD *)(v10 + 40) = v12 & 0xFFFFFFF8;
-  if ( !v9 )
-    goto LABEL_7;
-  if ( *(struct _KTHREAD **)(v10 + 32) == CurrentThread )
+  if ( (v15 & 0x80u) != 0 )
   {
-LABEL_30:
-    *(_QWORD *)(v10 + 32) = 0LL;
-    --*(_WORD *)(v10 - 30);
-    if ( (*(_DWORD *)(v10 + 40) & 0x80u) != 0 )
-      AlpcpUnlockMessage(v10);
-    else
-      AlpcpCancelMessage(v8, v10, 0LL);
-    return v9;
-  }
-  AlpcpWaitForSingleObject(&CurrentThread[1].KernelStack, WrLpcReply, 0, 0, 0LL);
-  v9 = 0;
-LABEL_7:
-  v13 = *(_DWORD *)(v10 + 40);
-  if ( (v13 & 0x80u) != 0 )
-  {
-LABEL_39:
-    AlpcpUnlockMessage(v10);
+LABEL_19:
+    AlpcpUnlockMessage(v11);
     return 3221227265LL;
   }
-  if ( (v13 & 0x200) != 0 )
+  if ( (v15 & 0x200) != 0 )
   {
-    v14 = 0;
-    if ( *(_QWORD *)(v10 + 136) )
-      v14 = 0x80000000;
-    v15 = v14 | 0x40000000;
-    if ( !*(_QWORD *)(v10 + 144) )
-      v15 = v14;
-    v16 = v15 | 0x10000000;
-    if ( !*(_QWORD *)(v10 + 152) )
-      v16 = v15;
-    if ( (v16 & a4) == 0 )
+    v16 = (*(_QWORD *)(v11 + 136) != 0LL ? 0x80000000 : 0) | 0x40000000;
+    if ( !*(_QWORD *)(v11 + 144) )
+      v16 = *(_QWORD *)(v11 + 136) != 0LL ? 0x80000000 : 0;
+    v17 = v16 | 0x10000000;
+    if ( !*(_QWORD *)(v11 + 152) )
+      v17 = v16;
+    if ( (v17 & a4) == 0 )
     {
-      *(_WORD *)(v10 + 244) &= ~0x2000u;
-LABEL_17:
+      *(_WORD *)(v11 + 244) &= ~0x2000u;
+LABEL_38:
       if ( AlpcpLogEnabled )
-        AlpcpLogReceiveMessage(v10);
-      *a3 = v10;
-      return v9;
+        AlpcpLogReceiveMessage(v11);
+      *a3 = v11;
+      return v10;
     }
   }
   v18 = (volatile signed __int64 *)(v8 + 352);
-  *(_WORD *)(v10 + 244) |= 0x2000u;
+  *(_WORD *)(v11 + 244) |= 0x2000u;
   ExAcquirePushLockSharedEx(v8 + 352, 0LL);
   v19 = *(_DWORD *)(v8 + 416);
   if ( (v19 & 0x40) == 0 )
   {
-    if ( (*(_DWORD *)(v8 + 256) & 0x1000) == 0 || (v19 & 0x20) == 0 || !*(_QWORD *)(v10 + 32) )
+    if ( (*(_DWORD *)(v8 + 256) & 0x1000) == 0 || (v19 & 0x20) == 0 || !*(_QWORD *)(v11 + 32) )
     {
-      ++*(_WORD *)(v10 - 30);
-      AlpcpInsertMessagePendingQueue(v8, v10);
+      ++*(_WORD *)(v11 - 30);
+      AlpcpInsertMessagePendingQueue(v8, v11);
     }
     if ( _InterlockedCompareExchange64(v18, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)(v8 + 352));
     KeAbPostRelease(v8 + 352);
-    goto LABEL_17;
+    goto LABEL_38;
   }
   if ( _InterlockedCompareExchange64(v18, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)(v8 + 352));
   KeAbPostRelease(v8 + 352);
-  AlpcpCancelMessage(v8, v10, 0LL);
+  AlpcpCancelMessage(v8, v11, 0);
   return 3221227264LL;
 }

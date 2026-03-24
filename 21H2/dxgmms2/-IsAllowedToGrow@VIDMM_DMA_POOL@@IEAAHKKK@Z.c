@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsAllowedToGrow@VIDMM_DMA_POOL@@IEAAHKKK@Z @ 0x1C0098548
+ * XREFs of ?IsAllowedToGrow@VIDMM_DMA_POOL@@IEAAHKKK@Z @ 0x1C00823C8
  * Callers:
- *     ?AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z @ 0x1C0098370 (-AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z.c)
+ *     ?AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z @ 0x1C00821F0 (-AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z.c)
  * Callees:
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C002EB14 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C00249D0 (McTemplateK0pq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall VIDMM_DMA_POOL::IsAllowedToGrow(
@@ -38,7 +38,7 @@ __int64 __fastcall VIDMM_DMA_POOL::IsAllowedToGrow(
     v12 = VIDMM_DMA_POOL::_MaxNbCddDmaBuffers;
   if ( *((_DWORD *)this + 23) >= (unsigned int)v12 )
   {
-    if ( !bTracingEnabled || (byte_1C006E941 & 1) == 0 )
+    if ( !bTracingEnabled || (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
       return 0LL;
     goto LABEL_30;
   }
@@ -48,7 +48,7 @@ __int64 __fastcall VIDMM_DMA_POOL::IsAllowedToGrow(
     v14 = v7 <= VIDMM_DMA_POOL::_HighDmaBufferBytes;
   if ( !v14 )
   {
-    if ( !bTracingEnabled || (byte_1C006E941 & 1) == 0 )
+    if ( !bTracingEnabled || (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
       return 0LL;
 LABEL_30:
     McTemplateK0pq_EtwWriteTransfer(v12, &EventDmaPoolTrimmingPolicy, v9);
@@ -60,7 +60,7 @@ LABEL_30:
     v15 = v8 <= VIDMM_DMA_POOL::_HighAllocationListBytes;
   if ( !v15 )
   {
-    if ( !bTracingEnabled || (byte_1C006E941 & 1) == 0 )
+    if ( !bTracingEnabled || (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
       return 0LL;
     goto LABEL_30;
   }
@@ -70,7 +70,7 @@ LABEL_30:
     v16 = v10 <= VIDMM_DMA_POOL::_HighPatchLocationListBytes;
   if ( !v16 )
   {
-    if ( !bTracingEnabled || (byte_1C006E941 & 1) == 0 )
+    if ( !bTracingEnabled || (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
       return 0LL;
     goto LABEL_30;
   }

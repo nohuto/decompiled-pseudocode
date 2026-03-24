@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlAddRange_0 @ 0x1C002F1B3
+ * XREFs of RtlAddRange_0 @ 0x1C0031CF3
  * Callers:
- *     ArbAddAllocation @ 0x1C00B7210 (ArbAddAllocation.c)
- *     ArbAddInaccessibleAllocationRange @ 0x1C00B7260 (ArbAddInaccessibleAllocationRange.c)
- *     ArbAddMmConfigRangeAsBootReserved @ 0x1C00B7474 (ArbAddMmConfigRangeAsBootReserved.c)
- *     ArbInitializeRangeList @ 0x1C00B7970 (ArbInitializeRangeList.c)
+ *     ArbAddAllocation @ 0x1C00B7710 (ArbAddAllocation.c)
+ *     ArbAddInaccessibleAllocationRange @ 0x1C00B7760 (ArbAddInaccessibleAllocationRange.c)
+ *     ArbAddMmConfigRangeAsBootReserved @ 0x1C00B7974 (ArbAddMmConfigRangeAsBootReserved.c)
+ *     ArbInitializeRangeList @ 0x1C00B7CE0 (ArbInitializeRangeList.c)
  * Callees:
  *     <none>
  */

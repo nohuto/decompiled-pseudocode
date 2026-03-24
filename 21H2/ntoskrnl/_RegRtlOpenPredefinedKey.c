@@ -1,13 +1,13 @@
 /*
- * XREFs of _RegRtlOpenPredefinedKey @ 0x14085D278
+ * XREFs of _RegRtlOpenPredefinedKey @ 0x1407CDA94
  * Callers:
- *     _RegRtlCreateKeyTransacted @ 0x140772D80 (_RegRtlCreateKeyTransacted.c)
- *     _RegRtlOpenKeyTransacted @ 0x14078003C (_RegRtlOpenKeyTransacted.c)
- *     _RegRtlQueryKeyPathName @ 0x1408621F8 (_RegRtlQueryKeyPathName.c)
+ *     _RegRtlCreateKeyTransacted @ 0x14063E55C (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1406426FC (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlQueryKeyPathName @ 0x1407D2068 (_RegRtlQueryKeyPathName.c)
  * Callees:
- *     RtlFormatCurrentUserKeyPath @ 0x14066B5D0 (RtlFormatCurrentUserKeyPath.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     _RegRtlOpenKeyTransacted @ 0x14078003C (_RegRtlOpenKeyTransacted.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1406426FC (_RegRtlOpenKeyTransacted.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x140676CD0 (RtlFormatCurrentUserKeyPath.c)
  */
 
 __int64 __fastcall RegRtlOpenPredefinedKey(__int64 a1, HANDLE *a2)
@@ -46,6 +46,6 @@ LABEL_3:
     goto LABEL_3;
   }
 LABEL_4:
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString(&UnicodeString);
   return (unsigned int)v4;
 }

@@ -1,19 +1,18 @@
 /*
- * XREFs of PcwAddInstance @ 0x14086DBB0
+ * XREFs of PcwAddInstance @ 0x140667BC0
  * Callers:
- *     ExProcessorCounterSetCallback @ 0x14086E070 (ExProcessorCounterSetCallback.c)
- *     FsRtlAddDiskIOCounterInstance @ 0x14093EBFC (FsRtlAddDiskIOCounterInstance.c)
- *     FsRtlDiskIOCounterSetCallback @ 0x14093ECD0 (FsRtlDiskIOCounterSetCallback.c)
- *     KiSynchCounterSetCallback @ 0x140973F30 (KiSynchCounterSetCallback.c)
- *     KiSynchNumaCounterSetCallback @ 0x140974050 (KiSynchNumaCounterSetCallback.c)
- *     PoThermalCounterSetCallback @ 0x14098AC90 (PoThermalCounterSetCallback.c)
- *     ExProcessCounterSetCallback @ 0x1409F5E80 (ExProcessCounterSetCallback.c)
- *     EtwpEventTracingCounterSetCallback @ 0x140A76940 (EtwpEventTracingCounterSetCallback.c)
+ *     ExProcessorCounterSetCallback @ 0x1406C6A20 (ExProcessorCounterSetCallback.c)
+ *     FsRtlAddDiskIOCounterInstance @ 0x14088C15C (FsRtlAddDiskIOCounterInstance.c)
+ *     FsRtlDiskIOCounterSetCallback @ 0x14088C230 (FsRtlDiskIOCounterSetCallback.c)
+ *     KiSynchCounterSetCallback @ 0x1408BAEF0 (KiSynchCounterSetCallback.c)
+ *     KiSynchNumaCounterSetCallback @ 0x1408BB000 (KiSynchNumaCounterSetCallback.c)
+ *     PoThermalCounterSetCallback @ 0x1408E7A10 (PoThermalCounterSetCallback.c)
+ *     EtwpEventTracingCounterSetCallback @ 0x140982C10 (EtwpEventTracingCounterSetCallback.c)
  * Callees:
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x1402FA470 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExpPcwDisabledStatus @ 0x140A01868 (ExpPcwDisabledStatus.c)
+ *     ExReleaseExtensionTable @ 0x1402F75FC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x1402F7618 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExpPcwDisabledStatus @ 0x140956D08 (ExpPcwDisabledStatus.c)
  */
 
 NTSTATUS __stdcall PcwAddInstance(PPCW_BUFFER Buffer, PCUNICODE_STRING Name, ULONG Id, ULONG Count, PPCW_DATA Data)

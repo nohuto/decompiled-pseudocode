@@ -1,85 +1,101 @@
 /*
- * XREFs of NtUserDisplayConfigGetDeviceInfo @ 0x1C001E910
+ * XREFs of NtUserDisplayConfigGetDeviceInfo @ 0x1C001E9F0
  * Callers:
  *     <none>
  * Callees:
- *     ?DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z @ 0x1C0015D50 (-DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z.c)
- *     _DeviceInfoTranslateStatusDefault @ 0x1C001ED8C (_DeviceInfoTranslateStatusDefault.c)
- *     ?RequiresUserCritShared@DispConfigTypes@@YA_NW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z @ 0x1C001EE20 (-RequiresUserCritShared@DispConfigTypes@@YA_NW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z.c)
- *     ?AllowInAnySession@DispConfigTypes@@YA_NW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z @ 0x1C001EE50 (-AllowInAnySession@DispConfigTypes@@YA_NW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z.c)
- *     ?GetGetterTypeSize@DispConfigTypes@@YAKW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z @ 0x1C001EEB8 (-GetGetterTypeSize@DispConfigTypes@@YAKW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z.c)
- *     UserIsWddmConnectedSession @ 0x1C001EFF0 (UserIsWddmConnectedSession.c)
- *     DrvSampleDisplayState @ 0x1C001F260 (DrvSampleDisplayState.c)
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C004CDAC (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ?HelperCreateLiveDumpWithWdLogs@@YAXJW4_DISPLAY_INFO_FAILURE_POINT@@@Z @ 0x1C0163AA4 (-HelperCreateLiveDumpWithWdLogs@@YAXJW4_DISPLAY_INFO_FAILURE_POINT@@@Z.c)
+ *     DrvSampleDisplayState @ 0x1C001CCD0 (DrvSampleDisplayState.c)
+ *     _DeviceInfoTranslateStatusDefault @ 0x1C001F168 (_DeviceInfoTranslateStatusDefault.c)
+ *     UserIsWddmConnectedSession @ 0x1C001F320 (UserIsWddmConnectedSession.c)
+ *     Win32AllocPoolWithQuota @ 0x1C002AA40 (Win32AllocPoolWithQuota.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     EnterSharedCrit @ 0x1C00372A0 (EnterSharedCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0085CFC (PopAndFreeAlwaysW32ThreadLock.c)
+ *     ?DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z @ 0x1C00CAF28 (-DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z.c)
+ *     SetLastNtError @ 0x1C00CDE58 (SetLastNtError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall NtUserDisplayConfigGetDeviceInfo(char *a1)
 {
-  unsigned int *QuotaZInit; // rsi
-  void *v3; // r15
+  unsigned int *v2; // r14
+  const void *v3; // r13
+  __int64 v4; // rcx
   int DeviceInfoInternal; // ebx
-  unsigned int *v5; // rdx
-  size_t v6; // r12
-  _DWORD *v7; // rax
-  _DWORD *v8; // r14
-  unsigned __int64 v9; // rdx
-  NSInstrumentation::CLeakTrackingAllocator *v10; // rcx
-  __int64 v11; // rcx
-  char v12; // r13
-  unsigned int v13; // r12d
-  __int64 v14; // rcx
-  int GetterTypeSize; // eax
+  unsigned int *v6; // rdx
+  size_t v7; // rsi
+  SIZE_T v8; // r12
+  _DWORD *v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  int v12; // ebx
+  unsigned int v13; // eax
+  bool v14; // zf
+  unsigned int v15; // eax
+  volatile void *v16; // rsi
+  int v17; // ebx
+  int v18; // ebx
+  int v19; // ebx
+  int v20; // ebx
+  __int64 v21; // rcx
   __int64 CurrentProcessWow64Process; // rax
-  __int64 v17; // rax
-  unsigned int v19; // eax
-  __int64 v20; // rdx
-  int v21; // r13d
-  _DWORD *v22; // r14
-  __int64 v23; // r12
-  unsigned int v24; // [rsp+30h] [rbp-A8h]
-  int v25; // [rsp+34h] [rbp-A4h]
-  unsigned int v26; // [rsp+38h] [rbp-A0h]
-  unsigned int v27; // [rsp+3Ch] [rbp-9Ch]
-  __int64 v28; // [rsp+60h] [rbp-78h] BYREF
-  unsigned int v29; // [rsp+68h] [rbp-70h]
-  volatile void *Address; // [rsp+F8h] [rbp+20h]
+  __int64 v23; // rax
+  char *v24; // rcx
+  _DWORD *v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // rsi
+  int v30; // r12d
+  __int64 v31; // r15
+  __int64 v32; // rsi
+  _DWORD *v33; // rdx
+  char *v34; // rcx
+  _QWORD *v35; // rax
+  __int64 v36; // rdx
+  __int64 v37; // rcx
+  __int64 v38; // rax
+  __int64 v39; // rax
+  int v41; // [rsp+40h] [rbp-D8h]
+  __int64 v42; // [rsp+44h] [rbp-D4h]
+  signed int v43; // [rsp+4Ch] [rbp-CCh]
+  __int64 v44; // [rsp+78h] [rbp-A0h] BYREF
+  unsigned int v45; // [rsp+80h] [rbp-98h]
+  __int128 v46; // [rsp+98h] [rbp-80h] BYREF
+  __int64 v47; // [rsp+A8h] [rbp-70h]
+  __int128 v48; // [rsp+B0h] [rbp-68h] BYREF
+  __int64 v49; // [rsp+C0h] [rbp-58h]
 
-  QuotaZInit = 0LL;
+  v2 = 0LL;
+  v48 = 0LL;
+  v49 = 0LL;
   v3 = 0LL;
-  Address = 0LL;
-  v24 = 0;
-  v27 = 0;
-  v26 = 0;
-  v25 = 0;
-  DeviceInfoInternal = 0;
+  v46 = 0LL;
+  v47 = 0LL;
+  v43 = 0;
+  v42 = 0LL;
+  v41 = 0;
+  EnterSharedCrit(0LL, 1LL);
   if ( !gbVideoInitialized )
-  {
-    DeviceInfoInternal = -1073741823;
-    goto LABEL_54;
-  }
-  v5 = (unsigned int *)(a1 + 4);
+    goto LABEL_2;
+  W32GetThreadWin32Thread(KeGetCurrentThread());
+  v6 = (unsigned int *)(a1 + 4);
   if ( (unsigned __int64)(a1 + 4) >= MmUserProbeAddress )
-    v5 = (unsigned int *)MmUserProbeAddress;
-  v6 = *v5;
-  if ( (unsigned int)v6 < 0x14 )
+    v6 = (unsigned int *)MmUserProbeAddress;
+  v7 = *v6;
+  if ( (unsigned int)v7 < 0x14 )
     ExRaiseStatus(-1073741811);
-  QuotaZInit = (unsigned int *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                 (NSInstrumentation::CLeakTrackingAllocator *)MmUserProbeAddress,
-                                 (unsigned __int64)v5,
-                                 (unsigned int)v6,
-                                 0x63447355u);
-  if ( !QuotaZInit )
+  v8 = *v6;
+  v2 = (unsigned int *)Win32AllocPoolWithQuota(v7, 1665430357LL);
+  if ( !v2 )
   {
-    v7 = a1;
+    v24 = (char *)MmUserProbeAddress;
+    v25 = a1;
     if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-      v7 = (_DWORD *)MmUserProbeAddress;
-    if ( *v7 == -21 && (_DWORD)v6 == 2056 )
+      v25 = (_DWORD *)MmUserProbeAddress;
+    if ( *v25 == -21 && (_DWORD)v7 == 2056 )
     {
       if ( a1 + 2020 < a1 + 2016 || (unsigned __int64)(a1 + 2020) > MmUserProbeAddress )
         *(_BYTE *)MmUserProbeAddress = 0;
@@ -87,143 +103,284 @@ __int64 __fastcall NtUserDisplayConfigGetDeviceInfo(char *a1)
       if ( a1 + 2024 < a1 + 2020 || (unsigned __int64)(a1 + 2024) > MmUserProbeAddress )
         *(_BYTE *)MmUserProbeAddress = 0;
       *((_DWORD *)a1 + 505) = 0;
-      v8 = a1 + 2024;
-      if ( v8 + 1 < v8 || (unsigned __int64)(v8 + 1) > MmUserProbeAddress )
+      v9 = a1 + 2024;
+      v24 = a1 + 2028;
+      if ( a1 + 2028 < a1 + 2024 || (unsigned __int64)v24 > MmUserProbeAddress )
+      {
+        v24 = (char *)MmUserProbeAddress;
         *(_BYTE *)MmUserProbeAddress = 0;
-      *v8 = 1144084230;
+      }
+      *v9 = 1144084230;
     }
-    WdLogSingleEntry2(2LL, v6);
+    v26 = WdLogNewEntry5_WdError(v24, v9);
+    *(_QWORD *)(v26 + 24) = v7;
+    *(_QWORD *)(v26 + 32) = 1144084230LL;
+    WdLogEvent5_WdError(v26);
     ExRaiseStatus(-1073741801);
   }
-  if ( ((PsGetCurrentProcessWow64Process() == 0 ? 3 : 0) & (unsigned __int8)a1) != 0 )
+  if ( qword_1C0255FC0 )
+    qword_1C0255FC0(v2, &v48, Win32FreePool);
+  if ( ((PsGetCurrentProcessWow64Process(v10) == 0 ? 3 : 0) & (unsigned __int8)a1) != 0 )
     ExRaiseDatatypeMisalignment();
-  if ( (unsigned __int64)&a1[v6] > MmUserProbeAddress || &a1[v6] < a1 )
+  if ( (unsigned __int64)&a1[v7] > MmUserProbeAddress || &a1[v7] < a1 )
     *(_BYTE *)MmUserProbeAddress = 0;
-  memmove(QuotaZInit, a1, v6);
-  QuotaZInit[1] = v6;
-  v10 = (NSInstrumentation::CLeakTrackingAllocator *)*QuotaZInit;
-  if ( (_DWORD)v10 == -21 )
+  memmove(v2, a1, v7);
+  v2[1] = v7;
+  v12 = *v2;
+  v13 = *v2 + 24;
+  if ( v13 > 0x1E || (v4 = 1547905053LL, !_bittest((const int *)&v4, v13)) )
   {
-    if ( (_DWORD)v6 == 2056 )
+    if ( v12 == 100 )
     {
-      v27 = QuotaZInit[504];
-      v26 = QuotaZInit[505];
-      *((_QWORD *)QuotaZInit + 252) = 0LL;
-      v25 = 1;
-      goto LABEL_29;
+LABEL_69:
+      v14 = (_DWORD)v7 == 24;
+      goto LABEL_34;
     }
-LABEL_73:
-    DeviceInfoInternal = -1073741811;
-    goto LABEL_54;
-  }
-  if ( (_DWORD)v10 != -15 )
-    goto LABEL_29;
-  if ( (_DWORD)v6 != 32 )
-    goto LABEL_73;
-  v19 = QuotaZInit[5];
-  if ( v19 )
-  {
-    v3 = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v10, v9, v19, 0x63447355u);
-    if ( !v3 )
+    if ( gfSwitchInProgress )
     {
-      DeviceInfoInternal = -1073741801;
-      goto LABEL_54;
+LABEL_2:
+      DeviceInfoInternal = -1073741823;
+      goto LABEL_104;
     }
-    Address = (volatile void *)*((_QWORD *)QuotaZInit + 3);
-    *((_QWORD *)QuotaZInit + 3) = v3;
-  }
-LABEL_29:
-  v12 = DispConfigTypes::RequiresUserCritShared();
-  if ( v12 )
-    PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal(v11);
-  v13 = *QuotaZInit;
-  if ( (unsigned __int8)DispConfigTypes::AllowInAnySession(*QuotaZInit) )
-    goto LABEL_35;
-  if ( !HIDWORD(WPP_MAIN_CB.Dpc.DeferredRoutine) )
-  {
-    if ( !(unsigned int)UserIsWddmConnectedSession(v14) )
+    if ( !(unsigned int)UserIsWddmConnectedSession(v4, v11) )
+    {
       DeviceInfoInternal = -1073741790;
-LABEL_35:
-    if ( DeviceInfoInternal >= 0 )
-    {
-      GetterTypeSize = DispConfigTypes::GetGetterTypeSize(v13);
-      if ( !GetterTypeSize || QuotaZInit[1] != GetterTypeSize )
-        DeviceInfoInternal = -1073741811;
-      if ( DeviceInfoInternal >= 0 )
-        DeviceInfoInternal = DrvDisplayConfigGetDeviceInfoInternal(
-                               (struct DISPLAYCONFIG_DEVICE_INFO_HEADER *)QuotaZInit,
-                               1);
+      goto LABEL_104;
     }
-    goto LABEL_40;
   }
-  DeviceInfoInternal = -1073741823;
-LABEL_40:
-  if ( v12 )
-    UserSessionSwitchLeaveCrit();
-  if ( DeviceInfoInternal < 0 && v25 )
-    v24 = QuotaZInit[506];
+  if ( v12 > 100 )
+    goto LABEL_35;
+  if ( v12 == 100 )
+    goto LABEL_69;
+  if ( v12 > -7 )
+  {
+    if ( v12 > 3 )
+    {
+      v17 = v12 - 4;
+      if ( v17 )
+      {
+        v18 = v17 - 2;
+        if ( v18 )
+        {
+          v19 = v18 - 1;
+          if ( v19 )
+          {
+            v20 = v19 - 2;
+            if ( !v20 )
+              goto LABEL_45;
+            if ( v20 != 2 )
+              goto LABEL_35;
+          }
+        }
+        goto LABEL_69;
+      }
+      v14 = (_DWORD)v7 == 276;
+    }
+    else
+    {
+      switch ( v12 )
+      {
+        case 3:
+          v14 = (_DWORD)v7 == 80;
+          break;
+        case -5:
+          goto LABEL_44;
+        case -3:
+LABEL_45:
+          v14 = (_DWORD)v7 == 32;
+          break;
+        case -2:
+          goto LABEL_62;
+        case 1:
+          v14 = (_DWORD)v7 == 84;
+          break;
+        case 2:
+          v14 = (_DWORD)v7 == 420;
+          break;
+        default:
+          goto LABEL_35;
+      }
+    }
+LABEL_34:
+    if ( !v14 )
+      goto LABEL_35;
+    goto LABEL_71;
+  }
+  if ( v12 == -7 )
+  {
+    v14 = (_DWORD)v7 == 940;
+    goto LABEL_34;
+  }
+  if ( v12 > -13 )
+  {
+    if ( v12 != -12 )
+    {
+      if ( v12 == -11 )
+        goto LABEL_62;
+      if ( v12 == -10 )
+      {
+LABEL_44:
+        v14 = (_DWORD)v7 == 28;
+        goto LABEL_34;
+      }
+      if ( v12 != -9 )
+      {
+        v14 = (_DWORD)v7 == 536;
+        goto LABEL_34;
+      }
+    }
+    goto LABEL_69;
+  }
+  switch ( v12 )
+  {
+    case -13:
+      v14 = (_DWORD)v7 == 36;
+      goto LABEL_34;
+    case -24:
+      goto LABEL_45;
+    case -22:
+      goto LABEL_44;
+    case -21:
+LABEL_62:
+      v14 = (_DWORD)v7 == 2056;
+      goto LABEL_34;
+    case -20:
+      v14 = (_DWORD)v7 == 56;
+      goto LABEL_34;
+  }
+  if ( v12 != -15 )
+  {
+    if ( v12 == -14 )
+    {
+      v14 = (_DWORD)v7 == 40;
+      goto LABEL_34;
+    }
+LABEL_35:
+    DeviceInfoInternal = -1073741811;
+    goto LABEL_104;
+  }
+  if ( (_DWORD)v7 != 32 )
+    goto LABEL_35;
+  v15 = v2[5];
+  if ( !v15 )
+  {
+LABEL_71:
+    v16 = 0LL;
+    goto LABEL_72;
+  }
+  v3 = (const void *)Win32AllocPoolWithQuota(v15, 1665430357LL);
+  if ( !v3 )
+  {
+    DeviceInfoInternal = -1073741801;
+LABEL_104:
+    if ( v41 )
+    {
+      v44 = 0LL;
+      v45 = 0;
+      DrvSampleDisplayState(&v44);
+      v29 = (unsigned int)v44;
+      if ( v42 == __PAIR64__(v45, v44) )
+      {
+        v30 = 1;
+        v31 = DeviceInfoInternal;
+        v32 = v43;
+      }
+      else
+      {
+        v30 = 0;
+        v33 = a1 + 2024;
+        v34 = a1 + 2028;
+        if ( a1 + 2028 < a1 + 2024 || (unsigned __int64)v34 > MmUserProbeAddress )
+        {
+          v34 = (char *)MmUserProbeAddress;
+          *(_BYTE *)MmUserProbeAddress = 0;
+        }
+        *v33 = 0;
+        v35 = (_QWORD *)WdLogNewEntry5_WdError(v34, v33);
+        v35[3] = (unsigned int)v42;
+        v35[4] = HIDWORD(v42);
+        v35[5] = v29;
+        v35[6] = v45;
+        v32 = v43;
+        v35[7] = v43;
+        WdLogEvent5_WdError(v35);
+        v38 = WdLogNewEntry5_WdError(v37, v36);
+        v31 = DeviceInfoInternal;
+        *(_QWORD *)(v38 + 24) = DeviceInfoInternal;
+        *(_QWORD *)(v38 + 32) = v43;
+        WdLogEvent5_WdError(v38);
+      }
+      if ( dword_1C02584B8 || !v30 )
+      {
+        v39 = WdLogNewEntry5_WdError(v28, v27);
+        *(_QWORD *)(v39 + 24) = v31;
+        *(_QWORD *)(v39 + 32) = v32;
+        WdLogEvent5_WdError(v39);
+      }
+      else
+      {
+        dword_1C02584B8 = 1;
+        ((void (__fastcall *)(__int64, __int64, __int64, __int64, _QWORD, _BYTE))qword_1C0250B80)(
+          403LL,
+          2061LL,
+          v31,
+          v32,
+          0LL,
+          0);
+      }
+    }
+    goto LABEL_115;
+  }
+  if ( qword_1C0255FC0 )
+    qword_1C0255FC0(v3, &v46, Win32FreePool);
+  v16 = (volatile void *)*((_QWORD *)v2 + 3);
+  *((_QWORD *)v2 + 3) = v3;
+LABEL_72:
+  if ( *v2 == -21 )
+  {
+    v42 = *((_QWORD *)v2 + 252);
+    *((_QWORD *)v2 + 252) = 0LL;
+    v41 = 1;
+  }
+  DeviceInfoInternal = DrvDisplayConfigGetDeviceInfoInternal((struct DISPLAYCONFIG_DEVICE_INFO_HEADER *)v2, 1);
+  if ( DeviceInfoInternal < 0 && v41 )
+  {
+    v21 = v2[506];
+    v43 = v2[506];
+  }
+  if ( *v2 == 3 )
+    v2[7] = 0;
   if ( DeviceInfoInternal == -2147483643 )
   {
     DeviceInfoInternal = -1073741789;
   }
   else if ( DeviceInfoInternal != -1073741789 )
   {
-    DeviceInfoInternal = DeviceInfoTranslateStatusDefault(*QuotaZInit, (unsigned int)DeviceInfoInternal);
+    DeviceInfoInternal = DeviceInfoTranslateStatusDefault(*v2, (unsigned int)DeviceInfoInternal);
   }
-  if ( *QuotaZInit == -15 )
+  if ( *v2 == -15 )
   {
-    *((_QWORD *)QuotaZInit + 3) = Address;
+    *((_QWORD *)v2 + 3) = v16;
     if ( DeviceInfoInternal >= 0 )
     {
-      if ( QuotaZInit[5] )
+      if ( v2[5] )
       {
-        CurrentProcessWow64Process = PsGetCurrentProcessWow64Process();
-        ProbeForWrite(Address, QuotaZInit[5], CurrentProcessWow64Process != 0 ? 1 : 4);
-        memmove((void *)Address, v3, QuotaZInit[5]);
+        CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v21);
+        ProbeForWrite(v16, v2[5], CurrentProcessWow64Process != 0 ? 1 : 4);
+        memmove((void *)v16, v3, v2[5]);
       }
     }
   }
-  if ( *QuotaZInit == 3 && DeviceInfoInternal >= 0 )
-    QuotaZInit[7] = 0;
-  v17 = PsGetCurrentProcessWow64Process();
-  ProbeForWrite(a1, QuotaZInit[1], v17 != 0 ? 1 : 4);
-  memmove(a1, QuotaZInit, QuotaZInit[1]);
-LABEL_54:
-  if ( DeviceInfoInternal < 0 && v25 )
-  {
-    v28 = 0LL;
-    v29 = 0;
-    DrvSampleDisplayState(&v28);
-    v20 = (unsigned int)v28;
-    if ( v27 != (_DWORD)v28 || (v21 = 1, v26 != v29) )
-      v21 = 0;
-    if ( v21 )
-    {
-      v23 = DeviceInfoInternal;
-    }
-    else
-    {
-      v22 = a1 + 2024;
-      if ( v22 + 1 < v22 || (unsigned __int64)(v22 + 1) > MmUserProbeAddress )
-        *(_BYTE *)MmUserProbeAddress = 0;
-      *v22 = 0;
-      WdLogSingleEntry5(2LL, v27, v26, v20, v29, (int)v24);
-      v23 = DeviceInfoInternal;
-      WdLogSingleEntry2(2LL, DeviceInfoInternal);
-    }
-    if ( dword_1C0297530 || !v21 )
-    {
-      WdLogSingleEntry2(2LL, v23);
-    }
-    else
-    {
-      dword_1C0297530 = 1;
-      HelperCreateLiveDumpWithWdLogs((unsigned int)DeviceInfoInternal, v24);
-    }
-  }
+  v23 = PsGetCurrentProcessWow64Process(v21);
+  ProbeForWrite(a1, v8, v23 != 0 ? 1 : 4);
+  memmove(a1, v2, v8);
+  if ( DeviceInfoInternal < 0 )
+    goto LABEL_104;
+LABEL_115:
   if ( v3 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v3);
-  if ( QuotaZInit )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, QuotaZInit);
+    PopAndFreeAlwaysW32ThreadLock(&v46);
+  if ( v2 )
+    PopAndFreeAlwaysW32ThreadLock(&v48);
+  UserSessionSwitchLeaveCrit(v4);
   return (unsigned int)DeviceInfoInternal;
 }

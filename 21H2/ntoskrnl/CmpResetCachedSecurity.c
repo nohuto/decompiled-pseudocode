@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpResetCachedSecurity @ 0x1406579F8
+ * XREFs of CmpResetCachedSecurity @ 0x1405CD224
  * Callers:
- *     CmpValidateHiveSecurityDescriptors @ 0x140715FA8 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x14066D478 (CmpValidateHiveSecurityDescriptors.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndex @ 0x140346D80 (CmpFindSecurityCellCacheIndex.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x140206EB0 (CmpFindSecurityCellCacheIndex.c)
  */
 
 __int64 __fastcall CmpResetCachedSecurity(__int64 a1, int a2)
@@ -13,6 +13,6 @@ __int64 __fastcall CmpResetCachedSecurity(__int64 a1, int a2)
   v4 = 0;
   if ( !CmpFindSecurityCellCacheIndex(a1, a2, &v4) )
     return 3221226021LL;
-  *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 1888) + 16LL * v4 + 8) + 28LL) = 0;
+  *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 1880) + 16LL * v4 + 8) + 28LL) = 0;
   return 0LL;
 }

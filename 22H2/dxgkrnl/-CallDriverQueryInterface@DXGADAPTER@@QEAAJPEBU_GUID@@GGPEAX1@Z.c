@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CallDriverQueryInterface@DXGADAPTER@@QEAAJPEBU_GUID@@GGPEAX1@Z @ 0x1C01FEE08
+ * XREFs of ?CallDriverQueryInterface@DXGADAPTER@@QEAAJPEBU_GUID@@GGPEAX1@Z @ 0x1C0192D9C
  * Callers:
- *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01FC874 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C018F684 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 NTSTATUS __fastcall DXGADAPTER::CallDriverQueryInterface(
@@ -14,27 +14,22 @@ NTSTATUS __fastcall DXGADAPTER::CallDriverQueryInterface(
         void *a5)
 {
   PIRP v6; // rax
+  __int64 v7; // rcx
+  __int64 v8; // r8
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
-  struct _DEVICE_OBJECT *v8; // rcx
+  struct _DEVICE_OBJECT *v10; // rcx
   NTSTATUS result; // eax
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-38h] BYREF
-  struct _KEVENT Event; // [rsp+60h] [rbp-28h] BYREF
+  __int64 v12; // rax
+  __int64 v13; // rax
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-38h] BYREF
+  struct _KEVENT Event; // [rsp+50h] [rbp-28h] BYREF
 
   if ( KeGetCurrentIrql() )
   {
-    WdLogSingleEntry1(1LL, 9596LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"KeGetCurrentIrql() == PASSIVE_LEVEL",
-      9596LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v12 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v12 + 24) = 9115LL;
+    WdLogEvent5_WdAssertion(v12);
   }
-  memset(&Event, 0, sizeof(Event));
   IoStatusBlock = 0LL;
   KeInitializeEvent(&Event, SynchronizationEvent, 0);
   v6 = IoBuildSynchronousFsdRequest(0x1Bu, this[27], 0LL, 0, 0LL, &Event, &IoStatusBlock);
@@ -47,9 +42,9 @@ NTSTATUS __fastcall DXGADAPTER::CallDriverQueryInterface(
     *(_WORD *)&CurrentStackLocation[-1].MajorFunction = 2075;
     CurrentStackLocation[-1].Parameters.Create.Options = 327864;
     v6->IoStatus.Status = -1073741637;
-    v8 = this[27];
+    v10 = this[27];
     IoStatusBlock.Status = -1073741637;
-    result = IofCallDriver(v8, v6);
+    result = IofCallDriver(v10, v6);
     if ( result == 259 )
     {
       KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
@@ -58,7 +53,10 @@ NTSTATUS __fastcall DXGADAPTER::CallDriverQueryInterface(
   }
   else
   {
-    WdLogSingleEntry2(3LL, this, -1073741801LL);
+    v13 = WdLogNewEntry5_WdWarning(v7, 0LL, v8);
+    *(_QWORD *)(v13 + 24) = this;
+    *(_QWORD *)(v13 + 32) = -1073741801LL;
+    WdLogEvent5_WdWarning(v13);
     return -1073741801;
   }
   return result;

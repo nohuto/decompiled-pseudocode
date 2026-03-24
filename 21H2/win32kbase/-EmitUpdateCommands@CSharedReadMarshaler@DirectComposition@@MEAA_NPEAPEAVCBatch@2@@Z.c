@@ -1,5 +1,5 @@
 /*
- * XREFs of ?EmitUpdateCommands@CSharedReadMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00CAB10
+ * XREFs of ?EmitUpdateCommands@CSharedReadMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00B8D10
  * Callers:
  *     <none>
  * Callees:

@@ -1,14 +1,14 @@
 /*
- * XREFs of Usbh_PCE_BusReset_Action @ 0x1C001B420
+ * XREFs of Usbh_PCE_BusReset_Action @ 0x1C0001120
  * Callers:
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhLogSignalResumeEvent @ 0x1C001B190 (UsbhLogSignalResumeEvent.c)
- *     UsbhFlushPortChangeQueue @ 0x1C001D610 (UsbhFlushPortChangeQueue.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     UsbhSetPcqEventStatus @ 0x1C00348C0 (UsbhSetPcqEventStatus.c)
- *     UsbhUnlockPcqWithTag @ 0x1C0034A70 (UsbhUnlockPcqWithTag.c)
+ *     UsbhLogSignalResumeEvent @ 0x1C0001648 (UsbhLogSignalResumeEvent.c)
+ *     UsbhFlushPortChangeQueue @ 0x1C0002580 (UsbhFlushPortChangeQueue.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhSetPcqEventStatus @ 0x1C0035C24 (UsbhSetPcqEventStatus.c)
+ *     UsbhUnlockPcqWithTag @ 0x1C0035D2C (UsbhUnlockPcqWithTag.c)
  */
 
 void __fastcall Usbh_PCE_BusReset_Action(__int64 a1, __int64 a2)
@@ -17,7 +17,7 @@ void __fastcall Usbh_PCE_BusReset_Action(__int64 a1, __int64 a2)
   KIRQL v5; // al
   __int64 v6; // r8
   unsigned __int16 v7; // r9
-  KIRQL v8; // r12
+  KIRQL v8; // r13
   __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // r8
@@ -33,30 +33,31 @@ void __fastcall Usbh_PCE_BusReset_Action(__int64 a1, __int64 a2)
   __int64 v21; // rdx
   __int64 v22; // rcx
   __int64 v23; // rax
-  KSPIN_LOCK *v24; // rbp
-  KIRQL v25; // al
-  __int64 v26; // r9
-  KIRQL v27; // r14
-  int v28; // edx
-  __int64 v29; // r10
-  __int64 v30; // r8
-  __int64 v31; // rcx
-  __int64 v32; // rax
-  __int64 v33; // r8
-  int v34; // ecx
-  __int64 v35; // r9
-  __int64 v36; // rdx
-  __int64 v37; // rcx
-  __int64 v38; // rax
+  int v24; // r14d
+  KSPIN_LOCK *v25; // rbp
+  KIRQL v26; // al
+  __int64 v27; // r9
+  KIRQL v28; // r15
+  int v29; // edx
+  __int64 v30; // r10
+  __int64 v31; // r8
+  __int64 v32; // rcx
+  __int64 v33; // rax
+  __int64 v34; // r8
+  int v35; // ecx
+  __int64 v36; // r9
+  __int64 v37; // rdx
+  __int64 v38; // rcx
   __int64 v39; // rax
-  int v40; // eax
-  __int64 v41; // rdx
-  __int64 v42; // rax
-  int v43; // r10d
-  int v44; // r8d
-  __int64 v45; // rax
-  int v46; // r10d
-  __int64 v47; // rax
+  __int64 v40; // rax
+  int v41; // eax
+  __int64 v42; // rdx
+  __int64 v43; // rax
+  int v44; // r10d
+  int v45; // r8d
+  __int64 v46; // rax
+  int v47; // r10d
+  __int64 v48; // rax
 
   if ( !a1 )
     UsbhTrapFatal_Dbg(0LL, 0LL);
@@ -142,124 +143,119 @@ void __fastcall Usbh_PCE_BusReset_Action(__int64 a1, __int64 a2)
       }
     }
     v23 = *(_QWORD *)(a1 + 64);
+    v24 = 0;
     if ( v23 )
     {
       if ( *(_DWORD *)v23 != 541218120 )
         UsbhTrapFatal_Dbg(a1, *(_QWORD *)(a1 + 64));
-      v24 = (KSPIN_LOCK *)(v23 + 4944);
-      v25 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v23 + 4944));
-      v26 = *(int *)(a2 + 696);
-      v27 = v25;
-      v28 = *(_DWORD *)(a2 + 696);
-      v29 = *(unsigned __int16 *)(a2 + 4);
+      v25 = (KSPIN_LOCK *)(v23 + 4944);
+      v26 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v23 + 4944));
+      v27 = *(int *)(a2 + 696);
+      v28 = v26;
+      v29 = *(_DWORD *)(a2 + 696);
+      v30 = *(unsigned __int16 *)(a2 + 4);
       if ( (UsbhLogMask & 0x10) != 0 )
       {
-        v30 = *(_QWORD *)(a1 + 64);
-        if ( v30 )
+        v31 = *(_QWORD *)(a1 + 64);
+        if ( v31 )
         {
-          v31 = *(_QWORD *)(v30 + 888)
+          v32 = *(_QWORD *)(v31 + 888)
               + 32LL
-              * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v30 + 880)) & *(_DWORD *)(v30 + 884));
-          *(_DWORD *)v31 = 1397909875;
-          *(_QWORD *)(v31 + 8) = 0LL;
-          *(_QWORD *)(v31 + 16) = v26;
-          *(_QWORD *)(v31 + 24) = v29;
-          v28 = *(_DWORD *)(a2 + 696);
+              * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v31 + 880)) & *(_DWORD *)(v31 + 884));
+          *(_DWORD *)v32 = 1397909875;
+          *(_QWORD *)(v32 + 8) = 0LL;
+          *(_QWORD *)(v32 + 16) = v27;
+          *(_QWORD *)(v32 + 24) = v30;
+          v29 = *(_DWORD *)(a2 + 696);
         }
       }
-      if ( v28 == 3 )
+      if ( v29 == 3 )
       {
-        Log(a1, 16, 1936282232, 3LL, *(unsigned __int16 *)(a2 + 4));
+        Log(a1, 16, 1936282232, 3, *(unsigned __int16 *)(a2 + 4));
         *(_DWORD *)(a2 + 696) = 0;
         KeSetEvent((PRKEVENT)(a2 + 712), 0, 0);
-        KeReleaseSpinLock(v24, v27);
+        v24 = 1;
+      }
+      KeReleaseSpinLock(v25, v28);
+      if ( v24 )
         UsbhSetPcqEventStatus(a1, a2, 1LL);
-      }
-      else
-      {
-        KeReleaseSpinLock(v24, v25);
-      }
-      v32 = 32LL * *(unsigned int *)(a2 + 2400);
+      v33 = 32LL * *(unsigned int *)(a2 + 2400);
       *(_DWORD *)(a2 + 12) = 1;
       *(_DWORD *)(a2 + 400) = 0;
-      *(_DWORD *)(v32 + a2 + 1384) = 1;
-      v33 = *(int *)(a2 + 12);
-      v34 = *(_DWORD *)(a2 + 12);
-      v35 = *(unsigned __int16 *)(a2 + 4);
+      *(_DWORD *)(v33 + a2 + 1384) = 1;
+      v34 = *(int *)(a2 + 12);
+      v35 = *(_DWORD *)(a2 + 12);
+      v36 = *(unsigned __int16 *)(a2 + 4);
       if ( (UsbhLogMask & 0x10) != 0 )
       {
-        v36 = *(_QWORD *)(a1 + 64);
-        if ( v36 )
+        v37 = *(_QWORD *)(a1 + 64);
+        if ( v37 )
         {
-          v37 = *(_QWORD *)(v36 + 888)
+          v38 = *(_QWORD *)(v37 + 888)
               + 32LL
-              * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v36 + 880)) & *(_DWORD *)(v36 + 884));
-          *(_DWORD *)v37 = 757952880;
-          *(_QWORD *)(v37 + 8) = 0LL;
-          *(_QWORD *)(v37 + 16) = v33;
-          *(_QWORD *)(v37 + 24) = v35;
-          v34 = *(_DWORD *)(a2 + 12);
+              * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v37 + 880)) & *(_DWORD *)(v37 + 884));
+          *(_DWORD *)v38 = 757952880;
+          *(_QWORD *)(v38 + 8) = 0LL;
+          *(_QWORD *)(v38 + 16) = v34;
+          *(_QWORD *)(v38 + 24) = v36;
+          v35 = *(_DWORD *)(a2 + 12);
         }
       }
-      v38 = 32LL * *(unsigned int *)(a2 + 2400);
+      v39 = 32LL * *(unsigned int *)(a2 + 2400);
       *(_DWORD *)(a2 + 448) = 0;
-      *(_DWORD *)(v38 + a2 + 1384) = v34;
-LABEL_28:
+      *(_DWORD *)(v39 + a2 + 1384) = v35;
+LABEL_30:
       KeReleaseSpinLock((PKSPIN_LOCK)(a2 + 440), v8);
       return;
     }
 LABEL_44:
     UsbhTrapFatal_Dbg(a1, 0LL);
   }
-  if ( (_DWORD)v16 == 11 )
-  {
-LABEL_30:
-    Log(a1, 512, 809070641, v16, *(unsigned __int16 *)(a2 + 4));
-    if ( (unsigned int)UsbhLogSignalResumeEvent(a1, a2) )
-      UsbhSetPcqEventStatus(a1, a2, 1LL);
-    v39 = 32LL * *(unsigned int *)(a2 + 2400);
-    *(_DWORD *)(a2 + 12) = 1;
-    *(_DWORD *)(a2 + 400) = 0;
-    *(_DWORD *)(v39 + a2 + 1384) = 1;
-    Log(a1, 16, 1886465325, *(int *)(a2 + 12), *(unsigned __int16 *)(a2 + 4));
-    v40 = *(_DWORD *)(a2 + 12);
-    v41 = 32LL * *(unsigned int *)(a2 + 2400);
-    *(_DWORD *)(a2 + 448) = 0;
-    *(_DWORD *)(v41 + a2 + 1384) = v40;
-    goto LABEL_28;
-  }
   switch ( (int)v16 )
   {
     case 1:
       Log(a1, 512, 809070642, v16, *(unsigned __int16 *)(a2 + 4));
-      v42 = 32LL * *(unsigned int *)(a2 + 2400);
-      *(_DWORD *)(a2 + 12) = v43;
-      *(_DWORD *)(v42 + a2 + 1384) = v43;
+      v43 = 32LL * *(unsigned int *)(a2 + 2400);
+      *(_DWORD *)(a2 + 12) = v44;
+      *(_DWORD *)(v43 + a2 + 1384) = v44;
       UsbhFlushPortChangeQueue(a1, a2);
       break;
     case 2:
     case 3:
     case 4:
     case 14:
-      v44 = 809070644;
-      goto LABEL_39;
+      v45 = 809070644;
+      goto LABEL_40;
     case 7:
+    case 11:
+      Log(a1, 512, 809070641, v16, *(unsigned __int16 *)(a2 + 4));
+      if ( (unsigned int)UsbhLogSignalResumeEvent(a1, a2) )
+        UsbhSetPcqEventStatus(a1, a2, 1LL);
+      v40 = 32LL * *(unsigned int *)(a2 + 2400);
+      *(_DWORD *)(a2 + 12) = 1;
+      *(_DWORD *)(a2 + 400) = 0;
+      *(_DWORD *)(v40 + a2 + 1384) = 1;
+      Log(a1, 16, 1886465325, *(_DWORD *)(a2 + 12), *(unsigned __int16 *)(a2 + 4));
+      v41 = *(_DWORD *)(a2 + 12);
+      v42 = 32LL * *(unsigned int *)(a2 + 2400);
+      *(_DWORD *)(a2 + 448) = 0;
+      *(_DWORD *)(v42 + a2 + 1384) = v41;
       goto LABEL_30;
     case 15:
     case 16:
     case 17:
-      v44 = 809070645;
-LABEL_39:
-      Log(a1, 512, v44, v16, *(unsigned __int16 *)(a2 + 4));
-      v45 = 32LL * *(unsigned int *)(a2 + 2400);
-      *(_DWORD *)(a2 + 12) = v46;
-      *(_DWORD *)(v45 + a2 + 1384) = v46;
+      v45 = 809070645;
+LABEL_40:
+      Log(a1, 512, v45, v16, *(unsigned __int16 *)(a2 + 4));
+      v46 = 32LL * *(unsigned int *)(a2 + 2400);
+      *(_DWORD *)(a2 + 12) = v47;
+      *(_DWORD *)(v46 + a2 + 1384) = v47;
       break;
     default:
       Log(a1, 512, 809070680, v16, *(unsigned __int16 *)(a2 + 4));
-      v47 = 32LL * *(unsigned int *)(a2 + 2400);
+      v48 = 32LL * *(unsigned int *)(a2 + 2400);
       *(_DWORD *)(a2 + 12) = 19;
-      *(_DWORD *)(v47 + a2 + 1384) = 19;
+      *(_DWORD *)(v48 + a2 + 1384) = 19;
       break;
   }
   UsbhUnlockPcqWithTag(a1, a2, v8, 0LL);

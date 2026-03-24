@@ -1,65 +1,57 @@
 /*
- * XREFs of ?CheckBackdropInputs@CBrushRenderingGraphBuilder@@IEAAXXZ @ 0x18003719C
+ * XREFs of ?CheckBackdropInputs@CBrushRenderingGraphBuilder@@IEAAXXZ @ 0x18004B318
  * Callers:
- *     ?Build@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@@Z @ 0x180035C34 (-Build@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@@Z.c)
- *     ?Build@CProjectedShadowApproxBlurGraphBuilder@@AEAAJPEAVCBrush@@0PEAPEAUIEffectInstance@Composition@UI@Windows@@@Z @ 0x18025A000 (-Build@CProjectedShadowApproxBlurGraphBuilder@@AEAAJPEAVCBrush@@0PEAPEAUIEffectInstance@Composit.c)
+ *     ?Build@CProjectedShadowApproxBlurGraphBuilder@@AEAAJPEAVCBrush@@0PEAPEAUIEffectInstance@Composition@UI@Windows@@@Z @ 0x18001D1A8 (-Build@CProjectedShadowApproxBlurGraphBuilder@@AEAAJPEAVCBrush@@0PEAPEAUIEffectInstance@Composit.c)
+ *     ?Build@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@@Z @ 0x180049940 (-Build@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@@Z.c)
  * Callees:
- *     ?GetBackdropBrushNoRef@CRenderingTechnique@@QEBAPEBVCBackdropBrush@@XZ @ 0x180037794 (-GetBackdropBrushNoRef@CRenderingTechnique@@QEBAPEBVCBackdropBrush@@XZ.c)
- *     ?HasWindowBackdropInput@CRenderingTechnique@@QEBA_NXZ @ 0x1800378D8 (-HasWindowBackdropInput@CRenderingTechnique@@QEBA_NXZ.c)
- *     ?HasBlurredWallpaperBackdropInput@CRenderingTechnique@@QEBA_NXZ @ 0x18003798C (-HasBlurredWallpaperBackdropInput@CRenderingTechnique@@QEBA_NXZ.c)
- *     ?IsIntermediateUsedInBlur@CBrushRenderingGraphBuilder@@AEBA_NI@Z @ 0x1800EF180 (-IsIntermediateUsedInBlur@CBrushRenderingGraphBuilder@@AEBA_NI@Z.c)
+ *     ?HasBackdropInput@CRenderingTechnique@@QEBA_NXZ @ 0x18004DBB8 (-HasBackdropInput@CRenderingTechnique@@QEBA_NXZ.c)
+ *     ?HasWindowBackdropInput@CRenderingTechnique@@QEBA_NXZ @ 0x18004E038 (-HasWindowBackdropInput@CRenderingTechnique@@QEBA_NXZ.c)
+ *     ?IsIntermediateUsedInBlur@CBrushRenderingGraphBuilder@@AEBA_NI@Z @ 0x1800D8A74 (-IsIntermediateUsedInBlur@CBrushRenderingGraphBuilder@@AEBA_NI@Z.c)
  */
 
 void __fastcall CBrushRenderingGraphBuilder::CheckBackdropInputs(CBrushRenderingGraphBuilder *this)
 {
-  bool IsIntermediateUsedInBlur; // r14
-  bool v3; // cl
-  bool HasWindowBackdropInput; // bp
-  const struct CBackdropBrush *v5; // rdi
-  unsigned int v6; // esi
-  __int64 v7; // r15
-  __int64 v8; // r13
-  CRenderingTechnique *v9; // r12
-  bool HasBlurredWallpaperBackdropInput; // [rsp+60h] [rbp+8h]
-  unsigned int v11; // [rsp+68h] [rbp+10h]
-  const struct CBackdropBrush *BackdropBrushNoRef; // [rsp+70h] [rbp+18h]
+  bool IsIntermediateUsedInBlur; // bp
+  char v3; // cl
+  bool HasWindowBackdropInput; // di
+  unsigned int v5; // esi
+  __int64 v6; // r14
+  unsigned int v7; // r13d
+  __int64 v8; // r15
+  __int64 v9; // rax
+  CRenderingTechnique *v10; // r12
+  char v11; // [rsp+50h] [rbp+8h]
 
   IsIntermediateUsedInBlur = 0;
   v3 = 0;
   HasWindowBackdropInput = 0;
-  v5 = 0LL;
-  HasBlurredWallpaperBackdropInput = 0;
-  v6 = 0;
-  v7 = *(_QWORD *)this;
-  v11 = *(_DWORD *)(*(_QWORD *)this + 168LL);
-  if ( v11 )
+  v5 = 0;
+  v11 = 0;
+  v6 = *(_QWORD *)this;
+  v7 = *(_DWORD *)(*(_QWORD *)this + 168LL);
+  if ( v7 )
   {
     v8 = 0LL;
     do
     {
-      v9 = *(CRenderingTechnique **)(*(_QWORD *)(v7 + 144) + v8);
-      BackdropBrushNoRef = CRenderingTechnique::GetBackdropBrushNoRef(v9);
-      if ( !HasBlurredWallpaperBackdropInput )
-        HasBlurredWallpaperBackdropInput = CRenderingTechnique::HasBlurredWallpaperBackdropInput(v9);
+      v9 = *(_QWORD *)(v6 + 144);
+      v10 = *(CRenderingTechnique **)(v8 + v9);
       if ( !HasWindowBackdropInput )
-        HasWindowBackdropInput = CRenderingTechnique::HasWindowBackdropInput(v9);
-      if ( !v5 && BackdropBrushNoRef )
-        v5 = BackdropBrushNoRef;
-      if ( (IsIntermediateUsedInBlur
-         || BackdropBrushNoRef
-         && (IsIntermediateUsedInBlur = CBrushRenderingGraphBuilder::IsIntermediateUsedInBlur(this, v6)))
-        && HasWindowBackdropInput )
+        HasWindowBackdropInput = CRenderingTechnique::HasWindowBackdropInput(*(CRenderingTechnique **)(v8 + v9));
+      if ( IsIntermediateUsedInBlur
+        || CRenderingTechnique::HasBackdropInput(v10)
+        && (v11 = 1, IsIntermediateUsedInBlur = CBrushRenderingGraphBuilder::IsIntermediateUsedInBlur(this, v5)) )
       {
-        break;
+        if ( HasWindowBackdropInput )
+          break;
       }
-      ++v6;
+      ++v5;
       v8 += 8LL;
     }
-    while ( v6 < v11 );
-    v3 = HasBlurredWallpaperBackdropInput;
+    while ( v5 < v7 );
+    v3 = v11;
   }
-  *(_BYTE *)(*(_QWORD *)this + 196LL) = IsIntermediateUsedInBlur;
-  *(_BYTE *)(*(_QWORD *)this + 197LL) = v3;
+  *(_BYTE *)(*(_QWORD *)this + 196LL) = v3;
+  *(_BYTE *)(*(_QWORD *)this + 197LL) = IsIntermediateUsedInBlur;
   *(_BYTE *)(*(_QWORD *)this + 198LL) = HasWindowBackdropInput;
-  *(_QWORD *)(*(_QWORD *)this + 208LL) = v5;
 }

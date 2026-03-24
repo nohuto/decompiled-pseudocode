@@ -1,39 +1,39 @@
 /*
- * XREFs of ?GetThreadPointerData@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01C5A6C
+ * XREFs of ?GetThreadPointerData@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01F0A48
  * Callers:
- *     xxxDiscardPointerFrameMessagesInternal @ 0x1C01C4DC0 (xxxDiscardPointerFrameMessagesInternal.c)
- *     xxxPointerCallHook @ 0x1C01C4E30 (xxxPointerCallHook.c)
- *     xxxPromotePointerToMouse @ 0x1C01C4FF8 (xxxPromotePointerToMouse.c)
- *     xxxSendPointerMessage @ 0x1C01C56C8 (xxxSendPointerMessage.c)
- *     xxxMenuWindowProc @ 0x1C021A810 (xxxMenuWindowProc.c)
- *     ?GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z @ 0x1C0227D10 (-GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z.c)
+ *     xxxDiscardPointerFrameMessagesInternal @ 0x1C01EFE5C (xxxDiscardPointerFrameMessagesInternal.c)
+ *     xxxPointerCallHook @ 0x1C01EFECC (xxxPointerCallHook.c)
+ *     xxxPromotePointerToMouse @ 0x1C01F00A4 (xxxPromotePointerToMouse.c)
+ *     xxxSendPointerMessage @ 0x1C01F069C (xxxSendPointerMessage.c)
+ *     xxxMenuWindowProc @ 0x1C023B5E0 (xxxMenuWindowProc.c)
+ *     ?GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z @ 0x1C0243254 (-GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z.c)
  * Callees:
- *     ?FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z @ 0x1C01532CC (-FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z.c)
+ *     ?FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z @ 0x1C01F09D4 (-FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z.c)
  */
 
 struct _LIST_ENTRY *__fastcall GetThreadPointerData(struct _LIST_ENTRY *a1, __int16 a2, unsigned int *a3, int *a4)
 {
-  struct _LIST_ENTRY *Blink; // r10
+  struct _LIST_ENTRY *Blink; // rax
   unsigned int *v5; // r11
+  struct _LIST_ENTRY *ThreadPointerData; // r10
 
   Blink = a1[1].Blink;
   v5 = a3;
   if ( Blink )
   {
-    if ( LOWORD(Blink[1].Flink) != a2 )
-      return 0LL;
+    ThreadPointerData = 0LL;
+    if ( LOWORD(Blink[1].Flink) == a2 )
+      ThreadPointerData = a1[1].Blink;
   }
   else
   {
-    Blink = FindThreadPointerData(a1, a2);
-    if ( !Blink )
-      return 0LL;
+    ThreadPointerData = FindThreadPointerData(a1, a2);
   }
-  if ( ((__int64)Blink[3].Flink & 8) != 0 )
+  if ( !ThreadPointerData || ((__int64)ThreadPointerData[3].Flink & 8) != 0 )
     return 0LL;
   if ( v5 )
-    *v5 = HIDWORD(Blink[1].Flink);
+    *v5 = HIDWORD(ThreadPointerData[1].Flink);
   if ( a4 )
-    *a4 = -((__int64)Blink[3].Flink & 1);
-  return Blink[1].Blink;
+    *a4 = -((__int64)ThreadPointerData[3].Flink & 1);
+  return ThreadPointerData[1].Blink;
 }

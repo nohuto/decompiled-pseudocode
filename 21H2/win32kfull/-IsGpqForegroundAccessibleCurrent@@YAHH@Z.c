@@ -1,13 +1,12 @@
 /*
- * XREFs of ?IsGpqForegroundAccessibleCurrent@@YAHH@Z @ 0x1C007FB78
+ * XREFs of ?IsGpqForegroundAccessibleCurrent@@YAHH@Z @ 0x1C0103B20
  * Callers:
- *     xxxInternalKeyEventDirect @ 0x1C007F8CC (xxxInternalKeyEventDirect.c)
- *     EditionIsGpqForegroundAccessibleCurrent @ 0x1C007FB50 (EditionIsGpqForegroundAccessibleCurrent.c)
- *     ?xxxMouseEventDirect@@YAHKKKK_K00H@Z @ 0x1C00F575C (-xxxMouseEventDirect@@YAHKKKK_K00H@Z.c)
- *     xxxInjectTouchInput @ 0x1C01D73EC (xxxInjectTouchInput.c)
+ *     ?xxxMouseEventDirect@@YAHKKKK_K00H@Z @ 0x1C01034BC (-xxxMouseEventDirect@@YAHKKKK_K00H@Z.c)
+ *     xxxInternalKeyEventDirect @ 0x1C0103874 (xxxInternalKeyEventDirect.c)
+ *     xxxInjectTouchInput @ 0x1C01DCDAC (xxxInjectTouchInput.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z @ 0x1C00F5CE8 (-IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z @ 0x1C01100C8 (-IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z.c)
  */
 
 __int64 __fastcall IsGpqForegroundAccessibleCurrent(unsigned int a1)

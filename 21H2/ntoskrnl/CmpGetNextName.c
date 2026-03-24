@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpGetNextName @ 0x14082FA20
+ * XREFs of CmpGetNextName @ 0x1407AC7E4
  * Callers:
- *     CmpWalkUnicodeStringPath @ 0x14082F95C (CmpWalkUnicodeStringPath.c)
- *     CmpFindHiveSubKey @ 0x140B14608 (CmpFindHiveSubKey.c)
- *     CmpGetKnownHivePathNode @ 0x140B4E1B0 (CmpGetKnownHivePathNode.c)
+ *     CmpWalkUnicodeStringPath @ 0x1407AC738 (CmpWalkUnicodeStringPath.c)
+ *     CmpFindHiveSubKey @ 0x140A5F704 (CmpFindHiveSubKey.c)
+ *     CmpGetKnownHivePathNode @ 0x140A8EBCC (CmpGetKnownHivePathNode.c)
  * Callees:
  *     <none>
  */
@@ -11,14 +11,15 @@
 bool __fastcall CmpGetNextName(__int16 *a1, __int64 a2, bool *a3)
 {
   _WORD *v3; // rax
-  __int16 v4; // r9
   __int16 v5; // r9
-  unsigned __int16 v6; // cx
+  __int16 v6; // dx
+  __int16 v7; // dx
+  unsigned __int16 v8; // cx
   bool result; // al
-  __int16 v8; // r9
+  __int16 v10; // r9
 
   v3 = (_WORD *)*((_QWORD *)a1 + 1);
-  if ( !v3 || (v4 = *a1) == 0 || !*v3 )
+  if ( !v3 || (v5 = *a1) == 0 || !*v3 )
   {
 LABEL_12:
     *a3 = 1;
@@ -27,33 +28,38 @@ LABEL_12:
     *(_WORD *)a2 = 0;
     return result;
   }
+  v6 = *a1;
   while ( *v3 == 92 )
   {
-    v8 = *a1;
+    v10 = *a1;
     ++v3;
     a1[1] -= 2;
-    v4 = v8 - 2;
+    v5 = v10 - 2;
     *((_QWORD *)a1 + 1) = v3;
-    *a1 = v4;
-    if ( !v4 )
+    v6 = v5;
+    *a1 = v5;
+    if ( !v5 )
       goto LABEL_12;
   }
   *(_QWORD *)(a2 + 8) = v3;
-  do
+  if ( v5 )
   {
-    if ( *v3 == 92 )
-      break;
-    v5 = *a1;
-    ++v3;
-    a1[1] -= 2;
-    v4 = v5 - 2;
-    *((_QWORD *)a1 + 1) = v3;
-    *a1 = v4;
+    do
+    {
+      if ( *v3 == 92 )
+        break;
+      v7 = *a1;
+      ++v3;
+      a1[1] -= 2;
+      v6 = v7 - 2;
+      *((_QWORD *)a1 + 1) = v3;
+      *a1 = v6;
+    }
+    while ( v6 );
   }
-  while ( v4 );
-  v6 = a1[4] - *(_WORD *)(a2 + 8);
-  *(_WORD *)a2 = v6;
-  *(_WORD *)(a2 + 2) = v6;
-  *a3 = v4 == 0;
-  return v6 <= 0x200u;
+  v8 = a1[4] - *(_WORD *)(a2 + 8);
+  *(_WORD *)a2 = v8;
+  *(_WORD *)(a2 + 2) = v8;
+  *a3 = v6 == 0;
+  return v8 <= 0x200u;
 }

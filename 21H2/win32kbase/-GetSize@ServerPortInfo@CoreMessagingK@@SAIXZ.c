@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSize@ServerPortInfo@CoreMessagingK@@SAIXZ @ 0x1C00CB600
+ * XREFs of ?GetSize@ServerPortInfo@CoreMessagingK@@SAIXZ @ 0x1C00BC550
  * Callers:
  *     <none>
  * Callees:

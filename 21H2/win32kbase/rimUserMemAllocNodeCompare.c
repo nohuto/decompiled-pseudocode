@@ -1,5 +1,5 @@
 /*
- * XREFs of rimUserMemAllocNodeCompare @ 0x1C0189930
+ * XREFs of rimUserMemAllocNodeCompare @ 0x1C015AEC0
  * Callers:
  *     <none>
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??$_Make_heap_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0P6A_NAEBU123@1@Z@Z @ 0x180258360
+ * XREFs of ??$_Make_heap_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0P6A_NAEBU123@1@Z@Z @ 0x180207C80
  * Callers:
- *     ??$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0_JP6A_NAEBU123@2@Z@Z @ 0x180258AC8 (--$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEA.c)
+ *     ??$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0_JP6A_NAEBU123@2@Z@Z @ 0x18020841C (--$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEA.c)
  * Callees:
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ??$_Pop_heap_hole_by_index@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@U123@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@_J1$$QEAU123@P6A_NAEBU123@3@Z@Z @ 0x180258858 (--$_Pop_heap_hole_by_index@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@U123@P6A_NAEBU123@0@.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ??$_Pop_heap_hole_by_index@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@U123@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@_J1$$QEAU123@P6A_NAEBU123@3@Z@Z @ 0x180208114 (--$_Pop_heap_hole_by_index@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@U123@P6A_NAEBU123@0@.c)
  */
 
 __int64 __fastcall std::_Make_heap_unchecked<EmitterShapes::CPathEmitterArea::AreaTriangle *,bool (*)(EmitterShapes::CPathEmitterArea::AreaTriangle const &,EmitterShapes::CPathEmitterArea::AreaTriangle const &)>(
@@ -12,41 +12,43 @@ __int64 __fastcall std::_Make_heap_unchecked<EmitterShapes::CPathEmitterArea::Ar
         __int64 a2,
         __int64 a3)
 {
-  __int64 result; // rax
+  __int64 v3; // rdx
   int v5; // ebp
-  __int64 v6; // rsi
-  __int64 v7; // rdi
-  __int128 *v8; // rbx
-  __int128 v9; // xmm0
-  int v10; // eax
-  __int128 v11; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v12; // [rsp+40h] [rbp-38h]
-  int v13; // [rsp+48h] [rbp-30h]
+  __int64 result; // rax
+  __int64 v7; // rsi
+  __int64 v8; // rdi
+  __int128 *v9; // rbx
+  __int128 v10; // xmm0
+  int v11; // eax
+  __int128 v12; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v13; // [rsp+40h] [rbp-38h]
+  int v14; // [rsp+48h] [rbp-30h]
 
-  result = 0x6DB6DB6DB6DB6DB7LL;
+  v3 = (unsigned __int128)((a2 - a1) * (__int128)0x4924924924924925LL) >> 64;
   v5 = a1;
-  v6 = 0x6DB6DB6DB6DB6DB7LL * ((a2 - a1) >> 2);
-  v7 = v6 >> 1;
-  if ( v6 >> 1 > 0 )
+  result = (unsigned __int64)v3 >> 63;
+  v7 = ((unsigned __int64)v3 >> 63) + (v3 >> 3);
+  v8 = v7 >> 1;
+  if ( v7 >> 1 > 0 )
   {
-    v8 = (__int128 *)(a1 + 28 * v7);
+    v9 = (__int128 *)(a1 + 28 * v8);
     do
     {
-      v8 = (__int128 *)((char *)v8 - 28);
-      v9 = *v8;
-      v10 = *((_DWORD *)v8 + 6);
-      --v7;
-      v12 = *((_QWORD *)v8 + 2);
-      v13 = v10;
-      v11 = v9;
+      v9 = (__int128 *)((char *)v9 - 28);
+      v10 = *v9;
+      v11 = *((_DWORD *)v9 + 6);
+      --v8;
+      v13 = *((_QWORD *)v9 + 2);
+      v14 = v11;
+      v12 = v10;
       result = std::_Pop_heap_hole_by_index<EmitterShapes::CPathEmitterArea::AreaTriangle *,EmitterShapes::CPathEmitterArea::AreaTriangle,bool (*)(EmitterShapes::CPathEmitterArea::AreaTriangle const &,EmitterShapes::CPathEmitterArea::AreaTriangle const &)>(
                  v5,
+                 v8,
                  v7,
-                 v6,
-                 (unsigned int)&v11,
+                 (unsigned int)&v12,
                  a3);
     }
-    while ( v7 > 0 );
+    while ( v8 > 0 );
   }
   return result;
 }

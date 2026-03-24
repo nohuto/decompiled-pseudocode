@@ -1,20 +1,19 @@
 /*
- * XREFs of PfpScenCtxPrefetchAbortSet @ 0x140AA0260
+ * XREFs of PfpScenCtxPrefetchAbortSet @ 0x140999050
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x1406846E8 (PfpPrefetchRequestPerform.c)
- *     PfpScenCtxScenarioSet @ 0x140A883D8 (PfpScenCtxScenarioSet.c)
+ *     PfpPrefetchRequestPerform @ 0x14070AFA4 (PfpPrefetchRequestPerform.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
  */
 
 __int64 __fastcall PfpScenCtxPrefetchAbortSet(ULONG_PTR BugCheckParameter2, int a2, __int64 a3, int a4, int a5)
 {
-  struct _KTHREAD *CurrentThread; // rax
+  bool v9; // zf
   unsigned int v10; // esi
-  bool v11; // zf
+  struct _KTHREAD *CurrentThread; // rax
 
   if ( !a5 )
   {
@@ -25,23 +24,23 @@ __int64 __fastcall PfpScenCtxPrefetchAbortSet(ULONG_PTR BugCheckParameter2, int 
   if ( *(_DWORD *)(BugCheckParameter2 + 48) != a2 )
   {
     v10 = -1073741735;
-    goto LABEL_12;
+    goto LABEL_8;
   }
-  v11 = a4 == 0;
+  v9 = a4 == 0;
   if ( !a4 )
   {
     if ( (*(_DWORD *)(BugCheckParameter2 + 8) & 0xC) == 8 )
     {
       v10 = -1073741431;
-      goto LABEL_12;
+      goto LABEL_8;
     }
-    v11 = 1;
+    v9 = 1;
   }
-  if ( !v11 )
+  if ( !v9 )
     a3 = 0LL;
   *(_QWORD *)(BugCheckParameter2 + 40) = a3;
   v10 = 0;
-LABEL_12:
+LABEL_8:
   if ( !a5 )
   {
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

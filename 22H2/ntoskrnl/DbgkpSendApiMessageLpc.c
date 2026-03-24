@@ -1,20 +1,20 @@
 /*
- * XREFs of DbgkpSendApiMessageLpc @ 0x14093A1F8
+ * XREFs of DbgkpSendApiMessageLpc @ 0x140887290
  * Callers:
- *     DbgkForwardException @ 0x140939614 (DbgkForwardException.c)
+ *     DbgkForwardException @ 0x140732540 (DbgkForwardException.c)
  * Callees:
- *     PsThawMultiProcess @ 0x1402044E4 (PsThawMultiProcess.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     LpcSendWaitReceivePort @ 0x1407E64C0 (LpcSendWaitReceivePort.c)
- *     DbgkpSuspendProcess @ 0x1409395D4 (DbgkpSuspendProcess.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PsThawProcess @ 0x1406857E4 (PsThawProcess.c)
+ *     LpcSendWaitReceivePort @ 0x140692F90 (LpcSendWaitReceivePort.c)
+ *     DbgkpSuspendProcess @ 0x140887D30 (DbgkpSuspendProcess.c)
  */
 
 __int64 __fastcall DbgkpSendApiMessageLpc(__int64 a1, __int64 a2, char a3)
 {
   struct _KTHREAD *CurrentThread; // rax
   char v4; // si
-  ULONG_PTR Process; // rbp
+  __int64 Process; // rbp
   int v8; // eax
   unsigned int v9; // edi
   __int64 v10; // rcx
@@ -31,9 +31,9 @@ __int64 __fastcall DbgkpSendApiMessageLpc(__int64 a1, __int64 a2, char a3)
 
   CurrentThread = KeGetCurrentThread();
   v4 = a3;
-  Process = (ULONG_PTR)CurrentThread->ApcState.Process;
+  Process = (__int64)CurrentThread->ApcState.Process;
   if ( a3 )
-    v4 = DbgkpSuspendProcess((__int64)CurrentThread->ApcState.Process);
+    v4 = DbgkpSuspendProcess(CurrentThread->ApcState.Process);
   *(_DWORD *)(a1 + 44) = 259;
   v20 = 688LL;
   v8 = LpcSendWaitReceivePort(a2, 0x20000, (__int128 *)a1, (unsigned __int64)v21, &v20, 0LL);
@@ -72,7 +72,7 @@ __int64 __fastcall DbgkpSendApiMessageLpc(__int64 a1, __int64 a2, char a3)
   }
   if ( v4 )
   {
-    PsThawMultiProcess(Process, 0LL, 1u);
+    PsThawProcess(Process, 0);
     KeLeaveCriticalRegion();
   }
   return v9;

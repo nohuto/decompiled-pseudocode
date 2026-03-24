@@ -1,20 +1,19 @@
 /*
- * XREFs of ?GenerateRoutedAwayMessages@CTouchProcessor@@IEAAX_KVCInputDest@@KHH@Z @ 0x1C01C8094
+ * XREFs of ?GenerateRoutedAwayMessages@CTouchProcessor@@IEAAX_KVCInputDest@@KHH@Z @ 0x1C0190DD8
  * Callers:
- *     ?ProcessAndUnreferencePreviousInput@CTouchProcessor@@IEAAXPEBUCPointerInfoNode@@_KKHH@Z @ 0x1C01D0660 (-ProcessAndUnreferencePreviousInput@CTouchProcessor@@IEAAXPEBUCPointerInfoNode@@_KKHH@Z.c)
+ *     ?ProcessAndUnreferencePreviousInput@CTouchProcessor@@IEAAXPEBUCPointerInfoNode@@_KKHH@Z @ 0x1C0198DC0 (-ProcessAndUnreferencePreviousInput@CTouchProcessor@@IEAAXPEBUCPointerInfoNode@@_KKHH@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0038C0C (-SetEmpty@CInputDest@@QEAAXXZ.c)
- *     ??0CInputDest@@QEAA@AEBV0@@Z @ 0x1C00447F0 (--0CInputDest@@QEAA@AEBV0@@Z.c)
- *     ?UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00DC94C (-UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ?AddRoutedAwayTarget@CTouchProcessor@@AEAAXGVCInputDest@@@Z @ 0x1C01BD784 (-AddRoutedAwayTarget@CTouchProcessor@@AEAAXGVCInputDest@@@Z.c)
- *     ?GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInputDest@@@Z @ 0x1C01C6D20 (-GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInp.c)
- *     ?GetMsgData@CTouchProcessor@@AEAAPEBUCPointerMsgData@@_K@Z @ 0x1C01C9164 (-GetMsgData@CTouchProcessor@@AEAAPEBUCPointerMsgData@@_K@Z.c)
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01CE868 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
- *     ?ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@K@Z @ 0x1C01D30A4 (-ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@K@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_HL @ 0x1C01DA700 (WPP_RECORDER_AND_TRACE_SF_HL.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0042894 (-SetEmpty@CInputDest@@QEAAXXZ.c)
+ *     ??0CInputDest@@QEAA@AEBV0@@Z @ 0x1C0072210 (--0CInputDest@@QEAA@AEBV0@@Z.c)
+ *     ?UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00CD17C (-UnreferenceFrame@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ?AddRoutedAwayTarget@CTouchProcessor@@AEAAXGVCInputDest@@@Z @ 0x1C01879C4 (-AddRoutedAwayTarget@CTouchProcessor@@AEAAXGVCInputDest@@@Z.c)
+ *     ?GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInputDest@@@Z @ 0x1C018FC3C (-GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInp.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01971B4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@K@Z @ 0x1C019ACA8 (-ReferenceFrame@CTouchProcessor@@AEAAPEBUCPointerInputFrame@@K@Z.c)
+ *     WPP_RECORDER_SF_HL @ 0x1C01A1314 (WPP_RECORDER_SF_HL.c)
  */
 
 void __fastcall CTouchProcessor::GenerateRoutedAwayMessages(
@@ -25,217 +24,117 @@ void __fastcall CTouchProcessor::GenerateRoutedAwayMessages(
         int a5,
         int a6)
 {
-  CInputDest *v7; // r13
-  unsigned __int64 v8; // r15
-  CTouchProcessor *v10; // rcx
-  char v11; // bl
-  const struct CPointerMsgData *MsgData; // rax
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  const struct CPointerMsgData *v15; // rsi
-  PDEVICE_OBJECT v16; // rcx
-  __int16 v17; // ax
-  __int64 v18; // rcx
-  const struct CPointerInputFrame *v19; // rbp
-  __int64 v20; // rax
-  __int64 v21; // rdi
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  int v25; // edx
-  __int64 v26; // r8
-  CInputDest *v27; // rax
-  int v28; // [rsp+28h] [rbp-140h]
-  int v29; // [rsp+38h] [rbp-130h]
-  _BYTE v30[113]; // [rsp+50h] [rbp-118h] BYREF
-  int v31; // [rsp+C1h] [rbp-A7h]
-  __int16 v32; // [rsp+C5h] [rbp-A3h]
-  char v33; // [rsp+C7h] [rbp-A1h]
-  _BYTE v34[120]; // [rsp+C8h] [rbp-A0h] BYREF
+  unsigned __int64 v8; // rdi
+  int v10; // edx
+  PDEVICE_OBJECT v11; // rcx
+  int v12; // r9d
+  int v13; // edx
+  const struct CPointerInputFrame *v14; // rsi
+  __int64 v15; // rax
+  __int64 v16; // rbx
+  int v17; // edx
+  int v18; // ecx
+  int v19; // r8d
+  CInputDest *v20; // rax
+  int v21; // [rsp+20h] [rbp-148h]
+  _BYTE v22[113]; // [rsp+50h] [rbp-118h] BYREF
+  int v23; // [rsp+C1h] [rbp-A7h]
+  __int16 v24; // [rsp+C5h] [rbp-A3h]
+  char v25; // [rsp+C7h] [rbp-A1h]
+  _BYTE v26[120]; // [rsp+C8h] [rbp-A0h] BYREF
 
-  v7 = a3;
   v8 = a2;
-  v10 = (CTouchProcessor *)WPP_GLOBAL_Control;
-  v11 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(a3) = 0;
-  }
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      (_DWORD)a3,
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
+      a2,
       7,
-      217,
-      (__int64)&WPP_d3dee7beffef3928cf2f9a2bdffe19dc_Traceguids);
-  if ( a1[5] != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v10, a2, a3);
-  MsgData = CTouchProcessor::GetMsgData(v10, v8);
-  v15 = MsgData;
-  if ( MsgData )
+      219,
+      (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
+  }
+  if ( a1[6] != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 6853);
+  if ( v8 )
   {
-    v19 = CTouchProcessor::ReferenceFrame((CTouchProcessor *)a1, *((_DWORD *)MsgData + 7));
-    if ( v19 )
+    v14 = CTouchProcessor::ReferenceFrame((CTouchProcessor *)a1, *(_DWORD *)(v8 + 28));
+    if ( v14 )
     {
-      v20 = *((unsigned int *)v15 + 8);
-      if ( (unsigned int)v20 >= *((_DWORD *)v19 + 12) )
+      v15 = *(unsigned int *)(v8 + 32);
+      if ( (unsigned int)v15 >= *((_DWORD *)v14 + 12) )
       {
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(v18, v13, v14);
-        v20 = *((unsigned int *)v15 + 8);
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 6871);
+        v15 = *(unsigned int *)(v8 + 32);
       }
-      v21 = *((_QWORD *)v19 + 30) + 480 * v20;
-      if ( !(unsigned int)CPointerInfoNode::IsValid((CPointerInfoNode *)v21) )
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(v23, v22, v24);
-      if ( *(_WORD *)(v21 + 172) != *((_WORD *)v15 + 8) )
-        MicrosoftTelemetryAssertTriggeredNoArgsKM(v23, v22, v24);
-      v31 = 0;
-      v32 = 0;
-      v33 = 0;
-      memset(v30, 0, sizeof(v30));
+      v16 = *((_QWORD *)v14 + 17) + 480 * v15;
+      if ( !(unsigned int)CPointerInfoNode::IsValid((CPointerInfoNode *)v16) )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 6873);
+      if ( *(_WORD *)(v16 + 172) != *(_WORD *)(v8 + 16) )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 6874);
+      v23 = 0;
+      v24 = 0;
+      v25 = 0;
+      memset(v22, 0, sizeof(v22));
       if ( (unsigned int)CTouchProcessor::GenerateMessage(
-                           (__int64)a1,
-                           v21,
+                           (CTouchProcessor *)a1,
+                           v16,
                            v8,
-                           v19,
+                           v14,
                            0x252u,
                            a4,
                            a5,
                            a6,
-                           (CInputDest *)v30) )
+                           (CInputDest *)v22) )
       {
-        v27 = CInputDest::CInputDest((CInputDest *)v34, (__int64 **)(v21 + 352));
-        CTouchProcessor::AddRoutedAwayTarget((CTouchProcessor *)a1, *(_WORD *)(v21 + 172), v27);
+        v20 = CInputDest::CInputDest((CInputDest *)v26, (__int64 **)(v16 + 352));
+        CTouchProcessor::AddRoutedAwayTarget((CTouchProcessor *)a1, *(_WORD *)(v16 + 172), v20);
       }
-      else
+      else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-          || (LOBYTE(v25) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 2u) )
+        WPP_RECORDER_SF_HL(v18, v17, v19, 224, v21, *(_WORD *)(v8 + 16), *(_WORD *)(v16 + 160));
+      }
+      CTouchProcessor::UnreferenceFrame((__int64)a1, (__int64)v14);
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v11 = WPP_GLOBAL_Control;
+        if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
         {
-          LOBYTE(v25) = 0;
+          v12 = 225;
+          goto LABEL_29;
         }
-        LOBYTE(v26) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        if ( (_BYTE)v25 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_AND_TRACE_SF_HL(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v25,
-            v26,
-            222,
-            2,
-            v28,
-            222,
-            v29,
-            *((_WORD *)v15 + 8),
-            *(_WORD *)(v21 + 160));
-      }
-      CTouchProcessor::UnreferenceFrame((__int64)a1, (__int64)v19, v26);
-      v16 = WPP_GLOBAL_Control;
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-        || (LOBYTE(v13) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-      {
-        LOBYTE(v13) = 0;
-      }
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-        v11 = 0;
-      if ( (_BYTE)v13 || v11 )
-      {
-        v17 = 223;
-        goto LABEL_74;
       }
     }
-    else
+    else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-        || (LOBYTE(v13) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+      LOBYTE(v13) = 4;
+      WPP_RECORDER_SF_((_DWORD)gBaseLog, v13, 7, 222, (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v13) = 0;
-      }
-      if ( (_BYTE)v13 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v14) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v13,
-          v14,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          4,
-          7,
-          220,
-          (__int64)&WPP_d3dee7beffef3928cf2f9a2bdffe19dc_Traceguids);
-      }
-      v16 = WPP_GLOBAL_Control;
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-        || (LOBYTE(v13) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-      {
-        LOBYTE(v13) = 0;
-      }
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-        v11 = 0;
-      if ( (_BYTE)v13 || v11 )
-      {
-        v17 = 221;
-        goto LABEL_74;
+        v11 = WPP_GLOBAL_Control;
+        if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+        {
+          v12 = 223;
+          goto LABEL_29;
+        }
       }
     }
   }
-  else
+  else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-      || (LOBYTE(v13) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)gBaseLog, a2, 7, 220, (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v13) = 0;
-    }
-    if ( (_BYTE)v13 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v14) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v13,
-        v14,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        4,
-        7,
-        218,
-        (__int64)&WPP_d3dee7beffef3928cf2f9a2bdffe19dc_Traceguids);
-    }
-    v16 = WPP_GLOBAL_Control;
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-      || (LOBYTE(v13) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-    {
-      LOBYTE(v13) = 0;
-    }
-    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-      v11 = 0;
-    if ( (_BYTE)v13 || v11 )
-    {
-      v17 = 219;
-LABEL_74:
-      LOBYTE(v14) = v11;
-      WPP_RECORDER_AND_TRACE_SF_(
-        v16->AttachedDevice,
-        v13,
-        v14,
-        v16->DeviceExtension,
-        5,
-        7,
-        v17,
-        (__int64)&WPP_d3dee7beffef3928cf2f9a2bdffe19dc_Traceguids);
+      v11 = WPP_GLOBAL_Control;
+      if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      {
+        v12 = 221;
+LABEL_29:
+        LOBYTE(v10) = 5;
+        WPP_RECORDER_SF_(v11->DeviceExtension, v10, 7, v12, (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
+      }
     }
   }
-  CInputDest::SetEmpty(v7);
+  CInputDest::SetEmpty(a3);
 }

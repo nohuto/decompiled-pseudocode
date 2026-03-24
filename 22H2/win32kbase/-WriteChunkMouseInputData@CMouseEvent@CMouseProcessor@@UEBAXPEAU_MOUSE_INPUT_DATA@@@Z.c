@@ -1,5 +1,5 @@
 /*
- * XREFs of ?WriteChunkMouseInputData@CMouseEvent@CMouseProcessor@@UEBAXPEAU_MOUSE_INPUT_DATA@@@Z @ 0x1C00C96E0
+ * XREFs of ?WriteChunkMouseInputData@CMouseEvent@CMouseProcessor@@UEBAXPEAU_MOUSE_INPUT_DATA@@@Z @ 0x1C00BC070
  * Callers:
  *     <none>
  * Callees:

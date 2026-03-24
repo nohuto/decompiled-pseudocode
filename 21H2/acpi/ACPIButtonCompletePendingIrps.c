@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIButtonCompletePendingIrps @ 0x1C004D4BC
+ * XREFs of ACPIButtonCompletePendingIrps @ 0x1C004E7CC
  * Callers:
- *     ACPIButtonEvent @ 0x1C002C7AC (ACPIButtonEvent.c)
+ *     ACPIButtonEvent @ 0x1C003000C (ACPIButtonEvent.c)
  * Callees:
  *     <none>
  */

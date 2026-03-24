@@ -1,62 +1,51 @@
 /*
- * XREFs of ?xxxMKToggleMouseKeys@@YAHG@Z @ 0x1C01B6E50
+ * XREFs of ?xxxMKToggleMouseKeys@@YAHG@Z @ 0x1C0184FC0
  * Callers:
  *     <none>
  * Callees:
- *     ?TurnOffMouseKeys@@YAXXZ @ 0x1C01B6680 (-TurnOffMouseKeys@@YAXXZ.c)
- *     ?xxxMKButtonSetState@@YAHG@Z @ 0x1C01B6960 (-xxxMKButtonSetState@@YAHG@Z.c)
- *     ApiSetEditionPostAccessibilitySettingChangedEvent @ 0x1C0207254 (ApiSetEditionPostAccessibilitySettingChangedEvent.c)
- *     ApiSetEditionPostRitSound @ 0x1C0207580 (ApiSetEditionPostRitSound.c)
+ *     ?TurnOffMouseKeys@@YAXXZ @ 0x1C0183AC0 (-TurnOffMouseKeys@@YAXXZ.c)
+ *     ?xxxMKButtonSetState@@YAHG@Z @ 0x1C0183DA0 (-xxxMKButtonSetState@@YAHG@Z.c)
+ *     ApiSetEditionPostAccessibility @ 0x1C01CD030 (ApiSetEditionPostAccessibility.c)
+ *     ApiSetEditionPostRitSound @ 0x1C01CD44C (ApiSetEditionPostRitSound.c)
  */
 
-_BOOL8 __fastcall xxxMKToggleMouseKeys(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+_BOOL8 __fastcall xxxMKToggleMouseKeys()
 {
-  BOOL v4; // esi
-  __int64 v5; // rdi
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  unsigned __int64 v10; // rbx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rdx
-  __int16 v16; // bx
+  BOOL v0; // edi
+  __int64 v1; // rdx
+  __int16 v2; // bx
 
-  v4 = 1;
+  v0 = 1;
   if ( (gdwPUDFlags & 0x2000) == 0 )
   {
     if ( ((unsigned __int8)gLockBits | (unsigned __int8)(gLatchBits | gPhysModifierState)) == 17 )
     {
-      if ( (dword_1C02905D4 & 4) != 0 )
+      if ( (dword_1C024F94C & 4) != 0 )
       {
-        v4 = gbMKMouseMode != 0;
+        v0 = gbMKMouseMode != 0;
         TurnOffMouseKeys();
       }
     }
     else
     {
-      v5 = SGDGetUserSessionState(a1, a2, a3, a4);
-      v10 = (unsigned __int64)*(unsigned __int8 *)(SGDGetUserSessionState(v7, v6, v8, v9) + 13768) >> 2;
-      v15 = (unsigned int)(1 << (2 * (*(_WORD *)(SGDGetUserSessionState(v12, v11, v13, v14) + 13768) & 3) + 1));
-      if ( (((unsigned int)dword_1C02905D4 >> 7) & 1) == (((unsigned __int8)v15 & *(_BYTE *)(v5 + v10 + 13992)) != 0) )
+      v1 = (unsigned int)(1 << (2 * (gNumLockVk & 3) + 1));
+      if ( (((unsigned int)dword_1C024F94C >> 7) & 1) == (((unsigned __int8)v1 & *((_BYTE *)&gafAsyncKeyState
+                                                                                 + ((unsigned __int64)(unsigned __int8)gNumLockVk >> 2))) != 0) )
       {
         gbMKMouseMode = 1;
-        ApiSetEditionPostRitSound(3LL, v15, 0LL);
+        ApiSetEditionPostRitSound(3LL, v1, 0LL);
       }
       else
       {
         gbMKMouseMode = 0;
-        ApiSetEditionPostRitSound(2LL, v15, 0LL);
-        v16 = gwMKCurrentButton;
+        ApiSetEditionPostRitSound(2LL, v1, 0LL);
+        v2 = gwMKCurrentButton;
         gwMKCurrentButton = 3;
         xxxMKButtonSetState(1);
-        gwMKCurrentButton = v16;
+        gwMKCurrentButton = v2;
       }
-      ApiSetEditionPostAccessibilitySettingChangedEvent(3LL);
+      ApiSetEditionPostAccessibility(3LL);
     }
   }
-  return v4;
+  return v0;
 }

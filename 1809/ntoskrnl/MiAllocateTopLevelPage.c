@@ -1,8 +1,8 @@
 /*
- * XREFs of MiAllocateTopLevelPage @ 0x1406D1BEC
+ * XREFs of MiAllocateTopLevelPage @ 0x1406D1BCC
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x1406D18B8 (MmCreateProcessAddressSpace.c)
- *     MiAllocateProcessShadow @ 0x1406D1B0C (MiAllocateProcessShadow.c)
+ *     MmCreateProcessAddressSpace @ 0x1406D1898 (MmCreateProcessAddressSpace.c)
+ *     MiAllocateProcessShadow @ 0x1406D1AEC (MiAllocateProcessShadow.c)
  * Callees:
  *     MiInitializePfnForOtherProcess @ 0x140026C2C (MiInitializePfnForOtherProcess.c)
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
@@ -12,10 +12,10 @@
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiGetProcessPartition @ 0x14004D19C (MiGetProcessPartition.c)
  *     MiSetPfnLink @ 0x140065CA4 (MiSetPfnLink.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiSetPageTablePfnBuddy @ 0x14013D988 (MiSetPageTablePfnBuddy.c)
- *     MiWaitForFreePage @ 0x1402CB3A4 (MiWaitForFreePage.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiSetPageTablePfnBuddy @ 0x14013D9A8 (MiSetPageTablePfnBuddy.c)
+ *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MiAllocateTopLevelPage(__int64 a1, unsigned __int64 a2)

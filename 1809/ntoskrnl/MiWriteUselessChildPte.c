@@ -1,13 +1,13 @@
 /*
- * XREFs of MiWriteUselessChildPte @ 0x1402CAF38
+ * XREFs of MiWriteUselessChildPte @ 0x1402CB038
  * Callers:
- *     MiBuildForkPte @ 0x1402C7AF0 (MiBuildForkPte.c)
- *     MiHandleForkTransitionPte @ 0x1402CA018 (MiHandleForkTransitionPte.c)
+ *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x1402CA118 (MiHandleForkTransitionPte.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 char MiWriteUselessChildPte()

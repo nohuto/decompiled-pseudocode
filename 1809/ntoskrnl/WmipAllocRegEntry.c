@@ -1,7 +1,7 @@
 /*
- * XREFs of WmipAllocRegEntry @ 0x14016B5A8
+ * XREFs of WmipAllocRegEntry @ 0x14016B5C8
  * Callers:
- *     WmipRegisterDevice @ 0x14070B24C (WmipRegisterDevice.c)
+ *     WmipRegisterDevice @ 0x14070B22C (WmipRegisterDevice.c)
  *     WmipInitializeDataStructs @ 0x1409D4420 (WmipInitializeDataStructs.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
@@ -9,9 +9,9 @@
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     WmipAllocProviderId @ 0x1406D000C (WmipAllocProviderId.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     WmipAllocProviderId @ 0x1406CFFEC (WmipAllocProviderId.c)
  */
 
 _QWORD *__fastcall WmipAllocRegEntry(__int64 a1, int a2)

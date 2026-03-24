@@ -1,29 +1,24 @@
 /*
- * XREFs of xxxPromotePointerToMouse @ 0x1C01C4FF8
+ * XREFs of xxxPromotePointerToMouse @ 0x1C01F00A4
  * Callers:
- *     NtUserPromotePointer @ 0x1C01D8B70 (NtUserPromotePointer.c)
- *     xxxDefPointerProc @ 0x1C0222CB4 (xxxDefPointerProc.c)
+ *     NtUserPromotePointer @ 0x1C0200180 (NtUserPromotePointer.c)
+ *     ?xxxValidateCapture@CMoveSizeRequest@@CA_NPEAUtagWND@@KPEAUtagPOINT@@@Z @ 0x1C0241740 (-xxxValidateCapture@CMoveSizeRequest@@CA_NPEAUtagWND@@KPEAUtagPOINT@@@Z.c)
+ *     xxxDefPointerProc @ 0x1C0243640 (xxxDefPointerProc.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?GetThreadPointerData@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01C5A6C (-GetThreadPointerData@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?GetThreadPointerData@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01F0A48 (-GetThreadPointerData@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z.c)
  */
 
 int __fastcall xxxPromotePointerToMouse(unsigned __int16 a1, unsigned int a2)
 {
-  __int64 v3; // rcx
-  unsigned __int64 ThreadPointerData; // rbx
-  __int64 v6; // rax
+  unsigned __int64 ThreadPointerData; // rax
+  __int64 v4; // rdx
+  __int64 v5; // r8
   HWND *v7; // [rsp+20h] [rbp-18h]
 
-  ThreadPointerData = GetThreadPointerData((struct tagTHREADINPUTPOINTERLIST *)(gptiCurrent + 1128LL), a1, 0LL, 0LL, v7);
+  ThreadPointerData = GetThreadPointerData((struct tagTHREADINPUTPOINTERLIST *)(gptiCurrent + 1088LL), a1, 0LL, 0LL, v7);
   if ( ThreadPointerData )
-  {
-    v6 = SGDGetUserSessionState(v3);
-    return CTouchProcessor::PromotePointerDataToMouse(*(CTouchProcessor **)(v6 + 3424), ThreadPointerData, a2);
-  }
-  else
-  {
-    UserSetLastError(87);
-    return 0;
-  }
+    return CTouchProcessor::PromotePointerDataToMouse(gpTouchProcessor, ThreadPointerData, a2);
+  UserSetLastError(87LL, v4, v5);
+  return 0;
 }

@@ -3,9 +3,9 @@
  * Callers:
  *     HvpViewMapMakeViewRangeValid @ 0x1405A5658 (HvpViewMapMakeViewRangeValid.c)
  *     HvpViewMapMakeViewRangeCOWByCaller @ 0x1405A5A80 (HvpViewMapMakeViewRangeCOWByCaller.c)
- *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x140703FA0 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
+ *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x140703F80 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
  * Callees:
- *     HvpInpageErrorFilter @ 0x1407F6E60 (HvpInpageErrorFilter.c)
+ *     HvpInpageErrorFilter @ 0x1407F6E40 (HvpInpageErrorFilter.c)
  */
 
 __int64 __fastcall HvpViewMapTouchPages(_BYTE *a1, __int64 a2, char a3)

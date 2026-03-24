@@ -1,17 +1,17 @@
 /*
- * XREFs of ?HrConvertBitmap@CFormatConverter@@SAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@PEAPEAV2@@Z @ 0x1802BC2E8
+ * XREFs of ?HrConvertBitmap@CFormatConverter@@SAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@PEAPEAV2@@Z @ 0x180219508
  * Callers:
- *     ?CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVIBitmapDest@@HH@Z @ 0x1800A5970 (-CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV-$TMilRect@IUMilR.c)
- *     ?FormatConvertLock@CSecondaryD2DBitmap@@IEAAJPEAVIBitmapLock@@PEAPEAV2@@Z @ 0x1802B5548 (-FormatConvertLock@CSecondaryD2DBitmap@@IEAAJPEAVIBitmapLock@@PEAPEAV2@@Z.c)
+ *     ?CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVIBitmapDest@@HH@Z @ 0x180044A20 (-CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV-$TMilRect@IUMilR.c)
+ *     ?FormatConvertLock@CSecondaryD2DBitmap@@IEAAJPEAVIBitmapLock@@PEAPEAV2@@Z @ 0x18019BBC0 (-FormatConvertLock@CSecondaryD2DBitmap@@IEAAJPEAVIBitmapLock@@PEAPEAV2@@Z.c)
  * Callees:
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@VIBitmapSource@@@@IEAAKXZ @ 0x1800F6610 (-InternalRelease@-$CMILRefCountBaseT@VIBitmapSource@@@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??0CFormatConverter@@QEAA@XZ @ 0x1802BB864 (--0CFormatConverter@@QEAA@XZ.c)
- *     ??2CFormatConverter@@SAPEAX_K@Z @ 0x1802BBA7C (--2CFormatConverter@@SAPEAX_K@Z.c)
- *     ?Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z @ 0x1802BC478 (-Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C07A0 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??0CFormatConverter@@QEAA@XZ @ 0x180218AD8 (--0CFormatConverter@@QEAA@XZ.c)
+ *     ??2CFormatConverter@@SAPEAX_K@Z @ 0x180218D1C (--2CFormatConverter@@SAPEAX_K@Z.c)
+ *     ?Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z @ 0x180219698 (-Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z.c)
  */
 
 __int64 __fastcall CFormatConverter::HrConvertBitmap(
@@ -19,19 +19,18 @@ __int64 __fastcall CFormatConverter::HrConvertBitmap(
         const struct PixelFormatInfo *a2,
         struct IBitmapSource **a3)
 {
-  unsigned int v6; // ebx
+  unsigned int v6; // edi
   char *v7; // rcx
   CFormatConverter *v8; // rax
   __int64 v9; // rcx
-  CFormatConverter *v10; // rax
-  CFormatConverter *v11; // rdi
-  int v12; // eax
-  __int64 v13; // rcx
-  __int64 v15; // [rsp+30h] [rbp-48h] BYREF
+  CFormatConverter *v10; // rbx
+  int v11; // eax
+  __int64 v12; // rcx
+  __int64 v14; // [rsp+30h] [rbp-48h] BYREF
 
   v6 = 0;
-  (**(void (__fastcall ***)(struct IBitmapSource *, __int64 *))a1)(a1, &v15);
-  if ( v15 == *(_QWORD *)a2 )
+  (**(void (__fastcall ***)(struct IBitmapSource *, __int64 *))a1)(a1, &v14);
+  if ( v14 == *(_QWORD *)a2 )
   {
     v7 = (char *)a1 + *(int *)(*((_QWORD *)a1 + 1) + 4LL) + 8;
     (*(void (__fastcall **)(char *))(*(_QWORD *)v7 + 8LL))(v7);
@@ -40,19 +39,23 @@ __int64 __fastcall CFormatConverter::HrConvertBitmap(
   else
   {
     v8 = (CFormatConverter *)CFormatConverter::operator new();
-    if ( v8 && (v10 = CFormatConverter::CFormatConverter(v8), (v11 = v10) != 0LL) )
+    if ( v8 )
+      v10 = CFormatConverter::CFormatConverter(v8);
+    else
+      v10 = 0LL;
+    if ( v10 )
     {
-      CMILRefCountImpl::AddReference((CFormatConverter *)((char *)v10 + 16));
-      v12 = CFormatConverter::Initialize(v11, a1, a2, 0.0);
-      v6 = v12;
-      if ( v12 >= 0 )
+      CMILCOMBase::InternalAddRef(v10);
+      v11 = CFormatConverter::Initialize(v10, a1, a2, 0.0);
+      v6 = v11;
+      if ( v11 >= 0 )
       {
-        *a3 = v11;
+        *a3 = (CFormatConverter *)((char *)v10 + 16);
       }
       else
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x232u, 0LL);
-        CMILRefCountBaseT<IBitmapSource>::InternalRelease((volatile signed __int32 *)v11);
+        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x232u, 0LL);
+        CRenderTargetBitmap::Release(v10);
       }
     }
     else

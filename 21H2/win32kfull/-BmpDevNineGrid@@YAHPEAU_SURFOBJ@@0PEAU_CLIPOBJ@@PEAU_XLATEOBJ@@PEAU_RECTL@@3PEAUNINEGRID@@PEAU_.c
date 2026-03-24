@@ -1,14 +1,14 @@
 /*
- * XREFs of ?BmpDevNineGrid@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAUNINEGRID@@PEAU_BLENDOBJ@@PEAX@Z @ 0x1C0298830
+ * XREFs of ?BmpDevNineGrid@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAUNINEGRID@@PEAU_BLENDOBJ@@PEAX@Z @ 0x1C0299F80
  * Callers:
  *     <none>
  * Callees:
- *     EngNineGrid @ 0x1C00D7950 (EngNineGrid.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ??0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C0297AF8 (--0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
- *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C0297B30 (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
- *     ?GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z @ 0x1C0299790 (-GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z.c)
- *     ?bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C0299814 (-bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
+ *     EngNineGrid @ 0x1C00C8F90 (EngNineGrid.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ??0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C0299278 (--0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
+ *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C02992B0 (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
+ *     ?GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z @ 0x1C029AEB4 (-GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z.c)
+ *     ?bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C029AF38 (-bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
  */
 
 __int64 __fastcall BmpDevNineGrid(
@@ -22,15 +22,15 @@ __int64 __fastcall BmpDevNineGrid(
         struct _BLENDOBJ *a8,
         void *a9)
 {
-  unsigned int v13; // ebp
+  unsigned int v13; // esi
   __int64 v14; // r9
   __int64 HDEV; // rax
-  struct _DISPSURF *i; // rdi
-  __int64 v17; // r10
+  struct _DISPSURF *i; // rbx
+  __int64 v17; // r9
   int v18; // eax
-  struct _SURFOBJ *DevBitmap; // rbx
-  struct _SURFOBJ *v20; // rax
-  __int64 v21; // r10
+  struct _SURFOBJ *DevBitmap; // rax
+  __int64 v20; // r10
+  __int64 v21; // r11
   __int64 v23; // [rsp+50h] [rbp-48h] BYREF
   __int64 v24; // [rsp+58h] [rbp-40h] BYREF
   struct SURFACE *v25; // [rsp+60h] [rbp-38h] BYREF
@@ -47,28 +47,28 @@ __int64 __fastcall BmpDevNineGrid(
     {
       if ( (*(_DWORD *)(HDEV + 40) & 0x20000000) != 0 )
       {
-        for ( i = **(struct _DISPSURF ***)(HDEV + 1768); i; i = *(struct _DISPSURF **)i )
+        for ( i = **(struct _DISPSURF ***)(HDEV + 1800); i; i = *(struct _DISPSURF **)i )
         {
           v17 = *((_QWORD *)i + 6);
           v23 = v17;
           if ( v17 )
           {
-            if ( (*(_DWORD *)(v17 + 1792) & 0x8000000) != 0 )
+            if ( (*(_DWORD *)(v17 + 1824) & 0x8000000) != 0 )
             {
-              v18 = *(_DWORD *)(v17 + 2096);
+              v18 = *(_DWORD *)(v17 + 2128);
               if ( (v18 & 0x1000) != 0 && (v18 & 0x8000) != 0 )
               {
-                if ( *(_QWORD *)(*(_QWORD *)(v17 + 1760) + 792LL) )
+                if ( *(_QWORD *)(*(_QWORD *)(v17 + 1792) + 792LL) )
                 {
                   MARK_ACCDRV_NOTIFICATION::MARK_ACCDRV_NOTIFICATION(
                     (MARK_ACCDRV_NOTIFICATION *)&v24,
                     (struct PDEVOBJ *)&v23,
                     a1);
-                  DevBitmap = GetDevBitmap(i, a2);
-                  v20 = GetDevBitmap(i, a1);
-                  (*(void (__fastcall **)(struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _RECTL *, struct NINEGRID *, struct _BLENDOBJ *, void *))(*(_QWORD *)(v21 + 1760) + 792LL))(
-                    v20,
+                  GetDevBitmap(i, a2);
+                  DevBitmap = GetDevBitmap(i, a1);
+                  (*(void (__fastcall **)(struct _SURFOBJ *, __int64, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _RECTL *, struct NINEGRID *, struct _BLENDOBJ *, void *))(v20 + 792))(
                     DevBitmap,
+                    v21,
                     a3,
                     a4,
                     a5,

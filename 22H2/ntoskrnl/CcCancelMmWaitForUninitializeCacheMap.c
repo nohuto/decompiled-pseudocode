@@ -1,10 +1,9 @@
 /*
- * XREFs of CcCancelMmWaitForUninitializeCacheMap @ 0x1405351B0
+ * XREFs of CcCancelMmWaitForUninitializeCacheMap @ 0x1404E89C0
  * Callers:
- *     CcWriteBehindPostProcess @ 0x14029AF18 (CcWriteBehindPostProcess.c)
- *     CcWriteBehindPreProcess @ 0x14029B740 (CcWriteBehindPreProcess.c)
+ *     CcWriteBehindInternal @ 0x14022D3E0 (CcWriteBehindInternal.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
  */
 
 LONG __fastcall CcCancelMmWaitForUninitializeCacheMap(__int64 a1)
@@ -14,7 +13,7 @@ LONG __fastcall CcCancelMmWaitForUninitializeCacheMap(__int64 a1)
   LONG result; // eax
   unsigned __int64 v5; // rdx
 
-  v2 = (unsigned __int64 *)(a1 + 280);
+  v2 = (unsigned __int64 *)(a1 + 272);
   while ( 1 )
   {
     v5 = *v2;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwWaitForMultipleObjects32 @ 0x1401B84B0
+ * XREFs of ZwWaitForMultipleObjects32 @ 0x1401B84D0
  * Callers:
  *     <none>
  * Callees:

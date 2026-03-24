@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwQueryWnfStateData @ 0x1401BACF0
+ * XREFs of ZwQueryWnfStateData @ 0x1401BAD10
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x1402F55A0 (RtlRaiseCustomSystemEventTrigger.c)
- *     PopBatteryWorker @ 0x140719DA0 (PopBatteryWorker.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x1402F56A0 (RtlRaiseCustomSystemEventTrigger.c)
+ *     PopBatteryWorker @ 0x140719D80 (PopBatteryWorker.c)
  * Callees:
  *     <none>
  */

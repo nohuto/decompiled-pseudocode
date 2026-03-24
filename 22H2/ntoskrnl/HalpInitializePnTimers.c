@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInitializePnTimers @ 0x14037B77C
+ * XREFs of HalpInitializePnTimers @ 0x1403AFC40
  * Callers:
- *     HalpTimerInitSystem @ 0x14037B080 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403AF740 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpInitializePnTimers()
@@ -32,7 +32,7 @@ __int64 HalpInitializePnTimers()
         HalpTimerLastProblem = 15;
         *(_DWORD *)(v2 + 252) = 15;
         *(_QWORD *)(v2 + 264) = "minkernel\\hals\\lib\\timers\\common\\timer.c";
-        *(_DWORD *)(v2 + 272) = 1736;
+        *(_DWORD *)(v2 + 272) = 1732;
         break;
       }
     }

@@ -1,42 +1,38 @@
 /*
- * XREFs of PopDirectedDripsDiagInsertErrorRecord @ 0x14099E2A0
+ * XREFs of PopDirectedDripsDiagInsertErrorRecord @ 0x1408F70D8
  * Callers:
- *     PopDirectedDripsDiagTraceBroadcastFailureDevice @ 0x14099F16C (PopDirectedDripsDiagTraceBroadcastFailureDevice.c)
- *     PopDirectedDripsDiagTraceProblemDevice @ 0x14099F4EC (PopDirectedDripsDiagTraceProblemDevice.c)
+ *     PopDirectedDripsDiagTraceBroadcastFailureDevice @ 0x1408F805C (PopDirectedDripsDiagTraceBroadcastFailureDevice.c)
+ *     PopDirectedDripsDiagTraceProblemDevice @ 0x1408F83DC (PopDirectedDripsDiagTraceProblemDevice.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PopDirectedDripsDiagInsertErrorRecord(__int64 a1, __int64 a2, int a3)
+_QWORD *__fastcall PopDirectedDripsDiagInsertErrorRecord(__int64 a1, __int64 a2, int a3)
 {
   __int64 *v3; // rbx
-  __int64 v5; // rcx
-  __int64 result; // rax
+  __int64 *i; // rcx
+  _QWORD *result; // rax
 
   v3 = (__int64 *)(a1 + 24);
-  v5 = *(_QWORD *)(a1 + 24);
-  if ( !v5 )
-    goto LABEL_6;
-  do
+  for ( i = *(__int64 **)(a1 + 24); i; i = (__int64 *)*i )
   {
-    if ( *(_QWORD *)(v5 + 8) == a2 && *(_DWORD *)(v5 + 16) == a3 )
+    if ( i[1] == a2 && *((_DWORD *)i + 4) == a3 )
       break;
-    v3 = (__int64 *)v5;
-    v5 = *(_QWORD *)v5;
+    v3 = i;
   }
-  while ( v5 );
-  result = *v3;
+  result = (_QWORD *)*v3;
   if ( !*v3 )
   {
-LABEL_6:
-    result = ExAllocatePool2(256LL, 24LL, 1734960208LL);
-    *v3 = result;
+    result = ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x67696450u);
+    *v3 = (__int64)result;
     if ( !result )
       return result;
-    *(_QWORD *)(result + 8) = a2;
+    *(_OWORD *)result = 0LL;
+    result[2] = 0LL;
+    *(_QWORD *)(*v3 + 8) = a2;
     *(_DWORD *)(*v3 + 16) = a3;
-    result = *v3;
+    result = (_QWORD *)*v3;
   }
-  ++*(_DWORD *)(result + 20);
+  ++*((_DWORD *)result + 5);
   return result;
 }

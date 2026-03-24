@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceSleepStudyStop @ 0x1408742D8
+ * XREFs of PopDiagTraceSleepStudyStop @ 0x1408742B8
  * Callers:
- *     PopWdiTimerWorkerThread @ 0x1402E2D10 (PopWdiTimerWorkerThread.c)
+ *     PopWdiTimerWorkerThread @ 0x1402E2E10 (PopWdiTimerWorkerThread.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void PopDiagTraceSleepStudyStop()
@@ -81,34 +81,34 @@ void PopDiagTraceSleepStudyStop()
     if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SPM_SCENARIO_STOP) )
     {
       *(_QWORD *)&UserData.Size = 4LL;
-      v1 = byte_1404165DC & 1;
+      v1 = byte_140410ADC & 1;
       v9 = 8LL;
-      v3 = byte_1404165DD & 1;
-      v2 = ((unsigned __int8)byte_1404165DD >> 1) & 1;
-      v5 = (unsigned __int8)byte_14041662C;
-      v6 = (unsigned __int8)byte_14041660C;
+      v3 = byte_140410ADD & 1;
+      v2 = ((unsigned __int8)byte_140410ADD >> 1) & 1;
+      v5 = (unsigned __int8)byte_140410B2C;
+      v6 = (unsigned __int8)byte_140410B0C;
       UserData.Ptr = (ULONGLONG)&PopWdiScenarioStopEventData;
-      v8 = &unk_140416588;
+      v8 = &unk_140410A88;
       v10 = &v1;
-      v12 = &unk_1404165E0;
-      v14 = &unk_1404165E8;
-      v16 = &unk_1404165F0;
-      v18 = &unk_140416580;
-      v20 = &unk_14041657C;
-      v22 = &unk_1404165C0;
-      v24 = &unk_140416600;
-      v26 = &unk_140416578;
-      v28 = &unk_1404165B8;
-      v30 = &unk_1404165D8;
+      v12 = &unk_140410AE0;
+      v14 = &unk_140410AE8;
+      v16 = &unk_140410AF0;
+      v18 = &unk_140410A80;
+      v20 = &unk_140410A7C;
+      v22 = &unk_140410AC0;
+      v24 = &unk_140410B00;
+      v26 = &unk_140410A78;
+      v28 = &unk_140410AB8;
+      v30 = &unk_140410AD8;
       v32 = &v2;
       v34 = &v3;
-      v36 = &unk_1404165C8;
+      v36 = &unk_140410AC8;
       v38 = &v4;
-      v40 = &unk_140416604;
-      v42 = &unk_140416608;
-      v44 = &unk_140416610;
-      v46 = &unk_140416614;
-      v4 = ((unsigned __int8)byte_1404165DD >> 2) & 1;
+      v40 = &unk_140410B04;
+      v42 = &unk_140410B08;
+      v44 = &unk_140410B10;
+      v46 = &unk_140410B14;
+      v4 = ((unsigned __int8)byte_140410ADD >> 2) & 1;
       v11 = 4LL;
       v13 = 8LL;
       v15 = 8LL;
@@ -128,17 +128,17 @@ void PopDiagTraceSleepStudyStop()
       v43 = 4LL;
       v45 = 4LL;
       v47 = 4LL;
-      v48 = &unk_140416618;
+      v48 = &unk_140410B18;
       v49 = 4LL;
-      v50 = &unk_140416568;
+      v50 = &unk_140410A68;
       v51 = 4LL;
-      v52 = &unk_140416570;
+      v52 = &unk_140410A70;
       v53 = 8LL;
-      v54 = &unk_140416628;
+      v54 = &unk_140410B28;
       v55 = 4LL;
       v56 = &v5;
-      v58 = &unk_140416630;
-      v60 = &unk_140416634;
+      v58 = &unk_140410B30;
+      v60 = &unk_140410B34;
       v62 = &v6;
       v57 = 4LL;
       v59 = 4LL;

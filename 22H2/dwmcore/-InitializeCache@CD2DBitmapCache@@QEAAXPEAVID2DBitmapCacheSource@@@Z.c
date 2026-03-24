@@ -1,53 +1,69 @@
 /*
- * XREFs of ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x1800343F8
+ * XREFs of ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x180068DD4
  * Callers:
- *     ?UpdateAttributes@CDxHandleBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x180014AB0 (-UpdateAttributes@CDxHandleBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z.c)
- *     ?ResetBitmapCache@CRenderTargetBitmap@@IEAAXXZ @ 0x18003433C (-ResetBitmapCache@CRenderTargetBitmap@@IEAAXXZ.c)
- *     ?EnsureD2DBitmap@CDxHandleBitmapRealization@@MEAAJXZ @ 0x18003BBC0 (-EnsureD2DBitmap@CDxHandleBitmapRealization@@MEAAJXZ.c)
- *     ?ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ @ 0x18003C9E4 (-ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ.c)
- *     ?Initialize@CRenderTargetBitmap@@IEAAXPEAVIDeviceTarget@@@Z @ 0x18003D468 (-Initialize@CRenderTargetBitmap@@IEAAXPEAVIDeviceTarget@@@Z.c)
- *     ?EnsureBitmapCacheSource@CSectionBitmapRealization@@MEAAJXZ @ 0x1800A5EA0 (-EnsureBitmapCacheSource@CSectionBitmapRealization@@MEAAJXZ.c)
- *     ?Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z @ 0x1800A6A7C (-Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z.c)
- *     ?Initialize@CColorKeyBitmapRealization@@IEAAJPEAVIBitmapRealization@@AEBVCColorKey@@@Z @ 0x1802B089C (-Initialize@CColorKeyBitmapRealization@@IEAAJPEAVIBitmapRealization@@AEBVCColorKey@@@Z.c)
- *     ?EnsureBitmapCacheSource@CGDISubSectionBitmapRealization@@EEAAJXZ @ 0x1802B0E80 (-EnsureBitmapCacheSource@CGDISubSectionBitmapRealization@@EEAAJXZ.c)
- *     ?ReleaseD2DBitmap@CDxHandleBitmapRealization@@MEAAXXZ @ 0x1802B2E20 (-ReleaseD2DBitmap@CDxHandleBitmapRealization@@MEAAXXZ.c)
- *     ?EnsureD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAJXZ @ 0x1802B3310 (-EnsureD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAJXZ.c)
- *     ?ReleaseD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAXXZ @ 0x1802B35E0 (-ReleaseD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAXXZ.c)
- *     ?UpdateAttributes@CDxHandleStereoBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x1802B3640 (-UpdateAttributes@CDxHandleStereoBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z.c)
+ *     ?UpdateAttributes@CDxHandleBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x180016EC0 (-UpdateAttributes@CDxHandleBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z.c)
+ *     ?EnsureD2DBitmap@CDxHandleBitmapRealization@@MEAAJXZ @ 0x180039A00 (-EnsureD2DBitmap@CDxHandleBitmapRealization@@MEAAJXZ.c)
+ *     ?Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z @ 0x18003D1E8 (-Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z.c)
+ *     ?Initialize@CRenderTargetBitmap@@IEAAXPEAVIDeviceTarget@@@Z @ 0x180040EA4 (-Initialize@CRenderTargetBitmap@@IEAAXPEAVIDeviceTarget@@@Z.c)
+ *     ?EnsureBitmapCacheSource@CSectionBitmapRealization@@MEAAJXZ @ 0x180044DF0 (-EnsureBitmapCacheSource@CSectionBitmapRealization@@MEAAJXZ.c)
+ *     ?ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ @ 0x18006158C (-ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ.c)
+ *     ?ResetBitmapCache@CRenderTargetBitmap@@IEAAXXZ @ 0x1800656E0 (-ResetBitmapCache@CRenderTargetBitmap@@IEAAXXZ.c)
+ *     ?Initialize@CColorKeyBitmapRealization@@IEAAJPEAVIBitmapRealization@@AEBVCColorKey@@@Z @ 0x1802627F8 (-Initialize@CColorKeyBitmapRealization@@IEAAJPEAVIBitmapRealization@@AEBVCColorKey@@@Z.c)
+ *     ?EnsureBitmapCacheSource@CGDISubSectionBitmapRealization@@EEAAJXZ @ 0x180262D90 (-EnsureBitmapCacheSource@CGDISubSectionBitmapRealization@@EEAAJXZ.c)
+ *     ?ReleaseD2DBitmap@CDxHandleBitmapRealization@@MEAAXXZ @ 0x180264720 (-ReleaseD2DBitmap@CDxHandleBitmapRealization@@MEAAXXZ.c)
+ *     ?EnsureD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAJXZ @ 0x180264BF0 (-EnsureD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAJXZ.c)
+ *     ?ReleaseD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAXXZ @ 0x180264EC0 (-ReleaseD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAXXZ.c)
+ *     ?UpdateAttributes@CDxHandleStereoBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x180264F10 (-UpdateAttributes@CDxHandleStereoBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z.c)
  * Callees:
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E9DB4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ??1CCachedBitmap@CD2DBitmapCache@@QEAA@XZ @ 0x1800F9A30 (--1CCachedBitmap@CD2DBitmapCache@@QEAA@XZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@VID2DBitmapCacheSource@@@@IEAAKXZ @ 0x180100D40 (-InternalRelease@-$CMILRefCountBaseT@VID2DBitmapCacheSource@@@@IEAAKXZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ?RemoveResourceNotifier@CD2DResource@@UEAAXPEBVIDeviceResourceNotify@@@Z @ 0x180048078 (-RemoveResourceNotifier@CD2DResource@@UEAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?reset@?$com_ptr_t@VIGDIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800CB860 (-reset@-$com_ptr_t@VIGDIBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CD2DBitmapCache::InitializeCache(CD2DBitmapCache *this, struct ID2DBitmapCacheSource *a2)
 {
-  CD2DBitmapCache::CCachedBitmap **v2; // r14
-  CD2DBitmapCache::CCachedBitmap **i; // rdi
+  const struct IDeviceResourceNotify ***v2; // r14
+  const struct IDeviceResourceNotify ***v4; // rdi
   __int64 v6; // rdi
   char *v7; // rcx
-  __int64 v8; // rcx
-  __int64 v9; // rcx
-  bool v10; // zf
-  void (__fastcall ***v11)(_QWORD, GUID *, char *); // rcx
-  int (__fastcall ***v12)(_QWORD, GUID *, __int64 *); // rcx
-  CD2DBitmapCache::CCachedBitmap *v13; // rbp
-  __int64 v14; // rcx
-  __int64 v15; // [rsp+40h] [rbp+8h] BYREF
+  CRenderTargetBitmap *v8; // rcx
+  bool v9; // zf
+  void (__fastcall ***v10)(_QWORD, GUID *, char *); // rcx
+  int (__fastcall ***v11)(_QWORD, GUID *, __int64 *); // rcx
+  __int64 v12; // rcx
+  const struct IDeviceResourceNotify **v13; // rsi
+  const struct IDeviceResourceNotify *v14; // rcx
+  CRenderTargetBitmap *v15; // rcx
+  __int64 v16; // rcx
+  __int64 v17; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = (CD2DBitmapCache::CCachedBitmap **)*((_QWORD *)this + 7);
-  for ( i = (CD2DBitmapCache::CCachedBitmap **)*((_QWORD *)this + 6); i != v2; ++i )
+  v2 = (const struct IDeviceResourceNotify ***)*((_QWORD *)this + 7);
+  v4 = (const struct IDeviceResourceNotify ***)*((_QWORD *)this + 6);
+  if ( v4 != v2 )
   {
-    v13 = *i;
-    if ( *i )
+    do
     {
-      CD2DBitmapCache::CCachedBitmap::~CCachedBitmap(*i);
-      operator delete(v13, 0x10uLL);
+      v13 = *v4;
+      if ( *v4 )
+      {
+        v14 = v13[1];
+        if ( v14 )
+        {
+          CD2DResource::RemoveResourceNotifier((const struct IDeviceResourceNotify *)((char *)v14 + 104), *v13);
+          v15 = v13[1];
+          if ( v15 )
+            CRenderTargetBitmap::Release(v15);
+        }
+        operator delete(v13);
+      }
+      ++v4;
     }
+    while ( v4 != v2 );
+    v4 = (const struct IDeviceResourceNotify ***)*((_QWORD *)this + 6);
   }
-  *((_QWORD *)this + 7) = *((_QWORD *)this + 6);
+  *((_QWORD *)this + 7) = v4;
   v6 = *((_QWORD *)this + 3);
   *((_QWORD *)this + 3) = a2;
   if ( a2 )
@@ -57,35 +73,35 @@ void __fastcall CD2DBitmapCache::InitializeCache(CD2DBitmapCache *this, struct I
   }
   if ( v6 )
   {
-    v8 = v6 + *(int *)(*(_QWORD *)(v6 + 8) + 4LL) + 8LL;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
+    v12 = v6 + *(int *)(*(_QWORD *)(v6 + 8) + 4LL) + 8LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
   }
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset((char *)this + 32);
-  v9 = *((_QWORD *)this + 5);
+  wil::com_ptr_t<IGDIBitmapRealization,wil::err_returncode_policy>::reset((char *)this + 32);
+  v8 = (CRenderTargetBitmap *)*((_QWORD *)this + 5);
   *((_QWORD *)this + 5) = 0LL;
-  if ( v9 )
-    CMILRefCountBaseT<ID2DBitmapCacheSource>::InternalRelease();
-  v10 = *((_QWORD *)this + 3) == 0LL;
+  if ( v8 )
+    CRenderTargetBitmap::Release(v8);
+  v9 = *((_QWORD *)this + 3) == 0LL;
   *((_BYTE *)this + 72) = 0;
-  if ( !v10 )
+  if ( !v9 )
   {
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset((char *)this + 32);
-    v11 = (void (__fastcall ***)(_QWORD, GUID *, char *))(*((_QWORD *)this + 3)
+    wil::com_ptr_t<IGDIBitmapRealization,wil::err_returncode_policy>::reset((char *)this + 32);
+    v10 = (void (__fastcall ***)(_QWORD, GUID *, char *))(*((_QWORD *)this + 3)
                                                         + 8LL
                                                         + *(int *)(*(_QWORD *)(*((_QWORD *)this + 3) + 8LL) + 4LL));
-    (**v11)(v11, &GUID_2ad9614d_1773_4f18_a5cb_cc0143d41bd5, (char *)this + 32);
+    (**v10)(v10, &GUID_2ad9614d_1773_4f18_a5cb_cc0143d41bd5, (char *)this + 32);
     if ( !(*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)this + 3) + 40LL))(*((_QWORD *)this + 3)) )
     {
-      v15 = 0LL;
-      v12 = (int (__fastcall ***)(_QWORD, GUID *, __int64 *))(*((_QWORD *)this + 3)
+      v17 = 0LL;
+      v11 = (int (__fastcall ***)(_QWORD, GUID *, __int64 *))(*((_QWORD *)this + 3)
                                                             + 8LL
                                                             + *(int *)(*(_QWORD *)(*((_QWORD *)this + 3) + 8LL) + 4LL));
-      if ( (**v12)(v12, &IID_IWICDecoderBitmapSource, &v15) >= 0 )
+      if ( (**v11)(v11, &IID_IWICDecoderBitmapSource, &v17) >= 0 )
       {
-        v14 = v15;
+        v16 = v17;
         *((_BYTE *)this + 72) = 1;
-        if ( v14 )
-          (*(void (__fastcall **)(__int64))(*(_QWORD *)v14 + 16LL))(v14);
+        if ( v16 )
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v16 + 16LL))(v16);
       }
     }
   }

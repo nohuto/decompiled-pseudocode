@@ -1,23 +1,29 @@
 /*
- * XREFs of InitializeNativeNamespace @ 0x1C0027E90
+ * XREFs of InitializeNativeNamespace @ 0x1C0023AF0
  * Callers:
- *     AMLIInitialize @ 0x1C00BCDB8 (AMLIInitialize.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
  * Callees:
- *     CreateNativeNameSpaceObject @ 0x1C0027F50 (CreateNativeNameSpaceObject.c)
- *     InsertOwnerObjList @ 0x1C0028350 (InsertOwnerObjList.c)
- *     NewNameSpaceObject @ 0x1C0028388 (NewNameSpaceObject.c)
- *     NewObjOwner @ 0x1C00285B8 (NewObjOwner.c)
+ *     CreateNativeNameSpaceObject @ 0x1C0022FC4 (CreateNativeNameSpaceObject.c)
+ *     NewObjOwner @ 0x1C0023628 (NewObjOwner.c)
+ *     NewNameSpaceObject @ 0x1C002BD38 (NewNameSpaceObject.c)
+ *     InsertOwnerObjList @ 0x1C002D368 (InsertOwnerObjList.c)
  */
 
 __int64 InitializeNativeNamespace()
 {
   __int64 v0; // rcx
   __int64 v1; // rax
-  unsigned int v2; // edi
-  __int64 v3; // rbx
-  int NativeNameSpaceObject; // eax
+  __int64 v2; // r9
+  unsigned int v3; // edi
+  __int64 v4; // rbx
+  int v5; // eax
+  __int64 v7; // [rsp+20h] [rbp-28h]
+  __int64 v8; // [rsp+28h] [rbp-20h]
+  __int64 v9; // [rsp+30h] [rbp-18h]
+  __int64 v10; // [rsp+50h] [rbp+8h] BYREF
 
-  LODWORD(v0) = NewObjOwner(gpheapGlobal, &gpNativeNameSpaceOwner);
+  v10 = 0LL;
+  LODWORD(v0) = NewObjOwner((struct _SLIST_ENTRY *)gpheapGlobal, (struct _EX_RUNDOWN_REF **)&gpNativeNameSpaceOwner);
   if ( (int)v0 >= 0 )
   {
     v1 = NewNameSpaceObject(gpheapGlobal);
@@ -26,19 +32,19 @@ __int64 InitializeNativeNamespace()
     {
       *(_DWORD *)(v1 + 40) = 1600085852;
       InsertOwnerObjList(gpNativeNameSpaceOwner, v1);
-      v2 = 0;
-      v3 = 0LL;
+      v3 = 0;
+      v4 = 0LL;
       do
       {
-        NativeNameSpaceObject = CreateNativeNameSpaceObject(v0, (&apszDefinedRootObjs)[v3], 0LL);
-        v0 = (unsigned int)NativeNameSpaceObject;
-        if ( NativeNameSpaceObject < 0 )
+        v5 = CreateNativeNameSpaceObject(v0, (&apszDefinedRootObjs)[v4], 0LL, v2, v7, v8, v9, &v10);
+        v0 = (unsigned int)v5;
+        if ( v5 < 0 )
           break;
-        ++v2;
-        *(_QWORD *)((char *)&AmliNativePreDefinedRootObjects + v3 * 8) = 0LL;
         ++v3;
+        *(_QWORD *)((char *)&AmliNativePreDefinedRootObjects + v4 * 8) = v10;
+        ++v4;
       }
-      while ( v2 < 5 );
+      while ( v3 < 5 );
     }
     else
     {

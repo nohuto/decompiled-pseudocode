@@ -1,14 +1,13 @@
 /*
- * XREFs of ?DxgkCaptureAcquireSynchronization@@YAJPEBU_DEVICE_OBJECT@@@Z @ 0x1C02DB1D0
+ * XREFs of ?DxgkCaptureAcquireSynchronization@@YAJPEBU_DEVICE_OBJECT@@@Z @ 0x1C022BFF0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z @ 0x1C000B800 (-AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C01B468C (-AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
- *     ?AcquireDeviceLockForAllDevices@DXGPROCESS@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C021B3CC (-AcquireDeviceLockForAllDevices@DXGPROCESS@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     DpiGetDxgAdapterFromChild @ 0x1C0387348 (DpiGetDxgAdapterFromChild.c)
+ *     ?AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z @ 0x1C0003ED0 (-AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C0121BB4 (-AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
+ *     ?AcquireDeviceLockForAllDevices@DXGPROCESS@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0283F8C (-AcquireDeviceLockForAllDevices@DXGPROCESS@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     DpiGetDxgAdapterFromChild @ 0x1C02C6820 (DpiGetDxgAdapterFromChild.c)
  */
 
 __int64 __fastcall DxgkCaptureAcquireSynchronization(struct _DEVICE_OBJECT *a1)
@@ -16,59 +15,38 @@ __int64 __fastcall DxgkCaptureAcquireSynchronization(struct _DEVICE_OBJECT *a1)
   int DxgAdapterFromChild; // eax
   __int64 v2; // rdx
   __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 v6; // rdi
+  __int64 v4; // rbx
+  __int64 v5; // rax
   struct DXGPROCESS *Current; // rax
-  struct _KTHREAD **v9; // rdi
-  char *v10; // rbx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  DXGPROCESS *v10; // rdi
+  char *v11; // rbx
 
   DxgAdapterFromChild = DpiGetDxgAdapterFromChild(a1);
-  v6 = DxgAdapterFromChild;
-  if ( DxgAdapterFromChild >= 0 )
+  v4 = DxgAdapterFromChild;
+  if ( DxgAdapterFromChild < 0 )
   {
-    Current = DXGPROCESS::GetCurrent(v3, v2, v4, v5);
-    v9 = (struct _KTHREAD **)Current;
-    if ( Current )
-    {
-      v10 = (char *)Current + 216;
-      KeEnterCriticalRegion();
-      ExAcquirePushLockExclusiveEx(v10, 0LL);
-      *((_QWORD *)v10 + 1) = KeGetCurrentThread();
-      DXGPROCESS::AcquireDeviceLockForAllDevices(v9, 0LL);
-      DXGADAPTER::AcquireCoreSync(0LL, 1);
-      DXGADAPTER::AcquireDdiSync(0LL, 1);
-      return 0LL;
-    }
-    else
-    {
-      WdLogSingleEntry1(2LL, -1073741811LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Invalid process context, returning 0x%I64x",
-        -1073741811LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      return 3221225485LL;
-    }
+    v5 = WdLogNewEntry5_WdError(v3, v2);
+LABEL_3:
+    *(_QWORD *)(v5 + 24) = v4;
+    WdLogEvent5_WdError(v5);
+    return (unsigned int)v4;
   }
-  else
+  Current = DXGPROCESS::GetCurrent(v3, v2);
+  v10 = Current;
+  if ( !Current )
   {
-    WdLogSingleEntry1(2LL, DxgAdapterFromChild);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"DpiGetDxgAdapterFromChild failed in DxgkCaptureSynchronize, returning 0x%I64x",
-      v6,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return (unsigned int)v6;
+    v5 = WdLogNewEntry5_WdError(v9, v8);
+    v4 = -1073741811LL;
+    goto LABEL_3;
   }
+  v11 = (char *)Current + 176;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockExclusiveEx(v11, 0LL);
+  *((_QWORD *)v11 + 1) = KeGetCurrentThread();
+  DXGPROCESS::AcquireDeviceLockForAllDevices(v10, 0LL);
+  DXGADAPTER::AcquireCoreSync(0LL, 1);
+  DXGADAPTER::AcquireDdiSync(0LL, 1);
+  return 0LL;
 }

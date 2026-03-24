@@ -1,9 +1,9 @@
 /*
- * XREFs of PiProcessHaltDevice @ 0x140947864
+ * XREFs of PiProcessHaltDevice @ 0x1408A265C
  * Callers:
- *     PnpDeviceActionWorker @ 0x1402DD320 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
  * Callees:
- *     PnpRequestDeviceRemoval @ 0x140765430 (PnpRequestDeviceRemoval.c)
+ *     PnpRequestDeviceRemoval @ 0x140736688 (PnpRequestDeviceRemoval.c)
  */
 
 __int64 __fastcall PiProcessHaltDevice(__int64 a1)
@@ -14,14 +14,14 @@ __int64 __fastcall PiProcessHaltDevice(__int64 a1)
 
   v2 = *(_DWORD **)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 312LL) + 40LL);
   v3 = v2[75];
-  if ( (unsigned int)(v3 - 789) <= 1 )
+  if ( (unsigned int)(v3 - 787) <= 1 )
     return 3221225558LL;
   if ( (*(_DWORD *)(a1 + 32) & 0xFFFFFFFE) != 0 )
     return 3221225712LL;
   v5 = v2[99];
   if ( (v5 & 0x1001) != 0 || (v5 & 1) == 0 && v2[150] )
     return 3221225488LL;
-  if ( v3 != 778 )
+  if ( v3 != 776 )
     return 3221225860LL;
   PnpRequestDeviceRemoval((__int64)v2, 0, 44, 0);
   return 0LL;

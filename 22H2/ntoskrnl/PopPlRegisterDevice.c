@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPlRegisterDevice @ 0x140395974
+ * XREFs of PopPlRegisterDevice @ 0x1403BDFE8
  * Callers:
- *     PopPlRegisterDeviceIterator @ 0x1405A1790 (PopPlRegisterDeviceIterator.c)
- *     PopFxRegisterDeviceWorker @ 0x1408381FC (PopFxRegisterDeviceWorker.c)
+ *     PopPlRegisterDeviceIterator @ 0x14057E7D0 (PopPlRegisterDeviceIterator.c)
+ *     PopFxRegisterDeviceWorker @ 0x1407B531C (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x140367920 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopPlLookupDevicePowerProfile @ 0x1405A13D4 (PopPlLookupDevicePowerProfile.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14032C1BC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PopPlLookupDevicePowerProfile @ 0x14057E468 (PopPlLookupDevicePowerProfile.c)
  */
 
 bool __fastcall PopPlRegisterDevice(__int64 a1, __int64 a2, __int64 a3)
 {
-  bool v4; // zf
+  bool v5; // zf
   __int64 v6; // rax
   int v7; // [rsp+20h] [rbp-59h]
   int v8; // [rsp+28h] [rbp-51h]
@@ -43,7 +43,7 @@ bool __fastcall PopPlRegisterDevice(__int64 a1, __int64 a2, __int64 a3)
       *(_QWORD *)(a1 + 1184) = v6;
     }
   }
-  if ( (unsigned int)dword_140C03950 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
     v15 = 0;
     v18 = 0;
@@ -52,19 +52,19 @@ bool __fastcall PopPlRegisterDevice(__int64 a1, __int64 a2, __int64 a3)
     v16 = v20;
     v19 = *(_QWORD *)(a1 + 224);
     v20[0] = *(unsigned __int16 *)(a1 + 216);
-    v4 = *(_QWORD *)(a1 + 1184) == 0LL;
+    v5 = *(_QWORD *)(a1 + 1184) == 0LL;
     v14 = 2;
     v17 = 2;
     v23 = 0;
     v26 = 0;
-    v10 = !v4;
+    v10 = !v5;
     v21 = &v10;
     v11 = *(_DWORD *)(a1 + 828);
     v24 = &v11;
     v22 = 4;
     v25 = 4;
     v9 = 1;
-    tlgWriteEx_EtwWriteEx((__int64)&dword_140C03950, (unsigned __int8 *)&byte_1400322DB, a3, 1u, v7, v8, 7u, &v12);
+    tlgWriteEx_EtwWriteEx((__int64)&dword_140C02228, (unsigned __int8 *)&word_14002A65E, a3, 1u, v7, v8, 7u, &v12);
   }
   return *(_QWORD *)(a1 + 1184) != 0LL;
 }

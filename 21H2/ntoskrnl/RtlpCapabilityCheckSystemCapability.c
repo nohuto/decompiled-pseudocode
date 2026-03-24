@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpCapabilityCheckSystemCapability @ 0x140660EF4
+ * XREFs of RtlpCapabilityCheckSystemCapability @ 0x140913C6C
  * Callers:
- *     RtlCapabilityCheck @ 0x140660AF0 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x140913350 (RtlCapabilityCheck.c)
  * Callees:
- *     RtlCheckTokenMembershipEx @ 0x1402E0CA0 (RtlCheckTokenMembershipEx.c)
- *     RtlSubAuthoritySid @ 0x1402EF430 (RtlSubAuthoritySid.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlpGetPolicyValueForSystemCapability @ 0x140660F7C (RtlpGetPolicyValueForSystemCapability.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlInitializeSid @ 0x14078DDC0 (RtlInitializeSid.c)
- *     RtlCompareUnicodeString @ 0x1407CAA80 (RtlCompareUnicodeString.c)
- *     RtlpIsAppContainer @ 0x1409BA210 (RtlpIsAppContainer.c)
+ *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
+ *     RtlCheckTokenMembershipEx @ 0x14027F450 (RtlCheckTokenMembershipEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
+ *     RtlpGetPolicyValueForSystemCapability @ 0x140914354 (RtlpGetPolicyValueForSystemCapability.c)
+ *     RtlpIsAppContainer @ 0x140914C28 (RtlpIsAppContainer.c)
  */
 
 __int64 __fastcall RtlpCapabilityCheckSystemCapability(HANDLE ExistingTokenHandle, PCUNICODE_STRING Source, _BYTE *a3)
@@ -20,15 +20,15 @@ __int64 __fastcall RtlpCapabilityCheckSystemCapability(HANDLE ExistingTokenHandl
   char v8; // [rsp+20h] [rbp-40h] BYREF
   _BYTE v9[3]; // [rsp+21h] [rbp-3Fh] BYREF
   struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+24h] [rbp-3Ch] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-30h] BYREF
+  UNICODE_STRING String1; // [rsp+30h] [rbp-30h] BYREF
   _BYTE Sid[16]; // [rsp+40h] [rbp-20h] BYREF
 
   *(_DWORD *)IdentifierAuthority.Value = 0;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   v8 = 0;
   v9[0] = 0;
-  UnicodeString = 0LL;
-  PolicyValueForSystemCapability = RtlpGetPolicyValueForSystemCapability(Source, &UnicodeString);
+  String1 = 0LL;
+  PolicyValueForSystemCapability = RtlpGetPolicyValueForSystemCapability(Source, &String1);
   IsAppContainer = PolicyValueForSystemCapability;
   if ( PolicyValueForSystemCapability == -1073741772 )
   {
@@ -39,12 +39,12 @@ __int64 __fastcall RtlpCapabilityCheckSystemCapability(HANDLE ExistingTokenHandl
     *a3 = 0;
     if ( PolicyValueForSystemCapability >= 0 )
     {
-      if ( RtlCompareUnicodeString(&UnicodeString, &stru_14000A7D8, 0) )
+      if ( RtlCompareUnicodeString(&String1, &stru_140009A68, 0) )
       {
-        if ( RtlCompareUnicodeString(&UnicodeString, &stru_14000A7C8, 0) )
+        if ( RtlCompareUnicodeString(&String1, &stru_140009A48, 0) )
         {
           IsAppContainer = -1073741823;
-          goto LABEL_3;
+          goto LABEL_14;
         }
         RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
         *RtlSubAuthoritySid(Sid, 0) = 4;
@@ -70,7 +70,7 @@ __int64 __fastcall RtlpCapabilityCheckSystemCapability(HANDLE ExistingTokenHandl
       }
     }
   }
-LABEL_3:
-  RtlFreeUnicodeString(&UnicodeString);
+LABEL_14:
+  RtlFreeAnsiString(&String1);
   return (unsigned int)IsAppContainer;
 }

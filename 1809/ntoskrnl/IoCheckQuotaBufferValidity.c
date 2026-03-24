@@ -1,7 +1,7 @@
 /*
- * XREFs of IoCheckQuotaBufferValidity @ 0x14081BF60
+ * XREFs of IoCheckQuotaBufferValidity @ 0x14081BF40
  * Callers:
- *     IopSetEaOrQuotaInformationFile @ 0x14081AC5C (IopSetEaOrQuotaInformationFile.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x14081AC3C (IopSetEaOrQuotaInformationFile.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
  *     RtlValidSid @ 0x140631570 (RtlValidSid.c)

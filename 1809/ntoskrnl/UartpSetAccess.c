@@ -1,7 +1,7 @@
 /*
- * XREFs of UartpSetAccess @ 0x14032DC7C
+ * XREFs of UartpSetAccess @ 0x14032DD7C
  * Callers:
- *     Uart16550InitializePortCommon @ 0x14032D0D4 (Uart16550InitializePortCommon.c)
+ *     Uart16550InitializePortCommon @ 0x14032D1D4 (Uart16550InitializePortCommon.c)
  * Callees:
  *     <none>
  */

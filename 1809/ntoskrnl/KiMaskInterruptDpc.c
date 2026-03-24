@@ -1,10 +1,10 @@
 /*
- * XREFs of KiMaskInterruptDpc @ 0x140295010
+ * XREFs of KiMaskInterruptDpc @ 0x140295110
  * Callers:
  *     <none>
  * Callees:
- *     KiMaskInterruptInternal @ 0x14016D390 (KiMaskInterruptInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiMaskInterruptInternal @ 0x14016D3B0 (KiMaskInterruptInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiMaskInterruptDpc(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

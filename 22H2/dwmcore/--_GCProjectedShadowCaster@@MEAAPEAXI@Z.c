@@ -1,11 +1,11 @@
 /*
- * XREFs of ??_GCProjectedShadowCaster@@MEAAPEAXI@Z @ 0x180004390
+ * XREFs of ??_GCProjectedShadowCaster@@MEAAPEAXI@Z @ 0x1801E3EB0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CProjectedShadowCaster@@MEAA@XZ @ 0x180007640 (--1CProjectedShadowCaster@@MEAA@XZ.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801051B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1B00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     ??1CProjectedShadowCaster@@MEAA@XZ @ 0x1801E3DC0 (--1CProjectedShadowCaster@@MEAA@XZ.c)
  */
 
 CProjectedShadowCaster *__fastcall CProjectedShadowCaster::`scalar deleting destructor'(
@@ -16,7 +16,7 @@ CProjectedShadowCaster *__fastcall CProjectedShadowCaster::`scalar deleting dest
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this, 0x88uLL);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x80);
     else
       operator delete(this);
   }

@@ -1,18 +1,18 @@
 /*
  * XREFs of RtlAddAtomToAtomTableEx @ 0x1400895B0
  * Callers:
- *     NtAddAtomEx @ 0x1406AC980 (NtAddAtomEx.c)
- *     RtlAddAtomToAtomTable @ 0x1406C9830 (RtlAddAtomToAtomTable.c)
+ *     NtAddAtomEx @ 0x1406AC960 (NtAddAtomEx.c)
+ *     RtlAddAtomToAtomTable @ 0x1406C9810 (RtlAddAtomToAtomTable.c)
  * Callees:
  *     RtlpReferenceAtom @ 0x140089838 (RtlpReferenceAtom.c)
- *     RtlpAllocateAtomTableEntry @ 0x1400FD1BC (RtlpAllocateAtomTableEntry.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlpAllocateAtomTableEntry @ 0x1400FD1DC (RtlpAllocateAtomTableEntry.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     RtlGetIntegerAtom @ 0x1405F53D0 (RtlGetIntegerAtom.c)
  *     RtlpLockAtomTable @ 0x1405F547C (RtlpLockAtomTable.c)
  *     RtlpHashStringToAtom @ 0x1405F54C0 (RtlpHashStringToAtom.c)
  *     RtlpUnlockAtomTable @ 0x1405F6288 (RtlpUnlockAtomTable.c)
- *     RtlpFreeAtom @ 0x1406AD490 (RtlpFreeAtom.c)
- *     RtlpInsertStringAtom @ 0x1406B741C (RtlpInsertStringAtom.c)
+ *     RtlpFreeAtom @ 0x1406AD470 (RtlpFreeAtom.c)
+ *     RtlpInsertStringAtom @ 0x1406B73FC (RtlpInsertStringAtom.c)
  */
 
 __int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, _WORD *a2, _WORD *a3, unsigned int a4)

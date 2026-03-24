@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpApicReplayLocalInterrupts @ 0x140532AB0
+ * XREFs of HalpApicReplayLocalInterrupts @ 0x1404E5020
  * Callers:
  *     <none>
  * Callees:
- *     HalpApicReplaySendSelfIpi @ 0x140532B40 (HalpApicReplaySendSelfIpi.c)
+ *     HalpApicReplaySendSelfIpi @ 0x1404E50B0 (HalpApicReplaySendSelfIpi.c)
  */
 
 __int64 __fastcall HalpApicReplayLocalInterrupts(__int64 a1, __int64 a2)

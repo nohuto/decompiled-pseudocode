@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SortRegisteredDevices@@YAXPEAUtagRAWINPUTDEVICE@@H@Z @ 0x1C01D0D04
+ * XREFs of ?SortRegisteredDevices@@YAXPEAUtagRAWINPUTDEVICE@@H@Z @ 0x1C01D51E0
  * Callers:
- *     _GetRegisteredRawInputDevices @ 0x1C01D134C (_GetRegisteredRawInputDevices.c)
+ *     _GetRegisteredRawInputDevices @ 0x1C01D588C (_GetRegisteredRawInputDevices.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@ void __fastcall SortRegisteredDevices(struct tagRAWINPUTDEVICE *a1, int a2)
 {
   __int64 v2; // r9
   int v3; // r8d
-  signed int v4; // edx
+  int v4; // edx
   __int64 v5; // rbp
   __int64 v6; // rdx
   int v7; // ebx
@@ -26,7 +26,7 @@ void __fastcall SortRegisteredDevices(struct tagRAWINPUTDEVICE *a1, int a2)
   {
     v2 = a2;
     v3 = 1;
-    v4 = a2 / 9u;
+    v4 = a2 / 9;
     if ( v4 <= 1 )
       goto LABEL_5;
     do

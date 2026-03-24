@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpSetSystemBiosInformation @ 0x140B17BA4
+ * XREFs of CmpSetSystemBiosInformation @ 0x140A594A0
  * Callers:
- *     CmpInitializeMachineDependentConfiguration @ 0x140B17304 (CmpInitializeMachineDependentConfiguration.c)
+ *     CmpInitializeMachineDependentConfiguration @ 0x140A58C04 (CmpInitializeMachineDependentConfiguration.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402A07B0 (RtlInitAnsiString.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwMapViewOfSection @ 0x14041BC60 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x14041BCA0 (ZwUnmapViewOfSection.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
- *     RtlCompareUnicodeString @ 0x1407CAA80 (RtlCompareUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
- *     CmpGetBiosVersion @ 0x140B17EC4 (CmpGetBiosVersion.c)
- *     CmpGetBiosDate @ 0x140B18084 (CmpGetBiosDate.c)
- *     CmpGetAcpiBiosVersion @ 0x140B182A0 (CmpGetAcpiBiosVersion.c)
- *     CmpGetRegistryValue @ 0x140B18330 (CmpGetRegistryValue.c)
+ *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwMapViewOfSection @ 0x1403FA8A0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1403FA8E0 (ZwUnmapViewOfSection.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmpGetBiosVersion @ 0x140A597C0 (CmpGetBiosVersion.c)
+ *     CmpGetBiosDate @ 0x140A59980 (CmpGetBiosDate.c)
+ *     CmpGetAcpiBiosVersion @ 0x140A59B9C (CmpGetAcpiBiosVersion.c)
+ *     CmpGetRegistryValue @ 0x140A59C2C (CmpGetRegistryValue.c)
  */
 
 void __fastcall CmpSetSystemBiosInformation(__int64 a1, void *a2, void *a3)
@@ -52,12 +52,12 @@ void __fastcall CmpSetSystemBiosInformation(__int64 a1, void *a2, void *a3)
   v25 = a1;
   KeyHandle = a3;
   P = 0LL;
+  *(_DWORD *)(&String2.MaximumLength + 1) = 0;
   BaseAddress = 0LL;
   ViewSize = 0x10000LL;
   SectionOffset.QuadPart = 983040LL;
   DestinationString = 0LL;
   v4 = 0;
-  String2 = 0LL;
   UnicodeString = 0LL;
   ValueName = 0LL;
   if ( ZwMapViewOfSection(
@@ -98,7 +98,7 @@ void __fastcall CmpSetSystemBiosInformation(__int64 a1, void *a2, void *a3)
             ExFreePoolWithTag(v15, 0);
           }
         }
-        RtlFreeUnicodeString(&UnicodeString);
+        RtlFreeAnsiString(&UnicodeString);
       }
     }
     LOBYTE(v7) = 1;
@@ -109,7 +109,7 @@ void __fastcall CmpSetSystemBiosInformation(__int64 a1, void *a2, void *a3)
       if ( RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 1u) >= 0 )
       {
         ZwSetValueKey(a3, &ValueName, 0, 1u, UnicodeString.Buffer, UnicodeString.Length + 2);
-        RtlFreeUnicodeString(&UnicodeString);
+        RtlFreeAnsiString(&UnicodeString);
       }
     }
     v8 = v6;
@@ -150,7 +150,7 @@ LABEL_16:
           v14 = UnicodeString.Length + 2;
           memmove(v8, UnicodeString.Buffer, v14);
           v4 += v14;
-          RtlFreeUnicodeString(&UnicodeString);
+          RtlFreeAnsiString(&UnicodeString);
           if ( (unsigned __int64)v4 + 260 > 0x1000 )
             goto LABEL_16;
           v8 = (_WORD *)((char *)v8 + v14);

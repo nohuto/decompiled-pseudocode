@@ -1,73 +1,66 @@
 /*
- * XREFs of ?TimerStatistics@@YAXPEBUtagTIMER@@@Z @ 0x1C01C05E4
+ * XREFs of ?TimerStatistics@@YAXPEBUtagTIMER@@@Z @ 0x1C010B4CC
  * Callers:
- *     ?xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z @ 0x1C01C0774 (-xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z.c)
+ *     ?xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z @ 0x1C0167FD0 (-xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 void __fastcall TimerStatistics(const struct tagTIMER *a1)
 {
-  __int64 v2; // rsi
+  __int64 v2; // rdi
   int v3; // r8d
-  unsigned int *v4; // rcx
+  const wchar_t *v4; // rcx
   unsigned int v5; // edx
   __int64 v6; // rax
   unsigned __int64 v7; // rbx
   int v8; // r10d
-  struct _TIMER_COALESCING_SPEC near **v9; // rcx
-  __int64 v10; // rdx
-  int v11; // eax
-  _DWORD *v12; // rdi
-  __int64 v13; // rbp
-  _DWORD *v14; // rax
-  __int64 v15; // rax
-  unsigned int *v16; // rax
+  __int64 v9; // rdx
+  int v10; // eax
+  int *v11; // r10
+  __int64 v12; // r11
+  __int64 v13; // rax
 
   if ( (gdwExtraInstrumentations & 2) != 0 )
   {
     v2 = 0LL;
-    v3 = dword_1C035E380;
-    v4 = (unsigned int *)&unk_1C0312ED8;
+    v3 = dword_1C033A0DC;
+    v4 = L"\n";
     v5 = *((_DWORD *)a1 + 10);
     v6 = 0LL;
     v7 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
     v8 = v7 - *((_DWORD *)a1 + 32);
-    if ( !dword_1C035E380 )
+    if ( !dword_1C033A0DC )
       v3 = v7;
-    dword_1C035E380 = v3;
+    dword_1C033A0DC = v3;
     do
     {
-      if ( v5 <= *v4 )
+      if ( v5 <= *(_DWORD *)v4 )
         break;
       v6 = (unsigned int)(v6 + 1);
-      ++v4;
+      v4 += 2;
     }
     while ( (unsigned int)v6 < 7 );
-    v9 = (struct _TIMER_COALESCING_SPEC near **)gTimerCoalCurrentState;
-    v10 = v6 + 8LL * gTimerCoalCurrentState;
-    ++gaTimerDeliveryDistribution[2 * v10];
-    v11 = v8 + gaTimerDeliveryDistribution[2 * v10 + 1] - *((_DWORD *)a1 + 10);
-    gaTimerDeliveryDistribution[2 * v10 + 1] = v11;
-    if ( gaTimerDeliveryDistribution[2 * v10] >= 0x7FFFFFFFu || v11 >= 0x3FFFFFFF || (unsigned int)(v7 - v3) >= 0xEA60 )
+    v9 = v6 + 8LL * gTimerCoalCurrentState;
+    ++gaTimerDeliveryDistribution[2 * v9];
+    v10 = v8 + gaTimerDeliveryDistribution[2 * v9 + 1] - *((_DWORD *)a1 + 10);
+    gaTimerDeliveryDistribution[2 * v9 + 1] = v10;
+    if ( gaTimerDeliveryDistribution[2 * v9] >= 0x7FFFFFFFu || v10 >= 0x3FFFFFFF || (unsigned int)(v7 - v3) >= 0xEA60 )
     {
-      v12 = &unk_1C035DC08;
-      v13 = 4LL;
+      v11 = &dword_1C0338C98;
+      v12 = 4LL;
       do
       {
-        v14 = (_DWORD *)SGDGetUserSessionState(v9);
-        v9 = &gTimerCoalescingSpec;
-        v15 = v2 + (gServiceSessionId != *v14 ? 4 : 0);
+        v13 = v2 + (gServiceSessionId != gSessionId ? 4 : 0);
         ++v2;
-        *v12 = *((_DWORD *)&gTimerCoalescingSpec + v15);
-        v12 += 16;
-        --v13;
+        *v11 = *((_DWORD *)&gTimerCoalescingSpec + v13);
+        v11 += 16;
+        --v12;
       }
-      while ( v13 );
-      v16 = (unsigned int *)SGDGetUserSessionState(&gTimerCoalescingSpec);
-      EtwTraceTimerDelayStatistics(*v16, 8LL, 4LL, &unk_1C0312ED8, 32, 8, gaTimerDeliveryDistribution);
-      dword_1C035E380 = v7;
-      memset_0(gaTimerDeliveryDistribution, 0, 0x100uLL);
+      while ( v12 );
+      EtwTraceTimerDelayStatistics((unsigned int)gSessionId, 8LL, 4LL, L"\n");
+      dword_1C033A0DC = v7;
+      memset(gaTimerDeliveryDistribution, 0, 0x100uLL);
     }
   }
 }

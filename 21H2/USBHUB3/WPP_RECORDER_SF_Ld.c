@@ -1,14 +1,14 @@
 /*
- * XREFs of WPP_RECORDER_SF_Ld @ 0x1C000C19C
+ * XREFs of WPP_RECORDER_SF_Ld @ 0x1C000BDB4
  * Callers:
- *     HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe @ 0x1C001DA00 (HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe.c)
- *     HUBUCX_UCXIoctlComplete @ 0x1C00234D0 (HUBUCX_UCXIoctlComplete.c)
- *     HUBDESC_InternalValidateSuperSpeedEndpointCompanionDescriptor @ 0x1C0034C78 (HUBDESC_InternalValidateSuperSpeedEndpointCompanionDescriptor.c)
- *     FWUPDATE_EvtIoInternalDeviceControl @ 0x1C003E270 (FWUPDATE_EvtIoInternalDeviceControl.c)
- *     GetPersistedKeyPath @ 0x1C00413EC (GetPersistedKeyPath.c)
- *     HUBFDO_IoctlGetNodeConnectionInformationExV2 @ 0x1C0077C80 (HUBFDO_IoctlGetNodeConnectionInformationExV2.c)
+ *     HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe @ 0x1C001D4C0 (HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe.c)
+ *     HUBUCX_UCXIoctlComplete @ 0x1C0023080 (HUBUCX_UCXIoctlComplete.c)
+ *     HUBDESC_InternalValidateSuperSpeedEndpointCompanionDescriptor @ 0x1C003440C (HUBDESC_InternalValidateSuperSpeedEndpointCompanionDescriptor.c)
+ *     FWUPDATE_EvtIoInternalDeviceControl @ 0x1C003DBF0 (FWUPDATE_EvtIoInternalDeviceControl.c)
+ *     GetPersistedKeyPath @ 0x1C0040800 (GetPersistedKeyPath.c)
+ *     HUBFDO_IoctlGetNodeConnectionInformationExV2 @ 0x1C00768D8 (HUBFDO_IoctlGetNodeConnectionInformationExV2.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_Ld(__int64 a1, __int64 a2, unsigned int a3, unsigned __int16 a4, __int64 a5, ...)

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtSetInformationWorkerFactory @ 0x1401060E0
+ * XREFs of NtSetInformationWorkerFactory @ 0x140106100
  * Callers:
  *     <none>
  * Callees:
@@ -8,26 +8,26 @@
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
  *     ExpLeaveWorkerFactoryAwayMode @ 0x14008DEC8 (ExpLeaveWorkerFactoryAwayMode.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeAreAllApcsDisabled @ 0x1400CAA70 (KeAreAllApcsDisabled.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1400CE200 (ExpWorkerFactoryCheckCreate.c)
- *     KeSetTimer2 @ 0x1400FC150 (KeSetTimer2.c)
- *     ExpTryEnterWorkerFactoryAwayMode @ 0x140106D68 (ExpTryEnterWorkerFactoryAwayMode.c)
- *     ExpWorkerFactoryCreateThread @ 0x140106DFC (ExpWorkerFactoryCreateThread.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x14010DFA4 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     ObpDeferObjectDeletion @ 0x140125DB0 (ObpDeferObjectDeletion.c)
- *     ExpRemoveCurrentThreadFromThreadHistory @ 0x1401298EC (ExpRemoveCurrentThreadFromThreadHistory.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290900 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1402909B8 (KiReleaseQueuedSpinLockInstrumented.c)
- *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeAreAllApcsDisabled @ 0x1400CAA90 (KeAreAllApcsDisabled.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x1400CE220 (ExpWorkerFactoryCheckCreate.c)
+ *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
+ *     ExpTryEnterWorkerFactoryAwayMode @ 0x140106D88 (ExpTryEnterWorkerFactoryAwayMode.c)
+ *     ExpWorkerFactoryCreateThread @ 0x140106E1C (ExpWorkerFactoryCreateThread.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x14010DFC4 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     ObpDeferObjectDeletion @ 0x140125DD0 (ObpDeferObjectDeletion.c)
+ *     ExpRemoveCurrentThreadFromThreadHistory @ 0x14012990C (ExpRemoveCurrentThreadFromThreadHistory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObpRemoveObjectRoutine @ 0x140645E80 (ObpRemoveObjectRoutine.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x140691B80 (ObpHandleRevocationBlockRemoveObject.c)
- *     ExSystemExceptionFilter @ 0x1406E2790 (ExSystemExceptionFilter.c)
- *     ObpDeregisterObject @ 0x140862BE0 (ObpDeregisterObject.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ObpRemoveObjectRoutine @ 0x140645E60 (ObpRemoveObjectRoutine.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x140691B60 (ObpHandleRevocationBlockRemoveObject.c)
+ *     ExSystemExceptionFilter @ 0x1406E2770 (ExSystemExceptionFilter.c)
+ *     ObpDeregisterObject @ 0x140862BC0 (ObpDeregisterObject.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall NtSetInformationWorkerFactory(HANDLE Handle, int a2, unsigned __int64 a3, int a4)

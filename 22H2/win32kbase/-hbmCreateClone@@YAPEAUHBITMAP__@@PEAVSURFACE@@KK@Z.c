@@ -1,17 +1,17 @@
 /*
- * XREFs of ?hbmCreateClone@@YAPEAUHBITMAP__@@PEAVSURFACE@@KK@Z @ 0x1C005E63C
+ * XREFs of ?hbmCreateClone@@YAPEAUHBITMAP__@@PEAVSURFACE@@KK@Z @ 0x1C001D420
  * Callers:
- *     GreCreatePatternBrushInternal @ 0x1C005E410 (GreCreatePatternBrushInternal.c)
+ *     GreCreatePatternBrushInternal @ 0x1C001CEC0 (GreCreatePatternBrushInternal.c)
  * Callees:
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C00428F0 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
- *     ??1SURFMEM@@QEAA@XZ @ 0x1C0046370 (--1SURFMEM@@QEAA@XZ.c)
- *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C005ED70 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
- *     ?vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C0089E50 (-vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z.c)
- *     ?vUnlock@NEEDGRELOCK@@QEAAXXZ @ 0x1C009AE60 (-vUnlock@NEEDGRELOCK@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C0011010 (-vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z.c)
+ *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C0027C60 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
+ *     ??1SURFMEM@@QEAA@XZ @ 0x1C0031B30 (--1SURFMEM@@QEAA@XZ.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007EE00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     ?vUnlock@NEEDGRELOCK@@QEAAXXZ @ 0x1C0085A20 (-vUnlock@NEEDGRELOCK@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall hbmCreateClone(struct SURFACE *a1, int a2, int a3)
@@ -21,8 +21,8 @@ __int64 __fastcall hbmCreateClone(struct SURFACE *a1, int a2, int a3)
   __int64 v6; // rsi
   bool v7; // zf
   struct _ERESOURCE *v8; // rdi
-  __int64 v9; // rcx
-  __int64 v10; // rax
+  int v9; // eax
+  int v10; // eax
   int v12; // eax
   __int64 v13; // [rsp+60h] [rbp-29h] BYREF
   char v14; // [rsp+68h] [rbp-21h]
@@ -95,25 +95,30 @@ __int64 __fastcall hbmCreateClone(struct SURFACE *a1, int a2, int a3)
       v8 = *(struct _ERESOURCE **)(v25 + 48);
       NEEDGRELOCK::vLock((NEEDGRELOCK *)&v16, (struct PDEVOBJ *)&v25);
       EngAcquireSemaphore((HSEMAPHORE)v8);
-      EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"hsemDevLock", (int)v8, 11);
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemDevLock", v8, 11LL);
     }
-    if ( !qword_1C0294690
-      || (int)qword_1C0294690() < 0
-      || (v10 = SGDGetSessionState(v9), qword_1C0294698)
-      && (unsigned int)((__int64 (__fastcall *)(__int64, unsigned __int64, _QWORD, __int64, __int64 *, __int64 *))qword_1C0294698)(
-                         (v13 + 24) & -(__int64)(v13 != 0),
-                         ((unsigned __int64)a1 + 24) & -(__int64)(a1 != 0LL),
-                         0LL,
-                         *(_QWORD *)(v10 + 24) + 6896LL,
-                         &v26,
-                         &v24) )
+    if ( qword_1C0255280 )
+      v9 = qword_1C0255280();
+    else
+      v9 = -1073741637;
+    if ( v9 < 0
+      || (!qword_1C0255288
+        ? (v10 = 0)
+        : (v10 = ((__int64 (__fastcall *)(__int64, unsigned __int64, _QWORD, void *, __int64 *, __int64 *))qword_1C0255288)(
+                   (v13 + 24) & -(__int64)(v13 != 0),
+                   ((unsigned __int64)a1 + 24) & -(__int64)(a1 != 0LL),
+                   0LL,
+                   &xloIdent,
+                   &v26,
+                   &v24)),
+          v10) )
     {
       v14 |= 1u;
       v6 = *(_QWORD *)(v13 + 32);
     }
     if ( v8 )
     {
-      EtwTraceGreLockReleaseSemaphore((__int64)L"hsemDevLock", (int)v8);
+      EtwTraceGreLockReleaseSemaphore(L"hsemDevLock", v8);
       ExReleaseResourceAndLeaveCriticalRegion(v8);
       PsLeavePriorityRegion();
       NEEDGRELOCK::vUnlock((NEEDGRELOCK *)&v16);

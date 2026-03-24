@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceSmoothRotationStart @ 0x1C013B090
+ * XREFs of EtwTraceSmoothRotationStart @ 0x1C0123C90
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0qtq_EtwWriteTransfer @ 0x1C013E66C (McTemplateK0qtq_EtwWriteTransfer.c)
+ *     McTemplateK0qtq_EtwWriteTransfer @ 0x1C0127388 (McTemplateK0qtq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceSmoothRotationStart(int a1, int a2, int a3)

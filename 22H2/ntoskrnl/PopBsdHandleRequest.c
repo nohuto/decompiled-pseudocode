@@ -1,37 +1,39 @@
 /*
- * XREFs of PopBsdHandleRequest @ 0x14032D1F4
+ * XREFs of PopBsdHandleRequest @ 0x1403F76F4
  * Callers:
- *     PopSetUserShutdownMarkerWorker @ 0x140683420 (PopSetUserShutdownMarkerWorker.c)
- *     PopClearUserShutdownMarkerWorker @ 0x140683470 (PopClearUserShutdownMarkerWorker.c)
- *     PopRecordSleepCheckpointSource @ 0x140801A44 (PopRecordSleepCheckpointSource.c)
- *     PdcPoLidReliabilityUpdateCallback @ 0x1408243C0 (PdcPoLidReliabilityUpdateCallback.c)
- *     PopBatteryApplyCompositeState @ 0x140870950 (PopBatteryApplyCompositeState.c)
- *     PopRecordDisplayState @ 0x140873E40 (PopRecordDisplayState.c)
- *     PopSetConnectedStandbyMarker @ 0x14087894C (PopSetConnectedStandbyMarker.c)
- *     PopClearConnectedStandbyMarker @ 0x140980758 (PopClearConnectedStandbyMarker.c)
- *     PopClearSleepMarker @ 0x1409807E4 (PopClearSleepMarker.c)
- *     PopClearSystemShutdownMarker @ 0x140980828 (PopClearSystemShutdownMarker.c)
- *     PopRecordAcDcState @ 0x14098127C (PopRecordAcDcState.c)
- *     PopRecordLidStateWorker @ 0x1409812D0 (PopRecordLidStateWorker.c)
- *     PopRecordPhysicalPowerButton @ 0x140981350 (PopRecordPhysicalPowerButton.c)
- *     PopRecordSleepCheckpoint @ 0x1409814C0 (PopRecordSleepCheckpoint.c)
- *     PopSetCleanShutdownMarker @ 0x140981500 (PopSetCleanShutdownMarker.c)
- *     PopSetSleepMarker @ 0x140981550 (PopSetSleepMarker.c)
- *     NtInitiatePowerAction @ 0x14098B410 (NtInitiatePowerAction.c)
- *     PdcPoRecordButton @ 0x140997AD0 (PdcPoRecordButton.c)
- *     PopEvaluatePowerButtonSuppressionState @ 0x14099CB0C (PopEvaluatePowerButtonSuppressionState.c)
+ *     PopClearSystemShutdownMarker @ 0x1407742B0 (PopClearSystemShutdownMarker.c)
+ *     PopClearSleepMarker @ 0x140774334 (PopClearSleepMarker.c)
+ *     PopSetSleepMarker @ 0x140774988 (PopSetSleepMarker.c)
+ *     NtInitiatePowerAction @ 0x140775A10 (NtInitiatePowerAction.c)
+ *     PopRecordSleepCheckpoint @ 0x1407773E8 (PopRecordSleepCheckpoint.c)
+ *     PopClearUserShutdownMarkerWorker @ 0x14077A410 (PopClearUserShutdownMarkerWorker.c)
+ *     PopSetUserShutdownMarkerWorker @ 0x14077A460 (PopSetUserShutdownMarkerWorker.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FB1C (PopBatteryApplyCompositeState.c)
+ *     PopRecordDisplayState @ 0x140781638 (PopRecordDisplayState.c)
+ *     PopClearConnectedStandbyMarker @ 0x1408E1134 (PopClearConnectedStandbyMarker.c)
+ *     PopRecordAcDcState @ 0x1408E13F8 (PopRecordAcDcState.c)
+ *     PopRecordLidStateWorker @ 0x1408E1450 (PopRecordLidStateWorker.c)
+ *     PopRecordPhysicalPowerButton @ 0x1408E14D0 (PopRecordPhysicalPowerButton.c)
+ *     PopRecordSleepCheckpointSource @ 0x1408E1624 (PopRecordSleepCheckpointSource.c)
+ *     PopSetCleanShutdownMarker @ 0x1408E170C (PopSetCleanShutdownMarker.c)
+ *     PopSetConnectedStandbyMarker @ 0x1408E1748 (PopSetConnectedStandbyMarker.c)
+ *     PdcPoRecordButton @ 0x1408EF9F0 (PdcPoRecordButton.c)
  * Callees:
- *     PopQueueWorkItem @ 0x14032CB04 (PopQueueWorkItem.c)
- *     PopBsdFlush @ 0x1407A69D4 (PopBsdFlush.c)
- *     PopUpdateBsdPowerTransitionReferenceTime @ 0x1407A8B38 (PopUpdateBsdPowerTransitionReferenceTime.c)
+ *     PopQueueWorkItem @ 0x14032CC74 (PopQueueWorkItem.c)
+ *     RtlSetSystemBootStatus @ 0x14079A8F0 (RtlSetSystemBootStatus.c)
+ *     PopUpdateBsdPowerTransitionReferenceTime @ 0x1408E17D4 (PopUpdateBsdPowerTransitionReferenceTime.c)
  */
 
-char __fastcall PopBsdHandleRequest(unsigned int a1)
+char __fastcall PopBsdHandleRequest(int a1)
 {
-  if ( (a1 & 1) != 0 )
-    PopUpdateBsdPowerTransitionReferenceTime();
   if ( (a1 & 8) != 0 )
-    return PopBsdFlush(a1);
-  PopBsdUpdateRequests |= a1;
-  return PopQueueWorkItem((__int64)&PopBsdUpdateWorkItem, DelayedWorkQueue);
+  {
+    PopUpdateBsdPowerTransitionReferenceTime();
+    return RtlSetSystemBootStatus(7LL, &PopBsdPowerTransition, 32LL);
+  }
+  else
+  {
+    PopBsdUpdateRequests |= a1;
+    return PopQueueWorkItem((__int64)&PopBsdUpdateWorkItem, DelayedWorkQueue);
+  }
 }

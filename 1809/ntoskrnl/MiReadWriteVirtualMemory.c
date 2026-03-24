@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReadWriteVirtualMemory @ 0x140676A30
+ * XREFs of MiReadWriteVirtualMemory @ 0x140676A10
  * Callers:
- *     NtWriteVirtualMemory @ 0x1406769D0 (NtWriteVirtualMemory.c)
- *     NtReadVirtualMemory @ 0x140676A00 (NtReadVirtualMemory.c)
+ *     NtWriteVirtualMemory @ 0x1406769B0 (NtWriteVirtualMemory.c)
+ *     NtReadVirtualMemory @ 0x1406769E0 (NtReadVirtualMemory.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PsIsProcessLoggingEnabled @ 0x1400F28B0 (PsIsProcessLoggingEnabled.c)
+ *     PsIsProcessLoggingEnabled @ 0x1400F28D0 (PsIsProcessLoggingEnabled.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     MmCopyVirtualMemory @ 0x1406447B0 (MmCopyVirtualMemory.c)
- *     EtwTiLogReadWriteVm @ 0x140676934 (EtwTiLogReadWriteVm.c)
+ *     MmCopyVirtualMemory @ 0x140644790 (MmCopyVirtualMemory.c)
+ *     EtwTiLogReadWriteVm @ 0x140676914 (EtwTiLogReadWriteVm.c)
  */
 
 __int64 __fastcall MiReadWriteVirtualMemory(

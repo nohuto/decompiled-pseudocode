@@ -1,5 +1,5 @@
 /*
- * XREFs of MiResetAccessBitPte @ 0x14016E810
+ * XREFs of MiResetAccessBitPte @ 0x14016E830
  * Callers:
  *     <none>
  * Callees:
@@ -10,9 +10,9 @@
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
  *     MiGetVaAge @ 0x1400880B0 (MiGetVaAge.c)
- *     MiIsPageTableLocked @ 0x14012D9FC (MiIsPageTableLocked.c)
- *     MiResetAccessBitsTail @ 0x14016F990 (MiResetAccessBitsTail.c)
- *     MiInsertVmAccessedEntry @ 0x1402B305C (MiInsertVmAccessedEntry.c)
+ *     MiIsPageTableLocked @ 0x14012DA1C (MiIsPageTableLocked.c)
+ *     MiResetAccessBitsTail @ 0x14016F9B0 (MiResetAccessBitsTail.c)
+ *     MiInsertVmAccessedEntry @ 0x1402B315C (MiInsertVmAccessedEntry.c)
  */
 
 __int64 __fastcall MiResetAccessBitPte(__int64 a1, unsigned __int64 a2, int a3)

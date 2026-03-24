@@ -1,25 +1,25 @@
 /*
- * XREFs of ACPIRootIrpQueryPower @ 0x1C003D100
+ * XREFs of ACPIRootIrpQueryPower @ 0x1C005ECB0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     ACPIDispatchForwardPowerIrp @ 0x1C0002AF0 (ACPIDispatchForwardPowerIrp.c)
- *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIGetParent @ 0x1C0048744 (AMLIGetParent.c)
- *     AMLIIsNamedChildPresent @ 0x1C00487DC (AMLIIsNamedChildPresent.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIDispatchForwardPowerIrp @ 0x1C000CE50 (ACPIDispatchForwardPowerIrp.c)
+ *     AMLIGetParent @ 0x1C001B348 (AMLIGetParent.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C001E3E0 (WPP_RECORDER_SF_qLqss.c)
+ *     AMLIIsNamedChildPresent @ 0x1C001F220 (AMLIIsNamedChildPresent.c)
  */
 
 __int64 __fastcall ACPIRootIrpQueryPower(ULONG_PTR a1, IRP *a2)
 {
   int Status; // ebx
-  char v5; // bp
-  __int64 DeviceExtension; // rax
-  _QWORD *v7; // rsi
-  _IO_STACK_LOCATION *CurrentStackLocation; // rdx
-  unsigned int v9; // ebx
-  __int64 v10; // r14
+  char v5; // di
+  _QWORD *DeviceExtension; // rbp
+  _IO_STACK_LOCATION *CurrentStackLocation; // rax
+  unsigned int LowPart; // eax
+  int v9; // ebx
+  __int64 *v10; // r14
   char v11; // r8
   const char *v12; // rax
   const char *v13; // rdx
@@ -27,8 +27,7 @@ __int64 __fastcall ACPIRootIrpQueryPower(ULONG_PTR a1, IRP *a2)
 
   Status = a2->IoStatus.Status;
   v5 = 1;
-  DeviceExtension = ACPIInternalGetDeviceExtension(a1);
-  v7 = (_QWORD *)DeviceExtension;
+  DeviceExtension = (_QWORD *)ACPIInternalGetDeviceExtension(a1);
   a2->Tail.Overlay.CurrentStackLocation->Control |= 1u;
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
   if ( !CurrentStackLocation->Parameters.Create.Options )
@@ -40,7 +39,8 @@ LABEL_3:
       Status = -1073741808;
       goto LABEL_18;
     }
-    switch ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart )
+    LowPart = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
+    switch ( LowPart )
     {
       case 1u:
         v9 = 1597002591;
@@ -55,15 +55,15 @@ LABEL_3:
         v9 = 1597199199;
         break;
       default:
-        if ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart - 5 <= 1 )
+        if ( LowPart - 5 <= 1 )
         {
           Status = 0;
           goto LABEL_18;
         }
         goto LABEL_3;
     }
-    v10 = AMLIGetParent(*(_QWORD *)(DeviceExtension + 760));
-    if ( (unsigned __int8)AMLIIsNamedChildPresent(v10, v9) )
+    v10 = (__int64 *)AMLIGetParent(DeviceExtension[90]);
+    if ( AMLIIsNamedChildPresent(v10, v9) )
     {
       Status = 0;
     }
@@ -72,22 +72,22 @@ LABEL_3:
       v5 = 0;
       Status = -1073741808;
     }
-    AMLIDereferenceHandleEx(v10);
+    AMLIDereferenceHandleEx((__int64)v10);
   }
 LABEL_18:
   v11 = 0;
   a2->IoStatus.Status = Status;
-  v12 = (const char *)&unk_1C00622D0;
-  v13 = (const char *)&unk_1C00622D0;
-  if ( v7 )
+  v12 = (const char *)&unk_1C00701BA;
+  v13 = (const char *)&unk_1C00701BA;
+  if ( DeviceExtension )
   {
-    v14 = v7[1];
-    v11 = (char)v7;
+    v14 = DeviceExtension[1];
+    v11 = (char)DeviceExtension;
     if ( (v14 & 0x200000000000LL) != 0 )
     {
-      v12 = (const char *)v7[76];
+      v12 = (const char *)DeviceExtension[71];
       if ( (v14 & 0x400000000000LL) != 0 )
-        v13 = (const char *)v7[77];
+        v13 = (const char *)DeviceExtension[72];
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -96,7 +96,7 @@ LABEL_18:
       4u,
       5u,
       0x15u,
-      (__int64)&WPP_751107becb7a3b7b48760ac4afe26340_Traceguids,
+      (__int64)&WPP_a909ee2b802d35766e487243411108b1_Traceguids,
       (char)a2,
       Status,
       v11,

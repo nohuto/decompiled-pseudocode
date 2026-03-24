@@ -1,43 +1,43 @@
 /*
- * XREFs of ?VidSchiNotifyReadyQueueAdded@@YAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C001EF2A
+ * XREFs of ?VidSchiNotifyReadyQueueAdded@@YAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C0037E60
  * Callers:
- *     ?VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z @ 0x1C00406D0 (-VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z.c)
- *     VidSchiSuspendResumeHwContext @ 0x1C0043E14 (VidSchiSuspendResumeHwContext.c)
+ *     ?VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z @ 0x1C0038620 (-VidSchiSetHwQueueState@@YAXPEAUVIDSCH_HW_QUEUE@@W4VIDSCH_HW_QUEUE_STATE@@@Z.c)
+ *     VidSchiSuspendResumeHwContext @ 0x1C003C1D8 (VidSchiSuspendResumeHwContext.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall VidSchiNotifyReadyQueueAdded(struct VIDSCH_HW_QUEUE *a1)
+void __fastcall VidSchiNotifyReadyQueueAdded(struct VIDSCH_HW_QUEUE *a1, __int64 a2)
 {
-  __int64 v1; // rdx
-  int v2; // eax
+  struct VIDSCH_HW_QUEUE *v2; // rdi
   __int64 v3; // rbx
-  int v4; // ecx
-  int v5; // eax
+  int v4; // eax
+  void (__fastcall *v5)(_QWORD); // rax
+  _QWORD *v6; // rax
 
-  v1 = *(_QWORD *)(*((_QWORD *)a1 + 5) + 16LL);
-  v2 = *(_DWORD *)(v1 + 1712);
-  v3 = *(_QWORD *)(v1 + 24);
-  if ( v2 == -1 || *(_DWORD *)(v3 + 68) == -1 )
+  v2 = a1;
+  v3 = *(_QWORD *)(*((_QWORD *)a1 + 5) + 16LL);
+  v4 = *(_DWORD *)(v3 + 1704);
+  if ( v4 == -1 || (a1 = *(struct VIDSCH_HW_QUEUE **)(v3 + 24), *((_DWORD *)a1 + 15) == -1) )
   {
-    WdLogSingleEntry5(0LL, 281LL, 28672LL, a1, v1, 0LL);
+    v6 = (_QWORD *)WdLogNewEntry5_WdCriticalError(a1, a2);
+    v6[7] = 0LL;
+    v6[3] = 281LL;
+    v6[4] = 28672LL;
+    v6[5] = v2;
+    v6[6] = v3;
+    WdLogEvent5_WdCriticalError(v6);
     __debugbreak();
-    JUMPOUT(0x1C001F00ALL);
+    JUMPOUT(0x1C0037F1ALL);
   }
-  *(_DWORD *)(v1 + 1712) = v2 + 1;
-  if ( !*((_BYTE *)a1 + 144) )
-    ++*(_DWORD *)(v1 + 1716);
-  v4 = *(_DWORD *)(v3 + 68) + 1;
-  *(_DWORD *)(v3 + 68) = v4;
-  v5 = v4;
-  if ( *(_DWORD *)(v1 + 1712) == 1 && *(_DWORD *)(v1 + 11240) != -1 && *(_QWORD *)(v3 + 3080) )
+  *(_DWORD *)(v3 + 1704) = v4 + 1;
+  if ( !*((_BYTE *)v2 + 144) )
+    ++*(_DWORD *)(v3 + 1708);
+  ++*((_DWORD *)a1 + 15);
+  if ( *(_DWORD *)(v3 + 1704) == 1 && *(_DWORD *)(v3 + 11224) != -1 )
   {
-    (*(void (__fastcall **)(_QWORD))(v3 + 3080))(*(_QWORD *)(v3 + 3120));
-    v5 = *(_DWORD *)(v3 + 68);
-  }
-  if ( v5 == 1 )
-  {
-    *(_QWORD *)(v3 + 1224) = MEMORY[0xFFFFF78000000320];
-    KeSetEvent((PRKEVENT)(v3 + 1192), 0, 0);
+    v5 = (void (__fastcall *)(_QWORD))*((_QWORD *)a1 + 373);
+    if ( v5 )
+      v5(*((_QWORD *)a1 + 378));
   }
 }

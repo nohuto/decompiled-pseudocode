@@ -1,12 +1,12 @@
 /*
- * XREFs of bInitStockFonts @ 0x1C03B52C0
+ * XREFs of bInitStockFonts @ 0x1C0392D50
  * Callers:
  *     <none>
  * Callees:
- *     bInitStockFontsInternal @ 0x1C03B31F8 (bInitStockFontsInternal.c)
+ *     bInitStockFontsInternal @ 0x1C0392344 (bInitStockFontsInternal.c)
  */
 
-unsigned __int16 *__fastcall bInitStockFonts(Gre::Base *a1)
+unsigned __int16 *bInitStockFonts()
 {
-  return bInitStockFontsInternal(a1);
+  return bInitStockFontsInternal();
 }

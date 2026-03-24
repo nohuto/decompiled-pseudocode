@@ -3,7 +3,7 @@
  * Callers:
  *     AlpcGetMessageAttribute @ 0x140004B10 (AlpcGetMessageAttribute.c)
  *     AlpcInitializeMessageAttribute @ 0x140004C30 (AlpcInitializeMessageAttribute.c)
- *     AlpcpInitializeCompletionList @ 0x1406D4C00 (AlpcpInitializeCompletionList.c)
+ *     AlpcpInitializeCompletionList @ 0x1406D4BE0 (AlpcpInitializeCompletionList.c)
  * Callees:
  *     <none>
  */

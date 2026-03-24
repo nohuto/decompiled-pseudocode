@@ -1,17 +1,17 @@
 /*
- * XREFs of HvlpDepositPages @ 0x140271AA0
+ * XREFs of HvlpDepositPages @ 0x140271BA0
  * Callers:
- *     HvlpHandleInsufficientMemory @ 0x1401B3A9C (HvlpHandleInsufficientMemory.c)
- *     HvlpStartLogicalProcessor @ 0x140272E88 (HvlpStartLogicalProcessor.c)
- *     PsDispatchIumService @ 0x1402EAA94 (PsDispatchIumService.c)
- *     HvlpAddPhysicalMemory @ 0x14032BA10 (HvlpAddPhysicalMemory.c)
- *     HvlpCreateRootVirtualProcessor @ 0x1408178F0 (HvlpCreateRootVirtualProcessor.c)
+ *     HvlpHandleInsufficientMemory @ 0x1401B3ABC (HvlpHandleInsufficientMemory.c)
+ *     HvlpStartLogicalProcessor @ 0x140272F88 (HvlpStartLogicalProcessor.c)
+ *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
+ *     HvlpAddPhysicalMemory @ 0x14032BB10 (HvlpAddPhysicalMemory.c)
+ *     HvlpCreateRootVirtualProcessor @ 0x1408178D0 (HvlpCreateRootVirtualProcessor.c)
  * Callees:
  *     MmAllocatePartitionNodePagesForMdlEx @ 0x140010F40 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     HvcallpNoHypervisorPresent @ 0x14013E680 (HvcallpNoHypervisorPresent.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     HvlpAcquireHypercallPage @ 0x140271764 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272284 (HvlpReleaseHypercallPage.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

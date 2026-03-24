@@ -1,8 +1,10 @@
 /*
- * XREFs of ?Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C011D7C0
+ * XREFs of ?Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C0132850
  * Callers:
- *     ?Create@CPointerHashTable@NSInstrumentation@@SAPEAV12@_N@Z @ 0x1C00F7548 (-Create@CPointerHashTable@NSInstrumentation@@SAPEAV12@_N@Z.c)
- *     ?Uninitialize@UmfdAllocation@@SAXXZ @ 0x1C011D77C (-Uninitialize@UmfdAllocation@@SAXXZ.c)
+ *     ?Create@CPointerHashTable@NSInstrumentation@@SAPEAV12@_N@Z @ 0x1C00F4370 (-Create@CPointerHashTable@NSInstrumentation@@SAPEAV12@_N@Z.c)
+ *     ?Uninitialize@UmfdAllocation@@SAXXZ @ 0x1C013280C (-Uninitialize@UmfdAllocation@@SAXXZ.c)
+ *     ?Destroy@CLeakTrackingAllocator@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C01348C4 (-Destroy@CLeakTrackingAllocator@NSInstrumentation@@SAXPEAV12@@Z.c)
+ *     ?InitializePointerHashTable@CLeakTrackingAllocator@NSInstrumentation@@AEAAXPEAPEAVCPointerHashTable@2@_N@Z @ 0x1C02DE120 (-InitializePointerHashTable@CLeakTrackingAllocator@NSInstrumentation@@AEAAXPEAPEAVCPointerHashTa.c)
  * Callees:
  *     <none>
  */

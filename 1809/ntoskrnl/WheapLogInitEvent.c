@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapLogInitEvent @ 0x140727EC4
+ * XREFs of WheapLogInitEvent @ 0x140727EA4
  * Callers:
  *     WheaInitialize @ 0x1409AFD68 (WheaInitialize.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     WheaLogInternalEvent @ 0x14017D340 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     WheaLogInternalEvent @ 0x14017D360 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

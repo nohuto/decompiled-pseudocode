@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     XdvIopBuildAsynchronousFsdRequest @ 0x14030ABF0 (XdvIopBuildAsynchronousFsdRequest.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     XdvIopBuildAsynchronousFsdRequest @ 0x14030ACF0 (XdvIopBuildAsynchronousFsdRequest.c)
  *     VfSetIoBuildRequest @ 0x1409306F0 (VfSetIoBuildRequest.c)
  */
 

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlLookupFunctionTable @ 0x140411468
+ * XREFs of RtlLookupFunctionTable @ 0x1403C572C
  * Callers:
- *     CcInitializeBcbProfiler @ 0x140B18354 (CcInitializeBcbProfiler.c)
- *     sub_140B1A730 @ 0x140B1A730 (sub_140B1A730.c)
+ *     CcInitializeBcbProfiler @ 0x140A1B354 (CcInitializeBcbProfiler.c)
+ *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x1402A3B60 (RtlpxLookupFunctionTable.c)
+ *     RtlpxLookupFunctionTable @ 0x14021EB70 (RtlpxLookupFunctionTable.c)
  */
 
 PVOID __fastcall RtlLookupFunctionTable(unsigned __int64 a1, _QWORD *a2, _DWORD *a3)
@@ -15,16 +15,15 @@ PVOID __fastcall RtlLookupFunctionTable(unsigned __int64 a1, _QWORD *a2, _DWORD 
 
   v7 = 0LL;
   v6 = 0LL;
-  if ( a1 < *((_QWORD *)&xmmword_140E00030 + 1)
-    || a1 >= *((_QWORD *)&xmmword_140E00030 + 1) + (unsigned __int64)(unsigned int)qword_140E00040 )
+  if ( a1 < *(&xmmword_140E00020 + 1) || a1 >= *(&xmmword_140E00020 + 1) + (unsigned int)qword_140E00030 )
   {
-    result = RtlpxLookupFunctionTable(a1, (__int64)&v6);
+    result = RtlpxLookupFunctionTable(a1, (unsigned __int64)&v6, (__int64)a3, *(&xmmword_140E00020 + 1));
   }
   else
   {
-    result = (PVOID)xmmword_140E00030;
-    v6 = xmmword_140E00030;
-    v7 = qword_140E00040;
+    result = (PVOID)xmmword_140E00020;
+    v6 = *(_OWORD *)&xmmword_140E00020;
+    v7 = qword_140E00030;
   }
   if ( result )
   {

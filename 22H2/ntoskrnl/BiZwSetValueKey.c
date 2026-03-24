@@ -1,9 +1,9 @@
 /*
- * XREFs of BiZwSetValueKey @ 0x1403743B4
+ * XREFs of BiZwSetValueKey @ 0x14039AF1C
  * Callers:
- *     BiSetRegistryValue @ 0x140805FA0 (BiSetRegistryValue.c)
+ *     BiSetRegistryValue @ 0x140784964 (BiSetRegistryValue.c)
  * Callees:
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
  */
 
 NTSTATUS __fastcall BiZwSetValueKey(void *a1, UNICODE_STRING *a2, __int64 a3, ULONG a4, PVOID Data, ULONG DataSize)

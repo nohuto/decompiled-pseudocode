@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_StoppingTimerOnHubSuspendInSettingAddress @ 0x1C00207A0
+ * XREFs of HUBDSM_StoppingTimerOnHubSuspendInSettingAddress @ 0x1C001DD80
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_StopTimer @ 0x1C002E834 (HUBMISC_StopTimer.c)
+ *     HUBMISC_StopTimer @ 0x1C002B774 (HUBMISC_StopTimer.c)
  */
 
 __int64 __fastcall HUBDSM_StoppingTimerOnHubSuspendInSettingAddress(__int64 a1)

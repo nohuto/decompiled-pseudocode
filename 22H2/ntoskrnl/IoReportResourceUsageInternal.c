@@ -1,14 +1,14 @@
 /*
- * XREFs of IoReportResourceUsageInternal @ 0x140956FE8
+ * XREFs of IoReportResourceUsageInternal @ 0x1408A0308
  * Callers:
- *     IoReportDetectedDevice @ 0x140836920 (IoReportDetectedDevice.c)
- *     IoReportResourceForDetection @ 0x140956C10 (IoReportResourceForDetection.c)
- *     IoReportResourceUsage @ 0x140956E00 (IoReportResourceUsage.c)
+ *     IoReportDetectedDevice @ 0x1407AED50 (IoReportDetectedDevice.c)
+ *     IoReportResourceForDetection @ 0x14089FF30 (IoReportResourceForDetection.c)
+ *     IoReportResourceUsage @ 0x1408A0120 (IoReportResourceUsage.c)
  * Callees:
- *     IopLegacyResourceAllocation @ 0x140817DC4 (IopLegacyResourceAllocation.c)
- *     PnpCmResourcesToIoResources @ 0x140819624 (PnpCmResourcesToIoResources.c)
- *     IopChangeInterfaceType @ 0x140957110 (IopChangeInterfaceType.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     IopLegacyResourceAllocation @ 0x140752C64 (IopLegacyResourceAllocation.c)
+ *     PnpCmResourcesToIoResources @ 0x1407B64B0 (PnpCmResourcesToIoResources.c)
+ *     IopChangeInterfaceType @ 0x1408A042C (IopChangeInterfaceType.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoReportResourceUsageInternal(
@@ -26,7 +26,7 @@ __int64 __fastcall IoReportResourceUsageInternal(
   _DWORD *v10; // rdi
   unsigned int v11; // ebx
   int v13; // r13d
-  _DWORD *v14; // rsi
+  char *v14; // rsi
   _BYTE *v16; // r15
   unsigned int v17; // ebp
   char v18; // r14
@@ -38,23 +38,21 @@ __int64 __fastcall IoReportResourceUsageInternal(
   v11 = 0;
   v13 = a1;
   if ( !a7 )
-  {
-    if ( !a4 )
-    {
-      v14 = 0LL;
-LABEL_9:
-      v10 = 0LL;
-      goto LABEL_10;
-    }
     v10 = a4;
-  }
   v14 = 0LL;
-  if ( !*v10 || !v10[4] )
-    goto LABEL_9;
-  v14 = PnpCmResourcesToIoResources(a1, v10, 12288);
-  if ( !v14 )
-    return 3221225473LL;
-LABEL_10:
+  if ( v10 )
+  {
+    if ( *v10 && v10[4] )
+    {
+      v14 = PnpCmResourcesToIoResources(a1, v10, 12288);
+      if ( !v14 )
+        return 3221225473LL;
+    }
+    else
+    {
+      v10 = 0LL;
+    }
+  }
   v16 = a10;
   v17 = 0;
   P = v10;
@@ -72,10 +70,10 @@ LABEL_10:
       if ( v17 < 2 )
         continue;
     }
-    goto LABEL_16;
+    goto LABEL_15;
   }
   *v16 = 0;
-LABEL_16:
+LABEL_15:
   if ( v14 )
     ExFreePoolWithTag(v14, 0);
   if ( v18 )

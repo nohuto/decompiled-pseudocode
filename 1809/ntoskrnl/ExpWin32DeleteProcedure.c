@@ -1,5 +1,5 @@
 /*
- * XREFs of ExpWin32DeleteProcedure @ 0x1406C1D50
+ * XREFs of ExpWin32DeleteProcedure @ 0x1406C1D30
  * Callers:
  *     <none>
  * Callees:

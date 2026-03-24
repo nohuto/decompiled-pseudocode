@@ -1,15 +1,15 @@
 /*
- * XREFs of PsIsProcessInSilo @ 0x1400CB0E8
+ * XREFs of PsIsProcessInSilo @ 0x1400CB108
  * Callers:
- *     PsIsThreadInSilo @ 0x1400CC250 (PsIsThreadInSilo.c)
+ *     PsIsThreadInSilo @ 0x1400CC270 (PsIsThreadInSilo.c)
  *     ExpGetProcessInformation @ 0x1405E6B60 (ExpGetProcessInformation.c)
  *     NtSetInformationThread @ 0x1405E9EA0 (NtSetInformationThread.c)
- *     PsLookupProcessByProcessId @ 0x140646C40 (PsLookupProcessByProcessId.c)
- *     PsLookupThreadByThreadId @ 0x1406487C0 (PsLookupThreadByThreadId.c)
- *     NtGetNextProcess @ 0x140718D90 (NtGetNextProcess.c)
+ *     PsLookupProcessByProcessId @ 0x140646C20 (PsLookupProcessByProcessId.c)
+ *     PsLookupThreadByThreadId @ 0x1406487A0 (PsLookupThreadByThreadId.c)
+ *     NtGetNextProcess @ 0x140718D70 (NtGetNextProcess.c)
  * Callees:
- *     PspGetJobSilo @ 0x1402E955C (PspGetJobSilo.c)
- *     PspIsSiloInSilo @ 0x1406CB48C (PspIsSiloInSilo.c)
+ *     PspGetJobSilo @ 0x1402E965C (PspGetJobSilo.c)
+ *     PspIsSiloInSilo @ 0x1406CB46C (PspIsSiloInSilo.c)
  */
 
 bool __fastcall PsIsProcessInSilo(struct _KPROCESS *a1, __int64 a2)

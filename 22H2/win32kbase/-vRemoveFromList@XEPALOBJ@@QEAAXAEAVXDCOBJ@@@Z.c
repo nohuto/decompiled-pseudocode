@@ -1,41 +1,39 @@
 /*
- * XREFs of ?vRemoveFromList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C000B7FC
+ * XREFs of ?vRemoveFromList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C0099EA0
  * Callers:
- *     ?SelectPaletteWorker@@YAPEAUHPALETTE__@@PEAVXDCOBJ@@PEAU1@H@Z @ 0x1C003A440 (-SelectPaletteWorker@@YAPEAUHPALETTE__@@PEAVXDCOBJ@@PEAU1@H@Z.c)
+ *     ?SelectPaletteWorker@@YAPEAUHPALETTE__@@PEAVXDCOBJ@@PEAU1@H@Z @ 0x1C00295B4 (-SelectPaletteWorker@@YAPEAUHPALETTE__@@PEAVXDCOBJ@@PEAU1@H@Z.c)
  * Callees:
- *     ?bIsPalDefault@XEPALOBJ@@QEBAHXZ @ 0x1C000B878 (-bIsPalDefault@XEPALOBJ@@QEBAHXZ.c)
- *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C0041CB0 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
- *     ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C0157DA8 (--0MDCOBJA@@QEAA@PEAUHDC__@@H@Z.c)
+ *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C002E6D8 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ *     ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C0099F4C (--0MDCOBJA@@QEAA@PEAUHDC__@@H@Z.c)
  */
 
-void __fastcall XEPALOBJ::vRemoveFromList(XEPALOBJ *this, struct XDCOBJ *a2)
+void __fastcall XEPALOBJ::vRemoveFromList(XEPALOBJ *this, struct XDCOBJ *a2, int a3)
 {
-  int v4; // r8d
   HDC v5; // rdx
   HDC v6; // rdx
-  _QWORD v7[2]; // [rsp+20h] [rbp-28h] BYREF
-  _QWORD v8[3]; // [rsp+30h] [rbp-18h] BYREF
+  HDC *v7[2]; // [rsp+20h] [rbp-28h] BYREF
+  HDC *v8[3]; // [rsp+30h] [rbp-18h] BYREF
 
-  if ( !(unsigned int)XEPALOBJ::bIsPalDefault(this) )
+  if ( *(struct PALETTE **)this != ppalDefault )
   {
     v5 = *(HDC *)(*(_QWORD *)a2 + 984LL);
     if ( v5 )
     {
-      MDCOBJA::MDCOBJA((MDCOBJA *)v7, v5, v4);
+      MDCOBJA::MDCOBJA((MDCOBJA *)v7, v5, a3);
       if ( v7[0] )
       {
-        *(_QWORD *)(v7[0] + 992LL) = *(_QWORD *)(*(_QWORD *)a2 + 992LL);
-        XDCOBJ::vAltUnlockFast((XDCOBJ *)v7);
+        v7[0][124] = *(HDC *)(*(_QWORD *)a2 + 992LL);
+        XDCOBJ::vAltUnlockFast(v7);
       }
     }
     v6 = *(HDC *)(*(_QWORD *)a2 + 992LL);
     if ( v6 )
     {
-      MDCOBJA::MDCOBJA((MDCOBJA *)v8, v6, v4);
+      MDCOBJA::MDCOBJA((MDCOBJA *)v8, v6, a3);
       if ( v8[0] )
       {
-        *(_QWORD *)(v8[0] + 984LL) = *(_QWORD *)(*(_QWORD *)a2 + 984LL);
-        XDCOBJ::vAltUnlockFast((XDCOBJ *)v8);
+        v8[0][123] = *(HDC *)(*(_QWORD *)a2 + 984LL);
+        XDCOBJ::vAltUnlockFast(v8);
       }
     }
     else

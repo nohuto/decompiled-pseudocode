@@ -1,10 +1,10 @@
 /*
- * XREFs of ?TransformWindowTrackInfo@ShellWindowManagement@@YAXPEAUtagWND@@PEAUtagSIZE@@1W4TransformWindowTrackInfoDirection@1@@Z @ 0x1C004A8D4
+ * XREFs of ?TransformWindowTrackInfo@ShellWindowManagement@@YAXPEAUtagWND@@PEAUtagSIZE@@1W4TransformWindowTrackInfoDirection@1@@Z @ 0x1C011C764
  * Callers:
- *     ?TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z @ 0x1C004A958 (-TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z.c)
- *     NtUserUpdateWindowTrackingInfo @ 0x1C01DFC00 (NtUserUpdateWindowTrackingInfo.c)
+ *     ?TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z @ 0x1C011C6B0 (-TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z.c)
+ *     NtUserUpdateWindowTrackingInfo @ 0x1C0203D60 (NtUserUpdateWindowTrackingInfo.c)
  * Callees:
- *     GetWindowDpiLastNotify @ 0x1C00F0740 (GetWindowDpiLastNotify.c)
+ *     GetWindowDpiLastNotify @ 0x1C004C618 (GetWindowDpiLastNotify.c)
  */
 
 int __fastcall ShellWindowManagement::TransformWindowTrackInfo(__int64 a1, INT *a2, INT *a3, int a4)
@@ -29,7 +29,7 @@ int __fastcall ShellWindowManagement::TransformWindowTrackInfo(__int64 a1, INT *
     LODWORD(v9) = 511;
     v10 = (*(_DWORD *)(v4 + 288) >> 8) & 0x1FF;
   }
-  else if ( (*(_DWORD *)(v4 + 232) & 0x400) != 0 )
+  else if ( (*(_DWORD *)(v4 + 232) & 0x8000000) != 0 )
   {
     LODWORD(v9) = GetWindowDpiLastNotify(a1);
     v10 = v9;

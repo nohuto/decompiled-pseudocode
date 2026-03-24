@@ -1,9 +1,9 @@
 /*
- * XREFs of ??$CreateWindowProp@VCVisRgnTrackerProp@@@CWindowProp@@SAJPEAPEAVCVisRgnTrackerProp@@@Z @ 0x1C008321C
+ * XREFs of ??$CreateWindowProp@VCVisRgnTrackerProp@@@CWindowProp@@SAJPEAPEAVCVisRgnTrackerProp@@@Z @ 0x1C0038644
  * Callers:
- *     CreateVisRgnTracker @ 0x1C008300C (CreateVisRgnTracker.c)
+ *     CreateVisRgnTracker @ 0x1C0036014 (CreateVisRgnTracker.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall CWindowProp::CreateWindowProp<CVisRgnTrackerProp>(_QWORD *a1)
@@ -13,12 +13,12 @@ __int64 __fastcall CWindowProp::CreateWindowProp<CVisRgnTrackerProp>(_QWORD *a1)
   _BYTE *v4; // rdi
 
   v2 = 0;
-  v3 = (_BYTE *)Win32AllocPoolZInit(80LL, 1953723989LL);
+  v3 = (_BYTE *)Win32AllocPoolZInit(72LL, 1953723989LL);
   v4 = v3;
   if ( v3 )
   {
-    memset(v3, 0, 0x50uLL);
-    v4[72] = 1;
+    memset(v3, 0, 0x48uLL);
+    v4[64] = 1;
     *(_QWORD *)v4 = &CVisRgnTrackerProp::`vftable';
     *a1 = v4;
   }

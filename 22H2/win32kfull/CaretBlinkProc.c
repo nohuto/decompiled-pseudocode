@@ -1,10 +1,10 @@
 /*
- * XREFs of CaretBlinkProc @ 0x1C0006540
+ * XREFs of CaretBlinkProc @ 0x1C0029010
  * Callers:
  *     <none>
  * Callees:
- *     ?UT_InvertCaret@@YAXXZ @ 0x1C00065F8 (-UT_InvertCaret@@YAXXZ.c)
- *     ?RemoveCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z @ 0x1C00B00B4 (-RemoveCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z.c)
+ *     ?RemoveCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z @ 0x1C002B400 (-RemoveCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z.c)
+ *     ?UT_InvertCaret@@YAXXZ @ 0x1C0044F6C (-UT_InvertCaret@@YAXXZ.c)
  */
 
 void __fastcall CaretBlinkProc(struct tagWND *a1)
@@ -16,25 +16,25 @@ void __fastcall CaretBlinkProc(struct tagWND *a1)
   bool v5; // zf
 
   v1 = *(_QWORD *)(gptiCurrent + 432LL);
-  v2 = *(struct tagWND **)(v1 + 304);
+  v2 = *(struct tagWND **)(v1 + 296);
   if ( a1 == v2 )
   {
-    v3 = *(_DWORD *)(v1 + 320);
+    v3 = *(_DWORD *)(v1 + 312);
     if ( v3 > 0 )
-      *(_DWORD *)(v1 + 320) = --v3;
-    if ( (*(_BYTE *)(v1 + 312) & 3) == 3
+      *(_DWORD *)(v1 + 312) = --v3;
+    if ( (*(_BYTE *)(v1 + 304) & 3) == 3
       && (*(_DWORD *)(gpsi + 4984LL) == -1 || (*(_DWORD *)(gpsi + 2236LL) & 4) == 0 || !v3) )
     {
       RemoveCaretTimer(v2, (struct tagQ *)v1);
     }
     else
     {
-      v4 = *(_DWORD *)(v1 + 312) ^ ((unsigned __int8)*(_DWORD *)(v1 + 312) ^ (unsigned __int8)~(unsigned __int8)*(_DWORD *)(v1 + 312)) & 2;
-      v5 = *(_DWORD *)(v1 + 316) == 0;
-      *(_DWORD *)(v1 + 312) = v4;
+      v4 = *(_DWORD *)(v1 + 304) ^ ((unsigned __int8)*(_DWORD *)(v1 + 304) ^ (unsigned __int8)~(unsigned __int8)*(_DWORD *)(v1 + 304)) & 2;
+      v5 = *(_DWORD *)(v1 + 308) == 0;
+      *(_DWORD *)(v1 + 304) = v4;
       if ( v5 )
       {
-        *(_DWORD *)(v1 + 312) = v4 ^ ((unsigned __int8)v4 ^ (unsigned __int8)~(_BYTE)v4) & 1;
+        *(_DWORD *)(v1 + 304) = v4 ^ ((unsigned __int8)v4 ^ (unsigned __int8)~(_BYTE)v4) & 1;
         UT_InvertCaret();
       }
     }

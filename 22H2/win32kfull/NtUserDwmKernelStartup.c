@@ -1,11 +1,11 @@
 /*
- * XREFs of NtUserDwmKernelStartup @ 0x1C00BD030
+ * XREFs of NtUserDwmKernelStartup @ 0x1C0135DA0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastStatus @ 0x1C00132A8 (UserSetLastStatus.c)
- *     zzzDwmStartRedirection @ 0x1C00588D8 (zzzDwmStartRedirection.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     zzzDwmStartRedirection @ 0x1C00E942C (zzzDwmStartRedirection.c)
+ *     UserSetLastStatus @ 0x1C00EC46C (UserSetLastStatus.c)
  */
 
 __int64 NtUserDwmKernelStartup()
@@ -16,36 +16,35 @@ __int64 NtUserDwmKernelStartup()
   __int64 CurrentProcess; // rax
   __int64 v4; // rdx
   __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // rbx
+  __int64 v6; // rbx
+  __int64 v7; // rax
   __int64 v8; // rax
-  __int64 v9; // rax
-  __int64 v10; // rcx
+  __int64 v9; // rcx
   NTSTATUS started; // eax
-  __int64 v13; // rcx
+  __int64 v12; // rcx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   CurrentProcess = PsGetCurrentProcess(v1, v0, v2);
-  v7 = 0LL;
+  v6 = 0LL;
   if ( !(unsigned int)IsProcessDwm(CurrentProcess) )
   {
-    v13 = 5LL;
+    v12 = 5LL;
     goto LABEL_10;
   }
-  v8 = *(_QWORD *)(gptiCurrent + 456LL);
-  if ( !v8 || (v9 = *(_QWORD *)(v8 + 8)) == 0 )
+  v7 = *(_QWORD *)(gptiCurrent + 456LL);
+  if ( !v7 || (v8 = *(_QWORD *)(v7 + 8)) == 0 )
   {
-    v13 = 87LL;
+    v12 = 87LL;
 LABEL_10:
-    UserSetLastError(v13);
+    UserSetLastError(v12, v4, v5);
     goto LABEL_7;
   }
-  v10 = *(unsigned int *)(*(_QWORD *)v9 + 64LL);
-  if ( (v10 & 1) != 0 || (started = zzzDwmStartRedirection(), started >= 0) )
-    v7 = 1LL;
+  v9 = *(unsigned int *)(*(_QWORD *)v8 + 64LL);
+  if ( (v9 & 1) != 0 || (started = zzzDwmStartRedirection(), started >= 0) )
+    v6 = 1LL;
   else
     UserSetLastStatus(started, 1);
 LABEL_7:
-  UserSessionSwitchLeaveCrit(v10, v4, v5, v6);
-  return v7;
+  UserSessionSwitchLeaveCrit(v9);
+  return v6;
 }

@@ -1,79 +1,107 @@
 /*
- * XREFs of ACPIBuildProcessRunMethodPhaseCheckDep @ 0x1C0011540
+ * XREFs of ACPIBuildProcessRunMethodPhaseCheckDep @ 0x1C001FB30
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
- *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
- *     AMLIAsyncEvalObject @ 0x1C0047908 (AMLIAsyncEvalObject.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIGetNamedChild @ 0x1C00486B8 (AMLIGetNamedChild.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     ACPIBuildCompleteCommon @ 0x1C001A6D0 (ACPIBuildCompleteCommon.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
  */
 
-__int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckDep(__int64 a1)
+__int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckDep(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v1; // rbx
-  char v2; // si
-  unsigned int v4; // edi
-  __int64 v5; // rcx
-  __int64 v6; // rax
-  const char *v7; // rax
-  const char *v8; // rdx
-  __int64 v9; // rcx
+  __int64 v4; // rsi
+  int v5; // ebx
+  __int64 v7; // rcx
+  void *v8; // rax
+  void *v9; // rdx
+  signed __int32 v10; // ecx
+  KIRQL v11; // di
+  int v12; // edx
+  __int64 v14; // rcx
+  __int64 *v15; // rax
+  __int64 v16; // [rsp+40h] [rbp-18h]
 
-  v1 = *(_QWORD *)(a1 + 40);
+  v4 = *(_QWORD *)(a1 + 40);
   *(_DWORD *)(a1 + 32) = 5;
   *(_OWORD *)(a1 + 88) = 0LL;
-  v2 = 0;
+  v5 = 0;
   *(_OWORD *)(a1 + 104) = 0LL;
   *(_QWORD *)(a1 + 120) = 0LL;
-  v4 = 0;
-  if ( (*(_BYTE *)(v1 + 1008) & 0x20) == 0 )
+  if ( (*(_BYTE *)(v4 + 960) & 0x20) == 0 )
   {
-    v5 = *(_QWORD *)(a1 + 56);
-    if ( v5 )
+    v14 = *(_QWORD *)(a1 + 56);
+    if ( v14 )
     {
-      AMLIDereferenceHandleEx(v5);
+      AMLIDereferenceHandleEx(v14);
       *(_QWORD *)(a1 + 56) = 0LL;
     }
-    v6 = AMLIGetNamedChild(*(_QWORD *)(v1 + 760), 1346716767LL);
-    *(_QWORD *)(a1 + 56) = v6;
-    if ( v6 )
+    v15 = (__int64 *)AMLIGetNamedChild(*(_QWORD *)(v4 + 720), 1346716767LL, a3, a4);
+    *(_QWORD *)(a1 + 56) = v15;
+    if ( v15 )
     {
-      v4 = AMLIAsyncEvalObject(v6, (int)a1 + 88, 0, 0, (__int64)ACPIBuildCompleteMustSucceed, a1);
+      v5 = AMLIAsyncEvalObject(v15, a1 + 88, 0, 0LL, ACPIBuildCompleteMustSucceed, a1);
     }
     else
     {
       KeAcquireSpinLockAtDpcLevel(&AcpiDeviceTreeLock);
-      _InterlockedOr64((volatile signed __int64 *)(v1 + 1008), 0x20uLL);
+      _InterlockedOr64((volatile signed __int64 *)(v4 + 960), 0x20uLL);
       KeReleaseSpinLockFromDpcLevel(&AcpiDeviceTreeLock);
     }
   }
-  v7 = (const char *)&unk_1C00622D0;
-  v8 = (const char *)&unk_1C00622D0;
-  if ( v1 )
+  v7 = *(_QWORD *)(v4 + 8);
+  v8 = &unk_1C00701BA;
+  v9 = &unk_1C00701BA;
+  if ( (v7 & 0x200000000000LL) != 0 )
   {
-    v9 = *(_QWORD *)(v1 + 8);
-    v2 = v1;
-    if ( (v9 & 0x200000000000LL) != 0 )
-    {
-      v7 = *(const char **)(v1 + 608);
-      if ( (v9 & 0x400000000000LL) != 0 )
-        v8 = *(const char **)(v1 + 616);
-    }
+    v8 = *(void **)(v4 + 568);
+    if ( (v7 & 0x400000000000LL) != 0 )
+      v9 = *(void **)(v4 + 576);
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_dqss(
-      (__int64)WPP_GLOBAL_Control->DeviceExtension,
-      4u,
-      6u,
-      0x3Du,
-      (__int64)&WPP_a0f908b75b693eaadb9088735086d97e_Traceguids,
+  {
+    v16 = (__int64)v9;
+    LOBYTE(v9) = 4;
+    WPP_RECORDER_SF_Lqss(
+      WPP_GLOBAL_Control->DeviceExtension,
+      (_DWORD)v9,
+      6,
+      61,
+      (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
+      v5,
       v4,
-      v2,
-      v7,
-      v8);
-  if ( v4 != 259 )
-    ACPIBuildCompleteMustSucceed(0LL, v4, 0LL, a1);
-  return v4;
+      (__int64)v8,
+      v16);
+  }
+  if ( v5 != 259 )
+  {
+    v10 = *(_DWORD *)(a1 + 32);
+    if ( v5 == -1073741738 )
+    {
+      *(_DWORD *)(a1 + 48) = -1073741738;
+      ACPIBuildCompleteCommon((volatile signed __int32 *)(a1 + 24), 2);
+    }
+    else
+    {
+      if ( v5 < 0 )
+      {
+        *(_DWORD *)(a1 + 48) = v5;
+        KeBugCheckEx(0xA5u, 3uLL, 0LL, v5, 0LL);
+      }
+      *(_DWORD *)(a1 + 32) = 2;
+      _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 24), v10, 1);
+      v11 = KeAcquireSpinLockRaiseToDpc(&AcpiBuildQueueLock);
+      v12 = AcpiBuildDpcFlags | 2;
+      AcpiBuildDpcFlags = v12;
+      if ( (v12 & 1) == 0 )
+      {
+        AcpiBuildDpcFlags = v12 | 1;
+        KeInsertQueueDpc(&AcpiBuildDpc, 0LL, 0LL);
+      }
+      KeReleaseSpinLock(&AcpiBuildQueueLock, v11);
+    }
+  }
+  return (unsigned int)v5;
 }

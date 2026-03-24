@@ -1,9 +1,9 @@
 /*
- * XREFs of ?D3DXQuaternionInverse@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@@Z @ 0x18027E3F8
+ * XREFs of ?D3DXQuaternionInverse@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@@Z @ 0x18021D6A8
  * Callers:
- *     ?Divide@CExpressionValueStack@@QEAAJXZ @ 0x1800C0404 (-Divide@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?Divide@CExpressionValueStack@@QEAAJXZ @ 0x18005CD78 (-Divide@CExpressionValueStack@@QEAAJXZ.c)
  * Callees:
- *     WithinEpsilon_0 @ 0x180023D48 (WithinEpsilon_0.c)
+ *     WithinEpsilon_0 @ 0x1800C79AC (WithinEpsilon_0.c)
  */
 
 __m128 *__fastcall D3DXQuaternionInverse(__m128 *a1, const struct D2DQuaternion *a2)

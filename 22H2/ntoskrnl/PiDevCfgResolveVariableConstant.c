@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDevCfgResolveVariableConstant @ 0x140960130
+ * XREFs of PiDevCfgResolveVariableConstant @ 0x1408A8090
  * Callers:
- *     PiDevCfgResolveVariable @ 0x14087F0D0 (PiDevCfgResolveVariable.c)
+ *     PiDevCfgResolveVariable @ 0x14077B470 (PiDevCfgResolveVariable.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     PnpValidateRegistryValue @ 0x1405624EC (PnpValidateRegistryValue.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PnpValidateRegistryValue @ 0x14050E568 (PnpValidateRegistryValue.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableConstant(__int64 a1, void *a2, __int64 a3)
@@ -17,8 +17,8 @@ __int64 __fastcall PiDevCfgResolveVariableConstant(__int64 a1, void *a2, __int64
   unsigned int v6; // edi
   size_t v7; // rbp
   int v8; // r15d
-  void *Pool2; // rax
-  void *v10; // rsi
+  PVOID PoolWithTag; // rax
+  PVOID v10; // rsi
   PVOID P; // [rsp+68h] [rbp+20h] BYREF
 
   P = 0LL;
@@ -36,14 +36,14 @@ __int64 __fastcall PiDevCfgResolveVariableConstant(__int64 a1, void *a2, __int64
     v8 = v5[1];
     if ( (_DWORD)v7 )
     {
-      Pool2 = (void *)ExAllocatePool2(256LL, (unsigned int)v7, 1667526736LL);
-      v10 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)v7, 0x63647050u);
+      v10 = PoolWithTag;
+      if ( !PoolWithTag )
       {
         v6 = -1073741670;
         goto LABEL_10;
       }
-      memmove(Pool2, (char *)v5 + (unsigned int)v5[2], v7);
+      memmove(PoolWithTag, (char *)v5 + (unsigned int)v5[2], v7);
     }
     else
     {

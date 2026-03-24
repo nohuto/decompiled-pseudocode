@@ -1,31 +1,31 @@
 /*
- * XREFs of HalpAcquirePccInterface @ 0x140935904
+ * XREFs of HalpAcquirePccInterface @ 0x140866874
  * Callers:
- *     HaliInitializePlatformDebugTriggers @ 0x140527EA0 (HaliInitializePlatformDebugTriggers.c)
- *     HalpStartPccCommand @ 0x140935CEC (HalpStartPccCommand.c)
+ *     HaliInitializePlatformDebugTriggers @ 0x1404DCEB0 (HaliInitializePlatformDebugTriggers.c)
+ *     HalpStartPccCommand @ 0x140866C78 (HalpStartPccCommand.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     HalpQueryPccInterface @ 0x140935B40 (HalpQueryPccInterface.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14063E320 (ObpReferenceObjectByHandleWithTag.c)
+ *     HalpQueryPccInterface @ 0x140866ACC (HalpQueryPccInterface.c)
  */
 
 __int64 __fastcall HalpAcquirePccInterface(unsigned __int8 a1, UNICODE_STRING *a2, void *a3)
 {
   int PccInterface; // edi
   int v5; // esi
-  PVOID v6; // rbx
+  struct _DMA_ADAPTER *v6; // rbx
   void *v8; // [rsp+28h] [rbp-58h]
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   HANDLE FileHandle; // [rsp+A8h] [rbp+28h] BYREF
-  PVOID Object; // [rsp+B8h] [rbp+38h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+B8h] [rbp+38h] BYREF
 
-  Object = 0LL;
-  *(&ObjectAttributes.Attributes + 1) = 0;
+  DmaAdapter = 0LL;
   PccInterface = 0;
   *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
   v5 = a1;
   IoStatusBlock = 0LL;
   if ( a2 && a2->Buffer )
@@ -39,13 +39,21 @@ __int64 __fastcall HalpAcquirePccInterface(unsigned __int8 a1, UNICODE_STRING *a
     PccInterface = ZwOpenFile(&FileHandle, 0x120089u, &ObjectAttributes, &IoStatusBlock, 0, 0);
     if ( PccInterface >= 0 )
     {
-      PccInterface = ObpReferenceObjectByHandleWithTag((ULONG_PTR)FileHandle, 0, 0LL, 0, 0x746C6644u, &Object, 0LL, 0LL);
+      PccInterface = ObpReferenceObjectByHandleWithTag(
+                       (ULONG_PTR)FileHandle,
+                       0,
+                       0LL,
+                       0,
+                       0x746C6644u,
+                       &DmaAdapter,
+                       0LL,
+                       0LL);
       if ( PccInterface >= 0 )
       {
         v8 = a3;
-        v6 = Object;
-        PccInterface = HalpQueryPccInterface(*((PDEVICE_OBJECT *)Object + 1), v5, v8);
-        ObfDereferenceObject(v6);
+        v6 = DmaAdapter;
+        PccInterface = HalpQueryPccInterface((PDEVICE_OBJECT)DmaAdapter->DmaOperations, v5, v8);
+        HalPutDmaAdapter(v6);
       }
     }
     if ( FileHandle )

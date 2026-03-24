@@ -1,20 +1,18 @@
 /*
- * XREFs of ?AddSharedLights@CVisual@@AEAAJAEAV?$vector@ULightEntry@CVisual@@V?$allocator@ULightEntry@CVisual@@@std@@@std@@W4LightBehavior@@PEBVCResourceTable@@PEBII@Z @ 0x1801F6B2C
+ * XREFs of ?AddSharedLights@CVisual@@AEAAJAEAV?$vector@ULightEntry@CVisual@@V?$allocator@ULightEntry@CVisual@@@std@@@std@@W4LightBehavior@@PEBVCResourceTable@@PEBII@Z @ 0x1800C127C
  * Callers:
- *     ?ProcessAppendExcludedSharedLights@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_APPENDEXCLUDEDSHAREDLIGHTS@@PEBXI@Z @ 0x1801F7A1C (-ProcessAppendExcludedSharedLights@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_APPEND.c)
- *     ?ProcessAppendSharedLights@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_APPENDSHAREDLIGHTS@@PEBXI@Z @ 0x1801F7A9C (-ProcessAppendSharedLights@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_APPENDSHAREDLI.c)
- *     ?ProcessSetExcludedSharedLights@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETEXCLUDEDSHAREDLIGHTS@@PEBXI@Z @ 0x1801F7C84 (-ProcessSetExcludedSharedLights@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETEXCLUD.c)
- *     ?ProcessSetSharedLights@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETSHAREDLIGHTS@@PEBXI@Z @ 0x1801F7F20 (-ProcessSetSharedLights@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETSHAREDLIGHTS@@.c)
+ *     ?ProcessAddSharedLights@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_ADDSHAREDLIGHTS@@PEBXI@Z @ 0x1800C1178 (-ProcessAddSharedLights@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_ADDSHAREDLIGHTS@@.c)
+ *     ?ProcessAddExcludedSharedLights@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_ADDEXCLUDEDSHAREDLIGHTS@@PEBXI@Z @ 0x1801AE588 (-ProcessAddExcludedSharedLights@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_ADDEXCLUD.c)
  * Callees:
- *     ?AddTarget@CCompositionLight@@QEAAJPEAVCVisual@@W4LightBehavior@@_N@Z @ 0x180015150 (-AddTarget@CCompositionLight@@QEAAJPEAVCVisual@@W4LightBehavior@@_N@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800BDA3C (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A0B90 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ?AddTarget@CCompositionLight@@QEAAJPEAVCVisual@@W4LightBehavior@@_N@Z @ 0x1800C1348 (-AddTarget@CCompositionLight@@QEAAJPEAVCVisual@@W4LightBehavior@@_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CVisual::AddSharedLights(
         __int64 a1,
-        _QWORD **a2,
+        struct CResource ***a2,
         unsigned int a3,
         CResourceTable *a4,
         __int64 a5,
@@ -24,10 +22,11 @@ __int64 __fastcall CVisual::AddSharedLights(
   __int64 v7; // rdi
   struct CResource *ResourceWithoutType; // rax
   __int64 v12; // rcx
-  __int64 v13; // rsi
-  _QWORD *i; // rax
-  int v15; // eax
-  __int64 v16; // rcx
+  struct CResource *v13; // rsi
+  __int64 v14; // r9
+  struct CResource **i; // rax
+  int v16; // eax
+  __int64 v17; // rcx
 
   v6 = 0;
   v7 = 0LL;
@@ -36,7 +35,7 @@ __int64 __fastcall CVisual::AddSharedLights(
     while ( 2 )
     {
       ResourceWithoutType = CResourceTable::GetResourceWithoutType(a4, *(_DWORD *)(a5 + 4 * v7));
-      v13 = (__int64)ResourceWithoutType;
+      v13 = ResourceWithoutType;
       if ( ResourceWithoutType
         && (*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)ResourceWithoutType + 56LL))(
              ResourceWithoutType,
@@ -47,11 +46,12 @@ __int64 __fastcall CVisual::AddSharedLights(
           if ( *i == v13 )
             goto LABEL_9;
         }
-        v15 = CCompositionLight::AddTarget(v13, a1, a3, 1);
-        v6 = v15;
-        if ( v15 < 0 )
+        LOBYTE(v14) = 1;
+        v16 = CCompositionLight::AddTarget(v13, a1, a3, v14);
+        v6 = v16;
+        if ( v16 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0LL, v15, 0xBD3u);
+          MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0xC3Eu, 0LL);
           return v6;
         }
 LABEL_9:
@@ -62,7 +62,7 @@ LABEL_9:
       else
       {
         v6 = -2003303421;
-        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, -2003303421, 0xBC3u);
+        MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2003303421, 0xC2Eu, 0LL);
       }
       break;
     }

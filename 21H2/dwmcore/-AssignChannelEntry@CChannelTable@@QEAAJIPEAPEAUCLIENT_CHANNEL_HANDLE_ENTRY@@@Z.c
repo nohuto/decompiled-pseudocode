@@ -1,11 +1,11 @@
 /*
- * XREFs of ?AssignChannelEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x18002CFF0
+ * XREFs of ?AssignChannelEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x180027A38
  * Callers:
- *     ?CreateChannel@CInternalMilCmdConnection@@QEAAJPEAPEAVCChannel@@@Z @ 0x18002CD68 (-CreateChannel@CInternalMilCmdConnection@@QEAAJPEAPEAVCChannel@@@Z.c)
+ *     ?CreateKernelChannel@CInternalMilCmdConnection@@AEAAJPEAPEAVCChannel@@@Z @ 0x1800277C0 (-CreateKernelChannel@CInternalMilCmdConnection@@AEAAJPEAPEAVCChannel@@@Z.c)
  * Callees:
- *     ?GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x18002D830 (-GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AssignEntry@HANDLE_TABLE@@QEAAJIK@Z @ 0x1800BE02C (-AssignEntry@HANDLE_TABLE@@QEAAJIK@Z.c)
+ *     ?GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x180028320 (-GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AssignEntry@HANDLE_TABLE@@QEAAJIK@Z @ 0x18005E800 (-AssignEntry@HANDLE_TABLE@@QEAAJIK@Z.c)
  */
 
 __int64 __fastcall CChannelTable::AssignChannelEntry(
@@ -28,14 +28,14 @@ __int64 __fastcall CChannelTable::AssignChannelEntry(
   v8 = MasterTableEntry;
   if ( MasterTableEntry < 0 )
   {
-    v14 = 69;
+    v14 = 57;
     goto LABEL_13;
   }
   MasterTableEntry = CChannelTable::GetMasterTableEntry(this, a2, &v15);
   v8 = MasterTableEntry;
   if ( MasterTableEntry < 0 )
   {
-    v14 = 71;
+    v14 = 59;
 LABEL_13:
     MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, MasterTableEntry, v14, 0LL);
     return v8;
@@ -58,7 +58,7 @@ LABEL_13:
       v8 = (unsigned __int16)LastError | 0x80070000;
     if ( (v8 & 0x80000000) == 0 )
       v8 = -2003304445;
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v8, 0x4Au, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v8, 0x3Eu, 0LL);
   }
   return v8;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of KiSignalThread @ 0x1400CE7E0
+ * XREFs of KiSignalThread @ 0x1400CE800
  * Callers:
- *     IopfCompleteRequest @ 0x1400C10D0 (IopfCompleteRequest.c)
- *     KeAlertThreadByThreadId @ 0x1400CCD8C (KeAlertThreadByThreadId.c)
- *     KiWakeOtherQueueWaiters @ 0x1400CDC40 (KiWakeOtherQueueWaiters.c)
- *     NtReleaseWorkerFactoryWorker @ 0x1400CDD90 (NtReleaseWorkerFactoryWorker.c)
- *     KiTryUnwaitThreadWithPriority @ 0x1400CE5D0 (KiTryUnwaitThreadWithPriority.c)
- *     KiResumeThread @ 0x1400F1C40 (KiResumeThread.c)
- *     KiSignalThreadForApc @ 0x1400F1F64 (KiSignalThreadForApc.c)
- *     KeAlertThread @ 0x1400F2210 (KeAlertThread.c)
- *     KiSuspendThread @ 0x1400F2388 (KiSuspendThread.c)
+ *     IopfCompleteRequest @ 0x1400C10F0 (IopfCompleteRequest.c)
+ *     KeAlertThreadByThreadId @ 0x1400CCDAC (KeAlertThreadByThreadId.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400CDC60 (KiWakeOtherQueueWaiters.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x1400CDDB0 (NtReleaseWorkerFactoryWorker.c)
+ *     KiTryUnwaitThreadWithPriority @ 0x1400CE5F0 (KiTryUnwaitThreadWithPriority.c)
+ *     KiResumeThread @ 0x1400F1C60 (KiResumeThread.c)
+ *     KiSignalThreadForApc @ 0x1400F1F84 (KiSignalThreadForApc.c)
+ *     KeAlertThread @ 0x1400F2230 (KeAlertThread.c)
+ *     KiSuspendThread @ 0x1400F23A8 (KiSuspendThread.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetThreadState @ 0x1401B4B6C (KiSetThreadState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetThreadState @ 0x1401B4B8C (KiSetThreadState.c)
  */
 
 char __fastcall KiSignalThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspPicoSetContextThreadEx @ 0x1409B5C40
+ * XREFs of PspPicoSetContextThreadEx @ 0x14090C380
  * Callers:
  *     <none>
  * Callees:
- *     PspSetContextThreadInternal @ 0x140770B00 (PspSetContextThreadInternal.c)
+ *     PspSetContextThreadInternal @ 0x1406C0A5C (PspSetContextThreadInternal.c)
  */
 
 __int64 __fastcall PspPicoSetContextThreadEx(struct _KTHREAD *a1, __int64 a2, char a3, char a4, char a5)

@@ -1,17 +1,17 @@
 /*
- * XREFs of EmpParseEntryTypes @ 0x140B55494
+ * XREFs of EmpParseEntryTypes @ 0x140A45B7C
  * Callers:
- *     EmpParseInfDatabase @ 0x140B551A0 (EmpParseInfDatabase.c)
+ *     EmpParseInfDatabase @ 0x140A455E8 (EmpParseInfDatabase.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     EmpSearchEntryDatabase @ 0x1403879E0 (EmpSearchEntryDatabase.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlGUIDFromString @ 0x1406CF770 (RtlGUIDFromString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     EmpInfParseGetSectionLineCount @ 0x140B5635C (EmpInfParseGetSectionLineCount.c)
- *     CmpGetSectionLineIndex @ 0x140B56900 (CmpGetSectionLineIndex.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     EmpSearchEntryDatabase @ 0x1403B3EBC (EmpSearchEntryDatabase.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlGUIDFromString @ 0x1406BD650 (RtlGUIDFromString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     EmpInfParseGetSectionLineCount @ 0x140A46A88 (EmpInfParseGetSectionLineCount.c)
+ *     CmpGetSectionLineIndex @ 0x140A46FF4 (CmpGetSectionLineIndex.c)
  */
 
 __int64 __fastcall EmpParseEntryTypes(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall EmpParseEntryTypes(__int64 a1)
   unsigned int v3; // esi
   unsigned int SectionLineCount; // ebp
   const char *SectionLineIndex; // rax
-  GUID *Pool2; // rax
+  GUID *PoolWithTag; // rax
   GUID *v7; // rdi
   GUID *v8; // rcx
   UNICODE_STRING GuidString; // [rsp+20h] [rbp-98h] BYREF
@@ -43,11 +43,11 @@ __int64 __fastcall EmpParseEntryTypes(__int64 a1)
       RtlInitAnsiString(&DestinationString, SectionLineIndex);
       if ( RtlAnsiStringToUnicodeString(&GuidString, &DestinationString, 0) < 0 )
         goto LABEL_12;
-      Pool2 = (GUID *)ExAllocatePool2(256LL, 0x50uLL, 0x74694D45u);
-      v7 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = (GUID *)ExAllocatePoolWithTag(PagedPool, 0x50uLL, 0x74694D45u);
+      v7 = PoolWithTag;
+      if ( !PoolWithTag )
         return (unsigned int)-1073741670;
-      v1 = RtlGUIDFromString(&GuidString, Pool2);
+      v1 = RtlGUIDFromString(&GuidString, PoolWithTag);
       v8 = v7;
       if ( v1 < 0 || EmpSearchEntryDatabase(v7) )
         break;

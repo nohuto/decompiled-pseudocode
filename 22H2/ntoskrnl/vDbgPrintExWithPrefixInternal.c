@@ -1,30 +1,28 @@
 /*
- * XREFs of vDbgPrintExWithPrefixInternal @ 0x14032A5D0
+ * XREFs of vDbgPrintExWithPrefixInternal @ 0x1403643E0
  * Callers:
- *     PopPrintEx @ 0x14032A4CC (PopPrintEx.c)
- *     DbgPrint @ 0x14032A510 (DbgPrint.c)
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     vDbgPrintEx @ 0x14032A5A0 (vDbgPrintEx.c)
- *     vDbgPrintExWithPrefix @ 0x140463540 (vDbgPrintExWithPrefix.c)
- *     IopDebugPrint @ 0x1405610DC (IopDebugPrint.c)
- *     KsepDebugPrint @ 0x140580D64 (KsepDebugPrint.c)
- *     DbgPrintReturnControlC @ 0x1405A77B0 (DbgPrintReturnControlC.c)
- *     VfUtilDbgPrint @ 0x1405CE364 (VfUtilDbgPrint.c)
- *     DifUtilDbgPrint @ 0x1405D4BD0 (DifUtilDbgPrint.c)
- *     DifiDbgPrint @ 0x1405D56D4 (DifiDbgPrint.c)
+ *     PopPrintEx @ 0x140364318 (PopPrintEx.c)
+ *     DbgPrint @ 0x140364360 (DbgPrint.c)
+ *     vDbgPrintEx @ 0x1403643B0 (vDbgPrintEx.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     IopDebugPrint @ 0x14050D6D4 (IopDebugPrint.c)
+ *     KsepDebugPrint @ 0x140526E28 (KsepDebugPrint.c)
+ *     DbgPrintReturnControlC @ 0x140585460 (DbgPrintReturnControlC.c)
+ *     vDbgPrintExWithPrefix @ 0x1405858E0 (vDbgPrintExWithPrefix.c)
+ *     VfUtilDbgPrint @ 0x1405A0634 (VfUtilDbgPrint.c)
  * Callees:
- *     RtlStringCbVPrintfA @ 0x14020A6D8 (RtlStringCbVPrintfA.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025ABF0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     NtQueryDebugFilterState @ 0x14032A730 (NtQueryDebugFilterState.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     DbgBreakPointWithStatus @ 0x140428770 (DbgBreakPointWithStatus.c)
- *     DebugPrint @ 0x140428780 (DebugPrint.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14029CF60 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     NtQueryDebugFilterState @ 0x140364540 (NtQueryDebugFilterState.c)
+ *     RtlStringCbVPrintfA @ 0x1403720AC (RtlStringCbVPrintfA.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     DbgBreakPointWithStatus @ 0x140406F30 (DbgBreakPointWithStatus.c)
+ *     DebugPrint @ 0x140406F40 (DebugPrint.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall vDbgPrintExWithPrefixInternal(
@@ -35,7 +33,6 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
         va_list argList,
         char a6)
 {
-  unsigned int v7; // r12d
   __int64 result; // rax
   char *v10; // rdi
   NTSTATUS v11; // eax
@@ -44,52 +41,47 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
   size_t v14; // rbx
   __int64 v15; // rcx
   struct _EX_RUNDOWN_REF *v16; // rdi
-  const char *CurrentIrql; // rsi
+  unsigned __int8 CurrentIrql; // si
   unsigned __int8 v18; // cl
   _DWORD *SchedulerAssist; // r9
-  __int64 v20; // rdx
-  struct _EX_RUNDOWN_REF *v21; // rbx
-  unsigned int v22; // esi
-  void (__fastcall *Count)(__int128 *, _QWORD, _QWORD); // r12
-  unsigned __int8 v24; // al
+  struct _EX_RUNDOWN_REF *v20; // rbx
+  struct _EX_RUNDOWN_REF *v21; // r14
+  void (__fastcall *Count)(__int128 *, _QWORD, _QWORD); // rbx
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v26; // r8
-  int v27; // eax
-  bool v28; // zf
-  char v29[96]; // [rsp+0h] [rbp-80h] BYREF
-  unsigned int v30; // [rsp+80h] [rbp+0h]
-  NTSTATUS v31; // [rsp+84h] [rbp+4h]
-  NTSTRSAFE_PCSTR pszFormat; // [rsp+88h] [rbp+8h]
-  __int128 v33; // [rsp+90h] [rbp+10h] BYREF
-  unsigned __int64 v34; // [rsp+A0h] [rbp+20h]
+  _DWORD *v24; // r8
+  int v25; // eax
+  bool v26; // zf
+  char v27[96]; // [rsp+0h] [rbp-80h] BYREF
+  NTSTATUS v28; // [rsp+80h] [rbp+0h]
+  __int128 v29; // [rsp+88h] [rbp+8h] BYREF
+  NTSTRSAFE_PCSTR pszFormat; // [rsp+98h] [rbp+18h]
+  unsigned __int64 v31; // [rsp+A0h] [rbp+20h]
 
   pszFormat = a4;
-  v7 = a2;
-  v30 = a2;
-  v33 = 0LL;
+  v29 = 0LL;
   if ( !(unsigned int)NtQueryDebugFilterState(a2, a3) )
     return 0LL;
   v10 = 0LL;
   v11 = 0;
-  v31 = 0;
+  v28 = 0;
   v12 = 0;
   do
   {
     if ( v12 >= 0x200 )
       break;
-    v10 = v29;
+    v10 = v27;
     v12 += 128;
     v13 = -1LL;
     do
       ++v13;
     while ( Src[v13] );
-    v34 = v13;
+    v31 = v13;
     v14 = v12 - 1;
     if ( v13 <= v14 )
       v14 = v13;
-    memmove(v29, Src, v14);
-    v11 = RtlStringCbVPrintfA(&v29[v14], v12 - v14, pszFormat, argList);
-    v31 = v11;
+    memmove(v27, Src, v14);
+    v11 = RtlStringCbVPrintfA(&v27[v14], v12 - v14, pszFormat, argList);
+    v28 = v11;
     if ( v11 >= 0 )
       break;
   }
@@ -107,14 +99,13 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
       ++v15;
     while ( v10[v15] );
   }
-  *((_QWORD *)&v33 + 1) = v10;
-  LOWORD(v33) = v15;
+  *((_QWORD *)&v29 + 1) = v10;
+  LOWORD(v29) = v15;
   if ( (KiBugCheckActive & 3) == 0 && RtlpDebugPrintCallbacksActive == 1 )
   {
     v16 = 0LL;
-    CurrentIrql = (const char *)KeGetCurrentIrql();
-    pszFormat = CurrentIrql;
-    if ( (unsigned __int8)CurrentIrql < 0xCu )
+    CurrentIrql = KeGetCurrentIrql();
+    if ( CurrentIrql < 0xCu )
     {
       v18 = KeGetCurrentIrql();
       __writecr8(0xCuLL);
@@ -123,60 +114,57 @@ __int64 __fastcall vDbgPrintExWithPrefixInternal(
         if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-          if ( v18 == 12 )
-            LODWORD(v20) = 4096;
-          else
-            v20 = (-1LL << (v18 + 1)) & 0x1FFC;
-          SchedulerAssist[5] |= v20;
+          SchedulerAssist[5] |= (-1 << (v18 + 1)) & 0x1FFC;
         }
       }
     }
     ExAcquireSpinLockSharedAtDpcLevel(&RtlpDebugPrintCallbackLock);
-    v21 = (struct _EX_RUNDOWN_REF *)RtlpDebugPrintCallbackList;
+    v20 = (struct _EX_RUNDOWN_REF *)RtlpDebugPrintCallbackList;
     if ( RtlpDebugPrintCallbackList != (_UNKNOWN *)&RtlpDebugPrintCallbackList )
     {
-      v22 = v30;
       do
       {
-        if ( ExAcquireRundownProtection_0(v21 - 2) )
+        v21 = v20 - 3;
+        if ( ExAcquireRundownProtection(v20 - 2) )
         {
           ExReleaseSpinLockSharedFromDpcLevel(&RtlpDebugPrintCallbackLock);
-          Count = (void (__fastcall *)(__int128 *, _QWORD, _QWORD))v21[-1].Count;
+          Count = (void (__fastcall *)(__int128 *, _QWORD, _QWORD))v21[2].Count;
           if ( v16 )
-            ExReleaseRundownProtection_0(v16 + 1);
-          v16 = v21 - 3;
-          Count(&v33, v22, a3);
+            ExReleaseRundownProtection(v16 + 1);
+          v16 = v21;
+          Count(&v29, a2, a3);
           ExAcquireSpinLockSharedAtDpcLevel(&RtlpDebugPrintCallbackLock);
+          v20 = (struct _EX_RUNDOWN_REF *)v21[3].Count;
         }
-        v21 = (struct _EX_RUNDOWN_REF *)v21->Count;
+        else
+        {
+          v20 = (struct _EX_RUNDOWN_REF *)v20->Count;
+        }
       }
-      while ( v21 != (struct _EX_RUNDOWN_REF *)&RtlpDebugPrintCallbackList );
-      LOBYTE(CurrentIrql) = (_BYTE)pszFormat;
-      v7 = v30;
+      while ( v20 != (struct _EX_RUNDOWN_REF *)&RtlpDebugPrintCallbackList );
     }
     ExReleaseSpinLockSharedFromDpcLevel(&RtlpDebugPrintCallbackLock);
     if ( v16 )
-      ExReleaseRundownProtection_0(v16 + 1);
-    if ( (unsigned __int8)CurrentIrql < 0xCu )
+      ExReleaseRundownProtection(v16 + 1);
+    if ( CurrentIrql < 0xCu )
     {
       if ( KiIrqlFlags )
       {
-        v24 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v24 - 2) <= 0xDu )
+        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v26 = CurrentPrcb->SchedulerAssist;
-          v27 = ~(unsigned __int16)(-1LL << ((unsigned __int8)CurrentIrql + 1));
-          v28 = (v27 & v26[5]) == 0;
-          v26[5] &= v27;
-          if ( v28 )
+          v24 = CurrentPrcb->SchedulerAssist;
+          v25 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v26 = (v25 & v24[5]) == 0;
+          v24[5] &= v25;
+          if ( v26 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
-      __writecr8((unsigned __int8)CurrentIrql);
+      __writecr8(CurrentIrql);
     }
   }
-  result = DebugPrint(&v33, v7, a3);
+  result = DebugPrint(&v29, a2, a3);
   if ( (_DWORD)result == -2147483645 && a6 == 1 )
   {
     DbgBreakPointWithStatus(1u);

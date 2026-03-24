@@ -1,25 +1,22 @@
 /*
- * XREFs of VerifierKeReleaseSpinLock @ 0x140AC1470
+ * XREFs of VerifierKeReleaseSpinLock @ 0x1409DB3E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     VfKeIrqlTransitionReserveLogEntry @ 0x140AC15B0 (VfKeIrqlTransitionReserveLogEntry.c)
- *     VfKeIrqlLogLower @ 0x140AD6C84 (VfKeIrqlLogLower.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ViKeIrqlLogCommon @ 0x1409DC0DC (ViKeIrqlLogCommon.c)
+ *     ViKeReleaseSpinLockCommon @ 0x1409DC370 (ViKeReleaseSpinLockCommon.c)
+ *     VfDeadlockReleaseResource @ 0x1409DE348 (VfDeadlockReleaseResource.c)
  */
 
-__int64 __fastcall VerifierKeReleaseSpinLock(__int64 a1, __int64 a2)
+__int64 __fastcall VerifierKeReleaseSpinLock(ULONG_PTR a1, char a2)
 {
-  __int64 v2; // rbx
-  __int64 v3; // r9
-  __int64 result; // rax
+  __int64 v4; // rbx
+  __int64 v5; // rdx
 
-  v2 = 0LL;
-  v3 = a1;
-  if ( (MmVerifierData & 1) != 0 )
-    v2 = VfKeIrqlTransitionReserveLogEntry(KeGetCurrentIrql(), a2);
-  result = ((__int64 (__fastcall *)(__int64))pXdvKeReleaseSpinLock)(v3);
-  if ( (MmVerifierData & 1) != 0 )
-    return VfKeIrqlLogLower(v2);
-  return result;
+  v4 = ViKeReleaseSpinLockCommon(a1);
+  VfDeadlockReleaseResource(a1);
+  LOBYTE(v5) = a2;
+  ((void (__fastcall *)(ULONG_PTR, __int64))pXdvKeReleaseSpinLock)(a1, v5);
+  return ViKeIrqlLogCommon(v4, 1LL);
 }

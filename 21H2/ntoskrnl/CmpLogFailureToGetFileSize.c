@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLogFailureToGetFileSize @ 0x14091D320
+ * XREFs of CmpLogFailureToGetFileSize @ 0x140876814
  * Callers:
- *     CmpInitializeActualFileSizes @ 0x140689C24 (CmpInitializeActualFileSizes.c)
- *     CmpLoadHiveThread @ 0x14083C870 (CmpLoadHiveThread.c)
+ *     CmpInitializeActualFileSizes @ 0x140724468 (CmpInitializeActualFileSizes.c)
+ *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void CmpLogFailureToGetFileSize()
@@ -24,9 +24,9 @@ void CmpLogFailureToGetFileSize()
   __int64 *v10; // [rsp+80h] [rbp+37h]
   __int64 v11; // [rsp+88h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140C03868 > 5 )
+  if ( (unsigned int)dword_140C02130 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03868, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02130, 0x400000000000LL) )
     {
       v3 = v0;
       v6 = &v2;
@@ -38,8 +38,8 @@ void CmpLogFailureToGetFileSize()
       v4 = 0x1000000LL;
       v11 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03868,
-        (unsigned __int8 *)&byte_14002A03F,
+        (__int64)&dword_140C02130,
+        (unsigned __int8 *)&word_140023AB6,
         0LL,
         0LL,
         5u,

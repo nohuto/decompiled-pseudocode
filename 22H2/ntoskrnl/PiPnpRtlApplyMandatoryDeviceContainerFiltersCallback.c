@@ -1,23 +1,18 @@
 /*
- * XREFs of PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback @ 0x1407E9740
+ * XREFs of PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback @ 0x1406A4FC0
  * Callers:
  *     <none>
  * Callees:
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x140740D40 (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1406ACF7C (PiPnpRtlApplyMandatoryDeviceFilters.c)
  */
 
-__int64 __fastcall PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback(__int64 a1, __int64 a2, _BYTE *a3)
+__int64 __fastcall PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback(__int64 a1, _QWORD *a2, _BYTE *a3)
 {
   _BYTE *v3; // rbx
   __int64 result; // rax
 
-  v3 = (_BYTE *)(a2 + 16);
-  result = PiPnpRtlApplyMandatoryDeviceFilters(
-             *(_QWORD *)a2,
-             *(_QWORD *)(a1 + 16),
-             0LL,
-             *(struct _SECURITY_SUBJECT_CONTEXT **)(a2 + 8),
-             (_BYTE *)(a2 + 16));
+  v3 = a2 + 2;
+  result = PiPnpRtlApplyMandatoryDeviceFilters(*a2, *(_QWORD *)(a1 + 16), 0, a2[1], (__int64)(a2 + 2));
   if ( (int)result >= 0 )
     *a3 = *v3;
   return result;

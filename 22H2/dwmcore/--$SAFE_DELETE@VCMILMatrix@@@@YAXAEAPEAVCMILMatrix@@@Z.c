@@ -1,10 +1,11 @@
 /*
- * XREFs of ??$SAFE_DELETE@VCMILMatrix@@@@YAXAEAPEAVCMILMatrix@@@Z @ 0x18000C1D8
+ * XREFs of ??$SAFE_DELETE@VCMILMatrix@@@@YAXAEAPEAVCMILMatrix@@@Z @ 0x1800CB1FC
  * Callers:
- *     ??1CTransformGroup@@MEAA@XZ @ 0x18000BF84 (--1CTransformGroup@@MEAA@XZ.c)
- *     ??1CTransform3DGroup@@MEAA@XZ @ 0x180255058 (--1CTransform3DGroup@@MEAA@XZ.c)
+ *     ??1CTransformGroup@@MEAA@XZ @ 0x18001B0F4 (--1CTransformGroup@@MEAA@XZ.c)
+ *     ?Clear@CTreeData@@MEAAXXZ @ 0x1800CB1B0 (-Clear@CTreeData@@MEAAXXZ.c)
+ *     ??1CTransform3DGroup@@MEAA@XZ @ 0x1801B5DD0 (--1CTransform3DGroup@@MEAA@XZ.c)
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
  */
 
 void __fastcall SAFE_DELETE<CMILMatrix>(void **a1)
@@ -14,7 +15,7 @@ void __fastcall SAFE_DELETE<CMILMatrix>(void **a1)
   v2 = *a1;
   if ( v2 )
   {
-    operator delete(v2, 0x44uLL);
+    operator delete(v2);
     *a1 = 0LL;
   }
 }

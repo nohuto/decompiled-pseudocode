@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EmitUpdateCommands@CLineGeometryMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021F520
+ * XREFs of ?EmitUpdateCommands@CLineGeometryMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E8CA0
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitUpdateCommands@CGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C009E3B0 (-EmitUpdateCommands@CGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_12bdc2525042d1beee710f192f1f0697___ @ 0x1C021F434 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_12bdc2525042d1beee710f192f1f069.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_8e1029071930d5873310be8659e04745___ @ 0x1C021F4A8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_8e1029071930d5873310be8659e0474.c)
+ *     ?EmitUpdateCommands@CGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0063490 (-EmitUpdateCommands@CGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_12bdc2525042d1beee710f192f1f0697___ @ 0x1C01E8BB4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_12bdc2525042d1beee710f192f1f069.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_8e1029071930d5873310be8659e04745___ @ 0x1C01E8C28 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_8e1029071930d5873310be8659e0474.c)
  */
 
 char __fastcall DirectComposition::CLineGeometryMarshaler::EmitUpdateCommands(

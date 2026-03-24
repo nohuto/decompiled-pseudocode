@@ -1,22 +1,23 @@
 /*
- * XREFs of PnpDeviceCompletionRoutine @ 0x140322760
+ * XREFs of PnpDeviceCompletionRoutine @ 0x14036ECE0
  * Callers:
  *     <none>
  * Callees:
- *     IoFreeIrp @ 0x1402AF1E0 (IoFreeIrp.c)
- *     PnpDeviceCompletionRequestDestroy @ 0x140322824 (PnpDeviceCompletionRequestDestroy.c)
- *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x1403228D4 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
- *     PnpDiagnosticTraceObject @ 0x1403229A0 (PnpDiagnosticTraceObject.c)
- *     PnpTraceStartDevice @ 0x1403623D0 (PnpTraceStartDevice.c)
- *     IoFindDeviceThatFailedIrp @ 0x140367754 (IoFindDeviceThatFailedIrp.c)
+ *     IoFreeIrp @ 0x1402D3CF0 (IoFreeIrp.c)
+ *     PnpDiagnosticTraceObject @ 0x1403645B8 (PnpDiagnosticTraceObject.c)
+ *     PnpDeviceCompletionRequestDestroy @ 0x14036EDA4 (PnpDeviceCompletionRequestDestroy.c)
+ *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x14036EDF8 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
+ *     IoFindDeviceThatFailedIrp @ 0x14037A864 (IoFindDeviceThatFailedIrp.c)
+ *     PnpTraceStartDevice @ 0x14037BD10 (PnpTraceStartDevice.c)
  */
 
-__int64 __fastcall PnpDeviceCompletionRoutine(__int64 a1, IRP *a2, __int64 a3, __int64 a4)
+__int64 __fastcall PnpDeviceCompletionRoutine(__int64 a1, IRP *a2, __int64 a3)
 {
-  __int64 v4; // rdi
+  __int64 v3; // rdi
+  __int64 v6; // rcx
   __int64 DeviceThatFailedIrp; // rax
 
-  v4 = 0LL;
+  v3 = 0LL;
   *(_QWORD *)(*(_QWORD *)(a3 + 16) + 72LL) = 0LL;
   if ( a2->PendingReturned )
     *(_DWORD *)(a3 + 36) = 1;
@@ -25,15 +26,16 @@ __int64 __fastcall PnpDeviceCompletionRoutine(__int64 a1, IRP *a2, __int64 a3, _
   _InterlockedIncrement((volatile signed __int32 *)(a3 + 56));
   if ( *(int *)(a3 + 40) < 0 )
   {
-    DeviceThatFailedIrp = IoFindDeviceThatFailedIrp(a2, a2, a3, a4);
+    DeviceThatFailedIrp = IoFindDeviceThatFailedIrp(a2);
     if ( DeviceThatFailedIrp )
-      v4 = *(_QWORD *)(DeviceThatFailedIrp + 8);
+      v3 = *(_QWORD *)(DeviceThatFailedIrp + 8);
   }
   PnpDeviceCompletionQueueDispatchedEntryCompleted(a1, a3);
-  if ( *(_DWORD *)(a3 + 32) == 783 )
-    PnpDiagnosticTraceObject(&KMPnPEvt_DeviceEnum_Stop);
+  v6 = *(_QWORD *)(a3 + 16);
+  if ( *(_DWORD *)(a3 + 32) == 781 )
+    PnpDiagnosticTraceObject(&KMPnPEvt_DeviceEnum_Stop, (unsigned __int16 *)(v6 + 40));
   else
-    PnpTraceStartDevice(*(_QWORD *)(a3 + 16), *(unsigned int *)(a3 + 40), v4);
+    PnpTraceStartDevice(v6, *(unsigned int *)(a3 + 40), v3);
   PnpDeviceCompletionRequestDestroy(a3);
   IoFreeIrp(a2);
   return 3221225494LL;

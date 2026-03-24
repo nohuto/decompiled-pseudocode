@@ -1,42 +1,31 @@
 /*
- * XREFs of ?SessionUninitialize@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C00BA50C
+ * XREFs of ?SessionUninitialize@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C01323CC
  * Callers:
- *     UmfdSessionUninitialize @ 0x1C00BA380 (UmfdSessionUninitialize.c)
+ *     UmfdSessionUninitialize @ 0x1C0132320 (UmfdSessionUninitialize.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall UmfdHostLifeTimeManager::SessionUninitialize(__int64 a1)
+void UmfdHostLifeTimeManager::SessionUninitialize(void)
 {
-  _QWORD *v1; // rbx
-  void *v2; // rcx
-  void *v3; // rcx
-  void *v4; // rcx
-  void *v5; // rcx
-
-  v1 = *(_QWORD **)(SGDGetSessionState(a1) + 32);
-  v2 = (void *)v1[2941];
-  if ( v2 )
+  if ( UmfdHostLifeTimeManager::s_WinlogonCallbackEvent )
   {
-    Win32FreePool(v2);
-    v1[2941] = 0LL;
+    Win32FreePool(UmfdHostLifeTimeManager::s_WinlogonCallbackEvent);
+    UmfdHostLifeTimeManager::s_WinlogonCallbackEvent = 0LL;
   }
-  v3 = (void *)v1[2944];
-  if ( v3 )
+  if ( UmfdHostLifeTimeManager::s_SessionRasterizerInitializedEvent )
   {
-    Win32FreePool(v3);
-    v1[2944] = 0LL;
+    Win32FreePool(UmfdHostLifeTimeManager::s_SessionRasterizerInitializedEvent);
+    UmfdHostLifeTimeManager::s_SessionRasterizerInitializedEvent = 0LL;
   }
-  v4 = (void *)v1[2946];
-  if ( v4 )
+  if ( UmfdHostLifeTimeManager::s_InitialFontsAddedEvent )
   {
-    Win32FreePool(v4);
-    v1[2946] = 0LL;
+    Win32FreePool(UmfdHostLifeTimeManager::s_InitialFontsAddedEvent);
+    UmfdHostLifeTimeManager::s_InitialFontsAddedEvent = 0LL;
   }
-  v5 = (void *)v1[2947];
-  if ( v5 )
+  if ( UmfdHostLifeTimeManager::s_SessionRasterizerOnHostReadyEvent )
   {
-    Win32FreePool(v5);
-    v1[2947] = 0LL;
+    Win32FreePool(UmfdHostLifeTimeManager::s_SessionRasterizerOnHostReadyEvent);
+    UmfdHostLifeTimeManager::s_SessionRasterizerOnHostReadyEvent = 0LL;
   }
 }

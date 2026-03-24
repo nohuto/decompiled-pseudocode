@@ -1,9 +1,9 @@
 /*
- * XREFs of IoCreateFileSpecifyDeviceObjectHint @ 0x1406C6630
+ * XREFs of IoCreateFileSpecifyDeviceObjectHint @ 0x1406C6610
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     IoCreateFileEx @ 0x14060B870 (IoCreateFileEx.c)
  */
 

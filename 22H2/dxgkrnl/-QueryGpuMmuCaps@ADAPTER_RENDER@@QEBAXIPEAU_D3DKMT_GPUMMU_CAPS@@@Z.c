@@ -1,44 +1,37 @@
 /*
- * XREFs of ?QueryGpuMmuCaps@ADAPTER_RENDER@@QEBAXIPEAU_D3DKMT_GPUMMU_CAPS@@@Z @ 0x1C018BCDC
+ * XREFs of ?QueryGpuMmuCaps@ADAPTER_RENDER@@QEBAXIPEAU_D3DKMT_GPUMMU_CAPS@@@Z @ 0x1C015EA80
  * Callers:
- *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018FB80 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     ?DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C01309C0 (-DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-void __fastcall ADAPTER_RENDER::QueryGpuMmuCaps(ADAPTER_RENDER *this, unsigned int a2, struct _D3DKMT_GPUMMU_CAPS *a3)
+void __fastcall ADAPTER_RENDER::QueryGpuMmuCaps(ADAPTER_RENDER *this, __int64 a2, struct _D3DKMT_GPUMMU_CAPS *a3)
 {
   __int64 v4; // rsi
-  __int64 v6; // rcx
-  _DWORD *v7; // rdx
-  UINT v8; // eax
-  UINT v9; // ecx
+  __int64 v6; // rax
+  __int64 v7; // rcx
+  _DWORD *v8; // rdx
+  UINT v9; // eax
+  UINT v10; // ecx
 
-  v4 = a2;
-  if ( (*(_DWORD *)(*((_QWORD *)this + 2) + 2284LL) & 0x40) == 0 )
+  v4 = (unsigned int)a2;
+  if ( (*(_DWORD *)(*((_QWORD *)this + 2) + 2060LL) & 0x40) == 0 )
   {
-    WdLogSingleEntry1(1LL, 4312LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetAdapter()->IsGpuMmuSupported()",
-      4312LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v6 + 24) = 4006LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  v6 = *((_QWORD *)this + 158);
-  if ( v6 )
-    v7 = (_DWORD *)(v6 + 144 * v4);
+  v7 = *((_QWORD *)this + 141);
+  if ( v7 )
+    v8 = (_DWORD *)(v7 + 144 * v4);
   else
-    v7 = 0LL;
+    v8 = 0LL;
   a3->Flags.Value = 0;
-  v8 = *v7 & 1;
-  a3->Flags.Value = v8;
-  v9 = v8 | *v7 & 2;
+  v9 = *v8 & 1;
   a3->Flags.Value = v9;
-  a3->Flags.Value = v9 | (*v7 >> 2) & 4;
-  a3->VirtualAddressBitCount = v7[2];
+  v10 = v9 | *v8 & 2;
+  a3->Flags.Value = v10;
+  a3->Flags.Value = v10 | (*v8 >> 2) & 4;
+  a3->VirtualAddressBitCount = v8[2];
 }

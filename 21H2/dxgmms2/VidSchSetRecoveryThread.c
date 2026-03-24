@@ -1,5 +1,5 @@
 /*
- * XREFs of VidSchSetRecoveryThread @ 0x1C00A7620
+ * XREFs of VidSchSetRecoveryThread @ 0x1C008BA40
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall VidSchSetRecoveryThread(__int64 a1, __int64 a2)
 {
-  *(_QWORD *)(a1 + 176) = a2;
+  *(_QWORD *)(a1 + 168) = a2;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetEffectGuid@CSaturationEffect@@MEBAAEBU_GUID@@XZ @ 0x180105CC0
+ * XREFs of ?GetEffectGuid@CSaturationEffect@@MEBAAEBU_GUID@@XZ @ 0x1800E1EF0
  * Callers:
  *     <none>
  * Callees:

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInsertSecondarySignalList @ 0x14051A0A8
+ * XREFs of HalpInsertSecondarySignalList @ 0x1404D0E40
  * Callers:
- *     HalpReleaseSecondaryIcEntryShared @ 0x14037D520 (HalpReleaseSecondaryIcEntryShared.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x1404D1404 (HalpReleaseSecondaryIcEntryShared.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
- *     HalpAcquireHighLevelLock @ 0x14037D1C8 (HalpAcquireHighLevelLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiInsertQueueDpc @ 0x14021FD20 (KiInsertQueueDpc.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378990 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpInsertSecondarySignalList(__int64 a1)
@@ -20,36 +20,37 @@ __int64 __fastcall HalpInsertSecondarySignalList(__int64 a1)
   _DWORD *SchedulerAssist; // r9
 
   v2 = HalpAcquireHighLevelLock(&SecondarySignalListLock);
-  v3 = (_QWORD *)qword_140C61198;
+  v3 = (_QWORD *)qword_140C49C48;
   v4 = (_QWORD *)(a1 + 144);
-  if ( *(__int64 **)qword_140C61198 != &SecondarySignalList )
+  if ( *(__int64 **)qword_140C49C48 != &SecondarySignalList )
     __fastfail(3u);
   v5 = SecondarySignalDpcRunning == 0;
   *v4 = &SecondarySignalList;
   v4[1] = v3;
   *v3 = v4;
-  qword_140C61198 = (__int64)v4;
+  qword_140C49C48 = (__int64)v4;
   if ( v5 )
   {
     SecondarySignalDpcRunning = 1;
     KiInsertQueueDpc((ULONG_PTR)&SecondarySignalDpc, 0LL, 0LL, 0LL, 0);
   }
-  result = KxReleaseSpinLock((volatile signed __int64 *)&SecondarySignalListLock);
+  KxReleaseSpinLock(&SecondarySignalListLock);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v2 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-      v5 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v5 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v2 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+        v5 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v5 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v2);

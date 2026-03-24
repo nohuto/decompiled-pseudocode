@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPepNotifyIdleState @ 0x14035BE70
+ * XREFs of PopPepNotifyIdleState @ 0x1403A42E0
  * Callers:
- *     PopPluginComponentIdleState @ 0x14035BE10 (PopPluginComponentIdleState.c)
+ *     PopPluginComponentIdleState @ 0x1403A4284 (PopPluginComponentIdleState.c)
  * Callees:
- *     PopPepProcessEvent @ 0x140313720 (PopPepProcessEvent.c)
- *     PopPlNotifyDeviceFState @ 0x14035BFE0 (PopPlNotifyDeviceFState.c)
- *     PopPluginNotifyIdleState @ 0x14046276E (PopPluginNotifyIdleState.c)
+ *     PopPepProcessEvent @ 0x1402612E4 (PopPepProcessEvent.c)
+ *     PopPlNotifyDeviceFState @ 0x1403A4378 (PopPlNotifyDeviceFState.c)
+ *     PopPluginNotifyIdleState @ 0x14056D910 (PopPluginNotifyIdleState.c)
  */
 
 char __fastcall PopPepNotifyIdleState(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -17,12 +17,12 @@ char __fastcall PopPepNotifyIdleState(__int64 a1, unsigned int a2, __int64 a3, _
 
   v5 = 0;
   v6 = a4;
-  v8 = (unsigned int *)(a1 + 208LL * a2);
+  v8 = (unsigned int *)(a1 + 200LL * a2);
   if ( !*(_BYTE *)(a1 + 124)
-    || (LOBYTE(a4) = 1, (unsigned __int8)PopPluginNotifyIdleState(*(_QWORD *)(a1 + 32), v8[50], v8[92], a4)) )
+    || (LOBYTE(a4) = 1, (unsigned __int8)PopPluginNotifyIdleState(*(_QWORD *)(a1 + 32), v8[48], v8[90], a4)) )
   {
-    v5 = PopPepProcessEvent(a1, (__int64)(v8 + 48), 1u, 6LL, v10, v6);
-    PopPlNotifyDeviceFState(*(_QWORD *)(a1 + 32), a2, v8[93], v8[92], 1);
+    v5 = PopPepProcessEvent(a1, (__int64)(v8 + 46), 1u, 6u, v10, v6);
+    PopPlNotifyDeviceFState(*(_QWORD *)(a1 + 32), a2, v8[91], v8[90], 1);
   }
   return v5;
 }

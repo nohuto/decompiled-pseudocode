@@ -5,7 +5,7 @@
  *     VfPowerVerifyIrpStackDownward @ 0x140940DA0 (VfPowerVerifyIrpStackDownward.c)
  *     VfWmiVerifyIrpStackDownward @ 0x140940FF0 (VfWmiVerifyIrpStackDownward.c)
  * Callees:
- *     MmIsDriverVerifying @ 0x14013A200 (MmIsDriverVerifying.c)
+ *     MmIsDriverVerifying @ 0x14013A220 (MmIsDriverVerifying.c)
  */
 
 PDRIVER_INITIALIZE __fastcall VfGetPristineDriverInit(struct _DRIVER_OBJECT *a1)

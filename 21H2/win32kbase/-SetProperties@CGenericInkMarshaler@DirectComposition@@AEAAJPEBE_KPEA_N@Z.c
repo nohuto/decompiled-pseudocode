@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetProperties@CGenericInkMarshaler@DirectComposition@@AEAAJPEBE_KPEA_N@Z @ 0x1C021953C
+ * XREFs of ?SetProperties@CGenericInkMarshaler@DirectComposition@@AEAAJPEBE_KPEA_N@Z @ 0x1C01E3250
  * Callers:
- *     ?SetBufferProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0219370 (-SetBufferProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_.c)
+ *     ?SetBufferProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E30B0 (-SetBufferProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_.c)
  * Callees:
- *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C000B3E0 (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C00658DC (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall DirectComposition::CGenericInkMarshaler::SetProperties(
@@ -18,12 +18,12 @@ __int64 __fastcall DirectComposition::CGenericInkMarshaler::SetProperties(
   if ( !a2 || a3 > 0x400 )
     return 3221225485LL;
   v8 = DirectComposition::CDCompDynamicArrayBase::SetCount(
-         (DirectComposition::CDCompDynamicArrayBase *)(this + 8),
+         (DirectComposition::CDCompDynamicArrayBase *)(this + 7),
          a3,
          0x69674344u);
   if ( v8 >= 0 )
   {
-    memmove(this[8], a2, a3 * (_QWORD)this[12]);
+    memmove(this[7], a2, a3 * (_QWORD)this[11]);
     *((_DWORD *)this + 4) &= ~0x20u;
     *a4 = 1;
   }

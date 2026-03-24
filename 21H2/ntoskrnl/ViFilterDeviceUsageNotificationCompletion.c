@@ -1,27 +1,29 @@
 /*
- * XREFs of ViFilterDeviceUsageNotificationCompletion @ 0x140A9E300
+ * XREFs of ViFilterDeviceUsageNotificationCompletion @ 0x1409E50C0
  * Callers:
  *     <none>
  * Callees:
- *     IoReleaseRemoveLockEx @ 0x1402332A0 (IoReleaseRemoveLockEx.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseSpinLockInstrumented @ 0x14056E8CC (KiReleaseSpinLockInstrumented.c)
+ *     IoReleaseRemoveLockEx @ 0x1402AB990 (IoReleaseRemoveLockEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140516998 (KiReleaseSpinLockInstrumented.c)
  */
 
 __int64 __fastcall ViFilterDeviceUsageNotificationCompletion(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rdi
+  __int64 v4; // rbp
   __int64 v5; // rbx
   unsigned __int64 v6; // r15
-  bool v7; // zf
+  int v7; // eax
+  int v8; // eax
   struct _KPRCB *CurrentPrcb; // rcx
   _DWORD *SchedulerAssist; // rdx
-  int v10; // eax
+  int v11; // eax
   unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *v12; // r10
-  _DWORD *v13; // r9
-  int v14; // eax
+  struct _KPRCB *v13; // r10
+  _DWORD *v14; // r9
+  int v15; // eax
+  bool v16; // zf
   __int64 retaddr; // [rsp+38h] [rbp+0h]
 
   if ( *(_BYTE *)(a2 + 65) )
@@ -31,15 +33,18 @@ __int64 __fastcall ViFilterDeviceUsageNotificationCompletion(__int64 a1, __int64
   {
     v5 = *(_QWORD *)(a2 + 184);
     v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v4 + 88));
+    v7 = *(_DWORD *)(v4 + 96);
     if ( *(_BYTE *)(v5 + 8) )
     {
-      if ( ++*(_DWORD *)(v4 + 96) == 1 )
+      *(_DWORD *)(v4 + 96) = v7 + 1;
+      if ( !v7 )
         *(_DWORD *)(a1 + 48) &= ~0x2000u;
     }
     else
     {
-      v7 = (*(_DWORD *)(v4 + 96))-- == 1;
-      if ( v7 )
+      v8 = v7 - 1;
+      *(_DWORD *)(v4 + 96) = v8;
+      if ( !v8 )
         *(_DWORD *)(a1 + 48) |= *(_DWORD *)(*(_QWORD *)(v4 + 8) + 48LL) & 0x2000;
     }
     if ( (BYTE6(PerfGlobalGroupMask[0]) & 1) != 0 )
@@ -52,9 +57,9 @@ __int64 __fastcall ViFilterDeviceUsageNotificationCompletion(__int64 a1, __int64
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v10 = SchedulerAssist[6] - 1;
-        SchedulerAssist[6] = v10;
-        if ( !v10 )
+        v11 = SchedulerAssist[6] - 1;
+        SchedulerAssist[6] = v11;
+        if ( !v11 )
           KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
@@ -65,13 +70,13 @@ __int64 __fastcall ViFilterDeviceUsageNotificationCompletion(__int64 a1, __int64
         CurrentIrql = KeGetCurrentIrql();
         if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
         {
-          v12 = KeGetCurrentPrcb();
-          v13 = v12->SchedulerAssist;
-          v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-          v7 = (v14 & v13[5]) == 0;
-          v13[5] &= v14;
-          if ( v7 )
-            KiRemoveSystemWorkPriorityKick((__int64)v12);
+          v13 = KeGetCurrentPrcb();
+          v14 = v13->SchedulerAssist;
+          v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+          v16 = (v15 & v14[5]) == 0;
+          v14[5] &= v15;
+          if ( v16 )
+            KiRemoveSystemWorkPriorityKick((__int64)v13);
         }
       }
     }

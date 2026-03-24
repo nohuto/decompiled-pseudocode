@@ -1,17 +1,17 @@
 /*
- * XREFs of HsaFlushTbInternal @ 0x140531A6C
+ * XREFs of HsaFlushTbInternal @ 0x1404E2DFC
  * Callers:
- *     HsaAttachDeviceDomainInternal @ 0x1405311A8 (HsaAttachDeviceDomainInternal.c)
- *     HsaFlushDomainTb @ 0x1405319C0 (HsaFlushDomainTb.c)
- *     HsaFlushTb @ 0x140531A20 (HsaFlushTb.c)
+ *     HsaAttachDeviceDomainInternal @ 0x1404E24F8 (HsaAttachDeviceDomainInternal.c)
+ *     HsaFlushDomainTb @ 0x1404E2D50 (HsaFlushDomainTb.c)
+ *     HsaFlushTb @ 0x1404E2DB0 (HsaFlushTb.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KxAcquireQueuedSpinLock @ 0x1403119F0 (KxAcquireQueuedSpinLock.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpIommuGetNextFlushDevice @ 0x1405180C8 (HalpIommuGetNextFlushDevice.c)
- *     HsaIommuSendCommand @ 0x140532A28 (HsaIommuSendCommand.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpIommuGetNextFlushDevice @ 0x1404CBF7C (HalpIommuGetNextFlushDevice.c)
+ *     HsaIommuSendCommand @ 0x1404E3D08 (HsaIommuSendCommand.c)
  */
 
 __int64 __fastcall HsaFlushTbInternal(
@@ -212,7 +212,7 @@ LABEL_50:
             *(_QWORD *)&v63 = v44;
             if ( !*v59 )
             {
-              if ( !ExAcquireRundownProtection(RunRef) )
+              if ( !ExAcquireRundownProtection_0(RunRef) )
                 goto LABEL_66;
               v45 = v59;
             }
@@ -302,7 +302,7 @@ LABEL_66:
     v20 = a7;
     while ( (v19 || !v13) && HalpIommuGetNextFlushDevice(v20, &v67, &v66, &v72, &RunRef, &v59) )
     {
-      if ( ExAcquireRundownProtection(RunRef) )
+      if ( ExAcquireRundownProtection_0(RunRef) )
       {
         *v59 = 1;
         *(_QWORD *)&v63 = (unsigned __int16)v66 | v63 & 0xFFFFFFFF00FF0000uLL | ((unsigned __int64)(unsigned __int8)v72 << 24);
@@ -352,7 +352,7 @@ LABEL_80:
     {
       v54 = RunRef;
       *v59 = 0;
-      ExReleaseRundownProtection(v54);
+      ExReleaseRundownProtection_0(v54);
     }
     --v51;
   }

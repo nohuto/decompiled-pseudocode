@@ -4,10 +4,10 @@
  *     EmInitSystem @ 0x1409BD7E0 (EmInitSystem.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     strtoul @ 0x14019807C (strtoul.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwUnmapViewOfSection @ 0x1401B86B0 (ZwUnmapViewOfSection.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     strtoul @ 0x14019809C (strtoul.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwUnmapViewOfSection @ 0x1401B86D0 (ZwUnmapViewOfSection.c)
  *     EmpMapPhysicalAddress @ 0x1409BDC18 (EmpMapPhysicalAddress.c)
  */
 
@@ -28,7 +28,7 @@ char __fastcall EmpCacheBiosDate(__int64 a1, __int64 a2)
   v2 = 0;
   EmpCachedBiosDate = 0;
   v9 = 0;
-  if ( dword_140409DD0 == 1 )
+  if ( dword_140409D90 == 1 )
   {
     v3 = EmpMapPhysicalAddress(a1, a2, &Handle, &BaseAddress, v13);
     v4 = (_WORD *)v3;

@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhParseDescriptors @ 0x1C00316BC
+ * XREFs of UsbhParseDescriptors @ 0x1C003294C
  * Callers:
- *     UsbhParseConfigurationDescriptorEx @ 0x1C003156C (UsbhParseConfigurationDescriptorEx.c)
+ *     UsbhParseConfigurationDescriptorEx @ 0x1C00327F4 (UsbhParseConfigurationDescriptorEx.c)
  * Callees:
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 unsigned __int8 *__fastcall UsbhParseDescriptors(int a1, __int64 a2, unsigned int a3, unsigned __int8 *a4)
@@ -12,6 +12,7 @@ unsigned __int8 *__fastcall UsbhParseDescriptors(int a1, __int64 a2, unsigned in
   unsigned __int64 v5; // r10
   __int64 v7; // rax
   unsigned __int8 *v8; // rcx
+  int v10; // [rsp+48h] [rbp-10h]
 
   v4 = 0LL;
   v5 = a2 + a3;
@@ -24,7 +25,8 @@ unsigned __int8 *__fastcall UsbhParseDescriptors(int a1, __int64 a2, unsigned in
       v7 = *a4;
       if ( !(_BYTE)v7 )
       {
-        UsbhException(a1, 0, 83, a2, a3, -1, -1, usbfile_usbd_c, 105, 0);
+        LOBYTE(v10) = 0;
+        UsbhException(a1, 0, 83, a2, a3, -1, -1, usbfile_usbd_c, 105, v10);
         return (unsigned __int8 *)v4;
       }
       v8 = &a4[v7];

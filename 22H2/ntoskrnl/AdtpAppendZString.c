@@ -1,10 +1,10 @@
 /*
- * XREFs of AdtpAppendZString @ 0x140A5B8EC
+ * XREFs of AdtpAppendZString @ 0x14096E2B0
  * Callers:
- *     AdtpBuildObjectTypeStrings @ 0x140A5BDE4 (AdtpBuildObjectTypeStrings.c)
+ *     AdtpBuildObjectTypeStrings @ 0x14096E7B8 (AdtpBuildObjectTypeStrings.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     AdtpAppendString @ 0x140A5B754 (AdtpAppendString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     AdtpAppendString @ 0x14096E108 (AdtpAppendString.c)
  */
 
 __int64 __fastcall AdtpAppendZString(__int64 a1, __int64 a2, const WCHAR *a3, _DWORD *a4)

@@ -1,50 +1,33 @@
 /*
- * XREFs of IsMouseIVEnabled @ 0x1C0038414
+ * XREFs of IsMouseIVEnabled @ 0x1C0041518
  * Callers:
- *     ?BufferInputDestinedForContainer@CMouseProcessor@@AEAA_NAEBVCMouseEvent@1@AEBVCInputDest@@@Z @ 0x1C003595C (-BufferInputDestinedForContainer@CMouseProcessor@@AEAA_NAEBVCMouseEvent@1@AEBVCInputDest@@@Z.c)
- *     ?SynthesizeMouse@CMouseProcessor@@QEAAXPEAVMouseInputDataEx@1@PEAUPTPMouseInputData@@@Z @ 0x1C0035AFC (-SynthesizeMouse@CMouseProcessor@@QEAAXPEAVMouseInputDataEx@1@PEAUPTPMouseInputData@@@Z.c)
- *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C003ADD4 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
- *     RIMChildInputTypeIsVirtualized @ 0x1C00C1E80 (RIMChildInputTypeIsVirtualized.c)
- *     ?PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAXPEAU_mouseCursorEvent@@@Z @ 0x1C01FB240 (-PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAXPEAU_mo.c)
- *     ?ProcessInput@CMouseProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@@K_N@Z @ 0x1C01FB694 (-ProcessInput@CMouseProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_MOUSE_INPUT_D.c)
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C0040F54 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
+ *     ?SynthesizeMouse@CMouseProcessor@@QEAAXPEAVMouseInputDataEx@1@PEAU_MOUSE_INPUT_DATA@@PEAU_PTPMouseLatencyTracker@@@Z @ 0x1C0041834 (-SynthesizeMouse@CMouseProcessor@@QEAAXPEAVMouseInputDataEx@1@PEAU_MOUSE_INPUT_DATA@@PEAU_PTPMou.c)
+ *     ?BufferInputDestinedForContainer@CMouseProcessor@@AEAA_NAEBVCMouseEvent@1@AEBVCInputDest@@@Z @ 0x1C00438A0 (-BufferInputDestinedForContainer@CMouseProcessor@@AEAA_NAEBVCMouseEvent@1@AEBVCInputDest@@@Z.c)
+ *     RIMChildInputTypeIsVirtualized @ 0x1C0055848 (RIMChildInputTypeIsVirtualized.c)
+ *     ?PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAU_mouseCursorEvent@@@Z @ 0x1C01C0E58 (-PostMouseInputMessage@CMouseProcessor@@QEAA_N_KW4_POST_MOUSE_INPUT_MESSAGE_OPTIONS@@PEAU_mouseC.c)
+ *     ?ProcessInput@CMouseProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@@K_N@Z @ 0x1C01C125C (-ProcessInput@CMouseProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_MOUSE_INPUT_D.c)
  * Callees:
- *     isChildPartition @ 0x1C00383F0 (isChildPartition.c)
- *     UseVelocityToEnableIV @ 0x1C0038478 (UseVelocityToEnableIV.c)
- *     ?wil_details_FeatureReporting_ReportUsageToServiceDirect@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1C003869C (-wil_details_FeatureReporting_ReportUsageToServiceDirect@@YAHPEAUwil_details_FeatureReportingCac.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     isChildPartition @ 0x1C0040F30 (isChildPartition.c)
+ *     UseVelocityToEnableIV @ 0x1C0041550 (UseVelocityToEnableIV.c)
+ *     Feature_MouseInputVirtualization__private_ReportDeviceUsage @ 0x1C00CDA3C (Feature_MouseInputVirtualization__private_ReportDeviceUsage.c)
  */
 
 char IsMouseIVEnabled()
 {
-  char v0; // bl
-  int v2; // [rsp+60h] [rbp+8h] BYREF
+  char v0; // al
+  __int64 v1; // rcx
+  __int64 v2; // rdx
+  char v3; // dl
 
-  v0 = 1;
-  if ( (unsigned __int8)UseVelocityToEnableIV() )
+  v0 = UseVelocityToEnableIV();
+  LOBYTE(v2) = 0;
+  if ( v0 )
   {
-    v2 = 3;
-    if ( (unsigned int)wil_details_FeatureReporting_ReportUsageToServiceDirect(
-                         &Feature_MouseInputVirtualization__private_reporting,
-                         18793214LL,
-                         0LL,
-                         0LL,
-                         2)
-      && g_wil_details_pfnFeatureLoggingHook )
-    {
-      g_wil_details_pfnFeatureLoggingHook(
-        0x11EC2FEu,
-        (const struct FEATURE_LOGGED_TRAITS *)&Feature_KeyboardInputVirtualization_logged_traits,
-        0LL,
-        1,
-        (const enum wil_ReportingKind *)&v2,
-        0LL,
-        0,
-        1uLL);
-    }
+    Feature_MouseInputVirtualization__private_ReportDeviceUsage(v1, v2);
+    return 1;
   }
-  else if ( !isChildPartition() || !byte_1C02A0544 )
-  {
-    return 0;
-  }
-  return v0;
+  if ( isChildPartition() && byte_1C02595D0 != v3 )
+    return 1;
+  return v3;
 }

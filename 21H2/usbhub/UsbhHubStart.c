@@ -1,19 +1,19 @@
 /*
- * XREFs of UsbhHubStart @ 0x1C0042CB0
+ * XREFs of UsbhHubStart @ 0x1C0043F60
  * Callers:
- *     Usbh_FDO_WaitPnpRestart @ 0x1C0043C50 (Usbh_FDO_WaitPnpRestart.c)
- *     Usbh_FDO_WaitPnpStart @ 0x1C0043DF0 (Usbh_FDO_WaitPnpStart.c)
+ *     Usbh_FDO_WaitPnpRestart @ 0x1C0044F00 (Usbh_FDO_WaitPnpRestart.c)
+ *     Usbh_FDO_WaitPnpStart @ 0x1C00450A0 (Usbh_FDO_WaitPnpStart.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhFdoSetD0Cold @ 0x1C0009FA0 (UsbhFdoSetD0Cold.c)
- *     UsbhDisableTimerObject @ 0x1C000B4D0 (UsbhDisableTimerObject.c)
- *     UsbhEnableTimerObject @ 0x1C000C0D0 (UsbhEnableTimerObject.c)
- *     UsbhDispatch_BusEvent @ 0x1C000FC10 (UsbhDispatch_BusEvent.c)
- *     UsbhReinitialize @ 0x1C002CD6C (UsbhReinitialize.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhFinishStart @ 0x1C0036EB4 (UsbhFinishStart.c)
- *     Usbh_HubRootHubInitNotification @ 0x1C003BFE4 (Usbh_HubRootHubInitNotification.c)
+ *     UsbhDispatch_BusEvent @ 0x1C0002AF0 (UsbhDispatch_BusEvent.c)
+ *     UsbhFdoSetD0Cold @ 0x1C000CF10 (UsbhFdoSetD0Cold.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhDisableTimerObject @ 0x1C0011260 (UsbhDisableTimerObject.c)
+ *     UsbhEnableTimerObject @ 0x1C0011C40 (UsbhEnableTimerObject.c)
+ *     UsbhReinitialize @ 0x1C002E168 (UsbhReinitialize.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhFinishStart @ 0x1C0038168 (UsbhFinishStart.c)
+ *     Usbh_HubRootHubInitNotification @ 0x1C003D29C (Usbh_HubRootHubInitNotification.c)
  */
 
 __int64 __fastcall UsbhHubStart(__int64 a1, int a2)
@@ -38,7 +38,7 @@ __int64 __fastcall UsbhHubStart(__int64 a1, int a2)
         Log(*(_QWORD *)(a1 + 8), 2, 1919243092, 0LL, 0LL);
         LODWORD(inited) = UsbhReinitialize(*(_QWORD *)(a1 + 8), a1);
         if ( (int)inited >= 0 )
-          LODWORD(inited) = UsbhFdoSetD0Cold(*(PDEVICE_OBJECT *)(a1 + 8), a1, 0);
+          LODWORD(inited) = UsbhFdoSetD0Cold(*(struct _DEVICE_OBJECT **)(a1 + 8), a1, 0);
       }
       else
       {
@@ -70,7 +70,7 @@ __int64 __fastcall UsbhHubStart(__int64 a1, int a2)
               0,
               1u,
               0xEu,
-              (__int64)&WPP_70750b4e52e537afa0d3aa3795e637f0_Traceguids,
+              (__int64)&WPP_bd192adfbaab37968b6512a601d84f30_Traceguids,
               v12);
           }
           IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 306), v8, 0x20u);

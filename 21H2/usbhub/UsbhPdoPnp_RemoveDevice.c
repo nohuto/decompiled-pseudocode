@@ -1,21 +1,21 @@
 /*
- * XREFs of UsbhPdoPnp_RemoveDevice @ 0x1C0055AB0
+ * XREFs of UsbhPdoPnp_RemoveDevice @ 0x1C0057150
  * Callers:
  *     <none>
  * Callees:
- *     UsbhAcquireFdoPwrLock @ 0x1C00019E0 (UsbhAcquireFdoPwrLock.c)
- *     UsbhSetPdoPowerState @ 0x1C0002CC0 (UsbhSetPdoPowerState.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhDecHubBusy @ 0x1C0010740 (UsbhDecHubBusy.c)
- *     UsbhIncHubBusy @ 0x1C0011BC0 (UsbhIncHubBusy.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     UsbhReleaseFdoPwrLock @ 0x1C00313A8 (UsbhReleaseFdoPwrLock.c)
- *     UsbhSetPdo_FailIo @ 0x1C0038C90 (UsbhSetPdo_FailIo.c)
- *     UsbhSyncResumeDeviceInternal @ 0x1C00398B8 (UsbhSyncResumeDeviceInternal.c)
- *     Usbh_PdoRemove_PdoEvent @ 0x1C003A7CC (Usbh_PdoRemove_PdoEvent.c)
- *     SET_PDO_SWPNPSTATE @ 0x1C0052994 (SET_PDO_SWPNPSTATE.c)
- *     UsbhPdoRemoveCleanup @ 0x1C0056374 (UsbhPdoRemoveCleanup.c)
+ *     UsbhDecHubBusy @ 0x1C0003610 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0004060 (UsbhIncHubBusy.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhSetPdoPowerState @ 0x1C0017660 (UsbhSetPdoPowerState.c)
+ *     UsbhAcquireFdoPwrLock @ 0x1C00176F8 (UsbhAcquireFdoPwrLock.c)
+ *     UsbhReleaseFdoPwrLock @ 0x1C0018364 (UsbhReleaseFdoPwrLock.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhSetPdo_FailIo @ 0x1C0039F80 (UsbhSetPdo_FailIo.c)
+ *     UsbhSyncResumeDeviceInternal @ 0x1C003ABC8 (UsbhSyncResumeDeviceInternal.c)
+ *     Usbh_PdoRemove_PdoEvent @ 0x1C003BADC (Usbh_PdoRemove_PdoEvent.c)
+ *     SET_PDO_SWPNPSTATE @ 0x1C0053FE8 (SET_PDO_SWPNPSTATE.c)
+ *     UsbhPdoRemoveCleanup @ 0x1C0057A34 (UsbhPdoRemoveCleanup.c)
  */
 
 __int64 __fastcall UsbhPdoPnp_RemoveDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp)
@@ -37,14 +37,14 @@ __int64 __fastcall UsbhPdoPnp_RemoveDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp
   v5 = PdoExt((__int64)DeviceObject)[281];
   v6 = PdoExt((__int64)DeviceObject);
   v7 = v6;
-  if ( _bittest(v6 + 355, 0x12u) )
+  if ( (v6[355] & 0x40000) != 0 )
     v8 = 0LL;
   else
     v8 = *((_QWORD *)v6 + 148);
   if ( v5 != 6 )
   {
     v9 = (__int64)(v6 + 236);
-    if ( _bittest(v6 + 358, 0x12u) )
+    if ( (v6[358] & 0x40000) != 0 )
     {
       v10 = *((_QWORD *)v6 + 382);
       v16 = 0;

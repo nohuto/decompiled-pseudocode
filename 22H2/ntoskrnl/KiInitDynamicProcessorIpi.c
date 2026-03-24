@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInitDynamicProcessorIpi @ 0x140571A40
+ * XREFs of KiInitDynamicProcessorIpi @ 0x140518DD0
  * Callers:
  *     <none>
  * Callees:
- *     KiConfigureDynamicProcessor @ 0x140A9F93C (KiConfigureDynamicProcessor.c)
+ *     KiConfigureDynamicProcessor @ 0x1409AFA20 (KiConfigureDynamicProcessor.c)
  */
 
-void __noreturn KiInitDynamicProcessorIpi()
+__int64 KiInitDynamicProcessorIpi()
 {
-  KiConfigureDynamicProcessor();
+  return KiConfigureDynamicProcessor();
 }

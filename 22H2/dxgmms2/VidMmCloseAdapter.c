@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmCloseAdapter @ 0x1C0004C80
+ * XREFs of VidMmCloseAdapter @ 0x1C0012440
  * Callers:
  *     <none>
  * Callees:
- *     ?CloseAdapter@VIDMM_PROCESS@@QEAAXPEAVVIDMM_GLOBAL@@@Z @ 0x1C008F5F4 (-CloseAdapter@VIDMM_PROCESS@@QEAAXPEAVVIDMM_GLOBAL@@@Z.c)
+ *     ?CloseAdapter@VIDMM_PROCESS@@QEAAXPEAVVIDMM_GLOBAL@@@Z @ 0x1C0082668 (-CloseAdapter@VIDMM_PROCESS@@QEAAXPEAVVIDMM_GLOBAL@@@Z.c)
  */
 
 void __fastcall VidMmCloseAdapter(struct VIDMM_GLOBAL *a1, __int64 a2)

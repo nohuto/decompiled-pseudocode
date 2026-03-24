@@ -1,25 +1,25 @@
 /*
- * XREFs of ??1VIDMM_DEVICE_COMMAND_UPDATEGPUVA@@QEAA@XZ @ 0x1C00DFD1C
+ * XREFs of ??1VIDMM_DEVICE_COMMAND_UPDATEGPUVA@@QEAA@XZ @ 0x1C00AC258
  * Callers:
- *     ??_GVIDMM_DEVICE_COMMAND_UPDATEGPUVA@@QEAAPEAXI@Z @ 0x1C002D768 (--_GVIDMM_DEVICE_COMMAND_UPDATEGPUVA@@QEAAPEAXI@Z.c)
+ *     ??_GVIDMM_DEVICE_COMMAND_UPDATEGPUVA@@QEAAPEAXI@Z @ 0x1C002335C (--_GVIDMM_DEVICE_COMMAND_UPDATEGPUVA@@QEAAPEAXI@Z.c)
  * Callees:
- *     ?RemoveFromPenaltyBoxByListEntry@VIDMM_GLOBAL@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0001D4C (-RemoveFromPenaltyBoxByListEntry@VIDMM_GLOBAL@@QEAAXPEAU_LIST_ENTRY@@@Z.c)
- *     ?ReleaseVaRangeReference@VIDMM_MAPPED_VA_RANGE@@QEAAJXZ @ 0x1C0002138 (-ReleaseVaRangeReference@VIDMM_MAPPED_VA_RANGE@@QEAAJXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00052B8 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005408 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0005468 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??3@YAXPEAX@Z @ 0x1C0005500 (--3@YAXPEAX@Z.c)
- *     VidSchiReleaseSyncObjectReference @ 0x1C0007C30 (VidSchiReleaseSyncObjectReference.c)
- *     ?DecrementPagingPacketReferenceCount@VIDMM_ALLOC@@QEAAXXZ @ 0x1C002DB64 (-DecrementPagingPacketReferenceCount@VIDMM_ALLOC@@QEAAXXZ.c)
+ *     ?ReleaseVaRangeReference@VIDMM_MAPPED_VA_RANGE@@QEAAJXZ @ 0x1C0001454 (-ReleaseVaRangeReference@VIDMM_MAPPED_VA_RANGE@@QEAAJXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001668 (--3@YAXPEAX@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001B54 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001BCC (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001D2C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     VidSchiReleaseSyncObjectReference @ 0x1C000CA08 (VidSchiReleaseSyncObjectReference.c)
+ *     ?RemoveFromPenaltyBoxByListEntry@VIDMM_GLOBAL@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0012AD8 (-RemoveFromPenaltyBoxByListEntry@VIDMM_GLOBAL@@QEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?DecrementPagingPacketReferenceCount@VIDMM_ALLOC@@QEAAXXZ @ 0x1C0023754 (-DecrementPagingPacketReferenceCount@VIDMM_ALLOC@@QEAAXXZ.c)
  */
 
 void __fastcall VIDMM_DEVICE_COMMAND_UPDATEGPUVA::~VIDMM_DEVICE_COMMAND_UPDATEGPUVA(
-        VIDMM_DEVICE_COMMAND_UPDATEGPUVA *this,
-        struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3 *a2)
+        VIDMM_DEVICE_COMMAND_UPDATEGPUVA *this)
 {
-  char *v3; // rcx
-  __int64 i; // rdi
-  __int64 v5; // rax
+  char *v2; // rcx
+  void *v3; // rcx
+  __int64 v4; // rdi
+  __int64 v5; // rcx
   VIDMM_GLOBAL *v6; // rcx
   bool v7; // zf
   unsigned int v8; // edx
@@ -30,14 +30,24 @@ void __fastcall VIDMM_DEVICE_COMMAND_UPDATEGPUVA::~VIDMM_DEVICE_COMMAND_UPDATEGP
   DXGPUSHLOCK *v13; // [rsp+28h] [rbp-20h]
   int v14; // [rsp+30h] [rbp-18h]
 
-  v3 = (char *)*((_QWORD *)this + 9);
+  v2 = (char *)*((_QWORD *)this + 9);
+  if ( v2 )
+    VidSchiReleaseSyncObjectReference(v2);
+  v3 = (void *)*((_QWORD *)this + 8);
   if ( v3 )
-    VidSchiReleaseSyncObjectReference(v3, a2);
-  if ( *((_QWORD *)this + 8) )
   {
-    for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 8); i = (unsigned int)(i + 1) )
-      VIDMM_ALLOC::DecrementPagingPacketReferenceCount(*(VIDMM_ALLOC **)(*((_QWORD *)this + 8) + 8 * i));
-    operator delete(*((void **)this + 8));
+    v4 = 0LL;
+    if ( *((_DWORD *)this + 8) )
+    {
+      do
+      {
+        VIDMM_ALLOC::DecrementPagingPacketReferenceCount(*(VIDMM_ALLOC **)(*((_QWORD *)this + 8) + 8 * v4));
+        v4 = (unsigned int)(v4 + 1);
+      }
+      while ( (unsigned int)v4 < *((_DWORD *)this + 8) );
+      v3 = (void *)*((_QWORD *)this + 8);
+    }
+    operator delete(v3);
   }
   v5 = *((_QWORD *)this + 11);
   if ( v5 )
@@ -53,8 +63,9 @@ void __fastcall VIDMM_DEVICE_COMMAND_UPDATEGPUVA::~VIDMM_DEVICE_COMMAND_UPDATEGP
       if ( *((_QWORD *)this + 15) )
         VIDMM_GLOBAL::RemoveFromPenaltyBoxByListEntry(v6, (struct _LIST_ENTRY *)((char *)this + 152));
       DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v12);
+      v5 = *((_QWORD *)this + 11);
     }
-    KeReleaseSemaphore((PRKSEMAPHORE)(*((_QWORD *)this + 11) + 24LL), 0, 1, 0);
+    KeReleaseSemaphore((PRKSEMAPHORE)(v5 + 24), 0, 1, 0);
   }
   operator delete(*((void **)this + 3));
   v9 = (_QWORD **)((char *)this + 96);

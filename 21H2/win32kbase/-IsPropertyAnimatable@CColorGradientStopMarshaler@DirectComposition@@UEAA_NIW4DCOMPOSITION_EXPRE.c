@@ -1,19 +1,19 @@
 /*
- * XREFs of ?IsPropertyAnimatable@CColorGradientStopMarshaler@DirectComposition@@UEAA_NIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1C021CB70
+ * XREFs of ?IsPropertyAnimatable@CColorGradientStopMarshaler@DirectComposition@@UEAA_NIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1C01E6420
  * Callers:
  *     <none>
  * Callees:
- *     ?IsPropertyAnimatable@CResourceMarshaler@DirectComposition@@UEAA_NIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1C0099C70 (-IsPropertyAnimatable@CResourceMarshaler@DirectComposition@@UEAA_NIW4DCOMPOSITION_EXPRESSION_TYP.c)
+ *     <none>
  */
 
-char __fastcall DirectComposition::CColorGradientStopMarshaler::IsPropertyAnimatable(
-        DirectComposition::CResourceMarshaler *a1,
-        unsigned int a2,
-        int a3)
+bool __fastcall DirectComposition::CColorGradientStopMarshaler::IsPropertyAnimatable(__int64 a1, int a2, int a3)
 {
+  bool result; // al
+
+  result = 0;
   if ( !a2 )
     return a3 == 18;
   if ( a2 != 1 )
-    return DirectComposition::CResourceMarshaler::IsPropertyAnimatable(a1, a2);
+    return result;
   return a3 == 69;
 }

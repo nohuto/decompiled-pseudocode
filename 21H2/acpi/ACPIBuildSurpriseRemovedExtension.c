@@ -1,66 +1,67 @@
 /*
- * XREFs of ACPIBuildSurpriseRemovedExtension @ 0x1C004B044
+ * XREFs of ACPIBuildSurpriseRemovedExtension @ 0x1C002CAA0
  * Callers:
- *     ACPIFilterRemoveNonPresentDevices @ 0x1C000A564 (ACPIFilterRemoveNonPresentDevices.c)
- *     ACPIBuildSurpriseRemovedExtension @ 0x1C004B044 (ACPIBuildSurpriseRemovedExtension.c)
- *     ACPIBusIrpRemoveDevice @ 0x1C004C350 (ACPIBusIrpRemoveDevice.c)
- *     ACPIBusIrpSurpriseRemoval @ 0x1C004C940 (ACPIBusIrpSurpriseRemoval.c)
+ *     ACPIFilterRemoveNonPresentDevices @ 0x1C001A974 (ACPIFilterRemoveNonPresentDevices.c)
+ *     ACPIBuildSurpriseRemovedExtension @ 0x1C002CAA0 (ACPIBuildSurpriseRemovedExtension.c)
+ *     ACPIBusIrpRemoveDevice @ 0x1C004D5D0 (ACPIBusIrpRemoveDevice.c)
+ *     ACPIBusIrpSurpriseRemoval @ 0x1C004DC10 (ACPIBusIrpSurpriseRemoval.c)
  * Callees:
- *     ACPIInitDereferenceDeviceExtensionLocked @ 0x1C0007270 (ACPIInitDereferenceDeviceExtensionLocked.c)
- *     ACPIDevicePowerFlushQueue @ 0x1C000776C (ACPIDevicePowerFlushQueue.c)
- *     ACPIExtListStartEnum @ 0x1C000990C (ACPIExtListStartEnum.c)
- *     ACPIDockIsDockDevice @ 0x1C000A480 (ACPIDockIsDockDevice.c)
- *     ACPIExtListTestElement @ 0x1C000A7D4 (ACPIExtListTestElement.c)
- *     ACPIExtListEnumNext @ 0x1C000C1AC (ACPIExtListEnumNext.c)
- *     ACPIDockFindCorrespondingDock @ 0x1C0048FA8 (ACPIDockFindCorrespondingDock.c)
- *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C004A950 (ACPIBuildProcessNotifyPepDeleteDevice.c)
- *     ACPIBuildSurpriseRemovedExtension @ 0x1C004B044 (ACPIBuildSurpriseRemovedExtension.c)
- *     ACPIInitRemoveDeviceExtension @ 0x1C0056D10 (ACPIInitRemoveDeviceExtension.c)
+ *     ACPIInitRemoveDeviceExtension @ 0x1C00105E8 (ACPIInitRemoveDeviceExtension.c)
+ *     ACPIInitDereferenceDeviceExtensionLocked @ 0x1C00198D8 (ACPIInitDereferenceDeviceExtensionLocked.c)
+ *     ACPIExtListTestElement @ 0x1C001A904 (ACPIExtListTestElement.c)
+ *     ACPIExtListStartEnum @ 0x1C001AD98 (ACPIExtListStartEnum.c)
+ *     ACPIExtListEnumNext @ 0x1C001B0F0 (ACPIExtListEnumNext.c)
+ *     ACPIDevicePowerFlushQueue @ 0x1C001C6E0 (ACPIDevicePowerFlushQueue.c)
+ *     ACPIDockIsDockDevice @ 0x1C0020C40 (ACPIDockIsDockDevice.c)
+ *     ACPIBuildSurpriseRemovedExtension @ 0x1C002CAA0 (ACPIBuildSurpriseRemovedExtension.c)
+ *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C002D1D0 (ACPIBuildProcessNotifyPepDeleteDevice.c)
+ *     ACPIDockFindCorrespondingDock @ 0x1C002D274 (ACPIDockFindCorrespondingDock.c)
  */
 
 __int64 __fastcall ACPIBuildSurpriseRemovedExtension(ULONG_PTR a1)
 {
   __int64 CorrespondingDock; // rax
-  __int64 i; // rax
-  __int64 v4; // rdi
+  char *i; // rax
+  char *v4; // rdi
   KIRQL v5; // si
   __int64 v6; // rcx
   __int64 v7; // rdx
   __int64 v8; // rdi
-  __int64 v9; // rax
-  _QWORD *v10; // rax
-  __int64 v11; // rdx
-  _QWORD *v12; // rcx
-  __int64 v13; // rcx
-  __int64 v14; // rax
-  _QWORD v16[3]; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v17; // [rsp+38h] [rbp-30h]
-  __int64 v18; // [rsp+48h] [rbp-20h]
-  int v19; // [rsp+50h] [rbp-18h]
-  int v20; // [rsp+54h] [rbp-14h]
+  __int64 *v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  _QWORD *v14; // rax
+  __int64 v15; // rdx
+  _QWORD *v16; // rcx
+  _QWORD v17[3]; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v18; // [rsp+38h] [rbp-30h]
+  __int64 v19; // [rsp+48h] [rbp-20h]
+  int v20; // [rsp+50h] [rbp-18h]
+  int v21; // [rsp+54h] [rbp-14h]
 
-  v20 = 0;
-  v17 = 0LL;
-  CorrespondingDock = ACPIDockFindCorrespondingDock(a1);
+  v21 = 0;
+  v18 = 0LL;
+  CorrespondingDock = ACPIDockFindCorrespondingDock();
   if ( CorrespondingDock )
   {
-    *(_DWORD *)(CorrespondingDock + 368) = 5;
+    *(_DWORD *)(CorrespondingDock + 328) = 5;
     ACPIBuildSurpriseRemovedExtension(CorrespondingDock);
   }
-  v16[1] = 0LL;
-  v16[0] = a1 + 800;
-  v16[2] = &AcpiDeviceTreeLock;
-  v18 = 816LL;
-  v19 = 1;
-  for ( i = ACPIExtListStartEnum((__int64)v16); ; i = (__int64)ACPIExtListEnumNext((__int64)v16) )
+  v17[1] = 0LL;
+  v17[0] = a1 + 760;
+  v17[2] = &AcpiDeviceTreeLock;
+  v19 = 776LL;
+  v20 = 1;
+  for ( i = ACPIExtListStartEnum((__int64)v17); ; i = ACPIExtListEnumNext((__int64)v17) )
   {
     v4 = i;
-    if ( !ACPIExtListTestElement((__int64)v16, 1) )
+    if ( !ACPIExtListTestElement((__int64)v17, 1) )
       break;
     ACPIBuildSurpriseRemovedExtension(v4);
   }
   ACPIDevicePowerFlushQueue(a1);
-  ACPIBuildProcessNotifyPepDeleteDevice(a1, 0);
+  ACPIBuildProcessNotifyPepDeleteDevice(a1, 0LL);
   v5 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
   KeAcquireSpinLockAtDpcLevel(&AcpiDeviceTreeLock);
   v6 = *(_QWORD *)(a1 + 8) & 0x20LL;
@@ -81,47 +82,48 @@ __int64 __fastcall ACPIBuildSurpriseRemovedExtension(ULONG_PTR a1)
     }
   }
   _InterlockedOr64((volatile signed __int64 *)(a1 + 8), 0x80uLL);
-  if ( !_bittest64((const signed __int64 *)(a1 + 8), 0x2Bu) )
+  if ( (*(_QWORD *)(a1 + 8) & 0x80000000000LL) == 0 )
   {
-    v8 = *(_QWORD *)(a1 + 792);
+    v8 = *(_QWORD *)(a1 + 752);
     if ( v8 )
     {
       _InterlockedOr64((volatile signed __int64 *)(v8 + 8), 0x20000000000uLL);
-      if ( *(_QWORD *)(a1 + 760) )
+      v9 = *(__int64 **)(a1 + 720);
+      if ( v9 )
       {
-        if ( ACPIDockIsDockDevice() )
-          IoInvalidateDeviceRelations(*(PDEVICE_OBJECT *)(v8 + 784), SingleBusRelations);
+        if ( ACPIDockIsDockDevice(v9) )
+          IoInvalidateDeviceRelations(*(PDEVICE_OBJECT *)(v8 + 744), SingleBusRelations);
       }
     }
   }
-  v9 = *(_QWORD *)(a1 + 448);
-  if ( v9 )
+  v10 = *(_QWORD *)(a1 + 408);
+  if ( v10 )
   {
-    v10 = (_QWORD *)(v9 + 40);
-    v11 = *v10;
-    if ( *(_QWORD **)(*v10 + 8LL) != v10 || (v12 = (_QWORD *)v10[1], (_QWORD *)*v12 != v10) )
+    v14 = (_QWORD *)(v10 + 40);
+    v15 = *v14;
+    if ( *(_QWORD **)(*v14 + 8LL) != v14 || (v16 = (_QWORD *)v14[1], (_QWORD *)*v16 != v14) )
       __fastfail(3u);
-    *v12 = v11;
-    *(_QWORD *)(v11 + 8) = v12;
-    *(_QWORD *)(a1 + 448) = 0LL;
+    *v16 = v15;
+    *(_QWORD *)(v15 + 8) = v16;
+    *(_QWORD *)(a1 + 408) = 0LL;
   }
-  ACPIInitRemoveDeviceExtension(a1);
-  if ( *(_QWORD *)(a1 + 760) )
+  ACPIInitRemoveDeviceExtension((_QWORD *)a1);
+  if ( *(_QWORD *)(a1 + 720) )
   {
-    v13 = *(_QWORD *)(a1 + 760);
-    if ( !_bittest64((const signed __int64 *)(a1 + 8), 0x2Bu) )
+    v11 = *(_QWORD *)(a1 + 720);
+    if ( (*(_QWORD *)(a1 + 8) & 0x80000000000LL) == 0 )
     {
-      v14 = *(_QWORD *)(a1 + 784);
-      if ( v14 )
+      v12 = *(_QWORD *)(a1 + 744);
+      if ( v12 )
       {
-        if ( (*(_DWORD *)(v14 + 48) & 0x4000000) != 0 )
+        if ( (*(_DWORD *)(v12 + 48) & 0x4000000) != 0 )
         {
           ACPIInitDereferenceDeviceExtensionLocked(a1);
-          v13 = *(_QWORD *)(a1 + 760);
+          v11 = *(_QWORD *)(a1 + 720);
         }
       }
     }
-    *(_QWORD *)(*(_QWORD *)v13 + 104LL) = 0LL;
+    *(_QWORD *)(*(_QWORD *)v11 + 104LL) = 0LL;
   }
   KeReleaseSpinLockFromDpcLevel(&AcpiDeviceTreeLock);
   KeReleaseSpinLock(&AcpiPowerLock, v5);

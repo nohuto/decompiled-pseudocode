@@ -1,5 +1,5 @@
 /*
- * XREFs of IovUtilMarkDeviceObject @ 0x14030ACF8
+ * XREFs of IovUtilMarkDeviceObject @ 0x14030ADF8
  * Callers:
  *     VfIoDeleteDevice @ 0x140934128 (VfIoDeleteDevice.c)
  *     ViPnpVerifyMinorWasProcessedProperly @ 0x140940A7C (ViPnpVerifyMinorWasProcessedProperly.c)

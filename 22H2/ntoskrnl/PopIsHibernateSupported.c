@@ -1,12 +1,12 @@
 /*
- * XREFs of PopIsHibernateSupported @ 0x140873AD4
+ * XREFs of PopIsHibernateSupported @ 0x1406F4158
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x140373610 (PopCheckAndHandleThermalConditions.c)
- *     PopCaptureSleepStudyStatistics @ 0x1403C78A0 (PopCaptureSleepStudyStatistics.c)
- *     PopVerifyPowerActionPolicy @ 0x1408256D8 (PopVerifyPowerActionPolicy.c)
- *     PopVerifySystemPowerState @ 0x14082580C (PopVerifySystemPowerState.c)
- *     PopPowerAggregatorDetermineTargetSystemPowerState @ 0x140884F60 (PopPowerAggregatorDetermineTargetSystemPowerState.c)
- *     PopIsDozeSupported @ 0x140980BB4 (PopIsDozeSupported.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1403C4D58 (PopCheckAndHandleThermalConditions.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570498 (PopCaptureSleepStudyStatistics.c)
+ *     PopPolicySystemIdle @ 0x1406F2890 (PopPolicySystemIdle.c)
+ *     PopIsDozeSupported @ 0x1406F4118 (PopIsDozeSupported.c)
+ *     PopVerifyPowerActionPolicy @ 0x14078B6CC (PopVerifyPowerActionPolicy.c)
+ *     PopVerifySystemPowerState @ 0x14078B828 (PopVerifySystemPowerState.c)
  * Callees:
  *     <none>
  */

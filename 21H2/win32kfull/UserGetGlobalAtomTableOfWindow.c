@@ -1,9 +1,9 @@
 /*
- * XREFs of UserGetGlobalAtomTableOfWindow @ 0x1C007B23C
+ * XREFs of UserGetGlobalAtomTableOfWindow @ 0x1C00352D8
  * Callers:
- *     NtUserSetProp @ 0x1C00791E0 (NtUserSetProp.c)
- *     InternalSetProp @ 0x1C0083110 (InternalSetProp.c)
- *     ?SetRedrawProp@@YAXPEAUtagWND@@H@Z @ 0x1C010AE8C (-SetRedrawProp@@YAXPEAUtagWND@@H@Z.c)
+ *     ?SetRedrawProp@@YAXPEAUtagWND@@H@Z @ 0x1C0031E00 (-SetRedrawProp@@YAXPEAUtagWND@@H@Z.c)
+ *     NtUserSetProp @ 0x1C00350F0 (NtUserSetProp.c)
+ *     InternalSetProp @ 0x1C00384A8 (InternalSetProp.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of BiGetElement @ 0x1408F1118
+ * XREFs of BiGetElement @ 0x1408F10F8
  * Callers:
- *     BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x1408F1D5C (BiAddBootEntryToEfiBootManagerDisplayOrder.c)
- *     BiCreateBootEntry @ 0x1408F2A38 (BiCreateBootEntry.c)
- *     BiExportEfiBootManager @ 0x1408F36A8 (BiExportEfiBootManager.c)
- *     BiHandleFirmwareDefaultEntry @ 0x1408F401C (BiHandleFirmwareDefaultEntry.c)
- *     BiUpdateEfiEntry @ 0x1408F4BE8 (BiUpdateEfiEntry.c)
+ *     BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x1408F1D3C (BiAddBootEntryToEfiBootManagerDisplayOrder.c)
+ *     BiCreateBootEntry @ 0x1408F2A18 (BiCreateBootEntry.c)
+ *     BiExportEfiBootManager @ 0x1408F3688 (BiExportEfiBootManager.c)
+ *     BiHandleFirmwareDefaultEntry @ 0x1408F3FFC (BiHandleFirmwareDefaultEntry.c)
+ *     BiUpdateEfiEntry @ 0x1408F4BC8 (BiUpdateEfiEntry.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BcdGetElementDataWithFlags @ 0x140713570 (BcdGetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x140713550 (BcdGetElementDataWithFlags.c)
  */
 
 __int64 __fastcall BiGetElement(__int64 a1, unsigned int a2, _QWORD *a3, _DWORD *a4)

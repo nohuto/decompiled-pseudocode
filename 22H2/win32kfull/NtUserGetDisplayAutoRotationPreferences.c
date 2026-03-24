@@ -1,29 +1,24 @@
 /*
- * XREFs of NtUserGetDisplayAutoRotationPreferences @ 0x1C01D10D0
+ * XREFs of NtUserGetDisplayAutoRotationPreferences @ 0x1C01F8ED0
  * Callers:
  *     <none>
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
-__int64 __fastcall NtUserGetDisplayAutoRotationPreferences(_DWORD *a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserGetDisplayAutoRotationPreferences(_DWORD *a1)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  __int64 v8; // r8
-  __int64 v9; // r9
-  _DWORD *v10; // rdx
+  _DWORD *v2; // rdx
+  int v4; // [rsp+58h] [rbp+10h]
 
-  EnterSharedCrit(a1, a2, a3);
-  v8 = *(unsigned int *)(*((_QWORD *)PtiCurrentShared(v5, v4, v6, v7) + 53) + 928LL);
-  v10 = a1;
+  EnterSharedCrit(0LL, 1LL);
+  v4 = *(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 424) + 920LL);
+  v2 = a1;
   if ( (unsigned __int64)a1 >= MmUserProbeAddress )
-    v10 = (_DWORD *)MmUserProbeAddress;
-  *v10 = *v10;
-  *a1 = v8;
-  UserSessionSwitchLeaveCrit(MmUserProbeAddress, v10, v8, v9);
+    v2 = (_DWORD *)MmUserProbeAddress;
+  *v2 = *v2;
+  *a1 = v4;
+  UserSessionSwitchLeaveCrit(MmUserProbeAddress);
   return 1LL;
 }

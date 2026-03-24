@@ -1,78 +1,79 @@
 /*
- * XREFs of MiDeleteFinalPageTables @ 0x140216EE8
+ * XREFs of MiDeleteFinalPageTables @ 0x140296F6C
  * Callers:
- *     MmDeleteProcessAddressSpace @ 0x140693C24 (MmDeleteProcessAddressSpace.c)
+ *     MmDeleteProcessAddressSpace @ 0x140682D54 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     MiDeleteTopLevelPage @ 0x140217060 (MiDeleteTopLevelPage.c)
- *     KeFlushProcessTb @ 0x1402171FC (KeFlushProcessTb.c)
- *     MiUnlinkProcessFromSession @ 0x14021721C (MiUnlinkProcessFromSession.c)
- *     MiDeleteProcessShadow @ 0x14027D408 (MiDeleteProcessShadow.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140281A58 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     MiDeleteVirtualAddresses @ 0x14030FE40 (MiDeleteVirtualAddresses.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     MiDeleteVadBitmap @ 0x140693D80 (MiDeleteVadBitmap.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     MiDeleteTopLevelPage @ 0x1402970E8 (MiDeleteTopLevelPage.c)
+ *     KeFlushProcessTb @ 0x140297284 (KeFlushProcessTb.c)
+ *     MiUnlinkProcessFromSession @ 0x1402972A4 (MiUnlinkProcessFromSession.c)
+ *     MiDeleteVirtualAddresses @ 0x1402FE580 (MiDeleteVirtualAddresses.c)
+ *     MiDeleteProcessShadow @ 0x140305768 (MiDeleteProcessShadow.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x140314860 (UNLOCK_ADDRESS_SPACE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiDeleteVadBitmap @ 0x140682EB0 (MiDeleteVadBitmap.c)
  */
 
-__int64 __fastcall MiDeleteFinalPageTables(ULONG_PTR BugCheckParameter2)
+__int64 __fastcall MiDeleteFinalPageTables(_KPROCESS *BugCheckParameter2, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v2; // rax
-  __int64 v3; // rdi
-  struct _KTHREAD *CurrentThread; // r15
-  int i; // r14d
-  unsigned __int64 v6; // rsi
-  ULONG_PTR BugCheckParameter4; // rax
-  __int64 v8; // rcx
-  bool v9; // zf
+  unsigned __int64 v4; // rax
+  __int64 v6; // rbp
+  struct _KTHREAD *CurrentThread; // r14
+  int i; // esi
+  unsigned __int64 v9; // rdi
+  __int64 v10; // rcx
+  bool v11; // zf
   __int64 result; // rax
-  _OWORD v11[3]; // [rsp+30h] [rbp-39h] BYREF
-  __int64 v12; // [rsp+60h] [rbp-9h]
-  _OWORD v13[3]; // [rsp+68h] [rbp-1h] BYREF
+  _OWORD v13[3]; // [rsp+30h] [rbp-88h] BYREF
+  _OWORD v14[3]; // [rsp+60h] [rbp-58h] BYREF
 
-  v12 = 0LL;
-  v2 = *(_QWORD *)(BugCheckParameter2 + 40) >> 12;
+  v4 = BugCheckParameter2->DirectoryTableBase >> 12;
+  memset(v14, 0, sizeof(v14));
+  v6 = 48 * v4;
   memset(v13, 0, sizeof(v13));
-  v3 = 48 * v2;
-  memset(v11, 0, sizeof(v11));
   CurrentThread = KeGetCurrentThread();
-  KiStackAttachProcess(BugCheckParameter2);
+  KiStackAttachProcess(BugCheckParameter2, 0LL, (__int64)v14, a4);
   for ( i = 0; i < 2; ++i )
   {
     if ( i )
     {
-      v6 = qword_140C50678;
-      if ( !qword_140C50678 )
+      v9 = qword_140C4DE48;
+      if ( !qword_140C4DE48 )
         continue;
     }
     else
     {
-      v6 = 2147352576LL;
+      v9 = 2147352576LL;
     }
-    if ( MI_READ_PTE_LOCK_FREE(8 * ((v6 >> 39) & 0x1FF) - 0x90482413000LL) )
+    if ( MI_READ_PTE_LOCK_FREE(8 * ((v9 >> 39) & 0x1FF) - 0x90482413000LL) )
     {
       --CurrentThread->SpecialApcDisable;
-      ExAcquirePushLockExclusiveEx(BugCheckParameter2 + 1224, 0LL);
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&BugCheckParameter2[1].Affinity.Bitmap[7], 0LL);
       LOBYTE(CurrentThread[1].Queue) |= 1u;
-      MiDeleteVirtualAddresses(0, v6, v6, 0, (__int64)v11);
-      UNLOCK_ADDRESS_SPACE_UNORDERED(CurrentThread, BugCheckParameter2);
+      MiDeleteVirtualAddresses(v9, v9, 0LL, v13);
+      UNLOCK_ADDRESS_SPACE(CurrentThread, BugCheckParameter2);
     }
   }
-  MiDeleteVadBitmap(BugCheckParameter2);
-  BugCheckParameter4 = *(_QWORD *)(v3 - 0x220000000000LL + 24) & 0x3FFFFFFFFFFFFFFFLL;
-  if ( BugCheckParameter4 != 2 )
-    KeBugCheckEx(0x1Au, 0x3453uLL, BugCheckParameter2, 0xAAAAAAAAAAAAAAABuLL * (v3 >> 4), BugCheckParameter4);
+  MiDeleteVadBitmap((ULONG_PTR)BugCheckParameter2);
+  if ( (*(_QWORD *)(v6 - 0x58000000000LL + 24) & 0x3FFFFFFFFFFFFFFFLL) != 2 )
+    KeBugCheckEx(
+      0x1Au,
+      0x3453uLL,
+      (ULONG_PTR)BugCheckParameter2,
+      v6 / 48,
+      *(_QWORD *)(v6 - 0x58000000000LL + 24) & 0x3FFFFFFFFFFFFFFFLL);
   MiDeleteProcessShadow(BugCheckParameter2, 1LL);
-  KiUnstackDetachProcess(v13, 0LL);
-  _interlockedbittestandset((volatile signed __int32 *)(BugCheckParameter2 + 632), 0xBu);
+  KiUnstackDetachProcess((__int64)v14, 0);
+  _interlockedbittestandset((volatile signed __int32 *)&BugCheckParameter2->632, 0xAu);
   MiUnlinkProcessFromSession(BugCheckParameter2);
-  KeFlushProcessTb(*(_QWORD *)(BugCheckParameter2 + 40));
-  v9 = (unsigned int)MiDeleteTopLevelPage(v8, *(_QWORD *)(BugCheckParameter2 + 40) >> 12) == 3;
-  result = *((_QWORD *)&v11[0] + 1);
-  if ( v9 )
-    return *((_QWORD *)&v11[0] + 1) + 1LL;
+  KeFlushProcessTb(BugCheckParameter2->DirectoryTableBase);
+  v11 = (unsigned int)MiDeleteTopLevelPage(v10, BugCheckParameter2->DirectoryTableBase >> 12) == 3;
+  result = *((_QWORD *)&v13[0] + 1);
+  if ( v11 )
+    return *((_QWORD *)&v13[0] + 1) + 1LL;
   return result;
 }

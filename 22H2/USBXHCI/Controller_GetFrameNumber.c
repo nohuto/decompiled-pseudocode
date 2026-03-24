@@ -1,13 +1,13 @@
 /*
- * XREFs of Controller_GetFrameNumber @ 0x1C0033390
+ * XREFs of Controller_GetFrameNumber @ 0x1C00319B4
  * Callers:
- *     Interrupter_WdfEvtInterruptIsr @ 0x1C0007790 (Interrupter_WdfEvtInterruptIsr.c)
- *     Controller_DetectFrameMicroframeBoundary @ 0x1C0032DF4 (Controller_DetectFrameMicroframeBoundary.c)
- *     Controller_TranslateFrameNumberToQpcValue @ 0x1C003529C (Controller_TranslateFrameNumberToQpcValue.c)
- *     Isoch_ProcessTransferRingEmptyEvent @ 0x1C0044F3C (Isoch_ProcessTransferRingEmptyEvent.c)
- *     Isoch_TransferUrb_MarkLatePackets @ 0x1C00452C4 (Isoch_TransferUrb_MarkLatePackets.c)
+ *     Interrupter_WdfEvtInterruptIsr @ 0x1C00053F0 (Interrupter_WdfEvtInterruptIsr.c)
+ *     Controller_DetectFrameMicroframeBoundary @ 0x1C003127C (Controller_DetectFrameMicroframeBoundary.c)
+ *     Controller_TranslateFrameNumberToQpcValue @ 0x1C003395C (Controller_TranslateFrameNumberToQpcValue.c)
+ *     Isoch_ProcessTransferRingEmptyEvent @ 0x1C00422A0 (Isoch_ProcessTransferRingEmptyEvent.c)
+ *     Isoch_TransferUrb_MarkLatePackets @ 0x1C0042634 (Isoch_TransferUrb_MarkLatePackets.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0018114 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
  */
 
 __int64 __fastcall Controller_GetFrameNumber(__int64 a1, int a2, unsigned int *a3, int *a4)
@@ -53,7 +53,7 @@ __int64 __fastcall Controller_GetFrameNumber(__int64 a1, int a2, unsigned int *a
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
     LOBYTE(v15) = 5;
-    WPP_RECORDER_SF_D(*(_QWORD *)(a1 + 72), v15, 4, 177, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, v11);
+    WPP_RECORDER_SF_d(*(_QWORD *)(a1 + 72), v15, 4, 174, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v11);
   }
   return v11;
 }

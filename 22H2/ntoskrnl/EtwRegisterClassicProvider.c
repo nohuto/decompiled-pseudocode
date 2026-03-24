@@ -1,9 +1,10 @@
 /*
- * XREFs of EtwRegisterClassicProvider @ 0x14078DD40
+ * XREFs of EtwRegisterClassicProvider @ 0x140762280
  * Callers:
- *     WmipProcessLegacyEtwRegister @ 0x140850EA8 (WmipProcessLegacyEtwRegister.c)
+ *     VslpIumPhase4Initialize @ 0x1403CE6D8 (VslpIumPhase4Initialize.c)
+ *     WmipProcessLegacyEtwRegister @ 0x1407C58E0 (WmipProcessLegacyEtwRegister.c)
  * Callees:
- *     EtwpRegisterKMProvider @ 0x14078DDD4 (EtwpRegisterKMProvider.c)
+ *     EtwpRegisterProvider @ 0x140762340 (EtwpRegisterProvider.c)
  */
 
 __int64 __fastcall EtwRegisterClassicProvider(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -11,7 +12,7 @@ __int64 __fastcall EtwRegisterClassicProvider(int a1, __int64 a2, __int64 a3, __
   __int64 retaddr; // [rsp+48h] [rbp+0h]
 
   if ( a3 )
-    return EtwpRegisterKMProvider(EtwpHostSiloState, a1, 2, a3, a4, retaddr, a5);
+    return EtwpRegisterProvider(EtwpHostSiloState, a1, 2, a3, a4, retaddr, a5);
   else
     return 3221225485LL;
 }

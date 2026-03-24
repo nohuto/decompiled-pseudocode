@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyInvalid@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEAUMsgCallState@@@Z @ 0x1801BA1C0
+ * XREFs of ?NotifyInvalid@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEAUMsgCallState@@@Z @ 0x180166140
  * Callers:
  *     <none>
  * Callees:

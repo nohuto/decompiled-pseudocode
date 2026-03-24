@@ -1,13 +1,13 @@
 /*
- * XREFs of VidSchiCleanupDeferredWaiterContext @ 0x1C001453C
+ * XREFs of VidSchiCleanupDeferredWaiterContext @ 0x1C0011E00
  * Callers:
- *     VidSchFlushContext @ 0x1C009A2F0 (VidSchFlushContext.c)
+ *     VidSchFlushContext @ 0x1C0081D80 (VidSchFlushContext.c)
  * Callees:
- *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C0009AD0 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
- *     VidSchiUnwaitWaitQueuePacket @ 0x1C000EA80 (VidSchiUnwaitWaitQueuePacket.c)
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0014690 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C0014924 (-Release@AcquireSpinLock@@QEAAXXZ.c)
- *     VidSchiUnblockUnorderedWaitQueuePacket @ 0x1C003AAF4 (VidSchiUnblockUnorderedWaitQueuePacket.c)
+ *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C000AFF0 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
+ *     VidSchiUnwaitWaitQueuePacket @ 0x1C0010DD0 (VidSchiUnwaitWaitQueuePacket.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011F60 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00129FC (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     VidSchiUnblockUnorderedWaitQueuePacket @ 0x1C0016544 (VidSchiUnblockUnorderedWaitQueuePacket.c)
  */
 
 void __fastcall VidSchiCleanupDeferredWaiterContext(__int64 a1)
@@ -26,7 +26,7 @@ void __fastcall VidSchiCleanupDeferredWaiterContext(__int64 a1)
   v1 = (_QWORD **)(a1 + 696);
   v2 = *(_QWORD *)(*(_QWORD *)(a1 + 104) + 32LL);
   v10 = 0;
-  v9[0] = v2 + 1728;
+  v9[0] = v2 + 1712;
   AcquireSpinLock::Acquire((AcquireSpinLock *)v9);
   v4 = *v1;
   v7[1] = v7;

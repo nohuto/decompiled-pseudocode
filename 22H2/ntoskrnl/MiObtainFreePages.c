@@ -1,36 +1,40 @@
 /*
- * XREFs of MiObtainFreePages @ 0x140634F9C
+ * XREFs of MiObtainFreePages @ 0x14053B4C4
  * Callers:
- *     MiUnlinkPageFromListEx @ 0x140266510 (MiUnlinkPageFromListEx.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x1402D1E90 (MiUnlinkFreeOrZeroedPage.c)
- *     MiUnlinkNodeLargePageHelper @ 0x1402D89C0 (MiUnlinkNodeLargePageHelper.c)
- *     MiDecreaseAvailablePages @ 0x1402E8620 (MiDecreaseAvailablePages.c)
- *     MiWaitForFreePage @ 0x140653AB8 (MiWaitForFreePage.c)
+ *     MiUnlinkPageFromList @ 0x140217870 (MiUnlinkPageFromList.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x140235D30 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiDecreaseAvailablePages @ 0x140299A00 (MiDecreaseAvailablePages.c)
+ *     MiWaitForFreePage @ 0x14055C13C (MiWaitForFreePage.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     PsReferencePartitionSafe @ 0x1402F9C1C (PsReferencePartitionSafe.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     CcNotifyWriteBehindEx @ 0x140536AF0 (CcNotifyWriteBehindEx.c)
- *     MiWakeModifiedPageWriter @ 0x14063BCA8 (MiWakeModifiedPageWriter.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     PsDereferencePartition @ 0x140303F4C (PsDereferencePartition.c)
+ *     PsReferencePartitionSafe @ 0x140303F74 (PsReferencePartitionSafe.c)
+ *     MiWakeModifiedPageWriter @ 0x140350344 (MiWakeModifiedPageWriter.c)
+ *     CcNotifyWriteBehindEx @ 0x140382808 (CcNotifyWriteBehindEx.c)
  */
 
 void __fastcall MiObtainFreePages(__int64 a1)
 {
   __int64 v1; // rdi
   __int64 v3; // rsi
+  unsigned __int64 v4; // rcx
 
-  v1 = *(_QWORD *)(a1 + 16920);
-  if ( v1 && !*(_BYTE *)(v1 + 52) )
+  v1 = *(_QWORD *)(a1 + 6848);
+  if ( v1 && *(_BYTE *)(v1 + 52) != 1 )
   {
-    v3 = *(_QWORD *)(a1 + 200);
+    v3 = *(_QWORD *)(a1 + 176);
     if ( PsReferencePartitionSafe(v3) )
     {
-      CcNotifyWriteBehindEx(1u, v3);
+      CcNotifyWriteBehindEx(1, v3);
       PsDereferencePartition(v3);
     }
-    if ( *(_QWORD *)(a1 + 17600) - *(_QWORD *)(a1 + 17824) >= 0x10uLL )
-      KeSetEvent((PRKEVENT)(a1 + 832), 0, 0);
-    if ( *(_QWORD *)(a1 + 17824) >= 0x10uLL )
+    v4 = *(_QWORD *)(a1 + 7600);
+    if ( *(_QWORD *)(a1 + 7488) - v4 >= 0x10 )
+    {
+      KeSetEvent((PRKEVENT)(a1 + 792), 0, 0);
+      v4 = *(_QWORD *)(a1 + 7600);
+    }
+    if ( v4 >= 0x10 )
       MiWakeModifiedPageWriter(a1, -1LL);
     if ( *(_BYTE *)(v1 + 98) )
       KeSetEvent((PRKEVENT)(v1 + 96), 0, 0);

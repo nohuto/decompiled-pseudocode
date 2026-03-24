@@ -1,5 +1,5 @@
 /*
- * XREFs of PopGenericEventHandler @ 0x1406EBAC0
+ * XREFs of PopGenericEventHandler @ 0x1408F0BF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,6 @@
 
 __int64 __fastcall PopGenericEventHandler(char a1, _DWORD *a2)
 {
-  if ( a1 )
-    *a2 = 1;
-  else
-    *a2 = PopPlatformAoAc != 0 ? 3 : 0;
+  *a2 = a1 != 0 ? 1 : 3;
   return 0LL;
 }

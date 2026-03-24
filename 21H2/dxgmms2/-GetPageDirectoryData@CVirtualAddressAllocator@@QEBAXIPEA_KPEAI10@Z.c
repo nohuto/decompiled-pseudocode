@@ -1,43 +1,46 @@
 /*
- * XREFs of ?GetPageDirectoryData@CVirtualAddressAllocator@@QEBAXIPEA_KPEAI10@Z @ 0x1C00B853C
+ * XREFs of ?GetPageDirectoryData@CVirtualAddressAllocator@@QEBAXIPEA_KPEAI10@Z @ 0x1C00BD26C
  * Callers:
- *     ?InitPagingProcessVaSpace@VIDMM_GLOBAL@@QEAAJIE@Z @ 0x1C00B79C0 (-InitPagingProcessVaSpace@VIDMM_GLOBAL@@QEAAJIE@Z.c)
- *     ?GetPageDirectoryData@VIDMM_PROCESS@@QEAAXKIPEA_KPEAI10@Z @ 0x1C00DFC84 (-GetPageDirectoryData@VIDMM_PROCESS@@QEAAXKIPEA_KPEAI10@Z.c)
+ *     ?InitPagingProcessVaSpace@VIDMM_GLOBAL@@QEAAJIE@Z @ 0x1C0098F98 (-InitPagingProcessVaSpace@VIDMM_GLOBAL@@QEAAJIE@Z.c)
+ *     ?GetPageDirectoryData@VIDMM_PROCESS@@QEAAXKIPEA_KPEAI10@Z @ 0x1C00BA298 (-GetPageDirectoryData@VIDMM_PROCESS@@QEAAXKIPEA_KPEAI10@Z.c)
  * Callees:
- *     ?IsResident@VIDMM_PAGE_TABLE_BASE@@QEBAEXZ @ 0x1C0014DA8 (-IsResident@VIDMM_PAGE_TABLE_BASE@@QEBAEXZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
+ *     ?IsResident@VIDMM_PAGE_TABLE_BASE@@QEBAEXZ @ 0x1C00148E0 (-IsResident@VIDMM_PAGE_TABLE_BASE@@QEBAEXZ.c)
  */
 
 void __fastcall CVirtualAddressAllocator::GetPageDirectoryData(
         CVirtualAddressAllocator *this,
-        unsigned int a2,
+        __int64 a2,
         unsigned __int64 *a3,
         unsigned int *a4,
         unsigned int *a5,
         unsigned __int64 *a6)
 {
-  __int64 v7; // rdi
-  VIDMM_PAGE_TABLE_BASE **v8; // r10
-  __int64 v9; // rcx
-  _QWORD *v10; // r8
-  __int64 v11; // r10
-  __int64 v12; // rcx
+  unsigned __int64 v6; // r11
+  CVirtualAddressAllocator *v7; // rbx
+  __int64 v8; // rdi
+  CVirtualAddressAllocator **v9; // r10
+  __int64 v10; // r10
+  __int64 v11; // rax
 
-  v7 = a2;
-  v8 = (VIDMM_PAGE_TABLE_BASE **)(*((_QWORD *)this + 15) + 32LL * a2);
-  if ( v8 && *v8 && VIDMM_PAGE_TABLE_BASE::IsResident(*v8) )
+  v6 = 0LL;
+  v7 = this;
+  v8 = (unsigned int)a2;
+  v9 = (CVirtualAddressAllocator **)(*((_QWORD *)this + 15) + 32LL * (unsigned int)a2);
+  if ( v9 && (this = *v9) != 0LL && VIDMM_PAGE_TABLE_BASE::IsResident(this) )
   {
-    *v10 = *(_QWORD *)(v11 + 8);
-    *a4 = *(_DWORD *)(v11 + 16);
-    *a6 = *(_QWORD *)(*(_QWORD *)(v9 + 16) + 128LL);
-    *a5 = *(_DWORD *)(v11 + 24);
+    *a3 = *(_QWORD *)(v10 + 8);
+    *a4 = *(_DWORD *)(v10 + 16);
+    *a6 = *(_QWORD *)(*((_QWORD *)this + 2) + 136LL);
+    *a5 = *(_DWORD *)(v10 + 24);
   }
   else
   {
-    *a4 = 0;
-    *a6 = 0LL;
-    *a5 = 0;
-    WdLogSingleEntry2(1LL, this, v7);
-    DxgkLogInternalTriageEvent(v12, 0x40000LL);
+    *a4 = v6;
+    *a6 = v6;
+    *a5 = v6;
+    v11 = WdLogNewEntry5_WdAssertion(this, a2, a3);
+    *(_QWORD *)(v11 + 24) = v7;
+    *(_QWORD *)(v11 + 32) = v8;
+    WdLogEvent5_WdAssertion(v11);
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlGetSystemBootStatus @ 0x1407630A0
+ * XREFs of RtlGetSystemBootStatus @ 0x140763080
  * Callers:
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     RtlpSystemBootStatusRequest @ 0x14071C4F4 (RtlpSystemBootStatusRequest.c)
+ *     RtlpSystemBootStatusRequest @ 0x14071C4D4 (RtlpSystemBootStatusRequest.c)
  */
 
 __int64 __fastcall RtlGetSystemBootStatus(int a1, __int64 a2, int a3, void *a4)

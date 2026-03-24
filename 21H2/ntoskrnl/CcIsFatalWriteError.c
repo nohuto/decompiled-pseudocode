@@ -1,28 +1,28 @@
 /*
- * XREFs of CcIsFatalWriteError @ 0x140248C10
+ * XREFs of CcIsFatalWriteError @ 0x1402C1E0C
  * Callers:
- *     CcNotifyOfMappedWriteComplete @ 0x1402590D8 (CcNotifyOfMappedWriteComplete.c)
- *     CcFlushCachePriv @ 0x140283030 (CcFlushCachePriv.c)
- *     CcWriteBehindInternal @ 0x140288760 (CcWriteBehindInternal.c)
- *     CcUnpinRepinnedBcb @ 0x14053A6C0 (CcUnpinRepinnedBcb.c)
+ *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
+ *     CcWriteBehindInternal @ 0x14022DA70 (CcWriteBehindInternal.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x1402D0220 (CcNotifyOfMappedWriteComplete.c)
+ *     CcUnpinRepinnedBcb @ 0x1404EA760 (CcUnpinRepinnedBcb.c)
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140230680 (ObFastDereferenceObjectDeferDelete.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x14027A1B4 (CcReferenceSharedCacheMapFileObject.c)
- *     MmIsWriteErrorFatal @ 0x14028D31C (MmIsWriteErrorFatal.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     MmIsWriteErrorFatal @ 0x140255928 (MmIsWriteErrorFatal.c)
+ *     CcDereferenceSharedCacheMapFileObject @ 0x1402F5784 (CcDereferenceSharedCacheMapFileObject.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1402F57D0 (CcReferenceSharedCacheMapFileObject.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-bool __fastcall CcIsFatalWriteError(__int64 a1, int a2)
+bool __fastcall CcIsFatalWriteError(__int64 a1, NTSTATUS a2)
 {
-  unsigned __int64 v5; // rax
-  unsigned int v6; // ebx
+  __int64 v5; // rax
+  int v6; // ebx
 
   if ( a2 >= 0 )
     return 0;
   if ( !*(_DWORD *)(a1 + 4) )
-    KeBugCheckEx(0x34u, 0x189EuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-  v5 = CcReferenceSharedCacheMapFileObject();
+    KeBugCheckEx(0x34u, 0x1529uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+  v5 = CcReferenceSharedCacheMapFileObject(a1);
   v6 = *(_DWORD *)(*(_QWORD *)(v5 + 8) + 52LL) & 0x10;
-  ObFastDereferenceObjectDeferDelete((signed __int64 *)(a1 + 96), v5, 0x63536343u);
-  return (unsigned int)MmIsWriteErrorFatal(1LL, v6, (unsigned int)a2) != 0;
+  CcDereferenceSharedCacheMapFileObject(a1, v5);
+  return MmIsWriteErrorFatal(1, v6, a2);
 }

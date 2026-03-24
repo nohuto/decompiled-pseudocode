@@ -2,11 +2,11 @@
  * XREFs of _CmGetDeviceInterfaceClassGuid @ 0x14059ADB0
  * Callers:
  *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x14059BAB4 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
- *     PiSwCompleteCreate @ 0x1406D808C (PiSwCompleteCreate.c)
- *     IopProcessSetInterfaceState @ 0x14070F918 (IopProcessSetInterfaceState.c)
+ *     PiSwCompleteCreate @ 0x1406D806C (PiSwCompleteCreate.c)
+ *     IopProcessSetInterfaceState @ 0x14070F8F8 (IopProcessSetInterfaceState.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
  *     _CmGetDeviceInterfaceClassGuidString @ 0x14059AE1C (_CmGetDeviceInterfaceClassGuidString.c)
  */

@@ -1,21 +1,13 @@
 /*
- * XREFs of McTemplateK0tt_EtwWriteTransfer @ 0x1C002EBB8
+ * XREFs of McTemplateK0tt_EtwWriteTransfer @ 0x1C0046D68
  * Callers:
- *     ?DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z @ 0x1C000E730 (-DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z.c)
- *     DxgkWaitForVerticalBlankEventInternal @ 0x1C0177070 (DxgkWaitForVerticalBlankEventInternal.c)
- *     DxgkSetPresenterViewMode @ 0x1C01E89D0 (DxgkSetPresenterViewMode.c)
- *     ?StopVSync@BLTQUEUE@@AEAAXHW4VsyncEvent@1@@Z @ 0x1C03BF230 (-StopVSync@BLTQUEUE@@AEAAXHW4VsyncEvent@1@@Z.c)
+ *     DxgkSetPresenterViewMode @ 0x1C016E530 (DxgkSetPresenterViewMode.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0013C40 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C000BC78 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
-NTSTATUS __fastcall McTemplateK0tt_EtwWriteTransfer(
-        __int64 a1,
-        const EVENT_DESCRIPTOR *a2,
-        __int64 a3,
-        int a4,
-        __int64 a5)
+NTSTATUS __fastcall McTemplateK0tt_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+30h] [rbp-48h] BYREF
   int *v7; // [rsp+40h] [rbp-38h]
@@ -33,5 +25,10 @@ NTSTATUS __fastcall McTemplateK0tt_EtwWriteTransfer(
   v10 = &a5;
   v12 = 0;
   v11 = 4;
-  return McGenEventWrite_EtwWriteTransfer((REGHANDLE *)&DxgkControlGuid_Context, a2, a3, 3u, &v6);
+  return McGenEventWrite_EtwWriteTransfer(
+           (REGHANDLE *)&DxgkControlGuid_Context,
+           &EventDxgkSetPresenterViewMode,
+           a3,
+           3u,
+           &v6);
 }

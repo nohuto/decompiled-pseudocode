@@ -1,7 +1,7 @@
 /*
- * XREFs of CmRegUtilCreateUcKey @ 0x1C00BF318
+ * XREFs of CmRegUtilCreateUcKey @ 0x1C00BDBA8
  * Callers:
- *     CmRegUtilCreateWstrKey @ 0x1C00BF3C0 (CmRegUtilCreateWstrKey.c)
+ *     CmRegUtilCreateWstrKey @ 0x1C00BDC50 (CmRegUtilCreateWstrKey.c)
  * Callees:
  *     <none>
  */
@@ -22,6 +22,7 @@ __int64 __fastcall CmRegUtilCreateUcKey(
   void *newHandle; // [rsp+80h] [rbp+10h] BYREF
   unsigned int disposition; // [rsp+98h] [rbp+28h] BYREF
 
+  *(&objectAttributes.Length + 1) = 0;
   *(&objectAttributes.Attributes + 1) = 0;
   disposition = 0;
   newHandle = 0LL;
@@ -29,7 +30,7 @@ __int64 __fastcall CmRegUtilCreateUcKey(
   objectAttributes.SecurityDescriptor = Handle;
   objectAttributes.RootDirectory = BaseHandle;
   objectAttributes.ObjectName = KeyName;
-  *(_QWORD *)&objectAttributes.Length = 48LL;
+  objectAttributes.Length = 48;
   objectAttributes.Attributes = 576;
   v7 = ZwCreateKey(&newHandle, 0xF003Fu, &objectAttributes, 0, 0LL, 0, &disposition);
   if ( v7 >= 0 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpStartDevice @ 0x14015A490
+ * XREFs of PnpStartDevice @ 0x14015A4B0
  * Callers:
- *     PnpStartDeviceNode @ 0x1406EBA7C (PnpStartDeviceNode.c)
+ *     PnpStartDeviceNode @ 0x1406EBA5C (PnpStartDeviceNode.c)
  * Callees:
  *     PnpSendIrp @ 0x14000E9CC (PnpSendIrp.c)
- *     PoFxPrepareDevice @ 0x14015A53C (PoFxPrepareDevice.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PoFxPrepareDevice @ 0x14015A55C (PoFxPrepareDevice.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall PnpStartDevice(__int64 a1, __int64 a2, __int64 a3)

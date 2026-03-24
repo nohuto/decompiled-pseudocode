@@ -1,14 +1,14 @@
 /*
- * XREFs of PiSwDeviceMakeCompatibleIds @ 0x14081B448
+ * XREFs of PiSwDeviceMakeCompatibleIds @ 0x14074DF50
  * Callers:
- *     PiSwPdoPnPDispatch @ 0x14081B050 (PiSwPdoPnPDispatch.c)
+ *     PiSwPdoPnPDispatch @ 0x14074E8B0 (PiSwPdoPnPDispatch.c)
  * Callees:
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiSwDeviceMakeCompatibleIds(__int64 a1, __int64 *a2)
+__int64 __fastcall PiSwDeviceMakeCompatibleIds(__int64 a1, _QWORD *a2)
 {
   const wchar_t *v2; // rbx
   unsigned int v3; // edi
@@ -16,8 +16,8 @@ __int64 __fastcall PiSwDeviceMakeCompatibleIds(__int64 a1, __int64 *a2)
   __int64 v7; // rsi
   __int64 v8; // rsi
   __int64 v9; // rdx
-  __int64 Pool2; // rax
-  __int64 v11; // r12
+  _OWORD *PoolWithTag; // rax
+  _OWORD *v11; // r12
   _WORD *v12; // r14
   _OWORD *v13; // rsi
   __int64 v14; // r15
@@ -44,12 +44,12 @@ __int64 __fastcall PiSwDeviceMakeCompatibleIds(__int64 a1, __int64 *a2)
   v9 = v6 + 30;
   if ( (*(_DWORD *)(a1 + 64) & 8) != 0 )
     v9 = v6;
-  Pool2 = ExAllocatePool2(256LL, v9 + 26, 1466986064LL);
-  v11 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9 + 26, 0x57706E50u);
+  v11 = PoolWithTag;
+  if ( PoolWithTag )
   {
     v12 = *(_WORD **)(a1 + 32);
-    v13 = (_OWORD *)Pool2;
+    v13 = PoolWithTag;
     if ( v12 )
     {
       while ( *v12 )

@@ -1,35 +1,34 @@
 /*
- * XREFs of ?addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z @ 0x1C01533C8
+ * XREFs of ?addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z @ 0x1C008181C
  * Callers:
- *     ?bPolyBezierTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@AEBV?$umptr_r@U_POINTL@@@@K@Z @ 0x1C0153860 (-bPolyBezierTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@AEBV-$umptr_r@U_POINTL@@@@K@Z.c)
- *     ?bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@AEBV?$umptr_r@U_POINTL@@@@K@Z @ 0x1C01538E0 (-bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@AEBV-$umptr_r@U_POINTL@@@@K@Z.c)
+ *     ?bPolyBezierTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C0081770 (-bPolyBezierTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
+ *     ?bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C00817D0 (-bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
  * Callees:
- *     ?createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C0153A28 (-createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z.c)
- *     ?growlastrec@EPATHOBJ@@IEAAXPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C0153CDC (-growlastrec@EPATHOBJ@@IEAAXPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z.c)
+ *     ?createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C00818E4 (-createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z.c)
+ *     ?growlastrec@EPATHOBJ@@IEAAXPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C0081BE4 (-growlastrec@EPATHOBJ@@IEAAXPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z.c)
+ *     ?reinit@EPATHOBJ@@IEAAXXZ @ 0x1C013D380 (-reinit@EPATHOBJ@@IEAAXXZ.c)
  */
 
-__int64 __fastcall EPATHOBJ::addpoints(EPATHOBJ *this, struct EXFORMOBJ *a2, struct _PATHDATAL *a3)
+__int64 __fastcall EPATHOBJ::addpoints(
+        EPATHOBJ *this,
+        struct EXFORMOBJ *a2,
+        struct _PATHDATAL *a3,
+        struct _POINTFIX *a4)
 {
-  struct _POINTFIX *v6; // r9
-  unsigned int v8; // edx
+  unsigned int v8; // ecx
 
-  if ( *((_DWORD *)a3 + 9) )
+  if ( *((_DWORD *)a3 + 1) )
   {
-    v6 = (struct _POINTFIX *)*(unsigned int *)(*((_QWORD *)this + 1) + 80LL);
-    if ( ((unsigned __int8)v6 & 1) == 0 )
-    {
-      EPATHOBJ::growlastrec(this, a2, a3, v6);
-      if ( *((_WORD *)a3 + 12) )
-        return 0LL;
-    }
-    while ( *((_DWORD *)a3 + 9) )
+    if ( (*(_DWORD *)(*((_QWORD *)this + 1) + 80LL) & 1) == 0 )
+      EPATHOBJ::growlastrec(this, a2, a3, a4);
+    while ( *((_DWORD *)a3 + 1) )
     {
       if ( !(unsigned int)EPATHOBJ::createrec(this, a2, a3, 0LL) )
         return 0LL;
     }
     v8 = *(_DWORD *)this & 0xFFFFFFFD;
     *(_DWORD *)this = v8;
-    if ( (*((_DWORD *)a3 + 8) & 0x10) != 0 )
+    if ( (*(_DWORD *)a3 & 0x10) != 0 )
       *(_DWORD *)this = v8 | 1;
   }
   return 1LL;

@@ -1,11 +1,10 @@
 /*
- * XREFs of MiVadPagesTradable @ 0x14031285C
+ * XREFs of MiVadPagesTradable @ 0x1402BBEC0
  * Callers:
- *     NtUnlockVirtualMemory @ 0x1402CD9C0 (NtUnlockVirtualMemory.c)
- *     NtLockVirtualMemory @ 0x1402E5D90 (NtLockVirtualMemory.c)
- *     MiLockStealUserVm @ 0x1402EACBC (MiLockStealUserVm.c)
- *     MiSharePages @ 0x140314BA0 (MiSharePages.c)
- *     MiProcessVaContiguityInformation @ 0x1405B4EA0 (MiProcessVaContiguityInformation.c)
+ *     MiLockStealUserVm @ 0x14026AFD4 (MiLockStealUserVm.c)
+ *     NtLockVirtualMemory @ 0x140270060 (NtLockVirtualMemory.c)
+ *     NtUnlockVirtualMemory @ 0x14032DF30 (NtUnlockVirtualMemory.c)
+ *     MiProcessVaContiguityInformation @ 0x1405522C0 (MiProcessVaContiguityInformation.c)
  * Callees:
  *     <none>
  */
@@ -16,15 +15,15 @@ __int64 __fastcall MiVadPagesTradable(__int64 a1)
   int v2; // edx
 
   v1 = *(_DWORD *)(a1 + 48);
-  v2 = v1 & 0x200000;
+  v2 = v1 & 0x100000;
   if ( (v1 & 0x70) != 0 )
   {
-    if ( (v2 || (*(_DWORD *)(a1 + 64) & 0x1000000) == 0) && (*(_DWORD *)(a1 + 48) & 0x70) == 0x20 )
-      return 1LL;
+    if ( !v2 && (*(_DWORD *)(a1 + 64) & 0x1000000) != 0 || (*(_DWORD *)(a1 + 48) & 0x70) != 0x20 )
+      return 0LL;
   }
-  else if ( !v2 || (v1 & 0x800000) == 0 && (v1 & 0x180000u) < 0x100000 )
+  else if ( v2 && ((v1 & 0x400000) != 0 || (v1 & 0xC0000u) >= 0x80000) )
   {
-    return 1LL;
+    return 0LL;
   }
-  return 0LL;
+  return 1LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetRealization@CScaleTransform3D@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x18024E9E0
+ * XREFs of ?GetRealization@CScaleTransform3D@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x1801F4FC0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetScale@CMILMatrix@@QEAAXMMMMMM@Z @ 0x1800B1068 (-SetScale@CMILMatrix@@QEAAXMMMMMM@Z.c)
+ *     ?SetScale@CMILMatrix@@QEAAXMMMMMM@Z @ 0x1800D5188 (-SetScale@CMILMatrix@@QEAAXMMMMMM@Z.c)
  */
 
 void __fastcall CScaleTransform3D::GetRealization(
@@ -13,10 +13,10 @@ void __fastcall CScaleTransform3D::GetRealization(
 {
   CMILMatrix::SetScale(
     a3,
+    *((float *)this + 38),
+    *((float *)this + 39),
     *((float *)this + 40),
     *((float *)this + 41),
     *((float *)this + 42),
-    *((float *)this + 43),
-    *((float *)this + 44),
-    *((float *)this + 45));
+    *((float *)this + 43));
 }

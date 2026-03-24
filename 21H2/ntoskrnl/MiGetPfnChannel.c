@@ -1,34 +1,32 @@
 /*
- * XREFs of MiGetPfnChannel @ 0x1402E8990
+ * XREFs of MiGetPfnChannel @ 0x1403041C4
  * Callers:
- *     MiPrivateFixup @ 0x14024076C (MiPrivateFixup.c)
- *     MiSwapStackPage @ 0x140249930 (MiSwapStackPage.c)
- *     MiTradePage @ 0x140277580 (MiTradePage.c)
- *     MiZeroPage @ 0x1402C4E50 (MiZeroPage.c)
- *     MiUnlinkNodeLargePages @ 0x1402CA5E0 (MiUnlinkNodeLargePages.c)
- *     MiTradeTransitionPage @ 0x1402E8240 (MiTradeTransitionPage.c)
- *     MiReplaceNumaStandbyPage @ 0x1402E851C (MiReplaceNumaStandbyPage.c)
- *     MiLargePageFreeToZero @ 0x1402E86F0 (MiLargePageFreeToZero.c)
- *     MiStealPage @ 0x1402E97D4 (MiStealPage.c)
- *     MiFinalizeImageHeaderPage @ 0x1402EB1A0 (MiFinalizeImageHeaderPage.c)
- *     MiGetPage @ 0x1403250B0 (MiGetPage.c)
- *     MiWalkEntireImage @ 0x140336B30 (MiWalkEntireImage.c)
- *     MiTryUnlinkNodeLargePages @ 0x1403872A4 (MiTryUnlinkNodeLargePages.c)
- *     MiReplaceLockedPage @ 0x1403D0BD4 (MiReplaceLockedPage.c)
- *     MiPruneStandbyPages @ 0x14045C812 (MiPruneStandbyPages.c)
- *     MiProtectDriverSectionPte @ 0x140582320 (MiProtectDriverSectionPte.c)
- *     MiCompleteSecureProcessFault @ 0x1405A6E74 (MiCompleteSecureProcessFault.c)
- *     MiFreeListPageContentsChanged @ 0x1405AD7A0 (MiFreeListPageContentsChanged.c)
- *     MiChangePageAttributeLargeFreeZeroPage @ 0x1405AEA7C (MiChangePageAttributeLargeFreeZeroPage.c)
- *     MiSwapNumaStandbyPage @ 0x1405B4024 (MiSwapNumaStandbyPage.c)
+ *     MiGetPage @ 0x140213610 (MiGetPage.c)
+ *     MiZeroPage @ 0x140233310 (MiZeroPage.c)
+ *     MiReplaceNumaStandbyPage @ 0x14026B4EC (MiReplaceNumaStandbyPage.c)
+ *     MiTradeTransitionPage @ 0x14026B6E8 (MiTradeTransitionPage.c)
+ *     MiStealPage @ 0x14026BCA4 (MiStealPage.c)
+ *     MiPrivateFixup @ 0x14028CA28 (MiPrivateFixup.c)
+ *     MiTryUnlinkNodeLargePage @ 0x14029195C (MiTryUnlinkNodeLargePage.c)
+ *     MiSwapStackPage @ 0x1402C605C (MiSwapStackPage.c)
+ *     MiTradePage @ 0x140300BE0 (MiTradePage.c)
+ *     MiLargePageFreeToZero @ 0x140303D40 (MiLargePageFreeToZero.c)
+ *     MiAllocateMdlPagesByLists @ 0x140374714 (MiAllocateMdlPagesByLists.c)
+ *     MiUnlinkNumaStandbyPage @ 0x14039CA44 (MiUnlinkNumaStandbyPage.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x1403F5A4C (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     MiLargePagePromote @ 0x1403F6D98 (MiLargePagePromote.c)
+ *     MiReplaceLockedPage @ 0x14053D76C (MiReplaceLockedPage.c)
+ *     MiFreeListPageContentsChanged @ 0x14054EE4C (MiFreeListPageContentsChanged.c)
+ *     MiPruneStandbyPages @ 0x140550DD4 (MiPruneStandbyPages.c)
+ *     MiSwapNumaStandbyPage @ 0x1405513D0 (MiSwapNumaStandbyPage.c)
  * Callees:
- *     MiPageToChannel @ 0x1403B76EC (MiPageToChannel.c)
+ *     MiPageToChannel @ 0x1402FF108 (MiPageToChannel.c)
  */
 
 __int64 __fastcall MiGetPfnChannel(__int64 a1)
 {
-  if ( qword_140C50710 )
-    return MiPageToChannel(0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4));
+  if ( qword_140C4DED0 )
+    return MiPageToChannel((a1 + 0x58000000000LL) / 48);
   else
     return 0LL;
 }

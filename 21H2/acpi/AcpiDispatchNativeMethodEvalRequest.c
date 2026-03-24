@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiDispatchNativeMethodEvalRequest @ 0x1C005C014
+ * XREFs of AcpiDispatchNativeMethodEvalRequest @ 0x1C005B154
  * Callers:
- *     AcpiNativeMethodEvalRequestHandler @ 0x1C005C220 (AcpiNativeMethodEvalRequestHandler.c)
+ *     AcpiNativeMethodEvalRequestHandler @ 0x1C005B360 (AcpiNativeMethodEvalRequestHandler.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall AcpiDispatchNativeMethodEvalRequest(__int64 a1, __int64 a2)
@@ -21,7 +21,7 @@ __int64 __fastcall AcpiDispatchNativeMethodEvalRequest(__int64 a1, __int64 a2)
   __int64 v13; // [rsp+48h] [rbp-28h]
   __int64 (__fastcall *v14)(); // [rsp+50h] [rbp-20h]
   __int64 v15; // [rsp+58h] [rbp-18h]
-  __int64 (__fastcall *v16)(_QWORD *, void *, __int64, __int64 *); // [rsp+60h] [rbp-10h]
+  __int64 (__fastcall *v16)(_QWORD *, void *, SIZE_T, _QWORD *); // [rsp+60h] [rbp-10h]
 
   v2 = *(_QWORD *)(a1 + 8);
   v11 = 0;
@@ -36,7 +36,7 @@ __int64 __fastcall AcpiDispatchNativeMethodEvalRequest(__int64 a1, __int64 a2)
   v16 = AcpiAllocateNativeMethodOutputBuffer;
   v15 = a1;
   v7 = v4;
-  result = ((__int64 (__fastcall *)(__int64 *))qword_1C0080DA8)(&v6);
+  result = ((__int64 (__fastcall *)(__int64 *))qword_1C0081BE8)(&v6);
   if ( (_DWORD)result != 259 )
     *(_DWORD *)(a1 + 64) = result;
   return result;

@@ -1,22 +1,18 @@
 /*
- * XREFs of ?SetFloatProperty@CColorGradientStopMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C00B48D0
+ * XREFs of ?SetFloatProperty@CColorGradientStopMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01E63B0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0007DD0 (-SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CColorGradientStopMarshaler::SetFloatProperty(
         DirectComposition::CColorGradientStopMarshaler *this,
-        unsigned int a2,
+        int a2,
         float a3,
         bool *a4)
 {
-  if ( a2 )
-  {
-    DirectComposition::CResourceMarshaler::SetFloatProperty(this, a2, a3, a4);
-  }
-  else
+  if ( !a2 )
   {
     *((_DWORD *)this + 4) |= 0x40u;
     *((float *)this + 14) = a3;

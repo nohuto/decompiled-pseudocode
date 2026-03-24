@@ -1,54 +1,52 @@
 /*
- * XREFs of PiUEventFreeClientRegistrationContext @ 0x14077F198
+ * XREFs of PiUEventFreeClientRegistrationContext @ 0x140714E48
  * Callers:
- *     PiUEventDispatch @ 0x14077F6E0 (PiUEventDispatch.c)
- *     PiUEventHandleRegistration @ 0x14077FBAC (PiUEventHandleRegistration.c)
+ *     PiUEventDispatch @ 0x140715460 (PiUEventDispatch.c)
+ *     PiUEventHandleRegistration @ 0x140715950 (PiUEventHandleRegistration.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ZwDeleteWnfStateName @ 0x14041C280 (ZwDeleteWnfStateName.c)
- *     memset @ 0x140435400 (memset.c)
- *     PiDmObjectRelease @ 0x1406D6C18 (PiDmObjectRelease.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     PiUEventDequeuePendingEventWorker @ 0x14078258C (PiUEventDequeuePendingEventWorker.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     ZwDeleteWnfStateName @ 0x1403FB540 (ZwDeleteWnfStateName.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PiDmObjectRelease @ 0x1406AFBD0 (PiDmObjectRelease.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     PiUEventDequeuePendingEventWorker @ 0x14071A334 (PiUEventDequeuePendingEventWorker.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiUEventFreeClientRegistrationContext(char *P, __int64 a2)
 {
-  PFAST_MUTEX *v2; // r14
-  __int64 v4; // r8
-  _QWORD *v5; // rcx
-  PVOID *v6; // rax
-  int v7; // ecx
-  int v8; // ecx
-  char *v9; // rdi
-  char *v10; // rdi
-  char *v11; // rcx
-  int v12; // ecx
+  __int64 v3; // r8
+  PFAST_MUTEX v4; // rcx
+  PVOID *v5; // rax
+  int v6; // ecx
+  char *v7; // rdi
+  char *v8; // rdi
+  int v9; // ecx
+  unsigned int *v10; // rcx
+  int v11; // ecx
+  char *v12; // rdx
   char *v13; // rdx
-  char *v14; // rdx
 
-  v2 = (PFAST_MUTEX *)(P + 16);
   if ( (_BYTE)a2 )
   {
     ExAcquireFastMutex(&PiUEventClientRegistrationListLock);
-    ExAcquireFastMutex(*v2);
-    v5 = *(_QWORD **)P;
-    if ( *(char **)(*(_QWORD *)P + 8LL) != P || (v6 = (PVOID *)*((_QWORD *)P + 1), *v6 != P) )
+    ExAcquireFastMutex(*((PFAST_MUTEX *)P + 2));
+    v4 = *(PFAST_MUTEX *)P;
+    if ( *(char **)(*(_QWORD *)P + 8LL) != P || (v5 = (PVOID *)*((_QWORD *)P + 1), *v5 != P) )
       __fastfail(3u);
-    *v6 = v5;
-    v5[1] = v6;
-    v7 = *((_DWORD *)P + 33);
-    if ( v7 )
+    *v5 = v4;
+    v4->Owner = v5;
+    v6 = *((_DWORD *)P + 33);
+    if ( v6 )
     {
-      v8 = v7 - 1;
-      if ( v8 )
+      v9 = v6 - 1;
+      if ( v9 )
       {
-        v12 = v8 - 1;
-        if ( v12 )
+        v11 = v9 - 1;
+        if ( v11 )
         {
-          if ( v12 == 1 )
+          if ( v11 == 1 )
             --PiUEventDevInstancePropertyClientCount;
         }
         else
@@ -65,33 +63,33 @@ void __fastcall PiUEventFreeClientRegistrationContext(char *P, __int64 a2)
     {
       --PiUEventDevInterfaceClientCount;
     }
-    v9 = (char *)*((_QWORD *)P + 14);
-    while ( v9 != P + 112 )
+    v7 = (char *)*((_QWORD *)P + 14);
+    while ( v7 != P + 112 )
     {
-      v13 = v9;
-      v9 = *(char **)v9;
-      PiUEventDequeuePendingEventWorker(P, v13, 0LL);
+      v12 = v7;
+      v7 = *(char **)v7;
+      PiUEventDequeuePendingEventWorker(P, v12, 0LL);
     }
-    v10 = (char *)*((_QWORD *)P + 12);
-    while ( v10 != P + 96 )
+    v8 = (char *)*((_QWORD *)P + 12);
+    while ( v8 != P + 96 )
     {
-      v14 = v10;
-      LOBYTE(v4) = 1;
-      v10 = *(char **)v10;
-      PiUEventDequeuePendingEventWorker(P, v14, v4);
+      v13 = v8;
+      LOBYTE(v3) = 1;
+      v8 = *(char **)v8;
+      PiUEventDequeuePendingEventWorker(P, v13, v3);
     }
-    ExReleaseFastMutex(*v2);
-    ExReleaseFastMutex(&PiUEventClientRegistrationListLock);
+    KeReleaseGuardedMutex(*((PKGUARDED_MUTEX *)P + 2));
+    KeReleaseGuardedMutex(&PiUEventClientRegistrationListLock);
   }
-  if ( *((_DWORD *)P + 33) == 1 || (unsigned int)(*((_DWORD *)P + 33) - 2) <= 1 )
+  if ( *((_DWORD *)P + 33) == 1 || (unsigned int)(*((_DWORD *)P + 33) - 2) < 2 )
   {
-    v11 = (char *)*((_QWORD *)P + 3);
-    if ( v11 )
-      PiDmObjectRelease(v11);
+    v10 = (unsigned int *)*((_QWORD *)P + 3);
+    if ( v10 )
+      PiDmObjectRelease(v10);
   }
   ZwDeleteWnfStateName((__int64)(P + 88), a2);
   SeReleaseSubjectContext((PSECURITY_SUBJECT_CONTEXT)(P + 56));
-  ExFreePoolWithTag(*v2, 0x59706E50u);
+  ExFreePoolWithTag(*((PVOID *)P + 2), 0x59706E50u);
   memset(P, 0, 0x90uLL);
   ExFreePoolWithTag(P, 0x59706E50u);
 }

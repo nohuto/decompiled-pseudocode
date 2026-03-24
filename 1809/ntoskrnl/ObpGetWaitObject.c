@@ -3,8 +3,8 @@
  * Callers:
  *     NtAssociateWaitCompletionPacket @ 0x140062B00 (NtAssociateWaitCompletionPacket.c)
  *     IopCancelWaitCompletionPacket @ 0x14008DDF0 (IopCancelWaitCompletionPacket.c)
- *     NtSignalAndWaitForSingleObject @ 0x1402D2BF0 (NtSignalAndWaitForSingleObject.c)
- *     ObWaitForSingleObject @ 0x14071E0C0 (ObWaitForSingleObject.c)
+ *     NtSignalAndWaitForSingleObject @ 0x1402D2CF0 (NtSignalAndWaitForSingleObject.c)
+ *     ObWaitForSingleObject @ 0x14071E0A0 (ObWaitForSingleObject.c)
  * Callees:
  *     <none>
  */

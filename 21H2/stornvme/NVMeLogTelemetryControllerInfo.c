@@ -1,54 +1,53 @@
 /*
- * XREFs of NVMeLogTelemetryControllerInfo @ 0x1C0009604
+ * XREFs of NVMeLogTelemetryControllerInfo @ 0x1C000F6F0
  * Callers:
- *     NVMeHwPassiveInitialize @ 0x1C0005F00 (NVMeHwPassiveInitialize.c)
+ *     NVMeControllerInitPart3 @ 0x1C000E014 (NVMeControllerInitPart3.c)
  * Callees:
- *     NVMeGetPowerState @ 0x1C000A1AC (NVMeGetPowerState.c)
- *     NVMeLogTelemetry @ 0x1C000A660 (NVMeLogTelemetry.c)
+ *     NVMeGetPowerState @ 0x1C000EBE0 (NVMeGetPowerState.c)
+ *     NVMeLogTelemetry @ 0x1C000F3E0 (NVMeLogTelemetry.c)
  */
 
 __int64 __fastcall NVMeLogTelemetryControllerInfo(__int64 a1)
 {
   unsigned __int16 *v1; // rbp
   unsigned __int16 v3; // di
-  __int64 v4; // rdx
   __int64 result; // rax
   unsigned __int16 *PowerState; // rbx
-  char v7; // al
+  char v6; // al
+  int v7; // [rsp+28h] [rbp-B0h]
   int v8; // [rsp+28h] [rbp-B0h]
   int v9; // [rsp+28h] [rbp-B0h]
   int v10; // [rsp+28h] [rbp-B0h]
-  int v11; // [rsp+28h] [rbp-B0h]
+  int v11; // [rsp+30h] [rbp-A8h]
   int v12; // [rsp+30h] [rbp-A8h]
   int v13; // [rsp+30h] [rbp-A8h]
   int v14; // [rsp+30h] [rbp-A8h]
-  int v15; // [rsp+30h] [rbp-A8h]
+  int v15; // [rsp+38h] [rbp-A0h]
   int v16; // [rsp+38h] [rbp-A0h]
   int v17; // [rsp+38h] [rbp-A0h]
   int v18; // [rsp+38h] [rbp-A0h]
-  int v19; // [rsp+38h] [rbp-A0h]
+  int v19; // [rsp+40h] [rbp-98h]
   int v20; // [rsp+40h] [rbp-98h]
   int v21; // [rsp+40h] [rbp-98h]
   int v22; // [rsp+40h] [rbp-98h]
-  int v23; // [rsp+40h] [rbp-98h]
-  __int64 v24; // [rsp+C0h] [rbp-18h]
+  __int64 v23; // [rsp+C0h] [rbp-18h]
 
-  v1 = *(unsigned __int16 **)(a1 + 1640);
-  v24 = v1[260] & 1LL | (2
+  v1 = *(unsigned __int16 **)(a1 + 1624);
+  v23 = v1[260] & 1LL | (2
                        * ((v1[260] >> 1) & 1 | (2
                                               * ((v1[260] >> 2) & 1 | (2
                                                                      * ((v1[260] >> 3) & 1 | (2
                                                                                             * ((v1[260] >> 4) & 1 | (2 * ((v1[260] >> 5) & 1 | (2 * ((v1[260] >> 6) & 1u))))))))))));
   NVMeLogTelemetry(
     a1,
-    0,
-    1,
+    0LL,
+    1LL,
     2,
     "CtrlInfoSet1",
-    v8,
-    v12,
-    v16,
-    v20,
+    v7,
+    v11,
+    v15,
+    v19,
     "Version",
     *((unsigned int *)v1 + 20),
     "APSTASupport",
@@ -63,27 +62,27 @@ __int64 __fastcall NVMeLogTelemetryControllerInfo(__int64 a1)
                                           * ((v1[128] >> 2) & 1 | (2
                                                                  * ((v1[128] >> 3) & 1 | (2
                                                                                         * ((v1[128] >> 4) & 1 | (2 * ((v1[128] >> 5) & 1u)))))))))),
-    (__int64)"OAES",
+    "OAES",
     *((_DWORD *)v1 + 23) & 0x300,
-    (__int64)"LPA",
+    "LPA",
     *((_BYTE *)v1 + 261) & 1 | (unsigned __int64)(2
                                                 * ((*((unsigned __int8 *)v1 + 261) >> 1) & 1 | (2
                                                                                               * ((*((unsigned __int8 *)v1
                                                                                                   + 261) >> 2) & 1 | (2 * ((*((unsigned __int8 *)v1 + 261) >> 3) & 1u)))))),
-    (__int64)"ONCS",
-    v24);
+    "ONCS",
+    v23);
   NVMeLogTelemetry(
     a1,
-    0,
-    1,
+    0LL,
+    1LL,
     2,
     "CtrlInfoSet2",
-    v9,
-    v13,
-    v17,
-    v21,
+    v8,
+    v12,
+    v16,
+    v20,
     "MQES",
-    (unsigned __int16)*(_DWORD *)(a1 + 192),
+    (unsigned __int16)*(_DWORD *)(a1 + 176),
     "MDTS",
     *((unsigned __int8 *)v1 + 77),
     "NN",
@@ -91,24 +90,24 @@ __int64 __fastcall NVMeLogTelemetryControllerInfo(__int64 a1)
     "VWCStatus",
     *((_BYTE *)v1 + 525) & 1,
     "MaxIoSubmissionQueueCount",
-    *(unsigned __int16 *)(a1 + 834),
-    (__int64)"MaxIoCompletionQueueCount",
-    *(unsigned __int16 *)(a1 + 836),
-    (__int64)"MessageCount",
-    *(unsigned __int16 *)(a1 + 272),
-    (__int64)"ProcessorCount",
-    *(unsigned __int16 *)(a1 + 234));
+    *(unsigned __int16 *)(a1 + 818),
+    "MaxIoCompletionQueueCount",
+    *(unsigned __int16 *)(a1 + 820),
+    "MessageCount",
+    *(unsigned __int16 *)(a1 + 256),
+    "ProcessorCount",
+    *(unsigned __int16 *)(a1 + 218));
   v3 = 0;
   NVMeLogTelemetry(
     a1,
-    0,
-    1,
+    0LL,
+    1LL,
     2,
     "CtrlInfoSet3",
-    v10,
-    v14,
-    v18,
-    v22,
+    v9,
+    v13,
+    v17,
+    v21,
     "NPSS",
     *((unsigned __int8 *)v1 + 263),
     "RTD3R",
@@ -119,9 +118,9 @@ __int64 __fastcall NVMeLogTelemetryControllerInfo(__int64 a1)
     v1[161] & 1LL,
     "FWActivate",
     ((unsigned __int64)*((unsigned __int8 *)v1 + 260) >> 4) & 1,
-    (__int64)"DeviceVID",
+    "DeviceVID",
     *v1,
-    (__int64)"DeviceSVID",
+    "DeviceSVID",
     v1[1],
     0LL,
     0LL);
@@ -130,35 +129,34 @@ __int64 __fastcall NVMeLogTelemetryControllerInfo(__int64 a1)
   {
     do
     {
-      LOBYTE(v4) = v3;
-      PowerState = (unsigned __int16 *)NVMeGetPowerState(a1, v4);
-      v7 = *((_BYTE *)PowerState + 3);
-      if ( (v7 & 2) != 0 )
+      PowerState = (unsigned __int16 *)NVMeGetPowerState(a1, v3);
+      v6 = *((_BYTE *)PowerState + 3);
+      if ( (v6 & 2) != 0 )
         NVMeLogTelemetry(
           a1,
-          0,
-          1,
+          0LL,
+          1LL,
           2,
           "CtrlInfoNOPS",
-          v11,
-          v15,
-          v19,
-          v23,
+          v10,
+          v14,
+          v18,
+          v22,
           "ENLAT",
           *((unsigned int *)PowerState + 1),
           "EXLAT",
           *((unsigned int *)PowerState + 2),
           "MPS",
-          v7 & 1,
+          v6 & 1,
           "MP",
           *PowerState,
           "IPS",
           (unsigned __int64)*((unsigned __int8 *)PowerState + 18) >> 6,
-          (__int64)"IDLP",
+          "IDLP",
           PowerState[8],
-          (__int64)"APS",
+          "APS",
           (unsigned __int64)*((unsigned __int8 *)PowerState + 22) >> 6,
-          (__int64)"ACTP",
+          "ACTP",
           PowerState[10]);
       result = ++v3;
     }

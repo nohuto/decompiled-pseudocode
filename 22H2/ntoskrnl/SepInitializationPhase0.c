@@ -1,22 +1,20 @@
 /*
- * XREFs of SepInitializationPhase0 @ 0x140B57104
+ * XREFs of SepInitializationPhase0 @ 0x140A47920
  * Callers:
- *     SeInitSystem @ 0x140B53278 (SeInitSystem.c)
+ *     SeInitSystem @ 0x140A478EC (SeInitSystem.c)
  * Callees:
- *     ObInitializeFastReference @ 0x1406B69CC (ObInitializeFastReference.c)
- *     SeMakeSystemToken @ 0x140B576DC (SeMakeSystemToken.c)
- *     SepInitializeWorkList @ 0x140B57DA8 (SepInitializeWorkList.c)
- *     SepTokenInitialization @ 0x140B57E58 (SepTokenInitialization.c)
- *     SepVariableInitialization @ 0x140B57F18 (SepVariableInitialization.c)
- *     SepRmDbInitialization @ 0x140B6DDC4 (SepRmDbInitialization.c)
+ *     ObInitializeFastReference @ 0x140703ECC (ObInitializeFastReference.c)
+ *     SeMakeSystemToken @ 0x140A47F10 (SeMakeSystemToken.c)
+ *     SepInitializeWorkList @ 0x140A489FC (SepInitializeWorkList.c)
+ *     SepTokenInitialization @ 0x140A48AAC (SepTokenInitialization.c)
+ *     SepVariableInitialization @ 0x140A48B6C (SepVariableInitialization.c)
+ *     SepRmDbInitialization @ 0x140A6E540 (SepRmDbInitialization.c)
  */
 
 bool SepInitializationPhase0()
 {
-  struct _KTHREAD *CurrentThread; // rax
   _KPROCESS *Process; // rbx
-  __int64 SystemToken; // rax
-  bool v3; // zf
+  ULONG_PTR SystemToken; // rax
 
   if ( !(unsigned __int8)SepVariableInitialization()
     || !(unsigned __int8)SepRmDbInitialization()
@@ -25,15 +23,13 @@ bool SepInitializationPhase0()
   {
     return 0;
   }
-  CurrentThread = KeGetCurrentThread();
-  Process = CurrentThread->ApcState.Process;
-  *($B2204E9EE8E7DD8EE814BFFAF87CA578 *)((char *)&CurrentThread[1].116 + 4) = 0LL;
-  _InterlockedAnd((volatile signed __int32 *)&CurrentThread[1].SwapListEntry + 2, 0xFFFFFFF7);
-  Process[1].Affinity.StaticBitmap[5] = 0LL;
+  *($716DEF6A987B9E81ED436DA1BE78D38B *)((char *)&KeGetCurrentThread()[1].116 + 4) = 0LL;
+  _InterlockedAnd((volatile signed __int32 *)&KeGetCurrentThread()[1].SwapListEntry + 2, 0xFFFFFFF7);
+  ObInitializeFastReference(&KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[5], 0LL);
+  Process = KeGetCurrentThread()->ApcState.Process;
   SystemToken = SeMakeSystemToken();
-  ObInitializeFastReference((__int64 *)&Process[1].Affinity.StaticBitmap[5], SystemToken);
+  ObInitializeFastReference(&Process[1].Affinity.Bitmap[5], SystemToken);
   SepMandatoryObjectTypePolicyLock = 0LL;
-  v3 = Process[1].Affinity.StaticBitmap[5] == 0;
   SepDefaultMandatorySid = SeMediumMandatorySid;
-  return !v3;
+  return KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[5] != 0;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of GetColorManagementCapsWrap @ 0x1C00BA630
+ * XREFs of GetColorManagementCapsWrap @ 0x1C0122F20
  * Callers:
  *     <none>
  * Callees:
@@ -14,9 +14,9 @@ __int64 __fastcall GetColorManagementCapsWrap(_DWORD *a1)
   __int64 result; // rax
 
   v1 = 0;
-  if ( (a1[10] & 1) != 0 && (a1[519] == 3 || (a1[524] & 0x10) != 0) )
+  if ( (a1[10] & 1) != 0 && (a1[527] == 3 || (a1[532] & 0x10) != 0) )
     v1 = 2;
-  v2 = a1[448];
+  v2 = a1[456];
   v3 = v1 | 4;
   if ( (v2 & 0x4000000) == 0 )
     v3 = v1;

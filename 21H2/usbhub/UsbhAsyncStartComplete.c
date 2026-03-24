@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhAsyncStartComplete @ 0x1C0041B48
+ * XREFs of UsbhAsyncStartComplete @ 0x1C0042DF8
  * Callers:
- *     Usbh_FDO_WaitPnpStop_CB @ 0x1C0044150 (Usbh_FDO_WaitPnpStop_CB.c)
+ *     Usbh_FDO_WaitPnpStop_CB @ 0x1C0045400 (Usbh_FDO_WaitPnpStop_CB.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDispatch_BusEvent @ 0x1C000FC10 (UsbhDispatch_BusEvent.c)
- *     UsbhFinishStart @ 0x1C0036EB4 (UsbhFinishStart.c)
+ *     UsbhDispatch_BusEvent @ 0x1C0002AF0 (UsbhDispatch_BusEvent.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhFinishStart @ 0x1C0038168 (UsbhFinishStart.c)
  */
 
 __int64 __fastcall UsbhAsyncStartComplete(_QWORD *Tag)

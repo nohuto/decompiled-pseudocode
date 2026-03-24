@@ -1,33 +1,33 @@
 /*
- * XREFs of HvlpStartSecurePageListIteration @ 0x14054D4B8
+ * XREFs of HvlpStartSecurePageListIteration @ 0x1404FB874
  * Callers:
- *     HvlDiscardSecurePagesFromHibernation @ 0x14054991C (HvlDiscardSecurePagesFromHibernation.c)
- *     HvlIterateSecurePagesForHibernation @ 0x140549A48 (HvlIterateSecurePagesForHibernation.c)
- *     HvlAddSecurePagesCallbackRoutine @ 0x14054A610 (HvlAddSecurePagesCallbackRoutine.c)
- *     HvlpGetEncryptedDataFromSecureKernel @ 0x14054B018 (HvlpGetEncryptedDataFromSecureKernel.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x1404F7CB4 (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlIterateSecurePagesForHibernation @ 0x1404F7DE0 (HvlIterateSecurePagesForHibernation.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x1404F88D0 (HvlAddSecurePagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromSecureKernel @ 0x1404F9284 (HvlpGetEncryptedDataFromSecureKernel.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     HvlpEndPageListIteration @ 0x14054D1E8 (HvlpEndPageListIteration.c)
- *     HvlpSetupPageListIteration @ 0x14054D424 (HvlpSetupPageListIteration.c)
- *     VslStartSecurePageIteration @ 0x14054FA08 (VslStartSecurePageIteration.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     HvlpSetupPageListIteration @ 0x1404FB7CC (HvlpSetupPageListIteration.c)
+ *     VslStartSecurePageIteration @ 0x1404FD9CC (VslStartSecurePageIteration.c)
  */
 
 __int64 __fastcall HvlpStartSecurePageListIteration(int a1, int a2, char *a3, void *a4, unsigned int a5, LONGLONG **a6)
 {
   LONGLONG v9; // rax
   int v10; // ecx
+  __int64 result; // rax
   LONGLONG **v12; // r12
   LONGLONG *v13; // r14
   unsigned int v14; // ebx
   __int128 v15; // rtt
-  __int64 v16; // rbp
+  int v16; // ebp
   unsigned int v17; // ebx
   char *v18; // r15
   __int64 v19; // rbp
   PHYSICAL_ADDRESS PhysicalAddress; // rax
   PHYSICAL_ADDRESS v21; // rax
-  int started; // r8d
-  int v23; // [rsp+30h] [rbp-38h]
+  int *v22; // rcx
+  __int64 v23; // [rsp+30h] [rbp-38h]
 
   v9 = (LONGLONG)HvlpSetupPageListIteration(a1, 1);
   v10 = v9;
@@ -38,8 +38,8 @@ __int64 __fastcall HvlpStartSecurePageListIteration(int a1, int a2, char *a3, vo
   v14 = 0;
   v15 = *(__int64 *)(v9 + 16);
   *a6 = v13;
-  v16 = v15 / 4096;
-  v23 = v16;
+  v23 = v15 / 4096;
+  v16 = v23;
   LODWORD(v9) = 0;
   if ( a3 )
   {
@@ -60,7 +60,7 @@ __int64 __fastcall HvlpStartSecurePageListIteration(int a1, int a2, char *a3, vo
       }
       while ( v19 );
       v12 = a6;
-      LODWORD(v16) = v23;
+      v16 = v23;
     }
     v21 = MmGetPhysicalAddress(a4);
     *v12 = (LONGLONG *)a3;
@@ -68,8 +68,14 @@ __int64 __fastcall HvlpStartSecurePageListIteration(int a1, int a2, char *a3, vo
     v9 = v21.QuadPart / 4096;
   }
   LOBYTE(v10) = a1 == 0;
-  started = VslStartSecurePageIteration(v10, v16, v9, v14, a2);
-  if ( started < 0 )
-    HvlpEndPageListIteration(a1);
-  return (unsigned int)started;
+  result = VslStartSecurePageIteration(v10, v16, v9, v14, a2);
+  if ( (int)result < 0 )
+  {
+    v22 = &HvlpIteratorCrashdump;
+    if ( !a1 )
+      v22 = &HvlpIteratorHibernate;
+    *v22 = 0;
+    *((_QWORD *)v22 + 1) = 0LL;
+  }
+  return result;
 }

@@ -1,20 +1,32 @@
 /*
- * XREFs of DbgkpLkmdSqmStatus @ 0x14093B4CC
+ * XREFs of DbgkpLkmdSqmStatus @ 0x140888944
  * Callers:
- *     DbgkCaptureLiveDump @ 0x14093A918 (DbgkCaptureLiveDump.c)
+ *     DbgkCaptureLiveDump @ 0x140887D6C (DbgkCaptureLiveDump.c)
  * Callees:
- *     DbgkpLkmdSqmIncrementDword @ 0x14053C108 (DbgkpLkmdSqmIncrementDword.c)
+ *     DbgkpLkmdSqmIncrementDword @ 0x1404EE4E8 (DbgkpLkmdSqmIncrementDword.c)
  */
 
 NTSTATUS __fastcall DbgkpLkmdSqmStatus(REGHANDLE a1, int *a2)
 {
-  if ( (a2[1] & 2) != 0 )
+  int v2; // eax
+
+  v2 = a2[1];
+  if ( (v2 & 2) != 0 )
+  {
     DbgkpLkmdSqmIncrementDword(a1, 3297);
-  if ( (a2[1] & 8) != 0 )
+    v2 = a2[1];
+  }
+  if ( (v2 & 8) != 0 )
+  {
     DbgkpLkmdSqmIncrementDword(a1, 3298);
-  if ( (a2[1] & 0x4000) != 0 )
+    v2 = a2[1];
+  }
+  if ( (v2 & 0x4000) != 0 )
+  {
     DbgkpLkmdSqmIncrementDword(a1, 3294);
-  if ( (a2[1] & 0x8000) != 0 )
+    v2 = a2[1];
+  }
+  if ( (v2 & 0x8000) != 0 )
     DbgkpLkmdSqmIncrementDword(a1, 3295);
   if ( *a2 >= 0 )
     DbgkpLkmdSqmIncrementDword(a1, 3296);

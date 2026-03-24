@@ -3,13 +3,13 @@
  * Callers:
  *     RtlUnwindEx @ 0x14009DF30 (RtlUnwindEx.c)
  *     RtlDispatchException @ 0x1400A0F40 (RtlDispatchException.c)
- *     RtlpSameFunction @ 0x140184F64 (RtlpSameFunction.c)
- *     RtlRaiseException @ 0x1402ED740 (RtlRaiseException.c)
+ *     RtlpSameFunction @ 0x140184F84 (RtlpSameFunction.c)
+ *     RtlRaiseException @ 0x1402ED840 (RtlRaiseException.c)
  *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
  *     RtlInitializeHistoryTable @ 0x1409D88D4 (RtlInitializeHistoryTable.c)
  * Callees:
  *     RtlpxLookupFunctionTable @ 0x1400A18B0 (RtlpxLookupFunctionTable.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 PRUNTIME_FUNCTION __stdcall RtlLookupFunctionEntry(

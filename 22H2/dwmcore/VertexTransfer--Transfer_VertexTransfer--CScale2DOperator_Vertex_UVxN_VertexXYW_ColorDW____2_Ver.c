@@ -1,42 +1,42 @@
 /*
- * XREFs of VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW____2_Vertex_UVxN_VertexXYW_ColorDW___ @ 0x18020756C
+ * XREFs of VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW____2_Vertex_UVxN_VertexXYW_ColorDW___ @ 0x1801A8858
  * Callers:
- *     ??$TransferVertices@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@YAXAEBV?$CCommonTransferParameters@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@AEBVCMILMatrix@@1_N@Z @ 0x180071470 (--$TransferVertices@U-$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@YAXAEBV-$CCommonTransferParameters@U-.c)
+ *     ??$TransferVertices@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@YAXAEBVCDrawListPrimitive@@AEBVCMILMatrix@@_NMAEBV?$StridedSpan@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@@Z @ 0x180079CF0 (--$TransferVertices@U-$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@YAXAEBVCDrawListPrimitive@@AEBVCMILMa.c)
  * Callees:
- *     ??$Transform2DAndFillPosXYUVs@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@YAXAEBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@AEBUVertexAAFixup_UVxN@@IAEBVCMILMatrix@@PEAU0@PEAUD2D_POINT_2F@@@Z @ 0x18001AD74 (--$Transform2DAndFillPosXYUVs@U-$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@YAXAEBU-$Vertex_UVxN@UVerte.c)
- *     ?BlendStraightColorDW@@YAKKM@Z @ 0x18020876C (-BlendStraightColorDW@@YAKKM@Z.c)
+ *     ??$Transform2DAndFillPosXYUVs@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@YAXAEBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@AEBUVertexAAFixup_UVxN@@IAEBVCMILMatrix@@PEAU0@PEAUD2D_POINT_2F@@@Z @ 0x180058750 (--$Transform2DAndFillPosXYUVs@U-$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@YAXAEBU-$Vertex_UVxN@UVerte.c)
+ *     ?BlendStraightColorDW@@YAKKM@Z @ 0x1801A6DD0 (-BlendStraightColorDW@@YAKKM@Z.c)
  */
 
-int __fastcall VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW____2_Vertex_UVxN_VertexXYW_ColorDW___(
+_UNKNOWN **__fastcall VertexTransfer::Transfer_VertexTransfer::CScale2DOperator_Vertex_UVxN_VertexXYW_ColorDW____2_Vertex_UVxN_VertexXYW_ColorDW___(
         __int64 a1,
         float *a2)
 {
-  _UNKNOWN **v2; // rax
+  _UNKNOWN **result; // rax
   unsigned int v3; // r14d
   unsigned int v4; // ebp
   float i; // xmm6_4
   __int64 v8; // rdi
   __int64 v9; // rbx
   _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h] BYREF
-  float v12; // [rsp+78h] [rbp+20h] BYREF
+  float v11; // [rsp+78h] [rbp+20h] BYREF
 
-  v2 = &retaddr;
+  result = &retaddr;
   v3 = *(_DWORD *)(a1 + 20);
   v4 = 0;
-  for ( i = *(float *)(a1 + 44); v4 < v3; *(_DWORD *)(v9 + 12) = (_DWORD)v2 )
+  for ( i = *(float *)(a1 + 44); v4 < v3; *(_DWORD *)(v9 + 12) = (_DWORD)result )
   {
-    v8 = *(_QWORD *)(a1 + 8) + (int)(*(_DWORD *)(a1 + 16) * v4);
-    v9 = *(_QWORD *)(a1 + 56) + (int)(*(_DWORD *)(a1 + 64) * v4);
+    v8 = *(_QWORD *)(a1 + 8) + (int)(v4 * *(_DWORD *)(a1 + 16));
+    v9 = *(_QWORD *)(a1 + 56) + (int)(v4 * *(_DWORD *)(a1 + 64));
     Transform2DAndFillPosXYUVs<Vertex_UVxN<VertexXYW_ColorDW>>(
       (float *)v8,
-      (float *)(*(_QWORD *)(a1 + 24) + (int)(*(_DWORD *)(a1 + 32) * v4)),
+      *(_QWORD *)(a1 + 24) + (int)(v4 * *(_DWORD *)(a1 + 32)),
       *(_DWORD *)(a1 + 40),
       a2,
       (float *)v9,
-      &v12);
+      &v11);
     *(_DWORD *)(v9 + 8) = 1065353216;
-    LODWORD(v2) = BlendStraightColorDW(*(_DWORD *)(v8 + 12), i);
+    result = (_UNKNOWN **)BlendStraightColorDW(*(_DWORD *)(v8 + 12), i);
     ++v4;
   }
-  return (int)v2;
+  return result;
 }

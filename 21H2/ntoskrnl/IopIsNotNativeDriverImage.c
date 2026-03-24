@@ -1,17 +1,17 @@
 /*
- * XREFs of IopIsNotNativeDriverImage @ 0x1409348AC
+ * XREFs of IopIsNotNativeDriverImage @ 0x140891924
  * Callers:
- *     IopCheckIfNotNativeDriver @ 0x140933EEC (IopCheckIfNotNativeDriver.c)
+ *     IopCheckIfNotNativeDriver @ 0x1408912F0 (IopCheckIfNotNativeDriver.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x14041BC60 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x14041BCA0 (ZwUnmapViewOfSection.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     ZwCreateSection @ 0x14041C0A0 (ZwCreateSection.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1403FA8A0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1403FA8E0 (ZwUnmapViewOfSection.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x1403FACE0 (ZwCreateSection.c)
  */
 
 bool __fastcall IopIsNotNativeDriverImage(UNICODE_STRING *a1)
@@ -65,7 +65,7 @@ LABEL_4:
          0,
          2u) < 0 )
   {
-    KiUnstackDetachProcess((__int64)v11, 0LL);
+    KiUnstackDetachProcess((__int64)v11, 0);
     ZwClose(SectionHandle);
     goto LABEL_4;
   }
@@ -73,7 +73,7 @@ LABEL_4:
   if ( v4 )
     v1 = *(_WORD *)(v4 + 4) != 0x8664;
   ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
-  KiUnstackDetachProcess((__int64)v11, 0LL);
+  KiUnstackDetachProcess((__int64)v11, 0);
   ZwClose(SectionHandle);
   ZwClose(FileHandle);
   return v1;

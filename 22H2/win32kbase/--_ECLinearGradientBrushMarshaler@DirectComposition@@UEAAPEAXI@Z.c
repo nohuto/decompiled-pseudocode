@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_ECLinearGradientBrushMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C00ADE50
+ * XREFs of ??_ECLinearGradientBrushMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C01D43F0
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 DirectComposition::CLinearGradientBrushMarshaler *__fastcall DirectComposition::CLinearGradientBrushMarshaler::`vector deleting destructor'(
@@ -12,6 +12,6 @@ DirectComposition::CLinearGradientBrushMarshaler *__fastcall DirectComposition::
 {
   *(_QWORD *)this = &DirectComposition::CLinearGradientBrushMarshaler::`vftable';
   if ( (a2 & 1) != 0 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)this);
+    Win32FreePool((__int64)this);
   return this;
 }

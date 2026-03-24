@@ -1,53 +1,64 @@
 /*
- * XREFs of ?SuspendCpuAccess@VIDMM_SEGMENT@@QEAAJXZ @ 0x1C00FF77C
+ * XREFs of ?SuspendCpuAccess@VIDMM_SEGMENT@@QEAAJXZ @ 0x1C00C7E2C
  * Callers:
- *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C008ACF0 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
+ *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C0067150 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
  * Callees:
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0005BC0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0006770 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     ?FaultOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C009B9F4 (-FaultOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
- *     ?Rotate@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS_HEAP_INTERFACE@@PEAXW4_MM_ROTATE_DIRECTION@@PEAU_MDL@@_KP6AJ331@Z1TVIDMM_ROTATE_FLAGS@@PEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00E73AC (-Rotate@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS_HEAP_INTERFACE@@PEAXW4_MM_ROTATE_DIRECTION@@PEAU_MD.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0006090 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000613C (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
+ *     ?FaultOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C0064910 (-FaultOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
+ *     ?Rotate@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS_HEAP_INTERFACE@@PEAXW4_MM_ROTATE_DIRECTION@@PEAU_MDL@@_KP6AJ331@Z1TVIDMM_ROTATE_FLAGS@@PEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00B21DC (-Rotate@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS_HEAP_INTERFACE@@PEAXW4_MM_ROTATE_DIRECTION@@PEAU_MD.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
-__int64 __fastcall VIDMM_SEGMENT::SuspendCpuAccess(VIDMM_SEGMENT *this, __int64 a2, __int64 a3)
+__int64 __fastcall VIDMM_SEGMENT::SuspendCpuAccess(VIDMM_SEGMENT *this, __int64 a2, VIDMM_DEVICE **a3)
 {
-  char *v3; // rbp
-  char *v5; // rbx
-  int v6; // edi
-  char *v7; // r13
-  _QWORD **v8; // r13
+  char *v3; // r15
+  char *v4; // rbx
+  __int64 v5; // rdi
+  char *v7; // r12
+  _QWORD **v8; // r12
   _QWORD *v9; // rsi
-  _QWORD *v10; // r12
-  _QWORD **v11; // r12
+  _QWORD *v10; // r13
+  _QWORD **v11; // r13
   _QWORD *v12; // r14
-  VIDMM_DEVICE **v13; // rdx
-  VIDMM_SEGMENT *v14; // rsi
-  __int64 v15; // rbp
-  __int64 v16; // rax
-  int v17; // eax
-  VIDMM_SEGMENT *v18; // r14
-  __int64 v19; // rsi
-  __int64 v20; // rax
-  int v21; // eax
-  int v23; // [rsp+20h] [rbp-C8h]
-  struct _KAPC_STATE ApcState; // [rsp+58h] [rbp-90h] BYREF
-  struct _KAPC_STATE v25; // [rsp+88h] [rbp-60h] BYREF
+  __int64 v13; // rdx
+  int v14; // eax
+  VIDMM_SEGMENT *v15; // r14
+  __int64 v16; // rsi
+  __int64 v17; // rax
+  DXGFASTMUTEX *v18; // rcx
+  int v19; // eax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  _QWORD *v22; // rax
+  __int64 v23; // rdx
+  VIDMM_SEGMENT *v24; // r14
+  __int64 v25; // rsi
+  __int64 v26; // rax
+  DXGFASTMUTEX *v27; // rcx
+  int v28; // eax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  _QWORD *v31; // rax
+  __int64 v32; // rdx
+  int v34; // [rsp+20h] [rbp-C8h]
+  __int64 v35; // [rsp+40h] [rbp-A8h]
+  struct _KAPC_STATE ApcState; // [rsp+50h] [rbp-98h] BYREF
+  struct _KAPC_STATE v37; // [rsp+80h] [rbp-68h] BYREF
 
   v3 = (char *)this + 136;
-  v5 = (char *)*((_QWORD *)this + 17);
-  v6 = 0;
-  while ( 1 )
+  v4 = (char *)*((_QWORD *)this + 17);
+  LODWORD(v5) = 0;
+  do
   {
-    v7 = v5;
-    if ( v5 == v3 )
+    v7 = v4;
+    if ( v4 == v3 )
       break;
-    v5 = *(char **)v5;
+    v4 = *(char **)v4;
     v8 = (_QWORD **)(v7 + 16);
     v9 = *v8;
-    while ( 1 )
+    do
     {
       v10 = v9;
       if ( v9 == v8 )
@@ -57,122 +68,145 @@ __int64 __fastcall VIDMM_SEGMENT::SuspendCpuAccess(VIDMM_SEGMENT *this, __int64 
       v12 = *v11;
       while ( v12 != v11 )
       {
-        v13 = (VIDMM_DEVICE **)(v12 - 7);
+        a3 = (VIDMM_DEVICE **)(v12 - 7);
         v12 = (_QWORD *)*v12;
-        a3 = *(_QWORD *)*v13;
-        if ( (*(_DWORD *)(*(_QWORD *)(a3 + 536) + 12LL) || (**(_DWORD **)(a3 + 536) & 0x20000) != 0)
-          && *(_DWORD *)(a3 + 360) )
+        v13 = *(_QWORD *)*a3;
+        if ( *(_DWORD *)(*(_QWORD *)(v13 + 496) + 12LL) || (**(_DWORD **)(v13 + 496) & 0x20000) != 0 )
         {
-          return (unsigned int)-1071775486;
-        }
-        if ( *(_DWORD *)(a3 + 360) )
-          VIDMM_GLOBAL::FaultOneAllocation(*((VIDMM_GLOBAL **)this + 1), v13);
-      }
-    }
-  }
-  v14 = (VIDMM_SEGMENT *)*((_QWORD *)this + 20);
-  if ( v14 == (VIDMM_SEGMENT *)((char *)this + 160) )
-    goto LABEL_23;
-  do
-  {
-    v15 = (__int64)v14 - 408;
-    v14 = *(VIDMM_SEGMENT **)v14;
-    v16 = *(_QWORD *)(v15 + 88);
-    if ( v16 && (*(_BYTE *)(v16 + 32) & 1) != 0 )
-    {
-      memset(&ApcState, 0, sizeof(ApcState));
-      DXGFASTMUTEX::Acquire((DXGFASTMUTEX *)(v15 + 296));
-      KeStackAttachProcess(**(PRKPROCESS **)(*(_QWORD *)(v15 + 88) + 8LL), &ApcState);
-      v17 = VIDMM_GLOBAL::Rotate(
-              *((_QWORD *)this + 1),
-              *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v15 + 88) + 8LL) + 24LL),
-              *(_QWORD *)(*(_QWORD *)(v15 + 88) + 24LL),
-              3u,
-              0LL,
-              0LL,
-              0LL,
-              0LL,
-              1,
-              v15);
-      v6 = v17;
-      if ( v17 < 0 )
-      {
-        if ( v17 == -1073741558 )
-        {
-          *(_DWORD *)(v15 + 68) |= 0x200000u;
-          v6 = 0;
+          v14 = *(_DWORD *)(v13 + 336);
+          if ( v14 )
+          {
+            LODWORD(v5) = -1071775486;
+            break;
+          }
         }
         else
         {
-          g_DxgMmsBugcheckExportIndex = 1;
-          WdLogSingleEntry5(0LL, 270LL, 4LL, 3LL, v17, 0LL);
+          v14 = *(_DWORD *)(v13 + 336);
         }
+        if ( v14 )
+          VIDMM_GLOBAL::FaultOneAllocation(*((VIDMM_GLOBAL **)this + 1), a3);
       }
-      *(_BYTE *)(*(_QWORD *)(v15 + 88) + 32LL) &= ~1u;
-      KeUnstackDetachProcess(&ApcState);
-      DXGFASTMUTEX::Release((struct _KTHREAD **)(v15 + 296));
     }
+    while ( (int)v5 >= 0 );
   }
-  while ( v14 != (VIDMM_SEGMENT *)((char *)this + 160) );
-  if ( v6 >= 0 )
+  while ( (int)v5 >= 0 );
+  if ( (int)v5 >= 0 )
   {
-LABEL_23:
-    v18 = (VIDMM_SEGMENT *)*((_QWORD *)this + 22);
-    while ( v18 != (VIDMM_SEGMENT *)((char *)this + 176) )
+    v15 = (VIDMM_SEGMENT *)*((_QWORD *)this + 20);
+    while ( v15 != (VIDMM_SEGMENT *)((char *)this + 160) )
     {
-      v19 = (__int64)v18 - 408;
-      v18 = *(VIDMM_SEGMENT **)v18;
-      if ( *(_DWORD *)(v19 + 360) )
+      v16 = (__int64)v15 - 376;
+      v15 = *(VIDMM_SEGMENT **)v15;
+      v17 = *(_QWORD *)(v16 + 96);
+      if ( v17 && (*(_BYTE *)(v17 + 32) & 1) != 0 )
       {
-        LOBYTE(a3) = 1;
-        LOBYTE(v23) = 0;
-        (*(void (__fastcall **)(_QWORD, __int64, __int64, _QWORD, int, _QWORD))(**(_QWORD **)(v19 + 120) + 48LL))(
-          *(_QWORD *)(v19 + 120),
-          v19,
-          a3,
-          0LL,
-          v23,
-          0LL);
-      }
-      else
-      {
-        v20 = *(_QWORD *)(v19 + 88);
-        if ( v20 && (*(_BYTE *)(v20 + 32) & 1) != 0 )
+        v18 = *(DXGFASTMUTEX **)(v16 + 312);
+        memset(&ApcState, 0, sizeof(ApcState));
+        DXGFASTMUTEX::Acquire(v18);
+        KeStackAttachProcess(**(PRKPROCESS **)(*(_QWORD *)(v16 + 96) + 8LL), &ApcState);
+        LODWORD(v35) = 1;
+        v19 = VIDMM_GLOBAL::Rotate(
+                *((_QWORD *)this + 1),
+                *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v16 + 96) + 8LL) + 24LL),
+                *(_QWORD *)(*(_QWORD *)(v16 + 96) + 24LL),
+                3u,
+                0LL,
+                0LL,
+                0LL,
+                0LL,
+                v35,
+                v16);
+        v5 = v19;
+        if ( v19 < 0 )
         {
-          memset(&v25, 0, sizeof(v25));
-          DXGFASTMUTEX::Acquire((DXGFASTMUTEX *)(v19 + 296));
-          KeStackAttachProcess(**(PRKPROCESS **)(*(_QWORD *)(v19 + 88) + 8LL), &v25);
-          v21 = VIDMM_GLOBAL::Rotate(
-                  *((_QWORD *)this + 1),
-                  *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v19 + 88) + 8LL) + 24LL),
-                  *(_QWORD *)(*(_QWORD *)(v19 + 88) + 24LL),
-                  3u,
-                  0LL,
-                  0LL,
-                  0LL,
-                  0LL,
-                  1,
-                  v19);
-          v6 = v21;
-          if ( v21 < 0 )
+          if ( v19 == -1073741558 )
           {
-            if ( v21 == -1073741558 )
-            {
-              *(_DWORD *)(v19 + 68) |= 0x200000u;
-              v6 = 0;
-            }
-            else
-            {
-              g_DxgMmsBugcheckExportIndex = 1;
-              WdLogSingleEntry5(0LL, 270LL, 4LL, 3LL, v21, 0LL);
-            }
+            *(_DWORD *)(v16 + 76) |= 0x100000u;
+            LODWORD(v5) = 0;
           }
-          *(_BYTE *)(*(_QWORD *)(v19 + 88) + 32LL) &= ~1u;
-          KeUnstackDetachProcess(&v25);
-          DXGFASTMUTEX::Release((struct _KTHREAD **)(v19 + 296));
+          else
+          {
+            v22 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v21, v20);
+            v22[3] = 270LL;
+            v22[4] = 4LL;
+            v22[5] = 3LL;
+            v22[6] = v5;
+            v22[7] = 0LL;
+            WdLogEvent5_WdCriticalError(v22);
+          }
+        }
+        *(_BYTE *)(*(_QWORD *)(v16 + 96) + 32LL) &= ~1u;
+        KeUnstackDetachProcess(&ApcState);
+        DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v16 + 312), v23);
+      }
+    }
+    if ( (int)v5 >= 0 )
+    {
+      v24 = (VIDMM_SEGMENT *)*((_QWORD *)this + 22);
+      while ( v24 != (VIDMM_SEGMENT *)((char *)this + 176) )
+      {
+        v25 = (__int64)v24 - 376;
+        v24 = *(VIDMM_SEGMENT **)v24;
+        if ( *(_DWORD *)(v25 + 336) )
+        {
+          LOBYTE(a3) = 1;
+          LOBYTE(v34) = 0;
+          (*(void (__fastcall **)(_QWORD, __int64, VIDMM_DEVICE **, _QWORD, int, _QWORD))(**(_QWORD **)(v25 + 128) + 48LL))(
+            *(_QWORD *)(v25 + 128),
+            v25,
+            a3,
+            0LL,
+            v34,
+            0LL);
+        }
+        else
+        {
+          v26 = *(_QWORD *)(v25 + 96);
+          if ( v26 && (*(_BYTE *)(v26 + 32) & 1) != 0 )
+          {
+            v27 = *(DXGFASTMUTEX **)(v25 + 312);
+            memset(&v37, 0, sizeof(v37));
+            DXGFASTMUTEX::Acquire(v27);
+            KeStackAttachProcess(**(PRKPROCESS **)(*(_QWORD *)(v25 + 96) + 8LL), &v37);
+            LODWORD(v35) = 1;
+            v28 = VIDMM_GLOBAL::Rotate(
+                    *((_QWORD *)this + 1),
+                    *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v25 + 96) + 8LL) + 24LL),
+                    *(_QWORD *)(*(_QWORD *)(v25 + 96) + 24LL),
+                    3u,
+                    0LL,
+                    0LL,
+                    0LL,
+                    0LL,
+                    v35,
+                    v25);
+            v5 = v28;
+            if ( v28 < 0 )
+            {
+              if ( v28 == -1073741558 )
+              {
+                *(_DWORD *)(v25 + 76) |= 0x100000u;
+                LODWORD(v5) = 0;
+              }
+              else
+              {
+                v31 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v30, v29);
+                v31[3] = 270LL;
+                v31[4] = 4LL;
+                v31[5] = 3LL;
+                v31[6] = v5;
+                v31[7] = 0LL;
+                WdLogEvent5_WdCriticalError(v31);
+              }
+            }
+            *(_BYTE *)(*(_QWORD *)(v25 + 96) + 32LL) &= ~1u;
+            KeUnstackDetachProcess(&v37);
+            DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v25 + 312), v32);
+          }
         }
       }
     }
   }
-  return (unsigned int)v6;
+  return (unsigned int)v5;
 }

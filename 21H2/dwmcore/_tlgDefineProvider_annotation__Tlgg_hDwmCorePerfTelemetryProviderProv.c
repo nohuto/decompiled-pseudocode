@@ -1,5 +1,5 @@
 /*
- * XREFs of _tlgDefineProvider_annotation__Tlgg_hDwmCorePerfTelemetryProviderProv @ 0x180261A10
+ * XREFs of _tlgDefineProvider_annotation__Tlgg_hDwmCorePerfTelemetryProviderProv @ 0x180210D94
  * Callers:
  *     <none>
  * Callees:

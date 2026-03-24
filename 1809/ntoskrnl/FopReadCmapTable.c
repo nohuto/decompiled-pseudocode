@@ -1,12 +1,12 @@
 /*
- * XREFs of FopReadCmapTable @ 0x1409FAE10
+ * XREFs of FopReadCmapTable @ 0x1409FAE20
  * Callers:
- *     FopReadMappingTable @ 0x1409FAAAC (FopReadMappingTable.c)
+ *     FopReadMappingTable @ 0x1409FAABC (FopReadMappingTable.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14016ECCC (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x14016F4B8 (BgpFwAllocateMemory.c)
- *     FioFwReadBytesAtOffset @ 0x14017BC28 (FioFwReadBytesAtOffset.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14016F4D8 (BgpFwAllocateMemory.c)
+ *     FioFwReadBytesAtOffset @ 0x14017BC48 (FioFwReadBytesAtOffset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall FopReadCmapTable(__int64 a1, unsigned int a2, _QWORD *a3)

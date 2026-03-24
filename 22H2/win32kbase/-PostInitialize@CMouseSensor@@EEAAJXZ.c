@@ -1,43 +1,49 @@
 /*
- * XREFs of ?PostInitialize@CMouseSensor@@EEAAJXZ @ 0x1C01E52E0
+ * XREFs of ?PostInitialize@CMouseSensor@@EEAAJXZ @ 0x1C0088710
  * Callers:
  *     <none>
  * Callees:
- *     Win32AllocPoolZInit @ 0x1C004F080 (Win32AllocPoolZInit.c)
- *     isInputVirtualizationEnabled @ 0x1C004FF0C (isInputVirtualizationEnabled.c)
- *     ??0CMouseProcessor@@IEAA@XZ @ 0x1C00818F0 (--0CMouseProcessor@@IEAA@XZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?Initialize@CIVChannel@@QEAAXXZ @ 0x1C01F38F0 (-Initialize@CIVChannel@@QEAAXXZ.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     isChildPartition @ 0x1C00423A0 (isChildPartition.c)
+ *     isInputVirtualizationEnabled @ 0x1C0042ABC (isInputVirtualizationEnabled.c)
+ *     ?GetDispatcherHandleByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@W4HandleAccessMode@1@@Z @ 0x1C00892FC (-GetDispatcherHandleByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@W4HandleAccessMode@1@@Z.c)
+ *     ?SetInputRateLimitingTime@CMouseSensor@@QEAAJK@Z @ 0x1C008AB78 (-SetInputRateLimitingTime@CMouseSensor@@QEAAJK@Z.c)
+ *     ??0CMouseProcessor@@IEAA@XZ @ 0x1C008B5FC (--0CMouseProcessor@@IEAA@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?ivRegisterChildLifetimeNotifications@CBaseInput@@IEAAJK@Z @ 0x1C01BA054 (-ivRegisterChildLifetimeNotifications@CBaseInput@@IEAAJK@Z.c)
+ *     ?ivChildLoop@CBaseInput@@AEAAJKPEAURawInputManagerObject@@@Z @ 0x1C01BD108 (-ivChildLoop@CBaseInput@@AEAAJKPEAURawInputManagerObject@@@Z.c)
  */
 
 __int64 __fastcall CMouseSensor::PostInitialize(CMouseSensor *this)
 {
-  unsigned int v1; // ebx
+  CMouseProcessor *v2; // rax
   CMouseProcessor *v3; // rax
-  CMouseProcessor *v4; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 result; // rax
+  unsigned int v4; // edi
 
-  v1 = 0;
-  if ( *((_QWORD *)this + 168) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 62);
-  *((_QWORD *)this + 168) = 0LL;
-  v3 = (CMouseProcessor *)Win32AllocPoolZInit(0x1368uLL, 0x70724D50u);
-  if ( v3 && (v4 = CMouseProcessor::CMouseProcessor(v3)) != 0LL )
+  if ( *((_QWORD *)this + 218) )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 62LL);
+  *((_QWORD *)this + 218) = 0LL;
+  v2 = (CMouseProcessor *)Win32AllocPool(4968LL, 0x70724D50u);
+  if ( v2 )
+    v3 = CMouseProcessor::CMouseProcessor(v2);
+  else
+    v3 = 0LL;
+  if ( v3 )
   {
-    *((_QWORD *)this + 168) = v4;
-    if ( isInputVirtualizationEnabled(v6, v5, v7, v8) )
-      CIVChannel::Initialize((CMouseSensor *)((char *)this + 1288));
+    *((_QWORD *)this + 218) = v3;
+    v4 = 0;
+    if ( isInputVirtualizationEnabled() )
+    {
+      v4 = CBaseInput::ivRegisterChildLifetimeNotifications(this, 0);
+      if ( isChildPartition() )
+        v4 = CBaseInput::ivChildLoop(this, 0, *((struct RawInputManagerObject **)this + 2));
+    }
+    CMouseSensor::SetInputRateLimitingTime(this, 0);
+    *((_QWORD *)this + 217) = CRIMBase::GetDispatcherHandleByName(this, 8LL, 1LL);
   }
   else
   {
-    v1 = -1073741801;
+    return (unsigned int)-1073741801;
   }
-  *((_QWORD *)this + 183) = gliQpcFreq.QuadPart * (unsigned __int64)*((unsigned int *)this + 354) / 0x3E8;
-  result = v1;
-  *((_QWORD *)this + 184) = gliQpcFreq.QuadPart * (unsigned __int64)*((unsigned int *)this + 360) / 0x3E8;
-  return result;
+  return v4;
 }

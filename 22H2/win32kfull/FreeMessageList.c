@@ -1,36 +1,38 @@
 /*
- * XREFs of FreeMessageList @ 0x1C009CCF0
+ * XREFs of FreeMessageList @ 0x1C010D4A0
  * Callers:
  *     <none>
  * Callees:
- *     ?FreeQEntry@@YAXPEAUtagQMSG@@@Z @ 0x1C00126B0 (-FreeQEntry@@YAXPEAUtagQMSG@@@Z.c)
- *     ?RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z @ 0x1C0012820 (-RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z.c)
- *     ?CleanEventMessage@@YAXPEAUtagQMSG@@@Z @ 0x1C009CDF0 (-CleanEventMessage@@YAXPEAUtagQMSG@@@Z.c)
- *     DelQEntry @ 0x1C01184CC (DelQEntry.c)
+ *     ?RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z @ 0x1C000779C (-RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z.c)
+ *     FreeQEntry @ 0x1C0065CB8 (FreeQEntry.c)
+ *     DelQEntry @ 0x1C00667AC (DelQEntry.c)
+ *     ?CleanEventMessage@@YAXPEAUtagQMSG@@@Z @ 0x1C010D500 (-CleanEventMessage@@YAXPEAUtagQMSG@@@Z.c)
  */
 
-void __fastcall FreeMessageList(struct tagQMSG **a1)
+__int64 __fastcall FreeMessageList(unsigned int **a1)
 {
-  struct tagQMSG *i; // rbx
-  struct tagQMSG *v3; // rsi
-  struct tagQMSG *v4; // rbx
+  unsigned int *i; // rbx
+  unsigned int *v3; // rsi
+  __int64 result; // rax
+  unsigned int *v5; // rbx
 
   for ( i = *a1; i; i = *a1 )
   {
-    CleanEventMessage(i);
-    DelQEntry(a1, i, 1LL);
+    CleanEventMessage((struct tagQMSG *)i);
+    result = DelQEntry(a1, i, 1);
   }
   v3 = a1[3];
   if ( v3 )
   {
     do
     {
-      v4 = (struct tagQMSG *)*((_QWORD *)v3 + 1);
-      RemoveQMsgFromDeferList((struct tagMLIST *)a1, v3);
-      CleanEventMessage(v3);
-      FreeQEntry(v3);
-      v3 = v4;
+      v5 = (unsigned int *)*((_QWORD *)v3 + 1);
+      RemoveQMsgFromDeferList((struct tagMLIST *)a1, (struct tagQMSG *)v3);
+      CleanEventMessage((struct tagQMSG *)v3);
+      result = FreeQEntry(v3);
+      v3 = v5;
     }
-    while ( v4 );
+    while ( v5 );
   }
+  return result;
 }

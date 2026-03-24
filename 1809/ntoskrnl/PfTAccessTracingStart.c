@@ -2,15 +2,15 @@
  * XREFs of PfTAccessTracingStart @ 0x140565FF4
  * Callers:
  *     PfpPowerActionStartScenarioTracing @ 0x140566844 (PfpPowerActionStartScenarioTracing.c)
- *     PfGetCompletedTrace @ 0x14064B654 (PfGetCompletedTrace.c)
- *     PfTStart @ 0x140752A9C (PfTStart.c)
+ *     PfGetCompletedTrace @ 0x14064B634 (PfGetCompletedTrace.c)
+ *     PfTStart @ 0x140752A7C (PfTStart.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MmGetDefaultPagePriority @ 0x1400E217C (MmGetDefaultPagePriority.c)
- *     MmSetAccessLogging @ 0x140120218 (MmSetAccessLogging.c)
+ *     MmGetDefaultPagePriority @ 0x1400E219C (MmGetDefaultPagePriority.c)
+ *     MmSetAccessLogging @ 0x140120238 (MmSetAccessLogging.c)
  *     MmEnablePeriodicAccessClearing @ 0x1405660A4 (MmEnablePeriodicAccessClearing.c)
  */
 

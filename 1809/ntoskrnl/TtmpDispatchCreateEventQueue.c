@@ -1,16 +1,16 @@
 /*
- * XREFs of TtmpDispatchCreateEventQueue @ 0x140881B9C
+ * XREFs of TtmpDispatchCreateEventQueue @ 0x140881B7C
  * Callers:
- *     TtmDispatchApi @ 0x140881720 (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x140881700 (TtmDispatchApi.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ObInsertObject @ 0x14061B280 (ObInsertObject.c)
- *     TtmiLogError @ 0x1407616FC (TtmiLogError.c)
- *     TtmiWriteEnumerationEventsToQueue @ 0x1408805D4 (TtmiWriteEnumerationEventsToQueue.c)
- *     TtmpAcquireSessionFromTerminalHandle @ 0x1408819A8 (TtmpAcquireSessionFromTerminalHandle.c)
- *     TtmiCreateEventQueue @ 0x1408822FC (TtmiCreateEventQueue.c)
+ *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
+ *     TtmiWriteEnumerationEventsToQueue @ 0x1408805B4 (TtmiWriteEnumerationEventsToQueue.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x140881988 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmiCreateEventQueue @ 0x1408822DC (TtmiCreateEventQueue.c)
  */
 
 __int64 __fastcall TtmpDispatchCreateEventQueue(__int64 a1, HANDLE *a2)

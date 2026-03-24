@@ -1,45 +1,58 @@
 /*
- * XREFs of PiRestartRemovalRelations @ 0x1408639FC
+ * XREFs of PiRestartRemovalRelations @ 0x1407338DC
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867948 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140749CC4 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     IopEnumerateRelations @ 0x140868860 (IopEnumerateRelations.c)
- *     PipClearDevNodeProblem @ 0x14086966C (PipClearDevNodeProblem.c)
- *     PnpRestartDeviceNode @ 0x140958D6C (PnpRestartDeviceNode.c)
+ *     PnpRestartDeviceNode @ 0x140731B88 (PnpRestartDeviceNode.c)
+ *     PipClearDevNodeProblem @ 0x140735BFC (PipClearDevNodeProblem.c)
+ *     IopQueryDeviceState @ 0x1407460CC (IopQueryDeviceState.c)
+ *     IopEnumerateRelations @ 0x14074B374 (IopEnumerateRelations.c)
  */
 
 __int64 __fastcall PiRestartRemovalRelations(__int64 a1, int a2, __int64 a3)
 {
   __int64 result; // rax
-  _DWORD *v7; // rbx
-  _DWORD v8[2]; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v9; // [rsp+38h] [rbp-10h] BYREF
-  char v10; // [rsp+68h] [rbp+20h] BYREF
+  __int64 v7; // rcx
+  _DWORD *v8; // rbx
+  _BYTE v9[8]; // [rsp+30h] [rbp-28h] BYREF
+  _DWORD v10[2]; // [rsp+38h] [rbp-20h] BYREF
+  __int64 v11; // [rsp+40h] [rbp-18h] BYREF
+  int v12; // [rsp+78h] [rbp+20h] BYREF
 
-  v9 = 0LL;
-  v8[1] = 0;
-  v8[0] = 1;
+  v11 = 0LL;
+  v12 = 0;
+  v10[1] = 0;
+  v10[0] = 1;
   while ( 1 )
   {
-    result = IopEnumerateRelations(a2, (unsigned int)v8, (unsigned int)&v9, (unsigned int)&v10, 0LL);
+    result = IopEnumerateRelations(a2, (unsigned int)v10, (unsigned int)&v11, (unsigned int)&v12, 0LL);
     if ( !(_BYTE)result )
       return result;
-    if ( v9 )
-      v7 = *(_DWORD **)(*(_QWORD *)(v9 + 312) + 40LL);
+    v7 = v11;
+    if ( v11 )
+      v8 = *(_DWORD **)(*(_QWORD *)(v11 + 312) + 40LL);
     else
-      v7 = 0LL;
-    if ( v9 == a3 )
+      v8 = 0LL;
+    if ( *(_DWORD *)(a1 + 16) != 54 || v12 == 1 )
     {
-      if ( (*(_DWORD *)(a1 + 144) & 2) == 0 && v7[75] == 788 && (v7[99] & 0x2000) != 0 && v7[101] == 21 )
+      if ( v11 == a3 )
       {
-        PipClearDevNodeProblem(v7);
-        goto LABEL_16;
+        if ( (*(_DWORD *)(a1 + 144) & 2) == 0 && v8[75] == 786 && (v8[99] & 0x2000) != 0 && v8[101] == 21 )
+        {
+          PipClearDevNodeProblem(v8);
+          goto LABEL_20;
+        }
+      }
+      else if ( (v8[99] & 0x6000) == 0 && v8[75] == 786 )
+      {
+LABEL_20:
+        PnpRestartDeviceNode((__int64)v8);
       }
     }
-    else if ( (v7[99] & 0x6000) == 0 && v7[75] == 788 )
+    else if ( v8[75] != 788 )
     {
-LABEL_16:
-      PnpRestartDeviceNode(v7);
+      *(_DWORD *)(v11 + 48) |= 0x4000000u;
+      IopQueryDeviceState(v7, v9);
     }
   }
 }

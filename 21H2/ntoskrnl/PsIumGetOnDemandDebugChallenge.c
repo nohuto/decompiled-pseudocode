@@ -1,26 +1,31 @@
 /*
- * XREFs of PsIumGetOnDemandDebugChallenge @ 0x1409B314C
+ * XREFs of PsIumGetOnDemandDebugChallenge @ 0x14090CA18
  * Callers:
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
- *     VslGetOnDemandDebugChallenge @ 0x14093212C (VslGetOnDemandDebugChallenge.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
+ *     VslGetOnDemandDebugChallenge @ 0x14088F874 (VslGetOnDemandDebugChallenge.c)
  */
 
-__int64 __fastcall PsIumGetOnDemandDebugChallenge(ULONG_PTR a1, void *a2, unsigned int a3, _DWORD *a4)
+__int64 __fastcall PsIumGetOnDemandDebugChallenge(void *a1, void *a2, unsigned int a3, _DWORD *a4)
 {
-  char PreviousMode; // r9
-  int v8; // ebx
-  PVOID Object[3]; // [rsp+40h] [rbp-18h] BYREF
+  int v7; // ebx
+  PVOID Object; // [rsp+40h] [rbp-18h] BYREF
 
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  Object[0] = 0LL;
-  v8 = ObpReferenceObjectByHandleWithTag(a1, 4096, (__int64)PsProcessType, PreviousMode, 0x79517350u, Object, 0LL, 0LL);
-  if ( v8 >= 0 )
+  Object = 0LL;
+  v7 = ObReferenceObjectByHandleWithTag(
+         a1,
+         0x1000u,
+         (POBJECT_TYPE)PsProcessType,
+         KeGetCurrentThread()->PreviousMode,
+         0x79517350u,
+         &Object,
+         0LL);
+  if ( v7 >= 0 )
   {
-    v8 = VslGetOnDemandDebugChallenge((__int64)Object[0], a2, a3, a4);
-    ObfDereferenceObjectWithTag(Object[0], 0x79517350u);
+    v7 = VslGetOnDemandDebugChallenge((__int64)Object, a2, a3, a4);
+    ObfDereferenceObjectWithTag(Object, 0x79517350u);
   }
-  return (unsigned int)v8;
+  return (unsigned int)v7;
 }

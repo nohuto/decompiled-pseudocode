@@ -1,21 +1,21 @@
 /*
- * XREFs of UsbhInternalIoctlPropagateResume @ 0x1C0002D58
+ * XREFs of UsbhInternalIoctlPropagateResume @ 0x1C001C31C
  * Callers:
- *     UsbhFdoInternalDeviceControl @ 0x1C0002C70 (UsbhFdoInternalDeviceControl.c)
+ *     UsbhFdoInternalDeviceControl @ 0x1C001C2D0 (UsbhFdoInternalDeviceControl.c)
  * Callees:
- *     Usbh_SSH_Event @ 0x1C0004D80 (Usbh_SSH_Event.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     Usbh_SSH_Event @ 0x1C0012810 (Usbh_SSH_Event.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
-__int64 __fastcall UsbhInternalIoctlPropagateResume(__int64 a1, IRP *a2)
+__int64 __fastcall UsbhInternalIoctlPropagateResume(struct _DEVICE_OBJECT *a1, IRP *a2)
 {
-  __int64 v4; // rax
+  _DWORD *v4; // rax
 
-  v4 = FdoExt(a1);
-  Usbh_SSH_Event(a1, 8LL, v4 + 1912);
-  Log(a1, 32, 1734503506, (_DWORD)a2, 0LL);
+  v4 = FdoExt((__int64)a1);
+  Usbh_SSH_Event(a1, 8u, (__int64)(v4 + 478));
+  Log((__int64)a1, 32, 1734503506, (__int64)a2, 0LL);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     WPP_RECORDER_SF_d(
       WPP_GLOBAL_Control->DeviceExtension,

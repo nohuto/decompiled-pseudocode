@@ -1,38 +1,43 @@
 /*
- * XREFs of VidSchSetPriorityClassProcessX @ 0x1C01DF320
+ * XREFs of VidSchSetPriorityClassProcessX @ 0x1C016AC5C
  * Callers:
- *     ?SetProcessSchedulingPriorityClass@DXGPROCESS@@QEAAJW4_D3DKMT_SCHEDULINGPRIORITYCLASS@@_N@Z @ 0x1C01DF1D4 (-SetProcessSchedulingPriorityClass@DXGPROCESS@@QEAAJW4_D3DKMT_SCHEDULINGPRIORITYCLASS@@_N@Z.c)
+ *     ?SetProcessSchedulingPriorityClass@DXGPROCESS@@QEAAJW4_D3DKMT_SCHEDULINGPRIORITYCLASS@@_N@Z @ 0x1C016AB38 (-SetProcessSchedulingPriorityClass@DXGPROCESS@@QEAAJW4_D3DKMT_SCHEDULINGPRIORITYCLASS@@_N@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall VidSchSetPriorityClassProcessX(__int64 a1, unsigned int a2, unsigned int a3)
+__int64 __fastcall VidSchSetPriorityClassProcessX(__int64 a1, __int64 a2, unsigned int a3)
 {
-  unsigned int v3; // ebx
-  int v5; // esi
-  __int64 i; // rdi
-  struct DXGGLOBAL *Global; // rax
-  __int64 v10; // rbx
+  unsigned int v3; // edi
+  int v5; // ebx
+  unsigned int v6; // r12d
+  __int64 i; // rsi
+  __int64 v9; // rdx
+  __int64 v10; // rcx
   __int64 v11; // r14
+  __int64 v12; // rdi
   __int64 result; // rax
+  __int64 v14; // rax
 
   v3 = 0;
   v5 = 0;
-  for ( i = 272LL; ; i += 8LL )
+  v6 = a2;
+  for ( i = 232LL; ; i += 8LL )
   {
-    if ( *(_QWORD *)((char *)DXGGLOBAL::GetGlobal() + i) )
+    if ( *(_QWORD *)((char *)DXGGLOBAL::GetGlobal(a1, a2) + i) )
     {
-      Global = DXGGLOBAL::GetGlobal();
-      v10 = *(_QWORD *)(a1 + 64);
-      v11 = *(_QWORD *)((char *)Global + i);
-      if ( !v10 || (v10 = *(_QWORD *)(v10 + 8LL * (unsigned int)(*(_DWORD *)v11 - 1) + 16)) == 0 )
+      v11 = *(_QWORD *)((char *)DXGGLOBAL::GetGlobal(a1, a2) + i);
+      v12 = *(_QWORD *)(a1 + 64);
+      if ( v12 )
+        v12 = *(_QWORD *)(v12 + 8LL * (unsigned int)(*(_DWORD *)v11 - 1) + 16);
+      if ( !v12 )
       {
-        WdLogSingleEntry1(1LL, 280LL);
-        DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pVidSchProcess", 280LL, 0LL, 0LL, 0LL, 0LL);
+        v14 = WdLogNewEntry5_WdAssertion(v10, v9);
+        *(_QWORD *)(v14 + 24) = 286LL;
+        WdLogEvent5_WdAssertion(v14);
       }
-      result = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)(v11 + 8) + 96LL))(v10, a2, a3);
+      result = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)(v11 + 8) + 96LL))(v12, v6, a3);
       v3 = result;
       if ( (int)result < 0 )
         break;

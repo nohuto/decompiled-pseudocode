@@ -1,8 +1,8 @@
 /*
- * XREFs of XilUsbDevice_GetDeviceContextBufferLA @ 0x1C0010814
+ * XREFs of XilUsbDevice_GetDeviceContextBufferLA @ 0x1C000F868
  * Callers:
- *     XilCoreDeviceSlot_SetDeviceContext @ 0x1C0010670 (XilCoreDeviceSlot_SetDeviceContext.c)
- *     XilDeviceSlot_SendSetDeviceContextRequest @ 0x1C0037038 (XilDeviceSlot_SendSetDeviceContextRequest.c)
+ *     XilCoreDeviceSlot_SetDeviceContext @ 0x1C000F6C4 (XilCoreDeviceSlot_SetDeviceContext.c)
+ *     XilDeviceSlot_SendSetDeviceContextRequest @ 0x1C0036DF8 (XilDeviceSlot_SendSetDeviceContextRequest.c)
  * Callees:
  *     <none>
  */

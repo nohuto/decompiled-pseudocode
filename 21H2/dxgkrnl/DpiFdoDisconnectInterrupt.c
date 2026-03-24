@@ -1,8 +1,8 @@
 /*
- * XREFs of DpiFdoDisconnectInterrupt @ 0x1C03890C0
+ * XREFs of DpiFdoDisconnectInterrupt @ 0x1C02C8CCC
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C01FB06C (DpiFdoStartAdapter.c)
- *     DpiFdoStopAdapter @ 0x1C038B430 (DpiFdoStopAdapter.c)
+ *     DpiFdoStartAdapter @ 0x1C018071C (DpiFdoStartAdapter.c)
+ *     DpiFdoStopAdapter @ 0x1C02CBE84 (DpiFdoStopAdapter.c)
  * Callees:
  *     <none>
  */

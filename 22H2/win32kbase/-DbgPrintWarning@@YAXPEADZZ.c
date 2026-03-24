@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DbgPrintWarning@@YAXPEADZZ @ 0x1C0080044
+ * XREFs of ?DbgPrintWarning@@YAXPEADZZ @ 0x1C0058AB4
  * Callers:
- *     RIMCreateHidDesc @ 0x1C007EF3C (RIMCreateHidDesc.c)
- *     RIMAllocateHidDesc @ 0x1C017F574 (RIMAllocateHidDesc.c)
- *     RIMVirtAllocateHidDesc @ 0x1C0183828 (RIMVirtAllocateHidDesc.c)
- *     RIMVirtCreateHidDesc @ 0x1C0184200 (RIMVirtCreateHidDesc.c)
- *     RIMIDECreatePointerDeviceInfo @ 0x1C0194488 (RIMIDECreatePointerDeviceInfo.c)
- *     rimExtractDigitizerPageButtonUsages @ 0x1C01A8DDC (rimExtractDigitizerPageButtonUsages.c)
+ *     RIMAllocateHidDesc @ 0x1C0057F3C (RIMAllocateHidDesc.c)
+ *     RIMCreateHidDesc @ 0x1C00582E8 (RIMCreateHidDesc.c)
+ *     RIMVirtAllocateHidDesc @ 0x1C0162838 (RIMVirtAllocateHidDesc.c)
+ *     RIMVirtCreateHidDesc @ 0x1C0162C3C (RIMVirtCreateHidDesc.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167888 (RIMIDECreatePointerDeviceInfo.c)
+ *     rimExtractDigitizerPageButtonUsages @ 0x1C017A028 (rimExtractDigitizerPageButtonUsages.c)
  * Callees:
  *     <none>
  */

@@ -1,58 +1,59 @@
 /*
- * XREFs of ?RemoveLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@@Z @ 0x1800128F4
+ * XREFs of ?RemoveLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@@Z @ 0x18002998C
  * Callers:
- *     ?RemoveAllTargets@CCompositionLight@@AEAAJW4LightBehavior@@@Z @ 0x180012850 (-RemoveAllTargets@CCompositionLight@@AEAAJW4LightBehavior@@@Z.c)
+ *     ?RemoveAllTargets@CCompositionLight@@AEAAJW4LightBehavior@@@Z @ 0x1800298E8 (-RemoveAllTargets@CCompositionLight@@AEAAJW4LightBehavior@@@Z.c)
  * Callees:
- *     ?InsertAt@CPtrArrayBase@@IEAAJ_K0@Z @ 0x18004A94C (-InsertAt@CPtrArrayBase@@IEAAJ_K0@Z.c)
- *     ?GetCount@CPtrArrayBase@@IEBA_KXZ @ 0x1800AA890 (-GetCount@CPtrArrayBase@@IEBA_KXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Remove@CPtrArrayBase@@IEAA_N_K@Z @ 0x1800D62C4 (-Remove@CPtrArrayBase@@IEAA_N_K@Z.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InsertAt@CPtrArrayBase@@IEAAJ_K0@Z @ 0x18009DA14 (-InsertAt@CPtrArrayBase@@IEAAJ_K0@Z.c)
+ *     ?GetCount@CPtrArrayBase@@IEBA_KXZ @ 0x1800C13A8 (-GetCount@CPtrArrayBase@@IEBA_KXZ.c)
+ *     ?Remove@CPtrArrayBase@@IEAA_N_K@Z @ 0x1800C18FC (-Remove@CPtrArrayBase@@IEAA_N_K@Z.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CVisual::RemoveLight(_QWORD *a1, __int64 a2, int a3)
 {
   unsigned int v3; // ebp
   bool v4; // r14
-  _QWORD *j; // rcx
+  char *v7; // rcx
+  char *v8; // r8
   _QWORD *i; // rbx
-  _QWORD *v10; // rax
-  _QWORD *v11; // rcx
+  _QWORD *v11; // rax
+  _QWORD *v12; // rcx
   unsigned __int64 Count; // rax
-  CPtrArrayBase *v13; // rcx
-  int v14; // eax
-  unsigned int v15; // ecx
+  CPtrArrayBase *v14; // rcx
+  int v15; // eax
+  unsigned int v16; // ecx
 
   v3 = 0;
   v4 = 0;
   if ( a3 )
   {
-    for ( i = (_QWORD *)a1[38]; i != (_QWORD *)a1[39]; i += 2 )
+    for ( i = (_QWORD *)a1[37]; i != (_QWORD *)a1[38]; i += 2 )
     {
       if ( *i == a2 )
       {
-        v10 = (_QWORD *)a1[35];
-        v11 = (_QWORD *)a1[36];
-        while ( v10 != v11 )
+        v11 = (_QWORD *)a1[34];
+        v12 = (_QWORD *)a1[35];
+        while ( v11 != v12 )
         {
-          if ( *v10 == a2 )
+          if ( *v11 == a2 )
           {
             Count = CPtrArrayBase::GetCount((CPtrArrayBase *)(a2 + 24));
-            v14 = CPtrArrayBase::InsertAt(v13, (unsigned __int64)a1, Count);
-            v3 = v14;
-            if ( v14 < 0 )
+            v15 = CPtrArrayBase::InsertAt(v14, (unsigned __int64)a1, Count);
+            v3 = v15;
+            if ( v15 < 0 )
             {
-              MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x4A8u, 0LL);
+              MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x4D2u, 0LL);
               return v3;
             }
             v4 = 1;
             break;
           }
-          v10 += 2;
+          v11 += 2;
         }
-        memmove_0(i, i + 2, a1[39] - (_QWORD)(i + 2));
-        a1[39] -= 16LL;
+        memmove_0(i, i + 2, a1[38] - (_QWORD)(i + 2));
+        a1[38] -= 16LL;
 LABEL_6:
         if ( v4 )
         {
@@ -65,15 +66,18 @@ LABEL_6:
   }
   else
   {
-    for ( j = (_QWORD *)a1[35]; j != (_QWORD *)a1[36]; j += 2 )
+    v7 = (char *)a1[34];
+    v8 = (char *)a1[35];
+    while ( v7 != v8 )
     {
-      if ( *j == a2 )
+      if ( *(_QWORD *)v7 == a2 )
       {
-        memmove_0(j, j + 2, a1[36] - (_QWORD)(j + 2));
-        a1[36] -= 16LL;
+        memmove_0(v7, v7 + 16, v8 - (v7 + 16));
+        a1[35] -= 16LL;
         v4 = CPtrArrayBase::Remove((CPtrArrayBase *)(a2 + 24), (unsigned __int64)a1);
         goto LABEL_6;
       }
+      v7 += 16;
     }
   }
   return v3;

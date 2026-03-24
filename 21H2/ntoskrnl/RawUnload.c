@@ -1,14 +1,14 @@
 /*
- * XREFs of RawUnload @ 0x1409B4F00
+ * XREFs of RawUnload @ 0x14090F300
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
  */
 
-LONG_PTR RawUnload()
+void RawUnload()
 {
-  ObfDereferenceObject(RawDeviceTapeObject);
-  ObfDereferenceObject(RawDeviceCdRomObject);
-  return ObfDereferenceObject(RawDeviceDiskObject);
+  HalPutDmaAdapter((PADAPTER_OBJECT)RawDeviceTapeObject);
+  HalPutDmaAdapter((PADAPTER_OBJECT)RawDeviceCdRomObject);
+  HalPutDmaAdapter((PADAPTER_OBJECT)RawDeviceDiskObject);
 }

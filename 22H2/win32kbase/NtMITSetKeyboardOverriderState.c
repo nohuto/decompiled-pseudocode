@@ -1,36 +1,41 @@
 /*
- * XREFs of NtMITSetKeyboardOverriderState @ 0x1C0142120
+ * XREFs of NtMITSetKeyboardOverriderState @ 0x1C012B990
  * Callers:
  *     <none>
  * Callees:
- *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C0057EC8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     _anonymous_namespace_::GetKeyboardProcessor @ 0x1C006B304 (_anonymous_namespace_--GetKeyboardProcessor.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     ?_CalledOnInputThread@CInputThread@@AEBA_NXZ @ 0x1C0043670 (-_CalledOnInputThread@CInputThread@@AEBA_NXZ.c)
+ *     _anonymous_namespace_::GetKeyboardProcessor @ 0x1C004DC74 (_anonymous_namespace_--GetKeyboardProcessor.c)
  */
 
 __int64 __fastcall NtMITSetKeyboardOverriderState(int a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 v6; // rbx
+  CInputThread *v1; // rdi
+  bool v3; // bl
+  __int64 v4; // rdx
+  __int64 v5; // rdi
   __int64 KeyboardProcessor; // rax
 
-  v6 = 0LL;
-  if ( CInputThreadBase::IsInputThread((CInputThreadBase *)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) )
+  v1 = gpInputThread;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockSharedEx(v1, 0LL);
+  v3 = CInputThread::_CalledOnInputThread(v1);
+  ExReleasePushLockSharedEx(v1, 0LL);
+  KeLeaveCriticalRegion();
+  v5 = 0LL;
+  if ( v3 )
   {
-    KeyboardProcessor = anonymous_namespace_::GetKeyboardProcessor(v3, v2, v4, v5);
+    KeyboardProcessor = anonymous_namespace_::GetKeyboardProcessor();
     if ( KeyboardProcessor )
     {
-      LOBYTE(v6) = a1 != 0;
-      _InterlockedExchange((volatile __int32 *)(KeyboardProcessor + 24), v6);
+      LOBYTE(v5) = a1 != 0;
+      _InterlockedExchange((volatile __int32 *)(KeyboardProcessor + 24), v5);
     }
     return 1LL;
   }
   else
   {
-    UserSetLastError(5);
+    UserSetLastError(5LL, v4);
   }
-  return v6;
+  return v5;
 }

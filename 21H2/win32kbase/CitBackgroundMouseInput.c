@@ -1,11 +1,11 @@
 /*
- * XREFs of CitBackgroundMouseInput @ 0x1C003D488
+ * XREFs of CitBackgroundMouseInput @ 0x1C004759C
  * Callers:
- *     ?OnBackgroundMouseInput@Telemetry@CMouseProcessor@@SAXAEBVCInputDest@@@Z @ 0x1C003D444 (-OnBackgroundMouseInput@Telemetry@CMouseProcessor@@SAXAEBVCInputDest@@@Z.c)
+ *     ?OnBackgroundMouseInput@Telemetry@CMouseProcessor@@SAXAEBVCInputDest@@@Z @ 0x1C0047554 (-OnBackgroundMouseInput@Telemetry@CMouseProcessor@@SAXAEBVCInputDest@@@Z.c)
  * Callees:
- *     ?CitpStatIncrement@@YAXPEAGG@Z @ 0x1C0017404 (-CitpStatIncrement@@YAXPEAGG@Z.c)
- *     ?CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z @ 0x1C0017428 (-CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z.c)
- *     ?CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_PROCESS@@G@Z @ 0x1C0017574 (-CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT.c)
+ *     ?CitpStatIncrement@@YAXPEAGG@Z @ 0x1C00463BC (-CitpStatIncrement@@YAXPEAGG@Z.c)
+ *     ?CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z @ 0x1C00463E0 (-CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z.c)
+ *     ?CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT_PROCESS@@G@Z @ 0x1C00464E8 (-CitpInteractionSummaryEnsure@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_IMPACT_CONTEXT@@PEAU_CIT.c)
  */
 
 void __fastcall CitBackgroundMouseInput(struct _CIT_PROCESS **a1)
@@ -15,18 +15,18 @@ void __fastcall CitBackgroundMouseInput(struct _CIT_PROCESS **a1)
   unsigned __int64 v4; // r8
   struct _CIT_INTERACTION_SUMMARY *v5; // rax
 
-  v1 = xmmword_1C029A230;
-  if ( xmmword_1C029A230 )
+  v1 = xmmword_1C0255560;
+  if ( xmmword_1C0255560 )
   {
-    if ( *((struct _CIT_PROCESS ***)xmmword_1C029A230 + 15) != a1 )
+    if ( *((struct _CIT_PROCESS ***)xmmword_1C0255560 + 15) != a1 )
     {
       v3 = CitpProcessEnsureContext(a1);
       if ( v3 )
       {
         v4 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-        if ( (unsigned int)(v4 - *((_DWORD *)v3 + 23)) > 0x3E8 )
+        if ( (unsigned int)(v4 - *((_DWORD *)v3 + 19)) > 0x3E8 )
         {
-          *((_DWORD *)v3 + 23) = v4;
+          *((_DWORD *)v3 + 19) = v4;
           PsUpdateComponentPower(*a1, 9LL);
           v5 = CitpInteractionSummaryEnsure(v1, (struct tagPROCESSINFO **)v3, 8);
           if ( v5 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSetupKsrCallbacks @ 0x140B76B3C
+ * XREFs of PopSetupKsrCallbacks @ 0x140A73FF0
  * Callers:
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ExRegisterCallback @ 0x140367250 (ExRegisterCallback.c)
- *     ExCreateCallback @ 0x1407DC8B0 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x14037E950 (ExRegisterCallback.c)
+ *     ExCreateCallback @ 0x1406A0050 (ExCreateCallback.c)
  */
 
 NTSTATUS PopSetupKsrCallbacks()
@@ -18,8 +18,8 @@ NTSTATUS PopSetupKsrCallbacks()
 
   CallbackObject = 0LL;
   v4 = 0LL;
-  *(&ObjectAttributes.Attributes + 1) = 0;
   *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
   DestinationString = 0LL;
   result = KsrGetFirmwareInformation(&v4);
   if ( result >= 0 )

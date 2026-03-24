@@ -1,5 +1,5 @@
 /*
- * XREFs of KeGetNextClockTickDuration @ 0x14028E7D0
+ * XREFs of KeGetNextClockTickDuration @ 0x14028E8D0
  * Callers:
  *     <none>
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ClipRects@DXGPRESENT@@SAHPEAUtagRECT@@0PEBU2@1@Z @ 0x1C01EB3E0
+ * XREFs of ?ClipRects@DXGPRESENT@@SAHPEAUtagRECT@@0PEBU2@1@Z @ 0x1C016FD50
  * Callers:
- *     ?CombineRectList@DXGPRESENT@@QEAAJPEBU_D3DKMT_PRESENT@@QEAUHDC__@@PEBVDXGDEVICE@@II@Z @ 0x1C01EAE60 (-CombineRectList@DXGPRESENT@@QEAAJPEBU_D3DKMT_PRESENT@@QEAUHDC__@@PEBVDXGDEVICE@@II@Z.c)
- *     ?ComputeSrcDstRects@DXGPRESENT@@QEAAHPEBU_D3DKMT_PRESENT@@II@Z @ 0x1C033003C (-ComputeSrcDstRects@DXGPRESENT@@QEAAHPEBU_D3DKMT_PRESENT@@II@Z.c)
+ *     ?CombineRectList@DXGPRESENT@@QEAAJPEBU_D3DKMT_PRESENT@@QEAUHDC__@@PEBVDXGDEVICE@@II@Z @ 0x1C016F7E0 (-CombineRectList@DXGPRESENT@@QEAAJPEBU_D3DKMT_PRESENT@@QEAUHDC__@@PEBVDXGDEVICE@@II@Z.c)
+ *     ?ComputeSrcDstRects@DXGPRESENT@@QEAAHPEBU_D3DKMT_PRESENT@@II@Z @ 0x1C027FB3C (-ComputeSrcDstRects@DXGPRESENT@@QEAAHPEBU_D3DKMT_PRESENT@@II@Z.c)
  * Callees:
- *     ?ClipIntervals@DXGPRESENT@@CAXPEAJ000JJ@Z @ 0x1C032FDD0 (-ClipIntervals@DXGPRESENT@@CAXPEAJ000JJ@Z.c)
- *     ?IntersectRect@DXGPRESENT@@SAEPEAUtagRECT@@PEBU2@1@Z @ 0x1C0330C24 (-IntersectRect@DXGPRESENT@@SAEPEAUtagRECT@@PEBU2@1@Z.c)
+ *     ?ClipIntervals@DXGPRESENT@@CAXPEAJ000JJ@Z @ 0x1C027F948 (-ClipIntervals@DXGPRESENT@@CAXPEAJ000JJ@Z.c)
+ *     ?IntersectRect@DXGPRESENT@@SAEPEAUtagRECT@@PEBU2@1@Z @ 0x1C02806A4 (-IntersectRect@DXGPRESENT@@SAEPEAUtagRECT@@PEBU2@1@Z.c)
  */
 
 __int64 __fastcall DXGPRESENT::ClipRects(
@@ -14,30 +14,43 @@ __int64 __fastcall DXGPRESENT::ClipRects(
         const struct tagRECT *a3,
         const struct tagRECT *a4)
 {
+  __int64 v4; // rdi
   LONG top; // eax
   LONG bottom; // ecx
   LONG left; // edx
   LONG right; // r8d
-  __int64 v13; // r12
-  __int64 v14; // r15
-  __int64 v15; // r10
-  __int64 v16; // r13
-  LONG v17; // ecx
-  LONG v18; // edx
-  int v19; // r14d
-  int v20; // r13d
-  int v21; // r12d
-  int v22; // [rsp+30h] [rbp-40h]
-  int v23; // [rsp+34h] [rbp-3Ch]
-  LONG v24; // [rsp+38h] [rbp-38h]
-  int v25; // [rsp+38h] [rbp-38h]
-  LONG v26; // [rsp+3Ch] [rbp-34h]
-  LONG v27; // [rsp+40h] [rbp-30h]
-  struct tagRECT v28; // [rsp+48h] [rbp-28h] BYREF
-  struct tagRECT v29; // [rsp+58h] [rbp-18h] BYREF
-  LONG v30; // [rsp+B0h] [rbp+40h]
-  int v31; // [rsp+B0h] [rbp+40h]
+  LONG v14; // r13d
+  LONG v15; // r12d
+  LONG v16; // edx
+  int v17; // ecx
+  LONG v18; // eax
+  __int64 v19; // r8
+  int v20; // eax
+  __int64 v21; // rcx
+  __int64 v22; // rdx
+  int v23; // ebx
+  int v24; // r15d
+  int v25; // r8d
+  int v26; // r13d
+  int v27; // r13d
+  __int64 v28; // rax
+  _QWORD *v29; // rdx
+  __int64 v30; // rcx
+  LONG v31; // [rsp+30h] [rbp-40h]
+  int v32; // [rsp+30h] [rbp-40h]
+  int v33; // [rsp+34h] [rbp-3Ch]
+  int v34; // [rsp+34h] [rbp-3Ch]
+  struct tagRECT v35; // [rsp+38h] [rbp-38h] BYREF
+  int v36; // [rsp+48h] [rbp-28h]
+  LONG v37; // [rsp+4Ch] [rbp-24h]
+  LONG v38; // [rsp+50h] [rbp-20h]
+  int v39; // [rsp+54h] [rbp-1Ch]
+  int v40; // [rsp+58h] [rbp-18h]
+  struct tagRECT v41; // [rsp+60h] [rbp-10h] BYREF
+  int v42; // [rsp+B0h] [rbp+40h]
+  int v43; // [rsp+B0h] [rbp+40h]
 
+  v4 = 0LL;
   if ( a3 )
   {
     top = a3->top;
@@ -62,59 +75,79 @@ __int64 __fastcall DXGPRESENT::ClipRects(
     }
     return 1LL;
   }
-  v13 = a4->top;
-  if ( (int)v13 < a2->bottom - a2->top )
+  v14 = a4->top;
+  if ( v14 < a2->bottom - a2->top )
   {
-    v14 = a4->bottom;
-    if ( (int)v14 > 0 )
+    v15 = a4->bottom;
+    if ( v15 > 0 )
     {
-      v15 = a4->left;
-      v23 = v15;
-      if ( (int)v15 < a2->right - a2->left )
+      v16 = a4->left;
+      v17 = a2->right - a2->left;
+      v37 = v16;
+      if ( v16 < v17 )
       {
-        v16 = a4->right;
-        if ( (int)v16 > 0 && (int)v13 < (int)v14 && (int)v15 < (int)v16 )
+        v18 = a4->right;
+        v31 = v18;
+        if ( v18 > 0 && v14 < v15 && v16 < v18 )
         {
           if ( !a3 )
           {
-            DXGPRESENT::ClipIntervals(&a2->top, &a2->bottom, &a1->top, &a1->bottom, v13, v14);
+            DXGPRESENT::ClipIntervals(&a2->top, &a2->bottom, &a1->top, &a1->bottom, v14, v15);
             DXGPRESENT::ClipIntervals(&a2->left, &a2->right, &a1->left, &a1->right, a4->left, a4->right);
             return 1LL;
           }
-          v30 = a3->left;
-          v24 = a3->right;
-          v17 = a3->bottom;
-          v18 = a3->top;
-          v22 = (((int)v16 - (int)v15) << 16) / (v24 - a3->left);
-          v27 = v17;
-          v26 = v18;
-          v28 = 0LL;
-          if ( v22 && (v19 = (((int)v14 - (int)v13) << 16) / (v17 - v18)) != 0 )
+          v19 = (unsigned int)a3->left;
+          v38 = a3->right;
+          v42 = v19;
+          v20 = ((v18 - v16) << 16) / (v38 - (int)v19);
+          v21 = (unsigned int)a3->bottom;
+          v22 = (unsigned int)a3->top;
+          v36 = v20;
+          v40 = v21;
+          v39 = v22;
+          v35 = 0LL;
+          if ( v20
+            && (v21 = (unsigned int)(v21 - v22),
+                v22 = (unsigned int)((v15 - v14) << 16 >> 31),
+                LODWORD(v22) = ((v15 - v14) << 16) % (int)v21,
+                (v33 = ((v15 - v14) << 16) / (int)v21) != 0) )
           {
-            if ( DXGPRESENT::IntersectRect(&v28, a3, a1) )
+            if ( DXGPRESENT::IntersectRect(&v35, a3, a1) )
             {
-              v31 = (v23 << 16) + v22 * (v28.left - v30);
-              v25 = ((_DWORD)v16 << 16) + v22 * (v28.right - v24);
-              v29.left = (v31 + 0xFFFF) >> 16;
-              v20 = ((_DWORD)v13 << 16) + v19 * (v28.top - v26);
-              v29.right = v25 >> 16;
-              v29.top = (v20 + 0xFFFF) >> 16;
-              v21 = ((_DWORD)v14 << 16) + v19 * (v28.bottom - v27);
-              v29.bottom = v21 >> 16;
-              if ( DXGPRESENT::IntersectRect(a2, &v29, a2) )
+              v23 = v33;
+              v24 = v36;
+              v43 = (v37 << 16) + v36 * (v35.left - v42);
+              v25 = (v14 << 16) + v33 * (v35.top - v39);
+              v32 = (v31 << 16) + v36 * (v35.right - v38);
+              v41.left = (v43 + 0xFFFF) >> 16;
+              v41.right = v32 >> 16;
+              v41.top = (v25 + 0xFFFF) >> 16;
+              v26 = v33 * (v35.bottom - v40);
+              v34 = v25;
+              v27 = (v15 << 16) + v26;
+              v41.bottom = v27 >> 16;
+              if ( DXGPRESENT::IntersectRect(a2, &v41, a2) )
               {
-                v28.left += (v22 + (a2->left << 16) - v31 - 1) / v22;
-                v28.right += ((a2->right << 16) - v25) / v22;
-                v28.top += (v19 + (a2->top << 16) - v20 - 1) / v19;
-                v28.bottom += ((a2->bottom << 16) - v21) / v19;
-                if ( DXGPRESENT::IntersectRect(a1, &v28, a1) )
+                v35.left += (v24 + (a2->left << 16) - v43 - 1) / v24;
+                v35.right += ((a2->right << 16) - v32) / v24;
+                v35.top += (v23 + (a2->top << 16) - v34 - 1) / v23;
+                v35.bottom += ((a2->bottom << 16) - v27) / v23;
+                if ( DXGPRESENT::IntersectRect(a1, &v35, a1) )
                   return 1LL;
               }
             }
           }
           else
           {
-            WdLogSingleEntry4(3LL, v15, v13, v16, v14);
+            v28 = WdLogNewEntry5_WdWarning(v21, v22, v19);
+            v29 = (_QWORD *)(v28 + 24);
+            do
+            {
+              v30 = *(&a4->left + v4++);
+              *v29++ = v30;
+            }
+            while ( v4 < 4 );
+            WdLogEvent5_WdWarning(v28);
           }
         }
       }

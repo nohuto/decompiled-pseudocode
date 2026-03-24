@@ -1,19 +1,19 @@
 /*
- * XREFs of KiDeferGroupSchedulingPreemption @ 0x1400D2C80
+ * XREFs of KiDeferGroupSchedulingPreemption @ 0x1400D2CA0
  * Callers:
- *     KiDispatchInterrupt @ 0x1401C4030 (KiDispatchInterrupt.c)
+ *     KiDispatchInterrupt @ 0x1401C4050 (KiDispatchInterrupt.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiIsThreadRankNonZero @ 0x1400D1460 (KiIsThreadRankNonZero.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x1400D1500 (KiGetThreadEffectiveRankNonZero.c)
- *     KiShouldPreemptionBeDeferred @ 0x1400D37B0 (KiShouldPreemptionBeDeferred.c)
- *     KiPrcbInGroupAffinity @ 0x1400D5714 (KiPrcbInGroupAffinity.c)
- *     KiInsertDeferredPreemptionApc @ 0x1400F27C8 (KiInsertDeferredPreemptionApc.c)
- *     KiAddThreadToScbQueue @ 0x140116F74 (KiAddThreadToScbQueue.c)
- *     KiAddThreadToPrcbQueue @ 0x14011754C (KiAddThreadToPrcbQueue.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetThreadState @ 0x1401B4B6C (KiSetThreadState.c)
- *     KiSetSchedulerAssistPriority @ 0x14029952C (KiSetSchedulerAssistPriority.c)
+ *     KiIsThreadRankNonZero @ 0x1400D1480 (KiIsThreadRankNonZero.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1400D1520 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiShouldPreemptionBeDeferred @ 0x1400D37D0 (KiShouldPreemptionBeDeferred.c)
+ *     KiPrcbInGroupAffinity @ 0x1400D5734 (KiPrcbInGroupAffinity.c)
+ *     KiInsertDeferredPreemptionApc @ 0x1400F27E8 (KiInsertDeferredPreemptionApc.c)
+ *     KiAddThreadToScbQueue @ 0x140116F94 (KiAddThreadToScbQueue.c)
+ *     KiAddThreadToPrcbQueue @ 0x14011756C (KiAddThreadToPrcbQueue.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetThreadState @ 0x1401B4B8C (KiSetThreadState.c)
+ *     KiSetSchedulerAssistPriority @ 0x14029962C (KiSetSchedulerAssistPriority.c)
  */
 
 char __fastcall KiDeferGroupSchedulingPreemption(__int64 a1, __int64 a2)

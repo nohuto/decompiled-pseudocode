@@ -1,16 +1,16 @@
 /*
- * XREFs of ?Dispose@FxDevice@@UEAAEXZ @ 0x1C0035760
+ * XREFs of ?Dispose@FxDevice@@UEAAEXZ @ 0x1C0051E20
  * Callers:
  *     <none>
  * Callees:
- *     ?DestroyChildren@FxObject@@IEAAXXZ @ 0x1C0008EB8 (-DestroyChildren@FxObject@@IEAAXXZ.c)
- *     ?CallCleanupCallbacks@FxObject@@AEAAXXZ @ 0x1C000DC54 (-CallCleanupCallbacks@FxObject@@AEAAXXZ.c)
- *     ?Destroy@FxDevice@@QEAAXXZ @ 0x1C00302A8 (-Destroy@FxDevice@@QEAAXXZ.c)
- *     ?Deregister@FxWmiIrpHandler@@QEAAXXZ @ 0x1C005F1C4 (-Deregister@FxWmiIrpHandler@@QEAAXXZ.c)
- *     ?WaitForEmpty@FxDisposeList@@QEAAXXZ @ 0x1C006ABC8 (-WaitForEmpty@FxDisposeList@@QEAAXXZ.c)
+ *     ?DestroyChildren@FxObject@@IEAAXXZ @ 0x1C00083F0 (-DestroyChildren@FxObject@@IEAAXXZ.c)
+ *     ?Deregister@FxWmiIrpHandler@@QEAAXXZ @ 0x1C0040010 (-Deregister@FxWmiIrpHandler@@QEAAXXZ.c)
+ *     ?Destroy@FxDevice@@QEAAXXZ @ 0x1C005067C (-Destroy@FxDevice@@QEAAXXZ.c)
+ *     ?WaitForEmpty@FxDisposeList@@QEAAXXZ @ 0x1C00552B4 (-WaitForEmpty@FxDisposeList@@QEAAXXZ.c)
+ *     ?CallCleanupCallbacks@FxObject@@AEAAXXZ @ 0x1C0059E94 (-CallCleanupCallbacks@FxObject@@AEAAXXZ.c)
  */
 
-unsigned __int8 __fastcall FxDevice::Dispose(FxDevice *this)
+unsigned __int8 __fastcall FxDevice::Dispose(FxDevice *this, unsigned __int8 a2)
 {
   FxWmiIrpHandler *m_PkgWmi; // rcx
   FxDisposeList *m_DisposeList; // rcx
@@ -19,8 +19,8 @@ unsigned __int8 __fastcall FxDevice::Dispose(FxDevice *this)
     return 1;
   m_PkgWmi = this->m_PkgWmi;
   if ( m_PkgWmi )
-    FxWmiIrpHandler::Deregister(m_PkgWmi);
-  if ( _bittest16((const signed __int16 *)&this->24, 0xAu) )
+    FxWmiIrpHandler::Deregister(m_PkgWmi, a2);
+  if ( (this->m_ObjectFlags & 0x400) != 0 )
     FxObject::CallCleanupCallbacks(this);
   FxObject::DestroyChildren(this);
   m_DisposeList = this->m_DisposeList;

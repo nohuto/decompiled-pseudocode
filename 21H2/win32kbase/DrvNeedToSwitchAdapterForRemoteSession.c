@@ -1,9 +1,9 @@
 /*
- * XREFs of DrvNeedToSwitchAdapterForRemoteSession @ 0x1C017486C
+ * XREFs of DrvNeedToSwitchAdapterForRemoteSession @ 0x1C0147798
  * Callers:
- *     ?PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0146B18 (-PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0118400 (-PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DrvNeedToSwitchAdapterForRemoteSession(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall DrvNeedToSwitchAdapterForRemoteSession(__int64 a1)
     }
   }
   v5 = 0LL;
-  if ( (int)((__int64 (__fastcall *)(_QWORD, __int64 *, _QWORD, _QWORD, _QWORD))qword_1C02967E8)(
+  if ( (int)((__int64 (__fastcall *)(_QWORD, __int64 *, _QWORD, _QWORD, _QWORD))qword_1C02519F8)(
               0LL,
               &v5,
               0LL,

@@ -1,136 +1,138 @@
 /*
- * XREFs of ACPIIoctlEnumChildren @ 0x1C002FA30
+ * XREFs of ACPIIoctlEnumChildren @ 0x1C0013C10
  * Callers:
- *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
- *     ACPIThermalDeviceControl @ 0x1C0040430 (ACPIThermalDeviceControl.c)
- *     ACPIProcessorDeviceControl @ 0x1C008C580 (ACPIProcessorDeviceControl.c)
+ *     ACPIIrpDispatchDeviceControl @ 0x1C000B8A0 (ACPIIrpDispatchDeviceControl.c)
+ *     ACPIThermalDeviceControl @ 0x1C0012510 (ACPIThermalDeviceControl.c)
+ *     ACPIProcessorDeviceControl @ 0x1C009A990 (ACPIProcessorDeviceControl.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     ACPIIoctlEnumChildrenPopulateOutputBuffer @ 0x1C002FC98 (ACPIIoctlEnumChildrenPopulateOutputBuffer.c)
- *     AMLIFindNameSpaceObject @ 0x1C0048130 (AMLIFindNameSpaceObject.c)
- *     FreeDataBuffs @ 0x1C004B52C (FreeDataBuffs.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     ACPIIoctlEnumChildrenPopulateOutputBuffer @ 0x1C0013E40 (ACPIIoctlEnumChildrenPopulateOutputBuffer.c)
+ *     AMLIFindNameSpaceObject @ 0x1C0013F48 (AMLIFindNameSpaceObject.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall ACPIIoctlEnumChildren(ULONG_PTR a1, IRP *a2, __int64 a3)
 {
-  bool v4; // cf
-  int v5; // ebx
-  unsigned int v6; // r13d
-  _IRP *MasterIrp; // r15
-  int v8; // ebx
+  __int64 *v3; // rdi
+  char *v4; // rsi
+  unsigned int v6; // r12d
+  __int64 v7; // r13
+  _IRP *MasterIrp; // r14
+  int v9; // ebx
   int MdlAddress; // ecx
-  unsigned int v10; // ebx
-  size_t MdlAddress_low; // rdi
-  char *Pool2; // rax
-  char *v13; // rsi
-  char *v14; // rax
-  PVOID *v15; // rdi
-  __int64 v16; // rax
-  PVOID v17; // rcx
-  unsigned int v19; // [rsp+68h] [rbp+10h] BYREF
-  __int64 v20; // [rsp+70h] [rbp+18h]
+  int v11; // ebx
+  __int64 v12; // rcx
+  unsigned int v14; // ebx
+  char *v15; // rax
+  _OWORD *v16; // rax
+  SIZE_T MdlAddress_low; // rdi
+  char *PoolWithTag; // rax
+  unsigned int v19; // [rsp+58h] [rbp+10h] BYREF
 
-  a2->IoStatus.Information = 0LL;
-  v4 = *(_DWORD *)(a3 + 16) < 0x10u;
   v19 = 0;
-  if ( v4 )
+  v3 = 0LL;
+  a2->IoStatus.Information = 0LL;
+  v4 = 0LL;
+  if ( *(_DWORD *)(a3 + 16) < 0x10u )
   {
-    v5 = -1073741820;
-    goto LABEL_32;
+    v11 = -1073741820;
+    goto LABEL_13;
   }
   v6 = *(_DWORD *)(a3 + 8);
   if ( v6 < 0x14 )
   {
-    v5 = -1073741789;
-    goto LABEL_32;
+    v11 = -1073741789;
+    goto LABEL_13;
   }
-  v20 = *(_QWORD *)(ACPIInternalGetDeviceExtension(a1) + 760);
-  if ( !v20 )
+  v7 = *(_QWORD *)(ACPIInternalGetDeviceExtension(a1) + 720);
+  if ( !v7 )
   {
-    v5 = -1073741810;
-    goto LABEL_32;
+    v11 = -1073741810;
+    goto LABEL_13;
   }
   MasterIrp = a2->AssociatedIrp.MasterIrp;
   if ( *(_DWORD *)&MasterIrp->Type != 1214866753 )
   {
-    v5 = -1073741585;
-    goto LABEL_32;
+    v11 = -1073741585;
+    goto LABEL_13;
   }
-  v8 = *(_DWORD *)&MasterIrp->AllocationProcessorNumber;
+  v9 = *(_DWORD *)&MasterIrp->AllocationProcessorNumber;
   MdlAddress = (int)MasterIrp->MdlAddress;
-  if ( (MasterIrp->AllocationProcessorNumber & 3) == 3 || (v8 & 7) == 0 || (v8 & 4) != 0 && !MdlAddress )
+  if ( (MasterIrp->AllocationProcessorNumber & 3) != 3 && (v9 & 7) != 0 && ((v9 & 4) == 0 || MdlAddress) )
   {
-    v5 = -1072431089;
-    goto LABEL_32;
-  }
-  v10 = *(_DWORD *)&MasterIrp->AllocationProcessorNumber & 1;
-  if ( MdlAddress )
-  {
-    MdlAddress_low = LODWORD(MasterIrp->MdlAddress);
-    Pool2 = (char *)ExAllocatePool2(64LL, MdlAddress_low, 1383097153LL);
-    v13 = Pool2;
-    if ( !Pool2 )
+    v14 = *(_DWORD *)&MasterIrp->AllocationProcessorNumber & 1;
+    if ( MdlAddress )
     {
-LABEL_15:
-      v5 = -1073741670;
-      goto LABEL_32;
-    }
-    memmove(Pool2, (char *)&MasterIrp->MdlAddress + 4, MdlAddress_low);
-    _strupr(v13);
-  }
-  else
-  {
-    v14 = (char *)ExAllocatePool2(64LL, 2LL, 1383097153LL);
-    v13 = v14;
-    if ( !v14 )
-      goto LABEL_15;
-    *v14 = 0;
-    v10 |= 2u;
-  }
-  v15 = (PVOID *)ExAllocatePool2(64LL, 40LL, 1383097153LL);
-  if ( v15 )
-  {
-    v16 = ExAllocatePool2(64LL, 40LL, 1383097153LL);
-    v15[1] = (PVOID)v16;
-    if ( v16 )
-    {
-      v5 = AMLIFindNameSpaceObject(v20, v15, v10, v13);
-      if ( v5 >= 0 )
+      MdlAddress_low = LODWORD(MasterIrp->MdlAddress);
+      PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, MdlAddress_low, 0x52706341u);
+      v4 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        v5 = ACPIIoctlEnumChildrenPopulateOutputBuffer(MasterIrp, v6, &v19, v15);
-        a2->IoStatus.Information = v19;
+        memmove(PoolWithTag, (char *)&MasterIrp->MdlAddress + 4, MdlAddress_low);
+        _strupr(v4);
+        goto LABEL_19;
       }
     }
     else
     {
-      v5 = -1073741670;
+      v15 = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 2uLL, 0x52706341u);
+      v4 = v15;
+      if ( v15 )
+      {
+        *v15 = 0;
+        v14 |= 2u;
+LABEL_19:
+        v3 = (__int64 *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x52706341u);
+        if ( v3
+          && (*(_OWORD *)v3 = 0LL,
+              *((_OWORD *)v3 + 1) = 0LL,
+              v3[4] = 0LL,
+              v16 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x52706341u),
+              (v3[1] = (__int64)v16) != 0) )
+        {
+          *v16 = 0LL;
+          v16[1] = 0LL;
+          *((_QWORD *)v16 + 4) = 0LL;
+          v11 = AMLIFindNameSpaceObject(v7, v3, v14, v4);
+          if ( v11 >= 0 )
+          {
+            v11 = ACPIIoctlEnumChildrenPopulateOutputBuffer(MasterIrp, v6, &v19, v3);
+            a2->IoStatus.Information = v19;
+          }
+        }
+        else
+        {
+          v11 = -1073741670;
+        }
+        goto LABEL_7;
+      }
     }
+    v11 = -1073741670;
+    goto LABEL_13;
   }
-  else
+  v11 = -1072431089;
+LABEL_7:
+  if ( v4 )
+    ExFreePoolWithTag(v4, 0x52706341u);
+  if ( v3 )
   {
-    v5 = -1073741670;
-  }
-  if ( v13 )
-    ExFreePoolWithTag(v13, 0x52706341u);
-  if ( v15 )
-  {
-    v17 = v15[1];
-    if ( v17 )
+    v12 = v3[1];
+    if ( v12 )
     {
-      dword_1C006F938 = 0;
+      dword_1C0082908 = 0;
       pszDest = 0;
-      FreeDataBuffs(v17, 1LL);
-      ExFreePoolWithTag(v15[1], 0x52706341u);
-      v15[1] = 0LL;
+      FreeDataBuffs(v12, 1u);
+      ExFreePoolWithTag((PVOID)v3[1], 0x52706341u);
+      v3[1] = 0LL;
     }
-    dword_1C006F938 = 0;
+    dword_1C0082908 = 0;
     pszDest = 0;
-    FreeDataBuffs(v15, 1LL);
-    ExFreePoolWithTag(v15, 0x52706341u);
+    FreeDataBuffs((__int64)v3, 1u);
+    ExFreePoolWithTag(v3, 0x52706341u);
   }
-LABEL_32:
-  a2->IoStatus.Status = v5;
+LABEL_13:
+  a2->IoStatus.Status = v11;
   IofCompleteRequest(a2, 0);
-  return (unsigned int)v5;
+  return (unsigned int)v11;
 }

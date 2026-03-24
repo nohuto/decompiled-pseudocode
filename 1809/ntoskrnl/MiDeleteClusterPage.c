@@ -1,5 +1,5 @@
 /*
- * XREFs of MiDeleteClusterPage @ 0x1402C612C
+ * XREFs of MiDeleteClusterPage @ 0x1402C622C
  * Callers:
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
  * Callees:
@@ -14,9 +14,9 @@
  *     MiAbortCombineScan @ 0x140082668 (MiAbortCombineScan.c)
  *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
  *     MiInsertLargePageInNodeListHelper @ 0x14009BAC0 (MiInsertLargePageInNodeListHelper.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDeleteClusterPage(unsigned __int64 a1, unsigned __int8 *a2, __int64 a3)

@@ -1,24 +1,24 @@
 /*
- * XREFs of PspCompleteHardDereferenceSiloDeferred @ 0x1407F6F10
+ * XREFs of PspCompleteHardDereferenceSiloDeferred @ 0x1405D84D0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PspStorageEmptyArrayNonReadonly @ 0x140375248 (PspStorageEmptyArrayNonReadonly.c)
+ *     PspStorageEmptyArrayNonReadonly @ 0x140200C90 (PspStorageEmptyArrayNonReadonly.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
  */
 
-LONG_PTR __fastcall PspCompleteHardDereferenceSiloDeferred(_QWORD *Object)
+void __fastcall PspCompleteHardDereferenceSiloDeferred(PADAPTER_OBJECT DmaAdapter)
 {
-  __int64 v1; // rbx
-  __int64 v3; // rcx
+  _DMA_OPERATIONS *DmaOperations; // rbx
+  __int64 BuildScatterGatherListEx; // rcx
 
-  v1 = Object[187];
-  if ( v1 )
+  DmaOperations = DmaAdapter[81].DmaOperations;
+  if ( DmaOperations )
   {
-    PspStorageEmptyArrayNonReadonly(Object[187], 0x20u);
-    v3 = *(_QWORD *)(v1 + 512);
-    if ( v3 )
-      PspStorageEmptyArrayNonReadonly(v3, 0x100u);
+    PspStorageEmptyArrayNonReadonly((__int64)DmaAdapter[81].DmaOperations, 0x20u);
+    BuildScatterGatherListEx = (__int64)DmaOperations[1].BuildScatterGatherListEx;
+    if ( BuildScatterGatherListEx )
+      PspStorageEmptyArrayNonReadonly(BuildScatterGatherListEx, 0x100u);
   }
-  return ObfDereferenceObject(Object);
+  HalPutDmaAdapter(DmaAdapter);
 }

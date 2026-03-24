@@ -1,23 +1,23 @@
 /*
- * XREFs of ?AnimationTriggerTrigger@CChannel@@UEAAJI_K@Z @ 0x1801A9CF0
+ * XREFs of ?AnimationTriggerTrigger@CChannel@@UEAAJI_K@Z @ 0x18001FB30
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
-__int64 __fastcall CChannel::AnimationTriggerTrigger(CDataStreamWriter **this, unsigned int a2, __int64 a3)
+__int64 __fastcall CChannel::AnimationTriggerTrigger(CChannel *this, unsigned int a2, __int64 a3)
 {
   unsigned int v6; // ebx
   _DWORD v8[2]; // [rsp+20h] [rbp-18h] BYREF
   __int64 v9; // [rsp+28h] [rbp-10h]
-  struct _RTL_CRITICAL_SECTION *v10; // [rsp+40h] [rbp+8h] BYREF
+  char *v10; // [rsp+40h] [rbp+8h] BYREF
 
-  v10 = (struct _RTL_CRITICAL_SECTION *)(this + 21);
-  EnterCriticalSection((LPCRITICAL_SECTION)(this + 21));
-  CChannel::CheckHandle((__int64)this, a2, 92);
+  v10 = (char *)this + 168;
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
+  CChannel::CheckHandle(this, a2, 92LL);
   v8[0] = _mm_load_si128((const __m128i *)&_xmm).m128i_u32[0];
   v8[1] = a2;
   v9 = a3;

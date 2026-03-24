@@ -7,7 +7,7 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiLockPageAndSetDirty @ 0x140086028 (MiLockPageAndSetDirty.c)
  *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x1401256BC (MiCaptureWriteWatchDirtyBit.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x1401256DC (MiCaptureWriteWatchDirtyBit.c)
  */
 
 char __fastcall MiMakeCombineCandidateClean(unsigned __int64 a1, __int64 a2)

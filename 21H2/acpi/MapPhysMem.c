@@ -1,9 +1,9 @@
 /*
- * XREFs of MapPhysMem @ 0x1C0025610
+ * XREFs of MapPhysMem @ 0x1C002A064
  * Callers:
- *     MapUnmapPhysMem @ 0x1C0025584 (MapUnmapPhysMem.c)
+ *     MapUnmapPhysMem @ 0x1C0029FF0 (MapUnmapPhysMem.c)
  * Callees:
- *     AmlpValidateFirmwareMemoryAddress @ 0x1C00256B8 (AmlpValidateFirmwareMemoryAddress.c)
+ *     AmlpValidateFirmwareMemoryAddress @ 0x1C002A10C (AmlpValidateFirmwareMemoryAddress.c)
  */
 
 __int64 __fastcall MapPhysMem(ULONG_PTR a1, unsigned int a2, __int64 *a3)

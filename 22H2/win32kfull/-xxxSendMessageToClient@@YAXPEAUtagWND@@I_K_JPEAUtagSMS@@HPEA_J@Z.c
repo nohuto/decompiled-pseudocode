@@ -1,15 +1,15 @@
 /*
- * XREFs of ?xxxSendMessageToClient@@YAXPEAUtagWND@@I_K_JPEAUtagSMS@@HPEA_J@Z @ 0x1C0127BE0
+ * XREFs of ?xxxSendMessageToClient@@YAXPEAUtagWND@@I_K_JPEAUtagSMS@@HPEA_J@Z @ 0x1C0059E70
  * Callers:
- *     xxxSendMessageCallback @ 0x1C004D5BC (xxxSendMessageCallback.c)
- *     xxxReceiveMessage @ 0x1C01267C0 (xxxReceiveMessage.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
+ *     xxxSendMessageCallback @ 0x1C0040544 (xxxSendMessageCallback.c)
+ *     xxxReceiveMessage @ 0x1C0058F60 (xxxReceiveMessage.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
  * Callees:
- *     xxxDefWindowProc @ 0x1C0020FF0 (xxxDefWindowProc.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     SfnDWORD @ 0x1C0123CE0 (SfnDWORD.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     PrepareSentPointerMessageForClient @ 0x1C01C4208 (PrepareSentPointerMessageForClient.c)
+ *     xxxDefWindowProc @ 0x1C00484E0 (xxxDefWindowProc.c)
+ *     SfnDWORD @ 0x1C006B320 (SfnDWORD.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     PrepareSentPointerMessageForClient @ 0x1C01EF4A0 (PrepareSentPointerMessageForClient.c)
  */
 
 void __fastcall xxxSendMessageToClient(
@@ -21,187 +21,195 @@ void __fastcall xxxSendMessageToClient(
         int a6,
         __int64 *a7)
 {
-  __int64 v7; // r13
-  unsigned int v8; // edi
-  __int64 v10; // rcx
-  __int64 v11; // rbx
-  int v12; // eax
-  int v13; // eax
-  int v14; // eax
-  int v15; // eax
-  char *v16; // r15
-  char v17; // si
-  BOOL v18; // r12d
-  __int64 v19; // rax
-  __int64 v20; // rdx
+  __int64 v7; // r12
+  __int64 v8; // r15
+  unsigned int v9; // edi
+  int v11; // ecx
+  char v12; // si
+  __int64 v13; // r13
+  BOOL v14; // r14d
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // rax
+  __int64 v18; // r8
+  unsigned __int16 v19; // cx
+  __int64 v20; // r10
   __int64 v21; // rcx
-  __int64 v22; // r8
-  unsigned __int16 v23; // cx
+  __int64 v22; // rax
+  __int64 v23; // rcx
   __int64 v24; // r11
-  __int64 v25; // rcx
-  __int64 v26; // rax
-  __int64 v27; // rcx
-  __int64 v28; // r9
-  __int64 v29; // rdx
-  int v30; // ebx
-  __int64 v31; // rax
-  __int64 v32; // rdx
-  __int64 v33; // r8
-  __int64 *v34; // rcx
-  __int64 v35; // rdx
-  __int64 v36; // rcx
-  __int64 v37; // rdi
-  __int64 v38; // r8
-  _QWORD *v39; // r13
-  __int64 CurrentProcessWow64Process; // rax
-  ULONG v41; // r8d
-  signed __int32 v42[8]; // [rsp+0h] [rbp-B8h] BYREF
-  BOOL v43; // [rsp+30h] [rbp-88h]
-  struct tagSMS *v44; // [rsp+38h] [rbp-80h]
-  char v45; // [rsp+50h] [rbp-68h]
-  BOOL v46; // [rsp+54h] [rbp-64h]
-  char *v47; // [rsp+58h] [rbp-60h]
-  __int128 v48; // [rsp+68h] [rbp-50h] BYREF
-  __int64 v49; // [rsp+78h] [rbp-40h]
-  unsigned int v50; // [rsp+C8h] [rbp+10h] BYREF
-  __int64 v51; // [rsp+D0h] [rbp+18h] BYREF
-  __int64 v52; // [rsp+D8h] [rbp+20h] BYREF
+  __int64 v25; // rdx
+  struct _KTHREAD *CurrentThread; // r12
+  __int64 v27; // r15
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  __int64 *ThreadWin32Thread; // rax
+  __int64 v32; // rcx
+  __int64 v33; // r15
+  _QWORD *v34; // rdi
+  ULONG v35; // r8d
+  int v36; // esi
+  __int64 v37; // rax
+  __int64 *v38; // rcx
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // edi
+  __int64 v41; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v43; // rax
+  signed __int32 v44[8]; // [rsp+0h] [rbp-B8h] BYREF
+  BOOL v45; // [rsp+30h] [rbp-88h]
+  struct tagSMS *v46; // [rsp+38h] [rbp-80h]
+  char v47; // [rsp+50h] [rbp-68h]
+  BOOL v48; // [rsp+54h] [rbp-64h]
+  __int128 v49; // [rsp+60h] [rbp-58h] BYREF
+  __int64 v50; // [rsp+70h] [rbp-48h]
+  unsigned int v51; // [rsp+C8h] [rbp+10h] BYREF
+  __int64 v52; // [rsp+D0h] [rbp+18h] BYREF
+  __int64 v53; // [rsp+D8h] [rbp+20h] BYREF
 
-  v52 = a4;
-  v51 = a3;
-  v50 = a2;
-  v7 = a3;
-  v8 = a2;
-  v10 = 1LL;
-  v11 = 0LL;
-  if ( a2 - 577 <= 3 )
-    goto LABEL_37;
-  if ( a2 < 0x245 || a2 > 0x257 || (v12 = 1, a2 == 589) )
-    v12 = 0;
-  if ( v12 )
-LABEL_37:
-    v13 = 1;
-  else
-    v13 = 0;
-  if ( !v13 || (v14 = 1, a2 == 595) )
-    v14 = 0;
-  if ( v14 || (a2 != 528 || (_WORD)a3 != 582 ? (v15 = 0) : (v15 = 1), v15) )
+  v53 = a4;
+  v52 = a3;
+  v51 = a2;
+  v7 = a4;
+  v8 = a3;
+  v9 = a2;
+  if ( a2 - 577 <= 0x16 && (v11 = 8122367, _bittest(&v11, a2 - 577)) || a2 == 528 && (_WORD)a3 == 582 )
   {
     if ( (_WORD)a3 != 1 )
     {
-      if ( !(unsigned int)PrepareSentPointerMessageForClient(&v50, &v51, &v52, 0LL) )
+      if ( !(unsigned int)PrepareSentPointerMessageForClient(&v51, &v52, &v53, 0LL) )
       {
         *a7 = 0LL;
         return;
       }
-      v7 = v51;
-      v8 = v50;
+      v7 = v53;
+      v8 = v52;
+      v9 = v51;
     }
   }
-  v16 = (char *)a1 + 40;
-  v47 = (char *)a1 + 40;
-  v17 = *(_BYTE *)(*((_QWORD *)a1 + 5) + 18LL) & 8;
-  v45 = v17;
-  v18 = v17 != 0;
-  v46 = v18;
-  if ( (unsigned int)PsGetWin32KFilterSet(v10) == 5 )
+  v12 = *(_BYTE *)(*((_QWORD *)a1 + 5) + 18LL) & 8;
+  v47 = v12;
+  v13 = 0LL;
+  v14 = v12 != 0;
+  v48 = v14;
+  if ( (unsigned int)PsGetWin32KFilterSet() == 5 )
   {
-    v37 = *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 480);
-    v39 = *(_QWORD **)(v37 + 248);
-    _InterlockedOr(v42, 0);
-    if ( v39 )
+    CurrentThread = KeGetCurrentThread();
+    v27 = 0LL;
+    if ( !(unsigned __int8)KeIsAttachedProcess(v15)
+      || (CurrentProcess = PsGetCurrentProcess(v29, v28, v30),
+          ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+          CurrentThreadProcess = PsGetCurrentThreadProcess(v41),
+          ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
     {
-      CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v36, v35, v38);
-      v41 = 4;
-      if ( CurrentProcessWow64Process )
-        v41 = 1;
-      ProbeForRead(v39, 0x20uLL, v41);
-      if ( *v39 )
+      ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+      if ( ThreadWin32Thread )
+        v27 = *ThreadWin32Thread;
+    }
+    v33 = *(_QWORD *)(v27 + 480);
+    v34 = *(_QWORD **)(v33 + 248);
+    _InterlockedOr(v44, 0);
+    if ( v34 )
+    {
+      v35 = PsGetCurrentProcessWow64Process(v32) ? 1 : 4;
+      ProbeForRead(v34, 0x20uLL, v35);
+      if ( *v34 )
       {
-        *(_QWORD *)(v37 + 224) |= 0x100uLL;
-        v7 = v51;
-        v8 = v50;
-LABEL_14:
-        if ( (v8 & 0x1FFFF) >= 0x400 )
+        *(_QWORD *)(v33 + 224) |= 0x100uLL;
+        v7 = v53;
+        v8 = v52;
+        v9 = v51;
+LABEL_6:
+        v16 = *(_QWORD *)(*((_QWORD *)a1 + 5) + 120LL);
+        if ( (v9 & 0x1FFFF) >= 0x400 )
         {
-          v20 = *(_QWORD *)(gpsi + 752LL);
-          v21 = *(_QWORD *)(*(_QWORD *)v16 + 120LL);
-          v44 = a5;
-          v43 = v18;
-          v19 = SfnDWORD((__int64 *)a1, v8, v7, v52, v21, v20);
+          v46 = a5;
+          v45 = v14;
+          v17 = SfnDWORD((_DWORD)a1, v9, v8, v7, v16, *(_QWORD *)(gpsi + 752LL));
         }
         else
         {
-          v19 = ((__int64 (__fastcall *)(struct tagWND *, _QWORD, __int64, __int64, _QWORD, _QWORD, BOOL, struct tagSMS *))gapfnScSendMessage[(unsigned __int8)MessageTable[(unsigned __int16)v8]])(
+          v17 = ((__int64 (__fastcall *)(struct tagWND *, _QWORD, __int64, __int64, __int64, _QWORD, BOOL, struct tagSMS *))gapfnScSendMessage[(unsigned __int8)MessageTable[(unsigned __int16)v9]])(
                   a1,
+                  v9,
                   v8,
                   v7,
-                  v52,
-                  *(_QWORD *)(*(_QWORD *)v16 + 120LL),
+                  v16,
                   *(_QWORD *)(gpsi + 752LL),
-                  v18,
+                  v14,
                   a5);
         }
-LABEL_16:
-        *a7 = v19;
+LABEL_8:
+        *a7 = v17;
         return;
       }
     }
-    v7 = v51;
-    v8 = v50;
+    v7 = v53;
+    v8 = v52;
+    v9 = v51;
   }
   if ( gihmodUserApiHook >= 0 )
-    goto LABEL_14;
+    goto LABEL_6;
   if ( gihmodDManipHook >= 0 )
-    goto LABEL_14;
-  if ( v8 == 90 )
-    goto LABEL_14;
-  v22 = *(_QWORD *)v16;
-  v23 = *(_WORD *)(*(_QWORD *)v16 + 42LL) & 0x2FFF;
-  if ( (unsigned __int16)(v23 - 673) > 9u )
-    goto LABEL_14;
-  v24 = v23;
-  v25 = v23 - 666LL;
-  v26 = *(_QWORD *)(v22 + 120);
-  if ( v26 != *(_QWORD *)(gpsi + 8 * v25 + 584) && v26 != *(_QWORD *)(gpsi + 8 * v25 + 392) )
-    goto LABEL_14;
-  v27 = 2 * v25;
-  v28 = gSharedInfo[v27 + 6];
-  if ( !v28
-    || v8 <= LODWORD(gSharedInfo[v27 + 5])
-    && ((unsigned __int8)(1 << (v8 & 7)) & *(_BYTE *)(((unsigned __int64)v8 >> 3) + v28)) != 0
-    || (*(_BYTE *)(v22 + 18) & 1) != 0 )
+    goto LABEL_6;
+  if ( v9 == 90 )
+    goto LABEL_6;
+  v18 = *((_QWORD *)a1 + 5);
+  v19 = *(_WORD *)(v18 + 42) & 0x2FFF;
+  if ( (unsigned __int16)(v19 - 673) > 9u )
+    goto LABEL_6;
+  v20 = v19;
+  v21 = v19 - 666LL;
+  v22 = *(_QWORD *)(v18 + 120);
+  if ( v22 != *(_QWORD *)(gpsi + 8 * v21 + 584) && v22 != *(_QWORD *)(gpsi + 8 * v21 + 392) )
+    goto LABEL_6;
+  v23 = 2 * v21;
+  v24 = gSharedInfo[v23 + 6];
+  if ( !v24
+    || v9 <= LODWORD(gSharedInfo[v23 + 5])
+    && ((unsigned __int8)(1 << (v9 & 7)) & *(_BYTE *)(((unsigned __int64)v9 >> 3) + v24)) != 0
+    || (*(_BYTE *)(v18 + 18) & 1) != 0 )
   {
-    LOBYTE(v11) = v17 != 0;
-    v29 = gpsi + 8 * v24;
-    if ( (v8 & 0x1FFFF) >= 0x400 )
+    LOBYTE(v13) = v12 != 0;
+    v25 = gpsi + 8 * v20;
+    if ( (v9 & 0x1FFFF) >= 0x400 )
     {
-      v44 = a5;
-      v43 = v18;
-      v19 = SfnDWORD((__int64 *)a1, v8, v7, v52, v11, *(_QWORD *)(v29 - 4608));
+      v46 = a5;
+      v45 = v14;
+      v17 = SfnDWORD((_DWORD)a1, v9, v8, v7, v13, *(_QWORD *)(v25 - 4608));
     }
     else
     {
-      v19 = ((__int64 (__fastcall *)(struct tagWND *, _QWORD, __int64, __int64, __int64, _QWORD, BOOL, struct tagSMS *))gapfnScSendMessage[(unsigned __int8)MessageTable[(unsigned __int16)v8]])(
+      v17 = ((__int64 (__fastcall *)(struct tagWND *, _QWORD, __int64, __int64, __int64, _QWORD, BOOL, struct tagSMS *))gapfnScSendMessage[(unsigned __int8)MessageTable[(unsigned __int16)v9]])(
               a1,
+              v9,
               v8,
               v7,
-              v52,
-              v11,
-              *(_QWORD *)(v29 - 4608),
-              v18,
+              v13,
+              *(_QWORD *)(v25 - 4608),
+              v14,
               a5);
     }
-    goto LABEL_16;
+    goto LABEL_8;
   }
-  v48 = 0LL;
   v49 = 0LL;
-  v30 = a6;
+  v50 = 0LL;
+  v36 = a6;
   if ( a6 )
-    ThreadLock(a1, &v48);
-  v31 = xxxDefWindowProc(a1, v8, v7, v52);
-  v34 = a7;
-  *a7 = v31;
-  if ( v30 )
-    ThreadUnlock1(v34, v32, v33);
+  {
+    v43 = W32GetThreadWin32Thread(KeGetCurrentThread());
+    *(_QWORD *)&v49 = *(_QWORD *)(v43 + 416);
+    *(_QWORD *)(v43 + 416) = &v49;
+    *((_QWORD *)&v49 + 1) = a1;
+    HMLockObject(a1);
+    v7 = v53;
+    v8 = v52;
+    v9 = v51;
+  }
+  v37 = xxxDefWindowProc(a1, v9, v8, v7);
+  v38 = a7;
+  *a7 = v37;
+  if ( v36 )
+    ThreadUnlock1(v38);
 }

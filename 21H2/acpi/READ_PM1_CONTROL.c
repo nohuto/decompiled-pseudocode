@@ -1,11 +1,11 @@
 /*
- * XREFs of READ_PM1_CONTROL @ 0x1C0024548
+ * XREFs of READ_PM1_CONTROL @ 0x1C00100C8
  * Callers:
- *     ACPIEnableEnterACPIMode @ 0x1C0024388 (ACPIEnableEnterACPIMode.c)
- *     ACPIEnableInitializeACPI @ 0x1C00244C0 (ACPIEnableInitializeACPI.c)
- *     ACPILateRestore @ 0x1C005B700 (ACPILateRestore.c)
+ *     ACPIEnableEnterACPIMode @ 0x1C000FF0C (ACPIEnableEnterACPIMode.c)
+ *     ACPIEnableInitializeACPI @ 0x1C0010040 (ACPIEnableInitializeACPI.c)
+ *     ACPILateRestore @ 0x1C005A7F0 (ACPILateRestore.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 READ_PM1_CONTROL()

@@ -1,5 +1,5 @@
 /*
- * XREFs of MiCopyDirectMapHeader @ 0x140852BC4
+ * XREFs of MiCopyDirectMapHeader @ 0x140852BA4
  * Callers:
  *     MiCreateImageFileMap @ 0x14061CEB8 (MiCreateImageFileMap.c)
  * Callees:
@@ -7,18 +7,18 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiDeleteSegmentPages @ 0x140094E38 (MiDeleteSegmentPages.c)
  *     MiUpdateSystemProtoPtesTree @ 0x140096060 (MiUpdateSystemProtoPtesTree.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiGetPteFromCopyList @ 0x14012D7E8 (MiGetPteFromCopyList.c)
- *     MiCreatePteCopyList @ 0x14012EBC0 (MiCreatePteCopyList.c)
- *     MiPartitionIdToPointer @ 0x140134CC8 (MiPartitionIdToPointer.c)
- *     KeCopyPage @ 0x1401C09B0 (KeCopyPage.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiReturnPteMappingPair @ 0x1402CE108 (MiReturnPteMappingPair.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiGetPteFromCopyList @ 0x14012D808 (MiGetPteFromCopyList.c)
+ *     MiCreatePteCopyList @ 0x14012EBE0 (MiCreatePteCopyList.c)
+ *     MiPartitionIdToPointer @ 0x140134CE8 (MiPartitionIdToPointer.c)
+ *     KeCopyPage @ 0x1401C09D0 (KeCopyPage.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiReturnPteMappingPair @ 0x1402CE208 (MiReturnPteMappingPair.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MiInitializePrototypePtes @ 0x14061F030 (MiInitializePrototypePtes.c)
- *     MiAllocateFileExtents @ 0x1408521D0 (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x1408521B0 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiCopyDirectMapHeader(__int64 a1, __int64 a2)

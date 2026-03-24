@@ -1,9 +1,9 @@
 /*
- * XREFs of KiQueryEffectivePriorityThread @ 0x1400D1430
+ * XREFs of KiQueryEffectivePriorityThread @ 0x1400D1450
  * Callers:
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B7C (KiUpdatePriorityMatrixThreadState.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
  * Callees:
- *     KiIsThreadRankNonZero @ 0x1400D1460 (KiIsThreadRankNonZero.c)
+ *     KiIsThreadRankNonZero @ 0x1400D1480 (KiIsThreadRankNonZero.c)
  */
 
 __int64 __fastcall KiQueryEffectivePriorityThread(__int64 a1, __int64 a2)

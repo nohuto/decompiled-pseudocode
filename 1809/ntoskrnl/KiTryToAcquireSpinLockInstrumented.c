@@ -1,10 +1,10 @@
 /*
- * XREFs of KiTryToAcquireSpinLockInstrumented @ 0x140290E64
+ * XREFs of KiTryToAcquireSpinLockInstrumented @ 0x140290F64
  * Callers:
- *     KxTryToAcquireSpinLock @ 0x14011BAB4 (KxTryToAcquireSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x14011BAD4 (KxTryToAcquireSpinLock.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     PerfLogSpinLockAcquire @ 0x1403139C4 (PerfLogSpinLockAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     PerfLogSpinLockAcquire @ 0x140313AC4 (PerfLogSpinLockAcquire.c)
  */
 
 char __fastcall KiTryToAcquireSpinLockInstrumented(volatile signed __int32 *a1)

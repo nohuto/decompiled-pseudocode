@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x18010A570
+ * XREFs of ?GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x1800F7DD0
  * Callers:
  *     <none>
  * Callees:

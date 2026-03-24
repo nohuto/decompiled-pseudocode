@@ -1,23 +1,23 @@
 /*
- * XREFs of AlpcpReferenceConnectedPort @ 0x14069B58C
+ * XREFs of AlpcpReferenceConnectedPort @ 0x1405E9F00
  * Callers:
- *     AlpcpPortQueryConnectedSidInfo @ 0x14069B030 (AlpcpPortQueryConnectedSidInfo.c)
- *     AlpcpPortQueryServerSessionInfo @ 0x14069B48C (AlpcpPortQueryServerSessionInfo.c)
- *     AlpcpExposeHandleAttribute @ 0x1407A98B0 (AlpcpExposeHandleAttribute.c)
- *     NtAlpcImpersonateClientOfPort @ 0x1407B0A20 (NtAlpcImpersonateClientOfPort.c)
- *     AlpcpImpersonateMessage @ 0x1407B0C70 (AlpcpImpersonateMessage.c)
+ *     AlpcpExposeHandleAttribute @ 0x1405E89F0 (AlpcpExposeHandleAttribute.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x1405E9A10 (NtAlpcImpersonateClientOfPort.c)
+ *     AlpcpImpersonateMessage @ 0x1405E9BE0 (AlpcpImpersonateMessage.c)
+ *     AlpcpPortQueryServerSessionInfo @ 0x14068221C (AlpcpPortQueryServerSessionInfo.c)
+ *     AlpcpPortQueryConnectedSidInfo @ 0x1406823B8 (AlpcpPortQueryConnectedSidInfo.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x1402240B0 (ObReferenceObjectSafe.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
  */
 
 __int64 __fastcall AlpcpReferenceConnectedPort(__int64 a1)
 {
   __int64 v2; // rbx
-  __int64 v3; // rsi
+  __int64 v3; // rdi
   int v4; // eax
 
   v2 = 0LL;
@@ -36,7 +36,7 @@ __int64 __fastcall AlpcpReferenceConnectedPort(__int64 a1)
     {
       if ( v4 != 6 )
       {
-LABEL_8:
+LABEL_9:
         if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v3 - 16), 0LL, 17LL) != 17 )
           ExfReleasePushLockShared((signed __int64 *)(v3 - 16));
         KeAbPostRelease(v3 - 16);
@@ -44,9 +44,9 @@ LABEL_8:
       }
       v2 = *(_QWORD *)(v3 + 16);
     }
-    if ( v2 )
-      v2 &= -(__int64)(ObReferenceObjectSafe(v2) != 0);
-    goto LABEL_8;
+    if ( v2 && !ObReferenceObjectSafe(v2) )
+      v2 = 0LL;
+    goto LABEL_9;
   }
   ObfReferenceObject((PVOID)a1);
   return a1;

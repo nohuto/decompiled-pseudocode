@@ -7,10 +7,10 @@
  *     ObReferenceObjectByNameEx @ 0x14061145C (ObReferenceObjectByNameEx.c)
  *     WmipCreateGuidObject @ 0x140611BC8 (WmipCreateGuidObject.c)
  *     PsOpenThread @ 0x140611DF0 (PsOpenThread.c)
- *     SeSubProcessToken @ 0x14064EA6C (SeSubProcessToken.c)
- *     NtGetNextProcess @ 0x140718D90 (NtGetNextProcess.c)
- *     NtGetNextThread @ 0x14088E9B0 (NtGetNextThread.c)
- *     CMFCheckAccess @ 0x1408D8404 (CMFCheckAccess.c)
+ *     SeSubProcessToken @ 0x14064EA4C (SeSubProcessToken.c)
+ *     NtGetNextProcess @ 0x140718D70 (NtGetNextProcess.c)
+ *     NtGetNextThread @ 0x14088E990 (NtGetNextThread.c)
+ *     CMFCheckAccess @ 0x1408D83E4 (CMFCheckAccess.c)
  * Callees:
  *     SeCreateAccessStateEx @ 0x140612280 (SeCreateAccessStateEx.c)
  */

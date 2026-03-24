@@ -1,38 +1,39 @@
 /*
- * XREFs of WPP_RECORDER_SF_qqss @ 0x1C000E14C
+ * XREFs of WPP_RECORDER_SF_qqss @ 0x1C001E288
  * Callers:
- *     ACPIFanDeviceControl @ 0x1C0003160 (ACPIFanDeviceControl.c)
- *     ACPIDevicePowerProcessPhase5DeviceSubPhase6 @ 0x1C0007E50 (ACPIDevicePowerProcessPhase5DeviceSubPhase6.c)
- *     ACPIDevicePowerProcessPhase1DeviceSubPhase4 @ 0x1C0007F80 (ACPIDevicePowerProcessPhase1DeviceSubPhase4.c)
- *     ACPIDevicePowerProcessPhase5DeviceSubPhase3 @ 0x1C00088C0 (ACPIDevicePowerProcessPhase5DeviceSubPhase3.c)
- *     ACPIDetectDuplicateHID @ 0x1C0009170 (ACPIDetectDuplicateHID.c)
- *     ACPIDevicePowerProcessPhase0DeviceSubPhase2 @ 0x1C0028810 (ACPIDevicePowerProcessPhase0DeviceSubPhase2.c)
- *     ACPIDevicePowerProcessPhase5DeviceSubPhase5 @ 0x1C00288F0 (ACPIDevicePowerProcessPhase5DeviceSubPhase5.c)
- *     ACPIWakeWaitIrp @ 0x1C002E510 (ACPIWakeWaitIrp.c)
- *     ACPIDockIrpQueryPower @ 0x1C00490D0 (ACPIDockIrpQueryPower.c)
- *     ACPIBusAndFilterIrpQueryRemovalRelations @ 0x1C004BEC8 (ACPIBusAndFilterIrpQueryRemovalRelations.c)
- *     ACPIDeviceCancelWaitWakeIrp @ 0x1C004F0F0 (ACPIDeviceCancelWaitWakeIrp.c)
- *     ACPIDevicePowerProcessPhase0SystemSubPhase1 @ 0x1C00502A0 (ACPIDevicePowerProcessPhase0SystemSubPhase1.c)
- *     ACPIDevicePowerProcessPhase5SystemSubPhase1 @ 0x1C0050A60 (ACPIDevicePowerProcessPhase5SystemSubPhase1.c)
- *     ACPIDevicePowerProcessPhase5SystemSubPhase2 @ 0x1C0050B60 (ACPIDevicePowerProcessPhase5SystemSubPhase2.c)
- *     ACPIDevicePowerProcessPhase5SystemSubPhase3 @ 0x1C0050C20 (ACPIDevicePowerProcessPhase5SystemSubPhase3.c)
- *     ACPIDevicePowerProcessPhase5SystemSubPhase4 @ 0x1C0050DC0 (ACPIDevicePowerProcessPhase5SystemSubPhase4.c)
- *     ACPIDevicePowerProcessPhase5SystemSubPhase5 @ 0x1C0050F80 (ACPIDevicePowerProcessPhase5SystemSubPhase5.c)
- *     ACPIDevicePowerProcessPhase5SystemSubPhase6 @ 0x1C0051080 (ACPIDevicePowerProcessPhase5SystemSubPhase6.c)
- *     ACPIFanCancelRequest @ 0x1C00548A0 (ACPIFanCancelRequest.c)
- *     ACPIQueryGedDeviceInterface @ 0x1C0057188 (ACPIQueryGedDeviceInterface.c)
- *     ACPIMatchKernelPorts @ 0x1C0059354 (ACPIMatchKernelPorts.c)
- *     ACPIThermalStartDevice @ 0x1C008F060 (ACPIThermalStartDevice.c)
- *     ACPIBusIrpQueryResources @ 0x1C00978C0 (ACPIBusIrpQueryResources.c)
- *     ACPIDockIrpEject @ 0x1C00AA350 (ACPIDockIrpEject.c)
- *     ACPIDockIrpQueryCapabilities @ 0x1C00AA5F0 (ACPIDockIrpQueryCapabilities.c)
- *     ACPIDockIrpQueryEjectRelations @ 0x1C00AAAB8 (ACPIDockIrpQueryEjectRelations.c)
- *     ACPIDockIrpQueryID @ 0x1C00AACA0 (ACPIDockIrpQueryID.c)
- *     ACPIDockIrpStartDevice @ 0x1C00AB2A0 (ACPIDockIrpStartDevice.c)
- *     ACPIBusAndFilterIrpEject @ 0x1C00AC2E0 (ACPIBusAndFilterIrpEject.c)
- *     ACPIRootIrpStartDevice @ 0x1C00BB260 (ACPIRootIrpStartDevice.c)
+ *     ACPIFanDeviceControl @ 0x1C000D400 (ACPIFanDeviceControl.c)
+ *     ACPIFanCompletePendingIrps @ 0x1C000D74C (ACPIFanCompletePendingIrps.c)
+ *     ACPIDetectDuplicateHID @ 0x1C001ADF4 (ACPIDetectDuplicateHID.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase5 @ 0x1C001B970 (ACPIDevicePowerProcessPhase5DeviceSubPhase5.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase6 @ 0x1C001BCC0 (ACPIDevicePowerProcessPhase5DeviceSubPhase6.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase3 @ 0x1C001C080 (ACPIDevicePowerProcessPhase5DeviceSubPhase3.c)
+ *     ACPIDevicePowerProcessPhase1DeviceSubPhase4 @ 0x1C001C330 (ACPIDevicePowerProcessPhase1DeviceSubPhase4.c)
+ *     ACPIDevicePowerProcessPhase0DeviceSubPhase2 @ 0x1C001C5F0 (ACPIDevicePowerProcessPhase0DeviceSubPhase2.c)
+ *     ACPIWakeWaitIrp @ 0x1C002E1E0 (ACPIWakeWaitIrp.c)
+ *     ACPIMatchKernelPorts @ 0x1C00317F4 (ACPIMatchKernelPorts.c)
+ *     ACPIDockIrpQueryPower @ 0x1C004A630 (ACPIDockIrpQueryPower.c)
+ *     ACPIBusAndFilterIrpQueryRemovalRelations @ 0x1C004D120 (ACPIBusAndFilterIrpQueryRemovalRelations.c)
+ *     ACPIDeviceCancelWaitWakeIrp @ 0x1C00502C0 (ACPIDeviceCancelWaitWakeIrp.c)
+ *     ACPIDevicePowerProcessPhase0SystemSubPhase1 @ 0x1C0050F20 (ACPIDevicePowerProcessPhase0SystemSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase1 @ 0x1C00514D0 (ACPIDevicePowerProcessPhase5SystemSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase2 @ 0x1C00515E0 (ACPIDevicePowerProcessPhase5SystemSubPhase2.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase3 @ 0x1C00516B0 (ACPIDevicePowerProcessPhase5SystemSubPhase3.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase4 @ 0x1C0051860 (ACPIDevicePowerProcessPhase5SystemSubPhase4.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase5 @ 0x1C0051A30 (ACPIDevicePowerProcessPhase5SystemSubPhase5.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase6 @ 0x1C0051B40 (ACPIDevicePowerProcessPhase5SystemSubPhase6.c)
+ *     ACPIFanCancelRequest @ 0x1C0055170 (ACPIFanCancelRequest.c)
+ *     ACPIQueryGedDeviceInterface @ 0x1C005688C (ACPIQueryGedDeviceInterface.c)
+ *     ACPIThermalStartDevice @ 0x1C009A540 (ACPIThermalStartDevice.c)
+ *     ACPIBusIrpQueryResources @ 0x1C009C0D0 (ACPIBusIrpQueryResources.c)
+ *     ACPIDockIrpEject @ 0x1C00AB550 (ACPIDockIrpEject.c)
+ *     ACPIDockIrpQueryCapabilities @ 0x1C00AB810 (ACPIDockIrpQueryCapabilities.c)
+ *     ACPIDockIrpQueryEjectRelations @ 0x1C00ABD18 (ACPIDockIrpQueryEjectRelations.c)
+ *     ACPIDockIrpQueryID @ 0x1C00ABF30 (ACPIDockIrpQueryID.c)
+ *     ACPIDockIrpStartDevice @ 0x1C00AC580 (ACPIDockIrpStartDevice.c)
+ *     ACPIBusAndFilterIrpEject @ 0x1C00AD6D0 (ACPIBusAndFilterIrpEject.c)
+ *     ACPIRootIrpStartDevice @ 0x1C00BB2A0 (ACPIRootIrpStartDevice.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_qqss(
@@ -132,5 +133,5 @@ __int64 __fastcall WPP_RECORDER_SF_qqss(
     while ( *(_BYTE *)(v10 + v15) );
   }
   LOWORD(v26) = v14;
-  return WppAutoLogTrace(a1, v13, a3, a5, v26, &a6, 8LL, &a7);
+  return WppAutoLogTrace(a1, v13, a3, a5, v26, &a6);
 }

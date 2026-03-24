@@ -1,9 +1,9 @@
 /*
- * XREFs of Bulk_EP_IsTransferEventLikelyDuplicate @ 0x1C0044680
+ * XREFs of Bulk_EP_IsTransferEventLikelyDuplicate @ 0x1C0043EE0
  * Callers:
  *     <none>
  * Callees:
- *     Bulk_IsTransferEventLikelyDuplicate_Internal @ 0x1C00447B8 (Bulk_IsTransferEventLikelyDuplicate_Internal.c)
+ *     Bulk_IsTransferEventLikelyDuplicate_Internal @ 0x1C00441A0 (Bulk_IsTransferEventLikelyDuplicate_Internal.c)
  */
 
 char __fastcall Bulk_EP_IsTransferEventLikelyDuplicate(__int64 a1, __int64 a2, __int64 a3)

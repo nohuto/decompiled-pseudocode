@@ -1,12 +1,12 @@
 /*
- * XREFs of AslRegistryGetUInt32_UStr @ 0x140A14ECC
+ * XREFs of AslRegistryGetUInt32_UStr @ 0x140967DE0
  * Callers:
- *     SdbResolveDatabaseEx @ 0x140A139FC (SdbResolveDatabaseEx.c)
- *     AslRegistryGetUInt32 @ 0x140A14E4C (AslRegistryGetUInt32.c)
+ *     SdbResolveDatabaseEx @ 0x140966A9C (SdbResolveDatabaseEx.c)
+ *     AslRegistryGetUInt32 @ 0x140967D60 (AslRegistryGetUInt32.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslRegistryGetUInt32_UStr(_DWORD *a1, void *a2, UNICODE_STRING *a3)

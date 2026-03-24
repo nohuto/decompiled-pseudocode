@@ -1,24 +1,24 @@
 /*
- * XREFs of AlpcViewDestroyProcedure @ 0x14071ED50
+ * XREFs of AlpcViewDestroyProcedure @ 0x14061E250
  * Callers:
  *     <none>
  * Callees:
- *     MiRemoveFromSystemSpace @ 0x1402137A0 (MiRemoveFromSystemSpace.c)
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MmUnsecureVirtualMemory @ 0x1406B0260 (MmUnsecureVirtualMemory.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E9AC (AlpcpDereferenceBlobEx.c)
- *     AlpcpRemoveResourcePort @ 0x14071ECD0 (AlpcpRemoveResourcePort.c)
- *     MiUnmapViewOfSection @ 0x14071F030 (MiUnmapViewOfSection.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14073A344 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x14073C150 (AlpcpUnlockBlob.c)
- *     AlpcpRestoreWriteAccess @ 0x1407C34A0 (AlpcpRestoreWriteAccess.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     MiUnmapViewOfSection @ 0x14061E510 (MiUnmapViewOfSection.c)
+ *     AlpcpRemoveResourcePort @ 0x14061E930 (AlpcpRemoveResourcePort.c)
+ *     MmUnsecureVirtualMemory @ 0x14061FB80 (MmUnsecureVirtualMemory.c)
+ *     AlpcpRestoreWriteAccess @ 0x14061FD70 (AlpcpRestoreWriteAccess.c)
+ *     MmUnmapViewInSystemSpace @ 0x14068F560 (MmUnmapViewInSystemSpace.c)
  */
 
 __int64 __fastcall AlpcViewDestroyProcedure(__int64 a1)
@@ -28,14 +28,14 @@ __int64 __fastcall AlpcViewDestroyProcedure(__int64 a1)
   _KPROCESS *Process; // rbp
   int v5; // ecx
   int v6; // eax
-  ULONG_PTR *v7; // rdi
+  _DWORD *v7; // r9
   _KPROCESS *v8; // rcx
   void *v9; // rcx
-  volatile signed __int64 *v10; // rbx
-  $115DCDF994C6370D29323EAB0E0C9502 v12; // [rsp+20h] [rbp-48h] BYREF
+  volatile signed __int64 *v10; // rdi
+  _OWORD v12[3]; // [rsp+20h] [rbp-48h] BYREF
 
   v1 = 0LL;
-  memset(&v12, 0, sizeof(v12));
+  memset(v12, 0, sizeof(v12));
   v3 = *(_QWORD *)(a1 + 16);
   Process = KeGetCurrentThread()->ApcState.Process;
   if ( v3 )
@@ -64,36 +64,34 @@ __int64 __fastcall AlpcViewDestroyProcedure(__int64 a1)
     }
     AlpcpUnlockBlob(v3);
     AlpcpRemoveResourcePort(*(_QWORD *)(a1 + 24), a1);
-    ObfDereferenceObject(*(PVOID *)(a1 + 24));
+    HalPutDmaAdapter(*(PADAPTER_OBJECT *)(a1 + 24));
     if ( (*(_DWORD *)(a1 + 72) & 8) != 0 )
     {
-      MiRemoveFromSystemSpace(*(_QWORD *)(a1 + 40), 1);
-      v7 = (ULONG_PTR *)(a1 + 32);
+      MmUnmapViewInSystemSpace(*(PVOID *)(a1 + 40));
     }
     else
     {
-      v7 = (ULONG_PTR *)(a1 + 32);
       v8 = *(_KPROCESS **)(a1 + 32);
       if ( Process != v8 )
-        KiStackAttachProcess(v8, 0, (__int64)&v12);
+        KiStackAttachProcess(v8, 0LL, (__int64)v12, v7);
       v9 = *(void **)(a1 + 56);
       if ( v9 )
         MmUnsecureVirtualMemory(v9);
-      MiUnmapViewOfSection(*v7);
-      if ( Process != (_KPROCESS *)*v7 )
-        KiUnstackDetachProcess(&v12);
+      MiUnmapViewOfSection(*(_QWORD *)(a1 + 32));
+      if ( Process != *(_KPROCESS **)(a1 + 32) )
+        KiUnstackDetachProcess((__int64)v12, 0);
     }
     if ( v1 )
       AlpcpDereferenceBlobEx(v1, 1);
     AlpcpDereferenceBlobEx(*(_QWORD *)(a1 + 16), 1);
-    ExAcquirePushLockExclusiveEx(*v7 + 2048, 0LL);
+    ExAcquirePushLockExclusiveEx(*(_QWORD *)(a1 + 32) + 2048LL, 0LL);
     **(_QWORD **)(a1 + 88) = *(_QWORD *)(a1 + 80);
     *(_QWORD *)(*(_QWORD *)(a1 + 80) + 8LL) = *(_QWORD *)(a1 + 88);
-    v10 = (volatile signed __int64 *)(*v7 + 2048);
+    v10 = (volatile signed __int64 *)(*(_QWORD *)(a1 + 32) + 2048LL);
     if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v10);
     KeAbPostRelease((ULONG_PTR)v10);
-    ObfDereferenceObjectWithTag((PVOID)*v7, 0x63706C41u);
+    ObfDereferenceObjectWithTag(*(PVOID *)(a1 + 32), 0x63706C41u);
   }
   return 0LL;
 }

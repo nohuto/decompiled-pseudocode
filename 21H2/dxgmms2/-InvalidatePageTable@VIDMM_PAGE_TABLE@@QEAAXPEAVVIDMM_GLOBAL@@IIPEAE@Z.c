@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InvalidatePageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVVIDMM_GLOBAL@@IIPEAE@Z @ 0x1C00A3AD0
+ * XREFs of ?InvalidatePageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVVIDMM_GLOBAL@@IIPEAE@Z @ 0x1C0087034
  * Callers:
- *     ?CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C008CEB0 (-CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_ST.c)
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0072D68 (-CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_ST.c)
  * Callees:
- *     ?RecordPageMappingHistory@VIDMM_GLOBAL@@QEAAXI_K0W4VIDMM_PAGE_HISTORY_TYPE@@0@Z @ 0x1C00D937C (-RecordPageMappingHistory@VIDMM_GLOBAL@@QEAAXI_K0W4VIDMM_PAGE_HISTORY_TYPE@@0@Z.c)
+ *     ?RecordPageMappingHistory@VIDMM_GLOBAL@@QEAAXI_K0W4VIDMM_PAGE_HISTORY_TYPE@@0@Z @ 0x1C00B2E54 (-RecordPageMappingHistory@VIDMM_GLOBAL@@QEAAXI_K0W4VIDMM_PAGE_HISTORY_TYPE@@0@Z.c)
  */
 
 void __fastcall VIDMM_PAGE_TABLE::InvalidatePageTable(
@@ -13,14 +13,14 @@ void __fastcall VIDMM_PAGE_TABLE::InvalidatePageTable(
         unsigned int a4,
         unsigned __int8 *a5)
 {
-  __int64 v6; // rsi
-  __int64 v8; // rdi
-  __int64 v9; // rdx
-  __int64 v10; // rax
-  char v11; // r9
-  __int64 v12; // r8
-  __int64 v13; // r15
-  __int64 v14; // r14
+  __int64 v6; // rbp
+  __int64 v8; // rbx
+  char v9; // dl
+  __int64 v10; // r8
+  __int64 v11; // rcx
+  __int64 v12; // r9
+  __int64 v13; // r14
+  __int64 v14; // rdi
   __int64 v15; // r8
   unsigned __int64 v16; // rax
   __int64 v17; // [rsp+30h] [rbp-18h]
@@ -34,35 +34,34 @@ void __fastcall VIDMM_PAGE_TABLE::InvalidatePageTable(
     do
     {
       v15 = *((_QWORD *)this + 4);
-      v16 = *(_QWORD *)(v15 + v14);
+      v16 = *(_QWORD *)(v14 + v15);
       if ( (v16 & 1) != 0 )
-        VIDMM_GLOBAL::RecordPageMappingHistory(a2, (v16 >> 5) & 0x1F, *(_QWORD *)(v15 + v14 + 8), 1LL, 1, 0LL, v17);
+        VIDMM_GLOBAL::RecordPageMappingHistory(a2, (v16 >> 5) & 0x1F, *(_QWORD *)(v14 + v15 + 8), 1LL, 1, 0LL, v17);
       v14 += 16LL;
       --v13;
     }
     while ( v13 );
   }
-  else if ( a3 >= a3 + a4 )
+  v9 = 0;
+  if ( (unsigned int)v8 < (int)v8 + (int)v6 )
   {
-    return;
-  }
-  v9 = v6;
-  v10 = 16 * v8;
-  v11 = 0;
-  do
-  {
-    v12 = *((_QWORD *)this + 4);
-    if ( (*(_BYTE *)(v12 + v10) & 1) != 0 )
+    v10 = v6;
+    v11 = 16 * v8;
+    do
     {
-      --*((_DWORD *)this + 1);
-      v11 = 1;
-      *(_QWORD *)(v12 + v10) = 0LL;
-      *(_QWORD *)(v10 + *((_QWORD *)this + 4) + 8) = 0LL;
+      v12 = *((_QWORD *)this + 4);
+      if ( (*(_BYTE *)(v11 + v12) & 1) != 0 )
+      {
+        --*((_DWORD *)this + 1);
+        v9 = 1;
+        *(_QWORD *)(v11 + v12) = 0LL;
+        *(_QWORD *)(v11 + *((_QWORD *)this + 4) + 8) = 0LL;
+      }
+      v11 += 16LL;
+      --v10;
     }
-    v10 += 16LL;
-    --v9;
+    while ( v10 );
+    if ( v9 )
+      *a5 = 1;
   }
-  while ( v9 );
-  if ( v11 )
-    *a5 = 1;
 }

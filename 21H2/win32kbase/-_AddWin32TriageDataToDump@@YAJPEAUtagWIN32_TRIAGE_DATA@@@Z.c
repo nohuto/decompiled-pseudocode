@@ -1,39 +1,36 @@
 /*
- * XREFs of ?_AddWin32TriageDataToDump@@YAJPEAUtagWIN32_TRIAGE_DATA@@@Z @ 0x1C016833C
+ * XREFs of ?_AddWin32TriageDataToDump@@YAJPEAUtagWIN32_TRIAGE_DATA@@@Z @ 0x1C013AC70
  * Callers:
- *     W32pLkmdDataCollectionCallback @ 0x1C0168690 (W32pLkmdDataCollectionCallback.c)
+ *     W32pLkmdDataCollectionCallback @ 0x1C013AFD0 (W32pLkmdDataCollectionCallback.c)
  * Callees:
- *     IsFreeSMSSupported @ 0x1C00B96B4 (IsFreeSMSSupported.c)
- *     ?_AddMemoryBlockToLiveTriageDump@@YAEPEAUtagWIN32_TRIAGE_DATA@@PEAXK@Z @ 0x1C01681D0 (-_AddMemoryBlockToLiveTriageDump@@YAEPEAUtagWIN32_TRIAGE_DATA@@PEAXK@Z.c)
- *     ?_AddThreadInfoToLiveTriageDump@@YAXPEAUtagWIN32_TRIAGE_DATA@@PEAUtagTHREADINFO@@@Z @ 0x1C01682B4 (-_AddThreadInfoToLiveTriageDump@@YAXPEAUtagWIN32_TRIAGE_DATA@@PEAUtagTHREADINFO@@@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     IsFreeSMSSupported @ 0x1C007C508 (IsFreeSMSSupported.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?_AddMemoryBlockToLiveTriageDump@@YAEPEAUtagWIN32_TRIAGE_DATA@@PEAXK@Z @ 0x1C013AB04 (-_AddMemoryBlockToLiveTriageDump@@YAEPEAUtagWIN32_TRIAGE_DATA@@PEAXK@Z.c)
+ *     ?_AddThreadInfoToLiveTriageDump@@YAXPEAUtagWIN32_TRIAGE_DATA@@PEAUtagTHREADINFO@@@Z @ 0x1C013ABE8 (-_AddThreadInfoToLiveTriageDump@@YAXPEAUtagWIN32_TRIAGE_DATA@@PEAUtagTHREADINFO@@@Z.c)
  */
 
 __int64 __fastcall _AddWin32TriageDataToDump(struct tagWIN32_TRIAGE_DATA *a1)
 {
   void *v1; // rdx
-  struct tagTHREADINFO *v3; // rdi
+  __int64 v3; // rdi
   __int64 v4; // rdx
   __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
   _QWORD *i; // rdi
-  unsigned int v10; // eax
+  unsigned int v7; // eax
   _QWORD *j; // rdi
-  unsigned int v12; // eax
-  void **v13; // rdi
-  unsigned int v14; // eax
+  unsigned int v9; // eax
+  void **v10; // rdi
+  unsigned int v11; // eax
   _QWORD *k; // rdi
 
   v1 = *(void **)a1;
-  v3 = *(struct tagTHREADINFO **)(*(_QWORD *)a1 + 320LL);
+  v3 = *(_QWORD *)(*(_QWORD *)a1 + 320LL);
   if ( v3 )
   {
     do
     {
-      _AddThreadInfoToLiveTriageDump(a1, v3);
-      v3 = (struct tagTHREADINFO *)*((_QWORD *)v3 + 83);
+      _AddThreadInfoToLiveTriageDump(a1, (struct tagTHREADINFO *)v3);
+      v3 = *(_QWORD *)(v3 + 664);
     }
     while ( v3 );
     v1 = *(void **)a1;
@@ -52,41 +49,42 @@ __int64 __fastcall _AddWin32TriageDataToDump(struct tagWIN32_TRIAGE_DATA *a1)
   _AddMemoryBlockToLiveTriageDump(a1, *(void **)(*(_QWORD *)a1 + 664LL));
   for ( i = *(_QWORD **)(*(_QWORD *)a1 + 344LL); i; i = (_QWORD *)*i )
   {
-    v10 = *((_DWORD *)a1 + 4);
-    if ( v10 >= 0x3E8 )
+    v7 = *((_DWORD *)a1 + 4);
+    if ( v7 >= 0x3E8 )
       break;
-    *((_DWORD *)a1 + 4) = v10 + 1;
+    *((_DWORD *)a1 + 4) = v7 + 1;
     _AddMemoryBlockToLiveTriageDump(a1, i);
   }
   for ( j = *(_QWORD **)(*(_QWORD *)a1 + 352LL); j; j = (_QWORD *)*j )
   {
-    v12 = *((_DWORD *)a1 + 4);
-    if ( v12 >= 0x3E8 )
+    v9 = *((_DWORD *)a1 + 4);
+    if ( v9 >= 0x3E8 )
       break;
-    *((_DWORD *)a1 + 4) = v12 + 1;
+    *((_DWORD *)a1 + 4) = v9 + 1;
     _AddMemoryBlockToLiveTriageDump(a1, j);
   }
   if ( *((_DWORD *)a1 + 4) >= 0x3E8u )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v7, v6, v8);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 247);
   if ( (int)IsFreeSMSSupported() >= 0 )
   {
-    v13 = (void **)gsmsList;
+    v10 = (void **)gsmsList;
     if ( gsmsList != &gsmsList )
     {
-      v14 = *((_DWORD *)a1 + 2);
+      v11 = *((_DWORD *)a1 + 2);
       do
       {
-        if ( v14 >= 0x3E8 )
+        if ( v11 >= 0x3E8 )
           break;
-        _AddMemoryBlockToLiveTriageDump(a1, v13);
-        _AddThreadInfoToLiveTriageDump(a1, (struct tagTHREADINFO *)v13[4]);
-        _AddThreadInfoToLiveTriageDump(a1, (struct tagTHREADINFO *)v13[5]);
-        _AddThreadInfoToLiveTriageDump(a1, (struct tagTHREADINFO *)v13[8]);
-        _AddMemoryBlockToLiveTriageDump(a1, v13[14]);
-        v13 = (void **)*v13;
-        v14 = ++*((_DWORD *)a1 + 2);
+        _AddMemoryBlockToLiveTriageDump(a1, v10);
+        _AddThreadInfoToLiveTriageDump(a1, (struct tagTHREADINFO *)v10[4]);
+        _AddThreadInfoToLiveTriageDump(a1, (struct tagTHREADINFO *)v10[5]);
+        _AddThreadInfoToLiveTriageDump(a1, (struct tagTHREADINFO *)v10[8]);
+        _AddMemoryBlockToLiveTriageDump(a1, v10[14]);
+        ++*((_DWORD *)a1 + 2);
+        v10 = (void **)*v10;
+        v11 = *((_DWORD *)a1 + 2);
       }
-      while ( v13 != &gsmsList );
+      while ( v10 != &gsmsList );
     }
   }
   _AddMemoryBlockToLiveTriageDump(a1, (void *)((unsigned __int64)&gsmsList & 0xFFFFFFFFFFFFF000uLL));

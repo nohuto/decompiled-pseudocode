@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bEllipse@@YAHAEAVEPATHOBJ@@AEAVEBOX@@@Z @ 0x1C02AF218
+ * XREFs of ?bEllipse@@YAHAEAVEPATHOBJ@@AEAVEBOX@@@Z @ 0x1C02B0604
  * Callers:
- *     NtGdiCreateEllipticRgn @ 0x1C029DFA0 (NtGdiCreateEllipticRgn.c)
- *     NtGdiEllipse @ 0x1C029F2E0 (NtGdiEllipse.c)
+ *     NtGdiCreateEllipticRgn @ 0x1C029F6D0 (NtGdiCreateEllipticRgn.c)
+ *     NtGdiEllipse @ 0x1C02A0A00 (NtGdiEllipse.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall bEllipse(struct EPATHOBJ *a1, struct EBOX *a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpGetStringTableItemFromStringRef @ 0x140842AF4
+ * XREFs of SdbpGetStringTableItemFromStringRef @ 0x140756650
  * Callers:
- *     SdbpGetMappedStringFromTable @ 0x140842AA4 (SdbpGetMappedStringFromTable.c)
+ *     SdbpGetMappedStringFromTable @ 0x140756600 (SdbpGetMappedStringFromTable.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     RtlRunOnceExecuteOnce @ 0x14075BD80 (RtlRunOnceExecuteOnce.c)
- *     SdbGetTagFromTagID @ 0x14079499C (SdbGetTagFromTagID.c)
+ *     RtlRunOnceExecuteOnce @ 0x14068A9B0 (RtlRunOnceExecuteOnce.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbGetTagFromTagID @ 0x14075A3F4 (SdbGetTagFromTagID.c)
  */
 
 __int64 __fastcall SdbpGetStringTableItemFromStringRef(
@@ -31,18 +31,18 @@ __int64 __fastcall SdbpGetStringTableItemFromStringRef(
   v17 = 0LL;
   if ( LODWORD(Parameter[2].Ptr) )
   {
-    if ( !Parameter[170].Value )
+    if ( !Parameter[330].Value )
     {
       AslLogCallPrintf(1LL);
       v11 = -1073741275;
       goto LABEL_8;
     }
-    Ptr = (union _RTL_RUN_ONCE *)Parameter[170].Ptr;
+    Ptr = (union _RTL_RUN_ONCE *)Parameter[330].Ptr;
     v12 = 6;
   }
   else
   {
-    v11 = RtlRunOnceExecuteOnce(Parameter + 168, InitOnceGetStringTableOffset, Parameter, (PVOID *)&v17);
+    v11 = RtlRunOnceExecuteOnce(Parameter + 328, InitOnceGetStringTableOffset, Parameter, (PVOID *)&v17);
     if ( v11 < 0 )
     {
       AslLogCallPrintf(1LL);
@@ -57,7 +57,7 @@ __int64 __fastcall SdbpGetStringTableItemFromStringRef(
     Ptr = Parameter;
   }
   v9 = v12 + a2;
-  if ( (unsigned __int16)SdbGetTagFromTagID((__int64)Ptr, (unsigned int)(v12 + a2)) == 0x8801 )
+  if ( (unsigned __int16)SdbGetTagFromTagID(Ptr, (unsigned int)(v12 + a2), a3, a4) == 0x8801 )
   {
     v11 = 0;
   }

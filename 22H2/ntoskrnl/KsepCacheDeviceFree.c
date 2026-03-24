@@ -1,19 +1,19 @@
 /*
- * XREFs of KsepCacheDeviceFree @ 0x140977750
+ * XREFs of KsepCacheDeviceFree @ 0x1408C1090
  * Callers:
- *     KseQueryDeviceData @ 0x14080A580 (KseQueryDeviceData.c)
- *     KsepDbCacheReadDevice @ 0x14080AA9C (KsepDbCacheReadDevice.c)
- *     KseQueryDeviceDataList @ 0x1409769B0 (KseQueryDeviceDataList.c)
+ *     KsepDbCacheReadDevice @ 0x14075566C (KsepDbCacheReadDevice.c)
+ *     KseQueryDeviceData @ 0x14075EC10 (KseQueryDeviceData.c)
+ *     KseQueryDeviceDataList @ 0x1408BF430 (KseQueryDeviceDataList.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x140209EA8 (KsepPoolFreePaged.c)
- *     KsepStringFree @ 0x1406948CC (KsepStringFree.c)
+ *     KsepPoolFreePaged @ 0x140371F04 (KsepPoolFreePaged.c)
+ *     KsepStringFree @ 0x14075AFF0 (KsepStringFree.c)
  */
 
 void __fastcall KsepCacheDeviceFree(void **a1)
 {
-  void **v1; // rsi
-  void **v3; // rbx
-  void **v4; // rbp
+  void **v1; // r14
+  void **v3; // rsi
+  void **v4; // rbx
 
   if ( a1 )
   {
@@ -23,12 +23,9 @@ void __fastcall KsepCacheDeviceFree(void **a1)
     {
       v4 = v3;
       v3 = (void **)*v3;
-      if ( v4 )
-      {
-        KsepStringFree((__int64)(v4 + 2));
-        KsepPoolFreePaged(v4[5]);
-        KsepPoolFreePaged(v4);
-      }
+      KsepStringFree((__int64)(v4 + 2));
+      KsepPoolFreePaged(v4[5]);
+      KsepPoolFreePaged(v4);
     }
     KsepStringFree((__int64)(a1 + 5));
     KsepPoolFreePaged(a1);

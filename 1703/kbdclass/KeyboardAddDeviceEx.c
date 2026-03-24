@@ -1,1 +1,142 @@
-/*\n * XREFs of KeyboardAddDeviceEx @ 0x1C000C550\n * Callers:\n *     KeyboardClassFindMorePorts @ 0x1C000C010 (KeyboardClassFindMorePorts.c)\n *     KeyboardAddDevice @ 0x1C000C2C0 (KeyboardAddDevice.c)\n *     DriverEntry @ 0x1C000F030 (DriverEntry.c)\n * Callees:\n *     WPP_RECORDER_SF_S @ 0x1C0001A60 (WPP_RECORDER_SF_S.c)\n *     memmove @ 0x1C0002F80 (memmove.c)\n *     memset @ 0x1C00032C0 (memset.c)\n *     KeyboardClassLogError @ 0x1C00049FC (KeyboardClassLogError.c)\n *     WPP_RECORDER_SF_ @ 0x1C0005460 (WPP_RECORDER_SF_.c)\n *     KbdSendConnectRequest @ 0x1C000E35C (KbdSendConnectRequest.c)\n */\n\n__int64 __fastcall KeyboardAddDeviceEx(__int64 a1, const WCHAR *a2, __int64 a3)\n{\n  NTSTATUS Status; // edi\n  __int64 v7; // rdx\n  __int64 v8; // rsi\n  struct _DEVICE_OBJECT *v9; // rdx\n  IRP *v10; // rax\n  __int64 v11; // rdx\n  NTSTATUS v12; // eax\n  int v13; // edx\n  int v14; // r8d\n  int DeviceContext; // eax\n  unsigned int v17; // r15d\n  PVOID PoolWithTag; // r12\n  int v19; // eax\n  __int64 v20; // rcx\n  char v21; // al\n  int OutputBuffer; // [rsp+20h] [rbp-A8h]\n  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-78h] BYREF\n  _QWORD InputBuffer[2]; // [rsp+60h] [rbp-68h] BYREF\n  struct _KEVENT Event; // [rsp+70h] [rbp-58h] BYREF\n\n  Status = 0;\n  KeInitializeSpinLock((PKSPIN_LOCK)(a1 + 72));\n  v8 = *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels;\n  if ( LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) )\n    v8 = a1;\n  *(_QWORD *)(a1 + 8) = *(_QWORD *)v8;\n  if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels == a1 )\n    goto LABEL_14;\n  if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels != v8 )\n  {\n    if ( a1 != v8 )\n      return (unsigned int)Status;\n    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )\n    {\n      LOBYTE(v7) = 5;\n      WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v7, 3LL);\n    }\n    KeInitializeEvent(&Event, NotificationEvent, 0);\n    v9 = *(struct _DEVICE_OBJECT **)(a1 + 16);\n    InputBuffer[0] = *(_QWORD *)(a1 + 8);\n    InputBuffer[1] = KeyboardClassServiceCallback;\n    v10 = IoBuildDeviceIoControlRequest(0xB0203u, v9, InputBuffer, 0x10u, 0LL, 0, 1u, &Event, &IoStatusBlock);\n    if ( v10 )\n    {\n      v12 = IofCallDriver(*(PDEVICE_OBJECT *)(a1 + 16), v10);\n      if ( v12 == 259 )\n        KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);\n      else\n        IoStatusBlock.Status = v12;\n    }\n    else\n    {\n      IoStatusBlock.Status = -1073741670;\n    }\n    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )\n    {\n      LOBYTE(v11) = 5;\n      WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v11, 3LL);\n    }\n    Status = IoStatusBlock.Status;\nLABEL_14:\n    if ( a1 == v8 )\n    {\n      Status = RtlWriteRegistryValue(4u, DestinationString.Buffer, a2, 1u, P, (unsigned __int16)word_1C00092C8 + 2);\n      if ( Status < 0 )\n      {\n        LOBYTE(v13) = 2;\n        WPP_RECORDER_SF_S(WPP_GLOBAL_Control->DeviceExtension, v13, v14, 15, OutputBuffer, (__int64)a2);\n        KeyboardClassLogError((void *)a1, -2147155963, 10014, Status, 0, 0LL, 0);\n      }\n      else\n      {\n        LOBYTE(v13) = 4;\n        WPP_RECORDER_SF_S(WPP_GLOBAL_Control->DeviceExtension, v13, v14, 16, OutputBuffer, (__int64)a2);\n      }\n    }\n    return (unsigned int)Status;\n  }\n  Status = KbdSendConnectRequest(a1);\n  ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n  DeviceContext = (int)WPP_MAIN_CB.Queue.Wcb.DeviceContext;\n  v17 = 0;\n  if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )\n  {\n    while ( !*((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v17 + 19) )\n    {\n      if ( ++v17 >= LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )\n        goto LABEL_23;\n    }\n    *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v17 + 19) = 0;\n    DeviceContext = (int)WPP_MAIN_CB.Queue.Wcb.DeviceContext;\n  }\nLABEL_23:\n  if ( v17 != DeviceContext )\n  {\nLABEL_29:\n    *(_DWORD *)(a1 + 196) = v17;\n    v20 = 3LL * v17;\n    *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + v20 + 1) = a1;\n    *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + v20) = a3;\n    v21 = *(_BYTE *)(*(_QWORD *)a1 + 76LL);\n    if ( *(char *)(*(_QWORD *)v8 + 76LL) >= v21 )\n      v21 = *(_BYTE *)(*(_QWORD *)v8 + 76LL);\n    *(_BYTE *)(*(_QWORD *)v8 + 76LL) = v21;\n    ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n    goto LABEL_14;\n  }\n  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 24LL * (unsigned int)(DeviceContext + 1), 0x4364624Bu);\n  if ( PoolWithTag )\n  {\n    memset(PoolWithTag, 0, 24LL * (unsigned int)(LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) + 1));\n    v19 = (int)WPP_MAIN_CB.Queue.Wcb.DeviceContext;\n    if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )\n    {\n      memmove(PoolWithTag, WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, 24LL * LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext));\n      ExFreePoolWithTag(WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, 0);\n      v19 = (int)WPP_MAIN_CB.Queue.Wcb.DeviceContext;\n    }\n    WPP_MAIN_CB.Queue.Wcb.DeviceRoutine = (PDRIVER_CONTROL)PoolWithTag;\n    LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) = v19 + 1;\n    goto LABEL_29;\n  }\n  ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n  return 3221225626LL;\n}\n
+/*
+ * XREFs of KeyboardAddDeviceEx @ 0x1C000C550
+ * Callers:
+ *     KeyboardClassFindMorePorts @ 0x1C000C010 (KeyboardClassFindMorePorts.c)
+ *     KeyboardAddDevice @ 0x1C000C2C0 (KeyboardAddDevice.c)
+ *     DriverEntry @ 0x1C000F030 (DriverEntry.c)
+ * Callees:
+ *     WPP_RECORDER_SF_S @ 0x1C0001A60 (WPP_RECORDER_SF_S.c)
+ *     memmove @ 0x1C0002F80 (memmove.c)
+ *     memset @ 0x1C00032C0 (memset.c)
+ *     KeyboardClassLogError @ 0x1C00049FC (KeyboardClassLogError.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0005460 (WPP_RECORDER_SF_.c)
+ *     KbdSendConnectRequest @ 0x1C000E35C (KbdSendConnectRequest.c)
+ */
+
+__int64 __fastcall KeyboardAddDeviceEx(__int64 a1, const WCHAR *a2, __int64 a3)
+{
+  NTSTATUS Status; // edi
+  __int64 v7; // rdx
+  __int64 v8; // rsi
+  struct _DEVICE_OBJECT *v9; // rdx
+  IRP *v10; // rax
+  __int64 v11; // rdx
+  NTSTATUS v12; // eax
+  int v13; // edx
+  int v14; // r8d
+  int DeviceContext; // eax
+  unsigned int v17; // r15d
+  PVOID PoolWithTag; // r12
+  int v19; // eax
+  __int64 v20; // rcx
+  char v21; // al
+  int OutputBuffer; // [rsp+20h] [rbp-A8h]
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-78h] BYREF
+  _QWORD InputBuffer[2]; // [rsp+60h] [rbp-68h] BYREF
+  struct _KEVENT Event; // [rsp+70h] [rbp-58h] BYREF
+
+  Status = 0;
+  KeInitializeSpinLock((PKSPIN_LOCK)(a1 + 72));
+  v8 = *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels;
+  if ( LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) )
+    v8 = a1;
+  *(_QWORD *)(a1 + 8) = *(_QWORD *)v8;
+  if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels == a1 )
+    goto LABEL_14;
+  if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels != v8 )
+  {
+    if ( a1 != v8 )
+      return (unsigned int)Status;
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(v7) = 5;
+      WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v7, 3LL);
+    }
+    KeInitializeEvent(&Event, NotificationEvent, 0);
+    v9 = *(struct _DEVICE_OBJECT **)(a1 + 16);
+    InputBuffer[0] = *(_QWORD *)(a1 + 8);
+    InputBuffer[1] = KeyboardClassServiceCallback;
+    v10 = IoBuildDeviceIoControlRequest(0xB0203u, v9, InputBuffer, 0x10u, 0LL, 0, 1u, &Event, &IoStatusBlock);
+    if ( v10 )
+    {
+      v12 = IofCallDriver(*(PDEVICE_OBJECT *)(a1 + 16), v10);
+      if ( v12 == 259 )
+        KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+      else
+        IoStatusBlock.Status = v12;
+    }
+    else
+    {
+      IoStatusBlock.Status = -1073741670;
+    }
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(v11) = 5;
+      WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v11, 3LL);
+    }
+    Status = IoStatusBlock.Status;
+LABEL_14:
+    if ( a1 == v8 )
+    {
+      Status = RtlWriteRegistryValue(4u, DestinationString.Buffer, a2, 1u, P, (unsigned __int16)word_1C00092C8 + 2);
+      if ( Status < 0 )
+      {
+        LOBYTE(v13) = 2;
+        WPP_RECORDER_SF_S(WPP_GLOBAL_Control->DeviceExtension, v13, v14, 15, OutputBuffer, (__int64)a2);
+        KeyboardClassLogError((void *)a1, -2147155963, 10014, Status, 0, 0LL, 0);
+      }
+      else
+      {
+        LOBYTE(v13) = 4;
+        WPP_RECORDER_SF_S(WPP_GLOBAL_Control->DeviceExtension, v13, v14, 16, OutputBuffer, (__int64)a2);
+      }
+    }
+    return (unsigned int)Status;
+  }
+  Status = KbdSendConnectRequest(a1);
+  ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+  DeviceContext = (int)WPP_MAIN_CB.Queue.Wcb.DeviceContext;
+  v17 = 0;
+  if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )
+  {
+    while ( !*((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v17 + 19) )
+    {
+      if ( ++v17 >= LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )
+        goto LABEL_23;
+    }
+    *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v17 + 19) = 0;
+    DeviceContext = (int)WPP_MAIN_CB.Queue.Wcb.DeviceContext;
+  }
+LABEL_23:
+  if ( v17 != DeviceContext )
+  {
+LABEL_29:
+    *(_DWORD *)(a1 + 196) = v17;
+    v20 = 3LL * v17;
+    *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + v20 + 1) = a1;
+    *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + v20) = a3;
+    v21 = *(_BYTE *)(*(_QWORD *)a1 + 76LL);
+    if ( *(char *)(*(_QWORD *)v8 + 76LL) >= v21 )
+      v21 = *(_BYTE *)(*(_QWORD *)v8 + 76LL);
+    *(_BYTE *)(*(_QWORD *)v8 + 76LL) = v21;
+    ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+    goto LABEL_14;
+  }
+  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 24LL * (unsigned int)(DeviceContext + 1), 0x4364624Bu);
+  if ( PoolWithTag )
+  {
+    memset(PoolWithTag, 0, 24LL * (unsigned int)(LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) + 1));
+    v19 = (int)WPP_MAIN_CB.Queue.Wcb.DeviceContext;
+    if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )
+    {
+      memmove(PoolWithTag, WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, 24LL * LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext));
+      ExFreePoolWithTag(WPP_MAIN_CB.Queue.Wcb.DeviceRoutine, 0);
+      v19 = (int)WPP_MAIN_CB.Queue.Wcb.DeviceContext;
+    }
+    WPP_MAIN_CB.Queue.Wcb.DeviceRoutine = (PDRIVER_CONTROL)PoolWithTag;
+    LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) = v19 + 1;
+    goto LABEL_29;
+  }
+  ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+  return 3221225626LL;
+}

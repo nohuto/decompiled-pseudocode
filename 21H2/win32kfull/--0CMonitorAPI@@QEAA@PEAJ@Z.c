@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CMonitorAPI@@QEAA@PEAJ@Z @ 0x1C0120FF8
+ * XREFs of ??0CMonitorAPI@@QEAA@PEAJ@Z @ 0x1C0135798
  * Callers:
- *     DDCCIInitializeWrap @ 0x1C0120F90 (DDCCIInitializeWrap.c)
+ *     DDCCIInitializeWrap @ 0x1C0135730 (DDCCIInitializeWrap.c)
  * Callees:
  *     <none>
  */

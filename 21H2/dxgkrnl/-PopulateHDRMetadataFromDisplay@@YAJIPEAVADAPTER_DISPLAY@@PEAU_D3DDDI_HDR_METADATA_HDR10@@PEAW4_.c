@@ -1,15 +1,14 @@
 /*
- * XREFs of ?PopulateHDRMetadataFromDisplay@@YAJIPEAVADAPTER_DISPLAY@@PEAU_D3DDDI_HDR_METADATA_HDR10@@PEAW4_D3DDDI_HDR_METADATA_TYPE@@@Z @ 0x1C0224BB0
+ * XREFs of ?PopulateHDRMetadataFromDisplay@@YAJIPEAVADAPTER_DISPLAY@@PEAU_D3DDDI_HDR_METADATA_HDR10@@PEAW4_D3DDDI_HDR_METADATA_TYPE@@@Z @ 0x1C00DC900
  * Callers:
- *     ?PrepareIndependentFlipToken@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAVDXGCONTEXT@@PEAU_PRESENT_REDIRECTED_PARAMS@@PEAVCRefCountedBuffer@@@Z @ 0x1C0175D10 (-PrepareIndependentFlipToken@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUV.c)
+ *     ?PrepareIndependentFlipToken@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAVDXGCONTEXT@@PEAU_PRESENT_REDIRECTED_PARAMS@@PEAVCRefCountedBuffer@@@Z @ 0x1C0106FE0 (-PrepareIndependentFlipToken@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUV.c)
  * Callees:
- *     DXGKCALLONEXIT__lambda_897d21a97c0cf1b919de605caa0104f9___ @ 0x1C000F1F0 (DXGKCALLONEXIT__lambda_897d21a97c0cf1b919de605caa0104f9___.c)
- *     ?IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C000F6D8 (-IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z.c)
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0010D08 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
- *     ??1?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@QEAA@XZ @ 0x1C002FA24 (--1-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@QEAA@XZ.c)
- *     MonitorReleaseMonitorHandle @ 0x1C01A05B4 (MonitorReleaseMonitorHandle.c)
- *     MonitorGetMonitorHandle @ 0x1C01A0DA4 (MonitorGetMonitorHandle.c)
- *     MonitorGetAdvancedColorMetadataOverride @ 0x1C03B0488 (MonitorGetAdvancedColorMetadataOverride.c)
+ *     ?IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C000A708 (-IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z.c)
+ *     DXGKCALLONEXIT__lambda_0f534b3d3ec4016b5fe0be2c2202598e___ @ 0x1C001D7B4 (DXGKCALLONEXIT__lambda_0f534b3d3ec4016b5fe0be2c2202598e___.c)
+ *     _DXGKCALLONEXIT__lambda_897d21a97c0cf1b919de605caa0104f9____::_2_::DXGKCALLONEXIT::_DXGKCALLONEXIT @ 0x1C0027D04 (_DXGKCALLONEXIT__lambda_897d21a97c0cf1b919de605caa0104f9____--_2_--DXGKCALLONEXIT--_DXGKCALLONEX.c)
+ *     MonitorGetMonitorHandle @ 0x1C0129A20 (MonitorGetMonitorHandle.c)
+ *     MonitorGetAdvancedColorMetadataOverride @ 0x1C02F3938 (MonitorGetAdvancedColorMetadataOverride.c)
+ *     MonitorGetIsAdvancedColorMetadataOverridden @ 0x1C02F3C6C (MonitorGetIsAdvancedColorMetadataOverridden.c)
  */
 
 __int64 __fastcall PopulateHDRMetadataFromDisplay(
@@ -19,97 +18,78 @@ __int64 __fastcall PopulateHDRMetadataFromDisplay(
         enum _D3DDDI_HDR_METADATA_TYPE *a4)
 {
   __int64 v4; // rbx
+  struct ADAPTER_DISPLAY *v7; // r8
   int MonitorHandle; // eax
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rbx
-  __int64 CurrentProcess; // rax
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  DXGMONITOR *v18; // rdx
-  char v19; // bl
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // rdi
+  __int64 v13; // rbx
+  int IsAdvancedColorMetadataOverridden; // eax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
   int AdvancedColorMetadataOverride; // eax
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // r9
-  __int64 v25; // rax
-  __int64 v26; // rdx
-  DXGMONITOR *v27[2]; // [rsp+30h] [rbp-40h] BYREF
-  __int128 v28; // [rsp+40h] [rbp-30h] BYREF
-  _QWORD v29[2]; // [rsp+50h] [rbp-20h] BYREF
-  char v30; // [rsp+60h] [rbp-10h]
-  struct ADAPTER_DISPLAY *v31; // [rsp+88h] [rbp+18h] BYREF
+  __int64 v20; // rbx
+  _BYTE v21[8]; // [rsp+30h] [rbp-40h] BYREF
+  __int64 v22; // [rsp+38h] [rbp-38h] BYREF
+  __int128 v23; // [rsp+40h] [rbp-30h] BYREF
+  _BYTE v24[32]; // [rsp+50h] [rbp-20h] BYREF
+  struct ADAPTER_DISPLAY *v25; // [rsp+98h] [rbp+28h] BYREF
 
-  v31 = this;
+  v25 = this;
   v4 = a1;
-  if ( this && a3 && a4 && *((_DWORD *)this + 24) > a1 && ADAPTER_DISPLAY::IsVidPnSourceActive(this, a1) )
+  if ( this && a3 && a4 && *((_DWORD *)this + 20) > a1 && ADAPTER_DISPLAY::IsVidPnSourceActive(this, a1) )
   {
-    v27[0] = 0LL;
+    v7 = v25;
+    v22 = 0LL;
+    LOBYTE(v7) = 1;
     MonitorHandle = MonitorGetMonitorHandle(
-                      *((_QWORD *)v31 + 2),
-                      *(unsigned int *)(4000 * v4 + *((_QWORD *)v31 + 16) + 1088),
-                      1u,
+                      *((_QWORD *)v25 + 2),
+                      *(unsigned int *)(3968 * v4 + *((_QWORD *)v25 + 14) + 1068),
+                      v7,
                       PopulateHDRMetadataFromDisplay,
-                      v27);
+                      &v22);
     v12 = MonitorHandle;
     if ( MonitorHandle < 0 )
     {
-      CurrentProcess = PsGetCurrentProcess(v9, v8, v10, v11);
-      WdLogSingleEntry2(3LL, v12, CurrentProcess);
+      v13 = WdLogNewEntry5_WdWarning(v10, v9, v11);
+      *(_QWORD *)(v13 + 24) = v12;
+      *(_QWORD *)(v13 + 32) = PsGetCurrentProcess();
+      WdLogEvent5_WdWarning(v13);
       return (unsigned int)v12;
     }
-    *(_QWORD *)&v28 = &v31;
-    *((_QWORD *)&v28 + 1) = v27;
-    DXGKCALLONEXIT__lambda_897d21a97c0cf1b919de605caa0104f9_((__int64)v29, &v28);
-    v18 = v27[0];
-    if ( v27[0] )
+    *(_QWORD *)&v23 = &v25;
+    *((_QWORD *)&v23 + 1) = &v22;
+    DXGKCALLONEXIT__lambda_0f534b3d3ec4016b5fe0be2c2202598e_((__int64)v24, &v23);
+    v21[0] = 0;
+    IsAdvancedColorMetadataOverridden = MonitorGetIsAdvancedColorMetadataOverridden(v22, v21);
+    v12 = IsAdvancedColorMetadataOverridden;
+    if ( IsAdvancedColorMetadataOverridden < 0 )
+      goto LABEL_12;
+    if ( !v21[0] )
     {
-      MONITOR_MGR::AcquireMonitorShared(&v28, (__int64)v27[0]);
-      if ( (_QWORD)v28 )
-      {
-        v19 = *(_BYTE *)(*(_QWORD *)(v28 + 224) + 428LL);
-        ExReleaseResourceLite((PERESOURCE)(v28 + 24));
-        KeLeaveCriticalRegion();
-        if ( !v19 )
-        {
-          LODWORD(v12) = -1073741822;
-          goto LABEL_20;
-        }
-        AdvancedColorMetadataOverride = MonitorGetAdvancedColorMetadataOverride(v27[0], a3);
-        v12 = AdvancedColorMetadataOverride;
-        if ( AdvancedColorMetadataOverride >= 0 )
-        {
-          *a4 = D3DDDI_HDR_METADATA_TYPE_HDR10;
-          LODWORD(v12) = 0;
-          goto LABEL_20;
-        }
-        v25 = PsGetCurrentProcess(v22, v21, v23, v24);
-        v26 = v12;
-LABEL_19:
-        WdLogSingleEntry2(3LL, v26, v25);
-LABEL_20:
-        if ( v30 )
-          MonitorReleaseMonitorHandle(
-            *(_QWORD *)(*(_QWORD *)v29[0] + 16LL),
-            *(_QWORD *)v29[1],
-            PopulateHDRMetadataFromDisplay);
-        return (unsigned int)v12;
-      }
-      LODWORD(v12) = -1073741275;
-      WdLogSingleEntry1(2LL, -1073741275LL);
-      RESOURCE_LOCK_ACCESSOR<DXGMONITOR>::~RESOURCE_LOCK_ACCESSOR<DXGMONITOR>((__int64 *)&v28);
+      LODWORD(v12) = -1073741822;
+      goto LABEL_15;
+    }
+    AdvancedColorMetadataOverride = MonitorGetAdvancedColorMetadataOverride(v22, a3);
+    v12 = AdvancedColorMetadataOverride;
+    if ( AdvancedColorMetadataOverride >= 0 )
+    {
+      *a4 = D3DDDI_HDR_METADATA_TYPE_HDR10;
+      LODWORD(v12) = 0;
     }
     else
     {
-      LODWORD(v12) = -1073741811;
+LABEL_12:
+      v20 = WdLogNewEntry5_WdWarning(v17, v16, v18);
+      *(_QWORD *)(v20 + 24) = v12;
+      *(_QWORD *)(v20 + 32) = PsGetCurrentProcess();
+      WdLogEvent5_WdWarning(v20);
     }
-    v25 = PsGetCurrentProcess(v15, v18, v16, v17);
-    v26 = (int)v12;
-    goto LABEL_19;
+LABEL_15:
+    DXGKCALLONEXIT__lambda_897d21a97c0cf1b919de605caa0104f9____::_2_::DXGKCALLONEXIT::_DXGKCALLONEXIT((__int64)v24);
+    return (unsigned int)v12;
   }
   return 3221225485LL;
 }

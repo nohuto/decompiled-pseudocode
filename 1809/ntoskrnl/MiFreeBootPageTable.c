@@ -6,9 +6,9 @@
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiPageToChannel @ 0x14009CFEC (MiPageToChannel.c)
  *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     MiLockAndInsertPageInFreeList @ 0x140188BFC (MiLockAndInsertPageInFreeList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MiLockAndInsertPageInFreeList @ 0x140188C1C (MiLockAndInsertPageInFreeList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiFreeBootPageTable(ULONG_PTR BugCheckParameter2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmFcpManagerCreateSection @ 0x140832CF4
+ * XREFs of CmFcpManagerCreateSection @ 0x14087E570
  * Callers:
- *     CmFcpManagerCreateSectionFromBuffer @ 0x140832B54 (CmFcpManagerCreateSectionFromBuffer.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x140922DB4 (CmFcManagerUpdateFeatureConfigurations.c)
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14092317C (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD04 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14087E060 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     CmFcpManagerCreateSectionFromBuffer @ 0x14087E664 (CmFcpManagerCreateSectionFromBuffer.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateSection @ 0x14041C0A0 (ZwCreateSection.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateSection @ 0x1403FACE0 (ZwCreateSection.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall CmFcpManagerCreateSection(LARGE_INTEGER a1, __int64 a2, void *a3, _QWORD *a4)
@@ -18,14 +18,13 @@ __int64 __fastcall CmFcpManagerCreateSection(LARGE_INTEGER a1, __int64 a2, void 
   HANDLE SectionHandle; // [rsp+A0h] [rbp+20h] BYREF
   PVOID Object; // [rsp+B0h] [rbp+30h] BYREF
 
+  memset(&ObjectAttributes.Length + 1, 0, 20);
   *(&ObjectAttributes.Attributes + 1) = 0;
   SectionHandle = 0LL;
-  ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.ObjectName = 0LL;
   ObjectAttributes.SecurityQualityOfService = 0LL;
   ObjectAttributes.SecurityDescriptor = a3;
   MaximumSize = a1;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 512;
   v7 = ZwCreateSection(&SectionHandle, 6u, &ObjectAttributes, &MaximumSize, 4u, 0x8000000u, 0LL);
   if ( v7 >= 0 )

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiExpandPagedPool @ 0x1401641CC
+ * XREFs of MiExpandPagedPool @ 0x1401641EC
  * Callers:
- *     MiAllocatePagedPoolPages @ 0x140162C50 (MiAllocatePagedPoolPages.c)
+ *     MiAllocatePagedPoolPages @ 0x140162C70 (MiAllocatePagedPoolPages.c)
  * Callees:
  *     MiSplitBitmapPages @ 0x1400265A8 (MiSplitBitmapPages.c)
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
@@ -10,7 +10,7 @@
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     MmAllocatePoolMemory @ 0x140099140 (MmAllocatePoolMemory.c)
- *     MiFreeExcessSegments @ 0x1401643B4 (MiFreeExcessSegments.c)
+ *     MiFreeExcessSegments @ 0x1401643D4 (MiFreeExcessSegments.c)
  */
 
 __int64 __fastcall MiExpandPagedPool(ULONG_PTR *a1, unsigned __int64 a2)

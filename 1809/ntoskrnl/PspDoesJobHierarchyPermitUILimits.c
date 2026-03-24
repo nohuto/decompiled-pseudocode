@@ -1,5 +1,5 @@
 /*
- * XREFs of PspDoesJobHierarchyPermitUILimits @ 0x1406CFD0C
+ * XREFs of PspDoesJobHierarchyPermitUILimits @ 0x1406CFCEC
  * Callers:
  *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
  *     PspAssignProcessToJob @ 0x140605664 (PspAssignProcessToJob.c)

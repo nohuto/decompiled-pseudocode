@@ -1,25 +1,26 @@
 /*
- * XREFs of MiCheckProcessShadow @ 0x1402B2E40
+ * XREFs of MiCheckProcessShadow @ 0x14020F880
  * Callers:
- *     MiUnlockWorkingSetShared @ 0x1402B0CE0 (MiUnlockWorkingSetShared.c)
- *     MiTrimOrAgeWorkingSet @ 0x14030C260 (MiTrimOrAgeWorkingSet.c)
- *     MiQueryAddressSpan @ 0x14030EC70 (MiQueryAddressSpan.c)
- *     MiUnlockWorkingSetExclusive @ 0x14030FA80 (MiUnlockWorkingSetExclusive.c)
- *     MiDeletePagablePteRange @ 0x140330080 (MiDeletePagablePteRange.c)
- *     MmCheckProcessShadow @ 0x140386410 (MmCheckProcessShadow.c)
+ *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
+ *     MmCheckProcessShadow @ 0x1402CA700 (MmCheckProcessShadow.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140317490 (MiMoveDirtyBitsToPfns.c)
+ *     MiDeletePagablePteRange @ 0x140337360 (MiDeletePagablePteRange.c)
+ *     MmRemoveSystemCacheFromDump @ 0x140538B8C (MmRemoveSystemCacheFromDump.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x14020D8D0 (MiUnlockPageTableInternal.c)
- *     MiLockPageTableInternal @ 0x14031DE00 (MiLockPageTableInternal.c)
- *     MiWorkingSetIsContended @ 0x1403531F0 (MiWorkingSetIsContended.c)
- *     MiCheckRelevantKernelShadows @ 0x140385180 (MiCheckRelevantKernelShadows.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     MiLockPageTableInternal @ 0x14020EAF0 (MiLockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
+ *     MiCheckRelevantKernelShadows @ 0x1402A84C0 (MiCheckRelevantKernelShadows.c)
+ *     MiWorkingSetIsContended @ 0x14030B7D0 (MiWorkingSetIsContended.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCheckProcessShadow(__int64 a1, unsigned int a2)
 {
   unsigned __int64 v5; // r14
   bool v6; // zf
-  __int64 v7; // rdx
+  unsigned __int64 v7; // rdx
   int v8; // r15d
   __int64 v9; // rbp
   ULONG_PTR v10; // r10
@@ -119,21 +120,21 @@ LABEL_16:
     if ( (v14 & 1) != 0 )
     {
       v18 = v14 & 0xCFFFFFFFFFFFFFDFuLL | 0x20;
-      if ( !HIBYTE(word_140C51864) )
+      if ( !HIBYTE(word_140C4E008) )
         v15 |= 0x8000000000000000uLL;
       BugCheckParameter4 = v15 | 0x20;
       if ( v18 != BugCheckParameter4 )
       {
         if ( (a2 & 8) == 0 )
           KeBugCheckEx(0x1Au, 0x3600uLL, v10, v18, BugCheckParameter4);
-        goto LABEL_36;
+        goto LABEL_38;
       }
     }
     else if ( v15 )
     {
       if ( (a2 & 8) == 0 )
         KeBugCheckEx(0x1Au, 0x3601uLL, v10, v15, v15);
-      goto LABEL_36;
+      goto LABEL_38;
     }
     v10 += 8LL;
     v5 += 8LL;
@@ -142,7 +143,7 @@ LABEL_16:
   }
   while ( v11 );
   if ( BBTBuffer || (v10 & 0xFFF) == 0 )
-    goto LABEL_35;
+    goto LABEL_37;
   while ( 1 )
   {
     v16 = *(_QWORD *)v10;
@@ -191,7 +192,7 @@ LABEL_16:
     {
       if ( (a2 & 8) == 0 )
         KeBugCheckEx(0x1Au, 0x3604uLL, v10, v16, v17);
-      goto LABEL_34;
+      goto LABEL_36;
     }
     if ( (v17 & 1) != 0 && (v17 & 4) != 0 )
       break;
@@ -199,15 +200,15 @@ LABEL_16:
     v5 += 8LL;
     ++v9;
     if ( (v10 & 0xFFF) == 0 )
-      goto LABEL_34;
+      goto LABEL_36;
   }
   if ( (a2 & 8) == 0 )
     KeBugCheckEx(0x1Au, 0x3605uLL, v10, v16, v17);
-LABEL_34:
-  if ( (v10 & 0xFFF) == 0 )
-LABEL_35:
-    v9 = 0xFFFFFFFFLL;
 LABEL_36:
+  if ( (v10 & 0xFFF) == 0 )
+LABEL_37:
+    v9 = 0xFFFFFFFFLL;
+LABEL_38:
   if ( v8 )
     MiUnlockPageTableInternal(a1, 0xFFFFF6FB7DBEDF68uLL);
   if ( v9 == 0xFFFFFFFFLL && (a2 & 0x10) != 0 )

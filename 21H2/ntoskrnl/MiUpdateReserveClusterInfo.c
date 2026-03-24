@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUpdateReserveClusterInfo @ 0x1403CF728
+ * XREFs of MiUpdateReserveClusterInfo @ 0x1403BFA7C
  * Callers:
- *     MiAdjustModifiedPageLoad @ 0x140268CA8 (MiAdjustModifiedPageLoad.c)
- *     MiFinishPageFileExtension @ 0x14059C580 (MiFinishPageFileExtension.c)
- *     MiInsertPageFileInList @ 0x14084B418 (MiInsertPageFileInList.c)
+ *     MiAdjustModifiedPageLoad @ 0x140272ACC (MiAdjustModifiedPageLoad.c)
+ *     MiFinishPageFileExtension @ 0x1405435F0 (MiFinishPageFileExtension.c)
+ *     MiInsertPageFileInList @ 0x1407B6FD0 (MiInsertPageFileInList.c)
  * Callees:
  *     <none>
  */
@@ -12,11 +12,11 @@ __int64 __fastcall MiUpdateReserveClusterInfo(__int64 a1, signed __int32 *a2, un
 {
   if ( a2 )
     return (unsigned int)_InterlockedCompareExchange(
-                           (volatile signed __int32 *)(a1 + 896),
+                           (volatile signed __int32 *)(a1 + 872),
                            *a2 ^ (a3 ^ (unsigned __int16)*a2) & 0x3FF,
                            *a2);
   else
     return (unsigned int)_InterlockedExchange(
-                           (volatile __int32 *)(a1 + 896),
-                           (*(_DWORD *)(a1 + 896) & 0xFFFFFC00 | 0x200) + 1024);
+                           (volatile __int32 *)(a1 + 872),
+                           (*(_DWORD *)(a1 + 872) & 0xFFFFFC00 | 0x200) + 1024);
 }

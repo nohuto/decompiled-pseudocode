@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bInPathBracket@DWMSCREENREADMODIFYWRITEASSIST@@QEBAHXZ @ 0x1C029DBA8
+ * XREFs of ?bInPathBracket@DWMSCREENREADMODIFYWRITEASSIST@@QEBAHXZ @ 0x1C029F2A4
  * Callers:
- *     GrePolyPolyline @ 0x1C01363F0 (GrePolyPolyline.c)
- *     NtGdiRectangle @ 0x1C0136B50 (NtGdiRectangle.c)
- *     GrePolyPolygon @ 0x1C0137950 (GrePolyPolygon.c)
- *     NtGdiLineTo @ 0x1C0137EE0 (NtGdiLineTo.c)
- *     NtGdiInvertRgn @ 0x1C0138CF0 (NtGdiInvertRgn.c)
- *     GrePolyBezier @ 0x1C029ED10 (GrePolyBezier.c)
+ *     GrePolyPolyline @ 0x1C0142AB0 (GrePolyPolyline.c)
+ *     NtGdiRectangle @ 0x1C0143FC0 (NtGdiRectangle.c)
+ *     GrePolyPolygon @ 0x1C0144E20 (GrePolyPolygon.c)
+ *     NtGdiLineTo @ 0x1C01453C0 (NtGdiLineTo.c)
+ *     NtGdiInvertRgn @ 0x1C0149310 (NtGdiInvertRgn.c)
+ *     GrePolyBezier @ 0x1C02A0430 (GrePolyBezier.c)
  * Callees:
  *     <none>
  */

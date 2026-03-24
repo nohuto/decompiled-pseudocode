@@ -1,14 +1,13 @@
 /*
- * XREFs of RtlStdReleaseStackTrace @ 0x1405A9610
+ * XREFs of RtlStdReleaseStackTrace @ 0x140585CDC
  * Callers:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     ExpInitializeResource @ 0x1403C4950 (ExpInitializeResource.c)
- *     ExInitializeFastResource2 @ 0x1404130C0 (ExInitializeFastResource2.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
+ *     ExpInitializeResource @ 0x140399590 (ExpInitializeResource.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 __fastcall RtlStdReleaseStackTrace(__int64 a1, __int64 a2)
@@ -18,7 +17,7 @@ __int64 __fastcall RtlStdReleaseStackTrace(__int64 a1, __int64 a2)
   unsigned int v6; // eax
   _DWORD *v7; // rdx
   _QWORD *v8; // rdi
-  volatile signed __int64 *v9; // r14
+  KSPIN_LOCK *v9; // r14
   __int16 v10; // cx
   __int16 v11; // ax
   _QWORD *i; // rax
@@ -69,22 +68,23 @@ LABEL_11:
     }
   }
   v13 = *((unsigned __int8 *)v9 + 8);
-  result = KxReleaseSpinLock(v9);
+  KxReleaseSpinLock(v9);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v13 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
-      v17 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v17 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v13 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
+        v17 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v17 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v13);

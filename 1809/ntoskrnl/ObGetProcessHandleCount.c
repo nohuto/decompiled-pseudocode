@@ -2,9 +2,9 @@
  * XREFs of ObGetProcessHandleCount @ 0x1405B3960
  * Callers:
  *     EtwTraceAppStateChange @ 0x1405B2C80 (EtwTraceAppStateChange.c)
- *     EtwpPsProvTraceProcess @ 0x14066C070 (EtwpPsProvTraceProcess.c)
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
- *     EtwpProcessPerfCtrsRundown @ 0x1408BF48C (EtwpProcessPerfCtrsRundown.c)
+ *     EtwpPsProvTraceProcess @ 0x14066C050 (EtwpPsProvTraceProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     EtwpProcessPerfCtrsRundown @ 0x1408BF46C (EtwpProcessPerfCtrsRundown.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExHandleTableQuery @ 0x1405B39B8 (ExHandleTableQuery.c)

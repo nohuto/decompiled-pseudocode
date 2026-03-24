@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpLogSessionWorkingSetInfo @ 0x1408B85E4
+ * XREFs of EtwpLogSessionWorkingSetInfo @ 0x1408B85C4
  * Callers:
- *     EtwpLogMemInfoWs @ 0x1408B800C (EtwpLogMemInfoWs.c)
+ *     EtwpLogMemInfoWs @ 0x1408B7FEC (EtwpLogMemInfoWs.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x1400C71B0 (EtwpLogKernelEvent.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MmQuerySessionWorkingSetInformation @ 0x1402B40E4 (MmQuerySessionWorkingSetInformation.c)
+ *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MmQuerySessionWorkingSetInformation @ 0x1402B41E4 (MmQuerySessionWorkingSetInformation.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

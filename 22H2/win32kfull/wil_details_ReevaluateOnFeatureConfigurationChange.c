@@ -1,10 +1,10 @@
 /*
- * XREFs of wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1C0399300
+ * XREFs of wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1C037A3E0
  * Callers:
  *     <none>
  * Callees:
- *     wil_details_EvaluateFeatureDependencies @ 0x1C039913C (wil_details_EvaluateFeatureDependencies.c)
- *     wil_details_UpdateFeatureConfiguredStates @ 0x1C039931C (wil_details_UpdateFeatureConfiguredStates.c)
+ *     wil_details_EvaluateFeatureDependencies @ 0x1C037A228 (wil_details_EvaluateFeatureDependencies.c)
+ *     wil_details_UpdateFeatureConfiguredStates @ 0x1C037A3FC (wil_details_UpdateFeatureConfiguredStates.c)
  */
 
 _QWORD *wil_details_ReevaluateOnFeatureConfigurationChange()

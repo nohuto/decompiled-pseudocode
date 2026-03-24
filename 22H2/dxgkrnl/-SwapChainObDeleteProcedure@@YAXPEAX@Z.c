@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SwapChainObDeleteProcedure@@YAXPEAX@Z @ 0x1C035A4F0
+ * XREFs of ?SwapChainObDeleteProcedure@@YAXPEAX@Z @ 0x1C02AD050
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0040BC0 (McTemplateK0p_EtwWriteTransfer.c)
- *     ??_GDXGSWAPCHAIN@@QEAAPEAXI@Z @ 0x1C0058DFC (--_GDXGSWAPCHAIN@@QEAAPEAXI@Z.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0039FEC (McTemplateK0p_EtwWriteTransfer.c)
+ *     ??_GDXGSWAPCHAIN@@QEAAPEAXI@Z @ 0x1C004BC48 (--_GDXGSWAPCHAIN@@QEAAPEAXI@Z.c)
  */
 
 void __fastcall SwapChainObDeleteProcedure(DXGSWAPCHAIN **a1)
@@ -16,7 +16,7 @@ void __fastcall SwapChainObDeleteProcedure(DXGSWAPCHAIN **a1)
   if ( v2 )
   {
     DXGSWAPCHAIN::`scalar deleting destructor'(v2);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x1000000000LL) != 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
       McTemplateK0p_EtwWriteTransfer((REGHANDLE *)&DxgkControlGuid_Context, &EventIndirectSwapChainDestroy, v3, *a1);
     *a1 = 0LL;
   }

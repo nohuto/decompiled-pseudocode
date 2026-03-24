@@ -1,127 +1,191 @@
 /*
- * XREFs of ?SmFeAddComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KKK@Z @ 0x1405BEDDC
+ * XREFs of ?SmFeAddComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KKK@Z @ 0x140265D80
  * Callers:
- *     ?SmFeAddInitiate@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@KKPEAU_SM_WORK_ITEM@1@PEAU_SM_IO_CONTEXT@1@K@Z @ 0x1405BEFE4 (-SmFeAddInitiate@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@KKPEAU_SM_WORK_ITEM@1.c)
- *     ?SmProcessAddCompletion@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@KPEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x1405CCC2C (-SmProcessAddCompletion@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@KPEAU-$SMKM_.c)
+ *     ?SmProcessAddCompletion@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@KPEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x140265CF0 (-SmProcessAddCompletion@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@KPEAU-$SMKM_.c)
+ *     ?SmFeAddInitiate@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@KKPEAU_SM_WORK_ITEM@1@PEAU_SM_IO_CONTEXT@1@K@Z @ 0x140266538 (-SmFeAddInitiate@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@KKPEAU_SM_WORK_ITEM@1.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ?BTreeIteratorFromSearchResult@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUITERATOR@1@PEAUSEARCH_RESULT@1@@Z @ 0x1405BBC88 (-BTreeIteratorFromSearchResult@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM.c)
- *     ?BTreeSearchKey@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@T_SM_PAGE_KEY@@PEAUSEARCH_RESULT@1@@Z @ 0x1405BD204 (-BTreeSearchKey@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM_TRAITS@@@@$0BA.c)
- *     ?SmFeDeleteEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAUSEARCH_RESULT@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@PEAUITERATOR@3@PEAUSMKM_FRONTEND_ENTRY@1@@Z @ 0x1405BF5EC (-SmFeDeleteEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAUSEARCH_RESULT@-$B_TREE@T_SM_PAGE_KE.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     ?SmFeDeleteEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAUSEARCH_RESULT@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@PEAUITERATOR@3@PEAUSMKM_FRONTEND_ENTRY@1@@Z @ 0x14026342C (-SmFeDeleteEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAUSEARCH_RESULT@-$B_TREE@T_SM_PAGE_KE.c)
+ *     ?BTreeIteratorFromSearchResult@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUITERATOR@1@PEAUSEARCH_RESULT@1@@Z @ 0x1402660F4 (-BTreeIteratorFromSearchResult@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM.c)
+ *     ?BTreeSearchKey@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@T_SM_PAGE_KEY@@PEAUSEARCH_RESULT@1@@Z @ 0x1402669DC (-BTreeSearchKey@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM_TRAITS@@@@$0BA.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x1402CB3F0 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x1402E5430 (KiAbEntryRemoveFromTree.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeAddComplete(__int64 a1, unsigned int *a2, int a3, __int64 a4, char a5)
+_BYTE *__fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeAddComplete(__int64 a1, unsigned int *a2, int a3, __int64 a4, char a5)
 {
-  unsigned int v5; // edi
-  int v7; // r14d
-  int v8; // r15d
+  unsigned int v5; // ebx
+  _BYTE *result; // rax
+  int v9; // edi
+  int v10; // r14d
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v10; // r8
-  __int64 v11; // rcx
-  unsigned __int64 v12; // rdx
-  __int64 v13; // rax
-  unsigned __int64 v14; // rax
-  struct _KTHREAD *v15; // rax
-  __int128 v17; // [rsp+20h] [rbp-C1h] BYREF
-  int v18; // [rsp+30h] [rbp-B1h]
-  _QWORD v19[3]; // [rsp+40h] [rbp-A1h] BYREF
-  int v20; // [rsp+58h] [rbp-89h]
-  int v21; // [rsp+5Ch] [rbp-85h]
-  __int64 v22; // [rsp+60h] [rbp-81h]
-  _BYTE v23[136]; // [rsp+68h] [rbp-79h] BYREF
+  __int64 v12; // r8
+  __int64 v13; // rcx
+  unsigned __int64 v14; // rdx
+  ULONG_PTR v15; // rsi
+  struct _KTHREAD *v16; // rbx
+  __int64 SessionId; // rdx
+  unsigned __int8 v18; // r14
+  __int64 v19; // r8
+  bool v20; // zf
+  __int64 v21; // rcx
+  __int64 v22; // rdi
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // rax
+  __int64 v26; // rcx
+  __int64 v27[3]; // [rsp+38h] [rbp-C8h] BYREF
+  _QWORD v28[3]; // [rsp+50h] [rbp-B0h] BYREF
+  int v29; // [rsp+68h] [rbp-98h]
+  int v30; // [rsp+6Ch] [rbp-94h]
+  __int64 v31; // [rsp+70h] [rbp-90h]
+  _BYTE v32[136]; // [rsp+78h] [rbp-88h] BYREF
 
   v5 = *a2;
-  v18 = a3;
-  memset(v23, 0, 0x80uLL);
-  v19[1] = 0LL;
-  v19[2] = 0LL;
-  v22 = 0LL;
-  v20 = 0;
-  v7 = 0;
-  v19[0] = v23;
-  v21 = 8;
-  v8 = 1;
-  v17 = 0LL;
+  memset(v32, 0, 0x80uLL);
+  result = v32;
+  v28[1] = 0LL;
+  v28[2] = 0LL;
+  v9 = 0;
+  v31 = 0LL;
+  v29 = 0;
+  v28[0] = v32;
+  v30 = 8;
+  v10 = 1;
+  *(_OWORD *)v27 = 0LL;
   if ( (a5 & 2) == 0 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
-    ExAcquirePushLockExclusiveEx(a1 + 440, 0LL);
+    result = (_BYTE *)ExAcquirePushLockExclusiveEx(a1 + 440, 0LL);
   }
-  v10 = v17;
+  v12 = v27[0];
   while ( 1 )
   {
-    if ( v8 )
-    {
-      B_TREE<_SM_PAGE_KEY,SMKM_STORE_MGR<SM_TRAITS>::SMKM_FRONTEND_ENTRY,4096,B_TREE_DUMMY_NODE_POOL,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeSearchKey(
-        (__int64 *)(a1 + 448),
-        v5,
-        (__int64)v19);
-      B_TREE<_SM_PAGE_KEY,SMKM_STORE_MGR<SM_TRAITS>::SMKM_FRONTEND_ENTRY,4096,B_TREE_DUMMY_NODE_POOL,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeIteratorFromSearchResult(
-        v11,
-        (__int64)&v17,
-        (__int64)v19);
-      v10 = v17;
-      v8 = 0;
-    }
     if ( v10 )
     {
-      v12 = *((_QWORD *)&v17 + 1) + 8LL;
-      v13 = (unsigned __int16)*(_DWORD *)v10 + 2LL;
-      *((_QWORD *)&v17 + 1) = v12;
-      if ( v12 >= v10 + 8 * v13 )
+      B_TREE<_SM_PAGE_KEY,SMKM_STORE_MGR<SM_TRAITS>::SMKM_FRONTEND_ENTRY,4096,B_TREE_DUMMY_NODE_POOL,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeSearchKey(
+        a1 + 448,
+        v5,
+        v28);
+      result = (_BYTE *)B_TREE<_SM_PAGE_KEY,SMKM_STORE_MGR<SM_TRAITS>::SMKM_FRONTEND_ENTRY,4096,B_TREE_DUMMY_NODE_POOL,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeIteratorFromSearchResult(
+                          v13,
+                          v27,
+                          v28);
+      v12 = v27[0];
+      v10 = 0;
+    }
+    if ( v12 )
+    {
+      v14 = v27[1] + 8;
+      v25 = (unsigned __int16)*(_DWORD *)v12 + 2LL;
+      v27[1] = v14;
+      result = (_BYTE *)(v12 + 8 * v25);
+      if ( v14 >= (unsigned __int64)result )
       {
-        v14 = *(_QWORD *)(v10 + 8);
-        if ( v14 )
+        v26 = *(_QWORD *)(v12 + 8);
+        if ( v26 )
         {
-          v10 = *(_QWORD *)(v10 + 8);
-          *(_QWORD *)&v17 = v14;
-          *((_QWORD *)&v17 + 1) = v14 + 16;
+          v27[0] = *(_QWORD *)(v12 + 8);
+          v27[1] = v26 + 16;
+          v12 = v26;
         }
-        v12 = (v14 + 16) & ((unsigned __int128)-(__int128)v14 >> 64);
+        result = (_BYTE *)(v26 + 16);
+        v14 = (v26 + 16) & -(__int64)(v26 != 0);
       }
     }
     else
     {
-      v12 = 0LL;
+      v14 = 0LL;
     }
-    if ( (*(_BYTE *)(v12 + 7) & 1) != 0 )
+    if ( (*(_BYTE *)(v14 + 7) & 1) != 0 )
     {
       if ( (a5 & 1) != 0 )
-        goto LABEL_15;
-LABEL_14:
-      *(_BYTE *)(v12 + 6) = 0;
-      SMKM_STORE_MGR<SM_TRAITS>::SmFeDeleteEntry(a1, v19, &v17);
-      v10 = v17;
-      v8 = 1;
-      goto LABEL_15;
+        goto LABEL_12;
     }
-    if ( *(_BYTE *)(v12 + 6) == 1 )
+    else
     {
-      if ( (a5 & 1) == 0 )
-        goto LABEL_14;
-      *(_BYTE *)(v12 + 6) = 3;
+      if ( *(_BYTE *)(v14 + 6) != 1 )
+        goto LABEL_12;
+      if ( (a5 & 1) != 0 )
+      {
+        *(_BYTE *)(v14 + 6) = 3;
+        goto LABEL_12;
+      }
     }
-LABEL_15:
-    if ( ++v7 == v18 )
+    *(_BYTE *)(v14 + 6) = 0;
+    result = (_BYTE *)SMKM_STORE_MGR<SM_TRAITS>::SmFeDeleteEntry(a1, (__int64)v28, v27);
+    v12 = v27[0];
+    v10 = 1;
+LABEL_12:
+    if ( ++v9 == a3 )
       break;
     ++v5;
   }
   if ( (a5 & 2) == 0 )
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 440), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 440));
-    KeAbPostRelease(a1 + 440);
-    v15 = KeGetCurrentThread();
-    if ( v15->SpecialApcDisable++ == -1
-      && ($C71981A45BEB2B45F82C232A7085991E *)v15->ApcState.ApcListHead[0].Flink != &v15->152 )
+    v15 = a1 + 440;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v15, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v15);
+    v16 = KeGetCurrentThread();
+    if ( (unsigned int)MiGetSystemRegionType(v15) == 1 )
+      SessionId = (unsigned int)MmGetSessionIdEx(v16->ApcState.Process);
+    else
+      SessionId = 0xFFFFFFFFLL;
+    --v16->SpecialApcDisable;
+    v18 = ++v16->AbAllocationRegionCount;
+    LODWORD(v19) = ((char)v16->AbEntrySummary | (char)v16->AbOrphanedEntrySummary) ^ 0x3F;
+    while ( 1 )
     {
-      KiCheckForKernelApcDelivery();
+      v20 = !_BitScanReverse((unsigned int *)&v21, v19);
+      if ( v20 )
+        break;
+      v22 = (__int64)&v16->LockEntries[v21];
+      v19 = ~(1 << v21) & (unsigned int)v19;
+      if ( (*(_BYTE *)(v22 + 26) & 1) != 0
+        && (*(_DWORD *)(v22 + 32) & 1) == 0
+        && (*(_QWORD *)(v22 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v15 & 0x7FFFFFFFFFFFFFFCLL)
+        && *(_DWORD *)(v22 + 40) == (_DWORD)SessionId )
+      {
+        *(_BYTE *)(v22 + 26) &= ~1u;
+        if ( *(_QWORD *)(v22 + 32) )
+        {
+          if ( v22 )
+          {
+            *(_BYTE *)(v22 + 32) |= 2u;
+            if ( *(__int64 *)(v22 + 32) < 0 )
+              KiAbEntryRemoveFromTree(v22, SessionId, v19);
+            *(_DWORD *)(v22 + 88) &= 0xFFFE0000;
+            *(_BYTE *)(v22 + 25) &= ~1u;
+            *(_QWORD *)(v22 + 32) = 0LL;
+            v23 = (signed __int64)(v22 - (unsigned __int64)v16->LockEntries) / 96;
+            if ( v18 == 1 )
+              v16->AbEntrySummary |= 1 << v23;
+            else
+              _InterlockedOr8((volatile signed __int8 *)&v16->AbOrphanedEntrySummary, 1 << v23);
+            goto LABEL_30;
+          }
+          break;
+        }
+      }
     }
+    if ( (*((_DWORD *)&v16->0 + 1) & 0x10000) == 0 )
+      KeBugCheckEx(0x162u, (ULONG_PTR)v16, v15, (unsigned int)SessionId, 0LL);
+LABEL_30:
+    --v16->AbAllocationRegionCount;
+    KiAbThreadRemoveBoosts((ULONG_PTR)v16);
+    v20 = v16->SpecialApcDisable++ == -1;
+    if ( v20 && ($C459BD0D405E8E46662177FB3D0A143F *)v16->ApcState.ApcListHead[0].Flink != &v16->152 )
+      KiCheckForKernelApcDelivery(v24);
+    return (_BYTE *)KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
   }
+  return result;
 }

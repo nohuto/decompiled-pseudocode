@@ -1,40 +1,20 @@
 /*
- * XREFs of VmMergeMemoryRanges @ 0x1409DC870
+ * XREFs of VmMergeMemoryRanges @ 0x14092F0C0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     VmpMergeMemoryRanges @ 0x1405FA054 (VmpMergeMemoryRanges.c)
+ *     VmpMergeMemoryRanges @ 0x1405A4280 (VmpMergeMemoryRanges.c)
  */
 
 __int64 __fastcall VmMergeMemoryRanges(unsigned __int64 a1, __int64 a2)
 {
-  unsigned __int64 v4; // rbp
-  unsigned int v5; // edi
-  struct _KTHREAD *CurrentThread; // rax
+  volatile LONG *v5; // rcx
 
-  v4 = KeGetCurrentThread()->ApcState.Process[2].Affinity.StaticBitmap[5];
   if ( a2 == -1 || (a1 & 0xFFF) != 0 )
-  {
-    return (unsigned int)-1073741811;
-  }
-  else if ( v4 )
-  {
-    CurrentThread = KeGetCurrentThread();
-    --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx(v4 + 88, 0LL);
-    v5 = VmpMergeMemoryRanges((PEX_SPIN_LOCK)v4, a1 >> 12, a2);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v4 + 88), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)(v4 + 88));
-    KeAbPostRelease(v4 + 88);
-    KeLeaveCriticalRegion();
-  }
+    return 3221225485LL;
+  v5 = (volatile LONG *)KeGetCurrentThread()->ApcState.Process[2].Affinity.Bitmap[5];
+  if ( v5 )
+    return VmpMergeMemoryRanges(v5, a1 >> 12, a2);
   else
-  {
-    return (unsigned int)-1073741688;
-  }
-  return v5;
+    return 3221225608LL;
 }

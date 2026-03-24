@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateSharedWritePrimitiveColorMarshaler @ 0x1C0239AF0
+ * XREFs of CreateSharedWritePrimitiveColorMarshaler @ 0x1C01F8C80
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CSharedWritePrimitiveColorMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C023984C (-Create@CSharedWritePrimitiveColorMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PE.c)
+ *     ?Create@CSharedWritePrimitiveColorMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C01F8AC4 (-Create@CSharedWritePrimitiveColorMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PE.c)
  */
 
 __int64 __fastcall CreateSharedWritePrimitiveColorMarshaler(

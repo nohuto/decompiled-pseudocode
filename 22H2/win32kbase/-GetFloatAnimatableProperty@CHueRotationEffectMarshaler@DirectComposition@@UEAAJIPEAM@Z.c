@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetFloatAnimatableProperty@CHueRotationEffectMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C020E8B0
+ * XREFs of ?GetFloatAnimatableProperty@CHueRotationEffectMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C01DFC00
  * Callers:
  *     <none>
  * Callees:
- *     ?GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C020D650 (-GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CHueRotationEffectMarshaler::GetFloatAnimatableProperty(
@@ -11,12 +11,11 @@ __int64 __fastcall DirectComposition::CHueRotationEffectMarshaler::GetFloatAnima
         int a2,
         float *a3)
 {
-  unsigned int v3; // r9d
+  __int64 result; // rax
 
-  v3 = 0;
+  result = 0LL;
   if ( a2 )
-    return (unsigned int)DirectComposition::CResourceMarshaler::GetFloatAnimatableProperty(this, a2, a3);
-  else
-    *a3 = *((float *)this + 28);
-  return v3;
+    return 3221225485LL;
+  *a3 = *((float *)this + 28);
+  return result;
 }

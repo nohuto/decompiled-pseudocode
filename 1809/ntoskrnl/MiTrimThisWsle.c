@@ -2,7 +2,7 @@
  * XREFs of MiTrimThisWsle @ 0x140087EC0
  * Callers:
  *     MiTrimPte @ 0x140087BD0 (MiTrimPte.c)
- *     MiTrimPteWorker @ 0x1402B3C34 (MiTrimPteWorker.c)
+ *     MiTrimPteWorker @ 0x1402B3D34 (MiTrimPteWorker.c)
  * Callees:
  *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
  *     MiGetVaAge @ 0x1400880B0 (MiGetVaAge.c)

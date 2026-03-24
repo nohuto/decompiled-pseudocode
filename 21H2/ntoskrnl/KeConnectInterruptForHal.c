@@ -1,9 +1,9 @@
 /*
- * XREFs of KeConnectInterruptForHal @ 0x1403AEFF0
+ * XREFs of KeConnectInterruptForHal @ 0x1403A27A0
  * Callers:
- *     HalpCreateInterrupt @ 0x1403AEF40 (HalpCreateInterrupt.c)
+ *     HalpCreateInterrupt @ 0x1403A26E4 (HalpCreateInterrupt.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeConnectInterruptForHal(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of WerKernelSubmitReport @ 0x1C0051E18
+ * XREFs of WerKernelSubmitReport @ 0x1C005121C
  * Callers:
- *     TelemetryData_SubmitReport @ 0x1C0078BE8 (TelemetryData_SubmitReport.c)
+ *     TelemetryData_SubmitReport @ 0x1C00777C8 (TelemetryData_SubmitReport.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     RtlStringCchCopyNW @ 0x1C0051AD8 (RtlStringCchCopyNW.c)
- *     WerStartSystemErrorHandler @ 0x1C00523E0 (WerStartSystemErrorHandler.c)
- *     WerWaitForSystemErrorHandler @ 0x1C0052518 (WerWaitForSystemErrorHandler.c)
- *     WerpAllocateAndInitializeSid @ 0x1C00525EC (WerpAllocateAndInitializeSid.c)
- *     WerpGetRegistryKey @ 0x1C005286C (WerpGetRegistryKey.c)
- *     WerpParseKeyName @ 0x1C0052988 (WerpParseKeyName.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     RtlStringCchCopyNW @ 0x1C0050EC0 (RtlStringCchCopyNW.c)
+ *     WerStartSystemErrorHandler @ 0x1C00517E0 (WerStartSystemErrorHandler.c)
+ *     WerWaitForSystemErrorHandler @ 0x1C0051918 (WerWaitForSystemErrorHandler.c)
+ *     WerpAllocateAndInitializeSid @ 0x1C00519EC (WerpAllocateAndInitializeSid.c)
+ *     WerpGetRegistryKey @ 0x1C0051C70 (WerpGetRegistryKey.c)
+ *     WerpParseKeyName @ 0x1C0051D88 (WerpParseKeyName.c)
  */
 
 __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
@@ -21,11 +21,11 @@ __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
   int v6; // ebx
   __int64 v7; // r9
   const CHAR *v8; // r8
-  _DWORD *Pool2; // rsi
+  char v9; // r14
+  _DWORD *PoolWithTag; // rsi
   NTSTATUS started; // eax
-  __int64 v11; // r9
-  const CHAR *v12; // r8
-  char v13; // dl
+  __int64 v12; // r9
+  const CHAR *v13; // r8
   __int64 *v14; // rdi
   size_t v15; // r9
   size_t v16; // r9
@@ -47,10 +47,10 @@ __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
   STRSAFE_PCNZWCH pszSrc; // [rsp+98h] [rbp-68h] BYREF
   STRSAFE_PCNZWCH v33; // [rsp+A0h] [rbp-60h] BYREF
   __int64 v34; // [rsp+A8h] [rbp-58h] BYREF
-  __int128 v35; // [rsp+B0h] [rbp-50h] BYREF
-  __int128 v36; // [rsp+C0h] [rbp-40h]
+  struct _UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-50h] BYREF
+  __int128 v36; // [rsp+C0h] [rbp-40h] BYREF
   __int128 v37; // [rsp+D0h] [rbp-30h]
-  struct _UNICODE_STRING DestinationString; // [rsp+E0h] [rbp-20h] BYREF
+  __int128 v38; // [rsp+E0h] [rbp-20h]
   _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+F0h] [rbp-10h] BYREF
   _QWORD v40[10]; // [rsp+100h] [rbp+0h] BYREF
   _DWORD v41[352]; // [rsp+150h] [rbp+50h] BYREF
@@ -61,17 +61,16 @@ __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
   memset(v42, 0, 0x578uLL);
   v34 = 0LL;
   P = 0LL;
-  *(_QWORD *)&v37 = 0LL;
-  DWORD2(v37) = 0;
   *(_DWORD *)IdentifierAuthority.Value = 0;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
-  DestinationString = 0LL;
   v31 = 0LL;
-  v35 = 0LL;
+  DestinationString = 0LL;
   Length = 0;
   v36 = 0LL;
   pszSrc = 0LL;
+  v37 = 0LL;
   v33 = 0LL;
+  v38 = 0LL;
   cchToCopy = 0LL;
   KeyHandlea = 0LL;
   memset(v40, 0, 0x48uLL);
@@ -93,20 +92,21 @@ __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
       v8 = "WERLIVEKERNELREPORTING:%u: ERROR ZwQueryKey failed while determining the size with 0x%x\n";
       goto LABEL_5;
     }
-    Pool2 = (_DWORD *)ExAllocatePool2(256LL, (int)Length, 2003137131LL);
-    if ( !Pool2 )
+    v9 = 1;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (int)Length, 0x7765726Bu);
+    if ( !PoolWithTag )
     {
       DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR OOM\n", 1011);
       v6 = -1073741801;
-      goto LABEL_49;
+      goto LABEL_48;
     }
-    started = ZwQueryKey(KeyHandle, KeyNameInformation, Pool2, Length, &Length);
+    started = ZwQueryKey(KeyHandle, KeyNameInformation, PoolWithTag, Length, &Length);
     v6 = started;
     if ( started >= 0 )
     {
       started = WerpParseKeyName(
-                  (int)Pool2 + 4,
-                  *Pool2 >> 1,
+                  (int)PoolWithTag + 4,
+                  *PoolWithTag >> 1,
                   (unsigned int)&pszSrc,
                   (unsigned int)&cchToCopy,
                   (__int64)&v33,
@@ -126,7 +126,7 @@ __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
                v24,
                (__int64)&P);
         if ( v6 < 0 )
-          goto LABEL_48;
+          goto LABEL_47;
         started = WerStartSystemErrorHandler();
         v6 = started;
         if ( started >= 0 )
@@ -142,39 +142,35 @@ __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
               if ( started == 258 )
               {
                 started = -1073740973;
-                v12 = "WERLIVEKERNELREPORTING:%u: ERROR WerWaitForSystemErrorHandler timed out, failing the call with 0x%x\n";
+                v13 = "WERLIVEKERNELREPORTING:%u: ERROR WerWaitForSystemErrorHandler timed out, failing the call with 0x%x\n";
                 v6 = -1073740973;
-                v11 = 1103LL;
+                v12 = 1103LL;
               }
               else
               {
-                v37 = 0LL;
-                LODWORD(v35) = 48;
-                *((_QWORD *)&v35 + 1) = 0LL;
-                DWORD2(v36) = 512;
-                *(_QWORD *)&v36 = 0LL;
-                if ( HIDWORD(SystemInformation) == -1 )
+                v38 = 0LL;
+                LODWORD(v36) = 48;
+                *((_QWORD *)&v36 + 1) = 0LL;
+                DWORD2(v37) = 512;
+                *(_QWORD *)&v37 = 0LL;
+                if ( HIDWORD(SystemInformation) != -1 )
                 {
-                  v13 = 1;
-                }
-                else
-                {
-                  v13 = 0;
+                  v9 = 0;
                   v31 = -10000LL * SHIDWORD(SystemInformation);
                 }
                 v14 = &v31;
-                if ( v13 )
+                if ( v9 )
                   v14 = 0LL;
-                started = ZwAlpcConnectPort(&Handle, &DestinationString, &v35, v40, 0x20000, P, 0LL, 0LL, 0LL, 0LL, v14);
+                started = ZwAlpcConnectPort(&Handle, &DestinationString, &v36, v40, 0x20000, P, 0LL, 0LL, 0LL, 0LL, v14);
                 v6 = started;
                 if ( started >= 0 )
                 {
                   if ( started == 258 )
                   {
                     started = -1073740973;
-                    v12 = "WERLIVEKERNELREPORTING:%u: ERROR ZwAlpcConnectPort timed out, failing the call with 0x%x\n";
+                    v13 = "WERLIVEKERNELREPORTING:%u: ERROR ZwAlpcConnectPort timed out, failing the call with 0x%x\n";
                     v6 = -1073740973;
-                    v11 = 1140LL;
+                    v12 = 1140LL;
                   }
                   else
                   {
@@ -218,66 +214,66 @@ __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
                           DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR Service returned failure\n", 1202);
                           v6 = -1073741823;
                         }
-                        goto LABEL_48;
+                        goto LABEL_47;
                       }
-                      v11 = 1177LL;
-                      v12 = "WERLIVEKERNELREPORTING:%u: ERROR StringCchCopy failed for id with 0x%x\n";
+                      v12 = 1177LL;
+                      v13 = "WERLIVEKERNELREPORTING:%u: ERROR StringCchCopy failed for id with 0x%x\n";
                     }
                     else
                     {
-                      v11 = 1165LL;
-                      v12 = "WERLIVEKERNELREPORTING:%u: ERROR StringCchCopy failed for key with 0x%x\n";
+                      v12 = 1165LL;
+                      v13 = "WERLIVEKERNELREPORTING:%u: ERROR StringCchCopy failed for key with 0x%x\n";
                     }
                   }
                 }
                 else
                 {
-                  v11 = 1133LL;
-                  v12 = "WERLIVEKERNELREPORTING:%u: ERROR ZwAlpcConnectPort failed with 0x%x\n";
+                  v12 = 1133LL;
+                  v13 = "WERLIVEKERNELREPORTING:%u: ERROR ZwAlpcConnectPort failed with 0x%x\n";
                 }
               }
             }
             else
             {
-              v11 = 1096LL;
-              v12 = "WERLIVEKERNELREPORTING:%u: ERROR WerWaitForSystemErrorHandler failed with 0x%x\n";
+              v12 = 1096LL;
+              v13 = "WERLIVEKERNELREPORTING:%u: ERROR WerWaitForSystemErrorHandler failed with 0x%x\n";
             }
           }
           else
           {
-            v11 = 1089LL;
-            v12 = "WERLIVEKERNELREPORTING:%u: ERROR ZwQuerySysInfo(ErrorPortTimeouts) failed with 0x%x\n";
+            v12 = 1089LL;
+            v13 = "WERLIVEKERNELREPORTING:%u: ERROR ZwQuerySysInfo(ErrorPortTimeouts) failed with 0x%x\n";
           }
         }
         else
         {
-          v11 = 1075LL;
-          v12 = "WERLIVEKERNELREPORTING:%u: ERROR WerStartSystemErrorHandler failed with 0x%x\n";
+          v12 = 1075LL;
+          v13 = "WERLIVEKERNELREPORTING:%u: ERROR WerStartSystemErrorHandler failed with 0x%x\n";
         }
       }
       else
       {
-        v11 = 1042LL;
-        v12 = "WERLIVEKERNELREPORTING:%u: ERROR ParseKeyName failed with 0x%x\n";
+        v12 = 1042LL;
+        v13 = "WERLIVEKERNELREPORTING:%u: ERROR ParseKeyName failed with 0x%x\n";
       }
     }
     else
     {
-      v11 = 1029LL;
-      v12 = "WERLIVEKERNELREPORTING:%u: ERROR ZwQueryKey failed with 0x%x\n";
+      v12 = 1029LL;
+      v13 = "WERLIVEKERNELREPORTING:%u: ERROR ZwQueryKey failed with 0x%x\n";
     }
     LODWORD(ResultLengtha) = started;
-    DbgPrintEx(0x96u, 0, v12, v11, ResultLengtha);
-LABEL_48:
-    ExFreePoolWithTag(Pool2, 0);
-    goto LABEL_49;
+    DbgPrintEx(0x96u, 0, v13, v12, ResultLengtha);
+LABEL_47:
+    ExFreePoolWithTag(PoolWithTag, 0);
+    goto LABEL_48;
   }
   v7 = 981LL;
   v8 = "WERLIVEKERNELREPORTING:%u: ERROR WerpGetRegistryKey failed for the busy key 0x%x\n";
 LABEL_5:
   LODWORD(ResultLength) = RegistryKey;
   DbgPrintEx(0x96u, 0, v8, v7, ResultLength);
-LABEL_49:
+LABEL_48:
   if ( KeyHandlea )
   {
     ZwClose(KeyHandlea);

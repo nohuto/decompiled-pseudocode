@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhHubAckPortChange @ 0x1C001A524
+ * XREFs of UsbhHubAckPortChange @ 0x1C001C03C
  * Callers:
- *     UsbhHubProcessIsr @ 0x1C00083B0 (UsbhHubProcessIsr.c)
+ *     UsbhHubProcessIsr @ 0x1C000F090 (UsbhHubProcessIsr.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhSyncSendCommand @ 0x1C0019810 (UsbhSyncSendCommand.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_dd @ 0x1C002DDB8 (WPP_RECORDER_SF_dd.c)
+ *     UsbhSyncSendCommand @ 0x1C000A740 (UsbhSyncSendCommand.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C002F194 (WPP_RECORDER_SF_dd.c)
  */
 
 __int64 __fastcall UsbhHubAckPortChange(__int64 a1, __int16 a2, __int16 *a3, _DWORD *a4)

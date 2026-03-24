@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCheckSystemPageTables @ 0x140261810
+ * XREFs of MiCheckSystemPageTables @ 0x140292240
  * Callers:
- *     MiSystemFault @ 0x140261080 (MiSystemFault.c)
+ *     MiSystemFault @ 0x140291A80 (MiSystemFault.c)
  * Callees:
- *     KeInvalidAccessAllowed @ 0x140341800 (KeInvalidAccessAllowed.c)
- *     MiCheckSystemNxFault @ 0x140356E88 (MiCheckSystemNxFault.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     MiGenerateAccessViolation @ 0x140645FFC (MiGenerateAccessViolation.c)
+ *     KeInvalidAccessAllowed @ 0x1402FB490 (KeInvalidAccessAllowed.c)
+ *     MiCheckSystemNxFault @ 0x140320C48 (MiCheckSystemNxFault.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     MiGenerateAccessViolation @ 0x1405484A0 (MiGenerateAccessViolation.c)
  */
 
 __int64 __fastcall MiCheckSystemPageTables(ULONG_PTR *a1)
@@ -19,8 +19,9 @@ __int64 __fastcall MiCheckSystemPageTables(ULONG_PTR *a1)
   __int64 v8; // rax
   __int64 v9; // r8
   ULONG_PTR v10; // rcx
-  _BYTE *v11; // rax
-  ULONG_PTR v12; // rdx
+  unsigned int v11; // eax
+  int v12; // ecx
+  ULONG_PTR v13; // rdx
 
   v2 = 3LL;
   for ( i = (ULONG_PTR **)(a1 + 6); ; --i )
@@ -29,11 +30,11 @@ __int64 __fastcall MiCheckSystemPageTables(ULONG_PTR *a1)
     v5 = **i;
     if ( (unsigned __int64)*i >= 0xFFFFF6FB7DBED000uLL
       && (unsigned __int64)v4 <= 0xFFFFF6FB7DBED7F8uLL
-      && (MiFlags & 0x600000) != 0
+      && (MiFlags & 0xC00000) != 0
       && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1 )
     {
       if ( (v5 & 1) == 0 )
-LABEL_32:
+LABEL_31:
         KeBugCheckEx(0x50u, *a1, a1[1], a1[2], 0xDuLL);
       if ( (v5 & 0x20) == 0 || (v5 & 0x42) == 0 )
       {
@@ -51,7 +52,7 @@ LABEL_32:
       }
     }
     if ( (v5 & 1) == 0 )
-      goto LABEL_32;
+      goto LABEL_31;
     if ( (v5 & 0x80u) != 0LL )
       break;
     if ( !--v2 )
@@ -59,21 +60,25 @@ LABEL_32:
   }
   if ( (a1[1] & 2) == 0 || (v5 & 0x800) != 0 )
   {
-    MiCheckSystemNxFault(a1, v5, 6LL);
+    MiCheckSystemNxFault(a1, v5, 6LL, i);
     v10 = a1[2];
-    v11 = (_BYTE *)(v10 & 0xFFFFFFFFFFFFFFFEuLL);
     if ( (v10 & 1) != 0 )
     {
-      if ( *v11 == 1 || *v11 == 3 || *v11 == 6 )
-        return 1LL;
+      v11 = *(unsigned __int8 *)(v10 & 0xFFFFFFFFFFFFFFFEuLL);
+      if ( (unsigned __int8)v11 <= 6u )
+      {
+        v12 = 74;
+        if ( _bittest(&v12, v11) )
+          return 1LL;
+      }
     }
-    else if ( (unsigned __int8)KeInvalidAccessAllowed(v10, 0LL) )
+    else if ( (unsigned __int8)KeInvalidAccessAllowed(v10, 0LL) == 1 )
     {
       return 1LL;
     }
-    v12 = *a1;
-    if ( *a1 >= 0xFFFFF68000000000uLL && v12 <= 0xFFFFF6FFFFFFFFFFuLL )
-      KeBugCheckEx(0x50u, v12, a1[1], a1[2], 8uLL);
+    v13 = *a1;
+    if ( *a1 >= 0xFFFFF68000000000uLL && v13 <= 0xFFFFF6FFFFFFFFFFuLL )
+      KeBugCheckEx(0x50u, v13, a1[1], a1[2], 8uLL);
     return 1LL;
   }
   if ( !(unsigned int)MiGenerateAccessViolation(a1) )

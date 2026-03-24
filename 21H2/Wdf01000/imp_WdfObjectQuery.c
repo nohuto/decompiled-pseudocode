@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfObjectQuery @ 0x1C006B2C0
+ * XREFs of imp_WdfObjectQuery @ 0x1C00564F0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
  */
 
 __int64 __fastcall imp_WdfObjectQuery(
@@ -15,6 +15,6 @@ __int64 __fastcall imp_WdfObjectQuery(
   FxObject *p; // [rsp+30h] [rbp+8h] BYREF
 
   p = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], Object, 0x1000u, (void **)&p);
+  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, Object, 0x1000u, (void **)&p);
   return 3221226021LL;
 }

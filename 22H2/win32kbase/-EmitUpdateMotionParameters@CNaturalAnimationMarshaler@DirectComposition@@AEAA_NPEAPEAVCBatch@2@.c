@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitUpdateMotionParameters@CNaturalAnimationMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022C9EC
+ * XREFs of ?EmitUpdateMotionParameters@CNaturalAnimationMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F3AC8
  * Callers:
- *     ?EmitUpdateCommands@CNaturalAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022C8F0 (-EmitUpdateCommands@CNaturalAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CNaturalAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F39C0 (-EmitUpdateCommands@CNaturalAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_82a12b1bd6d405ea304fb103b341a057___ @ 0x1C022C548 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_82a12b1bd6d405ea304fb103b341a05.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_f8795bc2ab0d14603e3171119bdacd19___ @ 0x1C022C848 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_f8795bc2ab0d14603e3171119bdacd1.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_82a12b1bd6d405ea304fb103b341a057___ @ 0x1C01F35F8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_82a12b1bd6d405ea304fb103b341a05.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_f8795bc2ab0d14603e3171119bdacd19___ @ 0x1C01F38B4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_f8795bc2ab0d14603e3171119bdacd1.c)
  */
 
 char __fastcall DirectComposition::CNaturalAnimationMarshaler::EmitUpdateMotionParameters(
@@ -17,7 +17,7 @@ char __fastcall DirectComposition::CNaturalAnimationMarshaler::EmitUpdateMotionP
   DirectComposition::CNaturalAnimationMarshaler *v7; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = 1;
-  if ( (*((_DWORD *)this + 4) & 0x10000) != 0 )
+  if ( (*((_DWORD *)this + 4) & 0x8000) != 0 )
   {
     v4 = *((_DWORD *)this + 41) - 1;
     if ( v4 )
@@ -40,7 +40,7 @@ char __fastcall DirectComposition::CNaturalAnimationMarshaler::EmitUpdateMotionP
     }
     if ( updated )
     {
-      *((_DWORD *)this + 4) &= ~0x10000u;
+      *((_DWORD *)this + 4) &= ~0x8000u;
       return v3;
     }
     return 0;

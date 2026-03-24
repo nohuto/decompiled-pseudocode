@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetActiveViewId@CHolographicExclusiveMode@@UEAA_KXZ @ 0x1802A8100
+ * XREFs of ?GetActiveViewId@CHolographicExclusiveMode@@UEAA_KXZ @ 0x180256720
  * Callers:
  *     <none>
  * Callees:

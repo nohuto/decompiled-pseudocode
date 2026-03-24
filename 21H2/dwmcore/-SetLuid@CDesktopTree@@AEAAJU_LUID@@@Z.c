@@ -1,25 +1,27 @@
 /*
- * XREFs of ?SetLuid@CDesktopTree@@AEAAJU_LUID@@@Z @ 0x1800F7C5C
+ * XREFs of ?SetLuid@CDesktopTree@@AEAAJU_LUID@@@Z @ 0x1800DDA84
  * Callers:
- *     ?ProcessCreate@CDesktopTree@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DESKTOPTREE_CREATE@@@Z @ 0x1800F7C34 (-ProcessCreate@CDesktopTree@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DESKTOPTREE_CREATE@@@Z.c)
- *     ?Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z @ 0x1801F5F68 (-Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z.c)
+ *     ?ProcessCreate@CDesktopTree@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DESKTOPTREE_CREATE@@@Z @ 0x1800DDA5C (-ProcessCreate@CDesktopTree@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DESKTOPTREE_CREATE@@@Z.c)
+ *     ?Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z @ 0x1801B22FC (-Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddDesktopTree@CComposition@@IEAAXPEAVCDesktopTree@@@Z @ 0x1800DDAF4 (-AddDesktopTree@CComposition@@IEAAXPEAVCDesktopTree@@@Z.c)
  */
 
-__int64 __fastcall CDesktopTree::SetLuid(struct _LUID *this, struct _LUID a2)
+__int64 __fastcall CDesktopTree::SetLuid(CDesktopTree *this, struct _LUID a2)
 {
   unsigned int v2; // ebx
 
   v2 = 0;
-  if ( this[591].LowPart == g_luidZero.LowPart && this[591].HighPart == g_luidZero.HighPart && a2 != g_luidZero )
+  if ( *((_DWORD *)this + 1474) || *((_DWORD *)this + 1475) || !*(_QWORD *)&a2 )
   {
-    this[591] = a2;
+    v2 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x167u, 0LL);
   }
   else
   {
-    v2 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2147024809, 0x195u);
+    *((struct _LUID *)this + 737) = a2;
+    CComposition::AddDesktopTree(*((CComposition **)this + 2), this);
   }
   return v2;
 }

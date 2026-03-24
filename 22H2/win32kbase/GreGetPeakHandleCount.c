@@ -1,12 +1,12 @@
 /*
- * XREFs of GreGetPeakHandleCount @ 0x1C0159000
+ * XREFs of GreGetPeakHandleCount @ 0x1C013F1C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GreGetPeakHandleCount(__int64 a1)
+__int64 GreGetPeakHandleCount()
 {
-  return **(unsigned int **)(*(_QWORD *)(SGDGetSessionState(a1) + 24) + 8008LL);
+  return *(unsigned int *)gpHandleManager;
 }

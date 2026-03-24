@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpBlkHandleMachineCheckAbort @ 0x140B171B0
+ * XREFs of HalpBlkHandleMachineCheckAbort @ 0x140A1A1B0
  * Callers:
- *     HalpBlkMachineCheckAbort @ 0x140B16280 (HalpBlkMachineCheckAbort.c)
+ *     HalpBlkMachineCheckAbort @ 0x140A19280 (HalpBlkMachineCheckAbort.c)
  * Callees:
- *     HalpBlkFatalErrorHalt @ 0x140B150B0 (HalpBlkFatalErrorHalt.c)
+ *     HalpBlkFatalErrorHalt @ 0x140A180B0 (HalpBlkFatalErrorHalt.c)
  */
 
-char __fastcall HalpBlkHandleMachineCheckAbort(unsigned __int64 a1)
+__int64 __fastcall HalpBlkHandleMachineCheckAbort(unsigned __int64 a1)
 {
   unsigned __int64 v1; // rax
   unsigned __int8 v2; // bl
   unsigned __int64 v3; // rax
   char v4; // di
-  __int64 v5; // rax
+  __int64 result; // rax
   unsigned int v6; // ebp
   __int64 v7; // r14
   __int64 v8; // rbx
@@ -25,27 +25,31 @@ char __fastcall HalpBlkHandleMachineCheckAbort(unsigned __int64 a1)
   v4 = v3;
   if ( (v3 & 1) == 0 )
     HalpBlkFatalErrorHalt(0x12u, a1);
-  LOBYTE(v5) = v2;
+  result = v2;
   if ( v2 )
   {
     v6 = 1025;
     v7 = v2;
     do
     {
-      v5 = __readmsr(v6);
-      v8 = v5;
-      if ( v5 < 0 && (v5 & 0x2000000000000000LL) != 0 )
+      result = __readmsr(v6);
+      v8 = result;
+      if ( result < 0 )
       {
-        if ( (v5 & 0x4200000000000000LL) != 0 )
-          HalpBlkFatalErrorHalt(0x12u, a1);
-        LOBYTE(v5) = (v4 & 8) != 0;
-        if ( (((v8 & 0x180000000000000LL) == 0x180000000000000LL) & (unsigned __int8)v5) != 0 )
-          HalpBlkFatalErrorHalt(0x12u, a1);
+        result = 0x2000000000000000LL;
+        if ( (v8 & 0x2000000000000000LL) != 0 )
+        {
+          result = 0x4200000000000000LL;
+          if ( (v8 & 0x4200000000000000LL) != 0 )
+            HalpBlkFatalErrorHalt(0x12u, a1);
+          if ( (v4 & 8) != 0 && (v8 & 0x180000000000000LL) == 0x180000000000000LL )
+            HalpBlkFatalErrorHalt(0x12u, a1);
+        }
       }
       v6 += 4;
       --v7;
     }
     while ( v7 );
   }
-  return v5;
+  return result;
 }

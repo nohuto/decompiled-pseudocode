@@ -1,10 +1,10 @@
 /*
- * XREFs of AdtpBuildIPv4Strings @ 0x1408EEC60
+ * XREFs of AdtpBuildIPv4Strings @ 0x1408EEC40
  * Callers:
- *     AdtpBuildSockAddrString @ 0x1408EF9B0 (AdtpBuildSockAddrString.c)
+ *     AdtpBuildSockAddrString @ 0x1408EF990 (AdtpBuildSockAddrString.c)
  * Callees:
- *     StringCchPrintfW @ 0x140134AE4 (StringCchPrintfW.c)
- *     RtlIpv4AddressToStringW @ 0x14013B690 (RtlIpv4AddressToStringW.c)
+ *     StringCchPrintfW @ 0x140134B04 (StringCchPrintfW.c)
+ *     RtlIpv4AddressToStringW @ 0x14013B6B0 (RtlIpv4AddressToStringW.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

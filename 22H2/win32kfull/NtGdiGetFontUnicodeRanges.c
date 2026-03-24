@@ -1,55 +1,46 @@
 /*
- * XREFs of NtGdiGetFontUnicodeRanges @ 0x1C02C3130
+ * XREFs of NtGdiGetFontUnicodeRanges @ 0x1C015BB00
  * Callers:
  *     <none>
  * Callees:
- *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C00F8AA8 (--1EUDCCountRegion@@QEAA@XZ.c)
- *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C00FA9A0 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?GreGetFontUnicodeRanges@@YAKPEAUHDC__@@PEAUtagGLYPHSET@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C028DCCC (-GreGetFontUnicodeRanges@@YAKPEAUHDC__@@PEAUtagGLYPHSET@@W4EntryPoint@RFONTOBJ@@@Z.c)
+ *     GreGetFontUnicodeRanges @ 0x1C015BBC8 (GreGetFontUnicodeRanges.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall NtGdiGetFontUnicodeRanges(HDC a1, char *a2)
 {
-  __int64 v4; // rax
   unsigned int FontUnicodeRanges; // eax
-  __int64 v6; // rbx
-  unsigned int *v7; // rax
-  unsigned int *v8; // rdi
-  int v9; // eax
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  _BYTE v13[56]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v5; // rbx
+  _DWORD *v6; // rax
+  const void *v7; // rdi
+  int v8; // eax
 
-  v4 = SGDGetSessionState(a1);
-  EUDCCountRegion::EUDCCountRegion((EUDCCountRegion *)v13, *(struct Gre::Full::SESSION_GLOBALS **)(v4 + 32));
-  FontUnicodeRanges = GreGetFontUnicodeRanges(a1, 0LL);
-  v6 = FontUnicodeRanges;
+  FontUnicodeRanges = GreGetFontUnicodeRanges(a1);
+  v5 = FontUnicodeRanges;
   if ( FontUnicodeRanges && a2 )
   {
-    v7 = (unsigned int *)AllocFreeTmpBuffer(FontUnicodeRanges);
-    v8 = v7;
-    if ( v7 )
+    v6 = (_DWORD *)AllocFreeTmpBuffer(FontUnicodeRanges);
+    v7 = v6;
+    if ( v6 )
     {
-      *v7 = v6;
-      v9 = GreGetFontUnicodeRanges(a1, v7);
-      if ( v9 && (_DWORD)v6 == v9 )
+      *v6 = v5;
+      v8 = GreGetFontUnicodeRanges(a1);
+      if ( v8 && (_DWORD)v5 == v8 )
       {
-        if ( (unsigned __int64)&a2[v6] > MmUserProbeAddress || &a2[v6] <= a2 )
+        if ( (unsigned __int64)&a2[v5] > MmUserProbeAddress || &a2[v5] <= a2 )
           *(_BYTE *)MmUserProbeAddress = 0;
-        memmove(a2, v8, (unsigned int)v6);
+        memmove(a2, v7, (unsigned int)v5);
       }
       else
       {
-        LODWORD(v6) = 0;
+        LODWORD(v5) = 0;
       }
-      FreeTmpBuffer(v8, v10, v11);
+      FreeTmpBuffer(v7);
     }
     else
     {
-      LODWORD(v6) = 0;
+      LODWORD(v5) = 0;
     }
   }
-  EUDCCountRegion::~EUDCCountRegion((EUDCCountRegion *)v13);
-  return (unsigned int)v6;
+  return (unsigned int)v5;
 }

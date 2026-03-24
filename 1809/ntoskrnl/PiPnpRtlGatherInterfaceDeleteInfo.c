@@ -1,17 +1,17 @@
 /*
- * XREFs of PiPnpRtlGatherInterfaceDeleteInfo @ 0x140829178
+ * XREFs of PiPnpRtlGatherInterfaceDeleteInfo @ 0x140829158
  * Callers:
  *     PiPnpRtlCmActionCallback @ 0x140599080 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PiDmGetObject @ 0x1405989C8 (PiDmGetObject.c)
  *     PnpGetObjectProperty @ 0x140599EC8 (PnpGetObjectProperty.c)
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
  *     _PnpStringFromGuid @ 0x14059ACE4 (_PnpStringFromGuid.c)
- *     PiPnpRtlFreeInterfaceDeleteInfo @ 0x140828F44 (PiPnpRtlFreeInterfaceDeleteInfo.c)
+ *     PiPnpRtlFreeInterfaceDeleteInfo @ 0x140828F24 (PiPnpRtlFreeInterfaceDeleteInfo.c)
  */
 
 __int64 __fastcall PiPnpRtlGatherInterfaceDeleteInfo(__int64 a1, __int64 **a2)

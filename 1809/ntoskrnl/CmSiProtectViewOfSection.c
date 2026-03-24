@@ -7,11 +7,11 @@
  *     HvpViewMapMakeViewRangeUnCOWByCaller @ 0x1405A5890 (HvpViewMapMakeViewRangeUnCOWByCaller.c)
  *     HvpViewMapMakeViewRangeReadOnly @ 0x1405A5998 (HvpViewMapMakeViewRangeReadOnly.c)
  *     HvpViewMapMakeViewRangeCOWByCaller @ 0x1405A5A80 (HvpViewMapMakeViewRangeCOWByCaller.c)
- *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x140703FA0 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
- *     HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x140740994 (HvpViewMapMakeViewRangeUnCOWByPolicy.c)
- *     HvpViewMapMakeViewRangeInvalid @ 0x1407F6EA8 (HvpViewMapMakeViewRangeInvalid.c)
+ *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x140703F80 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
+ *     HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x140740974 (HvpViewMapMakeViewRangeUnCOWByPolicy.c)
+ *     HvpViewMapMakeViewRangeInvalid @ 0x1407F6E88 (HvpViewMapMakeViewRangeInvalid.c)
  * Callees:
- *     ZwProtectVirtualMemory @ 0x1401B8B70 (ZwProtectVirtualMemory.c)
+ *     ZwProtectVirtualMemory @ 0x1401B8B90 (ZwProtectVirtualMemory.c)
  */
 
 NTSTATUS __fastcall CmSiProtectViewOfSection(

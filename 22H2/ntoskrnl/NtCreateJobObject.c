@@ -1,44 +1,50 @@
 /*
- * XREFs of NtCreateJobObject @ 0x1406885D0
+ * XREFs of NtCreateJobObject @ 0x14071E360
  * Callers:
  *     <none>
  * Callees:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     PoEnergyEstimationEnabled @ 0x1402C0B20 (PoEnergyEstimationEnabled.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExUuidCreate @ 0x140688920 (ExUuidCreate.c)
- *     PspUnlockJobListExclusive @ 0x140688AA0 (PspUnlockJobListExclusive.c)
- *     PspIoRateEntryInitialize @ 0x140688AF8 (PspIoRateEntryInitialize.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
- *     ExCreateHandleEx @ 0x140740974 (ExCreateHandleEx.c)
- *     EtwTraceJob @ 0x1409E53B8 (EtwTraceJob.c)
+ *     PoEnergyEstimationEnabled @ 0x1402056D0 (PoEnergyEstimationEnabled.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObInsertObject @ 0x140701A90 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1407023B0 (ObCreateObject.c)
+ *     PspIoRateEntryInitialize @ 0x14071FC24 (PspIoRateEntryInitialize.c)
+ *     ExUuidCreate @ 0x14071FC80 (ExUuidCreate.c)
+ *     PspUnlockJobListExclusive @ 0x14071FDD4 (PspUnlockJobListExclusive.c)
+ *     PspLockJobListExclusive @ 0x14071FE14 (PspLockJobListExclusive.c)
+ *     EtwTraceJob @ 0x140935D98 (EtwTraceJob.c)
+ *     ExCreateHandle @ 0x14094C680 (ExCreateHandle.c)
  */
 
-__int64 __fastcall NtCreateJobObject(__int64 *a1, __int64 a2, int a3)
+__int64 __fastcall NtCreateJobObject(HANDLE *a1, ACCESS_MASK a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // r15
-  char PreviousMode; // si
+  unsigned __int8 v6; // si
   __int64 v7; // rcx
   char v8; // r12
-  int v9; // r9d
-  int v10; // ecx
-  int Object; // esi
-  __int64 Handle; // rax
-  __int64 v14; // [rsp+60h] [rbp-48h] BYREF
+  unsigned int v9; // ebx
+  int inserted; // esi
+  size_t v11; // r8
+  PRKEVENT v12; // rbx
+  struct _KEVENT *v13; // rax
+  struct _LIST_ENTRY *v14; // rcx
+  __int64 v15; // rax
+  struct _DMA_ADAPTER *v16; // rcx
+  PRKEVENT Event; // [rsp+58h] [rbp-50h] BYREF
+  HANDLE Handle; // [rsp+60h] [rbp-48h] BYREF
   LARGE_INTEGER Interval; // [rsp+68h] [rbp-40h] BYREF
-  unsigned int v16; // [rsp+C8h] [rbp+20h]
+  volatile unsigned int Lock; // [rsp+C8h] [rbp+20h]
 
-  v14 = 0LL;
-  v16 = 0;
+  Event = 0LL;
+  Handle = 0LL;
+  Lock = 0;
   CurrentThread = KeGetCurrentThread();
-  PreviousMode = CurrentThread->PreviousMode;
-  if ( PreviousMode )
+  v6 = CurrentThread->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
+  if ( v6 )
   {
     v7 = 0x7FFFFFFF0000LL;
     if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
@@ -47,81 +53,96 @@ __int64 __fastcall NtCreateJobObject(__int64 *a1, __int64 a2, int a3)
   }
   *a1 = 0LL;
   v8 = PoEnergyEstimationEnabled();
-  LOBYTE(v9) = PreviousMode;
-  LOBYTE(v10) = PreviousMode;
-  Object = ObCreateObjectEx(v10, (_DWORD)PsJobType, a3, v9);
-  if ( Object >= 0 )
+  v9 = v8 != 0 ? 2032 : 1600;
+  inserted = ObCreateObject(v6, PsJobType, a3, v6, 0, v9, 0, v9, &Event);
+  if ( inserted < 0 )
   {
-    memset(0LL, 0, v8 != 0 ? 2248 : 1816);
-    MEMORY[0x510] = 0LL;
-    MEMORY[0x30] = 40LL;
-    MEMORY[0x28] = 40LL;
-    MEMORY[0x500] = 1272LL;
-    MEMORY[0x4F8] = 1272LL;
-    MEMORY[0x4F0] = 1256LL;
-    MEMORY[0x4E8] = 1256LL;
-    MEMORY[0x520] = 1304LL;
-    MEMORY[0x518] = 1304LL;
-    KeInitializeEvent(0LL, NotificationEvent, 0);
-    MEMORY[0x4E0] = 0LL;
-    MEMORY[0x108] = 2097153LL;
-    memset((void *)0x110, 0, 0x100uLL);
-    MEMORY[0x2C8] = 2097153LL;
-    memset((void *)0x2D0, 0, 0x100uLL);
-    MEMORY[0x5E0] = 1496LL;
-    MEMORY[0x5D8] = 1496LL;
-    MEMORY[0x5E8] = 0LL;
+    v12 = Event;
+  }
+  else
+  {
+    v11 = v9;
+    v12 = Event;
+    memset(Event, 0, v11);
+    *(_QWORD *)&v12[45].Header.Lock = v12;
+    *(_QWORD *)&v12[2].Header.Lock = (char *)v12 + 40;
+    v12[1].Header.WaitListHead.Blink = (struct _LIST_ENTRY *)&v12[1].Header.WaitListHead.Blink;
+    v12[44].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)&v12[44];
+    *(_QWORD *)&v12[44].Header.Lock = v12 + 44;
+    v12[43].Header.WaitListHead.Blink = &v12[43].Header.WaitListHead;
+    v12[43].Header.WaitListHead.Flink = &v12[43].Header.WaitListHead;
+    v12[45].Header.WaitListHead.Blink = &v12[45].Header.WaitListHead;
+    v12[45].Header.WaitListHead.Flink = &v12[45].Header.WaitListHead;
+    KeInitializeEvent(v12, NotificationEvent, 0);
+    *(_QWORD *)&v12[43].Header.Lock = 0LL;
+    *(_QWORD *)&v12[11].Header.Lock = 1310721LL;
+    memset(&v12[11].Header.WaitListHead, 0, 0xA0uLL);
+    v12[25].Header.WaitListHead.Blink = (struct _LIST_ENTRY *)1310721;
+    memset(&v12[26], 0, 0xA0uLL);
+    v12[53].Header.WaitListHead.Blink = &v12[53].Header.WaitListHead;
+    v12[53].Header.WaitListHead.Flink = &v12[53].Header.WaitListHead;
+    *(_QWORD *)&v12[54].Header.Lock = 0LL;
     if ( v8 )
-      MEMORY[0x608] = 1816LL;
-    MEMORY[0x240] = -1;
-    MEMORY[0x440] = 16382;
-    MEMORY[0x6C8] = 1LL;
-    MEMORY[0x414] = 10;
-    MEMORY[0x244] = 5;
-    ExInitializeResourceLite((PERESOURCE)0x38);
-    --CurrentThread->SpecialApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&PspJobListLock, 0LL);
-    if ( *(__int64 **)qword_140D53338 != &PspJobList )
+      v12[55].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)&v12[66].Header.WaitListHead.Blink;
+    v12[20].Header.LockNV = -1;
+    HIDWORD(v12[36].Header.WaitListHead.Flink) = 16382;
+    v12[63].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)1;
+    HIDWORD(v12[35].Header.WaitListHead.Flink) = 10;
+    v12[20].Header.SignalState = 5;
+    ExInitializeResourceLite((PERESOURCE)&v12[2].Header.WaitListHead);
+    PspLockJobListExclusive(CurrentThread);
+    v13 = v12 + 1;
+    v14 = (struct _LIST_ENTRY *)qword_140D2D338;
+    if ( *(__int64 **)qword_140D2D338 != &PspJobList )
       __fastfail(3u);
-    MEMORY[0x18] = &PspJobList;
-    MEMORY[0x20] = qword_140D53338;
-    *(_QWORD *)qword_140D53338 = 24LL;
-    qword_140D53338 = 24LL;
+    *(_QWORD *)&v13->Header.Lock = &PspJobList;
+    v12[1].Header.WaitListHead.Flink = v14;
+    v14->Flink = (struct _LIST_ENTRY *)v13;
+    qword_140D2D338 = (__int64)&v12[1];
     PspUnlockJobListExclusive(CurrentThread);
-    MEMORY[0x42C] = 5;
-    MEMORY[0x430] = 5;
-    MEMORY[0x434] = 8;
-    MEMORY[0x438] = 8;
-    MEMORY[0x600] |= 0x200000u;
-    v16 = MEMORY[0x600];
+    v12[55].Header.LockNV |= 0x200000u;
+    Lock = v12[55].Header.Lock;
     while ( 1 )
     {
-      Object = ExUuidCreate((UUID *)0x5B0);
-      if ( Object != -1073741267 )
+      inserted = ExUuidCreate((UUID *)&v12[51].Header.WaitListHead.Blink);
+      if ( inserted != -1073741267 )
         break;
       Interval.QuadPart = -10000LL;
       KeDelayExecutionThread(0, 0, &Interval);
     }
-    if ( Object == 1073872982 )
-      Object = 0;
-    if ( Object >= 0 )
+    if ( inserted == 1073872982 )
+      inserted = 0;
+    if ( inserted >= 0 )
     {
-      Handle = ExCreateHandleEx(PspUniqueJobIdTable, 0, 0, 0, 0LL);
-      if ( Handle )
-        MEMORY[0x5AC] = Handle;
+      v15 = ExCreateHandle(PspUniqueJobIdTable, v12);
+      if ( v15 )
+        HIDWORD(v12[51].Header.WaitListHead.Flink) = v15;
       else
-        Object = -1073741670;
+        inserted = -1073741670;
     }
-    PspIoRateEntryInitialize(1616LL);
-    MEMORY[0x690] = 0LL;
-    MEMORY[0x698] = 0LL;
-    MEMORY[0x6C0] = 0LL;
-    if ( Object < 0 || (ObfReferenceObject(0LL), Object = ObInsertObjectEx(0LL, 0LL, 0, 0LL, (__int64)&v14), Object < 0) )
-      ObfDereferenceObject(0LL);
-    else
-      *a1 = v14;
+    PspIoRateEntryInitialize(&v12[58].Header.WaitListHead);
+    *(_QWORD *)&v12[61].Header.Lock = 0LL;
+    v12[61].Header.WaitListHead.Flink = 0LL;
+    *(_QWORD *)&v12[63].Header.Lock = 0LL;
+    v16 = (struct _DMA_ADAPTER *)v12;
+    if ( inserted >= 0 )
+    {
+      ObfReferenceObject(v12);
+      inserted = ObInsertObject(v12, 0LL, a2, 0, 0LL, &Handle);
+      if ( inserted >= 0 )
+      {
+        *a1 = Handle;
+        goto LABEL_20;
+      }
+      v16 = (struct _DMA_ADAPTER *)v12;
+    }
+    HalPutDmaAdapter(v16);
+    v12 = 0LL;
   }
+LABEL_20:
   if ( (PerfGlobalGroupMask & 0x80000) != 0 )
-    EtwTraceJob(0LL, v16, (unsigned int)Object, 1824LL);
-  return (unsigned int)Object;
+    EtwTraceJob(v12, Lock, (unsigned int)inserted, 1824LL);
+  if ( v12 )
+    HalPutDmaAdapter((PADAPTER_OBJECT)v12);
+  return (unsigned int)inserted;
 }

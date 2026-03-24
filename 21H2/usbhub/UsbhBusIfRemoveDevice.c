@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhBusIfRemoveDevice @ 0x1C004B7A0
+ * XREFs of UsbhBusIfRemoveDevice @ 0x1C004CBA0
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     Usbh_UsbdInterfaceDereference @ 0x1C002DA5C (Usbh_UsbdInterfaceDereference.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     Usbh_UsbdInterfaceDereference @ 0x1C002EE38 (Usbh_UsbdInterfaceDereference.c)
  */
 
 __int64 __fastcall UsbhBusIfRemoveDevice(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RegisterNotifiers@CImageLegacyMilBrush@@QEAAJPEAVCResourceTable@@@Z @ 0x1800CEE68
+ * XREFs of ?RegisterNotifiers@CImageLegacyMilBrush@@QEAAJPEAVCResourceTable@@@Z @ 0x1800CBC3C
  * Callers:
- *     ?ProcessUpdate@CImageLegacyMilBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_IMAGELEGACYMILBRUSH@@@Z @ 0x1800CECE8 (-ProcessUpdate@CImageLegacyMilBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_IMAGELEGACYMILBRUSH@.c)
+ *     ?ProcessUpdate@CImageLegacyMilBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_IMAGELEGACYMILBRUSH@@@Z @ 0x1800CBAC0 (-ProcessUpdate@CImageLegacyMilBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_IMAGELEGACYMILBRUSH@.c)
  * Callees:
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180046EF0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
  */
 
 __int64 __fastcall CImageLegacyMilBrush::RegisterNotifiers(struct CResource **this, struct CResourceTable *a2)
@@ -23,50 +23,50 @@ __int64 __fastcall CImageLegacyMilBrush::RegisterNotifiers(struct CResource **th
   int v14; // eax
   __int64 v15; // rcx
 
-  v3 = CResource::RegisterNotifier((CResource *)this, this[18]);
+  v3 = CResource::RegisterNotifier((CResource *)this, this[17]);
   v5 = v3;
   if ( v3 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, v3, 0x35Fu);
+    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x35Fu, 0LL);
   }
   else
   {
-    v6 = CResource::RegisterNotifier((CResource *)this, this[19]);
+    v6 = CResource::RegisterNotifier((CResource *)this, this[18]);
     v5 = v6;
     if ( v6 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0x360u);
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x360u, 0LL);
     }
     else
     {
-      v8 = CResource::RegisterNotifier((CResource *)this, this[31]);
+      v8 = CResource::RegisterNotifier((CResource *)this, this[30]);
       v5 = v8;
       if ( v8 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0x361u);
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x361u, 0LL);
       }
       else
       {
-        v10 = CResource::RegisterNotifier((CResource *)this, this[17]);
+        v10 = CResource::RegisterNotifier((CResource *)this, this[16]);
         v5 = v10;
         if ( v10 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0x362u);
+          MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x362u, 0LL);
         }
         else
         {
-          v12 = CResource::RegisterNotifier((CResource *)this, this[23]);
+          v12 = CResource::RegisterNotifier((CResource *)this, this[22]);
           v5 = v12;
           if ( v12 < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0x363u);
+            MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x363u, 0LL);
           }
           else
           {
-            v14 = CResource::RegisterNotifier((CResource *)this, this[26]);
+            v14 = CResource::RegisterNotifier((CResource *)this, this[25]);
             v5 = v14;
             if ( v14 < 0 )
-              MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, v14, 0x364u);
+              MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x364u, 0LL);
           }
         }
       }

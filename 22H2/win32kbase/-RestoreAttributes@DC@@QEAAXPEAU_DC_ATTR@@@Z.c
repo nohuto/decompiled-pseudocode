@@ -1,19 +1,16 @@
 /*
- * XREFs of ?RestoreAttributes@DC@@QEAAXPEAU_DC_ATTR@@@Z @ 0x1C003F990
+ * XREFs of ?RestoreAttributes@DC@@QEAAXPEAU_DC_ATTR@@@Z @ 0x1C002D130
  * Callers:
- *     ?SetupDCAttributes@@YAXPEAVDC@@PEAU_DC_ATTR@@@Z @ 0x1C003E79C (-SetupDCAttributes@@YAXPEAVDC@@PEAU_DC_ATTR@@@Z.c)
- *     ?RestoreAttributesHelper@XDCOBJ@@AEAAXXZ @ 0x1C003FDC4 (-RestoreAttributesHelper@XDCOBJ@@AEAAXXZ.c)
+ *     ?SetupDCAttributes@@YAXPEAVDC@@PEAU_DC_ATTR@@@Z @ 0x1C002C988 (-SetupDCAttributes@@YAXPEAVDC@@PEAU_DC_ATTR@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C00C8290 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall DC::RestoreAttributes(DC *this, struct _DC_ATTR *a2)
 {
-  char *v2; // rax
-  _OWORD *v3; // rcx
-  _OWORD *v4; // rdx
+  _OWORD *v2; // rcx
 
-  v2 = (char *)this + 544;
   *(_OWORD *)a2 = *((_OWORD *)this + 34);
   *((_OWORD *)a2 + 1) = *((_OWORD *)this + 35);
   *((_OWORD *)a2 + 2) = *((_OWORD *)this + 36);
@@ -23,22 +20,21 @@ void __fastcall DC::RestoreAttributes(DC *this, struct _DC_ATTR *a2)
   *((_OWORD *)a2 + 6) = *((_OWORD *)this + 40);
   *((_OWORD *)a2 + 7) = *((_OWORD *)this + 41);
   *((_OWORD *)a2 + 8) = *((_OWORD *)this + 42);
-  v3 = (_OWORD *)((char *)this + 688);
-  if ( !v2 )
-    v3 = 0LL;
-  v4 = (_OWORD *)((char *)a2 + 144);
-  *v4 = *v3;
-  v4[1] = v3[1];
-  v4[2] = v3[2];
-  v4[3] = v3[3];
-  v4[4] = v3[4];
-  v4[5] = v3[5];
-  v4[6] = v3[6];
-  v4 += 8;
-  *(v4 - 1) = v3[7];
-  *v4 = v3[8];
-  v4[1] = v3[9];
-  v4[2] = v3[10];
-  v4[3] = v3[11];
-  v4[4] = v3[12];
+  if ( this == (DC *)-544LL )
+    v2 = 0LL;
+  else
+    v2 = (_OWORD *)((char *)this + 688);
+  *((_OWORD *)a2 + 9) = *v2;
+  *((_OWORD *)a2 + 10) = v2[1];
+  *((_OWORD *)a2 + 11) = v2[2];
+  *((_OWORD *)a2 + 12) = v2[3];
+  *((_OWORD *)a2 + 13) = v2[4];
+  *((_OWORD *)a2 + 14) = v2[5];
+  *((_OWORD *)a2 + 15) = v2[6];
+  *((_OWORD *)a2 + 16) = v2[7];
+  *((_OWORD *)a2 + 17) = v2[8];
+  *((_OWORD *)a2 + 18) = v2[9];
+  *((_OWORD *)a2 + 19) = v2[10];
+  *((_OWORD *)a2 + 20) = v2[11];
+  *((_OWORD *)a2 + 21) = v2[12];
 }

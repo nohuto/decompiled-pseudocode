@@ -1,58 +1,28 @@
 /*
- * XREFs of IsKeyStateCached @ 0x1C004EB60
+ * XREFs of IsKeyStateCached @ 0x1C0007390
  * Callers:
- *     NtMITSynthesizeKeyboardInput @ 0x1C0009460 (NtMITSynthesizeKeyboardInput.c)
- *     NtUserGetKeyState @ 0x1C004E960 (NtUserGetKeyState.c)
+ *     NtUserGetKeyboardState @ 0x1C0006BE0 (NtUserGetKeyboardState.c)
+ *     AllocQueue @ 0x1C00071A0 (AllocQueue.c)
+ *     ?VirtualizeKeyboardInput@Keyboard@IVRootDeliver@@YA?AW4_SYNTHESIZED_KEYBOARD_PROCESSING_RESULT@@W4_SYNTHESIZE_KEYBOARD_OPTIONS@@AEBUCONTAINER_ID@@AEBU_KEYBOARD_INPUT_DATA@@PEAX@Z @ 0x1C01BCFD4 (-VirtualizeKeyboardInput@Keyboard@IVRootDeliver@@YA-AW4_SYNTHESIZED_KEYBOARD_PROCESSING_RESULT@@.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall IsKeyStateCached(unsigned __int8 a1)
+bool __fastcall IsKeyStateCached(unsigned __int8 a1)
 {
   int v1; // edx
   _BYTE *i; // rax
-  int v3; // ecx
-  int v4; // ecx
-  int v5; // ecx
-  int v6; // ecx
-  int v7; // ecx
-  int v8; // ecx
 
   if ( a1 >= 0x20u )
   {
     v1 = 0;
-    for ( i = &unk_1C024CCA0; *i != a1; ++i )
+    for ( i = &unk_1C0211308; *i != a1; ++i )
     {
       if ( (unsigned int)++v1 >= 0xE )
-      {
-        v3 = a1 - 91;
-        if ( v3 )
-        {
-          v4 = v3 - 1;
-          if ( v4 )
-          {
-            v5 = v4 - 68;
-            if ( v5 )
-            {
-              v6 = v5 - 1;
-              if ( v6 )
-              {
-                v7 = v6 - 1;
-                if ( v7 )
-                {
-                  v8 = v7 - 1;
-                  if ( v8 )
-                  {
-                    if ( (unsigned int)(v8 - 1) > 1 )
-                      return 0;
-                  }
-                }
-              }
-            }
-          }
-        }
-        return 1;
-      }
+        return a1 <= 0xA5u
+            && (a1 < 0x5Du || a1 >= 0xA0u)
+            && a1 >= 0x5Bu
+            && (a1 <= 0x5Cu || (unsigned __int8)(a1 + 96) <= 5u);
     }
   }
   return 1;

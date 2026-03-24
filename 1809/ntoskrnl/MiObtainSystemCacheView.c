@@ -1,8 +1,8 @@
 /*
- * XREFs of MiObtainSystemCacheView @ 0x1400AD200
+ * XREFs of MiObtainSystemCacheView @ 0x1400AD220
  * Callers:
- *     MmMapViewInSystemCache @ 0x1400AD910 (MmMapViewInSystemCache.c)
- *     MmReserveViewInSystemCache @ 0x1407501BC (MmReserveViewInSystemCache.c)
+ *     MmMapViewInSystemCache @ 0x1400AD930 (MmMapViewInSystemCache.c)
+ *     MmReserveViewInSystemCache @ 0x14075019C (MmReserveViewInSystemCache.c)
  * Callees:
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
@@ -14,19 +14,19 @@
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     MiCompareTbFlushTimeStamp @ 0x14009831C (MiCompareTbFlushTimeStamp.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     MiGetPteLink @ 0x1400AD784 (MiGetPteLink.c)
- *     RemoveListHeadPte @ 0x1400AD7C0 (RemoveListHeadPte.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiExpandSystemCache @ 0x1400F61AC (MiExpandSystemCache.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiWaitForSystemCacheViewFlush @ 0x14013919C (MiWaitForSystemCacheViewFlush.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     CcUnmapInactiveViews @ 0x14026A860 (CcUnmapInactiveViews.c)
- *     MiInitializeSystemCache @ 0x14072A6BC (MiInitializeSystemCache.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     MiGetPteLink @ 0x1400AD7A4 (MiGetPteLink.c)
+ *     RemoveListHeadPte @ 0x1400AD7E0 (RemoveListHeadPte.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiExpandSystemCache @ 0x1400F61CC (MiExpandSystemCache.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiWaitForSystemCacheViewFlush @ 0x1401391BC (MiWaitForSystemCacheViewFlush.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcUnmapInactiveViews @ 0x14026A960 (CcUnmapInactiveViews.c)
+ *     MiInitializeSystemCache @ 0x14072A69C (MiInitializeSystemCache.c)
  */
 
 _QWORD *__fastcall MiObtainSystemCacheView(__int64 a1, __int64 a2, __int64 a3)

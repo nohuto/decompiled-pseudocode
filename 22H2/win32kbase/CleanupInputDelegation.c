@@ -1,37 +1,25 @@
 /*
- * XREFs of CleanupInputDelegation @ 0x1C009AF40
+ * XREFs of CleanupInputDelegation @ 0x1C0092110
  * Callers:
- *     DestroyBaseWindow @ 0x1C014F060 (DestroyBaseWindow.c)
+ *     DestroyBaseWindow @ 0x1C0138FF0 (DestroyBaseWindow.c)
  * Callees:
- *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C0045E80 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C00462E4 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     ?IsLockedShared@tagDomLock@@QEBA_NXZ @ 0x1C005CCDC (-IsLockedShared@tagDomLock@@QEBA_NXZ.c)
- *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C005CD00 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
- *     _anonymous_namespace_::ScrubDelegatedWindow_tagWND___ @ 0x1C009AFC0 (_anonymous_namespace_--ScrubDelegatedWindow_tagWND___.c)
- *     _anonymous_namespace_::ScrubDelegatedWindow_tagBWND___ @ 0x1C0135690 (_anonymous_namespace_--ScrubDelegatedWindow_tagBWND___.c)
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0033100 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
+ *     _anonymous_namespace_::ScrubDelegatedWindow_tagWND___ @ 0x1C00921E0 (_anonymous_namespace_--ScrubDelegatedWindow_tagWND___.c)
+ *     _anonymous_namespace_::ScrubDelegatedWindow_tagBWND___ @ 0x1C011E0A0 (_anonymous_namespace_--ScrubDelegatedWindow_tagBWND___.c)
  */
 
-struct _HANDLEENTRY *__fastcall CleanupInputDelegation(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4)
+struct _HANDLEENTRY *__fastcall CleanupInputDelegation(_DWORD *a1)
 {
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
   struct _HANDLEENTRY *result; // rax
-  char v9; // cl
+  char v3; // cl
+  _BYTE v4[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( !gbInDestroyHandleTableObjects
-    && !IS_USERCRIT_OWNED_EXCLUSIVE((__int64)a1, a2, a3, a4)
-    && (!IS_USERCRIT_OWNED_AT_ALL(v5, a2, v6, v7)
-     || !tagDomLock::IsLockedExclusive(&gDomainHandleManagerLock)
-     && !tagDomLock::IsLockedShared(&gDomainHandleManagerLock)) )
-  {
-    __int2c();
-  }
-  result = qword_1C028FE68;
-  v9 = *((_BYTE *)qword_1C028FE68 + dword_1C028FE70 * (unsigned int)(unsigned __int16)*a1 + 24);
-  if ( v9 == 1 )
-    return (struct _HANDLEENTRY *)anonymous_namespace_::ScrubDelegatedWindow_tagWND___(a1, a2);
-  if ( v9 == 23 )
-    return (struct _HANDLEENTRY *)anonymous_namespace_::ScrubDelegatedWindow_tagBWND___(a1, a2);
+  CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>((__int64)v4);
+  result = qword_1C024FA38;
+  v3 = *((_BYTE *)qword_1C024FA38 + dword_1C024FA40 * (unsigned int)(unsigned __int16)*a1 + 24);
+  if ( v3 == 1 )
+    return (struct _HANDLEENTRY *)anonymous_namespace_::ScrubDelegatedWindow_tagWND___(a1);
+  if ( v3 == 23 )
+    return (struct _HANDLEENTRY *)anonymous_namespace_::ScrubDelegatedWindow_tagBWND___(a1);
   return result;
 }

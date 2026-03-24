@@ -1,8 +1,8 @@
 /*
- * XREFs of ?TrgPlg@BLTRECORD@@QEAAHHHHH@Z @ 0x1C028DAA8
+ * XREFs of ?TrgPlg@BLTRECORD@@QEAAHHHHH@Z @ 0x1C028FDB0
  * Callers:
- *     GreStretchBltInternal @ 0x1C002AF84 (GreStretchBltInternal.c)
- *     GreMaskBlt @ 0x1C0087168 (GreMaskBlt.c)
+ *     GreStretchBltInternal @ 0x1C00B4D10 (GreStretchBltInternal.c)
+ *     GreMaskBlt @ 0x1C010979C (GreMaskBlt.c)
  * Callees:
  *     <none>
  */

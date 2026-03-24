@@ -1,25 +1,25 @@
 /*
- * XREFs of IntelPptFilter_DecreaseEndpointCount @ 0x1C007C090
+ * XREFs of IntelPptFilter_DecreaseEndpointCount @ 0x1C0079090
  * Callers:
- *     IntelPptFilter_FilterCommandCompletion @ 0x1C007C230 (IntelPptFilter_FilterCommandCompletion.c)
- *     IntelPptFilter_FilterEndpointConfigureCommand @ 0x1C007C2F8 (IntelPptFilter_FilterEndpointConfigureCommand.c)
+ *     IntelPptFilter_FilterCommandCompletion @ 0x1C0079220 (IntelPptFilter_FilterCommandCompletion.c)
+ *     IntelPptFilter_FilterEndpointConfigureCommand @ 0x1C00792E8 (IntelPptFilter_FilterEndpointConfigureCommand.c)
  * Callees:
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
  */
 
 _UNKNOWN **__fastcall IntelPptFilter_DecreaseEndpointCount(__int64 a1, int a2)
 {
   int v2; // edi
   _UNKNOWN **result; // rax
-  _DWORD *v4; // rbx
-  int v5; // eax
+  int v5; // r8d
+  char v6; // al
 
   v2 = a2;
   result = &WPP_RECORDER_INITIALIZED;
-  v4 = (_DWORD *)(a1 + 48);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v5 = *v4 - a2;
+    v5 = *(_DWORD *)(a1 + 48);
+    v6 = v5 - a2;
     LOBYTE(a2) = 4;
     result = (_UNKNOWN **)WPP_RECORDER_SF_dd(
                             *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
@@ -27,9 +27,9 @@ _UNKNOWN **__fastcall IntelPptFilter_DecreaseEndpointCount(__int64 a1, int a2)
                             16,
                             12,
                             (__int64)&WPP_0f3e6ee050e235607aa5f43a2d147c91_Traceguids,
-                            *v4,
-                            v5);
+                            v5,
+                            v6);
   }
-  *v4 -= v2;
+  *(_DWORD *)(a1 + 48) -= v2;
   return result;
 }

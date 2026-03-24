@@ -1,81 +1,83 @@
 /*
- * XREFs of ACPIIoctlEvalPreProcessingV1Ex @ 0x1C001BAFC
+ * XREFs of ACPIIoctlEvalPreProcessingV1Ex @ 0x1C0029BB4
  * Callers:
- *     ACPIIoctlEvalControlMethod @ 0x1C001BC74 (ACPIIoctlEvalControlMethod.c)
- *     ACPIIoctlAsyncEvalControlMethod @ 0x1C002D9AC (ACPIIoctlAsyncEvalControlMethod.c)
+ *     ACPIIoctlEvalControlMethod @ 0x1C000BAC4 (ACPIIoctlEvalControlMethod.c)
+ *     ACPIIoctlAsyncEvalControlMethod @ 0x1C00572F4 (ACPIIoctlAsyncEvalControlMethod.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     AMLIGetNameSpaceObject @ 0x1C0018260 (AMLIGetNameSpaceObject.c)
- *     AMLIIsObjectInGivenScope @ 0x1C001CF54 (AMLIIsObjectInGivenScope.c)
- *     AcpiIoctlArgumentToPackageObjV1 @ 0x1C002C0FC (AcpiIoctlArgumentToPackageObjV1.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     AMLIGetNameSpaceObject @ 0x1C000B01C (AMLIGetNameSpaceObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AcpiIoctlArgumentToPackageObjV1 @ 0x1C000C2C8 (AcpiIoctlArgumentToPackageObjV1.c)
+ *     AMLIIsObjectInGivenScope @ 0x1C0029E24 (AMLIIsObjectInGivenScope.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall ACPIIoctlEvalPreProcessingV1Ex(
         ULONG_PTR a1,
         __int64 a2,
         __int64 a3,
-        __int64 a4,
-        _QWORD *a5,
+        POOL_TYPE a4,
+        __int64 *a5,
         _QWORD *a6,
-        _QWORD *a7,
+        unsigned int **a7,
         unsigned int *a8)
 {
   unsigned int v8; // eax
   int v9; // r10d
-  char *v11; // rdi
-  void *Pool2; // r15
+  unsigned int *v11; // rdi
+  PVOID PoolWithTag; // r15
   unsigned int v13; // r12d
   int *v14; // rsi
   __int64 *v15; // rbp
   int v16; // ebx
   int v17; // eax
   __int64 v18; // rax
-  unsigned __int16 *v20; // rsi
-  __int64 v21; // rax
-  unsigned int v22; // ebp
-  __int64 v23; // r14
-  __int16 v24; // ax
-  unsigned __int16 v25; // ax
-  __int64 v26; // rax
+  size_t v20; // rbx
+  unsigned __int16 *v21; // rsi
+  unsigned int *v22; // rax
+  unsigned int v23; // ebp
+  char *v24; // r14
+  __int16 v25; // ax
+  unsigned __int16 v26; // ax
   __int64 v27; // rax
-  _QWORD *v28; // rcx
-  volatile signed __int32 *v29; // [rsp+78h] [rbp+10h] BYREF
-  __int64 v30; // [rsp+88h] [rbp+20h]
+  unsigned int *v28; // rax
+  _QWORD *v29; // rcx
+  __int64 v30; // [rsp+78h] [rbp+10h] BYREF
+  POOL_TYPE v31; // [rsp+88h] [rbp+20h]
 
-  v30 = a4;
+  v31 = a4;
   v8 = *(_DWORD *)(a3 + 16);
   v9 = *(_DWORD *)(a3 + 8);
-  v29 = 0LL;
+  v30 = 0LL;
   v11 = 0LL;
   *(_QWORD *)(a2 + 56) = 0LL;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   v13 = 0;
   if ( v8 < 0x104 )
     return 3221225476LL;
   if ( (unsigned int)(v9 - 1) <= 0x12 )
     return 3221225507LL;
   v14 = *(int **)(a2 + 24);
-  v15 = *(__int64 **)(ACPIInternalGetDeviceExtension(a1) + 760);
+  v15 = *(__int64 **)(ACPIInternalGetDeviceExtension(a1) + 720);
   if ( !v15 )
     return 3221225486LL;
   _strupr((char *)v14 + 4);
-  v16 = AMLIGetNameSpaceObject((_BYTE *)v14 + 4, v15, &v29, 1);
+  v16 = AMLIGetNameSpaceObject((_BYTE *)v14 + 4, v15, (unsigned __int64 *)&v30, 1);
   if ( v16 >= 0 )
   {
-    v16 = AMLIIsObjectInGivenScope(v29, v15);
+    v16 = AMLIIsObjectInGivenScope(v30, v15);
     if ( v16 >= 0 )
     {
-      Pool2 = (void *)ExAllocatePool2(a4, 40LL, 1383097153LL);
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(a4, 0x28uLL, 0x52706341u);
+      if ( PoolWithTag )
       {
         v17 = *v14;
         if ( *v14 == 1097426241 )
         {
 LABEL_11:
-          *a5 = v29;
-          *a6 = Pool2;
+          *a5 = v30;
+          *a6 = PoolWithTag;
           *a7 = v11;
           *a8 = v13;
           return 0LL;
@@ -87,62 +89,64 @@ LABEL_11:
             v18 = (unsigned int)v14[66];
             if ( !(_DWORD)v18 )
               goto LABEL_11;
+            v20 = 40 * v18;
             v13 = v14[66];
-            v20 = (unsigned __int16 *)(v14 + 67);
-            v21 = ExAllocatePool2(a4, 40 * v18, 1097884481LL);
-            v11 = (char *)v21;
-            if ( v21 )
+            v21 = (unsigned __int16 *)(v14 + 67);
+            v22 = (unsigned int *)ExAllocatePoolWithTag(a4, 40 * v18, 0x41706341u);
+            v11 = v22;
+            if ( v22 )
             {
-              v22 = 0;
+              memset(v22, 0, v20);
+              v23 = 0;
               if ( !v13 )
                 goto LABEL_11;
-              v23 = v21 + 24;
+              v24 = (char *)(v11 + 6);
               while ( 1 )
               {
-                if ( *v20 == 4 )
-                  v24 = 4;
+                if ( *v21 == 4 )
+                  v25 = 4;
                 else
-                  v24 = *v20 + 1;
-                *(_WORD *)(v23 - 22) = v24;
-                v25 = *v20;
-                if ( *v20 )
+                  v25 = *v21 + 1;
+                *((_WORD *)v24 - 11) = v25;
+                v26 = *v21;
+                if ( *v21 )
                 {
-                  if ( v25 > 2u )
+                  if ( v26 > 2u )
                   {
-                    if ( v25 == 4 )
+                    if ( v26 == 4 )
                     {
                       v16 = AcpiIoctlArgumentToPackageObjV1(
-                              (_DWORD)v20,
-                              v30,
+                              v21,
+                              v31,
                               1,
-                              (unsigned int)v11 + 8 * (5 * v22 + 3),
-                              (__int64)&v11[40 * v22 + 32]);
+                              &v11[10 * v23 + 6],
+                              (PVOID *)&v11[10 * v23 + 8]);
                       if ( v16 < 0 )
                         goto LABEL_12;
-                      goto LABEL_39;
+                      goto LABEL_27;
                     }
-                    *(_WORD *)(v23 - 22) = 3;
+                    *((_WORD *)v24 - 11) = 3;
                   }
-                  *(_DWORD *)v23 = v20[1];
-                  *(_QWORD *)(v23 + 8) = (unsigned __int64)(v20 + 2) & -(__int64)(v20[1] != 0);
+                  *(_DWORD *)v24 = v21[1];
+                  *((_QWORD *)v24 + 1) = (unsigned __int64)(v21 + 2) & -(__int64)(v21[1] != 0);
                 }
                 else
                 {
-                  *(_QWORD *)(v23 - 8) = 0LL;
-                  memmove(&v11[32 * v22 + 16 + 8 * v22], v20 + 2, v20[1]);
+                  *((_QWORD *)v24 - 1) = 0LL;
+                  memmove(&v11[8 * v23 + 4 + 2 * v23], v21 + 2, v21[1]);
                 }
-LABEL_39:
-                v26 = v20[1];
-                if ( (unsigned __int16)v26 < 4u )
-                  v26 = 4LL;
-                v20 = (unsigned __int16 *)((char *)v20 + v26 + 4);
-                ++v22;
-                v23 += 40LL;
-                if ( v22 >= v13 )
+LABEL_27:
+                v27 = v21[1];
+                if ( (unsigned __int16)v27 < 4u )
+                  v27 = 4LL;
+                v21 = (unsigned __int16 *)((char *)v21 + v27 + 4);
+                ++v23;
+                v24 += 40;
+                if ( v23 >= v13 )
                   goto LABEL_11;
               }
             }
-            goto LABEL_22;
+            goto LABEL_35;
           }
           if ( v17 != 1164535105 )
           {
@@ -151,34 +155,37 @@ LABEL_39:
           }
         }
         v13 = 1;
-        v27 = ExAllocatePool2(a4, 40LL, 1097884481LL);
-        v11 = (char *)v27;
-        if ( v27 )
+        v28 = (unsigned int *)ExAllocatePoolWithTag(a4, 0x28uLL, 0x41706341u);
+        v11 = v28;
+        if ( v28 )
         {
-          v28 = v14 + 66;
+          v29 = v14 + 66;
+          *(_OWORD *)v28 = 0LL;
+          *((_OWORD *)v28 + 1) = 0LL;
+          *((_QWORD *)v28 + 4) = 0LL;
           if ( *v14 == 1147757889 )
           {
-            *(_WORD *)(v27 + 2) = 1;
-            *(_QWORD *)(v27 + 16) = *v28;
+            *((_WORD *)v28 + 1) = 1;
+            *((_QWORD *)v28 + 2) = *v29;
           }
           else
           {
-            *(_WORD *)(v27 + 2) = 2;
-            *(_DWORD *)(v27 + 24) = v14[65];
-            *(_QWORD *)(v27 + 32) = v28;
+            *((_WORD *)v28 + 1) = 2;
+            v28[6] = v14[65];
+            *((_QWORD *)v28 + 4) = v29;
           }
           goto LABEL_11;
         }
       }
-LABEL_22:
+LABEL_35:
       v16 = -1073741670;
     }
   }
 LABEL_12:
-  if ( v29 )
-    AMLIDereferenceHandleEx(v29);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0x52706341u);
+  if ( v30 )
+    AMLIDereferenceHandleEx(v30);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x52706341u);
   if ( v11 )
     ExFreePoolWithTag(v11, 0x52706341u);
   return (unsigned int)v16;

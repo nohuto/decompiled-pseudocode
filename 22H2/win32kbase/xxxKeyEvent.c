@@ -1,20 +1,20 @@
 /*
- * XREFs of xxxKeyEvent @ 0x1C01EB0B0
+ * XREFs of xxxKeyEvent @ 0x1C01B1100
  * Callers:
  *     <none>
  * Callees:
- *     xxxKeyEventEx @ 0x1C006A7C8 (xxxKeyEventEx.c)
+ *     xxxKeyEventEx @ 0x1C004CFD0 (xxxKeyEventEx.c)
  */
 
 void __fastcall xxxKeyEvent(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
+        unsigned __int16 a1,
+        unsigned __int16 a2,
+        unsigned int a3,
         __int64 a4,
         void *a5,
         unsigned __int16 *a6,
-        char a7,
-        char a8)
+        unsigned int a7,
+        int a8)
 {
   xxxKeyEventEx(a1, a2, a3, a4, a5, a6, a7, a8, 0LL, 0LL);
 }

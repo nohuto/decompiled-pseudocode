@@ -1,27 +1,33 @@
 /*
- * XREFs of ?DestroySwapchainLocalClient@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@@Z @ 0x1C0357C84
+ * XREFs of ?DestroySwapchainLocalClient@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@@Z @ 0x1C02AB07C
  * Callers:
- *     ?DestroyLocal@DXGSWAPCHAIN@@QEAAXXZ @ 0x1C035788C (-DestroyLocal@DXGSWAPCHAIN@@QEAAXXZ.c)
- *     ?OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z @ 0x1C0359050 (-OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z.c)
- *     ?OpenSwapchainLocal@DXGSWAPCHAIN@@QEAAJIPEAVDXGDEVICE@@PEAXHH@Z @ 0x1C0359400 (-OpenSwapchainLocal@DXGSWAPCHAIN@@QEAAJIPEAVDXGDEVICE@@PEAXHH@Z.c)
+ *     ?DestroyLocal@DXGSWAPCHAIN@@QEAAXXZ @ 0x1C02AACE4 (-DestroyLocal@DXGSWAPCHAIN@@QEAAXXZ.c)
+ *     ?OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z @ 0x1C02ABEEC (-OpenSurfacesResourcesLocalForOpener@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@HPEAPEAX@Z.c)
+ *     ?OpenSwapchainLocal@DXGSWAPCHAIN@@QEAAJIPEAVDXGDEVICE@@PEAXHH@Z @ 0x1C02AC1E8 (-OpenSwapchainLocal@DXGSWAPCHAIN@@QEAAJIPEAVDXGDEVICE@@PEAXHH@Z.c)
  * Callees:
- *     ?DestroySurfacesResourcesLocal@DXGSWAPCHAIN@@AEAAXW4SWAPCHAIN_CLIENT_TYPE@1@PEAUSWAPCHAIN_SURF_INFO@1@@Z @ 0x1C03579B4 (-DestroySurfacesResourcesLocal@DXGSWAPCHAIN@@AEAAXW4SWAPCHAIN_CLIENT_TYPE@1@PEAUSWAPCHAIN_SURF_I.c)
+ *     ?DestroySurfacesResourcesLocal@DXGSWAPCHAIN@@AEAAXW4SWAPCHAIN_CLIENT_TYPE@1@PEAUSWAPCHAIN_SURF_INFO@1@@Z @ 0x1C02AAE0C (-DestroySurfacesResourcesLocal@DXGSWAPCHAIN@@AEAAXW4SWAPCHAIN_CLIENT_TYPE@1@PEAUSWAPCHAIN_SURF_I.c)
  */
 
 void __fastcall DXGSWAPCHAIN::DestroySwapchainLocalClient(
         DXGSWAPCHAIN *this,
-        struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_INFO *a2)
+        struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_INFO *a2,
+        __int64 a3,
+        __int64 a4)
 {
-  void *v4; // rcx
+  void *v6; // rcx
   unsigned int i; // edi
 
-  v4 = (void *)*((_QWORD *)a2 + 4);
-  if ( v4 )
+  v6 = (void *)*((_QWORD *)a2 + 4);
+  if ( v6 )
   {
-    ObfDereferenceObject(v4);
+    ObfDereferenceObject(v6);
     *((_QWORD *)a2 + 4) = 0LL;
   }
-  for ( i = 0; i < *((_DWORD *)this + 14); ++i )
-    DXGSWAPCHAIN::DestroySurfacesResourcesLocal((__int64)v4, *((_DWORD *)a2 + 7), *((_QWORD *)this + 8) + 112LL * i);
+  for ( i = 0; i < *((_DWORD *)this + 12); ++i )
+    DXGSWAPCHAIN::DestroySurfacesResourcesLocal(
+      (__int64)v6,
+      *((unsigned int *)a2 + 7),
+      *((_QWORD *)this + 7) + 112LL * i,
+      a4);
   *((_QWORD *)a2 + 2) = 0LL;
 }

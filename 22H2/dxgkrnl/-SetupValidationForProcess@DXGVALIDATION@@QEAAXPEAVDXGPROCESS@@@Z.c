@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetupValidationForProcess@DXGVALIDATION@@QEAAXPEAVDXGPROCESS@@@Z @ 0x1C000842C
+ * XREFs of ?SetupValidationForProcess@DXGVALIDATION@@QEAAXPEAVDXGPROCESS@@@Z @ 0x1C0019988
  * Callers:
- *     ?Initialize@DXGPROCESS@@QEAAJPEAX@Z @ 0x1C01AA500 (-Initialize@DXGPROCESS@@QEAAJPEAX@Z.c)
+ *     ?Initialize@DXGPROCESS@@QEAAJPEAX@Z @ 0x1C0116BE8 (-Initialize@DXGPROCESS@@QEAAJPEAX@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 void __fastcall DXGVALIDATION::SetupValidationForProcess(DXGVALIDATION *this, struct DXGPROCESS *a2)
@@ -11,7 +11,7 @@ void __fastcall DXGVALIDATION::SetupValidationForProcess(DXGVALIDATION *this, st
   struct _UNICODE_STRING *v3; // rax
   struct _UNICODE_STRING *v4; // rbx
   wchar_t *v5; // rax
-  _CLIENT_ID ClientId; // [rsp+30h] [rbp-69h] BYREF
+  struct _CLIENT_ID ClientId; // [rsp+30h] [rbp-69h] BYREF
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-59h] BYREF
   int (*v8)(unsigned __int16 *, unsigned int, void *, unsigned int, void *, void *); // [rsp+70h] [rbp-29h] BYREF
   int v9; // [rsp+78h] [rbp-21h]
@@ -42,9 +42,9 @@ void __fastcall DXGVALIDATION::SetupValidationForProcess(DXGVALIDATION *this, st
     {
       ProcessInformationLength = 0;
       if ( ZwQueryInformationProcess(ProcessHandle, ProcessImageFileNameWin32, 0LL, 0, &ProcessInformationLength) == -1073741820
-        && ProcessInformationLength > 0x10 )
+        && ProcessInformationLength >= 0x10 )
       {
-        v3 = (struct _UNICODE_STRING *)operator new[](ProcessInformationLength, 1265072196LL, 256LL);
+        v3 = (struct _UNICODE_STRING *)operator new[](ProcessInformationLength, 0x4B677844u, PagedPool);
         v4 = v3;
         if ( v3 )
         {

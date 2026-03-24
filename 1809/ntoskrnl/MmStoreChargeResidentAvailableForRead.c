@@ -1,8 +1,8 @@
 /*
- * XREFs of MmStoreChargeResidentAvailableForRead @ 0x140175DFC
+ * XREFs of MmStoreChargeResidentAvailableForRead @ 0x140175E1C
  * Callers:
- *     ?SmFirstTimeInit@@YAJKK@Z @ 0x1400E3E68 (-SmFirstTimeInit@@YAJKK@Z.c)
- *     SmAcquireReleaseResAvailForRead @ 0x14014B1EC (SmAcquireReleaseResAvailForRead.c)
+ *     ?SmFirstTimeInit@@YAJKK@Z @ 0x1400E3E88 (-SmFirstTimeInit@@YAJKK@Z.c)
+ *     SmAcquireReleaseResAvailForRead @ 0x14014B20C (SmAcquireReleaseResAvailForRead.c)
  * Callees:
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  */

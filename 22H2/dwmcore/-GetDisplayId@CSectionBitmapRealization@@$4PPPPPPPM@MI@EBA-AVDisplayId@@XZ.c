@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDisplayId@CSectionBitmapRealization@@$4PPPPPPPM@MI@EBA?AVDisplayId@@XZ @ 0x180122060
+ * XREFs of ?GetDisplayId@CSectionBitmapRealization@@$4PPPPPPPM@MI@EBA?AVDisplayId@@XZ @ 0x1800F8180
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 _DWORD *__fastcall CSectionBitmapRealization::GetDisplayId(__int64 a1, _DWORD *a2)
 {
-  return CWICBitmapWrapper::GetDisplayId(a1 - *(int *)(a1 - 4) - 200, a2);
+  return CColorKeyBitmapRealization::GetDisplayId(a1 - *(int *)(a1 - 4) - 200, a2);
 }

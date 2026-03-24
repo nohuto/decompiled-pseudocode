@@ -1,58 +1,55 @@
 /*
- * XREFs of ObpAuditObjectAccess @ 0x1409851A4
+ * XREFs of ObpAuditObjectAccess @ 0x1408DCAC4
  * Callers:
- *     ObReferenceFileObjectForWrite @ 0x14071E230 (ObReferenceFileObjectForWrite.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObReferenceFileObjectForWrite @ 0x140650510 (ObReferenceFileObjectForWrite.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExLockHandleTableEntry @ 0x1402F344C (ExLockHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x14041AC40 (ExfUnblockPushLock.c)
- *     ExpGetHandleExtraInfo @ 0x140883EDC (ExpGetHandleExtraInfo.c)
- *     SeOperationAuditAlarm @ 0x1409C820C (SeOperationAuditAlarm.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExLockHandleTableEntry @ 0x140348860 (ExLockHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
+ *     SeOperationAuditAlarm @ 0x14091E7BC (SeOperationAuditAlarm.c)
+ *     ExpGetHandleExtraInfo @ 0x14094CB30 (ExpGetHandleExtraInfo.c)
  */
 
-char __fastcall ObpAuditObjectAccess(__int64 a1, __int64 a2, volatile signed __int64 *a3, __int64 a4, int a5)
+char __fastcall ObpAuditObjectAccess(__int64 a1, int a2, volatile signed __int64 *a3, __int64 a4, int a5)
 {
-  int v7; // r12d
-  _DWORD *HandleExtraInfo; // rdi
+  int *HandleExtraInfo; // rdi
   struct _KTHREAD *CurrentThread; // r15
   char v11; // di
-  __int64 *v12; // rcx
-  unsigned int v13; // r8d
+  int v12; // ecx
+  int v13; // r8d
   __int64 v14; // r10
-  __int64 v15; // rax
+  __int64 *v15; // rcx
   signed __int32 v17[12]; // [rsp+0h] [rbp-58h] BYREF
 
-  v7 = a2;
   if ( !*(_DWORD *)(a1 + 4) )
     return 1;
-  HandleExtraInfo = (_DWORD *)ExpGetHandleExtraInfo((unsigned int *)a1, a2);
+  HandleExtraInfo = (int *)ExpGetHandleExtraInfo(a1);
   if ( !HandleExtraInfo )
     return 1;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( ExLockHandleTableEntry(a1, a3) )
+  if ( ExLockHandleTableEntry(a1, (signed __int64 *)a3) )
   {
     _m_prefetchw(HandleExtraInfo);
-    LODWORD(v12) = *HandleExtraInfo;
+    v12 = *HandleExtraInfo;
     if ( a4 == ((*(__int64 *)a3 >> 16) & 0xFFFFFFFFFFFFFFF0uLL) )
     {
-      v13 = a5 & (unsigned int)v12;
-      if ( (a5 & (unsigned int)v12) != 0 )
+      v13 = a5 & v12;
+      if ( (a5 & v12) != 0 )
       {
         v14 = 0LL;
-        *HandleExtraInfo = (unsigned int)v12 & ~a5;
+        *HandleExtraInfo = v12 & ~a5;
         if ( (*(_BYTE *)(a4 + 26) & 0x20) != 0 )
-        {
-          v15 = ObpInfoMaskToOffset[*(_BYTE *)(a4 + 26) & 0x3F];
-          v12 = (__int64 *)(a4 - v15);
-          if ( a4 != v15 )
-            v14 = *v12;
-        }
+          v15 = (__int64 *)(a4 - ObpInfoMaskToOffset[*(_BYTE *)(a4 + 26) & 0x3F]);
+        else
+          v15 = 0LL;
+        if ( v15 )
+          v14 = *v15;
         SeOperationAuditAlarm(
-          (_DWORD)v12,
+          (_DWORD)v15,
           a4 + 48,
-          v7,
+          a2,
           ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a4 + 24) ^ (unsigned __int64)BYTE1(a4)]
         + 16,
           v13,

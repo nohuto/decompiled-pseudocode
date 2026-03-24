@@ -1,56 +1,41 @@
 /*
- * XREFs of ?EnsureExpressionIsUnregistered@CBaseExpression@@QEAAXXZ @ 0x18004A1F8
+ * XREFs of ?EnsureExpressionIsUnregistered@CBaseExpression@@QEAAXXZ @ 0x18006499C
  * Callers:
- *     ?ProcessSetBindingBroken@CBaseExpression@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETBINDINGBROKEN@@@Z @ 0x1800407C0 (-ProcessSetBindingBroken@CBaseExpression@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_.c)
- *     ?ProcessSetBindingBroken@CKeyframeAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETBINDINGBROKEN@@@Z @ 0x180041060 (-ProcessSetBindingBroken@CKeyframeAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSI.c)
- *     ??1CBaseExpression@@UEAA@XZ @ 0x180049824 (--1CBaseExpression@@UEAA@XZ.c)
- *     ?SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMaskType@@E_K@Z @ 0x180049EFC (-SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMa.c)
- *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180050DC0 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?Stop@CScrollAnimation@@QEAAJXZ @ 0x180254A78 (-Stop@CScrollAnimation@@QEAAJXZ.c)
+ *     ?SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMaskType@@E_K@Z @ 0x180064714 (-SetTarget@CBaseExpression@@QEAAJIPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4SubchannelMa.c)
+ *     ??1CBaseExpression@@UEAA@XZ @ 0x180065058 (--1CBaseExpression@@UEAA@XZ.c)
+ *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180073600 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?ProcessSetBindingBroken@CBaseExpression@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETBINDINGBROKEN@@@Z @ 0x1800ACC90 (-ProcessSetBindingBroken@CBaseExpression@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_.c)
+ *     ?ProcessSetBindingBroken@CKeyframeAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETBINDINGBROKEN@@@Z @ 0x1800ACF70 (-ProcessSetBindingBroken@CKeyframeAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSI.c)
+ *     ?Stop@CScrollAnimation@@QEAAJXZ @ 0x1802041D8 (-Stop@CScrollAnimation@@QEAAJXZ.c)
  * Callees:
- *     ?UnregisterExpressionWorker@CExpressionManager@@AEAAXPEAVCBaseExpression@@PEAV?$CWeakReference@VCResource@@@@IPEAVSubchannelMaskInfo@@_N@Z @ 0x1800496D8 (-UnregisterExpressionWorker@CExpressionManager@@AEAAXPEAVCBaseExpression@@PEAV-$CWeakReference@V.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?EnsureAutoCompleteOnOccludedAnimationRemoved@CExpressionManager@@QEAAXPEAVCBaseExpression@@@Z @ 0x1801FDB2C (-EnsureAutoCompleteOnOccludedAnimationRemoved@CExpressionManager@@QEAAXPEAVCBaseExpression@@@Z.c)
+ *     ?UnregisterExpressionWorker@CExpressionManager@@AEAAXPEAVCBaseExpression@@PEAV?$CWeakReference@VCResource@@@@IPEAVSubchannelMaskInfo@@_N@Z @ 0x18006452C (-UnregisterExpressionWorker@CExpressionManager@@AEAAXPEAVCBaseExpression@@PEAV-$CWeakReference@V.c)
  */
 
 void __fastcall CBaseExpression::EnsureExpressionIsUnregistered(CBaseExpression *this)
 {
-  __int64 v2; // rdi
-  __int64 v3; // rbp
-  CExpressionManager *v4; // rsi
+  __int64 v2; // rsi
+  __int64 v3; // rdi
+  __int64 v4; // rbp
   int v5; // [rsp+20h] [rbp-18h]
 
-  if ( (*((_BYTE *)this + 232) & 8) != 0 )
+  v2 = *((_QWORD *)this + 36);
+  v3 = *((_QWORD *)this + 35);
+  v4 = *(_QWORD *)(*((_QWORD *)this + 2) + 272LL);
+  while ( v3 != v2 )
   {
-    v2 = *((_QWORD *)this + 38);
-    v3 = *((_QWORD *)this + 39);
-    v4 = *(CExpressionManager **)(*((_QWORD *)this + 2) + 424LL);
-    if ( v2 != v3 )
-    {
-      do
-      {
-        CExpressionManager::UnregisterExpressionWorker(
-          (__int64)v4,
-          (__int64)this,
-          *(_QWORD *)v2,
-          *(_DWORD *)(v2 + 8),
-          v5,
-          1);
-        v2 += 16LL;
-      }
-      while ( v2 != v3 );
-      v2 = *((_QWORD *)this + 38);
-    }
-    *((_QWORD *)this + 39) = v2;
-    if ( (*(unsigned __int8 (__fastcall **)(CBaseExpression *))(*(_QWORD *)this + 248LL))(this) )
-      CExpressionManager::EnsureAutoCompleteOnOccludedAnimationRemoved(v4, this);
+    CExpressionManager::UnregisterExpressionWorker(v4, (__int64)this, *(_QWORD *)v3, *(_DWORD *)(v3 + 8), v5, 1);
+    v3 += 16LL;
+  }
+  *((_QWORD *)this + 36) = *((_QWORD *)this + 35);
+  if ( (*((_BYTE *)this + 208) & 4) != 0 )
+  {
     CExpressionManager::UnregisterExpressionWorker(
-      (__int64)v4,
+      v4,
       (__int64)this,
-      *((_QWORD *)this + 23),
-      *((_DWORD *)this + 48),
+      *((_QWORD *)this + 22),
+      *((_DWORD *)this + 46),
       v5,
       0);
-    *((_BYTE *)this + 232) &= ~8u;
+    *((_BYTE *)this + 208) &= ~4u;
   }
 }

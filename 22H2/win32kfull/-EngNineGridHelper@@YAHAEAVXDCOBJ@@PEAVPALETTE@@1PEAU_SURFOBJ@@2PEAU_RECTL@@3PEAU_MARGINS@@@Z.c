@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EngNineGridHelper@@YAHAEAVXDCOBJ@@PEAVPALETTE@@1PEAU_SURFOBJ@@2PEAU_RECTL@@3PEAU_MARGINS@@@Z @ 0x1C0279C1C
+ * XREFs of ?EngNineGridHelper@@YAHAEAVXDCOBJ@@PEAVPALETTE@@1PEAU_SURFOBJ@@2PEAU_RECTL@@3PEAU_MARGINS@@@Z @ 0x1C027DB00
  * Callers:
- *     ?bSetPreviewRectContent@@YAHPEAU_SPRITESTATE@@PEBU_RECTL@@@Z @ 0x1C027D618 (-bSetPreviewRectContent@@YAHPEAU_SPRITESTATE@@PEBU_RECTL@@@Z.c)
+ *     ?bSetPreviewRectContent@@YAHPEAU_SPRITESTATE@@PEBU_RECTL@@@Z @ 0x1C027FAF8 (-bSetPreviewRectContent@@YAHPEAU_SPRITESTATE@@PEBU_RECTL@@@Z.c)
  * Callees:
- *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C001EF80 (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
- *     EngNineGrid @ 0x1C0052060 (EngNineGrid.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00FA390 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084E50 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C00B565C (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     EngNineGrid @ 0x1C00C8C30 (EngNineGrid.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EngNineGridHelper(
@@ -19,96 +19,102 @@ __int64 __fastcall EngNineGridHelper(
         struct _RECTL *a7,
         struct _MARGINS *a8)
 {
-  int v8; // r12d
-  __int64 v12; // rbx
-  __int64 v13; // rax
-  unsigned int v14; // ebx
-  Gre::Base *v16; // [rsp+60h] [rbp-69h] BYREF
-  Gre::Base *v17; // [rsp+68h] [rbp-61h] BYREF
-  Gre::Base *v18; // [rsp+70h] [rbp-59h] BYREF
-  Gre::Base *v19; // [rsp+78h] [rbp-51h] BYREF
-  _QWORD v20[4]; // [rsp+80h] [rbp-49h] BYREF
-  struct _RECTL *v21; // [rsp+A0h] [rbp-29h]
-  struct _RECTL *v22; // [rsp+A8h] [rbp-21h]
-  _DWORD v23[6]; // [rsp+B0h] [rbp-19h] BYREF
+  unsigned int v8; // edi
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  __int64 v14; // rdx
+  __int64 v15; // rdx
+  __int64 v16; // rdx
+  __int64 v17; // rdx
+  __int64 v19; // [rsp+68h] [rbp-61h] BYREF
+  __int64 v20; // [rsp+70h] [rbp-59h] BYREF
+  __int64 v21; // [rsp+78h] [rbp-51h] BYREF
+  __int64 v22; // [rsp+80h] [rbp-49h] BYREF
+  struct _RECTL *v23; // [rsp+88h] [rbp-41h]
+  int v24; // [rsp+90h] [rbp-39h] BYREF
+  __int64 v25; // [rsp+98h] [rbp-31h]
+  __int64 v26; // [rsp+A0h] [rbp-29h]
+  __int64 v27; // [rsp+A8h] [rbp-21h]
+  _DWORD v28[6]; // [rsp+B0h] [rbp-19h] BYREF
 
-  v8 = (int)a4;
-  v22 = a6;
-  v21 = a7;
+  v8 = 0;
+  v23 = a7;
+  v28[0] = 5;
+  v28[5] = 0;
+  v24 = 33488896;
+  v28[1] = *(_DWORD *)a8;
+  v28[2] = *((_DWORD *)a8 + 1);
+  v28[3] = *((_DWORD *)a8 + 2);
+  v28[4] = *((_DWORD *)a8 + 3);
+  v12 = *(_QWORD *)a1;
+  v22 = 0LL;
+  v21 = 0LL;
+  v20 = 0LL;
+  v13 = *(_QWORD *)(v12 + 976);
   v19 = 0LL;
-  v18 = 0LL;
-  v17 = 0LL;
-  v16 = 0LL;
-  v20[0] = 33488896LL;
-  v12 = *((_QWORD *)Gre::Base::Globals(a1) + 751);
-  v23[1] = *(_DWORD *)a8;
-  v23[2] = *((_DWORD *)a8 + 1);
-  v23[3] = *((_DWORD *)a8 + 2);
-  v23[4] = *((_DWORD *)a8 + 3);
-  v13 = *(_QWORD *)a1;
-  v23[0] = 5;
-  v23[5] = 0;
   if ( (unsigned int)EXLATEOBJ::bInitXlateObj(
-                       (Gre::Base *)&v19,
+                       &v22,
                        0LL,
                        0,
                        (__int64)a2,
                        (__int64)a2,
                        (__int64)a3,
                        (__int64)a3,
-                       *(_DWORD *)(*(_QWORD *)(v13 + 976) + 184LL),
-                       *(_DWORD *)(*(_QWORD *)(v13 + 976) + 176LL),
+                       *(_DWORD *)(v13 + 184),
+                       *(_DWORD *)(v13 + 176),
                        0,
-                       0)
-    && (unsigned int)EXLATEOBJ::bInitXlateObj(
-                       (Gre::Base *)&v18,
-                       0LL,
-                       0,
-                       (__int64)a2,
-                       v12,
-                       (__int64)a3,
-                       (__int64)a3,
-                       0,
-                       0,
-                       0,
-                       0)
-    && (v20[1] = v18,
-        (unsigned int)EXLATEOBJ::bInitXlateObj(
-                        (Gre::Base *)&v17,
-                        0LL,
-                        0,
-                        (__int64)a2,
-                        v12,
-                        (__int64)a3,
-                        (__int64)a3,
-                        0,
-                        0,
-                        0,
-                        0))
-    && (v20[2] = v17,
-        (unsigned int)EXLATEOBJ::bInitXlateObj(
-                        (Gre::Base *)&v16,
-                        0LL,
-                        0,
-                        v12,
-                        (__int64)a2,
-                        (__int64)a3,
-                        (__int64)a3,
-                        0,
-                        0,
-                        0,
-                        0)) )
+                       0) )
   {
-    v20[3] = v16;
-    v14 = EngNineGrid(v8, (__int64)a5, 0, (int)v19, (__int64)v22, (__int64)v21, (__int64)v23, (__int64)v20);
+    if ( (unsigned int)EXLATEOBJ::bInitXlateObj(
+                         &v21,
+                         0LL,
+                         0,
+                         (__int64)a2,
+                         (__int64)gppalRGB,
+                         (__int64)a3,
+                         (__int64)a3,
+                         0,
+                         0,
+                         0,
+                         0) )
+    {
+      v25 = v21;
+      if ( (unsigned int)EXLATEOBJ::bInitXlateObj(
+                           &v20,
+                           0LL,
+                           0,
+                           (__int64)a2,
+                           (__int64)gppalRGB,
+                           (__int64)a3,
+                           (__int64)a3,
+                           0,
+                           0,
+                           0,
+                           0) )
+      {
+        v26 = v20;
+        if ( (unsigned int)EXLATEOBJ::bInitXlateObj(
+                             &v19,
+                             0LL,
+                             0,
+                             (__int64)gppalRGB,
+                             (__int64)a2,
+                             (__int64)a3,
+                             (__int64)a3,
+                             0,
+                             0,
+                             0,
+                             0) )
+        {
+          v27 = v19;
+          v8 = EngNineGrid(a4, (__int64)a5, 0LL, v22, (__int64)a6, (__int64)v23, (__int64)v28, (__int64)&v24);
+        }
+      }
+    }
   }
-  else
-  {
-    v14 = 0;
-  }
-  EXLATEOBJ::vAltUnlock(&v16);
-  EXLATEOBJ::vAltUnlock(&v17);
-  EXLATEOBJ::vAltUnlock(&v18);
-  EXLATEOBJ::vAltUnlock(&v19);
-  return v14;
+  EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v19, v14);
+  EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v20, v15);
+  EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v21, v16);
+  EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v22, v17);
+  return v8;
 }

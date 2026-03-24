@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDumpCallRemovePagesCallbacks @ 0x1405544E0
+ * XREFs of IopDumpCallRemovePagesCallbacks @ 0x140503E50
  * Callers:
- *     IoWriteCrashDump @ 0x140553244 (IoWriteCrashDump.c)
- *     IoAddPagesForPartialKernelDump @ 0x14055CC5C (IoAddPagesForPartialKernelDump.c)
+ *     IoWriteCrashDump @ 0x140502CD0 (IoWriteCrashDump.c)
+ *     IoAddPagesForPartialKernelDump @ 0x14050B6A0 (IoAddPagesForPartialKernelDump.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     IoUpdateBugCheckProgressEnvVariable @ 0x140553164 (IoUpdateBugCheckProgressEnvVariable.c)
- *     IopRemovePageDumpRange @ 0x140554BC4 (IopRemovePageDumpRange.c)
- *     KeValidateBugCheckCallbackRecord @ 0x140567038 (KeValidateBugCheckCallbackRecord.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x140502BE0 (IoUpdateBugCheckProgressEnvVariable.c)
+ *     IopRemovePageDumpRange @ 0x14050450C (IopRemovePageDumpRange.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x140517B98 (KeValidateBugCheckCallbackRecord.c)
  */
 
 char __fastcall IopDumpCallRemovePagesCallbacks(int a1)

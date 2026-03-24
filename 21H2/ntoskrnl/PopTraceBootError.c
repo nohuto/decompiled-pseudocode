@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceBootError @ 0x1405D3C64
+ * XREFs of PopTraceBootError @ 0x140573478
  * Callers:
- *     PopProcessBootstat @ 0x140B2C0C0 (PopProcessBootstat.c)
+ *     PopProcessBootstat @ 0x140A39280 (PopProcessBootstat.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void PopTraceBootError()
@@ -28,9 +28,9 @@ void PopTraceBootError()
   __int64 *v15; // [rsp+B0h] [rbp+37h]
   __int64 v16; // [rsp+B8h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140C03A00 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03A00, 0x800000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02228, 0x800000000000LL) )
     {
       v1 = *v0;
       v8 = 4LL;
@@ -48,8 +48,8 @@ void PopTraceBootError()
       v14 = 4LL;
       v16 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03A00,
-        (unsigned __int8 *)&byte_14002F087,
+        (__int64)&dword_140C02228,
+        (unsigned __int8 *)&word_140027C9E,
         0LL,
         0LL,
         7u,

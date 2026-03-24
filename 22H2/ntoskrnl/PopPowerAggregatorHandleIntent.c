@@ -1,20 +1,20 @@
 /*
- * XREFs of PopPowerAggregatorHandleIntent @ 0x1407A991C
+ * XREFs of PopPowerAggregatorHandleIntent @ 0x1408EE358
  * Callers:
- *     PopTriggerMonitorPowerEvent @ 0x1407A97EC (PopTriggerMonitorPowerEvent.c)
- *     PopDirectedDripsInitializeBroadcast @ 0x140983798 (PopDirectedDripsInitializeBroadcast.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x1408E339C (PopDirectedDripsInitializeBroadcast.c)
+ *     PopTriggerMonitorPowerEvent @ 0x1408F0C74 (PopTriggerMonitorPowerEvent.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x1407A9984 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140776874 (PopPowerAggregatorHandleIntentUnsafe.c)
  */
 
-__int64 __fastcall PopPowerAggregatorHandleIntent(unsigned int a1, __int64 a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall PopPowerAggregatorHandleIntent(unsigned int a1, unsigned int a2, unsigned int a3)
 {
-  unsigned int v8; // ebx
+  unsigned int v6; // ebx
 
   PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
-  v8 = PopPowerAggregatorHandleIntentUnsafe(a1, a2, a3, a4);
-  PopReleaseRwLock(&PopPowerAggregatorLock);
-  return v8;
+  v6 = PopPowerAggregatorHandleIntentUnsafe((_QWORD *)a1, a2, a3);
+  PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorLock);
+  return v6;
 }

@@ -1,36 +1,32 @@
 /*
- * XREFs of rimAbIsContactSuppressedByDeviceDeadzones @ 0x1C017B708
+ * XREFs of rimAbIsContactSuppressedByDeviceDeadzones @ 0x1C0158960
  * Callers:
- *     rimAbSuppressLowerRankActivityInFrame @ 0x1C017C960 (rimAbSuppressLowerRankActivityInFrame.c)
+ *     rimAbSuppressLowerRankActivityInFrame @ 0x1C01598CC (rimAbSuppressLowerRankActivityInFrame.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?IsInDeadzone@RIMDeadzone@@QEAAHPEAUtagHPD_CONTACT@@@Z @ 0x1C019BB04 (-IsInDeadzone@RIMDeadzone@@QEAAHPEAUtagHPD_CONTACT@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?IsInDeadzone@RIMDeadzone@@QEAAHPEAUtagHPD_CONTACT@@@Z @ 0x1C016E20C (-IsInDeadzone@RIMDeadzone@@QEAAHPEAUtagHPD_CONTACT@@@Z.c)
  */
 
-__int64 __fastcall rimAbIsContactSuppressedByDeviceDeadzones(
-        __int64 a1,
-        struct tagHPD_CONTACT *a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall rimAbIsContactSuppressedByDeviceDeadzones(__int64 a1, struct tagHPD_CONTACT *a2)
 {
-  unsigned int v6; // ebx
-  __int64 v7; // rsi
-  int v8; // edi
+  unsigned int v2; // ebx
+  __int64 v5; // rsi
+  int v6; // edi
   RIMDeadzone **i; // rsi
 
-  v6 = 0;
-  if ( !*(_DWORD *)(SGDGetUserSessionState(a1, a2, a3, a4) + 436) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 456);
-  v7 = *(_QWORD *)(a1 + 16);
-  if ( *(_DWORD *)(v7 + 448) )
+  v2 = 0;
+  if ( !gDeviceArbitrationType )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 449);
+  v5 = *(_QWORD *)(a1 + 16);
+  if ( *(_DWORD *)(v5 + 456) )
   {
-    v8 = 0;
-    for ( i = (RIMDeadzone **)(v7 + 408); !*i || !(unsigned int)RIMDeadzone::IsInDeadzone(*i, a2); ++i )
+    v6 = 0;
+    for ( i = (RIMDeadzone **)(v5 + 416); !*i || !(unsigned int)RIMDeadzone::IsInDeadzone(*i, a2); ++i )
     {
-      if ( (unsigned int)++v8 >= 5 )
-        return v6;
+      if ( (unsigned int)++v6 >= 5 )
+        return v2;
     }
     return 1;
   }
-  return v6;
+  return v2;
 }

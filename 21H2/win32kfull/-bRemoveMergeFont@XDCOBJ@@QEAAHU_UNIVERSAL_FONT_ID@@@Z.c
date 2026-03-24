@@ -1,14 +1,14 @@
 /*
- * XREFs of ?bRemoveMergeFont@XDCOBJ@@QEAAHU_UNIVERSAL_FONT_ID@@@Z @ 0x1C02ABAE0
+ * XREFs of ?bRemoveMergeFont@XDCOBJ@@QEAAHU_UNIVERSAL_FONT_ID@@@Z @ 0x1C02AD378
  * Callers:
- *     NtGdiRemoveMergeFont @ 0x1C027AE80 (NtGdiRemoveMergeFont.c)
+ *     NtGdiRemoveMergeFont @ 0x1C027D320 (NtGdiRemoveMergeFont.c)
  * Callees:
- *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C0011CB0 (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
+ *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C00A21FC (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
  */
 
-_BOOL8 __fastcall XDCOBJ::bRemoveMergeFont(__int64 a1, __int64 a2)
+__int64 __fastcall XDCOBJ::bRemoveMergeFont(__int64 a1, __int64 a2)
 {
-  BOOL v2; // edi
+  unsigned int v2; // edi
   _QWORD *v4; // rbx
   _QWORD *v5; // rsi
   _QWORD *v6; // r9
@@ -24,7 +24,7 @@ _BOOL8 __fastcall XDCOBJ::bRemoveMergeFont(__int64 a1, __int64 a2)
 
   v16 = a2;
   v2 = 0;
-  v4 = *(_QWORD **)(*(_QWORD *)a1 + 2072LL);
+  v4 = *(_QWORD **)(*(_QWORD *)a1 + 2080LL);
   v5 = v4;
   if ( v4 )
   {
@@ -73,8 +73,8 @@ LABEL_8:
     if ( v2 )
     {
       v13 = v4[1];
-      if ( v4 == *(_QWORD **)(*(_QWORD *)a1 + 2072LL) )
-        *(_QWORD *)(*(_QWORD *)a1 + 2072LL) = v13;
+      if ( v4 == *(_QWORD **)(*(_QWORD *)a1 + 2080LL) )
+        *(_QWORD *)(*(_QWORD *)a1 + 2080LL) = v13;
       else
         v5[1] = v13;
       Win32FreePool(v4);

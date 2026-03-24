@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpFreeVA @ 0x140363E50
+ * XREFs of RtlpHpFreeVA @ 0x1402FA770
  * Callers:
- *     RtlpHpSegMgrCommit @ 0x140351880 (RtlpHpSegMgrCommit.c)
- *     RtlpHpSegMgrReserve @ 0x1403625F8 (RtlpHpSegMgrReserve.c)
- *     RtlpHpSegMgrRelease @ 0x14036843C (RtlpHpSegMgrRelease.c)
- *     RtlpHpHeapDestroy @ 0x14036EBE8 (RtlpHpHeapDestroy.c)
- *     RtlpHpHeapAllocate @ 0x1403700FC (RtlpHpHeapAllocate.c)
- *     RtlpHpLargeFree @ 0x140370928 (RtlpHpLargeFree.c)
- *     RtlpHpLargeAlloc @ 0x140370C40 (RtlpHpLargeAlloc.c)
- *     RtlpHpLargeAllocationDestroy @ 0x1405F3870 (RtlpHpLargeAllocationDestroy.c)
+ *     RtlpHpSegMgrReserve @ 0x1402A4DCC (RtlpHpSegMgrReserve.c)
+ *     RtlpHpLargeFree @ 0x1402A54E8 (RtlpHpLargeFree.c)
+ *     RtlpHpLargeAlloc @ 0x1402A56A0 (RtlpHpLargeAlloc.c)
+ *     RtlpHpSegMgrCommit @ 0x14030A610 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpHeapAllocate @ 0x14037B8B0 (RtlpHpHeapAllocate.c)
+ *     RtlpHpHeapDestroy @ 0x1403898BC (RtlpHpHeapDestroy.c)
+ *     RtlpHpSegMgrRelease @ 0x140389B54 (RtlpHpSegMgrRelease.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x1405955F0 (RtlpHpLargeAllocationDestroy.c)
  * Callees:
- *     RtlpHpVaMgrCtxFree @ 0x14023D6AC (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpEnvGetHeapManager @ 0x140362B58 (RtlpHpEnvGetHeapManager.c)
- *     RtlpHpEnvFreeVA @ 0x140366D64 (RtlpHpEnvFreeVA.c)
+ *     RtlpHpVaMgrCtxFree @ 0x1402A3484 (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpEnvFreeVA @ 0x1402FA804 (RtlpHpEnvFreeVA.c)
+ *     RtlpHpEnvGetHeapManager @ 0x140309414 (RtlpHpEnvGetHeapManager.c)
  */
 
 __int64 __fastcall RtlpHpFreeVA(unsigned __int64 *a1, unsigned __int64 *a2, __int64 a3, __int128 *a4)
@@ -24,7 +24,7 @@ __int64 __fastcall RtlpHpFreeVA(unsigned __int64 *a1, unsigned __int64 *a2, __in
   unsigned __int64 v11; // rdx
   unsigned __int64 v12; // rcx
   unsigned __int64 v13; // rdx
-  void *HeapManager; // rax
+  __int64 HeapManager; // rax
   _QWORD *v15; // r10
   _QWORD *v16; // r11
   __int128 v17; // [rsp+20h] [rbp-18h] BYREF
@@ -36,7 +36,7 @@ __int64 __fastcall RtlpHpFreeVA(unsigned __int64 *a1, unsigned __int64 *a2, __in
   v17 = *a4;
   if ( (_DWORD)a3 != 0x8000 || v6 )
   {
-    if ( BYTE1(v17) < 4u )
+    if ( BYTE1(v17) < 2u )
       return (unsigned int)RtlpHpEnvFreeVA(a1, a2, a3);
   }
   else
@@ -50,8 +50,8 @@ __int64 __fastcall RtlpHpFreeVA(unsigned __int64 *a1, unsigned __int64 *a2, __in
     if ( v13 )
     {
       v17 = v4;
-      HeapManager = RtlpHpEnvGetHeapManager(&v17);
-      RtlpHpVaMgrCtxFree((__int64)HeapManager + 88, v16, v15);
+      HeapManager = RtlpHpEnvGetHeapManager(&v17, v13);
+      RtlpHpVaMgrCtxFree(HeapManager + 88, v16, v15);
     }
   }
   return v5;

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiCustomRecurseRoutine6 @ 0x14042ACF0
+ * XREFs of KiCustomRecurseRoutine6 @ 0x1404094F0
  * Callers:
- *     KiCustomAccessRoutine6 @ 0x14042AD10 (KiCustomAccessRoutine6.c)
- *     KiCustomRecurseRoutine5 @ 0x14042B230 (KiCustomRecurseRoutine5.c)
+ *     KiCustomRecurseRoutine5 @ 0x1404091F0 (KiCustomRecurseRoutine5.c)
+ *     KiCustomAccessRoutine6 @ 0x140409510 (KiCustomAccessRoutine6.c)
  * Callees:
- *     KiCustomRecurseRoutine7 @ 0x14042AE70 (KiCustomRecurseRoutine7.c)
+ *     KiCustomRecurseRoutine7 @ 0x140409670 (KiCustomRecurseRoutine7.c)
  */
 
 __int64 __fastcall KiCustomRecurseRoutine6(int a1, unsigned int *a2)

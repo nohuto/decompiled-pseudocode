@@ -1,138 +1,169 @@
 /*
- * XREFs of ?AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z @ 0x1800461F0
+ * XREFs of ?AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z @ 0x18009BC18
  * Callers:
- *     ?SetDirtyRectangles@CGdiSpriteBitmap@@QEAAJAEBV?$span@$$CBUtagRECT@@$0?0@gsl@@@Z @ 0x18001F848 (-SetDirtyRectangles@CGdiSpriteBitmap@@QEAAJAEBV-$span@$$CBUtagRECT@@$0-0@gsl@@@Z.c)
- *     ?ProcessToken@CLegacySurfaceManager@@IEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAIPEA_N@Z @ 0x18004540C (-ProcessToken@CLegacySurfaceManager@@IEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAIPEA_N@Z.c)
- *     ?DirtyFromAccum@CGdiSpriteBitmap@@AEAAXXZ @ 0x1800F5274 (-DirtyFromAccum@CGdiSpriteBitmap@@AEAAXXZ.c)
- *     ?NotifyDirty@CGdiSpriteBitmap@@QEAAX_K@Z @ 0x18010E6CC (-NotifyDirty@CGdiSpriteBitmap@@QEAAX_K@Z.c)
- *     ?AddDxBltRects@CGdiSpriteBitmap@@AEAAXPEBUtagRECT@@I@Z @ 0x18021D850 (-AddDxBltRects@CGdiSpriteBitmap@@AEAAXPEBUtagRECT@@I@Z.c)
+ *     ?DirtyFromAccum@CGdiSpriteBitmap@@AEAAXXZ @ 0x180031BE8 (-DirtyFromAccum@CGdiSpriteBitmap@@AEAAXXZ.c)
+ *     ?NotifyDirty@CGdiSpriteBitmap@@QEAAX_K@Z @ 0x1800334A4 (-NotifyDirty@CGdiSpriteBitmap@@QEAAX_K@Z.c)
+ *     ?ProcessPresentHistoryToken@CGdiSpriteBitmap@@QEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x18009C4A8 (-ProcessPresentHistoryToken@CGdiSpriteBitmap@@QEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Contains@CRegion@FastRegion@@QEBA_NAEBV12@@Z @ 0x18003F7E4 (-Contains@CRegion@FastRegion@@QEBA_NAEBV12@@Z.c)
- *     ?SetHRGN@CRegion@@QEAAXQEAUHRGN__@@@Z @ 0x180042FC0 (-SetHRGN@CRegion@@QEAAXQEAUHRGN__@@@Z.c)
- *     ??0CRegion@@QEAA@AEBUMilRectU@@@Z @ 0x1800461B0 (--0CRegion@@QEAA@AEBUMilRectU@@@Z.c)
- *     ?Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180046478 (-Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180047C6C (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
- *     ?NotifyDirtySurface@CWindowNode@@QEAAXAEBVCRegion@@_N@Z @ 0x18009719C (-NotifyDirtySurface@CWindowNode@@QEAAXAEBVCRegion@@_N@Z.c)
- *     ?GetCount@CPtrArrayBase@@IEBA_KXZ @ 0x1800AA890 (-GetCount@CPtrArrayBase@@IEBA_KXZ.c)
- *     ??ACPtrArrayBase@@IEBA_K_K@Z @ 0x1800DBDDC (--ACPtrArrayBase@@IEBA_K_K@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     ?GetDirtyRegionFromAccum@CRedirectedGDISurface@@QEAAJPEAPEAUHRGN__@@@Z @ 0x1800F5328 (-GetDirtyRegionFromAccum@CRedirectedGDISurface@@QEAAJPEAPEAUHRGN__@@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0xxxxx_EventWriteTransfer @ 0x18012ECDA (McTemplateU0xxxxx_EventWriteTransfer.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?GetInformation@CRedirectedGDISurface@@QEAAJW4_RedirectGDISurfaceInformationClass@@PEAKPEAX@Z @ 0x18003357C (-GetInformation@CRedirectedGDISurface@@QEAAJW4_RedirectGDISurfaceInformationClass@@PEAKPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180098C7C (-Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     ?Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180098D6C (-Copy@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?Union@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x18009B858 (-Union@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ *     ?NotifyDirtySurface@CWindowNode@@QEAAXAEBVCRegion@@_N1@Z @ 0x18009BECC (-NotifyDirtySurface@CWindowNode@@QEAAXAEBVCRegion@@_N1@Z.c)
+ *     ?SetHRGN@CRegion@@QEAAXQEAUHRGN__@@@Z @ 0x18009CA7C (-SetHRGN@CRegion@@QEAAXQEAUHRGN__@@@Z.c)
+ *     ?Contains@CRegion@FastRegion@@QEBA_NAEBV12@@Z @ 0x1800C7444 (-Contains@CRegion@FastRegion@@QEBA_NAEBV12@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0xxxxx_EventWriteTransfer @ 0x1801541AC (McTemplateU0xxxxx_EventWriteTransfer.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
-void __fastcall CGdiSpriteBitmap::AddDirtyRegion(CGdiSpriteBitmap *this, struct CRegion *a2, char a3)
+void __fastcall CGdiSpriteBitmap::AddDirtyRegion(
+        CGdiSpriteBitmap *this,
+        const struct FastRegion::Internal::CRgnData **a2,
+        char a3)
 {
-  LONG v3; // eax
-  _DWORD *v7; // rax
-  int v8; // eax
+  int v3; // r9d
+  int v5; // edx
+  const struct FastRegion::Internal::CRgnData *v8; // rax
   int v9; // eax
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // rsi
-  __int64 v13; // r14
-  char v14; // r12
+  int v10; // eax
+  bool v11; // r8
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 *v14; // rsi
+  __int64 *v15; // r14
+  char v16; // r15
   unsigned int i; // esi
-  __int64 v16; // rcx
-  __int64 v17; // rax
-  __int64 v18; // rax
-  CWindowNode *v19; // r14
+  CWindowNode *v18; // r14
+  __int64 v19; // rcx
   int v20; // eax
-  __int64 *v21; // rcx
-  __int64 v22; // rax
-  HGDIOBJ ho; // [rsp+40h] [rbp-C0h] BYREF
-  struct tagRECT v24; // [rsp+48h] [rbp-B8h] BYREF
-  int *v25; // [rsp+60h] [rbp-A0h] BYREF
-  int v26; // [rsp+68h] [rbp-98h] BYREF
-  _BYTE v27[80]; // [rsp+B0h] [rbp-50h] BYREF
-  void *retaddr; // [rsp+138h] [rbp+38h]
+  int v21; // eax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // [rsp+40h] [rbp-C0h] BYREF
+  HGDIOBJ ho; // [rsp+48h] [rbp-B8h] BYREF
+  _OWORD v26[3]; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v27; // [rsp+80h] [rbp-80h]
+  void *lpMem; // [rsp+90h] [rbp-70h] BYREF
+  __int64 v29; // [rsp+98h] [rbp-68h] BYREF
+  int v30; // [rsp+A0h] [rbp-60h]
+  _DWORD v31[2]; // [rsp+A4h] [rbp-5Ch] BYREF
+  _DWORD v32[13]; // [rsp+ACh] [rbp-54h] BYREF
+  int *v33; // [rsp+E0h] [rbp-20h] BYREF
+  int v34; // [rsp+E8h] [rbp-18h] BYREF
+  _BYTE v35[48]; // [rsp+100h] [rbp+0h] BYREF
+  void *retaddr; // [rsp+178h] [rbp+78h]
 
-  v3 = *((_DWORD *)this + 106);
-  *(_QWORD *)&v24.left = 0LL;
-  v24.right = v3;
-  v24.bottom = *((_DWORD *)this + 107);
-  CRegion::CRegion((CRegion *)v27, &v24);
-  v7 = *(_DWORD **)a2;
-  ho = 0LL;
-  if ( *v7 )
+  v3 = *((_DWORD *)this + 117);
+  lpMem = &v29;
+  v5 = *((_DWORD *)this + 116);
+  if ( v5 <= 0 || v3 <= 0 )
   {
-    if ( !*((_QWORD *)this + 44) )
+    LODWORD(v29) = 0;
+  }
+  else
+  {
+    v29 = 2LL;
+    v30 = v5;
+    v31[0] = 0;
+    v32[2] = 0;
+    v31[1] = (unsigned int)v35 - 76 - (unsigned int)v31;
+    v32[3] = v5;
+    v32[0] = v3;
+    v32[1] = (unsigned int)v35 - 76 - (unsigned int)v32 + 8;
+  }
+  v8 = *a2;
+  ho = 0LL;
+  if ( *(_DWORD *)v8 )
+  {
+    if ( !*((_QWORD *)this + 49) )
     {
-      if ( *((_BYTE *)this + 143) )
+      if ( *((_BYTE *)this + 128) )
       {
-        CRedirectedGDISurface::GetDirtyRegionFromAccum(*((CRedirectedGDISurface **)this + 15), (HRGN *)&ho);
+        v19 = *((_QWORD *)this + 11);
+        LODWORD(v24) = 56;
+        v27 = 0LL;
+        v26[1] = (unsigned __int64)&ho;
+        v26[0] = 0LL;
+        v26[2] = 0LL;
+        CRedirectedGDISurface::GetInformation(v19, 0, &v24, (__int64)v26);
         if ( ho )
         {
-          v26 = 0;
-          v25 = &v26;
-          CRegion::SetHRGN((CRegion *)&v25, (HRGN)ho);
-          v20 = FastRegion::CRegion::Intersect(a2, (const struct CRegion *)&v25);
+          v34 = 0;
+          v33 = &v34;
+          CRegion::SetHRGN((CRegion *)&v33, (HRGN)ho);
+          v20 = FastRegion::CRegion::Copy(a2, a2);
           if ( v20 < 0 )
             ModuleFailFastForHRESULT((unsigned int)v20, retaddr);
-          FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)&v25);
+          v21 = FastRegion::CRegion::Intersect(a2, (const struct FastRegion::Internal::CRgnData **)&v33);
+          if ( v21 < 0 )
+            ModuleFailFastForHRESULT((unsigned int)v21, retaddr);
+          FastRegion::CRegion::FreeMemory((void **)&v33);
         }
       }
     }
-    v8 = FastRegion::CRegion::Intersect(a2, (const struct CRegion *)v27);
-    if ( v8 < 0 )
-      ModuleFailFastForHRESULT((unsigned int)v8, retaddr);
-    if ( **(_DWORD **)a2 )
+    v9 = FastRegion::CRegion::Intersect(a2, (const struct FastRegion::Internal::CRgnData **)&lpMem);
+    if ( v9 < 0 )
+      ModuleFailFastForHRESULT((unsigned int)v9, retaddr);
+    if ( *(_DWORD *)*a2 )
     {
-      if ( !*((_BYTE *)this + 143) || !FastRegion::CRegion::Contains((CGdiSpriteBitmap *)((char *)this + 168), a2) )
+      if ( !*((_BYTE *)this + 128)
+        || !FastRegion::CRegion::Contains((CGdiSpriteBitmap *)((char *)this + 224), (const struct CRegion *)a2) )
       {
-        v9 = FastRegion::CRegion::Union((CGdiSpriteBitmap *)((char *)this + 168), a2);
-        if ( v9 < 0 )
-          ModuleFailFastForHRESULT((unsigned int)v9, retaddr);
-        *((_BYTE *)this + 145) = 1;
+        v10 = FastRegion::CRegion::Union((void **)this + 28, a2);
+        if ( v10 < 0 )
+          ModuleFailFastForHRESULT((unsigned int)v10, retaddr);
+        *((_BYTE *)this + 131) = 1;
       }
-      v10 = *((_QWORD *)this + 55);
-      if ( v10 )
+      v12 = *((_QWORD *)this + 60);
+      if ( v12 )
       {
-        v11 = v10 + 8 + *(int *)(*(_QWORD *)(v10 + 8) + 12LL);
-        (*(void (__fastcall **)(__int64, struct CRegion *))(*(_QWORD *)v11 + 32LL))(v11, a2);
-        v12 = *((_QWORD *)this + 56);
-        v13 = *((_QWORD *)this + 57);
-        while ( v12 != v13 )
+        v13 = v12 + 8 + *(int *)(*(_QWORD *)(v12 + 8) + 12LL);
+        (*(void (__fastcall **)(__int64, const struct FastRegion::Internal::CRgnData **))(*(_QWORD *)v13 + 32LL))(
+          v13,
+          a2);
+        v14 = (__int64 *)*((_QWORD *)this + 61);
+        v15 = (__int64 *)*((_QWORD *)this + 62);
+        while ( v14 != v15 )
         {
-          v21 = (__int64 *)(*(_QWORD *)v12 + 64LL + *(int *)(*(_QWORD *)(*(_QWORD *)v12 + 64LL) + 8LL));
-          v22 = *v21;
-          *(_QWORD *)&v24.left = 0LL;
-          if ( (*(int (__fastcall **)(__int64 *, struct tagRECT *))(v22 + 64))(v21, &v24) >= 0 )
-            (*(void (__fastcall **)(_QWORD, struct CRegion *))(**(_QWORD **)&v24.left + 32LL))(*(_QWORD *)&v24.left, a2);
+          v22 = *v14;
+          v24 = 0LL;
+          v23 = v22 + 56 + *(int *)(*(_QWORD *)(v22 + 56) + 8LL);
+          if ( (*(int (__fastcall **)(__int64, __int64 *))(*(_QWORD *)v23 + 48LL))(v23, &v24) >= 0 )
+            (*(void (__fastcall **)(__int64, const struct FastRegion::Internal::CRgnData **))(*(_QWORD *)v24 + 32LL))(
+              v24,
+              a2);
           wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v24);
-          v12 += 8LL;
+          ++v14;
         }
       }
-      v14 = *((_BYTE *)this + 140);
-      *((_BYTE *)this + 140) = 1;
+      v16 = *((_BYTE *)this + 124);
+      *((_BYTE *)this + 124) = 1;
       if ( a3 )
       {
-        for ( i = 0; i < CPtrArrayBase::GetCount((CGdiSpriteBitmap *)((char *)this + 24)); ++i )
+        for ( i = 0; i < *((_DWORD *)this + 52); ++i )
         {
-          v17 = CPtrArrayBase::operator[](v16, i);
-          if ( (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v17 + 56LL))(v17, 204LL) )
-          {
-            v18 = CPtrArrayBase::operator[]((char *)this + 24, i);
-            v19 = (CWindowNode *)v18;
-            if ( !v14 && (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
-              McTemplateU0xxxxx_EventWriteTransfer(
-                *(_QWORD *)(v18 + 88),
-                (unsigned int)&EVTDESC_BIND_GDISPRITEBITMAP_FIRST_TOKEN,
-                (_DWORD)this,
-                *((_QWORD *)this + 51),
-                v18,
-                *(_QWORD *)(v18 + 88),
-                *((_QWORD *)this + 9));
-            CWindowNode::NotifyDirtySurface(v19, a2, *((_BYTE *)this + 145));
-          }
+          v18 = *(CWindowNode **)(*((_QWORD *)this + 23) + 8LL * i);
+          if ( !v16 && (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+            McTemplateU0xxxxx_EventWriteTransfer(
+              i,
+              (unsigned int)&EVTDESC_BIND_GDISPRITEBITMAP_FIRST_TOKEN,
+              (_DWORD)this,
+              *((_QWORD *)this + 56),
+              (char)v18,
+              *((_QWORD *)v18 + 10),
+              *((_QWORD *)this + 10));
+          CWindowNode::NotifyDirtySurface(v18, (const struct CRegion *)a2, v11, *((_BYTE *)this + 131));
         }
       }
     }
     if ( ho )
       DeleteObject(ho);
+    if ( &v29 != lpMem )
+      operator delete(lpMem);
   }
-  FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)v27);
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of InbvRotateGuiBootDisplay @ 0x140550E80
+ * XREFs of InbvRotateGuiBootDisplay @ 0x1404FF210
  * Callers:
  *     <none>
  * Callees:
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     InbvReleaseResources @ 0x1403D82CC (InbvReleaseResources.c)
- *     InbvAcquireLock @ 0x140550B6C (InbvAcquireLock.c)
- *     InbvCheckDisplayOwnership @ 0x140550BA0 (InbvCheckDisplayOwnership.c)
- *     InbvGetDisplayState @ 0x140550BFC (InbvGetDisplayState.c)
- *     InbvReleaseLock @ 0x140550C9C (InbvReleaseLock.c)
- *     RotBarUpdate @ 0x140550FDC (RotBarUpdate.c)
- *     PsTerminateSystemThread @ 0x1406E5A70 (PsTerminateSystemThread.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     InbvReleaseResources @ 0x1403B4DA8 (InbvReleaseResources.c)
+ *     InbvAcquireLock @ 0x1404FEEFC (InbvAcquireLock.c)
+ *     InbvCheckDisplayOwnership @ 0x1404FEF30 (InbvCheckDisplayOwnership.c)
+ *     InbvGetDisplayState @ 0x1404FEF8C (InbvGetDisplayState.c)
+ *     InbvReleaseLock @ 0x1404FF02C (InbvReleaseLock.c)
+ *     RotBarUpdate @ 0x1404FF36C (RotBarUpdate.c)
+ *     PsTerminateSystemThread @ 0x1406C0930 (PsTerminateSystemThread.c)
  */
 
 void __fastcall InbvRotateGuiBootDisplay(PVOID StartContext)

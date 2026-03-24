@@ -1,30 +1,34 @@
 /*
- * XREFs of ?DestroyKeyedMutex@DXGGLOBAL@@QEAAXPEAVDXGKEYEDMUTEX@@@Z @ 0x1C034F96C
+ * XREFs of ?DestroyKeyedMutex@DXGGLOBAL@@QEAAXPEAVDXGKEYEDMUTEX@@@Z @ 0x1C0290D54
  * Callers:
- *     ?ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0054234 (-ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0040F30 (-ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000B020 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ??_GDXGKEYEDMUTEX@@QEAAPEAXI@Z @ 0x1C002B248 (--_GDXGKEYEDMUTEX@@QEAAPEAXI@Z.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003700 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ??_GDXGKEYEDMUTEX@@QEAAPEAXI@Z @ 0x1C00491D4 (--_GDXGKEYEDMUTEX@@QEAAPEAXI@Z.c)
  */
 
-void __fastcall DXGGLOBAL::DestroyKeyedMutex(struct _KTHREAD **this, struct DXGKEYEDMUTEX ***a2)
+void __fastcall DXGGLOBAL::DestroyKeyedMutex(struct _KTHREAD **this, struct DXGKEYEDMUTEX *a2)
 {
-  struct DXGKEYEDMUTEX **v4; // rdx
-  struct DXGKEYEDMUTEX **v5; // rax
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  struct DXGKEYEDMUTEX **v6; // rax
 
   if ( !a2 )
   {
-    WdLogSingleEntry1(1LL, 4810LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pKeyedMutex != NULL", 4810LL, 0LL, 0LL, 0LL, 0LL);
+    v4 = WdLogNewEntry5_WdAssertion(this, 0LL);
+    *(_QWORD *)(v4 + 24) = 4742LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  DXGFASTMUTEX::Acquire((DXGFASTMUTEX *)(this + 76));
-  v4 = *a2;
-  if ( (*a2)[1] != (struct DXGKEYEDMUTEX *)a2 || (v5 = a2[1], *v5 != (struct DXGKEYEDMUTEX *)a2) )
+  DXGFASTMUTEX::Acquire((DXGFASTMUTEX *)(this + 66));
+  v5 = *(_QWORD *)a2;
+  if ( *(struct DXGKEYEDMUTEX **)(*(_QWORD *)a2 + 8LL) != a2
+    || (v6 = (struct DXGKEYEDMUTEX **)*((_QWORD *)a2 + 1), *v6 != a2) )
+  {
     __fastfail(3u);
-  *v5 = (struct DXGKEYEDMUTEX *)v4;
-  v4[1] = (struct DXGKEYEDMUTEX *)v5;
-  DXGFASTMUTEX::Release(this + 76);
-  DXGKEYEDMUTEX::`scalar deleting destructor'((DXGKEYEDMUTEX *)a2);
+  }
+  *v6 = (struct DXGKEYEDMUTEX *)v5;
+  *(_QWORD *)(v5 + 8) = v6;
+  DXGFASTMUTEX::Release(this + 66, v5);
+  DXGKEYEDMUTEX::`scalar deleting destructor'(a2);
 }

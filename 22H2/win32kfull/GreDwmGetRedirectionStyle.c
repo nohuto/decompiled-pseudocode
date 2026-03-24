@@ -1,89 +1,85 @@
 /*
- * XREFs of GreDwmGetRedirectionStyle @ 0x1C0267774
+ * XREFs of GreDwmGetRedirectionStyle @ 0x1C026EF94
  * Callers:
- *     NtGdiHLSurfGetInformation @ 0x1C007E160 (NtGdiHLSurfGetInformation.c)
+ *     NtGdiHLSurfGetInformation @ 0x1C00BC5C0 (NtGdiHLSurfGetInformation.c)
  * Callees:
- *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001B818 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
- *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C007AC00 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
- *     ??0SEMOBJEXORSHARED@@QEAA@PEAUHSEMAPHORE__@@H@Z @ 0x1C007AC44 (--0SEMOBJEXORSHARED@@QEAA@PEAUHSEMAPHORE__@@H@Z.c)
- *     ?GetRedirectionInfo@SFMLOGICALSURFACE@@QEAAXPEAW4_HLSURF_REDIRECTIONSTYLE@@PEAK1PEAPEAXPEAU_LUID@@@Z @ 0x1C00B0400 (-GetRedirectionInfo@SFMLOGICALSURFACE@@QEAAXPEAW4_HLSURF_REDIRECTIONSTYLE@@PEAK1PEAPEAXPEAU_LUID.c)
- *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00D544C (--1DWMSPRITELOCK@@QEAA@XZ.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ @ 0x1C013DFC4 (--0-$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?GetRedirectionInfo@SFMLOGICALSURFACE@@QEAAXPEAW4_HLSURF_REDIRECTIONSTYLE@@PEAK1PEAPEAXPEAU_LUID@@@Z @ 0x1C0012A28 (-GetRedirectionInfo@SFMLOGICALSURFACE@@QEAAXPEAW4_HLSURF_REDIRECTIONSTYLE@@PEAK1PEAPEAXPEAU_LUID.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C00172B0 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C00173F0 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     ??0SEMOBJEXORSHARED@@QEAA@PEAUHSEMAPHORE__@@H@Z @ 0x1C006A55C (--0SEMOBJEXORSHARED@@QEAA@PEAUHSEMAPHORE__@@H@Z.c)
+ *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00BD784 (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ @ 0x1C016988C (--0-$UnexpectedThreadTerminationHandler@VSURFREF@@@@QEAA@XZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
-__int64 __fastcall GreDwmGetRedirectionStyle(Gre::Base *a1, __int64 a2, __int64 a3)
+__int64 __fastcall GreDwmGetRedirectionStyle(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v5; // r14d
-  struct Gre::Base::SESSION_GLOBALS *v6; // r15
-  HSEMAPHORE v7; // rdx
-  __int64 v8; // rdx
-  SFMLOGICALSURFACE *v9; // rdi
-  __int64 v10; // rax
-  __int64 v11; // rbx
-  _BYTE v13[8]; // [rsp+30h] [rbp-30h] BYREF
-  _OWORD v14[2]; // [rsp+38h] [rbp-28h] BYREF
-  SFMLOGICALSURFACE *v15; // [rsp+58h] [rbp-8h]
-  Gre::Base *v16; // [rsp+90h] [rbp+30h] BYREF
-  char v17; // [rsp+A8h] [rbp+48h] BYREF
+  __int64 v6; // rdx
+  SFMLOGICALSURFACE *v7; // rdi
+  __int64 v8; // rax
+  __int64 v9; // rbx
+  _BYTE v11[8]; // [rsp+30h] [rbp-30h] BYREF
+  _OWORD v12[2]; // [rsp+38h] [rbp-28h] BYREF
+  SFMLOGICALSURFACE *v13; // [rsp+58h] [rbp-8h]
+  __int64 v14; // [rsp+80h] [rbp+20h] BYREF
+  char v15; // [rsp+98h] [rbp+38h] BYREF
 
-  v16 = a1;
+  v14 = a1;
   v5 = -1073741811;
-  v6 = Gre::Base::Globals(a1);
-  GreAcquireSemaphoreSharedInternal(*((_QWORD *)v6 + 10));
-  EtwTraceGreLockAcquireSemaphoreShared(L"GreBaseGlobals.hsemDynamicModeChange", *((_QWORD *)v6 + 10));
-  SEMOBJSHARED::SEMOBJSHARED((SEMOBJSHARED *)v13, *((HSEMAPHORE *)v6 + 14));
-  v7 = (HSEMAPHORE)*((_QWORD *)v6 + 9);
-  LODWORD(v16) = 0;
-  SEMOBJEXORSHARED::SEMOBJEXORSHARED((SEMOBJEXORSHARED *)&v17, v7, 1);
+  GreAcquireSemaphoreSharedInternal(ghsemDynamicModeChange);
+  EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
+  SEMOBJSHARED::SEMOBJSHARED((SEMOBJSHARED *)v11, ghsemSprite);
+  LODWORD(v14) = 0;
+  SEMOBJEXORSHARED::SEMOBJEXORSHARED((SEMOBJEXORSHARED *)&v15, ghsemDwmState, 1);
   if ( (unsigned int)UserIsCurrentProcessDwm() )
   {
-    UnexpectedThreadTerminationHandler<SURFREF>::UnexpectedThreadTerminationHandler<SURFREF>(v14);
-    v9 = 0LL;
-    v15 = 0LL;
+    UnexpectedThreadTerminationHandler<SURFREF>::UnexpectedThreadTerminationHandler<SURFREF>(v12);
+    v7 = 0LL;
+    v13 = 0LL;
     if ( a2 )
     {
-      LOBYTE(v8) = 18;
-      v10 = HmgShareLockCheck(a2, v8);
-      v15 = (SFMLOGICALSURFACE *)v10;
-      v9 = (SFMLOGICALSURFACE *)v10;
-      if ( v10 )
+      LOBYTE(v6) = 18;
+      v8 = HmgShareLockCheck(a2, v6);
+      v13 = (SFMLOGICALSURFACE *)v8;
+      v7 = (SFMLOGICALSURFACE *)v8;
+      if ( v8 )
       {
-        v11 = v10 + 256;
-        if ( v10 != -256 )
+        v9 = v8 + 256;
+        if ( v8 != -256 )
         {
           KeEnterCriticalRegion();
-          GreAcquirePushLockShared(v11);
-          v9 = v15;
+          GreAcquirePushLockShared(v9);
+          v7 = v13;
         }
         SFMLOGICALSURFACE::GetRedirectionInfo(
-          v9,
+          v7,
           (enum _HLSURF_REDIRECTIONSTYLE *)a3,
           (unsigned int *)(a3 + 4),
           (unsigned int *)(a3 + 8),
           (void **)(a3 + 24),
           (struct _LUID *)(a3 + 12));
         v5 = 0;
-        if ( v11 )
+        if ( v9 )
         {
-          GreReleasePushLockShared(v11);
+          GreReleasePushLockShared(v9);
           KeLeaveCriticalRegion();
-          v9 = v15;
+          v7 = v13;
         }
       }
     }
-    if ( v9 )
-      DEC_SHARE_REF_CNT(v9);
-    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v14);
+    if ( v7 )
+      DEC_SHARE_REF_CNT(v7, v6);
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v12);
   }
   else
   {
     v5 = -1073741790;
   }
-  EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDynamicModeChange");
-  GreReleaseSemaphoreInternal(*((_QWORD *)v6 + 10));
-  SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)&v17);
-  DWMSPRITELOCK::~DWMSPRITELOCK((DWMSPRITELOCK *)&v16);
-  SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)v13);
+  EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
+  GreReleaseSemaphoreInternal(ghsemDynamicModeChange);
+  SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)&v15);
+  DWMSPRITELOCK::~DWMSPRITELOCK((DWMSPRITELOCK *)&v14);
+  SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)v11);
   return v5;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InitializeBootSettings@DXGVALIDATION@@QEAAXXZ @ 0x1C00287C8
+ * XREFs of ?InitializeBootSettings@DXGVALIDATION@@QEAAXXZ @ 0x1C0022DF4
  * Callers:
- *     ?Initialize@DXGGLOBAL@@QEAAJXZ @ 0x1C0210BEC (-Initialize@DXGGLOBAL@@QEAAJXZ.c)
+ *     ?Initialize@DXGGLOBAL@@QEAAJXZ @ 0x1C0192DAC (-Initialize@DXGGLOBAL@@QEAAJXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 void __fastcall DXGVALIDATION::InitializeBootSettings(DXGVALIDATION *this)

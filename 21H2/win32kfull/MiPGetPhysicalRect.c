@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPGetPhysicalRect @ 0x1C0110BD4
+ * XREFs of MiPGetPhysicalRect @ 0x1C0122C5C
  * Callers:
- *     _GetPointerDeviceRects @ 0x1C0110B24 (_GetPointerDeviceRects.c)
- *     ?MiPConvertPoint@@YA?AUtagPOINT@@PEBU1@@Z @ 0x1C01DBC98 (-MiPConvertPoint@@YA-AUtagPOINT@@PEBU1@@Z.c)
+ *     _GetPointerDeviceRects @ 0x1C0122BAC (_GetPointerDeviceRects.c)
+ *     ?MiPConvertPoint@@YA?AUtagPOINT@@PEBU1@@Z @ 0x1C01E0A58 (-MiPConvertPoint@@YA-AUtagPOINT@@PEBU1@@Z.c)
  * Callees:
- *     VirtualizeMultiMonDigitizerSize @ 0x1C01E01B4 (VirtualizeMultiMonDigitizerSize.c)
+ *     VirtualizeMultiMonDigitizerSize @ 0x1C01E6264 (VirtualizeMultiMonDigitizerSize.c)
  */
 
 _OWORD *__fastcall MiPGetPhysicalRect(_OWORD *a1)

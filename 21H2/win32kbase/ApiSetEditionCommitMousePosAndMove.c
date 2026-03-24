@@ -1,17 +1,17 @@
 /*
- * XREFs of ApiSetEditionCommitMousePosAndMove @ 0x1C00AFFE4
+ * XREFs of ApiSetEditionCommitMousePosAndMove @ 0x1C009CAC4
  * Callers:
- *     ?CommitMousePosAndMoveCursor@CMouseProcessor@@AEAAXPEAVMouseInputDataEx@1@UtagPOINT@@AEAU_MousePacketPerf@@@Z @ 0x1C00AFDCC (-CommitMousePosAndMoveCursor@CMouseProcessor@@AEAAXPEAVMouseInputDataEx@1@UtagPOINT@@AEAU_MouseP.c)
+ *     ?CommitMousePosAndMoveCursor@CMouseProcessor@@AEAAXPEAVMouseInputDataEx@1@UtagPOINT@@AEAU_MousePacketPerf@@@Z @ 0x1C009C8D4 (-CommitMousePosAndMoveCursor@CMouseProcessor@@AEAAXPEAVMouseInputDataEx@1@UtagPOINT@@AEAU_MouseP.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     EditionCommitMousePosAndMove @ 0x1C00B0154 (EditionCommitMousePosAndMove.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     EditionCommitMousePosAndMove @ 0x1C009CBE0 (EditionCommitMousePosAndMove.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ApiSetEditionCommitMousePosAndMove(
         int a1,
-        __int64 a2,
-        __int64 a3,
+        int a2,
+        int a3,
         int a4,
         int a5,
         __int64 a6,
@@ -21,62 +21,37 @@ __int64 __fastcall ApiSetEditionCommitMousePosAndMove(
         int a10,
         __int64 a11)
 {
-  int v12; // ebp
-  int v13; // r14d
-  PDEVICE_OBJECT v15; // rcx
-  char v16; // bl
-  void *v17; // r9
-  unsigned int v18; // edi
+  int v13; // ebp
+  unsigned int v15; // ebx
+  int v16; // eax
 
-  v12 = a3;
   v13 = a2;
-  v15 = WPP_GLOBAL_Control;
-  v16 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(a3) = 0;
-  }
-  v17 = &WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids;
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
-      10,
-      328,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
-  v18 = 0;
-  if ( qword_1C029D570 && (int)qword_1C029D570(v15, a2, a3, v17) >= 0 )
-    v18 = EditionCommitMousePosAndMove(a1, v13, v12, a4, a5, a6, a7, a8, a9, a10, a11);
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-  {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v16 = 0;
-  if ( (_BYTE)a2 || v16 )
-  {
-    LOBYTE(a3) = v16;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
       a2,
-      a3,
-      WPP_GLOBAL_Control->DeviceExtension,
-      5,
       10,
-      329,
-      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
+      314,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
-  return v18;
+  v15 = 0;
+  if ( qword_1C02588F8 )
+    v16 = qword_1C02588F8();
+  else
+    v16 = -1073741637;
+  if ( v16 >= 0 )
+    v15 = EditionCommitMousePosAndMove(a1, v13, a3, a4, a5, a6, a7, a8, a9, a10, a11);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      315,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  return v15;
 }

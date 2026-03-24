@@ -1,22 +1,22 @@
 /*
- * XREFs of ExUpdateLicenseData @ 0x1407EB270
+ * XREFs of ExUpdateLicenseData @ 0x1406A6780
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     SLUpdateLicenseDataInternal @ 0x1409FA744 (SLUpdateLicenseDataInternal.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     SLUpdateLicenseDataInternal @ 0x14094E2E0 (SLUpdateLicenseDataInternal.c)
  */
 
-__int64 ExUpdateLicenseData()
+__int64 __fastcall ExUpdateLicenseData(__int64 a1, __int64 a2)
 {
-  __int64 v0; // rdx
-  __int64 v1; // rcx
-  unsigned int v2; // r9d
+  unsigned int v3; // edi
+  __int64 v4; // rcx
 
-  v1 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 113);
-  if ( qword_140D53510 )
-    return qword_140D53510(v1, v2, v0);
+  v3 = a1;
+  v4 = *((_QWORD *)PsGetCurrentServerSiloGlobals(a1, a2) + 113);
+  if ( qword_140D2D500 )
+    return qword_140D2D500(v4, v3, a2);
   else
-    return SLUpdateLicenseDataInternal(v1, v2, v0);
+    return SLUpdateLicenseDataInternal(v4, v3, a2);
 }

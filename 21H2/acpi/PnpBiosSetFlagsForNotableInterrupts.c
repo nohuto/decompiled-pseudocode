@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpBiosSetFlagsForNotableInterrupts @ 0x1C00298D0
+ * XREFs of PnpBiosSetFlagsForNotableInterrupts @ 0x1C002AC30
  * Callers:
- *     ACPIBuildProcessDevicePhaseCrs @ 0x1C0008460 (ACPIBuildProcessDevicePhaseCrs.c)
- *     ACPIBuildProcessDevicePhasePrs @ 0x1C004A840 (ACPIBuildProcessDevicePhasePrs.c)
+ *     ACPIBuildProcessDevicePhaseCrs @ 0x1C0019FB0 (ACPIBuildProcessDevicePhaseCrs.c)
+ *     ACPIBuildProcessDevicePhasePrs @ 0x1C002AB10 (ACPIBuildProcessDevicePhasePrs.c)
  * Callees:
- *     PnpBiosScanForWakeInterrupt @ 0x1C002995C (PnpBiosScanForWakeInterrupt.c)
+ *     PnpBiosScanForWakeInterrupt @ 0x1C002ACBC (PnpBiosScanForWakeInterrupt.c)
  */
 
 char __fastcall PnpBiosSetFlagsForNotableInterrupts(__int64 a1, char *a2, unsigned int a3)
@@ -21,9 +21,9 @@ char __fastcall PnpBiosSetFlagsForNotableInterrupts(__int64 a1, char *a2, unsign
   if ( result )
   {
     result = 0;
-    _InterlockedOr64((volatile signed __int64 *)(a1 + 1000), 0x100000000uLL);
+    _InterlockedOr64((volatile signed __int64 *)(a1 + 960), 0x100000000uLL);
     _InterlockedOr64((volatile signed __int64 *)(a1 + 8), 0x10000uLL);
-    _InterlockedOr64((volatile signed __int64 *)(a1 + 1000), 0x100000uLL);
+    _InterlockedOr64((volatile signed __int64 *)(a1 + 960), 0x100000uLL);
   }
   if ( (unsigned int)v4 >= 0x18 )
   {
@@ -49,7 +49,7 @@ char __fastcall PnpBiosSetFlagsForNotableInterrupts(__int64 a1, char *a2, unsign
       if ( v7 == -116 && !i[4] )
       {
         result = 0;
-        _InterlockedOr64((volatile signed __int64 *)(a1 + 1000), 0x800000000uLL);
+        _InterlockedOr64((volatile signed __int64 *)(a1 + 960), 0x800000000uLL);
         return result;
       }
       v7 = *v10;

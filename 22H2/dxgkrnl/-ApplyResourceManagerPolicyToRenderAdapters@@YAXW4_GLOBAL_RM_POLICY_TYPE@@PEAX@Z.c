@@ -1,86 +1,93 @@
 /*
- * XREFs of ?ApplyResourceManagerPolicyToRenderAdapters@@YAXW4_GLOBAL_RM_POLICY_TYPE@@PEAX@Z @ 0x1C03435D0
+ * XREFs of ?ApplyResourceManagerPolicyToRenderAdapters@@YAXW4_GLOBAL_RM_POLICY_TYPE@@PEAX@Z @ 0x1C0284988
  * Callers:
- *     DxgkSetMemoryBudgetTarget @ 0x1C0346F00 (DxgkSetMemoryBudgetTarget.c)
- *     DxgkSetYieldPercentage @ 0x1C0347A90 (DxgkSetYieldPercentage.c)
+ *     DxgkSetMemoryBudgetTarget @ 0x1C0287500 (DxgkSetMemoryBudgetTarget.c)
+ *     DxgkSetYieldPercentage @ 0x1C02880C0 (DxgkSetYieldPercentage.c)
  * Callees:
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00076E8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007BE0 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall ApplyResourceManagerPolicyToRenderAdapters(int a1, __int64 a2)
+void __fastcall ApplyResourceManagerPolicyToRenderAdapters(__int64 a1, __int64 a2)
 {
+  int v3; // ebp
   struct DXGGLOBAL *Global; // rax
-  _QWORD **v5; // r14
-  _QWORD *v6; // rsi
-  _QWORD *v7; // rbx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rdx
   _QWORD *v8; // rcx
-  __int64 v9; // r9
-  struct DXGGLOBAL *v10; // rax
-  _BYTE v11[16]; // [rsp+20h] [rbp-38h] BYREF
-  char v12[8]; // [rsp+30h] [rbp-28h] BYREF
-  _QWORD *v13; // [rsp+38h] [rbp-20h]
-  char v14; // [rsp+40h] [rbp-18h]
+  _QWORD **v9; // r14
+  _QWORD *v10; // rsi
+  _QWORD *v11; // rbx
+  __int64 v12; // r9
+  struct DXGGLOBAL *v13; // rax
+  __int64 v14; // rdx
+  _BYTE v15[16]; // [rsp+20h] [rbp-38h] BYREF
+  char v16[8]; // [rsp+30h] [rbp-28h] BYREF
+  _QWORD *v17; // [rsp+38h] [rbp-20h]
+  char v18; // [rsp+40h] [rbp-18h]
 
-  Global = DXGGLOBAL::GetGlobal();
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v11, (struct DXGGLOBAL *)((char *)Global + 672), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v11);
-  v5 = (_QWORD **)((char *)DXGGLOBAL::GetGlobal() + 768);
-  v6 = *v5;
-  while ( v6 != v5 && v6 )
+  v3 = a1;
+  Global = DXGGLOBAL::GetGlobal(a1, a2);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v15, (struct DXGGLOBAL *)((char *)Global + 584), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v15);
+  v9 = (_QWORD **)((char *)DXGGLOBAL::GetGlobal(v6, v5) + 664);
+  v10 = *v9;
+  while ( v10 != v9 && v10 )
   {
-    v7 = v6;
-    v6 = (_QWORD *)*v6;
-    if ( v7[366] && (*((_DWORD *)v7 + 109) & 0x4000) == 0 )
+    v11 = v10;
+    v10 = (_QWORD *)*v10;
+    if ( v11[338] && (*((_DWORD *)v11 + 87) & 0x4000) == 0 )
     {
-      v13 = v7;
-      v14 = 0;
-      DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v12);
-      if ( *((_DWORD *)v7 + 50) == 1 )
+      v17 = v11;
+      v18 = 0;
+      DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v16);
+      if ( *((_DWORD *)v11 + 50) == 1 )
       {
-        v8 = (_QWORD *)v7[366];
-        v9 = v8[96];
-        if ( a1 )
+        v8 = (_QWORD *)v11[338];
+        v12 = v8[81];
+        if ( v3 )
         {
-          if ( a1 == 1 )
-            (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(*(_QWORD *)(v8[95] + 8LL) + 1152LL))(
-              v8[96],
+          if ( v3 == 1 )
+            (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(*(_QWORD *)(v8[80] + 8LL) + 1160LL))(
+              v8[81],
               *(unsigned int *)(a2 + 8),
               *(unsigned int *)(a2 + 12),
-              v9);
+              v12);
         }
         else
         {
-          (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(*(_QWORD *)(v8[92] + 8LL) + 952LL))(
-            v8[93],
+          (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(*(_QWORD *)(v8[77] + 8LL) + 952LL))(
+            v8[78],
             *(unsigned int *)(a2 + 8),
             *(unsigned int *)(a2 + 12),
-            v9);
+            v12);
         }
       }
-      if ( v14 )
-        DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v12);
+      if ( v18 )
+        DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v16);
     }
   }
-  v10 = DXGGLOBAL::GetGlobal();
-  if ( a1 )
+  v13 = DXGGLOBAL::GetGlobal((__int64)v8, v7);
+  if ( v3 )
   {
-    if ( a1 == 1 )
+    if ( v3 == 1 )
     {
-      *((_DWORD *)v10 + 76115) = *(_DWORD *)(a2 + 8);
-      *((_DWORD *)v10 + 76116) = *(_DWORD *)(a2 + 12);
+      *((_DWORD *)v13 + 76075) = *(_DWORD *)(a2 + 8);
+      *((_DWORD *)v13 + 76076) = *(_DWORD *)(a2 + 12);
     }
   }
   else
   {
-    *((_DWORD *)v10 + 76114) = *(_DWORD *)(a2 + 12);
-    *((_DWORD *)v10 + 76117) ^= (*((_DWORD *)v10 + 76117) ^ *(_DWORD *)(a2 + 8)) & 1;
+    *((_DWORD *)v13 + 76074) = *(_DWORD *)(a2 + 12);
+    v14 = (*((_DWORD *)v13 + 76077) ^ *(_DWORD *)(a2 + 8)) & 1;
+    *((_DWORD *)v13 + 76077) ^= v14;
   }
-  if ( v11[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v11);
+  if ( v15[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v15, v14);
 }

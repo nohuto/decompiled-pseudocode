@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkGetDeviceState @ 0x1C017C680
+ * XREFs of DxgkGetDeviceState @ 0x1C00F8090
  * Callers:
- *     ?VmBusGetDeviceState@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C036DE50 (-VmBusGetDeviceState@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusGetDeviceState@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C02418C0 (-VmBusGetDeviceState@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
  * Callees:
- *     DxgkGetDeviceStateInternal @ 0x1C017C6C0 (DxgkGetDeviceStateInternal.c)
+ *     DxgkGetDeviceStateInternal @ 0x1C00F80D0 (DxgkGetDeviceStateInternal.c)
  */
 
 __int64 __fastcall DxgkGetDeviceState(__int64 a1)

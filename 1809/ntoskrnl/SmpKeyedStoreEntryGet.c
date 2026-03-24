@@ -2,15 +2,15 @@
  * XREFs of SmpKeyedStoreEntryGet @ 0x140011FDC
  * Callers:
  *     SmStoreExistsForProcess @ 0x140011FA4 (SmStoreExistsForProcess.c)
- *     SmpKeyedStoreSetVaRanges @ 0x1400E4B54 (SmpKeyedStoreSetVaRanges.c)
- *     SmpKeyedStoreReference @ 0x14014F674 (SmpKeyedStoreReference.c)
- *     SmpProcessQueryStoreStats @ 0x140306488 (SmpProcessQueryStoreStats.c)
+ *     SmpKeyedStoreSetVaRanges @ 0x1400E4B74 (SmpKeyedStoreSetVaRanges.c)
+ *     SmpKeyedStoreReference @ 0x14014F694 (SmpKeyedStoreReference.c)
+ *     SmpProcessQueryStoreStats @ 0x140306588 (SmpProcessQueryStoreStats.c)
  *     PspProcessDelete @ 0x140607590 (PspProcessDelete.c)
- *     SmpKeyedStoreCreate @ 0x14066B618 (SmpKeyedStoreCreate.c)
- *     SmProcessStoreMemoryPriorityRequest @ 0x1406CBD00 (SmProcessStoreMemoryPriorityRequest.c)
- *     SmSwapStore @ 0x1406D1050 (SmSwapStore.c)
- *     SmStoreCompressionStart @ 0x1408AB720 (SmStoreCompressionStart.c)
- *     SmStoreCompressionStop @ 0x1408AB79C (SmStoreCompressionStop.c)
+ *     SmpKeyedStoreCreate @ 0x14066B5F8 (SmpKeyedStoreCreate.c)
+ *     SmProcessStoreMemoryPriorityRequest @ 0x1406CBCE0 (SmProcessStoreMemoryPriorityRequest.c)
+ *     SmSwapStore @ 0x1406D1030 (SmSwapStore.c)
+ *     SmStoreCompressionStart @ 0x1408AB700 (SmStoreCompressionStart.c)
+ *     SmStoreCompressionStop @ 0x1408AB77C (SmStoreCompressionStop.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -24,8 +24,8 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ?SmAllocWrapper@@YAPEAX_KPEAX@Z @ 0x14013BA60 (-SmAllocWrapper@@YAPEAX_KPEAX@Z.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ?SmAllocWrapper@@YAPEAX_KPEAX@Z @ 0x14013BA80 (-SmAllocWrapper@@YAPEAX_KPEAX@Z.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall SmpKeyedStoreEntryGet(ULONG_PTR BugCheckParameter2, unsigned __int64 *a2, int a3, int a4)

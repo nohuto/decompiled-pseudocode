@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpViewMapMakeViewRangeUnCOWByCaller @ 0x14068DD88
+ * XREFs of HvpViewMapMakeViewRangeUnCOWByCaller @ 0x140723BAC
  * Callers:
- *     HvpViewMapUnCOWAndSealRange @ 0x14068DCD4 (HvpViewMapUnCOWAndSealRange.c)
+ *     HvpViewMapUnCOWAndSealRange @ 0x140723AF8 (HvpViewMapUnCOWAndSealRange.c)
  * Callees:
- *     CmSiProtectViewOfSection @ 0x14020B57C (CmSiProtectViewOfSection.c)
+ *     CmSiProtectViewOfSection @ 0x14036286C (CmSiProtectViewOfSection.c)
  */
 
 void __fastcall HvpViewMapMakeViewRangeUnCOWByCaller(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

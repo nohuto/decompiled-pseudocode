@@ -1,5 +1,5 @@
 /*
- * XREFs of PopAvlComparePowerRequestKeys @ 0x1406CB160
+ * XREFs of PopAvlComparePowerRequestKeys @ 0x1406CB140
  * Callers:
  *     <none>
  * Callees:

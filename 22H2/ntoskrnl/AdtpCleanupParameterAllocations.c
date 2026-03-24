@@ -1,15 +1,16 @@
 /*
- * XREFs of AdtpCleanupParameterAllocations @ 0x14039985C
+ * XREFs of AdtpCleanupParameterAllocations @ 0x1403C0224
  * Callers:
- *     AdtpWriteToEtwEx @ 0x14066FBB0 (AdtpWriteToEtwEx.c)
- *     AdtpWriteToEtw @ 0x14083EAE0 (AdtpWriteToEtw.c)
+ *     AdtpWriteToEtwEx @ 0x1405C20A4 (AdtpWriteToEtwEx.c)
+ *     AdtpWriteToEtw @ 0x1407B8E98 (AdtpWriteToEtw.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
  */
 
-void __fastcall AdtpCleanupParameterAllocations(_BYTE *a1, PVOID *a2, unsigned int a3)
+PSLIST_ENTRY __fastcall AdtpCleanupParameterAllocations(_BYTE *a1, ULONG_PTR *a2, unsigned int a3)
 {
   __int64 v4; // rsi
+  PSLIST_ENTRY result; // rax
 
   if ( a3 )
   {
@@ -17,11 +18,12 @@ void __fastcall AdtpCleanupParameterAllocations(_BYTE *a1, PVOID *a2, unsigned i
     do
     {
       if ( *a1 )
-        ExFreePoolWithTag(*a2, 0);
+        result = ExFreeHeapPool(*a2);
       ++a1;
       a2 += 2;
       --v4;
     }
     while ( v4 );
   }
+  return result;
 }

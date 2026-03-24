@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Destroy@COPMProtectedOutput@@UEAAJXZ @ 0x1C016CAD0
+ * XREFs of ?Destroy@COPMProtectedOutput@@UEAAJXZ @ 0x1C013FBC0
  * Callers:
- *     ??0COPMProtectedOutput@@QEAA@W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAJ@Z @ 0x1C00CF8CC (--0COPMProtectedOutput@@QEAA@W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAJ@Z.c)
- *     ??1COPMProtectedOutput@@UEAA@XZ @ 0x1C016C890 (--1COPMProtectedOutput@@UEAA@XZ.c)
+ *     ??0COPMProtectedOutput@@QEAA@W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAJ@Z @ 0x1C00BFF28 (--0COPMProtectedOutput@@QEAA@W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAJ@Z.c)
+ *     ??_ECOPMProtectedOutput@@UEAAPEAXI@Z @ 0x1C013F9B0 (--_ECOPMProtectedOutput@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C009ABA0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
- *     CallMonitor @ 0x1C00CFF40 (CallMonitor.c)
- *     ?Destroy@CMonitorPDO@OPM@@UEAAJXZ @ 0x1C0169450 (-Destroy@CMonitorPDO@OPM@@UEAAJXZ.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00870E0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     CallMonitor @ 0x1C00C0560 (CallMonitor.c)
+ *     ?Destroy@CMonitorPDO@OPM@@UEAAJXZ @ 0x1C013C000 (-Destroy@CMonitorPDO@OPM@@UEAAJXZ.c)
  */
 
 __int64 __fastcall COPMProtectedOutput::Destroy(COPMProtectedOutput *this)

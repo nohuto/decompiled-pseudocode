@@ -1,77 +1,197 @@
 /*
- * XREFs of ?CalcOcclusionAndCollectOverlayCandidates@CDesktopTree@@QEAAJXZ @ 0x1800B93B4
+ * XREFs of ?CalcOcclusionAndCollectOverlayCandidates@CDesktopTree@@QEAAJXZ @ 0x180091988
  * Callers:
- *     ?CollectOverlayCandidates@CLegacyRenderTarget@@UEBAPEAVCOverlayContext@@XZ @ 0x1800B9380 (-CollectOverlayCandidates@CLegacyRenderTarget@@UEBAPEAVCOverlayContext@@XZ.c)
- *     ?CollectOverlayCandidates@CDDisplayRenderTarget@@UEBAPEAVCOverlayContext@@XZ @ 0x18019FDC0 (-CollectOverlayCandidates@CDDisplayRenderTarget@@UEBAPEAVCOverlayContext@@XZ.c)
+ *     ?CollectOverlayCandidates@CLegacyRenderTarget@@UEBAPEAVCOverlayContext@@XZ @ 0x180091950 (-CollectOverlayCandidates@CLegacyRenderTarget@@UEBAPEAVCOverlayContext@@XZ.c)
+ *     ?CollectOverlayCandidates@CDDisplayRenderTarget@@UEBAPEAVCOverlayContext@@XZ @ 0x18016E3F0 (-CollectOverlayCandidates@CDDisplayRenderTarget@@UEBAPEAVCOverlayContext@@XZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _anonymous_namespace_::MeasureCyclesDelta @ 0x18007A7D0 (_anonymous_namespace_--MeasureCyclesDelta.c)
- *     ?Compute@COcclusionContext@@IEAAJPEBVCVisualTree@@AEBV?$span@$$CBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0?0@gsl@@MAEBV?$span@PEAVCOverlayContext@@$0?0@4@@Z @ 0x18008BD78 (-Compute@COcclusionContext@@IEAAJPEBVCVisualTree@@AEBV-$span@$$CBV-$TMilRect_@MUMilRectF@@UMil3D.c)
- *     ?GetCurrentFrameId@@YA_KXZ @ 0x180092F80 (-GetCurrentFrameId@@YA_KXZ.c)
- *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z @ 0x1800B9510 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z.c)
- *     ?GetDirtyRects@CDirtyRegion@@QEBA?AV?$span@$$CBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0?0@gsl@@XZ @ 0x1800B99FC (-GetDirtyRects@CDirtyRegion@@QEBA-AV-$span@$$CBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAn.c)
- *     ?GetInflation@CDirtyRegion@@QEBAMXZ @ 0x1800B9A54 (-GetInflation@CDirtyRegion@@QEBAMXZ.c)
- *     ?BeginOverlayCandidateCollection@COverlayContext@@QEAAJXZ @ 0x1800B9AA0 (-BeginOverlayCandidateCollection@COverlayContext@@QEAAJXZ.c)
- *     ?clear@?$vector_facade@VCVIRenderList@@V?$buffer_impl@VCVIRenderList@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x1800B9C18 (-clear@-$vector_facade@VCVIRenderList@@V-$buffer_impl@VCVIRenderList@@$0BA@$00Vliberal_expansion.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x180190BB4 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x180058390 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Compute@COcclusionContext@@IEAAJPEBVCVisualTree@@AEBV?$span@$$CBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0?0@gsl@@MAEBV?$span@PEAVCOverlayContext@@$0?0@4@@Z @ 0x180076B14 (-Compute@COcclusionContext@@IEAAJPEBVCVisualTree@@AEBV-$span@$$CBV-$TMilRect_@MUMilRectF@@UMil3D.c)
+ *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@PEBVCDirtyRegion@@@Z @ 0x180091230 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@PEBVCDirtyRegion@@@Z.c)
+ *     ??9?$basic_iterator@PEAVCOverlayContext@@@detail@@QEBA_NAEBV01@@Z @ 0x180091D0C (--9-$basic_iterator@PEAVCOverlayContext@@@detail@@QEBA_NAEBV01@@Z.c)
+ *     ?BeginOverlayCandidateCollection@COverlayContext@@QEAAJXZ @ 0x180091D20 (-BeginOverlayCandidateCollection@COverlayContext@@QEAAJXZ.c)
+ *     ?clear_region@?$vector_facade@VCVIRenderList@@V?$buffer_impl@VCVIRenderList@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800CE1A8 (-clear_region@-$vector_facade@VCVIRenderList@@V-$buffer_impl@VCVIRenderList@@$0BA@$00Vliberal_ex.c)
+ *     ?HasRevokablePlanes@COverlayContext@@QEBA_NPEAK@Z @ 0x1800EBD7C (-HasRevokablePlanes@COverlayContext@@QEBA_NPEAK@Z.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x18016264C (-terminate@details@gsl@@YAXXZ.c)
+ *     ??$throw_exception@Unarrowing_error@gsl@@@details@gsl@@YAX$$QEAUnarrowing_error@1@@Z @ 0x180163B68 (--$throw_exception@Unarrowing_error@gsl@@@details@gsl@@YAX$$QEAUnarrowing_error@1@@Z.c)
+ *     ??0narrowing_error@gsl@@QEAA@XZ @ 0x180163B80 (--0narrowing_error@gsl@@QEAA@XZ.c)
  */
 
 __int64 __fastcall CDesktopTree::CalcOcclusionAndCollectOverlayCandidates(CDesktopTree *this)
 {
-  unsigned int v2; // esi
-  struct CComposition *CurrentFrameId; // rax
-  __int64 v4; // rcx
-  COverlayContext **v5; // rbx
-  COverlayContext **v6; // rsi
-  gsl::details *v7; // rcx
-  __int64 v8; // rax
-  float Inflation; // xmm6_4
-  __int64 v10; // rcx
-  _QWORD *DirtyRects; // rax
-  int v12; // eax
-  __int64 v13; // rcx
+  unsigned __int64 v1; // rdi
+  _QWORD *v3; // rcx
+  unsigned int v4; // r14d
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rcx
+  __int64 v8; // rcx
+  bool v9; // al
+  unsigned int v10; // edx
+  int v11; // edx
+  __int64 v12; // rax
+  COverlayContext **v13; // r8
   COverlayContext **v14; // rbx
-  COverlayContext **v15; // rbp
-  __int128 v17; // [rsp+30h] [rbp-38h] BYREF
-  _BYTE v18[16]; // [rsp+40h] [rbp-28h] BYREF
+  COverlayContext **v15; // rbx
+  COverlayContext **v16; // r8
+  __int64 v17; // r8
+  gsl::details *v18; // rcx
+  __int64 v19; // r8
+  float v20; // xmm3_4
+  __int64 v21; // rdx
+  int v22; // eax
+  __int64 v23; // rcx
+  COverlayContext **v24; // rbx
+  HANDLE CurrentThread; // rax
+  BOOL v26; // eax
+  __int64 v28; // [rsp+30h] [rbp-20h] BYREF
+  char *v29; // [rsp+38h] [rbp-18h]
+  __int128 v30; // [rsp+40h] [rbp-10h] BYREF
+  unsigned __int64 CycleTime; // [rsp+80h] [rbp+30h] BYREF
+  COverlayContext **v32; // [rsp+88h] [rbp+38h] BYREF
+  __int64 v33; // [rsp+90h] [rbp+40h] BYREF
 
-  v2 = 0;
-  detail::vector_facade<CVIRenderList,detail::buffer_impl<CVIRenderList,16,1,detail::liberal_expansion_policy>>::clear((char *)this + 4816);
-  CurrentFrameId = GetCurrentFrameId();
-  if ( *((struct CComposition **)this + 14) == CurrentFrameId )
+  v1 = 0LL;
+  v3 = (_QWORD *)((char *)this + 5976);
+  v4 = 0;
+  v5 = (v3[1] - *v3) / 40LL;
+  if ( v5 )
+    detail::vector_facade<CVIRenderList,detail::buffer_impl<CVIRenderList,16,1,detail::liberal_expansion_policy>>::clear_region(
+      v3,
+      v5,
+      (v3[1] - *v3) / 40LL);
+  v6 = 0LL;
+  if ( g_pComposition )
+    v6 = *((_QWORD *)g_pComposition + 44);
+  if ( *((_QWORD *)this + 159) != v6 )
   {
-    if ( *((struct CComposition **)this + 592) != CurrentFrameId )
+    v4 = -2003292412;
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2003292412, 0xF6u, 0LL);
+    return v4;
+  }
+  v7 = 0LL;
+  if ( g_pComposition )
+    v7 = *((_QWORD *)g_pComposition + 44);
+  if ( *((_QWORD *)this + 738) != v7 )
+  {
+    v8 = 0LL;
+    if ( g_pComposition )
+      v8 = *((_QWORD *)g_pComposition + 44);
+    *((_QWORD *)this + 738) = v8;
+    if ( !*((_BYTE *)this + 5720) )
     {
-      *((_QWORD *)this + 592) = CurrentFrameId;
-      v5 = (COverlayContext **)*((_QWORD *)this + 594);
-      v6 = (COverlayContext **)*((_QWORD *)this + 595);
-      while ( v5 != v6 )
-        COverlayContext::BeginOverlayCandidateCollection(*v5++);
-      v7 = (gsl::details *)*((_QWORD *)this + 594);
-      v8 = (__int64)(*((_QWORD *)this + 595) - (_QWORD)v7) >> 3;
-      *(_QWORD *)&v17 = v8;
-      if ( v8 == -1 || (*((_QWORD *)&v17 + 1) = v7) == 0LL && v8 )
+      if ( *((_BYTE *)this + 5722) )
       {
-        gsl::details::terminate(v7);
-        JUMPOUT(0x1800B9507LL);
+        v9 = *((_DWORD *)this + 1029) == 0;
       }
-      Inflation = CDirtyRegion::GetInflation((CDesktopTree *)((char *)this + 104));
-      DirtyRects = (_QWORD *)CDirtyRegion::GetDirtyRects(v10, v18);
-      v12 = COcclusionContext::Compute((CDesktopTree *)((char *)this + 120), (__int64)this, DirtyRects, Inflation, &v17);
-      v2 = v12;
-      if ( v12 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0xDBu);
-      v14 = (COverlayContext **)*((_QWORD *)this + 594);
-      v15 = (COverlayContext **)*((_QWORD *)this + 595);
-      while ( v14 != v15 )
-        COverlayContext::EndOverlayCandidateCollection(*v14++, this, (CDesktopTree *)((char *)this + 104));
+      else
+      {
+        v10 = 0;
+        while ( TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty((float *)this + 4 * v10 + 716) )
+        {
+          v10 = v11 + 1;
+          if ( v10 >= 8 )
+            goto LABEL_20;
+        }
+        v9 = 0;
+      }
+      if ( v9 )
+      {
+LABEL_20:
+        v12 = *((_QWORD *)this + 741);
+        v32 = (COverlayContext **)*((_QWORD *)this + 740);
+        v33 = v12;
+        if ( !(unsigned __int8)detail::basic_iterator<COverlayContext *>::operator!=(&v32, &v33) )
+        {
+LABEL_45:
+          CycleTime = 0LL;
+          if ( ::CycleTime )
+          {
+            CurrentThread = GetCurrentThread();
+            v26 = QueryThreadCycleTime(CurrentThread, &CycleTime);
+            v1 = CycleTime;
+            if ( v26 )
+              qword_180347318 += CycleTime - ::CycleTime;
+          }
+          ::CycleTime = v1;
+          return v4;
+        }
+        v14 = v13;
+        while ( !COverlayContext::HasRevokablePlanes(*v13, (unsigned int *)&CycleTime) )
+        {
+          v32 = ++v14;
+          if ( !(unsigned __int8)detail::basic_iterator<COverlayContext *>::operator!=(&v32, &v33) )
+            goto LABEL_45;
+        }
+      }
     }
-    CycleTime = anonymous_namespace_::MeasureCyclesDelta(&CycleTime, qword_1803D31C8);
+    v15 = (COverlayContext **)*((_QWORD *)this + 740);
+    v16 = (COverlayContext **)*((_QWORD *)this + 741);
+    CycleTime = (unsigned __int64)v15;
+    v32 = v16;
+    if ( (unsigned __int8)detail::basic_iterator<COverlayContext *>::operator!=(&CycleTime, &v32) )
+    {
+      do
+      {
+        COverlayContext::BeginOverlayCandidateCollection(*v15++);
+        CycleTime = (unsigned __int64)v15;
+      }
+      while ( (unsigned __int8)detail::basic_iterator<COverlayContext *>::operator!=(&CycleTime, &v32) );
+      v17 = *((_QWORD *)this + 741);
+    }
+    v18 = (gsl::details *)*((_QWORD *)this + 740);
+    v19 = (v17 - (__int64)v18) >> 3;
+    if ( v19 < 0 )
+    {
+      v30 = 0LL;
+      gsl::narrowing_error::narrowing_error((gsl::narrowing_error *)&v30);
+      gsl::details::throw_exception<gsl::narrowing_error>();
+      __debugbreak();
+    }
+    *(_QWORD *)&v30 = v19;
+    *((_QWORD *)&v30 + 1) = v18;
+    if ( v18 || !v19 )
+    {
+      v20 = 0.0;
+      if ( *((_BYTE *)this + 5720) )
+      {
+        v28 = 1LL;
+        v29 = (char *)this + 5700;
+        if ( this != (CDesktopTree *)-5700LL )
+        {
+LABEL_40:
+          v22 = COcclusionContext::Compute((__int64)this + 1280, (__int64)this, &v28, v20, &v30);
+          v4 = v22;
+          if ( v22 < 0 )
+            MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0xE8u, 0LL);
+          v24 = (COverlayContext **)*((_QWORD *)this + 740);
+          v32 = (COverlayContext **)*((_QWORD *)this + 741);
+          while ( 1 )
+          {
+            CycleTime = (unsigned __int64)v24;
+            if ( !(unsigned __int8)detail::basic_iterator<COverlayContext *>::operator!=(&CycleTime, &v32) )
+              break;
+            COverlayContext::EndOverlayCandidateCollection(*v24++, this, (CDesktopTree *)((char *)this + 1264));
+          }
+          goto LABEL_45;
+        }
+      }
+      else
+      {
+        if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(*((float *)this + 1429) - 1.0) & _xmm) >= 0.0000011920929
+          || *((_BYTE *)this + 5721) )
+        {
+          v20 = *((float *)this + 1429);
+        }
+        v21 = *((unsigned int *)this + 1029);
+        v28 = v21;
+        v29 = (char *)this + 3956;
+        if ( this != (CDesktopTree *)-3956LL || !v21 )
+          goto LABEL_40;
+      }
+    }
+    gsl::details::terminate(v18);
+    JUMPOUT(0x180091D03LL);
   }
-  else
-  {
-    v2 = -2003292412;
-    MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, -2003292412, 0xE8u);
-  }
-  return v2;
+  return v4;
 }

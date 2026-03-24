@@ -1,9 +1,9 @@
 /*
- * XREFs of WppLoadTracingSupport @ 0x1C03779D0
+ * XREFs of WppLoadTracingSupport @ 0x1C037BA28
  * Callers:
- *     EditionInitializeWppLogging @ 0x1C0119910 (EditionInitializeWppLogging.c)
+ *     EditionInitializeWppLogging @ 0x1C012E0D0 (EditionInitializeWppLogging.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 PVOID WppLoadTracingSupport()
@@ -17,7 +17,7 @@ PVOID WppLoadTracingSupport()
   RtlInitUnicodeString(&DestinationString, L"PsGetVersion");
   pfnWppGetVersion = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))MmGetSystemRoutineAddress(&DestinationString);
   RtlInitUnicodeString(&DestinationString, L"WmiTraceMessage");
-  pfnWppTraceMessage = (__int64)MmGetSystemRoutineAddress(&DestinationString);
+  pfnWppTraceMessage = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))MmGetSystemRoutineAddress(&DestinationString);
   RtlInitUnicodeString(&DestinationString, L"WmiQueryTraceInformation");
   pfnWppQueryTraceInformation = (__int64)MmGetSystemRoutineAddress(&DestinationString);
   result = pfnWppGetVersion;

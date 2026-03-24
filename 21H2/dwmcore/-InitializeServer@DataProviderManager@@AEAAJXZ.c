@@ -1,13 +1,12 @@
 /*
- * XREFs of ?InitializeServer@DataProviderManager@@AEAAJXZ @ 0x18002F2F0
+ * XREFs of ?InitializeServer@DataProviderManager@@AEAAJXZ @ 0x1800B39D8
  * Callers:
- *     ?Create@DataProviderManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x18002EF3C (-Create@DataProviderManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
+ *     ?Initialize@DataProviderManager@@AEAAJXZ @ 0x1800B45B0 (-Initialize@DataProviderManager@@AEAAJXZ.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??1?$unique_storage@U?$resource_policy@PEAXP6APEAXPEAX@Z$1?LocalFree@@YAPEAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x18002F62C (--1-$unique_storage@U-$resource_policy@PEAXP6APEAXPEAX@Z$1-LocalFree@@YAPEAX0@ZU-$integral_const.c)
- *     ??$CreateServer@VDataProviderRegistrarConnection@@@BaseBamoConnection@Bamo@Microsoft@@SAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBGPEAPEAVDataProviderRegistrarConnection@@@Z @ 0x18002F6AC (--$CreateServer@VDataProviderRegistrarConnection@@@BaseBamoConnection@Bamo@Microsoft@@SAJPEAUIMe.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x180178750 (-Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z.c)
+ *     ??$CreateServer@VDataProviderRegistrarConnection@@@BaseBamoConnection@Bamo@Microsoft@@SAJPEAUIMessageSession@@PEAUIMessagePort@@UMsgScopeID@@PEBGPEAPEAVDataProviderRegistrarConnection@@@Z @ 0x1800B386C (--$CreateServer@VDataProviderRegistrarConnection@@@BaseBamoConnection@Bamo@Microsoft@@SAJPEAUIMe.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z @ 0x18014E76C (-Return_GetLastError@in1diag3@details@wil@@YAJPEAXIPEBD@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall DataProviderManager::InitializeServer(DataProviderManager *this)
@@ -15,13 +14,13 @@ __int64 __fastcall DataProviderManager::InitializeServer(DataProviderManager *th
   const char *v2; // r9
   __int64 v3; // rcx
   int v4; // eax
-  int v5; // r9d
+  __int64 v5; // r9
   unsigned int LastError; // ebx
-  __int64 v7; // rcx
+  __int64 *v7; // rcx
   __int64 v8; // rcx
   __int64 v10; // rdx
-  __int64 v11; // [rsp+30h] [rbp-10h] BYREF
-  int v12; // [rsp+38h] [rbp-8h]
+  int v11; // [rsp+20h] [rbp-20h]
+  __int128 v12; // [rsp+30h] [rbp-10h] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+8h]
   __int64 v14; // [rsp+58h] [rbp+18h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+60h] [rbp+20h] BYREF
@@ -54,15 +53,15 @@ __int64 __fastcall DataProviderManager::InitializeServer(DataProviderManager *th
   }
   else
   {
-    v11 = 0LL;
-    v7 = *((_QWORD *)this + 2);
-    v12 = 1;
+    *(_QWORD *)&v12 = 0LL;
+    v7 = (__int64 *)*((_QWORD *)this + 2);
+    DWORD2(v12) = 1;
     v4 = Microsoft::Bamo::BaseBamoConnection::CreateServer<DataProviderRegistrarConnection>(
            v7,
            v14,
-           (unsigned int)&v11,
+           &v12,
            v5,
-           (__int64)this + 24);
+           (_QWORD *)this + 3);
     LastError = v4;
     if ( v4 >= 0 )
     {
@@ -74,8 +73,9 @@ __int64 __fastcall DataProviderManager::InitializeServer(DataProviderManager *th
   wil::details::in1diag3::Return_Hr(
     retaddr,
     (void *)v10,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\globaldataprovidermanager.cpp",
-    (const char *)(unsigned int)v4);
+    (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\globaldataprovidermanager.cpp",
+    (const char *)(unsigned int)v4,
+    v11);
 LABEL_5:
   v8 = v14;
   if ( v14 )
@@ -84,6 +84,7 @@ LABEL_5:
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
   }
 LABEL_7:
-  wil::details::unique_storage<wil::details::resource_policy<void *,void * (*)(void *),&void * LocalFree(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<void *,void * (*)(void *),&void * LocalFree(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>(&SecurityDescriptor);
+  if ( SecurityDescriptor )
+    LocalFree(SecurityDescriptor);
   return LastError;
 }

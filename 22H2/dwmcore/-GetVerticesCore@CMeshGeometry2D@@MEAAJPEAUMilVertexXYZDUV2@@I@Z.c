@@ -1,9 +1,10 @@
 /*
- * XREFs of ?GetVerticesCore@CMeshGeometry2D@@MEAAJPEAUMilVertexXYZDUV2@@I@Z @ 0x180258C30
+ * XREFs of ?GetVerticesCore@CMeshGeometry2D@@MEAAJPEAUMilVertexXYZDUV2@@I@Z @ 0x1801D6830
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetVertexCount@CMeshGeometry2D@@UEAAIXZ @ 0x1801D67D0 (-GetVertexCount@CMeshGeometry2D@@UEAAIXZ.c)
  */
 
 __int64 __fastcall CMeshGeometry2D::GetVerticesCore(
@@ -11,56 +12,58 @@ __int64 __fastcall CMeshGeometry2D::GetVerticesCore(
         struct MilVertexXYZDUV2 *a2,
         unsigned int a3)
 {
-  unsigned int v4; // ebx
-  unsigned __int64 v5; // rax
-  unsigned __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r11
-  __int64 v9; // r9
-  float *v10; // rdx
-  __int64 v11; // rax
-  __int64 v12; // xmm0_8
-  double v13; // xmm0_8
-  double v14; // xmm1_8
+  unsigned int v6; // edi
+  unsigned int VertexCount; // eax
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r11
+  __int64 v11; // r10
+  float *v12; // rdx
+  __int64 v13; // r9
+  __int64 v14; // rax
+  __int64 v15; // xmm0_8
+  int v16; // ecx
+  double v17; // xmm0_8
+  double v18; // xmm1_8
 
-  v4 = 0;
-  v5 = (__int64)(*((_QWORD *)this + 15) - *((_QWORD *)this + 14)) >> 4;
-  v6 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(*((_QWORD *)this + 12) - *((_QWORD *)this + 11)) >> 2);
-  if ( v6 >= v5 )
-    v6 = (unsigned int)v5;
-  if ( a3 >= (unsigned int)v6 )
+  v6 = 0;
+  VertexCount = CMeshGeometry2D::GetVertexCount(this);
+  if ( a3 >= VertexCount )
   {
-    if ( (_DWORD)v6 )
+    if ( VertexCount )
     {
-      v7 = 0LL;
-      v8 = (unsigned int)v6;
       v9 = 0LL;
-      v10 = (float *)((char *)a2 + 16);
+      v10 = VertexCount;
+      v11 = 0LL;
+      v12 = (float *)((char *)a2 + 16);
+      v13 = 0LL;
       do
       {
-        v11 = *((_QWORD *)this + 11);
-        v12 = *(_QWORD *)(v11 + v9);
-        v9 += 12LL;
-        *((_QWORD *)v10 - 2) = v12;
-        *(v10 - 2) = *(float *)(v11 + v9 - 4);
-        *((_DWORD *)v10 - 1) = (unsigned __int8)*((_DWORD *)this + 20) | (((unsigned __int8)*((_DWORD *)this + 20) | (((unsigned __int8)*((_DWORD *)this + 20) | (*((_DWORD *)this + 20) << 8)) << 8)) << 8);
-        v13 = *(double *)(*((_QWORD *)this + 14) + v7);
-        v7 += 16LL;
-        *v10 = v13;
-        v10 += 8;
-        v14 = *(double *)(*((_QWORD *)this + 14) + v7 - 8);
-        *(v10 - 6) = 0.0;
-        *(v10 - 5) = 0.0;
-        *(v10 - 7) = v14;
-        --v8;
+        v14 = *((_QWORD *)this + 15);
+        v15 = *(_QWORD *)(v14 + v13);
+        v13 += 12LL;
+        *((_QWORD *)v12 - 2) = v15;
+        *(v12 - 2) = *(float *)(v14 + v13 - 4);
+        v16 = *(_DWORD *)(v11 + *((_QWORD *)this + 19));
+        v11 += 4LL;
+        *((_DWORD *)v12 - 1) = v16;
+        v17 = *(double *)(v9 + *((_QWORD *)this + 17));
+        v9 += 16LL;
+        *v12 = v17;
+        v12 += 8;
+        v18 = *(double *)(v9 + *((_QWORD *)this + 17) - 8);
+        *(v12 - 6) = 0.0;
+        *(v12 - 5) = 0.0;
+        *(v12 - 7) = v18;
+        --v10;
       }
-      while ( v8 );
+      while ( v10 );
     }
   }
   else
   {
-    v4 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2147024809, 0xD2u, 0LL);
+    v6 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147024809, 0x12Du, 0LL);
   }
-  return v4;
+  return v6;
 }

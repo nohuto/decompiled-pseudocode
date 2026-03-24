@@ -1,20 +1,20 @@
 /*
- * XREFs of ?apalResetColorTable@XEPALOBJ@@QEAAXXZ @ 0x1C0078FC8
+ * XREFs of ?apalResetColorTable@XEPALOBJ@@QEAAXXZ @ 0x1C00B344C
  * Callers:
- *     ?vRemoveRefPalettes@@YAXK@Z @ 0x1C00181D4 (-vRemoveRefPalettes@@YAXK@Z.c)
- *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C00760D4 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0012620 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ?NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z @ 0x1C007D6C8 (-NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z.c)
  * Callees:
- *     HmgDecrementShareReferenceCountEx @ 0x1C0021710 (HmgDecrementShareReferenceCountEx.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C002E210 (HmgDecrementShareReferenceCountEx.c)
  */
 
 void __fastcall XEPALOBJ::apalResetColorTable(XEPALOBJ *this)
 {
   __int64 v1; // rdx
-  unsigned int *v3; // rcx
+  __int64 v3; // rcx
 
   v1 = *(_QWORD *)this;
-  v3 = *(unsigned int **)(*(_QWORD *)this + 120LL);
-  if ( v3 != (unsigned int *)v1 )
+  v3 = *(_QWORD *)(*(_QWORD *)this + 120LL);
+  if ( v3 != v1 )
   {
     HmgDecrementShareReferenceCountEx(v3, 0LL);
     v1 = *(_QWORD *)this;

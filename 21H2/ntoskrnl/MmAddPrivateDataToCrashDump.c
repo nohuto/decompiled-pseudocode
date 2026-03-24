@@ -1,13 +1,13 @@
 /*
- * XREFs of MmAddPrivateDataToCrashDump @ 0x1405930C8
+ * XREFs of MmAddPrivateDataToCrashDump @ 0x140538490
  * Callers:
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055CF88 (IopAddLiveDumpPagesToPartialKernelDump.c)
- *     IopLiveDumpMarkImportantDumpData @ 0x140A66EB4 (IopLiveDumpMarkImportantDumpData.c)
- *     IopLiveDumpMarkRequiredDumpData @ 0x140A67248 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14050B798 (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopLiveDumpMarkImportantDumpData @ 0x1409ACA58 (IopLiveDumpMarkImportantDumpData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x1409ACDEC (IopLiveDumpMarkRequiredDumpData.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     MiAddPartitionDataToCrashDump @ 0x140592758 (MiAddPartitionDataToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x140593218 (MmAddRangeToCrashDump.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     MiAddPartitionDataToCrashDump @ 0x140537938 (MiAddPartitionDataToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x1405385D8 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD, _QWORD, __int64), char a2)
@@ -26,7 +26,7 @@ __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD,
   v2 = 0;
   if ( (a2 & 1) != 0 )
   {
-    v5 = MmAddRangeToCrashDump(a1, MmPfnDatabase, 48 * (qword_140C50840 + 1));
+    v5 = MmAddRangeToCrashDump(a1, MmPfnDatabase, 0x30000000000LL);
     if ( v5 < 0 )
       v2 = v5;
   }
@@ -57,10 +57,10 @@ __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD,
   }
   if ( (a2 & 0x10) != 0 )
   {
-    v11 = (__int64 *)qword_140C53480;
-    while ( v11 != &qword_140C53480 )
+    v11 = (__int64 *)qword_140C4EF00;
+    while ( v11 != &qword_140C4EF00 )
     {
-      v12 = MmAddRangeToCrashDump(a1, v11 - 15, 960LL);
+      v12 = MmAddRangeToCrashDump(a1, v11 - 16, 20480LL);
       v11 = (__int64 *)*v11;
       if ( v12 < 0 )
         v2 = v12;

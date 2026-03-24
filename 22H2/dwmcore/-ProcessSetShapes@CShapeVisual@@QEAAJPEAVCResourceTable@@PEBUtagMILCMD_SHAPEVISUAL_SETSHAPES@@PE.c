@@ -1,62 +1,70 @@
 /*
- * XREFs of ?ProcessSetShapes@CShapeVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SHAPEVISUAL_SETSHAPES@@PEBXI@Z @ 0x1800B8498
+ * XREFs of ?ProcessSetShapes@CShapeVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SHAPEVISUAL_SETSHAPES@@PEBXI@Z @ 0x1801EC5B4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x1800255BC (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ?EnsureShapeTree@CShapeVisual@@AEAAJPEAPEAVCShapeTree@@@Z @ 0x1800B8560 (-EnsureShapeTree@CShapeVisual@@AEAAJPEAPEAVCShapeTree@@@Z.c)
- *     ?SetShapes@CContainerVectorShape@@QEAAJPEAVCResourceTable@@V?$span@$$CBI$0?0@gsl@@_N@Z @ 0x1800B956C (-SetShapes@CContainerVectorShape@@QEAAJPEAVCResourceTable@@V-$span@$$CBI$0-0@gsl@@_N@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?SetShapes@CContainerVectorShape@@QEAAJPEAVCResourceTable@@V?$span@$$CBI$0?0@gsl@@_N@Z @ 0x1801BE410 (-SetShapes@CContainerVectorShape@@QEAAJPEAVCResourceTable@@V-$span@$$CBI$0-0@gsl@@_N@Z.c)
+ *     ?EnsureShapeTree@CShapeVisual@@AEAAJPEAPEAVCShapeTree@@@Z @ 0x1801EC4D0 (-EnsureShapeTree@CShapeVisual@@AEAAJPEAPEAVCShapeTree@@@Z.c)
  */
 
 __int64 __fastcall CShapeVisual::ProcessSetShapes(
         CShapeVisual *this,
         struct CResourceTable *a2,
         const struct tagMILCMD_SHAPEVISUAL_SETSHAPES *a3,
-        const void *a4,
+        unsigned __int64 a4,
         unsigned int a5)
 {
   unsigned int v5; // edi
-  int v8; // eax
-  unsigned int v9; // ebx
-  gsl::details *v10; // rcx
-  int v12; // r9d
-  unsigned int v13; // [rsp+20h] [rbp-38h]
-  _QWORD v14[5]; // [rsp+30h] [rbp-28h] BYREF
-  CResource *v15; // [rsp+70h] [rbp+18h] BYREF
+  int v9; // eax
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  unsigned int v13; // ebx
+  bool v14; // zf
+  int v15; // r9d
+  unsigned int v17; // [rsp+20h] [rbp-38h]
+  unsigned __int64 v18[5]; // [rsp+30h] [rbp-28h] BYREF
+  CResource *v19; // [rsp+70h] [rbp+18h] BYREF
 
   v5 = a5;
   if ( *((_DWORD *)a3 + 3) != a5 || (a5 & 3) != 0 )
   {
-    v9 = -2003303421;
-    v12 = -2003303421;
-    v13 = 41;
-    goto LABEL_15;
+    v13 = -2003303421;
+    v15 = -2003303421;
+    v17 = 41;
+    goto LABEL_12;
   }
-  v8 = CShapeVisual::EnsureShapeTree(this, &v15);
-  v9 = v8;
-  if ( v8 < 0 )
+  v9 = CShapeVisual::EnsureShapeTree(this, &v19);
+  v13 = v9;
+  if ( v9 < 0 )
   {
-    v13 = 45;
-    goto LABEL_13;
+    v17 = 45;
+    goto LABEL_9;
   }
-  gsl::details::extent_type<-1>::extent_type<-1>((gsl::details *)v14, (unsigned __int64)v5 >> 2);
-  v14[1] = a4;
-  if ( v14[0] == -1LL || !a4 && v14[0] )
+  v14 = *((_BYTE *)a3 + 8) == 0;
+  v18[1] = a4;
+  LOBYTE(v12) = !v14;
+  v18[0] = (unsigned __int64)v5 >> 2;
+  if ( !a4 && (unsigned __int64)v5 >> 2 )
   {
-    gsl::details::terminate(v10);
-    JUMPOUT(0x1800B8557LL);
+    ((void (__fastcall *)(CShapeVisual *, __int64, __int64, __int64))`gsl::details::get_terminate_handler'::`2'::handler)(
+      this,
+      v10,
+      v11,
+      v12);
+    __debugbreak();
   }
-  v8 = CContainerVectorShape::SetShapes(v15, a2);
-  v9 = v8;
-  if ( v8 < 0 )
+  v9 = CContainerVectorShape::SetShapes((struct CResource ***)v19, a2, v18, v12);
+  v13 = v9;
+  if ( v9 < 0 )
   {
-    v13 = 51;
-LABEL_13:
-    v12 = v8;
-LABEL_15:
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, v12, v13, 0LL);
+    v17 = 51;
+LABEL_9:
+    v15 = v9;
+LABEL_12:
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v15, v17, 0LL);
   }
-  return v9;
+  return v13;
 }

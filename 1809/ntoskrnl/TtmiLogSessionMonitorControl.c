@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionMonitorControl @ 0x140884F40
+ * XREFs of TtmiLogSessionMonitorControl @ 0x140884F20
  * Callers:
- *     TtmSessionMonitorControl @ 0x140880134 (TtmSessionMonitorControl.c)
+ *     TtmSessionMonitorControl @ 0x140880114 (TtmSessionMonitorControl.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogSessionMonitorControl(int a1)
@@ -43,7 +43,7 @@ void __fastcall TtmiLogSessionMonitorControl(int a1)
       v13 = 4LL;
       v15 = 4LL;
       v17 = 4LL;
-      TlgWrite(&stru_14096D820, &unk_1403729E7, 0LL, 0LL, 6u, &pData);
+      TlgWrite(&stru_14096D820, &unk_140372BB0, 0LL, 0LL, 6u, &pData);
     }
   }
 }

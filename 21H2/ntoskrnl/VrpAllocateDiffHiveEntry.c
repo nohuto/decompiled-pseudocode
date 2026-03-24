@@ -1,13 +1,13 @@
 /*
- * XREFs of VrpAllocateDiffHiveEntry @ 0x14069175C
+ * XREFs of VrpAllocateDiffHiveEntry @ 0x1405D69AC
  * Callers:
- *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x140691444 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
+ *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x1405D6690 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
  * Callees:
- *     KeInitializeWaitChain @ 0x140211F88 (KeInitializeWaitChain.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlUpcaseUnicodeChar @ 0x1407CD620 (RtlUpcaseUnicodeChar.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KeInitializeWaitChain @ 0x1402D3EB0 (KeInitializeWaitChain.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlUpcaseUnicodeChar @ 0x140601D90 (RtlUpcaseUnicodeChar.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall VrpAllocateDiffHiveEntry(unsigned __int16 *a1, const void **a2)
@@ -17,7 +17,7 @@ _QWORD *__fastcall VrpAllocateDiffHiveEntry(unsigned __int16 *a1, const void **a
   _QWORD *v6; // rbx
   __int64 v7; // rbp
   WCHAR *v8; // rdi
-  WCHAR *v9; // r15
+  WCHAR *v9; // r14
   unsigned int v10; // eax
   unsigned int v11; // eax
   WCHAR v13; // [rsp+40h] [rbp+8h]

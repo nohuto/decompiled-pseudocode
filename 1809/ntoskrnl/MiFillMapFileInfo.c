@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFillMapFileInfo @ 0x14084C178
+ * XREFs of MiFillMapFileInfo @ 0x14084C158
  * Callers:
  *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1405DD340 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     MiLogMapFileEvent @ 0x14084C34C (MiLogMapFileEvent.c)
+ *     MiLogMapFileEvent @ 0x14084C32C (MiLogMapFileEvent.c)
  * Callees:
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)

@@ -1,5 +1,5 @@
 /*
- * XREFs of SeMaximumAuditMaskFromGlobalSacl @ 0x1408A3A20
+ * XREFs of SeMaximumAuditMaskFromGlobalSacl @ 0x1408A3A00
  * Callers:
  *     SeOpenObjectAuditAlarmWithTransaction @ 0x140596850 (SeOpenObjectAuditAlarmWithTransaction.c)
  *     SeSecurityDescriptorChangedAuditAlarm @ 0x1405BA094 (SeSecurityDescriptorChangedAuditAlarm.c)
@@ -7,8 +7,8 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     SeMaximumAuditMask @ 0x1402FE770 (SeMaximumAuditMask.c)
- *     SepRmGlobalSaclFind @ 0x1408A3AD8 (SepRmGlobalSaclFind.c)
+ *     SeMaximumAuditMask @ 0x1402FE870 (SeMaximumAuditMask.c)
+ *     SepRmGlobalSaclFind @ 0x1408A3AB8 (SepRmGlobalSaclFind.c)
  */
 
 void __stdcall SeMaximumAuditMaskFromGlobalSacl(

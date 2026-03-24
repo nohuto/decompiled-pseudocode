@@ -1,13 +1,13 @@
 /*
- * XREFs of imp_WdfIoResourceRequirementsListGetIoResList @ 0x1C0034C30
+ * XREFs of imp_WdfIoResourceRequirementsListGetIoResList @ 0x1C005CE20
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?FindEntry@FxCollectionInternal@@QEAAPEAVFxCollectionEntry@@K@Z @ 0x1C0014B44 (-FindEntry@FxCollectionInternal@@QEAAPEAVFxCollectionEntry@@K@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?FindEntry@FxCollectionInternal@@QEAAPEAVFxCollectionEntry@@K@Z @ 0x1C0061964 (-FindEntry@FxCollectionInternal@@QEAAPEAVFxCollectionEntry@@K@Z.c)
  */
 
 WDFIORESLIST__ *__fastcall imp_WdfIoResourceRequirementsListGetIoResList(
@@ -16,29 +16,29 @@ WDFIORESLIST__ *__fastcall imp_WdfIoResourceRequirementsListGetIoResList(
         unsigned int Index)
 {
   unsigned __int8 v4; // r8
-  _LIST_ENTRY **Entry; // rax
+  FxCollectionEntry *Entry; // rax
   unsigned __int8 v6; // r8
   FxNonPagedObject *v7; // r9
-  FxObject *v8; // rbx
+  FxObject *m_Object; // rbx
   unsigned __int8 irql; // [rsp+30h] [rbp+8h] BYREF
   FxIoResReqList *pIoResReqList; // [rsp+48h] [rbp+20h] BYREF
 
   pIoResReqList = 0LL;
   irql = 0;
   FxObjectHandleGetPtr(
-    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
     (unsigned __int64)RequirementsList,
     0x1037u,
     (void **)&pIoResReqList);
   FxNonPagedObject::Lock(pIoResReqList, &irql, v4);
   Entry = FxCollectionInternal::FindEntry(&pIoResReqList->FxCollectionInternal, Index);
   if ( Entry )
-    v8 = (FxObject *)*Entry;
+    m_Object = Entry->m_Object;
   else
-    v8 = 0LL;
+    m_Object = 0LL;
   FxNonPagedObject::Unlock(v7, irql, v6);
-  if ( v8 )
-    return (WDFIORESLIST__ *)FxObject::GetObjectHandleUnchecked(v8);
+  if ( m_Object )
+    return (WDFIORESLIST__ *)FxObject::GetObjectHandleUnchecked(m_Object);
   else
     return 0LL;
 }

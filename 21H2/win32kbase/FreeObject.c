@@ -1,56 +1,34 @@
 /*
- * XREFs of FreeObject @ 0x1C0027670
+ * XREFs of FreeObject @ 0x1C002A7D0
  * Callers:
- *     HmgAlloc @ 0x1C001E6F0 (HmgAlloc.c)
- *     HmgFree @ 0x1C0087080 (HmgFree.c)
- *     ?GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z @ 0x1C00BEE40 (-GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z.c)
- *     ?bGarbageCollect@EPATHOBJGC@@QEAA_NXZ @ 0x1C00D96B4 (-bGarbageCollect@EPATHOBJGC@@QEAA_NXZ.c)
- *     ?bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z @ 0x1C00DBD84 (-bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z.c)
- *     EngDeleteDriverObj @ 0x1C01781D0 (EngDeleteDriverObj.c)
+ *     HmgAlloc @ 0x1C0001410 (HmgAlloc.c)
+ *     HmgFree @ 0x1C007B180 (HmgFree.c)
+ *     ?GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z @ 0x1C009F904 (-GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z.c)
+ *     ?bGarbageCollect@EPATHOBJGC@@QEAA_NXZ @ 0x1C00C84CC (-bGarbageCollect@EPATHOBJGC@@QEAA_NXZ.c)
+ *     ?bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z @ 0x1C00CAF18 (-bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z.c)
+ *     EngDeleteDriverObj @ 0x1C014C130 (EngDeleteDriverObj.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ?Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z @ 0x1C017B0D8 (-Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z.c)
- *     ?Remove@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEAA_NQEBVCBackTraceStorageUnit@2@@Z @ 0x1C017BA3C (-Remove@-$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBa.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall FreeObject(struct _SLIST_ENTRY *a1, int a2)
+__int64 __fastcall FreeObject(__int64 a1, int a2)
 {
-  struct _SLIST_ENTRY *v2; // rdi
-  NSInstrumentation::CPrioritizedWriterLock **v3; // rsi
-  void * near *v4; // rbx
-  NSInstrumentation::CPointerHashTable *v5; // rcx
-  struct NSInstrumentation::CBackTraceStorageUnit *v6; // [rsp+30h] [rbp+8h] BYREF
+  void * near *v3; // rdi
+  __int64 result; // rax
 
-  v2 = a1;
-  if ( *((__int16 *)&a1->Next + 7) >= 0 )
-  {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      a1);
-    return;
-  }
-  v3 = (NSInstrumentation::CPrioritizedWriterLock **)gpLeakTrackingAllocator;
-  v4 = (&pHmgLookAsideList)[a2];
-  if ( *(_BYTE *)v4 )
-  {
-    v5 = (NSInstrumentation::CPointerHashTable *)*((_QWORD *)gpLeakTrackingAllocator + 6);
-    --v2;
-    v6 = 0LL;
-    if ( !NSInstrumentation::CPointerHashTable::Remove(v5, v2, (void **)&v6) )
-      return;
-    NSInstrumentation::CSharedStorage<NSInstrumentation::CBackTraceBucket,long volatile,NSInstrumentation::CBackTraceStorageUnit,NSInstrumentation::CBackTrace>::Remove(
-      v3[8],
-      v6);
-  }
-  ++*((_DWORD *)v4 + 11);
-  if ( ExQueryDepthSList((PSLIST_HEADER)v4 + 1) >= *((_WORD *)v4 + 16) )
-  {
-    ++*((_DWORD *)v4 + 12);
-    ((void (__fastcall *)(struct _SLIST_ENTRY *))v4[9])(v2);
-  }
+  if ( *(__int16 *)(a1 + 14) >= 0 )
+    return Win32FreePool(a1);
+  v3 = (&pHmgLookAsideList)[a2];
+  if ( qword_1C0257D60 )
+    result = qword_1C0257D60();
   else
+    result = 3221225659LL;
+  if ( (int)result >= 0 )
   {
-    ExpInterlockedPushEntrySList((PSLIST_HEADER)v4 + 1, v2);
+    result = (__int64)qword_1C0257D68;
+    if ( qword_1C0257D68 )
+      return qword_1C0257D68(v3, a1);
   }
+  return result;
 }

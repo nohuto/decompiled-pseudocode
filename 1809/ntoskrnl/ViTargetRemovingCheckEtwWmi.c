@@ -1,7 +1,7 @@
 /*
  * XREFs of ViTargetRemovingCheckEtwWmi @ 0x140935164
  * Callers:
- *     VfTargetDriversRemove @ 0x14016C1C0 (VfTargetDriversRemove.c)
+ *     VfTargetDriversRemove @ 0x14016C1E0 (VfTargetDriversRemove.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?bSrcCopySRLE8D16@@YAHPEAUBLTINFO@@@Z @ 0x1C02CABB0
+ * XREFs of ?bSrcCopySRLE8D16@@YAHPEAUBLTINFO@@@Z @ 0x1C02CC4B0
  * Callers:
  *     <none>
  * Callees:
@@ -77,7 +77,7 @@ __int64 __fastcall bSrcCopySRLE8D16(struct BLTINFO *a1)
       v26 = *(_DWORD *)(v32 + 4 * v16);
       if ( v10 < v5 )
       {
-        v15 -= v5 - v10;
+        v15 += v10 - v5;
         v10 = v5;
       }
       if ( (int)(v15 + v10) <= v6 )

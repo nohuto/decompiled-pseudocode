@@ -1,12 +1,12 @@
 /*
- * XREFs of ?PlaySync@CUserPlaySound@@AEAAJK@Z @ 0x1C00FA304
+ * XREFs of ?PlaySync@CUserPlaySound@@AEAAJK@Z @ 0x1C0101870
  * Callers:
- *     xxxProcessEventMessage @ 0x1C005C220 (xxxProcessEventMessage.c)
- *     xxxPlayEventSound @ 0x1C01088E0 (xxxPlayEventSound.c)
- *     PostPlaySoundMessage @ 0x1C0111130 (PostPlaySoundMessage.c)
- *     xxxMessageBeep @ 0x1C014C6C4 (xxxMessageBeep.c)
+ *     xxxProcessEventMessage @ 0x1C00C1918 (xxxProcessEventMessage.c)
+ *     xxxPlayEventSound @ 0x1C011EC00 (xxxPlayEventSound.c)
+ *     PostPlaySoundMessage @ 0x1C0127ED0 (PostPlaySoundMessage.c)
+ *     xxxMessageBeep @ 0x1C015D9A0 (xxxMessageBeep.c)
  * Callees:
- *     PlaySoundPostMessage @ 0x1C03775FC (PlaySoundPostMessage.c)
+ *     PlaySoundPostMessage @ 0x1C037B4B0 (PlaySoundPostMessage.c)
  */
 
 __int64 __fastcall CUserPlaySound::PlaySync(RPC_BINDING_HANDLE *this)

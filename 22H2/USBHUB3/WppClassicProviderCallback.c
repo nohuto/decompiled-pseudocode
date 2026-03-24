@@ -1,5 +1,5 @@
 /*
- * XREFs of WppClassicProviderCallback @ 0x1C0002140
+ * XREFs of WppClassicProviderCallback @ 0x1C0001C50
  * Callers:
  *     <none>
  * Callees:

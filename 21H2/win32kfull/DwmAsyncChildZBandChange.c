@@ -1,7 +1,7 @@
 /*
- * XREFs of DwmAsyncChildZBandChange @ 0x1C01066B4
+ * XREFs of DwmAsyncChildZBandChange @ 0x1C0038E7C
  * Callers:
- *     ?SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z @ 0x1C0106638 (-SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z.c)
+ *     ?SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z @ 0x1C0038E0C (-SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z.c)
  * Callees:
  *     <none>
  */

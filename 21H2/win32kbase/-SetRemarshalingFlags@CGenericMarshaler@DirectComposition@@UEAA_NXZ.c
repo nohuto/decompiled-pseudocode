@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CGenericMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C0220130
+ * XREFs of ?SetRemarshalingFlags@CGenericMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C01F6E60
  * Callers:
  *     <none>
  * Callees:

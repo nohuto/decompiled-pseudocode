@@ -4,10 +4,10 @@
  *     PfInitializeSuperfetch @ 0x1409D4634 (PfInitializeSuperfetch.c)
  * Callees:
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PfSnPrefetchCacheCtxInitialize @ 0x140752E4C (PfSnPrefetchCacheCtxInitialize.c)
- *     PfpCreateEvent @ 0x140752E90 (PfpCreateEvent.c)
+ *     PfSnPrefetchCacheCtxInitialize @ 0x140752E2C (PfSnPrefetchCacheCtxInitialize.c)
+ *     PfpCreateEvent @ 0x140752E70 (PfpCreateEvent.c)
  */
 
 __int64 PfSnInitializePrefetcher()

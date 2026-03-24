@@ -1,16 +1,16 @@
 /*
- * XREFs of ?FillShape@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEBUID2D1Geometry@@PEAUID2D1Brush@@W4D2D1_ANTIALIAS_MODE@@W4D2D1_PRIMITIVE_BLEND@@@Z @ 0x180278AB0
+ * XREFs of ?FillShape@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEBUID2D1Geometry@@PEAUID2D1Brush@@W4D2D1_ANTIALIAS_MODE@@W4D2D1_PRIMITIVE_BLEND@@@Z @ 0x18023C8C0
  * Callers:
- *     <none>
+ *     ?FillShapeWithBrush@CDrawingContext@@QEAAJAEBVCShape@@PEAUID2D1Brush@@@Z @ 0x1801772E0 (-FillShapeWithBrush@CDrawingContext@@QEAAJAEBVCShape@@PEAUID2D1Brush@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x18007FAC8 (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
- *     ?EnsureBeginDraw@CD2DContext@@AEAAXXZ @ 0x180080698 (-EnsureBeginDraw@CD2DContext@@AEAAXXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0qq_EventWriteTransfer @ 0x1801117F6 (McTemplateU0qq_EventWriteTransfer.c)
- *     McTemplateU0ffff_EventWriteTransfer @ 0x180194AE0 (McTemplateU0ffff_EventWriteTransfer.c)
- *     ?SetCommonState@CD2DContext@@AEAAXPEBVID2DContextOwner@@W4D2D1_PRIMITIVE_BLEND@@PEBW4D2D1_ANTIALIAS_MODE@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x18027936C (-SetCommonState@CD2DContext@@AEAAXPEBVID2DContextOwner@@W4D2D1_PRIMITIVE_BLEND@@PEBW4D2D1_ANTIAL.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x180090B3C (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
+ *     ?EnsureBeginDraw@CD2DContext@@AEAAXXZ @ 0x180090FE8 (-EnsureBeginDraw@CD2DContext@@AEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0qq_EventWriteTransfer @ 0x180152A88 (McTemplateU0qq_EventWriteTransfer.c)
+ *     McTemplateU0ffff_EventWriteTransfer @ 0x18018E8E0 (McTemplateU0ffff_EventWriteTransfer.c)
+ *     ?SetCommonState@CD2DContext@@AEAAXPEBVID2DContextOwner@@W4D2D1_PRIMITIVE_BLEND@@PEBW4D2D1_ANTIALIAS_MODE@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x18023D0A4 (-SetCommonState@CD2DContext@@AEAAXPEBVID2DContextOwner@@W4D2D1_PRIMITIVE_BLEND@@PEBW4D2D1_ANTIAL.c)
  */
 
 __int64 __fastcall CD2DContext::FillShape(
@@ -35,13 +35,13 @@ __int64 __fastcall CD2DContext::FillShape(
   CD2DContext::FlushDrawList(this);
   v10 = 0;
   CD2DContext::EnsureBeginDraw(this);
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
   {
     v11 = (*(__int64 (__fastcall **)(const struct ID2DContextOwner *))(*(_QWORD *)a2 + 24LL))(a2);
     McTemplateU0qq_EventWriteTransfer(
       Microsoft_Windows_Dwm_Core_Provider_Context,
       &EVTDESC_ETWGUID_DRAWEVENT_Start,
-      3,
+      14,
       v11);
   }
   CD2DContext::SetCommonState(this, a2, a6, &a5, &v20);
@@ -54,10 +54,10 @@ __int64 __fastcall CD2DContext::FillShape(
     v10 = v12;
     if ( v12 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0x448u);
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x441u, 0LL);
       return v10;
     }
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
       McTemplateU0ffff_EventWriteTransfer(
         Microsoft_Windows_Dwm_Core_Provider_Context,
         &EVTDESC_ETWGUID_DRAWEVENT,
@@ -66,19 +66,19 @@ __int64 __fastcall CD2DContext::FillShape(
         v18,
         v19);
   }
-  (*(void (__fastcall **)(_QWORD, const struct ID2D1Geometry *, struct ID2D1Brush *, _QWORD))(**((_QWORD **)this + 25)
+  (*(void (__fastcall **)(_QWORD, const struct ID2D1Geometry *, struct ID2D1Brush *, _QWORD))(**((_QWORD **)this + 30)
                                                                                             + 184LL))(
-    *((_QWORD *)this + 25),
+    *((_QWORD *)this + 30),
     a3,
     a4,
     0LL);
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
   {
     v15 = (*(__int64 (__fastcall **)(const struct ID2DContextOwner *))(*(_QWORD *)a2 + 24LL))(a2);
     McTemplateU0qq_EventWriteTransfer(
       Microsoft_Windows_Dwm_Core_Provider_Context,
-      (const EVENT_DESCRIPTOR *)"3",
-      3,
+      &EVTDESC_ETWGUID_DRAWEVENT_Stop,
+      14,
       v15);
   }
   return v10;

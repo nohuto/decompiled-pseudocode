@@ -1,11 +1,11 @@
 /*
- * XREFs of WdiDispatchControl @ 0x1407E59AC
+ * XREFs of WdiDispatchControl @ 0x1407891E0
  * Callers:
- *     NtTraceControl @ 0x140725C40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     EtwGetProviderIdFromHandle @ 0x140368FC4 (EtwGetProviderIdFromHandle.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     WdipStartEndScenario @ 0x1407E5A1C (WdipStartEndScenario.c)
+ *     EtwGetProviderIdFromHandle @ 0x14039E928 (EtwGetProviderIdFromHandle.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     WdipStartEndScenario @ 0x14078946C (WdipStartEndScenario.c)
  */
 
 __int64 __fastcall WdiDispatchControl(unsigned int *a1)
@@ -18,10 +18,6 @@ __int64 __fastcall WdiDispatchControl(unsigned int *a1)
     return 3221225485LL;
   result = EtwGetProviderIdFromHandle((ULONG_PTR *)*a1, 1, &v3);
   if ( (int)result >= 0 )
-    return ((__int64 (__fastcall *)(__int128 *, unsigned int *, unsigned int *, _QWORD))WdipStartEndScenario)(
-             &v3,
-             a1 + 6,
-             a1 + 2,
-             a1[10]);
+    return WdipStartEndScenario(&v3, a1 + 6, a1 + 2, a1[10]);
   return result;
 }

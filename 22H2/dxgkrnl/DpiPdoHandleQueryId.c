@@ -1,20 +1,20 @@
 /*
- * XREFs of DpiPdoHandleQueryId @ 0x1C02116B0
+ * XREFs of DpiPdoHandleQueryId @ 0x1C0186380
  * Callers:
  *     <none>
  * Callees:
- *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0003820 (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     DpiAppendNumberToString @ 0x1C0211B9C (DpiAppendNumberToString.c)
- *     DpiAppendStringToString @ 0x1C021399C (DpiAppendStringToString.c)
+ *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C000D300 (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     DpiAppendNumberToString @ 0x1C0186874 (DpiAppendNumberToString.c)
+ *     DpiAppendStringToString @ 0x1C0187900 (DpiAppendStringToString.c)
  */
 
 __int64 __fastcall DpiPdoHandleQueryId(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx
-  __int64 v4; // rdi
-  char v5; // si
+  __int64 v4; // rbx
+  char v5; // di
   int v6; // r8d
   int v7; // r8d
   int v8; // r8d
@@ -23,19 +23,26 @@ __int64 __fastcall DpiPdoHandleQueryId(__int64 a1, __int64 a2)
   int appended; // eax
   unsigned __int16 *v12; // rax
   const WCHAR *v13; // rcx
-  void *v14; // rax
-  void *v15; // r14
-  unsigned int v16; // ebx
-  const WCHAR *v18; // rdx
-  void *v19; // rbx
-  unsigned int v20; // r14d
-  void *Pool2; // rax
-  int v22; // eax
-  __int64 v23; // rsi
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  __int64 v26; // rax
+  PVOID v14; // rax
+  void *v15; // rsi
+  const WCHAR *v17; // rdx
+  void *v18; // rdi
+  unsigned int v19; // esi
+  PVOID PoolWithTag; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  __int64 v24; // r9
+  int v25; // eax
+  __int64 v26; // r14
   __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // rax
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // rax
+  __int64 v33; // rdx
+  __int64 v34; // rax
   void *Src[2]; // [rsp+98h] [rbp+27h] BYREF
 
   v3 = *(_QWORD *)(a1 + 64);
@@ -48,7 +55,7 @@ __int64 __fastcall DpiPdoHandleQueryId(__int64 a1, __int64 a2)
     v12 = (unsigned __int16 *)(v3 + 512);
     if ( *(_DWORD *)(v3 + 496) == 1 && !*v12 )
     {
-      v18 = L"DISPLAY\\Default_Monitor";
+      v17 = L"DISPLAY\\Default_Monitor";
       goto LABEL_24;
     }
     v13 = L"DISPLAY\\";
@@ -89,13 +96,13 @@ LABEL_11:
       v10 = (const WCHAR *)(v3 + 716);
       if ( *(_DWORD *)(v3 + 496) == 1 && !*v10 )
       {
-        v18 = L"*PNP09FF";
+        v17 = L"*PNP09FF";
 LABEL_24:
-        RtlInitUnicodeString((PUNICODE_STRING)Src, v18);
+        RtlInitUnicodeString((PUNICODE_STRING)Src, v17);
         goto LABEL_13;
       }
     }
-    v18 = v10;
+    v17 = v10;
     goto LABEL_24;
   }
   v12 = (unsigned __int16 *)(v3 + 512);
@@ -103,78 +110,78 @@ LABEL_24:
   {
     if ( !*v12 )
     {
-      v18 = L"MONITOR\\Default_Monitor";
+      v17 = L"MONITOR\\Default_Monitor";
       goto LABEL_24;
     }
     v13 = L"MONITOR\\";
     goto LABEL_10;
   }
-  v19 = 0LL;
-  v20 = 0;
+  v18 = 0LL;
+  v19 = 0;
   do
   {
-    if ( v19 )
-      ExFreePoolWithTag(v19, 0);
-    v20 += 256;
-    Pool2 = (void *)ExAllocatePool2(256LL, v20, 1953656900LL);
-    v19 = Pool2;
-    if ( !Pool2 )
+    if ( v18 )
+      ExFreePoolWithTag(v18, 0);
+    v19 += 256;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v19, 0x74727044u);
+    v18 = PoolWithTag;
+    if ( !PoolWithTag )
     {
-      v4 = -1073741801LL;
-      v25 = 6LL;
-      goto LABEL_48;
+      LODWORD(v4) = -1073741801;
+      v34 = WdLogNewEntry5_WdLowResource(v22, v21, v23, v24);
+      *(_QWORD *)(v34 + 24) = -1073741801LL;
+      WdLogEvent5_WdLowResource(v34);
+      return (unsigned int)v4;
     }
-    memset(Pool2, 0, v20);
-    v22 = RtlStringCbPrintfW(
-            (unsigned __int16 *)v19,
-            v20,
+    memset(PoolWithTag, 0, v19);
+    v25 = RtlStringCbPrintfW(
+            (wchar_t *)v18,
+            v19,
             L"VIDEO\\VEN_%04X&DEV_%04X&SUBSYS_%04X%04X&REV_%02X&%ws,VIDEO\\VEN_%04X&DEV_%04X&SUBSYS_%04X%04X&%ws,VIDEO\\VE"
              "N_%04X&DEV_%04X&%ws,VIDEO\\%ws,,");
-    v23 = v22;
+    v26 = v25;
   }
-  while ( v22 == -2147483643 );
-  if ( v22 < 0 )
+  while ( v25 == -2147483643 );
+  if ( v25 < 0 )
   {
-    ExFreePoolWithTag(v19, 0);
+    ExFreePoolWithTag(v18, 0);
     LODWORD(v4) = -1073741823;
-    v24 = v23;
-    v25 = 2LL;
-LABEL_49:
-    WdLogSingleEntry1(v25, v24);
+    v29 = WdLogNewEntry5_WdError(v28, v27);
+    *(_QWORD *)(v29 + 24) = v26;
+LABEL_40:
+    WdLogEvent5_WdError(v29);
     return (unsigned int)v4;
   }
-  v4 = (int)DpiAppendStringToString((PCWSTR)v19, L",,", (PUNICODE_STRING)Src);
-  ExFreePoolWithTag(v19, 0);
+  v4 = (int)DpiAppendStringToString((PCWSTR)v18, L",,", (PUNICODE_STRING)Src);
+  ExFreePoolWithTag(v18, 0);
   if ( (int)v4 < 0 )
   {
-    v25 = 2LL;
-LABEL_48:
-    v24 = v4;
-    goto LABEL_49;
+    v29 = WdLogNewEntry5_WdError(v31, v30);
+    *(_QWORD *)(v29 + 24) = v4;
+    goto LABEL_40;
   }
   if ( LOWORD(Src[0]) >> 1 )
   {
-    v26 = 0LL;
-    v27 = LOWORD(Src[0]) >> 1;
+    v32 = 0LL;
+    v33 = LOWORD(Src[0]) >> 1;
     do
     {
-      if ( *(_WORD *)((char *)Src[1] + v26) == 44 )
-        *(_WORD *)((char *)Src[1] + v26) = 0;
-      v26 += 2LL;
-      --v27;
+      if ( *(_WORD *)((char *)Src[1] + v32) == 44 )
+        *(_WORD *)((char *)Src[1] + v32) = 0;
+      v32 += 2LL;
+      --v33;
     }
-    while ( v27 );
+    while ( v33 );
   }
 LABEL_12:
   v5 = 1;
 LABEL_13:
-  v14 = (void *)ExAllocatePool2(256LL, WORD1(Src[0]) + 2LL, 1953656900LL);
+  v14 = ExAllocatePoolWithTag(PagedPool, WORD1(Src[0]) + 2LL, 0x74727044u);
   v15 = v14;
   if ( v14 )
   {
-    v16 = WORD1(Src[0]);
     memset(v14, 0, WORD1(Src[0]) + 2LL);
-    memmove(v15, Src[1], v16);
+    memmove(v15, Src[1], WORD1(Src[0]));
     *(_QWORD *)(a2 + 56) = v15;
   }
   else

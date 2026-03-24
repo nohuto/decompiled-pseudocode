@@ -1,21 +1,21 @@
 /*
- * XREFs of PspConvertSiloToServerSilo @ 0x140886E24
+ * XREFs of PspConvertSiloToServerSilo @ 0x140886E04
  * Callers:
  *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
  * Callees:
  *     PsIsServerSilo @ 0x14008FD60 (PsIsServerSilo.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C00 (PsIsCurrentThreadInServerSilo.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  *     PspUnlockJob @ 0x1405FE0C0 (PspUnlockJob.c)
  *     PspLockJobExclusive @ 0x1405FE100 (PspLockJobExclusive.c)
- *     PsGetParentSilo @ 0x140886730 (PsGetParentSilo.c)
- *     PspDeleteServerSiloGlobals @ 0x140887198 (PspDeleteServerSiloGlobals.c)
- *     PspQueueDeferredWorkAndWait @ 0x140887564 (PspQueueDeferredWorkAndWait.c)
- *     PspJobHasChildren @ 0x140889DD8 (PspJobHasChildren.c)
- *     EtwTraceJobServerSiloStateChange @ 0x1408B775C (EtwTraceJobServerSiloStateChange.c)
- *     ObGetSiloRootDirectoryPath @ 0x140906238 (ObGetSiloRootDirectoryPath.c)
+ *     PsGetParentSilo @ 0x140886710 (PsGetParentSilo.c)
+ *     PspDeleteServerSiloGlobals @ 0x140887178 (PspDeleteServerSiloGlobals.c)
+ *     PspQueueDeferredWorkAndWait @ 0x140887544 (PspQueueDeferredWorkAndWait.c)
+ *     PspJobHasChildren @ 0x140889DB8 (PspJobHasChildren.c)
+ *     EtwTraceJobServerSiloStateChange @ 0x1408B773C (EtwTraceJobServerSiloStateChange.c)
+ *     ObGetSiloRootDirectoryPath @ 0x140906218 (ObGetSiloRootDirectoryPath.c)
  */
 
 __int64 __fastcall PspConvertSiloToServerSilo(__int64 a1, char a2, ULONG_PTR a3)

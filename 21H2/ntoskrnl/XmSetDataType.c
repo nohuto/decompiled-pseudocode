@@ -1,20 +1,20 @@
 /*
- * XREFs of XmSetDataType @ 0x1403A346C
+ * XREFs of XmSetDataType @ 0x1403973C8
  * Callers:
- *     XmPortDX @ 0x1403A2720 (XmPortDX.c)
- *     XmGroup3General @ 0x1403A2770 (XmGroup3General.c)
- *     XmAccumImmediate @ 0x1403A2810 (XmAccumImmediate.c)
- *     XmMoveGeneral @ 0x1403A2980 (XmMoveGeneral.c)
- *     XmGroup1General @ 0x1403A2EE0 (XmGroup1General.c)
- *     XmGroup1Immediate @ 0x1403A2FD0 (XmGroup1Immediate.c)
- *     XmGroup2By1 @ 0x1403CC4C0 (XmGroup2By1.c)
- *     XmGroup2ByByte @ 0x1403CCF30 (XmGroup2ByByte.c)
- *     XmGroup2ByCL @ 0x1403D0D90 (XmGroup2ByCL.c)
- *     XmGroup45General @ 0x1403D0E30 (XmGroup45General.c)
- *     XmSegmentOffset @ 0x1403D7560 (XmSegmentOffset.c)
- *     XmStringOperands @ 0x1403D81F0 (XmStringOperands.c)
- *     XmMoveImmediate @ 0x140535490 (XmMoveImmediate.c)
- *     XmPortImmediate @ 0x140535530 (XmPortImmediate.c)
+ *     XmPortDX @ 0x140396680 (XmPortDX.c)
+ *     XmGroup3General @ 0x1403966D0 (XmGroup3General.c)
+ *     XmAccumImmediate @ 0x140396770 (XmAccumImmediate.c)
+ *     XmMoveGeneral @ 0x1403968E0 (XmMoveGeneral.c)
+ *     XmGroup1General @ 0x140396E40 (XmGroup1General.c)
+ *     XmGroup1Immediate @ 0x140396F30 (XmGroup1Immediate.c)
+ *     XmGroup2By1 @ 0x1403C0FA0 (XmGroup2By1.c)
+ *     XmGroup2ByByte @ 0x1403C11C0 (XmGroup2ByByte.c)
+ *     XmGroup2ByCL @ 0x1403C3840 (XmGroup2ByCL.c)
+ *     XmGroup45General @ 0x1403C38A0 (XmGroup45General.c)
+ *     XmSegmentOffset @ 0x1403C91A0 (XmSegmentOffset.c)
+ *     XmStringOperands @ 0x1403C9500 (XmStringOperands.c)
+ *     XmMoveImmediate @ 0x1404E57B0 (XmMoveImmediate.c)
+ *     XmPortImmediate @ 0x1404E5850 (XmPortImmediate.c)
  * Callees:
  *     <none>
  */

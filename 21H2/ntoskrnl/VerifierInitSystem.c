@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierInitSystem @ 0x140B27AFC
+ * XREFs of VerifierInitSystem @ 0x140A6FA84
  * Callers:
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ViInitSystemPhase0 @ 0x140B27B30 (ViInitSystemPhase0.c)
- *     ViInitSystemPhase1 @ 0x140B27E30 (ViInitSystemPhase1.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ViInitSystemPhase0 @ 0x140A6FAB8 (ViInitSystemPhase0.c)
+ *     ViInitSystemPhase1 @ 0x140A6FD8C (ViInitSystemPhase1.c)
  */
 
 __int64 VerifierInitSystem()

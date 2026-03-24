@@ -1,26 +1,39 @@
 /*
- * XREFs of ?RemoveChild@CVisual@@IEAAXPEAV1@_N@Z @ 0x180045B3C
+ * XREFs of ?RemoveChild@CVisual@@IEAAXPEAV1@_N@Z @ 0x18009EEC0
  * Callers:
- *     ?ProcessRemoveChild@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_REMOVECHILD@@@Z @ 0x180045710 (-ProcessRemoveChild@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_REMOVECHILD@@@Z.c)
- *     ?InsertChildAt@CVisual@@IEAAJPEAV1@I_N@Z @ 0x1800487B4 (-InsertChildAt@CVisual@@IEAAJPEAV1@I_N@Z.c)
- *     ?ProcessMoveChild@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_MOVECHILD@@@Z @ 0x1800E79BC (-ProcessMoveChild@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_MOVECHILD@@@Z.c)
+ *     ?ProcessRemoveChild@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_REMOVECHILD@@@Z @ 0x18009D9FC (-ProcessRemoveChild@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_REMOVECHILD@@@Z.c)
+ *     ?InsertChildAt@CVisual@@IEAAJPEAV1@I_N@Z @ 0x1800A15F0 (-InsertChildAt@CVisual@@IEAAJPEAV1@I_N@Z.c)
+ *     ?ProcessMoveChild@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_MOVECHILD@@@Z @ 0x1800D3EE8 (-ProcessMoveChild@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_MOVECHILD@@@Z.c)
  * Callees:
- *     ?UpdateBackdropCounts@CVisual@@IEAAXPEBV1@_N@Z @ 0x1800460B0 (-UpdateBackdropCounts@CVisual@@IEAAXPEBV1@_N@Z.c)
- *     ?DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@_N@Z @ 0x1800486D0 (-DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@_N@Z.c)
- *     ?Remove@CPtrArrayBase@@IEAA_N_K@Z @ 0x180062408 (-Remove@CPtrArrayBase@@IEAA_N_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?AddToInputSinkPossibleDirtyList@CComposition@@QEAAXPEAVCVisual@@@Z @ 0x18009EE48 (-AddToInputSinkPossibleDirtyList@CComposition@@QEAAXPEAVCVisual@@@Z.c)
+ *     ?DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@_N@Z @ 0x18009EF68 (-DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@_N@Z.c)
+ *     ?PropagateBackdropUpdates@CVisual@@AEAAXHH@Z @ 0x18009F824 (-PropagateBackdropUpdates@CVisual@@AEAAXHH@Z.c)
+ *     ?Remove@CPtrArrayBase@@IEAA_N_K@Z @ 0x1800C1AAC (-Remove@CPtrArrayBase@@IEAA_N_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall CVisual::RemoveChild(CVisual *this, struct CVisual *a2, bool a3)
+void __fastcall CVisual::RemoveChild(CComposition **this, struct CVisual *a2, bool a3)
 {
-  if ( CPtrArrayBase::Remove((CVisual *)((char *)this + 80), (unsigned __int64)a2) )
+  char v6; // cl
+  int v7; // r8d
+  int v8; // edx
+  int v9; // r8d
+
+  if ( CPtrArrayBase::Remove((CPtrArrayBase *)(this + 9), (unsigned __int64)a2) )
   {
-    if ( (*((_BYTE *)a2 + 103) & 2) != 0 )
-    {
-      CVisual::DirtyForInvisibleChild(this, a2, a3);
-      CVisual::UpdateBackdropCounts(this, a2, 0);
-    }
-    *((_QWORD *)a2 + 11) = 0LL;
+    if ( (*((_BYTE *)a2 + 95) & 2) != 0 )
+      CVisual::DirtyForInvisibleChild((CVisual *)this, a2, a3);
+    *((_QWORD *)a2 + 10) = 0LL;
+    CComposition::AddToInputSinkPossibleDirtyList(this[2], a2);
+    v6 = *((_BYTE *)a2 + 264);
+    v7 = *((_DWORD *)a2 + 65) + 1;
+    if ( (v6 & 2) == 0 )
+      v7 = *((_DWORD *)a2 + 65);
+    v8 = *((_DWORD *)a2 + 64) + 1;
+    v9 = -v7;
+    if ( (v6 & 1) == 0 )
+      v8 = *((_DWORD *)a2 + 64);
+    CVisual::PropagateBackdropUpdates((CVisual *)this, -v8, v9);
     (*(void (__fastcall **)(struct CVisual *))(*(_QWORD *)a2 + 16LL))(a2);
   }
 }

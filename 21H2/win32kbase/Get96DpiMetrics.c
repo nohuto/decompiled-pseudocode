@@ -1,5 +1,5 @@
 /*
- * XREFs of Get96DpiMetrics @ 0x1C00C4B90
+ * XREFs of Get96DpiMetrics @ 0x1C00B0110
  * Callers:
  *     <none>
  * Callees:

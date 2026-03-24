@@ -1,39 +1,33 @@
 /*
- * XREFs of ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@EV?$allocator@E@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1800ABF00
+ * XREFs of ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@EV?$allocator@E@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x18004F150
  * Callers:
- *     ?UpdatePrimitive@CMegaRect@@QEAAJAEAUUpdatePrimitiveWorkingBuffers@1@@Z @ 0x180041A38 (-UpdatePrimitive@CMegaRect@@QEAAJAEAUUpdatePrimitiveWorkingBuffers@1@@Z.c)
- *     ?PrepareData@CMegaRect@@QEAAJAEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x18004A1EC (-PrepareData@CMegaRect@@QEAAJAEAV-$vector@EV-$allocator@E@std@@@std@@@Z.c)
- *     _anonymous_namespace_::Compressor::Compress @ 0x18010E030 (_anonymous_namespace_--Compressor--Compress.c)
- *     ?ComputeCachedHdrMetadata@CDDisplaySwapChain@@IEAAJW4DXGI_HDR_METADATA_TYPE@@PEBX@Z @ 0x180289384 (-ComputeCachedHdrMetadata@CDDisplaySwapChain@@IEAAJW4DXGI_HDR_METADATA_TYPE@@PEBX@Z.c)
- *     ?ConsumeTipPoints@CSuperWetInkScribble@@MEAAJPEAIPEA_K11@Z @ 0x1802B8C60 (-ConsumeTipPoints@CSuperWetInkScribble@@MEAAJPEAIPEA_K11@Z.c)
+ *     ?PrepareData@CMegaRect@@QEAAJAEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x1800676A4 (-PrepareData@CMegaRect@@QEAAJAEAV-$vector@EV-$allocator@E@std@@@std@@@Z.c)
+ *     ?UpdatePrimitive@CMegaRect@@QEAAJAEAUUpdatePrimitiveWorkingBuffers@1@@Z @ 0x18006A5AC (-UpdatePrimitive@CMegaRect@@QEAAJAEAUUpdatePrimitiveWorkingBuffers@1@@Z.c)
+ *     _anonymous_namespace_::Compressor::Compress @ 0x1800D6480 (_anonymous_namespace_--Compressor--Compress.c)
+ *     ?ComputeCachedHdrMetadata@CDDisplaySwapChain@@IEAAJW4DXGI_HDR_METADATA_TYPE@@PEBX@Z @ 0x18023934C (-ComputeCachedHdrMetadata@CDDisplaySwapChain@@IEAAJW4DXGI_HDR_METADATA_TYPE@@PEBX@Z.c)
+ *     ?ConsumeTipPoints@CSuperWetInkScribble@@MEAAJPEA_K00@Z @ 0x180268E30 (-ConsumeTipPoints@CSuperWetInkScribble@@MEAAJPEA_K00@Z.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800861C0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ?_Calculate_growth@?$vector@DV?$allocator@D@std@@@std@@AEBA_K_K@Z @ 0x18010D9A4 (-_Calculate_growth@-$vector@DV-$allocator@D@std@@@std@@AEBA_K_K@Z.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
- *     ?_Xlength@?$vector@V?$unique_ptr@UICheckMPOCache@@U?$default_delete@UICheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@UICheckMPOCache@@U?$default_delete@UICheckMPOCache@@@std@@@std@@@2@@std@@CAXXZ @ 0x1801B29D8 (-_Xlength@-$vector@V-$unique_ptr@UICheckMPOCache@@U-$default_delete@UICheckMPOCache@@@std@@@std@.c)
+ *     ?_Calculate_growth@?$vector@EV?$allocator@E@std@@@std@@AEBA_K_K@Z @ 0x18004F0B4 (-_Calculate_growth@-$vector@EV-$allocator@E@std@@@std@@AEBA_K_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050D58 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     ?_Xlength@?$vector@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@VCCheckMPOCache@@U?$default_delete@VCCheckMPOCache@@@std@@@std@@@2@@std@@CAXXZ @ 0x1800EB0A0 (-_Xlength@-$vector@V-$unique_ptr@VCCheckMPOCache@@U-$default_delete@VCCheckMPOCache@@@std@@@std@.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
  */
 
-char *__fastcall std::vector<unsigned char>::_Resize_reallocate<std::_Value_init_tag>(_QWORD *a1, unsigned __int64 a2)
+__int64 __fastcall std::vector<unsigned char>::_Resize_reallocate<std::_Value_init_tag>(
+        __int64 *a1,
+        unsigned __int64 a2)
 {
   __int64 v4; // rbx
-  SIZE_T v5; // rbp
-  char *v6; // r14
-  char *result; // rax
+  unsigned __int64 v5; // rsi
+  char *v6; // rdi
 
   if ( a2 > 0x7FFFFFFFFFFFFFFFLL )
-    std::vector<std::unique_ptr<ICheckMPOCache>>::_Xlength();
+    std::vector<std::unique_ptr<CCheckMPOCache>>::_Xlength();
   v4 = a1[1] - *a1;
-  v5 = std::vector<char>::_Calculate_growth(a1, a2);
+  v5 = std::vector<unsigned char>::_Calculate_growth(a1, a2);
   v6 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(v5);
   memset_0(&v6[v4], 0, a2 - v4);
   memmove_0(v6, (const void *)*a1, a1[1] - *a1);
-  if ( *a1 )
-    std::_Deallocate<16,0>(*a1, a1[2] - *a1);
-  *a1 = v6;
-  a1[1] = &v6[a2];
-  result = &v6[v5];
-  a1[2] = &v6[v5];
-  return result;
+  return std::vector<unsigned char>::_Change_array(a1, (__int64)v6, a2, v5);
 }

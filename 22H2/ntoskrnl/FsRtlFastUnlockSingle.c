@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlFastUnlockSingle @ 0x140326EB0
+ * XREFs of FsRtlFastUnlockSingle @ 0x1402D9660
  * Callers:
- *     FsRtlProcessFileLock @ 0x14053DA60 (FsRtlProcessFileLock.c)
+ *     FsRtlProcessFileLock @ 0x1404EFC10 (FsRtlProcessFileLock.c)
  * Callees:
- *     FsRtlFastUnlockSingleExclusive @ 0x140326F94 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlFastUnlockSingleShared @ 0x140327118 (FsRtlFastUnlockSingleShared.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x1402D94CC (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlFastUnlockSingleShared @ 0x1402D99E8 (FsRtlFastUnlockSingleShared.c)
  */
 
 NTSTATUS __stdcall FsRtlFastUnlockSingle(
@@ -31,11 +31,11 @@ NTSTATUS __stdcall FsRtlFastUnlockSingle(
   if ( (unsigned __int64)(Length->QuadPart + FileOffset->QuadPart - 1) < FileOffset->QuadPart && Length->QuadPart )
     return -1073741407;
   if ( (unsigned int)FsRtlFastUnlockSingleExclusive(
-                       (_DWORD)LockInformation,
-                       (_DWORD)FileObject,
-                       (_DWORD)FileOffset,
-                       (_DWORD)Length,
-                       (__int64)ProcessId,
+                       (__int64)LockInformation,
+                       (_RTL_SPLAY_LINKS *)FileObject,
+                       (_RTL_SPLAY_LINKS **)FileOffset,
+                       (_RTL_SPLAY_LINKS **)Length,
+                       (_RTL_SPLAY_LINKS *)ProcessId,
                        Key,
                        (__int64)Context,
                        0,

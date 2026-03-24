@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxDestroyDirectedDripsCandidateDeviceList @ 0x1402D7D80
+ * XREFs of PopFxDestroyDirectedDripsCandidateDeviceList @ 0x1402D7E80
  * Callers:
- *     PopDirectedDripsInitializeBroadcast @ 0x140867E1C (PopDirectedDripsInitializeBroadcast.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x140867DFC (PopDirectedDripsInitializeBroadcast.c)
  * Callees:
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
  */
 
 _QWORD *__fastcall PopFxDestroyDirectedDripsCandidateDeviceList(struct _KEVENT **a1)

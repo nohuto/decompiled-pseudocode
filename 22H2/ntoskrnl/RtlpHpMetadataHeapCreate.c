@@ -1,18 +1,20 @@
 /*
- * XREFs of RtlpHpMetadataHeapCreate @ 0x140396F70
+ * XREFs of RtlpHpMetadataHeapCreate @ 0x14037A950
  * Callers:
- *     RtlHpHeapManagerStart @ 0x140396ECC (RtlHpHeapManagerStart.c)
+ *     RtlHpHeapManagerStart @ 0x14039D088 (RtlHpHeapManagerStart.c)
  * Callees:
- *     RtlpHpHeapCreate @ 0x140397668 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x14037A994 (RtlpHpHeapCreate.c)
  */
 
 __int64 __fastcall RtlpHpMetadataHeapCreate(PRTL_RUN_ONCE RunOnce, __int128 *Parameter, PVOID *Context)
 {
   union _RTL_RUN_ONCE v4; // rdx
   __int64 result; // rax
-  __int128 v6; // [rsp+20h] [rbp-18h] BYREF
+  __int128 v6; // [rsp+20h] [rbp-28h] BYREF
+  __int128 v7; // [rsp+30h] [rbp-18h]
 
-  v6 = *Parameter;
+  v7 = *Parameter;
+  v6 = v7;
   v4.Value = ((__int64 (__fastcall *)(_QWORD, __int128 *, PVOID *, __int128 *))RtlpHpHeapCreate)(
                0LL,
                Parameter,

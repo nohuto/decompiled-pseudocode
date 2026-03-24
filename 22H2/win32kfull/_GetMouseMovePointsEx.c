@@ -1,213 +1,191 @@
 /*
- * XREFs of _GetMouseMovePointsEx @ 0x1C01AC90C
+ * XREFs of _GetMouseMovePointsEx @ 0x1C01D990C
  * Callers:
- *     NtUserGetMouseMovePointsEx @ 0x1C01D28F0 (NtUserGetMouseMovePointsEx.c)
+ *     NtUserGetMouseMovePointsEx @ 0x1C01FA640 (NtUserGetMouseMovePointsEx.c)
  * Callees:
- *     GetScreenRect @ 0x1C00AC98C (GetScreenRect.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005B960 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     GetScreenRect @ 0x1C0122924 (GetScreenRect.c)
  */
 
 __int64 __fastcall GetMouseMovePointsEx(__int16 *a1, __int64 a2, unsigned int a3, int a4)
 {
   unsigned int CurrentThreadDpiAwarenessContext; // eax
-  __int64 v5; // rcx
-  __int64 v6; // rcx
-  unsigned int v7; // esi
-  unsigned int v8; // edi
-  unsigned __int64 v9; // rcx
-  int v10; // r15d
-  __int64 v11; // rax
-  unsigned __int64 v12; // rcx
-  INT v13; // r12d
-  unsigned __int64 v14; // rcx
-  INT v15; // r13d
-  __int64 v16; // rax
-  __int64 v17; // rcx
+  __int64 v6; // rdx
+  unsigned int v7; // edi
+  unsigned int v8; // ebx
+  int v9; // r14d
+  __int64 v10; // r8
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // rax
+  unsigned int v13; // r9d
+  unsigned int v14; // r10d
+  int v15; // eax
+  unsigned int v16; // r11d
+  int v17; // eax
   unsigned int v18; // r13d
-  INT v19; // r12d
-  __int64 v20; // rax
-  int v21; // r12d
-  unsigned int v22; // eax
-  int v23; // eax
-  unsigned int v25; // r12d
-  unsigned int v26; // esi
-  unsigned __int64 v27; // rcx
-  unsigned __int64 v28; // rcx
-  unsigned __int64 v29; // rcx
-  INT v30; // ebx
-  __int64 v31; // rax
-  INT v32; // eax
-  __int64 v33; // rcx
-  INT v34; // ebx
-  __int64 v35; // rax
-  INT v36; // eax
-  __int64 v37; // rcx
-  unsigned int v38; // eax
-  __m128i v39; // xmm6
-  __int64 v40; // rcx
-  int v41; // eax
-  int v42; // eax
-  __int64 v43; // rbx
-  int v44; // [rsp+20h] [rbp-B8h]
-  unsigned __int64 v45; // [rsp+28h] [rbp-B0h] BYREF
-  __int64 v46; // [rsp+30h] [rbp-A8h] BYREF
-  unsigned int i; // [rsp+38h] [rbp-A0h]
-  __int128 v48; // [rsp+40h] [rbp-98h]
-  INT c; // [rsp+50h] [rbp-88h]
-  __int64 v50; // [rsp+58h] [rbp-80h] BYREF
-  __int64 v51; // [rsp+60h] [rbp-78h] BYREF
-  char v52[16]; // [rsp+70h] [rbp-68h] BYREF
-  __m128i v53; // [rsp+80h] [rbp-58h]
-  int v55; // [rsp+E0h] [rbp+8h]
+  __int64 v19; // rcx
+  unsigned int v20; // eax
+  int v21; // ecx
+  int v22; // eax
+  unsigned int v24; // r12d
+  unsigned int v25; // edi
+  int v26; // ecx
+  int v27; // edx
+  INT v28; // r14d
+  __int64 v29; // rcx
+  unsigned int v30; // eax
+  __int64 v31; // r14
+  __m128i v32; // xmm6
+  INT v33; // eax
+  __int64 v34; // rcx
+  int v35; // eax
+  int v36; // eax
+  __int64 v37; // rdx
+  __int64 v38; // [rsp+20h] [rbp-A8h] BYREF
+  int v39; // [rsp+28h] [rbp-A0h]
+  unsigned int i; // [rsp+2Ch] [rbp-9Ch]
+  unsigned __int64 v41; // [rsp+30h] [rbp-98h] BYREF
+  unsigned int v42; // [rsp+38h] [rbp-90h]
+  __int64 v43; // [rsp+40h] [rbp-88h] BYREF
+  __int128 v44; // [rsp+48h] [rbp-80h]
+  __int64 v45; // [rsp+58h] [rbp-70h] BYREF
+  __m128i v46[3]; // [rsp+68h] [rbp-60h] BYREF
 
   i = 0;
-  v51 = 0LL;
-  LODWORD(v50) = *a1;
-  HIDWORD(v50) = a1[2];
-  v46 = 0LL;
+  v39 = 0;
   v45 = 0LL;
-  CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(a1);
-  LogicalToPhysicalDPIPoint(&v51, &v50, CurrentThreadDpiAwarenessContext, 0LL);
-  if ( *(_DWORD *)(SGDGetUserSessionState(v5) + 14364) )
-    v7 = ((unsigned __int8)*(_DWORD *)(SGDGetUserSessionState(v6) + 14364) - 1) & 0x3F;
+  LODWORD(v43) = *a1;
+  HIDWORD(v43) = a1[2];
+  v38 = 0LL;
+  v41 = 0LL;
+  CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext((__int64)a1);
+  LogicalToPhysicalDPIPoint(&v45, &v43, CurrentThreadDpiAwarenessContext, 0LL);
+  if ( gptInd )
+    v7 = (gptInd - 1) & 0x3F;
   else
     v7 = 63;
   v8 = v7;
-  v9 = gpDispInfo;
-  v48 = *(_OWORD *)(*gpDispInfo + 24LL);
+  v44 = *(_OWORD *)(*gpDispInfo + 24LL);
   while ( 1 )
   {
-    v10 = 0;
-    v11 = SGDGetUserSessionState(v9);
-    v9 = v8;
-    if ( !HIWORD(*(_DWORD *)(v11 + 24LL * v8 + 14368)) )
-      break;
-    v9 = (unsigned __int64)*(unsigned int *)(SGDGetUserSessionState(v8) + 24LL * v8 + 14372) >> 16;
-    if ( !(_WORD)v9 )
-      break;
-    v12 = (unsigned __int64)*(unsigned int *)(SGDGetUserSessionState(v9) + 24LL * v8 + 14368) >> 16;
-    v13 = (unsigned __int16)v12 + 1;
-    v14 = (unsigned __int64)*(unsigned int *)(SGDGetUserSessionState(v12) + 24LL * v8 + 14372) >> 16;
-    c = (unsigned __int16)v14 + 1;
-    v15 = DWORD2(v48) - v48;
-    v16 = SGDGetUserSessionState(v14);
-    if ( v13 == v15 )
-      v18 = *(__int16 *)(v16 + 24LL * v8 + 14368);
-    else
-      v18 = v48 + EngMulDiv(*(unsigned __int16 *)(v16 + 24LL * v8 + 14368), v15, v13);
-    v19 = HIDWORD(v48) - DWORD1(v48);
-    v20 = SGDGetUserSessionState(v17);
-    if ( c == v19 )
-      v21 = *(__int16 *)(v20 + 24LL * v8 + 14372);
-    else
-      v21 = DWORD1(v48) + EngMulDiv(*(unsigned __int16 *)(v20 + 24LL * v8 + 14372), v19, c);
-    if ( __PAIR64__(v21, v18) == v51 )
+    v9 = 0;
+    v10 = gaptMouse;
+    v11 = (unsigned __int64)*((unsigned int *)&gaptMouse + 6 * v8) >> 16;
+    if ( !(_WORD)v11
+      || (v12 = (unsigned __int64)*((unsigned int *)&gaptMouse + 6 * v8 + 1) >> 16,
+          v6 = (unsigned __int16)v12,
+          !(_WORD)v12) )
     {
-      v10 = 1;
+LABEL_22:
+      v22 = v39;
+      goto LABEL_23;
     }
-    else if ( (W32GetCurrentThreadDpiAwarenessContext(v9) & 0xF) != 2 )
+    v13 = (unsigned __int16)v11 + 1;
+    v14 = (unsigned __int16)v12 + 1;
+    v15 = DWORD2(v44) - v44;
+    v16 = *((__int16 *)&gaptMouse + 12 * v8);
+    v42 = v16;
+    if ( v13 != DWORD2(v44) - (_DWORD)v44 )
     {
-      v45 = __PAIR64__(v21, v18);
-      v22 = W32GetCurrentThreadDpiAwarenessContext(v9);
-      PhysicalToLogicalDPIPoint(&v46, &v45, v22, 0LL);
-      if ( v46 == v50 )
-        v10 = 1;
+      v6 = v16 * v15 % v13;
+      v16 = v16 * v15 / v13;
+      v42 = v16;
     }
-    if ( v10
-      && (!*((_DWORD *)a1 + 2) || *((_DWORD *)a1 + 2) == *(_DWORD *)(SGDGetUserSessionState(v9) + 24LL * v8 + 14376)) )
+    v17 = HIDWORD(v44) - DWORD1(v44);
+    v18 = *((__int16 *)&gaptMouse + 12 * v8 + 2);
+    if ( v14 != HIDWORD(v44) - DWORD1(v44) )
     {
-      v23 = 1;
-      goto LABEL_28;
+      v6 = v18 * v17 % v14;
+      v18 = v18 * v17 / v14;
+    }
+    if ( __PAIR64__(v18, v16) == v45 )
+      goto LABEL_17;
+    if ( (W32GetCurrentThreadDpiAwarenessContext(DWORD1(v44)) & 0xF) != 2 )
+    {
+      v41 = __PAIR64__(v18, v42);
+      v20 = W32GetCurrentThreadDpiAwarenessContext(v19);
+      PhysicalToLogicalDPIPoint(&v38, &v41, v20, 0LL);
+      if ( v38 == v43 )
+        v9 = 1;
+    }
+    if ( v9 )
+    {
+LABEL_17:
+      v21 = *((_DWORD *)a1 + 2);
+      if ( !v21 || v21 == *((_DWORD *)&gaptMouse + 6 * v8 + 2) )
+        break;
     }
     if ( v8 )
       v8 = ((_BYTE)v8 - 1) & 0x3F;
     else
       v8 = 63;
     if ( v8 == v7 )
-    {
-      v23 = 0;
-      goto LABEL_28;
-    }
+      goto LABEL_22;
   }
-  v23 = 0;
-LABEL_28:
-  if ( v23 )
+  v22 = 1;
+LABEL_23:
+  if ( !v22 )
   {
-    v25 = v8 - v7 + 64;
-    if ( v8 > v7 )
-      v25 = v8 - v7;
-    if ( v25 >= a3 )
-      v25 = a3;
-    v26 = 0;
-    for ( i = 0; v26 < v25; i = v26 )
-    {
-      v55 = (unsigned __int16)HIWORD(*(_DWORD *)(SGDGetUserSessionState(v9) + 24LL * v8 + 14368)) + 1;
-      v27 = (unsigned __int64)*(unsigned int *)(SGDGetUserSessionState(v8) + 24LL * v8 + 14372) >> 16;
-      v44 = (unsigned __int16)v27 + 1;
-      v28 = (unsigned __int64)*(unsigned int *)(SGDGetUserSessionState(v27) + 24LL * v8 + 14368) >> 16;
-      if ( !(_WORD)v28 )
-        break;
-      v29 = (unsigned __int64)*(unsigned int *)(SGDGetUserSessionState(v28) + 24LL * v8 + 14372) >> 16;
-      if ( !(_WORD)v29 )
-        break;
-      v30 = DWORD2(v48) - v48;
-      v31 = SGDGetUserSessionState(v29);
-      if ( v55 == v30 )
-        v32 = EngMulDiv(*(__int16 *)(v31 + 24LL * v8 + 14368), v30, v55);
-      else
-        v32 = v48 + EngMulDiv(*(unsigned __int16 *)(v31 + 24LL * v8 + 14368), v30, v55);
-      LODWORD(v45) = v32;
-      v34 = HIDWORD(v48) - DWORD1(v48);
-      v35 = SGDGetUserSessionState(v33);
-      if ( v44 == v34 )
-        v36 = EngMulDiv(*(__int16 *)(v35 + 24LL * v8 + 14372), v34, v44);
-      else
-        v36 = DWORD1(v48) + EngMulDiv(*(unsigned __int16 *)(v35 + 24LL * v8 + 14372), v34, v44);
-      HIDWORD(v45) = v36;
-      v38 = W32GetCurrentThreadDpiAwarenessContext(v37);
-      PhysicalToLogicalDPIPoint(&v46, &v45, v38, 0LL);
-      if ( a4 == 2 )
-      {
-        v39 = *(__m128i *)GetScreenRect((__int64)v52);
-        v53 = v39;
-        *(_DWORD *)(a2 + 24LL * v26) = EngMulDiv(
-                                         (unsigned __int16)v46,
-                                         0x10000,
-                                         _mm_cvtsi128_si32(_mm_srli_si128(v39, 8)) - _mm_cvtsi128_si32(v39) - 1);
-        *(_DWORD *)(a2 + 24LL * v26 + 4) = EngMulDiv(
-                                             WORD2(v46),
-                                             0x10000,
-                                             _mm_cvtsi128_si32(_mm_srli_si128(v39, 12))
-                                           - _mm_cvtsi128_si32(_mm_srli_si128(v39, 4))
-                                           - 1);
-        v40 = v26;
-      }
-      else
-      {
-        *(_QWORD *)(a2 + 24LL * v26) = v46;
-        v40 = v26;
-        v41 = *(_DWORD *)(a2 + 24LL * v26);
-        if ( v41 < 0 )
-          *(_DWORD *)(a2 + 24LL * v26) = v41 + 0x10000;
-        v42 = *(_DWORD *)(a2 + 24LL * v26 + 4);
-        if ( v42 < 0 )
-          *(_DWORD *)(a2 + 24LL * v26 + 4) = v42 + 0x10000;
-      }
-      v43 = 3 * v40;
-      *(_DWORD *)(a2 + 8 * v43 + 8) = *(_DWORD *)(SGDGetUserSessionState(v40) + 24LL * v8 + 14376);
-      v9 = *(_QWORD *)(SGDGetUserSessionState(3LL * v8) + 24LL * v8 + 14384);
-      *(_QWORD *)(a2 + 8 * v43 + 16) = v9;
-      if ( v8 )
-        v8 = ((_BYTE)v8 - 1) & 0x3F;
-      else
-        v8 = 63;
-      ++v26;
-    }
-    return v26;
-  }
-  else
-  {
-    UserSetLastError(1171);
+    UserSetLastError(1171LL, v6, v10);
     return 0xFFFFFFFFLL;
   }
+  v24 = v8 - v7 + 64;
+  if ( v8 > v7 )
+    v24 = v8 - v7;
+  if ( v24 >= a3 )
+    v24 = a3;
+  v25 = 0;
+  for ( i = 0; v25 < v24; i = v25 )
+  {
+    v26 = (unsigned __int16)HIWORD(*((_DWORD *)&gaptMouse + 6 * v8));
+    v27 = (unsigned __int16)HIWORD(*((_DWORD *)&gaptMouse + 6 * v8 + 1));
+    v28 = v27 + 1;
+    if ( !(_WORD)v26 || !(_WORD)v27 )
+      break;
+    LODWORD(v41) = EngMulDiv(*((__int16 *)&gaptMouse + 12 * v8), DWORD2(v44) - v44, v26 + 1);
+    HIDWORD(v41) = EngMulDiv(*((__int16 *)&gaptMouse + 12 * v8 + 2), HIDWORD(v44) - DWORD1(v44), v28);
+    v30 = W32GetCurrentThreadDpiAwarenessContext(v29);
+    PhysicalToLogicalDPIPoint(&v38, &v41, v30, 0LL);
+    v31 = v25;
+    if ( a4 == 2 )
+    {
+      v32 = *GetScreenRect(v46);
+      *(__m128i *)((char *)&v46[1] + 8) = v32;
+      *(_DWORD *)(a2 + 24LL * v25) = EngMulDiv(
+                                       (unsigned __int16)v38,
+                                       0x10000,
+                                       _mm_cvtsi128_si32(_mm_srli_si128(v32, 8)) - _mm_cvtsi128_si32(v32) - 1);
+      v33 = EngMulDiv(
+              WORD2(v38),
+              0x10000,
+              _mm_cvtsi128_si32(_mm_srli_si128(v32, 12)) - _mm_cvtsi128_si32(_mm_srli_si128(v32, 4)) - 1);
+      v34 = 3LL * v25;
+LABEL_40:
+      *(_DWORD *)(a2 + 8 * v34 + 4) = v33;
+      goto LABEL_41;
+    }
+    *(_QWORD *)(a2 + 24LL * v25) = v38;
+    v31 = v25;
+    v34 = 3LL * v25;
+    v35 = *(_DWORD *)(a2 + 24LL * v25);
+    if ( v35 < 0 )
+      *(_DWORD *)(a2 + 24LL * v25) = v35 + 0x10000;
+    v36 = *(_DWORD *)(a2 + 24LL * v25 + 4);
+    if ( v36 < 0 )
+    {
+      v33 = v36 + 0x10000;
+      goto LABEL_40;
+    }
+LABEL_41:
+    v37 = 3 * v31;
+    *(_DWORD *)(a2 + 8 * v37 + 8) = *((_DWORD *)&gaptMouse + 6 * v8 + 2);
+    *(_QWORD *)(a2 + 8 * v37 + 16) = *((_QWORD *)&gaptMouse + 3 * v8 + 2);
+    if ( v8 )
+      v8 = ((_BYTE)v8 - 1) & 0x3F;
+    else
+      v8 = 63;
+    ++v25;
+  }
+  return v25;
 }

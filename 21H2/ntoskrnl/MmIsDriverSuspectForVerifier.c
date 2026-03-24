@@ -1,27 +1,24 @@
 /*
- * XREFs of MmIsDriverSuspectForVerifier @ 0x140A816C0
+ * XREFs of MmIsDriverSuspectForVerifier @ 0x1409C5F70
  * Callers:
  *     <none>
  * Callees:
- *     VfIsVerifierEnabled @ 0x1402DA4B0 (VfIsVerifierEnabled.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     ViIsDriverSuspectForVerifier @ 0x140A821E0 (ViIsDriverSuspectForVerifier.c)
- *     VfDriverLock @ 0x140A89D58 (VfDriverLock.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     VfDriverLock @ 0x1409C25B8 (VfDriverLock.c)
+ *     ViIsDriverSuspectForVerifier @ 0x1409C6CE0 (ViIsDriverSuspectForVerifier.c)
  */
 
 __int64 __fastcall MmIsDriverSuspectForVerifier(__int64 a1)
 {
-  __int64 v2; // rbx
+  __int64 v1; // rbx
   unsigned int IsDriverSuspectForVerifier; // eax
   unsigned int v4; // ebx
 
-  if ( !(unsigned int)VfIsVerifierEnabled() )
-    return 0LL;
-  v2 = *(_QWORD *)(a1 + 40);
-  if ( !v2 || (VfRuleClasses & 0x400000) != 0 )
+  v1 = *(_QWORD *)(a1 + 40);
+  if ( !v1 )
     return 0LL;
   VfDriverLock();
-  IsDriverSuspectForVerifier = ViIsDriverSuspectForVerifier(v2);
+  IsDriverSuspectForVerifier = ViIsDriverSuspectForVerifier(v1);
   ViDriversLoadLockOwner = 0LL;
   v4 = IsDriverSuspectForVerifier;
   KeReleaseMutex(&ViDriversLoadLock, 0);

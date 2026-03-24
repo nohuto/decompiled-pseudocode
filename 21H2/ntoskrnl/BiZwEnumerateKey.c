@@ -1,9 +1,9 @@
 /*
- * XREFs of BiZwEnumerateKey @ 0x1403A77D4
+ * XREFs of BiZwEnumerateKey @ 0x14039B528
  * Callers:
- *     BiEnumerateSubKeys @ 0x14081287C (BiEnumerateSubKeys.c)
+ *     BiEnumerateSubKeys @ 0x140783528 (BiEnumerateSubKeys.c)
  * Callees:
- *     ZwEnumerateKey @ 0x14041BDA0 (ZwEnumerateKey.c)
+ *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
  */
 
 NTSTATUS __fastcall BiZwEnumerateKey(void *a1, ULONG a2, __int64 a3, void *a4, ULONG Length, PULONG ResultLength)

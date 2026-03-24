@@ -1,40 +1,57 @@
 /*
- * XREFs of ??$GetDDIOBJ@U_BRUSHOBJ@@@UMPDOBJ@@QEAAPEAU_BRUSHOBJ@@PEAU1@@Z @ 0x1C02C6C3C
+ * XREFs of ??$GetDDIOBJ@U_BRUSHOBJ@@@UMPDOBJ@@QEAAPEAU_BRUSHOBJ@@PEAU1@@Z @ 0x1C013C0DC
  * Callers:
- *     NtGdiBRUSHOBJ_DeleteRbrush @ 0x1C02C8030 (NtGdiBRUSHOBJ_DeleteRbrush.c)
- *     NtGdiBRUSHOBJ_hGetColorTransform @ 0x1C02C8120 (NtGdiBRUSHOBJ_hGetColorTransform.c)
- *     NtGdiBRUSHOBJ_pvAllocRbrush @ 0x1C02C8190 (NtGdiBRUSHOBJ_pvAllocRbrush.c)
- *     NtGdiBRUSHOBJ_pvGetRbrush @ 0x1C02C8210 (NtGdiBRUSHOBJ_pvGetRbrush.c)
- *     NtGdiBRUSHOBJ_ulGetBrushColor @ 0x1C02C8280 (NtGdiBRUSHOBJ_ulGetBrushColor.c)
- *     NtGdiEngBitBlt @ 0x1C02C8940 (NtGdiEngBitBlt.c)
- *     NtGdiEngFillPath @ 0x1C02C9A40 (NtGdiEngFillPath.c)
- *     NtGdiEngLineTo @ 0x1C02CA140 (NtGdiEngLineTo.c)
- *     NtGdiEngPaint @ 0x1C02CA560 (NtGdiEngPaint.c)
- *     NtGdiEngStretchBltROP @ 0x1C02CB070 (NtGdiEngStretchBltROP.c)
- *     NtGdiEngStrokeAndFillPath @ 0x1C02CB750 (NtGdiEngStrokeAndFillPath.c)
- *     NtGdiEngStrokePath @ 0x1C02CBBC0 (NtGdiEngStrokePath.c)
- *     NtGdiEngTextOut @ 0x1C02CBFB0 (NtGdiEngTextOut.c)
+ *     NtGdiEngStretchBltROP @ 0x1C013AF80 (NtGdiEngStretchBltROP.c)
+ *     NtGdiEngBitBlt @ 0x1C013B6A0 (NtGdiEngBitBlt.c)
+ *     NtGdiBRUSHOBJ_ulGetBrushColor @ 0x1C013BB50 (NtGdiBRUSHOBJ_ulGetBrushColor.c)
+ *     NtGdiEngTextOut @ 0x1C013BC80 (NtGdiEngTextOut.c)
+ *     NtGdiBRUSHOBJ_DeleteRbrush @ 0x1C02B1970 (NtGdiBRUSHOBJ_DeleteRbrush.c)
+ *     NtGdiBRUSHOBJ_hGetColorTransform @ 0x1C02B1A70 (NtGdiBRUSHOBJ_hGetColorTransform.c)
+ *     NtGdiBRUSHOBJ_pvAllocRbrush @ 0x1C02B1AE0 (NtGdiBRUSHOBJ_pvAllocRbrush.c)
+ *     NtGdiBRUSHOBJ_pvGetRbrush @ 0x1C02B1B60 (NtGdiBRUSHOBJ_pvGetRbrush.c)
+ *     NtGdiEngFillPath @ 0x1C02B25C0 (NtGdiEngFillPath.c)
+ *     NtGdiEngLineTo @ 0x1C02B2C70 (NtGdiEngLineTo.c)
+ *     NtGdiEngPaint @ 0x1C02B2F40 (NtGdiEngPaint.c)
+ *     NtGdiEngStrokeAndFillPath @ 0x1C02B3540 (NtGdiEngStrokeAndFillPath.c)
+ *     NtGdiEngStrokePath @ 0x1C02B3980 (NtGdiEngStrokePath.c)
  * Callees:
  *     <none>
  */
 
 unsigned __int64 __fastcall UMPDOBJ::GetDDIOBJ<_BRUSHOBJ>(__int64 a1, __int64 a2)
 {
-  unsigned __int64 result; // rax
+  unsigned __int64 v3; // rbx
 
   if ( a2 == *(_QWORD *)(a1 + 152) )
   {
-    result = *(_QWORD *)(a1 + 144);
+    v3 = *(_QWORD *)(a1 + 144);
   }
   else if ( a2 == *(_QWORD *)(a1 + 168) )
   {
-    result = *(_QWORD *)(a1 + 160);
+    v3 = *(_QWORD *)(a1 + 160);
   }
   else
   {
-    result = 0LL;
+    v3 = 0LL;
   }
-  if ( (*(_DWORD *)(a1 + 428) & 0x100) != 0 && result && result < (unsigned __int64)MmSystemRangeStart )
+  if ( a2 )
+  {
+    if ( !v3 )
+    {
+      ++gdwUMPDUnmatchedUMPointers;
+      if ( gfUMPDDebug )
+        DbgPrint(
+          "onecoreuap\\internal\\windows\\inc\\private\\core\\ntgdi\\gre\\umpd.hxx:%d:UMPDOBJ::GetDDIOBJ:Unmatched usermode pointer.\n",
+          771);
+    }
+  }
+  if ( (*(_DWORD *)(a1 + 412) & 0x100) != 0 && v3 && v3 < (unsigned __int64)MmSystemRangeStart )
+  {
+    if ( gfUMPDDebug )
+      DbgPrint(
+        "onecoreuap\\internal\\windows\\inc\\private\\core\\ntgdi\\gre\\umpd.hxx:%d:UMPDOBJ::GetDDIOBJ:Unexpected usermode pointer.\n",
+        776);
     return 0LL;
-  return result;
+  }
+  return v3;
 }

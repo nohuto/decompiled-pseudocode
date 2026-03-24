@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPfCoalesceAndIssueIOs @ 0x140360C60
+ * XREFs of MiPfCoalesceAndIssueIOs @ 0x14031B9F4
  * Callers:
- *     MiPfCompletePrefetchIos @ 0x1402A3920 (MiPfCompletePrefetchIos.c)
- *     MiPrefetchVirtualMemory @ 0x1402EE1C8 (MiPrefetchVirtualMemory.c)
+ *     MiPfCompletePrefetchIos @ 0x14027D180 (MiPfCompletePrefetchIos.c)
+ *     MiPrefetchVirtualMemory @ 0x14033DEB0 (MiPrefetchVirtualMemory.c)
  * Callees:
- *     MiIssueHardFaultIo @ 0x1402A1AC0 (MiIssueHardFaultIo.c)
- *     MiPfIssueCoalesceCandidates @ 0x140631D64 (MiPfIssueCoalesceCandidates.c)
+ *     MiIssueHardFaultIo @ 0x140306F74 (MiIssueHardFaultIo.c)
+ *     MiPfIssueCoalesceCandidates @ 0x140539110 (MiPfIssueCoalesceCandidates.c)
  */
 
 __int64 __fastcall MiPfCoalesceAndIssueIOs(__int64 *a1, __int64 a2, _QWORD *a3)
@@ -24,7 +24,7 @@ __int64 __fastcall MiPfCoalesceAndIssueIOs(__int64 *a1, __int64 a2, _QWORD *a3)
   unsigned __int64 v18; // rax
   unsigned int v19; // r8d
   __int64 v20; // rax
-  _QWORD *v21; // rdx
+  _QWORD *v21; // rcx
   __int64 *v22; // rax
   __int64 v23; // rax
   __int64 **v24; // rax
@@ -42,38 +42,20 @@ __int64 __fastcall MiPfCoalesceAndIssueIOs(__int64 *a1, __int64 a2, _QWORD *a3)
     if ( (__int64 *)*a1 == a1 )
       break;
     v13 = *(_DWORD *)(v9 + 184);
-    if ( v13 >= 0x100000 && v25 == &v25 )
+    if ( v13 < 0x100000 )
     {
-      v14 = *(_QWORD *)v9;
-      if ( *(_QWORD *)(*(_QWORD *)v9 + 8LL) != v9 )
-        goto LABEL_38;
-      v15 = *(_QWORD **)(v9 + 8);
-      if ( *v15 != v9 )
-        goto LABEL_38;
-      *v15 = v14;
-      *(_QWORD *)(v14 + 8) = v15;
-      if ( a3 )
-        *a3 -= *(unsigned int *)(v9 + 184);
-      MiIssueHardFaultIo(v9, 0, 0LL);
-      v16 = *(__int64 **)(a2 + 8);
-      if ( *v16 != a2 )
-LABEL_38:
-        __fastfail(3u);
-      *(_QWORD *)v9 = a2;
-      *(_QWORD *)(v9 + 8) = v16;
-      *v16 = v9;
-      *(_QWORD *)(a2 + 8) = v9;
-    }
-    else
-    {
-      if ( v25 == &v25 )
+      if ( v25 != &v25 )
       {
-        if ( a3 && *a3 < 0x100000uLL )
-          return 0;
-        v4 = *(_QWORD *)(v9 + 96);
-        v8 = *(_QWORD *)(v9 + 200);
+LABEL_29:
+        v17 = *(_QWORD *)(v9 + 96);
+        goto LABEL_20;
       }
-      v17 = *(_QWORD *)(v9 + 96);
+      if ( a3 && *a3 < 0x100000uLL )
+        goto LABEL_4;
+      v4 = *(_QWORD *)(v9 + 96);
+      v8 = *(_QWORD *)(v9 + 200);
+      v17 = v4;
+LABEL_20:
       if ( v4 <= v17
         && v8 == *(_QWORD *)(v9 + 200)
         && (v18 = v17 - v4, v19 = v13 + v18, v18 <= 0x20000)
@@ -107,8 +89,33 @@ LABEL_38:
         v3 = 0;
       }
     }
+    else
+    {
+      if ( v25 != &v25 )
+        goto LABEL_29;
+      v14 = *(_QWORD *)v9;
+      if ( *(_QWORD *)(*(_QWORD *)v9 + 8LL) != v9 )
+        goto LABEL_38;
+      v15 = *(_QWORD **)(v9 + 8);
+      if ( *v15 != v9 )
+        goto LABEL_38;
+      *v15 = v14;
+      *(_QWORD *)(v14 + 8) = v15;
+      if ( a3 )
+        *a3 -= *(unsigned int *)(v9 + 184);
+      MiIssueHardFaultIo(v9, 0, 0LL);
+      v16 = *(__int64 **)(a2 + 8);
+      if ( *v16 != a2 )
+LABEL_38:
+        __fastfail(3u);
+      *(_QWORD *)v9 = a2;
+      *(_QWORD *)(v9 + 8) = v16;
+      *v16 = v9;
+      *(_QWORD *)(a2 + 8) = v9;
+    }
   }
   if ( v25 == &v25 || (v10 = MiPfIssueCoalesceCandidates(&v25, v3, a2), v10 >= 0) )
+LABEL_4:
     v10 = 0;
 LABEL_5:
   if ( !a3 )

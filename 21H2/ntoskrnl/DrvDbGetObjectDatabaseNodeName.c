@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbGetObjectDatabaseNodeName @ 0x140A2EE50
+ * XREFs of DrvDbGetObjectDatabaseNodeName @ 0x14097DE60
  * Callers:
- *     DrvDbGetDeviceIdMappedProperty @ 0x140785234 (DrvDbGetDeviceIdMappedProperty.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x1407886D0 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbGetDriverInfFileMappedProperty @ 0x140789970 (DrvDbGetDriverInfFileMappedProperty.c)
- *     DrvDbGetDriverFileMappedProperty @ 0x140A2E5CC (DrvDbGetDriverFileMappedProperty.c)
+ *     DrvDbGetDriverInfFileMappedProperty @ 0x14063B05C (DrvDbGetDriverInfFileMappedProperty.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x14063B8BC (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbGetDeviceIdMappedProperty @ 0x1406C4158 (DrvDbGetDeviceIdMappedProperty.c)
+ *     DrvDbGetDriverFileMappedProperty @ 0x14097D684 (DrvDbGetDriverFileMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     DrvDbOpenObjectRegKey @ 0x1407827F0 (DrvDbOpenObjectRegKey.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     DrvDbOpenObjectRegKey @ 0x140640410 (DrvDbOpenObjectRegKey.c)
  */
 
 __int64 __fastcall DrvDbGetObjectDatabaseNodeName(

@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpConsoleSetPointSize @ 0x1403CACA0
+ * XREFs of BgpConsoleSetPointSize @ 0x1403BCAE4
  * Callers:
- *     BgpConsoleInitialize @ 0x140AAE560 (BgpConsoleInitialize.c)
+ *     BgpConsoleInitialize @ 0x1409F4820 (BgpConsoleInitialize.c)
  * Callees:
- *     BgpFoGetTextMetrics @ 0x1403CAD78 (BgpFoGetTextMetrics.c)
+ *     BgpFoGetTextMetrics @ 0x14039C78C (BgpFoGetTextMetrics.c)
  */
 
 __int64 __fastcall BgpConsoleSetPointSize(
@@ -29,7 +29,7 @@ __int64 __fastcall BgpConsoleSetPointSize(
   {
     v12 = (v11 + v6 + 1) >> 1;
     *(_DWORD *)(a5 + 16) = v12;
-    result = BgpFoGetTextMetrics(a5, &v14);
+    result = BgpFoGetTextMetrics(a5, (__int64)&v14);
     if ( (int)result < 0 )
       break;
     if ( a1 > a3 / HIDWORD(v14) || a2 > a4 / (unsigned int)v14 || HIDWORD(v14) > 0x3B || (unsigned int)v14 > 0x1A )

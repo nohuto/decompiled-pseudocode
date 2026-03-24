@@ -1,18 +1,22 @@
 /*
- * XREFs of IoVerifierInit @ 0x140A7FDC0
+ * XREFs of IoVerifierInit @ 0x1409C476C
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x140A82328 (VfInitSystemNoRebootNeeded.c)
- *     ViIovInitialization @ 0x140A9B2E4 (ViIovInitialization.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409C6D40 (VfInitSystemNoRebootNeeded.c)
+ *     VfInitBootDriversLoaded @ 0x140A4ED74 (VfInitBootDriversLoaded.c)
  * Callees:
- *     IopUpdateFunctionPointers @ 0x14055712C (IopUpdateFunctionPointers.c)
- *     IoVerifierCheckForSettingsChange @ 0x140A7FD04 (IoVerifierCheckForSettingsChange.c)
+ *     IopUpdateFunctionPointers @ 0x140501958 (IopUpdateFunctionPointers.c)
+ *     IoVerifierCheckForSettingsChange @ 0x1409C46D4 (IoVerifierCheckForSettingsChange.c)
  */
 
-void __fastcall IoVerifierInit(char a1)
+__int64 __fastcall IoVerifierInit(char a1)
 {
+  __int64 result; // rax
+
+  result = (unsigned int)MmVerifierData;
   if ( (MmVerifierData & 0x10) != 0 )
   {
     IopUpdateFunctionPointers(1, 1, 0);
-    IoVerifierCheckForSettingsChange(a1);
+    return IoVerifierCheckForSettingsChange(a1);
   }
+  return result;
 }

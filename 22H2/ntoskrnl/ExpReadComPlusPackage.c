@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpReadComPlusPackage @ 0x1409F7590
+ * XREFs of ExpReadComPlusPackage @ 0x1406A5E50
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
  */
 
 __int64 ExpReadComPlusPackage()
@@ -23,12 +23,12 @@ __int64 ExpReadComPlusPackage()
   KeyValueInformation = 0LL;
   v6 = 0;
   v0 = 0;
-  v1 = ZwOpenKey(&KeyHandle, 1u, &stru_140C09410);
+  v1 = ZwOpenKey(&KeyHandle, 1u, &stru_140C02088);
   if ( v1 >= 0 )
   {
     v1 = ZwQueryValueKey(
            KeyHandle,
-           &stru_140C09470,
+           &stru_140C020B8,
            KeyValuePartialInformation,
            &KeyValueInformation,
            0x14u,
@@ -37,7 +37,7 @@ __int64 ExpReadComPlusPackage()
       v0 = HIDWORD(KeyValueInformation);
     ZwClose(KeyHandle);
   }
-  _InterlockedCompareExchange((volatile signed __int32 *)(MmWriteableSharedUserData + 736), v0, -1);
+  _InterlockedCompareExchange((volatile signed __int32 *)0xFFFFF780000002E0LL, v0, -1);
   if ( (int)(v1 + 0x80000000) < 0 || v1 == -1073741772 )
     return 0;
   return (unsigned int)v1;

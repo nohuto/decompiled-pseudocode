@@ -1,9 +1,9 @@
 /*
- * XREFs of PopTimestampTargetProcessor @ 0x1401597E0
+ * XREFs of PopTimestampTargetProcessor @ 0x140159800
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
  */
 
 void __fastcall PopTimestampTargetProcessor(

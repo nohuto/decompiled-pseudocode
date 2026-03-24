@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeDpcGang @ 0x1405C04D4
+ * XREFs of MiInitializeDpcGang @ 0x140560550
  * Callers:
- *     MiInitializeDynamicPfns @ 0x140582D7C (MiInitializeDynamicPfns.c)
- *     MiHugePageOperation @ 0x140586E78 (MiHugePageOperation.c)
- *     MiAllocateFastLargePagesForMdl @ 0x140589518 (MiAllocateFastLargePagesForMdl.c)
+ *     MiInitializeDynamicPfns @ 0x14052E5A0 (MiInitializeDynamicPfns.c)
+ *     MiHugePageOperation @ 0x140532F78 (MiHugePageOperation.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x140533CE4 (MiAllocateFastLargePagesForMdl.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiComputeIdealDpcGang @ 0x1405BFFD0 (MiComputeIdealDpcGang.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiComputeIdealDpcGang @ 0x1405600BC (MiComputeIdealDpcGang.c)
  */
 
 __int64 __fastcall MiInitializeDpcGang(__int64 a1, unsigned int a2, char a3)
@@ -15,14 +15,14 @@ __int64 __fastcall MiInitializeDpcGang(__int64 a1, unsigned int a2, char a3)
   __int64 result; // rax
   unsigned int v7; // ebx
 
-  result = (__int64)memset((void *)a1, 0, 0xD8uLL);
+  result = (__int64)memset((void *)a1, 0, 0x180uLL);
   if ( (a3 & 2) != 0 )
   {
     v7 = 1;
   }
   else
   {
-    result = MiComputeIdealDpcGang(a1, a2, a3);
+    result = MiComputeIdealDpcGang(a1, a2);
     v7 = result;
   }
   if ( (a3 & 1) != 0 )

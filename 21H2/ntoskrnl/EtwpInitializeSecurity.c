@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpInitializeSecurity @ 0x140B2F180
+ * XREFs of EtwpInitializeSecurity @ 0x140A724AC
  * Callers:
- *     EtwpInitialize @ 0x140B0433C (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     RtlGetPersistedStateLocation @ 0x140782DD0 (RtlGetPersistedStateLocation.c)
- *     EtwpGetGuidSecurityDescriptor @ 0x140797CE4 (EtwpGetGuidSecurityDescriptor.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     RtlGetPersistedStateLocation @ 0x14063F9C0 (RtlGetPersistedStateLocation.c)
+ *     EtwpGetGuidSecurityDescriptor @ 0x14064445C (EtwpGetGuidSecurityDescriptor.c)
  */
 
 __int64 EtwpInitializeSecurity()
@@ -19,13 +19,14 @@ __int64 EtwpInitializeSecurity()
   UNICODE_STRING ValueName; // [rsp+88h] [rbp-78h] BYREF
   WCHAR SourceString[256]; // [rsp+A0h] [rbp-60h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ValueName = 0LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\WMI\\Security");
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey(&EtwpSecurityKeyHandle, 0x20019u, &ObjectAttributes) < 0 )

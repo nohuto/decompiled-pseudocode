@@ -1,158 +1,150 @@
 /*
- * XREFs of xxxNextWindow @ 0x1C01EE910
+ * XREFs of xxxNextWindow @ 0x1C01F412C
  * Callers:
- *     EditionHandleAndPostKeyEvent @ 0x1C00AAD40 (EditionHandleAndPostKeyEvent.c)
+ *     EditionHandleAndPostKeyEvent @ 0x1C010A160 (EditionHandleAndPostKeyEvent.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     xxxSetWindowPos @ 0x1C0048A4C (xxxSetWindowPos.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C0050D70 (xxxSendTransformableMessageTimeout.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00685A0 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C007D36C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     SetNewForegroundQueue @ 0x1C007FCD0 (SetNewForegroundQueue.c)
- *     GetNonChildAncestor @ 0x1C00825AC (GetNonChildAncestor.c)
- *     _PostMessage @ 0x1C00A5270 (_PostMessage.c)
- *     xxxSetThreadDesktop @ 0x1C00A9A4C (xxxSetThreadDesktop.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00E7BF4 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
- *     xxxCancelCoolSwitch @ 0x1C01110F4 (xxxCancelCoolSwitch.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
- *     safe_cast_fnid_to_PSWITCHWND @ 0x1C01D0578 (safe_cast_fnid_to_PSWITCHWND.c)
- *     ?Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z @ 0x1C01ED460 (-Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z.c)
- *     ?InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z @ 0x1C01ED4B8 (-InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z.c)
- *     ?xxxMoveSwitchWndHilite@@YAPEAUHWND__@@PEAUtagWND@@PEAUtagSwitchWndInfo@@H@Z @ 0x1C01EDA7C (-xxxMoveSwitchWndHilite@@YAPEAUHWND__@@PEAUtagWND@@PEAUtagSwitchWndInfo@@H@Z.c)
- *     ?xxxShowSwitchWindow@@YAHPEAUtagWND@@@Z @ 0x1C01EE340 (-xxxShowSwitchWindow@@YAHPEAUtagWND@@@Z.c)
- *     RemoveSwitchWindowInfo @ 0x1C01EE4E0 (RemoveSwitchWindowInfo.c)
- *     _GetNextQueueWindow @ 0x1C01EE6BC (_GetNextQueueWindow.c)
+ *     _PostMessage @ 0x1C002DC40 (_PostMessage.c)
+ *     GetNonChildAncestor @ 0x1C00389C8 (GetNonChildAncestor.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C003D28C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     SetNewForegroundQueue @ 0x1C003DC10 (SetNewForegroundQueue.c)
+ *     xxxSendNotifyMessage @ 0x1C0040370 (xxxSendNotifyMessage.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C0059990 (xxxSendTransformableMessageTimeout.c)
+ *     xxxSetWindowPos @ 0x1C006BC54 (xxxSetWindowPos.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A9DC (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     xxxSetThreadDesktop @ 0x1C00D95C0 (xxxSetThreadDesktop.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE4E0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     xxxCancelCoolSwitch @ 0x1C0125DE4 (xxxCancelCoolSwitch.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     safe_cast_fnid_to_PSWITCHWND @ 0x1C01D4860 (safe_cast_fnid_to_PSWITCHWND.c)
+ *     ?Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z @ 0x1C01F2BE0 (-Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z.c)
+ *     ?InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z @ 0x1C01F2C38 (-InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z.c)
+ *     ?xxxMoveSwitchWndHilite@@YAPEAUHWND__@@PEAUtagWND@@PEAUtagSwitchWndInfo@@H@Z @ 0x1C01F321C (-xxxMoveSwitchWndHilite@@YAPEAUHWND__@@PEAUtagWND@@PEAUtagSwitchWndInfo@@H@Z.c)
+ *     ?xxxShowSwitchWindow@@YAHPEAUtagWND@@@Z @ 0x1C01F3B40 (-xxxShowSwitchWindow@@YAHPEAUtagWND@@@Z.c)
+ *     RemoveSwitchWindowInfo @ 0x1C01F3CE0 (RemoveSwitchWindowInfo.c)
+ *     _GetNextQueueWindow @ 0x1C01F3ED8 (_GetNextQueueWindow.c)
  */
 
-__int64 __fastcall xxxNextWindow(__int64 a1, int a2)
+__int64 __fastcall xxxNextWindow(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v2; // r15
+  struct _LARGE_STRING *v3; // rbx
+  int v4; // r15d
   __int64 result; // rax
-  BOOL v6; // r12d
-  __int64 NonChildAncestor; // rsi
-  struct tagWND *v8; // r14
-  unsigned __int64 *v9; // r14
-  ULONG_PTR v10; // rcx
-  __int64 v11; // r9
+  __int64 NonChildAncestor; // r14
+  struct tagWND *v8; // r15
+  struct tagWND *v9; // r15
+  struct tagWND *v10; // rcx
   struct tagWND *inited; // rax
-  __int64 v13; // rdx
-  __int64 v14; // r8
+  __int64 v12; // rcx
+  struct tagWND *NextQueueWindow; // rdi
+  __int64 v14; // rcx
   __int64 v15; // rcx
-  struct tagWND *NextQueueWindow; // rbx
-  __int64 v17; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rcx
   __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // rcx
-  __int64 v27; // rcx
   __int64 CurrentProcessWin32Process; // rax
-  int v29; // r12d
-  __int64 Window; // r12
   __int64 ThreadWin32Thread; // rax
-  struct tagSwitchWndInfo *v32; // rsi
-  __int64 v33; // rax
-  ULONG_PTR v34; // rcx
-  __int64 v35; // rdx
-  struct tagWND *v36; // rcx
-  __int64 v37; // r8
-  __int64 v38; // r9
-  __int64 v39; // rdx
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rdx
+  char v24; // r8
+  __int64 v25; // rcx
+  __int64 v26; // rcx
+  struct tagSwitchWndInfo *v27; // r14
+  __int64 v28; // rax
+  __int64 v29; // r8
+  struct tagWND *v30; // rcx
+  struct _LARGE_STRING **v31; // rcx
+  __int64 v32; // rcx
+  struct tagWND *v33; // rcx
+  __int64 v34; // rdx
+  struct tagWND *v35; // rcx
+  __int64 v36; // rcx
+  struct tagWND *v37; // rcx
+  unsigned __int64 v38; // r12
+  struct tagSwitchWndInfo *v39; // rax
   __int64 v40; // rcx
-  __int64 v41; // r8
-  ULONG_PTR v42; // rcx
-  struct tagSwitchWndInfo *v43; // rax
-  __int64 v44; // rdx
-  __int64 v45; // rcx
-  __int64 v46; // r8
-  __int64 v47; // rax
-  __int64 v48; // rdx
-  __int64 v49; // rcx
-  __int64 v50; // r8
-  __int64 v51; // rsi
-  __int64 v52; // rax
-  __int64 v53; // rax
-  const struct tagWND *v54; // rdx
-  unsigned int v55; // r8d
-  __int64 v56; // rdx
-  __int64 v57; // rcx
-  __int64 v58; // r8
-  __int64 v59; // rdx
-  __int64 v60; // rcx
-  __int64 v61; // r8
-  ULONG_PTR *v62; // [rsp+90h] [rbp-80h] BYREF
-  __int64 v63; // [rsp+98h] [rbp-78h]
-  __int64 v64; // [rsp+A0h] [rbp-70h] BYREF
-  __int64 v65; // [rsp+A8h] [rbp-68h]
-  __int64 v66; // [rsp+B0h] [rbp-60h]
-  __int128 v67; // [rsp+C0h] [rbp-50h] BYREF
-  __int64 v68; // [rsp+D0h] [rbp-40h]
-  __int128 v69; // [rsp+D8h] [rbp-38h] BYREF
-  __int64 v70; // [rsp+E8h] [rbp-28h]
-  __int128 v71; // [rsp+F0h] [rbp-20h] BYREF
-  __int64 v72; // [rsp+100h] [rbp-10h]
-  __int128 v73; // [rsp+108h] [rbp-8h] BYREF
-  __int64 v74; // [rsp+118h] [rbp+8h]
-  _QWORD v75[10]; // [rsp+120h] [rbp+10h] BYREF
-  BOOL v76; // [rsp+180h] [rbp+70h]
-  struct tagSwitchWndInfo *v78; // [rsp+190h] [rbp+80h] BYREF
-  __int64 v79; // [rsp+198h] [rbp+88h] BYREF
+  unsigned __int64 v41; // rax
+  __int64 v42; // rcx
+  __int64 v43; // r14
+  unsigned __int64 LowLimit; // [rsp+90h] [rbp-80h] BYREF
+  __int128 v45; // [rsp+98h] [rbp-78h] BYREF
+  __int64 v46; // [rsp+A8h] [rbp-68h]
+  __int128 v47; // [rsp+B0h] [rbp-60h] BYREF
+  __int64 v48; // [rsp+C0h] [rbp-50h]
+  __int128 v49; // [rsp+C8h] [rbp-48h] BYREF
+  __int64 v50; // [rsp+D8h] [rbp-38h]
+  __int64 v51; // [rsp+E0h] [rbp-30h] BYREF
+  struct tagWND *v52; // [rsp+E8h] [rbp-28h]
+  __int64 v53; // [rsp+F0h] [rbp-20h]
+  _QWORD v54[2]; // [rsp+100h] [rbp-10h] BYREF
+  _QWORD v55[2]; // [rsp+110h] [rbp+0h] BYREF
+  _QWORD v56[2]; // [rsp+120h] [rbp+10h] BYREF
+  _QWORD v57[2]; // [rsp+130h] [rbp+20h] BYREF
+  _QWORD v58[2]; // [rsp+140h] [rbp+30h] BYREF
+  _QWORD v59[3]; // [rsp+150h] [rbp+40h] BYREF
+  __int128 v60; // [rsp+168h] [rbp+58h] BYREF
+  __int64 v61; // [rsp+178h] [rbp+68h]
+  _QWORD v62[10]; // [rsp+180h] [rbp+70h] BYREF
+  BOOL v63; // [rsp+1E0h] [rbp+D0h]
+  int v64; // [rsp+1E8h] [rbp+D8h]
+  int v65; // [rsp+1F0h] [rbp+E0h]
+  __int64 Window; // [rsp+1F0h] [rbp+E0h]
+  struct tagSwitchWndInfo *v67; // [rsp+1F8h] [rbp+E8h] BYREF
 
-  v2 = 0LL;
-  v68 = 0LL;
-  v72 = 0LL;
-  v70 = 0LL;
+  v64 = a2;
+  v3 = 0LL;
+  v46 = 0LL;
+  v50 = 0LL;
+  v48 = 0LL;
+  v4 = a2;
   result = gptiCurrent;
-  v75[2] = 0LL;
-  v78 = 0LL;
-  v79 = 0LL;
+  v53 = 0LL;
   v67 = 0LL;
-  v71 = 0LL;
-  v69 = 0LL;
+  LowLimit = 0LL;
+  v45 = 0LL;
+  v49 = 0LL;
+  v47 = 0LL;
   if ( !a1 )
     return result;
-  v6 = (_GetAsyncKeyState(16LL) & 0x8000u) != 0LL;
-  v76 = v6;
+  v63 = (_GetAsyncKeyState(16LL, a2, a3) & 0x8000u) != 0LL;
   result = GetNonChildAncestor(*(_QWORD *)(a1 + 112));
   NonChildAncestor = result;
-  if ( a2 == 9 )
+  if ( v4 == 9 )
   {
-    v8 = (struct tagWND *)gspwndAltTab;
+    v8 = gspwndAltTab;
     if ( gspwndAltTab )
     {
-      v74 = 0LL;
-      v42 = gspwndAltTab;
-      *(_QWORD *)&v73 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v73;
-      *((_QWORD *)&v73 + 1) = v8;
-      HMLockObject(v42);
+      v62[2] = 0LL;
+      v37 = gspwndAltTab;
+      v62[0] = *(_QWORD *)(gptiCurrent + 416LL);
+      *(_QWORD *)(gptiCurrent + 416LL) = v62;
+      v62[1] = v8;
+      HMLockObject(v37);
+      v38 = 0LL;
       while ( 1 )
       {
-        v43 = Getpswi(v8);
-        v78 = v43;
-        if ( !v43 )
+        v39 = Getpswi(v8);
+        v67 = v39;
+        if ( !v39 )
         {
-          result = ThreadUnlock1(v45, v44, v46);
-          goto LABEL_39;
+          result = ThreadUnlock1(v40);
+          goto LABEL_64;
         }
-        v47 = xxxMoveSwitchWndHilite(v8, v43, v6);
-        if ( v2 )
+        v41 = xxxMoveSwitchWndHilite(v8, v39, v63);
+        if ( v38 )
         {
-          if ( v2 == v47 )
+          if ( v38 == v41 )
           {
-            v51 = 0LL;
-LABEL_36:
-            ThreadUnlock1(v49, v48, v50);
-            v65 = v51;
-            v64 = (__int64)&gspwndActivate;
-            result = HMAssignmentLock(&v64, 0LL);
+            v43 = 0LL;
+LABEL_61:
+            ThreadUnlock1(v42);
+            v58[1] = v43;
+            v58[0] = &gspwndActivate;
+            result = HMAssignmentLock(v58);
             if ( !gspwndActivate )
               return xxxCancelCoolSwitch();
             return result;
@@ -160,190 +152,200 @@ LABEL_36:
         }
         else
         {
-          v2 = v47;
+          v38 = v41;
         }
-        v51 = HMValidateHandleNoSecure(v47, 1);
-        if ( v51 )
-          goto LABEL_36;
+        v43 = HMValidateHandleNoSecure(v41, 1);
+        if ( v43 )
+          goto LABEL_61;
       }
     }
-    v73 = 0LL;
-    v74 = 0LL;
+    v60 = 0LL;
+    v61 = 0LL;
     ForceResetMouseButtonsDownState();
-    v63 = *(_QWORD *)(a1 + 120);
-    v62 = &gspwndActivate;
-    HMAssignmentLock(&v62, 0LL);
+    v54[1] = *(_QWORD *)(a1 + 120);
+    v54[0] = &gspwndActivate;
+    HMAssignmentLock(v54);
     if ( !gspwndActivate )
     {
-      v62 = &gspwndActivate;
-      v63 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 8LL) + 24LL) + 112LL);
-      result = HMAssignmentLock(&v62, 0LL);
+      v55[0] = &gspwndActivate;
+      v55[1] = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 8LL) + 24LL) + 112LL);
+      result = HMAssignmentLock(v55);
       if ( !gspwndActivate )
         return result;
     }
-    *(_QWORD *)&v67 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v67;
-    *((_QWORD *)&v67 + 1) = NonChildAncestor;
+    *(_QWORD *)&v45 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v45;
+    *((_QWORD *)&v45 + 1) = NonChildAncestor;
     if ( NonChildAncestor )
       HMLockObject(NonChildAncestor);
-    v9 = (unsigned __int64 *)gspwndActivate;
-    *(_QWORD *)&v69 = *(_QWORD *)(gptiCurrent + 416LL);
+    v9 = gspwndActivate;
+    *(_QWORD *)&v47 = *(_QWORD *)(gptiCurrent + 416LL);
     v10 = gspwndActivate;
-    *(_QWORD *)(gptiCurrent + 416LL) = &v69;
-    *((_QWORD *)&v69 + 1) = v10;
+    *(_QWORD *)(gptiCurrent + 416LL) = &v47;
+    *((_QWORD *)&v47 + 1) = v10;
     HMLockObject(v10);
-    xxxSendTransformableMessageTimeout(v9, 0x1Fu, 0LL, 0LL, 2u, 0x64u, (unsigned __int64 *)&v79, 1, 0);
-    inited = InitSwitchWndInfo(&v78, (struct tagWND *)v9, v6, v11);
-    v15 = *(_QWORD *)(gptiCurrent + 416LL);
+    xxxSendTransformableMessageTimeout((unsigned __int64)v9, 0x1Fu, 0LL, 0LL, 2u, 0x64u, (__int64 *)&LowLimit, 1, 0);
+    inited = InitSwitchWndInfo(&v67, v9, v63);
+    v12 = *(_QWORD *)(gptiCurrent + 416LL);
     NextQueueWindow = inited;
-    *(_QWORD *)&v71 = v15;
-    *(_QWORD *)(gptiCurrent + 416LL) = &v71;
-    *((_QWORD *)&v71 + 1) = inited;
+    *(_QWORD *)&v49 = v12;
+    *(_QWORD *)(gptiCurrent + 416LL) = &v49;
+    *((_QWORD *)&v49 + 1) = inited;
     if ( inited )
       HMLockObject(inited);
-    if ( v78 )
+    if ( v67 )
     {
       if ( !NextQueueWindow )
       {
-        RemoveSwitchWindowInfo(&v78);
-        ThreadUnlock1(v18, v17, v19);
-        ThreadUnlock1(v21, v20, v22);
-        ThreadUnlock1(v24, v23, v25);
+        RemoveSwitchWindowInfo((struct tagBWL ***)&v67);
+        ThreadUnlock1(v14);
+        ThreadUnlock1(v15);
+        ThreadUnlock1(v16);
         return HMAssignmentUnlock(&gspwndActivate);
       }
-      PushW32ThreadLock((__int64)&v78, &v73, (__int64)RemoveSwitchWindowInfo);
-      *((_DWORD *)v78 + 27) = 0;
-      MicrosoftTelemetryAssertTriggeredNoArgsKM();
-      v29 = 0;
-      if ( PsGetCurrentProcessWin32Process(v26) )
+      PushW32ThreadLock((__int64)&v67, &v60, (__int64)RemoveSwitchWindowInfo);
+      *((_DWORD *)v67 + 27) = 0;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTellMeIf", 0x20000, 1960);
+      if ( !PsGetCurrentProcessWin32Process(v17)
+        || (CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v18),
+            v65 = 1,
+            !(unsigned int)IsImmersiveAppRestricted(CurrentProcessWin32Process)) )
       {
-        CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v27);
-        if ( (unsigned int)IsImmersiveAppRestricted(CurrentProcessWin32Process) )
-          v29 = 1;
+        v65 = 0;
       }
-      SmartObjStackRefBase<tagMENU>::Init(&v64, 0LL);
-      v66 = 0LL;
+      SmartObjStackRefBase<tagMENU>::Init(v59, 0LL);
+      v59[2] = 0LL;
       Window = xxxCreateWindowEx(
                  385,
                  (wchar_t *)0x8003,
                  32771LL,
                  0LL,
-                 0x88800000,
+                 -2004877312,
                  0,
                  0,
-                 10,
-                 10,
+                 0xAu,
+                 0xAu,
                  0LL,
-                 (__int64)&v64,
+                 (__int64)v59,
                  0LL,
                  0LL,
-                 2u,
-                 0x400u,
-                 v29,
+                 2,
+                 1024,
+                 v65,
                  0LL);
-      SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(&v64);
+      SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v59);
       if ( gspwndAltTab )
-        PostMessage(gspwndAltTab, 16, 0, 0);
-      v63 = Window;
-      v62 = &gspwndAltTab;
-      HMAssignmentLock(&v62, 0LL);
+        PostMessage((int)gspwndAltTab, 16, 0, 0);
+      v56[0] = &gspwndAltTab;
+      v56[1] = Window;
+      HMAssignmentLock(v56);
       ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-      *(_QWORD *)(ThreadWin32Thread + 16) = v73;
+      *(_QWORD *)(ThreadWin32Thread + 16) = v60;
       if ( gspwndAltTab )
       {
-        v32 = v78;
-        v33 = safe_cast_fnid_to_PSWITCHWND(gspwndAltTab);
-        if ( v33 )
-          *(_QWORD *)(v33 + 8) = v32;
-        v64 = (__int64)&gspwndActivate;
-        v65 = (__int64)NextQueueWindow;
-        HMAssignmentLock(&v64, 0LL);
+        v27 = v67;
+        v28 = safe_cast_fnid_to_PSWITCHWND((__int64)gspwndAltTab);
+        if ( v28 )
+          *(_QWORD *)(v28 + 8) = v27;
+        v57[0] = &gspwndActivate;
+        v57[1] = NextQueueWindow;
+        HMAssignmentLock(v57);
         if ( (*(_DWORD *)(gptiCurrent + 488LL) & 4) != 0 )
-          xxxSetThreadDesktop(0LL, grpdeskRitInput);
-        v34 = gspwndAltTab;
-        v75[0] = *(_QWORD *)(gptiCurrent + 416LL);
-        *(_QWORD *)(gptiCurrent + 416LL) = v75;
-        v75[1] = v34;
-        HMLockObject(v34);
-        xxxShowSwitchWindow(v36, v35, v37, v38);
-        ThreadUnlock1(v40, v39, v41);
-        goto LABEL_65;
+          xxxSetThreadDesktop(0LL, grpdeskRitInput, v29);
+        v30 = *(struct tagWND **)(*(_QWORD *)(grpdeskRitInput + 8LL) + 24LL);
+        if ( gspwndFullScreen != v30 )
+        {
+          v51 = *(_QWORD *)(gptiCurrent + 416LL);
+          *(_QWORD *)(gptiCurrent + 416LL) = &v51;
+          v52 = v30;
+          if ( v30 )
+            HMLockObject(v30);
+          v31 = *(struct _LARGE_STRING ***)(*(_QWORD *)(grpdeskRitInput + 8LL) + 24LL);
+          if ( v31 )
+            v3 = *v31;
+          xxxSendNotifyMessage((__int64)v31, 0x3Au, 2uLL, v3, 1);
+          ThreadUnlock1(v32);
+        }
+        v33 = gspwndAltTab;
+        v51 = *(_QWORD *)(gptiCurrent + 416LL);
+        *(_QWORD *)(gptiCurrent + 416LL) = &v51;
+        v52 = v33;
+        HMLockObject(v33);
+        xxxShowSwitchWindow(v35, v34);
+        ThreadUnlock1(v36);
+        goto LABEL_40;
       }
-      RemoveSwitchWindowInfo(&v78);
-      v6 = v76;
-      goto LABEL_48;
+      RemoveSwitchWindowInfo((struct tagBWL ***)&v67);
     }
-LABEL_47:
-    if ( !NextQueueWindow )
+LABEL_22:
+    if ( NextQueueWindow )
     {
-LABEL_65:
-      ThreadUnlock1(v15, v13, v14);
-      ThreadUnlock1(v57, v56, v58);
-      return ThreadUnlock1(v60, v59, v61);
-    }
-LABEL_48:
-    if ( NonChildAncestor )
-    {
-      if ( (*(_BYTE *)(*(_QWORD *)(NonChildAncestor + 40) + 31LL) & 0xC0) != 0x40 )
+      if ( NonChildAncestor )
       {
-        v52 = *(_QWORD *)(NonChildAncestor + 168);
-        if ( v52 )
-          *(_DWORD *)(*(_QWORD *)(v52 + 40) + 40LL) &= ~4u;
+        if ( (*(_BYTE *)(*(_QWORD *)(NonChildAncestor + 40) + 31LL) & 0xC0) != 0x40 )
+        {
+          v21 = *(_QWORD *)(NonChildAncestor + 168);
+          if ( v21 )
+            *(_DWORD *)(*(_QWORD *)(v21 + 40) + 40LL) &= ~4u;
+        }
       }
+      if ( !v63 && (*(_BYTE *)(*((_QWORD *)v9 + 5) + 24LL) & 8) == 0 )
+        xxxSetWindowPos(v9, 1LL, 0LL, 0LL, 0, 0, 25619);
+      if ( (*(_BYTE *)(*((_QWORD *)NextQueueWindow + 5) + 31LL) & 0xC0) != 0x40 )
+      {
+        v22 = *((_QWORD *)NextQueueWindow + 21);
+        if ( v22 )
+          *(_DWORD *)(*(_QWORD *)(v22 + 40) + 40LL) |= 4u;
+      }
+      v23 = *((_QWORD *)NextQueueWindow + 2);
+      if ( gpqForeground == *(_QWORD *)(v23 + 432) )
+      {
+        SetNewForegroundQueue(0LL);
+        v23 = *((_QWORD *)NextQueueWindow + 2);
+      }
+      CInputGlobals::SetPtiLastWoken(gpInputGlobals, (struct tagTHREADINFO *)v23, 0);
+      v24 = 18;
+      if ( v64 != 9 )
+        v24 = 2;
+      xxxSetForegroundWindow2((__int64)NextQueueWindow, 0LL, v24);
+      if ( v64 == 9 && (*(_BYTE *)(*((_QWORD *)NextQueueWindow + 5) + 31LL) & 0x40) != 0 )
+        xxxSetWindowPos(NextQueueWindow, 0LL, 0LL, 0LL, 0, 0, 16387);
     }
-    if ( !v6 && (*(_BYTE *)(v9[5] + 24) & 8) == 0 )
-      xxxSetWindowPos((struct tagWND *)v9, 1LL, 0LL, 0LL, 0, 0, 25619);
-    if ( (*(_BYTE *)(*((_QWORD *)NextQueueWindow + 5) + 31LL) & 0xC0) != 0x40 )
-    {
-      v53 = *((_QWORD *)NextQueueWindow + 21);
-      if ( v53 )
-        *(_DWORD *)(*(_QWORD *)(v53 + 40) + 40LL) |= 4u;
-    }
-    v54 = (const struct tagWND *)*((_QWORD *)NextQueueWindow + 2);
-    if ( gpqForeground == *((_QWORD *)v54 + 54) )
-    {
-      SetNewForegroundQueue(0LL, v54);
-      v54 = (const struct tagWND *)*((_QWORD *)NextQueueWindow + 2);
-    }
-    CInputGlobals::SetPtiLastWoken(gpInputGlobals, v54, 0);
-    v55 = 18;
-    if ( a2 != 9 )
-      v55 = 2;
-    xxxSetForegroundWindow2((__int64)NextQueueWindow, 0LL, v55);
-    if ( a2 == 9 && (*(_BYTE *)(*((_QWORD *)NextQueueWindow + 5) + 31LL) & 0x40) != 0 )
-      xxxSetWindowPos(NextQueueWindow, 0LL, 0LL, 0LL, 0, 0, 16387);
-    goto LABEL_65;
+LABEL_40:
+    ThreadUnlock1(v12);
+    ThreadUnlock1(v25);
+    return ThreadUnlock1(v26);
   }
-  if ( a2 != 27 )
+  if ( v4 != 27 )
     return result;
-LABEL_39:
+LABEL_64:
   if ( (*(_DWORD *)(a1 + 388) & 0x4000000) == 0 )
   {
-    v9 = *(unsigned __int64 **)(a1 + 120);
+    v9 = *(struct tagWND **)(a1 + 120);
     if ( v9
       || (result = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 96) + 456LL) + 8LL),
-          (v9 = *(unsigned __int64 **)(*(_QWORD *)(result + 24) + 112LL)) != 0LL) )
+          (v9 = *(struct tagWND **)(*(_QWORD *)(result + 24) + 112LL)) != 0LL) )
     {
       NonChildAncestor = GetNonChildAncestor(*(_QWORD *)(a1 + 112));
-      *(_QWORD *)&v67 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v67;
-      *((_QWORD *)&v67 + 1) = NonChildAncestor;
+      *(_QWORD *)&v45 = *(_QWORD *)(gptiCurrent + 416LL);
+      *(_QWORD *)(gptiCurrent + 416LL) = &v45;
+      *((_QWORD *)&v45 + 1) = NonChildAncestor;
       if ( NonChildAncestor )
         HMLockObject(NonChildAncestor);
-      *(_QWORD *)&v69 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v69;
-      *((_QWORD *)&v69 + 1) = v9;
+      *(_QWORD *)&v47 = *(_QWORD *)(gptiCurrent + 416LL);
+      *(_QWORD *)(gptiCurrent + 416LL) = &v47;
+      *((_QWORD *)&v47 + 1) = v9;
       HMLockObject(v9);
-      xxxSendTransformableMessageTimeout(v9, 0x1Fu, 0LL, 0LL, 2u, 0x64u, (unsigned __int64 *)&v79, 1, 0);
-      NextQueueWindow = GetNextQueueWindow((__int64)v9, v6, 1);
-      *(_QWORD *)&v71 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v71;
-      *((_QWORD *)&v71 + 1) = NextQueueWindow;
+      xxxSendTransformableMessageTimeout((unsigned __int64)v9, 0x1Fu, 0LL, 0LL, 2u, 0x64u, (__int64 *)&LowLimit, 1, 0);
+      NextQueueWindow = GetNextQueueWindow((__int64)v9, v63, 1);
+      *(_QWORD *)&v49 = *(_QWORD *)(gptiCurrent + 416LL);
+      *(_QWORD *)(gptiCurrent + 416LL) = &v49;
+      *((_QWORD *)&v49 + 1) = NextQueueWindow;
       if ( NextQueueWindow )
         HMLockObject(NextQueueWindow);
-      if ( NextQueueWindow == (struct tagWND *)v9 )
-        goto LABEL_65;
-      goto LABEL_47;
+      if ( NextQueueWindow == v9 )
+        goto LABEL_40;
+      goto LABEL_22;
     }
   }
   return result;

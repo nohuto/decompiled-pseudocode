@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetD2DBrush@CRadialGradientBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@PEAPEAUID2D1Brush@@@Z @ 0x18023AD60
+ * XREFs of ?GetD2DBrush@CRadialGradientBrush@@UEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@PEAPEAUID2D1Brush@@@Z @ 0x1801E80C0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetCurrentD2DRadialGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1RadialGradientBrush@@@Z @ 0x18023A320 (-GetCurrentD2DRadialGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1RadialGr.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrentD2DRadialGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1RadialGradientBrush@@@Z @ 0x1801E6EE8 (-GetCurrentD2DRadialGradientBrush@CGradientBrush@@IEAAJPEAVCDrawingContext@@PEAPEAUID2D1RadialGr.c)
  */
 
 __int64 __fastcall CRadialGradientBrush::GetD2DBrush(
@@ -36,10 +36,10 @@ __int64 __fastcall CRadialGradientBrush::GetD2DBrush(
 
   v6 = a3->right - a3->left;
   v7 = a3->bottom - a3->top;
-  v8 = (__m128)*((unsigned int *)this + 60);
-  v10 = (__m128)*((unsigned int *)this + 61);
-  v12 = (__m128)*((unsigned int *)this + 64);
-  v13 = (__m128)*((unsigned int *)this + 65);
+  v8 = (__m128)*((unsigned int *)this + 48);
+  v10 = (__m128)*((unsigned int *)this + 49);
+  v12 = (__m128)*((unsigned int *)this + 52);
+  v13 = (__m128)*((unsigned int *)this + 53);
   v20 = 0LL;
   v21 = v6;
   v22 = v7;
@@ -48,11 +48,11 @@ __int64 __fastcall CRadialGradientBrush::GetD2DBrush(
   v16 = CurrentD2DRadialGradientBrush;
   if ( CurrentD2DRadialGradientBrush < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, CurrentD2DRadialGradientBrush, 0xDCu);
+    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, CurrentD2DRadialGradientBrush, 0xDDu, 0LL);
   }
   else
   {
-    if ( *((_DWORD *)this + 39) == 1 )
+    if ( *((_DWORD *)this + 27) == 1 )
     {
       v8.m128_f32[0] = (float)(v8.m128_f32[0] * v21) + a3->left;
       v10.m128_f32[0] = (float)(v10.m128_f32[0] * v22) + a3->top;
@@ -68,16 +68,16 @@ __int64 __fastcall CRadialGradientBrush::GetD2DBrush(
     (*(void (__fastcall **)(struct ID2D1Brush *, unsigned __int64))(*(_QWORD *)v17 + 72LL))(
       v17,
       _mm_unpacklo_ps(v12, v13).m128_u64[0]);
-    v18 = *((_QWORD *)this + 27);
+    v18 = *((_QWORD *)this + 21);
     if ( v18 )
     {
-      (*(void (__fastcall **)(__int64, float *, __int128 *))(*(_QWORD *)v18 + 208LL))(v18, &v21, &v23);
+      (*(void (__fastcall **)(__int64, float *, __int128 *))(*(_QWORD *)v18 + 224LL))(v18, &v21, &v23);
     }
     else
     {
       v24 = 0;
       v25 = 0;
-      v23 = *(_OWORD *)&_xmm;
+      v23 = _xmm;
     }
     (*(void (__fastcall **)(struct ID2D1Brush *, __int128 *))(*(_QWORD *)v17 + 40LL))(v17, &v23);
     v20 = 0LL;

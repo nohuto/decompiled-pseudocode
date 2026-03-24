@@ -1,22 +1,22 @@
 /*
- * XREFs of SecureDmaEnabler_AllocateCommonBufferPage @ 0x1C007A72C
+ * XREFs of SecureDmaEnabler_AllocateCommonBufferPage @ 0x1C0076F7C
  * Callers:
- *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0007A54 (XilCoreCommonBuffer_AllocateBuffers.c)
- *     CommonBuffer_AcquireSecureBuffer @ 0x1C00320B8 (CommonBuffer_AcquireSecureBuffer.c)
+ *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0015F74 (XilCoreCommonBuffer_AllocateBuffers.c)
+ *     CommonBuffer_AcquireSecureBuffer @ 0x1C0030530 (CommonBuffer_AcquireSecureBuffer.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     SecureDmaEnabler_MapMemory @ 0x1C007ABB4 (SecureDmaEnabler_MapMemory.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     SecureDmaEnabler_MapMemory @ 0x1C0077404 (SecureDmaEnabler_MapMemory.c)
  */
 
 __int64 __fastcall SecureDmaEnabler_AllocateCommonBufferPage(__int64 *a1, __int64 a2, __int64 *a3, _QWORD *a4)
 {
   int v7; // edx
   int v8; // ebx
-  __int64 v10; // rdi
-  __int64 v11; // r8
-  __int16 v12; // cx
-  __int64 v13; // r8
+  __int64 v9; // rdi
+  __int64 v10; // r8
+  __int16 v11; // cx
+  __int64 v12; // r8
   _QWORD v14[3]; // [rsp+40h] [rbp-40h] BYREF
   int v15; // [rsp+58h] [rbp-28h]
   int v16; // [rsp+5Ch] [rbp-24h]
@@ -32,14 +32,14 @@ __int64 __fastcall SecureDmaEnabler_AllocateCommonBufferPage(__int64 *a1, __int6
   v14[2] = 0LL;
   v15 = 1;
   v16 = 1;
-  v19 = off_1C0063450;
+  v19 = off_1C0060450;
   v18 = a2 + 120;
   v17 = *a1;
   v14[1] = SecureDmaEnabler_WdfEvtCommonBufferPageCleanupCallback;
   v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD *, _QWORD, __int64, __int64, __int64 *, __int64 *))(WdfFunctions_01023 + 1536))(
          WdfDriverGlobals,
          v14,
-         HIDWORD(WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Flink),
+         (unsigned int)WPP_MAIN_CB.DeviceLock.Header.SignalState,
          1229146200LL,
          4096LL,
          &v20,
@@ -57,35 +57,36 @@ __int64 __fastcall SecureDmaEnabler_AllocateCommonBufferPage(__int64 *a1, __int6
         (__int64)&WPP_bc1ad2459c543d2ca8270d8dd36787fb_Traceguids,
         v8);
     }
-    goto LABEL_4;
+    goto LABEL_7;
   }
-  v10 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
-          WdfDriverGlobals,
-          v20,
-          off_1C0063450);
-  *(_QWORD *)(v10 + 16) = v20;
-  *(_QWORD *)(v10 + 24) = a1;
+  v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+         WdfDriverGlobals,
+         v20,
+         off_1C0060450);
+  *(_QWORD *)(v9 + 16) = v20;
+  *(_QWORD *)(v9 + 24) = a1;
+  v10 = v21;
   v11 = v21;
-  v12 = v21;
-  *(_QWORD *)(v10 + 32) = 0LL;
-  *(_WORD *)(v10 + 42) = 0;
-  *(_DWORD *)(v10 + 72) = 4096;
-  *(_WORD *)(v10 + 40) = 8 * (((unsigned __int16)((v12 & 0xFFF) + 0x1FFF) >> 12) + 6);
-  *(_QWORD *)(v10 + 64) = v11 & 0xFFFFFFFFFFFFF000uLL;
-  *(_DWORD *)(v10 + 76) = v11 & 0xFFF;
-  MmBuildMdlForNonPagedPool((PMDL)(v10 + 32));
-  v8 = SecureDmaEnabler_MapMemory(a1, v10 + 32, v13, v10 + 88);
-  if ( v8 < 0 )
+  *(_QWORD *)(v9 + 32) = 0LL;
+  *(_WORD *)(v9 + 42) = 0;
+  *(_DWORD *)(v9 + 72) = 4096;
+  *(_WORD *)(v9 + 40) = 8 * (((unsigned __int16)((v11 & 0xFFF) + 0x1FFF) >> 12) + 6);
+  *(_QWORD *)(v9 + 64) = v10 & 0xFFFFFFFFFFFFF000uLL;
+  *(_DWORD *)(v9 + 76) = v10 & 0xFFF;
+  MmBuildMdlForNonPagedPool((PMDL)(v9 + 32));
+  v8 = SecureDmaEnabler_MapMemory(a1, v9 + 32, v12, v9 + 88);
+  if ( v8 >= 0 )
   {
-LABEL_4:
-    if ( v20 )
-      (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01023 + 1664))(WdfDriverGlobals);
-    return (unsigned int)v8;
+    *(_QWORD *)v9 = v21;
+    *(_QWORD *)(v9 + 8) = *(_QWORD *)(v9 + 88);
+    *a3 = v9;
+    if ( a4 )
+      *a4 = v9 + 120;
+LABEL_7:
+    if ( v8 >= 0 )
+      return (unsigned int)v8;
   }
-  *(_QWORD *)v10 = v21;
-  *(_QWORD *)(v10 + 8) = *(_QWORD *)(v10 + 88);
-  *a3 = v10;
-  if ( a4 )
-    *a4 = v10 + 120;
+  if ( v20 )
+    (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01023 + 1664))(WdfDriverGlobals);
   return (unsigned int)v8;
 }

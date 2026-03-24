@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetType@CRemoteRenderTargetMarshaler@DirectComposition@@UEBA?AW4MIL_RESOURCE_TYPE@@XZ @ 0x1C00CB1C0
+ * XREFs of ?GetType@CRemoteRenderTargetMarshaler@DirectComposition@@UEBA?AW4MIL_RESOURCE_TYPE@@XZ @ 0x1C00BBFD0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 DirectComposition::CRemoteRenderTargetMarshaler::GetType()
 {
-  return 143LL;
+  return 144LL;
 }

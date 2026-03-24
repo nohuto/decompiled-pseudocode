@@ -1,7 +1,7 @@
 /*
- * XREFs of PspGetPreviousProcessThread @ 0x140676444
+ * XREFs of PspGetPreviousProcessThread @ 0x140676424
  * Callers:
- *     PspTerminateAllThreads @ 0x140676204 (PspTerminateAllThreads.c)
+ *     PspTerminateAllThreads @ 0x1406761E4 (PspTerminateAllThreads.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

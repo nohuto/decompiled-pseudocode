@@ -1,11 +1,11 @@
 /*
- * XREFs of ?LoadPointerDeviceTouchSettings@@YAHXZ @ 0x1C008338C
+ * XREFs of ?LoadPointerDeviceTouchSettings@@YAHXZ @ 0x1C000AF7C
  * Callers:
- *     ReadPointerDeviceSettings @ 0x1C0082DA0 (ReadPointerDeviceSettings.c)
- *     GetTouchTimeFromCPLValue @ 0x1C0151E80 (GetTouchTimeFromCPLValue.c)
+ *     ReadPointerDeviceSettings @ 0x1C000BF10 (ReadPointerDeviceSettings.c)
+ *     GetTouchTimeFromCPLValue @ 0x1C0127800 (GetTouchTimeFromCPLValue.c)
  * Callees:
- *     GetDWORDSettingValuesEx @ 0x1C0083920 (GetDWORDSettingValuesEx.c)
- *     ApiSetEditionOverrideDefaultTouchGestureSettings @ 0x1C0086C54 (ApiSetEditionOverrideDefaultTouchGestureSettings.c)
+ *     GetDWORDSettingValuesEx @ 0x1C000B020 (GetDWORDSettingValuesEx.c)
+ *     ApiSetEditionOverrideDefaultTouchGestureSettings @ 0x1C000B238 (ApiSetEditionOverrideDefaultTouchGestureSettings.c)
  */
 
 __int64 LoadPointerDeviceTouchSettings(void)
@@ -14,11 +14,11 @@ __int64 LoadPointerDeviceTouchSettings(void)
 
   if ( !gTouchMonitor )
   {
-    ApiSetEditionOverrideDefaultTouchGestureSettings(off_1C02880F8);
-    if ( !(unsigned int)GetDWORDSettingValuesEx(2LL, off_1C02880F8, 13LL) )
+    ApiSetEditionOverrideDefaultTouchGestureSettings(off_1C02460F8);
+    if ( !(unsigned int)GetDWORDSettingValuesEx(2LL, off_1C02460F8, 13LL) )
       return 0LL;
   }
-  if ( !gMultiTouchMonitor && !(unsigned int)GetDWORDSettingValuesEx(3LL, off_1C02880E8, 1LL) )
+  if ( !gMultiTouchMonitor && !(unsigned int)GetDWORDSettingValuesEx(3LL, off_1C02460E8, 1LL) )
     return 0LL;
   gTouchMonitor = 1;
   result = 1LL;

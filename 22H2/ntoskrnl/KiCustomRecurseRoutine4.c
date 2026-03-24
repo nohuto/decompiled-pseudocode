@@ -1,15 +1,18 @@
 /*
- * XREFs of KiCustomRecurseRoutine4 @ 0x14042B170
+ * XREFs of KiCustomRecurseRoutine4 @ 0x1404092B0
  * Callers:
- *     KiCustomRecurseRoutine3 @ 0x14042ADB0 (KiCustomRecurseRoutine3.c)
- *     KiCustomAccessRoutine4 @ 0x14042B190 (KiCustomAccessRoutine4.c)
+ *     KiCustomAccessRoutine4 @ 0x1404092D0 (KiCustomAccessRoutine4.c)
+ *     KiCustomRecurseRoutine3 @ 0x1404095B0 (KiCustomRecurseRoutine3.c)
  * Callees:
- *     KiCustomRecurseRoutine5 @ 0x14042B230 (KiCustomRecurseRoutine5.c)
+ *     KiCustomRecurseRoutine5 @ 0x1404091F0 (KiCustomRecurseRoutine5.c)
  */
 
 __int64 __fastcall KiCustomRecurseRoutine4(int a1, unsigned int *a2)
 {
-  if ( a1 != 1 )
-    KiCustomRecurseRoutine5();
+  int v2; // ecx
+
+  v2 = a1 - 1;
+  if ( v2 )
+    KiCustomRecurseRoutine5(v2, a2);
   return *a2;
 }

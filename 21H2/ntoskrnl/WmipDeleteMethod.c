@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipDeleteMethod @ 0x1407842F0
+ * XREFs of WmipDeleteMethod @ 0x140639520
  * Callers:
  *     <none>
  * Callees:
- *     WmipCompleteGuidIrpWithError @ 0x140252C54 (WmipCompleteGuidIrpWithError.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     WmipDisableCollectOrEvent @ 0x1406D8750 (WmipDisableCollectOrEvent.c)
- *     WmipUnreferenceEntry @ 0x1407838E0 (WmipUnreferenceEntry.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     WmipCompleteGuidIrpWithError @ 0x140264F84 (WmipCompleteGuidIrpWithError.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     WmipUnreferenceEntry @ 0x140639618 (WmipUnreferenceEntry.c)
+ *     WmipDisableCollectOrEvent @ 0x1406C1CE0 (WmipDisableCollectOrEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 LONG __fastcall WmipDeleteMethod(__int64 a1)
@@ -24,7 +24,7 @@ LONG __fastcall WmipDeleteMethod(__int64 a1)
   if ( v2 )
   {
     if ( *(_BYTE *)(a1 + 160) )
-      WmipDisableCollectOrEvent(v2, *(_DWORD *)(a1 + 64));
+      WmipDisableCollectOrEvent(v2, *(unsigned int *)(a1 + 64));
     KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
     v3 = *(_QWORD *)(a1 + 40);
     if ( *(_QWORD *)(v3 + 8) != a1 + 40 || (v4 = *(_QWORD **)(a1 + 48), *v4 != a1 + 40) )
@@ -32,7 +32,7 @@ LONG __fastcall WmipDeleteMethod(__int64 a1)
     *v4 = v3;
     *(_QWORD *)(v3 + 8) = v4;
     KeReleaseMutex(&WmipSMMutex, 0);
-    WmipUnreferenceEntry((__int64)&WmipGEChunkInfo, *(volatile signed __int64 **)(a1 + 56));
+    WmipUnreferenceEntry(&WmipGEChunkInfo, *(_QWORD *)(a1 + 56));
   }
   result = *(_DWORD *)(a1 + 164);
   if ( (result & 2) == 0 )

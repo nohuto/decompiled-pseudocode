@@ -1,36 +1,34 @@
 /*
- * XREFs of AddMagnificationOutputTransform @ 0x1C00A4A10
+ * XREFs of AddMagnificationOutputTransform @ 0x1C010FAA0
  * Callers:
  *     <none>
  * Callees:
- *     PtInRect @ 0x1C00D0A58 (PtInRect.c)
- *     MagInputTransform @ 0x1C0155EF2 (MagInputTransform.c)
- *     MagnificationInverseTransformPoint @ 0x1C01F6BC8 (MagnificationInverseTransformPoint.c)
+ *     PtInRect @ 0x1C004DE1C (PtInRect.c)
+ *     AcquireMagInputLock @ 0x1C010FAF8 (AcquireMagInputLock.c)
+ *     MagInputTransform @ 0x1C0213988 (MagInputTransform.c)
+ *     MagnificationInverseTransformPoint @ 0x1C02139A8 (MagnificationInverseTransformPoint.c)
  */
 
-__int64 __fastcall AddMagnificationOutputTransform(_QWORD *a1)
+__int64 __fastcall AddMagnificationOutputTransform(unsigned __int64 *a1)
 {
-  struct _KTHREAD *CurrentThread; // rsi
   unsigned int v2; // edi
-  __int64 v4; // rax
+  __int64 v3; // rax
+  _DWORD *v5; // rcx
   __int64 v6; // rcx
-  __int64 v7; // rcx
 
-  CurrentThread = KeGetCurrentThread();
   v2 = 0;
-  while ( _InterlockedCompareExchange64(&gpMagInputLock, (signed __int64)CurrentThread, 0LL) )
-    UserSleep(1LL);
-  v4 = *(_QWORD *)(grpdeskRitInput + 232LL);
-  if ( v4 )
+  AcquireMagInputLock();
+  v3 = *(_QWORD *)(grpdeskRitInput + 224LL);
+  if ( v3 )
   {
-    if ( (*(_DWORD *)(v4 + 16) & 2) != 0 )
+    if ( (*(_DWORD *)(v3 + 16) & 2) != 0 )
     {
-      v6 = MagInputTransform();
-      if ( v6 )
+      v5 = (_DWORD *)MagInputTransform();
+      if ( v5 )
       {
-        if ( (unsigned int)PtInRect(v6, *a1) )
+        if ( PtInRect(v5, *a1) )
         {
-          MagnificationInverseTransformPoint(v7, a1);
+          MagnificationInverseTransformPoint(v6, a1);
           v2 = 1;
         }
       }

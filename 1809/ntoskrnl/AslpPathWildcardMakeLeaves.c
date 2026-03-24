@@ -1,12 +1,12 @@
 /*
- * XREFs of AslpPathWildcardMakeLeaves @ 0x1408EBB58
+ * XREFs of AslpPathWildcardMakeLeaves @ 0x1408EBB38
  * Callers:
- *     AslPathWildcardFindFirst @ 0x1408EA508 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindFirst @ 0x1408EA4E8 (AslPathWildcardFindFirst.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     _wcsnicmp @ 0x140195A50 (_wcsnicmp.c)
- *     wcsncmp @ 0x1401977E0 (wcsncmp.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
+ *     wcsncmp @ 0x140197800 (wcsncmp.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpPathWildcardMakeLeaves(WCHAR *SourceString)

@@ -1,18 +1,18 @@
 /*
- * XREFs of ?DefragmentResourcesOverRange@VIDMM_SEGMENT@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@PEA_NPEAPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K@Z @ 0x1C00FCB40
+ * XREFs of ?DefragmentResourcesOverRange@VIDMM_SEGMENT@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@PEA_NPEAPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K@Z @ 0x1C00C53B0
  * Callers:
- *     ?MoveResources@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4VIDMM_MOVE_RESOURCES_OPERATION@@I_KW4VIDMM_MOVE_RESOURCES_DEFRAG_STAGE@@22W4VIDMM_DEFRAGMENT_DIRECTION@@PEA_NPEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00E5AD8 (-MoveResources@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4VIDMM_MOVE_RESOURCES_OPERATION@@I_KW4VIDMM_.c)
- *     ?MoveResourcesForAllocationPlacement@VIDMM_SEGMENT@@QEAAJPEAUVIDMM_ALLOC@@_K1W4VIDMM_DEFRAGMENT_DIRECTION@@PEA_NPEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00FDDDC (-MoveResourcesForAllocationPlacement@VIDMM_SEGMENT@@QEAAJPEAUVIDMM_ALLOC@@_K1W4VIDMM_DEFRAGMENT_.c)
+ *     ?MoveResources@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4VIDMM_MOVE_RESOURCES_OPERATION@@I_KW4VIDMM_MOVE_RESOURCES_DEFRAG_STAGE@@22W4VIDMM_DEFRAGMENT_DIRECTION@@PEA_NPEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00B037C (-MoveResources@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4VIDMM_MOVE_RESOURCES_OPERATION@@I_KW4VIDMM_.c)
+ *     ?MoveResourcesForAllocationPlacement@VIDMM_SEGMENT@@QEAAJPEAUVIDMM_ALLOC@@_K1W4VIDMM_DEFRAGMENT_DIRECTION@@PEA_NPEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00C6398 (-MoveResourcesForAllocationPlacement@VIDMM_SEGMENT@@QEAAJPEAUVIDMM_ALLOC@@_K1W4VIDMM_DEFRAGMENT_.c)
  * Callees:
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?SetVPRPaging@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1C0032844 (-SetVPRPaging@VIDMM_GLOBAL@@QEAAX_N@Z.c)
- *     ?WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C0089B4C (-WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z.c)
- *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C0095820 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
- *     ?EnsureFlipQueuesSuspendedForMove@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E1C94 (-EnsureFlipQueuesSuspendedForMove@VIDMM_GLOBAL@@QEAAXXZ.c)
- *     ?GetMoveableResourceCallback@VIDMM_GLOBAL@@QEAAP6A_NPEAU_VIDMM_GLOBAL_ALLOC@@@ZXZ @ 0x1C00E3A34 (-GetMoveableResourceCallback@VIDMM_GLOBAL@@QEAAP6A_NPEAU_VIDMM_GLOBAL_ALLOC@@@ZXZ.c)
- *     ?DefragmentRange@VIDMM_LINEAR_POOL@@QEAAXPEAUVIDMM_DEFRAGMENT_ARGS@@@Z @ 0x1C010168C (-DefragmentRange@VIDMM_LINEAR_POOL@@QEAAXPEAUVIDMM_DEFRAGMENT_ARGS@@@Z.c)
- *     ?DirectedIterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P8VIDMM_SEGMENT@@EAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEA_NPEAX@ZPEAV3@4PEAPEAU4@3@Z @ 0x1C0101A90 (-DirectedIterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@.c)
- *     ?RollbackPlacementOfPendingResources@VIDMM_LINEAR_POOL@@QEAAX_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P6A_NPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K@Z@Z @ 0x1C0102964 (-RollbackPlacementOfPendingResources@VIDMM_LINEAR_POOL@@QEAAX_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P6.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ?SetVPRPaging@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1C00285A4 (-SetVPRPaging@VIDMM_GLOBAL@@QEAAX_N@Z.c)
+ *     ?WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C0060630 (-WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z.c)
+ *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C006DDC0 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
+ *     ?EnsureFlipQueuesSuspendedForMove@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00ADE5C (-EnsureFlipQueuesSuspendedForMove@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?GetMoveableResourceCallback@VIDMM_GLOBAL@@QEAAP6A_NPEAU_VIDMM_GLOBAL_ALLOC@@@ZXZ @ 0x1C00AEC14 (-GetMoveableResourceCallback@VIDMM_GLOBAL@@QEAAP6A_NPEAU_VIDMM_GLOBAL_ALLOC@@@ZXZ.c)
+ *     ?DefragmentRange@VIDMM_LINEAR_POOL@@QEAAXPEAUVIDMM_DEFRAGMENT_ARGS@@@Z @ 0x1C00CCE50 (-DefragmentRange@VIDMM_LINEAR_POOL@@QEAAXPEAUVIDMM_DEFRAGMENT_ARGS@@@Z.c)
+ *     ?DirectedIterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P8VIDMM_SEGMENT@@EAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEA_NPEAX@ZPEAV3@4PEAPEAU4@3@Z @ 0x1C00CD260 (-DirectedIterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@.c)
+ *     ?RollbackPlacementOfPendingResources@VIDMM_LINEAR_POOL@@QEAAX_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P6A_NPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K@Z@Z @ 0x1C00CE0DC (-RollbackPlacementOfPendingResources@VIDMM_LINEAR_POOL@@QEAAX_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P6.c)
  */
 
 __int64 __fastcall VIDMM_SEGMENT::DefragmentResourcesOverRange(
@@ -33,45 +33,44 @@ __int64 __fastcall VIDMM_SEGMENT::DefragmentResourcesOverRange(
   bool v18; // si
   unsigned __int64 v19; // rdx
   unsigned __int64 v20; // r8
-  __int64 v21; // rdi
-  unsigned __int64 v22; // r8
-  void *v23; // [rsp+28h] [rbp-81h]
-  unsigned __int8 v24[8]; // [rsp+30h] [rbp-79h]
-  unsigned __int8 v25[8]; // [rsp+38h] [rbp-71h]
-  __int64 v26; // [rsp+40h] [rbp-69h]
-  _QWORD v27[16]; // [rsp+58h] [rbp-51h] BYREF
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rdi
+  unsigned __int64 v24; // r8
+  __int64 v25; // rax
+  _QWORD v26[16]; // [rsp+58h] [rbp-51h] BYREF
 
   VIDMM_GLOBAL::EnsureFlipQueuesSuspendedForMove(*(VIDMM_GLOBAL **)(a1 + 8));
-  memset(v27, 0, 0x78uLL);
+  memset(v26, 0, 0x78uLL);
   v10 = *(VIDMM_GLOBAL **)(a1 + 8);
-  v27[3] = VIDMM_SEGMENT::UpdatePendingResourceReserveCB;
-  v27[0] = a2;
-  v27[1] = a3;
-  LODWORD(v27[2]) = a4;
+  v26[3] = VIDMM_SEGMENT::UpdatePendingResourceReserveCB;
+  v26[0] = a2;
+  v26[1] = a3;
+  LODWORD(v26[2]) = a4;
   MoveableResourceCallback = VIDMM_GLOBAL::GetMoveableResourceCallback(v10);
   v12 = *(VIDMM_LINEAR_POOL **)(a1 + 152);
-  LODWORD(v27[8]) |= 4u;
-  v27[4] = MoveableResourceCallback;
-  v27[5] = VIDMM_SEGMENT::IsNonOverlappingResourceCB;
-  v27[6] = VIDMM_SEGMENT::IsDisplayingResourceCB;
-  v27[7] = VIDMM_SEGMENT::GetAlignmentCB;
-  VIDMM_LINEAR_POOL::DefragmentRange(v12, (struct VIDMM_DEFRAGMENT_ARGS *)v27);
+  LODWORD(v26[8]) |= 4u;
+  v26[4] = MoveableResourceCallback;
+  v26[5] = VIDMM_SEGMENT::IsNonOverlappingResourceCB;
+  v26[6] = VIDMM_SEGMENT::IsDisplayingResourceCB;
+  v26[7] = VIDMM_SEGMENT::GetAlignmentCB;
+  VIDMM_LINEAR_POOL::DefragmentRange(v12, (struct VIDMM_DEFRAGMENT_ARGS *)v26);
   if ( !*(_BYTE *)(a1 + 472) )
     return 0LL;
   *(_BYTE *)(a1 + 472) = 0;
   v14 = a2 == *(_QWORD *)(a1 + 416) && a3 == *(_QWORD *)(a1 + 424);
   v15 = *(unsigned int *)(a1 + 380);
   v16 = *(VIDMM_GLOBAL **)(a1 + 8);
-  v17 = *(_QWORD *)(*((_QWORD *)v16 + 3) + 2808LL);
-  v18 = (*(_DWORD *)(v17 + 344 * v15 + 16) & 8) != 0;
-  if ( (*(_DWORD *)(v17 + 344 * v15 + 16) & 8) != 0 && v14 )
+  v17 = *(_QWORD *)(*((_QWORD *)v16 + 3) + 2584LL);
+  v18 = (*(_DWORD *)(v17 + 360 * v15 + 16) & 8) != 0;
+  if ( (*(_DWORD *)(v17 + 360 * v15 + 16) & 8) != 0 && v14 )
   {
     VIDMM_GLOBAL::FlushPagingBufferInternal(v16, v15, 0, 0LL, 0LL, 0, 0);
     VIDMM_GLOBAL::WaitForAllPagingEnginesIdle(*(VIDMM_GLOBAL **)(a1 + 8), *(_DWORD *)(a1 + 380));
     LOBYTE(v19) = 1;
     VIDMM_GLOBAL::SetVPRPaging(*(VIDMM_GLOBAL **)(a1 + 8), v19, v20);
   }
-  v21 = (int)VIDMM_LINEAR_POOL::DirectedIterateAllocatedBlocksInRange(
+  v23 = (int)VIDMM_LINEAR_POOL::DirectedIterateAllocatedBlocksInRange(
                *(_QWORD *)(a1 + 152),
                a2,
                a3,
@@ -83,22 +82,16 @@ __int64 __fastcall VIDMM_SEGMENT::DefragmentResourcesOverRange(
                a5);
   if ( v18 )
   {
-    VIDMM_GLOBAL::FlushPagingBufferInternal(*(VIDMM_GLOBAL **)(a1 + 8), *(_DWORD *)(a1 + 380), 0, 0LL, 0LL, 0, 1u);
+    VIDMM_GLOBAL::FlushPagingBufferInternal(*(VIDMM_GLOBAL **)(a1 + 8), *(_DWORD *)(a1 + 380), 0, 0LL, 0LL, 0, 1);
     VIDMM_GLOBAL::WaitForAllPagingEnginesIdle(*(VIDMM_GLOBAL **)(a1 + 8), *(_DWORD *)(a1 + 380));
-    VIDMM_GLOBAL::SetVPRPaging(*(VIDMM_GLOBAL **)(a1 + 8), 0LL, v22);
+    VIDMM_GLOBAL::SetVPRPaging(*(VIDMM_GLOBAL **)(a1 + 8), 0LL, v24);
   }
-  if ( (int)v21 < 0 )
+  if ( (int)v23 < 0 )
   {
-    WdLogSingleEntry1(3LL, v21);
-    VIDMM_LINEAR_POOL::RollbackPlacementOfPendingResources(
-      *(_QWORD *)(a1 + 152),
-      a2,
-      a3,
-      a4,
-      v23,
-      *(_QWORD *)v24,
-      *(_QWORD *)v25,
-      v26);
+    v25 = WdLogNewEntry5_WdWarning(v22, v21);
+    *(_QWORD *)(v25 + 24) = v23;
+    WdLogEvent5_WdWarning(v25);
+    VIDMM_LINEAR_POOL::RollbackPlacementOfPendingResources(*(_QWORD *)(a1 + 152), a2, a3, a4);
   }
-  return (unsigned int)v21;
+  return (unsigned int)v23;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetSize@CBitmapLock@@UEAAJPEAI0@Z @ 0x1800F26A0
+ * XREFs of ?GetSize@CBitmapLock@@UEAAJPEAI0@Z @ 0x1800D80D0
  * Callers:
- *     ?GetSize@CBitmapLock@@WBI@EAAJPEAI0@Z @ 0x18011E9A0 (-GetSize@CBitmapLock@@WBI@EAAJPEAI0@Z.c)
+ *     ?GetSize@CBitmapLock@@WBA@EAAJPEAI0@Z @ 0x1800F6610 (-GetSize@CBitmapLock@@WBA@EAAJPEAI0@Z.c)
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034CA4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall CBitmapLock::GetSize(CBitmapLock *this, unsigned int *a2, unsigned int *a3)
@@ -13,17 +13,17 @@ __int64 __fastcall CBitmapLock::GetSize(CBitmapLock *this, unsigned int *a2, uns
   unsigned int v7; // ebx
   struct _RTL_CRITICAL_SECTION *v9; // [rsp+40h] [rbp+8h] BYREF
 
-  v9 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 32);
-  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 32));
+  v9 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 24);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 24));
   if ( a2 )
   {
     if ( a3 )
     {
-      if ( *((_BYTE *)this + 72) )
+      if ( *((_BYTE *)this + 64) )
       {
         v7 = 0;
-        *a2 = *((_DWORD *)this + 22);
-        *a3 = *((_DWORD *)this + 23);
+        *a2 = *((_DWORD *)this + 20);
+        *a3 = *((_DWORD *)this + 21);
       }
       else
       {

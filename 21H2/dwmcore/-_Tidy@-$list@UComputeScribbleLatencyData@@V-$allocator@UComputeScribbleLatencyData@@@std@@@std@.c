@@ -1,29 +1,29 @@
 /*
- * XREFs of ?_Tidy@?$list@UComputeScribbleLatencyData@@V?$allocator@UComputeScribbleLatencyData@@@std@@@std@@AEAAXXZ @ 0x180100244
+ * XREFs of ?_Tidy@?$list@UComputeScribbleLatencyData@@V?$allocator@UComputeScribbleLatencyData@@@std@@@std@@AEAAXXZ @ 0x1800E67B4
  * Callers:
- *     _anonymous_namespace_::_dynamic_atexit_destructor_for__g_latencyData__ @ 0x18010D8A0 (_anonymous_namespace_--_dynamic_atexit_destructor_for__g_latencyData__.c)
+ *     _anonymous_namespace_::_dynamic_atexit_destructor_for__g_latencyData__ @ 0x1800F9750 (_anonymous_namespace_--_dynamic_atexit_destructor_for__g_latencyData__.c)
  * Callees:
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
  */
 
-void __fastcall std::list<ComputeScribbleLatencyData>::_Tidy(void **a1)
+void std::list<ComputeScribbleLatencyData>::_Tidy()
 {
-  _QWORD **v1; // rdx
-  _QWORD *v3; // rcx
-  _QWORD *v4; // rbx
+  _QWORD **v0; // rcx
+  _QWORD *v1; // rcx
+  _QWORD *v2; // rbx
 
-  v1 = (_QWORD **)*a1;
-  **((_QWORD **)*a1 + 1) = 0LL;
-  v3 = *v1;
-  if ( *v1 )
+  v0 = (_QWORD **)xmmword_18034B4A0;
+  **(_QWORD **)(xmmword_18034B4A0 + 8) = 0LL;
+  v1 = *v0;
+  if ( v1 )
   {
     do
     {
-      v4 = (_QWORD *)*v3;
-      std::_Deallocate<16,0>(v3, 0x48uLL);
-      v3 = v4;
+      v2 = (_QWORD *)*v1;
+      std::_Deallocate<16,0>(v1, 0x48uLL);
+      v1 = v2;
     }
-    while ( v4 );
+    while ( v2 );
   }
-  std::_Deallocate<16,0>(*a1, 0x48uLL);
+  std::_Deallocate<16,0>((void *)xmmword_18034B4A0, 0x48uLL);
 }

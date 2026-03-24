@@ -1,19 +1,19 @@
 /*
- * XREFs of IopDestroyActiveConnectBlock @ 0x1408176BC
+ * XREFs of IopDestroyActiveConnectBlock @ 0x140762650
  * Callers:
- *     IoDisconnectInterrupt @ 0x140816AA0 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x140817258 (IopConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x140761A10 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x1407621CC (IopConnectInterrupt.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     IopAcquireReleaseConnectLockInternal @ 0x14081788C (IopAcquireReleaseConnectLockInternal.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     IopAcquireReleaseConnectLockInternal @ 0x1407C4720 (IopAcquireReleaseConnectLockInternal.c)
  */
 
-char __fastcall IopDestroyActiveConnectBlock(volatile signed __int32 *a1)
+_QWORD *__fastcall IopDestroyActiveConnectBlock(volatile signed __int32 *a1)
 {
-  char result; // al
+  _QWORD *result; // rax
   __int64 v3; // rbp
   volatile signed __int32 *v4; // rsi
   struct _KEVENT *v5; // rdi
@@ -23,15 +23,15 @@ char __fastcall IopDestroyActiveConnectBlock(volatile signed __int32 *a1)
   __int64 v9; // rax
   volatile signed __int32 **v10; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  struct _KEVENT Object; // [rsp+30h] [rbp-38h] BYREF
+  struct _KEVENT Event; // [rsp+30h] [rbp-38h] BYREF
 
-  result = 0;
-  memset(&Object, 0, sizeof(Object));
+  result = 0LL;
+  memset(&Event, 0, sizeof(Event));
   if ( *((_QWORD *)a1 + 3) )
   {
     v3 = *((_QWORD *)a1 + 4);
     v4 = a1 + 16;
-    KeInitializeEvent(&Object, SynchronizationEvent, 0);
+    KeInitializeEvent(&Event, SynchronizationEvent, 0);
     v5 = 0LL;
     LOBYTE(v6) = 1;
     v7 = 0;
@@ -42,7 +42,7 @@ char __fastcall IopDestroyActiveConnectBlock(volatile signed __int32 *a1)
       if ( v8 )
       {
         v7 = 1;
-        *((_QWORD *)a1 + 9) = &Object;
+        *((_QWORD *)a1 + 9) = &Event;
       }
     }
     else
@@ -64,13 +64,13 @@ char __fastcall IopDestroyActiveConnectBlock(volatile signed __int32 *a1)
     --CurrentThread->KernelApcDisable;
     if ( v7 )
     {
-      KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
+      KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
     }
     else if ( v5 )
     {
       KeSetEvent(v5, 0, 0);
     }
-    return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   return result;
 }

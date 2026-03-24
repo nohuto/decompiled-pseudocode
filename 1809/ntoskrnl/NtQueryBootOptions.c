@@ -1,14 +1,14 @@
 /*
- * XREFs of NtQueryBootOptions @ 0x1408D4970
+ * XREFs of NtQueryBootOptions @ 0x1408D4950
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     IoGetEnvironmentVariableEx @ 0x14082131C (IoGetEnvironmentVariableEx.c)
+ *     IoGetEnvironmentVariableEx @ 0x1408212FC (IoGetEnvironmentVariableEx.c)
  */
 
 NTSTATUS __stdcall NtQueryBootOptions(PBOOT_OPTIONS BootOptions, PULONG BootOptionsLength)
@@ -31,7 +31,7 @@ NTSTATUS __stdcall NtQueryBootOptions(PBOOT_OPTIONS BootOptions, PULONG BootOpti
   v14[0] = 0;
   v15 = 0;
   v16 = 0;
-  if ( dword_140409DD0 != 2 )
+  if ( dword_140409D90 != 2 )
     return -1073741822;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )

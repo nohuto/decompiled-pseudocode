@@ -1,12 +1,11 @@
 /*
- * XREFs of HalpInterruptStartBlockedProcessors @ 0x14051AB14
+ * XREFs of HalpInterruptStartBlockedProcessors @ 0x1404D19FC
  * Callers:
- *     HalStartNextProcessor @ 0x140377100 (HalStartNextProcessor.c)
- *     HalpProcInitSystem @ 0x140A8AEE0 (HalpProcInitSystem.c)
- *     HalpInterruptReinitialize @ 0x140A9550C (HalpInterruptReinitialize.c)
+ *     HalStartNextProcessor @ 0x1403A0DA0 (HalStartNextProcessor.c)
+ *     HalpInterruptReinitialize @ 0x140995D68 (HalpInterruptReinitialize.c)
+ *     HalpProcInitSystem @ 0x14099E630 (HalpProcInitSystem.c)
  * Callees:
- *     HalpGetProcessorStateByNtIndex @ 0x140383D38 (HalpGetProcessorStateByNtIndex.c)
- *     HalpBlkStartBlockedProcessor @ 0x140A9878C (HalpBlkStartBlockedProcessor.c)
+ *     HalpBlkStartBlockedProcessor @ 0x1409A96E4 (HalpBlkStartBlockedProcessor.c)
  */
 
 __int64 __fastcall HalpInterruptStartBlockedProcessors(unsigned int a1)
@@ -16,9 +15,11 @@ __int64 __fastcall HalpInterruptStartBlockedProcessors(unsigned int a1)
   int i; // esi
   ULONG_PTR v4; // rbx
 
-  result = HalpGetProcessorStateByNtIndex(a1);
+  result = HalpInterruptProcessorState;
   v2 = 0;
-  for ( i = *(_DWORD *)(result + 8); v2 < (unsigned int)HalpInterruptProcessorCount; ++v2 )
+  for ( i = *(_DWORD *)(((unsigned __int64)a1 << 6) + HalpInterruptProcessorState + 8);
+        v2 < (unsigned int)HalpInterruptProcessorCount;
+        ++v2 )
   {
     v4 = HalpInterruptProcessorState + ((unsigned __int64)v2 << 6);
     if ( *(_BYTE *)(v4 + 56) && *(_DWORD *)(v4 + 60) == i )

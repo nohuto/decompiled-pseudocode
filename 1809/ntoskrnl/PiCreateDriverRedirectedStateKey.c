@@ -1,20 +1,20 @@
 /*
- * XREFs of PiCreateDriverRedirectedStateKey @ 0x140757218
+ * XREFs of PiCreateDriverRedirectedStateKey @ 0x1407571F8
  * Callers:
- *     IoOpenDriverRegistryKey @ 0x140756F40 (IoOpenDriverRegistryKey.c)
+ *     IoOpenDriverRegistryKey @ 0x140756F20 (IoOpenDriverRegistryKey.c)
  *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringPrintfEx @ 0x14015D7AC (RtlUnicodeStringPrintfEx.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1401B8510 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintfEx @ 0x14015D7CC (RtlUnicodeStringPrintfEx.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     PiGetStateRootPath @ 0x14070E160 (PiGetStateRootPath.c)
- *     IopAllocateUnicodeString @ 0x14070FF14 (IopAllocateUnicodeString.c)
- *     PiCreateRegistryPath @ 0x1408252D0 (PiCreateRegistryPath.c)
- *     PiAuGetServiceStateSecurityObject @ 0x14082A170 (PiAuGetServiceStateSecurityObject.c)
+ *     PiGetStateRootPath @ 0x14070E140 (PiGetStateRootPath.c)
+ *     IopAllocateUnicodeString @ 0x14070FEF4 (IopAllocateUnicodeString.c)
+ *     PiCreateRegistryPath @ 0x1408252B0 (PiCreateRegistryPath.c)
+ *     PiAuGetServiceStateSecurityObject @ 0x14082A150 (PiAuGetServiceStateSecurityObject.c)
  */
 
 __int64 __fastcall PiCreateDriverRedirectedStateKey(UNICODE_STRING *CreateOptions, __int64 a2, _QWORD *a3)

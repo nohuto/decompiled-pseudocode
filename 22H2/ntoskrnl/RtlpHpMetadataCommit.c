@@ -1,44 +1,49 @@
 /*
- * XREFs of RtlpHpMetadataCommit @ 0x1403C6BD4
+ * XREFs of RtlpHpMetadataCommit @ 0x1403CA9F4
  * Callers:
- *     RtlpHpHeapExtendContext @ 0x14036404C (RtlpHpHeapExtendContext.c)
- *     RtlpHpHeapAllocate @ 0x140397AD8 (RtlpHpHeapAllocate.c)
+ *     RtlpHpHeapExtendContext @ 0x140326BBC (RtlpHpHeapExtendContext.c)
+ *     RtlpHpHeapAllocate @ 0x14037B320 (RtlpHpHeapAllocate.c)
  * Callees:
- *     RtlpHpSegPageRangeCommit @ 0x14024E2D0 (RtlpHpSegPageRangeCommit.c)
- *     RtlpHpSegDescriptorValidate @ 0x140316680 (RtlpHpSegDescriptorValidate.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x1403235AC (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpMetadataHeapCtxGet @ 0x140324448 (RtlpHpMetadataHeapCtxGet.c)
+ *     RtlpHpEnvGetHeapManager @ 0x140289A94 (RtlpHpEnvGetHeapManager.c)
+ *     RtlpHpSegPageRangeCommit @ 0x14028A930 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegDescriptorValidate @ 0x1402C2960 (RtlpHpSegDescriptorValidate.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x1402FABD0 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpMetadataHeapCtxGet @ 0x1402FE76C (RtlpHpMetadataHeapCtxGet.c)
  */
 
 __int64 __fastcall RtlpHpMetadataCommit(unsigned __int64 a1, int a2, unsigned __int64 a3, __int128 *a4, int a5)
 {
-  char *v8; // r14
-  int v9; // eax
-  unsigned __int64 v10; // rax
-  __int64 v11; // r11
-  unsigned __int64 v12; // rsi
-  int v13; // r9d
-  __int64 v15; // rax
-  __int128 v16; // [rsp+30h] [rbp-18h] BYREF
+  __int128 *v8; // r9
+  _QWORD *v9; // r14
+  int v10; // eax
+  unsigned __int64 v11; // rax
+  __int64 v12; // r10
+  unsigned __int64 v13; // rsi
+  int v14; // r9d
+  _QWORD *HeapManager; // rax
+  __int64 v17; // rax
+  __int128 v18; // [rsp+30h] [rbp-18h] BYREF
 
-  v16 = *a4;
-  v8 = RtlpHpMetadataHeapCtxGet(&v16);
+  v18 = *a4;
+  v9 = (_QWORD *)RtlpHpMetadataHeapCtxGet(&v18);
   if ( (_WORD)a1 )
   {
-    v9 = 0;
+    v10 = 0;
   }
   else
   {
-    v15 = RtlCSparseBitmapBitmaskRead((__int64)&unk_140C711D0, 2 * ((a1 - qword_140C711C8) >> 20));
-    if ( v15 )
-      v9 = v15 - 1;
+    v18 = *v8;
+    HeapManager = RtlpHpEnvGetHeapManager(&v18);
+    v17 = RtlCSparseBitmapBitmaskRead((__int64)(HeapManager + 2), 2 * ((a1 - HeapManager[1]) >> 20));
+    if ( v17 )
+      v10 = v17 - 1;
     else
-      v9 = 2;
+      v10 = 2;
   }
-  v10 = RtlpHpSegDescriptorValidate(*(_QWORD *)v8 + 192LL * v9 + 320, a1);
-  v12 = a3 >> 12;
-  v13 = -(int)v12;
+  v11 = RtlpHpSegDescriptorValidate(*v9 + 192LL * v10 + 256, a1);
+  v13 = a3 >> 12;
+  v14 = -(int)v13;
   if ( a5 )
-    v13 = v12;
-  return RtlpHpSegPageRangeCommit(v11 + 320, v10, (unsigned int)(a2 - a1) >> 12, v13, 0, 0LL);
+    v14 = v13;
+  return RtlpHpSegPageRangeCommit(v12 + 256, v11, (unsigned int)(a2 - a1) >> 12, v14, 0, 0LL);
 }

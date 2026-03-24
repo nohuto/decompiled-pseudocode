@@ -1,12 +1,11 @@
 /*
- * XREFs of ?SetResourceDeletedNotificationTag@CApplicationChannel@DirectComposition@@QEAAJI_K@Z @ 0x1C00A6C8C
+ * XREFs of ?SetResourceDeletedNotificationTag@CApplicationChannel@DirectComposition@@QEAAJI_K@Z @ 0x1C0098CEC
  * Callers:
- *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C002D930 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C007F5B4 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
  * Callees:
- *     ?LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z @ 0x1C002EB40 (-LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z.c)
- *     ?EnsureTagAllocation@CDeletedNotificationList@DirectComposition@@QEAAJXZ @ 0x1C00A6D30 (-EnsureTagAllocation@CDeletedNotificationList@DirectComposition@@QEAAJXZ.c)
- *     ?ReturnResourceLifetimeTag@CResourceMarshaler@DirectComposition@@QEAAXPEAVCDeletedNotificationList@2@@Z @ 0x1C00A6DDC (-ReturnResourceLifetimeTag@CResourceMarshaler@DirectComposition@@QEAAXPEAVCDeletedNotificationLi.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     ?ReturnResourceLifetimeTag@CResourceMarshaler@DirectComposition@@QEAAXPEAVCDeletedNotificationList@2@@Z @ 0x1C0098DA4 (-ReturnResourceLifetimeTag@CResourceMarshaler@DirectComposition@@QEAAXPEAVCDeletedNotificationLi.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?EnsureTagAllocation@CDeletedNotificationList@DirectComposition@@QEAAJXZ @ 0x1C01D5870 (-EnsureTagAllocation@CDeletedNotificationList@DirectComposition@@QEAAJXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::SetResourceDeletedNotificationTag(
@@ -14,30 +13,40 @@ __int64 __fastcall DirectComposition::CApplicationChannel::SetResourceDeletedNot
         int a2,
         __int64 a3)
 {
-  struct DirectComposition::CResourceMarshaler *v5; // rax
-  DirectComposition::CResourceMarshaler *v6; // rdi
-  int v7; // ebx
+  unsigned __int64 v3; // r9
+  __int64 v5; // rdi
+  int v6; // ebx
+  struct DirectComposition::CDeletedNotificationList *v7; // rbp
   bool v8; // zf
 
-  v5 = DirectComposition::CApplicationChannel::LookupResourceMarshaler(this, a2);
-  v6 = v5;
-  if ( !v5 || *((_QWORD *)v5 + 6) )
+  v3 = (unsigned int)(a2 - 1);
+  if ( a2 && v3 < *((_QWORD *)this + 10) )
+  {
+    _mm_lfence();
+    v5 = *(_QWORD *)(v3 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7));
+  }
+  else
+  {
+    v5 = 0LL;
+  }
+  if ( !v5 || *(_QWORD *)(v5 + 48) )
   {
     return (unsigned int)-1073741790;
   }
   else if ( a3 )
   {
-    v7 = DirectComposition::CDeletedNotificationList::EnsureTagAllocation((DirectComposition::CApplicationChannel *)((char *)this + 480));
-    if ( v7 >= 0 )
+    v7 = (DirectComposition::CApplicationChannel *)((char *)this + 472);
+    v6 = DirectComposition::CDeletedNotificationList::EnsureTagAllocation((DirectComposition::CApplicationChannel *)((char *)this + 472));
+    if ( v6 >= 0 )
     {
-      v8 = *((_QWORD *)v6 + 3) == 1LL;
-      *((_QWORD *)v6 + 6) = a3;
+      v8 = *(_DWORD *)(v5 + 20) == 1;
+      *(_QWORD *)(v5 + 48) = a3;
       if ( v8 )
       {
-        if ( (*(unsigned __int8 (__fastcall **)(DirectComposition::CResourceMarshaler *))(*(_QWORD *)v6 + 8LL))(v6) )
+        if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v5 + 24LL))(v5) )
           DirectComposition::CResourceMarshaler::ReturnResourceLifetimeTag(
-            v6,
-            (DirectComposition::CApplicationChannel *)((char *)this + 480));
+            (DirectComposition::CResourceMarshaler *)v5,
+            v7);
       }
     }
   }
@@ -45,5 +54,5 @@ __int64 __fastcall DirectComposition::CApplicationChannel::SetResourceDeletedNot
   {
     return (unsigned int)-1073741811;
   }
-  return (unsigned int)v7;
+  return (unsigned int)v6;
 }

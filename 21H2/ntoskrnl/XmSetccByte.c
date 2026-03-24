@@ -1,9 +1,9 @@
 /*
- * XREFs of XmSetccByte @ 0x1405355B0
+ * XREFs of XmSetccByte @ 0x1404E58D0
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmEvaluateAddressSpecifier @ 0x1403A30B4 (XmEvaluateAddressSpecifier.c)
+ *     XmEvaluateAddressSpecifier @ 0x140397014 (XmEvaluateAddressSpecifier.c)
  */
 
 __int64 __fastcall XmSetccByte(__int64 a1)

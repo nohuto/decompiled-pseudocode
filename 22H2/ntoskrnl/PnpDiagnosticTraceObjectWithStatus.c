@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpDiagnosticTraceObjectWithStatus @ 0x1403655F8
+ * XREFs of PnpDiagnosticTraceObjectWithStatus @ 0x140364734
  * Callers:
- *     PiDrvDbUnloadNodeWaitWorkerCallback @ 0x140365550 (PiDrvDbUnloadNodeWaitWorkerCallback.c)
- *     IopLoadDriver @ 0x140794AE8 (IopLoadDriver.c)
- *     PiDrvDbLoadNodeWorkerCallback @ 0x140867450 (PiDrvDbLoadNodeWorkerCallback.c)
- *     PiDrvDbLoadNode @ 0x14086BFF4 (PiDrvDbLoadNode.c)
- *     PiDevCfgProcessDevice @ 0x14087A6C0 (PiDevCfgProcessDevice.c)
- *     PnpRebalance @ 0x14096E968 (PnpRebalance.c)
- *     PnpInitializeBootStartDriver @ 0x140B41100 (PnpInitializeBootStartDriver.c)
+ *     PiDrvDbUnloadNodeWaitWorkerCallback @ 0x140364690 (PiDrvDbUnloadNodeWaitWorkerCallback.c)
+ *     PiDrvDbLoadNode @ 0x14062A394 (PiDrvDbLoadNode.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140725C90 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PiDevCfgProcessDevice @ 0x140736238 (PiDevCfgProcessDevice.c)
+ *     IopLoadDriver @ 0x14073CD08 (IopLoadDriver.c)
+ *     PnpRebalance @ 0x1408B87F4 (PnpRebalance.c)
+ *     PnpInitializeBootStartDriver @ 0x140A5E4B4 (PnpInitializeBootStartDriver.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PnpDiagnosticTraceObjectWithStatus(
@@ -20,31 +20,31 @@ NTSTATUS __fastcall PnpDiagnosticTraceObjectWithStatus(
         int a3)
 {
   REGHANDLE v3; // rbx
-  int v6; // r8d
-  __int16 v8; // [rsp+30h] [rbp-40h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+38h] [rbp-38h] BYREF
-  __int64 v10; // [rsp+48h] [rbp-28h]
-  int v11; // [rsp+50h] [rbp-20h]
-  int v12; // [rsp+54h] [rbp-1Ch]
-  int *v13; // [rsp+58h] [rbp-18h]
-  int v14; // [rsp+60h] [rbp-10h]
-  int v15; // [rsp+64h] [rbp-Ch]
-  int v16; // [rsp+A0h] [rbp+30h] BYREF
+  int v7; // ecx
+  __int16 v8; // [rsp+40h] [rbp-40h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v10; // [rsp+58h] [rbp-28h]
+  int v11; // [rsp+60h] [rbp-20h]
+  int v12; // [rsp+64h] [rbp-1Ch]
+  int *v13; // [rsp+68h] [rbp-18h]
+  int v14; // [rsp+70h] [rbp-10h]
+  int v15; // [rsp+74h] [rbp-Ch]
+  int v16; // [rsp+B0h] [rbp+30h] BYREF
 
   v16 = a3;
   v3 = PnpEtwHandle;
   if ( !PnpEtwHandle || !EtwEventEnabled(PnpEtwHandle, EventDescriptor) )
     return 0;
-  v6 = *a2;
+  v7 = *a2;
   UserData.Reserved = 0;
   v12 = 0;
   v15 = 0;
-  v8 = (unsigned __int16)v6 >> 1;
+  v8 = (unsigned __int16)v7 >> 1;
   UserData.Ptr = (ULONGLONG)&v8;
   v10 = *((_QWORD *)a2 + 1);
   v13 = &v16;
-  v11 = v6;
+  v11 = v7;
   UserData.Size = 2;
   v14 = 4;
-  return EtwWrite(v3, EventDescriptor, 0LL, 3u, &UserData);
+  return EtwWriteEx(v3, EventDescriptor, 0LL, 0, 0LL, 0LL, 3u, &UserData);
 }

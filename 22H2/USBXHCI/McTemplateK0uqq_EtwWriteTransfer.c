@@ -1,12 +1,12 @@
 /*
- * XREFs of McTemplateK0uqq_EtwWriteTransfer @ 0x1C002262E
+ * XREFs of McTemplateK0uqq_EtwWriteTransfer @ 0x1C0043248
  * Callers:
  *     Isoch_Stage_MapIntoRing @ 0x1C0001050 (Isoch_Stage_MapIntoRing.c)
- *     Control_Transfer_MapIntoRing @ 0x1C00062D0 (Control_Transfer_MapIntoRing.c)
- *     UsbDevice_DirectWriteDoorbell @ 0x1C0008100 (UsbDevice_DirectWriteDoorbell.c)
+ *     Control_Transfer_MapIntoRing @ 0x1C0004610 (Control_Transfer_MapIntoRing.c)
+ *     UsbDevice_DirectWriteDoorbell @ 0x1C000583C (UsbDevice_DirectWriteDoorbell.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022398 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall McTemplateK0uqq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, char a4, char a5, char a6)

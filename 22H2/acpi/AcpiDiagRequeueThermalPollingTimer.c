@@ -1,11 +1,11 @@
 /*
- * XREFs of AcpiDiagRequeueThermalPollingTimer @ 0x1C0007360
+ * XREFs of AcpiDiagRequeueThermalPollingTimer @ 0x1C004958C
  * Callers:
- *     AcpiDiagThermalPollingTimerRoutine @ 0x1C0007430 (AcpiDiagThermalPollingTimerRoutine.c)
- *     AcpiDiagThermalPollingTraceControlCallback @ 0x1C00074B0 (AcpiDiagThermalPollingTraceControlCallback.c)
- *     AcpiDiagInitialize @ 0x1C00A71F8 (AcpiDiagInitialize.c)
+ *     AcpiDiagThermalPollingTimerRoutine @ 0x1C0049650 (AcpiDiagThermalPollingTimerRoutine.c)
+ *     AcpiDiagThermalPollingTraceControlCallback @ 0x1C00496D0 (AcpiDiagThermalPollingTraceControlCallback.c)
+ *     AcpiDiagInitialize @ 0x1C00BDE98 (AcpiDiagInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 void AcpiDiagRequeueThermalPollingTimer()
@@ -19,16 +19,23 @@ void AcpiDiagRequeueThermalPollingTimer()
   v0 = KeAcquireSpinLockRaiseToDpc(&AcpiThermalConstraintLock);
   Reserved = *((_QWORD *)&WPP_MAIN_CB.Reserved + 1);
   v2 = v0;
-  if ( *((_QWORD *)&WPP_MAIN_CB.Reserved + 1)
-    && (!WPP_MAIN_CB.Reserved || (__int64)WPP_MAIN_CB.Reserved >= *((__int64 *)&WPP_MAIN_CB.Reserved + 1))
-    || (Reserved = (__int64)WPP_MAIN_CB.Reserved) != 0 )
+  if ( !*((_QWORD *)&WPP_MAIN_CB.Reserved + 1)
+    || WPP_MAIN_CB.Reserved && (__int64)WPP_MAIN_CB.Reserved < *((__int64 *)&WPP_MAIN_CB.Reserved + 1) )
+  {
+    Reserved = (__int64)WPP_MAIN_CB.Reserved;
+  }
+  if ( Reserved )
   {
     *((_QWORD *)&v3 + 1) = -1LL;
-    KeSetTimer2(&AcpiDiagThermalPollingTimer, -Reserved, 0LL, &v3);
+    ((void (__fastcall *)(void *, __int64, _QWORD, __int128 *))KeSetTimer2)(
+      &AcpiDiagThermalPollingTimer,
+      -Reserved,
+      0LL,
+      &v3);
   }
   else
   {
-    KeCancelTimer2(&AcpiDiagThermalPollingTimer, 0LL);
+    KeCancelTimer2(&AcpiDiagThermalPollingTimer);
   }
   KeReleaseSpinLock(&AcpiThermalConstraintLock, v2);
 }

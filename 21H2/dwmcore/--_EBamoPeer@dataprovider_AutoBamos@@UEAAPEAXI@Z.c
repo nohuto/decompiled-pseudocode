@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_EBamoPeer@dataprovider_AutoBamos@@UEAAPEAXI@Z @ 0x1801966A0
+ * XREFs of ??_EBamoPeer@dataprovider_AutoBamos@@UEAAPEAXI@Z @ 0x180165C80
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ??1BaseBamoPeerImpl@BamoImpl@Microsoft@@UEAA@XZ @ 0x180196428 (--1BaseBamoPeerImpl@BamoImpl@Microsoft@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ?Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ @ 0x1800D7510 (-Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ.c)
  */
 
 dataprovider_AutoBamos::BamoPeer *__fastcall dataprovider_AutoBamos::BamoPeer::`vector deleting destructor'(
@@ -13,14 +13,13 @@ dataprovider_AutoBamos::BamoPeer *__fastcall dataprovider_AutoBamos::BamoPeer::`
         __int64 a3,
         const char *a4)
 {
-  char v5; // bl
+  char v5; // di
+  Microsoft::BamoImpl::BamoImplObject *v6; // rcx
 
   v5 = a2;
-  Microsoft::BamoImpl::BaseBamoPeerImpl::~BaseBamoPeerImpl(
-    (dataprovider_AutoBamos::BamoPeer *)((char *)this + 8),
-    a2,
-    a3,
-    a4);
+  v6 = (Microsoft::BamoImpl::BamoImplObject *)*((_QWORD *)this + 4);
+  if ( v6 )
+    Microsoft::BamoImpl::BamoImplObject::Release(v6, a2, a3, a4);
   if ( (v5 & 1) != 0 )
     operator delete(this);
   return this;

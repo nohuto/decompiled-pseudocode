@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentSizeBlock @ 0x1405F338C
+ * XREFs of RtlpHpLfhSubsegmentSizeBlock @ 0x140595158
  * Callers:
- *     RtlpHpSegSizeInternal @ 0x1405F32FC (RtlpHpSegSizeInternal.c)
+ *     RtlpHpSegSizeInternal @ 0x1405950C8 (RtlpHpSegSizeInternal.c)
  * Callees:
- *     RtlpHpLfhSubsegmentSizeBlockInternal @ 0x1405F3448 (RtlpHpLfhSubsegmentSizeBlockInternal.c)
+ *     RtlpHpLfhSubsegmentSizeBlockInternal @ 0x140595214 (RtlpHpLfhSubsegmentSizeBlockInternal.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentSizeBlock(__int64 a1, __int64 a2, __int64 a3)
 {
-  int v5; // eax
+  unsigned int v5; // eax
   int v6; // r11d
   __int64 v7; // rcx
   unsigned int v8; // edx
@@ -17,7 +17,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentSizeBlock(__int64 a1, __int64 a2, __int64 
   unsigned __int64 v11; // r8
   int v12; // edx
 
-  v5 = qword_140C5A5C8 ^ *(_DWORD *)(a2 + 40) ^ ((unsigned int)a2 >> 12);
+  v5 = DWORD2(RtlpHpHeapGlobals) ^ *(_DWORD *)(a2 + 40) ^ ((unsigned int)a2 >> 12);
   v6 = (unsigned __int16)v5;
   v7 = *(_QWORD *)(a1
                  + 8LL

@@ -3,8 +3,8 @@
  * Callers:
  *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiInsertProcessVads @ 0x140679B84 (MiInsertProcessVads.c)
- *     MiInsertChildVads @ 0x14085E710 (MiInsertChildVads.c)
+ *     MiInsertProcessVads @ 0x140679B64 (MiInsertProcessVads.c)
+ *     MiInsertChildVads @ 0x14085E6F0 (MiInsertChildVads.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
@@ -14,7 +14,7 @@
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
  *     MiVadMapsLargeImage @ 0x140074A10 (MiVadMapsLargeImage.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall MiGetWsAndInsertVad(unsigned __int64 a1, __int64 a2)

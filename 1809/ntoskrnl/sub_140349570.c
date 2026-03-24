@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_140349570 @ 0x140349570
  * Callers:
- *     RtlpComputeEpilogueOffset @ 0x1401AEF4C (RtlpComputeEpilogueOffset.c)
+ *     RtlpComputeEpilogueOffset @ 0x1401AEF6C (RtlpComputeEpilogueOffset.c)
  * Callees:
  *     SdbpCheckDll @ 0x14034A890 (SdbpCheckDll.c)
  *     KeGuardDispatchICall @ 0x14034AB40 (KeGuardDispatchICall.c)

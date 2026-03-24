@@ -1,39 +1,68 @@
 /*
- * XREFs of AlpcMessageCleanupProcedure @ 0x140738C90
+ * XREFs of AlpcMessageCleanupProcedure @ 0x1405DE260
  * Callers:
- *     AlpcpProcessSynchronousRequest @ 0x14073DAE0 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReleaseProcessWakeCounter @ 0x140715770 (PsReleaseProcessWakeCounter.c)
- *     AlpcpReleaseAttributes @ 0x140738D44 (AlpcpReleaseAttributes.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     PsReleaseProcessWakeCounter @ 0x1405DE9D0 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReleaseViewAttribute @ 0x140697744 (AlpcpReleaseViewAttribute.c)
  */
 
 __int64 __fastcall AlpcMessageCleanupProcedure(__int64 a1)
 {
-  void *v2; // rcx
-  __int64 v3; // rcx
-  __int64 v4; // rcx
+  struct _DMA_ADAPTER *v2; // rcx
+  ULONG_PTR v3; // rcx
+  ULONG_PTR v4; // rcx
+  ULONG_PTR v5; // rcx
+  unsigned __int64 v6; // rcx
+  __int64 v7; // rcx
+  __int64 v8; // rcx
   __int64 result; // rax
 
   *(_DWORD *)(a1 + 264) |= 0x80000000;
-  v2 = *(void **)(a1 + 24);
+  v2 = *(struct _DMA_ADAPTER **)(a1 + 24);
   if ( v2 )
   {
     if ( (*(_DWORD *)(a1 + 40) & 0x1000) != 0 )
-      ObfDereferenceObject(v2);
+      HalPutDmaAdapter(v2);
     *(_QWORD *)(a1 + 24) = 0LL;
   }
-  AlpcpReleaseAttributes(a1 + 104);
-  v3 = *(_QWORD *)(a1 + 208);
+  v3 = *(_QWORD *)(a1 + 136);
   if ( v3 )
   {
-    PsReleaseProcessWakeCounter(v3);
-    *(_QWORD *)(a1 + 208) = 0LL;
+    AlpcpDereferenceBlobEx(v3);
+    *(_QWORD *)(a1 + 136) = 0LL;
   }
-  v4 = *(_QWORD *)(a1 + 216);
+  v4 = *(_QWORD *)(a1 + 144);
   if ( v4 )
   {
-    PsReleaseProcessWakeCounter(v4);
+    AlpcpReleaseViewAttribute(v4);
+    *(_QWORD *)(a1 + 144) = 0LL;
+  }
+  v5 = *(_QWORD *)(a1 + 152);
+  if ( v5 )
+  {
+    AlpcpDereferenceBlobEx(v5);
+    *(_QWORD *)(a1 + 152) = 0LL;
+  }
+  v6 = *(_QWORD *)(a1 + 160);
+  if ( (v6 & 1) != 0 )
+  {
+    if ( v6 >= 4 && (v6 & 2) != 0 )
+      HalPutDmaAdapter((PADAPTER_OBJECT)(v6 & 0xFFFFFFFFFFFFFFFCuLL));
+    *(_QWORD *)(a1 + 160) = 0LL;
+  }
+  v7 = *(_QWORD *)(a1 + 208);
+  if ( v7 )
+  {
+    PsReleaseProcessWakeCounter(v7, *(unsigned int *)(a1 + 264));
+    *(_QWORD *)(a1 + 208) = 0LL;
+  }
+  v8 = *(_QWORD *)(a1 + 216);
+  if ( v8 )
+  {
+    PsReleaseProcessWakeCounter(v8, *(unsigned int *)(a1 + 264));
     *(_QWORD *)(a1 + 216) = 0LL;
   }
   result = *(_QWORD *)(a1 + 96);

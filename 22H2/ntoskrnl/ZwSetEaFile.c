@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwSetEaFile @ 0x14041DA60
+ * XREFs of ZwSetEaFile @ 0x1403FCC80
  * Callers:
- *     DifZwSetEaFileWrapper @ 0x1405F6B00 (DifZwSetEaFileWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

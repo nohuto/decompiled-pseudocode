@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReferencePageForModifiedWrite @ 0x1403497E0
+ * XREFs of MiReferencePageForModifiedWrite @ 0x14025614C
  * Callers:
- *     MiBuildMappedCluster @ 0x14021C0F0 (MiBuildMappedCluster.c)
- *     MiGatherMappedPages @ 0x140297C04 (MiGatherMappedPages.c)
- *     MiGetPageForWriteCluster @ 0x14046C0B6 (MiGetPageForWriteCluster.c)
- *     MiAddToReservationCluster @ 0x14063781C (MiAddToReservationCluster.c)
- *     MiBuildReservationCluster @ 0x140638354 (MiBuildReservationCluster.c)
- *     MiFillNoReservationCluster @ 0x1406394D8 (MiFillNoReservationCluster.c)
- *     MmStoreProbeAndLockPages @ 0x14065D30C (MmStoreProbeAndLockPages.c)
+ *     MiGatherMappedPages @ 0x140255428 (MiGatherMappedPages.c)
+ *     MiBuildMappedCluster @ 0x140255930 (MiBuildMappedCluster.c)
+ *     MmStoreProbeAndLockPages @ 0x14030EE40 (MmStoreProbeAndLockPages.c)
+ *     MiFillNoReservationCluster @ 0x140318F70 (MiFillNoReservationCluster.c)
+ *     MiBuildReservationCluster @ 0x1403866F0 (MiBuildReservationCluster.c)
+ *     MiGetPageForWriteCluster @ 0x140386FCC (MiGetPageForWriteCluster.c)
+ *     MiAddToReservationCluster @ 0x1403871B4 (MiAddToReservationCluster.c)
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x140266510 (MiUnlinkPageFromListEx.c)
- *     MiGetPagePrivilege @ 0x140282C40 (MiGetPagePrivilege.c)
- *     MiClearPfnImageVerified @ 0x140335218 (MiClearPfnImageVerified.c)
- *     MiChargeForWriteInProgressPage @ 0x140349914 (MiChargeForWriteInProgressPage.c)
+ *     MiUnlinkPageFromList @ 0x140217870 (MiUnlinkPageFromList.c)
+ *     MiChargeForWriteInProgressPage @ 0x140259E24 (MiChargeForWriteInProgressPage.c)
+ *     MiGetPagePrivilege @ 0x1402A8D80 (MiGetPagePrivilege.c)
+ *     MiClearPfnImageVerified @ 0x1402FBA64 (MiClearPfnImageVerified.c)
  */
 
 __int64 __fastcall MiReferencePageForModifiedWrite(ULONG_PTR BugCheckParameter2, char a2)
@@ -24,14 +24,14 @@ __int64 __fastcall MiReferencePageForModifiedWrite(ULONG_PTR BugCheckParameter2,
   __int64 result; // rax
   __int64 v9; // rdx
 
-  v4 = *(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 43) & 0x3FFLL));
+  v4 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 39) & 0x3FFLL));
   if ( (a2 & 1) != 0 )
   {
     v5 = 1;
 LABEL_3:
     if ( (a2 & 4) == 0 )
     {
-      MiUnlinkPageFromListEx(BugCheckParameter2, 0LL);
+      MiUnlinkPageFromList(BugCheckParameter2, 0);
       *(_QWORD *)(BugCheckParameter2 + 24) &= 0xC000000000000000uLL;
     }
     v6 = *(_BYTE *)(BugCheckParameter2 + 34);
@@ -40,11 +40,8 @@ LABEL_3:
     *(_BYTE *)(BugCheckParameter2 + 34) = v7;
     if ( (a2 & 8) == 0 )
       *(_BYTE *)(BugCheckParameter2 + 34) = v7 & 0xEF;
-    if ( (*(_DWORD *)(BugCheckParameter2 + 16) & 0x400LL) == 0
-      && (MiGetPagePrivilege(BugCheckParameter2, 1, 0LL) & 0x10) != 0 )
-    {
-      MiClearPfnImageVerified(BugCheckParameter2, 28);
-    }
+    if ( (*(_DWORD *)(BugCheckParameter2 + 16) & 0x400LL) == 0 && (MiGetPagePrivilege(BugCheckParameter2) & 0x10) != 0 )
+      MiClearPfnImageVerified(BugCheckParameter2, 28LL);
     return v5;
   }
   v9 = (*(_DWORD *)(BugCheckParameter2 + 16) >> 10) & 1 | 2u;

@@ -1,12 +1,12 @@
 /*
- * XREFs of SepCaptureTokenSecurityOperations @ 0x1402D6944
+ * XREFs of SepCaptureTokenSecurityOperations @ 0x14027F304
  * Callers:
- *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140753F8C (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
+ *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140675CFC (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
  * Callees:
- *     RtlULongLongMult @ 0x140300888 (RtlULongLongMult.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall SepCaptureTokenSecurityOperations(_DWORD *a1, unsigned int a2, char a3, _QWORD *a4)
@@ -14,13 +14,13 @@ NTSTATUS __fastcall SepCaptureTokenSecurityOperations(_DWORD *a1, unsigned int a
   unsigned int v5; // esi
   unsigned int v7; // ebx
   NTSTATUS result; // eax
-  __int64 v9; // rcx
-  void *Pool2; // rdx
-  PVOID P[2]; // [rsp+28h] [rbp-10h] BYREF
+  SIZE_T v9; // rcx
+  _DWORD *PoolWithTag; // rdx
+  SIZE_T NumberOfBytes[2]; // [rsp+28h] [rbp-10h] BYREF
 
   v5 = a2;
   v7 = 0;
-  P[0] = 0LL;
+  NumberOfBytes[0] = 0LL;
   if ( !a3 )
   {
     *a4 = a1;
@@ -29,17 +29,17 @@ NTSTATUS __fastcall SepCaptureTokenSecurityOperations(_DWORD *a1, unsigned int a
   if ( *a1 == 1 )
   {
     v9 = 4LL;
-    P[0] = (PVOID)4;
+    NumberOfBytes[0] = 4LL;
     v5 = 1;
   }
   else
   {
     if ( !a2 )
       return -1073741811;
-    result = RtlULongLongMult(4uLL, a2, (ULONGLONG *)P);
+    result = RtlULongLongMult(4uLL, a2, NumberOfBytes);
     if ( result < 0 )
       return result;
-    v9 = (__int64)P[0];
+    v9 = NumberOfBytes[0];
   }
   if ( v9 )
   {
@@ -48,16 +48,16 @@ NTSTATUS __fastcall SepCaptureTokenSecurityOperations(_DWORD *a1, unsigned int a
     if ( (unsigned __int64)a1 + v9 > 0x7FFFFFFF0000LL || (_DWORD *)((char *)a1 + v9) < a1 )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
-  Pool2 = (void *)ExAllocatePool2(256LL, v9, 1884251475LL);
-  P[0] = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9, 0x704F6553u);
+  NumberOfBytes[0] = (SIZE_T)PoolWithTag;
+  if ( PoolWithTag )
   {
     while ( v7 < v5 )
     {
-      *((_DWORD *)Pool2 + v7) = a1[v7];
+      PoolWithTag[v7] = a1[v7];
       ++v7;
     }
-    *a4 = Pool2;
+    *a4 = PoolWithTag;
     return 0;
   }
   return -1073741801;

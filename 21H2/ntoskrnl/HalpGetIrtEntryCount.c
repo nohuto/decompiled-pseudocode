@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpGetIrtEntryCount @ 0x14051DB18
+ * XREFs of HalpGetIrtEntryCount @ 0x1404D1568
  * Callers:
- *     HalpIommuInitializeAll @ 0x140A543D8 (HalpIommuInitializeAll.c)
- *     HsaInitializeInterruptRemapping @ 0x140A64868 (HsaInitializeInterruptRemapping.c)
+ *     HalpIommuInitializeAll @ 0x14099B3D4 (HalpIommuInitializeAll.c)
+ *     HsaInitializeInterruptRemapping @ 0x1409AA448 (HsaInitializeInterruptRemapping.c)
  * Callees:
  *     <none>
  */

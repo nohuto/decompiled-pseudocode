@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetShapeTransformRealization@CProxyGeometry@@MEBAXPEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x18024D320
+ * XREFs of ?GetShapeTransformRealization@CProxyGeometry@@MEBAXPEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x1801E6230
  * Callers:
  *     <none>
  * Callees:
- *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x180080594 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
- *     ?GetShapeTransformRealization@CGeometry@@MEBAXPEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x1800DBE20 (-GetShapeTransformRealization@CGeometry@@MEBAXPEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?GetRealization@CViewBox@@UEBAXAEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x1802555D0 (-GetRealization@CViewBox@@UEBAXAEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z.c)
+ *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x180058584 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
+ *     ?GetShapeTransformRealization@CGeometry@@MEBAXPEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x1800C2280 (-GetShapeTransformRealization@CGeometry@@MEBAXPEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?GetRealization@CViewBox@@UEBAXAEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x1801F1400 (-GetRealization@CViewBox@@UEBAXAEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z.c)
  */
 
 void __fastcall CProxyGeometry::GetShapeTransformRealization(
@@ -19,22 +19,22 @@ void __fastcall CProxyGeometry::GetShapeTransformRealization(
   CViewBox *v8; // rcx
   __int64 v9; // xmm1_8
   __int64 v10; // xmm0_8
-  D2D_SIZE_F v11; // [rsp+20h] [rbp-60h] BYREF
+  struct D2D_SIZE_F v11; // [rsp+20h] [rbp-60h] BYREF
   __int128 v12; // [rsp+28h] [rbp-58h] BYREF
   __int64 v13; // [rsp+38h] [rbp-48h]
   struct D2D_MATRIX_3X2_F v14; // [rsp+40h] [rbp-40h] BYREF
   struct D2D_MATRIX_3X2_F v15; // [rsp+58h] [rbp-28h] BYREF
 
   *(_QWORD *)&v14.m[2][0] = 0LL;
-  v5 = *((_QWORD *)this + 10) == 0LL;
-  v7 = *(_OWORD *)&_xmm;
-  *(_OWORD *)&v14.m11 = *(_OWORD *)&_xmm;
+  v5 = *((_QWORD *)this + 9) == 0LL;
+  v7 = _xmm;
+  *(_OWORD *)&v14.m11 = _xmm;
   if ( !v5 )
   {
     CGeometry::GetShapeTransformRealization(this, a2, &v14);
     v7 = *(_OWORD *)&v14.m11;
   }
-  v8 = (CViewBox *)*((_QWORD *)this + 19);
+  v8 = (CViewBox *)*((_QWORD *)this + 18);
   if ( v8 )
   {
     v11 = 0LL;

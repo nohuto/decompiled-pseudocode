@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUnlockNestedVad @ 0x140A47C68
+ * XREFs of MiUnlockNestedVad @ 0x1408D9AE4
  * Callers:
- *     MiLockAddressSpaceToo @ 0x14028940C (MiLockAddressSpaceToo.c)
- *     MiFreeVadRange @ 0x140309A70 (MiFreeVadRange.c)
- *     MiPerformVadSplitting @ 0x14030B4C4 (MiPerformVadSplitting.c)
- *     MiUpControlAreaRefs @ 0x140625F6C (MiUpControlAreaRefs.c)
- *     MiUnlockAndDereferenceNestedVad @ 0x140660C8C (MiUnlockAndDereferenceNestedVad.c)
+ *     MiDeleteVad @ 0x14021BFB0 (MiDeleteVad.c)
+ *     MiDeletePartialVad @ 0x14027DF5C (MiDeletePartialVad.c)
+ *     MiFreeVadRange @ 0x140298C44 (MiFreeVadRange.c)
+ *     MiUpControlAreaRefs @ 0x14052AAB0 (MiUpControlAreaRefs.c)
+ *     MiUnlockAndDereferenceNestedVad @ 0x14055BD10 (MiUnlockAndDereferenceNestedVad.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
  */
 
-signed __int32 __fastcall MiUnlockNestedVad(__int64 a1)
+char __fastcall MiUnlockNestedVad(__int64 a1)
 {
   ULONG_PTR v1; // rbx
 

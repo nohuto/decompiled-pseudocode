@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiEndGdiRendering @ 0x1C00FF9B0
+ * XREFs of NtGdiEndGdiRendering @ 0x1C0018130
  * Callers:
  *     <none>
  * Callees:
- *     GreEndGdiRenderingToDxSurface @ 0x1C00FF9EC (GreEndGdiRenderingToDxSurface.c)
+ *     GreEndGdiRenderingToDxSurface @ 0x1C001816C (GreEndGdiRenderingToDxSurface.c)
  */
 
 __int64 __fastcall NtGdiEndGdiRendering(HSURF a1, __int64 a2, _DWORD *a3)

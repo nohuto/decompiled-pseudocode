@@ -1,21 +1,21 @@
 /*
- * XREFs of ?bCleanupSpriteStateRects@@YAHPEAUHDEV__@@PEAU_SPRITESTATE@@@Z @ 0x1C010FFBC
+ * XREFs of ?bCleanupSpriteStateRects@@YAHPEAUHDEV__@@PEAU_SPRITESTATE@@@Z @ 0x1C002964C
  * Callers:
- *     bSetDevDragRect @ 0x1C010FE70 (bSetDevDragRect.c)
- *     bSetDevPreviewRect @ 0x1C0282884 (bSetDevPreviewRect.c)
+ *     bSetDevDragRect @ 0x1C0029500 (bSetDevDragRect.c)
+ *     bSetDevPreviewRect @ 0x1C028615C (bSetDevPreviewRect.c)
  * Callees:
- *     GreDeleteSprite @ 0x1C00B3D48 (GreDeleteSprite.c)
+ *     GreDeleteSprite @ 0x1C00EF428 (GreDeleteSprite.c)
  */
 
 __int64 __fastcall bCleanupSpriteStateRects(HDEV a1, struct _SPRITESTATE *a2)
 {
-  HSPRITE *v5; // rdi
+  void **v5; // rdi
   __int64 v6; // rsi
-  HSPRITE v7; // r8
+  void *v7; // r8
 
   if ( *((_DWORD *)a2 + 274) )
   {
-    v5 = (HSPRITE *)((char *)a2 + 1128);
+    v5 = (void **)((char *)a2 + 1128);
     v6 = 4LL;
     do
     {
@@ -32,7 +32,7 @@ __int64 __fastcall bCleanupSpriteStateRects(HDEV a1, struct _SPRITESTATE *a2)
   }
   if ( *((_DWORD *)a2 + 276) )
   {
-    v7 = (HSPRITE)*((_QWORD *)a2 + 145);
+    v7 = (void *)*((_QWORD *)a2 + 145);
     if ( v7 )
     {
       GreDeleteSprite(a1, 0LL, v7, *((_DWORD *)a2 + 277));

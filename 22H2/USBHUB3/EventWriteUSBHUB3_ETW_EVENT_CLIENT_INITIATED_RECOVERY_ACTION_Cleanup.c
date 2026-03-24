@@ -1,17 +1,17 @@
 /*
- * XREFs of EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Cleanup @ 0x1C001D11C
+ * XREFs of EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Cleanup @ 0x1C001A8A8
  * Callers:
- *     HUBPDO_EvtDeviceReportedMissing @ 0x1C007F3B0 (HUBPDO_EvtDeviceReportedMissing.c)
+ *     HUBPDO_EvtDeviceReportedMissing @ 0x1C007ABF0 (HUBPDO_EvtDeviceReportedMissing.c)
  * Callees:
- *     McTemplateK0pqqhhhq_EtwWriteTransfer @ 0x1C00146C4 (McTemplateK0pqqhhhq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqhhhq_EtwWriteTransfer @ 0x1C0013198 (McTemplateK0pqqhhhq_EtwWriteTransfer.c)
  */
 
-NTSTATUS __fastcall EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Cleanup(__int64 a1, __int64 a2)
+_DWORD *__fastcall EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Cleanup(__int64 a1, __int64 a2)
 {
   _DWORD *v3; // rsi
   _DWORD *v4; // rdi
   __int64 v5; // rcx
-  NTSTATUS result; // eax
+  _DWORD *result; // rax
   __int64 v7; // [rsp+20h] [rbp-38h]
   __int64 v8; // [rsp+28h] [rbp-30h]
   __int64 v9; // [rsp+30h] [rbp-28h]
@@ -21,12 +21,12 @@ NTSTATUS __fastcall EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION
 
   if ( a1 && *(_QWORD *)a1 )
   {
-    v3 = &unk_1C006C8D8;
-    v4 = (_DWORD *)(a1 + 2676);
+    v3 = &unk_1C00697F0;
+    v4 = (_DWORD *)(a1 + 2668);
     do
     {
       v5 = (unsigned int)*v4;
-      if ( (unsigned int)v5 > 1 && (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x400000) != 0 )
+      if ( (unsigned int)v5 > 1 && (BYTE2(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 0x40) != 0 )
       {
         LODWORD(v12) = v5 - 1;
         LOWORD(v11) = *(_WORD *)(a1 + 2000);
@@ -34,23 +34,24 @@ NTSTATUS __fastcall EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION
         LOWORD(v9) = *(_WORD *)(a1 + 1996);
         LODWORD(v8) = v3[1];
         LODWORD(v7) = *v3;
-        result = McTemplateK0pqqhhhq_EtwWriteTransfer(
-                   v5,
-                   a2,
-                   (const GUID *)(a1 + 1516),
-                   *(_QWORD *)(*(_QWORD *)a1 + 248LL),
-                   v7,
-                   v8,
-                   v9,
-                   v10,
-                   v11,
-                   v12);
+        McTemplateK0pqqhhhq_EtwWriteTransfer(
+          v5,
+          a2,
+          (const GUID *)(a1 + 1516),
+          *(_QWORD *)(*(_QWORD *)a1 + 248LL),
+          v7,
+          v8,
+          v9,
+          v10,
+          v11,
+          v12);
       }
       *v4 = 0;
-      v3 += 2;
+      result = dword_1C0069818;
       ++v4;
+      v3 += 2;
     }
-    while ( (__int64)v3 < (__int64)FwUpdateDeviceDescriptor );
+    while ( (__int64)v3 < (__int64)dword_1C0069818 );
   }
   return result;
 }

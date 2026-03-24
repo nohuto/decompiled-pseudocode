@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlGetSuiteMask @ 0x1406B4810
+ * XREFs of RtlGetSuiteMask @ 0x1406B47F0
  * Callers:
- *     RtlGetVersion @ 0x1406B4750 (RtlGetVersion.c)
+ *     RtlGetVersion @ 0x1406B4730 (RtlGetVersion.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C00 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
  */
 
 __int64 RtlGetSuiteMask()

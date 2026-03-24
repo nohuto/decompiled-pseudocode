@@ -1,18 +1,17 @@
 /*
- * XREFs of ?UpdateClippingPlanes@ClipPlaneIterator@@QEAAJXZ @ 0x1801B7714
+ * XREFs of ?UpdateClippingPlanes@ClipPlaneIterator@@QEAAJXZ @ 0x18018FB08
  * Callers:
- *     ?EmitDrawListCache@CDrawingContext@@QEAAJPEAVCDrawListCache@@@Z @ 0x18008A630 (-EmitDrawListCache@CDrawingContext@@QEAAJPEAVCDrawListCache@@@Z.c)
- *     ?Draw@CContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18008A870 (-Draw@CContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?EmitDrawListCache@CDrawingContext@@QEAAJPEAVCDrawListCache@@@Z @ 0x1800941F8 (-EmitDrawListCache@CDrawingContext@@QEAAJPEAVCDrawListCache@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetMorePlaceholderClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z @ 0x1801B6E74 (-GetMorePlaceholderClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z.c)
- *     ?GetMoreStandardClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z @ 0x1801B6F48 (-GetMoreStandardClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z.c)
- *     ?HasMoreClipPlanes@ClipPlaneIterator@@QEBA_NXZ @ 0x1801B70A0 (-HasMoreClipPlanes@ClipPlaneIterator@@QEBA_NXZ.c)
- *     ??4?$ComPtr@VClipPlaneInfoRef@@@WRL@Microsoft@@QEAAAEAV012@PEAVClipPlaneInfoRef@@@Z @ 0x1801F10D0 (--4-$ComPtr@VClipPlaneInfoRef@@@WRL@Microsoft@@QEAAAEAV012@PEAVClipPlaneInfoRef@@@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetMorePlaceholderClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z @ 0x18018F268 (-GetMorePlaceholderClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z.c)
+ *     ?GetMoreStandardClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z @ 0x18018F33C (-GetMoreStandardClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z.c)
+ *     ?HasMoreClipPlanes@ClipPlaneIterator@@QEBA_NXZ @ 0x18018F494 (-HasMoreClipPlanes@ClipPlaneIterator@@QEBA_NXZ.c)
+ *     ??4?$ComPtr@VCPolygon@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPolygon@@@Z @ 0x1801AAA18 (--4-$ComPtr@VCPolygon@@@WRL@Microsoft@@QEAAAEAV012@PEAVCPolygon@@@Z.c)
  */
 
 __int64 __fastcall ClipPlaneIterator::UpdateClippingPlanes(ClipPlaneIterator *this)
@@ -21,7 +20,7 @@ __int64 __fastcall ClipPlaneIterator::UpdateClippingPlanes(ClipPlaneIterator *th
   _DWORD *v3; // rax
   __int64 v4; // rcx
   _DWORD *v5; // rbx
-  unsigned int v6; // r8d
+  unsigned int v6; // ecx
   __int64 v7; // rdx
   float x; // xmm2_4
   bool v9; // cc
@@ -30,13 +29,13 @@ __int64 __fastcall ClipPlaneIterator::UpdateClippingPlanes(ClipPlaneIterator *th
   _DWORD *v12; // r8
   __int64 v13; // rdx
   unsigned int v15[4]; // [rsp+30h] [rbp-68h] BYREF
-  D2D_VECTOR_4F v16[4]; // [rsp+40h] [rbp-58h] BYREF
+  struct D2D_VECTOR_4F v16[4]; // [rsp+40h] [rbp-58h] BYREF
 
   v1 = 0;
   v15[0] = 0;
   if ( *(_BYTE *)this || !ClipPlaneIterator::HasMoreClipPlanes(this) )
   {
-    Microsoft::WRL::ComPtr<ClipPlaneInfoRef>::operator=(*((_QWORD *)this + 15) + 256LL, 0LL);
+    Microsoft::WRL::ComPtr<CPolygon>::operator=(*((_QWORD *)this + 15) + 256LL, 0LL);
   }
   else
   {
@@ -48,18 +47,25 @@ __int64 __fastcall ClipPlaneIterator::UpdateClippingPlanes(ClipPlaneIterator *th
     v5 = v3;
     if ( v3 )
     {
-      memset_0(v3 + 3, 0, 0x54uLL);
+      memset_0(v3, 0, 0x60uLL);
       v5[2] = 0;
       *(_QWORD *)v5 = &ClipPlaneInfoRef::`vftable';
-      ((void (__fastcall *)(_DWORD *))ClipPlaneInfoRef::`vftable')(v5);
+    }
+    else
+    {
+      v5 = 0LL;
+    }
+    if ( v5 )
+    {
+      (**(void (__fastcall ***)(_DWORD *))v5)(v5);
       v6 = v15[0];
       v7 = 0LL;
       if ( !v15[0] )
-        goto LABEL_16;
+        goto LABEL_19;
       do
       {
         x = v16[(unsigned int)v7].x;
-        *(D2D_VECTOR_4F *)&v5[4 * (unsigned int)v7 + 4] = v16[(unsigned int)v7];
+        *(struct D2D_VECTOR_4F *)&v5[4 * (unsigned int)v7 + 4] = v16[(unsigned int)v7];
         if ( x == 0.0 )
           v9 = v16[(unsigned int)v7].y <= 0.0;
         else
@@ -74,7 +80,7 @@ __int64 __fastcall ClipPlaneIterator::UpdateClippingPlanes(ClipPlaneIterator *th
       while ( (unsigned int)v7 < v6 );
       if ( (unsigned int)v7 < 4 )
       {
-LABEL_16:
+LABEL_19:
         v11 = &v5[4 * v7 + 4];
         v12 = &v5[v7 + 20];
         v13 = (unsigned int)(4 - v7);
@@ -88,13 +94,13 @@ LABEL_16:
         }
         while ( v13 );
       }
-      Microsoft::WRL::ComPtr<ClipPlaneInfoRef>::operator=(*((_QWORD *)this + 15) + 256LL, v5);
+      Microsoft::WRL::ComPtr<CPolygon>::operator=(*((_QWORD *)this + 15) + 256LL, v5);
       (*(void (__fastcall **)(_DWORD *))(*(_QWORD *)v5 + 8LL))(v5);
     }
     else
     {
       v1 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, -2147024882, 0x2A8u);
+      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, -2147024882, 0x2A8u, 0LL);
     }
   }
   return v1;

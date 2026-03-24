@@ -1,16 +1,16 @@
 /*
- * XREFs of CiSystemUpdateThreadTag @ 0x1C0002A20
+ * XREFs of CiSystemUpdateThreadTag @ 0x1C0001B10
  * Callers:
- *     CiSchedulerRemoveThread @ 0x1C0002110 (CiSchedulerRemoveThread.c)
- *     CiSchedulerAddThread @ 0x1C00028E0 (CiSchedulerAddThread.c)
- *     CiSchedulerSetTaskIndexThreadTag @ 0x1C00029D0 (CiSchedulerSetTaskIndexThreadTag.c)
+ *     CiSchedulerSetTaskIndexThreadTag @ 0x1C0001010 (CiSchedulerSetTaskIndexThreadTag.c)
+ *     CiSchedulerAddThread @ 0x1C0001850 (CiSchedulerAddThread.c)
+ *     CiSchedulerRemoveThread @ 0x1C0001BF0 (CiSchedulerRemoveThread.c)
  * Callees:
- *     CiLogThreadBuffering @ 0x1C000435C (CiLogThreadBuffering.c)
+ *     CiLogThreadBuffering @ 0x1C00040AC (CiLogThreadBuffering.c)
  */
 
 __int64 __fastcall CiSystemUpdateThreadTag(__int64 a1, unsigned int a2)
 {
-  if ( byte_1C00073C0 )
+  if ( byte_1C0007370 )
     CiLogThreadBuffering(a1, a2 == 1);
   return KeUpdateThreadTag(*(_QWORD *)(a1 + 96), a2);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of MulGetAdditionalFunctionTable @ 0x1C02A4E30
+ * XREFs of MulGetAdditionalFunctionTable @ 0x1C02A7400
  * Callers:
  *     <none>
  * Callees:

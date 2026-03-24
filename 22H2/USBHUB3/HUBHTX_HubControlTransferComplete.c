@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBHTX_HubControlTransferComplete @ 0x1C0003330
+ * XREFs of HUBHTX_HubControlTransferComplete @ 0x1C0002D00
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C000242C (McTemplateK0pqqq_EtwWriteTransfer.c)
- *     WPP_RECORDER_SF_dD @ 0x1C0002668 (WPP_RECORDER_SF_dD.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     HUBMISC_VerifierDbgBreak @ 0x1C0032EBC (HUBMISC_VerifierDbgBreak.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0001DEC (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C002FCD4 (HUBMISC_VerifierDbgBreak.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBHTX_HubControlTransferComplete(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -43,14 +43,14 @@ __int64 __fastcall HUBHTX_HubControlTransferComplete(__int64 a1, __int64 a2, __i
     v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
            WdfDriverGlobals,
            WdfDriverGlobals->Driver,
-           off_1C00691E8);
+           off_1C00661C0);
     v13 = v8;
     WPP_RECORDER_SF_d(
       *(_QWORD *)(v9 + 64),
       2u,
       2u,
       0x3Bu,
-      (__int64)&WPP_f96a94952a6932bc87af489d3d93d325_Traceguids,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       v13);
   }
   if ( v5 < 0 )
@@ -64,11 +64,11 @@ __int64 __fastcall HUBHTX_HubControlTransferComplete(__int64 a1, __int64 a2, __i
         2u,
         3u,
         0xAu,
-        (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+        (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
         v12,
         v15);
     }
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x20000) != 0 )
+    if ( (BYTE2(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 2) != 0 )
     {
       LODWORD(v14) = v5;
       LODWORD(v12) = v6;

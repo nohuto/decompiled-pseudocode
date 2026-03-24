@@ -1,5 +1,5 @@
 /*
- * XREFs of MiZeroCfgSystemWideBitmap @ 0x14012DB20
+ * XREFs of MiZeroCfgSystemWideBitmap @ 0x14012DB40
  * Callers:
  *     MiReturnImageBase @ 0x1405F0514 (MiReturnImageBase.c)
  * Callees:

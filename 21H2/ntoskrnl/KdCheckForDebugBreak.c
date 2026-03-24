@@ -1,14 +1,13 @@
 /*
- * XREFs of KdCheckForDebugBreak @ 0x140222368
+ * XREFs of KdCheckForDebugBreak @ 0x140383EB0
  * Callers:
- *     KeAccumulateTicks @ 0x1403078A0 (KeAccumulateTicks.c)
- *     MiWalkPageTablesRecursivelyNoSynch @ 0x1403C801C (MiWalkPageTablesRecursivelyNoSynch.c)
- *     IoWriteCrashDump @ 0x140553244 (IoWriteCrashDump.c)
- *     ConsumerPeekAndConsumeBuffer @ 0x140A4D310 (ConsumerPeekAndConsumeBuffer.c)
- *     PopHiberCheckForDebugBreak @ 0x140A4D92C (PopHiberCheckForDebugBreak.c)
+ *     KeAccumulateTicks @ 0x140224410 (KeAccumulateTicks.c)
+ *     IoWriteCrashDump @ 0x140502CD0 (IoWriteCrashDump.c)
+ *     MiAddRangeToCrashDump @ 0x140537DE8 (MiAddRangeToCrashDump.c)
+ *     PopHiberCheckForDebugBreak @ 0x14099481C (PopHiberCheckForDebugBreak.c)
  * Callees:
- *     KdPollBreakIn @ 0x1402223B0 (KdPollBreakIn.c)
- *     DbgBreakPointWithStatus @ 0x140429800 (DbgBreakPointWithStatus.c)
+ *     DbgBreakPointWithStatus @ 0x1404078B0 (DbgBreakPointWithStatus.c)
+ *     KdPollBreakIn @ 0x140511B20 (KdPollBreakIn.c)
  */
 
 void KdCheckForDebugBreak()

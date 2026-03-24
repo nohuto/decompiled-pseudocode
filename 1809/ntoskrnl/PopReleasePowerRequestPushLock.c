@@ -5,7 +5,7 @@
  *     PoSetPowerRequestInternal @ 0x140002E88 (PoSetPowerRequestInternal.c)
  *     PopProcessPowerRequestOverrideQueryResponse @ 0x14000327C (PopProcessPowerRequestOverrideQueryResponse.c)
  *     PopPowerRequestCleanUp @ 0x14000333C (PopPowerRequestCleanUp.c)
- *     PopPowerRequestNotifyAudioStateChanged @ 0x140141E80 (PopPowerRequestNotifyAudioStateChanged.c)
+ *     PopPowerRequestNotifyAudioStateChanged @ 0x140141EA0 (PopPowerRequestNotifyAudioStateChanged.c)
  * Callees:
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  */

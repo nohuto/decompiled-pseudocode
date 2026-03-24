@@ -1,18 +1,14 @@
 /*
- * XREFs of GetCurrentKbdTables @ 0x1C01EA8B0
+ * XREFs of GetCurrentKbdTables @ 0x1C01B05A0
  * Callers:
- *     ?SendKeyUpDown@@YAXEE@Z @ 0x1C01EA818 (-SendKeyUpDown@@YAXEE@Z.c)
+ *     ?SendKeyUpDown@@YAXEE@Z @ 0x1C01B0504 (-SendKeyUpDown@@YAXEE@Z.c)
  * Callees:
- *     PtiKbdFromQ @ 0x1C00E5C5E (PtiKbdFromQ.c)
+ *     PtiKbdFromQ @ 0x1C01B10D8 (PtiKbdFromQ.c)
  */
 
 __int64 GetCurrentKbdTables()
 {
   __int64 v1; // rax
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
 
   if ( !gpqForeground )
     return 0LL;
@@ -20,5 +16,5 @@ __int64 GetCurrentKbdTables()
   if ( v1 )
     return *(_QWORD *)(*(_QWORD *)(v1 + 48) + 32LL);
   else
-    return *(_QWORD *)(SGDGetUserSessionState(v3, v2, v4, v5) + 13840);
+    return gpKbdTbl;
 }

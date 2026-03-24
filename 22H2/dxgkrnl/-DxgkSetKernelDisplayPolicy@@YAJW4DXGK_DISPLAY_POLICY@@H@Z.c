@@ -1,113 +1,95 @@
 /*
- * XREFs of ?DxgkSetKernelDisplayPolicy@@YAJW4DXGK_DISPLAY_POLICY@@H@Z @ 0x1C01E4320
+ * XREFs of ?DxgkSetKernelDisplayPolicy@@YAJW4DXGK_DISPLAY_POLICY@@H@Z @ 0x1C0169050
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?DisableDisplayBroker@DispBrokerClient@@QEAAXXZ @ 0x1C001632C (-DisableDisplayBroker@DispBrokerClient@@QEAAXXZ.c)
- *     ?DisconnectDisplayBroker@DispBrokerClient@@QEAAXXZ @ 0x1C0016F60 (-DisconnectDisplayBroker@DispBrokerClient@@QEAAXXZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A8230 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?DisableDisplayBroker@DispBrokerClient@@QEAAXXZ @ 0x1C0019B08 (-DisableDisplayBroker@DispBrokerClient@@QEAAXXZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0123B08 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
  */
 
-__int64 __fastcall DxgkSetKernelDisplayPolicy(int a1, int a2)
+__int64 __fastcall DxgkSetKernelDisplayPolicy(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rcx
-  DXGSESSIONMGR *v5; // rdi
+  int v2; // esi
+  int v3; // edi
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rbx
   unsigned int CurrentProcessSessionId; // eax
-  struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  struct DXGSESSIONDATA *v8; // rdi
-  int v9; // ebx
-  int v10; // ebx
-  int v11; // ebx
-  int v12; // ebx
-  bool v13; // bl
+  int v8; // edi
+  int v9; // edi
+  int v10; // edi
+  __int64 v12; // rbx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // r9
   __int64 CurrentProcess; // rax
-  unsigned int ProcessSessionId; // eax
-  __int64 v17; // rcx
-  __int64 v18; // rax
-  unsigned int v19; // eax
-  _BYTE v20[8]; // [rsp+50h] [rbp-28h] BYREF
-  DXGPUSHLOCK *v21; // [rsp+58h] [rbp-20h]
-  int v22; // [rsp+60h] [rbp-18h]
+  _BYTE v18[8]; // [rsp+20h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v19; // [rsp+28h] [rbp-20h]
+  int v20; // [rsp+30h] [rbp-18h]
 
-  v5 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 118);
-  if ( v5
-    && (CurrentProcessSessionId = PsGetCurrentProcessSessionId(v4),
-        SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v5, CurrentProcessSessionId),
-        (v8 = SessionDataForSpecifiedSession) != 0LL) )
+  v2 = a2;
+  v3 = a1;
+  SessionDataForSpecifiedSession = (struct DXGSESSIONDATA *)*((_QWORD *)DXGGLOBAL::GetGlobal(a1, a2) + 102);
+  if ( SessionDataForSpecifiedSession )
   {
-    v9 = a1 - 1;
-    if ( !v9 )
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v5, v4);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
+                                       SessionDataForSpecifiedSession,
+                                       CurrentProcessSessionId);
+  }
+  if ( SessionDataForSpecifiedSession )
+  {
+    v8 = v3 - 1;
+    if ( !v8 )
     {
-      if ( a2 )
+      if ( v2 )
       {
         DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK(
-          (DXGAUTOPUSHLOCK *)v20,
-          (struct _KTHREAD **)SessionDataForSpecifiedSession + 2373,
+          (DXGAUTOPUSHLOCK *)v18,
+          (struct _KTHREAD **)SessionDataForSpecifiedSession + 2369,
           0);
-        DXGPUSHLOCK::AcquireExclusive(v21);
-        v22 = 2;
-        *((_BYTE *)v8 + 18976) = 1;
-        DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v20);
+        DXGPUSHLOCK::AcquireExclusive(v19);
+        v20 = 2;
+        *((_BYTE *)SessionDataForSpecifiedSession + 18944) = 1;
+        DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v18);
       }
       else
       {
-        DispBrokerClient::DisableDisplayBroker((struct _KTHREAD **)SessionDataForSpecifiedSession + 2371);
+        DispBrokerClient::DisableDisplayBroker((struct _KTHREAD **)SessionDataForSpecifiedSession + 2367);
       }
+      return 0LL;
+    }
+    v9 = v8 - 1;
+    if ( !v9 )
+    {
+      *((_BYTE *)SessionDataForSpecifiedSession + 18491) = v2 == 0;
       return 0LL;
     }
     v10 = v9 - 1;
     if ( !v10 )
     {
-      *((_BYTE *)SessionDataForSpecifiedSession + 18499) = a2 == 0;
+      *((_BYTE *)SessionDataForSpecifiedSession + 18490) = v2 == 0;
       return 0LL;
     }
-    v11 = v10 - 1;
-    if ( !v11 )
+    if ( v10 == 1 )
     {
-      *((_BYTE *)SessionDataForSpecifiedSession + 18498) = a2 == 0;
-      return 0LL;
-    }
-    v12 = v11 - 1;
-    if ( !v12 )
-    {
-      v13 = a2 != 0;
-      if ( *((_BYTE *)SessionDataForSpecifiedSession + 18977) != (a2 != 0) )
-      {
-        *((_BYTE *)SessionDataForSpecifiedSession + 18977) = v13;
-        DispBrokerClient::DisconnectDisplayBroker((struct _KTHREAD **)SessionDataForSpecifiedSession + 2371);
-      }
-      *((_BYTE *)v8 + 18500) = v13;
-      return 0LL;
-    }
-    if ( v12 == 1 )
-    {
-      *((_BYTE *)SessionDataForSpecifiedSession + 18501) = a2 != 0;
+      *((_BYTE *)SessionDataForSpecifiedSession + 18945) = v2 != 0;
+      *((_BYTE *)SessionDataForSpecifiedSession + 18492) = v2 != 0;
       return 0LL;
     }
     return 3221225485LL;
   }
   else
   {
-    CurrentProcess = PsGetCurrentProcess(v4);
-    ProcessSessionId = PsGetProcessSessionId(CurrentProcess);
-    WdLogSingleEntry1(1LL, ProcessSessionId);
-    v18 = PsGetCurrentProcess(v17);
-    v19 = PsGetProcessSessionId(v18);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"Called DxgkSetKernelDisplayPolicy without session data in session 0x%I64x",
-      v19,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v12 = WdLogNewEntry5_WdAssertion(v5, v4);
+    CurrentProcess = PsGetCurrentProcess(v14, v13, v15, v16);
+    *(_QWORD *)(v12 + 24) = (unsigned int)PsGetProcessSessionId(CurrentProcess);
+    WdLogEvent5_WdAssertion(v12);
     return 3221226581LL;
   }
 }

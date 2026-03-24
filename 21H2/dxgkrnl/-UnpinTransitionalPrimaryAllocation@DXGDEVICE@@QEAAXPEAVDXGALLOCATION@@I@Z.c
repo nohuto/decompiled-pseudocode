@@ -1,108 +1,84 @@
 /*
- * XREFs of ?UnpinTransitionalPrimaryAllocation@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@I@Z @ 0x1C02E7CAC
+ * XREFs of ?UnpinTransitionalPrimaryAllocation@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@I@Z @ 0x1C0256C98
  * Callers:
- *     ?DisableTransitionalPrimaryAllocations@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C02C02D4 (-DisableTransitionalPrimaryAllocations@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@P.c)
+ *     ?DisableTransitionalPrimaryAllocations@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C0211B8C (-DisableTransitionalPrimaryAllocations@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@P.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?GetPinnedPrimary@DXGDEVICE@@QEAAII@Z @ 0x1C0014588 (-GetPinnedPrimary@DXGDEVICE@@QEAAII@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?GetPinnedPrimary@DXGDEVICE@@QEAAII@Z @ 0x1C000D3E0 (-GetPinnedPrimary@DXGDEVICE@@QEAAII@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DXGDEVICE::UnpinTransitionalPrimaryAllocation(
-        DXGDEVICE *this,
+        struct _KTHREAD **this,
         struct DXGALLOCATION *a2,
         unsigned int a3)
 {
-  __int64 v3; // rdi
-  unsigned int v6; // r8d
-  unsigned int v7; // eax
-  __int64 v8; // r9
-  _BYTE v9[8]; // [rsp+50h] [rbp-28h] BYREF
-  DXGPUSHLOCK *v10; // [rsp+58h] [rbp-20h]
-  int v11; // [rsp+60h] [rbp-18h]
+  __int64 v4; // rdi
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  __int64 v13; // rax
+  unsigned int v14; // r8d
+  __int64 v15; // rax
+  struct _KTHREAD *v16; // r9
+  _BYTE v17[8]; // [rsp+20h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v18; // [rsp+28h] [rbp-20h]
+  int v19; // [rsp+30h] [rbp-18h]
 
-  v3 = a3;
+  v4 = a3;
   if ( a3 >= *((_DWORD *)this + 464) )
   {
-    WdLogSingleEntry1(1LL, 3928LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"VidPnSourceId < GetNumVidPnSources()",
-      3928LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v6 + 24) = 3929LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*((_QWORD *)this + 2) + 16LL)) )
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*((DXGADAPTER **)this[2] + 2)) )
   {
-    WdLogSingleEntry1(1LL, 3929LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetRenderCore()->IsCoreResourceSharedOwner()",
-      3929LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v9 = WdLogNewEntry5_WdAssertion(v8, v7);
+    *(_QWORD *)(v9 + 24) = 3930LL;
+    WdLogEvent5_WdAssertion(v9);
   }
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*((DXGADAPTER **)this + 231)) )
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[231]) )
   {
-    WdLogSingleEntry1(1LL, 3930LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetDisplayAdapter(VidPnSourceId)->IsCoreResourceSharedOwner()",
-      3930LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v12 = WdLogNewEntry5_WdAssertion(v11, v10);
+    *(_QWORD *)(v12 + 24) = 3931LL;
+    WdLogEvent5_WdAssertion(v12);
   }
   if ( *((_DWORD *)this + 108) != 1 )
   {
-    WdLogSingleEntry1(1LL, 3931LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"DXGDEVICECLIENT_USER == GetClientType()",
-      3931LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v13 = WdLogNewEntry5_WdAssertion(v11, v10);
+    *(_QWORD *)(v13 + 24) = 3932LL;
+    WdLogEvent5_WdAssertion(v13);
   }
-  if ( (unsigned int)DXGDEVICE::GetPinnedPrimary((struct _KTHREAD **)this, v3) )
+  if ( (unsigned int)DXGDEVICE::GetPinnedPrimary(this, v4) )
   {
-    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v9, (struct _KTHREAD **)this + 42, 0);
-    DXGPUSHLOCK::AcquireExclusive(v10);
-    v6 = *((_DWORD *)this + v3 + 238);
-    v7 = 0;
-    v11 = 2;
-    if ( v6 )
+    DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v17, this + 42, 0);
+    DXGPUSHLOCK::AcquireExclusive(v18);
+    v14 = *((_DWORD *)this + v4 + 238);
+    v15 = 0LL;
+    v19 = 2;
+    if ( v14 )
     {
-      v8 = *((_QWORD *)this + v3 + 103);
-      while ( *(struct DXGALLOCATION **)(v8 + 8LL * v7) != a2 )
+      v16 = this[v4 + 103];
+      while ( *((struct DXGALLOCATION **)v16 + v15) != a2 )
       {
-        if ( ++v7 >= v6 )
+        v15 = (unsigned int)(v15 + 1);
+        if ( (unsigned int)v15 >= v14 )
           goto LABEL_16;
       }
-      *(_QWORD *)(v8 + 8LL * v7) = 0LL;
-      (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 648LL) + 8LL) + 240LL))(
-        *(_QWORD *)(*((_QWORD *)this + 2) + 656LL),
+      *((_QWORD *)v16 + v15) = 0LL;
+      (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*((_QWORD *)this[2] + 80) + 8LL) + 240LL))(
+        *((_QWORD *)this[2] + 81),
         *((_QWORD *)a2 + 3));
     }
 LABEL_16:
-    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v9);
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v17);
   }
 }

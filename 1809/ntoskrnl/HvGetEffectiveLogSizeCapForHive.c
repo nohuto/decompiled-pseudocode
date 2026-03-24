@@ -5,9 +5,9 @@
  *     HvTruncateCurrentLogFileIfRequired @ 0x1405A605C (HvTruncateCurrentLogFileIfRequired.c)
  *     CmpIsHiveEligibleForLazyReconcile @ 0x1405B0ED8 (CmpIsHiveEligibleForLazyReconcile.c)
  *     CmpDoReconcileNextHive @ 0x1405B0F90 (CmpDoReconcileNextHive.c)
- *     CmpAdjustRequestedFileSize @ 0x1406B8A98 (CmpAdjustRequestedFileSize.c)
- *     HvSwapLogFiles @ 0x1406C965C (HvSwapLogFiles.c)
- *     HvTruncateAllLogFilesIfRequired @ 0x1406CF7F4 (HvTruncateAllLogFilesIfRequired.c)
+ *     CmpAdjustRequestedFileSize @ 0x1406B8A78 (CmpAdjustRequestedFileSize.c)
+ *     HvSwapLogFiles @ 0x1406C963C (HvSwapLogFiles.c)
+ *     HvTruncateAllLogFilesIfRequired @ 0x1406CF7D4 (HvTruncateAllLogFilesIfRequired.c)
  * Callees:
  *     <none>
  */

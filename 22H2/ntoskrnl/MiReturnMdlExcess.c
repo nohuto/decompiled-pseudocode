@@ -1,60 +1,66 @@
 /*
- * XREFs of MiReturnMdlExcess @ 0x140623798
+ * XREFs of MiReturnMdlExcess @ 0x1405340EC
  * Callers:
- *     MiAllocatePagesForMdl @ 0x1402F8CDC (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x140354954 (MiAllocatePagesForMdl.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     MiInitializeMdlBatchPages @ 0x1402F9310 (MiInitializeMdlBatchPages.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     MiReturnMdlCharges @ 0x1406236C0 (MiReturnMdlCharges.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiFreePagesFromMdl @ 0x14027FB6C (MiFreePagesFromMdl.c)
+ *     MiReleaseNonPagedResources @ 0x1402E9CE0 (MiReleaseNonPagedResources.c)
+ *     MiInitializeMdlPages @ 0x140354AC4 (MiInitializeMdlPages.c)
+ *     MiInitializeMdlBatchPages @ 0x140354E44 (MiInitializeMdlBatchPages.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiReturnMdlExcess(__int64 a1)
 {
-  unsigned int *v1; // rsi
-  unsigned __int64 v3; // rdi
-  unsigned __int64 v4; // rbp
-  int v5; // eax
+  unsigned int *v1; // rbp
+  ULONG_PTR *v3; // rbx
+  unsigned __int64 v4; // rsi
+  unsigned __int64 v5; // r14
+  __int64 v6; // r8
+  int v7; // eax
   _WORD *Pool; // rax
-  _WORD *v7; // rsi
+  _WORD *v9; // rbx
 
   v1 = *(unsigned int **)(a1 + 64);
-  v3 = *(_QWORD *)(a1 + 48) * ((unsigned __int64)v1[10] >> 12);
-  v4 = *(_QWORD *)(a1 + 32) - v3;
-  if ( (*(_DWORD *)(a1 + 56) & 0x400) == 0 )
-    MiReturnMdlCharges(*(_QWORD *)a1, v4);
-  if ( !v3 )
+  v3 = *(ULONG_PTR **)a1;
+  v4 = (unsigned __int64)v1[10] >> 12;
+  v5 = *(_QWORD *)(a1 + 40) - v4;
+  MiReleaseNonPagedResources(*(_QWORD *)a1, v5);
+  if ( v3 == &MiSystemPartition )
+    _InterlockedExchangeAdd64(&qword_140C4EFB8, -(__int64)v5);
+  if ( !v4 )
     goto LABEL_4;
-  v5 = *(_DWORD *)(a1 + 56);
-  if ( (v5 & 4) != 0 )
+  v7 = *(_DWORD *)(a1 + 8);
+  if ( (v7 & 4) != 0 )
   {
-    if ( (v5 & 0x40) == 0 )
+    if ( (v7 & 0x40) == 0 )
+    {
       MiInitializeMdlBatchPages(a1);
-    MiFreePagesFromMdl((ULONG_PTR)v1, 0);
+      MiInitializeMdlPages((__int64)v1, *(_DWORD *)(a1 + 8));
+    }
+    MiFreePagesFromMdl((ULONG_PTR)v1, 0, v6);
 LABEL_4:
-    if ( (*(_DWORD *)(a1 + 84) & 1) == 0 )
-      ExFreePoolWithTag(v1, 0);
+    ExFreePoolWithTag(v1, 0);
     *(_QWORD *)(a1 + 64) = 0LL;
     return;
   }
-  if ( (*(_DWORD *)(a1 + 84) & 1) == 0 && *(_QWORD *)(a1 + 48) == 1LL && v4 > 0x800 )
+  if ( v5 > 0x800 )
   {
-    Pool = MiAllocatePool(64, 8 * v3 + 48, 0x69646D4Du);
-    v7 = Pool;
+    Pool = MiAllocatePool(64, 8 * v4 + 48, 0x69646D4Du);
+    v9 = Pool;
     if ( Pool )
     {
       *(_QWORD *)Pool = 0LL;
+      Pool[4] = 8 * (v4 + 6);
+      *((_DWORD *)Pool + 10) = (_DWORD)v4 << 12;
       Pool[5] = 0;
-      *((_DWORD *)Pool + 10) = (_DWORD)v3 << 12;
       *((_QWORD *)Pool + 4) = 0LL;
-      Pool[4] = 8 * (v3 + 6);
       *((_DWORD *)Pool + 11) = 0;
-      memmove(Pool + 24, (const void *)(*(_QWORD *)(a1 + 64) + 48LL), 8 * v3);
-      v7[5] = *(_WORD *)(*(_QWORD *)(a1 + 64) + 10LL);
+      memmove(Pool + 24, (const void *)(*(_QWORD *)(a1 + 64) + 48LL), 8 * v4);
       ExFreePoolWithTag(*(PVOID *)(a1 + 64), 0);
-      *(_QWORD *)(a1 + 64) = v7;
+      *(_QWORD *)(a1 + 64) = v9;
     }
   }
 }

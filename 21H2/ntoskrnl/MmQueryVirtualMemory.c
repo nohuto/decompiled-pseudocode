@@ -1,168 +1,171 @@
 /*
- * XREFs of MmQueryVirtualMemory @ 0x1407BA750
+ * XREFs of MmQueryVirtualMemory @ 0x14061E930
  * Callers:
- *     ?SmStCheckResident@?$SMKM_STORE@USM_TRAITS@@@@SA?AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z @ 0x140395068 (-SmStCheckResident@-$SMKM_STORE@USM_TRAITS@@@@SA-AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z.c)
- *     NtQueryVirtualMemory @ 0x1407BA710 (NtQueryVirtualMemory.c)
- *     PfpVirtualQuery @ 0x1407F89C0 (PfpVirtualQuery.c)
- *     NtPssCaptureVaSpaceBulk @ 0x140A07780 (NtPssCaptureVaSpaceBulk.c)
+ *     ?SmStCheckResident@?$SMKM_STORE@USM_TRAITS@@@@SA?AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z @ 0x1402C6DD4 (-SmStCheckResident@-$SMKM_STORE@USM_TRAITS@@@@SA-AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z.c)
+ *     NtQueryVirtualMemory @ 0x14061E8F0 (NtQueryVirtualMemory.c)
+ *     PfpVirtualQuery @ 0x140733638 (PfpVirtualQuery.c)
  * Callees:
- *     MiWaitForVadDeletion @ 0x140202010 (MiWaitForVadDeletion.c)
- *     MiUnlockVadShared @ 0x140280EF8 (MiUnlockVadShared.c)
- *     MiReferenceControlAreaFile @ 0x140281750 (MiReferenceControlAreaFile.c)
- *     MiGetNextVad @ 0x140281C00 (MiGetNextVad.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     MiGetWorkingSetInfoList @ 0x1402E67E8 (MiGetWorkingSetInfoList.c)
- *     MiLocateVadEvent @ 0x1402EE0C8 (MiLocateVadEvent.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     MiLockVad @ 0x14030B7F0 (MiLockVad.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14030EA00 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14030EA70 (MiUnlockAndDereferenceVadShared.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x14030EB30 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiReferenceVad @ 0x14030EB64 (MiReferenceVad.c)
- *     MiVadDeleted @ 0x14030EB80 (MiVadDeleted.c)
- *     MiLockVadShared @ 0x14030EBA0 (MiLockVadShared.c)
- *     MI_GET_GRAPHICS_PROTECTION_FROM_VAD @ 0x14030EBD0 (MI_GET_GRAPHICS_PROTECTION_FROM_VAD.c)
- *     MiGetVadPageSize @ 0x14030EBF4 (MiGetVadPageSize.c)
- *     MiGetControlAreaPartition @ 0x14030EC14 (MiGetControlAreaPartition.c)
- *     MiVadMapsLargeImage @ 0x14030EC40 (MiVadMapsLargeImage.c)
- *     MiQueryAddressSpan @ 0x14030EC70 (MiQueryAddressSpan.c)
- *     MiIsSoftwareEnclave @ 0x14030FA5C (MiIsSoftwareEnclave.c)
- *     MiGetProcessPartition @ 0x14032A72C (MiGetProcessPartition.c)
- *     MiUnlockAndDereferenceVad @ 0x14032E700 (MiUnlockAndDereferenceVad.c)
- *     PsDereferencePartition @ 0x1403606C4 (PsDereferencePartition.c)
- *     PsReferencePartitionSafe @ 0x1403606EC (PsReferencePartitionSafe.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlCompareMemoryUlong @ 0x14042A260 (RtlCompareMemoryUlong.c)
- *     VslQueryVirtualMemory @ 0x14054EF74 (VslQueryVirtualMemory.c)
- *     MmQueryBadAddresses @ 0x14058FE88 (MmQueryBadAddresses.c)
- *     MiGetWorkingSetInfo @ 0x1405A605C (MiGetWorkingSetInfo.c)
- *     MiGetAweVadPartition @ 0x1405AAFD8 (MiGetAweVadPartition.c)
- *     MiIsUserQueryVmCallerTrusted @ 0x140695CF8 (MiIsUserQueryVmCallerTrusted.c)
- *     ObQueryNameStringMode @ 0x1407103B0 (ObQueryNameStringMode.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
- *     MiQueryMemoryPhysicalContiguity @ 0x140978430 (MiQueryMemoryPhysicalContiguity.c)
- *     MiGetAweVadPageSize @ 0x14097D244 (MiGetAweVadPageSize.c)
- *     ExRaiseAccessViolation @ 0x140A021F0 (ExRaiseAccessViolation.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeUnstackDetachProcess @ 0x1402075C0 (KeUnstackDetachProcess.c)
+ *     MiGetProcessPartition @ 0x14021AD40 (MiGetProcessPartition.c)
+ *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
+ *     MiVadMapsLargeImage @ 0x14021CC20 (MiVadMapsLargeImage.c)
+ *     MiUnlockVadShared @ 0x14025B10C (MiUnlockVadShared.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14025B210 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14025B250 (MiUnlockAndDereferenceVadShared.c)
+ *     MI_GET_GRAPHICS_PROTECTION_FROM_VAD @ 0x14025B310 (MI_GET_GRAPHICS_PROTECTION_FROM_VAD.c)
+ *     MiVadDeleted @ 0x14025B330 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x14025B344 (MiLockVadShared.c)
+ *     MiReferenceVad @ 0x14025B390 (MiReferenceVad.c)
+ *     MiGetControlAreaPartition @ 0x14025B3A4 (MiGetControlAreaPartition.c)
+ *     MiQueryAddressSpan @ 0x14025B3D0 (MiQueryAddressSpan.c)
+ *     MiIsSoftwareEnclave @ 0x14025B5C0 (MiIsSoftwareEnclave.c)
+ *     KeStackAttachProcess @ 0x14025C110 (KeStackAttachProcess.c)
+ *     MiGetWorkingSetInfoList @ 0x14026E89C (MiGetWorkingSetInfoList.c)
+ *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
+ *     PsReferencePartitionSafe @ 0x1402AC004 (PsReferencePartitionSafe.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     MiLocateVadEvent @ 0x1402FE3B4 (MiLocateVadEvent.c)
+ *     MiLockVad @ 0x140316758 (MiLockVad.c)
+ *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140348790 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlCompareMemoryUlong @ 0x140408230 (RtlCompareMemoryUlong.c)
+ *     VslQueryVirtualMemory @ 0x1404FD1C0 (VslQueryVirtualMemory.c)
+ *     MiGetWorkingSetInfo @ 0x140546C38 (MiGetWorkingSetInfo.c)
+ *     MiGetAweVadPartition @ 0x14054C480 (MiGetAweVadPartition.c)
+ *     MiGetVadPageSize @ 0x14055BDB0 (MiGetVadPageSize.c)
+ *     MiWaitForVadDeletion @ 0x14055BE10 (MiWaitForVadDeletion.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
+ *     MiIsUserQueryVmCallerTrusted @ 0x1407174C0 (MiIsUserQueryVmCallerTrusted.c)
+ *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x1408D12A0 (MiQueryMemoryPhysicalContiguity.c)
  */
 
-__int64 __fastcall MmQueryVirtualMemory(
-        ULONG_PTR BugCheckParameter1,
+NTSTATUS __fastcall MmQueryVirtualMemory(
+        HANDLE Handle,
         unsigned __int64 a2,
         int a3,
-        unsigned __int64 a4,
-        unsigned __int64 a5,
-        _DWORD *a6,
+        _OWORD *a4,
+        SIZE_T Length,
+        _QWORD *a6,
         int a7)
 {
-  unsigned __int64 v10; // r12
-  struct _KTHREAD *CurrentThread; // rdi
-  unsigned __int64 PreviousMode; // r9
+  SIZE_T v10; // r13
+  struct _KTHREAD *CurrentThread; // rsi
+  KPROCESSOR_MODE PreviousMode; // cl
   unsigned int v13; // ebx
   int v14; // r15d
-  unsigned __int64 v15; // rcx
-  unsigned __int64 v16; // rdx
-  unsigned __int64 v17; // rdx
-  __int64 v18; // rcx
-  _KPROCESS *Process; // rdi
-  __int64 v20; // r15
-  unsigned __int64 v21; // rsi
-  unsigned __int64 v22; // rdi
-  PVOID v23; // r9
-  unsigned __int64 v24; // r8
-  unsigned __int64 v25; // rax
-  __int64 v26; // r9
-  bool v27; // zf
-  unsigned __int64 v28; // r9
-  int v29; // r10d
-  int v30; // eax
-  __int64 v31; // rax
-  unsigned __int64 v32; // rdi
-  __int64 v33; // rax
-  unsigned __int64 v34; // r15
-  __int64 v35; // r9
-  unsigned __int16 *ProcessPartition; // r10
-  int v37; // r11d
-  __int64 v38; // rdi
-  int v39; // ecx
-  __int64 *v40; // rax
-  unsigned __int16 v41; // r12
-  int v42; // edi
-  __int64 result; // rax
-  unsigned __int64 v44; // r15
-  char v45; // bl
-  int v46; // eax
-  __int64 v47; // rax
-  __int64 v48; // rax
-  int v49; // ecx
-  int v50; // eax
-  int v51; // ecx
-  int v52; // eax
-  int v53; // ecx
-  unsigned __int64 AddressSpan; // rax
+  __int64 v15; // rcx
+  struct _KPROCESS *v16; // rsi
+  __int64 *p_Lock; // r15
+  __int64 v18; // rdi
+  __int64 v19; // rsi
+  unsigned __int64 v20; // rdi
+  unsigned __int64 v21; // rax
+  __int64 v22; // rax
+  int v23; // eax
+  __int64 v24; // r10
+  int v25; // r9d
+  int v26; // eax
+  __int64 v27; // rdi
+  int v28; // eax
+  __int64 v29; // rdx
+  int v30; // r10d
+  __int64 v31; // rcx
+  unsigned __int64 v32; // r8
+  int v33; // r10d
+  __int64 v34; // r11
+  unsigned __int64 v35; // rdx
+  NTSTATUS result; // eax
+  __int64 v37; // rax
+  int v38; // r13d
+  unsigned __int64 v39; // r15
+  __int64 v40; // rax
+  unsigned __int64 v41; // r14
+  unsigned __int16 *ProcessPartition; // r8
+  __int64 v43; // r10
+  __int64 v44; // r9
+  int v45; // eax
+  __int64 *v46; // rax
+  __int64 AweVadPartition; // rax
+  unsigned __int16 v48; // r12
+  int v49; // edi
+  unsigned __int64 v50; // r14
+  char v51; // bl
+  _QWORD *v52; // r8
+  int v53; // eax
+  __int64 v54; // rax
   __int64 v55; // rax
-  int v56; // ecx
-  char v57; // al
-  int v58; // edx
-  int v59; // eax
-  __int64 v60; // rdx
-  int v61; // r10d
-  __int64 v62; // rcx
-  unsigned __int64 v63; // r8
-  int v64; // r10d
-  __int64 v65; // r11
-  unsigned __int64 v66; // rdx
-  PVOID v67; // rdi
-  int MemoryPhysicalContiguity; // ebx
-  __int64 *v69; // rax
-  __int64 v70; // rdx
-  unsigned __int64 NextVad; // rax
-  unsigned __int64 v72; // rdi
-  __int64 v73; // rdi
-  unsigned __int64 v74; // rax
-  unsigned __int64 v75; // rdi
-  bool v76; // cf
+  int v56; // edx
+  int v57; // eax
+  int v58; // ecx
+  unsigned __int64 AddressSpan; // rax
+  __int64 v60; // rax
+  ACCESS_MASK v61; // edx
+  bool v62; // cf
+  __int64 v63; // rdx
+  unsigned __int64 i; // rcx
+  _QWORD *v65; // rdx
+  unsigned __int64 v66; // r8
+  unsigned __int64 v67; // rdi
+  unsigned __int64 v68; // rdi
   int IsUserQueryVmCallerTrusted; // eax
-  unsigned __int64 v78; // rdi
-  unsigned __int64 v79; // rbx
-  int VirtualMemory; // eax
+  int MemoryPhysicalContiguity; // ebx
+  __int64 *v71; // rax
+  unsigned __int64 v72; // rsi
+  unsigned __int64 v73; // rbx
   __int64 VadEvent; // rax
-  __int64 v82; // r9
-  __int64 v83; // rax
-  unsigned int v84; // [rsp+40h] [rbp-148h]
-  unsigned __int8 v85; // [rsp+44h] [rbp-144h]
-  unsigned int v86; // [rsp+48h] [rbp-140h] BYREF
-  _DWORD *v87; // [rsp+50h] [rbp-138h]
-  unsigned __int64 v88; // [rsp+58h] [rbp-130h]
-  PVOID Object; // [rsp+60h] [rbp-128h]
-  PVOID v90; // [rsp+68h] [rbp-120h] BYREF
-  unsigned __int64 VadPageSize; // [rsp+70h] [rbp-118h]
-  unsigned __int64 v92; // [rsp+78h] [rbp-110h]
-  _OWORD v93[3]; // [rsp+80h] [rbp-108h] BYREF
-  __int128 v94; // [rsp+B0h] [rbp-D8h]
-  __int64 v95; // [rsp+C0h] [rbp-C8h]
-  unsigned __int64 v96; // [rsp+C8h] [rbp-C0h]
-  __int64 P; // [rsp+D0h] [rbp-B8h] BYREF
-  struct _KTHREAD *v98; // [rsp+D8h] [rbp-B0h]
-  __int128 Source; // [rsp+E8h] [rbp-A0h] BYREF
-  __int128 v100; // [rsp+F8h] [rbp-90h]
-  __int128 v101; // [rsp+108h] [rbp-80h]
-  _BYTE v102[48]; // [rsp+118h] [rbp-70h] BYREF
+  __int64 v75; // r9
+  __int64 v76; // rax
+  unsigned int v77; // [rsp+40h] [rbp-168h]
+  unsigned __int8 v78; // [rsp+44h] [rbp-164h]
+  unsigned int v79; // [rsp+48h] [rbp-160h] BYREF
+  _QWORD *v80; // [rsp+50h] [rbp-158h]
+  unsigned __int64 v81; // [rsp+58h] [rbp-150h]
+  struct _KTHREAD *v82; // [rsp+60h] [rbp-148h]
+  unsigned __int8 v83; // [rsp+68h] [rbp-140h]
+  PVOID Object; // [rsp+70h] [rbp-138h] BYREF
+  PRKPROCESS PROCESS; // [rsp+78h] [rbp-130h]
+  __m256i v86; // [rsp+80h] [rbp-128h] BYREF
+  __int128 v87; // [rsp+A0h] [rbp-108h]
+  __int128 v88; // [rsp+B0h] [rbp-F8h]
+  __int64 v89; // [rsp+C0h] [rbp-E8h]
+  int v90; // [rsp+C8h] [rbp-E0h]
+  unsigned __int64 v91; // [rsp+D0h] [rbp-D8h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+D8h] [rbp-D0h]
+  __int64 P; // [rsp+E0h] [rbp-C8h] BYREF
+  unsigned __int64 v94; // [rsp+E8h] [rbp-C0h]
+  _QWORD *v95; // [rsp+F8h] [rbp-B0h]
+  __int128 Source; // [rsp+100h] [rbp-A8h] BYREF
+  __int128 v97; // [rsp+110h] [rbp-98h]
+  __int128 v98; // [rsp+120h] [rbp-88h]
+  struct _KAPC_STATE ApcState; // [rsp+130h] [rbp-78h] BYREF
 
-  v88 = a2;
-  v87 = a6;
-  v86 = 0;
-  v90 = 0LL;
+  v95 = a4;
+  v90 = a3;
+  v81 = a2;
+  v80 = a6;
+  v79 = 0;
+  Object = 0LL;
   P = 0LL;
-  memset(v93, 0, sizeof(v93));
+  memset(&v86, 0, sizeof(v86));
+  v87 = 0LL;
+  v88 = 0LL;
+  v89 = 0LL;
+  memset(&ApcState, 0, sizeof(ApcState));
+  v77 = 0;
+  DmaAdapter = 0LL;
   v94 = 0LL;
-  v95 = 0LL;
-  memset(v102, 0, sizeof(v102));
-  v84 = 0;
-  VadPageSize = 0LL;
+  if ( a3 == 6 )
+  {
+    v10 = Length;
+    if ( Length >= 0x18 )
+      goto LABEL_6;
+    return -1073741820;
+  }
   if ( a3 != 3 )
   {
     if ( a3 )
@@ -170,70 +173,60 @@ __int64 __fastcall MmQueryVirtualMemory(
       switch ( a3 )
       {
         case 1:
-          v10 = a5;
-          v76 = a5 < 8;
-          goto LABEL_183;
+          v10 = Length;
+          v62 = Length < 8;
+          goto LABEL_137;
         case 2:
-          goto LABEL_157;
+          v10 = Length;
+          goto LABEL_6;
         case 4:
-          v10 = a5;
-          v76 = a5 < 0x10;
-LABEL_183:
-          if ( !v76 )
-            goto LABEL_184;
-          return 3221225476LL;
+          v10 = Length;
+          v62 = Length < 0x10;
+LABEL_137:
+          if ( !v62 )
+            goto LABEL_138;
+          return -1073741820;
         case 5:
-          v10 = a5;
-          if ( a5 < 8 )
-            return 3221225476LL;
-          goto LABEL_3;
-        case 6:
-          v10 = a5;
-          if ( a5 < 0x18 )
-            return 3221225476LL;
-          goto LABEL_3;
+          v10 = Length;
+          if ( Length < 8 )
+            return -1073741820;
+          goto LABEL_6;
         case 7:
-          v10 = a5;
-          if ( a5 < 0x20 )
-            return 3221225476LL;
-          goto LABEL_3;
+          v10 = Length;
+          if ( Length < 0x20 )
+            return -1073741820;
+          goto LABEL_6;
         case 8:
           break;
         case 11:
-          v10 = a5;
-          if ( a5 < 0x28 )
-            return 3221225476LL;
-LABEL_184:
-          v84 = 256;
-          goto LABEL_3;
-        case 12:
-          if ( a2 )
-            return 3221225485LL;
-LABEL_157:
-          v10 = a5;
-          goto LABEL_3;
+          v10 = Length;
+          if ( Length < 0x28 )
+            return -1073741820;
+LABEL_138:
+          v77 = 64;
+          goto LABEL_6;
         default:
-          return 3221225475LL;
+          return -1073741821;
       }
     }
-    v10 = a5;
-    if ( a5 >= 0x30 )
-      goto LABEL_3;
-    return 3221225476LL;
+    v10 = Length;
+    if ( Length >= 0x30 )
+      goto LABEL_6;
+    return -1073741820;
   }
-  v10 = a5;
-  if ( a5 < 0x18 )
-    return 3221225476LL;
-LABEL_3:
+  v10 = Length;
+  if ( Length < 0x18 )
+    return -1073741820;
+LABEL_6:
   CurrentThread = KeGetCurrentThread();
-  v98 = CurrentThread;
-  PreviousMode = (unsigned __int8)CurrentThread->PreviousMode;
-  v85 = CurrentThread->PreviousMode;
-  v13 = v84;
-  if ( v84 < 0x100
-    || !(_BYTE)PreviousMode
-    || (IsUserQueryVmCallerTrusted = MiIsUserQueryVmCallerTrusted((__int64)CurrentThread),
-        PreviousMode = v85,
+  v82 = CurrentThread;
+  PreviousMode = CurrentThread->PreviousMode;
+  v78 = PreviousMode;
+  v13 = v77;
+  if ( v77 < 0x40
+    || !PreviousMode
+    || (IsUserQueryVmCallerTrusted = MiIsUserQueryVmCallerTrusted(CurrentThread),
+        PreviousMode = v78,
         IsUserQueryVmCallerTrusted) )
   {
     v14 = a7;
@@ -242,605 +235,567 @@ LABEL_3:
   {
     v14 = a7 | 0x40000000;
   }
-  if ( (_BYTE)PreviousMode )
+  if ( PreviousMode )
   {
-    if ( v10 )
+    ProbeForWrite(a4, v10, 8u);
+    if ( v80 )
     {
-      v15 = a4;
-      if ( (a4 & 7) != 0 )
-        ExRaiseDatatypeMisalignment();
-      v16 = v10 + a4 - 1;
-      if ( a4 > v16 || v16 >= 0x7FFFFFFF0000LL )
-        ExRaiseAccessViolation();
-      v17 = (v16 & 0xFFFFFFFFFFFFF000uLL) + 4096;
-      do
-      {
-        *(_BYTE *)v15 = *(_BYTE *)v15;
-        v15 = (v15 & 0xFFFFFFFFFFFFF000uLL) + 4096;
-      }
-      while ( v15 != v17 );
-      v13 = v84;
+      v15 = (__int64)v80;
+      if ( (unsigned __int64)v80 >= 0x7FFFFFFF0000LL )
+        v15 = 0x7FFFFFFF0000LL;
+      *(_QWORD *)v15 = *(_QWORD *)v15;
+      v13 = v77;
     }
-    if ( v87 )
-    {
-      v18 = (__int64)v87;
-      if ( (unsigned __int64)v87 >= 0x7FFFFFFF0000LL )
-        v18 = 0x7FFFFFFF0000LL;
-      *(_QWORD *)v18 = *(_QWORD *)v18;
-      v13 = v84;
-    }
+    PreviousMode = v78;
   }
-  if ( v88 > 0x7FFFFFFEFFFFLL )
-    return 3221225485LL;
-  v96 = v88 & 0xFFFFFFFFFFFFF000uLL;
+  if ( v81 > 0x7FFFFFFEFFFFLL )
+    return -1073741811;
+  v91 = v81 & 0xFFFFFFFFFFFFF000uLL;
   if ( a3 != 10 )
-    goto LABEL_22;
-  Source = *(_OWORD *)a4;
-  v100 = *(_OWORD *)(a4 + 16);
-  v101 = *(_OWORD *)(a4 + 32);
-  v78 = *((_QWORD *)&v100 + 1);
-  *((_QWORD *)&v100 + 1) = 0LL;
-  if ( RtlCompareMemoryUlong(&Source, 0x30uLL, 0) != 48 || v78 > 0x7FFFFFFF0000LL - v88 )
-    return 3221225485LL;
-  VadPageSize = (((v88 & 0xFFF) + v78 + 4095) & 0xFFFFFFFFFFFFF000uLL) + v96;
-  CurrentThread = v98;
-  PreviousMode = v85;
-LABEL_22:
-  if ( BugCheckParameter1 == -1LL )
+    goto LABEL_16;
+  Source = *a4;
+  v97 = a4[1];
+  v98 = a4[2];
+  v72 = *((_QWORD *)&v97 + 1);
+  *((_QWORD *)&v97 + 1) = 0LL;
+  if ( RtlCompareMemoryUlong(&Source, 0x30uLL, 0) != 48 || v72 > 0x7FFFFFFF0000LL - v81 )
+    return -1073741811;
+  v94 = (((v81 & 0xFFF) + v72 + 4095) & 0xFFFFFFFFFFFFF000uLL) + v91;
+  CurrentThread = v82;
+  PreviousMode = v78;
+LABEL_16:
+  if ( Handle == (HANDLE)-1LL )
   {
-    Process = CurrentThread->ApcState.Process;
-    Object = Process;
-    v90 = Process;
+    v16 = CurrentThread->ApcState.Process;
+    PROCESS = v16;
+    Object = v16;
   }
   else
   {
-    v58 = 4096;
+    v61 = 4096;
     if ( (v14 & 0x40000000) != 0 )
-      v58 = 1024;
-    result = ObpReferenceObjectByHandleWithTag(
-               BugCheckParameter1,
-               v58,
-               (__int64)PsProcessType,
+      v61 = 1024;
+    result = ObReferenceObjectByHandleWithTag(
+               Handle,
+               v61,
+               (POBJECT_TYPE)PsProcessType,
                PreviousMode,
                0x6D566D4Du,
-               &v90,
-               0LL,
+               &Object,
                0LL);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
-    Process = (_KPROCESS *)v90;
-    Object = v90;
-    if ( (*((_DWORD *)v90 + 543) & 0x1000) != 0 )
+    v16 = (struct _KPROCESS *)Object;
+    PROCESS = (PRKPROCESS)Object;
+    if ( (*((_DWORD *)Object + 543) & 0x1000) != 0 )
     {
-      ObfDereferenceObjectWithTag(v90, 0x6D566D4Du);
-      return 3221225506LL;
+      ObfDereferenceObjectWithTag(Object, 0x6D566D4Du);
+      return -1073741790;
     }
-    PreviousMode = v85;
   }
   switch ( a3 )
   {
     case 11:
-      MemoryPhysicalContiguity = MiQueryMemoryPhysicalContiguity(Process, a4, v10, PreviousMode);
-      if ( BugCheckParameter1 != -1LL )
-        ObfDereferenceObjectWithTag(Process, 0x6D566D4Du);
+      MemoryPhysicalContiguity = MiQueryMemoryPhysicalContiguity(v16, a4, v10, v78);
+      if ( Handle != (HANDLE)-1LL )
+        ObfDereferenceObjectWithTag(v16, 0x6D566D4Du);
       if ( MemoryPhysicalContiguity >= 0 )
       {
-        if ( v87 )
-          *(_QWORD *)v87 = v10;
-        return 0LL;
+        if ( v80 )
+          *v80 = v10;
+        return 0;
       }
-      return (unsigned int)MemoryPhysicalContiguity;
-    case 12:
-      MemoryPhysicalContiguity = MmQueryBadAddresses(Process, (_QWORD *)a4, v10, v87);
-      if ( BugCheckParameter1 != -1LL )
-        ObfDereferenceObjectWithTag(Process, 0x6D566D4Du);
-      if ( MemoryPhysicalContiguity >= 0 )
-        return 0LL;
-      return (unsigned int)MemoryPhysicalContiguity;
+      return MemoryPhysicalContiguity;
     case 4:
-      MemoryPhysicalContiguity = MiGetWorkingSetInfoList((ULONG_PTR)Process, v14, a4, v10);
-      if ( BugCheckParameter1 != -1LL )
-        ObfDereferenceObjectWithTag(Process, 0x6D566D4Du);
+      MemoryPhysicalContiguity = MiGetWorkingSetInfoList((ULONG_PTR)v16, v14, (unsigned __int64)a4, v10);
+      if ( Handle != (HANDLE)-1LL )
+        ObfDereferenceObjectWithTag(v16, 0x6D566D4Du);
       if ( MemoryPhysicalContiguity >= 0 )
       {
-        if ( v87 )
-          *(_QWORD *)v87 = v10;
-        return 0LL;
+        if ( v80 )
+          *v80 = v10;
+        return 0;
       }
-      return (unsigned int)MemoryPhysicalContiguity;
+      return MemoryPhysicalContiguity;
     case 1:
-      MemoryPhysicalContiguity = MiGetWorkingSetInfo((__int64)Process, v14, a4, v10, &P);
-      if ( BugCheckParameter1 != -1LL )
-        ObfDereferenceObjectWithTag(Process, 0x6D566D4Du);
+      MemoryPhysicalContiguity = MiGetWorkingSetInfo((__int64)v16, v14, (__int64)a4, v10, &P);
+      if ( Handle != (HANDLE)-1LL )
+        ObfDereferenceObjectWithTag(v16, 0x6D566D4Du);
       if ( MemoryPhysicalContiguity >= 0 )
       {
-        if ( v87 )
-          *(_QWORD *)v87 = 8 * P + 8;
-        return 0LL;
+        if ( v80 )
+          *v80 = 8 * P + 8;
+        return 0;
       }
-      return (unsigned int)MemoryPhysicalContiguity;
+      return MemoryPhysicalContiguity;
     case 5:
-      v79 = Process[2].Affinity.StaticBitmap[12];
-      if ( BugCheckParameter1 != -1LL )
-        ObfDereferenceObjectWithTag(v90, 0x6D566D4Du);
-      *(_QWORD *)a4 = v79;
-      if ( v87 )
-        *(_QWORD *)v87 = 8LL;
-      return 0LL;
+      v73 = v16[2].Affinity.Bitmap[12];
+      if ( Handle != (HANDLE)-1LL )
+        ObfDereferenceObjectWithTag(Object, 0x6D566D4Du);
+      *(_QWORD *)a4 = v73;
+      if ( v80 )
+        *v80 = 8LL;
+      return 0;
   }
-  if ( BugCheckParameter1 != -1LL )
+  p_Lock = (__int64 *)&PROCESS->Header.Lock;
+  if ( Handle != (HANDLE)-1LL )
   {
-    KiStackAttachProcess(Process, 0LL, (__int64)v102, (_DWORD *)PreviousMode);
+    KeStackAttachProcess(PROCESS, &ApcState);
     v13 |= 1u;
-    LOBYTE(v84) = v13;
+    LOBYTE(v77) = v13;
   }
-  if ( a3 == 8 )
+  if ( a3 == 8 && p_Lock[124] && VslQueryVirtualMemory((__int64)p_Lock, v81, &v86) >= 0 )
   {
-    if ( Process->SecureState.SecureHandle )
+    if ( (_DWORD)v87 == 4096 )
+      v86.m256i_i16[10] = *(_WORD *)MiGetProcessPartition((__int64)p_Lock);
+    else
+      v86.m256i_i16[10] = 0;
+    if ( (v13 & 1) != 0 )
     {
-      VirtualMemory = VslQueryVirtualMemory((__int64)Process, v88, v93);
-      if ( VirtualMemory >= 0 )
-      {
-        if ( LODWORD(v93[2]) == 4096 )
-          WORD2(v93[1]) = *(_WORD *)MiGetProcessPartition((__int64)Process);
-        else
-          WORD2(v93[1]) = 0;
-        if ( (v13 & 1) != 0 )
-        {
-          KiUnstackDetachProcess((__int64)v102, 0LL);
-          ObfDereferenceObjectWithTag(Process, 0x6D566D4Du);
-        }
-        *(_OWORD *)a4 = v93[0];
-        *(__m256i *)(a4 + 16) = *(__m256i *)&v93[1];
-        if ( v87 )
-          *(_QWORD *)v87 = 48LL;
-        return 0LL;
-      }
+      KeUnstackDetachProcess(&ApcState);
+      ObfDereferenceObjectWithTag(p_Lock, 0x6D566D4Du);
     }
+    *(__m256i *)a4 = v86;
+    a4[2] = v87;
+    if ( v80 )
+      *v80 = 48LL;
+    return 0;
   }
-  v20 = (__int64)v98;
   while ( 2 )
   {
-    while ( 2 )
+    v18 = (__int64)v82;
+    while ( 1 )
     {
-      LOCK_ADDRESS_SPACE_SHARED(v20, (__int64)Process);
-      if ( (Process[1].DirectoryTableBase & 0x2000000000LL) != 0 )
+      LOCK_ADDRESS_SPACE_SHARED(v18, (__int64)p_Lock);
+      if ( (*((_DWORD *)p_Lock + 281) & 0x20) != 0 )
       {
-        UNLOCK_ADDRESS_SPACE_SHARED(v20, (__int64)Process);
+        UNLOCK_ADDRESS_SPACE_SHARED(v18, (__int64)p_Lock);
         if ( (v13 & 1) != 0 )
         {
-          KiUnstackDetachProcess((__int64)v102, 0LL);
-          ObfDereferenceObjectWithTag(Process, 0x6D566D4Du);
+          KeUnstackDetachProcess(&ApcState);
+          ObfDereferenceObjectWithTag(p_Lock, 0x6D566D4Du);
         }
-        return 3221225738LL;
+        return -1073741558;
       }
-      v21 = 0LL;
-      v22 = 0LL;
-      v23 = Object;
-      v24 = *((_QWORD *)Object + 251);
-      if ( !v24 )
-        goto LABEL_44;
-      v22 = v88 >> 12;
-      while ( 1 )
+      v19 = 0LL;
+      v20 = 0LL;
+      if ( p_Lock[253] )
       {
-        while ( 1 )
+        v19 = p_Lock[251];
+        v20 = v81 >> 12;
+        while ( v19 )
         {
-          v21 = v24;
-          v25 = *(unsigned int *)(v24 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v24 + 32) << 32);
-          if ( v22 >= v25 )
+          v21 = *(unsigned int *)(v19 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 32) << 32);
+          if ( v20 < v21 )
+            goto LABEL_35;
+          if ( v20 <= (*(unsigned int *)(v19 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 33) << 32)) )
+          {
+            v13 |= 2u;
+            LOBYTE(v77) = v13;
             break;
-LABEL_41:
-          v24 = *(_QWORD *)v24;
-          if ( !v24 )
-            goto LABEL_44;
+          }
+          if ( v20 < v21 )
+          {
+LABEL_35:
+            if ( !*(_QWORD *)v19 )
+              break;
+            v19 = *(_QWORD *)v19;
+          }
+          else
+          {
+            if ( !*(_QWORD *)(v19 + 8) )
+              break;
+            v19 = *(_QWORD *)(v19 + 8);
+          }
         }
-        if ( v22 <= (*(unsigned int *)(v24 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v24 + 33) << 32)) )
-          break;
-        if ( v22 < v25 )
-          goto LABEL_41;
-        v24 = *(_QWORD *)(v24 + 8);
-        if ( !v24 )
-          goto LABEL_44;
       }
-      v13 |= 2u;
-      LOBYTE(v84) = v13;
-LABEL_44:
       if ( (v13 & 2) == 0 )
       {
-        if ( v21 )
+        if ( v19 )
         {
-          v70 = *(unsigned int *)(v21 + 24);
-          if ( (v70 | ((unsigned __int64)*(unsigned __int8 *)(v21 + 32) << 32)) >= v22 )
+          v63 = *(unsigned int *)(v19 + 24);
+          if ( (v63 | ((unsigned __int64)*(unsigned __int8 *)(v19 + 32) << 32)) < v20 )
           {
-            v72 = v70 | ((unsigned __int64)*(unsigned __int8 *)(v21 + 32) << 32);
-            goto LABEL_174;
+            i = *(_QWORD *)(v19 + 8);
+            if ( i )
+            {
+              v65 = *(_QWORD **)i;
+              if ( *(_QWORD *)i )
+              {
+                do
+                {
+                  i = (unsigned __int64)v65;
+                  v65 = (_QWORD *)*v65;
+                }
+                while ( v65 );
+              }
+            }
+            else
+            {
+              for ( i = *(_QWORD *)(v19 + 16) & 0xFFFFFFFFFFFFFFFCuLL; i; i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL )
+              {
+                if ( *(_QWORD *)i == v19 )
+                  break;
+                v19 = i;
+              }
+            }
+            v66 = v81 & 0xFFFFFFFFFFFFF000uLL;
+            if ( i )
+              v67 = (*(unsigned int *)(i + 24) | ((unsigned __int64)*(unsigned __int8 *)(i + 32) << 32)) << 12;
+            else
+              v67 = 0x7FFFFFFF0000LL;
+LABEL_150:
+            v81 = v66;
+            v68 = v67 - v66;
+            UNLOCK_ADDRESS_SPACE_SHARED((__int64)v82, (__int64)p_Lock);
+            if ( (v13 & 1) != 0 )
+            {
+              KeUnstackDetachProcess(&ApcState);
+              ObfDereferenceObjectWithTag(p_Lock, 0x6D566D4Du);
+            }
+            if ( (a3 & 0xFFFFFFF5) == 0 && a3 != 2 )
+            {
+              *((_QWORD *)a4 + 1) = 0LL;
+              *((_DWORD *)a4 + 4) = 0;
+              *(_QWORD *)a4 = v81;
+              *((_QWORD *)a4 + 3) = v68;
+              *((_DWORD *)a4 + 8) = 0x10000;
+              *(_QWORD *)((char *)a4 + 36) = 1LL;
+              *((_WORD *)a4 + 10) = 0;
+              if ( v80 )
+                *v80 = 48LL;
+              return 0;
+            }
+            return -1073741503;
           }
-          NextVad = MiGetNextVad(v21);
-          if ( NextVad )
-          {
-            v72 = *(unsigned int *)(NextVad + 24) | ((unsigned __int64)*(unsigned __int8 *)(NextVad + 32) << 32);
-LABEL_174:
-            v73 = v72 << 12;
-            goto LABEL_175;
-          }
-          v73 = 0x7FFFFFFF0000LL;
+          v67 = (v63 | ((unsigned __int64)*(unsigned __int8 *)(v19 + 32) << 32)) << 12;
         }
         else
         {
-          v73 = 0x7FFFFFFF0000LL;
+          v67 = 0x7FFFFFFF0000LL;
         }
-LABEL_175:
-        UNLOCK_ADDRESS_SPACE_SHARED(v20, (__int64)v23);
-        v74 = v88 & 0xFFFFFFFFFFFFF000uLL;
-        v88 = v74;
-        v75 = v73 - v74;
-        if ( (v13 & 1) != 0 )
-        {
-          KiUnstackDetachProcess((__int64)v102, 0LL);
-          ObfDereferenceObjectWithTag(Object, 0x6D566D4Du);
-          v74 = v88;
-        }
-        if ( (a3 & 0xFFFFFFF5) == 0 && a3 != 2 )
-        {
-          *(_QWORD *)(a4 + 8) = 0LL;
-          *(_DWORD *)(a4 + 16) = 0;
-          *(_QWORD *)a4 = v74;
-          *(_QWORD *)(a4 + 24) = v75;
-          *(_DWORD *)(a4 + 32) = 0x10000;
-          *(_QWORD *)(a4 + 36) = 1LL;
-          *(_WORD *)(a4 + 20) = 0;
-          if ( v87 )
-            *(_QWORD *)v87 = 48LL;
-          return 0LL;
-        }
-        return 3221225793LL;
+        v66 = v81 & 0xFFFFFFFFFFFFF000uLL;
+        goto LABEL_150;
       }
-      MiReferenceVad(v21);
-      --*(_WORD *)(v20 + 484);
-      UNLOCK_ADDRESS_SPACE_SHARED(v20, v26);
-      MiLockVadShared(v20, v21);
-      v27 = (*(_WORD *)(v20 + 484))++ == 0xFFFF;
-      if ( v27 && *(_QWORD *)(v20 + 152) != v20 + 152 && !*(_WORD *)(v20 + 486) )
-        KiCheckForKernelApcDelivery();
-      if ( (unsigned int)MiVadDeleted(v21) )
-      {
-        MiUnlockVadShared(v20, v21);
-        MiLockVad(v20, v21);
-        MiWaitForVadDeletion(v21);
-        MiUnlockAndDereferenceVad((char *)v21);
-        v13 &= ~2u;
-        LOBYTE(v84) = v13;
-        Process = (_KPROCESS *)Object;
-        continue;
-      }
-      break;
-    }
-    if ( v22 < (*(unsigned int *)(v21 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v21 + 32) << 32))
-      || v22 > (*(unsigned int *)(v21 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v21 + 33) << 32)) )
-    {
-      MiUnlockAndDereferenceVadShared((char *)v21);
+      MiReferenceVad(v19);
+      v22 = (__int64)v82;
+      --v82->KernelApcDisable;
+      UNLOCK_ADDRESS_SPACE_SHARED(v22, (__int64)p_Lock);
+      MiLockVadShared((__int64)v82, v19);
+      KeLeaveCriticalRegionThread((__int64)v82);
+      if ( (unsigned int)MiVadDeleted(v19) != 1 )
+        break;
+      v18 = (__int64)v82;
+      MiUnlockVadShared((__int64)v82, v19);
+      MiLockVad((__int64)v82, v19);
+      MiWaitForVadDeletion(v19);
+      MiUnlockAndDereferenceVad((char *)v19);
       v13 &= ~2u;
-      LOBYTE(v84) = v13;
-      Process = (_KPROCESS *)Object;
+      LOBYTE(v77) = v13;
+    }
+    if ( v20 < (*(unsigned int *)(v19 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 32) << 32))
+      || v20 > (*(unsigned int *)(v19 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 33) << 32)) )
+    {
+      MiUnlockAndDereferenceVadShared((char *)v19);
+      v13 &= ~2u;
+      LOBYTE(v77) = v13;
       continue;
     }
     break;
   }
-  memset((char *)&v93[1] + 4, 0, 20);
-  HIDWORD(v93[2]) = 0;
-  *(_QWORD *)&v93[0] = v96;
-  *((_QWORD *)&v93[0] + 1) = (*(unsigned int *)(v21 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v21 + 32) << 32)) << 12;
-  LODWORD(v93[1]) = MmProtectToValue[(*(_DWORD *)(v21 + 48) >> 7) & 0x1F] | MI_GET_GRAPHICS_PROTECTION_FROM_VAD(v21);
-  v30 = *(_DWORD *)(v21 + 48);
-  if ( (v30 & 0x200000) != 0 )
+  memset(&v86.m256i_u64[1], 0, 24);
+  v87 = 0LL;
+  v86.m256i_i64[0] = v91;
+  v86.m256i_i64[1] = (*(unsigned int *)(v19 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 32) << 32)) << 12;
+  v86.m256i_i32[4] = MmProtectToValue[(*(_DWORD *)(v19 + 48) >> 7) & 0x1F];
+  v23 = MI_GET_GRAPHICS_PROTECTION_FROM_VAD(v19);
+  v86.m256i_i32[4] = v25 | v23;
+  v26 = *(_DWORD *)(v19 + 48);
+  if ( (v26 & 0x100000) == 0 )
   {
-    DWORD2(v93[2]) = 0x20000;
-    if ( (unsigned int)MiIsSoftwareEnclave(v21) )
-      LOBYTE(v13) = v13 | 0x40;
-    v55 = *(unsigned int *)(v21 + 52);
-    LODWORD(v55) = v55 & 0x7FFFFFFF;
-    if ( (v55 | ((unsigned __int64)*(unsigned __int8 *)(v21 + 34) << 31)) == 0x7FFFFFFFDLL )
-      LOBYTE(v13) = v13 | 0x80;
-    v56 = *(_DWORD *)(v21 + 48);
-    if ( (v56 & 0x70) == 0x10 )
-      LOBYTE(v13) = v13 | 8;
-    if ( (v56 & 0x70) == 0x30 )
-      LOBYTE(v13) = v13 | 0x10;
-    v57 = v13 | 0x20;
-    if ( (v56 & 0x400000) == 0 )
-      v57 = v13;
-    LOBYTE(v13) = v57;
-    LOBYTE(v84) = v57;
-    v32 = v28;
-  }
-  else
-  {
-    if ( (v30 & 0x70) == 0x20 )
+    if ( (v26 & 0x70) == 0x20 )
     {
-      DWORD2(v93[2]) = 0x1000000;
-      if ( a3 == 7 && (*(_BYTE *)(**(_QWORD **)(v21 + 72) + 62LL) & 0xC) == 4 )
+      DWORD2(v87) = 0x1000000;
+      if ( a3 == 7 && (*(_DWORD *)(**(_QWORD **)(v19 + 72) + 56LL) & 0x40000000) != 0 )
       {
-LABEL_257:
+LABEL_235:
         LOBYTE(v13) = v13 | 4;
-        LOBYTE(v84) = v13;
+        LOBYTE(v77) = v13;
       }
     }
     else
     {
-      DWORD2(v93[2]) = 0x40000;
+      DWORD2(v87) = 0x40000;
       if ( a3 == 3 && v10 >= 0x30 || a3 == 7 )
       {
-        v31 = *(_QWORD *)(v21 + 72);
-        if ( *(_QWORD *)(*(_QWORD *)v31 + 64LL) == v28 )
+        v37 = *(_QWORD *)(v19 + 72);
+        if ( !*(_QWORD *)(*(_QWORD *)v37 + 64LL) )
         {
-          DWORD2(v93[2]) = 0x8000000;
+          DWORD2(v87) = 0x8000000;
+          goto LABEL_45;
         }
-        else if ( a3 == 7 && (*(_BYTE *)(*(_QWORD *)v31 + 62LL) & 0xC) == 4 )
-        {
-          goto LABEL_257;
-        }
+        if ( a3 == 7 && (*(_DWORD *)(*(_QWORD *)v37 + 56LL) & 0x40000000) != 0 )
+          goto LABEL_235;
       }
     }
+LABEL_45:
     if ( a3 == 2 )
     {
-      v69 = *(__int64 **)(v21 + 72);
-      v32 = *(_QWORD *)(*v69 + 64) & 0xFFFFFFFFFFFFFFF0uLL;
-      if ( v32 )
+      v71 = *(__int64 **)(v19 + 72);
+      v27 = *(_QWORD *)(*v71 + 64) & 0xFFFFFFFFFFFFFFF0uLL;
+      if ( v27 )
       {
-        v32 = MiReferenceControlAreaFile(*v69);
-        v29 = v96;
-        v28 = 0LL;
+        v27 = MiReferenceControlAreaFile(*v71);
+        v24 = v91;
       }
-      if ( !v32 )
-        v32 = 1LL;
+      if ( !v27 )
+        v27 = 1LL;
     }
     else
     {
-      v32 = v28;
+      v27 = (__int64)DmaAdapter;
     }
+    goto LABEL_47;
   }
+  DWORD2(v87) = 0x20000;
+  if ( (unsigned int)MiIsSoftwareEnclave(v19) )
+  {
+    LOBYTE(v13) = v13 | 0x10;
+    LOBYTE(v77) = v13;
+  }
+  v60 = *(unsigned int *)(v19 + 52);
+  LODWORD(v60) = v60 & 0x7FFFFFFF;
+  if ( (v60 | ((unsigned __int64)*(unsigned __int8 *)(v19 + 34) << 31)) == 0x7FFFFFFFDLL )
+  {
+    LOBYTE(v13) = v13 | 0x20;
+    LOBYTE(v77) = v13;
+  }
+  v27 = (__int64)DmaAdapter;
+  if ( (*(_DWORD *)(v19 + 48) & 0x70) == 0x10 )
+  {
+    LOBYTE(v13) = v13 | 8;
+    LOBYTE(v77) = v13;
+  }
+LABEL_47:
   if ( ((a3 - 3) & 0xFFFFFFFB) != 0 )
   {
     if ( a3 == 6 )
     {
-      v94 = 0LL;
-      v95 = 0LL;
-      v59 = *(_DWORD *)(v21 + 48);
-      if ( (v59 & 0x200000) != 0 || (v59 & 0x70) != 0x20 )
+      v88 = 0LL;
+      v89 = 0LL;
+      v28 = *(_DWORD *)(v19 + 48);
+      if ( (v28 & 0x100000) == 0 && (v28 & 0x70) == 0x20 )
       {
-        v67 = Object;
-      }
-      else
-      {
-        v60 = ***(_QWORD ***)(v21 + 72);
-        *(_QWORD *)&v94 = (*(unsigned int *)(v21 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v21 + 32) << 32)) << 12;
-        *((_QWORD *)&v94 + 1) = _InterlockedCompareExchange64((volatile signed __int64 *)(v60 + 24), -1LL, -1LL);
-        v61 = v95 & 0xFFFFFFC3 | (*(unsigned __int8 *)(v60 + 15) >> 2) & 0x3FFFFFFC;
-        LODWORD(v95) = v61;
-        if ( (*(_DWORD *)(v21 + 48) & 0xF80) == 0x80 )
-          LODWORD(v95) = v61 | 2;
-        if ( MiVadMapsLargeImage(v21) )
+        v29 = ***(_QWORD ***)(v19 + 72);
+        *(_QWORD *)&v88 = (*(unsigned int *)(v19 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 32) << 32)) << 12;
+        *((_QWORD *)&v88 + 1) = _InterlockedCompareExchange64((volatile signed __int64 *)(v29 + 24), -1LL, -1LL);
+        v30 = v89 & 0xFFFFFFC3 | (*(unsigned __int8 *)(v29 + 15) >> 2) & 0x3FFFFFFC;
+        LODWORD(v89) = v30;
+        if ( (*(_DWORD *)(v19 + 48) & 0xF80) == 0x80 )
+          LODWORD(v89) = v30 | 2;
+        if ( MiVadMapsLargeImage(v19) )
         {
-          VadEvent = MiLocateVadEvent(v62, 16LL);
-          v66 = *(_QWORD *)(VadEvent + 16);
-          *(_QWORD *)&v94 = v82 + ((unsigned __int64)*(unsigned __int8 *)(VadEvent + 8) << 16);
+          VadEvent = MiLocateVadEvent(v31, 16LL);
+          v83 = *(_BYTE *)(VadEvent + 8);
+          v35 = *(_QWORD *)(VadEvent + 16);
+          *(_QWORD *)&v88 = v75 + ((unsigned __int64)v83 << 16);
         }
         else
         {
-          v66 = (*(unsigned int *)(v21 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v21 + 33) << 32))
-              - (*(unsigned int *)(v21 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v21 + 32) << 32))
+          v35 = (*(unsigned int *)(v19 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 33) << 32))
+              - (*(unsigned int *)(v19 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 32) << 32))
               + 1;
         }
-        if ( (v63 & 0xFFF) == 0 )
-          v65 = 0LL;
-        v67 = v90;
-        LOBYTE(v13) = v84;
-        if ( v66 < v65 + (v63 >> 12) )
-          LODWORD(v95) = v64 | 1;
+        if ( (v32 & 0xFFF) == 0 )
+          v34 = 0LL;
+        p_Lock = (__int64 *)Object;
+        LOBYTE(v13) = v77;
+        if ( v35 < v34 + (v32 >> 12) )
+          LODWORD(v89) = v33 | 1;
       }
-      MiUnlockAndDereferenceVadShared((char *)v21);
+      MiUnlockAndDereferenceVadShared((char *)v19);
       if ( (v13 & 1) != 0 )
       {
-        KiUnstackDetachProcess((__int64)v102, 0LL);
-        ObfDereferenceObjectWithTag(v67, 0x6D566D4Du);
+        KeUnstackDetachProcess(&ApcState);
+        ObfDereferenceObjectWithTag(p_Lock, 0x6D566D4Du);
       }
-      v86 = 24;
-      *(_OWORD *)a4 = v94;
-      *(_QWORD *)(a4 + 16) = v95;
-      if ( v87 )
-        *(_QWORD *)v87 = 24LL;
-      return 0LL;
+      v79 = 24;
+      *a4 = v88;
+      *((_QWORD *)a4 + 2) = v89;
+      if ( v80 )
+        *v80 = 24LL;
+      return 0;
     }
     if ( (a3 & 0xFFFFFFF5) == 0 && a3 != 2 )
     {
-      AddressSpan = MiQueryAddressSpan((__int64)v93, v29, VadPageSize, (_DWORD *)v21);
-      *((_QWORD *)&v93[1] + 1) = AddressSpan - *(_QWORD *)&v93[0];
+      AddressSpan = MiQueryAddressSpan((__int64)&v86, v24, v94, v19);
+      v86.m256i_i64[3] = AddressSpan - v86.m256i_i64[0];
     }
-    MiUnlockAndDereferenceVadShared((char *)v21);
+    MiUnlockAndDereferenceVadShared((char *)v19);
     if ( (v13 & 1) != 0 )
     {
-      KiUnstackDetachProcess((__int64)v102, 0LL);
-      ObfDereferenceObjectWithTag(Object, 0x6D566D4Du);
+      KeUnstackDetachProcess(&ApcState);
+      ObfDereferenceObjectWithTag(p_Lock, 0x6D566D4Du);
     }
     if ( (a3 & 0xFFFFFFF5) == 0 && a3 != 2 )
     {
-      *(_OWORD *)a4 = v93[0];
-      *(__m256i *)(a4 + 16) = *(__m256i *)&v93[1];
-      if ( v87 )
-        *(_QWORD *)v87 = 48LL;
-      return 0LL;
+      *(__m256i *)a4 = v86;
+      a4[2] = v87;
+      if ( v80 )
+        *v80 = 48LL;
+      return 0;
     }
-    if ( v32 )
+    if ( !v27 )
+      return -1073741503;
+    if ( v27 == 1 )
+      return -1073741672;
+    if ( (unsigned int)v10 < v10 )
     {
-      if ( v32 == 1 )
-        return 3221225624LL;
-      if ( (unsigned int)v10 < v10 )
-      {
-        ObfDereferenceObject((PVOID)v32);
-        return 3221225715LL;
-      }
-      v86 = 0;
-      MemoryPhysicalContiguity = ObQueryNameStringMode((char *)v32, a4, v10, &v86, v85);
-      ObfDereferenceObject((PVOID)v32);
-      if ( v87 )
-        *(_QWORD *)v87 = v86;
-      return (unsigned int)MemoryPhysicalContiguity;
+      HalPutDmaAdapter((PADAPTER_OBJECT)v27);
+      return -1073741581;
     }
-    return 3221225793LL;
+    v79 = 0;
+    MemoryPhysicalContiguity = ObQueryNameStringMode(v27, (_DWORD)a4, v10, (unsigned int)&v79, v78);
+    HalPutDmaAdapter((PADAPTER_OBJECT)v27);
+    if ( v80 )
+      *v80 = v79;
+    return MemoryPhysicalContiguity;
   }
-  LODWORD(v88) = v28;
-  v92 = ((*(unsigned int *)(v21 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v21 + 33) << 32))
-       - (*(unsigned int *)(v21 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v21 + 32) << 32))
+  v38 = 0;
+  v39 = ((*(unsigned int *)(v19 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 33) << 32))
+       - (*(unsigned int *)(v19 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 32) << 32))
        + 1) << 12;
-  v33 = *(unsigned int *)(v21 + 52);
-  LODWORD(v33) = v33 & 0x7FFFFFFF;
-  v34 = v33 | ((unsigned __int64)*(unsigned __int8 *)(v21 + 34) << 31);
-  if ( v34 >= 0x7FFFFFFFDLL )
-    v34 = v28;
-  VadPageSize = MiGetVadPageSize(v21);
-  ProcessPartition = (unsigned __int16 *)MiGetProcessPartition((__int64)Object);
-  v38 = v35;
-  v39 = *(_DWORD *)(v21 + 48);
-  if ( (v39 & 0x200000) != 0 )
+  v40 = *(unsigned int *)(v19 + 52);
+  LODWORD(v40) = v40 & 0x7FFFFFFF;
+  v41 = v40 | ((unsigned __int64)*(unsigned __int8 *)(v19 + 34) << 31);
+  if ( v41 >= 0x7FFFFFFFDLL )
+    v41 = 0LL;
+  ProcessPartition = (unsigned __int16 *)MiGetProcessPartition((__int64)PROCESS);
+  v44 = v43;
+  v45 = *(_DWORD *)(v19 + 48);
+  if ( (v45 & 0x100000) != 0 )
   {
-    if ( (v13 & 0x10) != 0 )
+    if ( (v45 & 0x70) != 0x30 )
     {
-      MiGetAweVadPartition(v21);
-      VadPageSize = MiGetAweVadPageSize(v21);
-      LOWORD(v35) = 0;
-    }
-    else if ( (v39 & 0x800000) != 0 || (v39 & 0x180000u) >= 0x100000 )
-    {
-      v83 = MiLocateVadEvent(v21, 16LL);
-      if ( v83 )
+      if ( (v45 & 0x400000) != 0 || (v45 & 0xC0000u) >= 0x80000 )
       {
-        v38 = *(_QWORD *)(v83 + 24);
-        if ( v38 )
+        v76 = MiLocateVadEvent(v19, 16LL);
+        if ( v76 )
         {
-          if ( !PsReferencePartitionSafe(*(_QWORD *)(v83 + 24)) )
+          v44 = *(_QWORD *)(v76 + 24);
+          if ( v44 )
           {
-            v37 = -1073740640;
-            LODWORD(v88) = -1073740640;
-            v38 = v35;
+            if ( !PsReferencePartitionSafe(*(_QWORD *)(v76 + 24)) )
+            {
+              v38 = -1073740640;
+              v44 = v43;
+            }
           }
         }
       }
+      goto LABEL_77;
     }
+    AweVadPartition = MiGetAweVadPartition(v19);
+    goto LABEL_76;
   }
-  else
+  v46 = *(__int64 **)(v19 + 72);
+  if ( v46 && *v46 )
   {
-    v40 = *(__int64 **)(v21 + 72);
-    if ( v40 && *v40 )
-      ProcessPartition = (unsigned __int16 *)MiGetControlAreaPartition(*v40);
+    AweVadPartition = MiGetControlAreaPartition(*v46);
+LABEL_76:
+    ProcessPartition = (unsigned __int16 *)AweVadPartition;
   }
-  if ( v37 < 0 )
-    v41 = v35;
+LABEL_77:
+  if ( v38 < 0 )
+    v48 = v43;
   else
-    v41 = *ProcessPartition;
-  if ( v38 )
-    PsDereferencePartition(v38);
-  v42 = (*(_DWORD *)(v21 + 48) >> 12) & 0x7F;
-  MiUnlockAndDereferenceVadShared((char *)v21);
+    v48 = *ProcessPartition;
+  if ( v44 )
+    PsDereferencePartition(v44);
+  v49 = (*(_DWORD *)(v19 + 48) >> 12) & 0x3F;
+  MiUnlockAndDereferenceVadShared((char *)v19);
   if ( (v13 & 1) != 0 )
   {
-    KiUnstackDetachProcess((__int64)v102, 0LL);
-    ObfDereferenceObjectWithTag(Object, 0x6D566D4Du);
+    KeUnstackDetachProcess(&ApcState);
+    ObfDereferenceObjectWithTag(PROCESS, 0x6D566D4Du);
   }
-  result = (unsigned int)v88;
-  if ( (v88 & 0x80000000) == 0LL )
+  if ( v38 >= 0 )
   {
-    v44 = v34 << 12;
-    v45 = v13 & 0xFD;
-    *(_QWORD *)a4 = *((_QWORD *)&v93[0] + 1);
-    *(_DWORD *)(a4 + 8) = v93[1];
-    *(_QWORD *)(a4 + 16) = v92;
-    if ( a3 != 7 )
+    v50 = v41 << 12;
+    v51 = v13 & 0xFD;
+    v52 = v95;
+    *v95 = v86.m256i_i64[1];
+    *((_DWORD *)v52 + 2) = v86.m256i_i32[4];
+    v52[2] = v39;
+    if ( v90 == 7 )
     {
-      v46 = DWORD2(v93[2]);
-      goto LABEL_74;
-    }
-    v49 = 0;
-    *(_DWORD *)(a4 + 12) = 0;
-    if ( DWORD2(v93[2]) == 0x20000 )
-    {
-      v49 = 1;
-      *(_DWORD *)(a4 + 12) = 1;
-    }
-    else if ( (v45 & 8) != 0 )
-    {
-      *(_DWORD *)(a4 + 12) = 16;
-      v49 = 16;
+      *((_DWORD *)v52 + 3) = 0;
+      if ( DWORD2(v87) == 0x20000 )
+      {
+        *((_DWORD *)v52 + 3) = 1;
+      }
+      else if ( (v51 & 8) != 0 )
+      {
+        *((_DWORD *)v52 + 3) = 16;
+      }
+      else
+      {
+        switch ( DWORD2(v87) )
+        {
+          case 0x40000:
+            *((_DWORD *)v52 + 3) = 2;
+            break;
+          case 0x1000000:
+            *((_DWORD *)v52 + 3) = 4;
+            break;
+          case 0x8000000:
+            *((_DWORD *)v52 + 3) = 8;
+            break;
+        }
+      }
+      if ( MiGetVadPageSize(v19) == 16 )
+      {
+        v56 |= 0x80u;
+        *((_DWORD *)v52 + 3) = v56;
+      }
+      v57 = v56 | (8 * (v51 & 4));
+      *((_DWORD *)v52 + 3) = v57;
+      v58 = v57 | (4 * (v51 & 0x10));
+      *((_DWORD *)v52 + 3) = v58;
+      v53 = v58 | (8 * (v51 & 0x20));
     }
     else
     {
-      switch ( DWORD2(v93[2]) )
-      {
-        case 0x40000:
-          *(_DWORD *)(a4 + 12) = 2;
-          v49 = 2;
-          break;
-        case 0x1000000:
-          *(_DWORD *)(a4 + 12) = 4;
-          v49 = 4;
-          break;
-        case 0x8000000:
-          *(_DWORD *)(a4 + 12) = 8;
-          v49 = 8;
-          break;
-      }
+      v53 = DWORD2(v87);
     }
-    switch ( VadPageSize )
+    *((_DWORD *)v52 + 3) = v53;
+    v54 = 24LL;
+    v79 = 24;
+    if ( Length >= 0x20 )
     {
-      case 0x10uLL:
-        v49 |= 0x80u;
-        goto LABEL_100;
-      case 0x200uLL:
-        v49 |= 0x800u;
-        goto LABEL_100;
-      case 0x40000uLL:
-        v49 |= 0x1000u;
-LABEL_100:
-        *(_DWORD *)(a4 + 12) = v49;
-        break;
+      v52[3] = v50;
+      v54 = 32LL;
+      v79 = 32;
     }
-    v50 = v49 | (32 * (v45 & 0x20));
-    *(_DWORD *)(a4 + 12) = v50;
-    v51 = v50 | (32 * (v45 & 0x10));
-    *(_DWORD *)(a4 + 12) = v51;
-    v52 = v51 | (8 * (v45 & 4));
-    *(_DWORD *)(a4 + 12) = v52;
-    v53 = v52 | v45 & 0x40;
-    *(_DWORD *)(a4 + 12) = v53;
-    v46 = v53 | (2 * (v45 & 0x80));
-LABEL_74:
-    *(_DWORD *)(a4 + 12) = v46;
-    v47 = 24LL;
-    v86 = 24;
-    if ( a5 >= 0x20 )
+    if ( Length >= 0x28 )
     {
-      *(_QWORD *)(a4 + 24) = v44;
-      v47 = 32LL;
-      v86 = 32;
+      v52[4] = v48;
+      v54 = 40LL;
+      v79 = 40;
     }
-    if ( a5 >= 0x28 )
+    if ( Length >= 0x30 )
     {
-      *(_QWORD *)(a4 + 32) = v41;
-      v47 = 40LL;
-      v86 = 40;
-    }
-    if ( a5 >= 0x30 )
-    {
-      if ( v42 )
-        v48 = (unsigned int)(v42 - 1);
+      if ( v49 )
+        v55 = (unsigned int)(v49 - 1);
       else
-        v48 = 0xFFFFFFFFLL;
-      *(_QWORD *)(a4 + 40) = v48;
-      v86 = 48;
-      v47 = 48LL;
+        v55 = 0xFFFFFFFFLL;
+      v52[5] = v55;
+      v79 = 48;
+      v54 = 48LL;
     }
-    if ( v87 )
-      *(_QWORD *)v87 = v47;
-    return 0LL;
+    if ( v80 )
+      *v80 = v54;
+    return 0;
   }
-  return result;
+  return v38;
 }

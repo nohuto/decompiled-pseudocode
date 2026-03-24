@@ -1,16 +1,16 @@
 /*
- * XREFs of ??1FxDriver@@UEAA@XZ @ 0x1C0069CE8
+ * XREFs of ??1FxDriver@@UEAA@XZ @ 0x1C0053A50
  * Callers:
- *     ??_EFxDriver@@UEAAPEAXI@Z @ 0x1C0069DC0 (--_EFxDriver@@UEAAPEAXI@Z.c)
+ *     ??_EFxDriver@@UEAAPEAXI@Z @ 0x1C0053B20 (--_EFxDriver@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0006180 (--1FxNonPagedObject@@UEAA@XZ.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     ?IsDisposed@FxObject@@QEAAEXZ @ 0x1C002BB80 (-IsDisposed@FxObject@@QEAAEXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ??1FxCallbackMutexLock@@UEAA@XZ @ 0x1C00673F4 (--1FxCallbackMutexLock@@UEAA@XZ.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0014230 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ??1FxCallbackMutexLock@@UEAA@XZ @ 0x1C004D490 (--1FxCallbackMutexLock@@UEAA@XZ.c)
+ *     ?IsDisposed@FxObject@@QEAAEXZ @ 0x1C0052450 (-IsDisposed@FxObject@@QEAAEXZ.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
  */
 
 void __fastcall FxDriver::~FxDriver(FxDriver *this)
@@ -20,6 +20,7 @@ void __fastcall FxDriver::~FxDriver(FxDriver *this)
   wchar_t *Buffer; // rcx
   FxDisposeList *m_DisposeList; // rcx
   unsigned int v6; // edx
+  unsigned int v7; // r8d
 
   this->FxNonPagedObject::FxObject::__vftable = (FxDriver_vtbl *)FxDriver::`vftable'{for `FxNonPagedObject'};
   this->IFxHasCallbacks::__vftable = (IFxHasCallbacks_vtbl *)FxDriver::`vftable'{for `IFxHasCallbacks'};
@@ -32,13 +33,10 @@ void __fastcall FxDriver::~FxDriver(FxDriver *this)
   }
   Buffer = this->m_RegistryPath.Buffer;
   if ( Buffer )
-  {
     FxPoolFree((FX_POOL_TRACKER *)Buffer);
-    this->m_ServiceName = 0LL;
-  }
   m_DisposeList = this->m_DisposeList;
   if ( m_DisposeList )
     m_DisposeList->DeleteObject(m_DisposeList);
   FxCallbackMutexLock::~FxCallbackMutexLock(&this->m_CallbackMutexLock);
-  FxNonPagedObject::~FxNonPagedObject(this, v6);
+  FxNonPagedObject::~FxNonPagedObject(this, v6, v7);
 }

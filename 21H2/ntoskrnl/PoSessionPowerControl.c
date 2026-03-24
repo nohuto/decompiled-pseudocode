@@ -1,35 +1,33 @@
 /*
- * XREFs of PoSessionPowerControl @ 0x14099CD30
+ * XREFs of PoSessionPowerControl @ 0x1408F53EC
  * Callers:
- *     TtmpSessionPowerControl @ 0x1409A5B64 (TtmpSessionPowerControl.c)
+ *     TtmpSessionPowerControl @ 0x1408FFF84 (TtmpSessionPowerControl.c)
  * Callees:
- *     PopInvokeWin32Callout @ 0x1407F2AD0 (PopInvokeWin32Callout.c)
- *     PopBlockSessionSwitch @ 0x1407FE700 (PopBlockSessionSwitch.c)
+ *     PopInvokeWin32Callout @ 0x14067B7C8 (PopInvokeWin32Callout.c)
+ *     PopBlockSessionSwitch @ 0x140779D60 (PopBlockSessionSwitch.c)
  */
 
-__int64 __fastcall PoSessionPowerControl(unsigned __int8 a1, int a2, unsigned int a3)
+__int64 __fastcall PoSessionPowerControl(char a1, int a2, int a3)
 {
   int v6; // [rsp+20h] [rbp-30h] BYREF
   char v7; // [rsp+24h] [rbp-2Ch]
   __int16 v8; // [rsp+25h] [rbp-2Bh]
   char v9; // [rsp+27h] [rbp-29h]
   __int64 v10; // [rsp+28h] [rbp-28h]
-  int *v11; // [rsp+30h] [rbp-20h]
+  __int64 *v11; // [rsp+30h] [rbp-20h]
   __int64 v12; // [rsp+38h] [rbp-18h]
   __int64 v13; // [rsp+40h] [rbp-10h]
   int v14; // [rsp+70h] [rbp+20h] BYREF
-  unsigned int v15; // [rsp+80h] [rbp+30h] BYREF
-  int v16; // [rsp+88h] [rbp+38h] BYREF
-  int v17; // [rsp+8Ch] [rbp+3Ch]
+  int v15; // [rsp+80h] [rbp+30h] BYREF
+  __int64 v16; // [rsp+88h] [rbp+38h] BYREF
 
   v15 = a3;
   v14 = 0;
-  *(_WORD *)((char *)&v16 + 1) = 0;
-  HIBYTE(v16) = 0;
+  v16 = 0LL;
   PopBlockSessionSwitch(1, &v14);
+  HIDWORD(v16) = a2;
   v11 = &v16;
-  v17 = a2;
-  v16 = a1;
+  LOBYTE(v16) = a1;
   v8 = 0;
   v9 = 0;
   v10 = 8LL;

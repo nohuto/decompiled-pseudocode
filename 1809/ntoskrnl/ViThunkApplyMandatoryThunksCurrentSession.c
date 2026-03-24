@@ -3,7 +3,7 @@
  * Callers:
  *     VfThunkApplyMandatoryThunks @ 0x140936A5C (VfThunkApplyMandatoryThunks.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C20 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
  *     ViThunkReplaceImportIfThunkedRegular @ 0x140937354 (ViThunkReplaceImportIfThunkedRegular.c)
  */
 

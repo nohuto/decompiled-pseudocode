@@ -1,27 +1,27 @@
 /*
- * XREFs of EtwpSavePersistedLogger @ 0x1409EDAF4
+ * XREFs of EtwpSavePersistedLogger @ 0x140948CDC
  * Callers:
- *     EtwpSavePersistedLoggersWorker @ 0x1409EE0A8 (EtwpSavePersistedLoggersWorker.c)
+ *     EtwpSavePersistedLoggersWorker @ 0x14094928C (EtwpSavePersistedLoggersWorker.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     IoAllocateMdl @ 0x14022E2C0 (IoAllocateMdl.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x1403A6C20 (MmMapLockedPagesWithReservedMapping.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x14041A7A0 (ZwWriteFile.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwSetInformationFile @ 0x14041AB80 (ZwSetInformationFile.c)
- *     memset @ 0x140435400 (memset.c)
- *     MmUnmapReservedMapping @ 0x14061E980 (MmUnmapReservedMapping.c)
- *     EtwpDelayCreate @ 0x1407F70C4 (EtwpDelayCreate.c)
- *     MmAllocateMappingAddressEx @ 0x14086C950 (MmAllocateMappingAddressEx.c)
- *     MmFreeMappingAddress @ 0x14086DC40 (MmFreeMappingAddress.c)
- *     EtwpInitializeCompressedWriter @ 0x1409ED4FC (EtwpInitializeCompressedWriter.c)
- *     EtwpQueryPersistedMemory @ 0x1409EDA08 (EtwpQueryPersistedMemory.c)
- *     EtwpTraceSavePersistedLoggerStop @ 0x1409EE400 (EtwpTraceSavePersistedLoggerStop.c)
- *     EtwpWriteBufferCompressed @ 0x1409EE51C (EtwpWriteBufferCompressed.c)
- *     EtwpWriteRemainingCompressedData @ 0x1409EE6EC (EtwpWriteRemainingCompressedData.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     IoAllocateMdl @ 0x14035A110 (IoAllocateMdl.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403C8440 (MmMapLockedPagesWithReservedMapping.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x1403F9B20 (ZwWriteFile.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1403F9F00 (ZwSetInformationFile.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MmUnmapReservedMapping @ 0x140531BD0 (MmUnmapReservedMapping.c)
+ *     MmAllocateMappingAddressEx @ 0x140691450 (MmAllocateMappingAddressEx.c)
+ *     EtwpDelayCreate @ 0x140713990 (EtwpDelayCreate.c)
+ *     MmFreeMappingAddress @ 0x140767D20 (MmFreeMappingAddress.c)
+ *     EtwpInitializeCompressedWriter @ 0x1409486D4 (EtwpInitializeCompressedWriter.c)
+ *     EtwpQueryPersistedMemory @ 0x140948BF0 (EtwpQueryPersistedMemory.c)
+ *     EtwpTraceSavePersistedLoggerStop @ 0x1409495EC (EtwpTraceSavePersistedLoggerStop.c)
+ *     EtwpWriteBufferCompressed @ 0x140949708 (EtwpWriteBufferCompressed.c)
+ *     EtwpWriteRemainingCompressedData @ 0x1409498CC (EtwpWriteRemainingCompressedData.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpSavePersistedLogger(unsigned int *a1, __int64 a2)
@@ -29,23 +29,23 @@ __int64 __fastcall EtwpSavePersistedLogger(unsigned int *a1, __int64 a2)
   unsigned int *v3; // rsi
   HANDLE v4; // r14
   int v5; // edi
-  unsigned int v6; // r13d
-  struct _MDL *v7; // r15
-  __int64 v8; // r8
-  __int64 Length; // r12
+  unsigned int v6; // r12d
+  struct _MDL *v7; // r13
+  unsigned __int64 v8; // r8
+  __int64 Length; // r15
   int v10; // ebx
   PMDL Mdl; // rax
   __int64 v12; // rcx
-  __int64 v13; // r9
-  __int64 v14; // rdx
+  __int64 v13; // rdx
+  __int64 v14; // r9
   int v15; // eax
   struct _MDL *v16; // rcx
   unsigned int v17; // esi
-  unsigned int v18; // r13d
-  unsigned int v19; // r14d
-  __int64 v20; // r11
+  unsigned int *v18; // r14
+  unsigned int v19; // eax
+  unsigned int v20; // r14d
   struct _MDL *v21; // r10
-  unsigned int v22; // r13d
+  __int64 v22; // r11
   _QWORD *v23; // rdx
   unsigned int v24; // eax
   __int64 v25; // r9
@@ -66,29 +66,29 @@ __int64 __fastcall EtwpSavePersistedLogger(unsigned int *a1, __int64 a2)
   void *v40; // rsi
   int v42; // [rsp+50h] [rbp-B0h] BYREF
   char v43[4]; // [rsp+54h] [rbp-ACh] BYREF
-  unsigned int v44; // [rsp+58h] [rbp-A8h] BYREF
+  unsigned int v44; // [rsp+58h] [rbp-A8h]
   unsigned int v45; // [rsp+5Ch] [rbp-A4h]
   unsigned int v46; // [rsp+60h] [rbp-A0h] BYREF
   unsigned int v47; // [rsp+64h] [rbp-9Ch]
-  HANDLE FileHandle; // [rsp+68h] [rbp-98h] BYREF
-  unsigned int *v49; // [rsp+70h] [rbp-90h]
-  PVOID v50; // [rsp+78h] [rbp-88h] BYREF
-  PVOID MappingAddress; // [rsp+80h] [rbp-80h]
-  unsigned int v52; // [rsp+88h] [rbp-78h]
-  int v53; // [rsp+8Ch] [rbp-74h]
-  UNICODE_STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
-  LARGE_INTEGER ByteOffset; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v56; // [rsp+A8h] [rbp-58h]
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B0h] [rbp-50h] BYREF
-  _QWORD v58[8]; // [rsp+C0h] [rbp-40h] BYREF
-  _OWORD FileInformation[2]; // [rsp+100h] [rbp+0h] BYREF
-  __int64 v60; // [rsp+120h] [rbp+20h]
+  unsigned int *v48; // [rsp+68h] [rbp-98h]
+  HANDLE FileHandle; // [rsp+70h] [rbp-90h] BYREF
+  unsigned int v50; // [rsp+78h] [rbp-88h] BYREF
+  PVOID v51; // [rsp+80h] [rbp-80h] BYREF
+  PVOID MappingAddress; // [rsp+88h] [rbp-78h]
+  int v53; // [rsp+90h] [rbp-70h]
+  UNICODE_STRING DestinationString; // [rsp+98h] [rbp-68h] BYREF
+  LARGE_INTEGER ByteOffset; // [rsp+A8h] [rbp-58h] BYREF
+  __int64 v56; // [rsp+B0h] [rbp-50h]
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B8h] [rbp-48h] BYREF
+  _QWORD v58[8]; // [rsp+D0h] [rbp-30h] BYREF
+  _OWORD FileInformation[2]; // [rsp+110h] [rbp+10h] BYREF
+  __int64 v60; // [rsp+130h] [rbp+30h]
 
   v56 = a2;
-  v49 = a1;
+  v48 = a1;
   ByteOffset.QuadPart = 0LL;
   v3 = a1;
-  v44 = 0;
+  v50 = 0;
   FileHandle = 0LL;
   v60 = 0LL;
   v42 = 0;
@@ -101,7 +101,7 @@ __int64 __fastcall EtwpSavePersistedLogger(unsigned int *a1, __int64 a2)
   DestinationString = 0LL;
   MappingAddress = 0LL;
   IoStatusBlock = 0LL;
-  v50 = 0LL;
+  v51 = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   memset(v58, 0, sizeof(v58));
   EtwWrite(EtwpEventTracingProvRegHandle, &ETW_EVENT_SAVE_PERSISTED_LOGGER_START, 0LL, 0, 0LL);
@@ -119,22 +119,23 @@ __int64 __fastcall EtwpSavePersistedLogger(unsigned int *a1, __int64 a2)
     goto LABEL_59;
   }
   Mdl->MdlFlags |= 2u;
-  v10 = EtwpQueryPersistedMemory(v12, a2, &v50, &v44);
+  v10 = EtwpQueryPersistedMemory(v12, a2, &v51, &v50);
   if ( v10 >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, (PCWSTR)((char *)v3 + v3[3]));
+    v13 = 0LL;
     v14 = 0LL;
-    v8 = 0LL;
-    if ( v44 )
+    if ( v50 )
     {
       while ( 1 )
       {
-        v13 = *((_QWORD *)v50 + (unsigned int)v8) >> 40;
-        if ( !v13 )
+        v8 = *((_QWORD *)v51 + v14);
+        if ( v8 < 0x10000000000LL )
           break;
-        v14 += v13;
-        v8 = (unsigned int)(v8 + 1);
-        if ( (unsigned int)v8 >= v44 )
+        v8 >>= 40;
+        v14 = (unsigned int)(v14 + 1);
+        v13 += v8;
+        if ( (unsigned int)v14 >= v50 )
           goto LABEL_10;
       }
 LABEL_25:
@@ -142,11 +143,11 @@ LABEL_25:
       goto LABEL_59;
     }
 LABEL_10:
-    if ( v14 << 12 != Length * v3[1] )
+    if ( v13 << 12 != Length * v3[1] )
       goto LABEL_25;
-    LOBYTE(v13) = 1;
+    LOBYTE(v14) = 1;
     v43[0] = 0;
-    v15 = EtwpDelayCreate((__int64)&FileHandle, (__int64)&DestinationString, v43, v13, 0, 1, 0LL);
+    v15 = EtwpDelayCreate((__int64)&FileHandle, (__int64)&DestinationString, v43, v14, 0, 1);
     v4 = FileHandle;
     v10 = v15;
     if ( v15 < 0 )
@@ -157,44 +158,43 @@ LABEL_10:
     if ( v10 < 0 )
       goto LABEL_59;
     v16 = v7 + 1;
-    v52 = 0;
     v17 = 0;
-    v45 = 0;
-    v18 = (unsigned int)Length >> 12;
     v44 = 0;
-    v47 = (unsigned int)Length >> 12;
-    if ( !v49[1] )
+    v45 = 0;
+    if ( !v48[1] )
       goto LABEL_44;
-    v19 = v52;
+    v18 = v48;
+    v19 = (unsigned int)Length >> 12;
+    v47 = (unsigned int)Length >> 12;
     while ( 1 )
     {
-      if ( v18 )
+      if ( v19 )
       {
-        v20 = v18;
+        v20 = v44;
         v21 = v16;
-        v22 = v45;
+        v22 = v19;
         do
         {
-          v23 = v50;
+          v23 = v51;
           v24 = v17 + 1;
-          v21->Next = (struct _MDL *)(v17 + (*((_QWORD *)v50 + v22) & 0xFFFFFFFFFFLL));
+          v21->Next = (struct _MDL *)(v17 + (*((_QWORD *)v51 + v20) & 0xFFFFFFFFFFLL));
           v17 = 0;
           v21 = (struct _MDL *)((char *)v21 + 8);
-          v25 = v23[v22] >> 40;
+          v25 = v23[v20] >> 40;
           v26 = v24 == v25;
           if ( v24 != v25 )
             v17 = v24;
-          v27 = v22 + 1;
+          v27 = v20 + 1;
           if ( !v26 )
-            v27 = v22;
-          v22 = v27;
-          --v20;
+            v27 = v20;
+          v20 = v27;
+          --v22;
         }
-        while ( v20 );
+        while ( v22 );
         LODWORD(Length) = v53;
-        v18 = v47;
-        v45 = v27;
-        v44 = v17;
+        v18 = v48;
+        v44 = v27;
+        v45 = v17;
       }
       v28 = MmMapLockedPagesWithReservedMapping(MappingAddress, 0x4B777445u, v7, MmCached);
       v29 = v28;
@@ -208,7 +208,7 @@ LABEL_10:
       {
         if ( (_DWORD)Length != v30 )
           memset((char *)v29 + v30, 255, (unsigned int)Length - v30);
-        if ( v19 )
+        if ( v6 )
           v10 = EtwpWriteBufferCompressed(v58, v29);
         else
           v58[1] += (unsigned int)Length;
@@ -216,31 +216,30 @@ LABEL_10:
       v5 = v42;
 LABEL_38:
       MmUnmapReservedMapping(v29, 0x4B777445u, v7);
-      if ( v10 < 0 && !v19 )
+      if ( v10 < 0 && !v6 )
       {
         v6 = v46;
         v4 = FileHandle;
-        v3 = v49;
+        v3 = v48;
         goto LABEL_59;
       }
-      ++v19;
-      v17 = v44;
-      if ( v19 >= v49[1] )
+      v17 = v45;
+      if ( ++v6 >= v18[1] )
       {
         v4 = FileHandle;
 LABEL_44:
         EtwpWriteRemainingCompressedData(v58, &v46, &v42);
         v31 = 0;
-        if ( v18 )
+        if ( (unsigned int)Length >> 12 )
         {
-          v32 = v18;
+          v32 = (unsigned int)Length >> 12;
           v33 = v7 + 1;
           do
           {
-            v34 = v50;
+            v34 = v51;
             v35 = v17 + 1;
             v36 = v31 + 1;
-            v33->Next = (struct _MDL *)(v17 + (*((_QWORD *)v50 + v31) & 0xFFFFFFFFFFLL));
+            v33->Next = (struct _MDL *)(v17 + (*((_QWORD *)v51 + v31) & 0xFFFFFFFFFFLL));
             v33 = (struct _MDL *)((char *)v33 + 8);
             v37 = v34[v31] >> 40;
             v38 = v17 + 1;
@@ -270,13 +269,14 @@ LABEL_44:
           Buffer[95] += v5;
         v10 = ZwWriteFile(v4, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, Length, &ByteOffset, 0LL);
         MmUnmapReservedMapping(v40, 0x4B777445u, v7);
-        v3 = v49;
+        v3 = v48;
         if ( v10 >= 0 )
           v6 = v47;
         else
           LOBYTE(v5) = v5 + 1;
         goto LABEL_59;
       }
+      v19 = v47;
       v16 = v7 + 1;
     }
     v5 = v42;
@@ -303,8 +303,8 @@ LABEL_59:
     MmFreeMappingAddress(MappingAddress, 0x4B777445u);
   if ( v7 )
     ExFreePoolWithTag(v7, 0);
-  if ( v50 )
-    ExFreePoolWithTag(v50, 0);
+  if ( v51 )
+    ExFreePoolWithTag(v51, 0);
   LOBYTE(v8) = 1;
   KsrFreePersistedMemoryBlock(EtwpKsrGuid, v56, v8);
   EtwpTraceSavePersistedLoggerStop((unsigned int)&DestinationString, Length, v3[1], v6, v5, v10);

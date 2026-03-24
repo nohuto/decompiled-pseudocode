@@ -1,17 +1,17 @@
 /*
- * XREFs of LpcpCopyRequestData @ 0x140965C1C
+ * XREFs of LpcpCopyRequestData @ 0x1408C1C4C
  * Callers:
- *     NtReadRequestData @ 0x1409660C0 (NtReadRequestData.c)
- *     NtWriteRequestData @ 0x140966240 (NtWriteRequestData.c)
+ *     NtReadRequestData @ 0x1408C20E0 (NtReadRequestData.c)
+ *     NtWriteRequestData @ 0x1408C2260 (NtWriteRequestData.c)
  * Callees:
- *     AlpcpProbeAndCaptureMessageHeader @ 0x140666BAC (AlpcpProbeAndCaptureMessageHeader.c)
- *     PsDereferencePrimaryToken @ 0x1406DADF0 (PsDereferencePrimaryToken.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     AlpcpUnlockMessage @ 0x1407A7628 (AlpcpUnlockMessage.c)
- *     AlpcpAvailableBufferSize @ 0x1407A7C84 (AlpcpAvailableBufferSize.c)
- *     AlpcpLookupMessage @ 0x1407ABD80 (AlpcpLookupMessage.c)
- *     MiCopyVirtualMemory @ 0x1407BB560 (MiCopyVirtualMemory.c)
+ *     AlpcpAvailableBufferSize @ 0x1405CF054 (AlpcpAvailableBufferSize.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x1405E0284 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     AlpcpLookupMessage @ 0x1405E6870 (AlpcpLookupMessage.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     MmCopyVirtualMemory @ 0x1405F6DB0 (MmCopyVirtualMemory.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     PsDereferencePrimaryToken @ 0x1406B4570 (PsDereferencePrimaryToken.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall LpcpCopyRequestData(
@@ -32,32 +32,32 @@ NTSTATUS __fastcall LpcpCopyRequestData(
   NTSTATUS result; // eax
   __int64 v17; // r9
   signed int v18; // ebx
-  __int64 v19; // r9
+  __int64 v19; // r10
   unsigned __int64 v20; // rax
   __int64 v21; // rdx
   __int64 v22; // r8
-  unsigned __int64 v23; // r10
+  unsigned __int64 v23; // r9
   unsigned __int64 v24; // rcx
   struct _KTHREAD *CurrentThread; // r8
   ULONG_PTR Process; // rcx
-  ULONG_PTR v27; // r8
-  char *v28; // r9
+  char *v27; // r9
+  ULONG_PTR v28; // r8
   char *v29; // rdx
-  ULONG_PTR v30; // [rsp+48h] [rbp-70h] BYREF
+  ULONG_PTR BugCheckParameter2; // [rsp+48h] [rbp-70h] BYREF
   PVOID PrimaryToken; // [rsp+50h] [rbp-68h] BYREF
   __int64 v32; // [rsp+58h] [rbp-60h] BYREF
-  __m128i v33; // [rsp+60h] [rbp-58h]
+  int v33[4]; // [rsp+60h] [rbp-58h]
   __int128 v34; // [rsp+70h] [rbp-48h] BYREF
   __int128 v35; // [rsp+80h] [rbp-38h]
   __int64 v36; // [rsp+90h] [rbp-28h]
 
   v7 = a4;
   HandleInformation = 0LL;
-  v30 = 0LL;
+  BugCheckParameter2 = 0LL;
   v34 = 0LL;
   v35 = 0LL;
   v36 = 0LL;
-  v33 = 0LL;
+  *(_OWORD *)v33 = 0LL;
   v32 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
@@ -95,20 +95,20 @@ NTSTATUS __fastcall LpcpCopyRequestData(
   result = ObReferenceObjectByHandle(a2, 1u, AlpcPortObjectType, PreviousMode, &PrimaryToken, HandleInformation);
   if ( result >= 0 )
   {
-    v18 = AlpcpLookupMessage((__int64)PrimaryToken, SDWORD2(v35), v36, v17, &v30);
+    v18 = AlpcpLookupMessage((__int64)PrimaryToken, DWORD2(v35), v36, v17, &BugCheckParameter2);
     if ( v18 < 0 )
     {
 LABEL_35:
       PsDereferencePrimaryToken(PrimaryToken);
       return v18;
     }
-    v19 = *(_QWORD *)(v30 + 32);
+    v19 = *(_QWORD *)(BugCheckParameter2 + 32);
     if ( v19 )
     {
       v18 = -1073741811;
-      if ( *(_WORD *)(v30 + 246) )
+      if ( *(_WORD *)(BugCheckParameter2 + 246) )
       {
-        v20 = AlpcpAvailableBufferSize(v30);
+        v20 = AlpcpAvailableBufferSize(BugCheckParameter2);
         v24 = *(unsigned __int16 *)(v21 + 242);
         if ( v20 <= v24 )
           v24 = v20;
@@ -116,8 +116,8 @@ LABEL_35:
           goto LABEL_34;
         if ( *(_DWORD *)(v21 + v22 + 240) > (unsigned int)v7 )
         {
-          v33 = *(__m128i *)(v21 + v22 + 16 * v7 + 248);
-          v18 = (unsigned int)_mm_cvtsi128_si32(_mm_srli_si128(v33, 8)) < v13 ? 0xC000000D : 0;
+          *(_OWORD *)v33 = *(_OWORD *)(v21 + v22 + 16 * v7 + 248);
+          v18 = (unsigned int)_mm_cvtsi128_si32(_mm_srli_si128(*(__m128i *)v33, 8)) < v13 ? 0xC000000D : 0;
         }
       }
       if ( v18 >= 0 )
@@ -126,18 +126,18 @@ LABEL_35:
         if ( a1 )
         {
           Process = (ULONG_PTR)CurrentThread->ApcState.Process;
-          v27 = *(_QWORD *)(v19 + 544);
-          v28 = (char *)v33.m128i_i64[0];
+          v27 = *(char **)v33;
+          v28 = *(_QWORD *)(v19 + 544);
           v29 = Address;
         }
         else
         {
-          v27 = (ULONG_PTR)CurrentThread->ApcState.Process;
+          v28 = (ULONG_PTR)CurrentThread->ApcState.Process;
+          v27 = Address;
+          v29 = *(char **)v33;
           Process = *(_QWORD *)(v19 + 544);
-          v28 = Address;
-          v29 = (char *)v33.m128i_i64[0];
         }
-        v18 = MiCopyVirtualMemory(Process, v29, v27, v28, v13, PreviousMode, (size_t *)&v32, 0);
+        v18 = MmCopyVirtualMemory(Process, v29, v28, v27, v13, PreviousMode, &v32);
         if ( v18 >= 0 )
         {
           if ( v15 )
@@ -150,7 +150,7 @@ LABEL_35:
       v18 = -1073741790;
     }
 LABEL_34:
-    AlpcpUnlockMessage(v30);
+    AlpcpUnlockMessage(BugCheckParameter2);
     goto LABEL_35;
   }
   return result;

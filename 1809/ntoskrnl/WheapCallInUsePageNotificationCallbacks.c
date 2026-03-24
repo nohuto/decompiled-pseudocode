@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapCallInUsePageNotificationCallbacks @ 0x1408DBEC8
+ * XREFs of WheapCallInUsePageNotificationCallbacks @ 0x1408DBEA8
  * Callers:
- *     WheapAttemptPhysicalPageOffline @ 0x1408DBD6C (WheapAttemptPhysicalPageOffline.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x1408DBD4C (WheapAttemptPhysicalPageOffline.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall WheapCallInUsePageNotificationCallbacks(__int64 a1, char a2, char a3)

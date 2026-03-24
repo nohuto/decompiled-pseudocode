@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TPAAPShouldAllowMoveNow@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@PEAH@Z @ 0x1C00E9CE0
+ * XREFs of ?TPAAPShouldAllowMoveNow@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@PEAH@Z @ 0x1C01C8C9C
  * Callers:
- *     ?DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z @ 0x1C02007A8 (-DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z.c)
+ *     ?DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z @ 0x1C01C51A4 (-DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z.c)
  * Callees:
- *     ?TPAAPShouldAllowNow@CPTPEngine@@AEAAHPEAUPTPInput@@KHH@Z @ 0x1C02043C8 (-TPAAPShouldAllowNow@CPTPEngine@@AEAAHPEAUPTPInput@@KHH@Z.c)
+ *     ?TPAAPShouldAllowNow@CPTPEngine@@AEAAHPEAUPTPInput@@KHH@Z @ 0x1C01C8DD8 (-TPAAPShouldAllowNow@CPTPEngine@@AEAAHPEAUPTPInput@@KHH@Z.c)
  */
 
 __int64 __fastcall CPTPEngine::TPAAPShouldAllowMoveNow(
@@ -35,22 +35,22 @@ __int64 __fastcall CPTPEngine::TPAAPShouldAllowMoveNow(
   v9 = 0;
 LABEL_6:
   v10 = CPTPEngine::TPAAPShouldAllowNow(this, a2, 0x20u, 0, 0);
-  if ( *((_DWORD *)this + 911) != 2 )
+  if ( *((_DWORD *)this + 887) != 2 )
   {
     if ( v9 && (*(_DWORD *)a3 & 0x1000) != 0 )
       return 0LL;
     v12 = *((_QWORD *)this + 12);
     if ( *((_DWORD *)this + 5) )
-      v13 = *((_DWORD *)this + 115);
+      v13 = *((_DWORD *)this + 103);
     else
       v13 = 0;
-    if ( v8 || (__int64)(1000LL * (*(_QWORD *)a2 - *((_QWORD *)a3 + 9)) / v12) < *((unsigned int *)this + v13 + 130) )
+    if ( v8 || (__int64)(1000LL * (*(_QWORD *)a2 - *((_QWORD *)a3 + 8)) / v12) < *((unsigned int *)this + v13 + 118) )
     {
       v14 = 0;
       if ( v8 )
       {
-LABEL_23:
-        if ( !v10 )
+LABEL_22:
+        if ( !v14 && !v10 )
           goto LABEL_10;
         return 1LL;
       }
@@ -59,9 +59,9 @@ LABEL_23:
     {
       v14 = 1;
     }
-    if ( (__int64)(1000LL * (*(_QWORD *)a2 - *((_QWORD *)this + 488)) / v12) <= *((unsigned int *)this + 135) || v14 )
+    if ( (__int64)(1000LL * (*(_QWORD *)a2 - *((_QWORD *)this + 475)) / v12) <= *((unsigned int *)this + 123) )
       return 1LL;
-    goto LABEL_23;
+    goto LABEL_22;
   }
   if ( v9 && !v10 )
   {

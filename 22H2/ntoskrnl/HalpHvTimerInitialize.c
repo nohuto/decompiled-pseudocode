@@ -1,33 +1,34 @@
 /*
- * XREFs of HalpHvTimerInitialize @ 0x1403CD390
+ * XREFs of HalpHvTimerInitialize @ 0x1403904C0
  * Callers:
  *     <none>
  * Callees:
- *     HalSocRequestApi @ 0x140378A3C (HalSocRequestApi.c)
- *     HalMapIoSpace @ 0x14037E780 (HalMapIoSpace.c)
- *     HalQueryMaximumProcessorCount @ 0x14037FEF0 (HalQueryMaximumProcessorCount.c)
- *     HalpHvTimerAcknowledgeInterrupt @ 0x1403CD3D0 (HalpHvTimerAcknowledgeInterrupt.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AD70 (HalQueryMaximumProcessorCount.c)
+ *     HalpHvTimerAcknowledgeInterrupt @ 0x140390500 (HalpHvTimerAcknowledgeInterrupt.c)
+ *     HalSocRequestApi @ 0x1403A199C (HalSocRequestApi.c)
+ *     HalMapIoSpace @ 0x1403B3460 (HalMapIoSpace.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall HalpHvTimerInitialize(__int64 a1)
+__int64 __fastcall HalpHvTimerInitialize(LARGE_INTEGER *a1)
 {
   __int64 v1; // rax
   __int64 v3; // rdi
   __int64 result; // rax
   unsigned __int64 v5; // rcx
   PVOID v6; // rax
+  __int64 v7; // rcx
   __int64 MaximumProcessorCount; // rdi
-  LARGE_INTEGER v8; // rax
-  PVOID v9; // rax
-  __int64 *v10; // rcx
-  _QWORD *v11; // rbx
-  __int64 v12; // r8
-  __int64 v13; // rax
+  LARGE_INTEGER v9; // rax
+  PVOID v10; // rax
+  LARGE_INTEGER *v11; // rcx
+  LARGE_INTEGER *v12; // rbx
+  __int64 v13; // r8
+  LONGLONG QuadPart; // rax
 
   LODWORD(v1) = KeGetPcr()->Prcb.Number;
   v3 = 3 * v1;
-  if ( *(_QWORD *)(a1 + 24 * v1 + 8) )
+  if ( a1[3 * v1 + 1].QuadPart )
   {
     HalpHvTimerAcknowledgeInterrupt();
     return 0LL;
@@ -35,40 +36,40 @@ __int64 __fastcall HalpHvTimerInitialize(__int64 a1)
   if ( HalpHvCpuManager )
   {
     v5 = __readmsr(0x40000083u) & 0xFFFFFFFFFFFFF000uLL;
-    *(_QWORD *)(a1 + 8 * v3 + 16) = v5;
+    a1[v3 + 2].QuadPart = v5;
     v6 = HalMapIoSpace((LARGE_INTEGER)v5, 0x1000uLL, MmCached);
-    *(_QWORD *)(a1 + 8 * v3 + 8) = v6;
+    a1[v3 + 1].QuadPart = (LONGLONG)v6;
     if ( v6 )
       return 0LL;
     return 3221225626LL;
   }
-  result = HalSocRequestApi(a1, 0LL, 4, 8LL, &HalpHvPhysicalMemoryApi);
+  result = HalSocRequestApi((int)a1, 0, 4, 8, &HalpHvPhysicalMemoryApi);
   if ( (int)result >= 0 )
   {
-    MaximumProcessorCount = (unsigned int)HalQueryMaximumProcessorCount();
-    v8.QuadPart = ((__int64 (__fastcall *)(__int64, __int64))HalpHvPhysicalMemoryApi)(-1LL, MaximumProcessorCount);
-    if ( v8.QuadPart )
+    MaximumProcessorCount = (unsigned int)HalQueryMaximumProcessorCount(v7);
+    v9.QuadPart = ((__int64 (__fastcall *)(__int64, __int64))HalpHvPhysicalMemoryApi)(-1LL, MaximumProcessorCount);
+    if ( v9.QuadPart )
     {
-      *(LARGE_INTEGER *)(a1 + 16) = v8;
-      v9 = HalMapIoSpace(v8, (unsigned __int64)(unsigned int)MaximumProcessorCount << 12, MmCached);
-      v10 = (__int64 *)(a1 + 8);
-      *(_QWORD *)(a1 + 8) = v9;
-      if ( v9 )
+      a1[2] = v9;
+      v10 = HalMapIoSpace(v9, (unsigned __int64)(unsigned int)MaximumProcessorCount << 12, MmCached);
+      v11 = a1 + 1;
+      a1[1].QuadPart = (LONGLONG)v10;
+      if ( v10 )
       {
         if ( (unsigned int)MaximumProcessorCount > 1 )
         {
-          v11 = (_QWORD *)(a1 + 32);
-          v12 = (unsigned int)(MaximumProcessorCount - 1);
+          v12 = a1 + 4;
+          v13 = (unsigned int)(MaximumProcessorCount - 1);
           do
           {
-            v11[1] = v10[1] + 4096;
-            v13 = *v10;
-            v10 += 3;
-            *v11 = v13 + 4096;
+            v12[1].QuadPart = v11[1].QuadPart + 4096;
+            QuadPart = v11->QuadPart;
             v11 += 3;
-            --v12;
+            v12->QuadPart = QuadPart + 4096;
+            v12 += 3;
+            --v13;
           }
-          while ( v12 );
+          while ( v13 );
         }
         return 0LL;
       }

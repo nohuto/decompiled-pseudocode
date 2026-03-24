@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0qqxx_EtwWriteTransfer @ 0x1C013E558
+ * XREFs of McTemplateK0qqxx_EtwWriteTransfer @ 0x1C0127274
  * Callers:
- *     EtwGdiSysMemToken @ 0x1C00C55D0 (EtwGdiSysMemToken.c)
- *     EtwTraceTokenIndependentFlipSkipCompleteEvent @ 0x1C00DF200 (EtwTraceTokenIndependentFlipSkipCompleteEvent.c)
+ *     EtwGdiSysMemToken @ 0x1C00A7220 (EtwGdiSysMemToken.c)
+ *     EtwTraceTokenIndependentFlipSkipCompleteEvent @ 0x1C0123E00 (EtwTraceTokenIndependentFlipSkipCompleteEvent.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qqxx_EtwWriteTransfer(

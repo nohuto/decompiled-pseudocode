@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x140A13628
+ * XREFs of SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x1409666C8
  * Callers:
- *     SdbResolveDatabaseEx @ 0x140A139FC (SdbResolveDatabaseEx.c)
+ *     SdbResolveDatabaseEx @ 0x140966A9C (SdbResolveDatabaseEx.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     SdbGuestHostArchsToRuntimePlatformFlag @ 0x140A1357C (SdbGuestHostArchsToRuntimePlatformFlag.c)
- *     AslEnvGetProcessWowInfo @ 0x140A179E0 (AslEnvGetProcessWowInfo.c)
- *     AslEnvVerifyGuestProcessorSupport @ 0x140A18040 (AslEnvVerifyGuestProcessorSupport.c)
+ *     AslEnvGetProcessWowInfo @ 0x140754264 (AslEnvGetProcessWowInfo.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbGuestHostArchsToRuntimePlatformFlag @ 0x14096661C (SdbGuestHostArchsToRuntimePlatformFlag.c)
+ *     AslEnvVerifyGuestProcessorSupport @ 0x14096A6A0 (AslEnvVerifyGuestProcessorSupport.c)
  */
 
 __int64 __fastcall SdbGuestTargetPlatformFlagsToRuntimePlatformFlags(int a1)
@@ -23,10 +23,10 @@ __int64 __fastcall SdbGuestTargetPlatformFlagsToRuntimePlatformFlags(int a1)
   {
     for ( i = 0LL; i < 0x3C; i += 12LL )
     {
-      if ( (*(_DWORD *)((_BYTE *)&qword_140044210 + i + 8) & 0x1F) != 0
-        && (int)AslEnvVerifyGuestProcessorSupport(&v4, *(unsigned __int16 *)((char *)&qword_140044210 + i + 4)) >= 0 )
+      if ( (*(_DWORD *)((_BYTE *)&qword_14003DAF0 + i + 8) & 0x1F) != 0
+        && (int)AslEnvVerifyGuestProcessorSupport(&v4, *(unsigned __int16 *)((char *)&qword_14003DAF0 + i + 4)) >= 0 )
       {
-        v1 |= SdbGuestHostArchsToRuntimePlatformFlag(*(_WORD *)((char *)&qword_140044210 + i + 4), &v4);
+        v1 |= SdbGuestHostArchsToRuntimePlatformFlag(*(_WORD *)((char *)&qword_14003DAF0 + i + 4), &v4);
       }
     }
   }

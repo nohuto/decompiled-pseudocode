@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReferenceByHandle@CoreMsgObject@CoreMessagingK@@SAJPEAXW4ObjectType@2@DPEAPEAU12@@Z @ 0x1C006A65C
+ * XREFs of ?ReferenceByHandle@CoreMsgObject@CoreMessagingK@@SAJPEAXW4ObjectType@2@DPEAPEAU12@@Z @ 0x1C004E564
  * Callers:
- *     ?Send@ServerPorts@CoreMessagingK@@SAJPEAXDPEBXI@Z @ 0x1C006A394 (-Send@ServerPorts@CoreMessagingK@@SAJPEAXDPEBXI@Z.c)
+ *     ?Send@ServerPorts@CoreMessagingK@@SAJPEAXDPEBXI@Z @ 0x1C004E238 (-Send@ServerPorts@CoreMessagingK@@SAJPEAXDPEBXI@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CoreMessagingK::CoreMsgObject::ReferenceByHandle(void *a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -23,9 +23,13 @@ __int64 __fastcall CoreMessagingK::CoreMsgObject::ReferenceByHandle(void *a1, __
     if ( (*(unsigned int (**)(void))(*((_QWORD *)Object + 1) + 8LL))() == 1 )
     {
       *a4 = v6;
-      return 0;
+      v6 = 0LL;
+      v7 = 0;
     }
-    v7 = -1073741811;
+    else
+    {
+      v7 = -1073741811;
+    }
   }
   if ( v6 )
     ObfDereferenceObject(v6);

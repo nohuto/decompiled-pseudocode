@@ -1,125 +1,113 @@
 /*
- * XREFs of DxgkProcessDisplayCalloutBatch @ 0x1C02FD1E0
+ * XREFs of DxgkProcessDisplayCalloutBatch @ 0x1C0298750
  * Callers:
  *     <none>
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ??1DXGSYNCOBJECTMUTEX@@QEAA@XZ @ 0x1C0015690 (--1DXGSYNCOBJECTMUTEX@@QEAA@XZ.c)
- *     ?GetCurrenRapidHPDState@RAPID_HPD_MANAGER@@QEAAX_NPEAW4_DXGK_RAPID_HPD_TYPE@@PEAU_GUID@@PEAU_DXGK_RAPID_HPD_DIAG@@@Z @ 0x1C0022418 (-GetCurrenRapidHPDState@RAPID_HPD_MANAGER@@QEAAX_NPEAW4_DXGK_RAPID_HPD_TYPE@@PEAU_GUID@@PEAU_DXG.c)
- *     ??_GDISPLAY_CALLOUT_ENTRY@@QEAAPEAXI@Z @ 0x1C004AAC8 (--_GDISPLAY_CALLOUT_ENTRY@@QEAAPEAXI@Z.c)
- *     ?ExtendExistingHPDPeriod@RAPID_HPD_MANAGER@@QEAAXW4RAPID_HPD_EXTENSION@@U_LUID@@@Z @ 0x1C0057064 (-ExtendExistingHPDPeriod@RAPID_HPD_MANAGER@@QEAAXW4RAPID_HPD_EXTENSION@@U_LUID@@@Z.c)
- *     ?DxgkHandleMonitorEvent@@YAJU_LUID@@IW4MONITOR_EVENT@@_KPEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION@@@Z @ 0x1C02F9EEC (-DxgkHandleMonitorEvent@@YAJU_LUID@@IW4MONITOR_EVENT@@_KPEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION.c)
- *     ?EndProcessingBatch@DXGDISPLAYCALLOUTQUEUE@@QEAAXXZ @ 0x1C0312B64 (-EndProcessingBatch@DXGDISPLAYCALLOUTQUEUE@@QEAAXXZ.c)
- *     ?StartProcessingBatch@DXGDISPLAYCALLOUTQUEUE@@QEAAEPEAPEAUDISPLAY_CALLOUT_ENTRY@@@Z @ 0x1C0315AB4 (-StartProcessingBatch@DXGDISPLAYCALLOUTQUEUE@@QEAAEPEAPEAUDISPLAY_CALLOUT_ENTRY@@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C00038D4 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ??_GDISPLAY_CALLOUT_ENTRY@@QEAAPEAXI@Z @ 0x1C0046458 (--_GDISPLAY_CALLOUT_ENTRY@@QEAAPEAXI@Z.c)
+ *     ?EndProcessingBatch@DXGDISPLAYCALLOUTQUEUE@@QEAAXXZ @ 0x1C0269B60 (-EndProcessingBatch@DXGDISPLAYCALLOUTQUEUE@@QEAAXXZ.c)
+ *     ?StartProcessingBatch@DXGDISPLAYCALLOUTQUEUE@@QEAAEPEAPEAUDISPLAY_CALLOUT_ENTRY@@@Z @ 0x1C026C370 (-StartProcessingBatch@DXGDISPLAYCALLOUTQUEUE@@QEAAEPEAPEAUDISPLAY_CALLOUT_ENTRY@@@Z.c)
+ *     ?DxgkHandleMonitorEvent@@YAJU_LUID@@IW4MONITOR_EVENT@@_KPEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION@@@Z @ 0x1C02960E8 (-DxgkHandleMonitorEvent@@YAJU_LUID@@IW4MONITOR_EVENT@@_KPEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION.c)
  */
 
-__int64 __fastcall DxgkProcessDisplayCalloutBatch(__int64 a1)
+__int64 __fastcall DxgkProcessDisplayCalloutBatch(__int64 a1, __int64 a2)
 {
-  int v2; // r12d
-  struct DXGGLOBAL *Global; // r15
-  struct DXGGLOBAL *v4; // rax
-  unsigned __int8 started; // al
-  char *v6; // rbx
-  bool v7; // bp
-  int v8; // r14d
-  int v9; // eax
-  bool v10; // si
-  int v11; // eax
-  char *v12; // rbx
-  char *v13; // rax
-  __int64 v14; // rcx
+  int v3; // r14d
+  struct DXGGLOBAL *Global; // rax
+  bool started; // al
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 *v8; // rbx
+  bool v9; // bp
+  int v10; // eax
+  bool v11; // si
+  int v12; // eax
+  struct DXGGLOBAL *v13; // rbx
+  __int64 *v14; // rax
   struct DXGGLOBAL *v15; // rax
   __int64 result; // rax
   _BYTE v17[16]; // [rsp+30h] [rbp-38h] BYREF
   PVOID P; // [rsp+78h] [rbp+10h] BYREF
 
-  v2 = 0;
+  v3 = 0;
   P = 0LL;
-  Global = DXGGLOBAL::GetGlobal();
-  v4 = DXGGLOBAL::GetGlobal();
+  Global = DXGGLOBAL::GetGlobal(a1, a2);
   started = DXGDISPLAYCALLOUTQUEUE::StartProcessingBatch(
-              (struct DXGGLOBAL *)((char *)v4 + 1840),
+              (struct DXGGLOBAL *)((char *)Global + 1704),
               (struct DISPLAY_CALLOUT_ENTRY **)&P);
-  v6 = (char *)P;
-  v7 = started;
-  if ( P )
+  v8 = (__int64 *)P;
+  v9 = started;
+  if ( !P )
+    goto LABEL_21;
+  while ( 1 )
   {
-    v8 = 0;
-    while ( 1 )
+    *(_OWORD *)(a1 + 24) = *((_OWORD *)v8 + 4);
+    *(_OWORD *)(a1 + 40) = *((_OWORD *)v8 + 5);
+    *(_OWORD *)(a1 + 56) = *((_OWORD *)v8 + 6);
+    *(_OWORD *)(a1 + 72) = *((_OWORD *)v8 + 7);
+    *(_QWORD *)(a1 + 88) = v8[16];
+    v10 = *((_DWORD *)v8 + 4);
+    if ( v10 == 1 )
     {
-      *(_OWORD *)(a1 + 24) = *((_OWORD *)v6 + 4);
-      *(_OWORD *)(a1 + 40) = *((_OWORD *)v6 + 5);
-      *(_OWORD *)(a1 + 56) = *((_OWORD *)v6 + 6);
-      *(_OWORD *)(a1 + 72) = *((_OWORD *)v6 + 7);
-      *(_QWORD *)(a1 + 88) = *((_QWORD *)v6 + 16);
-      v9 = *((_DWORD *)v6 + 4);
-      if ( v9 == 1 )
+      v3 = DxgkHandleMonitorEvent((struct _LUID)v8[3], *((unsigned int *)v8 + 8), *((_DWORD *)v8 + 9), v8[5], a1);
+      if ( v3 >= 0 )
       {
-        v2 = DxgkHandleMonitorEvent(
-               *(struct _LUID *)(v6 + 24),
-               *((_DWORD *)v6 + 8),
-               *((_DWORD *)v6 + 9),
-               *((_QWORD *)v6 + 5),
-               (_BYTE *)a1);
-        v10 = v2 < 0 || (*(_BYTE *)a1 & 0x44) == 68;
-        v8 = 1;
+        v11 = (*(_BYTE *)a1 & 0x44) == 68;
+        goto LABEL_9;
       }
-      else if ( v9 == 2 )
-      {
-        *(_BYTE *)a1 |= 4u;
-        v11 = *((_DWORD *)v6 + 12);
-        v10 = 1;
-        *(_BYTE *)a1 &= ~0x80u;
-        *(_DWORD *)(a1 + 4) = v11;
-        *(_DWORD *)(a1 + 8) = *((_DWORD *)v6 + 10);
-        *(_QWORD *)(a1 + 16) = *((_QWORD *)v6 + 3);
-        RAPID_HPD_MANAGER::ExtendExistingHPDPeriod((__int64)Global + 305192, 2u, *((_QWORD *)v6 + 3));
-        v8 = 1;
-      }
-      else
-      {
-        v10 = v9 == 3;
-      }
-      if ( v6[20] )
-        break;
-      DISPLAY_CALLOUT_ENTRY::`scalar deleting destructor'((DISPLAY_CALLOUT_ENTRY *)v6);
-      if ( v10 )
-        goto LABEL_21;
-      v12 = (char *)DXGGLOBAL::GetGlobal() + 1840;
-      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v17, (struct DXGFASTMUTEX *const)v12, 0);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v17);
-      v13 = v12 + 48;
-      v6 = (char *)*((_QWORD *)v12 + 6);
-      if ( v6 == v13 )
-      {
-        DXGSYNCOBJECTMUTEX::~DXGSYNCOBJECTMUTEX((DXGSYNCOBJECTMUTEX *)v17);
-        v7 = 0;
-        goto LABEL_21;
-      }
-      if ( *((char **)v6 + 1) != v13 || (v14 = *(_QWORD *)v6, *(char **)(*(_QWORD *)v6 + 8LL) != v6) )
-        __fastfail(3u);
-      *(_QWORD *)v13 = v14;
-      *(_QWORD *)(v14 + 8) = v13;
-      v7 = *(_QWORD *)v13 != (_QWORD)v13;
-      if ( v17[8] )
-        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v17);
+      goto LABEL_7;
     }
-    *(_QWORD *)(a1 + 136) = v6 + 56;
-LABEL_21:
-    if ( v8 && (*(_BYTE *)a1 & 4) != 0 )
-      RAPID_HPD_MANAGER::GetCurrenRapidHPDState(
-        (struct DXGGLOBAL *)((char *)Global + 305192),
-        1u,
-        (enum _DXGK_RAPID_HPD_TYPE *)(a1 + 96),
-        (struct _GUID *)(a1 + 100),
-        (struct _DXGK_RAPID_HPD_DIAG *)(a1 + 120));
-    v15 = DXGGLOBAL::GetGlobal();
-    DXGDISPLAYCALLOUTQUEUE::EndProcessingBatch((struct DXGGLOBAL *)((char *)v15 + 1840));
+    if ( v10 == 2 )
+    {
+      *(_BYTE *)a1 |= 4u;
+      v12 = *((_DWORD *)v8 + 12);
+      *(_BYTE *)a1 &= ~0x80u;
+      *(_DWORD *)(a1 + 4) = v12;
+      *(_DWORD *)(a1 + 8) = *((_DWORD *)v8 + 10);
+      *(_QWORD *)(a1 + 16) = v8[3];
+LABEL_7:
+      v11 = 1;
+      goto LABEL_9;
+    }
+    v11 = v10 == 3;
+LABEL_9:
+    if ( *((_BYTE *)v8 + 20) )
+    {
+      v11 = 1;
+      *(_QWORD *)(a1 + 96) = v8 + 7;
+    }
+    else
+    {
+      DISPLAY_CALLOUT_ENTRY::`scalar deleting destructor'((DISPLAY_CALLOUT_ENTRY *)v8);
+    }
+    if ( v11 )
+      goto LABEL_20;
+    v13 = DXGGLOBAL::GetGlobal(v7, v6);
+    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v17, (struct DXGGLOBAL *)((char *)v13 + 1704), 0);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v17);
+    v14 = (__int64 *)((char *)v13 + 1744);
+    v8 = (__int64 *)*((_QWORD *)v13 + 218);
+    if ( v8 == v14 )
+      break;
+    if ( (__int64 *)v8[1] != v14 || (v7 = *v8, *(__int64 **)(*v8 + 8) != v8) )
+      __fastfail(3u);
+    *v14 = v7;
+    *(_QWORD *)(v7 + 8) = v14;
+    v9 = *v14 != (_QWORD)v14;
+    if ( v17[8] )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v17, v6);
   }
-  result = (unsigned int)v2;
-  *(_BYTE *)a1 = *(_BYTE *)a1 & 0xFE | !v7;
+  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v17);
+  v9 = 0;
+LABEL_20:
+  v15 = DXGGLOBAL::GetGlobal(v7, v6);
+  DXGDISPLAYCALLOUTQUEUE::EndProcessingBatch((struct DXGGLOBAL *)((char *)v15 + 1704));
+LABEL_21:
+  result = (unsigned int)v3;
+  *(_BYTE *)a1 = *(_BYTE *)a1 & 0xFE | !v9;
   return result;
 }

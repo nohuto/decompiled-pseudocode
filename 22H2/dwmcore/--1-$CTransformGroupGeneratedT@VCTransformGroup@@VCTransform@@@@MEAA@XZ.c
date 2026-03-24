@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1?$CTransformGroupGeneratedT@VCTransformGroup@@VCTransform@@@@MEAA@XZ @ 0x18000C324
+ * XREFs of ??1?$CTransformGroupGeneratedT@VCTransformGroup@@VCTransform@@@@MEAA@XZ @ 0x18001B234
  * Callers:
- *     ??1CTransformGroup@@MEAA@XZ @ 0x18000BF84 (--1CTransformGroup@@MEAA@XZ.c)
+ *     ??1CTransformGroup@@MEAA@XZ @ 0x18001B0F4 (--1CTransformGroup@@MEAA@XZ.c)
  * Callees:
- *     ??$UnRegisterNotifiers@VCTransform@@@CResource@@QEAAXPEAV?$vector@PEAVCTransform@@V?$allocator@PEAVCTransform@@@std@@@std@@@Z @ 0x180023324 (--$UnRegisterNotifiers@VCTransform@@@CResource@@QEAAXPEAV-$vector@PEAVCTransform@@V-$allocator@P.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$UnRegisterNotifiers@VCTransform@@@CResource@@QEAAXPEAV?$vector@PEAVCTransform@@V?$allocator@PEAVCTransform@@@std@@@std@@@Z @ 0x18001B4A8 (--$UnRegisterNotifiers@VCTransform@@@CResource@@QEAAXPEAV-$vector@PEAVCTransform@@V-$allocator@P.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
  */
 
 void __fastcall CTransformGroupGeneratedT<CTransformGroup,CTransform>::~CTransformGroupGeneratedT<CTransformGroup,CTransform>(
@@ -12,7 +12,7 @@ void __fastcall CTransformGroupGeneratedT<CTransformGroup,CTransform>::~CTransfo
 {
   _QWORD *v1; // rdi
 
-  v1 = (_QWORD *)((char *)this + 160);
+  v1 = (_QWORD *)((char *)this + 152);
   CResource::UnRegisterNotifiers<CTransform>(this);
   if ( *v1 )
   {

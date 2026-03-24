@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryPerformanceCounter @ 0x14041ACC0
+ * XREFs of ZwQueryPerformanceCounter @ 0x1403FA040
  * Callers:
  *     <none>
  * Callees:

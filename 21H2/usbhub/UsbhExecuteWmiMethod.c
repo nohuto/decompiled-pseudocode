@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhExecuteWmiMethod @ 0x1C0048680
+ * XREFs of UsbhExecuteWmiMethod @ 0x1C0049A10
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 NTSTATUS __fastcall UsbhExecuteWmiMethod(
@@ -41,7 +41,7 @@ NTSTATUS __fastcall UsbhExecuteWmiMethod(
         {
           Log((__int64)DeviceObject, 64, 2003651889, (__int64)v8, v13);
           Log((__int64)DeviceObject, 64, 2003651890, (__int64)v8, (int)*v8);
-          v12 = off_1C005E758[2 * (int)*v8]((int)DeviceObject, a6, a7, (int)&BufferUsed, (__int64)v8);
+          v12 = off_1C0060738[2 * (int)*v8]((int)DeviceObject, a6, a7, (int)&BufferUsed, (__int64)v8);
         }
       }
       else

@@ -1,73 +1,78 @@
 /*
- * XREFs of RtlpStdExtendLowerWatermark @ 0x1405A9790
+ * XREFs of RtlpStdExtendLowerWatermark @ 0x140585E5C
  * Callers:
- *     RtlpStdGetSpaceForTrace @ 0x1405A9B34 (RtlpStdGetSpaceForTrace.c)
+ *     RtlpStdGetSpaceForTrace @ 0x140586210 (RtlpStdGetSpaceForTrace.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ZwAllocateVirtualMemory @ 0x14041A9A0 (ZwAllocateVirtualMemory.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwAllocateVirtualMemory @ 0x1403F9D20 (ZwAllocateVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpStdExtendLowerWatermark(__int64 a1, __int64 a2)
+KSPIN_LOCK __fastcall RtlpStdExtendLowerWatermark(KSPIN_LOCK *SpinLock, __int64 a2)
 {
-  __int64 v4; // rbp
-  __int64 v5; // r15
-  void *v6; // rcx
-  unsigned __int64 v7; // rdi
-  unsigned __int64 v8; // rdi
+  KSPIN_LOCK v4; // rbp
+  KSPIN_LOCK v5; // rdi
+  char v6; // dl
+  void *v7; // rcx
+  KSPIN_LOCK v8; // rax
+  unsigned __int64 v9; // rdi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  int v11; // edx
+  int v12; // edx
   _DWORD *SchedulerAssist; // r9
-  bool v13; // zf
-  ULONG_PTR RegionSize; // [rsp+60h] [rbp+8h] BYREF
-  PVOID BaseAddress; // [rsp+70h] [rbp+18h] BYREF
+  bool v14; // zf
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+60h] [rbp+18h] BYREF
 
   RegionSize = 0LL;
   v4 = 0LL;
-  *(_BYTE *)(a1 + 8) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)a1);
-  v5 = *(_QWORD *)(a1 + 160);
-  v6 = *(void **)(a1 + 144);
-  BaseAddress = v6;
-  v7 = v5 + a2;
-  if ( !*(_BYTE *)(a1 + 128) )
+  *((_BYTE *)SpinLock + 8) = KeAcquireSpinLockRaiseToDpc(SpinLock);
+  v5 = SpinLock[20];
+  v6 = *((_BYTE *)SpinLock + 128);
+  v7 = (void *)SpinLock[18];
+  BaseAddress = v7;
+  v8 = v5 + a2;
+  if ( !v6 )
   {
-    if ( v7 > (unsigned __int64)v6 )
+    if ( v8 > (unsigned __int64)v7 )
     {
       RegionSize = (a2 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-      if ( (unsigned __int64)v6 + RegionSize >= *(_QWORD *)(a1 + 152)
+      if ( (unsigned __int64)v7 + RegionSize >= SpinLock[19]
         || ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u) < 0 )
       {
         goto LABEL_9;
       }
-      *(_QWORD *)(a1 + 144) = (char *)BaseAddress + RegionSize;
+      SpinLock[18] = (KSPIN_LOCK)BaseAddress + RegionSize;
     }
 LABEL_8:
-    ++*(_DWORD *)(a1 + 192);
+    ++*((_DWORD *)SpinLock + 48);
+    SpinLock[20] = v5 + a2;
     v4 = v5;
-    *(_QWORD *)(a1 + 160) = v7;
     goto LABEL_9;
   }
-  if ( v7 <= *(_QWORD *)(a1 + 168) )
+  if ( v8 <= SpinLock[21] )
     goto LABEL_8;
 LABEL_9:
-  v8 = *(unsigned __int8 *)(a1 + 8);
-  KxReleaseSpinLock((volatile signed __int64 *)a1);
+  v9 = *((unsigned __int8 *)SpinLock + 8);
+  KxReleaseSpinLock(SpinLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v13 = (v11 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v11;
-      if ( v13 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v14 = (v12 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v12;
+        if ( v14 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
-  __writecr8(v8);
+  __writecr8(v9);
   return v4;
 }

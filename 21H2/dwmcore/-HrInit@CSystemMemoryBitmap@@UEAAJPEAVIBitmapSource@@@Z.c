@@ -1,94 +1,102 @@
 /*
- * XREFs of ?HrInit@CSystemMemoryBitmap@@UEAAJPEAVIBitmapSource@@@Z @ 0x180270EE0
+ * XREFs of ?HrInit@CSystemMemoryBitmap@@UEAAJPEAVIBitmapSource@@@Z @ 0x180217A90
  * Callers:
  *     <none>
  * Callees:
- *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x1800438FC (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x1800739B4 (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?HrInitDataFromIBitmapSource@CBitmap@@IEAAJPEAVIBitmapSource@@PEAUWICRect@@@Z @ 0x1802711EC (-HrInitDataFromIBitmapSource@CBitmap@@IEAAJPEAVIBitmapSource@@PEAUWICRect@@@Z.c)
+ *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003C1AC (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x180042320 (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?HrInitDataFromIBitmapSource@CBitmap@@IEAAJPEAVIBitmapSource@@PEAUWICRect@@@Z @ 0x180217E3C (-HrInitDataFromIBitmapSource@CBitmap@@IEAAJPEAVIBitmapSource@@PEAUWICRect@@@Z.c)
  */
 
 __int64 __fastcall CSystemMemoryBitmap::HrInit(CSystemMemoryBitmap *this, struct IBitmapSource *a2)
 {
   int inited; // eax
   __int64 v5; // rcx
-  unsigned int v6; // ebx
+  int v6; // ebx
   unsigned __int8 PixelFormatSize; // al
-  unsigned __int64 v8; // rcx
-  int v9; // eax
+  unsigned int v8; // r8d
+  unsigned __int64 v9; // rcx
   int v10; // edx
-  __int64 v11; // r8
-  int v12; // r9d
-  __int64 v13; // rax
-  void *v14; // rcx
-  unsigned int v16; // [rsp+20h] [rbp-48h]
-  _DWORD v17[4]; // [rsp+30h] [rbp-38h] BYREF
+  int v11; // eax
+  __int64 v12; // r8
+  int v13; // r9d
+  __int64 v14; // rax
+  int v15; // eax
+  __int64 v16; // rcx
+  void *v17; // rcx
+  unsigned int v19; // [rsp+20h] [rbp-48h]
+  _DWORD v20[4]; // [rsp+30h] [rbp-38h] BYREF
 
-  if ( a2 )
+  if ( !a2 )
   {
-    inited = CBitmap::HrInitDataFromIBitmapSource(this, a2, 0LL);
-    v6 = inited;
-    if ( inited >= 0 )
+    v6 = -2147024809;
+    goto LABEL_17;
+  }
+  inited = CBitmap::HrInitDataFromIBitmapSource(this, a2, 0LL);
+  v6 = inited;
+  if ( inited >= 0 )
+  {
+    PixelFormatSize = GetPixelFormatSize(*((_DWORD *)this + 50));
+    if ( PixelFormatSize && v8 <= 0x7FFFFFF8u / PixelFormatSize )
     {
-      PixelFormatSize = GetPixelFormatSize(*((_DWORD *)this + 30));
-      if ( !PixelFormatSize || *((_DWORD *)this + 26) > 0x7FFFFFF8u / PixelFormatSize )
-      {
-        *((_DWORD *)this + 42) = 0;
-        v6 = -2147024362;
-        MilInstrumentationCheckHR_MaybeFailFast(PixelFormatSize, 0LL, 0LL, -2147024362, 0x16Au);
-        goto LABEL_14;
-      }
-      v8 = (((*((_DWORD *)this + 26) * (unsigned int)PixelFormatSize + 7) >> 3) + 3) & 0xFFFFFFFC;
-      *((_DWORD *)this + 42) = v8;
-      inited = HrMalloc(v8, *((unsigned int *)this + 27), (void **)this + 20);
-      v6 = inited;
-      if ( inited >= 0 )
-      {
-        v9 = *((_DWORD *)this + 26);
-        v10 = *((_DWORD *)this + 27);
-        v11 = *((unsigned int *)this + 42);
-        v12 = *((_DWORD *)this + 42);
-        v17[0] = 0;
-        v17[1] = 0;
-        v17[2] = v9;
-        v13 = *(_QWORD *)a2;
-        v17[3] = v10;
-        inited = (*(__int64 (__fastcall **)(struct IBitmapSource *, _DWORD *, __int64, _QWORD, _QWORD))(v13 + 24))(
-                   a2,
-                   v17,
-                   v11,
-                   (unsigned int)(v10 * v12),
-                   *((_QWORD *)this + 20));
-        v6 = inited;
-        if ( inited >= 0 )
-          return v6;
-        v16 = 380;
-      }
-      else
-      {
-        v16 = 370;
-      }
+      v6 = 0;
+      v9 = (((v8 * PixelFormatSize + 7) >> 3) + 3) & 0xFFFFFFFC;
     }
     else
     {
-      v16 = 356;
+      v6 = -2147024362;
+      v9 = 0LL;
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, inited, v16);
+    *((_DWORD *)this + 68) = v9;
+    if ( v6 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v6, 0x16Au, 0LL);
+      goto LABEL_18;
+    }
+    inited = HrMalloc(v9, *((unsigned int *)this + 47), (void **)this + 33);
+    v6 = inited;
+    if ( inited < 0 )
+    {
+      v19 = 370;
+      goto LABEL_12;
+    }
+    v10 = *((_DWORD *)this + 47);
+    v11 = *((_DWORD *)this + 46);
+    v12 = *((unsigned int *)this + 68);
+    v13 = *((_DWORD *)this + 68);
+    v20[0] = 0;
+    v20[1] = 0;
+    v20[2] = v11;
+    v14 = *(_QWORD *)a2;
+    v20[3] = v10;
+    v15 = (*(__int64 (__fastcall **)(struct IBitmapSource *, _DWORD *, __int64, _QWORD, _QWORD))(v14 + 24))(
+            a2,
+            v20,
+            v12,
+            (unsigned int)(v10 * v13),
+            *((_QWORD *)this + 33));
+    v6 = v15;
+    if ( v15 >= 0 )
+      return (unsigned int)v6;
+    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x17Cu, 0LL);
+LABEL_17:
+    if ( v6 >= 0 )
+      return (unsigned int)v6;
+    goto LABEL_18;
   }
-  else
+  v19 = 356;
+LABEL_12:
+  MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, inited, v19, 0LL);
+LABEL_18:
+  v17 = (void *)*((_QWORD *)this + 33);
+  if ( v17 )
   {
-    v6 = -2147024809;
+    operator delete(v17);
+    *((_QWORD *)this + 33) = 0LL;
   }
-LABEL_14:
-  v14 = (void *)*((_QWORD *)this + 20);
-  if ( v14 )
-  {
-    DefaultHeap::Free(v14);
-    *((_QWORD *)this + 20) = 0LL;
-  }
-  return v6;
+  return (unsigned int)v6;
 }

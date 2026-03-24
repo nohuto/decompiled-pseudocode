@@ -1,10 +1,10 @@
 /*
- * XREFs of ?_GetNextBestSecondaryTarget@BTL_TOPOLOGY_CONSTRUCTOR@@CAPEBVDMMVIDEOPRESENTTARGET@@AEBV2@AEBVDMMVIDEOPRESENTTARGETSET@@@Z @ 0x1C03C24F8
+ * XREFs of ?_GetNextBestSecondaryTarget@BTL_TOPOLOGY_CONSTRUCTOR@@CAPEBVDMMVIDEOPRESENTTARGET@@AEBV2@AEBVDMMVIDEOPRESENTTARGETSET@@@Z @ 0x1C02EFFFC
  * Callers:
- *     ?_AddExternalPathsToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJPEAVDXGADAPTER@@@Z @ 0x1C03C08A0 (-_AddExternalPathsToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJPEAVDXGADAPTER@@@Z.c)
+ *     ?_AddExternalPathsToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJPEAVDXGADAPTER@@@Z @ 0x1C02EE0A0 (-_AddExternalPathsToTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJPEAVDXGADAPTER@@@Z.c)
  * Callees:
- *     ?GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEBAPEBVDMMVIDEOPRESENTTARGET@@QEBV2@@Z @ 0x1C0002E98 (-GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEBAPEBVDMMVIDEOPRESENTTARGET@@QEBV2@@Z.c)
- *     ?_IsBetterSecondaryTarget@BTL_TOPOLOGY_CONSTRUCTOR@@CA_NAEBVDXGADAPTER@@AEBVDMMVIDEOPRESENTTARGET@@PEBV3@@Z @ 0x1C03C2700 (-_IsBetterSecondaryTarget@BTL_TOPOLOGY_CONSTRUCTOR@@CA_NAEBVDXGADAPTER@@AEBVDMMVIDEOPRESENTTARGE.c)
+ *     ?GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEBAPEBVDMMVIDEOPRESENTTARGET@@QEBV2@@Z @ 0x1C00097F0 (-GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEBAPEBVDMMVIDEOPRESENTTARGET@@QEBV2@@Z.c)
+ *     ?_IsBetterSecondaryTarget@BTL_TOPOLOGY_CONSTRUCTOR@@CA_NAEBVDXGADAPTER@@AEBVDMMVIDEOPRESENTTARGET@@PEBV3@@Z @ 0x1C02F0208 (-_IsBetterSecondaryTarget@BTL_TOPOLOGY_CONSTRUCTOR@@CA_NAEBVDXGADAPTER@@AEBVDMMVIDEOPRESENTTARGE.c)
  */
 
 const struct DMMVIDEOPRESENTTARGET *__fastcall BTL_TOPOLOGY_CONSTRUCTOR::_GetNextBestSecondaryTarget(
@@ -12,48 +12,53 @@ const struct DMMVIDEOPRESENTTARGET *__fastcall BTL_TOPOLOGY_CONSTRUCTOR::_GetNex
         const struct DMMVIDEOPRESENTTARGETSET *this)
 {
   __int64 v2; // rbx
-  const struct DMMVIDEOPRESENTTARGET *v5; // rdx
-  const struct DXGADAPTER *v6; // r14
+  __int64 v5; // rax
+  __int64 v6; // rax
+  const struct DXGADAPTER *v7; // rbp
+  const struct DMMVIDEOPRESENTTARGET *i; // rdx
   const struct DMMVIDEOPRESENTTARGET *NextTarget; // rax
-  const struct DMMVIDEOPRESENTTARGET *v8; // rbx
-  const struct DMMVIDEOPRESENTTARGET *v9; // rdi
-  const struct DMMVIDEOPRESENTTARGETSET *v10; // rbx
-  const struct DMMVIDEOPRESENTTARGET *i; // rbx
+  const struct DMMVIDEOPRESENTTARGET *v10; // rbx
+  const struct DMMVIDEOPRESENTTARGET *v11; // rdi
+  const struct DMMVIDEOPRESENTTARGETSET *v12; // rbx
+  const struct DMMVIDEOPRESENTTARGET *j; // rbx
 
   v2 = *((_QWORD *)this + 11);
-  if ( !*(_QWORD *)(v2 + 8) )
-    WdLogSingleEntry0(1LL);
-  v5 = a1;
-  v6 = *(const struct DXGADAPTER **)(*(_QWORD *)(v2 + 8) + 16LL);
-  while ( 1 )
+  v5 = *(_QWORD *)(v2 + 8);
+  if ( !v5 )
   {
-    NextTarget = DMMVIDEOPRESENTTARGETSET::GetNextTarget(this, v5);
-    v8 = NextTarget;
+    v6 = WdLogNewEntry5_WdAssertion(a1, this);
+    WdLogEvent5_WdAssertion(v6);
+    v5 = *(_QWORD *)(v2 + 8);
+  }
+  v7 = *(const struct DXGADAPTER **)(v5 + 16);
+  for ( i = a1; ; i = v10 )
+  {
+    NextTarget = DMMVIDEOPRESENTTARGETSET::GetNextTarget(this, i);
+    v10 = NextTarget;
     if ( !NextTarget )
       break;
-    if ( !*((_DWORD *)NextTarget + 23)
-      && !BTL_TOPOLOGY_CONSTRUCTOR::_IsBetterSecondaryTarget(v6, NextTarget, a1)
-      && !BTL_TOPOLOGY_CONSTRUCTOR::_IsBetterSecondaryTarget(v6, a1, v8) )
+    if ( !*((_DWORD *)NextTarget + 22)
+      && !BTL_TOPOLOGY_CONSTRUCTOR::_IsBetterSecondaryTarget(v7, NextTarget, a1)
+      && !BTL_TOPOLOGY_CONSTRUCTOR::_IsBetterSecondaryTarget(v7, a1, v10) )
     {
-      return v8;
+      return v10;
     }
-    v5 = v8;
   }
-  v9 = 0LL;
-  v10 = (const struct DMMVIDEOPRESENTTARGETSET *)*((_QWORD *)this + 3);
-  if ( v10 != (const struct DMMVIDEOPRESENTTARGETSET *)((char *)this + 24) )
+  v11 = 0LL;
+  v12 = (const struct DMMVIDEOPRESENTTARGETSET *)*((_QWORD *)this + 3);
+  if ( v12 != (const struct DMMVIDEOPRESENTTARGETSET *)((char *)this + 24) )
   {
-    for ( i = (const struct DMMVIDEOPRESENTTARGETSET *)((char *)v10 - 8);
-          i;
-          i = DMMVIDEOPRESENTTARGETSET::GetNextTarget(this, i) )
+    for ( j = (const struct DMMVIDEOPRESENTTARGETSET *)((char *)v12 - 8);
+          j;
+          j = DMMVIDEOPRESENTTARGETSET::GetNextTarget(this, j) )
     {
-      if ( !*((_DWORD *)i + 23)
-        && BTL_TOPOLOGY_CONSTRUCTOR::_IsBetterSecondaryTarget(v6, i, v9)
-        && BTL_TOPOLOGY_CONSTRUCTOR::_IsBetterSecondaryTarget(v6, a1, i) )
+      if ( !*((_DWORD *)j + 22)
+        && BTL_TOPOLOGY_CONSTRUCTOR::_IsBetterSecondaryTarget(v7, j, v11)
+        && BTL_TOPOLOGY_CONSTRUCTOR::_IsBetterSecondaryTarget(v7, a1, j) )
       {
-        v9 = i;
+        v11 = j;
       }
     }
   }
-  return v9;
+  return v11;
 }

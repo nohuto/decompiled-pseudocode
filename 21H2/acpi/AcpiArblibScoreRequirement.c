@@ -1,10 +1,10 @@
 /*
- * XREFs of AcpiArblibScoreRequirement @ 0x1C00AC130
+ * XREFs of AcpiArblibScoreRequirement @ 0x1C00AD520
  * Callers:
  *     <none>
  * Callees:
- *     _ACPIInternalError @ 0x1C004E414 (_ACPIInternalError.c)
- *     AcpiArblibUnpackRequirement @ 0x1C00AC1D0 (AcpiArblibUnpackRequirement.c)
+ *     _ACPIInternalError @ 0x1C004F5D4 (_ACPIInternalError.c)
+ *     AcpiArblibUnpackRequirement @ 0x1C00AD5C0 (AcpiArblibUnpackRequirement.c)
  */
 
 signed __int64 __fastcall AcpiArblibScoreRequirement(struct _IO_RESOURCE_DESCRIPTOR *a1)
@@ -19,7 +19,7 @@ signed __int64 __fastcall AcpiArblibScoreRequirement(struct _IO_RESOURCE_DESCRIP
   MaximumAddress = 0LL;
   Alignment = 0LL;
   if ( (int)AcpiArblibUnpackRequirement(a1, &MinimumAddress, &MaximumAddress, &Alignment) < 0 )
-    ACPIInternalError(0x50113uLL);
+    ACPIInternalError(0x50115uLL);
   v1 = Alignment;
   if ( !Alignment )
     v1 = 1LL;

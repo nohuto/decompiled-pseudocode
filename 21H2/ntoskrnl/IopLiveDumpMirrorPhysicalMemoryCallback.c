@@ -1,12 +1,12 @@
 /*
- * XREFs of IopLiveDumpMirrorPhysicalMemoryCallback @ 0x140A67430
+ * XREFs of IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1409ACFE0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     RtlSetBitsEx @ 0x14030B740 (RtlSetBitsEx.c)
- *     RtlFindNextForwardRunClearEx @ 0x14045EF10 (RtlFindNextForwardRunClearEx.c)
- *     MmTryIdentifyPage @ 0x14058CAEC (MmTryIdentifyPage.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
+ *     MmTryIdentifyPage @ 0x140534868 (MmTryIdentifyPage.c)
+ *     RtlFindNextForwardRunClearEx @ 0x1405874F0 (RtlFindNextForwardRunClearEx.c)
  */
 
 __int64 __fastcall IopLiveDumpMirrorPhysicalMemoryCallback(unsigned __int64 a1, __int64 a2)
@@ -14,18 +14,19 @@ __int64 __fastcall IopLiveDumpMirrorPhysicalMemoryCallback(unsigned __int64 a1, 
   LARGE_INTEGER PerformanceCounter; // rdi
   __int64 v3; // rsi
   unsigned __int64 v6; // rcx
-  unsigned __int64 v7; // r14
+  unsigned __int64 v7; // r15
   unsigned __int64 v8; // rbp
   unsigned __int64 v9; // rax
-  unsigned __int64 NextForwardRunClear; // r12
-  unsigned __int64 v11; // r15
-  unsigned __int64 v12; // r13
+  unsigned __int64 NextForwardRunClear; // r13
+  unsigned __int64 v11; // r14
+  unsigned __int64 v12; // r12
   __int64 v13; // rcx
   LONGLONG v14; // rax
-  _QWORD v16[2]; // [rsp+20h] [rbp-58h] BYREF
-  __int128 v17; // [rsp+30h] [rbp-48h] BYREF
-  unsigned __int64 v18; // [rsp+40h] [rbp-38h]
-  unsigned __int64 v19; // [rsp+80h] [rbp+8h] BYREF
+  _QWORD v16[2]; // [rsp+20h] [rbp-68h] BYREF
+  __int128 v17; // [rsp+30h] [rbp-58h] BYREF
+  unsigned __int64 v18; // [rsp+40h] [rbp-48h]
+  unsigned __int64 v19; // [rsp+90h] [rbp+8h] BYREF
+  unsigned __int64 v20; // [rsp+98h] [rbp+10h]
 
   v19 = 0LL;
   PerformanceCounter.QuadPart = 0LL;
@@ -54,27 +55,31 @@ __int64 __fastcall IopLiveDumpMirrorPhysicalMemoryCallback(unsigned __int64 a1, 
         if ( v11 )
           break;
 LABEL_22:
-        if ( v8 > v11 + NextForwardRunClear )
+        if ( v8 <= v11 + NextForwardRunClear )
+        {
+          v8 = 0LL;
+        }
+        else
         {
           v7 = NextForwardRunClear + v19;
-          v8 = v8 - v11 - NextForwardRunClear;
-          if ( v8 )
-            continue;
+          v8 -= v11 + NextForwardRunClear;
         }
-        goto LABEL_24;
+        if ( !v8 )
+          goto LABEL_26;
       }
-      v12 = v11;
+      v12 = v7;
+      v20 = v11;
       while ( 1 )
       {
         if ( (*(_DWORD *)(v3 + 40) & 4) == 0 )
           goto LABEL_14;
         v17 = 0LL;
         v18 = 0LL;
-        if ( (unsigned int)MmTryIdentifyPage(v7, (__int64)&v17) )
+        if ( (unsigned int)MmTryIdentifyPage(v12, (__int64)&v17) )
           break;
 LABEL_21:
-        ++v7;
-        if ( !--v12 )
+        ++v12;
+        if ( !--v20 )
           goto LABEL_22;
       }
       if ( v18 >= 0xFFFF800000000000uLL )
@@ -88,11 +93,11 @@ LABEL_14:
           goto LABEL_21;
         v13 = v3 + 656;
       }
-      RtlSetBitsEx(v13, v7, 1uLL);
+      RtlSetBitsEx(v13, v12, 1uLL);
       goto LABEL_21;
     }
   }
-LABEL_24:
+LABEL_26:
   if ( (*(_DWORD *)(v3 + 80) & 0x80u) != 0 )
   {
     v14 = *(_QWORD *)&KeQueryPerformanceCounter(0LL) - PerformanceCounter.QuadPart;

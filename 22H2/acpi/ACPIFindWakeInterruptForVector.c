@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIFindWakeInterruptForVector @ 0x1C00449CC
+ * XREFs of ACPIFindWakeInterruptForVector @ 0x1C0061788
  * Callers:
- *     ACPIAssociateWakeInterrupt @ 0x1C004433C (ACPIAssociateWakeInterrupt.c)
- *     ACPIDelayedFreeWakeInterrupt @ 0x1C0044688 (ACPIDelayedFreeWakeInterrupt.c)
- *     ACPIDisconnectWakeInterrupt @ 0x1C0044918 (ACPIDisconnectWakeInterrupt.c)
+ *     ACPIAssociateWakeInterrupt @ 0x1C00611B8 (ACPIAssociateWakeInterrupt.c)
+ *     ACPIDelayedFreeWakeInterrupt @ 0x1C00614EC (ACPIDelayedFreeWakeInterrupt.c)
+ *     ACPIDisconnectWakeInterrupt @ 0x1C00616D4 (ACPIDisconnectWakeInterrupt.c)
  * Callees:
  *     <none>
  */

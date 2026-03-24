@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBSM_AddPsm20Event @ 0x1C000A720
+ * XREFs of HUBSM_AddPsm20Event @ 0x1C0009F60
  * Callers:
  *     <none>
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
  */
 
 __int64 __fastcall HUBSM_AddPsm20Event(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpMapEarlyPages @ 0x140509570
+ * XREFs of HalpMapEarlyPages @ 0x1404BC9D0
  * Callers:
  *     <none>
  * Callees:
- *     HalpMap @ 0x1403BF3B8 (HalpMap.c)
+ *     HalpMap @ 0x1403BB938 (HalpMap.c)
  */
 
 unsigned __int64 __fastcall HalpMapEarlyPages(__int64 a1, __int64 a2, unsigned int a3)

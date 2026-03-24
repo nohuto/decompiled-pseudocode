@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCoverageValidateCP @ 0x14012A68C
+ * XREFs of EtwpCoverageValidateCP @ 0x14012A6AC
  * Callers:
- *     EtwTelemetryCoverageReport @ 0x14012A560 (EtwTelemetryCoverageReport.c)
- *     EtwpCoverageRecordAtHighIrql @ 0x14030EF5C (EtwpCoverageRecordAtHighIrql.c)
- *     EtwpCoverageRecord @ 0x1406B41FC (EtwpCoverageRecord.c)
- *     EtwpCoverageCheckCP @ 0x1408B68A8 (EtwpCoverageCheckCP.c)
- *     EtwpCoverageResetCP @ 0x1408B6C28 (EtwpCoverageResetCP.c)
+ *     EtwTelemetryCoverageReport @ 0x14012A580 (EtwTelemetryCoverageReport.c)
+ *     EtwpCoverageRecordAtHighIrql @ 0x14030F05C (EtwpCoverageRecordAtHighIrql.c)
+ *     EtwpCoverageRecord @ 0x1406B41DC (EtwpCoverageRecord.c)
+ *     EtwpCoverageCheckCP @ 0x1408B6888 (EtwpCoverageCheckCP.c)
+ *     EtwpCoverageResetCP @ 0x1408B6C08 (EtwpCoverageResetCP.c)
  * Callees:
- *     TelemetryCoverageValidateName @ 0x14012A6E4 (TelemetryCoverageValidateName.c)
- *     TelemetryCoverageStringHashInternal @ 0x14012A748 (TelemetryCoverageStringHashInternal.c)
+ *     TelemetryCoverageValidateName @ 0x14012A704 (TelemetryCoverageValidateName.c)
+ *     TelemetryCoverageStringHashInternal @ 0x14012A768 (TelemetryCoverageStringHashInternal.c)
  */
 
 __int64 __fastcall EtwpCoverageValidateCP(_QWORD *a1, _DWORD *a2)

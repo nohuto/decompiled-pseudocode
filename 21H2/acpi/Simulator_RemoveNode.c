@@ -1,12 +1,12 @@
 /*
- * XREFs of Simulator_RemoveNode @ 0x1C00654A0
+ * XREFs of Simulator_RemoveNode @ 0x1C0064220
  * Callers:
- *     Simulator_CallbackWorker @ 0x1C0064B90 (Simulator_CallbackWorker.c)
+ *     Simulator_CallbackWorker @ 0x1C0063910 (Simulator_CallbackWorker.c)
  * Callees:
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     FreeNameSpaceObjects @ 0x1C00186E0 (FreeNameSpaceObjects.c)
- *     DereferenceObjectEx @ 0x1C00189F4 (DereferenceObjectEx.c)
- *     GetNameSpaceObject @ 0x1C0019AC8 (GetNameSpaceObject.c)
+ *     FreeNameSpaceObjects @ 0x1C0003A50 (FreeNameSpaceObjects.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     GetNameSpaceObject @ 0x1C002183C (GetNameSpaceObject.c)
  */
 
 __int64 __fastcall Simulator_RemoveNode(__int64 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall Simulator_RemoveNode(__int64 a1)
     return 3221225473LL;
   DereferenceObjectEx(v6);
   if ( (gdwfAMLI & 4) != 0 )
-    AMLIDereferenceHandleEx((volatile signed __int32 *)(v3 + 120));
+    AMLIDereferenceHandleEx(v3 + 120);
   else
     FreeNameSpaceObjects(v3);
   return 0LL;

@@ -1,28 +1,41 @@
 /*
- * XREFs of DpiMiracastBroadcastDeviceStateChange @ 0x1C038C97C
+ * XREFs of DpiMiracastBroadcastDeviceStateChange @ 0x1C02CD878
  * Callers:
- *     DpiMiracastStopMiracastSessionSync @ 0x1C0061EE0 (DpiMiracastStopMiracastSessionSync.c)
- *     DpiMiracastTargetDeviceChange @ 0x1C0062480 (DpiMiracastTargetDeviceChange.c)
- *     DpiMiracastTearDownAssociation @ 0x1C0062950 (DpiMiracastTearDownAssociation.c)
- *     DxgkMiracastStartMiracastSession @ 0x1C0063340 (DxgkMiracastStartMiracastSession.c)
- *     DpiMiracastHandleStartSessionDone @ 0x1C038D50C (DpiMiracastHandleStartSessionDone.c)
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C00542A0 (DpiMiracastStopMiracastSessionSync.c)
+ *     DpiMiracastTargetDeviceChange @ 0x1C0054870 (DpiMiracastTargetDeviceChange.c)
+ *     DpiMiracastTearDownAssociation @ 0x1C0054D58 (DpiMiracastTearDownAssociation.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C0055770 (DxgkMiracastStartMiracastSession.c)
+ *     DpiMiracastHandleStartSessionDone @ 0x1C02CE44C (DpiMiracastHandleStartSessionDone.c)
  * Callees:
- *     memset @ 0x1C002CFC0 (memset.c)
- *     McTemplateK0xqq_EtwWriteTransfer @ 0x1C00646C4 (McTemplateK0xqq_EtwWriteTransfer.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     McTemplateK0xqq_EtwWriteTransfer @ 0x1C0056AD4 (McTemplateK0xqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall DpiMiracastBroadcastDeviceStateChange(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rcx
   _DWORD *PoolWithTag; // rax
-  __int64 v6; // rbx
+  __int64 v6; // rdx
   __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // rax
+  __int64 v11; // rbx
   int updated; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  int v17; // [rsp+20h] [rbp-38h]
+  int v18; // [rsp+28h] [rbp-30h]
   struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-18h] BYREF
 
   DestinationString = 0LL;
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200000000LL) != 0 )
-    McTemplateK0xqq_EtwWriteTransfer(a1, a2, a3, *(_QWORD *)(a1 + 96), *(_DWORD *)(a1 + 408), *(_DWORD *)(a1 + 416));
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x20000000) != 0 )
+  {
+    v18 = *(_DWORD *)(a1 + 416);
+    v17 = *(_DWORD *)(a1 + 408);
+    McTemplateK0xqq_EtwWriteTransfer(a1, a2, a3, *(_QWORD *)(a1 + 96), v17, v18);
+  }
   v4 = *(_QWORD *)(a1 + 592);
   if ( !v4 )
   {
@@ -30,11 +43,11 @@ __int64 __fastcall DpiMiracastBroadcastDeviceStateChange(__int64 a1, __int64 a2,
     *(_QWORD *)(a1 + 592) = PoolWithTag;
     if ( !PoolWithTag )
     {
-      v6 = -1073741801LL;
-      v7 = 6LL;
-LABEL_9:
-      WdLogSingleEntry1(v7, v6);
-      return (unsigned int)v6;
+      v10 = WdLogNewEntry5_WdLowResource(v7, v6, v8, v9);
+      LODWORD(v11) = -1073741801;
+      *(_QWORD *)(v10 + 24) = -1073741801LL;
+      WdLogEvent5_WdLowResource(v10);
+      return (unsigned int)v11;
     }
     *PoolWithTag = 1;
     memset((void *)(*(_QWORD *)(a1 + 592) + 4LL), 0, 0x208uLL);
@@ -53,11 +66,12 @@ LABEL_9:
               a1 + 420,
               0,
               0);
-  v6 = updated;
+  v11 = updated;
   if ( updated < 0 )
   {
-    v7 = 2LL;
-    goto LABEL_9;
+    v15 = WdLogNewEntry5_WdError(v14, v13);
+    *(_QWORD *)(v15 + 24) = v11;
+    WdLogEvent5_WdError(v15);
   }
-  return (unsigned int)v6;
+  return (unsigned int)v11;
 }

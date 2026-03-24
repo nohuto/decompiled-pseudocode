@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDSM_GettingRemoteWakeCapability @ 0x1C00255C0
+ * XREFs of HUBDSM_GettingRemoteWakeCapability @ 0x1C0022DE0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     HUBMISC_ControlTransfer @ 0x1C0032554 (HUBMISC_ControlTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
  */
 
 __int64 __fastcall HUBDSM_GettingRemoteWakeCapability(__int64 a1)
@@ -41,7 +41,7 @@ __int64 __fastcall HUBDSM_GettingRemoteWakeCapability(__int64 a1)
         2u,
         5u,
         0x1Eu,
-        (__int64)&WPP_84d33890ce5c36f044156420b7e16ac3_Traceguids,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         v5);
     }
     HUBSM_AddEvent(v1 + 504, 4004);

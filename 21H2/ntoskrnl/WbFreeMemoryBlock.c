@@ -1,14 +1,14 @@
 /*
- * XREFs of WbFreeMemoryBlock @ 0x1407E4374
+ * XREFs of WbFreeMemoryBlock @ 0x140687F88
  * Callers:
- *     WbAllocateMemoryBlock @ 0x1406E0214 (WbAllocateMemoryBlock.c)
- *     WbFreeWarbirdProcess @ 0x1407E17A4 (WbFreeWarbirdProcess.c)
- *     WbAllocateUserMemory @ 0x1407E43F0 (WbAllocateUserMemory.c)
+ *     WbAllocateMemoryBlock @ 0x1406868C4 (WbAllocateMemoryBlock.c)
+ *     WbFreeWarbirdProcess @ 0x140686B00 (WbFreeWarbirdProcess.c)
+ *     WbAllocateUserMemory @ 0x1406875F4 (WbAllocateUserMemory.c)
  * Callees:
- *     ZwFreeVirtualMemory @ 0x14041BB20 (ZwFreeVirtualMemory.c)
- *     sub_1406E9DE4 @ 0x1406E9DE4 (sub_1406E9DE4.c)
- *     MmUnsecureVirtualMemory @ 0x1406F8010 (MmUnsecureVirtualMemory.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ZwFreeVirtualMemory @ 0x1403FA760 (ZwFreeVirtualMemory.c)
+ *     MmUnsecureVirtualMemory @ 0x14061F760 (MmUnsecureVirtualMemory.c)
+ *     sub_140688008 @ 0x140688008 (sub_140688008.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall WbFreeMemoryBlock(PVOID *BaseAddress)
@@ -33,7 +33,7 @@ void __fastcall WbFreeMemoryBlock(PVOID *BaseAddress)
     v3 = (struct _MDL *)BaseAddress[3];
     if ( v3 )
     {
-      sub_1406E9DE4(v3);
+      sub_140688008(v3);
       BaseAddress[3] = 0LL;
     }
     BaseAddress[4] = 0LL;
@@ -44,6 +44,6 @@ void __fastcall WbFreeMemoryBlock(PVOID *BaseAddress)
       *BaseAddress = 0LL;
       BaseAddress[1] = 0LL;
     }
-    ExFreePoolWithTag(BaseAddress, 0);
+    ExFreePoolWithTag(BaseAddress, 0x42524157u);
   }
 }

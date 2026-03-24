@@ -1,14 +1,14 @@
 /*
- * XREFs of PspTerminateAllProcessesInJobHierarchy @ 0x1407DD8B4
+ * XREFs of PspTerminateAllProcessesInJobHierarchy @ 0x140698B28
  * Callers:
- *     PspEnforceLimitsJobPostCallback @ 0x1406A3680 (PspEnforceLimitsJobPostCallback.c)
- *     NtTerminateJobObject @ 0x1407DD750 (NtTerminateJobObject.c)
- *     PspJobClose @ 0x1407DD7D0 (PspJobClose.c)
- *     PsTerminateServerSilo @ 0x1409AC950 (PsTerminateServerSilo.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140618780 (PspEnforceLimitsJobPostCallback.c)
+ *     PspJobClose @ 0x1406989C0 (PspJobClose.c)
+ *     NtTerminateJobObject @ 0x140698AB0 (NtTerminateJobObject.c)
+ *     PsTerminateServerSilo @ 0x140905D50 (PsTerminateServerSilo.c)
  * Callees:
- *     PspEvaluateAndNotifyEmptyJob @ 0x1406A07B4 (PspEvaluateAndNotifyEmptyJob.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406A3448 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     EtwTraceJob @ 0x1409E53B8 (EtwTraceJob.c)
+ *     PspEvaluateAndNotifyEmptyJob @ 0x140604FA0 (PspEvaluateAndNotifyEmptyJob.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140618450 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     EtwTraceJob @ 0x140935D98 (EtwTraceJob.c)
  */
 
 char __fastcall PspTerminateAllProcessesInJobHierarchy(PRKEVENT Event, unsigned int a2, char a3)
@@ -19,7 +19,7 @@ char __fastcall PspTerminateAllProcessesInJobHierarchy(PRKEVENT Event, unsigned 
 
   v3 = 0;
   v8 = 0LL;
-  _InterlockedOr(&Event[64].Header.Lock, 0x80u);
+  _InterlockedOr(&Event[55].Header.Lock, 0x80u);
   LODWORD(v8) = a2;
   BYTE4(v8) = a3 != 0;
   PspEnumJobsAndProcessesInJobHierarchy(Event, 0, (int)PspTerminateProcessesJobCallback, 0, (__int64)&v8, 2);
@@ -33,7 +33,7 @@ char __fastcall PspTerminateAllProcessesInJobHierarchy(PRKEVENT Event, unsigned 
     PspEvaluateAndNotifyEmptyJob(Event, 0, 0);
     v6 = BYTE4(v8);
   }
-  if ( (PerfGlobalGroupMask[0] & 0x80000) != 0 )
+  if ( (PerfGlobalGroupMask & 0x80000) != 0 )
     EtwTraceJob(Event, v6, a2, 1825LL);
   return v3;
 }

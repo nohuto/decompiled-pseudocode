@@ -12,13 +12,13 @@
  *     MiAllocateFromSubAllocatedRegion @ 0x1405F8BBC (MiAllocateFromSubAllocatedRegion.c)
  *     MiLockVadRange @ 0x140604B60 (MiLockVadRange.c)
  *     MiCleanVad @ 0x140617088 (MiCleanVad.c)
- *     NtAreMappedFilesTheSame @ 0x140704CC0 (NtAreMappedFilesTheSame.c)
- *     MiHotPatchImage @ 0x140855350 (MiHotPatchImage.c)
- *     MiHotPatchProcess @ 0x140855624 (MiHotPatchProcess.c)
- *     MiPerformImageHotPatch @ 0x140856CA0 (MiPerformImageHotPatch.c)
- *     MiSetImageHotPatchAllowed @ 0x140857FE4 (MiSetImageHotPatchAllowed.c)
- *     MmIsFileMapped @ 0x140858CE0 (MmIsFileMapped.c)
- *     MiFinishPlaceholderVadReplacement @ 0x14085C78C (MiFinishPlaceholderVadReplacement.c)
+ *     NtAreMappedFilesTheSame @ 0x140704CA0 (NtAreMappedFilesTheSame.c)
+ *     MiHotPatchImage @ 0x140855330 (MiHotPatchImage.c)
+ *     MiHotPatchProcess @ 0x140855604 (MiHotPatchProcess.c)
+ *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
+ *     MiSetImageHotPatchAllowed @ 0x140857FC4 (MiSetImageHotPatchAllowed.c)
+ *     MmIsFileMapped @ 0x140858CC0 (MmIsFileMapped.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x14085C76C (MiFinishPlaceholderVadReplacement.c)
  * Callees:
  *     <none>
  */

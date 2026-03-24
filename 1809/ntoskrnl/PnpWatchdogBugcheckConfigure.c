@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpWatchdogBugcheckConfigure @ 0x14070EF0C
+ * XREFs of PnpWatchdogBugcheckConfigure @ 0x14070EEEC
  * Callers:
- *     PnpWatchdogBugcheckWatchCallback @ 0x140707130 (PnpWatchdogBugcheckWatchCallback.c)
+ *     PnpWatchdogBugcheckWatchCallback @ 0x140707110 (PnpWatchdogBugcheckWatchCallback.c)
  *     PnpInitializePnpWatchdogs @ 0x1409C9F5C (PnpInitializePnpWatchdogs.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
- *     ZwNotifyChangeKey @ 0x1401BA3D0 (ZwNotifyChangeKey.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     ZwNotifyChangeKey @ 0x1401BA3F0 (ZwNotifyChangeKey.c)
  */
 
 NTSTATUS __fastcall PnpWatchdogBugcheckConfigure(HANDLE Handle)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ??1UNDORENDERLOCKCOUNTS@@QEAA@XZ @ 0x1C0017910
+ * XREFs of ??1UNDORENDERLOCKCOUNTS@@QEAA@XZ @ 0x1C012B864
  * Callers:
- *     GreStretchBltInternal @ 0x1C00FF3A0 (GreStretchBltInternal.c)
+ *     GreStretchBltInternal @ 0x1C00B49B0 (GreStretchBltInternal.c)
  * Callees:
  *     <none>
  */

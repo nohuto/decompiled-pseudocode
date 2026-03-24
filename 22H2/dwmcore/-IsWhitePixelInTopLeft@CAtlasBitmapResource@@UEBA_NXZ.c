@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsWhitePixelInTopLeft@CAtlasBitmapResource@@UEBA_NXZ @ 0x1800FBA30
+ * XREFs of ?IsWhitePixelInTopLeft@CAtlasBitmapResource@@UEBA_NXZ @ 0x18020A680
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CAtlasBitmapResource::IsWhitePixelInTopLeft(CAtlasBitmapResource *this)
 {
-  return *((_QWORD *)this + 5) != 0LL;
+  return *((_QWORD *)this + 4) != 0LL;
 }

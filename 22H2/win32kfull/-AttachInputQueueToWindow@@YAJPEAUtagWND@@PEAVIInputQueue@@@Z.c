@@ -1,45 +1,46 @@
 /*
- * XREFs of ?AttachInputQueueToWindow@@YAJPEAUtagWND@@PEAVIInputQueue@@@Z @ 0x1C00E2830
+ * XREFs of ?AttachInputQueueToWindow@@YAJPEAUtagWND@@PEAVIInputQueue@@@Z @ 0x1C010AAC0
  * Callers:
- *     ?ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@@Z @ 0x1C00E28EC (-ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@@Z.c)
+ *     ?ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@PEAPEAUtagWND@@@Z @ 0x1C010A9B8 (-ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@PEAPEAUtagWND@@@Z.c)
  * Callees:
- *     ??$CreateWindowProp@VCInputQueueProp@@@CWindowProp@@SAJPEAPEAVCInputQueueProp@@@Z @ 0x1C00AFBDC (--$CreateWindowProp@VCInputQueueProp@@@CWindowProp@@SAJPEAPEAVCInputQueueProp@@@Z.c)
- *     ?RemoveAndDeleteProp@CWindowProp@@QEAAXXZ @ 0x1C00C9470 (-RemoveAndDeleteProp@CWindowProp@@QEAAXXZ.c)
- *     ?AttachInputQueue@CInputQueueProp@@QEAAJPEAVIInputQueue@@@Z @ 0x1C00E27A4 (-AttachInputQueue@CInputQueueProp@@QEAAJPEAVIInputQueue@@@Z.c)
- *     ??$GetProp@VCInputQueueProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCInputQueueProp@@@Z @ 0x1C00E28B4 (--$GetProp@VCInputQueueProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCInputQueueProp@@@Z.c)
- *     ?SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z @ 0x1C00F0584 (-SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     ?SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z @ 0x1C003819C (-SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z.c)
+ *     ??$GetProp@VCInputQueueProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCInputQueueProp@@@Z @ 0x1C006B8B8 (--$GetProp@VCInputQueueProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCInputQueueProp@@@Z.c)
+ *     ?RemoveAndDeleteProp@CWindowProp@@QEAAXXZ @ 0x1C00EF434 (-RemoveAndDeleteProp@CWindowProp@@QEAAXXZ.c)
+ *     ?AttachInputQueue@CInputQueueProp@@QEAAJPEAVIInputQueue@@@Z @ 0x1C010AB4C (-AttachInputQueue@CInputQueueProp@@QEAAJPEAVIInputQueue@@@Z.c)
+ *     ??$CreateWindowProp@VCInputQueueProp@@@CWindowProp@@SAJPEAPEAVCInputQueueProp@@@Z @ 0x1C010AC84 (--$CreateWindowProp@VCInputQueueProp@@@CWindowProp@@SAJPEAPEAVCInputQueueProp@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall AttachInputQueueToWindow(struct tagWND *a1, struct IInputQueue *a2)
 {
-  __int64 v4; // r8
-  __int64 v5; // r9
-  CInputQueueProp *v6; // rbx
-  int Window; // edi
-  struct tagWND *v9; // rdx
-  CInputQueueProp *v10; // [rsp+40h] [rbp+18h] BYREF
+  CWindowProp *v4; // rbx
+  int v5; // edi
+  struct tagWND *v7; // rdx
+  CWindowProp *v8; // [rsp+40h] [rbp+18h] BYREF
 
-  v10 = 0LL;
-  if ( (unsigned int)CWindowProp::GetProp<CInputQueueProp>(a1, &v10) )
+  v8 = 0LL;
+  if ( CWindowProp::GetProp<CInputQueueProp>((__int64)a1, (__int64 *)&v8) )
   {
-    v6 = v10;
+    v4 = v8;
+LABEL_3:
+    v5 = CInputQueueProp::AttachInputQueue(v4, a2);
+    if ( v5 < 0 && !*((_DWORD *)v4 + 6) )
+      CWindowProp::RemoveAndDeleteProp(v4);
+    return (unsigned int)v5;
   }
-  else
+  v5 = CWindowProp::CreateWindowProp<CInputQueueProp>(&v8);
+  if ( v5 >= 0 )
   {
-    Window = CWindowProp::CreateWindowProp<CInputQueueProp>((__int64 *)&v10);
-    if ( Window < 0 )
-      return (unsigned int)Window;
-    v9 = a1;
-    v6 = v10;
-    if ( !(unsigned int)CWindowProp::SetProp(v10, v9) )
+    v7 = a1;
+    v4 = v8;
+    if ( !(unsigned int)CWindowProp::SetProp(v8, (unsigned __int64)v7) )
     {
-      (**(void (__fastcall ***)(CInputQueueProp *))v6)(v6);
-      return (unsigned int)-1073741790;
+      (**(void (__fastcall ***)(CWindowProp *))v4)(v4);
+      v4 = 0LL;
+      v5 = -1073741790;
     }
+    if ( v5 >= 0 )
+      goto LABEL_3;
   }
-  Window = CInputQueueProp::AttachInputQueue(v6, a2, v4, v5);
-  if ( Window < 0 && !*((_DWORD *)v6 + 8) )
-    CWindowProp::RemoveAndDeleteProp(v6);
-  return (unsigned int)Window;
+  return (unsigned int)v5;
 }

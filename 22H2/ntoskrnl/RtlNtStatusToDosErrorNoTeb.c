@@ -1,22 +1,23 @@
 /*
- * XREFs of RtlNtStatusToDosErrorNoTeb @ 0x140333FF0
+ * XREFs of RtlNtStatusToDosErrorNoTeb @ 0x1402FAA50
  * Callers:
- *     RtlNtStatusToDosError @ 0x1407AA930 (RtlNtStatusToDosError.c)
+ *     RtlNtStatusToDosError @ 0x14066C040 (RtlNtStatusToDosError.c)
  * Callees:
  *     <none>
  */
 
 ULONG __stdcall RtlNtStatusToDosErrorNoTeb(NTSTATUS Status)
 {
+  unsigned int v1; // r8d
   ULONG result; // eax
-  unsigned int v2; // r8d
-  unsigned int v3; // r9d
-  __int64 v4; // rdx
-  __int64 v5; // r11
+  unsigned int v3; // edx
+  unsigned int v4; // r9d
+  __int64 v5; // rcx
   unsigned int v6; // eax
   unsigned int v7; // r10d
   int v8; // eax
 
+  v1 = 0;
   if ( !Status )
     return 0;
   if ( Status == 259 )
@@ -26,36 +27,35 @@ ULONG __stdcall RtlNtStatusToDosErrorNoTeb(NTSTATUS Status)
   {
     if ( (Status & 0xFF0000) == 0x70000 && ((HIBYTE(Status) - 128) & 0xFFFFFFBF) == 0 )
       return (unsigned __int16)Status;
-    if ( (Status & 0xF0000000) == 0xD0000000 )
-      Status &= 0xCFFFFFFF;
-    v2 = 0;
-    v3 = 324;
+    v3 = Status & 0xCFFFFFFF;
+    v4 = 308;
+    if ( (Status & 0xF0000000) != 0xD0000000 )
+      v3 = Status;
     while ( 1 )
     {
-      v4 = (v2 + v3) >> 1;
-      v5 = v4;
-      v6 = RtlpRunTable[v4];
-      v7 = Status - v6;
-      if ( Status >= v6 )
+      v5 = (v1 + v4) >> 1;
+      v6 = RtlpRunTable[2 * v5];
+      v7 = v3 - v6;
+      if ( v3 < v6 )
       {
-        if ( v7 < BYTE4(RtlpRunTable[v5]) )
+        v4 = v5 - 1;
+      }
+      else
+      {
+        if ( v7 < (unsigned __int8)byte_14001A494[8 * v5] )
         {
-          v8 = HIWORD(RtlpRunTable[v5]);
-          if ( BYTE5(RtlpRunTable[v5]) == 1 )
+          v8 = (unsigned __int16)word_14001A496[4 * v5];
+          if ( byte_14001A495[8 * v5] == 1 )
             return (unsigned __int16)RtlpStatusTable[v7 + v8];
           else
             return (unsigned __int16)RtlpStatusTable[2 * v7 + v8] | ((unsigned __int16)RtlpStatusTable[2 * v7 + 1 + v8] << 16);
         }
-        v2 = v4 + 1;
+        v1 = v5 + 1;
       }
-      else
+      if ( v1 > v4 )
       {
-        v3 = v4 - 1;
-      }
-      if ( v2 > v3 )
-      {
-        if ( (Status & 0xFFFF0000) == 0xC0010000 )
-          return (unsigned __int16)Status;
+        if ( (v3 & 0xFFFF0000) == 0xC0010000 )
+          return (unsigned __int16)v3;
         else
           return 317;
       }

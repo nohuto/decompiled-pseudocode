@@ -1,109 +1,228 @@
 /*
- * XREFs of FreeNameSpaceObjects @ 0x1C0005600
+ * XREFs of FreeNameSpaceObjects @ 0x1C0003A50
  * Callers:
- *     Simulator_RemoveNode @ 0x1C00498F0 (Simulator_RemoveNode.c)
- *     CreateNativeNameSpaceObject @ 0x1C0049D58 (CreateNativeNameSpaceObject.c)
- *     FreeOwnedObjects @ 0x1C004B83C (FreeOwnedObjects.c)
- *     DereferenceObjectEx @ 0x1C004F6C8 (DereferenceObjectEx.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     RunContext @ 0x1C0004DD0 (RunContext.c)
+ *     ParseCall @ 0x1C0006B60 (ParseCall.c)
+ *     ParseTerm @ 0x1C0007480 (ParseTerm.c)
+ *     ParseScope @ 0x1C0008890 (ParseScope.c)
+ *     ParseSuperName @ 0x1C0009350 (ParseSuperName.c)
+ *     AMLIGetNameSpaceObjectNoLock @ 0x1C000AF30 (AMLIGetNameSpaceObjectNoLock.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     ParseField @ 0x1C0021D30 (ParseField.c)
+ *     CreateNativeNameSpaceObject @ 0x1C0022FC4 (CreateNativeNameSpaceObject.c)
+ *     Simulator_RemoveNode @ 0x1C0064220 (Simulator_RemoveNode.c)
+ *     FreeOwnedObjects @ 0x1C006535C (FreeOwnedObjects.c)
  * Callees:
- *     FreeDataBuffs @ 0x1C004B52C (FreeDataBuffs.c)
- *     HeapFree @ 0x1C004EE6C (HeapFree.c)
- *     DereferenceObjectEx @ 0x1C004F6C8 (DereferenceObjectEx.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     FreeObjData @ 0x1C00033D0 (FreeObjData.c)
+ *     FreeData @ 0x1C00036E8 (FreeData.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
  */
 
-void __fastcall FreeNameSpaceObjects(__int64 *a1)
+void __fastcall FreeNameSpaceObjects(unsigned __int64 a1)
 {
   KIRQL v2; // al
-  __int64 v3; // rbp
-  __int64 *v4; // rbx
-  KIRQL v5; // r15
-  __int64 *v6; // rsi
-  __int64 *v7; // rdi
-  _QWORD *i; // rcx
-  _QWORD **v9; // rdx
-  __int64 v10; // rcx
-  __int64 *v11; // rcx
-  __int64 **v12; // rax
-  __int64 v13; // rcx
-  __int64 **j; // rcx
-  __int64 *v15; // rax
+  __int64 v3; // r14
+  unsigned __int64 v4; // rbx
+  KIRQL v5; // r12
+  unsigned __int64 v6; // rsi
+  unsigned __int64 v7; // r15
+  _QWORD *v8; // rcx
+  unsigned __int64 v9; // rax
+  unsigned __int64 *v10; // rcx
+  __int64 v11; // rax
+  _QWORD *v12; // rcx
+  __int64 v13; // rax
+  __int16 v14; // ax
+  unsigned __int64 v15; // rdi
+  __int64 v16; // r9
+  _QWORD *v17; // rax
+  _QWORD *i; // r8
+  unsigned __int64 *v19; // rcx
+  _QWORD *v20; // rdx
+  __int64 v21; // rcx
+  _QWORD *v22; // rax
+  _QWORD *v23; // rdx
+  __int64 v24; // rcx
+  unsigned __int64 v25; // rcx
+  unsigned __int64 *v26; // rax
+  _QWORD *v27; // rdi
+  __int64 v28; // rcx
+  _QWORD *v29; // rax
+  _QWORD *v30; // rdx
+  __int64 v31; // r10
+  __int64 v32; // rcx
+  _QWORD *v33; // rax
+  __int64 v34; // rcx
+  __int64 v35; // rcx
 
   v2 = ExAcquireSpinLockExclusive(&ACPINamespaceLock);
-  v3 = a1[2];
+  v3 = *(_QWORD *)(a1 + 16);
   v4 = a1;
   v5 = v2;
   do
   {
-LABEL_2:
-    while ( (__int64 *)v4[3] != v4 + 3 )
-      v4 = (__int64 *)v4[3];
-    v6 = (__int64 *)v4[2];
-    if ( !v6 || (v7 = (__int64 *)*v4, (__int64 *)*v4 == v6 + 3) )
+    while ( *(_QWORD *)(v4 + 24) != v4 + 24 )
+      v4 = *(_QWORD *)(v4 + 24);
+    v6 = *(_QWORD *)(v4 + 16);
+    if ( !v6 || (v7 = *(_QWORD *)v4, *(_QWORD *)v4 == v6 + 24) )
       v7 = 0LL;
-    for ( i = (_QWORD *)qword_1C006F860; i; i = *v9 )
+    v8 = P;
+    if ( P )
     {
-      v9 = (_QWORD **)(i + 1);
-      if ( v4 == (__int64 *)i[3] )
+      while ( v4 != v8[3] )
       {
-        if ( *i )
-          *(_QWORD *)(*i + 8LL) = *v9;
-        if ( *v9 )
-          **v9 = *i;
-        if ( i == (_QWORD *)qword_1C006F860 )
-          qword_1C006F860 = (__int64)*v9;
-        ExFreePoolWithTag(i, 0);
-        break;
+        v8 = (_QWORD *)v8[1];
+        if ( !v8 )
+          goto LABEL_9;
       }
+      if ( *v8 )
+        *(_QWORD *)(*v8 + 8LL) = v8[1];
+      v30 = (_QWORD *)v8[1];
+      if ( v30 )
+        *v30 = *v8;
+      if ( v8 == P )
+        P = (PVOID)v8[1];
+      ExFreePoolWithTag(v8, 0);
     }
-    if ( *((_WORD *)v4 + 33) == 10 )
+LABEL_9:
+    if ( *(_WORD *)(v4 + 66) == 10 )
     {
-      v10 = v4[12];
-      if ( !*(_BYTE *)(v10 + 12) && (*(_BYTE *)(v10 + 13) & 1) != 0 )
-        MmUnmapIoSpace(*(PVOID *)v10, *(unsigned int *)(v10 + 8));
+      v34 = *(_QWORD *)(v4 + 96);
+      if ( !*(_BYTE *)(v34 + 12) && (*(_BYTE *)(v34 + 13) & 1) != 0 )
+        MmUnmapIoSpace(*(PVOID *)v34, *(unsigned int *)(v34 + 8));
     }
     if ( v6 )
     {
-      v11 = (__int64 *)*v4;
-      if ( *(__int64 **)(*v4 + 8) != v4 || (v12 = (__int64 **)v4[1], *v12 != v4) )
-        __fastfail(3u);
-      *v12 = v11;
-      v11[1] = (__int64)v12;
+      v9 = *(_QWORD *)v4;
+      if ( *(_QWORD *)(*(_QWORD *)v4 + 8LL) != v4 )
+        goto LABEL_59;
+      v10 = *(unsigned __int64 **)(v4 + 8);
+      if ( *v10 != v4 )
+        goto LABEL_59;
+      *v10 = v9;
+      *(_QWORD *)(v9 + 8) = v10;
     }
-    else if ( v4 == (__int64 *)gpnsNameSpaceRoot )
+    else if ( v4 == gpnsNameSpaceRoot )
     {
       gpnsNameSpaceRoot = 0LL;
     }
-    v13 = v4[6];
-    if ( v13 )
+    v11 = *(_QWORD *)(v4 + 48);
+    if ( v11 )
     {
-      for ( j = (__int64 **)(v13 + 24); ; j = (__int64 **)(v15 + 7) )
+      v12 = (_QWORD *)(v11 + 24);
+      v13 = *(_QWORD *)(v11 + 24);
+      if ( v13 )
       {
-        v15 = *j;
-        if ( !*j )
-          break;
-        if ( v15 == v4 )
+        while ( v13 != v4 )
         {
-          *j = (__int64 *)v4[7];
+          v12 = (_QWORD *)(v13 + 56);
+          v13 = *(_QWORD *)(v13 + 56);
+          if ( !v13 )
+            goto LABEL_18;
+        }
+        *v12 = *(_QWORD *)(v4 + 56);
+      }
+LABEL_18:
+      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*(_QWORD *)(v4 + 48) + 32LL));
+    }
+    v14 = *(_WORD *)(v4 + 64);
+    if ( (v14 & 0x40) == 0 )
+    {
+      if ( (v14 & 1) != 0 )
+      {
+        v35 = *(_QWORD *)(v4 + 72);
+        if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v35 + 8), 0xFFFFFFFF) == 1 && (*(_BYTE *)v35 & 8) != 0 )
+          FreeData(v35);
+      }
+      else if ( *(_QWORD *)(v4 + 96) && *(int *)(v4 + 72) <= 0 )
+      {
+        if ( *(_WORD *)(v4 + 66) == 4 )
+          FreeDataBuffs(*(_QWORD *)(v4 + 96) + 8LL, **(_DWORD **)(v4 + 96));
+        FreeObjData(v4 + 64);
+      }
+      v15 = v4 - 16;
+      *(_OWORD *)(v4 + 64) = 0LL;
+      *(_OWORD *)(v4 + 80) = 0LL;
+      *(_QWORD *)(v4 + 96) = 0LL;
+      *(_DWORD *)(v4 - 16) = 0;
+      NewIrql = KeAcquireSpinLockRaiseToDpc(&gmutHeap);
+      v16 = *(_QWORD *)(v4 - 16 + 8);
+      v17 = *(_QWORD **)(v16 + 40);
+      for ( i = (_QWORD *)(v16 + 40); v17 != i; v17 = (_QWORD *)*v17 )
+      {
+        if ( v4 < (unsigned __int64)v17 )
           break;
+      }
+      v19 = (unsigned __int64 *)v17[1];
+      if ( (_QWORD *)*v19 != v17 )
+LABEL_59:
+        __fastfail(3u);
+      *(_QWORD *)(v4 + 8) = v19;
+      *(_QWORD *)v4 = v17;
+      *v19 = v4;
+      v17[1] = v4;
+      v20 = *(_QWORD **)v4;
+      v21 = *(_QWORD *)v4 - 16LL;
+      if ( *(_QWORD **)v4 != i )
+      {
+        v31 = *(unsigned int *)(v15 + 4);
+        if ( v21 == v15 + v31 )
+        {
+          *(_DWORD *)(v15 + 4) = v31 + *(_DWORD *)(v21 + 4);
+          v32 = *v20;
+          if ( *(_QWORD **)(*v20 + 8LL) != v20 )
+            goto LABEL_59;
+          v33 = (_QWORD *)v20[1];
+          if ( (_QWORD *)*v33 != v20 )
+            goto LABEL_59;
+          *v33 = v32;
+          *(_QWORD *)(v32 + 8) = v33;
         }
       }
-      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v4[6] + 32));
-    }
-    if ( (v4[8] & 0x40) == 0 )
-    {
-      FreeDataBuffs(v4 + 8, 1LL);
-      HeapFree(v4);
+      v22 = *(_QWORD **)(v15 + 24);
+      v23 = v22 - 2;
+      if ( v22 != i )
+      {
+        v24 = *((unsigned int *)v23 + 1);
+        if ( (_QWORD *)v15 == (_QWORD *)((char *)v23 + v24) )
+        {
+          *((_DWORD *)v23 + 1) = *(_DWORD *)(v15 + 4) + v24;
+          v25 = *(_QWORD *)v4;
+          if ( *(_QWORD *)(*(_QWORD *)v4 + 8LL) != v4 )
+            goto LABEL_59;
+          v26 = *(unsigned __int64 **)(v4 + 8);
+          if ( *v26 != v4 )
+            goto LABEL_59;
+          *v26 = v25;
+          v15 = (unsigned __int64)v23;
+          *(_QWORD *)(v25 + 8) = v26;
+        }
+      }
+      if ( *(_QWORD *)(v16 + 32) <= v15 + *(unsigned int *)(v15 + 4) )
+      {
+        *(_QWORD *)(v16 + 32) = v15;
+        v27 = (_QWORD *)(v15 + 16);
+        v28 = *v27;
+        if ( *(_QWORD **)(*v27 + 8LL) != v27 )
+          goto LABEL_59;
+        v29 = (_QWORD *)v27[1];
+        if ( (_QWORD *)*v29 != v27 )
+          goto LABEL_59;
+        *v29 = v28;
+        *(_QWORD *)(v28 + 8) = v29;
+      }
+      KeReleaseSpinLock(&gmutHeap, NewIrql);
     }
     if ( v4 == a1 )
       break;
-    if ( v7 )
-    {
-      v4 = v7;
-      goto LABEL_2;
-    }
-    v4 = v6;
+    v4 = v7;
+    if ( !v7 )
+      v4 = v6;
   }
-  while ( v6 );
+  while ( v4 );
   ExReleaseSpinLockExclusive(&ACPINamespaceLock, v5);
   if ( v3 )
     DereferenceObjectEx(v3, "Child Object");

@@ -1,19 +1,19 @@
 /*
- * XREFs of PcisuppInitializePciRouting @ 0x1C00A1210
+ * XREFs of PcisuppInitializePciRouting @ 0x1C00907B0
  * Callers:
- *     PcisuppAcquirePciInterfaces @ 0x1C00A115C (PcisuppAcquirePciInterfaces.c)
+ *     PcisuppAcquirePciInterfaces @ 0x1C00906FC (PcisuppAcquirePciInterfaces.c)
  * Callees:
- *     memset @ 0x1C0030080 (memset.c)
- *     ACPIInternalSendSynchronousIrp @ 0x1C0093610 (ACPIInternalSendSynchronousIrp.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIInternalSendSynchronousIrp @ 0x1C009E0DC (ACPIInternalSendSynchronousIrp.c)
  */
 
 __int64 __fastcall PcisuppInitializePciRouting(PDEVICE_OBJECT DeviceObject)
 {
-  void *Pool2; // rdi
+  PVOID PoolWithTag; // rdi
   struct _DEVICE_OBJECT *AttachedDeviceReference; // rax
   struct _DEVICE_OBJECT *v4; // rsi
   int v5; // ebx
-  _QWORD v7[10]; // [rsp+20h] [rbp-58h] BYREF
+  _QWORD v7[9]; // [rsp+20h] [rbp-58h] BYREF
 
   if ( InterruptRouting )
   {
@@ -21,9 +21,9 @@ __int64 __fastcall PcisuppInitializePciRouting(PDEVICE_OBJECT DeviceObject)
   }
   else
   {
-    memset(v7, 0, 0x48uLL);
-    Pool2 = (void *)ExAllocatePool2(64LL, 56LL, 1097884481LL);
-    if ( Pool2 )
+    memset(v7, 0, sizeof(v7));
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x41706341u);
+    if ( PoolWithTag )
     {
       AttachedDeviceReference = IoGetAttachedDeviceReference(DeviceObject);
       v7[4] = 0LL;
@@ -31,12 +31,12 @@ __int64 __fastcall PcisuppInitializePciRouting(PDEVICE_OBJECT DeviceObject)
       LOWORD(v7[0]) = 2075;
       LODWORD(v7[2]) = 131128;
       v7[1] = &GUID_INT_ROUTE_INTERFACE_STANDARD;
-      v7[3] = Pool2;
-      v5 = ACPIInternalSendSynchronousIrp(AttachedDeviceReference, (__int64)v7, 0LL);
+      v7[3] = PoolWithTag;
+      v5 = ACPIInternalSendSynchronousIrp(AttachedDeviceReference);
       if ( v5 < 0 )
-        ExFreePoolWithTag(Pool2, 0);
+        ExFreePoolWithTag(PoolWithTag, 0);
       else
-        InterruptRouting = Pool2;
+        InterruptRouting = PoolWithTag;
       if ( v4 )
         ObfDereferenceObject(v4);
     }

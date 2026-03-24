@@ -1,13 +1,13 @@
 /*
- * XREFs of IopAllocateBootResources @ 0x140819210
+ * XREFs of IopAllocateBootResources @ 0x1407B6200
  * Callers:
- *     IopAllocateLegacyBootResources @ 0x140B3D848 (IopAllocateLegacyBootResources.c)
- *     IopReportBootResources @ 0x140B441C0 (IopReportBootResources.c)
+ *     IopAllocateLegacyBootResources @ 0x140A674D8 (IopAllocateLegacyBootResources.c)
+ *     IopReportBootResources @ 0x140A675C0 (IopReportBootResources.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseSemaphore @ 0x140321250 (KeReleaseSemaphore.c)
- *     IopAllocateBootResourcesInternal @ 0x140819298 (IopAllocateBootResourcesInternal.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseSemaphore @ 0x1402F19A0 (KeReleaseSemaphore.c)
+ *     IopAllocateBootResourcesInternal @ 0x1407B6290 (IopAllocateBootResourcesInternal.c)
  */
 
 __int64 __fastcall IopAllocateBootResources(unsigned int a1, __int64 a2)
@@ -20,6 +20,6 @@ __int64 __fastcall IopAllocateBootResources(unsigned int a1, __int64 a2)
   KeWaitForSingleObject(&PpRegistrySemaphore, DelayExecution, 0, 0, 0LL);
   BootResourcesInternal = IopAllocateBootResourcesInternal(a1, a2);
   KeReleaseSemaphore(&PpRegistrySemaphore, 0, 1, 0);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return BootResourcesInternal;
 }

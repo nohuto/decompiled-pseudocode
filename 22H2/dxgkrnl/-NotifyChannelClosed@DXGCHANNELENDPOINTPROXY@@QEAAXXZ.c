@@ -1,98 +1,94 @@
 /*
- * XREFs of ?NotifyChannelClosed@DXGCHANNELENDPOINTPROXY@@QEAAXXZ @ 0x1C03668B4
+ * XREFs of ?NotifyChannelClosed@DXGCHANNELENDPOINTPROXY@@QEAAXXZ @ 0x1C02B399C
  * Callers:
- *     ?NotifyChannelClosed@DXGVMBUSCHANNEL@@QEAAXXZ @ 0x1C0366AA8 (-NotifyChannelClosed@DXGVMBUSCHANNEL@@QEAAXXZ.c)
+ *     ?NotifyChannelClosed@DXGVMBUSCHANNEL@@QEAAXXZ @ 0x1C02B3B3C (-NotifyChannelClosed@DXGVMBUSCHANNEL@@QEAAXXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?GetUsedEntryCount@HMGRTABLE@@QEAAIXZ @ 0x1C005AF34 (-GetUsedEntryCount@HMGRTABLE@@QEAAIXZ.c)
- *     ?GetEntryType@HMGRTABLE@@QEAA?AW4_HMGRENTRY_TYPE@@I@Z @ 0x1C01A37D8 (-GetEntryType@HMGRTABLE@@QEAA-AW4_HMGRENTRY_TYPE@@I@Z.c)
- *     ?FreeHandle@HMGRTABLE@@QEAAXI@Z @ 0x1C01BA410 (-FreeHandle@HMGRTABLE@@QEAAXI@Z.c)
- *     ?BuildEntryHandle@HMGRTABLE@@QEAAII@Z @ 0x1C01E4A5C (-BuildEntryHandle@HMGRTABLE@@QEAAII@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?GetUsedEntryCount@HMGRTABLE@@QEAAIXZ @ 0x1C004D754 (-GetUsedEntryCount@HMGRTABLE@@QEAAIXZ.c)
+ *     ?FreeHandle@HMGRTABLE@@QEAAXI@Z @ 0x1C0114D10 (-FreeHandle@HMGRTABLE@@QEAAXI@Z.c)
+ *     ?GetEntryType@HMGRTABLE@@QEAA?AW4_HMGRENTRY_TYPE@@I@Z @ 0x1C012AE78 (-GetEntryType@HMGRTABLE@@QEAA-AW4_HMGRENTRY_TYPE@@I@Z.c)
+ *     ?BuildEntryHandle@HMGRTABLE@@QEAAII@Z @ 0x1C01605A0 (-BuildEntryHandle@HMGRTABLE@@QEAAII@Z.c)
  */
 
 void __fastcall DXGCHANNELENDPOINTPROXY::NotifyChannelClosed(DXGCHANNELENDPOINTPROXY *this)
 {
-  _QWORD *v2; // rdi
-  unsigned int v3; // ebp
-  unsigned int v4; // ebx
-  unsigned int UsedEntryCount; // r12d
+  __int64 v2; // rdx
+  _QWORD *v3; // rsi
+  unsigned int v4; // ebp
+  unsigned int v5; // ebx
+  __int64 v6; // rcx
+  unsigned int UsedEntryCount; // r15d
+  __int64 v8; // rax
   unsigned int EntryType; // r14d
-  unsigned int v7; // eax
-  unsigned int v8; // r15d
-  unsigned int v9; // ecx
-  int v10; // edx
-  __int64 v11; // r8
-  _BYTE v12[16]; // [rsp+50h] [rbp-28h] BYREF
+  unsigned int v10; // eax
+  unsigned int v11; // r12d
+  __int64 v12; // rcx
+  int v13; // edx
+  __int64 v14; // rdx
+  __int64 v15; // rax
+  __int64 v16; // r8
+  _BYTE v17[40]; // [rsp+20h] [rbp-28h] BYREF
 
-  (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 17) + 24LL))(*((_QWORD *)this + 17));
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v12, (DXGCHANNELENDPOINTPROXY *)((char *)this + 72), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v12);
-  v2 = (_QWORD *)((char *)this + 40);
+  (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 16) + 24LL))(*((_QWORD *)this + 16));
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v17, (DXGCHANNELENDPOINTPROXY *)((char *)this + 72), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v17);
+  v3 = (_QWORD *)((char *)this + 40);
   if ( *((_DWORD *)this + 15) != *((_DWORD *)this + 14) )
   {
-    v3 = 0;
     v4 = 0;
-    UsedEntryCount = HMGRTABLE::GetUsedEntryCount((DXGCHANNELENDPOINTPROXY *)((char *)this + 40));
+    v5 = 0;
+    UsedEntryCount = HMGRTABLE::GetUsedEntryCount((DXGCHANNELENDPOINTPROXY *)((char *)this + 40), v2);
     if ( UsedEntryCount )
     {
       do
       {
-        if ( v4 >= *((_DWORD *)this + 14) )
+        if ( v5 >= *((_DWORD *)this + 14) )
         {
-          WdLogSingleEntry1(1LL, 878LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262146,
-            -1,
-            (__int64)L"Index < m_HandleTable.GetTableSize()",
-            878LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
+          v8 = WdLogNewEntry5_WdAssertion(v6, v2);
+          *(_QWORD *)(v8 + 24) = 878LL;
+          WdLogEvent5_WdAssertion(v8);
         }
-        EntryType = HMGRTABLE::GetEntryType((__int64)this + 40, v4);
+        EntryType = HMGRTABLE::GetEntryType((__int64)this + 40, v5);
         if ( !EntryType )
           goto LABEL_16;
-        v7 = HMGRTABLE::BuildEntryHandle((DXGCHANNELENDPOINTPROXY *)((char *)this + 40), v4);
-        v8 = v7;
-        v9 = (v7 >> 6) & 0xFFFFFF;
-        if ( v9 < *((_DWORD *)this + 14)
-          && ((v7 >> 25) & 0x60) == (*(_BYTE *)(*v2 + 16LL * v9 + 8) & 0x60)
-          && (*(_DWORD *)(*v2 + 16LL * v9 + 8) & 0x2000) == 0 )
+        v10 = HMGRTABLE::BuildEntryHandle((DXGCHANNELENDPOINTPROXY *)((char *)this + 40), v5);
+        v11 = v10;
+        v12 = (v10 >> 6) & 0xFFFFFF;
+        if ( (unsigned int)v12 < *((_DWORD *)this + 14) )
         {
-          v10 = *(_DWORD *)(*v2 + 16LL * v9 + 8) & 0x1F;
-          if ( v10 )
+          v13 = *(_DWORD *)(*v3 + 16 * v12 + 8);
+          if ( ((v10 >> 25) & 0x60) == (v13 & 0x60) && (v13 & 0x2000) == 0 && (v13 & 0x1F) != 0 )
           {
-            if ( EntryType == v10 )
+            v14 = v13 & 0x1F;
+            if ( EntryType == (_DWORD)v14 )
             {
-              v11 = *(_QWORD *)(*v2 + 16LL * v9);
+              v16 = *(_QWORD *)(*v3 + 16LL * (unsigned int)v12);
               goto LABEL_13;
             }
-            WdLogSingleEntry1(2LL, 316LL);
-            DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 316LL, 0LL, 0LL, 0LL, 0LL);
+            v15 = WdLogNewEntry5_WdError((v10 >> 25) & 0x60, v14);
+            *(_QWORD *)(v15 + 24) = 316LL;
+            WdLogEvent5_WdError(v15);
           }
         }
-        v11 = 0LL;
+        v16 = 0LL;
 LABEL_13:
-        if ( (*(unsigned __int8 (__fastcall **)(_QWORD, _QWORD, __int64))(**((_QWORD **)this + 17) + 16LL))(
-               *((_QWORD *)this + 17),
+        if ( (*(unsigned __int8 (__fastcall **)(_QWORD, _QWORD, __int64))(**((_QWORD **)this + 16) + 16LL))(
+               *((_QWORD *)this + 16),
                EntryType,
-               v11) )
+               v16) )
         {
-          HMGRTABLE::FreeHandle((DXGCHANNELENDPOINTPROXY *)((char *)this + 40), v8);
+          HMGRTABLE::FreeHandle((DXGCHANNELENDPOINTPROXY *)((char *)this + 40), v11);
         }
-        ++v3;
-LABEL_16:
         ++v4;
+LABEL_16:
+        ++v5;
       }
-      while ( v3 < UsedEntryCount );
+      while ( v4 < UsedEntryCount );
     }
   }
-  if ( v12[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v12);
+  if ( v17[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v17, v2);
 }

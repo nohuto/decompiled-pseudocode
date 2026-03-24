@@ -1,18 +1,18 @@
 /*
- * XREFs of KseShimDatabaseClose @ 0x14075C588
+ * XREFs of KseShimDatabaseClose @ 0x140758D88
  * Callers:
- *     KsepDbGetDriverShims @ 0x14075C460 (KsepDbGetDriverShims.c)
- *     KsepDbCacheReadDevice @ 0x1407ED450 (KsepDbCacheReadDevice.c)
- *     KsepDbGetShimInfo @ 0x1409638AC (KsepDbGetShimInfo.c)
- *     KseInitialize @ 0x140AFFF64 (KseInitialize.c)
+ *     KsepDbCacheReadDevice @ 0x140755E7C (KsepDbCacheReadDevice.c)
+ *     KsepDbGetDriverShims @ 0x140758C60 (KsepDbGetDriverShims.c)
+ *     KsepDbGetShimInfo @ 0x1408BF81C (KsepDbGetShimInfo.c)
+ *     KseInitialize @ 0x140A3C89C (KseInitialize.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     RtlAssert @ 0x1405E6EA0 (RtlAssert.c)
- *     KsepSdbUnmapFromMemory @ 0x1406E09F8 (KsepSdbUnmapFromMemory.c)
- *     KseShimDatabaseBootRelease @ 0x14084DB84 (KseShimDatabaseBootRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     RtlAssert @ 0x140588810 (RtlAssert.c)
+ *     KsepSdbUnmapFromMemory @ 0x14075643C (KsepSdbUnmapFromMemory.c)
+ *     KseShimDatabaseBootRelease @ 0x1407BCC60 (KseShimDatabaseBootRelease.c)
  */
 
 void __fastcall KseShimDatabaseClose(__int64 a1)
@@ -47,8 +47,8 @@ void __fastcall KseShimDatabaseClose(__int64 a1)
       v3 = KsepShimDbRefCount;
       if ( !KsepShimDbRefCount || (--KsepShimDbRefCount, v3 == 1) )
       {
-        KsepSdbUnmapFromMemory((__int64)&KsepShimDb);
-        KsepSdbUnmapFromMemory((__int64)&unk_140C2A698);
+        KsepSdbUnmapFromMemory(KsepShimDb);
+        KsepSdbUnmapFromMemory(qword_140C2AEF8);
         KsepShimDbHandle = 0LL;
       }
     }

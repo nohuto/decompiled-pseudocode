@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWnfDeleteNameInstance @ 0x1406AB6E8
+ * XREFs of ExpWnfDeleteNameInstance @ 0x1406AB6C8
  * Callers:
  *     ExpWnfDeleteProcessContext @ 0x140607AA4 (ExpWnfDeleteProcessContext.c)
- *     ExpWnfDeleteNameInstanceCallback @ 0x1406AB2C0 (ExpWnfDeleteNameInstanceCallback.c)
- *     NtDeleteWnfStateName @ 0x1406AB300 (NtDeleteWnfStateName.c)
+ *     ExpWnfDeleteNameInstanceCallback @ 0x1406AB2A0 (ExpWnfDeleteNameInstanceCallback.c)
+ *     NtDeleteWnfStateName @ 0x1406AB2E0 (NtDeleteWnfStateName.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
@@ -15,7 +15,7 @@
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObDereferenceSecurityDescriptor @ 0x1405C9410 (ObDereferenceSecurityDescriptor.c)
- *     ExpWnfDeleteStateData @ 0x1406ABA28 (ExpWnfDeleteStateData.c)
+ *     ExpWnfDeleteStateData @ 0x1406ABA08 (ExpWnfDeleteStateData.c)
  */
 
 __int64 __fastcall ExpWnfDeleteNameInstance(__int64 a1, struct _EX_RUNDOWN_REF *a2, char a3)

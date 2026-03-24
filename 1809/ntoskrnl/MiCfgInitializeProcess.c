@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCfgInitializeProcess @ 0x140677D70
+ * XREFs of MiCfgInitializeProcess @ 0x140677D50
  * Callers:
- *     MiMapProcessExecutable @ 0x140677C68 (MiMapProcessExecutable.c)
+ *     MiMapProcessExecutable @ 0x140677C48 (MiMapProcessExecutable.c)
  * Callees:
  *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1400531B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
  *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
@@ -9,8 +9,8 @@
  *     MiReferenceVad @ 0x1400755A0 (MiReferenceVad.c)
  *     MiLockVad @ 0x1400769A4 (MiLockVad.c)
  *     MiCommitVadCfgBits @ 0x1405F45BC (MiCommitVadCfgBits.c)
- *     MiReferenceCfgVad @ 0x14067AB04 (MiReferenceCfgVad.c)
- *     MiMapCfgBitMapSection @ 0x14067ABF0 (MiMapCfgBitMapSection.c)
+ *     MiReferenceCfgVad @ 0x14067AAE4 (MiReferenceCfgVad.c)
+ *     MiMapCfgBitMapSection @ 0x14067ABD0 (MiMapCfgBitMapSection.c)
  */
 
 __int64 __fastcall MiCfgInitializeProcess(__int64 a1)

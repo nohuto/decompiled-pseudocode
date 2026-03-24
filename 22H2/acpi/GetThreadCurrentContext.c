@@ -1,9 +1,8 @@
 /*
- * XREFs of GetThreadCurrentContext @ 0x1C0053800
+ * XREFs of GetThreadCurrentContext @ 0x1C0023FAC
  * Callers:
- *     NestAsyncEvalObject @ 0x1C005498C (NestAsyncEvalObject.c)
- *     SyncEvalObject @ 0x1C0054EAC (SyncEvalObject.c)
- *     SyncLoadDDB @ 0x1C00AB83C (SyncLoadDDB.c)
+ *     NestAsyncEvalObject @ 0x1C00683FC (NestAsyncEvalObject.c)
+ *     SyncLoadDDB @ 0x1C00BE478 (SyncLoadDDB.c)
  * Callees:
  *     <none>
  */

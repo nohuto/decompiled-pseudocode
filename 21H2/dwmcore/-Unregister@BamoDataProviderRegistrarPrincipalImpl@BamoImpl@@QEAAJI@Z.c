@@ -1,102 +1,67 @@
 /*
- * XREFs of ?Unregister@BamoDataProviderRegistrarPrincipalImpl@BamoImpl@@QEAAJI@Z @ 0x1801BAF10
+ * XREFs of ?Unregister@BamoDataProviderRegistrarPrincipalImpl@BamoImpl@@QEAAJI@Z @ 0x18017F0A0
  * Callers:
- *     ?Thunk_Unregister_5@?$IDataProviderRegistrarPrincipal_Receive@VBamoDataProviderRegistrarPrincipalImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x1801BAF00 (-Thunk_Unregister_5@-$IDataProviderRegistrarPrincipal_Receive@VBamoDataProviderRegistrarPrincipa.c)
+ *     ?Thunk_Unregister_5@?$IDataProviderRegistrarPrincipal_Receive@VBamoDataProviderRegistrarPrincipalImpl@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x18017F090 (-Thunk_Unregister_5@-$IDataProviderRegistrarPrincipal_Receive@VBamoDataProviderRegistrarPrincipa.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??0?$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@PEAVCalloutWrapperObject@12@@Z @ 0x1800269A0 (--0-$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@PEAVBase.c)
- *     ??1?$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@XZ @ 0x1800269E8 (--1-$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@XZ.c)
- *     ?TryGetItem@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAPEAVConversationItem@23@II@Z @ 0x1800F0408 (-TryGetItem@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAPEAVConversationItem@23@II@Z.c)
- *     ?AckReference@BamoProxyImpl@BamoImpl@Microsoft@@QEAAXXZ @ 0x1800F04C0 (-AckReference@BamoProxyImpl@BamoImpl@Microsoft@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180195110 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?GetItem@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAPEAVConversationItem@23@II@Z @ 0x1800D722C (-GetItem@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAPEAVConversationItem@23@II@Z.c)
+ *     ?AckReference@BamoProxyImpl@BamoImpl@Microsoft@@QEAAXXZ @ 0x1800D7274 (-AckReference@BamoProxyImpl@BamoImpl@Microsoft@@QEAAXXZ.c)
+ *     ??0DropAndReacquireLock@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@@Z @ 0x1800D737C (--0DropAndReacquireLock@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18016479C (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall BamoImpl::BamoDataProviderRegistrarPrincipalImpl::Unregister(
         BamoImpl::BamoDataProviderRegistrarPrincipalImpl *this,
         unsigned int a2)
 {
-  _QWORD *v2; // rbx
+  _QWORD *v4; // rbx
   int v5; // ecx
   __int64 v6; // rax
   __int64 v7; // rdx
-  Microsoft::BamoImpl::BamoProxyImpl *v8; // rdi
-  __int64 v9; // rbx
-  __int64 v10; // r15
-  __int64 v11; // rcx
-  Microsoft::BamoImpl::BaseBamoConnectionImpl *v12; // r14
+  __int64 v8; // r14
+  Microsoft::BamoImpl::BaseBamoConnectionImpl *v9; // rbp
   struct Microsoft::BamoImpl::ConversationItem *Item; // rax
-  __int64 v14; // rax
-  __int64 v15; // rdx
-  unsigned int v16; // ebx
-  __int64 v17; // r8
-  const char *v18; // r9
-  __int64 v20; // rdx
-  __int64 v21; // r8
-  int v22[14]; // [rsp+20h] [rbp-38h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+0h]
+  Microsoft::BamoImpl::BamoProxyImpl *v11; // rdi
+  char *v12; // rbx
+  int v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // rbx
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+  __int64 v19; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = (_QWORD *)*((_QWORD *)this + 4);
-  if ( v2 )
+  v4 = (_QWORD *)*((_QWORD *)this + 4);
+  v5 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 32LL) + 32LL);
+  while ( v4 && *(_DWORD *)(v4[5] + 36LL) != v5 )
+    v4 = (_QWORD *)v4[6];
+  v6 = (*(__int64 (__fastcall **)(_QWORD *))(*v4 + 24LL))(v4);
+  v7 = v4[5];
+  v8 = v6;
+  v9 = *(Microsoft::BamoImpl::BaseBamoConnectionImpl **)(*(_QWORD *)(v7 + 24) + 32LL);
+  Item = Microsoft::BamoImpl::BaseBamoConnectionImpl::GetItem(v9, *(unsigned int *)(v7 + 36), a2);
+  v11 = Item;
+  if ( Item )
+    v12 = (char *)Item - 16;
+  else
+    v12 = 0LL;
+  Microsoft::BamoImpl::DropAndReacquireLock::DropAndReacquireLock((Microsoft::BamoImpl::DropAndReacquireLock *)&v19, v9);
+  v13 = (*(__int64 (__fastcall **)(char *, __int64, char *))(*((_QWORD *)this - 2) + 80LL))((char *)this - 16, v8, v12);
+  if ( v13 < 0 )
   {
-    v5 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 32LL) + 32LL);
-    do
-    {
-      if ( *(_DWORD *)(v2[5] + 36LL) == v5 )
-        break;
-      v2 = (_QWORD *)v2[6];
-    }
-    while ( v2 );
-  }
-  v6 = (*(__int64 (__fastcall **)(_QWORD *))(*v2 + 32LL))(v2);
-  v7 = v2[5];
-  v8 = 0LL;
-  v9 = 0LL;
-  v10 = v6;
-  v11 = *(_QWORD *)(v7 + 24);
-  v12 = *(Microsoft::BamoImpl::BaseBamoConnectionImpl **)(v11 + 32);
-  if ( a2 )
-  {
-    Item = Microsoft::BamoImpl::BaseBamoConnectionImpl::TryGetItem(
-             *(Microsoft::BamoImpl::BaseBamoConnectionImpl **)(v11 + 32),
-             *(unsigned int *)(v7 + 36),
-             a2);
-    if ( !Item
-      || (v14 = (*(__int64 (__fastcall **)(struct Microsoft::BamoImpl::ConversationItem *))(*(_QWORD *)Item + 48LL))(Item),
-          (v8 = (Microsoft::BamoImpl::BamoProxyImpl *)v14) == 0LL) )
-    {
-      wil::details::in1diag3::Return_Hr(
-        retaddr,
-        (void *)0x2477,
-        (int)"onecoreuap\\Windows\\DWM\\dwmcore\\dataprovider\\objfre\\amd64\\dataprovider.bamo.h",
-        (const char *)0x87B2080CLL);
-      return 2276591628LL;
-    }
-    v9 = v14 - 16;
-  }
-  Microsoft::BamoImpl::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
-    (__int64)v22,
-    v12);
-  v16 = (*(__int64 (__fastcall **)(char *, __int64, __int64))(*((_QWORD *)this - 2) + 88LL))((char *)this - 16, v10, v9);
-  if ( (int)(v16 + 0x80000000) >= 0 && v16 != -2018375668 )
     wil::details::in1diag3::FailFast_Hr(
       retaddr,
-      9350LL,
-      (__int64)"onecoreuap\\Windows\\DWM\\dwmcore\\dataprovider\\objfre\\amd64\\dataprovider.bamo.h",
-      (const char *)v16,
-      v22[0]);
-  Microsoft::BamoImpl::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::~CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
-    (__int64)v22,
-    v15,
-    v17,
-    v18);
-  if ( v8 )
-    Microsoft::BamoImpl::BamoProxyImpl::AckReference(v8, v20, v21);
-  if ( (v16 & 0x80000000) != 0 )
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x2495,
-      (int)"onecoreuap\\Windows\\DWM\\dwmcore\\dataprovider\\objfre\\amd64\\dataprovider.bamo.h",
-      (const char *)v16);
-  return v16;
+      (void *)0x2113,
+      (__int64)"onecoreuap\\windows\\DWM\\dwmcore\\dataprovider\\objfre\\amd64\\dataprovider.bamo.h",
+      (const char *)(unsigned int)v13);
+    __debugbreak();
+  }
+  v16 = v19;
+  if ( v19 )
+  {
+    EnterCriticalSection((LPCRITICAL_SECTION)(v19 + 128));
+    *(_DWORD *)(v16 + 168) = GetCurrentThreadId();
+  }
+  if ( v11 )
+    Microsoft::BamoImpl::BamoProxyImpl::AckReference(v11, v14, v15);
+  return 0LL;
 }

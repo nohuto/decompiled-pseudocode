@@ -1,13 +1,13 @@
 /*
- * XREFs of PopQueryPowerSettingUlong @ 0x14098BB7C
+ * XREFs of PopQueryPowerSettingUlong @ 0x140779A64
  * Callers:
- *     PopDeferDoze @ 0x14098B6C4 (PopDeferDoze.c)
- *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x140AA6980 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopDeferDoze @ 0x1408F0498 (PopDeferDoze.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
+ *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x1409B2650 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     PopFindPowerSettingConfiguration @ 0x14078339C (PopFindPowerSettingConfiguration.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     PopFindPowerSettingConfiguration @ 0x1406F3B68 (PopFindPowerSettingConfiguration.c)
  */
 
 char __fastcall PopQueryPowerSettingUlong(_QWORD *a1, _DWORD *a2, _DWORD *a3)
@@ -42,6 +42,6 @@ char __fastcall PopQueryPowerSettingUlong(_QWORD *a1, _DWORD *a2, _DWORD *a3)
       }
     }
   }
-  ExReleaseFastMutex(&PopSettingLock);
+  KeReleaseGuardedMutex(&PopSettingLock);
   return v6;
 }

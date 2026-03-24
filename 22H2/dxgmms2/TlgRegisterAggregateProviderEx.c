@@ -1,12 +1,12 @@
 /*
- * XREFs of TlgRegisterAggregateProviderEx @ 0x1C00BDCD4
+ * XREFs of TlgRegisterAggregateProviderEx @ 0x1C0090A60
  * Callers:
- *     ?InitGlobals@VIDMM_GLOBAL@@SAJXZ @ 0x1C00BD954 (-InitGlobals@VIDMM_GLOBAL@@SAJXZ.c)
+ *     ?InitGlobals@VIDMM_GLOBAL@@SAJXZ @ 0x1C0090DEC (-InitGlobals@VIDMM_GLOBAL@@SAJXZ.c)
  * Callees:
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C00BDDC8 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     CreateTlgAggregateSession @ 0x1C00BDE74 (CreateTlgAggregateSession.c)
- *     ComputeFlushPeriod @ 0x1C00BDFC4 (ComputeFlushPeriod.c)
- *     DestroyAggregateSession @ 0x1C010A340 (DestroyAggregateSession.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C0090B54 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     ComputeFlushPeriod @ 0x1C0090BF4 (ComputeFlushPeriod.c)
+ *     CreateTlgAggregateSession @ 0x1C0090C98 (CreateTlgAggregateSession.c)
+ *     DestroyAggregateSession @ 0x1C00D32A0 (DestroyAggregateSession.c)
  */
 
 __int64 __fastcall TlgRegisterAggregateProviderEx(__int64 a1, __int64 a2)
@@ -21,39 +21,38 @@ __int64 __fastcall TlgRegisterAggregateProviderEx(__int64 a1, __int64 a2)
   TlgAggregateSession = CreateTlgAggregateSession(0LL, a2);
   v3 = (void *)TlgAggregateSession;
   if ( !TlgAggregateSession )
-    return TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C0076048);
+    return TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C0050048);
   *(_QWORD *)(TlgAggregateSession + 328) = 0LL;
   *(_QWORD *)(TlgAggregateSession + 336) = 0LL;
-  *(_QWORD *)(TlgAggregateSession + 344) = &dword_1C0076048;
+  *(_QWORD *)(TlgAggregateSession + 344) = &dword_1C0050048;
   *(_BYTE *)(TlgAggregateSession + 373) = 0;
   *(_DWORD *)(TlgAggregateSession + 368) = ComputeFlushPeriod(TlgAggregateSession);
-  v4 = TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C0076048);
+  v4 = TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C0050048);
   if ( v4 < 0 )
   {
-    qword_1C0076070 = 0LL;
     DestroyAggregateSession(v3);
     return (unsigned int)v4;
   }
   else
   {
-    ExAcquirePushLockExclusiveEx(&unk_1C0076750, 0LL);
-    v5 = qword_1C0076948;
-    if ( !qword_1C0076948 )
+    ExAcquirePushLockExclusiveEx(&unk_1C0050650, 0LL);
+    v5 = qword_1C0050840;
+    if ( !qword_1C0050840 )
     {
-      TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C0076080);
-      v5 = qword_1C0076948;
+      TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C0050080);
+      v5 = qword_1C0050840;
     }
-    v6 = &qword_1C0076948;
+    v6 = &qword_1C0050840;
     while ( v5 )
     {
-      if ( *(int **)(v5 + 344) == &dword_1C0076048 )
+      if ( *(int **)(v5 + 344) == &dword_1C0050048 )
         goto LABEL_8;
       v6 = (__int64 *)(v5 + 352);
       v5 = *(_QWORD *)(v5 + 352);
     }
     *v6 = (__int64)v3;
 LABEL_8:
-    ExReleasePushLockExclusiveEx(&unk_1C0076750, 0LL);
+    ExReleasePushLockExclusiveEx(&unk_1C0050650, 0LL);
     return 0LL;
   }
 }

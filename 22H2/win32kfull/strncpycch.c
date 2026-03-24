@@ -1,8 +1,9 @@
 /*
- * XREFs of strncpycch @ 0x1C0157AA8
+ * XREFs of strncpycch @ 0x1C025DCB4
  * Callers:
- *     ?CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z @ 0x1C00246CC (-CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z.c)
- *     xxxInterSendMsgEx @ 0x1C004D920 (xxxInterSendMsgEx.c)
+ *     ?CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z @ 0x1C002452C (-CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z.c)
+ *     xxxInterSendMsgEx @ 0x1C005A250 (xxxInterSendMsgEx.c)
+ *     SfnOUTSTRING @ 0x1C00D25F0 (SfnOUTSTRING.c)
  * Callees:
  *     <none>
  */

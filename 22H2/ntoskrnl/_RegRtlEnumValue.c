@@ -1,13 +1,13 @@
 /*
- * XREFs of _RegRtlEnumValue @ 0x14086EAA0
+ * XREFs of _RegRtlEnumValue @ 0x140694A64
  * Callers:
- *     _PnpCtxRegEnumValue @ 0x140877E74 (_PnpCtxRegEnumValue.c)
- *     _RegRtlCopyTreeInternal @ 0x140A6A708 (_RegRtlCopyTreeInternal.c)
+ *     _PnpCtxRegEnumValue @ 0x1406F9CD4 (_PnpCtxRegEnumValue.c)
+ *     _RegRtlCopyTreeInternal @ 0x14097C4B0 (_RegRtlCopyTreeInternal.c)
  * Callees:
- *     ZwEnumerateValueKey @ 0x14041A900 (ZwEnumerateValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwEnumerateValueKey @ 0x1403F9C80 (ZwEnumerateValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlEnumValue(
@@ -23,7 +23,7 @@ __int64 __fastcall RegRtlEnumValue(
   KEY_VALUE_INFORMATION_CLASS v12; // ebp
   ULONG v13; // ecx
   ULONG Length; // ebx
-  _DWORD *Pool2; // rsi
+  _DWORD *PoolWithTag; // rsi
   unsigned int v16; // edi
   unsigned int v17; // eax
   __int64 v18; // rbx
@@ -56,54 +56,54 @@ __int64 __fastcall RegRtlEnumValue(
   if ( (int)v9 + 16 < (unsigned int)v9 )
     return (unsigned int)-1073741675;
 LABEL_5:
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, Length, 1279739218LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, Length, 0x4C474552u);
+  if ( PoolWithTag )
   {
-    v16 = ZwEnumerateValueKey(KeyHandle, Index, v12, Pool2, Length, ResultLength);
+    v16 = ZwEnumerateValueKey(KeyHandle, Index, v12, PoolWithTag, Length, ResultLength);
     if ( !v16 || v16 == -2147483643 )
     {
       if ( v12 )
       {
         if ( a5 )
-          *a5 = Pool2[1];
+          *a5 = PoolWithTag[1];
         if ( v16
-          || (unsigned int)*a4 < ((unsigned __int64)(unsigned int)Pool2[4] >> 1) + 1
-          || (v17 = Pool2[3], *a7 < v17) )
+          || (unsigned int)*a4 < ((unsigned __int64)(unsigned int)PoolWithTag[4] >> 1) + 1
+          || (v17 = PoolWithTag[3], *a7 < v17) )
         {
           v16 = -1073741789;
-          *a4 = (Pool2[4] >> 1) + 1;
-          *a7 = Pool2[3];
+          *a4 = (PoolWithTag[4] >> 1) + 1;
+          *a7 = PoolWithTag[3];
         }
         else
         {
-          v18 = Pool2[4] >> 1;
+          v18 = PoolWithTag[4] >> 1;
           *a7 = v17;
-          v19 = (unsigned int)Pool2[4];
+          v19 = (unsigned int)PoolWithTag[4];
           *a4 = v18;
-          memmove(a3, Pool2 + 5, v19);
+          memmove(a3, PoolWithTag + 5, v19);
           *((_WORD *)a3 + v18) = 0;
-          memmove(a6, (char *)Pool2 + (unsigned int)Pool2[2], (unsigned int)Pool2[3]);
+          memmove(a6, (char *)PoolWithTag + (unsigned int)PoolWithTag[2], (unsigned int)PoolWithTag[3]);
         }
       }
       else
       {
         if ( a5 )
-          *a5 = Pool2[1];
-        if ( v16 || (v21 = (unsigned int)Pool2[2], (unsigned int)*a4 < (v21 >> 1) + 1) )
+          *a5 = PoolWithTag[1];
+        if ( v16 || (v21 = (unsigned int)PoolWithTag[2], (unsigned int)*a4 < (v21 >> 1) + 1) )
         {
           v16 = -1073741789;
-          LODWORD(v22) = (Pool2[2] >> 1) + 1;
+          LODWORD(v22) = (PoolWithTag[2] >> 1) + 1;
         }
         else
         {
           v22 = (unsigned int)v21 >> 1;
-          memmove(a3, Pool2 + 3, v21);
+          memmove(a3, PoolWithTag + 3, v21);
           *((_WORD *)a3 + v22) = 0;
         }
         *a4 = v22;
       }
     }
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
   }
   else
   {

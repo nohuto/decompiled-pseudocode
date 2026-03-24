@@ -1,5 +1,5 @@
 /*
- * XREFs of ExpWin32OpenProcedure @ 0x1406AF400
+ * XREFs of ExpWin32OpenProcedure @ 0x1406AF3E0
  * Callers:
  *     <none>
  * Callees:

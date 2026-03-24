@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTraceHeteroResponse @ 0x1405DAE60
+ * XREFs of PpmEventTraceHeteroResponse @ 0x14057A890
  * Callers:
- *     PpmCheckComputeHeteroResponse @ 0x1405D7BF0 (PpmCheckComputeHeteroResponse.c)
+ *     PpmCheckComputeHeteroResponse @ 0x140577C10 (PpmCheckComputeHeteroResponse.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void PpmEventTraceHeteroResponse(__int64 a1, __int64 a2, _QWORD *a3, ...)
@@ -77,13 +77,13 @@ void PpmEventTraceHeteroResponse(__int64 a1, __int64 a2, _QWORD *a3, ...)
     v16 = &v11;
     v19 = 4 * v7;
     v22 = 8 * v7;
-    v17 = 1LL;
     va_copy(v24, va);
     v26 = a1 + 147;
     v28 = &v12;
     va_copy(v30, va1);
     v32 = a1 + 139;
     va_copy(v34, va2);
+    v17 = 1LL;
     v18 = a2;
     v20 = 0;
     v21 = a3;

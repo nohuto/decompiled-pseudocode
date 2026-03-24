@@ -1,52 +1,47 @@
 /*
- * XREFs of NtUserHandleDelegatedInput @ 0x1C01548F0
+ * XREFs of NtUserHandleDelegatedInput @ 0x1C01FC800
  * Callers:
  *     <none>
  * Callees:
- *     ?_HandleDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z @ 0x1C0015660 (-_HandleDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?_HandleDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z @ 0x1C01E11BC (-_HandleDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z.c)
  */
 
 __int64 __fastcall NtUserHandleDelegatedInput(_OWORD *a1, unsigned int a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  int v8; // ebx
-  _OWORD v10[4]; // [rsp+28h] [rbp-40h] BYREF
+  int v4; // ebx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  _OWORD v9[4]; // [rsp+28h] [rbp-40h] BYREF
 
-  EnterCrit(0LL, 0LL);
+  v4 = 1;
+  EnterCrit(0LL, 1LL);
   if ( a2 - 1 <= 2 )
   {
-    v7 = gptiCurrent;
-    if ( (*(_DWORD *)(gptiCurrent + 1272LL) & 0x2000) != 0 )
+    if ( (*(_DWORD *)(gptiCurrent + 1232LL) & 0x2000) != 0 )
     {
-      if ( a2 == 3 )
-      {
-        v8 = 1;
-      }
-      else
+      if ( a2 != 3 )
       {
         if ( (unsigned __int64)a1 >= MmUserProbeAddress )
           a1 = (_OWORD *)MmUserProbeAddress;
-        v10[0] = *a1;
-        v10[1] = a1[1];
-        v10[2] = a1[2];
-        v8 = _HandleDelegatedInput(gptiCurrent, a2, (struct tagMSG *)v10);
+        v9[0] = *a1;
+        v9[1] = a1[1];
+        v9[2] = a1[2];
+        v4 = _HandleDelegatedInput(gptiCurrent, a2, (struct tagMSG *)v9);
       }
     }
     else
     {
-      v8 = 0;
-      UserSetLastError(5);
+      v4 = 0;
+      UserSetLastError(5LL, v5, v7);
     }
   }
   else
   {
-    UserSetLastError(87);
-    v8 = 0;
+    UserSetLastError(87LL, v5, v7);
+    v4 = 0;
   }
-  UserSessionSwitchLeaveCrit(v5, v4, v6, v7);
-  return v8;
+  UserSessionSwitchLeaveCrit(v6);
+  return v4;
 }

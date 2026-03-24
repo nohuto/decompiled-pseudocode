@@ -1,176 +1,202 @@
 /*
- * XREFs of ?BuildDynamicVideoPresentTargetChildRelations@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAKPEAIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C03B2AF0
+ * XREFs of ?BuildDynamicVideoPresentTargetChildRelations@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAKPEAIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C02E5BF8
  * Callers:
- *     ?DmmBuildDynamicVideoPresentTargetChildRelations@@YAJPEAXIPEAKPEAIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C03B1978 (-DmmBuildDynamicVideoPresentTargetChildRelations@@YAJPEAXIPEAKPEAIPEAW4_CONNECTION_CHANGE_FAILUR.c)
+ *     ?DmmBuildDynamicVideoPresentTargetChildRelations@@YAJPEAXIPEAKPEAIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C02E4B8C (-DmmBuildDynamicVideoPresentTargetChildRelations@@YAJPEAXIPEAKPEAIPEAW4_CONNECTION_CHANGE_FAILUR.c)
  * Callees:
- *     ?GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C0007124 (-GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
- *     _lambda_9913d0abb7c2ea8d45a858df1e180213_::operator() @ 0x1C03B29F0 (_lambda_9913d0abb7c2ea8d45a858df1e180213_--operator().c)
- *     _lambda_ed419e8dc31e70bbfd3394c14ddbfc24_::operator() @ 0x1C03B2A9C (_lambda_ed419e8dc31e70bbfd3394c14ddbfc24_--operator().c)
+ *     ?GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C000951C (-GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
+ *     _lambda_06c7fb13e4115b68176da9e8404c9d66_::operator() @ 0x1C02E5A40 (_lambda_06c7fb13e4115b68176da9e8404c9d66_--operator().c)
+ *     _lambda_4058988e898109f6ccaece4530a28799_::operator() @ 0x1C02E5AA4 (_lambda_4058988e898109f6ccaece4530a28799_--operator().c)
+ *     _lambda_9913d0abb7c2ea8d45a858df1e180213_::operator() @ 0x1C02E5B44 (_lambda_9913d0abb7c2ea8d45a858df1e180213_--operator().c)
  */
 
 __int64 __fastcall DMMVIDEOPRESENTTARGETSET::BuildDynamicVideoPresentTargetChildRelations(
         DMMVIDEOPRESENTTARGETSET *this,
-        unsigned int a2,
+        __int64 a2,
         unsigned int *a3,
         unsigned int *a4,
         enum _CONNECTION_CHANGE_FAILURE_REASON *a5)
 {
   unsigned int v5; // eax
   __int64 v8; // rbx
+  __int64 v9; // rax
   struct DMMVIDEOPRESENTTARGET *TargetById; // rax
-  __int64 v10; // rdi
-  __int64 v12; // rdi
-  unsigned int v13; // edx
-  unsigned int v14; // r8d
-  unsigned int *v15; // r9
-  __int64 v16; // rax
-  __int64 v17; // r8
-  int v18; // r15d
-  __int64 v19; // r10
-  unsigned int v20; // eax
-  struct DMMVIDEOPRESENTTARGET *v21; // rbx
-  __int64 v22; // rax
-  int v23; // edi
-  _QWORD *v24; // rdi
-  _QWORD *v25; // rbx
-  int v26; // esi
-  unsigned int v27; // esi
-  unsigned int v28; // eax
-  unsigned int v29; // ecx
-  __int64 v30; // rdx
-  unsigned int *v31; // r9
-  int v32; // r8d
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  _QWORD *v15; // rdi
+  __int64 v16; // rbx
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rbx
+  __int64 v24; // rax
+  __int64 v25; // rax
+  __int64 v26; // rdx
+  unsigned int v27; // eax
+  __int64 v28; // rdx
+  int v29; // r12d
+  __int64 v30; // rcx
+  struct DMMVIDEOPRESENTTARGET *v31; // rbx
+  __int64 v32; // rax
   __int64 v33; // rax
-  unsigned int v34; // [rsp+30h] [rbp-50h] BYREF
-  unsigned int v35; // [rsp+34h] [rbp-4Ch] BYREF
-  unsigned int v36; // [rsp+38h] [rbp-48h] BYREF
-  _QWORD v37[3]; // [rsp+40h] [rbp-40h] BYREF
-  _QWORD v38[5]; // [rsp+58h] [rbp-28h] BYREF
-  char v39; // [rsp+C0h] [rbp+40h] BYREF
-  unsigned int *v40; // [rsp+C8h] [rbp+48h] BYREF
+  __int64 v34; // rax
+  unsigned int v35; // edi
+  _QWORD *v36; // rdi
+  _QWORD *v37; // rbx
+  int v38; // esi
+  unsigned int v39; // esi
+  unsigned int v40; // eax
+  __int64 v41; // rax
+  unsigned int v42; // ecx
+  __int64 v43; // rdx
+  unsigned int *v44; // r9
+  int v45; // r8d
+  __int64 v46; // rax
+  unsigned int v47; // [rsp+28h] [rbp-41h] BYREF
+  unsigned int v48; // [rsp+2Ch] [rbp-3Dh] BYREF
+  unsigned int v49; // [rsp+30h] [rbp-39h] BYREF
+  unsigned int *v50[3]; // [rsp+38h] [rbp-31h] BYREF
+  _QWORD v51[5]; // [rsp+50h] [rbp-19h] BYREF
+  _QWORD v52[4]; // [rsp+78h] [rbp+Fh] BYREF
+  char v53; // [rsp+D8h] [rbp+6Fh] BYREF
+  unsigned int *v54; // [rsp+E0h] [rbp+77h] BYREF
 
-  v40 = a4;
+  v54 = a4;
   v5 = *a3;
-  v35 = 0;
-  v8 = a2;
-  v36 = v5;
-  v34 = v5;
+  v47 = 0;
+  v8 = (unsigned int)a2;
+  v49 = v5;
+  v48 = v5;
   if ( v5 < 2 )
-    WdLogSingleEntry0(1LL);
-  TargetById = DMMVIDEOPRESENTTARGETSET::GetTargetById(this, v8);
+  {
+    v9 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v9);
+  }
+  TargetById = DMMVIDEOPRESENTTARGETSET::GetTargetById(this, (unsigned int)v8);
   if ( !TargetById )
   {
     *(_DWORD *)a5 = 1;
-    v10 = *((_QWORD *)this + 11);
-    if ( !*(_QWORD *)(v10 + 8) )
-      WdLogSingleEntry0(1LL);
-    WdLogSingleEntry4(1LL, v8, *(_QWORD *)(*(_QWORD *)(v10 + 8) + 16LL), -1073741811LL, 1LL);
+    v15 = (_QWORD *)WdLogNewEntry5_WdAssertion(v12, v11);
+    v15[3] = v8;
+    v16 = *((_QWORD *)this + 11);
+    v17 = *(_QWORD *)(v16 + 8);
+    if ( !v17 )
+    {
+      v18 = WdLogNewEntry5_WdAssertion(v14, v13);
+      WdLogEvent5_WdAssertion(v18);
+      v17 = *(_QWORD *)(v16 + 8);
+    }
+    v19 = *(_QWORD *)(v17 + 16);
+    v15[6] = 1LL;
+LABEL_7:
+    v15[5] = -1073741811LL;
+    v15[4] = v19;
+    WdLogEvent5_WdAssertion(v15);
     return 3221225485LL;
   }
   if ( !*((_QWORD *)TargetById + 59) )
   {
     *(_DWORD *)a5 = 5;
-    v12 = *((_QWORD *)this + 11);
-    if ( !*(_QWORD *)(v12 + 8) )
-      WdLogSingleEntry0(1LL);
-    WdLogSingleEntry4(1LL, v8, *(_QWORD *)(*(_QWORD *)(v12 + 8) + 16LL), -1073741811LL, 2LL);
-    return 3221225485LL;
+    v15 = (_QWORD *)WdLogNewEntry5_WdAssertion(v12, v11);
+    v15[3] = v8;
+    v23 = *((_QWORD *)this + 11);
+    v24 = *(_QWORD *)(v23 + 8);
+    if ( !v24 )
+    {
+      v25 = WdLogNewEntry5_WdAssertion(v22, v21);
+      WdLogEvent5_WdAssertion(v25);
+      v24 = *(_QWORD *)(v23 + 8);
+    }
+    v19 = *(_QWORD *)(v24 + 16);
+    v15[6] = 2LL;
+    goto LABEL_7;
   }
-  v39 = 0;
-  v38[0] = &v35;
-  v38[1] = &v39;
-  v38[2] = &v40;
-  v38[3] = &v34;
-  v38[4] = &v36;
-  v37[0] = &v34;
-  v37[1] = &v35;
-  v37[2] = &v40;
-  lambda_ed419e8dc31e70bbfd3394c14ddbfc24_::operator()((__int64)v37, v8 | 0x80000000);
-  v13 = v34;
-  v14 = v36;
-  if ( v34 >= v36 )
+  v51[0] = &v47;
+  v51[1] = &v53;
+  v51[2] = &v54;
+  v51[3] = &v48;
+  v51[4] = &v49;
+  v50[0] = &v48;
+  v50[1] = &v47;
+  v50[2] = (unsigned int *)&v54;
+  v52[0] = &v48;
+  v52[1] = &v49;
+  v52[2] = &v54;
+  lambda_06c7fb13e4115b68176da9e8404c9d66_::operator()(v50, (unsigned int)v8 | 0x80000000);
+  if ( v48 >= v49 )
   {
-    v29 = v35;
+    v42 = v47;
   }
   else
   {
     do
     {
-      v15 = v40;
-      v16 = v14 - 1;
-      v17 = v14 - 2;
-      v18 = v40[v16];
-      if ( (unsigned int)v17 >= v13 )
+      v27 = lambda_4058988e898109f6ccaece4530a28799_::operator()((__int64)v52, v26);
+      v28 = v27;
+      LODWORD(v28) = v27 & 0x7FFFFFFF;
+      v29 = v27;
+      v31 = DMMVIDEOPRESENTTARGETSET::GetTargetById(this, v28);
+      if ( !v31 )
       {
-        v19 = (unsigned int)(v17 + 1);
-        while ( 1 )
-        {
-          v20 = v15[v17];
-          v17 = (unsigned int)(v17 - 1);
-          v15[v19] = v20;
-          v19 = (unsigned int)(v19 - 1);
-          v13 = v34;
-          if ( (unsigned int)v17 < v34 )
-            break;
-          v15 = v40;
-        }
+        v32 = WdLogNewEntry5_WdAssertion(v30, v26);
+        WdLogEvent5_WdAssertion(v32);
       }
-      v34 = v13 + 1;
-      v21 = DMMVIDEOPRESENTTARGETSET::GetTargetById(this, v18 & 0x7FFFFFFF);
-      if ( !v21 )
-        WdLogSingleEntry0(1LL);
-      if ( !*((_QWORD *)v21 + 59) && v18 < 0 )
-        WdLogSingleEntry0(1LL);
-      v22 = *((_QWORD *)v21 + 66);
-      if ( v22 )
+      if ( !*((_QWORD *)v31 + 59) && v29 < 0 )
       {
-        v23 = *(_DWORD *)(v22 + 24);
-        if ( !lambda_9913d0abb7c2ea8d45a858df1e180213_::operator()((__int64)v38, v23) )
-          lambda_ed419e8dc31e70bbfd3394c14ddbfc24_::operator()((__int64)v37, v23);
+        v33 = WdLogNewEntry5_WdAssertion(v30, v26);
+        WdLogEvent5_WdAssertion(v33);
       }
-      v24 = (_QWORD *)((char *)v21 + 440);
-      v25 = (_QWORD *)*((_QWORD *)v21 + 55);
-      while ( v25 != v24 )
+      v34 = *((_QWORD *)v31 + 66);
+      if ( v34 )
       {
-        v26 = *((_DWORD *)v25 - 108);
-        v25 = (_QWORD *)*v25;
-        v27 = v26 | 0x80000000;
-        if ( !lambda_9913d0abb7c2ea8d45a858df1e180213_::operator()((__int64)v38, v27) )
-          lambda_ed419e8dc31e70bbfd3394c14ddbfc24_::operator()((__int64)v37, v27);
+        v35 = *(_DWORD *)(v34 + 24);
+        if ( !lambda_9913d0abb7c2ea8d45a858df1e180213_::operator()((__int64)v51, v35) )
+          lambda_06c7fb13e4115b68176da9e8404c9d66_::operator()(v50, v35);
       }
-      v28 = v35;
-      if ( v35 >= v34 )
+      v36 = (_QWORD *)((char *)v31 + 440);
+      v37 = (_QWORD *)*((_QWORD *)v31 + 55);
+      while ( v37 != v36 )
       {
-        WdLogSingleEntry0(1LL);
-        v28 = v35;
+        v38 = *((_DWORD *)v37 - 108);
+        v37 = (_QWORD *)*v37;
+        v39 = v38 | 0x80000000;
+        if ( !lambda_9913d0abb7c2ea8d45a858df1e180213_::operator()((__int64)v51, v39) )
+          lambda_06c7fb13e4115b68176da9e8404c9d66_::operator()(v50, v39);
       }
-      v40[v28] = v18;
-      v13 = v34;
-      v29 = v35 + 1;
-      v14 = v36;
-      ++v35;
+      v40 = v47;
+      if ( v47 >= v48 )
+      {
+        v41 = WdLogNewEntry5_WdAssertion(v30, v26);
+        WdLogEvent5_WdAssertion(v41);
+        v40 = v47;
+      }
+      v54[v40] = v29;
+      v42 = ++v47;
     }
-    while ( v34 < v36 );
+    while ( v48 < v49 );
   }
   *a3 = 0;
-  v30 = 0LL;
-  if ( v29 )
+  v43 = 0LL;
+  if ( v42 )
   {
-    v31 = v40;
+    v44 = v54;
     do
     {
-      v32 = v31[v30];
-      if ( v32 < 0 )
+      v45 = v44[v43];
+      if ( v45 < 0 )
       {
-        v33 = *a3;
-        v31[v33] = v32 & 0x7FFFFFFF;
-        v31 = v40;
-        v29 = v35;
-        *a3 = v33 + 1;
+        v46 = *a3;
+        v44[v46] = v45 & 0x7FFFFFFF;
+        v44 = v54;
+        v42 = v47;
+        *a3 = v46 + 1;
       }
-      v30 = (unsigned int)(v30 + 1);
+      v43 = (unsigned int)(v43 + 1);
     }
-    while ( (unsigned int)v30 < v29 );
+    while ( (unsigned int)v43 < v42 );
   }
   return 0LL;
 }

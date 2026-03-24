@@ -1,12 +1,12 @@
 /*
- * XREFs of MiTrimPteWorker @ 0x1405972B4
+ * XREFs of MiTrimPteWorker @ 0x14053C1E8
  * Callers:
- *     MiTrimWorkingSetEPTCallback @ 0x140597390 (MiTrimWorkingSetEPTCallback.c)
+ *     MiTrimWorkingSetEPTCallback @ 0x14053C2C0 (MiTrimWorkingSetEPTCallback.c)
  * Callees:
- *     MI_WSLE_LOG_ACCESS @ 0x140274D10 (MI_WSLE_LOG_ACCESS.c)
- *     MiInsertTbFlushEntry @ 0x1402CF280 (MiInsertTbFlushEntry.c)
- *     MiTrimThisWsle @ 0x1403735A0 (MiTrimThisWsle.c)
- *     MiTrimWorkingSetBuildup @ 0x140373880 (MiTrimWorkingSetBuildup.c)
+ *     MiTrimWorkingSetBuildup @ 0x1402672B8 (MiTrimWorkingSetBuildup.c)
+ *     MiTrimThisWsle @ 0x140308DA0 (MiTrimThisWsle.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x140309080 (MI_WSLE_LOG_ACCESS.c)
+ *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
  */
 
 __int64 __fastcall MiTrimPteWorker(
@@ -23,11 +23,11 @@ __int64 __fastcall MiTrimPteWorker(
   v7 = *(_QWORD *)(a1 + 24);
   if ( !(unsigned int)MiTrimThisWsle(v7, a3, a4, (int *)a5, a6, a7) )
     return 0LL;
-  MiInsertTbFlushEntry(a5 + 64, a3, 1LL, 0);
-  if ( (*(_DWORD *)a5 & 0x100) != 0 )
+  MiInsertTbFlushEntry(a5 + 56, a3, 1LL, 0);
+  if ( (*(_DWORD *)a5 & 0x10) != 0 )
     MI_WSLE_LOG_ACCESS(v7, a2);
   if ( ((++*(_QWORD *)(a5 + 16), *(_QWORD *)(a5 + 16) == *(_QWORD *)(a5 + 8))
-     || *(_DWORD *)(a5 + 76) == *(_DWORD *)(a5 + 72))
+     || *(_DWORD *)(a5 + 68) == *(_DWORD *)(a5 + 64))
     && (MiTrimWorkingSetBuildup(a1, a5), *(_QWORD *)(a5 + 16) == *(_QWORD *)(a5 + 8)) )
   {
     return 1LL;

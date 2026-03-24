@@ -1,12 +1,12 @@
 /*
- * XREFs of EditionIsHotKey @ 0x1C01C0370
+ * XREFs of EditionIsHotKey @ 0x1C01EA9B0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsHotKey@@YAPEAUtagHOTKEY@@II@Z @ 0x1C0050618 (-IsHotKey@@YAPEAUtagHOTKEY@@II@Z.c)
+ *     IsHotKey @ 0x1C0105528 (IsHotKey.c)
  */
 
-_BOOL8 __fastcall EditionIsHotKey(__int64 a1, int a2)
+_BOOL8 __fastcall EditionIsHotKey(int a1, int a2)
 {
   return IsHotKey(a1, a2) != 0LL;
 }

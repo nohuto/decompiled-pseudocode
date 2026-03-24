@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_ValidatingAlternateDeviceDescriptor @ 0x1C001F050
+ * XREFs of HUBDSM_ValidatingAlternateDeviceDescriptor @ 0x1C001EB10
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_ValidateAndCacheDeviceDescriptor @ 0x1C0029668 (HUBDTX_ValidateAndCacheDeviceDescriptor.c)
+ *     HUBDTX_ValidateAndCacheDeviceDescriptor @ 0x1C0029190 (HUBDTX_ValidateAndCacheDeviceDescriptor.c)
  */
 
 __int64 __fastcall HUBDSM_ValidatingAlternateDeviceDescriptor(__int64 a1)

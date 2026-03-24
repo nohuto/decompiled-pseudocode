@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetRealization@CTranslateTransform3D@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x180255180
+ * XREFs of ?GetRealization@CTranslateTransform3D@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x1801F5150
  * Callers:
  *     <none>
  * Callees:
@@ -14,11 +14,10 @@ void __fastcall CTranslateTransform3D::GetRealization(
   int v3; // xmm0_4
   int v4; // xmm1_4
   int v5; // xmm2_4
-  char v6; // al
 
-  v3 = *((_DWORD *)this + 40);
-  v4 = *((_DWORD *)this + 41);
-  v5 = *((_DWORD *)this + 42);
+  v3 = *((_DWORD *)this + 38);
+  v4 = *((_DWORD *)this + 39);
+  v5 = *((_DWORD *)this + 40);
   *(_QWORD *)a3 = 1065353216LL;
   *((_QWORD *)a3 + 1) = 0LL;
   *((_DWORD *)a3 + 4) = 0;
@@ -30,7 +29,5 @@ void __fastcall CTranslateTransform3D::GetRealization(
   *((_DWORD *)a3 + 13) = v4;
   *((_DWORD *)a3 + 14) = v5;
   *((_DWORD *)a3 + 15) = 1065353216;
-  v6 = *((_BYTE *)a3 + 65) & 0xD7;
-  *((_BYTE *)a3 + 64) = 84;
-  *((_BYTE *)a3 + 65) = v6 | 0x17;
+  *((_WORD *)a3 + 32) = 15700;
 }

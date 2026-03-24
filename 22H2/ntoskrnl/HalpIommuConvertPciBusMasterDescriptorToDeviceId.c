@@ -1,39 +1,44 @@
 /*
- * XREFs of HalpIommuConvertPciBusMasterDescriptorToDeviceId @ 0x14050DA34
+ * XREFs of HalpIommuConvertPciBusMasterDescriptorToDeviceId @ 0x1403EF8CC
  * Callers:
- *     HalpIommuAllocateRemappingTableEntry @ 0x14050D8C8 (HalpIommuAllocateRemappingTableEntry.c)
+ *     HalpIommuAllocateRemappingTableEntry @ 0x1404C5258 (HalpIommuAllocateRemappingTableEntry.c)
  * Callees:
  *     <none>
  */
 
-__int16 __fastcall HalpIommuConvertPciBusMasterDescriptorToDeviceId(__int64 a1, char a2, __int64 a3)
+char __fastcall HalpIommuConvertPciBusMasterDescriptorToDeviceId(__int64 a1, char a2, __int64 a3)
 {
-  __int16 result; // ax
-  __int16 v4; // ax
+  __int16 v3; // ax
+  unsigned __int8 v4; // r11
+  __int16 v5; // dx
 
   *(_OWORD *)a3 = 0LL;
   *(_QWORD *)(a3 + 16) = 0LL;
   *(_DWORD *)a3 = 1;
-  result = *(_WORD *)(a1 + 4);
-  *(_WORD *)(a3 + 8) = result;
-  if ( *(_DWORD *)a1 )
+  v3 = *(_WORD *)(a1 + 4);
+  *(_WORD *)(a3 + 8) = v3;
+  if ( !*(_DWORD *)a1 )
+    goto LABEL_7;
+  if ( *(_DWORD *)a1 == 1 || *(_DWORD *)a1 == 2 )
   {
-    if ( *(_DWORD *)a1 == 1 )
-    {
-      v4 = *(_WORD *)(a3 + 10);
-      *(_WORD *)(a3 + 12) = *(_BYTE *)(a1 + 10) & 7 | (8
-                                                     * ((32 * *(unsigned __int8 *)(a1 + 8)) | *(_BYTE *)(a1 + 9) & 0x1F));
-      result = v4 & 0xFFFC;
-      *(_WORD *)(a3 + 10) = result | a2 & 3;
-      return result;
-    }
-    if ( *(_DWORD *)a1 == 2 )
-    {
-      result = *(_BYTE *)(a1 + 10) & 7;
-      *(_WORD *)(a3 + 12) = result | (8 * ((32 * *(unsigned __int8 *)(a1 + 8)) | *(_BYTE *)(a1 + 9) & 0x1F));
-      return result;
-    }
+    v4 = a2 & 3;
+    *(_WORD *)(a3 + 10) &= ~4u;
+    v5 = *(_WORD *)(a3 + 10);
+    *(_WORD *)(a3 + 12) = *(_BYTE *)(a1 + 10) & 7 | (8
+                                                   * ((32 * *(unsigned __int8 *)(a1 + 8)) | *(_BYTE *)(a1 + 9) & 0x1F));
+    v3 = v5 & 0xFFFC | v4;
+    *(_WORD *)(a3 + 10) = v3;
+    return v3;
   }
-  *(_DWORD *)a3 = 0;
-  return result;
+  if ( *(_DWORD *)a1 != 3 )
+  {
+LABEL_7:
+    *(_DWORD *)a3 = 0;
+    return v3;
+  }
+  *(_WORD *)(a3 + 10) |= 4u;
+  *(_BYTE *)(a3 + 12) = *(_BYTE *)(a1 + 9);
+  LOBYTE(v3) = *(_BYTE *)(a1 + 8);
+  *(_BYTE *)(a3 + 13) = v3;
+  return v3;
 }

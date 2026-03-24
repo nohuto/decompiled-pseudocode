@@ -1,25 +1,25 @@
 /*
- * XREFs of ?GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z @ 0x1802A00F4
+ * XREFs of ?GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z @ 0x18025E67C
  * Callers:
- *     ?Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z @ 0x1802A0C90 (-Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z.c)
+ *     ?Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z @ 0x18025F1D0 (-Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z.c)
  * Callees:
- *     ?SetPoints@?$CBezierFlattener@MVCMilPoint2F@@@@QEAAXAEBVCMilPoint2F@@000@Z @ 0x1800B70E0 (-SetPoints@-$CBezierFlattener@MVCMilPoint2F@@@@QEAAXAEBVCMilPoint2F@@000@Z.c)
- *     ??Econst_iterator@SegmentCollection@Path@@QEAAAEAV012@XZ @ 0x1800CAA30 (--Econst_iterator@SegmentCollection@Path@@QEAAAEAV012@XZ.c)
- *     _o__hypot_0 @ 0x18010181A (_o__hypot_0.c)
- *     ?Flatten@?$CBezierFlattener@MVCMilPoint2F@@@@QEAA_NPEAVCMilPoint2F@@0PEAMIPEAI_N@Z @ 0x180191B34 (-Flatten@-$CBezierFlattener@MVCMilPoint2F@@@@QEAA_NPEAVCMilPoint2F@@0PEAMIPEAI_N@Z.c)
- *     ?GetFirstTangent@?$CBezierFlattener@MVCMilPoint2F@@@@QEBAJAEAVCMilPoint2F@@@Z @ 0x180191C0C (-GetFirstTangent@-$CBezierFlattener@MVCMilPoint2F@@@@QEBAJAEAVCMilPoint2F@@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
- *     ?IsSimpleGeometry@CPathData@@QEBA_NXZ @ 0x180270014 (-IsSimpleGeometry@CPathData@@QEBA_NXZ.c)
- *     ?SumPointDistances@CPathLengthOperation@@AEBAMI@Z @ 0x1802A0C14 (-SumPointDistances@CPathLengthOperation@@AEBAMI@Z.c)
+ *     _o__hypot_0 @ 0x1800E811A (_o__hypot_0.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
+ *     ??Econst_iterator@SegmentCollection@Path@@QEAAAEAV012@XZ @ 0x1802208F4 (--Econst_iterator@SegmentCollection@Path@@QEAAAEAV012@XZ.c)
+ *     ?IsSimpleGeometry@CPathData@@QEBA_NXZ @ 0x180220FC4 (-IsSimpleGeometry@CPathData@@QEBA_NXZ.c)
+ *     ?Flatten@?$CBezierFlattener@MVCMilPoint2F@@@@QEAA_NPEAVCMilPoint2F@@0PEAMIPEAI_N@Z @ 0x18025DF78 (-Flatten@-$CBezierFlattener@MVCMilPoint2F@@@@QEAA_NPEAVCMilPoint2F@@0PEAMIPEAI_N@Z.c)
+ *     ?GetFirstTangent@?$CBezierFlattener@MVCMilPoint2F@@@@QEBAJAEAVCMilPoint2F@@@Z @ 0x18025E04C (-GetFirstTangent@-$CBezierFlattener@MVCMilPoint2F@@@@QEBAJAEAVCMilPoint2F@@@Z.c)
+ *     ?SetPoints@?$CBezierFlattener@MVCMilPoint2F@@@@QEAAXAEBVCMilPoint2F@@000@Z @ 0x18025E1AC (-SetPoints@-$CBezierFlattener@MVCMilPoint2F@@@@QEAAXAEBVCMilPoint2F@@000@Z.c)
+ *     ?SumPointDistances@CPathLengthOperation@@AEBAMI@Z @ 0x18025F154 (-SumPointDistances@CPathLengthOperation@@AEBAMI@Z.c)
  */
 
 float __fastcall CPathLengthOperation::GetLength(CPathLengthOperation *this, const struct CPathData *a2)
 {
   float v4; // xmm8_4
-  _BYTE *v5; // rbx
+  char *v5; // rbx
   float v6; // xmm6_4
   float v7; // xmm7_4
-  _BYTE *v8; // rdi
+  char *v8; // rdi
   float v9; // xmm10_4
   float v10; // xmm11_4
   float v11; // xmm9_4
@@ -32,22 +32,22 @@ float __fastcall CPathLengthOperation::GetLength(CPathLengthOperation *this, con
   double v18; // xmm0_8
   __int64 v20; // [rsp+48h] [rbp-59h] BYREF
   unsigned __int64 v21; // [rsp+50h] [rbp-51h] BYREF
-  _BYTE *v22; // [rsp+58h] [rbp-49h] BYREF
+  char *v22; // [rsp+58h] [rbp-49h] BYREF
   __int128 v23; // [rsp+60h] [rbp-41h] BYREF
   const void *retaddr; // [rsp+100h] [rbp+5Fh]
   __int64 v25; // [rsp+110h] [rbp+6Fh] BYREF
   __int64 v26; // [rsp+118h] [rbp+77h] BYREF
   unsigned __int64 v27; // [rsp+120h] [rbp+7Fh] BYREF
 
-  v4 = *((float *)a2 + 13);
+  v4 = *((float *)a2 + 15);
   if ( v4 == 0.0 && CPathData::IsSimpleGeometry(a2) )
   {
     v25 = 0LL;
     v26 = 0LL;
-    v5 = (_BYTE *)*((_QWORD *)a2 + 2);
+    v5 = (char *)*((_QWORD *)a2 + 3);
     v6 = 0.0;
     v7 = 0.0;
-    v8 = (_BYTE *)*((_QWORD *)a2 + 3);
+    v8 = (char *)*((_QWORD *)a2 + 4);
     v9 = 0.0;
     v10 = 0.0;
     v22 = v5;
@@ -89,8 +89,7 @@ float __fastcall CPathLengthOperation::GetLength(CPathLengthOperation *this, con
                         v15,
                         0LL,
                         0xFu,
-                        &v25,
-                        1);
+                        &v25);
                 v11 = v11 + CPathLengthOperation::SumPointDistances(this, v25);
                 if ( !v16 )
                   break;
@@ -118,7 +117,7 @@ float __fastcall CPathLengthOperation::GetLength(CPathLengthOperation *this, con
       Path::SegmentCollection::const_iterator::operator++(&v22);
       v5 = v22;
     }
-    *((float *)a2 + 13) = v4;
+    *((float *)a2 + 15) = v4;
   }
   return v4;
 }

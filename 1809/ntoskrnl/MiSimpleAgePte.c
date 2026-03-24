@@ -1,5 +1,5 @@
 /*
- * XREFs of MiSimpleAgePte @ 0x1402B3830
+ * XREFs of MiSimpleAgePte @ 0x1402B3930
  * Callers:
  *     <none>
  * Callees:
@@ -7,8 +7,8 @@
  *     MiAgePteWorker @ 0x14006B2C0 (MiAgePteWorker.c)
  *     MiWalkVaCheckCommon @ 0x140087E1C (MiWalkVaCheckCommon.c)
  *     MiGetVaAge @ 0x1400880B0 (MiGetVaAge.c)
- *     MiInsertVmAccessedEntry @ 0x1402B305C (MiInsertVmAccessedEntry.c)
- *     MiSimpleAgeWorkingSetTail @ 0x1402B3A20 (MiSimpleAgeWorkingSetTail.c)
+ *     MiInsertVmAccessedEntry @ 0x1402B315C (MiInsertVmAccessedEntry.c)
+ *     MiSimpleAgeWorkingSetTail @ 0x1402B3B20 (MiSimpleAgeWorkingSetTail.c)
  */
 
 __int64 __fastcall MiSimpleAgePte(__int64 a1, unsigned __int64 a2)

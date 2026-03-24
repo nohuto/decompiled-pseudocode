@@ -1,22 +1,22 @@
 /*
- * XREFs of ?Initialize@CMessageConversationHost@@AEAAJXZ @ 0x18002F454
+ * XREFs of ?Initialize@CMessageConversationHost@@AEAAJXZ @ 0x1800B3B34
  * Callers:
- *     ?Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x18002F3E4 (-Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
+ *     ?Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800B3AC4 (-Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
  * Callees:
- *     ?InitializeServer@CMessageConversationHost@@AEAAJPEAI@Z @ 0x18002F4E4 (-InitializeServer@CMessageConversationHost@@AEAAJPEAI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InitializeServer@CMessageConversationHost@@AEAAJPEAI@Z @ 0x1800B3BBC (-InitializeServer@CMessageConversationHost@@AEAAJPEAI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CMessageConversationHost::Initialize(CMessageConversationHost *this)
 {
   int v2; // eax
-  unsigned int v3; // ecx
+  __int64 v3; // rcx
   unsigned int v4; // ebx
   int v5; // eax
-  unsigned int v6; // ecx
+  __int64 v6; // rcx
   int ConversationHost; // eax
-  unsigned int v8; // ecx
+  __int64 v8; // rcx
   unsigned int v10; // [rsp+48h] [rbp+10h] BYREF
 
   v10 = 0;
@@ -28,10 +28,10 @@ __int64 __fastcall CMessageConversationHost::Initialize(CMessageConversationHost
   }
   else
   {
-    v5 = (***((__int64 (__fastcall ****)(_QWORD, GUID *, char *))this + 3))(
-           *((_QWORD *)this + 3),
+    v5 = (***((__int64 (__fastcall ****)(_QWORD, GUID *, char *))this + 4))(
+           *((_QWORD *)this + 4),
            &GUID_5e648581_8bf0_4f2a_9f51_28d09a2202d6,
-           (char *)this + 32);
+           (char *)this + 40);
     v4 = v5;
     if ( v5 < 0 )
     {
@@ -40,9 +40,9 @@ __int64 __fastcall CMessageConversationHost::Initialize(CMessageConversationHost
     else
     {
       ConversationHost = CoreUICallCreateConversationHost(
-                           *((_QWORD *)this + 2),
                            *((_QWORD *)this + 3),
-                           (char *)this + 40,
+                           *((_QWORD *)this + 4),
+                           (char *)this + 48,
                            0LL);
       v4 = ConversationHost;
       if ( ConversationHost < 0 )

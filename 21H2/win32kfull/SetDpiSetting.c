@@ -1,12 +1,12 @@
 /*
- * XREFs of SetDpiSetting @ 0x1C00050B0
+ * XREFs of SetDpiSetting @ 0x1C0008EE0
  * Callers:
  *     <none>
  * Callees:
- *     SetDpiAllHWProfileSetting @ 0x1C0005438 (SetDpiAllHWProfileSetting.c)
+ *     SetDpiAllHWProfileSetting @ 0x1C0008CF4 (SetDpiAllHWProfileSetting.c)
  */
 
-__int64 __fastcall SetDpiSetting(int a1, unsigned int a2)
+__int64 __fastcall SetDpiSetting(int a1, int a2)
 {
   NTSTATUS v2; // ebx
   int *p_ValueData; // rax
@@ -14,13 +14,13 @@ __int64 __fastcall SetDpiSetting(int a1, unsigned int a2)
   const WCHAR *v5; // r8
   const WCHAR *v6; // rdx
   int v8; // [rsp+40h] [rbp+8h] BYREF
-  unsigned int ValueData; // [rsp+48h] [rbp+10h] BYREF
+  int ValueData; // [rsp+48h] [rbp+10h] BYREF
 
   ValueData = a2;
   v8 = 1;
   if ( !a1 )
   {
-    p_ValueData = (int *)&ValueData;
+    p_ValueData = &ValueData;
     v5 = L"LogPixels";
     v6 = L"Control Panel\\Desktop";
     v4 = 5;

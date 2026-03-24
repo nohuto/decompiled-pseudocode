@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpQuerySidToken @ 0x1406B579C
+ * XREFs of AlpcpQuerySidToken @ 0x1406B577C
  * Callers:
- *     AlpcpQuerySidMessage @ 0x1406B5728 (AlpcpQuerySidMessage.c)
+ *     AlpcpQuerySidMessage @ 0x1406B5708 (AlpcpQuerySidMessage.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     SeQueryUserSidToken @ 0x1406102AC (SeQueryUserSidToken.c)
  */
 

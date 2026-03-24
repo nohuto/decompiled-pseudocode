@@ -1,9 +1,9 @@
 /*
- * XREFs of SddlpUuidToString @ 0x1408A6DF8
+ * XREFs of SddlpUuidToString @ 0x1408A6DD8
  * Callers:
- *     LocalConvertAclToString @ 0x1408A4F70 (LocalConvertAclToString.c)
+ *     LocalConvertAclToString @ 0x1408A4F50 (LocalConvertAclToString.c)
  * Callees:
- *     swprintf_s @ 0x14019A340 (swprintf_s.c)
+ *     swprintf_s @ 0x14019A360 (swprintf_s.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

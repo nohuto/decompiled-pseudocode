@@ -1,66 +1,77 @@
 /*
- * XREFs of KeAddSystemServiceTable @ 0x140844150
+ * XREFs of KeAddSystemServiceTable @ 0x1407B7A50
  * Callers:
  *     <none>
  * Callees:
- *     PsRegisterSyscallProviderServiceTableMetadata @ 0x140659320 (PsRegisterSyscallProviderServiceTableMetadata.c)
+ *     <none>
  */
 
 char __fastcall KeAddSystemServiceTable(int *a1, __int64 a2, unsigned int a3, __int64 a4, int a5)
 {
-  unsigned int v6; // r8d
   unsigned int v7; // r9d
-  int *v8; // r10
-  __int64 v9; // rdx
-  unsigned int v10; // r8d
-  int *v11; // r10
-  __int64 v12; // rdx
-  char result; // al
+  int v8; // r10d
+  int *v9; // rdi
+  int v10; // edx
+  __int64 v11; // rax
+  __int64 v13; // rcx
+  int v14; // r10d
+  int *v15; // rbx
+  int v16; // edx
+  __int64 v17; // rax
 
-  if ( a5 == 1 )
+  if ( (unsigned int)(a5 - 1) <= 1 )
   {
-    if ( !(_QWORD)xmmword_140E018E0 && !(_QWORD)xmmword_140D06FA0 )
+    v7 = 0;
+    if ( a5 == 2 )
     {
-      *(_QWORD *)&xmmword_140D06FA0 = a1;
-      LODWORD(xmmword_140D06FB0) = a3;
-      *((_QWORD *)&xmmword_140D06FB0 + 1) = a4;
-      PsRegisterSyscallProviderServiceTableMetadata(1u);
-      v10 = 0;
-      v7 = (unsigned int)&xmmword_140D06FA0 + xmmword_140D06FA0 + KiTableInformation;
-      if ( (_DWORD)xmmword_140D06FB0 )
+      if ( !(_QWORD)xmmword_140CFCC20 )
+        goto LABEL_12;
+    }
+    else if ( !(_QWORD)xmmword_140E018E0 && !(_QWORD)xmmword_140CFCA60 )
+    {
+      if ( a5 == 1 )
       {
-        v11 = (int *)xmmword_140D06FA0;
-        do
+        *((_QWORD *)&xmmword_140CFCA70 + 1) = a4;
+        *(_QWORD *)&xmmword_140CFCA60 = a1;
+        v8 = (unsigned int)&xmmword_140CFCA60 + (_DWORD)a1 + KiTableInformation;
+        LODWORD(xmmword_140CFCA70) = a3;
+        if ( a3 )
         {
-          v12 = *v11++;
-          v7 = ++v10 * ((v12 + *(_DWORD *)((v12 >> 4) + xmmword_140D06FA0)) ^ v7);
+          v9 = a1;
+          do
+          {
+            v10 = *v9;
+            v11 = *v9++;
+            v8 = ++v7 * ((v10 + *(int *)((char *)a1 + (v11 >> 4))) ^ v8);
+          }
+          while ( v7 < a3 );
         }
-        while ( v10 < (unsigned int)xmmword_140D06FB0 );
+        KiTableInformation += 2 * v8;
+        return 1;
       }
-      goto LABEL_13;
-    }
-  }
-  else if ( a5 == 2 && !(_QWORD)xmmword_140D07120 )
-  {
-    *((_QWORD *)&xmmword_140D07130 + 1) = a4;
-    v6 = 0;
-    *(_QWORD *)&xmmword_140D07120 = a1;
-    v7 = (unsigned int)&xmmword_140D07120 + (_DWORD)a1 + KiTableInformation;
-    LODWORD(xmmword_140D07130) = a3;
-    if ( a3 )
-    {
-      v8 = a1;
-      do
+LABEL_12:
+      v13 = 2LL * (unsigned int)(a5 - 1);
+      *(_QWORD *)&KeServiceDescriptorTableFilter[v13] = a1;
+      LODWORD(KeServiceDescriptorTableFilter[v13 + 1]) = a3;
+      *((_QWORD *)&KeServiceDescriptorTableFilter[v13 + 1] + 1) = a4;
+      if ( a5 == 2 )
       {
-        v9 = *v8++;
-        v7 = ++v6 * ((v9 + *(int *)((char *)a1 + (v9 >> 4))) ^ v7);
+        v14 = (unsigned int)&xmmword_140CFCC20 + xmmword_140CFCC20 + KiTableInformation;
+        if ( (_DWORD)xmmword_140CFCC30 )
+        {
+          v15 = (int *)xmmword_140CFCC20;
+          do
+          {
+            v16 = *v15;
+            v17 = *v15++;
+            v14 = ++v7 * ((v16 + *(_DWORD *)((v17 >> 4) + xmmword_140CFCC20)) ^ v14);
+          }
+          while ( v7 < (unsigned int)xmmword_140CFCC30 );
+        }
+        KiTableInformation += 2 * v14;
       }
-      while ( v6 < a3 );
+      return 1;
     }
-LABEL_13:
-    result = 1;
-    KiTableInformation += 2 * v7;
-    return result;
   }
   return 0;
 }

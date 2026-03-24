@@ -1,11 +1,11 @@
 /*
- * XREFs of CcGetVacbFromFreeList @ 0x1402857B4
+ * XREFs of CcGetVacbFromFreeList @ 0x140312CF0
  * Callers:
- *     CcGetVacbMiss @ 0x1402858A0 (CcGetVacbMiss.c)
- *     CcInitializePartitionVacbs @ 0x1403D1490 (CcInitializePartitionVacbs.c)
+ *     CcGetVacbMiss @ 0x1403109C0 (CcGetVacbMiss.c)
+ *     CcInitializePartitionVacbs @ 0x1403C3328 (CcInitializePartitionVacbs.c)
  * Callees:
- *     CcReferenceVacbArray @ 0x140285868 (CcReferenceVacbArray.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     CcReferenceVacbArray @ 0x140312DB4 (CcReferenceVacbArray.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 *__fastcall CcGetVacbFromFreeList(__int64 a1, char a2)
@@ -16,14 +16,14 @@ __int64 *__fastcall CcGetVacbFromFreeList(__int64 a1, char a2)
   __int64 *v5; // rax
   __int64 v6; // rdx
   __int64 **v7; // rcx
-  __int64 v8; // rcx
-  unsigned __int64 v9; // rax
+  __int64 v8; // r8
+  __int64 v9; // rdx
 
   v2 = 0LL;
   if ( a2 )
   {
-    v3 = (__int64 *)(a1 + 1168);
-    v4 = (int *)(a1 + 1184);
+    v3 = (__int64 *)(a1 + 904);
+    v4 = (int *)(a1 + 920);
   }
   else
   {
@@ -44,7 +44,7 @@ __int64 *__fastcall CcGetVacbFromFreeList(__int64 a1, char a2)
       KeBugCheckEx(0x34u, 0x35DuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
     --*v4;
     v8 = v2[4];
-    v9 = 0xCCCCCCCCCCCCCCCDuLL * (((__int64)v2 - v8 - 16) >> 3);
+    v9 = ((__int64)v2 - v8 - 16) / 40;
     if ( (unsigned int)v9 > *(_DWORD *)(v8 + 8) )
       *(_DWORD *)(v8 + 8) = v9;
     if ( !*v2 )

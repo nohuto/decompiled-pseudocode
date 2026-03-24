@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetCachedDpiScaleValue@DC@@QEBAJXZ @ 0x1C0015CAC
+ * XREFs of ?GetCachedDpiScaleValue@DC@@QEBAJXZ @ 0x1C01073F4
  * Callers:
- *     GreGetDCDpiScaleValue @ 0x1C0015C58 (GreGetDCDpiScaleValue.c)
+ *     GreGetDCDpiScaleValue @ 0x1C01073A4 (GreGetDCDpiScaleValue.c)
  * Callees:
  *     <none>
  */

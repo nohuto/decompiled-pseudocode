@@ -1,54 +1,57 @@
 /*
- * XREFs of ?SetHostHandle@DXGKEYEDMUTEX@@QEAAJII@Z @ 0x1C0351294
+ * XREFs of ?SetHostHandle@DXGKEYEDMUTEX@@QEAAJII@Z @ 0x1C02923C0
  * Callers:
- *     ?VmBusSendOpenKeyedMutex@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGKEYEDMUTEX@@I@Z @ 0x1C038BC84 (-VmBusSendOpenKeyedMutex@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGKEYEDMUTEX@@I@Z.c)
+ *     ?VmBusSendOpenKeyedMutex@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGKEYEDMUTEX@@I@Z @ 0x1C024AB1C (-VmBusSendOpenKeyedMutex@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGKEYEDMUTEX@@I@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000B020 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003700 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 __int64 __fastcall DXGKEYEDMUTEX::SetHostHandle(DXGKEYEDMUTEX *this, int a2, int a3)
 {
-  __int64 v6; // rax
-  _QWORD *v7; // rbx
-  _QWORD *v8; // rax
-  __int64 v9; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  _QWORD *v8; // rbx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // rax
+  __int64 v13; // rdx
+  _QWORD *v14; // rax
+  __int64 v15; // rcx
 
-  v6 = operator new[](0x18uLL, 0x4B677844u, 256LL);
-  v7 = (_QWORD *)v6;
-  if ( v6 )
+  v8 = operator new[](0x18uLL, 0x4B677844u, PagedPool);
+  if ( v8 )
   {
-    *(_QWORD *)(v6 + 8) = 0LL;
-    *(_QWORD *)v6 = 0LL;
-    *(_DWORD *)(v6 + 16) = a2;
-    *(_DWORD *)(v6 + 20) = a3;
+    v8[2] = 0LL;
+    v8[1] = 0LL;
+    *v8 = 0LL;
+  }
+  else
+  {
+    v8 = 0LL;
+  }
+  if ( v8 )
+  {
+    *((_DWORD *)v8 + 4) = a2;
+    *((_DWORD *)v8 + 5) = a3;
     DXGFASTMUTEX::Acquire((DXGKEYEDMUTEX *)((char *)this + 112));
-    v8 = (_QWORD *)((char *)this + 40);
-    v9 = *((_QWORD *)this + 5);
-    if ( *(DXGKEYEDMUTEX **)(v9 + 8) != (DXGKEYEDMUTEX *)((char *)this + 40) )
+    v14 = (_QWORD *)((char *)this + 40);
+    v15 = *((_QWORD *)this + 5);
+    if ( *(DXGKEYEDMUTEX **)(v15 + 8) != (DXGKEYEDMUTEX *)((char *)this + 40) )
       __fastfail(3u);
-    *v7 = v9;
-    v7[1] = v8;
-    *(_QWORD *)(v9 + 8) = v7;
-    *v8 = v7;
-    DXGFASTMUTEX::Release((struct _KTHREAD **)this + 14);
+    *v8 = v15;
+    v8[1] = v14;
+    *(_QWORD *)(v15 + 8) = v8;
+    *v14 = v8;
+    DXGFASTMUTEX::Release((struct _KTHREAD **)this + 14, v13);
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(6LL, 5905LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Failed to allocate DXG_HOST_HANDLE_MAP",
-      5905LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdLowResource(v7, v6, v9, v10);
+    *(_QWORD *)(v11 + 24) = 5782LL;
+    WdLogEvent5_WdLowResource(v11);
     return 3221225495LL;
   }
 }

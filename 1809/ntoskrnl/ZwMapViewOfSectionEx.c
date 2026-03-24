@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwMapViewOfSectionEx @ 0x1401BA330
+ * XREFs of ZwMapViewOfSectionEx @ 0x1401BA350
  * Callers:
  *     <none>
  * Callees:

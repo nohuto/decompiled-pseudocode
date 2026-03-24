@@ -1,10 +1,10 @@
 /*
- * XREFs of NtOpenJobObject @ 0x140889550
+ * XREFs of NtOpenJobObject @ 0x140889530
  * Callers:
  *     <none>
  * Callees:
  *     ObOpenObjectByName @ 0x1405B9290 (ObOpenObjectByName.c)
- *     EtwTraceJob @ 0x1408B74BC (EtwTraceJob.c)
+ *     EtwTraceJob @ 0x1408B749C (EtwTraceJob.c)
  */
 
 NTSTATUS __stdcall NtOpenJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)

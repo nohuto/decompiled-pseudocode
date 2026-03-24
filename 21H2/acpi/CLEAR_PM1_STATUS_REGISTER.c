@@ -1,9 +1,9 @@
 /*
- * XREFs of CLEAR_PM1_STATUS_REGISTER @ 0x1C0024774
+ * XREFs of CLEAR_PM1_STATUS_REGISTER @ 0x1C00101E0
  * Callers:
- *     ACPIEnableInitializeACPI @ 0x1C00244C0 (ACPIEnableInitializeACPI.c)
+ *     ACPIEnableInitializeACPI @ 0x1C0010040 (ACPIEnableInitializeACPI.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 CLEAR_PM1_STATUS_REGISTER()

@@ -1,1 +1,29 @@
-/*\n * XREFs of __security_check_cookie @ 0x1C0002D30\n * Callers:\n *     KeyboardStart @ 0x1C0002AF0 (KeyboardStart.c)\n *     __GSHandlerCheckCommon @ 0x1C0002DBC (__GSHandlerCheckCommon.c)\n *     KbdClassTraceLoggingDeniedCreateForReadWithSFAC @ 0x1C0004AE0 (KbdClassTraceLoggingDeniedCreateForReadWithSFAC.c)\n *     KeyboardClassFindMorePorts @ 0x1C000D5A0 (KeyboardClassFindMorePorts.c)\n *     KbdCreateClassObject @ 0x1C000DD20 (KbdCreateClassObject.c)\n *     KeyboardClassGetWaitWakeEnableState @ 0x1C000F660 (KeyboardClassGetWaitWakeEnableState.c)\n *     DriverEntry @ 0x1C0010080 (DriverEntry.c)\n *     KbdConfiguration @ 0x1C0010560 (KbdConfiguration.c)\n * Callees:\n *     <none>\n */\n\nvoid __cdecl _security_check_cookie(uintptr_t StackCookie)\n{\n  __int64 v1; // rcx\n\n  if ( StackCookie != _security_cookie )\nReportFailure:\n    _report_gsfailure(StackCookie);\n  v1 = __ROL8__(StackCookie, 16);\n  if ( (_WORD)v1 )\n  {\n    StackCookie = __ROR8__(v1, 16);\n    goto ReportFailure;\n  }\n}\n
+/*
+ * XREFs of __security_check_cookie @ 0x1C0002D30
+ * Callers:
+ *     KeyboardStart @ 0x1C0002AF0 (KeyboardStart.c)
+ *     __GSHandlerCheckCommon @ 0x1C0002DBC (__GSHandlerCheckCommon.c)
+ *     KbdClassTraceLoggingDeniedCreateForReadWithSFAC @ 0x1C0004AE0 (KbdClassTraceLoggingDeniedCreateForReadWithSFAC.c)
+ *     KeyboardClassFindMorePorts @ 0x1C000D5A0 (KeyboardClassFindMorePorts.c)
+ *     KbdCreateClassObject @ 0x1C000DD20 (KbdCreateClassObject.c)
+ *     KeyboardClassGetWaitWakeEnableState @ 0x1C000F660 (KeyboardClassGetWaitWakeEnableState.c)
+ *     DriverEntry @ 0x1C0010080 (DriverEntry.c)
+ *     KbdConfiguration @ 0x1C0010560 (KbdConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
+void __cdecl _security_check_cookie(uintptr_t StackCookie)
+{
+  __int64 v1; // rcx
+
+  if ( StackCookie != _security_cookie )
+ReportFailure:
+    _report_gsfailure(StackCookie);
+  v1 = __ROL8__(StackCookie, 16);
+  if ( (_WORD)v1 )
+  {
+    StackCookie = __ROR8__(v1, 16);
+    goto ReportFailure;
+  }
+}

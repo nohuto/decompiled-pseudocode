@@ -1,21 +1,21 @@
 /*
- * XREFs of IoSynchronousPageWriteEx @ 0x140340130
+ * XREFs of IoSynchronousPageWriteEx @ 0x14031BE0C
  * Callers:
- *     MiZeroPageWrite @ 0x1402459E8 (MiZeroPageWrite.c)
- *     IoSynchronousPageWrite @ 0x140248520 (IoSynchronousPageWrite.c)
- *     MiFlushSectionInternal @ 0x140329730 (MiFlushSectionInternal.c)
- *     MiSynchronousPageWrite @ 0x1403CF888 (MiSynchronousPageWrite.c)
+ *     MiIssueSynchronousFlush @ 0x1402AF5C0 (MiIssueSynchronousFlush.c)
+ *     MiZeroPageWrite @ 0x1402BFD18 (MiZeroPageWrite.c)
+ *     IoSynchronousPageWrite @ 0x1402C2630 (IoSynchronousPageWrite.c)
+ *     MiSynchronousPageWrite @ 0x1403BFD58 (MiSynchronousPageWrite.c)
  * Callees:
- *     IopSetDiskIoAttributionExtension @ 0x14020C178 (IopSetDiskIoAttributionExtension.c)
- *     IopAllocateIrpExReturn @ 0x1402AACA0 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     IopQueueThreadIrp @ 0x1402AE1B0 (IopQueueThreadIrp.c)
- *     PsGetIoPriorityThread @ 0x14033D760 (PsGetIoPriorityThread.c)
- *     IoSetDiskIoAttributionFromThread @ 0x1403437A0 (IoSetDiskIoAttributionFromThread.c)
- *     MmIsFileObjectAPagingFile @ 0x140374EA8 (MmIsFileObjectAPagingFile.c)
- *     IopAllocateBackpocketIrp @ 0x140556050 (IopAllocateBackpocketIrp.c)
- *     IopAllocateReserveIrp @ 0x1405562E8 (IopAllocateReserveIrp.c)
+ *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402EDF0C (IopSetDiskIoAttributionExtension.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14031BFE0 (IoSetDiskIoAttributionFromThread.c)
+ *     MmIsFileObjectAPagingFile @ 0x14031C454 (MmIsFileObjectAPagingFile.c)
+ *     IopQueueThreadIrp @ 0x14034B290 (IopQueueThreadIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
+ *     IopAllocateBackpocketIrp @ 0x1405000D0 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x140500370 (IopAllocateReserveIrp.c)
  */
 
 NTSTATUS __fastcall IoSynchronousPageWriteEx(
@@ -37,16 +37,17 @@ NTSTATUS __fastcall IoSynchronousPageWriteEx(
   __int64 v19; // rdx
   __int64 v20; // rcx
   __int64 ReserveIrp; // rax
+  void *retaddr; // [rsp+38h] [rbp+0h]
 
   SectionObjectPointer = a1->SectionObjectPointer;
   if ( SectionObjectPointer && SectionObjectPointer->SharedCacheMap )
   {
-    __incgsdword(0x8474u);
-    __addgsdword(0x8478u, (unsigned int)(*(_DWORD *)(a2 + 40) + 4095) >> 12);
+    __incgsdword(0x8134u);
+    __addgsdword(0x8138u, (unsigned int)(*(_DWORD *)(a2 + 40) + 4095) >> 12);
   }
   RelatedDeviceObject = IoGetRelatedDeviceObject(a1);
   LOBYTE(v13) = RelatedDeviceObject->StackSize;
-  Irp = IopAllocateIrpExReturn((__int64)RelatedDeviceObject, v13, 0LL);
+  Irp = IopAllocateIrpExReturn(RelatedDeviceObject, v13, 0LL, retaddr);
   if ( !Irp )
   {
     if ( (unsigned int)MmIsFileObjectAPagingFile(a1) )

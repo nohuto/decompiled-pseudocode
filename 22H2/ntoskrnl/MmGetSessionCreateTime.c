@@ -1,8 +1,8 @@
 /*
- * XREFs of MmGetSessionCreateTime @ 0x1407553E0
+ * XREFs of MmGetSessionCreateTime @ 0x1406119DC
  * Callers:
- *     EtwpWriteProcessStarted @ 0x140754060 (EtwpWriteProcessStarted.c)
- *     EtwQueryProcessTelemetryInfo @ 0x140754D60 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x140611674 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwpWriteProcessStarted @ 0x1406F52C8 (EtwpWriteProcessStarted.c)
  * Callees:
  *     <none>
  */
@@ -15,5 +15,5 @@ __int64 __fastcall MmGetSessionCreateTime(__int64 a1)
   if ( !v1 || (*(_DWORD *)(a1 + 2172) & 0x1000) != 0 )
     return 0LL;
   else
-    return *(_QWORD *)(v1 + 792);
+    return *(_QWORD *)(v1 + 1056);
 }

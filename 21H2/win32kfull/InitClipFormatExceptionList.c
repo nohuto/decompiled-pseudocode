@@ -1,31 +1,29 @@
 /*
- * XREFs of InitClipFormatExceptionList @ 0x1C011A630
+ * XREFs of InitClipFormatExceptionList @ 0x1C012E960
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0079D94 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004DA78 (WPP_RECORDER_SF_.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
 int InitClipFormatExceptionList()
 {
-  _DWORD *v0; // rbx
+  _DWORD *v0; // rdi
+  _DWORD *v1; // rsi
   int result; // eax
-  NTSTATUS v2; // eax
-  int v3; // r8d
-  int v4; // r9d
-  unsigned int v5; // eax
-  __int64 v6; // rcx
-  _DWORD *v7; // rdi
-  ULONG v8; // esi
+  NTSTATUS v3; // eax
+  int v4; // edx
+  __int64 v5; // rcx
+  unsigned int v6; // eax
+  __int64 v7; // rax
+  ULONG v8; // ebx
   int v9; // eax
-  bool v10; // r14
-  unsigned __int16 v11; // ax
-  int v12; // edx
-  struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
-  ULONG Length; // [rsp+B0h] [rbp+30h] BYREF
-  void *KeyHandle; // [rsp+B8h] [rbp+38h] BYREF
+  unsigned __int16 v10; // ax
+  struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
+  ULONG Length; // [rsp+90h] [rbp+20h] BYREF
+  void *KeyHandle; // [rsp+98h] [rbp+28h] BYREF
 
   Length = 0;
   KeyHandle = 0LL;
@@ -33,6 +31,7 @@ int InitClipFormatExceptionList()
   *(&ObjectAttributes.Length + 1) = 0;
   DestinationString = 0LL;
   *(&ObjectAttributes.Attributes + 1) = 0;
+  v1 = 0LL;
   RtlInitUnicodeString(
     &DestinationString,
     L"\\Registry\\Machine\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\UIPI\\Clipboard\\ExceptionFormats");
@@ -44,69 +43,63 @@ int InitClipFormatExceptionList()
   result = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( result >= 0 )
   {
-    v2 = ZwQueryKey(KeyHandle, KeyFullInformation, 0LL, 0, &Length);
-    if ( (v2 == -1073741789 || v2 == -2147483643)
-      && (v0 = (_DWORD *)Win32AllocPoolZInit(Length, 1650684757LL)) != 0LL
-      && ZwQueryKey(KeyHandle, KeyFullInformation, v0, Length, &Length) >= 0
-      && (v5 = v0[8]) != 0
-      && (HIDWORD(WPP_MAIN_CB.DeviceQueue.Lock) = v0[8], v5 <= 0x1FFF)
-      && (gpClipFormatExceptionList = Win32AllocPoolZInit(4LL * v5, 1650684757LL)) != 0LL
-      && (v6 = (unsigned int)v0[10], (unsigned int)v6 < 0xFFFFFFF0)
-      && (v7 = (_DWORD *)Win32AllocPoolZInit(v6 + 16, 1650684757LL)) != 0LL )
+    v3 = ZwQueryKey(KeyHandle, KeyFullInformation, 0LL, 0, &Length);
+    if ( v3 != -1073741789 && v3 != -2147483643 )
+      goto LABEL_22;
+    v0 = (_DWORD *)Win32AllocPool(Length, 1650684757LL);
+    if ( !v0 )
+      goto LABEL_22;
+    if ( ZwQueryKey(KeyHandle, KeyFullInformation, v0, Length, &Length) >= 0
+      && (v6 = v0[8]) != 0
+      && (gcClipFormatExceptionList = v0[8], v6 <= 0x1FFF)
+      && (v7 = Win32AllocPool(4LL * v6, 1650684757LL),
+          LODWORD(v5) = gpClipFormatExceptionList,
+          (gpClipFormatExceptionList = v7) != 0LL)
+      && (v5 = (unsigned int)v0[10], (unsigned int)v5 < 0xFFFFFFF0)
+      && (v1 = (_DWORD *)Win32AllocPool(v5 + 16, 1650684757LL)) != 0LL )
     {
       v8 = 0;
-      if ( HIDWORD(WPP_MAIN_CB.DeviceQueue.Lock) )
+      if ( gcClipFormatExceptionList )
       {
-        while ( ZwEnumerateValueKey(KeyHandle, v8, KeyValuePartialInformation, v7, v0[10] + 16, &Length) >= 0 )
+        while ( ZwEnumerateValueKey(KeyHandle, v8, KeyValuePartialInformation, v1, v0[10] + 16, &Length) >= 0 )
         {
-          v9 = v7[1];
+          v9 = v1[1];
           if ( v9 == 4 )
           {
-            *(_DWORD *)(gpClipFormatExceptionList + 4LL * v8) = v7[3];
+            *(_DWORD *)(gpClipFormatExceptionList + 4LL * v8) = v1[3];
           }
           else if ( v9 == 1 )
           {
-            *((_WORD *)v7 + (unsigned int)v7[2] + 6) = 0;
-            v11 = UserAddAtomEx(v7 + 3, 1LL, 2LL);
-            if ( !v11 )
+            *((_WORD *)v1 + (unsigned int)v1[2] + 6) = 0;
+            v10 = UserAddAtomEx(v1 + 3, 1LL, 2LL);
+            if ( !v10 )
               break;
-            *(_DWORD *)(gpClipFormatExceptionList + 4LL * v8) = v11;
+            *(_DWORD *)(gpClipFormatExceptionList + 4LL * v8) = v10;
           }
-          if ( ++v8 >= HIDWORD(WPP_MAIN_CB.DeviceQueue.Lock) )
+          if ( ++v8 >= gcClipFormatExceptionList )
             goto LABEL_15;
         }
-        HIDWORD(WPP_MAIN_CB.DeviceQueue.Lock) = v8;
+        gcClipFormatExceptionList = v8;
       }
-LABEL_15:
-      Win32FreePool(v7);
     }
     else
     {
-      v10 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-         && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x10000) != 0
-         && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      if ( v10 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+LABEL_22:
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v12 = 11;
-        LOBYTE(v12) = v10;
-        LOBYTE(v3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v12,
-          v3,
-          v4,
-          4,
-          17,
-          11,
-          (__int64)&WPP_6e1da2c8865e385d9ef1e5697a7bf54c_Traceguids);
+        LOBYTE(v4) = 4;
+        WPP_RECORDER_SF_(v5, v4, 17, 11, (__int64)&WPP_163528e29d493e69e95520b3b68f976c_Traceguids);
       }
       if ( gpClipFormatExceptionList )
       {
         Win32FreePool(gpClipFormatExceptionList);
         gpClipFormatExceptionList = 0LL;
       }
-      HIDWORD(WPP_MAIN_CB.DeviceQueue.Lock) = 0;
+      gcClipFormatExceptionList = 0;
     }
+LABEL_15:
+    if ( v1 )
+      Win32FreePool(v1);
     if ( v0 )
       Win32FreePool(v0);
     return ZwClose(KeyHandle);

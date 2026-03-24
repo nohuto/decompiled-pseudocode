@@ -1,272 +1,263 @@
 /*
- * XREFs of EtwTraceInputProcessDelay @ 0x1C0053680
+ * XREFs of EtwTraceInputProcessDelay @ 0x1C0122640
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
  * Callees:
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U?$_tlgWrapSz@G@@U2@U2@U1@U?$_tlgWrapperByVal@$07@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@33AEBU?$_tlgWrapSz@G@@443AEBU?$_tlgWrapperByVal@$07@@3@Z @ 0x1C0007C00 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U-$_tlgWrapSz@G@@U2@U2@U1@U-$_tlgWrapperByVal@$07@@U1@@-.c)
- *     ?EtwpGetClassName@@YAJQEAUtagWND@@PEAU_UNICODE_STRING@@@Z @ 0x1C000DDF4 (-EtwpGetClassName@@YAJQEAUtagWND@@PEAU_UNICODE_STRING@@@Z.c)
- *     Is_GetTopLevelWindowSupported @ 0x1C000E2B0 (Is_GetTopLevelWindowSupported.c)
- *     ValidateHwndEx @ 0x1C0045FD0 (ValidateHwndEx.c)
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     ?EtwpGetThreadInfoFlags@@YAKQEAUtagTHREADINFO@@@Z @ 0x1C006FEE4 (-EtwpGetThreadInfoFlags@@YAKQEAUtagTHREADINFO@@@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U?$_tlgWrapSz@G@@U2@U2@U2@U2@U1@U?$_tlgWrapperByVal@$07@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@33AEBU?$_tlgWrapSz@G@@44443AEBU?$_tlgWrapperByVal@$07@@33@Z @ 0x1C0138034 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U-$_tlgWrapSz@G@@U2@U2@U2@U2@U1@U-$_tlgWrapperByVal@$07@.c)
- *     McTemplateK0qqqzzzqx_EtwWriteTransfer @ 0x1C013DFD0 (McTemplateK0qqqzzzqx_EtwWriteTransfer.c)
- *     McTemplateK0qqqzzzzqx_EtwWriteTransfer @ 0x1C013E13C (McTemplateK0qqqzzzzqx_EtwWriteTransfer.c)
+ *     ?EtwpGetLastInputProcessTime@@YAXQEAUtagQ@@KPEAK1@Z @ 0x1C0006B64 (-EtwpGetLastInputProcessTime@@YAXQEAUtagQ@@KPEAK1@Z.c)
+ *     ValidateHwnd @ 0x1C0039A70 (ValidateHwnd.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     ?EtwpGetThreadInfoFlags@@YAKQEAUtagTHREADINFO@@@Z @ 0x1C0056548 (-EtwpGetThreadInfoFlags@@YAKQEAUtagTHREADINFO@@@Z.c)
+ *     Is_GetTopLevelWindowSupported @ 0x1C0071FD8 (Is_GetTopLevelWindowSupported.c)
+ *     ?EtwpGetClassName@@YAJQEAUtagWND@@PEAU_UNICODE_STRING@@@Z @ 0x1C00AA0EC (-EtwpGetClassName@@YAJQEAUtagWND@@PEAU_UNICODE_STRING@@@Z.c)
+ *     _GetTopLevelWindow @ 0x1C00B0158 (_GetTopLevelWindow.c)
+ *     McTemplateK0qqqzzzzqx_EtwWriteTransfer @ 0x1C00C0FF0 (McTemplateK0qqqzzzzqx_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U?$_tlgWrapSz@G@@U2@U2@U1@U?$_tlgWrapperByVal@$07@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@33AEBU?$_tlgWrapSz@G@@443AEBU?$_tlgWrapperByVal@$07@@3@Z @ 0x1C012096C (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U-$_tlgWrapSz@G@@U2@U2@U1@U-$_tlgWrapperByVal@$07@@U1@@-.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U?$_tlgWrapSz@G@@U2@U2@U2@U2@U1@U?$_tlgWrapperByVal@$07@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@33AEBU?$_tlgWrapSz@G@@44443AEBU?$_tlgWrapperByVal@$07@@33@Z @ 0x1C0120AF0 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U-$_tlgWrapSz@G@@U2@U2@U2@U2@U1@U-$_tlgWrapperByVal@$07@.c)
+ *     McTemplateK0qqqzzzqx_EtwWriteTransfer @ 0x1C0126EA4 (McTemplateK0qqqzzzqx_EtwWriteTransfer.c)
  */
 
-void __fastcall EtwTraceInputProcessDelay(struct tagTHREADINFO *a1)
+void __fastcall EtwTraceInputProcessDelay(PETHREAD *a1)
 {
-  unsigned int v2; // r8d
-  unsigned __int64 v3; // rdi
-  __int64 v4; // rcx
-  unsigned int v5; // r15d
-  unsigned int v6; // edi
-  unsigned int ThreadInfoFlags; // r13d
-  const WCHAR *Buffer; // rsi
-  const WCHAR *v9; // r14
-  struct tagWND *v10; // rax
-  struct tagWND *v11; // rax
+  char v2; // al
+  unsigned int v3; // r8d
+  int ThreadInfoFlags; // eax
+  int v5; // r15d
+  const wchar_t *Buffer; // rdi
+  const wchar_t *v7; // rsi
+  struct tagWND *v8; // rax
+  __int64 v9; // r12
+  struct tagWND *TopLevelWindow; // rax
+  const WCHAR *v11; // r12
   PEPROCESS ThreadProcess; // rax
   ULONG64 v13; // rdx
   int v14; // ecx
-  unsigned __int64 v15; // r8
-  unsigned __int64 v16; // rdx
-  ULONG64 v17; // r9
-  unsigned __int64 v18; // rcx
-  __int64 v19; // rcx
-  const wchar_t *v20; // rax
-  const WCHAR *v21; // r12
-  __int64 v22; // rcx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v25; // r9
-  char v26; // al
-  int v27; // r8d
-  int v28; // r9d
-  const WCHAR *v29; // rdx
-  const WCHAR *v30; // rcx
-  __int64 v31; // rcx
-  const WCHAR *v32; // r8
-  int v33; // r9d
-  const WCHAR *v34; // rax
-  const WCHAR *v35; // rax
-  unsigned int v36; // [rsp+80h] [rbp-2C8h]
-  struct tagWND *v37; // [rsp+88h] [rbp-2C0h]
-  int v38; // [rsp+88h] [rbp-2C0h]
-  int v39; // [rsp+94h] [rbp-2B4h] BYREF
-  unsigned int v40; // [rsp+98h] [rbp-2B0h] BYREF
-  unsigned int v41; // [rsp+9Ch] [rbp-2ACh] BYREF
-  struct tagTHREADINFO *v42; // [rsp+A0h] [rbp-2A8h] BYREF
-  struct tagTHREADINFO *v43; // [rsp+A8h] [rbp-2A0h] BYREF
-  const WCHAR *v44; // [rsp+B0h] [rbp-298h]
-  PWSTR v45; // [rsp+B8h] [rbp-290h]
-  PACCESS_TOKEN PrimaryToken; // [rsp+C0h] [rbp-288h]
-  const wchar_t *v47; // [rsp+C8h] [rbp-280h]
-  const WCHAR *v48; // [rsp+D0h] [rbp-278h]
-  int v49; // [rsp+D8h] [rbp-270h]
-  const WCHAR *v50; // [rsp+E0h] [rbp-268h] BYREF
-  const WCHAR *v51; // [rsp+E8h] [rbp-260h] BYREF
-  const WCHAR *v52; // [rsp+F0h] [rbp-258h] BYREF
-  const WCHAR *v53; // [rsp+F8h] [rbp-250h] BYREF
-  unsigned __int64 v54; // [rsp+100h] [rbp-248h]
-  const WCHAR *v55; // [rsp+108h] [rbp-240h]
-  unsigned __int64 v56; // [rsp+110h] [rbp-238h]
-  __int64 v57; // [rsp+118h] [rbp-230h] BYREF
-  _QWORD v58[2]; // [rsp+120h] [rbp-228h] BYREF
-  struct _UNICODE_STRING UnicodeString; // [rsp+130h] [rbp-218h] BYREF
-  struct _UNICODE_STRING v60; // [rsp+140h] [rbp-208h] BYREF
-  __int128 v61; // [rsp+150h] [rbp-1F8h]
-  _BYTE v62[144]; // [rsp+180h] [rbp-1C8h] BYREF
-  _BYTE v63[256]; // [rsp+210h] [rbp-138h] BYREF
+  ULONG64 v15; // r8
+  ULONG64 v16; // rdx
+  _BYTE **v17; // rax
+  PETHREAD v18; // rcx
+  int v19; // eax
+  const wchar_t *v20; // rdx
+  const wchar_t *v21; // rcx
+  __int64 v22; // r8
+  __int64 v23; // r9
+  const WCHAR *v24; // rdx
+  const WCHAR *v25; // rcx
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  __int64 v28; // r9
+  unsigned int v29; // [rsp+80h] [rbp-2D8h] BYREF
+  unsigned int v30; // [rsp+84h] [rbp-2D4h] BYREF
+  int v31; // [rsp+88h] [rbp-2D0h]
+  int v32; // [rsp+8Ch] [rbp-2CCh]
+  int v33; // [rsp+90h] [rbp-2C8h]
+  PETHREAD v34; // [rsp+98h] [rbp-2C0h]
+  int v35; // [rsp+A0h] [rbp-2B8h] BYREF
+  int v36; // [rsp+A4h] [rbp-2B4h] BYREF
+  int v37; // [rsp+A8h] [rbp-2B0h] BYREF
+  unsigned int v38; // [rsp+ACh] [rbp-2ACh] BYREF
+  unsigned int v39; // [rsp+B0h] [rbp-2A8h] BYREF
+  int v40; // [rsp+B4h] [rbp-2A4h] BYREF
+  int v41; // [rsp+B8h] [rbp-2A0h] BYREF
+  int v42; // [rsp+BCh] [rbp-29Ch] BYREF
+  unsigned int v43; // [rsp+C0h] [rbp-298h] BYREF
+  unsigned int v44; // [rsp+C4h] [rbp-294h] BYREF
+  int v45; // [rsp+C8h] [rbp-290h] BYREF
+  PWSTR v46; // [rsp+D0h] [rbp-288h]
+  PACCESS_TOKEN PrimaryToken; // [rsp+D8h] [rbp-280h]
+  const wchar_t *v48; // [rsp+E0h] [rbp-278h]
+  __int64 v49; // [rsp+E8h] [rbp-270h]
+  __int128 *v50; // [rsp+F0h] [rbp-268h]
+  __int64 v51; // [rsp+F8h] [rbp-260h] BYREF
+  __int64 v52; // [rsp+100h] [rbp-258h] BYREF
+  PETHREAD v53; // [rsp+108h] [rbp-250h] BYREF
+  const WCHAR *v54; // [rsp+110h] [rbp-248h] BYREF
+  const WCHAR *v55; // [rsp+118h] [rbp-240h] BYREF
+  const WCHAR *v56; // [rsp+120h] [rbp-238h] BYREF
+  const WCHAR *v57; // [rsp+128h] [rbp-230h] BYREF
+  const WCHAR *v58; // [rsp+130h] [rbp-228h] BYREF
+  PETHREAD v59; // [rsp+138h] [rbp-220h] BYREF
+  const WCHAR *v60; // [rsp+140h] [rbp-218h] BYREF
+  const WCHAR *v61; // [rsp+148h] [rbp-210h] BYREF
+  const WCHAR *v62; // [rsp+150h] [rbp-208h] BYREF
+  __int128 v63; // [rsp+158h] [rbp-200h] BYREF
+  struct _UNICODE_STRING UnicodeString; // [rsp+168h] [rbp-1F0h] BYREF
+  struct _UNICODE_STRING v65; // [rsp+178h] [rbp-1E0h] BYREF
+  _BYTE v66[144]; // [rsp+190h] [rbp-1C8h] BYREF
+  _BYTE v67[256]; // [rsp+220h] [rbp-138h] BYREF
 
-  v43 = a1;
-  v42 = a1;
-  if ( ((unsigned __int64)WPP_MAIN_CB.DeviceObjectExtension & 0x8001000000040000uLL) == 0
-    || ((unsigned __int8)(byte_1C0283068 - 1) <= 2u
-     || (qword_1C0283050 & 0x8001000000040000uLL) == 0
-     || (qword_1C0283058 & 0x8001000000040000uLL) != qword_1C0283058
-      ? (v26 = 0)
-      : (v26 = 1),
-        !v26) )
+  PrimaryToken = a1;
+  if ( (W32kEtwEnabledKeyword & 0x8001000000040000uLL) == 0
+    || ((unsigned __int8)(byte_1C0249748 - 1) <= 2u
+     || (qword_1C0249730 & 0x8001000000040000uLL) == 0
+     || (qword_1C0249738 & 0x8001000000040000uLL) != qword_1C0249738
+      ? (v2 = 0)
+      : (v2 = 1),
+        !v2) )
   {
-    if ( (unsigned int)dword_1C02883D8 <= 5
-      || !(unsigned __int8)tlgKeywordOn(&dword_1C02883D8, 0x400000000000LL)
-      && (v2 <= 5 || !(unsigned __int8)tlgKeywordOn(&dword_1C02883D8, 0x40000LL)) )
+    if ( (unsigned int)dword_1C0249250 <= 5
+      || !tlgKeywordOn((__int64)&dword_1C0249250, 0x400000000000LL)
+      && (v3 <= 5 || !tlgKeywordOn((__int64)&dword_1C0249250, 0x40000LL)) )
     {
       return;
     }
   }
-  v36 = 0;
-  v44 = 0LL;
+  v30 = 0;
+  v29 = 0;
   UnicodeString = 0LL;
-  v60 = 0LL;
-  v61 = 0LL;
-  v3 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-  v4 = *((_QWORD *)a1 + 54);
-  if ( v4 )
-  {
-    v5 = v3 - *(_DWORD *)(v4 + 416);
-    LODWORD(PrimaryToken) = v5;
-    if ( *(_DWORD *)(v4 + 40) )
-    {
-      v19 = *(_QWORD *)(v4 + 24);
-      v6 = v3 - *(_DWORD *)(v19 + 48);
-      v36 = *(_DWORD *)(v19 + 24);
-      v44 = *(const WCHAR **)(v19 + 32);
-      goto LABEL_7;
-    }
-  }
-  else
-  {
-    v5 = 0;
-    LODWORD(PrimaryToken) = 0;
-  }
-  v6 = 0;
-LABEL_7:
-  if ( v5 < 0x32 )
+  v65 = 0LL;
+  v63 = 0LL;
+  EtwpGetLastInputProcessTime(
+    a1[54],
+    (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24,
+    &v30,
+    &v29);
+  if ( v30 < W32kEtwInputProcessDelayTimeoutMs )
     return;
-  if ( v6 < 0x32 )
+  if ( v29 < W32kEtwInputProcessDelayTimeoutMs )
     return;
-  ThreadInfoFlags = EtwpGetThreadInfoFlags(a1);
-  if ( (ThreadInfoFlags & 3) == 0 || (ThreadInfoFlags & 0x28) == 0 )
+  ThreadInfoFlags = EtwpGetThreadInfoFlags((struct tagTHREADINFO *const)a1);
+  v5 = ThreadInfoFlags;
+  v33 = ThreadInfoFlags;
+  if ( (ThreadInfoFlags & 3) == 0 || (ThreadInfoFlags & 8) == 0 && (ThreadInfoFlags & 0x20) == 0 )
     return;
   Buffer = 0LL;
   v48 = 0LL;
-  v9 = 0LL;
-  v45 = 0LL;
-  v10 = (struct tagWND *)ValidateHwndEx(*((_QWORD *)a1 + 153), 1, 0);
-  v37 = v10;
-  if ( v10 )
+  v7 = 0LL;
+  v46 = 0LL;
+  v8 = (struct tagWND *)ValidateHwnd((__int64)a1[148]);
+  v9 = (__int64)v8;
+  if ( v8 )
   {
-    if ( (int)EtwpGetClassName(v10, &UnicodeString) >= 0 )
+    if ( (int)EtwpGetClassName(v8, &UnicodeString) >= 0 )
       Buffer = UnicodeString.Buffer;
     v48 = Buffer;
-    if ( (int)Is_GetTopLevelWindowSupported() >= 0 && qword_1C0295EB0 )
-      v11 = (struct tagWND *)qword_1C0295EB0(v37);
+    if ( (int)Is_GetTopLevelWindowSupported() < 0 )
+      TopLevelWindow = 0LL;
     else
-      v11 = 0LL;
-    if ( v11 )
+      TopLevelWindow = (struct tagWND *)GetTopLevelWindow(v9);
+    if ( TopLevelWindow )
     {
-      if ( v37 == v11 )
+      if ( (struct tagWND *)v9 == TopLevelWindow )
       {
-        v9 = Buffer;
-        v45 = (PWSTR)Buffer;
+        v7 = Buffer;
+        v46 = (PWSTR)Buffer;
       }
-      else if ( (int)EtwpGetClassName(v11, &v60) >= 0 )
+      else if ( (int)EtwpGetClassName(TopLevelWindow, &v65) >= 0 )
       {
-        v9 = v60.Buffer;
-        v45 = v60.Buffer;
+        v7 = v65.Buffer;
+        v46 = v65.Buffer;
       }
     }
   }
-  v54 = 0LL;
-  v47 = 0LL;
-  ThreadProcess = PsGetThreadProcess(*(PETHREAD *)a1);
+  v31 = *((_DWORD *)a1 + 298);
+  v34 = a1[150];
+  v11 = 0LL;
+  v49 = 0LL;
+  ThreadProcess = PsGetThreadProcess(*a1);
   v13 = *(_QWORD *)(PsGetProcessPeb(ThreadProcess) + 32) + 96LL;
   if ( v13 >= MmUserProbeAddress )
     v13 = MmUserProbeAddress;
   v14 = *(_DWORD *)v13;
-  v38 = *(_DWORD *)v13;
-  LODWORD(v61) = *(_DWORD *)v13;
+  v32 = v14;
+  LODWORD(v63) = v14;
   v15 = *(_QWORD *)(v13 + 8);
-  *((_QWORD *)&v61 + 1) = v15;
+  *((_QWORD *)&v63 + 1) = v15;
   if ( (v15 & 1) != 0 )
     ExRaiseDatatypeMisalignment();
-  LODWORD(v16) = (unsigned __int16)v14;
-  v17 = v15 + (unsigned __int16)v14 + 2LL;
-  if ( v17 <= v15 || v17 >= MmUserProbeAddress )
-    ExRaiseAccessViolation();
-  if ( (unsigned __int16)v14 > HIWORD(v38) )
-  {
-    if ( (v14 & 1) == 0 )
-      goto LABEL_42;
-    goto LABEL_41;
-  }
+  v16 = v15 + (unsigned __int16)v14 + 2LL;
+  v17 = (_BYTE **)MmUserProbeAddress;
+  if ( v16 >= MmUserProbeAddress || (unsigned __int16)v14 > HIWORD(v32) )
+    goto LABEL_36;
   if ( (v14 & 1) != 0 )
+    goto LABEL_37;
+  if ( v16 <= v15 )
   {
-LABEL_41:
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1084LL);
-LABEL_42:
-    ExRaiseAccessViolation();
-  }
-  v54 = v15;
-  if ( (_WORD)v14 )
-  {
-    v16 = (unsigned __int64)(unsigned __int16)v14 >> 1;
-    v18 = v16;
-    v56 = v16;
-    while ( v18 )
+LABEL_36:
+    if ( (v14 & 1) == 0 )
     {
-      if ( *(_WORD *)(v15 + 2 * v18 - 2) == 92 )
-      {
-        v20 = L"Invalid";
-        if ( v18 != v16 )
-          v20 = (const wchar_t *)(v15 + 2 * v18);
-        v47 = v20;
-        break;
-      }
-      v56 = --v18;
+LABEL_38:
+      **v17 = 0;
+      goto LABEL_39;
     }
+LABEL_37:
+    v32 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1076);
+    v17 = (_BYTE **)MmUserProbeAddress;
+    goto LABEL_38;
   }
-  v21 = v47;
-  if ( !v47 )
-    v21 = (const WCHAR *)v15;
-  v47 = v21;
-  v22 = *((_QWORD *)v43 + 53);
-  if ( (*(_DWORD *)(v22 + 816) & 0x30) == 0x10 )
+LABEL_39:
+  v50 = &v63;
+  if ( &v63 )
+    v11 = (const WCHAR *)*((_QWORD *)&v63 + 1);
+  v18 = a1[53];
+  if ( (*((_DWORD *)v18 + 205) & 0x30) == 0x10 )
   {
-    PrimaryToken = PsReferencePrimaryToken(*(PEPROCESS *)v22);
-    v58[0] = 256LL;
-    v57 = 130LL;
-    v28 = RtlQueryPackageIdentity(PrimaryToken, v63, v58, v62, &v57, 0LL);
+    PrimaryToken = PsReferencePrimaryToken(*(PEPROCESS *)v18);
+    v52 = 256LL;
+    v51 = 130LL;
+    v19 = RtlQueryPackageIdentity(PrimaryToken, v67, &v52, v66, &v51, 0LL);
+    v33 = v19;
     if ( (Microsoft_Windows_Win32kEnableBits & 0x100) != 0 )
     {
-      v29 = (const WCHAR *)v62;
-      if ( v28 < 0 )
-        v29 = &word_1C0248490;
-      v30 = (const WCHAR *)v63;
-      if ( v28 < 0 )
-        v30 = &word_1C0248490;
+      v20 = (const wchar_t *)v66;
+      if ( v19 < 0 )
+        v20 = &word_1C020FC54;
+      v21 = (const wchar_t *)v67;
+      if ( v19 < 0 )
+        v21 = &word_1C020FC54;
       McTemplateK0qqqzzzzqx_EtwWriteTransfer(
-        (_DWORD)v30,
-        (_DWORD)v29,
-        v27,
-        ThreadInfoFlags,
+        (__int64)v21,
+        (__int64)v20,
+        (unsigned int)v19,
         v5,
-        v6,
-        (__int64)Buffer,
-        (__int64)v9,
-        (__int64)v30,
-        (__int64)v29,
-        v36,
-        (char)v44);
-    }
-    if ( (unsigned int)dword_1C02883D8 > 5 && (unsigned __int8)tlgKeywordOn(&dword_1C02883D8, 0x400000040000LL) )
-    {
-      v49 = 2;
-      v39 = 1;
-      v58[1] = v44;
-      v40 = v36;
-      v55 = v9;
-      v50 = Buffer;
-      v51 = v21;
-      v34 = (const WCHAR *)v62;
-      if ( v33 < 0 )
-        v34 = v32;
-      v52 = v34;
-      v35 = (const WCHAR *)v63;
-      if ( v33 < 0 )
-        v35 = v32;
-      v53 = v35;
-      v41 = v6;
-      LODWORD(v42) = v5;
-      LODWORD(v43) = ThreadInfoFlags;
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+        v30,
+        v29,
+        Buffer,
+        v7,
+        v21,
+        v20,
         v31,
-        &unk_1C02564A4);
+        (char)v34);
+    }
+    if ( (unsigned int)dword_1C0249250 > 5 && tlgKeywordOn((__int64)&dword_1C0249250, 0x400000040000LL) )
+    {
+      v24 = (const WCHAR *)v66;
+      if ( (int)v22 < 0 )
+        v24 = &word_1C020FC54;
+      v25 = (const WCHAR *)v67;
+      if ( (int)v22 < 0 )
+        v25 = &word_1C020FC54;
+      v35 = 2;
+      v36 = 1;
+      v53 = v34;
+      v37 = v31;
+      v54 = v7;
+      v55 = Buffer;
+      v56 = v11;
+      v57 = v24;
+      v58 = v25;
+      v38 = v29;
+      v39 = v30;
+      v40 = v5;
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+        (__int64)v25,
+        byte_1C021896B,
+        v22,
+        v23,
+        (__int64)&v40,
+        (__int64)&v39,
+        (__int64)&v38,
+        &v58,
+        &v57,
+        &v56,
+        &v55,
+        &v54,
+        (__int64)&v37,
+        (__int64)&v53,
+        (__int64)&v36,
+        (__int64)&v35);
     }
     PsDereferencePrimaryToken(PrimaryToken);
   }
@@ -274,49 +265,49 @@ LABEL_42:
   {
     if ( (Microsoft_Windows_Win32kEnableBits & 0x100) != 0 )
       McTemplateK0qqqzzzqx_EtwWriteTransfer(
-        v22,
+        (_DWORD)v18,
         v16,
         v15,
-        ThreadInfoFlags,
         v5,
-        v6,
+        v30,
+        v29,
         (__int64)Buffer,
-        (__int64)v9,
-        v15,
-        v36,
-        (char)v44);
-    if ( (unsigned int)dword_1C02883D8 > 5 && (unsigned __int8)tlgKeywordOn(&dword_1C02883D8, 0x400000040000LL) )
+        (__int64)v7,
+        (__int64)v11,
+        v31,
+        (char)v34);
+    if ( (unsigned int)dword_1C0249250 > 5 && tlgKeywordOn((__int64)&dword_1C0249250, 0x400000040000LL) )
     {
-      LODWORD(v43) = 1;
-      v53 = v44;
-      LODWORD(v42) = v36;
-      v52 = v9;
-      v51 = Buffer;
-      v50 = v21;
-      v41 = v6;
-      v40 = v5;
-      v39 = ThreadInfoFlags;
+      v41 = 1;
+      v59 = v34;
+      v42 = v31;
+      v60 = v7;
+      v61 = Buffer;
+      v62 = v11;
+      v43 = v29;
+      v44 = v30;
+      v45 = v5;
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
-        v23,
-        (int)&unk_1C02563EA,
-        v24,
-        v25,
-        (__int64)&v39,
-        (__int64)&v40,
-        (__int64)&v41,
-        &v50,
-        &v51,
-        &v52,
+        v26,
+        byte_1C02188B1,
+        v27,
+        v28,
+        (__int64)&v45,
+        (__int64)&v44,
+        (__int64)&v43,
+        &v62,
+        &v61,
+        &v60,
         (__int64)&v42,
-        (__int64)&v53,
-        (__int64)&v43);
+        (__int64)&v59,
+        (__int64)&v41);
     }
   }
   if ( Buffer )
     RtlFreeUnicodeString(&UnicodeString);
-  if ( v9 )
+  if ( v7 )
   {
-    if ( Buffer != v9 )
-      RtlFreeUnicodeString(&v60);
+    if ( Buffer != v7 )
+      RtlFreeUnicodeString(&v65);
   }
 }

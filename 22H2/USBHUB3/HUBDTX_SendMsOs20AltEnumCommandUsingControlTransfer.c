@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDTX_SendMsOs20AltEnumCommandUsingControlTransfer @ 0x1C002AB78
+ * XREFs of HUBDTX_SendMsOs20AltEnumCommandUsingControlTransfer @ 0x1C0027EF8
  * Callers:
- *     HUBDSM_SendingMsOs20AltEnumCmdOnReenum @ 0x1C0021290 (HUBDSM_SendingMsOs20AltEnumCmdOnReenum.c)
+ *     HUBDSM_SendingMsOs20AltEnumCmdOnReenum @ 0x1C001E9F0 (HUBDSM_SendingMsOs20AltEnumCmdOnReenum.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     HUBMISC_ControlTransfer @ 0x1C0032554 (HUBMISC_ControlTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
  */
 
 __int64 __fastcall HUBDTX_SendMsOs20AltEnumCommandUsingControlTransfer(__int64 a1)
@@ -42,7 +42,7 @@ __int64 __fastcall HUBDTX_SendMsOs20AltEnumCommandUsingControlTransfer(__int64 a
         2u,
         5u,
         0x32u,
-        (__int64)&WPP_84d33890ce5c36f044156420b7e16ac3_Traceguids,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         v3);
     }
     return HUBSM_AddEvent(a1 + 504, 4004);

@@ -1,79 +1,76 @@
 /*
- * XREFs of ?LinkShader@@YAJAEBUShaderLinkingBody@@AEBUShaderLinkingConfig@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAUVertexShaderDesc@@PEAPEAUID3D10Blob@@@Z @ 0x180028604
+ * XREFs of ?LinkShader@@YAJAEBUShaderLinkingBody@@AEBUShaderLinkingConfig@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAUVertexShaderDesc@@PEAPEAUID3D10Blob@@@Z @ 0x180047838
  * Callers:
- *     ?CreateLinkedShader@CShaderCache@@QEAAJIAEBUShaderLinkingConfig@@AEBUShaderLinkingBody@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAPEAVCLinkedShader@@@Z @ 0x180026D1C (-CreateLinkedShader@CShaderCache@@QEAAJIAEBUShaderLinkingConfig@@AEBUShaderLinkingBody@@V-$span@.c)
+ *     ?CreateLinkedShader@CCompiledEffectCache@@QEAAJIAEBUShaderLinkingConfig@@AEBUShaderLinkingBody@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAPEAVCLinkedShader@@@Z @ 0x180045650 (-CreateLinkedShader@CCompiledEffectCache@@QEAAJIAEBUShaderLinkingConfig@@AEBUShaderLinkingBody@@.c)
+ *     ?GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@@_NPEAIPEAPEAUID3D11PixelShader@@@Z @ 0x1800510A0 (-GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@.c)
  * Callees:
- *     AppendLights @ 0x18001B828 (AppendLights.c)
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x1800255BC (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ??1CShaderLinkingGraphBuilder@@QEAA@XZ @ 0x180026BEC (--1CShaderLinkingGraphBuilder@@QEAA@XZ.c)
- *     InitializeShaderLinkingInput @ 0x180026F1C (InitializeShaderLinkingInput.c)
- *     UseFragmentsModuleNoRef @ 0x180027784 (UseFragmentsModuleNoRef.c)
- *     ??0CShaderLinkingGraphBuilder@@QEAA@XZ @ 0x180027914 (--0CShaderLinkingGraphBuilder@@QEAA@XZ.c)
- *     ?Link@CShaderLinkingGraphBuilder@@QEAAJAEBUSignatureParameter@1@PEAPEAUID3D10Blob@@@Z @ 0x18002799C (-Link@CShaderLinkingGraphBuilder@@QEAAJAEBUSignatureParameter@1@PEAPEAUID3D10Blob@@@Z.c)
- *     GetExpectedVertexShaderDesc @ 0x180027F2C (GetExpectedVertexShaderDesc.c)
- *     HasWhiteNoise @ 0x180028078 (HasWhiteNoise.c)
- *     LoadShaderBody @ 0x180028198 (LoadShaderBody.c)
- *     AppendShaderBody @ 0x180028430 (AppendShaderBody.c)
- *     DiscoverSamplers @ 0x180028554 (DiscoverSamplers.c)
- *     PrepareSamplers @ 0x180028BDC (PrepareSamplers.c)
- *     ??A?$span@USamplerPresenceEntry@@$0?0@gsl@@QEBAAEAUSamplerPresenceEntry@@_K@Z @ 0x180028CD8 (--A-$span@USamplerPresenceEntry@@$0-0@gsl@@QEBAAEAUSamplerPresenceEntry@@_K@Z.c)
- *     ?DoesSamplerRequireConstantBufferData@@YA_NAEBUShaderLinkingSamplerDesc@@@Z @ 0x180028CFC (-DoesSamplerRequireConstantBufferData@@YA_NAEBUShaderLinkingSamplerDesc@@@Z.c)
- *     ?AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@@Z @ 0x18002A408 (-AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V-$.c)
- *     ??$_Find@W4ShaderLinkingArgument@@@?$_Hash@V?$_Umap_traits@W4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@V?$_Uhash_compare@W4ShaderLinkingArgument@@U?$hash@W4ShaderLinkingArgument@@@std@@U?$equal_to@W4ShaderLinkingArgument@@@3@@std@@V?$allocator@U?$pair@$$CBW4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@@std@@@5@$0A@@std@@@std@@AEBAPEAU?$_List_node@U?$pair@$$CBW4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@@std@@PEAX@1@AEBW4ShaderLinkingArgument@@_K@Z @ 0x18002A988 (--$_Find@W4ShaderLinkingArgument@@@-$_Hash@V-$_Umap_traits@W4ShaderLinkingArgument@@UNode@CShade.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800D9B98 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E12E0 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
- *     ?GetConversionShader@ColorConversion@@SAJW4DXGI_COLOR_SPACE_TYPE@@_NI0PEAVShader@1@PEA_N@Z @ 0x180205924 (-GetConversionShader@ColorConversion@@SAJW4DXGI_COLOR_SPACE_TYPE@@_NI0PEAVShader@1@PEA_N@Z.c)
+ *     AppendLights @ 0x180019D10 (AppendLights.c)
+ *     ??0CShaderLinkingGraphBuilder@@QEAA@XZ @ 0x1800461E0 (--0CShaderLinkingGraphBuilder@@QEAA@XZ.c)
+ *     GetExpectedVertexShaderDesc @ 0x1800462C8 (GetExpectedVertexShaderDesc.c)
+ *     InitializeShaderLinkingInput @ 0x1800463D8 (InitializeShaderLinkingInput.c)
+ *     UseFragmentsModuleNoRef @ 0x180046770 (UseFragmentsModuleNoRef.c)
+ *     ?Link@CShaderLinkingGraphBuilder@@QEAAJAEBUSignatureParameter@1@PEAPEAUID3D10Blob@@@Z @ 0x1800468C4 (-Link@CShaderLinkingGraphBuilder@@QEAAJAEBUSignatureParameter@1@PEAPEAUID3D10Blob@@@Z.c)
+ *     ??1CShaderLinkingGraphBuilder@@QEAA@XZ @ 0x180046B1C (--1CShaderLinkingGraphBuilder@@QEAA@XZ.c)
+ *     HasWhiteNoise @ 0x180046BB4 (HasWhiteNoise.c)
+ *     LoadShaderBody @ 0x180046CFC (LoadShaderBody.c)
+ *     AppendShaderBody @ 0x180046EEC (AppendShaderBody.c)
+ *     DiscoverSamplers @ 0x18004779C (DiscoverSamplers.c)
+ *     ?DoesSamplerRequireConstantBufferData@@YA_NAEBUShaderLinkingSamplerDesc@@@Z @ 0x180047DEC (-DoesSamplerRequireConstantBufferData@@YA_NAEBUShaderLinkingSamplerDesc@@@Z.c)
+ *     PrepareSamplers @ 0x180047E0C (PrepareSamplers.c)
+ *     ?AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@@Z @ 0x180048DA0 (-AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V-$.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800C3864 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
+ *     ?InternalRelease@?$ComPtr@UID2D1Geometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C915C (-InternalRelease@-$ComPtr@UID2D1Geometry@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?GetConversionShader@ColorConversion@@SAJW4DXGI_COLOR_SPACE_TYPE@@_NI0PEAVShader@1@PEA_N@Z @ 0x1801A7498 (-GetConversionShader@ColorConversion@@SAJW4DXGI_COLOR_SPACE_TYPE@@_NI0PEAVShader@1@PEA_N@Z.c)
  */
 
 __int64 __fastcall LinkShader(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, struct ID3D10Blob **a5)
 {
-  __int64 v7; // rdi
   __int64 v8; // r8
   unsigned __int64 v9; // rcx
-  unsigned int v10; // esi
-  __int64 *v11; // rax
-  __int64 *v12; // rbx
-  __int64 *v13; // r12
-  unsigned int v14; // edi
-  unsigned int v15; // eax
-  unsigned int v16; // eax
-  int v17; // r15d
-  unsigned int v18; // r12d
-  unsigned int v19; // r14d
-  bool v20; // al
-  __int64 v21; // rdx
-  bool v22; // al
-  __int64 *v23; // r12
-  char v24; // r15
-  __int64 *i; // rbx
-  _DWORD *v26; // r12
+  unsigned int v10; // r13d
+  unsigned int v11; // esi
+  __int64 **v12; // rax
+  __int64 v13; // r14
+  __int64 **v14; // r15
+  __int64 **v15; // r12
+  __int64 v16; // rbx
+  __int64 *v17; // r15
+  unsigned int v18; // eax
+  __int64 v19; // r8
+  __int64 v20; // rdx
+  bool v21; // al
+  int v22; // edx
+  __int64 v23; // r9
+  unsigned int v24; // r10d
+  char v25; // r14
+  __int64 **i; // rbx
+  _DWORD *v27; // r12
   __int64 ExpectedVertexShaderDesc; // rax
-  VertexShaderDesc *v28; // r8
-  __int64 v29; // rdx
-  int v30; // eax
-  unsigned int v31; // ecx
-  unsigned int v32; // ebx
-  int v33; // eax
-  int v34; // edx
-  unsigned __int64 v35; // rcx
-  __int64 v36; // r14
-  unsigned __int64 v37; // rax
-  __int64 v38; // rax
-  gsl::details *v39; // rcx
-  int v40; // eax
-  gsl::details *v41; // rcx
-  unsigned int v42; // r15d
-  __int64 v43; // rsi
-  __int64 v44; // r12
-  __int64 v45; // r8
-  int ShaderBody; // eax
-  unsigned int v47; // ecx
-  int v48; // eax
-  __int64 v49; // r8
+  VertexShaderDesc *v29; // r8
+  __int64 v30; // rdx
+  int v31; // eax
+  unsigned int v32; // ecx
+  unsigned int v33; // ebx
+  int v34; // eax
+  int v35; // edx
+  unsigned __int64 v36; // rcx
+  void *v37; // r15
+  unsigned __int64 appended; // rax
+  int v39; // r11d
+  __int64 v40; // r8
+  __int64 *j; // rcx
+  __int64 v42; // rax
+  int v43; // eax
+  unsigned int v44; // ecx
+  unsigned int v45; // r14d
+  unsigned int v46; // esi
+  unsigned int v47; // r9d
+  __int128 *v48; // r14
+  struct ID3D11Module *v49; // r8
   int v50; // eax
   unsigned int v51; // ecx
   int v52; // eax
@@ -81,434 +78,415 @@ __int64 __fastcall LinkShader(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, st
   unsigned int v54; // ecx
   int v55; // eax
   unsigned int v56; // ecx
-  int v57; // eax
-  unsigned int v58; // ecx
-  __int64 v59; // r8
-  int v61; // ecx
-  unsigned int v62; // eax
-  int appended; // eax
-  __int64 v64; // rax
-  int v65; // eax
-  unsigned int v66; // ecx
+  __int64 v57; // r8
+  int v59; // eax
+  unsigned int v60; // ecx
+  int v61; // eax
+  unsigned int v62; // ecx
+  unsigned int v63; // eax
+  __int64 **v64; // r13
+  __int64 v65; // r12
+  struct ID3D11Module *v66; // r8
   int v67; // eax
   unsigned int v68; // ecx
   int v69; // eax
   unsigned int v70; // ecx
+  int v71; // eax
+  int v72; // eax
+  unsigned int v73; // ecx
+  int v74; // eax
+  unsigned int v75; // ecx
+  int v76; // eax
+  unsigned int v77; // ecx
   int ConversionShader; // eax
-  unsigned int v72; // ecx
-  int v73; // eax
-  unsigned int v74; // ecx
-  int v75; // eax
-  unsigned int v76; // ecx
-  bool v77; // zf
-  char *v78; // rax
-  int v79; // eax
-  unsigned int v80; // ecx
-  __int64 v81; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned __int8 v82[8]; // [rsp+48h] [rbp-B8h] BYREF
-  unsigned int v83; // [rsp+50h] [rbp-B0h] BYREF
-  __int16 v84; // [rsp+54h] [rbp-ACh] BYREF
-  __int64 v85; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned int v86; // [rsp+60h] [rbp-A0h]
-  __int64 v87; // [rsp+68h] [rbp-98h] BYREF
-  __int64 *v88; // [rsp+70h] [rbp-90h]
-  _OWORD *v89; // [rsp+78h] [rbp-88h]
-  _QWORD v90[2]; // [rsp+80h] [rbp-80h] BYREF
-  _QWORD v91[2]; // [rsp+90h] [rbp-70h] BYREF
-  unsigned __int64 v92; // [rsp+A0h] [rbp-60h]
-  struct ID3D10Blob **v93; // [rsp+A8h] [rbp-58h]
-  struct ID3D11Linker *ppLinker[2]; // [rsp+B0h] [rbp-50h] BYREF
-  char v95[8]; // [rsp+C0h] [rbp-40h] BYREF
-  __int64 v96; // [rsp+C8h] [rbp-38h]
-  __int128 v97; // [rsp+110h] [rbp+10h]
-  __int128 v98; // [rsp+120h] [rbp+20h]
-  __int128 v99; // [rsp+130h] [rbp+30h]
-  __int128 v100; // [rsp+140h] [rbp+40h]
-  const char *v101; // [rsp+150h] [rbp+50h] BYREF
-  __int128 v102; // [rsp+160h] [rbp+60h]
-  __int128 v103; // [rsp+170h] [rbp+70h]
-  __int128 v104; // [rsp+180h] [rbp+80h]
-  __int128 v105; // [rsp+190h] [rbp+90h] BYREF
-  __int128 v106; // [rsp+1A0h] [rbp+A0h] BYREF
-  __int128 v107; // [rsp+1B0h] [rbp+B0h] BYREF
-  __int128 v108; // [rsp+1C0h] [rbp+C0h] BYREF
-  __int128 v109; // [rsp+1D0h] [rbp+D0h] BYREF
-  __int128 v110; // [rsp+1E0h] [rbp+E0h] BYREF
-  __int128 v111; // [rsp+1F0h] [rbp+F0h] BYREF
-  __int128 v112; // [rsp+200h] [rbp+100h] BYREF
-  _OWORD v113[2]; // [rsp+210h] [rbp+110h] BYREF
-  char v114[16]; // [rsp+230h] [rbp+130h] BYREF
-  char v115[16]; // [rsp+240h] [rbp+140h] BYREF
-  _QWORD v116[2]; // [rsp+250h] [rbp+150h] BYREF
-  char v117[16]; // [rsp+260h] [rbp+160h] BYREF
-  __int64 *v118; // [rsp+270h] [rbp+170h] BYREF
-  _BYTE v119[12]; // [rsp+278h] [rbp+178h] BYREF
-  char v120; // [rsp+284h] [rbp+184h]
-  char v121; // [rsp+285h] [rbp+185h]
+  unsigned int v79; // ecx
+  int v80; // eax
+  unsigned int v81; // ecx
+  int v82; // eax
+  unsigned int v83; // ecx
+  bool v84; // zf
+  __int64 *v85; // rax
+  int v86; // eax
+  unsigned int v87; // ecx
+  struct ColorConversion::Shader *v88; // [rsp+20h] [rbp-E0h]
+  _WORD v89[4]; // [rsp+40h] [rbp-C0h] BYREF
+  struct ID3D11Module *v90; // [rsp+48h] [rbp-B8h] BYREF
+  unsigned int v91; // [rsp+50h] [rbp-B0h]
+  __int64 **v92; // [rsp+58h] [rbp-A8h]
+  unsigned __int64 v93; // [rsp+60h] [rbp-A0h]
+  struct ID3D10Blob **v94; // [rsp+68h] [rbp-98h]
+  int v95[6]; // [rsp+70h] [rbp-90h] BYREF
+  __int64 *v96; // [rsp+88h] [rbp-78h]
+  __int64 v97; // [rsp+98h] [rbp-68h]
+  __int64 v98; // [rsp+B0h] [rbp-50h]
+  _OWORD v99[2]; // [rsp+D0h] [rbp-30h] BYREF
+  _OWORD v100[2]; // [rsp+F0h] [rbp-10h] BYREF
+  _QWORD *v101[2]; // [rsp+110h] [rbp+10h] BYREF
+  __int64 v102[2]; // [rsp+120h] [rbp+20h] BYREF
+  _OWORD *v103; // [rsp+130h] [rbp+30h] BYREF
 
-  v89 = a3;
-  v93 = a5;
-  v116[0] = a4;
-  v7 = a2;
-  v87 = a2;
-  CShaderLinkingGraphBuilder::CShaderLinkingGraphBuilder((CShaderLinkingGraphBuilder *)ppLinker);
-  v85 = 0LL;
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+  v101[0] = (_QWORD *)a1;
+  v103 = a3;
+  v94 = a5;
+  v102[0] = a4;
+  CShaderLinkingGraphBuilder::CShaderLinkingGraphBuilder((CShaderLinkingGraphBuilder *)v95);
+  v90 = 0LL;
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
     McGenEventWrite_EventWriteTransfer(
       &Microsoft_Windows_Dwm_Core_Provider_Context,
       &EVTDESC_SHADER_LINK_Start,
       v8,
       1LL,
-      v114);
+      v100);
   v9 = *a3;
-  v90[1] = v113;
-  v10 = 0;
-  v83 = *(_DWORD *)(a1 + 48);
-  v11 = (__int64 *)a3[1];
-  memset(v113, 0, sizeof(v113));
-  v90[0] = 4LL;
-  v12 = v11;
-  v13 = &v11[v9];
-  v88 = v11;
-  v92 = v9;
-  v118 = v13;
-  if ( v11 != v13 )
+  v10 = *(_DWORD *)(a1 + 48);
+  *((_QWORD *)&v100[0] + 1) = v99;
+  v11 = 0;
+  v12 = (__int64 **)a3[1];
+  v13 = 0LL;
+  *(_QWORD *)&v100[0] = 4LL;
+  v14 = v12;
+  memset(v99, 0, sizeof(v99));
+  v92 = v12;
+  v15 = &v12[v9];
+  v93 = v9;
+  v16 = v9 & 0x1FFFFFFFFFFFFFFFLL;
+  if ( v12 > v15 )
+    v16 = 0LL;
+  if ( v16 )
   {
-    v14 = v83;
     do
     {
-      v14 += *(_DWORD *)(*v12 + 48);
-      v15 = DiscoverSamplers((_QWORD *)*v12, (__int64)v90);
-      if ( v10 <= v15 )
-        v10 = v15;
-      ++v12;
+      v10 += *((_DWORD *)*v14 + 12);
+      v63 = DiscoverSamplers(*v14++, (unsigned __int64 *)v100);
+      if ( v11 <= v63 )
+        v11 = v63;
+      ++v13;
     }
-    while ( v12 != v13 );
-    v83 = v14;
-    v7 = v87;
+    while ( v13 != v16 );
   }
-  v16 = DiscoverSamplers((_QWORD *)a1, (__int64)v90);
-  if ( v10 <= v16 )
-    v10 = v16;
-  if ( *(_BYTE *)(v7 + 156) && v10 <= 2 )
-    v10 = 2;
-  v17 = 0;
-  v18 = v10;
-  v19 = 0;
+  v17 = v101[0];
+  v18 = DiscoverSamplers(v101[0], (unsigned __int64 *)v100);
+  if ( v11 <= v18 )
+    v11 = v18;
+  if ( *(_BYTE *)(a2 + 156) && v11 <= 2 )
+    v11 = 2;
+  v19 = 0LL;
+  v91 = v11;
+  v20 = 0LL;
   do
   {
-    gsl::span<SamplerPresenceEntry,-1>::operator[](v90, v19);
-    v20 = DoesSamplerRequireConstantBufferData((const struct ShaderLinkingSamplerDesc *)(v7 + 32LL * v19++));
-    *(_BYTE *)(v21 + 2) = v20;
-    if ( v20 )
+    if ( (unsigned int)v20 >= 4uLL )
     {
-      v61 = v17;
-      v62 = v19;
-      ++v17;
-      *(_DWORD *)(v21 + 4) = v61;
-      if ( v18 > v19 )
-        v62 = v18;
-      v18 = v62;
+      ((void (__fastcall *)(_QWORD, __int64, __int64))`gsl::details::get_terminate_handler'::`2'::handler)(
+        (unsigned int)v20,
+        v20,
+        v19);
+      __debugbreak();
     }
-  }
-  while ( v19 < 4 );
-  v86 = v18;
-  v22 = HasWhiteNoise(a1);
-  v23 = v118;
-  v24 = v22;
-  if ( !v22 )
-  {
-    for ( i = v88; i != v23; ++i )
+    v21 = DoesSamplerRequireConstantBufferData((const struct ShaderLinkingSamplerDesc *)(a2 + 32LL * (unsigned int)v20));
+    *((_BYTE *)v99 + 8 * v23 + 2) = v21;
+    if ( v21 )
     {
-      if ( HasWhiteNoise(*i) )
+      v61 = v19;
+      v62 = v22 + 1;
+      v19 = (unsigned int)(v19 + 1);
+      *((_DWORD *)v99 + 2 * v23 + 1) = v61;
+      if ( v24 > v22 + 1 )
+        v62 = v24;
+      v91 = v62;
+    }
+    v20 = (unsigned int)(v22 + 1);
+  }
+  while ( (unsigned int)v20 < 4 );
+  v25 = HasWhiteNoise(v17);
+  if ( !v25 )
+  {
+    for ( i = v92; i != v15; ++i )
+    {
+      if ( (unsigned __int8)HasWhiteNoise(*i) )
       {
-        v24 = 1;
+        v25 = 1;
         break;
       }
     }
   }
-  v26 = v89;
-  v105 = *v89;
-  ExpectedVertexShaderDesc = GetExpectedVertexShaderDesc(a1, &v105, v7, v10, v24);
-  v28 = (VertexShaderDesc *)v116[0];
-  *(_QWORD *)v116[0] = ExpectedVertexShaderDesc;
-  LOBYTE(v29) = *(_BYTE *)(a1 + 32);
-  v30 = InitializeShaderLinkingInput(ppLinker, v29, v28);
-  v32 = v30;
-  if ( v30 < 0 )
+  v27 = v103;
+  v100[0] = *v103;
+  ExpectedVertexShaderDesc = GetExpectedVertexShaderDesc(v17, v100, a2, v11, v25);
+  v29 = (VertexShaderDesc *)v102[0];
+  *(_QWORD *)v102[0] = ExpectedVertexShaderDesc;
+  LOBYTE(v30) = *((_BYTE *)v17 + 32);
+  v31 = InitializeShaderLinkingInput((struct ID3D11Linker **)v95, v30, v29);
+  v33 = v31;
+  if ( v31 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v31, 0LL, 0, v30, 0x50Fu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v32, 0LL, 0, v31, 0x49Du, 0LL);
   }
   else
   {
-    v33 = UseFragmentsModuleNoRef((__int64)ppLinker, v83, *(_BYTE *)(v7 + 156), &v87);
-    v32 = v33;
-    if ( v33 < 0 )
+    v34 = UseFragmentsModuleNoRef((__int64)v95, v10, *(_BYTE *)(a2 + 156), v102);
+    v33 = v34;
+    if ( v34 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v35, 0LL, 0, v33, 0x510u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v36, 0LL, 0, v34, 0x49Eu, 0LL);
     }
     else
     {
-      v36 = v87;
-      if ( v10 <= 2 && !v24 )
-        goto LABEL_22;
-      *(_QWORD *)&v97 = 3LL;
-      WORD2(v118) = 258;
-      LODWORD(v118) = 16843008;
-      *((_QWORD *)&v97 + 1) = &v118;
-      v106 = v97;
-      LOWORD(v34) = v24 != 0 ? 12 : 259;
-      appended = CShaderLinkingGraphBuilder::AppendNode(
-                   (unsigned int)ppLinker,
-                   v34,
-                   (unsigned int)word_18033C020,
-                   v87,
-                   (__int64)"DecodeTexcoord3",
-                   (__int64)&v106);
-      v32 = appended;
-      if ( appended < 0 )
+      v37 = (void *)v102[0];
+      if ( (v11 > 2 || v25)
+        && (*(_QWORD *)&v100[0] = 3LL,
+            LODWORD(v103) = 16843008,
+            WORD2(v103) = 258,
+            *((_QWORD *)&v100[0] + 1) = &v103,
+            LOWORD(v35) = v25 != 0 ? 12 : 259,
+            v71 = CShaderLinkingGraphBuilder::AppendNode(
+                    (unsigned int)v95,
+                    v35,
+                    (unsigned int)&word_1802CE406,
+                    v102[0],
+                    (__int64)"DecodeTexcoord3",
+                    (__int64)v100),
+            v33 = v71,
+            v71 < 0) )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v35, 0LL, 0, appended, 0x51Cu, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v36, 0LL, 0, v71, 0x4AAu, 0LL);
       }
       else
       {
-LABEL_22:
-        *(_WORD *)v82 = 1;
-        v37 = std::_Fnv1a_append_bytes(v35, v82, 2uLL);
-        v38 = std::_Hash<std::_Umap_traits<enum ShaderLinkingArgument,CShaderLinkingGraphBuilder::Node,std::_Uhash_compare<enum ShaderLinkingArgument,std::hash<enum ShaderLinkingArgument>,std::equal_to<enum ShaderLinkingArgument>>,std::allocator<std::pair<enum ShaderLinkingArgument const,CShaderLinkingGraphBuilder::Node>>,0>>::_Find<enum ShaderLinkingArgument>(
-                v95,
-                v82,
-                v37);
-        if ( v38 != v96 && *(_DWORD *)(v7 + 144) > 1u )
+        v89[0] = 1;
+        appended = std::_Fnv1a_append_bytes(v36, (const unsigned __int8 *const)v89, 2uLL);
+        v40 = 2 * (v98 & appended);
+        for ( j = *(__int64 **)(v97 + 16 * (v98 & appended)); ; j = (__int64 *)*j )
         {
-          *(_QWORD *)&v98 = 1LL;
-          *((_QWORD *)&v98 + 1) = &v84;
-          v64 = *(_QWORD *)(v7 + 136);
-          v107 = v98;
-          v84 = 1;
-          v65 = CShaderLinkingGraphBuilder::AppendNode(
-                  (unsigned int)ppLinker,
+          v42 = *(__int64 **)(v97 + 8 * v40) == v96 ? (__int64)v96 : **(_QWORD **)(v97 + 8 * v40 + 8);
+          if ( j == (__int64 *)v42 )
+            break;
+          if ( *((_WORD *)j + 8) == 1 )
+            goto LABEL_25;
+        }
+        j = v96;
+LABEL_25:
+        if ( j != v96 && *(_DWORD *)(a2 + 144) > 1u )
+        {
+          *(_QWORD *)&v100[0] = 1LL;
+          *((_QWORD *)&v100[0] + 1) = v89;
+          v88 = *(struct ColorConversion::Shader **)(a2 + 136);
+          v89[0] = 1;
+          v72 = CShaderLinkingGraphBuilder::AppendNode(
+                  (unsigned int)v95,
                   1,
-                  (unsigned int)word_18033C020,
-                  v36,
-                  v64,
-                  (__int64)&v107);
-          v32 = v65;
-          if ( v65 < 0 )
+                  v39,
+                  (_DWORD)v37,
+                  (__int64)v88,
+                  (__int64)v100);
+          v33 = v72;
+          if ( v72 < 0 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v66, 0LL, 0, v65, 0x528u, 0LL);
-            goto LABEL_43;
+            MilInstrumentationCheckHR_MaybeFailFast(v73, 0LL, 0, v72, 0x4B6u, 0LL);
+            goto LABEL_40;
           }
         }
-        LOBYTE(v81) = 0;
-        gsl::details::extent_type<-1>::extent_type<-1>((gsl::details *)v91, v86);
-        v91[1] = v113;
-        if ( v91[0] == -1LL )
+        *(_QWORD *)&v100[0] = v91;
+        LOBYTE(v89[0]) = 0;
+        *((_QWORD *)&v100[0] + 1) = v99;
+        v43 = PrepareSamplers((int)v95, a2);
+        v33 = v43;
+        if ( v43 < 0 )
         {
-          gsl::details::terminate(v39);
-          __debugbreak();
-        }
-        v40 = PrepareSamplers((int)ppLinker, v7);
-        v32 = v40;
-        if ( v40 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v41, 0LL, 0, v40, 0x535u, 0LL);
-          goto LABEL_43;
-        }
-        v42 = 0;
-        v43 = 0LL;
-        if ( *v26 )
-        {
-          while ( 1 )
-          {
-            if ( (unsigned int)v43 >= v92 )
-            {
-              gsl::details::terminate(v41);
-              JUMPOUT(0x180028BD5LL);
-            }
-            _mm_lfence();
-            v44 = v88[v43];
-            v120 = v43 + 48;
-            qmemcpy(v119, "BodyFragment", sizeof(v119));
-            v121 = 0;
-            Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v85);
-            ShaderBody = LoadShaderBody((__int64)ppLinker, v44, v45, v42, (__int64)v119, (struct ID3D11Module **)&v85);
-            v32 = ShaderBody;
-            if ( ShaderBody < 0 )
-              break;
-            v36 = v87;
-            v48 = AppendShaderBody(
-                    ppLinker,
-                    (unsigned __int16)v43 | 0x500u,
-                    (__int128 *)v44,
-                    v7,
-                    (__int64)v119,
-                    v85,
-                    v87,
-                    &v81);
-            v32 = v48;
-            if ( v48 < 0 )
-            {
-              MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v41, 0LL, 0, v48, 0x541u, 0LL);
-              goto LABEL_43;
-            }
-            v42 += *(_DWORD *)(v44 + 48);
-            v43 = (unsigned int)(v43 + 1);
-            if ( (unsigned int)v43 >= *(_DWORD *)v89 )
-              goto LABEL_31;
-          }
-          MilInstrumentationCheckHR_MaybeFailFast(v47, 0LL, 0, ShaderBody, 0x540u, 0LL);
+          MilInstrumentationCheckHR_MaybeFailFast(v44, 0LL, 0, v43, 0x4C3u, 0LL);
         }
         else
         {
-LABEL_31:
-          Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v85);
-          v50 = LoadShaderBody((__int64)ppLinker, a1, v49, v42, (__int64)word_18033C020, (struct ID3D11Module **)&v85);
-          v32 = v50;
-          if ( v50 < 0 )
+          v45 = 0;
+          v46 = 0;
+          if ( *v27 )
           {
-            MilInstrumentationCheckHR_MaybeFailFast(v51, 0LL, 0, v50, 0x547u, 0LL);
+            v64 = v92;
+            while ( 1 )
+            {
+              if ( v46 >= v93 )
+              {
+                ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
+                __debugbreak();
+              }
+              v65 = (__int64)v64[v46];
+              WORD6(v100[0]) = (unsigned __int8)(v46 + 48);
+              qmemcpy(v100, "BodyFragment", 12);
+              Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease(&v90);
+              v67 = LoadShaderBody((__int64)v95, v65, v66, v45, (__int64)v100, &v90);
+              v33 = v67;
+              if ( v67 < 0 )
+                break;
+              v69 = AppendShaderBody(
+                      v95,
+                      (unsigned __int16)v46 | 0x500u,
+                      (__int128 *)v65,
+                      a2,
+                      (__int64)v100,
+                      (__int64)v90,
+                      v37,
+                      v89);
+              v33 = v69;
+              if ( v69 < 0 )
+              {
+                MilInstrumentationCheckHR_MaybeFailFast(v70, 0LL, 0, v69, 0x4CFu, 0LL);
+                goto LABEL_40;
+              }
+              v45 += *(_DWORD *)(v65 + 48);
+              if ( ++v46 >= (unsigned int)v93 )
+                goto LABEL_29;
+            }
+            MilInstrumentationCheckHR_MaybeFailFast(v68, 0LL, 0, v67, 0x4CEu, 0LL);
           }
           else
           {
-            v52 = AppendShaderBody(ppLinker, 0xAu, (__int128 *)a1, v7, (__int64)word_18033C020, v85, v36, &v81);
-            v32 = v52;
-            if ( v52 < 0 )
+LABEL_29:
+            Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease(&v90);
+            v47 = v45;
+            v48 = (__int128 *)v101[0];
+            v50 = LoadShaderBody((__int64)v95, (__int64)v101[0], v49, v47, (__int64)&word_1802CE406, &v90);
+            v33 = v50;
+            if ( v50 < 0 )
             {
-              MilInstrumentationCheckHR_MaybeFailFast(v54, 0LL, 0, v52, 0x548u, 0LL);
+              MilInstrumentationCheckHR_MaybeFailFast(v51, 0LL, 0, v50, 0x4D5u, 0LL);
             }
             else
             {
-              if ( *(_BYTE *)(v7 + 153) )
+              v52 = AppendShaderBody(v95, 10, v48, a2, (__int64)&word_1802CE406, (__int64)v90, v37, v89);
+              v33 = v52;
+              if ( v52 < 0 )
               {
-                *(_QWORD *)&v104 = 5LL;
-                *((_QWORD *)&v104 + 1) = &unk_1803573F0;
-                v108 = v104;
-                v67 = CShaderLinkingGraphBuilder::AppendNode(
-                        (unsigned int)ppLinker,
-                        10,
-                        (unsigned int)word_18033C020,
-                        v36,
-                        (__int64)"ApplyPSClipPlanes",
-                        (__int64)&v108);
-                v32 = v67;
-                if ( v67 < 0 )
-                {
-                  MilInstrumentationCheckHR_MaybeFailFast(v68, 0LL, 0, v67, 0x559u, 0LL);
-                  goto LABEL_43;
-                }
-              }
-              if ( *(_BYTE *)(v7 + 155) )
-              {
-                *(_QWORD *)&v99 = 2LL;
-                *((_QWORD *)&v99 + 1) = "\n";
-                v109 = v99;
-                v55 = CShaderLinkingGraphBuilder::AppendNode(
-                        (unsigned int)ppLinker,
-                        10,
-                        (unsigned int)word_18033C020,
-                        v36,
-                        (__int64)"AlphaMultiply",
-                        (__int64)&v109);
-                v32 = v55;
-                if ( v55 < 0 )
-                {
-                  MilInstrumentationCheckHR_MaybeFailFast(v56, 0LL, 0, v55, 0x567u, 0LL);
-                  goto LABEL_43;
-                }
-              }
-              if ( !(_BYTE)v81 && *(_DWORD *)(v7 + 128) != -1 )
-              {
-                v69 = AppendLights(0xAu, ppLinker, (_DWORD *)(v7 + 128), -1);
-                v32 = v69;
-                if ( v69 < 0 )
-                {
-                  MilInstrumentationCheckHR_MaybeFailFast(v70, 0LL, 0, v69, 0x56Eu, 0LL);
-                  goto LABEL_43;
-                }
-              }
-              if ( *(_BYTE *)(v7 + 158) && *(_BYTE *)(v7 + 157) )
-              {
-                v101 = "NoOp";
-                ConversionShader = ColorConversion::GetConversionShader(
-                                     DXGI_COLOR_SPACE_RGB_FULL_G22_NONE_P709,
-                                     0,
-                                     8u,
-                                     DXGI_COLOR_SPACE_RGB_FULL_G10_NONE_P709,
-                                     (struct ColorConversion::Shader *)&v101,
-                                     0LL);
-                v32 = ConversionShader;
-                if ( ConversionShader < 0 )
-                {
-                  MilInstrumentationCheckHR_MaybeFailFast(v72, 0LL, 0, ConversionShader, 0x57Bu, 0LL);
-                  goto LABEL_43;
-                }
-                *(_QWORD *)&v100 = 1LL;
-                *((_QWORD *)&v100 + 1) = "\n";
-                v110 = v100;
-                v73 = CShaderLinkingGraphBuilder::AppendNode(
-                        (unsigned int)ppLinker,
-                        10,
-                        (unsigned int)word_18033C020,
-                        v36,
-                        (__int64)v101,
-                        (__int64)&v110);
-                v32 = v73;
-                if ( v73 < 0 )
-                {
-                  MilInstrumentationCheckHR_MaybeFailFast(v74, 0LL, 0, v73, 0x57Cu, 0LL);
-                  goto LABEL_43;
-                }
-              }
-              if ( *(_BYTE *)(v7 + 159)
-                && (*(_QWORD *)&v102 = 1LL,
-                    *((_QWORD *)&v102 + 1) = "\n",
-                    v111 = v102,
-                    v75 = CShaderLinkingGraphBuilder::AppendNode(
-                            (unsigned int)ppLinker,
-                            10,
-                            (unsigned int)word_18033C020,
-                            v36,
-                            (__int64)"BoostSDRLuminance",
-                            (__int64)&v111),
-                    v32 = v75,
-                    v75 < 0) )
-              {
-                MilInstrumentationCheckHR_MaybeFailFast(v76, 0LL, 0, v75, 0x583u, 0LL);
+                MilInstrumentationCheckHR_MaybeFailFast(v54, 0LL, 0, v52, 0x4D6u, 0LL);
               }
               else
               {
-                if ( !*(_BYTE *)(v7 + 152) )
-                  goto LABEL_41;
-                v77 = *(_BYTE *)(v7 + 158) == 0;
-                *((_QWORD *)&v103 + 1) = &v83;
-                v78 = (char *)v116;
-                *(_QWORD *)&v103 = 1LL;
-                if ( !v77 )
-                  v78 = v117;
-                strcpy((char *)v116, "MinBlend");
-                strcpy(v117, "MinBlend_HDR");
-                LOWORD(v83) = 10;
-                v112 = v103;
-                v79 = CShaderLinkingGraphBuilder::AppendNode(
-                        (unsigned int)ppLinker,
-                        10,
-                        (unsigned int)word_18033C020,
-                        v36,
-                        (__int64)v78,
-                        (__int64)&v112);
-                v32 = v79;
-                if ( v79 < 0 )
+                if ( *(_BYTE *)(a2 + 153) )
                 {
-                  MilInstrumentationCheckHR_MaybeFailFast(v80, 0LL, 0, v79, 0x58Du, 0LL);
+                  *(_QWORD *)&v100[0] = 5LL;
+                  *((_QWORD *)&v100[0] + 1) = &unk_1802DEFA0;
+                  v74 = CShaderLinkingGraphBuilder::AppendNode(
+                          (unsigned int)v95,
+                          10,
+                          (unsigned int)&word_1802CE406,
+                          (_DWORD)v37,
+                          (__int64)"ApplyPSClipPlanes",
+                          (__int64)v100);
+                  v33 = v74;
+                  if ( v74 < 0 )
+                  {
+                    MilInstrumentationCheckHR_MaybeFailFast(v75, 0LL, 0, v74, 0x4E7u, 0LL);
+                    goto LABEL_40;
+                  }
+                }
+                if ( *(_BYTE *)(a2 + 155) )
+                {
+                  *(_QWORD *)&v100[0] = 2LL;
+                  *((_QWORD *)&v100[0] + 1) = &unk_1802ACF60;
+                  v59 = CShaderLinkingGraphBuilder::AppendNode(
+                          (unsigned int)v95,
+                          10,
+                          (unsigned int)&word_1802CE406,
+                          (_DWORD)v37,
+                          (__int64)"AlphaMultiply",
+                          (__int64)v100);
+                  v33 = v59;
+                  if ( v59 < 0 )
+                  {
+                    MilInstrumentationCheckHR_MaybeFailFast(v60, 0LL, 0, v59, 0x4F5u, 0LL);
+                    goto LABEL_40;
+                  }
+                }
+                if ( !LOBYTE(v89[0]) && *(_DWORD *)(a2 + 128) != -1 )
+                {
+                  v76 = AppendLights(0xAu, v95, (_DWORD *)(a2 + 128), -1);
+                  v33 = v76;
+                  if ( v76 < 0 )
+                  {
+                    MilInstrumentationCheckHR_MaybeFailFast(v77, 0LL, 0, v76, 0x4FCu, 0LL);
+                    goto LABEL_40;
+                  }
+                }
+                if ( *(_BYTE *)(a2 + 158) && *(_BYTE *)(a2 + 157) )
+                {
+                  v102[0] = (__int64)"NoOp";
+                  ConversionShader = ColorConversion::GetConversionShader(
+                                       DXGI_COLOR_SPACE_RGB_FULL_G22_NONE_P709,
+                                       0,
+                                       8u,
+                                       DXGI_COLOR_SPACE_RGB_FULL_G10_NONE_P709,
+                                       (struct ColorConversion::Shader *)v102,
+                                       0LL);
+                  v33 = ConversionShader;
+                  if ( ConversionShader < 0 )
+                  {
+                    MilInstrumentationCheckHR_MaybeFailFast(v79, 0LL, 0, ConversionShader, 0x509u, 0LL);
+                    goto LABEL_40;
+                  }
+                  *(_QWORD *)&v100[0] = 1LL;
+                  *((_QWORD *)&v100[0] + 1) = "\n";
+                  v80 = CShaderLinkingGraphBuilder::AppendNode(
+                          (unsigned int)v95,
+                          10,
+                          (unsigned int)&word_1802CE406,
+                          (_DWORD)v37,
+                          v102[0],
+                          (__int64)v100);
+                  v33 = v80;
+                  if ( v80 < 0 )
+                  {
+                    MilInstrumentationCheckHR_MaybeFailFast(v81, 0LL, 0, v80, 0x50Au, 0LL);
+                    goto LABEL_40;
+                  }
+                }
+                if ( *(_BYTE *)(a2 + 159)
+                  && (*(_QWORD *)&v100[0] = 1LL,
+                      *((_QWORD *)&v100[0] + 1) = "\n",
+                      v82 = CShaderLinkingGraphBuilder::AppendNode(
+                              (unsigned int)v95,
+                              10,
+                              (unsigned int)&word_1802CE406,
+                              (_DWORD)v37,
+                              (__int64)"BoostSDRLuminance",
+                              (__int64)v100),
+                      v33 = v82,
+                      v82 < 0) )
+                {
+                  MilInstrumentationCheckHR_MaybeFailFast(v83, 0LL, 0, v82, 0x511u, 0LL);
                 }
                 else
                 {
-LABEL_41:
-                  v57 = CShaderLinkingGraphBuilder::Link((CShaderLinkingGraphBuilder *)ppLinker, v53, v93);
-                  v32 = v57;
-                  if ( v57 < 0 )
-                    MilInstrumentationCheckHR_MaybeFailFast(v58, 0LL, 0, v57, 0x590u, 0LL);
+                  if ( !*(_BYTE *)(a2 + 152) )
+                    goto LABEL_38;
+                  v84 = *(_BYTE *)(a2 + 158) == 0;
+                  *((_QWORD *)&v100[0] + 1) = v89;
+                  *(_QWORD *)&v100[0] = 1LL;
+                  v85 = v102;
+                  if ( !v84 )
+                    v85 = (__int64 *)v101;
+                  strcpy((char *)v102, "MinBlend");
+                  strcpy((char *)v101, "MinBlend_HDR");
+                  strcpy((char *)v89, "\n");
+                  v86 = CShaderLinkingGraphBuilder::AppendNode(
+                          (unsigned int)v95,
+                          10,
+                          (unsigned int)&word_1802CE406,
+                          (_DWORD)v37,
+                          (__int64)v85,
+                          (__int64)v100);
+                  v33 = v86;
+                  if ( v86 < 0 )
+                  {
+                    MilInstrumentationCheckHR_MaybeFailFast(v87, 0LL, 0, v86, 0x51Bu, 0LL);
+                  }
+                  else
+                  {
+LABEL_38:
+                    v55 = CShaderLinkingGraphBuilder::Link((CShaderLinkingGraphBuilder *)v95, v53, v94);
+                    v33 = v55;
+                    if ( v55 < 0 )
+                      MilInstrumentationCheckHR_MaybeFailFast(v56, 0LL, 0, v55, 0x51Eu, 0LL);
+                  }
                 }
               }
             }
@@ -517,15 +495,15 @@ LABEL_41:
       }
     }
   }
-LABEL_43:
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+LABEL_40:
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
     McGenEventWrite_EventWriteTransfer(
       &Microsoft_Windows_Dwm_Core_Provider_Context,
       &EVTDESC_SHADER_LINK_Stop,
-      v59,
+      v57,
       1LL,
-      v115);
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v85);
-  CShaderLinkingGraphBuilder::~CShaderLinkingGraphBuilder((CShaderLinkingGraphBuilder *)ppLinker);
-  return v32;
+      v100);
+  Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease(&v90);
+  CShaderLinkingGraphBuilder::~CShaderLinkingGraphBuilder((CShaderLinkingGraphBuilder *)v95);
+  return v33;
 }

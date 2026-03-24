@@ -1,91 +1,77 @@
 /*
- * XREFs of vInitFontSubTable @ 0x1C03B4F40
+ * XREFs of vInitFontSubTable @ 0x1C0393D50
  * Callers:
  *     <none>
  * Callees:
- *     PREALLOCMEM2 @ 0x1C00B7D9C (PREALLOCMEM2.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     PREALLOCMEM2 @ 0x1C01324E0 (PREALLOCMEM2.c)
  */
 
-char *__fastcall vInitFontSubTable(__int64 a1)
+void *vInitFontSubTable()
 {
-  __int64 v1; // rbx
-  __int64 v2; // rdi
-  void *v3; // rcx
-  char *result; // rax
-  __int64 v5; // rcx
-  __int64 v6; // rcx
-  __int64 v7; // rcx
-  __int64 i; // rcx
-  __int64 v9; // rcx
+  void *result; // rax
+  _OWORD *v1; // rcx
+  _OWORD *v2; // rcx
+  char *v3; // rcx
   struct _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+30h] [rbp-19h] BYREF
-  __int64 v11; // [rsp+68h] [rbp+1Fh]
-  int v12; // [rsp+70h] [rbp+27h]
-  __int64 v13; // [rsp+78h] [rbp+2Fh]
+  __int64 v5; // [rsp+68h] [rbp+1Fh]
+  int v6; // [rsp+70h] [rbp+27h]
+  __int64 v7; // [rsp+78h] [rbp+2Fh]
   unsigned int Context; // [rsp+B0h] [rbp+67h] BYREF
 
-  v1 = 0LL;
+  gcfsTable = 1;
   Context = 0;
   QueryTable.QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)QueryRegistryFontSubstituteListRoutine;
   QueryTable.Flags = 0;
   memset(&QueryTable.Name, 0, 20);
   QueryTable.DefaultData = 0LL;
   QueryTable.DefaultLength = 0;
-  v11 = 0LL;
-  v12 = 0;
-  v13 = 0LL;
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  *(_QWORD *)(v2 + 19472) = 0LL;
-  *(_DWORD *)(v2 + 19488) = 1;
-  *(_DWORD *)(v2 + 19496) = 0;
+  v5 = 0LL;
+  v6 = 0;
+  v7 = 0LL;
+  gpfsTable = 0LL;
+  gcfsCharSetTable = 0;
   RtlQueryRegistryValues(3u, L"FontSubstitutes", &QueryTable, &Context, 0LL);
-  v3 = *(void **)(v2 + 19472);
-  result = (char *)*(unsigned int *)(v2 + 19488);
-  if ( v3 )
+  if ( gpfsTable )
   {
-    if ( Context <= (unsigned int)result )
+    result = (void *)gcfsTable;
+    if ( Context <= gcfsTable )
       goto LABEL_5;
-    result = PREALLOCMEM2(v3, 196 * (int)result, (unsigned int)(196 * (_DWORD)result), 1651729991LL);
+    result = PREALLOCMEM2(gpfsTable, 196 * gcfsTable, 196 * gcfsTable, 0x62736647u);
     if ( !result )
       goto LABEL_5;
   }
   else
   {
-    v9 = (unsigned int)(196 * (_DWORD)result);
-    if ( (_DWORD)v9 )
-      result = (char *)Win32AllocPoolZInit(v9, 1651729991LL);
-    else
-      result = 0LL;
+    result = PALLOCMEM2(196 * gcfsTable, 1651729991LL, 1);
   }
-  *(_QWORD *)(v2 + 19472) = result;
+  gpfsTable = result;
 LABEL_5:
-  v5 = *(_QWORD *)(v2 + 19472);
-  if ( v5 )
+  v1 = gpfsTable;
+  if ( gpfsTable )
   {
-    *(_OWORD *)v5 = xmmword_1C0317300;
-    *(_OWORD *)(v5 + 16) = xmmword_1C0317310;
-    *(_DWORD *)(v5 + 32) = 6684777;
-    *(_WORD *)(v5 + 36) = 0;
-    v6 = *(_QWORD *)(v2 + 19472);
-    *(_OWORD *)(v6 + 64) = xmmword_1C0317328;
-    *(_OWORD *)(v6 + 80) = xmmword_1C0317338;
-    *(_DWORD *)(v6 + 96) = 4587593;
-    *(_WORD *)(v6 + 100) = 0;
-    v7 = *(_QWORD *)(v2 + 19472);
-    *(_OWORD *)(v7 + 130) = xmmword_1C0317350;
-    *(_QWORD *)(v7 + 146) = 0x49005200450053LL;
-    *(_DWORD *)(v7 + 154) = 70;
-    for ( i = 0LL; i < 2; ++i )
-      *(_BYTE *)(*(_QWORD *)(v2 + 19472) + i + 128) = 1;
-    do
-    {
-      result = *(char **)(v2 + 19472);
-      result[v1++ + 194] = 1;
-    }
-    while ( v1 < 2 );
+    *(_OWORD *)gpfsTable = xmmword_1C02EB2A8;
+    v1[1] = xmmword_1C02EB2B8;
+    *((_DWORD *)v1 + 8) = 6684777;
+    *((_WORD *)v1 + 18) = 0;
+    v2 = gpfsTable;
+    *((_OWORD *)gpfsTable + 4) = xmmword_1C02EB280;
+    v2[5] = xmmword_1C02EB290;
+    *((_DWORD *)v2 + 24) = 4587593;
+    *((_WORD *)v2 + 50) = 0;
+    v3 = (char *)gpfsTable;
+    *(_OWORD *)((char *)gpfsTable + 130) = xmmword_1C02EB2D0;
+    *(_QWORD *)(v3 + 146) = 0x49005200450053LL;
+    *(_DWORD *)(v3 + 154) = 70;
+    *((_BYTE *)gpfsTable + 128) = 1;
+    *((_BYTE *)gpfsTable + 129) = 1;
+    *((_BYTE *)gpfsTable + 194) = 1;
+    result = gpfsTable;
+    *((_BYTE *)gpfsTable + 195) = 1;
   }
   else
   {
-    *(_DWORD *)(v2 + 19488) = 0;
+    gcfsTable = 0;
   }
   return result;
 }

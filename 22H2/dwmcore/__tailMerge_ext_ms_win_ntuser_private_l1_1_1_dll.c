@@ -1,10 +1,10 @@
 /*
- * XREFs of __tailMerge_ext_ms_win_ntuser_private_l1_1_1_dll @ 0x180110968
+ * XREFs of __tailMerge_ext_ms_win_ntuser_private_l1_1_1_dll @ 0x1800E85F0
  * Callers:
- *     __imp_load_DwmGetRemoteSessionOcclusionEvent @ 0x18011095C (__imp_load_DwmGetRemoteSessionOcclusionEvent.c)
- *     __imp_load_DwmGetRemoteSessionOcclusionState @ 0x1801109E7 (__imp_load_DwmGetRemoteSessionOcclusionState.c)
+ *     __imp_load_DwmGetRemoteSessionOcclusionEvent @ 0x1800E85E4 (__imp_load_DwmGetRemoteSessionOcclusionEvent.c)
+ *     __imp_load_DwmGetRemoteSessionOcclusionState @ 0x1800E866F (__imp_load_DwmGetRemoteSessionOcclusionState.c)
  * Callees:
- *     __delayLoadHelper2 @ 0x180101AF0 (__delayLoadHelper2.c)
+ *     __delayLoadHelper2 @ 0x1800DE820 (__delayLoadHelper2.c)
  */
 
 __int64 __fastcall _tailMerge_ext_ms_win_ntuser_private_l1_1_1_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

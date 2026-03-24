@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwRecoverEnlistment @ 0x1401BADB0
+ * XREFs of ZwRecoverEnlistment @ 0x1401BADD0
  * Callers:
- *     CmpRecoverEnlistment @ 0x1407F8924 (CmpRecoverEnlistment.c)
+ *     CmpRecoverEnlistment @ 0x1407F8904 (CmpRecoverEnlistment.c)
  * Callees:
  *     <none>
  */

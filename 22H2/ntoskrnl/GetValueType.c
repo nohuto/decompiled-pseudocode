@@ -1,9 +1,9 @@
 /*
- * XREFs of GetValueType @ 0x1409D4798
+ * XREFs of GetValueType @ 0x140927D80
  * Callers:
- *     LocalGetRelativeAttributeForString @ 0x1409D50B4 (LocalGetRelativeAttributeForString.c)
+ *     LocalGetRelativeAttributeForString @ 0x140928630 (LocalGetRelativeAttributeForString.c)
  * Callees:
- *     _wcsnicmp @ 0x1403D9530 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x1403D1B10 (_wcsnicmp.c)
  */
 
 __int64 __fastcall GetValueType(wchar_t *Str1, _QWORD *a2, __int16 *a3)

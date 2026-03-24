@@ -1,12 +1,12 @@
 /*
- * XREFs of DeviceSlot_D0EntryCleanupState @ 0x1C000FF38
+ * XREFs of DeviceSlot_D0EntryCleanupState @ 0x1C000B42C
  * Callers:
- *     Controller_WdfEvtDeviceD0Entry @ 0x1C0014500 (Controller_WdfEvtDeviceD0Entry.c)
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1C0014CE0 (Controller_WdfEvtDeviceD0Entry.c)
  * Callees:
- *     DeviceSlot_DisableAllDeviceSlots @ 0x1C000FD28 (DeviceSlot_DisableAllDeviceSlots.c)
- *     WPP_RECORDER_SF_qd @ 0x1C0014244 (WPP_RECORDER_SF_qd.c)
- *     memset @ 0x1C0020600 (memset.c)
- *     XilDeviceSlot_InitializeSecureScratchpadBuffers @ 0x1C0038294 (XilDeviceSlot_InitializeSecureScratchpadBuffers.c)
+ *     DeviceSlot_DisableAllDeviceSlots @ 0x1C000A95C (DeviceSlot_DisableAllDeviceSlots.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C0014518 (WPP_RECORDER_SF_qd.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     XilDeviceSlot_InitializeSecureScratchpadBuffers @ 0x1C00367D4 (XilDeviceSlot_InitializeSecureScratchpadBuffers.c)
  */
 
 __int64 __fastcall DeviceSlot_D0EntryCleanupState(__int64 a1, int a2)

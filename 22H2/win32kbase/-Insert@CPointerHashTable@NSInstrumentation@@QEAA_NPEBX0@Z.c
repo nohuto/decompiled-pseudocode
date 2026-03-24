@@ -1,14 +1,12 @@
 /*
- * XREFs of ?Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z @ 0x1C016F1BC
+ * XREFs of ?Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z @ 0x1C014E750
  * Callers:
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?BeginTrack@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@QEAAPEAXPEAX@Z @ 0x1C016EAFC (-BeginTrack@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@QEAAPEAXPEAX@Z.c)
+ *     ?BeginTrack@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@QEAAPEAXPEAX@Z @ 0x1C014DAA0 (-BeginTrack@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@QEAAPEAXPEAX@Z.c)
  * Callees:
- *     ?ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ @ 0x1C00E0890 (-ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ.c)
- *     ?Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ @ 0x1C016D820 (-Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ.c)
- *     ?InsertInternal@CPointerHashTable@NSInstrumentation@@AEAA?AW4EInsertResult@12@PEBX0@Z @ 0x1C016F3D4 (-InsertInternal@CPointerHashTable@NSInstrumentation@@AEAA-AW4EInsertResult@12@PEBX0@Z.c)
- *     ?Resize@CPointerHashTable@NSInstrumentation@@AEAA_NXZ @ 0x1C016F878 (-Resize@CPointerHashTable@NSInstrumentation@@AEAA_NXZ.c)
+ *     ?Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ @ 0x1C014D93C (-Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ.c)
+ *     ?InsertInternal@CPointerHashTable@NSInstrumentation@@AEAA?AW4EInsertResult@12@PEBX0@Z @ 0x1C014E958 (-InsertInternal@CPointerHashTable@NSInstrumentation@@AEAA-AW4EInsertResult@12@PEBX0@Z.c)
+ *     ?Resize@CPointerHashTable@NSInstrumentation@@AEAA_NXZ @ 0x1C014EB88 (-Resize@CPointerHashTable@NSInstrumentation@@AEAA_NXZ.c)
+ *     ?ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ @ 0x1C014EC88 (-ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ.c)
  */
 
 bool __fastcall NSInstrumentation::CPointerHashTable::Insert(
@@ -18,11 +16,9 @@ bool __fastcall NSInstrumentation::CPointerHashTable::Insert(
 {
   int i; // eax
   int inserted; // edi
-  bool v9; // zf
-  bool v10; // al
+  bool v8; // zf
+  bool v9; // al
 
-  if ( a2 == (const void *)-1LL )
-    return 0;
   _InterlockedIncrement((volatile signed __int32 *)this + 6);
   for ( i = *((_DWORD *)this + 7); i; i = *((_DWORD *)this + 7) )
   {
@@ -47,11 +43,11 @@ bool __fastcall NSInstrumentation::CPointerHashTable::Insert(
     _InterlockedDecrement((volatile signed __int32 *)this + 7);
     ExReleasePushLockExclusiveEx(this, 0LL);
     KeLeaveCriticalRegion();
-LABEL_19:
-    v9 = inserted == 1;
-    return !v9;
+LABEL_17:
+    v8 = inserted == 1;
+    return !v8;
   }
-  v9 = inserted == 1;
+  v8 = inserted == 1;
   if ( inserted == 1 )
   {
     KeEnterCriticalRegion();
@@ -60,9 +56,9 @@ LABEL_19:
     _InterlockedIncrement((volatile signed __int32 *)this + 7);
     if ( *((_DWORD *)this + 6) )
       NSInstrumentation::CPlatformSingleWatierSignal::Wait((NSInstrumentation::CPointerHashTable *)((char *)this + 8));
-    v10 = NSInstrumentation::CPointerHashTable::Resize(this);
+    v9 = NSInstrumentation::CPointerHashTable::Resize(this);
     _InterlockedDecrement((volatile signed __int32 *)this + 7);
-    if ( !v10 )
+    if ( !v9 )
     {
       ExReleasePushLockExclusiveEx(this, 0LL);
       KeLeaveCriticalRegion();
@@ -82,7 +78,7 @@ LABEL_19:
     }
     inserted = NSInstrumentation::CPointerHashTable::InsertInternal(this, a2, a3);
     NSInstrumentation::CPrioritizedWriterLock::ReleaseShared(this);
-    goto LABEL_19;
+    goto LABEL_17;
   }
-  return !v9;
+  return !v8;
 }

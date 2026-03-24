@@ -1,52 +1,52 @@
 /*
- * XREFs of ?AccessCheckTargetPolicy@DXGDISPLAYMANAGEROBJECT@@SAJW4_D3DKMT_DISPLAY_TARGET_USAGE@@_N@Z @ 0x1C02F37F4
+ * XREFs of ?AccessCheckTargetPolicy@DXGDISPLAYMANAGEROBJECT@@SAJW4_D3DKMT_DISPLAY_TARGET_USAGE@@_N@Z @ 0x1C02B0F44
  * Callers:
- *     ?ExchangeTargetOwnershipDmm@DXGDISPLAYMANAGEROBJECT@@CAJPEBVDXGTARGETENTRY@@PEAV1@1_NW4_D3DKMT_DISPLAY_TARGET_USAGE@@@Z @ 0x1C02F3E04 (-ExchangeTargetOwnershipDmm@DXGDISPLAYMANAGEROBJECT@@CAJPEBVDXGTARGETENTRY@@PEAV1@1_NW4_D3DKMT_D.c)
+ *     ?ExchangeTargetOwnershipDmm@DXGDISPLAYMANAGEROBJECT@@CAJPEBVDXGTARGETENTRY@@PEAV1@1_NW4_D3DKMT_DISPLAY_TARGET_USAGE@@@Z @ 0x1C02B1440 (-ExchangeTargetOwnershipDmm@DXGDISPLAYMANAGEROBJECT@@CAJPEBVDXGTARGETENTRY@@PEAV1@1_NW4_D3DKMT_D.c)
  * Callees:
- *     MonitorAreSpecializedDisplaysSupported @ 0x1C0008E58 (MonitorAreSpecializedDisplaysSupported.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?IsCurrentThreadAppContainer@DXGPROCESS@@SA_NXZ @ 0x1C0336B00 (-IsCurrentThreadAppContainer@DXGPROCESS@@SA_NXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     MonitorAreSpecializedDisplaysSupported @ 0x1C013E208 (MonitorAreSpecializedDisplaysSupported.c)
+ *     ?IsCurrentThreadAppContainer@DXGPROCESS@@SA_NXZ @ 0x1C02858F8 (-IsCurrentThreadAppContainer@DXGPROCESS@@SA_NXZ.c)
  */
 
-__int64 __fastcall DXGDISPLAYMANAGEROBJECT::AccessCheckTargetPolicy(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall DXGDISPLAYMANAGEROBJECT::AccessCheckTargetPolicy(__int64 a1, __int64 a2)
 {
-  char v4; // bp
-  int v5; // esi
+  char v2; // bp
+  int v3; // ebx
   struct DXGPROCESS *Current; // rax
-  struct DXGPROCESS *v7; // rbx
-  __int64 v8; // rcx
-  DXGSESSIONMGR *v9; // rdi
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  struct DXGPROCESS *v7; // rdi
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  DXGSESSIONMGR *v10; // rsi
   unsigned int CurrentProcessSessionId; // eax
   struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  struct DXGSESSIONDATA *v12; // rdi
   __int64 v13; // rcx
   bool v14; // zf
-  bool v15; // bl
-  struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
-  char v18; // [rsp+60h] [rbp+18h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  char v17; // [rsp+50h] [rbp+18h] BYREF
 
-  v4 = a2;
-  v5 = a1;
-  Current = DXGPROCESS::GetCurrent(a1, a2, a3, a4);
+  v2 = a2;
+  v3 = a1;
+  Current = DXGPROCESS::GetCurrent(a1, a2);
   v7 = Current;
-  if ( Current && (*((_DWORD *)Current + 106) & 4) != 0 )
+  if ( Current && *((_BYTE *)Current + 346) )
     return 0LL;
-  v9 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-  if ( v9 )
+  v10 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal(v6, v5) + 102);
+  if ( v10 )
   {
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v8);
-    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v9, CurrentProcessSessionId);
-    v12 = SessionDataForSpecifiedSession;
-    if ( SessionDataForSpecifiedSession && *((_BYTE *)SessionDataForSpecifiedSession + 18500) )
-      return 0LL;
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v9, v8);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v10, CurrentProcessSessionId);
   }
   else
   {
-    v12 = 0LL;
+    SessionDataForSpecifiedSession = 0LL;
   }
+  if ( SessionDataForSpecifiedSession && *((_BYTE *)SessionDataForSpecifiedSession + 18492) )
+    return 0LL;
   if ( !(*(unsigned int (**)(void))(*((_QWORD *)v7 + 11) + 208LL))() )
     return 3221225506LL;
   if ( !(unsigned __int8)RtlIsMultiSessionSku(v13) )
@@ -55,27 +55,24 @@ __int64 __fastcall DXGDISPLAYMANAGEROBJECT::AccessCheckTargetPolicy(__int64 a1, 
       return 0LL;
     DestinationString = 0LL;
     RtlInitUnicodeString(&DestinationString, L"shellDisplayManagement");
-    v18 = 0;
-    if ( (int)RtlCapabilityCheck(0LL, &DestinationString, &v18) >= 0 )
+    v17 = 0;
+    if ( (int)RtlCapabilityCheck(0LL, &DestinationString, &v17) >= 0 )
     {
-      v14 = v18 == 0;
-      goto LABEL_21;
+      v14 = v17 == 0;
+      goto LABEL_18;
     }
     return 3221225506LL;
   }
-  v15 = g_OSTestSigningEnabled != 0;
-  if ( v12 && *((_BYTE *)v12 + 18501) )
-    v15 = 0;
-  if ( DXGPROCESS::IsCurrentThreadAppContainer() || v4 && !v15 )
+  if ( DXGPROCESS::IsCurrentThreadAppContainer() || v2 && !g_OSTestSigningEnabled )
     return 3221225506LL;
-  if ( v5 != 2 )
+  if ( v3 != 2 )
   {
-    if ( v5 != 1 )
+    if ( v3 != 1 )
       return 3221225506LL;
     return 0LL;
   }
   v14 = !MonitorAreSpecializedDisplaysSupported();
-LABEL_21:
+LABEL_18:
   if ( v14 )
     return 3221225506LL;
   return 0LL;

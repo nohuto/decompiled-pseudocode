@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpiCmResourceToBiosExtendedIrq @ 0x1C0093204
+ * XREFs of PnpiCmResourceToBiosExtendedIrq @ 0x1C00B4CE0
  * Callers:
- *     PnpCmResourcesToBiosResources @ 0x1C0092830 (PnpCmResourcesToBiosResources.c)
+ *     PnpCmResourcesToBiosResources @ 0x1C0090950 (PnpCmResourcesToBiosResources.c)
  * Callees:
- *     ACPIInternalInterruptPolarityCacheGetPolarity @ 0x1C002E8E4 (ACPIInternalInterruptPolarityCacheGetPolarity.c)
+ *     ACPIInternalInterruptPolarityCacheGetPolarity @ 0x1C000E31C (ACPIInternalInterruptPolarityCacheGetPolarity.c)
  */
 
 __int64 __fastcall PnpiCmResourceToBiosExtendedIrq(__int64 a1, __int64 a2, __int64 a3)
@@ -13,15 +13,18 @@ __int64 __fastcall PnpiCmResourceToBiosExtendedIrq(__int64 a1, __int64 a2, __int
   int v6; // eax
   __int64 i; // rdi
   char Polarity; // al
-  char v9; // cl
+  char v9; // dl
   __int16 v10; // r8
-  char v11; // dl
-  char v12; // cl
-  int v14; // [rsp+38h] [rbp+10h] BYREF
+  char v11; // cl
+  char v12; // dl
+  char v13; // cl
+  char v14; // r8
+  char v15; // dl
+  int v17; // [rsp+38h] [rbp+10h] BYREF
 
   v3 = 0;
   v5 = *(_DWORD *)(a3 + 16);
-  v14 = 0;
+  v17 = 0;
   v6 = 0;
   if ( v5 )
   {
@@ -32,7 +35,7 @@ __int64 __fastcall PnpiCmResourceToBiosExtendedIrq(__int64 a1, __int64 a2, __int
     }
     *(_DWORD *)(a2 + 5) = *(unsigned __int16 *)(i + 4);
     *(_BYTE *)(a2 + 3) = 0;
-    Polarity = ACPIInternalInterruptPolarityCacheGetPolarity(*(_QWORD *)(a1 + 784), *(_DWORD *)(i + 8), &v14);
+    Polarity = ACPIInternalInterruptPolarityCacheGetPolarity(*(_QWORD *)(a1 + 744), *(_DWORD *)(i + 8), &v17);
     v9 = *(_BYTE *)(a2 + 3);
     v10 = *(_WORD *)(i + 2) & 1;
     if ( Polarity )
@@ -40,22 +43,25 @@ __int64 __fastcall PnpiCmResourceToBiosExtendedIrq(__int64 a1, __int64 a2, __int
       v11 = v9 | 2;
       if ( !v10 )
         v11 = *(_BYTE *)(a2 + 3);
-      if ( (v14 & 2) != 0 )
-        v11 |= 4u;
-      *(_BYTE *)(a2 + 3) = v11;
+      v12 = v11;
+      v13 = v17;
+      *(_BYTE *)(a2 + 3) = v12;
+      v14 = v12 | 4;
+      if ( (v13 & 2) == 0 )
+        v14 = v12;
     }
     else
     {
       if ( v10 )
-        v12 = v9 | 2;
+        v15 = v9 | 2;
       else
-        v12 = v9 | 4;
-      v11 = v12;
-      *(_BYTE *)(a2 + 3) = v12;
+        v15 = v9 | 4;
+      v14 = v15;
     }
+    *(_BYTE *)(a2 + 3) = v14;
     if ( *(_BYTE *)(i + 1) == 3 )
-      v11 |= 8u;
-    *(_BYTE *)(a2 + 3) = v11 | 1;
+      v14 |= 8u;
+    *(_BYTE *)(a2 + 3) = v14 | 1;
     *(_BYTE *)i = 0;
     v3 = 1;
   }

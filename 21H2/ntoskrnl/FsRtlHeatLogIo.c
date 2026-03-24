@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlHeatLogIo @ 0x14092F9E0
+ * XREFs of FsRtlHeatLogIo @ 0x14088CF70
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0xxxqq_EtwWriteTransfer @ 0x140542DA0 (McTemplateK0xxxqq_EtwWriteTransfer.c)
+ *     McTemplateK0xxxqq_EtwWriteTransfer @ 0x1404F1288 (McTemplateK0xxxqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall FsRtlHeatLogIo(_DWORD *a1, __int64 a2, _QWORD *a3, __int64 a4, const GUID *a5)

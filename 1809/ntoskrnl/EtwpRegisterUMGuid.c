@@ -9,7 +9,7 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     KeEnterCriticalRegion @ 0x1400B9BE0 (KeEnterCriticalRegion.c)
+ *     KeEnterCriticalRegion @ 0x1400B9C00 (KeEnterCriticalRegion.c)
  *     EtwpAddGuidEntry @ 0x1405C0A0C (EtwpAddGuidEntry.c)
  *     EtwpTrackProviderRegistration @ 0x1405C1F34 (EtwpTrackProviderRegistration.c)
  *     EtwpUpdateEnableMask @ 0x1405C209C (EtwpUpdateEnableMask.c)
@@ -21,8 +21,8 @@
  *     EtwpComputeRegEntryEnableInfo @ 0x1405C539C (EtwpComputeRegEntryEnableInfo.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     EtwpEventWriteTemplateSessAndProv @ 0x1408BAFB0 (EtwpEventWriteTemplateSessAndProv.c)
- *     EtwpCopySchematizedFilters @ 0x1408C1EC4 (EtwpCopySchematizedFilters.c)
+ *     EtwpEventWriteTemplateSessAndProv @ 0x1408BAF90 (EtwpEventWriteTemplateSessAndProv.c)
+ *     EtwpCopySchematizedFilters @ 0x1408C1EA4 (EtwpCopySchematizedFilters.c)
  */
 
 __int64 __fastcall EtwpRegisterUMGuid(__int64 a1, __int64 a2, unsigned int a3, char a4, _DWORD *a5)

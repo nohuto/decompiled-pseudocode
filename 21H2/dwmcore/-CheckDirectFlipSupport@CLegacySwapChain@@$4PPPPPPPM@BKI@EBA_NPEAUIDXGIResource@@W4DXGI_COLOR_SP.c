@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CheckDirectFlipSupport@CLegacySwapChain@@$4PPPPPPPM@BKI@EBA_NPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@2@Z @ 0x18010A350
+ * XREFs of ?CheckDirectFlipSupport@CLegacySwapChain@@$4PPPPPPPM@BKI@EBA_NPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@2@Z @ 0x1800F7C10
  * Callers:
  *     <none>
  * Callees:

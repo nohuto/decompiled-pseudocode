@@ -1,101 +1,94 @@
 /*
- * XREFs of MmEnumerateAddressSpaceAndReferenceImages @ 0x1407A5200
+ * XREFs of MmEnumerateAddressSpaceAndReferenceImages @ 0x14061E9B0
  * Callers:
- *     EtwpEnumerateAddressSpace @ 0x1406ADAFC (EtwpEnumerateAddressSpace.c)
- *     EtwpCovSampEnumerateProcess @ 0x1409F2460 (EtwpCovSampEnumerateProcess.c)
+ *     EtwpEnumerateAddressSpace @ 0x14061A8BC (EtwpEnumerateAddressSpace.c)
+ *     EtwpCovSampEnumerateProcess @ 0x140944AD0 (EtwpCovSampEnumerateProcess.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140275130 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x1402751A0 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiVadDeleted @ 0x1402752F0 (MiVadDeleted.c)
- *     MiLockVadShared @ 0x140275410 (MiLockVadShared.c)
- *     MiVadMapsLargeImage @ 0x14027CE20 (MiVadMapsLargeImage.c)
- *     MiReferenceControlAreaFile @ 0x1402A22B4 (MiReferenceControlAreaFile.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiLocateVadEvent @ 0x14030B2DC (MiLocateVadEvent.c)
- *     MiUnlockVadShared @ 0x14032A204 (MiUnlockVadShared.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MiFillMapFileInfo @ 0x1408AC30A (MiFillMapFileInfo.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiUnlockVadShared @ 0x14025A96C (MiUnlockVadShared.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14025AA70 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadDeleted @ 0x14025AB90 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x14025ABA4 (MiLockVadShared.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     MiReferenceControlAreaFile @ 0x14029D540 (MiReferenceControlAreaFile.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1402C8E20 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MiFillMapFileInfo @ 0x1408C45BC (MiFillMapFileInfo.c)
  */
 
-_QWORD *__fastcall MmEnumerateAddressSpaceAndReferenceImages(__int64 BugCheckParameter1, char a2)
+PVOID __fastcall MmEnumerateAddressSpaceAndReferenceImages(__int64 BugCheckParameter1, char a2, __int64 a3, _DWORD *a4)
 {
-  int v4; // ecx
-  int v5; // edx
-  struct _KTHREAD *CurrentThread; // r12
-  unsigned int v7; // ebp
-  _QWORD *v8; // rbx
-  __int64 v9; // rax
-  unsigned __int64 v10; // rax
-  _QWORD *v11; // rcx
-  _QWORD *i; // rdi
-  _QWORD **v13; // rax
-  __int64 v14; // rsi
+  int v7; // ecx
+  int v8; // edx
+  struct _KTHREAD *CurrentThread; // rbp
+  unsigned int v10; // r15d
+  PVOID v11; // r13
+  __int64 v12; // rax
+  unsigned __int64 v13; // rax
+  PVOID Pool; // rax
   _QWORD *v15; // rcx
-  _QWORD *v16; // rcx
-  int v17; // edx
-  __int64 v18; // rcx
-  int v19; // r8d
-  __int64 v20; // r13
-  unsigned __int64 v21; // rdx
-  unsigned __int64 v22; // r14
-  unsigned __int64 v23; // rbp
-  __int64 v24; // rcx
-  unsigned __int64 v25; // rcx
-  unsigned __int64 v26; // rax
-  __int64 v28; // rdx
-  unsigned __int64 v29; // rcx
-  int v30; // r8d
-  int v31; // eax
-  int v32; // ecx
-  unsigned __int64 v33; // rax
-  __int64 VadEvent; // rax
-  unsigned __int64 v35; // rcx
-  __int64 v36; // rax
-  int v37; // [rsp+20h] [rbp-78h]
-  unsigned int v38; // [rsp+24h] [rbp-74h]
-  _QWORD *Pool; // [rsp+28h] [rbp-70h]
-  $115DCDF994C6370D29323EAB0E0C9502 v40; // [rsp+30h] [rbp-68h] BYREF
+  unsigned __int64 *v16; // rbx
+  _QWORD *i; // rdi
+  _QWORD **v18; // rax
+  __int64 v19; // rsi
+  _QWORD *v20; // rcx
+  _QWORD *v21; // rcx
+  int v22; // edx
+  __int64 v23; // rcx
+  int v24; // r8d
+  __int64 v25; // r12
+  unsigned __int64 v26; // rcx
+  unsigned __int64 v27; // rax
+  __int64 v29; // rdx
+  unsigned __int64 v30; // rcx
+  int v31; // r8d
+  int v32; // eax
+  int v33; // ecx
+  unsigned __int64 v34; // rcx
+  __int64 v35; // rax
+  unsigned __int64 v36; // rax
+  int v37; // [rsp+20h] [rbp-68h]
+  _OWORD v38[3]; // [rsp+28h] [rbp-60h] BYREF
 
-  v4 = a2 & 1;
-  memset(&v40, 0, 32);
-  v5 = v4 | 2;
+  v7 = a2 & 1;
+  memset(v38, 0, 32);
+  v8 = v7 | 2;
   if ( (a2 & 2) == 0 )
-    v5 = v4;
-  *(_OWORD *)&v40.SavedApcStateFill[32] = 0LL;
+    v8 = v7;
+  v38[2] = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v7 = v5 | 4;
+  v10 = v8 | 4;
   if ( (a2 & 4) == 0 )
-    v7 = v5;
-  v8 = 0LL;
-  v38 = v7;
+    v10 = v8;
+  v11 = 0LL;
   if ( CurrentThread->ApcState.Process == (_KPROCESS *)BugCheckParameter1 )
   {
     v37 = 0;
   }
   else
   {
-    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v40);
+    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v38, a4);
     v37 = 1;
   }
   LOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, BugCheckParameter1);
-  v9 = *(_QWORD *)(BugCheckParameter1 + 2024);
-  if ( v9 )
+  v12 = *(_QWORD *)(BugCheckParameter1 + 2024);
+  if ( v12 )
   {
-    v10 = v9 + 1;
-    if ( v10 <= 0x555555555555555LL )
+    v13 = v12 + 1;
+    if ( v13 <= 0x555555555555555LL )
     {
-      Pool = MiAllocatePool(256, 48 * v10, 0x3031704Du);
-      v8 = Pool;
+      Pool = MiAllocatePool(256, 48 * v13, 0x3031704Du);
+      v11 = Pool;
       if ( Pool )
       {
-        v11 = *(_QWORD **)(BugCheckParameter1 + 2008);
+        v15 = *(_QWORD **)(BugCheckParameter1 + 2008);
+        v16 = (unsigned __int64 *)Pool;
         i = 0LL;
-        while ( v11 )
+        while ( v15 )
         {
-          i = v11;
-          v11 = (_QWORD *)*v11;
+          i = v15;
+          v15 = (_QWORD *)*v15;
         }
         while ( 1 )
         {
@@ -103,143 +96,134 @@ _QWORD *__fastcall MmEnumerateAddressSpaceAndReferenceImages(__int64 BugCheckPar
           {
             if ( !i )
             {
-              *v8 = 0LL;
-              v8 = Pool;
-              goto LABEL_39;
+              *v16 = 0LL;
+              goto LABEL_38;
             }
-            v13 = (_QWORD **)i[1];
-            v14 = (__int64)i;
-            v15 = i;
-            if ( v13 )
+            v18 = (_QWORD **)i[1];
+            v19 = (__int64)i;
+            v20 = i;
+            if ( v18 )
             {
-              v16 = *v13;
-              for ( i = (_QWORD *)i[1]; v16; v16 = (_QWORD *)*v16 )
-                i = v16;
+              v21 = *v18;
+              for ( i = (_QWORD *)i[1]; v21; v21 = (_QWORD *)*v21 )
+                i = v21;
             }
             else
             {
               while ( 1 )
               {
                 i = (_QWORD *)(i[2] & 0xFFFFFFFFFFFFFFFCuLL);
-                if ( !i || (_QWORD *)*i == v15 )
+                if ( !i || (_QWORD *)*i == v20 )
                   break;
-                v15 = i;
+                v20 = i;
               }
             }
-            MiLockVadShared((__int64)CurrentThread, v14);
-            if ( (unsigned int)MiVadDeleted(v14) || v19 == 1 )
+            MiLockVadShared((__int64)CurrentThread, v19);
+            if ( (unsigned int)MiVadDeleted(v19) == 1 || v24 == 1 )
               goto LABEL_15;
-            if ( (v17 & 0x200000) == 0 )
+            if ( (v22 & 0x100000) == 0 )
               break;
-            if ( v7 >= 4 )
+            if ( v10 >= 4 )
             {
-              *v8 = (*(unsigned int *)(v14 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v14 + 32) << 32)) << 12;
-              v8[1] = ((*(unsigned int *)(v14 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v14 + 33) << 32))
-                     - (*(unsigned int *)(v14 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v14 + 32) << 32))
-                     + 1) << 12;
-              v28 = *(unsigned int *)(v14 + 52);
-              LODWORD(v28) = v28 & 0x7FFFFFFF;
-              if ( (v28 | ((unsigned __int64)*(unsigned __int8 *)(v14 + 34) << 31)) < 0x7FFFFFFFDLL )
-                v29 = (v28 | ((unsigned __int64)*(unsigned __int8 *)(v14 + 34) << 31)) << 12;
+              *v16 = (*(unsigned int *)(v19 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 32) << 32)) << 12;
+              v16[1] = ((*(unsigned int *)(v19 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 33) << 32))
+                      - (*(unsigned int *)(v19 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 32) << 32))
+                      + 1) << 12;
+              v29 = *(unsigned int *)(v19 + 52);
+              LODWORD(v29) = v29 & 0x7FFFFFFF;
+              if ( (v29 | ((unsigned __int64)*(unsigned __int8 *)(v19 + 34) << 31)) < 0x7FFFFFFFDLL )
+                v30 = (v29 | ((unsigned __int64)*(unsigned __int8 *)(v19 + 34) << 31)) << 12;
               else
-                v29 = 0LL;
-              v8[3] = v29;
-              *((_DWORD *)v8 + 4) = *(_DWORD *)(BugCheckParameter1 + 1088);
-              *((_DWORD *)v8 + 5) = 0x2000;
-              v30 = v19 - 3;
-              if ( v30 )
+                v30 = 0LL;
+              v16[3] = v30;
+              *((_DWORD *)v16 + 4) = *(_DWORD *)(BugCheckParameter1 + 1088);
+              *((_DWORD *)v16 + 5) = 0x2000;
+              v31 = v24 - 3;
+              if ( v31 )
               {
-                if ( v30 == 1 )
+                if ( v31 == 1 )
                 {
-                  *((_DWORD *)v8 + 5) = 8396800;
-                  v32 = 8396800;
+                  *((_DWORD *)v16 + 5) = 8396800;
+                  v33 = 8396800;
                 }
                 else
                 {
-                  v31 = *(_DWORD *)(v14 + 48);
-                  v32 = 0x2000;
-                  if ( (v31 & 0x200000) != 0 && ((v31 & 0x800000) != 0 || (v31 & 0x180000u) >= 0x100000) )
+                  v32 = *(_DWORD *)(v19 + 48);
+                  v33 = 0x2000;
+                  if ( (v32 & 0x100000) != 0 && ((v32 & 0x400000) != 0 || (v32 & 0xC0000u) >= 0x80000) )
                   {
-                    *((_DWORD *)v8 + 5) = 536879104;
-                    v32 = 536879104;
+                    *((_DWORD *)v16 + 5) = 536879104;
+                    v33 = 536879104;
                   }
                 }
               }
-              else if ( (*(_DWORD *)(v14 + 48) & 0x6200000) == 0x4200000 )
+              else if ( (*(_DWORD *)(v19 + 48) & 0x3100000) == 0x2100000 )
               {
-                v32 = 0x2000;
+                v33 = 0x2000;
               }
               else
               {
-                *((_DWORD *)v8 + 5) = 4202496;
-                v32 = 4202496;
+                *((_DWORD *)v16 + 5) = 4202496;
+                v33 = 4202496;
               }
-              if ( (*(_DWORD *)(v14 + 48) & 0x600000) == 0x600000 )
-                *((_DWORD *)v8 + 5) = v32 | 0x200000;
-              v33 = *v8 & 0xFFFFFFFFFFFFFFFCuLL | 2;
-              goto LABEL_61;
+              if ( (*(_DWORD *)(v19 + 48) & 0x300000) == 0x300000 )
+                *((_DWORD *)v16 + 5) = v33 | 0x200000;
+              v36 = *v16 & 0xFFFFFFFFFFFFFFFCuLL | 2;
+              goto LABEL_58;
             }
 LABEL_15:
-            MiUnlockVadShared((__int64)CurrentThread, v14);
+            MiUnlockVadShared((__int64)CurrentThread, v19);
           }
-          if ( v19 != 2 || (v17 & 0xF80) != 0x380 || (v7 & 1) == 0 )
+          if ( v24 != 2 || (v22 & 0xF80) != 0x380 || (v10 & 1) == 0 )
           {
-            if ( (v7 & 2) != 0 )
+            if ( (v10 & 2) != 0 )
             {
-              MiFillMapFileInfo(v18, v8);
-              v33 = *v8 & 0xFFFFFFFFFFFFFFFCuLL | 1;
-LABEL_61:
-              *v8 = v33;
-              goto LABEL_35;
+              MiFillMapFileInfo(v23, v16);
+              v36 = *v16 & 0xFFFFFFFFFFFFFFFCuLL | 1;
+LABEL_58:
+              *v16 = v36;
+              goto LABEL_33;
             }
             goto LABEL_15;
           }
-          v20 = **(_QWORD **)(v14 + 72);
-          v21 = *(unsigned int *)(v14 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v14 + 32) << 32);
-          v22 = v21 << 12;
-          v23 = ((*(unsigned int *)(v14 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v14 + 33) << 32)) - v21 + 1) << 12;
-          if ( (unsigned int)MiVadMapsLargeImage(v14) )
+          v25 = **(_QWORD **)(v19 + 72);
+          *v16 = MiReferenceControlAreaFile(v25);
+          v16[1] = (*(unsigned int *)(v19 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 32) << 32)) << 12;
+          v16[2] = *(_QWORD *)(*(_QWORD *)v25 + 32LL);
+          v16[3] = ((*(unsigned int *)(v19 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 33) << 32))
+                  - (*(unsigned int *)(v19 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v19 + 32) << 32))
+                  + 1) << 12;
+          *((_DWORD *)v16 + 10) = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v25 + 56LL) + 60LL);
+          if ( (*(_DWORD *)(v19 + 64) & 0x8000000) != 0 )
           {
-            VadEvent = MiLocateVadEvent(v24, 16LL);
-            v22 += (unsigned __int64)*(unsigned __int8 *)(VadEvent + 8) << 16;
-            v23 = *(_QWORD *)(VadEvent + 16) << 12;
-          }
-          *v8 = MiReferenceControlAreaFile(v20);
-          v8[1] = v22;
-          v8[2] = *(_QWORD *)(*(_QWORD *)v20 + 32LL);
-          v8[3] = v23;
-          *((_DWORD *)v8 + 10) = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v20 + 56LL) + 60LL);
-          if ( (*(_DWORD *)(v14 + 64) & 0x8000000) != 0 )
-          {
-            v26 = v8[1] & 0xFFFFFFFFFFFFE03FuLL;
+            v27 = v16[1] & 0xFFFFFFFFFFFFE03FuLL;
           }
           else
           {
-            v25 = v8[1] & 0xFFFFFFFFFFFFFC3FuLL | (4LL * (*(_BYTE *)(*(_QWORD *)v20 + 15LL) & 0xF0));
-            v8[1] = v25;
-            v26 = v25 ^ ((unsigned __int16)v25 ^ (unsigned __int16)(*(unsigned __int8 *)(*(_QWORD *)v20 + 15LL) << 9)) & 0x1C00;
+            v26 = v16[1] & 0xFFFFFFFFFFFFFC3FuLL | (4LL * (*(_BYTE *)(*(_QWORD *)v25 + 15LL) & 0xF0));
+            v16[1] = v26;
+            v27 = v26 ^ ((unsigned __int16)v26 ^ (unsigned __int16)(*(unsigned __int8 *)(*(_QWORD *)v25 + 15LL) << 9)) & 0x1C00;
           }
-          v7 = v38;
-          v8[1] = v26;
-          if ( (v38 & 2) != 0 )
+          v16[1] = v27;
+          if ( (v10 & 2) != 0 )
           {
-            v35 = HIBYTE(*(_DWORD *)(v14 + 64)) & 1 | v8[1] & 0xFFFFFFFFFFFFFFFEuLL;
-            v8[1] = v35;
-            v8[1] = v35 ^ ((unsigned __int8)v35 ^ (unsigned __int8)((unsigned __int64)*(unsigned int *)(v14 + 48) >> 6)) & 0x3E;
-            v36 = *(unsigned int *)(v14 + 52);
-            LODWORD(v36) = v36 & 0x7FFFFFFF;
-            v8[4] = (v36 | ((unsigned __int64)*(unsigned __int8 *)(v14 + 34) << 31)) << 12;
+            v34 = HIBYTE(*(_DWORD *)(v19 + 64)) & 1 | v16[1] & 0xFFFFFFFFFFFFFFFEuLL;
+            v16[1] = v34;
+            v16[1] = v34 ^ ((unsigned __int8)v34 ^ (unsigned __int8)((unsigned __int64)*(unsigned int *)(v19 + 48) >> 6)) & 0x3E;
+            v35 = *(unsigned int *)(v19 + 52);
+            LODWORD(v35) = v35 & 0x7FFFFFFF;
+            v16[4] = (v35 | ((unsigned __int64)*(unsigned __int8 *)(v19 + 34) << 31)) << 12;
           }
-LABEL_35:
-          MiUnlockVadShared((__int64)CurrentThread, v14);
-          v8 += 6;
+LABEL_33:
+          MiUnlockVadShared((__int64)CurrentThread, v19);
+          v16 += 6;
         }
       }
     }
   }
-LABEL_39:
+LABEL_38:
   UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, BugCheckParameter1);
-  if ( v37 )
-    KiUnstackDetachProcess(&v40);
-  return v8;
+  if ( v37 == 1 )
+    KiUnstackDetachProcess((__int64)v38, 0);
+  return v11;
 }

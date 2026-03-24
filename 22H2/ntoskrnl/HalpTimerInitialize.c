@@ -1,51 +1,51 @@
 /*
- * XREFs of HalpTimerInitialize @ 0x14037ABD0
+ * XREFs of HalpTimerInitialize @ 0x1403B11C4
  * Callers:
- *     HalpTimerMeasureFrequencies @ 0x14037A528 (HalpTimerMeasureFrequencies.c)
- *     HalpTimerSelectRoles @ 0x14037A8FC (HalpTimerSelectRoles.c)
- *     HalpTimerInitializeEarlyStallSource @ 0x1403A38E4 (HalpTimerInitializeEarlyStallSource.c)
- *     HalpTimerInitializeHypervisorTimer @ 0x1403B6070 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403AF294 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpTimerInitializeEarlyStallSource @ 0x1403B06D8 (HalpTimerInitializeEarlyStallSource.c)
+ *     HalpTimerMeasureFrequencies @ 0x1403B0A68 (HalpTimerMeasureFrequencies.c)
+ *     HalpTimerSelectRoles @ 0x1403B0F2C (HalpTimerSelectRoles.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     HalpTimerCalibratePerformanceCounter @ 0x14037AC68 (HalpTimerCalibratePerformanceCounter.c)
- *     HalpTimerNoteHpetMaskingBehavior @ 0x14037AFFC (HalpTimerNoteHpetMaskingBehavior.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     HalpTimerCalibratePerformanceCounter @ 0x1403A5564 (HalpTimerCalibratePerformanceCounter.c)
+ *     HalpTimerNoteHpetMaskingBehavior @ 0x1403B13EC (HalpTimerNoteHpetMaskingBehavior.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpTimerInitialize(__int64 a1)
 {
-  int v2; // edi
   __int64 InternalData; // rax
-  __int64 v5; // rax
+  int v3; // edi
+  __int64 v4; // rax
 
   if ( (*(_DWORD *)(a1 + 184) & 2) != 0 )
   {
-    v2 = 0;
+    v3 = 0;
   }
   else
   {
     InternalData = HalpTimerGetInternalData(a1);
-    v2 = (*(__int64 (__fastcall **)(__int64))(a1 + 104))(InternalData);
-    if ( v2 < 0 )
+    v3 = (*(__int64 (__fastcall **)(__int64))(a1 + 104))(InternalData);
+    if ( v3 < 0 )
     {
-      *(_DWORD *)(a1 + 256) = v2;
+      *(_DWORD *)(a1 + 256) = v3;
       HalpTimerLastProblem = 15;
       *(_DWORD *)(a1 + 252) = 15;
       *(_QWORD *)(a1 + 264) = "minkernel\\hals\\lib\\timers\\common\\timer.c";
-      *(_DWORD *)(a1 + 272) = 2559;
+      *(_DWORD *)(a1 + 272) = 2563;
     }
     else
     {
       if ( (*(_DWORD *)(a1 + 224) & 2) != 0 )
       {
-        v5 = HalpTimerGetInternalData(a1);
-        _InterlockedExchange64((volatile __int64 *)(a1 + 200), (*(__int64 (__fastcall **)(__int64))(a1 + 112))(v5));
+        v4 = HalpTimerGetInternalData(a1);
+        _InterlockedExchange64((volatile __int64 *)(a1 + 200), (*(__int64 (__fastcall **)(__int64))(a1 + 112))(v4));
         HalpTimerCalibratePerformanceCounter(a1, 0LL);
       }
       if ( *(_DWORD *)(a1 + 228) == 3 )
         HalpTimerNoteHpetMaskingBehavior();
     }
   }
-  *(_DWORD *)(a1 + 184) |= (v2 >> 31) + 2;
-  return (unsigned int)v2;
+  *(_DWORD *)(a1 + 184) |= (v3 >> 31) + 2;
+  return (unsigned int)v3;
 }

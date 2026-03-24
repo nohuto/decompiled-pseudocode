@@ -1,12 +1,12 @@
 /*
- * XREFs of FxLibraryGlobalsVerifyVersion @ 0x1C002EBEC
+ * XREFs of FxLibraryGlobalsVerifyVersion @ 0x1C00579B8
  * Callers:
- *     FxLibraryGlobalsCommission @ 0x1C002E278 (FxLibraryGlobalsCommission.c)
+ *     FxLibraryGlobalsCommission @ 0x1C00571F0 (FxLibraryGlobalsCommission.c)
  * Callees:
- *     ?MxGetSystemRoutineAddress@Mx@@SAPEAXPEBG@Z @ 0x1C002ECC4 (-MxGetSystemRoutineAddress@Mx@@SAPEAXPEBG@Z.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0036C00 (memset.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     ?MxGetSystemRoutineAddress@Mx@@SAPEAXPEBG@Z @ 0x1C0056B10 (-MxGetSystemRoutineAddress@Mx@@SAPEAXPEBG@Z.c)
  */
 
 __int64 (__fastcall *FxLibraryGlobalsVerifyVersion())(_OSVERSIONINFOEXW *, __int64, __int64)

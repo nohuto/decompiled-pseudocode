@@ -4,9 +4,9 @@
  *     HvUnCOWReconciledPages @ 0x14000EEC0 (HvUnCOWReconciledPages.c)
  *     HvStoreModifiedData @ 0x1405A7438 (HvStoreModifiedData.c)
  *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     MiSelectRelocationStartHint @ 0x14064FBE4 (MiSelectRelocationStartHint.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B80 (HvpPerformLogFileRecovery.c)
- *     HvFoldBackUnreconciledData @ 0x1407FAD48 (HvFoldBackUnreconciledData.c)
+ *     MiSelectRelocationStartHint @ 0x14064FBC4 (MiSelectRelocationStartHint.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
+ *     HvFoldBackUnreconciledData @ 0x1407FAD28 (HvFoldBackUnreconciledData.c)
  * Callees:
  *     <none>
  */

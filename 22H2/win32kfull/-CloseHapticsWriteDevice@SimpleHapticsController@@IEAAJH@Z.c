@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CloseHapticsWriteDevice@SimpleHapticsController@@IEAAJH@Z @ 0x1C024820C
+ * XREFs of ?CloseHapticsWriteDevice@SimpleHapticsController@@IEAAJH@Z @ 0x1C0259514
  * Callers:
- *     ?DeInitialize@SimpleHapticsController@@QEAAJXZ @ 0x1C02483A0 (-DeInitialize@SimpleHapticsController@@QEAAJXZ.c)
- *     ?HapticsDeviceNotify@SimpleHapticsController@@KAJPEAU_PLUGPLAY_NOTIFY_HDR@@PEAX@Z @ 0x1C0248490 (-HapticsDeviceNotify@SimpleHapticsController@@KAJPEAU_PLUGPLAY_NOTIFY_HDR@@PEAX@Z.c)
- *     ?OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ @ 0x1C024922C (-OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ.c)
+ *     ?DeInitialize@SimpleHapticsController@@QEAAJXZ @ 0x1C02596A8 (-DeInitialize@SimpleHapticsController@@QEAAJXZ.c)
+ *     ?HapticsDeviceNotify@SimpleHapticsController@@KAJPEAU_PLUGPLAY_NOTIFY_HDR@@PEAX@Z @ 0x1C0259790 (-HapticsDeviceNotify@SimpleHapticsController@@KAJPEAU_PLUGPLAY_NOTIFY_HDR@@PEAX@Z.c)
+ *     ?OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ @ 0x1C025A3E8 (-OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ.c)
  * Callees:
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C0240074 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C02510F4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
  */
 
 __int64 __fastcall SimpleHapticsController::CloseHapticsWriteDevice(SimpleHapticsController *this, int a2)
@@ -43,13 +43,13 @@ __int64 __fastcall SimpleHapticsController::CloseHapticsWriteDevice(SimpleHaptic
     v9 = v6;
     if ( v6 < 0 )
     {
-      if ( (unsigned int)dword_1C0354118 > 2 )
+      if ( (unsigned int)dword_1C032A2C0 > 2 )
       {
         LODWORD(v17) = v6;
         v16 = (__int64)"Function failed.";
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-          (__int64)&dword_1C0354118,
-          byte_1C031E23E,
+          (__int64)&dword_1C032A2C0,
+          byte_1C02F3A55,
           v7,
           v8,
           (void **)&v16,
@@ -61,7 +61,7 @@ __int64 __fastcall SimpleHapticsController::CloseHapticsWriteDevice(SimpleHaptic
         "HapticsCtrl: (%s, %s:%d) ERROR: 0x%x, %s\n",
         "SimpleHapticsController::CloseHapticsWriteDevice",
         "clientcore\\windows\\core\\ntuser\\kernel\\windows\\simplehapticsctrl.cxx",
-        756,
+        751,
         v9,
         "Function failed.");
     }
@@ -69,13 +69,13 @@ __int64 __fastcall SimpleHapticsController::CloseHapticsWriteDevice(SimpleHaptic
     v2 = v10;
     if ( v10 < 0 )
     {
-      if ( (unsigned int)dword_1C0354118 > 2 )
+      if ( (unsigned int)dword_1C032A2C0 > 2 )
       {
         LODWORD(v17) = v10;
         v16 = (__int64)"Function failed.";
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-          (__int64)&dword_1C0354118,
-          byte_1C031E23E,
+          (__int64)&dword_1C032A2C0,
+          byte_1C02F3A55,
           v11,
           v12,
           (void **)&v16,
@@ -87,7 +87,7 @@ __int64 __fastcall SimpleHapticsController::CloseHapticsWriteDevice(SimpleHaptic
         "HapticsCtrl: (%s, %s:%d) ERROR: 0x%x, %s\n",
         "SimpleHapticsController::CloseHapticsWriteDevice",
         "clientcore\\windows\\core\\ntuser\\kernel\\windows\\simplehapticsctrl.cxx",
-        757,
+        752,
         v2,
         "Function failed.");
     }

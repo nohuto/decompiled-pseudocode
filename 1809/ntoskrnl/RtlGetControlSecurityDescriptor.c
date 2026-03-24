@@ -1,11 +1,11 @@
 /*
  * XREFs of RtlGetControlSecurityDescriptor @ 0x1405B95F0
  * Callers:
- *     AdtpIsSDValidSelfRelative @ 0x1401B7A28 (AdtpIsSDValidSelfRelative.c)
+ *     AdtpIsSDValidSelfRelative @ 0x1401B7A48 (AdtpIsSDValidSelfRelative.c)
  *     SepHasCriticalAcesRemoved @ 0x1405B9420 (SepHasCriticalAcesRemoved.c)
  *     ObpInsertOrLocateNamedObject @ 0x1405C85A8 (ObpInsertOrLocateNamedObject.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x140705B38 (PiDevCfgGetKeySecurityDescriptor.c)
- *     LocalConvertSDToStringSD_Rev1 @ 0x1408A59E0 (LocalConvertSDToStringSD_Rev1.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x140705B18 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x1408A59C0 (LocalConvertSDToStringSD_Rev1.c)
  * Callees:
  *     <none>
  */

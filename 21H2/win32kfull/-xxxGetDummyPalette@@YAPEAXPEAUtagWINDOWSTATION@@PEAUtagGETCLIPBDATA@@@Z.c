@@ -1,13 +1,13 @@
 /*
- * XREFs of ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021A200
+ * XREFs of ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021F394
  * Callers:
- *     xxxGetClipboardData @ 0x1C014AE38 (xxxGetClipboardData.c)
+ *     xxxGetClipboardData @ 0x1C002D3C8 (xxxGetClipboardData.c)
  * Callees:
- *     HMValidateHandle @ 0x1C0024F44 (HMValidateHandle.c)
- *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C00CD1F0 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
- *     ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C014AA2C (-UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z.c)
- *     xxxGetClipboardData @ 0x1C014AE38 (xxxGetClipboardData.c)
- *     CreateDIBPalette @ 0x1C021A574 (CreateDIBPalette.c)
+ *     xxxGetClipboardData @ 0x1C002D3C8 (xxxGetClipboardData.c)
+ *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C002FA10 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
+ *     HMValidateHandle @ 0x1C00670E0 (HMValidateHandle.c)
+ *     ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C015CD28 (-UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z.c)
+ *     CreateDIBPalette @ 0x1C021F708 (CreateDIBPalette.c)
  */
 
 __int64 __fastcall xxxGetDummyPalette(struct tagWINDOWSTATION *a1, struct tagGETCLIPBDATA *a2)
@@ -36,7 +36,7 @@ __int64 __fastcall xxxGetDummyPalette(struct tagWINDOWSTATION *a1, struct tagGET
   ClipboardData = xxxGetClipboardData(a1, v2, (__int64)a2);
   if ( !ClipboardData )
     return 0LL;
-  v8 = HMValidateHandle((__int64)ClipboardData, 6u);
+  v8 = HMValidateHandle((unsigned __int64)ClipboardData, 6u);
   if ( !v8 )
     return 0LL;
   v9 = v8 + 20;

@@ -1,28 +1,27 @@
 /*
- * XREFs of ?EnsureRenderTargets@CVisualCapture@@MEAAJXZ @ 0x180255D20
+ * XREFs of ?EnsureRenderTargets@CVisualCapture@@MEAAJXZ @ 0x1801F1B00
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C4838 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     ?GetCurrentRenderingRealization@CCompositionSurfaceBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z @ 0x1800D5940 (-GetCurrentRenderingRealization@CCompositionSurfaceBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z.c)
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E9DB4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?ValidateSDRBoost@@YAMMAEBUPixelFormatInfo@@@Z @ 0x180103578 (-ValidateSDRBoost@@YAMMAEBUPixelFormatInfo@@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetAdapterLuid@CCompositionSurfaceBitmap@@QEBA?AU_LUID@@XZ @ 0x180222D40 (-GetAdapterLuid@CCompositionSurfaceBitmap@@QEBA-AU_LUID@@XZ.c)
- *     ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@W4DXGI_ALPHA_MODE@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@MPEAPEAVIRenderTargetBitmap@@@Z @ 0x18028D200 (-CreateRenderTargetBitmap@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@W4DXGI_ALPHA_MODE@@W4DXGI_COLOR_.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8944 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?GetCurrentRenderingRealization@CCompositionSurfaceBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z @ 0x1800BBE50 (-GetCurrentRenderingRealization@CCompositionSurfaceBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z.c)
+ *     ?ValidateSDRBoost@@YAMMAEBUPixelFormatInfo@@@Z @ 0x1800DF69C (-ValidateSDRBoost@@YAMMAEBUPixelFormatInfo@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?GetAdapterLuid@CCompositionSurfaceBitmap@@QEBA?AU_LUID@@XZ @ 0x1801B8E98 (-GetAdapterLuid@CCompositionSurfaceBitmap@@QEBA-AU_LUID@@XZ.c)
+ *     ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@W4DXGI_ALPHA_MODE@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@MPEAPEAVIRenderTargetBitmap@@@Z @ 0x18023E978 (-CreateRenderTargetBitmap@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@W4DXGI_ALPHA_MODE@@W4DXGI_COLOR_.c)
  */
 
 __int64 __fastcall CVisualCapture::EnsureRenderTargets(CVisualCapture *this)
 {
-  unsigned int v2; // ebx
+  int v2; // ebx
   __int64 v3; // rcx
   CCompositionSurfaceBitmap *v4; // rcx
   struct IBitmapRealization *v5; // rdi
   char *v6; // rcx
-  const struct PixelFormatInfo *v7; // rax
+  enum DXGI_COLOR_SPACE_TYPE *v7; // rax
   int v8; // eax
   __int64 v9; // rcx
   __int64 v10; // rcx
@@ -41,109 +40,103 @@ __int64 __fastcall CVisualCapture::EnsureRenderTargets(CVisualCapture *this)
   __int64 v23; // rcx
   __int64 v24; // rax
   unsigned int v25; // edx
-  int v26; // edi
-  __int64 v27; // rcx
-  int v28; // eax
-  __int64 v29; // rcx
-  __int64 v31; // [rsp+48h] [rbp-19h] BYREF
-  __int64 v32; // [rsp+50h] [rbp-11h] BYREF
-  struct IBitmapRealization *v33; // [rsp+58h] [rbp-9h] BYREF
-  struct _LUID v34; // [rsp+60h] [rbp-1h] BYREF
-  int v35; // [rsp+68h] [rbp+7h]
-  int v36; // [rsp+6Ch] [rbp+Bh]
-  float v37; // [rsp+70h] [rbp+Fh]
-  char v38; // [rsp+74h] [rbp+13h]
-  _QWORD v39[2]; // [rsp+78h] [rbp+17h] BYREF
-  char v40[16]; // [rsp+88h] [rbp+27h] BYREF
+  __int64 v26; // rcx
+  int v27; // eax
+  __int64 v29; // [rsp+48h] [rbp-19h] BYREF
+  __int64 v30; // [rsp+50h] [rbp-11h] BYREF
+  struct IBitmapRealization *v31; // [rsp+58h] [rbp-9h] BYREF
+  struct _LUID v32; // [rsp+60h] [rbp-1h] BYREF
+  int v33; // [rsp+68h] [rbp+7h]
+  int v34; // [rsp+6Ch] [rbp+Bh]
+  float v35; // [rsp+70h] [rbp+Fh]
+  char v36; // [rsp+74h] [rbp+13h]
+  _QWORD v37[2]; // [rsp+78h] [rbp+17h] BYREF
+  char v38[16]; // [rsp+88h] [rbp+27h] BYREF
 
   v2 = -2003292412;
-  v3 = *((_QWORD *)this + 235);
+  v3 = *((_QWORD *)this + 237);
   if ( v3 )
   {
-    v33 = 0LL;
-    if ( (int)CCompositionSurfaceBitmap::GetCurrentRenderingRealization((CCompositionSurfaceBitmap *)(v3 + 72), &v33) < 0 )
+    v31 = 0LL;
+    if ( (int)CCompositionSurfaceBitmap::GetCurrentRenderingRealization((CCompositionSurfaceBitmap *)(v3 + 64), &v31) < 0 )
     {
 LABEL_16:
-      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v33);
-      return v2;
+      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v31);
+      return (unsigned int)v2;
     }
-    v4 = (CCompositionSurfaceBitmap *)*((_QWORD *)this + 235);
-    v32 = 0LL;
-    v31 = 0LL;
-    CCompositionSurfaceBitmap::GetAdapterLuid(v4, &v34);
+    v4 = (CCompositionSurfaceBitmap *)*((_QWORD *)this + 237);
+    v29 = 0LL;
+    v30 = 0LL;
+    CCompositionSurfaceBitmap::GetAdapterLuid(v4, &v32);
+    v34 = 0;
+    v5 = v31;
+    v33 = DisplayId::All;
+    v6 = (char *)v31 + *(int *)(*((_QWORD *)v31 + 1) + 8LL) + 8;
+    v7 = (enum DXGI_COLOR_SPACE_TYPE *)(**(__int64 (__fastcall ***)(char *, _QWORD *))v6)(v6, v37);
+    v35 = ValidateSDRBoost(*((float *)this + 478), v7);
     v36 = 0;
-    v5 = v33;
-    v35 = DisplayId::All;
-    v6 = (char *)v33 + *(int *)(*((_QWORD *)v33 + 1) + 8LL) + 8;
-    v7 = (const struct PixelFormatInfo *)(**(__int64 (__fastcall ***)(char *, _QWORD *))v6)(v6, v39);
-    v37 = ValidateSDRBoost(*((float *)this + 474), v7);
-    v38 = 0;
     v8 = (*(__int64 (__fastcall **)(struct IBitmapRealization *, struct _LUID *, __int64 *))(*(_QWORD *)v5 + 48LL))(
            v5,
-           &v34,
-           &v32);
+           &v32,
+           &v29);
     v2 = v8;
     if ( v8 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v9, &dword_1803B8AB0, 3u, v8, 0x43u, 0LL);
-      goto LABEL_15;
-    }
-    v10 = *(int *)(*(_QWORD *)(v32 + 8) + 8LL) + v32 + 8;
-    v11 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v10 + 8LL))(v10);
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset(&v31);
-    v12 = DisplayId::All;
-    v13 = (struct IBitmapRealization *)((char *)v5 + *(int *)(*((_QWORD *)v5 + 1) + 8LL) + 8);
-    v14 = *(_DWORD *)((**(__int64 (__fastcall ***)(struct IBitmapRealization *, _QWORD *))v13)(v13, v39) + 8);
-    v15 = (struct IBitmapRealization *)((char *)v5 + *(int *)(*((_QWORD *)v5 + 1) + 8LL) + 8);
-    v16 = *(_DWORD *)((**(__int64 (__fastcall ***)(struct IBitmapRealization *, char *))v15)(v15, v40) + 4);
-    v17 = (**(__int64 (__fastcall ***)(__int64))v32)(v32);
-    v18 = CD3DDevice::CreateRenderTargetBitmap(v11, v17, v16, v14, v12, LODWORD(v37), &v31);
-    v2 = v18;
-    if ( v18 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v19, &dword_1803B8AB0, 3u, v18, 0x4Au, 0LL);
-      goto LABEL_15;
-    }
-    v20 = v31;
-    v21 = (__int64 (__fastcall ***)(_QWORD, _QWORD *))(v31 + *(int *)(*(_QWORD *)(v31 + 8) + 16LL) + 8LL);
-    v22 = (__int64 *)(**v21)(v21, v39);
-    v31 = 0LL;
-    v23 = *v22;
-    *((_QWORD *)this + 13) = *v22;
-    v24 = *((unsigned int *)this + 446);
-    v39[0] = v20;
-    v25 = v24 + 1;
-    if ( (int)v24 + 1 < (unsigned int)v24 )
-    {
-      v2 = -2147024362;
-      v26 = -2147024362;
-      MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, -2147024362, 0xB5u, 0LL);
-LABEL_12:
-      MilInstrumentationCheckHR_MaybeFailFast(v27, &dword_1803B8AB0, 3u, v26, 0x4Fu, 0LL);
-      goto LABEL_15;
-    }
-    v26 = 0;
-    if ( v25 > *((_DWORD *)this + 445) )
-    {
-      v28 = DynArrayImpl<0>::AddMultipleAndSet((__int64)this + 1760, 8, 1, v39);
-      v26 = v28;
-      v2 = v28;
-      if ( v28 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v28, 0xC0u, 0LL);
-        goto LABEL_12;
-      }
+      MilInstrumentationCheckHR_MaybeFailFast(v9, &dword_180305340, 3u, v8, 0x43u, 0LL);
     }
     else
     {
-      *(_QWORD *)(*((_QWORD *)this + 220) + 8 * v24) = v20;
-      *((_DWORD *)this + 446) = v25;
+      v10 = *(int *)(*(_QWORD *)(v29 + 8) + 8LL) + v29 + 8;
+      v11 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v10 + 8LL))(v10);
+      v12 = DisplayId::All;
+      v13 = (struct IBitmapRealization *)((char *)v5 + *(int *)(*((_QWORD *)v5 + 1) + 8LL) + 8);
+      v14 = *(_DWORD *)((**(__int64 (__fastcall ***)(struct IBitmapRealization *, _QWORD *))v13)(v13, v37) + 8);
+      v15 = (struct IBitmapRealization *)((char *)v5 + *(int *)(*((_QWORD *)v5 + 1) + 8LL) + 8);
+      v16 = *(_DWORD *)((**(__int64 (__fastcall ***)(struct IBitmapRealization *, char *))v15)(v15, v38) + 4);
+      v17 = (**(__int64 (__fastcall ***)(__int64))v29)(v29);
+      v18 = CD3DDevice::CreateRenderTargetBitmap(v11, v17, v16, v14, v12, LODWORD(v35), &v30);
+      v2 = v18;
+      if ( v18 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v19, &dword_180305340, 3u, v18, 0x4Au, 0LL);
+      }
+      else
+      {
+        v20 = v30;
+        v21 = (__int64 (__fastcall ***)(_QWORD, _QWORD *))(v30 + *(int *)(*(_QWORD *)(v30 + 8) + 16LL) + 8LL);
+        v22 = (__int64 *)(**v21)(v21, v37);
+        v30 = 0LL;
+        v23 = *v22;
+        *((_QWORD *)this + 10) = *v22;
+        v24 = *((unsigned int *)this + 450);
+        v37[0] = v20;
+        v25 = v24 + 1;
+        if ( (int)v24 + 1 < (unsigned int)v24 )
+        {
+          v2 = -2147024362;
+          MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, -2147024362, 0xB5u, 0LL);
+LABEL_11:
+          if ( v2 < 0 )
+            MilInstrumentationCheckHR_MaybeFailFast(v26, &dword_180305340, 3u, v2, 0x4Fu, 0LL);
+          goto LABEL_15;
+        }
+        if ( v25 > *((_DWORD *)this + 449) )
+        {
+          v27 = DynArrayImpl<0>::AddMultipleAndSet((__int64)this + 1776, 8, 1, v37);
+          v2 = v27;
+          if ( v27 < 0 )
+            MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v27, 0xC0u, 0LL);
+          goto LABEL_11;
+        }
+        *(_QWORD *)(*((_QWORD *)this + 222) + 8 * v24) = v20;
+        v2 = 0;
+        *((_DWORD *)this + 450) = v25;
+      }
     }
-    v2 = v26;
 LABEL_15:
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v31);
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v32);
+    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v30);
+    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v29);
     goto LABEL_16;
   }
-  return v2;
+  return (unsigned int)v2;
 }

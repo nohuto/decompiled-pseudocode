@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreatePartitionNamespace @ 0x14082C1E4
+ * XREFs of MiCreatePartitionNamespace @ 0x1407A0B44
  * Callers:
- *     MiInitializeMemoryEvents @ 0x14082BD64 (MiInitializeMemoryEvents.c)
+ *     MiInitializeMemoryEvents @ 0x1407A06D4 (MiInitializeMemoryEvents.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwCreateDirectoryObjectEx @ 0x14041CCA0 (ZwCreateDirectoryObjectEx.c)
- *     ObCleanupSecurityDescriptor @ 0x14082C308 (ObCleanupSecurityDescriptor.c)
- *     ObCreateKernelObjectsSD @ 0x14082C34C (ObCreateKernelObjectsSD.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwCreateDirectoryObjectEx @ 0x1403FB8A0 (ZwCreateDirectoryObjectEx.c)
+ *     ObCleanupSecurityDescriptor @ 0x1407A0C68 (ObCleanupSecurityDescriptor.c)
+ *     ObCreateKernelObjectsSD @ 0x1407A0CAC (ObCreateKernelObjectsSD.c)
  */
 
 __int64 __fastcall MiCreatePartitionNamespace(__int64 a1)
@@ -25,10 +25,10 @@ __int64 __fastcall MiCreatePartitionNamespace(__int64 a1)
   _OWORD *v14; // [rsp+90h] [rbp+3Fh]
   __int64 v15; // [rsp+98h] [rbp+47h]
 
-  v13 = 0;
   v9 = 0;
-  v7 = 0LL;
+  v13 = 0;
   DestinationString = 0LL;
+  v7 = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   RtlInitUnicodeString(&DestinationString, 0LL);
   v10 = 0LL;

@@ -1,48 +1,66 @@
 /*
- * XREFs of ExpTimeZoneInitSiloState @ 0x1409F8178
+ * XREFs of ExpTimeZoneInitSiloState @ 0x1405D1B7C
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x1409AC180 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x140906470 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140204738 (PsGetServerSiloGlobals.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PsDetachSiloFromCurrentThread @ 0x1402D7F90 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x1402D7FB0 (PsAttachSiloToCurrentThread.c)
- *     ZwSetSystemTime @ 0x14041EE40 (ZwSetSystemTime.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExAcquireTimeRefreshLock @ 0x1407D6F54 (ExAcquireTimeRefreshLock.c)
- *     ExpRefreshTimeZoneInformation @ 0x140835844 (ExpRefreshTimeZoneInformation.c)
- *     ExpReadTimeZoneInformation @ 0x1409F8048 (ExpReadTimeZoneInformation.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
+ *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
+ *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
+ *     ZwSetSystemTime @ 0x1403FD960 (ZwSetSystemTime.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExpReadTimeZoneInformation @ 0x1405D1A44 (ExpReadTimeZoneInformation.c)
+ *     ExReleaseTimeRefreshLock @ 0x1406DBCF0 (ExReleaseTimeRefreshLock.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406DBD14 (ExAcquireTimeRefreshLock.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpTimeZoneInitSiloState(__int64 a1)
 {
   unsigned int v1; // ebx
-  _QWORD *ServerSiloGlobals; // rsi
+  _QWORD *ServerSiloGlobals; // rdi
   struct _LIST_ENTRY *v3; // rcx
-  struct _LIST_ENTRY *v4; // rdi
+  struct _LIST_ENTRY *v4; // rsi
   PVOID PoolWithTag; // rax
+  __int64 v6; // rax
+  __int64 v7; // rcx
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  int v11; // [rsp+38h] [rbp+10h] BYREF
 
   v1 = 0;
+  v11 = 0;
   ServerSiloGlobals = PsGetServerSiloGlobals(a1);
   v4 = PsAttachSiloToCurrentThread(v3);
-  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x3F0uLL, 0x5A547845u);
-  ServerSiloGlobals[157] = PoolWithTag;
-  if ( PoolWithTag )
+  ExpReadTimeZoneInformation((__int64)L"TimeZoneVirtualizationSupported", 0, (__int64)&v11);
+  if ( v11 )
   {
-    memset(PoolWithTag, 0, 0x3F0uLL);
-    *(_DWORD *)(ServerSiloGlobals[157] + 432LL) = -1;
-    ExpReadTimeZoneInformation((__int64)L"ActiveTimeBias", -1, ServerSiloGlobals[157] + 436LL);
-    ExAcquireTimeRefreshLock(1u);
-    ExpRefreshTimeZoneInformation(1);
-    ExReleaseResourceLite(&ExpTimeRefreshLock);
-    KeLeaveCriticalRegion();
-    ZwSetSystemTime(0LL, 0LL);
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x3F0uLL, 0x5A547845u);
+    ServerSiloGlobals[133] = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      memset(PoolWithTag, 0, 0x3F0uLL);
+      v6 = ServerSiloGlobals[133];
+      *((_BYTE *)ServerSiloGlobals + 1049) = 1;
+      *(_DWORD *)(v6 + 432) = -1;
+      ExpReadTimeZoneInformation((__int64)L"ActiveTimeBias", -1, ServerSiloGlobals[133] + 436LL);
+      LOBYTE(v7) = 1;
+      ExAcquireTimeRefreshLock(v7);
+      LOBYTE(v8) = 1;
+      ExpRefreshTimeZoneInformation(v8);
+      ExReleaseTimeRefreshLock();
+      ZwSetSystemTime(0LL, 0LL);
+    }
+    else
+    {
+      v1 = -1073741670;
+    }
   }
   else
   {
-    v1 = -1073741670;
+    v9 = HalSystemVectorDispatchEntry();
+    ServerSiloGlobals[133] = *((_QWORD *)PsGetServerSiloGlobals(v9) + 133);
   }
   PsDetachSiloFromCurrentThread(v4);
   return v1;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiValidateSectionSigningPolicy @ 0x1406AA5DC
+ * XREFs of MiValidateSectionSigningPolicy @ 0x14066A6E0
  * Callers:
- *     MiValidateExistingImage @ 0x1406AA324 (MiValidateExistingImage.c)
- *     MiCreateNewSection @ 0x140746A00 (MiCreateNewSection.c)
+ *     MiValidateExistingImage @ 0x14066A3F8 (MiValidateExistingImage.c)
+ *     MiCreateNewSection @ 0x140700490 (MiCreateNewSection.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     MiValidateSectionCreate @ 0x1406ABE8C (MiValidateSectionCreate.c)
- *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1409EA354 (EtwTimLogProhibitNonMicrosoftBinaries.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     MiValidateSectionCreate @ 0x14066B20C (MiValidateSectionCreate.c)
+ *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x14093C118 (EtwTimLogProhibitNonMicrosoftBinaries.c)
  */
 
 __int64 __fastcall MiValidateSectionSigningPolicy(
@@ -18,64 +18,61 @@ __int64 __fastcall MiValidateSectionSigningPolicy(
         int a6,
         char a7,
         char a8,
-        char a9)
+        int a9,
+        char a10,
+        char a11)
 {
-  int v13; // edx
   _KPROCESS *Process; // r13
-  int v15; // ecx
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  int v18; // ebx
-  int v19; // r8d
-  int v20; // r9d
-  int v21; // ecx
-  __int64 v22; // [rsp+20h] [rbp-48h]
+  int v16; // eax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  int v19; // ebx
+  int v20; // r8d
+  int v21; // r9d
+  int v22; // ecx
+  __int64 v23; // [rsp+20h] [rbp-38h]
 
-  if ( a1 < 2 )
+  if ( a1 >= 2 )
+    return 3221225485LL;
+  if ( !a7 && !a8 )
+    return 0LL;
+  Process = KeGetCurrentThread()->ApcState.Process;
+  v16 = a6 | 0x2000000;
+  if ( a7 )
+    v16 = a6;
+  v19 = MiValidateSectionCreate(a2, a3, a4, a5, v16, a10, a11);
+  if ( v19 < 0 )
   {
-    if ( (a7 & 6) == 0 )
-      return 0LL;
-    v13 = a6 | 0x2000000;
-    Process = KeGetCurrentThread()->ApcState.Process;
-    if ( (a7 & 2) != 0 )
-      v13 = a6;
-    v15 = v13 | 0x800000;
-    if ( (a7 & 8) == 0 )
-      v15 = v13;
-    v18 = MiValidateSectionCreate(a2, a3, a4, a5, v15, a8, a9);
-    if ( v18 < 0 )
-    {
-      v17 = (unsigned int)(a1 != 1) + 1;
-      dword_140C65910 = (a1 != 1) + 1;
-    }
-    if ( (a7 & 2) != 0 && v18 < 0 )
-    {
-      if ( v18 != -1073740760 || (a7 & 9) != 1 )
-        return (unsigned int)v18;
-      LOBYTE(v19) = a8;
-      v22 = a2 + 88;
-      v21 = 2;
-    }
-    else
-    {
-      if ( (a7 & 4) == 0 )
-        return (unsigned int)v18;
-      if ( v18 < 0 )
-        return 0;
-      if ( qword_140C37A00 )
-      {
-        LOBYTE(v16) = a9;
-        LOBYTE(v17) = *(_BYTE *)(*(_QWORD *)a3 + 15LL) >> 4;
-        if ( (unsigned int)qword_140C37A00(v17, v16) )
-          return (unsigned int)v18;
-      }
-      LOBYTE(v19) = a9;
-      v22 = a2 + 88;
-      v21 = 1;
-    }
-    LOBYTE(v20) = *(_BYTE *)(*(_QWORD *)a3 + 15LL) >> 4;
-    EtwTimLogProhibitNonMicrosoftBinaries(v21, (_DWORD)Process, v19, v20, v22);
-    return (unsigned int)v18;
+    v18 = (unsigned int)(a1 != 1) + 1;
+    dword_140C4CC18 = (a1 != 1) + 1;
   }
-  return 3221225485LL;
+  if ( a7 == 1 && v19 < 0 )
+  {
+    if ( v19 != -1073740760 || a9 != 1 )
+      return (unsigned int)v19;
+    LOBYTE(v20) = a10;
+    v23 = a2 + 88;
+    v22 = 2;
+LABEL_20:
+    LOBYTE(v21) = *(_BYTE *)(*(_QWORD *)a3 + 15LL) >> 4;
+    EtwTimLogProhibitNonMicrosoftBinaries(v22, (_DWORD)Process, v20, v21, v23);
+    return (unsigned int)v19;
+  }
+  if ( a8 == 1 )
+  {
+    if ( v19 < 0 )
+      return 0;
+    if ( qword_140C1DB20 )
+    {
+      LOBYTE(v17) = a11;
+      LOBYTE(v18) = *(_BYTE *)(*(_QWORD *)a3 + 15LL) >> 4;
+      if ( (unsigned int)qword_140C1DB20(v18, v17) )
+        return (unsigned int)v19;
+    }
+    LOBYTE(v20) = a11;
+    v23 = a2 + 88;
+    v22 = 1;
+    goto LABEL_20;
+  }
+  return (unsigned int)v19;
 }

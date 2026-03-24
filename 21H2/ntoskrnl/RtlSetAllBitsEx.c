@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlSetAllBitsEx @ 0x1403D9CD0
+ * XREFs of RtlSetAllBitsEx @ 0x1403CB5F0
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x14093AAEC (IopLiveDumpAllocAndInitResources.c)
- *     MiInitializeUltraSpace @ 0x140B2A164 (MiInitializeUltraSpace.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140896BBC (IopLiveDumpAllocAndInitResources.c)
+ *     MiInitializeUltraSpace @ 0x140A6EA40 (MiInitializeUltraSpace.c)
  * Callees:
  *     <none>
  */

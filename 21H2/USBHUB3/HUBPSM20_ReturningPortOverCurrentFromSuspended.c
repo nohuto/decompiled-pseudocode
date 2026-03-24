@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM20_ReturningPortOverCurrentFromSuspended @ 0x1C0011AD0
+ * XREFs of HUBPSM20_ReturningPortOverCurrentFromSuspended @ 0x1C0011790
  * Callers:
  *     <none>
  * Callees:

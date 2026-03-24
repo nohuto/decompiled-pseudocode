@@ -1,12 +1,12 @@
 /*
- * XREFs of PspCallJobHierarchyCallbacks @ 0x1406FFF24
+ * XREFs of PspCallJobHierarchyCallbacks @ 0x1406181F4
  * Callers:
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FF880 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140617FF0 (PspEnumJobsAndProcessesInJobHierarchy.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PspUnlockJob @ 0x1406FFE90 (PspUnlockJob.c)
- *     PspLockJobExclusive @ 0x1406FFED4 (PspLockJobExclusive.c)
- *     PspLockJobShared @ 0x1406FFEFC (PspLockJobShared.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x140618774 (PspLockJobExclusive.c)
+ *     PspLockJobShared @ 0x14061879C (PspLockJobShared.c)
  */
 
 __int64 __fastcall PspCallJobHierarchyCallbacks(
@@ -32,9 +32,9 @@ __int64 __fastcall PspCallJobHierarchyCallbacks(
   if ( (a6 & 1) == 0 )
   {
     if ( (a6 & 4) != 0 )
-      PspLockJobExclusive(a1, (__int64)CurrentThread);
+      PspLockJobExclusive(a1, CurrentThread);
     else
-      PspLockJobShared(a1, (__int64)CurrentThread);
+      PspLockJobShared(a1, CurrentThread);
   }
   if ( !a2 || (v12 = a2(a1, a5), v12 >= 0) )
   {
@@ -50,7 +50,7 @@ __int64 __fastcall PspCallJobHierarchyCallbacks(
     }
   }
   if ( (a6 & 1) == 0 )
-    PspUnlockJob(a1, (__int64)CurrentThread);
+    PspUnlockJob(a1, CurrentThread);
   if ( v12 < 0 )
   {
     if ( v12 != -1073741536 )

@@ -3,7 +3,7 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PiAuFreeUserSids @ 0x1409C683C (PiAuFreeUserSids.c)
  *     PiAuCreateLocalSystemSecurityObject @ 0x1409C68D4 (PiAuCreateLocalSystemSecurityObject.c)
  *     PiAuCreateUserSids @ 0x1409C6A68 (PiAuCreateUserSids.c)

@@ -1,37 +1,44 @@
 /*
- * XREFs of ?IsValidCoordinateSpace@CCompositionLight@@IEBA_NPEBVCVisualTree@@PEBVCVisual@@PEAV3@@Z @ 0x1802009E8
+ * XREFs of ?IsValidCoordinateSpace@CCompositionLight@@IEBA_NPEBVCVisualTree@@PEBVCVisual@@PEAV3@@Z @ 0x1801F49BC
  * Callers:
- *     ?IsValid@CCompositionDistantLight@@UEBA_NPEBVCVisualTree@@PEBVCVisual@@@Z @ 0x18020C8A0 (-IsValid@CCompositionDistantLight@@UEBA_NPEBVCVisualTree@@PEBVCVisual@@@Z.c)
- *     ?IsValid@CCompositionSpotLight@@UEBA_NPEBVCVisualTree@@PEBVCVisual@@@Z @ 0x18020DE70 (-IsValid@CCompositionSpotLight@@UEBA_NPEBVCVisualTree@@PEBVCVisual@@@Z.c)
+ *     ?IsValid@CCompositionDistantLight@@UEBA_NPEBVCVisualTree@@PEBVCVisual@@@Z @ 0x1801B9D40 (-IsValid@CCompositionDistantLight@@UEBA_NPEBVCVisualTree@@PEBVCVisual@@@Z.c)
  * Callees:
- *     ?IsInvertibleDeterminant@CMILMatrix@@SA_NM@Z @ 0x1800491BC (-IsInvertibleDeterminant@CMILMatrix@@SA_NM@Z.c)
- *     ?GetWorldTransform@CVisual@@QEBAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z @ 0x18004AFB8 (-GetWorldTransform@CVisual@@QEBAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z.c)
- *     ?_IsInTree@CVisualTree@@IEBA_NPEBVCVisual@@W4IsInTreeFlags@1@@Z @ 0x1800D5AC8 (-_IsInTree@CVisualTree@@IEBA_NPEBVCVisual@@W4IsInTreeFlags@1@@Z.c)
- *     ?determinant@Numerics@Foundation@Windows@@YAMAEBUfloat4x4@123@@Z @ 0x180261478 (-determinant@Numerics@Foundation@Windows@@YAMAEBUfloat4x4@123@@Z.c)
+ *     ?GetWorldTransform@CVisual@@QEAAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z @ 0x1800B7380 (-GetWorldTransform@CVisual@@QEAAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z.c)
+ *     ?IsInvertibleDeterminant@CMILMatrix@@SA_NM@Z @ 0x1800C5BEC (-IsInvertibleDeterminant@CMILMatrix@@SA_NM@Z.c)
+ *     ?_IsInTree@CVisualTree@@IEBA_NPEBVCVisual@@_N@Z @ 0x1800C7778 (-_IsInTree@CVisualTree@@IEBA_NPEBVCVisual@@_N@Z.c)
+ *     ?determinant@Numerics@Foundation@Windows@@YAMAEBUfloat4x4@123@@Z @ 0x180211C94 (-determinant@Numerics@Foundation@Windows@@YAMAEBUfloat4x4@123@@Z.c)
  */
 
-bool __fastcall CCompositionLight::IsValidCoordinateSpace(
+char __fastcall CCompositionLight::IsValidCoordinateSpace(
         CCompositionLight *this,
-        const struct CVisualTree *a2,
+        const struct CVisual **a2,
         const struct CVisual *a3,
         struct CVisual *a4)
 {
-  const struct Windows::Foundation::Numerics::float4x4 *v6; // rdx
-  float v7; // xmm0_4
-  bool result; // al
-  _BYTE v9[64]; // [rsp+30h] [rbp-58h] BYREF
-  int v10; // [rsp+70h] [rbp-18h]
+  CVisual *v5; // r10
+  CVisual *v6; // r11
+  const struct Windows::Foundation::Numerics::float4x4 *v8; // rdx
+  float v9; // xmm0_4
+  _BYTE v10[64]; // [rsp+30h] [rbp-58h] BYREF
+  int v11; // [rsp+70h] [rbp-18h]
 
-  result = 0;
-  if ( CVisualTree::_IsInTree((__int64)a2, (__int64)a4, 1) )
+  if ( !CVisualTree::_IsInTree(a2, a4, 1) )
+    return 0;
+  while ( v5 != v6 )
   {
-    v10 = 0;
-    if ( (int)CVisual::GetWorldTransform(a4, a2, 3, (__int64)v9, 0LL, 0LL) >= 0 )
-    {
-      v7 = Windows::Foundation::Numerics::determinant((Windows::Foundation::Numerics *)v9, v6);
-      if ( CMILMatrix::IsInvertibleDeterminant(v7) )
-        return 1;
-    }
+    if ( !v5 )
+      return 0;
+    v5 = (CVisual *)*((_QWORD *)v5 + 10);
   }
-  return result;
+  v11 = 0;
+  if ( (int)CVisual::GetWorldTransform(v6, (const struct CVisualTree *)a2, 3, (__int64)v10, 0LL, 0LL) >= 0
+    && (v9 = Windows::Foundation::Numerics::determinant((Windows::Foundation::Numerics *)v10, v8),
+        CMILMatrix::IsInvertibleDeterminant(v9)) )
+  {
+    return 1;
+  }
+  else
+  {
+    return 0;
+  }
 }

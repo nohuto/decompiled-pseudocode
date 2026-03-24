@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CDisplayManager@@QEAA@XZ @ 0x1800F7FD4
+ * XREFs of ??0CDisplayManager@@QEAA@XZ @ 0x1800DF814
  * Callers:
- *     _dynamic_initializer_for__g_DisplayManager__ @ 0x180003DB0 (_dynamic_initializer_for__g_DisplayManager__.c)
+ *     _dynamic_initializer_for__g_DisplayManager__ @ 0x1800035F0 (_dynamic_initializer_for__g_DisplayManager__.c)
  * Callees:
  *     <none>
  */
@@ -12,9 +12,9 @@ CDisplayManager *__fastcall CDisplayManager::CDisplayManager(CDisplayManager *th
 
   InitializeCriticalSection(&g_DisplayManager);
   result = (CDisplayManager *)&g_DisplayManager;
-  qword_1803D7618 = 0LL;
-  qword_1803D7620 = 0LL;
-  dword_1803D7628 = 0;
-  unk_1803D762C = 0;
+  qword_18034B5F8 = 0LL;
+  hObject = 0LL;
+  dword_18034B608 = 0;
+  unk_18034B60C = 0;
   return result;
 }

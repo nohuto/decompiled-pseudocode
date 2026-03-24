@@ -1,9 +1,9 @@
 /*
- * XREFs of __scrt_dllmain_uninitialize_critical @ 0x18010F25C
+ * XREFs of __scrt_dllmain_uninitialize_critical @ 0x1800E6EA4
  * Callers:
- *     dllmain_crt_process_detach @ 0x18010F650 (dllmain_crt_process_detach.c)
+ *     dllmain_crt_process_detach @ 0x1800E72B4 (dllmain_crt_process_detach.c)
  * Callees:
- *     __scrt_stub_for_acrt_uninitialize_critical @ 0x1801113BC (__scrt_stub_for_acrt_uninitialize_critical.c)
+ *     __scrt_stub_for_acrt_uninitialize_critical @ 0x1800E918C (__scrt_stub_for_acrt_uninitialize_critical.c)
  */
 
 __int64 _scrt_dllmain_uninitialize_critical()

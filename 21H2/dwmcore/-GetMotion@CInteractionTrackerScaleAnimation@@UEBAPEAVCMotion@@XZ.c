@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetMotion@CInteractionTrackerScaleAnimation@@UEBAPEAVCMotion@@XZ @ 0x1800FBBE0
+ * XREFs of ?GetMotion@CInteractionTrackerScaleAnimation@@UEBAPEAVCMotion@@XZ @ 0x1800E3100
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct CMotion *__fastcall CInteractionTrackerScaleAnimation::GetMotion(CInteractionTrackerScaleAnimation *this)
 {
-  return (CInteractionTrackerScaleAnimation *)((char *)this + 456);
+  return (CInteractionTrackerScaleAnimation *)((char *)this + 432);
 }

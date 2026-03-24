@@ -1,11 +1,11 @@
 /*
- * XREFs of SeAssignSecurityEx2 @ 0x1402A49D0
+ * XREFs of SeAssignSecurityEx2 @ 0x140355E90
  * Callers:
- *     ObpAssignSecurity @ 0x140669694 (ObpAssignSecurity.c)
- *     SeAssignSecurityEx @ 0x1406BC320 (SeAssignSecurityEx.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
+ *     ObpAssignSecurity @ 0x140662FAC (ObpAssignSecurity.c)
+ *     SeAssignSecurityEx @ 0x1406A0770 (SeAssignSecurityEx.c)
+ *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
  * Callees:
- *     RtlpNewSecurityObject @ 0x1407CE760 (RtlpNewSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x1406FF5F0 (RtlpNewSecurityObject.c)
  */
 
 __int64 __fastcall SeAssignSecurityEx2(

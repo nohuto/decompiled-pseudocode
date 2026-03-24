@@ -1,20 +1,20 @@
 /*
- * XREFs of ?xxxMNGetBitmapSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagWND@@HPEAUHDC__@@@Z @ 0x1C00BF2D8
+ * XREFs of ?xxxMNGetBitmapSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagWND@@HPEAUHDC__@@@Z @ 0x1C004C0B8
  * Callers:
- *     ?xxxMNItemSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAUtagPOINT@@@Z @ 0x1C00BF15C (-xxxMNItemSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAU.c)
+ *     ?xxxMNItemSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAUtagPOINT@@@Z @ 0x1C00481E8 (-xxxMNItemSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAU.c)
  * Callees:
- *     xxxSendMessage @ 0x1C0050D34 (xxxSendMessage.c)
- *     MNGetpItemIndex @ 0x1C0068DA4 (MNGetpItemIndex.c)
- *     MNIsUAHMenu @ 0x1C0069238 (MNIsUAHMenu.c)
- *     MNInitUAHMenuItem @ 0x1C00BE908 (MNInitUAHMenuItem.c)
- *     MNInitUAHMenu @ 0x1C00BE950 (MNInitUAHMenu.c)
- *     GetDPIServerInfoForDpi @ 0x1C00C76E0 (GetDPIServerInfoForDpi.c)
- *     MNUpdateUAHMaxPopupWidths @ 0x1C0117B3C (MNUpdateUAHMaxPopupWidths.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     MNInitUAHMenuItem @ 0x1C0044CC8 (MNInitUAHMenuItem.c)
+ *     MNInitUAHMenu @ 0x1C0044D20 (MNInitUAHMenu.c)
+ *     GetDPIServerInfoForDpi @ 0x1C0044EF8 (GetDPIServerInfoForDpi.c)
+ *     MNGetpItemIndex @ 0x1C0048370 (MNGetpItemIndex.c)
+ *     MNIsUAHMenu @ 0x1C00490D0 (MNIsUAHMenu.c)
+ *     xxxSendMessage @ 0x1C005D634 (xxxSendMessage.c)
+ *     MNUpdateUAHMaxPopupWidths @ 0x1C010293C (MNUpdateUAHMaxPopupWidths.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
-__int64 __fastcall xxxMNGetBitmapSize(__int64 **a1, __int64 a2, ULONG_PTR a3, unsigned int a4, __int64 a5)
+__int64 __fastcall xxxMNGetBitmapSize(__int64 **a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   __int64 v9; // rax
   __int64 result; // rax
@@ -41,7 +41,7 @@ __int64 __fastcall xxxMNGetBitmapSize(__int64 **a1, __int64 a2, ULONG_PTR a3, un
   v21[3] = *(_QWORD *)(*(_QWORD *)a2 + 56LL);
   if ( (*(_DWORD *)v11 & 0x100) != 0 || *(_QWORD *)(v11 + 96) == -1LL && a3 )
   {
-    xxxSendMessage(a3);
+    xxxSendMessage(a3, 44LL, 0LL, v21);
     v18 = (__int64)a1[2];
     if ( !v18 )
       v18 = **a1;
@@ -61,7 +61,7 @@ __int64 __fastcall xxxMNGetBitmapSize(__int64 **a1, __int64 a2, ULONG_PTR a3, un
   if ( !v14 )
     v14 = **a1;
   MNInitUAHMenuItem(v14, a2, (__int64)&v21[7]);
-  xxxSendMessage(a3);
+  xxxSendMessage(a3, 148LL, 0LL, v21);
   v15 = (__int64)a1[2];
   if ( !v15 )
     v15 = **a1;

@@ -1,9 +1,9 @@
 /*
- * XREFs of SepSidFromProcessProtection @ 0x1400ABACC
+ * XREFs of SepSidFromProcessProtection @ 0x1400ABAEC
  * Callers:
- *     SepReferenceTokenUsingPseudoHandle @ 0x1400A8DF0 (SepReferenceTokenUsingPseudoHandle.c)
- *     SepReconcileTrustSidWithProcessProtection @ 0x1400ABA50 (SepReconcileTrustSidWithProcessProtection.c)
- *     SepSetTrustLevelForProcessToken @ 0x1400D9DF4 (SepSetTrustLevelForProcessToken.c)
+ *     SepReferenceTokenUsingPseudoHandle @ 0x1400A8E10 (SepReferenceTokenUsingPseudoHandle.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x1400ABA70 (SepReconcileTrustSidWithProcessProtection.c)
+ *     SepSetTrustLevelForProcessToken @ 0x1400D9E14 (SepSetTrustLevelForProcessToken.c)
  * Callees:
  *     <none>
  */

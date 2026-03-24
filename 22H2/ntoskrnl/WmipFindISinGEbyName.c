@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipFindISinGEbyName @ 0x14086B530
+ * XREFs of WmipFindISinGEbyName @ 0x140757B58
  * Callers:
- *     WmipMangleInstanceName @ 0x14086B424 (WmipMangleInstanceName.c)
+ *     WmipMangleInstanceName @ 0x140757A58 (WmipMangleInstanceName.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     _wtoi @ 0x1403D9750 (_wtoi.c)
- *     wcsncmp @ 0x1403DB3F0 (wcsncmp.c)
- *     WmipReferenceEntry @ 0x1406C693C (WmipReferenceEntry.c)
- *     WmipIsNumber @ 0x1407EAB24 (WmipIsNumber.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     _wtoi @ 0x1403D1D30 (_wtoi.c)
+ *     wcsncmp @ 0x1403D3940 (wcsncmp.c)
+ *     WmipReferenceEntry @ 0x1406B79C4 (WmipReferenceEntry.c)
+ *     WmipIsNumber @ 0x14078E828 (WmipIsNumber.c)
  */
 
 ULONG_PTR __fastcall WmipFindISinGEbyName(__int64 a1, const wchar_t *a2, unsigned int *a3)
@@ -24,7 +24,7 @@ ULONG_PTR __fastcall WmipFindISinGEbyName(__int64 a1, const wchar_t *a2, unsigne
   unsigned int v14; // r10d
   const wchar_t *v16; // rdx
   size_t v17; // rdi
-  wchar_t *v18; // rdi
+  const wchar_t *v18; // rdi
   unsigned int v19; // eax
   unsigned int v20; // r9d
   unsigned int v21; // r10d
@@ -52,11 +52,11 @@ ULONG_PTR __fastcall WmipFindISinGEbyName(__int64 a1, const wchar_t *a2, unsigne
     while ( v16[v17] );
     if ( v17 < v3 && !wcsncmp(a2, v16, v17) )
     {
-      v18 = (wchar_t *)&a2[v17];
+      v18 = &a2[v17];
       v19 = wtoi(v18);
       v20 = v19;
       v21 = **(_DWORD **)(i + 88);
-      if ( v19 >= v21 && v19 < v21 + *(_DWORD *)(i + 72) && (v19 || WmipIsNumber(v18)) )
+      if ( v19 >= v21 && v19 < v21 + *(_DWORD *)(i + 72) && (v19 || (unsigned __int8)WmipIsNumber(v18)) )
       {
         *a3 = v20 - v21;
         goto LABEL_17;

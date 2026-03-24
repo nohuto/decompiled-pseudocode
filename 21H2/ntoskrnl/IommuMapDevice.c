@@ -1,240 +1,256 @@
 /*
- * XREFs of IommuMapDevice @ 0x1405264A0
+ * XREFs of IommuMapDevice @ 0x1404D8E90
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ExInitializePushLock @ 0x1402A0840 (ExInitializePushLock.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x1403B1F04 (HalpMmAllocCtxAlloc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IommupHvGetDeviceCapabilities @ 0x140527604 (IommupHvGetDeviceCapabilities.c)
- *     IommupHvUnmapDevice @ 0x140527B98 (IommupHvUnmapDevice.c)
- *     HalpIommuLocateFromDevice @ 0x14084667C (HalpIommuLocateFromDevice.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IommupHvGetDeviceCapabilities @ 0x1404D9F44 (IommupHvGetDeviceCapabilities.c)
+ *     IommupHvUnmapDevice @ 0x1404DA330 (IommupHvUnmapDevice.c)
+ *     HalpIommuLocateFromDevice @ 0x140765500 (HalpIommuLocateFromDevice.c)
  */
 
 __int64 __fastcall IommuMapDevice(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
 {
-  bool v5; // zf
-  __int64 v7; // rbx
-  _QWORD *v8; // rsi
-  __int64 v9; // r8
-  int DeviceCapabilities; // r15d
-  ULONG_PTR v11; // r12
-  unsigned int *v12; // r14
-  int v13; // eax
-  __int64 v14; // rcx
-  void *v15; // rax
-  __int64 v16; // rdi
-  unsigned int v17; // eax
-  __int64 v18; // rcx
-  void *v19; // rax
-  __int64 v20; // rcx
-  unsigned int *v21; // r13
+  unsigned int *v4; // rsi
+  ULONG_PTR v5; // r12
+  __int64 v6; // r14
+  __int64 v7; // rdi
+  _QWORD *v8; // r15
+  int DeviceCapabilities; // ebx
+  __int64 v11; // r8
+  int v12; // eax
+  __int64 v13; // rcx
+  void *v14; // rax
+  __int64 v15; // r14
+  unsigned int v16; // eax
+  __int64 v17; // rcx
+  void *v18; // rax
+  __int64 v19; // rcx
+  unsigned int *v20; // r13
+  __int64 v21; // rax
   __int64 v22; // rax
   _QWORD *v23; // rax
-  unsigned __int8 CurrentIrql; // r12
+  unsigned __int8 CurrentIrql; // r13
   _DWORD *SchedulerAssist; // r9
   __int64 v26; // rax
   __int64 v27; // rcx
   __int64 v28; // rax
   _QWORD *v29; // rcx
-  unsigned int *v30; // r8
-  _QWORD *v31; // rdx
+  unsigned int *v30; // rdx
+  _QWORD *v31; // r8
   _QWORD *v32; // rcx
   __int64 *v33; // rax
   __int64 v34; // rcx
-  __int64 v35; // rcx
-  unsigned __int8 v36; // al
+  unsigned __int8 v35; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v38; // r8
-  int v39; // eax
+  _DWORD *v37; // r8
+  int v38; // eax
+  bool v39; // zf
   __int64 v40; // rdx
   unsigned int *v42; // [rsp+30h] [rbp-20h] BYREF
   ULONG_PTR v43; // [rsp+38h] [rbp-18h] BYREF
   ULONG_PTR BugCheckParameter2[2]; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v45; // [rsp+90h] [rbp+40h]
 
-  v5 = HalpHvIommu == 0;
+  v45 = a1;
   *a4 = 0LL;
+  v4 = 0LL;
+  BugCheckParameter2[0] = 0LL;
+  v5 = 0LL;
+  v6 = a1;
   v42 = 0LL;
   v7 = 0LL;
-  v8 = 0LL;
   v43 = 0LL;
-  BugCheckParameter2[0] = 0LL;
-  if ( v5 )
+  v8 = 0LL;
+  LOBYTE(a1) = 0;
+  if ( *(_DWORD *)a2 != 1 || (*(_BYTE *)(a2 + 4) & 1) != 0 || (*(_BYTE *)(a2 + 10) & 3) != 0 )
   {
-    DeviceCapabilities = HalpIommuLocateFromDevice(a2, &v42, BugCheckParameter2);
-    if ( DeviceCapabilities < 0 )
-      return (unsigned int)DeviceCapabilities;
-    v11 = BugCheckParameter2[0];
-    LOBYTE(v9) = 1;
-    v12 = v42;
-    v43 = BugCheckParameter2[0];
-    v13 = (*((__int64 (__fastcall **)(_QWORD, ULONG_PTR, __int64))v42 + 25))(
-            *((_QWORD *)v42 + 2),
-            BugCheckParameter2[0],
-            v9);
+    DeviceCapabilities = -1073741637;
+    goto LABEL_40;
   }
-  else
+  if ( HalpHvIommu )
   {
     DeviceCapabilities = IommupHvGetDeviceCapabilities(a2, &v43, &v42);
     if ( DeviceCapabilities < 0 )
       return (unsigned int)DeviceCapabilities;
-    v12 = v42;
-    v11 = v43;
-    v13 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))qword_140C4C580)(
+    v4 = v42;
+    v5 = v43;
+    v12 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))qword_140C4A280)(
             (unsigned int)v43,
-            *(unsigned int *)(*(_QWORD *)a1 + 16LL),
+            *(unsigned int *)(*(_QWORD *)v6 + 16LL),
             *v42,
             *(_DWORD *)(a3 + 4) & 0x1F | (4 * (*(_DWORD *)(a3 + 4) & 0x100)) | (*(_DWORD *)(a3 + 4) >> 4) & 0x3E0u);
   }
-  DeviceCapabilities = v13;
-  if ( v13 < 0 )
-    return (unsigned int)DeviceCapabilities;
-  v15 = (void *)HalpMmAllocCtxAlloc(v14, 128LL);
-  v16 = (__int64)v15;
-  if ( v15 )
+  else
   {
-    memset(v15, 0, 0x80uLL);
-    *(_QWORD *)(v16 + 24) = v12;
-    *(_QWORD *)(v16 + 40) = v11;
-    ExInitializePushLock((PEX_RUNDOWN_REF)(v16 + 72));
-    v17 = *(_DWORD *)(a3 + 4);
-    *(_QWORD *)(v16 + 16) = 0LL;
-    *(_DWORD *)(v16 + 80) = (v17 >> 9) & 0x1F;
-    *(_QWORD *)(v16 + 120) = v16 + 112;
-    *(_QWORD *)(v16 + 112) = v16 + 112;
-    v19 = (void *)HalpMmAllocCtxAlloc(v18, 16456LL);
-    v7 = (__int64)v19;
-    if ( v19 )
+    DeviceCapabilities = HalpIommuLocateFromDevice(a2, &v42, BugCheckParameter2);
+    if ( DeviceCapabilities < 0 )
+      return (unsigned int)DeviceCapabilities;
+    v5 = BugCheckParameter2[0];
+    LOBYTE(v11) = 1;
+    v4 = v42;
+    v43 = BugCheckParameter2[0];
+    v12 = (*((__int64 (__fastcall **)(_QWORD, ULONG_PTR, __int64))v42 + 25))(
+            *((_QWORD *)v42 + 2),
+            BugCheckParameter2[0],
+            v11);
+  }
+  DeviceCapabilities = v12;
+  if ( v12 < 0 )
+    return (unsigned int)DeviceCapabilities;
+  v14 = (void *)HalpMmAllocCtxAlloc(v13, 104LL);
+  v15 = (__int64)v14;
+  if ( !v14 )
+    goto LABEL_11;
+  memset(v14, 0, 0x68uLL);
+  *(_QWORD *)(v15 + 24) = v4;
+  *(_QWORD *)(v15 + 40) = v5;
+  ExInitializePushLock((PKSPIN_LOCK)(v15 + 48));
+  v16 = *(_DWORD *)(a3 + 4);
+  *(_QWORD *)(v15 + 16) = 0LL;
+  *(_DWORD *)(v15 + 56) = (v16 >> 9) & 0x1F;
+  *(_QWORD *)(v15 + 96) = v15 + 88;
+  *(_QWORD *)(v15 + 88) = v15 + 88;
+  v18 = (void *)HalpMmAllocCtxAlloc(v17, 12360LL);
+  v7 = (__int64)v18;
+  if ( !v18 )
+    goto LABEL_11;
+  memset(v18, 0, 0x3048uLL);
+  if ( !HalpHvIommu )
+  {
+    v20 = v4 + 96;
+    goto LABEL_16;
+  }
+  v20 = v4 + 6;
+  v21 = HalpMmAllocCtxAlloc(v19, v4[11] << 9);
+  *(_QWORD *)(v7 + 12352) = v21;
+  if ( !v21 )
+  {
+LABEL_11:
+    DeviceCapabilities = -1073741670;
+LABEL_42:
+    if ( HalpHvIommu )
+      IommupHvUnmapDevice(v5);
+    else
+      (*((void (__fastcall **)(_QWORD, ULONG_PTR, _QWORD))v4 + 25))(*((_QWORD *)v4 + 2), v5, 0LL);
+    if ( v15 )
+      HalpMmAllocCtxFree(a1, v15);
+    goto LABEL_47;
+  }
+LABEL_16:
+  *(_QWORD *)(v7 + 40) = v15;
+  *(_BYTE *)(v7 + 32) = 0;
+  *(_DWORD *)(v7 + 60) = v20[4];
+  v22 = HalpMmAllocCtxAlloc(v19, 40LL);
+  v8 = (_QWORD *)v22;
+  if ( !v22 )
+    goto LABEL_11;
+  *(_QWORD *)(v22 + 16) = v4;
+  v23 = (_QWORD *)(v22 + 24);
+  v23[1] = v23;
+  *v23 = v23;
+  CurrentIrql = KeGetCurrentIrql();
+  __writecr8(0xFuLL);
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  {
+    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+    v4 = v42;
+    v5 = v43;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
+  }
+  KxAcquireSpinLock((PKSPIN_LOCK)(*(_QWORD *)v45 + 24LL));
+  v26 = *(_QWORD *)v45 + 48LL;
+  v27 = *(_QWORD *)v26;
+  if ( *(_QWORD *)(*(_QWORD *)v26 + 8LL) != v26 )
+    goto LABEL_38;
+  *(_QWORD *)(v15 + 8) = v26;
+  *(_QWORD *)v15 = v27;
+  *(_QWORD *)(v27 + 8) = v15;
+  *(_QWORD *)v26 = v15;
+  v28 = *(_QWORD *)v45 + 32LL;
+  v29 = *(_QWORD **)v28;
+  if ( *(_QWORD *)v28 == v28 )
+    goto LABEL_26;
+  do
+  {
+    v30 = (unsigned int *)v29[2];
+    v31 = v29;
+    if ( v30 == v4 )
+      goto LABEL_28;
+    v29 = (_QWORD *)*v29;
+  }
+  while ( v29 != (_QWORD *)v28 );
+  if ( v30 != v4 )
+  {
+LABEL_26:
+    v32 = *(_QWORD **)v28;
+    if ( *(_QWORD *)(*(_QWORD *)v28 + 8LL) != v28 )
+      goto LABEL_38;
+    *v8 = v32;
+    v31 = v8;
+    v8[1] = v28;
+    v32[1] = v8;
+    *(_QWORD *)v28 = v8;
+    v8 = 0LL;
+  }
+LABEL_28:
+  v33 = v31 + 3;
+  v34 = v31[3];
+  if ( *(_QWORD **)(v34 + 8) != v31 + 3 )
+LABEL_38:
+    __fastfail(3u);
+  *(_QWORD *)v7 = v34;
+  *(_QWORD *)(v7 + 8) = v33;
+  *(_QWORD *)(v34 + 8) = v7;
+  *v33 = v7;
+  KxReleaseSpinLock((PKSPIN_LOCK)(*(_QWORD *)v45 + 24LL));
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      memset(v19, 0, 0x4048uLL);
-      if ( HalpHvIommu )
+      v35 = KeGetCurrentIrql();
+      if ( v35 <= 0xFu && CurrentIrql <= 0xFu && v35 >= 2u )
       {
-        v21 = v12 + 6;
-        v22 = HalpMmAllocCtxAlloc(v20, v12[11] << 9);
-        *(_QWORD *)(v7 + 16448) = v22;
-        if ( !v22 )
-          goto LABEL_34;
-      }
-      else
-      {
-        v21 = v12 + 100;
-      }
-      *(_QWORD *)(v7 + 40) = v16;
-      *(_BYTE *)(v7 + 32) = 0;
-      *(_DWORD *)(v7 + 60) = v21[4];
-      v23 = (_QWORD *)HalpMmAllocCtxAlloc(v20, 40LL);
-      v8 = v23;
-      if ( v23 )
-      {
-        v23[2] = v12;
-        v23[4] = v23 + 3;
-        v23[3] = v23 + 3;
-        CurrentIrql = KeGetCurrentIrql();
-        __writecr8(0xFuLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
-        {
-          SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-          v12 = v42;
-          SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
-        }
-        KxAcquireSpinLock((PKSPIN_LOCK)(*(_QWORD *)a1 + 24LL));
-        v26 = *(_QWORD *)a1 + 48LL;
-        v27 = *(_QWORD *)v26;
-        if ( *(_QWORD *)(*(_QWORD *)v26 + 8LL) == v26 )
-        {
-          *(_QWORD *)(v16 + 8) = v26;
-          *(_QWORD *)v16 = v27;
-          *(_QWORD *)(v27 + 8) = v16;
-          *(_QWORD *)v26 = v16;
-          v28 = *(_QWORD *)a1 + 32LL;
-          v29 = *(_QWORD **)v28;
-          if ( *(_QWORD *)v28 == v28 )
-            goto LABEL_22;
-          do
-          {
-            v30 = (unsigned int *)v29[2];
-            v31 = v29;
-            if ( v30 == v12 )
-              goto LABEL_24;
-            v29 = (_QWORD *)*v29;
-          }
-          while ( v29 != (_QWORD *)v28 );
-          if ( v30 != v12 )
-          {
-LABEL_22:
-            v32 = *(_QWORD **)v28;
-            if ( *(_QWORD *)(*(_QWORD *)v28 + 8LL) != v28 )
-              goto LABEL_33;
-            *v8 = v32;
-            v31 = v8;
-            v8[1] = v28;
-            v32[1] = v8;
-            *(_QWORD *)v28 = v8;
-            v8 = 0LL;
-          }
-LABEL_24:
-          v33 = v31 + 3;
-          v34 = v31[3];
-          if ( *(_QWORD **)(v34 + 8) == v31 + 3 )
-          {
-            *(_QWORD *)v7 = v34;
-            *(_QWORD *)(v7 + 8) = v33;
-            *(_QWORD *)(v34 + 8) = v7;
-            *v33 = v7;
-            v7 = 0LL;
-            KxReleaseSpinLock((PKSPIN_LOCK)(*(_QWORD *)a1 + 24LL));
-            if ( KiIrqlFlags )
-            {
-              if ( (KiIrqlFlags & 1) != 0 )
-              {
-                v36 = KeGetCurrentIrql();
-                if ( v36 <= 0xFu && CurrentIrql <= 0xFu && v36 >= 2u )
-                {
-                  CurrentPrcb = KeGetCurrentPrcb();
-                  v35 = (unsigned int)CurrentIrql + 1;
-                  v38 = CurrentPrcb->SchedulerAssist;
-                  v39 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                  v5 = (v39 & v38[5]) == 0;
-                  v38[5] &= v39;
-                  if ( v5 )
-                    KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-                }
-              }
-            }
-            __writecr8(CurrentIrql);
-            *a4 = v16;
-            goto LABEL_39;
-          }
-        }
-LABEL_33:
-        __fastfail(3u);
+        CurrentPrcb = KeGetCurrentPrcb();
+        a1 = (unsigned int)CurrentIrql + 1;
+        v37 = CurrentPrcb->SchedulerAssist;
+        v38 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v39 = (v38 & v37[5]) == 0;
+        v37[5] &= v38;
+        if ( v39 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        v5 = v43;
+        v4 = v42;
       }
     }
   }
-LABEL_34:
-  if ( HalpHvIommu )
-    IommupHvUnmapDevice(v11);
-  else
-    (*((void (__fastcall **)(_QWORD, ULONG_PTR, _QWORD))v12 + 25))(*((_QWORD *)v12 + 2), v11, 0LL);
-  DeviceCapabilities = -1073741670;
-  if ( v16 )
+  __writecr8(CurrentIrql);
+  LOBYTE(a1) = 1;
+  *a4 = v15;
+LABEL_40:
+  v7 = 0LL;
+  if ( DeviceCapabilities < 0 )
   {
-    HalpMmAllocCtxFree(v35, v16);
-LABEL_39:
-    if ( v8 )
-      HalpMmAllocCtxFree(v35, (__int64)v8);
+    v15 = 0LL;
+    if ( (_BYTE)a1 )
+      goto LABEL_42;
   }
+LABEL_47:
+  if ( v8 )
+    HalpMmAllocCtxFree(a1, (__int64)v8);
   if ( v7 )
   {
-    v40 = *(_QWORD *)(v7 + 16448);
+    v40 = *(_QWORD *)(v7 + 12352);
     if ( v40 )
-      HalpMmAllocCtxFree(v35, v40);
-    HalpMmAllocCtxFree(v35, v7);
+      HalpMmAllocCtxFree(a1, v40);
+    HalpMmAllocCtxFree(a1, v7);
   }
   return (unsigned int)DeviceCapabilities;
 }

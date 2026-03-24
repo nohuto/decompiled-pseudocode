@@ -1,10 +1,10 @@
 /*
- * XREFs of MapClientNeuterToClientPfn @ 0x1C007F75C
+ * XREFs of MapClientNeuterToClientPfn @ 0x1C00BFE0C
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     xxxSetWindowData @ 0x1C004F920 (xxxSetWindowData.c)
- *     _GetClassInfoEx @ 0x1C007F338 (_GetClassInfoEx.c)
- *     xxxSetClassData @ 0x1C0115230 (xxxSetClassData.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     xxxSetWindowData @ 0x1C008A238 (xxxSetWindowData.c)
+ *     _GetClassInfoEx @ 0x1C00BC568 (_GetClassInfoEx.c)
+ *     xxxSetClassData @ 0x1C00FC29C (xxxSetClassData.c)
  * Callees:
  *     <none>
  */

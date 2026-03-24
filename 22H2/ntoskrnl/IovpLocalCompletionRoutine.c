@@ -1,41 +1,43 @@
 /*
- * XREFs of IovpLocalCompletionRoutine @ 0x140AC2B60
+ * XREFs of IovpLocalCompletionRoutine @ 0x1409C56D0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     VfIoCompletionCheckState @ 0x140ACC32C (VfIoCompletionCheckState.c)
- *     ViIoCallbackSnapState @ 0x140ACC3D4 (ViIoCallbackSnapState.c)
- *     IovpCompleteRequest2 @ 0x140ACDAFC (IovpCompleteRequest2.c)
- *     IovpCompleteRequest3 @ 0x140ACDE10 (IovpCompleteRequest3.c)
- *     IovpCompleteRequest4 @ 0x140ACDE98 (IovpCompleteRequest4.c)
- *     VfPendingMoreProcessingRequired @ 0x140AD2970 (VfPendingMoreProcessingRequired.c)
- *     IovpSessionDataDereference @ 0x140ADEFB4 (IovpSessionDataDereference.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140AE28EC (VfIrpDatabaseEntryReleaseLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VfIoCompletionCheckState @ 0x1409C9AEC (VfIoCompletionCheckState.c)
+ *     ViIoCallbackSnapState @ 0x1409C9B94 (ViIoCallbackSnapState.c)
+ *     IovpCompleteRequest2 @ 0x1409D0600 (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest3 @ 0x1409D0990 (IovpCompleteRequest3.c)
+ *     IovpCompleteRequest4 @ 0x1409D0A18 (IovpCompleteRequest4.c)
+ *     VfPendingMoreProcessingRequired @ 0x1409D58B0 (VfPendingMoreProcessingRequired.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x1409E093C (VfIrpDatabaseEntryReleaseLock.c)
+ *     IovpSessionDataDereference @ 0x1409E1940 (IovpSessionDataDereference.c)
  */
 
 __int64 __fastcall IovpLocalCompletionRoutine(__int64 a1, __int64 a2, __int64 *a3)
 {
   __int64 v4; // rdi
-  char v7; // al
-  __int64 v8; // rdx
-  unsigned int v9; // r14d
-  void *v10; // r15
-  __int64 (__fastcall *v11)(__int64, __int64, __int64); // rbx
-  __int64 v12; // r14
-  __int64 v13; // rbx
-  void *v14; // r15
-  __int64 v15; // rbx
-  __int64 v16; // rdi
-  char v17; // al
-  char v19; // [rsp+68h] [rbp+10h]
-  char v20; // [rsp+70h] [rbp+18h]
+  char v7; // r9
+  char v8; // al
+  __int64 v9; // rdx
+  unsigned int v10; // r14d
+  void *v11; // r15
+  __int64 (__fastcall *v12)(__int64, __int64, __int64); // rbx
+  __int64 v13; // r14
+  __int64 v14; // rbx
+  void *v15; // r15
+  __int64 v16; // rbx
+  __int64 v17; // rdi
+  char v18; // al
+  char v20; // [rsp+68h] [rbp+10h]
+  char v21; // [rsp+70h] [rbp+18h]
 
   v4 = *a3;
+  v7 = *(_BYTE *)(*a3 + 3);
   *(_BYTE *)(v4 + 1) = *((_BYTE *)a3 + 33);
   *(_BYTE *)(v4 + 2) = *((_BYTE *)a3 + 34);
-  *(_BYTE *)(v4 + 3) = *((_BYTE *)a3 + 35) | *(_BYTE *)(v4 + 3) & 2;
+  *(_BYTE *)(v4 + 3) = v7 & 2 | *((_BYTE *)a3 + 35);
   *(_QWORD *)(v4 + 8) = a3[5];
   *(_QWORD *)(v4 + 16) = a3[6];
   *(_QWORD *)(v4 + 24) = a3[7];
@@ -43,89 +45,89 @@ __int64 __fastcall IovpLocalCompletionRoutine(__int64 a1, __int64 a2, __int64 *a
   *(_QWORD *)(v4 + 48) = a3[10];
   *(_QWORD *)(v4 + 56) = a3[3];
   *(_QWORD *)(v4 + 64) = a3[1];
-  v20 = *(_BYTE *)(a2 + 66) + 1;
-  v19 = *(_BYTE *)(a2 + 67);
+  v21 = *(_BYTE *)(a2 + 66) + 1;
+  v20 = *(_BYTE *)(a2 + 67);
   IovpCompleteRequest2(a2, a3[2]);
   if ( *(_BYTE *)v4 != 22 )
   {
-    v7 = *(_BYTE *)(v4 + 3) & 2;
+    v8 = *(_BYTE *)(v4 + 3) & 2;
     *(_WORD *)(v4 + 1) = 0;
     *(_QWORD *)(v4 + 8) = 0LL;
-    *(_BYTE *)(v4 + 3) = v7 | 0x10;
+    *(_BYTE *)(v4 + 3) = v8 | 0x10;
     *(_QWORD *)(v4 + 16) = 0LL;
     *(_QWORD *)(v4 + 24) = 0LL;
     *(_QWORD *)(v4 + 48) = 0LL;
   }
-  v8 = *(_QWORD *)(v4 + 56);
-  if ( v8 )
+  v9 = *(_QWORD *)(v4 + 56);
+  if ( v9 )
   {
-    IovpCompleteRequest3(a2, v8, a3[2]);
+    IovpCompleteRequest3(a2, v9, a3[2]);
     if ( (MmVerifierData & 0x10) != 0 && ViIoCallbacksInitialized )
-      v10 = (void *)ViIoCallbackSnapState();
+      v11 = (void *)ViIoCallbackSnapState();
     else
-      v10 = 0LL;
-    v11 = *(__int64 (__fastcall **)(__int64, __int64, __int64))(v4 + 56);
-    v12 = *(_QWORD *)(v4 + 64);
-    if ( (unsigned int)VfPendingMoreProcessingRequired(a1, a2, v4, (_DWORD)v11, v12) )
+      v11 = 0LL;
+    v12 = *(__int64 (__fastcall **)(__int64, __int64, __int64))(v4 + 56);
+    v13 = *(_QWORD *)(v4 + 64);
+    if ( (unsigned int)VfPendingMoreProcessingRequired(a1, a2, v4, (_DWORD)v12, v13) )
     {
-      v9 = -1073741802;
-      v11 = (__int64 (__fastcall *)(__int64, __int64, __int64))VfPendingMoreProcessingRequired;
+      v10 = -1073741802;
+      v12 = (__int64 (__fastcall *)(__int64, __int64, __int64))VfPendingMoreProcessingRequired;
     }
     else
     {
-      v9 = v11(a1, a2, v12);
+      v10 = v12(a1, a2, v13);
     }
-    if ( v10 )
-      VfIoCompletionCheckState(v10);
-    IovpCompleteRequest4(a2, v9, v11, a3[2]);
+    if ( v11 )
+      VfIoCompletionCheckState(v11);
+    IovpCompleteRequest4(a2, v10, v12, a3[2]);
   }
   else
   {
     if ( *(_BYTE *)(a2 + 65) && *(_BYTE *)(a2 + 67) <= *(_BYTE *)(a2 + 66) )
       *(_BYTE *)(*(_QWORD *)(a2 + 184) + 3LL) |= 1u;
-    v9 = (unsigned int)VfPendingMoreProcessingRequired(a1, a2, v4, 0, *(_QWORD *)(v4 + 64)) != 0 ? 0xC0000016 : 0;
+    v10 = (unsigned int)VfPendingMoreProcessingRequired(a1, a2, v4, 0, *(_QWORD *)(v4 + 64)) != 0 ? 0xC0000016 : 0;
   }
-  v13 = a3[2];
-  v14 = *(void **)v13;
-  if ( *(_QWORD *)v13 )
+  v14 = a3[2];
+  v15 = *(void **)v14;
+  if ( *(_QWORD *)v14 )
   {
-    v15 = *(_QWORD *)(v13 + 8);
-    *(_BYTE *)(v15 + 16) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v15 + 8));
-    IovpSessionDataDereference(v14);
-    _InterlockedDecrement((volatile signed __int32 *)(v15 + 20));
-    VfIrpDatabaseEntryReleaseLock(v15);
+    v16 = *(_QWORD *)(v14 + 8);
+    *(_BYTE *)(v16 + 16) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v16 + 8));
+    IovpSessionDataDereference(v15);
+    _InterlockedDecrement((volatile signed __int32 *)(v16 + 20));
+    VfIrpDatabaseEntryReleaseLock(v16);
   }
-  if ( v9 != -1073741802 && v19 != v20 )
+  if ( v10 != -1073741802 && v20 != v21 )
   {
-    v16 = v4 + 72;
-    *a3 = v16;
-    a3[1] = *(_QWORD *)(v16 + 64);
-    *((_OWORD *)a3 + 2) = *(_OWORD *)v16;
-    *((_OWORD *)a3 + 3) = *(_OWORD *)(v16 + 16);
-    *((_OWORD *)a3 + 4) = *(_OWORD *)(v16 + 32);
-    *((_OWORD *)a3 + 5) = *(_OWORD *)(v16 + 48);
-    a3[12] = *(_QWORD *)(v16 + 64);
-    v17 = *(_BYTE *)(v16 + 3);
+    v17 = v4 + 72;
+    *a3 = v17;
+    a3[1] = *(_QWORD *)(v17 + 64);
+    *((_OWORD *)a3 + 2) = *(_OWORD *)v17;
+    *((_OWORD *)a3 + 3) = *(_OWORD *)(v17 + 16);
+    *((_OWORD *)a3 + 4) = *(_OWORD *)(v17 + 32);
+    *((_OWORD *)a3 + 5) = *(_OWORD *)(v17 + 48);
+    a3[12] = *(_QWORD *)(v17 + 64);
+    v18 = *(_BYTE *)(v17 + 3);
     if ( *(int *)(a2 + 48) < 0 )
     {
-      if ( v17 < 0 )
+      if ( v18 < 0 )
         goto LABEL_24;
     }
-    else if ( (v17 & 0x40) != 0 )
+    else if ( (v18 & 0x40) != 0 )
     {
       goto LABEL_24;
     }
-    if ( !*(_BYTE *)(a2 + 68) || (v17 & 0x20) == 0 )
+    if ( !*(_BYTE *)(a2 + 68) || (v18 & 0x20) == 0 )
     {
       a3[3] = 0LL;
-      *(_BYTE *)(v16 + 3) |= 0xE0u;
+      *(_BYTE *)(v17 + 3) |= 0xE0u;
       goto LABEL_25;
     }
 LABEL_24:
-    a3[3] = *(_QWORD *)(v16 + 56);
+    a3[3] = *(_QWORD *)(v17 + 56);
 LABEL_25:
-    *(_QWORD *)(v16 + 64) = a3;
-    *(_QWORD *)(v16 + 56) = IovpLocalCompletionRoutine;
+    *(_QWORD *)(v17 + 64) = a3;
+    *(_QWORD *)(v17 + 56) = IovpLocalCompletionRoutine;
   }
-  return v9;
+  return v10;
 }

@@ -1,45 +1,38 @@
 /*
- * XREFs of CmCompleteRegistryInitialization @ 0x14082830C
+ * XREFs of CmCompleteRegistryInitialization @ 0x1407900CC
  * Callers:
- *     NtInitializeRegistry @ 0x1406EA120 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x14078D500 (NtInitializeRegistry.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     PopQueueWorkItem @ 0x14036AAC4 (PopQueueWorkItem.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     RtlLockBootStatusData @ 0x1406D6540 (RtlLockBootStatusData.c)
- *     CmpLockRegistryExclusive @ 0x14071B6EC (CmpLockRegistryExclusive.c)
- *     PopCancelIgnoreBatteryStatusChange @ 0x14081CFDC (PopCancelIgnoreBatteryStatusChange.c)
- *     PnpBootPhaseComplete @ 0x140827E8C (PnpBootPhaseComplete.c)
- *     IopCopyBootLogRegistryToFile @ 0x14082848C (IopCopyBootLogRegistryToFile.c)
- *     ExNotifyPlatformBinaryExecuted @ 0x140828528 (ExNotifyPlatformBinaryExecuted.c)
- *     PoClearTransitionMarker @ 0x1408285B0 (PoClearTransitionMarker.c)
- *     PoInitHiberServices @ 0x1408288D4 (PoInitHiberServices.c)
- *     EtwInitialize @ 0x14082AB94 (EtwInitialize.c)
- *     CmpCmdInit @ 0x140832270 (CmpCmdInit.c)
- *     CmpInitializeSystemHivesLoad @ 0x1408337BC (CmpInitializeSystemHivesLoad.c)
- *     CmpCreateRegistryThread @ 0x1408339FC (CmpCreateRegistryThread.c)
- *     PsBootPhaseComplete @ 0x1408351BC (PsBootPhaseComplete.c)
- *     ExpRefreshSystemTime @ 0x1408357A0 (ExpRefreshSystemTime.c)
- *     KeInitializeVelocity @ 0x1408618D8 (KeInitializeVelocity.c)
- *     CmpUnlockRegistry @ 0x140AB4260 (CmpUnlockRegistry.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     Feature_BamQosGrouping__private_ReportDeviceUsage @ 0x1403F23F4 (Feature_BamQosGrouping__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerFavoredCoreRotation__private_ReportDeviceUsage @ 0x1403F293C (Feature_SchedulerFavoredCoreRotation__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerQosPreemption__private_ReportDeviceUsage @ 0x1403F29A4 (Feature_SchedulerQosPreemption__private_ReportDeviceUsage.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
+ *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
+ *     RtlLockBootStatusData @ 0x14077F570 (RtlLockBootStatusData.c)
+ *     CmpInitializeSystemHivesLoad @ 0x14078F594 (CmpInitializeSystemHivesLoad.c)
+ *     CmpCreateRegistryThread @ 0x14078F7D4 (CmpCreateRegistryThread.c)
+ *     CmpCmdInit @ 0x14078F8B0 (CmpCmdInit.c)
+ *     IopCopyBootLogRegistryToFile @ 0x140790278 (IopCopyBootLogRegistryToFile.c)
+ *     ExNotifyPlatformBinaryExecuted @ 0x140790314 (ExNotifyPlatformBinaryExecuted.c)
+ *     PoEnableCriticalShutdown @ 0x14079039C (PoEnableCriticalShutdown.c)
+ *     PoClearTransitionMarker @ 0x1407903D4 (PoClearTransitionMarker.c)
+ *     PoInitHiberServices @ 0x140790C78 (PoInitHiberServices.c)
+ *     EtwInitialize @ 0x140798D94 (EtwInitialize.c)
+ *     PnpBootPhaseComplete @ 0x1407A31F4 (PnpBootPhaseComplete.c)
+ *     PsBootPhaseComplete @ 0x1407A88CC (PsBootPhaseComplete.c)
+ *     ExpRefreshSystemTime @ 0x1407A909C (ExpRefreshSystemTime.c)
  */
 
 __int64 __fastcall CmCompleteRegistryInitialization(__int16 a1)
 {
   unsigned int v1; // ebx
-  __int64 v3; // rcx
+  char v3; // di
   __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  char v8; // di
-  __int64 v9; // rdx
-  int v10; // eax
+  int RegistryThread; // eax
   struct _KEVENT Event; // [rsp+30h] [rbp-28h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp+10h] BYREF
 
@@ -48,27 +41,26 @@ __int64 __fastcall CmCompleteRegistryInitialization(__int16 a1)
   memset(&Event, 0, sizeof(Event));
   if ( _InterlockedExchange(&CmFirstTime, 0) )
   {
-    EtwInitialize(3LL, 0LL);
+    EtwInitialize(2LL);
     CmCompleteInitMachineConfig(&IopAutoReboot);
     CmpInitializeSystemHivesLoad();
     CmpLockRegistryExclusive();
-    LOBYTE(v3) = a1 == 1;
-    CmpCmdInit(v3);
-    CmpUnlockRegistry(v5, v4, v6, v7);
+    CmpCmdInit(a1 == 1);
+    CmpUnlockRegistry();
     if ( a1 != 1 )
     {
       CmpLoadingSystemHivesActive = 1;
-      if ( CmpInitRmLogOnLoad || (v8 = 0, CmpForceSynchronousMachineHiveLoad) )
-        v8 = 1;
+      if ( CmpInitRmLogOnLoad || (v3 = 0, CmpForceSynchronousMachineHiveLoad) )
+        v3 = 1;
       KeInitializeEvent(&Event, NotificationEvent, 0);
-      v10 = CmpCreateRegistryThread(
-              &Handle,
-              v9,
-              CmpFinishSystemHivesLoad,
-              (unsigned __int64)&Event & -(__int64)(v8 != 0));
-      if ( v10 < 0 )
-        KeBugCheckEx(0x74u, 2uLL, 3uLL, 3uLL, v10);
-      if ( v8 )
+      RegistryThread = CmpCreateRegistryThread(
+                         (__int64)&Handle,
+                         v4,
+                         (__int64)CmpFinishSystemHivesLoad,
+                         (unsigned __int64)&Event & -(__int64)(v3 != 0));
+      if ( RegistryThread < 0 )
+        KeBugCheckEx(0x74u, 2uLL, 3uLL, 3uLL, RegistryThread);
+      if ( v3 )
         KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
       ZwClose(Handle);
       Handle = 0LL;
@@ -78,17 +70,18 @@ __int64 __fastcall CmCompleteRegistryInitialization(__int16 a1)
       ExpRefreshSystemTime();
       PsBootPhaseComplete();
     }
-    KeInitializeVelocity();
+    Feature_BamQosGrouping__private_ReportDeviceUsage();
+    KiVelocityFlags |= 0x800u;
+    Feature_SchedulerFavoredCoreRotation__private_ReportDeviceUsage();
+    KiVelocityFlags |= 0x1000u;
+    Feature_SchedulerQosPreemption__private_ReportDeviceUsage();
+    KiVelocityFlags |= 0x4000u;
     RtlLockBootStatusData(0LL);
     PnpBootPhaseComplete();
     PoInitHiberServices();
     PoClearTransitionMarker();
-    PopAcquireRwLockExclusive((ULONG_PTR)&PopThermalStateTransitionContext);
-    byte_140C22214 = 1;
-    PopReleaseRwLock((ULONG_PTR)&PopThermalStateTransitionContext);
-    PopQueueWorkItem((__int64)&PopThermalStateTransitionWorkItem, DelayedWorkQueue);
-    PopCancelIgnoreBatteryStatusChange();
-    *(_QWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 132) + 8LL) = 1LL;
+    PoEnableCriticalShutdown();
+    NlsLocaleSectionPointer = (PVOID)1;
     ExNotifyPlatformBinaryExecuted();
     if ( a1 != 1 )
       IopCopyBootLogRegistryToFile();

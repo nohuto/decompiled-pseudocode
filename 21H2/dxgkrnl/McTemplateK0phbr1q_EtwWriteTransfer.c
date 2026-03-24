@@ -1,14 +1,14 @@
 /*
- * XREFs of McTemplateK0phbr1q_EtwWriteTransfer @ 0x1C005FDE8
+ * XREFs of McTemplateK0phbr1q_EtwWriteTransfer @ 0x1C0052444
  * Callers:
- *     DpiDispatchPnp @ 0x1C01DB310 (DpiDispatchPnp.c)
- *     DpiDispatchIoctl @ 0x1C01DB4B0 (DpiDispatchIoctl.c)
- *     DpiDispatchInternalIoctl @ 0x1C01DB630 (DpiDispatchInternalIoctl.c)
- *     DpiDispatchPower @ 0x1C01F1B60 (DpiDispatchPower.c)
- *     DpiDispatchSystemControl @ 0x1C0388210 (DpiDispatchSystemControl.c)
+ *     DpiDispatchInternalIoctl @ 0x1C01298A0 (DpiDispatchInternalIoctl.c)
+ *     DpiDispatchPnp @ 0x1C0160FE0 (DpiDispatchPnp.c)
+ *     DpiDispatchIoctl @ 0x1C0164B00 (DpiDispatchIoctl.c)
+ *     DpiDispatchPower @ 0x1C0177DE0 (DpiDispatchPower.c)
+ *     DpiDispatchSystemControl @ 0x1C02C79D0 (DpiDispatchSystemControl.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0013C40 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C000BC78 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0phbr1q_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

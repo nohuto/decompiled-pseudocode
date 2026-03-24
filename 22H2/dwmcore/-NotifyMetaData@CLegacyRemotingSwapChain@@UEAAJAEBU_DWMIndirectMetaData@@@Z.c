@@ -1,42 +1,42 @@
 /*
- * XREFs of ?NotifyMetaData@CLegacyRemotingSwapChain@@UEAAJAEBU_DWMIndirectMetaData@@@Z @ 0x1802A3BE0
+ * XREFs of ?NotifyMetaData@CLegacyRemotingSwapChain@@UEAAJAEBU_DWMIndirectMetaData@@@Z @ 0x1800E58C0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0xxx_EventWriteTransfer @ 0x180256D00 (McTemplateU0xxx_EventWriteTransfer.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0xxx_EventWriteTransfer @ 0x1801F3DFC (McTemplateU0xxx_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CLegacyRemotingSwapChain::NotifyMetaData(
         CLegacyRemotingSwapChain *this,
         const struct _DWMIndirectMetaData *a2)
 {
-  unsigned int v2; // edi
+  unsigned int v2; // ebx
   int v5; // eax
   __int64 v6; // rcx
 
   v2 = 0;
   if ( *(_DWORD *)a2 == 4 )
   {
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
       McTemplateU0xxx_EventWriteTransfer(
-        (__int64)this,
-        &EVTDESC_DETECT_TOPLEVELWINDOW_DESTROY,
+        (_DWORD)this,
+        (unsigned int)&EVTDESC_DETECT_TOPLEVELWINDOW_DESTROY,
         *((_QWORD *)a2 + 1),
-        a2,
-        1LL);
+        (_DWORD)a2,
+        1);
   }
-  else if ( *(_DWORD *)a2 != 5 && *(_DWORD *)a2 != 6 && *(_DWORD *)a2 != 8 && (unsigned int)(*(_DWORD *)a2 - 9) >= 2 )
+  else if ( *(int *)a2 <= 4 || *(int *)a2 > 9 )
   {
     return v2;
   }
-  v5 = (*(__int64 (__fastcall **)(_QWORD, const struct _DWMIndirectMetaData *, __int64))(**((_QWORD **)this + 14) + 56LL))(
-         *((_QWORD *)this + 14),
+  v5 = (*(__int64 (__fastcall **)(_QWORD, const struct _DWMIndirectMetaData *, __int64))(**((_QWORD **)this + 8) + 56LL))(
+         *((_QWORD *)this + 8),
          a2,
          1LL);
   v2 = v5;
   if ( v5 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x90u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x7Cu, 0LL);
   return v2;
 }

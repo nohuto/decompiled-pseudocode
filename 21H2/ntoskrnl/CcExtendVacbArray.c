@@ -1,34 +1,34 @@
 /*
- * XREFs of CcExtendVacbArray @ 0x140247300
+ * XREFs of CcExtendVacbArray @ 0x14029B324
  * Callers:
- *     CcSetFileSizesEx @ 0x1402823F0 (CcSetFileSizesEx.c)
+ *     CcSetFileSizesEx @ 0x14022E120 (CcSetFileSizesEx.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140203D88 (ExFreeToNPagedLookasideList.c)
- *     CcFreeUnusedVacbLevels @ 0x1402477A4 (CcFreeUnusedVacbLevels.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x140247800 (CcReleaseBcbLockAndVacbLock.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x140247840 (CcAcquireBcbLockAndVacbLock.c)
- *     CcCalculateVacbLevelLockCount @ 0x140247874 (CcCalculateVacbLevelLockCount.c)
- *     CcAllocateVacbLevels @ 0x140247914 (CcAllocateVacbLevels.c)
- *     CcAllocateVacbLevel @ 0x1402479B8 (CcAllocateVacbLevel.c)
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     VacbLevelReference @ 0x14028D920 (VacbLevelReference.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     CcFreeUnusedVacbLevels @ 0x14029B7B0 (CcFreeUnusedVacbLevels.c)
+ *     CcAllocateVacbLevel @ 0x14029B80C (CcAllocateVacbLevel.c)
+ *     CcAllocateVacbLevels @ 0x14029B8F4 (CcAllocateVacbLevels.c)
+ *     VacbLevelReference @ 0x1402F575C (VacbLevelReference.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x140310D24 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x140310DA4 (CcAcquireBcbLockAndVacbLock.c)
+ *     CcCalculateVacbLevelLockCount @ 0x14037D820 (CcCalculateVacbLevelLockCount.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CcExtendVacbArray(__int64 a1, __int64 a2)
 {
   BOOL v2; // r15d
   __int64 v5; // rbp
-  __int64 v6; // rdx
-  unsigned int v7; // esi
-  unsigned int v8; // ecx
-  unsigned int v9; // esi
-  unsigned int v10; // eax
-  unsigned int v11; // r12d
+  unsigned int v6; // esi
+  unsigned int v7; // ecx
+  unsigned int v8; // esi
+  unsigned int v9; // eax
+  unsigned int v10; // r13d
+  char *PoolWithTag; // r12
   char *v12; // r14
   __int64 v14; // rax
   char *v15; // rdx
@@ -45,16 +45,15 @@ __int64 __fastcall CcExtendVacbArray(__int64 a1, __int64 a2)
   char *v26; // r8
   KIRQL v27; // al
   _QWORD *v28; // r14
+  __int64 v29; // r8
+  _QWORD *v30; // rax
   _QWORD *VacbLevel; // rax
-  _DWORD *v30; // rax
-  __int64 v31; // rdx
-  __int64 v32; // r8
-  _QWORD *v33; // rax
-  _QWORD v34[3]; // [rsp+20h] [rbp-58h] BYREF
-  int v35; // [rsp+38h] [rbp-40h]
-  int v36; // [rsp+3Ch] [rbp-3Ch]
-  unsigned int v37; // [rsp+88h] [rbp+10h]
-  char *PoolWithTag; // [rsp+90h] [rbp+18h]
+  _DWORD *v32; // rax
+  __int64 v33; // rdx
+  _QWORD v34[3]; // [rsp+20h] [rbp-48h] BYREF
+  int v35; // [rsp+38h] [rbp-30h]
+  int v36; // [rsp+3Ch] [rbp-2Ch]
+  unsigned int v37; // [rsp+78h] [rbp+10h]
 
   v2 = 0;
   v36 = 0;
@@ -68,44 +67,42 @@ __int64 __fastcall CcExtendVacbArray(__int64 a1, __int64 a2)
   v34[1] = v34;
   v34[0] = v34;
   if ( a2 <= v5 )
-    goto LABEL_31;
-  v6 = v5;
-  if ( v5 >= 0x2000000 )
     goto LABEL_30;
+  if ( v5 >= 0x2000000 )
+    goto LABEL_29;
   v5 = a2;
   if ( a2 >= 0x2000000 )
     v5 = 0x2000000LL;
-  v7 = -1;
-  v6 = v5;
+  v6 = -1;
   if ( HIDWORD(v5) )
   {
-    v8 = -1;
+    v7 = -1;
   }
   else if ( (unsigned int)v5 <= 0x100000 )
   {
-    v8 = 32;
+    v7 = 32;
   }
   else
   {
-    v8 = 8 * ((unsigned int)v5 >> 18);
+    v7 = 8 * ((unsigned int)v5 >> 18);
   }
-  v37 = v8;
+  v37 = v7;
   if ( !*(_DWORD *)(a1 + 36) )
   {
-    v9 = *(_DWORD *)(a1 + 32);
-    if ( v9 <= 0x100000 )
-      v7 = 32;
+    v8 = *(_DWORD *)(a1 + 32);
+    if ( v8 > 0x100000 )
+      v6 = 8 * (v8 >> 18);
     else
-      v7 = 8 * (v9 >> 18);
+      v6 = 32;
   }
-  if ( v8 <= v7 )
+  if ( v7 <= v6 )
   {
-LABEL_29:
+LABEL_28:
     *(_QWORD *)(a1 + 32) = v5;
-LABEL_30:
+LABEL_29:
     if ( a2 <= v5 )
     {
-LABEL_31:
+LABEL_30:
       CcFreeUnusedVacbLevels(v34);
       return 0LL;
     }
@@ -118,7 +115,7 @@ LABEL_31:
         v23 += 7;
         ++v22;
       }
-      while ( v6 > 1LL << v23 );
+      while ( *(_QWORD *)(a1 + 32) > 1LL << v23 );
     }
     v24 = v22;
     if ( !((a2 - 1) >> v23) )
@@ -133,7 +130,7 @@ LABEL_31:
     {
 LABEL_48:
       *(_QWORD *)(a1 + 32) = a2;
-      goto LABEL_31;
+      goto LABEL_30;
     }
     v27 = KeAcquireQueuedSpinLock(4uLL);
     if ( v24 >= CcMaxVacbLevelsSeen )
@@ -152,19 +149,19 @@ LABEL_48:
           ++v22;
           VacbLevel = (_QWORD *)CcAllocateVacbLevel(v34, 0LL);
           *VacbLevel = *(_QWORD *)(a1 + 88);
-          v30 = (_DWORD *)VacbLevelReference(a1, VacbLevel, v22);
-          ++*v30;
-          *(_QWORD *)(a1 + 88) = v31;
+          v32 = (_DWORD *)VacbLevelReference(a1, VacbLevel, v22);
+          ++*v32;
+          *(_QWORD *)(a1 + 88) = v33;
         }
         while ( v22 < v24 );
       }
       else if ( v22 == 1 && (*(_DWORD *)(a1 + 152) & 0x200) != 0 )
       {
         *(_QWORD *)(a1 + 88) = CcAllocateVacbLevel(v34, 0LL);
-        v32 = v28[128];
-        v33 = (_QWORD *)v28[255];
-        *(_QWORD *)(v32 + 8) = v33;
-        *v33 = v32;
+        v29 = v28[128];
+        v30 = (_QWORD *)v28[255];
+        *(_QWORD *)(v29 + 8) = v30;
+        *v30 = v29;
         ExFreeToNPagedLookasideList(&CcVacbLevelWithBcbListHeadsLookasideList, v28);
       }
       *(_QWORD *)(a1 + 32) = a2;
@@ -174,30 +171,30 @@ LABEL_48:
     return 3221225626LL;
   }
   if ( v2 )
-    v8 += (v8 + 15) & 0xFFFFFFF0;
-  v10 = v8 + 8;
+    v7 += (v7 + 15) & 0xFFFFFFF0;
+  v9 = v7 + 8;
   if ( a2 < 0x2000000 )
-    v10 = v8;
-  v11 = v10;
-  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v10, 0x70566343u);
+    v9 = v7;
+  v10 = v9;
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v9, 0x70566343u);
   if ( PoolWithTag )
   {
     CcAcquireBcbLockAndVacbLock(v2, a1);
     v12 = *(char **)(a1 + 88);
     if ( v12 )
-      memmove(PoolWithTag, *(const void **)(a1 + 88), v7);
+      memmove(PoolWithTag, *(const void **)(a1 + 88), v6);
     else
-      v7 = 0;
-    memset(&PoolWithTag[v7], 0, v37 - v7);
+      v6 = 0;
+    memset(&PoolWithTag[v6], 0, v37 - v6);
     if ( a2 >= 0x2000000 )
-      *(_QWORD *)&PoolWithTag[v11 - 8] = 0LL;
+      *(_QWORD *)&PoolWithTag[v10 - 8] = 0LL;
     if ( v2 )
     {
       v14 = 0LL;
       v15 = &PoolWithTag[v37];
       if ( *(__int64 *)(a1 + 32) > 0x200000 && v12 )
       {
-        v16 = &v12[v7];
+        v16 = &v12[v6];
         while ( 1 )
         {
           v17 = *(_QWORD *)v16;
@@ -212,13 +209,13 @@ LABEL_48:
             goto LABEL_74;
           *(_QWORD *)v15 = v17;
           v14 += 0x80000LL;
-          *(_QWORD *)&PoolWithTag[v37 - (unsigned __int64)v7 - (_QWORD)v12 + 8 + (_QWORD)v16] = v18;
+          *(_QWORD *)&PoolWithTag[v37 - (unsigned __int64)v6 - (_QWORD)v12 + 8 + (_QWORD)v16] = v18;
           v16 += 16;
           *v18 = v15;
           *(_QWORD *)(v17 + 8) = v15;
           v15 += 16;
           if ( v14 >= *(_QWORD *)(a1 + 32) )
-            goto LABEL_40;
+            goto LABEL_39;
         }
       }
       for ( i = *(char ***)(a1 + 24); i != (char **)(a1 + 16); i = (char **)i[1] )
@@ -236,15 +233,15 @@ LABEL_48:
             *i = v15;
             v15 += 16;
             if ( v14 > (__int64)*(i - 1) )
-              goto LABEL_53;
+              goto LABEL_52;
           }
 LABEL_74:
           __fastfail(3u);
         }
-LABEL_53:
+LABEL_52:
         ;
       }
-LABEL_40:
+LABEL_39:
       if ( v14 < v5 )
       {
         v19 = (char **)(a1 + 16);
@@ -271,8 +268,7 @@ LABEL_25:
     CcReleaseBcbLockAndVacbLock(v2, a1);
     if ( v12 != (char *)(a1 + 56) && v12 )
       ExFreePoolWithTag(v12, 0);
-    v6 = v5;
-    goto LABEL_29;
+    goto LABEL_28;
   }
   return 3221225626LL;
 }

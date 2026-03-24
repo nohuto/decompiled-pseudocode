@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmGetMatchingDeviceContainerListWorker @ 0x14082BC08
+ * XREFs of _CmGetMatchingDeviceContainerListWorker @ 0x1407B07F8
  * Callers:
- *     _CmGetMatchingDeviceContainerList @ 0x14082BB04 (_CmGetMatchingDeviceContainerList.c)
+ *     _CmGetMatchingDeviceContainerList @ 0x1407B06F4 (_CmGetMatchingDeviceContainerList.c)
  * Callees:
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEF60 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpGetGenericObjectList @ 0x14082BC98 (_PnpGetGenericObjectList.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406BB5E8 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpGetGenericObjectList @ 0x1407B0AD4 (_PnpGetGenericObjectList.c)
  */
 
 __int64 __fastcall CmGetMatchingDeviceContainerListWorker(

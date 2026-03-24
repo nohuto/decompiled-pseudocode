@@ -3,7 +3,7 @@
  * Callers:
  *     RtlRunOnceExecuteOnce @ 0x14060D910 (RtlRunOnceExecuteOnce.c)
  * Callees:
- *     RtlpRunOnceWaitForInit @ 0x1408999B4 (RtlpRunOnceWaitForInit.c)
+ *     RtlpRunOnceWaitForInit @ 0x140899994 (RtlpRunOnceWaitForInit.c)
  */
 
 NTSTATUS __stdcall RtlRunOnceBeginInitialize(PRTL_RUN_ONCE RunOnce, ULONG Flags, PVOID *Context)

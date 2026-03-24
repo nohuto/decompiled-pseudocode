@@ -1,24 +1,24 @@
 /*
- * XREFs of ExWakeTimersPause @ 0x1403983A0
+ * XREFs of ExWakeTimersPause @ 0x14038D260
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ExpTimerPause @ 0x14025298C (ExpTimerPause.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExpTimerPause @ 0x1402C7A34 (ExpTimerPause.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 ExWakeTimersPause()
 {
-  unsigned __int64 v1; // r15
-  __int64 v2; // r12
-  __int64 *v3; // rdi
-  __int64 v4; // rbp
-  __int64 result; // rax
   unsigned __int8 CurrentIrql; // bl
+  unsigned __int64 v2; // r15
+  __int64 v3; // r12
+  __int64 *v4; // rdi
+  __int64 result; // rax
   _DWORD *SchedulerAssist; // r9
+  __int64 v7; // rbp
   unsigned __int8 v8; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *v10; // r8
@@ -26,7 +26,7 @@ __int64 ExWakeTimersPause()
   bool v12; // zf
 
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, 0LL, (__int64)&ExpWakeTimerLock);
+    ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, 0LL, (ULONG_PTR)&ExpWakeTimerLock);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
@@ -34,17 +34,17 @@ __int64 ExWakeTimersPause()
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
-  v1 = MEMORY[0xFFFFF78000000008];
-  v2 = MEMORY[0xFFFFF78000000014];
-  v3 = (__int64 *)ExpWakeTimerList;
-  while ( v3 != &ExpWakeTimerList )
+  v2 = MEMORY[0xFFFFF78000000008];
+  v3 = MEMORY[0xFFFFF78000000014];
+  v4 = (__int64 *)ExpWakeTimerList;
+  while ( v4 != &ExpWakeTimerList )
   {
-    v4 = (__int64)(v3 - 33);
-    v3 = (__int64 *)*v3;
-    KxAcquireSpinLock((PKSPIN_LOCK)(v4 + 64));
-    if ( *(_QWORD *)(v4 + 256) )
-      ExpTimerPause(v4, v2, v1, 1);
-    KxReleaseSpinLock((PKSPIN_LOCK)(v4 + 64));
+    v7 = (__int64)(v4 - 33);
+    v4 = (__int64 *)*v4;
+    KxAcquireSpinLock((PKSPIN_LOCK)(v7 + 64));
+    if ( *(_QWORD *)(v7 + 256) )
+      ExpTimerPause(v7, v3, v2, 1);
+    KxReleaseSpinLock((PKSPIN_LOCK)(v7 + 64));
   }
   if ( KiIrqlFlags )
   {

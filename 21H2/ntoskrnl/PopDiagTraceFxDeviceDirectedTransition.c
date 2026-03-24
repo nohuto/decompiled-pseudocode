@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceFxDeviceDirectedTransition @ 0x1405D26F4
+ * XREFs of PopDiagTraceFxDeviceDirectedTransition @ 0x140572364
  * Callers:
- *     PopFxHandleDirectedPowerTransition @ 0x1405CC460 (PopFxHandleDirectedPowerTransition.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x14056ACA8 (PopFxHandleDirectedPowerTransition.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     PopFxAddLogEntry @ 0x140355058 (PopFxAddLogEntry.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     PopFxAddLogEntry @ 0x140260CB4 (PopFxAddLogEntry.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxDeviceDirectedTransition(__int64 a1, unsigned __int8 a2)

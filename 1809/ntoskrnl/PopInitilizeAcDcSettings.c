@@ -1,7 +1,7 @@
 /*
- * XREFs of PopInitilizeAcDcSettings @ 0x14017DD9C
+ * XREFs of PopInitilizeAcDcSettings @ 0x14017DDBC
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x14071A168 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14071A148 (PopBatteryApplyCompositeState.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
  *     PopSetNotificationWork @ 0x1400041F0 (PopSetNotificationWork.c)

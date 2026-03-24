@@ -1,16 +1,16 @@
 /*
- * XREFs of ?InitializeIdentityLut_RGB256x3x16@@YAJPEAU_D3DDDI_GAMMA_RAMP_RGB256x3x16@@@Z @ 0x1C0074E78
+ * XREFs of ?InitializeIdentityLut_RGB256x3x16@@YAJPEAU_D3DDDI_GAMMA_RAMP_RGB256x3x16@@@Z @ 0x1C0061F24
  * Callers:
- *     ColorSpaceTransformInitIdentityTransform @ 0x1C0075348 (ColorSpaceTransformInitIdentityTransform.c)
+ *     ColorSpaceTransformInitIdentityTransform @ 0x1C00623F0 (ColorSpaceTransformInitIdentityTransform.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall InitializeIdentityLut_RGB256x3x16(struct _D3DDDI_GAMMA_RAMP_RGB256x3x16 *a1)
 {
-  USHORT *Green; // rdx
-  unsigned int v2; // r8d
-  int v3; // ecx
+  USHORT *Green; // r8
+  unsigned int v2; // r9d
+  int v3; // edx
   int v4; // eax
 
   Green = a1->Green;

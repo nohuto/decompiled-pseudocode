@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlSidDominatesForTrust @ 0x1400AD180
+ * XREFs of RtlSidDominatesForTrust @ 0x1400AD1A0
  * Callers:
  *     SeAccessCheckWithHintWithAdminlessChecks @ 0x1400516C0 (SeAccessCheckWithHintWithAdminlessChecks.c)
- *     SepReferenceTokenUsingPseudoHandle @ 0x1400A8DF0 (SepReferenceTokenUsingPseudoHandle.c)
- *     SepLocateTokenTrustLevel @ 0x1400A8FE4 (SepLocateTokenTrustLevel.c)
- *     SepTrustLevelCheck @ 0x1400AA8B8 (SepTrustLevelCheck.c)
- *     RtlpValidTrustSubjectContext @ 0x14016CA9C (RtlpValidTrustSubjectContext.c)
- *     SeCreateClientSecurityFromSubjectContextEx @ 0x1402FFD50 (SeCreateClientSecurityFromSubjectContextEx.c)
+ *     SepReferenceTokenUsingPseudoHandle @ 0x1400A8E10 (SepReferenceTokenUsingPseudoHandle.c)
+ *     SepLocateTokenTrustLevel @ 0x1400A9004 (SepLocateTokenTrustLevel.c)
+ *     SepTrustLevelCheck @ 0x1400AA8D8 (SepTrustLevelCheck.c)
+ *     RtlpValidTrustSubjectContext @ 0x14016CABC (RtlpValidTrustSubjectContext.c)
+ *     SeCreateClientSecurityFromSubjectContextEx @ 0x1402FFE50 (SeCreateClientSecurityFromSubjectContextEx.c)
  *     SeAdjustAccessStateForAccessConstraints @ 0x140631880 (SeAdjustAccessStateForAccessConstraints.c)
  *     SeShouldCheckForAccessRightsFromParent @ 0x1406319B0 (SeShouldCheckForAccessRightsFromParent.c)
  *     SeTokenCanImpersonate @ 0x1406380E0 (SeTokenCanImpersonate.c)
- *     SeIsTokenAssignableToProcess @ 0x1406B9118 (SeIsTokenAssignableToProcess.c)
- *     SeCreateClientSecurityFromSubjectContext @ 0x1406CB670 (SeCreateClientSecurityFromSubjectContext.c)
- *     SepAdjustAccessStateForConstraints @ 0x1407056DC (SepAdjustAccessStateForConstraints.c)
+ *     SeIsTokenAssignableToProcess @ 0x1406B90F8 (SeIsTokenAssignableToProcess.c)
+ *     SeCreateClientSecurityFromSubjectContext @ 0x1406CB650 (SeCreateClientSecurityFromSubjectContext.c)
+ *     SepAdjustAccessStateForConstraints @ 0x1407056BC (SepAdjustAccessStateForConstraints.c)
  * Callees:
- *     RtlIsValidProcessTrustLabelSid @ 0x1400ABB40 (RtlIsValidProcessTrustLabelSid.c)
+ *     RtlIsValidProcessTrustLabelSid @ 0x1400ABB60 (RtlIsValidProcessTrustLabelSid.c)
  */
 
 __int64 __fastcall RtlSidDominatesForTrust(__int64 a1, __int64 a2, _BYTE *a3)

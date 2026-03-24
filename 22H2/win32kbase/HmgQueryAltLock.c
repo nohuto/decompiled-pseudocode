@@ -1,44 +1,42 @@
 /*
- * XREFs of HmgQueryAltLock @ 0x1C01595B0
+ * XREFs of HmgQueryAltLock @ 0x1C000DE90
  * Callers:
- *     vDynamicConvertNewSurfaceDCs @ 0x1C00B41E0 (vDynamicConvertNewSurfaceDCs.c)
- *     bMigrateSurfaceForConversion @ 0x1C015A1C0 (bMigrateSurfaceForConversion.c)
+ *     vDynamicConvertNewSurfaceDCs @ 0x1C000EC20 (vDynamicConvertNewSurfaceDCs.c)
+ *     bMigrateSurfaceForConversion @ 0x1C00BA100 (bMigrateSurfaceForConversion.c)
  * Callees:
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00442B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00313F0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
  */
 
-__int64 __fastcall HmgQueryAltLock(__int64 a1)
+__int64 __fastcall HmgQueryAltLock(unsigned int a1)
 {
-  unsigned int v1; // ebx
-  __int64 v2; // rdi
-  unsigned int v3; // eax
-  __int64 v4; // r11
-  __int64 v5; // r8
-  unsigned int v6; // r9d
-  unsigned int v7; // r10d
-  unsigned int v8; // ecx
-  __int64 v9; // rax
+  GdiHandleManager *v1; // rbx
+  unsigned int v2; // eax
+  __int64 v3; // r11
+  __int64 v4; // rdx
+  unsigned int v5; // r9d
+  unsigned int v6; // r10d
+  unsigned int v7; // ecx
+  __int64 v8; // rax
 
-  v1 = a1;
-  v2 = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(a1) + 24) + 8008LL);
-  v3 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)v2, (unsigned __int16)v1 | (v1 >> 8) & 0xFF0000);
-  v4 = *(_QWORD *)(v2 + 16);
-  v5 = 0LL;
-  v6 = v3;
-  v7 = *(_DWORD *)(v4 + 2056);
-  if ( v3 < v7 + ((*(unsigned __int16 *)(v4 + 2) + 0xFFFF) << 16) )
+  v1 = gpHandleManager;
+  v2 = GdiHandleManager::DecodeIndex(gpHandleManager, (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000);
+  v3 = *((_QWORD *)v1 + 2);
+  v4 = 0LL;
+  v5 = v2;
+  v6 = *(_DWORD *)(v3 + 2056);
+  if ( v2 < v6 + ((*(unsigned __int16 *)(v3 + 2) + 0xFFFF) << 16) )
   {
-    if ( v3 >= v7 )
-      v8 = ((v3 - v7) >> 16) + 1;
+    if ( v2 >= v6 )
+      v7 = ((v2 - v6) >> 16) + 1;
     else
-      v8 = 0;
-    v9 = *(_QWORD *)(v4 + 8LL * v8 + 8);
-    if ( v8 )
-      v6 += ((1 - v8) << 16) - v7;
-    if ( v6 < *(_DWORD *)(v9 + 20) )
-      v5 = *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v9 + 24) + 8 * ((unsigned __int64)v6 >> 8))
-                     + 16LL * (unsigned __int8)v6
+      v7 = 0;
+    v8 = *(_QWORD *)(v3 + 8LL * v7 + 8);
+    if ( v7 )
+      v5 += ((1 - v7) << 16) - v6;
+    if ( v5 < *(_DWORD *)(v8 + 20) )
+      v4 = *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v8 + 24) + 8 * ((unsigned __int64)v5 >> 8))
+                     + 16LL * (unsigned __int8)v5
                      + 8);
   }
-  return *(unsigned int *)(v5 + 8);
+  return *(unsigned int *)(v4 + 8);
 }

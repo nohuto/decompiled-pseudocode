@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CClipBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180221750
+ * XREFs of ?IsOfType@CClipBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801B7E60
  * Callers:
  *     <none>
  * Callees:
@@ -12,9 +12,9 @@ bool __fastcall CClipBrush::IsOfType(__int64 a1, unsigned __int64 a2)
   bool result; // al
 
   result = 0;
-  if ( (unsigned int)a2 <= 0x2F )
+  if ( (unsigned int)a2 <= 0x2D )
   {
-    v2 = 0x800000220000LL;
+    v2 = 0x200000084000LL;
     if ( _bittest64(&v2, a2) )
       return 1;
   }

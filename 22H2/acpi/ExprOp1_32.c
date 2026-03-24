@@ -1,44 +1,42 @@
 /*
- * XREFs of ExprOp1_32 @ 0x1C00566E0
+ * XREFs of ExprOp1_32 @ 0x1C00692E4
  * Callers:
- *     ExprOp1 @ 0x1C00566A0 (ExprOp1.c)
+ *     ExprOp1 @ 0x1C002FC20 (ExprOp1.c)
  * Callees:
- *     ValidateArgTypes @ 0x1C004CF0C (ValidateArgTypes.c)
- *     ValidateTarget @ 0x1C004D510 (ValidateTarget.c)
- *     WriteObject @ 0x1C00532C0 (WriteObject.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ValidateTarget @ 0x1C000B264 (ValidateTarget.c)
  */
 
-__int64 __fastcall ExprOp1_32(__int64 a1, _QWORD *a2)
+__int64 __fastcall ExprOp1_32(struct _SLIST_ENTRY *a1, _QWORD *a2)
 {
   int v4; // edi
   __int64 result; // rax
-  int v6; // r10d
-  unsigned int v7; // r9d
-  char v8; // cl
+  unsigned int v6; // ecx
+  unsigned int v7; // r8d
+  unsigned int v8; // edx
   unsigned int v9; // r8d
-  unsigned int v10; // edx
-  unsigned int v11; // r8d
-  int v12; // ecx
+  int v10; // ecx
   unsigned int i; // edx
+  int v12; // eax
+  bool v13; // zf
   int v14; // eax
-  bool v15; // zf
-  int v16; // eax
-  __int64 v17; // rdx
-  __int64 v18; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v15; // rdx
+  __int64 v16; // [rsp+40h] [rbp+18h] BYREF
 
-  v18 = 0LL;
+  v16 = 0LL;
   v4 = 0;
-  result = ValidateArgTypes(a1, a2[10], 0, "I");
+  result = ValidateArgTypes((__int64)a1, a2[10], 0, "I");
   if ( !(_DWORD)result )
   {
-    result = ValidateTarget(a1, a2[10] + 40LL, 135, (__int64)&v18);
+    result = ValidateTarget((__int64)a1, a2[10] + 40LL, 0x87u, (__int64)&v16);
     if ( !(_DWORD)result )
     {
       if ( *(_DWORD *)(a2[7] + 8LL) != 128 )
       {
         if ( *(_DWORD *)(a2[7] + 8LL) == 129 )
         {
-          v15 = !_BitScanReverse((unsigned int *)&v16, *(_DWORD *)(a2[10] + 16LL));
+          v13 = !_BitScanReverse((unsigned int *)&v14, *(_DWORD *)(a2[10] + 16LL));
         }
         else
         {
@@ -46,48 +44,44 @@ __int64 __fastcall ExprOp1_32(__int64 a1, _QWORD *a2)
           {
             if ( *(_DWORD *)(a2[7] + 8LL) == 10331 )
             {
-              v12 = 1;
+              v10 = 1;
               for ( i = *(_DWORD *)(a2[10] + 16LL); i; i >>= 4 )
               {
-                v14 = v12 * (i & 0xF);
-                v12 *= 10;
-                v4 += v14;
+                v12 = v10 * (i & 0xF);
+                v10 *= 10;
+                v4 += v12;
               }
             }
             else if ( *(_DWORD *)(a2[7] + 8LL) == 10587 )
             {
-              v6 = 4;
-              v7 = 0;
-              v8 = 0;
-              v9 = *(_DWORD *)(a2[10] + 16LL);
+              v6 = 0;
+              v7 = *(_DWORD *)(a2[10] + 16LL);
               do
               {
-                if ( !v9 )
+                if ( !v7 )
                   break;
-                v10 = v9 / 0xA;
-                v11 = (v9 % 0xA) << v8;
-                v8 = v6;
-                v4 |= v11;
+                v8 = v7 / 0xA;
+                v9 = (v7 % 0xA) << v6;
                 v6 += 4;
-                ++v7;
-                v9 = v10;
+                v4 |= v9;
+                v7 = v8;
               }
-              while ( v7 < 8 );
+              while ( v6 < 0x20 );
             }
             goto LABEL_21;
           }
-          v15 = !_BitScanForward((unsigned int *)&v16, *(_DWORD *)(a2[10] + 16LL));
+          v13 = !_BitScanForward((unsigned int *)&v14, *(_DWORD *)(a2[10] + 16LL));
         }
-        if ( !v15 )
-          v4 = v16 + 1;
+        if ( !v13 )
+          v4 = v14 + 1;
         goto LABEL_21;
       }
       v4 = ~*(_DWORD *)(a2[10] + 16LL);
 LABEL_21:
-      v17 = v18;
+      v15 = v16;
       *(_WORD *)(a2[11] + 2LL) = 1;
       *(_DWORD *)(a2[11] + 16LL) = v4;
-      return WriteObject(a1, v17, a2[11]);
+      return WriteObject(a1, v15, a2[11]);
     }
   }
   return result;

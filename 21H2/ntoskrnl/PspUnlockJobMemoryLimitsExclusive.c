@@ -1,35 +1,28 @@
 /*
- * XREFs of PspUnlockJobMemoryLimitsExclusive @ 0x140687540
+ * XREFs of PspUnlockJobMemoryLimitsExclusive @ 0x1406140A8
  * Callers:
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
- *     PspJobClose @ 0x1406D77F0 (PspJobClose.c)
- *     PspChangeJobMemoryUsageByProcess @ 0x1406FECE0 (PspChangeJobMemoryUsageByProcess.c)
+ *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x140680630 (PspChangeJobMemoryUsageByProcess.c)
+ *     PspJobClose @ 0x1406B5A00 (PspJobClose.c)
  * Callees:
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
  */
 
 char __fastcall PspUnlockJobMemoryLimitsExclusive(__int64 a1, __int64 a2, __int64 a3)
 {
-  ULONG_PTR v4; // rdi
-  _QWORD *v5; // rax
+  ULONG_PTR v4; // rbx
+  char result; // al
 
   if ( a1 != a2 )
   {
-    v4 = a1 + 1224;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 1224), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(a1 + 1224);
-    LOBYTE(v5) = KeAbPostRelease(v4);
+    v4 = a1 + 1032;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 1032), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(a1 + 1032);
+    result = KeAbPostRelease(v4);
   }
   if ( a3 )
-  {
-    if ( (*(_WORD *)(a3 + 486))++ == 0xFFFF )
-    {
-      v5 = (_QWORD *)(a3 + 152);
-      if ( (_QWORD *)*v5 != v5 )
-        LOBYTE(v5) = KiCheckForKernelApcDelivery();
-    }
-  }
-  return (char)v5;
+    return KiLeaveGuardedRegionUnsafe(a3);
+  return result;
 }

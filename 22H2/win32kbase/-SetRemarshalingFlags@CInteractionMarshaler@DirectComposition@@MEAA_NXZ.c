@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CInteractionMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0225830
+ * XREFs of ?SetRemarshalingFlags@CInteractionMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01EC5E0
  * Callers:
  *     <none>
  * Callees:
@@ -21,7 +21,7 @@ bool __fastcall DirectComposition::CInteractionMarshaler::SetRemarshalingFlags(
     *((_DWORD *)this + 4) = v1;
   }
   v2 = *((_BYTE *)this + 332);
-  if ( (v2 & 0x3F) != 0 || *((_DWORD *)this + 82) != 4 )
+  if ( (v2 & 0x1F) != 0 || *((_DWORD *)this + 82) != 4 )
   {
     v1 |= 0x200u;
     *((_DWORD *)this + 4) = v1;
@@ -36,7 +36,7 @@ bool __fastcall DirectComposition::CInteractionMarshaler::SetRemarshalingFlags(
     v1 |= 0x2000u;
     *((_DWORD *)this + 4) = v1;
   }
-  if ( (v2 & 0x40) == 0 || v2 >= 0 )
+  if ( (v2 & 0x60) != 0x60 )
     *((_DWORD *)this + 4) = v1 | 0x800;
   *((_DWORD *)this + 17) |= 0x1Fu;
   result = 1;

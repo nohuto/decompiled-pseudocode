@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwBindLogicalSurfaceRHEvent @ 0x1C0178640
+ * XREFs of EtwBindLogicalSurfaceRHEvent @ 0x1C014C340
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0px_EtwWriteTransfer @ 0x1C015075C (McTemplateK0px_EtwWriteTransfer.c)
+ *     McTemplateK0xx_EtwWriteTransfer @ 0x1C014CEC4 (McTemplateK0xx_EtwWriteTransfer.c)
  */
 
-NTSTATUS __fastcall EtwBindLogicalSurfaceRHEvent(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall EtwBindLogicalSurfaceRHEvent(__int64 a1, __int64 a2, __int64 a3)
 {
-  NTSTATUS result; // eax
+  __int64 result; // rax
 
   if ( (Microsoft_Windows_Win32kEnableBits & 1) != 0 )
-    return McTemplateK0px_EtwWriteTransfer(a1, &BindLogicalSurfaceRHEvent, a3, a1, a2);
+    return McTemplateK0xx_EtwWriteTransfer(a1, &BindLogicalSurfaceRHEvent, a3, a1, a2);
   return result;
 }

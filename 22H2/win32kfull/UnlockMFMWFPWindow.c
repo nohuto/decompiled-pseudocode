@@ -1,24 +1,23 @@
 /*
- * XREFs of UnlockMFMWFPWindow @ 0x1C0216A14
+ * XREFs of UnlockMFMWFPWindow @ 0x1C02369E8
  * Callers:
- *     NtUserMNDragLeave @ 0x1C01D66B0 (NtUserMNDragLeave.c)
- *     xxxMNEndMenuStateInternal @ 0x1C01FFB10 (xxxMNEndMenuStateInternal.c)
- *     xxxHandleMenuMessages @ 0x1C0213DC8 (xxxHandleMenuMessages.c)
- *     LockMFMWFPWindow @ 0x1C021675C (LockMFMWFPWindow.c)
- *     MNCheckButtonDownState @ 0x1C0216894 (MNCheckButtonDownState.c)
+ *     NtUserMNDragLeave @ 0x1C01FE1C0 (NtUserMNDragLeave.c)
+ *     xxxMNEndMenuStateInternal @ 0x1C0221E30 (xxxMNEndMenuStateInternal.c)
+ *     xxxHandleMenuMessages @ 0x1C02339B8 (xxxHandleMenuMessages.c)
+ *     LockMFMWFPWindow @ 0x1C02364C4 (LockMFMWFPWindow.c)
+ *     MNCheckButtonDownState @ 0x1C02365E4 (MNCheckButtonDownState.c)
  * Callees:
- *     IsMFMWFPWindow @ 0x1C0216738 (IsMFMWFPWindow.c)
+ *     IsMFMWFPWindow @ 0x1C0236498 (IsMFMWFPWindow.c)
  */
 
-char __fastcall UnlockMFMWFPWindow(__int64 *a1)
+__int64 __fastcall UnlockMFMWFPWindow(__int64 *a1)
 {
-  int v1; // eax
-  _QWORD *v2; // r8
+  __int64 result; // rax
+  _QWORD *v2; // rdx
 
-  LOBYTE(v1) = IsMFMWFPWindow(*a1);
-  if ( v1 )
-    LOBYTE(v1) = HMAssignmentUnlock(v2);
-  else
-    *v2 = 0LL;
-  return v1;
+  result = IsMFMWFPWindow(*a1);
+  if ( (_DWORD)result )
+    return HMAssignmentUnlock(v2);
+  *v2 = 0LL;
+  return result;
 }

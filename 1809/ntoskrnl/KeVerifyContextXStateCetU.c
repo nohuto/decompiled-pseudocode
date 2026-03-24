@@ -4,7 +4,7 @@
  *     KiContinuePreviousModeUser @ 0x1400A240C (KiContinuePreviousModeUser.c)
  *     PspGetSetContextInternal @ 0x14061F940 (PspGetSetContextInternal.c)
  * Callees:
- *     ZwQueryVirtualMemory @ 0x1401B85D0 (ZwQueryVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x1401B85F0 (ZwQueryVirtualMemory.c)
  */
 
 __int64 __fastcall KeVerifyContextXStateCetU(__int64 a1, _DWORD *a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vGet_sizlWindow@DC@@QEBAXPEAUtagSIZE@@@Z @ 0x1C030368C
+ * XREFs of ?vGet_sizlWindow@DC@@QEBAXPEAUtagSIZE@@@Z @ 0x1C015F578
  * Callers:
- *     ?iSelectTightenRao@DC@@QEAAHPEAVREGION@@H@Z @ 0x1C01083FC (-iSelectTightenRao@DC@@QEAAHPEAVREGION@@H@Z.c)
- *     ?iSelect@DC@@QEAAHPEAVREGION@@H@Z @ 0x1C011AC4C (-iSelect@DC@@QEAAHPEAVREGION@@H@Z.c)
+ *     ?iSelect@DC@@QEAAHPEAVREGION@@H@Z @ 0x1C00B29A0 (-iSelect@DC@@QEAAHPEAVREGION@@H@Z.c)
+ *     ?iSelectTightenRao@DC@@QEAAHPEAVREGION@@H@Z @ 0x1C00B5CE8 (-iSelectTightenRao@DC@@QEAAHPEAVREGION@@H@Z.c)
  * Callees:
- *     ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C0010D4C (-bDpiScaledSurface@DC@@QEBAHXZ.c)
+ *     ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C0125358 (-bDpiScaledSurface@DC@@QEBAHXZ.c)
  */
 
 void __fastcall DC::vGet_sizlWindow(DC *this, struct tagSIZE *a2)

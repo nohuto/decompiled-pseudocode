@@ -1,7 +1,7 @@
 /*
- * XREFs of ApiSetpSearchForApiSet @ 0x1C01125F0
+ * XREFs of ApiSetpSearchForApiSet @ 0x1C0127570
  * Callers:
- *     ApiSetResolveToHost @ 0x1C0112508 (ApiSetResolveToHost.c)
+ *     ApiSetResolveToHost @ 0x1C0127488 (ApiSetResolveToHost.c)
  * Callees:
  *     <none>
  */

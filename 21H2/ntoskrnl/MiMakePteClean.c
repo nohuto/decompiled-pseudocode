@@ -1,28 +1,31 @@
 /*
- * XREFs of MiMakePteClean @ 0x14028ECFC
+ * XREFs of MiMakePteClean @ 0x14030F56C
  * Callers:
- *     MiMoveDirtyBitsToPfns @ 0x14028E8E0 (MiMoveDirtyBitsToPfns.c)
- *     NtGetWriteWatch @ 0x1402CF630 (NtGetWriteWatch.c)
+ *     NtGetWriteWatch @ 0x14032C650 (NtGetWriteWatch.c)
  * Callees:
- *     MiInsertLargeTbFlushEntry @ 0x1402285E8 (MiInsertLargeTbFlushEntry.c)
- *     MiInsertTbFlushEntry @ 0x1402CF280 (MiInsertTbFlushEntry.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWriteValidPteNewProtection @ 0x14033DBC0 (MiWriteValidPteNewProtection.c)
- *     MiLockPageAndSetDirty @ 0x14033E534 (MiLockPageAndSetDirty.c)
- *     MiRewritePteWithLockBit @ 0x1403C2C58 (MiRewritePteWithLockBit.c)
+ *     MiInsertLargeTbFlushEntry @ 0x14029A7DC (MiInsertLargeTbFlushEntry.c)
+ *     MiWriteValidPteNewProtection @ 0x14030FA00 (MiWriteValidPteNewProtection.c)
+ *     MiLockPageAndSetDirty @ 0x14030FA6C (MiLockPageAndSetDirty.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiRewritePteWithLockBit @ 0x1403B6C18 (MiRewritePteWithLockBit.c)
  */
 
 __int64 __fastcall MiMakePteClean(__int64 a1, __int64 a2)
 {
-  unsigned __int64 v4; // rax
-  unsigned int v5; // edi
-  unsigned __int64 v6; // rbx
-  unsigned __int64 v7; // rax
-  unsigned __int64 v9; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 v4; // rbx
+  unsigned int v5; // esi
+  unsigned __int64 v6; // rdi
+  __int64 v7; // rdx
+  unsigned __int64 v8; // rdi
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v11; // rax
+  unsigned __int64 v12; // [rsp+40h] [rbp+8h] BYREF
 
   v4 = MI_READ_PTE_LOCK_FREE(a1) & 0xFFFFFFFFFFFFFFBDuLL;
-  v9 = v4;
   v5 = 0;
+  v12 = v4;
   v6 = a1 << 25 >> 16;
   if ( v6 < 0xFFFFF68000000000uLL )
     goto LABEL_2;
@@ -36,7 +39,8 @@ __int64 __fastcall MiMakePteClean(__int64 a1, __int64 a2)
   while ( v6 >= 0xFFFFF68000000000uLL );
   if ( v5 )
   {
-    MiRewritePteWithLockBit(&KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[26], a1, v9);
+    v4 = v12;
+    MiRewritePteWithLockBit(&KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[6], a1, v12);
     MiInsertLargeTbFlushEntry(a2, v5, a1);
   }
   else
@@ -45,6 +49,27 @@ LABEL_2:
     MiWriteValidPteNewProtection(a1, v4);
     MiInsertTbFlushEntry(a2, v6, 1LL, 0LL);
   }
-  v7 = MI_READ_PTE_LOCK_FREE(&v9);
-  return MiLockPageAndSetDirty(48 * ((v7 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL, 1LL);
+  v8 = v4;
+  if ( (unsigned int)MiPteInShadowRange(&v12, v7)
+    && (MiFlags & 0xC00000) != 0
+    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+    && (v4 & 1) != 0
+    && ((v4 & 0x20) == 0 || (v4 & 0x42) == 0) )
+  {
+    Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+    if ( Flink )
+    {
+      v4 |= 0x20uLL;
+      v11 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&v12 >> 3) & 0x1FF));
+      if ( (v11 & 0x20) == 0 )
+        v4 = v8;
+      if ( (v11 & 0x42) != 0 )
+        v4 |= 0x42uLL;
+    }
+    else
+    {
+      v4 = v12;
+    }
+  }
+  return MiLockPageAndSetDirty(48 * ((v4 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL, 1LL);
 }

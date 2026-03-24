@@ -1,12 +1,12 @@
 /*
- * XREFs of MiValidateExistingImage @ 0x14064F1A4
+ * XREFs of MiValidateExistingImage @ 0x14064F184
  * Callers:
  *     MiShareExistingControlArea @ 0x1405DEC94 (MiShareExistingControlArea.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     MiValidateSectionSigningPolicy @ 0x14064F460 (MiValidateSectionSigningPolicy.c)
- *     MiRelocateImageAgain @ 0x14064F5C0 (MiRelocateImageAgain.c)
- *     SeGetImageRequiredSigningLevel @ 0x1406BEA60 (SeGetImageRequiredSigningLevel.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MiValidateSectionSigningPolicy @ 0x14064F440 (MiValidateSectionSigningPolicy.c)
+ *     MiRelocateImageAgain @ 0x14064F5A0 (MiRelocateImageAgain.c)
+ *     SeGetImageRequiredSigningLevel @ 0x1406BEA40 (SeGetImageRequiredSigningLevel.c)
  */
 
 __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
@@ -119,10 +119,10 @@ __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
         goto LABEL_44;
       LOBYTE(v14) = *(_BYTE *)(v12 + 15);
       LOBYTE(v9) = *((_BYTE *)a1 + 24);
-      if ( qword_14040DE20 )
+      if ( qword_14040DE00 )
       {
         LOBYTE(v10) = (unsigned __int8)v14 >> 4;
-        v17 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, _QWORD))qword_14040DE20)(
+        v17 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64, _QWORD))qword_14040DE00)(
                 v16,
                 v9,
                 v10,
@@ -132,8 +132,8 @@ __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
         if ( v17 )
           goto LABEL_44;
       }
-      if ( !qword_14040DDC0
-        || (LOBYTE(v14) = (unsigned __int8)v14 >> 4, v18 = qword_14040DDC0(v14, v9), v19 = *(_BYTE *)(v12 + 15), !v18)
+      if ( !qword_14040DDA0
+        || (LOBYTE(v14) = (unsigned __int8)v14 >> 4, v18 = qword_14040DDA0(v14, v9), v19 = *(_BYTE *)(v12 + 15), !v18)
         || (v16 & 0x40000000) != 0 && (*((_DWORD *)v1 + 23) & 0x180000) != 0x100000
         || (v19 & 0xF0) == 0 && *(char *)(*(_QWORD *)(v12 + 56) + 46LL) < 0 )
       {
@@ -145,11 +145,11 @@ LABEL_44:
       {
         v5 = 0;
       }
-      if ( qword_14040DDC0 )
+      if ( qword_14040DDA0 )
       {
         LOBYTE(v9) = v4;
         LOBYTE(v14) = v19 >> 4;
-        v20 = qword_14040DDC0(v14, v9);
+        v20 = qword_14040DDA0(v14, v9);
       }
       else
       {

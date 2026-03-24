@@ -1,11 +1,11 @@
 /*
- * XREFs of PiMarkDeviceTreeForReenumeration @ 0x1406FC480
+ * XREFs of PiMarkDeviceTreeForReenumeration @ 0x1406FC460
  * Callers:
- *     PiCollapseEnumRequests @ 0x14016C550 (PiCollapseEnumRequests.c)
- *     PiProcessReenumeration @ 0x1406FC3D4 (PiProcessReenumeration.c)
+ *     PiCollapseEnumRequests @ 0x14016C570 (PiCollapseEnumRequests.c)
+ *     PiProcessReenumeration @ 0x1406FC3B4 (PiProcessReenumeration.c)
  * Callees:
  *     PipForDeviceNodeSubtree @ 0x140585750 (PipForDeviceNodeSubtree.c)
- *     PipSetDevNodeFlags @ 0x1406E50FC (PipSetDevNodeFlags.c)
+ *     PipSetDevNodeFlags @ 0x1406E50DC (PipSetDevNodeFlags.c)
  */
 
 __int64 __fastcall PiMarkDeviceTreeForReenumeration(__int64 a1, char a2)

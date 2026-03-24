@@ -1,18 +1,17 @@
 /*
- * XREFs of ?HandleQueryBusInformation@FxPkgPnp@@QEAAJPEAVFxIrp@@@Z @ 0x1C0032DE8
+ * XREFs of ?HandleQueryBusInformation@FxPkgPnp@@QEAAJPEAVFxIrp@@@Z @ 0x1C0080584
  * Callers:
- *     ?_PnpQueryBusInformation@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z @ 0x1C0032DA0 (-_PnpQueryBusInformation@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z.c)
+ *     ?_PnpQueryBusInformation@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z @ 0x1C0079920 (-_PnpQueryBusInformation@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
  */
 
 __int64 __fastcall FxPkgPnp::HandleQueryBusInformation(FxPkgPnp *this, FxIrp *Irp)
 {
   unsigned int v2; // ebx
   _FX_DRIVER_GLOBALS *m_Globals; // rbp
-  unsigned __int64 Pool2; // rax
-  __int64 v7; // xmm1_8
+  _GUID *PoolWithTag; // rax
   const void *_a1; // rax
   unsigned int _a2; // edx
 
@@ -20,13 +19,12 @@ __int64 __fastcall FxPkgPnp::HandleQueryBusInformation(FxPkgPnp *this, FxIrp *Ir
   if ( this->m_BusInformation.BusTypeGuid.Data1 )
   {
     m_Globals = this->m_Globals;
-    Pool2 = ExAllocatePool2(256LL, 24LL, m_Globals->Tag);
-    if ( Pool2 )
+    PoolWithTag = (_GUID *)ExAllocatePoolWithTag(PagedPool, 0x18uLL, m_Globals->Tag);
+    if ( PoolWithTag )
     {
-      v7 = *(_QWORD *)&this->m_BusInformation.LegacyBusType;
-      *(_GUID *)Pool2 = this->m_BusInformation.BusTypeGuid;
-      *(_QWORD *)(Pool2 + 16) = v7;
-      Irp->m_Irp->IoStatus.Information = Pool2;
+      *PoolWithTag = this->m_BusInformation.BusTypeGuid;
+      *(_QWORD *)&PoolWithTag[1].Data1 = *(_QWORD *)&this->m_BusInformation.LegacyBusType;
+      Irp->m_Irp->IoStatus.Information = (unsigned __int64)PoolWithTag;
     }
     else
     {

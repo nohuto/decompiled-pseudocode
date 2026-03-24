@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0DCOBJ@@QEAA@XZ @ 0x1C002EB4C
+ * XREFs of ??0DCOBJ@@QEAA@XZ @ 0x1C003B4A4
  * Callers:
- *     ??1DCMEMOBJ@@QEAA@XZ @ 0x1C002E1F0 (--1DCMEMOBJ@@QEAA@XZ.c)
- *     GreRestoreDCInternal @ 0x1C00BEFB0 (GreRestoreDCInternal.c)
+ *     ??1DCMEMOBJ@@QEAA@XZ @ 0x1C003B430 (--1DCMEMOBJ@@QEAA@XZ.c)
+ *     GreRestoreDCInternal @ 0x1C00CC090 (GreRestoreDCInternal.c)
  * Callees:
- *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ @ 0x1C00D8B9C (--0-$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ @ 0x1C00C7C10 (--0-$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ.c)
  */
 
 DCOBJ *__fastcall DCOBJ::DCOBJ(DCOBJ *this)

@@ -1,30 +1,19 @@
 /*
- * XREFs of PspUnlockProcessListShared @ 0x14020C7B0
+ * XREFs of PspUnlockProcessListShared @ 0x1402D6218
  * Callers:
- *     PsChangeQuantumTable @ 0x14068F5DC (PsChangeQuantumTable.c)
- *     PsGetNextProcessEx @ 0x14068F700 (PsGetNextProcessEx.c)
- *     PsGetPreviousProcess @ 0x1409B49A0 (PsGetPreviousProcess.c)
+ *     PsGetNextProcess @ 0x1406CE7A0 (PsGetNextProcess.c)
+ *     PsChangeQuantumTable @ 0x14078C7B8 (PsChangeQuantumTable.c)
+ *     PsGetPreviousProcess @ 0x14090E764 (PsGetPreviousProcess.c)
  * Callees:
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
  */
 
-_QWORD *__fastcall PspUnlockProcessListShared(__int64 a1)
+__int64 __fastcall PspUnlockProcessListShared(__int64 a1)
 {
-  _QWORD *result; // rax
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PspActiveProcessLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(&PspActiveProcessLock);
-  result = (_QWORD *)KeAbPostRelease((ULONG_PTR)&PspActiveProcessLock);
-  if ( (*(_WORD *)(a1 + 486))++ == 0xFFFF )
-  {
-    result = (_QWORD *)(a1 + 152);
-    if ( (_QWORD *)*result != result )
-      return (_QWORD *)KiCheckForKernelApcDelivery(v4, v3, v5);
-  }
-  return result;
+  KeAbPostRelease((ULONG_PTR)&PspActiveProcessLock);
+  return KiLeaveGuardedRegionUnsafe(a1);
 }

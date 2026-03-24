@@ -1,54 +1,54 @@
 /*
- * XREFs of AlpcpAllocateMessage @ 0x140716914
+ * XREFs of AlpcpAllocateMessage @ 0x1405E09E4
  * Callers:
- *     AlpcpFormatConnectionRequest @ 0x1407162C8 (AlpcpFormatConnectionRequest.c)
- *     AlpcpCreateClientPort @ 0x1407177B4 (AlpcpCreateClientPort.c)
- *     AlpcpSendLegacySynchronousRequest @ 0x14071AC80 (AlpcpSendLegacySynchronousRequest.c)
- *     AlpcpCreateReserve @ 0x1407D03D4 (AlpcpCreateReserve.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x1405DFA58 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpFormatConnectionRequest @ 0x1405E033C (AlpcpFormatConnectionRequest.c)
+ *     AlpcpCreateClientPort @ 0x1405E054C (AlpcpCreateClientPort.c)
+ *     AlpcpCreateReserve @ 0x140693ED4 (AlpcpCreateReserve.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     AlpcpAllocateBlob @ 0x14073A150 (AlpcpAllocateBlob.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14073A344 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpEnterAllocationEventMessageLog @ 0x14097A98C (AlpcpEnterAllocationEventMessageLog.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpAllocateBlob @ 0x1406D984C (AlpcpAllocateBlob.c)
+ *     AlpcpEnterAllocationEventMessageLog @ 0x1408C2AF0 (AlpcpEnterAllocationEventMessageLog.c)
  */
 
-__int64 __fastcall AlpcpAllocateMessage(ULONG_PTR *a1, unsigned __int64 a2)
+__int64 __fastcall AlpcpAllocateMessage(ULONG_PTR *a1, unsigned __int64 a2, __int64 a3)
 {
-  __int64 v3; // rdx
+  __int64 v4; // rdx
   ULONG_PTR Blob; // rax
-  ULONG_PTR v5; // rdi
-  int v6; // ebx
-  signed __int32 v7; // eax
+  ULONG_PTR v6; // rdi
   __int64 result; // rax
+  int v8; // ebx
+  signed __int32 v9; // eax
 
   if ( a2 )
   {
     if ( a2 < 0x28 )
       return 3221225485LL;
-    v3 = a2 + 240;
+    v4 = a2 + 240;
   }
   else
   {
-    v3 = 792LL;
+    v4 = 792LL;
   }
-  Blob = AlpcpAllocateBlob(AlpcMessageType, v3);
-  v5 = Blob;
+  Blob = AlpcpAllocateBlob(AlpcMessageType, v4, a3);
+  v6 = Blob;
   if ( !Blob )
     return 3221225626LL;
   AlpcpLockForCachedReferenceBlob(Blob);
-  v6 = *(_DWORD *)(v5 + 264);
-  memset((void *)v5, 0, 0x118uLL);
-  *(_WORD *)(v5 + 242) = 40;
-  --*(_WORD *)(v5 - 30);
-  *(_DWORD *)(v5 + 264) = v6 & 0x7FFFFFFF;
+  v8 = *(_DWORD *)(v6 + 264);
+  memset((void *)v6, 0, 0x118uLL);
+  *(_WORD *)(v6 + 242) = 40;
+  --*(_WORD *)(v6 - 30);
+  *(_DWORD *)(v6 + 264) = v8 & 0x7FFFFFFF;
   do
-    v7 = _InterlockedIncrement(&AlpcpNextCallbackId);
-  while ( !v7 );
-  *(_DWORD *)(v5 + 272) = v7;
+    v9 = _InterlockedIncrement(&AlpcpNextCallbackId);
+  while ( !v9 );
+  *(_DWORD *)(v6 + 272) = v9;
   if ( AlpcpMessageLogEnabled )
-    AlpcpEnterAllocationEventMessageLog(v5);
-  *(_WORD *)(v5 + 242) = 40;
+    AlpcpEnterAllocationEventMessageLog(v6);
+  *(_WORD *)(v6 + 242) = 40;
   result = 0LL;
-  *a1 = v5;
+  *a1 = v6;
   return result;
 }

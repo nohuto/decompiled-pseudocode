@@ -1,37 +1,36 @@
 /*
- * XREFs of PpmPerfGetCurrentState @ 0x140248720
+ * XREFs of PpmPerfGetCurrentState @ 0x1402C38B4
  * Callers:
- *     PoGetPerfStateAndParkingInfo @ 0x1402485E0 (PoGetPerfStateAndParkingInfo.c)
- *     PpmTracePerfIdleRundown @ 0x1405D7320 (PpmTracePerfIdleRundown.c)
- *     PopProcessorInformation @ 0x1406C800C (PopProcessorInformation.c)
- *     PpmWmiGetAllData @ 0x1409980BC (PpmWmiGetAllData.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x1402C3774 (PoGetPerfStateAndParkingInfo.c)
+ *     PpmTracePerfIdleRundown @ 0x1405771B0 (PpmTracePerfIdleRundown.c)
+ *     PopProcessorInformation @ 0x140780E7C (PopProcessorInformation.c)
+ *     PpmWmiGetAllData @ 0x1408F17EC (PpmWmiGetAllData.c)
  * Callees:
- *     PpmPerfGetCurrentFrequency @ 0x1403426C8 (PpmPerfGetCurrentFrequency.c)
+ *     PpmPerfGetCurrentFrequency @ 0x1402C397C (PpmPerfGetCurrentFrequency.c)
  */
 
 __int64 __fastcall PpmPerfGetCurrentState(
         __int64 a1,
         unsigned __int64 a2,
         _DWORD *a3,
-        unsigned __int64 a4,
+        _DWORD *a4,
         _DWORD *a5,
         _DWORD *a6)
 {
   _DWORD *v6; // rbx
-  _DWORD *v7; // rdi
   _DWORD *v8; // r10
+  unsigned int v10; // r9d
   __int64 result; // rax
-  unsigned int v11; // ecx
+  unsigned int v12; // ecx
 
-  v6 = *(_DWORD **)(a1 + 33968);
-  v7 = (_DWORD *)a4;
-  v8 = *(_DWORD **)(a1 + 33976);
+  v6 = *(_DWORD **)(a1 + 33128);
+  v8 = *(_DWORD **)(a1 + 33136);
   if ( v6 && v8 )
   {
-    a4 = (unsigned int)v8[18];
-    result = (unsigned int)v6[128];
-    if ( (unsigned int)a4 >= (unsigned int)result )
-      a4 = (unsigned int)result;
+    v10 = v8[18];
+    result = (unsigned int)v6[92];
+    if ( v10 >= (unsigned int)result )
+      v10 = v6[92];
     if ( a2 )
     {
       result = (unsigned int)v8[19];
@@ -39,14 +38,14 @@ __int64 __fastcall PpmPerfGetCurrentState(
     }
     if ( a3 )
     {
-      v11 = v6[128] * v6[110];
-      result = 1374389535 * v11;
-      a2 = v11 / 0x64;
+      v12 = v6[92] * v6[79];
+      result = 1374389535 * v12;
+      a2 = v12 / 0x64;
       *a3 = a2;
     }
     if ( a5 )
     {
-      result = (unsigned int)((unsigned int)a4 < v6[112]) + 1;
+      result = (unsigned int)(v10 < v6[81]) + 1;
       *a5 = result;
     }
     if ( a6 )
@@ -72,11 +71,11 @@ __int64 __fastcall PpmPerfGetCurrentState(
     if ( a6 )
       *a6 = 0;
   }
-  if ( v7 )
+  if ( a4 )
   {
     LOBYTE(a2) = 1;
-    result = PpmPerfGetCurrentFrequency(a1, a2, a3, a4);
-    *v7 = result;
+    result = PpmPerfGetCurrentFrequency(a1, a2);
+    *a4 = result;
   }
   return result;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpUpdateProductSuiteTypeInRegistry @ 0x140B1D10C
+ * XREFs of ExpUpdateProductSuiteTypeInRegistry @ 0x140A4208C
  * Callers:
- *     ExpWatchProductTypeInitialization @ 0x140B1CC84 (ExpWatchProductTypeInitialization.c)
+ *     ExpWatchProductTypeInitialization @ 0x140A41C04 (ExpWatchProductTypeInitialization.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ExVerifySuite @ 0x1403CCF10 (ExVerifySuite.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     NtSetValueKey @ 0x14071FAA0 (NtSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ExVerifySuite @ 0x1403AF740 (ExVerifySuite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     NtSetValueKey @ 0x140663DC0 (NtSetValueKey.c)
  */
 
 __int64 ExpUpdateProductSuiteTypeInRegistry()

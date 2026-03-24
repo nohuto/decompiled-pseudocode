@@ -1,21 +1,19 @@
 /*
- * XREFs of RtlGetSystemTimePrecise @ 0x140226E30
+ * XREFs of RtlGetSystemTimePrecise @ 0x140341F30
  * Callers:
- *     EtwpGetLoggerTimeStamp @ 0x140227B6C (EtwpGetLoggerTimeStamp.c)
- *     EtwpReserveTraceBuffer @ 0x1402340E0 (EtwpReserveTraceBuffer.c)
- *     KeSetTimer2 @ 0x140250130 (KeSetTimer2.c)
- *     KiProcessExpiredTimerList @ 0x140252A30 (KiProcessExpiredTimerList.c)
- *     EtwGetKernelTraceTimestampSilo @ 0x1402A2E90 (EtwGetKernelTraceTimestampSilo.c)
- *     HalpSetVirtualRtc @ 0x14033B3F0 (HalpSetVirtualRtc.c)
- *     EtwpLogContextSwapEvent @ 0x140388190 (EtwpLogContextSwapEvent.c)
- *     WmiGetClock @ 0x1405FF7B0 (WmiGetClock.c)
- *     SshpSessionManagerSendControlEvent @ 0x140874678 (SshpSessionManagerSendControlEvent.c)
- *     EtwpTraceSystemInitialization @ 0x140B381EC (EtwpTraceSystemInitialization.c)
- *     PspInitPhase2 @ 0x140B685A8 (PspInitPhase2.c)
- *     EtwpInitializeBootTimeStamps @ 0x140B74FDC (EtwpInitializeBootTimeStamps.c)
- *     EtwpFixBootSystemTime @ 0x140B984E0 (EtwpFixBootSystemTime.c)
+ *     KeSetTimer2 @ 0x14022BEC0 (KeSetTimer2.c)
+ *     EtwpGetLoggerTimeStamp @ 0x14022C448 (EtwpGetLoggerTimeStamp.c)
+ *     KiExecuteAllDpcs @ 0x140246C20 (KiExecuteAllDpcs.c)
+ *     EtwpReserveTraceBuffer @ 0x1402D0E80 (EtwpReserveTraceBuffer.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402F1D90 (EtwGetKernelTraceTimestamp.c)
+ *     EtwGetKernelTraceTimestampSilo @ 0x1403058EC (EtwGetKernelTraceTimestampSilo.c)
+ *     HalpSetVirtualRtc @ 0x14030D8CC (HalpSetVirtualRtc.c)
+ *     KeQuerySystemTimePrecise @ 0x140341F10 (KeQuerySystemTimePrecise.c)
+ *     WmiGetClock @ 0x1405A66A0 (WmiGetClock.c)
+ *     EtwpTraceSystemInitialization @ 0x140A41CF8 (EtwpTraceSystemInitialization.c)
+ *     PspInitPhase2 @ 0x140A4B134 (PspInitPhase2.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
  */
 
 __int64 RtlGetSystemTimePrecise()

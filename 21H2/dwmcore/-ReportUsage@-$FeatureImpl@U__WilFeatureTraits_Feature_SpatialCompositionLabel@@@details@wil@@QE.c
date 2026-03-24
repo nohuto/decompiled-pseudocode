@@ -1,46 +1,48 @@
 /*
- * XREFs of ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_SpatialCompositionLabel@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x18023CAA8
+ * XREFs of ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_SpatialCompositionLabel@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1801E9D34
  * Callers:
- *     ?ProcessSetMesh@CSceneMeshRendererComponent@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SCENEMESHRENDERERCOMPONENT_SETMESH@@@Z @ 0x18023C910 (-ProcessSetMesh@CSceneMeshRendererComponent@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SCENEMESHREN.c)
- *     ?OnSceneFrameTick@CSceneWorld@@EEAAJPEAUISpectreRenderer@@_K@Z @ 0x180253200 (-OnSceneFrameTick@CSceneWorld@@EEAAJPEAUISpectreRenderer@@_K@Z.c)
- *     ?DehydrateSpectreResources@CSceneComponent@@QEAAXPEAVCSceneNode@@@Z @ 0x18025BAC8 (-DehydrateSpectreResources@CSceneComponent@@QEAAXPEAVCSceneNode@@@Z.c)
- *     ?HydrateSpectreResources@CSceneComponent@@QEAAJPEAVCSceneNode@@@Z @ 0x18025BB84 (-HydrateSpectreResources@CSceneComponent@@QEAAJPEAVCSceneNode@@@Z.c)
+ *     ?ProcessSetMesh@CSceneMeshRendererComponent@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SCENEMESHRENDERERCOMPONENT_SETMESH@@@Z @ 0x1801E9BD0 (-ProcessSetMesh@CSceneMeshRendererComponent@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SCENEMESHREN.c)
+ *     ?DehydrateSpectreResources@CSceneComponent@@QEAAXPEAVCSceneNode@@@Z @ 0x18020B04C (-DehydrateSpectreResources@CSceneComponent@@QEAAXPEAVCSceneNode@@@Z.c)
+ *     ?HydrateSpectreResources@CSceneComponent@@QEAAJPEAVCSceneNode@@@Z @ 0x18020B104 (-HydrateSpectreResources@CSceneComponent@@QEAAJPEAVCSceneNode@@@Z.c)
+ *     ?OnSceneFrameTick@CSceneWorld@@EEAAJPEAUISpectreRenderer@@_K@Z @ 0x18020B7B0 (-OnSceneFrameTick@CSceneWorld@@EEAAJPEAUISpectreRenderer@@_K@Z.c)
  * Callees:
- *     ?ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x180103518 (-ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGG.c)
- *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_SpatialCompositionLabel@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x18023C5D0 (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_SpatialCompositionLabel@.c)
+ *     ?ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1800EB470 (-ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGG.c)
+ *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_SpatialCompositionLabel@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x1801E9880 (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_SpatialCompositionLabel@.c)
  */
 
-void __fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_SpatialCompositionLabel>::ReportUsage(
+_UNKNOWN **wil::details::FeatureImpl<__WilFeatureTraits_Feature_SpatialCompositionLabel>::ReportUsage(
         volatile signed __int32 *a1,
         unsigned __int8 a2,
         __int64 a3,
-        __int64 a4)
+        ...)
 {
-  __int64 v4; // r8
-  int v6; // edi
-  signed __int32 v7[6]; // [rsp+40h] [rbp-18h] BYREF
-  int v8; // [rsp+60h] [rbp+8h] BYREF
-  char v9; // [rsp+64h] [rbp+Ch]
-  __int64 v10; // [rsp+78h] [rbp+20h]
+  __int64 v3; // r8
+  unsigned int v5; // edi
+  __int64 v7; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v8; // [rsp+68h] [rbp+20h] BYREF
+  va_list va; // [rsp+68h] [rbp+20h]
+  va_list va1; // [rsp+70h] [rbp+28h] BYREF
 
-  v10 = a4;
-  LODWORD(v4) = *a1;
-  v6 = a2;
-  if ( (*a1 & 2) == 0 )
+  va_start(va1, a3);
+  va_start(va, a3);
+  v8 = va_arg(va1, _QWORD);
+  LODWORD(v3) = *a1;
+  v5 = a2;
+  if ( (*a1 & 4) == 0 )
   {
-    v4 = *(_QWORD *)wil::details::FeatureImpl<__WilFeatureTraits_Feature_SpatialCompositionLabel>::GetCachedFeatureEnabledState(
+    v3 = *(_QWORD *)wil::details::FeatureImpl<__WilFeatureTraits_Feature_SpatialCompositionLabel>::GetCachedFeatureEnabledState(
                       a1,
-                      v7);
-    v10 = v4;
+                      (signed __int32 *)&v7);
+    v7 = v3;
   }
-  v8 = 0;
-  v9 = 0;
-  wil::details::ReportUsageToService(
-    (__int64)(a1 + 2),
-    0xDDF779u,
-    ((unsigned int)v4 >> 8) & 1,
-    ((unsigned int)v4 >> 9) & 1,
-    (const struct FEATURE_LOGGED_TRAITS *)&v8,
-    v6,
-    3);
+  LODWORD(v8) = 0;
+  BYTE4(v8) = 0;
+  return wil::details::ReportUsageToService(
+           (__int64)(a1 + 2),
+           0xDDF779u,
+           ((unsigned int)v3 >> 10) & 1,
+           ((unsigned int)v3 >> 11) & 1,
+           (__int64)va,
+           v5,
+           3u);
 }

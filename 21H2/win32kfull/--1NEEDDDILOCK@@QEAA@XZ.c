@@ -1,7 +1,7 @@
 /*
- * XREFs of ??1NEEDDDILOCK@@QEAA@XZ @ 0x1C027BBF0
+ * XREFs of ??1NEEDDDILOCK@@QEAA@XZ @ 0x1C027E080
  * Callers:
- *     GreGetDIBitsInternal @ 0x1C0027480 (GreGetDIBitsInternal.c)
+ *     GreGetDIBitsInternal @ 0x1C0082A14 (GreGetDIBitsInternal.c)
  * Callees:
  *     <none>
  */

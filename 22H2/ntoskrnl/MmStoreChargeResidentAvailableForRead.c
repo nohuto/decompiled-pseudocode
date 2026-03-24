@@ -1,13 +1,13 @@
 /*
- * XREFs of MmStoreChargeResidentAvailableForRead @ 0x1403B5A60
+ * XREFs of MmStoreChargeResidentAvailableForRead @ 0x140312C04
  * Callers:
- *     SmAcquireReleaseResAvailForRead @ 0x140465CD4 (SmAcquireReleaseResAvailForRead.c)
- *     SmFirstTimeInit @ 0x1407B82C4 (SmFirstTimeInit.c)
+ *     SmAcquireReleaseResAvailForRead @ 0x140312B20 (SmAcquireReleaseResAvailForRead.c)
+ *     ?SmFirstTimeInit@@YAJKK@Z @ 0x140352B08 (-SmFirstTimeInit@@YAJKK@Z.c)
  * Callees:
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
+ *     MiChargeResident @ 0x140259EB8 (MiChargeResident.c)
  */
 
-_BOOL8 __fastcall MmStoreChargeResidentAvailableForRead(void **a1, __int64 a2)
+_BOOL8 __fastcall MmStoreChargeResidentAvailableForRead(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  return (unsigned int)MiChargeResident(*a1, a2 + 48, 0LL) != 0;
+  return (unsigned int)MiChargeResident(&MiSystemPartition, a1 + 48, 0LL, a4) != 0;
 }

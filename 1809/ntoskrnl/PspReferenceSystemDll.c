@@ -1,17 +1,17 @@
 /*
- * XREFs of PspReferenceSystemDll @ 0x140677B48
+ * XREFs of PspReferenceSystemDll @ 0x140677B28
  * Callers:
  *     DbgkCreateThread @ 0x1405F7028 (DbgkCreateThread.c)
- *     PspMapSystemDll @ 0x1406779CC (PspMapSystemDll.c)
+ *     PspMapSystemDll @ 0x1406779AC (PspMapSystemDll.c)
  *     MmInitSystemDll @ 0x1409C4738 (MmInitSystemDll.c)
- *     PspGetSystemDllSecureHandle @ 0x1409F8288 (PspGetSystemDllSecureHandle.c)
+ *     PspGetSystemDllSecureHandle @ 0x1409F8298 (PspGetSystemDllSecureHandle.c)
  * Callees:
  *     ObFastReferenceObject @ 0x14004D840 (ObFastReferenceObject.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObFastReferenceObjectLocked @ 0x14007DFF4 (ObFastReferenceObjectLocked.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 ULONG_PTR __fastcall PspReferenceSystemDll(signed __int64 *a1)

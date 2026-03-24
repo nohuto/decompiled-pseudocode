@@ -1,20 +1,20 @@
 /*
- * XREFs of ?ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z @ 0x1C01CB0FC
+ * XREFs of ?ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z @ 0x1C01CE7D8
  * Callers:
- *     RetrieveCalibrationData @ 0x1C01CBF40 (RetrieveCalibrationData.c)
+ *     RetrieveCalibrationData @ 0x1C01CF620 (RetrieveCalibrationData.c)
  * Callees:
- *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C00D28E0 (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
- *     ?GetDeviceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z @ 0x1C01CAD5C (-GetDeviceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z.c)
- *     ?ReadLinearityDataImp@@YAHPEAXU_UNICODE_STRING@@W4tagCALIBRATION_TYPE@@PEAKPEAPEAE@Z @ 0x1C01CB4F4 (-ReadLinearityDataImp@@YAHPEAXU_UNICODE_STRING@@W4tagCALIBRATION_TYPE@@PEAKPEAPEAE@Z.c)
+ *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C000CCB4 (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     ?GetDeviceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z @ 0x1C01CE438 (-GetDeviceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z.c)
+ *     ?ReadLinearityDataImp@@YAHPEAXU_UNICODE_STRING@@W4tagCALIBRATION_TYPE@@PEAKPEAPEAE@Z @ 0x1C01CEBCC (-ReadLinearityDataImp@@YAHPEAXU_UNICODE_STRING@@W4tagCALIBRATION_TYPE@@PEAKPEAPEAE@Z.c)
  */
 
 __int64 __fastcall ReadLinearityData(struct tagHID_POINTER_DEVICE_INFO *a1, struct _UNICODE_STRING *a2, void *a3)
 {
   PWSTR Buffer; // r13
   unsigned int v6; // edi
-  const WCHAR *v7; // rsi
+  WCHAR *v7; // rsi
   __int64 v8; // rax
-  _QWORD *v9; // rbx
+  void **v9; // rbx
   __int64 v10; // r14
   unsigned __int64 v11; // rdi
   char *v12; // rax
@@ -42,7 +42,7 @@ __int64 __fastcall ReadLinearityData(struct tagHID_POINTER_DEVICE_INFO *a1, stru
   v21 = 0LL;
   v19 = 0LL;
   v8 = Win32AllocPoolZInit(88LL, 2020635477LL);
-  v9 = (_QWORD *)v8;
+  v9 = (void **)v8;
   if ( !v8 )
     return v6;
   v10 = v8 + 8;
@@ -54,7 +54,7 @@ __int64 __fastcall ReadLinearityData(struct tagHID_POINTER_DEVICE_INFO *a1, stru
   v16 = v19;
   v6 = ReadLinearityDataImp(a3, &v16, 1LL, v10, v9);
   if ( v6 )
-    goto LABEL_23;
+    goto LABEL_24;
   if ( Buffer )
   {
     Buffer = 0LL;
@@ -64,8 +64,8 @@ __int64 __fastcall ReadLinearityData(struct tagHID_POINTER_DEVICE_INFO *a1, stru
     if ( (int)GetDeviceId(&v16, &v26, (unsigned __int16 **)&v17) >= 0 )
     {
       v11 = (__int64)(*(_QWORD *)&v17.Length - (_QWORD)v26) >> 1;
-      v12 = (char *)Win32AllocPoolZInit(2 * v11 + 2, 2020635477LL);
-      v7 = (const WCHAR *)v12;
+      v12 = (char *)Win32AllocPool(2 * v11 + 2, 2020635477LL);
+      v7 = (WCHAR *)v12;
       if ( v12 )
       {
         RtlStringCchCopyNW(v12, v11 + 1, (char *)v26, v11);
@@ -81,15 +81,7 @@ __int64 __fastcall ReadLinearityData(struct tagHID_POINTER_DEVICE_INFO *a1, stru
           v6 = ReadLinearityDataImp(KeyHandle, &v16, 1LL, v10, v9);
           ZwClose(KeyHandle);
           if ( v6 )
-          {
-LABEL_19:
-            Win32FreePool(v7);
-            if ( !v6 )
-              goto LABEL_20;
-LABEL_23:
-            *((_QWORD *)a1 + 49) = v9;
-            return v6;
-          }
+            goto LABEL_18;
         }
       }
     }
@@ -120,9 +112,14 @@ LABEL_23:
         v16 = v17,
         (v6 = ReadLinearityDataImp(a3, &v16, 2LL, v10, v9)) != 0) )
   {
-    if ( !v7 )
-      goto LABEL_23;
-    goto LABEL_19;
+LABEL_18:
+    if ( v7 )
+      Win32FreePool(v7);
+    if ( !v6 )
+      goto LABEL_21;
+LABEL_24:
+    *((_QWORD *)a1 + 43) = v9;
+    return v6;
   }
   v17 = 0LL;
   if ( v7 )
@@ -141,9 +138,9 @@ LABEL_23:
       v6 = ReadLinearityDataImp(KeyHandle, &v23, 2LL, v10, v9);
       ZwClose(KeyHandle);
     }
-    goto LABEL_19;
+    goto LABEL_18;
   }
-LABEL_20:
+LABEL_21:
   if ( *v9 )
   {
     Win32FreePool(*v9);

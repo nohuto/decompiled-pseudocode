@@ -1,12 +1,10 @@
 /*
- * XREFs of MiRestockOverCommit @ 0x1406566A8
+ * XREFs of MiRestockOverCommit @ 0x140550654
  * Callers:
- *     MiProbeUnlockPage @ 0x1402CB170 (MiProbeUnlockPage.c)
- *     MiCanBatchHardFaultPages @ 0x1402CDC60 (MiCanBatchHardFaultPages.c)
- *     MiZeroAndReleasePages @ 0x1402D3030 (MiZeroAndReleasePages.c)
- *     MiRemoveLockedPageCharge @ 0x1402DBB20 (MiRemoveLockedPageCharge.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiIncreaseCommitLimits @ 0x1403944E4 (MiIncreaseCommitLimits.c)
+ *     MiRemoveLockedPageCharge @ 0x14023A820 (MiRemoveLockedPageCharge.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     MiUnlockMdlWritePages @ 0x1402A6070 (MiUnlockMdlWritePages.c)
+ *     MiIncreaseCommitLimits @ 0x1403BF408 (MiIncreaseCommitLimits.c)
  * Callees:
  *     <none>
  */
@@ -16,13 +14,13 @@ unsigned __int64 __fastcall MiRestockOverCommit(__int64 a1, unsigned __int64 a2)
   unsigned __int64 v2; // r8
   unsigned __int64 v3; // rax
 
-  v2 = *(_QWORD *)(a1 + 16440);
+  v2 = *(_QWORD *)(a1 + 6264);
   if ( v2 )
   {
     v3 = a2;
     if ( a2 > v2 )
-      v3 = *(_QWORD *)(a1 + 16440);
-    *(_QWORD *)(a1 + 16440) = v2 - v3;
+      v3 = *(_QWORD *)(a1 + 6264);
+    *(_QWORD *)(a1 + 6264) = v2 - v3;
     a2 -= v3;
   }
   return a2;

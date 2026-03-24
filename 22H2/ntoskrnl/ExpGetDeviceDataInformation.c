@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpGetDeviceDataInformation @ 0x1409F6358
+ * XREFs of ExpGetDeviceDataInformation @ 0x14094A1C8
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     KseQueryDeviceData @ 0x14080A580 (KseQueryDeviceData.c)
- *     KseQueryDeviceDataList @ 0x1409769B0 (KseQueryDeviceDataList.c)
- *     ExpStringCapture @ 0x1409F7A3C (ExpStringCapture.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     KseQueryDeviceData @ 0x14075EC10 (KseQueryDeviceData.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     KseQueryDeviceDataList @ 0x1408BF430 (KseQueryDeviceDataList.c)
+ *     ExpStringCapture @ 0x14094B6D0 (ExpStringCapture.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpGetDeviceDataInformation(int a1, unsigned __int64 a2, int a3)
 {
-  void *Pool2; // rsi
+  PVOID PoolWithQuotaTag; // rsi
   int v6; // ebx
   unsigned int v7; // ebx
   int DeviceData; // eax
@@ -31,7 +31,7 @@ __int64 __fastcall ExpGetDeviceDataInformation(int a1, unsigned __int64 a2, int 
   *(_OWORD *)Length = 0LL;
   P = 0LL;
   v15 = 0LL;
-  Pool2 = 0LL;
+  PoolWithQuotaTag = 0LL;
   if ( !a2 || a3 != 48 )
     return 3221225476LL;
   if ( (a2 & 3) != 0 )
@@ -55,22 +55,26 @@ __int64 __fastcall ExpGetDeviceDataInformation(int a1, unsigned __int64 a2, int 
         }
         v7 = HIDWORD(Length[0]);
         ProbeForWrite((volatile void *)Length[1], HIDWORD(Length[0]), 2u);
-        Pool2 = (void *)ExAllocatePool2(257LL, v7, 1313424452LL);
-        if ( !Pool2 )
+        PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v7, 0x4E494444u);
+        if ( !PoolWithQuotaTag )
         {
           v6 = -1073741801;
           goto LABEL_21;
         }
       }
       if ( a1 == 136 )
-        DeviceData = KseQueryDeviceData((PCWSTR)P, (__int64)v15, Length, (_DWORD *)Length + 1, Pool2);
+        DeviceData = KseQueryDeviceData((PCWSTR)P, (__int64)v15, (int *)Length, (_DWORD *)Length + 1, PoolWithQuotaTag);
       else
-        DeviceData = KseQueryDeviceDataList((WCHAR *)P, (__int64)Pool2, HIDWORD(Length[0]), (__int64)Length + 4);
+        DeviceData = KseQueryDeviceDataList(
+                       (PCWSTR)P,
+                       (__int64)PoolWithQuotaTag,
+                       HIDWORD(Length[0]),
+                       (__int64)Length + 4);
       v6 = DeviceData;
       v9 = HIDWORD(Length[0]);
       *(_QWORD *)(a2 + 32) = Length[0];
       if ( DeviceData >= 0 )
-        memmove((void *)Length[1], Pool2, v9);
+        memmove((void *)Length[1], PoolWithQuotaTag, v9);
     }
   }
 LABEL_21:
@@ -78,7 +82,7 @@ LABEL_21:
     ExFreePoolWithTag(P, 0x50535845u);
   if ( v15 )
     ExFreePoolWithTag(v15, 0x50535845u);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0x4E494444u);
+  if ( PoolWithQuotaTag )
+    ExFreePoolWithTag(PoolWithQuotaTag, 0x4E494444u);
   return (unsigned int)v6;
 }

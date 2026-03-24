@@ -1,14 +1,14 @@
 /*
- * XREFs of AmliWatchdogTimeoutAction @ 0x1C0064394
+ * XREFs of AmliWatchdogTimeoutAction @ 0x1C0063064
  * Callers:
- *     RunContext @ 0x1C0010A50 (RunContext.c)
- *     AmliDisableWatchdog @ 0x1C00641E0 (AmliDisableWatchdog.c)
- *     AmliWatchdog @ 0x1C0064280 (AmliWatchdog.c)
+ *     RunContext @ 0x1C0004DD0 (RunContext.c)
+ *     AmliDisableWatchdog @ 0x1C0062EB8 (AmliDisableWatchdog.c)
+ *     AmliWatchdog @ 0x1C0062F50 (AmliWatchdog.c)
  * Callees:
- *     AcpiDiagTraceAmliWatchdogTimeout @ 0x1C0047F28 (AcpiDiagTraceAmliWatchdogTimeout.c)
- *     AcpiQueueRecordBlackboxInformation @ 0x1C0063F38 (AcpiQueueRecordBlackboxInformation.c)
- *     AmliWatchdogInitiateBugcheck @ 0x1C00642DC (AmliWatchdogInitiateBugcheck.c)
- *     AmliWatchdogInitiateLiveDump @ 0x1C0064328 (AmliWatchdogInitiateLiveDump.c)
+ *     AcpiDiagTraceAmliWatchdogTimeout @ 0x1C004985C (AcpiDiagTraceAmliWatchdogTimeout.c)
+ *     AcpiQueueRecordBlackboxInformation @ 0x1C0062BF8 (AcpiQueueRecordBlackboxInformation.c)
+ *     AmliWatchdogInitiateBugcheck @ 0x1C0062FAC (AmliWatchdogInitiateBugcheck.c)
+ *     AmliWatchdogInitiateLiveDump @ 0x1C0062FF8 (AmliWatchdogInitiateLiveDump.c)
  */
 
 void __fastcall AmliWatchdogTimeoutAction(__int64 a1)

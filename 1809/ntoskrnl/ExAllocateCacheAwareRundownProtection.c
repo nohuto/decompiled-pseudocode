@@ -1,9 +1,9 @@
 /*
  * XREFs of ExAllocateCacheAwareRundownProtection @ 0x1405A27E0
  * Callers:
- *     MmCreatePartition @ 0x140190950 (MmCreatePartition.c)
+ *     MmCreatePartition @ 0x140190970 (MmCreatePartition.c)
  *     RawInitializeVcb @ 0x1405A26B4 (RawInitializeVcb.c)
- *     EtwInitializeSiloState @ 0x140741454 (EtwInitializeSiloState.c)
+ *     EtwInitializeSiloState @ 0x140741434 (EtwInitializeSiloState.c)
  * Callees:
  *     KeGetRecommendedSharedDataAlignment @ 0x14000E8C0 (KeGetRecommendedSharedDataAlignment.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)

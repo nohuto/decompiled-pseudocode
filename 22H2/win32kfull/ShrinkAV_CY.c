@@ -1,9 +1,9 @@
 /*
- * XREFs of ShrinkAV_CY @ 0x1C025D7E0
+ * XREFs of ShrinkAV_CY @ 0x1C02661F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 unsigned __int16 *__fastcall ShrinkAV_CY(int *a1)

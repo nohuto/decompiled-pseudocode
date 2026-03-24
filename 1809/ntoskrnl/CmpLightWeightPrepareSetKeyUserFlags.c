@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpLightWeightPrepareSetKeyUserFlags @ 0x1408049F0
+ * XREFs of CmpLightWeightPrepareSetKeyUserFlags @ 0x1408049D0
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140694A3C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140694A1C (CmpProcessLightWeightUOW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
  */
 

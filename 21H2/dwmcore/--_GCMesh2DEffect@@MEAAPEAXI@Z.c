@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCMesh2DEffect@@MEAAPEAXI@Z @ 0x1802B20E8
+ * XREFs of ??_GCMesh2DEffect@@MEAAPEAXI@Z @ 0x18026C978
  * Callers:
- *     ??_ECMesh2DEffect@@OBA@EAAPEAXI@Z @ 0x18010D510 (--_ECMesh2DEffect@@OBA@EAAPEAXI@Z.c)
+ *     ??_ECMesh2DEffect@@OBA@EAAPEAXI@Z @ 0x1800F95B0 (--_ECMesh2DEffect@@OBA@EAAPEAXI@Z.c)
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ??1CMesh2DEffect@@MEAA@XZ @ 0x1802B203C (--1CMesh2DEffect@@MEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1CMesh2DEffect@@MEAA@XZ @ 0x18026C8EC (--1CMesh2DEffect@@MEAA@XZ.c)
  */
 
 CMesh2DEffect *__fastcall CMesh2DEffect::`scalar deleting destructor'(CMesh2DEffect *this, char a2)

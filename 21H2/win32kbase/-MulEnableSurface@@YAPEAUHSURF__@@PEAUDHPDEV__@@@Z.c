@@ -1,14 +1,14 @@
 /*
- * XREFs of ?MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C016EC50
+ * XREFs of ?MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C0141D30
  * Callers:
  *     <none>
  * Callees:
- *     EngLockSurface @ 0x1C0020170 (EngLockSurface.c)
- *     ?vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z @ 0x1C0027BB0 (-vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z.c)
- *     EngModifySurface @ 0x1C00AE7E0 (EngModifySurface.c)
- *     EngCreateDeviceSurface @ 0x1C00B40B0 (EngCreateDeviceSurface.c)
- *     ?MulDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C016E370 (-MulDisableSurface@@YAXPEAUDHPDEV__@@@Z.c)
- *     EngCreateClip @ 0x1C0177EF0 (EngCreateClip.c)
+ *     EngLockSurface @ 0x1C002CB30 (EngLockSurface.c)
+ *     ?vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z @ 0x1C00348E0 (-vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z.c)
+ *     EngModifySurface @ 0x1C009A680 (EngModifySurface.c)
+ *     EngCreateDeviceSurface @ 0x1C00A2640 (EngCreateDeviceSurface.c)
+ *     ?MulDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C01414B0 (-MulDisableSurface@@YAXPEAUDHPDEV__@@@Z.c)
+ *     EngCreateClip @ 0x1C014BE40 (EngCreateClip.c)
  */
 
 HSURF __fastcall MulEnableSurface(struct DHPDEV__ *a1)
@@ -23,13 +23,13 @@ HSURF __fastcall MulEnableSurface(struct DHPDEV__ *a1)
   CLIPOBJ *v9; // rsi
   _QWORD *v10; // rdx
   __int64 v11; // rax
-  SIZEL sizl; // [rsp+50h] [rbp+8h]
+  SIZEL v13; // [rsp+50h] [rbp+8h]
 
   v2 = *((_DWORD *)a1 + 16);
-  sizl.cx = *((_DWORD *)a1 + 20) - *((_DWORD *)a1 + 18);
-  sizl.cy = *((_DWORD *)a1 + 21) - *((_DWORD *)a1 + 19);
+  v13.cx = *((_DWORD *)a1 + 20) - *((_DWORD *)a1 + 18);
+  v13.cy = *((_DWORD *)a1 + 21) - *((_DWORD *)a1 + 19);
   *((_DWORD *)a1 + 17) = 230891;
-  DeviceSurface = EngCreateDeviceSurface((DHSURF)a1, sizl, v2);
+  DeviceSurface = EngCreateDeviceSurface((DHSURF)a1, v13, v2);
   v4 = DeviceSurface;
   if ( DeviceSurface
     && (v5 = *((_DWORD *)a1 + 17),
@@ -46,8 +46,8 @@ HSURF __fastcall MulEnableSurface(struct DHPDEV__ *a1)
     while ( v10 )
     {
       v11 = v10[6];
-      if ( (*(_DWORD *)(v11 + 1792) & 0x8000000) != 0 )
-        *(_QWORD *)(*(_QWORD *)(v11 + 2528) + 144LL) = v4;
+      if ( (*(_DWORD *)(v11 + 1824) & 0x8000000) != 0 )
+        *(_QWORD *)(*(_QWORD *)(v11 + 2552) + 144LL) = v4;
       v10 = (_QWORD *)*v10;
     }
     return v4;

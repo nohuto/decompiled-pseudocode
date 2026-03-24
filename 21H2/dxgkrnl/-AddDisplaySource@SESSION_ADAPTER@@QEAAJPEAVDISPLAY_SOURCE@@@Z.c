@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AddDisplaySource@SESSION_ADAPTER@@QEAAJPEAVDISPLAY_SOURCE@@@Z @ 0x1C01E1DC0
+ * XREFs of ?AddDisplaySource@SESSION_ADAPTER@@QEAAJPEAVDISPLAY_SOURCE@@@Z @ 0x1C014FD74
  * Callers:
- *     DxgkUseAdapterViewInCurrentSession @ 0x1C01E1BC4 (DxgkUseAdapterViewInCurrentSession.c)
+ *     DxgkUseAdapterViewInCurrentSession @ 0x1C014FB74 (DxgkUseAdapterViewInCurrentSession.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 __int64 __fastcall SESSION_ADAPTER::AddDisplaySource(SESSION_ADAPTER *this, struct DISPLAY_SOURCE *a2)
@@ -13,6 +13,7 @@ __int64 __fastcall SESSION_ADAPTER::AddDisplaySource(SESSION_ADAPTER *this, stru
   char *v5; // r8
   char *v6; // rax
   char **v7; // rcx
+  __int64 v9; // rax
 
   v2 = (SESSION_ADAPTER *)*((_QWORD *)a2 + 3);
   if ( !v2 )
@@ -38,16 +39,8 @@ LABEL_4:
     ++*((_DWORD *)a2 + 18);
     return 0LL;
   }
-  WdLogSingleEntry1(2LL, 2917LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Caller specified display source is owned by other session.",
-    2917LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
+  v9 = WdLogNewEntry5_WdError(this, a2);
+  *(_QWORD *)(v9 + 24) = 2850LL;
+  WdLogEvent5_WdError(v9);
   return 3221225506LL;
 }

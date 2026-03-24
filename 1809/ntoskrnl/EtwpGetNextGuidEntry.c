@@ -2,12 +2,12 @@
  * XREFs of EtwpGetNextGuidEntry @ 0x1405C2614
  * Callers:
  *     EtwpDisableTraceProviders @ 0x1405C2530 (EtwpDisableTraceProviders.c)
- *     EtwpEnumerateTraceGuids @ 0x1406D4AB0 (EtwpEnumerateTraceGuids.c)
- *     EtwpTracingProvEnableCallback @ 0x140764310 (EtwpTracingProvEnableCallback.c)
- *     EtwpGetTraceGroupList @ 0x1408B5DF8 (EtwpGetTraceGroupList.c)
- *     EtwpGetTraceGuidList @ 0x1408B63DC (EtwpGetTraceGuidList.c)
- *     EtwpSetProviderBinaryTracking @ 0x1408C2978 (EtwpSetProviderBinaryTracking.c)
- *     EtwpEventTracingCounterSetCallback @ 0x1409085F0 (EtwpEventTracingCounterSetCallback.c)
+ *     EtwpEnumerateTraceGuids @ 0x1406D4A90 (EtwpEnumerateTraceGuids.c)
+ *     EtwpTracingProvEnableCallback @ 0x1407642F0 (EtwpTracingProvEnableCallback.c)
+ *     EtwpGetTraceGroupList @ 0x1408B5DD8 (EtwpGetTraceGroupList.c)
+ *     EtwpGetTraceGuidList @ 0x1408B63BC (EtwpGetTraceGuidList.c)
+ *     EtwpSetProviderBinaryTracking @ 0x1408C2958 (EtwpSetProviderBinaryTracking.c)
+ *     EtwpEventTracingCounterSetCallback @ 0x1409085D0 (EtwpEventTracingCounterSetCallback.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)

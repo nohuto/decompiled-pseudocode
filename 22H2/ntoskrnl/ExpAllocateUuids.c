@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpAllocateUuids @ 0x1407E25B8
+ * XREFs of ExpAllocateUuids @ 0x14069CDD4
  * Callers:
- *     NtAllocateUuids @ 0x140681EE0 (NtAllocateUuids.c)
- *     ExpUuidGetValues @ 0x140872708 (ExpUuidGetValues.c)
+ *     NtAllocateUuids @ 0x14069CBF0 (NtAllocateUuids.c)
+ *     ExpUuidGetValues @ 0x1407D3574 (ExpUuidGetValues.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     ExpUuidLoadSequenceNumber @ 0x14085F094 (ExpUuidLoadSequenceNumber.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     ExpUuidLoadSequenceNumber @ 0x1407CF5AC (ExpUuidLoadSequenceNumber.c)
  */
 
-__int64 __fastcall ExpAllocateUuids(__int64 a1, _DWORD *a2, _DWORD *a3)
+__int64 __fastcall ExpAllocateUuids(__int64 a1, unsigned int *a2, _DWORD *a3)
 {
   __int64 v6; // rcx
   __int64 v7; // rax
@@ -61,8 +61,8 @@ __int64 __fastcall ExpAllocateUuids(__int64 a1, _DWORD *a2, _DWORD *a3)
     if ( v7 <= 10000 )
     {
       *a2 = v7;
-      v8 = v7;
       v9 = 0LL;
+      v8 = *a2;
     }
     else
     {
@@ -71,7 +71,7 @@ __int64 __fastcall ExpAllocateUuids(__int64 a1, _DWORD *a2, _DWORD *a3)
     }
     v10 = v6 - v8 - v9;
     *(_QWORD *)a1 = v10;
-    ExpUuidLastTimeAllocated = v10 + (unsigned int)*a2;
+    ExpUuidLastTimeAllocated = v10 + *a2;
 LABEL_12:
     *a3 = ExpUuidSequenceNumber;
     return 0LL;

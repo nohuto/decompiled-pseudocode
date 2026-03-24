@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPurgeZeroList @ 0x14015199C
+ * XREFs of MiPurgeZeroList @ 0x1401519BC
  * Callers:
- *     MiFinishResume @ 0x1401518F0 (MiFinishResume.c)
+ *     MiFinishResume @ 0x140151910 (MiFinishResume.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiUnlinkFreeOrZeroedPage @ 0x140039AD0 (MiUnlinkFreeOrZeroedPage.c)
  *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
- *     MiPurgeLargeZeroNodePages @ 0x140151AD8 (MiPurgeLargeZeroNodePages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPurgeLargeZeroNodePages @ 0x140151AF8 (MiPurgeLargeZeroNodePages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiPurgeZeroList(__int64 a1)

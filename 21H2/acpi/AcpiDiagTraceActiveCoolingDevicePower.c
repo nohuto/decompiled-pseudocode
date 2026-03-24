@@ -1,10 +1,10 @@
 /*
- * XREFs of AcpiDiagTraceActiveCoolingDevicePower @ 0x1C0047AC4
+ * XREFs of AcpiDiagTraceActiveCoolingDevicePower @ 0x1C0030EB8
  * Callers:
- *     ACPIThermalUpdateConstraints @ 0x1C0021984 (ACPIThermalUpdateConstraints.c)
+ *     ACPIThermalUpdateConstraints @ 0x1C0014B28 (ACPIThermalUpdateConstraints.c)
  * Callees:
- *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0021FCC (ACPIAmliBuildObjectPathnameUnicode.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0010920 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 void __fastcall AcpiDiagTraceActiveCoolingDevicePower(__int64 a1, __int64 a2, int a3, int a4, char a5)
@@ -46,11 +46,11 @@ void __fastcall AcpiDiagTraceActiveCoolingDevicePower(__int64 a1, __int64 a2, in
   {
     if ( EtwEventEnabled(AcpiDiagHandle, &ACPI_ETW_EVENT_ACTIVE_COOLING_DEVICE_POWER) )
     {
-      if ( (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a1 + 760), (__int64)&DestinationString, 1) >= 0 )
+      if ( (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a1 + 720), (__int64)&DestinationString) >= 0 )
       {
-        v7 = *(_QWORD *)(a2 + 760);
+        v7 = *(_QWORD *)(a2 + 720);
         v8 = DestinationString.Length >> 1;
-        if ( (int)ACPIAmliBuildObjectPathnameUnicode(v7, (__int64)&v12, 1) >= 0 )
+        if ( (int)ACPIAmliBuildObjectPathnameUnicode(v7, (__int64)&v12) >= 0 )
         {
           UserData.Ptr = (unsigned __int64)&v8;
           Buffer = DestinationString.Buffer;

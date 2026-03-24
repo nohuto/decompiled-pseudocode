@@ -1,13 +1,13 @@
 /*
- * XREFs of VidSchiCompleteSignalCommmand @ 0x1C0019138
+ * XREFs of VidSchiCompleteSignalCommmand @ 0x1C00165FC
  * Callers:
- *     VidSchiSubmitSignalCommand @ 0x1C00163B0 (VidSchiSubmitSignalCommand.c)
- *     VidSchiProcessCrossAdapterSignaledSyncObjects @ 0x1C0038B38 (VidSchiProcessCrossAdapterSignaledSyncObjects.c)
+ *     VidSchiSubmitSignalCommand @ 0x1C0014030 (VidSchiSubmitSignalCommand.c)
+ *     VidSchiProcessCrossAdapterSignaledSyncObjects @ 0x1C002FD8C (VidSchiProcessCrossAdapterSignaledSyncObjects.c)
  * Callees:
- *     VidSchiCheckPendingDeviceCommand @ 0x1C00097D0 (VidSchiCheckPendingDeviceCommand.c)
- *     VidSchiReleaseSyncObjectReference @ 0x1C000B770 (VidSchiReleaseSyncObjectReference.c)
- *     VidSchiCompleteSignalSyncObject @ 0x1C000B800 (VidSchiCompleteSignalSyncObject.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ *     VidSchiCheckPendingDeviceCommand @ 0x1C000ACE0 (VidSchiCheckPendingDeviceCommand.c)
+ *     VidSchiReleaseSyncObjectReference @ 0x1C000C9A8 (VidSchiReleaseSyncObjectReference.c)
+ *     VidSchiCompleteSignalSyncObject @ 0x1C000CB40 (VidSchiCompleteSignalSyncObject.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall VidSchiCompleteSignalCommmand(__int64 a1, __int64 a2, char a3)
@@ -15,7 +15,7 @@ void __fastcall VidSchiCompleteSignalCommmand(__int64 a1, __int64 a2, char a3)
   __int64 v3; // rax
   __int64 v5; // rdx
   unsigned int v6; // edi
-  _QWORD *v9; // r15
+  _QWORD *v9; // rbp
   __int64 v10; // rdx
   int v11; // eax
   unsigned int i; // esi
@@ -49,7 +49,7 @@ LABEL_15:
     v13 = *(struct _KEVENT **)(a2 + 536);
     if ( (v11 & 8) != 0 )
     {
-      ((void (__fastcall *)(struct _KEVENT *, _QWORD))DxgCoreInterface[68])(v13, 0LL);
+      ((void (__fastcall *)(struct _KEVENT *))DxgCoreInterface[63])(v13);
     }
     else
     {
@@ -73,7 +73,7 @@ LABEL_6:
   if ( (*(_DWORD *)(a2 + 272) & 2) == 0 && *(_DWORD *)(a2 + 276) )
   {
     do
-      VidSchiReleaseSyncObjectReference(*(char **)(a2 + 8LL * v6++ + 280), v10);
+      VidSchiReleaseSyncObjectReference(*(char **)(a2 + 8LL * v6++ + 280));
     while ( v6 < *(_DWORD *)(a2 + 276) );
   }
   VidSchiCheckPendingDeviceCommand(v9);

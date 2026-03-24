@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfIProductIdStringDescriptorShouldBeQueried @ 0x1C001F070
+ * XREFs of HUBDSM_CheckingIfIProductIdStringDescriptorShouldBeQueried @ 0x1C001EB30
  * Callers:
  *     <none>
  * Callees:

@@ -1,7 +1,7 @@
 /*
- * XREFs of PnprMmAddRange @ 0x14083594C
+ * XREFs of PnprMmAddRange @ 0x14083592C
  * Callers:
- *     PnprMmConstruct @ 0x140835A84 (PnprMmConstruct.c)
+ *     PnprMmConstruct @ 0x140835A64 (PnprMmConstruct.c)
  * Callees:
  *     RtlSetAllBits @ 0x14002BDF0 (RtlSetAllBits.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)

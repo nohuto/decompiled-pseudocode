@@ -1,220 +1,190 @@
 /*
- * XREFs of VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x140A7215C
+ * XREFs of VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1408828EC
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x14077B590 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x1405D3110 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     PsGetJobSilo @ 0x14031C600 (PsGetJobSilo.c)
- *     PsGetPermanentSiloContext @ 0x14031C660 (PsGetPermanentSiloContext.c)
- *     PsIsThreadInSilo @ 0x14031C6B8 (PsIsThreadInSilo.c)
- *     VRegEnabledInJob @ 0x14068EB28 (VRegEnabledInJob.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     VrpCreateNamespaceNodePlaceholderKey @ 0x14077B980 (VrpCreateNamespaceNodePlaceholderKey.c)
- *     VrpAddNamespaceNodeToList @ 0x14077BA30 (VrpAddNamespaceNodeToList.c)
- *     VrpDestroyNamespaceNode @ 0x14077BB14 (VrpDestroyNamespaceNode.c)
- *     VrpCreateNamespaceNode @ 0x14077BD28 (VrpCreateNamespaceNode.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PsGetJobSilo @ 0x140200050 (PsGetJobSilo.c)
+ *     PsIsThreadInSilo @ 0x14025C1E8 (PsIsThreadInSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x1402EDF20 (PsGetPermanentSiloContext.c)
+ *     VrpUnlockJobContextExclusive @ 0x1405D2EBC (VrpUnlockJobContextExclusive.c)
+ *     VrpCreateNamespaceNodePlaceholderKey @ 0x1405D2EFC (VrpCreateNamespaceNodePlaceholderKey.c)
+ *     VrpDestroyNamespaceNode @ 0x1405D3260 (VrpDestroyNamespaceNode.c)
+ *     VrpAddNamespaceNodeToList @ 0x1405D33DC (VrpAddNamespaceNodeToList.c)
+ *     VrpCreateNamespaceNode @ 0x1405D34B4 (VrpCreateNamespaceNode.c)
+ *     VRegEnabledInJob @ 0x1405D5B40 (VRegEnabledInJob.c)
+ *     VrpLockJobContextExclusive @ 0x1405D5E18 (VrpLockJobContextExclusive.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlCreateMultipleNamespaceNodes(
         __int64 a1,
         unsigned int a2,
-        char a3,
+        KPROCESSOR_MODE a3,
         __int64 a4,
-        int a5,
-        __int64 a6)
+        __int64 a5,
+        PVOID Object)
 {
-  _QWORD *v6; // rbx
-  __int64 v7; // r13
-  int v8; // r12d
-  unsigned __int64 v9; // r14
-  int JobSilo; // esi
-  unsigned __int64 v11; // r9
-  struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 *v13; // rsi
-  __int64 v14; // rcx
-  __int64 v15; // rax
-  __int64 v16; // r15
-  __int64 v17; // rax
-  __int64 v18; // r8
-  unsigned __int64 v19; // rax
-  __int64 v20; // rcx
-  unsigned __int64 v21; // r9
-  __int64 v22; // rdx
-  int v23; // esi
-  _QWORD *Pool2; // rax
-  _QWORD *v25; // r15
-  void *v26; // r8
-  _QWORD *v27; // r14
-  __int64 v28; // rdx
-  PVOID Object; // [rsp+48h] [rbp-38h] BYREF
-  void *v31; // [rsp+50h] [rbp-30h] BYREF
-  __int64 v32; // [rsp+58h] [rbp-28h] BYREF
-  __int128 v33; // [rsp+60h] [rbp-20h] BYREF
-  __int128 v34; // [rsp+70h] [rbp-10h] BYREF
-  unsigned int v37; // [rsp+D8h] [rbp+58h]
-  int v38; // [rsp+E0h] [rbp+60h]
+  unsigned int v6; // r15d
+  _QWORD *v8; // rbx
+  unsigned __int64 *v9; // r14
+  unsigned __int64 v10; // rsi
+  int v11; // r12d
+  int JobSilo; // edi
+  unsigned __int64 v13; // rsi
+  unsigned __int64 v14; // r9
+  int PermanentSiloContext; // eax
+  unsigned __int64 v16; // rax
+  __int64 v17; // r8
+  __int64 v18; // rcx
+  unsigned __int64 v19; // r9
+  __int64 v20; // rdx
+  int v21; // edi
+  _QWORD *PoolWithTag; // rax
+  void *v23; // r8
+  unsigned int v24; // ecx
+  _QWORD *i; // rsi
+  _QWORD *j; // rsi
+  __int64 v27; // rdx
+  void *v29; // [rsp+40h] [rbp-30h] BYREF
+  __int64 v30; // [rsp+48h] [rbp-28h] BYREF
+  __int128 v31; // [rsp+50h] [rbp-20h] BYREF
+  __int128 v32; // [rsp+60h] [rbp-10h] BYREF
+  __int64 v34; // [rsp+C8h] [rbp+58h] BYREF
 
-  v6 = 0LL;
+  v6 = a2;
   Object = 0LL;
-  v7 = 0LL;
-  a6 = 0LL;
-  v8 = 0;
-  v9 = 12LL;
-  if ( a2 < 0xC )
-    goto LABEL_2;
-  ObpReferenceObjectByHandleWithTag(*(_QWORD *)a1, 6, (__int64)PsJobType, a3, 0x52566D43u, &Object, 0LL, 0LL);
-  JobSilo = PsGetJobSilo((__int64)Object);
-  if ( JobSilo >= 0 )
+  v8 = 0LL;
+  v34 = 0LL;
+  v9 = 0LL;
+  a5 = 0LL;
+  v10 = 12LL;
+  v11 = 0;
+  if ( a2 >= 0xC )
   {
-    if ( PsIsThreadInSilo((__int64)KeGetCurrentThread(), 0LL) )
-    {
-LABEL_2:
-      JobSilo = -1073741811;
-      goto LABEL_44;
-    }
-    v31 = (void *)v11;
-    VRegEnabledInJob((unsigned __int64 *)&v31);
-    JobSilo = PsGetPermanentSiloContext(0LL, VrpSiloContextSlot, (unsigned __int64 *)&a6);
+    ObReferenceObjectByHandleWithTag(*(HANDLE *)a1, 6u, (POBJECT_TYPE)PsJobType, a3, 0x52566D43u, &Object, 0LL);
+    JobSilo = PsGetJobSilo((__int64)Object);
     if ( JobSilo < 0 )
+      goto LABEL_34;
+    if ( !PsIsThreadInSilo((__int64)KeGetCurrentThread(), a5) )
     {
-      v7 = a6;
-    }
-    else
-    {
-      CurrentThread = KeGetCurrentThread();
-      v13 = (unsigned __int64 *)(a6 + 16);
-      v14 = a6 + 16;
-      --CurrentThread->KernelApcDisable;
-      v15 = KeAbPreAcquire(v14, 0LL);
-      v16 = v15;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)v13, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v13, v15, (__int64)v13);
-      v8 = 1;
-      if ( v16 )
-        *(_BYTE *)(v16 + 18) = 1;
-      v17 = a1;
-      v7 = a6;
-      v37 = 0;
+      v29 = (void *)v14;
+      VRegEnabledInJob((unsigned __int64 *)&v29);
+      PermanentSiloContext = PsGetPermanentSiloContext(a5, VrpSiloContextSlot, (unsigned __int64 *)&v34);
+      v9 = (unsigned __int64 *)v34;
+      JobSilo = PermanentSiloContext;
+      if ( PermanentSiloContext < 0 )
+        goto LABEL_34;
+      VrpLockJobContextExclusive(v34);
+      v11 = 1;
+      LODWORD(v34) = 0;
       if ( *(_DWORD *)(a1 + 8) )
       {
         do
         {
-          v18 = v9 + v17;
+          v16 = v10 + 12;
+          v30 = 0LL;
+          v17 = v10 + a1;
           v32 = 0LL;
-          v19 = v9 + 12;
-          v34 = 0LL;
-          v33 = 0LL;
-          if ( v9 >= v9 + 12 )
-            goto LABEL_33;
-          if ( a2 < v19 )
-            goto LABEL_33;
-          v20 = *(unsigned __int16 *)(v18 + 4);
+          v31 = 0LL;
+          if ( v10 >= v10 + 12 )
+            goto LABEL_29;
+          if ( v6 < v16 )
+            goto LABEL_29;
+          v18 = *(unsigned __int16 *)(v17 + 4);
+          if ( (v18 & 1) != 0 )
+            goto LABEL_29;
+          if ( !(_WORD)v18 )
+            goto LABEL_29;
+          v19 = v18 + v16;
+          if ( v16 > v18 + v16 )
+            goto LABEL_29;
+          v20 = *(unsigned __int16 *)(v17 + 6);
           if ( (v20 & 1) != 0 )
-            goto LABEL_33;
+            goto LABEL_29;
           if ( !(_WORD)v20 )
-            goto LABEL_33;
-          v21 = v20 + v19;
-          if ( v19 > v20 + v19 )
-            goto LABEL_33;
-          v22 = *(unsigned __int16 *)(v18 + 6);
-          if ( (v22 & 1) != 0 )
-            goto LABEL_33;
-          if ( !(_WORD)v22 )
-            goto LABEL_33;
-          v9 = v21 + v22;
-          if ( v21 > v21 + v22 )
-            goto LABEL_33;
-          if ( a2 < v9 )
-            goto LABEL_33;
-          v23 = *(_DWORD *)(v18 + 8);
-          *((_QWORD *)&v34 + 1) = v18 + 12;
-          WORD1(v34) = v20;
-          LOWORD(v34) = v20;
-          WORD1(v33) = v22;
-          LOWORD(v33) = v22;
-          *((_QWORD *)&v33 + 1) = v18 + 2 * (((unsigned __int64)(unsigned int)v20 >> 1) + 6);
-          v38 = *(_DWORD *)v18;
-          if ( (v23 & 7) != v23 )
+            goto LABEL_29;
+          v10 = v19 + v20;
+          if ( v19 > v19 + v20 )
+            goto LABEL_29;
+          if ( v6 < v10 )
+            goto LABEL_29;
+          v21 = *(_DWORD *)(v17 + 8);
+          *((_QWORD *)&v32 + 1) = v17 + 12;
+          WORD1(v32) = v18;
+          LOWORD(v32) = v18;
+          WORD1(v31) = v20;
+          LOWORD(v31) = v20;
+          *((_QWORD *)&v31 + 1) = v17 + 2 * (((unsigned __int64)(unsigned int)v18 >> 1) + 6);
+          LODWORD(a5) = *(_DWORD *)v17;
+          if ( (v21 & 7) != v21 )
           {
-LABEL_33:
+LABEL_29:
             JobSilo = -1073741811;
-            goto LABEL_35;
+            goto LABEL_34;
           }
-          Pool2 = (_QWORD *)ExAllocatePool2(256LL, 16LL, 1734693462LL);
-          v25 = Pool2;
-          if ( !Pool2 )
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x67655256u);
+          if ( !PoolWithTag )
           {
             JobSilo = -1073741670;
-            goto LABEL_35;
+            goto LABEL_34;
           }
-          v26 = v31;
-          *Pool2 = v6;
-          Pool2[1] = 0LL;
-          v6 = Pool2;
-          JobSilo = VrpCreateNamespaceNode(v7, (unsigned __int16 *)&v34, v26, (unsigned __int16 *)&v33, v23, v38, &v32);
+          v23 = v29;
+          *PoolWithTag = v8;
+          PoolWithTag[1] = 0LL;
+          v8 = PoolWithTag;
+          JobSilo = VrpCreateNamespaceNode((__int64)v9, (const void **)&v32, v23, (const void **)&v31, v21, a5, &v30);
           if ( JobSilo < 0 )
-            goto LABEL_36;
-          v6[1] = v32;
-          v17 = a1;
-          ++v37;
+            goto LABEL_34;
+          v24 = v34 + 1;
+          v6 = a2;
+          v8[1] = v30;
+          LODWORD(v34) = v24;
         }
-        while ( v37 < *(_DWORD *)(a1 + 8) );
-        v27 = v6;
-        do
-        {
-          JobSilo = VrpAddNamespaceNodeToList((unsigned __int64 *)v7, v25[1]);
-          if ( JobSilo < 0 )
-          {
-            v25 = v6;
-            goto LABEL_36;
-          }
-          v25 = (_QWORD *)*v25;
-        }
-        while ( v25 );
-        v25 = v6;
-        do
-        {
-          JobSilo = VrpCreateNamespaceNodePlaceholderKey(v27[1]);
-          if ( JobSilo < 0 )
-            goto LABEL_36;
-          v27 = (_QWORD *)*v27;
-        }
-        while ( v27 );
+        while ( v24 < *(_DWORD *)(a1 + 8) );
+      }
+      for ( i = v8; i; i = (_QWORD *)*i )
+      {
+        JobSilo = VrpAddNamespaceNodeToList(v9, i[1]);
+        if ( JobSilo < 0 )
+          goto LABEL_34;
+      }
+      for ( j = v8; j; j = (_QWORD *)*j )
+      {
+        JobSilo = VrpCreateNamespaceNodePlaceholderKey(j[1]);
+        if ( JobSilo < 0 )
+          goto LABEL_34;
       }
       JobSilo = 0;
+      goto LABEL_34;
     }
+    v9 = (unsigned __int64 *)v34;
+    JobSilo = -1073741811;
+    v13 = (unsigned int)v14;
   }
-LABEL_35:
-  while ( 1 )
+  else
   {
-    v25 = v6;
-    if ( !v6 )
-      break;
-LABEL_36:
-    v6 = (_QWORD *)*v6;
+    JobSilo = -1073741811;
+    v13 = 0LL;
+  }
+  while ( v13 )
+  {
     if ( JobSilo < 0 )
     {
-      v28 = v25[1];
-      if ( v28 )
-        VrpDestroyNamespaceNode((size_t *)v7, v28);
+      v27 = *(_QWORD *)(v13 + 8);
+      if ( v27 )
+        VrpDestroyNamespaceNode(v9, v27);
     }
-    ExFreePoolWithTag(v25, 0x67655256u);
+    ExFreePoolWithTag((PVOID)v13, 0x67655256u);
+LABEL_34:
+    v13 = (unsigned __int64)v8;
+    if ( v8 )
+      v8 = (_QWORD *)*v8;
   }
-  if ( v8 )
-  {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v7 + 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)(v7 + 16));
-    KeAbPostRelease(v7 + 16);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  }
-LABEL_44:
+  if ( v11 )
+    VrpUnlockJobContextExclusive((__int64)v9);
   if ( Object )
     ObfDereferenceObjectWithTag(Object, 0x52566D43u);
   return (unsigned int)JobSilo;

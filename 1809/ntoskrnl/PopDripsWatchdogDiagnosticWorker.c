@@ -1,20 +1,20 @@
 /*
- * XREFs of PopDripsWatchdogDiagnosticWorker @ 0x14086E440
+ * XREFs of PopDripsWatchdogDiagnosticWorker @ 0x14086E420
  * Callers:
  *     <none>
  * Callees:
  *     PopDeepSleepEnabled @ 0x140003A5C (PopDeepSleepEnabled.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PopCalculateIdleInformation @ 0x1402DEEA8 (PopCalculateIdleInformation.c)
- *     PopDiagTraceCsDripsDivergence @ 0x1402DF6B0 (PopDiagTraceCsDripsDivergence.c)
- *     PopDripsWatchdogCheckHwDivergence @ 0x14086E214 (PopDripsWatchdogCheckHwDivergence.c)
- *     PopDripsWatchdogScheduleNextTimer @ 0x14086E7E0 (PopDripsWatchdogScheduleNextTimer.c)
- *     PopDripsWatchdogUpdateMetrics @ 0x14086EAC8 (PopDripsWatchdogUpdateMetrics.c)
- *     PopDeepSleepWatchdogTakeAction @ 0x14087949C (PopDeepSleepWatchdogTakeAction.c)
- *     PopDripsWatchdogTakeAction @ 0x1408797A8 (PopDripsWatchdogTakeAction.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PopCalculateIdleInformation @ 0x1402DEFA8 (PopCalculateIdleInformation.c)
+ *     PopDiagTraceCsDripsDivergence @ 0x1402DF7B0 (PopDiagTraceCsDripsDivergence.c)
+ *     PopDripsWatchdogCheckHwDivergence @ 0x14086E1F4 (PopDripsWatchdogCheckHwDivergence.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x14086E7C0 (PopDripsWatchdogScheduleNextTimer.c)
+ *     PopDripsWatchdogUpdateMetrics @ 0x14086EAA8 (PopDripsWatchdogUpdateMetrics.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x14087947C (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x140879788 (PopDripsWatchdogTakeAction.c)
  */
 
 _QWORD *__fastcall PopDripsWatchdogDiagnosticWorker(PERESOURCE Resource)

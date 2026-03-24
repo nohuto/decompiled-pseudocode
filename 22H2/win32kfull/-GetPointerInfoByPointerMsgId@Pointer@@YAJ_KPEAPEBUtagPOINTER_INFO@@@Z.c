@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetPointerInfoByPointerMsgId@Pointer@@YAJ_KPEAPEBUtagPOINTER_INFO@@@Z @ 0x1C0157706
+ * XREFs of ?GetPointerInfoByPointerMsgId@Pointer@@YAJ_KPEAPEBUtagPOINTER_INFO@@@Z @ 0x1C02432B8
  * Callers:
- *     ?OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z @ 0x1C01578B6 (-OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z.c)
- *     ?GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z @ 0x1C0227D10 (-GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z.c)
+ *     ?GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z @ 0x1C0243254 (-GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z.c)
+ *     ?OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z @ 0x1C024F2C8 (-OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,17 +12,13 @@ __int64 __fastcall Pointer::GetPointerInfoByPointerMsgId(
         const struct tagPOINTER_INFO **a2,
         const struct tagPOINTER_INFO **a3)
 {
-  __int64 v5; // rax
-  const struct tagPOINTER_INFO *PointerInfo; // rax
-  bool v7; // zf
+  const struct tagPOINTER_INFO *PointerInfo; // rcx
   __int64 result; // rax
 
-  v5 = SGDGetUserSessionState(this);
-  PointerInfo = CTouchProcessor::GetPointerInfo(*(CTouchProcessor **)(v5 + 3424), (unsigned __int64)this);
+  PointerInfo = CTouchProcessor::GetPointerInfo(gpTouchProcessor, (unsigned __int64)this);
   *a2 = PointerInfo;
-  v7 = PointerInfo == 0LL;
   result = 3221225485LL;
-  if ( !v7 )
+  if ( PointerInfo )
     return 0LL;
   return result;
 }

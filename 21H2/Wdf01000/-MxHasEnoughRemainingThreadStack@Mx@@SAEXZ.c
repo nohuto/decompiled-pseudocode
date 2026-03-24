@@ -1,8 +1,7 @@
 /*
- * XREFs of ?MxHasEnoughRemainingThreadStack@Mx@@SAEXZ @ 0x1C001AC40
+ * XREFs of ?MxHasEnoughRemainingThreadStack@Mx@@SAEXZ @ 0x1C00793A4
  * Callers:
- *     ?PnpQueryCapabilities@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C001A2D8 (-PnpQueryCapabilities@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z.c)
- *     ?PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z @ 0x1C001C83C (-PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z.c)
+ *     ?PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z @ 0x1C00810DC (-PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z.c)
  * Callees:
  *     <none>
  */

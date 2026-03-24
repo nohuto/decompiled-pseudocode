@@ -1,9 +1,9 @@
 /*
- * XREFs of MiLocateKernelSections @ 0x140B60314
+ * XREFs of MiLocateKernelSections @ 0x140A56418
  * Callers:
- *     MiInitializeLoadedModuleList @ 0x140B5FD1C (MiInitializeLoadedModuleList.c)
+ *     MiInitializeLoadedModuleList @ 0x140A55E9C (MiInitializeLoadedModuleList.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140214B50 (RtlImageNtHeader.c)
+ *     RtlImageNtHeader @ 0x14029CFE0 (RtlImageNtHeader.c)
  */
 
 __int64 __fastcall MiLocateKernelSections(__int64 a1)
@@ -29,7 +29,7 @@ __int64 __fastcall MiLocateKernelSections(__int64 a1)
       v6 = v4[2];
       if ( (_DWORD)result == 1987011374 || (_DWORD)result == 1953655086 )
       {
-        LODWORD(MiFlags) = MiFlags | 0x400;
+        MiFlags |= 0x400u;
       }
       else if ( (_DWORD)result == 1280266064 )
       {

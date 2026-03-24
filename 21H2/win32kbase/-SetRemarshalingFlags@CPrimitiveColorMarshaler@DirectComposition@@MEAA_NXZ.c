@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CPrimitiveColorMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0229710
+ * XREFs of ?SetRemarshalingFlags@CPrimitiveColorMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E99D0
  * Callers:
  *     <none>
  * Callees:
@@ -9,8 +9,8 @@
 bool __fastcall DirectComposition::CPrimitiveColorMarshaler::SetRemarshalingFlags(
         DirectComposition::CPrimitiveColorMarshaler *this)
 {
-  return *((float *)this + 16) != 0.0
-      || *((float *)this + 17) != 0.0
-      || *((float *)this + 18) != 0.0
-      || *((float *)this + 19) != 0.0;
+  return *((float *)this + 14) != 0.0
+      || *((float *)this + 15) != 0.0
+      || *((float *)this + 16) != 0.0
+      || *((float *)this + 17) != 0.0;
 }

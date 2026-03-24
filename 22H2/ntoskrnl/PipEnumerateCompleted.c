@@ -1,139 +1,111 @@
 /*
- * XREFs of PipEnumerateCompleted @ 0x140795910
+ * XREFs of PipEnumerateCompleted @ 0x140741820
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406CB740 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x14073D6A4 (PipProcessDevNodeTree.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14022AEA4 (PipSetDevNodeState.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     PiPnpRtlEndOperation @ 0x140788CDC (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140788EE0 (PiPnpRtlBeginOperation.c)
- *     PipProcessEnumeratedChildDevice @ 0x140795B1C (PipProcessEnumeratedChildDevice.c)
- *     PipSetDevNodeFlags @ 0x140795BDC (PipSetDevNodeFlags.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140797720 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
- *     PipClearDevNodeFlags @ 0x14079856C (PipClearDevNodeFlags.c)
- *     PiSwFindChildren @ 0x14079884C (PiSwFindChildren.c)
- *     PiSwGetChildPdo @ 0x1408495C0 (PiSwGetChildPdo.c)
- *     PnpRequestDeviceRemoval @ 0x14086788C (PnpRequestDeviceRemoval.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PipSetDevNodeState @ 0x14036EEA8 (PipSetDevNodeState.c)
+ *     PiPnpRtlEndOperation @ 0x1406ACCB8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406AD460 (PiPnpRtlBeginOperation.c)
+ *     PipProcessEnumeratedChildDevice @ 0x1407419FC (PipProcessEnumeratedChildDevice.c)
+ *     PipSetDevNodeFlags @ 0x140741ABC (PipSetDevNodeFlags.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1407424E0 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     PipClearDevNodeFlags @ 0x140742F14 (PipClearDevNodeFlags.c)
+ *     PiSwUnlock @ 0x1407434D0 (PiSwUnlock.c)
+ *     PiSwFindChildren @ 0x1407434FC (PiSwFindChildren.c)
+ *     PiSwLock @ 0x140743564 (PiSwLock.c)
+ *     PnpRequestDeviceRemoval @ 0x14074C54C (PnpRequestDeviceRemoval.c)
+ *     PiSwGetChildPdo @ 0x1407705FC (PiSwGetChildPdo.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PipEnumerateCompleted(_QWORD *MaxDataSize)
+__int64 __fastcall PipEnumerateCompleted(__int64 a1)
 {
-  _QWORD *v1; // rdi
-  unsigned int *v3; // rcx
-  unsigned int i; // edi
-  struct _KTHREAD *CurrentThread; // rax
+  _QWORD *v2; // rbx
+  _DWORD *v3; // rcx
+  __int64 i; // rbx
   _QWORD **Children; // rax
-  _QWORD *v7; // rsi
-  __int64 *v8; // rdi
-  char v9; // bp
-  unsigned int v10; // ebx
+  _QWORD *v6; // rsi
+  __int64 *v7; // rbx
+  char v8; // bp
+  unsigned int v9; // ebx
+  __int64 v10; // rcx
   __int64 v11; // rcx
-  __int64 v12; // rcx
-  __int64 *v14; // rsi
-  _QWORD *j; // rdi
-  __int64 v16; // rdx
-  bool v17; // zf
-  __int64 v18; // rax
-  PVOID P; // [rsp+50h] [rbp+8h] BYREF
+  __int64 *v13; // rsi
+  __int64 v14; // rdx
+  _QWORD *j; // rbx
+  __int64 ChildPdo; // rax
+  PVOID P; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = (_QWORD *)MaxDataSize[1];
   P = 0LL;
-  if ( MaxDataSize[66] )
+  v2 = *(_QWORD **)(a1 + 8);
+  if ( *(_QWORD *)(a1 + 528) )
   {
-    while ( v1 )
+    while ( v2 )
     {
-      PipClearDevNodeFlags(v1, 16LL);
-      v1 = (_QWORD *)*v1;
+      PipClearDevNodeFlags(v2, 16LL);
+      v2 = (_QWORD *)*v2;
     }
   }
   else
   {
-    while ( v1 )
+    while ( v2 )
     {
-      if ( *(PDRIVER_OBJECT *)(v1[4] + 8LL) == PiSwDeviceDriverObject )
-        PipClearDevNodeFlags(v1, 16LL);
-      v1 = (_QWORD *)*v1;
+      if ( *(PDRIVER_OBJECT *)(v2[4] + 8LL) == PiSwDeviceDriverObject )
+        PipClearDevNodeFlags(v2, 16LL);
+      v2 = (_QWORD *)*v2;
     }
   }
-  v3 = (unsigned int *)MaxDataSize[66];
+  v3 = *(_DWORD **)(a1 + 528);
   if ( v3 )
   {
-    for ( i = 0; i < *v3; ++i )
+    for ( i = 0LL; (unsigned int)i < *v3; i = (unsigned int)(i + 1) )
     {
-      if ( !*(_QWORD *)&v3[2 * i + 2] )
-      {
-        IoAddTriageDumpDataBlock((ULONG)MaxDataSize, (PVOID)0x388);
-        if ( *((_WORD *)MaxDataSize + 20) )
-        {
-          IoAddTriageDumpDataBlock((_DWORD)MaxDataSize + 40, (PVOID)2);
-          IoAddTriageDumpDataBlock(MaxDataSize[6], (PVOID)*((unsigned __int16 *)MaxDataSize + 20));
-        }
-        if ( *((_WORD *)MaxDataSize + 28) )
-        {
-          IoAddTriageDumpDataBlock((_DWORD)MaxDataSize + 56, (PVOID)2);
-          IoAddTriageDumpDataBlock(MaxDataSize[8], (PVOID)*((unsigned __int16 *)MaxDataSize + 28));
-        }
-        v18 = MaxDataSize[2];
-        if ( v18 && *(_WORD *)(v18 + 56) )
-        {
-          IoAddTriageDumpDataBlock(v18 + 56, (PVOID)2);
-          IoAddTriageDumpDataBlock(
-            *(_QWORD *)(MaxDataSize[2] + 64LL),
-            (PVOID)*(unsigned __int16 *)(MaxDataSize[2] + 56LL));
-        }
-        KeBugCheckEx(0xCAu, 8uLL, MaxDataSize[4], *(unsigned int *)MaxDataSize[66], i);
-      }
-      PipProcessEnumeratedChildDevice(MaxDataSize);
-      v3 = (unsigned int *)MaxDataSize[66];
+      PipProcessEnumeratedChildDevice(a1, *(_QWORD *)(*(_QWORD *)(a1 + 528) + 8 * i + 8));
+      v3 = *(_DWORD **)(a1 + 528);
     }
     ExFreePoolWithTag(v3, 0);
-    MaxDataSize[66] = 0LL;
+    *(_QWORD *)(a1 + 528) = 0LL;
   }
-  CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  ExAcquireResourceExclusiveLite(&PiSwLockObj, 1u);
-  Children = (_QWORD **)PiSwFindChildren(MaxDataSize + 5);
-  v7 = Children;
+  PiSwLock();
+  Children = (_QWORD **)PiSwFindChildren(a1 + 40);
+  v6 = Children;
   if ( Children )
   {
-    for ( j = *Children; j != v7; j = (_QWORD *)*j )
+    for ( j = *Children; j != v6; j = (_QWORD *)*j )
     {
-      if ( PiSwGetChildPdo((PDEVICE_OBJECT)MaxDataSize[4]) )
-        PipProcessEnumeratedChildDevice(MaxDataSize);
+      ChildPdo = PiSwGetChildPdo(*(PDEVICE_OBJECT *)(a1 + 32));
+      if ( ChildPdo )
+        PipProcessEnumeratedChildDevice(a1, ChildPdo);
     }
   }
-  ExReleaseResourceLite(&PiSwLockObj);
-  KeLeaveCriticalRegion();
-  v8 = (__int64 *)MaxDataSize[1];
-  v9 = 0;
-  if ( v8 )
+  PiSwUnlock();
+  v7 = *(__int64 **)(a1 + 8);
+  v8 = 0;
+  if ( v7 )
   {
     do
     {
-      v14 = (__int64 *)*v8;
-      if ( (*((_DWORD *)v8 + 99) & 0x10010) == 0 )
+      v13 = (__int64 *)*v7;
+      if ( (*((_DWORD *)v7 + 99) & 0x10010) == 0 )
       {
-        PipSetDevNodeFlags(v8, 0x10000LL);
-        LOBYTE(v16) = 1;
-        PnpRequestDeviceRemoval(v8, v16, 24LL, 0LL);
-        v9 = 1;
+        PipSetDevNodeFlags(v7, 0x10000LL);
+        LOBYTE(v14) = 1;
+        PnpRequestDeviceRemoval(v7, v14, 24LL, 0LL);
+        v8 = 1;
       }
-      v8 = v14;
+      v7 = v13;
     }
-    while ( v14 );
+    while ( v13 );
   }
-  PipSetDevNodeState((__int64)MaxDataSize, 778);
-  if ( !v9 || (v17 = MaxDataSize == IopRootDeviceNode, v10 = -1073741106, v17) )
-    v10 = 0;
-  PiPnpRtlBeginOperation((__int64 **)&P);
-  PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v11, *((_QWORD *)IopRootDeviceNode + 6), 15LL);
-  PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v12, *((_QWORD *)IopRootDeviceNode + 6), 20LL);
+  PipSetDevNodeState(a1, 776);
+  if ( !v8 || (PVOID)a1 == IopRootDeviceNode )
+    v9 = 0;
+  else
+    v9 = -1073741106;
+  PiPnpRtlBeginOperation(&P);
+  PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v10, *((_QWORD *)IopRootDeviceNode + 6), 15LL);
+  PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v11, *((_QWORD *)IopRootDeviceNode + 6), 20LL);
   if ( P )
     PiPnpRtlEndOperation((PVOID **)P);
-  return v10;
+  return v9;
 }

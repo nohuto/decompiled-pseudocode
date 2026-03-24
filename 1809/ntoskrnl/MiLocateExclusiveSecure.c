@@ -1,5 +1,5 @@
 /*
- * XREFs of MiLocateExclusiveSecure @ 0x14012AD54
+ * XREFs of MiLocateExclusiveSecure @ 0x14012AD74
  * Callers:
  *     MiAddSecureEntry @ 0x1405F3490 (MiAddSecureEntry.c)
  * Callees:

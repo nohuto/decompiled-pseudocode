@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhParseAndInstallRegistryValueDescriptors @ 0x1C003305C
+ * XREFs of UsbhParseAndInstallRegistryValueDescriptors @ 0x1C00343C0
  * Callers:
- *     UsbhInstallMsOs20RegistryProperties @ 0x1C0032D88 (UsbhInstallMsOs20RegistryProperties.c)
+ *     UsbhInstallMsOs20RegistryProperties @ 0x1C00340C8 (UsbhInstallMsOs20RegistryProperties.c)
  * Callees:
- *     UsbhGetNextMsOs20Descriptor @ 0x1C0032D1C (UsbhGetNextMsOs20Descriptor.c)
+ *     UsbhGetNextMsOs20Descriptor @ 0x1C003405C (UsbhGetNextMsOs20Descriptor.c)
  */
 
 char __fastcall UsbhParseAndInstallRegistryValueDescriptors(

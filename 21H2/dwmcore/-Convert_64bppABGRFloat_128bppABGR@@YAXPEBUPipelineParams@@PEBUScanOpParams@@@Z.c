@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Convert_64bppABGRFloat_128bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802B0BF0
+ * XREFs of ?Convert_64bppABGRFloat_128bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x18021ABB0
  * Callers:
  *     <none>
  * Callees:
- *     ??BCFloat16@@QEAAMXZ @ 0x1802A8200 (--BCFloat16@@QEAAMXZ.c)
+ *     ??BCFloat16@@QEAAMXZ @ 0x18021A75C (--BCFloat16@@QEAAMXZ.c)
  */
 
 void __fastcall Convert_64bppABGRFloat_128bppABGR(const struct PipelineParams *a1, const struct ScanOpParams *a2)

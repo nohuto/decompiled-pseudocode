@@ -1,37 +1,32 @@
 /*
- * XREFs of GreLockVisRgnPublish @ 0x1C0098C40
+ * XREFs of GreLockVisRgnPublish @ 0x1C0085070
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pqz_EtwWriteTransfer @ 0x1C016BC08 (McTemplateK0pqz_EtwWriteTransfer.c)
+ *     McTemplateK0pqz_EtwWriteTransfer @ 0x1C014CC98 (McTemplateK0pqz_EtwWriteTransfer.c)
  */
 
-__int64 __fastcall GreLockVisRgnPublish(__int64 a1)
+PVOID __fastcall GreLockVisRgnPublish(__int64 a1, int a2, int a3)
 {
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  __int64 v3; // rdi
-  struct _ERESOURCE *v4; // rbx
-  __int64 v5; // rbx
-  __int64 result; // rax
-  int v7; // edx
-  int v8; // r8d
-  __int64 v9; // rcx
+  struct _ERESOURCE *v3; // rbx
+  PVOID result; // rax
 
-  v3 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  v4 = *(struct _ERESOURCE **)(v3 + 128);
-  if ( v4 )
+  v3 = (struct _ERESOURCE *)ghsemVisRgnPublish;
+  if ( ghsemVisRgnPublish )
   {
-    PsEnterPriorityRegion(v2, v1);
-    ExEnterCriticalRegionAndAcquireResourceExclusive(v4);
+    PsEnterPriorityRegion(a1);
+    result = ExEnterCriticalRegionAndAcquireResourceExclusive(v3);
   }
-  v5 = *(_QWORD *)(v3 + 128);
-  result = SGDGetSessionState(v2);
-  v9 = *(_QWORD *)(result + 24);
-  if ( *(_DWORD *)(v9 + 180) )
+  if ( gbLockEtw )
   {
     if ( (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
-      return McTemplateK0pqz_EtwWriteTransfer(v9, v7, v8, v5, 9, (__int64)L"GreBaseGlobals.hsemVisRgnPublish");
+      return (PVOID)McTemplateK0pqz_EtwWriteTransfer(
+                      a1,
+                      a2,
+                      a3,
+                      (_DWORD)ghsemVisRgnPublish,
+                      9,
+                      (__int64)L"ghsemVisRgnPublish");
   }
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetMinSizeCommand@CParticleGeneratorMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0222674
+ * XREFs of ?EmitSetMinSizeCommand@CParticleGeneratorMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D8A54
  * Callers:
- *     ?EmitUpdateCommands@CParticleGeneratorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0224C60 (-EmitUpdateCommands@CParticleGeneratorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CParticleGeneratorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DB150 (-EmitUpdateCommands@CParticleGeneratorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CParticleGeneratorMarshaler::EmitSetMinSizeCommand(
@@ -22,10 +22,10 @@ char __fastcall DirectComposition::CParticleGeneratorMarshaler::EmitSetMinSizeCo
     *(_DWORD *)v5 = 24;
     *(_OWORD *)(v3 + 4) = 0LL;
     *((_DWORD *)v3 + 5) = 0;
-    *((_DWORD *)v3 + 1) = 585;
-    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
-    *(_QWORD *)(v3 + 12) = *(_QWORD *)((char *)this + 180);
-    *((_DWORD *)v3 + 5) = *((_DWORD *)this + 47);
+    *((_DWORD *)v3 + 1) = 580;
+    *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
+    *(_QWORD *)(v3 + 12) = *(_QWORD *)((char *)this + 172);
+    *((_DWORD *)v3 + 5) = *((_DWORD *)this + 45);
     *((_DWORD *)this + 4) &= ~0x40000u;
     return 1;
   }

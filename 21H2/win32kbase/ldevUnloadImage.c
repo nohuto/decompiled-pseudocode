@@ -1,78 +1,73 @@
 /*
- * XREFs of ldevUnloadImage @ 0x1C0075120
+ * XREFs of ldevUnloadImage @ 0x1C00153B0
  * Callers:
- *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C0074810 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
- *     ldevLoadDriver @ 0x1C0075290 (ldevLoadDriver.c)
- *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C00771B8 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
- *     ?ldevGetDriverModes@@YAKPEAUtagGRAPHICS_DEVICE@@PEBGPEAXPEAPEAU_devicemodeW@@@Z @ 0x1C007A810 (-ldevGetDriverModes@@YAKPEAUtagGRAPHICS_DEVICE@@PEBGPEAXPEAPEAU_devicemodeW@@@Z.c)
- *     ?MultiUserGreCleanupDrivers@@YAXXZ @ 0x1C0090BE0 (-MultiUserGreCleanupDrivers@@YAXXZ.c)
+ *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C0013658 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
+ *     ?ldevGetDriverModes@@YAKPEAUtagGRAPHICS_DEVICE@@PEBGPEAXPEAPEAU_devicemodeW@@@Z @ 0x1C0015254 (-ldevGetDriverModes@@YAKPEAUtagGRAPHICS_DEVICE@@PEBGPEAXPEAPEAU_devicemodeW@@@Z.c)
+ *     ldevLoadDriver @ 0x1C0015500 (ldevLoadDriver.c)
+ *     ?MultiUserGreCleanupDrivers@@YAXXZ @ 0x1C007D560 (-MultiUserGreCleanupDrivers@@YAXXZ.c)
+ *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C00B9900 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
  * Callees:
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0087C00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ldevUnloadImage(__int64 *a1)
 {
-  void (*v3)(void); // rax
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  _QWORD *v6; // rax
-  void **v7; // rdx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v5; // rax
   __int64 result; // rax
-  __int64 v9; // rcx
+  __int64 v7; // rax
+  void (*v8)(void); // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  _QWORD *v11; // rax
+  __int64 v12; // rcx
 
   EngAcquireSemaphore(ghsemDriverMgmt);
   EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDriverMgmt", ghsemDriverMgmt, 13LL);
   if ( (*((_DWORD *)a1 + 7))-- == 1 )
   {
-    WdLogSingleEntry0(5LL);
-    v3 = (void (*)(void))a1[16];
-    if ( v3 )
-      v3();
-    v4 = a1[2];
-    if ( v4 && (a1[4] & 2) == 0 )
-      ZwSetSystemInformation(SystemUnloadGdiDriverInformation, (PVOID)(v4 + 24), 8uLL);
-    v5 = *a1;
+    v7 = WdLogNewEntry5_WdTrace(v3, v2);
+    WdLogEvent5_WdTrace(v7);
+    v8 = (void (*)(void))a1[16];
+    if ( v8 )
+      v8();
+    v9 = a1[2];
+    if ( v9 && (a1[4] & 2) == 0 )
+      ZwSetSystemInformation(SystemUnloadGdiDriverInformation, (PVOID)(v9 + 24), 8uLL);
+    v10 = *a1;
     if ( *a1 )
     {
-      *(_QWORD *)(v5 + 8) = a1[1];
-      v5 = *a1;
+      *(_QWORD *)(v10 + 8) = a1[1];
+      v10 = *a1;
     }
-    v6 = (_QWORD *)a1[1];
-    if ( v6 )
-      *v6 = v5;
+    v11 = (_QWORD *)a1[1];
+    if ( v11 )
+      *v11 = v10;
     else
-      gpldevDrivers = (struct _LDEV *)v5;
-    v7 = (void **)a1[2];
-    if ( v7 )
+      gpldevDrivers = (struct _LDEV *)v10;
+    v12 = a1[2];
+    if ( v12 )
     {
-      if ( !v7[1]
-        || (NSInstrumentation::CLeakTrackingAllocator::Free(
-              (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-              v7[1]),
-            (v7 = (void **)a1[2]) != 0LL) )
-      {
-        NSInstrumentation::CLeakTrackingAllocator::Free(
-          (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-          v7);
-      }
+      Win32FreePool(*(_QWORD *)(v12 + 8));
+      Win32FreePool(a1[2]);
     }
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      a1);
+    Win32FreePool(a1);
   }
   else
   {
-    WdLogSingleEntry0(5LL);
+    v5 = WdLogNewEntry5_WdTrace(v3, v2);
+    WdLogEvent5_WdTrace(v5);
   }
   result = EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
   if ( ghsemDriverMgmt )
   {
     ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDriverMgmt);
-    return PsLeavePriorityRegion(v9);
+    return PsLeavePriorityRegion();
   }
   return result;
 }

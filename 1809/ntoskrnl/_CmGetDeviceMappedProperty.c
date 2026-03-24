@@ -5,7 +5,7 @@
  * Callees:
  *     _CmGetDeviceMappedPropertyFromRegProp @ 0x14059BFC8 (_CmGetDeviceMappedPropertyFromRegProp.c)
  *     _CmGetDeviceMappedPropertyFromComposite @ 0x14059C504 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x1406DC21C (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x1406DC1FC (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
  */
 
 __int64 __fastcall CmGetDeviceMappedProperty(
@@ -75,7 +75,7 @@ __int64 __fastcall CmGetDeviceMappedProperty(
       if ( DeviceMappedPropertyFromRegProp != -1073741802 )
         return DeviceMappedPropertyFromRegProp;
 LABEL_6:
-      v16 = &off_140909320;
+      v16 = &off_140909300;
       v17 = 0;
       while ( 1 )
       {
@@ -97,7 +97,7 @@ LABEL_6:
       if ( DeviceMappedPropertyFromRegProp != -1073741802 )
         return DeviceMappedPropertyFromRegProp;
 LABEL_9:
-      v19 = &off_14090B220;
+      v19 = &off_14090B200;
       v20 = 0;
       while ( 1 )
       {

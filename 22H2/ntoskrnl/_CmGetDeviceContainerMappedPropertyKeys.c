@@ -1,8 +1,8 @@
 /*
- * XREFs of _CmGetDeviceContainerMappedPropertyKeys @ 0x140A64218
+ * XREFs of _CmGetDeviceContainerMappedPropertyKeys @ 0x14072CE00
  * Callers:
- *     _PnpDispatchDeviceContainer @ 0x14079AF90 (_PnpDispatchDeviceContainer.c)
- *     _CmDeleteDeviceContainerWorker @ 0x140A63B84 (_CmDeleteDeviceContainerWorker.c)
+ *     _PnpDispatchDeviceContainer @ 0x14068CEB0 (_PnpDispatchDeviceContainer.c)
+ *     _CmDeleteDeviceContainerWorker @ 0x14072CE94 (_CmDeleteDeviceContainerWorker.c)
  * Callees:
  *     <none>
  */
@@ -16,43 +16,53 @@ __int64 __fastcall CmGetDeviceContainerMappedPropertyKeys(
         unsigned int a6,
         unsigned int *a7)
 {
-  DEVPROPKEY **v7; // r8
-  unsigned int v8; // r9d
-  DEVPROPKEY *v9; // r10
-  __int64 v10; // rax
-  __int64 v11; // rcx
-  unsigned int v12; // ecx
+  DEVPROPKEY **v7; // r10
+  __int64 result; // rax
+  unsigned int v9; // r9d
+  DEVPROPKEY *v10; // rdx
+  __int64 v11; // rax
+  __int64 v12; // rcx
+  unsigned int v13; // edx
+  int v14; // eax
+  unsigned int v15; // ecx
 
-  v7 = &off_14000B110;
+  v7 = &off_140007BC0;
+  result = 0LL;
   *a7 = 0;
-  v8 = 0;
+  v9 = 0;
   while ( 1 )
   {
-    v9 = *v7;
+    v10 = *v7;
     if ( *v7 )
-      break;
-LABEL_8:
-    ++v8;
-    v7 += 2;
-    if ( v8 >= 4 )
-      return a6 < *a7 ? 0xC0000023 : 0;
-  }
-  if ( a5 )
-  {
-    v10 = *a7;
-    if ( (unsigned int)v10 < a6 )
     {
-      v11 = 5 * v10;
-      *(_GUID *)(a5 + 4 * v11) = v9->fmtid;
-      *(_DWORD *)(a5 + 4 * v11 + 16) = v9->pid;
+      if ( a5 )
+      {
+        v11 = *a7;
+        if ( (unsigned int)v11 < a6 )
+        {
+          v12 = 5 * v11;
+          *(_GUID *)(a5 + 4 * v12) = v10->fmtid;
+          *(_DWORD *)(a5 + 4 * v12 + 16) = v10->pid;
+        }
+      }
+      v13 = *a7;
+      v14 = -1;
+      v15 = *a7 + 1;
+      if ( v15 >= *a7 )
+        v14 = *a7 + 1;
+      *a7 = v14;
+      result = v15 < v13 ? 0xC0000095 : 0;
+      if ( v15 < v13 )
+        break;
     }
-  }
-  v12 = *a7 + 1;
-  if ( v12 >= *a7 )
-  {
-    *a7 = v12;
-    goto LABEL_8;
+    ++v9;
+    v7 += 2;
+    if ( v9 >= 4 )
+      goto LABEL_10;
   }
   *a7 = 0;
-  return 3221225621LL;
+LABEL_10:
+  if ( (int)result >= 0 )
+    return a6 < *a7 ? 0xC0000023 : 0;
+  return result;
 }

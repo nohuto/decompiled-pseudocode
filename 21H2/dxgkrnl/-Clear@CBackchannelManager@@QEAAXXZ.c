@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Clear@CBackchannelManager@@QEAAXXZ @ 0x1C0080E58
+ * XREFs of ?Clear@CBackchannelManager@@QEAAXXZ @ 0x1C006D8C4
  * Callers:
- *     ?ProcessProducerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C007E6C4 (-ProcessProducerDisconnect@CFlipManager@@IEAAXXZ.c)
- *     ??1CBackchannelManager@@UEAA@XZ @ 0x1C0080E20 (--1CBackchannelManager@@UEAA@XZ.c)
+ *     ?ProcessProducerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C006BBC4 (-ProcessProducerDisconnect@CFlipManager@@IEAAXXZ.c)
+ *     ??1CBackchannelManager@@UEAA@XZ @ 0x1C006D88C (--1CBackchannelManager@@UEAA@XZ.c)
  * Callees:
- *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C007A178 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
- *     ?Dequeue@?$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ @ 0x1C0080EA8 (-Dequeue@-$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ.c)
+ *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C0068A40 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
+ *     ?Dequeue@?$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ @ 0x1C006D914 (-Dequeue@-$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ.c)
  */
 
 void __fastcall CBackchannelManager::Clear(CBackchannelManager *this)

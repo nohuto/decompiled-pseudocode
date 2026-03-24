@@ -1,244 +1,234 @@
 /*
- * XREFs of ?GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z @ 0x1C005D98C
+ * XREFs of ?GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z @ 0x1C00CA7F8
  * Callers:
- *     GreGetDeviceCaps @ 0x1C005D880 (GreGetDeviceCaps.c)
+ *     GreGetDeviceCaps @ 0x1C0092320 (GreGetDeviceCaps.c)
  * Callees:
- *     IsGetColorManagementCapsSupported @ 0x1C0019970 (IsGetColorManagementCapsSupported.c)
- *     ?cFonts@PDEVOBJ@@QEAAKXZ @ 0x1C00199A0 (-cFonts@PDEVOBJ@@QEAAKXZ.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C00428F0 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
- *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C004D320 (W32GetCurrentThreadDpiAwarenessContext.c)
- *     EngMulDiv @ 0x1C005A530 (EngMulDiv.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C002BEF4 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     GreReleaseSemaphoreInternal @ 0x1C003A0E0 (GreReleaseSemaphoreInternal.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
+ *     EngMulDiv @ 0x1C00718C0 (EngMulDiv.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007EE00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     IsGetColorManagementCapsSupported @ 0x1C009AAF8 (IsGetColorManagementCapsSupported.c)
+ *     ?cFonts@PDEVOBJ@@QEAAKXZ @ 0x1C009AB30 (-cFonts@PDEVOBJ@@QEAAKXZ.c)
+ *     GetColorManagementCapsWrap @ 0x1C009AB98 (GetColorManagementCapsWrap.c)
  */
 
 __int64 __fastcall GreGetDeviceCapsInternal(struct PDEVOBJ *a1, int a2)
 {
   unsigned int *v2; // rdi
   unsigned int v5; // ebx
-  unsigned int CurrentThreadDpiAwarenessContext; // eax
-  __int64 v7; // rcx
-  char v8; // r15
-  unsigned int v9; // ebp
-  __int64 CurrentProcessWin32Process; // rax
+  int v6; // ecx
+  int v7; // ecx
+  int v8; // ebx
+  int v10; // eax
+  int v11; // r8d
   __int64 v12; // rcx
-  int v13; // eax
-  int v15; // ecx
-  __int64 v16; // rdi
-  __int64 v17; // rcx
-  struct _ERESOURCE *v18; // rcx
-  int v19; // ecx
-  int v20; // ebx
-  int v21; // eax
-  __int64 v22; // rcx
+  char CurrentThreadDpiAwarenessContext; // al
+  unsigned int v14; // ebp
+  int v15; // r14d
+  __int64 CurrentProcessWin32Process; // rax
+  unsigned int v17; // eax
+  __int64 v18; // rcx
+  int v19; // eax
+  __int64 v20; // rcx
 
-  v2 = (unsigned int *)(*(_QWORD *)a1 + 2104LL);
+  v2 = (unsigned int *)(*(_QWORD *)a1 + 2136LL);
   v5 = 0;
-  if ( a2 <= 36 )
+  if ( a2 > 36 )
   {
-    if ( a2 == 36 )
-      return 1;
-    if ( a2 > 16 )
-    {
-      if ( a2 != 18 )
-      {
-        switch ( a2 )
-        {
-          case 20:
-            return 0;
-          case 24:
-            return *(unsigned int *)(*(_QWORD *)a1 + 2136LL);
-          case 22:
-            return (unsigned int)PDEVOBJ::cFonts(a1);
-          case 26:
-            return 0;
-          case 28:
-            return 511;
-          case 30:
-            return 254;
-          case 32:
-            return 255;
-          case 34:
-            v19 = *(_DWORD *)(*(_QWORD *)a1 + 2152LL);
-            v20 = v2[12] | 0x4000;
-            if ( !v2[1] )
-              v20 = v19;
-            return v20 | 0x1800u;
-        }
-        goto LABEL_64;
-      }
-      v21 = *(_DWORD *)(*(_QWORD *)a1 + 2136LL);
-      if ( v21 != -1 )
-        return (unsigned int)(5 * v21);
-    }
-    else if ( a2 != 16 )
-    {
-      if ( a2 <= 6 )
-      {
-        switch ( a2 )
-        {
-          case 6:
-            v15 = *(_DWORD *)(*(_QWORD *)a1 + 2116LL);
-            break;
-          case -2147483648:
-            return *(unsigned int *)(*(_QWORD *)a1 + 2112LL);
-          case -2147483646:
-            return *(unsigned int *)(*(_QWORD *)a1 + 2116LL);
-          case 0:
-            return *v2;
-          case 2:
-            return *(unsigned int *)(*(_QWORD *)a1 + 2108LL);
-          case 4:
-            v15 = *(_DWORD *)(*(_QWORD *)a1 + 2112LL);
-            break;
-          default:
-            goto LABEL_64;
-        }
-        return (v15 + 500) / 0x3E8u;
-      }
-      switch ( a2 )
-      {
-        case 8:
-          v5 = *(_DWORD *)(*(_QWORD *)a1 + 2120LL);
-          break;
-        case 10:
-          v5 = *(_DWORD *)(*(_QWORD *)a1 + 2124LL);
-          break;
-        case 12:
-          v5 = *(_DWORD *)(*(_QWORD *)a1 + 2128LL);
-          if ( v5 == 15 )
-            return 16;
-          return v5;
-        case 14:
-          return *(unsigned int *)(*(_QWORD *)a1 + 2132LL);
-        default:
-          goto LABEL_64;
-      }
-      goto LABEL_12;
-    }
-    return (unsigned int)-1;
-  }
-  if ( a2 > 110 )
-  {
-    switch ( a2 )
-    {
-      case 'o':
-        return *(unsigned int *)(*(_QWORD *)a1 + 2204LL);
-      case 'p':
-        return *(unsigned int *)(*(_QWORD *)a1 + 2192LL);
-      case 'q':
-        return *(unsigned int *)(*(_QWORD *)a1 + 2196LL);
-      case 't':
-        return *(unsigned int *)(*(_QWORD *)a1 + 2352LL);
-      case 'u':
-        return *(unsigned int *)(*(_QWORD *)a1 + 2124LL);
-      case 'v':
-        return *(unsigned int *)(*(_QWORD *)a1 + 2120LL);
-      case 'w':
-        return *(unsigned int *)(*(_QWORD *)a1 + 2356LL);
-      case 'x':
-        return *(unsigned int *)(*(_QWORD *)a1 + 2408LL);
-    }
-    if ( a2 == 121 && (int)IsGetColorManagementCapsSupported() >= 0 && qword_1C0294660 )
-    {
-      qword_1C0294660(*(_QWORD *)a1);
-      return v5;
-    }
-    goto LABEL_64;
-  }
-  if ( a2 == 110 )
-    return *(unsigned int *)(*(_QWORD *)a1 + 2200LL);
-  if ( a2 != 90 )
-  {
-    if ( a2 > 90 )
+    if ( a2 > 110 )
     {
       switch ( a2 )
       {
-        case '^':
-          v16 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-          EngAcquireSemaphore(*(HSEMAPHORE *)(v16 + 8));
-          EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(v16 + 8), 16);
-          v17 = *(_QWORD *)(*(_QWORD *)a1 + 2552LL);
-          if ( ((v17 + 4) & 0xFFFFFFFFFFFFFFFBuLL) != 0 )
-          {
-            v5 = (*(_DWORD *)(v17 + 160) & 8) << 11;
-            if ( (*(_DWORD *)(v17 + 160) & 0x2000000) != 0 )
-              v5 |= 0x8000u;
-          }
-          EtwTraceGreLockReleaseSemaphore((__int64)L"GreBaseGlobals.hsemDriverMgmt", *(_QWORD *)(v16 + 8));
-          v18 = *(struct _ERESOURCE **)(v16 + 8);
-          if ( v18 )
-          {
-            ExReleaseResourceAndLeaveCriticalRegion(v18);
-            PsLeavePriorityRegion();
-          }
-          return v5;
-        case 'h':
-          return *(unsigned int *)(*(_QWORD *)a1 + 2208LL);
-        case 'j':
-          return 20;
-        case 'l':
-          return (unsigned int)(*(_DWORD *)(*(_QWORD *)a1 + 2156LL)
-                              + *(_DWORD *)(*(_QWORD *)a1 + 2160LL)
-                              + *(_DWORD *)(*(_QWORD *)a1 + 2164LL));
+        case 'o':
+          v5 = *(_DWORD *)(*(_QWORD *)a1 + 2236LL);
+          goto LABEL_97;
+        case 'p':
+          return *(unsigned int *)(*(_QWORD *)a1 + 2224LL);
+        case 'q':
+          return *(unsigned int *)(*(_QWORD *)a1 + 2228LL);
+        case 't':
+          return *(unsigned int *)(*(_QWORD *)a1 + 2384LL);
+        case 'u':
+          return *(unsigned int *)(*(_QWORD *)a1 + 2156LL);
+        case 'v':
+          return *(unsigned int *)(*(_QWORD *)a1 + 2152LL);
+        case 'w':
+          return *(unsigned int *)(*(_QWORD *)a1 + 2388LL);
+        case 'x':
+          return *(unsigned int *)(*(_QWORD *)a1 + 2440LL);
       }
+      if ( a2 == 121 && (int)IsGetColorManagementCapsSupported() >= 0 )
+        GetColorManagementCapsWrap(*(_QWORD *)a1);
     }
     else
     {
+      if ( a2 == 110 )
+        return *(unsigned int *)(*(_QWORD *)a1 + 2232LL);
+      if ( a2 > 90 )
+      {
+        switch ( a2 )
+        {
+          case '^':
+            EngAcquireSemaphore(ghsemDriverMgmt);
+            EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, 13);
+            v12 = *(_QWORD *)(*(_QWORD *)a1 + 2576LL);
+            if ( ((v12 + 4) & 0xFFFFFFFFFFFFFFFBuLL) != 0 )
+            {
+              v5 = (*(_DWORD *)(v12 + 160) & 8) << 11;
+              if ( (*(_DWORD *)(v12 + 160) & 0x2000000) != 0 )
+                v5 |= 0x8000u;
+            }
+            EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDriverMgmt", (int)ghsemDriverMgmt, v11);
+            GreReleaseSemaphoreInternal((struct _ERESOURCE *)ghsemDriverMgmt);
+            return v5;
+          case 'h':
+            return *(unsigned int *)(*(_QWORD *)a1 + 2240LL);
+          case 'j':
+            return 20;
+          case 'l':
+            return (unsigned int)(*(_DWORD *)(*(_QWORD *)a1 + 2188LL)
+                                + *(_DWORD *)(*(_QWORD *)a1 + 2192LL)
+                                + *(_DWORD *)(*(_QWORD *)a1 + 2196LL));
+        }
+        goto LABEL_88;
+      }
       switch ( a2 )
       {
+        case 'Z':
+          v5 = *(_DWORD *)(*(_QWORD *)a1 + 2180LL);
+          goto LABEL_101;
         case '&':
-          return *(unsigned int *)(*(_QWORD *)a1 + 2140LL);
-        case '(':
-          return *(unsigned int *)(*(_QWORD *)a1 + 2168LL);
-        case '*':
           return *(unsigned int *)(*(_QWORD *)a1 + 2172LL);
+        case '(':
+          return *(unsigned int *)(*(_QWORD *)a1 + 2200LL);
+        case '*':
+          return *(unsigned int *)(*(_QWORD *)a1 + 2204LL);
         case ',':
-          return *(unsigned int *)(*(_QWORD *)a1 + 2176LL);
+          return *(unsigned int *)(*(_QWORD *)a1 + 2208LL);
         case 'X':
-          v5 = *(_DWORD *)(*(_QWORD *)a1 + 2144LL);
-          goto LABEL_12;
+          v5 = *(_DWORD *)(*(_QWORD *)a1 + 2176LL);
+          goto LABEL_101;
       }
     }
-LABEL_64:
+LABEL_88:
     v5 = 0;
-    if ( a2 != 88 && a2 != 90 && a2 != 8 && a2 != 10 )
+LABEL_97:
+    if ( a2 != 8 && a2 != 10 && a2 != 88 && a2 != 90 )
       return v5;
-    goto LABEL_12;
+    goto LABEL_101;
   }
-  v5 = *(_DWORD *)(*(_QWORD *)a1 + 2148LL);
-LABEL_12:
+  if ( a2 == 36 )
+    return 1;
+  if ( a2 > 16 )
+  {
+    if ( a2 != 18 )
+    {
+      switch ( a2 )
+      {
+        case 20:
+          return 0;
+        case 22:
+          return (unsigned int)PDEVOBJ::cFonts(a1);
+        case 24:
+          return *(unsigned int *)(*(_QWORD *)a1 + 2168LL);
+        case 26:
+          return 0;
+        case 28:
+          return 511;
+        case 30:
+          return 254;
+        case 32:
+          return 255;
+        case 34:
+          v7 = *(_DWORD *)(*(_QWORD *)a1 + 2184LL);
+          v8 = v2[12] | 0x4000;
+          if ( !v2[1] )
+            v8 = v7;
+          return v8 | 0x1800u;
+      }
+      goto LABEL_88;
+    }
+    v10 = *(_DWORD *)(*(_QWORD *)a1 + 2168LL);
+    if ( v10 != -1 )
+      return (unsigned int)(5 * v10);
+    return (unsigned int)-1;
+  }
+  if ( a2 == 16 )
+    return (unsigned int)-1;
+  if ( a2 <= 6 )
+  {
+    switch ( a2 )
+    {
+      case 6:
+        v6 = *(_DWORD *)(*(_QWORD *)a1 + 2148LL);
+        return (v6 + 500) / 0x3E8u;
+      case -2147483648:
+        return *(unsigned int *)(*(_QWORD *)a1 + 2144LL);
+      case -2147483646:
+        return *(unsigned int *)(*(_QWORD *)a1 + 2148LL);
+      case 0:
+        return *v2;
+      case 2:
+        return *(unsigned int *)(*(_QWORD *)a1 + 2140LL);
+      case 4:
+        v6 = *(_DWORD *)(*(_QWORD *)a1 + 2144LL);
+        return (v6 + 500) / 0x3E8u;
+    }
+    goto LABEL_88;
+  }
+  switch ( a2 )
+  {
+    case 8:
+      v5 = *(_DWORD *)(*(_QWORD *)a1 + 2152LL);
+      break;
+    case 10:
+      v5 = *(_DWORD *)(*(_QWORD *)a1 + 2156LL);
+      break;
+    case 12:
+      v5 = *(_DWORD *)(*(_QWORD *)a1 + 2160LL);
+      if ( v5 == 15 )
+        return 16;
+      return v5;
+    case 14:
+      return *(unsigned int *)(*(_QWORD *)a1 + 2164LL);
+    default:
+      goto LABEL_88;
+  }
+LABEL_101:
+  CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext();
   if ( (*(_DWORD *)(*(_QWORD *)a1 + 40LL) & 1) != 0 )
   {
-    CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext();
-    v8 = CurrentThreadDpiAwarenessContext;
-    v9 = (CurrentThreadDpiAwarenessContext >> 8) & 0x1FF;
-    if ( !v9 )
+    v14 = 96;
+    v15 = CurrentThreadDpiAwarenessContext & 0xF;
+    if ( (CurrentThreadDpiAwarenessContext & 0xF) != 0 )
     {
-      v9 = v2[11];
-      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v7);
+      v14 = v2[11];
+      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(*(_QWORD *)a1);
       if ( CurrentProcessWin32Process )
       {
-        if ( *(_QWORD *)CurrentProcessWin32Process && *(_WORD *)(CurrentProcessWin32Process + 284) )
-          v9 = *(unsigned __int16 *)(CurrentProcessWin32Process + 284);
+        v17 = *(unsigned __int16 *)(CurrentProcessWin32Process + 284);
+        if ( (_WORD)v17 )
+          v14 = v17;
       }
     }
     if ( ((a2 - 88) & 0xFFFFFFFD) == 0 )
-      return v9;
-    if ( (v8 & 0xF) == 2 )
-      return v5;
-    v12 = *(_QWORD *)a1;
-    v13 = *(_DWORD *)(*(_QWORD *)a1 + 2432LL);
-    if ( !v13
-      && ((*(_DWORD *)(v12 + 40) & 0x20000) == 0
-       || (v22 = *(_QWORD *)(*(_QWORD *)(v12 + 1768) + 40LL)) == 0
-       || (*(_DWORD *)(v22 + 40) & 1) == 0
-       || (v13 = *(_DWORD *)(v22 + 2432)) == 0) )
+      return v14;
+    if ( v15 != 2 )
     {
-      v13 = 100;
+      v18 = *(_QWORD *)a1;
+      v19 = *(_DWORD *)(*(_QWORD *)a1 + 2464LL);
+      if ( !v19
+        && ((*(_DWORD *)(v18 + 40) & 0x20000) == 0
+         || (v20 = *(_QWORD *)(*(_QWORD *)(v18 + 1800) + 40LL)) == 0
+         || (*(_DWORD *)(v20 + 40) & 1) == 0
+         || (v19 = *(_DWORD *)(v20 + 2464)) == 0) )
+      {
+        v19 = 100;
+      }
+      return (unsigned int)EngMulDiv(v5, v14, (96 * v19 + 50) / 0x64u);
     }
-    return (unsigned int)EngMulDiv(v5, v9, (96 * v13 + 50) / 0x64u);
   }
   return v5;
 }

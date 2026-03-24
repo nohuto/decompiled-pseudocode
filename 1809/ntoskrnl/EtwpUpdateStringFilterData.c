@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpUpdateStringFilterData @ 0x1408C263C
+ * XREFs of EtwpUpdateStringFilterData @ 0x1408C261C
  * Callers:
- *     EtwpUpdateFilterData @ 0x140657034 (EtwpUpdateFilterData.c)
+ *     EtwpUpdateFilterData @ 0x140657014 (EtwpUpdateFilterData.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessDownOnly@@YAXPEAUtagMOUSE_PROMOTION_CACHE@@PEAUtagMOUSE_PROMOTION_ENTRY@@HH@Z @ 0x1C0213A00
+ * XREFs of ?ProcessDownOnly@@YAXPEAUtagMOUSE_PROMOTION_CACHE@@PEAUtagMOUSE_PROMOTION_ENTRY@@HH@Z @ 0x1C0218C08
  * Callers:
- *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0213BC0 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
+ *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0218DC8 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
  * Callees:
- *     ?AppendMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C02133B4 (-AppendMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
- *     ?ClearMousePromotionQueueUntil@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z @ 0x1C02134EC (-ClearMousePromotionQueueUntil@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@.c)
+ *     ?AppendMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0218508 (-AppendMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
+ *     ?ClearMousePromotionQueueUntil@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z @ 0x1C0218640 (-ClearMousePromotionQueueUntil@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@.c)
  */
 
 void __fastcall ProcessDownOnly(
@@ -26,13 +26,13 @@ void __fastcall ProcessDownOnly(
     if ( a3 )
       *(_DWORD *)(v8 + 44) &= ~1u;
     AppendMousePromotionQueue(
-      (struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C0335D10,
+      (struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C033AB50,
       (struct tagMOUSE_PROMOTION_ENTRY *)v8,
       (struct tagMOUSE_PROMOTION_ENTRY *)v8);
-    word_1C0335D70 = *(_WORD *)a1;
-    dword_1C0335D74 = *((_DWORD *)a2 + 8);
-    qword_1C0335D78 = gptiCurrent;
-    dword_1C0335D80 = a3;
-    dword_1C0335D84 = a4;
+    word_1C033ABB0 = *(_WORD *)a1;
+    dword_1C033ABB4 = *((_DWORD *)a2 + 8);
+    qword_1C033ABB8 = gptiCurrent;
+    dword_1C033ABC0 = a3;
+    dword_1C033ABC4 = a4;
   }
 }

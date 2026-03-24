@@ -1,18 +1,18 @@
 /*
- * XREFs of ObSetHandleAttributes @ 0x1407A1B10
+ * XREFs of ObSetHandleAttributes @ 0x1406918A0
  * Callers:
- *     NtSetInformationObject @ 0x1406B9250 (NtSetInformationObject.c)
+ *     NtSetInformationObject @ 0x140691630 (NtSetInformationObject.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     ExSetHandleAttributes @ 0x1402F3510 (ExSetHandleAttributes.c)
- *     ObpIsKernelHandle @ 0x1402F3558 (ObpIsKernelHandle.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExfUnblockPushLock @ 0x14041AC40 (ExfUnblockPushLock.c)
- *     ObReferenceProcessHandleTable @ 0x14066B3D8 (ObReferenceProcessHandleTable.c)
- *     ExMapHandleToPointer @ 0x1407A1AC0 (ExMapHandleToPointer.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExSetHandleAttributes @ 0x1402AB5BC (ExSetHandleAttributes.c)
+ *     ObpIsKernelHandle @ 0x1403488C0 (ObpIsKernelHandle.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
+ *     ObReferenceProcessHandleTable @ 0x1405F57B4 (ObReferenceProcessHandleTable.c)
+ *     ExMapHandleToPointer @ 0x14061BB00 (ExMapHandleToPointer.c)
  */
 
 __int64 __fastcall ObSetHandleAttributes(unsigned __int64 a1, _BYTE *a2, char a3)
@@ -24,7 +24,7 @@ __int64 __fastcall ObSetHandleAttributes(unsigned __int64 a1, _BYTE *a2, char a3
   _DWORD *v8; // r9
   unsigned __int64 v9; // rsi
   struct _KTHREAD *CurrentThread; // rbp
-  __int64 *v11; // rax
+  signed __int64 *v11; // rax
   volatile signed __int64 *v12; // r10
   unsigned __int64 v13; // rax
   unsigned int v14; // edx
@@ -56,11 +56,11 @@ __int64 __fastcall ObSetHandleAttributes(unsigned __int64 a1, _BYTE *a2, char a3
   }
   else
   {
-    v9 = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[28];
+    v9 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[8];
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v11 = ExMapHandleToPointer((unsigned int *)v9, v4);
+  v11 = ExMapHandleToPointer(v9, v4);
   v12 = v11;
   if ( v11 )
   {
@@ -84,10 +84,10 @@ __int64 __fastcall ObSetHandleAttributes(unsigned __int64 a1, _BYTE *a2, char a3
   {
     v15 = -1073741790;
   }
-  KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( v5 )
-    KiUnstackDetachProcess((__int64)v18, 0LL);
+    KiUnstackDetachProcess((__int64)v18, 0);
   if ( v6 )
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&Process[1].ProfileListHead.Blink);
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&Process[1].ProfileListHead.Blink);
   return v15;
 }

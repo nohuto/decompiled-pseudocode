@@ -1,42 +1,54 @@
 /*
- * XREFs of ??$VidSchRundownUnorderedWaiter@U_VIDSCH_GLOBAL@@@@YAJPEAU_VIDSCH_GLOBAL@@0W4_VIDSCH_FLUSH_STAGE@@_NP6AXPEAVHwQueueStagingList@@0@Z@Z @ 0x1C003D0DC
+ * XREFs of ??$VidSchRundownUnorderedWaiter@U_VIDSCH_GLOBAL@@@@YAJPEAU_VIDSCH_GLOBAL@@0W4_VIDSCH_FLUSH_STAGE@@_NP6AXPEAVHwQueueStagingList@@0@Z@Z @ 0x1C0032724
  * Callers:
- *     VidSchFlushAdapter @ 0x1C01070F0 (VidSchFlushAdapter.c)
+ *     VidSchFlushAdapter @ 0x1C00CFF30 (VidSchFlushAdapter.c)
  * Callees:
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C00032E4 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00033A8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
- *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C000A370 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
- *     VidSchiRundownUnorderedWaiterGlobal @ 0x1C003C350 (VidSchiRundownUnorderedWaiterGlobal.c)
+ *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C000B050 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011E50 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00128EC (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     VidSchiRundownUnorderedWaiterDevice @ 0x1C00315C4 (VidSchiRundownUnorderedWaiterDevice.c)
  */
 
 __int64 __fastcall VidSchRundownUnorderedWaiter<_VIDSCH_GLOBAL>(__int64 a1, __int64 a2, int a3)
 {
   unsigned int v3; // ebx
   __int64 v5; // r8
-  _QWORD v7[2]; // [rsp+20h] [rbp-40h] BYREF
-  char v8; // [rsp+30h] [rbp-30h]
-  _QWORD v9[4]; // [rsp+38h] [rbp-28h] BYREF
-  __int16 v10; // [rsp+58h] [rbp-8h]
+  _QWORD *v6; // rsi
+  _QWORD *v7; // rdi
+  _QWORD v9[2]; // [rsp+20h] [rbp-40h] BYREF
+  char v10; // [rsp+30h] [rbp-30h]
+  _QWORD v11[4]; // [rsp+38h] [rbp-28h] BYREF
+  __int16 v12; // [rsp+58h] [rbp-8h]
 
   v3 = 0;
-  if ( a3 != 5 && *(_DWORD *)(a1 + 816) )
+  if ( a3 != 5 && *(_DWORD *)(a1 + 808) )
   {
-    if ( a3 < 8 )
+    if ( a3 < 6 )
     {
       return (unsigned int)-2147483631;
     }
-    else if ( *(_DWORD *)(a1 + 816) )
+    else if ( *(_DWORD *)(a1 + 808) )
     {
+      v12 = 0;
+      v11[0] = a2 + 1712;
+      AcquireSpinLock::Acquire((Acquire *)v11);
       v10 = 0;
-      v9[0] = a2 + 1728;
-      AcquireSpinLock::Acquire((Acquire *)v9);
-      v8 = 0;
-      v7[1] = v7;
-      v7[0] = v7;
-      VidSchiRundownUnorderedWaiterGlobal((struct HwQueueStagingList *)v7, a1, v5);
-      if ( !v8 )
-        HwQueueStagingList::ProcessHwQueues((HwQueueStagingList *)v7);
-      AcquireSpinLock::Release((AcquireSpinLock *)v9);
+      v6 = (_QWORD *)(a1 + 288);
+      v9[1] = v9;
+      v7 = *(_QWORD **)(a1 + 288);
+      v9[0] = v9;
+      if ( v7 == v6 )
+        goto LABEL_8;
+      do
+      {
+        VidSchiRundownUnorderedWaiterDevice((struct HwQueueStagingList *)v9, (__int64)(v7 - 13), v5);
+        v7 = (_QWORD *)*v7;
+      }
+      while ( v7 != v6 );
+      if ( !v10 )
+LABEL_8:
+        HwQueueStagingList::ProcessHwQueues((HwQueueStagingList *)v9);
+      AcquireSpinLock::Release((AcquireSpinLock *)v11);
     }
   }
   return v3;

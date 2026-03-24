@@ -1,9 +1,9 @@
 /*
- * XREFs of TR_GetDequeuePointer @ 0x1C0004B8C
+ * XREFs of TR_GetDequeuePointer @ 0x1C0008358
  * Callers:
- *     Endpoint_GetDequeuePointer @ 0x1C0004B68 (Endpoint_GetDequeuePointer.c)
- *     Endpoint_Enable @ 0x1C0004FA0 (Endpoint_Enable.c)
- *     Endpoint_UcxEvtEndpointStaticStreamsDisable @ 0x1C003B0F0 (Endpoint_UcxEvtEndpointStaticStreamsDisable.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C0008334 (Endpoint_GetDequeuePointer.c)
+ *     Endpoint_Enable @ 0x1C00083B0 (Endpoint_Enable.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsDisable @ 0x1C003ABD0 (Endpoint_UcxEvtEndpointStaticStreamsDisable.c)
  * Callees:
  *     <none>
  */

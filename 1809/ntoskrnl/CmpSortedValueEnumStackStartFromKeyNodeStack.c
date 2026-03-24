@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x140800A00
+ * XREFs of CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x1408009E0
  * Callers:
- *     CmpGetValueCountForKeyNodeStack @ 0x14026C868 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x14026C968 (CmpGetValueCountForKeyNodeStack.c)
  * Callees:
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x1407F9ECC (CmpGetEffectiveKeyNodeSemantics.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FA038 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpSortedValueEnumStackEntryStart @ 0x14080082C (CmpSortedValueEnumStackEntryStart.c)
- *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x14080099C (CmpValueEnumStackGetEntryAtLayerHeight.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x1407F9EAC (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FA018 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpSortedValueEnumStackEntryStart @ 0x14080080C (CmpSortedValueEnumStackEntryStart.c)
+ *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x14080097C (CmpValueEnumStackGetEntryAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpSortedValueEnumStackStartFromKeyNodeStack(__int64 a1, __int16 *a2)

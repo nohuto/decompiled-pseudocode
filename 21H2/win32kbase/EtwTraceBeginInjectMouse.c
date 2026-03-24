@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceBeginInjectMouse @ 0x1C00BC9B0
+ * XREFs of EtwTraceBeginInjectMouse @ 0x1C00A9BB0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetCallbackCount@@YACXZ @ 0x1C014C390 (-GetCallbackCount@@YACXZ.c)
- *     McTemplateK0cddd_EtwWriteTransfer @ 0x1C014F398 (McTemplateK0cddd_EtwWriteTransfer.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
+ *     McTemplateK0cddd_EtwWriteTransfer @ 0x1C01246A8 (McTemplateK0cddd_EtwWriteTransfer.c)
  */
 
 void __fastcall EtwTraceBeginInjectMouse(char a1, char a2, char a3)
@@ -15,7 +15,7 @@ void __fastcall EtwTraceBeginInjectMouse(char a1, char a2, char a3)
 
   if ( (Microsoft_Windows_Win32kEnableBits & 0x4000) != 0 )
   {
-    LOBYTE(v6) = GetCallbackCount();
+    LOBYTE(v6) = *(_BYTE *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1248);
     McTemplateK0cddd_EtwWriteTransfer(v7, (unsigned int)&BeginInjectMouse, v8, v6, a1, a2, a3);
   }
 }

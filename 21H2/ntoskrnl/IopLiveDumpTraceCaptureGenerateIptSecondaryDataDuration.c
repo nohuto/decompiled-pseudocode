@@ -1,32 +1,28 @@
 /*
- * XREFs of IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration @ 0x14055AD48
+ * XREFs of IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration @ 0x140508F60
  * Callers:
- *     IopLiveDumpGenerateIptSecondaryData @ 0x140A66B0C (IopLiveDumpGenerateIptSecondaryData.c)
+ *     IopLiveDumpGenerateIptSecondaryData @ 0x1409AC6A8 (IopLiveDumpGenerateIptSecondaryData.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     IopLiveDumpIsTracingEnabled @ 0x14055A67C (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140508A20 (IopLiveDumpIsTracingEnabled.c)
  */
 
 char __fastcall IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration(const GUID *a1, __int64 a2)
 {
   int v3; // eax
   __int64 v4; // rcx
-  __int64 v6; // [rsp+40h] [rbp-19h] BYREF
-  __int64 v7; // [rsp+48h] [rbp-11h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-9h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v9; // [rsp+60h] [rbp+7h] BYREF
-  __int64 *v10; // [rsp+80h] [rbp+27h]
-  int v11; // [rsp+88h] [rbp+2Fh]
-  int v12; // [rsp+8Ch] [rbp+33h]
-  __int64 *v13; // [rsp+90h] [rbp+37h]
-  int v14; // [rsp+98h] [rbp+3Fh]
-  int v15; // [rsp+9Ch] [rbp+43h]
-  __int64 v16; // [rsp+C8h] [rbp+6Fh] BYREF
+  __int64 v6; // [rsp+40h] [rbp+7h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp+Fh] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v8; // [rsp+58h] [rbp+1Fh] BYREF
+  __int64 *v9; // [rsp+78h] [rbp+3Fh]
+  int v10; // [rsp+80h] [rbp+47h]
+  int v11; // [rsp+84h] [rbp+4Bh]
+  __int64 v12; // [rsp+A8h] [rbp+6Fh] BYREF
 
-  v16 = a2;
+  v12 = a2;
   LOBYTE(v3) = IopLiveDumpIsTracingEnabled();
   if ( (_BYTE)v3 )
   {
@@ -36,7 +32,7 @@ char __fastcall IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration(const GU
       if ( (v3 & 1) != 0 )
       {
         UserData.Reserved = 0;
-        UserData.Ptr = (ULONGLONG)&v16;
+        UserData.Ptr = (ULONGLONG)&v12;
         UserData.Size = 8;
         LOBYTE(v3) = EtwWriteEx(
                        IopLiveDumpEtwRegHandle,
@@ -47,26 +43,22 @@ char __fastcall IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration(const GU
                        0LL,
                        1u,
                        &UserData);
-        if ( (unsigned int)dword_140C064E0 > 5 )
+        if ( (unsigned int)dword_140C044D8 > 5 )
         {
-          LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140C064E0, 0x400000000000LL);
+          LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140C044D8, 0x200000000000LL);
           if ( (_BYTE)v3 )
           {
-            v12 = 0;
-            v15 = 0;
-            v10 = &v6;
-            v7 = v16;
-            v6 = 0x1000000LL;
-            v13 = &v7;
-            v11 = 8;
-            v14 = 8;
+            v11 = 0;
+            v6 = v12;
+            v10 = 8;
+            v9 = &v6;
             LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
-                           (__int64)&dword_140C064E0,
-                           (unsigned __int8 *)byte_14002B540,
-                           a1 + 60,
-                           a1 + 59,
-                           4u,
-                           &v9);
+                           (__int64)&dword_140C044D8,
+                           (unsigned __int8 *)&word_140024DD6,
+                           a1 + 54,
+                           a1 + 53,
+                           3u,
+                           &v8);
           }
         }
       }

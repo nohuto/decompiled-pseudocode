@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_MITGetCursorUpdateHandle @ 0x180110D4D
+ * XREFs of __imp_load_MITGetCursorUpdateHandle @ 0x1800E8FD2
  * Callers:
  *     <none>
  * Callees:

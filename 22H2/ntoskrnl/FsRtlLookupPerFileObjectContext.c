@@ -1,18 +1,11 @@
 /*
- * XREFs of FsRtlLookupPerFileObjectContext @ 0x140326430
+ * XREFs of FsRtlLookupPerFileObjectContext @ 0x1402EEC90
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     ExfReleasePushLockSharedEx @ 0x1403266F8 (ExfReleasePushLockSharedEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032F8C8 (KiAbTryReclaimOrphanedEntries.c)
- *     ExpAcquireFannedOutPushLockShared @ 0x1403CD594 (ExpAcquireFannedOutPushLockShared.c)
- *     ExpTryExpandAutoExpandPushLock @ 0x1403D4838 (ExpTryExpandAutoExpandPushLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
  */
 
 PFSRTL_PER_FILEOBJECT_CONTEXT __stdcall FsRtlLookupPerFileObjectContext(
@@ -21,31 +14,11 @@ PFSRTL_PER_FILEOBJECT_CONTEXT __stdcall FsRtlLookupPerFileObjectContext(
         PVOID InstanceId)
 {
   _QWORD *FileObjectExtension; // rax
-  __int64 v7; // rsi
+  ULONG_PTR v7; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 v9; // r14
-  struct _KTHREAD *v10; // rbp
-  struct _FSRTL_PER_FILEOBJECT_CONTEXT *v11; // r15
-  unsigned int AbEntrySummary; // eax
-  unsigned int v13; // ecx
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *SchedulerAssist; // r8
-  int SessionId; // eax
-  int v17; // eax
-  __int64 v18; // rax
-  struct _FSRTL_PER_FILEOBJECT_CONTEXT *Flink; // rcx
-  __int64 v20; // rsi
-  signed __int64 *v21; // rbx
-  unsigned int v22; // edi
-  struct _KTHREAD *v23; // rdx
-  bool v24; // zf
-  signed __int32 v25; // eax
-  signed __int32 v26; // ett
-  unsigned int v27; // eax
-  unsigned int v28; // edi
-  unsigned __int64 v29; // rax
-  unsigned int v30; // [rsp+60h] [rbp+8h]
-  unsigned __int64 v31; // [rsp+78h] [rbp+20h] BYREF
+  struct _FSRTL_PER_FILEOBJECT_CONTEXT *v9; // rbp
+  struct _FSRTL_PER_FILEOBJECT_CONTEXT **v10; // rcx
+  struct _FSRTL_PER_FILEOBJECT_CONTEXT *Flink; // rax
 
   if ( !FileObject )
     return 0LL;
@@ -60,145 +33,41 @@ PFSRTL_PER_FILEOBJECT_CONTEXT __stdcall FsRtlLookupPerFileObjectContext(
   CurrentThread = KeGetCurrentThread();
   v9 = 0LL;
   --CurrentThread->KernelApcDisable;
-  v10 = KeGetCurrentThread();
-  v11 = 0LL;
-  _disable();
-  AbEntrySummary = v10->AbEntrySummary;
-  if ( v10->AbEntrySummary || (AbEntrySummary = KiAbTryReclaimOrphanedEntries(FileObject, v10)) != 0 )
-  {
-    _BitScanForward(&v13, AbEntrySummary);
-    v30 = v13;
-    v10->AbEntrySummary = AbEntrySummary & ~(1 << v13);
-    CurrentPrcb = KeGetCurrentPrcb();
-    SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-    if ( SchedulerAssist )
-    {
-      _m_prefetchw(SchedulerAssist);
-      v25 = *SchedulerAssist;
-      do
-      {
-        v26 = v25;
-        v25 = _InterlockedCompareExchange(SchedulerAssist, v25 & 0xFFDFFFFF, v25);
-      }
-      while ( v26 != v25 );
-      if ( (v25 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-    }
-    _enable();
-    v9 = (unsigned __int64)(&v10[1].Process + 12 * v30);
-    if ( (unsigned __int64)(v7 - qword_140C65AE8) < 0x8000000000LL )
-      SessionId = MmGetSessionIdEx((__int64)v10->ApcState.Process);
-    else
-      SessionId = -1;
-    *(_DWORD *)(v9 + 8) = SessionId;
-    *(_QWORD *)v9 = v7 & 0x7FFFFFFFFFFFFFFCLL;
-  }
-  v17 = *(_DWORD *)(v7 + 8);
-  if ( (v17 & 1) != 0 )
-  {
-    v18 = ExpAcquireFannedOutPushLockShared(v17 & 0xFFFFFFF8, 0LL, v9, v7);
-  }
-  else
-  {
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)v7, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx((signed __int64 *)v7, 0LL, v9, v7);
-    v18 = v7 | 1;
-  }
-  if ( v9 )
-    *(_BYTE *)(v9 + 18) = 1;
-  Flink = *(struct _FSRTL_PER_FILEOBJECT_CONTEXT **)(v7 + 16);
-  v20 = v7 + 16;
+  ExAcquirePushLockSharedEx(v7, 0LL);
+  v10 = (struct _FSRTL_PER_FILEOBJECT_CONTEXT **)(v7 + 8);
   if ( InstanceId )
   {
-    if ( Flink != (struct _FSRTL_PER_FILEOBJECT_CONTEXT *)v20 )
+    Flink = *v10;
+    if ( *v10 == (struct _FSRTL_PER_FILEOBJECT_CONTEXT *)v10 )
+      goto LABEL_11;
+    while ( Flink->OwnerId != OwnerId || Flink->InstanceId != InstanceId )
     {
-      while ( Flink->OwnerId != OwnerId || Flink->InstanceId != InstanceId )
-      {
-        Flink = (struct _FSRTL_PER_FILEOBJECT_CONTEXT *)Flink->Links.Flink;
-        if ( Flink == (struct _FSRTL_PER_FILEOBJECT_CONTEXT *)v20 )
-          goto LABEL_22;
-      }
-LABEL_21:
-      v11 = Flink;
+      Flink = (struct _FSRTL_PER_FILEOBJECT_CONTEXT *)Flink->Links.Flink;
+      if ( Flink == (struct _FSRTL_PER_FILEOBJECT_CONTEXT *)v10 )
+        goto LABEL_11;
     }
+    goto LABEL_10;
   }
-  else
+  if ( !OwnerId )
   {
-    if ( OwnerId )
+    if ( *v10 != (struct _FSRTL_PER_FILEOBJECT_CONTEXT *)v10 )
+      v9 = *v10;
+    goto LABEL_11;
+  }
+  Flink = *v10;
+  if ( *v10 != (struct _FSRTL_PER_FILEOBJECT_CONTEXT *)v10 )
+  {
+    while ( Flink->OwnerId != OwnerId )
     {
-      if ( Flink == (struct _FSRTL_PER_FILEOBJECT_CONTEXT *)v20 )
-        goto LABEL_22;
-      while ( Flink->OwnerId != OwnerId )
-      {
-        Flink = (struct _FSRTL_PER_FILEOBJECT_CONTEXT *)Flink->Links.Flink;
-        if ( Flink == (struct _FSRTL_PER_FILEOBJECT_CONTEXT *)v20 )
-          goto LABEL_22;
-      }
-      goto LABEL_21;
+      Flink = (struct _FSRTL_PER_FILEOBJECT_CONTEXT *)Flink->Links.Flink;
+      if ( Flink == (struct _FSRTL_PER_FILEOBJECT_CONTEXT *)v10 )
+        goto LABEL_11;
     }
-    if ( Flink != (struct _FSRTL_PER_FILEOBJECT_CONTEXT *)v20 )
-      v11 = Flink;
+LABEL_10:
+    v9 = Flink;
   }
-LABEL_22:
-  v31 = 0LL;
-  v21 = (signed __int64 *)(v18 & 0xFFFFFFFFFFFFFFFCuLL);
-  if ( (v18 & 1) == 0 )
-  {
-    if ( _InterlockedCompareExchange64(v21, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared(v21);
-    v21 = (signed __int64 *)v21[1];
-    goto LABEL_27;
-  }
-  _m_prefetchw((char *)v21 + 12);
-  v22 = *((_DWORD *)v21 + 3);
-  if ( v22 >= 0x80000000 && (v21[1] & 3) == 0 )
-  {
-    if ( (unsigned __int16)v22 < (unsigned int)ExpAeCycleCountThreshold
-      || (v22 & 0xF0000) >= 0xF0000
-      || KeGetCurrentIrql() >= 2u )
-    {
-      v22 = (v22 >> 2) & 0x3FF33FFF;
-      *((_DWORD *)v21 + 3) = v22;
-    }
-    else
-    {
-      ExpTryExpandAutoExpandPushLock(v21);
-    }
-  }
-  if ( _InterlockedCompareExchange64(v21, 0LL, 17LL) == 17 )
-    goto LABEL_25;
-  if ( (v22 & ExpAeSamplingPeriodMask) != 0 )
-  {
-    ExfReleasePushLockSharedEx(v21, 0LL);
-    v27 = *((_DWORD *)v21 + 3);
-    if ( v27 < 0x80000000 )
-      *((_DWORD *)v21 + 3) = v27 + 0x100000;
-    goto LABEL_27;
-  }
-  ExfReleasePushLockSharedEx(v21, &v31);
-  if ( v31 )
-  {
-    v28 = *((_DWORD *)v21 + 3);
-    if ( v28 < 0x80000000 )
-    {
-      v29 = v31 >> ExpAeCycleCountScaler;
-      if ( v31 >> ExpAeCycleCountScaler > 0x1FF )
-        LODWORD(v29) = 511;
-      v22 = v29 + v28;
-LABEL_25:
-      if ( v22 < 0x80000000 )
-        *((_DWORD *)v21 + 3) = v22 + 0x100000;
-    }
-  }
-LABEL_27:
-  KeAbPostRelease((ULONG_PTR)v21);
-  v23 = KeGetCurrentThread();
-  v24 = v23->KernelApcDisable++ == -1;
-  if ( v24
-    && ($C71981A45BEB2B45F82C232A7085991E *)v23->ApcState.ApcListHead[0].Flink != &v23->152
-    && !v23->SpecialApcDisable )
-  {
-    KiCheckForKernelApcDelivery();
-  }
-  return v11;
+LABEL_11:
+  ExReleasePushLockEx(v7, 0LL);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return v9;
 }

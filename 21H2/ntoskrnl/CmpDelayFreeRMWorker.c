@@ -1,30 +1,23 @@
 /*
- * XREFs of CmpDelayFreeRMWorker @ 0x1406E5950
+ * XREFs of CmpDelayFreeRMWorker @ 0x1406BF540
  * Callers:
  *     <none>
  * Callees:
- *     CmCleanupThreadInfo @ 0x14022EA30 (CmCleanupThreadInfo.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     ExDeleteResourceLite @ 0x14028A7C0 (ExDeleteResourceLite.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     CmpInitializeThreadInfo @ 0x140347770 (CmpInitializeThreadInfo.c)
- *     CmpLockRegistryExclusive @ 0x14071B6EC (CmpLockRegistryExclusive.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     CmpUnlockRegistry @ 0x140AB4260 (CmpUnlockRegistry.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
+ *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 CmpDelayFreeRMWorker()
+void CmpDelayFreeRMWorker()
 {
   PERESOURCE *v0; // rbx
   __int64 v1; // rax
   __int64 v2; // rdx
   __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 v7[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  *(_OWORD *)v7 = 0LL;
-  CmpInitializeThreadInfo((__int64)v7);
   ExAcquireFastMutex(&CmpDelayFreeRMLock);
   while ( 1 )
   {
@@ -44,10 +37,9 @@ __int64 CmpDelayFreeRMWorker()
     ExDeleteResourceLite(v0[16]);
     ExFreePoolWithTag(v0[16], 0);
     ExFreePoolWithTag(v0, 0x6D524D43u);
-    CmpUnlockRegistry(v3, v2, v4, v5);
+    CmpUnlockRegistry(v3, v2);
     ExAcquireFastMutex(&CmpDelayFreeRMLock);
   }
   CmpDelayFreeRMWorkItemActive = 0;
   KeReleaseGuardedMutex(&CmpDelayFreeRMLock);
-  return CmCleanupThreadInfo(v7);
 }

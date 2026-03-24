@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceSmbiosChange @ 0x140595770
+ * XREFs of PopTraceSmbiosChange @ 0x1405737AC
  * Callers:
- *     PopUpdateSmbiosData @ 0x14098BE0C (PopUpdateSmbiosData.c)
+ *     PopUpdateSmbiosData @ 0x14077A350 (PopUpdateSmbiosData.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall PopTraceSmbiosChange(__int64 a1, int a2)
@@ -31,9 +31,9 @@ void __fastcall PopTraceSmbiosChange(__int64 a1, int a2)
   int v21; // [rsp+A8h] [rbp+3Fh]
   int v22; // [rsp+ACh] [rbp+43h]
 
-  if ( (unsigned int)dword_140C03950 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
     {
       v13 = 0;
       v16 = 0;
@@ -52,8 +52,8 @@ void __fastcall PopTraceSmbiosChange(__int64 a1, int a2)
       v6 = a2;
       v9 = v5;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03950,
-        (unsigned __int8 *)&word_14002F1A6,
+        (__int64)&dword_140C02228,
+        (unsigned __int8 *)&dword_140028A1C,
         0LL,
         0LL,
         6u,

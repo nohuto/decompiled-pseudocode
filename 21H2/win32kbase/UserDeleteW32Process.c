@@ -1,48 +1,42 @@
 /*
- * XREFs of UserDeleteW32Process @ 0x1C0017780
+ * XREFs of UserDeleteW32Process @ 0x1C0092620
  * Callers:
  *     <none>
  * Callees:
- *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C001B500 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C0029D70 (UserSessionSwitchLeaveCrit.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0036190 (UserSessionSwitchLeaveCrit.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C00392B4 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
  */
 
-ReEnterLeaveCrit *__fastcall UserDeleteW32Process(struct _RTL_BITMAP *a1)
+void __fastcall UserDeleteW32Process(__int64 a1)
 {
-  ReEnterLeaveCrit *result; // rax
-  PULONG v3; // rdx
-  struct _RTL_BITMAP **v4; // rcx
-  void **Buffer; // rdx
-  int v6; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v2; // rcx
+  __int64 v3; // rcx
+  _QWORD *v4; // rdx
+  int v5; // [rsp+30h] [rbp+8h] BYREF
 
-  result = ReEnterLeaveCrit::ReEnterLeaveCrit((ReEnterLeaveCrit *)&v6);
-  if ( !LODWORD(a1->Buffer) )
+  ReEnterLeaveCrit::ReEnterLeaveCrit((ReEnterLeaveCrit *)&v5);
+  if ( !*(_DWORD *)(a1 + 8) )
   {
-    if ( *(&a1[65].SizeOfBitMap + 1) )
+    if ( *(_DWORD *)(a1 + 1044) )
     {
-      v4 = *(struct _RTL_BITMAP ***)&a1[66].SizeOfBitMap;
-      if ( v4[1] != &a1[66] || (Buffer = (void **)a1[66].Buffer, *Buffer != &a1[66]) )
+      v3 = *(_QWORD *)(a1 + 1056);
+      if ( *(_QWORD *)(v3 + 8) != a1 + 1056 || (v4 = *(_QWORD **)(a1 + 1064), *v4 != a1 + 1056) )
         __fastfail(3u);
-      *Buffer = v4;
-      v4[1] = (struct _RTL_BITMAP *)Buffer;
+      *v4 = v3;
+      *(_QWORD *)(v3 + 8) = v4;
     }
     ExEnterCriticalRegionAndAcquireFastMutexUnsafe(gpHandleFlagsMutex);
-    v3 = a1[45].Buffer;
-    if ( v3 )
+    v2 = *(_QWORD *)(a1 + 728);
+    if ( v2 )
     {
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        v3);
-      RtlInitializeBitMap(a1 + 45, 0LL, 0);
+      Win32FreePool(v2);
+      RtlInitializeBitMap((PRTL_BITMAP)(a1 + 720), 0LL, 0);
     }
-    PsSetProcessWin32Process(*(_QWORD *)&a1->SizeOfBitMap, 0LL, a1);
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      a1);
-    result = (ReEnterLeaveCrit *)ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(gpHandleFlagsMutex);
+    PsSetProcessWin32Process(*(_QWORD *)a1, 0LL, a1);
+    Win32FreePool(a1);
+    ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(gpHandleFlagsMutex);
   }
-  if ( !v6 )
-    return (ReEnterLeaveCrit *)UserSessionSwitchLeaveCrit();
-  return result;
+  if ( !v5 )
+    UserSessionSwitchLeaveCrit();
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of NtQueryFullAttributesFile @ 0x14066E950
+ * XREFs of NtQueryFullAttributesFile @ 0x14060C400
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentSilo @ 0x140347D50 (PsGetCurrentSilo.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     FsRtlpCleanupEcps @ 0x14066EE14 (FsRtlpCleanupEcps.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     ObOpenObjectByNameEx @ 0x1407CAF90 (ObOpenObjectByNameEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     PsGetCurrentSilo @ 0x14027C930 (PsGetCurrentSilo.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     FsRtlpCleanupEcps @ 0x14060C8C0 (FsRtlpCleanupEcps.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     ObOpenObjectByNameEx @ 0x140655CD0 (ObOpenObjectByNameEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtQueryFullAttributesFile(__int64 a1, unsigned __int64 a2)
 {
-  unsigned __int8 PreviousMode; // di
+  unsigned __int8 v4; // di
   __int64 v5; // rcx
   struct _KTHREAD *CurrentThread; // rax
   int v7; // esi
@@ -29,8 +29,8 @@ __int64 __fastcall NtQueryFullAttributesFile(__int64 a1, unsigned __int64 a2)
 
   memset(v15, 0, sizeof(v15));
   Handle[0] = 0LL;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode )
+  v4 = KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
+  if ( v4 )
   {
     v5 = a2;
     if ( (a2 & 7) != 0 )
@@ -54,7 +54,7 @@ __int64 __fastcall NtQueryFullAttributesFile(__int64 a1, unsigned __int64 a2)
   *(_QWORD *)&v10[9] = v15;
   *(_QWORD *)&v10[3] = a1;
   DWORD2(v10[9]) = 32;
-  if ( PreviousMode )
+  if ( v4 )
     *((_QWORD *)&v10[6] + 1) = &v11;
   else
     *((_QWORD *)&v10[6] + 1) = a2;
@@ -64,7 +64,7 @@ __int64 __fastcall NtQueryFullAttributesFile(__int64 a1, unsigned __int64 a2)
   CurrentThread = KeGetCurrentThread();
   ++CurrentThread->OtherOperationCount;
   __incgsdword(0x2EE4u);
-  v7 = ObOpenObjectByNameEx(a1, IoFileObjectType, PreviousMode, 0LL, 128, v10, *(_QWORD *)&v10[12], Handle);
+  v7 = ObOpenObjectByNameEx(a1, IoFileObjectType, v4, 0LL, 128, v10, *(_QWORD *)&v10[12], Handle);
   if ( *((_QWORD *)&v10[10] + 1) && (unsigned __int8)FsRtlpCleanupEcps() )
     *((_QWORD *)&v10[10] + 1) = 0LL;
   if ( LODWORD(v10[2]) == -1096154543 )
@@ -72,7 +72,7 @@ __int64 __fastcall NtQueryFullAttributesFile(__int64 a1, unsigned __int64 a2)
     result = LODWORD(v10[1]);
     if ( SLODWORD(v10[1]) >= 0 )
     {
-      if ( PreviousMode )
+      if ( v4 )
       {
         *(_OWORD *)a2 = v11;
         *(_OWORD *)(a2 + 16) = v12;
@@ -85,7 +85,7 @@ __int64 __fastcall NtQueryFullAttributesFile(__int64 a1, unsigned __int64 a2)
   {
     if ( v7 >= 0 )
     {
-      ObCloseHandle(Handle[0], PreviousMode);
+      ObCloseHandle(Handle[0], v4);
       return (unsigned int)-1073741788;
     }
     return (unsigned int)v7;

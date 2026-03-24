@@ -1,12 +1,12 @@
 /*
- * XREFs of CmFcpManagerRetryUsageNotificationsTimerRoutine @ 0x140617320
+ * XREFs of CmFcpManagerRetryUsageNotificationsTimerRoutine @ 0x1404ED8F0
  * Callers:
  *     <none>
  * Callees:
- *     CmpWorkItemQueueWork @ 0x140374BF0 (CmpWorkItemQueueWork.c)
+ *     CmFcpWorkItemQueueWork @ 0x1404ED90C (CmFcpWorkItemQueueWork.c)
  */
 
-void __fastcall CmFcpManagerRetryUsageNotificationsTimerRoutine(__int64 a1, __int64 a2)
+__int64 __fastcall CmFcpManagerRetryUsageNotificationsTimerRoutine(__int64 a1, __int64 a2)
 {
-  CmpWorkItemQueueWork((PWORK_QUEUE_ITEM)(a2 + 496));
+  return CmFcpWorkItemQueueWork((PWORK_QUEUE_ITEM)(a2 + 496));
 }

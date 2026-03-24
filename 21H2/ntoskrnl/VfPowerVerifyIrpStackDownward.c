@@ -1,14 +1,14 @@
 /*
- * XREFs of VfPowerVerifyIrpStackDownward @ 0x140AA69F0
+ * XREFs of VfPowerVerifyIrpStackDownward @ 0x1409E3360
  * Callers:
  *     <none>
  * Callees:
- *     ViErrorReport1 @ 0x1405FFB44 (ViErrorReport1.c)
- *     VfGetPristineDriverInit @ 0x140A8C8EC (VfGetPristineDriverInit.c)
+ *     ViErrorReport1 @ 0x1405A1F18 (ViErrorReport1.c)
+ *     VfGetPristineDriverInit @ 0x1409D0D1C (VfGetPristineDriverInit.c)
  */
 
 __int64 __fastcall VfPowerVerifyIrpStackDownward(
-        _QWORD *a1,
+        __int64 a1,
         __int64 a2,
         __int64 a3,
         __int64 a4,
@@ -16,18 +16,18 @@ __int64 __fastcall VfPowerVerifyIrpStackDownward(
         __int64 a6,
         const void *a7)
 {
-  const void *v8; // rdi
-  int v10; // esi
-  int v11; // r15d
+  const void *v8; // rsi
+  int v10; // ebx
+  int v11; // r12d
   __int64 v12; // rcx
   __int64 result; // rax
   PDRIVER_INITIALIZE PristineDriverInit; // rax
 
-  v8 = (const void *)*a1;
-  v10 = *(_DWORD *)(*a1 + 48LL);
+  v8 = *(const void **)a1;
+  v10 = *(_DWORD *)(*(_QWORD *)a1 + 48LL);
   v11 = *(_DWORD *)(a5 + 96);
-  if ( *(_DWORD *)(a1[30] + 56LL) == 3 )
-    ViErrorReport1(0x211u, a7, v8);
+  if ( *(_DWORD *)(*(_QWORD *)(a1 + 240) + 56LL) == 3 )
+    ViErrorReport1(0x211u, a7, *(const void **)a1);
   v12 = *(_QWORD *)(a2 + 8);
   result = (__int64)IopInvalidDeviceRequest;
   if ( *(__int64 (__fastcall **)(__int64, IRP *))(v12 + 288) == IopInvalidDeviceRequest )

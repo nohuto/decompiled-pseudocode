@@ -1,170 +1,187 @@
 /*
- * XREFs of MiDeleteKernelStack @ 0x14033BC30
+ * XREFs of MiDeleteKernelStack @ 0x140272740
  * Callers:
- *     MiDeleteCachedKernelStack @ 0x140269118 (MiDeleteCachedKernelStack.c)
- *     MmDeleteKernelStackEx @ 0x1402C1900 (MmDeleteKernelStackEx.c)
+ *     MiDeleteCachedKernelStack @ 0x1402726DC (MiDeleteCachedKernelStack.c)
+ *     MmDeleteKernelStack @ 0x14032AB70 (MmDeleteKernelStack.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x14020D8D0 (MiUnlockPageTableInternal.c)
- *     MiGetAnyMultiplexedVm @ 0x14026DFC0 (MiGetAnyMultiplexedVm.c)
- *     MiReturnCommit @ 0x14028CE10 (MiReturnCommit.c)
- *     MiUnlockWorkingSetShared @ 0x1402B0CE0 (MiUnlockWorkingSetShared.c)
- *     MiReleasePtes @ 0x1402BB6D0 (MiReleasePtes.c)
- *     MiLockWorkingSetShared @ 0x1402CF4F0 (MiLockWorkingSetShared.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140317A80 (MiPteInShadowRange.c)
- *     MiLockPageTableInternal @ 0x14031DE00 (MiLockPageTableInternal.c)
- *     MiDeleteValidSystemPage @ 0x14033BEC0 (MiDeleteValidSystemPage.c)
+ *     MiLockPageTableInternal @ 0x14020EAF0 (MiLockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
+ *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
+ *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
+ *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     MiDeleteValidSystemPage @ 0x140328E20 (MiDeleteValidSystemPage.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
  */
 
-void __fastcall MiDeleteKernelStack(__int64 a1, char a2)
+__int64 __fastcall MiDeleteKernelStack(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v2; // rax
-  __int64 v3; // r12
-  unsigned __int64 v4; // rdi
-  __int64 v5; // r15
-  unsigned __int64 v6; // rsi
-  _QWORD *v7; // rbx
-  unsigned __int64 v8; // r13
-  char *AnyMultiplexedVm; // r14
-  unsigned __int8 v10; // al
-  __int64 v11; // r9
-  __int64 v12; // rbx
-  struct _KPRCB *CurrentPrcb; // r10
-  unsigned __int64 v14; // rdx
-  __int64 CachedResidentAvailable; // r8
-  unsigned __int64 v16; // r9
-  bool v17; // zf
-  signed __int32 v18; // eax
-  struct _LIST_ENTRY *Flink; // rdx
-  __int64 v20; // rax
-  _OWORD v21[3]; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v22; // [rsp+50h] [rbp-18h]
-  unsigned int v23; // [rsp+B0h] [rbp+48h]
-  unsigned __int8 v24; // [rsp+B8h] [rbp+50h]
-  _QWORD *v25; // [rsp+C0h] [rbp+58h]
-  __int64 v26; // [rsp+C8h] [rbp+60h] BYREF
+  __int64 v4; // rax
+  __int64 v5; // rdi
+  __int64 v6; // r12
+  unsigned __int64 v7; // rbp
+  __int64 v8; // r14
+  unsigned __int64 v9; // rbx
+  _QWORD *v10; // r13
+  _QWORD *v11; // r15
+  unsigned __int8 v12; // al
+  __int64 Flink; // rdx
+  unsigned __int64 v14; // rsi
+  unsigned __int64 v15; // rdi
+  unsigned __int64 v16; // r10
+  struct _KPRCB *CurrentPrcb; // r9
+  __int64 CachedResidentAvailable; // rdx
+  unsigned __int64 v19; // r8
+  bool v20; // zf
+  signed __int32 v21; // eax
+  struct _LIST_ENTRY *v23; // rdx
+  __int64 v24; // rax
+  __int64 v25; // rdx
+  __int64 v26; // rax
+  _QWORD *v27; // [rsp+20h] [rbp-88h]
+  _QWORD v28[8]; // [rsp+28h] [rbp-80h] BYREF
+  int v29; // [rsp+B0h] [rbp+8h]
+  unsigned __int8 v30; // [rsp+B8h] [rbp+10h]
+  unsigned __int64 v31; // [rsp+C0h] [rbp+18h] BYREF
+  __int64 v32; // [rsp+C8h] [rbp+20h]
 
-  v22 = 0LL;
-  memset(v21, 0, sizeof(v21));
+  memset(v28, 0, 48);
   if ( (a2 & 1) != 0 )
-  {
-    v2 = 18LL;
-  }
-  else if ( (a2 & 8) != 0 )
-  {
-    v2 = 3LL;
-  }
+    v4 = 18LL;
   else
-  {
-    v2 = (unsigned __int8)byte_140C5304C;
-  }
-  v3 = (unsigned int)v2;
-  v23 = v2 + 1;
-  v4 = 0LL;
-  v5 = 0LL;
-  v6 = a1 - 8 * v2;
-  v7 = (_QWORD *)v6;
-  v25 = (_QWORD *)v6;
-  v8 = v6 + 8LL * (unsigned int)(v2 + 1);
-  AnyMultiplexedVm = MiGetAnyMultiplexedVm(4);
-  v10 = MiLockWorkingSetShared((__int64)AnyMultiplexedVm);
-  v24 = v10;
-  if ( v6 >= v8 )
-    goto LABEL_16;
+    v4 = (unsigned __int8)byte_140C4EBBC;
+  v5 = (unsigned int)(v4 + 1);
+  v6 = (unsigned int)v4;
+  v29 = v4 + 1;
+  v32 = (unsigned int)v4;
+  v7 = 0LL;
+  v8 = 0LL;
+  v9 = a1 - 8 * v4;
+  v27 = (_QWORD *)v9;
+  v10 = (_QWORD *)v9;
+  v11 = (_QWORD *)(v9 + 8 * v5);
+  v12 = MiLockWorkingSetShared((__int64)&unk_140C4F500, a2, a3, a4);
+  v30 = v12;
+  if ( v9 >= (unsigned __int64)v11 )
+    goto LABEL_15;
+  v14 = v9;
   do
   {
-    if ( v4 )
+    if ( v7 )
     {
-      if ( (v6 & 0xFFF) != 0 )
+      if ( (v14 & 0xFFF) != 0 )
         goto LABEL_7;
-      MiUnlockPageTableInternal((__int64)AnyMultiplexedVm, v4);
+      MiUnlockPageTableInternal(&unk_140C4F500, v7);
     }
-    v4 = ((v6 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    MiLockPageTableInternal((__int64)AnyMultiplexedVm, v4, 0LL, v11);
+    v7 = ((v14 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    MiLockPageTableInternal((__int64)&unk_140C4F500, v7, 0LL);
 LABEL_7:
-    v12 = *(_QWORD *)v6;
-    if ( MiPteInShadowRange(v6)
+    v15 = *(_QWORD *)v9;
+    if ( (unsigned int)MiPteInShadowRange(v14, Flink)
       && (MiFlags & 0xC00000) != 0
       && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
-      && (v12 & 1) != 0
-      && ((v12 & 0x20) == 0 || (v12 & 0x42) == 0) )
+      && (v15 & 1) != 0
+      && ((v15 & 0x20) == 0 || (v15 & 0x42) == 0) )
     {
-      Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      Flink = (__int64)KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
       if ( Flink )
       {
-        v20 = *((_QWORD *)&Flink->Flink + ((v6 >> 3) & 0x1FF));
-        if ( (v20 & 0x20) != 0 )
-          v12 |= 0x20uLL;
-        if ( (v20 & 0x42) != 0 )
-          v12 |= 0x42uLL;
+        v26 = *(_QWORD *)(Flink + 8 * ((v9 >> 3) & 0x1FF));
+        Flink = v15 | 0x20;
+        if ( (v26 & 0x20) == 0 )
+          Flink = v15;
+        v15 = Flink;
+        if ( (v26 & 0x42) != 0 )
+          v15 = Flink | 0x42;
       }
     }
-    v26 = v12;
-    if ( (v12 & 1) != 0 )
+    v31 = v15;
+    if ( (v15 & 1) != 0 )
     {
-      if ( !v5 )
-        v5 = *(_QWORD *)(qword_140C51F48
-                       + 8
-                       * ((*(_QWORD *)(48
-                                     * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v26) >> 12) & 0xFFFFFFFFFFLL)
-                                     - 0x220000000000LL
-                                     + 40) >> 43) & 0x3FFLL));
-      MiDeleteValidSystemPage(AnyMultiplexedVm, v6, 0LL, v21);
-      ++*(_QWORD *)&v21[0];
-    }
-    v6 += 8LL;
-  }
-  while ( v6 < v8 );
-  if ( v4 )
-    MiUnlockPageTableInternal((__int64)AnyMultiplexedVm, v4);
-  v10 = v24;
-  v7 = v25;
-LABEL_16:
-  MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, v10);
-  if ( (ULONG_PTR *)v5 != &MiSystemPartition
-    || (_InterlockedExchangeAdd64(&qword_140C53548, -v3),
-        CurrentPrcb = KeGetCurrentPrcb(),
-        v14 = *(_QWORD *)&v21[0],
-        CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable,
-        (_DWORD)CachedResidentAvailable == -1) )
-  {
-    v14 = *(_QWORD *)&v21[0];
-  }
-  else
-  {
-    v16 = *(_QWORD *)&v21[0];
-    if ( (unsigned __int64)(*(_QWORD *)&v21[0] + CachedResidentAvailable) <= 0x100 )
-    {
-      do
+      if ( !v8 )
       {
-        if ( v16 >= 0x80000 )
-          break;
-        v18 = _InterlockedCompareExchange(
-                (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                CachedResidentAvailable + v16,
-                CachedResidentAvailable);
-        v17 = (_DWORD)CachedResidentAvailable == v18;
-        LODWORD(CachedResidentAvailable) = v18;
-        if ( v17 )
-          goto LABEL_21;
-        if ( v18 == -1 )
-          break;
-        v16 = *(_QWORD *)&v21[0];
+        if ( (unsigned int)MiPteInShadowRange(&v31, Flink)
+          && (MiFlags & 0xC00000) != 0
+          && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+          && ((v15 & 0x20) == 0 || (v15 & 0x42) == 0) )
+        {
+          v23 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+          if ( v23 )
+          {
+            v24 = *((_QWORD *)&v23->Flink + (((unsigned __int64)&v31 >> 3) & 0x1FF));
+            v25 = v15 | 0x20;
+            if ( (v24 & 0x20) == 0 )
+              v25 = v15;
+            v15 = v25;
+            if ( (v24 & 0x42) != 0 )
+              v15 = v25 | 0x42;
+          }
+        }
+        v8 = *(_QWORD *)(qword_140C4E648
+                       + 8 * ((*(_QWORD *)(48 * ((v15 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL + 40) >> 39) & 0x3FFLL));
       }
-      while ( (unsigned __int64)(*(_QWORD *)&v21[0] + v18) <= 0x100 );
+      MiDeleteValidSystemPage(&unk_140C4F500, v9, 0LL, v28);
+      ++v28[0];
     }
-    if ( (int)CachedResidentAvailable > 192
-      && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
-                                              (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                                              192,
-                                              CachedResidentAvailable) )
+    v9 += 8LL;
+    v14 = v9;
+  }
+  while ( v9 < (unsigned __int64)v11 );
+  v6 = v32;
+  v10 = v27;
+  if ( v7 )
+    MiUnlockPageTableInternal(&unk_140C4F500, v7);
+  v12 = v30;
+  LODWORD(v5) = v29;
+LABEL_15:
+  MiUnlockWorkingSetShared((__int64)&unk_140C4F500, v12);
+  if ( (ULONG_PTR *)v8 == &MiSystemPartition )
+    _InterlockedExchangeAdd64(&qword_140C4EFC8, -v6);
+  v16 = v28[0];
+  if ( (ULONG_PTR *)v8 == &MiSystemPartition )
+  {
+    CurrentPrcb = KeGetCurrentPrcb();
+    CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
+    if ( (_DWORD)CachedResidentAvailable == -1 )
     {
-      v14 = *(_QWORD *)&v21[0] + (int)CachedResidentAvailable - 192;
+      v16 = v28[0];
+    }
+    else
+    {
+      v19 = v28[0];
+      if ( (unsigned __int64)(v28[0] + CachedResidentAvailable) <= 0x100 )
+      {
+        do
+        {
+          if ( v19 >= 0x80000 )
+            break;
+          v21 = _InterlockedCompareExchange(
+                  (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                  CachedResidentAvailable + v19,
+                  CachedResidentAvailable);
+          v20 = (_DWORD)CachedResidentAvailable == v21;
+          LODWORD(CachedResidentAvailable) = v21;
+          if ( v20 )
+            goto LABEL_22;
+          if ( v21 == -1 )
+            break;
+          v19 = v28[0];
+        }
+        while ( (unsigned __int64)(v28[0] + v21) <= 0x100 );
+      }
+      if ( (int)CachedResidentAvailable > 192
+        && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
+                                                (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                                                192,
+                                                CachedResidentAvailable) )
+      {
+        v16 = v28[0] + (int)CachedResidentAvailable - 192;
+      }
     }
   }
-  if ( v14 )
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(v5 + 16960), v14);
-LABEL_21:
-  MiReleasePtes((__int64)&unk_140C52F98, v7, v23);
-  MiReturnCommit(v5, v3 - *((_QWORD *)&v21[0] + 1));
+  if ( v16 )
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(v8 + 7168), v16);
+LABEL_22:
+  MiReleasePtes((__int64)&unk_140C4EB58, v10, v5);
+  return MiReturnCommit(v8, v6 - v28[1]);
 }

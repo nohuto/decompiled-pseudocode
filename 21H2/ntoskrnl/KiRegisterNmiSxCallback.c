@@ -1,12 +1,12 @@
 /*
- * XREFs of KiRegisterNmiSxCallback @ 0x14056ACB8
+ * XREFs of KiRegisterNmiSxCallback @ 0x140514CA4
  * Callers:
- *     KeRegisterNmiCallback @ 0x14056A870 (KeRegisterNmiCallback.c)
+ *     KeRegisterNmiCallback @ 0x140514910 (KeRegisterNmiCallback.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall KiRegisterNmiSxCallback(__int64 a1, __int64 a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of FindObjSymbol @ 0x1C0067A00
+ * XREFs of FindObjSymbol @ 0x1C0066760
  * Callers:
- *     DebugExpr @ 0x1C0067114 (DebugExpr.c)
+ *     DebugExpr @ 0x1C0065E5C (DebugExpr.c)
  * Callees:
  *     <none>
  */

@@ -1,89 +1,88 @@
 /*
- * XREFs of MiAdvanceVadHint @ 0x14071F9D0
+ * XREFs of MiAdvanceVadHint @ 0x14063A680
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiReserveUserMemory @ 0x14071F450 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1407202F0 (MiMapViewOfDataSection.c)
- *     MiMapLockedPagesInUserSpace @ 0x140748A84 (MiMapLockedPagesInUserSpace.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1407CD0F4 (MiAllocateNewSubAllocatedRegion.c)
- *     MiMapViewOfPhysicalSection @ 0x140A30D50 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateEnclaveVad @ 0x140A3CCF8 (MiAllocateEnclaveVad.c)
+ *     MiMapViewOfImageSection @ 0x14061D2D0 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x140637BF0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x140639820 (MiMapViewOfDataSection.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140683A58 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiMapLockedPagesInUserSpace @ 0x14076ACC0 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407C33C8 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x1408D1EA8 (MiAllocateEnclaveVad.c)
  * Callees:
  *     <none>
  */
 
 unsigned __int64 __fastcall MiAdvanceVadHint(unsigned __int64 a1, unsigned __int64 a2, _QWORD *a3)
 {
-  unsigned __int64 v3; // r9
-  unsigned __int64 v4; // rdx
   unsigned __int64 result; // rax
-  unsigned __int64 v6; // rcx
-  unsigned __int64 v7; // r10
-  BOOL v8; // r11d
-  unsigned __int64 v9; // r9
-  unsigned __int64 v10; // r10
+  unsigned __int64 v5; // rcx
+  unsigned __int64 v6; // r8
+  unsigned __int64 v7; // rdx
+  unsigned __int64 v8; // r10
+  int v9; // r11d
+  int v10; // ebx
   unsigned __int64 v11; // rdx
-  unsigned __int64 v12; // r9
-  unsigned __int64 v13; // rcx
-  int v14; // ebx
+  unsigned __int64 v12; // rcx
+  unsigned __int64 v13; // r8
+  unsigned __int64 v14; // r10
+  unsigned __int64 v15; // rdx
 
-  v3 = (a2 >> 4) & 0xFFFFFFFFFFFFLL;
-  v4 = (a1 >> 4) & 0xFFFFFFFFFFFFLL;
-  result = -524288 * qword_140C67168;
-  v6 = (unsigned __int64)(-524288 * qword_140C67168 + (a3[1] << 19)) >> 16;
-  if ( v3 >= v6 )
+  result = 0xFFFFFFFFFFFFLL;
+  v5 = (a1 >> 4) & 0xFFFFFFFFFFFFLL;
+  v6 = 8 * (a3[1] - qword_140C4E360);
+  v7 = (a2 >> 4) & 0xFFFFFFFFFFFFLL;
+  if ( v7 < v6 )
+    return result;
+  v8 = v6 + *a3;
+  if ( v5 >= v8 )
+    return result;
+  v9 = 0;
+  v10 = 0;
+  if ( v5 < v6 )
   {
-    result = v6 + *a3;
-    if ( v4 < result )
+    v5 = v6;
+    v10 = 1;
+  }
+  if ( v7 >= v8 )
+  {
+    v7 = v8 - 1;
+    v10 = 1;
+  }
+  v11 = v7 - v6;
+  v12 = v5 - v6;
+  v13 = v11 - v12 + 1;
+  if ( v11 == v12 && !v10 || v12 == a3[2] )
+  {
+    v14 = v11 + 1;
+    a3[2] = v11 + 1;
+  }
+  else
+  {
+    v14 = v11 + 1;
+  }
+  v15 = a3[4];
+  if ( v15 >= v14 || a3[3] + v15 <= v12 )
+  {
+    if ( v13 <= 1 )
+      return result;
+    if ( v10 )
+      goto LABEL_14;
+  }
+  else
+  {
+    v9 = 1;
+  }
+  a3[4] = v14;
+LABEL_14:
+  if ( v13 > 1 && !v10 )
+  {
+    if ( v9 )
     {
-      v7 = (unsigned __int64)(-524288 * qword_140C67168 + (a3[1] << 19)) >> 16;
-      if ( v4 >= v6 )
-        v7 = v4;
-      v8 = v4 < v6;
-      if ( v3 >= result )
-      {
-        v3 = result - 1;
-        v8 = 1;
-      }
-      v9 = v3 - v6;
-      v10 = v7 - v6;
-      v11 = v9 - v10 + 1;
-      if ( v9 == v10 && !v8 || v10 == a3[2] )
-      {
-        v12 = v9 + 1;
-        a3[2] = v12;
-      }
-      else
-      {
-        v12 = v9 + 1;
-      }
-      v13 = a3[4];
-      v14 = 0;
-      if ( v13 >= v12 || a3[3] + v13 <= v10 )
-      {
-        if ( v11 <= 1 || v8 )
-          return result;
-      }
-      else
-      {
-        v14 = 1;
-      }
-      a3[4] = v12;
-      if ( v11 > 1 && !v8 )
-      {
-        if ( v14 )
-        {
-          result = a3[3];
-          if ( v11 < result )
-            result = v11;
-          a3[3] = result;
-        }
-        else
-        {
-          a3[3] = v11;
-        }
-      }
+      result = a3[3];
+      if ( v13 >= result )
+        v13 = a3[3];
     }
+    a3[3] = v13;
   }
   return result;
 }

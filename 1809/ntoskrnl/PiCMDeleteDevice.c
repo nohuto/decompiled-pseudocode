@@ -1,5 +1,5 @@
 /*
- * XREFs of PiCMDeleteDevice @ 0x1408371A8
+ * XREFs of PiCMDeleteDevice @ 0x140837188
  * Callers:
  *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
  * Callees:
@@ -7,9 +7,9 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x14016A1E8 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
- *     ZwPlugPlayControl @ 0x1401BA6F0 (ZwPlugPlayControl.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x14016A208 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
+ *     ZwPlugPlayControl @ 0x1401BA710 (ZwPlugPlayControl.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PiPnpRtlEndOperation @ 0x140595CA4 (PiPnpRtlEndOperation.c)
  *     PiPnpRtlBeginOperation @ 0x140596E08 (PiPnpRtlBeginOperation.c)
  *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
@@ -20,11 +20,11 @@
  *     _CmGetDeviceStatus @ 0x14059E508 (_CmGetDeviceStatus.c)
  *     PiCMReturnBasicResultData @ 0x14059F60C (PiCMReturnBasicResultData.c)
  *     _CmValidateDeviceName @ 0x1405C76D0 (_CmValidateDeviceName.c)
- *     _CmIsRootDevice @ 0x1406E97AC (_CmIsRootDevice.c)
- *     PpDeviceRegistration @ 0x1406EE2E8 (PpDeviceRegistration.c)
- *     PiAuDoesClientHaveAccess @ 0x1406FF7AC (PiAuDoesClientHaveAccess.c)
- *     PiQueueDeviceRequest @ 0x14083C808 (PiQueueDeviceRequest.c)
- *     _CmDeleteDevice @ 0x1408F66C8 (_CmDeleteDevice.c)
+ *     _CmIsRootDevice @ 0x1406E978C (_CmIsRootDevice.c)
+ *     PpDeviceRegistration @ 0x1406EE2C8 (PpDeviceRegistration.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406FF78C (PiAuDoesClientHaveAccess.c)
+ *     PiQueueDeviceRequest @ 0x14083C7E8 (PiQueueDeviceRequest.c)
+ *     _CmDeleteDevice @ 0x1408F66A8 (_CmDeleteDevice.c)
  */
 
 __int64 __fastcall PiCMDeleteDevice(

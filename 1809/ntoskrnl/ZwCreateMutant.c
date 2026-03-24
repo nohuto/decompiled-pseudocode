@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateMutant @ 0x1401B9730
+ * XREFs of ZwCreateMutant @ 0x1401B9750
  * Callers:
  *     BcdInitializeBcdSyncMutant @ 0x1409DEDA8 (BcdInitializeBcdSyncMutant.c)
  * Callees:

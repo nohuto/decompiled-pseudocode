@@ -1,9 +1,9 @@
 /*
- * XREFs of IoPageRead @ 0x140388EE0
+ * XREFs of IoPageRead @ 0x14037F8F0
  * Callers:
- *     PopReadPagesFromHiberFile @ 0x14098F634 (PopReadPagesFromHiberFile.c)
+ *     PopReadPagesFromHiberFile @ 0x1408E6EEC (PopReadPagesFromHiberFile.c)
  * Callees:
- *     IoPageReadEx @ 0x140342C50 (IoPageReadEx.c)
+ *     IoPageReadEx @ 0x14031C130 (IoPageReadEx.c)
  */
 
 NTSTATUS __stdcall IoPageRead(

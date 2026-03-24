@@ -1,31 +1,55 @@
 /*
- * XREFs of ?WaitForVBlank@CRemoteRenderTarget@@UEBAJPEAX@Z @ 0x1800FEED0
+ * XREFs of ?WaitForVBlank@CRemoteRenderTarget@@UEBAJPEAX@Z @ 0x1800E5710
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRemoteRenderTarget::WaitForVBlank(CRemoteRenderTarget *this, void *a2)
 {
-  __int64 v2; // rcx
-  int v3; // eax
-  __int64 v4; // rcx
+  __int64 v3; // rcx
+  int v4; // eax
   unsigned int v5; // ebx
+  int v7; // r9d
+  unsigned int v8; // [rsp+20h] [rbp-18h]
+  void *v9; // [rsp+48h] [rbp+10h] BYREF
 
-  v2 = *((_QWORD *)this + 3);
-  if ( v2 )
-  {
-    v3 = (*(__int64 (__fastcall **)(__int64, void *))(*(_QWORD *)v2 + 40LL))(v2, a2);
-    v5 = v3;
-    if ( v3 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, v3, 0x145u);
-  }
-  else
+  v9 = a2;
+  v3 = *((_QWORD *)this + 3);
+  if ( !v3 )
   {
     v5 = -2003304442;
-    MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0LL, -2003304442, 0x149u);
+    v7 = -2003304442;
+    v8 = 353;
+    goto LABEL_10;
+  }
+  if ( *(_DWORD *)(*((_QWORD *)this - 15) + 952LL) == 6 )
+  {
+    v4 = (*(__int64 (__fastcall **)(_QWORD, bool, void **))(**((_QWORD **)this + 2) + 48LL))(
+           *((_QWORD *)this + 2),
+           a2 != 0LL,
+           &v9);
+    v5 = v4;
+    if ( v4 >= 0 )
+      return v5;
+    v8 = 342;
+    goto LABEL_8;
+  }
+  v4 = (*(__int64 (__fastcall **)(__int64, void *, CRemoteRenderTarget *, void *))(*(_QWORD *)v3 + 40LL))(
+         v3,
+         a2,
+         this,
+         a2);
+  v5 = v4;
+  if ( v4 < 0 )
+  {
+    v8 = 348;
+LABEL_8:
+    v7 = v4;
+LABEL_10:
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, v7, v8, 0LL);
   }
   return v5;
 }

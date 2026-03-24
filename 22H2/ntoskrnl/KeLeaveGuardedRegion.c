@@ -1,19 +1,20 @@
 /*
- * XREFs of KeLeaveGuardedRegion @ 0x140324A60
+ * XREFs of KeLeaveGuardedRegion @ 0x140252F50
  * Callers:
  *     <none>
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
  */
 
 void KeLeaveGuardedRegion(void)
 {
+  __int64 v0; // rcx
   struct _KTHREAD *CurrentThread; // rax
 
   CurrentThread = KeGetCurrentThread();
   if ( CurrentThread->SpecialApcDisable++ == -1
-    && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
   {
-    KiCheckForKernelApcDelivery();
+    KiCheckForKernelApcDelivery(v0);
   }
 }

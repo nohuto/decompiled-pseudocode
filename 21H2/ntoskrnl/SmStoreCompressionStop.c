@@ -1,16 +1,16 @@
 /*
- * XREFs of SmStoreCompressionStop @ 0x1407F575C
+ * XREFs of SmStoreCompressionStop @ 0x14070F040
  * Callers:
- *     MmProcessWorkingSetControl @ 0x1407F5540 (MmProcessWorkingSetControl.c)
+ *     MmProcessWorkingSetControl @ 0x14070EE14 (MmProcessWorkingSetControl.c)
  * Callees:
- *     SmpKeyedStoreEntryGet @ 0x1402A1124 (SmpKeyedStoreEntryGet.c)
- *     MmQueryProcessWorkingSetSwapPages @ 0x1402A188C (MmQueryProcessWorkingSetSwapPages.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     SmKmStoreRefFromStoreIndex @ 0x14035F5E8 (SmKmStoreRefFromStoreIndex.c)
- *     ?SmTrimWsStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@_K@Z @ 0x1405F7EBC (-SmTrimWsStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@_K@Z.c)
- *     SmSwapStore @ 0x1406EBF2C (SmSwapStore.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     MmQueryProcessWorkingSetSwapPages @ 0x1402D59A4 (MmQueryProcessWorkingSetSwapPages.c)
+ *     SmpKeyedStoreEntryGet @ 0x1402D6348 (SmpKeyedStoreEntryGet.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     ?SmTrimWsStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@_K@Z @ 0x14059A0C0 (-SmTrimWsStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@_K@Z.c)
+ *     SmSwapStore @ 0x14071059C (SmSwapStore.c)
  */
 
 int __fastcall SmStoreCompressionStop(int a1)
@@ -26,14 +26,13 @@ int __fastcall SmStoreCompressionStop(int a1)
   __int64 v11; // [rsp+A0h] [rbp+30h] BYREF
 
   WorkItem.List.Blink = 0LL;
-  memset(&Event, 0, sizeof(Event));
   Process = KeGetCurrentThread()->ApcState.Process;
-  v2 = SmpKeyedStoreEntryGet((ULONG_PTR)&qword_140D321C8, &Process, 0LL, 0);
+  v2 = SmpKeyedStoreEntryGet((ULONG_PTR)qword_140D24188, &Process, 0, 0);
   v3 = v2;
   if ( v2 )
     v4 = *(unsigned __int16 *)(v2 + 16);
   else
-    v4 = dword_140D321F0;
+    v4 = dword_140D241B0;
   if ( v4 != -1 )
   {
     KeInitializeEvent(&Event, NotificationEvent, 0);
@@ -44,7 +43,7 @@ int __fastcall SmStoreCompressionStop(int a1)
     LODWORD(v2) = KeWaitForSingleObject(&Event, WrKernel, 0, 0, 0LL);
     if ( v3 )
     {
-      SmSwapStore(1);
+      SmSwapStore(1LL);
       if ( a1 )
       {
         v5 = (_DWORD **)SmKmStoreRefFromStoreIndex((__int64)&SmGlobals, v4 & 0x3FF);
@@ -52,7 +51,7 @@ int __fastcall SmStoreCompressionStop(int a1)
       }
       LODWORD(v2) = MmQueryProcessWorkingSetSwapPages((__int64)Process, &v11);
       if ( (int)v2 < 0 )
-        LODWORD(v2) = SmSwapStore(2);
+        LODWORD(v2) = SmSwapStore(2LL);
     }
   }
   return v2;

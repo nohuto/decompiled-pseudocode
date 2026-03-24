@@ -1,32 +1,39 @@
 /*
- * XREFs of IopQueryBusResourceUpdateInterface @ 0x140958764
+ * XREFs of IopQueryBusResourceUpdateInterface @ 0x1408B2B80
  * Callers:
- *     PiUpdateDeviceResourceLists @ 0x14095B1A4 (PiUpdateDeviceResourceLists.c)
+ *     PiUpdateDeviceResourceLists @ 0x1408B513C (PiUpdateDeviceResourceLists.c)
  * Callees:
- *     PnpQueryInterface @ 0x14074C6C0 (PnpQueryInterface.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PnpQueryInterface @ 0x140765D84 (PnpQueryInterface.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall IopQueryBusResourceUpdateInterface(PDEVICE_OBJECT DeviceObject, USHORT **a2)
+__int64 __fastcall IopQueryBusResourceUpdateInterface(PDEVICE_OBJECT DeviceObject, _QWORD *a2)
 {
-  USHORT *Pool2; // rax
-  USHORT *v5; // rbx
+  _OWORD *PoolWithTag; // rbx
   int Interface; // edi
 
-  Pool2 = (USHORT *)ExAllocatePool2(256LL, 40LL, 538996816LL);
-  v5 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x20207050u);
+  if ( !PoolWithTag )
     return 3221225626LL;
-  Interface = PnpQueryInterface(DeviceObject, (ULONG_PTR)&GUID_BUS_RESOURCE_UPDATE_INTERFACE, 0, 0x28u, 0LL, Pool2);
+  *PoolWithTag = 0LL;
+  PoolWithTag[1] = 0LL;
+  *((_QWORD *)PoolWithTag + 4) = 0LL;
+  Interface = PnpQueryInterface(
+                DeviceObject,
+                (ULONG_PTR)&GUID_BUS_RESOURCE_UPDATE_INTERFACE,
+                0,
+                0x28u,
+                0LL,
+                (USHORT *)PoolWithTag);
   if ( Interface >= 0 )
   {
-    *a2 = v5;
+    *a2 = PoolWithTag;
     return 0LL;
   }
   else
   {
-    ExFreePoolWithTag(v5, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
     return (unsigned int)Interface;
   }
 }

@@ -7,8 +7,8 @@
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ObReferenceObjectSafe @ 0x14010C0F0 (ObReferenceObjectSafe.c)
- *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406BCE10 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
+ *     ObReferenceObjectSafe @ 0x14010C110 (ObReferenceObjectSafe.c)
+ *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406BCDF0 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
  */
 
 __int64 __fastcall AlpcpReferenceAndLockTargetPortsAndCommunicationInfo(__int64 a1, __int64 *a2, __int64 *a3)

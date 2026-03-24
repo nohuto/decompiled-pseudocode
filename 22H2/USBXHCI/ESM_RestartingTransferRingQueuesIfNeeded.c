@@ -1,16 +1,16 @@
 /*
- * XREFs of ESM_RestartingTransferRingQueuesIfNeeded @ 0x1C0051AD0
+ * XREFs of ESM_RestartingTransferRingQueuesIfNeeded @ 0x1C004EE60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ESM_RestartingTransferRingQueuesIfNeeded(__int64 a1)
 {
   __int64 v1; // rbx
-  __int64 v2; // rsi
-  unsigned int i; // edi
+  __int64 v2; // rdi
+  unsigned int i; // esi
 
   v1 = *(_QWORD *)(a1 + 960);
   if ( (*(_DWORD *)(v1 + 32) & 4) != 0 )

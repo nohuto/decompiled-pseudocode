@@ -1,40 +1,40 @@
 /*
- * XREFs of UmfdSessionInitialize @ 0x1C00F6DB0
+ * XREFs of UmfdSessionInitialize @ 0x1C00F3920
  * Callers:
  *     <none>
  * Callees:
- *     ?UmfdCallSessionInitialize@@YAJXZ @ 0x1C00F6EF4 (-UmfdCallSessionInitialize@@YAJXZ.c)
- *     ?Initialize@UmfdAllocation@@SA_NXZ @ 0x1C00F74F0 (-Initialize@UmfdAllocation@@SA_NXZ.c)
- *     ?SessionInitialize@UmfdHostLifeTimeManager@@CA_NXZ @ 0x1C00F7C74 (-SessionInitialize@UmfdHostLifeTimeManager@@CA_NXZ.c)
- *     bEnableFontDriver @ 0x1C00F7DB0 (bEnableFontDriver.c)
+ *     ?UmfdCallSessionInitialize@@YAJXZ @ 0x1C00F3F54 (-UmfdCallSessionInitialize@@YAJXZ.c)
+ *     ?Initialize@UmfdAllocation@@SA_NXZ @ 0x1C00F4244 (-Initialize@UmfdAllocation@@SA_NXZ.c)
+ *     ?SessionInitialize@UmfdHostLifeTimeManager@@CA_NXZ @ 0x1C00F48F8 (-SessionInitialize@UmfdHostLifeTimeManager@@CA_NXZ.c)
+ *     bEnableFontDriver @ 0x1C00F4A30 (bEnableFontDriver.c)
  */
 
 __int64 UmfdSessionInitialize()
 {
-  _QWORD *Pool2; // rbx
-  __int64 v1; // rax
+  _QWORD *PoolWithTag; // rbx
+  PVOID v1; // rax
 
   GreInitializePushLock(&UmfdLookupPushLock);
   GreInitializePushLock(&UmfdWinLogonRequestLock);
-  Pool2 = (_QWORD *)ExAllocatePool2(262LL, 56LL, 1665758037LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPoolSession, 0x38uLL, 0x63497355u);
+  if ( !PoolWithTag )
     goto LABEL_10;
-  v1 = ExAllocatePool2(262LL, 0x2000LL, 1665758037LL);
+  v1 = ExAllocatePoolWithTag(PagedPoolSession, 0x2000uLL, 0x63497355u);
   if ( !v1 )
   {
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
 LABEL_10:
     UmfdFontFileLookup = 0LL;
     return 3221225473LL;
   }
-  Pool2[5] = 0LL;
-  Pool2[6] = v1;
-  Pool2[4] = 512LL;
-  *((_DWORD *)Pool2 + 6) = 0;
-  *((_DWORD *)Pool2 + 7) = 0;
-  *Pool2 = 0LL;
-  *((_DWORD *)Pool2 + 4) = 0;
-  UmfdFontFileLookup = Pool2;
+  PoolWithTag[5] = 0LL;
+  PoolWithTag[6] = v1;
+  PoolWithTag[4] = 512LL;
+  *((_DWORD *)PoolWithTag + 6) = 0;
+  *((_DWORD *)PoolWithTag + 7) = 0;
+  *PoolWithTag = 0LL;
+  *((_DWORD *)PoolWithTag + 4) = 0;
+  UmfdFontFileLookup = PoolWithTag;
   if ( (unsigned int)bEnableFontDriver(UmfdEnableDriver, 5LL)
     && UmfdHostLifeTimeManager::SessionInitialize()
     && UmfdAllocation::Initialize()

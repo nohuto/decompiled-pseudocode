@@ -1,5 +1,5 @@
 /*
- * XREFs of IsValidMouseSensitivity @ 0x1C00C5DB0
+ * XREFs of IsValidMouseSensitivity @ 0x1C01AEB70
  * Callers:
  *     <none>
  * Callees:

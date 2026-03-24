@@ -1,24 +1,24 @@
 /*
- * XREFs of MiPfIssueCoalescedSupport @ 0x140631E1C
+ * XREFs of MiPfIssueCoalescedSupport @ 0x1405391E8
  * Callers:
- *     MiPfIssueCoalesceCandidates @ 0x140631D64 (MiPfIssueCoalesceCandidates.c)
+ *     MiPfIssueCoalesceCandidates @ 0x140539110 (MiPfIssueCoalesceCandidates.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     IoPageReadEx @ 0x1402A66F0 (IoPageReadEx.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiInitializeInPageSupport @ 0x1402E13A0 (MiInitializeInPageSupport.c)
- *     memmove @ 0x140435100 (memmove.c)
+ *     MiInitializeInPageSupport @ 0x14023E950 (MiInitializeInPageSupport.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     IoPageReadEx @ 0x14029C7C0 (IoPageReadEx.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
-char *__fastcall MiPfIssueCoalescedSupport(signed __int16 **a1, unsigned int a2)
+char *__fastcall MiPfIssueCoalescedSupport(_QWORD *a1, unsigned int a2)
 {
   __int64 v2; // rbx
   __int64 v3; // rdi
   char *result; // rax
-  char *v6; // rbp
+  char *v6; // rsi
   char *v7; // r13
-  int v8; // r15d
-  signed __int16 *v9; // rsi
+  int v8; // r12d
+  _QWORD *v9; // r14
   __int64 v10; // rax
   PVOID *v11; // rcx
   struct _FILE_OBJECT *v12; // rax
@@ -37,7 +37,7 @@ char *__fastcall MiPfIssueCoalescedSupport(signed __int16 **a1, unsigned int a2)
   v6 = result;
   if ( result )
   {
-    MiInitializeInPageSupport((__int64)result, 0, 0LL);
+    MiInitializeInPageSupport((ULONG_PTR)result, 0);
     *((_DWORD *)v6 + 48) |= 0x800000u;
     *((_QWORD *)v6 + 34) = 0LL;
     v7 = v6 + 320;
@@ -51,29 +51,29 @@ char *__fastcall MiPfIssueCoalescedSupport(signed __int16 **a1, unsigned int a2)
     FileObject = (PFILE_OBJECT)MmBadPointer;
     while ( 1 )
     {
-      v9 = *a1;
-      if ( *a1 == (signed __int16 *)a1 )
+      v9 = (_QWORD *)*a1;
+      if ( (_QWORD *)*a1 == a1 )
         break;
-      if ( *((signed __int16 ***)v9 + 1) != a1
-        || (v10 = *(_QWORD *)v9, *(signed __int16 **)(*(_QWORD *)v9 + 8LL) != v9)
-        || (*a1 = (signed __int16 *)v10, *(_QWORD *)(v10 + 8) = a1, v11 = (PVOID *)*((_QWORD *)v6 + 3), *v11 != v6 + 16) )
+      if ( (_QWORD *)v9[1] != a1
+        || (v10 = *v9, *(_QWORD **)(*v9 + 8LL) != v9)
+        || (*a1 = v10, *(_QWORD *)(v10 + 8) = a1, v11 = (PVOID *)*((_QWORD *)v6 + 3), *v11 != v6 + 16) )
       {
         __fastfail(3u);
       }
-      *(_QWORD *)v9 = v6 + 16;
-      *((_QWORD *)v9 + 1) = v11;
+      v9[1] = v11;
+      *v9 = v6 + 16;
       *v11 = v9;
       *((_QWORD *)v6 + 3) = v9;
-      if ( !_bittest16(v9 + 141, 0xEu) )
+      if ( (*((_WORD *)v9 + 141) & 0x4000) == 0 )
         *((_WORD *)v6 + 141) &= ~0x4000u;
       if ( v8 )
       {
-        if ( v2 != *((_QWORD *)v9 + 12) )
+        if ( v2 != v9[12] )
         {
           *((_WORD *)v6 + 141) &= ~0x4000u;
           v13 = *((_DWORD *)v9 + 24) - v2;
           v14 = (unsigned __int64)(8 * (v13 >> 12)) >> 3;
-          memset64(v7, qword_140C69808, v14);
+          memset64(v7, qword_140C4ED78, v14);
           v7 += 8 * v14;
           v2 += v13;
           v8 += v13;
@@ -81,19 +81,26 @@ char *__fastcall MiPfIssueCoalescedSupport(signed __int16 **a1, unsigned int a2)
       }
       else
       {
-        v2 = *((_QWORD *)v9 + 12);
-        v12 = (struct _FILE_OBJECT *)*((_QWORD *)v9 + 25);
+        v2 = v9[12];
+        v12 = (struct _FILE_OBJECT *)v9[25];
         v18 = v2;
         FileObject = v12;
       }
       v15 = (unsigned int)(8 * (*((_DWORD *)v9 + 46) >> 12));
-      memmove(v7, v9 + 160, v15);
+      memmove(v7, v9 + 40, v15);
       v16 = *((unsigned int *)v9 + 46);
       v2 += v16;
       v8 += v16;
       v7 += 8 * (v15 >> 3);
     }
-    v17 = IoPageReadEx(FileObject, (__int64)(v6 + 272), &v18, (__int64)(v6 + 32), (__int64)(v6 + 80), 6, 0LL);
+    v17 = IoPageReadEx(
+            FileObject,
+            (struct _MDL *)(v6 + 272),
+            &v18,
+            (struct _KEVENT *)(v6 + 32),
+            (struct _IO_STATUS_BLOCK *)v6 + 5,
+            6,
+            0LL);
     if ( v17 < 0 )
     {
       *((_QWORD *)v6 + 11) = 0LL;

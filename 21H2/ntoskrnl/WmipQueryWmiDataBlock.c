@@ -1,20 +1,20 @@
 /*
- * XREFs of WmipQueryWmiDataBlock @ 0x1406932C0
+ * XREFs of WmipQueryWmiDataBlock @ 0x140682580
  * Callers:
- *     IoWMISystemControl @ 0x1406E5154 (IoWMISystemControl.c)
+ *     IoWMISystemControl @ 0x1406BFA04 (IoWMISystemControl.c)
  * Callees:
- *     WmipFindRegEntryByDevice @ 0x140248854 (WmipFindRegEntryByDevice.c)
- *     IoGetDeviceInstanceName @ 0x1402DDEC0 (IoGetDeviceInstanceName.c)
- *     WmipUnreferenceRegEntry @ 0x1402E0164 (WmipUnreferenceRegEntry.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     IoWMICompleteRequest @ 0x1406933B4 (IoWMICompleteRequest.c)
- *     WmipGetSMBiosTableData @ 0x140693800 (WmipGetSMBiosTableData.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
- *     WmipGetSMBiosEventlog @ 0x1409DC58C (WmipGetSMBiosEventlog.c)
- *     WmipGetSysIds @ 0x1409DC80C (WmipGetSysIds.c)
+ *     WmipUnreferenceRegEntry @ 0x1402650E4 (WmipUnreferenceRegEntry.c)
+ *     IoGetDeviceInstanceName @ 0x14036FF20 (IoGetDeviceInstanceName.c)
+ *     WmipFindRegEntryByDevice @ 0x140370FE4 (WmipFindRegEntryByDevice.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
+ *     IoWMICompleteRequest @ 0x140682674 (IoWMICompleteRequest.c)
+ *     WmipGetSMBiosTableData @ 0x14068276C (WmipGetSMBiosTableData.c)
+ *     WmipGetSMBiosEventlog @ 0x140931A34 (WmipGetSMBiosEventlog.c)
+ *     WmipGetSysIds @ 0x140931C28 (WmipGetSysIds.c)
  */
 
 __int64 __fastcall WmipQueryWmiDataBlock(
@@ -155,7 +155,7 @@ LABEL_42:
             memmove((void *)(a8 + 6), v24, v23);
             *(_DWORD *)(a8 + 4 + v25 + 2) = 3145823;
 LABEL_40:
-            RtlFreeUnicodeString(&UnicodeString);
+            RtlFreeAnsiString(&UnicodeString);
 LABEL_43:
             WmipUnreferenceRegEntry(v21);
             return IoWMICompleteRequest(a1, a2, v38, (unsigned int)DeviceInstanceName, v12);
@@ -188,7 +188,7 @@ LABEL_39:
       v49 = 0LL;
       v54 = 0LL;
       v55 = 0;
-      if ( (int)RtlpQueryRegistryValues(0LL, L"\\Registry\\Machine\\Hardware\\Description\\System", &v39, 0LL) < 0 )
+      if ( (int)RtlpQueryRegistryValues(0LL, L"\\Registry\\Machine\\Hardware\\Description\\System", (__int64)&v39, 0LL) < 0 )
         goto LABEL_44;
       v12 = 12;
       if ( a7 >= 0xC )

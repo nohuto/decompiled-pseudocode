@@ -1,9 +1,9 @@
 /*
- * XREFs of SpiMax311GetByte @ 0x14032D5C0
+ * XREFs of SpiMax311GetByte @ 0x14032D6C0
  * Callers:
  *     <none>
  * Callees:
- *     SpiSend16 @ 0x14032D918 (SpiSend16.c)
+ *     SpiSend16 @ 0x14032DA18 (SpiSend16.c)
  */
 
 __int64 __fastcall SpiMax311GetByte(_QWORD *a1, _BYTE *a2)
@@ -14,7 +14,7 @@ __int64 __fastcall SpiMax311GetByte(_QWORD *a1, _BYTE *a2)
 
   if ( !a1 || !*a1 )
     return 3LL;
-  if ( HIDWORD(qword_1404E0C00) == (_DWORD)qword_1404E0C00 )
+  if ( HIDWORD(qword_1404E0BC0) == (_DWORD)qword_1404E0BC0 )
   {
     v5 = SpiSend16(a1, 0LL);
     if ( v5 >= 0 )
@@ -24,9 +24,9 @@ __int64 __fastcall SpiMax311GetByte(_QWORD *a1, _BYTE *a2)
   }
   else
   {
-    v3 = word_1404E0C0A[HIDWORD(qword_1404E0C00)];
+    v3 = word_1404E0BCA[HIDWORD(qword_1404E0BC0)];
     *a2 = v3;
-    HIDWORD(qword_1404E0C00) = (WORD2(qword_1404E0C00) + 1) & 0x3FF;
+    HIDWORD(qword_1404E0BC0) = (WORD2(qword_1404E0BC0) + 1) & 0x3FF;
     v4 = (v3 & 0x400) == 0;
   }
   if ( v4 )

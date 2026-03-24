@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CaptureUsermodeParameters@LoadFontFileRequest@@UEAAXPEAX@Z @ 0x1C00A6870
+ * XREFs of ?CaptureUsermodeParameters@LoadFontFileRequest@@UEAAXPEAX@Z @ 0x1C011E290
  * Callers:
  *     <none>
  * Callees:
@@ -11,20 +11,25 @@ void __fastcall LoadFontFileRequest::CaptureUsermodeParameters(LoadFontFileReque
   unsigned int v3; // eax
   __int64 v4; // rcx
   _QWORD *v5; // rax
+  __int64 i; // rcx
 
   v3 = a2[25];
   *((_DWORD *)this + 64) = v3;
   v4 = *((_QWORD *)a2 + 13);
   *((_QWORD *)this + 31) = v4;
-  if ( v4 && v3 <= 3 )
+  if ( v4 )
   {
-    v5 = EngAllocMem(0, 0x10u, 0x46464855u);
-    *((_QWORD *)this + 33) = v5;
-    if ( v5 )
+    if ( v3 <= 3 )
     {
-      *v5 = *((_QWORD *)this + 31);
-      *(_DWORD *)(*((_QWORD *)this + 33) + 8LL) = *((_DWORD *)this + 64);
-      *(_BYTE *)(*((_QWORD *)this + 33) + 12LL) = 0;
+      v5 = EngAllocMem(0, 0x10u, 0x46464855u);
+      *((_QWORD *)this + 33) = v5;
+      if ( v5 )
+      {
+        *v5 = *((_QWORD *)this + 31);
+        *(_DWORD *)(*((_QWORD *)this + 33) + 8LL) = *((_DWORD *)this + 64);
+        for ( i = 0LL; i < 2; ++i )
+          *(_BYTE *)(*((_QWORD *)this + 33) + i + 12) = 0;
+      }
     }
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of strncat_s @ 0x1403E7230
+ * XREFs of strncat_s @ 0x1403D7E00
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl strncat_s(char *a1, rsize_t SizeInBytes, const char *Src, rsize_t MaxCount)
@@ -22,7 +22,7 @@ errno_t __cdecl strncat_s(char *a1, rsize_t SizeInBytes, const char *Src, rsize_
   {
     if ( !a1 )
     {
-LABEL_28:
+LABEL_30:
       xHalTimerWatchdogStop();
       return 22;
     }
@@ -31,53 +31,56 @@ LABEL_28:
   {
     if ( !SizeInBytes )
       return 0;
-    goto LABEL_28;
+    goto LABEL_30;
   }
   if ( !SizeInBytes )
-    goto LABEL_28;
+    goto LABEL_30;
   if ( MaxCount && !Src )
+    goto LABEL_12;
+  do
   {
-LABEL_11:
-    v7 = 22;
+    if ( !*a1 )
+      break;
+    ++a1;
+    --SizeInBytes;
   }
-  else
+  while ( SizeInBytes );
+  if ( SizeInBytes )
   {
-    while ( *a1 )
-    {
-      ++a1;
-      if ( !--SizeInBytes )
-        goto LABEL_11;
-    }
     if ( MaxCount == -1LL )
     {
       v8 = a1 - Src;
-      while ( 1 )
+      do
       {
         v9 = *Src;
         Src[v8] = *Src;
         ++Src;
         if ( !v9 )
-          return 0;
-        if ( !--SizeInBytes )
-          goto LABEL_23;
+          break;
+        --SizeInBytes;
       }
+      while ( SizeInBytes );
     }
-    if ( MaxCount )
+    else
     {
+      if ( !MaxCount )
+        goto LABEL_24;
       v10 = Src - a1;
       do
       {
         v11 = a1[v10];
         *a1++ = v11;
         if ( !v11 )
-          return 0;
+          break;
         if ( !--SizeInBytes )
-          goto LABEL_23;
+          break;
+        --MaxCount;
       }
-      while ( --MaxCount );
+      while ( MaxCount );
+      if ( !MaxCount )
+LABEL_24:
+        *a1 = 0;
     }
-    *a1 = 0;
-LABEL_23:
     if ( SizeInBytes )
       return 0;
     if ( MaxCount == -1LL )
@@ -86,6 +89,11 @@ LABEL_23:
       return 80;
     }
     v7 = 34;
+  }
+  else
+  {
+LABEL_12:
+    v7 = 22;
   }
   *v5 = 0;
   xHalTimerWatchdogStop();

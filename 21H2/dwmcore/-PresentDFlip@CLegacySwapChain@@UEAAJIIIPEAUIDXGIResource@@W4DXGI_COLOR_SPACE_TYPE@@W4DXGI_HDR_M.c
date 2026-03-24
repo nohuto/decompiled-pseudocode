@@ -1,24 +1,24 @@
 /*
- * XREFs of ?PresentDFlip@CLegacySwapChain@@UEAAJIIIPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@W4DXGI_HDR_METADATA_TYPE@@PEBXAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@4@Z @ 0x18028B78C
+ * XREFs of ?PresentDFlip@CLegacySwapChain@@UEAAJIIIPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@W4DXGI_HDR_METADATA_TYPE@@PEBXAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@4@Z @ 0x18024A094
  * Callers:
- *     ?PresentDFlip@CLegacySwapChain@@$4PPPPPPPM@A@EAAJIIIPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@W4DXGI_HDR_METADATA_TYPE@@PEBXAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@4@Z @ 0x1801090D0 (-PresentDFlip@CLegacySwapChain@@$4PPPPPPPM@A@EAAJIIIPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@.c)
- *     ?PresentDFlip@CLegacySwapChain@@$4PPPPPPPM@BKI@EAAJIIIPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@W4DXGI_HDR_METADATA_TYPE@@PEBXAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@4@Z @ 0x18010A710 (-PresentDFlip@CLegacySwapChain@@$4PPPPPPPM@BKI@EAAJIIIPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE.c)
- *     ?PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x180292F84 (-PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPL.c)
+ *     ?PresentDFlip@CLegacySwapChain@@$4PPPPPPPM@A@EAAJIIIPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@W4DXGI_HDR_METADATA_TYPE@@PEBXAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@4@Z @ 0x1800F7630 (-PresentDFlip@CLegacySwapChain@@$4PPPPPPPM@A@EAAJIIIPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@.c)
+ *     ?PresentDFlip@CLegacySwapChain@@$4PPPPPPPM@BKI@EAAJIIIPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE@@W4DXGI_HDR_METADATA_TYPE@@PEBXAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@4@Z @ 0x1800F7EF0 (-PresentDFlip@CLegacySwapChain@@$4PPPPPPPM@BKI@EAAJIIIPEAUIDXGIResource@@W4DXGI_COLOR_SPACE_TYPE.c)
+ *     ?PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x18024FBE8 (-PresentMPO@CConversionSwapChain@@UEAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPL.c)
  * Callees:
- *     ?PostPresent@CLegacySwapChain@@IEAAX_N0@Z @ 0x18001BF70 (-PostPresent@CLegacySwapChain@@IEAAX_N0@Z.c)
- *     ?Present@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIIPEAUIDXGIResource@@PEBUtagRECT@@I@Z @ 0x18001C148 (-Present@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIIPEAUIDXGIResource@@PEBUtagRECT@@I@Z.c)
- *     ?PresentMPO@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x18001C258 (-PresentMPO@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_P.c)
- *     ?ConvertSDRBoostToSDRWhiteLevel@@YAIMW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18003EC38 (-ConvertSDRBoostToSDRWhiteLevel@@YAIMW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     McTemplateU0x_EventWriteTransfer @ 0x180111D0C (McTemplateU0x_EventWriteTransfer.c)
- *     ?DirectFlipRectRequiresPanelFitter@CLegacySwapChain@@IEBA_NAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18028B2D4 (-DirectFlipRectRequiresPanelFitter@CLegacySwapChain@@IEBA_NAEBV-$TMilRect@IUMilRectU@@UMil3DRect.c)
+ *     ?ConvertSDRBoostToSDRWhiteLevel@@YAIMW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18003057C (-ConvertSDRBoostToSDRWhiteLevel@@YAIMW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Present@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIIPEAUIDXGIResource@@PEBUtagRECT@@I@Z @ 0x1800933DC (-Present@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIIPEAUIDXGIResource@@PEBUtagRECT@@I@Z.c)
+ *     ?PostPresent@CLegacySwapChain@@IEAAX_N@Z @ 0x1800C6074 (-PostPresent@CLegacySwapChain@@IEAAX_N@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     McTemplateU0x_EventWriteTransfer @ 0x1801542D8 (McTemplateU0x_EventWriteTransfer.c)
+ *     ?PresentMPO@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x180240420 (-PresentMPO@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_P.c)
+ *     ?DirectFlipRectRequiresPanelFitter@CLegacySwapChain@@IEBA_NAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180249B14 (-DirectFlipRectRequiresPanelFitter@CLegacySwapChain@@IEBA_NAEBV-$TMilRect@IUMilRectU@@UMil3DRect.c)
  */
 
 __int64 __fastcall CLegacySwapChain::PresentDFlip(
         __int64 a1,
-        __int64 a2,
-        __int64 a3,
+        unsigned int a2,
+        char a3,
         __int64 a4,
         __int64 a5,
         enum DXGI_COLOR_SPACE_TYPE a6,
@@ -37,36 +37,36 @@ __int64 __fastcall CLegacySwapChain::PresentDFlip(
 
   v11 = 0;
   v12 = 0;
-  v13 = ConvertSDRBoostToSDRWhiteLevel(*(float *)(a1 - 240), a6);
+  v13 = ConvertSDRBoostToSDRWhiteLevel(*(float *)(a1 - 192), a6);
   if ( *(_DWORD *)(a1 - 164) == 2 || v13 )
     v11 = 1;
-  if ( CLegacySwapChain::DirectFlipRectRequiresPanelFitter(a1 - 400, a9)
-    || CLegacySwapChain::DirectFlipRectRequiresPanelFitter(a1 - 400, a10) )
+  if ( CLegacySwapChain::DirectFlipRectRequiresPanelFitter(a1 - 352, a9)
+    || CLegacySwapChain::DirectFlipRectRequiresPanelFitter(a1 - 352, a10) )
   {
     v12 = 1;
   }
   if ( v11 || v12 )
   {
-    v17 = CD3DDevice::PresentMPO(*(CD3DDevice **)(a1 - 336), *(struct IDXGISwapChainDWM1 **)(a1 - 328));
+    v17 = CD3DDevice::PresentMPO(*(CD3DDevice **)(a1 - 288), *(struct IDXGISwapChainDWM1 **)(a1 - 280), a2, a3);
     v16 = v17;
     if ( v17 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, v17, 0x441u);
+      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v17, 0x310u, 0LL);
       return v16;
     }
   }
   else
   {
-    v14 = CD3DDevice::Present(*(CD3DDevice **)(a1 - 336), *(struct IDXGISwapChainDWM1 **)(a1 - 328));
+    v14 = CD3DDevice::Present(*(CD3DDevice **)(a1 - 288), *(struct IDXGISwapChainDWM1 **)(a1 - 280), a2, a3);
     v16 = v14;
     if ( v14 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, v14, 0x44Bu);
+      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x31Au, 0LL);
       return v16;
     }
   }
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
-    McTemplateU0x_EventWriteTransfer(v15, &EVTDESC_ETWGUID_DIRECTFLIP_PRESENTEVENT, *(unsigned int *)(a1 - 248));
-  CLegacySwapChain::PostPresent((CLegacySwapChain *)(a1 - 400), 0, v16 == 142213121);
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
+    McTemplateU0x_EventWriteTransfer(v15, &EVTDESC_ETWGUID_DIRECTFLIP_PRESENTEVENT, *(unsigned int *)(a1 - 172));
+  CLegacySwapChain::PostPresent((CLegacySwapChain *)(a1 - 352), 0);
   return v16;
 }

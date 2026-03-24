@@ -1,19 +1,16 @@
 /*
- * XREFs of IoGetDeviceAttachmentBaseRef @ 0x14036B850
+ * XREFs of IoGetDeviceAttachmentBaseRef @ 0x1402834F0
  * Callers:
- *     FsRtlAcquireFileForModWriteEx @ 0x14028B12C (FsRtlAcquireFileForModWriteEx.c)
- *     FsRtlReleaseFileForModWrite @ 0x14028D3BC (FsRtlReleaseFileForModWrite.c)
- *     PnpHandleEnumerateHandlesAgainstPdoStack @ 0x140560680 (PnpHandleEnumerateHandlesAgainstPdoStack.c)
- *     IoWMIDeviceObjectToInstanceName @ 0x1406C1980 (IoWMIDeviceObjectToInstanceName.c)
- *     FsRtlReleaseFile @ 0x1406FE310 (FsRtlReleaseFile.c)
- *     FsRtlAcquireFileExclusiveCommon @ 0x1406FE4F0 (FsRtlAcquireFileExclusiveCommon.c)
- *     FsRtlReleaseFileForCcFlush @ 0x1407F0748 (FsRtlReleaseFileForCcFlush.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x1407F099C (FsRtlAcquireFileForCcFlushEx.c)
- *     PipSetDevNodeStateFlags @ 0x140947D0C (PipSetDevNodeStateFlags.c)
- *     PipRecordOpenHandleVeto @ 0x14095E7EC (PipRecordOpenHandleVeto.c)
- *     PopRegisterCoolingExtensionProtection @ 0x14098B980 (PopRegisterCoolingExtensionProtection.c)
+ *     HalpIommuGetDeviceId @ 0x140379A34 (HalpIommuGetDeviceId.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x140647024 (FsRtlReleaseFileForCcFlush.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x140647204 (FsRtlAcquireFileForCcFlushEx.c)
+ *     FsRtlReleaseFile @ 0x140707A70 (FsRtlReleaseFile.c)
+ *     FsRtlAcquireFileExclusiveCommon @ 0x140707C40 (FsRtlAcquireFileExclusiveCommon.c)
+ *     IoWMIDeviceObjectToInstanceName @ 0x14078D1B0 (IoWMIDeviceObjectToInstanceName.c)
+ *     PipRecordOpenHandleVeto @ 0x1408B90CC (PipRecordOpenHandleVeto.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x1408E2FB0 (PopRegisterCoolingExtensionProtection.c)
  * Callees:
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14036B86C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
  */
 
 PDEVICE_OBJECT __stdcall IoGetDeviceAttachmentBaseRef(PDEVICE_OBJECT DeviceObject)

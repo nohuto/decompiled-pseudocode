@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpCreateInterrupt @ 0x1403AEF40
+ * XREFs of HalpCreateInterrupt @ 0x1403A26E4
  * Callers:
- *     HalpInterruptSetIdtEntry @ 0x1403AEF08 (HalpInterruptSetIdtEntry.c)
+ *     HalpInterruptSetIdtEntry @ 0x1403A26AC (HalpInterruptSetIdtEntry.c)
  * Callees:
- *     KeConnectInterruptForHal @ 0x1403AEFF0 (KeConnectInterruptForHal.c)
- *     KeInitializeInterrupt @ 0x1403AF060 (KeInitializeInterrupt.c)
- *     HalpAllocateKInterrupt @ 0x1403AF2D8 (HalpAllocateKInterrupt.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeConnectInterruptForHal @ 0x1403A27A0 (KeConnectInterruptForHal.c)
+ *     KeInitializeInterrupt @ 0x1403A2810 (KeInitializeInterrupt.c)
+ *     HalpAllocateKInterrupt @ 0x1403A2898 (HalpAllocateKInterrupt.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpCreateInterrupt(int a1, int a2, char a3, __int64 a4, __int64 a5)
@@ -17,7 +17,7 @@ __int64 __fastcall HalpCreateInterrupt(int a1, int a2, char a3, __int64 a4, __in
   Number = KeGetPcr()->Prcb.Number;
   KInterrupt = HalpAllocateKInterrupt(Number);
   if ( !KInterrupt )
-    KeBugCheckEx(0xACu, 0x120uLL, 3uLL, (ULONG_PTR)"minkernel\\hals\\lib\\interrupts\\common\\kintrupt.c", 0x190uLL);
+    KeBugCheckEx(0xACu, 0x120uLL, 3uLL, (ULONG_PTR)"minkernel\\hals\\lib\\interrupts\\common\\kintrupt.c", 0x191uLL);
   KeInitializeInterrupt(KInterrupt, a1, 0, 0, 0, a5, a2, a3, a3, 1, 0, Number);
   KeConnectInterruptForHal(KInterrupt);
   return KInterrupt;

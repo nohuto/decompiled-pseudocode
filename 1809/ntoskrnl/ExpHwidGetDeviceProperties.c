@@ -5,8 +5,8 @@
  *     sub_140585FE0 @ 0x140585FE0 (sub_140585FE0.c)
  *     ExpHwidSysVolIfGetDiskInfo @ 0x140586E88 (ExpHwidSysVolIfGetDiskInfo.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwPlugPlayControl @ 0x1401BA6F0 (ZwPlugPlayControl.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwPlugPlayControl @ 0x1401BA710 (ZwPlugPlayControl.c)
  *     ExpHwidGetDevicePropertyDataFixed @ 0x140586700 (ExpHwidGetDevicePropertyDataFixed.c)
  *     ExpHwidGetDevicePropertyData @ 0x140586784 (ExpHwidGetDevicePropertyData.c)
  *     sub_140586C3C @ 0x140586C3C (sub_140586C3C.c)

@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_dddddd @ 0x1C007F0F4
+ * XREFs of WPP_IFR_SF_dddddd @ 0x1C0072928
  * Callers:
- *     ?CreateSettings@FxUsbInterface@@QEAAJXZ @ 0x1C007E4DC (-CreateSettings@FxUsbInterface@@QEAAJXZ.c)
+ *     ?CreateSettings@FxUsbInterface@@QEAAJXZ @ 0x1C0071DA0 (-CreateSettings@FxUsbInterface@@QEAAJXZ.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_dddddd(

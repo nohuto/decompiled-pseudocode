@@ -1,14 +1,14 @@
 /*
- * XREFs of _RtlpMuiRegValidateLIPLanguage @ 0x140A75E98
+ * XREFs of _RtlpMuiRegValidateLIPLanguage @ 0x140982894
  * Callers:
- *     _RtlpMuiRegValidateInstalled @ 0x1408469D0 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x14078F330 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
- *     RtlpMuiRegGetInstalledLangInfoIndex @ 0x140A74980 (RtlpMuiRegGetInstalledLangInfoIndex.c)
+ *     RtlpMuiRegGetInstalledLangInfoIndex @ 0x140981344 (RtlpMuiRegGetInstalledLangInfoIndex.c)
  */
 
 __int64 __fastcall RtlpMuiRegValidateLIPLanguage(__int64 a1, int a2)
 {
-  __int64 v3; // r9
+  __int64 v3; // r10
   int v4; // ebp
   int v5; // r12d
   _WORD *v6; // rbx
@@ -19,13 +19,12 @@ __int64 __fastcall RtlpMuiRegValidateLIPLanguage(__int64 a1, int a2)
   __int64 v11; // rdx
   _WORD *v12; // r8
   __int16 v13; // ax
-  __int16 v14; // cx
+  __int16 v14; // ax
   __int64 v15; // r14
   __int16 v16; // r8
   __int16 v17; // r9
   __int16 v18; // dx
-  bool v19; // zf
-  __int16 v22; // [rsp+68h] [rbp+10h] BYREF
+  __int16 v21; // [rsp+68h] [rbp+10h] BYREF
 
   v3 = a1;
   v4 = 0;
@@ -42,16 +41,16 @@ __int64 __fastcall RtlpMuiRegValidateLIPLanguage(__int64 a1, int a2)
     if ( v9 == 2 )
       break;
     v15 = *(_QWORD *)(v3 + 24);
-    v22 = -1;
-    if ( (int)RtlpMuiRegGetInstalledLangInfoIndex(v15, v9, v10, &v22) < 0
-      || (v16 = v22, v22 < 0)
-      || v22 >= (int)*(unsigned __int16 *)(v15 + 6)
-      || v22 == a2 )
+    v21 = -1;
+    if ( (int)RtlpMuiRegGetInstalledLangInfoIndex(v15, v9, v10, &v21) < 0
+      || (v16 = v21, v21 < 0)
+      || v21 >= (int)*(unsigned __int16 *)(v15 + 6)
+      || v21 == a2 )
     {
       v6[4] = v8 & ~(3 << v7);
       goto LABEL_27;
     }
-    v17 = *(_WORD *)(28LL * v22 + *(_QWORD *)(v15 + 16));
+    v17 = *(_WORD *)(28LL * v21 + *(_QWORD *)(v15 + 16));
     v18 = v8 & ~(3 << v7);
     if ( (v17 & 4) != 0 )
     {
@@ -60,9 +59,8 @@ LABEL_27:
       v3 = a1;
       goto LABEL_28;
     }
-    v19 = (v17 & 0x1820) == 2080;
     v3 = a1;
-    if ( v19 )
+    if ( (v17 & 0x1820) == 0x820 )
     {
       v6[4] = v18 | (2 << v7);
       v6[v5 + 6] = v16;
@@ -105,7 +103,7 @@ LABEL_28:
         }
         else
         {
-          v6[4] = v14 | (3 << v7);
+          v6[4] = (3 << v7) | v14;
           v13 = v12[3];
         }
       }

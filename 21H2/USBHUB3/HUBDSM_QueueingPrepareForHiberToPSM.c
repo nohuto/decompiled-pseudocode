@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_QueueingPrepareForHiberToPSM @ 0x1C001D600
+ * XREFs of HUBDSM_QueueingPrepareForHiberToPSM @ 0x1C001D0C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_QueueingPrepareForHiberToPSM(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseBuffer@CHolographicViewer@@UEAAJIPEAX@Z @ 0x18029CC30
+ * XREFs of ?ReleaseBuffer@CHolographicViewer@@UEAAJIPEAX@Z @ 0x18025A620
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CHolographicViewer::ReleaseBuffer(RTL_SRWLOCK *this, unsigned int a2, void *a3)
@@ -23,9 +23,9 @@ __int64 __fastcall CHolographicViewer::ReleaseBuffer(RTL_SRWLOCK *this, unsigned
   else
   {
     v8 = (int)this[13].Ptr;
-    v9 = -2005270527;
-    if ( v8 == 3 )
-      v9 = -2005270490;
+    v9 = -2005270490;
+    if ( v8 != 3 )
+      v9 = -2005270527;
   }
   ReleaseSRWLockShared(v3);
   return v9;

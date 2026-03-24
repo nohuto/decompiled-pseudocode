@@ -1,11 +1,11 @@
 /*
- * XREFs of rimConvertUserToKernelEventHandle @ 0x1C005EF60
+ * XREFs of rimConvertUserToKernelEventHandle @ 0x1C0055D50
  * Callers:
- *     RIMReadInput @ 0x1C0043300 (RIMReadInput.c)
- *     RIMRegisterForInputWithCallbacks @ 0x1C005E080 (RIMRegisterForInputWithCallbacks.c)
- *     rimObsAddInputObserver @ 0x1C01B320C (rimObsAddInputObserver.c)
+ *     RIMReadInput @ 0x1C00532C0 (RIMReadInput.c)
+ *     RIMRegisterForInputWithCallbacks @ 0x1C0088530 (RIMRegisterForInputWithCallbacks.c)
+ *     rimObsAddInputObserver @ 0x1C017D8AC (rimObsAddInputObserver.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall rimConvertUserToKernelEventHandle(void *a1, void **a2)
@@ -13,10 +13,7 @@ __int64 __fastcall rimConvertUserToKernelEventHandle(void *a1, void **a2)
   NTSTATUS v3; // eax
   PVOID v4; // rdi
   NTSTATUS v5; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  PVOID Object; // [rsp+58h] [rbp+10h] BYREF
+  PVOID Object; // [rsp+70h] [rbp+18h] BYREF
 
   *a2 = 0LL;
   Object = 0LL;
@@ -27,7 +24,7 @@ __int64 __fastcall rimConvertUserToKernelEventHandle(void *a1, void **a2)
   {
     v5 = ObOpenObjectByPointer(Object, 0x200u, 0LL, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 0, a2);
     if ( v5 < 0 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v7, v6, v8);
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 893LL);
     ObfDereferenceObject(v4);
   }
   return (unsigned int)v5;

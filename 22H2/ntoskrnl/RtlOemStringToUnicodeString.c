@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlOemStringToUnicodeString @ 0x14086BB60
+ * XREFs of RtlOemStringToUnicodeString @ 0x140760370
  * Callers:
- *     DifRtlOemStringToUnicodeStringWrapper @ 0x1405EB7F0 (DifRtlOemStringToUnicodeStringWrapper.c)
+ *     <none>
  * Callees:
- *     AllocateOrValidateUnicodeStringBuffer @ 0x140316B1C (AllocateOrValidateUnicodeStringBuffer.c)
- *     RtlxOemStringToUnicodeSize @ 0x1407741E0 (RtlxOemStringToUnicodeSize.c)
- *     RtlOemToUnicodeN @ 0x140774840 (RtlOemToUnicodeN.c)
- *     ExFreePool @ 0x140AAFCC0 (ExFreePool.c)
+ *     ExpAllocateStringRoutine @ 0x140685CE0 (ExpAllocateStringRoutine.c)
+ *     RtlOemToUnicodeN @ 0x140760460 (RtlOemToUnicodeN.c)
+ *     RtlxOemStringToUnicodeSize @ 0x140760510 (RtlxOemStringToUnicodeSize.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall RtlOemStringToUnicodeString(
@@ -15,49 +15,49 @@ NTSTATUS __stdcall RtlOemStringToUnicodeString(
         BOOLEAN AllocateDestinationString)
 {
   ULONG v6; // eax
-  unsigned __int16 *p_MaximumLength; // r15
-  wchar_t **p_Buffer; // rdi
-  NTSTATUS result; // eax
-  int v10; // ebx
-  unsigned __int16 v11; // dx
-  ULONG BytesInUnicodeString; // [rsp+88h] [rbp+20h] BYREF
+  wchar_t *StringRoutine; // rax
+  ULONG v8; // edx
+  int v9; // edi
+  unsigned __int64 v11; // rcx
+  ULONG BytesInUnicodeString; // [rsp+78h] [rbp+20h] BYREF
 
+  BytesInUnicodeString = 0;
   v6 = RtlxOemStringToUnicodeSize(SourceString);
-  BytesInUnicodeString = v6;
   if ( v6 > 0xFFFE )
     return -1073741584;
-  p_MaximumLength = &DestinationString->MaximumLength;
-  p_Buffer = &DestinationString->Buffer;
-  result = AllocateOrValidateUnicodeStringBuffer(
-             AllocateDestinationString,
-             v6,
-             (__int64 *)&DestinationString->Buffer,
-             &DestinationString->MaximumLength);
-  if ( result >= 0 )
+  DestinationString->Length = v6 - 2;
+  if ( AllocateDestinationString )
   {
-    v10 = RtlOemToUnicodeN(
-            *p_Buffer,
-            *p_MaximumLength,
-            &BytesInUnicodeString,
-            SourceString->Buffer,
-            SourceString->Length);
-    if ( v10 >= 0 )
-    {
-      v11 = BytesInUnicodeString;
-      (*p_Buffer)[(unsigned __int64)BytesInUnicodeString >> 1] = 0;
-      DestinationString->Length = v11;
-      v10 = 0;
-    }
-    if ( v10 < 0 )
-    {
-      if ( AllocateDestinationString )
-      {
-        ExFreePool(*p_Buffer);
-        *p_Buffer = 0LL;
-        *p_MaximumLength = 0;
-      }
-    }
-    return v10;
+    DestinationString->MaximumLength = v6;
+    StringRoutine = (wchar_t *)ExpAllocateStringRoutine(v6);
+    DestinationString->Buffer = StringRoutine;
+    if ( !StringRoutine )
+      return -1073741801;
   }
-  return result;
+  else
+  {
+    v11 = (unsigned __int16)(v6 - 2) + 2LL;
+    if ( v11 > DestinationString->MaximumLength || v11 < 2 )
+      return -2147483643;
+  }
+  v9 = RtlOemToUnicodeN(
+         DestinationString->Buffer,
+         DestinationString->Length,
+         &BytesInUnicodeString,
+         SourceString->Buffer,
+         SourceString->Length);
+  if ( v9 >= 0 )
+  {
+    DestinationString->Buffer[(unsigned __int64)BytesInUnicodeString >> 1] = 0;
+    v9 = 0;
+  }
+  if ( v9 < 0 )
+  {
+    if ( AllocateDestinationString )
+    {
+      ExFreePoolWithTag(DestinationString->Buffer, v8);
+      DestinationString->Buffer = 0LL;
+    }
+  }
+  return v9;
 }

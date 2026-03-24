@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRemoveUnusedSegments @ 0x140625B94
+ * XREFs of MiRemoveUnusedSegments @ 0x14052A63C
  * Callers:
- *     MiDereferenceSegmentThread @ 0x1403A7500 (MiDereferenceSegmentThread.c)
- *     MiProcessDereferenceList @ 0x140625124 (MiProcessDereferenceList.c)
+ *     MiProcessDereferenceList @ 0x14038746C (MiProcessDereferenceList.c)
+ *     MiDereferenceSegmentThread @ 0x1403BCDD0 (MiDereferenceSegmentThread.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     MiShouldTrimUnusedSegments @ 0x14046B4C8 (MiShouldTrimUnusedSegments.c)
- *     CcUnmapInactiveViews @ 0x140538328 (CcUnmapInactiveViews.c)
- *     MiDeleteCachedSegment @ 0x1406239C4 (MiDeleteCachedSegment.c)
- *     MiDeleteCachedSubsection @ 0x140623BB8 (MiDeleteCachedSubsection.c)
- *     MiProcessDereferenceList @ 0x140625124 (MiProcessDereferenceList.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     MiProcessDereferenceList @ 0x14038746C (MiProcessDereferenceList.c)
+ *     CcUnmapInactiveViews @ 0x1404EB320 (CcUnmapInactiveViews.c)
+ *     MiDeleteCachedSegment @ 0x140528AF8 (MiDeleteCachedSegment.c)
+ *     MiDeleteCachedSubsection @ 0x140528CEC (MiDeleteCachedSubsection.c)
+ *     MiShouldTrimUnusedSegments @ 0x14052AA64 (MiShouldTrimUnusedSegments.c)
  */
 
 __int64 __fastcall MiRemoveUnusedSegments(__int64 a1, unsigned __int64 a2)
@@ -27,10 +27,10 @@ __int64 __fastcall MiRemoveUnusedSegments(__int64 a1, unsigned __int64 a2)
   v3 = 0;
   if ( a2 )
   {
-    if ( a2 >= qword_140C6F9A8 )
+    if ( a2 >= qword_140C52AA8 )
       v6 = 0LL;
     else
-      v6 = qword_140C6F9A8 - a2;
+      v6 = qword_140C52AA8 - a2;
     v7 = 0;
   }
   else
@@ -38,13 +38,13 @@ __int64 __fastcall MiRemoveUnusedSegments(__int64 a1, unsigned __int64 a2)
     v7 = 32;
     v6 = 0LL;
   }
-  v8 = 1000LL * *(_QWORD *)(a1 + 17040) / qword_140C6F790;
+  v8 = 1000LL * *(_QWORD *)(a1 + 6928) / qword_140C52890;
   if ( v8 )
   {
-    v9 = *(_QWORD *)(a1 + 1760);
+    v9 = *(_QWORD *)(a1 + 1696);
     v10 = v9;
-    if ( v8 * (qword_140C65658 / 0x3E8uLL) <= v9 )
-      v10 = v8 * (qword_140C65658 / 0x3E8uLL);
+    if ( v8 * (qword_140C4C998 / 0x3E8uLL) <= v9 )
+      v10 = v8 * (qword_140C4C998 / 0x3E8uLL);
     if ( v10 )
     {
       v11 = v9 - v10;
@@ -56,16 +56,16 @@ __int64 __fastcall MiRemoveUnusedSegments(__int64 a1, unsigned __int64 a2)
         {
           if ( a2 )
           {
-            if ( qword_140C6F9A8 <= v6 )
+            if ( qword_140C52AA8 <= v6 )
               return v2;
           }
           else
           {
-            if ( !v7 || qword_140C6F9A8 < 9 * (qword_140C6FA98 / 0xAuLL) )
+            if ( !v7 || qword_140C52AA8 < 9 * (qword_140C52B28 / 0xAuLL) )
               return v2;
             --v7;
           }
-          if ( !(unsigned int)MiShouldTrimUnusedSegments() || *(_QWORD *)(a1 + 1760) <= v11 )
+          if ( !(unsigned int)MiShouldTrimUnusedSegments() || *(_QWORD *)(a1 + 1696) <= v11 )
             return v2;
           if ( (++v3 & 0x3F) == 0 )
           {
@@ -74,21 +74,21 @@ __int64 __fastcall MiRemoveUnusedSegments(__int64 a1, unsigned __int64 a2)
               CcUnmapInactiveViews(0LL);
             KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&MiShortTime);
           }
-          if ( *(_QWORD *)(a1 + 1768) == a1 + 1768 )
+          if ( *(_QWORD *)(a1 + 1704) != a1 + 1704 )
             break;
-          if ( (unsigned int)MiDeleteCachedSegment(a1) )
-            goto LABEL_33;
+          if ( *(_QWORD *)(a1 + 1720) == a1 + 1720 )
+          {
+            if ( *(_DWORD *)(a1 + 108) || !(unsigned int)CcUnmapInactiveViews(0LL) )
+              return v2;
+          }
+          else if ( (int)MiDeleteCachedSubsection(a1) >= 0 )
+          {
+            goto LABEL_30;
+          }
         }
-        if ( *(_QWORD *)(a1 + 1784) == a1 + 1784 )
-        {
-          if ( *(_DWORD *)(a1 + 108) || !(unsigned int)CcUnmapInactiveViews(0LL) )
-            return v2;
-        }
-        else if ( (int)MiDeleteCachedSubsection(a1) >= 0 )
-        {
-LABEL_33:
+        if ( (unsigned int)MiDeleteCachedSegment(a1) )
+LABEL_30:
           v2 = 1;
-        }
       }
     }
   }

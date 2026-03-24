@@ -1,15 +1,16 @@
 /*
- * XREFs of Command_PrepareHardware @ 0x1C006EBBC
+ * XREFs of Command_PrepareHardware @ 0x1C006DB18
  * Callers:
- *     Controller_WdfEvtDevicePrepareHardware @ 0x1C006E9D0 (Controller_WdfEvtDevicePrepareHardware.c)
+ *     Controller_WdfEvtDevicePrepareHardware @ 0x1C006D0A0 (Controller_WdfEvtDevicePrepareHardware.c)
  * Callees:
- *     RtlStringCchPrintfA @ 0x1C000597C (RtlStringCchPrintfA.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     XilCommand_GetLinkTrbPointer @ 0x1C0015E08 (XilCommand_GetLinkTrbPointer.c)
- *     XilCommand_GetMaxTrbIndex @ 0x1C0015E2C (XilCommand_GetMaxTrbIndex.c)
- *     XilCommand_AllocateResources @ 0x1C0015E4C (XilCommand_AllocateResources.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     XilCommand_FreeResources @ 0x1C002FD28 (XilCommand_FreeResources.c)
+ *     RtlStringCchPrintfA @ 0x1C00093AC (RtlStringCchPrintfA.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     XilCommand_GetLinkTrbPointer @ 0x1C0015AB8 (XilCommand_GetLinkTrbPointer.c)
+ *     XilCommand_GetMaxTrbIndex @ 0x1C0015ADC (XilCommand_GetMaxTrbIndex.c)
+ *     XilCommand_AllocateResources @ 0x1C0015AFC (XilCommand_AllocateResources.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     XilCommand_FreeResources @ 0x1C002FA3C (XilCommand_FreeResources.c)
  */
 
 __int64 __fastcall Command_PrepareHardware(__int64 a1)
@@ -17,7 +18,7 @@ __int64 __fastcall Command_PrepareHardware(__int64 a1)
   int Resources; // edi
   __int64 v3; // rcx
   int v4; // edx
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   __int64 v6; // rax
   char v8; // [rsp+28h] [rbp-48h]
   __int128 v9; // [rsp+30h] [rbp-40h] BYREF
@@ -45,19 +46,23 @@ __int64 __fastcall Command_PrepareHardware(__int64 a1)
       v4,
       7,
       13,
-      (__int64)&WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids,
+      (__int64)&WPP_72168dd6ef593f221f3405957586a4e9_Traceguids,
       v8);
     v4 = *(_DWORD *)(a1 + 48);
   }
-  Pool2 = ExAllocatePool2(64LL, 16LL * (unsigned int)(v4 + 1), 1229146200LL);
-  *(_QWORD *)(a1 + 72) = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(
+                  (POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState,
+                  16LL * (unsigned int)(v4 + 1),
+                  0x49434858u);
+  *(_QWORD *)(a1 + 72) = PoolWithTag;
+  if ( !PoolWithTag )
   {
     Resources = -1073741670;
 LABEL_10:
     XilCommand_FreeResources(a1);
     return (unsigned int)Resources;
   }
+  memset(PoolWithTag, 0, 16LL * (unsigned int)(*(_DWORD *)(a1 + 48) + 1));
   v6 = *(_QWORD *)(a1 + 8);
   *(_QWORD *)&v10 = 0LL;
   *(_QWORD *)&v9 = 48LL;

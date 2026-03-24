@@ -1,5 +1,5 @@
 /*
- * XREFs of VfSuspectDriversParseRegistryString @ 0x1409F8938
+ * XREFs of VfSuspectDriversParseRegistryString @ 0x1409F8948
  * Callers:
  *     VfInitBootDriversLoaded @ 0x1409B7610 (VfInitBootDriversLoaded.c)
  * Callees:
@@ -112,13 +112,13 @@ LABEL_27:
       if ( Entry )
       {
         VfDriverLock();
-        v11 = (_QWORD *)qword_14040D248;
-        if ( *(__int64 **)qword_14040D248 != &VfExcludedDriversList )
+        v11 = (_QWORD *)qword_14040D2A8;
+        if ( *(__int64 **)qword_14040D2A8 != &VfExcludedDriversList )
           __fastfail(3u);
         *v10 = &VfExcludedDriversList;
         v10[1] = v11;
         *v11 = v10;
-        qword_14040D248 = (__int64)v10;
+        qword_14040D2A8 = (__int64)v10;
         goto LABEL_27;
       }
     }

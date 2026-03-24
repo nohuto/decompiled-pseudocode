@@ -1,9 +1,9 @@
 /*
- * XREFs of PspInitializeSecExtensionHost @ 0x140B1E534
+ * XREFs of PspInitializeSecExtensionHost @ 0x140A47DAC
  * Callers:
- *     PspInitPhase1 @ 0x140B1E0A8 (PspInitPhase1.c)
+ *     PspInitPhase1 @ 0x140A4B338 (PspInitPhase1.c)
  * Callees:
- *     ExRegisterHost @ 0x1408486C4 (ExRegisterHost.c)
+ *     ExRegisterHost @ 0x14079DA20 (ExRegisterHost.c)
  */
 
 __int64 __fastcall PspInitializeSecExtensionHost(__int64 a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall PspInitializeSecExtensionHost(__int64 a1, __int64 a2)
   v3[0] = 65550;
   v5 = 0LL;
   v3[2] = 512;
-  v4 = &PspSecHostInterface;
+  v4 = PspSecHostInterface;
   result = ExRegisterHost(&PspSecExtensionHost, a2, (unsigned __int16 *)v3);
   if ( (int)result < 0 )
     PspSecExtensionHost = 0LL;

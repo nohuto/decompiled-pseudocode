@@ -1,10 +1,10 @@
 /*
- * XREFs of ?MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01C5C58
+ * XREFs of ?MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01F0C3C
  * Callers:
- *     ?MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01C5B64 (-MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z.c)
+ *     ?MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01F0B60 (-MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     GetDPITransformationMonitor @ 0x1C01B9BB4 (GetDPITransformationMonitor.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     GetDPITransformationMonitor @ 0x1C01E50B0 (GetDPITransformationMonitor.c)
  */
 
 __int64 __fastcall MakePointerMessageWorker(
@@ -49,64 +49,67 @@ __int64 __fastcall MakePointerMessageWorker(
     DPITransformationMonitor = GetDPITransformationMonitor(v25, v20);
     PhysicalToLogicalDPIPoint(&v25, &v25, 0LL, &DPITransformationMonitor);
   }
-  if ( a6 > 0x249 )
+  if ( a6 <= 0x24B )
   {
-    switch ( a6 )
+    if ( a6 != 587 )
     {
-      case 0x24Au:
-        goto LABEL_16;
-      case 0x24Bu:
-        *a8 = v19 | ((unsigned __int64)a3 << 16);
-        break;
-      case 0x24Cu:
-        *a8 = v19;
-        break;
-      case 0x250u:
-        *a8 = v19;
-        goto LABEL_19;
-      case 0x251u:
-      case 0x252u:
-        goto LABEL_16;
-      case 0x253u:
-LABEL_20:
-        *a10 = *((_WORD *)a1 + 2);
-        *a11 = *(_DWORD *)a1;
-        if ( a4 || a5 )
-          v13 = 1;
-        v23 = (HWND)*((_QWORD *)a1 + 3);
-        *a12 = v13;
-        *a13 = v23;
-        return v17;
-      default:
-        return 0;
-    }
-    *a9 = (__int64)a7;
-    goto LABEL_20;
-  }
-  switch ( a6 )
-  {
-    case 0x249u:
-      goto LABEL_16;
-    case 0x210u:
-      v22 = (v19 << 16) | 0x246;
-      goto LABEL_18;
-    case 0x241u:
-    case 0x242u:
-    case 0x243u:
-      v21 = a3;
-      goto LABEL_17;
-  }
-  if ( a6 == 581 || a6 - 582 <= 1 )
-  {
-LABEL_16:
-    v21 = *((_WORD *)a1 + 6) & 0xE1F7;
+      if ( a6 == 528 )
+      {
+        v22 = (v19 << 16) | 0x246;
+        goto LABEL_18;
+      }
+      if ( a6 > 0x240 )
+      {
+        if ( a6 <= 0x243 )
+        {
+          v21 = a3;
 LABEL_17:
-    v22 = v19 | (v21 << 16);
+          v22 = v19 | (v21 << 16);
 LABEL_18:
-    *a8 = v22;
+          *a8 = v22;
 LABEL_19:
-    *a9 = (unsigned __int16)v25 | (unsigned __int64)(WORD2(v25) << 16);
-    goto LABEL_20;
+          *a9 = (unsigned __int16)v25 | (unsigned __int64)(WORD2(v25) << 16);
+          goto LABEL_32;
+        }
+        if ( a6 <= 0x244 || a6 == 584 )
+          return 0;
+LABEL_28:
+        v21 = *((_WORD *)a1 + 6) & 0xE1F7;
+        goto LABEL_17;
+      }
+      return 0;
+    }
+    *a8 = v19 | ((unsigned __int64)a3 << 16);
+    goto LABEL_31;
+  }
+  if ( a6 == 588 )
+  {
+    *a8 = v19;
+LABEL_31:
+    *a9 = (__int64)a7;
+    goto LABEL_32;
+  }
+  if ( a6 == 592 )
+  {
+    *a8 = v19;
+    goto LABEL_19;
+  }
+  if ( a6 > 0x250 )
+  {
+    if ( a6 <= 0x252 )
+      goto LABEL_28;
+    if ( a6 == 595 )
+    {
+LABEL_32:
+      *a10 = *((_WORD *)a1 + 2);
+      *a11 = *(_DWORD *)a1;
+      if ( a4 || a5 )
+        v13 = 1;
+      v23 = (HWND)*((_QWORD *)a1 + 3);
+      *a12 = v13;
+      *a13 = v23;
+      return v17;
+    }
   }
   return 0;
 }

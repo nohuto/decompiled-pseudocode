@@ -1,18 +1,18 @@
 /*
- * XREFs of SmcCacheStart @ 0x1409D7D54
+ * XREFs of SmcCacheStart @ 0x14092D830
  * Callers:
- *     SmcProcessCreateRequest @ 0x1409D4BC0 (SmcProcessCreateRequest.c)
+ *     SmcProcessCreateRequest @ 0x14092A7E0 (SmcProcessCreateRequest.c)
  * Callees:
- *     ?StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z @ 0x140262D00 (-StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     SmKmStoreFileCreate @ 0x1409D64F8 (SmKmStoreFileCreate.c)
- *     SmKmStoreFileOpenVolume @ 0x1409D71F0 (SmKmStoreFileOpenVolume.c)
- *     SmKmVolumeQueryUniqueId @ 0x1409D75C0 (SmKmVolumeQueryUniqueId.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ?StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z @ 0x1402E21C0 (-StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z.c)
+ *     SmKmStoreFileCreate @ 0x14092BFDC (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileOpenVolume @ 0x14092CCD4 (SmKmStoreFileOpenVolume.c)
+ *     SmKmVolumeQueryUniqueId @ 0x14092D09C (SmKmVolumeQueryUniqueId.c)
  */
 
 __int64 __fastcall SmcCacheStart(__int64 a1, __int64 a2, __int64 a3)
 {
-  PVOID v3; // rsi
+  struct _DMA_ADAPTER *v3; // rsi
   int v5; // ecx
   int UniqueId; // ebx
   __int64 v9; // r12
@@ -20,14 +20,14 @@ __int64 __fastcall SmcCacheStart(__int64 a1, __int64 a2, __int64 a3)
   struct _DEVICE_OBJECT *v11; // rcx
   int v12; // eax
   int v14; // [rsp+28h] [rbp-48h]
-  PVOID Object; // [rsp+60h] [rbp-10h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+60h] [rbp-10h] BYREF
   __int64 v16; // [rsp+68h] [rbp-8h] BYREF
   PDEVICE_OBJECT v17; // [rsp+A8h] [rbp+38h] BYREF
   int v18; // [rsp+B8h] [rbp+48h] BYREF
 
   LODWORD(v17) = 0;
   v3 = 0LL;
-  Object = 0LL;
+  DmaAdapter = 0LL;
   v5 = *(_DWORD *)(a2 + 8);
   if ( !v5 || ((v5 - 1) & v5) != 0 )
   {
@@ -66,8 +66,8 @@ __int64 __fastcall SmcCacheStart(__int64 a1, __int64 a2, __int64 a3)
     v17 = v11;
     if ( v11 )
       goto LABEL_14;
-    v12 = SmKmStoreFileOpenVolume(*(_QWORD *)(a1 + 48), &Object, &v17);
-    v3 = Object;
+    v12 = SmKmStoreFileOpenVolume(*(_QWORD *)(a1 + 48), &DmaAdapter, &v17);
+    v3 = DmaAdapter;
     UniqueId = v12;
     if ( v12 >= 0 )
     {
@@ -83,6 +83,6 @@ LABEL_14:
     }
   }
   if ( v3 )
-    ObfDereferenceObject(v3);
+    HalPutDmaAdapter(v3);
   return (unsigned int)UniqueId;
 }

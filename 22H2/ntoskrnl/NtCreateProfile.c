@@ -1,16 +1,16 @@
 /*
- * XREFs of NtCreateProfile @ 0x140A04440
+ * XREFs of NtCreateProfile @ 0x14095AC60
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryGroupAffinity @ 0x14032A0B0 (KeQueryGroupAffinity.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExpProfileCreate @ 0x140A03D28 (ExpProfileCreate.c)
+ *     KeQueryGroupAffinity @ 0x140322B10 (KeQueryGroupAffinity.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExpProfileCreate @ 0x14095A5AC (ExpProfileCreate.c)
  */
 
-__int64 __fastcall NtCreateProfile(
-        __int64 *a1,
-        ULONG_PTR a2,
+NTSTATUS __fastcall NtCreateProfile(
+        unsigned __int64 a1,
+        void *a2,
         unsigned __int64 a3,
         unsigned __int64 a4,
         int a5,

@@ -1,101 +1,103 @@
 /*
- * XREFs of FsRtlPrivateInsertSharedLock @ 0x140327780
+ * XREFs of FsRtlPrivateInsertSharedLock @ 0x1402D9CF8
  * Callers:
- *     FsRtlPrivateInsertLock @ 0x14032761C (FsRtlPrivateInsertLock.c)
+ *     FsRtlPrivateInsertLock @ 0x1402D93EC (FsRtlPrivateInsertLock.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B00 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     RtlRealSuccessor @ 0x140326B10 (RtlRealSuccessor.c)
- *     RtlDeleteNoSplay @ 0x140326D50 (RtlDeleteNoSplay.c)
- *     FsRtlFindFirstOverlappingSharedNode @ 0x1403278CC (FsRtlFindFirstOverlappingSharedNode.c)
- *     RtlSplay @ 0x140327CF0 (RtlSplay.c)
- *     FsRtlSplitLocks @ 0x14032837C (FsRtlSplitLocks.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202C74 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     FsRtlFindFirstOverlappingSharedNode @ 0x1402D9C10 (FsRtlFindFirstOverlappingSharedNode.c)
+ *     RtlSplay @ 0x1402D9F50 (RtlSplay.c)
+ *     RtlRealSuccessor @ 0x1402F80C0 (RtlRealSuccessor.c)
+ *     RtlDeleteNoSplay @ 0x1402F8310 (RtlDeleteNoSplay.c)
+ *     FsRtlSplitLocks @ 0x1402F8578 (FsRtlSplitLocks.c)
  */
 
-char __fastcall FsRtlPrivateInsertSharedLock(__int64 a1, _RTL_SPLAY_LINKS *a2)
+char __fastcall FsRtlPrivateInsertSharedLock(__int64 a1, _QWORD *a2)
 {
-  _RTL_SPLAY_LINKS **p_Parent; // r14
-  PRTL_SPLAY_LINKS *v4; // r15
+  _RTL_SPLAY_LINKS **v2; // r15
+  PRTL_SPLAY_LINKS *v4; // rbp
   __int64 v5; // rcx
   __int64 FirstOverlappingSharedNode; // rax
-  RTL_SPLAY_LINKS *v7; // rbp
+  RTL_SPLAY_LINKS *v7; // rbx
   RTL_SPLAY_LINKS *v8; // rax
   PRTL_SPLAY_LINKS v9; // rcx
   _RTL_SPLAY_LINKS *v10; // rax
-  __int64 v11; // rbx
-  _RTL_SPLAY_LINKS *v12; // rax
-  _RTL_SPLAY_LINKS **v13; // rcx
-  unsigned __int64 LeftChild; // r8
-  PRTL_SPLAY_LINKS v15; // rdi
-  PRTL_SPLAY_LINKS v16; // rax
-  RTL_SPLAY_LINKS *v17; // rsi
-  char v19; // [rsp+60h] [rbp+8h] BYREF
-  _RTL_SPLAY_LINKS *v20; // [rsp+68h] [rbp+10h] BYREF
+  __int64 *v11; // r14
+  __int64 *v12; // rax
+  __int64 *v13; // rcx
+  unsigned __int64 v14; // r8
+  __int64 v15; // rax
+  PRTL_SPLAY_LINKS v16; // rdi
+  _RTL_SPLAY_LINKS *Parent; // rdx
+  PRTL_SPLAY_LINKS v18; // rax
+  RTL_SPLAY_LINKS *v19; // rsi
+  char v21; // [rsp+60h] [rbp+8h] BYREF
+  _RTL_SPLAY_LINKS *v22; // [rsp+68h] [rbp+10h] BYREF
 
-  p_Parent = &a2[2].Parent;
+  v2 = (_RTL_SPLAY_LINKS **)(a2 + 6);
   v4 = (PRTL_SPLAY_LINKS *)(a1 + 8);
   v5 = *(_QWORD *)(a1 + 8);
-  v20 = 0LL;
-  v19 = 0;
-  FirstOverlappingSharedNode = FsRtlFindFirstOverlappingSharedNode(
-                                 v5,
-                                 (int)a2 + 8,
-                                 (int)a2 + 48,
-                                 (unsigned int)&v20,
-                                 (__int64)&v19);
+  v22 = 0LL;
+  v21 = 0;
+  FirstOverlappingSharedNode = FsRtlFindFirstOverlappingSharedNode(v5, a2 + 1, a2 + 6, &v22, &v21);
   v7 = (RTL_SPLAY_LINKS *)FirstOverlappingSharedNode;
   if ( FirstOverlappingSharedNode )
   {
-    v11 = FirstOverlappingSharedNode - 24;
-    v12 = *(_RTL_SPLAY_LINKS **)(FirstOverlappingSharedNode - 24);
-    v13 = (_RTL_SPLAY_LINKS **)v11;
+    v11 = (__int64 *)(FirstOverlappingSharedNode - 24);
+    v12 = *(__int64 **)(FirstOverlappingSharedNode - 24);
+    v13 = v11;
     if ( v12 )
     {
-      LeftChild = (unsigned __int64)a2->LeftChild;
+      v14 = a2[1];
       do
       {
-        if ( (_RTL_SPLAY_LINKS *)LeftChild < v12->LeftChild
-          || (_RTL_SPLAY_LINKS *)LeftChild == v12->LeftChild && (!a2->RightChild || v12->RightChild) )
-        {
+        if ( v14 < v12[1] || v14 == v12[1] && (!a2[2] || v12[2]) )
           break;
-        }
-        v13 = &v12->Parent;
-        v12 = v12->Parent;
+        v13 = v12;
+        v12 = (__int64 *)*v12;
       }
       while ( v12 );
     }
+    v15 = *v13;
     if ( !*v13 )
-      *(_QWORD *)(v11 + 48) = a2;
-    a2->Parent = *v13;
-    *v13 = a2;
-    *v4 = RtlSplay(v7);
-    if ( (unsigned __int64)*p_Parent > *(_QWORD *)(v11 + 16) )
     {
-      *(_QWORD *)(v11 + 16) = *p_Parent;
+      v7[1].Parent = (_RTL_SPLAY_LINKS *)a2;
+      v15 = *v13;
+    }
+    *a2 = v15;
+    *v13 = (__int64)a2;
+    *v4 = RtlSplay(v7);
+    if ( *v2 > v7[-1].RightChild )
+    {
+      v7[-1].RightChild = *v2;
       while ( 1 )
       {
-        v16 = RtlRealSuccessor(v7);
-        v17 = v16;
-        if ( !v16 )
+        v18 = RtlRealSuccessor(v7);
+        v19 = v18;
+        if ( !v18 )
           break;
-        v15 = v16 - 1;
-        if ( v16[-1].Parent->LeftChild > (_RTL_SPLAY_LINKS *)*(_QWORD *)(v11 + 16) )
+        v16 = v18 - 1;
+        Parent = v18[-1].Parent;
+        if ( Parent->LeftChild > v7[-1].RightChild )
           break;
-        if ( !*(_BYTE *)(v11 + 8) && LOBYTE(v15->LeftChild) )
-          FsRtlSplitLocks(&v16[-1], 0LL, 0LL, 0LL);
-        **(_QWORD **)(v11 + 48) = v15->Parent;
-        *(_QWORD *)(v11 + 48) = v15[2].Parent;
-        if ( v15->RightChild > (_RTL_SPLAY_LINKS *)*(_QWORD *)(v11 + 16) )
+        if ( !LOBYTE(v7[-1].LeftChild) && LOBYTE(v16->LeftChild) )
         {
-          if ( LOBYTE(v15->LeftChild) )
-            *(_BYTE *)(v11 + 8) = 1;
-          *(_QWORD *)(v11 + 16) = v15->RightChild;
+          FsRtlSplitLocks(&v18[-1], 0LL, 0LL, 0LL);
+          Parent = v16->Parent;
         }
-        RtlDeleteNoSplay(v17, v4);
-        ExFreeToNPagedLookasideList(&FsRtlLockTreeNodeLookasideList, &v17[-1]);
+        v7[1].Parent->Parent = Parent;
+        v7[1].Parent = v16[2].Parent;
+        if ( v16->RightChild > v7[-1].RightChild )
+        {
+          if ( LOBYTE(v16->LeftChild) )
+            LOBYTE(v7[-1].LeftChild) = 1;
+          v7[-1].RightChild = v16->RightChild;
+        }
+        RtlDeleteNoSplay(v19, v4);
+        ExFreeToNPagedLookasideList(&FsRtlLockTreeNodeLookasideList, &v19[-1]);
       }
     }
-    if ( *(_BYTE *)(v11 + 8) )
+    if ( LOBYTE(v7[-1].LeftChild) )
       FsRtlSplitLocks(v11, 0LL, 0LL, 0LL);
   }
   else
@@ -105,17 +107,17 @@ char __fastcall FsRtlPrivateInsertSharedLock(__int64 a1, _RTL_SPLAY_LINKS *a2)
       return (char)v8;
     v9 = v8 + 1;
     LOBYTE(v8->LeftChild) = 0;
-    v8[2].Parent = a2;
-    v8->Parent = a2;
+    v8[2].Parent = (_RTL_SPLAY_LINKS *)a2;
+    v8->Parent = (_RTL_SPLAY_LINKS *)a2;
     v8[1].Parent = v8 + 1;
     v8[1].LeftChild = 0LL;
     v8[1].RightChild = 0LL;
-    v8->RightChild = *p_Parent;
-    v10 = v20;
-    a2->Parent = 0LL;
+    v8->RightChild = *v2;
+    v10 = v22;
+    *a2 = 0LL;
     if ( v10 )
     {
-      if ( v19 )
+      if ( v21 )
         v10->LeftChild = v9;
       else
         v10->RightChild = v9;

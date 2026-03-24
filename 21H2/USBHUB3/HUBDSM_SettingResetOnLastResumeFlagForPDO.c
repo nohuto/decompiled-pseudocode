@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_SettingResetOnLastResumeFlagForPDO @ 0x1C0021B80
+ * XREFs of HUBDSM_SettingResetOnLastResumeFlagForPDO @ 0x1C0021730
  * Callers:
  *     <none>
  * Callees:

@@ -1,17 +1,17 @@
 /*
- * XREFs of KxSwitchKernelStackCallout @ 0x140424090
+ * XREFs of KxSwitchKernelStackCallout @ 0x140402730
  * Callers:
- *     KiSwitchKernelStackAndCallout @ 0x140424000 (KiSwitchKernelStackAndCallout.c)
+ *     KiSwitchKernelStackAndCallout @ 0x1404026A0 (KiSwitchKernelStackAndCallout.c)
  * Callees:
- *     MmGrowKernelStackEx @ 0x14024E3F0 (MmGrowKernelStackEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     MmGrowKernelStackEx @ 0x1402CAED0 (MmGrowKernelStackEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall KxSwitchKernelStackCallout(
         __int64 a1,
         void (*a2)(void),
         __int64 a3,
-        __int64 a4,
+        _DWORD *a4,
         int a5,
         int a6,
         __int64 a7)
@@ -22,7 +22,7 @@ void __fastcall KxSwitchKernelStackCallout(
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF
 
   _enable();
-  if ( !a4 || !(unsigned int)MmGrowKernelStackEx((__int64)&retaddr, a4) )
+  if ( !a4 || !(unsigned int)MmGrowKernelStackEx((__int64)&retaddr, (__int64)a4, a3, a4) )
     a2();
   v8 = (_QWORD *)v7[5];
   _disable();
@@ -31,9 +31,9 @@ void __fastcall KxSwitchKernelStackCallout(
   v9 = v8[5];
   v7[5] = v9;
   if ( (KiKvaShadow & 1) != 0 )
-    __writegsqword(0xA008u, v9);
+    __writegsqword(0x9008u, v9);
   else
     *(_QWORD *)((char *)KeGetPcr()->NtTib.StackBase + 4) = v9;
   __writegsqword(0x1A8u, v9);
-  JUMPOUT(0x14042407CLL);
+  JUMPOUT(0x14040271CLL);
 }

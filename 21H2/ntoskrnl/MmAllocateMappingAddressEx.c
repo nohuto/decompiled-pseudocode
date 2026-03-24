@@ -1,38 +1,41 @@
 /*
- * XREFs of MmAllocateMappingAddressEx @ 0x1407F9D50
+ * XREFs of MmAllocateMappingAddressEx @ 0x1406AE4A0
  * Callers:
- *     MmAllocateMappingAddress @ 0x1407F9D30 (MmAllocateMappingAddress.c)
- *     PnprInitializeMappingReserve @ 0x1409525B4 (PnprInitializeMappingReserve.c)
- *     EtwpSavePersistedLogger @ 0x1409ED100 (EtwpSavePersistedLogger.c)
+ *     MmAllocateMappingAddress @ 0x1406AE480 (MmAllocateMappingAddress.c)
+ *     PnprInitializeMappingReserve @ 0x1408ADB54 (PnprInitializeMappingReserve.c)
+ *     EtwpSavePersistedLogger @ 0x140948C8C (EtwpSavePersistedLogger.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402294F0 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140229550 (MiPteHasShadow.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     MiReservePtes @ 0x1403095B0 (MiReservePtes.c)
- *     MiPteInShadowRange @ 0x140317A80 (MiPteInShadowRange.c)
- *     MiInsertMappingNode @ 0x140386294 (MiInsertMappingNode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     MiInsertPteTracker @ 0x1405B6C18 (MiInsertPteTracker.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
+ *     MiInsertMappingNode @ 0x1402C2818 (MiInsertMappingNode.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiInsertPteTracker @ 0x14055EDE0 (MiInsertPteTracker.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmAllocateMappingAddressEx(__int64 a1, unsigned int a2, int a3)
 {
   __int64 v3; // r15
   unsigned __int64 v5; // rdi
-  ULONG_PTR v6; // rax
-  _QWORD *v7; // r14
-  unsigned int v8; // r12d
-  __int64 v9; // rbp
-  unsigned __int64 v10; // rbx
-  int v11; // r13d
-  bool v13; // zf
-  _QWORD *Pool; // [rsp+30h] [rbp-88h]
-  _QWORD v15[5]; // [rsp+38h] [rbp-80h] BYREF
-  int v16; // [rsp+60h] [rbp-58h]
-  int v17; // [rsp+64h] [rbp-54h]
-  __int64 v18; // [rsp+68h] [rbp-50h]
+  __int64 v6; // r8
+  unsigned __int64 v7; // r9
+  ULONG_PTR v8; // rax
+  _QWORD *v9; // r14
+  unsigned int v10; // r12d
+  __int64 v11; // rbp
+  unsigned __int64 v12; // rbx
+  int v13; // r13d
+  __int64 v14; // r8
+  bool v16; // zf
+  PVOID Pool; // [rsp+30h] [rbp-88h]
+  _QWORD v18[5]; // [rsp+38h] [rbp-80h] BYREF
+  int v19; // [rsp+60h] [rbp-58h]
+  int v20; // [rsp+64h] [rbp-54h]
+  __int64 v21; // [rsp+68h] [rbp-50h]
   ULONG_PTR BugCheckParameter4; // [rsp+B8h] [rbp+0h]
 
   v3 = a2;
@@ -48,60 +51,60 @@ __int64 __fastcall MmAllocateMappingAddressEx(__int64 a1, unsigned int a2, int a
   Pool = MiAllocatePool(64, 0x30uLL, 0x6D72694Du);
   if ( !Pool )
     return 0LL;
-  v6 = MiReservePtes((__int64)&qword_140C534C0, v5);
-  v7 = (_QWORD *)v6;
-  if ( !v6 )
+  v8 = MiReservePtes((__int64)&qword_140C4EF40, v5, v6, v7);
+  v9 = (_QWORD *)v8;
+  if ( !v8 )
   {
     ExFreePoolWithTag(Pool, 0);
     return 0LL;
   }
-  v8 = 0;
-  Pool[4] = v5;
-  v9 = (__int64)(v6 << 25) >> 16;
-  Pool[3] = v9;
+  v10 = 0;
+  *((_QWORD *)Pool + 4) = v5;
+  v11 = (__int64)(v8 << 25) >> 16;
+  *((_QWORD *)Pool + 3) = v11;
   *((_DWORD *)Pool + 10) = v3;
   *((_DWORD *)Pool + 11) = a3;
   do
   {
-    v10 = ZeroPte;
-    v11 = 0;
-    if ( !MiPteInShadowRange((unsigned __int64)v7) )
+    v12 = ZeroPte;
+    v13 = 0;
+    if ( !MiPteInShadowRange((unsigned __int64)v9) )
       goto LABEL_9;
     if ( (unsigned int)MiPteHasShadow() )
     {
-      v11 = 1;
-      if ( HIBYTE(word_140C51864) )
+      v13 = 1;
+      if ( HIBYTE(word_140C4E008) )
         goto LABEL_9;
-      v13 = (ZeroPte & 1) == 0;
+      v16 = (ZeroPte & 1) == 0;
     }
     else
     {
       if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
         goto LABEL_9;
-      v13 = (ZeroPte & 1) == 0;
+      v16 = (ZeroPte & 1) == 0;
     }
-    if ( !v13 )
-      v10 = ZeroPte | 0x8000000000000000uLL;
+    if ( !v16 )
+      v12 = ZeroPte | 0x8000000000000000uLL;
 LABEL_9:
-    *v7 = v10;
-    if ( v11 )
-      MiWritePteShadow((__int64)v7, v10);
-    ++v8;
-    ++v7;
+    *v9 = v12;
+    if ( v13 )
+      MiWritePteShadow((__int64)v9, v12, v14);
+    ++v10;
+    ++v9;
   }
-  while ( v8 < v5 );
-  if ( (dword_140D051BC & 1) != 0 )
+  while ( v10 < v5 );
+  if ( (dword_140CFB17C & 1) != 0 )
   {
-    v15[0] = 0LL;
-    v15[1] = 0LL;
-    v16 = 0;
-    v17 = 0;
-    v18 = 0LL;
-    v15[3] = v9;
-    v15[4] = v3;
-    v15[2] = v5 << 12;
-    MiInsertPteTracker((__int64)v15, 2, 0, 1);
+    v18[0] = 0LL;
+    v18[1] = 0LL;
+    v19 = 0;
+    v20 = 0;
+    v21 = 0LL;
+    v18[3] = v11;
+    v18[4] = v3;
+    v18[2] = v5 << 12;
+    MiInsertPteTracker((__int64)v18, 2, 0, 1);
   }
-  MiInsertMappingNode(Pool);
-  return v9;
+  MiInsertMappingNode((__int64)Pool);
+  return v11;
 }

@@ -1,46 +1,55 @@
 /*
- * XREFs of DpiAcquirePostDisplayOwnership @ 0x1C0399F38
+ * XREFs of DpiAcquirePostDisplayOwnership @ 0x1C02C7BBC
  * Callers:
- *     DpAcquirePostDisplayOwnership @ 0x1C0398A40 (DpAcquirePostDisplayOwnership.c)
- *     DpAcquirePostDisplayOwnership2 @ 0x1C0398A60 (DpAcquirePostDisplayOwnership2.c)
- *     DpGetPostDisplayInfoPlusEdid @ 0x1C0398DA0 (DpGetPostDisplayInfoPlusEdid.c)
+ *     DpAcquirePostDisplayOwnership @ 0x1C02C6050 (DpAcquirePostDisplayOwnership.c)
+ *     DpAcquirePostDisplayOwnership2 @ 0x1C02C6070 (DpAcquirePostDisplayOwnership2.c)
+ *     DpGetPostDisplayInfoPlusEdid @ 0x1C02C6430 (DpGetPostDisplayInfoPlusEdid.c)
  * Callees:
- *     memmove @ 0x1C0028340 (memmove.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
  */
 
 __int64 __fastcall DpiAcquirePostDisplayOwnership(__int64 a1, _OWORD *a2, _DWORD *a3)
 {
-  unsigned int v6; // ebx
-  __int64 v7; // rdx
-  int v8; // r8d
+  _OWORD *v4; // rsi
+  unsigned int v6; // edi
+  _QWORD *v7; // rax
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rax
 
+  v4 = a2;
   v6 = 0;
   if ( KeGetCurrentIrql() <= 1u )
   {
-    if ( a1 && a2 && KeGetCurrentThread() == (struct _KTHREAD *)qword_1C01407F8 && a1 == qword_1C0140800 )
+    if ( a1 && a2 && KeGetCurrentThread() == (struct _KTHREAD *)qword_1C00B2E70 && a1 == qword_1C00B2E78 )
     {
-      v7 = *(_QWORD *)(a1 + 64);
-      if ( v7 )
+      v8 = *(_QWORD *)(a1 + 64);
+      if ( v8 )
       {
-        if ( *(_DWORD *)(v7 + 16) == 1953656900 && *(_DWORD *)(v7 + 20) == 2 )
+        if ( *(_DWORD *)(v8 + 16) == 1953656900 && *(_DWORD *)(v8 + 20) == 2 )
         {
-          v8 = *(_DWORD *)(v7 + 236);
-          if ( v8 != 2 && (*(_DWORD *)(v7 + 240) != 2 || ((v8 - 3) & 0xFFFFFFFC) != 0 || v8 == 4) )
-            *(_BYTE *)(v7 + 3920) |= 4u;
+          a2 = (_OWORD *)*(unsigned int *)(v8 + 236);
+          if ( (_DWORD)a2 != 2
+            && (*(_DWORD *)(v8 + 240) != 2 || (((_DWORD)a2 - 3) & 0xFFFFFFFC) != 0 || (_DWORD)a2 == 4) )
+          {
+            *(_BYTE *)(v8 + 3904) |= 4u;
+          }
         }
       }
-      if ( qword_1C0140740 == a1 )
+      if ( qword_1C00B2DB8 == a1 )
       {
-        memmove(a2, &xmmword_1C0140750, 0x20uLL);
+        memmove(v4, &xmmword_1C00B2DC8, 0x20uLL);
         if ( a3 )
-          *a3 ^= ((unsigned __int8)dword_1C014083C ^ (unsigned __int8)*a3) & 0xF;
+          *a3 ^= ((unsigned __int8)dword_1C00B2EB4 ^ (unsigned __int8)*a3) & 0xF;
       }
       else
       {
-        WdLogSingleEntry1(4LL, 0LL);
-        *a2 = 0LL;
-        a2[1] = 0LL;
-        *((_DWORD *)a2 + 6) = -1;
+        v9 = WdLogNewEntry5_WdEvent(v8, a2);
+        *(_QWORD *)(v9 + 24) = 0LL;
+        WdLogEvent5_WdEvent(v9);
+        *v4 = 0LL;
+        v4[1] = 0LL;
+        *((_DWORD *)v4 + 6) = -1;
         if ( a3 )
           *a3 &= 0xFFFFFFF0;
       }
@@ -48,13 +57,19 @@ __int64 __fastcall DpiAcquirePostDisplayOwnership(__int64 a1, _OWORD *a2, _DWORD
     else
     {
       v6 = -1073741811;
-      WdLogSingleEntry1(2LL, -1073741811LL);
+      v10 = WdLogNewEntry5_WdError(a1, a2);
+      *(_QWORD *)(v10 + 24) = -1073741811LL;
+      WdLogEvent5_WdError(v10);
     }
   }
   else
   {
     v6 = -1073741811;
-    WdLogSingleEntry3(0LL, 275LL, 21LL, -1073741811LL);
+    v7 = (_QWORD *)WdLogNewEntry5_WdCriticalError(a1, a2);
+    v7[3] = 275LL;
+    v7[4] = 21LL;
+    v7[5] = -1073741811LL;
+    WdLogEvent5_WdCriticalError(v7);
   }
   return v6;
 }

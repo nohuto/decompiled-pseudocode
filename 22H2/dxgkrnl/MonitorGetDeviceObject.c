@@ -1,47 +1,101 @@
 /*
- * XREFs of MonitorGetDeviceObject @ 0x1C01AC5FC
+ * XREFs of MonitorGetDeviceObject @ 0x1C01358E8
  * Callers:
- *     ?DxgkGetMonitorDeviceObject@@YAJPEBU_LUID@@IPEAPEAU_FILE_OBJECT@@PEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C01AC740 (-DxgkGetMonitorDeviceObject@@YAJPEBU_LUID@@IPEAPEAU_FILE_OBJECT@@PEAPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?DxgkGetMonitorDeviceObject@@YAJPEBU_LUID@@IPEAPEAU_FILE_OBJECT@@PEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C01359F0 (-DxgkGetMonitorDeviceObject@@YAJPEBU_LUID@@IPEAPEAU_FILE_OBJECT@@PEAPEAU_DEVICE_OBJECT@@@Z.c)
  * Callees:
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z @ 0x1C000882C (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z.c)
- *     ?GetDeviceObject@MonitorPnpState@DxgMonitor@@QEBAJPEAPEAU_FILE_OBJECT@@PEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C01AC6B4 (-GetDeviceObject@MonitorPnpState@DxgMonitor@@QEBAJPEAPEAU_FILE_OBJECT@@PEAPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?_GetDeviceObject@DXGMONITOR@@QEBAJPEAPEAU_FILE_OBJECT@@PEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C000A100 (-_GetDeviceObject@DXGMONITOR@@QEBAJPEAPEAU_FILE_OBJECT@@PEAPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C0133648 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
  */
 
-__int64 __fastcall MonitorGetDeviceObject(__int64 a1, __int64 a2, struct _FILE_OBJECT **a3, struct _DEVICE_OBJECT **a4)
+__int64 __fastcall MonitorGetDeviceObject(
+        DXGADAPTER *this,
+        __int64 a2,
+        struct _FILE_OBJECT **a3,
+        struct _DEVICE_OBJECT **a4)
 {
-  __int64 v5; // rbx
+  __int64 v5; // rdi
   __int64 v8; // rax
-  DxgMonitor::MonitorPnpState **v9; // rbx
-  unsigned int DeviceObject; // edi
-  DxgMonitor::MonitorPnpState **v12; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  struct _FAST_MUTEX *v14; // rcx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  DXGMONITOR *v17; // rbx
+  unsigned int DeviceObject; // eax
+  struct _ERESOURCE *v19; // rcx
+  unsigned int v20; // ebx
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  _QWORD *v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // rax
+  DXGMONITOR *v30; // [rsp+40h] [rbp+8h] BYREF
 
   v5 = (unsigned int)a2;
-  v8 = WdLogNewEntry5_WdTrace(a1, a2, a3, a4);
+  v8 = WdLogNewEntry5_WdTrace(this, a2);
   *(_QWORD *)(v8 + 24) = v5;
-  *(_QWORD *)(v8 + 32) = a1;
-  if ( !a1 || (_DWORD)v5 == -1 )
+  *(_QWORD *)(v8 + 32) = this;
+  if ( !this || (_DWORD)v5 == -1 )
   {
-    WdLogSingleEntry1(2LL, -1073741811LL);
+    v24 = WdLogNewEntry5_WdError(v10, v9);
+    *(_QWORD *)(v24 + 24) = -1073741811LL;
+    goto LABEL_16;
+  }
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(this) )
+  {
+    v22 = WdLogNewEntry5_WdAssertion(v12, v11);
+    WdLogEvent5_WdAssertion(v22);
+  }
+  v13 = *((_QWORD *)this + 337);
+  if ( !v13 )
+  {
+    v23 = WdLogNewEntry5_WdAssertion(v12, v11);
+    WdLogEvent5_WdAssertion(v23);
+    v13 = *((_QWORD *)this + 337);
+  }
+  v14 = *(struct _FAST_MUTEX **)(v13 + 96);
+  if ( !v14 )
+  {
+    v24 = WdLogNewEntry5_WdError(0LL, v11);
+    *(_QWORD *)(v24 + 24) = this;
+LABEL_16:
+    WdLogEvent5_WdError(v24);
     return 3221225485LL;
+  }
+  v30 = 0LL;
+  if ( (int)MONITOR_MGR::_GetMonitorInstance(v14, (unsigned int)v5, 1, &v30) < 0 )
+  {
+    v25 = (_QWORD *)WdLogNewEntry5_WdError(v16, v15);
+    v25[4] = this;
+    v20 = -1073741275;
+    v25[5] = -1073741275LL;
+    v25[3] = v5;
+    WdLogEvent5_WdError(v25);
   }
   else
   {
-    MONITOR_MGR::AcquireMonitorShared((struct DXGMONITOR **)&v12, a1, v5);
-    v9 = v12;
-    if ( v12 )
+    v17 = v30;
+    if ( !v30 )
     {
-      DeviceObject = DxgMonitor::MonitorPnpState::GetDeviceObject(v12[25], a3, a4);
+      v26 = WdLogNewEntry5_WdAssertion(v16, v15);
+      WdLogEvent5_WdAssertion(v26);
+      v29 = WdLogNewEntry5_WdAssertion(v28, v27);
+      WdLogEvent5_WdAssertion(v29);
     }
-    else
-    {
-      DeviceObject = -1073741275;
-      WdLogSingleEntry1(2LL, -1073741275LL);
-    }
-    if ( v9 )
-    {
-      ExReleaseResourceLite((PERESOURCE)(v9 + 3));
-      KeLeaveCriticalRegion();
-    }
-    return DeviceObject;
+    KeEnterCriticalRegion();
+    ExAcquireResourceSharedLite((PERESOURCE)((char *)v17 + 296), 1u);
+    DeviceObject = DXGMONITOR::_GetDeviceObject(v17, a3, a4);
+    v19 = (struct _ERESOURCE *)((char *)v17 + 296);
+    v20 = DeviceObject;
+    ExReleaseResourceLite(v19);
+    KeLeaveCriticalRegion();
   }
+  return v20;
 }

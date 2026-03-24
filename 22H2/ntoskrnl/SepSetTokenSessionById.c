@@ -1,20 +1,20 @@
 /*
- * XREFs of SepSetTokenSessionById @ 0x1406B7AE0
+ * XREFs of SepSetTokenSessionById @ 0x140604300
  * Callers:
- *     SepGetAnonymousToken @ 0x140370BA8 (SepGetAnonymousToken.c)
- *     SeSubProcessToken @ 0x1406B71F8 (SeSubProcessToken.c)
- *     SeSetSessionIdToken @ 0x1407F16F4 (SeSetSessionIdToken.c)
- *     SepFilterToken @ 0x1407F2180 (SepFilterToken.c)
- *     SeExchangePrimaryToken @ 0x140842088 (SeExchangePrimaryToken.c)
+ *     SepGetAnonymousToken @ 0x14035F51C (SepGetAnonymousToken.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     SeSubProcessToken @ 0x140603E44 (SeSubProcessToken.c)
+ *     SeSetSessionIdToken @ 0x14069D5A0 (SeSetSessionIdToken.c)
+ *     SeExchangePrimaryToken @ 0x1407BC404 (SeExchangePrimaryToken.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MmGetSessionObjectById @ 0x1402C0B30 (MmGetSessionObjectById.c)
+ *     MmGetSessionObjectById @ 0x140206324 (MmGetSessionObjectById.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
  */
 
 void __fastcall SepSetTokenSessionById(__int64 a1, __int64 a2, char a3, __int64 a4, _QWORD *a5)
 {
   unsigned int v5; // edi
-  void *v7; // rcx
+  struct _DMA_ADAPTER *v7; // rcx
 
   v5 = a2;
   if ( *(_DWORD *)(a1 + 120) != (_DWORD)a2 )
@@ -30,9 +30,9 @@ void __fastcall SepSetTokenSessionById(__int64 a1, __int64 a2, char a3, __int64 
       }
       else
       {
-        v7 = *(void **)(a1 + 1160);
+        v7 = *(struct _DMA_ADAPTER **)(a1 + 1160);
         if ( v7 )
-          ObfDereferenceObject(v7);
+          HalPutDmaAdapter(v7);
         *(_QWORD *)(a1 + 1160) = MmGetSessionObjectById(v5, a2);
       }
     }

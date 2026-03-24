@@ -1,14 +1,14 @@
 /*
- * XREFs of ObQueryObjectAuditingByHandle @ 0x1407A2A70
+ * XREFs of ObQueryObjectAuditingByHandle @ 0x140684FE0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     ObpIsKernelHandle @ 0x1402F3558 (ObpIsKernelHandle.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfUnblockPushLock @ 0x14041AC40 (ExfUnblockPushLock.c)
- *     ObReferenceProcessHandleTable @ 0x14066B3D8 (ObReferenceProcessHandleTable.c)
- *     ExMapHandleToPointer @ 0x1407A1AC0 (ExMapHandleToPointer.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ObpIsKernelHandle @ 0x1403488C0 (ObpIsKernelHandle.c)
+ *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
+ *     ObReferenceProcessHandleTable @ 0x1405F57B4 (ObReferenceProcessHandleTable.c)
+ *     ExMapHandleToPointer @ 0x14061BB00 (ExMapHandleToPointer.c)
  */
 
 NTSTATUS __stdcall ObQueryObjectAuditingByHandle(HANDLE Handle, PBOOLEAN GenerateOnClose)
@@ -18,7 +18,7 @@ NTSTATUS __stdcall ObQueryObjectAuditingByHandle(HANDLE Handle, PBOOLEAN Generat
   char v5; // r14
   struct _EX_RUNDOWN_REF *Process; // rsi
   unsigned __int64 Count; // rdi
-  volatile signed __int64 *v8; // rax
+  signed __int64 *v8; // rax
   __int64 v9; // rbx
   NTSTATUS v10; // ebx
   signed __int32 v12[14]; // [rsp+0h] [rbp-38h] BYREF
@@ -44,10 +44,10 @@ NTSTATUS __stdcall ObQueryObjectAuditingByHandle(HANDLE Handle, PBOOLEAN Generat
     Count = Process[174].Count;
   }
   --CurrentThread->KernelApcDisable;
-  v8 = ExMapHandleToPointer((unsigned int *)Count, v4);
+  v8 = ExMapHandleToPointer(Count, v4);
   if ( v8 )
   {
-    v9 = *(__int64 *)v8 >> 17;
+    v9 = *v8 >> 17;
     _InterlockedExchangeAdd64(v8, 1uLL);
     _InterlockedOr(v12, 0);
     if ( *(_QWORD *)(Count + 48) )
@@ -59,8 +59,8 @@ NTSTATUS __stdcall ObQueryObjectAuditingByHandle(HANDLE Handle, PBOOLEAN Generat
   {
     v10 = -1073741816;
   }
-  KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( v5 )
-    ExReleaseRundownProtection(Process + 139);
+    ExReleaseRundownProtection_0(Process + 139);
   return v10;
 }

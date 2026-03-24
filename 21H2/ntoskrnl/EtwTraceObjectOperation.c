@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceObjectOperation @ 0x14062DD68
+ * XREFs of EtwTraceObjectOperation @ 0x1405A79B0
  * Callers:
- *     ObpPushStackInfo @ 0x1405C5EC8 (ObpPushStackInfo.c)
+ *     ObpPushStackInfo @ 0x140564D28 (ObpPushStackInfo.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     EtwpTraceKernelEventWithFilter @ 0x14062FC2C (EtwpTraceKernelEventWithFilter.c)
- *     ExCheckSingleFilter @ 0x14063A59C (ExCheckSingleFilter.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwpTraceKernelEventWithFilter @ 0x1405A9B0C (EtwpTraceKernelEventWithFilter.c)
+ *     ExCheckSingleFilter @ 0x1405B35FC (ExCheckSingleFilter.c)
  */
 
 __int64 __fastcall EtwTraceObjectOperation(unsigned __int16 a1, __int64 a2, int a3, int a4)
@@ -31,7 +31,7 @@ __int64 __fastcall EtwTraceObjectOperation(unsigned __int16 a1, __int64 a2, int 
                  + 192);
   result = EtwpHostSiloState;
   v18 = v8;
-  v10 = *(_DWORD *)(EtwpHostSiloState + 4248);
+  v10 = *(_DWORD *)(EtwpHostSiloState + 4224);
   v11 = !_BitScanForward((unsigned int *)&v12, v10);
   if ( !v11 )
   {
@@ -39,7 +39,7 @@ __int64 __fastcall EtwTraceObjectOperation(unsigned __int16 a1, __int64 a2, int 
     {
       result = v10 - 1;
       v10 &= result;
-      v13 = 32LL * (unsigned int)v12 + EtwpHostSiloState + 4284;
+      v13 = 32LL * (unsigned int)v12 + EtwpHostSiloState + 4260;
       if ( v13 )
       {
         result = *(unsigned int *)(v13 + 16);
@@ -47,7 +47,7 @@ __int64 __fastcall EtwTraceObjectOperation(unsigned __int16 a1, __int64 a2, int 
         {
           result = 5 * v12;
           v14 = 0;
-          v15 = (_WORD *)(0x140000000LL + 20 * v12 + 12672704);
+          v15 = (_WORD *)(0x140000000LL + 20 * v12 + 12687968);
           if ( *v15 )
           {
             while ( 1 )

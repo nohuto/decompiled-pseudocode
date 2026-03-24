@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PoolBufferAdded@CHolographicFrameProcessor@@UEAAJAEBU_LUID@@PEAXPEAUIFlipPropertySet@@PEAPEAUIUnknown@@@Z @ 0x18029FB80
+ * XREFs of ?PoolBufferAdded@CHolographicFrameProcessor@@UEAAJAEBU_LUID@@PEAXPEAUIFlipPropertySet@@PEAPEAUIUnknown@@@Z @ 0x18025CF80
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CHolographicFrameProcessor::PoolBufferAdded(
@@ -32,7 +32,7 @@ __int64 __fastcall CHolographicFrameProcessor::PoolBufferAdded(
   v11 = v9;
   if ( v9 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0xBAu);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xBAu, 0LL);
   }
   else
   {
@@ -43,7 +43,7 @@ __int64 __fastcall CHolographicFrameProcessor::PoolBufferAdded(
             a5);
     v11 = v12;
     if ( v12 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0xBBu);
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0xBBu, 0LL);
   }
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease(&v15);
   return v11;

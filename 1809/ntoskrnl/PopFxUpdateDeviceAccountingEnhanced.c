@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxUpdateDeviceAccountingEnhanced @ 0x140158CC8
+ * XREFs of PopFxUpdateDeviceAccountingEnhanced @ 0x140158CE8
  * Callers:
- *     PopPepDeviceDState @ 0x140171F64 (PopPepDeviceDState.c)
+ *     PopPepDeviceDState @ 0x140171F84 (PopPepDeviceDState.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxUpdateAccountingActiveTime @ 0x1400FEE94 (PopFxUpdateAccountingActiveTime.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxUpdateAccountingActiveTime @ 0x1400FEEB4 (PopFxUpdateAccountingActiveTime.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopFxUpdateDeviceAccountingEnhanced(__int64 a1, unsigned int a2, int a3)

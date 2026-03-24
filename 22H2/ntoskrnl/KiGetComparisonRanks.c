@@ -1,87 +1,92 @@
 /*
- * XREFs of KiGetComparisonRanks @ 0x1403690E8
+ * XREFs of KiGetComparisonRanks @ 0x14031E20C
  * Callers:
- *     KiDirectSwitchThread @ 0x1402B1870 (KiDirectSwitchThread.c)
- *     KiEvaluateGroupSchedulingPreemption @ 0x1402B2FD0 (KiEvaluateGroupSchedulingPreemption.c)
+ *     KiEvaluateGroupSchedulingPreemption @ 0x14024C010 (KiEvaluateGroupSchedulingPreemption.c)
+ *     KiDirectSwitchThread @ 0x14024C1B0 (KiDirectSwitchThread.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall KiGetComparisonRanks(__int64 a1, __int64 a2, _DWORD *a3, unsigned int *a4)
 {
-  __int64 v5; // r10
-  unsigned int v6; // ecx
+  __int64 v6; // r10
+  unsigned int v7; // ecx
   __int64 result; // rax
-  unsigned __int8 v8; // bl
-  char v9; // r9
-  unsigned __int8 v10; // r11
-  __int64 v11; // rax
-  __int64 i; // rcx
-  unsigned int v13; // eax
+  unsigned __int8 v9; // r11
+  char v10; // r8
+  unsigned __int8 v11; // r9
+  __int64 v12; // r9
+  __int64 v13; // r11
   unsigned int v14; // eax
+  unsigned int v15; // eax
 
-  v5 = a1;
+  v6 = a1;
   if ( a1 == a2 )
   {
-    v6 = *(_DWORD *)(a1 + 116);
-    result = v6;
+    v7 = *(_DWORD *)(a1 + 116);
+    result = v7;
     goto LABEL_3;
   }
-  v8 = *(_BYTE *)(a1 + 113);
-  v9 = 0;
-  v10 = *(_BYTE *)(a2 + 113);
-  v6 = 0;
-  if ( v8 > v10 )
+  v9 = *(_BYTE *)(a1 + 113);
+  v10 = 0;
+  v11 = *(_BYTE *)(a2 + 113);
+  v7 = 0;
+  if ( v9 > v11 )
   {
-    v9 = 1;
+    v10 = 1;
     do
     {
-      v13 = *(_DWORD *)(v5 + 116);
-      v5 = *(_QWORD *)(v5 + 408);
-      if ( v13 <= v6 )
-        v13 = v6;
-      v6 = v13;
+      v14 = v7;
+      v7 = *(_DWORD *)(v6 + 116);
+      v6 = *(_QWORD *)(v6 + 408);
+      if ( v7 <= v14 )
+        v7 = v14;
     }
-    while ( *(_BYTE *)(v5 + 113) > v10 );
+    while ( *(_BYTE *)(v6 + 113) > v11 );
   }
-  else if ( v8 < v10 )
+  else if ( v9 < v11 )
   {
-    v9 = -1;
+    v10 = -1;
     do
     {
-      v14 = *(_DWORD *)(a2 + 116);
+      v15 = v7;
+      v7 = *(_DWORD *)(a2 + 116);
       a2 = *(_QWORD *)(a2 + 408);
-      if ( v14 <= v6 )
-        v14 = v6;
-      v6 = v14;
+      if ( v7 <= v15 )
+        v7 = v15;
     }
-    while ( v8 < *(_BYTE *)(a2 + 113) );
+    while ( v9 < *(_BYTE *)(a2 + 113) );
   }
-  result = v6;
-  if ( v5 != a2 )
+  result = v7;
+  if ( v6 != a2 )
   {
-    v11 = *(_QWORD *)(v5 + 408);
-    for ( i = *(_QWORD *)(a2 + 408); v11 != i; i = *(_QWORD *)(i + 408) )
+    v12 = *(_QWORD *)(v6 + 408);
+    v10 = 0;
+    v13 = *(_QWORD *)(a2 + 408);
+    if ( v12 == v13 )
     {
-      v5 = v11;
-      a2 = i;
-      v11 = *(_QWORD *)(v11 + 408);
+LABEL_8:
+      v7 = *(_DWORD *)(a2 + 116);
+      result = *(unsigned int *)(v6 + 116);
+      goto LABEL_3;
     }
-    goto LABEL_9;
+    do
+    {
+      v6 = v12;
+      a2 = v13;
+      v12 = *(_QWORD *)(v12 + 408);
+      v13 = *(_QWORD *)(v13 + 408);
+    }
+    while ( v12 != v13 );
   }
-  if ( !v9 )
-  {
-LABEL_9:
-    v6 = *(_DWORD *)(a2 + 116);
-    result = *(unsigned int *)(v5 + 116);
-    goto LABEL_3;
-  }
-  if ( v9 <= 0 )
+  if ( !v10 )
+    goto LABEL_8;
+  if ( v10 <= 0 )
     result = 0LL;
   else
-    v6 = 0;
+    v7 = 0;
 LABEL_3:
   *a3 = result;
-  *a4 = v6;
+  *a4 = v7;
   return result;
 }

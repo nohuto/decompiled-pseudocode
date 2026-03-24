@@ -1,18 +1,18 @@
 /*
- * XREFs of NtAccessCheck @ 0x1402FDDF0
+ * XREFs of NtAccessCheck @ 0x14027E7E0
  * Callers:
  *     <none>
  * Callees:
- *     SeAccessCheckByType @ 0x1402FBEC0 (SeAccessCheckByType.c)
+ *     SeAccessCheckByType @ 0x14027DF60 (SeAccessCheckByType.c)
  */
 
 __int64 __fastcall NtAccessCheck(
         __int16 *a1,
         void *a2,
-        int a3,
-        _OWORD *a4,
+        unsigned int a3,
+        __int128 *a4,
         _DWORD *a5,
-        PERESOURCE *a6,
+        unsigned int *a6,
         unsigned int *a7,
         int *a8)
 {

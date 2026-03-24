@@ -1,11 +1,11 @@
 /*
- * XREFs of IoSetDevicePropertyData @ 0x140866AD0
+ * XREFs of IoSetDevicePropertyData @ 0x140743220
  * Callers:
- *     HalpInterruptConnect @ 0x1405042D0 (HalpInterruptConnect.c)
+ *     HalpInterruptConnect @ 0x1404BB388 (HalpInterruptConnect.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     PnpSetDevicePropertyData @ 0x140866B78 (PnpSetDevicePropertyData.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     PnpSetDevicePropertyData @ 0x14074307C (PnpSetDevicePropertyData.c)
  */
 
 NTSTATUS __stdcall IoSetDevicePropertyData(
@@ -22,9 +22,11 @@ NTSTATUS __stdcall IoSetDevicePropertyData(
   UNICODE_STRING *p_DriverName; // rcx
   char *v12; // rcx
   unsigned __int16 *v13; // rdi
-  _WORD *v14; // rcx
-  __int64 v15; // rax
+  struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rdx
+  _WORD *v15; // rcx
   __int64 v16; // rcx
+  _WORD *v17; // rcx
+  __int64 v18; // rcx
 
   if ( !Pdo )
     goto LABEL_16;
@@ -49,37 +51,43 @@ NTSTATUS __stdcall IoSetDevicePropertyData(
     if ( v12 )
     {
       v13 = (unsigned __int16 *)(v12 + 40);
-      IoAddTriageDumpDataBlock((ULONG)v12, (PVOID)0x388);
+      IoAddTriageDumpDataBlock((ULONG)v12, (PVOID)0x310);
       if ( *v13 )
       {
         IoAddTriageDumpDataBlock((ULONG)v13, (PVOID)2);
         IoAddTriageDumpDataBlock(*((_QWORD *)v13 + 1), (PVOID)*v13);
       }
-      v14 = (char *)Pdo->DeviceObjectExtension->DeviceNode + 56;
-      if ( *v14 )
+      DeviceObjectExtension = Pdo->DeviceObjectExtension;
+      v15 = (char *)DeviceObjectExtension->DeviceNode + 56;
+      if ( *v15 )
       {
-        IoAddTriageDumpDataBlock((ULONG)v14, (PVOID)2);
+        IoAddTriageDumpDataBlock((ULONG)v15, (PVOID)2);
         IoAddTriageDumpDataBlock(
           *((_QWORD *)Pdo->DeviceObjectExtension->DeviceNode + 8),
           (PVOID)*((unsigned __int16 *)Pdo->DeviceObjectExtension->DeviceNode + 28));
+        DeviceObjectExtension = Pdo->DeviceObjectExtension;
       }
-      v15 = *((_QWORD *)Pdo->DeviceObjectExtension->DeviceNode + 2);
-      if ( v15 && *(_WORD *)(v15 + 56) )
+      v16 = *((_QWORD *)DeviceObjectExtension->DeviceNode + 2);
+      if ( v16 )
       {
-        IoAddTriageDumpDataBlock(v15 + 56, (PVOID)2);
-        v16 = *((_QWORD *)Pdo->DeviceObjectExtension->DeviceNode + 2);
-        IoAddTriageDumpDataBlock(*(_QWORD *)(v16 + 64), (PVOID)*(unsigned __int16 *)(v16 + 56));
+        v17 = (_WORD *)(v16 + 56);
+        if ( *v17 )
+        {
+          IoAddTriageDumpDataBlock((ULONG)v17, (PVOID)2);
+          v18 = *((_QWORD *)Pdo->DeviceObjectExtension->DeviceNode + 2);
+          IoAddTriageDumpDataBlock(*(_QWORD *)(v18 + 64), (PVOID)*(unsigned __int16 *)(v18 + 56));
+        }
       }
     }
 LABEL_16:
     KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)Pdo, 0LL, 0LL);
   }
   return PnpSetDevicePropertyData(
-           (_DWORD)Pdo,
-           (_DWORD)PropertyKey,
+           (__int64)Pdo,
+           (__int64)PropertyKey,
            Lcid,
            Lcid,
            Data != 0LL ? Type : 0,
            Data != 0LL ? Size : 0,
-           (__int64)Data);
+           (const wchar_t *)Data);
 }

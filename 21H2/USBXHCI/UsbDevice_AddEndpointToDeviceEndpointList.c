@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbDevice_AddEndpointToDeviceEndpointList @ 0x1C0001E70
+ * XREFs of UsbDevice_AddEndpointToDeviceEndpointList @ 0x1C0009660
  * Callers:
- *     Endpoint_Create @ 0x1C006B6C8 (Endpoint_Create.c)
+ *     Endpoint_Create @ 0x1C006A5F0 (Endpoint_Create.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall UsbDevice_AddEndpointToDeviceEndpointList(__int64 a1, __int64 a2, _QWORD *a3)
@@ -15,13 +15,13 @@ void __fastcall UsbDevice_AddEndpointToDeviceEndpointList(__int64 a1, __int64 a2
     WdfDriverGlobals,
     *(_QWORD *)a1,
     UsbDevice_AddEndpointToDeviceEndpointList,
-    6943LL,
+    6951LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\usbdevice.c");
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64 (__fastcall *)(), __int64, const char *))(WdfFunctions_01023 + 1640))(
     WdfDriverGlobals,
     a2,
     UsbDevice_AddEndpointToDeviceEndpointList,
-    6951LL,
+    6959LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\usbdevice.c");
   v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 88));
   v7 = *(_QWORD **)(a1 + 104);

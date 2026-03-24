@@ -1,97 +1,73 @@
 /*
- * XREFs of PoSetProcessorQoS @ 0x140462800
+ * XREFs of PoSetProcessorQoS @ 0x14056E49C
  * Callers:
- *     KiQuantumEnd @ 0x1402486D0 (KiQuantumEnd.c)
- *     KiUpdateRunTime @ 0x1402C74B0 (KiUpdateRunTime.c)
- *     KeCheckAndApplyBamQos @ 0x140460D10 (KeCheckAndApplyBamQos.c)
+ *     KeClockInterruptNotify @ 0x140221600 (KeClockInterruptNotify.c)
+ *     KiUpdateRunTime @ 0x140227590 (KiUpdateRunTime.c)
+ *     KeCheckAndApplyBamQos @ 0x14051E3E0 (KeCheckAndApplyBamQos.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     PpmPerfArbitratorApplyProcessorState @ 0x14034EB90 (PpmPerfArbitratorApplyProcessorState.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmHvSetVirtualProcessorQos @ 0x1405A0144 (PpmHvSetVirtualProcessorQos.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x1403985A4 (PpmPerfArbitratorApplyProcessorState.c)
+ *     PpmHvSetVirtualProcessorQos @ 0x14057C3D4 (PpmHvSetVirtualProcessorQos.c)
  */
 
-char __fastcall PoSetProcessorQoS(__int64 a1, int a2, __int64 a3, __int64 a4)
+char __fastcall PoSetProcessorQoS(__int64 a1, signed int a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // rbp
-  bool v5; // si
-  char v6; // r15
-  char v8; // di
+  bool v4; // bp
+  char v5; // r15
+  char v8; // si
   __int64 v9; // r14
-  volatile signed __int32 *SchedulerAssist; // rcx
-  int v11; // eax
-  unsigned __int64 v12; // r8
-  unsigned __int64 v13; // rdx
-  unsigned __int64 v14; // rax
-  bool v15; // zf
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *v17; // r8
-  signed __int32 v18; // eax
-  signed __int32 v19; // ett
-  __int16 v21; // [rsp+30h] [rbp-8h]
+  int v10; // eax
+  unsigned __int64 v11; // r8
+  unsigned __int64 v12; // rdx
+  signed int v13; // eax
+  bool v14; // cl
+  unsigned __int64 v15; // rax
+  bool v16; // zf
+  __int16 v18; // [rsp+30h] [rbp-8h]
 
-  v4 = a2;
+  v4 = 0;
   v5 = 0;
-  v6 = 0;
   v8 = 1;
-  if ( a2 == *(_DWORD *)(a1 + 34112) )
+  if ( a2 == *(_DWORD *)(a1 + 33264) )
     return v8;
-  v9 = *(_QWORD *)(a1 + 33976);
+  v9 = *(_QWORD *)(a1 + 33136);
   if ( v9 && *(_BYTE *)(v9 + 125) )
   {
-    v6 = 1;
+    v5 = 1;
     _disable();
-    SchedulerAssist = (volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
-    if ( SchedulerAssist )
-      _InterlockedOr(SchedulerAssist, 0x200000u);
-    v5 = (v21 & 0x200) != 0;
+    v4 = (v18 & 0x200) != 0;
     KxAcquireSpinLock((PKSPIN_LOCK)(v9 + 128));
   }
-  v11 = *(unsigned __int16 *)(a1 + 34120);
-  if ( !_bittest(&v11, v4) )
+  v10 = *(unsigned __int16 *)(a1 + 33272);
+  if ( _bittest(&v10, a2) )
+    goto LABEL_19;
+  v11 = __rdtsc();
+  v12 = v11 - *(_QWORD *)(a1 + 33248);
+  v13 = *(_DWORD *)(a1 + 33264);
+  v14 = a2 == 3 || v13 == 3;
+  if ( a2 == 4 && v13 || !a2 || a2 <= v13 && !v14 || v12 >= *(_QWORD *)(a1 + 33256) || *(_BYTE *)(a1 + 33213) )
   {
-    v12 = __rdtsc();
-    v13 = v12 - *(_QWORD *)(a1 + 34096);
-    if ( PpmPerfQosHysteresis[7 * v4 + *(int *)(a1 + 34112)] && v13 < *(_QWORD *)(a1 + 34104) && !*(_BYTE *)(a1 + 34061) )
-    {
-      v8 = 0;
-      goto LABEL_17;
-    }
-    v14 = 2LL * *(_QWORD *)(a1 + 34104);
-    *(_QWORD *)(a1 + 34096) = v12;
-    *(_BYTE *)(a1 + 34061) = v13 >= v14;
+    v15 = 2LL * *(_QWORD *)(a1 + 33256);
+    *(_QWORD *)(a1 + 33248) = v11;
+    *(_BYTE *)(a1 + 33213) = v12 >= v15;
+LABEL_19:
+    v16 = PpmPerfVmQosSupported == 0;
+    *(_DWORD *)(a1 + 33264) = a2;
+    if ( v16 )
+      PpmPerfArbitratorApplyProcessorState(a1, 1u, 0, a4);
+    else
+      PpmHvSetVirtualProcessorQos(a1);
+    *(_BYTE *)(a1 + 236) = a2;
+    goto LABEL_23;
   }
-  v15 = PpmPerfVmQosSupported == 0;
-  *(_DWORD *)(a1 + 34112) = v4;
-  if ( v15 )
-    PpmPerfArbitratorApplyProcessorState(a1, 1u, 0LL, a4);
-  else
-    PpmHvSetVirtualProcessorQos(a1);
-  *(_BYTE *)(a1 + 236) = v4;
-LABEL_17:
-  if ( v6 )
+  v8 = 0;
+LABEL_23:
+  if ( v5 )
   {
-    KxReleaseSpinLock((volatile signed __int64 *)(v9 + 128));
-    if ( v5 )
-    {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v17 = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-      if ( v17 )
-      {
-        _m_prefetchw(v17);
-        v18 = *v17;
-        do
-        {
-          v19 = v18;
-          v18 = _InterlockedCompareExchange(v17, v18 & 0xFFDFFFFF, v18);
-        }
-        while ( v19 != v18 );
-        if ( (v18 & 0x200000) != 0 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-      }
+    KxReleaseSpinLock((PKSPIN_LOCK)(v9 + 128));
+    if ( v4 )
       _enable();
-    }
   }
   return v8;
 }

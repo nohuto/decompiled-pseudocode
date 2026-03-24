@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpEnableKernelTrace @ 0x1406C57B0
+ * XREFs of EtwpEnableKernelTrace @ 0x1406C5790
  * Callers:
- *     EtwpUpdateGlobalGroupMasks @ 0x1406C55B8 (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1406C5598 (EtwpUpdateGlobalGroupMasks.c)
  * Callees:
- *     KeSetTimer2 @ 0x1400FC150 (KeSetTimer2.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     IoPerfInit @ 0x1402850F4 (IoPerfInit.c)
- *     KeStartProfile @ 0x140295B2C (KeStartProfile.c)
- *     DbgSetDebugPrintCallback @ 0x1402EC8F0 (DbgSetDebugPrintCallback.c)
- *     EtwpDisableKernelTrace @ 0x1406C5A4C (EtwpDisableKernelTrace.c)
- *     EtwpUpdateFileInfoDriverState @ 0x1406C5BD8 (EtwpUpdateFileInfoDriverState.c)
- *     KeSetIntervalProfile @ 0x1406D6CE0 (KeSetIntervalProfile.c)
- *     KeInitializeProfileCallback @ 0x14084454C (KeInitializeProfileCallback.c)
- *     AlpcRegisterLogRoutine @ 0x14084B5B8 (AlpcRegisterLogRoutine.c)
- *     ObEnableEtwReferenceTrace @ 0x1408627E0 (ObEnableEtwReferenceTrace.c)
- *     WmiSetNetworkNotify @ 0x1408B43AC (WmiSetNetworkNotify.c)
+ *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     IoPerfInit @ 0x1402851F4 (IoPerfInit.c)
+ *     KeStartProfile @ 0x140295C2C (KeStartProfile.c)
+ *     DbgSetDebugPrintCallback @ 0x1402EC9F0 (DbgSetDebugPrintCallback.c)
+ *     EtwpDisableKernelTrace @ 0x1406C5A2C (EtwpDisableKernelTrace.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x1406C5BB8 (EtwpUpdateFileInfoDriverState.c)
+ *     KeSetIntervalProfile @ 0x1406D6CC0 (KeSetIntervalProfile.c)
+ *     KeInitializeProfileCallback @ 0x14084452C (KeInitializeProfileCallback.c)
+ *     AlpcRegisterLogRoutine @ 0x14084B598 (AlpcRegisterLogRoutine.c)
+ *     ObEnableEtwReferenceTrace @ 0x1408627C0 (ObEnableEtwReferenceTrace.c)
+ *     WmiSetNetworkNotify @ 0x1408B438C (WmiSetNetworkNotify.c)
  */
 
 __int64 __fastcall EtwpEnableKernelTrace(const __m128i *a1, char *a2, __int64 a3, unsigned int a4)
@@ -236,7 +236,7 @@ LABEL_50:
     if ( (v19 & 0x400) != 0 )
     {
       for ( i = 0; i < EtwpPmcProfile; ++i )
-        KeStartProfile((ULONG_PTR)qword_14040A238 + 248 * i);
+        KeStartProfile((ULONG_PTR)qword_14040A388 + 248 * i);
       v27[1] = v10 | 0x400;
     }
     if ( (*((_DWORD *)a2 + 4) & 0x80u) != 0 )

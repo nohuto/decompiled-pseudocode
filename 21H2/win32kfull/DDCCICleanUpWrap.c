@@ -1,20 +1,17 @@
 /*
- * XREFs of DDCCICleanUpWrap @ 0x1C0120C10
+ * XREFs of DDCCICleanUpWrap @ 0x1C0135260
  * Callers:
  *     <none>
  * Callees:
- *     ??1CMonitorAPI@@QEAA@XZ @ 0x1C0120C54 (--1CMonitorAPI@@QEAA@XZ.c)
+ *     ??_GCMonitorAPI@@QEAAPEAXI@Z @ 0x1C013528C (--_GCMonitorAPI@@QEAAPEAXI@Z.c)
  */
 
-void DDCCICleanUpWrap()
+void *__fastcall DDCCICleanUpWrap(__int64 a1, unsigned int a2)
 {
-  PVOID v0; // rbx
+  void *result; // rax
 
-  v0 = P;
-  if ( P )
-  {
-    CMonitorAPI::~CMonitorAPI((CMonitorAPI *)P);
-    ExFreePoolWithTag(v0, 0x63326947u);
-  }
-  P = 0LL;
+  if ( qword_1C033B068 )
+    result = CMonitorAPI::`scalar deleting destructor'(qword_1C033B068, a2);
+  qword_1C033B068 = 0LL;
+  return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CheckSupportsConvertPresentToMPO@CLegacySwapChain@@$4PPPPPPPM@A@EBA_NXZ @ 0x180108D70
+ * XREFs of ?CheckSupportsConvertPresentToMPO@CLegacySwapChain@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F74C0
  * Callers:
  *     <none>
  * Callees:

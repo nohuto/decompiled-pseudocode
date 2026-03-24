@@ -1,23 +1,23 @@
 /*
- * XREFs of IrqPolicySetDeviceAffinity @ 0x1C009CC94
+ * XREFs of IrqPolicySetDeviceAffinity @ 0x1C0092208
  * Callers:
- *     IrqArbpSetDeviceProperties @ 0x1C0099084 (IrqArbpSetDeviceProperties.c)
+ *     IrqArbpSetDeviceProperties @ 0x1C0092578 (IrqArbpSetDeviceProperties.c)
  * Callees:
- *     IrqPolicyGetSubKey @ 0x1C009B108 (IrqPolicyGetSubKey.c)
+ *     IrqPolicyGetSubKey @ 0x1C0094FF8 (IrqPolicyGetSubKey.c)
  */
 
-NTSTATUS __fastcall IrqPolicySetDeviceAffinity(struct _DEVICE_OBJECT *a1, unsigned __int16 *a2)
+__int64 __fastcall IrqPolicySetDeviceAffinity(__int64 a1, unsigned __int16 *a2)
 {
-  NTSTATUS result; // eax
-  NTSTATUS v4; // ebx
+  __int64 result; // rax
+  unsigned int v4; // ebx
   struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
   int Data; // [rsp+60h] [rbp+20h] BYREF
   HANDLE KeyHandle; // [rsp+68h] [rbp+28h] BYREF
 
   KeyHandle = 0LL;
   DestinationString = 0LL;
-  result = IrqPolicyGetSubKey(a1, L"Affinity Policy - Temporal", 1u, &KeyHandle);
-  if ( result >= 0 )
+  result = IrqPolicyGetSubKey(a1, L"Affinity Policy - Temporal", 1LL, &KeyHandle);
+  if ( (int)result >= 0 )
   {
     Data = a2[4];
     RtlInitUnicodeString(&DestinationString, L"TargetGroup");

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?AddRef@CMesh2DEffect@@WBA@EAAKXZ @ 0x18010D550
+ * XREFs of ?AddRef@CMesh2DEffect@@WBA@EAAKXZ @ 0x1800F6C90
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-unsigned int __fastcall CMesh2DEffect::AddRef(__int64 a1)
+__int64 __fastcall CMesh2DEffect::AddRef(__int64 a1)
 {
-  return CMesh2DEffect::AddRef((CMesh2DEffect *)(a1 - 16));
+  return BamoDataProviderProxy::AddRef((BamoDataProviderProxy *)(a1 - 16));
 }

@@ -4,7 +4,7 @@
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
  *     MiRemoveMappedPtes @ 0x1400855D0 (MiRemoveMappedPtes.c)
- *     MiDeleteMergedPte @ 0x14011FC00 (MiDeleteMergedPte.c)
+ *     MiDeleteMergedPte @ 0x14011FC20 (MiDeleteMergedPte.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiDeleteTransitionPte @ 0x140095430 (MiDeleteTransitionPte.c)

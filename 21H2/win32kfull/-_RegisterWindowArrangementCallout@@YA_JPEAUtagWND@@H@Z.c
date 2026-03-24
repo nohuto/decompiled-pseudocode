@@ -1,70 +1,73 @@
 /*
- * XREFs of ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x1C00F1804
+ * XREFs of ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x1C00D7770
  * Callers:
- *     NtUserRegisterWindowArrangementCallout @ 0x1C00F1740 (NtUserRegisterWindowArrangementCallout.c)
+ *     <none>
  * Callees:
- *     IAMThreadAccessGranted @ 0x1C0023254 (IAMThreadAccessGranted.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     IsShellProcess @ 0x1C007B10C (IsShellProcess.c)
- *     _UnregisterHotKey @ 0x1C009DD7C (_UnregisterHotKey.c)
- *     _RegisterHotKey @ 0x1C009E114 (_RegisterHotKey.c)
- *     IsIAMThread @ 0x1C00A9A2C (IsIAMThread.c)
- *     ?SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z @ 0x1C00F1A30 (-SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z.c)
- *     IsMessageOnlyWindow @ 0x1C00F1ED0 (IsMessageOnlyWindow.c)
+ *     _UnregisterHotKey @ 0x1C00328F0 (_UnregisterHotKey.c)
+ *     _RegisterHotKey @ 0x1C0032C74 (_RegisterHotKey.c)
+ *     IAMThreadAccessGranted @ 0x1C0037FF4 (IAMThreadAccessGranted.c)
+ *     IsShellProcess @ 0x1C003C638 (IsShellProcess.c)
+ *     IsIAMThread @ 0x1C003CEF8 (IsIAMThread.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     IsMessageOnlyWindow @ 0x1C00D7730 (IsMessageOnlyWindow.c)
+ *     ?SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z @ 0x1C00D7884 (-SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z.c)
  */
 
 __int64 __fastcall _RegisterWindowArrangementCallout(struct tagWND *a1, int a2)
 {
   struct tagWND **v4; // rsi
   __int64 v5; // rdx
-  struct tagWND *v6; // rcx
-  int v7; // eax
-  struct tagWND *v8; // r8
-  __int64 v10; // rcx
-  struct tagWND *v11; // r8
+  __int64 v6; // r8
+  struct tagWND *v7; // rcx
+  int v8; // eax
+  int v9; // eax
+  __int64 v11; // rcx
+  struct tagWND *v12; // r8
   ULONG_PTR BugCheckParameter2; // [rsp+20h] [rbp-18h]
 
   v4 = *(struct tagWND ***)(gptiCurrent + 456LL);
-  if ( (*(_DWORD *)(PsGetCurrentProcessWin32Process(a1) + 12) & 0x88) != 0 || !IAMThreadAccessGranted(gptiCurrent) )
+  v6 = *(unsigned int *)(PsGetCurrentProcessWin32Process(a1) + 12);
+  if ( (v6 & 0x88) != 0 || !IAMThreadAccessGranted(gptiCurrent) )
   {
 LABEL_12:
-    v10 = 5LL;
+    v11 = 5LL;
     goto LABEL_13;
   }
-  v6 = v4[40];
+  v7 = v4[41];
   if ( !a2 )
   {
-    if ( !v6 )
+    if ( !v7 )
       return 1LL;
-    if ( *(struct tagWND **)(*((_QWORD *)a1 + 3) + 320LL) == a1 && *((_QWORD *)v6 + 2) == gptiCurrent )
+    if ( *(struct tagWND **)(*((_QWORD *)a1 + 3) + 328LL) == a1 && *((_QWORD *)v7 + 2) == gptiCurrent )
     {
       UnregisterHotKey((__int64)a1, 0xF060u);
-      ShellWindowManagement::SetWindow((ShellWindowManagement *)v4, 0LL, v11);
+      ShellWindowManagement::SetWindow((ShellWindowManagement *)v4, 0LL, v12);
       return 1LL;
     }
     goto LABEL_12;
   }
-  if ( v6 )
+  if ( v7 )
   {
-    v10 = 1242LL;
+    v11 = 1242LL;
     goto LABEL_13;
   }
   if ( *((_QWORD *)a1 + 2) != gptiCurrent )
     goto LABEL_12;
   if ( !(unsigned int)IsShellProcess(*(_QWORD *)(gptiCurrent + 424LL)) )
     goto LABEL_12;
-  LOBYTE(v7) = IsIAMThread(gptiCurrent);
-  if ( !v7 )
+  LOBYTE(v8) = IsIAMThread(gptiCurrent);
+  if ( !v8 )
     goto LABEL_12;
-  if ( (unsigned int)IsMessageOnlyWindow(a1) && (*(_DWORD *)(*((_QWORD *)a1 + 5) + 288LL) & 0xF) == 2 )
+  LOBYTE(v9) = IsMessageOnlyWindow((__int64)a1);
+  if ( v9 && (*(_DWORD *)(*((_QWORD *)a1 + 5) + 288LL) & 0xF) == 2 )
   {
-    ShellWindowManagement::SetWindow((ShellWindowManagement *)v4, a1, v8);
+    ShellWindowManagement::SetWindow((ShellWindowManagement *)v4, a1, (struct tagWND *)v6);
     LODWORD(BugCheckParameter2) = 115;
-    RegisterHotKey(v4[40], 0LL, 61536, 28673, BugCheckParameter2);
+    RegisterHotKey(v4[41], 0LL, 61536LL, 28673, BugCheckParameter2);
     return 1LL;
   }
-  v10 = 87LL;
+  v11 = 87LL;
 LABEL_13:
-  UserSetLastError(v10, v5);
+  UserSetLastError(v11, v5, v6);
   return 0LL;
 }

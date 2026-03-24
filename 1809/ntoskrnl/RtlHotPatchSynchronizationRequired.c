@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlHotPatchSynchronizationRequired @ 0x140899E0C
+ * XREFs of RtlHotPatchSynchronizationRequired @ 0x140899DEC
  * Callers:
- *     MiPrepareToHotPatchImage @ 0x140857368 (MiPrepareToHotPatchImage.c)
+ *     MiPrepareToHotPatchImage @ 0x140857348 (MiPrepareToHotPatchImage.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x1400D95C0 (RtlFindClearBitsAndSet.c)
- *     RtlGetHotPatchSize @ 0x1402F7D74 (RtlGetHotPatchSize.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
+ *     RtlGetHotPatchSize @ 0x1402F7E74 (RtlGetHotPatchSize.c)
  *     RtlpCheckFunctionPatchApplied @ 0x14057E480 (RtlpCheckFunctionPatchApplied.c)
  */
 

@@ -1,39 +1,32 @@
 /*
- * XREFs of ?ProcessSetQualityLevel@CHolographicComposition@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICCOMPOSITION_SETQUALITYLEVEL@@@Z @ 0x1802A7984
+ * XREFs of ?ProcessSetQualityLevel@CHolographicComposition@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICCOMPOSITION_SETQUALITYLEVEL@@@Z @ 0x180255FD4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x1802AC48C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A660 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
 __int64 __fastcall CHolographicComposition::ProcessSetQualityLevel(
-        CHolographicComposition *this,
+        struct IUnknown *this,
         struct CResourceTable *a2,
         const struct tagMILCMD_HOLOGRAPHICCOMPOSITION_SETQUALITYLEVEL *a3)
 {
-  __int64 v3; // rdx
-  CHolographicInteropTaskQueue *v4; // r10
+  struct IUnknownVtbl *lpVtbl; // rdx
+  CHolographicInteropTaskQueue *QueryInterface; // rax
 
-  v3 = *((_QWORD *)this + 11);
-  if ( v3 )
+  lpVtbl = this[10].lpVtbl;
+  if ( lpVtbl )
   {
-    if ( *((_BYTE *)this + 117) )
+    if ( BYTE5(this[13].lpVtbl) )
     {
-      *((_DWORD *)this + 28) = *((_DWORD *)a3 + 2);
-      if ( *((_BYTE *)this + 116) )
+      LODWORD(this[13].lpVtbl) = *((_DWORD *)a3 + 2);
+      if ( BYTE4(this[13].lpVtbl) )
       {
-        v4 = *(CHolographicInteropTaskQueue **)(v3 + 48);
-        if ( v4 )
+        QueryInterface = (CHolographicInteropTaskQueue *)lpVtbl[2].QueryInterface;
+        if ( QueryInterface )
         {
-          if ( *(_BYTE *)(v3 + 240) )
-            CHolographicInteropTaskQueue::PostMessageW(
-              v4,
-              0xBu,
-              (struct IUnknown *)(((unsigned __int64)this + 72) & -(__int64)(this != 0LL)),
-              0LL,
-              0LL,
-              0LL,
-              0LL);
+          if ( LOBYTE(lpVtbl[10].QueryInterface) )
+            CHolographicInteropTaskQueue::PostMessageW(QueryInterface, 0xBu, this + 8, 0LL, 0LL, 0LL, 0LL);
         }
       }
     }

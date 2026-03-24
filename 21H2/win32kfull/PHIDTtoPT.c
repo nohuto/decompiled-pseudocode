@@ -1,9 +1,9 @@
 /*
- * XREFs of PHIDTtoPT @ 0x1C01E8F0C
+ * XREFs of PHIDTtoPT @ 0x1C01EE90C
  * Callers:
- *     _GetPointerDeviceType @ 0x1C016C360 (_GetPointerDeviceType.c)
- *     PostPointerEventMessage @ 0x1C01E8F50 (PostPointerEventMessage.c)
- *     _GetPointerDeviceInfoProperties @ 0x1C01E9950 (_GetPointerDeviceInfoProperties.c)
+ *     PostPointerEventMessage @ 0x1C01EE990 (PostPointerEventMessage.c)
+ *     _GetPointerDeviceInfoProperties @ 0x1C01EF490 (_GetPointerDeviceInfoProperties.c)
+ *     _GetPointerDeviceType @ 0x1C01EF528 (_GetPointerDeviceType.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEnableProfile @ 0x14083113C
+ * XREFs of PpmEnableProfile @ 0x1407C5C14
  * Callers:
- *     PdcPoPpmResetProfile @ 0x1408310F0 (PdcPoPpmResetProfile.c)
- *     PpmRegisterSpmSettings @ 0x14099DB50 (PpmRegisterSpmSettings.c)
- *     PpmInitPolicyConfiguration @ 0x140B151EC (PpmInitPolicyConfiguration.c)
+ *     PdcPoPpmResetProfile @ 0x1408EF950 (PdcPoPpmResetProfile.c)
+ *     PpmRegisterSpmSettings @ 0x1408F60F0 (PpmRegisterSpmSettings.c)
+ *     PpmInitPolicyConfiguration @ 0x140A6B864 (PpmInitPolicyConfiguration.c)
  * Callees:
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     PpmEventTraceProfileEnable @ 0x14083120C (PpmEventTraceProfileEnable.c)
- *     PpmReinitializeHeteroEngine @ 0x140848BE8 (PpmReinitializeHeteroEngine.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
+ *     PpmReinitializeHeteroEngine @ 0x1407B9AE8 (PpmReinitializeHeteroEngine.c)
+ *     PpmEventTraceProfileEnable @ 0x1407C5CBC (PpmEventTraceProfileEnable.c)
  */
 
 __int64 __fastcall PpmEnableProfile(__int64 a1, __int64 a2)
@@ -17,7 +17,6 @@ __int64 __fastcall PpmEnableProfile(__int64 a1, __int64 a2)
   __int64 v4; // rax
   __int64 v5; // rax
   __int64 v6; // rax
-  __int64 v7; // rax
 
   *(_DWORD *)(a1 + 28) |= 1u;
   v2 = *(_QWORD *)(a1 + 12) - *(_QWORD *)&GUID_POWER_POLICY_PROFILE_LOW_POWER.Data1;
@@ -27,7 +26,7 @@ __int64 __fastcall PpmEnableProfile(__int64 a1, __int64 a2)
   if ( !v2 )
   {
     PpmLowPowerProfile = a1;
-    goto LABEL_16;
+    goto LABEL_13;
   }
   v4 = *(_QWORD *)(a1 + 12) - *(_QWORD *)&GUID_POWER_POLICY_PROFILE_BACKGROUND.Data1;
   if ( !v4 )
@@ -35,11 +34,10 @@ __int64 __fastcall PpmEnableProfile(__int64 a1, __int64 a2)
   if ( !v4 )
   {
     PpmBackgroundProfile = a1;
-LABEL_22:
-    LOBYTE(a1) = 1;
-    PpmReinitializeHeteroEngine(a1);
+LABEL_18:
+    PpmReinitializeHeteroEngine(1);
     PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
-    goto LABEL_16;
+    goto LABEL_13;
   }
   v5 = *(_QWORD *)(a1 + 12) - *(_QWORD *)&GUID_POWER_POLICY_PROFILE_ENTRY_LEVEL_PERF.Data1;
   if ( !v5 )
@@ -47,7 +45,7 @@ LABEL_22:
   if ( !v5 )
   {
     PpmEntryLevelPerfProfile = a1;
-    goto LABEL_22;
+    goto LABEL_18;
   }
   v6 = *(_QWORD *)(a1 + 12) - *(_QWORD *)&GUID_POWER_POLICY_PROFILE_QOS_MULTIMEDIA.Data1;
   if ( !v6 )
@@ -55,17 +53,9 @@ LABEL_22:
   if ( !v6 )
   {
     PpmMultimediaQosProfile = a1;
-    goto LABEL_16;
+    goto LABEL_18;
   }
-  v7 = *(_QWORD *)(a1 + 12) - *(_QWORD *)&GUID_POWER_POLICY_PROFILE_QOS_ECO.Data1;
-  if ( !v7 )
-    v7 = *(_QWORD *)(a1 + 20) - *(_QWORD *)GUID_POWER_POLICY_PROFILE_QOS_ECO.Data4;
-  if ( !v7 )
-  {
-    PpmEcoQosProfile = a1;
-    goto LABEL_22;
-  }
-LABEL_16:
+LABEL_13:
   LOBYTE(a2) = 1;
   LOBYTE(a1) = v3;
   return PpmEventTraceProfileEnable(a1, a2);

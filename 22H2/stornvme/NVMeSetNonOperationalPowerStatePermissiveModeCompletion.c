@@ -1,9 +1,9 @@
 /*
- * XREFs of NVMeSetNonOperationalPowerStatePermissiveModeCompletion @ 0x1C0024040
+ * XREFs of NVMeSetNonOperationalPowerStatePermissiveModeCompletion @ 0x1C001BE10
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
  */
 
 __int64 __fastcall NVMeSetNonOperationalPowerStatePermissiveModeCompletion(__int64 a1, __int64 a2)
@@ -16,11 +16,13 @@ __int64 __fastcall NVMeSetNonOperationalPowerStatePermissiveModeCompletion(__int
 
   result = GetSrbExtension(a2);
   v5 = result;
-  if ( v6 && *(_BYTE *)(v3 + 3) != 14 )
+  if ( v6 )
   {
-    if ( *(_BYTE *)(v4 + 24) )
-      result = StorPortExtendedFunction(85LL, v4, 0LL);
-    *(_BYTE *)(v5 + 4253) |= 8u;
+    if ( *(_BYTE *)(v3 + 3) != 14 )
+    {
+      result = StorPortExtendedFunction(85LL, v4, 0LL, 0LL);
+      *(_BYTE *)(v5 + 4253) |= 8u;
+    }
   }
   return result;
 }

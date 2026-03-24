@@ -1,9 +1,9 @@
 /*
- * XREFs of XmRorOp @ 0x140535BD0
+ * XREFs of XmRorOp @ 0x1404E5EF0
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x1403A2E60 (XmStoreResult.c)
+ *     XmStoreResult @ 0x140396DC0 (XmStoreResult.c)
  */
 
 _WORD *__fastcall XmRorOp(_DWORD *a1)

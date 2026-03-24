@@ -1,40 +1,40 @@
 /*
- * XREFs of NtUserIsTopLevelWindow @ 0x1C00E2030
+ * XREFs of NtUserIsTopLevelWindow @ 0x1C00FA7E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall NtUserIsTopLevelWindow(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserIsTopLevelWindow(__int64 a1)
 {
-  __int64 v4; // rax
-  __int64 v5; // rcx
-  __int64 v6; // rbx
+  __int64 v2; // rax
+  __int64 v3; // rcx
+  __int64 v4; // rbx
+  __int64 v5; // rax
+  __int64 v6; // rdx
   __int64 v7; // rax
-  __int64 v8; // rdx
-  __int64 v9; // rax
 
-  EnterSharedCrit(a1, a2, a3);
-  v4 = ValidateHwnd(a1);
-  v6 = 0LL;
-  if ( v4 )
+  EnterSharedCrit(0LL, 1LL);
+  v2 = ValidateHwnd(a1);
+  v4 = 0LL;
+  if ( v2 )
   {
-    v5 = *(_QWORD *)(v4 + 104);
-    if ( v5 )
+    v3 = *(_QWORD *)(v2 + 104);
+    if ( v3 )
     {
-      v7 = *(_QWORD *)(v4 + 24);
-      v8 = 0LL;
-      if ( v7 )
+      v5 = *(_QWORD *)(v2 + 24);
+      v6 = 0LL;
+      if ( v5 )
       {
-        v9 = *(_QWORD *)(v7 + 8);
-        if ( v9 )
-          v8 = *(_QWORD *)(v9 + 24);
+        v7 = *(_QWORD *)(v5 + 8);
+        if ( v7 )
+          v6 = *(_QWORD *)(v7 + 24);
       }
-      if ( v5 == v8 )
-        v6 = 1LL;
+      if ( v3 == v6 )
+        v4 = 1LL;
     }
   }
-  UserSessionSwitchLeaveCrit(v5);
-  return v6;
+  UserSessionSwitchLeaveCrit(v3);
+  return v4;
 }

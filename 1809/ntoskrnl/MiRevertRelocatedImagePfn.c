@@ -3,7 +3,7 @@
  * Callers:
  *     MiValidateImagePfn @ 0x1405A8854 (MiValidateImagePfn.c)
  * Callees:
- *     KeCopyPage @ 0x1401C09B0 (KeCopyPage.c)
+ *     KeCopyPage @ 0x1401C09D0 (KeCopyPage.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     MiPageHasRelocations @ 0x1405A8B14 (MiPageHasRelocations.c)
  *     MiPerformFixups @ 0x1405DFB58 (MiPerformFixups.c)

@@ -1,23 +1,23 @@
 /*
- * XREFs of WmipUpdateModifyGuid @ 0x1408002C8
+ * XREFs of WmipUpdateModifyGuid @ 0x1407C48E0
  * Callers:
- *     WmipUpdateDataSource @ 0x140800178 (WmipUpdateDataSource.c)
+ *     WmipUpdateDataSource @ 0x1407C4788 (WmipUpdateDataSource.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     WmipUnreferenceEntry @ 0x1406C7090 (WmipUnreferenceEntry.c)
- *     WmipFindISInDSByGuid @ 0x1408003BC (WmipFindISInDSByGuid.c)
- *     WmipIsEqualInstanceSets @ 0x140800418 (WmipIsEqualInstanceSets.c)
- *     WmipBuildInstanceSet @ 0x14086A8A4 (WmipBuildInstanceSet.c)
- *     WmipAllocEntry @ 0x14086B3D0 (WmipAllocEntry.c)
- *     WmipUpdateAddGuid @ 0x1409E1C1C (WmipUpdateAddGuid.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     WmipUnreferenceEntry @ 0x1406B23F8 (WmipUnreferenceEntry.c)
+ *     WmipBuildInstanceSet @ 0x1407563C8 (WmipBuildInstanceSet.c)
+ *     WmipAllocEntry @ 0x1407578B0 (WmipAllocEntry.c)
+ *     WmipIsEqualInstanceSets @ 0x1407C49D4 (WmipIsEqualInstanceSets.c)
+ *     WmipFindISInDSByGuid @ 0x1407C4A40 (WmipFindISInDSByGuid.c)
+ *     WmipUpdateAddGuid @ 0x140933868 (WmipUpdateAddGuid.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall WmipUpdateModifyGuid(__int64 a1, __int64 a2, int a3, int a4, __int64 *a5)
+__int64 __fastcall WmipUpdateModifyGuid(__int64 a1, _DWORD *a2, __int64 a3, unsigned int a4, __int64 *a5)
 {
   unsigned int v9; // esi
   __int64 ISInDSByGuid; // rbx
-  __int64 v11; // rax
+  volatile signed __int64 *v11; // rax
   volatile signed __int64 *v12; // rdi
   __int128 v14; // xmm0
   __int64 v15; // rcx
@@ -39,10 +39,10 @@ __int64 __fastcall WmipUpdateModifyGuid(__int64 a1, __int64 a2, int a3, int a4, 
   ISInDSByGuid = WmipFindISInDSByGuid(a1, a2);
   if ( ISInDSByGuid )
   {
-    v11 = WmipAllocEntry(&WmipISChunkInfo);
-    v12 = (volatile signed __int64 *)v11;
+    v11 = WmipAllocEntry((__int64)&WmipISChunkInfo);
+    v12 = v11;
     if ( v11
-      && (int)WmipBuildInstanceSet(a2, a3, a4, v11, *(_DWORD *)(a1 + 56)) >= 0
+      && (int)WmipBuildInstanceSet(a2, a3, a4, (__int64)v11, *(_DWORD *)(a1 + 56)) >= 0
       && !(unsigned __int8)WmipIsEqualInstanceSets(ISInDSByGuid, v12) )
     {
       v21 = *(_OWORD *)ISInDSByGuid;
@@ -97,7 +97,7 @@ LABEL_20:
   }
   else
   {
-    return (unsigned int)WmipUpdateAddGuid(a1, a2, a3, a4, (__int64)a5);
+    return (unsigned int)WmipUpdateAddGuid(a1, (_DWORD)a2, a3, a4, (__int64)a5);
   }
   return v9;
 }

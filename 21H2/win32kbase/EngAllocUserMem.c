@@ -1,9 +1,9 @@
 /*
- * XREFs of EngAllocUserMem @ 0x1C00A6410
+ * XREFs of EngAllocUserMem @ 0x1C00ADA40
  * Callers:
  *     <none>
  * Callees:
- *     EngAllocUserMemEx @ 0x1C00A6438 (EngAllocUserMemEx.c)
+ *     EngAllocUserMemEx @ 0x1C00ADA68 (EngAllocUserMemEx.c)
  */
 
 PVOID __stdcall EngAllocUserMem(SIZE_T cjMemSize, ULONG ulTag)

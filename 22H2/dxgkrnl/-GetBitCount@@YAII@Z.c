@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetBitCount@@YAII@Z @ 0x1C01E78EC
+ * XREFs of ?GetBitCount@@YAII@Z @ 0x1C00F07E8
  * Callers:
- *     ?DxgkCreateContextVirtualImpl@@YAJPEAU_D3DKMT_CREATECONTEXTVIRTUAL@@E@Z @ 0x1C019F8D4 (-DxgkCreateContextVirtualImpl@@YAJPEAU_D3DKMT_CREATECONTEXTVIRTUAL@@E@Z.c)
- *     DxgkCreateContext @ 0x1C02E5440 (DxgkCreateContext.c)
+ *     DxgkCreateContext @ 0x1C00EDDC0 (DxgkCreateContext.c)
+ *     ?DxgkCreateContextVirtualImpl@@YAJPEAU_D3DKMT_CREATECONTEXTVIRTUAL@@E@Z @ 0x1C00F0800 (-DxgkCreateContextVirtualImpl@@YAJPEAU_D3DKMT_CREATECONTEXTVIRTUAL@@E@Z.c)
  * Callees:
  *     <none>
  */

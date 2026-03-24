@@ -1,10 +1,10 @@
 /*
- * XREFs of SepAppendDefaultDacl @ 0x1407532F8
+ * XREFs of SepAppendDefaultDacl @ 0x1406B6728
  * Callers:
- *     SepAppendAceToTokenDefaultDacl @ 0x140257C7C (SepAppendAceToTokenDefaultDacl.c)
- *     NtSetInformationToken @ 0x140754810 (NtSetInformationToken.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x1402C91B4 (SepAppendAceToTokenDefaultDacl.c)
+ *     NtSetInformationToken @ 0x1406749A0 (NtSetInformationToken.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 void *__fastcall SepAppendDefaultDacl(__int64 a1, unsigned __int16 *a2)

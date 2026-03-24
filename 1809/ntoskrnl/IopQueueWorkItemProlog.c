@@ -1,13 +1,13 @@
 /*
- * XREFs of IopQueueWorkItemProlog @ 0x1400D1AC8
+ * XREFs of IopQueueWorkItemProlog @ 0x1400D1AE8
  * Callers:
- *     IoQueueWorkItemEx @ 0x1400D1AA0 (IoQueueWorkItemEx.c)
- *     IoQueueWorkItem @ 0x14012ADF0 (IoQueueWorkItem.c)
- *     IoTryQueueWorkItem @ 0x1401415F0 (IoTryQueueWorkItem.c)
- *     IoQueueWorkItemToNode @ 0x140284570 (IoQueueWorkItemToNode.c)
+ *     IoQueueWorkItemEx @ 0x1400D1AC0 (IoQueueWorkItemEx.c)
+ *     IoQueueWorkItem @ 0x14012AE10 (IoQueueWorkItem.c)
+ *     IoTryQueueWorkItem @ 0x140141610 (IoTryQueueWorkItem.c)
+ *     IoQueueWorkItemToNode @ 0x140284670 (IoQueueWorkItemToNode.c)
  * Callees:
- *     PsGetWorkOnBehalfThread @ 0x1400ACCF4 (PsGetWorkOnBehalfThread.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
+ *     PsGetWorkOnBehalfThread @ 0x1400ACD14 (PsGetWorkOnBehalfThread.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
  */
 
 __int64 __fastcall IopQueueWorkItemProlog(__int64 a1, __int64 a2, __int64 a3)

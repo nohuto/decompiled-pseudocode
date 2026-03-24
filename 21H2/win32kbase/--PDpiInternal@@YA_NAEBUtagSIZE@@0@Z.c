@@ -1,7 +1,7 @@
 /*
- * XREFs of ??PDpiInternal@@YA_NAEBUtagSIZE@@0@Z @ 0x1C016FAF8
+ * XREFs of ??PDpiInternal@@YA_NAEBUtagSIZE@@0@Z @ 0x1C0142AF8
  * Callers:
- *     ?SatisfyMinResolutionBarForScaleIdx@DpiInternal@@YAKHHUtagSIZE@@QEBU_DPI_SCALE_FACTOR_COLLECTION@@H@Z @ 0x1C0172934 (-SatisfyMinResolutionBarForScaleIdx@DpiInternal@@YAKHHUtagSIZE@@QEBU_DPI_SCALE_FACTOR_COLLECTION.c)
+ *     ?SatisfyMinResolutionBarForScaleIdx@DpiInternal@@YAKHHUtagSIZE@@QEBU_DPI_SCALE_FACTOR_COLLECTION@@H@Z @ 0x1C01458D0 (-SatisfyMinResolutionBarForScaleIdx@DpiInternal@@YAKHHUtagSIZE@@QEBU_DPI_SCALE_FACTOR_COLLECTION.c)
  * Callees:
  *     <none>
  */

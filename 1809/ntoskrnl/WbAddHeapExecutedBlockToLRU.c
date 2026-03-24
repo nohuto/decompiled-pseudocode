@@ -1,7 +1,7 @@
 /*
- * XREFs of WbAddHeapExecutedBlockToLRU @ 0x14069169C
+ * XREFs of WbAddHeapExecutedBlockToLRU @ 0x14069167C
  * Callers:
- *     WbAddHeapExecutedBlockToCache @ 0x14069158C (WbAddHeapExecutedBlockToCache.c)
+ *     WbAddHeapExecutedBlockToCache @ 0x14069156C (WbAddHeapExecutedBlockToCache.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)

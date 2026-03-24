@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CManipulationTransformMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C02138B0
+ * XREFs of ?SetIntegerProperty@CManipulationTransformMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E48A0
  * Callers:
  *     <none>
  * Callees:

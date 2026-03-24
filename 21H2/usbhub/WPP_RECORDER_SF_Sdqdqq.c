@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_Sdqdqq @ 0x1C0047E84
+ * XREFs of WPP_RECORDER_SF_Sdqdqq @ 0x1C0049204
  * Callers:
- *     UsbhQueryGlobalDeviceValue @ 0x1C0045550 (UsbhQueryGlobalDeviceValue.c)
+ *     UsbhQueryGlobalDeviceValue @ 0x1C0046880 (UsbhQueryGlobalDeviceValue.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_Sdqdqq(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __int64 a5, const wchar_t *a6, ...)
@@ -21,8 +21,11 @@ __int64 WPP_RECORDER_SF_Sdqdqq(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __in
   va_list va1; // [rsp+F8h] [rbp+40h]
   __int64 v19; // [rsp+100h] [rbp+48h] BYREF
   va_list va2; // [rsp+100h] [rbp+48h]
-  va_list va3; // [rsp+108h] [rbp+50h] BYREF
+  __int64 v21; // [rsp+108h] [rbp+50h] BYREF
+  va_list va3; // [rsp+108h] [rbp+50h]
+  va_list va4; // [rsp+110h] [rbp+58h] BYREF
 
+  va_start(va4, a6);
   va_start(va3, a6);
   va_start(va2, a6);
   va_start(va1, a6);
@@ -32,6 +35,8 @@ __int64 WPP_RECORDER_SF_Sdqdqq(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __in
   v17 = va_arg(va2, _QWORD);
   va_copy(va3, va2);
   v19 = va_arg(va3, _QWORD);
+  va_copy(va4, va3);
+  v21 = va_arg(va4, _QWORD);
   v6 = a6;
   v7 = -1LL;
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0 )
@@ -51,7 +56,7 @@ __int64 WPP_RECORDER_SF_Sdqdqq(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __in
     v11 = a6;
     if ( !a6 )
       v11 = L"NULL";
-    pfnWppTraceMessage(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, const wchar_t *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))WPP_MAIN_CB.SecurityDescriptor)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
       &WPP_290dcc7ac903398322657943f635c8d9_Traceguids,
@@ -64,7 +69,11 @@ __int64 WPP_RECORDER_SF_Sdqdqq(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __in
       8LL,
       (__int64 *)va2,
       4LL,
-      va3);
+      (__int64 *)va3,
+      8LL,
+      va4,
+      8LL,
+      0LL);
   }
   v12 = a6 == 0LL;
   if ( a6 )

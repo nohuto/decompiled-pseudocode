@@ -1,16 +1,16 @@
 /*
- * XREFs of ExUnregisterExtension @ 0x140A02740
+ * XREFs of ExUnregisterExtension @ 0x140956A00
  * Callers:
  *     <none>
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402F0990 (ExWaitForRundownProtectionRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExpDereferenceHost @ 0x140A0282C (ExpDereferenceHost.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExpDereferenceHost @ 0x140956AEC (ExpDereferenceHost.c)
  */
 
 __int64 __fastcall ExUnregisterExtension(struct _EX_RUNDOWN_REF *a1)
@@ -25,12 +25,12 @@ __int64 __fastcall ExUnregisterExtension(struct _EX_RUNDOWN_REF *a1)
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   p_Count = &a1[9].Count;
-  v4 = KeAbPreAcquire((__int64)&a1[9], 0LL);
+  v4 = KeAbPreAcquire((ULONG_PTR)&a1[9], 0LL, 0);
   v5 = v4;
   if ( _interlockedbittestandset64((volatile signed __int32 *)p_Count, 0LL) )
-    ExfAcquirePushLockExclusiveEx(p_Count, v4, (__int64)p_Count);
+    ExfAcquirePushLockExclusiveEx(p_Count, v4, (ULONG_PTR)p_Count);
   if ( v5 )
-    *(_BYTE *)(v5 + 18) = 1;
+    *(_BYTE *)(v5 + 26) |= 1u;
   Count = (void (__fastcall *)(__int64, unsigned __int64))a1[6].Count;
   if ( Count )
     Count(2LL, a1[7].Count);
@@ -42,6 +42,6 @@ __int64 __fastcall ExUnregisterExtension(struct _EX_RUNDOWN_REF *a1)
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)p_Count, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(p_Count);
   KeAbPostRelease((ULONG_PTR)p_Count);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return ExpDereferenceHost(a1);
 }

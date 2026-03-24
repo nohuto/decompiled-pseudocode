@@ -1,9 +1,9 @@
 /*
- * XREFs of ExGetSharedWaiterCount @ 0x14031B990
+ * XREFs of ExGetSharedWaiterCount @ 0x14031BA90
  * Callers:
- *     CmpIsRegistryLockContended @ 0x14026C30C (CmpIsRegistryLockContended.c)
+ *     CmpIsRegistryLockContended @ 0x14026C40C (CmpIsRegistryLockContended.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 ULONG __stdcall ExGetSharedWaiterCount(PERESOURCE Resource)

@@ -1,21 +1,21 @@
 /*
- * XREFs of KeIntSteerAssignCpuSetForGsiv @ 0x140578074
+ * XREFs of KeIntSteerAssignCpuSetForGsiv @ 0x14052261C
  * Callers:
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KiIntSteerAssignCpuSet @ 0x140578174 (KiIntSteerAssignCpuSet.c)
- *     KiIntSteerClearCpuSetAssignment @ 0x140578370 (KiIntSteerClearCpuSetAssignment.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIntSteerAssignCpuSet @ 0x14052271C (KiIntSteerAssignCpuSet.c)
+ *     KiIntSteerClearCpuSetAssignment @ 0x140522778 (KiIntSteerClearCpuSetAssignment.c)
  */
 
 __int64 __fastcall KeIntSteerAssignCpuSetForGsiv(int a1, unsigned __int16 a2, __int64 a3)
 {
   unsigned int v6; // ebx
   KIRQL v7; // al
-  ULONG_PTR v8; // rcx
-  ULONG_PTR *v9; // rdx
+  __int64 v8; // rcx
+  __int64 *v9; // rdx
   unsigned __int64 v10; // rdi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -28,7 +28,7 @@ __int64 __fastcall KeIntSteerAssignCpuSetForGsiv(int a1, unsigned __int16 a2, __
   v8 = KiIntTrackRootList;
   v9 = &KiIntTrackRootList;
   v10 = v7;
-  while ( (ULONG_PTR *)v8 != v9 )
+  while ( (__int64 *)v8 != v9 )
   {
     if ( a1 == -1 )
     {

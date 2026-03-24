@@ -1,15 +1,15 @@
 /*
- * XREFs of InitializeInteractionStateInfo @ 0x1800E5DE0
+ * XREFs of InitializeInteractionStateInfo @ 0x18004D75C
  * Callers:
- *     ??0CInteractionProcessor@@QEAA@XZ @ 0x1800E596C (--0CInteractionProcessor@@QEAA@XZ.c)
+ *     ??0CInteractionProcessor@@QEAA@XZ @ 0x1800E0C94 (--0CInteractionProcessor@@QEAA@XZ.c)
  * Callees:
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
+ *     <none>
  */
 
-void __fastcall InitializeInteractionStateInfo(__int64 a1)
+__int64 __fastcall InitializeInteractionStateInfo(__int64 a1)
 {
-  _OWORD *v2; // rax
-  __int64 v3; // r8
+  __int64 v2; // r8
+  _OWORD *v3; // rax
   _OWORD *v4; // rcx
   __int128 v5; // xmm1
   __int128 v6; // xmm0
@@ -19,76 +19,108 @@ void __fastcall InitializeInteractionStateInfo(__int64 a1)
   __int128 v10; // xmm0
   __int128 v11; // xmm1
   __int128 v12; // xmm1
-  __int128 v13; // xmm0
-  __int128 v14; // xmm1
-  __int128 v15; // xmm0
-  __int64 v16; // rdx
-  __int64 v17; // rdx
-  __int64 v18; // rdx
-  __int64 v19; // rdx
-  __int64 v20; // rdx
-  _OWORD v21[3]; // [rsp+20h] [rbp-1D8h] BYREF
-  __int64 v22; // [rsp+50h] [rbp-1A8h]
-  int v23; // [rsp+98h] [rbp-160h]
-  int v24; // [rsp+DCh] [rbp-11Ch]
-  int v25; // [rsp+120h] [rbp-D8h]
-  int v26; // [rsp+164h] [rbp-94h]
-  int v27; // [rsp+1A8h] [rbp-50h]
-  int v28; // [rsp+1ECh] [rbp-Ch]
+  __int128 v13; // xmm1
+  __int128 v14; // xmm0
+  __int64 result; // rax
+  _OWORD v16[3]; // [rsp+0h] [rbp-1D8h] BYREF
+  __int64 v17; // [rsp+30h] [rbp-1A8h]
+  int v18; // [rsp+78h] [rbp-160h]
+  int v19; // [rsp+BCh] [rbp-11Ch]
+  int v20; // [rsp+100h] [rbp-D8h]
+  int v21; // [rsp+144h] [rbp-94h]
+  int v22; // [rsp+188h] [rbp-50h]
+  int v23; // [rsp+1CCh] [rbp-Ch]
 
-  v22 = 0LL;
-  memset(v21, 0, sizeof(v21));
-  v2 = (_OWORD *)a1;
-  v3 = 3LL;
+  v17 = 0LL;
+  memset(v16, 0, sizeof(v16));
+  v18 = 0;
+  v2 = 3LL;
+  v3 = (_OWORD *)a1;
+  v19 = 0;
+  v20 = 0;
+  v4 = v16;
+  v21 = 0;
+  v22 = 0;
   v23 = 0;
-  v24 = 0;
-  v4 = v21;
-  v25 = 0;
-  v26 = 0;
-  v27 = 0;
-  v28 = 0;
   do
   {
     v5 = v4[1];
-    *v2 = *v4;
+    *v3 = *v4;
     v6 = v4[2];
-    v2[1] = v5;
+    v3[1] = v5;
     v7 = v4[3];
-    v2[2] = v6;
+    v3[2] = v6;
     v8 = v4[4];
-    v2[3] = v7;
+    v3[3] = v7;
     v9 = v4[5];
-    v2[4] = v8;
+    v3[4] = v8;
     v10 = v4[6];
-    v2[5] = v9;
+    v3[5] = v9;
     v11 = v4[7];
     v4 += 8;
-    v2[6] = v10;
-    v2 += 8;
-    *(v2 - 1) = v11;
-    --v3;
+    v3[6] = v10;
+    v3 += 8;
+    *(v3 - 1) = v11;
+    --v2;
   }
-  while ( v3 );
+  while ( v2 );
   v12 = v4[1];
-  *v2 = *v4;
-  v13 = v4[2];
-  v2[1] = v12;
-  v14 = v4[3];
-  v2[2] = v13;
-  v15 = v4[4];
-  v2[3] = v14;
-  v2[4] = v15;
+  *v3 = *v4;
+  v3[1] = v12;
+  v13 = v4[3];
+  v3[2] = v4[2];
+  v14 = v4[4];
+  v3[3] = v13;
+  v3[4] = v14;
   *(_BYTE *)(a1 + 24) &= 0xC0u;
+  result = 1065353216LL;
   *(_QWORD *)a1 = 0LL;
   *(_DWORD *)(a1 + 8) = 0;
   *(_QWORD *)(a1 + 16) = 0LL;
   *(_QWORD *)(a1 + 28) = 0LL;
   *(_QWORD *)(a1 + 36) = 0LL;
   *(_QWORD *)(a1 + 48) = 0LL;
-  CMILMatrix::SetToIdentity((CMILMatrix *)(a1 + 56));
-  CMILMatrix::SetToIdentity((CMILMatrix *)(v16 + 124));
-  CMILMatrix::SetToIdentity((CMILMatrix *)(v17 + 192));
-  CMILMatrix::SetToIdentity((CMILMatrix *)(v18 + 260));
-  CMILMatrix::SetToIdentity((CMILMatrix *)(v19 + 328));
-  CMILMatrix::SetToIdentity((CMILMatrix *)(v20 + 396));
+  *(_QWORD *)(a1 + 56) = 1065353216LL;
+  *(_QWORD *)(a1 + 64) = 0LL;
+  *(_DWORD *)(a1 + 72) = 0;
+  *(_QWORD *)(a1 + 76) = 1065353216LL;
+  *(_QWORD *)(a1 + 84) = 0LL;
+  *(_DWORD *)(a1 + 92) = 0;
+  *(_QWORD *)(a1 + 96) = 1065353216LL;
+  *(_QWORD *)(a1 + 104) = 0LL;
+  *(_DWORD *)(a1 + 112) = 0;
+  *(_DWORD *)(a1 + 116) = 1065353216;
+  *(_WORD *)(a1 + 120) = 32085;
+  *(_QWORD *)(a1 + 124) = 1065353216LL;
+  *(_QWORD *)(a1 + 132) = 0LL;
+  *(_DWORD *)(a1 + 140) = 0;
+  *(_QWORD *)(a1 + 144) = 1065353216LL;
+  *(_QWORD *)(a1 + 152) = 0LL;
+  *(_DWORD *)(a1 + 160) = 0;
+  *(_QWORD *)(a1 + 164) = 1065353216LL;
+  *(_QWORD *)(a1 + 172) = 0LL;
+  *(_DWORD *)(a1 + 180) = 0;
+  *(_DWORD *)(a1 + 184) = 1065353216;
+  *(_WORD *)(a1 + 188) = 32085;
+  *(_OWORD *)(a1 + 192) = _xmm;
+  *(_WORD *)(a1 + 256) = 32085;
+  *(_OWORD *)(a1 + 208) = _xmm;
+  *(_OWORD *)(a1 + 224) = _xmm;
+  *(_OWORD *)(a1 + 240) = _xmm;
+  *(_WORD *)(a1 + 324) = 32085;
+  *(_OWORD *)(a1 + 260) = _xmm;
+  *(_OWORD *)(a1 + 276) = _xmm;
+  *(_OWORD *)(a1 + 292) = _xmm;
+  *(_OWORD *)(a1 + 308) = _xmm;
+  *(_WORD *)(a1 + 392) = 32085;
+  *(_OWORD *)(a1 + 328) = _xmm;
+  *(_OWORD *)(a1 + 344) = _xmm;
+  *(_OWORD *)(a1 + 360) = _xmm;
+  *(_OWORD *)(a1 + 376) = _xmm;
+  *(_WORD *)(a1 + 460) = 32085;
+  *(_OWORD *)(a1 + 396) = _xmm;
+  *(_OWORD *)(a1 + 412) = _xmm;
+  *(_OWORD *)(a1 + 428) = _xmm;
+  *(_OWORD *)(a1 + 444) = _xmm;
+  return result;
 }

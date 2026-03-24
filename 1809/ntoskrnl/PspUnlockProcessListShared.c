@@ -1,8 +1,8 @@
 /*
- * XREFs of PspUnlockProcessListShared @ 0x140175DBC
+ * XREFs of PspUnlockProcessListShared @ 0x140175DDC
  * Callers:
- *     PsChangeQuantumTable @ 0x14071BFE8 (PsChangeQuantumTable.c)
- *     PsGetPreviousProcess @ 0x14088ED2C (PsGetPreviousProcess.c)
+ *     PsChangeQuantumTable @ 0x14071BFC8 (PsChangeQuantumTable.c)
+ *     PsGetPreviousProcess @ 0x14088ED0C (PsGetPreviousProcess.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

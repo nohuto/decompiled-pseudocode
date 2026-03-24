@@ -1,12 +1,12 @@
 /*
- * XREFs of MmSetSessionObjectIoEvent @ 0x1407B42F4
+ * XREFs of MmSetSessionObjectIoEvent @ 0x14078D804
  * Callers:
- *     IopSessionChangeWorker @ 0x14033BCE0 (IopSessionChangeWorker.c)
+ *     IopSessionChangeWorker @ 0x1403A6120 (IopSessionChangeWorker.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
  */
 
 LONG __fastcall MmSetSessionObjectIoEvent(__int64 a1)
 {
-  return KeSetEvent((PRKEVENT)(*(_QWORD *)(a1 + 24) + 760LL), 0, 0);
+  return KeSetEvent((PRKEVENT)(*(_QWORD *)(a1 + 24) + 1024LL), 0, 0);
 }

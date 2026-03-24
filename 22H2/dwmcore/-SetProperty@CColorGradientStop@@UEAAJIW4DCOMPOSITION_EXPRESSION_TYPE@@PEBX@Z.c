@@ -1,20 +1,20 @@
 /*
- * XREFs of ?SetProperty@CColorGradientStop@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180022590
+ * XREFs of ?SetProperty@CColorGradientStop@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801B8380
  * Callers:
  *     <none>
  * Callees:
- *     ?FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV?$span@QEBUAnimatedProperty@AnimationHelper@@$0?0@gsl@@IW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x180022748 (-FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV-$span@QEBUAnimatedPro.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV?$span@QEBUAnimatedProperty@AnimationHelper@@$0?0@gsl@@IW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800BE0F8 (-FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV-$span@QEBUAnimatedPro.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CColorGradientStop::SetProperty(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall CColorGradientStop::SetProperty(__int64 a1, int a2, int a3)
 {
-  __int64 AnimatablePropertyInfo; // rax
-  unsigned int v5; // ecx
+  _DWORD *AnimatablePropertyInfo; // rax
+  __int64 v5; // rcx
   __int64 v6; // r11
   int v7; // eax
-  unsigned int v8; // ecx
+  __int64 v8; // rcx
   unsigned int v9; // ebx
   _QWORD v11[3]; // [rsp+30h] [rbp-18h] BYREF
 
@@ -23,8 +23,8 @@ __int64 __fastcall CColorGradientStop::SetProperty(__int64 a1, __int64 a2, __int
   AnimatablePropertyInfo = AnimationHelper::FindAnimatablePropertyInfo(v11, a2, a3);
   if ( AnimatablePropertyInfo )
   {
-    v7 = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(AnimatablePropertyInfo + 24))(
-           a1 + *(int *)(AnimatablePropertyInfo + 32),
+    v7 = (*((__int64 (__fastcall **)(__int64, _DWORD *, __int64))AnimatablePropertyInfo + 3))(
+           a1 + (int)AnimatablePropertyInfo[8],
            AnimatablePropertyInfo,
            v6);
     v9 = v7;

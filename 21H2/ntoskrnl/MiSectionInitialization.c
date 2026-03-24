@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSectionInitialization @ 0x140B09078
+ * XREFs of MiSectionInitialization @ 0x140A55074
  * Callers:
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObCreateObject @ 0x14066BA00 (ObCreateObject.c)
- *     ObInsertObject @ 0x14066BA50 (ObInsertObject.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     ObCreateObjectType @ 0x140824B10 (ObCreateObjectType.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     ObInsertObject @ 0x1406D41C0 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1406D4AE0 (ObCreateObject.c)
+ *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 MiSectionInitialization()
@@ -23,14 +23,14 @@ __int64 MiSectionInitialization()
   int v7; // [rsp+88h] [rbp-78h]
   int v8; // [rsp+8Ch] [rbp-74h]
   __int128 v9; // [rsp+90h] [rbp-70h]
-  _QWORD v10[18]; // [rsp+A0h] [rbp-60h] BYREF
-  HANDLE Handle; // [rsp+148h] [rbp+48h] BYREF
+  _QWORD v10[16]; // [rsp+A0h] [rbp-60h] BYREF
+  HANDLE Handle; // [rsp+138h] [rbp+38h] BYREF
 
-  dword_140C53260 = -1;
-  qword_140C4F108 = 0LL;
+  v4[1] = 0;
   v8 = 0;
   Handle = 0LL;
-  v4[1] = 0;
+  dword_140C4ED50 = -1;
+  qword_140C4C988 = 0LL;
   v2.Buffer = L"Section";
   v3[1] = L"\\Device\\PhysicalMemory";
   *(_QWORD *)&v2.Length = 1048590LL;
@@ -40,10 +40,10 @@ __int64 MiSectionInitialization()
   v10[7] = MiSectionOpen;
   LOWORD(v10[0]) = 120;
   v10[8] = MiSectionClose;
-  LODWORD(v10[5]) = 64;
+  HIDWORD(v10[4]) = 1;
   v10[9] = MiSectionDelete;
   LODWORD(v10[1]) = 256;
-  HIDWORD(v10[4]) = 1;
+  LODWORD(v10[5]) = 64;
   HIDWORD(v10[3]) = 983071;
   *(_OWORD *)((char *)&v10[1] + 4) = MiSectionMapping;
   HIDWORD(v10[0]) = 128;
@@ -52,15 +52,15 @@ __int64 MiSectionInitialization()
     Pool = MiAllocatePool(256, 0x48uLL, 0x67536D4Du);
     if ( Pool )
     {
-      memset(&qword_140C4F130, 0, 0x118uLL);
+      memset(&qword_140C4C9B0, 0, 0x110uLL);
       Pool[5] = 0LL;
-      dword_140C4F200 |= 0x400u;
+      dword_140C4CA78 |= 0x400u;
       v5 = 0LL;
       v6 = v3;
-      qword_140C4F130 = (__int64)&qword_140C4F1C8;
-      qword_140C4F1C8 = (__int64)Pool;
-      qword_140C4F1E0 = 1LL;
-      *Pool = &qword_140C4F1C8;
+      qword_140C4C9B0 = (__int64)&qword_140C4CA40;
+      qword_140C4CA40 = (__int64)Pool;
+      qword_140C4CA58 = 1LL;
+      *Pool = &qword_140C4CA40;
       v4[0] = 48;
       v7 = 65552;
       v9 = 0LL;
@@ -70,8 +70,8 @@ __int64 MiSectionInitialization()
       }
       else
       {
-        MEMORY[0x28] = &qword_140C4F1C8;
-        MEMORY[0x30] = (1LL << dword_140C50720) - 1;
+        MEMORY[0x28] = &qword_140C4CA40;
+        MEMORY[0x30] = 0xFFFFFFFFFFFFLL;
         MEMORY[0x38] = 0;
         MEMORY[0x3C] = MEMORY[0x3C] & 0xFFFFF000 | 0x40;
         if ( ObInsertObject(0LL, 0LL, 4u, 0, 0LL, &Handle) >= 0 )

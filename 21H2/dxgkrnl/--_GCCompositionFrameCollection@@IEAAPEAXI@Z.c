@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GCCompositionFrameCollection@@IEAAPEAXI@Z @ 0x1C001F4FC
+ * XREFs of ??_GCCompositionFrameCollection@@IEAAPEAXI@Z @ 0x1C000DA4C
  * Callers:
- *     ?Release@CCompositionFrameCollection@@UEAAJXZ @ 0x1C001F4D0 (-Release@CCompositionFrameCollection@@UEAAJXZ.c)
+ *     ?Release@CCompositionFrameCollection@@UEAAJXZ @ 0x1C000DA20 (-Release@CCompositionFrameCollection@@UEAAJXZ.c)
  * Callees:
- *     ?DiscardAllCompositionFrames@CCompositionFrameCollection@@UEAAXXZ @ 0x1C0008D60 (-DiscardAllCompositionFrames@CCompositionFrameCollection@@UEAAXXZ.c)
+ *     ?DiscardAllCompositionFrames@CCompositionFrameCollection@@UEAAXXZ @ 0x1C000E510 (-DiscardAllCompositionFrames@CCompositionFrameCollection@@UEAAXXZ.c)
  */
 
 CCompositionFrameCollection *__fastcall CCompositionFrameCollection::`scalar deleting destructor'(

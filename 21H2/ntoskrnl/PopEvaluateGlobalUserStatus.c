@@ -1,18 +1,17 @@
 /*
- * XREFs of PopEvaluateGlobalUserStatus @ 0x1407EF514
+ * XREFs of PopEvaluateGlobalUserStatus @ 0x14067DA64
  * Callers:
- *     PopPowerInformationInternal @ 0x140751B78 (PopPowerInformationInternal.c)
- *     PopSetSessionUserStatus @ 0x1407EF430 (PopSetSessionUserStatus.c)
- *     PopUserPresentOverride @ 0x14099CCC4 (PopUserPresentOverride.c)
+ *     PopSetSessionUserStatus @ 0x14067D980 (PopSetSessionUserStatus.c)
+ *     PopUserPresentOverride @ 0x1408F5380 (PopUserPresentOverride.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140209960 (RtlNumberOfSetBits.c)
- *     PopPrintEx @ 0x140369B48 (PopPrintEx.c)
- *     PopUmpoSendPowerMessage @ 0x14036AF00 (PopUmpoSendPowerMessage.c)
- *     ZwUpdateWnfStateData @ 0x14041F2A0 (ZwUpdateWnfStateData.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PopSetPowerSettingValueAcDc @ 0x1407525EC (PopSetPowerSettingValueAcDc.c)
- *     PopDiagTraceSessionStateCounted @ 0x1407EDBB8 (PopDiagTraceSessionStateCounted.c)
- *     PopPrintUserActivityPresence @ 0x1407EF6BC (PopPrintUserActivityPresence.c)
+ *     RtlNumberOfSetBits @ 0x140253830 (RtlNumberOfSetBits.c)
+ *     PopUmpoSendPowerMessage @ 0x140282A48 (PopUmpoSendPowerMessage.c)
+ *     PopPrintEx @ 0x14028411C (PopPrintEx.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PopSetPowerSettingValueAcDc @ 0x140679E68 (PopSetPowerSettingValueAcDc.c)
+ *     PopPrintUserActivityPresence @ 0x14067DC44 (PopPrintUserActivityPresence.c)
+ *     PopDiagTraceSessionStateCounted @ 0x14067DDAC (PopDiagTraceSessionStateCounted.c)
  */
 
 void PopEvaluateGlobalUserStatus()
@@ -27,14 +26,10 @@ void PopEvaluateGlobalUserStatus()
   int v7; // [rsp+A8h] [rbp+6Fh] BYREF
   int v8; // [rsp+ACh] [rbp+73h]
 
-  v0 = PopHostGlobalUserPresenceState;
-  if ( PopHostGlobalUserPresenceState == 3 )
-  {
-    if ( PopUserPresentOverrideCount || !PopMaximumConnectionSessions )
-      v0 = 0;
-    else
-      v0 = RtlNumberOfSetBits(&PopConnectionBitmap) == 0 ? 2 : 0;
-  }
+  if ( PopUserPresentOverrideCount || !PopMaximumConnectionSessions )
+    v0 = 0;
+  else
+    v0 = RtlNumberOfSetBits(&PopConnectionBitmap) == 0 ? 2 : 0;
   if ( v0 != PopGlobalUserPresenceState )
   {
     v6 = v0;
@@ -43,7 +38,7 @@ void PopEvaluateGlobalUserStatus()
     v1 = (const wchar_t *)PopPrintUserActivityPresence(v0);
     PopPrintEx(3LL, (__int64)"PopAdaptive: Global user presence/activity state: %S id: %I32u\n", v1, v2);
     PopDiagTraceSessionStateCounted(v4, v3, v0);
-    PopSetPowerSettingValueAcDc(&GUID_GLOBAL_USER_PRESENCE, 4u, &v6);
+    PopSetPowerSettingValueAcDc(&GUID_GLOBAL_USER_PRESENCE, 4LL, &v6);
     if ( v0 )
     {
       v7 = 1;

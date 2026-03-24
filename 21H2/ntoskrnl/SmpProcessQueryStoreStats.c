@@ -1,12 +1,12 @@
 /*
- * XREFs of SmpProcessQueryStoreStats @ 0x14045F5F6
+ * XREFs of SmpProcessQueryStoreStats @ 0x14059D058
  * Callers:
- *     SmQueryStoreCommitUsage @ 0x1405FAA30 (SmQueryStoreCommitUsage.c)
- *     SmProcessQueryStoreStats @ 0x140882DDC (SmProcessQueryStoreStats.c)
+ *     SmQueryStoreCommitUsage @ 0x14059CFC0 (SmQueryStoreCommitUsage.c)
+ *     SmProcessQueryStoreStats @ 0x140929E90 (SmProcessQueryStoreStats.c)
  * Callees:
- *     SmpKeyedStoreEntryGet @ 0x1402A1124 (SmpKeyedStoreEntryGet.c)
- *     SmKmStoreRefFromStoreIndex @ 0x14035F5E8 (SmKmStoreRefFromStoreIndex.c)
- *     ?SmStGetStoreStats@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x1403865AC (-SmStGetStoreStats@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
+ *     ?SmStGetStoreStats@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x1402CBF70 (-SmStGetStoreStats@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
+ *     SmpKeyedStoreEntryGet @ 0x1402D6348 (SmpKeyedStoreEntryGet.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
  */
 
 __int64 __fastcall SmpProcessQueryStoreStats(PVOID a1)
@@ -17,14 +17,14 @@ __int64 __fastcall SmpProcessQueryStoreStats(PVOID a1)
   void *v5; // [rsp+40h] [rbp+18h] BYREF
 
   v5 = 0LL;
-  if ( a1 == qword_140D32198 )
+  if ( a1 == qword_140D24158 )
   {
-    v3 = dword_140D321F0;
+    v3 = dword_140D241B0;
   }
   else
   {
     v5 = a1;
-    v1 = SmpKeyedStoreEntryGet((ULONG_PTR)&qword_140D321C8, &v5, 0LL, 0);
+    v1 = SmpKeyedStoreEntryGet((ULONG_PTR)qword_140D24188, &v5, 0, 0);
     if ( !v1 )
       return 3221226021LL;
     v3 = *(unsigned __int16 *)(v1 + 16);

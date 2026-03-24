@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TraceGlitch@CScheduleStatistics@@CAXIPEBVCFrameInfo@@AEB_K1@Z @ 0x180078B9C
+ * XREFs of ?TraceGlitch@CScheduleStatistics@@CAXIPEBVCFrameInfo@@AEB_K1@Z @ 0x1800D1458
  * Callers:
- *     ?RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z @ 0x18007C008 (-RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z.c)
+ *     ?RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z @ 0x18006C910 (-RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z.c)
  * Callees:
- *     McTemplateU0xxxtxxxxxxxxqN16_EventWriteTransfer @ 0x1801D7C20 (McTemplateU0xxxtxxxxxxxxqN16_EventWriteTransfer.c)
+ *     McTemplateU0xxxtxxxxxxxxqN16_EventWriteTransfer @ 0x18016316C (McTemplateU0xxxtxxxxxxxxqN16_EventWriteTransfer.c)
  */
 
 void __fastcall CScheduleStatistics::TraceGlitch(
@@ -15,7 +15,7 @@ void __fastcall CScheduleStatistics::TraceGlitch(
   __int64 v5; // rbp
   __int64 v6; // r9
 
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 8) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
   {
     v6 = *((_QWORD *)a2 + 8);
     v5 = *((_QWORD *)a2 + 12);
@@ -25,13 +25,13 @@ void __fastcall CScheduleStatistics::TraceGlitch(
       *(_QWORD *)a2,
       (unsigned __int64)(1000000 * (v6 - *((_QWORD *)a2 + 7))) / g_qpcFrequency.QuadPart,
       (unsigned __int64)(1000000 * (*((_QWORD *)a2 + 9) - v6)) / g_qpcFrequency.QuadPart,
-      *((_BYTE *)a2 + 242),
+      *((_BYTE *)a2 + 265),
       *((_QWORD *)a2 + 10),
       v5,
       10000000 * (v5 - *((_QWORD *)a2 + 10)) / (10 * *a3),
-      *((_QWORD *)a2 + 29),
+      *((_QWORD *)a2 + 31),
       *((_DWORD *)a2 + 12),
-      10000000 * (v5 - *((_QWORD *)a2 + 29)) / (10 * *a3),
+      10000000 * (v5 - *((_QWORD *)a2 + 31)) / (10 * *a3),
       *a3,
       *a4,
       a1);

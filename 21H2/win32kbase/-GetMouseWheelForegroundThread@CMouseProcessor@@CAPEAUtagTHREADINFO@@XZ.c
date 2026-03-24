@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetMouseWheelForegroundThread@CMouseProcessor@@CAPEAUtagTHREADINFO@@XZ @ 0x1C01FA948
+ * XREFs of ?GetMouseWheelForegroundThread@CMouseProcessor@@CAPEAUtagTHREADINFO@@XZ @ 0x1C01C03EC
  * Callers:
- *     ?AppCompatWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ @ 0x1C01F9450 (-AppCompatWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ.c)
- *     ?HittestWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ @ 0x1C01FAD64 (-HittestWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ.c)
- *     ?ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z @ 0x1C01FBCD8 (-ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z.c)
+ *     ?AppCompatWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ @ 0x1C01BED4C (-AppCompatWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ.c)
+ *     ?HittestWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ @ 0x1C01C0848 (-HittestWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ.c)
+ *     ?ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z @ 0x1C01C17AC (-ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z.c)
  * Callees:
- *     PtiKbdFromQ @ 0x1C01EA3D8 (PtiKbdFromQ.c)
+ *     PtiKbdFromQ @ 0x1C01B11A8 (PtiKbdFromQ.c)
  */
 
 struct tagTHREADINFO *CMouseProcessor::GetMouseWheelForegroundThread(void)

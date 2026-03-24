@@ -1,18 +1,18 @@
 /*
- * XREFs of MmBackSystemImageWithPagefile @ 0x140871F6C
+ * XREFs of MmBackSystemImageWithPagefile @ 0x14078098C
  * Callers:
- *     FsRtlSetDriverBacking @ 0x140871F40 (FsRtlSetDriverBacking.c)
+ *     FsRtlSetDriverBacking @ 0x140780960 (FsRtlSetDriverBacking.c)
  * Callees:
- *     MiLookupDataTableEntry @ 0x1402136C0 (MiLookupDataTableEntry.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     MmAcquireLoadLock @ 0x140704660 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x1407049E0 (MmReleaseLoadLock.c)
- *     MiBackSystemImageWithPagefile @ 0x140871FC8 (MiBackSystemImageWithPagefile.c)
+ *     MiLookupDataTableEntry @ 0x140358CCC (MiLookupDataTableEntry.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     MmReleaseLoadLock @ 0x1406FE9E0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406FEA40 (MmAcquireLoadLock.c)
+ *     MiBackSystemImageWithPagefile @ 0x1407809E8 (MiBackSystemImageWithPagefile.c)
  */
 
 __int64 __fastcall MmBackSystemImageWithPagefile(ULONG_PTR BugCheckParameter2)
 {
-  _QWORD *v2; // rsi
+  __int64 v2; // rsi
   struct _KTHREAD *Lock; // rdi
   unsigned int v4; // ebx
 

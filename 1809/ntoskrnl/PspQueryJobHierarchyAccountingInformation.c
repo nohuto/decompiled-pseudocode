@@ -5,9 +5,9 @@
  * Callees:
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     PsAddProcessEnergyValues @ 0x14008E740 (PsAddProcessEnergyValues.c)
- *     KeQuerySchedulingGroupReadyTime @ 0x1401264D4 (KeQuerySchedulingGroupReadyTime.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeQuerySchedulingGroupReadyTime @ 0x1401264F4 (KeQuerySchedulingGroupReadyTime.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1405FD9F4 (PspEnumJobsAndProcessesInJobHierarchy.c)
  *     PspUnlockJob @ 0x1405FE0C0 (PspUnlockJob.c)
  *     PspLockRootJobShared @ 0x1405FE1FC (PspLockRootJobShared.c)

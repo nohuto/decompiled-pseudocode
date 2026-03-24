@@ -1,12 +1,12 @@
 /*
- * XREFs of PspRemoveEnclaveThreadWait @ 0x1409B48CC
+ * XREFs of PspRemoveEnclaveThreadWait @ 0x14090E500
  * Callers:
- *     PsCallEnclave @ 0x1409B35D0 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x14090D1D0 (PsCallEnclave.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
 __int64 __fastcall PspRemoveEnclaveThreadWait(__int64 a1, __int64 *a2, unsigned int a3)
@@ -35,6 +35,6 @@ __int64 __fastcall PspRemoveEnclaveThreadWait(__int64 a1, __int64 *a2, unsigned 
   if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v6);
   KeAbPostRelease((ULONG_PTR)v6);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return a3;
 }

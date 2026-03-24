@@ -1,8 +1,8 @@
 /*
- * XREFs of Controller_DeallocateIrqlTrackingArray @ 0x1C00313E8
+ * XREFs of Controller_DeallocateIrqlTrackingArray @ 0x1C0031120
  * Callers:
- *     Controller_WdfEvtCleanupCallback @ 0x1C0034C30 (Controller_WdfEvtCleanupCallback.c)
- *     Controller_WdfEvtDevicePrepareHardware @ 0x1C006E9D0 (Controller_WdfEvtDevicePrepareHardware.c)
+ *     Controller_WdfEvtCleanupCallback @ 0x1C00349C0 (Controller_WdfEvtCleanupCallback.c)
+ *     Controller_WdfEvtDevicePrepareHardware @ 0x1C006D0A0 (Controller_WdfEvtDevicePrepareHardware.c)
  * Callees:
  *     <none>
  */

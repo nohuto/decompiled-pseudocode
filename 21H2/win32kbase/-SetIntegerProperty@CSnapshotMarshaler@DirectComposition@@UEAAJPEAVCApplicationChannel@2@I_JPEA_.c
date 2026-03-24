@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CSnapshotMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0229CD0
+ * XREFs of ?SetIntegerProperty@CSnapshotMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E9F90
  * Callers:
  *     <none>
  * Callees:
@@ -24,9 +24,9 @@ __int64 __fastcall DirectComposition::CSnapshotMarshaler::SetIntegerProperty(
   {
     if ( a4 )
     {
-      if ( *((_DWORD *)this + 18) != a4 )
+      if ( *((_DWORD *)this + 16) != a4 )
       {
-        *((_DWORD *)this + 18) = a4;
+        *((_DWORD *)this + 16) = a4;
         goto LABEL_13;
       }
       return v5;
@@ -38,9 +38,9 @@ __int64 __fastcall DirectComposition::CSnapshotMarshaler::SetIntegerProperty(
   {
     if ( v7 == 1 )
     {
-      if ( *((_BYTE *)this + 80) != (a4 != 0) )
+      if ( *((_BYTE *)this + 72) != (a4 != 0) )
       {
-        *((_BYTE *)this + 80) = a4 != 0;
+        *((_BYTE *)this + 72) = a4 != 0;
 LABEL_13:
         *a5 = 1;
         return v5;
@@ -51,9 +51,9 @@ LABEL_13:
   }
   if ( !a4 )
     return (unsigned int)-1073741811;
-  if ( *((_DWORD *)this + 19) != a4 )
+  if ( *((_DWORD *)this + 17) != a4 )
   {
-    *((_DWORD *)this + 19) = a4;
+    *((_DWORD *)this + 17) = a4;
     goto LABEL_13;
   }
   return v5;

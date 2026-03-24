@@ -1,8 +1,8 @@
 /*
- * XREFs of MiPageTableStillExists @ 0x14024F0F8
+ * XREFs of MiPageTableStillExists @ 0x1402CE2A4
  * Callers:
- *     MiSmallVaStillMapsFrame @ 0x14024F014 (MiSmallVaStillMapsFrame.c)
- *     MiSynchronizeSystemVa @ 0x140279DB0 (MiSynchronizeSystemVa.c)
+ *     MiSmallVaStillMapsFrame @ 0x1402CE1F8 (MiSmallVaStillMapsFrame.c)
+ *     MiSynchronizeSystemVa @ 0x140311C40 (MiSynchronizeSystemVa.c)
  * Callees:
  *     <none>
  */

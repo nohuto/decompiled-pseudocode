@@ -1,10 +1,10 @@
 /*
- * XREFs of vMirrorIncludeNotifyWrap @ 0x1C00E1DD0
+ * XREFs of vMirrorIncludeNotifyWrap @ 0x1C00FAAA0
  * Callers:
  *     <none>
  * Callees:
- *     ?bStockSurface@SURFACE@@QEAAHXZ @ 0x1C0299B70 (-bStockSurface@SURFACE@@QEAAHXZ.c)
- *     ?vMirrorNotifyDrawing@@YAXAEAVPDEVOBJ@@PEAVSURFACE@@H@Z @ 0x1C0299D04 (-vMirrorNotifyDrawing@@YAXAEAVPDEVOBJ@@PEAVSURFACE@@H@Z.c)
+ *     ?bStockSurface@SURFACE@@QEAAHXZ @ 0x1C029B294 (-bStockSurface@SURFACE@@QEAAHXZ.c)
+ *     ?vMirrorNotifyDrawing@@YAXAEAVPDEVOBJ@@PEAVSURFACE@@H@Z @ 0x1C029B434 (-vMirrorNotifyDrawing@@YAXAEAVPDEVOBJ@@PEAVSURFACE@@H@Z.c)
  */
 
 void __fastcall vMirrorIncludeNotifyWrap(__int64 a1, struct SURFACE *a2)

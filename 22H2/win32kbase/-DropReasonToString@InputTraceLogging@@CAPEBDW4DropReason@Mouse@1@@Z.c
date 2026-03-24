@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DropReasonToString@InputTraceLogging@@CAPEBDW4DropReason@Mouse@1@@Z @ 0x1C01DECDC
+ * XREFs of ?DropReasonToString@InputTraceLogging@@CAPEBDW4DropReason@Mouse@1@@Z @ 0x1C01BF5FC
  * Callers:
- *     ?DropMove@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z @ 0x1C00E60DA (-DropMove@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z.c)
- *     ?DropInput@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z @ 0x1C01DEC6C (-DropInput@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z.c)
- *     ?DropButton@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z @ 0x1C01F695C (-DropButton@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z.c)
- *     ?DropWheel@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z @ 0x1C01F69CC (-DropWheel@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z.c)
+ *     ?DropMove@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z @ 0x1C00B0FDC (-DropMove@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z.c)
+ *     ?DropButton@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z @ 0x1C01BF51C (-DropButton@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z.c)
+ *     ?DropInput@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z @ 0x1C01BF58C (-DropInput@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z.c)
+ *     ?DropWheel@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z @ 0x1C01BF754 (-DropWheel@Mouse@InputTraceLogging@@SAX_KW4DropReason@12@@Z.c)
  * Callees:
  *     <none>
  */

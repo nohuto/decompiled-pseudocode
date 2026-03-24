@@ -1,9 +1,9 @@
 /*
- * XREFs of NVMeBuildDevicePollingConfiguration @ 0x1C001C320
+ * XREFs of NVMeBuildDevicePollingConfiguration @ 0x1C0017E10
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
  */
 
 char __fastcall NVMeBuildDevicePollingConfiguration(__int64 a1, __int64 a2)
@@ -23,18 +23,18 @@ char __fastcall NVMeBuildDevicePollingConfiguration(__int64 a1, __int64 a2)
     LOBYTE(SrbExtension) = *(_BYTE *)(v3 + 3);
     if ( (_BYTE)SrbExtension == 1 && *v4 == 1313882949 )
     {
-      v7 = *(_QWORD *)(v5 + 1936);
+      v7 = *(_QWORD *)(v5 + 1720);
       LOWORD(SrbExtension) = *(_WORD *)v7;
-      *(_WORD *)(v5 + 4048) = *(_WORD *)v7;
+      *(_WORD *)(v5 + 3832) = *(_WORD *)v7;
       if ( (_WORD)SrbExtension == 256 )
       {
         v8 = *(unsigned __int16 *)(v7 + 2);
-        *(_DWORD *)(v5 + 4052) = v8;
+        *(_DWORD *)(v5 + 3836) = v8;
         if ( v8 )
-          *(_BYTE *)(v5 + 4032) = 1;
-        *(_DWORD *)(v5 + 4056) = *(_DWORD *)(v7 + 4);
+          *(_BYTE *)(v5 + 3816) = 1;
+        *(_DWORD *)(v5 + 3840) = *(_DWORD *)(v7 + 4);
         LODWORD(SrbExtension) = *(_DWORD *)(v7 + 8);
-        *(_DWORD *)(v5 + 4060) = SrbExtension;
+        *(_DWORD *)(v5 + 3844) = SrbExtension;
       }
     }
   }

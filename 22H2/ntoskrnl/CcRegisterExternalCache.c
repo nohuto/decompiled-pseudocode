@@ -1,49 +1,36 @@
 /*
- * XREFs of CcRegisterExternalCache @ 0x1403D6740
+ * XREFs of CcRegisterExternalCache @ 0x140394A30
  * Callers:
  *     <none>
  * Callees:
- *     CcAddExternalCacheToVolume @ 0x1403D67C4 (CcAddExternalCacheToVolume.c)
- *     CcAddExternalCacheInternal @ 0x1403D6820 (CcAddExternalCacheInternal.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     CcAddExternalCache @ 0x140394AB4 (CcAddExternalCache.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CcRegisterExternalCache(__int64 a1, _QWORD *a2)
 {
-  _QWORD *PoolWithTag; // rax
-  void *v5; // rbx
-  bool v6; // zf
-  int v7; // edi
+  unsigned int v2; // ebx
+  _OWORD *PoolWithTag; // rax
+  _OWORD *v6; // rdi
 
+  v2 = 0;
   if ( !CcInitializationComplete )
-    KeBugCheckEx(0x34u, 0x1E6CuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)1536, 0x40uLL, 0x43456343u);
-  v5 = PoolWithTag;
+    KeBugCheckEx(0x34u, 0x1AEFuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x43456343u);
+  v6 = PoolWithTag;
   if ( PoolWithTag )
   {
-    v6 = CcEnablePerVolumeLazyWriter == 0;
-    *PoolWithTag = a1;
-    if ( v6 )
-    {
-      CcAddExternalCacheInternal(PoolWithTag, &CcExternalCacheList);
-      v7 = 0;
-    }
-    else
-    {
-      v7 = CcAddExternalCacheToVolume(PoolWithTag);
-      if ( v7 < 0 )
-      {
-        ExFreePoolWithTag(v5, 0x43456343u);
-        return (unsigned int)v7;
-      }
-    }
-    *a2 = v5;
+    *PoolWithTag = 0LL;
+    PoolWithTag[1] = 0LL;
+    PoolWithTag[2] = 0LL;
+    *(_QWORD *)PoolWithTag = a1;
+    CcAddExternalCache(PoolWithTag);
+    *a2 = v6;
   }
   else
   {
     return (unsigned int)-1073741670;
   }
-  return (unsigned int)v7;
+  return v2;
 }

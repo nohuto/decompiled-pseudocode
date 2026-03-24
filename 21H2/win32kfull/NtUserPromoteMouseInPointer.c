@@ -1,30 +1,31 @@
 /*
- * XREFs of NtUserPromoteMouseInPointer @ 0x1C01FB410
+ * XREFs of NtUserPromoteMouseInPointer @ 0x1C02006D0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     IsMiPEnabledForThread @ 0x1C00AD354 (IsMiPEnabledForThread.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     IsMiPEnabledForThread @ 0x1C00C1580 (IsMiPEnabledForThread.c)
  */
 
 __int64 NtUserPromoteMouseInPointer()
 {
   __int64 v0; // rdx
   __int64 v1; // rcx
-  __int64 v2; // rbx
-  _DWORD *v3; // rax
+  __int64 v2; // r8
+  __int64 v3; // rbx
+  _DWORD *v4; // rax
 
-  EnterCrit(0LL, 0LL);
-  v2 = 0LL;
-  if ( IsMiPEnabledForThread(gptiCurrent) && (v3 = *(_DWORD **)(v1 + 1312)) != 0LL )
+  EnterCrit(0LL, 1LL);
+  v3 = 0LL;
+  if ( IsMiPEnabledForThread(gptiCurrent) && (v4 = *(_DWORD **)(v1 + 1280)) != 0LL )
   {
-    *v3 |= 2u;
-    v2 = 1LL;
+    *v4 |= 2u;
+    v3 = 1LL;
   }
   else
   {
-    UserSetLastError(5LL, v0);
+    UserSetLastError(5LL, v0, v2);
   }
   UserSessionSwitchLeaveCrit(v1);
-  return v2;
+  return v3;
 }

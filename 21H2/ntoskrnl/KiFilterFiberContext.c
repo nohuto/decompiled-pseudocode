@@ -1,18 +1,18 @@
 /*
- * XREFs of KiFilterFiberContext @ 0x140AD6B90
+ * XREFs of KiFilterFiberContext @ 0x140A1BBA0
  * Callers:
- *     KeInitAmd64SpecificState @ 0x140B12A50 (KeInitAmd64SpecificState.c)
+ *     KeInitAmd64SpecificState @ 0x140A5F0D4 (KeInitAmd64SpecificState.c)
  * Callees:
- *     ExNotifyCallback @ 0x140232770 (ExNotifyCallback.c)
- *     ExInitializeNPagedLookasideList @ 0x140250C10 (ExInitializeNPagedLookasideList.c)
- *     KeExpandKernelStackAndCallout @ 0x14025D2A0 (KeExpandKernelStackAndCallout.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KdDisableDebugger @ 0x140565360 (KdDisableDebugger.c)
- *     KdEnableDebugger @ 0x140565580 (KdEnableDebugger.c)
- *     KeKeepData @ 0x140568C94 (KeKeepData.c)
- *     ExCreateCallback @ 0x1406E0E40 (ExCreateCallback.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     KiSwInterruptPresent @ 0x140B1D468 (KiSwInterruptPresent.c)
+ *     ExNotifyCallback @ 0x1402B0640 (ExNotifyCallback.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeExpandKernelStackAndCallout @ 0x1402D3350 (KeExpandKernelStackAndCallout.c)
+ *     ExInitializeNPagedLookasideList @ 0x14037A6C0 (ExInitializeNPagedLookasideList.c)
+ *     KdDisableDebugger @ 0x1403CFA20 (KdDisableDebugger.c)
+ *     KdEnableDebugger @ 0x140510D40 (KdEnableDebugger.c)
+ *     ExCreateCallback @ 0x1406BD240 (ExCreateCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KiSwInterruptPresent @ 0x140A423F0 (KiSwInterruptPresent.c)
+ *     KeKeepData @ 0x140A73BDC (KeKeepData.c)
  */
 
 _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
@@ -29,7 +29,7 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
   unsigned __int64 v11; // r15
   NTSTATUS v12; // eax
   ULONG v13; // edx
-  char v14; // r14
+  char v14; // di
   unsigned __int64 v15; // rax
   unsigned __int128 v16; // rax
   int v17; // r8d
@@ -65,7 +65,7 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
   __int64 v48; // [rsp+148h] [rbp+7Fh]
 
   v2 = KdDisableDebugger();
-  KeKeepData();
+  KeKeepData(KiFilterFiberContext);
   _disable();
   if ( !(_BYTE)KdDebuggerNotPresent )
   {
@@ -77,7 +77,7 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
   v4 = (__ROR8__(v3, 3) ^ v3) * (unsigned __int128)0x7010008004002001uLL;
   v46 = *((_QWORD *)&v4 + 1);
   v5 = ((unsigned __int64)v4 ^ *((_QWORD *)&v4 + 1)) % 0xA;
-  if ( !*(_QWORD *)&MaxDataSize && !a1 && !__31 )
+  if ( !*(_QWORD *)&MaxDataSize && !a1 && !__32 )
   {
     if ( PsIntegrityCheckEnabled )
     {
@@ -88,11 +88,11 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
       if ( ExCreateCallback(&CallbackObject, &ObjectAttributes, 0, 0) >= 0 )
       {
-        ExNotifyCallback(CallbackObject, sub_1403ED150, &__28);
-        ObfDereferenceObject(CallbackObject);
-        if ( __28 )
-          __31 = 1;
-        ExInitializeNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&Lookaside, 0LL, 0LL, 0x200u, 0xAB8uLL, 0x746E494Bu, 0);
+        ExNotifyCallback(CallbackObject, sub_1403DDE50, &__29);
+        HalPutDmaAdapter((PADAPTER_OBJECT)CallbackObject);
+        if ( __29 )
+          __32 = 1;
+        ExInitializeNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&Lookaside, 0LL, 0LL, 0x200u, 0xAF0uLL, 0x746E494Bu, 0);
       }
     }
   }
@@ -111,52 +111,66 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
   v11 = ((unsigned __int64)v10 ^ *((_QWORD *)&v10 + 1)) % 6;
   Parameter[1] = v11;
   Parameter[0] = v9 % 0xD;
-  v12 = KeExpandKernelStackAndCallout(sub_140AF2480, Parameter, 0xC000uLL);
+  v12 = KeExpandKernelStackAndCallout(sub_140A379E0, Parameter, 0xC000uLL);
   v14 = v33;
   if ( v12 < 0 )
     v14 = 0;
   v33 = v14;
   if ( v14 )
   {
-    if ( v5 >= 6 )
-      goto LABEL_21;
-    v15 = __rdtsc();
-    v16 = (__ROR8__(v15, 3) ^ v15) * (unsigned __int128)0x7010008004002001uLL;
-    v42 = *((_QWORD *)&v16 + 1);
-    v17 = ((unsigned __int64)v16 ^ *((_QWORD *)&v16 + 1)) % 0xD;
-    do
+    if ( v5 < 6 )
     {
-      v18 = __rdtsc();
-      v19 = (__ROR8__(v18, 3) ^ v18) * (unsigned __int128)0x7010008004002001uLL;
-      v43 = *((_QWORD *)&v19 + 1);
-    }
-    while ( (_DWORD)v11 && ((unsigned __int64)v19 ^ *((_QWORD *)&v19 + 1)) % 6 == (_DWORD)v11 );
-    v34[0] = v17;
-    v34[1] = ((unsigned __int64)v19 ^ *((_QWORD *)&v19 + 1)) % 6;
-    v34[2] = (v5 < 6) + 1;
-    v35 = a1;
-    v36 = 0;
-    v37 = 0;
-    v20 = KeExpandKernelStackAndCallout(sub_140AF2480, v34, 0xC000uLL);
-    v21 = v37;
-    if ( v20 < 0 )
-      v21 = 0;
-    v37 = v21;
-    v14 = v21;
-    if ( v21 )
-    {
-LABEL_21:
-      if ( *(_QWORD *)&MaxDataSize )
-        goto LABEL_30;
-      if ( a1 )
-        goto LABEL_38;
-      if ( (int)KiSwInterruptPresent() < 0 && !__31 )
+      v15 = __rdtsc();
+      v16 = (__ROR8__(v15, 3) ^ v15) * (unsigned __int128)0x7010008004002001uLL;
+      v42 = *((_QWORD *)&v16 + 1);
+      v17 = ((unsigned __int64)v16 ^ *((_QWORD *)&v16 + 1)) % 0xD;
+      do
       {
-LABEL_31:
-        if ( qword_140D68650 )
-          ExFreePoolWithTag(qword_140D68650, v13);
+        v18 = __rdtsc();
+        v19 = (__ROR8__(v18, 3) ^ v18) * (unsigned __int128)0x7010008004002001uLL;
+        v43 = *((_QWORD *)&v19 + 1);
+      }
+      while ( (_DWORD)v11 && ((unsigned __int64)v19 ^ *((_QWORD *)&v19 + 1)) % 6 == (_DWORD)v11 );
+      v34[0] = v17;
+      v34[1] = ((unsigned __int64)v19 ^ *((_QWORD *)&v19 + 1)) % 6;
+      v34[2] = (v5 < 6) + 1;
+      v35 = a1;
+      v36 = 0;
+      v37 = 0;
+      v20 = KeExpandKernelStackAndCallout(sub_140A379E0, v34, 0xC000uLL);
+      v21 = v37;
+      if ( v20 < 0 )
+        v21 = 0;
+      v37 = v21;
+      v14 = v21;
+    }
+    if ( v14 )
+    {
+      if ( !*(_QWORD *)&MaxDataSize && !a1 && ((int)KiSwInterruptPresent() >= 0 || __32) )
+      {
+        v38[0] = 0;
+        v38[1] = 7;
+        v38[2] = 1;
+        v39 = 0LL;
+        v22 = KiSwInterruptPresent();
+        v41 = 0;
+        v23 = 8;
+        if ( v22 >= 0 )
+          v23 = 0;
+        v40 = v23;
+        v24 = KeExpandKernelStackAndCallout(sub_140A379E0, v38, 0xC000uLL);
+        v25 = v41;
+        if ( v24 < 0 )
+          v25 = 0;
+        v41 = v25;
+        v14 = v25;
+      }
+      if ( v14 && !a1 )
+      {
+        if ( qword_140D58650 )
+          ExFreePoolWithTag(qword_140D58650, v13);
         v26 = 24;
-        v27 = &__29;
+        v27 = &__2a;
         v28 = 3LL;
         do
         {
@@ -172,38 +186,13 @@ LABEL_31:
           v27 = (__int64 *)((char *)v27 + 1);
         }
         __20 = 0;
-        __2a = 0;
-        __2b = 0LL;
-        dword_140C0DB40 = 0;
-        qword_140D68080 = 0LL;
-        goto LABEL_38;
-      }
-      v38[0] = 0;
-      v38[1] = 7;
-      v38[2] = 1;
-      v39 = 0LL;
-      v22 = KiSwInterruptPresent();
-      v41 = 0;
-      v23 = 8;
-      if ( v22 >= 0 )
-        v23 = 0;
-      v40 = v23;
-      v24 = KeExpandKernelStackAndCallout(sub_140AF2480, v38, 0xC000uLL);
-      v25 = v41;
-      if ( v24 < 0 )
-        v25 = 0;
-      v41 = v25;
-      v14 = v25;
-      if ( v25 )
-      {
-LABEL_30:
-        if ( a1 )
-          goto LABEL_38;
-        goto LABEL_31;
+        __2b = 0;
+        __2c = 0LL;
+        dword_140C13040 = 0;
+        qword_140D58080 = 0LL;
       }
     }
   }
-LABEL_38:
   _disable();
   if ( !(_BYTE)KdDebuggerNotPresent )
   {

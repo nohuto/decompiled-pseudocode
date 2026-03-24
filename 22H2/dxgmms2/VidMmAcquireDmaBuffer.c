@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmAcquireDmaBuffer @ 0x1C0017050
+ * XREFs of VidMmAcquireDmaBuffer @ 0x1C0011970
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z @ 0x1C00B1628 (-AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z.c)
+ *     ?AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z @ 0x1C0080610 (-AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z.c)
  */
 
 __int64 __fastcall VidMmAcquireDmaBuffer(

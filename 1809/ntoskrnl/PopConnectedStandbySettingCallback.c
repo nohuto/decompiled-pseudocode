@@ -1,15 +1,15 @@
 /*
- * XREFs of PopConnectedStandbySettingCallback @ 0x14071EBF0
+ * XREFs of PopConnectedStandbySettingCallback @ 0x14071EBD0
  * Callers:
  *     <none>
  * Callees:
- *     PopThermalCsEntry @ 0x1402DC234 (PopThermalCsEntry.c)
- *     PopThermalCsExit @ 0x1402DC284 (PopThermalCsExit.c)
+ *     PopThermalCsEntry @ 0x1402DC334 (PopThermalCsEntry.c)
+ *     PopThermalCsExit @ 0x1402DC384 (PopThermalCsExit.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopTransitionTelemetryOsState @ 0x1407454E8 (PopTransitionTelemetryOsState.c)
- *     PopDiagNextCsSleepStudySession @ 0x140870290 (PopDiagNextCsSleepStudySession.c)
- *     PopFanUpdateCsState @ 0x1408766F0 (PopFanUpdateCsState.c)
+ *     PopTransitionTelemetryOsState @ 0x1407454C8 (PopTransitionTelemetryOsState.c)
+ *     PopDiagNextCsSleepStudySession @ 0x140870270 (PopDiagNextCsSleepStudySession.c)
+ *     PopFanUpdateCsState @ 0x1408766D0 (PopFanUpdateCsState.c)
  */
 
 __int64 __fastcall PopConnectedStandbySettingCallback(_QWORD *a1, int *a2, int a3)

@@ -1,1 +1,229 @@
-/*\n * XREFs of memmove @ 0x1C0002C00\n * Callers:\n *     MouseClassReadCopyData @ 0x1C0004D78 (MouseClassReadCopyData.c)\n *     MouseClassServiceCallback @ 0x1C0005190 (MouseClassServiceCallback.c)\n *     MouseAddDeviceEx @ 0x1C000D540 (MouseAddDeviceEx.c)\n *     MouseQueryDeviceKey @ 0x1C000F46C (MouseQueryDeviceKey.c)\n *     WppTraceCallback @ 0x1C000F630 (WppTraceCallback.c)\n *     DriverEntry @ 0x1C00112E0 (DriverEntry.c)\n * Callees:\n *     <none>\n */\n\nvoid *__cdecl memmove(void *a1, const void *Src, size_t Size)\n{\n  void *result; // rax\n  __int64 v4; // r11\n  __int64 v5; // rdx\n  __int128 v6; // xmm1\n  bool v7; // cf\n  signed __int64 v8; // rdx\n  char v9; // r11\n  _BYTE *v10; // rcx\n  char v11; // r11\n  char *v12; // r11\n  signed __int64 v13; // rdx\n  __m128 v14; // xmm0\n  unsigned __int64 v15; // rcx\n  unsigned __int64 v16; // rcx\n  __m128 v17; // xmm1\n  unsigned __int64 v18; // r8\n  unsigned __int64 v19; // r9\n  __int128 v20; // xmm1\n  __int128 v21; // xmm2\n  __int128 v22; // xmm3\n  __m128 v23; // xmm4\n  unsigned __int64 j; // r9\n  unsigned __int64 v25; // r8\n  unsigned __int64 v26; // r9\n  __m128 v27; // xmm1\n  __m128 v28; // xmm2\n  __m128 v29; // xmm3\n  __m128 v30; // xmm4\n  char *v31; // rcx\n  __int128 v32; // xmm0\n  unsigned __int64 v33; // rcx\n  size_t v34; // r8\n  _OWORD *v35; // r11\n  __int128 v36; // xmm1\n  size_t v37; // r9\n  __int128 v38; // xmm1\n  __int128 v39; // xmm2\n  __int128 v40; // xmm3\n  __int128 v41; // xmm4\n  size_t i; // r9\n  size_t v43; // r8\n\n  result = a1;\n  if ( Size < 8 )\n  {\n    if ( Size )\n    {\n      v7 = Src < a1;\n      v8 = (_BYTE *)Src - (_BYTE *)a1;\n      if ( v7 )\n      {\n        v10 = (char *)a1 + Size;\n        do\n        {\n          v11 = v10[v8 - 1];\n          --v10;\n          --Size;\n          *v10 = v11;\n        }\n        while ( Size );\n      }\n      else\n      {\n        do\n        {\n          v9 = *((_BYTE *)a1 + v8);\n          a1 = (char *)a1 + 1;\n          --Size;\n          *((char *)a1 - 1) = v9;\n        }\n        while ( Size );\n      }\n    }\n  }\n  else if ( Size > 0x10 )\n  {\n    if ( Size > 0x20 )\n    {\n      v12 = (char *)Src + Size;\n      v7 = Src < a1;\n      v13 = (_BYTE *)Src - (_BYTE *)a1;\n      if ( v7 && v12 > a1 )\n      {\n        v31 = (char *)a1 + Size;\n        v32 = *(_OWORD *)&v31[v13 - 16];\n        v33 = (unsigned __int64)(v31 - 16);\n        v34 = Size - 16;\n        if ( (v33 & 0xF) != 0 )\n        {\n          v35 = (_OWORD *)v33;\n          v33 &= 0xFFFFFFFFFFFFFFF0uLL;\n          v36 = *(_OWORD *)(v33 + v13);\n          *v35 = v32;\n          v32 = v36;\n          v34 = v33 - (_QWORD)result;\n        }\n        v37 = v34 >> 6;\n        if ( v34 >> 6 )\n        {\n          v34 &= 0x3Fu;\n          do\n          {\n            v38 = *(_OWORD *)(v33 + v13 - 16);\n            v39 = *(_OWORD *)(v33 + v13 - 32);\n            v40 = *(_OWORD *)(v33 + v13 - 48);\n            v41 = *(_OWORD *)(v33 + v13 - 64);\n            *(_OWORD *)v33 = v32;\n            v33 -= 64LL;\n            --v37;\n            *(_OWORD *)(v33 + 48) = v38;\n            *(_OWORD *)(v33 + 32) = v39;\n            *(_OWORD *)(v33 + 16) = v40;\n            v32 = v41;\n          }\n          while ( v37 );\n        }\n        for ( i = v34 >> 4; i; --i )\n        {\n          *(_OWORD *)v33 = v32;\n          v32 = *(_OWORD *)(v33 + v13 - 16);\n          v33 -= 16LL;\n        }\n        v43 = v34 & 0xF;\n        if ( v43 )\n          *(_OWORD *)(v33 - v43) = *(_OWORD *)(v33 - v43 + v13);\n        *(_OWORD *)v33 = v32;\n      }\n      else\n      {\n        v14 = *(__m128 *)((char *)a1 + v13);\n        v15 = (unsigned __int64)a1 + 16;\n        if ( (v15 & 0xF) != 0 )\n        {\n          v16 = v15 & 0xFFFFFFFFFFFFFFF0uLL;\n          v17 = *(__m128 *)(v16 + v13);\n          *(__m128 *)result = v14;\n          v14 = v17;\n          v15 = v16 + 16;\n        }\n        v18 = (unsigned __int64)result + Size - v15;\n        v19 = v18 >> 6;\n        if ( v18 >> 6 )\n        {\n          if ( v19 > 0x1000 )\n          {\n            v26 = v18 >> 6;\n            v18 &= 0x3Fu;\n            _mm_prefetch((const char *)(v15 + v13 + 64), 0);\n            do\n            {\n              v27 = *(__m128 *)(v15 + v13);\n              v28 = *(__m128 *)(v15 + v13 + 16);\n              v29 = *(__m128 *)(v15 + v13 + 32);\n              v30 = *(__m128 *)(v15 + v13 + 48);\n              _mm_stream_ps((float *)(v15 - 16), v14);\n              v15 += 64LL;\n              _mm_prefetch((const char *)(v15 + v13 + 64), 0);\n              --v26;\n              _mm_stream_ps((float *)(v15 - 64), v27);\n              _mm_stream_ps((float *)(v15 - 48), v28);\n              _mm_stream_ps((float *)(v15 - 32), v29);\n              v14 = v30;\n            }\n            while ( v26 );\n            _mm_sfence();\n          }\n          else\n          {\n            v18 &= 0x3Fu;\n            do\n            {\n              v20 = *(_OWORD *)(v15 + v13);\n              v21 = *(_OWORD *)(v15 + v13 + 16);\n              v22 = *(_OWORD *)(v15 + v13 + 32);\n              v23 = *(__m128 *)(v15 + v13 + 48);\n              *(__m128 *)(v15 - 16) = v14;\n              v15 += 64LL;\n              --v19;\n              *(_OWORD *)(v15 - 64) = v20;\n              *(_OWORD *)(v15 - 48) = v21;\n              *(_OWORD *)(v15 - 32) = v22;\n              v14 = v23;\n            }\n            while ( v19 );\n          }\n        }\n        for ( j = v18 >> 4; j; --j )\n        {\n          *(__m128 *)(v15 - 16) = v14;\n          v14 = *(__m128 *)(v15 + v13);\n          v15 += 16LL;\n        }\n        v25 = v18 & 0xF;\n        if ( v25 )\n          *(_OWORD *)(v15 + v25 - 16) = *(_OWORD *)(v15 + v25 - 16 + v13);\n        *(__m128 *)(v15 - 16) = v14;\n      }\n    }\n    else\n    {\n      v6 = *(_OWORD *)((char *)Src + Size - 16);\n      *(_OWORD *)a1 = *(_OWORD *)Src;\n      *(_OWORD *)((char *)a1 + Size - 16) = v6;\n    }\n  }\n  else\n  {\n    v4 = *(_QWORD *)Src;\n    v5 = *(_QWORD *)((char *)Src + Size - 8);\n    *(_QWORD *)a1 = v4;\n    *(_QWORD *)((char *)a1 + Size - 8) = v5;\n  }\n  return result;\n}\n
+/*
+ * XREFs of memmove @ 0x1C0002A80
+ * Callers:
+ *     MouseClassReadCopyData @ 0x1C00047C8 (MouseClassReadCopyData.c)
+ *     MouseClassServiceCallback @ 0x1C0004BE0 (MouseClassServiceCallback.c)
+ *     MouseAddDeviceEx @ 0x1C000C720 (MouseAddDeviceEx.c)
+ *     MouseQueryDeviceKey @ 0x1C000E4AC (MouseQueryDeviceKey.c)
+ *     WppTraceCallback @ 0x1C000E670 (WppTraceCallback.c)
+ *     DriverEntry @ 0x1C000F500 (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
+void *__cdecl memmove(void *a1, const void *Src, size_t Size)
+{
+  void *result; // rax
+  __int64 v4; // r11
+  __int64 v5; // rdx
+  __int128 v6; // xmm1
+  bool v7; // cf
+  signed __int64 v8; // rdx
+  char v9; // r11
+  _BYTE *v10; // rcx
+  char v11; // r11
+  char *v12; // r11
+  signed __int64 v13; // rdx
+  __m128 v14; // xmm0
+  unsigned __int64 v15; // rcx
+  unsigned __int64 v16; // rcx
+  __m128 v17; // xmm1
+  unsigned __int64 v18; // r8
+  unsigned __int64 v19; // r9
+  __int128 v20; // xmm1
+  __int128 v21; // xmm2
+  __int128 v22; // xmm3
+  __m128 v23; // xmm4
+  unsigned __int64 j; // r9
+  unsigned __int64 v25; // r8
+  unsigned __int64 v26; // r9
+  __m128 v27; // xmm1
+  __m128 v28; // xmm2
+  __m128 v29; // xmm3
+  __m128 v30; // xmm4
+  char *v31; // rcx
+  __int128 v32; // xmm0
+  unsigned __int64 v33; // rcx
+  size_t v34; // r8
+  _OWORD *v35; // r11
+  __int128 v36; // xmm1
+  size_t v37; // r9
+  __int128 v38; // xmm1
+  __int128 v39; // xmm2
+  __int128 v40; // xmm3
+  __int128 v41; // xmm4
+  size_t i; // r9
+  size_t v43; // r8
+
+  result = a1;
+  if ( Size < 8 )
+  {
+    if ( Size )
+    {
+      v7 = Src < a1;
+      v8 = (_BYTE *)Src - (_BYTE *)a1;
+      if ( v7 )
+      {
+        v10 = (char *)a1 + Size;
+        do
+        {
+          v11 = v10[v8 - 1];
+          --v10;
+          --Size;
+          *v10 = v11;
+        }
+        while ( Size );
+      }
+      else
+      {
+        do
+        {
+          v9 = *((_BYTE *)a1 + v8);
+          a1 = (char *)a1 + 1;
+          --Size;
+          *((char *)a1 - 1) = v9;
+        }
+        while ( Size );
+      }
+    }
+  }
+  else if ( Size > 0x10 )
+  {
+    if ( Size > 0x20 )
+    {
+      v12 = (char *)Src + Size;
+      v7 = Src < a1;
+      v13 = (_BYTE *)Src - (_BYTE *)a1;
+      if ( v7 && v12 > a1 )
+      {
+        v31 = (char *)a1 + Size;
+        v32 = *(_OWORD *)&v31[v13 - 16];
+        v33 = (unsigned __int64)(v31 - 16);
+        v34 = Size - 16;
+        if ( (v33 & 0xF) != 0 )
+        {
+          v35 = (_OWORD *)v33;
+          v33 &= 0xFFFFFFFFFFFFFFF0uLL;
+          v36 = *(_OWORD *)(v33 + v13);
+          *v35 = v32;
+          v32 = v36;
+          v34 = v33 - (_QWORD)result;
+        }
+        v37 = v34 >> 6;
+        if ( v34 >> 6 )
+        {
+          v34 &= 0x3Fu;
+          do
+          {
+            v38 = *(_OWORD *)(v33 + v13 - 16);
+            v39 = *(_OWORD *)(v33 + v13 - 32);
+            v40 = *(_OWORD *)(v33 + v13 - 48);
+            v41 = *(_OWORD *)(v33 + v13 - 64);
+            *(_OWORD *)v33 = v32;
+            v33 -= 64LL;
+            --v37;
+            *(_OWORD *)(v33 + 48) = v38;
+            *(_OWORD *)(v33 + 32) = v39;
+            *(_OWORD *)(v33 + 16) = v40;
+            v32 = v41;
+          }
+          while ( v37 );
+        }
+        for ( i = v34 >> 4; i; --i )
+        {
+          *(_OWORD *)v33 = v32;
+          v32 = *(_OWORD *)(v33 + v13 - 16);
+          v33 -= 16LL;
+        }
+        v43 = v34 & 0xF;
+        if ( v43 )
+          *(_OWORD *)(v33 - v43) = *(_OWORD *)(v33 - v43 + v13);
+        *(_OWORD *)v33 = v32;
+      }
+      else
+      {
+        v14 = *(__m128 *)((char *)a1 + v13);
+        v15 = (unsigned __int64)a1 + 16;
+        if ( (v15 & 0xF) != 0 )
+        {
+          v16 = v15 & 0xFFFFFFFFFFFFFFF0uLL;
+          v17 = *(__m128 *)(v16 + v13);
+          *(__m128 *)result = v14;
+          v14 = v17;
+          v15 = v16 + 16;
+        }
+        v18 = (unsigned __int64)result + Size - v15;
+        v19 = v18 >> 6;
+        if ( v18 >> 6 )
+        {
+          if ( v19 > 0x1000 )
+          {
+            v26 = v18 >> 6;
+            v18 &= 0x3Fu;
+            _mm_prefetch((const char *)(v15 + v13 + 64), 0);
+            do
+            {
+              v27 = *(__m128 *)(v15 + v13);
+              v28 = *(__m128 *)(v15 + v13 + 16);
+              v29 = *(__m128 *)(v15 + v13 + 32);
+              v30 = *(__m128 *)(v15 + v13 + 48);
+              _mm_stream_ps((float *)(v15 - 16), v14);
+              v15 += 64LL;
+              _mm_prefetch((const char *)(v15 + v13 + 64), 0);
+              --v26;
+              _mm_stream_ps((float *)(v15 - 64), v27);
+              _mm_stream_ps((float *)(v15 - 48), v28);
+              _mm_stream_ps((float *)(v15 - 32), v29);
+              v14 = v30;
+            }
+            while ( v26 );
+            _mm_sfence();
+          }
+          else
+          {
+            v18 &= 0x3Fu;
+            do
+            {
+              v20 = *(_OWORD *)(v15 + v13);
+              v21 = *(_OWORD *)(v15 + v13 + 16);
+              v22 = *(_OWORD *)(v15 + v13 + 32);
+              v23 = *(__m128 *)(v15 + v13 + 48);
+              *(__m128 *)(v15 - 16) = v14;
+              v15 += 64LL;
+              --v19;
+              *(_OWORD *)(v15 - 64) = v20;
+              *(_OWORD *)(v15 - 48) = v21;
+              *(_OWORD *)(v15 - 32) = v22;
+              v14 = v23;
+            }
+            while ( v19 );
+          }
+        }
+        for ( j = v18 >> 4; j; --j )
+        {
+          *(__m128 *)(v15 - 16) = v14;
+          v14 = *(__m128 *)(v15 + v13);
+          v15 += 16LL;
+        }
+        v25 = v18 & 0xF;
+        if ( v25 )
+          *(_OWORD *)(v15 + v25 - 16) = *(_OWORD *)(v15 + v25 - 16 + v13);
+        *(__m128 *)(v15 - 16) = v14;
+      }
+    }
+    else
+    {
+      v6 = *(_OWORD *)((char *)Src + Size - 16);
+      *(_OWORD *)a1 = *(_OWORD *)Src;
+      *(_OWORD *)((char *)a1 + Size - 16) = v6;
+    }
+  }
+  else
+  {
+    v4 = *(_QWORD *)Src;
+    v5 = *(_QWORD *)((char *)Src + Size - 8);
+    *(_QWORD *)a1 = v4;
+    *(_QWORD *)((char *)a1 + Size - 8) = v5;
+  }
+  return result;
+}

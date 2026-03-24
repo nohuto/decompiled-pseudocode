@@ -1,55 +1,56 @@
 /*
- * XREFs of MiEmptyPteBins @ 0x140269570
+ * XREFs of MiEmptyPteBins @ 0x14030F280
  * Callers:
- *     MiAdjustPteBins @ 0x140269464 (MiAdjustPteBins.c)
- *     MiInsertCachedPte @ 0x1402BBAD0 (MiInsertCachedPte.c)
- *     MiReservePtes @ 0x1403095B0 (MiReservePtes.c)
- *     MiCheckProcessorPteCache @ 0x140309C60 (MiCheckProcessorPteCache.c)
+ *     MiCheckProcessorPteCache @ 0x140225E90 (MiCheckProcessorPteCache.c)
+ *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
+ *     MiInsertCachedPte @ 0x140245C00 (MiInsertCachedPte.c)
+ *     MiAdjustPteBins @ 0x1402722D8 (MiAdjustPteBins.c)
  * Callees:
- *     MiReplenishBitMap @ 0x1402697F0 (MiReplenishBitMap.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiReleaseLargePteMappings @ 0x1405B585C (MiReleaseLargePteMappings.c)
+ *     MiReplenishBitMap @ 0x140288BB0 (MiReplenishBitMap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleaseLargePteMappings @ 0x140553FBC (MiReleaseLargePteMappings.c)
  */
 
 __int64 __fastcall MiEmptyPteBins(__int64 a1, int a2)
 {
+  __int64 v2; // r8
   unsigned int v4; // esi
-  int v5; // ecx
+  int v5; // r13d
   __int64 v6; // rdi
-  unsigned int v7; // r15d
-  unsigned int v8; // r14d
+  unsigned int v7; // r14d
+  unsigned int v8; // r12d
   unsigned int i; // ebx
   volatile signed __int64 *v10; // r10
   signed __int64 v11; // rax
-  unsigned int v13; // ecx
+  int v13; // ecx
   unsigned __int8 CurrentIrql; // bp
-  __int64 v15; // r8
-  unsigned __int64 v16; // rax
-  int v17; // esi
+  unsigned __int64 v15; // rax
+  int v16; // esi
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v19; // al
-  struct _KPRCB *v20; // r10
-  _DWORD *v21; // r9
-  int v22; // eax
-  bool v23; // zf
-  unsigned __int8 v24; // al
-  struct _KPRCB *v25; // r10
-  _DWORD *v26; // r9
-  int v27; // eax
+  unsigned __int8 v18; // al
+  struct _KPRCB *v19; // r10
+  _DWORD *v20; // r9
+  int v21; // eax
+  bool v22; // zf
+  unsigned __int8 v23; // al
+  struct _KPRCB *v24; // r10
+  _DWORD *v25; // r9
+  int v26; // eax
   struct _KPRCB *CurrentPrcb; // rcx
-  _DWORD *v29; // r8
-  signed __int32 v30[22]; // [rsp+0h] [rbp-58h] BYREF
-  int v31; // [rsp+60h] [rbp+8h]
-  signed __int64 v32; // [rsp+70h] [rbp+18h] BYREF
+  _DWORD *v28; // r8
+  signed __int32 v29[22]; // [rsp+0h] [rbp-58h] BYREF
+  signed __int64 v30; // [rsp+60h] [rbp+8h] BYREF
+  int v31; // [rsp+68h] [rbp+10h]
 
+  v31 = a2;
+  v2 = 0LL;
   v4 = 0;
-  _InterlockedOr(v30, 0);
+  _InterlockedOr(v29, 0);
   v5 = KiTbFlushTimeStamp;
-  v6 = *(_QWORD *)(a1 + 72);
+  v6 = *(_QWORD *)(a1 + 80);
   v7 = 0;
-  v31 = KiTbFlushTimeStamp;
   v8 = 2 * (unsigned __int16)KeNumberNodes;
-  if ( (__int64 *)a1 != &qword_140C534C0 )
+  if ( (__int64 *)a1 != &qword_140C4EF40 )
     v8 = (unsigned __int16)KeNumberNodes;
   if ( v8 )
   {
@@ -59,31 +60,41 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1, int a2)
       {
         v10 = (volatile signed __int64 *)(v6 + 8LL * i);
         v11 = *v10;
-        v32 = v11;
+        v30 = v11;
         if ( (_DWORD)v11 )
         {
-          v13 = v5 - v11;
-          if ( v13 > 2 || (v11 & 1) == 0 && v13 >= 2 || a2 )
+          if ( (unsigned int)(v5 - v11) <= 2 )
+          {
+            if ( (v11 & 1) != 0 || (v13 = 0, (unsigned int)(v5 - v11) < 2) )
+              v13 = 1;
+          }
+          else
+          {
+            v13 = 0;
+          }
+          if ( v13 != 1 || a2 )
           {
             CurrentIrql = KeGetCurrentIrql();
             __writecr8(2uLL);
             if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
               SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-              v11 = v32;
+              v11 = v30;
+              a2 = v31;
               SchedulerAssist[5] |= (-1LL << (CurrentIrql + 1)) & 4;
+              v2 = 0LL;
             }
-            if ( CurrentIrql == 2 && (__int64 *)a1 == &qword_140C534C0 && v7 >= v8 >> 1 )
+            if ( CurrentIrql == 2 && (__int64 *)a1 == &qword_140C4EF40 && v7 >= v8 >> 1 )
             {
               if ( KiIrqlFlags )
               {
                 if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
                 {
                   CurrentPrcb = KeGetCurrentPrcb();
-                  v29 = CurrentPrcb->SchedulerAssist;
-                  v23 = (v29[5] & 0xFFFF0007) == 0;
-                  v29[5] &= 0xFFFF0007;
-                  if ( v23 )
+                  v28 = CurrentPrcb->SchedulerAssist;
+                  v22 = (v28[5] & 0xFFFF0007) == 0;
+                  v28[5] &= 0xFFFF0007;
+                  if ( v22 )
                     KiRemoveSystemWorkPriorityKick(CurrentPrcb);
                 }
               }
@@ -92,32 +103,29 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1, int a2)
             }
             if ( v11 == _InterlockedCompareExchange64(v10, 0LL, v11) )
             {
-              _InterlockedOr(v30, 0);
-              if ( (unsigned int)(KiTbFlushTimeStamp - v32) > 2 )
+              _InterlockedOr(v29, 0);
+              if ( (unsigned int)(KiTbFlushTimeStamp - v30) <= 2
+                && ((v30 & 1) != 0 || (unsigned int)(KiTbFlushTimeStamp - v30) < 2) )
               {
-                v15 = 0LL;
+                v2 = 1LL;
               }
-              else if ( (v32 & 1) != 0 || (v15 = 0LL, (unsigned int)(KiTbFlushTimeStamp - v32) < 2) )
+              if ( (__int64 *)a1 == &qword_140C4EF40 && v7 >= v8 >> 1 )
               {
-                v15 = 1LL;
-              }
-              if ( (__int64 *)a1 == &qword_140C534C0 && v7 >= v8 >> 1 )
-              {
-                v17 = MiReleaseLargePteMappings(a1, &v32, v15);
+                v16 = MiReleaseLargePteMappings(a1, &v30, v2);
                 if ( KiIrqlFlags )
                 {
                   if ( (KiIrqlFlags & 1) != 0 )
                   {
-                    v19 = KeGetCurrentIrql();
-                    if ( v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+                    v18 = KeGetCurrentIrql();
+                    if ( v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
                     {
-                      v20 = KeGetCurrentPrcb();
-                      v21 = v20->SchedulerAssist;
-                      v22 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                      v23 = (v22 & v21[5]) == 0;
-                      v21[5] &= v22;
-                      if ( v23 )
-                        KiRemoveSystemWorkPriorityKick(v20);
+                      v19 = KeGetCurrentPrcb();
+                      v20 = v19->SchedulerAssist;
+                      v21 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+                      v22 = (v21 & v20[5]) == 0;
+                      v20[5] &= v21;
+                      if ( v22 )
+                        KiRemoveSystemWorkPriorityKick(v19);
                     }
                   }
                 }
@@ -125,12 +133,14 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1, int a2)
               }
               else
               {
-                v16 = MiReplenishBitMap(a1, HIDWORD(v32), v15);
-                v17 = v16;
-                _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 80), v16);
+                v15 = MiReplenishBitMap(a1, HIDWORD(v30), v2);
+                v16 = v15;
+                _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 88), v15);
               }
-              _InterlockedExchangeAdd((volatile signed __int32 *)(v6 + 64), -v17);
+              _InterlockedExchangeAdd((volatile signed __int32 *)(v6 + 64), -v16);
+              a2 = v31;
               v4 = 1;
+              v2 = 0LL;
             }
             else
             {
@@ -140,22 +150,23 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1, int a2)
             {
               if ( (KiIrqlFlags & 1) != 0 )
               {
-                v24 = KeGetCurrentIrql();
-                if ( v24 <= 0xFu && CurrentIrql <= 0xFu && v24 >= 2u )
+                v23 = KeGetCurrentIrql();
+                if ( v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
                 {
-                  v25 = KeGetCurrentPrcb();
-                  v26 = v25->SchedulerAssist;
-                  v27 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                  v23 = (v27 & v26[5]) == 0;
-                  v26[5] &= v27;
-                  if ( v23 )
-                    KiRemoveSystemWorkPriorityKick(v25);
+                  v24 = KeGetCurrentPrcb();
+                  v25 = v24->SchedulerAssist;
+                  v26 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+                  v22 = (v26 & v25[5]) == 0;
+                  v25[5] &= v26;
+                  if ( v22 )
+                    KiRemoveSystemWorkPriorityKick(v24);
+                  a2 = v31;
+                  v2 = 0LL;
                 }
               }
             }
             __writecr8(CurrentIrql);
           }
-          v5 = v31;
         }
       }
       v6 += 72LL;

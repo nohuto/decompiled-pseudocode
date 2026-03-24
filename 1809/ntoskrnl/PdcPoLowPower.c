@@ -1,5 +1,5 @@
 /*
- * XREFs of PdcPoLowPower @ 0x140191600
+ * XREFs of PdcPoLowPower @ 0x140191620
  * Callers:
  *     <none>
  * Callees:

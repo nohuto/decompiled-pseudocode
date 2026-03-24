@@ -1,9 +1,9 @@
 /*
- * XREFs of SeConvertSidToStringSid @ 0x1405F5ED0
+ * XREFs of SeConvertSidToStringSid @ 0x140598010
  * Callers:
  *     <none>
  * Callees:
- *     LocalConvertSidToStringSidW @ 0x1406C85A0 (LocalConvertSidToStringSidW.c)
+ *     LocalConvertSidToStringSidW @ 0x140673500 (LocalConvertSidToStringSidW.c)
  */
 
 __int64 __fastcall SeConvertSidToStringSid(void *a1)

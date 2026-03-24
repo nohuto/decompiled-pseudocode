@@ -1,16 +1,19 @@
 /*
- * XREFs of RtlGetConsoleSessionForegroundProcessId @ 0x1409BF360
+ * XREFs of RtlGetConsoleSessionForegroundProcessId @ 0x140910080
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402D19C0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 RtlGetConsoleSessionForegroundProcessId()
+__int64 __fastcall RtlGetConsoleSessionForegroundProcessId(__int64 a1, __int64 a2)
 {
-  if ( PsIsCurrentThreadInServerSilo() )
-    return *(_QWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 165) + 8LL);
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+
+  if ( PsIsCurrentThreadInServerSilo(a1, a2) )
+    return *(_QWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals(v3, v2) + 141) + 8LL);
   else
     return MEMORY[0xFFFFF78000000338];
 }

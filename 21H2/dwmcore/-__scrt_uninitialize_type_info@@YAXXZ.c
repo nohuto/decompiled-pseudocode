@@ -1,7 +1,7 @@
 /*
- * XREFs of ?__scrt_uninitialize_type_info@@YAXXZ @ 0x1801016B4
+ * XREFs of ?__scrt_uninitialize_type_info@@YAXXZ @ 0x1800E7F34
  * Callers:
- *     dllmain_crt_process_detach @ 0x180100D90 (dllmain_crt_process_detach.c)
+ *     dllmain_crt_process_detach @ 0x1800E7574 (dllmain_crt_process_detach.c)
  * Callees:
  *     <none>
  */

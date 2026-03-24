@@ -1,15 +1,15 @@
 /*
- * XREFs of VfBugCheckNoStackUsage @ 0x1405CF910
+ * XREFs of VfBugCheckNoStackUsage @ 0x1405A18E8
  * Callers:
- *     IovCallDriver @ 0x140AC21D0 (IovCallDriver.c)
- *     IovpCallDriverWithStackBuffer @ 0x140AC29B4 (IovpCallDriverWithStackBuffer.c)
- *     VfAfterCallDriver @ 0x140ACE3D8 (VfAfterCallDriver.c)
- *     VfBeforeCallDriver @ 0x140ACE5AC (VfBeforeCallDriver.c)
+ *     IovCallDriver @ 0x1409C4CC4 (IovCallDriver.c)
+ *     IovpCallDriverWithStackBuffer @ 0x1409C5504 (IovpCallDriverWithStackBuffer.c)
+ *     VfAfterCallDriver @ 0x1409D0E94 (VfAfterCallDriver.c)
+ *     VfBeforeCallDriver @ 0x1409D1088 (VfBeforeCallDriver.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 void __noreturn VfBugCheckNoStackUsage()
 {
-  KeBugCheckEx(VfBugcheckTmpData, BugCheckParameter1, qword_140D70500, xmmword_140D70508, *(&xmmword_140D70508 + 1));
+  KeBugCheckEx(VfBugcheckTmpData, BugCheckParameter1, qword_140D4A038, xmmword_140D4A040, *(&xmmword_140D4A040 + 1));
 }

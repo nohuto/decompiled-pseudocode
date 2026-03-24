@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIBuildRegOnRequest @ 0x1C00133D0
+ * XREFs of ACPIBuildRegOnRequest @ 0x1C004C3C0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildRegRequest @ 0x1C00133EC (ACPIBuildRegRequest.c)
+ *     ACPIBuildRegRequest @ 0x1C004C3DC (ACPIBuildRegRequest.c)
  */
 
-__int64 ACPIBuildRegOnRequest()
+__int64 __fastcall ACPIBuildRegOnRequest(__int64 a1, __int64 a2, __int64 a3)
 {
-  ACPIBuildRegRequest();
+  ACPIBuildRegRequest(a1, a2, a3);
   return 3221225494LL;
 }

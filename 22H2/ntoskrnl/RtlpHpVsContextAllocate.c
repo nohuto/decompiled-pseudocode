@@ -1,10 +1,11 @@
 /*
- * XREFs of RtlpHpVsContextAllocate @ 0x14034C5B4
+ * XREFs of RtlpHpVsContextAllocate @ 0x1402FED24
  * Callers:
- *     RtlpAllocateHeapInternal @ 0x14034C538 (RtlpAllocateHeapInternal.c)
+ *     RtlpHpAllocateHeapInternal @ 0x1402FE8BC (RtlpHpAllocateHeapInternal.c)
+ *     RtlpAllocateHeapInternal @ 0x1402FECA8 (RtlpAllocateHeapInternal.c)
  * Callees:
- *     RtlpHpVsContextAllocateInternal @ 0x14024A090 (RtlpHpVsContextAllocateInternal.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x140289AC0 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1402BC110 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x1402BF450 (RtlpHpVsContextAllocateInternal.c)
  */
 
 char *__fastcall RtlpHpVsContextAllocate(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)

@@ -1,14 +1,21 @@
 /*
- * XREFs of ?_AddReference@DXGMONITOR@@QEAAXPEAX@Z @ 0x1C01A0644
+ * XREFs of ?_AddReference@DXGMONITOR@@QEAAXPEAX@Z @ 0x1C0129C3C
  * Callers:
- *     MonitorGetMonitorHandle @ 0x1C01A0DA4 (MonitorGetMonitorHandle.c)
- *     DxgkGetAdapterDeviceDesc @ 0x1C01A3640 (DxgkGetAdapterDeviceDesc.c)
+ *     DxgkGetMonitorInternalInfo @ 0x1C011B670 (DxgkGetMonitorInternalInfo.c)
+ *     MonitorGetMonitorHandle @ 0x1C0129A20 (MonitorGetMonitorHandle.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall DXGMONITOR::_AddReference(DXGMONITOR *this, void *a2)
 {
-  if ( IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)((char *)this + 280), a2, File, 1u, 0x20u) < 0 )
-    WdLogSingleEntry0(1LL);
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+
+  if ( IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)((char *)this + 400), a2, File, 1u, 0x20u) < 0 )
+  {
+    v4 = WdLogNewEntry5_WdAssertion(v3, v2);
+    WdLogEvent5_WdAssertion(v4);
+  }
 }

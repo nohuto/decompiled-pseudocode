@@ -1,8 +1,8 @@
 /*
- * XREFs of NVMeSubmissionQueueInit @ 0x1C001096C
+ * XREFs of NVMeSubmissionQueueInit @ 0x1C0010C9C
  * Callers:
- *     AdminQueueInitialize @ 0x1C0009314 (AdminQueueInitialize.c)
- *     IoQueuesInitialize @ 0x1C000B10C (IoQueuesInitialize.c)
+ *     AdminQueueInitialize @ 0x1C000B088 (AdminQueueInitialize.c)
+ *     IoQueuesInitialize @ 0x1C000C8F4 (IoQueuesInitialize.c)
  * Callees:
  *     <none>
  */
@@ -21,8 +21,8 @@ __int64 __fastcall NVMeSubmissionQueueInit(
   __int16 v11; // r14
   unsigned __int16 v12; // bp
   __int64 v13; // rax
-  __int64 v14; // rcx
-  __int64 v15; // rax
+  __int64 v14; // rax
+  int v15; // ecx
   __int64 v16; // rcx
   __int64 result; // rax
   __int64 v18; // rdx
@@ -35,13 +35,13 @@ __int64 __fastcall NVMeSubmissionQueueInit(
   v21 = 0;
   if ( a3 )
   {
-    v12 = *(_WORD *)(a1 + 334);
+    v12 = *(_WORD *)(a1 + 286);
     v11 = 0;
   }
   else
   {
-    v11 = *(_WORD *)(a1 + 242);
-    v12 = *(_WORD *)(a1 + 332);
+    v11 = *(_WORD *)(a1 + 218);
+    v12 = *(_WORD *)(a1 + 284);
   }
   v13 = a5;
   *(_QWORD *)a2 = a4;
@@ -49,19 +49,19 @@ __int64 __fastcall NVMeSubmissionQueueInit(
     *(_QWORD *)(a2 + 8) = v13;
   else
     *(_QWORD *)(a2 + 8) = StorPortGetPhysicalAddress(a1, 0LL, a4, &v21);
-  v14 = (unsigned int)(2 * *(_DWORD *)(a1 + 208) * v8);
-  v15 = *(_QWORD *)(a1 + 184) + 4096LL;
+  v14 = *(_QWORD *)(a1 + 160) + 4096LL;
+  v15 = v8 * *(_DWORD *)(a1 + 184);
   *(_WORD *)(a2 + 40) = v8;
-  v16 = v15 + v14;
   *(_QWORD *)(a2 + 42) = 0LL;
+  *(_WORD *)(a2 + 50) = 0;
+  *(_WORD *)(a2 + 52) = v11;
+  *(_WORD *)(a2 + 128) = 0;
+  v16 = v14 + (unsigned int)(2 * v15);
+  *(_DWORD *)(a2 + 132) = 0;
   *(_QWORD *)(a2 + 24) = a6;
   result = a7;
   *(_QWORD *)(a2 + 32) = a7;
   *(_QWORD *)(a2 + 16) = v16;
-  *(_WORD *)(a2 + 50) = 0;
-  *(_WORD *)(a2 + 52) = v11;
-  *(_WORD *)(a2 + 128) = 0;
-  *(_DWORD *)(a2 + 132) = 0;
   if ( v12 )
   {
     v18 = 0LL;

@@ -1,28 +1,28 @@
 /*
- * XREFs of PopDiagTraceFxPerfRequestProgress @ 0x140593C60
+ * XREFs of PopDiagTraceFxPerfRequestProgress @ 0x1405728C0
  * Callers:
- *     PopFxProcessWork @ 0x140312454 (PopFxProcessWork.c)
- *     PopFxCompleteComponentPerfState @ 0x140589628 (PopFxCompleteComponentPerfState.c)
- *     PopFxIssueComponentPerfStateChanges @ 0x14058AC48 (PopFxIssueComponentPerfStateChanges.c)
+ *     PopFxProcessWork @ 0x1402600A4 (PopFxProcessWork.c)
+ *     PopFxCompleteComponentPerfState @ 0x14056A398 (PopFxCompleteComponentPerfState.c)
+ *     PopFxIssueComponentPerfStateChanges @ 0x14056B298 (PopFxIssueComponentPerfStateChanges.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxPerfRequestProgress(__int64 *a1, int a2)
 {
   REGHANDLE v3; // rbx
-  __int64 v4; // r8
+  __int64 v4; // rcx
   __int64 v5; // rax
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+30h] [rbp-40h] BYREF
-  __int64 v7; // [rsp+40h] [rbp-30h]
-  int v8; // [rsp+48h] [rbp-28h]
-  int v9; // [rsp+4Ch] [rbp-24h]
-  int *v10; // [rsp+50h] [rbp-20h]
-  int v11; // [rsp+58h] [rbp-18h]
-  int v12; // [rsp+5Ch] [rbp-14h]
-  int v13; // [rsp+88h] [rbp+18h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-40h] BYREF
+  __int64 v7; // [rsp+50h] [rbp-30h]
+  int v8; // [rsp+58h] [rbp-28h]
+  int v9; // [rsp+5Ch] [rbp-24h]
+  int *v10; // [rsp+60h] [rbp-20h]
+  int v11; // [rsp+68h] [rbp-18h]
+  int v12; // [rsp+6Ch] [rbp-14h]
+  int v13; // [rsp+98h] [rbp+18h] BYREF
 
   v13 = a2;
   if ( PopDiagHandleRegistered )
@@ -41,7 +41,7 @@ void __fastcall PopDiagTraceFxPerfRequestProgress(__int64 *a1, int a2)
       v10 = &v13;
       v11 = 4;
       UserData.Size = 8;
-      EtwWrite(v3, &POP_ETW_EVENT_COMPONENT_PERFORMANCE_STATE_PROCESSING, 0LL, 3u, &UserData);
+      EtwWriteEx(v3, &POP_ETW_EVENT_COMPONENT_PERFORMANCE_STATE_PROCESSING, 0LL, 0, 0LL, 0LL, 3u, &UserData);
     }
   }
 }

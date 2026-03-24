@@ -1,10 +1,10 @@
 /*
- * XREFs of NtQueryWnfStateNameInformation @ 0x1406B4EF0
+ * XREFs of NtQueryWnfStateNameInformation @ 0x1406B4ED0
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ExpWnfLookupPermanentName @ 0x1405AA92C (ExpWnfLookupPermanentName.c)
  *     ExpWnfReleaseCapturedScopeInstanceId @ 0x14060F814 (ExpWnfReleaseCapturedScopeInstanceId.c)
@@ -14,7 +14,7 @@
  *     ExpWnfCaptureScopeInstanceId @ 0x14060FE20 (ExpWnfCaptureScopeInstanceId.c)
  *     ExpWnfCheckCallerAccess @ 0x14060FF4C (ExpWnfCheckCallerAccess.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     ExpWnfCheckCrossScopeAccess @ 0x1406C70B0 (ExpWnfCheckCrossScopeAccess.c)
+ *     ExpWnfCheckCrossScopeAccess @ 0x1406C7090 (ExpWnfCheckCrossScopeAccess.c)
  */
 
 __int64 __fastcall NtQueryWnfStateNameInformation(

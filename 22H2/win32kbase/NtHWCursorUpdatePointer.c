@@ -1,277 +1,135 @@
 /*
- * XREFs of NtHWCursorUpdatePointer @ 0x1C01694D0
+ * XREFs of NtHWCursorUpdatePointer @ 0x1C014AC90
  * Callers:
  *     <none>
  * Callees:
- *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C004CDAC (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     UserGetHDevFromMonitor @ 0x1C0010AA4 (UserGetHDevFromMonitor.c)
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C0012124 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     ?pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ @ 0x1C0012160 (-pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002C278 (PALLOCMEM2.c)
+ *     EnterSharedCrit @ 0x1C00372A0 (EnterSharedCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
-__int64 __fastcall NtHWCursorUpdatePointer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall NtHWCursorUpdatePointer(ULONG64 a1, __int128 *a2)
 {
-  ULONG64 v4; // rdi
-  ULONG64 v5; // rbx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v11; // rax
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  int v14; // ebx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  bool v17; // sf
-  ULONG64 v18; // rcx
-  unsigned int v19; // r12d
-  unsigned int v20; // eax
-  size_t v21; // rsi
-  NSInstrumentation::CLeakTrackingAllocator *v22; // rbx
-  int v23; // eax
-  __int64 Pool2; // rdi
-  _QWORD *v25; // rax
-  char *v26; // r10
-  size_t v27; // r11
-  char v28; // r14
-  unsigned int v29; // edi
-  const void *v30; // rdx
-  ULONG64 v31; // r14
-  char *v32; // r15
-  int i; // esi
-  const void *v34; // rdx
-  int v35; // eax
-  __int64 DxgkWin32kInterface; // rax
-  unsigned int v37; // [rsp+30h] [rbp-178h] BYREF
-  void *v38; // [rsp+38h] [rbp-170h] BYREF
-  __int128 v39; // [rsp+40h] [rbp-168h]
-  ULONG64 v40; // [rsp+50h] [rbp-158h]
-  int v41; // [rsp+58h] [rbp-150h]
-  unsigned __int64 v42[2]; // [rsp+60h] [rbp-148h] BYREF
-  __int64 v43; // [rsp+70h] [rbp-138h] BYREF
-  int v44; // [rsp+78h] [rbp-130h] BYREF
-  __int64 v45; // [rsp+7Ch] [rbp-12Ch]
-  unsigned int v46; // [rsp+84h] [rbp-124h]
-  int v47; // [rsp+88h] [rbp-120h]
-  int v48; // [rsp+8Ch] [rbp-11Ch]
-  __int64 v49; // [rsp+90h] [rbp-118h]
-  int v50; // [rsp+98h] [rbp-110h]
-  int v51; // [rsp+9Ch] [rbp-10Ch]
-  ULONG64 v52; // [rsp+A0h] [rbp-108h]
-  char *v53; // [rsp+A8h] [rbp-100h]
-  PVOID BackTrace[20]; // [rsp+B0h] [rbp-F8h] BYREF
-  __int128 v55; // [rsp+150h] [rbp-58h] BYREF
-  __int64 v56; // [rsp+160h] [rbp-48h]
-  _QWORD v57[2]; // [rsp+168h] [rbp-40h] BYREF
+  int v4; // eax
+  __int64 HDevFromMonitor; // rax
+  __int64 v7; // rsi
+  int v8; // eax
+  unsigned int v9; // edx
+  struct _LUID *v10; // rax
+  int v11; // ebx
+  bool v12; // sf
+  const void *v13; // rbx
+  int v14; // edi
+  size_t v15; // r15
+  void *v16; // r14
+  unsigned int v17; // edi
+  struct _LUID *v18; // rax
+  __int64 v19; // [rsp+30h] [rbp-88h] BYREF
+  __int128 v20; // [rsp+38h] [rbp-80h]
+  __int128 v21; // [rsp+48h] [rbp-70h]
+  void *v22; // [rsp+58h] [rbp-60h]
+  _DWORD v23[6]; // [rsp+60h] [rbp-58h] BYREF
+  void *v24; // [rsp+78h] [rbp-40h]
+  __int64 v25; // [rsp+80h] [rbp-38h]
+  int v26; // [rsp+88h] [rbp-30h] BYREF
+  __int64 v27; // [rsp+8Ch] [rbp-2Ch]
+  int v28; // [rsp+94h] [rbp-24h]
 
-  v4 = a2;
-  v5 = a1;
-  PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal(a1, a2, a3, a4);
-  if ( !v5 )
+  EnterSharedCrit(0, 1);
+  v4 = (int)qword_1C0255240;
+  if ( qword_1C0255240 )
+    v4 = qword_1C0255240();
+  if ( !v4 && !gbOSTestSigningEnabled )
   {
-    UserSessionSwitchLeaveCrit(v7, v6, v8, v9);
-    return 3221225485LL;
+    UserSessionSwitchLeaveCrit();
+    return 3221225474LL;
   }
-  v55 = 0LL;
-  v56 = 0LL;
-  if ( v5 >= MmUserProbeAddress )
-    v5 = MmUserProbeAddress;
-  v55 = *(_OWORD *)v5;
-  v56 = *(_QWORD *)(v5 + 16);
-  v57[0] = *((_QWORD *)&v55 + 1);
-  v57[1] = v56 & 0x1FFFFFFFFLL;
-  if ( v4 )
+  if ( a1 )
   {
-    v18 = MmUserProbeAddress;
-    if ( v4 >= MmUserProbeAddress )
-      v4 = MmUserProbeAddress;
-    v39 = *(_OWORD *)v4;
-    v40 = *(_QWORD *)(v4 + 16);
-    if ( (unsigned int)(v39 - 1) > 1
-      || !v40
-      || HIDWORD(v39) > 0x1000
-      || (v18 = DWORD1(v39), DWORD1(v39) > HIDWORD(v39) >> 2)
-      || DWORD2(v39) > 0x400 )
+    if ( a1 >= MmUserProbeAddress )
+      a1 = MmUserProbeAddress;
+    v20 = *(_OWORD *)a1;
+    *(_QWORD *)&v21 = *(_QWORD *)(a1 + 16);
+    HDevFromMonitor = UserGetHDevFromMonitor(v20);
+    v7 = HDevFromMonitor;
+    if ( HDevFromMonitor )
     {
-      v29 = -1073741811;
-      goto LABEL_59;
-    }
-    v19 = 4 * DWORD1(v39);
-    v20 = DWORD2(v39) * 4 * DWORD1(v39);
-    v21 = v20;
-    if ( v20 )
-    {
-      v37 = 1886221383;
-      v43 = 260LL;
-      v22 = gpLeakTrackingAllocator;
-      v38 = (void *)v20;
-      v23 = *(_DWORD *)gpLeakTrackingAllocator;
-      if ( !*(_DWORD *)gpLeakTrackingAllocator )
+      v19 = HDevFromMonitor;
+      v8 = *(_DWORD *)(HDevFromMonitor + 40);
+      if ( (v8 & 1) != 0
+        && (v8 & 0x400) == 0
+        && (v8 & 0x20000) == 0
+        && (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v19) )
       {
-        Pool2 = ExAllocatePool2(260LL, (unsigned int)v21, 1886221383LL);
-        if ( Pool2 )
-          _InterlockedIncrement64((volatile signed __int64 *)v22 + 14);
-        goto LABEL_41;
-      }
-      if ( v23 == 1 )
-      {
-        if ( NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x706D7447u) )
+        v27 = *((_QWORD *)&v20 + 1);
+        v26 = *(_DWORD *)(*(_QWORD *)(v7 + 2576) + 256LL);
+        v28 = v21 & 1;
+        if ( !a2 )
         {
-          v6 = v21 + 16;
-          if ( v21 + 16 >= v21 )
-          {
-            v25 = (_QWORD *)ExAllocatePool2(v43 & 0xFFFFFFFFFFFFFFFDuLL, v6, v37);
-            Pool2 = (__int64)v25;
-            if ( !v25
-              || (_InterlockedIncrement64((volatile signed __int64 *)v22 + 14),
-                  *v25 = 1886221383LL,
-                  Pool2 = (__int64)(v25 + 2),
-                  v25 == (_QWORD *)-16LL) )
-            {
-              NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-                *((NSInstrumentation::CPointerHashTable **)v22 + 1),
-                (const void *)0x706D7447);
-            }
-            goto LABEL_41;
-          }
+          v10 = PDEVOBJ::pAdapterLuid((PDEVOBJ *)&v19);
+          v11 = ((__int64 (__fastcall *)(struct _LUID *, int *, _QWORD))qword_1C0250B18)(v10, &v26, 0LL);
+          v12 = v11 < 0;
+LABEL_16:
+          if ( v12 )
+            v11 = -1073741823;
+          goto LABEL_34;
         }
-        goto LABEL_40;
-      }
-      if ( v23 == 2 )
-      {
-        v42[0] = 0LL;
-        if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 0x706D7447u, v42) )
+        if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+          a2 = (__int128 *)MmUserProbeAddress;
+        v20 = *a2;
+        v21 = a2[1];
+        if ( (_DWORD)v20 == 1
+          && (v13 = (const void *)*((_QWORD *)&v21 + 1)) != 0LL
+          && DWORD1(v20) <= 0x100
+          && (v14 = DWORD2(v20), DWORD2(v20) <= 0x100)
+          && HIDWORD(v20) <= v9 )
         {
-          v42[0] = (unsigned __int64)&v43;
-          v42[1] = (unsigned __int64)&v37;
-          Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                    (__int64)v22,
-                    (__int64)v42,
-                    &v38);
-LABEL_41:
-          v38 = (void *)Pool2;
-          if ( Pool2 )
+          v15 = (unsigned int)(DWORD2(v20) * HIDWORD(v20));
+          v16 = PALLOCMEM2(v15, 1886221383LL, 1);
+          v22 = v16;
+          if ( v16 )
           {
-            if ( v19 == HIDWORD(v39) )
-            {
-              v30 = (const void *)v40;
-              if ( v40 >= MmUserProbeAddress )
-                v30 = (const void *)MmUserProbeAddress;
-              memmove((void *)Pool2, v30, v21);
-            }
-            else
-            {
-              v31 = v40;
-              v52 = v40;
-              v32 = (char *)Pool2;
-              v53 = (char *)Pool2;
-              for ( i = DWORD2(v39); ; --i )
-              {
-                v41 = i;
-                if ( !i )
-                  break;
-                v34 = (const void *)v31;
-                if ( v31 >= MmUserProbeAddress )
-                  v34 = (const void *)MmUserProbeAddress;
-                memmove(v32, v34, v19);
-                v31 += HIDWORD(v39);
-                v52 = v31;
-                v32 += v19;
-                v53 = v32;
-              }
-            }
-            v48 = 0;
-            if ( (_DWORD)v39 == 1 )
-            {
-              v44 = 2;
-            }
-            else
-            {
-              v35 = 0;
-              v18 = 4LL;
-              if ( (_DWORD)v39 == 2 )
-                v35 = 4;
-              v44 = v35;
-            }
-            v45 = *(_QWORD *)((char *)&v39 + 4);
-            v46 = v19;
-            v47 = DWORD2(v55);
-            v49 = Pool2;
-            v50 = 0;
-            v51 = 0;
-            DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v18, v6);
-            v14 = (*(__int64 (__fastcall **)(__int128 *, _QWORD *, int *, _QWORD))(DxgkWin32kInterface + 648))(
-                    &v55,
-                    v57,
-                    &v44,
+            if ( (unsigned __int64)v13 >= MmUserProbeAddress )
+              v13 = (const void *)MmUserProbeAddress;
+            memmove(v16, v13, v15);
+            v23[5] = 0;
+            v23[0] = 2;
+            v23[1] = DWORD1(v20);
+            v23[2] = v14;
+            v23[3] = HIDWORD(v20);
+            v23[4] = *(_DWORD *)(*(_QWORD *)(v7 + 2576) + 256LL);
+            v24 = v16;
+            v25 = v21;
+            v18 = PDEVOBJ::pAdapterLuid((PDEVOBJ *)&v19);
+            v11 = ((__int64 (__fastcall *)(struct _LUID *, int *, _DWORD *, _QWORD))qword_1C0250B20)(
+                    v18,
+                    &v26,
+                    v23,
                     0LL);
-            NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)Pool2);
-            v17 = v14 < 0;
-            goto LABEL_7;
+            Win32FreePool((__int64)v16);
+            v12 = v11 < 0;
+            goto LABEL_16;
           }
-          v29 = -1073741823;
-LABEL_59:
-          UserSessionSwitchLeaveCrit(v18, v6, v8, v9);
-          return v29;
+          v17 = -1073741823;
         }
-        v28 = 0;
-        if ( v21 < v27 || (v21 & 0xFFF) != 0 )
+        else
         {
-          v28 = 1;
-          v26 += 16;
-          v38 = v26;
+          v17 = -1073741811;
         }
-        Pool2 = ExAllocatePool2(260LL, v26, 1886221383LL);
-        if ( Pool2 )
-        {
-          _InterlockedIncrement64((volatile signed __int64 *)v22 + 16);
-          NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-          if ( v28 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-          {
-            if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                    v22,
-                                    Pool2,
-                                    v42[0],
-                                    BackTrace) )
-            {
-              Pool2 += 16LL;
-              goto LABEL_41;
-            }
-          }
-          else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                       v22,
-                                       Pool2,
-                                       v42[0],
-                                       BackTrace) )
-          {
-            goto LABEL_41;
-          }
-          _InterlockedIncrement64((volatile signed __int64 *)v22 + 17);
-          _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-        }
+        UserSessionSwitchLeaveCrit();
+        return v17;
       }
     }
-LABEL_40:
-    Pool2 = 0LL;
-    goto LABEL_41;
   }
-  v11 = DxDdGetDxgkWin32kInterface(MmUserProbeAddress, v6);
-  v14 = (*(__int64 (__fastcall **)(__int128 *, _QWORD *, _QWORD))(v11 + 640))(&v55, v57, 0LL);
-  v17 = v14 < 0;
-LABEL_7:
-  if ( v17 )
-    v14 = -1073741823;
-  UserSessionSwitchLeaveCrit(v13, v12, v15, v16);
-  return (unsigned int)v14;
+  v11 = -1073741811;
+LABEL_34:
+  UserSessionSwitchLeaveCrit();
+  return (unsigned int)v11;
 }

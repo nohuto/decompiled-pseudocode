@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionWakeThreadForInput @ 0x1C0116BB0
+ * XREFs of EditionWakeThreadForInput @ 0x1C0050450
  * Callers:
  *     <none>
  * Callees:
- *     ?WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z @ 0x1C01180A8 (-WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z.c)
+ *     ?WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z @ 0x1C0051568 (-WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z.c)
  */
 
 void __fastcall EditionWakeThreadForInput(__int64 a1, unsigned int a2)

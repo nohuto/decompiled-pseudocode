@@ -1,11 +1,11 @@
 /*
- * XREFs of KiVerifyXcpt2 @ 0x140B5F4D0
+ * XREFs of KiVerifyXcpt2 @ 0x140A661DC
  * Callers:
- *     KiVerifyXcpt15 @ 0x140B18320 (KiVerifyXcpt15.c)
+ *     KiVerifyXcpt15 @ 0x140A1B320 (KiVerifyXcpt15.c)
  * Callees:
- *     _local_unwind @ 0x1403D8EB0 (_local_unwind.c)
- *     KiVerifyXcptFilter @ 0x140B5FBF4 (KiVerifyXcptFilter.c)
- *     KiVerifyXcptFinally @ 0x140B5FC14 (KiVerifyXcptFinally.c)
+ *     _local_unwind @ 0x1403D1490 (_local_unwind.c)
+ *     KiVerifyXcptFilter @ 0x140A668BC (KiVerifyXcptFilter.c)
+ *     KiVerifyXcptFinally @ 0x140A668DC (KiVerifyXcptFinally.c)
  */
 
 __int64 __fastcall KiVerifyXcpt2(__int64 a1)

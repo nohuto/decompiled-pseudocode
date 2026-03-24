@@ -1,11 +1,11 @@
 /*
- * XREFs of PopClearTransitionCheckpoints @ 0x140980868
+ * XREFs of PopClearTransitionCheckpoints @ 0x140774378
  * Callers:
- *     PopUnlockAfterSleepWorker @ 0x140AA6A10 (PopUnlockAfterSleepWorker.c)
+ *     PopUnlockAfterSleepWorker @ 0x140990530 (PopUnlockAfterSleepWorker.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void PopClearTransitionCheckpoints()
@@ -29,5 +29,5 @@ void PopClearTransitionCheckpoints()
     *(_QWORD *)(v1 + 8) = &PopTransitionCheckpoints;
     ExFreePoolWithTag(v0, 0x50434B50u);
   }
-  PopReleaseRwLock(&PopTransitionCheckpointLock);
+  PopReleaseRwLock((ULONG_PTR)&PopTransitionCheckpointLock);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of RIMValidateAllCollectionUsages @ 0x1C018C508
+ * XREFs of RIMValidateAllCollectionUsages @ 0x1C015FCF8
  * Callers:
- *     RIMIsParallelDevice @ 0x1C018AF60 (RIMIsParallelDevice.c)
+ *     RIMIsParallelDevice @ 0x1C015EF40 (RIMIsParallelDevice.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     RIMIsButtonCapsEqual @ 0x1C018AA44 (RIMIsButtonCapsEqual.c)
- *     RIMIsValueCapsEqual @ 0x1C018B260 (RIMIsValueCapsEqual.c)
- *     RIMRetrieveAllLinkIndexUsages @ 0x1C018B6DC (RIMRetrieveAllLinkIndexUsages.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMIsButtonCapsEqual @ 0x1C015EC38 (RIMIsButtonCapsEqual.c)
+ *     RIMIsValueCapsEqual @ 0x1C015F208 (RIMIsValueCapsEqual.c)
+ *     RIMRetrieveAllLinkIndexUsages @ 0x1C015F59C (RIMRetrieveAllLinkIndexUsages.c)
  */
 
 __int64 __fastcall RIMValidateAllCollectionUsages(
@@ -18,53 +18,49 @@ __int64 __fastcall RIMValidateAllCollectionUsages(
         unsigned __int16 a5,
         __int64 a6)
 {
-  unsigned int v10; // esi
-  char *v11; // rbx
-  _WORD v13[2]; // [rsp+30h] [rbp-20h] BYREF
-  __int16 v14; // [rsp+34h] [rbp-1Ch] BYREF
-  int v15; // [rsp+38h] [rbp-18h]
-  void *v16; // [rsp+40h] [rbp-10h] BYREF
-  void *v17; // [rsp+48h] [rbp-8h] BYREF
+  unsigned int v6; // ebx
+  unsigned __int16 v12[2]; // [rsp+30h] [rbp-20h] BYREF
+  unsigned __int16 v13; // [rsp+34h] [rbp-1Ch] BYREF
+  int v14; // [rsp+38h] [rbp-18h]
+  __int64 v15; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v16; // [rsp+48h] [rbp-8h] BYREF
 
+  v6 = 0;
+  v15 = 0LL;
+  v12[0] = 0;
   v16 = 0LL;
-  v13[0] = 0;
-  v17 = 0LL;
-  v14 = 0;
-  v10 = 0;
-  if ( (unsigned int)RIMRetrieveAllLinkIndexUsages(a5, a6, v13, (char **)&v16, &v14, (char **)&v17) == 1114112 )
+  v13 = 0;
+  if ( (unsigned int)RIMRetrieveAllLinkIndexUsages(a5, a6, v12, &v15, &v13, &v16) == 1114112 )
   {
-    if ( !v13[0] )
+    if ( !v12[0] )
     {
-      v15 = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1801);
+      v14 = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1854);
+    }
+    if ( !v15 )
+    {
+      v14 = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1855);
+    }
+    if ( !v13 )
+    {
+      v14 = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1856);
     }
     if ( !v16 )
     {
-      v15 = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1802);
+      v14 = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1857);
     }
-    if ( !v14 )
+    if ( v12[0] == a2
+      && (unsigned int)RIMIsValueCapsEqual(a1, v15, a2)
+      && v13 == a4
+      && (unsigned int)RIMIsButtonCapsEqual(a3, v16, a4) )
     {
-      v15 = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1803);
+      v6 = 1;
     }
-    v11 = (char *)v17;
-    if ( !v17 )
-    {
-      v15 = 0x20000;
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 1804);
-    }
-    if ( v13[0] == a2
-      && (unsigned int)RIMIsValueCapsEqual(a1, (__int64)v16, a2)
-      && v14 == a4
-      && (unsigned int)RIMIsButtonCapsEqual(a3, (__int64)v11, a4) )
-    {
-      v10 = 1;
-    }
-    if ( v16 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)v16);
-    if ( v11 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v11);
+    Win32FreePool(v15);
+    Win32FreePool(v16);
   }
-  return v10;
+  return v6;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of EngCheckAbort @ 0x1C027A290
+ * XREFs of EngCheckAbort @ 0x1C027C720
  * Callers:
- *     NtGdiEngCheckAbort @ 0x1C02B1210 (NtGdiEngCheckAbort.c)
+ *     NtGdiEngCheckAbort @ 0x1C02B28E0 (NtGdiEngCheckAbort.c)
  * Callees:
  *     <none>
  */

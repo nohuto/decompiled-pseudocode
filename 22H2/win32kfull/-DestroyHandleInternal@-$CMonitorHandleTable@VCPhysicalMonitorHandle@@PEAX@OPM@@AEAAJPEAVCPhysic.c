@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DestroyHandleInternal@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@AEAAJPEAVCPhysicalMonitorHandle@@KPEAVCMutex@2@@Z @ 0x1C0269D08
+ * XREFs of ?DestroyHandleInternal@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@AEAAJPEAVCPhysicalMonitorHandle@@KPEAVCMutex@2@@Z @ 0x1C0271688
  * Callers:
- *     MonitorAPIProcessTerminating @ 0x1C00A0670 (MonitorAPIProcessTerminating.c)
- *     ?DestroyPhysicalMonitor@CMonitorAPI@@QEAAJPEAX@Z @ 0x1C0269DA0 (-DestroyPhysicalMonitor@CMonitorAPI@@QEAAJPEAX@Z.c)
+ *     MonitorAPIProcessTerminating @ 0x1C010CFD0 (MonitorAPIProcessTerminating.c)
+ *     ?DestroyPhysicalMonitor@CMonitorAPI@@QEAAJPEAX@Z @ 0x1C027171C (-DestroyPhysicalMonitor@CMonitorAPI@@QEAAJPEAX@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall OPM::CMonitorHandleTable<CPhysicalMonitorHandle,void *>::DestroyHandleInternal(
@@ -15,16 +15,18 @@ __int64 __fastcall OPM::CMonitorHandleTable<CPhysicalMonitorHandle,void *>::Dest
 {
   __int64 v5; // rdi
   int v8; // ebp
-  char v10; // [rsp+40h] [rbp+8h] BYREF
+  unsigned int v9; // ebx
+  char v11; // [rsp+40h] [rbp+8h] BYREF
 
   v5 = a3;
   v8 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)a2 + 8LL))(a2);
-  OPM::CAutoMutex::CAutoMutex((OPM::CAutoMutex *)&v10, a4);
+  OPM::CAutoMutex::CAutoMutex((OPM::CAutoMutex *)&v11, a4);
+  v9 = 0;
   *(_QWORD *)(*(_QWORD *)a1 + 8 * v5) = 0LL;
   --*(_DWORD *)(a1 + 8);
   (**(void (__fastcall ***)(__int64, __int64))a2)(a2, 1LL);
-  if ( v8 >= 0 )
-    v8 = 0;
-  OPM::CAutoMutex::~CAutoMutex((OPM::CAutoMutex *)&v10);
-  return (unsigned int)v8;
+  if ( v8 < 0 )
+    v9 = v8;
+  OPM::CAutoMutex::~CAutoMutex((OPM::CAutoMutex *)&v11);
+  return v9;
 }

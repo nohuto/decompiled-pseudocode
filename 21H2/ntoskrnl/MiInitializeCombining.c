@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeCombining @ 0x1403B7304
+ * XREFs of MiInitializeCombining @ 0x1403AFC54
  * Callers:
- *     MiInitializePartition @ 0x14081D450 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14079C65C (MiInitializePartition.c)
  * Callees:
  *     <none>
  */
@@ -14,17 +14,17 @@ _QWORD *__fastcall MiInitializeCombining(__int64 a1, _QWORD *a2)
   _DWORD *v5; // rdx
 
   *a2 = a1;
-  v2 = (_QWORD *)(a1 + 16208);
+  v2 = (_QWORD *)(a1 + 6456);
   if ( !*v2 )
   {
     v2[1] = v2;
     *v2 = v2;
   }
-  a2[11] = 0LL;
-  a2[10] = a2 + 9;
   v3 = 16LL;
+  a2[10] = a2 + 9;
   a2[9] = a2 + 9;
   result = a2 + 12;
+  a2[11] = 0LL;
   v5 = a2 + 13;
   do
   {

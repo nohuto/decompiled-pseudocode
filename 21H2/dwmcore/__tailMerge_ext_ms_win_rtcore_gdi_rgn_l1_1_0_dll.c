@@ -1,12 +1,12 @@
 /*
- * XREFs of __tailMerge_ext_ms_win_rtcore_gdi_rgn_l1_1_0_dll @ 0x180102EA6
+ * XREFs of __tailMerge_ext_ms_win_rtcore_gdi_rgn_l1_1_0_dll @ 0x1800E8FE8
  * Callers:
- *     __imp_load_CreateRectRgnIndirect @ 0x180102E9A (__imp_load_CreateRectRgnIndirect.c)
- *     __imp_load_ExtCreateRegion @ 0x180102F25 (__imp_load_ExtCreateRegion.c)
- *     __imp_load_GetRegionData @ 0x180102F37 (__imp_load_GetRegionData.c)
- *     __imp_load_OffsetRgn @ 0x180102F49 (__imp_load_OffsetRgn.c)
+ *     __imp_load_CreateRectRgnIndirect @ 0x1800E8FDC (__imp_load_CreateRectRgnIndirect.c)
+ *     __imp_load_ExtCreateRegion @ 0x1800E9067 (__imp_load_ExtCreateRegion.c)
+ *     __imp_load_GetRegionData @ 0x1800E9079 (__imp_load_GetRegionData.c)
+ *     __imp_load_OffsetRgn @ 0x1800E908B (__imp_load_OffsetRgn.c)
  * Callees:
- *     __delayLoadHelper2 @ 0x1800F39B0 (__delayLoadHelper2.c)
+ *     __delayLoadHelper2 @ 0x1800DE920 (__delayLoadHelper2.c)
  */
 
 __int64 __fastcall _tailMerge_ext_ms_win_rtcore_gdi_rgn_l1_1_0_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

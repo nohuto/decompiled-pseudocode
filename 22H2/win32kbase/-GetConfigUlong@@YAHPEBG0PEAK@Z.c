@@ -1,9 +1,10 @@
 /*
- * XREFs of ?GetConfigUlong@@YAHPEBG0PEAK@Z @ 0x1C00AEB8C
+ * XREFs of ?GetConfigUlong@@YAHPEBG0PEAK@Z @ 0x1C00684E8
  * Callers:
- *     InitializePowerRequestList @ 0x1C02DD1F0 (InitializePowerRequestList.c)
+ *     PowerIsDimTimeOutManual @ 0x1C0068494 (PowerIsDimTimeOutManual.c)
+ *     InitializePowerRequestList @ 0x1C0297790 (InitializePowerRequestList.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 __int64 __fastcall GetConfigUlong(const unsigned __int16 *a1, const unsigned __int16 *a2, unsigned int *a3)

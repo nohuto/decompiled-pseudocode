@@ -1,10 +1,10 @@
 /*
- * XREFs of ESM_WaitingForFSEAfterStopEndpointCommandCompletion @ 0x1C000CA50
+ * XREFs of ESM_WaitingForFSEAfterStopEndpointCommandCompletion @ 0x1C000ECC0
  * Callers:
  *     <none>
  * Callees:
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ESM_WaitingForFSEAfterStopEndpointCommandCompletion(__int64 a1)

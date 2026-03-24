@@ -1,10 +1,10 @@
 /*
- * XREFs of TriageGetDriverCount @ 0x1409FA768
+ * XREFs of TriageGetDriverCount @ 0x1409FA778
  * Callers:
- *     VfTriageAddDrivers @ 0x1409F84DC (VfTriageAddDrivers.c)
- *     ViTriageSameDriversFromDump @ 0x1409F87E4 (ViTriageSameDriversFromDump.c)
+ *     VfTriageAddDrivers @ 0x1409F84EC (VfTriageAddDrivers.c)
+ *     ViTriageSameDriversFromDump @ 0x1409F87F4 (ViTriageSameDriversFromDump.c)
  * Callees:
- *     TriagepVerifyDump @ 0x1409FA7DC (TriagepVerifyDump.c)
+ *     TriagepVerifyDump @ 0x1409FA7EC (TriagepVerifyDump.c)
  */
 
 __int64 __fastcall TriageGetDriverCount(__int64 a1, _DWORD *a2)

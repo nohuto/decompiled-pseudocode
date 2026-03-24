@@ -1,8 +1,8 @@
 /*
- * XREFs of ?WantImeWindow@@YAHPEAUtagWND@@0@Z @ 0x1C006355C
+ * XREFs of ?WantImeWindow@@YAHPEAUtagWND@@0@Z @ 0x1C0031998
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     ?zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z @ 0x1C00F4EEC (-zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z.c)
+ *     zzzImeSetFutureOwner @ 0x1C0034044 (zzzImeSetFutureOwner.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
  * Callees:
  *     <none>
  */

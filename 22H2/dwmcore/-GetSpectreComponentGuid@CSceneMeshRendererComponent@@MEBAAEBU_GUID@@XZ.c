@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSpectreComponentGuid@CSceneMeshRendererComponent@@MEBAAEBU_GUID@@XZ @ 0x180107640
+ * XREFs of ?GetSpectreComponentGuid@CSceneMeshRendererComponent@@MEBAAEBU_GUID@@XZ @ 0x1800E2C70
  * Callers:
  *     <none>
  * Callees:

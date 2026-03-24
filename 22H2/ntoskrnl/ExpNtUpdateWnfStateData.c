@@ -1,236 +1,232 @@
 /*
- * XREFs of ExpNtUpdateWnfStateData @ 0x14071234C
+ * XREFs of ExpNtUpdateWnfStateData @ 0x14060EA3C
  * Callers:
- *     NtUpdateWnfStateData @ 0x140712310 (NtUpdateWnfStateData.c)
- *     PfSnPowerBoostUpdate @ 0x1407E7358 (PfSnPowerBoostUpdate.c)
- *     ExWnfCrossVmCallback @ 0x140A00620 (ExWnfCrossVmCallback.c)
+ *     NtUpdateWnfStateData @ 0x14060EA00 (NtUpdateWnfStateData.c)
+ *     PfSnPowerBoostUpdate @ 0x1406A1FC4 (PfSnPowerBoostUpdate.c)
+ *     ExWnfCrossVmCallback @ 0x140955CF0 (ExWnfCrossVmCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExpWnfLookupPermanentName @ 0x140710A1C (ExpWnfLookupPermanentName.c)
- *     ExpWnfCreateNameInstance @ 0x1407118A4 (ExpWnfCreateNameInstance.c)
- *     ExpCaptureWnfStateName @ 0x14071313C (ExpCaptureWnfStateName.c)
- *     ExpWnfReleaseCapturedScopeInstanceId @ 0x1407131EC (ExpWnfReleaseCapturedScopeInstanceId.c)
- *     ExpWnfLookupNameInstance @ 0x140713240 (ExpWnfLookupNameInstance.c)
- *     ExpWnfCaptureScopeInstanceId @ 0x14071333C (ExpWnfCaptureScopeInstanceId.c)
- *     ExpWnfResolveScopeInstance @ 0x140713418 (ExpWnfResolveScopeInstance.c)
- *     ExpWnfValidatePubSubPreconditions @ 0x140713864 (ExpWnfValidatePubSubPreconditions.c)
- *     ExpWnfWriteStateData @ 0x1407140C0 (ExpWnfWriteStateData.c)
- *     ExpWnfNotifyNameSubscribers @ 0x1407144D8 (ExpWnfNotifyNameSubscribers.c)
- *     ExpWnfCheckCrossScopeAccess @ 0x1407E3D34 (ExpWnfCheckCrossScopeAccess.c)
- *     ExpCrossVmWnfPush @ 0x1407E9580 (ExpCrossVmWnfPush.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140273540 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExpWnfCreateNameInstance @ 0x14060DE94 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfReleaseCapturedScopeInstanceId @ 0x14060F748 (ExpWnfReleaseCapturedScopeInstanceId.c)
+ *     ExpCaptureWnfStateName @ 0x14060F7A4 (ExpCaptureWnfStateName.c)
+ *     ExpWnfLookupNameInstance @ 0x14060F814 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x14060F914 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x14060FD88 (ExpWnfCaptureScopeInstanceId.c)
+ *     ExpWnfValidatePubSubPreconditions @ 0x14060FE80 (ExpWnfValidatePubSubPreconditions.c)
+ *     ExpWnfWriteStateData @ 0x140610910 (ExpWnfWriteStateData.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x140610CEC (ExpWnfNotifyNameSubscribers.c)
+ *     ExpWnfCheckCrossScopeAccess @ 0x1406F63DC (ExpWnfCheckCrossScopeAccess.c)
+ *     ExpWnfLookupPermanentName @ 0x1406F6488 (ExpWnfLookupPermanentName.c)
+ *     ExpCrossVmWnfPush @ 0x14095C6B0 (ExpCrossVmWnfPush.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpNtUpdateWnfStateData(
         __int64 a1,
         __int64 a2,
-        __int64 a3,
+        unsigned int a3,
         __int128 *a4,
         __int64 a5,
         unsigned int a6,
         int a7,
         int a8)
 {
-  __int64 v8; // r14
   struct _KTHREAD *CurrentThread; // rax
-  char PreviousMode; // r15
-  __int64 v11; // r8
-  unsigned __int64 v12; // r9
-  unsigned __int64 v13; // r10
-  __int64 v14; // r12
-  __int64 v15; // rcx
+  char PreviousMode; // r12
+  __int64 v10; // r14
+  int v11; // esi
+  __int64 v12; // r8
+  unsigned __int64 v13; // r9
+  __int64 v14; // r10
+  unsigned __int64 v15; // r11
   int v16; // ecx
   struct _KTHREAD *v17; // rbx
-  struct _KPROCESS *Process; // r13
+  struct _KPROCESS *Process; // r15
   unsigned __int64 v19; // rbx
-  unsigned __int64 v20; // r14
+  unsigned __int64 v20; // r13
   int v21; // eax
   unsigned int v22; // ebx
   __int64 v23; // r8
-  PVOID v25; // rsi
+  PVOID v25; // r15
   struct _EX_RUNDOWN_REF *v26; // rbx
-  unsigned __int64 v27; // rsi
+  __int64 v27; // rsi
   unsigned __int64 Count; // rcx
   __int64 v29; // rax
   int v30; // ecx
-  int v31; // [rsp+30h] [rbp-D8h]
-  unsigned int v32; // [rsp+38h] [rbp-D0h]
-  struct _EX_RUNDOWN_REF *v33; // [rsp+40h] [rbp-C8h] BYREF
-  int v34; // [rsp+48h] [rbp-C0h]
-  unsigned int v35; // [rsp+4Ch] [rbp-BCh]
-  unsigned __int64 v36; // [rsp+50h] [rbp-B8h] BYREF
-  PVOID P; // [rsp+58h] [rbp-B0h] BYREF
-  int v38; // [rsp+60h] [rbp-A8h]
-  PSID Sid; // [rsp+68h] [rbp-A0h] BYREF
-  __int128 *v40; // [rsp+70h] [rbp-98h]
-  int v41[2]; // [rsp+78h] [rbp-90h] BYREF
-  __int64 v42; // [rsp+80h] [rbp-88h]
-  __int128 v43; // [rsp+98h] [rbp-70h] BYREF
-  __int64 v44; // [rsp+A8h] [rbp-60h] BYREF
-  __int64 v45; // [rsp+B0h] [rbp-58h] BYREF
-  __int128 v46; // [rsp+B8h] [rbp-50h] BYREF
+  int v31; // [rsp+38h] [rbp-E0h]
+  struct _EX_RUNDOWN_REF *v33; // [rsp+40h] [rbp-D8h] BYREF
+  int v34; // [rsp+48h] [rbp-D0h]
+  unsigned __int64 v35; // [rsp+50h] [rbp-C8h] BYREF
+  PVOID P; // [rsp+58h] [rbp-C0h] BYREF
+  int v37; // [rsp+60h] [rbp-B8h]
+  PSID Sid; // [rsp+68h] [rbp-B0h] BYREF
+  __int128 *v39; // [rsp+70h] [rbp-A8h]
+  int v40[2]; // [rsp+78h] [rbp-A0h] BYREF
+  __int64 v41; // [rsp+80h] [rbp-98h]
+  struct _KPROCESS *v42; // [rsp+88h] [rbp-90h]
+  __int128 v43; // [rsp+A0h] [rbp-78h] BYREF
+  __int64 v44; // [rsp+B0h] [rbp-68h] BYREF
+  __int64 v45; // [rsp+B8h] [rbp-60h] BYREF
+  __int128 v46; // [rsp+C0h] [rbp-58h] BYREF
 
-  v8 = (unsigned int)a3;
-  v35 = a3;
-  v42 = a2;
-  v36 = 0LL;
+  v41 = a2;
+  v35 = 0LL;
   v46 = 0LL;
   Sid = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   P = 0LL;
-  *(_QWORD *)v41 = 0LL;
+  *(_QWORD *)v40 = 0LL;
   v33 = 0LL;
-  v32 = 0;
+  LODWORD(v10) = 0;
   v43 = 0LL;
-  v40 = a4;
-  LOBYTE(a3) = PreviousMode;
-  v31 = ExpCaptureWnfStateName(a1, &v36, a3);
-  if ( v31 >= 0 )
+  v39 = a4;
+  v11 = ExpCaptureWnfStateName(a1, &v35);
+  if ( v11 < 0 )
+    goto LABEL_26;
+  v37 = (v35 >> 4) & 3;
+  v10 = (v35 >> 6) & 0xF;
+  v31 = (v35 >> 6) & 0xF;
+  if ( PreviousMode )
   {
-    v38 = (v36 >> 4) & 3;
-    v14 = (v36 >> 6) & 0xF;
-    v32 = (v36 >> 6) & 0xF;
-    if ( PreviousMode )
+    if ( (_DWORD)v14 && (v15 + v14 > 0x7FFFFFFF0000LL || v15 + v14 < v15) )
+      MEMORY[0x7FFFFFFF0000] = 0;
+    if ( v13 )
     {
-      v15 = 0x7FFFFFFF0000LL;
-      if ( (_DWORD)v8 && (v13 + v8 > 0x7FFFFFFF0000LL || v13 + v8 < v13) )
-        MEMORY[0x7FFFFFFF0000] = 0;
-      if ( v12 )
-      {
-        if ( v12 < 0x7FFFFFFF0000LL )
-          v15 = v12;
-        v46 = *(_OWORD *)v15;
-        v40 = &v46;
-      }
-    }
-    LOBYTE(v11) = PreviousMode;
-    v31 = ExpWnfCaptureScopeInstanceId((v36 >> 6) & 0xF, a5, v11, &Sid, &v43);
-    if ( v31 >= 0 )
-    {
-      if ( PreviousMode )
-      {
-        v34 = 0;
-        if ( a5 )
-        {
-          v31 = ExpWnfCheckCrossScopeAccess(v36);
-          if ( v31 < 0 )
-            goto LABEL_27;
-        }
-      }
-      else
-      {
-        v34 = 1;
-      }
-      if ( PreviousMode )
-      {
-        v17 = KeGetCurrentThread();
-        Process = v17->ApcState.Process;
-        LODWORD(v14) = v32;
-        if ( v32 == 3 && (!Sid || Process == *(struct _KPROCESS **)Sid) )
-          goto LABEL_61;
-      }
-      else
-      {
-        LODWORD(v17) = 0;
-        Process = PsInitialSystemProcess;
-      }
-      if ( (_DWORD)v14 == 5 && a8 )
-      {
-        if ( a7 )
-        {
-LABEL_61:
-          v31 = -1073741811;
-          goto LABEL_27;
-        }
-        v44 = v36 ^ 0x41C64E6DA3BC0074LL;
-        v31 = ExpCrossVmWnfPush(v16, 1, (unsigned int)&v44, -1, v42, v8);
-        if ( v31 != -1073741822 )
-          goto LABEL_27;
-      }
-      v31 = ExpWnfResolveScopeInstance((int)v41, (int)Process, (int)v17, v14, Sid);
-      if ( v31 < 0 )
-        goto LABEL_27;
-      v19 = v36;
-      v20 = *(_QWORD *)v41;
-      v21 = ExpWnfLookupNameInstance(*(_QWORD *)v41, v36, &v33);
-      v31 = v21;
-      if ( v21 != -1073741772 || v38 == 3 )
-      {
-        if ( v21 < 0 )
-          goto LABEL_27;
-        v22 = v35;
-        v31 = ExpWnfValidatePubSubPreconditions(2u, v34);
-        if ( v31 < 0 )
-          goto LABEL_27;
-      }
-      else
-      {
-        v31 = ExpWnfLookupPermanentName(v19, (PSECURITY_DESCRIPTOR **)&P);
-        if ( v31 < 0 )
-          goto LABEL_27;
-        v25 = P;
-        v31 = ExpWnfValidatePubSubPreconditions(2u, v34);
-        if ( v31 < 0 )
-          goto LABEL_27;
-        v31 = ExpWnfCreateNameInstance(v20, v19, (__int64)v25, Process, &v33);
-        ExFreePoolWithTag(v25, 0x20666E57u);
-        P = 0LL;
-        if ( v31 < 0 )
-          goto LABEL_27;
-        v22 = v35;
-      }
-      v31 = ExpWnfWriteStateData(v33, v42, v22, a6, a7);
-      if ( v31 >= 0 )
-      {
-        if ( (_DWORD)v14 == 5 )
-        {
-          v45 = v36 ^ 0x41C64E6DA3BC0074LL;
-          v26 = v33 + 10;
-          v27 = KeAbPreAcquire((__int64)&v33[10], 0LL);
-          if ( _InterlockedCompareExchange64((volatile signed __int64 *)v26, 17LL, 0LL) )
-            ExfAcquirePushLockSharedEx((signed __int64 *)v26, 0LL, v27, (__int64)v26);
-          if ( v27 )
-            *(_BYTE *)(v27 + 18) = 1;
-          Count = 0LL;
-          if ( v33[11].Count != 1 )
-            Count = v33[11].Count;
-          if ( Count )
-          {
-            v29 = Count + 16;
-            v30 = *(_DWORD *)(Count + 8);
-          }
-          else
-          {
-            v29 = 0LL;
-            v30 = 0;
-          }
-          ExpCrossVmWnfPush(v30, 0, (unsigned int)&v45, v33[12].Count, v29, v30);
-          if ( _InterlockedCompareExchange64((volatile signed __int64 *)v26, 0LL, 17LL) != 17 )
-            ExfReleasePushLockShared((signed __int64 *)v26);
-          KeAbPostRelease((ULONG_PTR)v26);
-        }
-        ExpWnfNotifyNameSubscribers(v33, 1LL, 1LL, PreviousMode != 0);
-        v31 = 0;
-      }
+      if ( v13 >= 0x7FFFFFFF0000LL )
+        v13 = 0x7FFFFFFF0000LL;
+      v46 = *(_OWORD *)v13;
+      v39 = &v46;
     }
   }
-LABEL_27:
+  LOBYTE(v12) = PreviousMode;
+  v11 = ExpWnfCaptureScopeInstanceId((v35 >> 6) & 0xF, a5, v12, &Sid, &v43);
+  if ( v11 < 0 )
+    goto LABEL_26;
+  if ( PreviousMode )
+  {
+    v34 = 0;
+    if ( a5 )
+    {
+      v11 = ExpWnfCheckCrossScopeAccess(v35);
+      if ( v11 < 0 )
+        goto LABEL_26;
+    }
+  }
+  else
+  {
+    v34 = 1;
+  }
+  if ( PreviousMode )
+  {
+    v17 = KeGetCurrentThread();
+    Process = v17->ApcState.Process;
+    v42 = Process;
+    LODWORD(v10) = v31;
+    if ( v31 == 3 && (!Sid || Process == *(struct _KPROCESS **)Sid) )
+      goto LABEL_44;
+  }
+  else
+  {
+    LODWORD(v17) = 0;
+    LODWORD(Process) = (_DWORD)PsInitialSystemProcess;
+    v42 = PsInitialSystemProcess;
+  }
+  if ( (_DWORD)v10 == 5 && a8 )
+  {
+    if ( a7 )
+    {
+LABEL_44:
+      v11 = -1073741811;
+      goto LABEL_26;
+    }
+    v44 = v35 ^ 0x41C64E6DA3BC0074LL;
+    v11 = ExpCrossVmWnfPush(v16, 1, (unsigned int)&v44, -1, v41, a3);
+    if ( v11 != -1073741822 )
+      goto LABEL_26;
+  }
+  v11 = ExpWnfResolveScopeInstance((int)v40, (int)Process, (int)v17, v10, Sid);
+  if ( v11 < 0 )
+    goto LABEL_26;
+  v19 = v35;
+  v20 = *(_QWORD *)v40;
+  v21 = ExpWnfLookupNameInstance(*(_QWORD *)v40, v35, &v33);
+  v11 = v21;
+  if ( v21 != -1073741772 || v37 == 3 )
+  {
+    if ( v21 < 0 )
+      goto LABEL_26;
+    v22 = a3;
+    v11 = ExpWnfValidatePubSubPreconditions(2u, v34);
+    if ( v11 < 0 )
+      goto LABEL_26;
+  }
+  else
+  {
+    v11 = ExpWnfLookupPermanentName(v19, &P);
+    if ( v11 < 0 )
+      goto LABEL_26;
+    v25 = P;
+    v11 = ExpWnfValidatePubSubPreconditions(2u, v34);
+    if ( v11 < 0 )
+      goto LABEL_26;
+    v11 = ExpWnfCreateNameInstance(v20, v19, (__int64)v25, v42, &v33);
+    ExFreePoolWithTag(v25, 0x20666E57u);
+    P = 0LL;
+    if ( v11 < 0 )
+      goto LABEL_26;
+    v22 = a3;
+  }
+  v11 = ExpWnfWriteStateData(v33, v41, v22, a6, a7);
+  if ( v11 >= 0 )
+  {
+    if ( (_DWORD)v10 == 5 )
+    {
+      v45 = v35 ^ 0x41C64E6DA3BC0074LL;
+      v26 = v33 + 10;
+      v27 = KeAbPreAcquire((ULONG_PTR)&v33[10], 0LL, 0LL);
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)v26, 17LL, 0LL) )
+        ExfAcquirePushLockSharedEx(&v26->Count, v27, (ULONG_PTR)v26);
+      if ( v27 )
+        *(_BYTE *)(v27 + 26) |= 1u;
+      Count = 0LL;
+      if ( v33[11].Count != 1 )
+        Count = v33[11].Count;
+      if ( Count )
+      {
+        v29 = Count + 16;
+        v30 = *(_DWORD *)(Count + 8);
+      }
+      else
+      {
+        v29 = 0LL;
+        v30 = 0;
+      }
+      ExpCrossVmWnfPush(v30, 0, (unsigned int)&v45, v33[12].Count, v29, v30);
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)v26, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared((signed __int64 *)v26);
+      KeAbPostRelease((ULONG_PTR)v26);
+      LODWORD(v10) = v31;
+    }
+    ExpWnfNotifyNameSubscribers(v33, 1LL, 1LL, PreviousMode != 0);
+    v11 = 0;
+  }
+LABEL_26:
   if ( v33 )
-    ExReleaseRundownProtection_0(v33 + 1);
-  if ( *(_QWORD *)v41 )
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)v41 + 8LL));
+    ExReleaseRundownProtection(v33 + 1);
+  if ( *(_QWORD *)v40 )
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*(_QWORD *)v40 + 8LL));
   if ( P )
     ExFreePoolWithTag(P, 0x20666E57u);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegion();
   LOBYTE(v23) = PreviousMode;
-  ExpWnfReleaseCapturedScopeInstanceId(v32, &v43, v23);
-  return (unsigned int)v31;
+  ExpWnfReleaseCapturedScopeInstanceId((unsigned int)v10, &v43, v23);
+  return (unsigned int)v11;
 }

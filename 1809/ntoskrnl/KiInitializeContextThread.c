@@ -5,9 +5,9 @@
  * Callees:
  *     KiSetSwitchingNpxState @ 0x14008A2D4 (KiSetSwitchingNpxState.c)
  *     KxContextToKframes @ 0x14008A780 (KxContextToKframes.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlLocateSupervisorFeature @ 0x1402F4170 (RtlLocateSupervisorFeature.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlLocateSupervisorFeature @ 0x1402F4270 (RtlLocateSupervisorFeature.c)
  */
 
 __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)

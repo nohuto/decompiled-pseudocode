@@ -1,11 +1,11 @@
 /*
- * XREFs of TR_EnableForwardProgress_Internal @ 0x1C003F804
+ * XREFs of TR_EnableForwardProgress_Internal @ 0x1C003F004
  * Callers:
- *     Endpoint_UcxEvtEndpointEnableForwardProgress @ 0x1C003A9E0 (Endpoint_UcxEvtEndpointEnableForwardProgress.c)
+ *     Endpoint_UcxEvtEndpointEnableForwardProgress @ 0x1C003A4B0 (Endpoint_UcxEvtEndpointEnableForwardProgress.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0013618 (WPP_RECORDER_SF_ddd.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall TR_EnableForwardProgress_Internal(_QWORD *a1, ULONG a2)
@@ -15,57 +15,74 @@ __int64 __fastcall TR_EnableForwardProgress_Internal(_QWORD *a1, ULONG a2)
   __int64 v6; // rdx
   int v7; // eax
   __int64 v8; // rdx
-  struct _MDL *v9; // rcx
-  _DWORD v11[4]; // [rsp+40h] [rbp-38h] BYREF
-  __int64 (__fastcall *v12)(); // [rsp+50h] [rbp-28h]
-  __int128 v13; // [rsp+58h] [rbp-20h]
+  __int64 v9; // rdx
+  int v10; // eax
+  struct _MDL *v11; // rcx
+  __int64 v12; // rdx
+  int v13; // eax
+  _DWORD v15[3]; // [rsp+40h] [rbp-38h] BYREF
+  int v16; // [rsp+4Ch] [rbp-2Ch]
+  __int64 (__fastcall *v17)(); // [rsp+50h] [rbp-28h]
+  __int128 v18; // [rsp+58h] [rbp-20h]
 
+  v16 = 0;
+  v18 = 0LL;
   v4 = (*(__int64 (**)(void))(a1[4] + 48LL))();
   if ( v4 >= 0 )
   {
     Mdl = IoAllocateMdl(0LL, a2, 0, 0, 0LL);
     if ( Mdl )
     {
-      v11[3] = 0;
+      v16 = 0;
       v8 = a1[9];
-      v12 = TR_WdfEvtIoExamineIrpForForwardProgress;
-      v13 = 0LL;
-      v11[0] = 40;
-      v11[1] = 1;
-      v11[2] = 2;
+      v17 = TR_WdfEvtIoExamineIrpForForwardProgress;
+      v18 = 0LL;
+      v15[0] = 40;
+      v15[1] = 1;
+      v15[2] = 2;
       v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _DWORD *))(WdfFunctions_01023 + 3120))(
              WdfDriverGlobals,
              v8,
-             v11);
+             v15);
       if ( v4 >= 0 )
       {
-        v9 = (struct _MDL *)a1[15];
-        if ( v9 )
-          IoFreeMdl(v9);
+        v11 = (struct _MDL *)a1[15];
+        if ( v11 )
+          IoFreeMdl(v11);
         a1[15] = Mdl;
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_ddd(
+        {
+          v12 = a1[7];
+          v13 = *(_DWORD *)(v12 + 144);
+          LOBYTE(v12) = 4;
+          WPP_RECORDER_SF_ddL(
             *(_QWORD *)(a1[5] + 72LL),
-            4u,
-            0xEu,
-            0x15u,
-            (__int64)&WPP_202329088b1a3bd773cf1c67d995fd13_Traceguids,
-            *(unsigned __int8 *)(a1[6] + 135LL),
-            *(_DWORD *)(a1[7] + 144LL),
+            v12,
+            14,
+            21,
+            (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
+            *(_BYTE *)(a1[6] + 135LL),
+            v13,
             a2);
+        }
       }
       else
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_ddd(
+        {
+          v9 = a1[7];
+          v10 = *(_DWORD *)(v9 + 144);
+          LOBYTE(v9) = 2;
+          WPP_RECORDER_SF_ddL(
             *(_QWORD *)(a1[5] + 72LL),
-            2u,
-            0xEu,
-            0x14u,
-            (__int64)&WPP_202329088b1a3bd773cf1c67d995fd13_Traceguids,
-            *(unsigned __int8 *)(a1[6] + 135LL),
-            *(_DWORD *)(a1[7] + 144LL),
+            v9,
+            14,
+            20,
+            (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
+            *(_BYTE *)(a1[6] + 135LL),
+            v10,
             v4);
+        }
         IoFreeMdl(Mdl);
       }
     }
@@ -76,12 +93,12 @@ __int64 __fastcall TR_EnableForwardProgress_Internal(_QWORD *a1, ULONG a2)
         v6 = a1[7];
         v7 = *(_DWORD *)(v6 + 144);
         LOBYTE(v6) = 2;
-        WPP_RECORDER_SF_DD(
+        WPP_RECORDER_SF_dd(
           *(_QWORD *)(a1[5] + 72LL),
           v6,
           14,
           19,
-          (__int64)&WPP_202329088b1a3bd773cf1c67d995fd13_Traceguids,
+          (__int64)&WPP_cd4ef2b1b5c53df0a5e2b7b6906ad1d0_Traceguids,
           *(_BYTE *)(a1[6] + 135LL),
           v7);
       }

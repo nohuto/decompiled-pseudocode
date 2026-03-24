@@ -1,20 +1,23 @@
 /*
- * XREFs of PopFxRegisterPluginEx @ 0x1405CD5BC
+ * XREFs of PopFxRegisterPluginEx @ 0x14056BEF8
  * Callers:
- *     PoFxRegisterPluginEx @ 0x1405CA8D0 (PoFxRegisterPluginEx.c)
- *     PoFxRegisterPlugin @ 0x14098CDA0 (PoFxRegisterPlugin.c)
+ *     PoFxRegisterPluginEx @ 0x1405691E0 (PoFxRegisterPluginEx.c)
+ *     PoFxRegisterPlugin @ 0x1408E43F0 (PoFxRegisterPlugin.c)
  * Callees:
- *     KiAbThreadRemoveBoostsSlow @ 0x14022B568 (KiAbThreadRemoveBoostsSlow.c)
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KiAbEntryRemoveFromTree @ 0x14034EE30 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     PopFxInitializeWorkPool @ 0x14085B454 (PopFxInitializeWorkPool.c)
- *     PopDiagTraceFxPluginRegistration @ 0x140992720 (PopDiagTraceFxPluginRegistration.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PopFxInitializeWorkPool @ 0x1407CB474 (PopFxInitializeWorkPool.c)
+ *     PopDiagTraceFxPluginRegistration @ 0x1408EA86C (PopDiagTraceFxPluginRegistration.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopFxRegisterPluginEx(unsigned __int16 *a1, __int64 a2, unsigned __int16 *a3)
@@ -23,16 +26,24 @@ __int64 __fastcall PopFxRegisterPluginEx(unsigned __int16 *a1, __int64 a2, unsig
   int v7; // ebx
   bool v8; // cf
   __int16 v10; // ax
-  __int64 Pool2; // rax
-  _DWORD *v12; // r15
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v12; // r14
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v14; // rax
   __int64 v15; // rdx
-  struct _KTHREAD *v16; // rbp
-  unsigned int SessionId; // ecx
-  __int64 p_Process; // rbx
-  unsigned int v19; // edx
-  int v20; // r9d
+  struct _KTHREAD *v16; // rbx
+  unsigned int SessionId; // edx
+  unsigned __int8 v18; // r13
+  _DWORD *v19; // r9
+  unsigned int v20; // r8d
+  bool v21; // zf
+  __int64 v22; // rcx
+  __int64 v23; // rbp
+  int v24; // eax
+  unsigned int v25; // ecx
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  int v28; // [rsp+78h] [rbp+20h] BYREF
 
   v3 = *a3;
   if ( *a3 > 3u )
@@ -67,11 +78,12 @@ LABEL_11:
   {
     return (unsigned int)-1073741811;
   }
-  Pool2 = ExAllocatePool2(64LL, 424LL, 1297630800LL);
-  v12 = (_DWORD *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x1A8uLL, 0x4D584650u);
+  v12 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v7 = PopFxInitializeWorkPool(Pool2 + 120, Pool2);
+    memset(PoolWithTag, 0, 0x1A8uLL);
+    v7 = PopFxInitializeWorkPool(v12 + 30, v12);
     if ( v7 >= 0 )
     {
       v12[4] = *a1;
@@ -87,58 +99,70 @@ LABEL_11:
       v15 = *(_QWORD *)PopFxDeviceRegisterHead;
       if ( *(_QWORD *)(*(_QWORD *)PopFxDeviceRegisterHead + 8LL) != PopFxDeviceRegisterHead )
         __fastfail(3u);
+      *((_QWORD *)v12 + 1) = PopFxDeviceRegisterHead;
       *(_QWORD *)v12 = v15;
-      *((_QWORD *)v12 + 1) = v14;
       *(_QWORD *)(v15 + 8) = v12;
       *v14 = v12;
       if ( (a2 & 0x80000000) != 0 )
         PopFxDeviceRegisterHead = (__int64)v12;
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopFxPluginLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(&PopFxPluginLock);
+      v28 = 0;
       v16 = KeGetCurrentThread();
-      if ( (unsigned __int64)&PopFxPluginLock - qword_140C50630 >= 0x8000000000LL )
-        SessionId = -1;
-      else
+      if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&PopFxPluginLock) == 1 )
         SessionId = MmGetSessionIdEx((__int64)v16->ApcState.Process);
-      _disable();
-      p_Process = (__int64)&v16[1].Process;
-      v19 = 0;
-      while ( (*(_QWORD *)p_Process & 0x7FFFFFFFFFFFFFFCLL) != ((unsigned __int64)&PopFxPluginLock & 0x7FFFFFFFFFFFFFFCLL)
-           || !*(_BYTE *)(p_Process + 18)
-           || (*(_DWORD *)p_Process & 1) != 0
-           || *(_DWORD *)(p_Process + 8) != SessionId )
+      else
+        SessionId = -1;
+      --v16->SpecialApcDisable;
+      v18 = ++v16->AbAllocationRegionCount;
+      v19 = (_DWORD *)((unsigned __int64)&PopFxPluginLock & 0x7FFFFFFFFFFFFFFCLL);
+      v20 = ((char)v16->AbEntrySummary | (char)v16->AbOrphanedEntrySummary) ^ 0x3F;
+      while ( 1 )
       {
-        ++v19;
-        p_Process += 96LL;
-        if ( v19 >= 6 )
-          goto LABEL_43;
+        v21 = !_BitScanReverse((unsigned int *)&v22, v20);
+        if ( v21 )
+          break;
+        v23 = (__int64)&v16->LockEntries[v22];
+        v20 &= ~(1 << v22);
+        if ( (*(_BYTE *)(v23 + 26) & 1) != 0
+          && (*(_DWORD *)(v23 + 32) & 1) == 0
+          && (_DWORD *)(*(_QWORD *)(v23 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v19
+          && *(_DWORD *)(v23 + 40) == SessionId )
+        {
+          *(_BYTE *)(v23 + 26) &= ~1u;
+          if ( *(_QWORD *)(v23 + 32) )
+          {
+            if ( v23 )
+            {
+              *(_BYTE *)(v23 + 32) |= 2u;
+              if ( *(__int64 *)(v23 + 32) < 0 )
+                KiAbEntryRemoveFromTree(v23);
+              v24 = *(_DWORD *)(v23 + 88) & 0x1FFFF;
+              v25 = *(_DWORD *)(v23 + 88) & 0xFFFE0000;
+              *(_BYTE *)(v23 + 25) &= ~1u;
+              v28 = v24;
+              *(_DWORD *)(v23 + 88) = v25;
+              *(_QWORD *)(v23 + 32) = 0LL;
+              v26 = (signed __int64)(v23 - (unsigned __int64)v16->LockEntries) / 96;
+              if ( v18 == 1 )
+                v16->AbEntrySummary |= 1 << v26;
+              else
+                _InterlockedOr8((volatile signed __int8 *)&v16->AbOrphanedEntrySummary, 1 << v26);
+              goto LABEL_50;
+            }
+            break;
+          }
+        }
       }
-      *(_BYTE *)(p_Process + 18) = 0;
-      if ( !p_Process )
-      {
-LABEL_43:
-        if ( (*((_DWORD *)&v16->0 + 1) & 0x10000) == 0 )
-          KeBugCheckEx(0x162u, (ULONG_PTR)v16, (ULONG_PTR)&PopFxPluginLock, SessionId, 0LL);
-        _enable();
-        goto LABEL_51;
-      }
-      if ( *(__int64 *)p_Process < 0 )
-      {
-        *(_BYTE *)p_Process |= 2u;
-        _enable();
-        KiAbEntryRemoveFromTree(p_Process);
-        _disable();
-      }
-      v20 = *(_DWORD *)(p_Process + 88);
-      *(_DWORD *)(p_Process + 88) = 0;
-      *(_BYTE *)(p_Process + 17) = 0;
-      *(_QWORD *)p_Process = 0LL;
-      v16->AbEntrySummary |= 1 << *(_BYTE *)(p_Process + 16);
-      _enable();
-      if ( v20 )
-        KiAbThreadRemoveBoostsSlow((ULONG_PTR)v16, (__int64)&PopFxPluginLock, v20);
-LABEL_51:
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      if ( (*((_DWORD *)&v16->0 + 1) & 0x10000) == 0 )
+        KeBugCheckEx(0x162u, (ULONG_PTR)v16, (ULONG_PTR)&PopFxPluginLock, SessionId, 0LL);
+LABEL_50:
+      --v16->AbAllocationRegionCount;
+      KiAbThreadRemoveBoosts((ULONG_PTR)v16, (__int64)&PopFxPluginLock, (__int64)&v28, v19);
+      v21 = v16->SpecialApcDisable++ == -1;
+      if ( v21 && ($C459BD0D405E8E46662177FB3D0A143F *)v16->ApcState.ApcListHead[0].Flink != &v16->152 )
+        KiCheckForKernelApcDelivery(v27);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       PopDiagTraceFxPluginRegistration(v12, a2, 0LL);
       *((_QWORD *)a3 + 4) = 0LL;
       *((_QWORD *)a3 + 5) = 0LL;

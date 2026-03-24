@@ -1,183 +1,169 @@
 /*
- * XREFs of ?AddSurface@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@HPEAXPEAI@Z @ 0x1C0357278
+ * XREFs of ?AddSurface@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@HPEAXPEAI@Z @ 0x1C02AA7D0
  * Callers:
- *     DxgkAddSurfaceToSwapChain @ 0x1C035B1F0 (DxgkAddSurfaceToSwapChain.c)
- *     DxgkCreateSwapChain @ 0x1C035B600 (DxgkCreateSwapChain.c)
+ *     DxgkAddSurfaceToSwapChain @ 0x1C02ADBD0 (DxgkAddSurfaceToSwapChain.c)
+ *     DxgkCreateSwapChain @ 0x1C02ADFB0 (DxgkCreateSwapChain.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?CreateSynchronizationObjectInternal@@YAJPEAVDXGDEVICE@@_NPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@U_VIDSCH_SYNC_OBJECT_CLIENTHINT@@IPEAPEAVDXGSYNCOBJECT@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAPEAVDXGADAPTERSYNCOBJECT@@@Z @ 0x1C01A6890 (-CreateSynchronizationObjectInternal@@YAJPEAVDXGDEVICE@@_NPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATE.c)
- *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C01E93B0 (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
- *     ?DestroySurfacesResourcesGlobal@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_SURF_INFO@1@@Z @ 0x1C0357920 (-DestroySurfacesResourcesGlobal@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_SURF_INFO@1@@Z.c)
- *     ?DestroySurfacesResourcesLocal@DXGSWAPCHAIN@@AEAAXW4SWAPCHAIN_CLIENT_TYPE@1@PEAUSWAPCHAIN_SURF_INFO@1@@Z @ 0x1C03579B4 (-DestroySurfacesResourcesLocal@DXGSWAPCHAIN@@AEAAXW4SWAPCHAIN_CLIENT_TYPE@1@PEAUSWAPCHAIN_SURF_I.c)
- *     ?FindEmptySlot@DXGSWAPCHAIN@@AEAAPEAUSWAPCHAIN_SURF_INFO@1@XZ @ 0x1C0357CF0 (-FindEmptySlot@DXGSWAPCHAIN@@AEAAPEAUSWAPCHAIN_SURF_INFO@1@XZ.c)
- *     ?OpenSurfacesResourcesLocalForCreator@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@PEAUSWAPCHAIN_CLIENT_SURF_INFO@1@PEAX@Z @ 0x1C0358C70 (-OpenSurfacesResourcesLocalForCreator@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@PEAUSWAPCHAIN.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?CreateSynchronizationObjectInternal@@YAJPEAVDXGDEVICE@@_NPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@U_VIDSCH_SYNC_OBJECT_CLIENTHINT@@IPEAPEAVDXGSYNCOBJECT@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAPEAVDXGADAPTERSYNCOBJECT@@@Z @ 0x1C0119EC8 (-CreateSynchronizationObjectInternal@@YAJPEAVDXGDEVICE@@_NPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATE.c)
+ *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C016D17C (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
+ *     ?DestroySurfacesResourcesGlobal@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_SURF_INFO@1@@Z @ 0x1C02AAD78 (-DestroySurfacesResourcesGlobal@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_SURF_INFO@1@@Z.c)
+ *     ?DestroySurfacesResourcesLocal@DXGSWAPCHAIN@@AEAAXW4SWAPCHAIN_CLIENT_TYPE@1@PEAUSWAPCHAIN_SURF_INFO@1@@Z @ 0x1C02AAE0C (-DestroySurfacesResourcesLocal@DXGSWAPCHAIN@@AEAAXW4SWAPCHAIN_CLIENT_TYPE@1@PEAUSWAPCHAIN_SURF_I.c)
+ *     ?FindEmptySlot@DXGSWAPCHAIN@@AEAAPEAUSWAPCHAIN_SURF_INFO@1@XZ @ 0x1C02AB0E8 (-FindEmptySlot@DXGSWAPCHAIN@@AEAAPEAUSWAPCHAIN_SURF_INFO@1@XZ.c)
+ *     ?OpenSurfacesResourcesLocalForCreator@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@PEAUSWAPCHAIN_CLIENT_SURF_INFO@1@PEAX@Z @ 0x1C02ABBC8 (-OpenSurfacesResourcesLocalForCreator@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_SURF_INFO@1@PEAUSWAPCHAIN.c)
  */
 
-__int64 __fastcall DXGSWAPCHAIN::AddSurface(
-        struct _KTHREAD **this,
-        DXGADAPTER **a2,
-        int a3,
-        void *a4,
-        unsigned int *a5)
+__int64 __fastcall DXGSWAPCHAIN::AddSurface(const void **this, DXGADAPTER **a2, int a3, void *a4, unsigned int *a5)
 {
-  __int64 v8; // rdi
-  BOOL v9; // r15d
-  struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *EmptySlot; // rbx
-  unsigned int v12; // r14d
-  unsigned __int64 v13; // rax
-  char *v14; // r12
-  int v15; // eax
-  int v16; // esi
-  __int64 v17; // r14
-  const wchar_t *v18; // r9
-  __int64 v19; // rax
-  __int64 v20; // rsi
-  int v21; // edx
+  __int64 v9; // rax
+  BOOL v10; // ebp
+  __int64 v11; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *EmptySlot; // rdi
+  int v16; // eax
+  __int64 v17; // rax
+  int v18; // r15d
+  unsigned __int64 v19; // rdi
+  SIZE_T v20; // rax
+  __int64 v21; // rdx
   __int64 v22; // rcx
-  DXGSWAPCHAIN *v23; // rcx
-  _DWORD v24[24]; // [rsp+50h] [rbp-88h] BYREF
-  DXGSYNCOBJECT *v25; // [rsp+E0h] [rbp+8h] BYREF
+  __int64 v23; // r8
+  __int64 v24; // r9
+  char *v25; // r14
+  __int64 v26; // rax
+  int v27; // eax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // rsi
+  __int64 v31; // rax
+  __int64 v32; // rcx
+  AUTOEXPANDALLOCATION *v33; // rax
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  __int64 v36; // r8
+  __int64 v37; // r9
+  AUTOEXPANDALLOCATION *v38; // rsi
+  __int64 v39; // rax
+  __int64 v40; // rdx
+  __int64 v41; // rcx
+  DXGSWAPCHAIN *v42; // rcx
+  struct _OBJECT_HANDLE_INFORMATION *v43; // [rsp+20h] [rbp-B8h]
+  _DWORD v44[24]; // [rsp+50h] [rbp-88h] BYREF
+  DXGSYNCOBJECT *v45; // [rsp+E0h] [rbp+8h] BYREF
 
-  v8 = (__int64)this;
-  if ( this[3] != KeGetCurrentThread() || !DXGADAPTER::IsCoreResourceSharedOwner(a2[2]) )
+  if ( this[2] != KeGetCurrentThread() || !DXGADAPTER::IsCoreResourceSharedOwner(a2[2]) )
   {
-    WdLogSingleEntry1(1LL, 2343LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"m_SwapChainLock.IsOwner() && pRenderCore->IsCoreResourceSharedOwner()",
-      2343LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v9 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v9 + 24) = 2277LL;
+    WdLogEvent5_WdAssertion(v9);
   }
-  v9 = a3 == 0;
-  if ( *(_DWORD *)(v8 + 60) >= 0x32u )
+  v10 = a3 == 0;
+  if ( *((_DWORD *)this + 13) >= 0x32u )
   {
-    WdLogSingleEntry1(2LL, 2351LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Swapchain is at max number of surfaces so cannot add anymore",
-      2351LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v11 + 24) = 2285LL;
+    WdLogEvent5_WdError(v11);
     return 3221225507LL;
   }
-  EmptySlot = DXGSWAPCHAIN::FindEmptySlot((DXGSWAPCHAIN *)v8);
+  EmptySlot = DXGSWAPCHAIN::FindEmptySlot((DXGSWAPCHAIN *)this);
   if ( !EmptySlot )
   {
-    if ( *(_DWORD *)(v8 + 56) != *(_DWORD *)(v8 + 60) )
+    v16 = *((_DWORD *)this + 12);
+    if ( v16 != *((_DWORD *)this + 13) )
     {
-      WdLogSingleEntry1(1LL, 2359LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"m_SurfaceTableSize == m_ActiveSurfaceCo",
-        2359LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v17 = WdLogNewEntry5_WdAssertion(v14, v13);
+      *(_QWORD *)(v17 + 24) = 2293LL;
+      WdLogEvent5_WdAssertion(v17);
+      v16 = *((_DWORD *)this + 12);
     }
-    v12 = *(_DWORD *)(v8 + 56) + 5;
-    v13 = 112LL * v12;
-    if ( !is_mul_ok(v12, 0x70uLL) )
-      v13 = -1LL;
-    v14 = (char *)operator new[](v13, 0x4B677844u, 256LL);
-    if ( !v14 )
+    v18 = v16 + 5;
+    v19 = (unsigned int)(v16 + 5);
+    v20 = 112 * v19;
+    if ( !is_mul_ok(v19, 0x70uLL) )
+      v20 = -1LL;
+    v25 = (char *)operator new[](v20, 0x4B677844u, PagedPool);
+    if ( !v25 )
     {
-      WdLogSingleEntry1(6LL, v12);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Failed to allocate new surface table, size %ld",
-        v12,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v26 = WdLogNewEntry5_WdLowResource(v22, v21, v23, v24);
+      *(_QWORD *)(v26 + 24) = v19;
+      WdLogEvent5_WdLowResource(v26);
       return 3221225495LL;
     }
-    memmove(v14, *(const void **)(v8 + 64), 112LL * *(unsigned int *)(v8 + 56));
-    EmptySlot = (struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *)&v14[112 * *(unsigned int *)(v8 + 56)];
-    operator delete(*(void **)(v8 + 64));
-    *(_QWORD *)(v8 + 64) = v14;
-    *(_DWORD *)(v8 + 56) = v12;
+    memmove(v25, this[7], 112LL * *((unsigned int *)this + 12));
+    memset(&v25[112 * *((unsigned int *)this + 12)], 0, 0x230uLL);
+    EmptySlot = (struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *)&v25[112 * *((unsigned int *)this + 12)];
+    operator delete[]((void *)this[7]);
+    this[7] = v25;
+    *((_DWORD *)this + 12) = v18;
   }
-  memset(v24, 0, sizeof(v24));
-  v24[3] |= 1u;
-  v24[2] = 3;
-  v15 = CreateSynchronizationObjectInternal(0LL, 1, (__int64)a2, (__int64)v24, 13, 0, &v25, 0LL, 0LL);
-  v16 = v15;
-  if ( v15 < 0 )
+  memset(v44, 0, sizeof(v44));
+  v44[3] |= 1u;
+  LODWORD(v43) = 13;
+  v44[2] = 3;
+  v27 = CreateSynchronizationObjectInternal(0LL, 1, (__int64)a2, (__int64)v44, v43, 0, &v45, 0LL, 0LL);
+  v30 = v27;
+  if ( v27 < 0 )
   {
-    v17 = v15;
-    WdLogSingleEntry2(2LL, v8, v15);
-    v18 = L"CreateSynchronizationObjectInternal failed. Returning 0x%I64x";
-LABEL_23:
-    v21 = 0x40000;
-LABEL_24:
-    DxgkLogInternalTriageEvent(0LL, v21, -1, (__int64)v18, v8, v17, 0LL, 0LL, 0LL);
-    if ( EmptySlot )
-    {
-      DXGSWAPCHAIN::DestroySurfacesResourcesLocal(v22, v9, EmptySlot);
-      DXGSWAPCHAIN::DestroySurfacesResourcesGlobal(v23, EmptySlot);
-      memset(EmptySlot, 0, 0x70uLL);
-    }
-    return (unsigned int)v16;
+    v31 = WdLogNewEntry5_WdError(v29, v28);
+    *(_QWORD *)(v31 + 24) = this;
+    *(_QWORD *)(v31 + 32) = v30;
+LABEL_16:
+    WdLogEvent5_WdError(v31);
+    goto LABEL_25;
   }
-  *((_DWORD *)EmptySlot + 7) = v24[20];
-  v19 = operator new[](0x10uLL, 0x4B677844u, 256LL);
-  v20 = v19;
-  if ( v19 )
+  *((_DWORD *)EmptySlot + 7) = v44[20];
+  v33 = (AUTOEXPANDALLOCATION *)operator new[](0x10uLL, 0x4B677844u, PagedPool);
+  v38 = v33;
+  if ( v33 )
   {
-    *(_QWORD *)(v19 + 8) = 0LL;
-    *(_QWORD *)v19 = 0LL;
-    AUTOEXPANDALLOCATION::GetBuffer((const void **)v19, 0, 0);
+    *(_QWORD *)v33 = 0LL;
+    *((_DWORD *)v33 + 2) = 0;
+    *((_DWORD *)v33 + 3) = 0;
+    AUTOEXPANDALLOCATION::GetBuffer(v33, 0, 0);
   }
   else
   {
-    v20 = 0LL;
+    v38 = 0LL;
   }
-  *((_QWORD *)EmptySlot + 2) = v20;
-  if ( !v20 )
+  *((_QWORD *)EmptySlot + 2) = v38;
+  if ( !v38 )
   {
-    v8 = 2416LL;
-    WdLogSingleEntry1(6LL, 2416LL);
-    v21 = 262145;
-    v18 = L"Out of memory allocating AUTOEXPANDALLOCATION class";
-    v16 = -1073741801;
-    v17 = 0LL;
-    goto LABEL_24;
+    v39 = WdLogNewEntry5_WdLowResource(v35, v34, v36, v37);
+    *(_QWORD *)(v39 + 24) = 2351LL;
+    WdLogEvent5_WdLowResource(v39);
+    LODWORD(v30) = -1073741801;
+    goto LABEL_26;
   }
-  v16 = DXGSWAPCHAIN::OpenSurfacesResourcesLocalForCreator(
-          (DXGSWAPCHAIN *)v8,
-          EmptySlot,
-          (struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *)((char *)EmptySlot + 32 * v9 + 48),
-          a4);
-  if ( v16 < 0 )
+  LODWORD(v30) = DXGSWAPCHAIN::OpenSurfacesResourcesLocalForCreator(
+                   (DXGSWAPCHAIN *)this,
+                   EmptySlot,
+                   (struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *)((char *)EmptySlot + 32 * v10 + 48),
+                   a4);
+  if ( (int)v30 < 0 )
   {
-    v8 = 2425LL;
-    WdLogSingleEntry1(2LL, 2425LL);
-    v18 = L"OpenSurfacesResourcesLocalForCreator failed";
-    v17 = 0LL;
-    goto LABEL_23;
+    v31 = WdLogNewEntry5_WdError(v41, v40);
+    *(_QWORD *)(v31 + 24) = 2360LL;
+    goto LABEL_16;
   }
   *((_DWORD *)EmptySlot + 2) = 1;
-  *a5 = -1227133513 * (((__int64)EmptySlot - *(_QWORD *)(v8 + 64)) >> 4);
-  ++*(_DWORD *)(v8 + 60);
-  return (unsigned int)v16;
+  v32 = EmptySlot - (struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *)this[7];
+  *a5 = v32 / 112;
+  ++*((_DWORD *)this + 13);
+LABEL_25:
+  if ( (int)v30 < 0 )
+  {
+LABEL_26:
+    if ( EmptySlot )
+    {
+      DXGSWAPCHAIN::DestroySurfacesResourcesLocal(v32, v10, EmptySlot);
+      DXGSWAPCHAIN::DestroySurfacesResourcesGlobal(v42, EmptySlot);
+      memset(EmptySlot, 0, 0x70uLL);
+    }
+  }
+  return (unsigned int)v30;
 }

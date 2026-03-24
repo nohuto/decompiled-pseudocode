@@ -1,29 +1,23 @@
 /*
- * XREFs of HvcallpExtendedFastHypercallWithOutput @ 0x14042A9F0
+ * XREFs of HvcallpExtendedFastHypercallWithOutput @ 0x140409060
  * Callers:
- *     HvcallFastExtended @ 0x1403CBB50 (HvcallFastExtended.c)
+ *     HvcallFastExtended @ 0x14038FC00 (HvcallFastExtended.c)
  * Callees:
- *     HvcallpExtendedFastHypercall @ 0x14042A990 (HvcallpExtendedFastHypercall.c)
+ *     HvcallpExtendedFastHypercall @ 0x140409000 (HvcallpExtendedFastHypercall.c)
  */
 
-__int64 __fastcall HvcallpExtendedFastHypercallWithOutput(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        _QWORD *a5,
-        __int64 a6)
+__int64 __fastcall HvcallpExtendedFastHypercallWithOutput(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, __int64 a5)
 {
   __int64 result; // rax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r11
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r11
 
   result = HvcallpExtendedFastHypercall(a1, a2, 16 * a3);
   if ( !(_WORD)result )
   {
-    v9 = (unsigned __int16)a6;
-    if ( a3 || (*a5 = v7, a5[1] = v8, v9 = (unsigned __int16)a6 - 1LL, (unsigned __int16)a6 != 1LL) )
+    v8 = (unsigned __int16)a5;
+    if ( a3 || (*a4 = v6, a4[1] = v7, v8 = (unsigned __int16)a5 - 1LL, (unsigned __int16)a5 != 1LL) )
       __asm { jmp     r9 }
   }
   return result;

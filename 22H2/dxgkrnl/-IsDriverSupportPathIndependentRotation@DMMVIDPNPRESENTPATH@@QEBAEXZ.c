@@ -1,40 +1,64 @@
 /*
- * XREFs of ?IsDriverSupportPathIndependentRotation@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C01B1A94
+ * XREFs of ?IsDriverSupportPathIndependentRotation@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C011C2A0
  * Callers:
- *     ?DoSourceTargetResolutionsMatch@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0009840 (-DoSourceTargetResolutionsMatch@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
- *     ?SetRotationSupport@DMMVIDPNPRESENTPATH@@QEAAXPEBU_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT@@@Z @ 0x1C000A520 (-SetRotationSupport@DMMVIDPNPRESENTPATH@@QEAAXPEBU_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT@@.c)
- *     ?UpdatePathSupportInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C01B1330 (-UpdatePathSupportInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PE.c)
+ *     ?SetRotationSupport@DMMVIDPNPRESENTPATH@@QEAAXPEBU_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT@@@Z @ 0x1C00069A4 (-SetRotationSupport@DMMVIDPNPRESENTPATH@@QEAAXPEBU_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT@@.c)
+ *     ?DoSourceTargetResolutionsMatch@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0006AE8 (-DoSourceTargetResolutionsMatch@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int8 __fastcall DMMVIDPNPRESENTPATH::IsDriverSupportPathIndependentRotation(DMMVIDPNPRESENTPATH *this)
+unsigned __int8 __fastcall DMMVIDPNPRESENTPATH::IsDriverSupportPathIndependentRotation(
+        DMMVIDPNPRESENTPATH *this,
+        __int64 a2)
 {
-  __int64 v1; // rdi
-  char v2; // bl
-  __int64 v3; // rdi
+  __int64 v2; // rsi
+  char v3; // bl
   __int64 v4; // rdi
-  __int64 v5; // rdi
-  __int64 v6; // rax
+  __int64 v5; // rax
+  __int64 v6; // rsi
+  __int64 v7; // rdi
+  __int64 v8; // rdi
+  __int64 v9; // rax
+  __int64 v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // rax
+  __int64 v14; // rax
 
-  v1 = *((_QWORD *)this + 11);
-  v2 = 0;
-  if ( !*(_QWORD *)(v1 + 40) )
-    WdLogSingleEntry0(1LL);
-  v3 = *(_QWORD *)(v1 + 40);
-  if ( !*(_QWORD *)(v3 + 72) )
-    WdLogSingleEntry0(1LL);
-  v4 = *(_QWORD *)(*(_QWORD *)(v3 + 72) + 48LL);
-  if ( !*(_QWORD *)(v4 + 8) )
-    WdLogSingleEntry0(1LL);
-  v5 = *(_QWORD *)(*(_QWORD *)(v4 + 8) + 16LL);
+  v2 = *((_QWORD *)this + 11);
+  v3 = 0;
+  v4 = *(_QWORD *)(v2 + 40);
+  if ( !v4 )
+  {
+    v11 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v11);
+    v4 = *(_QWORD *)(v2 + 40);
+  }
+  v5 = *(_QWORD *)(v4 + 72);
   if ( !v5 )
-    WdLogSingleEntry0(1LL);
-  v6 = *(_QWORD *)(v5 + 2920);
-  if ( *(_BYTE *)(v6 + 289) && *(_BYTE *)(v6 + 290)
-    || *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v5 + 216) + 64LL) + 40LL) + 28LL) >= 0x4003u )
+  {
+    v12 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v12);
+    v5 = *(_QWORD *)(v4 + 72);
+  }
+  v6 = *(_QWORD *)(v5 + 48);
+  v7 = *(_QWORD *)(v6 + 8);
+  if ( !v7 )
+  {
+    v13 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v13);
+    v7 = *(_QWORD *)(v6 + 8);
+  }
+  v8 = *(_QWORD *)(v7 + 16);
+  if ( !v8 )
+  {
+    v14 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v14);
+  }
+  v9 = *(_QWORD *)(v8 + 2696);
+  if ( *(_BYTE *)(v9 + 249) && *(_BYTE *)(v9 + 250)
+    || *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v8 + 216) + 64LL) + 40LL) + 28LL) >= 0x4003u )
   {
     return 1;
   }
-  return v2;
+  return v3;
 }

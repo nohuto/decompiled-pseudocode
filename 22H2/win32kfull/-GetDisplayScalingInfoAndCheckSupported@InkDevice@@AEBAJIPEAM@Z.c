@@ -1,107 +1,99 @@
 /*
- * XREFs of ?GetDisplayScalingInfoAndCheckSupported@InkDevice@@AEBAJIPEAM@Z @ 0x1C02437C0
+ * XREFs of ?GetDisplayScalingInfoAndCheckSupported@InkDevice@@AEBAJIPEAM@Z @ 0x1C0254CB8
  * Callers:
- *     ?DoSuperWetInkStart@InkDevice@@AEAAJPEBUIFC_SUPERWET_INK_START_DATA@@@Z @ 0x1C0243390 (-DoSuperWetInkStart@InkDevice@@AEAAJPEBUIFC_SUPERWET_INK_START_DATA@@@Z.c)
+ *     ?DoSuperWetInkStart@InkDevice@@AEAAJPEBUIFC_SUPERWET_INK_START_DATA@@@Z @ 0x1C0254890 (-DoSuperWetInkStart@InkDevice@@AEAAJPEBUIFC_SUPERWET_INK_START_DATA@@@Z.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0040C00 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z @ 0x1C0227D10 (-GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D1C24 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ?GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z @ 0x1C0243254 (-GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z.c)
  */
 
-__int64 __fastcall InkDevice::GetDisplayScalingInfoAndCheckSupported(
-        InkDevice *this,
-        unsigned int a2,
-        float *a3,
-        __int64 a4)
+__int64 __fastcall InkDevice::GetDisplayScalingInfoAndCheckSupported(InkDevice *this, unsigned int a2, float *a3)
 {
   int PointerInfoByPointerId; // eax
-  unsigned int v7; // ebx
+  unsigned int v6; // ebx
+  __int64 v7; // rax
   __int64 v8; // rax
-  __int64 v9; // rax
-  _DWORD *v10; // rcx
-  int v11; // edx
-  int v12; // eax
-  unsigned int v14[2]; // [rsp+30h] [rbp-40h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v15; // [rsp+38h] [rbp-38h] BYREF
-  unsigned int *v16; // [rsp+58h] [rbp-18h]
-  int v17; // [rsp+60h] [rbp-10h]
-  int v18; // [rsp+64h] [rbp-Ch]
+  _DWORD *v9; // rcx
+  int v10; // edx
+  int v11; // eax
+  unsigned int v13[2]; // [rsp+30h] [rbp-40h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v14; // [rsp+38h] [rbp-38h] BYREF
+  unsigned int *v15; // [rsp+58h] [rbp-18h]
+  int v16; // [rsp+60h] [rbp-10h]
+  int v17; // [rsp+64h] [rbp-Ch]
 
-  *(_QWORD *)v14 = 0LL;
+  *(_QWORD *)v13 = 0LL;
   *a3 = 1.0;
-  PointerInfoByPointerId = Pointer::GetPointerInfoByPointerId(
-                             (Pointer *)a2,
-                             (const struct tagPOINTER_INFO **)v14,
-                             (const struct tagPOINTER_INFO **)a3,
-                             a4);
-  v7 = PointerInfoByPointerId;
+  PointerInfoByPointerId = Pointer::GetPointerInfoByPointerId((Pointer *)a2, v13, (const struct tagPOINTER_INFO **)a3);
+  v6 = PointerInfoByPointerId;
   if ( PointerInfoByPointerId >= 0 )
   {
-    v8 = HMValidateHandleNoSecure(*(_QWORD *)(*(_QWORD *)v14 + 16LL), 19);
-    if ( !v8 )
+    v7 = HMValidateHandleNoSecure(*(_QWORD *)(*(_QWORD *)v13 + 16LL), 19);
+    if ( !v7 )
     {
-      v7 = -1073741823;
-      if ( (unsigned int)dword_1C03540E0 <= 2 )
-        return v7;
-      v14[0] = -1073741823;
+      v6 = -1073741823;
+      if ( (unsigned int)dword_1C032A288 <= 2 )
+        return v6;
+      v13[0] = -1073741823;
       goto LABEL_4;
     }
-    v9 = *(_QWORD *)(v8 + 472);
-    v10 = *(_DWORD **)(v9 + 16);
-    if ( v10[499] != 1 )
+    v8 = *(_QWORD *)(v7 + 480);
+    v9 = *(_DWORD **)(v8 + 16);
+    if ( v9[501] != 1 )
     {
       PointerInfoByPointerId = -1073741637;
-      v7 = -1073741637;
-      if ( (unsigned int)dword_1C03540E0 <= 2 )
-        return v7;
+      v6 = -1073741637;
+      if ( (unsigned int)dword_1C032A288 <= 2 )
+        return v6;
       goto LABEL_3;
     }
-    if ( ((*(_DWORD *)(v9 + 224) - 1) & 0xFFFFFFFD) != 0 )
+    if ( ((*(_DWORD *)(v8 + 224) - 1) & 0xFFFFFFFD) != 0 )
     {
-      v11 = v10[504];
-      v12 = v10[503];
+      v10 = v9[506];
+      v11 = v9[505];
     }
     else
     {
-      v11 = v10[503];
-      v12 = v10[504];
+      v10 = v9[505];
+      v11 = v9[506];
     }
-    if ( *((_DWORD *)this + 31) != v11 )
+    if ( *((_DWORD *)this + 31) != v10 )
     {
       PointerInfoByPointerId = -1073741637;
-      v7 = -1073741637;
-      if ( (unsigned int)dword_1C03540E0 <= 2 )
-        return v7;
+      v6 = -1073741637;
+      if ( (unsigned int)dword_1C032A288 <= 2 )
+        return v6;
       goto LABEL_3;
     }
-    if ( *((_DWORD *)this + 32) == v12 )
+    if ( *((_DWORD *)this + 32) == v11 )
     {
-      *a3 = (float)(v10[509] - v10[507]) / (float)v11;
-      return v7;
+      *a3 = (float)(v9[511] - v9[509]) / (float)v10;
+      return v6;
     }
     PointerInfoByPointerId = -1073741637;
-    v7 = -1073741637;
-    if ( (unsigned int)dword_1C03540E0 > 2 )
+    v6 = -1073741637;
+    if ( (unsigned int)dword_1C032A288 > 2 )
     {
 LABEL_3:
-      v14[0] = PointerInfoByPointerId;
+      v13[0] = PointerInfoByPointerId;
 LABEL_4:
-      v18 = 0;
-      v16 = v14;
-      v17 = 4;
+      v17 = 0;
+      v15 = v13;
+      v16 = 4;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_1C03540E0,
-        (unsigned __int8 *)dword_1C031C186,
+        (__int64)&dword_1C032A288,
+        (unsigned __int8 *)dword_1C02F1ECC,
         0LL,
         0LL,
         3u,
-        &v15);
+        &v14);
     }
   }
-  else if ( (unsigned int)dword_1C03540E0 > 2 )
+  else if ( (unsigned int)dword_1C032A288 > 2 )
   {
     goto LABEL_3;
   }
-  return v7;
+  return v6;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwSetEvent @ 0x1401B8330
+ * XREFs of ZwSetEvent @ 0x1401B8350
  * Callers:
- *     PiDrvDbLoadNodeWorkerCallback @ 0x140680D80 (PiDrvDbLoadNodeWorkerCallback.c)
- *     PspShutdownCsrProcess @ 0x140887614 (PspShutdownCsrProcess.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140680D60 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PspShutdownCsrProcess @ 0x1408875F4 (PspShutdownCsrProcess.c)
  * Callees:
  *     <none>
  */

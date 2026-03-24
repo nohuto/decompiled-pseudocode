@@ -1,38 +1,40 @@
 /*
- * XREFs of WheapInitializeErrorSourceTable @ 0x140B4C6A0
+ * XREFs of WheapInitializeErrorSourceTable @ 0x140A6378C
  * Callers:
- *     WheaInitialize @ 0x140B4C7E8 (WheaInitialize.c)
+ *     WheaInitialize @ 0x140A6305C (WheaInitialize.c)
  * Callees:
- *     WheapAddErrorSource @ 0x14038140C (WheapAddErrorSource.c)
- *     WheapInitializeErrorSource @ 0x140821304 (WheapInitializeErrorSource.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     WheapAddErrorSource @ 0x1403BA9C4 (WheapAddErrorSource.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     WheapInitializeErrorSource @ 0x1407AFB84 (WheapInitializeErrorSource.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WheapInitializeErrorSourceTable(unsigned int a1, unsigned int *a2)
 {
-  int v2; // esi
-  __int64 Pool2; // rax
-  __int64 v6; // rbx
-  __int64 v7; // rcx
+  int v2; // ebp
+  PVOID PoolWithTag; // rax
+  ULONG_PTR v6; // rbx
+  ULONG_PTR v7; // rcx
   unsigned int *v8; // rdx
   __int64 v9; // rax
   __int128 v10; // xmm0
   void *v11; // rcx
-  int v12; // ebp
+  int v12; // esi
 
   v2 = 0;
   if ( !a1 )
     return 0LL;
   while ( 1 )
   {
-    if ( a2[2] > 0x12 )
-      goto LABEL_9;
-    Pool2 = ExAllocatePool2(64LL, 0x430uLL, 0x61656857u);
-    v6 = Pool2;
-    if ( !Pool2 )
+    if ( a2[2] > 0x10 )
+      goto LABEL_11;
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x430uLL, 0x61656857u);
+    v6 = (ULONG_PTR)PoolWithTag;
+    if ( !PoolWithTag )
       return 3221225626LL;
-    v7 = Pool2 + 96;
+    memset(PoolWithTag, 0, 0x430uLL);
+    v7 = v6 + 96;
     v8 = a2;
     v9 = 7LL;
     do
@@ -57,13 +59,13 @@ __int64 __fastcall WheapInitializeErrorSourceTable(unsigned int a1, unsigned int
     *(_OWORD *)(v7 + 48) = *((_OWORD *)v8 + 3);
     *(_QWORD *)(v7 + 64) = *((_QWORD *)v8 + 8);
     *(_DWORD *)(v7 + 72) = v8[18];
-    v11 = &unk_140D16DB8;
-    if ( *((_BYTE *)&unk_140D16DB8 + 64 * (__int64)(int)a2[2]) )
+    v11 = &unk_140CF4748;
+    if ( *((_BYTE *)&unk_140CF4748 + 64 * (__int64)(int)a2[2]) )
     {
       v12 = WheapInitializeErrorSource(v6);
       if ( v12 < 0 )
       {
-        ExFreePoolWithTag((PVOID)v6, 0x61656857u);
+        ExFreeHeapPool(v6);
         return (unsigned int)v12;
       }
     }
@@ -72,9 +74,10 @@ __int64 __fastcall WheapInitializeErrorSourceTable(unsigned int a1, unsigned int
       *(_DWORD *)(v6 + 40) = a2[2];
       *(_BYTE *)(v6 + 88) = 1;
     }
-    WheapAddErrorSource((__int64)v11, v6);
+    if ( *(_DWORD *)(v6 + 104) != 5 || *(_DWORD *)(v6 + 144) == 0xFFFF )
+      WheapAddErrorSource((__int64)v11, v6);
     a2 = (unsigned int *)((char *)a2 + *a2);
-LABEL_9:
+LABEL_11:
     if ( ++v2 >= a1 )
       return 0LL;
   }

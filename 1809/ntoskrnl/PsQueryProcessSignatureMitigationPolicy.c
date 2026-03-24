@@ -1,9 +1,9 @@
 /*
- * XREFs of PsQueryProcessSignatureMitigationPolicy @ 0x1406CB4C0
+ * XREFs of PsQueryProcessSignatureMitigationPolicy @ 0x1406CB4A0
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall PsQueryProcessSignatureMitigationPolicy(__int64 a1, _DWORD *a2)
@@ -23,10 +23,10 @@ void __fastcall PsQueryProcessSignatureMitigationPolicy(__int64 a1, _DWORD *a2)
   {
     *a2 |= 1u;
   }
-  else if ( qword_14040DDC0
-         && (LOBYTE(a2) = 6, (unsigned int)qword_14040DDC0(a1, a2))
-         && qword_14040DDC0
-         && (LOBYTE(v6) = *(_BYTE *)(v2 + 1737), LOBYTE(v5) = 6, (unsigned int)qword_14040DDC0(v6, v5)) )
+  else if ( qword_14040DDA0
+         && (LOBYTE(a2) = 6, (unsigned int)qword_14040DDA0(a1, a2))
+         && qword_14040DDA0
+         && (LOBYTE(v6) = *(_BYTE *)(v2 + 1737), LOBYTE(v5) = 6, (unsigned int)qword_14040DDA0(v6, v5)) )
   {
     *v4 |= 2u;
   }

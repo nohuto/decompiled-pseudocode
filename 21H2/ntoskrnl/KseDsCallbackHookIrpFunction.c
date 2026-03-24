@@ -1,10 +1,10 @@
 /*
- * XREFs of KseDsCallbackHookIrpFunction @ 0x14057DCD0
+ * XREFs of KseDsCallbackHookIrpFunction @ 0x140527480
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     KsepDsEventDataIrp @ 0x14057E394 (KsepDsEventDataIrp.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KsepDsEventDataIrp @ 0x140527B44 (KsepDsEventDataIrp.c)
  */
 
 __int64 __fastcall KseDsCallbackHookIrpFunction(__int64 a1, __int64 a2)
@@ -15,7 +15,7 @@ __int64 __fastcall KseDsCallbackHookIrpFunction(__int64 a1, __int64 a2)
   unsigned int v7; // edi
 
   v4 = **(unsigned __int8 **)(a2 + 184);
-  v5 = (*(__int64 (__fastcall **)(_QWORD))qword_140C049B8)(*(_QWORD *)(a1 + 8));
+  v5 = (*(__int64 (__fastcall **)(_QWORD))qword_140C03248)(*(_QWORD *)(a1 + 8));
   v6 = (*(__int64 (__fastcall **)(__int64, __int64))(v5 + 8 * v4 + 32))(a1, a2);
   v7 = v6;
   if ( (unsigned int)(v4 - 3) <= 1 )

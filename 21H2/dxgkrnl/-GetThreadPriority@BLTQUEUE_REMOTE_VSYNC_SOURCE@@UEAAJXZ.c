@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetThreadPriority@BLTQUEUE_REMOTE_VSYNC_SOURCE@@UEAAJXZ @ 0x1C01EA930
+ * XREFs of ?GetThreadPriority@BLTQUEUE_REMOTE_VSYNC_SOURCE@@UEAAJXZ @ 0x1C016F7A0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,7 @@
 /*
- * XREFs of KeAddGroupAffinityEx @ 0x14035C3E0
+ * XREFs of KeAddGroupAffinityEx @ 0x140513500
  * Callers:
- *     KiDeferredReadySingleThread @ 0x1403405E0 (KiDeferredReadySingleThread.c)
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
- *     NtSetInformationThread @ 0x14072EC80 (NtSetInformationThread.c)
+ *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
  * Callees:
  *     <none>
  */
@@ -12,14 +10,9 @@ __int64 __fastcall KeAddGroupAffinityEx(unsigned __int16 *a1, unsigned __int16 a
 {
   __int64 result; // rax
 
-  if ( *a1 > a2 )
-    goto LABEL_2;
-  if ( a1[1] > a2 )
-  {
+  if ( *a1 <= a2 )
     *a1 = a2 + 1;
-LABEL_2:
-    result = a2;
-    *(_QWORD *)&a1[4 * a2 + 4] |= a3;
-  }
+  result = a2;
+  *(_QWORD *)&a1[4 * a2 + 4] |= a3;
   return result;
 }

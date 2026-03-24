@@ -1,9 +1,9 @@
 /*
- * XREFs of IopAbortRequest @ 0x140819380
+ * XREFs of IopAbortRequest @ 0x140819360
  * Callers:
  *     <none>
  * Callees:
- *     IopCompleteRequest @ 0x1400BFCF0 (IopCompleteRequest.c)
+ *     IopCompleteRequest @ 0x1400BFD10 (IopCompleteRequest.c)
  */
 
 void __fastcall IopAbortRequest(_QWORD *a1)

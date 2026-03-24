@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DDEImpIncRefInit@@YAHPEAUtagWND@@PEAUtagDDEIMP@@PEAU_TL@@@Z @ 0x1C01CBDF4
+ * XREFs of ?DDEImpIncRefInit@@YAHPEAUtagWND@@PEAUtagDDEIMP@@PEAU_TL@@@Z @ 0x1C01F5990
  * Callers:
- *     NtUserfnDDEINIT @ 0x1C01E0470 (NtUserfnDDEINIT.c)
+ *     NtUserfnDDEINIT @ 0x1C02045D0 (NtUserfnDDEINIT.c)
  * Callees:
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
  */
 
 __int64 __fastcall DDEImpIncRefInit(struct tagWND *a1, struct tagDDEIMP *a2, struct _TL *a3)

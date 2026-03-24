@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DeleteAllTokens@CTokenQueue@@AEAAXXZ @ 0x1C000290C
+ * XREFs of ?DeleteAllTokens@CTokenQueue@@AEAAXXZ @ 0x1C0012630
  * Callers:
- *     ?DeleteAllTokens@CTokenManager@@UEAAXXZ @ 0x1C0002800 (-DeleteAllTokens@CTokenManager@@UEAAXXZ.c)
- *     ??1CTokenManager@@AEAA@XZ @ 0x1C0002B3C (--1CTokenManager@@AEAA@XZ.c)
- *     ?RemoveTokenQueueTableEntry@CTokenManager@@IEAAXPEAUTokenQueueTableEntry@1@@Z @ 0x1C001594C (-RemoveTokenQueueTableEntry@CTokenManager@@IEAAXPEAUTokenQueueTableEntry@1@@Z.c)
- *     ?ClearAnalogTokenQueue@CTokenManager@@UEAAXXZ @ 0x1C0075C10 (-ClearAnalogTokenQueue@CTokenManager@@UEAAXXZ.c)
+ *     ?DeleteAllTokens@CTokenManager@@UEAAXXZ @ 0x1C0012530 (-DeleteAllTokens@CTokenManager@@UEAAXXZ.c)
+ *     ??1CTokenManager@@AEAA@XZ @ 0x1C0012C1C (--1CTokenManager@@AEAA@XZ.c)
+ *     ?RemoveTokenQueueTableEntry@CTokenManager@@IEAAXPEAUTokenQueueTableEntry@1@@Z @ 0x1C001E01C (-RemoveTokenQueueTableEntry@CTokenManager@@IEAAXPEAUTokenQueueTableEntry@1@@Z.c)
+ *     ?ClearAnalogTokenQueue@CTokenManager@@UEAAXXZ @ 0x1C0063940 (-ClearAnalogTokenQueue@CTokenManager@@UEAAXXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CTokenQueue::DeleteAllTokens(CTokenQueue *this)

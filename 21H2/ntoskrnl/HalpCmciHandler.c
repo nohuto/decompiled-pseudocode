@@ -1,16 +1,15 @@
 /*
- * XREFs of HalpCmciHandler @ 0x140509620
+ * XREFs of HalpCmciHandler @ 0x1404BCAA8
  * Callers:
- *     HalpInterruptDeferredErrorService @ 0x14051F570 (HalpInterruptDeferredErrorService.c)
+ *     HalpInterruptDeferredErrorService @ 0x1404D2610 (HalpInterruptDeferredErrorService.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     KiInsertQueueDpc @ 0x140345190 (KiInsertQueueDpc.c)
- *     HalpGetCpuVendor @ 0x1403AAE50 (HalpGetCpuVendor.c)
- *     KeIpiGenericCall @ 0x1403B4600 (KeIpiGenericCall.c)
- *     WheaLogInternalEvent @ 0x1403D2A90 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpCmciResetStateAMD @ 0x140509880 (HalpCmciResetStateAMD.c)
+ *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     KeIpiGenericCall @ 0x1403A4B20 (KeIpiGenericCall.c)
+ *     WheaLogInternalEvent @ 0x1403BAD50 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpCmciResetState @ 0x1404BCCD0 (HalpCmciResetState.c)
  */
 
 char HalpCmciHandler()
@@ -22,18 +21,17 @@ char HalpCmciHandler()
   unsigned int v4; // eax
   unsigned __int8 CurrentIrql; // si
   _DWORD *SchedulerAssist; // r9
-  __int64 v7; // rbp
-  unsigned __int8 v8; // al
+  unsigned __int8 v7; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v10; // r9
-  int v11; // eax
-  bool v12; // zf
-  __int128 Src; // [rsp+30h] [rbp-38h] BYREF
-  __int128 v15; // [rsp+40h] [rbp-28h]
+  _DWORD *v9; // r9
+  int v10; // eax
+  bool v11; // zf
+  __int128 Src; // [rsp+20h] [rbp-38h] BYREF
+  __int128 v14; // [rsp+30h] [rbp-28h]
 
   LOBYTE(Pcr) = HalpMcaWheaReady;
   Src = 0LL;
-  v15 = 0LL;
+  v14 = 0LL;
   if ( !HalpMcaWheaReady )
     return (char)Pcr;
   Pcr = KeGetPcr();
@@ -42,28 +40,28 @@ char HalpCmciHandler()
     return (char)Pcr;
   while ( 1 )
   {
-    v2 = *(_QWORD *)(v1 + 172);
+    v2 = *(_QWORD *)(v1 + 164);
     if ( *(_QWORD *)(v1 + 16) )
     {
       if ( *(_QWORD *)(v1 + 24) )
         break;
     }
-LABEL_25:
-    v1 = *(_QWORD *)(v1 + 184);
+LABEL_23:
+    v1 = *(_QWORD *)(v1 + 176);
     if ( !v1 )
       return (char)Pcr;
   }
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  ++*(_DWORD *)(v1 + 124);
-  if ( PerformanceCounter.QuadPart - *(_QWORD *)(v1 + 112) >= HalpCmciThresholdTime )
+  ++*(_DWORD *)(v1 + 116);
+  if ( PerformanceCounter.QuadPart - *(_QWORD *)(v1 + 104) >= HalpCmciThresholdTime )
   {
-    *(LARGE_INTEGER *)(v1 + 112) = PerformanceCounter;
+    *(LARGE_INTEGER *)(v1 + 104) = PerformanceCounter;
     v4 = 1;
-    *(_DWORD *)(v1 + 120) = 1;
+    *(_DWORD *)(v1 + 112) = 1;
   }
   else
   {
-    v4 = ++*(_DWORD *)(v1 + 120);
+    v4 = ++*(_DWORD *)(v1 + 112);
   }
   if ( v4 <= HalpCmciThresholdCount )
   {
@@ -74,44 +72,42 @@ LABEL_25:
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0x7FFC;
     }
-    if ( !*(_BYTE *)(v1 + 128) )
+    if ( !*(_BYTE *)(v1 + 120) )
     {
-      v7 = *(_QWORD *)(v1 + 24);
-      if ( HalpGetCpuVendor() == 1 )
-        HalpCmciResetStateAMD(v7, v2);
-      KiInsertQueueDpc(v1 + 48, 0LL, 0LL, 0LL, 0);
+      HalpCmciResetState(*(_QWORD *)(v1 + 24), v2);
+      KeInsertQueueDpc((PRKDPC)(v1 + 40), 0LL, 0LL);
     }
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v8 = KeGetCurrentIrql();
-        if ( v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+        v7 = KeGetCurrentIrql();
+        if ( v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v10 = CurrentPrcb->SchedulerAssist;
-          v11 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v12 = (v11 & v10[5]) == 0;
-          v10[5] &= v11;
-          if ( v12 )
+          v9 = CurrentPrcb->SchedulerAssist;
+          v10 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v11 = (v10 & v9[5]) == 0;
+          v9[5] &= v10;
+          if ( v11 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
     }
     LOBYTE(Pcr) = CurrentIrql;
     __writecr8(CurrentIrql);
-    goto LABEL_25;
+    goto LABEL_23;
   }
   LODWORD(Pcr) = _InterlockedIncrement(&HalpCmciRevertToPolledMode);
   if ( (_DWORD)Pcr == 1 )
   {
     *(_QWORD *)&Src = 0x1674C6857LL;
     *((_QWORD *)&Src + 1) = 0x100000020LL;
-    *(_QWORD *)&v15 = 0x80000003204C4148uLL;
-    *((_QWORD *)&v15 + 1) = 2LL;
+    *(_QWORD *)&v14 = 0x80000003204C4148uLL;
+    *((_QWORD *)&v14 + 1) = 2LL;
     WheaLogInternalEvent(&Src);
     KeIpiGenericCall(HalpDisableCmciOnProcessor, 0LL);
-    LOBYTE(Pcr) = KiInsertQueueDpc(v1 + 48, 0LL, 0LL, 0LL, 0);
+    LOBYTE(Pcr) = KeInsertQueueDpc((PRKDPC)(v1 + 40), 0LL, 0LL);
   }
   return (char)Pcr;
 }

@@ -1,29 +1,30 @@
 /*
- * XREFs of RtlpLookupOrCreateLowBox @ 0x140297878
+ * XREFs of RtlpLookupOrCreateLowBox @ 0x14025A32C
  * Callers:
- *     RtlpHashStringToAtom @ 0x140717FE0 (RtlpHashStringToAtom.c)
+ *     RtlpHashStringToAtom @ 0x14061BF80 (RtlpHashStringToAtom.c)
  * Callees:
- *     RtlpQueryLowBoxId @ 0x1402979F8 (RtlpQueryLowBoxId.c)
- *     RtlpAllocateAtom @ 0x14075AD10 (RtlpAllocateAtom.c)
+ *     RtlpQueryLowBoxId @ 0x14025A448 (RtlpQueryLowBoxId.c)
+ *     RtlpAllocateAtom @ 0x1406A6C84 (RtlpAllocateAtom.c)
  */
 
 __int64 __fastcall RtlpLookupOrCreateLowBox(__int64 a1, __int64 a2, char a3)
 {
-  __int64 *v5; // rbx
   int LowBoxId; // esi
+  __int64 *v6; // rbx
   __int64 result; // rax
   __int16 v8; // cx
-  __int16 v9; // dx
+  __int16 v9; // r8
   __int64 v10; // rcx
   __int16 v11; // cx
 
   if ( (*(_DWORD *)(a1 + 24) & 1) != 0 )
-    return a2 + 16;
-  v5 = (__int64 *)(a2 + 16);
-  LowBoxId = RtlpQueryLowBoxId();
+    LowBoxId = 0;
+  else
+    LowBoxId = RtlpQueryLowBoxId();
+  v6 = (__int64 *)(a2 + 16);
   if ( !LowBoxId )
-    return (__int64)v5;
-  for ( result = *v5; (__int64 *)result != v5; result = *(_QWORD *)result )
+    return a2 + 16;
+  for ( result = *v6; (__int64 *)result != v6; result = *(_QWORD *)result )
   {
     if ( *(_DWORD *)(result + 16) == LowBoxId )
     {
@@ -46,13 +47,13 @@ __int64 __fastcall RtlpLookupOrCreateLowBox(__int64 a1, __int64 a2, char a3)
   result = RtlpAllocateAtom(24LL, 1282241601LL);
   if ( result )
   {
-    v10 = *v5;
-    if ( *(__int64 **)(*v5 + 8) != v5 )
+    v10 = *v6;
+    if ( *(__int64 **)(*v6 + 8) != v6 )
       __fastfail(3u);
     *(_QWORD *)result = v10;
-    *(_QWORD *)(result + 8) = v5;
+    *(_QWORD *)(result + 8) = v6;
     *(_QWORD *)(v10 + 8) = result;
-    *v5 = result;
+    *v6 = result;
     *(_DWORD *)(result + 20) = 0;
     *(_DWORD *)(result + 16) = LowBoxId;
     if ( a3 )

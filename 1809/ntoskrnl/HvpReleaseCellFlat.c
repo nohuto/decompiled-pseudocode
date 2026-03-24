@@ -1,5 +1,5 @@
 /*
- * XREFs of HvpReleaseCellFlat @ 0x1406D3DB0
+ * XREFs of HvpReleaseCellFlat @ 0x1406D3D90
  * Callers:
  *     <none>
  * Callees:

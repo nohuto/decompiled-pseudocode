@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDqQueryFreeActiveData @ 0x1407E02C8
+ * XREFs of PiDqQueryFreeActiveData @ 0x1406A74F8
  * Callers:
- *     PiDqObjectManagerServiceActionQueue @ 0x1407869A0 (PiDqObjectManagerServiceActionQueue.c)
- *     PiDqQueryApplyObjectEvent @ 0x1407871A4 (PiDqQueryApplyObjectEvent.c)
- *     PiDqQueryRelease @ 0x14078773C (PiDqQueryRelease.c)
- *     PiDqIrpQueryCreate @ 0x1407F97F8 (PiDqIrpQueryCreate.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407FA618 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDqQueryAppendActionEntry @ 0x1407FA9F8 (PiDqQueryAppendActionEntry.c)
- *     PiDqIrpQueryGetResult @ 0x1407FBCFC (PiDqIrpQueryGetResult.c)
+ *     PiDqIrpQueryGetResult @ 0x1406A6E58 (PiDqIrpQueryGetResult.c)
+ *     PiDqQueryRelease @ 0x1406A747C (PiDqQueryRelease.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1406A7660 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqIrpQueryCreate @ 0x1406A7E9C (PiDqIrpQueryCreate.c)
+ *     PiDqQueryAppendActionEntry @ 0x1406A8A14 (PiDqQueryAppendActionEntry.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x140762740 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqQueryApplyObjectEvent @ 0x140762AE4 (PiDqQueryApplyObjectEvent.c)
  * Callees:
- *     RtlIsGenericTableEmptyAvl @ 0x14031E6B0 (RtlIsGenericTableEmptyAvl.c)
- *     PiDqQueryDeleteObjectFromResultSet @ 0x1407E0334 (PiDqQueryDeleteObjectFromResultSet.c)
- *     PiDqQueryActionQueueEntryFree @ 0x1407FA180 (PiDqQueryActionQueueEntryFree.c)
- *     PiDqActionDataFree @ 0x1407FA1C4 (PiDqActionDataFree.c)
+ *     RtlIsGenericTableEmptyAvl @ 0x14032D550 (RtlIsGenericTableEmptyAvl.c)
+ *     PiDqQueryDeleteObjectFromResultSet @ 0x1406A73D4 (PiDqQueryDeleteObjectFromResultSet.c)
+ *     PiDqQueryActionQueueEntryFree @ 0x1406A8748 (PiDqQueryActionQueueEntryFree.c)
+ *     PiDqActionDataFree @ 0x1406A8934 (PiDqActionDataFree.c)
  */
 
 BOOLEAN __fastcall PiDqQueryFreeActiveData(__int64 a1)
@@ -29,7 +29,7 @@ BOOLEAN __fastcall PiDqQueryFreeActiveData(__int64 a1)
     result = RtlIsGenericTableEmptyAvl(i);
     if ( result )
       break;
-    PiDqQueryDeleteObjectFromResultSet(a1, *(_QWORD *)(*(_QWORD *)(a1 + 88) + 32LL));
+    PiDqQueryDeleteObjectFromResultSet(a1, *(void **)(*(_QWORD *)(a1 + 88) + 32LL));
   }
   v4 = (_QWORD **)(a1 + 192);
   while ( 1 )

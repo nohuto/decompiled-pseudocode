@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpLightWeightCommitDeleteKeyUoW @ 0x140803798
+ * XREFs of CmpLightWeightCommitDeleteKeyUoW @ 0x140803778
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140694A3C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140694A1C (CmpProcessLightWeightUOW.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpCleanupDiscardReplaceContext @ 0x1405AA51C (CmpCleanupDiscardReplaceContext.c)
  *     CmpDiscardKcb @ 0x1405AA6A8 (CmpDiscardKcb.c)
  *     CmpMarkKeyUnbacked @ 0x1405AA8A0 (CmpMarkKeyUnbacked.c)
  *     CmpCleanUpSubKeyInfo @ 0x1405ACA60 (CmpCleanUpSubKeyInfo.c)
  *     CmpFlushNotifiesOnKeyBodyList @ 0x1405AD310 (CmpFlushNotifiesOnKeyBodyList.c)
  *     CmpFreeKeyByCell @ 0x1405AD6F8 (CmpFreeKeyByCell.c)
- *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x1407F9A2C (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
- *     CmpEnumerateAllHigherLayerKcbs @ 0x1407F9CA8 (CmpEnumerateAllHigherLayerKcbs.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x1408035C0 (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightSwapParentSubKeyList @ 0x140804CA0 (CmpLightWeightSwapParentSubKeyList.c)
+ *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x1407F9A0C (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x1407F9C88 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x1408035A0 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightSwapParentSubKeyList @ 0x140804C80 (CmpLightWeightSwapParentSubKeyList.c)
  */
 
 void __fastcall CmpLightWeightCommitDeleteKeyUoW(__int64 a1, _QWORD *a2)
@@ -53,7 +53,7 @@ void __fastcall CmpLightWeightCommitDeleteKeyUoW(__int64 a1, _QWORD *a2)
     v18 = &v14;
     v14 = v7;
     v19 = 4;
-    TlgWrite(&stru_1403FFAA0, &unk_14036C601, 0LL, 0LL, 3u, &pData);
+    TlgWrite(&stru_1403FFAA0, &unk_14036C711, 0LL, 0LL, 3u, &pData);
   }
   v8 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 64LL);
   if ( *v2 == 1 )

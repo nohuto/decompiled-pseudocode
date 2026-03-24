@@ -1,23 +1,23 @@
 /*
- * XREFs of PnpProfileUpdateHardwareProfile @ 0x14096390C
+ * XREFs of PnpProfileUpdateHardwareProfile @ 0x1408AB1CC
  * Callers:
- *     PpProfileCancelTransitioningDock @ 0x140963BC8 (PpProfileCancelTransitioningDock.c)
- *     PpProfileCommitTransitioningDock @ 0x140963C74 (PpProfileCommitTransitioningDock.c)
+ *     PpProfileCancelTransitioningDock @ 0x1408AB480 (PpProfileCancelTransitioningDock.c)
+ *     PpProfileCommitTransitioningDock @ 0x1408AB52C (PpProfileCommitTransitioningDock.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     IopExecuteHardwareProfileChange @ 0x140971654 (IopExecuteHardwareProfileChange.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     IopExecuteHardwareProfileChange @ 0x1408B8B94 (IopExecuteHardwareProfileChange.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpProfileUpdateHardwareProfile(__int64 a1)
 {
   int v2; // eax
-  __int64 Pool2; // rax
+  char *PoolWithTag; // rax
   char *v4; // rdi
   char *v5; // rbx
   __int64 *i; // rax
@@ -34,22 +34,24 @@ __int64 __fastcall PnpProfileUpdateHardwareProfile(__int64 a1)
   Handle = 0LL;
   *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
   ExAcquireFastMutex(&PiProfileDeviceListLock);
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   KeyHandle = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
   ValueName.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\IDConfigDB";
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  ObjectAttributes.ObjectName = &ValueName;
   *(_DWORD *)&ValueName.Length = 8126586;
+  ObjectAttributes.ObjectName = &ValueName;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
+    *(&ObjectAttributes.Length + 1) = 0;
     memset(&ObjectAttributes.Attributes + 1, 0, 20);
     ValueName.Buffer = (wchar_t *)L"CurrentDockInfo";
     ObjectAttributes.RootDirectory = KeyHandle;
-    *(_QWORD *)&ObjectAttributes.Length = 48LL;
-    ObjectAttributes.ObjectName = &ValueName;
     *(_DWORD *)&ValueName.Length = 2097182;
+    ObjectAttributes.ObjectName = &ValueName;
+    ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 576;
     if ( ZwOpenKey(&Handle, 0x2001Fu, &ObjectAttributes) >= 0 )
     {
@@ -63,11 +65,11 @@ __int64 __fastcall PnpProfileUpdateHardwareProfile(__int64 a1)
   v2 = PiProfileDeviceCount;
   if ( !PiProfileDeviceCount )
     v2 = 1;
-  Pool2 = ExAllocatePool2(64LL, (unsigned int)(8 * v2 + 8), 538996816LL);
-  v4 = (char *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(8 * v2 + 8), 0x20207050u);
+  v4 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v5 = (char *)Pool2;
+    v5 = PoolWithTag;
     for ( i = (__int64 *)PiProfileDeviceListHead; i != &PiProfileDeviceListHead; i = (__int64 *)*i )
     {
       v7 = i[2];
@@ -77,7 +79,7 @@ __int64 __fastcall PnpProfileUpdateHardwareProfile(__int64 a1)
         v5 += 8;
       }
     }
-    ExReleaseFastMutex(&PiProfileDeviceListLock);
+    KeReleaseGuardedMutex(&PiProfileDeviceListLock);
     if ( v5 == v4 )
     {
       *(_QWORD *)v5 = 0LL;
@@ -91,7 +93,7 @@ __int64 __fastcall PnpProfileUpdateHardwareProfile(__int64 a1)
   }
   else
   {
-    ExReleaseFastMutex(&PiProfileDeviceListLock);
+    KeReleaseGuardedMutex(&PiProfileDeviceListLock);
     return (unsigned int)-1073741670;
   }
   return v9;

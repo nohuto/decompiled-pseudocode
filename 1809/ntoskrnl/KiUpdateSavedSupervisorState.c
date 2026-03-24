@@ -3,8 +3,8 @@
  * Callers:
  *     KiStartSavingSupervisorState @ 0x14057B560 (KiStartSavingSupervisorState.c)
  * Callees:
- *     KeIpiGenericCall @ 0x140175910 (KeIpiGenericCall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeIpiGenericCall @ 0x140175930 (KeIpiGenericCall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of IopLiveDumpCorralProcessors @ 0x140A9AF70
+ * XREFs of IopLiveDumpCorralProcessors @ 0x1409ABDE0
  * Callers:
- *     IopLiveDumpEnterCorralledState @ 0x140A9B21C (IopLiveDumpEnterCorralledState.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1409AC020 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KeInsertQueueDpc @ 0x140254650 (KeInsertQueueDpc.c)
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeInitializeDpc @ 0x1402BF970 (KeInitializeDpc.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306B20 (KeSetSystemGroupAffinityThread.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x140559DDC (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpTraceCorralProcessorsDuration @ 0x14055A858 (IopLiveDumpTraceCorralProcessorsDuration.c)
- *     IopLiveDumpTraceSystemQuiesceStart @ 0x14055B7A4 (IopLiveDumpTraceSystemQuiesceStart.c)
- *     IopLiveDumpLockPages @ 0x14094EB00 (IopLiveDumpLockPages.c)
- *     IopLiveDumpInitiateCorralStateChange @ 0x140A9B8E4 (IopLiveDumpInitiateCorralStateChange.c)
+ *     KeInsertQueueDpc @ 0x14021FD00 (KeInsertQueueDpc.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14035CA50 (KeSetSystemGroupAffinityThread.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x140508908 (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTraceCorralProcessorsDuration @ 0x14050934C (IopLiveDumpTraceCorralProcessorsDuration.c)
+ *     IopLiveDumpTraceSystemQuiesceStart @ 0x140509FFC (IopLiveDumpTraceSystemQuiesceStart.c)
+ *     IopLiveDumpLockPages @ 0x140898718 (IopLiveDumpLockPages.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x1409ACA98 (IopLiveDumpInitiateCorralStateChange.c)
  */
 
 char __fastcall IopLiveDumpCorralProcessors(char *DeferredContext)
@@ -20,41 +20,45 @@ char __fastcall IopLiveDumpCorralProcessors(char *DeferredContext)
   __int64 v1; // r14
   __int64 v2; // rdi
   __int64 MillisecondCounter; // r12
-  unsigned __int8 CurrentIrql; // r8
-  _DWORD *SchedulerAssist; // r10
-  int v7; // eax
-  int v8; // r15d
-  int v9; // eax
-  __int64 v11; // [rsp+30h] [rbp-30h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-28h] BYREF
-  unsigned __int16 *v13[2]; // [rsp+48h] [rbp-18h] BYREF
-  __int16 v14; // [rsp+58h] [rbp-8h]
-  int v15; // [rsp+5Ah] [rbp-6h]
-  __int16 v16; // [rsp+5Eh] [rbp-2h]
-  int v17; // [rsp+A0h] [rbp+40h] BYREF
-  int v18; // [rsp+A8h] [rbp+48h] BYREF
-  __int64 v19; // [rsp+B0h] [rbp+50h] BYREF
-  __int64 v20; // [rsp+B8h] [rbp+58h] BYREF
+  unsigned __int8 CurrentIrql; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v7; // r15d
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  int v11; // eax
+  __int64 v12; // rdi
+  int v13; // eax
+  __int64 v15; // [rsp+30h] [rbp-38h] BYREF
+  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-30h] BYREF
+  unsigned __int16 *v17[2]; // [rsp+48h] [rbp-20h] BYREF
+  __int16 v18; // [rsp+58h] [rbp-10h]
+  int v19; // [rsp+5Ah] [rbp-Eh]
+  __int16 v20; // [rsp+5Eh] [rbp-Ah]
+  int v21; // [rsp+B0h] [rbp+48h] BYREF
+  int v22; // [rsp+B8h] [rbp+50h] BYREF
+  __int64 v23; // [rsp+C0h] [rbp+58h] BYREF
+  __int64 v24; // [rsp+C8h] [rbp+60h] BYREF
 
   v1 = *(_QWORD *)DeferredContext;
   v2 = 0LL;
   *((_DWORD *)DeferredContext + 2) = 0;
-  v15 = 0;
-  v16 = 0;
-  v17 = 0;
+  v19 = 0;
+  v20 = 0;
+  v21 = 0;
   MillisecondCounter = 0LL;
-  v18 = 0;
-  v11 = 0LL;
-  v20 = 0LL;
-  v19 = 0LL;
+  v22 = 0;
+  v15 = 0LL;
+  v24 = 0LL;
+  v23 = 0LL;
   *((_DWORD *)DeferredContext + 3) = 0;
   *((_DWORD *)DeferredContext + 4) = 0;
   *((_DWORD *)DeferredContext + 5) = 0;
   *((_QWORD *)DeferredContext + 14) = 0LL;
   *((_DWORD *)DeferredContext + 30) = 0;
   IopLiveDumpLockPages();
-  Affinity.Reserved[1] = 0;
-  *(_DWORD *)&Affinity.Group = (unsigned __int16)((unsigned int)KiProcessorIndexToNumberMappingTable[0] >> 6);
+  Affinity.Group = (unsigned int)KiProcessorIndexToNumberMappingTable[0] >> 6;
+  *(_DWORD *)Affinity.Reserved = 0;
   Affinity.Reserved[2] = 0;
   Affinity.Mask = 1LL << (KiProcessorIndexToNumberMappingTable[0] & 0x3F);
   KeSetSystemGroupAffinityThread(&Affinity, (PGROUP_AFFINITY)DeferredContext + 6);
@@ -68,45 +72,47 @@ char __fastcall IopLiveDumpCorralProcessors(char *DeferredContext)
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    v7 = 4;
-    if ( CurrentIrql != 2 )
-      v7 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v7;
+    SchedulerAssist[5] |= ~((unsigned __int8)(1LL << (CurrentIrql + 1)) - 1) & 4;
   }
   DeferredContext[88] = CurrentIrql;
   KeInitializeDpc((PRKDPC)(DeferredContext + 24), (PKDEFERRED_ROUTINE)IopLiveDumpCorralDpc, DeferredContext);
   DeferredContext[25] = 2;
-  v13[1] = (unsigned __int16 *)qword_140D1EFE8[0];
-  v13[0] = (unsigned __int16 *)KeActiveProcessors;
-  v14 = 0;
-  while ( !(unsigned int)KeEnumerateNextProcessor(&v17, v13) )
+  v17[1] = (unsigned __int16 *)qword_140CFC848[0];
+  v17[0] = (unsigned __int16 *)KeActiveProcessors;
+  v18 = 0;
+  while ( !(unsigned int)KeEnumerateNextProcessor(&v21, v17) )
   {
-    if ( v17 == *((_DWORD *)DeferredContext + 28) )
+    if ( v21 == *((_DWORD *)DeferredContext + 28) )
     {
-      _InterlockedIncrement((volatile signed __int32 *)DeferredContext + 4);
+      _InterlockedAdd((volatile signed __int32 *)DeferredContext + 4, 1u);
     }
     else
     {
-      v8 = *((_DWORD *)DeferredContext + 4);
+      v7 = *((_DWORD *)DeferredContext + 4);
       if ( !*((_QWORD *)DeferredContext + 10) )
-        *((_WORD *)DeferredContext + 13) = v17 + 2048;
+        *((_WORD *)DeferredContext + 13) = v21 + 1280;
       KeInsertQueueDpc((PRKDPC)(DeferredContext + 24), 0LL, 0LL);
-      v18 = 0;
-      while ( v8 == *((_DWORD *)DeferredContext + 4) )
-        KeYieldProcessorEx(&v18);
+      v22 = 0;
+      while ( v7 == *((_DWORD *)DeferredContext + 4) )
+        KeYieldProcessorEx(&v22, v8, v9, v10);
     }
   }
   *((_DWORD *)DeferredContext + 5) = *((_DWORD *)DeferredContext + 4);
-  if ( (*(_DWORD *)(v1 + 80) & 0x80u) != 0 )
-    v2 = IopLiveDumpGetMillisecondCounter(0) - MillisecondCounter;
-  if ( (*(_DWORD *)(v1 + 80) & 0x100) == 0 )
-    IopLiveDumpInitiateCorralStateChange(DeferredContext, 2LL, &v11);
+  v11 = *(_DWORD *)(v1 + 80);
+  if ( (v11 & 0x80u) != 0 )
+  {
+    v12 = IopLiveDumpGetMillisecondCounter(0);
+    v11 = *(_DWORD *)(v1 + 80);
+    v2 = v12 - MillisecondCounter;
+  }
+  if ( (v11 & 0x100) == 0 )
+    IopLiveDumpInitiateCorralStateChange(DeferredContext, 2LL, &v15);
   PoAllProcIntrDisabled = 1;
-  IopLiveDumpInitiateCorralStateChange(DeferredContext, 7LL, &v20);
-  IopLiveDumpInitiateCorralStateChange(DeferredContext, 3LL, &v19);
+  IopLiveDumpInitiateCorralStateChange(DeferredContext, 7LL, &v24);
+  IopLiveDumpInitiateCorralStateChange(DeferredContext, 3LL, &v23);
   *((_DWORD *)DeferredContext + 2) |= 1u;
-  v9 = *(_DWORD *)(v1 + 80);
-  if ( (v9 & 0x80u) != 0 )
-    LOBYTE(v9) = IopLiveDumpTraceCorralProcessorsDuration(*(_QWORD *)DeferredContext, v2, v11, v20, v19);
-  return v9;
+  v13 = *(_DWORD *)(v1 + 80);
+  if ( (v13 & 0x80u) != 0 )
+    LOBYTE(v13) = IopLiveDumpTraceCorralProcessorsDuration(*(const GUID **)DeferredContext, v2, v15, v24, v23);
+  return v13;
 }

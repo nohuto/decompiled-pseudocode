@@ -1,14 +1,13 @@
 /*
- * XREFs of KeInitializeAffinityEx @ 0x14056C200
+ * XREFs of KeInitializeAffinityEx @ 0x140229350
  * Callers:
- *     <none>
+ *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-void *__fastcall KeInitializeAffinityEx(_DWORD *a1)
+void *__fastcall KeInitializeAffinityEx(_QWORD *a1)
 {
-  a1[1] = 0;
-  *a1 = 1310721;
-  return memset(a1 + 2, 0, 0xA0uLL);
+  *a1 = 1310721LL;
+  return memset(a1 + 1, 0, 0xA0uLL);
 }

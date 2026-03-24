@@ -1,19 +1,19 @@
 /*
- * XREFs of Controller_PopulateDeviceFlagsFromKse @ 0x1C00169B8
+ * XREFs of Controller_PopulateDeviceFlagsFromKse @ 0x1C00170F0
  * Callers:
- *     Controller_PopulateDeviceFlags @ 0x1C006DA94 (Controller_PopulateDeviceFlags.c)
+ *     Controller_PopulateDeviceFlags @ 0x1C006BE84 (Controller_PopulateDeviceFlags.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x1C0005B6C (RtlStringCchPrintfW.c)
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_S @ 0x1C0014F40 (WPP_RECORDER_SF_S.c)
- *     WPP_RECORDER_SF_diS @ 0x1C0016DC0 (WPP_RECORDER_SF_diS.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031C54 (Controller_HwVerifierBreakIfEnabled.c)
- *     Controller_ReportFatalError @ 0x1C0032C20 (Controller_ReportFatalError.c)
+ *     RtlStringCchPrintfW @ 0x1C0009784 (RtlStringCchPrintfW.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_S @ 0x1C0015944 (WPP_RECORDER_SF_S.c)
+ *     WPP_RECORDER_SF_diS @ 0x1C00174F8 (WPP_RECORDER_SF_diS.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
  */
 
-__int64 __fastcall Controller_PopulateDeviceFlagsFromKse(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall Controller_PopulateDeviceFlagsFromKse(__int64 a1, __int64 a2, int a3)
 {
   char v4; // r14
   __int64 result; // rax
@@ -64,7 +64,7 @@ __int64 __fastcall Controller_PopulateDeviceFlagsFromKse(__int64 a1, __int64 a2,
   do
   {
     RtlStringCchPrintfW(pszDest, 0x3CuLL, L"USBXHCI:ALL");
-    v9 = *(_QWORD *)((char *)v8 + (_QWORD)v7 - 336);
+    v9 = *(_QWORD *)&v7[(_QWORD)v8 - 336];
     if ( ((int (__fastcall *)(wchar_t *, __int64, __int64 *))WPP_MAIN_CB.Queue.Wcb.CurrentIrp)(pszDest, v9, &v22) >= 0 )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -192,7 +192,7 @@ LABEL_55:
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v17) = 2;
-      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 72), v17, 4, 161, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 72), v17, 4, 161, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
     }
     Controller_HwVerifierBreakIfEnabled(
       a1,
@@ -212,6 +212,6 @@ LABEL_30:
   result = (__int64)&WPP_RECORDER_INITIALIZED;
 LABEL_57:
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    return WPP_RECORDER_SF_S(*(_QWORD *)(a1 + 72), 3u, a3, 0xA2u, v20, pszDest);
+    return WPP_RECORDER_SF_S(*(_QWORD *)(a1 + 72), 3, a3, 162, v20, (__int64)pszDest);
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of VslpIumPhase0InitializeNtKd @ 0x1409F4920
+ * XREFs of VslpIumPhase0InitializeNtKd @ 0x1409F4928
  * Callers:
- *     VslpIumPhase0Initialize @ 0x1409F45F8 (VslpIumPhase0Initialize.c)
+ *     VslpIumPhase0Initialize @ 0x1409F4600 (VslpIumPhase0Initialize.c)
  * Callees:
  *     <none>
  */

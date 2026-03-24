@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpSystemTraceWdf @ 0x1405FE390
+ * XREFs of EtwpSystemTraceWdf @ 0x1405A9610
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall EtwpSystemTraceWdf(__int64 a1, int a2, unsigned int a3, __int16 a4, unsigned __int8 a5)
+void __fastcall EtwpSystemTraceWdf(__int64 a1, int a2, unsigned int a3, unsigned __int16 a4, unsigned __int8 a5)
 {
-  __int64 v6; // [rsp+30h] [rbp-28h] BYREF
-  int v7; // [rsp+38h] [rbp-20h]
-  int v8; // [rsp+3Ch] [rbp-1Ch]
+  __int64 v5; // [rsp+30h] [rbp-28h] BYREF
+  int v6; // [rsp+38h] [rbp-20h]
+  int v7; // [rsp+3Ch] [rbp-1Ch]
 
-  v8 = 0;
-  v6 = a1;
-  v7 = a2;
-  return EtwTraceKernelEvent((int)&v6, 1, a3, a4, a5 | 0x401903u);
+  v7 = 0;
+  v5 = a1;
+  v6 = a2;
+  EtwTraceKernelEvent((__int64)&v5, 1u, a3, a4, a5 | 0x401903);
 }

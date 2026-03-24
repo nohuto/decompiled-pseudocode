@@ -1,7 +1,7 @@
 /*
- * XREFs of PspGetBaseTrapFrame @ 0x140298A10
+ * XREFs of PspGetBaseTrapFrame @ 0x140277920
  * Callers:
- *     PsGetBaseTrapFrame @ 0x14045ECB0 (PsGetBaseTrapFrame.c)
+ *     PsGetBaseTrapFrame @ 0x140581320 (PsGetBaseTrapFrame.c)
  * Callees:
  *     <none>
  */

@@ -7,15 +7,15 @@
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MiInitializeImageProtos @ 0x140093198 (MiInitializeImageProtos.c)
  *     MiGetPageForHeader @ 0x1400934B8 (MiGetPageForHeader.c)
- *     MmCopyMemory @ 0x1400EA850 (MmCopyMemory.c)
- *     MiPrivateFixup @ 0x140125E20 (MiPrivateFixup.c)
- *     MiPrefetchRestOfCluster @ 0x140139078 (MiPrefetchRestOfCluster.c)
- *     MiSetPagesModified @ 0x1402AA6EC (MiSetPagesModified.c)
- *     MiSwitchToTransition @ 0x1402AF540 (MiSwitchToTransition.c)
+ *     MmCopyMemory @ 0x1400EA870 (MmCopyMemory.c)
+ *     MiPrivateFixup @ 0x140125E40 (MiPrivateFixup.c)
+ *     MiPrefetchRestOfCluster @ 0x140139098 (MiPrefetchRestOfCluster.c)
+ *     MiSetPagesModified @ 0x1402AA7EC (MiSetPagesModified.c)
+ *     MiSwitchToTransition @ 0x1402AF640 (MiSwitchToTransition.c)
  *     NtSetInformationVirtualMemory @ 0x1405F6680 (NtSetInformationVirtualMemory.c)
- *     MmPrefetchVirtualAddresses @ 0x14066BD30 (MmPrefetchVirtualAddresses.c)
+ *     MmPrefetchVirtualAddresses @ 0x14066BD10 (MmPrefetchVirtualAddresses.c)
  * Callees:
- *     PsGetPagePriorityThread @ 0x1400B5BC0 (PsGetPagePriorityThread.c)
+ *     PsGetPagePriorityThread @ 0x1400B5BE0 (PsGetPagePriorityThread.c)
  */
 
 __int64 __fastcall MiGetEffectivePagePriorityThread(__int64 a1)

@@ -1,25 +1,28 @@
 /*
- * XREFs of ?GetInputLuid@CVisual@@QEBA?AU_LUID@@XZ @ 0x180017C10
+ * XREFs of ?GetInputLuid@CVisual@@QEBA?AU_LUID@@XZ @ 0x180017D8C
  * Callers:
- *     ?HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z @ 0x18002AE94 (-HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z.c)
- *     ?SetWorldTransform@CDesktopTreeData@@MEAA_NAEBVCMILMatrix@@_NPEAV2@@Z @ 0x1800C9390 (-SetWorldTransform@CDesktopTreeData@@MEAA_NAEBVCMILMatrix@@_NPEAV2@@Z.c)
+ *     ?HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z @ 0x18004E454 (-HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z.c)
+ *     ?SetWorldTransform@CDesktopTreeData@@MEAAJAEBVCMILMatrix@@_NPEAV2@@Z @ 0x1800BE760 (-SetWorldTransform@CDesktopTreeData@@MEAAJAEBVCMILMatrix@@_NPEAV2@@Z.c)
  * Callees:
- *     ?GetInputLuid@CInteraction@@QEBA?AU_LUID@@XZ @ 0x180017C48 (-GetInputLuid@CInteraction@@QEBA-AU_LUID@@XZ.c)
- *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x180049584 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
+ *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x18009FEE0 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
  */
 
 struct _LUID __fastcall CVisual::GetInputLuid(CVisual *this, _QWORD *a2)
 {
-  CInteraction *InteractionInternal; // rax
+  struct CInteraction *InteractionInternal; // rax
   _QWORD *v3; // r10
-  _QWORD *InputLuid; // rax
+  __int64 v4; // rcx
+  __int64 v5; // rax
 
   *a2 = 0LL;
   InteractionInternal = CVisual::GetInteractionInternal(this);
+  v4 = 0LL;
   if ( InteractionInternal )
   {
-    InputLuid = (_QWORD *)CInteraction::GetInputLuid(InteractionInternal);
-    *v3 = *InputLuid;
+    v5 = *((_QWORD *)InteractionInternal + 12);
+    if ( v5 )
+      v4 = *(_QWORD *)(v5 + 96);
+    *v3 = v4;
   }
   return (struct _LUID)v3;
 }

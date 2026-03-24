@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SendPTPInertiaEndToContainer@CPTPProcessor@@AEAAXPEBUPTPEngineOutput@@@Z @ 0x1C01E0628
+ * XREFs of ?SendPTPInertiaEndToContainer@CPTPProcessor@@AEAAXPEBUPTPEngineOutput@@@Z @ 0x1C01A7204
  * Callers:
- *     ?OnEngineOutput@CPTPProcessor@@UEAAXPEBUPTPEngineOutput@@@Z @ 0x1C01DF5B0 (-OnEngineOutput@CPTPProcessor@@UEAAXPEBUPTPEngineOutput@@@Z.c)
+ *     ?OnEngineOutput@CPTPProcessor@@UEAAXPEBUPTPEngineOutput@@@Z @ 0x1C01A61D0 (-OnEngineOutput@CPTPProcessor@@UEAAXPEBUPTPEngineOutput@@@Z.c)
  * Callees:
- *     ?SendPTPInertiaInput@Pointer@IVRootDeliver@@YAJPEAX_KHAEBUCONTAINER_ID@@@Z @ 0x1C01F3164 (-SendPTPInertiaInput@Pointer@IVRootDeliver@@YAJPEAX_KHAEBUCONTAINER_ID@@@Z.c)
+ *     ?SendPTPInertiaInput@Pointer@IVRootDeliver@@YAJPEAX_KHAEBUCONTAINER_ID@@@Z @ 0x1C01BBC88 (-SendPTPInertiaInput@Pointer@IVRootDeliver@@YAJPEAX_KHAEBUCONTAINER_ID@@@Z.c)
  */
 
 void __fastcall CPTPProcessor::SendPTPInertiaEndToContainer(CPTPProcessor *this, const struct PTPEngineOutput *a2)
@@ -12,26 +12,24 @@ void __fastcall CPTPProcessor::SendPTPInertiaEndToContainer(CPTPProcessor *this,
   __int64 v3; // r8
   void *v4; // rdx
   __int64 v5; // rcx
-  int v6; // r9d
-  const struct CONTAINER_ID *v7; // [rsp+20h] [rbp-8h]
+  const struct CONTAINER_ID *v6; // [rsp+20h] [rbp-8h]
 
   v2 = (int)this;
   if ( *((_DWORD *)a2 + 1) == 2 || *((_DWORD *)a2 + 1) == 3 )
   {
-    v3 = *((_QWORD *)this + 68);
+    v3 = *((_QWORD *)this + 51);
     v4 = 0LL;
-    v5 = *(_QWORD *)(*(_QWORD *)(v3 + 256) + 16LL);
+    v5 = *(_QWORD *)(*(_QWORD *)(v3 + 152) + 16LL);
     if ( v5 )
     {
-      v6 = v2 + 392;
       if ( v3 )
-        v4 = *(void **)(v3 + 216);
+        v4 = *(void **)(v3 + 112);
       IVRootDeliver::Pointer::SendPTPInertiaInput(
         *(IVRootDeliver::Pointer **)(v5 + 16),
         v4,
         (unsigned int)-__CFSHR__(*(_DWORD *)(v5 + 184), 14),
-        v6,
-        v7);
+        v2 + 376,
+        v6);
     }
   }
 }

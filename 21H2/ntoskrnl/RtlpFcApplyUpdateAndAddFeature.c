@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpFcApplyUpdateAndAddFeature @ 0x1409BF0F8
+ * XREFs of RtlpFcApplyUpdateAndAddFeature @ 0x140919BF8
  * Callers:
- *     RtlpFcUpdateFeatureConfiguration @ 0x1409BF744 (RtlpFcUpdateFeatureConfiguration.c)
+ *     RtlpFcUpdateFeatureConfiguration @ 0x14091A4E4 (RtlpFcUpdateFeatureConfiguration.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlpFcDoesFeatureHaveUniqueState @ 0x1409BF598 (RtlpFcDoesFeatureHaveUniqueState.c)
- *     RtlpFcUpdateFeature @ 0x1409BF6D0 (RtlpFcUpdateFeature.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlpFcDoesFeatureHaveUniqueState @ 0x14091A0C8 (RtlpFcDoesFeatureHaveUniqueState.c)
+ *     RtlpFcUpdateFeature @ 0x14091A470 (RtlpFcUpdateFeature.c)
  */
 
 __int64 __fastcall RtlpFcApplyUpdateAndAddFeature(__int64 a1, __int64 *a2)

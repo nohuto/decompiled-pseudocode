@@ -6,10 +6,10 @@
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
  *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
  *     KeFlushMultipleRangeTb @ 0x140075BB0 (KeFlushMultipleRangeTb.c)
- *     MiDecayPfnFullyInitialized @ 0x14011BD50 (MiDecayPfnFullyInitialized.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x140173C7C (KeFlushMultipleRangeCurrentTb.c)
- *     KeFlushCurrentTbOnly @ 0x140173DE0 (KeFlushCurrentTbOnly.c)
- *     MiReplicatePteChange @ 0x140174EF4 (MiReplicatePteChange.c)
+ *     MiDecayPfnFullyInitialized @ 0x14011BD70 (MiDecayPfnFullyInitialized.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x140173C9C (KeFlushMultipleRangeCurrentTb.c)
+ *     KeFlushCurrentTbOnly @ 0x140173E00 (KeFlushCurrentTbOnly.c)
+ *     MiReplicatePteChange @ 0x140174F14 (MiReplicatePteChange.c)
  */
 
 __int64 __fastcall MiDeleteVaTail(_QWORD *a1)

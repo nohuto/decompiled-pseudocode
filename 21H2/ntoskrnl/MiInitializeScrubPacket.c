@@ -1,38 +1,41 @@
 /*
- * XREFs of MiInitializeScrubPacket @ 0x1409839C0
+ * XREFs of MiInitializeScrubPacket @ 0x1408DBE50
  * Callers:
- *     MiScrubMemoryWorker @ 0x140983B10 (MiScrubMemoryWorker.c)
- *     MiScrubProcesses @ 0x140983B80 (MiScrubProcesses.c)
+ *     MiScrubMemoryWorker @ 0x1408DBFA0 (MiScrubMemoryWorker.c)
+ *     MiScrubProcesses @ 0x1408DC010 (MiScrubProcesses.c)
  * Callees:
- *     MiReferencePageRuns @ 0x14023FF18 (MiReferencePageRuns.c)
- *     MiCreatePteCopyList @ 0x14024B428 (MiCreatePteCopyList.c)
- *     MiCreateUltraThreadContext @ 0x14026A574 (MiCreateUltraThreadContext.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     MiGetNextPageColor @ 0x1402EB3DC (MiGetNextPageColor.c)
- *     MiInitializePageColorBase @ 0x140339C20 (MiInitializePageColorBase.c)
- *     MiReleaseScrubPacket @ 0x140983AC0 (MiReleaseScrubPacket.c)
+ *     MiReferencePageRuns @ 0x14022FB90 (MiReferencePageRuns.c)
+ *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
+ *     MiCreatePteCopyList @ 0x140240B38 (MiCreatePteCopyList.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     MiCreateUltraThreadContext @ 0x1402E30FC (MiCreateUltraThreadContext.c)
+ *     MiGetNextPageColor @ 0x1402E5C08 (MiGetNextPageColor.c)
+ *     MiReleaseScrubPacket @ 0x1408DBF50 (MiReleaseScrubPacket.c)
  */
 
 __int64 __fastcall MiInitializeScrubPacket(__int64 *a1)
 {
   unsigned int v2; // edi
   unsigned int NextPageColor; // eax
-  __int64 v5; // rsi
+  unsigned __int64 v4; // r9
+  __int64 v6; // rsi
   PVOID Pool; // rax
-  __int128 v7; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v8; // r8
+  _DWORD *v9; // r9
+  __int128 v10; // [rsp+20h] [rbp-18h] BYREF
 
   v2 = 0;
-  v7 = 0LL;
+  v10 = 0LL;
   MiInitializePageColorBase(
-    (__int64)&KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[26],
+    (__int64)&KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[6],
     0,
-    (__int64)&v7);
-  NextPageColor = MiGetNextPageColor((__int64)&v7);
+    (__int64)&v10);
+  NextPageColor = MiGetNextPageColor((__int64)&v10);
   if ( !(unsigned int)MiCreateUltraThreadContext((__int64)(a1 + 6), NextPageColor, 8) )
     return 3221225626LL;
-  MiCreatePteCopyList(2uLL, 256, (__int64)(a1 + 22));
+  MiCreatePteCopyList(0x100uLL, 0x100uLL, (__int64)(a1 + 22), v4);
   if ( *((_DWORD *)a1 + 45)
-    && (v5 = *a1,
+    && (v6 = *a1,
         a1[25] = 0LL,
         a1[27] = 0LL,
         a1[26] = 0LL,
@@ -40,7 +43,7 @@ __int64 __fastcall MiInitializeScrubPacket(__int64 *a1)
         (a1[25] = (__int64)Pool) != 0) )
   {
     if ( *((_DWORD *)a1 + 2) != -1 )
-      a1[27] = MiReferencePageRuns(*(_QWORD *)(v5 + 48), 1u);
+      a1[27] = MiReferencePageRuns(*(_QWORD *)(v6 + 48), 1u, v8, v9);
   }
   else
   {

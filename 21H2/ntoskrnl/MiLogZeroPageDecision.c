@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLogZeroPageDecision @ 0x1402455E0
+ * XREFs of MiLogZeroPageDecision @ 0x140399128
  * Callers:
- *     MiReassessZeroThreads @ 0x1402452D4 (MiReassessZeroThreads.c)
+ *     MiReassessZeroThreads @ 0x1402BB5C4 (MiReassessZeroThreads.c)
  * Callees:
- *     MiZeroPageLogEntriesMergable @ 0x1402456F8 (MiZeroPageLogEntriesMergable.c)
+ *     MiZeroPageLogEntriesMergable @ 0x140399228 (MiZeroPageLogEntriesMergable.c)
  */
 
 void __fastcall MiLogZeroPageDecision(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, __int16 a4, char a5)
 {
   unsigned int *v5; // r10
   unsigned int v7; // eax
-  unsigned int v8; // r9d
+  unsigned int v8; // edx
   unsigned int *v9; // r11
   unsigned int v10; // eax
   unsigned int v11; // eax
@@ -43,12 +43,12 @@ void __fastcall MiLogZeroPageDecision(__int64 a1, unsigned __int64 a2, unsigned 
       v12 = v5[2];
       if ( v12 == 1 || !(unsigned int)MiZeroPageLogEntriesMergable(v9, v9 - 4) || (v14 = *(_WORD *)(v13 - 2), v14 == -1) )
       {
-        ++dword_140C29704;
+        ++dword_140C2A264;
         v5[2] = v12 + 1;
       }
       else
       {
-        ++dword_140C29700;
+        ++dword_140C2A260;
         *(_WORD *)(v13 - 2) = v14 + 1;
       }
     }

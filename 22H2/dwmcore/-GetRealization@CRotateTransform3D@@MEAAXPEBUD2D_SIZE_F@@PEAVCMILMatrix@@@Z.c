@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetRealization@CRotateTransform3D@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x18024E6F0
+ * XREFs of ?GetRealization@CRotateTransform3D@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x1801F4ED0
  * Callers:
  *     <none>
  * Callees:
- *     ?Translate@CMILMatrix@@QEAAXMMM@Z @ 0x18005F260 (-Translate@CMILMatrix@@QEAAXMMM@Z.c)
- *     ?PrependTranslate@CMILMatrix@@QEAAXMMM@Z @ 0x1800D8E88 (-PrependTranslate@CMILMatrix@@QEAAXMMM@Z.c)
- *     ?SetRotation@CMILMatrix@@QEAAXAEBUfloat3@Numerics@Foundation@Windows@@M@Z @ 0x1802709A0 (-SetRotation@CMILMatrix@@QEAAXAEBUfloat3@Numerics@Foundation@Windows@@M@Z.c)
+ *     ?Translate@CMILMatrix@@QEAAXMMM@Z @ 0x180041AB0 (-Translate@CMILMatrix@@QEAAXMMM@Z.c)
+ *     ?PrependTranslate@CMILMatrix@@QEAAXMMM@Z @ 0x1802110FC (-PrependTranslate@CMILMatrix@@QEAAXMMM@Z.c)
+ *     ?SetRotation@CMILMatrix@@QEAAXAEBUfloat3@Numerics@Foundation@Windows@@M@Z @ 0x18021170C (-SetRotation@CMILMatrix@@QEAAXAEBUfloat3@Numerics@Foundation@Windows@@M@Z.c)
  */
 
 void __fastcall CRotateTransform3D::GetRealization(
@@ -19,18 +19,19 @@ void __fastcall CRotateTransform3D::GetRealization(
   float v8; // xmm8_4
   float v9; // xmm6_4
   float v10; // xmm7_4
-  _DWORD v11[4]; // [rsp+20h] [rbp-48h] BYREF
+  CMILMatrix *v11; // rcx
+  _DWORD v12[4]; // [rsp+20h] [rbp-48h] BYREF
 
-  v4 = *((_DWORD *)this + 42);
-  v6 = *((float *)this + 40) * 0.017453292;
-  v11[0] = *((_DWORD *)this + 41);
-  v7 = *((_DWORD *)this + 43);
-  v11[1] = v4;
-  v11[2] = v7;
-  CMILMatrix::SetRotation(a3, (const struct Windows::Foundation::Numerics::float3 *)v11, v6);
-  v8 = *((float *)this + 44);
-  v9 = *((float *)this + 45);
-  v10 = *((float *)this + 46);
+  v4 = *((_DWORD *)this + 40);
+  v6 = *((float *)this + 38) * 0.017453292;
+  v12[0] = *((_DWORD *)this + 39);
+  v7 = *((_DWORD *)this + 41);
+  v12[1] = v4;
+  v12[2] = v7;
+  CMILMatrix::SetRotation(a3, (const struct Windows::Foundation::Numerics::float3 *)v12, v6);
+  v8 = *((float *)this + 42);
+  v9 = *((float *)this + 43);
+  v10 = *((float *)this + 44);
   if ( v8 != 0.0 || v9 != 0.0 || v10 != 0.0 )
   {
     CMILMatrix::PrependTranslate(
@@ -38,6 +39,6 @@ void __fastcall CRotateTransform3D::GetRealization(
       COERCE_FLOAT(LODWORD(v8) ^ _xmm),
       COERCE_FLOAT(LODWORD(v9) ^ _xmm),
       COERCE_FLOAT(LODWORD(v10) ^ _xmm));
-    CMILMatrix::Translate(a3, v8, v9, v10);
+    CMILMatrix::Translate(v11, v8, v9, v10);
   }
 }

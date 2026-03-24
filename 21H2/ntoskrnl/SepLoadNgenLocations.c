@@ -1,16 +1,16 @@
 /*
- * XREFs of SepLoadNgenLocations @ 0x140859794
+ * XREFs of SepLoadNgenLocations @ 0x1407C9334
  * Callers:
- *     SepSetSystemPaths @ 0x1408596A4 (SepSetSystemPaths.c)
+ *     SepSetSystemPaths @ 0x1407C9238 (SepSetSystemPaths.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x14041B9C0 (ZwEnumerateValueKey.c)
- *     ZwQueryKey @ 0x14041BA20 (ZwQueryKey.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1403FA600 (ZwEnumerateValueKey.c)
+ *     ZwQueryKey @ 0x1403FA660 (ZwQueryKey.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepLoadNgenLocations(__int64 a1)
@@ -22,8 +22,8 @@ __int64 __fastcall SepLoadNgenLocations(__int64 a1)
   unsigned int v5; // edi
   unsigned int v6; // r15d
   unsigned int v7; // r14d
-  _DWORD *Pool2; // rsi
-  __int64 v9; // rax
+  _DWORD *PoolWithTag; // rsi
+  _DWORD *v9; // rax
   signed __int64 v10; // rdi
   __int16 v11; // cx
   ULONG v12; // r12d
@@ -98,39 +98,39 @@ LABEL_44:
             v3 = -1073741675;
             break;
           }
-          Length = DWORD1(v32) + 16;
           v3 = 0;
-          Pool2 = (_DWORD *)ExAllocatePool2(256LL, (unsigned int)(DWORD1(v32) + 16), 1668499779LL);
-          if ( Pool2 )
+          Length = DWORD1(v32) + 16;
+          PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)(DWORD1(v32) + 16), 0x63734943u);
+          if ( PoolWithTag )
           {
-            v9 = ExAllocatePool2(256LL, v7, 1668499779LL);
-            v10 = v9;
+            v9 = ExAllocatePoolWithTag(PagedPool, v7, 0x63734943u);
+            v10 = (signed __int64)v9;
             if ( v9 )
             {
               v11 = -1;
-              *(_DWORD *)(v9 + 4) = 0xFFFF;
+              v9[1] = 0xFFFF;
               v12 = 0;
-              v27 = (void *)(16LL * v6 + v9 + 8);
+              v27 = &v9[4 * v6 + 2];
               v13 = v7 - (16 * v6 + 8);
               v14 = 0;
               if ( (_DWORD)v32 )
               {
                 while ( 1 )
                 {
-                  v3 = ZwEnumerateValueKey(KeyHandle, v12, KeyValueBasicInformation, Pool2, Length, &ResultLength);
+                  v3 = ZwEnumerateValueKey(KeyHandle, v12, KeyValueBasicInformation, PoolWithTag, Length, &ResultLength);
                   if ( v3 < 0 )
                     break;
-                  if ( Pool2[1] == 4 )
+                  if ( PoolWithTag[1] == 4 )
                   {
-                    v15 = Pool2[2];
+                    v15 = PoolWithTag[2];
                     if ( v15 >= 2 )
                     {
-                      v16 = Pool2[2];
+                      v16 = PoolWithTag[2];
                       do
                       {
-                        if ( *((_WORD *)Pool2 + ((unsigned __int64)v15 >> 1) + 5) )
+                        if ( *((_WORD *)PoolWithTag + ((unsigned __int64)v15 >> 1) + 5) )
                           break;
-                        Pool2[2] = v15 - 2;
+                        PoolWithTag[2] = v15 - 2;
                         v15 -= 2;
                         v16 = v15;
                       }
@@ -148,15 +148,15 @@ LABEL_44:
                           LOWORD(v17) = v16;
                         v19 = *(unsigned __int16 *)(v10 + 6);
                         *(_WORD *)(v10 + 4) = v17;
-                        if ( v19 <= Pool2[2] )
-                          LOWORD(v19) = Pool2[2];
+                        if ( v19 <= PoolWithTag[2] )
+                          LOWORD(v19) = PoolWithTag[2];
                         *(_WORD *)(v10 + 6) = v19;
                         v20 = 2LL * v1;
                         *(_QWORD *)(v10 + 8 * v20 + 16) = v18;
-                        *(_WORD *)(v10 + 8 * v20 + 8) = *((_WORD *)Pool2 + 4);
-                        *(_WORD *)(v10 + 8 * v20 + 10) = *((_WORD *)Pool2 + 4);
-                        memmove(v18, Pool2 + 3, (unsigned int)Pool2[2]);
-                        v21 = (unsigned int)Pool2[2];
+                        *(_WORD *)(v10 + 8 * v20 + 8) = *((_WORD *)PoolWithTag + 4);
+                        *(_WORD *)(v10 + 8 * v20 + 10) = *((_WORD *)PoolWithTag + 4);
+                        memmove(v18, PoolWithTag + 3, (unsigned int)PoolWithTag[2]);
+                        v21 = (unsigned int)PoolWithTag[2];
                         v27 = (char *)v27 + v21;
                         v13 -= v21;
                         ++v1;
@@ -187,7 +187,7 @@ LABEL_32:
             {
               v3 = -1073741801;
             }
-            ExFreePoolWithTag(Pool2, 0x63734943u);
+            ExFreePoolWithTag(PoolWithTag, 0x63734943u);
           }
           else
           {

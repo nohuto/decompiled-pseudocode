@@ -1,10 +1,10 @@
 /*
- * XREFs of NtFlipObjectConsumerAdjustUsageReference @ 0x1C007A730
+ * XREFs of NtFlipObjectConsumerAdjustUsageReference @ 0x1C0069000
  * Callers:
  *     <none>
  * Callees:
- *     ?ConsumerAdjustUsageReference@FlipManagerObject@@QEAAJ_K_N@Z @ 0x1C0079C08 (-ConsumerAdjustUsageReference@FlipManagerObject@@QEAAJ_K_N@Z.c)
- *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C007C0E8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     ?ConsumerAdjustUsageReference@FlipManagerObject@@QEAAJ_K_N@Z @ 0x1C0068558 (-ConsumerAdjustUsageReference@FlipManagerObject@@QEAAJ_K_N@Z.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C006A888 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
  */
 
 __int64 __fastcall NtFlipObjectConsumerAdjustUsageReference(void *a1, unsigned __int64 *a2, int a3)
@@ -12,8 +12,8 @@ __int64 __fastcall NtFlipObjectConsumerAdjustUsageReference(void *a1, unsigned _
   unsigned __int64 v5; // r14
   char v6; // r8
   int v7; // ebx
-  struct FlipManagerObject *v8; // rdi
-  struct FlipManagerObject *v10; // [rsp+78h] [rbp+20h] BYREF
+  FlipManagerObject *v8; // rdi
+  FlipManagerObject *v10; // [rsp+78h] [rbp+20h] BYREF
 
   if ( a1 && a2 )
   {

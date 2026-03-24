@@ -1,11 +1,12 @@
 /*
- * XREFs of IopCallArbiter @ 0x14081AA28
+ * XREFs of IopCallArbiter @ 0x140751AD4
  * Callers:
- *     PnpReleaseBootResourcesForFilteredRequirements @ 0x140561674 (PnpReleaseBootResourcesForFilteredRequirements.c)
- *     PnpReleaseResourcesInternal @ 0x140818910 (PnpReleaseResourcesInternal.c)
- *     IopSetupArbiterAndTranslators @ 0x14081A55C (IopSetupArbiterAndTranslators.c)
+ *     PnpReleaseBootResourcesForFilteredRequirements @ 0x1403BEE5C (PnpReleaseBootResourcesForFilteredRequirements.c)
+ *     PnpReleaseResourcesInternal @ 0x140750784 (PnpReleaseResourcesInternal.c)
+ *     IopSetupArbiterAndTranslators @ 0x14075160C (IopSetupArbiterAndTranslators.c)
+ *     IopQueryConflictListInternal @ 0x1408B993C (IopQueryConflictListInternal.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IopCallArbiter(__int64 a1, __int64 a2, __int128 *a3)
@@ -23,7 +24,6 @@ __int64 __fastcall IopCallArbiter(__int64 a1, __int64 a2, __int128 *a3)
   v5 = a2;
   v10 = 0LL;
   v11 = 0LL;
-  v9 = 0LL;
   switch ( (_DWORD)a2 )
   {
     case 0:

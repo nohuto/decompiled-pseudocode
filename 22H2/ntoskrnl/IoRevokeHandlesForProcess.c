@@ -1,18 +1,18 @@
 /*
- * XREFs of IoRevokeHandlesForProcess @ 0x140558380
+ * XREFs of IoRevokeHandlesForProcess @ 0x140506E50
  * Callers:
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x14022E220 (PsGetCurrentSilo.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     IopGetDevicePDO @ 0x1403029B8 (IopGetDevicePDO.c)
- *     memset @ 0x140435400 (memset.c)
- *     PnpDisableUserModeNotifications @ 0x140561598 (PnpDisableUserModeNotifications.c)
- *     ObOpenObjectByNameEx @ 0x1406ED090 (ObOpenObjectByNameEx.c)
- *     ObReferenceProcessHandleTable @ 0x140742B50 (ObReferenceProcessHandleTable.c)
- *     PsIsProcessAppContainer @ 0x14077F59C (PsIsProcessAppContainer.c)
- *     ExEnumHandleTable @ 0x1407AE520 (ExEnumHandleTable.c)
- *     ObDereferenceProcessHandleTable @ 0x1407C6D70 (ObDereferenceProcessHandleTable.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PsGetCurrentSilo @ 0x140345940 (PsGetCurrentSilo.c)
+ *     IopGetDevicePDO @ 0x14034C5D8 (IopGetDevicePDO.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PnpDisableUserModeNotifications @ 0x14050DA9C (PnpDisableUserModeNotifications.c)
+ *     ObReferenceProcessHandleTable @ 0x1405F57B4 (ObReferenceProcessHandleTable.c)
+ *     ExEnumHandleTable @ 0x140665730 (ExEnumHandleTable.c)
+ *     ObDereferenceProcessHandleTable @ 0x1406809F0 (ObDereferenceProcessHandleTable.c)
+ *     PsIsProcessAppContainer @ 0x140690804 (PsIsProcessAppContainer.c)
+ *     ObOpenObjectByNameEx @ 0x1406CEA90 (ObOpenObjectByNameEx.c)
  */
 
 __int64 __fastcall IoRevokeHandlesForProcess(__int64 a1, void *a2)
@@ -31,8 +31,8 @@ __int64 __fastcall IoRevokeHandlesForProcess(__int64 a1, void *a2)
   _OWORD v16[14]; // [rsp+80h] [rbp-80h] BYREF
   char v17; // [rsp+190h] [rbp+90h] BYREF
 
-  v14 = 0;
   v10[1] = 0;
+  v14 = 0;
   if ( !(unsigned __int8)PsIsProcessAppContainer(a2) )
     return 0LL;
   v5 = ObReferenceProcessHandleTable(a2);

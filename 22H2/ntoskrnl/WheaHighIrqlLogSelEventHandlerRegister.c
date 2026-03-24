@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaHighIrqlLogSelEventHandlerRegister @ 0x1406130C0
+ * XREFs of WheaHighIrqlLogSelEventHandlerRegister @ 0x1405BD2A0
  * Callers:
  *     <none>
  * Callees:
- *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x140613388 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
+ *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x1405BD450 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
  */
 
 char __fastcall WheaHighIrqlLogSelEventHandlerRegister(__int64 a1)
@@ -11,10 +11,10 @@ char __fastcall WheaHighIrqlLogSelEventHandlerRegister(__int64 a1)
   __int64 v1; // rbx
   __int32 v2; // r9d
   int v3; // r10d
-  DRIVER_CONTROL *v4; // r11
+  __int64 v4; // r11
 
   v1 = a1;
-  if ( LODWORD(WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink) )
+  if ( (_DWORD)WheapHighIrqlLogSelHandler )
   {
     LOBYTE(v3) = 0;
   }
@@ -22,17 +22,17 @@ char __fastcall WheaHighIrqlLogSelEventHandlerRegister(__int64 a1)
   {
     LOBYTE(a1) = 1;
     WheapHighIrqlLogSelEventHandlerAcquireLock(a1);
-    if ( LODWORD(WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink) == v2 )
+    if ( (_DWORD)WheapHighIrqlLogSelHandler == v2 )
     {
-      *(_QWORD *)&WheapDispatchPtr.Queue.Wcb.NumberOfChannels = v1;
-      WheapDispatchPtr.Queue.Wcb.DeviceRoutine = v4;
-      LODWORD(WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink) = v3;
+      *((_QWORD *)&WheapHighIrqlLogSelHandler + 1) = v1;
+      qword_140C14F70 = v4;
+      LODWORD(WheapHighIrqlLogSelHandler) = v3;
     }
     else
     {
       LOBYTE(v3) = v2;
     }
-    _InterlockedExchange((_DWORD *)&WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink + 1, v2);
+    _InterlockedExchange((_DWORD *)&WheapHighIrqlLogSelHandler + 1, v2);
   }
   return v3;
 }

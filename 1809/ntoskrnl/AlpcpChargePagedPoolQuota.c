@@ -4,10 +4,10 @@
  *     AlpcpCreateSecurityContext @ 0x14061801C (AlpcpCreateSecurityContext.c)
  *     AlpcpSendMessage @ 0x1406348F0 (AlpcpSendMessage.c)
  *     AlpcpCaptureMessageDataSafe @ 0x1406361D0 (AlpcpCaptureMessageDataSafe.c)
- *     AlpcpCreateReserve @ 0x1406A3FD8 (AlpcpCreateReserve.c)
- *     AlpcpCaptureMessageData @ 0x1406A4228 (AlpcpCaptureMessageData.c)
+ *     AlpcpCreateReserve @ 0x1406A3FB8 (AlpcpCreateReserve.c)
+ *     AlpcpCaptureMessageData @ 0x1406A4208 (AlpcpCaptureMessageData.c)
  * Callees:
- *     PsChargeProcessPagedPoolQuota @ 0x140696E20 (PsChargeProcessPagedPoolQuota.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x140696E00 (PsChargeProcessPagedPoolQuota.c)
  */
 
 __int64 __fastcall AlpcpChargePagedPoolQuota(__int64 a1, unsigned __int64 a2)

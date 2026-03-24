@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReferenceCloneProto @ 0x1402CA970
+ * XREFs of MiReferenceCloneProto @ 0x1402CAA70
  * Callers:
- *     MiBuildForkPte @ 0x1402C7AF0 (MiBuildForkPte.c)
+ *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
  * Callees:
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
- *     MiGetCrossPartitionCloneCharges @ 0x1402C9FAC (MiGetCrossPartitionCloneCharges.c)
- *     MiReturnCrossPartitionCloneCharges @ 0x1402CAAB8 (MiReturnCrossPartitionCloneCharges.c)
+ *     MiGetCrossPartitionCloneCharges @ 0x1402CA0AC (MiGetCrossPartitionCloneCharges.c)
+ *     MiReturnCrossPartitionCloneCharges @ 0x1402CABB8 (MiReturnCrossPartitionCloneCharges.c)
  */
 
 __int64 __fastcall MiReferenceCloneProto(

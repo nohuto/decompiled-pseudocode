@@ -1,41 +1,47 @@
 /*
- * XREFs of HUBUCX_CheckIfEndpointsNeedToBeDisabledOnConfigFailure @ 0x1C0029428
+ * XREFs of HUBUCX_CheckIfEndpointsNeedToBeDisabledOnConfigFailure @ 0x1C0026808
  * Callers:
- *     HUBDSM_CheckingIfEndpointsToBeDisabledOnDetach @ 0x1C0024E80 (HUBDSM_CheckingIfEndpointsToBeDisabledOnDetach.c)
+ *     HUBDSM_CheckingIfEndpointsToBeDisabledOnDetach @ 0x1C00226A0 (HUBDSM_CheckingIfEndpointsToBeDisabledOnDetach.c)
  * Callees:
- *     memmove @ 0x1C0044BC0 (memmove.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
  */
 
 __int64 __fastcall HUBUCX_CheckIfEndpointsNeedToBeDisabledOnConfigFailure(__int64 a1)
 {
-  __int64 v2; // rax
-  _QWORD *v3; // r8
-  _QWORD *i; // rax
-  __int64 j; // rdx
-  _QWORD *v6; // rcx
+  unsigned int v1; // edx
+  __int64 v3; // rax
+  __int64 v4; // r8
+  __int64 v5; // rax
+  __int64 v6; // rcx
+  __int64 i; // rdx
+  __int64 v8; // rax
   __int64 result; // rax
 
-  if ( *(_DWORD *)(a1 + 112) )
+  v1 = *(_DWORD *)(a1 + 112);
+  if ( v1 )
   {
-    v2 = *(_QWORD *)(a1 + 48);
-    if ( v2 )
+    v3 = *(_QWORD *)(a1 + 48);
+    if ( v3 )
     {
-      v3 = (_QWORD *)(v2 + 16);
-      for ( i = *(_QWORD **)(v2 + 16); ; i = (_QWORD *)*i )
+      v4 = v3 + 16;
+      v5 = *(_QWORD *)(v3 + 16);
+      v6 = v5 - 8;
+      if ( v4 != v5 )
       {
-        v6 = i - 1;
-        if ( v3 == i )
-          break;
-        for ( j = 0LL; (unsigned int)j < *((_DWORD *)v6 + 6); j = (unsigned int)(j + 1) )
+        do
         {
-          if ( LODWORD(v6[9 * j + 6]) == 3 )
-            LODWORD(v6[9 * j + 6]) = 6;
+          for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v6 + 24); i = (unsigned int)(i + 1) )
+          {
+            if ( *(_DWORD *)(v6 + 72 * i + 48) == 3 )
+              *(_DWORD *)(v6 + 72 * i + 48) = 6;
+          }
+          v8 = *(_QWORD *)(v6 + 8);
+          v6 = v8 - 8;
         }
+        while ( v4 != v8 );
+        v1 = *(_DWORD *)(a1 + 112);
       }
-      memmove(
-        (void *)(*(_QWORD *)(a1 + 136) + 8LL * *(unsigned int *)(a1 + 144)),
-        *(const void **)(a1 + 104),
-        8LL * *(unsigned int *)(a1 + 112));
+      memmove((void *)(*(_QWORD *)(a1 + 136) + 8LL * *(unsigned int *)(a1 + 144)), *(const void **)(a1 + 104), 8LL * v1);
       *(_DWORD *)(a1 + 144) += *(_DWORD *)(a1 + 112);
       *(_DWORD *)(a1 + 112) = 0;
     }

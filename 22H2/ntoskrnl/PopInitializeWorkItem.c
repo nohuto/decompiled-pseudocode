@@ -1,12 +1,10 @@
 /*
- * XREFs of PopInitializeWorkItem @ 0x140822418
+ * XREFs of PopInitializeWorkItem @ 0x140791618
  * Callers:
- *     PopInitializeIRTimer @ 0x140383854 (PopInitializeIRTimer.c)
- *     PopDirectedDripsInitializePhase0 @ 0x140B379E0 (PopDirectedDripsInitializePhase0.c)
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
- *     PopInitializePowerButtonHold @ 0x140B52018 (PopInitializePowerButtonHold.c)
- *     PopThermalInit @ 0x140B65DD8 (PopThermalInit.c)
- *     PopPowerRequestInitialize @ 0x140B66098 (PopPowerRequestInitialize.c)
+ *     PopInitializeIRTimer @ 0x1403A91B0 (PopInitializeIRTimer.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
+ *     PopInitializePowerButtonHold @ 0x140A3FAB4 (PopInitializePowerButtonHold.c)
+ *     PopDirectedDripsInitializePhase0 @ 0x140A3FEB8 (PopDirectedDripsInitializePhase0.c)
  * Callees:
  *     <none>
  */

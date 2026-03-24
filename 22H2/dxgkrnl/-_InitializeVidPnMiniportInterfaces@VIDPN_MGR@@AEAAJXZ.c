@@ -1,112 +1,87 @@
 /*
- * XREFs of ?_InitializeVidPnMiniportInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C0215D08
+ * XREFs of ?_InitializeVidPnMiniportInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C017D184
  * Callers:
- *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C0215368 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
+ *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C017C358 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?reset@?$auto_ptr@U_DXGK_VIDPN_INTERFACE@@@@QEAAXPEAU_DXGK_VIDPN_INTERFACE@@@Z @ 0x1C001FF00 (-reset@-$auto_ptr@U_DXGK_VIDPN_INTERFACE@@@@QEAAXPEAU_DXGK_VIDPN_INTERFACE@@@Z.c)
- *     ?reset@?$auto_ptr@U_DXGK_VIDPNTARGETMODESET_INTERFACE@@@@QEAAXPEAU_DXGK_VIDPNTARGETMODESET_INTERFACE@@@Z @ 0x1C001FF38 (-reset@-$auto_ptr@U_DXGK_VIDPNTARGETMODESET_INTERFACE@@@@QEAAXPEAU_DXGK_VIDPNTARGETMODESET_INTER.c)
- *     ?InitializeInterface@DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNSOURCEMODESET_INTERFACE@@@Z @ 0x1C02161FC (-InitializeInterface@DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNSOURCEMODESET_.c)
- *     ?InitializeInterface@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNTARGETMODESET_INTERFACE@@@Z @ 0x1C0216274 (-InitializeInterface@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNTARGETMODESET_.c)
- *     ?InitializeInterface@DXGK_VIDPNTARGETMODESET_INTERFACE_V2_IMPL@@YAXPEAU_DXGK_VIDPNTARGETMODESET_INTERFACE@@@Z @ 0x1C02162EC (-InitializeInterface@DXGK_VIDPNTARGETMODESET_INTERFACE_V2_IMPL@@YAXPEAU_DXGK_VIDPNTARGETMODESET_.c)
- *     ?InitializeInterface@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPN_INTERFACE@@@Z @ 0x1C02163F8 (-InitializeInterface@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPN_INTERFACE@@@Z.c)
- *     ?InitializeInterface@DXGK_VIDPN_INTERFACE_V2_IMPL@@YAXPEAU_DXGK_VIDPN_INTERFACE@@@Z @ 0x1C021648C (-InitializeInterface@DXGK_VIDPN_INTERFACE_V2_IMPL@@YAXPEAU_DXGK_VIDPN_INTERFACE@@@Z.c)
- *     ?InitializeInterface@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNTOPOLOGY_INTERFACE@@@Z @ 0x1C02165C4 (-InitializeInterface@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNTOPOLOGY_INTERFACE@.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?InitializeInterface@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNTARGETMODESET_INTERFACE@@@Z @ 0x1C017D2A4 (-InitializeInterface@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNTARGETMODESET_.c)
+ *     ?InitializeInterface@DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNSOURCEMODESET_INTERFACE@@@Z @ 0x1C017D31C (-InitializeInterface@DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNSOURCEMODESET_.c)
+ *     ?InitializeInterface@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNTOPOLOGY_INTERFACE@@@Z @ 0x1C017D394 (-InitializeInterface@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNTOPOLOGY_INTERFACE@.c)
+ *     ?InitializeInterface@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPN_INTERFACE@@@Z @ 0x1C017D438 (-InitializeInterface@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPN_INTERFACE@@@Z.c)
  */
 
-__int64 __fastcall VIDPN_MGR::_InitializeVidPnMiniportInterfaces(void **this)
+__int64 __fastcall VIDPN_MGR::_InitializeVidPnMiniportInterfaces(VIDPN_MGR *this)
 {
-  void *v2; // rax
+  DXGK_VIDPN_INTERFACE_V1_IMPL *v2; // rax
   struct _DXGK_VIDPN_INTERFACE *v3; // rdx
-  DXGK_VIDPN_INTERFACE_V1_IMPL *v4; // rcx
-  void *v5; // rax
-  struct _DXGK_VIDPN_INTERFACE *v6; // rdx
-  DXGK_VIDPN_INTERFACE_V2_IMPL *v7; // rcx
-  __int64 v8; // rax
-  struct _DXGK_VIDPNTOPOLOGY_INTERFACE *v9; // rdx
-  void *v10; // rcx
-  DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *v11; // rbx
-  __int64 v12; // rax
-  struct _DXGK_VIDPNSOURCEMODESET_INTERFACE *v13; // rdx
-  void *v14; // rcx
-  DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL *v15; // rbx
-  void *v16; // rax
-  struct _DXGK_VIDPNTARGETMODESET_INTERFACE *v17; // rdx
-  DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *v18; // rcx
-  void *v19; // rax
-  struct _DXGK_VIDPNTARGETMODESET_INTERFACE *v20; // rdx
-  DXGK_VIDPNTARGETMODESET_INTERFACE_V2_IMPL *v21; // rcx
+  __int64 v4; // r8
+  __int64 v5; // r9
+  DXGK_VIDPN_INTERFACE_V1_IMPL *v6; // rcx
+  DXGK_VIDPN_INTERFACE_V1_IMPL *v7; // rdi
+  DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *v8; // rax
+  DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *v9; // rdi
+  DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL *v10; // rax
+  DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL *v11; // rdi
+  DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *v12; // rax
+  DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *v13; // rdi
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rdi
+  __int64 v18; // rax
+  __int64 v19; // rax
 
-  v2 = (void *)operator new[](0x58uLL, 0x4E506456u, 256LL);
-  auto_ptr<_DXGK_VIDPN_INTERFACE>::reset(this + 51, v2);
-  v4 = (DXGK_VIDPN_INTERFACE_V1_IMPL *)this[51];
-  if ( v4 )
+  v2 = (DXGK_VIDPN_INTERFACE_V1_IMPL *)operator new[](0x58uLL, 0x4E506456u, PagedPool);
+  v6 = (DXGK_VIDPN_INTERFACE_V1_IMPL *)*((_QWORD *)this + 46);
+  v7 = v2;
+  if ( v2 != v6 )
+    operator delete(v6);
+  *((_QWORD *)this + 46) = v7;
+  if ( !v7 )
+    goto LABEL_14;
+  DXGK_VIDPN_INTERFACE_V1_IMPL::InitializeInterface(v7, v3);
+  v8 = (DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *)operator new[](0x60uLL, 0x4E506456u, PagedPool);
+  v6 = (DXGK_VIDPN_INTERFACE_V1_IMPL *)*((_QWORD *)this + 47);
+  v9 = v8;
+  if ( v8 != v6 )
+    operator delete(v6);
+  *((_QWORD *)this + 47) = v9;
+  if ( !v9 )
+    goto LABEL_14;
+  DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL::InitializeInterface(v9, (struct _DXGK_VIDPNTOPOLOGY_INTERFACE *)v3);
+  v10 = (DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL *)operator new[](0x40uLL, 0x4E506456u, PagedPool);
+  v6 = (DXGK_VIDPN_INTERFACE_V1_IMPL *)*((_QWORD *)this + 48);
+  v11 = v10;
+  if ( v10 != v6 )
+    operator delete(v6);
+  *((_QWORD *)this + 48) = v11;
+  if ( !v11 )
+    goto LABEL_14;
+  DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL::InitializeInterface(v11, (struct _DXGK_VIDPNSOURCEMODESET_INTERFACE *)v3);
+  v12 = (DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *)operator new[](0x40uLL, 0x4E506456u, PagedPool);
+  v6 = (DXGK_VIDPN_INTERFACE_V1_IMPL *)*((_QWORD *)this + 49);
+  v13 = v12;
+  if ( v12 != v6 )
+    operator delete(v6);
+  *((_QWORD *)this + 49) = v13;
+  if ( v13 )
   {
-    DXGK_VIDPN_INTERFACE_V1_IMPL::InitializeInterface(v4, v3);
-    v5 = (void *)operator new[](0x58uLL, 0x4E506456u, 256LL);
-    auto_ptr<_DXGK_VIDPN_INTERFACE>::reset(this + 52, v5);
-    v7 = (DXGK_VIDPN_INTERFACE_V2_IMPL *)this[52];
-    if ( !v7 )
-    {
-      if ( this[1] )
-        goto LABEL_14;
-      goto LABEL_13;
-    }
-    DXGK_VIDPN_INTERFACE_V2_IMPL::InitializeInterface(v7, v6);
-    v8 = operator new[](0x60uLL, 0x4E506456u, 256LL);
-    v10 = this[53];
-    v11 = (DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *)v8;
-    if ( (void *)v8 != v10 )
-      operator delete(v10);
-    this[53] = v11;
-    if ( !v11 )
-    {
-      if ( this[1] )
-        goto LABEL_14;
-      goto LABEL_13;
-    }
-    DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL::InitializeInterface(v11, v9);
-    v12 = operator new[](0x40uLL, 0x4E506456u, 256LL);
-    v14 = this[54];
-    v15 = (DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL *)v12;
-    if ( (void *)v12 != v14 )
-      operator delete(v14);
-    this[54] = v15;
-    if ( !v15 )
-    {
-      if ( this[1] )
-        goto LABEL_14;
-      goto LABEL_13;
-    }
-    DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL::InitializeInterface(v15, v13);
-    v16 = (void *)operator new[](0x40uLL, 0x4E506456u, 256LL);
-    auto_ptr<_DXGK_VIDPNTARGETMODESET_INTERFACE>::reset(this + 55, v16);
-    v18 = (DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *)this[55];
+    DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::InitializeInterface(v13, (struct _DXGK_VIDPNTARGETMODESET_INTERFACE *)v3);
+    return 0LL;
+  }
+  else
+  {
+LABEL_14:
+    v17 = WdLogNewEntry5_WdLowResource(v6, v3, v4, v5);
+    v18 = *((_QWORD *)this + 1);
     if ( !v18 )
     {
-      if ( this[1] )
-        goto LABEL_14;
-      goto LABEL_13;
+      v19 = WdLogNewEntry5_WdAssertion(v16, v15);
+      WdLogEvent5_WdAssertion(v19);
+      v18 = *((_QWORD *)this + 1);
     }
-    DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::InitializeInterface(v18, v17);
-    v19 = (void *)operator new[](0x40uLL, 0x4E506456u, 256LL);
-    auto_ptr<_DXGK_VIDPNTARGETMODESET_INTERFACE>::reset(this + 56, v19);
-    v21 = (DXGK_VIDPNTARGETMODESET_INTERFACE_V2_IMPL *)this[56];
-    if ( v21 )
-    {
-      DXGK_VIDPNTARGETMODESET_INTERFACE_V2_IMPL::InitializeInterface(v21, v20);
-      return 0LL;
-    }
-    if ( !this[1] )
-LABEL_13:
-      WdLogSingleEntry0(1LL);
+    *(_QWORD *)(v17 + 24) = *(_QWORD *)(v18 + 16);
+    WdLogEvent5_WdLowResource(v17);
+    return 3221225495LL;
   }
-  else if ( !this[1] )
-  {
-    goto LABEL_13;
-  }
-LABEL_14:
-  WdLogSingleEntry1(6LL, *((_QWORD *)this[1] + 2));
-  return 3221225495LL;
 }

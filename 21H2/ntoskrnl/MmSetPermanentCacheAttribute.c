@@ -1,18 +1,18 @@
 /*
- * XREFs of MmSetPermanentCacheAttribute @ 0x14096C8D0
+ * XREFs of MmSetPermanentCacheAttribute @ 0x1408C82F0
  * Callers:
  *     <none>
  * Callees:
- *     KeGenericCallDpc @ 0x140217420 (KeGenericCallDpc.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     KeGenericCallDpc @ 0x1402ECF00 (KeGenericCallDpc.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmSetPermanentCacheAttribute(unsigned __int64 a1, unsigned __int64 a2, int a3, int a4)
 {
   __int64 result; // rax
-  unsigned __int64 v5; // rsi
-  unsigned __int64 v6; // rdi
+  unsigned __int64 v5; // rdi
+  unsigned __int64 v6; // rsi
   PVOID Pool; // rax
   void *v8; // rbx
   PVOID v9; // [rsp+20h] [rbp-18h] BYREF

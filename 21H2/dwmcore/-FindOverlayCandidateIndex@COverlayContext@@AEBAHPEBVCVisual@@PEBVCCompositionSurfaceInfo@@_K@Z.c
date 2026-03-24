@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FindOverlayCandidateIndex@COverlayContext@@AEBAHPEBVCVisual@@PEBVCCompositionSurfaceInfo@@_K@Z @ 0x18000E5C0
+ * XREFs of ?FindOverlayCandidateIndex@COverlayContext@@AEBAHPEBVCVisual@@PEBVCCompositionSurfaceInfo@@_K@Z @ 0x18017C1CC
  * Callers:
- *     ?IsCandidateOverlayCompatbile@COverlayContext@@AEBA_NPEAVCVisual@@PEBVCCompositionSurfaceInfo@@PEAVISwapChainRealization@@AEBUDXGI_MULTIPLANE_OVERLAY_ATTRIBUTES@@W4DXGI_MODE_ROTATION@@I_N@Z @ 0x1800083EC (-IsCandidateOverlayCompatbile@COverlayContext@@AEBA_NPEAVCVisual@@PEBVCCompositionSurfaceInfo@@P.c)
- *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z @ 0x1800B9510 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z.c)
- *     ?ReleaseObsoletePlaneAssignments@COverlayContext@@AEAAXXZ @ 0x1800EEA6C (-ReleaseObsoletePlaneAssignments@COverlayContext@@AEAAXXZ.c)
+ *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@PEBVCDirtyRegion@@@Z @ 0x180091230 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@PEBVCDirtyRegion@@@Z.c)
+ *     ?ReleaseObsoletePlaneAssignments@COverlayContext@@AEAAJXZ @ 0x1800DE964 (-ReleaseObsoletePlaneAssignments@COverlayContext@@AEAAJXZ.c)
+ *     ?IsCandidateOverlayCompatbile@COverlayContext@@AEBA_NPEAVCVisual@@PEBVCCompositionSurfaceInfo@@PEAVISwapChainRealization@@AEBUDXGI_MULTIPLANE_OVERLAY_ATTRIBUTES@@W4DXGI_MODE_ROTATION@@I_N@Z @ 0x18017C41C (-IsCandidateOverlayCompatbile@COverlayContext@@AEBA_NPEAVCVisual@@PEBVCCompositionSurfaceInfo@@P.c)
  * Callees:
  *     <none>
  */
@@ -14,26 +14,26 @@ __int64 __fastcall COverlayContext::FindOverlayCandidateIndex(
         const struct CCompositionSurfaceInfo *a3,
         __int64 a4)
 {
-  __int64 v4; // rax
-  unsigned int v5; // r10d
-  __int64 v7; // rbx
+  __int64 v4; // r10
+  unsigned int v5; // r11d
+  __int64 v8; // r9
   unsigned int i; // r8d
-  unsigned int v10; // [rsp+Ch] [rbp+Ch]
+  unsigned int v11; // [rsp+Ch] [rbp+Ch]
 
   LODWORD(v4) = 0;
   v5 = -1;
-  v10 = 0;
+  v11 = 0;
   if ( a3 )
   {
     v4 = *((_QWORD *)a3 + 5);
-    v10 = HIDWORD(v4);
+    v11 = HIDWORD(v4);
   }
-  v7 = *((_QWORD *)this + 11);
-  for ( i = 0; i < -1227133513 * (unsigned int)((*((_QWORD *)this + 12) - v7) >> 5); ++i )
+  v8 = *((_QWORD *)this + 12);
+  for ( i = 0; i < (unsigned int)((*((_QWORD *)this + 13) - v8) / 224); ++i )
   {
-    if ( (!a2 || *(const struct CVisual **)(224LL * i + v7 + 8) == a2)
-      && (!a3 || *(_QWORD *)(*(_QWORD *)(224LL * i + v7 + 16) + 40LL) == __PAIR64__(v10, v4))
-      && (!a4 || *(_QWORD *)(224LL * i + v7 + 24) == a4) )
+    if ( (!a2 || *(const struct CVisual **)(224LL * i + v8 + 8) == a2)
+      && (!a3 || *(_QWORD *)(*(_QWORD *)(224LL * i + v8 + 16) + 40LL) == __PAIR64__(v11, v4))
+      && (!a4 || *(_QWORD *)(224LL * i + v8 + 24) == a4) )
     {
       return i;
     }

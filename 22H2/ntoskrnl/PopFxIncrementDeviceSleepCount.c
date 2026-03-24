@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxIncrementDeviceSleepCount @ 0x14058A6C4
+ * XREFs of PopFxIncrementDeviceSleepCount @ 0x140388354
  * Callers:
- *     PoFxStartDevicePowerManagement @ 0x140395E40 (PoFxStartDevicePowerManagement.c)
- *     PopSystemIrpCompletion @ 0x140AA7680 (PopSystemIrpCompletion.c)
+ *     PoFxStartDevicePowerManagement @ 0x1403BD9C0 (PoFxStartDevicePowerManagement.c)
+ *     PopSystemIrpCompletion @ 0x140997030 (PopSystemIrpCompletion.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall PopFxIncrementDeviceSleepCount(__int64 a1)
 {
   __int64 v1; // rbx
   KIRQL v2; // al
-  int v3; // r8d
+  int v3; // ecx
   unsigned __int64 v4; // rdi
   signed __int32 v5; // eax
   signed __int32 v6; // ett
@@ -24,28 +24,31 @@ void __fastcall PopFxIncrementDeviceSleepCount(__int64 a1)
   bool v11; // zf
 
   if ( a1 )
-  {
     v1 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
-    if ( v1 )
+  else
+    v1 = 0LL;
+  if ( v1 )
+  {
+    v2 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v1 + 88));
+    v3 = *(_DWORD *)(v1 + 124);
+    v4 = v2;
+    _m_prefetchw((const void *)(v1 + 296));
+    v5 = *(_DWORD *)(v1 + 296);
+    do
     {
-      v2 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v1 + 88));
-      v3 = *(_DWORD *)(v1 + 124);
-      v4 = v2;
-      _m_prefetchw((const void *)(v1 + 296));
-      v5 = *(_DWORD *)(v1 + 296);
-      do
-      {
-        v6 = v5;
-        v5 = _InterlockedCompareExchange((volatile signed __int32 *)(v1 + 296), v5, v5);
-      }
-      while ( v6 != v5 );
-      if ( (v5 & 4) == 0 || (*(_DWORD *)(*(_QWORD *)(v1 + 80) + 824LL) & 1) == 0 )
-        *(_DWORD *)(v1 + 124) = v3 + 1;
-      ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v1 + 88));
-      if ( KiIrqlFlags )
+      v6 = v5;
+      v5 = _InterlockedCompareExchange((volatile signed __int32 *)(v1 + 296), v5, v5);
+    }
+    while ( v6 != v5 );
+    if ( (v5 & 4) == 0 || (*(_DWORD *)(*(_QWORD *)(v1 + 80) + 824LL) & 1) == 0 )
+      *(_DWORD *)(v1 + 124) = v3 + 1;
+    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v1 + 88));
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -53,10 +56,10 @@ void __fastcall PopFxIncrementDeviceSleepCount(__int64 a1)
           v11 = (v10 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v10;
           if ( v11 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
-      __writecr8(v4);
     }
+    __writecr8(v4);
   }
 }

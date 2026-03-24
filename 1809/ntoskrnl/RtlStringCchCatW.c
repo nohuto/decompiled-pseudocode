@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlStringCchCatW @ 0x1400F4F98
+ * XREFs of RtlStringCchCatW @ 0x1400F4FB8
  * Callers:
- *     ExpGetGlobalLocaleSection @ 0x14067A590 (ExpGetGlobalLocaleSection.c)
- *     SdbpCreateSearchDBContext @ 0x14067C5C0 (SdbpCreateSearchDBContext.c)
- *     AslpFileQueryVersionString @ 0x14071FA24 (AslpFileQueryVersionString.c)
- *     AslpEnvResolveVars @ 0x140721E90 (AslpEnvResolveVars.c)
- *     SdbpCheckMatchingRegistryValue @ 0x1408E6188 (SdbpCheckMatchingRegistryValue.c)
- *     AslPathCombine @ 0x1408EA234 (AslPathCombine.c)
- *     AslPathToSystemPathBuf @ 0x1408EA39C (AslPathToSystemPathBuf.c)
+ *     ExpGetGlobalLocaleSection @ 0x14067A570 (ExpGetGlobalLocaleSection.c)
+ *     SdbpCreateSearchDBContext @ 0x14067C5A0 (SdbpCreateSearchDBContext.c)
+ *     AslpFileQueryVersionString @ 0x14071FA04 (AslpFileQueryVersionString.c)
+ *     AslpEnvResolveVars @ 0x140721E70 (AslpEnvResolveVars.c)
+ *     SdbpCheckMatchingRegistryValue @ 0x1408E6168 (SdbpCheckMatchingRegistryValue.c)
+ *     AslPathCombine @ 0x1408EA214 (AslPathCombine.c)
+ *     AslPathToSystemPathBuf @ 0x1408EA37C (AslPathToSystemPathBuf.c)
  *     BapdpProcessVsmKeyBlobs @ 0x1409D12A0 (BapdpProcessVsmKeyBlobs.c)
  * Callees:
  *     <none>

@@ -1,7 +1,7 @@
 /*
- * XREFs of GetModificationNumber @ 0x1C01EA720
+ * XREFs of GetModificationNumber @ 0x1C01B1750
  * Callers:
- *     <none>
+ *     VKFromVSC @ 0x1C01B1770 (VKFromVSC.c)
  * Callees:
  *     <none>
  */

@@ -1,325 +1,334 @@
 /*
- * XREFs of ObQueryNameStringMode @ 0x1407103B0
+ * XREFs of ObQueryNameStringMode @ 0x140718E10
  * Callers:
- *     SepQueryNameString @ 0x140696CCC (SepQueryNameString.c)
- *     IopGraftName @ 0x1406B9FD4 (IopGraftName.c)
- *     EtwpEnumerateAddressSpace @ 0x1406F6CA4 (EtwpEnumerateAddressSpace.c)
- *     PspInitializeFullProcessImageName @ 0x14070F3A8 (PspInitializeFullProcessImageName.c)
- *     ObQueryNameString @ 0x14070F640 (ObQueryNameString.c)
- *     IopQueryNameInternal @ 0x14070F744 (IopQueryNameInternal.c)
- *     NtQueryObject @ 0x14070FD80 (NtQueryObject.c)
- *     AstLogDeviceCreated @ 0x1407112A4 (AstLogDeviceCreated.c)
- *     CmpQueryNameString @ 0x140742C78 (CmpQueryNameString.c)
- *     IoRegisterDeviceInterface @ 0x140769AD0 (IoRegisterDeviceInterface.c)
- *     IoGetDeviceProperty @ 0x140773C30 (IoGetDeviceProperty.c)
- *     ObpParseSymbolicLinkEx @ 0x140784700 (ObpParseSymbolicLinkEx.c)
- *     MmQueryVirtualMemory @ 0x1407BA750 (MmQueryVirtualMemory.c)
- *     PiControlGetDeviceStack @ 0x1407F1CDC (PiControlGetDeviceStack.c)
- *     PnpBuildCmResourceList @ 0x14082071C (PnpBuildCmResourceList.c)
- *     MmGetFileNameForAddress @ 0x140881A9A (MmGetFileNameForAddress.c)
- *     IopGetRelatedFileName @ 0x1409342B0 (IopGetRelatedFileName.c)
- *     IopRaiseHardError @ 0x140934B80 (IopRaiseHardError.c)
- *     AlpcpGetPortNameInformation @ 0x140966EA8 (AlpcpGetPortNameInformation.c)
- *     MmGetFileNameForSection @ 0x14096B158 (MmGetFileNameForSection.c)
- *     ObGetObjectInformation @ 0x140984994 (ObGetObjectInformation.c)
- *     SmKmFileInfoGetPath @ 0x1409D59E8 (SmKmFileInfoGetPath.c)
- *     SmKmStoreFileOpenVolume @ 0x1409D71F0 (SmKmStoreFileOpenVolume.c)
- *     EtwpTraceHandle @ 0x1409E3B48 (EtwpTraceHandle.c)
+ *     IopGetRelatedFileName @ 0x1405D87C8 (IopGetRelatedFileName.c)
+ *     EtwpEnumerateAddressSpace @ 0x14061A45C (EtwpEnumerateAddressSpace.c)
+ *     MmQueryVirtualMemory @ 0x14061E930 (MmQueryVirtualMemory.c)
+ *     IopQueryNameInternal @ 0x140620504 (IopQueryNameInternal.c)
+ *     IoGetDeviceProperty @ 0x14063FC90 (IoGetDeviceProperty.c)
+ *     IopGraftName @ 0x14069E8A4 (IopGraftName.c)
+ *     CmpQueryNameString @ 0x140716838 (CmpQueryNameString.c)
+ *     SepQueryNameString @ 0x14071869C (SepQueryNameString.c)
+ *     PspInitializeFullProcessImageName @ 0x140718754 (PspInitializeFullProcessImageName.c)
+ *     ObQueryNameString @ 0x140718930 (ObQueryNameString.c)
+ *     NtQueryObject @ 0x140718950 (NtQueryObject.c)
+ *     IoRegisterDeviceInterface @ 0x140748ED0 (IoRegisterDeviceInterface.c)
+ *     PnpBuildCmResourceList @ 0x140751180 (PnpBuildCmResourceList.c)
+ *     IopErrorLogThread @ 0x140755770 (IopErrorLogThread.c)
+ *     IopRaiseHardError @ 0x140891C00 (IopRaiseHardError.c)
+ *     AlpcpGetPortNameInformation @ 0x1408C3048 (AlpcpGetPortNameInformation.c)
+ *     MmGetFileNameForAddress @ 0x1408C4044 (MmGetFileNameForAddress.c)
+ *     MmGetFileNameForSection @ 0x1408C415C (MmGetFileNameForSection.c)
+ *     ObGetObjectInformation @ 0x1408DD478 (ObGetObjectInformation.c)
+ *     SmKmFileInfoGetPath @ 0x14092B4A4 (SmKmFileInfoGetPath.c)
+ *     SmKmStoreFileOpenVolume @ 0x14092CCD4 (SmKmStoreFileOpenVolume.c)
+ *     EtwpTraceHandle @ 0x14093767C (EtwpTraceHandle.c)
  * Callees:
- *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x1402A0E90 (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     PsGetCurrentSilo @ 0x140347D50 (PsGetCurrentSilo.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     PsGetCurrentSilo @ 0x14027C930 (PsGetCurrentSilo.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x1403604C8 (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall ObQueryNameStringMode(char *a1, __int64 a2, unsigned int a3, _DWORD *a4, char a5)
 {
-  unsigned int v5; // r12d
-  signed __int64 *v8; // rbx
-  unsigned __int64 v9; // rdx
-  char *v10; // rdi
-  __int64 (__fastcall *v11)(char *, unsigned __int64, __int64, _QWORD, _DWORD *, char); // rax
+  signed __int64 *v9; // r14
+  unsigned __int64 v10; // rdx
+  char *v11; // rdi
+  __int64 (__fastcall *v12)(char *, unsigned __int64, __int64, _QWORD, _DWORD *, char); // rax
   struct _LIST_ENTRY *CurrentSilo; // rax
-  char *v14; // rax
-  void **v15; // rax
-  void *v16; // rdi
-  unsigned int v17; // edx
-  char *v18; // rcx
-  char *v19; // rdi
-  char *v20; // rdi
-  _WORD *v21; // rcx
-  size_t v22; // r8
-  char *v23; // rcx
-  char *v24; // rdi
-  __int64 v25; // r12
-  char *v26; // rdi
-  size_t v27; // r8
-  int v28; // edi
-  _WORD *v29; // rdx
-  char v30; // [rsp+40h] [rbp-C8h]
-  char v31; // [rsp+41h] [rbp-C7h]
-  int v32; // [rsp+44h] [rbp-C4h]
-  unsigned int v33; // [rsp+48h] [rbp-C0h]
-  char *Object; // [rsp+50h] [rbp-B8h]
-  unsigned int v35; // [rsp+58h] [rbp-B0h]
-  _WORD *v36; // [rsp+60h] [rbp-A8h]
-  _WORD *v37; // [rsp+68h] [rbp-A0h]
-  char *v38; // [rsp+70h] [rbp-98h]
-  char *v39; // [rsp+70h] [rbp-98h]
-  char *v40; // [rsp+70h] [rbp-98h]
-  signed __int64 *BugCheckParameter2; // [rsp+78h] [rbp-90h]
-  signed __int64 *BugCheckParameter2a; // [rsp+78h] [rbp-90h]
-  char *v43; // [rsp+80h] [rbp-88h]
-  void **v44; // [rsp+88h] [rbp-80h]
-  char *v45; // [rsp+90h] [rbp-78h]
-  struct _KTHREAD *CurrentThread; // [rsp+B0h] [rbp-58h]
-  struct _KTHREAD *v47; // [rsp+B8h] [rbp-50h]
-  struct _KTHREAD *v48; // [rsp+C0h] [rbp-48h]
-  struct _KTHREAD *v49; // [rsp+C8h] [rbp-40h]
+  char *v15; // rax
+  void **v16; // rax
+  struct _DMA_ADAPTER *v17; // rdi
+  unsigned int v18; // edx
+  char *v19; // rcx
+  char *v20; // rcx
+  ULONG_PTR v21; // rcx
+  ULONG_PTR v22; // rcx
+  _WORD *v23; // rcx
+  size_t v24; // r8
+  char *v25; // rcx
+  struct _DMA_ADAPTER *v26; // rdi
+  struct _DMA_ADAPTER *v27; // rcx
+  struct _DMA_ADAPTER *v28; // rdi
+  size_t v29; // r8
+  _WORD *v30; // rdx
+  unsigned int v31; // ecx
+  ULONG_PTR v32; // rcx
+  _WORD *v33; // rdx
+  char v34; // [rsp+40h] [rbp-D8h]
+  char v35; // [rsp+41h] [rbp-D7h]
+  int v36; // [rsp+44h] [rbp-D4h]
+  unsigned int v37; // [rsp+48h] [rbp-D0h]
+  struct _DMA_ADAPTER *DmaAdapter; // [rsp+50h] [rbp-C8h]
+  _WORD *v39; // [rsp+58h] [rbp-C0h]
+  unsigned int v40; // [rsp+58h] [rbp-C0h]
+  unsigned int v41; // [rsp+60h] [rbp-B8h]
+  _WORD *v42; // [rsp+68h] [rbp-B0h]
+  signed __int64 *BugCheckParameter2; // [rsp+70h] [rbp-A8h]
+  ULONG_PTR BugCheckParameter2a; // [rsp+70h] [rbp-A8h]
+  char *v45; // [rsp+78h] [rbp-A0h]
+  char *v46; // [rsp+78h] [rbp-A0h]
+  struct _DMA_ADAPTER *v47; // [rsp+78h] [rbp-A0h]
+  char *v48; // [rsp+80h] [rbp-98h]
+  void **v49; // [rsp+88h] [rbp-90h]
+  char *v50; // [rsp+90h] [rbp-88h]
+  signed __int64 *v51; // [rsp+98h] [rbp-80h]
+  struct _KTHREAD *CurrentThread; // [rsp+B8h] [rbp-60h]
+  struct _KTHREAD *v53; // [rsp+C0h] [rbp-58h]
+  struct _KTHREAD *v54; // [rsp+C8h] [rbp-50h]
+  struct _KTHREAD *v55; // [rsp+D0h] [rbp-48h]
 
-  v5 = a3;
-  v30 = 1;
-  v31 = 0;
+  v34 = 1;
   v35 = 0;
-  Object = 0LL;
-  v32 = -1073741823;
-  v8 = (signed __int64 *)(a1 - 48);
-  v9 = (unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*(a1 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)a1 - 48) >> 8);
+  v41 = 0;
+  DmaAdapter = 0LL;
+  v36 = -1073741823;
+  v9 = (signed __int64 *)(a1 - 48);
+  v10 = (unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*(a1 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)a1 - 48) >> 8);
   if ( (*(a1 - 22) & 2) != 0 )
-    v10 = (char *)v8 - ObpInfoMaskToOffset[*(a1 - 22) & 3];
+    v11 = (char *)v9 - ObpInfoMaskToOffset[*(a1 - 22) & 3];
   else
-    v10 = 0LL;
-  v44 = (void **)v10;
-  v11 = *(__int64 (__fastcall **)(char *, unsigned __int64, __int64, _QWORD, _DWORD *, char))(ObTypeIndexTable[v9] + 160);
-  if ( v11 )
+    v11 = 0LL;
+  v49 = (void **)v11;
+  v12 = *(__int64 (__fastcall **)(char *, unsigned __int64, __int64, _QWORD, _DWORD *, char))(ObTypeIndexTable[v10] + 160);
+  if ( v12 )
   {
-    if ( v10 && *((_WORD *)v10 + 4) )
-      LOBYTE(v9) = 1;
+    if ( v11 && *((_WORD *)v11 + 4) )
+      LOBYTE(v10) = 1;
     else
-      v9 = 0LL;
-    v32 = v11(a1, v9, a2, a3, a4, a5);
+      v10 = 0LL;
+    v36 = v12(a1, v10, a2, a3, a4, a5);
 LABEL_7:
-    if ( v32 >= 0 )
+    if ( v36 >= 0 )
 LABEL_8:
       *(_DWORD *)(a2 + 4) = 0;
-    return (unsigned int)v32;
+    return (unsigned int)v36;
   }
   CurrentSilo = PsGetCurrentSilo();
-  v14 = (char *)OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO((__int64)CurrentSilo);
-  v43 = v14;
-  while ( v10 )
+  v15 = (char *)OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO((__int64)CurrentSilo);
+  v48 = v15;
+  while ( v11 )
   {
-    if ( a1 != v14 && a1 != ObpRootDirectoryObject )
+    if ( a1 != v15 && a1 != ObpRootDirectoryObject )
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      ExAcquirePushLockSharedEx((ULONG_PTR)(v8 + 2), 0LL);
-      v15 = v44;
-      v16 = *v44;
-      v38 = (char *)*v44;
-      if ( *v44 )
+      ExAcquirePushLockSharedEx((ULONG_PTR)(v9 + 2), 0LL);
+      v16 = v49;
+      v17 = (struct _DMA_ADAPTER *)*v49;
+      v45 = (char *)*v49;
+      if ( *v49 )
       {
-        ObfReferenceObject(v16);
-        Object = (char *)v16;
-        v15 = v44;
+        ObfReferenceObject(v17);
+        DmaAdapter = v17;
+        v16 = v49;
       }
-      v33 = *((unsigned __int16 *)v15 + 4) + 2;
-      if ( _InterlockedCompareExchange64(v8 + 2, 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared(v8 + 2);
-      KeAbPostRelease((ULONG_PTR)(v8 + 2));
+      v37 = *((unsigned __int16 *)v16 + 4) + 2;
+      if ( _InterlockedCompareExchange64(v9 + 2, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared(v9 + 2);
+      KeAbPostRelease((ULONG_PTR)(v9 + 2));
       KeLeaveCriticalRegion();
-      v17 = v33;
-      v18 = v38;
-      while ( v18 != v43 && v18 != ObpRootDirectoryObject && v18 && (*((_DWORD *)v18 + 84) & 0x20) == 0 )
+      v18 = v37;
+      v19 = v45;
+      while ( v19 != v48 && v19 != ObpRootDirectoryObject && v19 && (*((_DWORD *)v19 + 84) & 0x20) == 0 )
       {
-        v47 = KeGetCurrentThread();
-        --v47->KernelApcDisable;
-        v19 = v18 - 48;
-        BugCheckParameter2 = (signed __int64 *)(v18 - 32);
+        v50 = v19 - 48;
+        v53 = KeGetCurrentThread();
+        --v53->KernelApcDisable;
+        BugCheckParameter2 = (signed __int64 *)(v19 - 32);
         ExAcquirePushLockSharedEx((ULONG_PTR)BugCheckParameter2, 0LL);
-        if ( (v19[26] & 2) == 0 || (v20 = &v19[-ObpInfoMaskToOffset[v19[26] & 3]]) == 0LL || !*(_QWORD *)v20 )
+        if ( (v50[26] & 2) == 0 || (v20 = &v50[-ObpInfoMaskToOffset[v50[26] & 3]]) == 0LL || !*(_QWORD *)v20 )
         {
+          v22 = (ULONG_PTR)BugCheckParameter2;
           if ( _InterlockedCompareExchange64(BugCheckParameter2, 0LL, 17LL) != 17 )
+          {
             ExfReleasePushLockShared(BugCheckParameter2);
-          KeAbPostRelease((ULONG_PTR)BugCheckParameter2);
+            v22 = (ULONG_PTR)BugCheckParameter2;
+          }
+          KeAbPostRelease(v22);
           KeLeaveCriticalRegion();
-          v17 = v33 + 8;
+          v18 = v37 + 8;
           break;
         }
-        v33 += 2 + *((unsigned __int16 *)v20 + 4);
-        v39 = *(char **)v20;
+        v37 += 2 + *((unsigned __int16 *)v20 + 4);
+        v46 = *(char **)v20;
         ObfReferenceObject(*(PVOID *)v20);
+        v21 = (ULONG_PTR)BugCheckParameter2;
         if ( _InterlockedCompareExchange64(BugCheckParameter2, 0LL, 17LL) != 17 )
+        {
           ExfReleasePushLockShared(BugCheckParameter2);
-        KeAbPostRelease((ULONG_PTR)BugCheckParameter2);
+          v21 = (ULONG_PTR)BugCheckParameter2;
+        }
+        KeAbPostRelease(v21);
         KeLeaveCriticalRegion();
-        ObfDereferenceObject(Object);
-        v18 = v39;
-        Object = v39;
-        v17 = v33;
-        if ( v33 > 0xFFFF )
+        HalPutDmaAdapter(DmaAdapter);
+        v19 = v46;
+        DmaAdapter = (struct _DMA_ADAPTER *)v46;
+        v18 = v37;
+        if ( v37 > 0xFFFF )
           goto LABEL_37;
       }
-      if ( v17 <= 0xFFFF )
+      if ( v18 <= 0xFFFF )
         goto LABEL_31;
 LABEL_37:
-      v32 = -1073741562;
+      v36 = -1073741562;
       goto LABEL_33;
     }
-    v17 = 2;
+    v18 = 2;
 LABEL_31:
-    v35 = v17 + 18;
-    *a4 = v17 + 18;
-    if ( v5 < v17 + 18 )
+    v41 = v18 + 18;
+    *a4 = v18 + 18;
+    if ( a3 < v18 + 18 )
     {
-      v32 = -1073741820;
+      v36 = -1073741820;
 LABEL_33:
-      v30 = 0;
+      v34 = 0;
     }
-    if ( Object )
+    if ( DmaAdapter )
     {
-      ObfDereferenceObject(Object);
-      Object = 0LL;
+      HalPutDmaAdapter(DmaAdapter);
+      DmaAdapter = 0LL;
     }
-    if ( !v30 )
+    if ( !v34 )
       goto LABEL_7;
-    if ( (*((_BYTE *)v8 + 26) & 2) != 0 )
-      v10 = (char *)v8 - ObpInfoMaskToOffset[*((_BYTE *)v8 + 26) & 3];
+    if ( (*((_BYTE *)v9 + 26) & 2) != 0 )
+      v11 = (char *)v9 - ObpInfoMaskToOffset[*((_BYTE *)v9 + 26) & 3];
     else
-      v10 = 0LL;
-    v44 = (void **)v10;
-    if ( v10 )
+      v11 = 0LL;
+    v49 = (void **)v11;
+    if ( !v11 )
+      goto LABEL_91;
+    v23 = (_WORD *)(a2 + v41 - 2LL);
+    *v23 = 0;
+    if ( a1 == v48 || a1 == ObpRootDirectoryObject )
+      goto LABEL_66;
+    v24 = *((unsigned __int16 *)v11 + 4);
+    v25 = (char *)v23 - v24;
+    v42 = v25;
+    if ( (unsigned __int64)v25 > a2 + 16 )
     {
-      v21 = (_WORD *)(a2 + v35 - 2LL);
-      *v21 = 0;
-      if ( a1 == v43 || a1 == ObpRootDirectoryObject )
+      memmove(v25, *((const void **)v11 + 2), v24);
+      v54 = KeGetCurrentThread();
+      --v54->KernelApcDisable;
+      ExAcquirePushLockSharedEx((ULONG_PTR)(v9 + 2), 0LL);
+      v26 = *(struct _DMA_ADAPTER **)v11;
+      v47 = v26;
+      if ( v26 )
       {
-LABEL_67:
-        *(v21 - 1) = 92;
-        v28 = (unsigned __int16)(a2 + v35 - ((_WORD)v21 - 2));
-        *(_WORD *)(a2 + 2) = v28;
-        *(_WORD *)a2 = a2 + v35 - (_WORD)v21;
-        *(_QWORD *)(a2 + 8) = a2 + 16;
-        if ( (_WORD *)(a2 + 16) != v21 - 1 )
-        {
-          memmove((void *)(a2 + 16), v21 - 1, (unsigned __int16)(a2 + v35 - ((_WORD)v21 - 2)));
-          *a4 = v28 + 16;
-        }
+        ObfReferenceObject(v26);
+        DmaAdapter = v26;
       }
-      else
+      if ( _InterlockedCompareExchange64(v9 + 2, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared(v9 + 2);
+      KeAbPostRelease((ULONG_PTR)(v9 + 2));
+      KeLeaveCriticalRegion();
+      while ( 1 )
       {
-        v22 = *((unsigned __int16 *)v10 + 4);
-        v23 = (char *)v21 - v22;
-        v36 = v23;
-        if ( (unsigned __int64)v23 <= a2 + 16 )
+        if ( v47 == (struct _DMA_ADAPTER *)v48
+          || v47 == ObpRootDirectoryObject
+          || !v47
+          || (*(_DWORD *)&v47[21].Version & 0x20) != 0 )
         {
-          v31 = 1;
+          v23 = v42;
+          goto LABEL_66;
         }
-        else
+        v39 = v42 - 1;
+        *(v42 - 1) = 92;
+        v27 = v47 - 3;
+        BugCheckParameter2a = (BYTE2(v47[-2].DmaOperations) & 2) != 0
+                            ? (ULONG_PTR)v27 - ObpInfoMaskToOffset[BYTE2(v47[-2].DmaOperations) & 3]
+                            : 0LL;
+        v55 = KeGetCurrentThread();
+        --v55->KernelApcDisable;
+        v51 = (signed __int64 *)&v27[1];
+        ExAcquirePushLockSharedEx((ULONG_PTR)&v27[1], 0LL);
+        if ( !BugCheckParameter2a || !*(_QWORD *)BugCheckParameter2a )
+          break;
+        HalPutDmaAdapter(DmaAdapter);
+        v28 = *(struct _DMA_ADAPTER **)BugCheckParameter2a;
+        v47 = *(struct _DMA_ADAPTER **)BugCheckParameter2a;
+        ObfReferenceObject(*(PVOID *)BugCheckParameter2a);
+        DmaAdapter = v28;
+        v29 = *(unsigned __int16 *)(BugCheckParameter2a + 8);
+        v42 = (_WORD *)((char *)v39 - v29);
+        if ( (unsigned __int64)v39 - v29 <= a2 + 16 )
         {
-          memmove(v23, *((const void **)v10 + 2), v22);
-          v48 = KeGetCurrentThread();
-          --v48->KernelApcDisable;
-          ExAcquirePushLockSharedEx((ULONG_PTR)(v8 + 2), 0LL);
-          v24 = *(char **)v10;
-          v40 = v24;
-          if ( v24 )
-          {
-            ObfReferenceObject(v24);
-            Object = v24;
-          }
-          if ( _InterlockedCompareExchange64(v8 + 2, 0LL, 17LL) != 17 )
-            ExfReleasePushLockShared(v8 + 2);
-          KeAbPostRelease((ULONG_PTR)(v8 + 2));
+          v35 = 1;
+          if ( _InterlockedCompareExchange64(v51, 0LL, 17LL) != 17 )
+            ExfReleasePushLockShared(v51);
+          KeAbPostRelease((ULONG_PTR)v51);
           KeLeaveCriticalRegion();
-          while ( 1 )
-          {
-            if ( v40 == v43 || v40 == ObpRootDirectoryObject || !v40 || (*((_DWORD *)v40 + 84) & 0x20) != 0 )
-            {
-              v21 = v36;
+          goto LABEL_79;
+        }
+        memmove((char *)v39 - v29, *(const void **)(BugCheckParameter2a + 16), v29);
+        if ( _InterlockedCompareExchange64(v51, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared(v51);
+        KeAbPostRelease((ULONG_PTR)v51);
+        KeLeaveCriticalRegion();
+      }
+      v32 = (ULONG_PTR)v51;
+      if ( _InterlockedCompareExchange64(v51, 0LL, 17LL) != 17 )
+      {
+        ExfReleasePushLockShared(v51);
+        v32 = (ULONG_PTR)v51;
+      }
+      KeAbPostRelease(v32);
+      KeLeaveCriticalRegion();
+      v23 = v42 - 4;
+      v33 = v42 - 4;
+      if ( (unsigned __int64)(v42 - 4) < a2 + 16 )
+      {
+        v23 = (_WORD *)(a2 + 16);
+        v33 = (_WORD *)(a2 + 16);
+      }
+      *(_DWORD *)v23 = *(_DWORD *)L"...";
+      v23[2] = asc_1407DC0A0[2];
+      if ( v33 == (_WORD *)(a2 + 16) )
+        v23 = v33 + 1;
 LABEL_66:
-              v5 = a3;
-              goto LABEL_67;
-            }
-            v37 = v36 - 1;
-            *(v36 - 1) = 92;
-            v45 = v40 - 48;
-            if ( (*(v40 - 22) & 2) != 0 )
-              v25 = (__int64)&v40[-ObpInfoMaskToOffset[*(v40 - 22) & 3] - 48];
-            else
-              v25 = 0LL;
-            v49 = KeGetCurrentThread();
-            --v49->KernelApcDisable;
-            BugCheckParameter2a = (signed __int64 *)(v45 + 16);
-            ExAcquirePushLockSharedEx((ULONG_PTR)(v45 + 16), 0LL);
-            if ( !v25 || !*(_QWORD *)v25 )
-            {
-              if ( _InterlockedCompareExchange64(BugCheckParameter2a, 0LL, 17LL) != 17 )
-                ExfReleasePushLockShared(BugCheckParameter2a);
-              KeAbPostRelease((ULONG_PTR)BugCheckParameter2a);
-              KeLeaveCriticalRegion();
-              v21 = v36 - 4;
-              v29 = v36 - 4;
-              if ( (unsigned __int64)(v36 - 4) < a2 + 16 )
-              {
-                v21 = (_WORD *)(a2 + 16);
-                v29 = (_WORD *)(a2 + 16);
-              }
-              *(_DWORD *)v21 = *(_DWORD *)L"...";
-              v21[2] = asc_14086C4B0[2];
-              if ( v29 == (_WORD *)(a2 + 16) )
-                v21 = v29 + 1;
-              goto LABEL_66;
-            }
-            ObfDereferenceObject(Object);
-            v26 = *(char **)v25;
-            v40 = *(char **)v25;
-            ObfReferenceObject(*(PVOID *)v25);
-            Object = v26;
-            v27 = *(unsigned __int16 *)(v25 + 8);
-            v36 = (_WORD *)((char *)v37 - v27);
-            if ( (unsigned __int64)v37 - v27 <= a2 + 16 )
-              break;
-            memmove((char *)v37 - v27, *(const void **)(v25 + 16), v27);
-            if ( _InterlockedCompareExchange64(BugCheckParameter2a, 0LL, 17LL) != 17 )
-              ExfReleasePushLockShared(BugCheckParameter2a);
-            KeAbPostRelease((ULONG_PTR)BugCheckParameter2a);
-            KeLeaveCriticalRegion();
-          }
-          v31 = 1;
-          if ( _InterlockedCompareExchange64(BugCheckParameter2a, 0LL, 17LL) != 17 )
-            ExfReleasePushLockShared(BugCheckParameter2a);
-          KeAbPostRelease((ULONG_PTR)BugCheckParameter2a);
-          KeLeaveCriticalRegion();
-          v5 = a3;
-        }
+      v30 = v23 - 1;
+      *v30 = 92;
+      v31 = (unsigned __int16)(a2 + v41 - ((_WORD)v23 - 2));
+      v40 = v31;
+      *(_WORD *)(a2 + 2) = v31;
+      *(_WORD *)a2 = v31 - 2;
+      *(_QWORD *)(a2 + 8) = a2 + 16;
+      if ( (_WORD *)(a2 + 16) != v30 )
+      {
+        memmove((void *)(a2 + 16), v30, v31);
+        *a4 = v40 + 16;
       }
-      if ( Object )
-        ObfDereferenceObject(Object);
-      if ( !v31 )
-        goto LABEL_83;
-      if ( (*((_BYTE *)v8 + 26) & 2) != 0 )
-        v10 = (char *)v8 - ObpInfoMaskToOffset[*((_BYTE *)v8 + 26) & 3];
-      else
-        v10 = 0LL;
-      v44 = (void **)v10;
-      v31 = 0;
+      goto LABEL_79;
     }
-    v14 = v43;
+    v35 = 1;
+LABEL_79:
+    if ( DmaAdapter )
+      HalPutDmaAdapter(DmaAdapter);
+    if ( !v35 )
+      goto LABEL_82;
+    if ( (*((_BYTE *)v9 + 26) & 2) != 0 )
+      v11 = (char *)v9 - ObpInfoMaskToOffset[*((_BYTE *)v9 + 26) & 3];
+    else
+      v11 = 0LL;
+    v49 = (void **)v11;
+    v35 = 0;
+LABEL_91:
+    v15 = v48;
   }
   *a4 = 16;
-  if ( v5 >= 0x10 )
+  if ( a3 >= 0x10 )
   {
     *(_DWORD *)a2 = 0;
     *(_QWORD *)(a2 + 8) = 0LL;
-LABEL_83:
-    v32 = 0;
+LABEL_82:
+    v36 = 0;
     goto LABEL_8;
   }
   return (unsigned int)-1073741820;

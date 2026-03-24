@@ -1,22 +1,22 @@
 /*
- * XREFs of xxxBeginPaint @ 0x1C005E22C
+ * XREFs of xxxBeginPaint @ 0x1C007D8F4
  * Callers:
- *     NtUserBeginPaint @ 0x1C005E0C0 (NtUserBeginPaint.c)
- *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C00A3BCC (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
- *     ?xxxDWP_Paint@@YAXPEAUtagWND@@@Z @ 0x1C00C4C84 (-xxxDWP_Paint@@YAXPEAUtagWND@@@Z.c)
- *     xxxTooltipWndProc @ 0x1C010CED0 (xxxTooltipWndProc.c)
- *     ?xxxHandleMenuPainting@@YAXPEAUtagWND@@AEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C022F3B0 (-xxxHandleMenuPainting@@YAXPEAUtagWND@@AEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
- *     xxxSBWndProc @ 0x1C02420E0 (xxxSBWndProc.c)
+ *     ?xxxDWP_Paint@@YAXPEAUtagWND@@@Z @ 0x1C004608C (-xxxDWP_Paint@@YAXPEAUtagWND@@@Z.c)
+ *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C004639C (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ *     xxxTooltipWndProc @ 0x1C00DB220 (xxxTooltipWndProc.c)
+ *     NtUserBeginPaint @ 0x1C0100BB0 (NtUserBeginPaint.c)
+ *     ?xxxHandleMenuPainting@@YAXPEAUtagWND@@AEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C0235BCC (-xxxHandleMenuPainting@@YAXPEAUtagWND@@AEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
+ *     xxxSBWndProc @ 0x1C0246160 (xxxSBWndProc.c)
  * Callees:
- *     ClearHungFlag @ 0x1C005F8F0 (ClearHungFlag.c)
- *     ?xxxSendChildNCPaint@@YAXPEAUtagWND@@@Z @ 0x1C005F954 (-xxxSendChildNCPaint@@YAXPEAUtagWND@@@Z.c)
- *     UT_GetParentDCClipBox @ 0x1C005F9E0 (UT_GetParentDCClipBox.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     zzzInternalHideCaret @ 0x1C00C33BC (zzzInternalHideCaret.c)
- *     xxxSendEraseBkgnd @ 0x1C00F0318 (xxxSendEraseBkgnd.c)
- *     ?GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z @ 0x1C00F4854 (-GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z.c)
- *     CalcWindowRgn @ 0x1C00F4988 (CalcWindowRgn.c)
- *     ?xxxSendNCPaint@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C00F99D0 (-xxxSendNCPaint@@YAXPEAUtagWND@@PEAUHRGN__@@@Z.c)
+ *     CalcWindowRgn @ 0x1C004DF38 (CalcWindowRgn.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     zzzInternalHideCaret @ 0x1C0067540 (zzzInternalHideCaret.c)
+ *     ClearHungFlag @ 0x1C007BEC8 (ClearHungFlag.c)
+ *     ?xxxSendChildNCPaint@@YAXPEAUtagWND@@@Z @ 0x1C007DB7C (-xxxSendChildNCPaint@@YAXPEAUtagWND@@@Z.c)
+ *     UT_GetParentDCClipBox @ 0x1C007DC08 (UT_GetParentDCClipBox.c)
+ *     ?GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z @ 0x1C00F51F0 (-GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z.c)
+ *     xxxSendEraseBkgnd @ 0x1C0104324 (xxxSendEraseBkgnd.c)
+ *     ?xxxSendNCPaint@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C010F540 (-xxxSendNCPaint@@YAXPEAUtagWND@@PEAUHRGN__@@@Z.c)
  */
 
 __int64 __fastcall xxxBeginPaint(struct tagWND *a1, __int64 a2)
@@ -33,13 +33,13 @@ __int64 __fastcall xxxBeginPaint(struct tagWND *a1, __int64 a2)
   __int64 EmptyRgnPublic; // rax
 
   if ( (gdwPUDFlags & 0x10000000) != 0 )
-    SetOrClrWF(1LL, a1, 1028LL, 1LL);
-  SetOrClrWF(0LL, a1, 576LL, 1LL);
+    SetOrClrWF(1, (__int64)a1, 0x404u, 1);
+  SetOrClrWF(0, (__int64)a1, 0x240u, 1);
   if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 17LL) & 8) != 0 )
   {
     do
     {
-      SetOrClrWF(0LL, a1, 288LL, 1LL);
+      SetOrClrWF(0, (__int64)a1, 0x120u, 1);
       NCUpdateRgn = GetNCUpdateRgn(a1, 0);
       xxxSendNCPaint(a1, NCUpdateRgn);
       DeleteMaybeSpecialRgn(NCUpdateRgn);
@@ -48,7 +48,7 @@ __int64 __fastcall xxxBeginPaint(struct tagWND *a1, __int64 a2)
   }
   else
   {
-    SetOrClrWF(0LL, a1, 288LL, 1LL);
+    SetOrClrWF(0, (__int64)a1, 0x120u, 1);
   }
   if ( a1 == *(struct tagWND **)(*(_QWORD *)(gptiCurrent + 432LL) + 296LL) )
     zzzInternalHideCaret();
@@ -56,8 +56,8 @@ __int64 __fastcall xxxBeginPaint(struct tagWND *a1, __int64 a2)
   v5 = *(_BYTE *)(v4 + 17) & 2;
   if ( (*(_BYTE *)(v4 + 17) & 2) != 0 )
   {
-    SetOrClrWF(0LL, a1, 260LL, 1LL);
-    SetOrClrWF(0LL, a1, 258LL, 1LL);
+    SetOrClrWF(0, (__int64)a1, 0x104u, 1);
+    SetOrClrWF(0, (__int64)a1, 0x102u, 1);
     v4 = *((_QWORD *)a1 + 5);
   }
   if ( *(_QWORD *)(v4 + 136) || (*(_BYTE *)(v4 + 17) & 0x10) != 0 )
@@ -65,11 +65,11 @@ __int64 __fastcall xxxBeginPaint(struct tagWND *a1, __int64 a2)
     v6 = *((_QWORD *)a1 + 2);
     if ( (*(_DWORD *)(v6 + 600))-- == 1 )
     {
-      _InterlockedAnd((volatile signed __int32 *)(*(_QWORD *)(v6 + 448) + 8LL), 0xFFFFFFDF);
-      _InterlockedAnd((volatile signed __int32 *)(*(_QWORD *)(v6 + 448) + 4LL), 0xFFFFFFDF);
+      *(_WORD *)(*(_QWORD *)(v6 + 448) + 6LL) &= ~0x20u;
+      *(_WORD *)(*(_QWORD *)(v6 + 448) + 4LL) &= ~0x20u;
     }
   }
-  SetOrClrWF(0LL, a1, 272LL, 1LL);
+  SetOrClrWF(0, (__int64)a1, 0x110u, 1);
   v8 = *((_QWORD *)a1 + 5);
   v9 = *(_QWORD *)(v8 + 136);
   *(_QWORD *)(v8 + 136) = 0LL;
@@ -81,7 +81,7 @@ __int64 __fastcall xxxBeginPaint(struct tagWND *a1, __int64 a2)
       if ( ghrgnUpdateSave || (EmptyRgnPublic = CreateEmptyRgnPublic(), (ghrgnUpdateSave = EmptyRgnPublic) != 0) )
       {
         if ( v9 == 1 )
-          CalcWindowRgn(a1, EmptyRgnPublic, (((unsigned int)gRdwFlags >> 10) & 1) == 0);
+          CalcWindowRgn((__int64)a1, EmptyRgnPublic, (((unsigned int)gRdwFlags >> 10) & 1) == 0);
         else
           GreCombineRgn(EmptyRgnPublic, EmptyRgnPublic, v9, 2LL);
         ++gnUpdateSave;
@@ -96,7 +96,7 @@ __int64 __fastcall xxxBeginPaint(struct tagWND *a1, __int64 a2)
   if ( (unsigned int)UT_GetParentDCClipBox(a1, DCEx, a2 + 12) && v5 )
     xxxSendEraseBkgnd(a1, v11, v9);
   xxxSendChildNCPaint(a1);
-  ClearHungFlag(a1);
+  ClearHungFlag(a1, 0x308u);
   result = v11;
   *(_DWORD *)(a2 + 8) = (*(unsigned __int8 *)(*((_QWORD *)a1 + 5) + 17LL) >> 2) & 1;
   return result;

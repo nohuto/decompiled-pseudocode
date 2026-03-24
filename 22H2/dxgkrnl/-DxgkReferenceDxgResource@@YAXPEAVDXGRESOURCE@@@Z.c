@@ -1,16 +1,27 @@
 /*
- * XREFs of ?DxgkReferenceDxgResource@@YAXPEAVDXGRESOURCE@@@Z @ 0x1C01B622C
+ * XREFs of ?DxgkReferenceDxgResource@@YAXPEAVDXGRESOURCE@@@Z @ 0x1C0115D70
  * Callers:
- *     ?OpenResourceObject@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@EPEAU_EPROCESS@@PEAU_DXGSHAREDALLOCOBJECT@@PEAVDXGRESOURCEREFERENCE@@PEAEPEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVDXGAUTOMUTEX@@PEAVDXGAUTOPUSHLOCK@@@Z @ 0x1C01B5930 (-OpenResourceObject@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@E.c)
- *     DxgkAcquireHandleDataCB @ 0x1C01D1D60 (DxgkAcquireHandleDataCB.c)
- *     ?PopDirectFlipAllocationFromList@DXGDEVICE@@AEAAPEAVDXGALLOCATION@@IPEAIPEAE@Z @ 0x1C02EC370 (-PopDirectFlipAllocationFromList@DXGDEVICE@@AEAAPEAVDXGALLOCATION@@IPEAIPEAE@Z.c)
- *     ?UnpinDirectFlipAllocation@DXGDEVICE@@QEAAJIIPEAPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C02EDA48 (-UnpinDirectFlipAllocation@DXGDEVICE@@QEAAJIIPEAPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?CreateResourceHandleSafe@DXGPROCESS@@QEAAXPEAVDXGRESOURCE@@@Z @ 0x1C00053A8 (-CreateResourceHandleSafe@DXGPROCESS@@QEAAXPEAVDXGRESOURCE@@@Z.c)
+ *     ?PopDirectFlipAllocationFromList@DXGDEVICE@@AEAAPEAVDXGALLOCATION@@IPEAIPEAE@Z @ 0x1C00E0DD0 (-PopDirectFlipAllocationFromList@DXGDEVICE@@AEAAPEAVDXGALLOCATION@@IPEAIPEAE@Z.c)
+ *     DxgkAcquireHandleDataCB @ 0x1C0119450 (DxgkAcquireHandleDataCB.c)
+ *     ?UnpinDirectFlipAllocation@DXGDEVICE@@QEAAJIIPEAPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C0171EFC (-UnpinDirectFlipAllocation@DXGDEVICE@@QEAAJIIPEAPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall DxgkReferenceDxgResource(struct _EX_RUNDOWN_REF *a1)
 {
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+
   if ( !ExAcquireRundownProtection(a1 + 9) )
-    WdLogSingleEntry5(0LL, 275LL, 38LL, a1, 0LL, 0LL);
+  {
+    v4 = WdLogNewEntry5_WdCriticalError(v3, v2);
+    *(_QWORD *)(v4 + 24) = 275LL;
+    *(_QWORD *)(v4 + 32) = 38LL;
+    *(_QWORD *)(v4 + 40) = a1;
+    *(_OWORD *)(v4 + 48) = 0LL;
+    WdLogEvent5_WdCriticalError(v4);
+  }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiGetBitmapDimension @ 0x1C02ACD40
+ * XREFs of NtGdiGetBitmapDimension @ 0x1C02AE610
  * Callers:
  *     <none>
  * Callees:
- *     GreGetBitmapDimension @ 0x1C02BFBA8 (GreGetBitmapDimension.c)
+ *     GreGetBitmapDimension @ 0x1C02C1210 (GreGetBitmapDimension.c)
  */
 
 __int64 __fastcall NtGdiGetBitmapDimension(HSURF a1, _QWORD *a2)

@@ -1,21 +1,26 @@
 /*
- * XREFs of RIMIsInputSuppressed @ 0x1C00053B0
+ * XREFs of RIMIsInputSuppressed @ 0x1C0166400
  * Callers:
- *     rimProcessDeviceBufferAndStartRead @ 0x1C0004A38 (rimProcessDeviceBufferAndStartRead.c)
- *     rimSignalReadComplete @ 0x1C0005120 (rimSignalReadComplete.c)
- *     rimApplyPointerDevicePolicies @ 0x1C00E2D30 (rimApplyPointerDevicePolicies.c)
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0175060 (rimProcessDeviceBufferAndStartRead.c)
+ *     rimSignalReadComplete @ 0x1C0175E58 (rimSignalReadComplete.c)
+ *     RIMProcessAnyPointerDeviceInput @ 0x1C01784F4 (RIMProcessAnyPointerDeviceInput.c)
+ *     rimApplyPointerDevicePolicies @ 0x1C0178FB0 (rimApplyPointerDevicePolicies.c)
  * Callees:
- *     RIMIsWakeCapableDevice @ 0x1C00BF6E4 (RIMIsWakeCapableDevice.c)
+ *     RimDeviceTypeToRimInputType @ 0x1C0056804 (RimDeviceTypeToRimInputType.c)
  */
 
 __int64 __fastcall RIMIsInputSuppressed(__int64 a1)
 {
   int v1; // eax
-  unsigned int v2; // ebx
+  unsigned int v2; // r8d
 
-  v1 = *(_DWORD *)(a1 + 1320);
+  v1 = *(_DWORD *)(a1 + 1328);
   v2 = 0;
-  if ( v1 == 1 || v1 == 2 && !(unsigned int)RIMIsWakeCapableDevice() )
+  if ( v1 == 1
+    || v1 == 2
+    && ((unsigned int)RimDeviceTypeToRimInputType(a1, *(unsigned __int8 *)(a1 + 48)) & gWakeOnDeviceTypes) == 0 )
+  {
     return 1;
+  }
   return v2;
 }

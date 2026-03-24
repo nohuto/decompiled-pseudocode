@@ -1,10 +1,10 @@
 /*
- * XREFs of NtGdiGetKerningPairs @ 0x1C01300F0
+ * XREFs of NtGdiGetKerningPairs @ 0x1C013FEF0
  * Callers:
  *     <none>
  * Callees:
- *     GreGetKerningPairs @ 0x1C01301E4 (GreGetKerningPairs.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     GreGetKerningPairs @ 0x1C013FFE4 (GreGetKerningPairs.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall NtGdiGetKerningPairs(HDC a1, unsigned int a2, char *a3)

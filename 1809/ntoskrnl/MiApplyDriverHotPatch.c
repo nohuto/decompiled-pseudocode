@@ -1,24 +1,24 @@
 /*
- * XREFs of MiApplyDriverHotPatch @ 0x1408540A0
+ * XREFs of MiApplyDriverHotPatch @ 0x140854080
  * Callers:
- *     MiApplyHotPatchToLoadedDriver @ 0x1408543E8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408543C8 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     VslApplyHotPatch @ 0x14027ABF8 (VslApplyHotPatch.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     VslApplyHotPatch @ 0x14027ACF8 (VslApplyHotPatch.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiCompressImportList @ 0x1406C87B8 (MiCompressImportList.c)
- *     MiAllocateImportList @ 0x1406C88C4 (MiAllocateImportList.c)
- *     VslDetermineHotPatchUndoTableSize @ 0x14081858C (VslDetermineHotPatchUndoTableSize.c)
- *     VslObtainHotPatchUndoTable @ 0x140818B94 (VslObtainHotPatchUndoTable.c)
- *     MiAllocateHotPatchPageBitMap @ 0x140853F8C (MiAllocateHotPatchPageBitMap.c)
- *     MiPrepareDriverForHotPatch @ 0x14085727C (MiPrepareDriverForHotPatch.c)
- *     MiUnlockHotPatchPages @ 0x1408583BC (MiUnlockHotPatchPages.c)
- *     MiGetSectionStrongImageReference @ 0x14085C318 (MiGetSectionStrongImageReference.c)
- *     RtlFindHotPatchBase @ 0x140899CB0 (RtlFindHotPatchBase.c)
- *     RtlFindHotPatchInformation @ 0x140899CDC (RtlFindHotPatchInformation.c)
+ *     MiCompressImportList @ 0x1406C8798 (MiCompressImportList.c)
+ *     MiAllocateImportList @ 0x1406C88A4 (MiAllocateImportList.c)
+ *     VslDetermineHotPatchUndoTableSize @ 0x14081856C (VslDetermineHotPatchUndoTableSize.c)
+ *     VslObtainHotPatchUndoTable @ 0x140818B74 (VslObtainHotPatchUndoTable.c)
+ *     MiAllocateHotPatchPageBitMap @ 0x140853F6C (MiAllocateHotPatchPageBitMap.c)
+ *     MiPrepareDriverForHotPatch @ 0x14085725C (MiPrepareDriverForHotPatch.c)
+ *     MiUnlockHotPatchPages @ 0x14085839C (MiUnlockHotPatchPages.c)
+ *     MiGetSectionStrongImageReference @ 0x14085C2F8 (MiGetSectionStrongImageReference.c)
+ *     RtlFindHotPatchBase @ 0x140899C90 (RtlFindHotPatchBase.c)
+ *     RtlFindHotPatchInformation @ 0x140899CBC (RtlFindHotPatchInformation.c)
  */
 
 NTSTATUS __fastcall MiApplyDriverHotPatch(unsigned __int64 a1, __int64 a2)

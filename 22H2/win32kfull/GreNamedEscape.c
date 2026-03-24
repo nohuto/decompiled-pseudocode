@@ -1,18 +1,22 @@
 /*
- * XREFs of GreNamedEscape @ 0x1C02B3788
+ * XREFs of GreNamedEscape @ 0x1C02A6FD4
  * Callers:
- *     NtGdiExtEscape @ 0x1C0076E90 (NtGdiExtEscape.c)
+ *     NtGdiExtEscape @ 0x1C00A7450 (NtGdiExtEscape.c)
  * Callees:
- *     AtmDrvFontManagementRedirector @ 0x1C02A7884 (AtmDrvFontManagementRedirector.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     AtmDrvFontManagementRedirector @ 0x1C029E5C4 (AtmDrvFontManagementRedirector.c)
  */
 
-__int64 __fastcall GreNamedEscape(const wchar_t *a1, int a2, int a3, int *a4, int a5, __int64 a6)
+__int64 __fastcall GreNamedEscape(wchar_t *Str1, int a2, int a3, int *a4, int a5, __int64 a6)
 {
-  __int64 v9; // rdx
-  __int64 v10; // rcx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  _BYTE v13[520]; // [rsp+40h] [rbp-248h] BYREF
 
-  if ( _wcsicmp(a1, L"atmfd.dll") )
+  memset(v13, 0, sizeof(v13));
+  if ( _wcsicmp(Str1, L"atmfd.dll") )
     return 0LL;
   else
-    return AtmDrvFontManagementRedirector(v10, v9, a2, a3, a4, a5, a6);
+    return AtmDrvFontManagementRedirector(v11, v10, a2, a3, a4, a5, a6);
 }

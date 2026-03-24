@@ -1,46 +1,51 @@
 /*
- * XREFs of WheapLogPageOfflineAttemptEvent @ 0x140A0947C
+ * XREFs of WheapLogPageOfflineAttemptEvent @ 0x1405BD628
  * Callers:
- *     WheapAttemptPhysicalPageOffline @ 0x140A08FFC (WheapAttemptPhysicalPageOffline.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x14095D69C (WheapAttemptPhysicalPageOffline.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     WheapTrackPendingPage @ 0x140A0A490 (WheapTrackPendingPage.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall WheapLogPageOfflineAttemptEvent(__int64 a1, char a2, char a3, char a4, char a5)
 {
-  bool v9; // [rsp+38h] [rbp-21h] BYREF
-  bool v10; // [rsp+39h] [rbp-20h] BYREF
-  bool v11; // [rsp+3Ah] [rbp-1Fh] BYREF
-  bool v12; // [rsp+3Bh] [rbp-1Eh] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-11h] BYREF
-  bool *v14; // [rsp+58h] [rbp-1h]
-  __int64 v15; // [rsp+60h] [rbp+7h]
-  bool *v16; // [rsp+68h] [rbp+Fh]
-  __int64 v17; // [rsp+70h] [rbp+17h]
-  bool *v18; // [rsp+78h] [rbp+1Fh]
-  __int64 v19; // [rsp+80h] [rbp+27h]
-  bool *v20; // [rsp+88h] [rbp+2Fh]
-  __int64 v21; // [rsp+90h] [rbp+37h]
-  __int64 v22; // [rsp+B8h] [rbp+5Fh] BYREF
+  bool v6; // [rsp+40h] [rbp-21h] BYREF
+  bool v7; // [rsp+41h] [rbp-20h] BYREF
+  bool v8; // [rsp+42h] [rbp-1Fh] BYREF
+  bool v9; // [rsp+43h] [rbp-1Eh] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-11h] BYREF
+  bool *v11; // [rsp+60h] [rbp-1h]
+  __int64 v12; // [rsp+68h] [rbp+7h]
+  bool *v13; // [rsp+70h] [rbp+Fh]
+  __int64 v14; // [rsp+78h] [rbp+17h]
+  bool *v15; // [rsp+80h] [rbp+1Fh]
+  __int64 v16; // [rsp+88h] [rbp+27h]
+  bool *v17; // [rsp+90h] [rbp+2Fh]
+  __int64 v18; // [rsp+98h] [rbp+37h]
+  __int64 v19; // [rsp+C0h] [rbp+5Fh] BYREF
 
-  v22 = a1;
-  if ( a2 == 1 )
-    WheapTrackPendingPage();
+  v19 = a1;
+  UserData.Ptr = (ULONGLONG)&v19;
   *(_QWORD *)&UserData.Size = 8LL;
-  v15 = 1LL;
-  v17 = 1LL;
-  UserData.Ptr = (ULONGLONG)&v22;
-  v9 = a2 != 0;
-  v19 = 1LL;
-  v14 = &v9;
-  v10 = a5 != 0;
-  v16 = &v10;
-  v21 = 1LL;
-  v11 = a3 != 0;
-  v18 = &v11;
-  v20 = &v12;
-  v12 = a4 != 0;
-  return EtwWrite((REGHANDLE)WheapDispatchPtr.Queue.Wcb.DeviceRoutine, &EVENT_WHEA_MEMORY_OFFLINE, 0LL, 5u, &UserData);
+  v12 = 1LL;
+  v6 = a2 != 0;
+  v11 = &v6;
+  v13 = &v7;
+  v7 = a5 != 0;
+  v14 = 1LL;
+  v16 = 1LL;
+  v18 = 1LL;
+  v8 = a3 != 0;
+  v15 = &v8;
+  v17 = &v9;
+  v9 = a4 != 0;
+  return EtwWriteEx(
+           (REGHANDLE)WheapDispatchPtr.Queue.Wcb.DeviceObject,
+           &EVENT_WHEA_MEMORY_OFFLINE,
+           0LL,
+           0,
+           0LL,
+           0LL,
+           5u,
+           &UserData);
 }

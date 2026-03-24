@@ -1,38 +1,40 @@
 /*
- * XREFs of CreateNameSpaceObject @ 0x1C004F12C
+ * XREFs of CreateNameSpaceObject @ 0x1C0006720
  * Callers:
- *     AMLICreateNativeNamespaceObject @ 0x1C0049A18 (AMLICreateNativeNamespaceObject.c)
- *     CreateNativeNameSpaceObject @ 0x1C0049D58 (CreateNativeNameSpaceObject.c)
- *     AMLIAddNextNamespaceOverride @ 0x1C004A3EC (AMLIAddNextNamespaceOverride.c)
- *     AMLIAddNextNamespaceOverrideObject @ 0x1C004A554 (AMLIAddNextNamespaceOverrideObject.c)
- *     AMLIApplyNextNamespaceOverride @ 0x1C004A73C (AMLIApplyNextNamespaceOverride.c)
- *     BankField @ 0x1C004FED0 (BankField.c)
- *     CreateXField @ 0x1C0050394 (CreateXField.c)
- *     Device @ 0x1C00504B0 (Device.c)
- *     Event @ 0x1C0050570 (Event.c)
- *     Field @ 0x1C00505D0 (Field.c)
- *     IndexField @ 0x1C0050760 (IndexField.c)
- *     Method @ 0x1C0050B00 (Method.c)
- *     Mutex @ 0x1C0050C70 (Mutex.c)
- *     OpRegion @ 0x1C0050D20 (OpRegion.c)
- *     PowerRes @ 0x1C0050EA0 (PowerRes.c)
- *     Processor @ 0x1C0051010 (Processor.c)
- *     ThermalZone @ 0x1C0051180 (ThermalZone.c)
- *     Alias @ 0x1C0055320 (Alias.c)
- *     Name @ 0x1C00553D0 (Name.c)
- *     ParseField @ 0x1C005AB50 (ParseField.c)
- *     AMLIInitialize @ 0x1C00AAAC0 (AMLIInitialize.c)
- *     Simulator_NotifyTablesAreLoaded @ 0x1C00AB370 (Simulator_NotifyTablesAreLoaded.c)
+ *     Name @ 0x1C0003DD0 (Name.c)
+ *     Mutex @ 0x1C0010280 (Mutex.c)
+ *     Field @ 0x1C0021B10 (Field.c)
+ *     ParseField @ 0x1C0021D30 (ParseField.c)
+ *     Device @ 0x1C0022980 (Device.c)
+ *     CreateNativeNameSpaceObject @ 0x1C0022FC4 (CreateNativeNameSpaceObject.c)
+ *     Alias @ 0x1C0023220 (Alias.c)
+ *     Processor @ 0x1C0023330 (Processor.c)
+ *     IndexField @ 0x1C00237F0 (IndexField.c)
+ *     PowerRes @ 0x1C0023BB0 (PowerRes.c)
+ *     ThermalZone @ 0x1C00251A0 (ThermalZone.c)
+ *     Method @ 0x1C0028A20 (Method.c)
+ *     CreateXField @ 0x1C00291A8 (CreateXField.c)
+ *     OpRegion @ 0x1C0029EA0 (OpRegion.c)
+ *     AMLICreateNativeNamespaceObject @ 0x1C0064348 (AMLICreateNativeNamespaceObject.c)
+ *     AMLIAddNextNamespaceOverride @ 0x1C0064824 (AMLIAddNextNamespaceOverride.c)
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C006498C (AMLIAddNextNamespaceOverrideObject.c)
+ *     AMLIApplyNextNamespaceOverride @ 0x1C0064B00 (AMLIApplyNextNamespaceOverride.c)
+ *     BankField @ 0x1C0066FD0 (BankField.c)
+ *     Event @ 0x1C0067310 (Event.c)
+ *     AMLIInitialize @ 0x1C00BCD10 (AMLIInitialize.c)
+ *     Simulator_NotifyTablesAreLoaded @ 0x1C00C06CC (Simulator_NotifyTablesAreLoaded.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     Simulator_NotifyNamespaceCollision @ 0x1C00493C0 (Simulator_NotifyNamespaceCollision.c)
- *     InsertOwnerObjList @ 0x1C004BE10 (InsertOwnerObjList.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     GetNameSpaceObjectNoLock @ 0x1C004F860 (GetNameSpaceObjectNoLock.c)
- *     NewNameSpaceObject @ 0x1C004FE10 (NewNameSpaceObject.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     GetNameSpaceObjectNoLock @ 0x1C0009160 (GetNameSpaceObjectNoLock.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     NewNameSpaceObject @ 0x1C002BD38 (NewNameSpaceObject.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     InsertOwnerObjList @ 0x1C002D368 (InsertOwnerObjList.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     Simulator_NotifyNamespaceCollision @ 0x1C0063CF0 (Simulator_NotifyNamespaceCollision.c)
  */
 
 __int64 __fastcall CreateNameSpaceObject(
@@ -40,319 +42,298 @@ __int64 __fastcall CreateNameSpaceObject(
         unsigned __int8 *a2,
         __int64 a3,
         struct _EX_RUNDOWN_REF *a4,
-        __int64 *a5,
+        _QWORD *a5,
         int a6)
 {
-  __int64 v6; // rbx
-  struct _EX_RUNDOWN_REF *v8; // r15
-  unsigned __int8 *v9; // r14
-  unsigned int v10; // edi
-  size_t v11; // r15
-  char *Pool2; // r13
-  KIRQL v14; // r14
-  __int64 *v15; // rax
-  __int64 v16; // rsi
-  KIRQL v17; // dl
-  KIRQL v18; // r15
-  unsigned int NameSpaceObjectNoLock; // edx
-  __int64 v20; // rcx
-  __int64 *i; // rcx
-  __int64 v22; // rax
-  int v23; // ecx
-  __int64 v24; // rax
-  struct _EX_RUNDOWN_REF *v25; // rcx
-  char *v26; // rax
-  unsigned __int8 *v27; // r15
-  unsigned __int8 v28; // al
+  _QWORD *v6; // r14
+  __int64 v7; // rbx
+  __int64 v9; // rsi
+  unsigned __int8 *v10; // rdi
+  unsigned int v11; // ebp
+  _QWORD *v12; // r12
+  size_t v13; // rbx
+  char *PoolWithTag; // r15
+  unsigned int NameSpaceObjectNoLock; // eax
+  int v16; // ecx
+  char *v17; // rax
+  unsigned __int8 *v18; // r14
+  __int64 v19; // rbx
+  char *v20; // rax
+  char *v21; // rsi
+  _DWORD *v22; // rcx
+  __int64 v23; // rbx
+  _QWORD *v24; // rcx
+  KIRQL v26; // bl
+  _QWORD *v27; // rdx
+  KIRQL v28; // dl
   __int64 v29; // rax
-  __int64 v30; // rcx
-  size_t v31; // rax
-  bool v32; // zf
-  __int64 v33; // rax
-  size_t v34; // r8
-  __int64 *v35; // rax
-  __int64 v36; // rsi
-  KIRQL v37; // [rsp+30h] [rbp-D0h]
-  __int64 v38; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v39; // [rsp+40h] [rbp-C0h] BYREF
-  struct _EX_RUNDOWN_REF *v40; // [rsp+48h] [rbp-B8h]
-  __int64 v41; // [rsp+50h] [rbp-B0h]
-  size_t Size; // [rsp+58h] [rbp-A8h]
-  __int64 *v43; // [rsp+60h] [rbp-A0h]
-  char Str[128]; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v30; // rax
+  __int64 i; // rax
+  KIRQL v32; // [rsp+30h] [rbp-108h]
+  __int64 v33; // [rsp+38h] [rbp-100h]
+  __int64 v34; // [rsp+40h] [rbp-F8h]
+  __int64 v35; // [rsp+48h] [rbp-F0h]
+  char Str[128]; // [rsp+60h] [rbp-D8h] BYREF
 
-  v43 = a5;
-  v6 = 0LL;
-  v40 = a4;
-  v41 = a1;
-  v38 = 0LL;
-  v8 = a4;
-  v9 = a2;
-  v10 = 0;
+  v6 = a5;
+  v7 = a1;
+  v35 = a3;
+  v9 = a3;
+  v10 = a2;
+  v11 = 0;
+  v12 = 0LL;
   if ( a2 )
   {
-    v11 = -1LL;
+    v13 = -1LL;
     do
-      ++v11;
-    while ( a2[v11] );
-    if ( v11 + 1 >= 0x80 )
+      ++v13;
+    while ( a2[v13] );
+    if ( v13 + 1 >= 0x80 )
     {
-      Pool2 = (char *)ExAllocatePool2(64LL, v11 + 1, 1768973121LL);
-      if ( !Pool2 )
+      PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v13 + 1, 0x69706341u);
+      if ( !PoolWithTag )
         return 3221225626LL;
     }
     else
     {
-      Pool2 = Str;
+      PoolWithTag = Str;
     }
-    memmove(Pool2, v9, v11);
-    a1 = v41;
-    v9 = (unsigned __int8 *)Pool2;
-    Pool2[v11] = 0;
-    v8 = v40;
+    memmove(PoolWithTag, v10, v13);
+    PoolWithTag[v13] = 0;
+    v10 = (unsigned __int8 *)PoolWithTag;
+    v7 = a1;
   }
   else
   {
-    Pool2 = 0LL;
+    PoolWithTag = 0LL;
   }
-  if ( !a3 )
-    a3 = gpnsNameSpaceRoot;
-  if ( v9 )
+  if ( !v9 )
   {
-    v37 = ExAcquireSpinLockExclusive(&ACPINamespaceLock);
-    v18 = v37;
-    if ( *v9 )
-    {
-      NameSpaceObjectNoLock = GetNameSpaceObjectNoLock(v9, a3, &v38, 1LL);
-      v10 = NameSpaceObjectNoLock;
-      if ( !NameSpaceObjectNoLock )
-      {
-        if ( (a6 & 0x20000) == 0 )
-        {
-          v6 = v38;
-          if ( !_bittest16((const signed __int16 *)(v38 + 64), 8u) )
-          {
-            ExReleaseSpinLockExclusive(&ACPINamespaceLock, v37);
-            if ( (!g_SimulatorCallbackObject || (int)Simulator_NotifyNamespaceCollision((__int64)v9, a3) < 0)
-              && (a6 & 0x10000) == 0 )
-            {
-              LogError(-1073741771);
-              AcpiDiagTraceAmlError(0LL, -1073741771);
-              PrintDebugMessage(35, v9, 0LL, 0LL, 0LL);
-            }
-            v10 = -1073741771;
-            goto LABEL_75;
-          }
-          v20 = *(_QWORD *)(v38 + 48);
-          v10 = 0;
-          if ( v20 )
-          {
-            for ( i = (__int64 *)(v20 + 24); ; i = (__int64 *)(v22 + 56) )
-            {
-              v22 = *i;
-              if ( !*i )
-                break;
-              if ( v22 == v38 )
-              {
-                *i = *(_QWORD *)(v38 + 56);
-                break;
-              }
-            }
-            ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*(_QWORD *)(v6 + 48) + 32LL));
-          }
-          InsertOwnerObjList(v40, (struct _EX_RUNDOWN_REF *)v6);
-          *(_WORD *)(v6 + 64) &= ~0x100u;
-          v17 = v37;
-          *(_WORD *)(v6 + 64) |= 0x80u;
-          goto LABEL_19;
-        }
-        v10 = -1073741771;
-        ExReleaseSpinLockExclusive(&ACPINamespaceLock, v37);
-        v6 = v38;
-LABEL_75:
-        if ( v43 )
-          *v43 = v6;
-        goto LABEL_77;
-      }
-      if ( NameSpaceObjectNoLock != -1073741772 )
-      {
-        ExReleaseSpinLockExclusive(&ACPINamespaceLock, v37);
-        v6 = v38;
-LABEL_74:
-        if ( v10 != -1073741771 )
-          goto LABEL_77;
-        goto LABEL_75;
-      }
-      v6 = v38;
-    }
-    v10 = 0;
-    v23 = *v9 - 92;
-    if ( *v9 == 92 )
-      v23 = v9[1];
-    if ( !v23 )
-    {
-      v24 = NewNameSpaceObject(v41);
-      v6 = v24;
-      if ( v24 )
-      {
-        v25 = v40;
-        *(_DWORD *)(v24 + 40) = 1600085852;
-        gpnsNameSpaceRoot = v24;
-        InsertOwnerObjList(v25, (struct _EX_RUNDOWN_REF *)v24);
-      }
-      else
-      {
-        v10 = -1073741670;
-        LogError(-1073741670);
-        AcpiDiagTraceAmlError(0LL, -1073741670);
-        PrintDebugMessage(36, 0LL, 0LL, 0LL, 0LL);
-      }
-LABEL_73:
-      ExReleaseSpinLockExclusive(&ACPINamespaceLock, v18);
-      if ( !v10 )
-        goto LABEL_75;
-      goto LABEL_74;
-    }
-    v39 = 0LL;
-    v26 = strrchr((const char *)v9, 46);
-    if ( v26 )
-    {
-      *v26 = 0;
-      v27 = (unsigned __int8 *)(v26 + 1);
-      v10 = GetNameSpaceObjectNoLock(v9, a3, &v39, 2147483649LL);
-      if ( v10 )
-      {
-LABEL_72:
-        v18 = v37;
-        goto LABEL_73;
-      }
-      a3 = v39;
-    }
-    else
-    {
-      v28 = *v9;
-      if ( *v9 == 92 )
-      {
-        a3 = gpnsNameSpaceRoot;
-        v27 = v9 + 1;
-        v39 = gpnsNameSpaceRoot;
-      }
-      else
-      {
-        v39 = a3;
-        v27 = v9;
-        if ( v28 == 94 )
-        {
-          v29 = a3;
-          v30 = a3;
-          do
-          {
-            if ( !v29 )
-              break;
-            a3 = *(_QWORD *)(v30 + 16);
-            ++v27;
-            v29 = a3;
-            v39 = a3;
-            v30 = a3;
-          }
-          while ( *v27 == 94 );
-        }
-      }
-    }
-    v31 = -1LL;
-    do
-      ++v31;
-    while ( v27[v31] );
-    v32 = *v27 == 0;
-    Size = v31;
-    if ( v32 || (unsigned int)v31 <= 4 )
-    {
-      v33 = NewNameSpaceObject(v41);
-      v38 = v33;
-      v6 = v33;
-      if ( v33 )
-      {
-        if ( *v9 )
-        {
-          v34 = (unsigned int)Size;
-          *(_DWORD *)(v33 + 40) = 1600085855;
-          memmove((void *)(v33 + 40), v27, v34);
-        }
-        else
-        {
-          *(_DWORD *)(v33 + 40) = 0;
-        }
-        *(_QWORD *)(v6 + 16) = a3;
-        if ( (gdwfAMLI & 4) != 0 )
-        {
-          _InterlockedIncrement((volatile signed __int32 *)(a3 + 112));
-          v6 = v38;
-          a3 = v39;
-        }
-        InsertOwnerObjList(v40, (struct _EX_RUNDOWN_REF *)v6);
-        v35 = *(__int64 **)(a3 + 32);
-        v36 = a3 + 24;
-        if ( *v35 != v36 )
-          goto LABEL_70;
-        *(_QWORD *)v6 = v36;
-        *(_QWORD *)(v6 + 8) = v35;
-        *v35 = v6;
-        *(_QWORD *)(v36 + 8) = v6;
-      }
-      else
-      {
-        v10 = -1073741670;
-        LogError(-1073741670);
-        AcpiDiagTraceAmlError(0LL, -1073741670);
-        PrintDebugMessage(36, 0LL, 0LL, 0LL, 0LL);
-      }
-    }
-    else
-    {
-      v10 = -1073741773;
-      LogError(-1073741773);
-      AcpiDiagTraceAmlError(0LL, -1073741773);
-      PrintDebugMessage(37, v27, 0LL, 0LL, 0LL);
-    }
-    goto LABEL_72;
+    v9 = gpnsNameSpaceRoot;
+    v35 = gpnsNameSpaceRoot;
   }
-  v38 = NewNameSpaceObject(a1);
-  v6 = v38;
-  if ( v38 )
+  if ( !v10 )
   {
-    v14 = ExAcquireSpinLockExclusive(&ACPINamespaceLock);
-    *(_QWORD *)(v38 + 16) = a3;
+    v33 = NewNameSpaceObject(v7);
+    v12 = (_QWORD *)v33;
+    if ( !v33 )
+    {
+      v11 = -1073741670;
+      LogError(3221225626LL);
+      AcpiDiagTraceAmlError(0LL, 3221225626LL);
+      PrintDebugMessage(36, 0, 0, 0, 0LL);
+      goto LABEL_39;
+    }
+    v26 = ExAcquireSpinLockExclusive(&ACPINamespaceLock);
+    *(_QWORD *)(v33 + 16) = v9;
     if ( (gdwfAMLI & 4) != 0 )
     {
-      _InterlockedIncrement((volatile signed __int32 *)(a3 + 112));
-      v6 = v38;
+      _InterlockedIncrement((volatile signed __int32 *)(v9 + 112));
+      v12 = (_QWORD *)v33;
     }
-    InsertOwnerObjList(v8, (struct _EX_RUNDOWN_REF *)v6);
-    v15 = *(__int64 **)(a3 + 32);
-    v16 = a3 + 24;
-    if ( *v15 == v16 )
-    {
-      *(_QWORD *)v6 = v16;
-      v17 = v14;
-      *(_QWORD *)(v6 + 8) = v15;
-      *v15 = v6;
-      *(_QWORD *)(v16 + 8) = v6;
-LABEL_19:
-      ExReleaseSpinLockExclusive(&ACPINamespaceLock, v17);
-      goto LABEL_75;
-    }
-LABEL_70:
-    __fastfail(3u);
+    InsertOwnerObjList(a4, v12);
+    v27 = *(_QWORD **)(v9 + 32);
+    if ( *v27 != v9 + 24 )
+      goto LABEL_82;
+    v12[1] = v27;
+    *v12 = v9 + 24;
+    *v27 = v12;
+    v28 = v26;
+    *(_QWORD *)(v9 + 32) = v12;
+LABEL_52:
+    ExReleaseSpinLockExclusive(&ACPINamespaceLock, v28);
+    goto LABEL_37;
   }
-  v10 = -1073741670;
-  LogError(-1073741670);
-  AcpiDiagTraceAmlError(0LL, -1073741670);
-  PrintDebugMessage(36, 0LL, 0LL, 0LL, 0LL);
-LABEL_77:
-  if ( Pool2 )
+  v32 = ExAcquireSpinLockExclusive(&ACPINamespaceLock);
+  if ( !*v10 )
+    goto LABEL_14;
+  NameSpaceObjectNoLock = GetNameSpaceObjectNoLock(v10);
+  v11 = NameSpaceObjectNoLock;
+  if ( !NameSpaceObjectNoLock )
   {
-    if ( Str != Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
+    if ( (a6 & 0x20000) != 0 )
+    {
+      v11 = -1073741771;
+      ExReleaseSpinLockExclusive(&ACPINamespaceLock, v32);
+      v12 = 0LL;
+      goto LABEL_37;
+    }
+    v12 = 0LL;
+    if ( (MEMORY[0x40] & 0x100) == 0 )
+    {
+      ExReleaseSpinLockExclusive(&ACPINamespaceLock, v32);
+      if ( (!g_SimulatorCallbackObject || (int)Simulator_NotifyNamespaceCollision(v10, v9) < 0) && (a6 & 0x10000) == 0 )
+      {
+        LogError(3221225525LL);
+        AcpiDiagTraceAmlError(0LL, 3221225525LL);
+        PrintDebugMessage(35, (_DWORD)v10, 0, 0, 0LL);
+      }
+      v11 = -1073741771;
+      goto LABEL_37;
+    }
+    if ( MEMORY[0x30] )
+    {
+      for ( i = *(_QWORD *)(MEMORY[0x30] + 24LL); i; i = *(_QWORD *)(i + 56) )
+        ;
+      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(MEMORY[0x30] + 32LL));
+    }
+    InsertOwnerObjList(a4, 0LL);
+    v28 = v32;
+    MEMORY[0x40] = MEMORY[0x40] & 0xFE7F | 0x80;
+    goto LABEL_52;
   }
-  return v10;
+  if ( NameSpaceObjectNoLock != -1073741772 )
+  {
+    ExReleaseSpinLockExclusive(&ACPINamespaceLock, v32);
+    v12 = 0LL;
+    goto LABEL_36;
+  }
+  v12 = 0LL;
+LABEL_14:
+  v11 = 0;
+  v16 = *v10 - 92;
+  if ( *v10 == 92 )
+    v16 = v10[1];
+  if ( !v16 )
+  {
+    v29 = NewNameSpaceObject(v7);
+    v12 = (_QWORD *)v29;
+    if ( v29 )
+    {
+      *(_DWORD *)(v29 + 40) = 1600085852;
+      gpnsNameSpaceRoot = v29;
+      InsertOwnerObjList(a4, v29);
+    }
+    else
+    {
+      v11 = -1073741670;
+      LogError(3221225626LL);
+      AcpiDiagTraceAmlError(0LL, 3221225626LL);
+      PrintDebugMessage(36, 0, 0, 0, 0LL);
+    }
+    goto LABEL_35;
+  }
+  v34 = 0LL;
+  v17 = strrchr((const char *)v10, 46);
+  if ( v17 )
+  {
+    *v17 = 0;
+    v18 = (unsigned __int8 *)(v17 + 1);
+    v11 = GetNameSpaceObjectNoLock(v10);
+    if ( v11 )
+      goto LABEL_34;
+    v35 = 0LL;
+  }
+  else if ( *v10 == 92 )
+  {
+    v18 = v10 + 1;
+    v35 = gpnsNameSpaceRoot;
+    v34 = gpnsNameSpaceRoot;
+  }
+  else
+  {
+    v34 = v9;
+    v18 = v10;
+    if ( *v10 == 94 )
+    {
+      v30 = v9;
+      do
+      {
+        if ( !v30 )
+          break;
+        v30 = *(_QWORD *)(v9 + 16);
+        ++v18;
+        v9 = v30;
+        v35 = v30;
+        v34 = v30;
+      }
+      while ( *v18 == 94 );
+    }
+  }
+  v19 = -1LL;
+  do
+    ++v19;
+  while ( v18[v19] );
+  if ( (unsigned int)v19 > 4 && *v18 )
+  {
+    v11 = -1073741773;
+    LogError(3221225523LL);
+    AcpiDiagTraceAmlError(0LL, 3221225523LL);
+    PrintDebugMessage(37, (_DWORD)v18, 0, 0, 0LL);
+    goto LABEL_34;
+  }
+  v20 = (char *)HeapAlloc(a1, 1330859592LL);
+  v21 = v20;
+  if ( v20 )
+  {
+    memset(v20, 0, 0xA0uLL);
+    *((_QWORD *)v21 + 15) = v21;
+    *((_QWORD *)v21 + 4) = v21 + 24;
+    LODWORD(v20) = 0;
+    *((_QWORD *)v21 + 3) = v21 + 24;
+    *((_DWORD *)v21 + 28) = 2;
+    *((_DWORD *)v21 + 32) = 1;
+    *((_QWORD *)v21 + 18) = 0LL;
+    *((_QWORD *)v21 + 19) = -1LL;
+  }
+  v12 = v21;
+  if ( !v21 )
+  {
+    v11 = -1073741670;
+    LogError(3221225626LL);
+    AcpiDiagTraceAmlError(0LL, 3221225626LL);
+    PrintDebugMessage(36, 0, 0, 0, 0LL);
+    goto LABEL_34;
+  }
+  v22 = v21 + 40;
+  if ( *v10 )
+  {
+    *v22 = 1600085855;
+    memmove(v22, v18, (unsigned int)v19);
+  }
+  else
+  {
+    *v22 = (_DWORD)v20;
+  }
+  v23 = v35;
+  *((_QWORD *)v21 + 2) = v35;
+  if ( (gdwfAMLI & 4) != 0 )
+  {
+    _InterlockedIncrement((volatile signed __int32 *)(v35 + 112));
+    v12 = v21;
+    v23 = v34;
+  }
+  *((_QWORD *)v21 + 6) = a4;
+  if ( a4 )
+  {
+    *((struct _EX_RUNDOWN_REF *)v21 + 7) = a4[3];
+    a4[3].Count = (unsigned __int64)v21;
+    ExAcquireRundownProtection(a4 + 4);
+  }
+  v24 = *(_QWORD **)(v23 + 32);
+  if ( *v24 != v23 + 24 )
+LABEL_82:
+    __fastfail(3u);
+  *(_QWORD *)v21 = v23 + 24;
+  *((_QWORD *)v21 + 1) = v24;
+  *v24 = v21;
+  *(_QWORD *)(v23 + 32) = v21;
+LABEL_34:
+  v6 = a5;
+LABEL_35:
+  ExReleaseSpinLockExclusive(&ACPINamespaceLock, v32);
+LABEL_36:
+  if ( !v11 || v11 == -1073741771 )
+  {
+LABEL_37:
+    if ( v6 )
+      *v6 = v12;
+  }
+LABEL_39:
+  if ( PoolWithTag )
+  {
+    if ( Str != PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
+  }
+  return v11;
 }

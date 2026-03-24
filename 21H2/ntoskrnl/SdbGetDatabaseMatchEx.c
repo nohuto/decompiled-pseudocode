@@ -1,17 +1,17 @@
 /*
- * XREFs of SdbGetDatabaseMatchEx @ 0x14075B6A4
+ * XREFs of SdbGetDatabaseMatchEx @ 0x140759A08
  * Callers:
- *     KsepDbGetDriverShimsInternal @ 0x14075C380 (KsepDbGetDriverShimsInternal.c)
- *     KsepDbCacheReadDeviceInternal @ 0x1407ED53C (KsepDbCacheReadDeviceInternal.c)
+ *     KsepDbCacheReadDeviceInternal @ 0x140755D74 (KsepDbCacheReadDeviceInternal.c)
+ *     KsepDbGetDriverShimsInternal @ 0x140758E8C (KsepDbGetDriverShimsInternal.c)
  * Callees:
- *     wcsrchr @ 0x1403E34B0 (wcsrchr.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x14075B48C (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbFindFirstStringIndexedTag @ 0x14075B7F4 (SdbFindFirstStringIndexedTag.c)
- *     SdbFindNextStringIndexedTag @ 0x140842820 (SdbFindNextStringIndexedTag.c)
- *     SdbpCheckKObject @ 0x140843160 (SdbpCheckKObject.c)
- *     SdbTagIDToTagRef @ 0x14085CF70 (SdbTagIDToTagRef.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x140A146FC (SdbpFindNextIndexedWildCardTag.c)
+ *     wcsrchr @ 0x1403D4100 (wcsrchr.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x1407535EC (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbpCheckKObject @ 0x140754D5C (SdbpCheckKObject.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140759788 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x140759C00 (SdbFindFirstStringIndexedTag.c)
+ *     SdbFindNextStringIndexedTag @ 0x1407C0D1C (SdbFindNextStringIndexedTag.c)
+ *     SdbTagIDToTagRef @ 0x1407CD560 (SdbTagIDToTagRef.c)
  */
 
 __int64 __fastcall SdbGetDatabaseMatchEx(
@@ -21,21 +21,21 @@ __int64 __fastcall SdbGetDatabaseMatchEx(
         __int64 a4,
         __int64 a5,
         __int64 a6,
-        __int64 a7)
+        _QWORD *a7)
 {
   void *v7; // rsi
   unsigned __int16 v10; // r14
-  int v11; // r15d
+  __int64 v11; // r15
   wchar_t *v12; // rax
-  const WCHAR *v13; // rbx
+  __int64 v13; // rbx
   unsigned int FirstStringIndexedTag; // eax
   __int64 v15; // r8
-  int v16; // r9d
-  __int64 v17; // r12
+  __int64 v16; // r9
+  _QWORD *v17; // r12
   __int64 v18; // r13
   unsigned int v19; // edi
   unsigned int i; // eax
-  int v21; // r9d
+  __int64 v21; // r9
   unsigned int v22; // ebx
   _OWORD v24[2]; // [rsp+40h] [rbp-58h] BYREF
   __int64 v25; // [rsp+60h] [rbp-38h]
@@ -47,22 +47,22 @@ __int64 __fastcall SdbGetDatabaseMatchEx(
   if ( a2 )
   {
     v10 = 28698;
-    v11 = 0;
+    v11 = 0LL;
     goto LABEL_10;
   }
   v10 = 28700;
-  v11 = (int)a3;
+  v11 = (__int64)a3;
   v12 = wcsrchr(a3, 0x5Cu);
   if ( !v12 )
   {
 LABEL_10:
-    v13 = a3;
+    v13 = (__int64)a3;
     goto LABEL_4;
   }
-  v13 = v12 + 1;
+  v13 = (__int64)(v12 + 1);
 LABEL_4:
   v26 = 0;
-  FirstStringIndexedTag = SdbFindFirstStringIndexedTag((_DWORD)v7, v10, 24577, (_DWORD)v13, (__int64)v24);
+  FirstStringIndexedTag = SdbFindFirstStringIndexedTag(v7, v10, 24577LL, v13, v24);
   v17 = a7;
   v18 = a6;
   while ( 1 )
@@ -72,7 +72,7 @@ LABEL_4:
     {
       for ( i = SdbpFindFirstIndexedWildCardTag(v7, v10, v15, v13, (unsigned int *)v24);
             ;
-            i = SdbpFindNextIndexedWildCardTag(v7, v24) )
+            i = SdbpFindNextIndexedWildCardTag((__int64)v7, (unsigned int *)v24) )
       {
         v22 = i;
         if ( !i )

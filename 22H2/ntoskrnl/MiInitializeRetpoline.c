@@ -1,100 +1,64 @@
 /*
- * XREFs of MiInitializeRetpoline @ 0x140B48688
+ * XREFs of MiInitializeRetpoline @ 0x140A56538
  * Callers:
- *     MiInitSystem @ 0x140B47C18 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
  * Callees:
- *     MiReservePtes @ 0x14027D070 (MiReservePtes.c)
- *     RtlIsImageFullyRetpolined @ 0x14035F928 (RtlIsImageFullyRetpolined.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     RtlCreateRetpolineStubsFunctionTable @ 0x1405B21D8 (RtlCreateRetpolineStubsFunctionTable.c)
- *     MmAcquireLoadLock @ 0x140704660 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x1407049E0 (MmReleaseLoadLock.c)
- *     MiMarkRetpolineBits @ 0x140A344F0 (MiMarkRetpolineBits.c)
- *     MiCreateRetpolineBitmap @ 0x140B9A900 (MiCreateRetpolineBitmap.c)
- *     MiLockRetpolineStubs @ 0x140B9A9F0 (MiLockRetpolineStubs.c)
+ *     MiReservePtes @ 0x140226570 (MiReservePtes.c)
+ *     RtlIsImageFullyRetpolined @ 0x140372608 (RtlIsImageFullyRetpolined.c)
+ *     RtlCreateRetpolineStubsFunctionTable @ 0x14058FA28 (RtlCreateRetpolineStubsFunctionTable.c)
+ *     MmReleaseLoadLock @ 0x1406FE9E0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406FEA40 (MmAcquireLoadLock.c)
+ *     MiMarkRetpolineBits @ 0x1408D0D04 (MiMarkRetpolineBits.c)
+ *     MiCreateRetpolineBitmap @ 0x140A9244C (MiCreateRetpolineBitmap.c)
+ *     MiLockRetpolineStubs @ 0x140A92540 (MiLockRetpolineStubs.c)
  */
 
 __int64 MiInitializeRetpoline()
 {
-  struct _KTHREAD *CurrentThread; // rbx
-  int RetpolineStubsFunctionTable; // eax
-  ULONG_PTR BugCheckParameter4; // rcx
-  __int64 v4; // [rsp+40h] [rbp+8h] BYREF
+  struct _KTHREAD *CurrentThread; // rdi
+  int RetpolineStubsFunctionTable; // ebx
+  __int64 v3; // r8
+  unsigned __int64 v4; // r9
+  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v4 = 0LL;
-  qword_140C65978 = (__int64)&qword_140C65970;
-  qword_140C65970 = &qword_140C65970;
-  RetpolineStubsFunctionTable = dword_140C65984;
-  if ( dword_140C65984 < 0 )
+  v5 = 0LL;
+  RetpolineStubsFunctionTable = dword_140C4CC8C;
+  qword_140C4CC80 = (__int64)&qword_140C4CC78;
+  qword_140C4CC78 = &qword_140C4CC78;
+  if ( dword_140C4CC8C < 0 )
+    return (unsigned int)RetpolineStubsFunctionTable;
+  if ( (KiSpeculationFeatures & 0x20000000000LL) == 0 )
+    return 0;
+  RetpolineStubsFunctionTable = MiLockRetpolineStubs();
+  if ( RetpolineStubsFunctionTable < 0 )
+    return (unsigned int)RetpolineStubsFunctionTable;
+  qword_140C4CC70 = MiReservePtes((__int64)&qword_140C4EF40, 1u, v3, v4);
+  if ( qword_140C4CC70 )
   {
-    BugCheckParameter4 = 161LL;
-    goto LABEL_18;
-  }
-  if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
-  {
-    RetpolineStubsFunctionTable = MiLockRetpolineStubs();
-    if ( RetpolineStubsFunctionTable >= 0 )
+    RetpolineStubsFunctionTable = MiCreateRetpolineBitmap(&v5);
+    if ( RetpolineStubsFunctionTable < 0 )
+      return (unsigned int)RetpolineStubsFunctionTable;
+    MmAcquireLoadLock();
+    RetpolineStubsFunctionTable = MiMarkRetpolineBits(PsNtosImageBase);
+    if ( RetpolineStubsFunctionTable < 0
+      || (unsigned int)RtlIsImageFullyRetpolined(PsHalImageBase)
+      && (RetpolineStubsFunctionTable = MiMarkRetpolineBits(PsHalImageBase), RetpolineStubsFunctionTable < 0) )
     {
-      qword_140C65968 = MiReservePtes((__int64)&qword_140C69A40, 1u);
-      if ( qword_140C65968 )
-      {
-        RetpolineStubsFunctionTable = MiCreateRetpolineBitmap(&v4);
-        if ( RetpolineStubsFunctionTable >= 0 )
-        {
-          MmAcquireLoadLock();
-          RetpolineStubsFunctionTable = MiMarkRetpolineBits(PsNtosImageBase);
-          if ( RetpolineStubsFunctionTable >= 0 )
-          {
-            if ( (unsigned int)RtlIsImageFullyRetpolined(PsHalImageBase)
-              && (RetpolineStubsFunctionTable = MiMarkRetpolineBits(PsHalImageBase), RetpolineStubsFunctionTable < 0) )
-            {
-              BugCheckParameter4 = 166LL;
-            }
-            else
-            {
-              MmReleaseLoadLock((__int64)CurrentThread);
-              retpoline_image_bitmap = v4 - 0x1FFFF0000000LL;
-              RetpolineStubsFunctionTable = RtlCreateRetpolineStubsFunctionTable(
-                                              v4 - 0x1FFFF0000000LL,
-                                              Base,
-                                              dword_140C65980 << 12);
-              if ( RetpolineStubsFunctionTable >= 0 )
-              {
-                dword_140C02514 = dword_140C6997C;
-                dword_140C02518 = dword_140C65980 << 12;
-                return 0LL;
-              }
-              BugCheckParameter4 = 167LL;
-            }
-          }
-          else
-          {
-            BugCheckParameter4 = 165LL;
-          }
-        }
-        else
-        {
-          BugCheckParameter4 = 164LL;
-        }
-      }
-      else
-      {
-        RetpolineStubsFunctionTable = -1073741670;
-        BugCheckParameter4 = 163LL;
-      }
+      MmReleaseLoadLock((__int64)CurrentThread);
+      return (unsigned int)RetpolineStubsFunctionTable;
     }
-    else
-    {
-      BugCheckParameter4 = 162LL;
-    }
-LABEL_18:
-    KeBugCheckEx(
-      0x1Au,
-      0x1082uLL,
-      ((unsigned __int64)qword_140C69980 >> 2) & 1,
-      RetpolineStubsFunctionTable,
-      BugCheckParameter4);
+    MmReleaseLoadLock((__int64)CurrentThread);
+    retpoline_image_bitmap = v5 - 0x1FFFF0000000LL;
+    RetpolineStubsFunctionTable = RtlCreateRetpolineStubsFunctionTable(
+                                    v5 - 0x1FFFF0000000LL,
+                                    Base,
+                                    dword_140C4CC88 << 12);
+    if ( RetpolineStubsFunctionTable < 0 )
+      return (unsigned int)RetpolineStubsFunctionTable;
+    dword_140C00E94 = dword_140C4CCB0;
+    dword_140C00E98 = dword_140C4CC88 << 12;
+    return 0;
   }
-  return 0LL;
+  return 3221225626LL;
 }

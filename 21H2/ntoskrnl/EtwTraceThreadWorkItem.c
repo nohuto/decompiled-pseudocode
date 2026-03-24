@@ -1,27 +1,34 @@
 /*
- * XREFs of EtwTraceThreadWorkItem @ 0x14062E6D0
+ * XREFs of EtwTraceThreadWorkItem @ 0x1405A83C0
  * Callers:
- *     IopProcessWorkItem @ 0x1402F8870 (IopProcessWorkItem.c)
- *     ExpWorkerThread @ 0x14033CBF0 (ExpWorkerThread.c)
+ *     ExpWorkerThread @ 0x140241E80 (ExpWorkerThread.c)
+ *     IopProcessWorkItem @ 0x1402EF050 (IopProcessWorkItem.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExIsSafeWorkItem @ 0x1403EB000 (ExIsSafeWorkItem.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExIsSafeWorkItem @ 0x1403DBD20 (ExIsSafeWorkItem.c)
  */
 
-void __fastcall EtwTraceThreadWorkItem(struct _KTHREAD *(__fastcall *a1)(__int64 a1), unsigned __int16 a2)
+struct _KTHREAD *(__fastcall *__fastcall EtwTraceThreadWorkItem(__int64 (__fastcall *a1)(), __int16 a2))(__int64 a1)
 {
-  struct _KTHREAD *(__fastcall *v3)(__int64); // [rsp+30h] [rbp-28h] BYREF
-  struct _KTHREAD *(__fastcall **v4)(__int64); // [rsp+38h] [rbp-20h] BYREF
-  int v5; // [rsp+40h] [rbp-18h]
-  int v6; // [rsp+44h] [rbp-14h]
+  struct _KTHREAD *(__fastcall *result)(__int64); // rax
+  __int64 (__fastcall *v4)(); // [rsp+30h] [rbp-28h] BYREF
+  __int64 (__fastcall **v5)(); // [rsp+38h] [rbp-20h] BYREF
+  int v6; // [rsp+40h] [rbp-18h]
+  int v7; // [rsp+44h] [rbp-14h]
 
-  v3 = a1;
-  if ( a1 != IopProcessWorkItem && !ExIsSafeWorkItem((__int64 (__fastcall *)())a1) )
+  result = IopProcessWorkItem;
+  v4 = a1;
+  if ( (char *)a1 != (char *)IopProcessWorkItem )
   {
-    v6 = 0;
-    v4 = &v3;
-    v5 = 8;
-    EtwTraceKernelEvent((__int64)&v4, 1u, 0x48000000u, a2, 0x11501902u);
+    result = (struct _KTHREAD *(__fastcall *)(__int64))ExIsSafeWorkItem(a1);
+    if ( !(_DWORD)result )
+    {
+      v7 = 0;
+      v5 = &v4;
+      v6 = 8;
+      return (struct _KTHREAD *(__fastcall *)(__int64))EtwTraceKernelEvent((int)&v5, 1, 0x48000000u, a2, 290461954);
+    }
   }
+  return result;
 }

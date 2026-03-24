@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetD2DEffectProperties@CLinearTransferEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x18023A8A0
+ * XREFs of ?SetD2DEffectProperties@CLinearTransferEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x1801D2D40
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransferEffect *this, struct ID2D1Effect *a2)
@@ -42,7 +42,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
          a2,
          0LL,
          0LL,
-         (char *)this + 176,
+         (char *)this + 152,
          4);
   v6 = v4;
   if ( v4 < 0 )
@@ -55,7 +55,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
            a2,
            1LL,
            0LL,
-           (char *)this + 180,
+           (char *)this + 156,
            4);
     v6 = v7;
     if ( v7 < 0 )
@@ -64,7 +64,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
     }
     else
     {
-      v32 = *((unsigned __int8 *)this + 184);
+      v32 = *((unsigned __int8 *)this + 160);
       v9 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
              a2,
              2LL,
@@ -82,7 +82,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                 a2,
                 3LL,
                 0LL,
-                (char *)this + 188,
+                (char *)this + 164,
                 4);
         v6 = v11;
         if ( v11 < 0 )
@@ -95,7 +95,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                   a2,
                   4LL,
                   0LL,
-                  (char *)this + 192,
+                  (char *)this + 168,
                   4);
           v6 = v13;
           if ( v13 < 0 )
@@ -104,7 +104,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
           }
           else
           {
-            v32 = *((unsigned __int8 *)this + 196);
+            v32 = *((unsigned __int8 *)this + 172);
             v15 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                     a2,
                     5LL,
@@ -122,7 +122,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                       a2,
                       6LL,
                       0LL,
-                      (char *)this + 200,
+                      (char *)this + 176,
                       4);
               v6 = v17;
               if ( v17 < 0 )
@@ -135,7 +135,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                         a2,
                         7LL,
                         0LL,
-                        (char *)this + 204,
+                        (char *)this + 180,
                         4);
                 v6 = v19;
                 if ( v19 < 0 )
@@ -144,7 +144,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                 }
                 else
                 {
-                  v32 = *((unsigned __int8 *)this + 208);
+                  v32 = *((unsigned __int8 *)this + 184);
                   v21 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                           a2,
                           8LL,
@@ -162,7 +162,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                             a2,
                             9LL,
                             0LL,
-                            (char *)this + 212,
+                            (char *)this + 188,
                             4);
                     v6 = v23;
                     if ( v23 < 0 )
@@ -175,7 +175,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                               a2,
                               10LL,
                               0LL,
-                              (char *)this + 216,
+                              (char *)this + 192,
                               4);
                       v6 = v25;
                       if ( v25 < 0 )
@@ -184,7 +184,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                       }
                       else
                       {
-                        v32 = *((unsigned __int8 *)this + 220);
+                        v32 = *((unsigned __int8 *)this + 196);
                         v27 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                                 a2,
                                 11LL,
@@ -198,7 +198,7 @@ __int64 __fastcall CLinearTransferEffect::SetD2DEffectProperties(CLinearTransfer
                         }
                         else
                         {
-                          v32 = *((unsigned __int8 *)this + 221);
+                          v32 = *((unsigned __int8 *)this + 197);
                           v29 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                                   a2,
                                   12LL,

@@ -1,10 +1,10 @@
 /*
- * XREFs of XilCoreCommand_Initialize @ 0x1C0014468
+ * XREFs of XilCoreCommand_Initialize @ 0x1C0014334
  * Callers:
- *     Command_Initialize @ 0x1C00143DC (Command_Initialize.c)
+ *     Command_Initialize @ 0x1C00145F0 (Command_Initialize.c)
  * Callees:
- *     XilRegister_WriteUlong64 @ 0x1C0014CB8 (XilRegister_WriteUlong64.c)
- *     memset @ 0x1C0020600 (memset.c)
+ *     XilRegister_WriteUlong64 @ 0x1C00142E0 (XilRegister_WriteUlong64.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 __int64 __fastcall XilCoreCommand_Initialize(__int64 a1)
@@ -20,6 +20,6 @@ __int64 __fastcall XilCoreCommand_Initialize(__int64 a1)
   *(_OWORD *)(*(_QWORD *)(a1 + 48) + 16LL * *(unsigned int *)(a1 + 32)) = v3;
   return XilRegister_WriteUlong64(
            *(_QWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 8LL) + 88LL),
-           *(_QWORD *)(a1 + 8),
-           *(_QWORD *)(*(_QWORD *)(a1 + 16) + 24LL) ^ (*(_DWORD *)(*(_QWORD *)(a1 + 16) + 24LL) ^ *(_DWORD *)(a1 + 44)) & 1);
+           *(_DWORD **)(a1 + 8),
+           *(_QWORD *)(*(_QWORD *)(a1 + 16) + 24LL) ^ ((unsigned __int8)*(_DWORD *)(a1 + 44) ^ (unsigned __int8)*(_QWORD *)(*(_QWORD *)(a1 + 16) + 24LL)) & 1);
 }

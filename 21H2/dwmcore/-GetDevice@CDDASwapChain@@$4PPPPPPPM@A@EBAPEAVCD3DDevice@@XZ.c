@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDevice@CDDASwapChain@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x18010A930
+ * XREFs of ?GetDevice@CDDASwapChain@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x1800F8040
  * Callers:
  *     <none>
  * Callees:

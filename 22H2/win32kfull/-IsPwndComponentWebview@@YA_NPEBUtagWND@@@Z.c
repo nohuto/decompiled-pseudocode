@@ -1,18 +1,29 @@
 /*
- * XREFs of ?IsPwndComponentWebview@@YA_NPEBUtagWND@@@Z @ 0x1C01F2BF8
+ * XREFs of ?IsPwndComponentWebview@@YA_NPEBUtagWND@@@Z @ 0x1C0005084
  * Callers:
- *     NtUserNavigateFocus @ 0x1C01D7B90 (NtUserNavigateFocus.c)
- *     ?xxxSetHost@CoreWindowProp@@SAJPEAUtagWND@@0@Z @ 0x1C022054C (-xxxSetHost@CoreWindowProp@@SAJPEAUtagWND@@0@Z.c)
+ *     ?xxxSetHost@CoreWindowProp@@SAJPEAUtagWND@@0@Z @ 0x1C0004FDC (-xxxSetHost@CoreWindowProp@@SAJPEAUtagWND@@0@Z.c)
+ *     NtUserNavigateFocus @ 0x1C00077E0 (NtUserNavigateFocus.c)
  * Callees:
- *     _GetParent @ 0x1C009470C (_GetParent.c)
- *     ?GetHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C0220260 (-GetHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
+ *     _GetParent @ 0x1C00D3424 (_GetParent.c)
+ *     ?GetHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C0122588 (-GetHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
  */
 
 bool __fastcall IsPwndComponentWebview(const struct tagWND *a1)
 {
   struct tagWND *Host; // rax
   __int64 Parent; // rax
+  bool result; // al
 
   Host = CoreWindowProp::GetHost(a1);
-  return Host && (Parent = GetParent(Host)) != 0 && (*(_BYTE *)(*(_QWORD *)(Parent + 40) + 233LL) & 8) != 0;
+  result = 0;
+  if ( Host )
+  {
+    Parent = GetParent(Host);
+    if ( Parent )
+    {
+      if ( *(char *)(*(_QWORD *)(Parent + 40) + 235LL) < 0 )
+        return 1;
+    }
+  }
+  return result;
 }

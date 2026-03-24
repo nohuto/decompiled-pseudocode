@@ -1,20 +1,21 @@
 /*
- * XREFs of RtlpConstructCrossVmObjectPath @ 0x1409BDDA8
+ * XREFs of RtlpConstructCrossVmObjectPath @ 0x140915818
  * Callers:
- *     RtlConstructCrossVmMutexPath @ 0x1409BDD90 (RtlConstructCrossVmMutexPath.c)
+ *     RtlConstructCrossVmMutexPath @ 0x140915800 (RtlConstructCrossVmMutexPath.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1407C7520 (ExpAllocateStringRoutine.c)
- *     ExFreePool @ 0x140AAFCC0 (ExFreePool.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExpAllocateStringRoutine @ 0x140685CE0 (ExpAllocateStringRoutine.c)
+ *     RtlStringFromGUIDEx @ 0x1406F35C8 (RtlStringFromGUIDEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpConstructCrossVmObjectPath(UNICODE_STRING *a1, unsigned int *a2, unsigned int *a3)
 {
   wchar_t *Buffer; // rdi
   int appended; // ebx
+  ULONG v8; // edx
   UNICODE_STRING Destination; // [rsp+20h] [rbp-30h] BYREF
   UNICODE_STRING Source; // [rsp+30h] [rbp-20h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-10h] BYREF
@@ -29,7 +30,7 @@ __int64 __fastcall RtlpConstructCrossVmObjectPath(UNICODE_STRING *a1, unsigned i
   Buffer = Destination.Buffer;
   if ( Destination.Buffer )
   {
-    appended = RtlAppendUnicodeStringToString(&Destination, &stru_14000ABC8);
+    appended = RtlAppendUnicodeStringToString(&Destination, &stru_140009A98);
     if ( appended < 0
       || (appended = RtlAppendUnicodeToString(&Destination, L"\\"), appended < 0)
       || a3
@@ -51,9 +52,9 @@ __int64 __fastcall RtlpConstructCrossVmObjectPath(UNICODE_STRING *a1, unsigned i
   {
     appended = -1073741801;
   }
-  RtlFreeUnicodeString(&Source);
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString(&Source);
+  RtlFreeAnsiString(&UnicodeString);
   if ( Buffer )
-    ExFreePool(Buffer);
+    ExFreePoolWithTag(Buffer, v8);
   return (unsigned int)appended;
 }

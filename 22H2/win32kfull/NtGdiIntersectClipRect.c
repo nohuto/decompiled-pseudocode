@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiIntersectClipRect @ 0x1C00A4970
+ * XREFs of NtGdiIntersectClipRect @ 0x1C0108D70
  * Callers:
  *     <none>
  * Callees:

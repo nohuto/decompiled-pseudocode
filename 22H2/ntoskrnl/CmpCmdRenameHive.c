@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpCmdRenameHive @ 0x140A11A28
+ * XREFs of CmpCmdRenameHive @ 0x140876B2C
  * Callers:
- *     CmReplaceKey @ 0x140A157A4 (CmReplaceKey.c)
- *     CmpFlushBackupHive @ 0x140A1A998 (CmpFlushBackupHive.c)
+ *     CmReplaceKey @ 0x14086DA18 (CmReplaceKey.c)
+ *     CmpFlushBackupHive @ 0x140870F90 (CmpFlushBackupHive.c)
  * Callees:
- *     ZwQueryObject @ 0x14041A8A0 (ZwQueryObject.c)
- *     ZwSetInformationFile @ 0x14041AB80 (ZwSetInformationFile.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwQueryObject @ 0x1403F9C20 (ZwQueryObject.c)
+ *     ZwSetInformationFile @ 0x1403F9F00 (ZwSetInformationFile.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CmpCmdRenameHive(HANDLE FileHandle, PVOID ObjectInformation, const void **a3, ULONG a4, char a5)
 {
   NTSTATUS result; // eax
-  __int64 Pool2; // rax
+  char *PoolWithTag; // rax
   void *v9; // rdi
   NTSTATUS v10; // ebx
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+30h] [rbp-18h] BYREF
@@ -25,14 +25,14 @@ NTSTATUS __fastcall CmpCmdRenameHive(HANDLE FileHandle, PVOID ObjectInformation,
   if ( !ObjectInformation
     || (result = ZwQueryObject(FileHandle, ObjectNameInformation, ObjectInformation, a4, &ReturnLength), result >= 0) )
   {
-    Pool2 = ExAllocatePool2(256LL, *(unsigned __int16 *)a3 + 24LL, 538987843LL);
-    v9 = (void *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, *(unsigned __int16 *)a3 + 24LL, 0x20204D43u);
+    v9 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_QWORD *)(Pool2 + 8) = 0LL;
-      *(_BYTE *)Pool2 = a5;
-      *(_DWORD *)(Pool2 + 16) = *(unsigned __int16 *)a3;
-      memmove((void *)(Pool2 + 20), a3[1], *(unsigned __int16 *)a3);
+      *((_QWORD *)PoolWithTag + 1) = 0LL;
+      *PoolWithTag = a5;
+      *((_DWORD *)PoolWithTag + 4) = *(unsigned __int16 *)a3;
+      memmove(PoolWithTag + 20, a3[1], *(unsigned __int16 *)a3);
       v10 = ZwSetInformationFile(FileHandle, &IoStatusBlock, v9, *(unsigned __int16 *)a3 + 24, FileRenameInformation);
       ExFreePoolWithTag(v9, 0);
       return v10;

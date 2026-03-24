@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpCaptureSecurityAttributeInternal @ 0x1407A817C
+ * XREFs of AlpcpCaptureSecurityAttributeInternal @ 0x140660844
  * Callers:
- *     AlpcpCaptureSecurityAttribute32 @ 0x1406B778C (AlpcpCaptureSecurityAttribute32.c)
- *     AlpcpCaptureSecurityAttribute @ 0x1407A80A0 (AlpcpCaptureSecurityAttribute.c)
+ *     AlpcpCaptureSecurityAttribute @ 0x14066076C (AlpcpCaptureSecurityAttribute.c)
+ *     AlpcpCaptureSecurityAttribute32 @ 0x14069C3F0 (AlpcpCaptureSecurityAttribute32.c)
  * Callees:
- *     AlpcpDeleteBlob @ 0x1407A59D8 (AlpcpDeleteBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
- *     AlpcpCreateSecurityContext @ 0x1407A74A4 (AlpcpCreateSecurityContext.c)
- *     AlpcReferenceBlobByHandle @ 0x1407A7EB0 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x1405EA09C (AlpcpDeleteBlob.c)
+ *     AlpcpCreateSecurityContext @ 0x1406605EC (AlpcpCreateSecurityContext.c)
+ *     AlpcReferenceBlobByHandle @ 0x140660940 (AlpcReferenceBlobByHandle.c)
  */
 
 __int64 __fastcall AlpcpCaptureSecurityAttributeInternal(
@@ -18,7 +18,7 @@ __int64 __fastcall AlpcpCaptureSecurityAttributeInternal(
         __int64 a5)
 {
   __int64 v8; // rcx
-  ULONG_PTR v9; // rax
+  __int64 v9; // rax
   ULONG_PTR v10; // rbx
   __int64 result; // rax
   char v12; // di
@@ -33,7 +33,7 @@ __int64 __fastcall AlpcpCaptureSecurityAttributeInternal(
     v8 = *((_QWORD *)Object + 2);
     if ( v8 )
     {
-      v9 = AlpcReferenceBlobByHandle((_QWORD *)(v8 + 40), *a4, AlpcSecurityType);
+      v9 = AlpcReferenceBlobByHandle(v8 + 40, *a4, AlpcSecurityType);
       v10 = v9;
       if ( v9 )
       {

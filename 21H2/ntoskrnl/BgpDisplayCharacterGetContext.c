@@ -1,39 +1,45 @@
 /*
- * XREFs of BgpDisplayCharacterGetContext @ 0x140AAE79C
+ * XREFs of BgpDisplayCharacterGetContext @ 0x1409F4A4C
  * Callers:
- *     BgpConsoleInitialize @ 0x140AAE560 (BgpConsoleInitialize.c)
- *     BgpBcInitializeCriticalMode @ 0x140B55C50 (BgpBcInitializeCriticalMode.c)
+ *     BgpConsoleInitialize @ 0x1409F4820 (BgpConsoleInitialize.c)
+ *     BgpBcInitializeCriticalMode @ 0x140A96A10 (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403A8CB4 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x1403AA2B8 (BgpFwAllocateMemory.c)
- *     BgpTxtCreateRegion @ 0x140AAC868 (BgpTxtCreateRegion.c)
- *     BgpTxtDestroyRegion @ 0x140AAEAF4 (BgpTxtDestroyRegion.c)
+ *     BgpFwFreeMemory @ 0x14039BD60 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14039C584 (BgpFwAllocateMemory.c)
+ *     BgpTxtCreateRegion @ 0x1409F30D4 (BgpTxtCreateRegion.c)
+ *     BgpTxtDestroyRegion @ 0x1409F40EC (BgpTxtDestroyRegion.c)
  */
 
-__int64 __fastcall BgpDisplayCharacterGetContext(__int64 a1, int *a2, char a3)
+__int64 __fastcall BgpDisplayCharacterGetContext(__int64 a1, _DWORD *a2, char a3)
 {
-  __int64 v3; // rdi
-  __int64 Memory; // rbx
-  int v8; // r8d
-  __int64 v10; // [rsp+40h] [rbp-38h] BYREF
-  _DWORD v11[6]; // [rsp+48h] [rbp-30h] BYREF
-  __int64 v12; // [rsp+98h] [rbp+20h] BYREF
+  __int64 v3; // rbx
+  __int64 Memory; // rdi
+  int v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  _DWORD *v11; // r9
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  _DWORD *v15; // r9
+  __int64 v16; // [rsp+30h] [rbp-38h] BYREF
+  _DWORD v17[12]; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v18; // [rsp+88h] [rbp+20h] BYREF
 
   v3 = 0LL;
-  v12 = 0LL;
+  v18 = 0LL;
   Memory = BgpFwAllocateMemory(0x20uLL);
   if ( Memory )
   {
-    v8 = *a2;
-    v11[1] = a2[1];
-    v11[0] = v8;
-    v11[2] = v8;
-    v10 = 0LL;
-    if ( (int)BgpTxtCreateRegion(&v10, v11, a1, 0LL, &v12, a3) < 0 )
+    v8 = a2[1];
+    v17[0] = *a2;
+    v17[2] = v17[0];
+    v16 = 0LL;
+    v17[1] = v8;
+    if ( (int)BgpTxtCreateRegion(&v16, v17, (_OWORD *)a1, &v18, a3) < 0 )
     {
-      BgpFwFreeMemory(Memory);
-      if ( v12 )
-        BgpTxtDestroyRegion();
+      BgpFwFreeMemory(Memory, v9, v10, v11);
+      if ( v18 )
+        BgpTxtDestroyRegion(v18, v13, v14, v15);
     }
     else
     {
@@ -42,7 +48,7 @@ __int64 __fastcall BgpDisplayCharacterGetContext(__int64 a1, int *a2, char a3)
       *(_DWORD *)(Memory + 20) = a2[2];
       *(_QWORD *)Memory = *(_QWORD *)(a1 + 8);
       *(_DWORD *)(Memory + 8) = *(_DWORD *)(a1 + 16);
-      *(_QWORD *)(Memory + 24) = v12;
+      *(_QWORD *)(Memory + 24) = v18;
     }
   }
   return v3;

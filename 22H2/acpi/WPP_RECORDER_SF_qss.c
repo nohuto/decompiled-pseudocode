@@ -1,22 +1,22 @@
 /*
- * XREFs of WPP_RECORDER_SF_qss @ 0x1C0015444
+ * XREFs of WPP_RECORDER_SF_qss @ 0x1C001DAB8
  * Callers:
- *     ACPIBuildProcessDevicePhaseEjd @ 0x1C000F290 (ACPIBuildProcessDevicePhaseEjd.c)
- *     ACPIBuildProcessRunMethodPhaseCheckSta @ 0x1C0011880 (ACPIBuildProcessRunMethodPhaseCheckSta.c)
- *     ACPIBuildProcessRunMethodPhaseRunMethod @ 0x1C0011DE0 (ACPIBuildProcessRunMethodPhaseRunMethod.c)
- *     ACPIBusAndFilterIrpQueryRemovalRelations @ 0x1C0016248 (ACPIBusAndFilterIrpQueryRemovalRelations.c)
- *     ACPICMButtonStartWorker @ 0x1C0018F20 (ACPICMButtonStartWorker.c)
- *     ACPIDeviceInternalSynchronizeRequest @ 0x1C001D5B4 (ACPIDeviceInternalSynchronizeRequest.c)
- *     ACPIFanFSTCallback @ 0x1C0026F80 (ACPIFanFSTCallback.c)
- *     ACPIFilterFastIoDetachCallback @ 0x1C0028520 (ACPIFilterFastIoDetachCallback.c)
- *     ACPIInitStartDevice @ 0x1C002DA4C (ACPIInitStartDevice.c)
- *     ACPIQueryGedDeviceInterface @ 0x1C002E2FC (ACPIQueryGedDeviceInterface.c)
- *     ACPIInternalEvaluateOST @ 0x1C002E580 (ACPIInternalEvaluateOST.c)
- *     OSNotifyDeviceWake @ 0x1C003301C (OSNotifyDeviceWake.c)
- *     ACPIDevicePowerDetermineSupportedDeviceStates @ 0x1C0082898 (ACPIDevicePowerDetermineSupportedDeviceStates.c)
- *     PcisuppReleasePciInterfaces @ 0x1C009A0BC (PcisuppReleasePciInterfaces.c)
+ *     ACPICMButtonStartWorker @ 0x1C000CC70 (ACPICMButtonStartWorker.c)
+ *     ACPIInitStartDevice @ 0x1C000D968 (ACPIInitStartDevice.c)
+ *     ACPIBuildProcessDevicePhaseEjd @ 0x1C001A5C0 (ACPIBuildProcessDevicePhaseEjd.c)
+ *     ACPIDeviceInternalSynchronizeRequest @ 0x1C001C8E8 (ACPIDeviceInternalSynchronizeRequest.c)
+ *     ACPIBuildProcessRunMethodPhaseCheckSta @ 0x1C001EFD0 (ACPIBuildProcessRunMethodPhaseCheckSta.c)
+ *     ACPIBuildProcessRunMethodPhaseRunMethod @ 0x1C001F520 (ACPIBuildProcessRunMethodPhaseRunMethod.c)
+ *     ACPIFilterFastIoDetachCallback @ 0x1C002CEB0 (ACPIFilterFastIoDetachCallback.c)
+ *     ACPIBusAndFilterIrpQueryRemovalRelations @ 0x1C004D120 (ACPIBusAndFilterIrpQueryRemovalRelations.c)
+ *     ACPIFanFSTCallback @ 0x1C0055370 (ACPIFanFSTCallback.c)
+ *     ACPIQueryGedDeviceInterface @ 0x1C005688C (ACPIQueryGedDeviceInterface.c)
+ *     ACPIInternalEvaluateOST @ 0x1C0056CB4 (ACPIInternalEvaluateOST.c)
+ *     OSNotifyDeviceWake @ 0x1C0058CEC (OSNotifyDeviceWake.c)
+ *     ACPIDevicePowerDetermineSupportedDeviceStates @ 0x1C009E3F4 (ACPIDevicePowerDetermineSupportedDeviceStates.c)
+ *     PcisuppReleasePciInterfaces @ 0x1C00B6B38 (PcisuppReleasePciInterfaces.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_qss(
@@ -29,104 +29,89 @@ __int64 __fastcall WPP_RECORDER_SF_qss(
         const char *a7,
         const char *a8)
 {
-  const char *v8; // rsi
-  const char *v10; // rdi
-  __int64 v11; // rbx
-  unsigned __int64 v13; // r14
-  unsigned int v14; // ebp
-  unsigned int v15; // r12d
-  int v16; // eax
-  unsigned __int8 v17; // cf
-  __int64 v18; // r8
-  __int64 v19; // r8
-  const char *v20; // r9
-  __int64 v21; // rdx
+  __int64 v8; // rdi
+  __int64 v9; // rsi
+  unsigned __int64 v11; // r14
+  unsigned int v12; // r15d
+  unsigned int v13; // r12d
+  __int64 v14; // rbx
+  int v15; // eax
+  unsigned __int8 v16; // cf
+  __int64 v17; // r8
+  __int64 v18; // rax
+  __int64 v20; // r8
+  const char *v21; // r9
   __int64 v22; // rdx
-  const char *v23; // rcx
-  __int64 v24; // rax
-  __int64 v25; // rax
-  __int64 v26; // rbx
-  int v28; // [rsp+20h] [rbp-68h]
-  __int64 v29; // [rsp+60h] [rbp-28h]
-  __int64 v30; // [rsp+68h] [rbp-20h]
+  __int64 v23; // rdx
+  const char *v24; // rcx
+  int v25; // [rsp+20h] [rbp-68h]
+  __int64 v26; // [rsp+90h] [rbp+8h]
 
-  v8 = a7;
-  v10 = a8;
-  v11 = -1LL;
-  v13 = (unsigned __int64)a3 >> 16;
-  v14 = a2;
-  v15 = a4;
-  v16 = *((_DWORD *)&WPP_GLOBAL_Control->Timer + 20 * v13 + (((a3 - 1) >> 5) & 0x7FF) + 1);
-  v17 = _bittest(&v16, (a3 - 1) & 0x1F);
-  v18 = 5LL;
-  if ( v17 && *((_BYTE *)&WPP_GLOBAL_Control->Timer + 80 * v13 + 1) >= a2 )
+  v26 = a1;
+  v8 = (__int64)a8;
+  v9 = (__int64)a7;
+  v11 = (unsigned __int64)a3 >> 16;
+  v12 = a2;
+  v13 = a4;
+  v14 = -1LL;
+  v15 = *((_DWORD *)&WPP_GLOBAL_Control->Timer + 20 * v11 + (((a3 - 1) >> 5) & 0x7FF) + 1);
+  v16 = _bittest(&v15, (a3 - 1) & 0x1F);
+  v17 = 5LL;
+  if ( v16 && *((_BYTE *)&WPP_GLOBAL_Control->Timer + 80 * v11 + 1) >= a2 )
   {
     if ( a8 )
     {
-      v19 = -1LL;
+      v20 = -1LL;
       do
-        ++v19;
-      while ( a8[v19] );
-      v18 = v19 + 1;
+        ++v20;
+      while ( a8[v20] );
+      v17 = v20 + 1;
     }
-    v20 = a8;
+    v21 = a8;
     if ( !a8 )
-      v20 = "NULL";
+      v21 = "NULL";
     if ( a7 )
     {
-      v21 = -1LL;
+      v22 = -1LL;
       do
-        ++v21;
-      while ( a7[v21] );
-      v22 = v21 + 1;
+        ++v22;
+      while ( a7[v22] );
+      v23 = v22 + 1;
     }
     else
     {
-      v22 = 5LL;
+      v23 = 5LL;
     }
-    v23 = a7;
+    v24 = a7;
     if ( !a7 )
-      v23 = "NULL";
+      v24 = "NULL";
     ((void (__fastcall *)(_QWORD, __int64, __int64, _QWORD, char *, __int64, const char *, __int64, const char *, __int64, _QWORD))pfnWppTraceMessage)(
-      *((_QWORD *)&WPP_GLOBAL_Control->AttachedDevice + 10 * v13),
+      *((_QWORD *)&WPP_GLOBAL_Control->AttachedDevice + 10 * v11),
       43LL,
       a5,
-      v15,
+      v13,
       &a6,
       8LL,
+      v24,
       v23,
-      v22,
-      v20,
-      v18,
+      v21,
+      v17,
       0LL);
+    a1 = v26;
   }
-  if ( v10 )
-  {
-    v24 = -1LL;
-    do
-      ++v24;
-    while ( v10[v24] );
-    v25 = v24 + 1;
-  }
-  else
-  {
-    v25 = 5LL;
-  }
-  if ( !v10 )
-    v10 = "NULL";
   if ( v8 )
   {
+    v18 = -1LL;
     do
-      ++v11;
-    while ( v8[v11] );
-    v26 = v11 + 1;
+      ++v18;
+    while ( *(_BYTE *)(v8 + v18) );
   }
-  else
+  if ( v9 )
   {
-    v26 = 5LL;
+    do
+      ++v14;
+    while ( *(_BYTE *)(v9 + v14) );
   }
-  if ( !v8 )
-    v8 = "NULL";
-  LOWORD(v28) = v15;
-  return WppAutoLogTrace(a1, v14, a3, a5, v28, &a6, 8LL, v8, v26, v10, v25, 0LL, v29, v30);
+  LOWORD(v25) = v13;
+  return WppAutoLogTrace(a1, v12, a3, a5, v25, &a6);
 }

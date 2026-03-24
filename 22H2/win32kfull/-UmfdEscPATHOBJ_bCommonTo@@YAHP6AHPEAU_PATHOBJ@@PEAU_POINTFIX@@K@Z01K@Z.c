@@ -1,12 +1,12 @@
 /*
- * XREFs of ?UmfdEscPATHOBJ_bCommonTo@@YAHP6AHPEAU_PATHOBJ@@PEAU_POINTFIX@@K@Z01K@Z @ 0x1C02A7740
+ * XREFs of ?UmfdEscPATHOBJ_bCommonTo@@YAHP6AHPEAU_PATHOBJ@@PEAU_POINTFIX@@K@Z01K@Z @ 0x1C0139E64
  * Callers:
- *     UmfdDispatchEscape @ 0x1C0076FE0 (UmfdDispatchEscape.c)
+ *     UmfdDispatchEscape @ 0x1C00A76B0 (UmfdDispatchEscape.c)
  * Callees:
- *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C0077ABC (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ULongLongMult @ 0x1C015A67A (ULongLongMult.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C00A8D30 (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall UmfdEscPATHOBJ_bCommonTo(
@@ -15,37 +15,33 @@ __int64 __fastcall UmfdEscPATHOBJ_bCommonTo(
         struct _POINTFIX *a3,
         unsigned int a4)
 {
-  struct UmfdTls *v7; // rax
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // r14
-  size_t v11; // rbx
-  void *v12; // rdi
-  unsigned int v13; // ebx
-  size_t Size; // [rsp+58h] [rbp+10h] BYREF
+  size_t v7; // rdi
+  struct UmfdTls *v8; // rax
+  __int64 v9; // r14
+  void *v10; // rsi
+  unsigned int v11; // ebx
 
-  Size = 0LL;
-  if ( ULongLongMult(a4, 8uLL, &Size) < 0 )
+  v7 = 8LL * a4;
+  if ( !is_mul_ok(a4, 8uLL) )
     return 0LL;
-  v7 = UmfdTls::EnsureTls();
-  if ( !v7 )
+  v8 = UmfdTls::EnsureTls();
+  if ( !v8 )
     return 0LL;
-  v10 = *((_QWORD *)v7 + 6);
+  v9 = *((_QWORD *)v8 + 6);
+  if ( !v9 )
+    return 0LL;
+  v10 = PALLOCMEM2((unsigned int)v7, 1801733703LL, 0);
   if ( !v10 )
     return 0LL;
-  v11 = Size;
-  v12 = (_DWORD)Size ? (void *)Win32AllocPool((unsigned int)Size, 1801733703LL, v8, v9) : 0LL;
-  if ( !v12 )
-    return 0LL;
-  if ( v11 )
+  if ( v7 )
   {
     if ( ((unsigned __int8)a3 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( (unsigned __int64)a3 + v11 > MmUserProbeAddress || (struct _POINTFIX *)((char *)a3 + v11) < a3 )
+    if ( (unsigned __int64)&a3[v7 / 8] > MmUserProbeAddress || &a3[v7 / 8] < a3 )
       *(_BYTE *)MmUserProbeAddress = 0;
   }
-  memmove(v12, a3, v11);
-  v13 = ((__int64 (__fastcall *)(__int64, void *, _QWORD))a1)(v10, v12, a4);
-  Win32FreePool(v12);
-  return v13;
+  memmove(v10, a3, v7);
+  v11 = ((__int64 (__fastcall *)(__int64, void *, _QWORD))a1)(v9, v10, a4);
+  Win32FreePool(v10);
+  return v11;
 }

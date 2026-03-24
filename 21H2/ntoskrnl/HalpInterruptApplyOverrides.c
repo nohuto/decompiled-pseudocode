@@ -1,51 +1,47 @@
 /*
- * XREFs of HalpInterruptApplyOverrides @ 0x140252258
+ * XREFs of HalpInterruptApplyOverrides @ 0x140378E24
  * Callers:
- *     HalpInterruptSetDestinationInternal @ 0x140251EA0 (HalpInterruptSetDestinationInternal.c)
- *     HalpInterruptRestoreClock @ 0x1403915EC (HalpInterruptRestoreClock.c)
- *     HalDisableInterrupt @ 0x140396C30 (HalDisableInterrupt.c)
- *     HalpTimerConfigureInterrupt @ 0x1403AEA08 (HalpTimerConfigureInterrupt.c)
- *     HalpInterruptSetLineState @ 0x1403B07C8 (HalpInterruptSetLineState.c)
- *     HalpTimerInitializeHypervisorTimer @ 0x1403BACF8 (HalpTimerInitializeHypervisorTimer.c)
- *     HalpInterruptRemap @ 0x1403D57DC (HalpInterruptRemap.c)
- *     HalpInterruptConnect @ 0x140507ED8 (HalpInterruptConnect.c)
- *     ExtEnvSetVpptTarget @ 0x14050C264 (ExtEnvSetVpptTarget.c)
- *     HalpTimerUnmapInterrupt @ 0x14050D048 (HalpTimerUnmapInterrupt.c)
- *     HalpInterruptMaskAcpi @ 0x140A521EC (HalpInterruptMaskAcpi.c)
+ *     HalDisableInterrupt @ 0x140377280 (HalDisableInterrupt.c)
+ *     HalpInterruptRemap @ 0x1403785E0 (HalpInterruptRemap.c)
+ *     HalpInterruptSetDestinationInternal @ 0x140378A6C (HalpInterruptSetDestinationInternal.c)
+ *     HalpInterruptRestoreClock @ 0x1403868C8 (HalpInterruptRestoreClock.c)
+ *     HalpTimerConfigureInterrupt @ 0x1403A2584 (HalpTimerConfigureInterrupt.c)
+ *     HalpInterruptSetLineState @ 0x1403A3AF8 (HalpInterruptSetLineState.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403A8104 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpInterruptConnect @ 0x1404BB438 (HalpInterruptConnect.c)
+ *     ExtEnvSetVpptTarget @ 0x1404BF7A4 (ExtEnvSetVpptTarget.c)
+ *     HalpTimerUnmapInterrupt @ 0x1404C0588 (HalpTimerUnmapInterrupt.c)
+ *     HalpInterruptMaskAcpi @ 0x14099823C (HalpInterruptMaskAcpi.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptFindLinesForGsiRange @ 0x1402523CC (HalpInterruptFindLinesForGsiRange.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140378FA8 (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpReleaseHighLevelLock @ 0x1404D07BC (HalpReleaseHighLevelLock.c)
  */
 
-__int64 __fastcall HalpInterruptApplyOverrides(_DWORD *a1, _DWORD *a2, _DWORD *a3)
+__int64 __fastcall HalpInterruptApplyOverrides(unsigned int *a1, _DWORD *a2, _DWORD *a3)
 {
-  char v6; // r14
-  unsigned __int8 v7; // al
-  __int64 *v8; // r9
-  unsigned __int64 v9; // rbp
+  char v6; // di
+  char v7; // al
+  __int64 v8; // rdx
+  __int64 *v9; // r9
   __int64 *v10; // rcx
   __int64 result; // rax
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  bool v14; // zf
-  unsigned int v15; // edi
+  unsigned int v12; // edi
 
   v6 = 0;
   v7 = HalpAcquireHighLevelLock(&HalpInterruptOverridesLock);
-  v8 = (__int64 *)HalpInterruptOverrides;
-  v9 = v7;
+  v9 = (__int64 *)HalpInterruptOverrides;
   if ( (__int64 *)HalpInterruptOverrides != &HalpInterruptOverrides )
   {
+    v8 = *a1;
     while ( 1 )
     {
-      v10 = v8;
-      v8 = (__int64 *)*v8;
-      if ( *((_DWORD *)v10 + 4) == *a1 && *((_DWORD *)v10 + 5) == a1[1] )
+      v10 = v9;
+      v9 = (__int64 *)*v9;
+      if ( v10[2] == *(_QWORD *)a1 )
         break;
-      if ( v8 == &HalpInterruptOverrides )
-        goto LABEL_4;
+      if ( v9 == &HalpInterruptOverrides )
+        goto LABEL_11;
     }
     *(_QWORD *)a1 = v10[3];
     if ( a2 )
@@ -54,42 +50,24 @@ __int64 __fastcall HalpInterruptApplyOverrides(_DWORD *a1, _DWORD *a2, _DWORD *a
       *a3 = *((_DWORD *)v10 + 8);
     v6 = 1;
   }
-LABEL_4:
-  KxReleaseSpinLock(&HalpInterruptOverridesLock);
-  result = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
-  {
-    if ( (KiIrqlFlags & 1) != 0 )
-    {
-      result = KeGetCurrentIrql();
-      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v9 <= 0xFu && (unsigned __int8)result >= 2u )
-      {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-        v14 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= result;
-        if ( v14 )
-          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-      }
-    }
-  }
-  __writecr8(v9);
+LABEL_11:
+  LOBYTE(v8) = v7;
+  result = HalpReleaseHighLevelLock(&HalpInterruptOverridesLock, v8);
   if ( !v6 )
   {
     result = HalpInterruptController;
-    if ( *(_DWORD *)(HalpInterruptController + 224) == 2 )
+    if ( *(_DWORD *)(HalpInterruptController + 216) == 2 )
     {
-      result = (unsigned int)(*a1 - 45056);
+      result = *a1 - 45056;
       if ( (unsigned int)result <= 1 )
       {
-        v15 = a1[1] + 8;
+        v12 = a1[1] + 8;
         if ( *a1 != 45057 )
-          v15 = a1[1];
-        result = HalpInterruptFindLinesForGsiRange(v15, v15 + 1);
+          v12 = a1[1];
+        result = HalpInterruptFindLinesForGsiRange(v12, v12 + 1);
         if ( result )
         {
-          a1[1] = v15 + *(_DWORD *)(result + 20) - *(_DWORD *)(result + 28);
+          a1[1] = v12 + *(_DWORD *)(result + 20) - *(_DWORD *)(result + 28);
           result = *(unsigned int *)(result + 16);
           *a1 = result;
         }

@@ -1,22 +1,23 @@
 /*
- * XREFs of EditionFinalizeKoreanImeCompStrOnMouseClick @ 0x1C01132F0
+ * XREFs of EditionFinalizeKoreanImeCompStrOnMouseClick @ 0x1C0106C00
  * Callers:
  *     <none>
  * Callees:
- *     ?FinalizeKoreanImeCompStrOnMouseClick@@YAXPEAUtagWND@@@Z @ 0x1C01D3E94 (-FinalizeKoreanImeCompStrOnMouseClick@@YAXPEAUtagWND@@@Z.c)
+ *     GetActiveHKL @ 0x1C0107118 (GetActiveHKL.c)
+ *     ?FinalizeKoreanImeCompStrOnMouseClick@@YAXPEAUtagWND@@@Z @ 0x1C01D8730 (-FinalizeKoreanImeCompStrOnMouseClick@@YAXPEAUtagWND@@@Z.c)
  */
 
 void __fastcall EditionFinalizeKoreanImeCompStrOnMouseClick(__int64 a1, int a2)
 {
-  struct tagWND *v2; // rbx
+  __int64 v2; // rbx
 
-  v2 = *(struct tagWND **)(a1 + 80);
+  v2 = *(_QWORD *)(a1 + 80);
   if ( (*gpsi & 4) != 0
     && !a2
-    && (GetActiveHKL(gpsi) & 0x3FF) == 0x12
-    && (*(_BYTE *)(*(_QWORD *)(*((_QWORD *)v2 + 17) + 8LL) + 10LL) & 1) == 0 )
+    && (GetActiveHKL() & 0x3FF) == 0x12
+    && (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(v2 + 136) + 8LL) + 10LL) & 1) == 0 )
   {
     if ( gpqForeground )
-      FinalizeKoreanImeCompStrOnMouseClick(v2);
+      FinalizeKoreanImeCompStrOnMouseClick((struct tagWND *)v2);
   }
 }

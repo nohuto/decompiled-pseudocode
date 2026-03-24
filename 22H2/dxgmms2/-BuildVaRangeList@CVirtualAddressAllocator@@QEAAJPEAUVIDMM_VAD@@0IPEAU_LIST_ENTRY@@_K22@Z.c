@@ -1,13 +1,13 @@
 /*
- * XREFs of ?BuildVaRangeList@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_VAD@@0IPEAU_LIST_ENTRY@@_K22@Z @ 0x1C00F1ACC
+ * XREFs of ?BuildVaRangeList@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_VAD@@0IPEAU_LIST_ENTRY@@_K22@Z @ 0x1C00BB1CC
  * Callers:
- *     ?UpdateGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@IEAAJPEAUVIDSCH_DEVICE_COMMAND_UPDATEGPUVA@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00E88A4 (-UpdateGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@IEAAJPEAUVIDSCH_DEVICE_COMMAND_UPDATEGPUVA@@.c)
+ *     ?UpdateGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@IEAAJPEAUVIDSCH_DEVICE_COMMAND_UPDATEGPUVA@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00B39A8 (-UpdateGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@IEAAJPEAUVIDSCH_DEVICE_COMMAND_UPDATEGPUVA@@.c)
  * Callees:
- *     ??0VIDMM_MAPPED_VA_RANGE@@QEAA@PEAUVIDMM_VAD@@_K1IPEAX1W4VIDMM_VAD_OWNER_TYPE@@U_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE@@111@Z @ 0x1C0001C54 (--0VIDMM_MAPPED_VA_RANGE@@QEAA@PEAUVIDMM_VAD@@_K1IPEAX1W4VIDMM_VAD_OWNER_TYPE@@U_D3DDDIGPUVIRTUA.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00052B8 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005408 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0005468 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0005F60 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001B54 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001BCC (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001D2C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0VIDMM_MAPPED_VA_RANGE@@QEAA@PEAUVIDMM_VAD@@_K1IPEAX1W4VIDMM_VAD_OWNER_TYPE@@U_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE@@111@Z @ 0x1C0001EB4 (--0VIDMM_MAPPED_VA_RANGE@@QEAA@PEAUVIDMM_VAD@@_K1IPEAX1W4VIDMM_VAD_OWNER_TYPE@@U_D3DDDIGPUVIRTUA.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0001FC0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CVirtualAddressAllocator::BuildVaRangeList(
@@ -21,66 +21,75 @@ __int64 __fastcall CVirtualAddressAllocator::BuildVaRangeList(
         unsigned __int64 a8)
 {
   __int64 v9; // rdi
-  __int64 **v10; // r12
-  __int64 *i; // rbx
-  unsigned __int64 v12; // rsi
-  unsigned __int64 v13; // r14
-  __int64 v14; // rax
-  __int64 v15; // rax
+  __int64 v10; // rcx
+  char *v11; // rdi
+  char *v12; // r13
+  unsigned int i; // ebx
+  unsigned __int64 v14; // r14
+  unsigned __int64 v15; // r15
+  PVOID v16; // r10
+  __int64 v17; // rax
   struct _LIST_ENTRY *Blink; // rcx
-  struct _LIST_ENTRY *v17; // rax
-  _BYTE v19[8]; // [rsp+60h] [rbp-48h] BYREF
-  DXGPUSHLOCK *v20; // [rsp+68h] [rbp-40h]
-  int v21; // [rsp+70h] [rbp-38h]
-  char v23; // [rsp+C8h] [rbp+20h]
+  struct _LIST_ENTRY *v19; // rax
+  _BYTE v21[8]; // [rsp+60h] [rbp-48h] BYREF
+  DXGPUSHLOCK *v22; // [rsp+68h] [rbp-40h]
+  int v23; // [rsp+70h] [rbp-38h]
+  char v25; // [rsp+C8h] [rbp+20h]
+  unsigned __int64 v26; // [rsp+E8h] [rbp+40h]
 
-  v23 = a4;
+  v25 = a4;
   v9 = a4;
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v19, this + 7, 0);
-  DXGPUSHLOCK::AcquireExclusive(v20);
-  v10 = (__int64 **)((char *)a2 + 24 * v9 + 96);
-  v21 = 2;
-  for ( i = *v10; i != (__int64 *)v10; i = (__int64 *)*i )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v21, this + 7, 0);
+  DXGPUSHLOCK::AcquireExclusive(v22);
+  v26 = a8 - a6;
+  v10 = (unsigned int)v9;
+  v11 = (char *)*((_QWORD *)a2 + 3 * v9 + 12);
+  v23 = 2;
+  v12 = (char *)a2 + 24 * v10 + 96;
+  for ( i = 0; v11 != v12; v11 = *(char **)v11 )
   {
-    v12 = i[11];
-    if ( a7 <= v12 )
+    v14 = *((_QWORD *)v11 + 11);
+    if ( a7 <= v14 )
       break;
-    v13 = i[12];
-    if ( a6 < v13 )
+    v15 = *((_QWORD *)v11 + 12);
+    if ( a6 < v15 )
     {
-      if ( a6 > v12 )
-        v12 = a6;
-      if ( a7 < v13 )
-        v13 = a7;
-      v14 = operator new(136LL, 0x39346956u, 256LL);
-      if ( !v14
-        || (v15 = VIDMM_MAPPED_VA_RANGE::VIDMM_MAPPED_VA_RANGE(
-                    v14,
-                    (__int64)a3,
-                    v12 + a8 - a6,
-                    v13 + a8 - a6,
-                    v23,
-                    i[6],
-                    v12 + i[8] - i[11],
-                    (int)(*((_DWORD *)i + 14) << 28) >> 28,
-                    i[10],
-                    i[9],
-                    i[14],
-                    i[13])) == 0 )
+      if ( a6 > v14 )
+        v14 = a6;
+      if ( a7 < v15 )
+        v15 = a7;
+      v16 = operator new[](0x88uLL, 0x39346956u, PagedPool);
+      if ( v16 )
+        v17 = VIDMM_MAPPED_VA_RANGE::VIDMM_MAPPED_VA_RANGE(
+                (__int64)v16,
+                (__int64)a3,
+                v14 + v26,
+                v15 + v26,
+                v25,
+                *((_QWORD *)v11 + 6),
+                v14 + *((_QWORD *)v11 + 8) - *((_QWORD *)v11 + 11),
+                (int)(*((_DWORD *)v11 + 14) << 28) >> 28,
+                *((_QWORD *)v11 + 10),
+                *((_QWORD *)v11 + 9),
+                *((_QWORD *)v11 + 14),
+                *((_QWORD *)v11 + 13));
+      else
+        v17 = 0LL;
+      if ( !v17 )
       {
-        DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v19);
-        return 3221225495LL;
+        i = -1073741801;
+        break;
       }
       Blink = a5->Blink;
-      v17 = (struct _LIST_ENTRY *)(v15 + 8);
+      v19 = (struct _LIST_ENTRY *)(v17 + 8);
       if ( Blink->Flink != a5 )
         __fastfail(3u);
-      v17->Flink = a5;
-      v17->Blink = Blink;
-      Blink->Flink = v17;
-      a5->Blink = v17;
+      v19->Flink = a5;
+      v19->Blink = Blink;
+      Blink->Flink = v19;
+      a5->Blink = v19;
     }
   }
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v19);
-  return 0LL;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v21);
+  return i;
 }

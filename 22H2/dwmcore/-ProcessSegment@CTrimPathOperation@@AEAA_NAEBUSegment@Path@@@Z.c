@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ProcessSegment@CTrimPathOperation@@AEAA_NAEBUSegment@Path@@@Z @ 0x1800156FC
+ * XREFs of ?ProcessSegment@CTrimPathOperation@@AEAA_NAEBUSegment@Path@@@Z @ 0x18025ED00
  * Callers:
- *     ?Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z @ 0x18001548C (-Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z.c)
+ *     ?Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z @ 0x18025EEE0 (-Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z.c)
  * Callees:
- *     ?SplitSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z @ 0x1800151D0 (-SplitSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z.c)
- *     ?UpdateCurrentEndPoint@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z @ 0x1800157D8 (-UpdateCurrentEndPoint@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z.c)
- *     ?ShouldSplitCurrentSegment@CTrimPathOperation@@AEBA_NXZ @ 0x180015834 (-ShouldSplitCurrentSegment@CTrimPathOperation@@AEBA_NXZ.c)
- *     ?AppendSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z @ 0x180015858 (-AppendSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z.c)
+ *     ?AppendSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z @ 0x18025E1EC (-AppendSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z.c)
+ *     ?ShouldSplitCurrentSegment@CTrimPathOperation@@AEBA_NXZ @ 0x18025EDD4 (-ShouldSplitCurrentSegment@CTrimPathOperation@@AEBA_NXZ.c)
+ *     ?SplitSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z @ 0x18025EDF8 (-SplitSegment@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z.c)
+ *     ?UpdateCurrentEndPoint@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z @ 0x18025F40C (-UpdateCurrentEndPoint@CTrimPathOperation@@AEAAXAEBUSegment@Path@@@Z.c)
  */
 
 char __fastcall CTrimPathOperation::ProcessSegment(CTrimPathOperation *this, const struct Path::Segment *a2)
@@ -14,8 +14,8 @@ char __fastcall CTrimPathOperation::ProcessSegment(CTrimPathOperation *this, con
   char v4; // dl
   __int64 v5; // rcx
   float v6; // xmm0_4
-  CTrimPathOperation *v7; // rcx
-  bool v9; // zf
+  bool v7; // zf
+  CTrimPathOperation *v9; // rcx
 
   v4 = 0;
   if ( !*(_BYTE *)a2 )
@@ -28,32 +28,32 @@ char __fastcall CTrimPathOperation::ProcessSegment(CTrimPathOperation *this, con
   {
     v6 = *((float *)a2 + 1) + *((float *)this + 11);
     *((float *)this + 11) = v6;
-    if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(*((float *)this + v5 + 6) - v6) & _xmm) <= 0.0000011920929 )
+    if ( COERCE_FLOAT(COERCE_UNSIGNED_INT(*((float *)this + v5 + 6) - v6) & _xmm) > 0.0000011920929 )
     {
-      if ( !*(_BYTE *)a2 )
+      if ( CTrimPathOperation::ShouldSplitCurrentSegment(this) )
       {
-        v9 = *((_BYTE *)this + 396) == 0;
-        *((_BYTE *)this + 397) = 1;
-        *((_BYTE *)this + 396) = v9;
-        *((_DWORD *)this + 8) = v5 + 1;
+        CTrimPathOperation::SplitSegment(v9, a2);
+        goto LABEL_9;
       }
     }
-    else if ( CTrimPathOperation::ShouldSplitCurrentSegment(this) )
+    else if ( !*(_BYTE *)a2 )
     {
-      CTrimPathOperation::SplitSegment(v7, a2);
-      goto LABEL_8;
+      v7 = *((_BYTE *)this + 396) == 0;
+      *((_BYTE *)this + 397) = 1;
+      *((_BYTE *)this + 396) = v7;
+      *((_DWORD *)this + 8) = v5 + 1;
     }
     if ( *((_BYTE *)this + 396) == v4 )
     {
-LABEL_8:
+LABEL_9:
       CTrimPathOperation::UpdateCurrentEndPoint(this, a2);
       return 1;
     }
-LABEL_7:
+LABEL_8:
     CTrimPathOperation::AppendSegment(this, a2);
-    goto LABEL_8;
+    goto LABEL_9;
   }
   if ( *((_BYTE *)this + 396) )
-    goto LABEL_7;
+    goto LABEL_8;
   return 0;
 }

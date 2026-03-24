@@ -1,34 +1,33 @@
 /*
- * XREFs of RIMResetPointerDevicePrimaryContact @ 0x1C01ADE28
+ * XREFs of RIMResetPointerDevicePrimaryContact @ 0x1C0178774
  * Callers:
- *     rimAbSuppressLowerRankActivityInFrame @ 0x1C0187C10 (rimAbSuppressLowerRankActivityInFrame.c)
- *     RIMUpdatePointerDeviceStateAfterFrameCompleted @ 0x1C01ADFB4 (RIMUpdatePointerDeviceStateAfterFrameCompleted.c)
+ *     rimAbSuppressLowerRankActivityInFrame @ 0x1C015999C (rimAbSuppressLowerRankActivityInFrame.c)
+ *     RIMUpdatePointerDeviceStateAfterFrameCompleted @ 0x1C017896C (RIMUpdatePointerDeviceStateAfterFrameCompleted.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall RIMResetPointerDevicePrimaryContact(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RIMResetPointerDevicePrimaryContact(__int64 a1)
 {
-  __int64 v3; // rdx
+  __int64 v1; // rdx
   __int64 result; // rax
 
-  v3 = *(_QWORD *)(a1 + 1016);
-  if ( v3 )
+  v1 = *(_QWORD *)(a1 + 960);
+  if ( v1 )
   {
-    if ( (*(_DWORD *)(v3 + 32) & 2) == 0 )
+    if ( (*(_DWORD *)(v1 + 32) & 2) == 0 )
     {
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, v3, a3);
-      v3 = *(_QWORD *)(a1 + 1016);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1523);
+      v1 = *(_QWORD *)(a1 + 960);
     }
-    if ( (*(_DWORD *)(v3 + 32) & 8) == 0 )
+    result = *(unsigned int *)(v1 + 32);
+    if ( (result & 8) == 0 )
     {
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, v3, a3);
-      v3 = *(_QWORD *)(a1 + 1016);
+      result = MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 1524);
+      v1 = *(_QWORD *)(a1 + 960);
     }
-    *(_DWORD *)(v3 + 2420) &= ~0x4000000u;
-    result = *(_QWORD *)(a1 + 1016);
-    *(_DWORD *)(result + 32) &= ~8u;
-    *(_QWORD *)(a1 + 1016) = 0LL;
+    *(_DWORD *)(v1 + 32) &= ~8u;
+    *(_QWORD *)(a1 + 960) = 0LL;
   }
   return result;
 }

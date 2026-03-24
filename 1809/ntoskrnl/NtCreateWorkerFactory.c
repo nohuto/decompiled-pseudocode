@@ -1,17 +1,17 @@
 /*
- * XREFs of NtCreateWorkerFactory @ 0x14068A210
+ * XREFs of NtCreateWorkerFactory @ 0x14068A1F0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
- *     KeSetTimer2 @ 0x1400FC150 (KeSetTimer2.c)
- *     KeRegisterObjectNotification @ 0x1400FD2A0 (KeRegisterObjectNotification.c)
- *     ExpInitializeThreadHistory @ 0x1400FD448 (ExpInitializeThreadHistory.c)
- *     KeInitializeTimer2 @ 0x1400FD4B0 (KeInitializeTimer2.c)
- *     KeDisableQueueingPriorityIncrement @ 0x1400FD9E0 (KeDisableQueueingPriorityIncrement.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
+ *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
+ *     KeRegisterObjectNotification @ 0x1400FD2C0 (KeRegisterObjectNotification.c)
+ *     ExpInitializeThreadHistory @ 0x1400FD468 (ExpInitializeThreadHistory.c)
+ *     KeInitializeTimer2 @ 0x1400FD4D0 (KeInitializeTimer2.c)
+ *     KeDisableQueueingPriorityIncrement @ 0x1400FDA00 (KeDisableQueueingPriorityIncrement.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
@@ -19,8 +19,8 @@
  *     IopFreeMiniCompletionPacket @ 0x1405E9C20 (IopFreeMiniCompletionPacket.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     ObOpenObjectByPointer @ 0x1406470E0 (ObOpenObjectByPointer.c)
- *     IoAllocateMiniCompletionPacket @ 0x14068A7F0 (IoAllocateMiniCompletionPacket.c)
+ *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
+ *     IoAllocateMiniCompletionPacket @ 0x14068A7D0 (IoAllocateMiniCompletionPacket.c)
  */
 
 __int64 __fastcall NtCreateWorkerFactory(

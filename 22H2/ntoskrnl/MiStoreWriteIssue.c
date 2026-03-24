@@ -1,45 +1,39 @@
 /*
- * XREFs of MiStoreWriteIssue @ 0x14065CD64
+ * XREFs of MiStoreWriteIssue @ 0x1402657D0
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x14046D44A (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x14032F960 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     SmpPageWrite @ 0x1405C9E40 (SmpPageWrite.c)
- *     ?SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z @ 0x1405CCBD8 (-SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z.c)
+ *     SmpPageWrite @ 0x14026589C (SmpPageWrite.c)
+ *     ?SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z @ 0x14026886C (-SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z.c)
  */
 
 __int64 __fastcall MiStoreWriteIssue(
         __int64 a1,
         __int64 a2,
         union _MM_STORE_KEY *a3,
-        __int64 a4,
+        int a4,
         __int64 a5,
-        __int64 a6,
+        int a6,
         __int64 a7,
         int a8)
 {
+  unsigned __int64 v9; // rdx
+  __int64 v10; // rax
   __int64 result; // rax
-  __int64 v11; // r10
-  _SLIST_ENTRY *v12; // r11
+  __int64 v12; // r11
 
-  *(_QWORD *)(a1 + 72) = 0LL;
-  *(_DWORD *)(a1 + 80) = 56;
-  *(_QWORD *)(a1 + 104) = 0LL;
-  *(_QWORD *)(a1 + 112) = 4096LL;
-  *(_WORD *)(a1 + 82) |= 2u;
-  *(_QWORD *)(a1 + 120) = 0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4);
-  *(_QWORD *)(a1 + 56) = a7;
+  *(_DWORD *)(a1 + 72) = 56;
+  *(_QWORD *)(a1 + 64) = 0LL;
+  *(_QWORD *)(a1 + 96) = 0LL;
+  *(_QWORD *)(a1 + 104) = 4096LL;
+  *(_WORD *)(a1 + 74) |= 2u;
+  v9 = (__int64)((unsigned __int128)((a2 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3;
+  v10 = a7;
+  *(_QWORD *)(a1 + 112) = (v9 >> 63) + v9;
+  *(_QWORD *)(a1 + 56) = v10;
   LODWORD(a7) = 0;
   result = SmKeyConvert(a3, (union _SM_PAGE_KEY *)&a7);
   if ( (int)result >= 0 )
-    return SmpPageWrite(
-             *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(a2 + 40) >> 43) & 0x3FFLL)) + 200LL)
-                       + 24LL),
-             &a7,
-             a4,
-             a6,
-             v11,
-             a5,
-             v12 + 1,
-             a8);
+    return SmpPageWrite((unsigned int)&a7, a4, a6, (int)v12 + 64, a5, v12 + 16, a8);
   return result;
 }

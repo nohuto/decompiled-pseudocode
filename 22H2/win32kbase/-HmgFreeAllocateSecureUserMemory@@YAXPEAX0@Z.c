@@ -1,8 +1,8 @@
 /*
- * XREFs of ?HmgFreeAllocateSecureUserMemory@@YAXPEAX0@Z @ 0x1C0158E0C
+ * XREFs of ?HmgFreeAllocateSecureUserMemory@@YAXPEAX0@Z @ 0x1C013F0B0
  * Callers:
- *     HmgAllocateObjectAttr @ 0x1C008A91C (HmgAllocateObjectAttr.c)
- *     HmgAllocateDcAttr @ 0x1C00E02F0 (HmgAllocateDcAttr.c)
+ *     HmgAllocateDcAttr @ 0x1C002C9D8 (HmgAllocateDcAttr.c)
+ *     HmgAllocateObjectAttr @ 0x1C0080F90 (HmgAllocateObjectAttr.c)
  * Callees:
  *     <none>
  */

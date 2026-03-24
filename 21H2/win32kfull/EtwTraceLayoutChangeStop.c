@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceLayoutChangeStop @ 0x1C00A28C0
+ * XREFs of EtwTraceLayoutChangeStop @ 0x1C011C720
  * Callers:
- *     NtUserLayoutCompleted @ 0x1C00A2930 (NtUserLayoutCompleted.c)
+ *     NtUserLayoutCompleted @ 0x1C011C5D0 (NtUserLayoutCompleted.c)
  * Callees:
- *     _GetClientRect @ 0x1C00F2600 (_GetClientRect.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     McTemplateK0qqzz_EtwWriteTransfer @ 0x1C01E62D8 (McTemplateK0qqzz_EtwWriteTransfer.c)
+ *     _GetClientRect @ 0x1C00FFC48 (_GetClientRect.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     McTemplateK0qqzz_EtwWriteTransfer @ 0x1C01EB4B4 (McTemplateK0qqzz_EtwWriteTransfer.c)
  */
 
 void __fastcall EtwTraceLayoutChangeStop(__int64 a1, int a2, __int64 a3)
@@ -21,7 +21,7 @@ void __fastcall EtwTraceLayoutChangeStop(__int64 a1, int a2, __int64 a3)
   _BYTE v13[144]; // [rsp+60h] [rbp-A0h] BYREF
   _BYTE v14[256]; // [rsp+F0h] [rbp-10h] BYREF
 
-  if ( (byte_1C0337CC4 & 2) != 0 )
+  if ( (byte_1C033D604 & 2) != 0 )
   {
     memset(v14, 0, sizeof(v14));
     memset(v13, 0, 0x84uLL);
@@ -33,8 +33,8 @@ void __fastcall EtwTraceLayoutChangeStop(__int64 a1, int a2, __int64 a3)
     if ( v7 )
     {
       RtlQueryPackageIdentity(v7, v14, &v11, v13, &v10, 0LL);
-      GetClientRect(a3, &v12);
-      if ( (byte_1C0337CC4 & 2) != 0 )
+      GetClientRect(a3, (__int64)&v12);
+      if ( (byte_1C033D604 & 2) != 0 )
         McTemplateK0qqzz_EtwWriteTransfer(
           WORD4(v12) | (WORD6(v12) << 16),
           v8,

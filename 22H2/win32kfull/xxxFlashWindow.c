@@ -1,51 +1,58 @@
 /*
- * XREFs of xxxFlashWindow @ 0x1C0005C64
+ * XREFs of xxxFlashWindow @ 0x1C002AFD8
  * Callers:
- *     xxxSystemTimerProc @ 0x1C0005B40 (xxxSystemTimerProc.c)
- *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C005E3E8 (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
- *     NtUserFlashWindowEx @ 0x1C01CF820 (NtUserFlashWindowEx.c)
- *     ?xxxSoundSentryTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01F5FC0 (-xxxSoundSentryTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
- *     xxxSoundSentry @ 0x1C01F6208 (xxxSoundSentry.c)
- *     xxxFlashEnabledPopup @ 0x1C0222D28 (xxxFlashEnabledPopup.c)
+ *     xxxSystemTimerProc @ 0x1C002AE80 (xxxSystemTimerProc.c)
+ *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C003AFFC (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
+ *     xxxSoundSentry @ 0x1C015D2B0 (xxxSoundSentry.c)
+ *     NtUserFlashWindowEx @ 0x1C01F8440 (NtUserFlashWindowEx.c)
+ *     ?SoundSentryTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0212BC0 (-SoundSentryTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     xxxFlashEnabledPopup @ 0x1C02436A4 (xxxFlashEnabledPopup.c)
  * Callees:
- *     _SetSystemTimer @ 0x1C0006474 (_SetSystemTimer.c)
- *     FindTimer @ 0x1C003BF24 (FindTimer.c)
- *     InternalSetProp @ 0x1C00C671C (InternalSetProp.c)
- *     InternalRemoveProp @ 0x1C00C94BC (InternalRemoveProp.c)
- *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C00D3128 (-xxxCallHook@@YAHH_K_JH@Z.c)
- *     PostShellHookMessagesEx @ 0x1C00D3370 (PostShellHookMessagesEx.c)
- *     ?IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z @ 0x1C00EB4B8 (-IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z.c)
- *     _GetProp @ 0x1C00F21FC (_GetProp.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
+ *     _SetSystemTimer @ 0x1C002CA18 (_SetSystemTimer.c)
+ *     InternalSetProp @ 0x1C0038408 (InternalSetProp.c)
+ *     PostShellHookMessages @ 0x1C0043540 (PostShellHookMessages.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C005B860 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     IsTrayWindow @ 0x1C005EA90 (IsTrayWindow.c)
+ *     _GetProp @ 0x1C006B8F0 (_GetProp.c)
  */
 
-__int64 __fastcall xxxFlashWindow(unsigned __int64 *BugCheckParameter2, unsigned int a2, int a3)
+__int64 __fastcall xxxFlashWindow(__int64 a1, unsigned int a2, int a3)
 {
-  unsigned int v6; // ebp
+  unsigned int v3; // r15d
+  int v4; // r14d
+  int v7; // r13d
   unsigned int Prop; // eax
-  unsigned int v8; // ebx
-  unsigned int v9; // edi
-  BOOL v10; // r14d
-  unsigned __int64 v11; // rcx
-  __int64 v12; // r12
-  unsigned int v13; // r15d
-  unsigned int v14; // edx
-  unsigned int v15; // ebx
-  unsigned int v16; // ebx
-  __int64 v18[9]; // [rsp+50h] [rbp-48h] BYREF
+  unsigned int v9; // r12d
+  unsigned int v10; // edi
+  unsigned int v11; // ebx
+  BOOL v12; // ebp
+  unsigned __int64 v13; // rcx
+  unsigned int v14; // r14d
+  unsigned int v15; // eax
+  int v16; // edi
+  unsigned int v17; // eax
+  __int64 v19; // rcx
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  unsigned __int64 LowLimit; // [rsp+50h] [rbp-48h] BYREF
+  unsigned __int64 v23; // [rsp+58h] [rbp-40h]
+  unsigned int v25; // [rsp+B8h] [rbp+20h]
 
-  v18[0] = 0LL;
-  v6 = 0;
-  Prop = GetProp(BugCheckParameter2, (unsigned __int16)gaFlashWState, 1LL);
-  v8 = Prop;
+  v3 = 0;
+  v4 = a3;
+  LowLimit = 0LL;
+  v7 = 1;
+  Prop = GetProp(a1, (unsigned __int16)gaFlashWState, 1LL);
+  v9 = 2048;
+  v10 = Prop;
   if ( Prop == 2048 )
   {
-    v8 = 18432;
-LABEL_3:
-    v9 = 0;
-LABEL_4:
-    v10 = gpqForeground && *(unsigned __int64 **)(gpqForeground + 128LL) == BugCheckParameter2;
-    goto LABEL_21;
+    v10 = 18432;
+    v25 = 0;
+    v11 = 0;
+    goto LABEL_45;
   }
   if ( Prop )
   {
@@ -54,80 +61,92 @@ LABEL_4:
   }
   else
   {
-    v11 = BugCheckParameter2[5];
-    if ( (*(_BYTE *)(v11 + 16) & 0x40) != 0 || (a2 & 1) != 0 && (*(_BYTE *)(v11 + 30) & 0xC0) != 0 )
-      v8 = 36864;
+    v19 = *(_QWORD *)(a1 + 40);
+    if ( (*(_BYTE *)(v19 + 16) & 0x40) != 0 || (a2 & 1) != 0 && (*(_BYTE *)(v19 + 30) & 0xC0) != 0 )
+      v10 = 36864;
   }
-  v9 = a2 & 0xFFFF000F;
-  v6 = v8 & 0x8000;
-  if ( BugCheckParameter2 == (unsigned __int64 *)gspwndAltTab )
-    return v6;
-  if ( (v8 & 8) != 0 && gpqForeground == *(_QWORD *)(BugCheckParameter2[2] + 432) )
-    goto LABEL_3;
-  if ( !v9 )
-    goto LABEL_4;
-  v10 = v6 == 0;
-  if ( (v9 & 1) == 0 )
+  v11 = a2 & 0xFFFF000F;
+  v3 = v10 & 0x8000;
+  if ( (struct tagWND *)a1 != gspwndAltTab )
   {
-LABEL_22:
-    if ( (v9 & 2) == 0 )
+    if ( (v10 & 8) != 0 && gpqForeground == *(_QWORD *)(*(_QWORD *)(a1 + 16) + 432LL) )
+      v11 = 0;
+    v25 = v11;
+    if ( v11 )
     {
-LABEL_29:
-      v14 = v9;
-      if ( HIWORD(v9) )
-      {
-        v8 |= 0x2000u;
-        v9 -= 0x10000;
-        if ( ((v8 >> 12) & 1) != v10 )
-          v9 = v14;
-        if ( (v8 & 0x4000) == 0 )
-          v9 |= 4u;
-      }
-      if ( (v9 & 4) == 0 )
-        goto LABEL_39;
-      v8 |= 0x4000u;
-      if ( !a3 )
-        a3 = *(_DWORD *)(gpsi + 4984LL);
-      if ( SetSystemTimer((_DWORD)BugCheckParameter2, 65528, a3, (unsigned int)xxxSystemTimerProc, 1) )
-      {
-LABEL_39:
-        if ( (v8 & 0x2000) == 0 || HIWORD(v9) )
-        {
-          if ( v10 )
-            v16 = v8 | 0x8000;
-          else
-            v16 = v8 & 0xFFFF7FFF;
-          v15 = (v9 ^ v16) & 0xFFFF000B ^ v16;
-        }
-        else
-        {
-          v15 = 2048;
-        }
-        InternalSetProp(BugCheckParameter2, (unsigned __int16)gaFlashWState, v15, 5LL);
-      }
-      return v6;
+      v12 = v3 == 0;
+      goto LABEL_11;
     }
-    goto LABEL_23;
+LABEL_45:
+    if ( gpqForeground && *(_QWORD *)(gpqForeground + 120LL) == a1 )
+    {
+      v12 = 1;
+      goto LABEL_15;
+    }
+    v12 = 0;
+LABEL_11:
+    v7 = v12;
+    if ( v11 && (v11 & 1) == 0 )
+    {
+LABEL_16:
+      if ( (!v11 || (v11 & 2) != 0) && (unsigned int)IsTrayWindow(a1) )
+      {
+        v13 = *(_QWORD *)a1;
+        v23 = *(_QWORD *)a1;
+        if ( (v10 & 0x800) != 0 )
+          v14 = !v12;
+        else
+          v14 = v11 != 0 ? v7 : 0;
+        xxxCallHook(6, v13, v14, 10);
+        PostShellHookMessages(v14 != 0 ? 32774 : 6, v23);
+        v4 = a3;
+      }
+      if ( v11 )
+      {
+        if ( HIWORD(v11) )
+        {
+          v10 |= 0x2000u;
+          v11 = v25 - 0x10000;
+          if ( ((v10 >> 12) & 1) != v12 )
+            v11 = v25;
+          if ( (v10 & 0x4000) == 0 )
+            v11 |= 4u;
+        }
+        if ( (v11 & 4) == 0 )
+          goto LABEL_30;
+        v10 |= 0x4000u;
+        if ( !v4 )
+          v4 = *(_DWORD *)(gpsi + 4984LL);
+        if ( SetSystemTimer(a1, 65528, v4, (unsigned int)xxxSystemTimerProc, 1) )
+        {
+LABEL_30:
+          if ( (v10 & 0x2000) == 0 || HIWORD(v11) )
+          {
+            v15 = v10;
+            v16 = v10 | 0x8000;
+            v17 = v15 & 0xFFFF7FFF;
+            if ( !v12 )
+              v16 = v17;
+            v9 = v16 ^ (v11 ^ v16) & 0xFFFF000B;
+          }
+          InternalSetProp(a1, (unsigned __int16)gaFlashWState, v9, 5LL);
+        }
+      }
+      else
+      {
+        if ( (v10 & 0x4000) != 0 )
+          FindTimer(a1, 65528LL, 2u, 1, 0LL);
+        v20 = (unsigned __int16)gaFlashWState;
+        v21 = *(_QWORD *)(a1 + 144);
+        if ( gaFlashWState == word_1C0339F44 )
+          *(_QWORD *)(*(_QWORD *)(a1 + 40) + 312LL) = 0LL;
+        RealInternalRemoveProp(v21, v20, 1LL);
+      }
+      return v3;
+    }
+LABEL_15:
+    xxxSendTransformableMessageTimeout(a1, 134, v12, 0, 0, 100, (unsigned __int64)&LowLimit, 1, 0);
+    goto LABEL_16;
   }
-LABEL_21:
-  xxxSendTransformableMessageTimeout((ULONG_PTR)BugCheckParameter2, 0, 100, (__int64)v18, 1, 0);
-  if ( v9 )
-    goto LABEL_22;
-LABEL_23:
-  if ( (unsigned __int8)IsTrayWindow(BugCheckParameter2, 1LL) )
-  {
-    v12 = *BugCheckParameter2;
-    if ( (v8 & 0x800) != 0 )
-      v13 = !v10;
-    else
-      v13 = v9 != 0 && v10;
-    xxxCallHook(6, *BugCheckParameter2, v13, 10);
-    PostShellHookMessagesEx(v13 != 0 ? 32774 : 6, v12, 0LL);
-  }
-  if ( v9 )
-    goto LABEL_29;
-  if ( (v8 & 0x4000) != 0 )
-    FindTimer((_DWORD)BugCheckParameter2, 65528, 2, 1, 0LL);
-  InternalRemoveProp(BugCheckParameter2, (unsigned __int16)gaFlashWState, 1LL);
-  return v6;
+  return v3;
 }

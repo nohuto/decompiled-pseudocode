@@ -1,15 +1,15 @@
 /*
- * XREFs of PsGetEffectiveContainerId @ 0x140234210
+ * XREFs of PsGetEffectiveContainerId @ 0x1402B6CE0
  * Callers:
- *     NtQueryInformationThread @ 0x1407BF670 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x1405FB940 (NtQueryInformationThread.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PsGetWorkOnBehalfThread @ 0x1402F6220 (PsGetWorkOnBehalfThread.c)
+ *     PsGetWorkOnBehalfThread @ 0x1402055CC (PsGetWorkOnBehalfThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
  */
 
 __int64 __fastcall PsGetEffectiveContainerId(int a1, struct _KTHREAD *a2, __int64 a3)
 {
-  __int64 WorkOnBehalfThread; // rax
+  PVOID WorkOnBehalfThread; // rax
   void *v8; // r8
   unsigned __int64 v9; // rdx
   int v10; // ebx
@@ -28,15 +28,15 @@ __int64 __fastcall PsGetEffectiveContainerId(int a1, struct _KTHREAD *a2, __int6
     if ( (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 && a2 == KeGetCurrentThread() )
       return 0LL;
     WorkOnBehalfThread = PsGetWorkOnBehalfThread(a2, &v14);
-    v8 = (void *)WorkOnBehalfThread;
+    v8 = WorkOnBehalfThread;
     if ( WorkOnBehalfThread )
     {
-      v9 = *(_QWORD *)(*(_QWORD *)(WorkOnBehalfThread + 544) + 1296LL);
+      v9 = *(_QWORD *)(*((_QWORD *)WorkOnBehalfThread + 68) + 1296LL);
       *(_DWORD *)(a3 + 16) |= 1u;
     }
     else
     {
-      v9 = a2->Process[1].Affinity.StaticBitmap[16];
+      v9 = a2->Process[1].Affinity.Bitmap[16];
     }
     if ( !v9 )
     {
@@ -50,23 +50,23 @@ LABEL_13:
       v10 = a1 - 2;
       if ( !v10 )
       {
-        v11 = *(_QWORD *)(v9 + 1024);
+        v11 = *(_QWORD *)(v9 + 832);
 LABEL_12:
         if ( !v11 )
           goto LABEL_13;
-        v13 = *(_OWORD *)(v11 + 1432);
+        v13 = *(_OWORD *)(v11 + 1240);
         goto LABEL_21;
       }
       v12 = v10 - 1;
       if ( !v12 )
       {
-        v11 = *(_QWORD *)(v9 + 1032);
+        v11 = *(_QWORD *)(v9 + 840);
         goto LABEL_12;
       }
       if ( v12 != 1 )
         goto LABEL_13;
     }
-    v13 = *(_OWORD *)(v9 + 1432);
+    v13 = *(_OWORD *)(v9 + 1240);
 LABEL_21:
     *(_OWORD *)a3 = v13;
     goto LABEL_13;

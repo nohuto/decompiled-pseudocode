@@ -11,7 +11,7 @@
  *     MiResolveProtoPteFault @ 0x140042E60 (MiResolveProtoPteFault.c)
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
  *     MiObtainFaultCharges @ 0x140064D60 (MiObtainFaultCharges.c)
- *     MmCheckCachedPageStates @ 0x1400B0290 (MmCheckCachedPageStates.c)
+ *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  */

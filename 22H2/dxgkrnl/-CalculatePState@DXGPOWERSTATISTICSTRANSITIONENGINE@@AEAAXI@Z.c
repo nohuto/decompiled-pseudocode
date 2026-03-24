@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CalculatePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C005539C
+ * XREFs of ?CalculatePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C004785C
  * Callers:
- *     ?RecordVSync@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C0055938 (-RecordVSync@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ.c)
+ *     ?RecordVSync@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C0047D0C (-RecordVSync@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ.c)
  * Callees:
- *     ?CalculateIdealPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAII@Z @ 0x1C0055310 (-CalculateIdealPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAII@Z.c)
- *     ?RequestPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C0055A18 (-RequestPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z.c)
+ *     ?CalculateIdealPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAII@Z @ 0x1C00477D0 (-CalculateIdealPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAII@Z.c)
+ *     ?RequestPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C0047DD0 (-RequestPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z.c)
  */
 
 void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::CalculatePState(
@@ -12,49 +12,39 @@ void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::CalculatePState(
         unsigned int a2)
 {
   _DWORD *v2; // rsi
-  unsigned int v4; // r8d
+  unsigned int v4; // eax
   unsigned int v6; // edx
-  unsigned int v7; // eax
-  int v8; // eax
+  unsigned int v7; // ecx
+  int v8; // ecx
 
   v2 = *(_DWORD **)this;
   v4 = *((_DWORD *)this + 14);
-  if ( a2 <= *(_DWORD *)(*(_QWORD *)this + 4448LL) )
+  if ( a2 <= *(_DWORD *)(*(_QWORD *)this + 4216LL) )
   {
-    if ( a2 > v2[1113] && v4 )
+    if ( a2 > v2[1055] && v4 )
       v4 = DXGPOWERSTATISTICSTRANSITIONENGINE::CalculateIdealPState(this, a2);
   }
   else
   {
     v4 = 0;
   }
-  if ( a2 < v2[1114] && v4 < **((_DWORD **)this + 2) - 1 )
+  if ( a2 >= v2[1056] || v4 >= **((_DWORD **)this + 2) - 1 )
+    goto LABEL_12;
+  v6 = *((_DWORD *)this + 20);
+  v7 = *((_DWORD *)this + 21) + 1;
+  *((_DWORD *)this + 21) = v7;
+  if ( a2 > v6 )
+    v6 = a2;
+  *((_DWORD *)this + 20) = v6;
+  if ( v7 >= v2[1058] )
   {
-    v6 = *((_DWORD *)this + 20);
-    v7 = *((_DWORD *)this + 21) + 1;
-    *((_DWORD *)this + 21) = v7;
-    if ( a2 > v6 )
-      v6 = a2;
-    *((_DWORD *)this + 20) = v6;
-    if ( v7 < v2[1116] )
-      goto LABEL_13;
     v4 = DXGPOWERSTATISTICSTRANSITIONENGINE::CalculateIdealPState(this, v6);
+LABEL_12:
+    *((_DWORD *)this + 21) = 0;
+    *((_DWORD *)this + 20) = 0;
   }
-  *((_DWORD *)this + 21) = 0;
-  *((_DWORD *)this + 20) = 0;
-LABEL_13:
   v8 = *((_DWORD *)this + 23);
-  if ( v8 == 1 )
-    goto LABEL_19;
-  if ( v8 == 2 )
-  {
-    if ( v4 >= *((_DWORD *)this + 24) )
-      goto LABEL_20;
-    goto LABEL_19;
-  }
-  if ( v8 == 3 && v4 > *((_DWORD *)this + 24) )
-LABEL_19:
+  if ( v8 == 1 || v8 == 2 && v4 < *((_DWORD *)this + 24) || v8 == 3 && v4 > *((_DWORD *)this + 24) )
     v4 = *((_DWORD *)this + 24);
-LABEL_20:
   DXGPOWERSTATISTICSTRANSITIONENGINE::RequestPState(this, v4);
 }

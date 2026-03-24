@@ -1,44 +1,47 @@
 /*
- * XREFs of ??1SURFFAKEOBJ@@QEAA@XZ @ 0x1C013EF70
+ * XREFs of ??1SURFFAKEOBJ@@QEAA@XZ @ 0x1C016AB40
  * Callers:
- *     ?DoFontManagement@@YAKAEAVDCOBJ@@KKPEAXK1AEBUTag@RFONTOBJ@@@Z @ 0x1C0274F74 (-DoFontManagement@@YAKAEAVDCOBJ@@KKPEAXK1AEBUTag@RFONTOBJ@@@Z.c)
- *     ?GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1AEBUTag@RFONTOBJ@@@Z @ 0x1C0275904 (-GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1AEBUTag@RFONTOBJ@@@Z.c)
- *     ?iCheckPassthroughImage@@YAHAEAVDCOBJ@@AEAVPDEVOBJ@@HHPEAXH2@Z @ 0x1C0276A0C (-iCheckPassthroughImage@@YAHAEAVDCOBJ@@AEAVPDEVOBJ@@HHPEAXH2@Z.c)
- *     NtGdiGetETM @ 0x1C02D5D30 (NtGdiGetETM.c)
+ *     ?GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z @ 0x1C00A8EAC (-GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z.c)
+ *     NtGdiGetETM @ 0x1C013F420 (NtGdiGetETM.c)
+ *     ?iCheckPassthroughImage@@YAHAEAVDCOBJ@@AEAVPDEVOBJ@@HHPEAXH2@Z @ 0x1C01598F4 (-iCheckPassthroughImage@@YAHAEAVDCOBJ@@AEAVPDEVOBJ@@HHPEAXH2@Z.c)
+ *     ?DoFontManagement@@YAKAEAVDCOBJ@@KKPEAXK1@Z @ 0x1C027B154 (-DoFontManagement@@YAKAEAVDCOBJ@@KKPEAXK1@Z.c)
  * Callees:
- *     ??1SURFREF@@QEAA@XZ @ 0x1C0087EAC (--1SURFREF@@QEAA@XZ.c)
- *     ??1CAutoTGO@@QEAA@XZ @ 0x1C013EE24 (--1CAutoTGO@@QEAA@XZ.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C0082F38 (--1SURFREF@@QEAA@XZ.c)
+ *     ??1CAutoTGO@@QEAA@XZ @ 0x1C011F940 (--1CAutoTGO@@QEAA@XZ.c)
  */
 
 void __fastcall SURFFAKEOBJ::~SURFFAKEOBJ(SURFFAKEOBJ *this)
 {
-  __int64 v2; // rax
-  __int64 v3; // rdx
-  __int64 v4; // rax
-  __int64 v5; // rcx
-  __int64 v6; // rax
-  __int64 v7; // rcx
+  CAutoTGO *v1; // rdi
+  __int64 v3; // rax
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rdx
 
+  v1 = (SURFFAKEOBJ *)((char *)this + 40);
   if ( *((_QWORD *)this + 4) )
   {
     CAutoTGO::~CAutoTGO((SURFFAKEOBJ *)((char *)this + 40));
-    v2 = *((_QWORD *)this + 4);
-    v3 = v2 + 40;
-    if ( !v2 )
-      v3 = 16LL;
-    *(_QWORD *)v3 = *((_QWORD *)this + 10);
-    v4 = *((_QWORD *)this + 4);
-    v5 = v4 + 48;
-    if ( !v4 )
-      v5 = 24LL;
-    *(_QWORD *)v5 = *((_QWORD *)this + 11);
-    v6 = *((_QWORD *)this + 4);
-    v7 = v6 + 100;
-    if ( !v6 )
-      v7 = 76LL;
-    *(_WORD *)v7 = *((_WORD *)this + 48);
+    v3 = *((_QWORD *)this + 4);
+    v4 = v3 + 40;
+    if ( !v3 )
+      v4 = 16LL;
+    *(_QWORD *)v4 = *((_QWORD *)this + 10);
+    v5 = *((_QWORD *)this + 4);
+    v6 = v5 + 48;
+    if ( !v5 )
+      v6 = 24LL;
+    *(_QWORD *)v6 = *((_QWORD *)this + 11);
+    v7 = *((_QWORD *)this + 4);
+    v8 = v7 + 100;
+    if ( !v7 )
+      v8 = 76LL;
+    *(_WORD *)v8 = *((_WORD *)this + 48);
     SURFREF::vTryDeleteSurface(this);
   }
-  CAutoTGO::~CAutoTGO((SURFFAKEOBJ *)((char *)this + 40));
-  SURFREF::~SURFREF(this);
+  CAutoTGO::~CAutoTGO(v1);
+  SURFREF::~SURFREF(this, v9);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ProcessSetOffset@CViewBox@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VIEWBOX_SETOFFSET@@@Z @ 0x1802432C4
+ * XREFs of ?ProcessSetOffset@CViewBox@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VIEWBOX_SETOFFSET@@@Z @ 0x1801F183C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,8 +11,8 @@ __int64 __fastcall CViewBox::ProcessSetOffset(
         struct CResourceTable *a2,
         const struct tagMILCMD_VIEWBOX_SETOFFSET *a3)
 {
-  return ((__int64 (__fastcall *)(char *, void *, char *))xmmword_1803D23A0)(
-           (char *)this + SDWORD2(xmmword_1803D23A0),
+  return ((__int64 (__fastcall *)(char *, void *, char *))xmmword_180346478)(
+           (char *)this + SDWORD2(xmmword_180346478),
            &CViewBox::sc_Offset,
            (char *)a3 + 8);
 }

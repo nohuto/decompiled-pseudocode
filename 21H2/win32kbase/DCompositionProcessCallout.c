@@ -1,10 +1,10 @@
 /*
- * XREFs of DCompositionProcessCallout @ 0x1C0094EF0
+ * XREFs of DCompositionProcessCallout @ 0x1C005B030
  * Callers:
  *     <none>
  * Callees:
- *     ?OnProcessCreation@CProcessData@DirectComposition@@SAJPEAU_W32PROCESS@@@Z @ 0x1C0094F38 (-OnProcessCreation@CProcessData@DirectComposition@@SAJPEAU_W32PROCESS@@@Z.c)
- *     ??_GCProcessData@DirectComposition@@AEAAPEAXI@Z @ 0x1C009516C (--_GCProcessData@DirectComposition@@AEAAPEAXI@Z.c)
+ *     ?OnProcessCreation@CProcessData@DirectComposition@@SAJPEAU_W32PROCESS@@@Z @ 0x1C005B078 (-OnProcessCreation@CProcessData@DirectComposition@@SAJPEAU_W32PROCESS@@@Z.c)
+ *     ??_GCProcessData@DirectComposition@@AEAAPEAXI@Z @ 0x1C005B4E4 (--_GCProcessData@DirectComposition@@AEAAPEAXI@Z.c)
  */
 
 __int64 __fastcall DCompositionProcessCallout(__int64 a1, char a2)

@@ -1,25 +1,23 @@
 /*
- * XREFs of MmDeleteShadowMapping @ 0x140A3C840
+ * XREFs of MmDeleteShadowMapping @ 0x1408D19B4
  * Callers:
- *     KeAllocateProcessorProfileStructures @ 0x1403A9A80 (KeAllocateProcessorProfileStructures.c)
- *     KiUnshadowKernelSectionByAddress @ 0x140410550 (KiUnshadowKernelSectionByAddress.c)
- *     KiShadowProcessorAllocation @ 0x140A89C48 (KiShadowProcessorAllocation.c)
- *     KiUnshadowProcessorAllocation @ 0x140A9FDDC (KiUnshadowProcessorAllocation.c)
+ *     KeAllocateProcessorProfileStructures @ 0x1403B5E70 (KeAllocateProcessorProfileStructures.c)
+ *     KiShadowProcessorAllocation @ 0x14099F65C (KiShadowProcessorAllocation.c)
+ *     KiUnshadowProcessorAllocation @ 0x1409AFD8C (KiUnshadowProcessorAllocation.c)
  * Callees:
- *     MiInitializeTbFlushList @ 0x14020B2BC (MiInitializeTbFlushList.c)
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MiFlushTbList @ 0x140279760 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14027F450 (MiInsertTbFlushEntry.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     MiReadWriteAnyLevelShadowPte @ 0x1403C0050 (MiReadWriteAnyLevelShadowPte.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     MiInsertTbFlushEntry @ 0x1402B6400 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiReadWriteAnyLevelShadowPte @ 0x140301240 (MiReadWriteAnyLevelShadowPte.c)
+ *     MiInitializeTbFlushList @ 0x140336F6C (MiInitializeTbFlushList.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 char __fastcall MmDeleteShadowMapping(unsigned __int64 a1, unsigned __int64 a2)
@@ -29,50 +27,38 @@ char __fastcall MmDeleteShadowMapping(unsigned __int64 a1, unsigned __int64 a2)
   struct _KTHREAD *CurrentThread; // rbp
   unsigned __int64 v7; // r14
   struct _KPROCESS *Process; // r15
-  PEPROCESS v9; // rdi
-  __int64 v10; // rax
-  signed __int8 v11; // cf
-  __int64 v12; // rbx
-  $C71981A45BEB2B45F82C232A7085991E *v13; // rax
-  $115DCDF994C6370D29323EAB0E0C9502 v16; // [rsp+20h] [rbp-138h] BYREF
-  int v17[48]; // [rsp+50h] [rbp-108h] BYREF
+  _DWORD *v9; // r9
+  PEPROCESS v10; // rdi
+  _KPROCESS *v11; // rdx
+  char result; // al
+  _OWORD v13[3]; // [rsp+20h] [rbp-128h] BYREF
+  _BYTE v14[192]; // [rsp+50h] [rbp-F8h] BYREF
 
-  memset(&v16, 0, sizeof(v16));
-  memset(v17, 0, 0xB8uLL);
+  memset(v13, 0, sizeof(v13));
+  memset(v14, 0, 0xB8uLL);
   PteAddress = MiGetPteAddress(a1);
   v5 = MiGetPteAddress(a2 + a1 - 1);
   CurrentThread = KeGetCurrentThread();
   v7 = v5;
   Process = CurrentThread->ApcState.Process;
-  MiInitializeTbFlushList((__int64)v17, 0, 20);
-  MiInsertTbFlushEntry((__int64)v17, a1 & 0xFFFFFFFFFFFFF000uLL, a2 >> 12, 0);
-  v9 = PsInitialSystemProcess;
+  MiInitializeTbFlushList((__int64)v14, 0, 20);
+  MiInsertTbFlushEntry((__int64)v14, a1 & 0xFFFFFFFFFFFFF000uLL, a2 >> 12, 0);
+  v10 = PsInitialSystemProcess;
   if ( Process != PsInitialSystemProcess )
-    KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)&v16);
+    KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v13, v9);
   --CurrentThread->SpecialApcDisable;
-  v10 = KeAbPreAcquire((__int64)&qword_140C65AE0, 0LL);
-  v11 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140C65AE0, 0LL);
-  v12 = v10;
-  if ( v11 )
-    ExfAcquirePushLockExclusiveEx(&qword_140C65AE0, v10, (__int64)&qword_140C65AE0);
-  if ( v12 )
-    *(_BYTE *)(v12 + 18) = 1;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4DDC8, 0LL);
   while ( PteAddress <= v7 )
   {
-    MiReadWriteAnyLevelShadowPte(PteAddress, 0, 1, ZeroPte);
+    MiReadWriteAnyLevelShadowPte(PteAddress, 0LL, 1, ZeroPte);
     PteAddress += 8LL;
   }
-  MiFlushTbList(v17);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C65AE0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C65AE0);
-  LOBYTE(v13) = KeAbPostRelease((ULONG_PTR)&qword_140C65AE0);
-  if ( CurrentThread->SpecialApcDisable++ == -1 )
-  {
-    v13 = &CurrentThread->152;
-    if ( ($C71981A45BEB2B45F82C232A7085991E *)v13->ApcState.ApcListHead[0].Flink != v13 )
-      LOBYTE(v13) = KiCheckForKernelApcDelivery();
-  }
-  if ( Process != v9 )
-    LOBYTE(v13) = KiUnstackDetachProcess(&v16);
-  return (char)v13;
+  MiFlushTbList((__int64)v14, v11);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4DDC8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C4DDC8);
+  KeAbPostRelease((ULONG_PTR)&qword_140C4DDC8);
+  result = KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  if ( Process != v10 )
+    return KiUnstackDetachProcess((__int64)v13, 0);
+  return result;
 }

@@ -1,29 +1,66 @@
 /*
- * XREFs of ?SetReferenceProperty@CNineGridBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C00AC810
+ * XREFs of ?SetReferenceProperty@CNineGridBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C009EA50
  * Callers:
  *     <none>
  * Callees:
- *     ?SetBrushPropertyHelper@CBrushMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAPEAV12@PEAVCResourceMarshaler@2@W4MIL_RESOURCE_TYPE@@KPEA_N@Z @ 0x1C002C5A4 (-SetBrushPropertyHelper@CBrushMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAPEA.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0060A08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?CheckForCycle@CBrushMarshaler@DirectComposition@@QEAA_NPEAV12@@Z @ 0x1C0060D08 (-CheckForCycle@CBrushMarshaler@DirectComposition@@QEAA_NPEAV12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CNineGridBrushMarshaler::SetReferenceProperty(
-        struct DirectComposition::CResourceMarshaler **this,
+        DirectComposition::CNineGridBrushMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
         struct DirectComposition::CResourceMarshaler *a4,
         bool *a5)
 {
-  __int64 v6; // [rsp+20h] [rbp-28h]
+  int v5; // r15d
+  struct DirectComposition::CResourceMarshaler **v9; // rsi
+  unsigned int v10; // r14d
+  unsigned int v11; // edi
+  __int64 v12; // rdx
 
+  v5 = 0;
+  *a5 = 0;
   if ( a3 == 7 )
-    return DirectComposition::CBrushMarshaler::SetBrushPropertyHelper(
-             (DirectComposition::CBrushMarshaler *)this,
-             a2,
-             this + 9,
-             (unsigned int *)a4,
-             v6,
-             32,
-             a5);
-  else
-    return 3221225485LL;
+    v5 = 32;
+  v9 = 0LL;
+  if ( a3 == 7 )
+    v9 = (struct DirectComposition::CResourceMarshaler **)((char *)this + 72);
+  v10 = a3 != 7 ? 0xC000000D : 0;
+  v11 = v10;
+  if ( v9 )
+  {
+    if ( !a4 )
+      goto LABEL_10;
+    v12 = 0LL;
+    if ( a3 == 7 )
+      v12 = 14LL;
+    if ( (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+           a4,
+           v12) )
+    {
+LABEL_10:
+      v11 = v10;
+      if ( *v9 != a4 )
+      {
+        if ( DirectComposition::CBrushMarshaler::CheckForCycle(this, a4) )
+        {
+          return (unsigned int)-1073741811;
+        }
+        else
+        {
+          DirectComposition::CApplicationChannel::ReleaseResource(a2, *v9);
+          *v9 = a4;
+          if ( a4 )
+            DirectComposition::CResourceMarshaler::AddRef(a4);
+          *((_DWORD *)this + 4) |= v5;
+          *a5 = 1;
+        }
+      }
+    }
+  }
+  return v11;
 }

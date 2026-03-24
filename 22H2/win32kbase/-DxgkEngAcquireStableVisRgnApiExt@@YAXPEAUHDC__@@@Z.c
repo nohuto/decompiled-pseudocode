@@ -1,16 +1,22 @@
 /*
- * XREFs of ?DxgkEngAcquireStableVisRgnApiExt@@YAXPEAUHDC__@@@Z @ 0x1C00E04D0
+ * XREFs of ?DxgkEngAcquireStableVisRgnApiExt@@YAXPEAUHDC__@@@Z @ 0x1C0149DD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DxgkEngAcquireStableVisRgnApiExt(HDC a1)
 {
-  if ( qword_1C0294560 && (int)qword_1C0294560() >= 0 )
+  int v2; // eax
+
+  if ( qword_1C0255150 )
+    v2 = qword_1C0255150();
+  else
+    v2 = -1073741637;
+  if ( v2 >= 0 )
   {
-    if ( qword_1C0294568 )
-      qword_1C0294568(a1);
+    if ( qword_1C0255158 )
+      qword_1C0255158(a1);
   }
 }

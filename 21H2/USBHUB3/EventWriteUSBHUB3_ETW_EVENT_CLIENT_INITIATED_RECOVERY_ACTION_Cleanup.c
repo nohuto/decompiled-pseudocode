@@ -1,9 +1,9 @@
 /*
- * XREFs of EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Cleanup @ 0x1C001ADFC
+ * XREFs of EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Cleanup @ 0x1C001A8A8
  * Callers:
- *     HUBPDO_EvtDeviceReportedMissing @ 0x1C007C150 (HUBPDO_EvtDeviceReportedMissing.c)
+ *     HUBPDO_EvtDeviceReportedMissing @ 0x1C007ABF0 (HUBPDO_EvtDeviceReportedMissing.c)
  * Callees:
- *     McTemplateK0pqqhhhq_EtwWriteTransfer @ 0x1C001369C (McTemplateK0pqqhhhq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqhhhq_EtwWriteTransfer @ 0x1C0013198 (McTemplateK0pqqhhhq_EtwWriteTransfer.c)
  */
 
 _DWORD *__fastcall EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Cleanup(__int64 a1, __int64 a2)
@@ -21,7 +21,7 @@ _DWORD *__fastcall EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_
 
   if ( a1 && *(_QWORD *)a1 )
   {
-    v3 = &unk_1C006A888;
+    v3 = &unk_1C00697F0;
     v4 = (_DWORD *)(a1 + 2668);
     do
     {
@@ -47,11 +47,11 @@ _DWORD *__fastcall EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_
           v12);
       }
       *v4 = 0;
-      result = FwUpdateDeviceDescriptor;
+      result = dword_1C0069818;
       ++v4;
       v3 += 2;
     }
-    while ( (__int64)v3 < (__int64)FwUpdateDeviceDescriptor );
+    while ( (__int64)v3 < (__int64)dword_1C0069818 );
   }
   return result;
 }

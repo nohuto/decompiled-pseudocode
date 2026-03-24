@@ -1,21 +1,21 @@
 /*
- * XREFs of PpmCheckReInit @ 0x14074F134
+ * XREFs of PpmCheckReInit @ 0x14074F114
  * Callers:
- *     PopIntSteerSetMode @ 0x140189470 (PopIntSteerSetMode.c)
- *     PpmParkSetLpiCap @ 0x1402E7EF0 (PpmParkSetLpiCap.c)
- *     PpmRegisterPerfStates @ 0x14074E4DC (PpmRegisterPerfStates.c)
- *     PpmCheckInitProcessors @ 0x14074EE58 (PpmCheckInitProcessors.c)
- *     PpmReapplyPerfPolicy @ 0x14074F044 (PpmReapplyPerfPolicy.c)
+ *     PopIntSteerSetMode @ 0x140189490 (PopIntSteerSetMode.c)
+ *     PpmParkSetLpiCap @ 0x1402E7FF0 (PpmParkSetLpiCap.c)
+ *     PpmRegisterPerfStates @ 0x14074E4BC (PpmRegisterPerfStates.c)
+ *     PpmCheckInitProcessors @ 0x14074EE38 (PpmCheckInitProcessors.c)
+ *     PpmReapplyPerfPolicy @ 0x14074F024 (PpmReapplyPerfPolicy.c)
  * Callees:
  *     KeIsEmptyAffinityEx @ 0x140062160 (KeIsEmptyAffinityEx.c)
- *     PoEnergyEstimationEnabled @ 0x1400ACF60 (PoEnergyEstimationEnabled.c)
- *     PpmCheckArmPeriod @ 0x140189D3C (PpmCheckArmPeriod.c)
- *     PpmPerfClearResponsivenessHints @ 0x140189DD8 (PpmPerfClearResponsivenessHints.c)
- *     PopInterruptSteeringEnabled @ 0x140189E34 (PopInterruptSteeringEnabled.c)
- *     PpmPerfCheckRequired @ 0x1401B59F0 (PpmPerfCheckRequired.c)
- *     PpmParkUpdateConcurrencyTracking @ 0x14074F280 (PpmParkUpdateConcurrencyTracking.c)
- *     PpmParkParkingAvailable @ 0x14074F33C (PpmParkParkingAvailable.c)
- *     PpmPerfResetHistoryAll @ 0x140750164 (PpmPerfResetHistoryAll.c)
+ *     PoEnergyEstimationEnabled @ 0x1400ACF80 (PoEnergyEstimationEnabled.c)
+ *     PpmCheckArmPeriod @ 0x140189D5C (PpmCheckArmPeriod.c)
+ *     PpmPerfClearResponsivenessHints @ 0x140189DF8 (PpmPerfClearResponsivenessHints.c)
+ *     PopInterruptSteeringEnabled @ 0x140189E54 (PopInterruptSteeringEnabled.c)
+ *     PpmPerfCheckRequired @ 0x1401B5A10 (PpmPerfCheckRequired.c)
+ *     PpmParkUpdateConcurrencyTracking @ 0x14074F260 (PpmParkUpdateConcurrencyTracking.c)
+ *     PpmParkParkingAvailable @ 0x14074F31C (PpmParkParkingAvailable.c)
+ *     PpmPerfResetHistoryAll @ 0x140750144 (PpmPerfResetHistoryAll.c)
  */
 
 __int64 (__fastcall ***PpmCheckReInit())()
@@ -33,7 +33,7 @@ __int64 (__fastcall ***PpmCheckReInit())()
   v0 = 0;
   v1 = 0;
   v2 = 0;
-  v3 = &PpmCurrentProfile[341 * dword_14041810C];
+  v3 = &PpmCurrentProfile[341 * dword_1404180CC];
   if ( !(unsigned int)KeIsEmptyAffinityEx(PpmPerfStatesRegistered) )
   {
     v1 = PpmPerfCheckRequired((__int64)(v3 + 5)) != 0;

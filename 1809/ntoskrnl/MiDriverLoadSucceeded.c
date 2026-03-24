@@ -1,24 +1,24 @@
 /*
- * XREFs of MiDriverLoadSucceeded @ 0x140681C04
+ * XREFs of MiDriverLoadSucceeded @ 0x140681BE4
  * Callers:
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x1408543E8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408543C8 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     DbgLoadImageSymbolsUnicode @ 0x1400F4BEC (DbgLoadImageSymbolsUnicode.c)
- *     MiSessionUpdateImageCharges @ 0x140173388 (MiSessionUpdateImageCharges.c)
- *     _wcsnicmp @ 0x140195A50 (_wcsnicmp.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     DbgLoadImageSymbolsUnicode @ 0x1400F4C0C (DbgLoadImageSymbolsUnicode.c)
+ *     MiSessionUpdateImageCharges @ 0x1401733A8 (MiSessionUpdateImageCharges.c)
+ *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PsCallImageNotifyRoutines @ 0x1405F50F0 (PsCallImageNotifyRoutines.c)
- *     RtlGetNtSystemRoot @ 0x140682430 (RtlGetNtSystemRoot.c)
- *     MiCacheImageSymbols @ 0x140682458 (MiCacheImageSymbols.c)
- *     MiProtectSystemImage @ 0x14072B684 (MiProtectSystemImage.c)
+ *     RtlGetNtSystemRoot @ 0x140682410 (RtlGetNtSystemRoot.c)
+ *     MiCacheImageSymbols @ 0x140682438 (MiCacheImageSymbols.c)
+ *     MiProtectSystemImage @ 0x14072B664 (MiProtectSystemImage.c)
  */
 
 __int64 __fastcall MiDriverLoadSucceeded(__int64 a1, __int64 a2, _BYTE *a3, __int64 a4, __int64 a5, char a6)

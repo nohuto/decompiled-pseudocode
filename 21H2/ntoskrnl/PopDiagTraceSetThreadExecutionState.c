@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceSetThreadExecutionState @ 0x1407FCC54
+ * XREFs of PopDiagTraceSetThreadExecutionState @ 0x1407734AC
  * Callers:
- *     NtSetThreadExecutionState @ 0x1407EDD60 (NtSetThreadExecutionState.c)
+ *     NtSetThreadExecutionState @ 0x14067D5F0 (NtSetThreadExecutionState.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceSetThreadExecutionState(__int64 a1, int a2)
@@ -37,8 +37,8 @@ char __fastcall PopDiagTraceSetThreadExecutionState(__int64 a1, int a2)
     LOBYTE(v2) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_STES);
     if ( (_BYTE)v2 )
     {
-      v11 = *(_DWORD *)(a1 + 1224);
-      v12 = *(_DWORD *)(a1 + 1232);
+      v11 = *(_DWORD *)(a1 + 1144);
+      v12 = *(_DWORD *)(a1 + 1152);
       v5 = *(unsigned __int16 **)(*(_QWORD *)(a1 + 544) + 1472LL);
       v10 = *v5 >> 1;
       UserData.Ptr = (ULONGLONG)&v21;

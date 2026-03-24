@@ -1,12 +1,12 @@
 /*
- * XREFs of ExWnfExitProcess @ 0x1407CCB58
+ * XREFs of ExWnfExitProcess @ 0x1406132EC
  * Callers:
- *     PspProcessDelete @ 0x1407615C0 (PspProcessDelete.c)
- *     PspExitThread @ 0x14076DF3C (PspExitThread.c)
+ *     PspProcessDelete @ 0x140613B20 (PspProcessDelete.c)
+ *     PspExitThread @ 0x1406C35F8 (PspExitThread.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExpWnfDeleteProcessContext @ 0x1407CCBB8 (ExpWnfDeleteProcessContext.c)
- *     ExpWnfDeleteScopeById @ 0x1407CCDEC (ExpWnfDeleteScopeById.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExpWnfDeleteProcessContext @ 0x140613348 (ExpWnfDeleteProcessContext.c)
+ *     ExpWnfDeleteScopeById @ 0x140613A18 (ExpWnfDeleteScopeById.c)
  */
 
 void __fastcall ExWnfExitProcess(__int64 a1, int a2)

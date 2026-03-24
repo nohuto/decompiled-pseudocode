@@ -1,26 +1,30 @@
 /*
- * XREFs of HalpCmciSetProcessorConfig @ 0x1403806E8
+ * XREFs of HalpCmciSetProcessorConfig @ 0x1403A04F8
  * Callers:
- *     HalpCmciInitProcessor @ 0x1403807F8 (HalpCmciInitProcessor.c)
- *     HalpDisableCmciOnProcessor @ 0x140505EF0 (HalpDisableCmciOnProcessor.c)
+ *     HalpDisableCmciOnProcessor @ 0x1404BD090 (HalpDisableCmciOnProcessor.c)
+ *     HalpCmciInitProcessor @ 0x140999D10 (HalpCmciInitProcessor.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x140380C44 (HalpGetCpuVendor.c)
- *     HalpCmciSetProcessorConfigIntel @ 0x140380D48 (HalpCmciSetProcessorConfigIntel.c)
- *     HalpCmciSetProcessorConfigAMD @ 0x140505BA8 (HalpCmciSetProcessorConfigAMD.c)
+ *     HalpCmciSetProcessorConfigIntel @ 0x1403A0560 (HalpCmciSetProcessorConfigIntel.c)
+ *     HalpGetCpuInfo @ 0x1403A0870 (HalpGetCpuInfo.c)
+ *     HalpCmciSetProcessorConfigAMD @ 0x1404BCD50 (HalpCmciSetProcessorConfigAMD.c)
  */
 
-__int64 __fastcall HalpCmciSetProcessorConfig(__int64 a1, char a2, __int64 a3)
+char __fastcall HalpCmciSetProcessorConfig(__int64 a1, char a2, __int64 a3)
 {
-  __int64 result; // rax
+  char result; // al
   __int64 v7; // rdx
+  char v8; // r8
+  char v9; // [rsp+48h] [rbp+20h] BYREF
 
-  result = HalpGetCpuVendor();
-  if ( (_BYTE)result == 2 )
+  v9 = 0;
+  result = -(char)HalpGetCpuInfo(0LL, 0LL, 0LL, &v9);
+  v8 = result != 0 ? v9 : 0;
+  if ( v8 == 2 )
   {
     LOBYTE(v7) = a2;
     return HalpCmciSetProcessorConfigIntel(a1, v7, a3);
   }
-  else if ( (_BYTE)result == 1 )
+  else if ( v8 == 1 )
   {
     LOBYTE(v7) = a2;
     return HalpCmciSetProcessorConfigAMD(a1, v7, a3);

@@ -1,32 +1,31 @@
 /*
- * XREFs of ?VidSchiStopNodeYield@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C001757C
+ * XREFs of ?VidSchiStopNodeYield@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0014FD4
  * Callers:
- *     VidSchiCheckYieldExitCondition @ 0x1C00173F0 (VidSchiCheckYieldExitCondition.c)
- *     ?VidSchiWorkerThreadTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C0017440 (-VidSchiWorkerThreadTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
- *     ?VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C00181D8 (-VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ *     ?VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0014C2C (-VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ *     VidSchiCheckYieldExitCondition @ 0x1C0014F88 (VidSchiCheckYieldExitCondition.c)
  * Callees:
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C002EB14 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C00249D0 (McTemplateK0pq_EtwWriteTransfer.c)
  */
 
 void __fastcall VidSchiStopNodeYield(unsigned __int64 QuadPart, __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // rbx
-  unsigned int v4; // eax
+  ULONGLONG v4; // rax
   __int64 v5; // rdi
   unsigned int MostSignificantBit; // edx
   __int64 v7; // rax
   unsigned __int64 v8; // rtt
   union _LARGE_INTEGER PerformanceFrequency; // [rsp+40h] [rbp+8h] BYREF
 
-  *(_QWORD *)(QuadPart + 2000) = 0LL;
+  *(_QWORD *)(QuadPart + 1992) = 0LL;
   v3 = QuadPart;
-  v4 = *(_DWORD *)(QuadPart + 1772);
+  v4 = *(unsigned int *)(QuadPart + 1764);
   v5 = *(_QWORD *)(QuadPart + 24);
-  *(_BYTE *)(QuadPart + 2024) = 0;
-  if ( v4 )
+  *(_BYTE *)(QuadPart + 2016) = 0;
+  if ( (_DWORD)v4 )
   {
     MostSignificantBit = RtlFindMostSignificantBit(v4);
-    QuadPart = *(_QWORD *)(v3 + 8LL * *(unsigned int *)(v3 + 1560) + 1568);
+    QuadPart = *(_QWORD *)(v3 + 8LL * *(unsigned int *)(v3 + 1552) + 1560);
     if ( QuadPart )
     {
       if ( *(_DWORD *)(QuadPart + 404) < MostSignificantBit )
@@ -49,7 +48,7 @@ void __fastcall VidSchiStopNodeYield(unsigned __int64 QuadPart, __int64 a2, unsi
       }
     }
   }
-  if ( (byte_1C006E941 & 1) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     McTemplateK0pq_EtwWriteTransfer(
       QuadPart,
       &EventYieldStopNode,

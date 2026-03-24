@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTscInitializeSynchronizationContext @ 0x1403B6AC0
+ * XREFs of HalpTscInitializeSynchronizationContext @ 0x1403A78A4
  * Callers:
- *     HalpTscSynchronization @ 0x1403DD730 (HalpTscSynchronization.c)
- *     HalpPostSleepMP @ 0x140A500C0 (HalpPostSleepMP.c)
+ *     HalpTscSynchronization @ 0x1403CE6F0 (HalpTscSynchronization.c)
+ *     HalpPostSleepMP @ 0x140995864 (HalpPostSleepMP.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
  */
 
 ULONG __fastcall HalpTscInitializeSynchronizationContext(__int64 a1, char a2, int *a3, ULONG *a4)

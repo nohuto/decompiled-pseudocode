@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpIsFrameInBoundsEx @ 0x140297A70
+ * XREFs of RtlpIsFrameInBoundsEx @ 0x140277828
  * Callers:
- *     PspGetSetContextInternal @ 0x1407035C0 (PspGetSetContextInternal.c)
+ *     PspGetSetContextInternal @ 0x1406498B0 (PspGetSetContextInternal.c)
  * Callees:
- *     KeQueryCurrentStackInformation @ 0x140294D90 (KeQueryCurrentStackInformation.c)
- *     KeGetNextKernelStackSegment @ 0x140298AF8 (KeGetNextKernelStackSegment.c)
+ *     KeQueryCurrentStackInformation @ 0x140277230 (KeQueryCurrentStackInformation.c)
+ *     KeGetNextKernelStackSegment @ 0x1402E4B28 (KeGetNextKernelStackSegment.c)
  */
 
 char __fastcall RtlpIsFrameInBoundsEx(
@@ -31,53 +31,53 @@ char __fastcall RtlpIsFrameInBoundsEx(
   v20 = 0LL;
   v21 = 0LL;
   v22 = 0;
-  if ( (a2 & 7) != 0 )
-    return 0;
-  if ( a2 >= *a1 && a2 < *a3 )
-    return 1;
-  if ( *a1 < 0xFFFF800000000000uLL )
-    return 0;
-  KeQueryCurrentStackInformation((__int64)&v22, (__int64)&v21, (__int64)&v20);
-  if ( v22 <= 9 )
+  if ( (a2 & 7) == 0 )
   {
-    v10 = 929;
-    if ( _bittest(&v10, v22) )
-      return 0;
-  }
-  CurrentThread = KeGetCurrentThread();
-  v12 = v22;
-  if ( v22 != 1 )
-  {
-    if ( (KeGetPcr()->Prcb.DpcRequestSummary & 1) != 0 && CurrentThread != KeGetCurrentPrcb()->IdleThread )
+    if ( a2 >= *a1 && a2 < *a3 )
+      return 1;
+    if ( *a1 >= 0xFFFF800000000000uLL )
     {
-      v13 = (char *)KeGetPcr()->Prcb.DpcStack + 80;
-      v14 = &v13[-(unsigned int)KeKernelStackSize];
-      if ( (unsigned __int64)v14 <= a2 && a2 < (unsigned __int64)v13 )
+      KeQueryCurrentStackInformation((__int64)&v22, (__int64)&v21, (__int64)&v20);
+      if ( v22 > 9 || (v10 = 929, !_bittest(&v10, v22)) )
       {
-        *a3 = (unsigned __int64)v13;
-        *a1 = (unsigned __int64)v14;
-        return 1;
+        CurrentThread = KeGetCurrentThread();
+        v12 = v22;
+        if ( v22 != 1 )
+        {
+          if ( (KeGetPcr()->Prcb.DpcRequestSummary & 1) != 0 && CurrentThread != KeGetCurrentPrcb()->IdleThread )
+          {
+            v13 = (char *)KeGetPcr()->Prcb.DpcStack + 80;
+            v14 = &v13[-(unsigned int)KeKernelStackSize];
+            if ( (unsigned __int64)v14 <= a2 && a2 < (unsigned __int64)v13 )
+            {
+              *a3 = (unsigned __int64)v13;
+              *a1 = (unsigned __int64)v14;
+              return 1;
+            }
+          }
+          v12 = v22;
+        }
+        v15 = 0;
+        if ( !*a4 )
+        {
+          LOBYTE(v9) = 1;
+          KeGetNextKernelStackSegment(CurrentThread, a4, v9);
+          v15 = v16;
+        }
+        if ( v12 <= 0xA && (v17 = 1090, _bittest(&v17, v12)) && v15
+          || (unsigned __int8)KeGetNextKernelStackSegment(CurrentThread, a4, 0LL) )
+        {
+          v18 = a4[1];
+          v19 = *a4;
+          if ( a2 >= v18 && a2 < v19 )
+          {
+            *a1 = v18;
+            *a3 = v19;
+            return 1;
+          }
+        }
       }
     }
-    v12 = v22;
   }
-  v15 = 0;
-  if ( !*a4 )
-  {
-    LOBYTE(v9) = 1;
-    KeGetNextKernelStackSegment(CurrentThread, a4, v9);
-    v15 = v16;
-  }
-  if ( v12 > 0xA || (v17 = 1090, !_bittest(&v17, v12)) || !v15 )
-  {
-    if ( !(unsigned __int8)KeGetNextKernelStackSegment(CurrentThread, a4, 0LL) )
-      return 0;
-  }
-  v18 = a4[1];
-  v19 = *a4;
-  if ( a2 < v18 || a2 >= v19 )
-    return 0;
-  *a1 = v18;
-  *a3 = v19;
-  return 1;
+  return 0;
 }

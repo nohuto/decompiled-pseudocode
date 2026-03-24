@@ -1,9 +1,9 @@
 /*
- * XREFs of ExNotifyBootDeviceRemoval @ 0x14063A040
+ * XREFs of ExNotifyBootDeviceRemoval @ 0x1405B30E0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
  */
 
 char __fastcall ExNotifyBootDeviceRemoval(__int64 a1)

@@ -1,51 +1,47 @@
 /*
- * XREFs of KeCountSetBitsAffinityEx @ 0x1402FFAC0
+ * XREFs of KeCountSetBitsAffinityEx @ 0x14027B480
  * Callers:
- *     PpmParkReportParkedCores @ 0x140235F70 (PpmParkReportParkedCores.c)
- *     PpmParkUnblockIdle @ 0x14023A7D0 (PpmParkUnblockIdle.c)
- *     PpmParkReportUnparkedCores @ 0x14023A820 (PpmParkReportUnparkedCores.c)
- *     PpmPerfApplyProcessorStates @ 0x14023B5A0 (PpmPerfApplyProcessorStates.c)
- *     KeSynchronizeAddressPolicy @ 0x14024AC78 (KeSynchronizeAddressPolicy.c)
- *     KeSynchronizeSecurityDomain @ 0x140255E2C (KeSynchronizeSecurityDomain.c)
- *     KiComputeThreadAffinity @ 0x140292884 (KiComputeThreadAffinity.c)
- *     KeFlushProcessWriteBuffers @ 0x1402F374C (KeFlushProcessWriteBuffers.c)
- *     PpmParkSteerInterrupts @ 0x1402FF620 (PpmParkSteerInterrupts.c)
- *     KeIntSteerPeriodic @ 0x140300190 (KeIntSteerPeriodic.c)
- *     KiForwardTick @ 0x140303740 (KiForwardTick.c)
- *     PpmCheckSnapAllDeliveredPerformance @ 0x140304A20 (PpmCheckSnapAllDeliveredPerformance.c)
- *     PpmHeteroUpdateHgsConfiguration @ 0x1403CF26C (PpmHeteroUpdateHgsConfiguration.c)
- *     KiIntSteerLogStatus @ 0x140578454 (KiIntSteerLogStatus.c)
- *     KiForceIdleUpdateSchedulerParkState @ 0x14057A2A0 (KiForceIdleUpdateSchedulerParkState.c)
- *     PpmIdleInitializeConcurrency @ 0x140849A30 (PpmIdleInitializeConcurrency.c)
- *     KiInitializeKernel @ 0x140A580F0 (KiInitializeKernel.c)
+ *     KiForwardTick @ 0x140227FD0 (KiForwardTick.c)
+ *     KeFlushProcessWriteBuffers @ 0x14027AD04 (KeFlushProcessWriteBuffers.c)
+ *     PpmParkReportParkedCores @ 0x1402AAAE0 (PpmParkReportParkedCores.c)
+ *     PpmParkUnblockIdle @ 0x1402B04B0 (PpmParkUnblockIdle.c)
+ *     PpmParkReportUnparkedCores @ 0x1402B0500 (PpmParkReportUnparkedCores.c)
+ *     KeSynchronizeSecurityDomain @ 0x1402BC338 (KeSynchronizeSecurityDomain.c)
+ *     KeSynchronizeAddressPolicy @ 0x1402C247C (KeSynchronizeAddressPolicy.c)
+ *     PpmPerfApplyProcessorStates @ 0x140398950 (PpmPerfApplyProcessorStates.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x1403C2194 (PpmHeteroUpdateHgsConfiguration.c)
+ *     KiForceIdleUpdateSchedulerParkState @ 0x1405234B0 (KiForceIdleUpdateSchedulerParkState.c)
+ *     PpmIdleInitializeConcurrency @ 0x1407BAB28 (PpmIdleInitializeConcurrency.c)
+ *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall KeCountSetBitsAffinityEx(_WORD *a1)
+__int64 __fastcall KeCountSetBitsAffinityEx(unsigned __int16 *a1)
 {
-  __int64 result; // rax
-  unsigned __int64 *v2; // r9
-  __int64 v3; // r10
-  unsigned __int64 v4; // r8
+  unsigned int v1; // eax
+  unsigned int v2; // r8d
+  unsigned __int64 *v3; // rcx
+  __int64 v4; // r9
+  unsigned __int64 v5; // rdx
 
-  result = 0LL;
-  if ( *a1 )
+  v1 = *a1;
+  v2 = 0;
+  if ( (_WORD)v1 )
   {
-    v2 = (unsigned __int64 *)(a1 + 4);
-    v3 = (unsigned __int16)*a1;
+    v3 = (unsigned __int64 *)(a1 + 4);
+    v4 = v1;
     do
     {
-      v4 = *v2++;
-      result = ((unsigned int)((0x101010101010101LL
-                              * ((((v4 - ((v4 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-                                + (((v4 - ((v4 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
-                                + ((((v4 - ((v4 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-                                  + (((v4 - ((v4 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24)
-             + (unsigned int)result;
-      --v3;
+      v5 = *v3++;
+      v2 += (unsigned int)((0x101010101010101LL
+                          * ((((v5 - ((v5 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+                            + (((v5 - ((v5 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
+                            + ((((v5 - ((v5 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+                              + (((v5 - ((v5 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24;
+      --v4;
     }
-    while ( v3 );
+    while ( v4 );
   }
-  return result;
+  return v2;
 }

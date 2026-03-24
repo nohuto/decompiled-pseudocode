@@ -1,19 +1,19 @@
 /*
- * XREFs of DeleteOrSetRedirectionBitmap @ 0x1C00B4214
+ * XREFs of DeleteOrSetRedirectionBitmap @ 0x1C00EF958
  * Callers:
- *     SetRedirectedWindow @ 0x1C001F9FC (SetRedirectedWindow.c)
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C006E60C (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
- *     RecreateRedirectionBitmap @ 0x1C008F778 (RecreateRedirectionBitmap.c)
- *     zzzUpdateLayeredWindow @ 0x1C008FE60 (zzzUpdateLayeredWindow.c)
- *     xxxDwmStopRedirection @ 0x1C0098410 (xxxDwmStopRedirection.c)
- *     zzzDwmStartRedirection @ 0x1C0098F14 (zzzDwmStartRedirection.c)
- *     UnsetRedirectedWindow @ 0x1C00B40A4 (UnsetRedirectedWindow.c)
- *     DeleteOldRedirectionBitmap @ 0x1C00B4184 (DeleteOldRedirectionBitmap.c)
- *     zzzUpdateWindowsAfterModeChange @ 0x1C00B7E98 (zzzUpdateWindowsAfterModeChange.c)
- *     UserRecreateRedirectionBitmap @ 0x1C01E2880 (UserRecreateRedirectionBitmap.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068330 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     SetRedirectedWindow @ 0x1C00BD1BC (SetRedirectedWindow.c)
+ *     zzzDwmStartRedirection @ 0x1C00E977C (zzzDwmStartRedirection.c)
+ *     xxxDwmStopRedirection @ 0x1C00E9970 (xxxDwmStopRedirection.c)
+ *     UnsetRedirectedWindow @ 0x1C00EF7E8 (UnsetRedirectedWindow.c)
+ *     DeleteOldRedirectionBitmap @ 0x1C00EF8C8 (DeleteOldRedirectionBitmap.c)
+ *     zzzUpdateWindowsAfterModeChange @ 0x1C00F1368 (zzzUpdateWindowsAfterModeChange.c)
+ *     RecreateRedirectionBitmap @ 0x1C00F18E8 (RecreateRedirectionBitmap.c)
+ *     zzzUpdateLayeredWindow @ 0x1C00F1FE4 (zzzUpdateLayeredWindow.c)
+ *     UserRecreateRedirectionBitmap @ 0x1C01E81F0 (UserRecreateRedirectionBitmap.c)
  * Callees:
- *     GreDereferenceObject @ 0x1C002669C (GreDereferenceObject.c)
- *     GreSetRedirection @ 0x1C00B42C4 (GreSetRedirection.c)
+ *     GreDereferenceObject @ 0x1C004B94C (GreDereferenceObject.c)
+ *     GreSetRedirection @ 0x1C00EFA08 (GreSetRedirection.c)
  */
 
 __int64 __fastcall DeleteOrSetRedirectionBitmap(__int64 a1, HSURF a2, int a3)

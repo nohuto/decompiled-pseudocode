@@ -1,23 +1,23 @@
 /*
- * XREFs of PspInitializeServerSiloDeferred @ 0x140887460
+ * XREFs of PspInitializeServerSiloDeferred @ 0x140887440
  * Callers:
- *     PspQueueDeferredWorkAndWait @ 0x140887564 (PspQueueDeferredWorkAndWait.c)
+ *     PspQueueDeferredWorkAndWait @ 0x140887544 (PspQueueDeferredWorkAndWait.c)
  * Callees:
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
  *     ExpTimeZoneInitSiloState @ 0x1405839E4 (ExpTimeZoneInitSiloState.c)
- *     CmInitServerSiloState @ 0x140730724 (CmInitServerSiloState.c)
- *     EtwInitializeSiloState @ 0x140741454 (EtwInitializeSiloState.c)
- *     PspInitializeProtectedProcessParameters @ 0x140756318 (PspInitializeProtectedProcessParameters.c)
- *     ObInitServerSilo @ 0x140759EC0 (ObInitServerSilo.c)
- *     DbgkInitializeServerSilo @ 0x14080E358 (DbgkInitializeServerSilo.c)
- *     PsTerminateServerSilo @ 0x140886A90 (PsTerminateServerSilo.c)
- *     PspDeleteExternalServerSiloState @ 0x1408870F4 (PspDeleteExternalServerSiloState.c)
- *     PspSiloInitializeIsMultiSessionSku @ 0x140887910 (PspSiloInitializeIsMultiSessionSku.c)
- *     PspSiloInitializeSystemRootSymlink @ 0x140887A3C (PspSiloInitializeSystemRootSymlink.c)
- *     PspSiloInitializeUserSharedData @ 0x140887B58 (PspSiloInitializeUserSharedData.c)
- *     PspSiloLoadApiSets @ 0x140887C78 (PspSiloLoadApiSets.c)
- *     PspNotifyServerSiloCreation @ 0x14088BD84 (PspNotifyServerSiloCreation.c)
- *     SeInitServerSilo @ 0x14089B7E4 (SeInitServerSilo.c)
+ *     CmInitServerSiloState @ 0x140730704 (CmInitServerSiloState.c)
+ *     EtwInitializeSiloState @ 0x140741434 (EtwInitializeSiloState.c)
+ *     PspInitializeProtectedProcessParameters @ 0x1407562F8 (PspInitializeProtectedProcessParameters.c)
+ *     ObInitServerSilo @ 0x140759EA0 (ObInitServerSilo.c)
+ *     DbgkInitializeServerSilo @ 0x14080E338 (DbgkInitializeServerSilo.c)
+ *     PsTerminateServerSilo @ 0x140886A70 (PsTerminateServerSilo.c)
+ *     PspDeleteExternalServerSiloState @ 0x1408870D4 (PspDeleteExternalServerSiloState.c)
+ *     PspSiloInitializeIsMultiSessionSku @ 0x1408878F0 (PspSiloInitializeIsMultiSessionSku.c)
+ *     PspSiloInitializeSystemRootSymlink @ 0x140887A1C (PspSiloInitializeSystemRootSymlink.c)
+ *     PspSiloInitializeUserSharedData @ 0x140887B38 (PspSiloInitializeUserSharedData.c)
+ *     PspSiloLoadApiSets @ 0x140887C58 (PspSiloLoadApiSets.c)
+ *     PspNotifyServerSiloCreation @ 0x14088BD64 (PspNotifyServerSiloCreation.c)
+ *     SeInitServerSilo @ 0x14089B7C4 (SeInitServerSilo.c)
  */
 
 __int64 __fastcall PspInitializeServerSiloDeferred(struct _LIST_ENTRY *a1)

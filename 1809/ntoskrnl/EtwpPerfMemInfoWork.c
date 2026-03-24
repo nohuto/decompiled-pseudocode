@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpPerfMemInfoWork @ 0x1408B88C0
+ * XREFs of EtwpPerfMemInfoWork @ 0x1408B88A0
  * Callers:
  *     <none>
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpLogMemInfoWs @ 0x1408B800C (EtwpLogMemInfoWs.c)
+ *     EtwpLogMemInfoWs @ 0x1408B7FEC (EtwpLogMemInfoWs.c)
  */
 
 void __fastcall EtwpPerfMemInfoWork(_QWORD *a1)

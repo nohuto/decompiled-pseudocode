@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmUpdateProcessorIdleVeto @ 0x1405C9740
+ * XREFs of PpmUpdateProcessorIdleVeto @ 0x1405684A0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeGetProcessorIndexFromNumber @ 0x140293580 (KeGetProcessorIndexFromNumber.c)
- *     PopExecuteOnTargetProcessors @ 0x140293A88 (PopExecuteOnTargetProcessors.c)
- *     KeAddProcessorAffinityEx @ 0x140294460 (KeAddProcessorAffinityEx.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PpmUpdateIdleVeto @ 0x1405C92A0 (PpmUpdateIdleVeto.c)
- *     PpmEventProcessorVetoRequest @ 0x1405DA898 (PpmEventProcessorVetoRequest.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     PopExecuteOnTargetProcessors @ 0x14027B7DC (PopExecuteOnTargetProcessors.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PpmUpdateIdleVeto @ 0x140567FD0 (PpmUpdateIdleVeto.c)
+ *     PpmEventProcessorVetoRequest @ 0x14057A2CC (PpmEventProcessorVetoRequest.c)
  */
 
 __int64 __fastcall PpmUpdateProcessorIdleVeto(__int64 a1)
@@ -35,11 +35,11 @@ __int64 __fastcall PpmUpdateProcessorIdleVeto(__int64 a1)
   struct _KPRCB *v17; // r10
   _DWORD *v18; // r8
   int v19; // eax
-  char v20[16]; // [rsp+20h] [rbp-148h] BYREF
-  _DWORD v21[68]; // [rsp+30h] [rbp-138h] BYREF
+  char v20[16]; // [rsp+20h] [rbp-E8h] BYREF
+  _DWORD v21[44]; // [rsp+30h] [rbp-D8h] BYREF
 
   v20[0] = 0;
-  memset(&v21[2], 0, 0x100uLL);
+  memset(&v21[2], 0, 0xA0uLL);
   ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber((PPROCESSOR_NUMBER)(a1 + 4));
   Prcb = (struct _KPRCB *)KeGetPrcb(ProcessorIndexFromNumber);
   if ( ProcessorIndexFromNumber == -1 )
@@ -108,9 +108,9 @@ LABEL_5:
     }
   }
   __writecr8(v7);
-  v21[0] = 2097153;
-  memset(&v21[1], 0, 0x104uLL);
-  KeAddProcessorAffinityEx((unsigned __int16 *)v21, ProcessorIndexFromNumber);
+  v21[0] = 1310721;
+  memset(&v21[1], 0, 0xA4uLL);
+  KeAddProcessorAffinityEx(v21, ProcessorIndexFromNumber);
   PopExecuteOnTargetProcessors((__int64)v21, (__int64)HalSystemVectorDispatchEntry, 0LL, 0LL);
   return (unsigned int)updated;
 }

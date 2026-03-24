@@ -1,14 +1,14 @@
 /*
- * XREFs of ApplyEdgeFlags @ 0x1801E7AC8
+ * XREFs of ApplyEdgeFlags @ 0x1801A1CB8
  * Callers:
- *     ?EmitGeometry@CWARPDrawListEntry@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand@@@Z @ 0x1801E7CA0 (-EmitGeometry@CWARPDrawListEntry@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand.c)
+ *     ?EmitGeometry@CWARPDrawListEntry@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCBaseDrawListEntry@@@Z @ 0x1801A1E80 (-EmitGeometry@CWARPDrawListEntry@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCBaseDrawListEntry@@@Z.c)
  * Callees:
- *     ?TransformEdgeFlags_AxisAlignedPreserving@D2DMatrixHelper@@YAIIAEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800578F0 (-TransformEdgeFlags_AxisAlignedPreserving@D2DMatrixHelper@@YAIIAEBUD2D_MATRIX_3X2_F@@@Z.c)
- *     ?TransformRect_AxisAlignedPreserving@D2DMatrixHelper@@YAXAEBUD2D_RECT_F@@AEBUD2D_MATRIX_3X2_F@@PEAU2@@Z @ 0x180057E64 (-TransformRect_AxisAlignedPreserving@D2DMatrixHelper@@YAXAEBUD2D_RECT_F@@AEBUD2D_MATRIX_3X2_F@@P.c)
- *     ApplyEdgeFlagsWorker_3_1_2_ @ 0x1801E76B0 (ApplyEdgeFlagsWorker_3_1_2_.c)
- *     ApplyEdgeFlagsWorker_768_256_512_ @ 0x1801E7700 (ApplyEdgeFlagsWorker_768_256_512_.c)
- *     ApplyEdgeFlagsWorker_196608_65536_131072_ @ 0x1801E775C (ApplyEdgeFlagsWorker_196608_65536_131072_.c)
- *     ApplyEdgeFlagsWorker_50331648_16777216_33554432_ @ 0x1801E77B8 (ApplyEdgeFlagsWorker_50331648_16777216_33554432_.c)
+ *     ?TransformEdgeFlags_AxisAlignedPreserving@D2DMatrixHelper@@YAIIAEBUD2D_MATRIX_3X2_F@@@Z @ 0x180007E3C (-TransformEdgeFlags_AxisAlignedPreserving@D2DMatrixHelper@@YAIIAEBUD2D_MATRIX_3X2_F@@@Z.c)
+ *     ?TransformRect_AxisAlignedPreserving@D2DMatrixHelper@@YAXAEBUD2D_RECT_F@@AEBUD2D_MATRIX_3X2_F@@PEAU2@@Z @ 0x18000801C (-TransformRect_AxisAlignedPreserving@D2DMatrixHelper@@YAXAEBUD2D_RECT_F@@AEBUD2D_MATRIX_3X2_F@@P.c)
+ *     ApplyEdgeFlagsWorker_3_1_2_ @ 0x1801A1600 (ApplyEdgeFlagsWorker_3_1_2_.c)
+ *     ApplyEdgeFlagsWorker_768_256_512_ @ 0x1801A1650 (ApplyEdgeFlagsWorker_768_256_512_.c)
+ *     ApplyEdgeFlagsWorker_196608_65536_131072_ @ 0x1801A16AC (ApplyEdgeFlagsWorker_196608_65536_131072_.c)
+ *     ApplyEdgeFlagsWorker_50331648_16777216_33554432_ @ 0x1801A1708 (ApplyEdgeFlagsWorker_50331648_16777216_33554432_.c)
  */
 
 void __fastcall ApplyEdgeFlags(
@@ -27,7 +27,7 @@ void __fastcall ApplyEdgeFlags(
   float m22; // xmm1_4
   struct D2D_MATRIX_3X2_F v15; // [rsp+20h] [rbp-18h] BYREF
 
-  v7 = D2DMatrixHelper::TransformEdgeFlags_AxisAlignedPreserving((D2DMatrixHelper *)(unsigned int)a2, &a3->m11, a3);
+  v7 = D2DMatrixHelper::TransformEdgeFlags_AxisAlignedPreserving((D2DMatrixHelper *)(unsigned int)a2, (__int64)a3, a3);
   D2DMatrixHelper::TransformRect_AxisAlignedPreserving(this, (const struct D2D_RECT_F *)a3, &v15, v8);
   v9 = ApplyEdgeFlagsWorker_50331648_16777216_33554432_(v7, v15.m11, -0.5);
   m12 = v15.m12;

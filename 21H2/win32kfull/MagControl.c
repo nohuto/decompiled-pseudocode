@@ -1,10 +1,11 @@
 /*
- * XREFs of MagControl @ 0x1C01C9860
+ * XREFs of MagControl @ 0x1C01CC9FC
  * Callers:
- *     NtUserMagControl @ 0x1C01F9350 (NtUserMagControl.c)
+ *     MagSlicerControl @ 0x1C01CDFF4 (MagSlicerControl.c)
+ *     NtUserMagControl @ 0x1C01FE900 (NtUserMagControl.c)
  * Callees:
- *     MagpFindThreadContext @ 0x1C0060DF0 (MagpFindThreadContext.c)
- *     MagContextThreadCallout @ 0x1C01C9610 (MagContextThreadCallout.c)
+ *     MagpFindThreadContext @ 0x1C007C568 (MagpFindThreadContext.c)
+ *     MagContextThreadCallout @ 0x1C01CC7B0 (MagContextThreadCallout.c)
  */
 
 __int64 __fastcall MagControl(_QWORD *a1, __int64 a2, int a3, __int64 a4)
@@ -48,7 +49,7 @@ __int64 __fastcall MagControl(_QWORD *a1, __int64 a2, int a3, __int64 a4)
     }
     else
     {
-      v12 = Win32AllocPoolZInit(56LL, 1735226197LL);
+      v12 = Win32AllocPool(56LL, 1735226197LL);
       v13 = v12;
       if ( v12 )
       {
@@ -56,7 +57,7 @@ __int64 __fastcall MagControl(_QWORD *a1, __int64 a2, int a3, __int64 a4)
         *(_QWORD *)(v13 + 16) = a2;
         v14[1] = v14;
         *v14 = v14;
-        *(_DWORD *)(a2 + 1256) |= 8u;
+        *(_DWORD *)(a2 + 1232) |= 8u;
         *(_DWORD *)(v13 + 32) = 1;
         *(_QWORD *)(v13 + 24) = a4;
         v15 = (__int64 *)a1[1];

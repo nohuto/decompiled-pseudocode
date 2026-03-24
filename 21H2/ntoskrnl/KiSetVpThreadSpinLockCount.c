@@ -1,21 +1,16 @@
 /*
- * XREFs of KiSetVpThreadSpinLockCount @ 0x1402B1050
+ * XREFs of KiSetVpThreadSpinLockCount @ 0x14034B590
  * Callers:
- *     KiDirectSwitchThread @ 0x14020F360 (KiDirectSwitchThread.c)
- *     KiNormalPriorityReadyScan @ 0x1402447EC (KiNormalPriorityReadyScan.c)
- *     KiQuantumEnd @ 0x14028FFD0 (KiQuantumEnd.c)
- *     KiExecuteAllDpcs @ 0x1402A9790 (KiExecuteAllDpcs.c)
- *     KiSwapThread @ 0x1402B3140 (KiSwapThread.c)
- *     KiSearchForNewThreadOnProcessor @ 0x1402B4130 (KiSearchForNewThreadOnProcessor.c)
- *     IopfCompleteRequest @ 0x1402B59D0 (IopfCompleteRequest.c)
- *     KeRemoveQueueEx @ 0x1402B7FA0 (KeRemoveQueueEx.c)
- *     KiDeferredReadySingleThread @ 0x1403405E0 (KiDeferredReadySingleThread.c)
- *     KiSearchForNewThread @ 0x140343DC0 (KiSearchForNewThread.c)
- *     KxDispatchInterrupt @ 0x140428BA0 (KxDispatchInterrupt.c)
- *     KeSetThreadSchedulerAssist @ 0x140576AA4 (KeSetThreadSchedulerAssist.c)
- *     KeTransitionProcessorParkState @ 0x14057C888 (KeTransitionProcessorParkState.c)
+ *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
+ *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
+ *     KiDirectSwitchThread @ 0x14024C840 (KiDirectSwitchThread.c)
+ *     KiQuantumEnd @ 0x140257CF0 (KiQuantumEnd.c)
+ *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
+ *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
+ *     KiSwapThread @ 0x1403466D0 (KiSwapThread.c)
+ *     KxDispatchInterrupt @ 0x1404065E0 (KxDispatchInterrupt.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KiSetVpThreadSpinLockCount(__int64 a1, char a2)
@@ -25,7 +20,7 @@ void __fastcall KiSetVpThreadSpinLockCount(__int64 a1, char a2)
   int v5; // edx
   int v6; // eax
 
-  v2 = *(_QWORD *)(a1 + 35000);
+  v2 = *(_QWORD *)(a1 + 33976);
   if ( v2 && *(_BYTE *)(a1 + 32) <= 1u )
   {
     v4 = *(_DWORD *)(v2 + 24);

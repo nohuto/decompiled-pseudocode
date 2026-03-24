@@ -1,69 +1,105 @@
 /*
- * XREFs of MiUnlockCodePage @ 0x140367338
+ * XREFs of MiUnlockCodePage @ 0x1403A0950
  * Callers:
- *     MiLockCode @ 0x140282210 (MiLockCode.c)
- *     MiHandleDriverNonPagedSections @ 0x140705BF8 (MiHandleDriverNonPagedSections.c)
- *     MiUnlockDriverCode @ 0x140852220 (MiUnlockDriverCode.c)
- *     MiUnlockDriverPages @ 0x140875FFC (MiUnlockDriverPages.c)
- *     MmUnlockPreChargedPagedPool @ 0x140A30AA0 (MmUnlockPreChargedPagedPool.c)
+ *     MiLockCode @ 0x1402A3C40 (MiLockCode.c)
+ *     MiHandleDriverNonPagedSections @ 0x14075C100 (MiHandleDriverNonPagedSections.c)
+ *     MiUnlockDriverCode @ 0x140771384 (MiUnlockDriverCode.c)
+ *     MmUnlockPreChargedPagedPool @ 0x140774270 (MmUnlockPreChargedPagedPool.c)
+ *     MiUnlockDriverPages @ 0x1408C4E10 (MiUnlockDriverPages.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402A9250 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUnlockCodePage(unsigned __int64 a1, unsigned __int64 a2, int a3)
 {
-  unsigned __int64 v3; // rdi
+  unsigned __int64 v5; // rdi
   __int64 result; // rax
-  unsigned __int64 v7; // rcx
-  __int64 v8; // rbp
-  unsigned __int64 v9; // rax
-  __int64 v10; // rbx
-  unsigned __int64 v11; // rsi
+  __int64 v7; // rbx
+  BOOL v8; // r12d
+  unsigned __int64 v9; // rcx
+  __int64 v10; // rbp
+  struct _LIST_ENTRY *Flink; // r8
+  unsigned __int64 v12; // rdx
+  __int64 v13; // rdx
+  __int64 v14; // rbx
+  unsigned __int64 v15; // rsi
+  __int64 v16; // rax
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v15; // eax
-  bool v16; // zf
-  __int64 v17; // [rsp+40h] [rbp+8h] BYREF
+  bool v20; // zf
+  __int64 v21; // [rsp+50h] [rbp+8h] BYREF
 
-  v3 = a1;
-  result = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  while ( v3 <= a2 )
+  v5 = a1;
+  result = 0xFFFFF68000000000uLL;
+  v7 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  if ( a1 <= a2 )
   {
-    v7 = result;
-    v8 = result;
-    if ( !a3 )
-      v7 = v3;
-    v17 = MI_READ_PTE_LOCK_FREE(v7);
-    v9 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v17) >> 12) & 0xFFFFFFFFFFLL;
-    if ( a3 )
-      v9 += (v3 >> 3) & 0x1FF;
-    v10 = 48 * v9 - 0x220000000000LL;
-    v11 = (unsigned __int8)MiLockPageInline(v10);
-    MiRemoveLockedPageChargeAndDecRef(v10);
-    _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    v8 = MiPteInShadowRange((unsigned __int64)&v21);
+    do
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      v9 = v7;
+      v10 = v7;
+      if ( !a3 )
+        v9 = v5;
+      v21 = MI_READ_PTE_LOCK_FREE(v9);
+      v12 = v21;
+      if ( v8
+        && (MiFlags & 0xC00000) != 0
+        && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+        && (v21 & 1) != 0
+        && ((v21 & 0x20) == 0 || (v21 & 0x42) == 0) )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-        v16 = (v15 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v15;
-        if ( v16 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+        if ( Flink )
+        {
+          v16 = *((_QWORD *)&Flink->Flink + (((unsigned __int64)&v21 >> 3) & 0x1FF));
+          if ( (v16 & 0x20) != 0 )
+            v12 = v21 | 0x20;
+          if ( (v16 & 0x42) != 0 )
+            v12 |= 0x42uLL;
+        }
+        else
+        {
+          v12 = v21;
+        }
       }
+      v13 = (v12 >> 12) & 0xFFFFFFFFFLL;
+      if ( a3 )
+        v13 += (v5 >> 3) & 0x1FF;
+      v14 = 48 * v13 - 0x58000000000LL;
+      v15 = (unsigned __int8)MiLockPageInline(v14, v13, (__int64)Flink, (_DWORD *)v21);
+      MiRemoveLockedPageChargeAndDecRef(v14);
+      _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      result = (unsigned int)KiIrqlFlags;
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)v15 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v15 + 1));
+            v20 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= result;
+            if ( v20 )
+              result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
+        }
+      }
+      __writecr8(v15);
+      v5 += 8LL;
+      v7 = v10 + 8;
+      if ( (v5 & 0xFFF) != 0 )
+        v7 = v10;
     }
-    __writecr8(v11);
-    v3 += 8LL;
-    result = v8 + 8;
-    if ( (v3 & 0xFFF) != 0 )
-      result = v8;
+    while ( v5 <= a2 );
   }
   return result;
 }

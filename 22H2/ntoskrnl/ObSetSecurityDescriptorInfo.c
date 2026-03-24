@@ -1,17 +1,18 @@
 /*
- * XREFs of ObSetSecurityDescriptorInfo @ 0x14069E860
+ * XREFs of ObSetSecurityDescriptorInfo @ 0x1406D8070
  * Callers:
- *     WmipSecurityMethod @ 0x1407BE310 (WmipSecurityMethod.c)
+ *     WmipSecurityMethod @ 0x1406818F0 (WmipSecurityMethod.c)
+ *     SeDefaultObjectMethod @ 0x1406D8A10 (SeDefaultObjectMethod.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     SeSetSecurityDescriptorInfo @ 0x14069E810 (SeSetSecurityDescriptorInfo.c)
- *     ObAdjustSecurityQuota @ 0x14069E9B8 (ObAdjustSecurityQuota.c)
- *     ObDereferenceSecurityDescriptor @ 0x140728AC0 (ObDereferenceSecurityDescriptor.c)
- *     SeComputeQuotaInformationSize @ 0x140728BF0 (SeComputeQuotaInformationSize.c)
- *     ObLogSecurityDescriptor @ 0x140728D30 (ObLogSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     SeSetSecurityDescriptorInfo @ 0x1406D8020 (SeSetSecurityDescriptorInfo.c)
+ *     ObDereferenceSecurityDescriptor @ 0x1406D8460 (ObDereferenceSecurityDescriptor.c)
+ *     ObAdjustSecurityQuota @ 0x1406D8908 (ObAdjustSecurityQuota.c)
+ *     SeComputeQuotaInformationSize @ 0x1406D8990 (SeComputeQuotaInformationSize.c)
+ *     ObLogSecurityDescriptor @ 0x1406D8C70 (ObLogSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObSetSecurityDescriptorInfo(
@@ -23,18 +24,19 @@ __int64 __fastcall ObSetSecurityDescriptorInfo(
         PGENERIC_MAPPING GenericMapping)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v9; // esi
-  void *v11; // r14
+  unsigned int v7; // esi
+  void *v11; // rbp
   NTSTATUS v12; // ebx
-  char v13; // al
-  PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v16; // [rsp+38h] [rbp-8h]
-  unsigned int v17; // [rsp+70h] [rbp+30h] BYREF
+  __int64 v13; // rax
+  char v14; // al
+  PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v17; // [rsp+38h] [rbp-20h]
+  unsigned int v18; // [rsp+60h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v17 = 0;
-  v9 = 0;
-  v16 = 0LL;
+  v7 = 0;
+  v18 = 0;
+  v17 = 0LL;
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)(Object - 4), 0LL);
   v11 = (void *)(*(Object - 1) & 0xFFFFFFFFFFFFFFF0uLL);
@@ -55,26 +57,29 @@ __int64 __fastcall ObSetSecurityDescriptorInfo(
     v12 = ObLogSecurityDescriptor(ObjectsSecurityDescriptor);
     if ( v12 >= 0 )
     {
-      v12 = SeComputeQuotaInformationSize(ObjectsSecurityDescriptor, &v17);
+      v12 = SeComputeQuotaInformationSize(ObjectsSecurityDescriptor, &v18);
       if ( v12 >= 0 )
       {
-        v12 = ObAdjustSecurityQuota(Object, v17);
+        v12 = ObAdjustSecurityQuota(Object, v18);
         if ( v12 >= 0 )
         {
-          v13 = _InterlockedExchange64(Object - 1, (v16 | 0xF) & -(__int64)(v16 != 0));
-          v16 = 0LL;
+          v13 = 0LL;
+          if ( v17 )
+            v13 = v17 | 0xF;
+          v14 = _InterlockedExchange64(Object - 1, v13);
+          v17 = 0LL;
           if ( v11 )
-            v9 = (v13 & 0xF) + 1;
+            v7 = (v14 & 0xF) + 1;
         }
       }
     }
   }
-  ExReleasePushLockEx(Object - 4, 0LL);
+  ExReleasePushLockEx((ULONG_PTR)(Object - 4), 0LL);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  if ( v16 )
-    ObDereferenceSecurityDescriptor(v16, 16LL);
-  if ( v11 && v9 )
-    ObDereferenceSecurityDescriptor(v11, v9);
+  if ( v17 )
+    ObDereferenceSecurityDescriptor(v17, 16LL);
+  if ( v11 && v7 )
+    ObDereferenceSecurityDescriptor(v11, v7);
   if ( ObjectsSecurityDescriptor )
     ExFreePoolWithTag(ObjectsSecurityDescriptor, 0);
   return (unsigned int)v12;

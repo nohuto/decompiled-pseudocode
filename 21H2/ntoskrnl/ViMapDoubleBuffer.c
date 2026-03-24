@@ -1,19 +1,19 @@
 /*
- * XREFs of ViMapDoubleBuffer @ 0x140A88D98
+ * XREFs of ViMapDoubleBuffer @ 0x1409CF094
  * Callers:
- *     VfBuildScatterGatherList @ 0x140A84BC0 (VfBuildScatterGatherList.c)
- *     VfGetScatterGatherList @ 0x140A85DA0 (VfGetScatterGatherList.c)
- *     VfMapTransfer @ 0x140A86510 (VfMapTransfer.c)
+ *     VfBuildScatterGatherList @ 0x1409CB000 (VfBuildScatterGatherList.c)
+ *     VfGetScatterGatherList @ 0x1409CC0F0 (VfGetScatterGatherList.c)
+ *     VfMapTransfer @ 0x1409CC870 (VfMapTransfer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeFlushIoBuffers @ 0x140232370 (KeFlushIoBuffers.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     VfReportIssueWithOptions @ 0x1405FFA20 (VfReportIssueWithOptions.c)
- *     ViAllocateMapRegistersFromFile @ 0x140A874C8 (ViAllocateMapRegistersFromFile.c)
- *     ViHalPreprocessOptions @ 0x140A88948 (ViHalPreprocessOptions.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeFlushIoBuffers @ 0x1402A7EB0 (KeFlushIoBuffers.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     VfReportIssueWithOptions @ 0x1405A1DF4 (VfReportIssueWithOptions.c)
+ *     ViAllocateMapRegistersFromFile @ 0x1409CD7D8 (ViAllocateMapRegistersFromFile.c)
+ *     ViHalPreprocessOptions @ 0x1409CEC60 (ViHalPreprocessOptions.c)
  */
 
 __int64 __fastcall ViMapDoubleBuffer(__int64 a1, PMDL MemoryDescriptorList, ULONG_PTR a3, unsigned int a4, char a5)
@@ -61,8 +61,8 @@ __int64 __fastcall ViMapDoubleBuffer(__int64 a1, PMDL MemoryDescriptorList, ULON
   v46 = 0;
   if ( !a4 )
   {
-    ViHalPreprocessOptions(byte_140C0D954, "Driver is attempting to map a 0-length transfer.", 33LL, a1, 0LL, 0LL);
-    Priority = byte_140C0D954;
+    ViHalPreprocessOptions(byte_140C12F00, "Driver is attempting to map a 0-length transfer.", 33LL, a1, 0LL, 0LL);
+    Priority = byte_140C12F00;
     v9 = 0LL;
     BugCheckOnFailure = 0LL;
     v10 = a1;
@@ -76,13 +76,13 @@ LABEL_3:
   if ( (PVOID)a3 < (char *)MemoryDescriptorList->StartVa + MemoryDescriptorList->ByteOffset )
   {
     ViHalPreprocessOptions(
-      &dword_140C0D958,
+      &dword_140C12F08,
       "Virtual address %p is before the first MDL %p.",
       268435487LL,
       1LL,
       a3,
       (__int64)MemoryDescriptorList);
-    Priority = (CHAR *)&dword_140C0D958;
+    Priority = (CHAR *)&dword_140C12F08;
     v9 = (PMDL)a3;
     BugCheckOnFailure = MemoryDescriptorList;
     v10 = 1LL;
@@ -93,13 +93,13 @@ LABEL_10:
   if ( (unsigned int)(a3 - MemoryDescriptorList->ByteOffset - LODWORD(MemoryDescriptorList->StartVa)) >= MemoryDescriptorList->ByteCount )
   {
     ViHalPreprocessOptions(
-      &dword_140C0D95C,
+      &dword_140C12F04,
       "Virtual address %p is after the first MDL %p.",
       268435487LL,
       2LL,
       a3,
       (__int64)MemoryDescriptorList);
-    VfReportIssueWithOptions(0xE6u, 0x1FuLL, 2uLL, a3, (ULONG_PTR)MemoryDescriptorList, &dword_140C0D95C);
+    VfReportIssueWithOptions(0xE6u, 0x1FuLL, 2uLL, a3, (ULONG_PTR)MemoryDescriptorList, &dword_140C12F04);
     return 0LL;
   }
   v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 80));
@@ -161,7 +161,7 @@ LABEL_10:
           if ( (((v5 - 1) ^ (v21 + v5 - (unsigned __int64)v27)) & 0xFFFFFFFFFFFFF000uLL) != 0 )
           {
             v30 = "Extra transfer length crosses a page boundary: Mdl %p, Length %x.";
-            v31 = (CHAR *)&unk_140C0D960;
+            v31 = (CHAR *)&unk_140C12F10;
 LABEL_33:
             ViHalPreprocessOptions(v31, v30, 268435487LL, 3LL, (__int64)MemoryDescriptorList, v29);
             Priority = v31;
@@ -186,7 +186,7 @@ LABEL_37:
             {
               v29 = v5;
               v30 = "Extra transfer length crosses a page boundary: Mdl %p, Length %x";
-              v31 = (CHAR *)&unk_140C0D948;
+              v31 = (CHAR *)&unk_140C12F0C;
               goto LABEL_33;
             }
             goto LABEL_37;

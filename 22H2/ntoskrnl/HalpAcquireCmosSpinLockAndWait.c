@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpAcquireCmosSpinLockAndWait @ 0x14033B9D8
+ * XREFs of HalpAcquireCmosSpinLockAndWait @ 0x14030D84C
  * Callers:
- *     HalpReadCmosTime @ 0x14033B81C (HalpReadCmosTime.c)
- *     HalpSetWakeAlarm @ 0x14050ACE4 (HalpSetWakeAlarm.c)
- *     HalpWriteCmosTime @ 0x1405158EC (HalpWriteCmosTime.c)
+ *     HalpReadCmosTime @ 0x14030D6B8 (HalpReadCmosTime.c)
+ *     HalpSetWakeAlarm @ 0x1404C1C44 (HalpSetWakeAlarm.c)
+ *     HalpWriteCmosTime @ 0x1404CC2AC (HalpWriteCmosTime.c)
  * Callees:
- *     HalpAcquireCmosSpinLock @ 0x14033BA0C (HalpAcquireCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x14030D87C (HalpAcquireCmosSpinLock.c)
  */
 
 char HalpAcquireCmosSpinLockAndWait()
@@ -15,9 +15,9 @@ char HalpAcquireCmosSpinLockAndWait()
 
   HalpAcquireCmosSpinLock();
   v0 = 0;
+  __outbyte(0x70u, 0xAu);
   while ( 1 )
   {
-    __outbyte(0x70u, 0xAu);
     result = __inbyte(0x71u);
     if ( result >= 0 )
       break;
@@ -29,6 +29,7 @@ char HalpAcquireCmosSpinLockAndWait()
         _enable();
       HalpAcquireCmosSpinLock();
     }
+    __outbyte(0x70u, 0xAu);
   }
   return result;
 }

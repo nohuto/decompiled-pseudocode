@@ -1,8 +1,8 @@
 /*
- * XREFs of FreeOperandValue @ 0x1408A7358
+ * XREFs of FreeOperandValue @ 0x1408A7338
  * Callers:
- *     GetOperandValue @ 0x1408A7858 (GetOperandValue.c)
- *     LocalGetConditionForString @ 0x1408A8BEC (LocalGetConditionForString.c)
+ *     GetOperandValue @ 0x1408A7838 (GetOperandValue.c)
+ *     LocalGetConditionForString @ 0x1408A8BCC (LocalGetConditionForString.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

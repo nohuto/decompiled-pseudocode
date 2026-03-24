@@ -1,17 +1,17 @@
 /*
- * XREFs of flagString @ 0x1C01DA508
+ * XREFs of flagString @ 0x1C01A1110
  * Callers:
- *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C01D012C (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
+ *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C019892C (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
  * Callees:
- *     ?RtlStringCchCatA@@YAJPEAD_KPEBD@Z @ 0x1C00E86E8 (-RtlStringCchCatA@@YAJPEAD_KPEBD@Z.c)
+ *     ?RtlStringCchCatA@@YAJPEAD_KPEBD@Z @ 0x1C019B508 (-RtlStringCchCatA@@YAJPEAD_KPEBD@Z.c)
  */
 
 char *__fastcall flagString(char *a1, __int64 a2)
 {
-  __int16 v2; // bx
+  __int16 v2; // r11
 
   v2 = (__int16)a1;
-  byte_1C029A260[0] = 0;
+  byte_1C02555A0[0] = 0;
   if ( (((unsigned __int8)a1 & 1) == 0 || (int)RtlStringCchCatA(a1, a2, "|NEW") >= 0)
     && ((v2 & 2) == 0 || (int)RtlStringCchCatA(a1, a2, "|INRANGE") >= 0)
     && ((v2 & 4) == 0 || (int)RtlStringCchCatA(a1, a2, "|INCONTACT") >= 0)
@@ -24,5 +24,5 @@ char *__fastcall flagString(char *a1, __int64 a2)
   {
     RtlStringCchCatA(a1, a2, "|THIRDBUTTON");
   }
-  return byte_1C029A260;
+  return byte_1C02555A0;
 }

@@ -1,88 +1,89 @@
 /*
- * XREFs of HalpAllocateMapRegisters @ 0x1409336F0
+ * XREFs of HalpAllocateMapRegisters @ 0x140864700
  * Callers:
  *     <none>
  * Callees:
- *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1403AE970 (HalpDmaExtractFromVerifierShadowAdapter.c)
- *     HalpDmaAllocateMapRegisters @ 0x14045B93E (HalpDmaAllocateMapRegisters.c)
- *     IoFreeMapRegistersThunk @ 0x1405011D4 (IoFreeMapRegistersThunk.c)
- *     HalpDmaGrowContiguousMapBuffers @ 0x1409345D0 (HalpDmaGrowContiguousMapBuffers.c)
- *     HalpDmaGrowScatterMapBuffers @ 0x1409346D4 (HalpDmaGrowScatterMapBuffers.c)
+ *     IoFreeMapRegisters @ 0x1403A25A0 (IoFreeMapRegisters.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C683C (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaGrowContiguousMapBuffers @ 0x1408653B4 (HalpDmaGrowContiguousMapBuffers.c)
+ *     HalpDmaGrowScatterMapBuffers @ 0x1408654B8 (HalpDmaGrowScatterMapBuffers.c)
  */
 
-__int64 __fastcall HalpAllocateMapRegisters(__int64 a1, unsigned int a2, unsigned int a3, __int64 *a4)
+__int64 __fastcall HalpAllocateMapRegisters(
+        PDMA_ADAPTER DmaAdapter,
+        ULONG NumberOfMapRegisters,
+        __int64 a3,
+        __int64 a4)
 {
-  __int64 v5; // rdi
-  __int64 v7; // rsi
-  int v8; // r8d
-  __int64 v9; // r12
-  unsigned int v11; // eax
-  unsigned int v12; // ebx
-  __int64 *v13; // r15
+  _QWORD *v4; // r14
+  _DMA_OPERATIONS *DmaOperations; // r12
+  unsigned int v7; // edi
+  ULONG v10; // eax
+  unsigned int v11; // ebx
+  _QWORD *v12; // r15
   __int64 MapRegisters; // rax
-  __int64 v15; // rdx
-  __int64 v16; // rax
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
   __int64 v17; // rax
+  __int64 v18; // rax
 
-  v5 = a3;
-  v7 = HalpDmaExtractFromVerifierShadowAdapter(a1);
-  v9 = *(_QWORD *)(v7 + 160);
-  if ( *(_DWORD *)(v7 + 384) != -1 )
+  v4 = (_QWORD *)a4;
+  DmaOperations = DmaAdapter[9].DmaOperations;
+  v7 = a3;
+  if ( LODWORD(DmaAdapter[23].DmaOperations) != -1 )
     return 3221225488LL;
-  if ( (_DWORD)v5 * a2 && *(_BYTE *)(v7 + 440) )
+  if ( (_DWORD)a3 * NumberOfMapRegisters && LOBYTE(DmaAdapter[27].Version) )
   {
-    if ( (unsigned int)v5 * a2 > 0x800 )
+    if ( (unsigned int)a3 * NumberOfMapRegisters > 0x800 )
       return 3221225626LL;
-    v11 = *(_DWORD *)(v7 + 232);
-    if ( !v11 )
+    v10 = *(_DWORD *)&DmaAdapter[14].Version;
+    if ( !v10 )
       return 3221225626LL;
-    if ( a2 > v11 )
+    if ( NumberOfMapRegisters > v10 )
       return 3221225485LL;
-    v12 = 0;
-    if ( v8 )
+    v11 = 0;
+    if ( (_DWORD)a3 )
     {
-      v13 = a4;
+      v12 = (_QWORD *)a4;
       do
       {
-        MapRegisters = HalpDmaAllocateMapRegisters(v7, a2);
-        *v13 = MapRegisters;
+        MapRegisters = HalpDmaAllocateMapRegisters((__int64)DmaAdapter, NumberOfMapRegisters, a3, a4);
+        *v12 = MapRegisters;
         if ( !MapRegisters )
         {
-          v15 = (a2 + 16) << 12;
-          if ( *(_BYTE *)(v7 + 442) )
-            HalpDmaGrowScatterMapBuffers(v9, v15);
+          v14 = (NumberOfMapRegisters + 16) << 12;
+          if ( LOBYTE(DmaAdapter[27].Size) )
+            HalpDmaGrowScatterMapBuffers(DmaOperations, v14);
           else
-            HalpDmaGrowContiguousMapBuffers(v9, v15);
-          v16 = HalpDmaAllocateMapRegisters(v7, a2);
-          *v13 = v16;
-          if ( !v16 )
+            HalpDmaGrowContiguousMapBuffers(DmaOperations, v14);
+          v17 = HalpDmaAllocateMapRegisters((__int64)DmaAdapter, NumberOfMapRegisters, v15, v16);
+          *v12 = v17;
+          if ( !v17 )
             break;
         }
-        ++v12;
-        v13 += 2;
+        ++v11;
+        v12 += 2;
       }
-      while ( v12 < (unsigned int)v5 );
+      while ( v11 < v7 );
     }
-    if ( v12 != (_DWORD)v5 )
+    if ( v11 != v7 )
     {
-      while ( v12 )
-      {
-        --v12;
-        IoFreeMapRegistersThunk(v7);
-      }
+      while ( v11 )
+        IoFreeMapRegisters(DmaAdapter, (PVOID)v4[2 * --v11], NumberOfMapRegisters);
       return 3221225626LL;
     }
   }
-  else if ( v8 )
+  else if ( (_DWORD)a3 )
   {
-    v17 = v5;
+    v18 = (unsigned int)a3;
     do
     {
-      *a4 = 0LL;
-      a4 += 2;
-      --v17;
+      *v4 = 0LL;
+      v4 += 2;
+      --v18;
     }
-    while ( v17 );
+    while ( v18 );
   }
   return 0LL;
 }

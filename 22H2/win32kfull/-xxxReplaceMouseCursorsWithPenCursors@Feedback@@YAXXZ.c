@@ -1,11 +1,11 @@
 /*
- * XREFs of ?xxxReplaceMouseCursorsWithPenCursors@Feedback@@YAXXZ @ 0x1C01AD9B4
+ * XREFs of ?xxxReplaceMouseCursorsWithPenCursors@Feedback@@YAXXZ @ 0x1C01DA898
  * Callers:
- *     ?xxxSwitchCursors@@YAXHH@Z @ 0x1C01ADB08 (-xxxSwitchCursors@@YAXHH@Z.c)
+ *     ?xxxSwitchCursors@@YAXHH@Z @ 0x1C01DA9F0 (-xxxSwitchCursors@@YAXHH@Z.c)
  * Callees:
- *     RtlInitUnicodeStringOrId @ 0x1C001FB94 (RtlInitUnicodeStringOrId.c)
- *     xxxClientLoadImage @ 0x1C0022330 (xxxClientLoadImage.c)
- *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0024CFC (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
+ *     xxxClientLoadImage @ 0x1C0022860 (xxxClientLoadImage.c)
+ *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0024954 (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
+ *     RtlInitUnicodeStringOrId @ 0x1C00254A4 (RtlInitUnicodeStringOrId.c)
  */
 
 void __fastcall Feedback::xxxReplaceMouseCursorsWithPenCursors(Feedback *this)
@@ -18,7 +18,7 @@ void __fastcall Feedback::xxxReplaceMouseCursorsWithPenCursors(Feedback *this)
   unsigned __int8 *Image; // rax
   struct _UNICODE_STRING v7; // [rsp+40h] [rbp-18h] BYREF
 
-  v1 = (unsigned __int16 *)&unk_1C031FB20;
+  v1 = (unsigned __int16 *)&unk_1C02F58E0;
   v2 = 4LL;
   v7 = 0LL;
   v3 = *(_DWORD *)(gpsi + 2056LL);
@@ -28,9 +28,9 @@ void __fastcall Feedback::xxxReplaceMouseCursorsWithPenCursors(Feedback *this)
     if ( !v3 )
       v4 = v1;
     RtlInitUnicodeStringOrId(&v7, (WCHAR *)*v4);
-    Image = xxxClientLoadImage((void **)&v7, v5, 2u, 0, 0, 0x40u);
+    Image = xxxClientLoadImage(&v7.Length, v5, 2u, 0, 0, 0x40u);
     if ( Image )
-      zzzInternalSetSystemCursor((__int64)Image, *((_DWORD *)v1 - 2), &v7, 5);
+      zzzInternalSetSystemCursor((__int64)Image, *((_DWORD *)v1 - 2), &v7, 5u);
     v1 += 6;
     --v2;
   }

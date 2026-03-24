@@ -1,110 +1,96 @@
 /*
- * XREFs of ?InitializeVirtualMachine@DXGVIRTUALMACHINE@@QEAAJPEAXE@Z @ 0x1C0336764
+ * XREFs of ?InitializeVirtualMachine@DXGVIRTUALMACHINE@@QEAAJPEAXE@Z @ 0x1C0285624
  * Callers:
- *     DxgkDeviceIoctl @ 0x1C0050460 (DxgkDeviceIoctl.c)
- *     ?SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z @ 0x1C035EDB0 (-SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z.c)
- *     ?SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z @ 0x1C0360E10 (-SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z.c)
+ *     DxgkDeviceIoctl @ 0x1C0044460 (DxgkDeviceIoctl.c)
+ *     ?SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z @ 0x1C0235DA0 (-SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z.c)
+ *     ?SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z @ 0x1C02375E0 (-SetVirtualGpuVmBus@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_SETVIRTUALGPUVMBUS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DxgkCompositionObject@@QEBA_JXZ @ 0x1C001EF50 (-Release@DxgkCompositionObject@@QEBA_JXZ.c)
- *     ?SetVailObject@DXGVIRTUALMACHINE@@QEAAXPEAVDXGVAILOBJECT@@@Z @ 0x1C0337780 (-SetVailObject@DXGVIRTUALMACHINE@@QEAAXPEAVDXGVAILOBJECT@@@Z.c)
- *     ?Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z @ 0x1C0350850 (-Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z.c)
- *     ?InitializeVmBus@DXGVAILOBJECT@@QEAAJPEAX@Z @ 0x1C0351534 (-InitializeVmBus@DXGVAILOBJECT@@QEAAJPEAX@Z.c)
- *     ?IsFeatureEnabled@DXGVAILOBJECT@@SAEXZ @ 0x1C03515D4 (-IsFeatureEnabled@DXGVAILOBJECT@@SAEXZ.c)
- *     ?UpdateVmBus@DXGVAILOBJECT@@QEAAJPEAX@Z @ 0x1C0351AB8 (-UpdateVmBus@DXGVAILOBJECT@@QEAAJPEAX@Z.c)
- *     ?CreateVmBusChannel@DXG_HOST_GLOBAL_VMBUS@@QEAAJPEAXPEAVDXGPROCESSVMWP@@@Z @ 0x1C0362008 (-CreateVmBusChannel@DXG_HOST_GLOBAL_VMBUS@@QEAAJPEAXPEAVDXGPROCESSVMWP@@@Z.c)
+ *     ?Release@DxgkCompositionObject@@QEBA_JXZ @ 0x1C001AAD0 (-Release@DxgkCompositionObject@@QEBA_JXZ.c)
+ *     ?CreateVmBusChannel@DXG_HOST_GLOBAL_VMBUS@@QEAAJPEAXPEAVDXGPROCESSVMWP@@@Z @ 0x1C02383C8 (-CreateVmBusChannel@DXG_HOST_GLOBAL_VMBUS@@QEAAJPEAXPEAVDXGPROCESSVMWP@@@Z.c)
+ *     ?SetVailObject@DXGVIRTUALMACHINE@@QEAAXPEAVDXGVAILOBJECT@@@Z @ 0x1C0286358 (-SetVailObject@DXGVIRTUALMACHINE@@QEAAXPEAVDXGVAILOBJECT@@@Z.c)
+ *     ?Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z @ 0x1C02B4AC8 (-Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z.c)
+ *     ?InitializeVmBus@DXGVAILOBJECT@@QEAAJPEAX@Z @ 0x1C02B57D4 (-InitializeVmBus@DXGVAILOBJECT@@QEAAJPEAX@Z.c)
+ *     ?IsFeatureEnabled@DXGVAILOBJECT@@SAEXZ @ 0x1C02B587C (-IsFeatureEnabled@DXGVAILOBJECT@@SAEXZ.c)
+ *     ?UpdateVmBus@DXGVAILOBJECT@@QEAAJPEAX@Z @ 0x1C02B5C8C (-UpdateVmBus@DXGVAILOBJECT@@QEAAJPEAX@Z.c)
  */
 
 __int64 __fastcall DXGVIRTUALMACHINE::InitializeVirtualMachine(struct DXGPROCESSVMWP **this, void *a2, char a3)
 {
-  __int64 v6; // rdi
+  __int64 v3; // rbx
   struct VMBCHANNEL__ **v7; // rcx
   int VmBusChannel; // eax
-  int v9; // eax
-  DXGVAILOBJECT *v10; // rcx
-  int v11; // eax
-  const wchar_t *v12; // r9
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  int v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v16; // rax
+  DXGVAILOBJECT *v17; // rcx
   int updated; // eax
-  DxgkCompositionObject *v15; // [rsp+78h] [rbp+10h] BYREF
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rax
+  DxgkCompositionObject *v22; // [rsp+38h] [rbp+10h] BYREF
 
-  LODWORD(v6) = 0;
+  LODWORD(v3) = 0;
   if ( a2 )
   {
-    v7 = this + 20;
+    v7 = this + 16;
     if ( *v7 )
       return 0LL;
-    VmBusChannel = DXG_HOST_GLOBAL_VMBUS::CreateVmBusChannel(v7, a2, this[7]);
-    v6 = VmBusChannel;
+    VmBusChannel = DXG_HOST_GLOBAL_VMBUS::CreateVmBusChannel(v7, (__int64)a2, this[7]);
+    v3 = VmBusChannel;
     if ( VmBusChannel < 0 )
     {
-      WdLogSingleEntry1(2LL, VmBusChannel);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"CreateVmBusChannel failed: 0x%I64x",
-        v6,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v11 = WdLogNewEntry5_WdError(v10, v9);
+      *(_QWORD *)(v11 + 24) = v3;
+      WdLogEvent5_WdError(v11);
     }
   }
-  if ( !DXGVAILOBJECT::IsFeatureEnabled() )
+  if ( DXGVAILOBJECT::IsFeatureEnabled() )
   {
-    if ( (int)v6 < 0 )
-      return (unsigned int)v6;
-    goto LABEL_22;
-  }
-  if ( (int)v6 >= 0 )
-  {
-    if ( !this[41] && a3 )
+    if ( (int)v3 < 0 )
+      return (unsigned int)v3;
+    if ( !this[36] && a3 )
     {
-      v15 = 0LL;
-      v9 = DXGVAILOBJECT::Create(&v15);
-      v6 = v9;
-      if ( v9 < 0 )
+      v22 = 0LL;
+      v12 = DXGVAILOBJECT::Create(&v22);
+      v3 = v12;
+      if ( v12 < 0 )
       {
-        WdLogSingleEntry1(2LL, v9);
-        v12 = L"DXGVAILOBJECT::Create failed: 0x%I64x";
-        goto LABEL_16;
+        v16 = WdLogNewEntry5_WdError(v14, v13);
+        *(_QWORD *)(v16 + 24) = v3;
+        WdLogEvent5_WdError(v16);
       }
-      DXGVIRTUALMACHINE::SetVailObject((DXGVIRTUALMACHINE *)this, v15);
-      DxgkCompositionObject::Release(v15);
+      else
+      {
+        DXGVIRTUALMACHINE::SetVailObject((DXGVIRTUALMACHINE *)this, v22);
+        DxgkCompositionObject::Release(v22);
+      }
     }
+    if ( (int)v3 < 0 )
+      return (unsigned int)v3;
     if ( a2 )
     {
-      v10 = this[41];
-      if ( v10 )
+      v17 = this[36];
+      if ( v17 )
       {
-        if ( *((_QWORD *)v10 + 14) )
-        {
-          updated = DXGVAILOBJECT::UpdateVmBus(v10, a2);
-          v6 = updated;
-          if ( updated < 0 )
-          {
-            WdLogSingleEntry1(2LL, updated);
-            v12 = L"DXGVAILOBJECT::UpdateVmBus failed: 0x%I64x";
-            goto LABEL_16;
-          }
-        }
+        if ( *((_QWORD *)v17 + 13) )
+          updated = DXGVAILOBJECT::UpdateVmBus(v17, a2);
         else
-        {
-          v11 = DXGVAILOBJECT::InitializeVmBus(v10, a2);
-          v6 = v11;
-          if ( v11 < 0 )
-          {
-            WdLogSingleEntry1(2LL, v11);
-            v12 = L"DXGVAILOBJECT::InitializeVmBus failed: 0x%I64x";
-LABEL_16:
-            DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v12, v6, 0LL, 0LL, 0LL, 0LL);
-            return (unsigned int)v6;
-          }
-        }
+          updated = DXGVAILOBJECT::InitializeVmBus(v17, a2);
+        v3 = updated;
+        if ( updated >= 0 )
+          goto LABEL_22;
+        v21 = WdLogNewEntry5_WdError(v20, v19);
+        *(_QWORD *)(v21 + 24) = v3;
+        WdLogEvent5_WdError(v21);
       }
     }
-LABEL_22:
-    *((_BYTE *)this + 337) = 0;
   }
-  return (unsigned int)v6;
+  if ( (int)v3 >= 0 )
+LABEL_22:
+    *((_BYTE *)this + 297) = 0;
+  return (unsigned int)v3;
 }

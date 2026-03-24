@@ -1,34 +1,20 @@
 /*
- * XREFs of PpmCheckPeriodicStart @ 0x14032BE40
+ * XREFs of PpmCheckPeriodicStart @ 0x14022AD30
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     PpmCheckStart @ 0x14032BEE4 (PpmCheckStart.c)
- *     PpmEventTraceFailedPerfCheckStart @ 0x140373528 (PpmEventTraceFailedPerfCheckStart.c)
+ *     PpmCheckStart @ 0x140229DC0 (PpmCheckStart.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     PpmEventTraceFailedPerfCheckStart @ 0x14032476C (PpmEventTraceFailedPerfCheckStart.c)
  */
 
-void __fastcall PpmCheckPeriodicStart(__int64 a1, __int64 a2, void *a3)
+__int64 __fastcall PpmCheckPeriodicStart(__int64 a1, __int64 a2, int a3)
 {
   LARGE_INTEGER Timeout; // [rsp+30h] [rbp-18h] BYREF
 
   Timeout.QuadPart = 0LL;
-  if ( KeWaitForSingleObject(&word_140C3D6C8, Executive, 0, 0, &Timeout) )
-  {
-    PpmEventTraceFailedPerfCheckStart(PpmCheckLastEffectiveExecutionTime);
-    _m_prefetchw(&PpmCheckDelayedStartWorkerQueued);
-    if ( !_InterlockedOr8(&PpmCheckDelayedStartWorkerQueued, 1u) )
-    {
-      PpmCheckDelayedStartWorkItem.List.Flink = 0LL;
-      PpmCheckDelayedStartWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PpmCheckDelayedPeriodicStart;
-      PpmCheckDelayedStartWorkItem.Parameter = a3;
-      ExQueueWorkItem(&PpmCheckDelayedStartWorkItem, CriticalWorkQueue);
-    }
-  }
-  else
-  {
-    PpmCheckMakeupCount = (int)a3;
-    PpmCheckStart(0LL);
-  }
+  if ( KeWaitForSingleObject(&word_140C230A8, Executive, 0, 0, &Timeout) )
+    return PpmEventTraceFailedPerfCheckStart(PpmCheckLastExecutionTime);
+  PpmCheckMakeupCount = a3;
+  return PpmCheckStart(0);
 }

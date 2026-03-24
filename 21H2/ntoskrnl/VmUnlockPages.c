@@ -1,10 +1,10 @@
 /*
- * XREFs of VmUnlockPages @ 0x140629030
+ * XREFs of VmUnlockPages @ 0x1405A2B10
  * Callers:
  *     <none>
  * Callees:
- *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
- *     MmUpdateMdlTrackerForMdlSwitch @ 0x14058503C (MmUpdateMdlTrackerForMdlSwitch.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     MmUpdateMdlTrackerForMdlSwitch @ 0x140531398 (MmUpdateMdlTrackerForMdlSwitch.c)
  */
 
 void __fastcall VmUnlockPages(struct _MDL *BugCheckParameter3, unsigned int a2)

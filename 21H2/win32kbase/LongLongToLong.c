@@ -1,12 +1,12 @@
 /*
- * XREFs of LongLongToLong @ 0x1C003C44C
+ * XREFs of LongLongToLong @ 0x1C007FFEC
  * Callers:
- *     ?ConvertCoordinatesWithRoundingNoBounding@@YAHJJJJJPEAJ@Z @ 0x1C003C3EC (-ConvertCoordinatesWithRoundingNoBounding@@YAHJJJJJPEAJ@Z.c)
- *     rimConvertCoordinatesWithRounding @ 0x1C0199020 (rimConvertCoordinatesWithRounding.c)
- *     ?GetAdjustedHimetricLong@@YAHJJJPEAJ@Z @ 0x1C01E7590 (-GetAdjustedHimetricLong@@YAHJJJPEAJ@Z.c)
- *     ConvertCoordinates @ 0x1C01E79C8 (ConvertCoordinates.c)
- *     GetAdjustedPointerPixelLocation @ 0x1C01E7A90 (GetAdjustedPointerPixelLocation.c)
- *     _SetHimetricToPixelRatio @ 0x1C01E8950 (_SetHimetricToPixelRatio.c)
+ *     rimConvertCoordinatesWithRounding @ 0x1C0165570 (rimConvertCoordinatesWithRounding.c)
+ *     ?GetAdjustedHimetricLong@@YAHJJJPEAJ@Z @ 0x1C01AE238 (-GetAdjustedHimetricLong@@YAHJJJPEAJ@Z.c)
+ *     ConvertCoordinates @ 0x1C01AE670 (ConvertCoordinates.c)
+ *     GetAdjustedPointerPixelLocation @ 0x1C01AE7D0 (GetAdjustedPointerPixelLocation.c)
+ *     _SetHimetricToPixelRatio @ 0x1C01AF740 (_SetHimetricToPixelRatio.c)
+ *     ?ConvertCoordinatesWithRoundingNoBounding@@YAHJJJJJPEAJ@Z @ 0x1C01B37A0 (-ConvertCoordinatesWithRoundingNoBounding@@YAHJJJJJPEAJ@Z.c)
  * Callees:
  *     <none>
  */

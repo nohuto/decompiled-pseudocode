@@ -1,11 +1,11 @@
 /*
- * XREFs of SepAdtCopyToLsaSharedMemory @ 0x1408A46C8
+ * XREFs of SepAdtCopyToLsaSharedMemory @ 0x1408A46A8
  * Callers:
- *     SepRmDispatchDataToLsa @ 0x14012FD44 (SepRmDispatchDataToLsa.c)
+ *     SepRmDispatchDataToLsa @ 0x14012FD64 (SepRmDispatchDataToLsa.c)
  * Callees:
- *     ZwAllocateVirtualMemory @ 0x1401B8470 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x1401B8530 (ZwFreeVirtualMemory.c)
- *     ZwWriteVirtualMemory @ 0x1401B88B0 (ZwWriteVirtualMemory.c)
+ *     ZwAllocateVirtualMemory @ 0x1401B8490 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1401B8550 (ZwFreeVirtualMemory.c)
+ *     ZwWriteVirtualMemory @ 0x1401B88D0 (ZwWriteVirtualMemory.c)
  */
 
 __int64 __fastcall SepAdtCopyToLsaSharedMemory(

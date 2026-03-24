@@ -3,7 +3,7 @@
  * Callers:
  *     ViDdiDispatchWmi @ 0x140927890 (ViDdiDispatchWmi.c)
  * Callees:
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
  *     VfIrpLogLockDatabase @ 0x140941214 (VfIrpLogLockDatabase.c)
  *     VfIrpLogRetrieveWmiData @ 0x1409414D0 (VfIrpLogRetrieveWmiData.c)
  *     VfIrpLogUnlockDatabase @ 0x1409417C0 (VfIrpLogUnlockDatabase.c)

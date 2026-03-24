@@ -1,32 +1,34 @@
 /*
- * XREFs of PfFbBufferListAllocateTemporary @ 0x1402F5478
+ * XREFs of PfFbBufferListAllocateTemporary @ 0x140323064
  * Callers:
- *     PfpEventHandleOutOfBuffers @ 0x1402F5450 (PfpEventHandleOutOfBuffers.c)
- *     PfpSectInfoHandleOutOfBuffers @ 0x140748E10 (PfpSectInfoHandleOutOfBuffers.c)
+ *     PfpEventHandleOutOfBuffers @ 0x140323040 (PfpEventHandleOutOfBuffers.c)
+ *     PfpSectInfoHandleOutOfBuffers @ 0x14078EB00 (PfpSectInfoHandleOutOfBuffers.c)
  * Callees:
- *     PfFbBufferListInsertInFree @ 0x1402F5694 (PfFbBufferListInsertInFree.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PfFbBufferListInsertInFree @ 0x14026E808 (PfFbBufferListInsertInFree.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PfFbBufferListAllocateTemporary(PEX_RUNDOWN_REF RunRef, signed int a2)
+__int64 __fastcall PfFbBufferListAllocateTemporary(_SLIST_ENTRY *RunRef, signed int a2)
 {
-  void *Pool2; // rax
   __int64 result; // rax
+  struct _SLIST_ENTRY *PoolWithTag; // rax
 
-  if ( a2 + _InterlockedExchangeAdd((volatile signed __int32 *)&RunRef[14], a2) > SLODWORD(RunRef[11].Count) )
+  if ( a2 + _InterlockedExchangeAdd((volatile signed __int32 *)&RunRef[6].Next + 2, a2) > SHIDWORD(RunRef[5].Next) )
   {
     result = 3221225773LL;
+LABEL_3:
+    _InterlockedExchangeAdd((volatile signed __int32 *)&RunRef[6].Next + 2, -a2);
+    return result;
   }
-  else
+  PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(
+                                         (POOL_TYPE)*((_DWORD *)&RunRef[4].Next + 2),
+                                         a2,
+                                         HIDWORD(RunRef[4].Next));
+  if ( !PoolWithTag )
   {
-    Pool2 = (void *)ExAllocatePool2(RunRef[9].Count, a2, HIDWORD(RunRef[8].Ptr));
-    if ( Pool2 )
-    {
-      PfFbBufferListInsertInFree(RunRef, Pool2, 0);
-      return 0LL;
-    }
     result = 3221225626LL;
+    goto LABEL_3;
   }
-  _InterlockedExchangeAdd((volatile signed __int32 *)&RunRef[14], -a2);
-  return result;
+  PfFbBufferListInsertInFree(RunRef, PoolWithTag, a2, 1, 0);
+  return 0LL;
 }

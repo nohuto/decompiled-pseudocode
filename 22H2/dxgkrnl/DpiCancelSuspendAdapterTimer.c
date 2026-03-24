@@ -1,39 +1,38 @@
 /*
- * XREFs of DpiCancelSuspendAdapterTimer @ 0x1C001B270
+ * XREFs of DpiCancelSuspendAdapterTimer @ 0x1C0051384
  * Callers:
- *     ?DpiFinishSuspendAdapter@@YAXPEAU_FDO_CONTEXT@@@Z @ 0x1C001AD4C (-DpiFinishSuspendAdapter@@YAXPEAU_FDO_CONTEXT@@@Z.c)
- *     DpiRequestDevicePowerState @ 0x1C001AE94 (DpiRequestDevicePowerState.c)
+ *     DpiRequestDevicePowerState @ 0x1C0051844 (DpiRequestDevicePowerState.c)
+ *     ?DpiFinishSuspendAdapter@@YAXPEAU_FDO_CONTEXT@@@Z @ 0x1C0051F9C (-DpiFinishSuspendAdapter@@YAXPEAU_FDO_CONTEXT@@@Z.c)
  * Callees:
- *     McTemplateK0pt_EtwWriteTransfer @ 0x1C0040F6C (McTemplateK0pt_EtwWriteTransfer.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C003A380 (McTemplateK0pq_EtwWriteTransfer.c)
  */
 
 void __fastcall DpiCancelSuspendAdapterTimer(__int64 a1)
 {
   char v2; // di
-  __int64 v3; // r8
-  BOOLEAN v4; // bl
+  __int64 v3; // rax
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  BOOLEAN v6; // bl
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   v2 = 0;
   if ( KeGetCurrentIrql() < 2u )
   {
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 4096), &LockHandle);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 4072), &LockHandle);
     v2 = 1;
   }
-  WdLogSingleEntry3(9LL, a1, 0LL, 0LL);
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
-    McTemplateK0pt_EtwWriteTransfer(
-      &DxgkControlGuid_Context,
-      &Dxgk_DevicePowerRequiredTimer,
-      v3,
-      *(_QWORD *)(a1 + 3912),
-      0);
-  v4 = KeCancelTimer((PKTIMER)(a1 + 4176));
+  v3 = WdLogNewEntry5_WdPower();
+  *(_QWORD *)(v3 + 24) = a1;
+  *(_OWORD *)(v3 + 32) = 0LL;
+  WdLogEvent5_WdPower(v3);
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
+    McTemplateK0pq_EtwWriteTransfer(v4, &Dxgk_DevicePowerRequiredTimer, v5, *(_QWORD *)(a1 + 3896), 0);
+  v6 = KeCancelTimer((PKTIMER)(a1 + 4152));
   if ( v2 )
   {
     KeReleaseInStackQueuedSpinLock(&LockHandle);
-    if ( !v4 )
+    if ( !v6 )
       KeFlushQueuedDpcs();
   }
 }

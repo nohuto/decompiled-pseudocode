@@ -1,14 +1,18 @@
 /*
- * XREFs of ?AddNineGridBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCNineGridBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18025E354
+ * XREFs of ?AddNineGridBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCNineGridBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18020DCDC
  * Callers:
- *     ?AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x180036AF0 (-AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z.c)
+ *     ?AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18004AD6C (-AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z.c)
  * Callees:
- *     ??1CRenderingTechniqueFragment@@QEAA@XZ @ 0x180035818 (--1CRenderingTechniqueFragment@@QEAA@XZ.c)
- *     ?FindExistingNamedInput@CBrushRenderingGraphBuilder@@AEBA_NAEBUGraphInputParameters@CBrushRenderingGraph@@PEAI@Z @ 0x1800369AC (-FindExistingNamedInput@CBrushRenderingGraphBuilder@@AEBA_NAEBUGraphInputParameters@CBrushRender.c)
- *     ?AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x180036AF0 (-AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??$_Destroy_range@V?$allocator@UFragmentInput@CRenderingTechniqueFragment@@@std@@@std@@YAXPEAUFragmentInput@CRenderingTechniqueFragment@@0AEAV?$allocator@UFragmentInput@CRenderingTechniqueFragment@@@0@@Z @ 0x180048CCC (--$_Destroy_range@V-$allocator@UFragmentInput@CRenderingTechniqueFragment@@@std@@@std@@YAXPEAUFr.c)
+ *     ?FindExistingNamedInput@CBrushRenderingGraphBuilder@@AEBA_NAEBUGraphInputParameters@CBrushRenderingGraph@@PEAI@Z @ 0x180049480 (-FindExistingNamedInput@CBrushRenderingGraphBuilder@@AEBA_NAEBUGraphInputParameters@CBrushRender.c)
+ *     ??_GCRenderingTechniqueFragment@@QEAAPEAXI@Z @ 0x180049E2C (--_GCRenderingTechniqueFragment@@QEAAPEAXI@Z.c)
+ *     ?AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18004AD6C (-AddBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBrushRenderingGraphBuilder::AddNineGridBrush(
@@ -18,61 +22,73 @@ __int64 __fastcall CBrushRenderingGraphBuilder::AddNineGridBrush(
         struct CRenderingTechniqueFragment **a4)
 {
   struct CBrush *v4; // r14
-  __int64 v8; // rcx
-  int v9; // ebx
-  CRenderingTechniqueFragment *v10; // rdi
-  __int64 v11; // rcx
-  CRenderingTechniqueFragment *v12; // rdi
-  CRenderingTechniqueFragment *v14; // [rsp+30h] [rbp-20h] BYREF
-  CRenderingTechniqueFragment **v15; // [rsp+38h] [rbp-18h] BYREF
-  struct CRenderingTechniqueFragment *v16; // [rsp+40h] [rbp-10h] BYREF
-  int v17; // [rsp+48h] [rbp-8h]
-  unsigned int v18; // [rsp+88h] [rbp+38h] BYREF
+  void *v7; // rsi
+  struct CRenderingTechniqueFragment *v9; // rcx
+  int v10; // edi
+  __int64 *v11; // rbx
+  void *v12; // rcx
+  __int64 v13; // rcx
+  CRenderingTechniqueFragment *v15; // [rsp+30h] [rbp-20h] BYREF
+  CRenderingTechniqueFragment **v16; // [rsp+38h] [rbp-18h] BYREF
+  struct CRenderingTechniqueFragment *v17; // [rsp+40h] [rbp-10h] BYREF
+  int v18; // [rsp+48h] [rbp-8h]
+  unsigned int v19; // [rsp+88h] [rbp+38h] BYREF
 
-  v4 = (struct CBrush *)*((_QWORD *)a2 + 11);
-  v14 = 0LL;
-  v16 = 0LL;
-  v15 = &v14;
-  LOBYTE(v17) = 1;
-  v9 = CBrushRenderingGraphBuilder::AddBrush(this, v4, a3, &v16);
-  if ( (_BYTE)v17 )
+  v4 = (struct CBrush *)*((_QWORD *)a2 + 10);
+  v16 = &v15;
+  LOBYTE(v18) = 1;
+  v7 = 0LL;
+  v15 = 0LL;
+  v17 = 0LL;
+  v10 = CBrushRenderingGraphBuilder::AddBrush(this, v4, a3, &v17);
+  if ( (_BYTE)v18 )
   {
-    v10 = *v15;
-    *v15 = v16;
-    if ( v10 )
+    v9 = v17;
+    v11 = (__int64 *)*v16;
+    *v16 = v17;
+    if ( v11 )
     {
-      CRenderingTechniqueFragment::~CRenderingTechniqueFragment(v10);
-      operator delete(v10);
+      v12 = (void *)v11[14];
+      if ( v12 )
+        operator delete(v12);
+      v7 = (void *)v11[4];
+      if ( v7 )
+      {
+        std::_Destroy_range<std::allocator<CRenderingTechniqueFragment::FragmentInput>>(v11[4], v11[5]);
+        std::_Deallocate<16,0>(v7, (v11[6] - (_QWORD)v7) & 0xFFFFFFFFFFFFFFF0uLL);
+        v7 = 0LL;
+        v11[4] = 0LL;
+        v11[5] = 0LL;
+        v11[6] = 0LL;
+      }
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease(v11);
+      operator delete(v11);
     }
   }
-  if ( v9 >= 0 )
+  if ( v10 >= 0 )
   {
-    if ( (*(unsigned __int8 (__fastcall **)(struct CBrush *, __int64))(*(_QWORD *)v4 + 56LL))(v4, 135LL) )
+    if ( (*(unsigned __int8 (__fastcall **)(struct CBrush *, __int64))(*(_QWORD *)v4 + 56LL))(v4, 136LL) )
     {
-      v17 = 0;
-      v15 = (CRenderingTechniqueFragment **)v4;
-      v16 = *(struct CRenderingTechniqueFragment **)v14;
+      v16 = (CRenderingTechniqueFragment **)v4;
+      v18 = (int)v7;
+      v17 = *(struct CRenderingTechniqueFragment **)v15;
       if ( !CBrushRenderingGraphBuilder::FindExistingNamedInput(
               this,
-              (const struct CBrushRenderingGraph::GraphInputParameters *)&v15,
-              &v18) )
+              (const struct CBrushRenderingGraph::GraphInputParameters *)&v16,
+              &v19) )
       {
-        v9 = -2147418113;
-        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, -2147418113, 0x1D6u);
-        goto LABEL_11;
+        v10 = -2147418113;
+        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2147418113, 0x1CDu, v7);
+        goto LABEL_15;
       }
-      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 16LL) + 24LL * v18) = a2;
+      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)this + 16LL) + 24LL * v19) = a2;
     }
-    *a4 = v14;
-    return (unsigned int)v9;
+    *a4 = v15;
+    return (unsigned int)v10;
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v9, 0x1C7u);
-LABEL_11:
-  v12 = v14;
-  if ( v14 )
-  {
-    CRenderingTechniqueFragment::~CRenderingTechniqueFragment(v14);
-    operator delete(v12);
-  }
-  return (unsigned int)v9;
+  MilInstrumentationCheckHR_MaybeFailFast((__int64)v9, 0LL, 0, v10, 0x1BEu, v7);
+LABEL_15:
+  if ( v15 )
+    CRenderingTechniqueFragment::`scalar deleting destructor'(v15);
+  return (unsigned int)v10;
 }

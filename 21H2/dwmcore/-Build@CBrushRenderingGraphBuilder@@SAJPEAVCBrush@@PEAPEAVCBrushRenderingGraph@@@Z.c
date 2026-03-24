@@ -1,64 +1,60 @@
 /*
- * XREFs of ?Build@CBrushRenderingGraphBuilder@@SAJPEAVCBrush@@PEAPEAVCBrushRenderingGraph@@@Z @ 0x180035A74
+ * XREFs of ?Build@CBrushRenderingGraphBuilder@@SAJPEAVCBrush@@PEAPEAVCBrushRenderingGraph@@@Z @ 0x180049734
  * Callers:
- *     ?EnsureBrushGraph@CEffectBrush@@MEAAJ_N@Z @ 0x1800E5810 (-EnsureBrushGraph@CEffectBrush@@MEAAJ_N@Z.c)
- *     ?EnsureBrushGraph@CMaskBrush@@MEAAJ_N@Z @ 0x1800F3720 (-EnsureBrushGraph@CMaskBrush@@MEAAJ_N@Z.c)
- *     ?EnsureBrushGraph@CClipBrush@@MEAAJ_N@Z @ 0x18020AB20 (-EnsureBrushGraph@CClipBrush@@MEAAJ_N@Z.c)
- *     ?EnsureBrushGraph@CNineGridBrush@@MEAAJ_N@Z @ 0x1802294C0 (-EnsureBrushGraph@CNineGridBrush@@MEAAJ_N@Z.c)
- *     ?EnsureBrushGraph@CRadialGradientBrush@@EEAAJ_N@Z @ 0x18023A8D0 (-EnsureBrushGraph@CRadialGradientBrush@@EEAAJ_N@Z.c)
+ *     ?EnsureBrushGraph@CMaskBrush@@MEAAJ_N@Z @ 0x1800D4F70 (-EnsureBrushGraph@CMaskBrush@@MEAAJ_N@Z.c)
+ *     ?EnsureBrushGraph@CEffectBrush@@MEAAJ_N@Z @ 0x1800DA7B0 (-EnsureBrushGraph@CEffectBrush@@MEAAJ_N@Z.c)
+ *     ?EnsureBrushGraph@CClipBrush@@MEAAJ_N@Z @ 0x1801B7C60 (-EnsureBrushGraph@CClipBrush@@MEAAJ_N@Z.c)
+ *     ?EnsureBrushGraph@CNineGridBrush@@MEAAJ_N@Z @ 0x1801DA930 (-EnsureBrushGraph@CNineGridBrush@@MEAAJ_N@Z.c)
+ *     ?EnsureBrushGraph@CRadialGradientBrush@@EEAAJ_N@Z @ 0x1801E7C10 (-EnsureBrushGraph@CRadialGradientBrush@@EEAAJ_N@Z.c)
  * Callees:
- *     ??0CBrushRenderingGraph@@IEAA@XZ @ 0x180035A04 (--0CBrushRenderingGraph@@IEAA@XZ.c)
- *     ?Build@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@@Z @ 0x180035C34 (-Build@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D5C3C (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0CBrushRenderingGraph@@AEAA@XZ @ 0x1800496C8 (--0CBrushRenderingGraph@@AEAA@XZ.c)
+ *     ?Build@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@@Z @ 0x180049940 (-Build@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C8F44 (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBrushRenderingGraphBuilder::Build(struct CBrush *a1, struct CBrushRenderingGraph **a2)
 {
   CBrushRenderingGraph *v4; // rax
   unsigned int v5; // ecx
-  CBrushRenderingGraph *v6; // rax
-  struct CBrushRenderingGraph *v7; // rdi
-  int v8; // eax
-  unsigned int v9; // ecx
-  unsigned int v10; // ebx
-  struct CBrushRenderingGraph *v12; // [rsp+30h] [rbp-18h] BYREF
-  int v13; // [rsp+38h] [rbp-10h]
-  CBrushRenderingGraph *v14; // [rsp+60h] [rbp+18h] BYREF
+  CBrushRenderingGraph *v6; // rbx
+  int v7; // eax
+  unsigned int v8; // ecx
+  unsigned int v9; // edi
+  CBrushRenderingGraph *v11; // [rsp+30h] [rbp-18h] BYREF
+  int v12; // [rsp+38h] [rbp-10h]
+  CBrushRenderingGraph *v13; // [rsp+60h] [rbp+18h] BYREF
 
-  v4 = (CBrushRenderingGraph *)DefaultHeap::Alloc(0xD8uLL);
-  if ( !v4 )
+  v4 = (CBrushRenderingGraph *)DefaultHeap::Alloc(0xD0uLL);
+  if ( v4 )
+    v6 = CBrushRenderingGraph::CBrushRenderingGraph(v4);
+  else
+    v6 = 0LL;
+  v13 = v6;
+  if ( v6 )
   {
-    v14 = 0LL;
-    goto LABEL_8;
-  }
-  v6 = CBrushRenderingGraph::CBrushRenderingGraph(v4);
-  v14 = v6;
-  v7 = v6;
-  if ( !v6 )
-  {
-LABEL_8:
-    v10 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2147024882, 0x14u, 0LL);
-    goto LABEL_5;
-  }
-  (**(void (__fastcall ***)(CBrushRenderingGraph *))v6)(v6);
-  v13 = 0;
-  v12 = v7;
-  v8 = CBrushRenderingGraphBuilder::Build((CBrushRenderingGraphBuilder *)&v12, a1);
-  v10 = v8;
-  if ( v8 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x18u, 0LL);
+    (**(void (__fastcall ***)(CBrushRenderingGraph *))v6)(v6);
+    v12 = 0;
+    v11 = v6;
+    v7 = CBrushRenderingGraphBuilder::Build((CBrushRenderingGraphBuilder *)&v11, a1);
+    v9 = v7;
+    if ( v7 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x19u, 0LL);
+    }
+    else
+    {
+      v13 = 0LL;
+      *a2 = v6;
+    }
   }
   else
   {
-    v14 = 0LL;
-    *a2 = v7;
+    v9 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2147024882, 0x15u, 0LL);
   }
-LABEL_5:
-  Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v14);
-  return v10;
+  Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(&v13);
+  return v9;
 }

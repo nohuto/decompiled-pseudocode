@@ -1,224 +1,245 @@
 /*
- * XREFs of MiFinishCreateSection @ 0x1406FD9F0
+ * XREFs of MiFinishCreateSection @ 0x140705C20
  * Callers:
- *     MiCreateSection @ 0x1406FD4A0 (MiCreateSection.c)
+ *     MiCreateSection @ 0x140705710 (MiCreateSection.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     MiFindEmptyAddressRangeDownTree @ 0x1406AC778 (MiFindEmptyAddressRangeDownTree.c)
- *     ObCheckActiveHandles @ 0x1406D6D50 (ObCheckActiveHandles.c)
- *     MiDereferencePerSessionProtos @ 0x1406DDA18 (MiDereferencePerSessionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1406DDB48 (MiCreatePerSessionProtos.c)
- *     ObCreateObjectEx @ 0x14072B3B0 (ObCreateObjectEx.c)
- *     MiDereferenceFailedControlArea @ 0x1407F854C (MiDereferenceFailedControlArea.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiFindEmptyAddressRangeDownTree @ 0x14068B3A8 (MiFindEmptyAddressRangeDownTree.c)
+ *     ObCheckActiveHandles @ 0x1406B380C (ObCheckActiveHandles.c)
+ *     MiDereferencePerSessionProtos @ 0x1406BC7FC (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x1406BC914 (MiCreatePerSessionProtos.c)
+ *     MiDereferenceFailedControlArea @ 0x1406C34F4 (MiDereferenceFailedControlArea.c)
+ *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
  */
 
-__int64 __fastcall MiFinishCreateSection(int *a1)
+__int64 __fastcall MiFinishCreateSection(__int64 a1)
 {
   __int64 v1; // rsi
-  unsigned int v3; // edx
-  int v4; // ecx
-  bool v5; // zf
-  int v6; // r8d
-  _QWORD *v7; // rdx
-  char v8; // r14
-  int v9; // r9d
-  int Object; // ebp
-  int v11; // eax
-  int v12; // ecx
-  __int64 v14; // rax
-  int v15; // r8d
-  int v16; // eax
-  __int64 v17; // rcx
-  __int64 v18; // rcx
+  __int64 v3; // rbp
+  unsigned int v4; // edx
+  int v5; // ecx
+  bool v6; // zf
+  int v7; // r8d
+  struct _DMA_ADAPTER *v8; // rdx
+  char v9; // r14
+  int v10; // r9d
+  int v11; // r10d
+  int v12; // ebp
+  PADAPTER_OBJECT v13; // rdi
+  int v14; // eax
+  int DmaOperations; // ecx
+  __int64 v17; // rax
+  int v18; // r8d
+  int v19; // eax
   int PerSessionProtos; // edi
-  __int64 v20; // r14
-  struct _KTHREAD *CurrentThread; // rsi
+  _DMA_OPERATIONS *v21; // rcx
+  __int64 v22; // rcx
+  unsigned __int64 v23; // rsi
+  struct _KTHREAD *CurrentThread; // r14
   int EmptyAddressRangeDownTree; // r15d
-  bool v23; // r8
-  unsigned __int64 v24; // rdx
-  unsigned __int64 v25; // r9
-  unsigned __int64 v26; // rax
-  unsigned __int64 v27; // [rsp+88h] [rbp+10h] BYREF
+  PADAPTER_OBJECT v26; // r10
+  bool v27; // r8
+  unsigned __int64 v28; // rcx
+  unsigned __int64 v29; // rdx
+  unsigned __int64 v30; // r9
+  unsigned __int64 v31; // rax
+  char *v32; // [rsp+20h] [rbp-58h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+80h] [rbp+8h] BYREF
+  unsigned __int64 v34; // [rsp+88h] [rbp+10h] BYREF
 
-  v1 = *((_QWORD *)a1 + 8);
-  v27 = 0LL;
-  *((_QWORD *)a1 + 15) = v1;
-  v3 = *(_DWORD *)(v1 + 56) & 0xFFF7FFFF;
-  v4 = a1[35] & 0x7FFFFFFF;
-  a1[34] = v3;
-  v5 = (a1[4] & 0x1000000) == 0;
-  a1[35] = v4;
-  if ( !v5 )
+  v1 = *(_QWORD *)(a1 + 64);
+  v34 = 0LL;
+  DmaAdapter = 0LL;
+  v3 = *(_QWORD *)v1;
+  *(_QWORD *)(a1 + 120) = v1;
+  v4 = *(_DWORD *)(v1 + 56) & 0xFFF7FFFF;
+  v5 = *(_DWORD *)(a1 + 140) & 0x7FFFFFFF;
+  *(_DWORD *)(a1 + 136) = v4;
+  v6 = (*(_DWORD *)(a1 + 16) & 0x1000000) == 0;
+  *(_DWORD *)(a1 + 140) = v5;
+  if ( !v6 )
   {
-    v15 = *a1;
-    v16 = v3;
-    if ( (*a1 & 0x400) == 0 )
+    v18 = *(_DWORD *)a1;
+    v19 = v4;
+    if ( (*(_DWORD *)a1 & 0x400) == 0 )
     {
-      v16 = v3 | 0x80000;
-      a1[34] = v3 | 0x80000;
+      v19 = v4 | 0x80000;
+      *(_DWORD *)(a1 + 136) = v4 | 0x80000;
     }
-    v3 = v16;
-    if ( *((_BYTE *)a1 + 24) <= 1u && (v15 & 0x100000) == 0 )
-      a1[35] = v4 | 0x80000000;
+    v4 = v19;
+    if ( *(_BYTE *)(a1 + 24) <= 1u && (v18 & 0x80000) == 0 )
+      *(_DWORD *)(a1 + 140) = v5 | 0x80000000;
   }
-  v6 = *(_DWORD *)(v1 + 56);
-  if ( (v6 & 0x8000000) != 0 )
+  v7 = *(_DWORD *)(v1 + 56);
+  if ( (v7 & 0x4000000) != 0 )
   {
-    PerSessionProtos = MiCreatePerSessionProtos((__int64 *)v1, a1[42]);
+    PerSessionProtos = MiCreatePerSessionProtos((__int64 *)v1, *(_DWORD *)(a1 + 168));
     if ( PerSessionProtos < 0 )
     {
-      ObfDereferenceObject(*((PVOID *)a1 + 7));
-      MiDereferenceFailedControlArea(a1);
+      HalPutDmaAdapter(*(PADAPTER_OBJECT *)(a1 + 56));
+      MiDereferenceFailedControlArea((int *)a1);
       return (unsigned int)PerSessionProtos;
     }
-    a1[35] ^= (a1[35] ^ (a1[42] << 12)) & 0x7FFFF000;
+    *(_DWORD *)(a1 + 140) ^= (*(_DWORD *)(a1 + 140) ^ (*(_DWORD *)(a1 + 168) << 12)) & 0x7FFFF000;
   }
-  else if ( !*((_QWORD *)a1 + 6) && (a1[7] & 0x44) != 0 && (v6 & 0x20) == 0 )
+  else if ( !*(_QWORD *)(a1 + 48) && (*(_DWORD *)(a1 + 28) & 0x44) != 0 && (v7 & 0x20) == 0 )
   {
     if ( *(_QWORD *)(v1 + 64) )
     {
-      a1[34] = v3 | 0x10000000;
+      *(_DWORD *)(a1 + 136) = v4 | 0x8000000;
       _InterlockedIncrement((volatile signed __int32 *)(v1 + 92));
-      if ( !ObCheckActiveHandles(*((_QWORD *)a1 + 7)) )
+      if ( !ObCheckActiveHandles(*(_QWORD *)(a1 + 56)) )
       {
         _InterlockedDecrement((volatile signed __int32 *)(v1 + 92));
-        ObfDereferenceObject(*((PVOID *)a1 + 7));
-        MiDereferenceFailedControlArea(a1);
+        HalPutDmaAdapter(*(PADAPTER_OBJECT *)(a1 + 56));
+        MiDereferenceFailedControlArea((int *)a1);
         return 3221225508LL;
       }
     }
   }
-  v7 = (_QWORD *)*((_QWORD *)a1 + 7);
-  v8 = 0;
-  if ( v7 )
+  v8 = *(struct _DMA_ADAPTER **)(a1 + 56);
+  v9 = 0;
+  if ( v8 )
   {
-    if ( (*(_DWORD *)(v7[1] + 52LL) & 0x10) != 0 )
-      v8 = 1;
+    if ( (HIDWORD(v8->DmaOperations->FreeAdapterChannel) & 0x10) != 0 )
+      v9 = 1;
     else
-      ObfDereferenceObject(v7);
+      HalPutDmaAdapter(v8);
   }
-  v9 = 128;
+  v10 = 128;
   if ( (*(_DWORD *)(v1 + 56) & 0x20) != 0 || !*(_QWORD *)(v1 + 64) )
   {
-    v14 = v1 + 128;
+    v11 = 8 * *(_DWORD *)(v3 + 8) + 64;
+    v17 = v1 + 128;
     do
     {
-      v14 = *(_QWORD *)(v14 + 16);
-      v9 += 56;
+      v17 = *(_QWORD *)(v17 + 16);
+      v10 += 56;
     }
-    while ( v14 );
+    while ( v17 );
   }
-  Object = ObCreateObjectEx(
-             *((unsigned __int8 *)a1 + 72),
-             (_DWORD)MmSectionObjectType,
-             *((_QWORD *)a1 + 1),
-             *((_BYTE *)a1 + 72));
-  if ( Object < 0 )
+  else
   {
-    if ( (a1[34] & 0x10000000) != 0 )
+    v11 = 0;
+    v10 = 144 * *(_DWORD *)(v1 + 280) + 152;
+  }
+  v12 = ObCreateObjectEx(
+          *(_BYTE *)(a1 + 72),
+          MmSectionObjectType,
+          *(_QWORD *)(a1 + 8),
+          *(_BYTE *)(a1 + 72),
+          v32,
+          64,
+          v11,
+          v10,
+          &DmaAdapter,
+          0LL);
+  if ( v12 < 0 )
+  {
+    if ( (*(_DWORD *)(a1 + 136) & 0x8000000) != 0 )
     {
       _InterlockedDecrement((volatile signed __int32 *)(v1 + 92));
     }
-    else if ( (*(_DWORD *)(v1 + 56) & 0x8000000) != 0 )
+    else if ( (*(_DWORD *)(v1 + 56) & 0x4000000) != 0 )
     {
-      MiDereferencePerSessionProtos((__int64 *)v1, ((unsigned int)a1[35] >> 12) & 0x7FFFF);
+      MiDereferencePerSessionProtos((__int64 *)v1, (*(_DWORD *)(a1 + 140) >> 12) & 0x7FFFF);
     }
-    if ( v8 )
-      ObfDereferenceObject(*((PVOID *)a1 + 7));
-    MiDereferenceFailedControlArea(a1);
-    return (unsigned int)Object;
+    if ( v9 == 1 )
+      HalPutDmaAdapter(*(PADAPTER_OBJECT *)(a1 + 56));
+    MiDereferenceFailedControlArea((int *)a1);
+    return (unsigned int)v12;
   }
-  MEMORY[0] = *((_OWORD *)a1 + 5);
-  MEMORY[0x10] = *((_OWORD *)a1 + 6);
-  MEMORY[0x20] = *((_OWORD *)a1 + 7);
-  MEMORY[0x30] = *((_OWORD *)a1 + 8);
-  MEMORY[0x18] = 0LL;
-  if ( v8 )
+  v13 = DmaAdapter;
+  *DmaAdapter = *(PADAPTER_OBJECT)(a1 + 80);
+  v13[1] = *(PADAPTER_OBJECT)(a1 + 96);
+  v13[2] = *(PADAPTER_OBJECT)(a1 + 112);
+  v13[3] = *(PADAPTER_OBJECT)(a1 + 128);
+  v13[1].DmaOperations = 0LL;
+  if ( v9 == 1 )
   {
-    v17 = *((_QWORD *)a1 + 7);
-    MEMORY[0x28] = v17;
+    v21 = *(_DMA_OPERATIONS **)(a1 + 56);
+    v13[2].DmaOperations = v21;
     if ( (*(_DWORD *)(v1 + 56) & 0x20) != 0 )
-      v18 = v17 | 1;
+      v22 = (unsigned __int64)v21 | 1;
     else
-      v18 = v17 | 2;
-    MEMORY[0x28] = v18;
+      v22 = (unsigned __int64)v21 | 2;
+    v13[2].DmaOperations = (_DMA_OPERATIONS *)v22;
   }
-  if ( (*a1 & 1) != 0 )
-    goto LABEL_16;
-  MEMORY[0x38] |= 0x10000u;
-  v11 = a1[4];
-  v12 = MEMORY[0x38];
-  if ( (v11 & 0x400000) != 0 )
+  if ( (*(_DWORD *)a1 & 1) != 0 )
+    goto LABEL_17;
+  LODWORD(v13[3].DmaOperations) |= 0x10000u;
+  v14 = *(_DWORD *)(a1 + 16);
+  DmaOperations = (int)v13[3].DmaOperations;
+  if ( (v14 & 0x400000) != 0 )
   {
-    v12 = MEMORY[0x38] | 0x4000;
-    MEMORY[0x38] |= 0x4000u;
-    v11 = a1[4];
+    DmaOperations |= 0x4000u;
+    LODWORD(v13[3].DmaOperations) = DmaOperations;
+    v14 = *(_DWORD *)(a1 + 16);
   }
-  if ( (v11 & 0x200000) == 0 )
-    goto LABEL_16;
-  MEMORY[0x38] = v12 | 0x40;
-  v20 = MEMORY[0x30];
-  if ( MEMORY[0x30] > (unsigned __int64)qword_140C4F128 )
+  if ( (v14 & 0x200000) == 0 )
+    goto LABEL_17;
+  LODWORD(v13[3].DmaOperations) = DmaOperations | 0x40;
+  v23 = *(_QWORD *)&v13[3].Version;
+  if ( v23 > qword_140C4C9A8 )
   {
-    ObfDereferenceObject(0LL);
+    HalPutDmaAdapter(v13);
     return 3221225495LL;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&BugCheckParameter2, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4C990, 0LL);
   EmptyAddressRangeDownTree = MiFindEmptyAddressRangeDownTree(
-                                &qword_140C4F108,
-                                v20,
+                                &qword_140C4C988,
+                                v23,
                                 0x10000uLL,
                                 0LL,
                                 0x10000uLL,
-                                qword_140C4F128,
-                                &v27);
+                                qword_140C4C9A8,
+                                &v34);
   if ( EmptyAddressRangeDownTree < 0 )
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&BugCheckParameter2);
-    KeAbPostRelease((ULONG_PTR)&BugCheckParameter2);
-    v5 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v5 && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery();
-    ObfDereferenceObject(0LL);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4C990, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(&qword_140C4C990);
+    KeAbPostRelease((ULONG_PTR)&qword_140C4C990);
+    KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+    HalPutDmaAdapter(DmaAdapter);
     return (unsigned int)EmptyAddressRangeDownTree;
   }
-  v23 = 0;
-  MEMORY[0x18] = v27 >> 12;
-  MEMORY[0x20] = ((unsigned __int64)(v20 + 4095) >> 12) + (v27 >> 12) - 1;
-  v24 = qword_140C4F108;
-  v25 = v27 >> 12;
-  if ( !qword_140C4F108 )
-    goto LABEL_57;
-  while ( v25 <= (*(unsigned int *)(v24 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v24 + 33) << 32))
-       && v25 < (*(unsigned int *)(v24 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v24 + 32) << 32)) )
+  v26 = DmaAdapter;
+  v27 = 0;
+  v28 = v34 >> 12;
+  v13[1].DmaOperations = (_DMA_OPERATIONS *)(v34 >> 12);
+  *(_QWORD *)&v26[2].Version = ((v23 + 4095) >> 12) + v28 - 1;
+  v29 = qword_140C4C988;
+  v30 = (unsigned __int64)v13[1].DmaOperations;
+  if ( !qword_140C4C988 )
+    goto LABEL_55;
+  while ( v30 <= (*(unsigned int *)(v29 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v29 + 33) << 32))
+       && v30 < (*(unsigned int *)(v29 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v29 + 32) << 32)) )
   {
-    v26 = *(_QWORD *)v24;
-    if ( !*(_QWORD *)v24 )
-      goto LABEL_57;
-LABEL_65:
-    v24 = v26;
+    v31 = *(_QWORD *)v29;
+    if ( !*(_QWORD *)v29 )
+      goto LABEL_55;
+LABEL_60:
+    v29 = v31;
   }
-  v26 = *(_QWORD *)(v24 + 8);
-  if ( v26 )
-    goto LABEL_65;
-  v23 = 1;
-LABEL_57:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4F108, v24, v23, 0LL);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(&BugCheckParameter2);
-  KeAbPostRelease((ULONG_PTR)&BugCheckParameter2);
-  v5 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v5 && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
-LABEL_16:
-  *((_QWORD *)a1 + 18) = 0LL;
-  return (unsigned int)Object;
+  v31 = *(_QWORD *)(v29 + 8);
+  if ( v31 )
+    goto LABEL_60;
+  v27 = 1;
+LABEL_55:
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4C988, v29, v27, v26);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4C990, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&qword_140C4C990);
+  KeAbPostRelease((ULONG_PTR)&qword_140C4C990);
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  v13 = DmaAdapter;
+LABEL_17:
+  *(_QWORD *)(a1 + 144) = v13;
+  return (unsigned int)v12;
 }

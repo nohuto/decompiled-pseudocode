@@ -1,28 +1,27 @@
 /*
- * XREFs of GreHideSprites @ 0x1C00B8FE0
+ * XREFs of GreHideSprites @ 0x1C012C3B0
  * Callers:
  *     <none>
  * Callees:
- *     ?vSpHideSprites@@YAXPEAUHDEV__@@H@Z @ 0x1C00B9034 (-vSpHideSprites@@YAXPEAUHDEV__@@H@Z.c)
+ *     ?vSpHideSprites@@YAXPEAUHDEV__@@H@Z @ 0x1C012C3F4 (-vSpHideSprites@@YAXPEAUHDEV__@@H@Z.c)
  */
 
 void __fastcall GreHideSprites(__int64 a1, int a2)
 {
-  __int64 v4; // rbx
+  __int64 v2; // rbx
 
-  Gre::Base::Globals((Gre::Base *)a1);
-  v4 = 0LL;
-  if ( *(_DWORD *)(a1 + 140) )
+  v2 = 0LL;
+  if ( *(_DWORD *)(a1 + 148) )
   {
     do
     {
-      vSpHideSprites(*(HDEV *)(*(_QWORD *)(a1 + 144) + 8 * v4), a2);
-      v4 = (unsigned int)(v4 + 1);
+      vSpHideSprites(*(HDEV *)(*(_QWORD *)(a1 + 152) + 8 * v2), a2);
+      v2 = (unsigned int)(v2 + 1);
     }
-    while ( (unsigned int)v4 < *(_DWORD *)(a1 + 140) );
+    while ( (unsigned int)v2 < *(_DWORD *)(a1 + 148) );
   }
   else
   {
-    vSpHideSprites(*(HDEV *)(a1 + 80), a2);
+    vSpHideSprites(*(HDEV *)(a1 + 88), a2);
   }
 }

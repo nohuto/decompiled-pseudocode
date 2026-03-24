@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CancelSentIo@FxUsbDevice@@QEAAXXZ @ 0x1C007C08C
+ * XREFs of ?CancelSentIo@FxUsbDevice@@QEAAXXZ @ 0x1C006F8C8
  * Callers:
- *     ?CyclePort@FxUsbDevice@@QEAAJXZ @ 0x1C007CBB8 (-CyclePort@FxUsbDevice@@QEAAJXZ.c)
- *     ?Reset@FxUsbDevice@@QEAAJXZ @ 0x1C0080068 (-Reset@FxUsbDevice@@QEAAJXZ.c)
+ *     ?CyclePort@FxUsbDevice@@QEAAJXZ @ 0x1C00703E4 (-CyclePort@FxUsbDevice@@QEAAJXZ.c)
+ *     ?Reset@FxUsbDevice@@QEAAJXZ @ 0x1C00737FC (-Reset@FxUsbDevice@@QEAAJXZ.c)
  * Callees:
- *     ?CancelSentIo@FxIoTarget@@QEAAXXZ @ 0x1C0073B3C (-CancelSentIo@FxIoTarget@@QEAAXXZ.c)
+ *     ?CancelSentIo@FxIoTarget@@QEAAXXZ @ 0x1C006486C (-CancelSentIo@FxIoTarget@@QEAAXXZ.c)
  */
 
 void __fastcall FxUsbDevice::CancelSentIo(FxUsbDevice *this, __int64 a2, unsigned __int8 a3)

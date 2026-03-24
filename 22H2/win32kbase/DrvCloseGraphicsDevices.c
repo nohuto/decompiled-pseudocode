@@ -1,35 +1,29 @@
 /*
- * XREFs of DrvCloseGraphicsDevices @ 0x1C001A4F0
+ * XREFs of DrvCloseGraphicsDevices @ 0x1C00AE200
  * Callers:
- *     InitVideo @ 0x1C0016804 (InitVideo.c)
+ *     InitVideo @ 0x1C009A7D8 (InitVideo.c)
  * Callees:
- *     bSetDeviceSessionUsage @ 0x1C001CCE0 (bSetDeviceSessionUsage.c)
+ *     bSetDeviceSessionUsage @ 0x1C00AE270 (bSetDeviceSessionUsage.c)
  */
 
-LONG_PTR __fastcall DrvCloseGraphicsDevices(__int64 a1)
+LONG_PTR __fastcall DrvCloseGraphicsDevices(int a1)
 {
-  int v1; // ebx
+  struct tagGRAPHICS_DEVICE *v1; // rbx
   LONG_PTR result; // rax
-  __int64 v3; // rcx
-  __int64 v4; // rbx
 
-  v1 = a1;
-  result = SGDGetSessionState(a1);
-  v3 = *(_QWORD *)(result + 24);
-  if ( v1 )
-    v4 = *(_QWORD *)(v3 + 1352);
-  else
-    v4 = *(_QWORD *)(v3 + 1344);
-  while ( v4 )
+  v1 = gpRemoteGraphicsDeviceList;
+  if ( a1 )
+    v1 = gpLocalGraphicsDeviceList;
+  while ( v1 )
   {
-    if ( *(_QWORD *)(v4 + 224) )
+    if ( *((_QWORD *)v1 + 29) )
     {
-      bSetDeviceSessionUsage(v4, 0LL);
-      result = ObfDereferenceObject(*(PVOID *)(v4 + 224));
-      *(_QWORD *)(v4 + 136) = 0LL;
-      *(_QWORD *)(v4 + 224) = 0LL;
+      bSetDeviceSessionUsage(v1, 0LL);
+      result = ObfDereferenceObject(*((PVOID *)v1 + 29));
+      *((_QWORD *)v1 + 17) = 0LL;
+      *((_QWORD *)v1 + 29) = 0LL;
     }
-    v4 = *(_QWORD *)(v4 + 128);
+    v1 = (struct tagGRAPHICS_DEVICE *)*((_QWORD *)v1 + 16);
   }
   return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyInvalidResource@CSceneResourceManager@@UEAAXPEBVIDeviceResource@@@Z @ 0x1801BD3A0
+ * XREFs of ?NotifyInvalidResource@CSceneResourceManager@@UEAAXPEBVIDeviceResource@@@Z @ 0x180168780
  * Callers:
  *     <none>
  * Callees:

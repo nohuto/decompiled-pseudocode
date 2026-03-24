@@ -1,8 +1,8 @@
 /*
- * XREFs of MmFlushVirtualMemory @ 0x1406B6C3C
+ * XREFs of MmFlushVirtualMemory @ 0x1406B6C1C
  * Callers:
- *     NtFlushVirtualMemory @ 0x1406B6AE0 (NtFlushVirtualMemory.c)
- *     CMFFlushHitsFile @ 0x1408D8C08 (CMFFlushHitsFile.c)
+ *     NtFlushVirtualMemory @ 0x1406B6AC0 (NtFlushVirtualMemory.c)
+ *     CMFFlushHitsFile @ 0x1408D8BE8 (CMFFlushHitsFile.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -15,10 +15,10 @@
  *     MiUnlockAndDereferenceVadShared @ 0x1400754A0 (MiUnlockAndDereferenceVadShared.c)
  *     MiFlushRelease @ 0x1400792CC (MiFlushRelease.c)
  *     MiFindLastSubsection @ 0x140092DF0 (MiFindLastSubsection.c)
- *     KeAreAllApcsDisabled @ 0x1400CAA70 (KeAreAllApcsDisabled.c)
- *     MiFlushAcquire @ 0x14012C144 (MiFlushAcquire.c)
- *     MiFlushDirtyBitsToPfn @ 0x14012C1EC (MiFlushDirtyBitsToPfn.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KeAreAllApcsDisabled @ 0x1400CAA90 (KeAreAllApcsDisabled.c)
+ *     MiFlushAcquire @ 0x14012C164 (MiFlushAcquire.c)
+ *     MiFlushDirtyBitsToPfn @ 0x14012C20C (MiFlushDirtyBitsToPfn.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     FsRtlReleaseFileForCcFlush @ 0x1405DCE70 (FsRtlReleaseFileForCcFlush.c)
  *     FsRtlAcquireFileForCcFlushEx @ 0x1405DD0AC (FsRtlAcquireFileForCcFlushEx.c)
  */

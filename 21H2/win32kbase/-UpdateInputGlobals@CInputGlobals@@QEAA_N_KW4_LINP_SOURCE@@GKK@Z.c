@@ -1,20 +1,20 @@
 /*
- * XREFs of ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C007DBA0
+ * XREFs of ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C0048090
  * Callers:
- *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C003ADD4 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
- *     NtMITUpdateInputGlobals @ 0x1C007EB70 (NtMITUpdateInputGlobals.c)
- *     xxxProcessKeyEvent @ 0x1C00CABA0 (xxxProcessKeyEvent.c)
- *     RIMCompletePointerDeviceFrame @ 0x1C01A62A0 (RIMCompletePointerDeviceFrame.c)
- *     ?ProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C01E2930 (-ProcessInput@CHidInput@@EEAAJPEAXKK0@Z.c)
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C0040F54 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
+ *     NtMITUpdateInputGlobals @ 0x1C00A6F50 (NtMITUpdateInputGlobals.c)
+ *     rimDoProcessAnyPointerDeviceInput @ 0x1C01796B8 (rimDoProcessAnyPointerDeviceInput.c)
+ *     ?ProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C01AA390 (-ProcessInput@CHidInput@@EEAAJPEAXKK0@Z.c)
+ *     xxxProcessKeyEvent @ 0x1C01B1220 (xxxProcessKeyEvent.c)
  * Callees:
- *     ?CitpLastInputUpdate@@YAXGI@Z @ 0x1C0016698 (-CitpLastInputUpdate@@YAXGI@Z.c)
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     ApiSetEditionKeepMachineUp @ 0x1C007DDE0 (ApiSetEditionKeepMachineUp.c)
- *     EtwTraceUserIsActive @ 0x1C007DF10 (EtwTraceUserIsActive.c)
- *     ?_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C007DFEC (-_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z.c)
- *     ?KnownInputTypeFromLinpSource@@YA?AW4InputType@@W4_LINP_SOURCE@@@Z @ 0x1C007E0F4 (-KnownInputTypeFromLinpSource@@YA-AW4InputType@@W4_LINP_SOURCE@@@Z.c)
- *     ApiSetTraceLoggingUserIsActive @ 0x1C00D23D8 (ApiSetTraceLoggingUserIsActive.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     ApiSetEditionKeepMachineUp @ 0x1C00482E4 (ApiSetEditionKeepMachineUp.c)
+ *     EtwTraceUserIsActive @ 0x1C00483C0 (EtwTraceUserIsActive.c)
+ *     ?_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C004849C (-_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z.c)
+ *     ?KnownInputTypeFromLinpSource@@YA?AW4InputType@@W4_LINP_SOURCE@@@Z @ 0x1C0048518 (-KnownInputTypeFromLinpSource@@YA-AW4InputType@@W4_LINP_SOURCE@@@Z.c)
+ *     ?CitpLastInputUpdate@@YAXGI@Z @ 0x1C00485E4 (-CitpLastInputUpdate@@YAXGI@Z.c)
+ *     ApiSetTraceLoggingUserIsActive @ 0x1C00A9AB8 (ApiSetTraceLoggingUserIsActive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 char __fastcall CInputGlobals::UpdateInputGlobals(
@@ -25,49 +25,58 @@ char __fastcall CInputGlobals::UpdateInputGlobals(
         unsigned int a5,
         unsigned int a6)
 {
-  unsigned int v6; // esi
-  unsigned __int16 v7; // bx
-  int v11; // eax
-  int v12; // r8d
-  int v13; // ecx
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // [rsp+70h] [rbp+8h] BYREF
+  unsigned int v6; // r14d
+  unsigned int v8; // r13d
+  unsigned __int16 v11; // bx
+  int v12; // eax
+  unsigned int v13; // r8d
+  int v14; // r9d
+  int v15; // r10d
+  int v16; // esi
+  unsigned int v17; // edi
+  unsigned int v19; // edi
+  unsigned int v20; // edi
+  unsigned int v21; // edi
+  unsigned int v22; // edi
+  unsigned int v23; // edi
+  __int16 v24; // bx
+  __int16 v25; // ax
+  __int64 v26; // [rsp+80h] [rbp+8h] BYREF
+  unsigned int v27; // [rsp+90h] [rbp+18h]
 
   v6 = a6;
-  v7 = 0;
+  v8 = 11;
+  if ( a3 != 17 )
+    v8 = a3;
+  v11 = 0;
+  v27 = v8;
   if ( (a6 & 0x20) != 0 )
   {
-    v11 = KnownInputTypeFromLinpSource(a3, a2, 4LL);
-    v13 = v12 | v6;
-    if ( (v11 & *(_DWORD *)(a1 + 104)) == 0 )
-      v13 = v6;
-    v6 = v13;
-    if ( (v11 & *(_DWORD *)(a1 + 100)) != 0 )
-      v6 = v13 | 2;
+    v12 = KnownInputTypeFromLinpSource(v8, a2, a6, 2LL);
+    v6 |= v15;
+    if ( (v12 & *(_DWORD *)(a1 + 104)) == 0 )
+      v6 = v13;
+    if ( (v12 & *(_DWORD *)(a1 + 100)) != 0 )
+      v6 |= v14;
   }
   RIMLockExclusive(a1);
-  if ( _bittest((const signed __int32 *)gpsi, 0xDu) )
+  if ( (*(_DWORD *)gpsi & 0x2000) == 0 )
   {
-    *(_QWORD *)(a1 + 8) = 0LL;
-    ExReleasePushLockExclusiveEx(a1, 0LL);
-    KeLeaveCriticalRegion();
-    return 1;
-  }
-  else
-  {
-    *(_DWORD *)(a1 + 80) = a3;
+    *(_DWORD *)(a1 + 80) = v8;
+    v16 = v6 & 8;
     *(_BYTE *)(a1 + 85) = 0;
-    *(_BYTE *)(a1 + 84) = (v6 & 8) != 0;
-    if ( a3 != 1 )
+    *(_BYTE *)(a1 + 84) = v16 != 0;
+    if ( v8 != 1 )
       _InterlockedAnd((volatile signed __int32 *)gpsi, 0xFFFFFFBF);
     if ( (v6 & 0x10) == 0 )
     {
       if ( (unsigned __int64)(a2 - *(_QWORD *)(a1 + 72)) > 0x1F4 )
       {
-        if ( (int)ZwUpdateWnfStateData(&WNF_ISM_LAST_USER_ACTIVITY, 0LL, 0LL, 0LL, &gSessionId) < 0 )
-          MicrosoftTelemetryAssertTriggeredNoArgsKM(v16, v15, v17);
+        if ( (int)ZwUpdateWnfStateData(&WNF_ISM_LAST_USER_ACTIVITY, 0LL, 0LL, 0LL, &gSessionId, 0, 0) < 0 )
+        {
+          a6 = 0x20000;
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 300LL);
+        }
         *(_QWORD *)(a1 + 72) = a2;
       }
       if ( !gbBlockSendInputResets || (v6 & 8) == 0 )
@@ -77,70 +86,78 @@ char __fastcall CInputGlobals::UpdateInputGlobals(
     ExReleasePushLockExclusiveEx(a1, 0LL);
     KeLeaveCriticalRegion();
     a6 = 0;
-    v18 = 0LL;
+    v26 = 0LL;
     *((_DWORD *)gpsi + 1242) = a2;
-    if ( (unsigned int)EtwTraceUserIsActive(&a6, &v18) )
-      ApiSetTraceLoggingUserIsActive(a6, v18);
-    if ( (v6 & 0x10) == 0 )
+    if ( (unsigned int)EtwTraceUserIsActive(&a6, &v26) )
+      ApiSetTraceLoggingUserIsActive(a6, v26);
+    if ( (v6 & 0x10) != 0 )
+      return 1;
+    v17 = a3 - 1;
+    if ( v17 )
     {
-      switch ( a3 )
+      v19 = v17 - 2;
+      if ( v19 )
       {
-        case 1u:
-          if ( (v6 & 0x40) != 0 )
+        v20 = v19 - 1;
+        if ( v20 )
+        {
+          v21 = v20 - 1;
+          if ( v21 )
           {
-            v7 = 512;
-          }
-          else if ( (v6 & 8) != 0 )
-          {
-            v7 = 1024;
-          }
-          else
-          {
-            v7 = 1;
-          }
-          break;
-        case 3u:
-          if ( (v6 & 8) != 0 )
-            v7 = 2048;
-          else
-            v7 = 2;
-          break;
-        case 4u:
-          v7 = 16;
-          break;
-        case 5u:
-          v7 = 32;
-          break;
-        case 0xBu:
-          if ( (v6 & 8) != 0 )
-            v7 = 4096;
-          else
-            v7 = 4;
-          break;
-        case 0xDu:
-          if ( (v6 & 8) != 0 )
-          {
-            v7 = 0x2000;
-          }
-          else if ( (v6 & 0x80u) == 0 )
-          {
-            v7 = 8;
+            v22 = v21 - 6;
+            if ( v22 )
+            {
+              v23 = v22 - 2;
+              if ( v23 )
+              {
+                if ( v23 == 4 )
+                  v11 = v16 != 0 ? 0x4000 : 256;
+                goto LABEL_22;
+              }
+              v24 = 8;
+              v25 = v16 != 0 ? 0x1FF8 : 0;
+            }
+            else
+            {
+              v24 = 4;
+              v25 = v16 != 0 ? 0xFFC : 0;
+            }
+            v11 = v25 + v24;
           }
           else
           {
-            v7 = 0x8000;
+            v11 = 32;
           }
-          break;
-        case 0x11u:
-          if ( (v6 & 8) != 0 )
-            v7 = 0x4000;
-          else
-            v7 = 256;
-          break;
+        }
+        else
+        {
+          v11 = 16;
+        }
       }
-      CitpLastInputUpdate(v7, a2);
-      ApiSetEditionKeepMachineUp((unsigned int)a2, a3, a5, v6);
+      else
+      {
+        v11 = v16 != 0 ? 2048 : 2;
+      }
     }
+    else if ( (v6 & 0x40) != 0 )
+    {
+      v11 = 512;
+    }
+    else if ( (v6 & 8) != 0 )
+    {
+      v11 = 1024;
+    }
+    else
+    {
+      v11 = 1;
+    }
+LABEL_22:
+    CitpLastInputUpdate(v11, a2);
+    ApiSetEditionKeepMachineUp((unsigned int)a2, v27, a5, v6);
     return 1;
   }
+  *(_QWORD *)(a1 + 8) = 0LL;
+  ExReleasePushLockExclusiveEx(a1, 0LL);
+  KeLeaveCriticalRegion();
+  return 1;
 }

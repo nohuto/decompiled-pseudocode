@@ -1,9 +1,9 @@
 /*
- * XREFs of PsSetContextThread @ 0x1409B1B30
+ * XREFs of PsSetContextThread @ 0x14090B4C0
  * Callers:
  *     <none>
  * Callees:
- *     PspSetContextThreadInternal @ 0x1407043D0 (PspSetContextThreadInternal.c)
+ *     PspSetContextThreadInternal @ 0x140647C9C (PspSetContextThreadInternal.c)
  */
 
 __int64 __fastcall PsSetContextThread(struct _KTHREAD *a1, __int64 a2, char a3)

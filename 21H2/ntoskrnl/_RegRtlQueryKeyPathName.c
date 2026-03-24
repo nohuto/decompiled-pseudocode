@@ -1,15 +1,15 @@
 /*
- * XREFs of _RegRtlQueryKeyPathName @ 0x1408621F8
+ * XREFs of _RegRtlQueryKeyPathName @ 0x1407D2068
  * Callers:
- *     _PnpCtxRegQueryKeyPathName @ 0x14085C144 (_PnpCtxRegQueryKeyPathName.c)
+ *     _PnpCtxRegQueryKeyPathName @ 0x1407A30A0 (_PnpCtxRegQueryKeyPathName.c)
  * Callees:
- *     RtlULongSub @ 0x14024F418 (RtlULongSub.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwQueryObject @ 0x14041B960 (ZwQueryObject.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     _RegRtlOpenPredefinedKey @ 0x14085D278 (_RegRtlOpenPredefinedKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlULongSub @ 0x14028FDDC (RtlULongSub.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwQueryObject @ 0x1403FA5A0 (ZwQueryObject.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     _RegRtlOpenPredefinedKey @ 0x1407CDA94 (_RegRtlOpenPredefinedKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlQueryKeyPathName(__int64 a1, const void **a2, unsigned int *a3)
@@ -17,14 +17,14 @@ __int64 __fastcall RegRtlQueryKeyPathName(__int64 a1, const void **a2, unsigned 
   HANDLE v5; // r14
   unsigned __int64 v6; // rdi
   const void **v7; // r13
-  HANDLE v8; // rcx
-  ULONG v9; // r9d
+  ULONG v8; // r9d
+  HANDLE v9; // rcx
   NTSTATUS v10; // eax
   int v11; // ebx
   unsigned int v12; // ecx
   unsigned int v13; // esi
   unsigned int v15; // ecx
-  const void **Pool2; // rsi
+  const void **PoolWithTag; // rsi
   NTSTATUS v17; // eax
   unsigned int v18; // ecx
   unsigned int v19; // r14d
@@ -47,16 +47,16 @@ __int64 __fastcall RegRtlQueryKeyPathName(__int64 a1, const void **a2, unsigned 
       goto LABEL_10;
     }
     v7 = (const void **)&v21;
-    v8 = v5;
-    v9 = 16;
+    v8 = 16;
+    v9 = v5;
     if ( (unsigned int)v6 >= 0x10 )
     {
       v7 = a2;
-      v9 = 2 * *a3;
+      v8 = 2 * *a3;
     }
     if ( Handle )
-      v8 = Handle;
-    v10 = ZwQueryObject(v8, ObjectNameInformation, v7, v9, &ulMinuend);
+      v9 = Handle;
+    v10 = ZwQueryObject(v9, ObjectNameInformation, v7, v8, &ulMinuend);
     v11 = v10;
     if ( !v10 )
     {
@@ -83,12 +83,12 @@ LABEL_17:
           v11 = -1073741789;
           goto LABEL_10;
         }
-        Pool2 = (const void **)ExAllocatePool2(256LL, v15, 1279739218LL);
-        if ( Pool2 )
+        PoolWithTag = (const void **)ExAllocatePoolWithTag(PagedPool, v15, 0x4C474552u);
+        if ( PoolWithTag )
         {
           if ( Handle )
             v5 = Handle;
-          v17 = ZwQueryObject(v5, ObjectNameInformation, Pool2, ulMinuend, &ulMinuend);
+          v17 = ZwQueryObject(v5, ObjectNameInformation, PoolWithTag, ulMinuend, &ulMinuend);
           v11 = v17;
           if ( v17 >= 0 )
           {
@@ -98,7 +98,7 @@ LABEL_17:
             }
             else
             {
-              v18 = *(unsigned __int16 *)Pool2;
+              v18 = *(unsigned __int16 *)PoolWithTag;
               v19 = v18 + 2;
               *a3 = (v18 + 2) >> 1;
               if ( (unsigned int)v6 < v18 + 2 )
@@ -107,12 +107,12 @@ LABEL_17:
               }
               else
               {
-                memmove(a2, Pool2[1], v18);
+                memmove(a2, PoolWithTag[1], v18);
                 *((_WORD *)a2 + ((unsigned __int64)v19 >> 1) - 1) = 0;
               }
             }
           }
-          ExFreePoolWithTag(Pool2, 0);
+          ExFreePoolWithTag(PoolWithTag, 0);
         }
         else
         {

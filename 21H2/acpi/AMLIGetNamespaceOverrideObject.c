@@ -1,13 +1,13 @@
 /*
- * XREFs of AMLIGetNamespaceOverrideObject @ 0x1C0066118
+ * XREFs of AMLIGetNamespaceOverrideObject @ 0x1C0064E94
  * Callers:
- *     AMLIGetNamespaceOverrideObject @ 0x1C0066118 (AMLIGetNamespaceOverrideObject.c)
- *     AMLIReadNamespaceOverrideObject @ 0x1C00662A8 (AMLIReadNamespaceOverrideObject.c)
+ *     AMLIGetNamespaceOverrideObject @ 0x1C0064E94 (AMLIGetNamespaceOverrideObject.c)
+ *     AMLIReadNamespaceOverrideObject @ 0x1C0065024 (AMLIReadNamespaceOverrideObject.c)
  * Callees:
- *     DereferenceObjectEx @ 0x1C00189F4 (DereferenceObjectEx.c)
- *     GetNameSpaceObject @ 0x1C0019AC8 (GetNameSpaceObject.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     AMLIGetNamespaceOverrideObject @ 0x1C0066118 (AMLIGetNamespaceOverrideObject.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     GetNameSpaceObject @ 0x1C002183C (GetNameSpaceObject.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     AMLIGetNamespaceOverrideObject @ 0x1C0064E94 (AMLIGetNamespaceOverrideObject.c)
  */
 
 __int64 __fastcall AMLIGetNamespaceOverrideObject(__int64 a1, __int64 *a2)

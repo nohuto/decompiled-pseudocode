@@ -1,99 +1,102 @@
 /*
- * XREFs of EtwpFindDebugId @ 0x1407589DC
+ * XREFs of EtwpFindDebugId @ 0x1406AB300
  * Callers:
- *     EtwpLocateDbgIdForRegEntry @ 0x140758C68 (EtwpLocateDbgIdForRegEntry.c)
- *     EtwpCovSampContextGetModule @ 0x1409EFAE0 (EtwpCovSampContextGetModule.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x1406AB1A8 (EtwpLocateDbgIdForRegEntry.c)
+ *     EtwpCovSampContextGetModule @ 0x140943420 (EtwpCovSampContextGetModule.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     RtlImageDirectoryEntryToData @ 0x1402D6CB0 (RtlImageDirectoryEntryToData.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     EtwpIsValidImageAddress @ 0x140758BF0 (EtwpIsValidImageAddress.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     EtwpIsValidImageAddress @ 0x1405D193C (EtwpIsValidImageAddress.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpFindDebugId(__int64 a1, size_t a2, __int64 *a3, _DWORD *a4)
+__int64 __fastcall EtwpFindDebugId(unsigned __int64 a1, SIZE_T a2, char a3, void **a4, _DWORD *a5)
 {
-  int v5; // edi
-  __int64 v6; // rax
-  int v7; // edx
-  int v8; // esi
-  __int64 v10; // rax
-  __int64 v11; // rbx
-  unsigned __int64 v12; // r14
-  unsigned __int64 v13; // r14
-  unsigned int i; // r15d
-  size_t v15; // rcx
-  size_t v16; // rdi
-  void *v17; // rax
-  __int64 Pool2; // rax
-  void **v19; // rcx
-  void *Src; // [rsp+30h] [rbp-78h] BYREF
-  unsigned int v21; // [rsp+38h] [rbp-70h]
-  __int64 v22; // [rsp+40h] [rbp-68h]
-  __int64 v23; // [rsp+48h] [rbp-60h]
-  __int128 v24; // [rsp+50h] [rbp-58h]
-  size_t Size; // [rsp+60h] [rbp-48h]
-  int v26; // [rsp+68h] [rbp-40h]
+  char v5; // di
+  SIZE_T v6; // r14
+  unsigned int v8; // esi
+  unsigned __int64 v9; // rbx
+  unsigned int v10; // r12d
+  SIZE_T v12; // rcx
+  SIZE_T v13; // rbx
+  _DWORD *v14; // r14
+  PVOID PoolWithTag; // rax
+  void **v16; // rcx
+  unsigned __int64 v17; // [rsp+20h] [rbp-88h] BYREF
+  unsigned int v18; // [rsp+28h] [rbp-80h]
+  unsigned __int64 v19; // [rsp+30h] [rbp-78h] BYREF
+  unsigned __int64 v20; // [rsp+38h] [rbp-70h] BYREF
+  unsigned __int64 v21; // [rsp+40h] [rbp-68h]
+  __int128 v22; // [rsp+48h] [rbp-60h]
+  SIZE_T NumberOfBytes; // [rsp+58h] [rbp-50h]
+  int v24; // [rsp+60h] [rbp-48h]
+  SIZE_T v25; // [rsp+B8h] [rbp+10h]
 
-  v5 = a1;
-  v6 = RtlImageNtHeader(a1);
-  v8 = v6;
-  v22 = v6;
-  if ( !v6 )
-    return 3221225595LL;
-  LODWORD(Src) = 0;
-  LOBYTE(v7) = 1;
-  v10 = RtlImageDirectoryEntryToData(v5, v7, 6, (int)&Src);
-  v11 = v10;
-  v23 = v10;
-  if ( !v10 || (unsigned int)Src < 0x1C )
+  v25 = a2;
+  v5 = a3;
+  v6 = a2;
+  v8 = 0;
+  v19 = 0LL;
+  v20 = 0LL;
+  LODWORD(v17) = 0;
+  LOBYTE(a2) = 1;
+  v9 = RtlImageDirectoryEntryToData(a1, a2, 6, (int)&v17);
+  v21 = v9;
+  if ( !v9 || (unsigned int)v17 < 0x1C )
     return 3221225485LL;
-  v12 = (unsigned int)Src;
-  if ( !(unsigned __int8)EtwpIsValidImageAddress(v8, v5, a2, v10, (unsigned int)Src) )
-    return 3221225595LL;
-  v13 = v12 / 0x1C;
-  for ( i = 0; ; ++i )
+  v10 = (unsigned int)v17 / 0x1C;
+  v18 = 0;
+  while ( 1 )
   {
-    v21 = i;
-    if ( i >= (unsigned int)v13 )
+    if ( v8 >= v10 )
       return 3221226021LL;
-    v24 = *(_OWORD *)v11;
-    Size = *(_QWORD *)(v11 + 16);
-    v26 = *(_DWORD *)(v11 + 24);
-    v15 = HIDWORD(Size);
-    if ( HIDWORD(Size) > a2 )
+    if ( v9 < a1 )
       return 3221225485LL;
-    v16 = (unsigned int)Size;
-    if ( (unsigned int)Size > a2 || v15 > a2 - (unsigned int)Size )
+    v17 = v9 + 28;
+    if ( v9 + 28 > a1 + v6 )
       return 3221225485LL;
-    if ( HIDWORD(v24) == 2 )
-    {
-      Src = (void *)(v15 + a1);
-      if ( !(unsigned __int8)EtwpIsValidImageAddress(v22, a1, a2, HIDWORD(Size) + (int)a1, (unsigned int)Size) )
-        return 3221225595LL;
-      v17 = Src;
-      if ( *(_DWORD *)Src == 1396986706 )
-        break;
-    }
-    v11 += 28LL;
-    v23 = v11;
+    if ( v5 && !EtwpIsValidImageAddress(v9, 28LL, &v19) )
+      return 3221227779LL;
+    v22 = *(_OWORD *)v9;
+    NumberOfBytes = *(_QWORD *)(v9 + 16);
+    v24 = *(_DWORD *)(v9 + 24);
+    v12 = HIDWORD(NumberOfBytes);
+    if ( HIDWORD(NumberOfBytes) > v6 )
+      return 3221225485LL;
+    v13 = (unsigned int)NumberOfBytes;
+    if ( (unsigned int)NumberOfBytes > v6 || v12 > v6 - (unsigned int)NumberOfBytes )
+      return 3221225485LL;
+    if ( HIDWORD(v22) == 2 )
+      break;
+LABEL_26:
+    v9 = v17;
+    v21 = v17;
+    v18 = ++v8;
+    v5 = a3;
   }
-  if ( (unsigned int)v16 < 0x1C )
-    return 3221225595LL;
-  if ( *a4 >= (unsigned int)v16 )
+  v14 = (_DWORD *)(v12 + a1);
+  if ( a3 && !EtwpIsValidImageAddress(v12 + a1, (unsigned int)NumberOfBytes, &v20) )
+    return 3221227779LL;
+  if ( *v14 != 1396986706 )
   {
-    v19 = (void **)a3;
+    v6 = v25;
+    goto LABEL_26;
+  }
+  if ( (unsigned int)v13 < 0x1C )
+    return 3221225595LL;
+  if ( *a5 >= (unsigned int)v13 )
+  {
+    v16 = a4;
   }
   else
   {
-    Pool2 = ExAllocatePool2(256LL, v16, 1651995717LL);
-    v19 = (void **)a3;
-    *a3 = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v13, 0x62777445u);
+    v16 = a4;
+    *a4 = PoolWithTag;
+    if ( !PoolWithTag )
       return 3221225495LL;
-    v17 = Src;
   }
-  *a4 = v16;
-  memmove(*v19, v17, v16);
+  *a5 = v13;
+  memmove(*v16, v14, v13);
   return 0LL;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwCovSampHash @ 0x140460AEA
+ * XREFs of EtwCovSampHash @ 0x1405AE314
  * Callers:
- *     EtwpCovSampContextAddSamples @ 0x1409EF4C4 (EtwpCovSampContextAddSamples.c)
- *     EtwpCovSampContextGetModule @ 0x1409EFAE0 (EtwpCovSampContextGetModule.c)
+ *     EtwpCovSampContextAddSamples @ 0x140942DEC (EtwpCovSampContextAddSamples.c)
+ *     EtwpCovSampContextGetModule @ 0x140943420 (EtwpCovSampContextGetModule.c)
  * Callees:
  *     <none>
  */

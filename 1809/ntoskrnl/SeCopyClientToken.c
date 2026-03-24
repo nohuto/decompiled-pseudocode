@@ -1,16 +1,16 @@
 /*
- * XREFs of SeCopyClientToken @ 0x140649E94
+ * XREFs of SeCopyClientToken @ 0x140649E74
  * Callers:
  *     SepCreateClientSecurityEx @ 0x140631EC0 (SepCreateClientSecurityEx.c)
  *     PsImpersonateClient @ 0x140637B70 (PsImpersonateClient.c)
- *     SepCopyClientTokenAndSetSilo @ 0x14089BCF0 (SepCopyClientTokenAndSetSilo.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x14089BCD0 (SepCopyClientTokenAndSetSilo.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     SepFinalizeTokenAcls @ 0x140582ABC (SepFinalizeTokenAcls.c)
  *     SepAppendAceToTokenObjectAcl @ 0x1405C9190 (SepAppendAceToTokenObjectAcl.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     SepDuplicateToken @ 0x1406494A0 (SepDuplicateToken.c)
- *     SepSetTokenTrust @ 0x1406A4688 (SepSetTokenTrust.c)
+ *     SepDuplicateToken @ 0x140649480 (SepDuplicateToken.c)
+ *     SepSetTokenTrust @ 0x1406A4668 (SepSetTokenTrust.c)
  */
 
 __int64 __fastcall SeCopyClientToken(__int64 a1, unsigned int a2, __int64 a3, char a4, __int64 a5, _QWORD *a6)

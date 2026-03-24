@@ -1,18 +1,12 @@
 /*
- * XREFs of ?IsPropertyAnimatable@CVisualMarshaler@DirectComposition@@UEAA_NIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1C02140A0
+ * XREFs of ?IsPropertyAnimatable@CVisualMarshaler@DirectComposition@@UEAA_NIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1C01E4FB0
  * Callers:
- *     <none>
+ *     ?IsPropertyAnimatable@CParticleEmitterVisualMarshaler@DirectComposition@@UEAA_NIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1C01DC040 (-IsPropertyAnimatable@CParticleEmitterVisualMarshaler@DirectComposition@@UEAA_NIW4DCOMPOSITION_E.c)
  * Callees:
- *     ?IsPropertyAnimatable@CResourceMarshaler@DirectComposition@@UEAA_NIW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1C0007DA0 (-IsPropertyAnimatable@CResourceMarshaler@DirectComposition@@UEAA_NIW4DCOMPOSITION_EXPRESSION_TYP.c)
+ *     <none>
  */
 
-char __fastcall DirectComposition::CVisualMarshaler::IsPropertyAnimatable(
-        DirectComposition::CResourceMarshaler *a1,
-        unsigned int a2,
-        int a3)
+bool __fastcall DirectComposition::CVisualMarshaler::IsPropertyAnimatable(__int64 a1, unsigned int a2, int a3)
 {
-  if ( a2 <= 2 || a2 == 25 )
-    return a3 == 18;
-  else
-    return DirectComposition::CResourceMarshaler::IsPropertyAnimatable(a1, a2);
+  return (a2 <= 2 || a2 == 26) && a3 == 18;
 }

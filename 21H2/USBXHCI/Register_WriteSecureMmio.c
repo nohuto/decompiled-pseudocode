@@ -1,15 +1,15 @@
 /*
- * XREFs of Register_WriteSecureMmio @ 0x1C003D41C
+ * XREFs of Register_WriteSecureMmio @ 0x1C003CEA0
  * Callers:
- *     XilRegister_WriteUlong @ 0x1C0013B7C (XilRegister_WriteUlong.c)
- *     Register_BiosHandoff @ 0x1C0013F1C (Register_BiosHandoff.c)
- *     XilRegister_WriteUlong64 @ 0x1C0014420 (XilRegister_WriteUlong64.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     Register_BiosHandoff @ 0x1C0013F74 (Register_BiosHandoff.c)
+ *     XilRegister_WriteUlong64 @ 0x1C00142E0 (XilRegister_WriteUlong64.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     memmove @ 0x1C0019A00 (memmove.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0050250 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     memmove @ 0x1C001B000 (memmove.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall Register_WriteSecureMmio(__int64 a1, __int64 a2, int a3, const void *a4)
@@ -46,7 +46,7 @@ __int64 __fastcall Register_WriteSecureMmio(__int64 a1, __int64 a2, int a3, cons
     v9 = 1LL;
   }
   memset(v13, 0, sizeof(v13));
-  v13[3] = *(_QWORD *)(a1 + 120);
+  v13[3] = *(_QWORD *)(a1 + 128);
   LODWORD(v13[4]) = 11;
   v13[5] = a2;
   LODWORD(v13[6]) = a3;
@@ -63,7 +63,7 @@ __int64 __fastcall Register_WriteSecureMmio(__int64 a1, __int64 a2, int a3, cons
                v11,
                6,
                76,
-               (__int64)&WPP_6d0f545b908f3ff5e03e6416fb6b60c9_Traceguids,
+               (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids,
                v12[0]);
     }
   }

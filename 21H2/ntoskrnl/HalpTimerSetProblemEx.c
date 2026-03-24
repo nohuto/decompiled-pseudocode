@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpTimerSetProblemEx @ 0x14050CEDC
+ * XREFs of HalpTimerSetProblemEx @ 0x1404C041C
  * Callers:
- *     HalpTimerClockInitialize @ 0x140257FB0 (HalpTimerClockInitialize.c)
- *     HalpTimerRestorePerformanceCounter @ 0x1403919F0 (HalpTimerRestorePerformanceCounter.c)
+ *     HalpTimerClockInitialize @ 0x1402CC620 (HalpTimerClockInitialize.c)
+ *     HalpTimerRestorePerformanceCounter @ 0x140386CD8 (HalpTimerRestorePerformanceCounter.c)
  * Callees:
  *     <none>
  */

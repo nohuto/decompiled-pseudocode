@@ -1,23 +1,21 @@
 /*
- * XREFs of ?RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z @ 0x18007C008
+ * XREFs of ?RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z @ 0x18006C910
  * Callers:
- *     ?RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x18007BF7C (-RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
+ *     ?RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x1800271E8 (-RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
+ *     ?UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ @ 0x18006D720 (-UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ.c)
  * Callees:
- *     ?UpdateScenarioLatency@TouchUpdateInfo@InteractionLatencyTelemetry@@QEAAX_K000@Z @ 0x18001AA44 (-UpdateScenarioLatency@TouchUpdateInfo@InteractionLatencyTelemetry@@QEAAX_K000@Z.c)
- *     ?StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z @ 0x1800745D0 (-StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z.c)
- *     ?TraceGlitch@CScheduleStatistics@@CAXIPEBVCFrameInfo@@AEB_K1@Z @ 0x180078B9C (-TraceGlitch@CScheduleStatistics@@CAXIPEBVCFrameInfo@@AEB_K1@Z.c)
- *     ?IncrementFrameCounts@CAnimationTracking@@QEAAX_K0@Z @ 0x180079228 (-IncrementFrameCounts@CAnimationTracking@@QEAAX_K0@Z.c)
- *     ?TelemetryFillFrameInfo@CPartitionVerticalBlankScheduler@@AEAAXPEAUTelFrameInfo@CAnimationTracking@@PEAVCFrameInfo@@@Z @ 0x180079298 (-TelemetryFillFrameInfo@CPartitionVerticalBlankScheduler@@AEAAXPEAUTelFrameInfo@CAnimationTracki.c)
- *     ?CheckAndNotifyAboutLongFrames@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x180079420 (-CheckAndNotifyAboutLongFrames@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
- *     ?ReleaseResponses@CFrameInfo@@QEAAXXZ @ 0x18007CB0C (-ReleaseResponses@CFrameInfo@@QEAAXXZ.c)
- *     ?InternalQueryInterface@?$CMILCOMBaseT@UIUnknown@@@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800B3118 (-InternalQueryInterface@-$CMILCOMBaseT@UIUnknown@@@@IEAAJAEBU_GUID@@PEAPEAX@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ?RecordRenderGlitch@CTelemetryTouchLatencyAnalysis@InteractionLatencyTelemetry@@QEAAX_KI@Z @ 0x1800D7FFC (-RecordRenderGlitch@CTelemetryTouchLatencyAnalysis@InteractionLatencyTelemetry@@QEAAX_KI@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0xqxxqq_EventWriteTransfer @ 0x1801123E4 (McTemplateU0xqxxqq_EventWriteTransfer.c)
- *     ??$_Emplace_reallocate@PEAVIVailRenderTarget@@@?$vector@PEAVIVailRenderTarget@@V?$allocator@PEAVIVailRenderTarget@@@std@@@std@@QEAAPEAPEAVIVailRenderTarget@@QEAPEAV2@$$QEAPEAV2@@Z @ 0x18019A184 (--$_Emplace_reallocate@PEAVIVailRenderTarget@@@-$vector@PEAVIVailRenderTarget@@V-$allocator@PEAV.c)
- *     ?OnRenderTargetRetirement@CTelemetryTouchLatencyAnalysis@InteractionLatencyTelemetry@@QEAAJPEAVIVailRenderTarget@@_K@Z @ 0x1801D5648 (-OnRenderTargetRetirement@CTelemetryTouchLatencyAnalysis@InteractionLatencyTelemetry@@QEAAJPEAVI.c)
+ *     ?UnreferenceScenario@CTelemetryTouchLatencyAnalysis@@AEAAX_K0@Z @ 0x180023058 (-UnreferenceScenario@CTelemetryTouchLatencyAnalysis@@AEAAX_K0@Z.c)
+ *     ?AnalyzeLatencyInformation@CTelemetryTouchLatencyAnalysis@@AEAAX_K0000000III0AEBUVAIL_TELEMETRY_TOUCH_INFO@1@@Z @ 0x1800230E8 (-AnalyzeLatencyInformation@CTelemetryTouchLatencyAnalysis@@AEAAX_K0000000III0AEBUVAIL_TELEMETRY_.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CheckAndNotifyAboutLongFrames@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18006C690 (-CheckAndNotifyAboutLongFrames@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?TelemetryFillFrameInfo@CPartitionVerticalBlankScheduler@@AEAAXPEAUTelFrameInfo@CAnimationTracking@@PEAVCFrameInfo@@@Z @ 0x18006EB4C (-TelemetryFillFrameInfo@CPartitionVerticalBlankScheduler@@AEAAXPEAUTelFrameInfo@CAnimationTracki.c)
+ *     ?StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z @ 0x1800B0708 (-StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800C0048 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ?RecordRenderGlitch@CTelemetryTouchLatencyAnalysis@@QEAAX_KI@Z @ 0x1800CE51C (-RecordRenderGlitch@CTelemetryTouchLatencyAnalysis@@QEAAX_KI@Z.c)
+ *     ?TraceGlitch@CScheduleStatistics@@CAXIPEBVCFrameInfo@@AEB_K1@Z @ 0x1800D1458 (-TraceGlitch@CScheduleStatistics@@CAXIPEBVCFrameInfo@@AEB_K1@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0xqxxqq_EventWriteTransfer @ 0x1801543E0 (McTemplateU0xqxxqq_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CPartitionVerticalBlankScheduler::RetireFrame(
@@ -27,256 +25,317 @@ __int64 __fastcall CPartitionVerticalBlankScheduler::RetireFrame(
         bool *a4,
         bool a5)
 {
-  bool *v5; // rsi
-  int v6; // r15d
-  struct CFrameInfo *v7; // rbx
-  __int64 v9; // rcx
-  unsigned __int64 v10; // r8
-  int v11; // r9d
-  unsigned __int64 v12; // r14
-  unsigned __int64 v13; // rax
-  __int64 v14; // rax
-  char *v15; // r8
-  __int64 v16; // rcx
-  unsigned __int64 v17; // rdx
-  unsigned int v18; // esi
-  unsigned int v19; // ecx
-  int v20; // eax
-  unsigned int v21; // eax
-  unsigned int v22; // esi
-  unsigned int v23; // r8d
-  unsigned __int64 v24; // r9
+  char v5; // r15
+  unsigned int v9; // esi
+  __int64 v10; // rcx
+  int v11; // edx
+  char v12; // al
+  unsigned __int64 v13; // rcx
+  int v14; // ecx
+  unsigned __int64 v15; // r14
+  unsigned __int64 v16; // rax
+  __int64 v17; // rax
+  char *v18; // rdx
+  __int64 v19; // rcx
+  unsigned __int64 v20; // r9
+  unsigned int v21; // r8d
+  unsigned int v22; // ecx
+  unsigned int i; // r8d
+  unsigned int v24; // esi
   __int64 v25; // rax
-  struct IVailRenderTarget **v26; // rsi
-  struct IVailRenderTarget **v27; // r14
-  __int64 v28; // rcx
-  __int64 *v29; // r12
-  __int64 *i; // r15
-  __int64 v31; // r12
-  struct IVailRenderTarget **j; // r15
-  unsigned int v33; // esi
-  __int64 v34; // rax
-  unsigned int v35; // esi
-  __int64 v37; // rcx
-  unsigned __int64 v38; // rax
-  __int64 v39; // rdx
-  unsigned int v40; // eax
-  __int64 v41; // rcx
-  __int64 v43; // [rsp+48h] [rbp-29h] BYREF
-  unsigned __int64 v44; // [rsp+50h] [rbp-21h] BYREF
-  unsigned __int64 QuadPart; // [rsp+58h] [rbp-19h] BYREF
-  __int64 v46; // [rsp+60h] [rbp-11h] BYREF
-  bool *v47; // [rsp+68h] [rbp-9h]
-  __int128 v48; // [rsp+70h] [rbp-1h] BYREF
-  struct IVailRenderTarget **v49; // [rsp+80h] [rbp+Fh]
+  unsigned int v26; // esi
+  __int64 v27; // rdx
+  int v28; // eax
+  __int64 v29; // rcx
+  unsigned int v30; // r14d
+  unsigned int j; // edi
+  __int64 v33; // rdx
+  unsigned __int64 v34; // rax
+  unsigned __int64 v35; // rcx
+  unsigned __int64 v36; // rax
+  int v37; // eax
+  unsigned int v38; // eax
+  unsigned int v39; // r9d
+  unsigned __int64 v40; // r10
+  __int64 v41; // rdx
+  unsigned int v42; // eax
+  unsigned __int64 v43; // r15
+  __int64 v44; // r14
+  CTelemetryTouchLatencyAnalysis *v45; // rcx
+  _QWORD *v46; // rdx
+  signed int LastError; // eax
+  __int64 v48; // rcx
+  unsigned __int64 v50; // [rsp+78h] [rbp-39h] BYREF
+  unsigned __int64 QuadPart; // [rsp+80h] [rbp-31h] BYREF
+  int v52; // [rsp+88h] [rbp-29h] BYREF
+  int v53; // [rsp+8Ch] [rbp-25h]
+  int v54; // [rsp+90h] [rbp-21h]
+  __int64 v55; // [rsp+98h] [rbp-19h]
+  __int64 v56; // [rsp+A0h] [rbp-11h]
+  char v57[8]; // [rsp+A8h] [rbp-9h] BYREF
+  unsigned __int64 v58; // [rsp+B0h] [rbp-1h]
 
-  v47 = a4;
+  v5 = 0;
   *a4 = 0;
-  v5 = a4;
-  v6 = a3;
-  v7 = a2;
-  if ( !*((_BYTE *)a2 + 153) )
-    goto LABEL_37;
-  if ( !*((_BYTE *)a2 + 158) )
+  v9 = 0;
+  if ( !*((_BYTE *)a2 + 137) )
+    goto LABEL_29;
+  if ( !*((_BYTE *)a2 + 142) )
   {
-    v9 = *((_QWORD *)this + 564);
-    if ( *(_QWORD *)(v9 + 64) - *((_QWORD *)a2 + 9) > g_qpcFrequency.QuadPart )
+    v10 = *((_QWORD *)this + 629);
+    if ( *(_QWORD *)(v10 + 64) - *((_QWORD *)a2 + 9) > g_qpcFrequency.QuadPart )
     {
-      LOBYTE(a2) = 1;
+      v11 = 1;
     }
     else
     {
-      LOBYTE(a2) = 0;
-      if ( *((_DWORD *)v7 + 8) > *(_DWORD *)(v9 + 104) )
-      {
-        *((_BYTE *)v7 + 158) = 0;
-        goto LABEL_45;
-      }
+      v11 = 0;
+      v12 = 0;
+      if ( *((_DWORD *)a2 + 8) > *(_DWORD *)(v10 + 104) )
+        goto LABEL_6;
     }
-    *((_BYTE *)v7 + 158) = 1;
-    v10 = *(_QWORD *)(*((_QWORD *)this + 564) + 112LL);
-    if ( v10 <= *((_QWORD *)v7 + 10) + 1LL )
-      v10 = *((_QWORD *)v7 + 10) + 1LL;
-    *((_QWORD *)v7 + 12) = v10;
-    v11 = *(_DWORD *)(*((_QWORD *)this + 564) + 108LL);
-    *((_DWORD *)v7 + 13) = v11;
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+    v12 = 1;
+LABEL_6:
+    *((_BYTE *)a2 + 142) = v12;
+    if ( v12 )
     {
-      McTemplateU0xqxxqq_EventWriteTransfer(
-        *(unsigned __int8 *)(*((_QWORD *)this + 564) + 240LL),
-        (_DWORD)a2,
-        *(_QWORD *)v7,
-        v11,
-        v11,
-        v10,
-        (char)a2,
-        *(_BYTE *)(*((_QWORD *)this + 564) + 240LL));
-      if ( !*((_BYTE *)v7 + 158) )
-      {
-LABEL_45:
-        if ( !a5 )
-          goto LABEL_37;
-      }
+      v13 = *(_QWORD *)(*((_QWORD *)this + 629) + 112LL);
+      if ( v13 <= *((_QWORD *)a2 + 10) + 1LL )
+        v13 = *((_QWORD *)a2 + 10) + 1LL;
+      *((_QWORD *)a2 + 12) = v13;
+      v14 = *(_DWORD *)(*((_QWORD *)this + 629) + 108LL);
+      *((_DWORD *)a2 + 13) = v14;
+      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+        McTemplateU0xqxxqq_EventWriteTransfer(
+          v14,
+          v11,
+          *(_QWORD *)a2,
+          (_DWORD)a4,
+          v14,
+          *((_QWORD *)a2 + 12),
+          v11,
+          *((_DWORD *)this + 2795) != 0);
     }
   }
-  v12 = *((_QWORD *)v7 + 12);
-  v13 = *((_QWORD *)v7 + 10) + 1LL;
-  *((_BYTE *)v7 + 158) = 1;
-  *((_BYTE *)v7 + 154) = 1;
-  if ( v12 <= v13 )
-    v12 = v13;
-  *((_QWORD *)v7 + 11) = v12;
-  if ( *(_QWORD *)v7 )
+  if ( *((_BYTE *)a2 + 142) || a5 )
   {
-    v14 = *((unsigned int *)this + 1127);
-    v15 = 0LL;
-    if ( (_DWORD)v14 != -1 )
-      v15 = (char *)this + 272 * v14 + 144;
-    v16 = *((_QWORD *)this + 564);
-    v17 = *(_QWORD *)v7;
-    v44 = *(_QWORD *)(v16 + 256);
-    QuadPart = g_qpcFrequency.QuadPart;
-    if ( *((_BYTE *)v7 + 156) )
+    v15 = *((_QWORD *)a2 + 12);
+    v16 = *((_QWORD *)a2 + 10) + 1LL;
+    *((_BYTE *)a2 + 138) = 1;
+    if ( v15 <= v16 )
+      v15 = v16;
+    *((_QWORD *)a2 + 11) = v15;
+    --*((_DWORD *)this + 2794);
+    if ( *(_QWORD *)a2 )
     {
-      if ( *(_BYTE *)(v16 + 156) )
+      v17 = *((unsigned int *)this + 1257);
+      v18 = 0LL;
+      if ( (_DWORD)v17 != -1 )
+        v18 = (char *)this + 304 * v17 + 152;
+      v19 = *((_QWORD *)this + 629);
+      v20 = *(_QWORD *)a2;
+      v50 = *(_QWORD *)(v19 + 288);
+      QuadPart = g_qpcFrequency.QuadPart;
+      if ( *((_BYTE *)a2 + 140) && *(_BYTE *)(v19 + 140) )
       {
-        v18 = *((_DWORD *)v7 + 13);
-        v19 = *((_DWORD *)v7 + 12);
-        if ( v18 > v19 )
+        v21 = *((_DWORD *)a2 + 13);
+        v22 = *((_DWORD *)a2 + 12);
+        if ( v21 > v22 )
         {
-          if ( v15 )
+          if ( v18 )
           {
-            v20 = *((_DWORD *)v15 + 13);
-            if ( v20 )
+            v37 = *((_DWORD *)v18 + 13);
+            if ( v37 )
             {
-              v21 = v20 + 1;
-              if ( v19 > v21 )
-                v21 = *((_DWORD *)v7 + 12);
-              v19 = v21;
-              if ( v21 >= v18 )
-                v19 = *((_DWORD *)v7 + 13);
+              v38 = v37 + 1;
+              if ( v22 > v38 )
+                v38 = *((_DWORD *)a2 + 12);
+              v22 = v38;
+              if ( v38 >= v21 )
+                v22 = *((_DWORD *)a2 + 13);
             }
           }
-          v22 = v18 - v19;
+          v9 = v21 - v22;
+          v5 = 1;
           CScheduleStatistics::TraceGlitch(
-            2 - (*(_BYTE *)(*((_QWORD *)g_pComposition + 27) + 577LL) != 0),
-            v7,
+            2 - (*(_BYTE *)(*((_QWORD *)g_pComposition + 11) + 129LL) != 0),
+            a2,
             &QuadPart,
-            &v44);
-          ++dword_1803D3178;
-          if ( byte_1803D32D8 )
-            ++dword_1803D3154;
-          if ( byte_1803D32D9 )
-            ++dword_1803D3150;
-          ++*((_QWORD *)this + 1559);
-          v23 = 0;
-          v24 = *(_QWORD *)v7;
-          if ( *((_DWORD *)this + 1222) )
+            &v50);
+          v20 = *(_QWORD *)a2;
+        }
+        if ( v5 )
+        {
+          ++dword_1803472C8;
+          if ( byte_180347410 )
+            ++dword_1803472A4;
+          if ( byte_180347411 )
+            ++dword_1803472A0;
+          ++*((_QWORD *)this + 1398);
+          v39 = 0;
+          v40 = *(_QWORD *)a2;
+          if ( *((_DWORD *)this + 1350) )
           {
             do
             {
-              v39 = *(_QWORD *)(*((_QWORD *)this + 608) + 8LL * v23);
-              if ( *(_QWORD *)(v39 + 56) && v24 > *(_QWORD *)(v39 + 56) )
+              v41 = *(_QWORD *)(*((_QWORD *)this + 672) + 8LL * v39);
+              if ( *(_QWORD *)(v41 + 56) && v40 > *(_QWORD *)(v41 + 56) )
               {
-                v40 = *(_DWORD *)(v39 + 36);
-                ++*(_DWORD *)(v39 + 40);
-                *(_DWORD *)(v39 + 32) += v22;
-                if ( v40 <= v22 )
-                  v40 = v22;
-                *(_DWORD *)(v39 + 36) = v40;
+                v42 = *(_DWORD *)(v41 + 36);
+                ++*(_DWORD *)(v41 + 40);
+                *(_DWORD *)(v41 + 32) += v9;
+                if ( v42 <= v9 )
+                  v42 = v9;
+                *(_DWORD *)(v41 + 36) = v42;
               }
-              ++v23;
+              ++v39;
             }
-            while ( v23 < *((_DWORD *)this + 1222) );
-            v24 = *(_QWORD *)v7;
+            while ( v39 < *((_DWORD *)this + 1350) );
+            v40 = *(_QWORD *)a2;
           }
-          InteractionLatencyTelemetry::CTelemetryTouchLatencyAnalysis::RecordRenderGlitch(
-            (CPartitionVerticalBlankScheduler *)((char *)this + 5440),
-            v24,
-            v22);
-          v17 = *(_QWORD *)v7;
+          CTelemetryTouchLatencyAnalysis::RecordRenderGlitch(
+            (CPartitionVerticalBlankScheduler *)((char *)this + 5952),
+            v40,
+            v9);
+          v20 = *(_QWORD *)a2;
+        }
+      }
+      for ( i = 0; i < *((_DWORD *)this + 1350); ++i )
+      {
+        v33 = *(_QWORD *)(*((_QWORD *)this + 672) + 8LL * i);
+        if ( *(_QWORD *)(v33 + 56) && v20 >= *(_QWORD *)(v33 + 56) )
+        {
+          ++*(_DWORD *)(v33 + 72);
+          if ( *(_QWORD *)(v33 + 88) )
+          {
+            v34 = *(_QWORD *)(v33 + 96);
+            v35 = v15 - *(_QWORD *)(v33 + 88);
+            *(_QWORD *)(v33 + 80) += v35;
+            if ( v34 <= v35 )
+              v34 = v35;
+            *(_QWORD *)(v33 + 96) = v34;
+          }
+          else
+          {
+            *(_QWORD *)(v33 + 104) = v15;
+          }
+          *(_QWORD *)(v33 + 88) = v15;
         }
       }
     }
-    CAnimationTracking::IncrementFrameCounts((CPartitionVerticalBlankScheduler *)((char *)this + 4864), v17, v12);
-    v25 = *((_QWORD *)this + 8);
-    v48 = 0LL;
-    v26 = 0LL;
-    v27 = 0LL;
-    v49 = 0LL;
-    v28 = *(_QWORD *)(v25 + 216);
-    v29 = *(__int64 **)(v28 + 16);
-    for ( i = *(__int64 **)(v28 + 8); i != v29; ++i )
+    v24 = 0;
+    v25 = _InterlockedExchange64(&qword_180347418, 0LL);
+    dword_18034728C += v25;
+    dword_180347290 += HIDWORD(v25);
+    if ( *((_DWORD *)a2 + 50) )
     {
-      v37 = *i;
-      v43 = 0LL;
-      if ( (int)CMILCOMBaseT<IUnknown>::InternalQueryInterface(v37, &GUID_813c29c9_c423_4bba_a41c_de7fd4c7b061, &v43) >= 0 )
+      do
       {
-        v46 = v43;
-        if ( v26 == v27 )
+        v43 = *(_QWORD *)a2;
+        v44 = *(_QWORD *)(*((_QWORD *)a2 + 22) + 8LL * v24);
+        v45 = *(CTelemetryTouchLatencyAnalysis **)(v44 + 80);
+        if ( v45 )
         {
-          std::vector<IVailRenderTarget *>::_Emplace_reallocate<IVailRenderTarget *>(&v48, v26, &v46);
-          v27 = v49;
-          v26 = (struct IVailRenderTarget **)*((_QWORD *)&v48 + 1);
+          CTelemetryTouchLatencyAnalysis::AnalyzeLatencyInformation(
+            v45,
+            *(_QWORD *)v44,
+            *(_QWORD *)(v44 + 8),
+            *(_QWORD *)(v44 + 16),
+            *(_QWORD *)(v44 + 24),
+            *(_QWORD *)(v44 + 32),
+            *((_QWORD *)a2 + 10),
+            *((_QWORD *)a2 + 12),
+            *(_QWORD *)((char *)this + 5068),
+            *(_DWORD *)(v44 + 64),
+            *(_DWORD *)(v44 + 68),
+            *(_DWORD *)(v44 + 72),
+            v43,
+            (const struct CTelemetryTouchLatencyAnalysis::VAIL_TELEMETRY_TOUCH_INFO *)(v44 + 40));
+          CTelemetryTouchLatencyAnalysis::UnreferenceScenario(
+            *(CTelemetryTouchLatencyAnalysis **)(v44 + 80),
+            *(_QWORD *)v44,
+            v43);
+          *(_QWORD *)(v44 + 80) = 0LL;
         }
-        else
+        ++v24;
+      }
+      while ( v24 < *((_DWORD *)a2 + 50) );
+    }
+    CPartitionVerticalBlankScheduler::TelemetryFillFrameInfo(this, (struct CAnimationTracking::TelFrameInfo *)v57, a2);
+    v26 = 0;
+    while ( v26 < *((_DWORD *)this + 1350) )
+    {
+      v36 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 672) + 8LL * v26) + 64LL);
+      if ( v36 && v58 >= v36 )
+        CAnimationTracking::StopAnalyzingAnimationScenario(
+          (CPartitionVerticalBlankScheduler *)((char *)this + 5376),
+          v26,
+          (const struct CAnimationTracking::TelFrameInfo *)v57);
+      else
+        ++v26;
+    }
+    v9 = 0;
+    v27 = *((_QWORD *)a2 + 3);
+    if ( a5 )
+    {
+      if ( v27 )
+        (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 6) + 40LL))(*((_QWORD *)this + 6));
+    }
+    else
+    {
+      v52 = *((_DWORD *)a2 + 8);
+      v53 = *((_DWORD *)a2 + 13);
+      v54 = v53;
+      v55 = *((_QWORD *)a2 + 12);
+      v56 = 0LL;
+      if ( v27 )
+      {
+        v28 = (*(__int64 (__fastcall **)(_QWORD, __int64, int *))(**((_QWORD **)this + 6) + 32LL))(
+                *((_QWORD *)this + 6),
+                v27,
+                &v52);
+        v9 = v28;
+        if ( v28 < 0 )
         {
-          *v26++ = (struct IVailRenderTarget *)v43;
-          *((_QWORD *)&v48 + 1) = v26;
+          MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v28, 0x6CAu, 0LL);
+          return v9;
         }
       }
-      if ( v43 )
+      v30 = 0;
+      if ( *((_DWORD *)a2 + 42) )
       {
-        v41 = *(int *)(*(_QWORD *)(v43 + 8) + 4LL) + v43 + 8;
-        (*(void (__fastcall **)(__int64))(*(_QWORD *)v41 + 16LL))(v41);
+        while ( 1 )
+        {
+          SetLastError(0);
+          v46 = *(_QWORD **)(*((_QWORD *)a2 + 18) + 8LL * v30);
+          if ( !(unsigned int)DwmHLsurfSetUpdatedId(*v46, v46 + 1) )
+            break;
+          if ( ++v30 >= *((_DWORD *)a2 + 42) )
+            goto LABEL_28;
+        }
+        LastError = GetLastError();
+        if ( LastError > 0 )
+          LastError = (unsigned __int16)LastError | 0x80070000;
+        if ( LastError >= 0 )
+          LastError = -2003304445;
+        MilInstrumentationCheckHR_MaybeFailFast(2291662851LL, 0LL, 0, LastError, 0x5Fu, 0LL);
       }
     }
-    v31 = v48;
-    for ( j = (struct IVailRenderTarget **)v48; j != v26; ++j )
-      InteractionLatencyTelemetry::CTelemetryTouchLatencyAnalysis::OnRenderTargetRetirement(
-        (CPartitionVerticalBlankScheduler *)((char *)this + 5440),
-        *j,
-        *(_QWORD *)v7);
-    if ( v31 )
-      std::_Deallocate<16,0>(v31, ((unsigned __int64)v27 - v31) & 0xFFFFFFFFFFFFFFF8uLL);
-    v6 = a3;
+LABEL_28:
+    *((_DWORD *)this + 1257) = a3;
+    CPartitionVerticalBlankScheduler::CheckAndNotifyAboutLongFrames(this);
   }
-  v33 = 0;
-  v34 = _InterlockedExchange64(&qword_1803D3AF8, 0LL);
-  dword_1803D313C += v34;
-  dword_1803D3140 += HIDWORD(v34);
-  if ( *((_DWORD *)v7 + 46) )
+LABEL_29:
+  if ( *((_BYTE *)a2 + 138) || !*((_BYTE *)a2 + 137) )
   {
-    do
-      InteractionLatencyTelemetry::TouchUpdateInfo::UpdateScenarioLatency(
-        *(InteractionLatencyTelemetry::TouchUpdateInfo **)(*((_QWORD *)v7 + 20) + 8LL * v33++),
-        *(_QWORD *)((char *)this + 4548),
-        *((_QWORD *)v7 + 10),
-        *((_QWORD *)v7 + 12),
-        *(_QWORD *)v7);
-    while ( v33 < *((_DWORD *)v7 + 46) );
+    for ( j = 0; j < *((_DWORD *)a2 + 58); ++j )
+    {
+      v48 = *(_QWORD *)(*((_QWORD *)a2 + 26) + 8LL * j);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v48 + 32LL))(v48);
+    }
+    *((_DWORD *)a2 + 58) = 0;
+    DynArrayImpl<0>::ShrinkToSize((char *)a2 + 208, 8LL);
+    *a4 = 1;
   }
-  CPartitionVerticalBlankScheduler::TelemetryFillFrameInfo(this, (struct CAnimationTracking::TelFrameInfo *)&v48, v7);
-  v35 = 0;
-  while ( v35 < *((_DWORD *)this + 1222) )
-  {
-    v38 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 608) + 8LL * v35) + 64LL);
-    if ( v38 && *((_QWORD *)&v48 + 1) >= v38 )
-      CAnimationTracking::StopAnalyzingAnimationScenario(
-        (CPartitionVerticalBlankScheduler *)((char *)this + 4864),
-        v35,
-        (const struct CAnimationTracking::TelFrameInfo *)&v48);
-    else
-      ++v35;
-  }
-  *((_DWORD *)this + 1127) = v6;
-  CPartitionVerticalBlankScheduler::CheckAndNotifyAboutLongFrames(this);
-  v5 = v47;
-LABEL_37:
-  if ( *((_BYTE *)v7 + 154) || !*((_BYTE *)v7 + 153) )
-  {
-    CFrameInfo::ReleaseResponses(v7);
-    *v5 = 1;
-  }
-  return 0LL;
+  return v9;
 }

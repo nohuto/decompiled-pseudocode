@@ -2,20 +2,20 @@
  * XREFs of MiInsertUnusedSegment @ 0x14007B5A0
  * Callers:
  *     MiCheckControlArea @ 0x1400764A0 (MiCheckControlArea.c)
- *     MiCleanSection @ 0x14016971C (MiCleanSection.c)
- *     MiDeleteCachedSegment @ 0x1402A1764 (MiDeleteCachedSegment.c)
- *     MiDeleteCachedSubsection @ 0x1402A1918 (MiDeleteCachedSubsection.c)
- *     MiFlushControlArea @ 0x1402A217C (MiFlushControlArea.c)
- *     MiMakeUnusedSegmentDeleteOnClose @ 0x1402A26C0 (MiMakeUnusedSegmentDeleteOnClose.c)
- *     MiProcessDeleteOnClose @ 0x1402A2880 (MiProcessDeleteOnClose.c)
- *     MiSetDeleteOnClose @ 0x1402A320C (MiSetDeleteOnClose.c)
+ *     MiCleanSection @ 0x14016973C (MiCleanSection.c)
+ *     MiDeleteCachedSegment @ 0x1402A1864 (MiDeleteCachedSegment.c)
+ *     MiDeleteCachedSubsection @ 0x1402A1A18 (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x1402A227C (MiFlushControlArea.c)
+ *     MiMakeUnusedSegmentDeleteOnClose @ 0x1402A27C0 (MiMakeUnusedSegmentDeleteOnClose.c)
+ *     MiProcessDeleteOnClose @ 0x1402A2980 (MiProcessDeleteOnClose.c)
+ *     MiSetDeleteOnClose @ 0x1402A330C (MiSetDeleteOnClose.c)
  * Callees:
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
  *     MiReleaseControlAreaCharges @ 0x140079C68 (MiReleaseControlAreaCharges.c)
  *     MiComputePagedPoolSegmentBytes @ 0x14007B69C (MiComputePagedPoolSegmentBytes.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  *     MiConvertStaticSubsections @ 0x14007BCD4 (MiConvertStaticSubsections.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 __int64 __fastcall MiInsertUnusedSegment(__int64 a1)

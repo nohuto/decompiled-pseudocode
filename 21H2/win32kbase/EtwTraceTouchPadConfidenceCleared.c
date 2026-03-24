@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceTouchPadConfidenceCleared @ 0x1C014E8A0
+ * XREFs of EtwTraceTouchPadConfidenceCleared @ 0x1C0123C60
  * Callers:
- *     ApiSetEtwTraceTouchPadConfidenceCleared @ 0x1C020CC44 (ApiSetEtwTraceTouchPadConfidenceCleared.c)
+ *     ApiSetEtwTraceTouchPadConfidenceCleared @ 0x1C01CEBF0 (ApiSetEtwTraceTouchPadConfidenceCleared.c)
  * Callees:
- *     McTemplateK0qtt_EtwWriteTransfer @ 0x1C0151740 (McTemplateK0qtt_EtwWriteTransfer.c)
+ *     McTemplateK0qtt_EtwWriteTransfer @ 0x1C0127138 (McTemplateK0qtt_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceTouchPadConfidenceCleared(int a1, int a2, int a3)

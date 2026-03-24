@@ -1,5 +1,5 @@
 /*
- * XREFs of ??0WarpTextureState@@QEAA@XZ @ 0x180106D20
+ * XREFs of ??0WarpTextureState@@QEAA@XZ @ 0x1800E2600
  * Callers:
  *     <none>
  * Callees:

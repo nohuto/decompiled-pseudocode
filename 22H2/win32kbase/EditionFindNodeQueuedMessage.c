@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionFindNodeQueuedMessage @ 0x1C0232A48
+ * XREFs of EditionFindNodeQueuedMessage @ 0x1C01FBD20
  * Callers:
- *     ApiSetEditionFindNodeQueuedMessage @ 0x1C020609C (ApiSetEditionFindNodeQueuedMessage.c)
+ *     ApiSetEditionFindNodeQueuedMessage @ 0x1C01CB558 (ApiSetEditionFindNodeQueuedMessage.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (__fastcall *__fastcall EditionFindNodeQueuedMessage(_OWORD *a1, __int64 a2))(_QWORD, _QWORD, _QWORD)
@@ -16,8 +16,8 @@ __int64 (__fastcall *__fastcall EditionFindNodeQueuedMessage(_OWORD *a1, __int64
   __int128 v7; // xmm1
   _OWORD v8[7]; // [rsp+30h] [rbp-78h] BYREF
 
-  result = qword_1C0296AC8;
-  if ( qword_1C0296AC8 )
+  result = qword_1C0257800;
+  if ( qword_1C0257800 )
   {
     v3 = a1[1];
     v8[0] = *a1;
@@ -31,7 +31,7 @@ __int64 (__fastcall *__fastcall EditionFindNodeQueuedMessage(_OWORD *a1, __int64
     v7 = a1[5];
     v8[6] = v6;
     v8[5] = v7;
-    return (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_1C0296AC8(v8, a2, 1LL);
+    return (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_1C0257800(v8, a2, 1LL);
   }
   return result;
 }

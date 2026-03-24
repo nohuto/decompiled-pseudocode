@@ -1,14 +1,14 @@
 /*
- * XREFs of IoAttachDevice @ 0x140935E60
+ * XREFs of IoAttachDevice @ 0x140893520
  * Callers:
- *     DifIoAttachDeviceWrapper @ 0x14060CF40 (DifIoAttachDeviceWrapper.c)
+ *     <none>
  * Callees:
- *     IoAttachDeviceToDeviceStackSafe @ 0x14024FBE0 (IoAttachDeviceToDeviceStackSafe.c)
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     IoAttachDeviceToDeviceStackSafe @ 0x1402832D0 (IoAttachDeviceToDeviceStackSafe.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall IoAttachDevice(
@@ -24,11 +24,12 @@ NTSTATUS __stdcall IoAttachDevice(
   HANDLE FileHandle; // [rsp+98h] [rbp+28h] BYREF
   PVOID Object; // [rsp+A8h] [rbp+38h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   FileHandle = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ObjectAttributes.ObjectName = TargetDevice;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = IopCaseInsensitive != 0 ? 576 : 512;
   IoStatusBlock = 0LL;
   result = ZwOpenFile(&FileHandle, 0x80u, &ObjectAttributes, &IoStatusBlock, 0, 0x80000040);
@@ -45,7 +46,7 @@ NTSTATUS __stdcall IoAttachDevice(
       RelatedDeviceObject = IoGetRelatedDeviceObject((PFILE_OBJECT)Object);
       ZwClose(FileHandle);
       v6 = IoAttachDeviceToDeviceStackSafe(SourceDevice, RelatedDeviceObject, AttachedDevice);
-      ObfDereferenceObject(Object);
+      HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     }
     return v6;
   }

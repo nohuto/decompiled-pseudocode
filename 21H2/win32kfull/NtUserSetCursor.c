@@ -1,10 +1,10 @@
 /*
- * XREFs of NtUserSetCursor @ 0x1C00232B0
+ * XREFs of NtUserSetCursor @ 0x1C0048730
  * Callers:
  *     <none>
  * Callees:
- *     ?zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0023BF4 (-zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
- *     HMValidateHandle @ 0x1C0024F44 (HMValidateHandle.c)
+ *     ?zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C004B658 (-zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     HMValidateHandle @ 0x1C00670E0 (HMValidateHandle.c)
  */
 
 __int64 __fastcall NtUserSetCursor(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall NtUserSetCursor(__int64 a1)
   __int64 v5; // rcx
   struct tagCURSOR *v6; // rax
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v3 = 0LL;
   if ( a1 )
   {

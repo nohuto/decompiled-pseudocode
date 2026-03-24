@@ -1,13 +1,12 @@
 /*
- * XREFs of CcUpdateTimeOnLogHandles @ 0x1403583D0
+ * XREFs of CcUpdateTimeOnLogHandles @ 0x14031AC1C
  * Callers:
- *     CcLazyWriteScanVolume @ 0x14029A4E0 (CcLazyWriteScanVolume.c)
- *     CcLazyWriteScan @ 0x14053601C (CcLazyWriteScan.c)
+ *     CcLazyWriteScan @ 0x140275F14 (CcLazyWriteScan.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CAB0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall CcUpdateTimeOnLogHandles(__int64 a1)
@@ -20,44 +19,47 @@ __int64 __fastcall CcUpdateTimeOnLogHandles(__int64 a1)
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v9; // zf
-  struct _KLOCK_QUEUE_HANDLE v10; // [rsp+20h] [rbp-38h] BYREF
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+38h] [rbp-20h] BYREF
+  struct _KLOCK_QUEUE_HANDLE v10; // [rsp+20h] [rbp-30h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+38h] [rbp-18h] BYREF
 
-  memset(&v10, 0, sizeof(v10));
   memset(&LockHandle, 0, sizeof(LockHandle));
+  memset(&v10, 0, sizeof(v10));
   v2 = MEMORY[0xFFFFF78000000320];
-  KeAcquireInStackQueuedSpinLock(&CcMasterLock, &v10);
+  KeAcquireInStackQueuedSpinLock(&CcMasterLock, &LockHandle);
   for ( i = CcVolumeCacheMapList; (__int64 *)i != &CcVolumeCacheMapList; i = *(_QWORD *)i )
   {
     if ( (*(_DWORD *)(i + 168) & 1) != 0 )
     {
-      KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(a1 + 768), &LockHandle);
+      v10.LockQueue.Next = 0LL;
+      v10.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 128);
+      KxAcquireQueuedSpinLock((__int64)&v10, (volatile __int64 *)(a1 + 128));
       v4 = *(_DWORD *)(i + 168);
       if ( (v4 & 1) != 0 )
       {
         *(_QWORD *)(i + 160) = v2;
         *(_DWORD *)(i + 168) = v4 & 0xFFFFFFFE;
       }
-      KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&v10);
     }
   }
-  result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v10);
-  OldIrql = v10.OldIrql;
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  result = (unsigned int)KiIrqlFlags;
+  OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && v10.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (v10.OldIrql + 1));
-      v9 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v9 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v9 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v9 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);

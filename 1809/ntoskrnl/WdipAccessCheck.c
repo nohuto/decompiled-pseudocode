@@ -1,7 +1,7 @@
 /*
- * XREFs of WdipAccessCheck @ 0x14030DC54
+ * XREFs of WdipAccessCheck @ 0x14030DD54
  * Callers:
- *     WdiUpdateSem @ 0x14030DC34 (WdiUpdateSem.c)
+ *     WdiUpdateSem @ 0x14030DD34 (WdiUpdateSem.c)
  * Callees:
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
@@ -11,9 +11,9 @@
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x1406555A0 (RtlAddAccessAllowedAce.c)
- *     RtlInitializeSid @ 0x140655690 (RtlInitializeSid.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     RtlAddAccessAllowedAce @ 0x140655580 (RtlAddAccessAllowedAce.c)
+ *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
  */
 
 __int64 WdipAccessCheck()

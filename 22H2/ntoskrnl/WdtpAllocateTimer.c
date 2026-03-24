@@ -1,36 +1,38 @@
 /*
- * XREFs of WdtpAllocateTimer @ 0x140786620
+ * XREFs of WdtpAllocateTimer @ 0x1406F04B0
  * Callers:
- *     PnpWatchdogTimerAllocate @ 0x140786588 (PnpWatchdogTimerAllocate.c)
+ *     PnpWatchdogTimerAllocate @ 0x1406F0420 (PnpWatchdogTimerAllocate.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     ExAllocateTimer @ 0x14031E180 (ExAllocateTimer.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     ExAllocateTimer @ 0x140349420 (ExAllocateTimer.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-struct _KEVENT *__fastcall WdtpAllocateTimer(__int64 a1)
+char *WdtpAllocateTimer()
 {
-  struct _KEVENT *Pool2; // rax
-  struct _KEVENT *v2; // rbx
+  char *PoolWithTag; // rax
+  char *v1; // rbx
   __int64 Timer; // rax
 
-  Pool2 = (struct _KEVENT *)ExAllocatePool2(64LL, a1 + 141, 1415862096LL);
-  v2 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x80uLL, 0x54645750u);
+  v1 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    Pool2->Header.Type = 119;
-    Timer = ExAllocateTimer((__int64)WdtpTimerCallback, (__int64)Pool2, 0);
-    *(_QWORD *)&v2[2].Header.Lock = Timer;
+    memset(PoolWithTag + 1, 0, 0x7FuLL);
+    *v1 = 119;
+    Timer = ExAllocateTimer((__int64)WdtpTimerCallback, (__int64)v1, 0);
+    *((_QWORD *)v1 + 7) = Timer;
     if ( Timer )
     {
-      KeInitializeEvent(v2 + 4, NotificationEvent, 0);
+      KeInitializeEvent((PRKEVENT)(v1 + 104), NotificationEvent, 0);
     }
     else
     {
-      ExFreePoolWithTag(v2, 0x54645750u);
+      ExFreePoolWithTag(v1, 0x54645750u);
       return 0LL;
     }
   }
-  return v2;
+  return v1;
 }

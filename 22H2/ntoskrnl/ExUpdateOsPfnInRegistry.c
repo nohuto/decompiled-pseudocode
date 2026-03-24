@@ -1,23 +1,22 @@
 /*
- * XREFs of ExUpdateOsPfnInRegistry @ 0x1409F9900
+ * XREFs of ExUpdateOsPfnInRegistry @ 0x14094D440
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 ExUpdateOsPfnInRegistry()
+__int64 __fastcall ExUpdateOsPfnInRegistry(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
-  __int64 v0; // rdx
-  __int64 v1; // rcx
-  unsigned int v2; // r8d
-  __int64 v3; // r9
-  unsigned int v4; // r10d
-  unsigned int v5; // r11d
+  unsigned int v7; // r14d
+  unsigned int v8; // ebx
+  __int64 v9; // rcx
 
-  v1 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 113);
-  if ( qword_140D534F8 )
-    return (unsigned int)qword_140D534F8(v1, v5, v0, v2, v3);
-  return v4;
+  v7 = a1;
+  v8 = -1073741822;
+  v9 = *((_QWORD *)PsGetCurrentServerSiloGlobals(a1, a2) + 113);
+  if ( qword_140D2D4E8 )
+    return (unsigned int)qword_140D2D4E8(v9, v7, a2, a3, a4);
+  return v8;
 }

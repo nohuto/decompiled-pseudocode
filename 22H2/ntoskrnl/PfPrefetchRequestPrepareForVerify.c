@@ -1,7 +1,7 @@
 /*
- * XREFs of PfPrefetchRequestPrepareForVerify @ 0x1406844CC
+ * XREFs of PfPrefetchRequestPrepareForVerify @ 0x14070C518
  * Callers:
- *     PfPrefetchRequestVerify @ 0x1406840C8 (PfPrefetchRequestVerify.c)
+ *     PfPrefetchRequestVerify @ 0x14070C1CC (PfPrefetchRequestVerify.c)
  * Callees:
  *     <none>
  */
@@ -10,21 +10,20 @@ __int64 __fastcall PfPrefetchRequestPrepareForVerify(unsigned int *a1, unsigned 
 {
   unsigned __int64 v3; // r10
   unsigned int v5; // r9d
-  unsigned __int64 v6; // rbx
-  unsigned int v7; // ecx
-  unsigned __int64 v8; // rsi
-  unsigned int v9; // edx
-  unsigned __int64 v10; // rdi
-  unsigned int v11; // ebx
-  unsigned int v12; // ecx
-  unsigned int v13; // edx
-  unsigned int v14; // ecx
-  unsigned int v15; // edx
-  unsigned __int64 v16; // rbx
-  unsigned int v17; // ecx
-  unsigned int v18; // edx
-  unsigned int v19; // ecx
-  unsigned int v21; // edx
+  unsigned __int64 v6; // rdi
+  unsigned int v7; // ebx
+  unsigned int v8; // ecx
+  unsigned __int64 v9; // rdi
+  unsigned int v10; // ebx
+  unsigned int v11; // ecx
+  unsigned int v12; // edx
+  unsigned int v13; // ecx
+  unsigned int v14; // edx
+  unsigned __int64 v15; // rdi
+  unsigned int v16; // ebx
+  unsigned int v17; // edx
+  unsigned int v18; // ecx
+  unsigned int v20; // ecx
 
   v3 = a2;
   *(_OWORD *)a3 = 0LL;
@@ -39,108 +38,108 @@ __int64 __fastcall PfPrefetchRequestPrepareForVerify(unsigned int *a1, unsigned 
   {
     if ( !v7 )
       return 4000LL;
+  }
+  else if ( v7 )
+  {
+    return 4100LL;
+  }
+  if ( v7 )
+  {
     if ( v7 < 0x80 )
       return 4200LL;
-    v8 = a2;
     if ( v6 > a2 / 0x28uLL )
       return 4300LL;
-    v9 = 40 * v6;
-    if ( v7 >= (unsigned int)v3 || v9 >= (unsigned int)v3 || v7 > (unsigned int)v3 - v9 )
+    v8 = 40 * v6;
+    if ( v7 >= a2 || v8 >= a2 || v7 > a2 - v8 )
       return 4400LL;
-    v5 = v7 + v9;
+    v5 = v7 + v8;
     *(_DWORD *)a3 = v7;
-    *(_DWORD *)(a3 + 4) = v7 + v9;
+    *(_DWORD *)(a3 + 4) = v7 + v8;
     *(_DWORD *)(a3 + 8) = a1[2];
   }
-  else
+  v9 = a1[3];
+  v10 = a1[10];
+  if ( (_DWORD)v9 )
   {
-    if ( v7 )
-      return 4100LL;
-    v8 = a2;
-  }
-  v10 = a1[3];
-  v11 = a1[10];
-  if ( (_DWORD)v10 )
-  {
-    if ( !v11 )
+    if ( !v10 )
       return 5000LL;
-    if ( v11 < v5 )
+    if ( v10 < v5 )
       return 5200LL;
-    if ( v10 > v3 / 0x30 )
+    if ( v9 > a2 / 0x30uLL )
       return 5300LL;
-    v12 = 48 * v10;
-    if ( v11 >= (unsigned int)v3 || v12 >= (unsigned int)v3 || v11 > (unsigned int)v3 - v12 )
+    v11 = 48 * v9;
+    if ( v10 >= a2 || v11 >= a2 || v10 > a2 - v11 )
       return 5400LL;
-    v5 = v11 + v12;
-    *(_DWORD *)(a3 + 12) = v11;
-    *(_DWORD *)(a3 + 16) = v11 + v12;
+    v5 = v10 + v11;
+    *(_DWORD *)(a3 + 12) = v10;
+    *(_DWORD *)(a3 + 16) = v10 + v11;
     *(_DWORD *)(a3 + 20) = a1[3];
   }
-  else if ( v11 )
+  else if ( v10 )
   {
     return 5100LL;
   }
-  v13 = a1[4];
-  v14 = a1[12];
-  if ( v13 )
+  v12 = a1[4];
+  v13 = a1[12];
+  if ( v12 )
   {
-    if ( !v14 )
+    if ( !v13 )
       return 6000LL;
-    if ( v14 < v5 )
+    if ( v13 < v5 )
       return 6200LL;
-    if ( v13 > (unsigned int)v3 >> 4 )
+    if ( v12 > (unsigned int)v3 >> 4 )
       return 6300LL;
-    v15 = 16 * v13;
-    if ( v14 >= (unsigned int)v3 || v15 >= (unsigned int)v3 || v14 > (unsigned int)v3 - v15 )
+    v14 = 16 * v12;
+    if ( v13 >= (unsigned int)v3 || v14 >= (unsigned int)v3 || v13 > (unsigned int)v3 - v14 )
       return 6400LL;
-    v5 = v14 + v15;
-    *(_DWORD *)(a3 + 24) = v14;
-    *(_DWORD *)(a3 + 28) = v14 + v15;
+    v5 = v13 + v14;
+    *(_DWORD *)(a3 + 24) = v13;
+    *(_DWORD *)(a3 + 28) = v13 + v14;
     *(_DWORD *)(a3 + 32) = a1[4];
   }
-  else if ( v14 )
+  else if ( v13 )
   {
     return 6100LL;
   }
-  v16 = a1[5];
-  v17 = a1[14];
-  if ( (_DWORD)v16 )
+  v15 = a1[5];
+  v16 = a1[14];
+  if ( (_DWORD)v15 )
   {
-    if ( !v17 )
+    if ( !v16 )
       return 7000LL;
-    if ( v17 < v5 )
+    if ( v16 < v5 )
       return 7200LL;
-    if ( v16 > v8 / 0x28 )
+    if ( v15 > v3 / 0x28 )
       return 7300LL;
-    v21 = 40 * v16;
-    if ( v17 >= (unsigned int)v3 || v21 >= (unsigned int)v3 || v17 > (unsigned int)v3 - v21 )
+    v20 = 40 * v15;
+    if ( v16 >= (unsigned int)v3 || v20 >= (unsigned int)v3 || v16 > (unsigned int)v3 - v20 )
       return 7400LL;
-    v5 = v17 + v21;
-    *(_DWORD *)(a3 + 36) = v17;
-    *(_DWORD *)(a3 + 40) = v17 + v21;
+    v5 = v16 + v20;
+    *(_DWORD *)(a3 + 36) = v16;
+    *(_DWORD *)(a3 + 40) = v16 + v20;
     *(_DWORD *)(a3 + 44) = a1[5];
   }
-  else if ( v17 )
+  else if ( v16 )
   {
     return 7100LL;
   }
-  v18 = a1[6];
-  v19 = a1[16];
-  if ( v18 )
+  v17 = a1[6];
+  v18 = a1[16];
+  if ( v17 )
   {
-    if ( v19 )
+    if ( v18 )
     {
-      if ( v19 < v5 )
+      if ( v18 < v5 )
       {
         return 8200LL;
       }
       else
       {
-        if ( v19 < (unsigned int)v3 && v18 < (unsigned int)v3 && v19 <= (unsigned int)v3 - v18 )
+        if ( v18 < (unsigned int)v3 && v17 < (unsigned int)v3 && v18 <= (unsigned int)v3 - v17 )
         {
-          v5 = v19 + v18;
-          *(_DWORD *)(a3 + 48) = v19;
-          *(_DWORD *)(a3 + 52) = v19 + v18;
+          v5 = v18 + v17;
+          *(_DWORD *)(a3 + 48) = v18;
+          *(_DWORD *)(a3 + 52) = v18 + v17;
           return (_DWORD)v3 != v5 ? 0x2328 : 0;
         }
         return 8300LL;
@@ -153,7 +152,7 @@ __int64 __fastcall PfPrefetchRequestPrepareForVerify(unsigned int *a1, unsigned 
   }
   else
   {
-    if ( !v19 )
+    if ( !v18 )
       return (_DWORD)v3 != v5 ? 0x2328 : 0;
     return 8100LL;
   }

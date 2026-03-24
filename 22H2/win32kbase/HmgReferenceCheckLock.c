@@ -1,18 +1,18 @@
 /*
- * XREFs of HmgReferenceCheckLock @ 0x1C00AFD80
+ * XREFs of HmgReferenceCheckLock @ 0x1C009F880
  * Callers:
  *     <none>
  * Callees:
- *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0044030 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00442B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0031220 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00313F0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
  */
 
-__int64 __fastcall HmgReferenceCheckLock(__int64 a1, char a2)
+__int64 __fastcall HmgReferenceCheckLock(unsigned int a1, char a2)
 {
-  __int16 v3; // edi^2
-  unsigned int v4; // ebp
-  __int64 v5; // rbx
-  __int64 v6; // r14
+  GdiHandleManager *v2; // r14
+  __int16 v4; // edi^2
+  unsigned int v5; // ebp
+  __int64 v6; // rbx
   unsigned int v7; // eax
   __int64 v8; // rsi
   struct _ENTRY *Entry; // rax
@@ -22,18 +22,18 @@ __int64 __fastcall HmgReferenceCheckLock(__int64 a1, char a2)
   unsigned int v13; // ecx
   __int64 v14; // rax
 
-  v3 = WORD1(a1);
-  v4 = (unsigned __int16)a1 | ((unsigned int)a1 >> 8) & 0xFF0000;
-  v5 = 0LL;
-  v6 = *(_QWORD *)(*(_QWORD *)(SGDGetSessionState(a1) + 24) + 8008LL);
-  v7 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)v6, v4);
-  v8 = *(_QWORD *)(v6 + 16);
+  v2 = gpHandleManager;
+  v4 = HIWORD(a1);
+  v5 = (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000;
+  v6 = 0LL;
+  v7 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)gpHandleManager, v5);
+  v8 = *((_QWORD *)v2 + 2);
   Entry = GdiHandleEntryDirectory::GetEntry((GdiHandleEntryDirectory *)v8, v7, 0);
   if ( Entry )
   {
-    if ( *((_BYTE *)Entry + 14) == a2 && *((_WORD *)Entry + 6) == v3 )
+    if ( *((_BYTE *)Entry + 14) == a2 && *((_WORD *)Entry + 6) == v4 )
     {
-      v10 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)v6, v4);
+      v10 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)v2, v5);
       v11 = v10;
       v12 = *(_DWORD *)(v8 + 2056);
       if ( v10 < v12 + ((*(unsigned __int16 *)(v8 + 2) + 0xFFFF) << 16) )
@@ -52,5 +52,5 @@ __int64 __fastcall HmgReferenceCheckLock(__int64 a1, char a2)
       }
     }
   }
-  return v5;
+  return v6;
 }

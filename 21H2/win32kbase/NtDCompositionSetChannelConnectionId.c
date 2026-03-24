@@ -1,10 +1,10 @@
 /*
- * XREFs of NtDCompositionSetChannelConnectionId @ 0x1C00B3850
+ * XREFs of NtDCompositionSetChannelConnectionId @ 0x1C005A4E0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C0010268 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005DB28 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtDCompositionSetChannelConnectionId(unsigned int a1, int a2, __int64 a3)
@@ -12,26 +12,30 @@ __int64 __fastcall NtDCompositionSetChannelConnectionId(unsigned int a1, int a2,
   int v5; // ebx
   struct DirectComposition::CApplicationChannel *v6; // rcx
   __int64 v7; // rdx
-  struct DirectComposition::CApplicationChannel *v9; // [rsp+48h] [rbp+20h] BYREF
+  char v8; // al
+  char v9; // al
+  struct DirectComposition::CApplicationChannel *v11; // [rsp+48h] [rbp+20h] BYREF
 
-  v9 = 0LL;
-  v5 = DirectComposition::CApplicationChannel::ReferenceHandleAndLock(a1, &v9);
+  v11 = 0LL;
+  v5 = DirectComposition::CApplicationChannel::ReferenceHandleAndLock(a1, &v11);
   if ( v5 >= 0 )
   {
-    v6 = v9;
+    v6 = v11;
     v5 = 0;
     v7 = a2 != 0 ? 8 : 0;
-    if ( a3 && *(_QWORD *)((char *)v9 + v7 + 1688) )
+    if ( a3 && *(_QWORD *)((char *)v11 + v7 + 664) )
     {
       v5 = -1073741790;
     }
     else
     {
-      *(_QWORD *)((char *)v9 + v7 + 1688) = a3;
+      *(_QWORD *)((char *)v11 + v7 + 664) = a3;
+      v8 = *((_BYTE *)v6 + 240);
       if ( a2 )
-        *((_BYTE *)v6 + 241) |= 1u;
+        v9 = v8 | 0x40;
       else
-        *((_BYTE *)v6 + 240) |= 0x80u;
+        v9 = v8 | 0x20;
+      *((_BYTE *)v6 + 240) = v9;
     }
     (**(void (__fastcall ***)(struct DirectComposition::CApplicationChannel *))v6)(v6);
   }

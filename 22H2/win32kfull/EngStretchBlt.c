@@ -1,22 +1,22 @@
 /*
- * XREFs of EngStretchBlt @ 0x1C00D7260
+ * XREFs of EngStretchBlt @ 0x1C00B12F0
  * Callers:
- *     EngStretchBltROP @ 0x1C0029ED0 (EngStretchBltROP.c)
- *     ?EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C00551B0 (-EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
- *     ?psSetupTransparentSrcSurface@@YAPEAVSURFACE@@PEAV1@0PEAU_RECTL@@PEAU_XLATEOBJ@@1AEAVSURFMEM@@KK@Z @ 0x1C00D6948 (-psSetupTransparentSrcSurface@@YAPEAVSURFACE@@PEAV1@0PEAU_RECTL@@PEAU_XLATEOBJ@@1AEAVSURFMEM@@KK.c)
- *     ?SpStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C027C260 (-SpStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POIN.c)
- *     ?bStretch@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z @ 0x1C0293610 (-bStretch@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z.c)
- *     ?PanStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C029C720 (-PanStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POI.c)
- *     ?RedirStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C02A5730 (-RedirStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_P.c)
- *     ?MulStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C02B0810 (-MulStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POI.c)
- *     NtGdiEngStretchBlt @ 0x1C02CAB20 (NtGdiEngStretchBlt.c)
+ *     ?EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C00191E0 (-EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
+ *     ?psSetupTransparentSrcSurface@@YAPEAVSURFACE@@PEAV1@0PEAU_RECTL@@PEAU_XLATEOBJ@@1AEAVSURFMEM@@KK@Z @ 0x1C00AD538 (-psSetupTransparentSrcSurface@@YAPEAVSURFACE@@PEAV1@0PEAU_RECTL@@PEAU_XLATEOBJ@@1AEAVSURFMEM@@KK.c)
+ *     EngStretchBltROP @ 0x1C0104280 (EngStretchBltROP.c)
+ *     NtGdiEngStretchBlt @ 0x1C013CDD0 (NtGdiEngStretchBlt.c)
+ *     ?SpStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C0157500 (-SpStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POIN.c)
+ *     ?bStretch@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z @ 0x1C028F7E0 (-bStretch@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z.c)
+ *     ?PanStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C0295690 (-PanStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POI.c)
+ *     ?RedirStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C029C6F0 (-RedirStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_P.c)
+ *     ?MulStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C02A3D70 (-MulStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POI.c)
  * Callees:
- *     EngCopyBits @ 0x1C0030980 (EngCopyBits.c)
- *     ?EngStretchBltNew@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C00D7380 (-EngStretchBltNew@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?EngStretchBltOld@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54KPEAH@Z @ 0x1C0291930 (-EngStretchBltOld@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_.c)
+ *     EngCopyBits @ 0x1C007EAA0 (EngCopyBits.c)
+ *     ?EngStretchBltNew@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C00B13EC (-EngStretchBltNew@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?EngStretchBltOld@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54KPEAH@Z @ 0x1C028DEC0 (-EngStretchBltOld@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_.c)
  */
 
 BOOL __stdcall EngStretchBlt(
@@ -32,220 +32,192 @@ BOOL __stdcall EngStretchBlt(
         POINTL *pptlMask,
         ULONG iMode)
 {
-  CLIPOBJ *v11; // r12
-  XLATEOBJ *v12; // r13
-  SURFOBJ *v13; // r15
-  RECTL *v14; // rbx
-  SURFOBJ *v15; // r14
-  RECTL *v16; // rsi
-  __int64 v18; // rax
-  RECTL v20; // xmm0
-  LONG cx; // eax
-  RECTL v22; // xmm1
+  RECTL *v12; // rcx
+  RECTL *v13; // rax
+  POINTL *v14; // rdx
+  RECTL v16; // xmm0
+  RECTL v17; // xmm1
   ULONG iBitmapFormat; // r8d
   SIZEL sizlBitmap; // rcx
   HDEV hdev; // rbx
   LONG cy; // eax
   HSURF Bitmap; // rax
-  ULONG v28; // r8d
-  SIZEL v29; // rcx
-  HSURF v30; // rsi
-  HBITMAP v31; // r13
-  HBITMAP v32; // rax
-  HSURF v33; // r15
-  SURFOBJ *v34; // rsi
-  SURFOBJ *v35; // r14
-  SURFOBJ *v36; // rax
-  Gre::Base *v37; // rcx
-  SURFOBJ *v38; // r12
-  XLATEOBJ *v39; // r15
-  int v40; // eax
+  ULONG v23; // r8d
+  SIZEL v24; // rcx
+  HSURF v25; // rsi
+  HBITMAP v26; // r13
+  HBITMAP v27; // rax
+  HSURF v28; // r15
+  SURFOBJ *v29; // rsi
+  SURFOBJ *v30; // r14
+  SURFOBJ *v31; // rax
+  SURFOBJ *v32; // r12
+  int v33; // eax
   _BYTE *pvBits; // rdx
-  __int64 v42; // r15
-  _BYTE *v43; // rax
-  int v44; // eax
-  BOOL (__stdcall *v45)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *); // rax
-  int v46; // [rsp+60h] [rbp-A0h] BYREF
-  int v47[2]; // [rsp+68h] [rbp-98h] BYREF
-  int v48; // [rsp+70h] [rbp-90h]
-  POINTL pptlSrc; // [rsp+78h] [rbp-88h] BYREF
-  struct _SURFOBJ *v50; // [rsp+80h] [rbp-80h]
-  struct _SURFOBJ *v51; // [rsp+88h] [rbp-78h]
-  struct _CLIPOBJ *v52; // [rsp+90h] [rbp-70h]
-  struct _XLATEOBJ *v53; // [rsp+98h] [rbp-68h]
-  struct _POINTL *v54; // [rsp+A0h] [rbp-60h]
-  struct _POINTL *v55; // [rsp+A8h] [rbp-58h]
-  struct tagCOLORADJUSTMENT *v56; // [rsp+B0h] [rbp-50h]
-  struct _RECTL *v57; // [rsp+B8h] [rbp-48h]
-  struct _RECTL *v58; // [rsp+C0h] [rbp-40h]
-  HSURF v59; // [rsp+C8h] [rbp-38h]
-  XLATEOBJ *v60; // [rsp+D0h] [rbp-30h]
-  __int64 v61; // [rsp+D8h] [rbp-28h]
-  _BYTE *v62; // [rsp+E0h] [rbp-20h]
-  HSURF hsurf; // [rsp+E8h] [rbp-18h]
-  RECTL v64; // [rsp+F0h] [rbp-10h] BYREF
-  struct _RECTL v65; // [rsp+100h] [rbp+0h] BYREF
-  struct _RECTL v66; // [rsp+110h] [rbp+10h] BYREF
+  __int64 v35; // r15
+  _BYTE *v36; // rax
+  int v37; // eax
+  BOOL (__stdcall *v38)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *); // rax
+  int v39; // [rsp+60h] [rbp-A0h] BYREF
+  int v40; // [rsp+64h] [rbp-9Ch]
+  struct _POINTL *v41; // [rsp+68h] [rbp-98h]
+  _BYTE *v42; // [rsp+70h] [rbp-90h]
+  struct _RECTL *v43; // [rsp+78h] [rbp-88h]
+  struct _RECTL *v44; // [rsp+80h] [rbp-80h]
+  struct _POINTL *v45; // [rsp+88h] [rbp-78h]
+  struct tagCOLORADJUSTMENT *v46; // [rsp+90h] [rbp-70h]
+  struct _XLATEOBJ *v47; // [rsp+98h] [rbp-68h]
+  struct _CLIPOBJ *v48; // [rsp+A0h] [rbp-60h]
+  struct _SURFOBJ *v49; // [rsp+A8h] [rbp-58h]
+  struct _SURFOBJ *v50; // [rsp+B0h] [rbp-50h]
+  HSURF v51; // [rsp+B8h] [rbp-48h]
+  _BYTE *v52; // [rsp+C0h] [rbp-40h]
+  HSURF hsurf; // [rsp+C8h] [rbp-38h]
+  RECTL v54; // [rsp+D0h] [rbp-30h] BYREF
+  struct _RECTL v55; // [rsp+E0h] [rbp-20h] BYREF
+  struct _RECTL v56; // [rsp+F0h] [rbp-10h] BYREF
 
-  v11 = pco;
-  v12 = pxlo;
-  v13 = psoMask;
-  v14 = prclDest;
-  v15 = psoSrc;
-  v16 = prclSrc;
-  v56 = pca;
-  v55 = pptlHTOrg;
-  v54 = pptlMask;
-  v52 = pco;
-  v51 = psoMask;
+  v12 = prclSrc;
+  v47 = pxlo;
+  v46 = pca;
+  v45 = pptlHTOrg;
+  v13 = prclDest;
   v50 = psoSrc;
-  v53 = pxlo;
-  v57 = prclDest;
-  v58 = prclSrc;
-  v18 = *(_QWORD *)(SGDGetSessionState(psoDest) + 32);
-  v61 = v18;
-  if ( *(_DWORD *)(v18 + 23420) )
+  v14 = pptlMask;
+  v43 = prclDest;
+  v48 = pco;
+  v49 = psoMask;
+  v44 = prclSrc;
+  v41 = pptlMask;
+  if ( dword_1C0340AA4 )
   {
-    v20 = *prclDest;
-    cx = psoDest->sizlBitmap.cx;
-    v22 = *prclSrc;
+    v16 = *prclDest;
+    v17 = *prclSrc;
     iBitmapFormat = psoDest->iBitmapFormat;
     sizlBitmap = psoDest->sizlBitmap;
-    v64.left = 0;
-    v64.top = 0;
     hdev = psoDest->hdev;
-    v64.right = cx;
+    v54.right = psoDest->sizlBitmap.cx;
     cy = psoDest->sizlBitmap.cy;
-    v66 = v20;
-    v64.bottom = cy;
-    v65 = v22;
+    v56 = v16;
+    v54.bottom = cy;
+    v55 = v17;
+    *(_QWORD *)&v54.left = 0LL;
     Bitmap = (HSURF)EngCreateBitmap(sizlBitmap, 0, iBitmapFormat, 0, 0LL);
-    v28 = psoDest->iBitmapFormat;
-    v29 = psoDest->sizlBitmap;
-    v30 = Bitmap;
+    v23 = psoDest->iBitmapFormat;
+    v24 = psoDest->sizlBitmap;
+    v25 = Bitmap;
     hsurf = Bitmap;
-    v31 = EngCreateBitmap(v29, 0, v28, 0, 0LL);
-    v32 = EngCreateBitmap(psoDest->sizlBitmap, 0, psoDest->iBitmapFormat, 0, 0LL);
-    v59 = (HSURF)v32;
-    v33 = (HSURF)v32;
-    if ( !v30 || !v31 || !v32 )
+    v26 = EngCreateBitmap(v24, 0, v23, 0, 0LL);
+    v27 = EngCreateBitmap(psoDest->sizlBitmap, 0, psoDest->iBitmapFormat, 0, 0LL);
+    v51 = (HSURF)v27;
+    v28 = (HSURF)v27;
+    if ( !v25 || !v26 || !v27 )
       DbgPrint("hsurf1 == 0 || hsurf2 == 0 || hsurf3 == 0\n");
-    v34 = EngLockSurface(v30);
-    v35 = EngLockSurface((HSURF)v31);
-    v36 = EngLockSurface(v33);
-    v48 = 0;
-    v38 = v36;
-    if ( v34 )
+    v29 = EngLockSurface(v25);
+    v30 = EngLockSurface((HSURF)v26);
+    v31 = EngLockSurface(v28);
+    v40 = 0;
+    v32 = v31;
+    if ( v29 )
     {
-      if ( v35 )
+      if ( v30 )
       {
-        if ( v36 )
+        if ( v31 )
         {
-          pptlSrc = 0LL;
-          v60 = (XLATEOBJ *)((char *)Gre::Base::Globals(v37) + 6896);
-          EngCopyBits(v38, psoDest, 0LL, v60, &v64, &pptlSrc);
-          memset_0(v34->pvBits, 0, v34->cjBits);
-          memset_0(v35->pvBits, 0, v34->cjBits);
-          v46 = 0;
-          v47[0] = EngStretchBltOld(psoDest, v50, v51, v52, v53, v56, v55, v57, v58, v54, iMode, &v46);
-          if ( v46 )
+          EngCopyBits(v31, psoDest, 0LL, xloIdent, &v54, &gptlZero);
+          memset(v29->pvBits, 0, v29->cjBits);
+          memset(v30->pvBits, 0, v29->cjBits);
+          v39 = 0;
+          LODWORD(v42) = EngStretchBltOld(psoDest, v50, v49, v48, v47, v46, v45, v43, v44, v41, iMode, &v39);
+          if ( v39 )
           {
-            v39 = v60;
-            v57 = &v66;
-            v58 = &v65;
-LABEL_13:
-            EngCopyBits(v34, psoDest, 0LL, 0LL, &v64, &pptlSrc);
+            v43 = &v56;
+            v44 = &v55;
+LABEL_12:
+            EngCopyBits(v29, psoDest, 0LL, 0LL, &v54, &gptlZero);
             if ( ((__int64)psoDest[1].hsurf & 0x400) != 0 )
-              (*((void (__fastcall **)(SURFOBJ *, SURFOBJ *, _QWORD, XLATEOBJ *, RECTL *, POINTL *))hdev + 352))(
+              (*((void (__fastcall **)(SURFOBJ *, SURFOBJ *, _QWORD, XLATEOBJ *const, RECTL *, POINTL *))hdev + 355))(
                 psoDest,
-                v38,
+                v32,
                 0LL,
-                v39,
-                &v64,
-                &pptlSrc);
+                xloIdent,
+                &v54,
+                &gptlZero);
             else
-              ((void (__fastcall *)(SURFOBJ *, SURFOBJ *, _QWORD, XLATEOBJ *, RECTL *, POINTL *))EngCopyBits)(
+              ((void (__fastcall *)(SURFOBJ *, SURFOBJ *, _QWORD, XLATEOBJ *const, RECTL *, POINTL *))EngCopyBits)(
                 psoDest,
-                v38,
+                v32,
                 0LL,
-                v39,
-                &v64,
-                &pptlSrc);
-            v40 = EngStretchBltNew(psoDest, v50, v51, v52, v53, v56, v55, &v66, &v65, v54, iMode);
-            if ( v47[0] != v40 )
+                xloIdent,
+                &v54,
+                &gptlZero);
+            v33 = EngStretchBltNew(psoDest, v50, v49, v48, v47, v46, v45, &v56, &v55, v41, iMode);
+            if ( (unsigned int)v42 != v33 )
               DbgPrint("bOld ^ bNew\n");
-            EngCopyBits(v35, psoDest, 0LL, v39, &v64, &pptlSrc);
-            pvBits = v34->pvBits;
-            v42 = 0LL;
-            v43 = v35->pvBits;
-            *(_QWORD *)v47 = pvBits;
-            v62 = v43;
-            while ( (unsigned int)v42 < v34->cjBits )
+            EngCopyBits(v30, psoDest, 0LL, xloIdent, &v54, &gptlZero);
+            pvBits = v29->pvBits;
+            v35 = 0LL;
+            v36 = v30->pvBits;
+            v42 = pvBits;
+            v52 = v36;
+            while ( (unsigned int)v35 < v29->cjBits )
             {
-              if ( pvBits[v42] != v43[v42] )
+              if ( pvBits[v35] != v36[v35] )
               {
                 DbgPrint("memcmp failed\n");
-                v44 = v48 + 1;
-                v48 = v44;
-                if ( v44 == 1 )
+                v37 = v40 + 1;
+                v40 = v37;
+                if ( v37 == 1 )
                 {
                   __debugbreak();
                   if ( ((__int64)psoDest[1].hsurf & 0x400) != 0 )
-                    v45 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))*((_QWORD *)hdev + 352);
+                    v38 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))*((_QWORD *)hdev + 355);
                   else
-                    v45 = EngCopyBits;
-                  v39 = v60;
-                  ((void (__fastcall *)(SURFOBJ *, SURFOBJ *, _QWORD, XLATEOBJ *, RECTL *, POINTL *))v45)(
+                    v38 = EngCopyBits;
+                  ((void (__fastcall *)(SURFOBJ *, SURFOBJ *, _QWORD, XLATEOBJ *const, RECTL *, POINTL *))v38)(
                     psoDest,
-                    v38,
+                    v32,
                     0LL,
-                    v60,
-                    &v64,
-                    &pptlSrc);
-                  memset_0(v34->pvBits, 0, v34->cjBits);
-                  memset_0(v35->pvBits, 0, v34->cjBits);
-                  v46 = 0;
-                  v47[0] = EngStretchBltOld(psoDest, v50, v51, v52, v53, v56, v55, &v66, &v65, v54, iMode, &v46);
-                  if ( v46 )
-                    goto LABEL_13;
+                    xloIdent,
+                    &v54,
+                    &gptlZero);
+                  memset(v29->pvBits, 0, v29->cjBits);
+                  memset(v30->pvBits, 0, v29->cjBits);
+                  v39 = 0;
+                  LODWORD(v42) = EngStretchBltOld(psoDest, v50, v49, v48, v47, v46, v45, &v56, &v55, v41, iMode, &v39);
+                  if ( v39 )
+                    goto LABEL_12;
                   break;
                 }
-                if ( v44 == 2 )
+                if ( v37 == 2 )
                 {
                   __debugbreak();
                   break;
                 }
-                pvBits = *(_BYTE **)v47;
+                pvBits = v42;
               }
-              v43 = v62;
-              v42 = (unsigned int)(v42 + 1);
+              v36 = v52;
+              v35 = (unsigned int)(v35 + 1);
             }
-            v33 = v59;
+            v28 = v51;
           }
         }
       }
-      EngUnlockSurface(v34);
+      EngUnlockSurface(v29);
     }
-    if ( v35 )
-      EngUnlockSurface(v35);
-    if ( v38 )
-      EngUnlockSurface(v38);
+    if ( v30 )
+      EngUnlockSurface(v30);
+    if ( v32 )
+      EngUnlockSurface(v32);
     if ( hsurf )
       EngDeleteSurface(hsurf);
-    if ( v31 )
-      EngDeleteSurface((HSURF)v31);
-    if ( v33 )
-      EngDeleteSurface(v33);
-    v18 = v61;
-    v12 = v53;
-    v11 = v52;
-    v13 = v51;
-    v15 = v50;
-    v16 = v58;
-    v14 = v57;
+    if ( v26 )
+      EngDeleteSurface((HSURF)v26);
+    if ( v28 )
+      EngDeleteSurface(v28);
+    v14 = v41;
+    v12 = v44;
+    v13 = v43;
   }
-  if ( *(_DWORD *)(v18 + 23416) )
-    return EngStretchBltNew(psoDest, v15, v13, v11, v12, v56, v55, v14, v16, v54, iMode);
-  v47[0] = 0;
-  return EngStretchBltOld(psoDest, v15, v13, v11, v12, v56, v55, v14, v16, v54, iMode, v47);
+  return EngStretchBltNew(psoDest, v50, v49, v48, v47, v46, v45, v13, v12, v14, iMode);
 }

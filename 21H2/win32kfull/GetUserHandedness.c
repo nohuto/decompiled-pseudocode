@@ -1,10 +1,10 @@
 /*
- * XREFs of GetUserHandedness @ 0x1C01E8E90
+ * XREFs of GetUserHandedness @ 0x1C01EE890
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
- *     ?GetMenuRightAlignHint@MenuHelpers@@YA_NXZ @ 0x1C023EFC0 (-GetMenuRightAlignHint@MenuHelpers@@YA_NXZ.c)
- *     ?CreateDeadzone@InteractiveControlDevice@@QEAAJXZ @ 0x1C02538D4 (-CreateDeadzone@InteractiveControlDevice@@QEAAJXZ.c)
- *     ?PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z @ 0x1C02545EC (-PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
+ *     ?GetMenuRightAlignHint@MenuHelpers@@YA_NXZ @ 0x1C02437B0 (-GetMenuRightAlignHint@MenuHelpers@@YA_NXZ.c)
+ *     ?CreateDeadzone@InteractiveControlDevice@@QEAAJXZ @ 0x1C0256B5C (-CreateDeadzone@InteractiveControlDevice@@QEAAJXZ.c)
+ *     ?PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z @ 0x1C02578C0 (-PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z.c)
  * Callees:
  *     <none>
  */

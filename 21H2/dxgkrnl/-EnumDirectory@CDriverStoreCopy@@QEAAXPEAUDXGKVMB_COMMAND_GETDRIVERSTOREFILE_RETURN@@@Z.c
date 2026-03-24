@@ -1,13 +1,13 @@
 /*
- * XREFs of ?EnumDirectory@CDriverStoreCopy@@QEAAXPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z @ 0x1C03032A0
+ * XREFs of ?EnumDirectory@CDriverStoreCopy@@QEAAXPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z @ 0x1C0262C3C
  * Callers:
- *     ?ProcessNextDirectory@CDriverStoreCopy@@QEAAEPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z @ 0x1C0303BB0 (-ProcessNextDirectory@CDriverStoreCopy@@QEAAEPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z.c)
- *     ?VmBusGetDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C036E000 (-VmBusGetDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusGetDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C02419B0 (-VmBusGetDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?ProcessNextDirectory@CDriverStoreCopy@@QEAAEPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z @ 0x1C0263564 (-ProcessNextDirectory@CDriverStoreCopy@@QEAAEPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z.c)
  * Callees:
- *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C001A56C (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?RtlStringCbCatW@@YAJPEAG_KPEBG@Z @ 0x1C0044448 (-RtlStringCbCatW@@YAJPEAG_KPEBG@Z.c)
- *     ?ProcessNextFile@CDriverStoreCopy@@QEAAXPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z @ 0x1C0303C60 (-ProcessNextFile@CDriverStoreCopy@@QEAAXPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z.c)
+ *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000B1D8 (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?RtlStringCbCatW@@YAJPEAG_KPEBG@Z @ 0x1C0038DF4 (-RtlStringCbCatW@@YAJPEAG_KPEBG@Z.c)
+ *     ?ProcessNextFile@CDriverStoreCopy@@QEAAXPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z @ 0x1C026361C (-ProcessNextFile@CDriverStoreCopy@@QEAAXPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z.c)
  */
 
 void __fastcall CDriverStoreCopy::EnumDirectory(
@@ -17,11 +17,15 @@ void __fastcall CDriverStoreCopy::EnumDirectory(
   void **v2; // rsi
   bool v3; // zf
   PVOID PoolWithTag; // rax
-  NTSTATUS v7; // eax
-  NTSTATUS v8; // eax
+  int v7; // eax
+  int v8; // eax
   __int64 v9; // rdx
   NTSTATUS v10; // eax
   NTSTATUS v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // rax
   struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-50h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-40h] BYREF
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
@@ -68,7 +72,9 @@ void __fastcall CDriverStoreCopy::EnumDirectory(
         *((_DWORD *)a2 + 4) = v11;
         if ( v11 < 0 )
         {
-          WdLogSingleEntry1(3LL, v11);
+          v15 = WdLogNewEntry5_WdWarning(v13, v12, v14);
+          *(_QWORD *)(v15 + 24) = *((int *)a2 + 4);
+          WdLogEvent5_WdWarning(v15);
           if ( *((int *)a2 + 4) >= 0 )
             return;
           goto LABEL_11;

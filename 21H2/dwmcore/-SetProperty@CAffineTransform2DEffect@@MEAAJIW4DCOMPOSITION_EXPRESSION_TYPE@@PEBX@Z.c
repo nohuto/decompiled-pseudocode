@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SetProperty@CAffineTransform2DEffect@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180245580
+ * XREFs of ?SetProperty@CAffineTransform2DEffect@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801F5A70
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CAffineTransform2DEffect::SetProperty(float *a1, int a2, int a3, float *a4)
 {
-  float *v4; // r11
+  float *v4; // r10
   float v5; // xmm1_4
   int v6; // edx
   int v7; // edx
@@ -43,34 +43,34 @@ __int64 __fastcall CAffineTransform2DEffect::SetProperty(float *a1, int a2, int 
             {
 LABEL_18:
               v13 = -2147024809;
-              MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0LL, -2147024809, 0x46u);
+              MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, 0x46u, 0LL);
               return v13;
             }
-            v11 = 188LL;
+            v11 = 180LL;
           }
           else
           {
-            v11 = 184LL;
+            v11 = 176LL;
           }
         }
         else
         {
-          v11 = 180LL;
+          v11 = 172LL;
         }
       }
       else
       {
-        v11 = 176LL;
+        v11 = 168LL;
       }
     }
     else
     {
-      v11 = 172LL;
+      v11 = 164LL;
     }
   }
   else
   {
-    v11 = 168LL;
+    v11 = 160LL;
   }
   a1 = (float *)((char *)a1 + v11);
   if ( !a1 )

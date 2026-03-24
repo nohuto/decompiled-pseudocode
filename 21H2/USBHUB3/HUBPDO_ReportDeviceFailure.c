@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBPDO_ReportDeviceFailure @ 0x1C0019D50
+ * XREFs of HUBPDO_ReportDeviceFailure @ 0x1C0019800
  * Callers:
- *     HUBDSM_MarkingUnknownDeviceAsFailed @ 0x1C00211D0 (HUBDSM_MarkingUnknownDeviceAsFailed.c)
+ *     HUBDSM_MarkingUnknownDeviceAsFailed @ 0x1C0020DD0 (HUBDSM_MarkingUnknownDeviceAsFailed.c)
  * Callees:
- *     McTemplateK0pqhhhqqqqqqhhqhqqqqqqqssshhh_EtwWriteTransfer @ 0x1C0013360 (McTemplateK0pqhhhqqqqqqhhqhqqqqqqqssshhh_EtwWriteTransfer.c)
- *     HUBMISC_CreateWerReport @ 0x1C0031414 (HUBMISC_CreateWerReport.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqhhhqqqqqqhhqhqqqqqqqssshhh_EtwWriteTransfer @ 0x1C0012E5C (McTemplateK0pqhhhqqqqqqhhqhqqqqqqqssshhh_EtwWriteTransfer.c)
+ *     HUBMISC_CreateWerReport @ 0x1C0030D40 (HUBMISC_CreateWerReport.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPDO_ReportDeviceFailure(__int64 *a1)

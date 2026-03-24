@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpMmAllocateMemory @ 0x1403BECF8
+ * XREFs of HalpMmAllocateMemory @ 0x1403BB1F0
  * Callers:
- *     HalpIommuInitializeAll @ 0x140A543D8 (HalpIommuInitializeAll.c)
- *     EmonInitializeProfiling @ 0x140A557A0 (EmonInitializeProfiling.c)
- *     Amd64InitializeProfiling @ 0x140A63680 (Amd64InitializeProfiling.c)
- *     HalpRegisterDeviceInUse @ 0x140A70DE0 (HalpRegisterDeviceInUse.c)
- *     HalpKdEnumerateDebuggingDevices @ 0x140A71180 (HalpKdEnumerateDebuggingDevices.c)
+ *     HalpIommuInitializeAll @ 0x14099B3D4 (HalpIommuInitializeAll.c)
+ *     EmonInitializeProfiling @ 0x1409A06C0 (EmonInitializeProfiling.c)
+ *     Amd64InitializeProfiling @ 0x1409A9720 (Amd64InitializeProfiling.c)
+ *     HalpKdEnumerateDebuggingDevices @ 0x1409B6230 (HalpKdEnumerateDebuggingDevices.c)
+ *     HalpRegisterDeviceInUse @ 0x1409B656C (HalpRegisterDeviceInUse.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x1403BF104 (HalpMmAllocateMemoryInternal.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
  */
 
 __int64 __fastcall HalpMmAllocateMemory(__int64 a1)

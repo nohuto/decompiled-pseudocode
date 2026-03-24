@@ -1,5 +1,5 @@
 /*
- * XREFs of GetPenArbitrationType @ 0x1C01E8E60
+ * XREFs of GetPenArbitrationType @ 0x1C01EE860
  * Callers:
  *     <none>
  * Callees:

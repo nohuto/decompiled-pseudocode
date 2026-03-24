@@ -1,7 +1,7 @@
 /*
- * XREFs of DwmAsyncDestroyDCompositionHwndTarget @ 0x1C0110974
+ * XREFs of DwmAsyncDestroyDCompositionHwndTarget @ 0x1C01292B4
  * Callers:
- *     EditionNotifyDwmForSystemVisualDestruction @ 0x1C0110910 (EditionNotifyDwmForSystemVisualDestruction.c)
+ *     EditionNotifyDwmForSystemVisualDestruction @ 0x1C0129250 (EditionNotifyDwmForSystemVisualDestruction.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ __int64 __fastcall DwmAsyncDestroyDCompositionHwndTarget(PVOID Object, __int64 a
     *(_QWORD *)v7 = 0LL;
     WORD2(v6[0]) = 0x8000;
     LODWORD(v6[0]) = 3670032;
-    *(_DWORD *)&v7[8] = 1073741894;
+    *(_DWORD *)&v7[8] = 1073741893;
     *(_QWORD *)&v7[12] = a2;
     v8 = a3;
     v4 = LpcRequestPort(Object, v6);

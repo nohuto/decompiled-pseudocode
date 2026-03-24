@@ -1,81 +1,69 @@
 /*
- * XREFs of ?EndTransaction@DXGVIRTUALMACHINE@@QEAAJPEAUDXGKVMB_GUEST_TRANSACTION@@PEAT_LARGE_INTEGER@@@Z @ 0x1C0396BD8
+ * XREFs of ?EndTransaction@DXGVIRTUALMACHINE@@QEAAJPEAUDXGKVMB_GUEST_TRANSACTION@@PEAT_LARGE_INTEGER@@@Z @ 0x1C02BEF90
  * Callers:
- *     ?DxgkpDuplicateHandleToVm@@YAJPEAU_D3DKMT_DUPLICATEHANDLE@@@Z @ 0x1C0326D24 (-DxgkpDuplicateHandleToVm@@YAJPEAU_D3DKMT_DUPLICATEHANDLE@@@Z.c)
+ *     ?DxgkpDuplicateHandleToVm@@YAJPEAU_D3DKMT_DUPLICATEHANDLE@@@Z @ 0x1C0277CDC (-DxgkpDuplicateHandleToVm@@YAJPEAU_D3DKMT_DUPLICATEHANDLE@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
  */
 
 __int64 __fastcall DXGVIRTUALMACHINE::EndTransaction(
         DXGVIRTUALMACHINE *this,
-        struct DXGKVMB_GUEST_TRANSACTION *a2,
+        struct _KEVENT *a2,
         union _LARGE_INTEGER *a3)
 {
-  NTSTATUS v5; // esi
+  NTSTATUS v5; // ebp
   __int64 v6; // rdx
   __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rsi
-  struct DXGKVMB_GUEST_TRANSACTION *v11; // rdx
-  struct DXGKVMB_GUEST_TRANSACTION **v12; // rax
+  __int64 v8; // rax
+  __int64 LockNV; // rbx
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  struct _LIST_ENTRY *Blink; // rcx
+  __int64 v13; // rax
+  struct DXGKVMB_GUEST_TRANSACTION *v14; // rax
+  struct DXGKVMB_GUEST_TRANSACTION **Flink; // rdx
 
   if ( g_DisableTransactionTimeout )
     a3 = 0LL;
-  v5 = KeWaitForSingleObject((char *)a2 + 24, Executive, 0, 0, a3);
-  DXGPUSHLOCK::AcquireExclusive((DXGVIRTUALMACHINE *)((char *)this + 344));
+  v5 = KeWaitForSingleObject(&a2[1], Executive, 0, 0, a3);
+  DXGPUSHLOCK::AcquireExclusive((DXGVIRTUALMACHINE *)((char *)this + 304));
   if ( v5 == 258 )
   {
-    if ( !KeReadStateEvent((PRKEVENT)a2 + 1) )
-    {
-      WdLogSingleEntry1(2LL, 126LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Timeout occurred while waiting for guest transaction",
-        126LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-LABEL_6:
-      LODWORD(v10) = -1073741823;
+    if ( KeReadStateEvent(a2 + 1) )
       goto LABEL_7;
-    }
+    v8 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v8 + 24) = 126LL;
+    WdLogEvent5_WdError(v8);
   }
-  else if ( v5 )
+  if ( v5 )
   {
-    goto LABEL_6;
-  }
-  v10 = *((int *)a2 + 12);
-  *(_QWORD *)(WdLogNewEntry5_WdTrace(v7, v6, v8, v9) + 24) = *((_QWORD *)a2 + 2);
-  if ( (int)v10 < 0 )
-  {
-    WdLogSingleEntry2(2LL, *((_QWORD *)a2 + 2), v10);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Transaction %I64u returned an error from the guest, Status=0x%.8x",
-      *((_QWORD *)a2 + 2),
-      v10,
-      0LL,
-      0LL,
-      0LL);
+    LODWORD(LockNV) = -1073741823;
+    goto LABEL_10;
   }
 LABEL_7:
-  v11 = *(struct DXGKVMB_GUEST_TRANSACTION **)a2;
-  if ( *(struct DXGKVMB_GUEST_TRANSACTION **)(*(_QWORD *)a2 + 8LL) != a2
-    || (v12 = (struct DXGKVMB_GUEST_TRANSACTION **)*((_QWORD *)a2 + 1), *v12 != a2) )
+  LockNV = a2[2].Header.LockNV;
+  v10 = WdLogNewEntry5_WdTrace(v7, v6);
+  Blink = a2->Header.WaitListHead.Blink;
+  *(_QWORD *)(v10 + 24) = Blink;
+  if ( (int)LockNV < 0 )
+  {
+    v13 = WdLogNewEntry5_WdError(Blink, v11);
+    *(_QWORD *)(v13 + 24) = a2->Header.WaitListHead.Blink;
+    *(_QWORD *)(v13 + 32) = LockNV;
+    WdLogEvent5_WdError(v13);
+  }
+LABEL_10:
+  v14 = *(struct DXGKVMB_GUEST_TRANSACTION **)&a2->Header.Lock;
+  if ( *(struct _KEVENT **)(*(_QWORD *)&a2->Header.Lock + 8LL) != a2
+    || (Flink = (struct DXGKVMB_GUEST_TRANSACTION **)a2->Header.WaitListHead.Flink,
+        *Flink != (struct DXGKVMB_GUEST_TRANSACTION *)a2) )
   {
     __fastfail(3u);
   }
-  *v12 = v11;
-  *((_QWORD *)v11 + 1) = v12;
-  *((_QWORD *)this + 44) = 0LL;
-  ExReleasePushLockExclusiveEx((char *)this + 344, 0LL);
+  *Flink = v14;
+  *((_QWORD *)v14 + 1) = Flink;
+  *((_QWORD *)this + 39) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)this + 304, 0LL);
   KeLeaveCriticalRegion();
-  return (unsigned int)v10;
+  return (unsigned int)LockNV;
 }

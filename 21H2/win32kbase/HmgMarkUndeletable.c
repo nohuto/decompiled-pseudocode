@@ -1,16 +1,16 @@
 /*
- * XREFs of HmgMarkUndeletable @ 0x1C0063C80
+ * XREFs of HmgMarkUndeletable @ 0x1C001B940
  * Callers:
- *     _GetDCEx @ 0x1C002B0A0 (_GetDCEx.c)
- *     ?vGlobal@BRUSHMEMOBJ@@QEAAXXZ @ 0x1C00628A0 (-vGlobal@BRUSHMEMOBJ@@QEAAXXZ.c)
- *     SetSysColor @ 0x1C0062BAC (SetSysColor.c)
- *     GreMarkUndeletableBitmap @ 0x1C0063C60 (GreMarkUndeletableBitmap.c)
- *     GreMarkUndeletableBrush @ 0x1C00C54B0 (GreMarkUndeletableBrush.c)
- *     bInitBRUSHOBJ @ 0x1C02E523C (bInitBRUSHOBJ.c)
- *     bInitICM @ 0x1C02E5C44 (bInitICM.c)
+ *     ?vGlobal@BRUSHMEMOBJ@@QEAAXXZ @ 0x1C001A81C (-vGlobal@BRUSHMEMOBJ@@QEAAXXZ.c)
+ *     GreMarkUndeletableBitmap @ 0x1C001B920 (GreMarkUndeletableBitmap.c)
+ *     SetSysColor @ 0x1C001F3E0 (SetSysColor.c)
+ *     _GetDCEx @ 0x1C0036C00 (_GetDCEx.c)
+ *     GreMarkUndeletableBrush @ 0x1C00B76B0 (GreMarkUndeletableBrush.c)
+ *     bInitBRUSHOBJ @ 0x1C02982A0 (bInitBRUSHOBJ.c)
+ *     bInitICM @ 0x1C029A608 (bInitICM.c)
  * Callees:
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0021FC0 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0022260 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C002F290 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C002F590 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
  */
 
 __int64 __fastcall HmgMarkUndeletable(unsigned int a1, char a2)
@@ -24,7 +24,7 @@ __int64 __fastcall HmgMarkUndeletable(unsigned int a1, char a2)
   v6 = 0LL;
   v7 = 0;
   v4 = HIWORD(a1);
-  HANDLELOCK::vLockHandle((HANDLELOCK *)&v6, (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000, 1LL, 0, 0);
+  HANDLELOCK::vLockHandle((HANDLELOCK *)&v6, (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000, 1, 0, 0);
   if ( v7 )
   {
     if ( *(_BYTE *)(v6 + 14) == a2 && *(_WORD *)(v6 + 12) == v4 )

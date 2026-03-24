@@ -1,17 +1,17 @@
 /*
- * XREFs of MmRelocatePfnList @ 0x14085F328
+ * XREFs of MmRelocatePfnList @ 0x14085F308
  * Callers:
  *     PfpPfnPrioRequest @ 0x14062A220 (PfpPfnPrioRequest.c)
  * Callees:
  *     MiPfnsWorthTrying @ 0x14009A7B0 (MiPfnsWorthTrying.c)
  *     MiClaimPhysicalRun @ 0x14009BF20 (MiClaimPhysicalRun.c)
- *     MiIdentifyPfnWrapper @ 0x1400A7E10 (MiIdentifyPfnWrapper.c)
- *     MiIsPfn @ 0x1400A88C0 (MiIsPfn.c)
- *     MiLockDynamicMemoryShared @ 0x1400A8914 (MiLockDynamicMemoryShared.c)
- *     MiUnlockDynamicMemoryShared @ 0x1400A8940 (MiUnlockDynamicMemoryShared.c)
- *     MiCreatePteCopyList @ 0x14012EBC0 (MiCreatePteCopyList.c)
- *     MiReleasePteCopyList @ 0x140131840 (MiReleasePteCopyList.c)
- *     MiEmptyKernelStackCache @ 0x1402BB584 (MiEmptyKernelStackCache.c)
+ *     MiIdentifyPfnWrapper @ 0x1400A7E30 (MiIdentifyPfnWrapper.c)
+ *     MiIsPfn @ 0x1400A88E0 (MiIsPfn.c)
+ *     MiLockDynamicMemoryShared @ 0x1400A8934 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1400A8960 (MiUnlockDynamicMemoryShared.c)
+ *     MiCreatePteCopyList @ 0x14012EBE0 (MiCreatePteCopyList.c)
+ *     MiReleasePteCopyList @ 0x140131860 (MiReleasePteCopyList.c)
+ *     MiEmptyKernelStackCache @ 0x1402BB684 (MiEmptyKernelStackCache.c)
  */
 
 __int64 __fastcall MmRelocatePfnList(unsigned __int64 a1, _QWORD *a2, unsigned int a3, unsigned int a4)

@@ -1,30 +1,31 @@
 /*
- * XREFs of MiValidateControlAreaPartition @ 0x1402A24D4
+ * XREFs of MiValidateControlAreaPartition @ 0x1402D79E4
  * Callers:
- *     MiReferenceExistingControlArea @ 0x14020F000 (MiReferenceExistingControlArea.c)
- *     MiReferenceControlArea @ 0x140288198 (MiReferenceControlArea.c)
- *     MiShareExistingControlArea @ 0x140723D4C (MiShareExistingControlArea.c)
+ *     MiReferenceControlArea @ 0x1402D6FD4 (MiReferenceControlArea.c)
+ *     MiReferenceExistingControlArea @ 0x14033D3F4 (MiReferenceExistingControlArea.c)
+ *     MiShareExistingControlArea @ 0x14065547C (MiShareExistingControlArea.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MiValidateControlAreaPartition(__int64 a1, __int64 a2)
 {
-  void *v2; // r10
-  void **v3; // rax
+  ULONG_PTR *v2; // r10
+  ULONG_PTR **v3; // rax
   int v5; // eax
 
-  v2 = *(void **)(qword_140C674C8 + 8LL * (*(_WORD *)(a2 + 60) & 0x3FF));
-  v3 = *(void ***)(a1 + 176);
+  v2 = *(ULONG_PTR **)(qword_140C4E648 + 8LL * (*(_WORD *)(a2 + 60) & 0x3FF));
+  v3 = *(ULONG_PTR ***)(a1 + 176);
   if ( !v3 )
   {
     if ( (*(_BYTE *)(a2 + 62) & 1) != 0 )
     {
-      if ( v2 == *(void **)(qword_140C674C8 + 8LL * KeGetCurrentThread()->ApcState.Process[1].IdealProcessor[25]) )
+      if ( v2 == *(ULONG_PTR **)(qword_140C4E648
+                               + 8LL * KeGetCurrentThread()->ApcState.Process[1].IdealProcessorPadding[5]) )
         return 0LL;
       if ( (*(_DWORD *)a1 & 1) == 0 )
       {
-        v5 = *(_DWORD *)a1 | 0x2000000;
+        v5 = *(_DWORD *)a1 | 0x1000000;
 LABEL_9:
         *(_DWORD *)a1 = v5;
         return 3221226614LL;
@@ -34,13 +35,13 @@ LABEL_9:
     {
       return 0LL;
     }
-    if ( (*(_DWORD *)a1 & 0x4000000) != 0 )
+    if ( (*(_DWORD *)a1 & 0x2000000) != 0 )
       return 0LL;
-    v5 = *(_DWORD *)a1 | 0x4000000;
+    v5 = *(_DWORD *)a1 | 0x2000000;
     goto LABEL_9;
   }
-  if ( *v3 == v2 && ((*(_BYTE *)(a1 + 3) ^ *(_BYTE *)(a2 + 62)) & 1) == 0 )
+  if ( *v3 == v2 && (((unsigned __int8)(*(_DWORD *)a1 >> 23) ^ *(_BYTE *)(a2 + 62)) & 1) == 0 )
     return 0LL;
-  *(_DWORD *)a1 |= 0x2000000u;
+  *(_DWORD *)a1 |= 0x1000000u;
   return 3221226614LL;
 }

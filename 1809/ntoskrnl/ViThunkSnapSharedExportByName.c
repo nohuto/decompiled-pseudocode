@@ -3,8 +3,8 @@
  * Callers:
  *     ViThunkSnapSharedExports @ 0x1409211A8 (ViThunkSnapSharedExports.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C20 (RtlImageDirectoryEntryToData.c)
- *     _stricmp @ 0x1401953C0 (_stricmp.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
+ *     _stricmp @ 0x1401953E0 (_stricmp.c)
  */
 
 __int64 __fastcall ViThunkSnapSharedExportByName(char *a1, __int64 a2, char **a3)

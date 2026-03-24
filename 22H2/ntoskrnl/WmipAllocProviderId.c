@@ -1,7 +1,7 @@
 /*
- * XREFs of WmipAllocProviderId @ 0x1407E9194
+ * XREFs of WmipAllocProviderId @ 0x1406A5B24
  * Callers:
- *     WmipAllocRegEntry @ 0x1403C2024 (WmipAllocRegEntry.c)
+ *     WmipAllocRegEntry @ 0x140371884 (WmipAllocRegEntry.c)
  * Callees:
  *     <none>
  */

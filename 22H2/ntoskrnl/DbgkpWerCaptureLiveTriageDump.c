@@ -1,21 +1,21 @@
 /*
- * XREFs of DbgkpWerCaptureLiveTriageDump @ 0x14093B91C
+ * XREFs of DbgkpWerCaptureLiveTriageDump @ 0x140888F78
  * Callers:
- *     DbgkpWerProcessPolicyResult @ 0x14093BDE0 (DbgkpWerProcessPolicyResult.c)
+ *     DbgkpWerProcessPolicyResult @ 0x14088971C (DbgkpWerProcessPolicyResult.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlCaptureContext @ 0x140428910 (RtlCaptureContext.c)
- *     memset @ 0x140435400 (memset.c)
- *     KeCapturePersistentThreadState @ 0x140554360 (KeCapturePersistentThreadState.c)
- *     DbgkpWerInvokeCallbacks @ 0x14093BD1C (DbgkpWerInvokeCallbacks.c)
- *     DbgkpWerWriteTriageDump @ 0x14093C030 (DbgkpWerWriteTriageDump.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlCaptureContext @ 0x1404070D0 (RtlCaptureContext.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     KeCapturePersistentThreadState @ 0x140504CC0 (KeCapturePersistentThreadState.c)
+ *     DbgkpWerInvokeCallbacks @ 0x140889560 (DbgkpWerInvokeCallbacks.c)
+ *     DbgkpWerWriteTriageDump @ 0x140889968 (DbgkpWerWriteTriageDump.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall DbgkpWerCaptureLiveTriageDump(__int64 a1)
 {
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   unsigned int v3; // ebx
   int v4; // eax
   int v5; // eax
@@ -24,11 +24,11 @@ __int64 __fastcall DbgkpWerCaptureLiveTriageDump(__int64 a1)
   struct _CONTEXT ContextRecord; // [rsp+40h] [rbp-4E8h] BYREF
 
   DbgPrintEx(5u, 3u, "DBGK: Creating mini live dump. ComponentName %ws\n", a1);
-  *(_DWORD *)(a1 + 80) = 67108860;
+  *(_DWORD *)(a1 + 92) = 1048572;
   memset(&ContextRecord, 0, sizeof(ContextRecord));
-  Pool2 = ExAllocatePool2(256LL, 0x40000LL, 1466393156LL);
-  *(_QWORD *)(a1 + 136) = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x40000uLL, 0x57676244u);
+  *(_QWORD *)(a1 + 144) = PoolWithTag;
+  if ( PoolWithTag )
   {
     RtlCaptureContext(&ContextRecord);
     v4 = KeCapturePersistentThreadState(
@@ -39,10 +39,10 @@ __int64 __fastcall DbgkpWerCaptureLiveTriageDump(__int64 a1)
            *(_QWORD *)(a1 + 48),
            *(_QWORD *)(a1 + 56),
            *(_QWORD *)(a1 + 64),
-           *(_QWORD *)(a1 + 136));
+           *(_QWORD *)(a1 + 144));
     if ( v4 )
     {
-      *(_DWORD *)(a1 + 144) = v4;
+      *(_DWORD *)(a1 + 152) = v4;
       v5 = DbgkpWerInvokeCallbacks(a1);
       v3 = v5;
       if ( v5 >= 0 )
@@ -51,10 +51,10 @@ __int64 __fastcall DbgkpWerCaptureLiveTriageDump(__int64 a1)
         v3 = v6;
         if ( v6 >= 0 )
         {
-          v7 = WerLiveKernelSubmitReport(*(_QWORD *)(a1 + 96), 0LL);
+          v7 = WerLiveKernelSubmitReport(*(_QWORD *)(a1 + 104), 0LL);
           v3 = v7;
           if ( v7 >= 0 )
-            *(_DWORD *)(a1 + 104) |= 1u;
+            *(_DWORD *)(a1 + 112) |= 1u;
           else
             DbgPrintEx(
               5u,

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetSystemEnvironmentValue @ 0x1401BB590
+ * XREFs of ZwSetSystemEnvironmentValue @ 0x1401BB5B0
  * Callers:
  *     <none>
  * Callees:

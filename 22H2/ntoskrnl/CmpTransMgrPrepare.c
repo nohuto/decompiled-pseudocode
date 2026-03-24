@@ -1,181 +1,153 @@
 /*
- * XREFs of CmpTransMgrPrepare @ 0x140768FAC
+ * XREFs of CmpTransMgrPrepare @ 0x140768324
  * Callers:
- *     CmKtmNotification @ 0x140697D50 (CmKtmNotification.c)
- *     CmpRmUnDoPhase @ 0x140A1F108 (CmpRmUnDoPhase.c)
+ *     CmKtmNotification @ 0x14066E410 (CmKtmNotification.c)
+ *     CmpRmUnDoPhase @ 0x140875A44 (CmpRmUnDoPhase.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvpMarkDirty @ 0x140747620 (HvpMarkDirty.c)
- *     CmpGetNextActiveHive @ 0x140752570 (CmpGetNextActiveHive.c)
- *     CmpFlushHive @ 0x140753398 (CmpFlushHive.c)
- *     CmpTransMgrSyncHive @ 0x1407E7F30 (CmpTransMgrSyncHive.c)
- *     CmpDetachFromRegistryProcess @ 0x140AF6230 (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x140AF6250 (CmpAttachToRegistryProcess.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
- *     HvLockHiveFlusherExclusive @ 0x140AF6670 (HvLockHiveFlusherExclusive.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140AF668C (HvUnlockHiveFlusherExclusive.c)
- *     CmListGetNextElement @ 0x140AF66A8 (CmListGetNextElement.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmpDetachFromRegistryProcess @ 0x1405F613C (CmpDetachFromRegistryProcess.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     CmListGetNextElement @ 0x14066EA14 (CmListGetNextElement.c)
+ *     CmpGetNextActiveHive @ 0x1406EB310 (CmpGetNextActiveHive.c)
+ *     UNLOCK_TRANSACTION_LIST @ 0x14071CCC4 (UNLOCK_TRANSACTION_LIST.c)
+ *     LOCK_TRANSACTION_LIST @ 0x14071CCF0 (LOCK_TRANSACTION_LIST.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x14071D558 (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x14071D590 (HvLockHiveFlusherExclusive.c)
+ *     HvUnlockHiveWriter @ 0x14071FE3C (HvUnlockHiveWriter.c)
+ *     HvLockHiveWriter @ 0x14071FE6C (HvLockHiveWriter.c)
+ *     CmpQuitNextActiveHive @ 0x14072B22C (CmpQuitNextActiveHive.c)
+ *     CmpTransMgrSyncHive @ 0x14076863C (CmpTransMgrSyncHive.c)
+ *     HvMarkDirty @ 0x14087BD50 (HvMarkDirty.c)
  */
 
 __int64 __fastcall CmpTransMgrPrepare(__int64 a1, __int64 a2, _DWORD *a3, _BYTE *a4)
 {
-  struct _KTHREAD *CurrentThread; // rax
-  char v9; // r14
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 NextElement; // rax
-  struct _EX_RUNDOWN_REF *v15; // rdi
+  char v8; // si
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  _DWORD *v11; // r9
+  char *NextElement; // rax
+  struct _EX_RUNDOWN_REF *v13; // rbx
   struct _EX_RUNDOWN_REF *i; // rcx
   __int64 *NextActiveHive; // rax
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  ULONG_PTR v21; // rsi
-  __int64 v22; // rcx
-  __int64 v23; // rdx
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  int v26; // edi
-  __int64 v27; // r8
-  __int64 v28; // r9
-  ULONG_PTR v29; // rbp
-  __int64 v30; // rcx
-  struct _EX_RUNDOWN_REF *v32; // rbx
-  struct _EX_RUNDOWN_REF *v33; // rcx
-  __int64 v34; // rax
-  __int64 v35; // rdi
-  __int64 v36; // rdx
-  __int64 v37; // rcx
-  __int64 v38; // r8
-  __int64 v39; // r9
-  __int64 v40; // [rsp+20h] [rbp-78h] BYREF
-  _OWORD v41[3]; // [rsp+28h] [rbp-70h] BYREF
+  struct _EX_RUNDOWN_REF *v16; // rdi
+  unsigned int v17; // edx
+  __int64 v18; // rcx
+  int v19; // ebx
+  __int64 v20; // rdi
+  int v22; // eax
+  struct _EX_RUNDOWN_REF *v23; // rcx
+  char v24; // bl
+  _QWORD *v25; // [rsp+20h] [rbp-78h] BYREF
+  _OWORD v26[3]; // [rsp+28h] [rbp-70h] BYREF
 
   *a4 = 0;
   *a3 = 0;
-  memset(v41, 0, sizeof(v41));
-  CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
-  v9 = 1;
+  memset(v26, 0, sizeof(v26));
+  LOCK_TRANSACTION_LIST();
+  v8 = 1;
   *(_DWORD *)(a2 + 48) |= 1u;
-  ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-  KeLeaveCriticalRegion();
+  UNLOCK_TRANSACTION_LIST();
   if ( *(_QWORD *)(a2 + 16) == a2 + 16 )
   {
     *a4 = 1;
     return 0;
   }
-  CmpAttachToRegistryProcess(v41);
-  CmpLockRegistry(v11, v10, v12, v13);
-  v40 = 0LL;
+  CmpAttachToRegistryProcess((__int64)v26, v9, v10, v11);
+  CmpLockRegistry();
+  v25 = 0LL;
   while ( 1 )
   {
-    NextElement = CmListGetNextElement(a2 + 16, &v40, 0LL);
+    NextElement = CmListGetNextElement((_QWORD **)(a2 + 16), &v25, 0);
     if ( !NextElement )
       break;
-    if ( *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(NextElement + 48) + 32LL) + 4152LL) == a1 )
+    if ( *(_QWORD *)(*(_QWORD *)(*((_QWORD *)NextElement + 6) + 32LL) + 4192LL) == a1 )
       ++*a3;
   }
-  v15 = *(struct _EX_RUNDOWN_REF **)(a1 + 80);
-  if ( v15 )
+  v13 = *(struct _EX_RUNDOWN_REF **)(a1 + 80);
+  if ( v13 )
   {
-    v32 = v15 + 205;
-    if ( ExAcquireRundownProtection_0(v15 + 205) )
+    if ( ExAcquireRundownProtection(v13 + 204) )
     {
-      CmpUnlockRegistry(v30, v18, v19, v20);
-      v26 = CmpTransMgrSyncHive((ULONG_PTR)v15);
-      v33 = v32;
-LABEL_26:
-      ExReleaseRundownProtection_0(v33);
+      CmpUnlockRegistry();
+      v22 = CmpTransMgrSyncHive(v13);
+      v23 = v13 + 204;
+      v19 = v22;
+      ExReleaseRundownProtection(v23);
       goto LABEL_22;
     }
-    v26 = 0;
-    goto LABEL_21;
+    v19 = 0;
   }
-  for ( i = 0LL; ; i = (struct _EX_RUNDOWN_REF *)v21 )
+  else
   {
-    NextActiveHive = CmpGetNextActiveHive(i);
-    v21 = (ULONG_PTR)NextActiveHive;
-    if ( !NextActiveHive )
-      break;
-    if ( NextActiveHive[519] == a1 )
+    for ( i = 0LL; ; i = v16 )
     {
-      v22 = *((unsigned int *)NextActiveHive + 40);
-      if ( (v22 & 2) == 0 )
+      NextActiveHive = CmpGetNextActiveHive(i);
+      v16 = (struct _EX_RUNDOWN_REF *)NextActiveHive;
+      if ( !NextActiveHive )
+        break;
+      if ( NextActiveHive[524] == a1 && (NextActiveHive[20] & 2) == 0 )
       {
-        v23 = *(unsigned int *)(a2 + 112);
-        if ( (_DWORD)v23 )
+        v17 = *(_DWORD *)(a2 + 112);
+        if ( v17 )
         {
-          v22 = 0LL;
-          while ( NextActiveHive != *(__int64 **)(a2 + 8 * v22 + 120) )
+          v18 = 0LL;
+          while ( NextActiveHive != *(__int64 **)(a2 + 8 * v18 + 120) )
           {
-            v22 = (unsigned int)(v22 + 1);
-            if ( (unsigned int)v22 >= (unsigned int)v23 )
+            v18 = (unsigned int)(v18 + 1);
+            if ( (unsigned int)v18 >= v17 )
               goto LABEL_10;
           }
         }
-        CmpUnlockRegistry(v22, v23, v19, v20);
-        v26 = CmpTransMgrSyncHive(v21);
-        if ( v26 < 0 )
+        CmpUnlockRegistry();
+        v19 = CmpTransMgrSyncHive(v16);
+        if ( v19 < 0 )
         {
-          v33 = (struct _EX_RUNDOWN_REF *)(v21 + 1640);
-          goto LABEL_26;
+          CmpQuitNextActiveHive(v16);
+          goto LABEL_22;
         }
-        CmpLockRegistry(v25, v24, v27, v28);
+        CmpLockRegistry();
       }
-    }
 LABEL_10:
-    ;
-  }
-  v29 = qword_140C028D0;
-  v30 = *(unsigned int *)(*(_QWORD *)(qword_140C028D0 + 64) + 144LL);
-  if ( (v30 & 1) != 0 )
-    goto LABEL_20;
-  HvLockHiveFlusherExclusive(qword_140C028D0);
-  v34 = KeAbPreAcquire(v29 + 80, 0LL);
-  v35 = v34;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)(v29 + 80), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v29 + 80), v34, v29 + 80);
-  if ( v35 )
-    *(_BYTE *)(v35 + 18) = 1;
-  v26 = HvpMarkDirty(v29, 0, 32, 0);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v29 + 80), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)(v29 + 80));
-  KeAbPostRelease(v29 + 80);
-  if ( v26 >= 0 )
-  {
-    *(_DWORD *)(*(_QWORD *)(v29 + 64) + 144LL) |= 1u;
-    HvUnlockHiveFlusherExclusive(v29);
-    CmpUnlockRegistry(v37, v36, v38, v39);
-    v9 = 0;
-    if ( (int)CmpFlushHive(v29, 0) < 0 )
-    {
-      v26 = -1073741670;
-      goto LABEL_22;
+      ;
     }
+    v20 = qword_140C01170;
+    if ( (*(_DWORD *)(*(_QWORD *)(qword_140C01170 + 64) + 144LL) & 1) != 0 )
+    {
 LABEL_20:
-    v26 = 0;
-    if ( !v9 )
-      goto LABEL_22;
-    goto LABEL_21;
+      v19 = 0;
+      if ( !v8 )
+        goto LABEL_22;
+      goto LABEL_21;
+    }
+    HvLockHiveFlusherExclusive(qword_140C01170);
+    HvLockHiveWriter(v20);
+    v24 = HvMarkDirty(v20, 0LL, 32LL);
+    HvUnlockHiveWriter(v20);
+    if ( v24 )
+    {
+      *(_DWORD *)(*(_QWORD *)(v20 + 64) + 144LL) |= 1u;
+      HvUnlockHiveFlusherExclusive(v20);
+      CmpUnlockRegistry();
+      v8 = 0;
+      if ( (int)CmpFlushHive(v20, 0) < 0 )
+      {
+        v19 = -1073741670;
+        goto LABEL_22;
+      }
+      goto LABEL_20;
+    }
+    HvUnlockHiveFlusherExclusive(v20);
+    v19 = -1073741670;
   }
-  HvUnlockHiveFlusherExclusive(v29);
 LABEL_21:
-  CmpUnlockRegistry(v30, v18, v19, v20);
+  CmpUnlockRegistry();
 LABEL_22:
-  CmpDetachFromRegistryProcess(v41);
-  return (unsigned int)v26;
+  CmpDetachFromRegistryProcess((__int64)v26);
+  return (unsigned int)v19;
 }

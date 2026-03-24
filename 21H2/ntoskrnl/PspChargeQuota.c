@@ -1,15 +1,16 @@
 /*
- * XREFs of PspChargeQuota @ 0x1402AC010
+ * XREFs of PspChargeQuota @ 0x14021ADE0
  * Callers:
- *     PsChargeProcessNonPagedPoolQuota @ 0x14030B700 (PsChargeProcessNonPagedPoolQuota.c)
- *     PsChargeProcessQuota @ 0x14036C8EC (PsChargeProcessQuota.c)
- *     PsChargeProcessPagedPoolQuota @ 0x1406A6F60 (PsChargeProcessPagedPoolQuota.c)
- *     PsChargeSharedPoolQuota @ 0x140726494 (PsChargeSharedPoolQuota.c)
- *     ObpIncrementHandleCountEx @ 0x140733B40 (ObpIncrementHandleCountEx.c)
- *     MiInsertVadCharges @ 0x1407B88C0 (MiInsertVadCharges.c)
- *     MiChargeFullProcessCommitment @ 0x1407BE280 (MiChargeFullProcessCommitment.c)
+ *     PsChargeProcessPoolQuota @ 0x1402AA710 (PsChargeProcessPoolQuota.c)
+ *     PsChargeProcessQuota @ 0x1402E5D24 (PsChargeProcessQuota.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x1403169C0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     MiChargeFullProcessCommitment @ 0x1405F90D0 (MiChargeFullProcessCommitment.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x14062B3D0 (PsChargeProcessPagedPoolQuota.c)
+ *     PsChargeSharedPoolQuota @ 0x140660338 (PsChargeSharedPoolQuota.c)
+ *     MiInsertVadCharges @ 0x1406ECC70 (MiInsertVadCharges.c)
+ *     ObpIncrementHandleCountEx @ 0x1406F5F60 (ObpIncrementHandleCountEx.c)
  * Callees:
- *     PspExpandQuota @ 0x1402436C8 (PspExpandQuota.c)
+ *     PspExpandQuota @ 0x1402BF1E8 (PspExpandQuota.c)
  */
 
 __int64 __fastcall PspChargeQuota(__int64 a1, __int64 a2, int a3, unsigned __int64 a4)
@@ -57,7 +58,7 @@ LABEL_3:
         v10 = v21 + _InterlockedExchangeAdd64((volatile signed __int64 *)v7 + 8, v21);
         goto LABEL_3;
       }
-      if ( !PspExpandQuota(v4, (__int64)v7, v9, a4, &i) )
+      if ( !(unsigned __int8)PspExpandQuota(v4, (_DWORD)v7, v9, a4, (__int64)&i) )
         return *(unsigned int *)&PspResourceFlags[8 * v4 + 4];
     }
     v13 = _InterlockedCompareExchange64((volatile signed __int64 *)v7, v11, v9);

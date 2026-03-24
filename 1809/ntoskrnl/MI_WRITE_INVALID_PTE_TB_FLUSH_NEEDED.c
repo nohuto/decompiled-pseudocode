@@ -5,9 +5,9 @@
  *     MiConvertPrivateToProto @ 0x140082EB0 (MiConvertPrivateToProto.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x140121ED0 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x140121EF0 (MI_INTERLOCKED_EXCHANGE_PTE.c)
  */
 
 _BOOL8 __fastcall MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED(unsigned __int64 a1)

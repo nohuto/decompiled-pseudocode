@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SearchAndSetKbdTbl@@YAXPEAUDEVICEINFO@@KK@Z @ 0x1C01E41D0
+ * XREFs of ?SearchAndSetKbdTbl@@YAXPEAUDEVICEINFO@@KK@Z @ 0x1C01AAD20
  * Callers:
- *     ?ProcessInputNoLock@CKeyboardProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYBOARD_INPUT_DATA@@K_NPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@@Z @ 0x1C00052B0 (-ProcessInputNoLock@CKeyboardProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYB.c)
+ *     ?ProcessInputNoLock@CKeyboardProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYBOARD_INPUT_DATA@@K_NPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@@Z @ 0x1C01A26E0 (-ProcessInputNoLock@CKeyboardProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYB.c)
  * Callees:
- *     HMAssignmentLock @ 0x1C003A420 (HMAssignmentLock.c)
- *     SetGlobalKeyboardTableInfo @ 0x1C0050030 (SetGlobalKeyboardTableInfo.c)
+ *     SetGlobalKeyboardTableInfo @ 0x1C00090B0 (SetGlobalKeyboardTableInfo.c)
+ *     HMAssignmentLock @ 0x1C0030310 (HMAssignmentLock.c)
  */
 
 void __fastcall SearchAndSetKbdTbl(struct DEVICEINFO *a1, int a2, int a3)
@@ -43,7 +43,7 @@ LABEL_11:
   {
     v10[0] = (__int64 *)(gpKL + 48);
     v10[1] = v4;
-    HMAssignmentLock(v10, 0LL);
+    HMAssignmentLock(v10);
     SetGlobalKeyboardTableInfo(gpKL);
   }
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of AnFwpProgressIndicatorTimer @ 0x140AACEA0
+ * XREFs of AnFwpProgressIndicatorTimer @ 0x1409F44C0
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwQueryPerformanceCounter @ 0x1403A7BD8 (BgpFwQueryPerformanceCounter.c)
- *     BgpFwReleaseLock @ 0x1403A7BF0 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403A7C40 (BgpFwAcquireLock.c)
- *     BgpTxtDisplayCharacter @ 0x1403A7CAC (BgpTxtDisplayCharacter.c)
- *     LogFwStat @ 0x140AACFEC (LogFwStat.c)
+ *     BgpFwQueryPerformanceCounter @ 0x14039BE80 (BgpFwQueryPerformanceCounter.c)
+ *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
+ *     BgpTxtDisplayCharacter @ 0x1403B1888 (BgpTxtDisplayCharacter.c)
+ *     LogFwStat @ 0x1409F27D8 (LogFwStat.c)
  */
 
 void __fastcall AnFwpProgressIndicatorTimer(
@@ -17,48 +17,35 @@ void __fastcall AnFwpProgressIndicatorTimer(
         PVOID SystemArgument2)
 {
   LARGE_INTEGER PerformanceCounter; // rax
-  unsigned __int16 v5; // r9
+  __int16 v5; // r9
   LARGE_INTEGER v6; // rbx
-  __int16 v7; // r10
-  __int16 v8; // ax
-  __int16 v9; // ax
-  LARGE_INTEGER v10[3]; // [rsp+40h] [rbp-18h] BYREF
+  __int16 v7; // ax
+  LARGE_INTEGER v8[3]; // [rsp+40h] [rbp-18h] BYREF
 
-  v10[0].QuadPart = 0LL;
+  v8[0].QuadPart = 0LL;
   BgpFwAcquireLock();
-  if ( byte_140CE1AE0 )
+  if ( byte_140CDB160 )
   {
-    PerformanceCounter = BgpFwQueryPerformanceCounter(v10);
-    v5 = word_140C09770;
+    PerformanceCounter = BgpFwQueryPerformanceCounter(v8);
+    v5 = word_140C10E70;
     v6 = PerformanceCounter;
-    v7 = word_140C0C67C;
-    if ( word_140C09770 != word_140C0C67C
-      && (qword_140C54908 + 10 * (v10[0].QuadPart / 33) / 100 - PerformanceCounter.QuadPart) / (v10[0].QuadPart / 33) >= 2 )
+    if ( word_140C10E70 != -7989
+      && (qword_140CDB168 + 10 * (v8[0].QuadPart / 33) / 100 - PerformanceCounter.QuadPart) / (v8[0].QuadPart / 33) >= 2 )
     {
-      v5 = ++word_140C09770;
+      v5 = ++word_140C10E70;
     }
-    v8 = word_140C0C678;
-    if ( v5 >= (unsigned __int16)word_140C0C678 )
+    if ( (unsigned __int16)(v5 + 8110) <= 0x79u )
     {
-      if ( v5 > (unsigned __int16)word_140C0C67C )
-        goto LABEL_9;
-      LogFwStat(1LL, 0LL, v10);
-      BgpTxtDisplayCharacter(qword_140C0E050, (unsigned __int16)word_140C09770, 0, 0LL, 0LL);
-      LogFwStat(0LL, 0LL, v10);
-      v5 = word_140C09770;
-      v7 = word_140C0C67C;
-      v8 = word_140C0C678;
+      LogFwStat(1, 0, v8);
+      BgpTxtDisplayCharacter(qword_140C135B0, word_140C10E70, 0, 0LL, 0LL);
+      LogFwStat(0, 0, v8);
+      v5 = word_140C10E70;
     }
-    if ( v5 == v7 )
-    {
-      v9 = v8 - word_140C0C674;
-      goto LABEL_10;
-    }
-LABEL_9:
-    v9 = v5 + 1;
-LABEL_10:
-    word_140C09770 = v9;
-    qword_140C54908 = v6.QuadPart;
+    v7 = -8118;
+    if ( v5 != -7989 )
+      v7 = v5 + 1;
+    word_140C10E70 = v7;
+    qword_140CDB168 = v6.QuadPart;
   }
   BgpFwReleaseLock();
 }

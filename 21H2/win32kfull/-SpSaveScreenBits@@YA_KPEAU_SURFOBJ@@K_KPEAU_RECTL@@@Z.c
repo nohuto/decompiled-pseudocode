@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SpSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C027D6A0
+ * XREFs of ?SpSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C027FF00
  * Callers:
  *     <none>
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ??1DEVEXCLUDERECT@@QEAA@XZ @ 0x1C0279220 (--1DEVEXCLUDERECT@@QEAA@XZ.c)
- *     ??0UNDODESKTOPCOORD@@QEAA@PEAVEWNDOBJ@@PEAU_SPRITESTATE@@@Z @ 0x1C027BAD4 (--0UNDODESKTOPCOORD@@QEAA@PEAVEWNDOBJ@@PEAU_SPRITESTATE@@@Z.c)
- *     ??1UNDODESKTOPCOORD@@QEAA@XZ @ 0x1C027BC24 (--1UNDODESKTOPCOORD@@QEAA@XZ.c)
- *     ?GreTearDownSprites@@YAHPEAUHDEV__@@PEAU_RECTL@@H@Z @ 0x1C027CCDC (-GreTearDownSprites@@YAHPEAUHDEV__@@PEAU_RECTL@@H@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ??1DEVEXCLUDERECT@@QEAA@XZ @ 0x1C027B674 (--1DEVEXCLUDERECT@@QEAA@XZ.c)
+ *     ??0UNDODESKTOPCOORD@@QEAA@PEAVEWNDOBJ@@PEAU_SPRITESTATE@@@Z @ 0x1C027DF64 (--0UNDODESKTOPCOORD@@QEAA@PEAVEWNDOBJ@@PEAU_SPRITESTATE@@@Z.c)
+ *     ??1UNDODESKTOPCOORD@@QEAA@XZ @ 0x1C027E0B4 (--1UNDODESKTOPCOORD@@QEAA@XZ.c)
+ *     ?GreTearDownSprites@@YAHPEAUHDEV__@@PEAU_RECTL@@H@Z @ 0x1C027F31C (-GreTearDownSprites@@YAHPEAUHDEV__@@PEAU_RECTL@@H@Z.c)
  */
 
 __int64 __fastcall SpSaveScreenBits(struct _SURFOBJ *a1, unsigned int a2, __int64 a3, struct _RECTL *a4)
@@ -37,35 +37,22 @@ __int64 __fastcall SpSaveScreenBits(struct _SURFOBJ *a1, unsigned int a2, __int6
   v20 = 0;
   v7 = a3;
   v18 = a3;
-  v16 = (struct _SPRITESTATE *)(hdev + 20);
+  v16 = (struct _SPRITESTATE *)(hdev + 22);
   v17 = hdev;
-  if ( *((_QWORD *)hdev + 172) && gpto )
+  if ( *((_QWORD *)hdev + 173) && gpto )
   {
-    if ( a2 )
+    if ( !a2 )
     {
-      if ( a2 == 2 )
+      v15 = ghsemWndobj;
+      GreAcquireSemaphore(ghsemWndobj);
+      v10 = gpto;
+      v11 = 0;
+      if ( !gpto )
       {
-LABEL_20:
-        v5 = (*((__int64 (__fastcall **)(struct _SURFOBJ *, _QWORD, __int64, struct _RECTL *))hdev + 172))(
-               a1,
-               a2,
-               v7,
-               a4);
-        goto LABEL_21;
+LABEL_21:
+        SEMOBJ::vUnlock((SEMOBJ *)&v15);
+        goto LABEL_20;
       }
-LABEL_19:
-      v13 = *a4;
-      v21 = a1->hdev;
-      v22 = v13;
-      v20 = GreTearDownSprites(v21, a4);
-      goto LABEL_20;
-    }
-    v15 = ghsemWndobj;
-    GreAcquireSemaphore(ghsemWndobj);
-    v10 = gpto;
-    v11 = 0;
-    if ( gpto )
-    {
       while ( !v11 )
       {
         for ( i = *((_QWORD *)v10 + 3); i; i = *(_QWORD *)(i + 160) )
@@ -85,19 +72,24 @@ LABEL_19:
         if ( !v10 )
         {
           if ( !v11 )
-            goto LABEL_17;
+            goto LABEL_21;
           break;
         }
       }
       SEMOBJ::vUnlock((SEMOBJ *)&v15);
       hdev = v17;
       v7 = v18;
-      goto LABEL_19;
     }
-LABEL_17:
-    SEMOBJ::vUnlock((SEMOBJ *)&v15);
+    if ( a2 != 2 )
+    {
+      v13 = *a4;
+      v21 = a1->hdev;
+      v22 = v13;
+      v20 = GreTearDownSprites(v21, a4);
+    }
+    v5 = (*((__int64 (__fastcall **)(struct _SURFOBJ *, _QWORD, __int64, struct _RECTL *))hdev + 173))(a1, a2, v7, a4);
   }
-LABEL_21:
+LABEL_20:
   DEVEXCLUDERECT::~DEVEXCLUDERECT((DEVEXCLUDERECT *)&v20);
   return v5;
 }

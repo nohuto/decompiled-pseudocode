@@ -1,30 +1,30 @@
 /*
- * XREFs of PpmCheckResumePpmEngineFromSx @ 0x140399068
+ * XREFs of PpmCheckResumePpmEngineFromSx @ 0x14038DC9C
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PpmPerfUpdateQosDisableReasons @ 0x1402246C0 (PpmPerfUpdateQosDisableReasons.c)
- *     PpmReleaseLock @ 0x140224C00 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     PpmCheckReInit @ 0x14081A3AC (PpmCheckReInit.c)
+ *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
+ *     PpmPerfUpdateQosDisableReasons @ 0x1402D2004 (PpmPerfUpdateQosDisableReasons.c)
+ *     PpmCheckReInit @ 0x1407BA7E4 (PpmCheckReInit.c)
  */
 
-void PpmCheckResumePpmEngineFromSx()
+LONG PpmCheckResumePpmEngineFromSx()
 {
-  unsigned int v0; // r8d
+  __int64 v0; // rdx
+  __int64 v1; // rcx
 
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
   if ( PpmHeteroHgsEnabled )
   {
-    v0 = 1;
     __writemsr(0x17D0u, (*(_QWORD *)(PpmHeteroHgsTableMdl + 48) << 12) | 1LL);
-    if ( PpmHeteroHgsThreadEnabled )
-      v0 = 3;
-    __writemsr(0x17D1u, v0);
+    v1 = 6097LL;
+    v0 = 0LL;
+    __writemsr(0x17D1u, 1uLL);
   }
   PpmCheckForceDisarm = 0;
-  PpmCheckReInit();
+  PpmCheckReInit(v1, v0);
   PpmPerfUpdateQosDisableReasons(0LL);
-  byte_140D07398 = 0;
-  PpmReleaseLock(&PpmPerfPolicyLock);
+  byte_140CFCDC8 = 0;
+  return PpmReleaseLock(&PpmPerfPolicyLock);
 }

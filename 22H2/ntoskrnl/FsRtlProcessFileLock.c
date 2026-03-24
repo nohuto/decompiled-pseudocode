@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlProcessFileLock @ 0x14053DA60
+ * XREFs of FsRtlProcessFileLock @ 0x1404EFC10
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     FsRtlPrivateFastUnlockAll @ 0x140326854 (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlFastUnlockSingle @ 0x140326EB0 (FsRtlFastUnlockSingle.c)
- *     FsRtlPrivateLock @ 0x140327350 (FsRtlPrivateLock.c)
- *     IoGetRequestorProcess @ 0x140332030 (IoGetRequestorProcess.c)
- *     FsRtlCompleteLockIrpReal @ 0x14045EB20 (FsRtlCompleteLockIrpReal.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     FsRtlPrivateLock @ 0x1402D8B40 (FsRtlPrivateLock.c)
+ *     FsRtlFastUnlockSingle @ 0x1402D9660 (FsRtlFastUnlockSingle.c)
+ *     IoGetRequestorProcess @ 0x1402D99A0 (IoGetRequestorProcess.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x1402F7DB4 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlCompleteLockIrpReal @ 0x1404EF5B0 (FsRtlCompleteLockIrpReal.c)
  */
 
 NTSTATUS __stdcall FsRtlProcessFileLock(PFILE_LOCK FileLock, PIRP Irp, PVOID Context)

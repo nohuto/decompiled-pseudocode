@@ -1,7 +1,7 @@
 /*
- * XREFs of BRUSHOBJ_ulGetBrushColor @ 0x1C0128740
+ * XREFs of BRUSHOBJ_ulGetBrushColor @ 0x1C013C0E0
  * Callers:
- *     NtGdiBRUSHOBJ_ulGetBrushColor @ 0x1C0128640 (NtGdiBRUSHOBJ_ulGetBrushColor.c)
+ *     NtGdiBRUSHOBJ_ulGetBrushColor @ 0x1C013BFC0 (NtGdiBRUSHOBJ_ulGetBrushColor.c)
  * Callees:
  *     <none>
  */

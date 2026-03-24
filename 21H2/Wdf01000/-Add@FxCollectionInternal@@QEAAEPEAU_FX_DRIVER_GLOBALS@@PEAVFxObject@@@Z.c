@@ -1,61 +1,41 @@
 /*
- * XREFs of ?Add@FxCollectionInternal@@QEAAEPEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@@Z @ 0x1C0014A1C
+ * XREFs of ?Add@FxCollectionInternal@@QEAAEPEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@@Z @ 0x1C0018CCC
  * Callers:
- *     imp_WdfCollectionAdd @ 0x1C0014980 (imp_WdfCollectionAdd.c)
- *     ?BuildFromWdmList@FxIoResList@@QEAAJPEAPEAU_IO_RESOURCE_LIST@@@Z @ 0x1C001DE54 (-BuildFromWdmList@FxIoResList@@QEAAJPEAPEAU_IO_RESOURCE_LIST@@@Z.c)
- *     ?BuildFromWdmList@FxCmResList@@QEAAJPEAU_CM_RESOURCE_LIST@@E@Z @ 0x1C0021B30 (-BuildFromWdmList@FxCmResList@@QEAAJPEAU_CM_RESOURCE_LIST@@E@Z.c)
- *     imp_WdfPdoInitAddCompatibleID @ 0x1C0027270 (imp_WdfPdoInitAddCompatibleID.c)
- *     imp_WdfRegistryQueryMultiString @ 0x1C002D190 (imp_WdfRegistryQueryMultiString.c)
- *     imp_WdfPdoInitAddHardwareID @ 0x1C002F4B0 (imp_WdfPdoInitAddHardwareID.c)
+ *     imp_WdfCollectionAdd @ 0x1C0018C30 (imp_WdfCollectionAdd.c)
+ *     imp_WdfPdoInitAddCompatibleID @ 0x1C0045E20 (imp_WdfPdoInitAddCompatibleID.c)
+ *     imp_WdfPdoInitAddHardwareID @ 0x1C0046180 (imp_WdfPdoInitAddHardwareID.c)
+ *     imp_WdfRegistryQueryMultiString @ 0x1C005E500 (imp_WdfRegistryQueryMultiString.c)
+ *     ?BuildFromWdmList@FxCmResList@@QEAAJPEAU_CM_RESOURCE_LIST@@E@Z @ 0x1C00611FC (-BuildFromWdmList@FxCmResList@@QEAAJPEAU_CM_RESOURCE_LIST@@E@Z.c)
+ *     ?BuildFromWdmList@FxIoResList@@QEAAJPEAPEAU_IO_RESOURCE_LIST@@@Z @ 0x1C0061304 (-BuildFromWdmList@FxIoResList@@QEAAJPEAPEAU_IO_RESOURCE_LIST@@@Z.c)
  * Callees:
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C00196F8 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C000CA80 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     ?AllocateEntry@FxCollectionInternal@@IEAAPEAVFxCollectionEntry@@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0018D40 (-AllocateEntry@FxCollectionInternal@@IEAAPEAVFxCollectionEntry@@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
-bool __fastcall FxCollectionInternal::Add(
+__int64 __fastcall FxCollectionInternal::Add(
         FxCollectionInternal *this,
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
-        FX_POOL *Item)
+        FxObject *Item)
 {
-  bool v3; // zf
-  void *v6; // r9
-  FX_POOL **v7; // rax
-  FX_POOL **v8; // rbx
-  _LIST_ENTRY *v9; // rcx
-  _LIST_ENTRY *Blink; // rdx
-  __m128i v12; // [rsp+30h] [rbp-18h] BYREF
-  void *retaddr; // [rsp+48h] [rbp+0h]
+  __int64 result; // rax
+  _LIST_ENTRY *Blink; // rcx
+  _LIST_ENTRY *v7; // r9
 
-  v3 = FxDriverGlobals->FxPoolTrackingOn == 0;
-  v12.m128i_i64[0] = 0LL;
-  v12.m128i_i64[1] = 64LL;
-  if ( v3 )
-    v6 = 0LL;
-  else
-    v6 = retaddr;
-  v7 = FxPoolAllocator(FxDriverGlobals, &FxDriverGlobals->FxPoolFrameworks, &v12, 0x18uLL, FxDriverGlobals->Tag, v6);
-  v8 = v7;
-  if ( v7 )
+  result = (__int64)FxCollectionInternal::AllocateEntry(this, FxDriverGlobals);
+  if ( result )
   {
-    v9 = (_LIST_ENTRY *)(v7 + 1);
     Blink = this->m_ListHead.Blink;
+    v7 = (_LIST_ENTRY *)(result + 8);
     if ( Blink->Flink != &this->m_ListHead )
       __fastfail(3u);
-    v7[2] = (FX_POOL *)Blink;
-    v9->Flink = &this->m_ListHead;
-    Blink->Flink = v9;
-    this->m_ListHead.Blink = v9;
-    *v7 = Item;
-    FxObject::AddRef(
-      (FxObject *)Item,
-      this,
-      185,
-      "minkernel\\wdf\\framework\\shared\\inc\\private\\common\\FxCollection.hpp");
+    v7->Flink = &this->m_ListHead;
+    *(_QWORD *)(result + 16) = Blink;
+    Blink->Flink = v7;
+    this->m_ListHead.Blink = v7;
+    *(_QWORD *)result = Item;
+    FxObject::AddRef(Item, this, 185, "minkernel\\wdf\\framework\\shared\\inc\\private\\common\\FxCollection.hpp");
+    result = 1LL;
     ++this->m_Count;
   }
-  else
-  {
-    v8 = 0LL;
-  }
-  return v8 != 0LL;
+  return result;
 }

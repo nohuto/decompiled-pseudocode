@@ -1,97 +1,109 @@
 /*
- * XREFs of ?AddEjectionDevice@FxPkgPdo@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C0083284
+ * XREFs of ?AddEjectionDevice@FxPkgPdo@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C0078D7C
  * Callers:
- *     imp_WdfPdoAddEjectionRelationsPhysicalDevice @ 0x1C005AF90 (imp_WdfPdoAddEjectionRelationsPhysicalDevice.c)
+ *     imp_WdfPdoAddEjectionRelationsPhysicalDevice @ 0x1C0038DE0 (imp_WdfPdoAddEjectionRelationsPhysicalDevice.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0006DE0 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ?Add@FxTransactionedList@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAUFxTransactionedEntry@@@Z @ 0x1C002B9D8 (-Add@FxTransactionedList@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAUFxTransactionedEntry@@@Z.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ??0FxRelatedDevice@@QEAA@PEAU_DEVICE_OBJECT@@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00916D4 (--0FxRelatedDevice@@QEAA@PEAU_DEVICE_OBJECT@@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
+ *     ?Add@FxTransactionedList@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAUFxTransactionedEntry@@@Z @ 0x1C0061ED0 (-Add@FxTransactionedList@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAUFxTransactionedEntry@@@Z.c)
+ *     ??0FxRelatedDevice@@QEAA@PEAU_DEVICE_OBJECT@@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0091524 (--0FxRelatedDevice@@QEAA@PEAU_DEVICE_OBJECT@@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
 __int64 __fastcall FxPkgPdo::AddEjectionDevice(FxPkgPdo *this, _DEVICE_OBJECT *DependentDevice, unsigned __int8 a3)
 {
   unsigned __int8 v5; // r8
-  _FX_DRIVER_GLOBALS *m_Globals; // rcx
-  void *v7; // rax
-  FX_POOL **v8; // rax
-  FxRelatedDeviceList *v9; // rcx
-  _QWORD *v10; // rax
-  int v11; // edi
-  const void *_a1; // rax
-  _FX_DRIVER_GLOBALS *v14; // rcx
-  FxRelatedDevice *v15; // rax
-  __int64 v16; // rax
-  FxObject *v17; // rdi
-  int v18; // ebx
-  FxPoolTypeOrPoolFlags v19; // [rsp+40h] [rbp-10h] BYREF
-  void *retaddr; // [rsp+68h] [rbp+18h]
-  unsigned __int8 irql; // [rsp+70h] [rbp+20h] BYREF
+  FX_POOL **v6; // rax
+  FxRelatedDeviceList *v7; // rcx
+  _QWORD *v8; // rax
+  int v9; // edi
+  const void *ObjectHandleUnchecked; // rax
+  FxRelatedDevice *v12; // rax
+  __int64 v13; // rax
+  __int64 v14; // rdi
+  int v15; // ebx
+  void *Caller; // [rsp+48h] [rbp+0h]
+  unsigned __int8 irql; // [rsp+50h] [rbp+8h] BYREF
 
-  if ( this->m_EjectionDeviceList )
-    goto LABEL_11;
-  irql = 0;
-  FxNonPagedObject::Lock(this, &irql, a3);
-  if ( this->m_EjectionDeviceList )
-    goto LABEL_7;
-  m_Globals = this->m_Globals;
-  v7 = retaddr;
-  *(_QWORD *)&v19.UsePoolType = 0LL;
-  v19.u.PoolFlags = 64LL;
-  if ( !m_Globals->FxPoolTrackingOn )
-    v7 = 0LL;
-  v8 = FxPoolAllocator(m_Globals, &m_Globals->FxPoolFrameworks, (__m128i *)&v19, 0x50uLL, m_Globals->Tag, v7);
-  v9 = (FxRelatedDeviceList *)v8;
-  if ( v8 )
+  if ( !this->m_EjectionDeviceList )
   {
-    *((_DWORD *)v8 + 12) = 0;
-    *(_WORD *)((char *)v8 + 53) = 0;
-    v8[5] = 0LL;
-    v10 = v8 + 1;
-    v9->m_ListLock.m_Lock = 0LL;
-    v9->m_ListLock.m_DbgFlagIsInitialized = 1;
-    v10[1] = v10;
-    *v10 = v10;
-    v9->m_TransactionHead.Blink = &v9->m_TransactionHead;
-    v9->m_TransactionHead.Flink = &v9->m_TransactionHead;
-    v9->__vftable = (FxRelatedDeviceList_vtbl *)FxRelatedDeviceList::`vftable';
-    v9->m_DeleteOnRemove = 1;
-    v9->m_NeedReportMissing = 0;
-    this->m_EjectionDeviceList = v9;
-LABEL_7:
-    v11 = 0;
-    goto LABEL_8;
-  }
-  this->m_EjectionDeviceList = 0LL;
-  v11 = -1073741670;
-  _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
-  WPP_IFR_SF_q(this->m_Globals, 2u, 0xCu, 0x19u, (const _GUID *)&WPP_FxPkgPdo_cpp_Traceguids, _a1);
+    irql = 0;
+    FxNonPagedObject::Lock(this, &irql, a3);
+    if ( this->m_EjectionDeviceList )
+      goto LABEL_8;
+    v6 = FxPoolAllocator(
+           this->m_Globals,
+           &this->m_Globals->FxPoolFrameworks,
+           ExDefaultNonPagedPoolType,
+           0x50uLL,
+           this->m_Globals->Tag,
+           Caller);
+    v7 = (FxRelatedDeviceList *)v6;
+    if ( v6 )
+    {
+      *((_DWORD *)v6 + 12) = 0;
+      *(_WORD *)((char *)v6 + 53) = 0;
+      v6[5] = 0LL;
+      v8 = v6 + 1;
+      v7->m_ListLock.m_Lock = 0LL;
+      v7->m_ListLock.m_DbgFlagIsInitialized = 1;
+      v8[1] = v8;
+      *v8 = v8;
+      v7->m_TransactionHead.Blink = &v7->m_TransactionHead;
+      v7->m_TransactionHead.Flink = &v7->m_TransactionHead;
+      v7->__vftable = (FxRelatedDeviceList_vtbl *)FxRelatedDeviceList::`vftable';
+      v7->m_DeleteOnRemove = 1;
+      v7->m_NeedReportMissing = 0;
+    }
+    else
+    {
+      v7 = 0LL;
+    }
+    this->m_EjectionDeviceList = v7;
+    if ( v7 )
+    {
 LABEL_8:
-  FxNonPagedObject::Unlock(this, irql, v5);
-  if ( v11 < 0 )
-    return (unsigned int)v11;
-LABEL_11:
-  v14 = this->m_Globals;
-  *(_QWORD *)&v19.UsePoolType = 0LL;
-  v19.u.PoolFlags = 64LL;
-  v15 = (FxRelatedDevice *)FxObjectHandleAllocCommon(v14, &v19, 0xA8uLL, 0, 0LL, 0, FxObjectTypeInternal);
-  if ( !v15 )
-    return 3221225626LL;
-  FxRelatedDevice::FxRelatedDevice(v15, DependentDevice, this->m_Globals);
-  v17 = (FxObject *)v16;
-  if ( !v16 )
-    return 3221225626LL;
-  v18 = FxTransactionedList::Add(this->m_EjectionDeviceList, this->m_Globals, (FxTransactionedEntry *)(v16 + 104));
-  if ( v18 < 0 )
-  {
-    FxObject::ClearEvtCallbacks(v17);
-    v17->DeleteObject(v17);
+      v9 = 0;
+    }
+    else
+    {
+      v9 = -1073741670;
+      ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
+      WPP_IFR_SF_q(this->m_Globals, 2u, 0xCu, 0x19u, (const _GUID *)&WPP_FxPkgPdo_cpp_Traceguids, ObjectHandleUnchecked);
+    }
+    FxNonPagedObject::Unlock(this, irql, v5);
+    if ( v9 < 0 )
+      return (unsigned int)v9;
   }
-  return (unsigned int)v18;
+  v12 = (FxRelatedDevice *)FxObjectHandleAlloc(
+                             this->m_Globals,
+                             ExDefaultNonPagedPoolType,
+                             0xA8uLL,
+                             0,
+                             0LL,
+                             0,
+                             FxObjectTypeInternal);
+  if ( v12 )
+  {
+    FxRelatedDevice::FxRelatedDevice(v12, DependentDevice, this->m_Globals);
+    v14 = v13;
+  }
+  else
+  {
+    v14 = 0LL;
+  }
+  if ( !v14 )
+    return 3221225626LL;
+  v15 = FxTransactionedList::Add(this->m_EjectionDeviceList, this->m_Globals, (FxTransactionedEntry *)(v14 + 104));
+  if ( v15 < 0 )
+  {
+    FxObject::ClearEvtCallbacks((FxObject *)v14);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v14 + 48LL))(v14);
+  }
+  return (unsigned int)v15;
 }

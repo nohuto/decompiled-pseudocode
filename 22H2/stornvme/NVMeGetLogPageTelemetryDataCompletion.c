@@ -1,138 +1,125 @@
 /*
- * XREFs of NVMeGetLogPageTelemetryDataCompletion @ 0x1C0015E50
+ * XREFs of NVMeGetLogPageTelemetryDataCompletion @ 0x1C0014C40
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     memmove @ 0x1C0004880 (memmove.c)
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     NVMeZeroMemory @ 0x1C00092D8 (NVMeZeroMemory.c)
- *     NVMeFreeDmaBuffer @ 0x1C000EEA4 (NVMeFreeDmaBuffer.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeZeroMemory @ 0x1C0005A70 (NVMeZeroMemory.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
+ *     memmove @ 0x1C0007D80 (memmove.c)
  */
 
 char __fastcall NVMeGetLogPageTelemetryDataCompletion(__int64 a1, __int64 a2)
 {
-  __int64 SrbExtension; // rax
-  __int64 v5; // rbx
-  size_t v6; // rdi
-  char *SrbDataBuffer; // rax
-  int v8; // r9d
-  char v9; // r10
-  char *v10; // rbp
-  unsigned int *v11; // r15
-  _QWORD *v12; // r14
-  __int64 v13; // rdx
-  char v14; // cl
-  char v15; // al
+  __int64 v4; // rdx
+  __int64 SrbExtension; // rbx
+  int v6; // eax
+  unsigned int v7; // esi
+  __int64 v8; // r14
+  __int64 v9; // r15
+  __int64 v10; // rdx
+  char v11; // cl
+  char v12; // al
+  char v13; // cl
+  char v14; // al
+  char v15; // cl
   char v16; // cl
-  char v17; // al
-  char v18; // cl
-  char v19; // cl
-  size_t v20; // r8
-  const void *v21; // rdx
-  char *v22; // rcx
-  unsigned int *v24; // [rsp+C0h] [rbp+8h] BYREF
+  size_t v17; // r8
+  const void *v18; // rdx
+  void *v19; // rcx
 
   SrbExtension = GetSrbExtension(a2);
-  v24 = 0LL;
-  v5 = SrbExtension;
-  v6 = *(unsigned int *)(SrbExtension + 4240);
-  SrbDataBuffer = (char *)GetSrbDataBuffer(a2, &v24);
-  v10 = SrbDataBuffer;
-  if ( *(_BYTE *)(a2 + 3) == 1 )
+  v6 = *(_DWORD *)(SrbExtension + 4232);
+  v7 = *(_DWORD *)(SrbExtension + 4240);
+  if ( *(_BYTE *)(v4 + 2) == 40 )
   {
-    v11 = v24;
-    if ( v8 )
-    {
-      if ( (unsigned int)v6 < 0x200 || *v24 < (unsigned int)v6 || *(_BYTE *)(a1 + 20) != v9 )
-        goto LABEL_18;
-      v21 = *(const void **)(v5 + 4200);
-      v20 = v6;
-      v22 = SrbDataBuffer;
-LABEL_17:
-      LOBYTE(SrbDataBuffer) = (unsigned __int8)memmove(v22, v21, v20);
-LABEL_18:
-      *v11 = v6;
-      v12 = (_QWORD *)(v5 + 4200);
-      goto LABEL_22;
-    }
-    if ( *(_BYTE *)(a1 + 20) == v9 )
-    {
-      LOBYTE(SrbDataBuffer) = (unsigned __int8)NVMeZeroMemory(SrbDataBuffer, *v24);
-      v9 = 0;
-    }
-    v12 = (_QWORD *)(v5 + 4200);
-    v13 = *(_QWORD *)(v5 + 4200);
-    if ( (unsigned int)v6 >= 0x200 )
-    {
-      v14 = *(_BYTE *)(v13 + 5);
-      if ( *(_BYTE *)(a1 + 20) == v9 )
-      {
-        v10[7] = v14;
-        v10[6] = *(_BYTE *)(v13 + 6);
-        v10[5] = *(_BYTE *)(v13 + 7);
-        v10[9] = *(_BYTE *)(v13 + 8);
-        v10[8] = *(_BYTE *)(v13 + 9);
-        v10[11] = *(_BYTE *)(v13 + 10);
-        v10[10] = *(_BYTE *)(v13 + 11);
-        v10[13] = *(_BYTE *)(v13 + 12);
-        v10[12] = *(_BYTE *)(v13 + 13);
-        v10[17] = *(_BYTE *)(v13 + 16);
-        v10[16] = *(_BYTE *)(v13 + 17);
-        v10[15] = *(_BYTE *)(v13 + 18);
-        v10[14] = *(_BYTE *)(v13 + 19);
-        v10[382] = *(_BYTE *)(v13 + 382);
-        LOBYTE(SrbDataBuffer) = *(_BYTE *)(v13 + 383);
-        v10[383] = (char)SrbDataBuffer;
-        *((_OWORD *)v10 + 24) = *(_OWORD *)(v13 + 384);
-        *((_OWORD *)v10 + 25) = *(_OWORD *)(v13 + 400);
-        *((_OWORD *)v10 + 26) = *(_OWORD *)(v13 + 416);
-        *((_OWORD *)v10 + 27) = *(_OWORD *)(v13 + 432);
-        *((_OWORD *)v10 + 28) = *(_OWORD *)(v13 + 448);
-        *((_OWORD *)v10 + 29) = *(_OWORD *)(v13 + 464);
-        *((_OWORD *)v10 + 30) = *(_OWORD *)(v13 + 480);
-        *((_OWORD *)v10 + 31) = *(_OWORD *)(v13 + 496);
-      }
-      else
-      {
-        *(_BYTE *)(v13 + 5) = *(_BYTE *)(v13 + 7);
-        v15 = *(_BYTE *)(v13 + 9);
-        *(_BYTE *)(v13 + 7) = v14;
-        v16 = *(_BYTE *)(v13 + 8);
-        *(_BYTE *)(v13 + 8) = v15;
-        v17 = *(_BYTE *)(v13 + 11);
-        *(_BYTE *)(v13 + 9) = v16;
-        v18 = *(_BYTE *)(v13 + 10);
-        *(_BYTE *)(v13 + 10) = v17;
-        LOBYTE(SrbDataBuffer) = *(_BYTE *)(v13 + 13);
-        *(_BYTE *)(v13 + 11) = v18;
-        v19 = *(_BYTE *)(v13 + 12);
-        *(_BYTE *)(v13 + 12) = (_BYTE)SrbDataBuffer;
-        *(_BYTE *)(v13 + 13) = v19;
-      }
-      if ( (unsigned int)v6 <= 0x200 || *v11 < (unsigned int)v6 || *(_BYTE *)(a1 + 20) != v9 )
-        goto LABEL_18;
-      v20 = (unsigned int)(v6 - 512);
-      v21 = (const void *)(v13 + 512);
-      v22 = v10 + 512;
-      goto LABEL_17;
-    }
+    v8 = *(_QWORD *)(v4 + 64);
+    v9 = 60LL;
   }
   else
   {
-    v12 = (_QWORD *)(v5 + 4200);
+    v8 = *(_QWORD *)(v4 + 24);
+    v9 = 16LL;
   }
-  if ( *(_BYTE *)(a1 + 24) != v9 )
-    LOBYTE(SrbDataBuffer) = StorPortExtendedFunction(86LL, a1, 0LL);
+  if ( *(_BYTE *)(v4 + 3) != 1 )
+    goto LABEL_16;
+  if ( !v6 )
+  {
+    if ( !*(_BYTE *)(a1 + 16) )
+      NVMeZeroMemory((void *)v8, *(_DWORD *)(a2 + v9));
+    v10 = *(_QWORD *)(SrbExtension + 4200);
+    if ( v7 >= 0x200 )
+    {
+      v11 = *(_BYTE *)(v10 + 5);
+      if ( *(_BYTE *)(a1 + 16) )
+      {
+        *(_BYTE *)(v10 + 5) = *(_BYTE *)(v10 + 7);
+        v12 = *(_BYTE *)(v10 + 9);
+        *(_BYTE *)(v10 + 7) = v11;
+        v13 = *(_BYTE *)(v10 + 8);
+        *(_BYTE *)(v10 + 8) = v12;
+        v14 = *(_BYTE *)(v10 + 11);
+        *(_BYTE *)(v10 + 9) = v13;
+        v15 = *(_BYTE *)(v10 + 10);
+        *(_BYTE *)(v10 + 10) = v14;
+        LOBYTE(v6) = *(_BYTE *)(v10 + 13);
+        *(_BYTE *)(v10 + 11) = v15;
+        v16 = *(_BYTE *)(v10 + 12);
+        *(_BYTE *)(v10 + 12) = v6;
+        *(_BYTE *)(v10 + 13) = v16;
+      }
+      else
+      {
+        *(_BYTE *)(v8 + 7) = v11;
+        *(_BYTE *)(v8 + 6) = *(_BYTE *)(v10 + 6);
+        *(_BYTE *)(v8 + 5) = *(_BYTE *)(v10 + 7);
+        *(_BYTE *)(v8 + 9) = *(_BYTE *)(v10 + 8);
+        *(_BYTE *)(v8 + 8) = *(_BYTE *)(v10 + 9);
+        *(_BYTE *)(v8 + 11) = *(_BYTE *)(v10 + 10);
+        *(_BYTE *)(v8 + 10) = *(_BYTE *)(v10 + 11);
+        *(_BYTE *)(v8 + 13) = *(_BYTE *)(v10 + 12);
+        *(_BYTE *)(v8 + 12) = *(_BYTE *)(v10 + 13);
+        *(_BYTE *)(v8 + 382) = *(_BYTE *)(v10 + 382);
+        LOBYTE(v6) = *(_BYTE *)(v10 + 383);
+        *(_BYTE *)(v8 + 383) = v6;
+        *(_OWORD *)(v8 + 384) = *(_OWORD *)(v10 + 384);
+        *(_OWORD *)(v8 + 400) = *(_OWORD *)(v10 + 400);
+        *(_OWORD *)(v8 + 416) = *(_OWORD *)(v10 + 416);
+        *(_OWORD *)(v8 + 432) = *(_OWORD *)(v10 + 432);
+        *(_OWORD *)(v8 + 448) = *(_OWORD *)(v10 + 448);
+        *(_OWORD *)(v8 + 464) = *(_OWORD *)(v10 + 464);
+        *(_OWORD *)(v8 + 480) = *(_OWORD *)(v10 + 480);
+        *(_OWORD *)(v8 + 496) = *(_OWORD *)(v10 + 496);
+      }
+      if ( v7 <= 0x200 || *(_DWORD *)(a2 + v9) < v7 || *(_BYTE *)(a1 + 16) )
+        goto LABEL_22;
+      v17 = v7 - 512;
+      v18 = (const void *)(v10 + 512);
+      v19 = (void *)(v8 + 512);
+      goto LABEL_21;
+    }
+LABEL_16:
+    LOBYTE(v6) = StorPortExtendedFunction(86LL, a1, 0LL, 0LL);
+    goto LABEL_23;
+  }
+  if ( v7 < 0x200 || *(_DWORD *)(a2 + v9) < v7 || *(_BYTE *)(a1 + 16) )
+    goto LABEL_22;
+  v18 = *(const void **)(SrbExtension + 4200);
+  v17 = *(unsigned int *)(SrbExtension + 4240);
+  v19 = (void *)v8;
+LABEL_21:
+  LOBYTE(v6) = (unsigned __int8)memmove(v19, v18, v17);
 LABEL_22:
-  if ( !*(_BYTE *)(a1 + 20) )
-    LOBYTE(SrbDataBuffer) = NVMeFreeDmaBuffer(
-                              a1,
-                              *(unsigned int *)(v5 + 4240),
-                              (__int64 *)(v5 + 4200),
-                              *(_QWORD *)(v5 + 4208));
-  *(_BYTE *)(v5 + 4253) |= 8u;
-  *(_DWORD *)(v5 + 4240) = 0;
-  *v12 = 0LL;
-  return (char)SrbDataBuffer;
+  *(_DWORD *)(a2 + v9) = v7;
+LABEL_23:
+  if ( !*(_BYTE *)(a1 + 16) )
+    LOBYTE(v6) = NVMeFreeDmaBuffer(
+                   a1,
+                   *(unsigned int *)(SrbExtension + 4240),
+                   (__int64 *)(SrbExtension + 4200),
+                   *(_QWORD *)(SrbExtension + 4208));
+  *(_QWORD *)(SrbExtension + 4200) = 0LL;
+  *(_DWORD *)(SrbExtension + 4240) = 0;
+  *(_BYTE *)(SrbExtension + 4253) |= 8u;
+  return v6;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdateLargePagePfns @ 0x1405C32E4
+ * XREFs of MiUpdateLargePagePfns @ 0x14055EBFC
  * Callers:
- *     MiFindLargePageMemory @ 0x140982F64 (MiFindLargePageMemory.c)
+ *     MiFindLargePageMemory @ 0x1408DA0E4 (MiFindLargePageMemory.c)
  * Callees:
- *     MiInsertMdlPageNeedsZero @ 0x1402660E4 (MiInsertMdlPageNeedsZero.c)
- *     MiPfnZeroingNeeded @ 0x140268A70 (MiPfnZeroingNeeded.c)
+ *     MiPfnZeroingNeeded @ 0x140238B60 (MiPfnZeroingNeeded.c)
+ *     MiInsertMdlPageNeedsZero @ 0x1402E4048 (MiInsertMdlPageNeedsZero.c)
  */
 
 __int64 __fastcall MiUpdateLargePagePfns(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -15,7 +15,7 @@ __int64 __fastcall MiUpdateLargePagePfns(__int64 a1, __int64 a2, __int64 a3, int
   unsigned int v9; // r10d
 
   v5 = a2;
-  v7 = 48 * a2 - 0x220000000000LL;
+  v7 = 48 * a2 - 0x58000000000LL;
   v8 = v7 + 48 * a3;
   do
   {

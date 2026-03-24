@@ -1,38 +1,40 @@
 /*
- * XREFs of ?xxxNotifyCaptureChangeIfCaptured@@YAH_KPEAUtagWND@@H@Z @ 0x1C01EC350
+ * XREFs of ?xxxNotifyCaptureChangeIfCaptured@@YAH_KPEAUtagWND@@H@Z @ 0x1C01F18E8
  * Callers:
- *     xxxRealInternalGetMessage @ 0x1C0055460 (xxxRealInternalGetMessage.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055720 (xxxRealInternalGetMessage.c)
  * Callees:
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     xxxSendPointerMessageWorker @ 0x1C01EB7E4 (xxxSendPointerMessageWorker.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     xxxSendPointerMessageWorker @ 0x1C01F0CD8 (xxxSendPointerMessageWorker.c)
  */
 
 __int64 __fastcall xxxNotifyCaptureChangeIfCaptured(unsigned __int64 a1, struct tagWND *a2)
 {
-  struct tagINPUTDEST *v3; // rax
-  unsigned int v4; // edi
+  unsigned int v2; // edi
+  struct tagINPUTDEST *v4; // rax
   __int64 *v6; // rbx
-  __int64 v7; // rbx
-  __int64 v8; // rdx
+  __int64 ThreadWin32Thread; // rax
+  __int64 v8; // rbx
   __int64 v9; // rcx
-  __int64 v10; // r8
-  __int128 v11; // [rsp+30h] [rbp-A8h] BYREF
-  __int64 v12; // [rsp+40h] [rbp-98h]
-  _BYTE v13[112]; // [rsp+50h] [rbp-88h] BYREF
+  _QWORD v10[4]; // [rsp+30h] [rbp-A8h] BYREF
+  _BYTE v11[112]; // [rsp+50h] [rbp-88h] BYREF
 
-  v12 = 0LL;
-  v11 = 0LL;
-  memset(v13, 0, sizeof(v13));
-  v3 = CTouchProcessor::NotifyCaptureChangedIfCaptured(gpTouchProcessor, a1, (struct tagINPUTDEST *)v13);
-  v4 = 0;
-  if ( !v3 )
+  v2 = 0;
+  v10[2] = 0LL;
+  memset(v11, 0, sizeof(v11));
+  v4 = CTouchProcessor::NotifyCaptureChangedIfCaptured(gpTouchProcessor, a1, (struct tagINPUTDEST *)v11);
+  if ( !v4 )
     return 1LL;
-  v6 = (__int64 *)*((_QWORD *)v3 + 10);
-  ThreadLock((__int64)v6, (__int64 *)&v11);
-  v7 = xxxSendPointerMessageWorker((__int64)v6, 588LL, a1, *v6, 0LL, 183);
-  ThreadUnlock1(v9, v8, v10);
-  LOBYTE(v4) = v7 != 0;
-  return v4;
+  v6 = (__int64 *)*((_QWORD *)v4 + 10);
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v10[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = v10;
+  v10[1] = v6;
+  if ( v6 )
+    HMLockObject(v6);
+  v8 = xxxSendPointerMessageWorker((__int64)v6, 588LL, a1, *v6, 0LL, 183);
+  ThreadUnlock1(v9);
+  LOBYTE(v2) = v8 != 0;
+  return v2;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of NtGetMUIRegistryInfo @ 0x1407CAB20
+ * XREFs of NtGetMUIRegistryInfo @ 0x140681030
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     MUIBugCheck @ 0x14060F594 (MUIBugCheck.c)
- *     MigrateOOBELanguageToInstallationLanguage @ 0x14060F5BC (MigrateOOBELanguageToInstallationLanguage.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     PsCreateSystemThreadEx @ 0x140772B10 (PsCreateSystemThreadEx.c)
- *     MUIInitializeResourceLock @ 0x14085F71C (MUIInitializeResourceLock.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MUIBugCheck @ 0x1405B9AB8 (MUIBugCheck.c)
+ *     MigrateOOBELanguageToInstallationLanguage @ 0x1405B9AE0 (MigrateOOBELanguageToInstallationLanguage.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     PsCreateSystemThreadEx @ 0x1406FDA60 (PsCreateSystemThreadEx.c)
+ *     MUIInitializeResourceLock @ 0x1407CFA8C (MUIInitializeResourceLock.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)
@@ -25,30 +25,33 @@ __int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)
   __int64 v6; // rax
   int v7; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  _DWORD *v9; // rcx
-  char v10; // bl
-  int v11; // edi
+  char v9; // bl
+  NTSTATUS v10; // esi
+  int v12; // eax
   unsigned int Length; // [rsp+50h] [rbp-A8h]
-  __int128 v14; // [rsp+58h] [rbp-A0h] BYREF
-  __int128 v15; // [rsp+68h] [rbp-90h]
-  __int128 v16; // [rsp+78h] [rbp-80h]
-  HANDLE Handle; // [rsp+88h] [rbp-70h] BYREF
+  HANDLE Handle; // [rsp+58h] [rbp-A0h] BYREF
+  struct _KEVENT *p_Event; // [rsp+60h] [rbp-98h] BYREF
+  void *v16; // [rsp+68h] [rbp-90h]
+  __int64 v17; // [rsp+70h] [rbp-88h]
+  int v18; // [rsp+78h] [rbp-80h]
+  int v19; // [rsp+7Ch] [rbp-7Ch]
+  int v20; // [rsp+80h] [rbp-78h]
+  int v21; // [rsp+84h] [rbp-74h]
+  int v22; // [rsp+88h] [rbp-70h]
+  int v23; // [rsp+8Ch] [rbp-6Ch]
   struct _KEVENT Event; // [rsp+90h] [rbp-68h] BYREF
-  __int128 v19; // [rsp+A8h] [rbp-50h] BYREF
-  __int128 v20; // [rsp+B8h] [rbp-40h]
-  __int128 v21; // [rsp+C8h] [rbp-30h]
-  char v22; // [rsp+118h] [rbp+20h]
+  __int128 v25; // [rsp+A8h] [rbp-50h] BYREF
+  __int128 v26; // [rsp+B8h] [rbp-40h]
+  __int128 v27; // [rsp+C8h] [rbp-30h]
+  char v28; // [rsp+118h] [rbp+20h]
 
-  v19 = 0LL;
-  v20 = 0LL;
-  *(_QWORD *)&v21 = 0LL;
-  DWORD2(v21) = 0;
+  v25 = 0LL;
+  v26 = 0LL;
+  v27 = 0LL;
   memset(&Event, 0, sizeof(Event));
   Handle = 0LL;
-  v14 = 0LL;
-  v15 = 0LL;
-  v16 = 0LL;
-  v22 = 0;
+  v23 = 0;
+  v28 = 0;
   if ( !KeGetCurrentThread()->PreviousMode || (_DWORD)InitSafeBootMode )
     goto LABEL_46;
   if ( !a2 )
@@ -81,15 +84,14 @@ LABEL_12:
     goto LABEL_47;
   if ( !MUIRegistryLock )
   {
-    v11 = MUIInitializeResourceLock(&MUIRegistryLock);
-    if ( (v11 & 0xC0000000) == 0xC0000000 )
+    v10 = MUIInitializeResourceLock(&MUIRegistryLock);
+    if ( (v10 & 0xC0000000) == 0xC0000000 )
       goto LABEL_27;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(MUIRegistryLock, 1u);
-  v22 = 1;
-  v9 = MUIRegistryInfo;
+  v28 = 1;
   if ( MUIRegistryInfo == (PVOID)-1LL )
   {
     if ( (v7 & 2) != 0 )
@@ -97,11 +99,11 @@ LABEL_12:
       MUIRegistryInfo = 0LL;
       LODWORD(MUIRegistryInfoSize) = 0;
 LABEL_45:
-      v11 = 0;
+      v10 = 0;
       goto LABEL_27;
     }
 LABEL_46:
-    v11 = -1073741823;
+    v10 = -1073741823;
     goto LABEL_27;
   }
   if ( (v7 & 1) == 0 )
@@ -114,103 +116,96 @@ LABEL_46:
         MUIRegistryInfo = 0LL;
         LODWORD(MUIRegistryInfoSize) = 0;
         if ( (v7 & 8) != 0 )
-          ++*(_DWORD *)(MmWriteableSharedUserData + 932);
+          ++MEMORY[0xFFFFF780000003A4];
       }
       goto LABEL_45;
     }
     if ( (v7 & 8) != 0 )
     {
-      ++*(_DWORD *)(MmWriteableSharedUserData + 932);
-      if ( v9 )
-        v9[3] = MEMORY[0xFFFFF780000003A4];
+      v12 = ++MEMORY[0xFFFFF780000003A4];
+      if ( MUIRegistryInfo )
+        *((_DWORD *)MUIRegistryInfo + 3) = v12;
       goto LABEL_45;
     }
 LABEL_47:
-    v11 = -1073741811;
+    v10 = -1073741811;
     goto LABEL_27;
   }
-  v10 = 0;
+  v9 = 0;
   if ( MUIRegistryInfo )
     goto LABEL_19;
   KeInitializeEvent(&Event, SynchronizationEvent, 0);
-  *(_QWORD *)&v14 = &Event;
-  *((_QWORD *)&v14 + 1) = 0LL;
-  *(_QWORD *)&v15 = 0LL;
-  *((_QWORD *)&v15 + 1) = (unsigned __int16)PsInstallUILanguageId;
-  *(_QWORD *)&v16 = (unsigned __int16)PsMachineUILanguageId;
-  DWORD2(v16) = -1073741823;
-  LODWORD(v19) = 48;
-  *((_QWORD *)&v19 + 1) = 0LL;
-  DWORD2(v20) = 512;
-  *(_QWORD *)&v20 = 0LL;
-  v21 = 0LL;
-  v11 = PsCreateSystemThreadEx(
-          (__int64)&Handle,
-          0x1FFFFF,
-          &v19,
-          0LL,
-          0LL,
-          (__int64)MUIRegistrySystemRoutine,
-          (__int64)&v14,
-          0LL,
-          0LL);
-  if ( v11 >= 0 )
+  p_Event = &Event;
+  v16 = 0LL;
+  v17 = 0LL;
+  v18 = (unsigned __int16)PsInstallUILanguageId;
+  v19 = 0;
+  v20 = (unsigned __int16)PsMachineUILanguageId;
+  v21 = 0;
+  v22 = -1073741823;
+  LODWORD(v25) = 48;
+  *((_QWORD *)&v25 + 1) = 0LL;
+  DWORD2(v26) = 512;
+  *(_QWORD *)&v26 = 0LL;
+  v27 = 0LL;
+  v10 = PsCreateSystemThreadEx(&Handle, 0x1FFFFFLL, &v25, 0LL, 0LL, MUIRegistrySystemRoutine, &p_Event, 0LL, 0LL);
+  if ( v10 >= 0 )
   {
     ZwClose(Handle);
-    v11 = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-    if ( v11 >= 0 )
+    v10 = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+    if ( v10 >= 0 )
     {
-      v11 = DWORD2(v16);
-      if ( SDWORD2(v16) < 0 )
+      v10 = v22;
+      if ( v22 < 0 )
       {
 LABEL_54:
         MUIRegistryInfo = (PVOID)-1LL;
         LODWORD(MUIRegistryInfoSize) = 0;
         goto LABEL_27;
       }
-      MUIRegistryInfo = (PVOID)*((_QWORD *)&v14 + 1);
-      LODWORD(MUIRegistryInfoSize) = v15;
-      if ( !DWORD1(v15) )
+      MUIRegistryInfo = v16;
+      LODWORD(MUIRegistryInfoSize) = v17;
+      if ( !HIDWORD(v17) )
         MUIBugCheck(32770);
-      if ( !HIDWORD(v15) )
+      if ( !v19 )
       {
         if ( PsUILanguageComitted )
           MUIBugCheck(32769);
         MigrateOOBELanguageToInstallationLanguage();
       }
-      if ( !DWORD1(v16) )
+      if ( !v21 )
         PsMachineUILanguageId = PsInstallUILanguageId;
     }
   }
-  if ( v11 < 0 )
+  if ( v10 < 0 )
     goto LABEL_54;
 LABEL_19:
   if ( Length )
   {
     if ( Length < (unsigned int)MUIRegistryInfoSize )
     {
-      v11 = -1073741789;
+      v10 = -1073741789;
       goto LABEL_23;
     }
-    v10 = 1;
+    v9 = 1;
   }
-  v11 = 0;
+  v10 = 0;
 LABEL_23:
   if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
     v5 = (__int64)a2;
   *(_DWORD *)v5 = *(_DWORD *)v5;
   *a2 = MUIRegistryInfoSize;
-  if ( v10 )
+  if ( v9 )
   {
     ProbeForWrite(a3, Length, 1u);
     memset((void *)a3, 0, Length);
     memmove((void *)a3, MUIRegistryInfo, (unsigned int)MUIRegistryInfoSize);
   }
 LABEL_27:
-  if ( v22 )
+  if ( v28 )
   {
     ExReleaseResourceLite(MUIRegistryLock);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  return (unsigned int)v11;
+  return (unsigned int)v10;
 }

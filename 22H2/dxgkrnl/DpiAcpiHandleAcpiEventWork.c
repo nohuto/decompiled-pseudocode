@@ -1,14 +1,14 @@
 /*
- * XREFs of DpiAcpiHandleAcpiEventWork @ 0x1C03A6D20
+ * XREFs of DpiAcpiHandleAcpiEventWork @ 0x1C02D6940
  * Callers:
  *     <none>
  * Callees:
- *     DpiAcpiHandleAcpiEvent @ 0x1C03A68A4 (DpiAcpiHandleAcpiEvent.c)
+ *     DpiAcpiHandleAcpiEvent @ 0x1C02D6454 (DpiAcpiHandleAcpiEvent.c)
  */
 
 void __fastcall DpiAcpiHandleAcpiEventWork(PVOID IoObject, PVOID Context, PIO_WORKITEM IoWorkItem)
 {
-  char v4; // si
+  bool v4; // si
   __int64 v5; // rdi
   __int64 v6; // rax
   void *v7; // rbx
@@ -16,42 +16,31 @@ void __fastcall DpiAcpiHandleAcpiEventWork(PVOID IoObject, PVOID Context, PIO_WO
   v4 = 0;
   while ( 1 )
   {
-    ExEnterCriticalRegionAndAcquireFastMutexUnsafe(&dword_1C0140620);
-    qword_1C0140658 = (__int64)KeGetCurrentThread();
-    if ( v4 )
-    {
-      if ( !--dword_1C0140670 )
-        KeSetEvent(&Event, 0, 0);
-    }
-    v5 = qword_1C0140660;
-    if ( (__int64 *)qword_1C0140660 == &qword_1C0140660 )
+    ExEnterCriticalRegionAndAcquireFastMutexUnsafe(&dword_1C00B2CA0);
+    qword_1C00B2CD8 = (__int64)KeGetCurrentThread();
+    if ( v4 && !--dword_1C00B2CF0 )
+      KeSetEvent(&Event, 0, 0);
+    v5 = qword_1C00B2CE0;
+    if ( (__int64 *)qword_1C00B2CE0 == &qword_1C00B2CE0 )
     {
       v5 = 0LL;
       ::IoWorkItem = 0LL;
     }
     else
     {
-      if ( *(__int64 **)(qword_1C0140660 + 8) != &qword_1C0140660
-        || (v6 = *(_QWORD *)qword_1C0140660, *(_QWORD *)(*(_QWORD *)qword_1C0140660 + 8LL) != qword_1C0140660) )
+      if ( *(__int64 **)(qword_1C00B2CE0 + 8) != &qword_1C00B2CE0
+        || (v6 = *(_QWORD *)qword_1C00B2CE0, *(_QWORD *)(*(_QWORD *)qword_1C00B2CE0 + 8LL) != qword_1C00B2CE0) )
       {
         __fastfail(3u);
       }
-      qword_1C0140660 = *(_QWORD *)qword_1C0140660;
-      *(_QWORD *)(v6 + 8) = &qword_1C0140660;
-      if ( *(_DWORD *)(v5 + 24) == 2 && *(_DWORD *)(v5 + 28) == 4 )
-      {
-        v4 = 1;
-        byte_1C0140690 = *(_QWORD *)(v5 + 32) != 0LL;
-      }
-      else
-      {
-        v4 = 0;
-      }
+      qword_1C00B2CE0 = *(_QWORD *)qword_1C00B2CE0;
+      *(_QWORD *)(v6 + 8) = &qword_1C00B2CE0;
     }
-    qword_1C0140658 = 0LL;
-    ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(&dword_1C0140620);
+    qword_1C00B2CD8 = 0LL;
+    ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(&dword_1C00B2CA0);
     if ( !v5 )
       break;
+    v4 = *(_DWORD *)(v5 + 24) == 2 && *(_DWORD *)(v5 + 28) == 4;
     v7 = *(void **)(v5 + 16);
     DpiAcpiHandleAcpiEvent((char *)v5);
     ObfDereferenceObject(v7);

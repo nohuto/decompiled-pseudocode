@@ -1,252 +1,230 @@
 /*
- * XREFs of ?CreateSharedSyncNtObject@@YAJDW4_HMGRENTRY_TYPE@@IPEAXPEAU_OBJECT_ATTRIBUTES@@DPEAPEAX@Z @ 0x1C01E03F8
+ * XREFs of ?CreateSharedSyncNtObject@@YAJDW4_HMGRENTRY_TYPE@@IPEAXPEAU_OBJECT_ATTRIBUTES@@DPEAPEAX@Z @ 0x1C016A934
  * Callers:
- *     DxgkShareObjectsInternal @ 0x1C01A5DA0 (DxgkShareObjectsInternal.c)
- *     DxgkCreateBundleObjectInternal @ 0x1C031C0B0 (DxgkCreateBundleObjectInternal.c)
- *     DxgkWslShareObjects @ 0x1C031E7F0 (DxgkWslShareObjects.c)
+ *     DxgkShareObjectsInternal @ 0x1C011DD10 (DxgkShareObjectsInternal.c)
+ *     DxgkCreateBundleObjectInternal @ 0x1C0277944 (DxgkCreateBundleObjectInternal.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C0009A8C (-Release@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C0009B5C (-AcquireShared@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
- *     ??0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z @ 0x1C0009BB0 (--0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C000FB18 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?DxgkSharedSyncObjectObDeleteProcedure@@YAXPEAX@Z @ 0x1C01E7E90 (-DxgkSharedSyncObjectObDeleteProcedure@@YAXPEAX@Z.c)
- *     ?VmBusSendCreateNtSharedObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAIPEAVDXGPROCESS@@IPEAVDXGSYNCOBJECT@@PEAVDXGDEVICESYNCOBJECT@@PEAVDXGRESOURCE@@@Z @ 0x1C0375838 (-VmBusSendCreateNtSharedObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAIPEAVDXGPROCESS@@IPEAVDXGSYNCOBJECT@@.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C0004370 (-Release@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C00070D0 (-AcquireShared@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
+ *     ??0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z @ 0x1C0007124 (--0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z.c)
+ *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C00073EC (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ?AddReference@DXGSYNCOBJECT@@QEAAJXZ @ 0x1C0026754 (-AddReference@DXGSYNCOBJECT@@QEAAJXZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?VmBusSendCreateNtSharedObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAIPEAVDXGPROCESS@@IPEAVDXGSYNCOBJECT@@PEAVDXGDEVICESYNCOBJECT@@PEAVDXGRESOURCE@@@Z @ 0x1C0247250 (-VmBusSendCreateNtSharedObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAIPEAVDXGPROCESS@@IPEAVDXGSYNCOBJECT@@.c)
  */
 
 __int64 __fastcall CreateSharedSyncNtObject(
         __int64 a1,
         __int64 a2,
-        __int64 a3,
+        unsigned int a3,
         __int64 a4,
         __int64 a5,
         char a6,
         _QWORD *a7)
 {
-  struct DXGDEVICESYNCOBJECT *v7; // r13
-  __int64 v8; // r14
+  __int64 v7; // r12
   int v9; // ebx
-  __int64 v10; // rdi
+  char v10; // r14
+  __int64 v11; // rdx
+  __int64 v12; // rcx
   struct DXGPROCESS *Current; // rsi
-  struct DXGGLOBAL *Global; // rax
-  __int64 v13; // rcx
-  __int64 v14; // r9
-  __int64 v15; // rax
-  __int64 v16; // r13
-  int v17; // edx
-  _DWORD *v18; // r14
-  PVOID v19; // rdx
-  __int64 result; // rax
-  __int64 v21; // r9
-  int v22; // edx
-  struct DXGGLOBAL *v23; // rax
+  struct DXGDEVICESYNCOBJECT *v14; // r15
+  PERESOURCE *Global; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r9
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rbx
+  int v25; // eax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  _DWORD *v29; // r14
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  PVOID v32; // rcx
+  __int64 v34; // rax
+  __int64 v35; // rax
+  __int64 v36; // rax
+  __int64 v37; // rax
+  __int64 v38; // rax
+  __int64 v39; // rax
+  __int64 v40; // rax
+  struct DXGGLOBAL *v41; // rax
   unsigned int NtSharedObject; // eax
+  __int64 v43; // rdx
+  __int64 v44; // rcx
   PVOID Object; // [rsp+50h] [rbp-30h] BYREF
-  _BYTE v26[8]; // [rsp+58h] [rbp-28h] BYREF
-  char v27; // [rsp+60h] [rbp-20h]
-  _BYTE v28[24]; // [rsp+68h] [rbp-18h] BYREF
-  char v29; // [rsp+B0h] [rbp+30h]
-  int v30; // [rsp+B8h] [rbp+38h]
-  unsigned int v31; // [rsp+C0h] [rbp+40h]
+  _BYTE v46[8]; // [rsp+58h] [rbp-28h] BYREF
+  char v47; // [rsp+60h] [rbp-20h]
+  _BYTE v48[24]; // [rsp+68h] [rbp-18h] BYREF
 
-  v31 = a3;
-  v30 = a2;
-  v29 = a1;
-  v7 = 0LL;
-  v8 = (unsigned int)a3;
-  v9 = 0;
+  v7 = a3;
   Object = 0LL;
-  v10 = a4;
-  Current = DXGPROCESS::GetCurrent(a1, a2, a3, a4);
+  v9 = a2;
+  v10 = a1;
+  Current = DXGPROCESS::GetCurrent(a1, a2);
   if ( !Current )
   {
-    v9 = -1073741811;
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context. Returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-LABEL_45:
-    v19 = Object;
-    if ( Object )
-    {
-      if ( (*((_DWORD *)Current + 106) & 0x10) != 0 )
-        DxgkSharedSyncObjectObDeleteProcedure(Object);
-      else
-        ObfDereferenceObject(Object);
-      v19 = 0LL;
-    }
-    goto LABEL_21;
+    v35 = WdLogNewEntry5_WdError(v12, v11);
+    LODWORD(v24) = -1073741811;
+    *(_QWORD *)(v35 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v35);
+    goto LABEL_31;
   }
-  Global = DXGGLOBAL_GetGlobal();
-  DXGSYNCOBJECTLOCK::DXGSYNCOBJECTLOCK((DXGSYNCOBJECTLOCK *)v26, Global, 0);
-  DXGSYNCOBJECTLOCK::AcquireShared((DXGSYNCOBJECTLOCK *)v26);
-  if ( !v10 )
+  v14 = 0LL;
+  Global = (PERESOURCE *)DXGGLOBAL::GetGlobal(v12, v11);
+  DXGSYNCOBJECTLOCK::DXGSYNCOBJECTLOCK((DXGSYNCOBJECTLOCK *)v46, Global, 0);
+  DXGSYNCOBJECTLOCK::AcquireShared((DXGSYNCOBJECTLOCK *)v46, v16);
+  if ( !a4 )
   {
-    DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v28, Current);
-    v15 = ((unsigned int)v8 >> 6) & 0xFFFFFF;
-    if ( v30 == 11 )
+    DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v48, (struct _KTHREAD **)Current);
+    v22 = ((unsigned int)v7 >> 6) & 0xFFFFFF;
+    if ( v9 == 11 )
     {
-      if ( (unsigned int)v15 < *((_DWORD *)Current + 74) )
+      if ( (unsigned int)v22 >= *((_DWORD *)Current + 64) )
+        goto LABEL_5;
+      v21 = *((_QWORD *)Current + 30);
+      v20 = ((unsigned int)v7 >> 25) & 0x60;
+      v19 = *(unsigned int *)(v21 + 16 * v22 + 8);
+      if ( (((unsigned int)v7 >> 25) & 0x60) != (*(_BYTE *)(v21 + 16 * v22 + 8) & 0x60)
+        || (v19 & 0x2000) != 0
+        || (v19 & 0x1F) == 0 )
       {
-        v16 = *((_QWORD *)Current + 35);
-        v17 = *(_DWORD *)(v16 + 16 * v15 + 8);
-        if ( (((unsigned int)v8 >> 25) & 0x60) == (*(_BYTE *)(v16 + 16 * v15 + 8) & 0x60)
-          && (v17 & 0x2000) == 0
-          && (v17 & 0x1F) != 0 )
-        {
-          if ( (v17 & 0x1F) == 0xB )
-          {
-            v7 = *(struct DXGDEVICESYNCOBJECT **)(v16 + 16LL * (unsigned int)v15);
-            if ( v7 )
-            {
-              v10 = *((_QWORD *)v7 + 4);
-              goto LABEL_11;
-            }
-          }
-          else
-          {
-            WdLogSingleEntry1(2LL, 267LL);
-            DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 267LL, 0LL, 0LL, 0LL, 0LL);
-          }
-        }
+        goto LABEL_5;
       }
-      v9 = -1073741811;
-      WdLogSingleEntry2(3LL, v8, -1073741811LL);
-      goto LABEL_23;
-    }
-    if ( (unsigned int)v15 < *((_DWORD *)Current + 74) )
-    {
-      v21 = *((_QWORD *)Current + 35);
-      v22 = *(_DWORD *)(v21 + 16 * v15 + 8);
-      if ( (((unsigned int)v8 >> 25) & 0x60) == (*(_BYTE *)(v21 + 16 * v15 + 8) & 0x60)
-        && (v22 & 0x2000) == 0
-        && (v22 & 0x1F) != 0 )
+      v19 &= 0x1Fu;
+      if ( (_BYTE)v19 != 11 )
       {
-        if ( v30 == (*(_DWORD *)(v21 + 16 * v15 + 8) & 0x1F) )
+        v36 = WdLogNewEntry5_WdError(v20, v19);
+        *(_QWORD *)(v36 + 24) = 316LL;
+        WdLogEvent5_WdError(v36);
+        goto LABEL_5;
+      }
+      v14 = *(struct DXGDEVICESYNCOBJECT **)(v21 + 16LL * (unsigned int)v22);
+      if ( !v14 )
+      {
+LABEL_5:
+        v23 = WdLogNewEntry5_WdWarning(v20, v19, v21);
+        LODWORD(v24) = -1073741811;
+        *(_QWORD *)(v23 + 24) = v7;
+        *(_QWORD *)(v23 + 32) = -1073741811LL;
+        WdLogEvent5_WdWarning(v23);
+        goto LABEL_6;
+      }
+      a4 = *((_QWORD *)v14 + 4);
+LABEL_13:
+      if ( a4 )
+      {
+        if ( (*(_DWORD *)(a4 + 196) & 2) != 0 )
         {
-          v10 = *(_QWORD *)(v21 + 16LL * (unsigned int)v15);
-          goto LABEL_11;
+          DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v48);
+          goto LABEL_16;
         }
-        WdLogSingleEntry1(2LL, 267LL);
-        DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 267LL, 0LL, 0LL, 0LL, 0LL);
+        _InterlockedIncrement(&dword_1C00B3394);
+        v38 = WdLogNewEntry5_WdError(v20, v19);
+        LODWORD(v24) = -1073741811;
+        *(_QWORD *)(v38 + 24) = a4;
+        *(_QWORD *)(v38 + 32) = -1073741811LL;
+        WdLogEvent5_WdError(v38);
+LABEL_6:
+        DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v48);
+        goto LABEL_34;
+      }
+      goto LABEL_5;
+    }
+    if ( (unsigned int)v22 < *((_DWORD *)Current + 64) )
+    {
+      v21 = *((_QWORD *)Current + 30);
+      v20 = ((unsigned int)v7 >> 25) & 0x60;
+      v19 = *(unsigned int *)(v21 + 16 * v22 + 8);
+      if ( (((unsigned int)v7 >> 25) & 0x60) == (*(_BYTE *)(v21 + 16 * v22 + 8) & 0x60)
+        && (v19 & 0x2000) == 0
+        && (v19 & 0x1F) != 0 )
+      {
+        v19 &= 0x1Fu;
+        if ( v9 == (_DWORD)v19 )
+        {
+          a4 = *(_QWORD *)(v21 + 16LL * (unsigned int)v22);
+          goto LABEL_13;
+        }
+        v34 = WdLogNewEntry5_WdError(v20, v19);
+        *(_QWORD *)(v34 + 24) = 316LL;
+        WdLogEvent5_WdError(v34);
       }
     }
-    v10 = 0LL;
-LABEL_11:
-    if ( !v10 )
-    {
-      v9 = -1073741811;
-      WdLogSingleEntry2(3LL, v8, -1073741811LL);
-      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v28);
-      goto LABEL_43;
-    }
-    if ( (*(_DWORD *)(v10 + 204) & 2) != 0 )
-    {
-      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v28);
-      goto LABEL_14;
-    }
-    _InterlockedIncrement(&dword_1C0132124);
-    v9 = -1073741811;
-    WdLogSingleEntry2(2LL, v10, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Cannot share object: Shared sync object 0x%I64x does not use NT security sharing. Returning 0x%I64x.",
-      v10,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
-LABEL_23:
-    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v28);
-    goto LABEL_43;
+    a4 = 0LL;
+    goto LABEL_13;
   }
-LABEL_14:
-  if ( (*((_DWORD *)Current + 106) & 0x10) != 0 )
+LABEL_16:
+  LOBYTE(v18) = a6;
+  LOBYTE(v17) = v10;
+  v25 = ObCreateObject(v17, g_pDxgkSharedSyncObjectType, a5, v18, 0LL, 16, 0, 0, &Object);
+  v24 = v25;
+  if ( v25 < 0 )
   {
-    Object = (PVOID)operator new[](0x10uLL, 0x4B677844u, 256LL, v14);
-    v18 = Object;
-    if ( Object )
-      goto LABEL_17;
-    WdLogSingleEntry1(6LL, 434LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Failed to allocate DXGSHAREDSYNCOBJECT",
-      434LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v9 = -1073741801;
-LABEL_38:
     if ( Object )
     {
-      WdLogSingleEntry1(1LL, 440LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pObject == NULL", 440LL, 0LL, 0LL, 0LL, 0LL);
+      v39 = WdLogNewEntry5_WdAssertion(v27, v26);
+      *(_QWORD *)(v39 + 24) = 402LL;
+      WdLogEvent5_WdAssertion(v39);
     }
-    WdLogSingleEntry2(3LL, Current, v9);
-    goto LABEL_43;
+    v40 = WdLogNewEntry5_WdWarning(v27, v26, v28);
+    *(_QWORD *)(v40 + 24) = Current;
+    *(_QWORD *)(v40 + 32) = v24;
+    WdLogEvent5_WdWarning(v40);
   }
-  LOBYTE(v14) = a6;
-  LOBYTE(v13) = v29;
-  v9 = ObCreateObject(v13, g_pDxgkSharedSyncObjectType, a5, v14, 0LL, 16, 0, 0, &Object);
-  if ( v9 < 0 )
-    goto LABEL_38;
-  v18 = Object;
-LABEL_17:
-  _InterlockedIncrement((volatile signed __int32 *)(v10 + 24));
-  v18[2] = 0;
-  *(_QWORD *)v18 = v10;
-  if ( (*(_DWORD *)(v10 + 284) & 2) != 0 )
+  else
   {
-    v23 = DXGGLOBAL_GetGlobal();
-    NtSharedObject = DXG_GUEST_GLOBAL_VMBUS::VmBusSendCreateNtSharedObject(
-                       *((DXG_GUEST_GLOBAL_VMBUS **)v23 + 218),
-                       Current,
-                       v31,
-                       (struct DXGSYNCOBJECT *)v10,
-                       v7,
-                       0LL);
-    v18[2] = NtSharedObject;
-    if ( !NtSharedObject )
+    v29 = Object;
+    DXGSYNCOBJECT::AddReference((DXGSYNCOBJECT *)a4, v26, v28);
+    *(_QWORD *)v29 = a4;
+    v29[2] = 0;
+    if ( *(_BYTE *)(a4 + 277) )
     {
-      WdLogSingleEntry1(2LL, 466LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"VmBusSendCreateNtSharedObject failed",
-        466LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      v9 = -1073741823;
-LABEL_43:
-      if ( v27 )
-        DXGSYNCOBJECTLOCK::Release((DXGSYNCOBJECTLOCK *)v26);
-      goto LABEL_45;
+      v41 = DXGGLOBAL::GetGlobal(v31, v30);
+      NtSharedObject = DXG_GUEST_GLOBAL_VMBUS::VmBusSendCreateNtSharedObject(
+                         *((DXG_GUEST_GLOBAL_VMBUS **)v41 + 197),
+                         Current,
+                         v7,
+                         (struct DXGSYNCOBJECT *)a4,
+                         v14,
+                         0LL);
+      v29[2] = NtSharedObject;
+      if ( !NtSharedObject )
+      {
+        v37 = WdLogNewEntry5_WdError(v44, v43);
+        *(_QWORD *)(v37 + 24) = 428LL;
+        WdLogEvent5_WdError(v37);
+        LODWORD(v24) = -1073741823;
+LABEL_34:
+        if ( v47 )
+          DXGSYNCOBJECTLOCK::Release((DXGSYNCOBJECTLOCK *)v46);
+        goto LABEL_31;
+      }
     }
   }
-  if ( v27 )
-    DXGSYNCOBJECTLOCK::Release((DXGSYNCOBJECTLOCK *)v26);
-  v19 = Object;
-LABEL_21:
-  result = (unsigned int)v9;
-  *a7 = v19;
-  return result;
+  if ( v47 )
+    DXGSYNCOBJECTLOCK::Release((DXGSYNCOBJECTLOCK *)v46);
+  if ( (int)v24 >= 0 )
+  {
+    v32 = Object;
+    goto LABEL_22;
+  }
+LABEL_31:
+  v32 = Object;
+  if ( Object )
+  {
+    ObfDereferenceObject(Object);
+    v32 = 0LL;
+  }
+LABEL_22:
+  *a7 = v32;
+  return (unsigned int)v24;
 }

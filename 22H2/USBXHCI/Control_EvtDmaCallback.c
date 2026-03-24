@@ -1,9 +1,9 @@
 /*
- * XREFs of Control_EvtDmaCallback @ 0x1C00424D0
+ * XREFs of Control_EvtDmaCallback @ 0x1C003FEA0
  * Callers:
  *     <none>
  * Callees:
- *     Control_Transfer_MapIntoRing @ 0x1C00062D0 (Control_Transfer_MapIntoRing.c)
+ *     Control_Transfer_MapIntoRing @ 0x1C0004610 (Control_Transfer_MapIntoRing.c)
  */
 
 __int64 __fastcall Control_EvtDmaCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

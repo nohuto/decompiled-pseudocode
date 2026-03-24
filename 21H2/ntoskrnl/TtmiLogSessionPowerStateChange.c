@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogSessionPowerStateChange @ 0x1409A9EC4
+ * XREFs of TtmiLogSessionPowerStateChange @ 0x1409041C4
  * Callers:
- *     TtmNotifySessionPowerStateChange @ 0x1409A49BC (TtmNotifySessionPowerStateChange.c)
+ *     TtmNotifySessionPowerStateChange @ 0x1408FEDF0 (TtmNotifySessionPowerStateChange.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessSessionIdEx @ 0x1402445B0 (PsGetProcessSessionIdEx.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     PsGetProcessSessionIdEx @ 0x1402830D0 (PsGetProcessSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogSessionPowerStateChange(char a1)
@@ -22,9 +22,9 @@ void __fastcall TtmiLogSessionPowerStateChange(char a1)
   int v10; // [rsp+78h] [rbp-20h]
   int v11; // [rsp+7Ch] [rbp-1Ch]
 
-  if ( (unsigned int)dword_140D3B908 > 5 )
+  if ( (unsigned int)dword_140D2D8C8 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140D3B908, 1LL) )
+    if ( tlgKeywordOn((__int64)&dword_140D2D8C8, 1LL) )
     {
       ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
       v8 = 0;
@@ -35,7 +35,7 @@ void __fastcall TtmiLogSessionPowerStateChange(char a1)
       v3 = a1;
       v9 = &v3;
       v10 = 1;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D3B908, (unsigned __int8 *)byte_140033FDB, 0LL, 0LL, 4u, &v5);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D2D8C8, (unsigned __int8 *)byte_14002BE25, 0LL, 0LL, 4u, &v5);
     }
   }
 }

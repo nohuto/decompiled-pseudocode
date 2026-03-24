@@ -1,133 +1,138 @@
 /*
- * XREFs of MiGetWorkingSetInfoEx @ 0x140362D5C
+ * XREFs of MiGetWorkingSetInfoEx @ 0x140546D20
  * Callers:
- *     MiGetWorkingSetInfo @ 0x140362BC0 (MiGetWorkingSetInfo.c)
- *     EtwpEnumerateWorkingSet @ 0x1409EEB94 (EtwpEnumerateWorkingSet.c)
- *     MmLogSystemShareablePfnInfo @ 0x140A3FF28 (MmLogSystemShareablePfnInfo.c)
+ *     MiGetWorkingSetInfo @ 0x140546B78 (MiGetWorkingSetInfo.c)
+ *     MmLogSystemShareablePfnInfo @ 0x1408D1840 (MmLogSystemShareablePfnInfo.c)
+ *     EtwpEnumerateWorkingSet @ 0x14093DA7C (EtwpEnumerateWorkingSet.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x14025BBE0 (MiWalkPageTables.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     MiWalkPageTables @ 0x140209280 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall MiGetWorkingSetInfoEx(__int64 a1, int a2, _QWORD *a3, unsigned __int64 a4)
+__int64 __fastcall MiGetWorkingSetInfoEx(__int64 a1, int a2, unsigned __int64 *a3, unsigned __int64 a4)
 {
-  __int64 v8; // rbx
-  int v9; // r12d
-  int v10; // eax
-  unsigned __int64 v11; // rcx
-  __int64 v12; // rdx
-  unsigned __int64 v13; // rax
-  __int64 v14; // rcx
-  unsigned int v15; // ebx
-  __int128 v17; // [rsp+20h] [rbp-E0h] BYREF
-  __int128 v18; // [rsp+30h] [rbp-D0h]
-  __int64 v19; // [rsp+40h] [rbp-C0h]
-  __m128i v20[11]; // [rsp+50h] [rbp-B0h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v21; // [rsp+100h] [rbp+0h] BYREF
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  _DWORD *v10; // r9
+  unsigned int v11; // ebx
+  __int64 v12; // r14
+  int v13; // r12d
+  int v14; // eax
+  unsigned __int64 v16; // rax
+  unsigned __int64 v17; // r8
+  __int64 v18; // rdx
+  unsigned __int64 v19; // rcx
+  unsigned __int64 v20; // rcx
+  __int128 v21; // [rsp+20h] [rbp-E0h] BYREF
+  __int128 v22; // [rsp+30h] [rbp-D0h]
+  __int64 v23; // [rsp+40h] [rbp-C0h]
+  _QWORD v24[22]; // [rsp+50h] [rbp-B0h] BYREF
+  _OWORD v25[3]; // [rsp+100h] [rbp+0h] BYREF
 
-  v19 = 0LL;
-  memset(&v21, 0, sizeof(v21));
-  v17 = 0LL;
-  v18 = 0LL;
-  memset(v20, 0, sizeof(v20));
-  v8 = 0LL;
-  v9 = 0;
+  v23 = 0LL;
+  memset(v25, 0, sizeof(v25));
+  v21 = 0LL;
+  v22 = 0LL;
+  memset(v24, 0, sizeof(v24));
+  v11 = 0;
+  v12 = 0LL;
+  v13 = 0;
+  v14 = 1;
   if ( a2 < 0 )
   {
-    v10 = 1;
     if ( (a2 & 0x40000000) != 0 )
-      v10 = 3;
-    LODWORD(v17) = v10;
+      v14 = 3;
+    LODWORD(v21) = v14;
   }
-  if ( (*(_BYTE *)(a1 + 184) & 7) != 0 )
+  if ( (*(_BYTE *)(a1 + 184) & 7) == 0 )
   {
-LABEL_9:
-    v20[2].m128i_i64[1] = -1LL;
-    v20[9].m128i_i64[1] = (__int64)MiQueryLeafPte;
-    v20[0].m128i_i32[0] = 32774;
-    v20[10].m128i_i64[1] = (__int64)&v17;
-    v20[0].m128i_i8[7] = MiLockWorkingSetShared(a1);
-    if ( v8 && (*(_DWORD *)(v8 + 1124) & 0x20) != 0 )
+    v12 = a1 - 1664;
+    if ( (PVOID)(a1 - 1664) == PsIdleProcess )
     {
-      v15 = -1073741558;
-      goto LABEL_18;
+      if ( a2 >= 0 )
+        a3[1] = 0LL;
+      else
+        *a3 = 0LL;
+      return 0LL;
     }
-    v11 = *(_QWORD *)(a1 + 128);
+    if ( KeGetCurrentThread()->ApcState.Process != (_KPROCESS *)v12 )
+    {
+      KiStackAttachProcess((_KPROCESS *)(a1 - 1664), 0LL, (__int64)v25, v10);
+      v13 = 1;
+    }
+  }
+  v24[5] = -1LL;
+  v24[19] = MiQueryLeafPte;
+  LOWORD(v24[0]) = -32762;
+  v24[21] = &v21;
+  BYTE6(v24[0]) = MiLockWorkingSetShared(a1, v8, v9, v10);
+  if ( !v12 || (*(_DWORD *)(v12 + 1124) & 0x20) == 0 )
+  {
+    v16 = *(_QWORD *)(a1 + 120);
+    v17 = v16;
     if ( a2 >= 0 )
     {
-      v11 -= *(_QWORD *)(a1 + 136);
-      if ( !v11 )
-        goto LABEL_36;
+      v17 = v16 - *(_QWORD *)(a1 + 128);
+      if ( !v17 )
+        goto LABEL_31;
       if ( a4 < 0x30 )
       {
-LABEL_16:
-        v14 = *(_QWORD *)(a1 + 128);
-        v15 = -1073741820;
-        if ( a2 >= 0 )
-          a3[1] = v14 - *(_QWORD *)(a1 + 136);
-        else
-          *a3 = v14;
-LABEL_18:
-        MiUnlockWorkingSetShared(a1, v20[0].m128i_u8[7]);
-        if ( v9 )
-          KiUnstackDetachProcess(&v21);
-        return v15;
+LABEL_28:
+        v11 = -1073741820;
+        if ( a2 < 0 )
+        {
+LABEL_29:
+          *a3 = v16;
+          goto LABEL_33;
+        }
+        v16 -= *(_QWORD *)(a1 + 128);
+LABEL_32:
+        a3[1] = v16;
+        goto LABEL_33;
       }
-      v12 = 2LL;
-      v13 = (a4 - 48) >> 5;
+      v18 = 2LL;
+      v19 = (a4 - 48) >> 5;
     }
     else
     {
-      if ( !v11 )
-      {
-LABEL_25:
-        *a3 = v18;
-LABEL_26:
-        v15 = 0;
-        goto LABEL_18;
-      }
+      if ( !v16 )
+        goto LABEL_31;
       if ( a4 < 0x10 )
-        goto LABEL_16;
-      v12 = 1LL;
-      v13 = (a4 - 16) >> 3;
+        goto LABEL_28;
+      v18 = 1LL;
+      v19 = (a4 - 16) >> 3;
     }
-    if ( v11 <= v13 + 1 )
+    v20 = v19 + 1;
+    if ( v17 <= v20 )
     {
       if ( (*(_BYTE *)(a1 + 184) & 7) == 2 )
-        v20[0].m128i_i32[0] |= 1u;
-      v20[1].m128i_i64[1] = a1;
-      *((_QWORD *)&v18 + 1) = v13 + 1;
-      *((_QWORD *)&v17 + 1) = &a3[v12];
-      v19 = v8;
-      if ( (unsigned int)MiWalkPageTables(v20) != 5 )
+        LOWORD(v24[0]) |= 1u;
+      *((_QWORD *)&v22 + 1) = v20;
+      v24[3] = a1;
+      *((_QWORD *)&v21 + 1) = &a3[v18];
+      v23 = v12;
+      if ( (unsigned int)MiWalkPageTables((__int64)v24) == 4 )
       {
-        if ( a2 < 0 )
-          goto LABEL_25;
-LABEL_36:
-        a3[1] = v18;
-        goto LABEL_26;
+        v16 = *(_QWORD *)(a1 + 120);
+        goto LABEL_28;
       }
+LABEL_31:
+      v16 = v22;
+      if ( a2 < 0 )
+        goto LABEL_29;
+      goto LABEL_32;
     }
-    goto LABEL_16;
+    goto LABEL_28;
   }
-  v8 = a1 - 1664;
-  if ( (PVOID)(a1 - 1664) != PsIdleProcess )
-  {
-    if ( KeGetCurrentThread()->ApcState.Process != (_KPROCESS *)v8 )
-    {
-      KiStackAttachProcess((_KPROCESS *)(a1 - 1664), 0, (__int64)&v21);
-      v9 = 1;
-    }
-    goto LABEL_9;
-  }
-  if ( a2 >= 0 )
-    a3[1] = 0LL;
-  else
-    *a3 = 0LL;
-  return 0LL;
+  v11 = -1073741558;
+LABEL_33:
+  MiUnlockWorkingSetShared(a1, BYTE6(v24[0]));
+  if ( v13 == 1 )
+    KiUnstackDetachProcess((__int64)v25, 0);
+  return v11;
 }

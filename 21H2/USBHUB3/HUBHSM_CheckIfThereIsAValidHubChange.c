@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBHSM_CheckIfThereIsAValidHubChange @ 0x1C0008030
+ * XREFs of HUBHSM_CheckIfThereIsAValidHubChange @ 0x1C0007D20
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBMISC_VerifierDbgBreak @ 0x1C0030374 (HUBMISC_VerifierDbgBreak.c)
- *     HUBREG_UpdateSqmHubOvercurrentDetected @ 0x1C0032078 (HUBREG_UpdateSqmHubOvercurrentDetected.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C002FCD4 (HUBMISC_VerifierDbgBreak.c)
+ *     HUBREG_UpdateSqmHubOvercurrentDetected @ 0x1C0031834 (HUBREG_UpdateSqmHubOvercurrentDetected.c)
  */
 
 __int64 __fastcall HUBHSM_CheckIfThereIsAValidHubChange(__int64 a1, __int64 a2, __int64 a3)
@@ -46,7 +46,7 @@ LABEL_5:
         2u,
         3u,
         0x54u,
-        (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+        (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
         v4);
     if ( (*(_DWORD *)(v3 + 2592) & 0x10) != 0 )
       HUBMISC_VerifierDbgBreak("HubHwVerifierInvalidPortStatus", v3 + 1264);

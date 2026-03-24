@@ -1,12 +1,12 @@
 /*
- * XREFs of WbProcessModuleUnload @ 0x1406B09E4
+ * XREFs of WbProcessModuleUnload @ 0x1406B09C4
  * Callers:
  *     WbDispatchOperation @ 0x140625364 (WbDispatchOperation.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     WbAlloc @ 0x140624D14 (WbAlloc.c)
- *     WbInPlaceEncryptionUnloadModule @ 0x1406B0AC8 (WbInPlaceEncryptionUnloadModule.c)
- *     WbHeapExecutionUnloadModule @ 0x1406B0BDC (WbHeapExecutionUnloadModule.c)
+ *     WbInPlaceEncryptionUnloadModule @ 0x1406B0AA8 (WbInPlaceEncryptionUnloadModule.c)
+ *     WbHeapExecutionUnloadModule @ 0x1406B0BBC (WbHeapExecutionUnloadModule.c)
  */
 
 __int64 __fastcall WbProcessModuleUnload(__int64 a1, _QWORD *a2, unsigned int a3)

@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpWorkQueueManagerThread @ 0x140740AC0
+ * XREFs of ExpWorkQueueManagerThread @ 0x140740AA0
  * Callers:
  *     <none>
  * Callees:
  *     KeSetCoalescableTimer @ 0x14001CDE0 (KeSetCoalescableTimer.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
- *     ExpNewThreadNecessary @ 0x1400B6AE0 (ExpNewThreadNecessary.c)
- *     KeSetActualBasePriorityThread @ 0x1400CCF20 (KeSetActualBasePriorityThread.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     KeQueryNodeActiveAffinity @ 0x1400E3C20 (KeQueryNodeActiveAffinity.c)
- *     KeSetTimer2 @ 0x1400FC150 (KeSetTimer2.c)
- *     KeTimeOutQueueWaiters @ 0x140106F94 (KeTimeOutQueueWaiters.c)
- *     KeSetAffinityThread @ 0x14016B290 (KeSetAffinityThread.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     KeSetMaximumCountPriQueue @ 0x14029C0AC (KeSetMaximumCountPriQueue.c)
+ *     ExpNewThreadNecessary @ 0x1400B6B00 (ExpNewThreadNecessary.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
+ *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
+ *     KeTimeOutQueueWaiters @ 0x140106FB4 (KeTimeOutQueueWaiters.c)
+ *     KeSetAffinityThread @ 0x14016B2B0 (KeSetAffinityThread.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeSetMaximumCountPriQueue @ 0x14029C1AC (KeSetMaximumCountPriQueue.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpCreateWorkerThread @ 0x14066A8A4 (ExpCreateWorkerThread.c)
- *     ExpPartitionCreatePoolDelayed @ 0x1408D62B8 (ExpPartitionCreatePoolDelayed.c)
+ *     ExpCreateWorkerThread @ 0x14066A884 (ExpCreateWorkerThread.c)
+ *     ExpPartitionCreatePoolDelayed @ 0x1408D6298 (ExpPartitionCreatePoolDelayed.c)
  */
 
 void __fastcall ExpWorkQueueManagerThread(_QWORD *a1)

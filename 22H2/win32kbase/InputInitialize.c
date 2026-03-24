@@ -1,116 +1,125 @@
 /*
- * XREFs of InputInitialize @ 0x1C00814D4
+ * XREFs of InputInitialize @ 0x1C008B0FC
  * Callers:
- *     Win32kBaseDriverEntry @ 0x1C02DEBC0 (Win32kBaseDriverEntry.c)
+ *     Win32kBaseDriverEntry @ 0x1C029A770 (Win32kBaseDriverEntry.c)
  * Callees:
- *     ??0ApiSetEditionCrit@@QEAA@H@Z @ 0x1C00766E0 (--0ApiSetEditionCrit@@QEAA@H@Z.c)
- *     ??1ApiSetEditionCrit@@QEAA@XZ @ 0x1C0076738 (--1ApiSetEditionCrit@@QEAA@XZ.c)
- *     ?InitializeInputGlobals@@YAJXZ @ 0x1C00816B0 (-InitializeInputGlobals@@YAJXZ.c)
- *     ?Initialize@CTouchProcessor@@SAJXZ @ 0x1C00817DC (-Initialize@CTouchProcessor@@SAJXZ.c)
- *     ?DeviceAcceleratorInitialize@@YAJXZ @ 0x1C0081FEC (-DeviceAcceleratorInitialize@@YAJXZ.c)
- *     InitializeInputComponents @ 0x1C00821D8 (InitializeInputComponents.c)
- *     ShouldEnableInputVirtualization @ 0x1C00837F0 (ShouldEnableInputVirtualization.c)
- *     IsGetInputSensorThreadingModelSupported @ 0x1C00C1130 (IsGetInputSensorThreadingModelSupported.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?ivrInitAllwin32knsDelayLoads@@YAXPEAX@Z @ 0x1C01EE90C (-ivrInitAllwin32knsDelayLoads@@YAXPEAX@Z.c)
- *     ivrLoadImage @ 0x1C01EEE84 (ivrLoadImage.c)
+ *     Win32AllocPoolZInit @ 0x1C00298B0 (Win32AllocPoolZInit.c)
+ *     ??1ApiSetEditionCrit@@QEAA@XZ @ 0x1C0054D5C (--1ApiSetEditionCrit@@QEAA@XZ.c)
+ *     ??0ApiSetEditionCrit@@QEAA@HH@Z @ 0x1C0055218 (--0ApiSetEditionCrit@@QEAA@HH@Z.c)
+ *     ??0CTouchProcessor@@QEAA@XZ @ 0x1C008AD94 (--0CTouchProcessor@@QEAA@XZ.c)
+ *     ApiSetEditionGetDefaultMouseSensitivity @ 0x1C008AE0C (ApiSetEditionGetDefaultMouseSensitivity.c)
+ *     ShouldEnableInputVirtualization @ 0x1C008AEB8 (ShouldEnableInputVirtualization.c)
+ *     ApiSetGetInputSensorThreadingModel @ 0x1C008B25C (ApiSetGetInputSensorThreadingModel.c)
+ *     InitializeInputComponents @ 0x1C008C56C (InitializeInputComponents.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?ivrInitAllwin32knsDelayLoads@@YAXPEAX@Z @ 0x1C01BA358 (-ivrInitAllwin32knsDelayLoads@@YAXPEAX@Z.c)
+ *     ivrLoadImage @ 0x1C01BA908 (ivrLoadImage.c)
  */
 
 __int64 InputInitialize()
 {
-  __int64 v0; // rdx
-  __int64 v1; // rcx
-  int v2; // ebx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  unsigned int v14; // esi
-  __int64 (**v15)(void); // rbx
-  __int64 v16; // rax
-  unsigned int v17; // ebp
-  int v18; // edi
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  __int64 v21; // r8
-  __int64 v22; // r9
-  int *v23; // rax
-  void *v24; // rcx
-  char v26; // [rsp+78h] [rbp+20h] BYREF
+  unsigned int v0; // ebx
+  __int64 (**v1)(void); // rdi
+  unsigned int v2; // esi
+  __int64 v3; // rax
+  int InputSensorThreadingModel; // eax
+  CTouchProcessor *v5; // rax
+  CTouchProcessor *v6; // rax
+  unsigned int v7; // esi
+  CDeviceAcceleration **v8; // rdi
+  unsigned int DefaultMouseSensitivity; // ebp
+  __int64 v10; // rax
+  void *v12; // rcx
+  char v13; // [rsp+60h] [rbp+18h] BYREF
 
-  ApiSetEditionCrit::ApiSetEditionCrit((ApiSetEditionCrit *)&v26, 1);
+  ApiSetEditionCrit::ApiSetEditionCrit((ApiSetEditionCrit *)&v13, 1, 0);
+  v0 = 0;
   gbInputInitialized = 1;
-  v2 = InitializeInputGlobals();
-  if ( v2 >= 0 )
+  gInputLock = 0LL;
+  v1 = (__int64 (**)(void))&unk_1C0245020;
+  qword_1C0254518 = 0LL;
+  v2 = 0;
+  gQueueLock = 0LL;
+  qword_1C0254538 = 0LL;
+  gWndLock = 0LL;
+  qword_1C0254528 = 0LL;
+  CBaseInput::_sLock = 0LL;
+  qword_1C0254508 = 0LL;
+  CBaseInput::_sessionInitialized = 1;
+  do
   {
-    v5 = SGDGetUserSessionState(v1, v0, v3, v4);
-    *(_QWORD *)(v5 + 3232) = 0LL;
-    *(_QWORD *)(v5 + 3240) = 0LL;
-    *(_BYTE *)(SGDGetUserSessionState(v7, v6, v8, v9) + 3256) = 1;
-    v14 = 0;
-    v15 = (__int64 (**)(void))(SGDGetUserSessionState(v11, v10, v12, v13) + 3312);
+    if ( v2 != *(_DWORD *)v1 )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 109LL);
+    v3 = (*(v1 - 4))();
+    *(v1 - 1) = (__int64 (*)(void))v3;
+    if ( !v3 )
+    {
+      v0 = -1073741823;
+      goto LABEL_20;
+    }
+    InputSensorThreadingModel = ApiSetGetInputSensorThreadingModel(*(unsigned int *)v1);
+    *((_DWORD *)v1 - 4) = InputSensorThreadingModel;
+    if ( !InputSensorThreadingModel )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 121LL);
+    ++v2;
+    v1 += 6;
+  }
+  while ( v2 < 3 );
+  v5 = (CTouchProcessor *)Win32AllocPoolZInit(0xA0uLL, 1919964227LL);
+  if ( v5 )
+    v6 = CTouchProcessor::CTouchProcessor(v5);
+  else
+    v6 = 0LL;
+  gpTouchProcessor = v6;
+  if ( v6 )
+  {
+    v7 = 0;
+    v8 = &qword_1C0245098;
     do
     {
-      if ( v14 != *(_DWORD *)v15 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 70LL);
-      v16 = (*(v15 - 4))();
-      *(v15 - 1) = (__int64 (*)(void))v16;
-      if ( !v16 )
+      DefaultMouseSensitivity = ApiSetEditionGetDefaultMouseSensitivity(v7);
+      if ( *((_DWORD *)v8 + 2) != v7 )
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 78LL);
+      if ( *v8 )
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 79LL);
+      v10 = ((__int64 (__fastcall *)(_QWORD))*(v8 - 1))(DefaultMouseSensitivity);
+      *v8 = (CDeviceAcceleration *)v10;
+      if ( !v10 )
       {
-        v2 = -1073741823;
-        goto LABEL_24;
+        v0 = -1073741823;
+        goto LABEL_19;
       }
-      v17 = *(_DWORD *)v15;
-      v18 = 0;
-      if ( (int)IsGetInputSensorThreadingModelSupported() < 0 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1356LL);
-      if ( (int)IsGetInputSensorThreadingModelSupported() >= 0 && qword_1C02965C8 )
-        v18 = qword_1C02965C8(v17);
-      *((_DWORD *)v15 - 4) = v18;
-      if ( !v18 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 82LL);
-      ++v14;
-      v15 += 6;
+      ++v7;
+      v8 += 3;
     }
-    while ( v14 < 3 );
-    v2 = CTouchProcessor::Initialize();
-    if ( v2 >= 0 )
+    while ( v7 < 2 );
+    if ( ShouldEnableInputVirtualization() )
     {
-      v2 = DeviceAcceleratorInitialize();
-      if ( v2 >= 0 )
+      gInputVirtualizationSessionId = gSessionId;
+      gbInputVirtualizationEnabled = 1;
+      ghModwin32kns = (void *)ivrLoadImage();
+      if ( ghModwin32kns )
       {
-        if ( (unsigned __int8)ShouldEnableInputVirtualization() )
-        {
-          v23 = (int *)SGDGetUserSessionState(v20, v19, v21, v22);
-          gbInputVirtualizationEnabled = 1;
-          gInputVirtualizationSessionId = *v23;
-          ghModwin32kns = (void *)ivrLoadImage();
-          if ( ghModwin32kns )
-          {
-            ivrInitAllwin32knsDelayLoads(v24);
-            if ( gpfnIVInitialize )
-              v2 = gpfnIVInitialize(&gbRootPartition);
-            else
-              v2 = -1073741637;
-          }
-          else
-          {
-            v2 = -1073741204;
-          }
-        }
+        ivrInitAllwin32knsDelayLoads(v12);
+        if ( gpfnIVInitialize )
+          v0 = gpfnIVInitialize(&gbRootPartition);
+        else
+          v0 = -1073741637;
+      }
+      else
+      {
+        v0 = -1073741204;
       }
     }
-    InitializeInputComponents();
   }
-LABEL_24:
-  ApiSetEditionCrit::~ApiSetEditionCrit((ApiSetEditionCrit *)&v26);
-  return (unsigned int)v2;
+  else
+  {
+    v0 = -1073741801;
+  }
+LABEL_19:
+  InitializeInputComponents();
+LABEL_20:
+  ApiSetEditionCrit::~ApiSetEditionCrit((ApiSetEditionCrit *)&v13);
+  return v0;
 }

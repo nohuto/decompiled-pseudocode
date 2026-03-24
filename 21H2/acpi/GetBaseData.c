@@ -1,9 +1,9 @@
 /*
- * XREFs of GetBaseData @ 0x1C000A844
+ * XREFs of GetBaseData @ 0x1C000B5C4
  * Callers:
- *     DerefOf @ 0x1C000A880 (DerefOf.c)
- *     ParseSuperName @ 0x1C0015500 (ParseSuperName.c)
- *     ObjTypeSizeOf @ 0x1C002BEA0 (ObjTypeSizeOf.c)
+ *     ParseSuperName @ 0x1C0009350 (ParseSuperName.c)
+ *     DerefOf @ 0x1C000B440 (DerefOf.c)
+ *     ObjTypeSizeOf @ 0x1C0069FC0 (ObjTypeSizeOf.c)
  * Callees:
  *     <none>
  */

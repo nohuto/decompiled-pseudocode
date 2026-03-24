@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwWaitForDebugEvent @ 0x14041F300
+ * XREFs of ZwWaitForDebugEvent @ 0x1403FDE00
  * Callers:
  *     <none>
  * Callees:

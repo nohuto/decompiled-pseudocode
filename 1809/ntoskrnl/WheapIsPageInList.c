@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapIsPageInList @ 0x1408DC050
+ * XREFs of WheapIsPageInList @ 0x1408DC030
  * Callers:
- *     WheaPersistOfflinedPage @ 0x1403204A4 (WheaPersistOfflinedPage.c)
+ *     WheaPersistOfflinedPage @ 0x1403205A4 (WheaPersistOfflinedPage.c)
  * Callees:
  *     <none>
  */

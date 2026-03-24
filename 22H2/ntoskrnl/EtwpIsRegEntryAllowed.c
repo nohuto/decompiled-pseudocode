@@ -1,49 +1,39 @@
 /*
- * XREFs of EtwpIsRegEntryAllowed @ 0x1407813B8
+ * XREFs of EtwpIsRegEntryAllowed @ 0x1407177BC
  * Callers:
- *     EtwpEnableGuid @ 0x140780210 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x140715CA4 (EtwpEnableGuid.c)
  * Callees:
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     EtwpIsGuidAllowed @ 0x1406C045C (EtwpIsGuidAllowed.c)
- *     EtwpCheckProviderLoggingAccess @ 0x14078149C (EtwpCheckProviderLoggingAccess.c)
- *     EtwpEventWriteProviderAccessCheckStatus @ 0x1409E374C (EtwpEventWriteProviderAccessCheckStatus.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x1409EC360 (EtwpCheckCurrentUserProcessAccess.c)
- *     EtwpApplyTransientFilters @ 0x1409F51C8 (EtwpApplyTransientFilters.c)
+ *     EtwpApplyTransientFilters @ 0x1406A5CC0 (EtwpApplyTransientFilters.c)
+ *     EtwpIsGuidAllowed @ 0x1406BD550 (EtwpIsGuidAllowed.c)
+ *     EtwpCheckProviderLoggingAccess @ 0x140717890 (EtwpCheckProviderLoggingAccess.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x140941528 (EtwpCheckCurrentUserProcessAccess.c)
  */
 
-char __fastcall EtwpIsRegEntryAllowed(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, char a6, char a7)
+bool __fastcall EtwpIsRegEntryAllowed(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5, char a6, char a7)
 {
   int v8; // esi
-  __int64 v9; // rdi
-  int v12; // edi
-  int v14; // edx
-  int v15; // ecx
-  int v16; // r8d
+  __int64 v9; // rbx
+  int v12; // eax
 
   v8 = *(_DWORD *)(a4 + 72);
   v9 = a3;
-  if ( ((*(_BYTE *)(a1 + 98) & 1) == 0 || !*(_BYTE *)(a3 + 17) && !*(_BYTE *)(a3 + 18))
-    && (v8 != 2 && !*(_BYTE *)(a3 + 18) || (unsigned __int8)EtwpApplyTransientFilters(a1, a5))
-    && ((*(_BYTE *)(a1 + 98) & 8) == 0
-     || a7 != 2 && !a6 && (v8 || *(_WORD *)(a4 + 104) == *(_WORD *)(*(_QWORD *)(a1 + 32) + 88LL))) )
+  if ( (*(_BYTE *)(a1 + 98) & 1) != 0 && (*(_BYTE *)(a3 + 17) || *(_BYTE *)(a3 + 18))
+    || (v8 == 2 || *(_BYTE *)(a3 + 18)) && !EtwpApplyTransientFilters(a1, a4, a5[10], a5)
+    || (*(_BYTE *)(a1 + 98) & 8) != 0
+    && (a7 == 2 || a6 || !v8 && *(_WORD *)(a4 + 104) != *(_WORD *)(*(_QWORD *)(a1 + 32) + 88LL)) )
   {
-    if ( *(_BYTE *)(v9 + 18) )
-    {
-      if ( !(unsigned int)EtwpCheckCurrentUserProcessAccess(*(_QWORD *)(a1 + 80)) )
-        return 1;
-    }
-    else if ( a7 != 2 || EtwpIsGuidAllowed(a2, (const void *)(*(_QWORD *)(a1 + 32) + 40LL)) )
-    {
-      LOBYTE(a3) = *(_BYTE *)(v9 + 16);
-      v12 = EtwpCheckProviderLoggingAccess(a1, v9, a3);
-      if ( !v12 )
-        return 1;
-      if ( v12 < 0 )
-      {
-        if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_PROVIDER_ACCESS_DENIED) )
-          EtwpEventWriteProviderAccessCheckStatus(v15, v14, v16, a1, a2, v12);
-      }
-    }
+    return 0;
   }
-  return 0;
+  if ( *(_BYTE *)(v9 + 18) == 1 )
+  {
+    v12 = EtwpCheckCurrentUserProcessAccess(*(_QWORD *)(a1 + 80));
+  }
+  else
+  {
+    if ( a7 == 2 && !EtwpIsGuidAllowed(a2, (const void *)(*(_QWORD *)(a1 + 32) + 40LL)) )
+      return 0;
+    LOBYTE(a3) = *(_BYTE *)(v9 + 16);
+    v12 = EtwpCheckProviderLoggingAccess(a1, v9, a3);
+  }
+  return !v12;
 }

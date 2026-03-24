@@ -1,13 +1,14 @@
 /*
- * XREFs of ?_EnqueueDeferredDeltaReset@CManipulation@@AEAAJI@Z @ 0x18020EF48
+ * XREFs of ?_EnqueueDeferredDeltaReset@CManipulation@@AEAAJI@Z @ 0x1801D52D0
  * Callers:
- *     ?GetProperty@CManipulation@@UEAAJIPEAVCExpressionValue@@@Z @ 0x18020D9F0 (-GetProperty@CManipulation@@UEAAJIPEAVCExpressionValue@@@Z.c)
+ *     ?GetProperty@CManipulation@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1801D3E70 (-GetProperty@CManipulation@@UEAAJIPEAVCExpressionValue@@@Z.c)
  * Callees:
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C9C4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z @ 0x1800319D0 (-GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ScheduleDeferredWorkOnRenderThread@CManipulationManager@@QEAAJP6AJPEAX@Z0W4MsgPriority@@@Z @ 0x1801A14FC (-ScheduleDeferredWorkOnRenderThread@CManipulationManager@@QEAAJP6AJPEAX@Z0W4MsgPriority@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z @ 0x180062AE8 (-GetManipulationManager@CComposition@@QEAAJPEAPEAVCManipulationManager@@@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB254 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??1?$ComPtr@VCManipulationManager@@@WRL@Microsoft@@QEAA@XZ @ 0x1800E02E0 (--1-$ComPtr@VCManipulationManager@@@WRL@Microsoft@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?ScheduleDeferredWorkOnRenderThread@CManipulationManager@@QEAAJP6AJPEAX@Z0W4MsgPriority@@@Z @ 0x180227050 (-ScheduleDeferredWorkOnRenderThread@CManipulationManager@@QEAAJP6AJPEAX@Z0W4MsgPriority@@@Z.c)
  */
 
 __int64 __fastcall CManipulation::_EnqueueDeferredDeltaReset(CManipulation *this, int a2)
@@ -31,21 +32,21 @@ __int64 __fastcall CManipulation::_EnqueueDeferredDeltaReset(CManipulation *this
     if ( v3 != 2 )
     {
       v4 = -2147024809;
-      v13 = 930;
+      v13 = 924;
 LABEL_4:
       MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v4, v13, 0LL);
       goto LABEL_14;
     }
-    v5 = *((_BYTE *)this + 448);
+    v5 = *((_BYTE *)this + 440);
     v6 = v5 | 2;
     v7 = v5 >> 1;
   }
   else
   {
-    v7 = *((_BYTE *)this + 448);
+    v7 = *((_BYTE *)this + 440);
     v6 = v7 | 1;
   }
-  *((_BYTE *)this + 448) = v6;
+  *((_BYTE *)this + 440) = v6;
   if ( (v7 & 1) != 0 )
     goto LABEL_13;
   v8 = (CComposition *)*((_QWORD *)this + 2);
@@ -55,19 +56,19 @@ LABEL_4:
   if ( ManipulationManager >= 0 )
   {
     (*(void (__fastcall **)(CManipulation *))(*(_QWORD *)this + 8LL))(this);
-    v4 = CManipulationManager::ScheduleDeferredWorkOnRenderThread((__int64)v14, v11, (__int64)this);
+    v4 = CManipulationManager::ScheduleDeferredWorkOnRenderThread(v14, v11, this);
     if ( v4 < 0 )
     {
       (*(void (__fastcall **)(CManipulation *))(*(_QWORD *)this + 16LL))(this);
-      v13 = 949;
+      v13 = 943;
       goto LABEL_4;
     }
 LABEL_13:
     v4 = 0;
     goto LABEL_14;
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, ManipulationManager, 0x3A7u, 0LL);
+  MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, ManipulationManager, 0x3A1u, 0LL);
 LABEL_14:
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)&v14);
+  Microsoft::WRL::ComPtr<CManipulationManager>::~ComPtr<CManipulationManager>((__int64 *)&v14);
   return (unsigned int)v4;
 }

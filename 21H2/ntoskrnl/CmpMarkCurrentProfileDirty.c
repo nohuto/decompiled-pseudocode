@@ -1,92 +1,79 @@
 /*
- * XREFs of CmpMarkCurrentProfileDirty @ 0x140837E20
+ * XREFs of CmpMarkCurrentProfileDirty @ 0x1407A57BC
  * Callers:
- *     CmInitSystem1 @ 0x140B15F88 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     CmpFindValueByName @ 0x1406B4108 (CmpFindValueByName.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpLockRegistryExclusive @ 0x14071B6EC (CmpLockRegistryExclusive.c)
- *     HvpMarkCellDirty @ 0x14071F300 (HvpMarkCellDirty.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
- *     CmpOpenDevicesControlSet @ 0x140838DE4 (CmpOpenDevicesControlSet.c)
- *     CmpUnlockRegistry @ 0x140AB4260 (CmpUnlockRegistry.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpFindValueByName @ 0x14066963C (CmpFindValueByName.c)
+ *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
+ *     HvpMarkCellDirty @ 0x140708420 (HvpMarkCellDirty.c)
+ *     CmpOpenDevicesControlSet @ 0x1407A6764 (CmpOpenDevicesControlSet.c)
  */
 
-NTSTATUS __fastcall CmpMarkCurrentProfileDirty(__int64 a1)
+void __fastcall CmpMarkCurrentProfileDirty(__int64 a1)
 {
-  NTSTATUS result; // eax
-  HANDLE v2; // rdi
+  HANDLE v1; // rdi
+  NTSTATUS v2; // ebx
   NTSTATUS v3; // ebx
-  NTSTATUS v4; // ebx
-  _QWORD *v5; // rbx
-  __int64 v6; // rax
-  ULONG_PTR v7; // rcx
-  ULONG_PTR v8; // rdx
-  __int64 CellFlat; // rax
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
+  struct _DMA_ADAPTER *v4; // rbx
+  __int64 v5; // rax
   unsigned int ValueByName; // edi
-  __int64 v15; // rcx
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v17; // [rsp+80h] [rbp+20h] BYREF
-  HANDLE KeyHandle; // [rsp+88h] [rbp+28h] BYREF
+  HANDLE KeyHandle; // [rsp+80h] [rbp+20h] BYREF
+  int v9; // [rsp+88h] [rbp+28h] BYREF
+  int v10; // [rsp+8Ch] [rbp+2Ch]
   HANDLE Handle; // [rsp+90h] [rbp+30h] BYREF
 
   Handle = 0LL;
   KeyHandle = 0LL;
-  *(&ObjectAttributes.Attributes + 1) = 0;
-  v17 = 0xFFFFFFFFLL;
   *(&ObjectAttributes.Length + 1) = 0;
-  result = CmpOpenDevicesControlSet(a1, &Handle, 0LL);
-  if ( result >= 0 )
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  v9 = -1;
+  v10 = 0;
+  if ( (int)CmpOpenDevicesControlSet(a1, &Handle, 0LL) >= 0 )
   {
-    v2 = Handle;
+    v1 = Handle;
     ObjectAttributes.RootDirectory = Handle;
     ObjectAttributes.ObjectName = (PUNICODE_STRING)L"$&";
     ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v3 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
-    result = ZwClose(v2);
-    if ( v3 >= 0 )
+    v2 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+    ZwClose(v1);
+    if ( v2 >= 0 )
     {
       Handle = 0LL;
-      v4 = ObReferenceObjectByHandle(KeyHandle, 0x20019u, (POBJECT_TYPE)CmKeyObjectType, 0, &Handle, 0LL);
-      result = ZwClose(KeyHandle);
-      if ( v4 >= 0 )
+      v3 = ObReferenceObjectByHandle(KeyHandle, 0x20019u, (POBJECT_TYPE)CmKeyObjectType, 0, &Handle, 0LL);
+      ZwClose(KeyHandle);
+      if ( v3 >= 0 )
       {
         CmpLockRegistryExclusive();
-        v5 = Handle;
-        v6 = *((_QWORD *)Handle + 1);
-        v7 = *(_QWORD *)(v6 + 32);
-        v8 = *(unsigned int *)(v6 + 40);
-        if ( (*(_BYTE *)(v7 + 140) & 1) != 0 )
-          CellFlat = HvpGetCellFlat(v7, v8, &v17);
-        else
-          CellFlat = HvpGetCellPaged(v7, v8, (unsigned int *)&v17);
-        if ( CellFlat )
+        v4 = (struct _DMA_ADAPTER *)Handle;
+        v5 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, int *))(*(_QWORD *)(*((_QWORD *)Handle + 1) + 32LL) + 8LL))(
+               *(_QWORD *)(*((_QWORD *)Handle + 1) + 32LL),
+               *(unsigned int *)(*((_QWORD *)Handle + 1) + 40LL),
+               &v9);
+        if ( v5 )
         {
-          ValueByName = CmpFindValueByName(*(_QWORD *)(v5[1] + 32LL), CellFlat, (int)&CmpCurrentConfigString);
-          v15 = *(_QWORD *)(v5[1] + 32LL);
-          if ( (*(_BYTE *)(v15 + 140) & 1) != 0 )
-            HvpReleaseCellFlat(v15, &v17);
-          else
-            HvpReleaseCellPaged(v15, (unsigned int *)&v17);
+          ValueByName = CmpFindValueByName(
+                          (__int64)v4->DmaOperations->AllocateAdapterChannel,
+                          v5,
+                          (__int64)&CmpCurrentConfigString);
+          (*((void (__fastcall **)(int (__fastcall *)(_DMA_ADAPTER *, _DEVICE_OBJECT *, unsigned int, _IO_ALLOCATION_ACTION (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *, void *), void *), int *))v4->DmaOperations->AllocateAdapterChannel
+           + 2))(
+            v4->DmaOperations->AllocateAdapterChannel,
+            &v9);
           if ( ValueByName != -1 )
-            HvpMarkCellDirty(*(_QWORD *)(v5[1] + 32LL), ValueByName, 1);
+            HvpMarkCellDirty((ULONG_PTR)v4->DmaOperations->AllocateAdapterChannel, ValueByName, 1);
         }
-        CmpUnlockRegistry(v11, v10, v12, v13);
-        return ObfDereferenceObject(v5);
+        CmpUnlockRegistry();
+        HalPutDmaAdapter(v4);
       }
     }
   }
-  return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDmInit @ 0x140B60EA0
+ * XREFs of PiDmInit @ 0x140A51170
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     PiDmListInit @ 0x14083B1D0 (PiDmListInit.c)
- *     PiDmObjectManagerPopulate @ 0x14083B22C (PiDmObjectManagerPopulate.c)
- *     PiDmObjectManagerInit @ 0x14083B378 (PiDmObjectManagerInit.c)
+ *     PiDmListInit @ 0x1407A3214 (PiDmListInit.c)
+ *     PiDmObjectManagerPopulate @ 0x1407A3270 (PiDmObjectManagerPopulate.c)
+ *     PiDmObjectManagerInit @ 0x1407A33B0 (PiDmObjectManagerInit.c)
  */
 
 __int64 PiDmInit()

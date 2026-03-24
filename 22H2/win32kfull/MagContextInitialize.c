@@ -1,5 +1,5 @@
 /*
- * XREFs of MagContextInitialize @ 0x1C00BE970
+ * XREFs of MagContextInitialize @ 0x1C01373F0
  * Callers:
  *     <none>
  * Callees:

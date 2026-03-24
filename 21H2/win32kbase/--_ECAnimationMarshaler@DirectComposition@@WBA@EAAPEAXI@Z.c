@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_ECAnimationMarshaler@DirectComposition@@WBA@EAAPEAXI@Z @ 0x1C00DFEF0
+ * XREFs of ??_ECAnimationMarshaler@DirectComposition@@WBA@EAAPEAXI@Z @ 0x1C00D18F0
  * Callers:
  *     <none>
  * Callees:

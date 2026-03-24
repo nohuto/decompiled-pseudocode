@@ -1,20 +1,19 @@
 /*
- * XREFs of IoWriteErrorLogEntry @ 0x1403A7210
+ * XREFs of IoWriteErrorLogEntry @ 0x140380A80
  * Callers:
- *     IopDisassociateThreadIrp @ 0x1405566C0 (IopDisassociateThreadIrp.c)
- *     DifIoWriteErrorLogEntryWrapper @ 0x140611860 (DifIoWriteErrorLogEntryWrapper.c)
- *     FsRtlLogCcFlushError @ 0x14092D830 (FsRtlLogCcFlushError.c)
- *     IopLogBlockedDriverEvent @ 0x140934AB4 (IopLogBlockedDriverEvent.c)
- *     PnpLogEvent @ 0x140947068 (PnpLogEvent.c)
- *     MiLogFailedDriverLoad @ 0x14096C4AC (MiLogFailedDriverLoad.c)
- *     MiBadMemoryLogger @ 0x14097E5C0 (MiBadMemoryLogger.c)
+ *     IopDisassociateThreadIrp @ 0x14050072C (IopDisassociateThreadIrp.c)
+ *     FsRtlLogCcFlushError @ 0x14088ADF0 (FsRtlLogCcFlushError.c)
+ *     IopLogBlockedDriverEvent @ 0x140891B2C (IopLogBlockedDriverEvent.c)
+ *     PnpLogEvent @ 0x1408A1EFC (PnpLogEvent.c)
+ *     MiLogFailedDriverLoad @ 0x1408C7DA0 (MiLogFailedDriverLoad.c)
+ *     MiBadMemoryLogger @ 0x1408D72E0 (MiBadMemoryLogger.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoWriteErrorLogEntry(PVOID ElEntry)
@@ -24,8 +23,8 @@ void __stdcall IoWriteErrorLogEntry(PVOID ElEntry)
   _QWORD *v3; // rax
   _QWORD *v4; // rbx
   bool v5; // zf
-  void *v6; // rcx
-  void *v7; // rcx
+  struct _DMA_ADAPTER *v6; // rcx
+  struct _DMA_ADAPTER *v7; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -34,12 +33,12 @@ void __stdcall IoWriteErrorLogEntry(PVOID ElEntry)
   v1 = (char *)ElEntry - 48;
   if ( IopErrorLogDisabledThisBoot )
   {
-    v6 = (void *)*((_QWORD *)v1 + 3);
+    v6 = (struct _DMA_ADAPTER *)*((_QWORD *)v1 + 3);
     if ( v6 )
-      ObfDereferenceObject(v6);
-    v7 = (void *)*((_QWORD *)v1 + 4);
+      HalPutDmaAdapter(v6);
+    v7 = (struct _DMA_ADAPTER *)*((_QWORD *)v1 + 4);
     if ( v7 )
-      ObfDereferenceObject(v7);
+      HalPutDmaAdapter(v7);
     _InterlockedExchangeAdd(&IopErrorLogAllocation, -*((unsigned __int16 *)v1 + 1));
     ExFreePoolWithTag(v1, 0);
   }
@@ -47,15 +46,15 @@ void __stdcall IoWriteErrorLogEntry(PVOID ElEntry)
   {
     *((_QWORD *)v1 + 5) = MEMORY[0xFFFFF78000000014];
     v2 = KeAcquireSpinLockRaiseToDpc(&IopErrorLogLock);
-    v3 = (_QWORD *)qword_140C46FF8;
+    v3 = (_QWORD *)qword_140C45BD8;
     v4 = v1 + 8;
-    if ( *(__int64 **)qword_140C46FF8 != &IopErrorLogListHead )
+    if ( *(__int64 **)qword_140C45BD8 != &IopErrorLogListHead )
       __fastfail(3u);
     v5 = IopErrorLogSessionPending == 0;
     *v4 = &IopErrorLogListHead;
     v4[1] = v3;
     *v3 = v4;
-    qword_140C46FF8 = (__int64)v4;
+    qword_140C45BD8 = (__int64)v4;
     if ( v5 )
     {
       IopErrorLogWorkItem.Parameter = 0LL;

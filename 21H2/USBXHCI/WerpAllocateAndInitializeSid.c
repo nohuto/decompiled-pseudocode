@@ -1,9 +1,9 @@
 /*
- * XREFs of WerpAllocateAndInitializeSid @ 0x1C00525EC
+ * XREFs of WerpAllocateAndInitializeSid @ 0x1C00519EC
  * Callers:
- *     WerKernelSubmitReport @ 0x1C0051E18 (WerKernelSubmitReport.c)
+ *     WerKernelSubmitReport @ 0x1C005121C (WerKernelSubmitReport.c)
  * Callees:
- *     memset @ 0x1C0019CC0 (memset.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 __int64 __fastcall WerpAllocateAndInitializeSid(
@@ -22,7 +22,7 @@ __int64 __fastcall WerpAllocateAndInitializeSid(
   ULONG v12; // eax
   NTSTATUS v13; // edi
   size_t v14; // rbp
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v17; // rbx
 
   v12 = RtlLengthRequiredSid(1u);
@@ -30,11 +30,11 @@ __int64 __fastcall WerpAllocateAndInitializeSid(
   v14 = v12;
   if ( a11 )
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, (int)v12, 2003137131LL);
-    v17 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (int)v12, 0x7765726Bu);
+    v17 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memset(Pool2, 0, v14);
+      memset(PoolWithTag, 0, v14);
       v13 = RtlInitializeSid(v17, IdentifierAuthority, 1u);
       if ( v13 >= 0 )
       {
@@ -44,6 +44,9 @@ __int64 __fastcall WerpAllocateAndInitializeSid(
       else
       {
         DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR RtlInitializeSid failed\n", 260);
+      }
+      if ( v13 < 0 )
+      {
         ExFreePoolWithTag(v17, 0);
         v17 = 0LL;
       }

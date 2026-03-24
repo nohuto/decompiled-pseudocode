@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ReadCurrentFile@CDriverStoreCopy@@QEAAJPEAX_KK@Z @ 0x1C030CEBC
+ * XREFs of ?ReadCurrentFile@CDriverStoreCopy@@QEAAJPEAX_KK@Z @ 0x1C0264260
  * Callers:
- *     ?VmBusReadDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0384590 (-VmBusReadDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusReadDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0246340 (-VmBusReadDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -9,8 +9,16 @@
 __int64 __fastcall CDriverStoreCopy::ReadCurrentFile(const WCHAR *this, void *a2, union _LARGE_INTEGER a3, ULONG a4)
 {
   NTSTATUS v7; // eax
-  unsigned int v8; // ebx
-  NTSTATUS v9; // eax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // rbx
+  __int64 v12; // rax
+  NTSTATUS v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // rax
   union _LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-19h] BYREF
   struct _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-11h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-1h] BYREF
@@ -29,19 +37,26 @@ __int64 __fastcall CDriverStoreCopy::ReadCurrentFile(const WCHAR *this, void *a2
   ObjectAttributes.Attributes = 64;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v7 = ZwOpenFile(&FileHandle, 1u, &ObjectAttributes, &IoStatusBlock, 1u, 0x20u);
-  v8 = v7;
+  v11 = v7;
   if ( v7 >= 0 )
   {
     ByteOffset = a3;
-    v9 = ZwReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, a2, a4, &ByteOffset, 0LL);
-    v8 = v9;
-    if ( v9 < 0 )
-      WdLogSingleEntry2(3LL, v9, 1365LL);
+    v13 = ZwReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, a2, a4, &ByteOffset, 0LL);
+    v11 = v13;
+    if ( v13 < 0 )
+    {
+      v17 = WdLogNewEntry5_WdWarning(v15, v14, v16);
+      *(_QWORD *)(v17 + 24) = v11;
+      *(_QWORD *)(v17 + 32) = 1361LL;
+      WdLogEvent5_WdWarning(v17);
+    }
     ZwClose(FileHandle);
   }
   else
   {
-    WdLogSingleEntry1(3LL, v7);
+    v12 = WdLogNewEntry5_WdWarning(v9, v8, v10);
+    *(_QWORD *)(v12 + 24) = v11;
+    WdLogEvent5_WdWarning(v12);
   }
-  return v8;
+  return (unsigned int)v11;
 }

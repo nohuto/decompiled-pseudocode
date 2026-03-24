@@ -1,34 +1,31 @@
 /*
- * XREFs of ?PerformMarashlingCheck@MouseInterceptState@CMouseProcessor@@AEBA?AW4InterceptMarshalCheck@12@XZ @ 0x1C01FB1D0
+ * XREFs of ?PerformMarashlingCheck@MouseInterceptState@CMouseProcessor@@AEBA?AW4InterceptMarshalCheck@12@XZ @ 0x1C01C0D84
  * Callers:
- *     ?CallInterceptor@MouseInterceptState@CMouseProcessor@@QEAA?AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_MouseInterceptorData@@PEAU_MouseProcessorData@@@Z @ 0x1C01F9538 (-CallInterceptor@MouseInterceptState@CMouseProcessor@@QEAA-AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_M.c)
+ *     ?CallInterceptor@MouseInterceptState@CMouseProcessor@@QEAA?AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_MouseInterceptorData@@PEAU_MouseProcessorData@@@Z @ 0x1C01BEE54 (-CallInterceptor@MouseInterceptState@CMouseProcessor@@QEAA-AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_M.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall CMouseProcessor::MouseInterceptState::PerformMarashlingCheck(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall CMouseProcessor::MouseInterceptState::PerformMarashlingCheck(__int64 a1)
 {
   unsigned int CurrentThreadId; // eax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  unsigned int v8; // edi
-  __int64 v9; // rcx
-  int v11; // eax
+  unsigned int v3; // edi
+  int v4; // eax
+  int v6; // ecx
 
   if ( !*(_DWORD *)(a1 + 32) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 7782);
   CurrentThreadId = (unsigned int)PsGetCurrentThreadId();
-  v8 = CurrentThreadId;
+  v3 = CurrentThreadId;
   if ( CurrentThreadId != *(_DWORD *)(a1 + 36) && CurrentThreadId != *(_DWORD *)(a1 + 32) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v6, v5, v7);
-  v9 = *(unsigned int *)(a1 + 32);
-  if ( v8 == (_DWORD)v9 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 7792);
+  v4 = *(_DWORD *)(a1 + 32);
+  if ( v3 == v4 )
     return 1LL;
-  v11 = *(_DWORD *)(a1 + 36);
-  if ( v8 != v11 )
+  v6 = *(_DWORD *)(a1 + 36);
+  if ( v3 != v6 )
     return 2LL;
-  if ( (_DWORD)v9 == v11 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v9, v5, v7);
+  if ( v4 == v6 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 7812);
   return 0LL;
 }

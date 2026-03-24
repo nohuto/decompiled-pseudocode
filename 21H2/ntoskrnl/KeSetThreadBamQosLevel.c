@@ -1,11 +1,9 @@
 /*
- * XREFs of KeSetThreadBamQosLevel @ 0x14045AB80
+ * XREFs of KeSetThreadBamQosLevel @ 0x14051E5A0
  * Callers:
- *     KiQuantumEnd @ 0x14028FFD0 (KiQuantumEnd.c)
- *     KeApplyWobBamQos @ 0x14030F970 (KeApplyWobBamQos.c)
- *     KiConvertDynamicHeteroPolicy @ 0x14045AD66 (KiConvertDynamicHeteroPolicy.c)
- *     KiHeteroComputeThreadWorkloadProperties @ 0x140574018 (KiHeteroComputeThreadWorkloadProperties.c)
- *     KeSetThreadSchedulerAssist @ 0x140576AA4 (KeSetThreadSchedulerAssist.c)
+ *     PsImpersonateContainerOfThread @ 0x14021BC90 (PsImpersonateContainerOfThread.c)
+ *     KeSetThreadSchedulerAssist @ 0x14051E5C8 (KeSetThreadSchedulerAssist.c)
+ *     KiConvertDynamicHeteroPolicy @ 0x14051F1A0 (KiConvertDynamicHeteroPolicy.c)
  * Callees:
  *     <none>
  */

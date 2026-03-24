@@ -1,12 +1,12 @@
 /*
- * XREFs of ?HandleDDAArrivalOrDeparture@CLegacyRenderTarget@@UEAAJXZ @ 0x1801E7880
+ * XREFs of ?HandleDDAArrivalOrDeparture@CLegacyRenderTarget@@UEAAJXZ @ 0x180184620
  * Callers:
  *     <none>
  * Callees:
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078A28 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Create@CDDARenderTarget@@SAJPEAUIDXGIOutputDWM@@PEAVCDesktopTree@@AEBVRenderTargetInfo@@AEBVCMonitorTransform@@PEAPEAV1@@Z @ 0x1801F95FC (-Create@CDDARenderTarget@@SAJPEAUIDXGIOutputDWM@@PEAVCDesktopTree@@AEBVRenderTargetInfo@@AEBVCMo.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Create@CDDARenderTarget@@SAJPEAUIDXGIOutputDWM@@PEAVCDesktopTree@@AEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@W4DXGI_MODE_ROTATION@@AEBVRenderTargetInfo@@PEAPEAV1@@Z @ 0x1800EEB48 (-Create@CDDARenderTarget@@SAJPEAUIDXGIOutputDWM@@PEAVCDesktopTree@@AEBV-$TMilRect_@HUtagRECT@@UM.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?reset@?$com_ptr_t@VCDDisplaySwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180184F2C (-reset@-$com_ptr_t@VCDDisplaySwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
  */
 
 __int64 __fastcall CLegacyRenderTarget::HandleDDAArrivalOrDeparture(CLegacyRenderTarget *this)
@@ -14,39 +14,42 @@ __int64 __fastcall CLegacyRenderTarget::HandleDDAArrivalOrDeparture(CLegacyRende
   unsigned int v2; // edi
   __int64 v3; // rcx
   int v4; // eax
-  CResource *v5; // rdx
-  int v6; // eax
-  __int64 v7; // rcx
+  __int64 v5; // rdx
+  char *v6; // rcx
+  int v7; // eax
+  __int64 v8; // rcx
 
   v2 = 0;
-  v3 = *((_QWORD *)this + 4);
-  if ( v3 && *((_BYTE *)this + 18553) )
+  v3 = *((_QWORD *)this + 2);
+  if ( v3 && *((_BYTE *)this + 18449) )
   {
     v4 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v3 + 24LL))(v3);
-    v5 = (CResource *)*((_QWORD *)this + 6);
-    if ( (v4 != 0) == (v5 != 0LL) )
+    v5 = *((_QWORD *)this + 4);
+    if ( (v4 != 0) == (v5 != 0) )
     {
       if ( v5 )
-        *((_BYTE *)v5 + 141) = 1;
+        *(_BYTE *)(v5 + 129) = 1;
     }
     else
     {
-      *((_QWORD *)this + 6) = 0LL;
+      v6 = (char *)this + 32;
       if ( v5 )
       {
-        CResource::InternalRelease(v5);
+        wil::com_ptr_t<CDDisplaySwapChain,wil::err_returncode_policy>::reset(v6);
       }
       else
       {
-        v6 = CDDARenderTarget::Create(
-               *((struct IDXGIOutputDWM **)this + 4),
-               *((struct CDesktopTree **)this + 3),
-               (CLegacyRenderTarget *)((char *)this + 18316),
-               (CLegacyRenderTarget *)((char *)this + 18024),
-               (struct CDDARenderTarget **)this + 6);
-        v2 = v6;
-        if ( v6 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x32Eu, 0LL);
+        wil::com_ptr_t<CDDisplaySwapChain,wil::err_returncode_policy>::reset(v6);
+        v7 = CDDARenderTarget::Create(
+               *((struct IDXGIOutputDWM **)this + 2),
+               *((struct CVisualTree **)this + 5),
+               (__int64)this + 48,
+               *((_DWORD *)this + 20),
+               (CLegacyRenderTarget *)((char *)this + 92),
+               (CLegacyRenderTarget *)((char *)this + 32));
+        v2 = v7;
+        if ( v7 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x2EBu, 0LL);
       }
     }
   }

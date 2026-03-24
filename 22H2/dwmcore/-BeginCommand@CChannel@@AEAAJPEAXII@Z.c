@@ -1,77 +1,75 @@
 /*
- * XREFs of ?BeginCommand@CChannel@@AEAAJPEAXII@Z @ 0x180043D44
+ * XREFs of ?BeginCommand@CChannel@@AEAAJPEAXII@Z @ 0x18005DC2C
  * Callers:
- *     ?GdiSpriteBitmapDirtyRectangles@CChannel@@UEAAJIPEBUtagRECT@@I@Z @ 0x18001F8D0 (-GdiSpriteBitmapDirtyRectangles@CChannel@@UEAAJIPEBUtagRECT@@I@Z.c)
- *     ?RenderDataUpdate@CChannel@@UEAAJIPEAUIRenderDataBuilder@@@Z @ 0x180040430 (-RenderDataUpdate@CChannel@@UEAAJIPEAUIRenderDataBuilder@@@Z.c)
- *     ?AtlasedRectsMeshUpdate@CChannel@@UEAAJI_NHPEBUMilRectF@@1I@Z @ 0x1800EC8D0 (-AtlasedRectsMeshUpdate@CChannel@@UEAAJI_NHPEBUMilRectF@@1I@Z.c)
- *     ?AtlasedRectsGroupUpdate@CChannel@@UEAAJIIPEBII@Z @ 0x1800EF450 (-AtlasedRectsGroupUpdate@CChannel@@UEAAJIIPEBII@Z.c)
- *     ?RgnGeometryUpdate@CChannel@@UEAAJIPEBUtagRECT@@IHH@Z @ 0x1800F00D0 (-RgnGeometryUpdate@CChannel@@UEAAJIPEBUtagRECT@@IHH@Z.c)
- *     ?InteractionUpdateConfiguration@CChannel@@UEAAJIIW4Enum@InteractionConfigurationUpdateType@@W42InteractionInputType@@PEBXI@Z @ 0x1800F7A10 (-InteractionUpdateConfiguration@CChannel@@UEAAJIIW4Enum@InteractionConfigurationUpdateType@@W42I.c)
- *     ?AnimationUpdatePrimitives@CChannel@@UEAAJIPEBUDwmAnimationPrimitive@@I@Z @ 0x1801CE7D0 (-AnimationUpdatePrimitives@CChannel@@UEAAJIPEBUDwmAnimationPrimitive@@I@Z.c)
- *     ?Geometry2DGroupUpdate@CChannel@@UEAAJIPEBII@Z @ 0x1801CF4B0 (-Geometry2DGroupUpdate@CChannel@@UEAAJIPEBII@Z.c)
- *     ?LinearGradientLegacyMilBrushUpdate@CChannel@@UEAAJINAEBUMilPoint2D@@0W4Enum@MilColorInterpolationMode@@W43MilBrushMappingMode@@W43MilGradientSpreadMethod@@PEBUMilGradientStop@@I@Z @ 0x1801CF810 (-LinearGradientLegacyMilBrushUpdate@CChannel@@UEAAJINAEBUMilPoint2D@@0W4Enum@MilColorInterpolati.c)
- *     ?MeshGeometry2DUpdate@CChannel@@UEAAJIHPEBUMilPoint3F@@PEBUMilPoint2D@@IPEBII@Z @ 0x1801D0060 (-MeshGeometry2DUpdate@CChannel@@UEAAJIHPEBUMilPoint3F@@PEBUMilPoint2D@@IPEBII@Z.c)
- *     ?Transform3DGroupUpdate@CChannel@@UEAAJIPEBII@Z @ 0x1801D0CB0 (-Transform3DGroupUpdate@CChannel@@UEAAJIPEBII@Z.c)
- *     ?TransformGroupUpdate@CChannel@@UEAAJIPEBII@Z @ 0x1801D0DF0 (-TransformGroupUpdate@CChannel@@UEAAJIPEBII@Z.c)
- *     ?VisualGroupUpdate@CChannel@@UEAAJIPEBII@Z @ 0x1801D10E0 (-VisualGroupUpdate@CChannel@@UEAAJIPEBII@Z.c)
+ *     ?AnimationUpdatePrimitives@CChannel@@UEAAJIPEBUDwmAnimationPrimitive@@I@Z @ 0x18001E170 (-AnimationUpdatePrimitives@CChannel@@UEAAJIPEBUDwmAnimationPrimitive@@I@Z.c)
+ *     ?TransformGroupUpdate@CChannel@@UEAAJIPEBII@Z @ 0x18001F180 (-TransformGroupUpdate@CChannel@@UEAAJIPEBII@Z.c)
+ *     ?AtlasedRectsMeshUpdate@CChannel@@UEAAJI_NIPEBUMilRectF@@1PEBK@Z @ 0x18005A4D0 (-AtlasedRectsMeshUpdate@CChannel@@UEAAJI_NIPEBUMilRectF@@1PEBK@Z.c)
+ *     ?RenderDataUpdate@CChannel@@UEAAJIPEAUIRenderDataBuilder@@@Z @ 0x18005F270 (-RenderDataUpdate@CChannel@@UEAAJIPEAUIRenderDataBuilder@@@Z.c)
+ *     ?RgnGeometryUpdate@CChannel@@UEAAJIPEBUtagRECT@@I@Z @ 0x1800CFB80 (-RgnGeometryUpdate@CChannel@@UEAAJIPEBUtagRECT@@I@Z.c)
+ *     ?AtlasedRectsGroupUpdate@CChannel@@UEAAJIIPEBII@Z @ 0x1800D1DF0 (-AtlasedRectsGroupUpdate@CChannel@@UEAAJIIPEBII@Z.c)
+ *     ?InteractionUpdateConfiguration@CChannel@@UEAAJIIW4Enum@InteractionConfigurationUpdateType@@W42InteractionInputType@@PEBXI@Z @ 0x1800D4050 (-InteractionUpdateConfiguration@CChannel@@UEAAJIIW4Enum@InteractionConfigurationUpdateType@@W42I.c)
+ *     ?PartitionTelemetryAnimationScenarioBegin@CChannel@@UEAAJPEBXIAEBU_GUID@@@Z @ 0x1800DCE80 (-PartitionTelemetryAnimationScenarioBegin@CChannel@@UEAAJPEBXIAEBU_GUID@@@Z.c)
+ *     ?Geometry2DGroupUpdate@CChannel@@UEAAJIPEBII@Z @ 0x18014FB60 (-Geometry2DGroupUpdate@CChannel@@UEAAJIPEBII@Z.c)
+ *     ?LinearGradientLegacyMilBrushUpdate@CChannel@@UEAAJINAEBUMilPoint2D@@0IIIW4Enum@MilColorInterpolationMode@@W43MilBrushMappingMode@@W43MilGradientSpreadMethod@@PEBUMilGradientStop@@I@Z @ 0x18014FE40 (-LinearGradientLegacyMilBrushUpdate@CChannel@@UEAAJINAEBUMilPoint2D@@0IIIW4Enum@MilColorInterpol.c)
+ *     ?MeshGeometry2DUpdate@CChannel@@UEAAJIPEBUMilPoint3F@@IPEBUMilPoint2D@@IPEBKIPEBII@Z @ 0x180150600 (-MeshGeometry2DUpdate@CChannel@@UEAAJIPEBUMilPoint3F@@IPEBUMilPoint2D@@IPEBKIPEBII@Z.c)
+ *     ?Transform3DGroupUpdate@CChannel@@UEAAJIPEBII@Z @ 0x180151090 (-Transform3DGroupUpdate@CChannel@@UEAAJIPEBII@Z.c)
+ *     ?VisualGroupUpdate@CChannel@@UEAAJIPEBIII@Z @ 0x1801511A0 (-VisualGroupUpdate@CChannel@@UEAAJIPEBIII@Z.c)
  * Callees:
- *     ?EnsureSize@CChannel@@AEAAJI@Z @ 0x180043DDC (-EnsureSize@CChannel@@AEAAJI@Z.c)
- *     ?GetItemDataWritePointer@CDataStreamWriter@@QEAAJIPEAPEAX@Z @ 0x18004459C (-GetItemDataWritePointer@CDataStreamWriter@@QEAAJIPEAPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?BeginItem@CDataStreamWriter@@QEAAJXZ @ 0x1800D77AC (-BeginItem@CDataStreamWriter@@QEAAJXZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?EnsureSize@CDataStreamWriter@@IEAAJI@Z @ 0x18005E268 (-EnsureSize@CDataStreamWriter@@IEAAJI@Z.c)
+ *     ?AddItemData@CDataStreamWriter@@QEAAJPEBXI@Z @ 0x1800BF2E0 (-AddItemData@CDataStreamWriter@@QEAAJPEBXI@Z.c)
+ *     ?BeginItem@CDataStreamWriter@@QEAAJXZ @ 0x1800C0068 (-BeginItem@CDataStreamWriter@@QEAAJXZ.c)
+ *     ?CreateRecorder@CChannel@@AEAAJXZ @ 0x1800D94E0 (-CreateRecorder@CChannel@@AEAAJXZ.c)
  */
 
 __int64 __fastcall CChannel::BeginCommand(CDataStreamWriter **this, void *a2, unsigned int a3, int a4)
 {
-  int v7; // eax
-  unsigned int v8; // esi
-  CDataStreamWriter *v9; // rcx
-  int v10; // eax
-  unsigned int v11; // ecx
-  unsigned int v13; // [rsp+20h] [rbp-28h]
-  void *v14; // [rsp+30h] [rbp-18h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
+  unsigned int v4; // ebp
+  int v8; // eax
+  __int64 v9; // rcx
+  int v10; // ebx
+  unsigned int v11; // ebp
+  int Recorder; // eax
 
+  v4 = a3 + a4;
   if ( a3 + a4 < a3 )
   {
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x9C,
-      (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\channel.cpp",
-      (const char *)0x80070216LL,
-      v13);
-    return 2147942934LL;
+    v11 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024362, 0x99u, 0LL);
   }
   else
   {
-    v7 = CChannel::EnsureSize((CChannel *)this, a3 + a4);
-    v8 = v7;
-    if ( v7 < 0 )
+    if ( this[20] || (Recorder = CChannel::CreateRecorder((CChannel *)this), v10 = Recorder, Recorder >= 0) )
     {
-      wil::details::in1diag3::Return_Hr(
-        retaddr,
-        (void *)0x9D,
-        (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\channel.cpp",
-        (const char *)(unsigned int)v7,
-        v13);
-      return v8;
+      if ( v4 + 4 < v4 )
+      {
+        v10 = -2147024362;
+        MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024362, 0x165u, 0LL);
+      }
+      else
+      {
+        v8 = CDataStreamWriter::EnsureSize(this[20], v4 + 4);
+        v10 = v8;
+        if ( v8 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x167u, 0LL);
+      }
+      if ( v10 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v10, 0x107u, 0LL);
     }
     else
     {
-      CDataStreamWriter::BeginItem(this[22]);
-      if ( a3 )
-      {
-        v9 = this[22];
-        v14 = 0LL;
-        v10 = CDataStreamWriter::GetItemDataWritePointer(v9, a3, &v14);
-        if ( v10 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xB2u, 0LL);
-        else
-          memcpy_0(v14, a2, a3);
-      }
-      return 0LL;
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, Recorder, 0x101u, 0LL);
+    }
+    v11 = v10;
+    if ( v10 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v10, 0x9Au, 0LL);
+    }
+    else
+    {
+      CDataStreamWriter::BeginItem(this[20]);
+      CDataStreamWriter::AddItemData(this[20], a2, a3);
     }
   }
+  return v11;
 }

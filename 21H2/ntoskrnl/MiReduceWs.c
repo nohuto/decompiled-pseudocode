@@ -1,47 +1,37 @@
 /*
- * XREFs of MiReduceWs @ 0x14037443C
+ * XREFs of MiReduceWs @ 0x14036C38C
  * Callers:
- *     MiPreUnlockWorkingSetShared @ 0x140373E1C (MiPreUnlockWorkingSetShared.c)
- *     MiSelfTrim @ 0x140374278 (MiSelfTrim.c)
+ *     MiPreUnlockWorkingSetShared @ 0x14036C210 (MiPreUnlockWorkingSetShared.c)
  * Callees:
- *     MiTrimWorkingSet @ 0x1403744D8 (MiTrimWorkingSet.c)
- *     MiSimpleAging @ 0x140374864 (MiSimpleAging.c)
+ *     MiTrimWorkingSet @ 0x140359EE4 (MiTrimWorkingSet.c)
+ *     MiSimpleAging @ 0x14036C428 (MiSimpleAging.c)
  */
 
 __int64 __fastcall MiReduceWs(__int64 a1, char a2, unsigned __int64 a3)
 {
-  unsigned __int64 v4; // rsi
   unsigned __int64 v5; // rdx
-  unsigned int v7; // ebx
+  unsigned int i; // ebx
   unsigned __int64 v8; // rdx
   unsigned __int64 v9; // rcx
 
-  v4 = a3;
-  v5 = *(_QWORD *)(a1 + 128);
-  v7 = 7;
-  if ( v5 > a3 )
+  v5 = *(_QWORD *)(a1 + 136);
+  for ( i = 7; v5 > a3; --i )
   {
-    do
+    v8 = v5 - a3;
+    if ( i )
     {
-      v8 = v5 - v4;
-      if ( v7 )
-      {
-        v9 = *(_QWORD *)(a1 + 8LL * v7 + 40);
-        if ( v9 > v8 )
-          v9 = v8;
-        v8 = v9;
-      }
-      if ( v8 )
-      {
-        LOBYTE(a3) = a2;
-        MiTrimWorkingSet(a1, v8, a3, v7, 80);
-        if ( !v7 )
-          break;
-      }
-      v5 = *(_QWORD *)(a1 + 128);
-      --v7;
+      v9 = *(_QWORD *)(a1 + 8LL * i + 40);
+      if ( v9 > v8 )
+        v9 = v8;
+      v8 = v9;
     }
-    while ( v5 > v4 );
+    if ( v8 )
+    {
+      MiTrimWorkingSet(a1, v8, a2, i, 80);
+      if ( !i )
+        break;
+    }
+    v5 = *(_QWORD *)(a1 + 136);
   }
   LOBYTE(v5) = a2;
   return MiSimpleAging(a1, v5);

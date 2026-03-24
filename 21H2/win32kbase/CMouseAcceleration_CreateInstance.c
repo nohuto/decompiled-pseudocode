@@ -1,21 +1,23 @@
 /*
- * XREFs of CMouseAcceleration_CreateInstance @ 0x1C00BE440
+ * XREFs of CMouseAcceleration_CreateInstance @ 0x1C000ADC0
  * Callers:
  *     <none>
  * Callees:
- *     ?CreateInstance@CMouseAcceleration@@SAJPEAPEAVCDeviceAcceleration@@I@Z @ 0x1C00BE480 (-CreateInstance@CMouseAcceleration@@SAJPEAPEAVCDeviceAcceleration@@I@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ??0CMouseAcceleration@@IEAA@I@Z @ 0x1C000AE14 (--0CMouseAcceleration@@IEAA@I@Z.c)
+ *     Win32AllocPool @ 0x1C002AE60 (Win32AllocPool.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-struct CDeviceAcceleration *__fastcall CMouseAcceleration_CreateInstance(__int64 a1, __int64 a2, __int64 a3)
+CMouseAcceleration *__fastcall CMouseAcceleration_CreateInstance(unsigned int a1)
 {
-  unsigned int v3; // ebx
-  struct CDeviceAcceleration *v5; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v1; // rbx
+  CMouseAcceleration *v3; // rax
 
-  v3 = a1;
-  if ( qword_1C0288098 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
-  v5 = 0LL;
-  CMouseAcceleration::CreateInstance(&v5, v3);
-  return v5;
+  v1 = 0LL;
+  if ( qword_1C0246098 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 702LL);
+  v3 = (CMouseAcceleration *)Win32AllocPool(120LL, 1682006883LL);
+  if ( v3 )
+    return CMouseAcceleration::CMouseAcceleration(v3, a1);
+  return (CMouseAcceleration *)v1;
 }

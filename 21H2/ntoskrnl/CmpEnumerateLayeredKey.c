@@ -1,248 +1,235 @@
 /*
- * XREFs of CmpEnumerateLayeredKey @ 0x140914324
+ * XREFs of CmpEnumerateLayeredKey @ 0x1405D8520
  * Callers:
- *     CmEnumerateKey @ 0x1407C16A0 (CmEnumerateKey.c)
+ *     CmEnumerateKey @ 0x1405F4350 (CmEnumerateKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     CmpQueryKeyDataFromKeyNodeStack @ 0x140225E68 (CmpQueryKeyDataFromKeyNodeStack.c)
- *     CmpInitializeDelayDerefContext @ 0x1402AD320 (CmpInitializeDelayDerefContext.c)
- *     CmpDrainDelayDerefContext @ 0x140346C60 (CmpDrainDelayDerefContext.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     CmpIsRegistryLockContended @ 0x14053F0D4 (CmpIsRegistryLockContended.c)
- *     CmpKeyEnumStackAdvance @ 0x14065B900 (CmpKeyEnumStackAdvance.c)
- *     CmpGetKeyNodeForKcb @ 0x14067E828 (CmpGetKeyNodeForKcb.c)
- *     CmpKeyEnumStackCleanup @ 0x14069F024 (CmpKeyEnumStackCleanup.c)
- *     CmpKeyEnumStackInitialize @ 0x14069F1F4 (CmpKeyEnumStackInitialize.c)
- *     CmpFindSubKeyByNumber @ 0x1406BF278 (CmpFindSubKeyByNumber.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpLockRegistryExclusive @ 0x14071B6EC (CmpLockRegistryExclusive.c)
- *     CmpLockKcbStackShared @ 0x140721B68 (CmpLockKcbStackShared.c)
- *     CmpUnlockKcbStack @ 0x140721BAC (CmpUnlockKcbStack.c)
- *     CmpGetKcbAtLayerHeight @ 0x140721CE0 (CmpGetKcbAtLayerHeight.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1407C05F4 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpQueryKeyDataFromNode @ 0x1407C3490 (CmpQueryKeyDataFromNode.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1407C97FC (HvpGetCellContextReinitialize.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
- *     CmpKeyEnumStackCreateResumeContext @ 0x140920D44 (CmpKeyEnumStackCreateResumeContext.c)
- *     CmpKeyEnumStackFreeResumeContext @ 0x140920E78 (CmpKeyEnumStackFreeResumeContext.c)
- *     CmpKeyEnumStackStartFromKcbStack @ 0x140920F1C (CmpKeyEnumStackStartFromKcbStack.c)
- *     CmpKeyEnumStackVerifyResumeContext @ 0x140921018 (CmpKeyEnumStackVerifyResumeContext.c)
- *     CmpUnlockRegistry @ 0x140AB4260 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x140AB4370 (CmpLockRegistry.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140AB43C0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpInitializeDelayDerefContext @ 0x1403510E8 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x140351100 (CmpDrainDelayDerefContext.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmpIsRegistryLockContended @ 0x1404EC9C0 (CmpIsRegistryLockContended.c)
+ *     CmpQueryKeyDataFromKeyNodeStack @ 0x1404EDA5C (CmpQueryKeyDataFromKeyNodeStack.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
+ *     CmpFindSubKeyByNumber @ 0x1405F34E0 (CmpFindSubKeyByNumber.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x140665D30 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpQueryKeyDataFromNode @ 0x14066AB20 (CmpQueryKeyDataFromNode.c)
+ *     CmpGetKeyNodeForKcb @ 0x14066BFD4 (CmpGetKeyNodeForKcb.c)
+ *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
+ *     CmpKeyEnumStackCleanup @ 0x140699B20 (CmpKeyEnumStackCleanup.c)
+ *     CmpKeyEnumStackInitialize @ 0x140699CBC (CmpKeyEnumStackInitialize.c)
+ *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
+ *     CmpCleanupKcbStack @ 0x1406FB360 (CmpCleanupKcbStack.c)
+ *     CmpLockKcbStackShared @ 0x1406FB3E0 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x1406FB440 (CmpUnlockKcbStack.c)
+ *     CmpKeyEnumStackAdvance @ 0x140729B28 (CmpKeyEnumStackAdvance.c)
+ *     CmpReleaseKeyNodeForKcb @ 0x140863E04 (CmpReleaseKeyNodeForKcb.c)
+ *     CmpKeyEnumStackCreateResumeContext @ 0x14087A7E4 (CmpKeyEnumStackCreateResumeContext.c)
+ *     CmpKeyEnumStackFreeResumeContext @ 0x14087AB38 (CmpKeyEnumStackFreeResumeContext.c)
+ *     CmpKeyEnumStackStartFromKcbStack @ 0x14087AC78 (CmpKeyEnumStackStartFromKcbStack.c)
+ *     CmpKeyEnumStackVerifyResumeContext @ 0x14087AD74 (CmpKeyEnumStackVerifyResumeContext.c)
  */
 
 __int64 __fastcall CmpEnumerateLayeredKey(
         __int64 a1,
-        unsigned int a2,
+        ULONG a2,
         int a3,
         __int64 a4,
         unsigned int a5,
         __int64 a6,
-        PPRIVILEGE_SET *a7,
+        struct _PRIVILEGE_SET **a7,
         char a8)
 {
+  char v10; // si
   __int64 KcbAtLayerHeight; // r13
-  _DWORD *KeyNodeForKcb; // r15
+  struct _PRIVILEGE_SET *v12; // r12
   __int64 v13; // rdx
   __int64 v14; // rcx
-  __int64 v15; // r8
-  PPRIVILEGE_SET v16; // rbx
+  struct _PRIVILEGE_SET *v15; // rbx
+  __int64 v16; // rax
   int started; // edi
-  __int16 v18; // dx
-  __int16 v19; // dx
-  char v20; // r8
-  _DWORD *v21; // r9
+  int v18; // eax
+  __int64 v19; // r9
+  __int16 v20; // dx
+  char v21; // r8
   __int16 v22; // r10
-  int v23; // esi
-  int v24; // r9d
+  __int64 KeyNodeForKcb; // r14
+  __int64 v24; // rax
+  __int64 v25; // rcx
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  ULONG Control; // r15d
+  ULONG v30; // esi
+  int v31; // r9d
+  int v32; // eax
   int ResumeContext; // eax
-  __int64 v26; // rcx
-  ULONG_PTR v27; // rcx
-  __int64 CellFlat; // rax
-  __int64 v29; // rcx
-  __int64 v30; // rdx
-  __int64 v31; // rcx
-  __int64 v32; // r8
-  __int64 v33; // r9
-  char v35; // [rsp+40h] [rbp-C0h]
-  PPRIVILEGE_SET v36[2]; // [rsp+48h] [rbp-B8h] BYREF
-  ULONG_PTR BugCheckParameter4; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v38; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v39; // [rsp+68h] [rbp-98h] BYREF
-  int v40; // [rsp+70h] [rbp-90h]
-  __int64 v41; // [rsp+78h] [rbp-88h]
-  PPRIVILEGE_SET v42; // [rsp+80h] [rbp-80h]
-  __int128 v43; // [rsp+88h] [rbp-78h] BYREF
-  PPRIVILEGE_SET Privileges[2]; // [rsp+98h] [rbp-68h]
+  int KeyDataFromKeyNodeStack; // eax
+  struct _PRIVILEGE_SET *v35; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 v36; // [rsp+50h] [rbp-B0h]
+  int v37; // [rsp+58h] [rbp-A8h]
+  ULONG v38; // [rsp+5Ch] [rbp-A4h]
+  unsigned int v39; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v40; // [rsp+68h] [rbp-98h] BYREF
+  __int64 v41; // [rsp+70h] [rbp-90h] BYREF
+  _OWORD v42[2]; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v43; // [rsp+98h] [rbp-68h]
+  __int64 v44; // [rsp+A0h] [rbp-60h]
   __int64 v45; // [rsp+A8h] [rbp-58h]
-  __int64 v46; // [rsp+B0h] [rbp-50h]
-  __int128 v47; // [rsp+B8h] [rbp-48h] BYREF
-  PPRIVILEGE_SET *v48; // [rsp+C8h] [rbp-38h]
-  __int16 v49[176]; // [rsp+D0h] [rbp-30h] BYREF
+  __int128 v46; // [rsp+B0h] [rbp-50h] BYREF
+  struct _PRIVILEGE_SET **v47; // [rsp+C0h] [rbp-40h]
+  __int16 v48[176]; // [rsp+D0h] [rbp-30h] BYREF
 
-  v40 = a3;
-  v45 = a6;
-  v48 = a7;
-  v46 = a4;
-  memset(v49, 0, sizeof(v49));
-  v39 = 0LL;
-  LODWORD(BugCheckParameter4) = 0;
-  v38 = 0LL;
-  v43 = 0LL;
-  WORD1(v43) = -1;
-  v47 = 0LL;
-  v35 = 0;
-  *(_OWORD *)Privileges = 0LL;
-  CmpKeyEnumStackInitialize((char *)v49);
+  v37 = a3;
+  v38 = a2;
+  v43 = a6;
+  v47 = a7;
+  v44 = a4;
+  memset(v48, 0, sizeof(v48));
+  v39 = 0;
+  memset(v42, 0, sizeof(v42));
+  WORD1(v42[0]) = -1;
+  v10 = 0;
+  v46 = 0LL;
+  CmpKeyEnumStackInitialize(v48);
+  v41 = 0xFFFFFFFFLL;
   KcbAtLayerHeight = 0LL;
-  KeyNodeForKcb = 0LL;
-  HvpGetCellContextReinitialize(&v39);
-  v41 = 0LL;
-  HvpGetCellContextReinitialize(&v38);
-  v42 = 0LL;
-  CmpInitializeDelayDerefContext(&v47);
-  v16 = *a7;
-  *a7 = 0LL;
-  v36[0] = v16;
-  if ( a3 == 2 )
-    CmpLockRegistryExclusive();
+  v40 = 0xFFFFFFFFLL;
+  v12 = 0LL;
+  v36 = 0LL;
+  v45 = 0LL;
+  CmpInitializeDelayDerefContext(&v46);
+  v15 = *a7;
+  *a7 = (struct _PRIVILEGE_SET *)(v16 & (unsigned __int64)*a7);
+  v35 = v15;
+  if ( v37 == 2 )
+    CmpLockRegistryExclusive(v14, v13);
   else
-    CmpLockRegistry(v14, v13, v15);
-  started = CmpStartKcbStackForTopLayerKcb((__int64)&v43, *(_QWORD *)(a1 + 8));
-  if ( started >= 0 )
+    CmpLockRegistry();
+  started = CmpStartKcbStackForTopLayerKcb(v42, *(_QWORD *)(a1 + 8));
+  if ( started < 0 )
   {
-    CmpLockKcbStackShared((__int64)&v43);
-    v35 = 1;
-    started = CmpPerformKeyBodyDeletionCheck(a1, 0LL);
-    if ( started >= 0 )
+    KeyNodeForKcb = 0LL;
+  }
+  else
+  {
+    CmpLockKcbStackShared(v42);
+    v10 = 1;
+    v18 = CmpPerformKeyBodyDeletionCheck(a1, 0LL);
+    v19 = 0LL;
+    started = v18;
+    if ( v18 < 0 )
     {
-      v18 = WORD1(v43);
-      if ( SWORD1(v43) <= 0 )
-        goto LABEL_33;
+      KeyNodeForKcb = 0LL;
+    }
+    else
+    {
+      if ( SWORD1(v42[0]) <= 0 )
+        goto LABEL_10;
       do
       {
-        KcbAtLayerHeight = CmpGetKcbAtLayerHeight((__int64)&v43, v18);
+        KcbAtLayerHeight = CmpGetKcbAtLayerHeight(v42);
         if ( *(_DWORD *)(KcbAtLayerHeight + 40) != -1 )
-          v20 = 1;
-        v18 = v22 + v19;
+          v21 = 1;
       }
-      while ( v18 > 0 );
-      KeyNodeForKcb = v21;
-      if ( v20 )
+      while ( (__int16)(v22 + v20) > 0 );
+      if ( v21 )
       {
-        if ( v16
-          || (v16 = (PPRIVILEGE_SET)_InterlockedExchange64((volatile __int64 *)(a1 + 88), 0LL), (v36[0] = v16) != 0LL) )
+        if ( v15
+          || (v15 = (struct _PRIVILEGE_SET *)_InterlockedExchange64((volatile __int64 *)(a1 + 88), v19),
+              (v35 = v15) != 0LL) )
         {
-          if ( (unsigned int)CmpKeyEnumStackVerifyResumeContext(&v43, v16) == -1073741735 || v16->Control > a2 )
+          if ( (unsigned int)CmpKeyEnumStackVerifyResumeContext(v42, v15) == -1073741735 || v15->Control > a2 )
           {
-            v42 = v16;
-            v16 = 0LL;
-            v36[0] = 0LL;
+            v12 = v15;
+            v15 = 0LL;
+            v35 = 0LL;
           }
         }
-        started = CmpKeyEnumStackStartFromKcbStack(v49, &v43, a1, v16);
-        if ( started >= 0 )
+        started = CmpKeyEnumStackStartFromKcbStack(v48, v42, a1, v15);
+        if ( started < 0
+          || (!v15 ? (struct _PRIVILEGE_SET *)(Control = 0) : (Control = v15->Control, v12 = v15, v15 = 0LL, v35 = 0LL),
+              started = CmpKeyEnumStackAdvance(v48),
+              started < 0) )
         {
-          if ( v16 )
+LABEL_52:
+          KeyNodeForKcb = 0LL;
+        }
+        else
+        {
+          v30 = Control;
+          if ( Control >= v38 )
           {
-            LODWORD(KeyNodeForKcb) = v16->Control;
-            v42 = v16;
-            v16 = 0LL;
-            v36[0] = 0LL;
-          }
-          started = CmpKeyEnumStackAdvance(v49);
-          if ( started < 0 )
-          {
-            KeyNodeForKcb = 0LL;
+LABEL_45:
+            ResumeContext = CmpKeyEnumStackCreateResumeContext(
+                              (unsigned int)v42,
+                              (unsigned int)v48,
+                              v30,
+                              0,
+                              (__int64)&v35);
+            v15 = v35;
+            if ( ResumeContext >= 0 )
+              v15 = (struct _PRIVILEGE_SET *)_InterlockedExchange64((volatile __int64 *)(a1 + 88), (__int64)v35);
+            KeyDataFromKeyNodeStack = CmpQueryKeyDataFromKeyNodeStack(&v48[4], v37, v44, a5, v43);
+            KeyNodeForKcb = v36;
+            started = KeyDataFromKeyNodeStack;
+            if ( KeyDataFromKeyNodeStack >= 0 )
+              started = 0;
+            v10 = 1;
           }
           else
           {
-            v23 = (int)KeyNodeForKcb;
-            if ( (unsigned int)KeyNodeForKcb >= a2 )
+            while ( !CmpIsRegistryLockContended() || v30 - Control < 0xA || !a8 )
             {
-LABEL_26:
-              ResumeContext = CmpKeyEnumStackCreateResumeContext(
-                                (unsigned int)&v43,
-                                (unsigned int)v49,
-                                v23,
-                                0,
-                                (__int64)v36);
-              v16 = v36[0];
-              if ( ResumeContext >= 0 )
-                v16 = (PPRIVILEGE_SET)_InterlockedExchange64((volatile __int64 *)(a1 + 88), (__int64)v36[0]);
-              started = CmpQueryKeyDataFromKeyNodeStack(&v49[4], v40, v46, a5, v45);
-              KeyNodeForKcb = 0LL;
-              if ( started >= 0 )
-                started = 0;
+              started = CmpKeyEnumStackAdvance(v48);
+              if ( started < 0 )
+              {
+                v10 = 1;
+                goto LABEL_52;
+              }
+              if ( ++v30 >= v38 )
+                goto LABEL_45;
+            }
+            LOBYTE(v31) = 1;
+            v32 = CmpKeyEnumStackCreateResumeContext((unsigned int)v42, (unsigned int)v48, v30, v31, (__int64)&v35);
+            v10 = 1;
+            started = v32;
+            KeyNodeForKcb = 0LL;
+            if ( v32 < 0 )
+            {
+              v15 = v35;
             }
             else
             {
-              while ( !CmpIsRegistryLockContended() || (unsigned int)(v23 - (_DWORD)KeyNodeForKcb) < 0xA || !a8 )
-              {
-                started = CmpKeyEnumStackAdvance(v49);
-                if ( started < 0 )
-                {
-                  KeyNodeForKcb = 0LL;
-                  goto LABEL_36;
-                }
-                if ( ++v23 >= a2 )
-                  goto LABEL_26;
-              }
-              LOBYTE(v24) = 1;
-              started = CmpKeyEnumStackCreateResumeContext(
-                          (unsigned int)&v43,
-                          (unsigned int)v49,
-                          v23,
-                          v24,
-                          (__int64)v36);
-              KeyNodeForKcb = 0LL;
-              if ( started < 0 )
-              {
-                v16 = v36[0];
-              }
-              else
-              {
-                v16 = 0LL;
-                started = -1073741267;
-                *v48 = v36[0];
-              }
+              v15 = 0LL;
+              started = -1073741267;
+              *v47 = v35;
             }
           }
         }
       }
       else
       {
-LABEL_33:
-        KcbAtLayerHeight = *((_QWORD *)&v43 + 1);
-        KeyNodeForKcb = (_DWORD *)CmpGetKeyNodeForKcb(*((__int64 *)&v43 + 1), (__int64)&v39, 0);
-        started = CmpFindSubKeyByNumber(*(_QWORD *)(KcbAtLayerHeight + 32), KeyNodeForKcb, a2, &BugCheckParameter4);
+LABEL_10:
+        KcbAtLayerHeight = *((_QWORD *)&v42[0] + 1);
+        KeyNodeForKcb = CmpGetKeyNodeForKcb(*((_QWORD *)&v42[0] + 1), &v41, 0LL, v19);
+        started = CmpFindSubKeyByNumber(*(_QWORD *)(KcbAtLayerHeight + 32), KeyNodeForKcb, a2, &v39);
         if ( started >= 0 )
         {
-          if ( (_DWORD)BugCheckParameter4 == -1 )
+          if ( v39 == -1 )
           {
             started = -2147483622;
           }
           else
           {
-            v27 = *(_QWORD *)(KcbAtLayerHeight + 32);
-            if ( (*(_BYTE *)(v27 + 140) & 1) != 0 )
-              CellFlat = HvpGetCellFlat(v27, (unsigned int)BugCheckParameter4, &v38);
-            else
-              CellFlat = HvpGetCellPaged(v27, BugCheckParameter4, (unsigned int *)&v38);
-            v41 = CellFlat;
-            started = CmpQueryKeyDataFromNode(
-                        *(_QWORD *)(KcbAtLayerHeight + 32),
-                        CellFlat,
-                        a3,
-                        v46,
-                        a5,
-                        (unsigned int *)v45,
-                        0LL,
-                        0LL);
+            v24 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64 *))(*(_QWORD *)(KcbAtLayerHeight + 32) + 8LL))(
+                    *(_QWORD *)(KcbAtLayerHeight + 32),
+                    v39,
+                    &v40);
+            v25 = *(_QWORD *)(KcbAtLayerHeight + 32);
+            v45 = v24;
+            started = CmpQueryKeyDataFromNode(v25, v24, v37, v44, a5, v43, 0LL, 0LL);
             if ( started >= 0 )
               started = 0;
           }
@@ -250,33 +237,21 @@ LABEL_33:
       }
     }
   }
-LABEL_36:
-  CmpKeyEnumStackCleanup((__int64)v49);
-  if ( v41 )
-  {
-    v26 = *(_QWORD *)(KcbAtLayerHeight + 32);
-    if ( (*(_BYTE *)(v26 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v26, &v38);
-    else
-      HvpReleaseCellPaged(v26, (unsigned int *)&v38);
-  }
+  CmpKeyEnumStackCleanup(v48);
+  if ( v45 )
+    (*(void (__fastcall **)(_QWORD, __int64 *))(*(_QWORD *)(KcbAtLayerHeight + 32) + 16LL))(
+      *(_QWORD *)(KcbAtLayerHeight + 32),
+      &v40);
   if ( KeyNodeForKcb )
-  {
-    v29 = *(_QWORD *)(KcbAtLayerHeight + 32);
-    if ( (*(_BYTE *)(v29 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v29, &v39);
-    else
-      HvpReleaseCellPaged(v29, (unsigned int *)&v39);
-  }
-  if ( v35 )
-    CmpUnlockKcbStack((__int64)&v43);
-  if ( Privileges[1] )
-    CmSiFreeMemory(Privileges[1]);
-  if ( v16 )
-    CmpKeyEnumStackFreeResumeContext(v16);
-  if ( v42 )
-    CmpKeyEnumStackFreeResumeContext(v42);
-  CmpDrainDelayDerefContext((_QWORD **)&v47);
-  CmpUnlockRegistry(v31, v30, v32, v33);
+    CmpReleaseKeyNodeForKcb(KcbAtLayerHeight, &v41);
+  if ( v10 )
+    CmpUnlockKcbStack(v42);
+  CmpCleanupKcbStack(v42);
+  if ( v15 )
+    CmpKeyEnumStackFreeResumeContext(v15);
+  if ( v12 )
+    CmpKeyEnumStackFreeResumeContext(v12);
+  CmpDrainDelayDerefContext((_QWORD **)&v46);
+  CmpUnlockRegistry(v27, v26);
   return (unsigned int)started;
 }

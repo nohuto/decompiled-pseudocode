@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSetSchedulingGroupCycleNotification @ 0x14057A5D4
+ * XREFs of KeSetSchedulingGroupCycleNotification @ 0x1402C1378
  * Callers:
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KeSetSchedulingGroupCycleNotification(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
@@ -16,10 +16,10 @@ void __fastcall KeSetSchedulingGroupCycleNotification(__int64 a1, __int64 a2, __
   struct _KPRCB *CurrentPrcb; // rbx
   __int64 v10; // rbp
   _DWORD *v11; // rcx
-  int v12; // eax
+  struct _KPRCB *v12; // rcx
   _DWORD *v13; // rcx
   int v14; // eax
-  struct _KPRCB *v15; // rcx
+  int v15; // eax
   int v16; // eax
   unsigned __int8 v17; // al
   struct _KPRCB *v18; // r9
@@ -61,10 +61,10 @@ void __fastcall KeSetSchedulingGroupCycleNotification(__int64 a1, __int64 a2, __
           {
             if ( CurrentPrcb->NestingLevel <= 1u )
             {
-              v12 = v11[6];
-              v11[6] = v12 + 1;
-              if ( v12 == -1 )
-                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+              v14 = v11[6];
+              v11[6] = v14 + 1;
+              if ( v14 == -1 )
+                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
           }
           if ( !_interlockedbittestandset64((volatile signed __int32 *)(v10 + 48), 0LL) )
@@ -74,10 +74,10 @@ void __fastcall KeSetSchedulingGroupCycleNotification(__int64 a1, __int64 a2, __
           {
             if ( CurrentPrcb->NestingLevel <= 1u )
             {
-              v14 = v13[6] - 1;
-              v13[6] = v14;
-              if ( !v14 )
-                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+              v15 = v13[6] - 1;
+              v13[6] = v15;
+              if ( !v15 )
+                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
           }
           do
@@ -86,16 +86,16 @@ void __fastcall KeSetSchedulingGroupCycleNotification(__int64 a1, __int64 a2, __
         }
         v8[5] = *v8;
         _InterlockedAnd64((volatile signed __int64 *)(v10 + 48), 0LL);
-        v15 = KeGetCurrentPrcb();
-        a2 = (__int64)v15->SchedulerAssist;
+        v12 = KeGetCurrentPrcb();
+        a2 = (__int64)v12->SchedulerAssist;
         if ( a2 )
         {
-          if ( v15->NestingLevel <= 1u )
+          if ( v12->NestingLevel <= 1u )
           {
             v16 = *(_DWORD *)(a2 + 24) - 1;
             *(_DWORD *)(a2 + 24) = v16;
             if ( !v16 )
-              KiRemoveSystemWorkPriorityKick((__int64)v15);
+              KiRemoveSystemWorkPriorityKick(v12);
           }
         }
         ++v7;
@@ -119,7 +119,7 @@ void __fastcall KeSetSchedulingGroupCycleNotification(__int64 a1, __int64 a2, __
           v21 = (v20 & v19[5]) == 0;
           v19[5] &= v20;
           if ( v21 )
-            KiRemoveSystemWorkPriorityKick((__int64)v18);
+            KiRemoveSystemWorkPriorityKick(v18);
         }
       }
     }

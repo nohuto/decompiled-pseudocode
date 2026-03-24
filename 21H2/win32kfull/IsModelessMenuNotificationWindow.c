@@ -1,20 +1,20 @@
 /*
- * XREFs of IsModelessMenuNotificationWindow @ 0x1C00BAE1C
+ * XREFs of IsModelessMenuNotificationWindow @ 0x1C00DCD20
  * Callers:
- *     xxxDWP_DoNCActivate @ 0x1C00BABE4 (xxxDWP_DoNCActivate.c)
- *     GetActiveTrackPwnd @ 0x1C01DCBDC (GetActiveTrackPwnd.c)
+ *     xxxDWP_DoNCActivate @ 0x1C00DCB94 (xxxDWP_DoNCActivate.c)
+ *     GetActiveTrackPwnd @ 0x1C01E1C6C (GetActiveTrackPwnd.c)
  * Callees:
- *     GetpwndNotifypMenuState @ 0x1C00BAE40 (GetpwndNotifypMenuState.c)
+ *     GetpwndNotifypMenuState @ 0x1C00DCD44 (GetpwndNotifypMenuState.c)
  */
 
-__int64 IsModelessMenuNotificationWindow()
+__int64 __fastcall IsModelessMenuNotificationWindow(__int64 a1)
 {
-  __int64 v0; // rax
-  unsigned int v1; // ecx
+  __int64 v1; // rax
+  unsigned int v2; // ecx
 
-  v0 = GetpwndNotifypMenuState();
-  v1 = 0;
-  if ( v0 )
-    return (*(_DWORD *)(v0 + 8) & 0x100) != 0;
-  return v1;
+  v1 = GetpwndNotifypMenuState(a1);
+  v2 = 0;
+  if ( v1 )
+    return (*(_DWORD *)(v1 + 8) & 0x100) != 0;
+  return v2;
 }

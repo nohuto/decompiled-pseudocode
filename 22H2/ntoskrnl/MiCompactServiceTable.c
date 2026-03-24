@@ -1,24 +1,24 @@
 /*
- * XREFs of MiCompactServiceTable @ 0x1407BCE34
+ * XREFs of MiCompactServiceTable @ 0x140789F28
  * Callers:
- *     MmLoadSystemImageEx @ 0x140703E70 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x14075B2EC (MmLoadSystemImageEx.c)
  * Callees:
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     MiSetImageProtection @ 0x14034B480 (MiSetImageProtection.c)
- *     KeCompactServiceTable @ 0x14034B874 (KeCompactServiceTable.c)
- *     RtlFindExportedRoutineByName @ 0x1406AD3F0 (RtlFindExportedRoutineByName.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     MiSetImageProtection @ 0x140357D28 (MiSetImageProtection.c)
+ *     KeCompactServiceTable @ 0x14039EA34 (KeCompactServiceTable.c)
+ *     RtlFindExportedRoutineByName @ 0x1406129C0 (RtlFindExportedRoutineByName.c)
  */
 
 __int64 __fastcall MiCompactServiceTable(__int64 a1)
 {
-  unsigned __int64 ExportedRoutineByName; // rsi
+  unsigned __int64 ExportedRoutineByName; // rdi
   unsigned int *v3; // r14
   unsigned __int8 *v4; // rbp
-  unsigned __int64 v5; // rdi
+  unsigned __int64 v5; // rsi
   unsigned int *v6; // r15
   unsigned __int8 *v7; // r12
-  int v8; // r13d
-  int v10; // [rsp+60h] [rbp+8h]
+  unsigned int v8; // r13d
+  unsigned int v10; // [rsp+60h] [rbp+8h]
 
   ExportedRoutineByName = RtlFindExportedRoutineByName(*(_QWORD *)(a1 + 48), "W32pServiceTable");
   if ( !ExportedRoutineByName )
@@ -39,15 +39,15 @@ __int64 __fastcall MiCompactServiceTable(__int64 a1)
   if ( !v7 )
     return 3221225594LL;
   v8 = 4 * *v3;
-  MiSetImageProtection(a1, ExportedRoutineByName, v8, 4u);
+  MiSetImageProtection(a1, ExportedRoutineByName, v8);
   v10 = 4 * *v6;
-  MiSetImageProtection(a1, v5, v10, 4u);
+  MiSetImageProtection(a1, v5, v10);
   KeCompactServiceTable(v5, v7, *v6, 3LL, *(_QWORD *)(a1 + 48));
   KeCompactServiceTable(ExportedRoutineByName, v4, *v3, 1LL, *(_QWORD *)(a1 + 48));
   if ( *(_QWORD *)(MiSectionControlArea(*(_QWORD *)(a1 + 112)) + 144) )
   {
-    MiSetImageProtection(a1, ExportedRoutineByName, v8, 0x100u);
-    MiSetImageProtection(a1, v5, v10, 0x100u);
+    MiSetImageProtection(a1, ExportedRoutineByName, v8);
+    MiSetImageProtection(a1, v5, v10);
   }
   return 0LL;
 }

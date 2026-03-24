@@ -1,9 +1,9 @@
 /*
- * XREFs of MapPhysMem @ 0x1C004BE94
+ * XREFs of MapPhysMem @ 0x1C002A064
  * Callers:
- *     MapUnmapPhysMem @ 0x1C004BF60 (MapUnmapPhysMem.c)
+ *     MapUnmapPhysMem @ 0x1C0029FF0 (MapUnmapPhysMem.c)
  * Callees:
- *     AmlpValidateFirmwareMemoryAddress @ 0x1C004AD68 (AmlpValidateFirmwareMemoryAddress.c)
+ *     AmlpValidateFirmwareMemoryAddress @ 0x1C002A10C (AmlpValidateFirmwareMemoryAddress.c)
  */
 
 __int64 __fastcall MapPhysMem(ULONG_PTR a1, unsigned int a2, __int64 *a3)
@@ -19,19 +19,22 @@ __int64 __fastcall MapPhysMem(ULONG_PTR a1, unsigned int a2, __int64 *a3)
   v10 = 0;
   BugCheckParameter3 = a1;
   BugCheckParameter4 = a2;
-  if ( (int)AmlpValidateFirmwareMemoryAddress((__int64 *)&BugCheckParameter3, a2) < 0 )
+  if ( (int)AmlpValidateFirmwareMemoryAddress(&BugCheckParameter3) < 0 )
     KeBugCheckEx(0xA5u, 0x1000uLL, SHIDWORD(BugCheckParameter3), (unsigned int)BugCheckParameter3, BugCheckParameter4);
   v5 = 516;
-  MemoryCachingRequirements = HalGetMemoryCachingRequirements(BugCheckParameter3, BugCheckParameter4, &v10);
-  if ( MemoryCachingRequirements >= 0 )
-  {
-    v7 = v10;
-  }
-  else
+  MemoryCachingRequirements = HalGetMemoryCachingRequirements(
+                                BugCheckParameter3,
+                                (unsigned int)BugCheckParameter4,
+                                &v10);
+  if ( MemoryCachingRequirements < 0 )
   {
     v7 = 0;
     v10 = 0;
     MemoryCachingRequirements = 0;
+  }
+  else
+  {
+    v7 = v10;
   }
   if ( v7 == 1 )
     v5 = 4;

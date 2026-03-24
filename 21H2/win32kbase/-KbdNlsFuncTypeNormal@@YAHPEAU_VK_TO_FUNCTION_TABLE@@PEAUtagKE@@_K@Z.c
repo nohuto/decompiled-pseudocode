@@ -1,10 +1,10 @@
 /*
- * XREFs of ?KbdNlsFuncTypeNormal@@YAHPEAU_VK_TO_FUNCTION_TABLE@@PEAUtagKE@@_K@Z @ 0x1C01EAE20
+ * XREFs of ?KbdNlsFuncTypeNormal@@YAHPEAU_VK_TO_FUNCTION_TABLE@@PEAUtagKE@@_K@Z @ 0x1C01AB420
  * Callers:
  *     <none>
  * Callees:
- *     GetModifierBits @ 0x1C003FFA0 (GetModifierBits.c)
- *     ?GenerateNlsVkKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z @ 0x1C01EACE8 (-GenerateNlsVkKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z.c)
+ *     GetModifierBits @ 0x1C000A0E0 (GetModifierBits.c)
+ *     ?GenerateNlsVkKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z @ 0x1C01AB2E8 (-GenerateNlsVkKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z.c)
  */
 
 __int64 __fastcall KbdNlsFuncTypeNormal(struct _VK_TO_FUNCTION_TABLE *a1, struct tagKE *a2, __int64 a3)
@@ -15,7 +15,7 @@ __int64 __fastcall KbdNlsFuncTypeNormal(struct _VK_TO_FUNCTION_TABLE *a1, struct
   if ( !a2 )
     return 0LL;
   ModifierBits = GetModifierBits((unsigned __int8 **)&Modifiers_NLSKBD, (__int64)gafRawKeyState);
-  if ( ModifierBits > (unsigned __int16)word_1C028EFB8 )
+  if ( ModifierBits > (unsigned __int16)word_1C024BAD0 )
     return 0LL;
   v7 = *((unsigned __int8 *)&Modifiers_NLSKBD + ModifierBits + 10);
   if ( v7 == 15 )

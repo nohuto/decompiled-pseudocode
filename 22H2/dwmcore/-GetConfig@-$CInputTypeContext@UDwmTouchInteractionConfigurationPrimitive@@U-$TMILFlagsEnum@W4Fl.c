@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetConfig@?$CInputTypeContext@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@QEAA?AUDwmTouchInteractionConfigurationPrimitive@@IPEAUTemporaryConfiguration@@@Z @ 0x1801AE944
+ * XREFs of ?GetConfig@?$CInputTypeContext@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@QEAA?AUDwmTouchInteractionConfigurationPrimitive@@IPEAUTemporaryConfiguration@@@Z @ 0x18022D850
  * Callers:
- *     ?ConfigureInteractionContextIfNecessary@?$CInputTypeContext@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@QEAAJAEBUInteractionStateInfo@@PEAUTemporaryConfiguration@@@Z @ 0x1801AD2E0 (-ConfigureInteractionContextIfNecessary@-$CInputTypeContext@UDwmTouchInteractionConfigurationPri.c)
+ *     ?ConfigureInteractionContextIfNecessary@?$CInputTypeContext@UDwmPenInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypePenPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypePenPrimitiveType@@@@QEAAJAEBUInteractionStateInfo@@PEAUTemporaryConfiguration@@@Z @ 0x18022C674 (-ConfigureInteractionContextIfNecessary@-$CInputTypeContext@UDwmPenInteractionConfigurationPrimi.c)
  * Callees:
- *     _anonymous_namespace_::GetTemporaryConfigWithMask @ 0x1800EA564 (_anonymous_namespace_--GetTemporaryConfigWithMask.c)
+ *     _anonymous_namespace_::GetTemporaryConfigWithMask @ 0x1800C9964 (_anonymous_namespace_--GetTemporaryConfigWithMask.c)
  */
 
 unsigned int *__fastcall CInputTypeContext<DwmTouchInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>::GetConfig(
@@ -12,56 +12,51 @@ unsigned int *__fastcall CInputTypeContext<DwmTouchInteractionConfigurationPrimi
         unsigned int a3,
         __int64 a4)
 {
-  unsigned int *v4; // r11
-  __int64 v6; // rdx
-  int v7; // eax
-  unsigned int v8; // r10d
-  __int64 v9; // r9
-  unsigned int v10; // eax
-  unsigned int v11; // eax
+  __int64 v4; // rax
+  unsigned int *v6; // r11
+  unsigned int v7; // eax
+  unsigned int v8; // r9d
+  __int64 v9; // rdx
+  __int64 v10; // rax
+  __int64 v11; // xmm0_8
   int v13; // [rsp+38h] [rbp+10h] BYREF
   int v14; // [rsp+40h] [rbp+18h] BYREF
 
-  v4 = a2;
+  v4 = 0LL;
   *a2 = a3;
   a2[1] = a3;
-  v6 = 0LL;
-  v4[2] = 0;
+  a2[2] = 0;
+  v6 = a2;
   if ( a3 )
   {
     v8 = *(_DWORD *)(a1 + 112);
     if ( v8 )
     {
       v9 = *(_QWORD *)(a1 + 88);
-      while ( 1 )
+      while ( a3 >= *(_DWORD *)(v9 + 12 * v4) )
       {
-        v10 = *(_DWORD *)(v9 + 12 * v6);
-        if ( a3 < v10 )
-          break;
-        if ( a3 <= *(_DWORD *)(v9 + 12 * v6 + 4) )
+        if ( a3 <= *(_DWORD *)(v9 + 12 * v4 + 4) )
         {
-          v11 = *(_DWORD *)(v9 + 12 * v6 + 8);
-          *(_QWORD *)v4 = *(_QWORD *)(v9 + 12 * v6);
-          v4[2] = v11;
+          v10 = 3 * v4;
+          v11 = *(_QWORD *)(v9 + 4 * v10);
+          LODWORD(v10) = *(_DWORD *)(v9 + 4 * v10 + 8);
+          *(_QWORD *)v6 = v11;
+          v6[2] = v10;
           break;
         }
-        if ( a3 >= v10 )
-        {
-          v6 = (unsigned int)(v6 + 1);
-          if ( (unsigned int)v6 < v8 )
-            continue;
-        }
-        break;
+        v4 = (unsigned int)(v4 + 1);
+        if ( (unsigned int)v4 >= v8 )
+          break;
       }
     }
     anonymous_namespace_::GetTemporaryConfigWithMask(a4, &v13, &v14);
-    v7 = v13 & v14 | v4[2] & ~v14;
+    v6[2] = v13 & v14 | v6[2] & ~v14;
   }
   else
   {
     v7 = *(_DWORD *)(a1 + 16);
-    *(_QWORD *)v4 = *(_QWORD *)(a1 + 8);
+    *(_QWORD *)a2 = *(_QWORD *)(a1 + 8);
+    a2[2] = v7;
   }
-  v4[2] = v7;
-  return v4;
+  return v6;
 }

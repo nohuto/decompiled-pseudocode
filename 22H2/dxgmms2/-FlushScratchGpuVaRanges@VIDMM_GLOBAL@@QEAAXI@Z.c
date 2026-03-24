@@ -1,100 +1,92 @@
 /*
- * XREFs of ?FlushScratchGpuVaRanges@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C00E31F8
+ * XREFs of ?FlushScratchGpuVaRanges@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C008A0EC
  * Callers:
- *     ?GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPEAX@Z @ 0x1C009A030 (-GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPE.c)
- *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00B5730 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
- *     ?FillAllocationUsingGpuVa@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEAT_LARGE_INTEGER@@@Z @ 0x1C00E2B90 (-FillAllocationUsingGpuVa@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEA.c)
- *     ?MemoryTransferUsingGpuVaWorker@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMENT@@1PEAU_MDL@@2131U_DXGK_TRANSFERFLAGS@@1@Z @ 0x1C00E52E8 (-MemoryTransferUsingGpuVaWorker@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMEN.c)
- *     ?ReleaseTemporaryResource@VIDMM_SYSMEM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00F76A0 (-ReleaseTemporaryResource@VIDMM_SYSMEM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?FillAllocationUsingGpuVa@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEAT_LARGE_INTEGER@@@Z @ 0x1C0063984 (-FillAllocationUsingGpuVa@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEA.c)
+ *     ?GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPEAX@Z @ 0x1C00721CC (-GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPE.c)
+ *     ?MemoryTransferUsingGpuVaWorker@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMENT@@1PEAU_MDL@@2131U_DXGK_TRANSFERFLAGS@@1@Z @ 0x1C0089908 (-MemoryTransferUsingGpuVaWorker@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMEN.c)
+ *     ?ReleaseTemporaryResource@VIDMM_SYSMEM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0089F80 (-ReleaseTemporaryResource@VIDMM_SYSMEM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C008C500 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
  * Callees:
- *     VidSchIsMonitoredFenceSignaled @ 0x1C00051A0 (VidSchIsMonitoredFenceSignaled.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0005468 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?FreeVadVirtualAddressRangeInternal@CVirtualAddressAllocator@@AEAAXPEAUVIDMM_VAD@@@Z @ 0x1C008C2D0 (-FreeVadVirtualAddressRangeInternal@CVirtualAddressAllocator@@AEAAXPEAUVIDMM_VAD@@@Z.c)
- *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C0095820 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
- *     ?UncommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@PEAPEAUVIDMM_ALLOC@@E@Z @ 0x1C00980A0 (-UncommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@PEAPEAUVI.c)
+ *     VidSchIsMonitoredFenceSignaled @ 0x1C0001730 (VidSchIsMonitoredFenceSignaled.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001B54 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?FreeVadVirtualAddressRangeInternal@CVirtualAddressAllocator@@AEAAXPEAUVIDMM_VAD@@@Z @ 0x1C006863C (-FreeVadVirtualAddressRangeInternal@CVirtualAddressAllocator@@AEAAXPEAUVIDMM_VAD@@@Z.c)
+ *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C006DDC0 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
+ *     ?UncommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@PEAPEAUVIDMM_ALLOC@@E@Z @ 0x1C006FBAC (-UncommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@PEAPEAUVI.c)
  */
 
 void __fastcall VIDMM_GLOBAL::FlushScratchGpuVaRanges(VIDMM_GLOBAL *this, unsigned int a2)
 {
-  __int64 v3; // r13
-  __int64 v4; // rcx
-  char v5; // bp
-  char v6; // al
-  struct _KTHREAD **v7; // r15
-  char v8; // r12
-  _QWORD **v9; // rcx
-  _QWORD *v10; // rdi
-  __int64 v11; // r8
-  __int64 v12; // rax
-  _QWORD *v13; // rcx
-  struct VIDMM_VAD *v14; // r14
-  bool v15; // zf
-  __int64 v16; // [rsp+70h] [rbp+8h]
+  __int64 v3; // r12
+  __int64 v4; // r13
+  char v5; // al
+  struct _KTHREAD **v6; // rbp
+  char v7; // r15
+  _QWORD **v8; // rcx
+  _QWORD *v9; // rdi
+  __int64 v10; // r8
+  __int64 v11; // rax
+  _QWORD *v12; // rcx
+  struct VIDMM_VAD *v13; // r14
+  char v14; // di
 
   v3 = a2;
-  v4 = 1616LL * a2;
-  v16 = v4;
-  if ( (*(_BYTE *)(*((_QWORD *)this + 5028) + v4 + 444) & 1) != 0 )
+  v4 = 1584LL * a2;
+  if ( (*(_BYTE *)(*((_QWORD *)this + 5027) + v4 + 436) & 1) != 0 )
   {
-    v5 = 0;
     if ( *((_QWORD *)this + a2 + 143) )
     {
       if ( *((_DWORD *)this + 2) )
       {
-        v6 = *((_BYTE *)this + 40937);
-        if ( (v6 & 4) == 0 )
+        v5 = *((_BYTE *)this + 40937);
+        if ( (v5 & 1) == 0 )
         {
-          *((_BYTE *)this + 40937) = v6 | 4;
-          v7 = (struct _KTHREAD **)*((_QWORD *)this + a2 + 5052);
+          *((_BYTE *)this + 40937) = v5 | 1;
+          v6 = (struct _KTHREAD **)*((_QWORD *)this + a2 + 5052);
           while ( 1 )
           {
-            v8 = 0;
+            v7 = 0;
             while ( 1 )
             {
-              v9 = (_QWORD **)(*((_QWORD *)this + 5028) + 472LL + v4);
-              v10 = *v9;
-              if ( *v9 == v9 || !VidSchIsMonitoredFenceSignaled(*((_QWORD *)this + v3 + 749), v10[2]) )
+              v8 = (_QWORD **)(v4 + *((_QWORD *)this + 5027) + 464LL);
+              v9 = *v8;
+              if ( *v8 == v8 || !VidSchIsMonitoredFenceSignaled(*((_QWORD *)this + v3 + 747), v9[2]) )
                 break;
-              v12 = *v10;
-              if ( *(_QWORD **)(*v10 + 8LL) != v10 || (v13 = (_QWORD *)v10[1], (_QWORD *)*v13 != v10) )
+              v11 = *v9;
+              if ( *(_QWORD **)(*v9 + 8LL) != v9 || (v12 = (_QWORD *)v9[1], (_QWORD *)*v12 != v9) )
                 __fastfail(3u);
-              *v13 = v12;
-              *(_QWORD *)(v12 + 8) = v13;
-              *v10 = 0LL;
-              v10[1] = 0LL;
+              *v12 = v11;
+              *(_QWORD *)(v11 + 8) = v12;
+              *v9 = 0LL;
+              v9[1] = 0LL;
               if ( VIDMM_GLOBAL::_Config >= 0 )
               {
-                v8 = 1;
+                v7 = 1;
                 CVirtualAddressAllocator::UncommitVirtualAddressRange(
                   *((CVirtualAddressAllocator **)this + v3 + 5052),
-                  (struct VIDMM_MAPPED_VA_RANGE *)(v10 - 3),
+                  (struct VIDMM_MAPPED_VA_RANGE *)(v9 - 3),
                   0LL,
                   1);
               }
-              v14 = (struct VIDMM_VAD *)*(v10 - 3);
-              if ( v7[8] != KeGetCurrentThread() )
+              v13 = (struct VIDMM_VAD *)*(v9 - 3);
+              v14 = 0;
+              if ( v6[8] != KeGetCurrentThread() )
               {
-                DXGPUSHLOCK::AcquireExclusive((DXGPUSHLOCK *)(v7 + 7));
-                v5 = 1;
+                DXGPUSHLOCK::AcquireExclusive((DXGPUSHLOCK *)(v6 + 7));
+                v14 = 1;
               }
-              CVirtualAddressAllocator::FreeVadVirtualAddressRangeInternal((CVirtualAddressAllocator *)v7, v14, v11);
-              v4 = v16;
-              v15 = v5 == 0;
-              v5 = 0;
-              if ( !v15 )
+              CVirtualAddressAllocator::FreeVadVirtualAddressRangeInternal((CVirtualAddressAllocator *)v6, v13, v10);
+              if ( v14 )
               {
-                v7[8] = 0LL;
-                ExReleasePushLockExclusiveEx(v7 + 7, 0LL);
+                v6[8] = 0LL;
+                ExReleasePushLockExclusiveEx(v6 + 7, 0LL);
                 KeLeaveCriticalRegion();
-                v4 = v16;
               }
             }
-            if ( !v8 )
+            if ( !v7 )
               break;
             VIDMM_GLOBAL::FlushPagingBufferInternal(this, v3, 0, 0LL, 0LL, 0, 0);
-            v4 = v16;
           }
-          *((_BYTE *)this + 40937) &= ~4u;
+          *((_BYTE *)this + 40937) &= ~1u;
         }
       }
     }

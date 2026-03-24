@@ -1,26 +1,22 @@
 /*
- * XREFs of ?MoveNext@CFragmentIterator@@QEAAXXZ @ 0x180037A3C
+ * XREFs of ?MoveNext@CFragmentIterator@@QEAAXXZ @ 0x18004EEB4
  * Callers:
- *     ?CreateShaderBodies@CRenderingTechnique@@QEAAJXZ @ 0x180037534 (-CreateShaderBodies@CRenderingTechnique@@QEAAJXZ.c)
- *     ?GetBackdropBrushNoRef@CRenderingTechnique@@QEBAPEBVCBackdropBrush@@XZ @ 0x180037794 (-GetBackdropBrushNoRef@CRenderingTechnique@@QEBAPEBVCBackdropBrush@@XZ.c)
- *     ?CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ @ 0x180037844 (-CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ.c)
- *     ?HasWindowBackdropInput@CRenderingTechnique@@QEBA_NXZ @ 0x1800378D8 (-HasWindowBackdropInput@CRenderingTechnique@@QEBA_NXZ.c)
- *     ?HasBlurredWallpaperBackdropInput@CRenderingTechnique@@QEBA_NXZ @ 0x18003798C (-HasBlurredWallpaperBackdropInput@CRenderingTechnique@@QEBA_NXZ.c)
- *     ?UpdateConstantBuffers@CRenderingTechnique@@AEAAJXZ @ 0x180039D9C (-UpdateConstantBuffers@CRenderingTechnique@@AEAAJXZ.c)
- *     ?AddShaderToCache@CRenderingTechnique@@AEBAJPEAVCCompiledEffectCache@@IAEBUShaderLinkingConfig@@PEAPEAVCLinkedShader@@@Z @ 0x18003C50C (-AddShaderToCache@CRenderingTechnique@@AEBAJPEAVCCompiledEffectCache@@IAEBUShaderLinkingConfig@@.c)
+ *     ?AddShaderToCache@CRenderingTechnique@@AEBAJPEAVCCompiledEffectCache@@IAEBUShaderLinkingConfig@@PEAPEAVCLinkedShader@@@Z @ 0x180045410 (-AddShaderToCache@CRenderingTechnique@@AEBAJPEAVCCompiledEffectCache@@IAEBUShaderLinkingConfig@@.c)
+ *     ?CreateShaderBodies@CRenderingTechnique@@QEAAJXZ @ 0x18004D7B0 (-CreateShaderBodies@CRenderingTechnique@@QEAAJXZ.c)
+ *     ?CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ @ 0x18004DB0C (-CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ.c)
+ *     ?HasBackdropInput@CRenderingTechnique@@QEBA_NXZ @ 0x18004DBB8 (-HasBackdropInput@CRenderingTechnique@@QEBA_NXZ.c)
+ *     ?HasWindowBackdropInput@CRenderingTechnique@@QEBA_NXZ @ 0x18004E038 (-HasWindowBackdropInput@CRenderingTechnique@@QEBA_NXZ.c)
+ *     ?UpdateConstantBuffers@CRenderingTechnique@@AEAAJXZ @ 0x180050630 (-UpdateConstantBuffers@CRenderingTechnique@@AEAAJXZ.c)
  * Callees:
- *     <none>
+ *     ?FindFirst@CFragmentIterator@@AEAAXXZ @ 0x180050934 (-FindFirst@CFragmentIterator@@AEAAXXZ.c)
  */
 
 void __fastcall CFragmentIterator::MoveNext(CFragmentIterator *this)
 {
-  __int64 v1; // rdx
-
-  v1 = *((_QWORD *)this + 1) - 16LL;
-  *((_QWORD *)this + 1) = v1;
-  if ( (v1 - *(_QWORD *)this) >> 4 )
+  *((_QWORD *)this + 1) -= 16LL;
+  if ( (__int64)(*((_QWORD *)this + 1) - *(_QWORD *)this) >> 4 )
   {
-    ++*(_DWORD *)(v1 - 8);
+    ++*(_DWORD *)(*((_QWORD *)this + 1) - 8LL);
     CFragmentIterator::FindFirst(this);
   }
 }

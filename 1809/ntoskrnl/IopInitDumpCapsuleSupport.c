@@ -1,12 +1,12 @@
 /*
- * XREFs of IopInitDumpCapsuleSupport @ 0x140192AD8
+ * XREFs of IopInitDumpCapsuleSupport @ 0x140192AF8
  * Callers:
- *     IoConfigureCrashDump @ 0x14018848C (IoConfigureCrashDump.c)
- *     IoInitializeCrashDump @ 0x14074CFC0 (IoInitializeCrashDump.c)
+ *     IoConfigureCrashDump @ 0x1401884AC (IoConfigureCrashDump.c)
+ *     IoInitializeCrashDump @ 0x14074CFA0 (IoInitializeCrashDump.c)
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     IopIsBitlockerOn @ 0x140192B3C (IopIsBitlockerOn.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     IopIsBitlockerOn @ 0x140192B5C (IopIsBitlockerOn.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

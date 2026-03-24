@@ -1,27 +1,99 @@
 /*
- * XREFs of SSHSupportReleasePushLockExclusive @ 0x14032D18C
+ * XREFs of SSHSupportReleasePushLockExclusive @ 0x140322E08
  * Callers:
- *     SleepstudyHelperBuildBlocker @ 0x1407A8670 (SleepstudyHelperBuildBlocker.c)
- *     SleepstudyHelperCreateLibrary @ 0x140849A10 (SleepstudyHelperCreateLibrary.c)
- *     SshpAlpcOpenGracePeriodWorker @ 0x14084D560 (SshpAlpcOpenGracePeriodWorker.c)
- *     SshpAlpcProcessAlpcMessage @ 0x14084D7DC (SshpAlpcProcessAlpcMessage.c)
- *     SshpAlpcProcessMessage @ 0x14084D968 (SshpAlpcProcessMessage.c)
- *     SshpSessionManagerControlSessionCallback @ 0x14085BA60 (SshpSessionManagerControlSessionCallback.c)
- *     SshpSessionManagerFlushControlEventBuffer @ 0x14085BA90 (SshpSessionManagerFlushControlEventBuffer.c)
- *     SshpSessionManagerSendControlEvent @ 0x140874678 (SshpSessionManagerSendControlEvent.c)
- *     SshpSendSessionData @ 0x1408786FC (SshpSendSessionData.c)
- *     SshpFreeDataEntry @ 0x1409A17B8 (SshpFreeDataEntry.c)
- *     SleepstudyHelperCreateBlockerData @ 0x1409A1D80 (SleepstudyHelperCreateBlockerData.c)
- *     SleepstudyHelperDestroyLibrary @ 0x1409A1F40 (SleepstudyHelperDestroyLibrary.c)
- *     SshpAlpcShutdownTraceSessions @ 0x1409A25B4 (SshpAlpcShutdownTraceSessions.c)
+ *     SleepstudyHelperBuildBlocker @ 0x14069A960 (SleepstudyHelperBuildBlocker.c)
+ *     SleepstudyHelperCreateLibrary @ 0x1407CCEF0 (SleepstudyHelperCreateLibrary.c)
+ *     SshpFreeDataEntry @ 0x1408FAC68 (SshpFreeDataEntry.c)
+ *     SshpSendSessionData @ 0x1408FACF8 (SshpSendSessionData.c)
+ *     SleepstudyHelperCreateBlockerData @ 0x1408FB810 (SleepstudyHelperCreateBlockerData.c)
+ *     SleepstudyHelperDestroyLibrary @ 0x1408FB9E0 (SleepstudyHelperDestroyLibrary.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x1402CB3F0 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x1402E5430 (KiAbEntryRemoveFromTree.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-signed __int32 __fastcall SSHSupportReleasePushLockExclusive(volatile signed __int64 *BugCheckParameter2)
+char __fastcall SSHSupportReleasePushLockExclusive(ULONG_PTR BugCheckParameter2)
 {
-  if ( (_InterlockedExchangeAdd64(BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(BugCheckParameter2);
-  return KeAbPostRelease((ULONG_PTR)BugCheckParameter2);
+  char v2; // al
+  struct _KTHREAD *CurrentThread; // rbx
+  unsigned int SessionId; // edx
+  unsigned __int8 v5; // bp
+  unsigned int v6; // r8d
+  bool v7; // zf
+  __int64 v8; // rcx
+  unsigned __int64 v9; // rdi
+  int v10; // eax
+  unsigned int v11; // ecx
+  __int64 v12; // rdx
+  $C459BD0D405E8E46662177FB3D0A143F *v13; // rax
+  __int64 v14; // rcx
+  int v16; // [rsp+60h] [rbp+18h] BYREF
+
+  v2 = _InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v2 & 2) != 0 && (v2 & 4) == 0 )
+    ExfTryToWakePushLock((volatile signed __int64 *)BugCheckParameter2);
+  v16 = 0;
+  CurrentThread = KeGetCurrentThread();
+  if ( (unsigned int)MiGetSystemRegionType(BugCheckParameter2) == 1 )
+    SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+  else
+    SessionId = -1;
+  --CurrentThread->SpecialApcDisable;
+  v5 = ++CurrentThread->AbAllocationRegionCount;
+  v6 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+  while ( 1 )
+  {
+    v7 = !_BitScanReverse((unsigned int *)&v8, v6);
+    if ( v7 )
+      break;
+    v9 = (unsigned __int64)&CurrentThread->LockEntries[v8];
+    v6 &= ~(1 << v8);
+    if ( (*(_BYTE *)(v9 + 26) & 1) != 0
+      && (*(_DWORD *)(v9 + 32) & 1) == 0
+      && (*(_QWORD *)(v9 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL)
+      && *(_DWORD *)(v9 + 40) == SessionId )
+    {
+      *(_BYTE *)(v9 + 26) &= ~1u;
+      if ( *(_QWORD *)(v9 + 32) )
+      {
+        if ( v9 )
+        {
+          *(_BYTE *)(v9 + 32) |= 2u;
+          if ( *(__int64 *)(v9 + 32) < 0 )
+            KiAbEntryRemoveFromTree(v9);
+          v10 = *(_DWORD *)(v9 + 88) & 0x1FFFF;
+          v11 = *(_DWORD *)(v9 + 88) & 0xFFFE0000;
+          *(_BYTE *)(v9 + 25) &= ~1u;
+          v16 = v10;
+          *(_DWORD *)(v9 + 88) = v11;
+          *(_QWORD *)(v9 + 32) = 0LL;
+          v12 = (__int64)(v9 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+          if ( v5 == 1 )
+            CurrentThread->AbEntrySummary |= 1 << v12;
+          else
+            _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v12);
+          goto LABEL_16;
+        }
+        break;
+      }
+    }
+  }
+  if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
+    KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, BugCheckParameter2, SessionId, 0LL);
+LABEL_16:
+  --CurrentThread->AbAllocationRegionCount;
+  LOBYTE(v13) = KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread, BugCheckParameter2, &v16);
+  v7 = CurrentThread->SpecialApcDisable++ == -1;
+  if ( v7 )
+  {
+    v13 = &CurrentThread->152;
+    if ( ($C459BD0D405E8E46662177FB3D0A143F *)v13->ApcState.ApcListHead[0].Flink != v13 )
+      LOBYTE(v13) = KiCheckForKernelApcDelivery(v14);
+  }
+  return (char)v13;
 }

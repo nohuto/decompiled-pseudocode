@@ -1,14 +1,14 @@
 /*
- * XREFs of ?GdiZorderSprite@@YAXPEAUHDEV__@@PEAUHWND__@@1@Z @ 0x1C001D704
+ * XREFs of ?GdiZorderSprite@@YAXPEAUHDEV__@@PEAUHWND__@@1@Z @ 0x1C00EFFB8
  * Callers:
- *     GreZorderSprite @ 0x1C00D4B8C (GreZorderSprite.c)
+ *     GreZorderSprite @ 0x1C00BDEB4 (GreZorderSprite.c)
  * Callees:
- *     ?pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C001D7AC (-pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
- *     ?vSpZorderSprite@@YAXPEAUHDEV__@@PEAVSPRITE@@1@Z @ 0x1C001D7E4 (-vSpZorderSprite@@YAXPEAUHDEV__@@PEAVSPRITE@@1@Z.c)
- *     ?pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX_N@Z @ 0x1C027F53C (-pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX_N@Z.c)
+ *     ?pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C00F0050 (-pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
+ *     ?vSpZorderSprite@@YAXPEAUHDEV__@@PEAVSPRITE@@1@Z @ 0x1C00F0084 (-vSpZorderSprite@@YAXPEAUHDEV__@@PEAVSPRITE@@1@Z.c)
+ *     ?pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C0281748 (-pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
  */
 
-void __fastcall GdiZorderSprite(Gre::Base *a1, HWND a2, HWND a3)
+void __fastcall GdiZorderSprite(_QWORD *a1, HWND a2, HWND a3)
 {
   HDEV v5; // rdi
   struct _SPRITESTATE *v7; // rcx
@@ -20,69 +20,67 @@ void __fastcall GdiZorderSprite(Gre::Base *a1, HWND a2, HWND a3)
   struct SPRITE *v13; // r9
   HDEV v14; // r10
   const struct _SPRITESTATE *v15; // rcx
-  bool v16; // r9
   struct _METASPRITE *MetaSprite; // rax
-  __int64 v18; // r10
-  __int64 v19; // rdx
-  struct _METASPRITE *v20; // r9
-  __int64 v21; // rcx
-  __int64 v22; // rax
-  Gre::Base *v23; // [rsp+40h] [rbp+8h] BYREF
-  char v24; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v17; // r10
+  __int64 v18; // rdx
+  struct _METASPRITE *v19; // r9
+  __int64 v20; // rcx
+  __int64 v21; // rax
+  _QWORD *v22; // [rsp+40h] [rbp+8h] BYREF
+  char v23; // [rsp+58h] [rbp+20h] BYREF
 
-  v23 = a1;
-  v5 = (HDEV)((char *)a1 + 80);
-  Gre::Base::Globals(a1);
-  SPRITELOCK::SPRITELOCK((SPRITELOCK *)&v24, (struct PDEVOBJ *)&v23);
+  v22 = a1;
+  v5 = (HDEV)(a1 + 11);
+  SPRITELOCK::SPRITELOCK((SPRITELOCK *)&v23, (struct PDEVOBJ *)&v22);
   if ( *((_DWORD *)v5 + 15) )
   {
     v10 = 0LL;
     do
     {
-      pSpGetSprite((struct _SPRITESTATE *)(*(_QWORD *)(*((_QWORD *)v5 + 8) + 8 * v10) + 80LL), a3, 0LL);
+      pSpGetSprite((struct _SPRITESTATE *)(*(_QWORD *)(*((_QWORD *)v5 + 8) + 8 * v10) + 88LL), a3, 0LL);
       Sprite = pSpGetSprite(v11, a2, 0LL);
       vSpZorderSprite(v14, Sprite, v13);
       v10 = (unsigned int)(v10 + 1);
     }
     while ( (unsigned int)v10 < *((_DWORD *)v5 + 15) );
-    pSpGetMetaSprite((const struct _SPRITESTATE *)v5, a3, 0LL, 0);
-    MetaSprite = pSpGetMetaSprite(v15, a2, 0LL, v16);
-    v19 = *((_QWORD *)a1 + 19);
-    v20 = MetaSprite;
-    if ( MetaSprite && v19 )
+    pSpGetMetaSprite((const struct _SPRITESTATE *)v5, a3, 0LL);
+    MetaSprite = pSpGetMetaSprite(v15, a2, 0LL);
+    v18 = a1[20];
+    v19 = MetaSprite;
+    if ( MetaSprite && v18 )
     {
-      if ( (struct _METASPRITE *)v19 == MetaSprite )
+      if ( (struct _METASPRITE *)v18 == MetaSprite )
       {
-        *((_QWORD *)a1 + 19) = *(_QWORD *)(v19 + 8);
+        a1[20] = *(_QWORD *)(v18 + 8);
       }
       else
       {
-        v21 = 0LL;
+        v20 = 0LL;
         while ( 1 )
         {
-          v22 = *(_QWORD *)(v19 + 8);
-          if ( (struct _METASPRITE *)v19 == v20 )
+          v21 = *(_QWORD *)(v18 + 8);
+          if ( (struct _METASPRITE *)v18 == v19 )
             break;
-          v21 = v19;
-          v19 = *(_QWORD *)(v19 + 8);
-          if ( !v22 )
+          v20 = v18;
+          v18 = *(_QWORD *)(v18 + 8);
+          if ( !v21 )
             goto LABEL_16;
         }
-        *(_QWORD *)(v21 + 8) = v22;
+        *(_QWORD *)(v20 + 8) = v21;
       }
-      *(_QWORD *)(v19 + 8) = 0LL;
+      *(_QWORD *)(v18 + 8) = 0LL;
 LABEL_16:
-      if ( !*((_QWORD *)v20 + 1) )
+      if ( !*((_QWORD *)v19 + 1) )
       {
-        if ( v18 )
+        if ( v17 )
         {
-          *((_QWORD *)v20 + 1) = *(_QWORD *)(v18 + 8);
-          *(_QWORD *)(v18 + 8) = v20;
+          *((_QWORD *)v19 + 1) = *(_QWORD *)(v17 + 8);
+          *(_QWORD *)(v17 + 8) = v19;
         }
         else
         {
-          *((_QWORD *)v20 + 1) = *((_QWORD *)a1 + 19);
-          *((_QWORD *)a1 + 19) = v20;
+          *((_QWORD *)v19 + 1) = a1[20];
+          a1[20] = v19;
         }
       }
     }
@@ -93,5 +91,5 @@ LABEL_16:
     v8 = pSpGetSprite(v7, a2, 0LL);
     vSpZorderSprite(*(HDEV *)v5, v8, v9);
   }
-  SPRITELOCK::~SPRITELOCK((SPRITELOCK *)&v24);
+  SPRITELOCK::~SPRITELOCK((SPRITELOCK *)&v23);
 }

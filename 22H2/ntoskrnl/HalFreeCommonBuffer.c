@@ -1,9 +1,9 @@
 /*
- * XREFs of HalFreeCommonBuffer @ 0x1405010A0
+ * XREFs of HalFreeCommonBuffer @ 0x140381B70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     MmFreeContiguousMemory @ 0x1402E9070 (MmFreeContiguousMemory.c)
  */
 
 void __stdcall HalFreeCommonBuffer(
@@ -13,10 +13,5 @@ void __stdcall HalFreeCommonBuffer(
         PVOID VirtualAddress,
         BOOLEAN CacheEnabled)
 {
-  ((void (__fastcall *)(_QWORD, _DWORD, _QWORD, _QWORD, _BYTE))DmaAdapter->DmaOperations->FreeCommonBuffer)(
-    DmaAdapter,
-    Length,
-    (_LARGE_INTEGER)LogicalAddress.QuadPart,
-    VirtualAddress,
-    CacheEnabled);
+  MmFreeContiguousMemory(VirtualAddress);
 }

@@ -1,15 +1,24 @@
 /*
- * XREFs of ?NotifyInvalidResource@CConversionSwapChain@@UEAAXPEBVIDeviceResource@@@Z @ 0x1802A2650
+ * XREFs of ?NotifyInvalidResource@CConversionSwapChain@@UEAAXPEBVIDeviceResource@@@Z @ 0x18024F780
  * Callers:
  *     <none>
  * Callees:
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E9DB4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CConversionSwapChain::NotifyInvalidResource(
         CConversionSwapChain *this,
         const struct IDeviceResource *a2)
 {
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset((__int64 *)this + 20);
+  __int64 v4; // rcx
+  __int64 v5; // rcx
+
+  v4 = *((_QWORD *)this + 30);
+  *((_QWORD *)this + 30) = 0LL;
+  if ( v4 )
+  {
+    v5 = *(int *)(*(_QWORD *)(v4 + 8) + 4LL) + v4 + 8;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+  }
   CLegacySwapChain::NotifyInvalidResource(this, a2);
 }

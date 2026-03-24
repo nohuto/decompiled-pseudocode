@@ -1,8 +1,8 @@
 /*
- * XREFs of PfSnFindImageFileName @ 0x1407DC598
+ * XREFs of PfSnFindImageFileName @ 0x1406CB524
  * Callers:
- *     PfSnOperationProcess @ 0x1407D8338 (PfSnOperationProcess.c)
- *     PfSnBeginAppLaunch @ 0x1407DCCD8 (PfSnBeginAppLaunch.c)
+ *     PfSnOperationProcess @ 0x1406BA234 (PfSnOperationProcess.c)
+ *     PfSnBeginAppLaunch @ 0x1406CC0AC (PfSnBeginAppLaunch.c)
  * Callees:
  *     <none>
  */

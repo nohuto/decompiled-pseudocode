@@ -1,5 +1,5 @@
 /*
- * XREFs of NtReleaseKeyedEvent @ 0x1406C3B10
+ * XREFs of NtReleaseKeyedEvent @ 0x1406C3AF0
  * Callers:
  *     <none>
  * Callees:
@@ -9,8 +9,8 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeReleaseSemaphore @ 0x1400C5EA0 (KeReleaseSemaphore.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeReleaseSemaphore @ 0x1400C5EC0 (KeReleaseSemaphore.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */
 

@@ -1,17 +1,17 @@
 /*
- * XREFs of KsepDbCacheQueryDeviceDataList @ 0x140976D4C
+ * XREFs of KsepDbCacheQueryDeviceDataList @ 0x1408BF79C
  * Callers:
- *     KseQueryDeviceDataList @ 0x1409769B0 (KseQueryDeviceDataList.c)
+ *     KseQueryDeviceDataList @ 0x1408BF430 (KseQueryDeviceDataList.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall KsepDbCacheQueryDeviceDataList(__int64 a1, char *a2, unsigned int a3, _DWORD *a4)
 {
-  __int64 *v4; // r14
+  __int64 *v4; // rsi
   unsigned int v5; // ebp
-  __int64 *v6; // rdi
-  unsigned int v9; // ebx
+  __int64 *v6; // rbx
+  unsigned int v9; // edi
   __int64 *i; // rcx
   int v11; // eax
   __int64 v12; // rcx

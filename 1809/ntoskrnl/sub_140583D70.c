@@ -3,7 +3,7 @@
  * Callers:
  *     WbGetWarbirdEncryptionSegment @ 0x14058410C (WbGetWarbirdEncryptionSegment.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     sub_140584234 @ 0x140584234 (sub_140584234.c)
  *     WbAlloc @ 0x140624D14 (WbAlloc.c)
  */

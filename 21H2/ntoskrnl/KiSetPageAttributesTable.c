@@ -1,21 +1,21 @@
 /*
- * XREFs of KiSetPageAttributesTable @ 0x140A53954
+ * XREFs of KiSetPageAttributesTable @ 0x14099966C
  * Callers:
- *     KeRestoreProcessorSpecificFeatures @ 0x14038D0F4 (KeRestoreProcessorSpecificFeatures.c)
- *     KiInitializeKernel @ 0x140A580F0 (KiInitializeKernel.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x140383CCC (KeRestoreProcessorSpecificFeatures.c)
+ *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
  * Callees:
- *     KeFlushCurrentTbImmediately @ 0x1403B1CF0 (KeFlushCurrentTbImmediately.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     KeFlushCurrentTbImmediately @ 0x1403A0A80 (KeFlushCurrentTbImmediately.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 unsigned __int64 KiSetPageAttributesTable()
 {
-  int v0; // r8d
+  int v0; // ebx
   bool v1; // di
   unsigned __int64 result; // rax
-  unsigned int v3; // r10d
+  unsigned int v3; // r9d
   __int64 v4; // rdx
-  char v5; // r9
+  char v5; // r8
   int v6; // ecx
   int v7; // ebx
   unsigned __int64 v8; // [rsp+20h] [rbp-28h]
@@ -30,36 +30,33 @@ unsigned __int64 KiSetPageAttributesTable()
   v3 = 0;
   v9 = result;
   v4 = 0LL;
-  do
+  while ( 1 )
   {
     v5 = *((_BYTE *)&v9 + v4);
     if ( v5 == 6 && *((_BYTE *)&v8 + v4) != 6 )
-    {
-      v7 = 2;
-LABEL_16:
-      __wbinvd();
-      goto LABEL_13;
-    }
+      break;
     v6 = v0 | 1;
     if ( v5 == *((_BYTE *)&v8 + v4) )
       v6 = v0;
     ++v3;
     ++v4;
     v0 = v6;
+    if ( v3 >= 8 )
+      goto LABEL_6;
   }
-  while ( v3 < 8 );
-  if ( !v6 )
-    goto LABEL_7;
-  v7 = v6 & 2;
-  if ( (v6 & 2) != 0 )
-    goto LABEL_16;
-LABEL_13:
-  KeFlushCurrentTbImmediately();
-  __writemsr(0x277u, v8);
-  if ( v7 )
-    __wbinvd();
-  result = KeFlushCurrentTbImmediately();
-LABEL_7:
+  v0 = 3;
+LABEL_6:
+  if ( v0 )
+  {
+    v7 = v0 & 2;
+    if ( v7 )
+      __wbinvd();
+    KeFlushCurrentTbImmediately();
+    __writemsr(0x277u, v8);
+    if ( v7 )
+      __wbinvd();
+    result = KeFlushCurrentTbImmediately();
+  }
   if ( v1 )
     _enable();
   return result;

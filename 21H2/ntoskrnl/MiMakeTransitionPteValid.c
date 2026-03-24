@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMakeTransitionPteValid @ 0x140234EB4
+ * XREFs of MiMakeTransitionPteValid @ 0x1402B1F90
  * Callers:
- *     MiIssueHardFault @ 0x14027A1F0 (MiIssueHardFault.c)
- *     MiCompleteProtoPteFault @ 0x1403203D0 (MiCompleteProtoPteFault.c)
- *     MiMakeFaultPfnActive @ 0x140339240 (MiMakeFaultPfnActive.c)
- *     MiResolveProtoCombine @ 0x14033A920 (MiResolveProtoCombine.c)
- *     MiProtectAweRegion @ 0x1405ABD20 (MiProtectAweRegion.c)
+ *     MiCompleteProtoPteFault @ 0x140213D90 (MiCompleteProtoPteFault.c)
+ *     MiFinishHardFault @ 0x140239890 (MiFinishHardFault.c)
+ *     MiIssueHardFault @ 0x14030E9B0 (MiIssueHardFault.c)
+ *     MiResolveProtoCombine @ 0x14036AB34 (MiResolveProtoCombine.c)
+ *     MiProtectAweRegion @ 0x14054D364 (MiProtectAweRegion.c)
  * Callees:
- *     MiMakeValidPte @ 0x1402CBD10 (MiMakeValidPte.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
  */
 
 __int64 __fastcall MiMakeTransitionPteValid(__int64 a1)
@@ -18,12 +18,12 @@ __int64 __fastcall MiMakeTransitionPteValid(__int64 a1)
 
   v2 = MI_READ_PTE_LOCK_FREE(a1);
   v3 = v2;
-  if ( qword_140C50780 )
+  if ( qword_140C4DF40 )
   {
     if ( (v2 & 0x10) != 0 )
       v3 = v2 & 0xFFFFFFFFFFFFFFEFuLL;
     else
-      v3 = v2 & ~qword_140C50780;
+      v3 = v2 & ~qword_140C4DF40;
   }
-  return MiMakeValidPte(a1, (v3 >> 12) & 0xFFFFFFFFFFLL, (v2 >> 5) & 0x1F);
+  return MiMakeValidPte(a1, (v3 >> 12) & 0xFFFFFFFFFLL, (v2 >> 5) & 0x1F);
 }

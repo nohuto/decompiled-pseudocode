@@ -1,12 +1,12 @@
 /*
- * XREFs of IopSetEnvironmentVariableSysEnv @ 0x14093F8D0
+ * XREFs of IopSetEnvironmentVariableSysEnv @ 0x14089ADC0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     IopIssueSystemEnvironmentRequest @ 0x14093F428 (IopIssueSystemEnvironmentRequest.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     IopVerifierExAllocatePool_5 @ 0x14050AD38 (IopVerifierExAllocatePool_5.c)
+ *     IopIssueSystemEnvironmentRequest @ 0x14089A928 (IopIssueSystemEnvironmentRequest.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopSetEnvironmentVariableSysEnv(
@@ -20,7 +20,7 @@ __int64 __fastcall IopSetEnvironmentVariableSysEnv(
 {
   __int64 v7; // rax
   unsigned int v11; // ebp
-  __int64 Pool2; // rax
+  _DWORD *Pool_5; // rax
   _DWORD *InputBuffer; // rdi
   unsigned int v14; // ebx
   __int128 v15; // xmm0
@@ -30,15 +30,15 @@ __int64 __fastcall IopSetEnvironmentVariableSysEnv(
     ++v7;
   while ( a3[v7] );
   v11 = 2 * v7 + 2;
-  Pool2 = ExAllocatePool2(256LL, v11 + Size + 32, 538996553LL);
-  InputBuffer = (_DWORD *)Pool2;
-  if ( Pool2 )
+  Pool_5 = IopVerifierExAllocatePool_5(a1, v11 + Size + 32);
+  InputBuffer = Pool_5;
+  if ( Pool_5 )
   {
     v15 = *a4;
-    *(_DWORD *)Pool2 = 0;
-    *(_OWORD *)(Pool2 + 16) = v15;
-    *(_DWORD *)(Pool2 + 12) = a7;
-    memmove((void *)(Pool2 + 32), a3, v11);
+    *Pool_5 = 0;
+    *((_OWORD *)Pool_5 + 1) = v15;
+    Pool_5[3] = a7;
+    memmove(Pool_5 + 8, a3, v11);
     memmove((char *)InputBuffer + v11 + 32, Src, Size);
     InputBuffer[1] = v11 + 32;
     InputBuffer[2] = Size;

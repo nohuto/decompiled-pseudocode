@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlSendModernAppTermination @ 0x14018AF80
+ * XREFs of FsRtlSendModernAppTermination @ 0x14018AFA0
  * Callers:
- *     FsRtlpOplockSendModernAppTermination @ 0x140134CE0 (FsRtlpOplockSendModernAppTermination.c)
+ *     FsRtlpOplockSendModernAppTermination @ 0x140134D00 (FsRtlpOplockSendModernAppTermination.c)
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  */
 
 __int64 __fastcall FsRtlSendModernAppTermination(_DWORD *a1, unsigned int a2, int a3)

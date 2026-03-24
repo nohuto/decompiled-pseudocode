@@ -1,9 +1,9 @@
 /*
- * XREFs of KiOp_SLDTSTRSMSW @ 0x14057FD80
+ * XREFs of KiOp_SLDTSTRSMSW @ 0x140524B40
  * Callers:
  *     <none>
  * Callees:
- *     KiOpRetrieveRegMemAddress @ 0x14057F77C (KiOpRetrieveRegMemAddress.c)
+ *     KiOpRetrieveRegMemAddress @ 0x1403CCD00 (KiOpRetrieveRegMemAddress.c)
  */
 
 __int64 __fastcall KiOp_SLDTSTRSMSW(__int64 a1)
@@ -22,18 +22,18 @@ __int64 __fastcall KiOp_SLDTSTRSMSW(__int64 a1)
   v12 = 0LL;
   v10 = 0;
   v11 = 0;
-  if ( (KiBugCheckActive & 3) == 0 && !PopHibernateHvMinloopEnabled )
+  if ( (KiBugCheckActive & 3) == 0 )
   {
     v2 = 0;
-    goto LABEL_5;
-  }
-  v2 = 1;
-  if ( !VslVsmEnabled )
-  {
 LABEL_5:
     if ( !KiNPIEPEnabled && (KeFeatureBits2 & 4) == 0 || *(_BYTE *)(a1 + 81) != 1 && !v2 )
       return 0LL;
+    goto LABEL_9;
   }
+  v2 = 1;
+  if ( !VslVsmEnabled )
+    goto LABEL_5;
+LABEL_9:
   if ( (*(_BYTE *)(a1 + 65) & 0x38) != 0 )
   {
     if ( (*(_BYTE *)(a1 + 65) & 0x38) == 8 )

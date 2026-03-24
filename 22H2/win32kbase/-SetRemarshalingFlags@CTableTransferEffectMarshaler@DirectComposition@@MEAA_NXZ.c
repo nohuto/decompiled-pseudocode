@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CTableTransferEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0210EC0
+ * XREFs of ?SetRemarshalingFlags@CTableTransferEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E2050
  * Callers:
  *     <none>
  * Callees:

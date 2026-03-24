@@ -1,31 +1,32 @@
 /*
- * XREFs of HvlLpWritebackInvalidate @ 0x140544BD0
+ * XREFs of HvlLpWritebackInvalidate @ 0x1404F55E0
  * Callers:
  *     <none>
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F24C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F30B0 (HvlpReleaseHypercallPage.c)
  */
 
-__int64 __fastcall HvlLpWritebackInvalidate(ULONG a1)
+__int64 __fastcall HvlLpWritebackInvalidate(int a1)
 {
-  PHYSICAL_ADDRESS *v2; // rax
-  unsigned int v3; // ebx
-  __int128 v5; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v6; // [rsp+30h] [rbp-18h]
-  __int64 v7; // [rsp+38h] [rbp-10h]
+  _QWORD *v2; // rax
+  __int64 v3; // rdx
+  __int64 v4; // r9
+  unsigned int v5; // ebx
+  __int128 v7; // [rsp+20h] [rbp-28h] BYREF
+  __int128 v8; // [rsp+30h] [rbp-18h]
 
-  v6 = 0LL;
-  LODWORD(v7) = 0;
-  v5 = 0LL;
-  v2 = HvlpAcquireHypercallPage((__int64)&v5, 1, 0LL, 32LL);
-  v2[1].QuadPart = 0LL;
-  v2[2].QuadPart = 0LL;
-  v2[3].QuadPart = 0LL;
-  v2->LowPart = a1;
-  v2->HighPart = 65538;
-  v3 = (unsigned __int16)HvcallInitiateHypercall(137) != 0 ? 0xC0000001 : 0;
-  HvlpReleaseHypercallPage((__int64)&v5);
-  return v3;
+  v7 = 0LL;
+  v8 = 0LL;
+  v2 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v7, 1, 0LL, 32LL);
+  v2[1] = 0LL;
+  v2[2] = 0LL;
+  v2[3] = 0LL;
+  v3 = *((_QWORD *)&v8 + 1);
+  *(_DWORD *)v2 = a1;
+  *((_DWORD *)v2 + 1) = 65538;
+  v5 = (unsigned __int16)HvcallInitiateHypercall(137, v3, 0LL, v4) != 0 ? 0xC0000001 : 0;
+  HvlpReleaseHypercallPage((__int64)&v7);
+  return v5;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxDisableWorkOrderWatchdog @ 0x140100730
+ * XREFs of PopFxDisableWorkOrderWatchdog @ 0x140100750
  * Callers:
- *     PopFxPluginWork @ 0x140100650 (PopFxPluginWork.c)
+ *     PopFxPluginWork @ 0x140100670 (PopFxPluginWork.c)
  * Callees:
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PopFxBugCheck @ 0x1402D73C0 (PopFxBugCheck.c)
+ *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
  */
 
 void __fastcall PopFxDisableWorkOrderWatchdog(__int64 *BugCheckParameter2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ??1CFlipResourceState@@MEAA@XZ @ 0x1C007EDB4
+ * XREFs of ??1CFlipResourceState@@MEAA@XZ @ 0x1C006BF5C
  * Callers:
- *     ??_ECFlipResourceState@@MEAAPEAXI@Z @ 0x1C007EEC0 (--_ECFlipResourceState@@MEAAPEAXI@Z.c)
- *     ??_GCPoolBufferResourceState@@UEAAPEAXI@Z @ 0x1C007EF60 (--_GCPoolBufferResourceState@@UEAAPEAXI@Z.c)
- *     ??1CContentResourceState@@UEAA@XZ @ 0x1C0081418 (--1CContentResourceState@@UEAA@XZ.c)
+ *     ??_ECFlipResourceState@@MEAAPEAXI@Z @ 0x1C006C050 (--_ECFlipResourceState@@MEAAPEAXI@Z.c)
+ *     ??_GCPoolBufferResourceState@@UEAAPEAXI@Z @ 0x1C006C0A0 (--_GCPoolBufferResourceState@@UEAAPEAXI@Z.c)
+ *     ??1CContentResourceState@@UEAA@XZ @ 0x1C006E364 (--1CContentResourceState@@UEAA@XZ.c)
  * Callees:
- *     ?Release@CFlipResource@@QEAAKXZ @ 0x1C007BF68 (-Release@CFlipResource@@QEAAKXZ.c)
+ *     ?Release@CFlipResource@@QEAAKXZ @ 0x1C006BCB8 (-Release@CFlipResource@@QEAAKXZ.c)
  */
 
 void __fastcall CFlipResourceState::~CFlipResourceState(CFlipResourceState *this)

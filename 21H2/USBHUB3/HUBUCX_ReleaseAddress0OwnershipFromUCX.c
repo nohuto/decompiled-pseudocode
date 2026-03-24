@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBUCX_ReleaseAddress0OwnershipFromUCX @ 0x1C0024FF8
+ * XREFs of HUBUCX_ReleaseAddress0OwnershipFromUCX @ 0x1C0024BD4
  * Callers:
- *     HUBDSM_ReleasingAddressZeroOwnershipOnRenumRetry @ 0x1C001E3B0 (HUBDSM_ReleasingAddressZeroOwnershipOnRenumRetry.c)
+ *     HUBDSM_ReleasingAddressZeroOwnershipOnEnumFailure @ 0x1C001DE70 (HUBDSM_ReleasingAddressZeroOwnershipOnEnumFailure.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBUCX_ReleaseAddress0OwnershipFromUCX(_QWORD *a1)

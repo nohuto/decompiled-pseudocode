@@ -1,38 +1,45 @@
 /*
- * XREFs of MiDeleteSessionAddressSpace @ 0x1402008EC
+ * XREFs of MiDeleteSessionAddressSpace @ 0x140388EEC
  * Callers:
- *     MiDereferenceSessionFinal @ 0x140681B80 (MiDereferenceSessionFinal.c)
+ *     MiDereferenceSessionFinal @ 0x140778220 (MiDereferenceSessionFinal.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiDeletePagablePteRange @ 0x14027A040 (MiDeletePagablePteRange.c)
- *     MiDrainSystemAccessLog @ 0x140286BB4 (MiDrainSystemAccessLog.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
- *     MiDeleteWorkingSetList @ 0x140292B90 (MiDeleteWorkingSetList.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MiDrainSystemAccessLog @ 0x14025B3E0 (MiDrainSystemAccessLog.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiDeletePagablePteRange @ 0x1402B79F0 (MiDeletePagablePteRange.c)
+ *     MiAttemptCoalesce @ 0x1402C95B0 (MiAttemptCoalesce.c)
+ *     MiDeleteWorkingSetList @ 0x1402E9E60 (MiDeleteWorkingSetList.c)
+ *     MiIncrementPfn @ 0x1403A720C (MiIncrementPfn.c)
+ *     MiDeleteTopLevelSessionMapping @ 0x1403F3AC8 (MiDeleteTopLevelSessionMapping.c)
  */
 
-__int64 __fastcall MiDeleteSessionAddressSpace(__int64 a1, __int64 a2)
+__int64 __fastcall MiDeleteSessionAddressSpace(unsigned __int64 a1, _QWORD *a2)
 {
-  __int64 v2; // rsi
+  unsigned __int64 v4; // rax
   __int64 v5; // rdx
   __int64 v6; // r8
-  __int64 v7; // r9
-  __int64 SharedVm; // rbx
-  KIRQL v9; // al
-  __int64 v10; // rdx
-  KIRQL v11; // r14
-  int v12; // edx
+  LONG *SharedVm; // rbx
+  KIRQL v8; // al
+  unsigned __int8 v9; // r14
+  __int64 result; // rax
+  __int64 v11; // [rsp+60h] [rbp+8h] BYREF
 
-  v2 = a1 + 192;
-  MiDrainSystemAccessLog(a1 + 192);
-  SharedVm = MiGetSharedVm(v2, v5, v6, v7);
-  v9 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)SharedVm);
-  *(_DWORD *)(SharedVm + 4) = 0;
-  v11 = v9;
-  if ( (*(_DWORD *)(a1 + 4) & 4) != 0 )
-    MiDeleteWorkingSetList(v2);
-  LOBYTE(v10) = v11;
-  MiUnlockWorkingSetExclusive(v2, v10);
-  LOBYTE(v12) = 17;
-  return MiDeletePagablePteRange(v2, v12, 0, qword_140C65AE8, qword_140C65AE8 + 0x7FFFFFFFFFLL, 0, 0, a2);
+  v11 = MI_READ_PTE_LOCK_FREE(((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
+  v4 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v11);
+  MiIncrementPfn(48 * ((v4 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL);
+  MiDrainSystemAccessLog(a1 + 256, v5, v6);
+  SharedVm = MiGetSharedVm(a1 + 256);
+  v8 = ExAcquireSpinLockExclusive(SharedVm);
+  SharedVm[1] = 0;
+  v9 = v8;
+  if ( (*(_DWORD *)(a1 + 4) & 0x10) != 0 )
+    MiDeleteWorkingSetList(a1 + 256);
+  MiUnlockWorkingSetExclusive(a1 + 256, v9);
+  MiAttemptCoalesce(a1 + 880, *(_QWORD *)(a1 + 952), *(_QWORD *)(a1 + 880) - *(_QWORD *)(a1 + 952));
+  MiDeletePagablePteRange(a1 + 256, 0x11u, qword_140C4DDD8, qword_140C4DDD8 + 0x7FFFFFFFFFLL, 0, 0, a2);
+  result = MiDeleteTopLevelSessionMapping(a1);
+  --a2[1];
+  return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of FxOverrideDefaultVerifierSettings @ 0x1C0028478
+ * XREFs of FxOverrideDefaultVerifierSettings @ 0x1C0057A90
  * Callers:
- *     FxRegistrySettingsInitialize @ 0x1C0027EF4 (FxRegistrySettingsInitialize.c)
+ *     FxRegistrySettingsInitialize @ 0x1C0057AF0 (FxRegistrySettingsInitialize.c)
  * Callees:
- *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C0014DF4 (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
+ *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C00184EC (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
  */
 
 void __fastcall FxOverrideDefaultVerifierSettings(void *Key, wchar_t *Name, bool *OverrideValue)
@@ -14,6 +14,6 @@ void __fastcall FxOverrideDefaultVerifierSettings(void *Key, wchar_t *Name, bool
   value = 0;
   valueName = 0LL;
   RtlInitUnicodeString(&valueName, Name);
-  if ( FxRegKey::_QueryULong(Key, &valueName, &value) >= 0 )
+  if ( (int)FxRegKey::_QueryULong(Key, &valueName, &value) >= 0 )
     *OverrideValue = value != 0;
 }

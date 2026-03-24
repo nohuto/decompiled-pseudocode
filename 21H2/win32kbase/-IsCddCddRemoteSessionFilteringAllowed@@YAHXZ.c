@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsCddCddRemoteSessionFilteringAllowed@@YAHXZ @ 0x1C00C5210
+ * XREFs of ?IsCddCddRemoteSessionFilteringAllowed@@YAHXZ @ 0x1C0015C00
  * Callers:
- *     ?bRenderLddmDriver@PDEVOBJ@@QEAAHXZ @ 0x1C006FDF4 (-bRenderLddmDriver@PDEVOBJ@@QEAAHXZ.c)
- *     ldevLoadDriver @ 0x1C0075290 (ldevLoadDriver.c)
- *     EngQueryW32kCddInterface @ 0x1C00BD920 (EngQueryW32kCddInterface.c)
+ *     ?bRenderLddmDriver@PDEVOBJ@@QEAAHXZ @ 0x1C0011060 (-bRenderLddmDriver@PDEVOBJ@@QEAAHXZ.c)
+ *     ldevLoadDriver @ 0x1C0015500 (ldevLoadDriver.c)
+ *     EngQueryW32kCddInterface @ 0x1C00AAEA0 (EngQueryW32kCddInterface.c)
  * Callees:
  *     <none>
  */

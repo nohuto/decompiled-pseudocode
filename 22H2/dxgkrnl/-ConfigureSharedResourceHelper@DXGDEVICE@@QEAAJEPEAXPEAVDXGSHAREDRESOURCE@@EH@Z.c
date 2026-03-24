@@ -1,150 +1,163 @@
 /*
- * XREFs of ?ConfigureSharedResourceHelper@DXGDEVICE@@QEAAJEPEAXPEAVDXGSHAREDRESOURCE@@EH@Z @ 0x1C01A273C
+ * XREFs of ?ConfigureSharedResourceHelper@DXGDEVICE@@QEAAJEPEAXPEAVDXGSHAREDRESOURCE@@EH@Z @ 0x1C012B02C
  * Callers:
- *     ?ConfigureSharedResource@DXGDEVICE@@QEAAJEPEAXIE@Z @ 0x1C01A318C (-ConfigureSharedResource@DXGDEVICE@@QEAAJEPEAXIE@Z.c)
- *     ?OpenForDevice@DXGDXGIKEYEDMUTEX@@QEAAJPEAVDXGDEVICE@@@Z @ 0x1C032D03C (-OpenForDevice@DXGDXGIKEYEDMUTEX@@QEAAJPEAVDXGDEVICE@@@Z.c)
+ *     ?ConfigureSharedResource@DXGDEVICE@@QEAAJEPEAXIE@Z @ 0x1C012AEB4 (-ConfigureSharedResource@DXGDEVICE@@QEAAJEPEAXIE@Z.c)
+ *     ?OpenForDevice@DXGDXGIKEYEDMUTEX@@QEAAJPEAVDXGDEVICE@@@Z @ 0x1C029B528 (-OpenForDevice@DXGDXGIKEYEDMUTEX@@QEAAJPEAVDXGDEVICE@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_GDXGPROCESSSHAREDACCESS@@QEAAPEAXI@Z @ 0x1C00479F8 (--_GDXGPROCESSSHAREDACCESS@@QEAAPEAXI@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ??_GDXGPROCESSSHAREDACCESS@@QEAAPEAXI@Z @ 0x1C003F6EC (--_GDXGPROCESSSHAREDACCESS@@QEAAPEAXI@Z.c)
  */
 
 __int64 __fastcall DXGDEVICE::ConfigureSharedResourceHelper(
-        DXGDEVICE *this,
-        char a2,
+        PERESOURCE *this,
+        __int64 a2,
         void *a3,
         struct DXGSHAREDRESOURCE *a4,
         unsigned __int8 a5,
         int a6)
 {
+  char v8; // r14
   __int64 v10; // rbp
-  PVOID v11; // rbx
+  PVOID v11; // rdi
   unsigned int v12; // esi
-  __int64 *v13; // rdi
-  DXGPROCESSSHAREDACCESS *v14; // rcx
-  __int64 *i; // rdx
-  char v16; // r8
-  __int64 v17; // rax
-  _QWORD *v18; // rax
+  __int64 v13; // rdx
+  __int64 *v14; // rbx
+  DXGPROCESSSHAREDACCESS *v15; // rcx
+  __int64 *i; // rax
+  char v17; // r8
+  char *v18; // rax
   __int64 v19; // rcx
-  NTSTATUS v21; // eax
-  DXGPROCESSSHAREDACCESS *v22; // r8
-  DXGPROCESSSHAREDACCESS **v23; // rdx
-  _BYTE v24[16]; // [rsp+50h] [rbp-38h] BYREF
-  PVOID Object; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v20; // r8
+  __int64 v21; // r9
+  __int64 v22; // rcx
+  _QWORD *v23; // rax
+  __int64 v25; // rax
+  _QWORD *v26; // rax
+  NTSTATUS v27; // eax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // r8
+  __int64 v31; // rax
+  __int64 v32; // rax
+  DXGPROCESSSHAREDACCESS *v33; // rdx
+  DXGPROCESSSHAREDACCESS **v34; // r8
+  _BYTE v35[40]; // [rsp+30h] [rbp-28h] BYREF
+  PVOID Object; // [rsp+60h] [rbp+8h] BYREF
 
-  if ( !*((_BYTE *)this + 72) && !ExIsResourceAcquiredExclusiveLite(*((PERESOURCE *)this + 17)) )
+  v8 = a2;
+  if ( !*((_DWORD *)this + 18) && !ExIsResourceAcquiredExclusiveLite(this[17]) )
   {
-    WdLogSingleEntry1(1LL, 5513LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsDeviceLockExclusiveOwner()", 5513LL, 0LL, 0LL, 0LL, 0LL);
+    v25 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v25 + 24) = 5423LL;
+    WdLogEvent5_WdAssertion(v25);
   }
   if ( a4 )
   {
     v10 = *((_QWORD *)a4 + 19);
-    if ( v10 && (!a6 || *(DXGDEVICE **)(v10 + 80) == this) )
+    if ( v10 && (!a6 || *(PERESOURCE **)(v10 + 72) == this) )
     {
       v11 = 0LL;
       v12 = 0;
-      if ( !a2 )
+      if ( !v8 )
       {
         Object = 0LL;
-        v21 = ObReferenceObjectByHandle(a3, 0x1000u, (POBJECT_TYPE)PsProcessType, 1, &Object, 0LL);
+        v27 = ObReferenceObjectByHandle(a3, 0x1000u, (POBJECT_TYPE)PsProcessType, 1, &Object, 0LL);
         v11 = Object;
-        v12 = v21;
-        if ( v21 < 0 )
+        v12 = v27;
+        if ( v27 < 0 )
         {
-          WdLogSingleEntry1(3LL, a3);
+          v31 = WdLogNewEntry5_WdWarning(v29, v28, v30);
+          *(_QWORD *)(v31 + 24) = a3;
+          WdLogEvent5_WdWarning(v31);
           return v12;
         }
       }
-      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v24, (struct DXGFASTMUTEX *const)(v10 + 8), 0);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v24);
-      v13 = (__int64 *)(v10 + 56);
-      v14 = 0LL;
-      for ( i = *(__int64 **)(v10 + 56); i != v13; i = (__int64 *)*i )
+      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v35, (struct DXGFASTMUTEX *const)(v10 + 8), 0);
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v35);
+      v14 = (__int64 *)(v10 + 48);
+      v15 = 0LL;
+      for ( i = *(__int64 **)(v10 + 48); i != v14; i = (__int64 *)*i )
       {
-        v16 = *((_BYTE *)i + 16);
-        if ( a2 )
+        v17 = *((_BYTE *)i + 16);
+        if ( v8 )
         {
-          if ( v16 )
+          if ( v17 )
             goto LABEL_14;
         }
-        else if ( !v16 && (PVOID)i[3] == v11 )
+        else if ( !v17 && (PVOID)i[3] == v11 )
         {
 LABEL_14:
-          v14 = (DXGPROCESSSHAREDACCESS *)(i - 1);
+          v15 = (DXGPROCESSSHAREDACCESS *)(i - 1);
           break;
         }
       }
       if ( a5 )
       {
-        if ( v14 )
+        if ( v15 )
         {
 LABEL_20:
           if ( v11 )
             ObfDereferenceObject(v11);
-          if ( v24[8] )
-            DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v24);
+          if ( v35[8] )
+            DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v35, v13);
           return v12;
         }
-        v17 = operator new[](0x28uLL, 0x4B677844u, 256LL);
-        if ( !v17 )
+        v18 = (char *)operator new[](0x28uLL, 0x4B677844u, PagedPool);
+        if ( !v18 )
         {
+          v32 = WdLogNewEntry5_WdLowResource(v19, v13, v20, v21);
           v12 = -1073741801;
-          WdLogSingleEntry1(6LL, -1073741801LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262145,
-            -1,
-            (__int64)L"Out of memory allocating DXGPROCESSSHAREDACCESS class, returning 0x%I64x",
-            -1073741801LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
+          *(_QWORD *)(v32 + 24) = -1073741801LL;
+          WdLogEvent5_WdLowResource(v32);
           goto LABEL_20;
         }
-        *(_BYTE *)(v17 + 24) = a2;
-        *(_QWORD *)(v17 + 32) = v11;
-        v18 = (_QWORD *)(v17 + 8);
-        v19 = *v13;
-        if ( *(__int64 **)(*v13 + 8) == v13 )
+        v18[24] = v8;
+        *((_QWORD *)v18 + 4) = v11;
+        v22 = *v14;
+        v23 = v18 + 8;
+        if ( *(__int64 **)(*v14 + 8) == v14 )
         {
-          *v18 = v19;
+          *v23 = v22;
           v11 = 0LL;
-          v18[1] = v13;
-          *(_QWORD *)(v19 + 8) = v18;
-          *v13 = (__int64)v18;
+          v23[1] = v14;
+          *(_QWORD *)(v22 + 8) = v23;
+          *v14 = (__int64)v23;
           goto LABEL_20;
         }
       }
       else
       {
-        if ( !v14 )
+        if ( !v15 )
           goto LABEL_20;
-        v22 = (DXGPROCESSSHAREDACCESS *)*((_QWORD *)v14 + 1);
-        if ( *((DXGPROCESSSHAREDACCESS **)v22 + 1) == (DXGPROCESSSHAREDACCESS *)((char *)v14 + 8) )
+        v33 = (DXGPROCESSSHAREDACCESS *)*((_QWORD *)v15 + 1);
+        if ( *((DXGPROCESSSHAREDACCESS **)v33 + 1) == (DXGPROCESSSHAREDACCESS *)((char *)v15 + 8) )
         {
-          v23 = (DXGPROCESSSHAREDACCESS **)*((_QWORD *)v14 + 2);
-          if ( *v23 == (DXGPROCESSSHAREDACCESS *)((char *)v14 + 8) )
+          v34 = (DXGPROCESSSHAREDACCESS **)*((_QWORD *)v15 + 2);
+          if ( *v34 == (DXGPROCESSSHAREDACCESS *)((char *)v15 + 8) )
           {
-            *v23 = v22;
-            *((_QWORD *)v22 + 1) = v23;
-            DXGPROCESSSHAREDACCESS::`scalar deleting destructor'(v14);
+            *v34 = v33;
+            *((_QWORD *)v33 + 1) = v34;
+            DXGPROCESSSHAREDACCESS::`scalar deleting destructor'(v15);
             goto LABEL_20;
           }
         }
       }
       __fastfail(3u);
     }
-    WdLogSingleEntry3(3LL, this, a4, -1073741811LL);
+    v26 = (_QWORD *)WdLogNewEntry5_WdWarning(this, a2, a3);
+    v26[3] = this;
+    v26[4] = a4;
   }
   else
   {
-    WdLogSingleEntry3(3LL, this, 0LL, -1073741811LL);
+    v26 = (_QWORD *)WdLogNewEntry5_WdWarning(this, a2, a3);
+    v26[4] = 0LL;
+    v26[3] = this;
   }
+  v26[5] = -1073741811LL;
+  WdLogEvent5_WdWarning(v26);
   return 3221225485LL;
 }

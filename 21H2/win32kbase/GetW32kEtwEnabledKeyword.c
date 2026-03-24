@@ -1,5 +1,5 @@
 /*
- * XREFs of GetW32kEtwEnabledKeyword @ 0x1C014F260
+ * XREFs of GetW32kEtwEnabledKeyword @ 0x1C0124570
  * Callers:
  *     <none>
  * Callees:

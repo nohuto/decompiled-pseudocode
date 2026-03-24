@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpVaMgrFree @ 0x14023DADC
+ * XREFs of RtlpHpVaMgrFree @ 0x1402A50D4
  * Callers:
- *     RtlpHpVaMgrAlloc @ 0x14023CDE0 (RtlpHpVaMgrAlloc.c)
- *     RtlpHpVaMgrCtxFree @ 0x14023D6AC (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpVaMgrCtxFree @ 0x1402A3484 (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpVaMgrAlloc @ 0x1402A3F84 (RtlpHpVaMgrAlloc.c)
  * Callees:
- *     RtlpHpVaMgrRangeCoalesce @ 0x14023DB74 (RtlpHpVaMgrRangeCoalesce.c)
- *     RtlRbInsertNodeEx @ 0x14034E6B0 (RtlRbInsertNodeEx.c)
+ *     RtlpHpVaMgrRangeCoalesce @ 0x1402A516C (RtlpHpVaMgrRangeCoalesce.c)
+ *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrFree(__int64 a1)
@@ -28,23 +28,7 @@ __int64 __fastcall RtlpHpVaMgrFree(__int64 a1)
     {
       while ( 1 )
       {
-        if ( v4 >= *(_WORD *)(v5 + 24) )
-        {
-          v6 = *(_QWORD *)(v5 + 8);
-          if ( (*(_BYTE *)(a1 + 16) & 1) != 0 )
-          {
-            if ( !v6 )
-              goto LABEL_16;
-            v6 ^= v5;
-          }
-          if ( !v6 )
-          {
-LABEL_16:
-            LOBYTE(v2) = 1;
-            break;
-          }
-        }
-        else
+        if ( v4 < *(_WORD *)(v5 + 24) )
         {
           v6 = *(_QWORD *)v5;
           if ( (*(_BYTE *)(a1 + 16) & 1) != 0 )
@@ -55,6 +39,22 @@ LABEL_16:
           }
           if ( !v6 )
             break;
+        }
+        else
+        {
+          v6 = *(_QWORD *)(v5 + 8);
+          if ( (*(_BYTE *)(a1 + 16) & 1) != 0 )
+          {
+            if ( !v6 )
+              goto LABEL_17;
+            v6 ^= v5;
+          }
+          if ( !v6 )
+          {
+LABEL_17:
+            LOBYTE(v2) = 1;
+            break;
+          }
         }
         v5 = v6;
       }

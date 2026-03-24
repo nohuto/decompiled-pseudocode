@@ -1,89 +1,98 @@
 /*
- * XREFs of ?PerformDefragmentationEscape@VIDMM_GLOBAL@@QEAAXW4_D3DKMT_DEFRAG_ESCAPE_OPERATION@@IPEA_K111@Z @ 0x1C00E6300
+ * XREFs of ?PerformDefragmentationEscape@VIDMM_GLOBAL@@QEAAXW4_D3DKMT_DEFRAG_ESCAPE_OPERATION@@IPEA_K111@Z @ 0x1C00B09B4
  * Callers:
- *     ?Escape@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_D3DKMT_VIDMM_ESCAPE@@H@Z @ 0x1C00E1E68 (-Escape@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_D3DKMT_VIDMM_ESCAPE@@H@Z.c)
+ *     ?Escape@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_D3DKMT_VIDMM_ESCAPE@@H@Z @ 0x1C00AE018 (-Escape@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_D3DKMT_VIDMM_ESCAPE@@H@Z.c)
  * Callees:
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C0091AD8 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C0088380 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::PerformDefragmentationEscape(
         VIDMM_GLOBAL *this,
-        enum _D3DKMT_DEFRAG_ESCAPE_OPERATION a2,
+        int a2,
         __int64 a3,
         unsigned __int64 *a4)
 {
-  unsigned int i; // esi
+  unsigned int i; // edi
   __int64 v7; // rdx
   unsigned int v8; // r14d
   __int64 v9; // rax
-  unsigned int v10; // esi
-  unsigned int v11; // edx
-  __int64 v12; // rcx
-  _QWORD v13[12]; // [rsp+20h] [rbp-60h] BYREF
+  unsigned int v10; // edi
+  unsigned int v11; // ecx
+  __int64 v12; // r13
+  int v13; // r15d
+  VIDMM_GLOBAL *v14; // rcx
+  _QWORD v15[12]; // [rsp+20h] [rbp-60h] BYREF
 
-  if ( a2 == D3DKMT_DEFRAG_ESCAPE_DEFRAG_UPWARD || a2 == D3DKMT_DEFRAG_ESCAPE_DEFRAG_DOWNWARD )
+  if ( a2 <= 0 )
+    return;
+  if ( a2 <= 2 )
   {
     v8 = 0;
-    if ( !*((_DWORD *)this + 1754) )
+    if ( !*((_DWORD *)this + 1750) )
       return;
     while ( 1 )
     {
-      if ( (*(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 3) + 2808LL) + 344LL * v8 + 16) & 4) == 0 )
+      if ( (*(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 3) + 2584LL) + 360LL * v8 + 16) & 4) == 0 )
         goto LABEL_23;
-      v9 = *((_QWORD *)this + 5028) + 1616LL * v8;
-      v10 = *(_DWORD *)(v9 + 28);
-      v11 = v10 + *(_DWORD *)(v9 + 32);
+      v9 = *((_QWORD *)this + 5027) + 1584LL * v8;
+      v10 = *(_DWORD *)(v9 + 20);
+      v11 = v10 + *(_DWORD *)(v9 + 24);
       if ( v10 >= v11 )
         goto LABEL_23;
-      while ( (*(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 464) + 8LL * v10) + 80LL) & 0x1001) != 0 )
+      while ( 1 )
       {
+        v12 = *(_QWORD *)(*((_QWORD *)this + 464) + 8LL * v10);
+        v13 = *(_DWORD *)(v12 + 80);
+        if ( (v13 & 0x1001) == 0 )
+          break;
         if ( ++v10 >= v11 )
           goto LABEL_23;
       }
       if ( v10 == -1 )
         goto LABEL_23;
-      memset(v13, 0, 0x58uLL);
-      LODWORD(v13[5]) = 0;
-      LODWORD(v13[0]) = 126;
-      HIDWORD(v13[0]) = v8;
-      HIDWORD(v13[5]) = v10;
-      v13[8] = 0LL;
-      LODWORD(v13[10]) = a2 != D3DKMT_DEFRAG_ESCAPE_DEFRAG_UPWARD;
-      v12 = *(_QWORD *)(*((_QWORD *)this + 464) + 8LL * v10);
-      if ( (*(_BYTE *)(v12 + 82) & 1) != 0 )
+      memset(v15, 0, 0x58uLL);
+      LODWORD(v15[5]) = 0;
+      LODWORD(v15[0]) = 126;
+      HIDWORD(v15[0]) = v8;
+      HIDWORD(v15[5]) = v10;
+      v14 = this;
+      v15[8] = 0LL;
+      LODWORD(v15[10]) = a2 != 1;
+      if ( (v13 & 0x10000) != 0 )
       {
-        v13[9] = 0LL;
-        LODWORD(v13[7]) = 1;
-        if ( VIDMM_GLOBAL::QueueSystemCommandAndWait(this, (struct _VIDMM_SYSTEM_COMMAND *)v13, 1) < 0 )
+        v15[9] = 0LL;
+        LODWORD(v15[7]) = 1;
+        if ( (int)VIDMM_GLOBAL::QueueSystemCommandAndWait(this, (struct _VIDMM_SYSTEM_COMMAND *)v15, 1) < 0 )
           goto LABEL_23;
-        LODWORD(v13[7]) = 2;
-        if ( VIDMM_GLOBAL::QueueSystemCommandAndWait(this, (struct _VIDMM_SYSTEM_COMMAND *)v13, 1) < 0 )
+        LODWORD(v15[7]) = 2;
+        if ( (int)VIDMM_GLOBAL::QueueSystemCommandAndWait(this, (struct _VIDMM_SYSTEM_COMMAND *)v15, 1) < 0 )
           goto LABEL_23;
-        LODWORD(v13[7]) = 3;
+        LODWORD(v15[7]) = 3;
+        v14 = this;
       }
       else
       {
-        v13[9] = *(_QWORD *)(v12 + 48);
+        v15[9] = *(_QWORD *)(v12 + 48);
       }
-      VIDMM_GLOBAL::QueueSystemCommandAndWait(this, (struct _VIDMM_SYSTEM_COMMAND *)v13, 1);
+      VIDMM_GLOBAL::QueueSystemCommandAndWait(v14, (struct _VIDMM_SYSTEM_COMMAND *)v15, 1);
 LABEL_23:
-      if ( ++v8 >= *((_DWORD *)this + 1754) )
+      if ( ++v8 >= *((_DWORD *)this + 1750) )
         return;
     }
   }
-  if ( (unsigned int)(a2 - 3) <= 1 )
+  if ( a2 <= 4 )
   {
-    for ( i = 0; i < *((_DWORD *)this + 1754); ++i )
+    for ( i = 0; i < *((_DWORD *)this + 1750); ++i )
     {
       v7 = *((_QWORD *)this + 3);
-      if ( (*(_DWORD *)(344LL * i + *(_QWORD *)(v7 + 2808) + 16) & 4) != 0 && (*(_DWORD *)(v7 + 2276) & 8) != 0 )
+      if ( (*(_DWORD *)(360LL * i + *(_QWORD *)(v7 + 2584) + 16) & 4) != 0 && (*(_DWORD *)(v7 + 2052) & 8) != 0 )
       {
-        memset(v13, 0, 0x58uLL);
-        LODWORD(v13[0]) = 126;
-        HIDWORD(v13[0]) = i;
-        LODWORD(v13[5]) = (a2 != D3DKMT_DEFRAG_ESCAPE_DEFRAG_PASS) + 3;
-        VIDMM_GLOBAL::QueueSystemCommandAndWait(this, (struct _VIDMM_SYSTEM_COMMAND *)v13, 1);
+        memset(v15, 0, 0x58uLL);
+        LODWORD(v15[0]) = 126;
+        HIDWORD(v15[0]) = i;
+        LODWORD(v15[5]) = (a2 != 3) + 3;
+        VIDMM_GLOBAL::QueueSystemCommandAndWait(this, (struct _VIDMM_SYSTEM_COMMAND *)v15, 1);
       }
     }
   }

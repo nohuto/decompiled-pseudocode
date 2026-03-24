@@ -3,10 +3,10 @@
  * Callers:
  *     ViDdiDispatchWmiQueryAllData @ 0x1409278F8 (ViDdiDispatchWmiQueryAllData.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObQueryNameString @ 0x14065F680 (ObQueryNameString.c)
+ *     ObQueryNameString @ 0x14065F660 (ObQueryNameString.c)
  */
 
 __int64 __fastcall VfIrpLogRetrieveWmiData(unsigned int a1, __int64 a2, int *a3, _DWORD *a4, ULONG *a5, ULONG *a6)

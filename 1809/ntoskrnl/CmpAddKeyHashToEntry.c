@@ -1,7 +1,7 @@
 /*
  * XREFs of CmpAddKeyHashToEntry @ 0x1405AA7F0
  * Callers:
- *     CmpInsertKeyHash @ 0x1407F1164 (CmpInsertKeyHash.c)
+ *     CmpInsertKeyHash @ 0x1407F1144 (CmpInsertKeyHash.c)
  * Callees:
  *     <none>
  */

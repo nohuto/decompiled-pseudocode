@@ -1,19 +1,19 @@
 /*
- * XREFs of ?vSpDisableSprites@@YAXPEAUHDEV__@@W4_CLEANUPTYPE@@@Z @ 0x1C00B5568
+ * XREFs of ?vSpDisableSprites@@YAXPEAUHDEV__@@W4_CLEANUPTYPE@@@Z @ 0x1C00ED7C8
  * Callers:
- *     vSpDisableSpritesWrap @ 0x1C00B5550 (vSpDisableSpritesWrap.c)
+ *     vSpDisableSpritesWrap @ 0x1C00ED7B0 (vSpDisableSpritesWrap.c)
  * Callees:
- *     ?vSpDeleteExMirror@@YAXPEAUHDEV__@@@Z @ 0x1C00B56C8 (-vSpDeleteExMirror@@YAXPEAUHDEV__@@@Z.c)
- *     ?vSpDeleteSprite@@YAXPEAVSPRITE@@@Z @ 0x1C00B56F4 (-vSpDeleteSprite@@YAXPEAVSPRITE@@@Z.c)
- *     ?vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z @ 0x1C00B589C (-vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?vSpDeleteExMirror@@YAXPEAUHDEV__@@@Z @ 0x1C00ED928 (-vSpDeleteExMirror@@YAXPEAUHDEV__@@@Z.c)
+ *     ?vSpDeleteSprite@@YAXPEAVSPRITE@@@Z @ 0x1C00ED954 (-vSpDeleteSprite@@YAXPEAVSPRITE@@@Z.c)
+ *     ?vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z @ 0x1C00EDAE4 (-vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 void *__fastcall vSpDisableSprites(__int64 a1, int a2)
 {
   __int64 v2; // rdi
   __int64 v4; // rcx
-  __int64 v5; // rcx
+  void *v5; // rcx
   void *v6; // rcx
   REGION *v7; // rcx
   REGION *v8; // rcx
@@ -25,8 +25,8 @@ void *__fastcall vSpDisableSprites(__int64 a1, int a2)
   __int64 v15; // [rsp+50h] [rbp+18h] BYREF
   __int64 v16; // [rsp+58h] [rbp+20h] BYREF
 
-  v2 = a1 + 80;
-  v4 = *(_QWORD *)(a1 + 1200);
+  v2 = a1 + 88;
+  v4 = *(_QWORD *)(a1 + 1208);
   *(_QWORD *)(v2 + 1120) = 0LL;
   *(_QWORD *)(v2 + 1112) = 0LL;
   *(_DWORD *)(v2 + 1084) = 0;
@@ -50,7 +50,7 @@ void *__fastcall vSpDisableSprites(__int64 a1, int a2)
   RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v15);
   RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v16);
   GreDeleteObject(*(_QWORD *)(v2 + 1056));
-  v5 = *(_QWORD *)(v2 + 136);
+  v5 = *(void **)(v2 + 136);
   if ( v5 )
     Win32FreePool(v5);
   v6 = *(void **)(v2 + 64);

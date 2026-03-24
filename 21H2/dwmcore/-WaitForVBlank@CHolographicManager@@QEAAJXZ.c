@@ -1,9 +1,9 @@
 /*
- * XREFs of ?WaitForVBlank@CHolographicManager@@QEAAJXZ @ 0x180296D94
+ * XREFs of ?WaitForVBlank@CHolographicManager@@QEAAJXZ @ 0x180254838
  * Callers:
- *     ?WaitForVBlank@CHolographicInteropTarget@@UEBAJPEAX@Z @ 0x18029A740 (-WaitForVBlank@CHolographicInteropTarget@@UEBAJPEAX@Z.c)
+ *     ?WaitForVBlank@CHolographicInteropTarget@@UEBAJPEAX@Z @ 0x1802583C0 (-WaitForVBlank@CHolographicInteropTarget@@UEBAJPEAX@Z.c)
  * Callees:
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18029CF8C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A950 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
 __int64 __fastcall CHolographicManager::WaitForVBlank(CHolographicManager *this)

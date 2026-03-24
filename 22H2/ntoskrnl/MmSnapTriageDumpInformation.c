@@ -1,13 +1,12 @@
 /*
- * XREFs of MmSnapTriageDumpInformation @ 0x14063081C
+ * XREFs of MmSnapTriageDumpInformation @ 0x140538BF4
  * Callers:
- *     IoWriteCrashDump @ 0x1405513A0 (IoWriteCrashDump.c)
- *     IopCollectTriageDumpData @ 0x140552390 (IopCollectTriageDumpData.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x140553F38 (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     IoWriteCrashDump @ 0x140502950 (IoWriteCrashDump.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x14050488C (IopWriteCapsuleTriageDumpToFirmware.c)
  * Callees:
- *     HvlQueryVsmConnection @ 0x14033FE98 (HvlQueryVsmConnection.c)
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     MiAddTriageDumpPtes @ 0x14062F8D4 (MiAddTriageDumpPtes.c)
+ *     HvlQueryVsmConnection @ 0x140340478 (HvlQueryVsmConnection.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     MiAddTriageDumpPtes @ 0x1405381AC (MiAddTriageDumpPtes.c)
  */
 
 char __fastcall MmSnapTriageDumpInformation(__int64 a1, unsigned __int64 *a2)
@@ -16,19 +15,18 @@ char __fastcall MmSnapTriageDumpInformation(__int64 a1, unsigned __int64 *a2)
   char *v5; // rbx
   __int64 v6; // rdi
 
-  dword_140C1317C = 0;
-  qword_140C13198 = 0LL;
-  *(_QWORD *)&MiTriageDumpData = qword_140C6CF40;
-  dword_140C13168 = dword_140C68068;
-  dword_140C1316C = dword_140C68064;
-  dword_140C13170 = dword_140C68090;
-  dword_140C13174 = dword_140C68094;
-  qword_140C13180 = KeFeatureBits;
-  xmmword_140C13188 = 0LL;
-  dword_140C13178 = dword_140C68048 + dword_140C6804C + dword_140C68050;
-  LODWORD(xmmword_140C13188) = MEMORY[0xFFFFF78000000240];
-  *(_QWORD *)((char *)&xmmword_140C13188 + 4) = MiFlags;
-  HvlQueryVsmConnection(&qword_140C13198);
+  dword_140C2A41C = 0;
+  *(_QWORD *)&MiTriageDumpData = qword_140C51D80;
+  dword_140C2A408 = dword_140C4E7D4;
+  dword_140C2A40C = dword_140C4E7D0;
+  dword_140C2A410 = dword_140C4E7D8;
+  dword_140C2A414 = dword_140C4E7DC;
+  dword_140C2A418 = dword_140C4E7C8;
+  qword_140C2A420 = KeFeatureBits;
+  xmmword_140C2A428 = 0LL;
+  LODWORD(xmmword_140C2A428) = MEMORY[0xFFFFF78000000240];
+  DWORD1(xmmword_140C2A428) = MiFlags;
+  HvlQueryVsmConnection((_QWORD *)&xmmword_140C2A428 + 1);
   v4 = 4LL;
   do
   {
@@ -45,5 +43,5 @@ char __fastcall MmSnapTriageDumpInformation(__int64 a1, unsigned __int64 *a2)
     --v6;
   }
   while ( v6 );
-  return IoAddTriageDumpDataBlock((ULONG)&MiTriageDumpData, (PVOID)0x40);
+  return IoAddTriageDumpDataBlock((ULONG)&MiTriageDumpData, (PVOID)0x38);
 }

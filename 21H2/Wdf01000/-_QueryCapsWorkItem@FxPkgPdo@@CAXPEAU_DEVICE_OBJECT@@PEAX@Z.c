@@ -1,13 +1,13 @@
 /*
- * XREFs of ?_QueryCapsWorkItem@FxPkgPdo@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C0083AA0
+ * XREFs of ?_QueryCapsWorkItem@FxPkgPdo@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C0079CC0
  * Callers:
  *     <none>
  * Callees:
- *     ?CompletePnpRequest@FxPkgPnp@@IEAAJPEAVFxIrp@@J@Z @ 0x1C0002DF8 (-CompletePnpRequest@FxPkgPnp@@IEAAJPEAVFxIrp@@J@Z.c)
- *     ?HandleQueryCapabilities@FxPkgPdo@@AEAAXPEAU_DEVICE_CAPABILITIES@@0@Z @ 0x1C001A3C0 (-HandleQueryCapabilities@FxPkgPdo@@AEAAXPEAU_DEVICE_CAPABILITIES@@0@Z.c)
- *     ?GetStackCapabilities@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAVMxDeviceObject@@PEAU_D3COLD_SUPPORT_INTERFACE@@PEAU_STACK_DEVICE_CAPABILITIES@@@Z @ 0x1C001A70C (-GetStackCapabilities@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAVMxDeviceObject@@PEAU_D3COLD_SUPPORT_INTERF.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     memset @ 0x1C0036C00 (memset.c)
+ *     ?CompletePnpRequest@FxPkgPnp@@IEAAJPEAVFxIrp@@J@Z @ 0x1C0004B54 (-CompletePnpRequest@FxPkgPnp@@IEAAJPEAVFxIrp@@J@Z.c)
+ *     ?HandleQueryCapabilities@FxPkgPdo@@AEAAXPEAU_DEVICE_CAPABILITIES@@0@Z @ 0x1C0015C60 (-HandleQueryCapabilities@FxPkgPdo@@AEAAXPEAU_DEVICE_CAPABILITIES@@0@Z.c)
+ *     ?GetStackCapabilities@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAVMxDeviceObject@@PEAU_D3COLD_SUPPORT_INTERFACE@@PEAU_STACK_DEVICE_CAPABILITIES@@@Z @ 0x1C0015FA0 (-GetStackCapabilities@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAVMxDeviceObject@@PEAU_D3COLD_SUPPORT_INTERF.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     memset @ 0x1C001D540 (memset.c)
  */
 
 void __fastcall FxPkgPdo::_QueryCapsWorkItem(_DEVICE_OBJECT *DeviceObject, _IRP *Context)
@@ -15,9 +15,7 @@ void __fastcall FxPkgPdo::_QueryCapsWorkItem(_DEVICE_OBJECT *DeviceObject, _IRP 
   _QWORD *DeviceExtension; // rax
   struct _IO_WORKITEM *Flink; // rsi
   FxPkgPdo *v6; // rbx
-  FxDeviceBase *m_DeviceBase; // rcx
-  __int64 v8; // rax
-  _FX_DRIVER_GLOBALS *m_Globals; // rcx
+  FxDeviceBase *m_DeviceBase; // r8
   signed int StackCapabilities; // eax
   MxDeviceObject parentDeviceObject; // [rsp+20h] [rbp-88h] BYREF
   FxIrp irp; // [rsp+28h] [rbp-80h] BYREF
@@ -29,10 +27,8 @@ void __fastcall FxPkgPdo::_QueryCapsWorkItem(_DEVICE_OBJECT *DeviceObject, _IRP 
   irp.m_Irp = Context;
   v6 = *(FxPkgPdo **)(*(DeviceExtension - 6) + 648LL);
   m_DeviceBase = v6->m_DeviceBase;
-  v8 = *(_QWORD *)&m_DeviceBase[1].m_ObjectFlags;
-  m_Globals = m_DeviceBase->m_Globals;
-  parentDeviceObject.m_DeviceObject = *(_DEVICE_OBJECT **)(v8 + 144);
-  StackCapabilities = GetStackCapabilities(m_Globals, &parentDeviceObject, 0LL, &parentCapabilities);
+  parentDeviceObject.m_DeviceObject = *(_DEVICE_OBJECT **)(*(_QWORD *)&m_DeviceBase[1].m_ObjectFlags + 144LL);
+  StackCapabilities = GetStackCapabilities(m_DeviceBase->m_Globals, &parentDeviceObject, 0LL, &parentCapabilities);
   if ( StackCapabilities >= 0 )
   {
     FxPkgPdo::HandleQueryCapabilities(

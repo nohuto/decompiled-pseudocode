@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ptlBaseLineAdjustSet@ESTROBJ@@QEAAXAEAU_POINTL@@@Z @ 0x1C02B4ECC
+ * XREFs of ?ptlBaseLineAdjustSet@ESTROBJ@@QEAAXAEAU_POINTL@@@Z @ 0x1C02A7318
  * Callers:
- *     ?GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@IW4EntryPoint@RFONTOBJ@@@Z @ 0x1C029EDCC (-GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@IW4EntryPoint@RFONTOBJ@@@Z.c)
- *     ?bProxyDrvTextOut@@YAHAEAVXDCOBJ@@PEAVSURFACE@@AEAVESTROBJ@@AEAVECLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@AEAVRFONTOBJ@@PEAVPDEVOBJ@@K4@Z @ 0x1C029FAB8 (-bProxyDrvTextOut@@YAHAEAVXDCOBJ@@PEAVSURFACE@@AEAVESTROBJ@@AEAVECLIPOBJ@@PEAU_RECTL@@4PEAU_BRUS.c)
- *     ?bLinkedTextToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@AEAVXDCOBJ@@@Z @ 0x1C02DA104 (-bLinkedTextToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@AEAVXDCOBJ@@@Z.c)
+ *     ?bProxyDrvTextOut@@YAHAEAVXDCOBJ@@PEAVSURFACE@@AEAVESTROBJ@@AEAVECLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@AEAVRFONTOBJ@@PEAVPDEVOBJ@@K4@Z @ 0x1C0005FCC (-bProxyDrvTextOut@@YAHAEAVXDCOBJ@@PEAVSURFACE@@AEAVESTROBJ@@AEAVECLIPOBJ@@PEAU_RECTL@@4PEAU_BRUS.c)
+ *     ?GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@I@Z @ 0x1C0297BB4 (-GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@I@Z.c)
+ *     ?bLinkedTextToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@AEAVXDCOBJ@@@Z @ 0x1C02BD5F4 (-bLinkedTextToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@AEAVXDCOBJ@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,30 +11,28 @@
 void __fastcall ESTROBJ::ptlBaseLineAdjustSet(ESTROBJ *this, struct _POINTL *a2)
 {
   __int64 v2; // rax
-  _DWORD *v3; // r9
-  unsigned int v4; // edx
+  unsigned int v3; // edx
+  __int64 v4; // r9
   __int64 v5; // r10
-  __int64 v6; // r11
 
   v2 = (__int64)*a2;
-  v3 = (_DWORD *)((char *)this + 244);
-  v4 = 0;
+  v3 = 0;
   *((_QWORD *)this + 30) = v2;
-  if ( ((_DWORD)v2 || *v3) && *(_DWORD *)this )
+  if ( ((_DWORD)v2 || *((_DWORD *)this + 61)) && *(_DWORD *)this )
   {
+    v4 = 0LL;
     v5 = 0LL;
-    v6 = 0LL;
     do
     {
-      if ( *(_DWORD *)(v6 + *((_QWORD *)this + 26)) == *((_DWORD *)this + 59) )
+      if ( *(_DWORD *)(v5 + *((_QWORD *)this + 26)) == *((_DWORD *)this + 59) )
       {
-        *(_DWORD *)(*((_QWORD *)this + 8) + v5 + 16) += *((_DWORD *)this + 60);
-        *(_DWORD *)(*((_QWORD *)this + 8) + v5 + 20) += *v3;
-        ++v4;
+        *(_DWORD *)(*((_QWORD *)this + 8) + v4 + 16) += *((_DWORD *)this + 60);
+        *(_DWORD *)(*((_QWORD *)this + 8) + v4 + 20) += *((_DWORD *)this + 61);
+        ++v3;
       }
-      v6 += 4LL;
-      v5 += 24LL;
+      v5 += 4LL;
+      v4 += 24LL;
     }
-    while ( v4 < *(_DWORD *)this );
+    while ( v3 < *(_DWORD *)this );
   }
 }

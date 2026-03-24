@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCovSampLookasidePop @ 0x1403170D4
+ * XREFs of EtwpCovSampLookasidePop @ 0x1403171D4
  * Callers:
- *     EtwpCovSampCaptureBufferGet @ 0x140316250 (EtwpCovSampCaptureBufferGet.c)
- *     EtwpCovSampCaptureQueueApc @ 0x140316A2C (EtwpCovSampCaptureQueueApc.c)
- *     EtwpCovSampSampleBufferReserve @ 0x140317468 (EtwpCovSampSampleBufferReserve.c)
+ *     EtwpCovSampCaptureBufferGet @ 0x140316350 (EtwpCovSampCaptureBufferGet.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x140316B2C (EtwpCovSampCaptureQueueApc.c)
+ *     EtwpCovSampSampleBufferReserve @ 0x140317568 (EtwpCovSampSampleBufferReserve.c)
  * Callees:
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
- *     EtwpCovSampCaptureReleaseToLookaside @ 0x140316D50 (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x140316E50 (EtwpCovSampCaptureReleaseToLookaside.c)
  */
 
 struct _SLIST_ENTRY *__fastcall EtwpCovSampLookasidePop(__int64 a1, __int64 a2)

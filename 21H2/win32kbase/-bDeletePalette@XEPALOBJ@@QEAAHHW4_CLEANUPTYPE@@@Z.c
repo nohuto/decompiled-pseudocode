@@ -1,27 +1,27 @@
 /*
- * XREFs of ?bDeletePalette@XEPALOBJ@@QEAAHHW4_CLEANUPTYPE@@@Z @ 0x1C016B4F4
+ * XREFs of ?bDeletePalette@XEPALOBJ@@QEAAHHW4_CLEANUPTYPE@@@Z @ 0x1C013E5B0
  * Callers:
- *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C0074810 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
- *     bDeletePalette @ 0x1C0093780 (bDeletePalette.c)
- *     ??$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00DBBCC (--$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z.c)
+ *     bDeletePalette @ 0x1C0082990 (bDeletePalette.c)
+ *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C00B9900 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
+ *     ??$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00CBDF4 (--$vGarbageCollectObject@VXEPALOBJ2@@@@YAXPEAUHOBJ__@@@Z.c)
  * Callees:
- *     ?vUnrefPalette@XEPALOBJ@@QEAAXXZ @ 0x1C001DB70 (-vUnrefPalette@XEPALOBJ@@QEAAXXZ.c)
- *     ?HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z @ 0x1C001E9A4 (-HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z.c)
- *     HmgRemoveObject @ 0x1C001F4E0 (HmgRemoveObject.c)
- *     Win32FreePool @ 0x1C0026670 (Win32FreePool.c)
- *     HmgFree @ 0x1C0087080 (HmgFree.c)
- *     ?vMakeNoXlate@XEPALOBJ@@QEAAXXZ @ 0x1C00B42E0 (-vMakeNoXlate@XEPALOBJ@@QEAAXXZ.c)
- *     ?FreePaletteMemory@XEPALOBJ@@QEAAXXZ @ 0x1C016B444 (-FreePaletteMemory@XEPALOBJ@@QEAAXXZ.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z @ 0x1C002C350 (-HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z.c)
+ *     HmgRemoveObject @ 0x1C00311D0 (HmgRemoveObject.c)
+ *     HmgFree @ 0x1C007B180 (HmgFree.c)
+ *     ?vUnrefPalette@XEPALOBJ@@QEAAXXZ @ 0x1C0080AE0 (-vUnrefPalette@XEPALOBJ@@QEAAXXZ.c)
+ *     ?vMakeNoXlate@XEPALOBJ@@QEAAXXZ @ 0x1C00A3750 (-vMakeNoXlate@XEPALOBJ@@QEAAXXZ.c)
+ *     ?FreePaletteMemory@XEPALOBJ@@QEAAXXZ @ 0x1C00C926C (-FreePaletteMemory@XEPALOBJ@@QEAAXXZ.c)
  */
 
 __int64 __fastcall XEPALOBJ::bDeletePalette(XEPALOBJ *a1, int a2, int a3)
 {
   struct PALETTE *v3; // r9
   unsigned int v7; // edi
-  char *v8; // rcx
+  unsigned __int8 *v8; // rcx
   struct HOBJ__ *v9; // rcx
-  __int64 v11; // rdx
-  __int64 v12; // r8
+  int v11; // edx
+  int v12; // r8d
   struct PALETTE *v13; // rcx
   struct PALETTE *v14; // rcx
   __int64 v15; // [rsp+40h] [rbp+8h] BYREF
@@ -30,12 +30,12 @@ __int64 __fastcall XEPALOBJ::bDeletePalette(XEPALOBJ *a1, int a2, int a3)
   v7 = 1;
   if ( *(struct PALETTE **)a1 == ppalDefault || !v3 || v3 == ppalMono )
     return v7;
-  v8 = (char *)*((_QWORD *)v3 + 13);
+  v8 = (unsigned __int8 *)*((_QWORD *)v3 + 13);
   if ( v8 )
   {
     if ( v8 != gpRGBXlate )
     {
-      Win32FreePool(v8);
+      Win32FreePool((__int64)v8);
       v3 = *(struct PALETTE **)a1;
     }
     *((_QWORD *)v3 + 13) = 0LL;
@@ -59,7 +59,7 @@ __int64 __fastcall XEPALOBJ::bDeletePalette(XEPALOBJ *a1, int a2, int a3)
   {
     if ( !HmgRemoveObject((__int64)v9, 0, 1, 0, 8, 0LL) )
     {
-      if ( a3 == 2 || !_bittest16((const signed __int16 *)(*(_QWORD *)a1 + 14LL), 0xEu) )
+      if ( a3 == 2 || (*(_WORD *)(*(_QWORD *)a1 + 14LL) & 0x4000) == 0 )
       {
         if ( a2 )
         {

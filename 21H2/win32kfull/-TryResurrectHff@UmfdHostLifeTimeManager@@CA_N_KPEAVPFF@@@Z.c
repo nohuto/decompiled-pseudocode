@@ -1,13 +1,12 @@
 /*
- * XREFs of ?TryResurrectHff@UmfdHostLifeTimeManager@@CA_N_KPEAVPFF@@@Z @ 0x1C02C0F2C
+ * XREFs of ?TryResurrectHff@UmfdHostLifeTimeManager@@CA_N_KPEAVPFF@@@Z @ 0x1C02C2590
  * Callers:
- *     ?TryResurrectPffApcRoutine@UmfdHostLifeTimeManager@@CAXPEAX00@Z @ 0x1C02C10B0 (-TryResurrectPffApcRoutine@UmfdHostLifeTimeManager@@CAXPEAX00@Z.c)
+ *     ?TryResurrectPffApcRoutine@UmfdHostLifeTimeManager@@CAXPEAX00@Z @ 0x1C02C2720 (-TryResurrectPffApcRoutine@UmfdHostLifeTimeManager@@CAXPEAX00@Z.c)
  * Callees:
- *     ?LoadFontFile@PDEVOBJ@@QEAA_KKPEA_KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KK@Z @ 0x1C000CD68 (-LoadFontFile@PDEVOBJ@@QEAA_KKPEA_KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KK@Z.c)
- *     EngMapFontFileFDInternal @ 0x1C000FAC4 (EngMapFontFileFDInternal.c)
- *     ?UmfdInsertFontFileViewForLookup@@YAHPEAPEAU_FONTFILEVIEW@@I@Z @ 0x1C0010458 (-UmfdInsertFontFileViewForLookup@@YAHPEAPEAU_FONTFILEVIEW@@I@Z.c)
- *     ??1?$AutoResource@$1?Win32FreePool@@YAXPEAX@Z@@QEAA@XZ @ 0x1C0014A8C (--1-$AutoResource@$1-Win32FreePool@@YAXPEAX@Z@@QEAA@XZ.c)
- *     ??0MALLOCOBJ@@QEAA@K@Z @ 0x1C0014F34 (--0MALLOCOBJ@@QEAA@K@Z.c)
+ *     ??0MALLOCOBJ@@QEAA@K@Z @ 0x1C009FE08 (--0MALLOCOBJ@@QEAA@K@Z.c)
+ *     EngMapFontFileFDInternal @ 0x1C00A4F5C (EngMapFontFileFDInternal.c)
+ *     ?LoadFontFile@PDEVOBJ@@QEAA_KKPEA_KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KK@Z @ 0x1C00A5980 (-LoadFontFile@PDEVOBJ@@QEAA_KKPEA_KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KK@Z.c)
+ *     ?UmfdInsertFontFileViewForLookup@@YAHPEAPEAU_FONTFILEVIEW@@I@Z @ 0x1C00A6EE4 (-UmfdInsertFontFileViewForLookup@@YAHPEAPEAU_FONTFILEVIEW@@I@Z.c)
  */
 
 char __fastcall UmfdHostLifeTimeManager::TryResurrectHff(_OWORD *a1, struct PFF *a2)
@@ -22,68 +21,76 @@ char __fastcall UmfdHostLifeTimeManager::TryResurrectHff(_OWORD *a1, struct PFF 
   __int64 v10; // rcx
   __int64 v11; // rcx
   _BYTE *FontFile; // rax
-  _QWORD v14[11]; // [rsp+40h] [rbp-58h] BYREF
-  int v16; // [rsp+A8h] [rbp+10h] BYREF
-  void **v17; // [rsp+B0h] [rbp+18h] BYREF
-  __int64 v18; // [rsp+B8h] [rbp+20h] BYREF
+  void **v15; // [rsp+98h] [rbp+10h] BYREF
+  __int64 v16; // [rsp+A0h] [rbp+18h] BYREF
+  __int64 v17; // [rsp+A8h] [rbp+20h] BYREF
 
   v3 = *((unsigned int *)a2 + 9);
   v4 = a1;
-  v14[0] = *((_QWORD *)a2 + 11);
-  MALLOCOBJ::MALLOCOBJ((MALLOCOBJ *)&v17, 12 * v3);
-  v5 = v17;
-  if ( !v17 )
-    goto LABEL_12;
-  v6 = 0;
-  v7 = 1;
-  if ( (_DWORD)v3 )
+  v17 = *((_QWORD *)a2 + 11);
+  MALLOCOBJ::MALLOCOBJ((MALLOCOBJ *)&v15, 12 * v3);
+  v5 = v15;
+  if ( v15 )
   {
-    v8 = 0LL;
-    v9 = &v17[v3];
-    while ( 1 )
+    v6 = 0;
+    v7 = 1;
+    if ( (_DWORD)v3 )
     {
-      v10 = *(_QWORD *)(v8 + *((_QWORD *)a2 + 25));
-      if ( !*(_QWORD *)(v10 + 16) )
+      v8 = 0LL;
+      v9 = &v15[v3];
+      while ( 1 )
       {
-        v18 = 0LL;
-        v16 = 0;
-        if ( !(unsigned int)EngMapFontFileFDInternal(v10, &v18, &v16, 0) )
-          goto LABEL_12;
-      }
-      ++v6;
-      v5[v8 / 8] = *(void **)(*(_QWORD *)(v8 + *((_QWORD *)a2 + 25)) + 16LL);
-      v11 = *(_QWORD *)(v8 + *((_QWORD *)a2 + 25));
-      v8 += 8LL;
-      *(_DWORD *)v9 = *(_DWORD *)(v11 + 24);
-      v9 = (void **)((char *)v9 + 4);
-      if ( v6 >= (unsigned int)v3 )
-      {
-        v4 = a1;
-        break;
+        v10 = *(_QWORD *)(v8 + *((_QWORD *)a2 + 25));
+        if ( !*(_QWORD *)(v10 + 16) )
+        {
+          v16 = 0LL;
+          LODWORD(v15) = 0;
+          if ( !(unsigned int)EngMapFontFileFDInternal(v10, &v16, &v15, 0) )
+            break;
+        }
+        ++v6;
+        v5[v8 / 8] = *(void **)(*(_QWORD *)(*((_QWORD *)a2 + 25) + v8) + 16LL);
+        v11 = *(_QWORD *)(*((_QWORD *)a2 + 25) + v8);
+        v8 += 8LL;
+        *(_DWORD *)v9 = *(_DWORD *)(v11 + 24);
+        v9 = (void **)((char *)v9 + 4);
+        if ( v6 >= (unsigned int)v3 )
+        {
+          v4 = a1;
+          goto LABEL_8;
+        }
       }
     }
-  }
-  if ( !(unsigned int)UmfdInsertFontFileViewForLookup(*((struct _FONTFILEVIEW ***)a2 + 25), *((_DWORD *)a2 + 9))
-    || (FontFile = (_BYTE *)PDEVOBJ::LoadFontFile(
-                              (PDEVOBJ *)v14,
+    else
+    {
+LABEL_8:
+      if ( (unsigned int)UmfdInsertFontFileViewForLookup(*((struct _FONTFILEVIEW ***)a2 + 25), *((_DWORD *)a2 + 9)) )
+      {
+        FontFile = (_BYTE *)PDEVOBJ::LoadFontFile(
+                              (PDEVOBJ *)&v17,
                               *((_DWORD *)a2 + 9),
                               *((unsigned __int64 **)a2 + 25),
                               v5,
                               (unsigned int *)&v5[v3],
                               *((struct tagDESIGNVECTOR **)a2 + 5),
                               gusLanguageID,
-                              0),
-        FontFile == (_BYTE *)0xFFFFFFFFLL)
-    || !FontFile )
-  {
-LABEL_12:
-    v7 = 0;
-    goto LABEL_13;
+                              0);
+        if ( FontFile != (_BYTE *)0xFFFFFFFFLL )
+        {
+          if ( FontFile )
+          {
+            FontFile[12] = 1;
+            *v4 = *(_OWORD *)FontFile;
+            EngFreeMem(FontFile);
+            goto LABEL_13;
+          }
+        }
+      }
+    }
   }
-  FontFile[12] = 1;
-  *v4 = *(_OWORD *)FontFile;
-  EngFreeMem(FontFile);
+  v7 = 0;
 LABEL_13:
-  AutoResource<&void Win32FreePool(void *)>::~AutoResource<&void Win32FreePool(void *)>((__int64 *)&v17);
+  if ( v5 )
+    Win32FreePool(v5);
   return v7;
 }

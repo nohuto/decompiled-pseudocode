@@ -1,5 +1,5 @@
 /*
- * XREFs of MilliSecsToQpcCount @ 0x1C00BE4A0
+ * XREFs of MilliSecsToQpcCount @ 0x1C008ABF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,8 @@
 
 unsigned __int64 __fastcall MilliSecsToQpcCount(__int64 a1)
 {
-  return gliQpcFreq.QuadPart * a1 / 0x3E8uLL;
+  __int64 v1; // rdx
+
+  v1 = ((unsigned __int64)(a1 * gliQpcFreq.QuadPart) * (unsigned __int128)0x624DD2F1A9FBE77uLL) >> 64;
+  return (v1 + ((unsigned __int64)(a1 * gliQpcFreq.QuadPart - v1) >> 1)) >> 9;
 }

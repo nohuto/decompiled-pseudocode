@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MergeWith@CDepthSortingLayer@@QEAAXAEAV1@@Z @ 0x18026CD60
+ * XREFs of ?MergeWith@CDepthSortingLayer@@QEAAXAEAV1@@Z @ 0x18020D584
  * Callers:
- *     ?AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z @ 0x18025A020 (-AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z.c)
+ *     ?AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z @ 0x1801FACC0 (-AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z.c)
  * Callees:
- *     ??$_Emplace_reallocate@AEBI@?$vector@IV?$allocator@I@std@@@std@@QEAAPEAIQEAIAEBI@Z @ 0x1801B8394 (--$_Emplace_reallocate@AEBI@-$vector@IV-$allocator@I@std@@@std@@QEAAPEAIQEAIAEBI@Z.c)
+ *     ??$_Emplace_reallocate@AEBM@?$vector@MV?$allocator@M@std@@@std@@QEAAPEAMQEAMAEBM@Z @ 0x1801DC770 (--$_Emplace_reallocate@AEBM@-$vector@MV-$allocator@M@std@@@std@@QEAAPEAMQEAMAEBM@Z.c)
  */
 
 void __fastcall CDepthSortingLayer::MergeWith(CDepthSortingLayer *this, struct CDepthSortingLayer *a2)
@@ -27,9 +27,9 @@ void __fastcall CDepthSortingLayer::MergeWith(CDepthSortingLayer *this, struct C
     {
       v8 = (_DWORD *)(v6 + 4 * v7);
       v9 = (_BYTE *)*((_QWORD *)this + 1);
-      if ( v9 == *((_BYTE **)this + 2) )
+      if ( *((_BYTE **)this + 2) == v9 )
       {
-        std::vector<unsigned int>::_Emplace_reallocate<unsigned int const &>(this, v9, v8);
+        std::vector<float>::_Emplace_reallocate<float const &>((const void **)this, v9, v8);
       }
       else
       {

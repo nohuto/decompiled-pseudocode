@@ -1,11 +1,11 @@
 /*
- * XREFs of IntelPptFilter_FilterCommand @ 0x1C007C100
+ * XREFs of IntelPptFilter_FilterCommand @ 0x1C0079100
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0005BEC (WPP_RECORDER_SF_.c)
- *     IntelPptFilter_CheckAndIncreaseEndpointCount @ 0x1C007C020 (IntelPptFilter_CheckAndIncreaseEndpointCount.c)
- *     IntelPptFilter_FilterEndpointConfigureCommand @ 0x1C007C2F8 (IntelPptFilter_FilterEndpointConfigureCommand.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     IntelPptFilter_CheckAndIncreaseEndpointCount @ 0x1C0079020 (IntelPptFilter_CheckAndIncreaseEndpointCount.c)
+ *     IntelPptFilter_FilterEndpointConfigureCommand @ 0x1C00792E8 (IntelPptFilter_FilterEndpointConfigureCommand.c)
  */
 
 __int64 __fastcall IntelPptFilter_FilterCommand(__int64 a1, __int64 a2)
@@ -14,7 +14,7 @@ __int64 __fastcall IntelPptFilter_FilterCommand(__int64 a1, __int64 a2)
   int v5; // edx
   unsigned int v6; // ebx
   int v7; // r8d
-  KIRQL v8; // r15
+  KIRQL v8; // r14
   int v9; // edx
 
   v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 40));

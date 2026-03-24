@@ -1,8 +1,8 @@
 /*
- * XREFs of ?ShouldPtpSettingFire@PTPTelemetry@@CA_NXZ @ 0x1C01DFC6C
+ * XREFs of ?ShouldPtpSettingFire@PTPTelemetry@@CA_NXZ @ 0x1C01A7730
  * Callers:
- *     ?OnUserLogin@PTPTelemetry@@SAXXZ @ 0x1C01DEE00 (-OnUserLogin@PTPTelemetry@@SAXXZ.c)
- *     ?OnRIMDeviceCreated@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z @ 0x1C01E26B0 (-OnRIMDeviceCreated@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z.c)
+ *     ?OnRIMDeviceCreated@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z @ 0x1C00B7E90 (-OnRIMDeviceCreated@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z.c)
+ *     ?OnUserLogin@PTPTelemetry@@SAXXZ @ 0x1C01A6B30 (-OnUserLogin@PTPTelemetry@@SAXXZ.c)
  * Callees:
  *     <none>
  */

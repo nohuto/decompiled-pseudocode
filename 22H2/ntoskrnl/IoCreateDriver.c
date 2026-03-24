@@ -1,70 +1,74 @@
 /*
- * XREFs of IoCreateDriver @ 0x140812780
+ * XREFs of IoCreateDriver @ 0x1407A5330
  * Callers:
- *     HaliInitPnpDriver @ 0x140812740 (HaliInitPnpDriver.c)
- *     ViIrpLogExposeWmiCallback @ 0x140ADDF90 (ViIrpLogExposeWmiCallback.c)
- *     VfFilterAttach @ 0x140AE020C (VfFilterAttach.c)
- *     CmInitSystem2 @ 0x140B3CD68 (CmInitSystem2.c)
- *     WMIInitialize @ 0x140B3CDD0 (WMIInitialize.c)
- *     PiSwInit @ 0x140B3F42C (PiSwInit.c)
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     HaliInitPnpDriver @ 0x1407A5680 (HaliInitPnpDriver.c)
+ *     ViIrpLogExposeWmiCallback @ 0x1409E3F40 (ViIrpLogExposeWmiCallback.c)
+ *     VfFilterAttach @ 0x1409E4F04 (VfFilterAttach.c)
+ *     WMIInitialize @ 0x140A3BF84 (WMIInitialize.c)
+ *     CmInitSystem2 @ 0x140A4B3D4 (CmInitSystem2.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     PiSwInit @ 0x140A534A0 (PiSwInit.c)
+ *     PiDaInit @ 0x140A53550 (PiDaInit.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A92C (RtlStringCchPrintfW.c)
- *     RtlStringCchLengthW @ 0x14022C660 (RtlStringCchLengthW.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwMakeTemporaryObject @ 0x14041C980 (ZwMakeTemporaryObject.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     ObInsertObject @ 0x14076BAA0 (ObInsertObject.c)
- *     EtwTiLogDriverObjectLoad @ 0x1407DEFE8 (EtwTiLogDriverObjectLoad.c)
- *     ObMakeTemporaryObject @ 0x1407E1210 (ObMakeTemporaryObject.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     IopVerifierExAllocatePool @ 0x14022C350 (IopVerifierExAllocatePool.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     RtlStringCchLengthW @ 0x14032DFD4 (RtlStringCchLengthW.c)
+ *     RtlStringCchPrintfW @ 0x140348150 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwMakeTemporaryObject @ 0x1403FBC20 (ZwMakeTemporaryObject.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ObCreateObjectEx @ 0x140651EA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
+ *     ObMakeTemporaryObject @ 0x1406F62F0 (ObMakeTemporaryObject.c)
+ *     EtwTiLogDriverObjectLoad @ 0x140771E80 (EtwTiLogDriverObjectLoad.c)
  */
 
-int __fastcall IoCreateDriver(_OWORD *a1, __int64 (__fastcall *a2)(void **, _QWORD))
+int __fastcall IoCreateDriver(_OWORD *a1, _DMA_OPERATIONS *a2)
 {
   int result; // eax
-  _QWORD *v4; // r15
+  PADAPTER_OBJECT v4; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  PVOID *v6; // rcx
-  void **v7; // rbx
-  unsigned __int64 v8; // rdx
-  _WORD *Pool2; // rax
-  _WORD *v10; // r14
-  unsigned __int64 v11; // rdi
-  __int128 v12; // xmm0
-  NTSTATUS inserted; // edi
-  NTSTATUS v14; // eax
-  __int64 v15; // rax
-  PVOID *NewObject; // [rsp+20h] [rbp-E0h]
+  PVOID *i; // rcx
+  _DMA_OPERATIONS *v7; // rdx
+  _WORD *Pool; // rax
+  _WORD *v9; // rbx
+  unsigned __int64 v10; // rdi
+  __int128 v11; // xmm0
+  struct _DMA_ADAPTER *v12; // rcx
+  int inserted; // ebx
+  HANDLE v14; // rsi
+  NTSTATUS v15; // eax
+  void *v16; // rdi
+  PVOID v17; // rax
+  char *Object; // [rsp+20h] [rbp-E0h]
   void *Src[2]; // [rsp+50h] [rbp-B0h] BYREF
-  HANDLE Handle; // [rsp+60h] [rbp-A0h] BYREF
-  PVOID v19; // [rsp+68h] [rbp-98h] BYREF
-  PVOID Object; // [rsp+70h] [rbp-90h] BYREF
-  __int128 v21; // [rsp+78h] [rbp-88h]
-  _DWORD v22[2]; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v23; // [rsp+90h] [rbp-70h]
-  void **v24; // [rsp+98h] [rbp-68h]
-  int v25; // [rsp+A0h] [rbp-60h]
-  int v26; // [rsp+A4h] [rbp-5Ch]
-  __int128 v27; // [rsp+A8h] [rbp-58h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+60h] [rbp-A0h] BYREF
+  size_t pcchLength; // [rsp+68h] [rbp-98h] BYREF
+  HANDLE Handle; // [rsp+70h] [rbp-90h] BYREF
+  PVOID v23; // [rsp+78h] [rbp-88h] BYREF
+  __int128 v24; // [rsp+80h] [rbp-80h]
+  _DWORD v25[2]; // [rsp+90h] [rbp-70h] BYREF
+  __int64 v26; // [rsp+98h] [rbp-68h]
+  void **v27; // [rsp+A0h] [rbp-60h]
+  int v28; // [rsp+A8h] [rbp-58h]
+  int v29; // [rsp+ACh] [rbp-54h]
+  __int128 v30; // [rsp+B0h] [rbp-50h]
   wchar_t pszDest[64]; // [rsp+C0h] [rbp-40h] BYREF
 
-  v22[1] = 0;
-  v26 = 0;
-  Object = 0LL;
+  v25[1] = 0;
+  v29 = 0;
+  DmaAdapter = 0LL;
   Handle = 0LL;
-  v19 = 0LL;
+  pcchLength = 0LL;
   *(_OWORD *)Src = 0LL;
-  v21 = 0LL;
+  v24 = 0LL;
   if ( a1 )
   {
     *(_OWORD *)Src = *a1;
@@ -75,82 +79,81 @@ int __fastcall IoCreateDriver(_OWORD *a1, __int64 (__fastcall *a2)(void **, _QWO
     0x3CuLL,
     L"\\Driver\\%08u",
     (unsigned int)_InterlockedIncrement(&IopUniqueDriverObjectNumber));
-  result = RtlStringCchLengthW(pszDest, 0x3CuLL, (size_t *)&v19);
+  result = RtlStringCchLengthW(pszDest, 0x3CuLL, &pcchLength);
   if ( result >= 0 )
   {
-    if ( (unsigned __int64)v19 > 0xFFFF )
+    if ( pcchLength > 0xFFFF )
       return -2147483643;
-    LOWORD(Src[0]) = 2 * (_WORD)v19;
-    WORD1(Src[0]) = 2 * (_WORD)v19 + 2;
+    LOWORD(Src[0]) = 2 * pcchLength;
+    WORD1(Src[0]) = 2 * pcchLength + 2;
     Src[1] = pszDest;
 LABEL_3:
-    v24 = Src;
-    v22[0] = 48;
-    v23 = 0LL;
-    v25 = 592;
-    v27 = 0LL;
-    result = ObCreateObjectEx(0, IoDriverObjectType, (__int64)v22, 0, (__int64)NewObject, 416, 0, 0, &Object, 0LL);
+    v27 = Src;
+    v25[0] = 48;
+    v26 = 0LL;
+    v28 = 592;
+    v30 = 0LL;
+    result = ObCreateObjectEx(0, IoDriverObjectType, (int)v25, 0, Object, 416, 0, 0, &DmaAdapter, 0LL);
     if ( result < 0 )
       return result;
-    v4 = Object;
-    memset(Object, 0, 0x1A0uLL);
-    v4[6] = v4 + 42;
-    v4[42] = v4;
-    *(_DWORD *)v4 = 22020100;
-    *((_DWORD *)v4 + 4) = 4;
-    memset64(v4 + 14, (unsigned __int64)IopInvalidDeviceRequest, 0x1CuLL);
-    v4[11] = a2;
+    v4 = DmaAdapter;
+    memset(DmaAdapter, 0, 0x1A0uLL);
+    *(_QWORD *)&v4[3].Version = v4 + 21;
+    *(_QWORD *)&v4[21].Version = v4;
+    *(_DWORD *)&v4->Version = 22020100;
+    *(_DWORD *)&v4[1].Version = 4;
+    memset64(&v4[7], (unsigned __int64)IopInvalidDeviceRequest, 0x1CuLL);
+    v4[5].DmaOperations = a2;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquireResourceSharedLite(&PsLoadedModuleResource, 1u);
-    v6 = (PVOID *)PsLoadedModuleList;
-    v7 = (void **)Object;
-    while ( v6 != &PsLoadedModuleList )
+    for ( i = (PVOID *)PsLoadedModuleList; i != &PsLoadedModuleList; i = (PVOID *)*i )
     {
-      v8 = (unsigned __int64)v6[6];
-      if ( (unsigned __int64)a2 >= v8 && (unsigned __int64)a2 < v8 + *((unsigned int *)v6 + 16) )
+      v7 = (_DMA_OPERATIONS *)i[6];
+      if ( a2 >= v7 && a2 < (_DMA_OPERATIONS *)((char *)v7 + *((unsigned int *)i + 16)) )
       {
-        *((_QWORD *)Object + 3) = v8;
+        DmaAdapter[1].DmaOperations = v7;
         break;
       }
-      v6 = (PVOID *)*v6;
     }
     ExReleaseResourceLite(&PsLoadedModuleResource);
-    KeLeaveCriticalRegion();
-    Pool2 = (_WORD *)ExAllocatePool2(256LL, LOWORD(Src[0]) + 2LL, 860778313LL);
-    *((_QWORD *)&v21 + 1) = Pool2;
-    v10 = Pool2;
-    if ( Pool2 )
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    Pool = IopVerifierExAllocatePool(PagedPool, LOWORD(Src[0]) + 2LL);
+    *((_QWORD *)&v24 + 1) = Pool;
+    v9 = Pool;
+    if ( Pool )
     {
-      LOWORD(v21) = Src[0];
-      v11 = LOWORD(Src[0]);
-      WORD1(v21) = LOWORD(Src[0]) + 2;
-      memmove(Pool2, Src[1], LOWORD(Src[0]));
-      v12 = v21;
-      v10[v11 >> 1] = 0;
-      *(_OWORD *)(v4[6] + 24LL) = v12;
-      inserted = ObInsertObject(v7, 0LL, 1u, 0, 0LL, &Handle);
+      LOWORD(v24) = Src[0];
+      v10 = LOWORD(Src[0]);
+      WORD1(v24) = LOWORD(Src[0]) + 2;
+      memmove(Pool, Src[1], LOWORD(Src[0]));
+      v11 = v24;
+      v12 = DmaAdapter;
+      v9[v10 >> 1] = 0;
+      *(_OWORD *)(*(_QWORD *)&v4[3].Version + 24LL) = v11;
+      inserted = ObInsertObjectEx(v12, 0LL, 1u, 0, 0, 0LL, (unsigned __int64 *)&Handle);
       if ( inserted < 0 )
         return inserted;
-      v19 = 0LL;
-      v14 = ObReferenceObjectByHandle(Handle, 0, IoDriverObjectType, 0, &v19, 0LL);
-      v7 = (void **)v19;
-      inserted = v14;
-      if ( v14 < 0 )
+      v14 = Handle;
+      v23 = 0LL;
+      v15 = ObReferenceObjectByHandle(Handle, 0, IoDriverObjectType, 0, &v23, 0LL);
+      v16 = v23;
+      inserted = v15;
+      if ( v15 < 0 )
       {
-        ZwMakeTemporaryObject(Handle);
-        ZwClose(Handle);
+        ZwMakeTemporaryObject(v14);
+        ZwClose(v14);
         return inserted;
       }
-      ZwClose(Handle);
-      v15 = ExAllocatePool2(64LL, WORD1(Src[0]), 860778313LL);
-      v7[8] = (void *)v15;
-      if ( v15 )
+      ZwClose(v14);
+      v17 = IopVerifierExAllocatePool(NonPagedPoolNx, WORD1(Src[0]));
+      *((_QWORD *)v16 + 8) = v17;
+      if ( v17 )
       {
-        *((_DWORD *)v7 + 14) = Src[0];
-        memmove(v7[8], Src[1], WORD1(Src[0]));
+        *((_DWORD *)v16 + 14) = Src[0];
+        memmove(*((void **)v16 + 8), Src[1], WORD1(Src[0]));
       }
-      inserted = a2(v7, 0LL);
+      inserted = ((__int64 (__fastcall *)(void *, _QWORD))a2)(v16, 0LL);
       if ( inserted >= 0 )
       {
         EtwTiLogDriverObjectLoad((unsigned __int16 *)Src);
@@ -159,10 +162,11 @@ LABEL_3:
     }
     else
     {
+      v16 = DmaAdapter;
       inserted = -1073741670;
     }
-    ObMakeTemporaryObject(v7);
-    ObfDereferenceObject(v7);
+    ObMakeTemporaryObject(v16);
+    HalPutDmaAdapter((PADAPTER_OBJECT)v16);
     return inserted;
   }
   return result;

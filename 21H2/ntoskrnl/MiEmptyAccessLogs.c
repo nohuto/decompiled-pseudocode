@@ -1,23 +1,23 @@
 /*
- * XREFs of MiEmptyAccessLogs @ 0x140375ED0
+ * XREFs of MiEmptyAccessLogs @ 0x1403A3430
  * Callers:
  *     <none>
  * Callees:
- *     MmDetachSession @ 0x140231240 (MmDetachSession.c)
- *     MmAttachSession @ 0x1402312E0 (MmAttachSession.c)
- *     MiGetSessionVm @ 0x14027B520 (MiGetSessionVm.c)
- *     MiDrainSystemAccessLog @ 0x1402829D0 (MiDrainSystemAccessLog.c)
- *     MiGetSharedVm @ 0x140282AD0 (MiGetSharedVm.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiGetNextSession @ 0x1402A1788 (MiGetNextSession.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     MiCheckAndProcessCcAccessLog @ 0x1403760B4 (MiCheckAndProcessCcAccessLog.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PsGetNextProcess @ 0x1407B6B90 (PsGetNextProcess.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiDrainSystemAccessLog @ 0x14025BB80 (MiDrainSystemAccessLog.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
+ *     MmAttachSession @ 0x140298FE0 (MmAttachSession.c)
+ *     MiGetNextSession @ 0x1402D5FA8 (MiGetNextSession.c)
+ *     MiGetSessionVm @ 0x14031219C (MiGetSessionVm.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x1403A3614 (MiCheckAndProcessCcAccessLog.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PsGetNextProcess @ 0x1406CE7A0 (PsGetNextProcess.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void MiEmptyAccessLogs()
@@ -26,39 +26,46 @@ void MiEmptyAccessLogs()
   unsigned __int64 v1; // rdi
   _KPROCESS *i; // rcx
   __int64 NextProcess; // rax
-  _KPROCESS *v4; // rdi
-  __int64 v5; // r14
-  _DWORD *v6; // r9
-  _QWORD *j; // rcx
-  void *NextSession; // rax
-  __int64 v9; // rdi
+  __int64 v4; // rdx
+  _KPROCESS *v5; // rdi
+  __int64 v6; // r14
+  _DWORD *v7; // r9
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  struct _DMA_ADAPTER *j; // rcx
+  _KPROCESS *NextSession; // rax
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // rdi
   unsigned __int64 SessionVm; // rax
-  _QWORD *v11; // rdi
-  __int64 v12; // r14
-  unsigned __int64 v13; // rdi
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  _QWORD *v18; // rdi
+  __int64 v19; // r14
+  unsigned __int64 v20; // rdi
   unsigned __int64 OldIrql; // rdi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
-  int v18; // eax
-  bool v19; // zf
-  unsigned __int8 v20; // al
-  struct _KPRCB *v21; // r10
-  _DWORD *v22; // r9
-  int v23; // eax
-  unsigned __int8 v24; // al
-  struct _KPRCB *v25; // r9
-  _DWORD *v26; // r8
-  int v27; // eax
+  int v25; // eax
+  bool v26; // zf
+  unsigned __int8 v27; // al
+  struct _KPRCB *v28; // r10
+  _DWORD *v29; // r9
+  int v30; // eax
+  unsigned __int8 v31; // al
+  struct _KPRCB *v32; // r9
+  _DWORD *v33; // r8
+  int v34; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-50h] BYREF
-  _OWORD v29[3]; // [rsp+38h] [rbp-38h] BYREF
+  _OWORD v36[3]; // [rsp+38h] [rbp-38h] BYREF
 
-  memset(v29, 0, sizeof(v29));
+  memset(v36, 0, sizeof(v36));
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&qword_140C52B80, &LockHandle);
-  if ( dword_140C52B68 )
+  KeAcquireInStackQueuedSpinLock(&qword_140C4E840, &LockHandle);
+  if ( dword_140C4E828 )
   {
-    stru_140C52B48.Parameter = 0LL;
+    stru_140C4E808.Parameter = 0LL;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
@@ -70,10 +77,10 @@ void MiEmptyAccessLogs()
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v18 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v19 = (v18 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v18;
-          if ( v19 )
+          v25 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v26 = (v25 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v25;
+          if ( v26 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
@@ -85,94 +92,94 @@ void MiEmptyAccessLogs()
     v0 = 0LL;
     do
     {
-      stru_140C52B48.Parameter = (void *)2;
+      stru_140C4E808.Parameter = (void *)2;
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       v1 = LockHandle.OldIrql;
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          v20 = KeGetCurrentIrql();
-          if ( v20 <= 0xFu && LockHandle.OldIrql <= 0xFu && v20 >= 2u )
+          v27 = KeGetCurrentIrql();
+          if ( v27 <= 0xFu && LockHandle.OldIrql <= 0xFu && v27 >= 2u )
           {
-            v21 = KeGetCurrentPrcb();
-            v22 = v21->SchedulerAssist;
-            v23 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-            v19 = (v23 & v22[5]) == 0;
-            v22[5] &= v23;
-            if ( v19 )
-              KiRemoveSystemWorkPriorityKick(v21);
+            v28 = KeGetCurrentPrcb();
+            v29 = v28->SchedulerAssist;
+            v30 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+            v26 = (v30 & v29[5]) == 0;
+            v29[5] &= v30;
+            if ( v26 )
+              KiRemoveSystemWorkPriorityKick(v28);
           }
         }
       }
       __writecr8(v1);
-      for ( i = 0LL; ; i = v4 )
+      for ( i = 0LL; ; i = v5 )
       {
         NextProcess = PsGetNextProcess(i);
-        v4 = (_KPROCESS *)NextProcess;
+        v5 = (_KPROCESS *)NextProcess;
         if ( !NextProcess )
           break;
-        v5 = NextProcess + 1664;
+        v6 = NextProcess + 1664;
         if ( *((_QWORD *)MiGetSharedVm(NextProcess + 1664) + 5) )
         {
-          KiStackAttachProcess(v4, 0LL, (__int64)v29, v6);
-          MiDrainSystemAccessLog(v5);
-          KiUnstackDetachProcess((__int64)v29, 0LL);
+          KiStackAttachProcess(v5, 0LL, (__int64)v36, v7);
+          MiDrainSystemAccessLog(v6, v8, v9);
+          KiUnstackDetachProcess((__int64)v36, 0);
         }
       }
-      for ( j = 0LL; ; j = (_QWORD *)v9 )
+      for ( j = 0LL; ; j = (struct _DMA_ADAPTER *)v14 )
       {
-        NextSession = MiGetNextSession(j);
-        v9 = (__int64)NextSession;
+        NextSession = (_KPROCESS *)MiGetNextSession(j, v4);
+        v14 = (__int64)NextSession;
         if ( !NextSession )
           break;
-        if ( (int)MmAttachSession((ULONG_PTR)NextSession) >= 0 )
+        if ( (int)MmAttachSession(NextSession, (__int64)v36) >= 0 )
         {
           SessionVm = MiGetSessionVm();
-          MiDrainSystemAccessLog(SessionVm);
-          MmDetachSession(v9, (__int64)v29);
+          MiDrainSystemAccessLog(SessionVm, v16, v17);
+          MmDetachSession(v14, (__int64)v36);
         }
       }
-      v11 = &unk_140C53580;
-      v12 = 3LL;
+      v18 = &unk_140C4F000;
+      v19 = 3LL;
       do
       {
-        if ( v11[14] )
-          MiDrainSystemAccessLog((__int64)v11);
-        v11 += 40;
-        --v12;
+        if ( v18[14] )
+          MiDrainSystemAccessLog((__int64)v18, v12, v13);
+        v18 += 40;
+        --v19;
       }
-      while ( v12 );
+      while ( v19 );
       MiCheckAndProcessCcAccessLog(0LL, 1LL);
-      KeAcquireInStackQueuedSpinLock(&qword_140C52B80, &LockHandle);
+      KeAcquireInStackQueuedSpinLock(&qword_140C4E840, &LockHandle);
     }
-    while ( stru_140C52B48.Parameter != (void *)2 );
-    if ( !dword_140C52B68 )
+    while ( stru_140C4E808.Parameter != (void *)2 );
+    if ( !dword_140C4E828 )
     {
-      v0 = ListEntry;
-      ListEntry = 0LL;
+      v0 = P;
+      P = 0LL;
     }
-    stru_140C52B48.Parameter = 0LL;
+    stru_140C4E808.Parameter = 0LL;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-    v13 = LockHandle.OldIrql;
+    v20 = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v24 = KeGetCurrentIrql();
-        if ( v24 <= 0xFu && LockHandle.OldIrql <= 0xFu && v24 >= 2u )
+        v31 = KeGetCurrentIrql();
+        if ( v31 <= 0xFu && LockHandle.OldIrql <= 0xFu && v31 >= 2u )
         {
-          v25 = KeGetCurrentPrcb();
-          v26 = v25->SchedulerAssist;
-          v27 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v19 = (v27 & v26[5]) == 0;
-          v26[5] &= v27;
-          if ( v19 )
-            KiRemoveSystemWorkPriorityKick(v25);
+          v32 = KeGetCurrentPrcb();
+          v33 = v32->SchedulerAssist;
+          v34 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v26 = (v34 & v33[5]) == 0;
+          v33[5] &= v34;
+          if ( v26 )
+            KiRemoveSystemWorkPriorityKick(v32);
         }
       }
     }
-    __writecr8(v13);
+    __writecr8(v20);
     if ( v0 )
       ExFreePoolWithTag(v0, 0);
   }

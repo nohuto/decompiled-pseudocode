@@ -1,10 +1,10 @@
 /*
- * XREFs of ?VidMmiClosePerfCounters@@YAXPEAUVIDMM_PARTITION_ADAPTER_INFO@@@Z @ 0x1C003134C
+ * XREFs of ?VidMmiClosePerfCounters@@YAXPEAUVIDMM_PARTITION_ADAPTER_INFO@@@Z @ 0x1C0026E04
  * Callers:
- *     ?ResetAdapter@VIDMM_PARTITION@@QEAAXPEAVVIDMM_GLOBAL@@@Z @ 0x1C0031310 (-ResetAdapter@VIDMM_PARTITION@@QEAAXPEAVVIDMM_GLOBAL@@@Z.c)
- *     ?DeInitializePartitionForAllAdapters@VIDMM_GLOBAL@@SAXPEAUVIDMM_PARTITION@@@Z @ 0x1C00D5BD4 (-DeInitializePartitionForAllAdapters@VIDMM_GLOBAL@@SAXPEAUVIDMM_PARTITION@@@Z.c)
+ *     ?ResetAdapter@VIDMM_PARTITION@@QEAAXPEAVVIDMM_GLOBAL@@@Z @ 0x1C0026DC8 (-ResetAdapter@VIDMM_PARTITION@@QEAAXPEAVVIDMM_GLOBAL@@@Z.c)
+ *     ?DeInitializePartitionForAllAdapters@VIDMM_GLOBAL@@SAXPEAUVIDMM_PARTITION@@@Z @ 0x1C00AE960 (-DeInitializePartitionForAllAdapters@VIDMM_GLOBAL@@SAXPEAUVIDMM_PARTITION@@@Z.c)
  * Callees:
- *     ?GetSegmentGroupStateForPartition@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KPEAUVIDMM_PARTITION@@@Z @ 0x1C00A7394 (-GetSegmentGroupStateForPartition@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KPEAUVIDMM_PA.c)
+ *     ?GetSegmentGroupStateForPartition@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KPEAUVIDMM_PARTITION@@@Z @ 0x1C008B3D0 (-GetSegmentGroupStateForPartition@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KPEAUVIDMM_PA.c)
  */
 
 void __fastcall VidMmiClosePerfCounters(struct VIDMM_PARTITION_ADAPTER_INFO *a1)
@@ -16,7 +16,7 @@ void __fastcall VidMmiClosePerfCounters(struct VIDMM_PARTITION_ADAPTER_INFO *a1)
   struct _PCW_INSTANCE *v6; // rcx
 
   v1 = (VIDMM_GLOBAL *)*((_QWORD *)a1 + 1);
-  for ( i = 0; i < *((_DWORD *)v1 + 1754); ++i )
+  for ( i = 0; i < *((_DWORD *)v1 + 1750); ++i )
   {
     SegmentGroupStateForPartition = VIDMM_GLOBAL::GetSegmentGroupStateForPartition(
                                       v1,

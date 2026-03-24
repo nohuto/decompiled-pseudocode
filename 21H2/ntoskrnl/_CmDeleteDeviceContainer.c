@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmDeleteDeviceContainer @ 0x140A25858
+ * XREFs of _CmDeleteDeviceContainer @ 0x14072BE7C
  * Callers:
- *     _CmAddDeviceToContainerWorker @ 0x14076CA78 (_CmAddDeviceToContainerWorker.c)
- *     _CmRemoveDeviceFromContainerWorker @ 0x140A26994 (_CmRemoveDeviceFromContainerWorker.c)
+ *     _CmRemoveDeviceFromContainerWorker @ 0x14072BC20 (_CmRemoveDeviceFromContainerWorker.c)
+ *     _CmAddDeviceToContainerWorker @ 0x140759280 (_CmAddDeviceToContainerWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     _CmDeleteDeviceContainerWorker @ 0x140A25D48 (_CmDeleteDeviceContainerWorker.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _CmDeleteDeviceContainerWorker @ 0x14072BFD4 (_CmDeleteDeviceContainerWorker.c)
  */
 
 __int64 __fastcall CmDeleteDeviceContainer(__int64 a1, __int64 a2)
@@ -16,9 +16,9 @@ __int64 __fastcall CmDeleteDeviceContainer(__int64 a1, __int64 a2)
   int v5; // eax
   unsigned int v6; // eax
   unsigned int v7; // ebx
-  int v8; // eax
-  int v9; // ecx
-  unsigned int v10; // eax
+  int v9; // eax
+  int v10; // ecx
+  unsigned int v11; // eax
   _DWORD v12[22]; // [rsp+40h] [rbp-88h] BYREF
 
   memset(v12, 0, sizeof(v12));
@@ -43,14 +43,14 @@ __int64 __fastcall CmDeleteDeviceContainer(__int64 a1, __int64 a2)
   if ( !v4 )
     return v7;
   v12[0] = v6;
-  v8 = v4(a1, a2, 5LL);
-  v9 = v8;
-  if ( v8 == -1073741822 )
+  v9 = v4(a1, a2, 5LL);
+  v10 = v9;
+  if ( v9 == -1073741822 )
     return v7;
-  if ( v8 == -1073741536 )
+  if ( v9 == -1073741536 )
     return v12[0];
-  v10 = v7;
-  if ( v9 )
+  v11 = v7;
+  if ( v10 )
     return (unsigned int)-1073741595;
-  return v10;
+  return v11;
 }

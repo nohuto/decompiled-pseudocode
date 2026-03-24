@@ -1,75 +1,73 @@
 /*
- * XREFs of KiInitializeMTRR @ 0x140B1A508
+ * XREFs of KiInitializeMTRR @ 0x140A4CEC4
  * Callers:
- *     KiInitMachineDependent @ 0x1403CB7F4 (KiInitMachineDependent.c)
+ *     KiInitMachineDependent @ 0x1403B588C (KiInitMachineDependent.c)
  * Callees:
- *     MiLockPagableImageSection @ 0x1402FD820 (MiLockPagableImageSection.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MmLockPagableSectionByHandle @ 0x1406BC300 (MmLockPagableSectionByHandle.c)
- *     KiReadFixedMtrr @ 0x140A53D88 (KiReadFixedMtrr.c)
- *     KiMaskToLength @ 0x140A5A21C (KiMaskToLength.c)
- *     KeRestoreMtrrBroadcast @ 0x140A5A248 (KeRestoreMtrrBroadcast.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     MiLockPagableImageSection @ 0x14031C4F0 (MiLockPagableImageSection.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MmLockPagableSectionByHandle @ 0x1406EF0C0 (MmLockPagableSectionByHandle.c)
+ *     KiReadFixedMtrr @ 0x140999A98 (KiReadFixedMtrr.c)
+ *     KiMaskToLength @ 0x14099F3E8 (KiMaskToLength.c)
+ *     KeRestoreMtrrBroadcast @ 0x14099F414 (KeRestoreMtrrBroadcast.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall KiInitializeMTRR(char a1)
 {
-  char v1; // r13
-  unsigned __int64 v2; // rbx
-  unsigned __int64 v3; // r15
-  unsigned int v4; // ebp
-  __int64 v5; // rsi
-  unsigned int v6; // r14d
-  unsigned __int64 v7; // rdi
-  unsigned __int64 v8; // rax
-  __int64 v9; // r12
-  unsigned __int64 v10; // rbx
-  __int64 v11; // rsi
+  char v1; // di
+  char v2; // r15
+  unsigned __int64 v3; // rbx
+  unsigned __int64 v4; // r12
+  unsigned int v5; // ebp
+  __int64 v6; // rsi
+  unsigned int v7; // r14d
+  unsigned __int64 v8; // rdi
+  unsigned __int64 v9; // rax
+  __int64 v10; // r13
+  unsigned __int64 v11; // rbx
+  __int64 v12; // rsi
   struct _KPRCB *CurrentPrcb; // r8
   PVOID PoolWithTag; // rax
-  size_t v14; // rbx
-  PVOID v15; // rax
-  unsigned __int64 v16; // rax
+  size_t v15; // rbx
+  PVOID v16; // rax
 
-  v1 = 1;
+  v1 = a1;
+  v2 = 1;
   if ( !KeGetPcr()->Prcb.Number )
   {
-    qword_140C2AF28 = __readmsr(0xFEu);
+    qword_140C2B388 = __readmsr(0xFEu);
     KiMtrrInfo = __readmsr(0x2FFu);
     CurrentPrcb = KeGetCurrentPrcb();
-    byte_140C2AF31 = 0;
+    byte_140C2B391 = 0;
     if ( CurrentPrcb->CpuVendor == 1 )
+      byte_140C2B391 = (__readmsr(0xC0010010) & 0x40000) != 0;
+    if ( (((_BYTE)qword_140C2B388 != 0) & _bittest64(&KiMtrrInfo, 0xBu)) != 0 )
     {
-      v16 = __readmsr(0xC0010010);
-      byte_140C2AF31 = (v16 & 0x1040000) == 0x40000;
-    }
-    if ( (((_BYTE)qword_140C2AF28 != 0) & _bittest64(&KiMtrrInfo, 0xBu)) != 0 )
-    {
-      if ( (KeFeatureBits & 0x40) == 0 && (qword_140C2AF28 & 0x400) != 0 )
-        qword_140C2AF28 &= ~0x400uLL;
-      PoolWithTag = qword_140C2AF38;
-      v14 = 16 * (unsigned int)(unsigned __int8)qword_140C2AF28;
-      if ( qword_140C2AF38
-        || (PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)v14, 0x2020654Bu),
-            (qword_140C2AF38 = PoolWithTag) != 0LL) )
+      if ( (KeFeatureBits & 0x40) == 0 && (qword_140C2B388 & 0x400) != 0 )
+        qword_140C2B388 &= ~0x400uLL;
+      PoolWithTag = qword_140C2B398;
+      v15 = 16 * (unsigned int)(unsigned __int8)qword_140C2B388;
+      if ( qword_140C2B398
+        || (PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)v15, 0x2020654Bu),
+            (qword_140C2B398 = PoolWithTag) != 0LL) )
       {
-        memset(PoolWithTag, 0, v14);
+        memset(PoolWithTag, 0, v15);
       }
-      v15 = qword_140C2AF40;
-      if ( qword_140C2AF40
-        || _bittest64(&qword_140C2AF28, 8u)
-        && (v15 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x58uLL, 0x2020654Bu), (qword_140C2AF40 = v15) != 0LL) )
+      v16 = qword_140C2B3A0;
+      if ( qword_140C2B3A0
+        || (qword_140C2B388 & 0x100) != 0
+        && (v16 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x58uLL, 0x2020654Bu), (qword_140C2B3A0 = v16) != 0LL) )
       {
-        memset(v15, 0, 0x58uLL);
+        memset(v16, 0, 0x58uLL);
       }
     }
     else
     {
       if ( (KeFeatureBits & 0x40) != 0
-        && (qword_140C2AF28 & 0x1FF) != 0
+        && (qword_140C2B388 & 0x1FF) != 0
         && (KiMtrrInfo & 0x800) == 0
         && (CurrentPrcb->CpuVendor != 1 || (_BYTE)KiMtrrInfo != 6)
         && (_BYTE)KdDebuggerEnabled )
@@ -77,58 +75,66 @@ void __fastcall KiInitializeMTRR(char a1)
         DbgPrintEx(0x65u, 0, "Caching is disabled by incorrect MTRR settings.\n");
         __debugbreak();
       }
-      v1 = 0;
+      v2 = 0;
     }
   }
-  if ( !qword_140C2AF38 || !qword_140C2AF40 && _bittest64(&qword_140C2AF28, 8u) )
-    goto LABEL_47;
-  v2 = __readmsr(0xFEu);
-  if ( (KeFeatureBits & 0x40) == 0 && (v2 & 0x400) != 0 )
-    v2 &= ~0x400uLL;
-  if ( v2 != qword_140C2AF28 )
-    KeBugCheckEx(0x3Eu, 0x40uLL, 0LL, 0LL, 0LL);
-  if ( __readmsr(0x2FFu) != KiMtrrInfo )
-    DbgPrintEx(0x65u, 0, "KiInitializeMTRR: MTRR_MSR_DEFAULT is not consistent between processors.\n");
-  if ( !v1 )
-    goto LABEL_47;
-  if ( KeGetPcr()->Prcb.Number )
-    goto LABEL_21;
-  if ( qword_140C2AF40 )
-    KiReadFixedMtrr(qword_140C2AF40);
-  v3 = (unsigned __int8)v2;
-  v4 = 0;
-  if ( !(_BYTE)v2 )
-    goto LABEL_21;
-  v5 = 0LL;
-  v6 = 513;
-  do
+  if ( qword_140C2B398 && (qword_140C2B3A0 || (qword_140C2B388 & 0x100) == 0) )
   {
-    v7 = __readmsr(v6 - 1);
-    v8 = __readmsr(v6);
-    v10 = v8;
-    if ( (v8 & 0x800) != 0 )
+    v3 = __readmsr(0xFEu);
+    if ( (KeFeatureBits & 0x40) == 0 && (v3 & 0x400) != 0 )
+      v3 &= ~0x400uLL;
+    if ( v3 != qword_140C2B388 )
+      KeBugCheckEx(0x3Eu, 0x40uLL, 0LL, 0LL, 0LL);
+    if ( __readmsr(0x2FFu) != KiMtrrInfo )
+      DbgPrintEx(0x65u, 0, "KiInitializeMTRR: MTRR_MSR_DEFAULT is not consistent between processors.\n");
+  }
+  else
+  {
+    v2 = 0;
+    LOBYTE(v3) = 0;
+  }
+  if ( !v2 )
+    goto LABEL_50;
+  if ( !KeGetPcr()->Prcb.Number )
+  {
+    if ( qword_140C2B3A0 )
+      KiReadFixedMtrr(qword_140C2B3A0);
+    v4 = (unsigned __int8)v3;
+    v5 = 0;
+    if ( (_BYTE)v3 )
     {
-      v9 = v8 & KiMtrrMaskMask;
-      if ( ((KiMaskToLength(v8 & KiMtrrMaskMask) + v9) & ~(1LL << KiMtrrMaxRangeShift)) != 0 )
+      v6 = 0LL;
+      v7 = 513;
+      do
       {
-        DbgPrintEx(0x65u, 0, "KiInitializeMTRR: Found non-contiguous MTRR mask!\n");
-        v1 = 0;
+        v8 = __readmsr(v7 - 1);
+        v9 = __readmsr(v7);
+        v11 = v9;
+        if ( (v9 & 0x800) != 0 )
+        {
+          v10 = v9 & KiMtrrMaskMask;
+          if ( ((v10 + KiMaskToLength(v9 & KiMtrrMaskMask)) & ~(1LL << KiMtrrMaxRangeShift)) != 0 )
+          {
+            DbgPrintEx(0x65u, 0, "KiInitializeMTRR: Found non-contiguous MTRR mask!\n");
+            v2 = 0;
+          }
+          v12 = 2 * v6;
+          *((_QWORD *)qword_140C2B398 + v12) = v8;
+          *((_QWORD *)qword_140C2B398 + v12 + 1) = v11;
+        }
+        ++v5;
+        v7 += 2;
+        v6 = v5;
       }
-      v11 = 2 * v5;
-      *((_QWORD *)qword_140C2AF38 + v11) = v7;
-      *((_QWORD *)qword_140C2AF38 + v11 + 1) = v10;
+      while ( v5 < v4 );
+      v1 = a1;
     }
-    ++v4;
-    v6 += 2;
-    v5 = v4;
   }
-  while ( v4 < v3 );
-  if ( v1 )
+  if ( v2 )
   {
-LABEL_21:
-    if ( a1 )
+    if ( v1 )
     {
-      byte_140C2AF30 = 1;
+      byte_140C2B390 = 1;
       if ( KeGetCurrentIrql() < 2u )
       {
         MmLockPagableSectionByHandle(ExPageLockHandle);
@@ -139,16 +145,16 @@ LABEL_21:
   }
   else
   {
-LABEL_47:
-    if ( qword_140C2AF38 )
+LABEL_50:
+    if ( qword_140C2B398 )
     {
-      ExFreePoolWithTag(qword_140C2AF38, 0);
-      qword_140C2AF38 = 0LL;
+      ExFreePoolWithTag(qword_140C2B398, 0);
+      qword_140C2B398 = 0LL;
     }
-    if ( qword_140C2AF40 )
+    if ( qword_140C2B3A0 )
     {
-      ExFreePoolWithTag(qword_140C2AF40, 0);
-      qword_140C2AF40 = 0LL;
+      ExFreePoolWithTag(qword_140C2B3A0, 0);
+      qword_140C2B3A0 = 0LL;
     }
   }
 }

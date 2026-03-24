@@ -1,8 +1,8 @@
 /*
- * XREFs of PnpWatchdogExtractTriageInformation @ 0x14056274C
+ * XREFs of PnpWatchdogExtractTriageInformation @ 0x14050EF40
  * Callers:
- *     PnpWatchdogBugcheck @ 0x1405623A0 (PnpWatchdogBugcheck.c)
- *     PnpWatchdogEtwWrite @ 0x140950084 (PnpWatchdogEtwWrite.c)
+ *     PnpWatchdogBugcheck @ 0x14050EB70 (PnpWatchdogBugcheck.c)
+ *     PnpWatchdogEtwWrite @ 0x1408AB894 (PnpWatchdogEtwWrite.c)
  * Callees:
  *     <none>
  */
@@ -62,7 +62,7 @@ _QWORD *__fastcall PnpWatchdogExtractTriageInformation(__int64 a1, _QWORD *a2, _
     }
     else
     {
-      *a3 = PnpDeviceActionThread;
+      *a3 = PnpDeviceActionThread[0];
       v15 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL);
       *a2 = v15;
       if ( v15 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlWriteNonVolatileMemory @ 0x1405EC4A0
+ * XREFs of RtlWriteNonVolatileMemory @ 0x14058CE50
  * Callers:
- *     CcMapAndCopyInToCache @ 0x1402BD970 (CcMapAndCopyInToCache.c)
+ *     CcMapAndCopyInToCache @ 0x140331C70 (CcMapAndCopyInToCache.c)
  * Callees:
- *     RtlCopyMemoryNonTemporal @ 0x14042A290 (RtlCopyMemoryNonTemporal.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlFlushNonVolatileMemory @ 0x1405E4740 (RtlFlushNonVolatileMemory.c)
+ *     RtlCopyMemoryNonTemporal @ 0x140408260 (RtlCopyMemoryNonTemporal.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlFlushNonVolatileMemory @ 0x140585C10 (RtlFlushNonVolatileMemory.c)
  */
 
 __int64 __fastcall RtlWriteNonVolatileMemory(char a1, void *a2, const void *a3, size_t a4, __int16 a5)

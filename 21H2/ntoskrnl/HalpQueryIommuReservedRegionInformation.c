@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpQueryIommuReservedRegionInformation @ 0x140846600
+ * XREFs of HalpQueryIommuReservedRegionInformation @ 0x140765484
  * Callers:
- *     HaliQuerySystemInformation @ 0x140A47990 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x14098FEF0 (HaliQuerySystemInformation.c)
  * Callees:
- *     HalpIommuFreeDeviceId @ 0x1403CD2B8 (HalpIommuFreeDeviceId.c)
- *     HalpIommuGetDeviceId @ 0x1403CD2D0 (HalpIommuGetDeviceId.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpIommuLocateFromDevice @ 0x14084667C (HalpIommuLocateFromDevice.c)
+ *     HalpIommuFreeDeviceId @ 0x140379A1C (HalpIommuFreeDeviceId.c)
+ *     HalpIommuGetDeviceId @ 0x140379A34 (HalpIommuGetDeviceId.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpIommuLocateFromDevice @ 0x140765500 (HalpIommuLocateFromDevice.c)
  */
 
 __int64 __fastcall HalpQueryIommuReservedRegionInformation(__int64 a1, unsigned int a2)
 {
-  __int64 v3; // rcx
+  struct _DEVICE_OBJECT *v3; // rcx
   int DeviceId; // ebx
   __int64 (__fastcall *v6)(__int64); // rax
   __int64 v7; // [rsp+40h] [rbp+18h] BYREF
@@ -19,7 +19,7 @@ __int64 __fastcall HalpQueryIommuReservedRegionInformation(__int64 a1, unsigned 
 
   if ( a2 < 0x10 )
     return 3221225485LL;
-  v3 = *(_QWORD *)a1;
+  v3 = *(struct _DEVICE_OBJECT **)a1;
   v7 = 0LL;
   v8 = 0LL;
   DeviceId = HalpIommuGetDeviceId(v3, &v7);

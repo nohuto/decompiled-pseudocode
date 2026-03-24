@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBISM_CompletingIdleIrpWithStatusInvalidDeviceState @ 0x1C003EF60
+ * XREFs of HUBISM_CompletingIdleIrpWithStatusInvalidDeviceState @ 0x1C003C090
  * Callers:
  *     <none>
  * Callees:

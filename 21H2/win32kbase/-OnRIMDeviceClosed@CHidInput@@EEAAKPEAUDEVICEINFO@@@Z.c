@@ -1,11 +1,11 @@
 /*
- * XREFs of ?OnRIMDeviceClosed@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z @ 0x1C01E2610
+ * XREFs of ?OnRIMDeviceClosed@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z @ 0x1C00B4940
  * Callers:
  *     <none>
  * Callees:
- *     ?OnRimDeviceClosed@CTouchProcessor@@QEAAXPEAX@Z @ 0x1C01CEE84 (-OnRimDeviceClosed@CTouchProcessor@@QEAAXPEAX@Z.c)
- *     ?UpdatePointerDeviceCount@CHidInput@@AEAAKK@Z @ 0x1C01E2F68 (-UpdatePointerDeviceCount@CHidInput@@AEAAKK@Z.c)
- *     IsPublicPointerDevice @ 0x1C01E8040 (IsPublicPointerDevice.c)
+ *     IsPublicPointerDevice @ 0x1C00B49B8 (IsPublicPointerDevice.c)
+ *     ?OnRimDeviceClosed@CTouchProcessor@@QEAAXPEAX@Z @ 0x1C01976B4 (-OnRimDeviceClosed@CTouchProcessor@@QEAAXPEAX@Z.c)
+ *     ?UpdatePointerDeviceCount@CHidInput@@AEAAKK@Z @ 0x1C01AAB48 (-UpdatePointerDeviceCount@CHidInput@@AEAAKK@Z.c)
  */
 
 __int64 __fastcall CHidInput::OnRIMDeviceClosed(CHidInput *this, void **a2)

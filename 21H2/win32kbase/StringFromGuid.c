@@ -1,25 +1,25 @@
 /*
- * XREFs of StringFromGuid @ 0x1C0241BAC
+ * XREFs of StringFromGuid @ 0x1C0200BF4
  * Callers:
- *     CreateVmSharedMemorySection @ 0x1C02419A0 (CreateVmSharedMemorySection.c)
+ *     CreateVmSharedMemorySection @ 0x1C02009D8 (CreateVmSharedMemorySection.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall StringFromGuid(unsigned int *a1, __int64 a2)
 {
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   unsigned __int64 v6; // rdx
 
   *(_WORD *)(a2 + 2) = 78;
-  Pool2 = (wchar_t *)ExAllocatePool2(64LL, 78LL);
-  *(_QWORD *)(a2 + 8) = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x4EuLL, 0x6B674D53u);
+  *(_QWORD *)(a2 + 8) = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
   v6 = *(unsigned __int16 *)(a2 + 2);
   *(_WORD *)a2 = 76;
   swprintf_s(
-    Pool2,
+    PoolWithTag,
     v6 >> 1,
     L"{%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}",
     *a1,

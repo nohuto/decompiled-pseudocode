@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmSetInstallerClassMappedPropertyFromCoInstallers @ 0x1408FF6CC
+ * XREFs of _CmSetInstallerClassMappedPropertyFromCoInstallers @ 0x1408FF6AC
  * Callers:
- *     _CmSetInstallerClassMappedProperty @ 0x1408FF4A0 (_CmSetInstallerClassMappedProperty.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x1408FF480 (_CmSetInstallerClassMappedProperty.c)
  * Callees:
  *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
- *     _RegRtlSetValue @ 0x1406FCBC8 (_RegRtlSetValue.c)
+ *     _RegRtlSetValue @ 0x1406FCBA8 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetInstallerClassMappedPropertyFromCoInstallers(

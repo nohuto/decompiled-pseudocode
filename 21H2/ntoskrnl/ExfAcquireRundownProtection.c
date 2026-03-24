@@ -1,8 +1,8 @@
 /*
- * XREFs of ExfAcquireRundownProtection @ 0x1402201B0
+ * XREFs of ExfAcquireRundownProtection @ 0x140290730
  * Callers:
- *     ExAcquireRundownProtectionCacheAware @ 0x140220160 (ExAcquireRundownProtectionCacheAware.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     ExAcquireRundownProtectionCacheAware @ 0x1402906E0 (ExAcquireRundownProtectionCacheAware.c)
  * Callees:
  *     <none>
  */

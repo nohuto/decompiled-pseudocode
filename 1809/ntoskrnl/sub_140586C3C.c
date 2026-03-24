@@ -2,7 +2,7 @@
  * XREFs of sub_140586C3C @ 0x140586C3C
  * Callers:
  *     ExpHwidGetDeviceProperties @ 0x1405865BC (ExpHwidGetDeviceProperties.c)
- *     sub_1408DB21C @ 0x1408DB21C (sub_1408DB21C.c)
+ *     sub_1408DB1FC @ 0x1408DB1FC (sub_1408DB1FC.c)
  * Callees:
  *     sub_140586C84 @ 0x140586C84 (sub_140586C84.c)
  */

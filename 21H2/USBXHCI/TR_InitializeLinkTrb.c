@@ -1,9 +1,9 @@
 /*
- * XREFs of TR_InitializeLinkTrb @ 0x1C0001630
+ * XREFs of TR_InitializeLinkTrb @ 0x1C000E5B0
  * Callers:
- *     Control_Transfer_MapIntoRing @ 0x1C00065C0 (Control_Transfer_MapIntoRing.c)
- *     Bulk_InsertLinkTrb @ 0x1C001A73E (Bulk_InsertLinkTrb.c)
- *     Isoch_InsertLinkTrb @ 0x1C0042784 (Isoch_InsertLinkTrb.c)
+ *     Control_Transfer_MapIntoRing @ 0x1C0004610 (Control_Transfer_MapIntoRing.c)
+ *     Isoch_InsertLinkTrb @ 0x1C0041884 (Isoch_InsertLinkTrb.c)
+ *     Bulk_InsertLinkTrb @ 0x1C0044070 (Bulk_InsertLinkTrb.c)
  * Callees:
  *     <none>
  */

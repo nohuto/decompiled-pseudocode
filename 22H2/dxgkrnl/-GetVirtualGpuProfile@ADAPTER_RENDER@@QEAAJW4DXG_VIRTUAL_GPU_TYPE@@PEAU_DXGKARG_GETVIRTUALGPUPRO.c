@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetVirtualGpuProfile@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETVIRTUALGPUPROFILE@@@Z @ 0x1C0368AA8
+ * XREFs of ?GetVirtualGpuProfile@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETVIRTUALGPUPROFILE@@@Z @ 0x1C0230B58
  * Callers:
- *     DxgkDdiGetVirtualGpuProfile @ 0x1C036A69C (DxgkDdiGetVirtualGpuProfile.c)
+ *     DxgkDdiGetVirtualGpuProfile @ 0x1C0231E5C (DxgkDdiGetVirtualGpuProfile.c)
  * Callees:
- *     ?DdiGetVirtualGpuProfile@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_GETVIRTUALGPUPROFILE@@@Z @ 0x1C036C7E0 (-DdiGetVirtualGpuProfile@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_GETVIRTUALGPUPROFILE@@@Z.c)
+ *     ?DdiGetVirtualGpuProfile@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_GETVIRTUALGPUPROFILE@@@Z @ 0x1C0233CDC (-DdiGetVirtualGpuProfile@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_GETVIRTUALGPUPROFILE@@@Z.c)
  */
 
 __int64 __fastcall ADAPTER_RENDER::GetVirtualGpuProfile(ADAPTER_RENDER *a1, int a2, __int64 a3)
@@ -36,7 +36,7 @@ __int64 __fastcall ADAPTER_RENDER::GetVirtualGpuProfile(ADAPTER_RENDER *a1, int 
     *(_DWORD *)(a3 + 4) = 2304;
     if ( !*(_DWORD *)a3 )
     {
-      v3 = *((_QWORD *)a1 + 234);
+      v3 = *((_QWORD *)a1 + 205);
       if ( v3 )
         *(_DWORD *)a3 = *(_DWORD *)(v3 + 12);
     }
@@ -46,7 +46,7 @@ __int64 __fastcall ADAPTER_RENDER::GetVirtualGpuProfile(ADAPTER_RENDER *a1, int 
   {
     if ( !*(_DWORD *)a3 )
     {
-      v5 = *((_QWORD *)a1 + 233);
+      v5 = *((_QWORD *)a1 + 204);
       if ( v5 )
         *(_DWORD *)a3 = *(_DWORD *)(v5 + 12);
     }

@@ -1,18 +1,18 @@
 /*
- * XREFs of ?ReportSegment@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00B0D90
+ * XREFs of ?ReportSegment@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C0092F90
  * Callers:
- *     ?Init@VIDMM_SEGMENT@@UEAAJP6AXPEAX@ZPEAT_LARGE_INTEGER@@@Z @ 0x1C00B0BE0 (-Init@VIDMM_SEGMENT@@UEAAJP6AXPEAX@ZPEAT_LARGE_INTEGER@@@Z.c)
- *     ?ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00D9688 (-ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ.c)
- *     ??1VIDMM_SEGMENT@@UEAA@XZ @ 0x1C00E9B90 (--1VIDMM_SEGMENT@@UEAA@XZ.c)
+ *     ?Init@VIDMM_SEGMENT@@UEAAJP6AXPEAX@ZPEAT_LARGE_INTEGER@@@Z @ 0x1C0092DD0 (-Init@VIDMM_SEGMENT@@UEAAJP6AXPEAX@ZPEAT_LARGE_INTEGER@@@Z.c)
+ *     ?ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B3368 (-ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ??1VIDMM_SEGMENT@@UEAA@XZ @ 0x1C00C6000 (--1VIDMM_SEGMENT@@UEAA@XZ.c)
  * Callees:
- *     McTemplateK0qpxxxqqxpu_EtwWriteTransfer @ 0x1C0032FA0 (McTemplateK0qpxxxqqxpu_EtwWriteTransfer.c)
+ *     McTemplateK0qpxxxqqxpu_EtwWriteTransfer @ 0x1C0028A10 (McTemplateK0qpxxxqqxpu_EtwWriteTransfer.c)
  */
 
 void __fastcall VIDMM_SEGMENT::ReportSegment(VIDMM_SEGMENT *this, __int64 a2, __int64 a3)
 {
   int v3; // [rsp+40h] [rbp-38h]
 
-  if ( (byte_1C006E941 & 1) != 0 )
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     McTemplateK0qpxxxqqxpu_EtwWriteTransfer(
       (__int64)this,
       *((_QWORD *)this + 1),

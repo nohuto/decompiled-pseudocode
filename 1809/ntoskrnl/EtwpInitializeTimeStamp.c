@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpInitializeTimeStamp @ 0x14065AFE8
+ * XREFs of EtwpInitializeTimeStamp @ 0x14065AFC8
  * Callers:
- *     EtwpStartLogger @ 0x1406591C0 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
  * Callees:
  *     KeQuerySystemTimePrecise @ 0x14008A4F0 (KeQuerySystemTimePrecise.c)
- *     RtlGetMultiTimePrecise @ 0x140138678 (RtlGetMultiTimePrecise.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlGetMultiTimePrecise @ 0x140138698 (RtlGetMultiTimePrecise.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall EtwpInitializeTimeStamp(__int64 a1)

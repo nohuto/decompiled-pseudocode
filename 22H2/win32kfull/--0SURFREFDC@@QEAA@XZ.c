@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0SURFREFDC@@QEAA@XZ @ 0x1C028E8FC
+ * XREFs of ??0SURFREFDC@@QEAA@XZ @ 0x1C028B094
  * Callers:
- *     GreDrawStream @ 0x1C00F9710 (GreDrawStream.c)
+ *     GreDrawStream @ 0x1C00839D0 (GreDrawStream.c)
  * Callees:
- *     ??0?$UnexpectedThreadTerminationHandler@VSURFREFDC@@@@QEAA@XZ @ 0x1C013F074 (--0-$UnexpectedThreadTerminationHandler@VSURFREFDC@@@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VSURFREFDC@@@@QEAA@XZ @ 0x1C016AFF0 (--0-$UnexpectedThreadTerminationHandler@VSURFREFDC@@@@QEAA@XZ.c)
  */
 
 SURFREFDC *__fastcall SURFREFDC::SURFREFDC(SURFREFDC *this)

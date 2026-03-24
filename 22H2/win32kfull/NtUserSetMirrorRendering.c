@@ -1,53 +1,46 @@
 /*
- * XREFs of NtUserSetMirrorRendering @ 0x1C01DC370
+ * XREFs of NtUserSetMirrorRendering @ 0x1C0202040
  * Callers:
  *     <none>
  * Callees:
- *     GreDisableMirrorRendering @ 0x1C0283798 (GreDisableMirrorRendering.c)
- *     GreEnableMirrorRendering @ 0x1C02838B4 (GreEnableMirrorRendering.c)
+ *     GreDisableMirrorRendering @ 0x1C0285078 (GreDisableMirrorRendering.c)
+ *     GreEnableMirrorRendering @ 0x1C0285188 (GreEnableMirrorRendering.c)
  */
 
 __int64 __fastcall NtUserSetMirrorRendering(__int64 a1, int a2)
 {
   __int64 v4; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r9
-  int v8; // ebx
-  __int64 v9; // r8
-  __int64 v10; // rcx
-  int v11; // eax
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int128 v16; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v17; // [rsp+30h] [rbp-18h]
+  __int64 v5; // rcx
+  int v6; // ebx
+  __int64 v7; // rcx
+  int v8; // eax
+  __int64 v9; // rcx
+  __int128 v11; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v12; // [rsp+30h] [rbp-18h]
 
-  v17 = 0LL;
-  v16 = 0LL;
-  EnterCrit(0LL, 0LL);
+  v12 = 0LL;
+  v11 = 0LL;
+  EnterCrit(0LL, 1LL);
   v4 = ValidateHwnd(a1);
-  v8 = 0;
-  v9 = v4;
+  v6 = 0;
   if ( v4 )
   {
-    v6 = *(_QWORD *)(v4 + 40);
-    v5 = (*(_WORD *)(v6 + 42) & 0x2FFFu) - 669;
-    if ( (v5 & 0xFFFFFFFD) != 0 )
+    v5 = *(_QWORD *)(v4 + 40);
+    if ( (((*(_WORD *)(v5 + 42) & 0x2FFF) - 669) & 0xFFFFFFFD) != 0 )
     {
-      *(_QWORD *)&v16 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v16;
-      *((_QWORD *)&v16 + 1) = v4;
+      *(_QWORD *)&v11 = *(_QWORD *)(gptiCurrent + 416LL);
+      *(_QWORD *)(gptiCurrent + 416LL) = &v11;
+      *((_QWORD *)&v11 + 1) = v4;
       HMLockObject(v4);
-      v10 = *(_QWORD *)(gpDispInfo + 40LL);
+      v7 = *(_QWORD *)(gpDispInfo + 40LL);
       if ( a2 )
-        v11 = GreEnableMirrorRendering(v10, a1);
+        v8 = GreEnableMirrorRendering(v7, a1);
       else
-        v11 = GreDisableMirrorRendering(v10, a1);
-      v8 = v11;
-      ThreadUnlock1(v13, v12, v14);
+        v8 = GreDisableMirrorRendering(v7, a1);
+      v6 = v8;
+      ThreadUnlock1(v9);
     }
   }
-  UserSessionSwitchLeaveCrit(v6, v5, v9, v7);
-  return v8;
+  UserSessionSwitchLeaveCrit(v5);
+  return v6;
 }

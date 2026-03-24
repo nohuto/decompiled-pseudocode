@@ -1,11 +1,11 @@
 /*
- * XREFs of GreGetDCOrgEx @ 0x1C00AB3F0
+ * XREFs of GreGetDCOrgEx @ 0x1C0071790
  * Callers:
- *     GetMonitorDC @ 0x1C00183FC (GetMonitorDC.c)
+ *     GetMonitorDC @ 0x1C0039C70 (GetMonitorDC.c)
  * Callees:
- *     ??1DCOBJA@@QEAA@XZ @ 0x1C002BEFC (--1DCOBJA@@QEAA@XZ.c)
- *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C002BF28 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
- *     GreGetDCPoint @ 0x1C00AB470 (GreGetDCPoint.c)
+ *     ??1DCOBJA@@QEAA@XZ @ 0x1C0037940 (--1DCOBJA@@QEAA@XZ.c)
+ *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C003796C (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
+ *     GreGetDCPoint @ 0x1C0071810 (GreGetDCPoint.c)
  */
 
 __int64 __fastcall GreGetDCOrgEx(HDC a1, __int64 a2, _OWORD *a3)

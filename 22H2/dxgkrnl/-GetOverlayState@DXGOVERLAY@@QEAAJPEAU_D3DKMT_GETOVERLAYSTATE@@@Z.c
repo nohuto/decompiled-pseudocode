@@ -1,39 +1,36 @@
 /*
- * XREFs of ?GetOverlayState@DXGOVERLAY@@QEAAJPEAU_D3DKMT_GETOVERLAYSTATE@@@Z @ 0x1C0334D1C
+ * XREFs of ?GetOverlayState@DXGOVERLAY@@QEAAJPEAU_D3DKMT_GETOVERLAYSTATE@@@Z @ 0x1C027AAC0
  * Callers:
- *     DxgkGetOverlayState @ 0x1C0336BB0 (DxgkGetOverlayState.c)
+ *     DxgkGetOverlayState @ 0x1C027C480 (DxgkGetOverlayState.c)
  * Callees:
- *     ?IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ @ 0x1C0001560 (-IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ @ 0x1C00028F0 (-IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
 __int64 __fastcall DXGOVERLAY::GetOverlayState(DXGOVERLAY *this, struct _D3DKMT_GETOVERLAYSTATE *a2)
 {
-  __int64 (__fastcall **v4)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *); // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 (__fastcall **v8)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *); // rcx
+  __int64 v9; // rax
 
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 522LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetAdapter()->IsCoreResourceSharedOwner()",
-      522LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v6 + 24) = 522LL;
+    WdLogEvent5_WdAssertion(v6);
   }
   if ( !DXGADAPTER::IsFullWDDMAdapter(*(DXGADAPTER **)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 16LL))
-    || v4[87] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
-    || v4[95] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
-    || v4[94] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
-    || v4[93] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange )
+    || v8[76] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
+    || v8[84] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
+    || v8[83] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
+    || v8[82] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange )
   {
-    WdLogSingleEntry1(1LL, 523LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"GetAdapter()->IsOverlayEnabled()", 523LL, 0LL, 0LL, 0LL, 0LL);
+    v9 = WdLogNewEntry5_WdAssertion(v8, v7);
+    *(_QWORD *)(v9 + 24) = 523LL;
+    WdLogEvent5_WdAssertion(v9);
   }
   a2->OverlayEnabled = *((_DWORD *)this + 8) != -1;
   return 0LL;

@@ -5,8 +5,8 @@
  *     MiEndingOffsetWithLock @ 0x140031000 (MiEndingOffsetWithLock.c)
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
  *     MiInitializeImageProtos @ 0x140093198 (MiInitializeImageProtos.c)
- *     MiCanFileBeTruncatedInternal @ 0x1400E85F0 (MiCanFileBeTruncatedInternal.c)
- *     MiAllocateFileExtents @ 0x1408521D0 (MiAllocateFileExtents.c)
+ *     MiCanFileBeTruncatedInternal @ 0x1400E8610 (MiCanFileBeTruncatedInternal.c)
+ *     MiAllocateFileExtents @ 0x1408521B0 (MiAllocateFileExtents.c)
  * Callees:
  *     <none>
  */

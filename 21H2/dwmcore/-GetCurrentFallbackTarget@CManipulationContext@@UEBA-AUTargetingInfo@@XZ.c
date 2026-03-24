@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetCurrentFallbackTarget@CManipulationContext@@UEBA?AUTargetingInfo@@XZ @ 0x180182A20
+ * XREFs of ?GetCurrentFallbackTarget@CManipulationContext@@UEBA?AUTargetingInfo@@XZ @ 0x1802344A0
  * Callers:
  *     <none>
  * Callees:
- *     ??0TargetingInfo@@QEAA@AEBU0@@Z @ 0x180181BD0 (--0TargetingInfo@@QEAA@AEBU0@@Z.c)
+ *     ??0TargetingInfo@@QEAA@AEBU0@@Z @ 0x1802337D8 (--0TargetingInfo@@QEAA@AEBU0@@Z.c)
  */
 
 TargetingInfo *__fastcall CManipulationContext::GetCurrentFallbackTarget(__int64 a1, TargetingInfo *a2)

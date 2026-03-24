@@ -1,49 +1,47 @@
 /*
- * XREFs of VidSchiNotifyDeviceRemoved @ 0x1C0047360
+ * XREFs of VidSchiNotifyDeviceRemoved @ 0x1C003CF58
  * Callers:
- *     VidSchiMarkDeviceAsError @ 0x1C00017E4 (VidSchiMarkDeviceAsError.c)
+ *     VidSchiMarkDeviceAsError @ 0x1C0015DC0 (VidSchiMarkDeviceAsError.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
- *     VidSchNotifyDeviceRemoved @ 0x1C003FFE0 (VidSchNotifyDeviceRemoved.c)
+ *     VidSchNotifyDeviceRemoved @ 0x1C0034FF0 (VidSchNotifyDeviceRemoved.c)
  */
 
 void __fastcall VidSchiNotifyDeviceRemoved(__int64 a1)
 {
-  KIRQL CurrentIrql; // al
-  struct _DEVICE_OBJECT *v3; // rcx
+  unsigned __int8 CurrentIrql; // al
+  bool v3; // cf
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
   struct _IO_WORKITEM *WorkItem; // rdi
+  __int64 v8; // r8
+  __int64 v9; // rax
+  __int64 v10; // rax
 
   CurrentIrql = KeGetCurrentIrql();
-  v3 = *(struct _DEVICE_OBJECT **)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 16LL) + 216LL);
-  if ( CurrentIrql >= 2u )
+  v3 = CurrentIrql < 2u;
+  v4 = *(_QWORD *)(a1 + 32);
+  if ( v3 )
   {
-    WorkItem = IoAllocateWorkItem(v3);
+    VidSchNotifyDeviceRemoved(*(PVOID *)(*(_QWORD *)(v4 + 16) + 216LL), *(PVOID *)(*(_QWORD *)(a1 + 40) + 2632LL), 0LL);
+  }
+  else
+  {
+    WorkItem = IoAllocateWorkItem(*(PDEVICE_OBJECT *)(*(_QWORD *)(v4 + 16) + 216LL));
     if ( WorkItem )
     {
-      WdLogSingleEntry0(4LL);
+      v10 = WdLogNewEntry5_WdEvent(v6, v5);
+      WdLogEvent5_WdEvent(v10);
       IoQueueWorkItemEx(
         WorkItem,
         (PIO_WORKITEM_ROUTINE_EX)VidSchNotifyDeviceRemoved,
         DelayedWorkQueue,
-        *(PVOID *)(*(_QWORD *)(a1 + 40) + 2640LL));
+        *(PVOID *)(*(_QWORD *)(a1 + 40) + 2632LL));
     }
     else
     {
-      WdLogSingleEntry0(1LL);
-      ((void (__fastcall *)(_QWORD, __int64, __int64, const wchar_t *, __int64, _QWORD, _QWORD, _QWORD, _QWORD))DxgCoreInterface[86])(
-        0LL,
-        0x40000LL,
-        0xFFFFFFFFLL,
-        L"Can't allocate memory to hold IO work item.",
-        201LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v9 = WdLogNewEntry5_WdAssertion(v6, v5, v8);
+      WdLogEvent5_WdAssertion(v9);
     }
-  }
-  else
-  {
-    VidSchNotifyDeviceRemoved(v3, *(PVOID *)(*(_QWORD *)(a1 + 40) + 2640LL), 0LL);
   }
 }

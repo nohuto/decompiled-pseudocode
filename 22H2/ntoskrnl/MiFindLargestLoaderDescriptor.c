@@ -1,84 +1,46 @@
 /*
- * XREFs of MiFindLargestLoaderDescriptor @ 0x140B46154
+ * XREFs of MiFindLargestLoaderDescriptor @ 0x140A43850
  * Callers:
- *     MiInitNucleus @ 0x140B44F88 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A42364 (MiInitNucleus.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MxInitializeFreeNodeDescriptors @ 0x140B46278 (MxInitializeFreeNodeDescriptors.c)
- *     MxComputeFreeNodeDescriptorRequirements @ 0x140B46B94 (MxComputeFreeNodeDescriptorRequirements.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MxInitializeFreeNodeDescriptors @ 0x140A43930 (MxInitializeFreeNodeDescriptors.c)
+ *     MxComputeFreeNodeDescriptorRequirements @ 0x140A441C0 (MxComputeFreeNodeDescriptorRequirements.c)
  */
 
 __int64 __fastcall MiFindLargestLoaderDescriptor(__int64 a1)
 {
-  __int64 v2; // rbx
-  __int64 v3; // rax
-  unsigned __int64 v4; // rbx
-  _QWORD *v5; // rcx
-  unsigned __int64 v6; // rax
-  __int64 v7; // rcx
-  ULONG_PTR v8; // rcx
-  __int64 v9; // r8
-  int v10; // eax
-  _QWORD *v11; // rax
-  unsigned __int64 v12; // rcx
-  _BYTE v14[512]; // [rsp+20h] [rbp-218h] BYREF
+  __int64 **v2; // rdi
+  __int64 *i; // rbx
+  unsigned __int64 v4; // rax
+  __int64 v5; // rcx
+  ULONG_PTR v6; // rcx
+  __int64 v7; // rdx
+  int v8; // eax
+  _BYTE v10[512]; // [rsp+20h] [rbp-218h] BYREF
 
-  qword_140C6F780 = -1LL;
-  MxComputeFreeNodeDescriptorRequirements(a1, v14);
-  v2 = a1 + 352;
-  v3 = *(_QWORD *)(v2 + 8);
-  if ( (v3 & 1) != 0 )
+  qword_140C52880 = -1LL;
+  MxComputeFreeNodeDescriptorRequirements(a1, v10);
+  v2 = (__int64 **)(a1 + 32);
+  for ( i = *v2; i != (__int64 *)v2; i = (__int64 *)*i )
   {
-    if ( v3 == 1 )
-      return 1LL;
-    v4 = v3 ^ (v2 | 1);
-  }
-  else
-  {
-    v4 = *(_QWORD *)(v2 + 8);
-  }
-  while ( v4 )
-  {
-    v6 = *(int *)(v4 + 24);
-    if ( (unsigned int)v6 > 0x2A || (v7 = 0x5C5C0C00048LL, !_bittest64(&v7, v6)) )
+    v4 = *((int *)i + 4);
+    if ( (unsigned int)v4 <= 0x28 )
     {
-      v8 = *(_QWORD *)(v4 + 32);
-      v9 = *(_QWORD *)(v4 + 40);
-      if ( v9 + v8 > qword_140C6F788 )
-        qword_140C6F788 = v9 + v8 - 1;
-      qword_140C6F790 += v9;
-      if ( v8 < qword_140C6F780 )
-        qword_140C6F780 = v8;
-      v10 = *(_DWORD *)(v4 + 24);
-      if ( v10 == 2 || v10 == 24 )
-        MxInitializeFreeNodeDescriptors(v4, v14);
+      v5 = 0x1C5C0C00048LL;
+      if ( _bittest64(&v5, v4) )
+        continue;
     }
-    v11 = *(_QWORD **)(v4 + 8);
-    v12 = v4;
-    if ( v11 )
-    {
-      v5 = (_QWORD *)*v11;
-      v4 = *(_QWORD *)(v4 + 8);
-      if ( *v11 )
-      {
-        do
-        {
-          v4 = (unsigned __int64)v5;
-          v5 = (_QWORD *)*v5;
-        }
-        while ( v5 );
-      }
-    }
-    else
-    {
-      while ( 1 )
-      {
-        v4 = *(_QWORD *)(v4 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( !v4 || *(_QWORD *)v4 == v12 )
-          break;
-        v12 = v4;
-      }
-    }
+    v6 = i[3];
+    v7 = i[4];
+    if ( v7 + v6 > BugCheckParameter3 )
+      BugCheckParameter3 = v7 + v6 - 1;
+    qword_140C52890 += v7;
+    if ( v6 < qword_140C52880 )
+      qword_140C52880 = v6;
+    v8 = *((_DWORD *)i + 4);
+    if ( v8 == 2 || v8 == 24 )
+      MxInitializeFreeNodeDescriptors(i, v10);
   }
   return 1LL;
 }

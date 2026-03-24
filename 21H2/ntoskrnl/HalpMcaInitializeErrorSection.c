@@ -1,42 +1,36 @@
 /*
- * XREFs of HalpMcaInitializeErrorSection @ 0x140506F6C
+ * XREFs of HalpMcaInitializeErrorSection @ 0x1404BA5E0
  * Callers:
- *     HalpMcaPopulateErrorData @ 0x140507040 (HalpMcaPopulateErrorData.c)
+ *     HalpMcaPopulateErrorData @ 0x1404BA67C (HalpMcaPopulateErrorData.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x1403AAE50 (HalpGetCpuVendor.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     HalpGetCpuInfo @ 0x1403A0F70 (HalpGetCpuInfo.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall HalpMcaInitializeErrorSection(__int64 a1, __int64 a2)
+__int64 __fastcall HalpMcaInitializeErrorSection(__int64 a1, unsigned int a2)
 {
-  char CpuVendor; // cl
-  int v5; // eax
-  void (__fastcall *v6)(__int64, __int64, __int128 *, char *, char *, char *); // rax
-  __int64 result; // rax
-  __int128 v8; // [rsp+40h] [rbp-28h] BYREF
+  unsigned __int8 v5; // [rsp+30h] [rbp+8h] BYREF
 
-  memset((void *)(a1 + 4), 0, 0x120uLL);
-  *(_DWORD *)a1 = 3;
-  CpuVendor = HalpGetCpuVendor();
-  if ( CpuVendor == 2 )
+  v5 = 0;
+  memset((void *)(a1 + 4), 0, 0x10CuLL);
+  *(_DWORD *)a1 = 2;
+  if ( !HalpGetCpuInfo(0LL, 0LL, 0LL, &v5) )
+    goto LABEL_6;
+  if ( v5 != 2 )
   {
-    *(_DWORD *)(a1 + 4) = 1;
+    if ( v5 == 1 )
+    {
+      *(_DWORD *)(a1 + 4) = 2;
+      goto LABEL_7;
+    }
+LABEL_6:
+    *(_DWORD *)(a1 + 4) = 0;
+    goto LABEL_7;
   }
-  else
-  {
-    v5 = 0;
-    if ( CpuVendor == 1 )
-      v5 = 2;
-    *(_DWORD *)(a1 + 4) = v5;
-  }
+  *(_DWORD *)(a1 + 4) = 1;
+LABEL_7:
   *(_QWORD *)(a1 + 8) = MEMORY[0xFFFFF78000000014];
-  v6 = (void (__fastcall *)(__int64, __int64, __int128 *, char *, char *, char *))HalpWheaCpuid;
   *(_DWORD *)(a1 + 16) = a2;
-  v8 = 0LL;
-  v6(a2, 1LL, &v8, (char *)&v8 + 4, (char *)&v8 + 8, (char *)&v8 + 12);
-  result = HIBYTE(DWORD1(v8));
-  *(_DWORD *)(a1 + 68) = result;
-  return result;
+  return ((__int64 (__fastcall *)(_QWORD, __int64, _QWORD))off_140C007C8[0])(a2, a1 + 68, 0LL);
 }

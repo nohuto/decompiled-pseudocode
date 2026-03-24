@@ -1,9 +1,9 @@
 /*
- * XREFs of CmosTranslatePNPIDToEnum @ 0x1C004E370
+ * XREFs of CmosTranslatePNPIDToEnum @ 0x1C004F530
  * Callers:
- *     CmosGetOpRegionType @ 0x1C004E2D8 (CmosGetOpRegionType.c)
+ *     CmosGetOpRegionType @ 0x1C004F490 (CmosGetOpRegionType.c)
  * Callees:
- *     CmosConfigSpaceHandlerWorker @ 0x1C004E244 (CmosConfigSpaceHandlerWorker.c)
+ *     CmosConfigSpaceHandlerWorker @ 0x1C004F3E4 (CmosConfigSpaceHandlerWorker.c)
  */
 
 __int64 __fastcall CmosTranslatePNPIDToEnum(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -22,9 +22,9 @@ __int64 __fastcall CmosTranslatePNPIDToEnum(__int64 a1, __int64 a2, __int64 a3, 
       v8 = ++v5;
       v4 = (&CmosTypeTranslationTable)[2 * v5];
       if ( !v4 )
-        return CmosConfigSpaceHandlerWorker(a1, 0LL, 0LL, (unsigned int *)a4);
+        return CmosConfigSpaceHandlerWorker(a1, 0LL, 0LL, (_QWORD *)a4);
     }
     CmosDeviceType = (int)(&CmosTypeTranslationTable)[2 * v8 + 1];
   }
-  return CmosConfigSpaceHandlerWorker(a1, 0LL, 0LL, (unsigned int *)a4);
+  return CmosConfigSpaceHandlerWorker(a1, 0LL, 0LL, (_QWORD *)a4);
 }

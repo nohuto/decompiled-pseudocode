@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIBuildProcessDevicePhasePrs @ 0x1C004A840
+ * XREFs of ACPIBuildProcessDevicePhasePrs @ 0x1C002AB10
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildCompleteCommon @ 0x1C00095D8 (ACPIBuildCompleteCommon.c)
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
- *     FreeDataBuffs @ 0x1C0018A20 (FreeDataBuffs.c)
- *     PnpBiosSetFlagsForNotableInterrupts @ 0x1C00298D0 (PnpBiosSetFlagsForNotableInterrupts.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     ACPIBuildCompleteCommon @ 0x1C001A6D0 (ACPIBuildCompleteCommon.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     PnpBiosSetFlagsForNotableInterrupts @ 0x1C002AC30 (PnpBiosSetFlagsForNotableInterrupts.c)
  */
 
 __int64 __fastcall ACPIBuildProcessDevicePhasePrs(__int64 a1)
@@ -27,29 +27,29 @@ __int64 __fastcall ACPIBuildProcessDevicePhasePrs(__int64 a1)
   {
     if ( *(_WORD *)(a1 + 82) == 3 )
     {
-      PnpBiosSetFlagsForNotableInterrupts((__int64)v3, *(char **)(a1 + 112), *(_DWORD *)(a1 + 104));
+      PnpBiosSetFlagsForNotableInterrupts(v3, *(_QWORD *)(a1 + 112), *(unsigned int *)(a1 + 104));
       v4 = a1 + 80;
     }
     else
     {
       v4 = a1 + 80;
     }
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
+    dword_1C0082908 = 0;
+    pszDest = 0;
     FreeDataBuffs(v4, 1u);
   }
   v5 = 0;
-  v6 = &unk_1C006FB8B;
-  v7 = &unk_1C006FB8B;
+  v6 = &unk_1C00701BA;
+  v7 = &unk_1C00701BA;
   if ( v3 )
   {
     v8 = v3[1];
     v5 = (char)v3;
     if ( (v8 & 0x200000000000LL) != 0 )
     {
-      v6 = (void *)v3[76];
+      v6 = (void *)v3[71];
       if ( (v8 & 0x400000000000LL) != 0 )
-        v7 = (void *)v3[77];
+        v7 = (void *)v3[72];
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -58,7 +58,7 @@ __int64 __fastcall ACPIBuildProcessDevicePhasePrs(__int64 a1)
       4u,
       6u,
       0x24u,
-      (__int64)&WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+      (__int64)&WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
       0,
       v5,
       (__int64)v6,

@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBPARENT_QueryParentIfDeviceWasReset @ 0x1C0007368
+ * XREFs of HUBPARENT_QueryParentIfDeviceWasReset @ 0x1C0007090
  * Callers:
- *     HUBHSM_CheckingIfResetByParent @ 0x1C0008160 (HUBHSM_CheckingIfResetByParent.c)
+ *     HUBHSM_CheckingIfResetByParent @ 0x1C0007E50 (HUBHSM_CheckingIfResetByParent.c)
  * Callees:
- *     HUBMUX_PropogateDeviceProgrammingLostFlagsToAllDSMs @ 0x1C0010380 (HUBMUX_PropogateDeviceProgrammingLostFlagsToAllDSMs.c)
- *     FWUPDATE_ReenumerateFirmwareUpdateDevice @ 0x1C003EA50 (FWUPDATE_ReenumerateFirmwareUpdateDevice.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     HUBMUX_PropogateDeviceProgrammingLostFlagsToAllDSMs @ 0x1C000FF64 (HUBMUX_PropogateDeviceProgrammingLostFlagsToAllDSMs.c)
+ *     FWUPDATE_ReenumerateFirmwareUpdateDevice @ 0x1C003E3D0 (FWUPDATE_ReenumerateFirmwareUpdateDevice.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPARENT_QueryParentIfDeviceWasReset(__int64 a1)
@@ -28,7 +28,7 @@ __int64 __fastcall HUBPARENT_QueryParentIfDeviceWasReset(__int64 a1)
         *(_BYTE *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                      WdfDriverGlobals,
                      v3,
-                     off_1C0067170)
+                     off_1C0066148)
                  + 24) = 1;
       FWUPDATE_ReenumerateFirmwareUpdateDevice(a1);
     }

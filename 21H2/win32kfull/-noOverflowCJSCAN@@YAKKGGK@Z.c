@@ -1,7 +1,7 @@
 /*
- * XREFs of ?noOverflowCJSCAN@@YAKKGGK@Z @ 0x1C00298A8
+ * XREFs of ?noOverflowCJSCAN@@YAKKGGK@Z @ 0x1C00AC008
  * Callers:
- *     GreGetBitmapBitsSize @ 0x1C0029854 (GreGetBitmapBitsSize.c)
+ *     GreGetBitmapBitsSize @ 0x1C00ABFB4 (GreGetBitmapBitsSize.c)
  * Callees:
  *     <none>
  */

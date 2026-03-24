@@ -1,9 +1,9 @@
 /*
- * XREFs of VidSchiUpdatePriorityTables @ 0x1C0018740
+ * XREFs of VidSchiUpdatePriorityTables @ 0x1C0032620
  * Callers:
- *     ?VidSchiEnqueueDeviceCommandToWorkerThreadAtDpc@@YAXPEBXW4_VIDSCH_DEVICE_COMMAND_TYPE@@@Z @ 0x1C001852C (-VidSchiEnqueueDeviceCommandToWorkerThreadAtDpc@@YAXPEBXW4_VIDSCH_DEVICE_COMMAND_TYPE@@@Z.c)
+ *     ?VidSchiEnqueueDeviceCommandToWorkerThreadAtDpc@@YAXPEBXW4_VIDSCH_DEVICE_COMMAND_TYPE@@@Z @ 0x1C002AA84 (-VidSchiEnqueueDeviceCommandToWorkerThreadAtDpc@@YAXPEBXW4_VIDSCH_DEVICE_COMMAND_TYPE@@@Z.c)
  * Callees:
- *     VidSchiInsertCommandToSoftwareQueue @ 0x1C000C490 (VidSchiInsertCommandToSoftwareQueue.c)
+ *     VidSchiInsertCommandToSoftwareQueue @ 0x1C0008880 (VidSchiInsertCommandToSoftwareQueue.c)
  */
 
 _BOOL8 __fastcall VidSchiUpdatePriorityTables(__int64 a1, __int64 a2, _DWORD *a3)
@@ -19,7 +19,7 @@ _BOOL8 __fastcall VidSchiUpdatePriorityTables(__int64 a1, __int64 a2, _DWORD *a3
     VidSchiInsertCommandToSoftwareQueue(a2, &v7);
     v3 = v7;
   }
-  result = *(_DWORD *)(a1 + 720) != 0;
+  result = *(_DWORD *)(a1 + 712) != 0;
   if ( a3 )
     *a3 = v3;
   return result;

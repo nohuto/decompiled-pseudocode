@@ -1,15 +1,15 @@
 /*
- * XREFs of MiForceSectionClosed @ 0x1401220AC
+ * XREFs of MiForceSectionClosed @ 0x1401220CC
  * Callers:
- *     MmForceSectionClosed @ 0x140122070 (MmForceSectionClosed.c)
- *     MmForceSectionClosedEx @ 0x1402A3830 (MmForceSectionClosedEx.c)
+ *     MmForceSectionClosed @ 0x140122090 (MmForceSectionClosed.c)
+ *     MmForceSectionClosedEx @ 0x1402A3930 (MmForceSectionClosedEx.c)
  *     MiCreateImageOrDataSection @ 0x1405DE390 (MiCreateImageOrDataSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1401001E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiAttemptSectionDelete @ 0x140122150 (MiAttemptSectionDelete.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiAttemptSectionDelete @ 0x140122170 (MiAttemptSectionDelete.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiForceSectionClosed(_QWORD *a1, char a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?PushLayer@CD2DTarget@@QEAAXAEBUD2D_RECT_F@@PEAUID2D1Geometry@@PEAUD2D_MATRIX_3X2_F@@MW4D2D1_ANTIALIAS_MODE@@W4D2D1_LAYER_OPTIONS1@@W4D2D1_PRIMITIVE_BLEND@@@Z @ 0x1800DC490
+ * XREFs of ?PushLayer@CD2DTarget@@QEAAXAEBUD2D_RECT_F@@PEAUID2D1Geometry@@PEAUD2D_MATRIX_3X2_F@@MW4D2D1_ANTIALIAS_MODE@@W4D2D1_LAYER_OPTIONS1@@W4D2D1_PRIMITIVE_BLEND@@@Z @ 0x18002C824
  * Callers:
- *     ?PushLayer@CD2DContext@@UEAAXPEBVID2DContextOwner@@AEBUD2D_RECT_F@@PEAUID2D1Geometry@@PEAUD2D_MATRIX_3X2_F@@MW4D2D1_ANTIALIAS_MODE@@W4D2D1_LAYER_OPTIONS1@@W4D2D1_PRIMITIVE_BLEND@@@Z @ 0x1800DC3F0 (-PushLayer@CD2DContext@@UEAAXPEBVID2DContextOwner@@AEBUD2D_RECT_F@@PEAUID2D1Geometry@@PEAUD2D_MA.c)
+ *     ?PushLayer@CD2DContext@@UEAAXPEBVID2DContextOwner@@AEBUD2D_RECT_F@@PEAUID2D1Geometry@@PEAUD2D_MATRIX_3X2_F@@MW4D2D1_ANTIALIAS_MODE@@W4D2D1_LAYER_OPTIONS1@@W4D2D1_PRIMITIVE_BLEND@@@Z @ 0x18002C720 (-PushLayer@CD2DContext@@UEAAXPEBVID2DContextOwner@@AEBUD2D_RECT_F@@PEAUID2D1Geometry@@PEAUD2D_MA.c)
  * Callees:
- *     ?ApplyCurrentClip@CD2DTarget@@QEAAXXZ @ 0x180080AB4 (-ApplyCurrentClip@CD2DTarget@@QEAAXXZ.c)
- *     ?SetPrimitiveBlend@CD2DContext@@IEAAXW4D2D1_PRIMITIVE_BLEND@@@Z @ 0x1800DC60C (-SetPrimitiveBlend@CD2DContext@@IEAAXW4D2D1_PRIMITIVE_BLEND@@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ApplyCurrentClip@CD2DTarget@@QEAAXXZ @ 0x18002C9D0 (-ApplyCurrentClip@CD2DTarget@@QEAAXXZ.c)
+ *     ?SetPrimitiveBlend@CD2DContext@@IEAAXW4D2D1_PRIMITIVE_BLEND@@@Z @ 0x18002CB00 (-SetPrimitiveBlend@CD2DContext@@IEAAXW4D2D1_PRIMITIVE_BLEND@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CD2DTarget::PushLayer(
@@ -35,8 +35,8 @@ void __fastcall CD2DTarget::PushLayer(
 
   v8 = *((_QWORD *)this + 2);
   v21 = 0LL;
-  v20 = *(_OWORD *)&_xmm;
-  (*(void (__fastcall **)(_QWORD, __int128 *))(**(_QWORD **)(v8 + 200) + 240LL))(*(_QWORD *)(v8 + 200), &v20);
+  v20 = _xmm;
+  (*(void (__fastcall **)(_QWORD, __int128 *))(**(_QWORD **)(v8 + 240) + 240LL))(*(_QWORD *)(v8 + 240), &v20);
   CD2DContext::SetPrimitiveBlend(*((CD2DContext **)this + 2), a8);
   if ( a4 )
   {
@@ -46,12 +46,12 @@ void __fastcall CD2DTarget::PushLayer(
   else
   {
     v21 = 0LL;
-    v13 = *(_OWORD *)&_xmm;
+    v13 = _xmm;
   }
   v20 = v13;
   memset_0(v16, 0, 0x44uLL);
-  v18 = 0LL;
   v14 = _mm_loadu_si128(a2);
+  v18 = 0LL;
   *(_DWORD *)&v17[8] = a6;
   *(_OWORD *)&v17[12] = v20;
   LODWORD(v19) = a7;
@@ -64,10 +64,10 @@ void __fastcall CD2DTarget::PushLayer(
   v22[0] = v14;
   v22[3] = *(unsigned __int64 *)&v17[32];
   v23 = v19;
-  (*(void (__fastcall **)(_QWORD, _OWORD *, _QWORD))(**(_QWORD **)(v15 + 200) + 688LL))(
-    *(_QWORD *)(v15 + 200),
+  (*(void (__fastcall **)(_QWORD, _OWORD *, _QWORD))(**(_QWORD **)(v15 + 240) + 688LL))(
+    *(_QWORD *)(v15 + 240),
     v22,
     0LL);
   CD2DTarget::ApplyCurrentClip(this);
-  ++*((_DWORD *)this + 12);
+  ++*((_DWORD *)this + 13);
 }

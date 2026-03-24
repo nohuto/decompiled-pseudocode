@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetFinalValue@CGravityBounceAccelerator@@UEBAMXZ @ 0x1801074C0
+ * XREFs of ?GetFinalValue@CGravityBounceAccelerator@@UEBAMXZ @ 0x1800E2BA0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 float __fastcall CGravityBounceAccelerator::GetFinalValue(CGravityBounceAccelerator *this)
 {
-  return *((float *)this + 4);
+  return *((float *)this + 6);
 }

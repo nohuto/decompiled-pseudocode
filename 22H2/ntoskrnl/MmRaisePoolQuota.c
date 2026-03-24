@@ -1,9 +1,9 @@
 /*
- * XREFs of MmRaisePoolQuota @ 0x1402209D0
+ * XREFs of MmRaisePoolQuota @ 0x14031D580
  * Callers:
  *     <none>
  * Callees:
- *     MiFreePoolPagesLeft @ 0x14021DC80 (MiFreePoolPagesLeft.c)
+ *     MiFreePoolPagesLeft @ 0x14033B490 (MiFreePoolPagesLeft.c)
  */
 
 char __fastcall MmRaisePoolQuota(int a1)
@@ -19,25 +19,25 @@ char __fastcall MmRaisePoolQuota(int a1)
 
   if ( a1 == 1 )
   {
-    v7 = MiFreePoolPagesLeft(6);
+    v7 = MiFreePoolPagesLeft(6LL);
     v8 = v3;
     if ( v3 < 0x100000 )
       v8 = 0x100000LL;
-    if ( v7 > v8 >> 12 && v3 + qword_140C65610 >= qword_140C65610 )
+    if ( v7 > v8 >> 12 && v3 + qword_140C4C958 >= qword_140C4C958 )
     {
-      qword_140C65610 += v3;
+      qword_140C4C958 += v3;
       goto LABEL_7;
     }
   }
   else
   {
-    v1 = MiFreePoolPagesLeft(5);
+    v1 = MiFreePoolPagesLeft(5LL);
     v5 = v3;
     if ( v3 < 0x100000 )
       v5 = 0x100000LL;
-    if ( v1 > v5 >> 12 && v3 + qword_140C65618 >= qword_140C65618 )
+    if ( v1 > v5 >> 12 && v3 + qword_140C4C960 >= qword_140C4C960 )
     {
-      qword_140C65618 += v3;
+      qword_140C4C960 += v3;
 LABEL_7:
       result = 1;
       *v2 = v4 + v3;

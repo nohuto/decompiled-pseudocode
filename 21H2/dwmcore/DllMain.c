@@ -1,7 +1,7 @@
 /*
- * XREFs of DllMain @ 0x18010350C
+ * XREFs of DllMain @ 0x1800E949C
  * Callers:
- *     dllmain_dispatch @ 0x180100E1C (dllmain_dispatch.c)
+ *     dllmain_dispatch @ 0x1800E7600 (dllmain_dispatch.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX@Z @ 0x1C011190C
+ * XREFs of ?xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX@Z @ 0x1C0122DF0
  * Callers:
- *     EditionParseDesktop @ 0x1C0079050 (EditionParseDesktop.c)
+ *     EditionParseDesktop @ 0x1C004EA20 (EditionParseDesktop.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     DesktopAlloc @ 0x1C00C2D40 (DesktopAlloc.c)
- *     CreateDesktopHeap @ 0x1C0111C58 (CreateDesktopHeap.c)
- *     GetDesktopHeapSize @ 0x1C0111D80 (GetDesktopHeapSize.c)
+ *     DesktopAlloc @ 0x1C004B2A0 (DesktopAlloc.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     CreateDesktopHeap @ 0x1C0123138 (CreateDesktopHeap.c)
+ *     GetDesktopHeapSize @ 0x1C0123260 (GetDesktopHeapSize.c)
  */
 
 __int64 __fastcall xxxCreateDesktopEx2(
@@ -21,9 +21,9 @@ __int64 __fastcall xxxCreateDesktopEx2(
   char v10; // r15
   __int64 v11; // rdx
   __int64 v12; // rcx
+  __int64 v13; // r8
   struct _KPROCESS *CurrentProcess; // rax
   __int64 result; // rax
-  PVOID v15; // rax
   unsigned int DesktopHeapSize; // edi
   struct _KTHREAD *CurrentThread; // rcx
   __int64 ThreadWin32Thread; // rax
@@ -38,23 +38,24 @@ __int64 __fastcall xxxCreateDesktopEx2(
   ACCESS_MASK *p_RemainingDesiredAccess; // rbx
   ACCESS_MASK RemainingDesiredAccess; // eax
   PVOID v29; // rdx
-  __int64 v30; // rax
-  unsigned int v31; // [rsp+40h] [rbp-20h]
+  PVOID v30; // rax
+  __int64 v31; // rax
+  unsigned int v32; // [rsp+40h] [rbp-20h]
   PVOID Object; // [rsp+48h] [rbp-18h] BYREF
-  __int64 v33; // [rsp+50h] [rbp-10h] BYREF
+  __int64 v34; // [rsp+50h] [rbp-10h] BYREF
 
   Object = 0LL;
-  v31 = 0;
+  v32 = 0;
   v9 = 0;
   v10 = 0;
   if ( !(unsigned __int8)ObCheckCreateObjectAccess(a1, 8LL, a2) )
-    return v31;
-  CurrentProcess = (struct _KPROCESS *)PsGetCurrentProcess(v12, v11);
+    return v32;
+  CurrentProcess = (struct _KPROCESS *)PsGetCurrentProcess(v12, v11, v13);
   if ( (*((_DWORD *)a1 + 16) & 2) != 0 && PsGetProcessId(CurrentProcess) != (HANDLE)gpidLogon )
   {
-    v33 = 0LL;
-    GetProcessLuid(0LL, &v33);
-    if ( v33 == *((_QWORD *)a1 + 22) )
+    v34 = 0LL;
+    GetProcessLuid(0LL, &v34);
+    if ( v34 == *((_QWORD *)a1 + 22) )
       return 3221226091LL;
   }
   result = CreateDesktopObObject(a4, a1, a2, &Object);
@@ -66,12 +67,12 @@ __int64 __fastcall xxxCreateDesktopEx2(
     }
     else
     {
-      v15 = (PVOID)*((_QWORD *)a1 + 2);
-      if ( v15 )
+      v30 = (PVOID)*((_QWORD *)a1 + 2);
+      if ( v30 )
       {
         if ( gspdeskDisconnect )
         {
-          if ( v15 == gspdeskDisconnect )
+          if ( v30 == gspdeskDisconnect )
             v10 = 1;
         }
         else
@@ -92,7 +93,7 @@ __int64 __fastcall xxxCreateDesktopEx2(
     if ( DesktopHeapSize < 0x2000 )
       DesktopHeapSize = 0x2000;
     ThreadWin32Thread = W32GetThreadWin32Thread((__int64)CurrentThread);
-    *(_DWORD *)(ThreadWin32Thread + 1256) |= 0x40u;
+    *(_DWORD *)(ThreadWin32Thread + 1232) |= 0x40u;
     DesktopHeap = CreateDesktopHeap((char *)Object + 128, DesktopHeapSize);
     *((_QWORD *)Object + 15) = DesktopHeap;
     if ( *((_QWORD *)Object + 15) )
@@ -102,7 +103,7 @@ __int64 __fastcall xxxCreateDesktopEx2(
       if ( v20 )
       {
         v21 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-        *(_DWORD *)(v21 + 1256) &= ~0x40u;
+        *(_DWORD *)(v21 + 1232) &= ~0x40u;
         v22 = (_QWORD *)Win32AllocPoolZInit(256LL, 1684763477LL);
         if ( v22 )
         {
@@ -112,8 +113,8 @@ __int64 __fastcall xxxCreateDesktopEx2(
           v24 = ++gdwDesktopId;
           *((_QWORD *)Object + 22) = (char *)Object + 168;
           *v23 = v23;
-          v25 = (char *)Object + 304;
-          *((_QWORD *)Object + 39) = (char *)Object + 304;
+          v25 = (char *)Object + 312;
+          *((_QWORD *)Object + 40) = (char *)Object + 312;
           *v25 = v25;
           if ( v24 == 0xFFFFFFFFLL )
           {
@@ -153,11 +154,11 @@ __int64 __fastcall xxxCreateDesktopEx2(
       _InterlockedAnd(gpsi, 0xFFFFFEFF);
       UserLogError(2147483892LL);
     }
-    v30 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-    *(_DWORD *)(v30 + 1256) &= ~0x40u;
-    v31 = -1073741801;
+    v31 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    *(_DWORD *)(v31 + 1232) &= ~0x40u;
+    v32 = -1073741801;
     ObfDereferenceObject(Object);
-    return v31;
+    return v32;
   }
   return result;
 }

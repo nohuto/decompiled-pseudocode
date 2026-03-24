@@ -1,67 +1,111 @@
 /*
- * XREFs of ACPIBuildProcessDeviceGenericEval @ 0x1C000E740
+ * XREFs of ACPIBuildProcessDeviceGenericEval @ 0x1C001E890
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildCompleteCommon @ 0x1C000BC30 (ACPIBuildCompleteCommon.c)
- *     WPP_RECORDER_SF_LLqss @ 0x1C0014D18 (WPP_RECORDER_SF_LLqss.c)
- *     AMLIAsyncEvalObject @ 0x1C0047908 (AMLIAsyncEvalObject.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIGetNamedChild @ 0x1C00486B8 (AMLIGetNamedChild.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     ACPIBuildScheduleDpc @ 0x1C001E54C (ACPIBuildScheduleDpc.c)
+ *     WPP_RECORDER_SF_LLqss @ 0x1C0020B00 (WPP_RECORDER_SF_LLqss.c)
  */
 
 __int64 __fastcall ACPIBuildProcessDeviceGenericEval(__int64 a1)
 {
   __int64 v1; // rax
-  int v2; // edi
+  int v2; // r14d
   _QWORD *v3; // rbp
-  __int64 v5; // rsi
-  __int64 v6; // rcx
-  signed __int32 v7; // edx
-  int v8; // r8d
-  __int64 v9; // rax
-  void *v10; // rdx
+  _QWORD *v5; // rbx
+  int v6; // r12d
+  KIRQL v7; // dl
+  __int64 *v8; // rax
+  __int64 i; // rdi
+  __int64 v10; // rcx
+  signed __int32 v11; // ecx
+  KIRQL v12; // bl
+  __int64 v13; // rax
+  void *v14; // rcx
+  void *v15; // rdx
+  int v17; // [rsp+20h] [rbp-48h]
+  __int64 v18; // [rsp+48h] [rbp-20h]
 
   v1 = *(unsigned int *)(a1 + 28);
   v2 = 0;
   v3 = *(_QWORD **)(a1 + 40);
   if ( (unsigned int)v1 >= 0x22 )
-    KeBugCheckEx(0xA3u, 1uLL, 0x10125CuLL, 0LL, 0LL);
-  v5 = AMLIGetNamedChild(v3[95], AcpiBuildDevicePowerNameLookup[v1]);
+    KeBugCheckEx(0xA3u, 1uLL, 0x101269uLL, 0LL, 0LL);
+  v5 = (_QWORD *)v3[90];
+  v6 = AcpiBuildDevicePowerNameLookup[v1];
+  v7 = ExAcquireSpinLockShared(&ACPINamespaceLock);
+  v8 = (__int64 *)(*v5 + 24LL);
+  for ( i = *v8; v8 != (__int64 *)i; i = *(_QWORD *)i )
+  {
+    if ( v6 == *(_DWORD *)(i + 40) )
+      goto LABEL_7;
+  }
+  i = 0LL;
+LABEL_7:
+  ExReleaseSpinLockShared(&ACPINamespaceLock, v7);
+  if ( i )
+  {
+    dword_1C0082908 = 0;
+    i += 120LL;
+    pszDest = 0;
+    if ( (gdwfAMLI & 4) != 0 )
+      _InterlockedIncrement((volatile signed __int32 *)(i + 8));
+  }
   *(_DWORD *)(a1 + 32) = *(_DWORD *)(a1 + 28) + 1;
   *(_OWORD *)(a1 + 80) = 0LL;
   *(_OWORD *)(a1 + 96) = 0LL;
   *(_QWORD *)(a1 + 112) = 0LL;
-  v6 = *(_QWORD *)(a1 + 56);
-  if ( v6 )
-    AMLIDereferenceHandleEx(v6);
-  *(_QWORD *)(a1 + 56) = v5;
-  if ( v5 )
+  v10 = *(_QWORD *)(a1 + 56);
+  if ( v10 )
+    AMLIDereferenceHandleEx(v10);
+  *(_QWORD *)(a1 + 56) = i;
+  if ( !i )
+    goto LABEL_11;
+  dword_1C0082908 = 0;
+  pszDest = 0;
+  if ( (gdwfAMLI & 4) != 0 )
+    _InterlockedIncrement((volatile signed __int32 *)(i + 8));
+  v2 = AMLIAsyncEvalObject((__int64 *)i, a1 + 80, 0, 0LL, ACPIBuildCompleteGeneric, a1);
+  if ( v2 != 259 )
   {
-    dword_1C006F938 = 0;
-    pszDest = 0;
-    if ( (gdwfAMLI & 4) != 0 )
-      _InterlockedIncrement((volatile signed __int32 *)(v5 + 8));
-    v2 = AMLIAsyncEvalObject(v5, (int)a1 + 80, 0, 0, (__int64)ACPIBuildCompleteGeneric, a1);
-    if ( v2 == 259 )
-      goto LABEL_12;
+LABEL_11:
+    v11 = *(_DWORD *)(a1 + 32);
+    if ( v2 < 0 )
+      *(_DWORD *)(a1 + 48) = v2;
+    *(_DWORD *)(a1 + 32) = 2;
+    _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 24), v11, 1);
+    v12 = KeAcquireSpinLockRaiseToDpc(&AcpiBuildQueueLock);
+    ACPIBuildScheduleDpc();
+    KeReleaseSpinLock(&AcpiBuildQueueLock, v12);
   }
-  v7 = *(_DWORD *)(a1 + 32);
-  if ( v2 < 0 )
-    *(_DWORD *)(a1 + 48) = v2;
-  *(_DWORD *)(a1 + 32) = 2;
-  ACPIBuildCompleteCommon((volatile signed __int32 *)(a1 + 24), v7);
-  if ( v5 )
-LABEL_12:
-    AMLIDereferenceHandleEx(v5);
-  v9 = v3[1];
-  v10 = &unk_1C00622D0;
-  if ( (v9 & 0x200000000000LL) != 0 && (v9 & 0x400000000000LL) != 0 )
-    v10 = (void *)v3[77];
+  if ( i )
+    AMLIDereferenceHandleEx(i);
+  v13 = v3[1];
+  v14 = &unk_1C00701BA;
+  v15 = &unk_1C00701BA;
+  if ( (v13 & 0x200000000000LL) != 0 )
+  {
+    v14 = (void *)v3[71];
+    if ( (v13 & 0x400000000000LL) != 0 )
+      v15 = (void *)v3[72];
+  }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v10) = 4;
-    WPP_RECORDER_SF_LLqss(WPP_GLOBAL_Control->DeviceExtension, (_DWORD)v10, v8, 27);
+    v18 = (__int64)v15;
+    LOBYTE(v15) = 4;
+    WPP_RECORDER_SF_LLqss(
+      WPP_GLOBAL_Control->DeviceExtension,
+      (_DWORD)v15,
+      0,
+      27,
+      v17,
+      *(_DWORD *)(a1 + 28) - 3,
+      v2,
+      (char)v3,
+      (__int64)v14,
+      v18);
   }
   return 0LL;
 }

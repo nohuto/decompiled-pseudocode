@@ -1,9 +1,9 @@
 /*
- * XREFs of PointerPromotionOnPointerInputRetrieval @ 0x1C01563C0
+ * XREFs of PointerPromotionOnPointerInputRetrieval @ 0x1C0219680
  * Callers:
  *     <none>
  * Callees:
- *     ?OnPointerInputRetrieval@PointerPromotion@@YAXGKUtagPOINT@@H@Z @ 0x1C015611E (-OnPointerInputRetrieval@PointerPromotion@@YAXGKUtagPOINT@@H@Z.c)
+ *     ?OnPointerInputRetrieval@PointerPromotion@@YAXGKUtagPOINT@@H@Z @ 0x1C02184F0 (-OnPointerInputRetrieval@PointerPromotion@@YAXGKUtagPOINT@@H@Z.c)
  */
 
 void __fastcall PointerPromotionOnPointerInputRetrieval(

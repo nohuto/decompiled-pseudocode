@@ -1,67 +1,49 @@
 /*
- * XREFs of ?bMultiply@EXFORMOBJ@@QEAAHPEAVMATRIX@@0K@Z @ 0x1C000B300
+ * XREFs of ?bMultiply@EXFORMOBJ@@QEAAHPEAVMATRIX@@0K@Z @ 0x1C0025170
  * Callers:
  *     <none>
  * Callees:
- *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0001C08 (-bIsZero@EFLOAT@@QEBAHXZ.c)
- *     bFToL @ 0x1C00038EC (bFToL.c)
- *     ?vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z @ 0x1C0039770 (-vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C00245AC (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     ?vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z @ 0x1C0024F80 (-vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z.c)
+ *     bFToL @ 0x1C0082B80 (bFToL.c)
  */
 
-__int64 __fastcall EXFORMOBJ::bMultiply(EXFORMOBJ *this, struct MATRIX *a2, struct MATRIX *a3, char a4)
+__int64 __fastcall EXFORMOBJ::bMultiply(float **this, struct MATRIX *a2, struct MATRIX *a3, char a4)
 {
-  __int64 v4; // rbx
-  float *v7; // rdx
-  float *v8; // r8
-  float *v9; // r11
-  BOOL IsZero; // eax
-  __int64 v11; // r8
-  float *v12; // r9
-  float *v13; // r10
-  float *v14; // r11
-  __int64 v15; // rdx
-  EFLOAT *v16; // rcx
-  float v18; // xmm6_4
-  unsigned int v19; // r8d
+  float *v4; // rbx
+  __int64 v8; // rcx
+  __int64 v9; // r8
 
-  v4 = *(_QWORD *)this;
-  if ( EFLOAT::bIsZero((struct MATRIX *)((char *)a2 + 4))
-    && EFLOAT::bIsZero((EFLOAT *)(v7 + 2))
-    && EFLOAT::bIsZero((EFLOAT *)(v8 + 1))
-    && EFLOAT::bIsZero((EFLOAT *)(v8 + 2)) )
+  v4 = *this;
+  if ( *((float *)a2 + 1) == 0.0 && *((float *)a2 + 2) == 0.0 && *((float *)a3 + 1) == 0.0 && *((float *)a3 + 2) == 0.0 )
   {
-    *(float *)v4 = *v8 * *v7;
-    *(float *)(v4 + 12) = v8[3] * v7[3];
-    *(_DWORD *)(v4 + 4) = 0;
-    *(_DWORD *)(v4 + 8) = 0;
+    *v4 = *(float *)a3 * *(float *)a2;
+    v4[3] = *((float *)a3 + 3) * *((float *)a2 + 3);
+    v4[1] = 0.0;
+    v4[2] = 0.0;
   }
   else
   {
-    *(float *)v4 = (float)(v8[2] * *v9) + (float)(*v8 * *v7);
-    *(float *)(v4 + 4) = (float)(v8[3] * *v9) + (float)(v8[1] * *v7);
-    *(float *)(v4 + 8) = (float)(v8[2] * v7[3]) + (float)(*v8 * v7[2]);
-    *(float *)(v4 + 12) = (float)(v8[3] * v7[3]) + (float)(v8[1] * v7[2]);
+    *v4 = (float)(*((float *)a3 + 2) * *((float *)a2 + 1)) + (float)(*(float *)a3 * *(float *)a2);
+    v4[1] = (float)(*((float *)a3 + 3) * *((float *)a2 + 1)) + (float)(*((float *)a3 + 1) * *(float *)a2);
+    v4[2] = (float)(*((float *)a3 + 2) * *((float *)a2 + 3)) + (float)(*(float *)a3 * *((float *)a2 + 2));
+    v4[3] = (float)(*((float *)a3 + 3) * *((float *)a2 + 3)) + (float)(*((float *)a3 + 1) * *((float *)a2 + 2));
   }
-  IsZero = EFLOAT::bIsZero((EFLOAT *)(v7 + 4));
-  v16 = (EFLOAT *)(v15 + 20);
-  if ( IsZero && EFLOAT::bIsZero(v16) )
+  if ( *((float *)a2 + 4) == 0.0 && EFLOAT::bIsZero((struct MATRIX *)((char *)a2 + 20)) )
   {
-    *(_DWORD *)(v4 + 16) = *(_DWORD *)(v11 + 16);
-    *(_DWORD *)(v4 + 20) = *(_DWORD *)(v11 + 20);
-    *(_DWORD *)(v4 + 24) = *(_DWORD *)(v11 + 24);
-    *(_DWORD *)(v4 + 28) = *(_DWORD *)(v11 + 28);
+    v4[4] = *((float *)a3 + 4);
+    v4[5] = *((float *)a3 + 5);
+    v4[6] = *((float *)a3 + 6);
+    v4[7] = *((float *)a3 + 7);
   }
   else
   {
-    v18 = (float)((float)(*v13 * *(float *)v16) + *(float *)(v11 + 16)) + (float)(*(float *)v11 * *v14);
-    *(float *)(v4 + 16) = v18;
-    *(float *)(v4 + 20) = (float)((float)(*(float *)(v11 + 12) * *(float *)v16) + *(float *)(v11 + 20))
-                        + (float)(*v12 * *v14);
-    if ( !(unsigned int)bFToL(v18, (int *)(v4 + 24), 6u)
-      || !(unsigned int)bFToL(*(float *)(v4 + 20), (int *)(v4 + 28), v19) )
-    {
+    v4[4] = (float)((float)(*((float *)a3 + 2) * *((float *)a2 + 5)) + *((float *)a3 + 4))
+          + (float)(*(float *)a3 * *((float *)a2 + 4));
+    v4[5] = (float)((float)(*((float *)a3 + 3) * *((float *)a2 + 5)) + *((float *)a3 + 5))
+          + (float)(*((float *)a3 + 1) * *((float *)a2 + 4));
+    if ( !(unsigned int)bFToL(this, v4 + 6, 6LL) || !(unsigned int)bFToL(v8, v4 + 7, v9) )
       return 0LL;
-    }
   }
   if ( (a4 & 1) != 0 )
     EXFORMOBJ::vComputeAccelFlags(this, a4 & 0x38);

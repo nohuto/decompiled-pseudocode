@@ -1,33 +1,31 @@
 /*
- * XREFs of rimObsFreeInputMessageQueue @ 0x1C01B49C4
+ * XREFs of rimObsFreeInputMessageQueue @ 0x1C017E820
  * Callers:
- *     RawInputManagerObjectDelete @ 0x1C004926C (RawInputManagerObjectDelete.c)
+ *     RawInputManagerObjectDelete @ 0x1C005187C (RawInputManagerObjectDelete.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
 void __fastcall rimObsFreeInputMessageQueue(__int64 a1)
 {
-  char *v1; // rdi
-  char *v3; // rbx
-  char *v4; // rax
-  char *v5; // rdx
-  char **v6; // rcx
+  _QWORD *v1; // rdi
+  _QWORD *v3; // rbx
+  _QWORD *v4; // rax
+  __int64 v5; // rcx
+  _QWORD *v6; // rdx
 
-  v1 = (char *)(a1 + 144);
-  v3 = *(char **)(a1 + 144);
+  v1 = (_QWORD *)(a1 + 144);
+  v3 = *(_QWORD **)(a1 + 144);
   while ( v3 != v1 )
   {
-    v4 = *(char **)v3;
-    v5 = v3;
+    v4 = (_QWORD *)*v3;
+    v5 = (__int64)v3;
     v3 = v4;
-    if ( *((char **)v4 + 1) != v5 || (v6 = (char **)*((_QWORD *)v5 + 1), *v6 != v5) )
+    if ( v4[1] != v5 || (v6 = *(_QWORD **)(v5 + 8), *v6 != v5) )
       __fastfail(3u);
     *v6 = v4;
-    *((_QWORD *)v4 + 1) = v6;
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      v5);
+    v4[1] = v6;
+    Win32FreePool(v5);
   }
   *(_DWORD *)(a1 + 160) = -1;
 }

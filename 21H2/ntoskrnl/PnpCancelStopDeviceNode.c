@@ -1,16 +1,15 @@
 /*
- * XREFs of PnpCancelStopDeviceNode @ 0x140959B60
+ * XREFs of PnpCancelStopDeviceNode @ 0x1408B82E4
  * Callers:
- *     PiQueryStopForReset @ 0x140945A10 (PiQueryStopForReset.c)
- *     PnpCancelStopDeviceSubtree @ 0x140959BF0 (PnpCancelStopDeviceSubtree.c)
- *     PnpQueryRebalanceWorker @ 0x140959DF4 (PnpQueryRebalanceWorker.c)
+ *     PnpCancelStopDeviceSubtree @ 0x1408B8374 (PnpCancelStopDeviceSubtree.c)
+ *     PnpQueryRebalanceWorker @ 0x1408B8578 (PnpQueryRebalanceWorker.c)
  * Callees:
- *     PipRestoreDevNodeState @ 0x14025B96C (PipRestoreDevNodeState.c)
- *     PoFxIdleDevice @ 0x1402D25CC (PoFxIdleDevice.c)
- *     PnpUnlockMountableDevice @ 0x1403A01B0 (PnpUnlockMountableDevice.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     PipClearDevNodeFlags @ 0x14076FBEC (PipClearDevNodeFlags.c)
- *     IopQueryReconfiguration @ 0x1409588F0 (IopQueryReconfiguration.c)
+ *     PipRestoreDevNodeState @ 0x14036D7A0 (PipRestoreDevNodeState.c)
+ *     PoFxIdleDevice @ 0x14036FB34 (PoFxIdleDevice.c)
+ *     PnpUnlockMountableDevice @ 0x140393E18 (PnpUnlockMountableDevice.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     PipClearDevNodeFlags @ 0x140746A74 (PipClearDevNodeFlags.c)
+ *     IopQueryReconfiguration @ 0x1408B2D20 (IopQueryReconfiguration.c)
  */
 
 __int64 __fastcall PnpCancelStopDeviceNode(ULONG_PTR BugCheckParameter2)
@@ -18,7 +17,7 @@ __int64 __fastcall PnpCancelStopDeviceNode(ULONG_PTR BugCheckParameter2)
   struct _DEVICE_OBJECT *v2; // rdx
   __int64 result; // rax
 
-  if ( *(_DWORD *)(BugCheckParameter2 + 300) == 779 )
+  if ( *(_DWORD *)(BugCheckParameter2 + 300) == 777 )
   {
     if ( (*(_DWORD *)(BugCheckParameter2 + 704) & 0x20) == 0 )
       KeBugCheckEx(0xCAu, 0xDuLL, BugCheckParameter2, 0x20uLL, 0LL);

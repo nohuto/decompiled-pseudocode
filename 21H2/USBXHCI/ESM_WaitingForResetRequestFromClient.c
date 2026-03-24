@@ -1,5 +1,5 @@
 /*
- * XREFs of ESM_WaitingForResetRequestFromClient @ 0x1C000AE60
+ * XREFs of ESM_WaitingForResetRequestFromClient @ 0x1C000A270
  * Callers:
  *     <none>
  * Callees:

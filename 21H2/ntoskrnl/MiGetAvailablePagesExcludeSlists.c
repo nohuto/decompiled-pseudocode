@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetAvailablePagesExcludeSlists @ 0x14024C7C4
+ * XREFs of MiGetAvailablePagesExcludeSlists @ 0x1402C7B9C
  * Callers:
- *     MiPfPrepareSequentialReadList @ 0x1407BCB30 (MiPfPrepareSequentialReadList.c)
- *     MiAddPhysicalMemoryChunks @ 0x140968AF4 (MiAddPhysicalMemoryChunks.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140385120 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MiGetAvailablePagesExcludeSlists(__int64 a1)
 {
-  return *(_QWORD *)(a1 + 16896);
+  return *(_QWORD *)(a1 + 7104);
 }

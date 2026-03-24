@@ -1,15 +1,15 @@
 /*
- * XREFs of _handle_error @ 0x1403DD3C0
+ * XREFs of _handle_error @ 0x1403D5840
  * Callers:
- *     sqrt @ 0x1403DA6A0 (sqrt.c)
+ *     sqrt @ 0x1403D2C90 (sqrt.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _call_matherr @ 0x1403DD280 (_call_matherr.c)
- *     _exception_enabled @ 0x1403DD2FC (_exception_enabled.c)
- *     _raise_exc @ 0x1403DD930 (_raise_exc.c)
- *     _ctrlfp @ 0x1403DDC4C (_ctrlfp.c)
- *     memset @ 0x140435400 (memset.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _call_matherr @ 0x1403D570C (_call_matherr.c)
+ *     _exception_enabled @ 0x1403D577C (_exception_enabled.c)
+ *     _raise_exc @ 0x1403D5DA0 (_raise_exc.c)
+ *     _set_errno_from_matherr @ 0x1403D6094 (_set_errno_from_matherr.c)
+ *     _ctrlfp @ 0x1403D60E4 (_ctrlfp.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 double __fastcall handle_error(
@@ -26,13 +26,14 @@ double __fastcall handle_error(
   BOOL v13; // eax
   __int64 v14; // r9
   __int64 v15; // xmm6_8
-  double v17; // [rsp+48h] [rbp-91h] BYREF
-  __int64 v18; // [rsp+50h] [rbp-89h] BYREF
-  _QWORD v19[14]; // [rsp+58h] [rbp-81h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-A1h] BYREF
+  double v18[2]; // [rsp+50h] [rbp-99h] BYREF
+  _QWORD v19[14]; // [rsp+68h] [rbp-81h] BYREF
 
-  v18 = ctrlfp(8064LL, 65472LL);
-  *(_QWORD *)&v17 = a3;
-  v13 = exception_enabled(a5, v18);
+  v17 = ctrlfp(8064LL, 65472LL);
+  *(_QWORD *)&v18[1] = a3;
+  *(_QWORD *)&v18[0] = a3;
+  v13 = exception_enabled(a5, v17);
   v15 = a8;
   if ( !v13 )
   {
@@ -42,11 +43,11 @@ double __fastcall handle_error(
       v19[6] = a8;
       LODWORD(v19[8]) = 3;
     }
-    raise_exc((unsigned int)v19, (unsigned int)&v18, a5, a2, (__int64)&a7, (__int64)&v17);
+    raise_exc((unsigned int)v19, (unsigned int)&v17, a5, a2, (__int64)&a7, (__int64)v18);
   }
   if ( !matherr_flag && a4 )
-    return call_matherr(a4, a6, a1, v14, v15, v17, v18);
-  xHalTimerWatchdogStop();
-  ctrlfp(v18, 65472LL);
-  return v17;
+    return call_matherr(a4, a6, a1, v14, v15, v18[0], v17);
+  set_errno_from_matherr(a4);
+  ctrlfp(v17, 65472LL);
+  return v18[0];
 }

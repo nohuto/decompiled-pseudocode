@@ -6,10 +6,10 @@
  *     MI_WSLE_LOG_ACCESS @ 0x140088044 (MI_WSLE_LOG_ACCESS.c)
  *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
  *     MiUpdateWsleAge @ 0x1400948B4 (MiUpdateWsleAge.c)
- *     MiResetAccessBitPte @ 0x14016E810 (MiResetAccessBitPte.c)
- *     MiResetAccessBitPteWorker @ 0x1402B3680 (MiResetAccessBitPteWorker.c)
- *     MiSimpleAgePte @ 0x1402B3830 (MiSimpleAgePte.c)
- *     MiUpdateOldPte @ 0x1402B3E70 (MiUpdateOldPte.c)
+ *     MiResetAccessBitPte @ 0x14016E830 (MiResetAccessBitPte.c)
+ *     MiResetAccessBitPteWorker @ 0x1402B3780 (MiResetAccessBitPteWorker.c)
+ *     MiSimpleAgePte @ 0x1402B3930 (MiSimpleAgePte.c)
+ *     MiUpdateOldPte @ 0x1402B3F70 (MiUpdateOldPte.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  */

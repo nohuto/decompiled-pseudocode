@@ -1,70 +1,57 @@
 /*
- * XREFs of ??0DXGKEYEDMUTEXBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGKEYEDMUTEX@@@Z @ 0x1C00598B8
+ * XREFs of ??0DXGKEYEDMUTEXBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGKEYEDMUTEX@@@Z @ 0x1C00490A0
  * Callers:
- *     ?AcquireSync@DXGKEYEDMUTEX@@SAJI_KHPEAT_LARGE_INTEGER@@PEA_KPEAXI2_N@Z @ 0x1C033E6E8 (-AcquireSync@DXGKEYEDMUTEX@@SAJI_KHPEAT_LARGE_INTEGER@@PEA_KPEAXI2_N@Z.c)
- *     ?SignalAbandoned@DXGKEYEDMUTEX@@QEAAXIH@Z @ 0x1C03413E0 (-SignalAbandoned@DXGKEYEDMUTEX@@QEAAXIH@Z.c)
- *     DxgkReleaseKeyedMutex @ 0x1C03432D0 (DxgkReleaseKeyedMutex.c)
- *     DxgkReleaseKeyedMutex2 @ 0x1C0343590 (DxgkReleaseKeyedMutex2.c)
+ *     ?AcquireSync@DXGKEYEDMUTEX@@SAJI_KHPEAT_LARGE_INTEGER@@PEA_KPEAXI2_N@Z @ 0x1C028F9BC (-AcquireSync@DXGKEYEDMUTEX@@SAJI_KHPEAT_LARGE_INTEGER@@PEA_KPEAXI2_N@Z.c)
+ *     ?SignalAbandoned@DXGKEYEDMUTEX@@QEAAXIH@Z @ 0x1C0292164 (-SignalAbandoned@DXGKEYEDMUTEX@@QEAAXIH@Z.c)
+ *     DxgkReleaseKeyedMutex @ 0x1C0293BD0 (DxgkReleaseKeyedMutex.c)
+ *     DxgkReleaseKeyedMutex2 @ 0x1C0293E30 (DxgkReleaseKeyedMutex2.c)
  * Callees:
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C000FB18 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?AcquireReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C005583C (-AcquireReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C00073EC (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ?AcquireReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0040BB4 (-AcquireReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
  */
 
 DXGKEYEDMUTEXBYHANDLE *__fastcall DXGKEYEDMUTEXBYHANDLE::DXGKEYEDMUTEXBYHANDLE(
         DXGKEYEDMUTEXBYHANDLE *this,
         unsigned int a2,
-        struct DXGPROCESS *a3,
+        struct _KTHREAD **a3,
         struct DXGKEYEDMUTEX **a4)
 {
-  __int64 v8; // rax
-  __int64 v9; // r8
-  int v10; // ecx
-  int v11; // edx
-  int v12; // ecx
-  int v13; // r8d
+  __int64 v8; // rdx
+  __int64 v9; // rax
+  struct _KTHREAD *v10; // r8
+  int v11; // ecx
+  __int64 v12; // rcx
+  __int64 v13; // rax
   DXGKEYEDMUTEX *v14; // rax
-  _BYTE v16[32]; // [rsp+60h] [rbp-28h] BYREF
+  _BYTE v16[40]; // [rsp+20h] [rbp-28h] BYREF
 
   DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v16, a3);
-  v8 = (a2 >> 6) & 0xFFFFFF;
-  if ( (unsigned int)v8 >= *((_DWORD *)a3 + 74)
-    || (v9 = *((_QWORD *)a3 + 35),
-        v10 = *(_DWORD *)(v9 + 16 * v8 + 8),
-        ((a2 >> 25) & 0x60) != (*(_BYTE *)(v9 + 16 * v8 + 8) & 0x60))
-    || (v10 & 0x2000) != 0
-    || (v10 & 0x1F) == 0 )
+  v9 = (a2 >> 6) & 0xFFFFFF;
+  if ( (unsigned int)v9 >= *((_DWORD *)a3 + 64) )
+    goto LABEL_7;
+  v10 = a3[30];
+  v8 = (unsigned int)v9;
+  v11 = *((_DWORD *)v10 + 4 * v9 + 2);
+  if ( ((a2 >> 25) & 0x60) != (*((_BYTE *)v10 + 16 * v9 + 8) & 0x60) || (v11 & 0x2000) != 0 || (v11 & 0x1F) == 0 )
+    goto LABEL_7;
+  v8 = 2LL * (unsigned int)v9;
+  v12 = v11 & 0x1F;
+  if ( (_BYTE)v12 != 9 )
   {
-LABEL_9:
+    v13 = WdLogNewEntry5_WdError(v12, v8);
+    *(_QWORD *)(v13 + 24) = 316LL;
+    WdLogEvent5_WdError(v13);
+LABEL_7:
     v14 = 0LL;
-    goto LABEL_10;
+    goto LABEL_8;
   }
-  if ( (v10 & 0x1F) != 9 )
-  {
-    WdLogSingleEntry1(2LL, 267LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v12,
-        v11,
-        v13,
-        0LL,
-        0,
-        -1,
-        L"Handle type mismatch",
-        267LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    goto LABEL_9;
-  }
-  v14 = *(DXGKEYEDMUTEX **)(v9 + 16LL * (unsigned int)v8);
-LABEL_10:
+  v14 = (DXGKEYEDMUTEX *)*((_QWORD *)v10 + 2 * (unsigned int)v9);
+LABEL_8:
   *(_QWORD *)this = v14;
   if ( v14 )
   {
-    DXGKEYEDMUTEX::AcquireReference(v14);
+    DXGKEYEDMUTEX::AcquireReference(v14, v8);
     v14 = *(DXGKEYEDMUTEX **)this;
   }
   *a4 = v14;

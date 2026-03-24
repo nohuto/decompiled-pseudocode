@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetPrimitives@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A57B8
+ * XREFs of ?EmitSetPrimitives@CAnimationMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0095CA8
  * Callers:
- *     ?EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A54F0 (-EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00959C0 (-EmitUpdateCommands@CAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CAnimationMarshaler::EmitSetPrimitives(
@@ -25,8 +25,8 @@ char __fastcall DirectComposition::CAnimationMarshaler::EmitSetPrimitives(
       *(_OWORD *)(v4 + 4) = 0LL;
       *((_DWORD *)v4 + 5) = 0;
       *((_DWORD *)v4 + 1) = 9;
-      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 12);
-      *((_DWORD *)v4 + 3) = *(_DWORD *)(*((_QWORD *)this + 11) + 32LL);
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 10);
+      *((_DWORD *)v4 + 3) = *(_DWORD *)(*((_QWORD *)this + 11) + 24LL);
       *((_DWORD *)v4 + 4) = *((_DWORD *)this + 26);
       *((_DWORD *)v4 + 5) = *((_DWORD *)this + 24);
       *((_DWORD *)this + 8) |= 0x40u;

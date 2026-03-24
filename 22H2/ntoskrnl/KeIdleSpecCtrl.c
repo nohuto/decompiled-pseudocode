@@ -1,7 +1,7 @@
 /*
- * XREFs of KeIdleSpecCtrl @ 0x140371FC0
+ * XREFs of KeIdleSpecCtrl @ 0x140364F30
  * Callers:
- *     PoIdle @ 0x1402C4B30 (PoIdle.c)
+ *     PoIdle @ 0x140221E90 (PoIdle.c)
  * Callees:
  *     <none>
  */
@@ -55,7 +55,7 @@ __int64 __fastcall KeIdleSpecCtrl(__int64 a1, int a2, _DWORD *a3, char a4)
     }
     v15 = v5;
     if ( (*(_BYTE *)(a1 + 1762) & 0x40) != 0 )
-      HIWORD(v15) = *(_WORD *)(a1 + 40618);
+      HIWORD(v15) = *(_WORD *)(a1 + 36522);
     result = v7;
     *a3 = v15;
   }

@@ -1,20 +1,18 @@
 /*
- * XREFs of PopCurrentPowerState @ 0x1407A7258
+ * XREFs of PopCurrentPowerState @ 0x1406F1B8C
  * Callers:
- *     PopUpdateAcDcState @ 0x1403C3CE8 (PopUpdateAcDcState.c)
- *     PopEsUpdateState @ 0x1403C5BF4 (PopEsUpdateState.c)
- *     PopCalculateCsSummary @ 0x1405913C4 (PopCalculateCsSummary.c)
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     PopTransitionTelemetryOsState @ 0x1408037CC (PopTransitionTelemetryOsState.c)
- *     PopEsStartTelemetry @ 0x140863BD4 (PopEsStartTelemetry.c)
- *     PopBootBatteryStatusWorker @ 0x140864B20 (PopBootBatteryStatusWorker.c)
- *     PopCurrentPowerStatePrecise @ 0x140873C98 (PopCurrentPowerStatePrecise.c)
- *     PopEsEnterSleepShutdown @ 0x1409983A8 (PopEsEnterSleepShutdown.c)
- *     PopGracefulShutdown @ 0x140AA0B20 (PopGracefulShutdown.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopUpdateAcDcState @ 0x1403992CC (PopUpdateAcDcState.c)
+ *     PopEsUpdateState @ 0x14039A208 (PopEsUpdateState.c)
+ *     PopCalculateCsSummary @ 0x14056FDE0 (PopCalculateCsSummary.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
+ *     PopDiagTraceControlCallback @ 0x1406F7FA0 (PopDiagTraceControlCallback.c)
+ *     PopEsEnterSleepShutdown @ 0x1407790DC (PopEsEnterSleepShutdown.c)
+ *     PopCurrentPowerStatePrecise @ 0x14078E344 (PopCurrentPowerStatePrecise.c)
+ *     PopEsStartTelemetry @ 0x14078E674 (PopEsStartTelemetry.c)
+ *     PopTransitionTelemetryOsState @ 0x1407938D4 (PopTransitionTelemetryOsState.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
  */
 
 void __fastcall PopCurrentPowerState(_OWORD *a1)
@@ -23,8 +21,8 @@ void __fastcall PopCurrentPowerState(_OWORD *a1)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&xmmword_140C3D2B8, 0LL);
-  *a1 = xmmword_140C3D2C8;
-  a1[1] = xmmword_140C3D2D8;
-  PopReleaseRwLock((__int64 *)&xmmword_140C3D2B8);
+  ExAcquirePushLockSharedEx((ULONG_PTR)&xmmword_140C23DF0, 0LL);
+  *a1 = xmmword_140C23E00;
+  a1[1] = xmmword_140C23E10;
+  PopReleaseRwLock((ULONG_PTR)&xmmword_140C23DF0);
 }

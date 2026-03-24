@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SetContextMsgRoutingInfo@CGenericInk@@AEAAJPEAVCD3DDevice@@@Z @ 0x1802165A8
+ * XREFs of ?SetContextMsgRoutingInfo@CGenericInk@@AEAAJPEAVCD3DDevice@@@Z @ 0x1801C37B8
  * Callers:
- *     ?CreateResource@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DGenericInk@@@Z @ 0x1802151A0 (-CreateResource@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DGenericInk@@@Z.c)
- *     ?ProcessRoutingInfo@CGenericInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_GENERICINK_ROUTINGINFO@@@Z @ 0x180216040 (-ProcessRoutingInfo@CGenericInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_GENERICINK_ROUTINGINFO@@.c)
+ *     ?CreateResource@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DGenericInk@@@Z @ 0x1801C2630 (-CreateResource@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DGenericInk@@@Z.c)
+ *     ?ProcessRoutingInfo@CGenericInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_GENERICINK_ROUTINGINFO@@@Z @ 0x1801C3394 (-ProcessRoutingInfo@CGenericInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_GENERICINK_ROUTINGINFO@@.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetDirectInkFactory@CD2DContext@@UEAAJPEAPEAUIDCompositionDirectInkFactoryPartner@@@Z @ 0x180278D30 (-GetDirectInkFactory@CD2DContext@@UEAAJPEAPEAUIDCompositionDirectInkFactoryPartner@@@Z.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025290 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?GetDirectInkFactory@CD2DContext@@UEAAJPEAPEAUIDCompositionDirectInkFactoryPartner@@@Z @ 0x18023CAA0 (-GetDirectInkFactory@CD2DContext@@UEAAJPEAPEAUIDCompositionDirectInkFactoryPartner@@@Z.c)
  */
 
 __int64 __fastcall CGenericInk::SetContextMsgRoutingInfo(CGenericInk *this, struct CD3DDevice *a2)
@@ -21,7 +21,7 @@ __int64 __fastcall CGenericInk::SetContextMsgRoutingInfo(CGenericInk *this, stru
   __int64 v10; // [rsp+30h] [rbp+8h] BYREF
   struct IDCompositionDirectInkFactoryPartner *v11; // [rsp+40h] [rbp+18h] BYREF
 
-  if ( *((_BYTE *)this + 344) )
+  if ( *((_BYTE *)this + 320) )
   {
     v11 = 0LL;
     DirectInkFactory = CD2DContext::GetDirectInkFactory((struct CD3DDevice *)((char *)a2 + 16), &v11);
@@ -30,8 +30,8 @@ __int64 __fastcall CGenericInk::SetContextMsgRoutingInfo(CGenericInk *this, stru
     {
       wil::details::in1diag3::Return_Hr(
         retaddr,
-        (void *)0x232,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\genericink.cpp",
+        (void *)0x20B,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\genericink.cpp",
         (const char *)(unsigned int)DirectInkFactory);
 LABEL_9:
       wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v11);
@@ -39,25 +39,25 @@ LABEL_9:
     }
     v5 = *(_QWORD *)v11;
     v10 = 0LL;
-    v6 = (*(__int64 (__fastcall **)(struct IDCompositionDirectInkFactoryPartner *, __int64 *))(v5 + 64))(v11, &v10);
+    v6 = (*(__int64 (__fastcall **)(struct IDCompositionDirectInkFactoryPartner *, __int64 *))(v5 + 72))(v11, &v10);
     v4 = v6;
     if ( v6 < 0 )
     {
-      v7 = 565LL;
+      v7 = 526LL;
 LABEL_8:
       wil::details::in1diag3::Return_Hr(
         retaddr,
         (void *)v7,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\genericink.cpp",
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\genericink.cpp",
         (const char *)(unsigned int)v6);
       wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v10);
       goto LABEL_9;
     }
-    v6 = (*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)v10 + 32LL))(v10, (char *)this + 352);
+    v6 = (*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)v10 + 32LL))(v10, (char *)this + 328);
     v4 = v6;
     if ( v6 < 0 )
     {
-      v7 = 566LL;
+      v7 = 527LL;
       goto LABEL_8;
     }
     wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v10);

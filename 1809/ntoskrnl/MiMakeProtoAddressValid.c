@@ -7,7 +7,7 @@
  *     MiAddLockedPageCharge @ 0x14002DFAC (MiAddLockedPageCharge.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiMakeProtoAddressValid(unsigned __int64 a1)

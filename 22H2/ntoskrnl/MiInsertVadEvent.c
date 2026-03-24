@@ -1,43 +1,47 @@
 /*
- * XREFs of MiInsertVadEvent @ 0x1402E326C
+ * XREFs of MiInsertVadEvent @ 0x14025B21C
  * Callers:
- *     MiWaitForVadDeletion @ 0x140660CC8 (MiWaitForVadDeletion.c)
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiAddSecureEntry @ 0x140746294 (MiAddSecureEntry.c)
- *     MiCreateVadEventBitmap @ 0x1407CD394 (MiCreateVadEventBitmap.c)
- *     MiCreateRotateView @ 0x140A31280 (MiCreateRotateView.c)
- *     MiApplyImageHotPatchRequest @ 0x140A35650 (MiApplyImageHotPatchRequest.c)
- *     MiCreateUserPhysicalView @ 0x140A417E8 (MiCreateUserPhysicalView.c)
- *     MiCreatePlaceholderStorage @ 0x140A47CA0 (MiCreatePlaceholderStorage.c)
- *     MiCreateLargePageVad @ 0x140A49658 (MiCreateLargePageVad.c)
+ *     MiWaitForVadDeletion @ 0x14055BD50 (MiWaitForVadDeletion.c)
+ *     MiMapViewOfImageSection @ 0x14061D2D0 (MiMapViewOfImageSection.c)
+ *     MiAddSecureEntry @ 0x14061FBE0 (MiAddSecureEntry.c)
+ *     MiCreateVadEventBitmap @ 0x140683D8C (MiCreateVadEventBitmap.c)
+ *     MiCreateRotateView @ 0x1406A06B0 (MiCreateRotateView.c)
+ *     MiCreateUserPhysicalView @ 0x1408D5BF8 (MiCreateUserPhysicalView.c)
+ *     MiCreatePlaceholderStorage @ 0x1408D8328 (MiCreatePlaceholderStorage.c)
+ *     MiCreateLargePageVad @ 0x1408D9FB4 (MiCreateLargePageVad.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
  */
 
-void __fastcall MiInsertVadEvent(__int64 a1, unsigned __int64 *a2, __int64 a3, __int64 a4)
+void __fastcall MiInsertVadEvent(__int64 a1, _QWORD *a2, int a3)
 {
-  unsigned __int64 *v6; // rdi
-  volatile LONG *SharedVm; // rbx
-  KIRQL v8; // al
-  unsigned __int8 v9; // dl
+  LONG *v5; // rdi
+  _KPROCESS *Process; // rbx
+  char v7; // al
+  __int64 v8; // rbx
+  KIRQL v9; // al
+  unsigned __int8 v10; // dl
 
-  if ( (_DWORD)a3 )
+  if ( a3 == 1 )
   {
-    v6 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[26];
-    SharedVm = (volatile LONG *)MiGetSharedVm((__int64)v6);
-    v8 = ExAcquireSpinLockExclusive(SharedVm);
-    *((_DWORD *)SharedVm + 1) = 0;
-    v9 = v8;
+    v5 = &dword_140C4F780;
+    Process = KeGetCurrentThread()->ApcState.Process;
+    v7 = Process[1].IdealProcessorPadding[10];
+    v8 = (__int64)&Process[1].ActiveProcessorsPadding[6];
+    if ( (v7 & 7) != 2 )
+      v5 = (LONG *)(v8 + 192);
+    v9 = ExAcquireSpinLockExclusive(v5);
+    v5[1] = 0;
+    v10 = v9;
   }
   else
   {
-    v9 = 17;
-    v6 = 0LL;
+    v10 = 17;
+    v8 = 0LL;
   }
-  *a2 = *(_QWORD *)(a1 + 56) & 0xFFFFFFFFFFFFFFF0uLL;
-  *(_QWORD *)(a1 + 56) = (unsigned __int64)a2 | *(_DWORD *)(a1 + 56) & 0xF;
-  if ( v9 != 17 )
-    MiUnlockWorkingSetExclusive((__int64)v6, v9, a3, a4);
+  *a2 = *(_QWORD *)(a1 + 56);
+  *(_QWORD *)(a1 + 56) = a2;
+  if ( v10 != 17 )
+    MiUnlockWorkingSetExclusive(v8, v10);
 }

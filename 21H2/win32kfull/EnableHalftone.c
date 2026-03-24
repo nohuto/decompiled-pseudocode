@@ -1,27 +1,27 @@
 /*
- * XREFs of EnableHalftone @ 0x1C011DFA0
+ * XREFs of EnableHalftone @ 0x1C0132DF0
  * Callers:
  *     <none>
  * Callees:
- *     HT_InitSaneLimits @ 0x1C011E02C (HT_InitSaneLimits.c)
+ *     HT_InitSaneLimits @ 0x1C0132E7C (HT_InitSaneLimits.c)
  */
 
 __int64 EnableHalftone()
 {
-  qword_1C0336428 = EngCreateSemaphore();
-  if ( !qword_1C0336428 )
+  qword_1C033AF88 = EngCreateSemaphore();
+  if ( !qword_1C033AF88 )
     return 0LL;
   Src = 0LL;
-  qword_1C033644C = 0LL;
-  dword_1C0336448 = 0;
+  qword_1C033AFAC = 0LL;
+  dword_1C033AFA8 = 0;
+  qword_1C033AF78 = EngCreateSemaphore();
+  if ( !qword_1C033AF78 )
+    return 0LL;
+  word_1C033AFB4 = 0;
   hsem = EngCreateSemaphore();
   if ( !hsem )
     return 0LL;
-  word_1C0336454 = 0;
-  qword_1C0336420 = EngCreateSemaphore();
-  if ( !qword_1C0336420 )
-    return 0LL;
-  word_1C0336456 = 0;
+  word_1C033AFB6 = 0;
   HT_InitSaneLimits();
   return 1LL;
 }

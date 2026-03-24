@@ -1,12 +1,12 @@
 /*
- * XREFs of ViWdIrpTimerDpcRoutine @ 0x140A9D3E0
+ * XREFs of ViWdIrpTimerDpcRoutine @ 0x1409E1000
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiSetTimerEx @ 0x1402E2D20 (KiSetTimerEx.c)
- *     ViWdIrpTimedOut @ 0x140A9D340 (ViWdIrpTimedOut.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     ViWdIrpTimedOut @ 0x1409E0F60 (ViWdIrpTimedOut.c)
  */
 
 void __fastcall ViWdIrpTimerDpcRoutine(
@@ -49,12 +49,12 @@ void __fastcall ViWdIrpTimerDpcRoutine(
     {
       for ( i = VfWdIrpListHead; (__int64 *)i != &VfWdIrpListHead; i = *(_QWORD *)i )
         *(_BYTE *)(i + 28) = 0;
-      qword_140D576F8 = (__int64)&VfWdIrpListHead;
+      qword_140D4A208 = (__int64)&VfWdIrpListHead;
       VfWdIrpListHead = (__int64)&VfWdIrpListHead;
       ViWdIrpListLength = 0;
     }
     KxReleaseSpinLock(&VfWdIrpListLock);
   }
   if ( !ViWdCancelling )
-    KiSetTimerEx((unsigned __int64)&ViWdIrpTimer, -10000000LL, 0, 0, (__int64)&ViWdIrpTimerDpc);
+    KiSetTimerEx((__int64)&ViWdIrpTimer, -10000000LL, 0, 0, (__int64)&ViWdIrpTimerDpc);
 }

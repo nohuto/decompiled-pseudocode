@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpLogRefSetAutoMark @ 0x1409EA6C0
+ * XREFs of EtwpLogRefSetAutoMark @ 0x14093DE54
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140814360 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x14079743C (EtwpKernelTraceRundown.c)
  * Callees:
- *     RtlStringCbCopyA @ 0x1402A1054 (RtlStringCbCopyA.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     EtwpSetMark @ 0x1409E386C (EtwpSetMark.c)
+ *     RtlStringCbCopyA @ 0x1402D6260 (RtlStringCbCopyA.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwpSetMark @ 0x1409373DC (EtwpSetMark.c)
  */
 
 __int64 __fastcall EtwpLogRefSetAutoMark(char a1, __int64 a2)

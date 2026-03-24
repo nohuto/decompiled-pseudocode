@@ -1,12 +1,10 @@
 /*
- * XREFs of McGenEventRegister_EtwRegister @ 0x1403DDD24
+ * XREFs of McGenEventRegister_EtwRegister @ 0x1403B7368
  * Callers:
- *     CcInitializeVolumeCacheMap @ 0x1402D1304 (CcInitializeVolumeCacheMap.c)
- *     CarEtwRegister @ 0x140602644 (CarEtwRegister.c)
- *     IoInitSystemPreDrivers @ 0x140AFE7A0 (IoInitSystemPreDrivers.c)
- *     PnpDiagInitialize @ 0x140B2F500 (PnpDiagInitialize.c)
+ *     FsRtlpHeatRegisterVolume @ 0x14088D0C8 (FsRtlpHeatRegisterVolume.c)
+ *     PnpDiagInitialize @ 0x140A53304 (PnpDiagInitialize.c)
  * Callees:
- *     EtwRegister @ 0x1406D2350 (EtwRegister.c)
+ *     EtwRegister @ 0x140762CB0 (EtwRegister.c)
  */
 
 NTSTATUS __fastcall McGenEventRegister_EtwRegister(const GUID *a1, __int64 a2, void *a3, ULONGLONG *a4)

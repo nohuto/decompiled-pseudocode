@@ -1,16 +1,17 @@
 /*
- * XREFs of HvlpDiscoverTopologyAmd @ 0x140B93F94
+ * XREFs of HvlpDiscoverTopologyAmd @ 0x140A8EF24
  * Callers:
- *     HvlpDiscoverTopologyWorker @ 0x140941458 (HvlpDiscoverTopologyWorker.c)
+ *     HvlpDiscoverTopologyWorker @ 0x14088E8B8 (HvlpDiscoverTopologyWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvlpLpCpuid @ 0x140941500 (HvlpLpCpuid.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HvlpLpCpuid @ 0x140A8F2D8 (HvlpLpCpuid.c)
  */
 
-__int64 __fastcall HvlpDiscoverTopologyAmd(ULONG a1, unsigned int a2, unsigned int *a3, _DWORD *a4)
+__int64 __fastcall HvlpDiscoverTopologyAmd(__int64 a1, unsigned int a2, unsigned int *a3, _DWORD *a4)
 {
   unsigned int v7; // edi
   unsigned int v8; // ebx
+  unsigned int v9; // esi
   unsigned int v10; // ebp
   int v11; // ecx
   __int64 result; // rax
@@ -19,21 +20,22 @@ __int64 __fastcall HvlpDiscoverTopologyAmd(ULONG a1, unsigned int a2, unsigned i
   v7 = 1;
   v13 = 0LL;
   v8 = 1;
-  HvlpLpCpuid(a1, 0x80000000, 0, (PHYSICAL_ADDRESS *)&v13);
+  v9 = a1;
+  HvlpLpCpuid(a1, 0x80000000LL, 0LL, &v13);
   v10 = v13;
   if ( (unsigned int)v13 >= 0x80000008 )
   {
-    HvlpLpCpuid(a1, 0x80000008, 0, (PHYSICAL_ADDRESS *)&v13);
+    HvlpLpCpuid(v9, 2147483656LL, 0LL, &v13);
     LOWORD(v11) = WORD4(v13) >> 12;
     if ( !(WORD4(v13) >> 12) )
       _BitScanReverse((unsigned int *)&v11, 2 * BYTE8(v13) + 1);
     v8 = 1 << v11;
     if ( v10 >= 0x8000001E )
     {
-      HvlpLpCpuid(a1, 0x80000001, 0, (PHYSICAL_ADDRESS *)&v13);
+      HvlpLpCpuid(v9, 2147483649LL, 0LL, &v13);
       if ( (DWORD2(v13) & 0x400000) != 0 )
       {
-        HvlpLpCpuid(a1, 0x8000001E, 0, (PHYSICAL_ADDRESS *)&v13);
+        HvlpLpCpuid(v9, 2147483678LL, 0LL, &v13);
         v7 = BYTE5(v13) + 1;
         v8 /= v7;
       }

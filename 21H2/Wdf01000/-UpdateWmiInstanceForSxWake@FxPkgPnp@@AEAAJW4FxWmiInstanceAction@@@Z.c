@@ -1,50 +1,50 @@
 /*
- * XREFs of ?UpdateWmiInstanceForSxWake@FxPkgPnp@@AEAAJW4FxWmiInstanceAction@@@Z @ 0x1C00207F4
+ * XREFs of ?UpdateWmiInstanceForSxWake@FxPkgPnp@@AEAAJW4FxWmiInstanceAction@@@Z @ 0x1C0085A24
  * Callers:
- *     ?PowerPolicySetSxWakeSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_WAKE_SETTINGS@@EE@Z @ 0x1C00205C8 (-PowerPolicySetSxWakeSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_WAKE_SETTINGS@@EE@Z.c)
+ *     ?PowerPolicySetSxWakeSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_WAKE_SETTINGS@@EE@Z @ 0x1C0081E64 (-PowerPolicySetSxWakeSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_WAKE_SETTINGS@@EE@Z.c)
  * Callees:
- *     ?AddInstance@FxWmiProvider@@QEAAJPEAVFxWmiInstance@@E@Z @ 0x1C001D0E8 (-AddInstance@FxWmiProvider@@QEAAJPEAVFxWmiInstance@@E@Z.c)
- *     ?RegisterPowerPolicyWmiInstance@FxPkgPnp@@QEAAJPEBU_GUID@@PEAUFxWmiInstanceInternalCallbacks@@PEAPEAVFxWmiInstanceInternal@@@Z @ 0x1C002FEA0 (-RegisterPowerPolicyWmiInstance@FxPkgPnp@@QEAAJPEBU_GUID@@PEAUFxWmiInstanceInternalCallbacks@@PE.c)
- *     ?RemoveInstance@FxWmiProvider@@QEAAXPEAVFxWmiInstance@@@Z @ 0x1C005E1C4 (-RemoveInstance@FxWmiProvider@@QEAAXPEAVFxWmiInstance@@@Z.c)
+ *     ?AddInstance@FxWmiProvider@@QEAAJPEAVFxWmiInstance@@E@Z @ 0x1C003E07C (-AddInstance@FxWmiProvider@@QEAAJPEAVFxWmiInstance@@E@Z.c)
+ *     ?RemoveInstance@FxWmiProvider@@QEAAXPEAVFxWmiInstance@@@Z @ 0x1C003E404 (-RemoveInstance@FxWmiProvider@@QEAAXPEAVFxWmiInstance@@@Z.c)
+ *     ?RegisterPowerPolicyWmiInstance@FxPkgPnp@@QEAAJPEBU_GUID@@PEAUFxWmiInstanceInternalCallbacks@@PEAPEAVFxWmiInstanceInternal@@@Z @ 0x1C00825D4 (-RegisterPowerPolicyWmiInstance@FxPkgPnp@@QEAAJPEBU_GUID@@PEAUFxWmiInstanceInternalCallbacks@@PE.c)
  */
 
-int __fastcall FxPkgPnp::UpdateWmiInstanceForSxWake(FxPkgPnp *this, FxWmiInstanceAction Action)
+__int64 __fastcall FxPkgPnp::UpdateWmiInstanceForSxWake(FxPkgPnp *this, FxWmiInstanceAction Action, unsigned __int8 a3)
 {
-  int v2; // edx
+  int v3; // edx
   FxPowerPolicyOwnerSettings *m_Owner; // rax
   FxWmiInstanceInternal *WmiInstance; // rcx
-  int result; // eax
   FxWmiInstance **p_WmiInstance; // r9
+  __int64 result; // rax
   FxWmiInstanceInternalCallbacks cb; // [rsp+20h] [rbp-28h] BYREF
 
-  v2 = Action - 1;
-  if ( v2 )
+  v3 = Action - 1;
+  if ( v3 )
   {
-    if ( v2 == 1 )
+    if ( v3 == 1 )
     {
       m_Owner = this->m_PowerPolicyMachine.m_Owner;
       WmiInstance = m_Owner->m_WakeSettings.WmiInstance;
       if ( WmiInstance )
-        FxWmiProvider::RemoveInstance(WmiInstance->m_Provider, m_Owner->m_WakeSettings.WmiInstance);
+        FxWmiProvider::RemoveInstance(WmiInstance->m_Provider, m_Owner->m_WakeSettings.WmiInstance, a3);
     }
-    return 0;
+    return 0LL;
   }
   p_WmiInstance = &this->m_PowerPolicyMachine.m_Owner->m_WakeSettings.WmiInstance;
   if ( *p_WmiInstance )
   {
     FxWmiProvider::AddInstance((*p_WmiInstance)->m_Provider, *p_WmiInstance, 1u);
-    return 0;
+    return 0LL;
   }
   cb.ExecuteMethod = 0LL;
-  cb.SetInstance = FxPkgPnp::_SxWakeSetInstance;
+  cb.SetInstance = (int (__fastcall *)(FxDevice *, FxWmiInstanceInternal *, unsigned int, void *))FxPkgPnp::_SxWakeSetInstance;
   cb.QueryInstance = (int (__fastcall *)(FxDevice *, FxWmiInstanceInternal *, unsigned int, void *, unsigned int *))FxPkgPnp::_SxWakeQueryInstance;
-  cb.SetItem = FxPkgPnp::_SxWakeSetItem;
+  cb.SetItem = (int (__fastcall *)(FxDevice *, FxWmiInstanceInternal *, unsigned int, unsigned int, void *))FxPkgPnp::_SxWakeSetItem;
   result = FxPkgPnp::RegisterPowerPolicyWmiInstance(
              this,
              &GUID_POWER_DEVICE_WAKE_ENABLE,
              &cb,
              (FxWmiInstanceInternal **)p_WmiInstance);
-  if ( result >= 0 )
-    return 0;
+  if ( (int)result >= 0 )
+    return 0LL;
   return result;
 }

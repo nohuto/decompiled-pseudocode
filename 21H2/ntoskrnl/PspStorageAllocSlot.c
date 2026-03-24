@@ -1,29 +1,25 @@
 /*
- * XREFs of PspStorageAllocSlot @ 0x1408258B8
+ * XREFs of PspStorageAllocSlot @ 0x140795848
  * Callers:
- *     PsAllocSiloContextSlot @ 0x140825790 (PsAllocSiloContextSlot.c)
- *     PsRegisterSiloMonitor @ 0x1408257B0 (PsRegisterSiloMonitor.c)
- *     VRegSetup @ 0x14085B100 (VRegSetup.c)
- *     CmpInitSiloSupport @ 0x140861E5C (CmpInitSiloSupport.c)
- *     PspInitializeSiloStructures @ 0x140AFF540 (PspInitializeSiloStructures.c)
+ *     PsAllocSiloContextSlot @ 0x140795720 (PsAllocSiloContextSlot.c)
+ *     PsRegisterSiloMonitor @ 0x140795740 (PsRegisterSiloMonitor.c)
+ *     CmpInitSiloSupport @ 0x1407A56F8 (CmpInitSiloSupport.c)
+ *     VRegSetup @ 0x1407CAEC0 (VRegSetup.c)
+ *     PspInitializeSiloStructures @ 0x140A3CBC4 (PspInitializeSiloStructures.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x1402054C0 (RtlFindClearBitsAndSet.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
 __int64 __fastcall PspStorageAllocSlot(ULONG *a1)
 {
-  struct _KTHREAD *CurrentThread; // rax
-  int v2; // esi
+  int v2; // edi
   ULONG ClearBitsAndSet; // ebx
-  char v5; // di
+  char v4; // al
 
-  CurrentThread = KeGetCurrentThread();
   v2 = 0;
-  --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&PspStorageBitmapLock, 0LL);
   ClearBitsAndSet = RtlFindClearBitsAndSet(&PspStorageBitmap, 1u, 0);
   if ( ClearBitsAndSet == -1 )
@@ -34,11 +30,10 @@ __int64 __fastcall PspStorageAllocSlot(ULONG *a1)
     else
       ClearBitsAndSet += 32;
   }
-  v5 = _InterlockedExchangeAdd64((volatile signed __int64 *)&PspStorageBitmapLock, 0xFFFFFFFFFFFFFFFFuLL);
-  if ( (v5 & 2) != 0 && (v5 & 4) == 0 )
+  v4 = _InterlockedExchangeAdd64((volatile signed __int64 *)&PspStorageBitmapLock, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v4 & 2) != 0 && (v4 & 4) == 0 )
     ExfTryToWakePushLock(&PspStorageBitmapLock);
   KeAbPostRelease((ULONG_PTR)&PspStorageBitmapLock);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   if ( v2 >= 0 )
     *a1 = ClearBitsAndSet;
   return (unsigned int)v2;

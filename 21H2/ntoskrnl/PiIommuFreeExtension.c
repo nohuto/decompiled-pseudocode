@@ -1,17 +1,16 @@
 /*
- * XREFs of PiIommuFreeExtension @ 0x140863944
+ * XREFs of PiIommuFreeExtension @ 0x14076618C
  * Callers:
- *     PipDmgDestroyIommuExtension @ 0x140749814 (PipDmgDestroyIommuExtension.c)
- *     PiIommuAllocateExtension @ 0x14084C604 (PiIommuAllocateExtension.c)
+ *     PipDmgDestroyIommuExtension @ 0x140765EC4 (PipDmgDestroyIommuExtension.c)
+ *     PiIommuAllocateExtension @ 0x140765F1C (PiIommuAllocateExtension.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiIommuFreeExtension(ULONG_PTR BugCheckParameter2)
 {
   void *v2; // rcx
-  void *v3; // rcx
 
   if ( (*(_BYTE *)(BugCheckParameter2 + 16) & 2) != 0 )
     KeBugCheckEx(0xCAu, 0x11uLL, BugCheckParameter2, *(unsigned __int8 *)(BugCheckParameter2 + 16), 0x1001uLL);
@@ -20,12 +19,6 @@ void __fastcall PiIommuFreeExtension(ULONG_PTR BugCheckParameter2)
   {
     ExFreePoolWithTag(v2, 0x64706E50u);
     *(_QWORD *)BugCheckParameter2 = 0LL;
-  }
-  v3 = *(void **)(BugCheckParameter2 + 24);
-  if ( v3 )
-  {
-    ExFreePoolWithTag(v3, 0x64706E50u);
-    *(_QWORD *)(BugCheckParameter2 + 24) = 0LL;
   }
   ExFreePoolWithTag((PVOID)BugCheckParameter2, 0x64706E50u);
 }

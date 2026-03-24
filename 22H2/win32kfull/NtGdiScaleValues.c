@@ -1,10 +1,10 @@
 /*
- * XREFs of NtGdiScaleValues @ 0x1C02C48C0
+ * XREFs of NtGdiScaleValues @ 0x1C02AF860
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
- *     GreScaleValues @ 0x1C02A819C (GreScaleValues.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     GreScaleValues @ 0x1C029EAB0 (GreScaleValues.c)
  */
 
 __int64 __fastcall NtGdiScaleValues(HDC a1, char *a2, unsigned int a3)
@@ -13,9 +13,7 @@ __int64 __fastcall NtGdiScaleValues(HDC a1, char *a2, unsigned int a3)
   void *v7; // rbx
   char *v8; // rcx
   SIZE_T v9; // r14
-  __int64 v10; // rdx
-  unsigned int v11; // edi
-  __int64 v12; // r8
+  unsigned int v10; // edi
 
   v6 = 4LL * a3;
   if ( v6 > 0xFFFFFFFF )
@@ -33,12 +31,12 @@ __int64 __fastcall NtGdiScaleValues(HDC a1, char *a2, unsigned int a3)
   }
   v9 = (unsigned int)v6;
   memmove(v7, a2, (unsigned int)v6);
-  v11 = GreScaleValues(a1, (int *)v7, a3);
-  if ( v11 )
+  v10 = GreScaleValues(a1, (int *)v7, a3);
+  if ( v10 )
   {
     ProbeForWrite(a2, v9, 4u);
     memmove(a2, v7, v9);
   }
-  FreeTmpBuffer(v7, v10, v12);
-  return v11;
+  FreeTmpBuffer(v7);
+  return v10;
 }

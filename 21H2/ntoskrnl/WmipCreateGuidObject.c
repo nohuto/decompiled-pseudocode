@@ -1,19 +1,19 @@
 /*
- * XREFs of WmipCreateGuidObject @ 0x140782F2C
+ * XREFs of WmipCreateGuidObject @ 0x14063F798
  * Callers:
- *     WmipOpenGuidObject @ 0x14078314C (WmipOpenGuidObject.c)
+ *     WmipOpenGuidObject @ 0x14063F6E0 (WmipOpenGuidObject.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     SepDeleteAccessState @ 0x1403478A0 (SepDeleteAccessState.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SeCreateAccessState @ 0x14071F140 (SeCreateAccessState.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14072B3B0 (ObCreateObjectEx.c)
- *     WmipGetGuidSecurityDescriptor @ 0x140782C4C (WmipGetGuidSecurityDescriptor.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     SepDeleteAccessState @ 0x14027C660 (SepDeleteAccessState.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     WmipGetGuidSecurityDescriptor @ 0x14063FB18 (WmipGetGuidSecurityDescriptor.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SeCreateAccessState @ 0x140661880 (SeCreateAccessState.c)
+ *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipCreateGuidObject(__int128 *a1, unsigned int a2, _OWORD *a3, _QWORD *a4)
@@ -26,55 +26,44 @@ __int64 __fastcall WmipCreateGuidObject(__int128 *a1, unsigned int a2, _OWORD *a
   __int128 v13; // xmm6
   __int128 v14; // xmm7
   char *v15; // rsi
-  __int64 v17; // [rsp+28h] [rbp-E0h]
   PVOID P; // [rsp+58h] [rbp-B0h] BYREF
-  char *DestinationString; // [rsp+60h] [rbp-A8h] BYREF
+  char *DestinationString; // [rsp+60h] [rbp-A8h]
   UNICODE_STRING DestinationString_8; // [rsp+68h] [rbp-A0h] BYREF
-  __int128 v21; // [rsp+78h] [rbp-90h] BYREF
-  __int64 v22; // [rsp+88h] [rbp-80h]
-  int v23; // [rsp+90h] [rbp-78h]
-  int v24; // [rsp+94h] [rbp-74h]
-  PVOID v25; // [rsp+98h] [rbp-70h]
-  __int64 v26; // [rsp+A0h] [rbp-68h]
+  __int128 v20; // [rsp+78h] [rbp-90h] BYREF
+  __int64 v21; // [rsp+88h] [rbp-80h]
+  int v22; // [rsp+90h] [rbp-78h]
+  int v23; // [rsp+94h] [rbp-74h]
+  PVOID v24; // [rsp+98h] [rbp-70h]
+  __int64 v25; // [rsp+A0h] [rbp-68h]
   struct _ACCESS_STATE AccessState; // [rsp+A8h] [rbp-60h] BYREF
-  _BYTE v28[224]; // [rsp+148h] [rbp+40h] BYREF
+  _BYTE v27[224]; // [rsp+148h] [rbp+40h] BYREF
 
   P = 0LL;
   DestinationString_8 = 0LL;
   memset(&AccessState, 0, sizeof(AccessState));
-  memset(v28, 0, sizeof(v28));
+  memset(v27, 0, sizeof(v27));
   v8 = *((_QWORD *)a1 + 2);
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString_8, (PCWSTR)(*(_QWORD *)(v8 + 8) + 18LL));
-  GuidSecurityDescriptor = WmipGetGuidSecurityDescriptor((__int64)&DestinationString_8, &P);
+  GuidSecurityDescriptor = WmipGetGuidSecurityDescriptor(&DestinationString_8, &P);
   if ( GuidSecurityDescriptor >= 0 )
   {
     v10 = a1[1];
-    v21 = *a1;
+    v20 = *a1;
     v11 = a1[2];
     v12 = P;
-    v24 = HIDWORD(v10);
-    v22 = 0LL;
-    v26 = *((_QWORD *)&v11 + 1);
-    v25 = P;
-    v23 = 640;
-    GuidSecurityDescriptor = SeCreateAccessState((int)&AccessState, (int)v28, a2, (__int64)&WmipGenericMapping);
+    v23 = HIDWORD(v10);
+    v21 = 0LL;
+    v25 = *((_QWORD *)&v11 + 1);
+    v24 = P;
+    v22 = 640;
+    GuidSecurityDescriptor = SeCreateAccessState(&AccessState, v27, a2, &WmipGenericMapping);
     if ( GuidSecurityDescriptor >= 0 )
     {
       v13 = *(_OWORD *)&AccessState.SubjectSecurityContext.ClientToken;
       v14 = *(_OWORD *)&AccessState.SubjectSecurityContext.PrimaryToken;
       AccessState.SubjectSecurityContext = WmipSystemSubjectContext;
-      GuidSecurityDescriptor = ObCreateObjectEx(
-                                 0,
-                                 WmipGuidObjectType,
-                                 (int)&v21,
-                                 0,
-                                 v17,
-                                 168,
-                                 0,
-                                 0,
-                                 &DestinationString,
-                                 0LL);
+      GuidSecurityDescriptor = ObCreateObjectEx(0, (_DWORD)WmipGuidObjectType, (unsigned int)&v20, 0);
       if ( GuidSecurityDescriptor >= 0 )
       {
         v15 = DestinationString;
@@ -83,7 +72,7 @@ __int64 __fastcall WmipCreateGuidObject(__int128 *a1, unsigned int a2, _OWORD *a
         *((_DWORD *)v15 + 28) = 4096;
         *((_DWORD *)v15 + 36) = 4096;
         *(_OWORD *)(v15 + 24) = *a3;
-        GuidSecurityDescriptor = ObInsertObjectEx(v15, &AccessState, a2, 0, 0, 0LL, 0LL);
+        GuidSecurityDescriptor = ObInsertObjectEx((PADAPTER_OBJECT)v15, &AccessState, 0, 0LL, 0LL);
         if ( GuidSecurityDescriptor >= 0 )
         {
           *a4 = v15;

@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDqPnPGetObjectPropertyInBestLocale @ 0x1406C9AF4
+ * XREFs of PiDqPnPGetObjectPropertyInBestLocale @ 0x1406B1B74
  * Callers:
- *     PiDqActionDataGetRequestedProperties @ 0x1407FA218 (PiDqActionDataGetRequestedProperties.c)
- *     PiDqActionDataGetChangedProperties @ 0x14083BF38 (PiDqActionDataGetChangedProperties.c)
- *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x14095BF40 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
+ *     PiDqActionDataGetRequestedProperties @ 0x1406B38DC (PiDqActionDataGetRequestedProperties.c)
+ *     PiDqActionDataGetChangedProperties @ 0x140770E34 (PiDqActionDataGetChangedProperties.c)
+ *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x1408A4530 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
  * Callees:
- *     PiDqPnPGetObjectProperty @ 0x1406CCDA0 (PiDqPnPGetObjectProperty.c)
- *     PnpFreeDevProperty @ 0x140789C08 (PnpFreeDevProperty.c)
+ *     PnpFreeDevProperty @ 0x1406AC4C0 (PnpFreeDevProperty.c)
+ *     PiDqPnPGetObjectProperty @ 0x1406B0D74 (PiDqPnPGetObjectProperty.c)
  */
 
 __int64 __fastcall PiDqPnPGetObjectPropertyInBestLocale(
-        int a1,
-        int a2,
-        int a3,
-        int a4,
+        __int64 a1,
+        unsigned int a2,
+        __int64 a3,
+        __int64 a4,
         int a5,
         NTSTRSAFE_PCWSTR a6,
         _OWORD *a7)
@@ -26,15 +26,15 @@ __int64 __fastcall PiDqPnPGetObjectPropertyInBestLocale(
   a7[2] = 0LL;
   while ( *a6 )
   {
-    result = PiDqPnPGetObjectProperty(a1, a2, a3, a4, a5, a6, (__int64)a7);
+    result = PiDqPnPGetObjectProperty(a1, a2, a3, a4, a5, a6, a7);
     if ( (int)result < 0 || *((_DWORD *)a7 + 8) )
       return result;
-    PnpFreeDevProperty(a7, 1483763280LL);
+    PnpFreeDevProperty((__int64)a7, 0x58706E50u);
     v12 = -1LL;
     do
       ++v12;
     while ( a6[v12] );
     a6 += v12 + 1;
   }
-  return PiDqPnPGetObjectProperty(a1, a2, a3, a4, a5, 0LL, (__int64)a7);
+  return PiDqPnPGetObjectProperty(a1, a2, a3, a4, a5, 0LL, a7);
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlSidHashInitialize @ 0x1402E1660
+ * XREFs of RtlSidHashInitialize @ 0x140355DE0
  * Callers:
- *     SepCreateTokenEx @ 0x1402022FC (SepCreateTokenEx.c)
- *     SepTokenFromAccessInformation @ 0x1402E1484 (SepTokenFromAccessInformation.c)
- *     SepCreateClaimAttributes @ 0x14066B830 (SepCreateClaimAttributes.c)
- *     SepCopyTokenAccessInformation @ 0x1406A293C (SepCopyTokenAccessInformation.c)
- *     CmpBuildAdminInformation @ 0x1406B6958 (CmpBuildAdminInformation.c)
- *     SepFilterToken @ 0x14078E3F0 (SepFilterToken.c)
- *     SepSetTokenCapabilities @ 0x140799BB0 (SepSetTokenCapabilities.c)
- *     SepDuplicateToken @ 0x1407CDED0 (SepDuplicateToken.c)
- *     SepDuplicateClaimAttributes @ 0x1409CE94C (SepDuplicateClaimAttributes.c)
+ *     SepCreateTokenEx @ 0x140201AA0 (SepCreateTokenEx.c)
+ *     SepTokenFromAccessInformation @ 0x1402665D4 (SepTokenFromAccessInformation.c)
+ *     CmpBuildAdminInformation @ 0x1405D9BE0 (CmpBuildAdminInformation.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     SepCopyTokenAccessInformation @ 0x1405DBD68 (SepCopyTokenAccessInformation.c)
+ *     SepCreateClaimAttributes @ 0x1405DC724 (SepCreateClaimAttributes.c)
+ *     SepSetTokenCapabilities @ 0x1405DD33C (SepSetTokenCapabilities.c)
+ *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
+ *     SepDuplicateClaimAttributes @ 0x140925070 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall RtlSidHashInitialize(__int64 *a1, unsigned int a2, _QWORD *a3)

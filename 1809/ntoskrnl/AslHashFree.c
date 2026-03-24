@@ -1,8 +1,8 @@
 /*
- * XREFs of AslHashFree @ 0x1408E9E98
+ * XREFs of AslHashFree @ 0x1408E9E78
  * Callers:
- *     SdbpReleaseSearchDBContext @ 0x14067E9E4 (SdbpReleaseSearchDBContext.c)
- *     SdbCloseDatabaseRead @ 0x140680AB4 (SdbCloseDatabaseRead.c)
+ *     SdbpReleaseSearchDBContext @ 0x14067E9C4 (SdbpReleaseSearchDBContext.c)
+ *     SdbCloseDatabaseRead @ 0x140680A94 (SdbCloseDatabaseRead.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

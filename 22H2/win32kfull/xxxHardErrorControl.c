@@ -1,53 +1,52 @@
 /*
- * XREFs of xxxHardErrorControl @ 0x1C0223D54
+ * XREFs of xxxHardErrorControl @ 0x1C02418AC
  * Callers:
- *     NtUserHardErrorControl @ 0x1C01D4A40 (NtUserHardErrorControl.c)
+ *     NtUserHardErrorControl @ 0x1C01FC8F0 (NtUserHardErrorControl.c)
  * Callees:
- *     ?IsAnyThreadAttached@tagQ@@QEBA_NXZ @ 0x1C0015028 (-IsAnyThreadAttached@tagQ@@QEBA_NXZ.c)
- *     zzzEndDeferWinEventNotify @ 0x1C0025058 (zzzEndDeferWinEventNotify.c)
- *     ?zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z @ 0x1C005C644 (-zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z.c)
- *     PopAndFreeW32ThreadLock @ 0x1C0062180 (PopAndFreeW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     xxxSetCsrssThreadDesktop @ 0x1C00697C0 (xxxSetCsrssThreadDesktop.c)
- *     xxxRestoreCsrssThreadDesktop @ 0x1C0069B30 (xxxRestoreCsrssThreadDesktop.c)
- *     ?CanForceForeground@@YA_NPEBUtagPROCESSINFO@@@Z @ 0x1C00E3BA4 (-CanForceForeground@@YA_NPEBUtagPROCESSINFO@@@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00E4E9C (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     zzzAttachToQueue @ 0x1C0011EF4 (zzzAttachToQueue.c)
+ *     CanForceForeground @ 0x1C003C490 (CanForceForeground.c)
+ *     WPP_RECORDER_SF_q @ 0x1C004F390 (WPP_RECORDER_SF_q.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C006DEA4 (zzzEndDeferWinEventNotify.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1530 (PopAndFreeW32ThreadLock.c)
+ *     xxxRestoreCsrssThreadDesktop @ 0x1C00D8E60 (xxxRestoreCsrssThreadDesktop.c)
+ *     xxxSetCsrssThreadDesktop @ 0x1C00D90F0 (xxxSetCsrssThreadDesktop.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxHardErrorControl(int a1, void *a2, PVOID *a3)
 {
-  char v6; // si
-  _QWORD *v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // rdx
-  __int64 v10; // rbx
-  __int64 v12; // rbx
-  _DWORD *v13; // rbx
-  NTSTATUS v14; // ebx
-  __int64 v15; // r9
-  tagQ *v16; // rcx
-  __int64 v17; // rcx
-  int v18; // ebx
-  NTSTATUS v19; // eax
-  PVOID v20; // r14
+  _QWORD *v6; // rcx
+  _DWORD *v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rbx
+  __int64 v11; // rbx
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  void **v14; // rbx
+  _DWORD *v15; // rbx
+  NTSTATUS v16; // ebx
+  int v17; // edx
+  int v18; // ecx
+  __int64 v19; // rax
+  _DWORD *v20; // rax
+  int v21; // ebx
+  NTSTATUS v22; // eax
+  PVOID v23; // r14
   __int64 ThreadWin32Thread; // rax
-  PDEVICE_OBJECT v22; // rcx
-  char v23; // r8
-  unsigned __int16 v24; // dx
-  __int128 v25; // [rsp+50h] [rbp-58h] BYREF
-  __int64 v26; // [rsp+60h] [rbp-48h]
-  int v27; // [rsp+B0h] [rbp+8h] BYREF
-  PVOID Object; // [rsp+C8h] [rbp+20h] BYREF
+  int v25; // eax
+  int v26; // r9d
+  __int128 v27; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v28; // [rsp+40h] [rbp-38h]
+  PVOID Object; // [rsp+98h] [rbp+20h] BYREF
 
-  v25 = 0LL;
-  v6 = 1;
-  v26 = 0LL;
+  v27 = 0LL;
+  v28 = 0LL;
   gptiBlockInput = 0LL;
   switch ( a1 )
   {
@@ -55,7 +54,9 @@ __int64 __fastcall xxxHardErrorControl(int a1, void *a2, PVOID *a3)
       if ( grpdeskRitInput && !gHardErrorHandler )
       {
         gHardErrorHandler = gptiCurrent;
-        goto LABEL_33;
+LABEL_37:
+        *(_DWORD *)(gptiCurrent + 488LL) &= ~0x40000000u;
+        return 0LL;
       }
       return 1LL;
     case 1:
@@ -66,72 +67,73 @@ __int64 __fastcall xxxHardErrorControl(int a1, void *a2, PVOID *a3)
       }
       return 1LL;
     case 2:
-      goto LABEL_35;
+LABEL_39:
+      *((_QWORD *)&gHardErrorHandler + 1) = *(_QWORD *)(gptiCurrent + 432LL);
+      ++*(_DWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 396LL);
+      goto LABEL_40;
     case 3:
 LABEL_9:
-      if ( !grpdeskRitInput )
-        return 1LL;
-      if ( (PVOID)grpdeskRitInput == gspdeskDisconnect )
+      if ( grpdeskRitInput )
       {
-        if ( !gspdeskShouldBeForeground || (PVOID)gspdeskShouldBeForeground == gspdeskDisconnect )
-          return 1LL;
-        if ( !ObQueryNameInfo(gspdeskShouldBeForeground) )
+        if ( (PVOID)grpdeskRitInput != gspdeskDisconnect )
         {
-          v12 = 0LL;
-LABEL_27:
-          if ( v12
-            && (!_wcsicmp(L"Winlogon", *(const wchar_t **)(v12 + 8))
-             || !_wcsicmp(L"Disconnect", *(const wchar_t **)(v12 + 8))
-             || !_wcsicmp(L"Screen-saver", *(const wchar_t **)(v12 + 8))) )
+          if ( ObQueryNameInfo(grpdeskRitInput) )
           {
-            UserSetLastError(5);
-            return 2LL;
+            v6 = (_QWORD *)grpdeskRitInput;
+            goto LABEL_29;
           }
-LABEL_32:
-          if ( a1 == 8 )
-          {
-LABEL_33:
-            *(_DWORD *)(gptiCurrent + 488LL) &= ~0x40000000u;
-            return 0LL;
-          }
-LABEL_35:
-          *((_QWORD *)&gHardErrorHandler + 1) = *(_QWORD *)(gptiCurrent + 432LL);
-          ++*(_DWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 400LL);
-          goto LABEL_36;
+LABEL_30:
+          v11 = 0LL;
+          goto LABEL_31;
         }
-        v7 = (_QWORD *)gspdeskShouldBeForeground;
+        if ( gspdeskShouldBeForeground && (PVOID)gspdeskShouldBeForeground != gspdeskDisconnect )
+        {
+          if ( ObQueryNameInfo(gspdeskShouldBeForeground) )
+          {
+            v6 = (_QWORD *)gspdeskShouldBeForeground;
+LABEL_29:
+            v11 = ObQueryNameInfo(*v6) + 8;
+LABEL_31:
+            if ( v11
+              && (!_wcsicmp(L"Winlogon", *(const wchar_t **)(v11 + 8))
+               || !_wcsicmp(L"Disconnect", *(const wchar_t **)(v11 + 8))
+               || !_wcsicmp(L"Screen-saver", *(const wchar_t **)(v11 + 8))) )
+            {
+              UserSetLastError(5LL, v12, v13);
+              return 2LL;
+            }
+            if ( a1 == 8 )
+              goto LABEL_37;
+            goto LABEL_39;
+          }
+          goto LABEL_30;
+        }
       }
-      else
-      {
-        if ( !ObQueryNameInfo(grpdeskRitInput) )
-          goto LABEL_32;
-        v7 = (_QWORD *)grpdeskRitInput;
-      }
-      v12 = ObQueryNameInfo(*v7) + 8;
-      goto LABEL_27;
+      return 1LL;
     case 4:
       *(_DWORD *)(gptiCurrent + 488LL) &= ~0x40000000u;
-      if ( !*(_DWORD *)(*((_QWORD *)&gHardErrorHandler + 1) + 400LL) )
-      {
-        v27 = 0x20000;
-        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 504);
-      }
-      --*(_DWORD *)(*((_QWORD *)&gHardErrorHandler + 1) + 400LL);
+      if ( !*(_DWORD *)(*((_QWORD *)&gHardErrorHandler + 1) + 396LL) )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 513);
+      --*(_DWORD *)(*((_QWORD *)&gHardErrorHandler + 1) + 396LL);
+      v7 = (_DWORD *)*((_QWORD *)&gHardErrorHandler + 1);
+      if ( !v7[99] && !v7[98] && (v7[97] & 0x4000000) != 0 )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 522);
       ++gdwDeferWinEvent;
-      AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v27);
-      v9 = *((_QWORD *)&gHardErrorHandler + 1);
-      if ( *(_QWORD *)(gptiCurrent + 432LL) != v9 )
+      UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&Object);
+      v8 = *((_QWORD *)&gHardErrorHandler + 1);
+      if ( *(_QWORD *)(gptiCurrent + 432LL) != v8 )
       {
-        AllocQueue(0LL, v9);
-        tagQ::zzzAttachToQueue(*((tagQ **)&gHardErrorHandler + 1), gptiCurrent, 0LL);
+        AllocQueue(0LL, v8);
+        ++*(_DWORD *)(*((_QWORD *)&gHardErrorHandler + 1) + 392LL);
+        zzzAttachToQueue(gptiCurrent, *((struct tagQ **)&gHardErrorHandler + 1), 0LL, 0);
       }
       *((_QWORD *)&gHardErrorHandler + 1) = 0LL;
-      AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v27, v9, v8);
+      UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&Object);
       zzzEndDeferWinEventNotify();
       break;
     case 5:
-LABEL_36:
-      v13 = (_DWORD *)grpdeskRitInput;
+LABEL_40:
+      v14 = (void **)grpdeskRitInput;
       if ( grpdeskRitInput
         && ((PVOID)grpdeskRitInput != gspdeskDisconnect
          || gspdeskShouldBeForeground && (PVOID)gspdeskShouldBeForeground != gspdeskDisconnect) )
@@ -139,89 +141,72 @@ LABEL_36:
         gbDisconnectHardErrorAttach = 0;
         if ( (PVOID)grpdeskRitInput == gspdeskDisconnect )
         {
+          v14 = (void **)gspdeskShouldBeForeground;
           gbDisconnectHardErrorAttach = 1;
-          v13 = (_DWORD *)gspdeskShouldBeForeground;
         }
-        PushW32ThreadLock((__int64)v13, &v25, UserDereferenceObject);
-        if ( v13 )
-          ObfReferenceObject(v13);
-        v14 = xxxSetCsrssThreadDesktop(v13, a3);
-        PopAndFreeW32ThreadLock((__int64)&v25);
-        if ( v14 < 0 )
+        v15 = *v14;
+        PushW32ThreadLock((__int64)v15, &v27, UserDereferenceObject);
+        if ( v15 )
+          ObfReferenceObject(v15);
+        v16 = xxxSetCsrssThreadDesktop(v15, a3);
+        PopAndFreeW32ThreadLock((__int64)&v27);
+        if ( v16 >= 0 )
         {
-          if ( a1 != 5 )
+          v21 = 0;
+          if ( a2 )
           {
-            *((_QWORD *)&gHardErrorHandler + 1) = 0LL;
-            if ( !*(_DWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 400LL) )
+            Object = 0LL;
+            v22 = ObReferenceObjectByHandle(a2, 0x40u, (POBJECT_TYPE)PsThreadType, 1, &Object, 0LL);
+            v23 = Object;
+            if ( v22 >= 0 )
             {
-              v27 = 0x20000;
-              MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 427);
-            }
-            --*(_DWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 400LL);
-            v16 = *(tagQ **)(gptiCurrent + 432LL);
-            if ( !*((_DWORD *)v16 + 100) && !tagQ::IsAnyThreadAttached(v16) && (*(_DWORD *)(v17 + 396) & 0x4000000) != 0 )
-            {
-              v27 = 0x20000;
-              MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 437);
+              ThreadWin32Thread = W32GetThreadWin32Thread((__int64)Object);
+              if ( !ThreadWin32Thread || CanForceForeground(*(_QWORD *)(ThreadWin32Thread + 424)) )
+                v21 = 1;
+              ObfDereferenceObject(v23);
             }
           }
-          return 1LL;
-        }
-        v18 = 0;
-        if ( a2 )
-        {
-          Object = 0LL;
-          v19 = ObReferenceObjectByHandle(a2, 0x40u, (POBJECT_TYPE)PsThreadType, 1, &Object, 0LL);
-          v20 = Object;
-          if ( v19 >= 0 )
+          v25 = *(_DWORD *)(gptiCurrent + 488LL);
+          if ( v21 )
           {
-            ThreadWin32Thread = W32GetThreadWin32Thread((__int64)Object);
-            if ( !ThreadWin32Thread || CanForceForeground(*(const struct tagPROCESSINFO **)(ThreadWin32Thread + 424)) )
-              v18 = 1;
-            ObfDereferenceObject(v20);
+            *(_DWORD *)(gptiCurrent + 488LL) = v25 | 0x20;
+            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              return 0LL;
+            v26 = 10;
           }
-        }
-        if ( v18 )
-        {
-          *(_DWORD *)(gptiCurrent + 488LL) |= 0x20u;
-          v22 = WPP_GLOBAL_Control;
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-            || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
+          else
           {
-            v6 = 0;
+            *(_DWORD *)(gptiCurrent + 488LL) = v25 & 0xFFFFFFDF;
+            if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              return 0LL;
+            v26 = 11;
           }
-          v23 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          if ( !v6 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            return 0LL;
-          v24 = 10;
+          LOBYTE(v17) = 4;
+          WPP_RECORDER_SF_q(
+            v18,
+            v17,
+            2,
+            v26,
+            (__int64)&WPP_7391b7e2570331a275a7a80e10f9077a_Traceguids,
+            gptiCurrent,
+            v27,
+            v28);
+          return 0LL;
         }
-        else
+        if ( a1 != 5 )
         {
-          *(_DWORD *)(gptiCurrent + 488LL) &= ~0x20u;
-          v22 = WPP_GLOBAL_Control;
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
-            || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
+          *((_QWORD *)&gHardErrorHandler + 1) = 0LL;
+          v19 = *(_QWORD *)(gptiCurrent + 432LL);
+          if ( !*(_DWORD *)(v19 + 396) )
           {
-            v6 = 0;
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 441);
+            v19 = *(_QWORD *)(gptiCurrent + 432LL);
           }
-          v23 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          if ( !v6 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            return 0LL;
-          v24 = 11;
+          --*(_DWORD *)(v19 + 396);
+          v20 = *(_DWORD **)(gptiCurrent + 432LL);
+          if ( !v20[99] && !v20[98] && (v20[97] & 0x4000000) != 0 )
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 450);
         }
-        WPP_RECORDER_AND_TRACE_SF_q(
-          (__int64)v22->AttachedDevice,
-          v6,
-          v23,
-          v15,
-          4u,
-          2u,
-          v24,
-          (__int64)&WPP_034e3ab9e0c135a13566851594780e6c_Traceguids,
-          gptiCurrent);
-        return 0LL;
       }
       return 1LL;
     case 6:
@@ -231,10 +216,10 @@ LABEL_36:
     default:
       return 0LL;
   }
-  v10 = *(_QWORD *)(gptiCurrent + 456LL);
+  v9 = *(_QWORD *)(gptiCurrent + 456LL);
   xxxRestoreCsrssThreadDesktop(a3, 0);
   if ( !gbDisconnectHardErrorAttach )
-    return grpdeskRitInput != v10 ? 3 : 0;
+    return grpdeskRitInput != v9 ? 3 : 0;
   gbDisconnectHardErrorAttach = 0;
   return 3LL;
 }

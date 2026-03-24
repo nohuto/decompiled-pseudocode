@@ -1,12 +1,12 @@
 /*
- * XREFs of NtInitializeNlsFiles @ 0x1406C40E0
+ * XREFs of NtInitializeNlsFiles @ 0x140612AA0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ZwQueryDefaultLocale @ 0x14041BA00 (ZwQueryDefaultLocale.c)
- *     ExpGetGlobalLocaleSection @ 0x1406C421C (ExpGetGlobalLocaleSection.c)
- *     MmMapViewOfSection @ 0x140785150 (MmMapViewOfSection.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ZwQueryDefaultLocale @ 0x1403FA640 (ZwQueryDefaultLocale.c)
+ *     MmMapViewOfSection @ 0x140612470 (MmMapViewOfSection.c)
+ *     ExpGetGlobalLocaleSection @ 0x140612BDC (ExpGetGlobalLocaleSection.c)
  */
 
 __int64 __fastcall NtInitializeNlsFiles(_QWORD *a1, _DWORD *a2)
@@ -15,14 +15,14 @@ __int64 __fastcall NtInitializeNlsFiles(_QWORD *a1, _DWORD *a2)
   __int64 v5; // rcx
   __int64 result; // rax
   int v7; // ebx
-  PVOID Object; // [rsp+58h] [rbp-30h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+58h] [rbp-30h] BYREF
   _DWORD v9[2]; // [rsp+60h] [rbp-28h] BYREF
   __int64 v10; // [rsp+68h] [rbp-20h] BYREF
   __int64 v11; // [rsp+70h] [rbp-18h] BYREF
   int v12; // [rsp+A8h] [rbp+20h] BYREF
 
   v12 = 0;
-  Object = 0LL;
+  DmaAdapter = 0LL;
   if ( !KeGetCurrentThread()->PreviousMode )
     return 3221225659LL;
   v4 = 0x7FFFFFFF0000LL;
@@ -36,15 +36,25 @@ __int64 __fastcall NtInitializeNlsFiles(_QWORD *a1, _DWORD *a2)
   result = ZwQueryDefaultLocale(0LL, (__int64)&v12);
   if ( (int)result >= 0 )
   {
-    result = ExpGetGlobalLocaleSection(&Object);
+    result = ExpGetGlobalLocaleSection(&DmaAdapter);
     if ( (int)result >= 0 )
     {
       v10 = 0LL;
       v9[0] = 0;
       v9[1] = 0;
       v11 = 0LL;
-      v7 = MmMapViewOfSection(Object, KeGetCurrentThread()->ApcState.Process, &v10, 0LL, 0LL, v9, &v11, 1, 0x400000, 2);
-      ObfDereferenceObject(Object);
+      v7 = MmMapViewOfSection(
+             (int)DmaAdapter,
+             (__int64)KeGetCurrentThread()->ApcState.Process,
+             &v10,
+             0LL,
+             0,
+             (__int64)v9,
+             &v11,
+             1,
+             0x400000,
+             2);
+      HalPutDmaAdapter(DmaAdapter);
       if ( v7 >= 0 )
       {
         *a1 = v10;

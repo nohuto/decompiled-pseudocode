@@ -1,35 +1,34 @@
 /*
- * XREFs of PfTLoggingWorker @ 0x14083A720
+ * XREFs of PfTLoggingWorker @ 0x1407AD3A0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     KeSetBasePriorityThread @ 0x1402B9D70 (KeSetBasePriorityThread.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     KeWaitForMultipleObjects @ 0x140310FC0 (KeWaitForMultipleObjects.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PfpFlushBuffers @ 0x14074B520 (PfpFlushBuffers.c)
- *     PfTGenerateTrace @ 0x14079D0B4 (PfTGenerateTrace.c)
+ *     KeWaitForMultipleObjects @ 0x14024B500 (KeWaitForMultipleObjects.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140253F54 (KiQueryUnbiasedInterruptTime.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     KeSetBasePriorityThread @ 0x1402586C0 (KeSetBasePriorityThread.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PfTGenerateTrace @ 0x14062F29C (PfTGenerateTrace.c)
+ *     PfpFlushBuffers @ 0x1406315B0 (PfpFlushBuffers.c)
  */
 
 LONG __fastcall PfTLoggingWorker(__int64 a1)
 {
-  NTSTATUS v2; // eax
-  int v3; // ebx
+  NTSTATUS v2; // ebx
   LONG result; // eax
+  int v4; // ebx
   int v5; // ebx
-  int v6; // ebx
-  unsigned int v7; // ebx
-  unsigned __int8 v8; // al
-  int v9; // edi
-  int v10; // ebx
-  int v11; // eax
-  unsigned int v12; // ebx
-  unsigned __int8 v13; // al
-  int v14; // edi
-  int v15; // eax
+  unsigned int v6; // ebx
+  unsigned __int8 v7; // al
+  int v8; // edi
+  int v9; // ebx
+  int v10; // eax
+  unsigned int v11; // ebx
+  unsigned __int8 v12; // al
+  int v13; // edi
+  int v14; // eax
   LARGE_INTEGER Interval; // [rsp+48h] [rbp-C0h] BYREF
   LARGE_INTEGER Timeout; // [rsp+50h] [rbp-B8h] BYREF
   PVOID Object[4]; // [rsp+58h] [rbp-B0h] BYREF
@@ -41,63 +40,59 @@ LONG __fastcall PfTLoggingWorker(__int64 a1)
   Object[0] = (PVOID)(a1 + 96);
   Object[1] = (PVOID)(a1 + 32);
   Object[2] = (PVOID)(a1 + 8);
-  Object[3] = &stru_140D0C210;
-  qword_140C65300 = KiQueryUnbiasedInterruptTime();
+  Object[3] = &Event;
+  qword_140C4FC80 = KiQueryUnbiasedInterruptTime();
   while ( 1 )
   {
-    while ( 1 )
+    do
     {
       v2 = KeWaitForMultipleObjects(4u, Object, WaitAny, Executive, 0, 0, &Timeout, &WaitBlockArray);
-      v3 = v2;
       if ( v2 == 258 )
-        break;
-      if ( v2 < 4 )
-        goto LABEL_4;
+        v2 = 3;
     }
-    v3 = 3;
-LABEL_4:
-    result = KeResetEvent((PRKEVENT)Object[v3]);
-    if ( !v3 )
+    while ( v2 >= 4 );
+    result = KeResetEvent((PRKEVENT)Object[v2]);
+    if ( !v2 )
       return result;
-    if ( dword_140C65458 >= (unsigned int)dword_140C6545C )
+    if ( dword_140C4FDD8 >= (unsigned int)dword_140C4FDDC )
     {
-      if ( v3 == 1 )
-        goto LABEL_19;
+      if ( v2 == 1 )
+        goto LABEL_31;
     }
     else
     {
-      v5 = v3 - 1;
-      if ( v5 )
+      v4 = v2 - 1;
+      if ( v4 )
       {
-        v6 = v5 - 1;
-        if ( v6 )
+        v5 = v4 - 1;
+        if ( v5 )
         {
-          if ( v6 == 1 )
+          if ( v5 == 1 )
           {
-            v7 = 0;
+            v6 = 0;
             while ( 1 )
             {
-              v8 = PfpFlushBuffers();
-              v9 = v8;
-              if ( !v8 && (unsigned int)PfTGenerateTrace() == -1073741670 )
+              v7 = PfpFlushBuffers();
+              v8 = v7;
+              if ( !v7 && (unsigned int)PfTGenerateTrace() == -1073741670 )
                 break;
-              ++v7;
-              if ( v9 || v7 >= 0x3E8 )
-                goto LABEL_12;
+              ++v6;
+              if ( v8 || v6 >= 0x3E8 )
+                goto LABEL_13;
             }
             KeDelayExecutionThread(0, 0, &Interval);
-LABEL_12:
-            if ( (unsigned __int64)(KiQueryUnbiasedInterruptTime() - qword_140C65300) > 0xB2D05E00 )
+LABEL_13:
+            if ( (unsigned __int64)(KiQueryUnbiasedInterruptTime() - qword_140C4FC80) > 0xB2D05E00 )
               PfTGenerateTrace();
           }
         }
         else
         {
-          v10 = (unsigned __int8)PfpFlushBuffers();
-          v11 = PfTGenerateTrace();
-          if ( !v10 )
+          v9 = (unsigned __int8)PfpFlushBuffers();
+          v10 = PfTGenerateTrace();
+          if ( !v9 )
           {
-            if ( v11 == -1073741670 )
+            if ( v10 == -1073741670 )
               KeDelayExecutionThread(0, 0, &Interval);
             PfpFlushBuffers();
           }
@@ -105,24 +100,24 @@ LABEL_12:
       }
       else
       {
-        v12 = 0;
+        v11 = 0;
         do
         {
-          v13 = PfpFlushBuffers();
-          v14 = v13;
-          if ( (!v13 || *(_DWORD *)(a1 + 80)) && (unsigned int)PfTGenerateTrace() == -1073741670 )
+          v12 = PfpFlushBuffers();
+          v13 = v12;
+          if ( (!v12 || *(_DWORD *)(a1 + 80)) && (unsigned int)PfTGenerateTrace() == -1073741670 )
           {
             KeDelayExecutionThread(0, 0, &Interval);
-            v15 = 1000;
+            v14 = 1000;
           }
           else
           {
-            v15 = 1;
+            v14 = 1;
           }
-          v12 += v15;
+          v11 += v14;
         }
-        while ( !v14 && v12 < 0x2710 );
-LABEL_19:
+        while ( !v13 && v11 < 0x2710 );
+LABEL_31:
         KeSetEvent((PRKEVENT)(a1 + 56), 0, 0);
       }
     }

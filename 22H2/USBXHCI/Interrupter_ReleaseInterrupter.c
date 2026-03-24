@@ -1,11 +1,11 @@
 /*
- * XREFs of Interrupter_ReleaseInterrupter @ 0x1C007A08C
+ * XREFs of Interrupter_ReleaseInterrupter @ 0x1C00768D4
  * Callers:
- *     Controller_WdfEvtDeviceReleaseHardware @ 0x1C00794C0 (Controller_WdfEvtDeviceReleaseHardware.c)
+ *     Interrupter_ReleaseHardware @ 0x1C0076850 (Interrupter_ReleaseHardware.c)
  * Callees:
- *     XilRegister_WriteUlong64 @ 0x1C0014CB8 (XilRegister_WriteUlong64.c)
- *     XilRegister_WriteUlong @ 0x1C0018478 (XilRegister_WriteUlong.c)
- *     XilCommonBuffer_ReleaseBuffer @ 0x1C001E9F8 (XilCommonBuffer_ReleaseBuffer.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     XilRegister_WriteUlong64 @ 0x1C00142E0 (XilRegister_WriteUlong64.c)
+ *     XilCommonBuffer_ReleaseBuffer @ 0x1C001A008 (XilCommonBuffer_ReleaseBuffer.c)
  */
 
 void __fastcall Interrupter_ReleaseInterrupter(__int64 a1)

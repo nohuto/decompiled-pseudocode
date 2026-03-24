@@ -1,106 +1,84 @@
 /*
- * XREFs of NtQueryCompositionSurfaceRenderingRealization @ 0x1C000E940
+ * XREFs of NtQueryCompositionSurfaceRenderingRealization @ 0x1C00105D0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?GetRenderingRealizationInfo@CCompositionSurface@@QEBAJPEAUCSM_SURFACE_UPDATE_@@@Z @ 0x1C000EBD8 (-GetRenderingRealizationInfo@CCompositionSurface@@QEBAJPEAUCSM_SURFACE_UPDATE_@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?ResolveHandle@DxgkCompositionObject@@SAJPEAXKDW4DxgkCompositionObjectType@@PEAPEAV1@@Z @ 0x1C00107B4 (-ResolveHandle@DxgkCompositionObject@@SAJPEAXKDW4DxgkCompositionObjectType@@PEAPEAV1@@Z.c)
+ *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C0010868 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
+ *     ?GetRenderingRealizationInfo@CCompositionSurface@@QEBAJPEAUCSM_SURFACE_UPDATE@@@Z @ 0x1C00108D4 (-GetRenderingRealizationInfo@CCompositionSurface@@QEBAJPEAUCSM_SURFACE_UPDATE@@@Z.c)
+ *     ?LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z @ 0x1C0010A64 (-LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
-__int64 __fastcall NtQueryCompositionSurfaceRenderingRealization(HANDLE Handle, _OWORD *a2)
+__int64 __fastcall NtQueryCompositionSurfaceRenderingRealization(__int64 a1, _OWORD *a2)
 {
+  __int64 v4; // rdx
+  __int64 v5; // rcx
   struct DXGGLOBAL *Global; // rax
-  _QWORD *v5; // rsi
-  NTSTATUS v6; // ebx
-  _QWORD *v7; // r14
-  CCompositionSurface *v8; // r14
-  _QWORD *v9; // rcx
-  _OWORD *v10; // rdi
-  PVOID Object; // [rsp+38h] [rbp-110h] BYREF
-  _OWORD v13[14]; // [rsp+40h] [rbp-108h] BYREF
+  __int64 v7; // r8
+  int v8; // eax
+  int v9; // ebx
+  PVOID v10; // rsi
+  _OWORD *v11; // rdi
+  CCompositionSurface *v13; // [rsp+38h] [rbp-100h] BYREF
+  PVOID Object[2]; // [rsp+40h] [rbp-F8h] BYREF
+  _OWORD v15[13]; // [rsp+50h] [rbp-E8h] BYREF
 
-  memset(v13, 0, sizeof(v13));
+  memset(v15, 0, 0xC8uLL);
   KeEnterCriticalRegion();
-  Global = DXGGLOBAL::GetGlobal();
-  if ( (*(unsigned int (**)(void))(*((_QWORD *)Global + 38069) + 560LL))() )
+  Global = DXGGLOBAL::GetGlobal(v5, v4);
+  if ( (*(unsigned int (**)(void))(*((_QWORD *)Global + 38048) + 296LL))() )
   {
-    v5 = 0LL;
-    Object = 0LL;
-    v6 = ObReferenceObjectByHandle(Handle, 1u, g_pDxgkCompositionObjectType, 1, &Object, 0LL);
-    v7 = Object;
-    if ( v6 >= 0 )
+    Object[0] = 0LL;
+    LOBYTE(v7) = 1;
+    v8 = DxgkCompositionObject::ResolveHandle(a1, 1LL, v7, 1LL, Object);
+    v9 = v8;
+    v10 = 0LL;
+    if ( v8 >= 0 )
+      v10 = Object[0];
+    Object[1] = v10;
+    if ( v8 >= 0 )
     {
-      if ( (***((unsigned int (__fastcall ****)(_QWORD))Object + 2))(*((_QWORD *)Object + 2)) == 1 )
+      v13 = 0LL;
+      v9 = CompositionSurfaceObject::LockForRead(v10, &v13);
+      if ( v9 >= 0 )
       {
-        v5 = v7;
+        CCompositionSurface::GetRenderingRealizationInfo(v13, (struct CSM_SURFACE_UPDATE *)v15);
+        CCompositionSurface::UnlockAndRelease(v13);
       }
-      else
-      {
-        ObfDereferenceObject(v7);
-        v6 = -1073741788;
-      }
-    }
-    if ( v6 >= 0 )
-    {
-      v8 = 0LL;
-      v6 = ObReferenceObjectByPointer(v5, 3u, g_pDxgkCompositionObjectType, 0);
-      if ( v6 >= 0 )
-      {
-        KeEnterCriticalRegion();
-        ExAcquirePushLockSharedEx(v5 + 6, 0LL);
-        v6 = 0;
-        v8 = (CCompositionSurface *)(v5 + 5);
-      }
-      if ( v6 >= 0 )
-      {
-        CCompositionSurface::GetRenderingRealizationInfo(v8, (struct CSM_SURFACE_UPDATE_ *)v13);
-        v9 = (_QWORD *)((char *)v8 + 8);
-        if ( KeGetCurrentThread() == *((struct _KTHREAD **)v8 + 2) )
-        {
-          *((_QWORD *)v8 + 2) = 0LL;
-          ExReleasePushLockExclusiveEx(v9, 0LL);
-        }
-        else
-        {
-          ExReleasePushLockSharedEx(v9, 0LL);
-        }
-        KeLeaveCriticalRegion();
-        ObfDereferenceObject((char *)v8 - 40);
-      }
-      ObfDereferenceObject(v5);
+      ObfDereferenceObject(v10);
     }
   }
   else
   {
-    v6 = -1073741790;
+    v9 = -1073741790;
   }
   if ( a2 )
   {
-    if ( a2 + 14 < a2 || (unsigned __int64)(a2 + 14) > MmUserProbeAddress )
+    if ( (_OWORD *)((char *)a2 + 200) < a2 || (unsigned __int64)a2 + 200 > MmUserProbeAddress )
       *(_BYTE *)MmUserProbeAddress = 0;
-    *a2 = v13[0];
-    a2[1] = v13[1];
-    a2[2] = v13[2];
-    a2[3] = v13[3];
-    a2[4] = v13[4];
-    a2[5] = v13[5];
-    a2[6] = v13[6];
-    v10 = a2 + 8;
-    *(v10 - 1) = v13[7];
-    *v10 = v13[8];
-    v10[1] = v13[9];
-    v10[2] = v13[10];
-    v10[3] = v13[11];
-    v10[4] = v13[12];
-    v10[5] = v13[13];
+    *a2 = v15[0];
+    a2[1] = v15[1];
+    a2[2] = v15[2];
+    a2[3] = v15[3];
+    a2[4] = v15[4];
+    a2[5] = v15[5];
+    a2[6] = v15[6];
+    v11 = a2 + 8;
+    *(v11 - 1) = v15[7];
+    *v11 = v15[8];
+    v11[1] = v15[9];
+    v11[2] = v15[10];
+    v11[3] = v15[11];
+    *((_QWORD *)v11 + 8) = *(_QWORD *)&v15[12];
   }
   else
   {
-    v6 = -1073741811;
+    v9 = -1073741811;
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)v6;
+  return (unsigned int)v9;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CFloodEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C02176E0
+ * XREFs of ?SetRemarshalingFlags@CFloodEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01E1510
  * Callers:
  *     <none>
  * Callees:
@@ -12,12 +12,12 @@ char __fastcall DirectComposition::CFloodEffectMarshaler::SetRemarshalingFlags(
   char result; // al
 
   result = 0;
-  *((_DWORD *)this + 28) = 0;
-  if ( *((_DWORD *)this + 20)
+  *((_DWORD *)this + 26) = 0;
+  if ( *((_DWORD *)this + 18)
+    || *((float *)this + 28) != 0.0
+    || *((float *)this + 29) != 0.0
     || *((float *)this + 30) != 0.0
-    || *((float *)this + 31) != 0.0
-    || *((float *)this + 32) != 0.0
-    || 1.0 != *((float *)this + 33) )
+    || 1.0 != *((float *)this + 31) )
   {
     return 1;
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of KeAbPreWakeupThread @ 0x1402BC18C
+ * XREFs of KeAbPreWakeupThread @ 0x140271FC0
  * Callers:
- *     KeSetEventBoostPriorityEx @ 0x1402BBFA0 (KeSetEventBoostPriorityEx.c)
- *     KeReleaseMutantEx @ 0x14040FD6C (KeReleaseMutantEx.c)
+ *     KeSetEventBoostPriorityEx @ 0x140271E08 (KeSetEventBoostPriorityEx.c)
+ *     KeReleaseMutant @ 0x1402C2B40 (KeReleaseMutant.c)
  * Callees:
- *     KiAbFindWakeupLockEntry @ 0x1402BC1C8 (KiAbFindWakeupLockEntry.c)
- *     KiAbApplyWakeupBoost @ 0x1402BC870 (KiAbApplyWakeupBoost.c)
+ *     KiAbApplyWakeupBoost @ 0x140271FFC (KiAbApplyWakeupBoost.c)
+ *     KiAbFindWakeupLockEntry @ 0x140272208 (KiAbFindWakeupLockEntry.c)
  */
 
 __int64 __fastcall KeAbPreWakeupThread(__int64 a1, __int64 a2, unsigned int a3)

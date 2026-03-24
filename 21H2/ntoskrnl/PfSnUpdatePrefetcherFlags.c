@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnUpdatePrefetcherFlags @ 0x14025CF20
+ * XREFs of PfSnUpdatePrefetcherFlags @ 0x1402D35C0
  * Callers:
- *     PfSnEnablePrefetcherTimerRoutine @ 0x14025CEF0 (PfSnEnablePrefetcherTimerRoutine.c)
- *     PfSnBeginBootPhase @ 0x140A544B0 (PfSnBeginBootPhase.c)
+ *     PfSnEnablePrefetcherTimerRoutine @ 0x1402D3590 (PfSnEnablePrefetcherTimerRoutine.c)
+ *     PfSnBeginBootPhase @ 0x14099B284 (PfSnBeginBootPhase.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PfSnUpdatePrefetcherFlags(int a1, int a2)
@@ -20,14 +20,14 @@ __int64 __fastcall PfSnUpdatePrefetcherFlags(int a1, int a2)
   int v11; // edx
   bool v12; // zf
 
-  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140C54690);
-  v5 = dword_140C54790;
+  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140C50450);
+  v5 = dword_140C50550;
   v6 = v4;
   if ( a2 )
-    dword_140C54790 |= a1;
+    dword_140C50550 |= a1;
   else
-    dword_140C54790 &= ~a1;
-  KxReleaseSpinLock(&qword_140C54690);
+    dword_140C50550 &= ~a1;
+  KxReleaseSpinLock(&qword_140C50450);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

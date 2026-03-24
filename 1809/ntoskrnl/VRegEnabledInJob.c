@@ -1,15 +1,15 @@
 /*
- * XREFs of VRegEnabledInJob @ 0x14080831C
+ * XREFs of VRegEnabledInJob @ 0x1408082FC
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140807CE0 (VrpIoctlDeviceDispatch.c)
- *     VrpShouldOperateOnCall @ 0x14080825C (VrpShouldOperateOnCall.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14080856C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x1408088C4 (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpIoctlDeviceDispatch @ 0x140807CC0 (VrpIoctlDeviceDispatch.c)
+ *     VrpShouldOperateOnCall @ 0x14080823C (VrpShouldOperateOnCall.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14080854C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x1408088A4 (VrpHandleIoctlCreateNamespaceNode.c)
  * Callees:
  *     PsGetCurrentSilo @ 0x14004D350 (PsGetCurrentSilo.c)
  *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     PsGetPermanentSiloContext @ 0x14010A080 (PsGetPermanentSiloContext.c)
- *     PsGetParentSilo @ 0x140886730 (PsGetParentSilo.c)
+ *     PsGetPermanentSiloContext @ 0x14010A0A0 (PsGetPermanentSiloContext.c)
+ *     PsGetParentSilo @ 0x140886710 (PsGetParentSilo.c)
  */
 
 __int64 __fastcall VRegEnabledInJob(unsigned __int64 *a1)

@@ -1,57 +1,56 @@
 /*
- * XREFs of GetRect @ 0x1C00C7BD0
+ * XREFs of GetRect @ 0x1C0063E88
  * Callers:
- *     _GetWindowPlacement @ 0x1C0006908 (_GetWindowPlacement.c)
- *     ParkIcon @ 0x1C00C3A88 (ParkIcon.c)
- *     UT_GetParentDCClipBox @ 0x1C00C4178 (UT_GetParentDCClipBox.c)
- *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00C4E00 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
- *     xxxDrawCaptionBar @ 0x1C00C689C (xxxDrawCaptionBar.c)
- *     xxxDrawWindowFrame @ 0x1C00C6FE0 (xxxDrawWindowFrame.c)
- *     xxxGetScrollBarInfo @ 0x1C00C73CC (xxxGetScrollBarInfo.c)
- *     CalcSBStuff @ 0x1C00C7878 (CalcSBStuff.c)
- *     UpdateCheckpoint @ 0x1C00C79F4 (UpdateCheckpoint.c)
- *     xxxBeginPaint @ 0x1C00CDA00 (xxxBeginPaint.c)
- *     ?xxxSendDpiChangedMsgs@@YA_NPEAUtagWND@@PEAUtagRECT@@PEAUtagBWL@@G@Z @ 0x1C00D1ABC (-xxxSendDpiChangedMsgs@@YA_NPEAUtagWND@@PEAUtagRECT@@PEAUtagBWL@@G@Z.c)
- *     InternalGetRealClientRect @ 0x1C00EF568 (InternalGetRealClientRect.c)
- *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C0123FE0 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
- *     ?xxxSetSnapArrangementPos@WindowArrangement@@YA_NPEAUtagWND@@PEAUtagRECT@@W4ArrangementPosOptions@1@K@Z @ 0x1C01F0D8C (-xxxSetSnapArrangementPos@WindowArrangement@@YA_NPEAUtagWND@@PEAUtagRECT@@W4ArrangementPosOption.c)
- *     SBCtlSetup @ 0x1C0229F04 (SBCtlSetup.c)
- *     xxxScrollWindowEx @ 0x1C022EE20 (xxxScrollWindowEx.c)
- *     ?MigrateCheckpoint@AdvancedWindowPos@@YAXPEAUtagWND@@PEAUtagMONITOR@@@Z @ 0x1C023B904 (-MigrateCheckpoint@AdvancedWindowPos@@YAXPEAUtagWND@@PEAUtagMONITOR@@@Z.c)
+ *     xxxMinMaximizeEx @ 0x1C002B69C (xxxMinMaximizeEx.c)
+ *     ParkIcon @ 0x1C002C27C (ParkIcon.c)
+ *     _GetWindowPlacement @ 0x1C0040E78 (_GetWindowPlacement.c)
+ *     UpdateCheckpoint @ 0x1C0041198 (UpdateCheckpoint.c)
+ *     xxxDrawWindowFrame @ 0x1C004BA7C (xxxDrawWindowFrame.c)
+ *     xxxGetScrollBarInfo @ 0x1C00629F0 (xxxGetScrollBarInfo.c)
+ *     CalcSBStuff @ 0x1C0063D00 (CalcSBStuff.c)
+ *     xxxScrollWindowEx @ 0x1C00677EC (xxxScrollWindowEx.c)
+ *     ?xxxSendDpiChangedMsgs@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagBWL@@G@Z @ 0x1C006AB4C (-xxxSendDpiChangedMsgs@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagBWL@@G@Z.c)
+ *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C0070758 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
+ *     UT_GetParentDCClipBox @ 0x1C007DB68 (UT_GetParentDCClipBox.c)
+ *     xxxDrawCaptionBar @ 0x1C00DCAB8 (xxxDrawCaptionBar.c)
+ *     InternalGetRealClientRect @ 0x1C0111200 (InternalGetRealClientRect.c)
+ *     ?GetOrUpdateCheckPointIfNotPresent@@YAPEAUtagCHECKPOINT@@PEAU_MOVESIZEDATA@@@Z @ 0x1C020A8D8 (-GetOrUpdateCheckPointIfNotPresent@@YAPEAUtagCHECKPOINT@@PEAU_MOVESIZEDATA@@@Z.c)
+ *     SBCtlSetup @ 0x1C024503C (SBCtlSetup.c)
  * Callees:
- *     PhysicalToLogicalInPlaceRectWithSubpixel @ 0x1C00D1BD4 (PhysicalToLogicalInPlaceRectWithSubpixel.c)
- *     LogicalToPhysicalInPlaceRectWithSubpixel @ 0x1C00D1C18 (LogicalToPhysicalInPlaceRectWithSubpixel.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     LogicalToPhysicalInPlaceRectWithSubpixel @ 0x1C00F14BC (LogicalToPhysicalInPlaceRectWithSubpixel.c)
+ *     PhysicalToLogicalInPlaceRectWithSubpixel @ 0x1C00F1500 (PhysicalToLogicalInPlaceRectWithSubpixel.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall GetRect(__int64 a1, __int64 a2, char a3)
 {
   __int64 v3; // rax
   int v6; // esi
-  __int128 *v7; // rax
-  __int64 v8; // r9
+  __int128 v7; // xmm0
+  __int64 v8; // rdx
   __int64 result; // rax
   int v10; // r8d
   __int64 v11; // rbp
-  __int64 v12; // rcx
-  unsigned int *v13; // rdx
-  unsigned int v14; // ecx
-  __int64 v15; // rcx
-  unsigned int v16; // eax
-  unsigned int v17; // edx
-  __int128 v18; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v19; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v12; // r8
+  unsigned int v13; // r9d
+  unsigned int v14; // r10d
+  int v15; // ecx
+  int v16; // edx
+  unsigned int *v17; // rdx
+  unsigned int v18; // ecx
+  __int64 v19; // rcx
+  unsigned int v20; // eax
+  unsigned int v21; // edx
+  __int128 v22; // [rsp+20h] [rbp-38h] BYREF
 
   v3 = *(_QWORD *)(a1 + 40);
   v6 = a3 & 2;
   if ( (a3 & 2) != 0 )
-    v19 = *(_OWORD *)(v3 + 88);
+    v7 = *(_OWORD *)(v3 + 88);
   else
-    v18 = *(_OWORD *)(v3 + 104);
-  v7 = &v18;
-  if ( (a3 & 2) != 0 )
-    v7 = &v19;
-  *(_OWORD *)a2 = *v7;
+    v7 = *(_OWORD *)(v3 + 104);
+  v22 = v7;
+  *(_OWORD *)a2 = v7;
   v8 = *(_QWORD *)(a1 + 40);
   result = *(_WORD *)(v8 + 42) & 0x2FFF;
   if ( (_DWORD)result == 669 )
@@ -60,47 +59,58 @@ __int64 __fastcall GetRect(__int64 a1, __int64 a2, char a3)
   switch ( v10 )
   {
     case 32:
-      v13 = (unsigned int *)(v8 + 88);
-LABEL_13:
-      v14 = v13[1];
-      result = *v13;
+      v17 = (unsigned int *)(v8 + 88);
+LABEL_18:
+      v18 = v17[1];
+      result = *v17;
       *(_DWORD *)a2 -= result;
       *(_DWORD *)(a2 + 8) -= result;
-      *(_DWORD *)(a2 + 12) -= v14;
-      *(_DWORD *)(a2 + 4) -= v14;
+      *(_DWORD *)(a2 + 12) -= v18;
+      *(_DWORD *)(a2 + 4) -= v18;
       return result;
     case 16:
-      v13 = (unsigned int *)(v8 + 104);
-      goto LABEL_13;
+      v17 = (unsigned int *)(v8 + 104);
+      goto LABEL_18;
     case 64:
       v11 = *(_QWORD *)(a1 + 104);
       v12 = *(_QWORD *)(v11 + 40);
       result = *(_WORD *)(v12 + 42) & 0x2FFF;
       if ( (_DWORD)result != 669 )
       {
-        v13 = (unsigned int *)(v12 + 104);
-        if ( (((unsigned __int16)(*(_DWORD *)(v8 + 288) >> 8) ^ (unsigned __int16)(*(_DWORD *)(v12 + 288) >> 8)) & 0x1FF) != 0 )
+        v13 = *(_DWORD *)(v8 + 288);
+        v14 = *(_DWORD *)(v12 + 288);
+        if ( (((unsigned __int16)(v13 >> 8) ^ (unsigned __int16)(v14 >> 8)) & 0x1FF) != 0 )
+          goto LABEL_26;
+        v15 = 1;
+        v16 = (v13 & 0xF) == 2 && (v13 & 0x20000000) != 0;
+        if ( (v14 & 0xF) != 2 || (v14 & 0x20000000) == 0 )
+          v15 = 0;
+        if ( v16 != v15 )
         {
-          v15 = *(_QWORD *)(a1 + 104);
-          v18 = *(_OWORD *)v13;
-          LogicalToPhysicalInPlaceRectWithSubpixel(v15, &v18, 0LL);
-          PhysicalToLogicalInPlaceRectWithSubpixel(a1, &v18, 0LL);
-          v13 = (unsigned int *)&v18;
+LABEL_26:
+          v19 = *(_QWORD *)(a1 + 104);
+          v22 = *(_OWORD *)(v12 + 104);
+          LogicalToPhysicalInPlaceRectWithSubpixel(v19, &v22, 0LL);
+          PhysicalToLogicalInPlaceRectWithSubpixel(a1, &v22, 0LL);
+          v12 = *(_QWORD *)(v11 + 40);
+          v17 = (unsigned int *)&v22;
         }
-        if ( (*(_BYTE *)(*(_QWORD *)(v11 + 40) + 26LL) & 0x40) != 0
-          && v6
-          && (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 31LL) & 0x40) != 0 )
+        else
         {
-          v16 = v13[1];
-          v17 = v13[2];
-          *(_DWORD *)(a2 + 12) -= v16;
-          *(_DWORD *)(a2 + 4) -= v16;
-          result = v17 - *(_DWORD *)(a2 + 8);
-          *(_DWORD *)(a2 + 8) = v17 - *(_DWORD *)a2;
+          v17 = (unsigned int *)(v12 + 104);
+        }
+        if ( (*(_BYTE *)(v12 + 26) & 0x40) != 0 && v6 && (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 31LL) & 0x40) != 0 )
+        {
+          v20 = v17[1];
+          v21 = v17[2];
+          *(_DWORD *)(a2 + 12) -= v20;
+          *(_DWORD *)(a2 + 4) -= v20;
+          result = v21 - *(_DWORD *)(a2 + 8);
+          *(_DWORD *)(a2 + 8) = v21 - *(_DWORD *)a2;
           *(_DWORD *)a2 = result;
           return result;
         }
-        goto LABEL_13;
+        goto LABEL_18;
       }
       break;
   }

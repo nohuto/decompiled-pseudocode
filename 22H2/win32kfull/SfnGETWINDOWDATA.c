@@ -1,68 +1,64 @@
 /*
- * XREFs of SfnGETWINDOWDATA @ 0x1C02068E0
+ * XREFs of SfnGETWINDOWDATA @ 0x1C0228E70
  * Callers:
  *     <none>
  * Callees:
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBE98 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBF84 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C00522B4 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005236C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052430 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052468 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
-__int64 __fastcall SfnGETWINDOWDATA(__int64 *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+__int64 __fastcall SfnGETWINDOWDATA(__int64 *a1, int a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  int v7; // r14d
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rax
-  __int64 v13; // rax
-  int v14; // ebx
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  ULONG64 v17; // rcx
-  __int64 v19; // [rsp+40h] [rbp-48h] BYREF
-  int v20; // [rsp+48h] [rbp-40h]
-  int v21; // [rsp+4Ch] [rbp-3Ch]
-  __int64 v22; // [rsp+50h] [rbp-38h]
-  __int64 v23; // [rsp+58h] [rbp-30h]
-  __int64 v24; // [rsp+60h] [rbp-28h]
-  __int64 v25; // [rsp+68h] [rbp-20h]
-  int v26; // [rsp+90h] [rbp+8h] BYREF
-  char v27; // [rsp+98h] [rbp+10h] BYREF
-  unsigned __int64 v28; // [rsp+A0h] [rbp+18h] BYREF
+  __int64 v9; // rax
+  __int64 v10; // rax
+  int v11; // ebx
+  ULONG64 v12; // rcx
+  __int64 v14; // [rsp+40h] [rbp-58h] BYREF
+  int v15; // [rsp+48h] [rbp-50h]
+  int v16; // [rsp+4Ch] [rbp-4Ch]
+  __int64 v17; // [rsp+50h] [rbp-48h]
+  __int64 v18; // [rsp+58h] [rbp-40h]
+  __int64 v19; // [rsp+60h] [rbp-38h]
+  __int64 v20; // [rsp+68h] [rbp-30h]
+  char v21; // [rsp+A0h] [rbp+8h] BYREF
+  char v22; // [rsp+A8h] [rbp+10h] BYREF
+  int v23; // [rsp+B0h] [rbp+18h] BYREF
+  unsigned __int64 v24; // [rsp+B8h] [rbp+20h] BYREF
 
-  v7 = a2;
-  v28 = 0LL;
-  v26 = 0;
-  PtiCurrentShared((__int64)a1, a2, a3, a4);
-  v21 = 0;
+  v24 = 0LL;
+  v23 = 0;
+  W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v16 = 0;
   if ( a1 )
-    v12 = *a1;
+    v9 = *a1;
   else
-    v12 = 0LL;
-  v19 = v12;
-  v20 = v7;
-  v22 = a3;
-  v23 = a4;
-  v24 = a5;
+    v9 = 0LL;
+  v14 = v9;
+  v15 = a2;
+  v17 = a3;
+  v18 = a4;
+  v19 = a5;
   if ( (*(_BYTE *)(a1[5] + 18) & 8) != 0 )
-    v13 = *(_QWORD *)(gpsi + 424LL);
+    v10 = *(_QWORD *)(gpsi + 424LL);
   else
-    v13 = *(_QWORD *)(gpsi + 616LL);
-  v25 = v13;
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition(
-    (LeaveEnterCritProperDisposition *)&v27,
-    v9,
-    v10,
-    v11);
+    v10 = *(_QWORD *)(gpsi + 616LL);
+  v20 = v10;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v21);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v22);
   EtwTraceBeginCallback(125LL);
-  v14 = KeUserModeCallback(125LL, &v19, 48LL, &v28, &v26);
+  v11 = KeUserModeCallback(125LL, &v14, 48LL, &v24, &v23);
   EtwTraceEndCallback(125LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v27, v15, v16);
-  if ( v14 < 0 || v26 != 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v22);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v21);
+  if ( v11 < 0 || v23 != 24 )
     return 0LL;
-  v17 = v28;
-  if ( v28 + 8 < v28 || v28 + 8 > MmUserProbeAddress )
-    v17 = MmUserProbeAddress;
-  return *(_QWORD *)v17;
+  v12 = v24;
+  if ( v24 + 8 < v24 || v24 + 8 > MmUserProbeAddress )
+    v12 = MmUserProbeAddress;
+  return *(_QWORD *)v12;
 }

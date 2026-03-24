@@ -1,8 +1,8 @@
 /*
  * XREFs of NtWaitForSingleObject @ 0x1405E9AA0
  * Callers:
- *     SepRmCallLsa @ 0x14012FB20 (SepRmCallLsa.c)
- *     PfSnPrefetchFileMetadata @ 0x14065CB04 (PfSnPrefetchFileMetadata.c)
+ *     SepRmCallLsa @ 0x14012FB40 (SepRmCallLsa.c)
+ *     PfSnPrefetchFileMetadata @ 0x14065CAE4 (PfSnPrefetchFileMetadata.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)

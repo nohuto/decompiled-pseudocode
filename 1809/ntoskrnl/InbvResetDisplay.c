@@ -1,9 +1,9 @@
 /*
- * XREFs of InbvResetDisplay @ 0x14027D330
+ * XREFs of InbvResetDisplay @ 0x14027D430
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 char InbvResetDisplay()

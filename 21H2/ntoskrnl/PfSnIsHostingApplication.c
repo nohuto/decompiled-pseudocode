@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnIsHostingApplication @ 0x1407DC5E4
+ * XREFs of PfSnIsHostingApplication @ 0x1406CB570
  * Callers:
- *     PfSnBeginAppLaunch @ 0x1407DCCD8 (PfSnBeginAppLaunch.c)
+ *     PfSnBeginAppLaunch @ 0x1406CC0AC (PfSnBeginAppLaunch.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     wcsstr @ 0x1403E3540 (wcsstr.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     wcsstr @ 0x1403D4190 (wcsstr.c)
  */
 
 char __fastcall PfSnIsHostingApplication(wchar_t *SubStr)
@@ -29,18 +29,18 @@ char __fastcall PfSnIsHostingApplication(wchar_t *SubStr)
   CurrentThread = KeGetCurrentThread();
   v5 = 0;
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)qword_140C544F8, 0LL);
+  ExAcquirePushLockSharedEx((ULONG_PTR)qword_140C502B8, 0LL);
   do
     ++v1;
-  while ( word_140C543F0[v1] );
-  v6 = word_140C543F0;
+  while ( Str[v1] );
+  v6 = Str;
   v7 = (wchar_t *)&PfGlobals + v1 + 120;
   while ( 1 )
   {
     v8 = wcsstr(v6, SubStr);
-    if ( !v8 || v8 < word_140C543F0 || v8 >= v7 )
+    if ( !v8 || v8 < Str || v8 >= v7 )
       break;
-    if ( v8 == word_140C543F0 || *(v8 - 1) == 44 )
+    if ( v8 == Str || *(v8 - 1) == 44 )
     {
       v10 = &v8[(unsigned int)v3];
       if ( v10 == v7 || *v10 == 44 )
@@ -51,9 +51,9 @@ char __fastcall PfSnIsHostingApplication(wchar_t *SubStr)
     }
     v6 = v8 + 1;
   }
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)qword_140C544F8, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)qword_140C544F8);
-  KeAbPostRelease((ULONG_PTR)qword_140C544F8);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)qword_140C502B8, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)qword_140C502B8);
+  KeAbPostRelease((ULONG_PTR)qword_140C502B8);
   KeLeaveCriticalRegion();
   return v5;
 }

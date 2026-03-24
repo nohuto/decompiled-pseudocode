@@ -1,15 +1,14 @@
 /*
- * XREFs of IovCompleteRequest @ 0x140AC248C
+ * XREFs of IovCompleteRequest @ 0x1409C4FB0
  * Callers:
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
  * Callees:
- *     IopfCompleteRequest @ 0x1402C9980 (IopfCompleteRequest.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     IopPerfCompleteRequest @ 0x14045F2FE (IopPerfCompleteRequest.c)
- *     IovpLogStackTrace @ 0x140AC2E08 (IovpLogStackTrace.c)
- *     IovpCompleteRequest1 @ 0x140ACD9CC (IovpCompleteRequest1.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
+ *     IopfCompleteRequest @ 0x140242E30 (IopfCompleteRequest.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     IopPerfCompleteRequest @ 0x140507D14 (IopPerfCompleteRequest.c)
+ *     IovpLogStackTrace @ 0x1409C5988 (IovpLogStackTrace.c)
+ *     IovpCompleteRequest1 @ 0x1409D04D0 (IovpCompleteRequest1.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
  */
 
 void __fastcall IovCompleteRequest(IRP *BugCheckParameter1, unsigned __int8 a2)
@@ -24,10 +23,15 @@ void __fastcall IovCompleteRequest(IRP *BugCheckParameter1, unsigned __int8 a2)
   __int128 v11; // [rsp+38h] [rbp-51h]
   __int64 v12; // [rsp+48h] [rbp-41h]
   void *v13; // [rsp+50h] [rbp-39h]
-  _BYTE v14[104]; // [rsp+58h] [rbp-31h] BYREF
+  _QWORD v14[3]; // [rsp+58h] [rbp-31h] BYREF
+  PIO_COMPLETION_ROUTINE CompletionRoutine; // [rsp+70h] [rbp-19h]
+  __int128 v16; // [rsp+78h] [rbp-11h]
+  __int128 v17; // [rsp+88h] [rbp-1h]
+  __int128 v18; // [rsp+98h] [rbp+Fh]
+  __int128 v19; // [rsp+A8h] [rbp+1Fh]
+  PVOID Context; // [rsp+B8h] [rbp+2Fh]
   void *retaddr; // [rsp+E8h] [rbp+5Fh]
 
-  memset(v14, 0, sizeof(v14));
   v10 = 0LL;
   v12 = 0LL;
   v11 = 0LL;
@@ -37,7 +41,7 @@ void __fastcall IovCompleteRequest(IRP *BugCheckParameter1, unsigned __int8 a2)
     if ( BugCheckParameter1->CurrentLocation > (char)(BugCheckParameter1->StackCount + 1)
       || BugCheckParameter1->Type != 6 )
     {
-      VerifierBugCheckIfAppropriate(0x44u, (ULONG_PTR)BugCheckParameter1, 0x489uLL, 0LL, 0LL);
+      VerifierBugCheckIfAppropriate(0x44u, (ULONG_PTR)BugCheckParameter1, 0x486uLL, 0LL, 0LL);
     }
     CancelRoutine = (ULONG_PTR)BugCheckParameter1->CancelRoutine;
     if ( CancelRoutine )
@@ -55,14 +59,14 @@ void __fastcall IovCompleteRequest(IRP *BugCheckParameter1, unsigned __int8 a2)
   {
     v7 = BugCheckParameter1->IoStatus.Status < 0;
     CurrentStackLocation = BugCheckParameter1->Tail.Overlay.CurrentStackLocation;
-    *(_QWORD *)&v14[16] = &v10;
-    *(_QWORD *)&v14[8] = CurrentStackLocation->Context;
-    *(_QWORD *)v14 = CurrentStackLocation;
-    *(_OWORD *)&v14[32] = *(_OWORD *)&CurrentStackLocation->MajorFunction;
-    *(_OWORD *)&v14[48] = *(_OWORD *)&CurrentStackLocation->Parameters.NotifyDirectoryEx.CompletionFilter;
-    *(_OWORD *)&v14[64] = *(_OWORD *)(&CurrentStackLocation->Parameters.SetQuota + 6);
-    *(_OWORD *)&v14[80] = *(_OWORD *)&CurrentStackLocation->FileObject;
-    *(_QWORD *)&v14[96] = CurrentStackLocation->Context;
+    v14[2] = &v10;
+    v14[1] = CurrentStackLocation->Context;
+    v14[0] = CurrentStackLocation;
+    v16 = *(_OWORD *)&CurrentStackLocation->MajorFunction;
+    v17 = *(_OWORD *)&CurrentStackLocation->Parameters.NotifyDirectoryEx.CompletionFilter;
+    v18 = *(_OWORD *)(&CurrentStackLocation->Parameters.SetQuota + 6);
+    v19 = *(_OWORD *)&CurrentStackLocation->FileObject;
+    Context = CurrentStackLocation->Context;
     Control = CurrentStackLocation->Control;
     if ( v7 )
     {
@@ -75,12 +79,12 @@ void __fastcall IovCompleteRequest(IRP *BugCheckParameter1, unsigned __int8 a2)
     }
     if ( !BugCheckParameter1->Cancel || (Control & 0x20) == 0 )
     {
-      *(_QWORD *)&v14[24] = 0LL;
+      CompletionRoutine = 0LL;
       CurrentStackLocation->Control |= 0xE0u;
       goto LABEL_19;
     }
 LABEL_18:
-    *(_QWORD *)&v14[24] = CurrentStackLocation->CompletionRoutine;
+    CompletionRoutine = CurrentStackLocation->CompletionRoutine;
 LABEL_19:
     CurrentStackLocation->CompletionRoutine = (PIO_COMPLETION_ROUTINE)IovpLocalCompletionRoutine;
     CurrentStackLocation->Context = v14;

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDoesDriverProvideImportsForDriver @ 0x1409F70F0
+ * XREFs of MiDoesDriverProvideImportsForDriver @ 0x1409F7100
  * Callers:
  *     MiImportOptimizationVetosDriverRelocation @ 0x1409AAEA0 (MiImportOptimizationVetosDriverRelocation.c)
  * Callees:
- *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C50 (RtlpImageDirectoryEntryToDataEx.c)
+ *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C70 (RtlpImageDirectoryEntryToDataEx.c)
  */
 
 __int64 __fastcall MiDoesDriverProvideImportsForDriver(__int64 a1, __int64 a2)

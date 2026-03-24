@@ -5,14 +5,14 @@
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
  *     SeCaptureSubjectContextEx @ 0x1405E07F0 (SeCaptureSubjectContextEx.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     SeQueryUserSidToken @ 0x1406102AC (SeQueryUserSidToken.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
- *     RtlMapGenericMask @ 0x14063ED50 (RtlMapGenericMask.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
+ *     RtlMapGenericMask @ 0x14063ED30 (RtlMapGenericMask.c)
  */
 
 __int64 __fastcall AlpcpCheckConnectionSecurity(PEPROCESS Process, KPROCESSOR_MODE a2, void *a3, void *a4)

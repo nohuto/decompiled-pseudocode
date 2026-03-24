@@ -2,14 +2,14 @@
  * XREFs of ExpSetSystemTime @ 0x140566AC8
  * Callers:
  *     ExUpdateSystemTimeFromCmos @ 0x140566B6C (ExUpdateSystemTimeFromCmos.c)
- *     NtSetSystemTime @ 0x1408CD2D0 (NtSetSystemTime.c)
+ *     NtSetSystemTime @ 0x1408CD2B0 (NtSetSystemTime.c)
  * Callees:
- *     ExSystemTimeToLocalTime @ 0x14013AF80 (ExSystemTimeToLocalTime.c)
- *     KeSetSystemTime @ 0x1401433CC (KeSetSystemTime.c)
- *     RtlTimeToTimeFields @ 0x14015DA00 (RtlTimeToTimeFields.c)
- *     PoNotifySystemTimeSet @ 0x14017832C (PoNotifySystemTimeSet.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ExpRefreshTimeZoneInformation @ 0x140734694 (ExpRefreshTimeZoneInformation.c)
+ *     ExSystemTimeToLocalTime @ 0x14013AFA0 (ExSystemTimeToLocalTime.c)
+ *     KeSetSystemTime @ 0x1401433EC (KeSetSystemTime.c)
+ *     RtlTimeToTimeFields @ 0x14015DA20 (RtlTimeToTimeFields.c)
+ *     PoNotifySystemTimeSet @ 0x14017834C (PoNotifySystemTimeSet.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140734674 (ExpRefreshTimeZoneInformation.c)
  */
 
 void __fastcall ExpSetSystemTime(char a1, char a2, __int64 a3, LARGE_INTEGER a4, struct _SINGLE_LIST_ENTRY *a5)

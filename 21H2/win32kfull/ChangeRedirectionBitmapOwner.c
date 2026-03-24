@@ -1,10 +1,10 @@
 /*
- * XREFs of ChangeRedirectionBitmapOwner @ 0x1C01E2418
+ * XREFs of ChangeRedirectionBitmapOwner @ 0x1C01E7CB4
  * Callers:
- *     ?ProtectWindowBitmap@@YAHPEAUtagWND@@KPEBUtagPROCESSINFO@@@Z @ 0x1C02438F4 (-ProtectWindowBitmap@@YAHPEAUtagWND@@KPEBUtagPROCESSINFO@@@Z.c)
+ *     ?ProtectWindowBitmap@@YAHPEAUtagWND@@K@Z @ 0x1C0248034 (-ProtectWindowBitmap@@YAHPEAUtagWND@@K@Z.c)
  * Callees:
- *     GetRedirectionBitmap @ 0x1C0049330 (GetRedirectionBitmap.c)
- *     GreSetRedirectionBitmapOwner @ 0x1C0105B50 (GreSetRedirectionBitmapOwner.c)
+ *     GetRedirectionBitmap @ 0x1C00BEF20 (GetRedirectionBitmap.c)
+ *     GreSetRedirectionBitmapOwner @ 0x1C01182CC (GreSetRedirectionBitmapOwner.c)
  */
 
 __int64 __fastcall ChangeRedirectionBitmapOwner(__int64 a1, int a2)

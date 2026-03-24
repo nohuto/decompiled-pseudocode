@@ -1,29 +1,33 @@
 /*
- * XREFs of rimLidClosedPolicyUpdateStateAndApply @ 0x1C01B11E4
+ * XREFs of rimLidClosedPolicyUpdateStateAndApply @ 0x1C017BAC8
  * Callers:
- *     rimApplyPointerDevicePolicies @ 0x1C00E70E4 (rimApplyPointerDevicePolicies.c)
+ *     rimApplyPointerDevicePolicies @ 0x1C0179080 (rimApplyPointerDevicePolicies.c)
  * Callees:
- *     ApiSetGetPowerTransitionsState @ 0x1C00A2238 (ApiSetGetPowerTransitionsState.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     RIMCmAddContactSuppressionReasons @ 0x1C01B61C4 (RIMCmAddContactSuppressionReasons.c)
+ *     ApiSetGetPowerTransitionsState @ 0x1C00ACF24 (ApiSetGetPowerTransitionsState.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     RIMCmAddContactSuppressionReasons @ 0x1C017FE94 (RIMCmAddContactSuppressionReasons.c)
  */
 
-_DWORD *__fastcall rimLidClosedPolicyUpdateStateAndApply(__int64 a1, __int64 a2)
+__int64 __fastcall rimLidClosedPolicyUpdateStateAndApply(__int64 a1, __int64 a2)
 {
-  _DWORD *result; // rax
-  _DWORD v5[16]; // [rsp+20h] [rbp-58h] BYREF
+  __int64 result; // rax
+  _OWORD v5[3]; // [rsp+20h] [rbp-58h] BYREF
+  __int64 v6; // [rsp+50h] [rbp-28h]
+  int v7; // [rsp+58h] [rbp-20h]
 
-  result = memset(v5, 0, sizeof(v5));
+  result = 0LL;
+  v6 = 0LL;
+  memset(v5, 0, sizeof(v5));
+  v7 = 0;
   if ( gbEnableLidClosedInputSuppression )
   {
-    result = *(_DWORD **)(a1 + 16);
-    if ( !result[534] )
+    result = *(_QWORD *)(a1 + 16);
+    if ( !*(_DWORD *)(result + 2128) )
     {
-      result = ApiSetGetPowerTransitionsState(v5);
-      if ( !v5[13] && (*(_DWORD *)(a2 + 8) & 0x100) == 0 )
+      result = ApiSetGetPowerTransitionsState((__int64)v5);
+      if ( !HIDWORD(v6) && (*(_DWORD *)(a2 + 8) & 0x100) == 0 )
       {
-        result = (_DWORD *)RIMCmAddContactSuppressionReasons(a1, a2);
+        result = RIMCmAddContactSuppressionReasons(a1, a2, 256LL);
         *(_DWORD *)(a2 + 2420) |= 0x8000u;
       }
     }

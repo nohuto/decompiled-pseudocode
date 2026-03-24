@@ -1,18 +1,18 @@
 /*
- * XREFs of XmGeneralBitOffset @ 0x140532D20
+ * XREFs of XmGeneralBitOffset @ 0x1404E52D0
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmGetOffsetAddress @ 0x1403A497C (XmGetOffsetAddress.c)
- *     XmEvaluateAddressSpecifier @ 0x1403B8BCC (XmEvaluateAddressSpecifier.c)
- *     XmSetSourceValue @ 0x1403B8E60 (XmSetSourceValue.c)
- *     XmSetDestinationValue @ 0x1403B8F08 (XmSetDestinationValue.c)
+ *     XmSetSourceValue @ 0x140396808 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x140396898 (XmSetDestinationValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140396914 (XmEvaluateAddressSpecifier.c)
+ *     XmGetOffsetAddress @ 0x1403C8BDC (XmGetOffsetAddress.c)
  */
 
 __int64 __fastcall XmGeneralBitOffset(__int64 a1)
 {
   __int64 v2; // rcx
-  unsigned __int16 *OffsetAddress; // r8
+  int *OffsetAddress; // r8
   int v4; // edx
   int v5; // ecx
   unsigned int v7; // [rsp+30h] [rbp+8h] BYREF
@@ -26,14 +26,12 @@ __int64 __fastcall XmGeneralBitOffset(__int64 a1)
     v4 = 536870908;
     if ( *(_DWORD *)(a1 + 120) != 3 )
       v4 = 536870910;
-    OffsetAddress = (unsigned __int16 *)XmGetOffsetAddress(
-                                          v2,
-                                          *(_DWORD *)(a1 + 128) + ((*(_DWORD *)(a1 + 108) >> 3) & (unsigned int)v4));
+    OffsetAddress = XmGetOffsetAddress(v2, *(_DWORD *)(a1 + 128) + ((*(_DWORD *)(a1 + 108) >> 3) & (unsigned int)v4));
   }
   v5 = 31;
   if ( *(_DWORD *)(a1 + 120) != 3 )
     v5 = 15;
   *(_DWORD *)(a1 + 108) &= v5;
-  XmSetDestinationValue(a1, OffsetAddress);
+  XmSetDestinationValue(a1, (unsigned __int16 *)OffsetAddress);
   return 1LL;
 }

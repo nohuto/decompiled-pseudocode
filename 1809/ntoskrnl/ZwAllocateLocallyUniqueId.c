@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAllocateLocallyUniqueId @ 0x1401B8F70
+ * XREFs of ZwAllocateLocallyUniqueId @ 0x1401B8F90
  * Callers:
  *     <none>
  * Callees:

@@ -1,33 +1,28 @@
 /*
- * XREFs of ObpUnlockDirectory @ 0x14066960C
+ * XREFs of ObpUnlockDirectory @ 0x14027EB0C
  * Callers:
- *     ObReferenceObjectByNameEx @ 0x1406686C8 (ObReferenceObjectByNameEx.c)
- *     ObpDeleteDirectoryEntry @ 0x140668C60 (ObpDeleteDirectoryEntry.c)
- *     NtQueryDirectoryObject @ 0x140668CE0 (NtQueryDirectoryObject.c)
- *     ObpInsertOrLocateNamedObject @ 0x14066915C (ObpInsertOrLocateNamedObject.c)
- *     ObpCreateSymbolicLinkName @ 0x1406A97F0 (ObpCreateSymbolicLinkName.c)
- *     NtSetInformationObject @ 0x1406B9250 (NtSetInformationObject.c)
- *     ObpMarkDirectoryObjectsTemporary @ 0x1406B94DC (ObpMarkDirectoryObjectsTemporary.c)
- *     ObReferenceObjectByName @ 0x14071EEC0 (ObReferenceObjectByName.c)
- *     ObpCloseHandle @ 0x140734160 (ObpCloseHandle.c)
- *     ObpDeleteNameCheck @ 0x1407A3190 (ObpDeleteNameCheck.c)
- *     ObCreateObjectTypeEx @ 0x140824B30 (ObCreateObjectTypeEx.c)
- *     ObInitSystem @ 0x140AFE184 (ObInitSystem.c)
+ *     ObpReleaseLookupContext @ 0x14027EAD0 (ObpReleaseLookupContext.c)
+ *     ObpLookupDirectoryEntryEx @ 0x140601DF4 (ObpLookupDirectoryEntryEx.c)
+ *     ObpLookupDirectoryUsingHash @ 0x140601F48 (ObpLookupDirectoryUsingHash.c)
+ *     NtQueryDirectoryObject @ 0x1406613C0 (NtQueryDirectoryObject.c)
+ *     NtSetInformationObject @ 0x140691630 (NtSetInformationObject.c)
+ *     ObpMarkDirectoryObjectsTemporary @ 0x140691AB8 (ObpMarkDirectoryObjectsTemporary.c)
+ *     ObpLookupObjectName @ 0x1406F3F20 (ObpLookupObjectName.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1403494F0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
  */
 
-void __fastcall ObpUnlockDirectory(__int64 a1)
+void __fastcall ObpUnlockDirectory(__int64 a1, __int64 a2)
 {
-  ExReleasePushLockEx(*(_QWORD *)a1 + 296LL, 0LL);
-  if ( *(_BYTE *)(a1 + 22) )
-  {
-    ObDereferenceObjectDeferDeleteWithTag(*(PVOID *)a1, 0x554C624Fu);
-    *(_BYTE *)(a1 + 22) = 0;
-  }
-  *(_QWORD *)a1 = 0LL;
-  *(_BYTE *)(a1 + 21) = 0;
+  struct _DMA_ADAPTER *v3; // rcx
+
+  ExReleasePushLockEx(a1 + 296, 0LL);
+  v3 = *(struct _DMA_ADAPTER **)a2;
+  *(_DWORD *)(a2 + 32) = -286387660;
+  HalPutDmaAdapter(v3);
+  *(_QWORD *)a2 = 0LL;
+  *(_WORD *)(a2 + 30) = 0;
   KeLeaveCriticalRegion();
 }

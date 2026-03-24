@@ -1,20 +1,20 @@
 /*
- * XREFs of ??$_Destroy_range@V?$allocator@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@@std@@@std@@YAXPEAV?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@0@QEAV10@AEAV?$allocator@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@@0@@Z @ 0x1800EE358
+ * XREFs of ??$_Destroy_range@V?$allocator@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@@std@@@std@@YAXPEAV?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@0@0AEAV?$allocator@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@@0@@Z @ 0x1800DA474
  * Callers:
- *     ??1CLegacySwapChain@@MEAA@XZ @ 0x18001C360 (--1CLegacySwapChain@@MEAA@XZ.c)
- *     ??$_Uninitialized_move@PEAV?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@V?$allocator@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@@2@@std@@YAPEAV?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@0@QEAV10@0PEAV10@AEAV?$allocator@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@@0@@Z @ 0x1800EE2A4 (--$_Uninitialized_move@PEAV-$unique_ptr@VCSwapChainBuffer@@U-$default_delete@VCSwapChainBuffer@@.c)
- *     ?_Change_array@?$vector@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@V?$allocator@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@@2@@std@@AEAAXQEAV?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@2@_K1@Z @ 0x1800EE2E4 (-_Change_array@-$vector@V-$unique_ptr@VCSwapChainBuffer@@U-$default_delete@VCSwapChainBuffer@@@s.c)
+ *     ??1CLegacySwapChain@@MEAA@XZ @ 0x180024E5C (--1CLegacySwapChain@@MEAA@XZ.c)
+ *     ??$_Uninitialized_move@PEAV?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@PEAV12@V?$allocator@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@@2@@std@@YAPEAV?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@0@QEAV10@0PEAV10@AEAV?$allocator@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@@0@@Z @ 0x1800DA3C0 (--$_Uninitialized_move@PEAV-$unique_ptr@VCSwapChainBuffer@@U-$default_delete@VCSwapChainBuffer@@.c)
+ *     ?_Change_array@?$vector@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@V?$allocator@V?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@std@@@2@@std@@AEAAXQEAV?$unique_ptr@VCSwapChainBuffer@@U?$default_delete@VCSwapChainBuffer@@@std@@@2@_K1@Z @ 0x1800DA400 (-_Change_array@-$vector@V-$unique_ptr@VCSwapChainBuffer@@U-$default_delete@VCSwapChainBuffer@@@s.c)
  * Callees:
- *     ??1CSwapChainBuffer@@QEAA@XZ @ 0x1800F4C54 (--1CSwapChainBuffer@@QEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800520D0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B114 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
  */
 
-void __fastcall std::_Destroy_range<std::allocator<std::unique_ptr<CSwapChainBuffer>>>(
-        CSwapChainBuffer **a1,
-        CSwapChainBuffer **a2)
+void __fastcall std::_Destroy_range<std::allocator<std::unique_ptr<CSwapChainBuffer>>>(__int64 *a1, __int64 *a2)
 {
-  CSwapChainBuffer **v3; // rbx
-  CSwapChainBuffer *v4; // rdi
+  __int64 *v3; // rbx
+  __int64 v4; // rdi
+  CDrawListEntry *v5; // rcx
 
   if ( a1 != a2 )
   {
@@ -24,8 +24,11 @@ void __fastcall std::_Destroy_range<std::allocator<std::unique_ptr<CSwapChainBuf
       v4 = *v3;
       if ( *v3 )
       {
-        CSwapChainBuffer::~CSwapChainBuffer(*v3);
-        operator delete(v4, 0xB0uLL);
+        v5 = *(CDrawListEntry **)(v4 + 96);
+        if ( v5 )
+          CDrawListEntry::Release(v5);
+        FastRegion::CRegion::FreeMemory((void **)(v4 + 16));
+        operator delete((void *)v4);
       }
       ++v3;
     }

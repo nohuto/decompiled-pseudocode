@@ -1,13 +1,13 @@
 /*
- * XREFs of ?AdapterVerifierOption@VIDMM_GLOBAL@@QEAAJW4_D3DKMT_VERIFIER_OPTION_MODE@@W4_D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE@@PEAT_D3DKMT_ADAPTER_VERIFIER_OPTION_DATA@@@Z @ 0x1C00EBB78
+ * XREFs of ?AdapterVerifierOption@VIDMM_GLOBAL@@QEAAJW4_D3DKMT_VERIFIER_OPTION_MODE@@W4_D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE@@PEAT_D3DKMT_ADAPTER_VERIFIER_OPTION_DATA@@@Z @ 0x1C00B65E4
  * Callers:
- *     ?VidMmAdapterVerifierOption@@YAJPEAVVIDMM_GLOBAL@@W4_D3DKMT_VERIFIER_OPTION_MODE@@W4_D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE@@PEAT_D3DKMT_ADAPTER_VERIFIER_OPTION_DATA@@@Z @ 0x1C002C980 (-VidMmAdapterVerifierOption@@YAJPEAVVIDMM_GLOBAL@@W4_D3DKMT_VERIFIER_OPTION_MODE@@W4_D3DKMT_ADAP.c)
+ *     ?VidMmAdapterVerifierOption@@YAJPEAVVIDMM_GLOBAL@@W4_D3DKMT_VERIFIER_OPTION_MODE@@W4_D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE@@PEAT_D3DKMT_ADAPTER_VERIFIER_OPTION_DATA@@@Z @ 0x1C0022670 (-VidMmAdapterVerifierOption@@YAJPEAVVIDMM_GLOBAL@@W4_D3DKMT_VERIFIER_OPTION_MODE@@W4_D3DKMT_ADAP.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall VIDMM_GLOBAL::AdapterVerifierOption(
-        VIDMM_GLOBAL *this,
+        union _D3DKMT_ADAPTER_VERIFIER_OPTION_DATA *this,
         enum _D3DKMT_VERIFIER_OPTION_MODE a2,
         enum _D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE a3,
         union _D3DKMT_ADAPTER_VERIFIER_OPTION_DATA *a4)
@@ -21,7 +21,7 @@ __int64 __fastcall VIDMM_GLOBAL::AdapterVerifierOption(
     v5 = a3 - 1000;
     if ( !v5 )
     {
-      *((_DWORD *)this + 1764) = a4->VidMmFlags.Value;
+      LODWORD(this[293].VidMmTrimInterval.IdleTrimInterval) = a4->VidMmFlags.Value;
       return v4;
     }
   }
@@ -30,12 +30,12 @@ __int64 __fastcall VIDMM_GLOBAL::AdapterVerifierOption(
     v5 = a3 - 1000;
     if ( !v5 )
     {
-      *((_DWORD *)this + 1764) = a4->VidMmFlags.Value;
+      LODWORD(this[293].VidMmTrimInterval.IdleTrimInterval) = a4->VidMmFlags.Value;
       return v4;
     }
   }
   if ( v5 == 1 )
-    *(union _D3DKMT_ADAPTER_VERIFIER_OPTION_DATA *)((char *)this + 7064) = *a4;
+    this[294] = *a4;
   else
     return (unsigned int)-1073741811;
   return v4;

@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwPrepareComplete @ 0x14041CE60
+ * XREFs of ZwPrepareComplete @ 0x1403FC0E0
  * Callers:
- *     DifZwPrepareCompleteWrapper @ 0x1405F3280 (DifZwPrepareCompleteWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

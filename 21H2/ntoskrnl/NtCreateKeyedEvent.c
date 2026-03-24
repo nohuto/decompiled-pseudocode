@@ -1,25 +1,25 @@
 /*
- * XREFs of NtCreateKeyedEvent @ 0x140854BB0
+ * XREFs of NtCreateKeyedEvent @ 0x1407C5210
  * Callers:
  *     <none>
  * Callees:
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14072B3B0 (ObCreateObjectEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtCreateKeyedEvent(__int64 *a1, unsigned int a2, int a3, int a4)
+__int64 __fastcall NtCreateKeyedEvent(__int64 *a1, ACCESS_MASK a2, __int64 a3, int a4)
 {
   char PreviousMode; // cl
   __int64 result; // rax
   char *v8; // rcx
-  _QWORD *v9; // rax
+  _DMA_OPERATIONS **p_DmaOperations; // rax
   __int64 v10; // rdx
-  __int64 v11; // [rsp+20h] [rbp-68h]
-  PVOID Object; // [rsp+58h] [rbp-30h] BYREF
-  __int64 v13[5]; // [rsp+60h] [rbp-28h] BYREF
+  char *v11; // [rsp+20h] [rbp-68h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+58h] [rbp-30h] BYREF
+  unsigned __int64 v13[5]; // [rsp+60h] [rbp-28h] BYREF
 
-  Object = 0LL;
+  DmaAdapter = 0LL;
   v13[0] = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode && ((unsigned __int8)a1 & 7) != 0 )
@@ -27,18 +27,18 @@ __int64 __fastcall NtCreateKeyedEvent(__int64 *a1, unsigned int a2, int a3, int 
   *a1 = 0LL;
   if ( a4 )
     return 3221225714LL;
-  result = ObCreateObjectEx(PreviousMode, ExpKeyedEventObjectType, a3, PreviousMode, v11, 1536, 0, 0, &Object, 0LL);
+  result = ObCreateObjectEx(PreviousMode, ExpKeyedEventObjectType, a3, PreviousMode, v11, 1536, 0, 0, &DmaAdapter, 0LL);
   if ( (int)result >= 0 )
   {
-    v8 = (char *)Object;
-    v9 = (char *)Object + 8;
+    v8 = (char *)DmaAdapter;
+    p_DmaOperations = &DmaAdapter->DmaOperations;
     v10 = 64LL;
     do
     {
-      *(v9 - 1) = 0LL;
-      v9[1] = v9;
-      *v9 = v9;
-      v9 += 3;
+      *(p_DmaOperations - 1) = 0LL;
+      p_DmaOperations[1] = (_DMA_OPERATIONS *)p_DmaOperations;
+      *p_DmaOperations = (_DMA_OPERATIONS *)p_DmaOperations;
+      p_DmaOperations += 3;
       --v10;
     }
     while ( v10 );

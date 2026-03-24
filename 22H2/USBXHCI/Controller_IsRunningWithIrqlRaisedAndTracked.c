@@ -1,21 +1,20 @@
 /*
- * XREFs of Controller_IsRunningWithIrqlRaisedAndTracked @ 0x1C0034100
+ * XREFs of Controller_IsRunningWithIrqlRaisedAndTracked @ 0x1C001A020
  * Callers:
- *     ESM_RunStateMachine @ 0x1C000C540 (ESM_RunStateMachine.c)
- *     ESM_ShouldQueueWorkItem @ 0x1C0051240 (ESM_ShouldQueueWorkItem.c)
+ *     ESM_ShouldQueueWorkItem @ 0x1C001AE70 (ESM_ShouldQueueWorkItem.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     Controller_GetWdmPhysicalDeviceObject @ 0x1C0031C68 (Controller_GetWdmPhysicalDeviceObject.c)
  */
 
 char __fastcall Controller_IsRunningWithIrqlRaisedAndTracked(__int64 a1)
 {
   ULONG CurrentProcessorNumber; // eax
   int v3; // edx
-  ULONG_PTR v4; // rax
+  ULONG_PTR WdmPhysicalDeviceObject; // rax
 
   CurrentProcessorNumber = KeGetCurrentProcessorNumberEx(0LL);
-  if ( CurrentProcessorNumber >= *(_DWORD *)(a1 + 872) )
+  if ( CurrentProcessorNumber >= *(_DWORD *)(a1 + 816) )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
@@ -24,14 +23,12 @@ char __fastcall Controller_IsRunningWithIrqlRaisedAndTracked(__int64 a1)
         *(_QWORD *)(a1 + 72),
         v3,
         4,
-        321,
-        (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids,
+        311,
+        (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
         CurrentProcessorNumber);
     }
-    v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01023 + 264))(
-           WdfDriverGlobals,
-           *(_QWORD *)a1);
-    KeBugCheckEx(0x144u, 4uLL, v4, 2uLL, 4uLL);
+    WdmPhysicalDeviceObject = Controller_GetWdmPhysicalDeviceObject(a1);
+    KeBugCheckEx(0x144u, 4uLL, WdmPhysicalDeviceObject, 2uLL, 4uLL);
   }
-  return *(_BYTE *)(*(_QWORD *)(a1 + 864) + 2LL * CurrentProcessorNumber);
+  return *(_BYTE *)(*(_QWORD *)(a1 + 808) + 2LL * CurrentProcessorNumber);
 }

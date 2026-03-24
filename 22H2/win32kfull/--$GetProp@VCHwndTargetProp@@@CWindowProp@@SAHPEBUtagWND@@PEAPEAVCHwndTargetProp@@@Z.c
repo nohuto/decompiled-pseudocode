@@ -1,12 +1,12 @@
 /*
- * XREFs of ??$GetProp@VCHwndTargetProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCHwndTargetProp@@@Z @ 0x1C0059638
+ * XREFs of ??$GetProp@VCHwndTargetProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCHwndTargetProp@@@Z @ 0x1C00ECD78
  * Callers:
- *     ?_DetachWindowCompositionTarget@@YAHPEAUtagWND@@K@Z @ 0x1C0058D0C (-_DetachWindowCompositionTarget@@YAHPEAUtagWND@@K@Z.c)
- *     ?ReNotifyDwm@CHwndTargetProp@@SAXPEAUtagWND@@@Z @ 0x1C005911C (-ReNotifyDwm@CHwndTargetProp@@SAXPEAUtagWND@@@Z.c)
- *     ?_AttachWindowCompositionTarget@@YAJPEAUtagWND@@KPEAUCompositionObject@@@Z @ 0x1C005950C (-_AttachWindowCompositionTarget@@YAJPEAUtagWND@@KPEAUCompositionObject@@@Z.c)
- *     ?WindowHasCompositionTarget@@YAHPEAUtagWND@@K@Z @ 0x1C00595E8 (-WindowHasCompositionTarget@@YAHPEAUtagWND@@K@Z.c)
+ *     zzzComposeDesktop @ 0x1C00EC528 (zzzComposeDesktop.c)
+ *     ?_AttachWindowCompositionTarget@@YAJPEAUtagWND@@HPEAUCompositionObject@@@Z @ 0x1C00ECB14 (-_AttachWindowCompositionTarget@@YAJPEAUtagWND@@HPEAUCompositionObject@@@Z.c)
+ *     ?WindowHasCompositionTarget@@YAHPEAUtagWND@@H@Z @ 0x1C00ECD24 (-WindowHasCompositionTarget@@YAHPEAUtagWND@@H@Z.c)
+ *     ?_DetachWindowCompositionTarget@@YAHPEAUtagWND@@H@Z @ 0x1C00ECE24 (-_DetachWindowCompositionTarget@@YAHPEAUtagWND@@H@Z.c)
  * Callees:
- *     _GetProp @ 0x1C00F21FC (_GetProp.c)
+ *     _GetProp @ 0x1C006B8F0 (_GetProp.c)
  */
 
 _BOOL8 __fastcall CWindowProp::GetProp<CHwndTargetProp>(__int64 a1, __int64 *a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExprOp2_32 @ 0x1C0006642
+ * XREFs of ExprOp2_32 @ 0x1C0069428
  * Callers:
- *     ExprOp2 @ 0x1C00569C0 (ExprOp2.c)
+ *     ExprOp2 @ 0x1C00212B0 (ExprOp2.c)
  * Callees:
- *     ValidateArgTypes @ 0x1C004CF0C (ValidateArgTypes.c)
- *     ValidateTarget @ 0x1C004D510 (ValidateTarget.c)
- *     WriteObject @ 0x1C00532C0 (WriteObject.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ValidateTarget @ 0x1C000B264 (ValidateTarget.c)
  */
 
-__int64 __fastcall ExprOp2_32(__int64 a1, _QWORD *a2)
+__int64 __fastcall ExprOp2_32(struct _SLIST_ENTRY *a1, _QWORD *a2)
 {
   __int64 v3; // rdx
   int v4; // edi
@@ -35,10 +35,10 @@ __int64 __fastcall ExprOp2_32(__int64 a1, _QWORD *a2)
   v3 = a2[10];
   v4 = 0;
   v24 = 0LL;
-  result = ValidateArgTypes(a1, v3, 0LL, "II");
+  result = ValidateArgTypes((__int64)a1, v3, 0, "II");
   if ( (int)result >= 0 )
   {
-    result = ValidateTarget(a1, a2[10] + 80LL, 135LL, &v24);
+    result = ValidateTarget((__int64)a1, a2[10] + 80LL, 0x87u, (__int64)&v24);
     if ( (int)result >= 0 )
     {
       *(_WORD *)(a2[11] + 2LL) = 1;

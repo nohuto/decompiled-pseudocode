@@ -1,14 +1,14 @@
 /*
- * XREFs of ?BmpDevNineGrid@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAUNINEGRID@@PEAU_BLENDOBJ@@PEAX@Z @ 0x1C02A1F30
+ * XREFs of ?BmpDevNineGrid@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAUNINEGRID@@PEAU_BLENDOBJ@@PEAX@Z @ 0x1C0299950
  * Callers:
  *     <none>
  * Callees:
- *     EngNineGrid @ 0x1C0052060 (EngNineGrid.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C015AD8E (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
- *     ??0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C02A1234 (--0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
- *     ?GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z @ 0x1C02A2E8C (-GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z.c)
- *     ?bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C02A2F10 (-bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
+ *     EngNineGrid @ 0x1C00C8C30 (EngNineGrid.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ??0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C0298C48 (--0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
+ *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C0298C80 (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
+ *     ?GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z @ 0x1C029A884 (-GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z.c)
+ *     ?bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C029A908 (-bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
  */
 
 __int64 __fastcall BmpDevNineGrid(
@@ -22,57 +22,63 @@ __int64 __fastcall BmpDevNineGrid(
         struct _BLENDOBJ *a8,
         void *a9)
 {
-  unsigned int v13; // ebp
-  __int64 v14; // rcx
+  unsigned int v13; // esi
+  __int64 v14; // r9
   __int64 HDEV; // rax
   struct _DISPSURF *i; // rbx
-  __int64 v17; // rdi
+  __int64 v17; // r9
+  int v18; // eax
   struct _SURFOBJ *DevBitmap; // rax
-  __int64 v19; // r11
-  __int64 v21; // [rsp+50h] [rbp-48h] BYREF
-  __int64 v22; // [rsp+58h] [rbp-40h] BYREF
-  struct SURFACE *v23; // [rsp+60h] [rbp-38h] BYREF
-  struct SURFACE *v24; // [rsp+68h] [rbp-30h] BYREF
+  __int64 v20; // r10
+  __int64 v21; // r11
+  __int64 v23; // [rsp+50h] [rbp-48h] BYREF
+  __int64 v24; // [rsp+58h] [rbp-40h] BYREF
+  struct SURFACE *v25; // [rsp+60h] [rbp-38h] BYREF
+  struct SURFACE *v26; // [rsp+68h] [rbp-30h] BYREF
 
   v13 = 0;
-  BMPDEVOPEN::BMPDEVOPEN((BMPDEVOPEN *)&v24, a1);
-  BMPDEVOPEN::BMPDEVOPEN((BMPDEVOPEN *)&v23, a2);
+  BMPDEVOPEN::BMPDEVOPEN((BMPDEVOPEN *)&v26, a1);
+  BMPDEVOPEN::BMPDEVOPEN((BMPDEVOPEN *)&v25, a2);
   if ( a1 )
   {
-    v13 = EngNineGrid((int)a1, (__int64)a2, (int)a3, (int)a4, (__int64)a5, (__int64)a6, (__int64)a7, (__int64)a8);
-    HDEV = UserGetHDEV(v14);
+    v13 = EngNineGrid(a1, (__int64)a2, (__int64)a3, v14, (__int64)a5, (__int64)a6, (__int64)a7, (__int64)a8);
+    HDEV = UserGetHDEV();
     if ( HDEV )
     {
       if ( (*(_DWORD *)(HDEV + 40) & 0x20000000) != 0 )
       {
-        for ( i = **(struct _DISPSURF ***)(HDEV + 1768); i; i = *(struct _DISPSURF **)i )
+        for ( i = **(struct _DISPSURF ***)(HDEV + 1800); i; i = *(struct _DISPSURF **)i )
         {
           v17 = *((_QWORD *)i + 6);
-          v21 = v17;
+          v23 = v17;
           if ( v17 )
           {
-            if ( (*(_DWORD *)(v17 + 1792) & 0x8000000) != 0 && (*(_DWORD *)(v17 + 2096) & 0x9000) == 0x9000 )
+            if ( (*(_DWORD *)(v17 + 1824) & 0x8000000) != 0 )
             {
-              if ( *(_QWORD *)(*(_QWORD *)(v17 + 1760) + 792LL) )
+              v18 = *(_DWORD *)(v17 + 2128);
+              if ( (v18 & 0x1000) != 0 && (v18 & 0x8000) != 0 )
               {
-                MARK_ACCDRV_NOTIFICATION::MARK_ACCDRV_NOTIFICATION(
-                  (MARK_ACCDRV_NOTIFICATION *)&v22,
-                  (struct PDEVOBJ *)&v21,
-                  a1);
-                GetDevBitmap(i, a2);
-                DevBitmap = GetDevBitmap(i, a1);
-                (*(void (__fastcall **)(struct _SURFOBJ *, __int64, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _RECTL *, struct NINEGRID *, struct _BLENDOBJ *, void *))(*(_QWORD *)(v17 + 1760) + 792LL))(
-                  DevBitmap,
-                  v19,
-                  a3,
-                  a4,
-                  a5,
-                  a6,
-                  a7,
-                  a8,
-                  a9);
-                if ( v22 )
-                  *(_WORD *)(v22 + 78) &= ~0x8000u;
+                if ( *(_QWORD *)(*(_QWORD *)(v17 + 1792) + 792LL) )
+                {
+                  MARK_ACCDRV_NOTIFICATION::MARK_ACCDRV_NOTIFICATION(
+                    (MARK_ACCDRV_NOTIFICATION *)&v24,
+                    (struct PDEVOBJ *)&v23,
+                    a1);
+                  GetDevBitmap(i, a2);
+                  DevBitmap = GetDevBitmap(i, a1);
+                  (*(void (__fastcall **)(struct _SURFOBJ *, __int64, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _RECTL *, struct NINEGRID *, struct _BLENDOBJ *, void *))(v20 + 792))(
+                    DevBitmap,
+                    v21,
+                    a3,
+                    a4,
+                    a5,
+                    a6,
+                    a7,
+                    a8,
+                    a9);
+                  if ( v24 )
+                    *(_WORD *)(v24 + 78) &= ~0x8000u;
+                }
               }
             }
           }
@@ -80,9 +86,9 @@ __int64 __fastcall BmpDevNineGrid(
       }
     }
   }
-  if ( v23 )
-    bBmpMakeOpaque(v23);
-  if ( v24 )
-    bBmpMakeOpaque(v24);
+  if ( v25 )
+    bBmpMakeOpaque(v25);
+  if ( v26 )
+    bBmpMakeOpaque(v26);
   return v13;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopThermalStandbyNotify @ 0x14058FC80
+ * XREFs of PopThermalStandbyNotify @ 0x14056F7AC
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x140373610 (PopCheckAndHandleThermalConditions.c)
- *     PopThermalCsExit @ 0x14058F95C (PopThermalCsExit.c)
- *     PopThermalZoneRemove @ 0x14098B0C0 (PopThermalZoneRemove.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1403C4D58 (PopCheckAndHandleThermalConditions.c)
+ *     PopThermalCsExit @ 0x14056F730 (PopThermalCsExit.c)
+ *     PopThermalZoneRemove @ 0x1408E7DD0 (PopThermalZoneRemove.c)
  * Callees:
- *     PopDiagTraceEventNoPayload @ 0x140366FF0 (PopDiagTraceEventNoPayload.c)
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
+ *     PopDiagTraceEventNoPayload @ 0x1403265D4 (PopDiagTraceEventNoPayload.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
  */
 
 __int64 __fastcall PopThermalStandbyNotify(char a1)

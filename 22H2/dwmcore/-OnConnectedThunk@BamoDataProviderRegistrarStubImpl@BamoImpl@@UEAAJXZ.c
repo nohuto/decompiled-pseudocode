@@ -1,5 +1,5 @@
 /*
- * XREFs of ?OnConnectedThunk@BamoDataProviderRegistrarStubImpl@BamoImpl@@UEAAJXZ @ 0x180104B00
+ * XREFs of ?OnConnectedThunk@BamoDataProviderRegistrarStubImpl@BamoImpl@@UEAAJXZ @ 0x1800E0460
  * Callers:
  *     <none>
  * Callees:

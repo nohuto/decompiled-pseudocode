@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhWaitForBootDevice @ 0x1C0039BD8
+ * XREFs of UsbhWaitForBootDevice @ 0x1C003AEE8
  * Callers:
- *     UsbhSyncResetDeviceInternal @ 0x1C0003078 (UsbhSyncResetDeviceInternal.c)
- *     UsbhFdoColdStartPdo @ 0x1C001B954 (UsbhFdoColdStartPdo.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C00162A8 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhFdoColdStartPdo @ 0x1C001C580 (UsbhFdoColdStartPdo.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     WPP_RECORDER_SF_q @ 0x1C002E090 (WPP_RECORDER_SF_q.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002F46C (WPP_RECORDER_SF_q.c)
  */
 
 NTSTATUS __fastcall UsbhWaitForBootDevice(__int64 a1, __int64 a2, int a3, int a4)

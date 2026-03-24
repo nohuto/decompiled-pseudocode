@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HitTest@CSynchronousSuperWetInk@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1801060B0
+ * XREFs of ?HitTest@CSynchronousSuperWetInk@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800F50F0
  * Callers:
  *     <none>
  * Callees:

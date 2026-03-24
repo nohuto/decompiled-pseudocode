@@ -1,47 +1,38 @@
 /*
- * XREFs of StartScreenSaver @ 0x1C021D230
+ * XREFs of StartScreenSaver @ 0x1C0223C10
  * Callers:
- *     xxxSysCommand @ 0x1C011BA1C (xxxSysCommand.c)
+ *     xxxSysCommand @ 0x1C0130714 (xxxSysCommand.c)
  * Callees:
- *     SetTimerCoalescingTolerance @ 0x1C00FEF70 (SetTimerCoalescingTolerance.c)
+ *     SetTimerCoalescingTolerance @ 0x1C0112180 (SetTimerCoalescingTolerance.c)
  */
 
-__int64 __fastcall StartScreenSaver(int a1)
+void __fastcall StartScreenSaver(int a1)
 {
-  __int64 result; // rax
-  __int64 v2; // rdi
+  __int64 v1; // rdi
   __int64 GlobalTickCount; // rbx
-  __int64 v4; // rdx
+  __int64 v3; // rdx
 
-  result = gppiScreenSaver;
-  v2 = a1;
-  if ( !gppiScreenSaver )
+  v1 = a1;
+  if ( !gppiScreenSaver && (gPowerState & 1) == 0 )
   {
-    result = gPowerState;
-    if ( (gPowerState & 1) == 0 )
+    GlobalTickCount = CInputGlobals::GetGlobalTickCount(gpInputGlobals, 1LL);
+    if ( GlobalTickCount != CInputGlobals::GetLastInputTime(gpInputGlobals) )
     {
-      GlobalTickCount = CInputGlobals::GetGlobalTickCount(gpInputGlobals, 1LL);
-      result = CInputGlobals::GetLastInputTime(gpInputGlobals);
-      if ( GlobalTickCount != result )
+      if ( !gProtocolType && !gPowerTransitionsState[0] )
       {
-        if ( !gProtocolType && !LODWORD(gPowerTransitionsState[0]) )
-        {
-          v4 = 2LL;
-          goto LABEL_10;
-        }
-        if ( !(_DWORD)v2 || (result = gpsi, (*gpsi & 0x200) != 0) )
-        {
-          v4 = v2;
+        v3 = 2LL;
+        goto LABEL_10;
+      }
+      if ( !(_DWORD)v1 || (*gpsi & 0x200) != 0 )
+      {
+        v3 = v1;
 LABEL_10:
-          result = PostWinlogonMessage(1024LL, v4);
-          if ( (int)result >= 0 )
-          {
-            CInputGlobals::UpdateGlobalTickCount(gpInputGlobals, 1LL);
-            return SetTimerCoalescingTolerance(3);
-          }
+        if ( (int)PostWinlogonMessage(1024LL, v3) >= 0 )
+        {
+          CInputGlobals::UpdateGlobalTickCount(gpInputGlobals, 1LL);
+          SetTimerCoalescingTolerance(3);
         }
       }
     }
   }
-  return result;
 }

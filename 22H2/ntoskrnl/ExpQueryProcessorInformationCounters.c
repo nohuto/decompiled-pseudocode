@@ -1,122 +1,104 @@
 /*
- * XREFs of ExpQueryProcessorInformationCounters @ 0x14086E870
+ * XREFs of ExpQueryProcessorInformationCounters @ 0x1406C7240
  * Callers:
- *     ExProcessorCounterSetCallback @ 0x14086E070 (ExProcessorCounterSetCallback.c)
+ *     ExProcessorCounterSetCallback @ 0x1406C6A20 (ExProcessorCounterSetCallback.c)
  * Callees:
- *     PoGetIdleTimes @ 0x140252500 (PoGetIdleTimes.c)
- *     PoGetPerfStateAndParkingInfo @ 0x14032A290 (PoGetPerfStateAndParkingInfo.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x14031CAE4 (PoGetPerfStateAndParkingInfo.c)
+ *     PoGetIdleTimes @ 0x140344D4C (PoGetIdleTimes.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ExpQueryProcessorInformationCounters(__int64 a1, char a2, char a3, char a4, __int64 a5)
 {
   __int64 v8; // rcx
-  __int64 v9; // r11
-  __int64 v10; // r15
-  __int64 v11; // r10
-  __int64 v12; // r14
-  __int64 v13; // r9
-  __int64 v14; // rsi
-  __int64 v15; // rdx
-  __int64 v16; // rax
-  __int64 v17; // rcx
-  __int64 v18; // rdx
-  __int64 v19; // rdx
-  __int64 v20; // r8
-  __int64 v21; // rcx
-  unsigned __int64 v22; // rax
-  __int64 v23; // rax
-  unsigned __int64 v24; // r8
+  __int64 v9; // rdx
+  __int64 v10; // rax
+  __int64 v11; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // rcx
+  unsigned __int64 v16; // rax
+  __int64 v17; // rax
+  unsigned __int64 v18; // r8
   __int64 result; // rax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+28h] [rbp-61h] BYREF
-  __int128 v27; // [rsp+30h] [rbp-59h] BYREF
-  __int128 v28; // [rsp+40h] [rbp-49h]
-  __int128 v29; // [rsp+50h] [rbp-39h] BYREF
-  __int128 v30; // [rsp+60h] [rbp-29h] BYREF
-  __int128 v31; // [rsp+70h] [rbp-19h]
-  __int128 v32; // [rsp+80h] [rbp-9h] BYREF
-  __int128 v33; // [rsp+90h] [rbp+7h]
-  __int128 v34; // [rsp+A0h] [rbp+17h]
+  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+20h] [rbp-51h] BYREF
+  __int128 v21; // [rsp+28h] [rbp-49h] BYREF
+  __int128 v22; // [rsp+38h] [rbp-39h]
+  __int128 v23; // [rsp+48h] [rbp-29h] BYREF
+  __int128 v24; // [rsp+58h] [rbp-19h] BYREF
+  __int128 v25; // [rsp+68h] [rbp-9h]
+  __int128 v26; // [rsp+78h] [rbp+7h] BYREF
+  __int128 v27; // [rsp+88h] [rbp+17h]
+  __int128 v28; // [rsp+98h] [rbp+27h]
 
   ProcNumber.Group = *(unsigned __int8 *)(a1 + 208);
   ProcNumber.Number = *(_BYTE *)(a1 + 209);
   ProcNumber.Reserved = 0;
-  v32 = 0LL;
-  v33 = 0LL;
-  v34 = 0LL;
-  v29 = 0LL;
+  v26 = 0LL;
+  v27 = 0LL;
+  v28 = 0LL;
+  v23 = 0LL;
   if ( a2 )
   {
-    PoGetIdleTimes(&ProcNumber, (__int64)&v32, (__int64)&v29);
-    v8 = (unsigned int)v29;
-    v9 = *((_QWORD *)&v32 + 1);
-    v10 = (unsigned int)v34;
-    v11 = v33;
-    v12 = DWORD1(v34);
-    v13 = *((_QWORD *)&v33 + 1);
-    v14 = DWORD2(v34);
-    v15 = DWORD1(v29);
-    *(_QWORD *)(a5 + 120) = *((_QWORD *)&v29 + 1);
-    v16 = (unsigned int)KeMaximumIncrement;
-    v17 = (unsigned int)KeMaximumIncrement * v8;
-    v18 = (unsigned int)KeMaximumIncrement * v15;
-    *(_QWORD *)a5 = v17;
-    *(_QWORD *)(a5 + 72) = v9;
-    *(_QWORD *)(a5 + 96) = v10;
-    *(_QWORD *)(a5 + 80) = v11;
-    *(_QWORD *)(a5 + 104) = v12;
-    *(_QWORD *)(a5 + 88) = v13;
-    v19 = v18 - v17;
-    *(_QWORD *)(a5 + 112) = v14;
-    v20 = v17 + v16 * *(unsigned int *)(a1 + 33132);
+    PoGetIdleTimes(&ProcNumber, (__int64)&v26, (__int64)&v23);
+    v8 = (unsigned int)v23;
+    v9 = DWORD1(v23);
+    *(_QWORD *)(a5 + 72) = *((_QWORD *)&v26 + 1);
+    *(_QWORD *)(a5 + 96) = (unsigned int)v28;
+    *(_QWORD *)(a5 + 80) = v27;
+    *(_QWORD *)(a5 + 104) = DWORD1(v28);
+    *(_QWORD *)(a5 + 88) = *((_QWORD *)&v27 + 1);
+    *(_QWORD *)(a5 + 112) = DWORD2(v28);
+    *(_QWORD *)(a5 + 120) = *((_QWORD *)&v23 + 1);
+    v10 = (unsigned int)KeMaximumIncrement;
+    v11 = (unsigned int)KeMaximumIncrement * v8;
+    v12 = (unsigned int)KeMaximumIncrement * v9;
+    *(_QWORD *)a5 = v11;
+    v13 = v12 - v11;
+    v14 = v11 + v10 * *(unsigned int *)(a1 + 32428);
   }
   else
   {
     *(_QWORD *)a5 = 0LL;
-    v19 = 0LL;
-    *(_QWORD *)(a5 + 72) = 0LL;
-    v20 = 0LL;
-    *(_QWORD *)(a5 + 80) = 0LL;
     v13 = 0LL;
+    *(_QWORD *)(a5 + 72) = 0LL;
+    *(_QWORD *)(a5 + 80) = 0LL;
     *(_QWORD *)(a5 + 88) = 0LL;
-    v11 = 0LL;
     *(_QWORD *)(a5 + 96) = 0LL;
-    v9 = 0LL;
     *(_QWORD *)(a5 + 104) = 0LL;
-    v14 = 0LL;
     *(_QWORD *)(a5 + 112) = 0LL;
-    v12 = 0LL;
     *(_QWORD *)(a5 + 120) = 0LL;
-    v10 = 0LL;
+    v14 = 0LL;
   }
-  *(_QWORD *)(a5 + 8) = v20;
-  *(_QWORD *)(a5 + 24) = v19;
-  v21 = (unsigned int)KeMaximumIncrement;
-  v22 = (unsigned int)KeMaximumIncrement * (unsigned __int64)*(unsigned int *)(a1 + 33096);
-  v27 = 0LL;
-  v28 = 0LL;
-  v30 = 0LL;
-  *(_QWORD *)(a5 + 16) = v22;
-  *(_DWORD *)(a5 + 32) = *(_DWORD *)(a1 + 33088);
-  v23 = v21 * *(unsigned int *)(a1 + 33104);
-  v31 = 0LL;
-  *(_QWORD *)(a5 + 48) = v23;
-  *(_DWORD *)(a5 + 60) = *(_DWORD *)(a1 + 13148);
-  *(_DWORD *)(a5 + 64) = *(_DWORD *)(a1 + 13228);
-  *(_QWORD *)(a5 + 40) = v21 * *(unsigned int *)(a1 + 33100);
-  *(_DWORD *)(a5 + 56) = *(_DWORD *)(a1 + 13252);
-  *(_QWORD *)(a5 + 168) = v11 + v9 + v13;
-  *(_QWORD *)(a5 + 176) = v10 + v14 + v12;
-  v24 = (unsigned __int64)&v30 & -(__int64)(a4 != 0);
-  if ( a3 || v24 )
-    PoGetPerfStateAndParkingInfo(&ProcNumber, (__int64)&v27, v24, 0LL);
-  *(_DWORD *)(a5 + 128) = BYTE13(v28);
-  *(_QWORD *)(a5 + 132) = *(_QWORD *)((char *)&v27 + 4);
-  *(_DWORD *)(a5 + 140) = v27;
-  *(_QWORD *)(a5 + 184) = *(_QWORD *)((char *)&v28 + 4);
-  *(_OWORD *)(a5 + 144) = v30;
-  *(_QWORD *)(a5 + 160) = v31;
-  result = *((_QWORD *)&v31 + 1);
-  *(_QWORD *)(a5 + 192) = *((_QWORD *)&v31 + 1);
+  *(_QWORD *)(a5 + 8) = v14;
+  *(_QWORD *)(a5 + 24) = v13;
+  v15 = (unsigned int)KeMaximumIncrement;
+  v16 = (unsigned int)KeMaximumIncrement * (unsigned __int64)*(unsigned int *)(a1 + 32392);
+  v21 = 0LL;
+  v22 = 0LL;
+  v24 = 0LL;
+  *(_QWORD *)(a5 + 16) = v16;
+  *(_DWORD *)(a5 + 32) = *(_DWORD *)(a1 + 32384);
+  v17 = v15 * *(unsigned int *)(a1 + 32400);
+  v25 = 0LL;
+  *(_QWORD *)(a5 + 48) = v17;
+  *(_DWORD *)(a5 + 60) = *(_DWORD *)(a1 + 12508);
+  *(_DWORD *)(a5 + 64) = *(_DWORD *)(a1 + 12572);
+  *(_QWORD *)(a5 + 40) = v15 * *(unsigned int *)(a1 + 32396);
+  *(_DWORD *)(a5 + 56) = *(_DWORD *)(a1 + 12600);
+  *(_QWORD *)(a5 + 168) = *(_QWORD *)(a5 + 72) + *(_QWORD *)(a5 + 80) + *(_QWORD *)(a5 + 88);
+  *(_QWORD *)(a5 + 176) = *(_QWORD *)(a5 + 96) + *(_QWORD *)(a5 + 104) + *(_QWORD *)(a5 + 112);
+  v18 = (unsigned __int64)&v24 & -(__int64)(a4 != 0);
+  if ( a3 || v18 )
+    PoGetPerfStateAndParkingInfo(&ProcNumber, (__int64)&v21, v18, 0LL);
+  *(_DWORD *)(a5 + 128) = BYTE13(v22);
+  *(_QWORD *)(a5 + 132) = *(_QWORD *)((char *)&v21 + 4);
+  *(_DWORD *)(a5 + 140) = v21;
+  *(_QWORD *)(a5 + 184) = *(_QWORD *)((char *)&v22 + 4);
+  *(_OWORD *)(a5 + 144) = v24;
+  *(_QWORD *)(a5 + 160) = v25;
+  result = *((_QWORD *)&v25 + 1);
+  *(_QWORD *)(a5 + 192) = *((_QWORD *)&v25 + 1);
   return result;
 }

@@ -1,426 +1,401 @@
 /*
- * XREFs of ?LogCacheAccess@CExpression@@AEAAX_NIPEAVCExpressionValue@@@Z @ 0x180214510
+ * XREFs of ?LogCacheAccess@CExpression@@AEAAX_NIPEAVCExpressionValue@@@Z @ 0x1801C0F00
  * Callers:
- *     ?ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z @ 0x18006EF2C (-ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z.c)
+ *     ?ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z @ 0x1800596E4 (-ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x180074108 (_tlgKeywordOn.c)
- *     ?GetTracingCookie@CBaseExpression@@QEBAIXZ @ 0x1800D933C (-GetTracingCookie@CBaseExpression@@QEBAIXZ.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@3@Z @ 0x180213CB4 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$07@@U1@@-$_tlgWrit.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@33@Z @ 0x180213D90 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$07@@U1@U1@@-$_tlgW.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@333@Z @ 0x180213E80 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$07@@U1@U1@U1@@-$_t.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@3333@Z @ 0x180213F80 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$07@@U1@U1@U1@U1@@-.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U1@U1@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@333333@Z @ 0x180214094 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$07@@U1@U1@U1@U1@U1.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@3333333333333333@Z @ 0x1802141D4 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$07@@U_ea_1802141D4.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@G@@@Z @ 0x180214400 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?GetTracingCookie@CBaseExpression@@QEBAIXZ @ 0x1800CC6C4 (-GetTracingCookie@CBaseExpression@@QEBAIXZ.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@3@Z @ 0x1801C05EC (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$07@@U1@@-$_tlgWrit.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@33@Z @ 0x1801C06C8 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$07@@U1@U1@@-$_tlgW.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@333@Z @ 0x1801C07B8 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$07@@U1@U1@U1@@-$_t.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@3333@Z @ 0x1801C08B8 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$07@@U1@U1@U1@U1@@-.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U1@U1@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@333333@Z @ 0x1801C09CC (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$07@@U1@U1@U1@U1@U1.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@3333333333333333@Z @ 0x1801C0B0C (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$07@@U_ea_1801C0B0C.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@G@@@Z @ 0x1801C0D38 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
-void __fastcall CExpression::LogCacheAccess(CExpression *this, char a2, __int64 a3, struct CExpressionValue *a4)
+void __fastcall CExpression::LogCacheAccess(CExpression *this, char a2, int a3, struct CExpressionValue *a4)
 {
   int v4; // edx
   int v5; // edx
   int v6; // edx
   int v7; // edx
   int v8; // edx
-  int *v9; // r9
-  CBaseExpression *v10; // r10
-  int v11; // r11d
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r9
   __int64 v12; // rcx
   __int64 v13; // r8
   __int64 v14; // r9
-  int *v15; // r9
-  CBaseExpression *v16; // r10
-  int v17; // r11d
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  int *v21; // r9
-  CBaseExpression *v22; // r10
-  int v23; // r11d
-  int v24; // eax
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  __int64 v27; // r9
-  unsigned __int8 *v28; // rdx
-  unsigned __int8 *v29; // r9
-  CBaseExpression *v30; // r10
-  int v31; // r11d
-  int *v32; // r9
-  CBaseExpression *v33; // r10
-  int v34; // r11d
-  __int64 v35; // rcx
-  __int64 v36; // r8
-  __int64 v37; // r9
-  int v38; // edx
-  int v39; // edx
-  int v40; // edx
-  int v41; // edx
-  int *v42; // r9
-  CBaseExpression *v43; // r10
-  int v44; // r11d
-  __int64 v45; // rcx
-  __int64 v46; // r8
-  __int64 v47; // r9
-  int *v48; // r9
-  CBaseExpression *v49; // r10
-  int v50; // r11d
-  __int64 v51; // rcx
-  __int64 v52; // r8
-  __int64 v53; // r9
-  _DWORD *v54; // r9
-  CBaseExpression *v55; // r10
-  int v56; // r11d
-  int v57; // eax
-  __int64 v58; // rcx
-  __int64 v59; // r8
-  __int64 v60; // r9
-  unsigned __int8 *v61; // rdx
-  _DWORD *v62; // r9
-  CBaseExpression *v63; // r10
-  int v64; // r11d
-  _DWORD *v65; // r9
-  CBaseExpression *v66; // r10
-  int v67; // r11d
-  CBaseExpression *v68; // r10
-  int v69; // r11d
-  __int64 v70; // rcx
-  __int64 v71; // r8
-  __int64 v72; // r9
-  int v73; // [rsp+D0h] [rbp-80h] BYREF
-  const char *v74; // [rsp+D8h] [rbp-78h] BYREF
-  __int64 v75; // [rsp+E0h] [rbp-70h] BYREF
-  int v76; // [rsp+E8h] [rbp-68h] BYREF
-  int v77; // [rsp+ECh] [rbp-64h] BYREF
-  int v78; // [rsp+F0h] [rbp-60h] BYREF
-  int v79; // [rsp+F4h] [rbp-5Ch] BYREF
-  int v80; // [rsp+F8h] [rbp-58h] BYREF
-  const char *v81; // [rsp+100h] [rbp-50h] BYREF
-  wchar_t *v82; // [rsp+108h] [rbp-48h] BYREF
-  int v83; // [rsp+110h] [rbp-40h] BYREF
+  int v15; // eax
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  unsigned __int8 *v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  __int64 v25; // r9
+  int v26; // edx
+  int v27; // edx
+  int v28; // edx
+  int v29; // edx
+  __int64 v30; // rcx
+  __int64 v31; // r8
+  __int64 v32; // r9
+  __int64 v33; // rcx
+  __int64 v34; // r8
+  __int64 v35; // r9
+  int v36; // eax
+  __int64 v37; // rcx
+  __int64 v38; // r8
+  __int64 v39; // r9
+  unsigned __int8 *v40; // rdx
+  int v41; // [rsp+D0h] [rbp-80h] BYREF
+  int v42; // [rsp+D4h] [rbp-7Ch] BYREF
+  const char *v43; // [rsp+D8h] [rbp-78h] BYREF
+  wchar_t *v44; // [rsp+E0h] [rbp-70h] BYREF
+  int v45; // [rsp+E8h] [rbp-68h] BYREF
+  int v46; // [rsp+ECh] [rbp-64h] BYREF
+  int v47; // [rsp+F0h] [rbp-60h] BYREF
+  const char *v48; // [rsp+F8h] [rbp-58h] BYREF
+  const char *v49; // [rsp+100h] [rbp-50h] BYREF
+  const char *v50; // [rsp+108h] [rbp-48h] BYREF
+  int v51; // [rsp+110h] [rbp-40h] BYREF
   int TracingCookie; // [rsp+114h] [rbp-3Ch] BYREF
-  int v85; // [rsp+118h] [rbp-38h] BYREF
-  int v86; // [rsp+11Ch] [rbp-34h] BYREF
-  int v87; // [rsp+120h] [rbp-30h] BYREF
-  int v88; // [rsp+124h] [rbp-2Ch] BYREF
-  int v89; // [rsp+128h] [rbp-28h] BYREF
-  int v90; // [rsp+12Ch] [rbp-24h] BYREF
-  int v91[4]; // [rsp+130h] [rbp-20h] BYREF
+  int v53; // [rsp+118h] [rbp-38h] BYREF
+  int v54; // [rsp+11Ch] [rbp-34h] BYREF
+  int v55; // [rsp+120h] [rbp-30h] BYREF
+  int v56; // [rsp+124h] [rbp-2Ch] BYREF
+  int v57; // [rsp+128h] [rbp-28h] BYREF
+  int v58; // [rsp+12Ch] [rbp-24h] BYREF
+  int v59[4]; // [rsp+130h] [rbp-20h] BYREF
   void *retaddr; // [rsp+148h] [rbp-8h]
-  int v93; // [rsp+158h] [rbp+8h] BYREF
-  int v94; // [rsp+168h] [rbp+18h] BYREF
+  int v61; // [rsp+158h] [rbp+8h] BYREF
+  int v62; // [rsp+168h] [rbp+18h] BYREF
 
-  LOBYTE(v93) = a2;
+  LOBYTE(v61) = a2;
   v4 = *((_DWORD *)a4 + 18);
   if ( v4 == 11 )
-    goto LABEL_53;
+    a4 = (struct CExpressionValue *)*((_QWORD *)a4 + 8);
   if ( v4 > 52 )
   {
-    v38 = v4 - 69;
-    if ( v38 )
+    v26 = v4 - 69;
+    if ( v26 )
     {
-      v39 = v38 - 1;
-      if ( v39 )
+      v27 = v26 - 1;
+      if ( v27 )
       {
-        v40 = v39 - 1;
-        if ( v40 )
+        v28 = v27 - 1;
+        if ( v28 )
         {
-          v41 = v40 - 33;
-          if ( v41 )
+          v29 = v28 - 33;
+          if ( v29 )
           {
-            if ( v41 != 161 )
-              goto LABEL_31;
-            if ( (unsigned int)dword_1803D0EF0 > 4 && tlgKeywordOn((__int64)&dword_1803D0EF0, 1LL) )
+            if ( v29 != 161 )
+              goto LABEL_41;
+            if ( (unsigned int)dword_180344EF0 > 4
+              && (qword_180344F00 & 1) != 0
+              && (qword_180344F08 & 1) == qword_180344F08 )
             {
-              v93 = v42[15];
-              v94 = v42[14];
-              v83 = v42[13];
-              v76 = v42[12];
-              v73 = v42[11];
-              v80 = v42[10];
-              v86 = v42[9];
-              v87 = v42[8];
-              v88 = v42[7];
-              v89 = v42[6];
-              v90 = v42[5];
-              v91[0] = v42[4];
-              TracingCookie = v42[3];
-              v85 = v42[2];
-              v77 = v42[1];
-              v78 = *v42;
-              v81 = (const char *)*((_QWORD *)v43 + 21);
-              v82 = (wchar_t *)"Read";
-              v79 = 265;
-              LODWORD(v74) = v44;
-              LODWORD(v75) = CBaseExpression::GetTracingCookie(v43);
+              v61 = *((_DWORD *)a4 + 15);
+              v62 = *((_DWORD *)a4 + 14);
+              v51 = *((_DWORD *)a4 + 13);
+              v42 = *((_DWORD *)a4 + 12);
+              v41 = *((_DWORD *)a4 + 11);
+              v47 = *((_DWORD *)a4 + 10);
+              v54 = *((_DWORD *)a4 + 9);
+              v55 = *((_DWORD *)a4 + 8);
+              v56 = *((_DWORD *)a4 + 7);
+              v57 = *((_DWORD *)a4 + 6);
+              v58 = *((_DWORD *)a4 + 5);
+              v59[0] = *((_DWORD *)a4 + 4);
+              TracingCookie = *((_DWORD *)a4 + 3);
+              v53 = *((_DWORD *)a4 + 2);
+              v45 = *((_DWORD *)a4 + 1);
+              v46 = *(_DWORD *)a4;
+              v49 = (const char *)*((_QWORD *)this + 20);
+              v50 = "Read";
+              LODWORD(v48) = 265;
+              LODWORD(v43) = a3;
+              LODWORD(v44) = CBaseExpression::GetTracingCookie(this);
               _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-                v45,
-                byte_1803710D1,
-                v46,
-                v47,
-                (__int64)&v75,
-                (__int64)&v74,
-                (const char **)&v82,
-                (__int64)&v79,
-                (__int64)&v81,
-                (__int64)&v78,
-                (__int64)&v77,
-                (__int64)&v85,
+                v30,
+                byte_1802E8742,
+                v31,
+                v32,
+                (__int64)&v44,
+                (__int64)&v43,
+                (const unsigned __int16 **)&v50,
+                (__int64)&v48,
+                (__int64)&v49,
+                (__int64)&v46,
+                (__int64)&v45,
+                (__int64)&v53,
                 (__int64)&TracingCookie,
-                (__int64)v91,
-                (__int64)&v90,
-                (__int64)&v89,
-                (__int64)&v88,
-                (__int64)&v87,
-                (__int64)&v86,
-                (__int64)&v80,
-                (__int64)&v73,
-                (__int64)&v76,
-                (__int64)&v83,
-                (__int64)&v94,
-                (__int64)&v93);
+                (__int64)v59,
+                (__int64)&v58,
+                (__int64)&v57,
+                (__int64)&v56,
+                (__int64)&v55,
+                (__int64)&v54,
+                (__int64)&v47,
+                (__int64)&v41,
+                (__int64)&v42,
+                (__int64)&v51,
+                (__int64)&v62,
+                (__int64)&v61);
             }
           }
-          else if ( (unsigned int)dword_1803D0EF0 > 4 && tlgKeywordOn((__int64)&dword_1803D0EF0, 1LL) )
+          else if ( (unsigned int)dword_180344EF0 > 4
+                 && (qword_180344F00 & 1) != 0
+                 && (qword_180344F08 & 1) == qword_180344F08 )
           {
-            v93 = v48[5];
-            v94 = v48[4];
-            LODWORD(v75) = v48[3];
-            LODWORD(v74) = v48[2];
-            v79 = v48[1];
-            v78 = *v48;
-            v82 = (wchar_t *)*((_QWORD *)v49 + 21);
-            v81 = "Read";
-            v77 = 104;
-            v85 = v50;
-            TracingCookie = CBaseExpression::GetTracingCookie(v49);
+            v61 = *((_DWORD *)a4 + 5);
+            v62 = *((_DWORD *)a4 + 4);
+            LODWORD(v44) = *((_DWORD *)a4 + 3);
+            LODWORD(v43) = *((_DWORD *)a4 + 2);
+            LODWORD(v48) = *((_DWORD *)a4 + 1);
+            v46 = *(_DWORD *)a4;
+            v50 = (const char *)*((_QWORD *)this + 20);
+            v49 = "Read";
+            v45 = 104;
+            v53 = a3;
+            TracingCookie = CBaseExpression::GetTracingCookie(this);
             _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-              v51,
-              byte_180371051,
-              v52,
-              v53,
+              v33,
+              byte_1802E86C2,
+              v34,
+              v35,
               (__int64)&TracingCookie,
-              (__int64)&v85,
-              &v81,
-              (__int64)&v77,
-              (__int64)&v82,
-              (__int64)&v78,
-              (__int64)&v79,
-              (__int64)&v74,
-              (__int64)&v75,
-              (__int64)&v94,
-              (__int64)&v93);
+              (__int64)&v53,
+              (const unsigned __int16 **)&v49,
+              (__int64)&v45,
+              (__int64)&v50,
+              (__int64)&v46,
+              (__int64)&v48,
+              (__int64)&v43,
+              (__int64)&v44,
+              (__int64)&v62,
+              (__int64)&v61);
           }
           return;
         }
-        if ( (unsigned int)dword_1803D0EF0 <= 4 || !tlgKeywordOn((__int64)&dword_1803D0EF0, 1LL) )
+        if ( (unsigned int)dword_180344EF0 <= 4
+          || (qword_180344F00 & 1) == 0
+          || (qword_180344F08 & 1) != qword_180344F08 )
+        {
           return;
-        v93 = v54[3];
-        v94 = v54[2];
-        LODWORD(v75) = v54[1];
-        LODWORD(v74) = *v54;
-        v82 = (wchar_t *)*((_QWORD *)v55 + 21);
-        v81 = "Read";
-        v79 = 71;
-        v78 = v56;
-        v57 = CBaseExpression::GetTracingCookie(v55);
-        v61 = (unsigned __int8 *)&unk_180370FE3;
+        }
+        v61 = *((_DWORD *)a4 + 3);
+        v62 = *((_DWORD *)a4 + 2);
+        LODWORD(v44) = *((_DWORD *)a4 + 1);
+        LODWORD(v43) = *(_DWORD *)a4;
+        v50 = (const char *)*((_QWORD *)this + 20);
+        v49 = "Read";
+        LODWORD(v48) = 71;
+        v46 = a3;
+        v36 = CBaseExpression::GetTracingCookie(this);
+        v40 = (unsigned __int8 *)&unk_1802E8921;
       }
       else
       {
-        if ( (unsigned int)dword_1803D0EF0 <= 4 || !tlgKeywordOn((__int64)&dword_1803D0EF0, 1LL) )
+        if ( (unsigned int)dword_180344EF0 <= 4
+          || (qword_180344F00 & 1) == 0
+          || (qword_180344F08 & 1) != qword_180344F08 )
+        {
           return;
-        v93 = v62[3];
-        v94 = v62[2];
-        LODWORD(v75) = v62[1];
-        LODWORD(v74) = *v62;
-        v82 = (wchar_t *)*((_QWORD *)v63 + 21);
-        v81 = "Read";
-        v79 = 70;
-        v78 = v64;
-        v57 = CBaseExpression::GetTracingCookie(v63);
-        v61 = (unsigned __int8 *)&unk_180370F75;
+        }
+        v61 = *((_DWORD *)a4 + 3);
+        v62 = *((_DWORD *)a4 + 2);
+        LODWORD(v44) = *((_DWORD *)a4 + 1);
+        LODWORD(v43) = *(_DWORD *)a4;
+        v50 = (const char *)*((_QWORD *)this + 20);
+        v49 = "Read";
+        LODWORD(v48) = 70;
+        v46 = a3;
+        v36 = CBaseExpression::GetTracingCookie(this);
+        v40 = (unsigned __int8 *)&unk_1802E898F;
       }
     }
     else
     {
-      if ( (unsigned int)dword_1803D0EF0 <= 4 || !tlgKeywordOn((__int64)&dword_1803D0EF0, 1LL) )
+      if ( (unsigned int)dword_180344EF0 <= 4 || (qword_180344F00 & 1) == 0 || (qword_180344F08 & 1) != qword_180344F08 )
         return;
-      v93 = v65[3];
-      v94 = v65[2];
-      LODWORD(v75) = v65[1];
-      LODWORD(v74) = *v65;
-      v82 = (wchar_t *)*((_QWORD *)v66 + 21);
-      v81 = "Read";
-      v79 = 69;
-      v78 = v67;
-      v57 = CBaseExpression::GetTracingCookie(v66);
-      v61 = (unsigned __int8 *)&unk_180370FE3;
+      v61 = *((_DWORD *)a4 + 3);
+      v62 = *((_DWORD *)a4 + 2);
+      LODWORD(v44) = *((_DWORD *)a4 + 1);
+      LODWORD(v43) = *(_DWORD *)a4;
+      v50 = (const char *)*((_QWORD *)this + 20);
+      v49 = "Read";
+      LODWORD(v48) = 69;
+      v46 = a3;
+      v36 = CBaseExpression::GetTracingCookie(this);
+      v40 = (unsigned __int8 *)&unk_1802E8921;
     }
-    v77 = v57;
+    v45 = v36;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-      v58,
-      v61,
-      v59,
-      v60,
-      (__int64)&v77,
-      (__int64)&v78,
-      &v81,
-      (__int64)&v79,
-      (__int64)&v82,
-      (__int64)&v74,
-      (__int64)&v75,
-      (__int64)&v94,
-      (__int64)&v93);
+      v37,
+      v40,
+      v38,
+      v39,
+      (__int64)&v45,
+      (__int64)&v46,
+      (const unsigned __int16 **)&v49,
+      (__int64)&v48,
+      (__int64)&v50,
+      (__int64)&v43,
+      (__int64)&v44,
+      (__int64)&v62,
+      (__int64)&v61);
     return;
   }
   if ( v4 == 52 )
   {
-    if ( (unsigned int)dword_1803D0EF0 > 4 && tlgKeywordOn((__int64)&dword_1803D0EF0, 1LL) )
+    if ( (unsigned int)dword_180344EF0 > 4 && (qword_180344F00 & 1) != 0 && (qword_180344F08 & 1) == qword_180344F08 )
     {
-      v93 = v32[2];
-      v94 = v32[1];
-      v76 = *v32;
-      v75 = *((_QWORD *)v33 + 21);
-      v74 = "Read";
-      v73 = 52;
-      v80 = v34;
-      v83 = CBaseExpression::GetTracingCookie(v33);
+      v61 = *((_DWORD *)a4 + 2);
+      v62 = *((_DWORD *)a4 + 1);
+      v42 = *(_DWORD *)a4;
+      v44 = (wchar_t *)*((_QWORD *)this + 20);
+      v43 = "Read";
+      v41 = 52;
+      v47 = a3;
+      v51 = CBaseExpression::GetTracingCookie(this);
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-        v35,
-        byte_1803711EB,
-        v36,
-        v37,
-        (__int64)&v83,
-        (__int64)&v80,
-        &v74,
-        (__int64)&v73,
-        (__int64)&v75,
-        (__int64)&v76,
-        (__int64)&v94,
-        (__int64)&v93);
+        v23,
+        byte_1802E88B6,
+        v24,
+        v25,
+        (__int64)&v51,
+        (__int64)&v47,
+        (const unsigned __int16 **)&v43,
+        (__int64)&v41,
+        (__int64)&v44,
+        (__int64)&v42,
+        (__int64)&v62,
+        (__int64)&v61);
     }
     return;
   }
   v5 = v4 - 11;
   if ( !v5 )
   {
-LABEL_53:
-    if ( (unsigned int)dword_1803D0EF0 > 4 && tlgKeywordOn((__int64)&dword_1803D0EF0, 1LL) )
+    if ( (unsigned int)dword_180344EF0 > 4 && (qword_180344F00 & 1) != 0 && (qword_180344F08 & 1) == qword_180344F08 )
     {
-      v93 = 11;
-      v82 = L"PathData isn't logged";
-      v81 = (const char *)*((_QWORD *)v68 + 21);
-      v74 = "Read";
-      v94 = v69;
-      LODWORD(v75) = CBaseExpression::GetTracingCookie(v68);
+      v61 = 11;
+      v44 = L"PathData isn't logged";
+      v43 = (const char *)*((_QWORD *)this + 20);
+      v48 = "Read";
+      v62 = a3;
+      v42 = CBaseExpression::GetTracingCookie(this);
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapSz<unsigned short>>(
-        v70,
-        byte_180370F14,
-        v71,
-        v72,
-        (__int64)&v75,
-        (__int64)&v94,
-        &v74,
-        (__int64)&v93,
-        (__int64)&v81,
-        &v82);
+        v20,
+        byte_1802E8855,
+        v21,
+        v22,
+        (__int64)&v42,
+        (__int64)&v62,
+        (const unsigned __int16 **)&v48,
+        (__int64)&v61,
+        (__int64)&v43,
+        &v44);
     }
     return;
   }
   v6 = v5 - 6;
   if ( !v6 )
   {
-    if ( (unsigned int)dword_1803D0EF0 <= 4 || !tlgKeywordOn((__int64)&dword_1803D0EF0, 1LL) )
+    if ( (unsigned int)dword_180344EF0 <= 4 || (qword_180344F00 & 1) == 0 || (qword_180344F08 & 1) != qword_180344F08 )
       return;
-    v93 = *v29;
-    v75 = *((_QWORD *)v30 + 21);
-    v74 = "Read";
-    v94 = 17;
-    v76 = v31;
-    v24 = CBaseExpression::GetTracingCookie(v30);
-    v28 = (unsigned __int8 *)&unk_1803712B1;
-LABEL_21:
-    v73 = v24;
+    v61 = *(unsigned __int8 *)a4;
+    v44 = (wchar_t *)*((_QWORD *)this + 20);
+    v43 = "Read";
+    v62 = 17;
+    v42 = a3;
+    v15 = CBaseExpression::GetTracingCookie(this);
+    v19 = (unsigned __int8 *)&unk_1802E8AC0;
+LABEL_26:
+    v41 = v15;
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
-      v25,
-      v28,
-      v26,
-      v27,
-      (__int64)&v73,
-      (__int64)&v76,
-      &v74,
-      (__int64)&v94,
-      (__int64)&v75,
-      (__int64)&v93);
+      v16,
+      v19,
+      v17,
+      v18,
+      (__int64)&v41,
+      (__int64)&v42,
+      (const unsigned __int16 **)&v43,
+      (__int64)&v62,
+      (__int64)&v44,
+      (__int64)&v61);
     return;
   }
   v7 = v6 - 1;
   if ( !v7 )
   {
-    if ( (unsigned int)dword_1803D0EF0 <= 4 || !tlgKeywordOn((__int64)&dword_1803D0EF0, 1LL) )
+    if ( (unsigned int)dword_180344EF0 <= 4 || (qword_180344F00 & 1) == 0 || (qword_180344F08 & 1) != qword_180344F08 )
       return;
-    v93 = *v21;
-    v75 = *((_QWORD *)v22 + 21);
-    v74 = "Read";
-    v94 = 18;
-    v76 = v23;
-    v24 = CBaseExpression::GetTracingCookie(v22);
-    v28 = byte_180370EB3;
-    goto LABEL_21;
+    v61 = *(_DWORD *)a4;
+    v44 = (wchar_t *)*((_QWORD *)this + 20);
+    v43 = "Read";
+    v62 = 18;
+    v42 = a3;
+    v15 = CBaseExpression::GetTracingCookie(this);
+    v19 = byte_1802E87F4;
+    goto LABEL_26;
   }
   v8 = v7 - 17;
   if ( v8 )
   {
     if ( v8 == 7 )
     {
-      if ( (unsigned int)dword_1803D0EF0 > 4 )
+      if ( (unsigned int)dword_180344EF0 > 4 && (qword_180344F00 & 1) != 0 && (qword_180344F08 & 1) == qword_180344F08 )
       {
-        if ( tlgKeywordOn((__int64)&dword_1803D0EF0, 1LL) )
-        {
-          v93 = *v9;
-          v75 = *((_QWORD *)v10 + 21);
-          v74 = "Read";
-          v94 = 42;
-          v80 = v11;
-          v73 = CBaseExpression::GetTracingCookie(v10);
-          _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
-            v12,
-            byte_180370EB3,
-            v13,
-            v14,
-            (__int64)&v73,
-            (__int64)&v80,
-            &v74,
-            (__int64)&v94,
-            (__int64)&v75,
-            (__int64)&v93);
-        }
+        v61 = *(_DWORD *)a4;
+        v44 = (wchar_t *)*((_QWORD *)this + 20);
+        v43 = "Read";
+        v62 = 42;
+        v47 = a3;
+        v41 = CBaseExpression::GetTracingCookie(this);
+        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
+          v9,
+          byte_1802E87F4,
+          v10,
+          v11,
+          (__int64)&v41,
+          (__int64)&v47,
+          (const unsigned __int16 **)&v43,
+          (__int64)&v62,
+          (__int64)&v44,
+          (__int64)&v61);
       }
       return;
     }
-LABEL_31:
+LABEL_41:
     ModuleFailFastForHRESULT(2147942487LL, retaddr);
   }
-  if ( (unsigned int)dword_1803D0EF0 > 4 && tlgKeywordOn((__int64)&dword_1803D0EF0, 1LL) )
+  if ( (unsigned int)dword_180344EF0 > 4 && (qword_180344F00 & 1) != 0 && (qword_180344F08 & 1) == qword_180344F08 )
   {
-    v93 = v15[1];
-    v94 = *v15;
-    v75 = *((_QWORD *)v16 + 21);
-    v74 = "Read";
-    v73 = 35;
-    v80 = v17;
-    v76 = CBaseExpression::GetTracingCookie(v16);
+    v61 = *((_DWORD *)a4 + 1);
+    v62 = *(_DWORD *)a4;
+    v44 = (wchar_t *)*((_QWORD *)this + 20);
+    v43 = "Read";
+    v41 = 35;
+    v47 = a3;
+    v42 = CBaseExpression::GetTracingCookie(this);
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-      v18,
-      byte_180371183,
-      v19,
-      v20,
-      (__int64)&v76,
-      (__int64)&v80,
-      &v74,
-      (__int64)&v73,
-      (__int64)&v75,
-      (__int64)&v94,
-      (__int64)&v93);
+      v12,
+      byte_1802E89FD,
+      v13,
+      v14,
+      (__int64)&v42,
+      (__int64)&v47,
+      (const unsigned __int16 **)&v43,
+      (__int64)&v41,
+      (__int64)&v44,
+      (__int64)&v62,
+      (__int64)&v61);
   }
 }

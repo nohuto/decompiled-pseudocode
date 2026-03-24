@@ -1,17 +1,22 @@
 /*
- * XREFs of ?DxgkEngGetDCApiExt@@YAPEAUHDC__@@PEAUHWND__@@PEAPEAU1@@Z @ 0x1C00E0520
+ * XREFs of ?DxgkEngGetDCApiExt@@YAPEAUHDC__@@PEAUHWND__@@PEAPEAU1@@Z @ 0x1C014A070
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DxgkEngGetDCApiExt(HWND a1, HDC *a2)
 {
   __int64 v2; // rbx
+  int v5; // eax
 
   v2 = 0LL;
-  if ( qword_1C02944A0 && (int)qword_1C02944A0() >= 0 && qword_1C02944A8 )
-    return qword_1C02944A8(a1, a2);
+  if ( qword_1C0255090 )
+    v5 = qword_1C0255090();
+  else
+    v5 = -1073741637;
+  if ( v5 >= 0 && qword_1C0255098 )
+    return qword_1C0255098(a1, a2);
   return v2;
 }

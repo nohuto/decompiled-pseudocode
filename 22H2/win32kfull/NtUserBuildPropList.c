@@ -1,50 +1,50 @@
 /*
- * XREFs of NtUserBuildPropList @ 0x1C006ED10
+ * XREFs of NtUserBuildPropList @ 0x1C01136D0
  * Callers:
  *     <none>
  * Callees:
- *     ??0EnterLeaveCritByVelocity@@QEAA@W4CritOptType@@W4HandleToObjILCheck@@@Z @ 0x1C0070A7C (--0EnterLeaveCritByVelocity@@QEAA@W4CritOptType@@W4HandleToObjILCheck@@@Z.c)
- *     _BuildPropList @ 0x1C0071C8C (_BuildPropList.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     _BuildPropList @ 0x1C01137F4 (_BuildPropList.c)
  */
 
-__int64 __fastcall NtUserBuildPropList(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+__int64 __fastcall NtUserBuildPropList(__int64 a1, unsigned int a2, volatile void *a3, ULONG64 a4)
 {
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // rbx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  struct tagTHREADINFO *v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  unsigned int v17; // ebx
-  __int64 v19; // [rsp+20h] [rbp-28h] BYREF
-  __int128 v20; // [rsp+28h] [rbp-20h] BYREF
-  __int64 v21; // [rsp+38h] [rbp-10h]
+  __int64 v8; // rcx
+  __int64 v9; // rbx
+  __int64 v10; // rcx
+  _DWORD *v11; // rdx
+  unsigned int v12; // ebx
+  __int128 v14; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v15; // [rsp+40h] [rbp-18h]
 
-  v20 = 0LL;
-  v21 = 0LL;
-  EnterLeaveCritByVelocity::EnterLeaveCritByVelocity(&v19, 3LL, 0LL);
-  v10 = ValidateHwnd(a1);
-  if ( v10 )
+  v14 = 0LL;
+  v15 = 0LL;
+  EnterCrit(0LL, 1LL);
+  v9 = ValidateHwnd(a1);
+  if ( v9 )
   {
-    v13 = PtiCurrentShared();
-    *(_QWORD *)&v20 = *((_QWORD *)v13 + 52);
-    *((_QWORD *)v13 + 52) = &v20;
-    *((_QWORD *)&v20 + 1) = v10;
-    HMLockObject(v10);
+    *(_QWORD *)&v14 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v14;
+    *((_QWORD *)&v14 + 1) = v9;
+    HMLockObject(v9);
     if ( a2 )
-      v17 = BuildPropList(v10, a3, a2, a4);
+    {
+      ProbeForWrite(a3, 16LL * a2, 4u);
+      v11 = (_DWORD *)a4;
+      if ( a4 >= MmUserProbeAddress )
+        v11 = (_DWORD *)MmUserProbeAddress;
+      *v11 = *v11;
+      v12 = BuildPropList(v9, a3, a2, a4);
+    }
     else
-      v17 = -1073741816;
-    ThreadUnlock1(v15, v14, v16);
+    {
+      v12 = -1073741816;
+    }
+    ThreadUnlock1(v10);
   }
   else
   {
-    v17 = -1073741816;
+    v12 = -1073741816;
   }
-  UserSessionSwitchLeaveCrit(v9, v8, v11, v12);
-  return v17;
+  UserSessionSwitchLeaveCrit(v8);
+  return v12;
 }

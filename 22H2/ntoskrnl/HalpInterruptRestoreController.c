@@ -1,64 +1,63 @@
 /*
- * XREFs of HalpInterruptRestoreController @ 0x14051A9A8
+ * XREFs of HalpInterruptRestoreController @ 0x14038AEB0
  * Callers:
- *     HalpInterruptInitializeLocalUnit @ 0x14037C0A0 (HalpInterruptInitializeLocalUnit.c)
- *     HalpInterruptPowerChange @ 0x14051A894 (HalpInterruptPowerChange.c)
- *     HalpInterruptRestoreAllControllerState @ 0x140A95770 (HalpInterruptRestoreAllControllerState.c)
+ *     HalpInterruptInitializeLocalUnit @ 0x1403A360C (HalpInterruptInitializeLocalUnit.c)
+ *     HalpInterruptPowerChange @ 0x1404D18B4 (HalpInterruptPowerChange.c)
+ *     HalpInterruptRestoreAllControllerState @ 0x140997C90 (HalpInterruptRestoreAllControllerState.c)
  * Callees:
- *     HalpInterruptSetLineStateInternal @ 0x14037D080 (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14037861C (HalpInterruptSetLineStateInternal.c)
  */
 
 __int64 __fastcall HalpInterruptRestoreController(__int64 a1, char a2)
 {
   int v3; // eax
+  _QWORD *v5; // rsi
+  _QWORD *v6; // rdi
+  int v7; // r14d
+  __int64 v8; // r12
+  __int64 v9; // r15
+  _QWORD *v10; // rbx
   __int64 result; // rax
-  _QWORD *v6; // rsi
-  _QWORD *v7; // rdi
-  _QWORD *v8; // rbx
-  __int64 v9; // rdx
-  int v10; // r14d
-  __int64 v11; // r12
-  __int64 v12; // r15
-  __int64 v13; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v12; // [rsp+50h] [rbp+8h] BYREF
 
-  v13 = 0LL;
-  v3 = *(_DWORD *)(a1 + 248);
+  v12 = 0LL;
+  v3 = *(_DWORD *)(a1 + 224);
   if ( (v3 & 2) != 0 )
     return 3221225473LL;
   if ( (v3 & 1) == 0 )
     return 3221225860LL;
-  v6 = (_QWORD *)(a1 + 264);
-  v7 = *(_QWORD **)(a1 + 264);
-  while ( v7 != v6 )
+  v5 = (_QWORD *)(a1 + 240);
+  v6 = *(_QWORD **)(a1 + 240);
+  while ( 1 )
   {
-    v8 = v7;
-    v7 = (_QWORD *)*v7;
-    v9 = v8[5];
-    if ( v9 && (!a2 || ((*((_DWORD *)v8 + 8) - 3) & 0xFFFFFFFD) == 0) )
+LABEL_7:
+    if ( v6 == v5 )
+      return 0LL;
+    v10 = v6;
+    v6 = (_QWORD *)*v6;
+    if ( v10[5] && (!a2 || ((*((_DWORD *)v10 + 8) - 3) & 0xFFFFFFFD) == 0) )
     {
-      v10 = 0;
-      if ( *((_DWORD *)v8 + 6) - *((_DWORD *)v8 + 5) > 0 )
-      {
-        v11 = 0LL;
-        v12 = 0LL;
-        do
-        {
-          if ( (*(_DWORD *)(v12 + v9 + 12) & 0x10) != 0 || *(_BYTE *)(v11 + v8[6]) )
-          {
-            LODWORD(v13) = *(_DWORD *)(a1 + 256);
-            HIDWORD(v13) = v10 + *((_DWORD *)v8 + 5);
-            result = HalpInterruptSetLineStateInternal(a1, (__int64)&v13, v8[5] + 56LL * v10);
-            if ( (int)result < 0 )
-              return result;
-            v9 = v8[5];
-          }
-          ++v10;
-          v12 += 56LL;
-          v11 += 16LL;
-        }
-        while ( v10 < *((_DWORD *)v8 + 6) - *((_DWORD *)v8 + 5) );
-      }
+      v7 = 0;
+      if ( *((_DWORD *)v10 + 6) - *((_DWORD *)v10 + 5) > 0 )
+        break;
     }
   }
-  return 0LL;
+  v9 = 0LL;
+  v8 = 0LL;
+  while ( 1 )
+  {
+    if ( (*(_DWORD *)(v8 + v10[5] + 12) & 0x10) != 0 || *(_BYTE *)(v9 + v10[6]) )
+    {
+      LODWORD(v12) = *(_DWORD *)(a1 + 232);
+      HIDWORD(v12) = v7 + *((_DWORD *)v10 + 5);
+      result = HalpInterruptSetLineStateInternal(a1, (__int64)&v12, v10[5] + 56LL * v7);
+      if ( (int)result < 0 )
+        return result;
+    }
+    ++v7;
+    v8 += 56LL;
+    v9 += 16LL;
+    if ( v7 >= *((_DWORD *)v10 + 6) - *((_DWORD *)v10 + 5) )
+      goto LABEL_7;
+  }
 }

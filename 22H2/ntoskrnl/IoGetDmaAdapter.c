@@ -1,17 +1,16 @@
 /*
- * XREFs of IoGetDmaAdapter @ 0x140829B90
+ * XREFs of IoGetDmaAdapter @ 0x1407643C0
  * Callers:
- *     DifIoGetDmaAdapterWrapper @ 0x1405DFA20 (DifIoGetDmaAdapterWrapper.c)
- *     VfGetDmaAdapter @ 0x140AC7560 (VfGetDmaAdapter.c)
+ *     VfGetDmaAdapter @ 0x1409CBE70 (VfGetDmaAdapter.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     IoGetDeviceProperty @ 0x140792EB0 (IoGetDeviceProperty.c)
- *     PiGetDmaAdapterFromBusInterface @ 0x140829C88 (PiGetDmaAdapterFromBusInterface.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IoGetDeviceProperty @ 0x1406B8A70 (IoGetDeviceProperty.c)
+ *     PiGetDmaAdapterFromBusInterface @ 0x1407644B8 (PiGetDmaAdapterFromBusInterface.c)
  */
 
 struct _DMA_ADAPTER *__stdcall IoGetDmaAdapter(
@@ -19,7 +18,7 @@ struct _DMA_ADAPTER *__stdcall IoGetDmaAdapter(
         struct _DEVICE_DESCRIPTION *DeviceDescription,
         PULONG NumberOfMapRegisters)
 {
-  struct _DMA_ADAPTER *DmaAdapterFromBusInterface; // rdi
+  struct _DMA_ADAPTER *DmaAdapterFromBusInterface; // rbx
   _DWORD *DeviceNode; // rcx
   size_t v8; // r8
   NTSTATUS DeviceProperty; // eax
@@ -28,13 +27,15 @@ struct _DMA_ADAPTER *__stdcall IoGetDmaAdapter(
   UNICODE_STRING *p_DriverName; // rcx
   char *v13; // rcx
   unsigned __int16 *v14; // rsi
-  _WORD *v15; // rcx
-  __int64 v16; // rax
+  struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rdx
+  _WORD *v16; // rcx
   __int64 v17; // rcx
+  _WORD *v18; // rcx
+  __int64 v19; // rcx
   ULONG ResultLength[4]; // [rsp+30h] [rbp-88h] BYREF
-  _DWORD v19[16]; // [rsp+40h] [rbp-78h] BYREF
+  _DWORD v21[16]; // [rsp+40h] [rbp-78h] BYREF
 
-  memset(v19, 0, sizeof(v19));
+  memset(v21, 0, sizeof(v21));
   DmaAdapterFromBusInterface = 0LL;
   ResultLength[0] = 0;
   if ( PhysicalDeviceObject )
@@ -60,31 +61,37 @@ struct _DMA_ADAPTER *__stdcall IoGetDmaAdapter(
       if ( v13 )
       {
         v14 = (unsigned __int16 *)(v13 + 40);
-        IoAddTriageDumpDataBlock((ULONG)v13, (PVOID)0x388);
+        IoAddTriageDumpDataBlock((ULONG)v13, (PVOID)0x310);
         if ( *v14 )
         {
           IoAddTriageDumpDataBlock((ULONG)v14, (PVOID)2);
           IoAddTriageDumpDataBlock(*((_QWORD *)v14 + 1), (PVOID)*v14);
         }
-        v15 = (char *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 56;
-        if ( *v15 )
+        DeviceObjectExtension = PhysicalDeviceObject->DeviceObjectExtension;
+        v16 = (char *)DeviceObjectExtension->DeviceNode + 56;
+        if ( *v16 )
         {
-          IoAddTriageDumpDataBlock((ULONG)v15, (PVOID)2);
+          IoAddTriageDumpDataBlock((ULONG)v16, (PVOID)2);
           IoAddTriageDumpDataBlock(
             *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 8),
             (PVOID)*((unsigned __int16 *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 28));
+          DeviceObjectExtension = PhysicalDeviceObject->DeviceObjectExtension;
         }
-        v16 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
-        if ( v16 && *(_WORD *)(v16 + 56) )
+        v17 = *((_QWORD *)DeviceObjectExtension->DeviceNode + 2);
+        if ( v17 )
         {
-          IoAddTriageDumpDataBlock(v16 + 56, (PVOID)2);
-          v17 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
-          IoAddTriageDumpDataBlock(*(_QWORD *)(v17 + 64), (PVOID)*(unsigned __int16 *)(v17 + 56));
+          v18 = (_WORD *)(v17 + 56);
+          if ( *v18 )
+          {
+            IoAddTriageDumpDataBlock((ULONG)v18, (PVOID)2);
+            v19 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
+            IoAddTriageDumpDataBlock(*(_QWORD *)(v19 + 64), (PVOID)*(unsigned __int16 *)(v19 + 56));
+          }
         }
       }
       KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)PhysicalDeviceObject, 0LL, 0LL);
     }
-    ((void (__fastcall *)(struct _KTHREAD *, PDEVICE_OBJECT))off_140C01D18[0])(
+    ((void (__fastcall *)(struct _KTHREAD *, PDEVICE_OBJECT))off_140C00908[0])(
       KeGetCurrentThread(),
       PhysicalDeviceObject);
     if ( ((DeviceDescription->InterfaceType + 1) & 0xFFFFFFEF) == 0 )
@@ -99,15 +106,15 @@ struct _DMA_ADAPTER *__stdcall IoGetDmaAdapter(
       {
         v8 = 40LL;
       }
-      memmove(v19, DeviceDescription, v8);
-      DeviceProperty = IoGetDeviceProperty(PhysicalDeviceObject, DevicePropertyLegacyBusType, 4u, &v19[5], ResultLength);
-      v10 = v19[5];
+      memmove(v21, DeviceDescription, v8);
+      DeviceProperty = IoGetDeviceProperty(PhysicalDeviceObject, DevicePropertyLegacyBusType, 4u, &v21[5], ResultLength);
+      v10 = v21[5];
       if ( DeviceProperty < 0 )
         v10 = 1;
-      v19[5] = v10;
+      v21[5] = v10;
     }
-    DmaAdapterFromBusInterface = (struct _DMA_ADAPTER *)PiGetDmaAdapterFromBusInterface(PhysicalDeviceObject);
-    ((void (__fastcall *)(struct _KTHREAD *, _QWORD))off_140C01D18[0])(KeGetCurrentThread(), 0LL);
+    DmaAdapterFromBusInterface = (struct _DMA_ADAPTER *)PiGetDmaAdapterFromBusInterface((ULONG)PhysicalDeviceObject);
+    ((void (__fastcall *)(struct _KTHREAD *, _QWORD))off_140C00908[0])(KeGetCurrentThread(), 0LL);
   }
   return DmaAdapterFromBusInterface;
 }

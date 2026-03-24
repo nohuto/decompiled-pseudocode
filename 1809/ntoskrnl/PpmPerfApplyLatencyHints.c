@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfApplyLatencyHints @ 0x1401221F0
+ * XREFs of PpmPerfApplyLatencyHints @ 0x140122210
  * Callers:
  *     <none>
  * Callees:
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     PpmPerfApplyLatencyHint @ 0x14013F14C (PpmPerfApplyLatencyHint.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     PpmPerfApplyLatencyHint @ 0x14013F16C (PpmPerfApplyLatencyHint.c)
  */
 
 char PpmPerfApplyLatencyHints()

@@ -1,14 +1,13 @@
 /*
- * XREFs of ?CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C0202E20
+ * XREFs of ?CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C0187948
  * Callers:
- *     DxgkInitializeBlockList @ 0x1C02025FC (DxgkInitializeBlockList.c)
+ *     DxgkInitializeBlockList @ 0x1C0187120 (DxgkInitializeBlockList.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     wcscmp_0 @ 0x1C002CBF8 (wcscmp_0.c)
- *     ?FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z @ 0x1C02027A8 (-FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z.c)
- *     DxgkFreeUnicodeString @ 0x1C0205754 (DxgkFreeUnicodeString.c)
- *     ?ConvertStringsToOneMultiString@@YAJPEAU_UNICODE_STRING@@IPEAPEAGPEAI@Z @ 0x1C0205788 (-ConvertStringsToOneMultiString@@YAJPEAU_UNICODE_STRING@@IPEAPEAGPEAI@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     wcscmp_0 @ 0x1C0028BD8 (wcscmp_0.c)
+ *     ?FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z @ 0x1C01872CC (-FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z.c)
+ *     ?ConvertStringsToOneMultiString@@YAJPEAU_UNICODE_STRING@@IPEAPEAGPEAI@Z @ 0x1C019E498 (-ConvertStringsToOneMultiString@@YAJPEAU_UNICODE_STRING@@IPEAPEAGPEAI@Z.c)
+ *     DxgkFreeUnicodeString @ 0x1C019FE80 (DxgkFreeUnicodeString.c)
  */
 
 __int64 __fastcall CheckKernelBlockList(
@@ -18,242 +17,230 @@ __int64 __fastcall CheckKernelBlockList(
         unsigned __int16 *a4,
         enum _QAI_DRIVERVERSION a5)
 {
-  unsigned int BlockListStrings; // eax
-  __int64 v7; // r15
-  unsigned int v8; // edi
-  struct _UNICODE_STRING *v10; // r14
-  unsigned int v11; // esi
-  unsigned __int16 v12; // ax
-  unsigned __int64 v13; // r12
-  __int64 v14; // r13
-  unsigned __int64 v15; // rax
-  const wchar_t *v16; // rcx
-  __int64 v17; // rdi
-  unsigned int v18; // esi
-  unsigned __int16 v19; // ax
-  unsigned __int64 v20; // r12
-  __int64 v21; // r13
-  unsigned __int64 v22; // rax
-  const wchar_t *v23; // rcx
-  __int64 v24; // rdi
-  unsigned int v25; // esi
-  unsigned __int16 v26; // ax
-  unsigned __int64 v27; // r12
-  __int64 v28; // r13
-  unsigned __int64 v29; // rax
-  const wchar_t *v30; // rcx
-  __int64 v31; // rdi
-  unsigned int v32; // esi
-  unsigned __int16 v33; // ax
-  unsigned __int64 v34; // r12
-  __int64 v35; // r13
-  unsigned __int64 v36; // rax
-  const wchar_t *v37; // rcx
-  __int64 v38; // rdi
-  unsigned int v39; // esi
-  unsigned __int16 v40; // ax
-  unsigned __int64 v41; // r12
-  __int64 v42; // r13
-  unsigned __int64 v43; // rax
-  const wchar_t *v44; // rcx
-  __int64 v45; // rdi
-  int v46; // eax
-  struct _UNICODE_STRING *v47; // rbx
-  __int64 v48; // rsi
-  unsigned int v49[4]; // [rsp+50h] [rbp-B0h] BYREF
-  __m128i v50; // [rsp+60h] [rbp-A0h]
-  struct _UNICODE_STRING v51; // [rsp+70h] [rbp-90h] BYREF
+  int BlockListStrings; // eax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r15
+  int v10; // edi
+  struct _UNICODE_STRING *v12; // r14
+  unsigned int v13; // esi
+  unsigned __int16 v14; // ax
+  unsigned __int64 v15; // r12
+  __int64 v16; // r13
+  unsigned __int64 v17; // rax
+  const wchar_t *v18; // rcx
+  __int64 v19; // rdi
+  unsigned int v20; // esi
+  unsigned __int16 v21; // ax
+  unsigned __int64 v22; // r12
+  __int64 v23; // r13
+  unsigned __int64 v24; // rax
+  const wchar_t *v25; // rcx
+  __int64 v26; // rdi
+  unsigned int v27; // esi
+  unsigned __int16 v28; // ax
+  unsigned __int64 v29; // r12
+  __int64 v30; // r13
+  unsigned __int64 v31; // rax
+  const wchar_t *v32; // rcx
+  __int64 v33; // rdi
+  unsigned int v34; // esi
+  unsigned __int16 v35; // ax
+  unsigned __int64 v36; // r12
+  __int64 v37; // r13
+  unsigned __int64 v38; // rax
+  const wchar_t *v39; // rcx
+  __int64 v40; // rdi
+  unsigned int v41; // esi
+  unsigned __int16 v42; // ax
+  unsigned __int64 v43; // r12
+  __int64 v44; // r13
+  unsigned __int64 v45; // rax
+  const wchar_t *v46; // rcx
+  __int64 v47; // rdi
+  struct _UNICODE_STRING *v48; // rbx
+  __int64 v49; // rsi
+  __int64 v50; // rax
+  unsigned int v51[4]; // [rsp+40h] [rbp-C0h] BYREF
+  __m128i v52; // [rsp+50h] [rbp-B0h]
+  struct _UNICODE_STRING v53; // [rsp+60h] [rbp-A0h] BYREF
 
-  v49[0] = 0;
+  v51[0] = 0;
   BlockListStrings = FindBlockListStrings(
                        L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\GraphicsDrivers\\BlockList\\Kernel",
                        a2,
                        a3,
                        a4,
                        a5,
-                       v49,
-                       &v51);
-  v7 = v49[0];
-  v8 = BlockListStrings;
-  if ( v49[0] >= 0x14 )
+                       v51,
+                       &v53);
+  v9 = v51[0];
+  v10 = BlockListStrings;
+  if ( v51[0] >= 0x14 )
   {
-    WdLogSingleEntry1(1LL, 720LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"foundStringCount < MAX_TRUE_CONDITIONS",
-      720LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v50 = WdLogNewEntry5_WdAssertion(v8, v7);
+    *(_QWORD *)(v50 + 24) = 720LL;
+    WdLogEvent5_WdAssertion(v50);
   }
-  if ( (_DWORD)v7 )
+  if ( (_DWORD)v9 )
   {
-    v10 = &v51;
-    *(_QWORD *)v49 = v7;
+    v12 = &v53;
+    *(_QWORD *)v51 = v9;
     do
     {
-      v11 = 0;
-      v12 = _mm_cvtsi128_si32(*(__m128i *)v10);
-      v50 = *(__m128i *)v10;
-      v13 = v12;
-      if ( v12 )
+      v13 = 0;
+      v14 = _mm_cvtsi128_si32(*(__m128i *)v12);
+      v52 = *(__m128i *)v12;
+      v15 = v14;
+      if ( v14 )
       {
-        v14 = v50.m128i_i64[1];
-        v15 = 0LL;
+        v16 = v52.m128i_i64[1];
+        v17 = 0LL;
         do
         {
-          v16 = (const wchar_t *)(v15 + v14);
-          v17 = -1LL;
+          v18 = (const wchar_t *)(v17 + v16);
+          v19 = -1LL;
           do
-            ++v17;
-          while ( v16[v17] );
-          if ( !(_DWORD)v17 )
+            ++v19;
+          while ( v18[v19] );
+          if ( !(_DWORD)v19 )
             break;
-          if ( !wcscmp_0(v16, L"GPU_PV_ALL") )
+          if ( !wcscmp_0(v18, L"GPU_PV_ALL") )
           {
-            *((_DWORD *)a1 + 1422) |= 0x80u;
+            *((_DWORD *)a1 + 1474) |= 0x80u;
             break;
           }
-          v11 += v17 + 1;
-          v15 = 2LL * v11;
+          v13 += v19 + 1;
+          v17 = 2LL * v13;
         }
-        while ( v15 < v13 );
+        while ( v17 < v15 );
       }
-      v18 = 0;
-      v19 = _mm_cvtsi128_si32(*(__m128i *)v10);
-      v50 = *(__m128i *)v10;
-      v20 = v19;
-      if ( v19 )
+      v20 = 0;
+      v21 = _mm_cvtsi128_si32(*(__m128i *)v12);
+      v52 = *(__m128i *)v12;
+      v22 = v21;
+      if ( v21 )
       {
-        v21 = v50.m128i_i64[1];
-        v22 = 0LL;
+        v23 = v52.m128i_i64[1];
+        v24 = 0LL;
         do
         {
-          v23 = (const wchar_t *)(v22 + v21);
-          v24 = -1LL;
+          v25 = (const wchar_t *)(v24 + v23);
+          v26 = -1LL;
           do
-            ++v24;
-          while ( v23[v24] );
-          if ( !(_DWORD)v24 )
+            ++v26;
+          while ( v25[v26] );
+          if ( !(_DWORD)v26 )
             break;
-          if ( !wcscmp_0(v23, L"GPU_PV_HIGH_SECURITY") )
+          if ( !wcscmp_0(v25, L"GPU_PV_HIGH_SECURITY") )
           {
-            *((_DWORD *)a1 + 1422) |= 0x200u;
+            *((_DWORD *)a1 + 1474) |= 0x200u;
             break;
           }
-          v18 += v24 + 1;
-          v22 = 2LL * v18;
+          v20 += v26 + 1;
+          v24 = 2LL * v20;
         }
-        while ( v22 < v20 );
+        while ( v24 < v22 );
       }
-      v25 = 0;
-      v26 = _mm_cvtsi128_si32(*(__m128i *)v10);
-      v50 = *(__m128i *)v10;
-      v27 = v26;
-      if ( v26 )
+      v27 = 0;
+      v28 = _mm_cvtsi128_si32(*(__m128i *)v12);
+      v52 = *(__m128i *)v12;
+      v29 = v28;
+      if ( v28 )
       {
-        v28 = v50.m128i_i64[1];
-        v29 = 0LL;
+        v30 = v52.m128i_i64[1];
+        v31 = 0LL;
         do
         {
-          v30 = (const wchar_t *)(v29 + v28);
-          v31 = -1LL;
+          v32 = (const wchar_t *)(v31 + v30);
+          v33 = -1LL;
           do
-            ++v31;
-          while ( v30[v31] );
-          if ( !(_DWORD)v31 )
+            ++v33;
+          while ( v32[v33] );
+          if ( !(_DWORD)v33 )
             break;
-          if ( !wcscmp_0(v30, L"GPU_P_ALL") )
+          if ( !wcscmp_0(v32, L"GPU_P_ALL") )
           {
-            *((_DWORD *)a1 + 1422) |= 0x100u;
+            *((_DWORD *)a1 + 1474) |= 0x100u;
             break;
           }
-          v25 += v31 + 1;
-          v29 = 2LL * v25;
+          v27 += v33 + 1;
+          v31 = 2LL * v27;
         }
-        while ( v29 < v27 );
+        while ( v31 < v29 );
       }
-      v32 = 0;
-      v33 = _mm_cvtsi128_si32(*(__m128i *)v10);
-      v50 = *(__m128i *)v10;
-      v34 = v33;
-      if ( v33 )
+      v34 = 0;
+      v35 = _mm_cvtsi128_si32(*(__m128i *)v12);
+      v52 = *(__m128i *)v12;
+      v36 = v35;
+      if ( v35 )
       {
-        v35 = v50.m128i_i64[1];
-        v36 = 0LL;
+        v37 = v52.m128i_i64[1];
+        v38 = 0LL;
         do
         {
-          v37 = (const wchar_t *)(v36 + v35);
-          v38 = -1LL;
+          v39 = (const wchar_t *)(v38 + v37);
+          v40 = -1LL;
           do
-            ++v38;
-          while ( v37[v38] );
-          if ( !(_DWORD)v38 )
+            ++v40;
+          while ( v39[v40] );
+          if ( !(_DWORD)v40 )
             break;
-          if ( !wcscmp_0(v37, L"DISABLE_MPO") )
+          if ( !wcscmp_0(v39, L"DISABLE_MPO") )
           {
-            *((_DWORD *)a1 + 1422) |= 0x400u;
+            *((_DWORD *)a1 + 1474) |= 0x400u;
             break;
           }
-          v32 += v38 + 1;
-          v36 = 2LL * v32;
+          v34 += v40 + 1;
+          v38 = 2LL * v34;
         }
-        while ( v36 < v34 );
+        while ( v38 < v36 );
       }
-      v39 = 0;
-      v40 = _mm_cvtsi128_si32(*(__m128i *)v10);
-      v50 = *(__m128i *)v10;
-      v41 = v40;
-      if ( v40 )
+      v41 = 0;
+      v42 = _mm_cvtsi128_si32(*(__m128i *)v12);
+      v52 = *(__m128i *)v12;
+      v43 = v42;
+      if ( v42 )
       {
-        v42 = v50.m128i_i64[1];
-        v43 = 0LL;
+        v44 = v52.m128i_i64[1];
+        v45 = 0LL;
         do
         {
-          v44 = (const wchar_t *)(v43 + v42);
-          v45 = -1LL;
+          v46 = (const wchar_t *)(v45 + v44);
+          v47 = -1LL;
           do
-            ++v45;
-          while ( v44[v45] );
-          if ( !(_DWORD)v45 )
+            ++v47;
+          while ( v46[v47] );
+          if ( !(_DWORD)v47 )
             break;
-          if ( !wcscmp_0(v44, L"DISABLE_HWSCH") )
+          if ( !wcscmp_0(v46, L"DISABLE_HWSCH") )
           {
-            *((_DWORD *)a1 + 1422) |= 0x800u;
+            *((_DWORD *)a1 + 1474) |= 0x800u;
             break;
           }
-          v39 += v45 + 1;
-          v43 = 2LL * v39;
+          v41 += v47 + 1;
+          v45 = 2LL * v41;
         }
-        while ( v43 < v41 );
+        while ( v45 < v43 );
       }
-      ++v10;
-      --*(_QWORD *)v49;
+      ++v12;
+      --*(_QWORD *)v51;
     }
-    while ( *(_QWORD *)v49 );
-    v49[0] = 0;
-    v46 = ConvertStringsToOneMultiString(&v51, v7, (unsigned __int16 **)a1 + 712, v49);
-    v8 = v46;
-    if ( v46 < 0 )
-    {
-      if ( v46 == -1073741637 )
-        *((_BYTE *)a1 + 5708) = 1;
-    }
-    else
-    {
-      *((_DWORD *)a1 + 1426) = 2 * v49[0];
-    }
-    v47 = &v51;
-    v48 = v7;
+    while ( *(_QWORD *)v51 );
+    v51[0] = 0;
+    v10 = ConvertStringsToOneMultiString(&v53, v9, (unsigned __int16 **)a1 + 738, v51);
+    if ( v10 >= 0 )
+      *((_DWORD *)a1 + 1478) = 2 * v51[0];
+    if ( v10 == -1073741637 )
+      *((_BYTE *)a1 + 5916) = 1;
+    v48 = &v53;
+    v49 = v9;
     do
     {
-      DxgkFreeUnicodeString(v47++);
-      --v48;
+      DxgkFreeUnicodeString(v48++);
+      --v49;
     }
-    while ( v48 );
+    while ( v49 );
   }
-  return v8;
+  return (unsigned int)v10;
 }

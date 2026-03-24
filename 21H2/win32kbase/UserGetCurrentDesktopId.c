@@ -1,9 +1,9 @@
 /*
- * XREFs of UserGetCurrentDesktopId @ 0x1C0143ED4
+ * XREFs of UserGetCurrentDesktopId @ 0x1C011513C
  * Callers:
- *     hdcOpenDCW @ 0x1C0071480 (hdcOpenDCW.c)
+ *     hdcOpenDCW @ 0x1C0021590 (hdcOpenDCW.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0023390 (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
  */
 
 __int64 __fastcall UserGetCurrentDesktopId(_QWORD *a1)

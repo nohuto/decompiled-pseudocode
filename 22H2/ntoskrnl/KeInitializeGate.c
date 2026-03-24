@@ -1,22 +1,22 @@
 /*
- * XREFs of KeInitializeGate @ 0x140293114
+ * XREFs of KeInitializeGate @ 0x14032BE90
  * Callers:
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
- *     MiInitializePartition @ 0x140838DF0 (MiInitializePartition.c)
- *     MiZeroHugeRangeCore @ 0x140A2DF6C (MiZeroHugeRangeCore.c)
- *     MmScrubMemory @ 0x140A46B34 (MmScrubMemory.c)
- *     KiInitializeProcessor @ 0x140A8F178 (KiInitializeProcessor.c)
- *     sub_140B10838 @ 0x140B10838 (sub_140B10838.c)
- *     sub_140B19070 @ 0x140B19070 (sub_140B19070.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
+ *     PspSetContextThreadInternal @ 0x1406C0A5C (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1406C0C14 (PspGetContextThreadInternal.c)
+ *     MiInitializePartition @ 0x1407974EC (MiInitializePartition.c)
+ *     MmScrubMemory @ 0x1408DC16C (MmScrubMemory.c)
+ *     PspRundownUmsThreadForApcDelivery @ 0x14090EC1C (PspRundownUmsThreadForApcDelivery.c)
+ *     KiInitializeProcessor @ 0x14099EE3C (KiInitializeProcessor.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall KeInitializeGate(__int64 a1, unsigned __int8 a2)
+__int64 __fastcall KeInitializeGate(__int64 a1)
 {
   __int64 result; // rax
 
-  *(_DWORD *)(a1 + 4) = a2;
+  *(_DWORD *)(a1 + 4) = 0;
   result = a1 + 8;
   *(_QWORD *)(a1 + 16) = a1 + 8;
   *(_QWORD *)(a1 + 8) = a1 + 8;

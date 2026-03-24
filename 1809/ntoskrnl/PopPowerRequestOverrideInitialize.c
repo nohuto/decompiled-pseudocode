@@ -1,5 +1,5 @@
 /*
- * XREFs of PopPowerRequestOverrideInitialize @ 0x1407634B0
+ * XREFs of PopPowerRequestOverrideInitialize @ 0x140763490
  * Callers:
  *     PopUmpoProcessPowerMessage @ 0x14058B0C0 (PopUmpoProcessPowerMessage.c)
  * Callees:

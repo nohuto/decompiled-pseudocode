@@ -1,24 +1,24 @@
 /*
- * XREFs of MiZeroNodePages @ 0x14017F3E0
+ * XREFs of MiZeroNodePages @ 0x14017F400
  * Callers:
  *     <none>
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KeQueryNodeActiveAffinity @ 0x1400E3C20 (KeQueryNodeActiveAffinity.c)
- *     KeWaitForGate @ 0x1400FA2E4 (KeWaitForGate.c)
- *     KeSignalGate @ 0x140127690 (KeSignalGate.c)
- *     KeFindFirstSetLeftGroupAffinity @ 0x140127FB0 (KeFindFirstSetLeftGroupAffinity.c)
- *     MiCreateZeroThreadContext @ 0x14017F64C (MiCreateZeroThreadContext.c)
- *     MiDeleteZeroThreadContext @ 0x140185094 (MiDeleteZeroThreadContext.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
+ *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
+ *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
+ *     KeFindFirstSetLeftGroupAffinity @ 0x140127FD0 (KeFindFirstSetLeftGroupAffinity.c)
+ *     MiCreateZeroThreadContext @ 0x14017F66C (MiCreateZeroThreadContext.c)
+ *     MiDeleteZeroThreadContext @ 0x1401850B4 (MiDeleteZeroThreadContext.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x14066AAE0 (PsCreateSystemThreadEx.c)
+ *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
  */
 
 void __fastcall MiZeroNodePages(char *P)

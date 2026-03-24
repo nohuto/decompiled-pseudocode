@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CColorKeyBitmapRealization@@QEAA@XZ @ 0x1802A1A24
+ * XREFs of ??0CColorKeyBitmapRealization@@QEAA@XZ @ 0x1802624C0
  * Callers:
- *     ?Create@CColorKeyBitmapRealization@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV2@@Z @ 0x1802A1BA0 (-Create@CColorKeyBitmapRealization@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV2@@Z.c)
+ *     ?Create@CColorKeyBitmapRealization@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV2@@Z @ 0x180262634 (-Create@CColorKeyBitmapRealization@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV2@@Z.c)
  * Callees:
- *     ??0CD2DBitmapCache@@IEAA@XZ @ 0x180068108 (--0CD2DBitmapCache@@IEAA@XZ.c)
+ *     ??0CD2DBitmapCache@@IEAA@XZ @ 0x180064274 (--0CD2DBitmapCache@@IEAA@XZ.c)
  */
 
 CColorKeyBitmapRealization *__fastcall CColorKeyBitmapRealization::CColorKeyBitmapRealization(
@@ -18,7 +18,7 @@ CColorKeyBitmapRealization *__fastcall CColorKeyBitmapRealization::CColorKeyBitm
   *((_QWORD *)this + 20) = &CColorKeyBitmapRealization::`vbtable'{for `IBitmapRealization'};
   CD2DBitmapCache::CD2DBitmapCache(this, 0);
   *((_QWORD *)v1 + 10) = &CColorKeyBitmapRealization::`vftable'{for `IGDIBitmapRealization'};
-  *(_QWORD *)v1 = &CColorKeyBitmapRealization::`vftable'{for `CMILCOMBaseT<IUnknown>'};
+  *(_QWORD *)v1 = &CColorKeyBitmapRealization::`vftable'{for `CMILCOMBase'};
   *((_QWORD *)v1 + 12) = &CColorKeyBitmapRealization::`vftable';
   *(_QWORD *)((char *)v1 + *(int *)(*((_QWORD *)v1 + 2) + 4LL) + 16) = &CColorKeyBitmapRealization::`vftable'{for `IDeviceResourceNotify'};
   *(_QWORD *)((char *)v1 + *(int *)(*((_QWORD *)v1 + 2) + 8LL) + 16) = &CColorKeyBitmapRealization::`vftable'{for `IUnknown'};

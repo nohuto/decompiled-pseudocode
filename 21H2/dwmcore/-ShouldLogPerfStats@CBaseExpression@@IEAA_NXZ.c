@@ -1,19 +1,17 @@
 /*
- * XREFs of ?ShouldLogPerfStats@CBaseExpression@@IEAA_NXZ @ 0x1802292B0
+ * XREFs of ?ShouldLogPerfStats@CBaseExpression@@IEAA_NXZ @ 0x1801DA840
  * Callers:
- *     ?QueryObjectPropertyValue@CExpressionValueStack@@AEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_KPEAVCExpressionValue@@PEAVSubchannelMaskInfo@@@Z @ 0x18025008C (-QueryObjectPropertyValue@CExpressionValueStack@@AEAAJPEAVCExpression@@PEAUExpressionReferenceNo.c)
+ *     ?QueryObjectPropertyValue@CExpressionValueStack@@AEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_KPEAVCExpressionValue@@PEAVSubchannelMaskInfo@@@Z @ 0x180200B7C (-QueryObjectPropertyValue@CExpressionValueStack@@AEAAJPEAVCExpression@@PEAUExpressionReferenceNo.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall CBaseExpression::ShouldLogPerfStats(CBaseExpression *this)
+char __fastcall CBaseExpression::ShouldLogPerfStats(CBaseExpression *this)
 {
-  bool result; // al
+  char result; // al
 
-  if ( (*(_DWORD *)(*((_QWORD *)this + 41) + 4LL) & 0x20000000) != 0 )
-    return 1;
   result = 0;
-  if ( CCommonRegistryData::LogExpressionPerfStats )
+  if ( *(int *)(*((_QWORD *)this + 38) + 4LL) < 0 || CCommonRegistryData::LogExpressionPerfStats )
     return 1;
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?FxCalculateTotalMultiSzStringSize@@YA_KPEBG@Z @ 0x1C002C4A8
+ * XREFs of ?FxCalculateTotalMultiSzStringSize@@YA_KPEBG@Z @ 0x1C0018854
  * Callers:
- *     ?_PnpQueryId@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z @ 0x1C002C2E0 (-_PnpQueryId@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z.c)
+ *     ?_PnpQueryId@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z @ 0x1C0018760 (-_PnpQueryId@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z.c)
  * Callees:
  *     <none>
  */

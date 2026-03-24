@@ -1,14 +1,14 @@
 /*
- * XREFs of LdrpAccessResourceData @ 0x14067BD08
+ * XREFs of LdrpAccessResourceData @ 0x14067BCE8
  * Callers:
- *     RtlFindMessage @ 0x14067BDF0 (RtlFindMessage.c)
- *     LdrAccessResource @ 0x140756B50 (LdrAccessResource.c)
- *     RtlLoadString @ 0x140891BB0 (RtlLoadString.c)
+ *     RtlFindMessage @ 0x14067BDD0 (RtlFindMessage.c)
+ *     LdrAccessResource @ 0x140756B30 (LdrAccessResource.c)
+ *     RtlLoadString @ 0x140891B90 (RtlLoadString.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C20 (RtlImageDirectoryEntryToData.c)
- *     LdrpGetImageSize @ 0x1400F37A4 (LdrpGetImageSize.c)
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1400F447C (LdrpGetAlternateResourceModuleHandleEx.c)
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x14067ACB8 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
+ *     LdrpGetImageSize @ 0x1400F37C4 (LdrpGetImageSize.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x1400F449C (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x14067AC98 (LdrpAccessResourceDataNoMultipleLanguage.c)
  */
 
 __int64 __fastcall LdrpAccessResourceData(

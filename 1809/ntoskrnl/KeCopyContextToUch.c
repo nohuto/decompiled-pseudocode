@@ -1,11 +1,11 @@
 /*
- * XREFs of KeCopyContextToUch @ 0x1408465F8
+ * XREFs of KeCopyContextToUch @ 0x1408465D8
  * Callers:
- *     PspSetUmsThreadContext @ 0x14088F31C (PspSetUmsThreadContext.c)
+ *     PspSetUmsThreadContext @ 0x14088F2FC (PspSetUmsThreadContext.c)
  * Callees:
  *     RtlpSanitizeContextFlags @ 0x1400A1E00 (RtlpSanitizeContextFlags.c)
- *     KeContextToKframes @ 0x1401BBCD0 (KeContextToKframes.c)
- *     KiCopyXStateArea @ 0x140294200 (KiCopyXStateArea.c)
+ *     KeContextToKframes @ 0x1401BBCF0 (KeContextToKframes.c)
+ *     KiCopyXStateArea @ 0x140294300 (KiCopyXStateArea.c)
  */
 
 __int64 __fastcall KeCopyContextToUch(__int64 a1, __int64 a2)

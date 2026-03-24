@@ -1,7 +1,8 @@
 /*
- * XREFs of SeValidateSecurityQos @ 0x1406677EC
+ * XREFs of SeValidateSecurityQos @ 0x1407056E0
  * Callers:
- *     AlpcpValidateAndSetPortAttributes @ 0x1406675AC (AlpcpValidateAndSetPortAttributes.c)
+ *     AlpcpValidateAndSetPortAttributes @ 0x1405E0B04 (AlpcpValidateAndSetPortAttributes.c)
+ *     SeCaptureSecurityQos @ 0x140705604 (SeCaptureSecurityQos.c)
  * Callees:
  *     <none>
  */

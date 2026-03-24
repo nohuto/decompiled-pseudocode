@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GenerateWhitePixel@CAtlasTexture@@AEAAXXZ @ 0x1800F91D8
+ * XREFs of ?GenerateWhitePixel@CAtlasTexture@@AEAAXXZ @ 0x18024C694
  * Callers:
- *     ?Initialize@CAtlasTexture@@AEAAJPEAVCD3DDevice@@I@Z @ 0x1800F906C (-Initialize@CAtlasTexture@@AEAAJPEAVCD3DDevice@@I@Z.c)
+ *     ?Initialize@CAtlasTexture@@AEAAJPEAVCD3DDevice@@I@Z @ 0x18024C710 (-Initialize@CAtlasTexture@@AEAAJPEAVCD3DDevice@@I@Z.c)
  * Callees:
- *     ??1CAtlasEntry@@QEAA@XZ @ 0x18003EE0C (--1CAtlasEntry@@QEAA@XZ.c)
- *     ?UpdateGradientStrip@CAtlasTexture@@QEAAXPEBVCAtlasEntry@@V?$span@$$CBE$0?0@gsl@@@Z @ 0x18003F7A8 (-UpdateGradientStrip@CAtlasTexture@@QEAAXPEBVCAtlasEntry@@V-$span@$$CBE$0-0@gsl@@@Z.c)
+ *     ??1CAtlasEntry@@QEAA@XZ @ 0x18024B960 (--1CAtlasEntry@@QEAA@XZ.c)
+ *     ?UpdateGradientStrip@CAtlasTexture@@QEAAXPEBVCAtlasEntry@@V?$span@$$CBE$0?0@gsl@@@Z @ 0x18024C980 (-UpdateGradientStrip@CAtlasTexture@@QEAAXPEBVCAtlasEntry@@V-$span@$$CBE$0-0@gsl@@@Z.c)
  */
 
 void __fastcall CAtlasTexture::GenerateWhitePixel(CAtlasTexture *this)
@@ -16,9 +16,9 @@ void __fastcall CAtlasTexture::GenerateWhitePixel(CAtlasTexture *this)
   v2[1] = 0LL;
   v2[0] = this;
   v3 = 0;
-  v1[1] = &unk_1803435BC;
+  v1[1] = &unk_18030708C;
   v1[0] = 4LL;
-  CAtlasTexture::UpdateGradientStrip(this, (__int64)v2, (__int64)v1);
+  CAtlasTexture::UpdateGradientStrip(this, v2, v1);
   v2[0] = 0LL;
   CAtlasEntry::~CAtlasEntry((CAtlasEntry *)v2);
 }

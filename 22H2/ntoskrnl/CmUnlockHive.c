@@ -1,18 +1,19 @@
 /*
- * XREFs of CmUnlockHive @ 0x140748488
+ * XREFs of CmUnlockHive @ 0x1406DC84C
  * Callers:
- *     CmpWaitForLateUnloadWorker @ 0x1402EC614 (CmpWaitForLateUnloadWorker.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1406DC020 (NtNotifyChangeMultipleKeys.c)
+ *     CmpFlushNotify @ 0x1406E3C7C (CmpFlushNotify.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
  */
 
-signed __int32 __fastcall CmUnlockHive(__int64 a1)
+char __fastcall CmUnlockHive(__int64 a1)
 {
   ULONG_PTR v1; // rbx
 
-  v1 = a1 + 1680;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 1680), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 1680));
+  v1 = a1 + 1672;
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 1672), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 1672));
   return KeAbPostRelease(v1);
 }

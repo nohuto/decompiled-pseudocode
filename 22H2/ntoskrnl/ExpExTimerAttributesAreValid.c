@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpExTimerAttributesAreValid @ 0x14031E2D8
+ * XREFs of ExpExTimerAttributesAreValid @ 0x14035A780
  * Callers:
- *     ExAllocateTimerInternal2 @ 0x14031E1B0 (ExAllocateTimerInternal2.c)
- *     NtCreateTimer2 @ 0x140786690 (NtCreateTimer2.c)
+ *     ExAllocateTimerInternal2 @ 0x140349450 (ExAllocateTimerInternal2.c)
+ *     NtCreateTimer2 @ 0x140702200 (NtCreateTimer2.c)
  * Callees:
  *     <none>
  */

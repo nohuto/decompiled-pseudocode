@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaLinkContiguousTranslations @ 0x140457684
+ * XREFs of HalpDmaLinkContiguousTranslations @ 0x1404C7CD4
  * Callers:
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolV2 @ 0x1404588B6 (HalpDmaAllocateContiguousPagesFromContiguousPoolV2.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3 @ 0x140503590 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolV3 @ 0x140503628 (HalpDmaAllocateContiguousPagesFromContiguousPoolV3.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV2 @ 0x140518870 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV2.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3 @ 0x1404B6E30 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolV3 @ 0x1404B6EC8 (HalpDmaAllocateContiguousPagesFromContiguousPoolV3.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV2 @ 0x1404CD0D8 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV2.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolV2 @ 0x1404CD164 (HalpDmaAllocateContiguousPagesFromContiguousPoolV2.c)
  * Callees:
- *     HalpDmaIndexToTranslationEntry @ 0x14045764A (HalpDmaIndexToTranslationEntry.c)
+ *     HalpDmaIndexToTranslationEntry @ 0x1404C7C98 (HalpDmaIndexToTranslationEntry.c)
  */
 
 __int64 __fastcall HalpDmaLinkContiguousTranslations(__int64 a1, unsigned int a2, unsigned int a3)

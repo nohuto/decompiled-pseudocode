@@ -1,11 +1,11 @@
 /*
- * XREFs of MmCopyVirtualMemory @ 0x1406447B0
+ * XREFs of MmCopyVirtualMemory @ 0x140644790
  * Callers:
- *     PsQueryProcessCommandLine @ 0x14012A240 (PsQueryProcessCommandLine.c)
- *     NtQueryInformationThread @ 0x14064A580 (NtQueryInformationThread.c)
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
- *     MiReadWriteVirtualMemory @ 0x140676A30 (MiReadWriteVirtualMemory.c)
- *     AlpcpCopyRequestData @ 0x14084A8D0 (AlpcpCopyRequestData.c)
+ *     PsQueryProcessCommandLine @ 0x14012A260 (PsQueryProcessCommandLine.c)
+ *     NtQueryInformationThread @ 0x14064A560 (NtQueryInformationThread.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     MiReadWriteVirtualMemory @ 0x140676A10 (MiReadWriteVirtualMemory.c)
+ *     AlpcpCopyRequestData @ 0x14084A8B0 (AlpcpCopyRequestData.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -14,13 +14,13 @@
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
  *     LOCK_ADDRESS_SPACE @ 0x1400767B8 (LOCK_ADDRESS_SPACE.c)
  *     UNLOCK_ADDRESS_SPACE @ 0x140078294 (UNLOCK_ADDRESS_SPACE.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     MiGetExceptionInfo @ 0x1402AA654 (MiGetExceptionInfo.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     MiGetExceptionInfo @ 0x1402AA754 (MiGetExceptionInfo.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     VslDebugReadWriteSecureProcess @ 0x140818384 (VslDebugReadWriteSecureProcess.c)
- *     MiDbgReadWriteEnclave @ 0x140859EDC (MiDbgReadWriteEnclave.c)
+ *     VslDebugReadWriteSecureProcess @ 0x140818364 (VslDebugReadWriteSecureProcess.c)
+ *     MiDbgReadWriteEnclave @ 0x140859EBC (MiDbgReadWriteEnclave.c)
  */
 
 __int64 __fastcall MmCopyVirtualMemory(

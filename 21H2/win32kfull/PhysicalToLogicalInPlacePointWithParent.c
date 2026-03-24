@@ -1,53 +1,51 @@
 /*
- * XREFs of PhysicalToLogicalInPlacePointWithParent @ 0x1C016B98A
+ * XREFs of PhysicalToLogicalInPlacePointWithParent @ 0x1C01E5ACC
  * Callers:
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C0058FB0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
- *     ?xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z @ 0x1C01EC438 (-xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z.c)
- *     ?AdjustMouseCoordinates@@YAXPEAUtagWND@@PEA_J@Z @ 0x1C022D444 (-AdjustMouseCoordinates@@YAXPEAUtagWND@@PEA_J@Z.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C2120 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     ?xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z @ 0x1C01F19F8 (-xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z.c)
+ *     ?AdjustMouseCoordinates@@YAXPEAUtagWND@@PEA_J@Z @ 0x1C0233BC4 (-AdjustMouseCoordinates@@YAXPEAUtagWND@@PEA_J@Z.c)
  * Callees:
- *     ?GetTopLevelOrDpiBoundaryWindow@@YAPEBUtagWND@@PEBU1@@Z @ 0x1C0069908 (-GetTopLevelOrDpiBoundaryWindow@@YAPEBUtagWND@@PEBU1@@Z.c)
- *     FixedPointSubPixel @ 0x1C01DF7EC (FixedPointSubPixel.c)
+ *     ?GetTopLevelOrDpiBoundaryWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00F1894 (-GetTopLevelOrDpiBoundaryWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     FixedPointSubPixel @ 0x1C01E563C (FixedPointSubPixel.c)
  */
 
-__int64 __fastcall PhysicalToLogicalInPlacePointWithParent(const struct tagWND *a1, int *a2, int *a3)
+__int64 __fastcall PhysicalToLogicalInPlacePointWithParent(struct tagWND *a1, int *a2, int *a3)
 {
-  float v3; // xmm0_4
   __int64 result; // rax
-  __int64 v7; // rdi
-  float *v8; // rdx
-  float v9; // xmm3_4
-  float v10; // xmm2_4
+  __int64 v6; // rdi
+  float *v7; // rdx
+  float v8; // xmm3_4
+  float v9; // xmm2_4
+  float v10; // xmm0_4
   __int64 v11; // rdx
   float v12; // xmm0_4
-  __int64 v13; // rdx
-  float v14; // xmm1_4
+  __m128i v13; // xmm0
 
   result = (__int64)GetTopLevelOrDpiBoundaryWindow(a1);
-  v7 = result;
+  v6 = result;
   if ( result )
   {
     result = IsWindowDesktopComposed(result);
     if ( (_DWORD)result )
     {
-      v8 = *(float **)(v7 + 216);
-      if ( v8 )
+      v7 = *(float **)(v6 + 216);
+      if ( v7 )
       {
-        v9 = 1.0 / *v8;
-        v10 = 1.0 / v8[5];
+        v8 = 1.0 / *v7;
+        v9 = 1.0 / v7[5];
         if ( a3 )
         {
-          FixedPointSubPixel(*a3);
-          v12 = (float)((float)(v3 + (float)*a2) - *(float *)(v11 + 48)) * v9;
-          *a2 = (int)v12;
-          FixedPointSubPixel(a3[1]);
-          result = (unsigned int)(int)(float)((float)((float)(v12 + (float)a2[1]) - *(float *)(v13 + 52)) * v10);
+          v10 = FixedPointSubPixel(*a3);
+          *a2 = (int)(float)((float)((float)(v10 + (float)*a2) - *(float *)(v11 + 48)) * v8);
+          v12 = FixedPointSubPixel(a3[1]) + (float)a2[1];
         }
         else
         {
-          v14 = (float)a2[1];
-          *a2 = (int)(float)((float)((float)*a2 - v8[12]) * v9);
-          result = (unsigned int)(int)(float)((float)(v14 - v8[13]) * v10);
+          v13 = _mm_cvtsi32_si128(a2[1]);
+          *a2 = (int)(float)((float)((float)*a2 - v7[12]) * v8);
+          LODWORD(v12) = _mm_cvtepi32_ps(v13).m128_u32[0];
         }
+        result = (unsigned int)(int)(float)(v9 * (float)(v12 - v7[13]));
         a2[1] = result;
       }
     }

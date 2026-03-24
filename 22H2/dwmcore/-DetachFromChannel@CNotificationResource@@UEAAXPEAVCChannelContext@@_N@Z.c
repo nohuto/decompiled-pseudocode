@@ -1,48 +1,51 @@
 /*
- * XREFs of ?DetachFromChannel@CNotificationResource@@UEAAXPEAVCChannelContext@@_N@Z @ 0x18003EA60
+ * XREFs of ?DetachFromChannel@CNotificationResource@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1800C4230
  * Callers:
- *     ?DetachFromChannel@CCaptureRenderTarget@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1801ECF60 (-DetachFromChannel@CCaptureRenderTarget@@UEAAXPEAVCChannelContext@@_N@Z.c)
- *     ?DetachFromChannel@CInteractionTracker@@UEAAXPEAVCChannelContext@@_N@Z @ 0x180232340 (-DetachFromChannel@CInteractionTracker@@UEAAXPEAVCChannelContext@@_N@Z.c)
- *     ?DetachFromChannel@CHolographicComposition@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1802A7860 (-DetachFromChannel@CHolographicComposition@@UEAAXPEAVCChannelContext@@_N@Z.c)
- *     ?DetachFromChannel@CHolographicDisplay@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1802A7BB0 (-DetachFromChannel@CHolographicDisplay@@UEAAXPEAVCChannelContext@@_N@Z.c)
+ *     ?DetachFromChannel@CWindowNode@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1800C41E0 (-DetachFromChannel@CWindowNode@@UEAAXPEAVCChannelContext@@_N@Z.c)
+ *     ?DetachFromChannel@CCaptureRenderTarget@@UEAAXPEAVCChannelContext@@_N@Z @ 0x180187770 (-DetachFromChannel@CCaptureRenderTarget@@UEAAXPEAVCChannelContext@@_N@Z.c)
+ *     ?DetachFromChannel@CInteractionTracker@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1801C9050 (-DetachFromChannel@CInteractionTracker@@UEAAXPEAVCChannelContext@@_N@Z.c)
+ *     ?DetachFromChannel@CHolographicComposition@@UEAAXPEAVCChannelContext@@_N@Z @ 0x180255EB0 (-DetachFromChannel@CHolographicComposition@@UEAAXPEAVCChannelContext@@_N@Z.c)
+ *     ?DetachFromChannel@CHolographicDisplay@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1802561E0 (-DetachFromChannel@CHolographicDisplay@@UEAAXPEAVCChannelContext@@_N@Z.c)
  * Callees:
- *     ?RemoveResourceDebugInfo@CAnimationLoggingManager@@QEAAXPEAVCResource@@@Z @ 0x18003EB08 (-RemoveResourceDebugInfo@CAnimationLoggingManager@@QEAAXPEAVCResource@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?RemoveResourceDebugInfo@CAnimationLoggingManager@@QEAAXPEAVCResource@@@Z @ 0x1800C42C8 (-RemoveResourceDebugInfo@CAnimationLoggingManager@@QEAAXPEAVCResource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CNotificationResource::DetachFromChannel(CNotificationResource *this, struct CChannelContext *a2)
 {
-  __int64 v2; // r11
-  _DWORD *v5; // rdi
-  __int64 v6; // rcx
+  __int64 v4; // rcx
+  int v5; // eax
+  __int64 v6; // r8
+  __int64 v7; // rdx
+  __int64 v8; // rcx
 
-  v2 = *((_QWORD *)this + 6);
-  if ( (struct CChannelContext *)v2 == a2 )
+  v4 = *((_QWORD *)this + 6);
+  if ( (struct CChannelContext *)v4 == a2 )
   {
-    if ( v2 && *(_DWORD *)(v2 + 76) )
+    if ( v4 )
+      v5 = *(_DWORD *)(v4 + 68);
+    else
+      v5 = 0;
+    if ( v5 )
     {
-      v5 = (_DWORD *)((char *)this + 64);
-      if ( *((_DWORD *)this + 16) )
+      v6 = *((unsigned int *)this + 14);
+      if ( (_DWORD)v6 )
       {
-        v6 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 1240LL) + 24LL);
-        (*(void (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD))(*(_QWORD *)v6 + 80LL))(
-          v6,
-          *(unsigned int *)(v2 + 76),
-          (unsigned int)*v5,
-          0LL);
-        v2 = *((_QWORD *)this + 6);
+        if ( v4 )
+          v7 = *(unsigned int *)(v4 + 68);
+        else
+          v7 = 0LL;
+        v8 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 1080LL) + 32LL);
+        (*(void (__fastcall **)(__int64, __int64, __int64, _QWORD))(*(_QWORD *)v8 + 80LL))(v8, v7, v6, 0LL);
+        v4 = *((_QWORD *)this + 6);
       }
     }
-    else
-    {
-      v5 = (_DWORD *)((char *)this + 64);
-    }
-    *v5 = 0;
+    *((_DWORD *)this + 14) = 0;
   }
-  if ( a2 == (struct CChannelContext *)v2 )
+  if ( a2 == (struct CChannelContext *)v4 )
   {
     if ( (*((_BYTE *)this + 32) & 0x10) != 0 )
-      CAnimationLoggingManager::RemoveResourceDebugInfo(*(CAnimationLoggingManager **)(v2 + 64), this);
+      CAnimationLoggingManager::RemoveResourceDebugInfo(*(CAnimationLoggingManager **)(v4 + 56), this);
     *((_QWORD *)this + 6) = 0LL;
   }
 }

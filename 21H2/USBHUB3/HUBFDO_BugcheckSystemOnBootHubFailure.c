@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBFDO_BugcheckSystemOnBootHubFailure @ 0x1C000E004
+ * XREFs of HUBFDO_BugcheckSystemOnBootHubFailure @ 0x1C000DC3C
  * Callers:
- *     HUBHSM_BugcheckingSystemOnExcessiveResetsForHubInBootPath @ 0x1C0007FE0 (HUBHSM_BugcheckingSystemOnExcessiveResetsForHubInBootPath.c)
+ *     HUBHSM_BugcheckingSystemOnExcessiveResetsForHubInBootPath @ 0x1C0007CD0 (HUBHSM_BugcheckingSystemOnExcessiveResetsForHubInBootPath.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall __noreturn HUBFDO_BugcheckSystemOnBootHubFailure(__int64 a1)

@@ -1,13 +1,14 @@
 /*
- * XREFs of MiIsProcessCfgExportSuppressionEnabled @ 0x14096EBB0
+ * XREFs of MiIsProcessCfgExportSuppressionEnabled @ 0x14025C704
  * Callers:
- *     MiCfgMarkValidEntries @ 0x140753C58 (MiCfgMarkValidEntries.c)
- *     MiValidateUserCallTarget @ 0x14096EC0C (MiValidateUserCallTarget.c)
+ *     MiValidateUserCallTarget @ 0x14070F21C (MiValidateUserCallTarget.c)
+ *     MiCfgMarkValidEntries @ 0x14070F9B4 (MiCfgMarkValidEntries.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall MiIsProcessCfgExportSuppressionEnabled(__int64 a1)
+_BOOL8 MiIsProcessCfgExportSuppressionEnabled()
 {
-  return *(_QWORD *)(*(_QWORD *)(a1 + 1680) + 432LL) && (*(_DWORD *)(a1 + 2512) & 2) != 0;
+  return *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[8] + 448)
+      && ((__int64)KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink & 2) != 0;
 }

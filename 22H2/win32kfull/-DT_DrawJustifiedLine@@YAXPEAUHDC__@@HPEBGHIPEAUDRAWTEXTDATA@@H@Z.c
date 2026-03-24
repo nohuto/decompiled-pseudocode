@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DT_DrawJustifiedLine@@YAXPEAUHDC__@@HPEBGHIPEAUDRAWTEXTDATA@@H@Z @ 0x1C024CB0C
+ * XREFs of ?DT_DrawJustifiedLine@@YAXPEAUHDC__@@HPEBGHIPEAUDRAWTEXTDATA@@H@Z @ 0x1C025DF14
  * Callers:
- *     ?AddEllipsisAndDrawLine@@YAHPEAUHDC__@@HPEAGHKPEAUDRAWTEXTDATA@@H@Z @ 0x1C024C8D8 (-AddEllipsisAndDrawLine@@YAHPEAUHDC__@@HPEAGHKPEAUDRAWTEXTDATA@@H@Z.c)
+ *     ?AddEllipsisAndDrawLine@@YAHPEAUHDC__@@HPEAGHKPEAUDRAWTEXTDATA@@H@Z @ 0x1C025DCE0 (-AddEllipsisAndDrawLine@@YAHPEAUHDC__@@HPEAGHKPEAUDRAWTEXTDATA@@H@Z.c)
  * Callees:
- *     ?DT_DrawStr@@YAHPEAUHDC__@@HHPEBGHHIPEAUDRAWTEXTDATA@@H@Z @ 0x1C024CBD0 (-DT_DrawStr@@YAHPEAUHDC__@@HHPEBGHHIPEAUDRAWTEXTDATA@@H@Z.c)
+ *     ?DT_DrawStr@@YAHPEAUHDC__@@HHPEBGHHIPEAUDRAWTEXTDATA@@H@Z @ 0x1C025DFD8 (-DT_DrawStr@@YAHPEAUHDC__@@HHPEBGHHIPEAUDRAWTEXTDATA@@H@Z.c)
  */
 
 void __fastcall DT_DrawJustifiedLine(
@@ -20,7 +20,7 @@ void __fastcall DT_DrawJustifiedLine(
   v10 = *(_DWORD *)a6;
   if ( (a5 & 3) != 0 )
   {
-    v10 = *((_DWORD *)a6 + 2) - (*((_DWORD *)a6 + 14) + DT_DrawStr(a1, v10, a2, a3, a4, 0, a5, a6, -1));
+    v10 = *((_DWORD *)a6 + 2) - *((_DWORD *)a6 + 14) - DT_DrawStr(a1, v10, a2, a3, a4, 0, a5, a6, -1);
     if ( (a5 & 1) != 0 )
       v10 = *(_DWORD *)a6 + ((v10 - *(_DWORD *)a6) >> 1);
   }

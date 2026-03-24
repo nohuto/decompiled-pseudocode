@@ -1,18 +1,18 @@
 /*
- * XREFs of PspSetCreateProcessNotifyRoutine @ 0x140844E98
+ * XREFs of PspSetCreateProcessNotifyRoutine @ 0x140799B58
  * Callers:
- *     PsSetCreateProcessNotifyRoutineEx @ 0x140844C90 (PsSetCreateProcessNotifyRoutineEx.c)
- *     PsSetCreateProcessNotifyRoutine @ 0x140844CB0 (PsSetCreateProcessNotifyRoutine.c)
- *     PsSetCreateProcessNotifyRoutineEx2 @ 0x140844CD0 (PsSetCreateProcessNotifyRoutineEx2.c)
+ *     PsSetCreateProcessNotifyRoutineEx @ 0x1407997E0 (PsSetCreateProcessNotifyRoutineEx.c)
+ *     PsSetCreateProcessNotifyRoutineEx2 @ 0x140799840 (PsSetCreateProcessNotifyRoutineEx2.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x140799990 (PsSetCreateProcessNotifyRoutine.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140214F10 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x140214FD0 (ExDereferenceCallBackBlock.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A210 (ExWaitForRundownProtectionRelease.c)
- *     ExCompareExchangeCallBack @ 0x14039FB68 (ExCompareExchangeCallBack.c)
- *     MmVerifyCallbackFunctionCheckFlags @ 0x14039FC2C (MmVerifyCallbackFunctionCheckFlags.c)
- *     ExAllocateCallBack @ 0x140844F90 (ExAllocateCallBack.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReferenceCallBackBlock @ 0x14025A1B0 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14025A270 (ExDereferenceCallBackBlock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1403427F0 (ExWaitForRundownProtectionRelease.c)
+ *     ExCompareExchangeCallBack @ 0x1403AEFFC (ExCompareExchangeCallBack.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x1403AF0C0 (MmVerifyCallbackFunctionCheckFlags.c)
+ *     ExAllocateCallBack @ 0x140799C50 (ExAllocateCallBack.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspSetCreateProcessNotifyRoutine(unsigned __int64 a1, unsigned int a2)

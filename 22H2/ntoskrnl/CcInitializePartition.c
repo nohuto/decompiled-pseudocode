@@ -1,259 +1,326 @@
 /*
- * XREFs of CcInitializePartition @ 0x1403A00A0
+ * XREFs of CcInitializePartition @ 0x1403C25C4
  * Callers:
- *     CcCreatePartition @ 0x14039FFF0 (CcCreatePartition.c)
+ *     CcCreatePartition @ 0x1403C2570 (CcCreatePartition.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x1402AD220 (ExpAllocatePoolWithTagFromNode.c)
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     CcInitializePartitionVacbs @ 0x1403A0520 (CcInitializePartitionVacbs.c)
- *     CcForEachNumaNode @ 0x1403C355C (CcForEachNumaNode.c)
- *     memset @ 0x140435400 (memset.c)
- *     CcInitializeNumaNode @ 0x14053A8E8 (CcInitializeNumaNode.c)
- *     PsCreateSystemThread @ 0x1407B86B0 (PsCreateSystemThread.c)
- *     MmGetNumberOfPhysicalPagesForPartitionObject @ 0x14086B718 (MmGetNumberOfPhysicalPagesForPartitionObject.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     CcInitializeAsyncRead @ 0x1403C2BD0 (CcInitializeAsyncRead.c)
+ *     CcInitializePartitionVacbs @ 0x1403C2F88 (CcInitializePartitionVacbs.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PsCreateSystemThread @ 0x1406FDA10 (PsCreateSystemThread.c)
+ *     MmGetNumberOfPhysicalPagesForPartitionObject @ 0x1407BD0E4 (MmGetNumberOfPhysicalPagesForPartitionObject.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-char __fastcall CcInitializePartition(char *StartContext, __int64 a2, _QWORD *a3)
+char __fastcall CcInitializePartition(char *StartContext, _QWORD *a2)
 {
-  char v5; // si
-  char *v7; // r15
+  char v2; // si
+  char *v5; // r14
+  char *v6; // r15
+  char *v7; // r12
   unsigned __int64 NumberOfPhysicalPagesForPartitionObject; // rax
   unsigned __int64 v9; // rax
   int v10; // eax
   __int64 v11; // rcx
   int v12; // eax
   unsigned __int64 v13; // rbx
-  bool v14; // zf
-  PVOID PoolWithTag; // rax
-  __int64 PoolWithTagFromNode; // rax
-  __int64 *v17; // rcx
-  bool v19; // cf
-  unsigned __int64 v20; // rax
-  __int64 v21; // rdx
-  ULONG v22; // edx
-  void *v23; // r9
-  __int64 v24; // r8
-  unsigned int v25; // ebx
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
-  char v27; // [rsp+A0h] [rbp+30h] BYREF
+  void *v14; // r9
+  unsigned int v15; // ebx
+  _DWORD *PoolWithTag; // rax
+  char **v17; // rcx
+  unsigned int v18; // eax
+  unsigned int v19; // ebx
+  _DWORD *v20; // rax
+  char **v21; // rcx
+  unsigned int v22; // ebx
+  _DWORD *v23; // rax
+  char **v24; // rcx
+  PVOID v25; // rax
+  PVOID v26; // rbx
+  bool v28; // cf
+  unsigned __int64 v29; // rax
+  __int64 v30; // rdx
+  ULONG v31; // edx
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-48h] BYREF
 
-  v5 = 0;
-  memset(&ObjectAttributes, 0, 44);
-  memset(StartContext, 0, 0x580uLL);
-  *(_DWORD *)StartContext = 92275447;
-  *((_QWORD *)StartContext + 1) = a3;
-  *((_QWORD *)StartContext + 162) = 1LL;
-  v7 = StartContext + 96;
-  *((_QWORD *)StartContext + 3) = StartContext + 16;
-  *((_QWORD *)StartContext + 2) = StartContext + 16;
+  v2 = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  memset(StartContext, 0, 0x440uLL);
+  *(_DWORD *)StartContext = 71303927;
+  *((_QWORD *)StartContext + 1) = a2;
   *((_QWORD *)StartContext + 5) = StartContext + 32;
+  v5 = StartContext + 208;
   *((_QWORD *)StartContext + 4) = StartContext + 32;
-  *((_QWORD *)StartContext + 11) = StartContext + 80;
-  *((_QWORD *)StartContext + 10) = StartContext + 80;
-  *((_QWORD *)StartContext + 81) = StartContext + 640;
-  *((_QWORD *)StartContext + 80) = StartContext + 640;
-  *((_QWORD *)StartContext + 79) = StartContext + 624;
-  *((_QWORD *)StartContext + 78) = StartContext + 624;
-  *((_QWORD *)StartContext + 89) = StartContext + 704;
-  *((_QWORD *)StartContext + 88) = StartContext + 704;
+  v6 = StartContext + 304;
+  *((_QWORD *)StartContext + 121) = 1LL;
+  *((_QWORD *)StartContext + 3) = StartContext + 16;
+  v7 = StartContext + 328;
+  *((_QWORD *)StartContext + 2) = StartContext + 16;
+  *((_DWORD *)StartContext + 16) = 2048;
   *((_QWORD *)StartContext + 13) = StartContext + 96;
   *((_QWORD *)StartContext + 12) = StartContext + 96;
-  *((_DWORD *)StartContext + 168) = 2048;
-  *((_QWORD *)StartContext + 85) = StartContext + 656;
-  *((_QWORD *)StartContext + 86) = StartContext + 656;
-  *((_QWORD *)StartContext + 82) = StartContext + 680;
-  *((_QWORD *)StartContext + 83) = StartContext + 680;
-  *((_DWORD *)StartContext + 174) = 2048;
-  *((_QWORD *)StartContext + 96) = 0LL;
-  *((_QWORD *)StartContext + 104) = 0LL;
-  *((_QWORD *)StartContext + 107) = StartContext + 848;
-  *((_QWORD *)StartContext + 106) = StartContext + 848;
-  *((_QWORD *)StartContext + 112) = StartContext + 888;
-  *((_QWORD *)StartContext + 111) = StartContext + 888;
-  *((_WORD *)StartContext + 440) = 1;
-  StartContext[882] = 6;
-  *((_DWORD *)StartContext + 221) = 0;
-  *((_QWORD *)StartContext + 115) = StartContext + 912;
-  *((_QWORD *)StartContext + 114) = StartContext + 912;
-  *((_WORD *)StartContext + 452) = 1;
-  StartContext[906] = 6;
-  *((_DWORD *)StartContext + 227) = 0;
-  *((_QWORD *)StartContext + 118) = StartContext + 936;
-  *((_QWORD *)StartContext + 117) = StartContext + 936;
-  *((_WORD *)StartContext + 464) = 1;
-  StartContext[930] = 6;
-  *((_DWORD *)StartContext + 233) = 0;
-  *((_QWORD *)StartContext + 121) = StartContext + 960;
-  *((_QWORD *)StartContext + 120) = StartContext + 960;
-  *((_WORD *)StartContext + 476) = 1;
-  StartContext[954] = 6;
-  *((_DWORD *)StartContext + 239) = 0;
-  *((_QWORD *)StartContext + 165) = StartContext + 1312;
-  *((_QWORD *)StartContext + 164) = StartContext + 1312;
-  *((_WORD *)StartContext + 652) = 0;
-  StartContext[1306] = 6;
-  *((_DWORD *)StartContext + 327) = 0;
-  *((_WORD *)StartContext + 664) = 0;
-  *((_QWORD *)StartContext + 168) = StartContext + 1336;
-  *((_QWORD *)StartContext + 167) = StartContext + 1336;
-  StartContext[1330] = 6;
-  *((_DWORD *)StartContext + 333) = 0;
-  *((_QWORD *)StartContext + 9) = StartContext + 64;
-  *((_QWORD *)StartContext + 8) = StartContext + 64;
-  *((_WORD *)StartContext + 28) = 0;
-  StartContext[58] = 6;
-  *((_DWORD *)StartContext + 15) = 0;
-  *((_OWORD *)StartContext + 66) = 0LL;
-  *((_QWORD *)StartContext + 134) = 0LL;
-  *(_OWORD *)(StartContext + 1080) = 0LL;
-  *(_OWORD *)(StartContext + 1096) = 0LL;
-  *(_OWORD *)(StartContext + 1112) = 0LL;
-  *((_QWORD *)StartContext + 141) = 0LL;
-  *((_OWORD *)StartContext + 85) = 0LL;
-  *((_DWORD *)StartContext + 340) = 1;
-  *((_QWORD *)StartContext + 171) = StartContext;
-  memset(StartContext + 984, 0, 0x48uLL);
-  StartContext[984] = 9;
-  *((_QWORD *)StartContext + 125) = StartContext + 992;
-  *((_QWORD *)StartContext + 124) = StartContext + 992;
-  *((_DWORD *)StartContext + 247) = 0;
-  *((_QWORD *)StartContext + 126) = 0LL;
-  *((_DWORD *)StartContext + 261) = 0;
-  *((_WORD *)StartContext + 520) = 0;
-  StartContext[1048] = 1;
-  NumberOfPhysicalPagesForPartitionObject = MmGetNumberOfPhysicalPagesForPartitionObject(a3);
-  if ( (_BYTE)dword_140D1D1EC )
+  *((_QWORD *)StartContext + 9) = StartContext + 48;
+  *((_QWORD *)StartContext + 10) = StartContext + 48;
+  *((_QWORD *)StartContext + 6) = StartContext + 72;
+  *((_QWORD *)StartContext + 7) = StartContext + 72;
+  *((_DWORD *)StartContext + 22) = 2048;
+  *((_QWORD *)StartContext + 16) = 0LL;
+  *((_QWORD *)StartContext + 24) = 0LL;
+  *((_QWORD *)StartContext + 29) = StartContext + 224;
+  *((_QWORD *)StartContext + 28) = StartContext + 224;
+  *((_QWORD *)StartContext + 31) = StartContext + 240;
+  *((_QWORD *)StartContext + 30) = StartContext + 240;
+  *((_QWORD *)StartContext + 33) = StartContext + 256;
+  *((_QWORD *)StartContext + 32) = StartContext + 256;
+  *((_QWORD *)StartContext + 35) = StartContext + 272;
+  *((_QWORD *)StartContext + 34) = StartContext + 272;
+  *((_QWORD *)StartContext + 37) = StartContext + 288;
+  *((_QWORD *)StartContext + 36) = StartContext + 288;
+  *((_QWORD *)StartContext + 27) = StartContext + 208;
+  *((_QWORD *)StartContext + 26) = StartContext + 208;
+  *((_QWORD *)StartContext + 39) = StartContext + 304;
+  *((_QWORD *)StartContext + 38) = StartContext + 304;
+  *((_QWORD *)StartContext + 42) = StartContext + 328;
+  *((_QWORD *)StartContext + 41) = StartContext + 328;
+  *((_QWORD *)StartContext + 49) = StartContext + 384;
+  *((_QWORD *)StartContext + 48) = StartContext + 384;
+  *((_WORD *)StartContext + 188) = 1;
+  StartContext[378] = 6;
+  *((_DWORD *)StartContext + 95) = 0;
+  *((_QWORD *)StartContext + 52) = StartContext + 408;
+  *((_QWORD *)StartContext + 51) = StartContext + 408;
+  *((_WORD *)StartContext + 200) = 1;
+  StartContext[402] = 6;
+  *((_DWORD *)StartContext + 101) = 0;
+  *((_QWORD *)StartContext + 55) = StartContext + 432;
+  *((_QWORD *)StartContext + 54) = StartContext + 432;
+  *((_WORD *)StartContext + 212) = 1;
+  StartContext[426] = 6;
+  *((_DWORD *)StartContext + 107) = 0;
+  *((_QWORD *)StartContext + 58) = StartContext + 456;
+  *((_QWORD *)StartContext + 57) = StartContext + 456;
+  *((_WORD *)StartContext + 224) = 1;
+  StartContext[450] = 6;
+  *((_DWORD *)StartContext + 113) = 0;
+  *((_WORD *)StartContext + 236) = 1;
+  StartContext[474] = 6;
+  *((_DWORD *)StartContext + 119) = 0;
+  *((_QWORD *)StartContext + 61) = StartContext + 480;
+  *((_QWORD *)StartContext + 60) = StartContext + 480;
+  *((_WORD *)StartContext + 488) = 0;
+  *((_QWORD *)StartContext + 124) = StartContext + 984;
+  *((_QWORD *)StartContext + 123) = StartContext + 984;
+  StartContext[978] = 6;
+  *((_DWORD *)StartContext + 245) = 0;
+  *((_QWORD *)StartContext + 127) = StartContext + 1008;
+  *((_QWORD *)StartContext + 126) = StartContext + 1008;
+  *((_WORD *)StartContext + 500) = 0;
+  StartContext[1002] = 6;
+  *((_DWORD *)StartContext + 251) = 0;
+  *((_OWORD *)StartContext + 40) = 0LL;
+  *((_QWORD *)StartContext + 82) = 0LL;
+  *(_OWORD *)(StartContext + 664) = 0LL;
+  *(_OWORD *)(StartContext + 680) = 0LL;
+  *(_OWORD *)(StartContext + 696) = 0LL;
+  *((_QWORD *)StartContext + 89) = 0LL;
+  memset(StartContext + 504, 0, 0x88uLL);
+  *((_DWORD *)StartContext + 126) = 275;
+  *((_QWORD *)StartContext + 66) = CcScanDpc;
+  *((_QWORD *)StartContext + 67) = StartContext;
+  *((_QWORD *)StartContext + 70) = 0LL;
+  *((_QWORD *)StartContext + 65) = 0LL;
+  *((_QWORD *)StartContext + 71) = 0LL;
+  *((_QWORD *)StartContext + 73) = StartContext + 576;
+  *((_QWORD *)StartContext + 72) = StartContext + 576;
+  StartContext[568] = 8;
+  *((_QWORD *)StartContext + 74) = 0LL;
+  *((_DWORD *)StartContext + 157) = 0;
+  *((_WORD *)StartContext + 312) = 0;
+  NumberOfPhysicalPagesForPartitionObject = MmGetNumberOfPhysicalPagesForPartitionObject(a2);
+  if ( (_BYTE)dword_140CFB19C )
   {
-    v19 = (unsigned int)CcAzure_TopBottomDPTEqual < 2;
-    *((_QWORD *)StartContext + 136) = NumberOfPhysicalPagesForPartitionObject >> 1;
-    if ( v19 )
-      v20 = (unsigned __int64)MmGetNumberOfPhysicalPagesForPartitionObject(a3) >> 1;
+    v28 = (unsigned int)CcAzure_TopBottomDPTEqual < 2;
+    *((_QWORD *)StartContext + 84) = NumberOfPhysicalPagesForPartitionObject >> 1;
+    if ( v28 )
+      v29 = (unsigned __int64)MmGetNumberOfPhysicalPagesForPartitionObject(a2) >> 1;
     else
-      v20 = (unsigned __int64)MmGetNumberOfPhysicalPagesForPartitionObject(a3) >> 3;
-    *((_QWORD *)StartContext + 137) = v20;
-    *((_QWORD *)StartContext + 135) = v21;
+      v29 = (unsigned __int64)MmGetNumberOfPhysicalPagesForPartitionObject(a2) >> 3;
+    *((_QWORD *)StartContext + 85) = v29;
+    *((_QWORD *)StartContext + 83) = v30;
     v10 = ExCriticalWorkerThreads - 1;
   }
   else
   {
     v9 = NumberOfPhysicalPagesForPartitionObject >> 3;
-    *((_QWORD *)StartContext + 137) = v9;
-    *((_QWORD *)StartContext + 136) = v9;
-    *((_QWORD *)StartContext + 135) = v9;
+    *((_QWORD *)StartContext + 85) = v9;
+    *((_QWORD *)StartContext + 84) = v9;
+    *((_QWORD *)StartContext + 83) = v9;
     v10 = 1;
   }
-  *((_DWORD *)StartContext + 216) = v10;
-  *((_DWORD *)StartContext + 282) = 10;
-  *((_QWORD *)StartContext + 140) = 0LL;
-  v11 = 10 * MmGetNumberOfPhysicalPagesForPartitionObject(a3);
+  *((_DWORD *)StartContext + 81) = v10;
+  *((_DWORD *)StartContext + 178) = 10;
+  *((_QWORD *)StartContext + 88) = 0LL;
+  v11 = 10 * MmGetNumberOfPhysicalPagesForPartitionObject(a2);
   v12 = ExCriticalWorkerThreads - 1;
-  *((_QWORD *)StartContext + 139) = v11;
-  *((_DWORD *)StartContext + 210) = v12;
-  *((_DWORD *)StartContext + 217) = CcMaxCachemapUninitWorkerThreads;
-  v13 = (*((_QWORD *)StartContext + 135) >> 1) + (*((_QWORD *)StartContext + 135) >> 2);
+  *((_QWORD *)StartContext + 87) = v11;
+  *((_DWORD *)StartContext + 50) = v12;
+  *((_DWORD *)StartContext + 87) = CcMaxCachemapUninitWorkerThreads;
+  v13 = (*((_QWORD *)StartContext + 83) >> 1) + (*((_QWORD *)StartContext + 83) >> 2);
   if ( CcAzure_LazyWriterPercentageOfNumProcs )
   {
-    v22 = CcAzure_LazyWriterPercentageOfNumProcs * KeQueryActiveProcessorCountEx(0xFFFFu) / 0x64;
-    if ( *((_DWORD *)StartContext + 210) < v22 )
-      *((_DWORD *)StartContext + 210) = v22;
+    v31 = KeQueryActiveProcessorCountEx(0xFFFFu) * CcAzure_LazyWriterPercentageOfNumProcs / 0x64;
+    if ( *((_DWORD *)StartContext + 50) < v31 )
+      *((_DWORD *)StartContext + 50) = v31;
   }
-  StartContext[1294] = 0;
-  *((_DWORD *)StartContext + 194) = 0;
-  StartContext[780] = 0;
-  *((_QWORD *)StartContext + 152) = 0LL;
+  StartContext[966] = 0;
+  *((_DWORD *)StartContext + 34) = 0;
+  StartContext[140] = 0;
+  *((_QWORD *)StartContext + 104) = 0LL;
+  *((_DWORD *)StartContext + 240) = -1;
   if ( v13 > 0xFFFFFFFF )
     LODWORD(v13) = -1;
-  *((_QWORD *)StartContext + 157) = 0LL;
-  v14 = CcEnablePerVolumeLazyWriter == 0;
-  *((_DWORD *)StartContext + 276) = v13;
-  *((_QWORD *)StartContext + 147) = StartContext + 1168;
-  *((_QWORD *)StartContext + 146) = StartContext + 1168;
-  *((_QWORD *)StartContext + 155) = StartContext + 1232;
-  *((_QWORD *)StartContext + 154) = StartContext + 1232;
-  *((_QWORD *)StartContext + 158) = 0LL;
-  *((_DWORD *)StartContext + 318) = 32;
-  *((_DWORD *)StartContext + 319) = 5;
-  *((_DWORD *)StartContext + 322) = -1;
-  *((_QWORD *)StartContext + 160) = 0LL;
-  if ( !v14 )
-    goto LABEL_7;
-  v23 = (void *)a3[15];
+  *((_QWORD *)StartContext + 116) = 0LL;
+  *((_DWORD *)StartContext + 172) = v13;
+  *((_QWORD *)StartContext + 99) = StartContext + 784;
+  *((_QWORD *)StartContext + 98) = StartContext + 784;
+  *((_QWORD *)StartContext + 114) = StartContext + 904;
+  *((_QWORD *)StartContext + 113) = StartContext + 904;
+  *((_QWORD *)StartContext + 117) = 0LL;
+  *((_DWORD *)StartContext + 236) = 32;
+  *((_DWORD *)StartContext + 237) = 5;
+  *((_QWORD *)StartContext + 119) = 0LL;
+  v14 = (void *)a2[14];
   ObjectAttributes.Length = 48;
   memset(&ObjectAttributes.RootDirectory, 0, 20);
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( PsCreateSystemThread(
-         (PHANDLE)StartContext + 169,
+         (PHANDLE)StartContext + 128,
          0x1FFFFFu,
          &ObjectAttributes,
-         v23,
+         v14,
          0LL,
-         CcQueueLazyWriteScanThread,
-         StartContext) < 0 )
-    return v5;
-  v25 = 0;
-  if ( CcNumberNumaNodes )
+         (PKSTART_ROUTINE)CcQueueLazyWriteScanThread,
+         StartContext) >= 0
+    && (unsigned __int8)CcInitializePartitionVacbs(StartContext) )
   {
-    while ( (unsigned __int8)CcInitializeNumaNode(StartContext, a2 + 440LL * v25, v24, v25) )
+    v15 = 0;
+    if ( *((_DWORD *)StartContext + 50) )
     {
-      if ( ++v25 >= CcNumberNumaNodes )
-        goto LABEL_7;
-    }
-  }
-  else
-  {
-LABEL_7:
-    if ( (unsigned __int8)CcInitializePartitionVacbs(StartContext) )
-    {
-      PoolWithTag = ExAllocatePoolWithTag(
-                      (POOL_TYPE)1536,
-                      8LL * (unsigned int)(*((_DWORD *)StartContext + 216) + 1),
-                      0x70546343u);
-      if ( PoolWithTag )
+      while ( 1 )
       {
-        v14 = CcEnablePerVolumeLazyWriter == 0;
-        *((_QWORD *)StartContext + 142) = PoolWithTag;
-        if ( !v14 )
-          goto LABEL_10;
-        *((_QWORD *)StartContext + 153) = 0LL;
-        v27 = 1;
-        CcForEachNumaNode(CcInitializeAsyncReadForNodeHelper, StartContext, 0LL, &v27);
-        if ( !v27 )
-          return v5;
-        if ( CcEnablePerVolumeLazyWriter )
+        PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x71576343u);
+        if ( !PoolWithTag )
+          break;
+        PoolWithTag[8] = 1;
+        PoolWithTag[9] = -1;
+        *((_QWORD *)PoolWithTag + 7) = StartContext;
+        PoolWithTag[10] = v15;
+        *((_QWORD *)PoolWithTag + 2) = CcWorkerThread;
+        *((_QWORD *)PoolWithTag + 3) = PoolWithTag;
+        *(_QWORD *)PoolWithTag = 0LL;
+        v17 = (char **)*((_QWORD *)StartContext + 27);
+        if ( *v17 != v5 )
+LABEL_31:
+          __fastfail(3u);
+        *(_QWORD *)PoolWithTag = v5;
+        ++v15;
+        *((_QWORD *)PoolWithTag + 1) = v17;
+        *v17 = (char *)PoolWithTag;
+        *((_QWORD *)StartContext + 27) = PoolWithTag;
+        if ( v15 >= *((_DWORD *)StartContext + 50) )
+          goto LABEL_12;
+      }
+    }
+    else
+    {
+LABEL_12:
+      v18 = *((_DWORD *)StartContext + 81);
+      v19 = 0;
+      if ( v18 )
+      {
+        while ( 1 )
         {
-LABEL_10:
-          PoolWithTagFromNode = ExpAllocatePoolWithTagFromNode(NonPagedPoolNx, 0x50uLL, 1901552451LL, 0x80000000, 0);
-          if ( !PoolWithTagFromNode )
-            return v5;
-          *(_DWORD *)(PoolWithTagFromNode + 32) = 9;
-          *(_DWORD *)(PoolWithTagFromNode + 36) = -1;
-          *(_QWORD *)(PoolWithTagFromNode + 56) = StartContext;
-          *(_QWORD *)(PoolWithTagFromNode + 64) = 0LL;
-          *(_QWORD *)(PoolWithTagFromNode + 72) = 0LL;
-          *(_DWORD *)(PoolWithTagFromNode + 40) = 0;
-          *(_QWORD *)(PoolWithTagFromNode + 16) = CcReapPrivateVolumeCachemapWorkerThread;
-          *(_QWORD *)(PoolWithTagFromNode + 24) = PoolWithTagFromNode;
-          *(_QWORD *)PoolWithTagFromNode = 0LL;
-          v17 = (__int64 *)*((_QWORD *)StartContext + 13);
-          if ( (char *)*v17 != v7 )
-            __fastfail(3u);
-          *(_QWORD *)PoolWithTagFromNode = v7;
-          *(_QWORD *)(PoolWithTagFromNode + 8) = v17;
-          *v17 = PoolWithTagFromNode;
-          *((_QWORD *)StartContext + 13) = PoolWithTagFromNode;
+          v20 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x71576343u);
+          if ( !v20 )
+            break;
+          v20[8] = 2;
+          *((_QWORD *)v20 + 7) = StartContext;
+          v20[10] = v19;
+          v20[9] = -1;
+          *((_QWORD *)v20 + 2) = CcWorkerThread;
+          *((_QWORD *)v20 + 3) = v20;
+          *(_QWORD *)v20 = 0LL;
+          v21 = (char **)*((_QWORD *)StartContext + 39);
+          if ( *v21 != v6 )
+            goto LABEL_31;
+          *(_QWORD *)v20 = v6;
+          ++v19;
+          *((_QWORD *)v20 + 1) = v21;
+          *v21 = (char *)v20;
+          *((_QWORD *)StartContext + 39) = v20;
+          v18 = *((_DWORD *)StartContext + 81);
+          if ( v19 >= v18 )
+            goto LABEL_16;
         }
-        v5 = 1;
-        StartContext[1364] = 1;
-        DbgPrintEx(
-          0x7Fu,
-          2u,
-          "CcInitializePartition: Initialized Partition=%p, PartitionObject=%p \n",
-          StartContext,
-          a3);
+      }
+      else
+      {
+LABEL_16:
+        v22 = 0;
+        if ( *((_DWORD *)StartContext + 87) )
+        {
+          while ( 1 )
+          {
+            v23 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x71576343u);
+            if ( !v23 )
+              break;
+            v23[8] = 5;
+            *((_QWORD *)v23 + 7) = StartContext;
+            v23[10] = v22;
+            v23[9] = -1;
+            *((_QWORD *)v23 + 2) = CcCachemapUninitWorkerThread;
+            *((_QWORD *)v23 + 3) = v23;
+            *(_QWORD *)v23 = 0LL;
+            v24 = (char **)*((_QWORD *)StartContext + 42);
+            if ( *v24 != v7 )
+              goto LABEL_31;
+            *(_QWORD *)v23 = v7;
+            ++v22;
+            *((_QWORD *)v23 + 1) = v24;
+            *v24 = (char *)v23;
+            *((_QWORD *)StartContext + 42) = v23;
+            if ( v22 >= *((_DWORD *)StartContext + 87) )
+            {
+              v18 = *((_DWORD *)StartContext + 81);
+              goto LABEL_21;
+            }
+          }
+        }
+        else
+        {
+LABEL_21:
+          v25 = ExAllocatePoolWithTag(NonPagedPoolNx, 8LL * (v18 + 1), 0x70546343u);
+          v26 = v25;
+          if ( v25 )
+          {
+            memset(v25, 0, 8LL * (unsigned int)(*((_DWORD *)StartContext + 81) + 1));
+            *((_QWORD *)StartContext + 90) = v26;
+            if ( (unsigned __int8)CcInitializeAsyncRead(StartContext) )
+            {
+              v2 = 1;
+              DbgPrintEx(
+                0x7Fu,
+                2u,
+                "CcInitializePartition: Initialized Partition=%p, PartitionObject=%p \n",
+                StartContext,
+                a2);
+            }
+          }
+        }
       }
     }
   }
-  return v5;
+  return v2;
 }

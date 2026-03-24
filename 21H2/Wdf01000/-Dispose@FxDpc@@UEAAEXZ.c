@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Dispose@FxDpc@@UEAAEXZ @ 0x1C005B910
+ * XREFs of ?Dispose@FxDpc@@UEAAEXZ @ 0x1C003A3F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 unsigned __int8 __fastcall FxDpc::Dispose(FxDpc *this)

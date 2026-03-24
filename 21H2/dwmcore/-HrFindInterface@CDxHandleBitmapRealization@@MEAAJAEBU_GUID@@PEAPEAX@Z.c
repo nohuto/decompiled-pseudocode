@@ -1,9 +1,10 @@
 /*
- * XREFs of ?HrFindInterface@CDxHandleBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800AFB30
+ * XREFs of ?HrFindInterface@CDxHandleBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800686F0
  * Callers:
- *     ?HrFindInterface@CDxHandleAdvancedDirectFlipBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802A3AA0 (-HrFindInterface@CDxHandleAdvancedDirectFlipBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CGDIBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800CC3F0 (-HrFindInterface@CGDIBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CDxHandleAdvancedDirectFlipBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180263F70 (-HrFindInterface@CDxHandleAdvancedDirectFlipBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  * Callees:
- *     ?HrFindInterface@CBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800DD000 (-HrFindInterface@CBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800CC530 (-HrFindInterface@CBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CDxHandleBitmapRealization::HrFindInterface(
@@ -33,8 +34,8 @@ __int64 __fastcall CDxHandleBitmapRealization::HrFindInterface(
       }
       else
       {
-        v3 = *((_BYTE *)this + 313) == 0 ? 0x80004002 : 0;
-        *a3 = (void *)(((unsigned __int64)this + 360) & -(__int64)(*((_BYTE *)this + 313) != 0));
+        v3 = *((_BYTE *)this + 281) == 0 ? 0x80004002 : 0;
+        *a3 = (void *)(((unsigned __int64)this + 328) & -(__int64)(*((_BYTE *)this + 281) != 0));
       }
     }
     else

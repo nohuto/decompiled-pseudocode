@@ -1,11 +1,11 @@
 /*
- * XREFs of KiTpEmulateMovRegImm @ 0x140AB2FBC
+ * XREFs of KiTpEmulateMovRegImm @ 0x140A12F3C
  * Callers:
- *     KiTpEmulateInstruction @ 0x140AB28B8 (KiTpEmulateInstruction.c)
+ *     KiTpEmulateInstruction @ 0x140A128C0 (KiTpEmulateInstruction.c)
  * Callees:
- *     KiTpFetchImmediateOperand @ 0x140AB3214 (KiTpFetchImmediateOperand.c)
- *     KiTpSetImmediateOperandSize @ 0x140AB3730 (KiTpSetImmediateOperandSize.c)
- *     KiTpWriteRegisterValue @ 0x140AB378C (KiTpWriteRegisterValue.c)
+ *     KiTpFetchImmediateOperand @ 0x140A13198 (KiTpFetchImmediateOperand.c)
+ *     KiTpSetImmediateOperandSize @ 0x140A136B0 (KiTpSetImmediateOperandSize.c)
+ *     KiTpWriteRegisterValue @ 0x140A1370C (KiTpWriteRegisterValue.c)
  */
 
 __int64 __fastcall KiTpEmulateMovRegImm(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

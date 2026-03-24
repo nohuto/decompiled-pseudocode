@@ -1,22 +1,22 @@
 /*
- * XREFs of ACPIBusAndFilterIrpQueryContainerId @ 0x1C0006718
+ * XREFs of ACPIBusAndFilterIrpQueryContainerId @ 0x1C002E158
  * Callers:
- *     ACPIBusIrpQueryId @ 0x1C0093F10 (ACPIBusIrpQueryId.c)
- *     ACPIFilterIrpQueryIdCompletion @ 0x1C00AE970 (ACPIFilterIrpQueryIdCompletion.c)
+ *     ACPIBusIrpQueryId @ 0x1C008FF00 (ACPIBusIrpQueryId.c)
+ *     ACPIFilterIrpQueryIdCompletion @ 0x1C00AF8D0 (ACPIFilterIrpQueryIdCompletion.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     ACPIProcessPhysicalDeviceLocation @ 0x1C0094310 (ACPIProcessPhysicalDeviceLocation.c)
- *     ACPIFreePhysicalDeviceLocationDescriptors @ 0x1C00A1730 (ACPIFreePhysicalDeviceLocationDescriptors.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIFreePhysicalDeviceLocationDescriptors @ 0x1C009A1C8 (ACPIFreePhysicalDeviceLocationDescriptors.c)
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C009E538 (ACPIProcessPhysicalDeviceLocation.c)
  */
 
-__int64 __fastcall ACPIBusAndFilterIrpQueryContainerId(_QWORD *a1, __int64 *a2, __int64 a3)
+__int64 __fastcall ACPIBusAndFilterIrpQueryContainerId(_QWORD *a1, SIZE_T *a2, __int64 a3)
 {
   NTSTATUS v6; // ebx
   __int64 v8; // rax
-  __int64 v9; // rdx
-  _WORD *Pool2; // rax
+  SIZE_T v9; // rdx
+  _WORD *PoolWithTag; // rax
   _WORD *v11; // rdi
   struct _UNICODE_STRING GuidString; // [rsp+20h] [rbp-39h] BYREF
   _QWORD v13[10]; // [rsp+30h] [rbp-29h] BYREF
@@ -36,11 +36,11 @@ __int64 __fastcall ACPIBusAndFilterIrpQueryContainerId(_QWORD *a1, __int64 *a2, 
       {
         v9 = GuidString.Length + 2LL;
         *a2 = v9;
-        Pool2 = (_WORD *)ExAllocatePool2(256LL, v9, 1399874369LL);
-        v11 = Pool2;
-        if ( Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9, 0x53706341u);
+        v11 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          memmove(Pool2, GuidString.Buffer, GuidString.Length);
+          memmove(PoolWithTag, GuidString.Buffer, GuidString.Length);
           v11[(unsigned __int64)GuidString.Length >> 1] = 0;
           *a1 = v11;
         }

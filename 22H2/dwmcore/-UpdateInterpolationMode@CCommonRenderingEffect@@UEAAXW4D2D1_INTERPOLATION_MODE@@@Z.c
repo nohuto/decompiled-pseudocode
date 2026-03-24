@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UpdateInterpolationMode@CCommonRenderingEffect@@UEAAXW4D2D1_INTERPOLATION_MODE@@@Z @ 0x180079710
+ * XREFs of ?UpdateInterpolationMode@CCommonRenderingEffect@@UEAAXW4D2D1_INTERPOLATION_MODE@@@Z @ 0x180056400
  * Callers:
  *     <none>
  * Callees:
- *     ?FromD2D1InterpolationMode@InterpolationMode@@YA?AW4Enum@1@W4D2D1_INTERPOLATION_MODE@@@Z @ 0x180079740 (-FromD2D1InterpolationMode@InterpolationMode@@YA-AW4Enum@1@W4D2D1_INTERPOLATION_MODE@@@Z.c)
+ *     ?FromD2D1InterpolationMode@InterpolationMode@@YA?AW4Enum@1@W4D2D1_INTERPOLATION_MODE@@@Z @ 0x180056430 (-FromD2D1InterpolationMode@InterpolationMode@@YA-AW4Enum@1@W4D2D1_INTERPOLATION_MODE@@@Z.c)
  */
 
 void __fastcall CCommonRenderingEffect::UpdateInterpolationMode(CCommonRenderingEffect *this, unsigned int a2)
@@ -14,7 +14,7 @@ void __fastcall CCommonRenderingEffect::UpdateInterpolationMode(CCommonRendering
   __int64 v5; // rcx
 
   v2 = InterpolationMode::FromD2D1InterpolationMode(a2);
-  v4 = (_BYTE *)(v3 + 64);
+  v4 = (_BYTE *)(v3 + 112);
   v5 = 2LL;
   do
   {

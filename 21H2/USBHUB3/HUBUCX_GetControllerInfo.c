@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBUCX_GetControllerInfo @ 0x1C00260E4
+ * XREFs of HUBUCX_GetControllerInfo @ 0x1C0025C44
  * Callers:
- *     HUBHSM_Configuring @ 0x1C0008350 (HUBHSM_Configuring.c)
- *     HUBHSM_GettingRootHubInfo @ 0x1C00097F0 (HUBHSM_GettingRootHubInfo.c)
+ *     HUBHSM_Configuring @ 0x1C0008040 (HUBHSM_Configuring.c)
+ *     HUBHSM_GettingRootHubInfo @ 0x1C00094F0 (HUBHSM_GettingRootHubInfo.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBUCX_GetControllerInfo(__int64 a1)

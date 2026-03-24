@@ -1,19 +1,16 @@
 /*
- * XREFs of KeQueryEffectivePriorityThread @ 0x1403AE790
+ * XREFs of KeQueryEffectivePriorityThread @ 0x1403763E0
  * Callers:
  *     <none>
  * Callees:
- *     KiIsThreadRankNonZero @ 0x140308EB0 (KiIsThreadRankNonZero.c)
- *     KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x14056EB4C (KiUpdateVpBackingThreadPriorityOnPriorityQuery.c)
+ *     KiIsThreadRankNonZero @ 0x14024CDC0 (KiIsThreadRankNonZero.c)
  */
 
-__int64 __fastcall KeQueryEffectivePriorityThread(ULONG_PTR a1)
+__int64 __fastcall KeQueryEffectivePriorityThread(__int64 a1)
 {
   bool v2; // zf
   __int64 result; // rax
 
-  if ( (*(_DWORD *)(a1 + 120) & 0x400000) != 0 )
-    KiUpdateVpBackingThreadPriorityOnPriorityQuery(a1);
   v2 = !KiIsThreadRankNonZero(a1, 0LL);
   result = 1LL;
   if ( v2 )

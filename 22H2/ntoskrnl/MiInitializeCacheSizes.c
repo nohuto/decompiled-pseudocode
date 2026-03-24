@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeCacheSizes @ 0x140B6FF88
+ * XREFs of MiInitializeCacheSizes @ 0x140A445AC
  * Callers:
- *     MiInitializeColors @ 0x140B6FF04 (MiInitializeColors.c)
+ *     MiInitializeColors @ 0x140A44524 (MiInitializeColors.c)
  * Callees:
- *     MiInitializeLargePageColorSizes @ 0x1403ADD20 (MiInitializeLargePageColorSizes.c)
+ *     MiInitializeLargePageColorSizes @ 0x1403AC330 (MiInitializeLargePageColorSizes.c)
  */
 
 __int64 MiInitializeCacheSizes()
@@ -11,18 +11,15 @@ __int64 MiInitializeCacheSizes()
   unsigned int SecondLevelCacheSize; // r8d
   unsigned int SecondLevelCacheAssociativity; // eax
   unsigned int v2; // ecx
-  unsigned int v3; // ecx
-  int v4; // r8d
-  unsigned int v5; // eax
-  int v7; // ecx
+  unsigned int v3; // eax
+  int v5; // ecx
   struct _KPRCB *CurrentPrcb; // rax
   __int64 CacheCount; // rdx
   _CACHE_DESCRIPTOR *Cache; // rcx
-  _PROCESSOR_CACHE_TYPE Type; // eax
   __int64 result; // rax
 
   SecondLevelCacheSize = KeGetPcr()->SecondLevelCacheSize;
-  dword_140C65BD8 = SecondLevelCacheSize;
+  dword_140C4DED8 = SecondLevelCacheSize;
   SecondLevelCacheAssociativity = KeGetPcr()->SecondLevelCacheAssociativity;
   if ( (_BYTE)SecondLevelCacheAssociativity )
     SecondLevelCacheSize /= SecondLevelCacheAssociativity;
@@ -33,24 +30,19 @@ __int64 MiInitializeCacheSizes()
   }
   if ( SecondLevelCacheSize - 8 > 0xF8 )
   {
-    if ( qword_140C6F790 < 0x80000 )
-      SecondLevelCacheSize = qword_140C6F790 < 0x40000 ? 64 : 128;
+    if ( qword_140C52890 < 0x80000 )
+      SecondLevelCacheSize = qword_140C52890 < 0x40000 ? 64 : 128;
     else
       SecondLevelCacheSize = 256;
   }
-  dword_140C65BFC = SecondLevelCacheSize;
+  dword_140C4DEFC = SecondLevelCacheSize;
+  dword_140C4DEF8 = SecondLevelCacheSize - 1;
   v3 = SecondLevelCacheSize >> 4;
-  dword_140C65BF8 = SecondLevelCacheSize - 1;
-  dword_140C65C88 = SecondLevelCacheSize >> 4;
-  v4 = SecondLevelCacheSize & 0xF;
-  if ( v4 )
-    dword_140C65C88 = v3 + 1;
-  v5 = v3 + 1;
-  if ( !v4 )
-    v5 = v3;
-  if ( _BitScanReverse((unsigned int *)&v7, v5) )
-    v5 = 1 << v7;
-  dword_140C65C88 = v5;
+  if ( (SecondLevelCacheSize & 0xF) != 0 )
+    ++v3;
+  if ( _BitScanReverse((unsigned int *)&v5, v3) )
+    v3 = 1 << v5;
+  dword_140C4DF88 = v3;
   MiInitializeLargePageColorSizes();
   CurrentPrcb = KeGetCurrentPrcb();
   CacheCount = CurrentPrcb->CacheCount;
@@ -59,20 +51,16 @@ __int64 MiInitializeCacheSizes()
   {
     do
     {
-      if ( Cache->Level == 1 )
-      {
-        Type = Cache->Type;
-        if ( Type == CacheData || Type == CacheUnified )
-          dword_140C65BDC = Cache->Size;
-      }
+      if ( Cache->Level == 1 && (Cache->Type & 0xFFFFFFFD) == 0 )
+        dword_140C4DEDC = Cache->Size;
       ++Cache;
       --CacheCount;
     }
     while ( CacheCount );
   }
   result = 0x4000LL;
-  if ( (unsigned int)dword_140C65BDC < 0x4000 )
-    dword_140C65BDC = 0x4000;
-  dword_140C65C0C = 256;
+  if ( (unsigned int)dword_140C4DEDC < 0x4000 )
+    dword_140C4DEDC = 0x4000;
+  dword_140C4DF0C = 256;
   return result;
 }

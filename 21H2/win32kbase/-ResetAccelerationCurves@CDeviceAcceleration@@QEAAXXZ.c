@@ -1,25 +1,24 @@
 /*
- * XREFs of ?ResetAccelerationCurves@CDeviceAcceleration@@QEAAXXZ @ 0x1C00A07A8
+ * XREFs of ?ResetAccelerationCurves@CDeviceAcceleration@@QEAAXXZ @ 0x1C006EC68
  * Callers:
- *     ?_NotifyExternalComponents@CInputConfig@@AEAAXXZ @ 0x1C009F3EC (-_NotifyExternalComponents@CInputConfig@@AEAAXXZ.c)
- *     ResetAccelerationCurves @ 0x1C00A0780 (ResetAccelerationCurves.c)
- *     UnpackMouseSettings @ 0x1C01E8C74 (UnpackMouseSettings.c)
+ *     ?_NotifyExternalComponents@CInputConfig@@AEAAXXZ @ 0x1C006D5EC (-_NotifyExternalComponents@CInputConfig@@AEAAXXZ.c)
+ *     ResetAccelerationCurves @ 0x1C006EC40 (ResetAccelerationCurves.c)
+ *     _SetPrecisionTouchPadConfiguration @ 0x1C011C010 (_SetPrecisionTouchPadConfiguration.c)
+ *     UnpackMouseSettings @ 0x1C01AF9A0 (UnpackMouseSettings.c)
  * Callees:
- *     ?ModifiableRegion@Iter@CInputSpace@@QEAAPEAUCInputSpaceRegion@@XZ @ 0x1C00A093C (-ModifiableRegion@Iter@CInputSpace@@QEAAPEAUCInputSpaceRegion@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ModifiableRegion@Iter@CInputSpace@@QEAAPEAUCInputSpaceRegion@@XZ @ 0x1C006EDEC (-ModifiableRegion@Iter@CInputSpace@@QEAAPEAUCInputSpaceRegion@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CDeviceAcceleration::ResetAccelerationCurves(CDeviceAcceleration *this)
 {
   CInputConfig *v2; // r14
-  CInputConfig *v3; // rdx
-  CInputConfig *i; // rdi
-  _QWORD **v5; // rcx
-  __int64 v6; // rsi
-  _QWORD *v7; // rbx
-  _QWORD *v8; // rcx
-  struct CInputSpaceRegion *v9; // rax
-  _QWORD v10[5]; // [rsp+20h] [rbp-28h] BYREF
+  CInputConfig *v3; // rax
+  CInputConfig *v4; // rdi
+  _QWORD **v5; // rsi
+  _QWORD *v6; // rbx
+  struct CInputSpaceRegion *v7; // rax
+  _QWORD v8[5]; // [rsp+20h] [rbp-28h] BYREF
 
   KeEnterCriticalRegion();
   ExAcquireResourceExclusiveLite(CInputConfig::slock, 1u);
@@ -27,39 +26,31 @@ void __fastcall CDeviceAcceleration::ResetAccelerationCurves(CDeviceAcceleration
   KeEnterCriticalRegion();
   ExAcquireResourceSharedLite(CInputConfig::slock, 1u);
   v3 = *(CInputConfig **)v2;
-  for ( i = **(CInputConfig ***)v2; ; i = *(CInputConfig **)i )
+  v4 = **(CInputConfig ***)v2;
+  while ( v3 != v2 && v3 != (CInputConfig *)-16LL )
   {
-    v5 = 0LL;
-    if ( v3 != v2 )
-      v5 = (_QWORD **)((char *)v3 + 16);
-    if ( !v5 )
-      break;
-    v6 = 1456LL;
-    if ( v3 != v2 )
-      v6 = (__int64)v3 + 1472;
-    v10[0] = &CInputConfig::slock;
+    v5 = (_QWORD **)((char *)v3 + 1440);
+    v8[0] = &CInputConfig::slock;
     KeEnterCriticalRegion();
     ExAcquireResourceSharedLite(CInputConfig::slock, 1u);
-    v7 = *(_QWORD **)v6;
-    v10[1] = v6;
+    v6 = *v5;
+    v8[1] = v5;
     while ( 1 )
     {
-      v8 = 0LL;
-      v10[2] = v7;
-      if ( v7 != (_QWORD *)v6 )
-        v8 = v7 + 2;
-      if ( !v8 )
+      v8[2] = v6;
+      if ( v6 == v5 || v6 == (_QWORD *)-16LL )
         break;
-      v9 = CInputSpace::Iter::ModifiableRegion((CInputSpace::Iter *)v10);
+      v7 = CInputSpace::Iter::ModifiableRegion((CInputSpace::Iter *)v8);
       (**(void (__fastcall ***)(CDeviceAcceleration *, _QWORD, __int64))this)(
         this,
-        *((unsigned __int16 *)v9 + 10),
-        (__int64)v9 + 200);
-      v7 = (_QWORD *)*v7;
+        *((unsigned __int16 *)v7 + 10),
+        (__int64)v7 + 200);
+      v6 = (_QWORD *)*v6;
     }
     ExReleaseResourceLite(CInputConfig::slock);
     KeLeaveCriticalRegion();
-    v3 = i;
+    v3 = v4;
+    v4 = *(CInputConfig **)v4;
   }
   ExReleaseResourceLite(CInputConfig::slock);
   KeLeaveCriticalRegion();

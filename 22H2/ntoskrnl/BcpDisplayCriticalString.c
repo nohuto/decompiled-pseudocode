@@ -1,190 +1,188 @@
 /*
- * XREFs of BcpDisplayCriticalString @ 0x14067237C
+ * XREFs of BcpDisplayCriticalString @ 0x1405C488C
  * Callers:
- *     BcpDisplayErrorInformation @ 0x1406726E4 (BcpDisplayErrorInformation.c)
- *     BcpDisplayProgress @ 0x140672970 (BcpDisplayProgress.c)
- *     BgpDisplaySafeToPowerOffScreen @ 0x140672EB4 (BgpDisplaySafeToPowerOffScreen.c)
- *     BgpFwDisplayBugCheckScreen @ 0x140673134 (BgpFwDisplayBugCheckScreen.c)
+ *     BcpDisplayErrorInformation @ 0x1405C4BF8 (BcpDisplayErrorInformation.c)
+ *     BcpDisplayProgress @ 0x1405C4E80 (BcpDisplayProgress.c)
+ *     BgpDisplaySafeToPowerOffScreen @ 0x1405C53BC (BgpDisplaySafeToPowerOffScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x1405C5644 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140671CA4 (BgpDisplayCharacterEx.c)
- *     BgpFoGetStringAdvanceWidth @ 0x140672000 (BgpFoGetStringAdvanceWidth.c)
- *     BcpPrintSpaces @ 0x140672D4C (BcpPrintSpaces.c)
- *     BgpRasGetGlyphAdvanceWidth @ 0x1406734CC (BgpRasGetGlyphAdvanceWidth.c)
+ *     BgpDisplayCharacterEx @ 0x1405C4314 (BgpDisplayCharacterEx.c)
+ *     BgpFoGetStringAdvanceWidth @ 0x1405C4510 (BgpFoGetStringAdvanceWidth.c)
+ *     BcpPrintSpaces @ 0x1405C5254 (BcpPrintSpaces.c)
+ *     BgpRasGetGlyphAdvanceWidth @ 0x1405C59CC (BgpRasGetGlyphAdvanceWidth.c)
  */
 
-__int64 __fastcall BcpDisplayCriticalString(unsigned __int16 *a1, int a2, __int64 a3, int a4)
+__int64 __fastcall BcpDisplayCriticalString(unsigned __int16 *a1, int a2, __int64 a3, __int64 a4)
 {
-  __int64 v5; // r9
-  char *v6; // rax
-  int v7; // r13d
+  __int64 v5; // r15
+  int v6; // r12d
+  unsigned int v7; // edi
   unsigned int v8; // esi
-  unsigned int v9; // edi
-  unsigned int v10; // r14d
-  int v11; // ebx
-  __int64 v12; // rcx
-  int *v13; // r12
+  unsigned int v9; // r14d
+  int v10; // ebx
+  __int64 v11; // rcx
   int StringAdvanceWidth; // r8d
-  unsigned int v15; // ebx
-  unsigned __int16 *v16; // rcx
-  unsigned int v17; // r15d
-  unsigned int v18; // r12d
-  __int64 v19; // rcx
-  __int64 v20; // rdx
-  int v21; // r15d
-  unsigned int v22; // edx
-  int v23; // ecx
+  __int64 v13; // r9
+  unsigned int v14; // ebx
+  unsigned __int16 *v15; // rcx
+  unsigned int v16; // edx
+  unsigned int v17; // r13d
+  __int64 v18; // rcx
+  __int64 v19; // rax
+  unsigned int v20; // edx
+  int v21; // ecx
+  unsigned int v22; // eax
+  __int64 v23; // rcx
   unsigned int v24; // eax
-  __int64 v25; // rcx
   __int64 result; // rax
-  unsigned __int64 v27; // [rsp+40h] [rbp-38h]
-  int v28; // [rsp+50h] [rbp-28h]
-  bool v29; // [rsp+54h] [rbp-24h]
-  int v30; // [rsp+58h] [rbp-20h]
-  __int64 v31; // [rsp+60h] [rbp-18h]
-  unsigned int v33; // [rsp+C8h] [rbp+50h] BYREF
-  unsigned int v34; // [rsp+D0h] [rbp+58h] BYREF
-  int v35; // [rsp+D8h] [rbp+60h] BYREF
+  unsigned __int64 v26; // [rsp+40h] [rbp-38h]
+  int v27; // [rsp+50h] [rbp-28h]
+  bool v28; // [rsp+54h] [rbp-24h]
+  int v29; // [rsp+58h] [rbp-20h]
+  int *v30; // [rsp+60h] [rbp-18h]
+  int v32; // [rsp+C8h] [rbp+50h] BYREF
+  unsigned int v33; // [rsp+D0h] [rbp+58h] BYREF
+  unsigned int v34; // [rsp+D8h] [rbp+60h] BYREF
 
-  v35 = 0;
-  v34 = 0;
+  v32 = 0;
   v33 = 0;
-  v5 = 9LL * a4;
-  v31 = v5;
-  v6 = (char *)&dword_140C0B5A0[2 * v5];
+  v34 = 0;
+  v5 = 9LL * (int)a4;
   if ( BcpTextBoxLeftEdgeOverride )
-    v7 = *(_DWORD *)BcpTextBoxLeftEdgeOverride;
+    v6 = *(_DWORD *)BcpTextBoxLeftEdgeOverride;
   else
-    v7 = *((_DWORD *)v6 + 4) + *((_DWORD *)v6 + 8);
+    v6 = dword_140C10F00[18 * (int)a4 + 8] + dword_140C10F00[18 * (int)a4 + 4];
   if ( BcpTextBoxRightEdgeOverride )
-    v8 = *(_DWORD *)BcpTextBoxRightEdgeOverride;
+    v7 = *(_DWORD *)BcpTextBoxRightEdgeOverride;
   else
-    v8 = *((_DWORD *)v6 + 4) + *((_DWORD *)v6 + 8) + dword_140C0B5A0[2 * v5 + 6];
-  v9 = BcpCursor;
-  v10 = HIDWORD(BcpCursor);
-  v11 = dword_140C64B30;
-  v12 = *(_QWORD *)(qword_140C70C60 + 24);
-  v29 = 0;
-  *(_DWORD *)(v12 + 56) = a2;
-  v13 = (int *)(v12 + 40);
-  v30 = v12 + 40;
-  *(_DWORD *)(qword_140C70C60 + 8) = a2;
-  StringAdvanceWidth = BgpFoGetStringAdvanceWidth((int)v12 + 40, (__int64)a1, &v33, v5);
+    v7 = dword_140C10F00[18 * (int)a4 + 8] + dword_140C10F00[18 * (int)a4 + 6] + dword_140C10F00[18 * (int)a4 + 4];
+  v8 = BcpCursor;
+  v9 = HIDWORD(BcpCursor);
+  v10 = dword_140C4C5E0;
+  v11 = *(_QWORD *)(qword_140C53EF0 + 24);
+  v28 = 0;
+  *(_DWORD *)(v11 + 56) = a2;
+  *(_DWORD *)(qword_140C53EF0 + 8) = a2;
+  v30 = (int *)(v11 + 40);
+  StringAdvanceWidth = BgpFoGetStringAdvanceWidth((int)v11 + 40, (__int64)a1, &v34, a4);
   if ( StringAdvanceWidth >= 0 )
-    v29 = v9 + v33 > v8;
-  v15 = v11 - v10;
-  v16 = a1;
-  v28 = *v13;
+    v28 = v8 + v34 > v7;
+  LODWORD(v13) = (_DWORD)v30;
+  v14 = v10 - v9;
+  v15 = a1;
+  v16 = 0;
   v17 = 0;
-  if ( (int)v15 <= 0 )
-    v15 = 0;
-  v18 = 0;
+  if ( (int)v14 <= 0 )
+    v14 = 0;
+  v34 = 0;
+  v27 = *v30;
   if ( (*a1 & 0xFFFE) != 0 )
   {
     while ( 1 )
     {
-      if ( v29 && v17 <= v18 )
+      if ( v28 && v16 <= v17 )
       {
-        v19 = *((_QWORD *)v16 + 1);
-        LODWORD(v20) = v18;
-        v21 = 0;
-        v33 = v18;
-        if ( *(_WORD *)(v19 + 2LL * v18) == 32 )
-        {
-LABEL_28:
-          v17 = v20;
-        }
-        else
+        v18 = *((_QWORD *)v15 + 1);
+        v19 = v17;
+        v34 = v17;
+        v29 = 0;
+        if ( *(_WORD *)(v18 + 2LL * v17) != 32 )
         {
           while ( 1 )
           {
-            v22 = *(unsigned __int16 *)(v19 + 2LL * (unsigned int)v20);
-            if ( v22 <= 0xD )
+            v20 = *(unsigned __int16 *)(v18 + 2 * v19);
+            if ( v20 <= 0xD )
             {
-              v23 = 9217;
-              if ( _bittest(&v23, v22) )
+              v21 = 9217;
+              if ( _bittest(&v21, v20) )
                 break;
             }
-            StringAdvanceWidth = BgpRasGetGlyphAdvanceWidth(v30, v22, (unsigned int)&v35, 0, (__int64)&BcpWorkspace);
+            StringAdvanceWidth = BgpRasGetGlyphAdvanceWidth(v13, v20, (unsigned int)&v32, v13, (__int64)&BcpWorkspace);
             if ( StringAdvanceWidth < 0 )
-              goto LABEL_42;
-            v21 += v35;
-            v20 = ++v33;
-            if ( v8 < v21 + v9 && v15 )
+              goto LABEL_40;
+            v13 = v34 + 1;
+            v29 += v32;
+            ++v34;
+            if ( v7 < v29 + v8 && v14 )
             {
-              if ( v9 < v8 )
+              if ( v8 < v7 )
               {
-                StringAdvanceWidth = BcpPrintSpaces(qword_140C70C60, v9, v8, v10, v28, (__int64)&v34);
+                StringAdvanceWidth = BcpPrintSpaces(qword_140C53EF0, v8, v7, v9, v27, (__int64)&v33);
                 if ( StringAdvanceWidth < 0 )
-                  goto LABEL_42;
-                if ( v15 < v34 )
-                  v15 = v34;
+                  goto LABEL_40;
+                if ( v14 < v33 )
+                  v14 = v33;
               }
-              v9 = v7;
-              v24 = v15 + dword_140C0B5A0[2 * v31 + 10];
-              v15 = 0;
-              v10 += v24;
+              v8 = v6;
+              v22 = v14 + dword_140C10F00[2 * v5 + 10];
+              v14 = 0;
+              v9 += v22;
               break;
             }
-            v19 = *((_QWORD *)a1 + 1);
-            if ( *(_WORD *)(v19 + 2 * v20) == 32 )
-              goto LABEL_28;
+            v19 = (unsigned int)v13;
+            v18 = *((_QWORD *)a1 + 1);
+            if ( *(_WORD *)(v18 + 2 * v13) == 32 )
+              break;
+            LODWORD(v13) = (_DWORD)v30;
           }
-          v17 = v33;
         }
       }
       StringAdvanceWidth = BgpRasGetGlyphAdvanceWidth(
-                             v30,
-                             *(unsigned __int16 *)(*((_QWORD *)a1 + 1) + 2LL * v18),
-                             (unsigned int)&v35,
-                             0,
+                             (_DWORD)v30,
+                             *(unsigned __int16 *)(*((_QWORD *)a1 + 1) + 2LL * v17),
+                             (unsigned int)&v32,
+                             v13,
                              (__int64)&BcpWorkspace);
       if ( StringAdvanceWidth < 0 )
-        goto LABEL_42;
-      if ( v8 >= v9 + v35 )
+        goto LABEL_40;
+      if ( v7 >= v8 + v32 )
         break;
-      if ( v9 < v8 )
+      if ( v8 < v7 )
       {
-        StringAdvanceWidth = BcpPrintSpaces(qword_140C70C60, v9, v8, v10, v28, (__int64)&v34);
+        StringAdvanceWidth = BcpPrintSpaces(qword_140C53EF0, v8, v7, v9, v27, (__int64)&v33);
         if ( StringAdvanceWidth < 0 )
-          goto LABEL_42;
-        if ( v15 < v34 )
-          v15 = v34;
+          goto LABEL_40;
+        if ( v14 < v33 )
+          v14 = v33;
       }
-      v9 = v7;
-      v25 = v18;
-      v10 += v15 + dword_140C0B5A0[2 * v31 + 10];
-      v15 = 0;
-      if ( *(_WORD *)(*((_QWORD *)a1 + 1) + 2LL * v18) != 32 )
-        goto LABEL_38;
-LABEL_41:
-      ++v18;
-      v16 = a1;
-      if ( v18 >= *a1 >> 1 )
-        goto LABEL_42;
+      v23 = v17;
+      v8 = v6;
+      v24 = v14 + dword_140C10F00[2 * v5 + 10];
+      v14 = 0;
+      v9 += v24;
+      if ( *(_WORD *)(*((_QWORD *)a1 + 1) + 2LL * v17) != 32 )
+        goto LABEL_36;
+LABEL_39:
+      ++v17;
+      v15 = a1;
+      v16 = v34;
+      LODWORD(v13) = (_DWORD)v30;
+      if ( v17 >= *a1 >> 1 )
+        goto LABEL_40;
     }
-    v25 = v18;
-LABEL_38:
+    v23 = v17;
+LABEL_36:
     StringAdvanceWidth = BgpDisplayCharacterEx(
-                           *(_WORD *)(*((_QWORD *)a1 + 1) + 2 * v25),
-                           (__int64 *)qword_140C70C60,
+                           *(_WORD *)(*((_QWORD *)a1 + 1) + 2 * v23),
+                           (__int64 *)qword_140C53EF0,
+                           v8,
                            v9,
-                           v10,
-                           v28,
+                           v27,
                            -1,
-                           &v35,
-                           &v34,
-                           v27);
+                           &v32,
+                           &v33,
+                           v26);
     if ( StringAdvanceWidth < 0 )
-      goto LABEL_42;
-    v9 += v35;
-    if ( v34 > v15 )
-      v15 = v34;
-    goto LABEL_41;
+      goto LABEL_40;
+    v8 += v32;
+    if ( v33 > v14 )
+      v14 = v33;
+    goto LABEL_39;
   }
-LABEL_42:
-  LODWORD(BcpCursor) = v9;
-  dword_140C64B30 = v10 + v15;
+LABEL_40:
+  LODWORD(BcpCursor) = v8;
+  dword_140C4C5E0 = v9 + v14;
   result = (unsigned int)StringAdvanceWidth;
-  HIDWORD(BcpCursor) = v10;
+  HIDWORD(BcpCursor) = v9;
   return result;
 }

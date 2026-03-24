@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpWalkConnectionList @ 0x14074D510
+ * XREFs of AlpcpWalkConnectionList @ 0x1406B9FA4
  * Callers:
- *     AlpcpDisconnectPort @ 0x14074E130 (AlpcpDisconnectPort.c)
+ *     AlpcpDisconnectPort @ 0x1405E26FC (AlpcpDisconnectPort.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
-__int64 __fastcall AlpcpWalkConnectionList(__int64 a1)
+char __fastcall AlpcpWalkConnectionList(__int64 a1)
 {
   _QWORD **v1; // rbx
   _QWORD *i; // rdi
-  __int64 result; // rax
+  char result; // al
 
   v1 = (_QWORD **)(*(_QWORD *)(a1 + 16) + 24LL);
   for ( i = *v1; i != v1; i = (_QWORD *)*i )

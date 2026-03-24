@@ -1,9 +1,9 @@
 /*
- * XREFs of CiThreadDereference @ 0x1C000A5D0
+ * XREFs of CiThreadDereference @ 0x1C000B830
  * Callers:
- *     CiThreadNotification @ 0x1C0001010 (CiThreadNotification.c)
- *     CiDispatchClose @ 0x1C000A550 (CiDispatchClose.c)
- *     CiThreadCreate @ 0x1C000AED0 (CiThreadCreate.c)
+ *     CiThreadNotification @ 0x1C0001060 (CiThreadNotification.c)
+ *     CiThreadCreate @ 0x1C000AB70 (CiThreadCreate.c)
+ *     CiDispatchClose @ 0x1C000B7B0 (CiDispatchClose.c)
  * Callees:
  *     <none>
  */

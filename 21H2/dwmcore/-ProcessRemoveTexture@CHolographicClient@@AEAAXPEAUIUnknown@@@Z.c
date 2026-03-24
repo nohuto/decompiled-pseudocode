@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessRemoveTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18029EB0C
+ * XREFs of ?ProcessRemoveTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x18025C20C
  * Callers:
- *     ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x18029E414 (-ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z.c)
- *     ?UninitializeResources@CHolographicClient@@AEAAXXZ @ 0x18029F1AC (-UninitializeResources@CHolographicClient@@AEAAXXZ.c)
+ *     ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x18025BBAC (-ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?UninitializeResources@CHolographicClient@@AEAAXXZ @ 0x18025C65C (-UninitializeResources@CHolographicClient@@AEAAXXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Remove@?$DynArray@PEAUIHolographicInteropTexture@@$0A@@@QEAAHAEBQEAUIHolographicInteropTexture@@@Z @ 0x18029F004 (-Remove@-$DynArray@PEAUIHolographicInteropTexture@@$0A@@@QEAAHAEBQEAUIHolographicInteropTexture@.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Remove@?$DynArray@PEAVCBaseExpression@@$00@@QEAAHAEBQEAVCBaseExpression@@@Z @ 0x1801AB3F0 (-Remove@-$DynArray@PEAVCBaseExpression@@$00@@QEAAHAEBQEAVCBaseExpression@@@Z.c)
  */
 
 void __fastcall CHolographicClient::ProcessRemoveTexture(CHolographicClient *this, struct IUnknown *a2)
@@ -18,7 +18,7 @@ void __fastcall CHolographicClient::ProcessRemoveTexture(CHolographicClient *thi
          &v3) >= 0 )
   {
     (*(void (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 3) + 40LL))(*((_QWORD *)this + 3), v3);
-    if ( (unsigned int)DynArray<IHolographicInteropTexture *,0>::Remove((char *)this + 40, &v3) )
+    if ( (unsigned int)DynArray<CBaseExpression *,1>::Remove((__int64 *)this + 5, &v3) )
       (*(void (__fastcall **)(__int64))(*(_QWORD *)v3 + 16LL))(v3);
     if ( v3 )
       (*(void (__fastcall **)(__int64))(*(_QWORD *)v3 + 16LL))(v3);

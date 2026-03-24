@@ -1,9 +1,9 @@
 /*
- * XREFs of _ultow @ 0x1401950F0
+ * XREFs of _ultow @ 0x140195110
  * Callers:
- *     AdtpBuildUlongString @ 0x1408EFBD4 (AdtpBuildUlongString.c)
+ *     AdtpBuildUlongString @ 0x1408EFBB4 (AdtpBuildUlongString.c)
  * Callees:
- *     xtow @ 0x140195110 (xtow.c)
+ *     xtow @ 0x140195130 (xtow.c)
  */
 
 wchar_t *__cdecl ultow(unsigned int Value, wchar_t *Dest, int Radix)

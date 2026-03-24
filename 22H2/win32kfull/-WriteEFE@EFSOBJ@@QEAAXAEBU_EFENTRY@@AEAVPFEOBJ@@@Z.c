@@ -1,12 +1,12 @@
 /*
- * XREFs of ?WriteEFE@EFSOBJ@@QEAAXAEBU_EFENTRY@@AEAVPFEOBJ@@@Z @ 0x1C00047A0
+ * XREFs of ?WriteEFE@EFSOBJ@@QEAAXAEBU_EFENTRY@@AEAVPFEOBJ@@@Z @ 0x1C00627F4
  * Callers:
- *     ?bAdd@EFSOBJ@@QEAAHPEAVPFE@@W4_ENUMFONTSTYLE@@KK@Z @ 0x1C00045E0 (-bAdd@EFSOBJ@@QEAAHPEAVPFE@@W4_ENUMFONTSTYLE@@KK@Z.c)
+ *     ?bAdd@EFSOBJ@@QEAAHPEAVPFE@@W4_ENUMFONTSTYLE@@KK@Z @ 0x1C0062680 (-bAdd@EFSOBJ@@QEAAHPEAVPFE@@W4_ENUMFONTSTYLE@@KK@Z.c)
  * Callees:
- *     cjCopyFontDataW @ 0x1C0004930 (cjCopyFontDataW.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?bGrow@EFSOBJ@@QEAAHXZ @ 0x1C02E152C (-bGrow@EFSOBJ@@QEAAHXZ.c)
+ *     cjCopyFontDataW @ 0x1C005EF80 (cjCopyFontDataW.c)
+ *     ?bGrow@EFSOBJ@@QEAAHXZ @ 0x1C010FC30 (-bGrow@EFSOBJ@@QEAAHXZ.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 void __fastcall EFSOBJ::WriteEFE(wchar_t ***this, const struct _EFENTRY *a2, struct PFEOBJ *a3)
@@ -14,18 +14,14 @@ void __fastcall EFSOBJ::WriteEFE(wchar_t ***this, const struct _EFENTRY *a2, str
   wchar_t **v6; // r9
   wchar_t *Src; // r12
   BOOL v8; // r15d
-  unsigned int v9; // edi
+  int v9; // edi
   wchar_t *v10; // rcx
-  unsigned int v11; // r13d
+  char v11; // cl
   void *v12; // rax
   const void *v13; // rsi
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  int v16; // [rsp+38h] [rbp-40h]
-  int v17; // [rsp+90h] [rbp+18h]
-  size_t v18; // [rsp+90h] [rbp+18h]
+  unsigned int Size; // [rsp+90h] [rbp+18h]
+  __int64 Sizea; // [rsp+90h] [rbp+18h]
 
-  v17 = (int)a3;
   *((_DWORD *)*this + 16) += *(_DWORD *)(*(_QWORD *)a3 + 128LL);
   v6 = *this;
   if ( !*((_DWORD *)*this + 7) && v6[2] )
@@ -59,26 +55,26 @@ void __fastcall EFSOBJ::WriteEFE(wchar_t ***this, const struct _EFENTRY *a2, str
       }
       else
       {
-        if ( (*((_BYTE *)a2 + 4) & 1) != 0 )
-          Src = (wchar_t *)(*(_QWORD *)(*(_QWORD *)(SGDGetSessionState(0LL) + 32) + 19472LL)
-                          + 196LL * *((unsigned __int16 *)a2 + 3));
-        if ( (*((_BYTE *)a2 + 4) & 2) != 0 )
+        v11 = *((_BYTE *)a2 + 4);
+        if ( (v11 & 1) != 0 )
+          Src = (wchar_t *)((char *)gpfsTable + 196 * *((unsigned __int16 *)a2 + 3));
+        if ( (v11 & 2) != 0 )
         {
           v8 = 1;
           v9 = *((unsigned __int8 *)a2 + 5);
         }
       }
-      v11 = *(_DWORD *)(*(_QWORD *)a3 + 128LL);
-      v12 = (void *)AllocFreeTmpBuffer(v11);
+      Size = *(_DWORD *)(*(_QWORD *)a3 + 128LL);
+      v12 = (void *)AllocFreeTmpBuffer(Size);
       v13 = v12;
       if ( v12 )
       {
-        memset_0(v12, 0, v11);
-        v18 = cjCopyFontDataW((int)(*this)[4], (int)v13, v17, *(_DWORD *)a2, Src, v9, v8, v16);
-        memmove((*this)[2], v13, v18);
-        FreeTmpBuffer(v13, v14, v15);
-        (*this)[2] = (wchar_t *)((char *)(*this)[2] + v18);
-        *((_DWORD *)*this + 6) -= v18;
+        memset(v12, 0, Size);
+        Sizea = cjCopyFontDataW((__int64)(*this)[4], (__int64)v13, (__int64)a3, *(_DWORD *)a2, Src, v9, v8);
+        memmove((*this)[2], v13, Sizea);
+        FreeTmpBuffer(v13);
+        (*this)[2] = (wchar_t *)((char *)(*this)[2] + Sizea);
+        *((_DWORD *)*this + 6) -= Sizea;
       }
       else
       {

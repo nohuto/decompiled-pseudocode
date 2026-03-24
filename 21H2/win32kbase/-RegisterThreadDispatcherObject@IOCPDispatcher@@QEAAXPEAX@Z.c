@@ -1,9 +1,9 @@
 /*
- * XREFs of ?RegisterThreadDispatcherObject@IOCPDispatcher@@QEAAXPEAX@Z @ 0x1C0054640
+ * XREFs of ?RegisterThreadDispatcherObject@IOCPDispatcher@@QEAAXPEAX@Z @ 0x1C00B7B70
  * Callers:
- *     UserKSTInitialize @ 0x1C0054360 (UserKSTInitialize.c)
+ *     <none>
  * Callees:
- *     ?SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z @ 0x1C0037F08 (-SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z.c)
+ *     ?SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z @ 0x1C0043164 (-SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z.c)
  */
 
 void __fastcall IOCPDispatcher::RegisterThreadDispatcherObject(IOCPDispatcher *this, void *a2)
@@ -11,9 +11,9 @@ void __fastcall IOCPDispatcher::RegisterThreadDispatcherObject(IOCPDispatcher *t
   __int64 v4; // rax
   __int64 v5; // r8
 
-  v4 = IOCPDispatcher::SetupIOCPForDispatcherHandle((__int64)this, 0LL, (int)a2, 2, *((_DWORD *)this + 724));
-  v5 = 32LL * *((unsigned int *)this + 724);
-  *(_QWORD *)((char *)this + v5 + 2576) = a2;
-  *(_QWORD *)((char *)this + v5 + 2584) = v4;
-  ++*((_DWORD *)this + 724);
+  v4 = IOCPDispatcher::SetupIOCPForDispatcherHandle((__int64)this, 0LL, (int)a2, 2, *((_DWORD *)this + 684));
+  v5 = 2 * (*((unsigned int *)this + 684) + 161LL);
+  *((_QWORD *)this + v5) = a2;
+  *((_QWORD *)this + v5 + 1) = v4;
+  ++*((_DWORD *)this + 684);
 }

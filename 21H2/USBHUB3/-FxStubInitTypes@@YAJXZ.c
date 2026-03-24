@@ -1,36 +1,37 @@
 /*
- * XREFs of ?FxStubInitTypes@@YAJXZ @ 0x1C003F5C8
+ * XREFs of ?FxStubInitTypes@@YAJXZ @ 0x1C003ED34
  * Callers:
- *     FxDriverEntryWorker @ 0x1C003F314 (FxDriverEntryWorker.c)
+ *     FxDriverEntryWorker @ 0x1C003EA34 (FxDriverEntryWorker.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 FxStubInitTypes(void)
 {
-  _QWORD *i; // rcx
-  _QWORD *j; // rax
-  unsigned int *v3; // rbx
-  __int64 (*v4)(void); // rax
+  char *i; // rbx
+  __int64 (*v2)(void); // rax
 
   if ( &__KMDF_TYPE_INIT_START <= (_UNKNOWN *)__KMDF_TYPE_INIT_END )
   {
-    for ( i = __KMDF_TYPE_INIT_END; ; i = (_QWORD *)((char *)v3 + *v3) )
+    for ( i = __KMDF_TYPE_INIT_END; ; i += 40 )
     {
-      for ( j = i + 1; j <= __KMDF_TYPE_INIT_END && !*i; ++j )
-        i = j;
       if ( i >= __KMDF_TYPE_INIT_END )
+        return 0LL;
+      if ( *(_DWORD *)i != 40 )
         break;
-      if ( i + 5 > __KMDF_TYPE_INIT_END || *(_DWORD *)i != 40 || (v3 = (unsigned int *)i) == 0LL )
-      {
-        DbgPrintEx(0x4Du, 0, "FxGetNextObjectContextTypeInfo failed\n");
-        return 3221225595LL;
-      }
-      v4 = (__int64 (*)(void))i[4];
-      if ( v4 )
-        i[3] = v4();
+      v2 = (__int64 (*)(void))*((_QWORD *)i + 4);
+      if ( v2 )
+        *((_QWORD *)i + 3) = v2();
     }
-    return 0LL;
+    DbgPrintEx(
+      0x4Du,
+      0,
+      "FxStubInitTypes: WDF_OBJECT_CONTEXT_TYPE_INFO 0x%p, size 0x%x incorrect, expected 0x%x, status 0x%x\n",
+      i,
+      *(_DWORD *)i,
+      40,
+      -1073741820);
+    return 3221225476LL;
   }
   else
   {

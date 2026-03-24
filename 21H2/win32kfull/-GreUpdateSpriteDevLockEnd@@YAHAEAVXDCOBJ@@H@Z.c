@@ -1,19 +1,20 @@
 /*
- * XREFs of ?GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0037530
+ * XREFs of ?GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0090370
  * Callers:
- *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C003F250 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003FD70 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ?vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z @ 0x1C00E9D58 (-vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z.c)
- *     ?vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C027137C (-vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ.c)
+ *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C008AFC0 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E9B0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF5A0 (GreSetDIBitsToDeviceInternal.c)
+ *     ?vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z @ 0x1C00FF204 (-vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z.c)
+ *     ?vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C0273624 (-vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ.c)
  * Callees:
- *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C0008914 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C0009024 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
- *     GreUpdateSprite @ 0x1C0020E98 (GreUpdateSprite.c)
- *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HH@Z @ 0x1C0037EE0 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
- *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C0041E20 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
- *     ?GdiUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@@Z @ 0x1C01576DC (-GdiUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HH@Z @ 0x1C0090830 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00B2CDC (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     GreUpdateSprite @ 0x1C00BEB60 (GreUpdateSprite.c)
+ *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C00CE750 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEEF0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     ?GdiUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@@Z @ 0x1C01657E4 (-GdiUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall GreUpdateSpriteDevLockEnd(HDC **a1, int a2)
@@ -26,7 +27,7 @@ __int64 __fastcall GreUpdateSpriteDevLockEnd(HDC **a1, int a2)
   HDC v9; // rdi
   HWND v10; // r12
   __int64 v12; // r10
-  __int64 v13; // rax
+  __int64 v13; // rcx
   struct tagRECT v14; // xmm0
   unsigned int v15; // r12d
   unsigned int left; // eax
@@ -75,7 +76,7 @@ __int64 __fastcall GreUpdateSpriteDevLockEnd(HDC **a1, int a2)
       v7 = *a1;
       v8 = (struct tagSIZE)(*a1)[64];
       v25 = v8;
-      v26 = (struct REGION *)v7[148];
+      v26 = (struct REGION *)v7[149];
       if ( !v26 )
       {
         EtwDevLockEndUpdate(
@@ -223,7 +224,7 @@ LABEL_18:
               if ( !v3 )
                 break;
 LABEL_38:
-              v3 = XCLIPOBJ::bEnum((XCLIPOBJ *)&Parameter, 0x144u, (char *)v44, 0LL);
+              v3 = XCLIPOBJ::bEnum((XCLIPOBJ *)&Parameter, 0x144u, v44, 0LL);
               v24 = v3;
             }
             break;
@@ -239,8 +240,8 @@ LABEL_38:
       }
     }
 LABEL_8:
-    REGION::vDeleteREGION((REGION *)(*a1)[148]);
-    (*a1)[148] = 0LL;
+    REGION::vDeleteREGION((REGION *)(*a1)[149]);
+    (*a1)[149] = 0LL;
     goto LABEL_9;
   }
   GdiUpdateSpriteDevLockEnd((struct XDCOBJ *)a1);

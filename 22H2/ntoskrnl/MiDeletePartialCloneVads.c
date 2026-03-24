@@ -1,106 +1,103 @@
 /*
- * XREFs of MiDeletePartialCloneVads @ 0x140A48E9C
+ * XREFs of MiDeletePartialCloneVads @ 0x1408D9578
  * Callers:
- *     MiAllocateChildVads @ 0x140A483EC (MiAllocateChildVads.c)
- *     MiInsertChildVads @ 0x140A490FC (MiInsertChildVads.c)
+ *     MiAllocateChildVads @ 0x1408D8AE0 (MiAllocateChildVads.c)
+ *     MiInsertChildVads @ 0x1408D97D0 (MiInsertChildVads.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x140272D70 (MiGetProtoPteAddress.c)
- *     MiIsVadLargePrivate @ 0x140287F50 (MiIsVadLargePrivate.c)
- *     MiGetVadWakeList @ 0x14028A050 (MiGetVadWakeList.c)
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
- *     MiFreeVadEvents @ 0x140633DA0 (MiFreeVadEvents.c)
- *     MiDecrementLargeSubsections @ 0x14063C764 (MiDecrementLargeSubsections.c)
- *     MiFreePlaceholderStorage @ 0x1406834D8 (MiFreePlaceholderStorage.c)
- *     MiRemoveSharedCommitNode @ 0x140722410 (MiRemoveSharedCommitNode.c)
- *     MiDereferencePerSessionProtos @ 0x1407B6168 (MiDereferencePerSessionProtos.c)
- *     MiFreeVadEventBitmap @ 0x140A31F78 (MiFreeVadEventBitmap.c)
- *     MiVadHasSharedCommit @ 0x140A43E08 (MiVadHasSharedCommit.c)
- *     MiFreeLargePageView @ 0x140A49B10 (MiFreeLargePageView.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiGetVadWakeList @ 0x1402986A0 (MiGetVadWakeList.c)
+ *     MiGetProtoPteAddress @ 0x1402B11D0 (MiGetProtoPteAddress.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     MiIsVadLargePrivate @ 0x140304C64 (MiIsVadLargePrivate.c)
+ *     MiFreeVadEvents @ 0x14053A6A4 (MiFreeVadEvents.c)
+ *     MiDecrementLargeSubsections @ 0x140540350 (MiDecrementLargeSubsections.c)
+ *     MiRemoveSharedCommitNode @ 0x140638C00 (MiRemoveSharedCommitNode.c)
+ *     MiDereferencePerSessionProtos @ 0x14069F60C (MiDereferencePerSessionProtos.c)
+ *     MiFreePlaceholderStorage @ 0x1406A6748 (MiFreePlaceholderStorage.c)
+ *     MiFreeVadEventBitmap @ 0x1408C87A8 (MiFreeVadEventBitmap.c)
+ *     MiVadHasSharedCommit @ 0x1408D9A80 (MiVadHasSharedCommit.c)
+ *     MiFreeLargePageView @ 0x1408DA360 (MiFreeLargePageView.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiDeletePartialCloneVads(char *P)
+void __fastcall MiDeletePartialCloneVads(_QWORD *P, int a2, __int64 a3, _DWORD *a4)
 {
-  char *v1; // r14
-  char *v2; // rbx
+  _QWORD *v5; // rdi
+  _DWORD *v6; // rbx
   _KPROCESS *i; // rbp
-  __int64 v4; // rcx
-  void *VadWakeList; // rdi
-  __int64 **v6; // rdi
-  int *v7; // rsi
-  int v8; // eax
-  __int64 v9; // rdx
-  __int64 v10; // rax
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  _DWORD *v10; // r9
+  __int64 *VadWakeList; // rsi
+  int v12; // edx
+  __int64 v13; // rdx
+  __int64 v14; // rax
   __int64 *j; // rsi
-  __int64 v12; // r13
+  __int64 **v16; // rax
+  __int64 *v17; // rsi
   unsigned int SessionId; // eax
-  int v14; // ecx
-  __int64 *v15; // [rsp+60h] [rbp+8h] BYREF
-  __int64 *v16; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v19; // rdx
+  __int64 v20; // r8
+  _DWORD *v21; // r9
+  int v22; // ecx
+  __int64 *v23; // [rsp+40h] [rbp+8h] BYREF
+  __int64 *v24; // [rsp+50h] [rbp+18h] BYREF
 
-  v1 = P;
-  v2 = P;
-  for ( i = KeGetCurrentThread()->ApcState.Process; v1; v2 = v1 )
+  v5 = P;
+  v6 = P;
+  for ( i = KeGetCurrentThread()->ApcState.Process; v5; v6 = v5 )
   {
-    v1 = *(char **)v1;
-    MiFreeVadEventBitmap(i, (__int64)v2, 4);
-    if ( MiIsVadLargePrivate((__int64)v2) )
+    v5 = (_QWORD *)*v5;
+    MiFreeVadEventBitmap(i, (__int64)v6, 4LL, a4);
+    if ( MiIsVadLargePrivate((__int64)v6) )
     {
-      VadWakeList = (void *)MiGetVadWakeList(v4, 16);
-      MiFreeLargePageView(i, v2, VadWakeList, 1LL);
-      if ( VadWakeList )
-        ExFreePoolWithTag(VadWakeList, 0);
-      v6 = (__int64 **)(v2 + 72);
-      v7 = (int *)(v2 + 48);
+      if ( a2 == 1 )
+      {
+        VadWakeList = MiGetVadWakeList(v8, 16, v9, v10);
+        MiFreeLargePageView(i, v6, VadWakeList, 1LL);
+        if ( VadWakeList )
+          ExFreePoolWithTag(VadWakeList, 0);
+      }
     }
     else
     {
-      v6 = (__int64 **)(v2 + 72);
-      v8 = *((_DWORD *)v2 + 12) & 0x70;
-      if ( v8 == 80 )
+      v12 = v6[12] & 0x70;
+      if ( v12 == 80 && *(_QWORD *)(**((_QWORD **)v6 + 9) + 64LL) )
       {
-        if ( *(_QWORD *)(**v6 + 64) )
+        v13 = *((unsigned __int8 *)v6 + 32);
+        v14 = (unsigned int)v6[6];
+        v24 = 0LL;
+        v23 = 0LL;
+        MiGetProtoPteAddress((__int64)v6, v14 | (v13 << 32), 0, &v24);
+        MiGetProtoPteAddress(
+          (__int64)v6,
+          (unsigned int)v6[7] | ((unsigned __int64)*((unsigned __int8 *)v6 + 33) << 32),
+          0,
+          &v23);
+        for ( j = v24; ; j = (__int64 *)j[2] )
         {
-          v9 = (unsigned __int8)v2[32];
-          v10 = *((unsigned int *)v2 + 6);
-          v16 = 0LL;
-          v15 = 0LL;
-          MiGetProtoPteAddress((__int64)v2, v10 | (v9 << 32), 0, (__int64 *)&v16);
-          MiGetProtoPteAddress(
-            (__int64)v2,
-            *((unsigned int *)v2 + 7) | ((unsigned __int64)(unsigned __int8)v2[33] << 32),
-            0,
-            (__int64 *)&v15);
-          for ( j = v16; ; j = (__int64 *)j[2] )
-          {
-            MiDecrementLargeSubsections(j, j);
-            if ( j == v15 )
-              break;
-          }
+          MiDecrementLargeSubsections(j, j);
+          if ( j == v23 )
+            break;
         }
-        v7 = (int *)(v2 + 48);
       }
-      else
+      else if ( v12 == 32 )
       {
-        v7 = (int *)(v2 + 48);
-        if ( v8 == 32 )
+        v16 = (__int64 **)*((_QWORD *)v6 + 9);
+        v17 = *v16;
+        if ( ((*v16)[7] & 0x4000000) != 0 )
         {
-          v12 = **v6;
-          if ( (*(_DWORD *)(v12 + 56) & 0x8000000) != 0 )
-          {
-            SessionId = MmGetSessionIdEx((__int64)i);
-            MiDereferencePerSessionProtos((__int64 *)v12, SessionId);
-          }
+          SessionId = MmGetSessionIdEx((__int64)i);
+          MiDereferencePerSessionProtos(v17, SessionId);
         }
       }
     }
-    if ( (unsigned int)MiVadHasSharedCommit((__int64)v2) )
-      MiRemoveSharedCommitNode(**v6, (unsigned __int64)i, 0);
-    v14 = *v7;
-    if ( (*v7 & 0x200000) == 0 && (v14 & 0x70) == 0x20 && (v14 & 0x400000) != 0 )
-      --*(_QWORD *)(i[1].ActiveProcessors.StaticBitmap[28] + 368);
-    MiFreePlaceholderStorage((__int64)v2);
-    MiFreeVadEvents((__int64)v2);
-    ExFreePoolWithTag(v2, 0);
+    if ( (unsigned int)MiVadHasSharedCommit(v6) )
+      MiRemoveSharedCommitNode(**((_QWORD ***)v6 + 9), (unsigned __int64)i, 0);
+    v22 = v6[12];
+    if ( (v22 & 0x100000) == 0 && (v22 & 0x70) == 0x20 && (v22 & 0x200000) != 0 )
+      --*(_QWORD *)(i[1].ActiveProcessorsPadding[8] + 384);
+    MiFreePlaceholderStorage((__int64)v6, v19, v20, v21);
+    MiFreeVadEvents((__int64)v6);
+    ExFreePoolWithTag(v6, 0);
   }
 }

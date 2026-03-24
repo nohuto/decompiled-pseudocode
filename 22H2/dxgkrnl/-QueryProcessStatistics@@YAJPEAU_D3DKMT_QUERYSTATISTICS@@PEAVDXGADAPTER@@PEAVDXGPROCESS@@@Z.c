@@ -1,211 +1,168 @@
 /*
- * XREFs of ?QueryProcessStatistics@@YAJPEAU_D3DKMT_QUERYSTATISTICS@@PEAVDXGADAPTER@@PEAVDXGPROCESS@@@Z @ 0x1C02D004C
+ * XREFs of ?QueryProcessStatistics@@YAJPEAU_D3DKMT_QUERYSTATISTICS@@PEAVDXGADAPTER@@PEAVDXGPROCESS@@@Z @ 0x1C0222AE0
  * Callers:
- *     DxgkQueryStatisticsInternal @ 0x1C02D4710 (DxgkQueryStatisticsInternal.c)
+ *     DxgkQueryStatisticsInternal @ 0x1C0226088 (DxgkQueryStatisticsInternal.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?VidMmQueryProcessAdapterStatistics@VIDMM_EXPORT@@QEAAJPEAVVIDMM_GLOBAL@@GPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION@@@Z @ 0x1C00472C4 (-VidMmQueryProcessAdapterStatistics@VIDMM_EXPORT@@QEAAJPEAVVIDMM_GLOBAL@@GPEAVDXGPROCESS@@PEAU_D.c)
- *     ?VidMmQueryProcessSegmentGroupStatistics@VIDMM_EXPORT@@QEAAJPEAVVIDMM_GLOBAL@@GW4_D3DKMT_MEMORY_SEGMENT_GROUP@@PEAVDXGPROCESS@@PEAU_D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION@@@Z @ 0x1C0047310 (-VidMmQueryProcessSegmentGroupStatistics@VIDMM_EXPORT@@QEAAJPEAVVIDMM_GLOBAL@@GW4_D3DKMT_MEMORY_.c)
- *     ?VidMmQueryProcessSegmentStatistics@VIDMM_EXPORT@@QEAAJPEAVVIDMM_GLOBAL@@GIPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION@@@Z @ 0x1C0047374 (-VidMmQueryProcessSegmentStatistics@VIDMM_EXPORT@@QEAAJPEAVVIDMM_GLOBAL@@GIPEAVDXGPROCESS@@PEAU_.c)
- *     ?VidSchQueryProcessAdapterStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@PEAVDXGPROCESS@@PEAU_D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION@@@Z @ 0x1C0047414 (-VidSchQueryProcessAdapterStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@PEAVDXGPROCESS@@PEA.c)
- *     ?VidSchQueryProcessNodeStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@GIPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION@@@Z @ 0x1C00474EC (-VidSchQueryProcessNodeStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@GIPEAVDXGPROCESS@@PEAU.c)
- *     ?VidSchQueryProcessStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@PEAVDXGPROCESS@@PEAU_D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION@@@Z @ 0x1C00475E8 (-VidSchQueryProcessStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@PEAVDXGPROCESS@@PEAU_D3DKM.c)
- *     ?VidSchQueryProcessVidPnSourceStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@IPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION@@@Z @ 0x1C00476C0 (-VidSchQueryProcessVidPnSourceStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@IPEAVDXGPROCESS.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?VidSchQueryProcessAdapterStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@PEAVDXGPROCESS@@PEAU_D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION@@@Z @ 0x1C003F2C8 (-VidSchQueryProcessAdapterStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@PEAVDXGPROCESS@@PEA.c)
+ *     ?VidSchQueryProcessNodeStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@IPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION@@@Z @ 0x1C003F358 (-VidSchQueryProcessNodeStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@IPEAVDXGPROCESS@@PEAU_.c)
+ *     ?VidSchQueryProcessStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@PEAVDXGPROCESS@@PEAU_D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION@@@Z @ 0x1C003F3EC (-VidSchQueryProcessStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@PEAVDXGPROCESS@@PEAU_D3DKM.c)
+ *     ?VidSchQueryProcessVidPnSourceStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@IPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION@@@Z @ 0x1C003F47C (-VidSchQueryProcessVidPnSourceStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@IPEAVDXGPROCESS.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall QueryProcessStatistics(
         struct _D3DKMT_QUERYSTATISTICS *a1,
         struct DXGADAPTER *a2,
-        struct _KTHREAD **a3)
+        struct DXGPROCESS *a3,
+        __int64 a4)
 {
-  __int64 v6; // rdx
-  unsigned int v8; // r9d
-  unsigned __int16 v9; // r8
-  unsigned int v10; // r9d
-  unsigned __int16 v11; // r8
-  unsigned __int16 v12; // r8
+  __int64 v4; // rbx
+  __int64 v8; // rax
+  __int64 v9; // rax
+  __int64 v10; // rax
+  struct _KTHREAD *CurrentThread; // rcx
+  __int64 v12; // rcx
   __int64 v13; // rax
-  struct _KTHREAD *v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // rdx
-  struct _D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION *v17; // rbp
-  int ProcessAdapterStatistics; // ebx
-  unsigned int v19; // r9d
-  unsigned __int16 v20; // r8
-  struct _D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION *v21; // rbp
+  int v14; // r14d
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  __int64 v18; // rdx
+  unsigned int ProcessNodeStatistics; // eax
+  __int64 v20; // rax
+  __int64 v21; // rcx
+  __int64 v22; // rdx
+  __int64 v23; // rax
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // rdx
+  __int64 v27; // rax
+  __int64 v28; // rcx
+  __int64 v29; // r8
+  __int64 v30; // rdx
 
+  v4 = 0LL;
   if ( !a1 )
   {
-    WdLogSingleEntry1(1LL, 5675LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pQueryStatistics", 5675LL, 0LL, 0LL, 0LL, 0LL);
+    v8 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    *(_QWORD *)(v8 + 24) = 5393LL;
+    WdLogEvent5_WdAssertion(v8);
   }
-  if ( !a2 || !*((_QWORD *)a2 + 366) )
+  if ( !a2 || !*((_QWORD *)a2 + 338) )
   {
-    WdLogSingleEntry1(1LL, 5676LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pAdapter && pAdapter->IsRenderAdapter()",
-      5676LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v9 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v9 + 24) = 5394LL;
+    WdLogEvent5_WdAssertion(v9);
   }
   if ( !a3 )
   {
-    WdLogSingleEntry1(1LL, 5678LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pProcess", 5678LL, 0LL, 0LL, 0LL, 0LL);
+    v10 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v10 + 24) = 5396LL;
+    WdLogEvent5_WdAssertion(v10);
   }
-  if ( a3[16] != KeGetCurrentThread() && a3 != (struct _KTHREAD **)DXGPROCESS::GetCurrent((__int64)a1) )
+  CurrentThread = KeGetCurrentThread();
+  if ( *(struct _KTHREAD **)(*((_QWORD *)a3 + 13) + 16LL) != CurrentThread
+    && a3 != DXGPROCESS::GetCurrent((__int64)CurrentThread, (__int64)a2, (__int64)a3, a4) )
   {
-    WdLogSingleEntry1(1LL, 5679LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"pProcess->IsMutexOwner() || pProcess == DXGPROCESS::GetCurrent()",
-      5679LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v13 = WdLogNewEntry5_WdAssertion(v12, a2);
+    *(_QWORD *)(v13 + 24) = 5397LL;
+    WdLogEvent5_WdAssertion(v13);
   }
-  v6 = *(int *)a1;
-  if ( (int)v6 > 9 )
+  if ( *(_DWORD *)a1 == 1 )
   {
-    if ( (_DWORD)v6 == 13 )
-    {
-      v12 = *((_WORD *)a1 + 400);
-LABEL_40:
-      v21 = (struct _D3DKMT_QUERYSTATISTICS *)((char *)a1 + 24);
-      ProcessAdapterStatistics = VIDMM_EXPORT::VidMmQueryProcessAdapterStatistics(
-                                   *(VIDMM_EXPORT **)(*((_QWORD *)a2 + 366) + 760LL),
-                                   *(struct VIDMM_GLOBAL **)(*((_QWORD *)a2 + 366) + 768LL),
-                                   v12,
-                                   (struct DXGPROCESS *)a3,
-                                   (struct _D3DKMT_QUERYSTATISTICS *)((char *)a1 + 24));
-      if ( ProcessAdapterStatistics >= 0 )
-        return (unsigned int)VIDSCH_EXPORT::VidSchQueryProcessAdapterStatistics(
-                               *(VIDSCH_EXPORT **)(*((_QWORD *)a2 + 366) + 736LL),
-                               *(struct _VIDSCH_GLOBAL **)(*((_QWORD *)a2 + 366) + 744LL),
-                               (struct DXGPROCESS *)a3,
-                               v21);
-      return (unsigned int)ProcessAdapterStatistics;
-    }
-    if ( (_DWORD)v6 == 14 )
-    {
-      v10 = *((unsigned __int16 *)a1 + 401);
-      v11 = *((_WORD *)a1 + 400);
-      return (unsigned int)VIDMM_EXPORT::VidMmQueryProcessSegmentStatistics(
-                             *(VIDMM_EXPORT **)(*((_QWORD *)a2 + 366) + 760LL),
-                             *(struct VIDMM_GLOBAL **)(*((_QWORD *)a2 + 366) + 768LL),
-                             v11,
-                             v10,
-                             (struct DXGPROCESS *)a3,
+    v27 = *((_QWORD *)a2 + 338);
+    v28 = *((_QWORD *)a3 + 8);
+    v29 = *(_QWORD *)(v27 + 640);
+    if ( v28 )
+      v30 = *(_QWORD *)(v28 + 8LL * (unsigned int)(*(_DWORD *)v29 - 1));
+    else
+      v30 = 0LL;
+    v14 = (*(__int64 (__fastcall **)(_QWORD, __int64, char *))(*(_QWORD *)(v29 + 8) + 304LL))(
+            *(_QWORD *)(v27 + 648),
+            v30,
+            (char *)a1 + 24);
+    if ( v14 >= 0 )
+      return (unsigned int)VIDSCH_EXPORT::VidSchQueryProcessStatistics(
+                             *(VIDSCH_EXPORT **)(*((_QWORD *)a2 + 338) + 616LL),
+                             *(struct _VIDSCH_GLOBAL **)(*((_QWORD *)a2 + 338) + 624LL),
+                             a3,
                              (struct _D3DKMT_QUERYSTATISTICS *)((char *)a1 + 24));
-    }
-    if ( (_DWORD)v6 != 15 )
-    {
-      if ( (_DWORD)v6 != 19 )
-      {
-LABEL_35:
-        ProcessAdapterStatistics = -1073741811;
-        WdLogSingleEntry1(3LL, v6);
-        return (unsigned int)ProcessAdapterStatistics;
-      }
-      v8 = *((unsigned __int16 *)a1 + 401);
-      v9 = *((_WORD *)a1 + 400);
-      return (unsigned int)VIDSCH_EXPORT::VidSchQueryProcessNodeStatistics(
-                             *(VIDSCH_EXPORT **)(*((_QWORD *)a2 + 366) + 736LL),
-                             *(struct _VIDSCH_GLOBAL **)(*((_QWORD *)a2 + 366) + 744LL),
-                             v9,
-                             v8,
-                             (struct DXGPROCESS *)a3,
-                             (struct _D3DKMT_QUERYSTATISTICS *)((char *)a1 + 24));
-    }
-    v19 = *((unsigned __int16 *)a1 + 401);
-    v20 = *((_WORD *)a1 + 400);
-    return (unsigned int)VIDMM_EXPORT::VidMmQueryProcessSegmentGroupStatistics(
-                           *(VIDMM_EXPORT **)(*((_QWORD *)a2 + 366) + 760LL),
-                           *(struct VIDMM_GLOBAL **)(*((_QWORD *)a2 + 366) + 768LL),
-                           v20,
-                           v19,
-                           (struct DXGPROCESS *)a3,
-                           (struct _D3DKMT_QUERYSTATISTICS *)((char *)a1 + 24));
   }
-  if ( (_DWORD)v6 == 9 )
-  {
-    v19 = *((_DWORD *)a1 + 200);
-    v20 = 0;
-    return (unsigned int)VIDMM_EXPORT::VidMmQueryProcessSegmentGroupStatistics(
-                           *(VIDMM_EXPORT **)(*((_QWORD *)a2 + 366) + 760LL),
-                           *(struct VIDMM_GLOBAL **)(*((_QWORD *)a2 + 366) + 768LL),
-                           v20,
-                           v19,
-                           (struct DXGPROCESS *)a3,
-                           (struct _D3DKMT_QUERYSTATISTICS *)((char *)a1 + 24));
-  }
-  if ( (_DWORD)v6 != 1 )
-  {
-    if ( (_DWORD)v6 != 2 )
-    {
-      if ( (_DWORD)v6 != 4 )
-      {
-        if ( (_DWORD)v6 != 6 )
-        {
-          if ( (_DWORD)v6 == 8 )
-            return (unsigned int)VIDSCH_EXPORT::VidSchQueryProcessVidPnSourceStatistics(
-                                   *(VIDSCH_EXPORT **)(*((_QWORD *)a2 + 366) + 736LL),
-                                   *(struct _VIDSCH_GLOBAL **)(*((_QWORD *)a2 + 366) + 744LL),
-                                   *((_DWORD *)a1 + 200),
-                                   (struct DXGPROCESS *)a3,
-                                   (struct _D3DKMT_QUERYSTATISTICS *)((char *)a1 + 24));
-          goto LABEL_35;
-        }
-        v8 = *((_DWORD *)a1 + 200);
-        v9 = -1;
-        return (unsigned int)VIDSCH_EXPORT::VidSchQueryProcessNodeStatistics(
-                               *(VIDSCH_EXPORT **)(*((_QWORD *)a2 + 366) + 736LL),
-                               *(struct _VIDSCH_GLOBAL **)(*((_QWORD *)a2 + 366) + 744LL),
-                               v9,
-                               v8,
-                               (struct DXGPROCESS *)a3,
-                               (struct _D3DKMT_QUERYSTATISTICS *)((char *)a1 + 24));
-      }
-      v10 = *((_DWORD *)a1 + 200);
-      v11 = 0;
-      return (unsigned int)VIDMM_EXPORT::VidMmQueryProcessSegmentStatistics(
-                             *(VIDMM_EXPORT **)(*((_QWORD *)a2 + 366) + 760LL),
-                             *(struct VIDMM_GLOBAL **)(*((_QWORD *)a2 + 366) + 768LL),
-                             v11,
-                             v10,
-                             (struct DXGPROCESS *)a3,
-                             (struct _D3DKMT_QUERYSTATISTICS *)((char *)a1 + 24));
-    }
-    v12 = 0;
-    goto LABEL_40;
-  }
-  v13 = *((_QWORD *)a2 + 366);
-  v14 = a3[8];
-  v15 = *(_QWORD *)(v13 + 760);
-  if ( v14 )
-    v16 = *((_QWORD *)v14 + (unsigned int)(*(_DWORD *)v15 - 1));
   else
-    v16 = 0LL;
-  v17 = (struct _D3DKMT_QUERYSTATISTICS *)((char *)a1 + 24);
-  ProcessAdapterStatistics = (*(__int64 (__fastcall **)(_QWORD, __int64, char *))(*(_QWORD *)(v15 + 8) + 296LL))(
-                               *(_QWORD *)(v13 + 768),
-                               v16,
-                               (char *)a1 + 24);
-  if ( ProcessAdapterStatistics >= 0 )
-    return (unsigned int)VIDSCH_EXPORT::VidSchQueryProcessStatistics(
-                           *(VIDSCH_EXPORT **)(*((_QWORD *)a2 + 366) + 736LL),
-                           *(struct _VIDSCH_GLOBAL **)(*((_QWORD *)a2 + 366) + 744LL),
-                           (struct DXGPROCESS *)a3,
-                           v17);
-  return (unsigned int)ProcessAdapterStatistics;
+  {
+    if ( *(_DWORD *)a1 != 2 )
+    {
+      switch ( *(_DWORD *)a1 )
+      {
+        case 4:
+          v20 = *((_QWORD *)a2 + 338);
+          v21 = *((_QWORD *)a3 + 8);
+          v22 = *(_QWORD *)(v20 + 640);
+          if ( v21 )
+            v4 = *(_QWORD *)(v21 + 8LL * (unsigned int)(*(_DWORD *)v22 - 1));
+          ProcessNodeStatistics = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, char *))(*(_QWORD *)(v22 + 8)
+                                                                                             + 328LL))(
+                                    *(_QWORD *)(v20 + 648),
+                                    *((unsigned int *)a1 + 200),
+                                    v4,
+                                    (char *)a1 + 24);
+          break;
+        case 6:
+          ProcessNodeStatistics = VIDSCH_EXPORT::VidSchQueryProcessNodeStatistics(
+                                    *(VIDSCH_EXPORT **)(*((_QWORD *)a2 + 338) + 616LL),
+                                    *(struct _VIDSCH_GLOBAL **)(*((_QWORD *)a2 + 338) + 624LL),
+                                    *((_DWORD *)a1 + 200),
+                                    a3,
+                                    (struct _D3DKMT_QUERYSTATISTICS *)((char *)a1 + 24));
+          break;
+        case 8:
+          ProcessNodeStatistics = VIDSCH_EXPORT::VidSchQueryProcessVidPnSourceStatistics(
+                                    *(VIDSCH_EXPORT **)(*((_QWORD *)a2 + 338) + 616LL),
+                                    *(struct _VIDSCH_GLOBAL **)(*((_QWORD *)a2 + 338) + 624LL),
+                                    *((_DWORD *)a1 + 200),
+                                    a3,
+                                    (struct _D3DKMT_QUERYSTATISTICS *)((char *)a1 + 24));
+          break;
+        case 9:
+          v16 = *((_QWORD *)a2 + 338);
+          v17 = *((_QWORD *)a3 + 8);
+          v18 = *(_QWORD *)(v16 + 640);
+          if ( v17 )
+            v4 = *(_QWORD *)(v17 + 8LL * (unsigned int)(*(_DWORD *)v18 - 1));
+          ProcessNodeStatistics = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, char *))(*(_QWORD *)(v18 + 8)
+                                                                                             + 336LL))(
+                                    *(_QWORD *)(v16 + 648),
+                                    *((unsigned int *)a1 + 200),
+                                    v4,
+                                    (char *)a1 + 24);
+          break;
+        default:
+          v14 = -1073741811;
+          v15 = WdLogNewEntry5_WdWarning((unsigned int)(*(_DWORD *)a1 - 8), a2, a3);
+          *(_QWORD *)(v15 + 24) = *(int *)a1;
+          WdLogEvent5_WdWarning(v15);
+          return (unsigned int)v14;
+      }
+      return ProcessNodeStatistics;
+    }
+    v23 = *((_QWORD *)a2 + 338);
+    v24 = *((_QWORD *)a3 + 8);
+    v25 = *(_QWORD *)(v23 + 640);
+    if ( v24 )
+      v26 = *(_QWORD *)(v24 + 8LL * (unsigned int)(*(_DWORD *)v25 - 1));
+    else
+      v26 = 0LL;
+    v14 = (*(__int64 (__fastcall **)(_QWORD, __int64, char *))(*(_QWORD *)(v25 + 8) + 312LL))(
+            *(_QWORD *)(v23 + 648),
+            v26,
+            (char *)a1 + 24);
+    if ( v14 >= 0 )
+      return (unsigned int)VIDSCH_EXPORT::VidSchQueryProcessAdapterStatistics(
+                             *(VIDSCH_EXPORT **)(*((_QWORD *)a2 + 338) + 616LL),
+                             *(struct _VIDSCH_GLOBAL **)(*((_QWORD *)a2 + 338) + 624LL),
+                             a3,
+                             (struct _D3DKMT_QUERYSTATISTICS *)((char *)a1 + 24));
+  }
+  return (unsigned int)v14;
 }

@@ -1,55 +1,57 @@
 /*
- * XREFs of NtGdiBeginPath @ 0x1C02C0B70
+ * XREFs of NtGdiBeginPath @ 0x1C0151FB0
  * Callers:
  *     <none>
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C011BFF0 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall NtGdiBeginPath(HDC a1)
 {
   DC *v1; // rcx
+  unsigned int v2; // ebx
   int v3; // eax
-  DC *v4[2]; // [rsp+20h] [rbp-59h] BYREF
-  _BYTE v5[32]; // [rsp+30h] [rbp-49h] BYREF
-  _BYTE v6[8]; // [rsp+50h] [rbp-29h] BYREF
-  struct HPATH__ **v7; // [rsp+58h] [rbp-21h]
+  DC *v5[2]; // [rsp+20h] [rbp-B8h] BYREF
+  _BYTE v6[32]; // [rsp+30h] [rbp-A8h] BYREF
+  _BYTE v7[8]; // [rsp+50h] [rbp-88h] BYREF
+  struct HPATH__ **v8; // [rsp+58h] [rbp-80h]
 
-  DCOBJ::DCOBJ((DCOBJ *)v4, a1);
-  v1 = v4[0];
-  if ( !v4[0] )
+  DCOBJ::DCOBJ((DCOBJ *)v5, a1);
+  v1 = v5[0];
+  v2 = 0;
+  if ( v5[0] )
+  {
+    if ( *((_QWORD *)v5[0] + 25) )
+    {
+      v3 = *((_DWORD *)v5[0] + 62);
+      if ( (v3 & 2) != 0 )
+      {
+        *((_DWORD *)v5[0] + 62) = v3 & 0xFFFFFFFD;
+        v1 = v5[0];
+      }
+      *((_DWORD *)v1 + 62) &= ~1u;
+      DC::hpath(v1, 0LL);
+    }
+    PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v7);
+    if ( v8 )
+    {
+      DC::hpath(v5[0], *v8);
+      v2 = 1;
+      *((_DWORD *)v5[0] + 62) |= 1u;
+    }
+    else
+    {
+      EngSetLastError(8u);
+    }
+    PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v7);
+  }
+  else
   {
     EngSetLastError(6u);
-LABEL_3:
-    DCOBJ::~DCOBJ((DCOBJ *)v4);
-    return 0LL;
   }
-  if ( *((_QWORD *)v4[0] + 25) )
-  {
-    v3 = *((_DWORD *)v4[0] + 62);
-    if ( (v3 & 2) != 0 )
-    {
-      *((_DWORD *)v4[0] + 62) = v3 & 0xFFFFFFFD;
-      v1 = v4[0];
-    }
-    *((_DWORD *)v1 + 62) &= ~1u;
-    DC::hpath(v1, 0LL);
-  }
-  PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v6);
-  if ( !v7 )
-  {
-    EngSetLastError(8u);
-    PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v6);
-    goto LABEL_3;
-  }
-  DC::hpath(v4[0], *v7);
-  *((_DWORD *)v4[0] + 62) |= 1u;
-  PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v6);
-  if ( v4[0] )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v4);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v5);
-  return 1LL;
+  MDCOBJ::~MDCOBJ((MDCOBJ *)v5);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v6);
+  return v2;
 }

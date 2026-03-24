@@ -1,5 +1,5 @@
 /*
- * XREFs of ?UpdateAttributes@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x18010C8B0
+ * XREFs of ?UpdateAttributes@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x1800F92F0
  * Callers:
  *     <none>
  * Callees:

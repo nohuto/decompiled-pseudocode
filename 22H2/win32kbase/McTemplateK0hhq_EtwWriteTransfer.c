@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0hhq_EtwWriteTransfer @ 0x1C013C6E0
+ * XREFs of McTemplateK0hhq_EtwWriteTransfer @ 0x1C0125824
  * Callers:
- *     EtwTracePointerCoalesce @ 0x1C013AC70 (EtwTracePointerCoalesce.c)
- *     EtwTracePointerNoCoalesce @ 0x1C013AEF0 (EtwTracePointerNoCoalesce.c)
+ *     EtwTracePointerCoalesce @ 0x1C0123800 (EtwTracePointerCoalesce.c)
+ *     EtwTracePointerNoCoalesce @ 0x1C0123AE0 (EtwTracePointerNoCoalesce.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0hhq_EtwWriteTransfer(

@@ -1,83 +1,72 @@
 /*
- * XREFs of ?ppfeGetPFEFromUFIInternal@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C0277604
+ * XREFs of ?ppfeGetPFEFromUFIInternal@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C014E810
  * Callers:
- *     ?ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C02775C0 (-ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z.c)
+ *     ?bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C014E6B4 (-bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z.c)
+ *     ?ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C027BE50 (-ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z.c)
  * Callees:
- *     ?pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C00A0568 (-pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z.c)
- *     ?SameProccess@PFEOBJ@@QEAAHXZ @ 0x1C02765C4 (-SameProccess@PFEOBJ@@QEAAHXZ.c)
+ *     ?pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C00BB998 (-pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z.c)
+ *     ?SameProccess@PFEOBJ@@QEAAHXZ @ 0x1C014E90C (-SameProccess@PFEOBJ@@QEAAHXZ.c)
  */
 
 struct PFE *__fastcall ppfeGetPFEFromUFIInternal(struct _UNIVERSAL_FONT_ID *a1, int a2, int a3)
 {
-  __int64 v6; // rsi
-  int v7; // ebp
-  struct Gre::Base::SESSION_GLOBALS *v8; // rdi
-  __int64 v9; // rcx
-  __int64 v10; // rax
-  __int64 v11; // rax
-  struct _HASHBUCKET *v12; // rax
-  _QWORD *i; // rdi
-  __int64 v14; // rbx
+  __int64 v3; // rdi
+  int v4; // r15d
+  __int64 v7; // rbp
+  struct _FONTHASH **v8; // rax
+  struct _HASHBUCKET *v9; // rax
+  _QWORD *i; // rsi
+  __int64 v11; // rbx
+  int v12; // eax
+  int v13; // edx
+  struct _KTHREAD *v14; // rcx
   int v15; // eax
-  __int64 v16; // rdx
-  int v17; // r8d
-  struct _KTHREAD *v18; // rcx
-  int v19; // eax
-  int v20; // ecx
-  _QWORD v22[5]; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v23; // [rsp+78h] [rbp+20h] BYREF
+  int v16; // ecx
+  _QWORD v18[7]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v19; // [rsp+88h] [rbp+20h] BYREF
 
-  v6 = 0LL;
-  v7 = -1;
-  v8 = Gre::Base::Globals(a1);
-  v10 = SGDGetSessionState(v9);
+  v3 = 0LL;
+  v4 = -1;
+  v7 = 0LL;
   if ( a2 )
-    v11 = *((_QWORD *)v8 + 796);
+    v8 = gpPFTPrivate;
   else
-    v11 = *(_QWORD *)(*(_QWORD *)(v10 + 32) + 20272LL);
-  if ( v11 )
+    v8 = gpPFTPublic;
+  if ( v8 )
   {
-    v22[0] = v11 + 16;
-    v22[1] = *(_QWORD *)(v11 + 16);
-    v12 = FHOBJ::pbktSearch((FHOBJ *)v22, 0LL, 0LL, a1, 0);
-    if ( v12 )
+    v18[0] = v8 + 2;
+    v18[1] = v8[2];
+    v9 = FHOBJ::pbktSearch((FHOBJ *)v18, 0LL, 0LL, a1, 0);
+    if ( v9 )
     {
-      for ( i = (_QWORD *)*((_QWORD *)v12 + 1); ; i = (_QWORD *)*i )
+      for ( i = (_QWORD *)*((_QWORD *)v9 + 1); i; i = (_QWORD *)*i )
       {
-        if ( !i )
-          return (struct PFE *)v6;
-        v14 = i[1];
-        v15 = *(_DWORD *)a1;
-        v23 = v14;
-        if ( *(_DWORD *)(v14 + 84) == v15 && *(_DWORD *)(v14 + 88) == *((_DWORD *)a1 + 1) )
+        v11 = i[1];
+        v12 = *(_DWORD *)a1;
+        v19 = v11;
+        if ( *(_DWORD *)(v11 + 84) == v12
+          && *(_DWORD *)(v11 + 88) == *((_DWORD *)a1 + 1)
+          && (!a3 || (unsigned int)PFEOBJ::SameProccess((PFEOBJ *)&v19)) )
         {
-          v16 = v14;
-          if ( a3 )
+          v13 = *(_DWORD *)(v11 + 12);
+          if ( (v13 & 2) == 0 )
           {
-            if ( !(unsigned int)PFEOBJ::SameProccess((PFEOBJ *)&v23) )
-              continue;
-            v16 = i[1];
-          }
-          v17 = *(_DWORD *)(v14 + 12);
-          if ( (v17 & 2) == 0 )
-          {
-            v18 = *(struct _KTHREAD **)(v14 + 96);
-            if ( !v18 || v18 == KeGetCurrentThread() )
-              v19 = 2;
-            else
-              v19 = 0;
-            v20 = v19 + 1;
-            if ( (v17 & 8) != 0 )
-              v20 = v19;
-            if ( v20 > v7 )
+            v14 = *(struct _KTHREAD **)(v11 + 96);
+            if ( !v14 || (v15 = 0, v14 == KeGetCurrentThread()) )
+              v15 = 2;
+            v16 = v15 + 1;
+            if ( (v13 & 8) != 0 )
+              v16 = v15;
+            if ( v16 > v4 )
             {
-              v6 = v16;
-              v7 = v20;
+              v7 = i[1];
+              v4 = v16;
             }
           }
         }
       }
+      return (struct PFE *)v7;
     }
   }
-  return 0LL;
+  return (struct PFE *)v3;
 }

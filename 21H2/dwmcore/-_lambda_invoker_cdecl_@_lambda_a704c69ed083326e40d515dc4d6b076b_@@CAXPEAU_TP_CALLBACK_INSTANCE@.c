@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_lambda_invoker_cdecl_@_lambda_a704c69ed083326e40d515dc4d6b076b_@@CAXPEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_WORK@@@Z @ 0x18027C760
+ * XREFs of ?_lambda_invoker_cdecl_@_lambda_a704c69ed083326e40d515dc4d6b076b_@@CAXPEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_WORK@@@Z @ 0x18023D160
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall _lambda_a704c69ed083326e40d515dc4d6b076b_::_lambda_invoker_cdecl_(
@@ -21,9 +21,9 @@ void __fastcall _lambda_a704c69ed083326e40d515dc4d6b076b_::_lambda_invoker_cdecl
     std::_Xbad_function_call();
     __debugbreak();
   }
-  *((_DWORD *)Context + 24) = (*(__int64 (__fastcall **)(__int64, char **, PTP_WORK))(*(_QWORD *)v3 + 16LL))(
+  *((_DWORD *)Context + 22) = (*(__int64 (__fastcall **)(__int64, char **, PTP_WORK))(*(_QWORD *)v3 + 16LL))(
                                 v3,
                                 &v5,
                                 Work);
-  *((_BYTE *)Context + 100) = 1;
+  *((_BYTE *)Context + 92) = 1;
 }

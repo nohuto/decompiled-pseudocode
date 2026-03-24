@@ -1,53 +1,50 @@
 /*
- * XREFs of NtUserGetKeyboardLayoutName @ 0x1C00B4DB0
+ * XREFs of NtUserGetKeyboardLayoutName @ 0x1C0125C30
  * Callers:
  *     <none>
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
-__int64 __fastcall NtUserGetKeyboardLayoutName(ULONG64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserGetKeyboardLayoutName(ULONG64 a1)
 {
-  ULONG64 v3; // rdi
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // rsi
-  __int64 v7; // r8
-  __int64 v8; // r9
-  int v9; // ebx
+  __int64 v2; // rcx
+  __int64 v3; // rsi
+  int v4; // ebx
+  __int64 v5; // rdx
+  __int64 v6; // r8
   struct _UNICODE_STRING String; // [rsp+40h] [rbp-18h] BYREF
 
-  v3 = a1;
   String = 0LL;
-  EnterSharedCrit(a1, a2, a3);
-  v6 = *((_QWORD *)PtiCurrentShared() + 55);
-  v9 = 0;
-  if ( v6 )
+  EnterSharedCrit(0LL, 1LL);
+  v3 = *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 440);
+  v4 = 0;
+  if ( v3 )
   {
-    if ( v3 >= MmUserProbeAddress )
-      v3 = MmUserProbeAddress;
-    *(_DWORD *)&String.Length = *(_DWORD *)v3;
-    String.Buffer = *(PWSTR *)(v3 + 8);
+    if ( a1 >= MmUserProbeAddress )
+      a1 = MmUserProbeAddress;
+    *(_DWORD *)&String.Length = *(_DWORD *)a1;
+    String.Buffer = *(PWSTR *)(a1 + 8);
     ProbeForWrite(String.Buffer, String.MaximumLength, 2u);
-    if ( (*(_WORD *)(v6 + 42) & 0xF000) == 0xE000 )
+    if ( (*(_WORD *)(v3 + 42) & 0xF000) == 0xE000 )
     {
-      RtlIntegerToUnicodeString(*(_DWORD *)(v6 + 40), 0x10u, &String);
+      RtlIntegerToUnicodeString(*(_DWORD *)(v3 + 40), 0x10u, &String);
     }
     else
     {
       if ( String.MaximumLength < 0x12u
-        || RtlIntegerToUnicode(*(_DWORD *)(v6 + 112), 0x10u, 0xFFFFFFF8, String.Buffer) < 0 )
+        || RtlIntegerToUnicode(*(_DWORD *)(v3 + 112), 0x10u, 0xFFFFFFF8, String.Buffer) < 0 )
       {
-        UserSetLastError(87LL);
+        UserSetLastError(87LL, v5, v6);
         goto LABEL_11;
       }
       String.Length = 16;
       String.Buffer[8] = 0;
     }
-    v9 = 1;
+    v4 = 1;
   }
 LABEL_11:
-  UserSessionSwitchLeaveCrit(v5, v4, v7, v8);
-  return v9;
+  UserSessionSwitchLeaveCrit(v2);
+  return v4;
 }

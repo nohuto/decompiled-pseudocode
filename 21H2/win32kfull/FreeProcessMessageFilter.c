@@ -1,9 +1,9 @@
 /*
- * XREFs of FreeProcessMessageFilter @ 0x1C00FC640
+ * XREFs of FreeProcessMessageFilter @ 0x1C010FBA0
  * Callers:
  *     <none>
  * Callees:
- *     ?MsgLookupTableCleanUp@@YAXPEAPEAX@Z @ 0x1C00FC66C (-MsgLookupTableCleanUp@@YAXPEAPEAX@Z.c)
+ *     ?MsgLookupTableCleanUp@@YAXPEAPEAX@Z @ 0x1C010FBCC (-MsgLookupTableCleanUp@@YAXPEAPEAX@Z.c)
  */
 
 void __fastcall FreeProcessMessageFilter(__int64 a1)

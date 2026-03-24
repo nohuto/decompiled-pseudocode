@@ -1,10 +1,10 @@
 /*
- * XREFs of ConvertDevpropcompkeyToString @ 0x14090427C
+ * XREFs of ConvertDevpropcompkeyToString @ 0x14090425C
  * Callers:
- *     PnpConvertDevpropcompkeyArrayToString @ 0x140827BBC (PnpConvertDevpropcompkeyArrayToString.c)
- *     ConvertDevpropertyToString @ 0x1409043BC (ConvertDevpropertyToString.c)
+ *     PnpConvertDevpropcompkeyArrayToString @ 0x140827B9C (PnpConvertDevpropcompkeyArrayToString.c)
+ *     ConvertDevpropertyToString @ 0x14090439C (ConvertDevpropertyToString.c)
  * Callees:
- *     RtlStringCbPrintfExW @ 0x140128C98 (RtlStringCbPrintfExW.c)
+ *     RtlStringCbPrintfExW @ 0x140128CB8 (RtlStringCbPrintfExW.c)
  *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
  */

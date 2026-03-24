@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFlushFileOnlyMdl @ 0x1402B5D6C
+ * XREFs of MiFlushFileOnlyMdl @ 0x1402B5E6C
  * Callers:
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
  *     MiGatherMappedPages @ 0x14007E6B0 (MiGatherMappedPages.c)
  * Callees:
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     MiPersistMemory @ 0x1402B64A0 (MiPersistMemory.c)
- *     MiPersistPage @ 0x1402B64D0 (MiPersistPage.c)
+ *     MiPersistMemory @ 0x1402B65A0 (MiPersistMemory.c)
+ *     MiPersistPage @ 0x1402B65D0 (MiPersistPage.c)
  */
 
 __int64 __fastcall MiFlushFileOnlyMdl(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

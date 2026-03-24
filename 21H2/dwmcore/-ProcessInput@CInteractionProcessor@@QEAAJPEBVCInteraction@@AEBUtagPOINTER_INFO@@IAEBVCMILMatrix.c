@@ -1,22 +1,18 @@
 /*
- * XREFs of ?ProcessInput@CInteractionProcessor@@QEAAJPEBVCInteraction@@AEBUtagPOINTER_INFO@@IAEBVCMILMatrix@@PEAUIManipulationResource@@PEA_N@Z @ 0x18018DF88
+ * XREFs of ?ProcessInput@CInteractionProcessor@@QEAAJPEBVCInteraction@@AEBUtagPOINTER_INFO@@IAEBVCMILMatrix@@PEAUIManipulationResource@@PEA_N@Z @ 0x18022E384
  * Callers:
- *     ?ProcessInput@CInteractionRoot@@UEAAJAEBUtagPOINTER_INFO@@IAEBVCMILMatrix@@PEA_N@Z @ 0x1801839A0 (-ProcessInput@CInteractionRoot@@UEAAJAEBUtagPOINTER_INFO@@IAEBVCMILMatrix@@PEA_N@Z.c)
- *     ?ProcessInput@CInteraction@@UEAAJAEBUtagPOINTER_INFO@@IAEBVCMILMatrix@@PEA_N@Z @ 0x1801F28C0 (-ProcessInput@CInteraction@@UEAAJAEBUtagPOINTER_INFO@@IAEBVCMILMatrix@@PEA_N@Z.c)
+ *     ?ProcessInput@CInteraction@@UEAAJAEBUtagPOINTER_INFO@@IAEBVCMILMatrix@@PEA_N@Z @ 0x1801C69A0 (-ProcessInput@CInteraction@@UEAAJAEBUtagPOINTER_INFO@@IAEBVCMILMatrix@@PEA_N@Z.c)
+ *     ?ProcessInput@CInteractionRoot@@UEAAJAEBUtagPOINTER_INFO@@IAEBVCMILMatrix@@PEA_N@Z @ 0x1802352E0 (-ProcessInput@CInteractionRoot@@UEAAJAEBUtagPOINTER_INFO@@IAEBVCMILMatrix@@PEA_N@Z.c)
  * Callees:
- *     _tlgWriteTransfer_EventWriteTransfer @ 0x180025194 (_tlgWriteTransfer_EventWriteTransfer.c)
- *     ?ConvertToInputType@@YA?AW4InputType@@KI@Z @ 0x18002B610 (-ConvertToInputType@@YA-AW4InputType@@KI@Z.c)
- *     _tlgKeywordOn @ 0x180074108 (_tlgKeywordOn.c)
- *     ??$IsEqualTo@$0A@@CMILMatrix@@AEBA_NAEBV0@@Z @ 0x18008EBAC (--$IsEqualTo@$0A@@CMILMatrix@@AEBA_NAEBV0@@Z.c)
- *     ?Invert@CMILMatrix@@QEAA_NXZ @ 0x1800DCDBC (-Invert@CMILMatrix@@QEAA_NXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ @ 0x18018A118 (-AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ.c)
- *     _anonymous_namespace_::DecomposeMatrix @ 0x18018CBA8 (_anonymous_namespace_--DecomposeMatrix.c)
- *     ?ProcessInput@?$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@QEAAJAEBUInteractionStateInfo@@AEBUtagPOINTER_INFO@@PEAUTemporaryConfiguration@@@Z @ 0x18018DC08 (-ProcessInput@-$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U-$TMILFlagsE.c)
- *     ?ProcessInput@?$CInputTypeContext@UDwmPenInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypePenPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypePenPrimitiveType@@@@QEAAJAEBUInteractionStateInfo@@AEBUtagPOINTER_INFO@@PEAUTemporaryConfiguration@@@Z @ 0x18018DCE8 (-ProcessInput@-$CInputTypeContext@UDwmPenInteractionConfigurationPrimitive@@U-$TMILFlagsEnum@W4F.c)
- *     ?ProcessInput@?$CInputTypeContext@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@QEAAJAEBUInteractionStateInfo@@AEBUtagPOINTER_INFO@@PEAUTemporaryConfiguration@@@Z @ 0x18018DDC8 (-ProcessInput@-$CInputTypeContext@UDwmTouchInteractionConfigurationPrimitive@@U-$TMILFlagsEnum@W.c)
- *     ?ProcessInput@?$CInputTypeContext@UDwmTouchpadInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@QEAAJAEBUInteractionStateInfo@@AEBUtagPOINTER_INFO@@PEAUTemporaryConfiguration@@@Z @ 0x18018DEA8 (-ProcessInput@-$CInputTypeContext@UDwmTouchpadInteractionConfigurationPrimitive@@U-$TMILFlagsEnu.c)
- *     ?StartInteraction@CInteractionProcessor@@QEAAJ_N0PEAUIManipulationResource@@W4InputType@@@Z @ 0x18018EE80 (-StartInteraction@CInteractionProcessor@@QEAAJ_N0PEAUIManipulationResource@@W4InputType@@@Z.c)
+ *     ?ConvertToInputType@@YA?AW4InputType@@KI@Z @ 0x18004EC24 (-ConvertToInputType@@YA-AW4InputType@@KI@Z.c)
+ *     ??$IsEqualTo@$0A@@CMILMatrix@@AEBA_NAEBV0@@Z @ 0x18008DD1C (--$IsEqualTo@$0A@@CMILMatrix@@AEBA_NAEBV0@@Z.c)
+ *     ?Invert@CMILMatrix@@QEAA_NXZ @ 0x1800D6404 (-Invert@CMILMatrix@@QEAA_NXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x180152D40 (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     ?AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ @ 0x18022B5D8 (-AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ.c)
+ *     _anonymous_namespace_::DecomposeMatrix @ 0x18022D46C (_anonymous_namespace_--DecomposeMatrix.c)
+ *     ?ProcessInput@?$CInputTypeContext@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@QEAAJAEBUInteractionStateInfo@@AEBUtagPOINTER_INFO@@PEAUTemporaryConfiguration@@@Z @ 0x18022E2B4 (-ProcessInput@-$CInputTypeContext@UDwmTouchInteractionConfigurationPrimitive@@U-$TMILFlagsEnum@W.c)
+ *     ?StartInteraction@CInteractionProcessor@@QEAAJ_N0PEAUIManipulationResource@@W4InputType@@@Z @ 0x18022F2F0 (-StartInteraction@CInteractionProcessor@@QEAAJ_N0PEAUIManipulationResource@@W4InputType@@@Z.c)
  */
 
 __int64 __fastcall CInteractionProcessor::ProcessInput(
@@ -28,85 +24,83 @@ __int64 __fastcall CInteractionProcessor::ProcessInput(
         struct IManipulationResource *a6,
         bool *a7)
 {
-  int v10; // edx
-  __int64 v11; // r10
-  __int64 v12; // rax
+  __int64 v10; // rax
   unsigned int started; // esi
-  __int64 v14; // rdx
-  __int64 v15; // r10
-  __int64 v16; // r11
-  int v17; // eax
+  __int64 v12; // rdx
+  __int64 v13; // r10
+  void *v14; // r11
+  int v15; // eax
+  __int128 v16; // xmm1
+  __int128 v17; // xmm0
   __int128 v18; // xmm1
-  __int128 v19; // xmm0
-  __int128 v20; // xmm1
-  __int64 v21; // rdx
-  struct Windows::Foundation::Numerics::float4x4 *v22; // r8
-  __int64 v23; // rcx
-  int v24; // eax
+  __int64 v19; // rdx
+  struct Windows::Foundation::Numerics::float4x4 *v20; // r8
+  __int64 v21; // rcx
+  int v22; // eax
+  __int128 v23; // xmm1
+  __int128 v24; // xmm0
   __int128 v25; // xmm1
-  __int128 v26; // xmm0
-  __int128 v27; // xmm1
-  int v28; // eax
-  __int64 v31; // [rsp+30h] [rbp-A1h] BYREF
-  __int64 v32; // [rsp+38h] [rbp-99h] BYREF
-  __int64 v33; // [rsp+40h] [rbp-91h] BYREF
-  __int64 v34; // [rsp+48h] [rbp-89h] BYREF
-  CInteractionProcessor *v35; // [rsp+50h] [rbp-81h] BYREF
-  __int64 v36; // [rsp+58h] [rbp-79h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v37; // [rsp+60h] [rbp-71h] BYREF
-  __int64 *v38; // [rsp+80h] [rbp-51h]
-  int v39; // [rsp+88h] [rbp-49h]
-  int v40; // [rsp+8Ch] [rbp-45h]
-  CInteractionProcessor **v41; // [rsp+90h] [rbp-41h]
-  int v42; // [rsp+98h] [rbp-39h]
-  int v43; // [rsp+9Ch] [rbp-35h]
-  __int64 *v44; // [rsp+A0h] [rbp-31h]
-  int v45; // [rsp+A8h] [rbp-29h]
-  int v46; // [rsp+ACh] [rbp-25h]
-  __int64 *v47; // [rsp+B0h] [rbp-21h]
-  int v48; // [rsp+B8h] [rbp-19h]
-  int v49; // [rsp+BCh] [rbp-15h]
-  __int64 *v50; // [rsp+C0h] [rbp-11h]
-  int v51; // [rsp+C8h] [rbp-9h]
-  int v52; // [rsp+CCh] [rbp-5h]
-  __int64 *v53; // [rsp+D0h] [rbp-1h]
-  int v54; // [rsp+D8h] [rbp+7h]
-  int v55; // [rsp+DCh] [rbp+Bh]
+  int v26; // eax
+  __int64 v29; // [rsp+30h] [rbp-A1h] BYREF
+  __int64 v30; // [rsp+38h] [rbp-99h] BYREF
+  __int64 v31; // [rsp+40h] [rbp-91h] BYREF
+  __int64 v32; // [rsp+48h] [rbp-89h] BYREF
+  CInteractionProcessor *v33; // [rsp+50h] [rbp-81h] BYREF
+  const struct CInteraction *v34; // [rsp+58h] [rbp-79h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v35; // [rsp+60h] [rbp-71h] BYREF
+  const struct CInteraction **v36; // [rsp+80h] [rbp-51h]
+  int v37; // [rsp+88h] [rbp-49h]
+  int v38; // [rsp+8Ch] [rbp-45h]
+  CInteractionProcessor **v39; // [rsp+90h] [rbp-41h]
+  int v40; // [rsp+98h] [rbp-39h]
+  int v41; // [rsp+9Ch] [rbp-35h]
+  __int64 *v42; // [rsp+A0h] [rbp-31h]
+  int v43; // [rsp+A8h] [rbp-29h]
+  int v44; // [rsp+ACh] [rbp-25h]
+  __int64 *v45; // [rsp+B0h] [rbp-21h]
+  int v46; // [rsp+B8h] [rbp-19h]
+  int v47; // [rsp+BCh] [rbp-15h]
+  __int64 *v48; // [rsp+C0h] [rbp-11h]
+  int v49; // [rsp+C8h] [rbp-9h]
+  int v50; // [rsp+CCh] [rbp-5h]
+  __int64 *v51; // [rsp+D0h] [rbp-1h]
+  int v52; // [rsp+D8h] [rbp+7h]
+  int v53; // [rsp+DCh] [rbp+Bh]
 
-  if ( (unsigned int)dword_1803D0EF0 > 4 && tlgKeywordOn((__int64)&dword_1803D0EF0, 2LL) )
+  if ( (unsigned int)dword_180344EF0 > 4 && (qword_180344F00 & 2) != 0 && (qword_180344F08 & 2) == qword_180344F08 )
   {
-    v12 = *((_QWORD *)this + 60);
-    v55 = 0;
-    v52 = 0;
-    v49 = 0;
-    v46 = 0;
-    v43 = 0;
-    v40 = 0;
-    v31 = v12;
-    v32 = *((_QWORD *)this + 40);
-    v33 = *((_QWORD *)this + 20);
-    v34 = *(_QWORD *)this;
-    v53 = &v31;
-    v50 = &v32;
-    v47 = &v33;
-    v44 = &v34;
-    v41 = &v35;
-    v38 = &v36;
-    v54 = v10 + 6;
-    v51 = v10 + 6;
-    v48 = v10 + 6;
-    v45 = v10 + 6;
-    v42 = v10 + 6;
-    v39 = v10 + 6;
-    v35 = this;
-    v36 = v11;
+    v10 = *((_QWORD *)this + 60);
+    v53 = 0;
+    v50 = 0;
+    v47 = 0;
+    v44 = 0;
+    v41 = 0;
+    v38 = 0;
+    v29 = v10;
+    v30 = *((_QWORD *)this + 40);
+    v31 = *((_QWORD *)this + 20);
+    v32 = *(_QWORD *)this;
+    v51 = &v29;
+    v48 = &v30;
+    v45 = &v31;
+    v42 = &v32;
+    v39 = &v33;
+    v33 = this;
+    v36 = &v34;
+    v34 = a2;
+    v52 = 8;
+    v49 = 8;
+    v46 = 8;
+    v43 = 8;
+    v40 = 8;
+    v37 = 8;
     tlgWriteTransfer_EventWriteTransfer(
-      (__int64)&dword_1803D0EF0,
-      (unsigned __int8 *)dword_18036AC99,
+      (__int64)&dword_180344EF0,
+      (unsigned __int8 *)dword_1802EC206,
       0LL,
       0LL,
-      v10 + 6,
-      &v37);
+      8u,
+      &v35);
   }
   started = 0;
   *a7 = 0;
@@ -115,45 +109,45 @@ __int64 __fastcall CInteractionProcessor::ProcessInput(
   *((_QWORD *)this + 100) = *((_QWORD *)a3 + 2);
   if ( !CMILMatrix::IsEqualTo<0>((float *)this + 210, (float *)a5) )
   {
-    *(_OWORD *)v15 = *(_OWORD *)v14;
-    *(_OWORD *)(v15 + 16) = *(_OWORD *)(v14 + 16);
-    *(_OWORD *)(v15 + 32) = *(_OWORD *)(v14 + 32);
-    *(_OWORD *)(v15 + 48) = *(_OWORD *)(v14 + 48);
-    *(_DWORD *)(v15 + 64) = *(_DWORD *)(v14 + 64);
+    *(_OWORD *)v13 = *(_OWORD *)v12;
+    *(_OWORD *)(v13 + 16) = *(_OWORD *)(v12 + 16);
+    *(_OWORD *)(v13 + 32) = *(_OWORD *)(v12 + 32);
+    *(_OWORD *)(v13 + 48) = *(_OWORD *)(v12 + 48);
+    *(_DWORD *)(v13 + 64) = *(_DWORD *)(v12 + 64);
     anonymous_namespace_::DecomposeMatrix(
-      (CMILMatrix *)v15,
-      v16,
+      (CMILMatrix *)v13,
+      v14,
       (CInteractionProcessor *)((char *)this + 908),
       (CInteractionProcessor *)((char *)this + 976),
       (CInteractionProcessor *)((char *)this + 1044),
       (CInteractionProcessor *)((char *)this + 1112));
-    v17 = *((_DWORD *)this + 243);
-    v18 = *(_OWORD *)((char *)this + 924);
+    v15 = *((_DWORD *)this + 243);
+    v16 = *(_OWORD *)((char *)this + 924);
     *(_OWORD *)((char *)this + 1180) = *(_OWORD *)((char *)this + 908);
-    v19 = *(_OWORD *)((char *)this + 940);
-    *(_OWORD *)((char *)this + 1196) = v18;
-    v20 = *(_OWORD *)((char *)this + 956);
-    *(_OWORD *)((char *)this + 1212) = v19;
-    *(_OWORD *)((char *)this + 1228) = v20;
-    *((_DWORD *)this + 311) = v17;
-    if ( !CMILMatrix::Invert((CInteractionProcessor *)((char *)this + 1180), v21, v22) )
+    v17 = *(_OWORD *)((char *)this + 940);
+    *(_OWORD *)((char *)this + 1196) = v16;
+    v18 = *(_OWORD *)((char *)this + 956);
+    *(_OWORD *)((char *)this + 1212) = v17;
+    *(_OWORD *)((char *)this + 1228) = v18;
+    *((_DWORD *)this + 311) = v15;
+    if ( !CMILMatrix::Invert((CInteractionProcessor *)((char *)this + 1180), v19, v20) )
     {
-      v24 = *((_DWORD *)this + 243);
-      v25 = *(_OWORD *)((char *)this + 924);
-      *(_OWORD *)v23 = *(_OWORD *)((char *)this + 908);
-      v26 = *(_OWORD *)((char *)this + 940);
-      *(_OWORD *)(v23 + 16) = v25;
-      v27 = *(_OWORD *)((char *)this + 956);
-      *(_OWORD *)(v23 + 32) = v26;
-      *(_OWORD *)(v23 + 48) = v27;
-      *(_DWORD *)(v23 + 64) = v24;
+      v22 = *((_DWORD *)this + 243);
+      v23 = *(_OWORD *)((char *)this + 924);
+      *(_OWORD *)v21 = *(_OWORD *)((char *)this + 908);
+      v24 = *(_OWORD *)((char *)this + 940);
+      *(_OWORD *)(v21 + 16) = v23;
+      v25 = *(_OWORD *)((char *)this + 956);
+      *(_OWORD *)(v21 + 32) = v24;
+      *(_OWORD *)(v21 + 48) = v25;
+      *(_DWORD *)(v21 + 64) = v22;
     }
     *a7 = 1;
   }
   if ( !*((_DWORD *)this + 196) )
   {
-    v28 = ConvertToInputType(*(_DWORD *)a3, *((_DWORD *)a3 + 3));
-    started = CInteractionProcessor::StartInteraction(this, 0LL, 0LL, a6, v28);
+    v26 = ConvertToInputType(*(_DWORD *)a3, *((_DWORD *)a3 + 3));
+    started = CInteractionProcessor::StartInteraction(this, 0LL, 0LL, a6, v26);
   }
   *((_BYTE *)this + 808) &= ~0x10u;
   switch ( *((_DWORD *)this + 197) )
@@ -165,21 +159,21 @@ __int64 __fastcall CInteractionProcessor::ProcessInput(
                              (__int64)a3,
                              (__int64)this + 1272);
     case 3:
-      return (unsigned int)CInputTypeContext<DwmTouchpadInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchpadPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchpadPrimitiveType::FlagsEnum>::ProcessInput(
+      return (unsigned int)CInputTypeContext<DwmTouchInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>::ProcessInput(
                              (_QWORD *)this + 20,
                              (int *)this + 196,
                              (__int64)a3,
                              (__int64)this + 1272);
     case 4:
       if ( CInteractionProcessor::AllowPenGestureDetection(this) )
-        return (unsigned int)CInputTypeContext<DwmPenInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypePenPrimitiveType::FlagsEnum>,enum DwmInteractionTypePenPrimitiveType::FlagsEnum>::ProcessInput(
+        return (unsigned int)CInputTypeContext<DwmTouchInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>::ProcessInput(
                                (_QWORD *)this + 40,
                                (int *)this + 196,
                                (__int64)a3,
                                (__int64)this + 1272);
       break;
     case 6:
-      return (unsigned int)CInputTypeContext<DwmMousewheelInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeMousewheelPrimitiveType::FlagsEnum>,enum DwmInteractionTypeMousewheelPrimitiveType::FlagsEnum>::ProcessInput(
+      return (unsigned int)CInputTypeContext<DwmTouchInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>::ProcessInput(
                              (_QWORD *)this + 60,
                              (int *)this + 196,
                              (__int64)a3,

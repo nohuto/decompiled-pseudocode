@@ -2,8 +2,8 @@
  * XREFs of MiInsertLargePageInFreeOrZeroList @ 0x140036320
  * Callers:
  *     MiDemoteLocalLargePage @ 0x140064060 (MiDemoteLocalLargePage.c)
- *     MiDemoteLargeFreePage @ 0x14012BA84 (MiDemoteLargeFreePage.c)
- *     MiDemoteLargeFreeZeroPage @ 0x14016992C (MiDemoteLargeFreeZeroPage.c)
+ *     MiDemoteLargeFreePage @ 0x14012BAA4 (MiDemoteLargeFreePage.c)
+ *     MiDemoteLargeFreeZeroPage @ 0x14016994C (MiDemoteLargeFreeZeroPage.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
@@ -13,12 +13,12 @@
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
  *     MiInsertLargePageInNodeListHelper @ 0x14009BAC0 (MiInsertLargePageInNodeListHelper.c)
- *     ExfTryAcquirePushLockShared @ 0x140103C30 (ExfTryAcquirePushLockShared.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiArePageContentsZero @ 0x1402BF668 (MiArePageContentsZero.c)
- *     MiAddColdPagesToHotRanges @ 0x1402CE94C (MiAddColdPagesToHotRanges.c)
- *     MiNotifyPageHeat @ 0x1402CEE40 (MiNotifyPageHeat.c)
+ *     ExfTryAcquirePushLockShared @ 0x140103C50 (ExfTryAcquirePushLockShared.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiArePageContentsZero @ 0x1402BF768 (MiArePageContentsZero.c)
+ *     MiAddColdPagesToHotRanges @ 0x1402CEA4C (MiAddColdPagesToHotRanges.c)
+ *     MiNotifyPageHeat @ 0x1402CEF40 (MiNotifyPageHeat.c)
  */
 
 _QWORD *__fastcall MiInsertLargePageInFreeOrZeroList(__int64 a1, unsigned int a2, int a3, int a4, int a5)

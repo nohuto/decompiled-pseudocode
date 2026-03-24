@@ -1,47 +1,29 @@
 /*
- * XREFs of ?GetDisplayOnlyDriverIgnoreMonitorFreqCheck@ADAPTER_DISPLAY@@QEBAHXZ @ 0x1C006B62C
+ * XREFs of ?GetDisplayOnlyDriverIgnoreMonitorFreqCheck@ADAPTER_DISPLAY@@QEBAHXZ @ 0x1C005DCA4
  * Callers:
- *     ?BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSMODALITY@@GGW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C0178EE0 (-BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSM.c)
+ *     ?BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSMODALITY@@GGW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C0146674 (-BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSM.c)
  * Callees:
- *     ?SupportHWVSync@DXGADAPTER@@QEBAEXZ @ 0x1C00017B8 (-SupportHWVSync@DXGADAPTER@@QEBAEXZ.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?SupportHWVSync@DXGADAPTER@@QEBAEXZ @ 0x1C0009B80 (-SupportHWVSync@DXGADAPTER@@QEBAEXZ.c)
  */
 
-__int64 __fastcall ADAPTER_DISPLAY::GetDisplayOnlyDriverIgnoreMonitorFreqCheck(ADAPTER_DISPLAY *this)
+_BOOL8 __fastcall ADAPTER_DISPLAY::GetDisplayOnlyDriverIgnoreMonitorFreqCheck(DXGADAPTER **this, __int64 a2)
 {
-  unsigned int v1; // ebx
-  int v3; // edx
-  int v4; // ecx
-  int v5; // r8d
-  DXGADAPTER *v6; // rcx
+  __int64 v3; // rax
+  DXGADAPTER *v4; // rcx
+  _BOOL8 result; // rax
 
-  v1 = 0;
-  if ( *(_QWORD *)(*((_QWORD *)this + 2) + 2928LL) )
+  if ( *((_QWORD *)this[2] + 338) )
   {
-    WdLogSingleEntry1(1LL, 6834LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v4,
-          v3,
-          v5,
-          0LL,
-          2,
-          -1,
-          L"GetAdapter()->IsDisplayOnlyAdapter()",
-          6834LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v3 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v3 + 24) = 6644LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  if ( *((_DWORD *)this + 108) )
-    return 1LL;
-  v6 = (DXGADAPTER *)*((_QWORD *)this + 2);
-  if ( (*((_DWORD *)v6 + 109) & 0x100) != 0 )
-    return 0LL;
-  LOBYTE(v1) = !DXGADAPTER::SupportHWVSync(v6);
-  return v1;
+  result = 1;
+  if ( !*((_DWORD *)this + 94) )
+  {
+    v4 = this[2];
+    if ( (*((_DWORD *)v4 + 87) & 0x100) != 0 || DXGADAPTER::SupportHWVSync(v4) )
+      return 0;
+  }
+  return result;
 }

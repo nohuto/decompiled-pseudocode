@@ -1,10 +1,9 @@
 /*
- * XREFs of ZwCreateThreadEx @ 0x14041BF80
+ * XREFs of ZwCreateThreadEx @ 0x1403FB260
  * Callers:
- *     RtlpCreateUserThreadEx @ 0x14076BBFC (RtlpCreateUserThreadEx.c)
- *     DbgkUserReportWorkRoutine @ 0x140939CF0 (DbgkUserReportWorkRoutine.c)
- *     MiForceCrashForInvalidAccess @ 0x140A2B198 (MiForceCrashForInvalidAccess.c)
- *     MiInjectThreadForHotPatch @ 0x140A379C4 (MiInjectThreadForHotPatch.c)
+ *     RtlpCreateUserThreadEx @ 0x14065C850 (RtlpCreateUserThreadEx.c)
+ *     DbgkUserReportWorkRoutine @ 0x140886DA0 (DbgkUserReportWorkRoutine.c)
+ *     MiForceCrashForInvalidAccess @ 0x1408C42F4 (MiForceCrashForInvalidAccess.c)
  * Callees:
  *     <none>
  */

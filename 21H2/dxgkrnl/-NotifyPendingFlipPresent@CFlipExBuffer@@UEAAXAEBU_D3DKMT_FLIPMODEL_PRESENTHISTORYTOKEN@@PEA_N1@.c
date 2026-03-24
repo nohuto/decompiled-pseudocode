@@ -1,9 +1,9 @@
 /*
- * XREFs of ?NotifyPendingFlipPresent@CFlipExBuffer@@UEAAXAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N1@Z @ 0x1C00180D0
+ * XREFs of ?NotifyPendingFlipPresent@CFlipExBuffer@@UEAAXAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N1@Z @ 0x1C0017E40
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckIndependentFlipAttributes@CFlipExBuffer@@IEAA_NAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N@Z @ 0x1C0018118 (-CheckIndependentFlipAttributes@CFlipExBuffer@@IEAA_NAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@.c)
+ *     ?CheckIndependentFlipAttributes@CFlipExBuffer@@IEAA_NAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N@Z @ 0x1C0017E88 (-CheckIndependentFlipAttributes@CFlipExBuffer@@IEAA_NAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@.c)
  */
 
 void __fastcall CFlipExBuffer::NotifyPendingFlipPresent(
@@ -18,9 +18,9 @@ void __fastcall CFlipExBuffer::NotifyPendingFlipPresent(
   {
     PresentLimitSemaphoreId = a2->PresentLimitSemaphoreId;
     if ( a2->FenceValue )
-      *((_QWORD *)this + 44) = a2->FenceValue;
+      *((_QWORD *)this + 40) = a2->FenceValue;
     if ( PresentLimitSemaphoreId )
-      ++*((_DWORD *)this + 84);
+      ++*((_DWORD *)this + 76);
   }
   *a3 = CFlipExBuffer::CheckIndependentFlipAttributes(this, a2, a4);
 }

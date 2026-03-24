@@ -1,29 +1,30 @@
 /*
- * XREFs of PerfLogExecutiveResourceAcquire @ 0x14060071C
+ * XREFs of PerfLogExecutiveResourceAcquire @ 0x1405AACCC
  * Callers:
- *     ExpAcquireResourceExclusiveLite @ 0x14023B4B0 (ExpAcquireResourceExclusiveLite.c)
- *     ExpAcquireResourceSharedLite @ 0x14023DDA0 (ExpAcquireResourceSharedLite.c)
- *     ExpAcquireSharedStarveExclusive @ 0x1402632C0 (ExpAcquireSharedStarveExclusive.c)
- *     ExAcquireSharedWaitForExclusive @ 0x1403C82F0 (ExAcquireSharedWaitForExclusive.c)
- *     ExpTryToAcquireResourceExclusiveLite @ 0x14060AFA4 (ExpTryToAcquireResourceExclusiveLite.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x14029EDE0 (ExpAcquireSharedStarveExclusive.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExpAcquireResourceSharedLite @ 0x1402CC770 (ExpAcquireResourceSharedLite.c)
+ *     ExpAcquireResourceExclusiveLite @ 0x1402CD0C0 (ExpAcquireResourceExclusiveLite.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1405B4CB0 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpTryToAcquireResourceExclusiveLite @ 0x1405B583C (ExpTryToAcquireResourceExclusiveLite.c)
  * Callees:
- *     EtwpGetTrackingLockSlotForThread @ 0x1406005FC (EtwpGetTrackingLockSlotForThread.c)
+ *     EtwpGetTrackingLockSlotForThread @ 0x1405AAB94 (EtwpGetTrackingLockSlotForThread.c)
  */
 
 signed __int64 __fastcall PerfLogExecutiveResourceAcquire(int a1, __int64 a2, unsigned int a3, int a4)
 {
   struct _KPRCB *CurrentPrcb; // rsi
-  unsigned __int64 v8; // rdi
-  __int16 Group; // r15
-  unsigned __int8 GroupIndex; // r12
+  __int16 Group; // r12
+  unsigned __int64 v9; // rdi
+  unsigned __int8 GroupIndex; // r15
   signed __int64 result; // rax
   signed __int64 v12; // rdx
-  int v13; // eax
+  bool v13; // zf
   unsigned int v14; // [rsp+50h] [rbp+8h]
 
   CurrentPrcb = KeGetCurrentPrcb();
-  v8 = __rdtsc();
   Group = CurrentPrcb->Group;
+  v9 = __rdtsc();
   GroupIndex = CurrentPrcb->GroupIndex;
   ++CurrentPrcb->SynchCounters.ExEtwSynchTrackingNotificationsCount;
   LOWORD(v14) = Group;
@@ -54,16 +55,16 @@ LABEL_15:
     }
     else
     {
-      v13 = *(_DWORD *)(v12 + 32);
-      *(_QWORD *)(v12 + 8) = v8;
-      if ( v13 != 4 )
+      v13 = *(_DWORD *)(v12 + 32) == 4;
+      *(_QWORD *)(v12 + 8) = v9;
+      if ( !v13 )
       {
         *(_QWORD *)v12 = 0LL;
         goto LABEL_14;
       }
       if ( *(_WORD *)(v12 + 24) == Group && *(_BYTE *)(v12 + 26) == GroupIndex )
       {
-        *(_QWORD *)v12 = v8 - *(_QWORD *)v12;
+        *(_QWORD *)v12 = v9 - *(_QWORD *)v12;
         goto LABEL_14;
       }
     }

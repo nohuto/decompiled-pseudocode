@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessSetRotationAxis@CComponentTransform3D@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPONENTTRANSFORM3D_SETROTATIONAXIS@@@Z @ 0x1800F1E94
+ * XREFs of ?ProcessSetRotationAxis@CComponentTransform3D@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPONENTTRANSFORM3D_SETROTATIONAXIS@@@Z @ 0x1800D2830
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CComponentTransform3D::ProcessSetRotationAxis(
@@ -19,8 +19,8 @@ __int64 __fastcall CComponentTransform3D::ProcessSetRotationAxis(
   v5[0] = *((_DWORD *)a3 + 2);
   v5[2] = *((_DWORD *)a3 + 4);
   v5[1] = v3;
-  return ((__int64 (__fastcall *)(char *, void *, _DWORD *))xmmword_1803E3408)(
-           (char *)this + SDWORD2(xmmword_1803E3408),
+  return ((__int64 (__fastcall *)(char *, void *, _DWORD *))xmmword_1803440F8)(
+           (char *)this + SDWORD2(xmmword_1803440F8),
            &CComponentTransform3D::sc_RotationAxis,
            v5);
 }

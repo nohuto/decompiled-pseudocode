@@ -1,24 +1,24 @@
 /*
- * XREFs of NtGdiSetPixel @ 0x1C012EFA0
+ * XREFs of NtGdiSetPixel @ 0x1C0155DE0
  * Callers:
  *     <none>
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C002AF64 (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?DestSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C002C7C4 (-DestSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z.c)
- *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C002CE30 (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
- *     ?vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C002CF6C (-vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
- *     ?bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C002F5F0 (-bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C003FD30 (--1DEVLOCKOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C0042DBC (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
- *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C0088D80 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
- *     ?bIsCMYKColor@DC@@QEBAHXZ @ 0x1C008A518 (-bIsCMYKColor@DC@@QEBAHXZ.c)
- *     ??0DEVLOCKOBJ@@QEAA@XZ @ 0x1C008AE30 (--0DEVLOCKOBJ@@QEAA@XZ.c)
- *     ?pfnBitBlt@SURFACE@@QEAAP6AHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@ZXZ @ 0x1C008E810 (-pfnBitBlt@SURFACE@@QEAAP6AHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00E47F8 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C008E970 (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ??0DEVLOCKOBJ@@QEAA@XZ @ 0x1C00A9BEC (--0DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B1630 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C00B30BC (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
+ *     ?DestSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z @ 0x1C00B4C9C (-DestSurfaceAccessCheck@@YAHPEAVSURFACE@@@Z.c)
+ *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C00B4CCC (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
+ *     ?vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C00B61E0 (-vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C00B63B0 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
+ *     ?pfnBitBlt@SURFACE@@QEAAP6AHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@ZXZ @ 0x1C00BA100 (-pfnBitBlt@SURFACE@@QEAAP6AHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FDC44 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ?bIsCMYKColor@DC@@QEBAHXZ @ 0x1C0109700 (-bIsCMYKColor@DC@@QEBAHXZ.c)
+ *     ?bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C0156F1C (-bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtGdiSetPixel(HDC a1, unsigned int a2, unsigned int a3, unsigned int a4)
@@ -27,162 +27,165 @@ __int64 __fastcall NtGdiSetPixel(HDC a1, unsigned int a2, unsigned int a3, unsig
   DC *v8; // rcx
   DC *v9; // rbx
   __int64 v10; // r13
-  struct REGION *v11; // rax
-  struct ECLIPOBJ *v12; // rdx
-  ULONG v13; // ecx
-  DC *v14; // rcx
-  __int64 v15; // rdi
-  __int64 v16; // rbx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  struct REGION *v14; // rax
+  struct ECLIPOBJ *v15; // rdx
+  ULONG v16; // ecx
+  DC *v17; // rcx
+  __int64 v18; // rdi
+  __int64 v19; // rbx
   int IsCMYKColor; // r15d
-  int v18; // ecx
-  int v19; // eax
-  int (*v20)(struct _SURFOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *, struct _POINTL *, struct _BRUSHOBJ *, struct _POINTL *, unsigned int); // rax
-  __int64 v21; // rdx
-  int v22; // r8d
-  struct _POINTL v24[2]; // [rsp+60h] [rbp-A0h] BYREF
-  DC *v25[6]; // [rsp+70h] [rbp-90h] BYREF
+  int v21; // ecx
+  int v22; // eax
+  int (*v23)(struct _SURFOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *, struct _POINTL *, struct _BRUSHOBJ *, struct _POINTL *, unsigned int); // rax
+  int v24; // edx
+  __int64 v25; // r8
+  struct _POINTL v27[2]; // [rsp+60h] [rbp-A0h] BYREF
+  DC *v28[6]; // [rsp+70h] [rbp-90h] BYREF
   unsigned int NearestIndexFromColorref; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v27; // [rsp+A8h] [rbp-58h]
-  int v28; // [rsp+B0h] [rbp-50h]
-  unsigned int v29; // [rsp+B8h] [rbp-48h]
-  int v30; // [rsp+BCh] [rbp-44h]
-  __int64 v31; // [rsp+C0h] [rbp-40h]
-  __int64 v32; // [rsp+C8h] [rbp-38h]
-  __int64 v33; // [rsp+F8h] [rbp-8h]
-  __int128 v34; // [rsp+100h] [rbp+0h]
-  int v35; // [rsp+118h] [rbp+18h]
-  _BYTE v36[16]; // [rsp+130h] [rbp+30h] BYREF
-  _BYTE v37[112]; // [rsp+140h] [rbp+40h] BYREF
-  __int128 v38; // [rsp+1B0h] [rbp+B0h] BYREF
+  __int64 v30; // [rsp+A8h] [rbp-58h]
+  int v31; // [rsp+B0h] [rbp-50h]
+  unsigned int v32; // [rsp+B8h] [rbp-48h]
+  int v33; // [rsp+BCh] [rbp-44h]
+  __int64 v34; // [rsp+C0h] [rbp-40h]
+  __int64 v35; // [rsp+C8h] [rbp-38h]
+  __int64 v36; // [rsp+F8h] [rbp-8h]
+  __int128 v37; // [rsp+100h] [rbp+0h]
+  int v38; // [rsp+118h] [rbp+18h]
+  _BYTE v39[16]; // [rsp+130h] [rbp+30h] BYREF
+  _BYTE v40[112]; // [rsp+140h] [rbp+40h] BYREF
+  __int128 v41; // [rsp+1B0h] [rbp+B0h] BYREF
 
   v7 = -1;
-  DCOBJ::DCOBJ((DCOBJ *)v25, a1);
-  if ( v25[0] && (*((_DWORD *)v25[0] + 9) & 0x10000) == 0 )
+  DCOBJ::DCOBJ((DCOBJ *)v28, a1);
+  if ( v28[0] && (*((_DWORD *)v28[0] + 9) & 0x10000) == 0 )
   {
-    v24[0] = (struct _POINTL)__PAIR64__(a3, a2);
-    EXFORMOBJ::vQuickInit((EXFORMOBJ *)v36, (struct XDCOBJ *)v25, 516);
-    EXFORMOBJ::bXform((EXFORMOBJ *)v36, v24, 1LL);
-    *(struct _POINTL *)&v38 = v24[0];
-    DWORD2(v38) = v24[0].x + 1;
-    v8 = v25[0];
-    HIDWORD(v38) = v24[0].y + 1;
-    if ( (*((_DWORD *)v25[0] + 9) & 0xE0) != 0 )
+    v27[0] = (struct _POINTL)__PAIR64__(a3, a2);
+    EXFORMOBJ::vQuickInit((EXFORMOBJ *)v39, (struct XDCOBJ *)v28, 516);
+    EXFORMOBJ::bXform((EXFORMOBJ *)v39, v27, 1LL);
+    *(struct _POINTL *)&v41 = v27[0];
+    DWORD2(v41) = v27[0].x + 1;
+    v8 = v28[0];
+    HIDWORD(v41) = v27[0].y + 1;
+    if ( (*((_DWORD *)v28[0] + 9) & 0xE0) != 0 )
     {
-      XDCOBJ::vAccumulate((XDCOBJ *)v25, (struct ERECTL *)&v38);
-      v8 = v25[0];
+      XDCOBJ::vAccumulate((XDCOBJ *)v28, (struct ERECTL *)&v41);
+      v8 = v28[0];
     }
     if ( *((_QWORD *)v8 + 62) )
     {
-      DEVLOCKOBJ::DEVLOCKOBJ((DEVLOCKOBJ *)v37);
-      if ( DEVLOCKOBJ::bLock((DEVLOCKOBJ *)v37, (struct XDCOBJ *)v25, 0) )
+      DEVLOCKOBJ::DEVLOCKOBJ((DEVLOCKOBJ *)v40);
+      if ( DEVLOCKOBJ::bLock((DEVLOCKOBJ *)v40, (struct XDCOBJ *)v28, 0) )
       {
-        v9 = v25[0];
-        v10 = *((_QWORD *)v25[0] + 62);
+        v9 = v28[0];
+        v10 = *((_QWORD *)v28[0] + 62);
         if ( (unsigned int)ERECTL::bOffsetAdd(
-                             (ERECTL *)&v38,
-                             (const struct _POINTL *)v25[0] + (*((_DWORD *)v25[0] + 10) & 1) + 127,
+                             (ERECTL *)&v41,
+                             (const struct _POINTL *)v28[0] + (*((_DWORD *)v28[0] + 10) & 1) + 127,
                              1)
-          && (unsigned int)(v38 + 134217726) <= 0xFFFFFFC
-          && (unsigned int)(DWORD2(v38) + 134217726) <= 0xFFFFFFC
-          && (unsigned int)(DWORD1(v38) + 134217726) <= 0xFFFFFFC
-          && (unsigned int)(HIDWORD(v38) + 134217726) <= 0xFFFFFFC )
+          && (unsigned int)(v41 + 134217726) <= 0xFFFFFFC
+          && (v11 = DWORD2(v41), (unsigned int)(DWORD2(v41) + 134217726) <= 0xFFFFFFC)
+          && (v12 = DWORD1(v41), (unsigned int)(DWORD1(v41) + 134217726) <= 0xFFFFFFC)
+          && (v13 = HIDWORD(v41), (unsigned int)(HIDWORD(v41) + 134217726) <= 0xFFFFFFC) )
         {
-          if ( (int)v38 < *((_DWORD *)v9 + 250)
-            || SDWORD2(v38) > *((_DWORD *)v9 + 252)
-            || SDWORD1(v38) < *((_DWORD *)v9 + 251)
-            || SHIDWORD(v38) > *((_DWORD *)v9 + 253) )
+          if ( (int)v41 < *((_DWORD *)v9 + 250)
+            || SDWORD2(v41) > *((_DWORD *)v9 + 252)
+            || SDWORD1(v41) < *((_DWORD *)v9 + 251)
+            || SHIDWORD(v41) > *((_DWORD *)v9 + 253) )
           {
-            v11 = XDCOBJ::prgnEffRao(v25);
-            XCLIPOBJ::vSetup((DC *)((char *)v9 + 1768), v11, (struct ERECTL *)&v38, 2);
-            if ( ERECTL::bEmpty((DC *)((char *)v9 + 1772)) )
+            v14 = XDCOBJ::prgnEffRao(v28);
+            XCLIPOBJ::vSetup((DC *)((char *)v9 + 1776), v14, (struct ERECTL *)&v41, 2);
+            if ( ERECTL::bEmpty((DC *)((char *)v9 + 1780)) )
               goto LABEL_39;
           }
-          if ( (unsigned int)DestSurfaceAccessCheck((struct SURFACE *)v10) )
+          if ( (unsigned int)DestSurfaceAccessCheck((struct SURFACE *)v10, v11, v12, v13) )
           {
-            v14 = v25[0];
-            if ( (*((_DWORD *)v25[0] + 9) & 0xE0) != 0 )
+            v17 = v28[0];
+            if ( (*((_DWORD *)v28[0] + 9) & 0xE0) != 0 )
             {
-              *(_OWORD *)&v24[0].x = v38;
-              XDCOBJ::vAccumulateTight((XDCOBJ *)v25, v12, (__m128i *)v24);
-              v14 = v25[0];
+              *(_OWORD *)&v27[0].x = v41;
+              XDCOBJ::vAccumulateTight((XDCOBJ *)v28, v15, (__m128i *)v27);
+              v17 = v28[0];
             }
-            v15 = *((_QWORD *)v14 + 11);
-            v16 = *(_QWORD *)(v10 + 128);
+            v18 = *((_QWORD *)v17 + 11);
+            v19 = *(_QWORD *)(v10 + 128);
+            v37 = 0LL;
+            v36 = 0LL;
+            v30 = 0LL;
+            v31 = 0;
+            v33 = -1;
             v34 = 0LL;
-            v33 = 0LL;
-            v27 = 0LL;
-            v28 = 0;
-            v30 = -1;
-            v31 = 0LL;
-            v32 = 0LL;
-            v35 = 0;
-            IsCMYKColor = DC::bIsCMYKColor(v14);
+            v35 = 0LL;
+            v38 = 0;
+            IsCMYKColor = DC::bIsCMYKColor(v17);
             if ( IsCMYKColor )
             {
               NearestIndexFromColorref = a4;
-              v28 = 6;
+              v31 = 6;
               if ( gbMultiMonMismatchColor )
               {
-                v29 = a4;
-                v30 = a4;
+                v32 = a4;
+                v33 = a4;
               }
             }
             else
             {
-              NearestIndexFromColorref = ulGetNearestIndexFromColorref(v16, v15, a4, 1LL);
-              v18 = *((_DWORD *)v25[0] + 30);
-              if ( (v18 & 4) != 0 || (v18 & 1) != 0 )
+              NearestIndexFromColorref = ulGetNearestIndexFromColorref(v19, v18, a4, 1LL);
+              v21 = *((_DWORD *)v28[0] + 30);
+              if ( (v21 & 4) != 0 || (v21 & 1) != 0 )
               {
-                v28 = 2;
+                v31 = 2;
               }
               else
               {
-                v19 = v28;
-                if ( (v18 & 2) != 0 )
-                  v19 = 1;
-                v28 = v19;
+                v22 = v31;
+                if ( (v21 & 2) != 0 )
+                  v22 = 1;
+                v31 = v22;
               }
               if ( gbMultiMonMismatchColor )
               {
-                v29 = a4;
-                v30 = rgbFromColorref(v16, v15);
+                v32 = a4;
+                v33 = rgbFromColorref(v19, v18);
               }
             }
             ++*(_DWORD *)(v10 + 92);
-            v20 = SURFACE::pfnBitBlt((SURFACE *)v10);
-            if ( ((unsigned int (__fastcall *)(__int64, _QWORD, _QWORD, _QWORD, _QWORD, __int128 *, _QWORD, _QWORD, unsigned int *, __int64, int))v20)(
+            v23 = SURFACE::pfnBitBlt((SURFACE *)v10);
+            if ( ((unsigned int (__fastcall *)(__int64, _QWORD, _QWORD, _QWORD, _QWORD, __int128 *, _QWORD, _QWORD, unsigned int *, __int64, int))v23)(
                    v10 + 24,
                    0LL,
                    0LL,
                    0LL,
                    0LL,
-                   &v38,
+                   &v41,
                    0LL,
                    0LL,
                    &NearestIndexFromColorref,
-                   v21 + 1192,
-                   v22) )
+                   v25,
+                   v24) )
             {
               if ( IsCMYKColor )
                 v7 = NearestIndexFromColorref;
               else
-                v7 = ulIndexToRGB(v16, v15, NearestIndexFromColorref);
+                v7 = ulIndexToRGB(v19, v18, NearestIndexFromColorref);
             }
             EBRUSHOBJ::vDelete((EBRUSHOBJ *)&NearestIndexFromColorref);
             goto LABEL_39;
           }
-          v13 = 5;
+          v16 = 5;
         }
         else
         {
-          v13 = 87;
+          v16 = 87;
         }
-        EngSetLastError(v13);
+        EngSetLastError(v16);
       }
 LABEL_39:
-      DEVLOCKOBJ::~DEVLOCKOBJ((DEVLOCKOBJ *)v37);
+      DEVLOCKOBJ::~DEVLOCKOBJ((DEVLOCKOBJ *)v40);
     }
   }
-  DCOBJ::~DCOBJ((DCOBJ *)v25);
+  DCOBJ::~DCOBJ((DCOBJ *)v28);
   return v7;
 }

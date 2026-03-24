@@ -1,5 +1,5 @@
 /*
- * XREFs of EditionSystemGenerateMove @ 0x1C00BE300
+ * XREFs of EditionSystemGenerateMove @ 0x1C01345C0
  * Callers:
  *     <none>
  * Callees:

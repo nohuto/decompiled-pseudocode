@@ -1,193 +1,195 @@
 /*
- * XREFs of VidSchiSubmitRenderCommand @ 0x1C00F38D0
+ * XREFs of VidSchiSubmitRenderCommand @ 0x1C00D062C
  * Callers:
- *     VidSchiRun_PriorityTable @ 0x1C00AE010 (VidSchiRun_PriorityTable.c)
- *     VidSchiSubmitQueueCommand @ 0x1C00F379C (VidSchiSubmitQueueCommand.c)
+ *     VidSchiRun_PriorityTable @ 0x1C0090830 (VidSchiRun_PriorityTable.c)
+ *     VidSchiSubmitQueueCommand @ 0x1C00D04F0 (VidSchiSubmitQueueCommand.c)
  * Callees:
- *     VidSchiSchedulerNodeToDriverEngine @ 0x1C0003AE0 (VidSchiSchedulerNodeToDriverEngine.c)
- *     ?UpdateHistoryBuffer@_VIDSCH_QUEUE_PACKET@@QEAAXXZ @ 0x1C00053F4 (-UpdateHistoryBuffer@_VIDSCH_QUEUE_PACKET@@QEAAXXZ.c)
- *     VidSchIsTDRPending @ 0x1C000AD70 (VidSchIsTDRPending.c)
- *     VidSchMarkDeviceAsError @ 0x1C0018900 (VidSchMarkDeviceAsError.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ?DdiPatch@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_PATCH@@@Z @ 0x1C002CAB4 (-DdiPatch@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_PATCH@@@Z.c)
- *     VidSchGetNewSubmissionFenceId @ 0x1C009A7A0 (VidSchGetNewSubmissionFenceId.c)
- *     VidSchiSendToExecutionQueueWithWait @ 0x1C009A9EC (VidSchiSendToExecutionQueueWithWait.c)
- *     VidSchiAllocateDmaPacket @ 0x1C009AA58 (VidSchiAllocateDmaPacket.c)
- *     ?BeginCPUAccess@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@PEAPEAX@Z @ 0x1C00A4420 (-BeginCPUAccess@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@PEAPEAX@Z.c)
- *     ?PrepareDmaBuffer@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_DMA_BUFFER@@IPEAKPEAT_LARGE_INTEGER@@@Z @ 0x1C00D8D30 (-PrepareDmaBuffer@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_DMA_BUFFER@@IPEAKPEAT_LARGE_IN.c)
- *     ?FlushPendingCPUAccess@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C00E0570 (-FlushPendingCPUAccess@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@@Z.c)
- *     VidSchiDiscardQueuePacket @ 0x1C00F2F7C (VidSchiDiscardQueuePacket.c)
+ *     VidSchiSchedulerNodeToDriverEngine @ 0x1C0001898 (VidSchiSchedulerNodeToDriverEngine.c)
+ *     ?UpdateHistoryBuffer@_VIDSCH_QUEUE_PACKET@@QEAAXXZ @ 0x1C0006A90 (-UpdateHistoryBuffer@_VIDSCH_QUEUE_PACKET@@QEAAXXZ.c)
+ *     VidSchIsTDRPending @ 0x1C000C0E0 (VidSchIsTDRPending.c)
+ *     VidSchMarkDeviceAsError @ 0x1C0015CB0 (VidSchMarkDeviceAsError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     ?DdiPatch@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_PATCH@@@Z @ 0x1C002259C (-DdiPatch@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_PATCH@@@Z.c)
+ *     ?BeginCPUAccess@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@PEAPEAX@Z @ 0x1C00756EC (-BeginCPUAccess@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@PEAPEAX@Z.c)
+ *     VidSchiSendToExecutionQueueWithWait @ 0x1C0089B80 (VidSchiSendToExecutionQueueWithWait.c)
+ *     VidSchiAllocateDmaPacket @ 0x1C0089BEC (VidSchiAllocateDmaPacket.c)
+ *     VidSchGetNewSubmissionFenceId @ 0x1C008D9B8 (VidSchGetNewSubmissionFenceId.c)
+ *     ?PrepareDmaBuffer@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_DMA_BUFFER@@IPEAKPEAT_LARGE_INTEGER@@@Z @ 0x1C00B2334 (-PrepareDmaBuffer@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_DMA_BUFFER@@IPEAKPEAT_LARGE_IN.c)
+ *     ?FlushPendingCPUAccess@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C00BAB34 (-FlushPendingCPUAccess@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@@Z.c)
+ *     VidSchiDiscardQueuePacket @ 0x1C00CFABC (VidSchiDiscardQueuePacket.c)
  */
 
-__int64 __fastcall VidSchiSubmitRenderCommand(
-        union _LARGE_INTEGER *a1,
-        struct VIDMM_DEVICE *a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall VidSchiSubmitRenderCommand(union _LARGE_INTEGER *a1, struct VIDMM_DEVICE *a2, __int64 a3)
 {
-  union _LARGE_INTEGER v4; // r15
-  union _LARGE_INTEGER v5; // rsi
-  __int64 v7; // r14
-  __int64 v8; // r13
-  __int64 v9; // rdi
-  VIDMM_GLOBAL *v10; // rcx
-  int v11; // eax
-  int v12; // r12d
-  VIDMM_DMA_POOL *v13; // rcx
-  __int64 v14; // rdx
-  __int64 v15; // rax
+  union _LARGE_INTEGER v3; // r14
+  union _LARGE_INTEGER v4; // rsi
+  __int64 v6; // r15
+  __int64 v7; // r13
+  __int64 v8; // rdi
+  VIDMM_GLOBAL *v9; // rcx
+  int v10; // eax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r12
+  _QWORD *v14; // rax
+  VIDMM_DMA_POOL *v15; // rcx
+  __int64 v16; // rdx
+  __int64 v17; // rax
   UINT LowPart; // ecx
-  unsigned int v17; // edx
-  __int64 v18; // rax
-  UINT v19; // ecx
-  UINT v20; // ecx
+  unsigned int v19; // edx
+  __int64 v20; // rax
   UINT v21; // ecx
-  UINT v22; // eax
-  DWORD v23; // r8d
-  bool v24; // cl
-  ADAPTER_RENDER *v25; // r9
-  union _LARGE_INTEGER *DmaPacket; // r14
-  union _LARGE_INTEGER v27; // rax
-  union _LARGE_INTEGER v28; // rdx
-  LONG v29; // ecx
-  LONG v30; // ecx
-  bool v31; // cf
-  LONG v32; // r8d
-  DWORD v33; // ecx
+  UINT v22; // ecx
+  UINT v23; // ecx
+  UINT v24; // eax
+  DWORD v25; // r8d
+  bool v26; // cl
+  ADAPTER_RENDER *v27; // r9
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  _QWORD *v30; // rax
+  union _LARGE_INTEGER *DmaPacket; // r15
+  union _LARGE_INTEGER v32; // rax
+  union _LARGE_INTEGER v33; // rdx
+  LONG v34; // ecx
+  LONG v35; // ecx
+  bool v36; // cf
+  LONG v37; // ecx
+  DWORD v38; // edx
   __int64 HighPart; // rax
-  void (__fastcall *v35)(_QWORD); // rax
-  signed __int32 v37[8]; // [rsp+0h] [rbp-99h] BYREF
-  struct _DXGKARG_PATCH v38; // [rsp+30h] [rbp-69h] BYREF
-  unsigned int v39; // [rsp+100h] [rbp+67h] BYREF
-  union _LARGE_INTEGER v40; // [rsp+108h] [rbp+6Fh] BYREF
-  void *v41; // [rsp+110h] [rbp+77h] BYREF
-  union _LARGE_INTEGER v42; // [rsp+118h] [rbp+7Fh] BYREF
+  void (__fastcall *v40)(_QWORD); // rax
+  signed __int32 v42[8]; // [rsp+0h] [rbp-99h] BYREF
+  struct _DXGKARG_PATCH v43; // [rsp+30h] [rbp-69h] BYREF
+  unsigned int v44; // [rsp+100h] [rbp+67h] BYREF
+  union _LARGE_INTEGER v45; // [rsp+108h] [rbp+6Fh] BYREF
+  void *v46; // [rsp+110h] [rbp+77h] BYREF
+  union _LARGE_INTEGER v47; // [rsp+118h] [rbp+7Fh] BYREF
 
-  v4 = a1[11];
-  v5 = a1[35];
-  v39 = 0;
-  v42.QuadPart = 0LL;
-  v7 = *(_QWORD *)(v4.QuadPart + 104);
-  v8 = *(_QWORD *)(v4.QuadPart + 96);
-  v9 = *(_QWORD *)(v7 + 32);
-  if ( (*(_BYTE *)(v9 + 3036) & 1) != 0
-    || VidSchIsTDRPending(*(_QWORD *)(v7 + 32))
-    || *(_BYTE *)(v7 + 204)
-    || _InterlockedCompareExchange((volatile signed __int32 *)(v7 + 200), 0, 0) )
+  v3 = a1[11];
+  v4 = a1[35];
+  v44 = 0;
+  v47.QuadPart = 0LL;
+  v6 = *(_QWORD *)(v3.QuadPart + 104);
+  v7 = *(_QWORD *)(v3.QuadPart + 96);
+  v8 = *(_QWORD *)(v6 + 32);
+  if ( (*(_BYTE *)(v8 + 2940) & 1) != 0
+    || VidSchIsTDRPending(*(_QWORD *)(v6 + 32))
+    || *(_BYTE *)(v6 + 204)
+    || _InterlockedCompareExchange((volatile signed __int32 *)(v6 + 200), 0, 0) )
   {
-    v12 = -1073741823;
+    LODWORD(v13) = -1073741823;
     goto LABEL_24;
   }
-  v11 = VIDMM_GLOBAL::PrepareDmaBuffer(v10, a2, (struct _VIDMM_DMA_BUFFER *)v5.QuadPart, a1[41].HighPart, &v39, &v42);
-  v12 = v11;
-  if ( v11 < 0 )
+  v10 = VIDMM_GLOBAL::PrepareDmaBuffer(v9, a2, (struct _VIDMM_DMA_BUFFER *)v4.QuadPart, a1[41].HighPart, &v44, &v47);
+  v13 = v10;
+  if ( v10 < 0 )
   {
-    ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD))WdLogSingleEntry4)(
-      3LL,
-      v9,
-      (union _LARGE_INTEGER)v4.QuadPart,
-      a1,
-      v11);
-    VidSchMarkDeviceAsError(v7);
+    v14 = (_QWORD *)WdLogNewEntry5_WdWarning(v12, v11);
+    v14[3] = v8;
+    v14[4] = v3.QuadPart;
+    v14[5] = a1;
+    v14[6] = v13;
+    WdLogEvent5_WdWarning(v14);
+    VidSchMarkDeviceAsError(v6);
 LABEL_24:
-    VidSchiDiscardQueuePacket((struct _VIDSCH_QUEUE_PACKET *)a1, (__int64)a2, a3, a4);
-    return (unsigned int)v12;
+    VidSchiDiscardQueuePacket((struct _VIDSCH_QUEUE_PACKET *)a1, (__int64)a2, a3);
+    return (unsigned int)v13;
   }
-  v13 = *(VIDMM_DMA_POOL **)(v5.QuadPart + 136);
-  v40.QuadPart = 0LL;
-  v41 = 0LL;
-  VIDMM_DMA_POOL::BeginCPUAccess(v13, (struct _VIDMM_DMA_BUFFER *)v5.QuadPart, &v41);
+  v15 = *(VIDMM_DMA_POOL **)(v4.QuadPart + 136);
+  v45.QuadPart = 0LL;
+  v46 = 0LL;
+  VIDMM_DMA_POOL::BeginCPUAccess(v15, (struct _VIDMM_DMA_BUFFER *)v4.QuadPart, &v46);
   a1[7].QuadPart = MEMORY[0xFFFFF78000000320];
   a1[6].HighPart = 7;
-  VidSchGetNewSubmissionFenceId(v9, (__int64)a1, *(unsigned __int16 *)(v8 + 4), (__int64 *)&v40);
+  VidSchGetNewSubmissionFenceId(v8, (__int64)a1, *(unsigned __int16 *)(v7 + 4), (__int64 *)&v45);
   _VIDSCH_QUEUE_PACKET::UpdateHistoryBuffer((_VIDSCH_QUEUE_PACKET *)a1);
-  v14 = *(_QWORD *)(v4.QuadPart + 56);
-  if ( ((*(_DWORD *)(v14 + 224) & 1) == 0
-     || (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v14 + 16) + 16LL) + 16LL) + 2720LL) & 1) == 0)
-    && ((*(_DWORD *)(v5.QuadPart + 28) & 4) == 0
-     || (v15 = *(_QWORD *)(**(_QWORD **)(v5.QuadPart + 136) + 40LL),
-         _InterlockedOr(v37, 0),
-         *(_QWORD *)(v5.QuadPart + 152) != v15))
-    || (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v9 + 8) + 656LL) + 7056LL) & 1) != 0 )
+  v16 = *(_QWORD *)(v3.QuadPart + 56);
+  if ( ((*(_DWORD *)(v16 + 224) & 1) == 0
+     || (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v16 + 16) + 16LL) + 16LL) + 2624LL) & 1) == 0)
+    && ((*(_DWORD *)(v4.QuadPart + 28) & 4) == 0
+     || (v17 = *(_QWORD *)(**(_QWORD **)(v4.QuadPart + 136) + 40LL),
+         _InterlockedOr(v42, 0),
+         *(_QWORD *)(v4.QuadPart + 152) != v17))
+    || (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v8 + 8) + 648LL) + 7048LL) & 1) != 0 )
   {
     LowPart = a1[40].LowPart;
-    v17 = *(unsigned __int16 *)(v8 + 4);
-    *(&v38.DmaBufferSegmentId + 1) = 0;
-    *(&v38.DmaBufferSubmissionEndOffset + 1) = 0;
-    *(&v38.DmaBufferPrivateDataSubmissionEndOffset + 1) = 0;
-    *(&v38.AllocationListSize + 1) = 0;
-    v38.hDevice = *(HANDLE *)(v4.QuadPart + 64);
-    v38.DmaBufferSegmentId = v39;
-    v38.DmaBufferPhysicalAddress = v42;
-    v38.DmaBufferSize = *(_DWORD *)(v5.QuadPart + 40);
-    v38.pDmaBuffer = v41;
-    v38.pDmaBufferPrivateData = *(void **)(v5.QuadPart + 128);
-    v18 = *(_QWORD *)(v5.QuadPart + 136);
-    v38.DmaBufferSubmissionStartOffset = LowPart;
-    v38.DmaBufferSubmissionEndOffset = a1[40].HighPart + LowPart;
-    v19 = *(_DWORD *)(v18 + 88);
-    v38.pAllocationList = *(const DXGK_ALLOCATIONLIST **)(v5.QuadPart + 112);
-    v38.AllocationListSize = a1[41].HighPart;
-    v38.pPatchLocationList = *(const D3DDDI_PATCHLOCATIONLIST **)(v5.QuadPart + 120);
-    LODWORD(v18) = *(_DWORD *)(v5.QuadPart + 52);
-    v38.DmaBufferPrivateDataSize = v19;
-    v20 = a1[43].LowPart;
-    v38.PatchLocationListSize = v18;
-    LODWORD(v18) = a1[42].LowPart;
-    v38.DmaBufferPrivateDataSubmissionStartOffset = v20;
-    v21 = a1[43].HighPart + v20;
-    v38.PatchLocationListSubmissionStart = v18;
-    v38.PatchLocationListSubmissionLength = a1[42].HighPart;
-    v38.DmaBufferPrivateDataSubmissionEndOffset = v21;
-    v38.SubmissionFenceId = v40.LowPart;
-    v22 = VidSchiSchedulerNodeToDriverEngine(v9, v17);
-    v23 = a1[9].LowPart;
-    v24 = (*(_BYTE *)(v4.QuadPart + 112) & 2) == 0;
-    v38.EngineOrdinal = v22;
-    v38.Flags.Value = ((v23 & 0x20 | (v23 >> 1) & 0x40) >> 4) | ((v23 & 0x8000) == 0 && v24 ? 0 : 8);
-    v12 = ADAPTER_RENDER::DdiPatch(v25, &v38);
-    if ( v12 < 0 )
+    v19 = *(unsigned __int16 *)(v7 + 4);
+    *(&v43.DmaBufferSegmentId + 1) = 0;
+    *(&v43.DmaBufferSubmissionEndOffset + 1) = 0;
+    *(&v43.DmaBufferPrivateDataSubmissionEndOffset + 1) = 0;
+    *(&v43.AllocationListSize + 1) = 0;
+    v43.hDevice = *(HANDLE *)(v3.QuadPart + 64);
+    v43.DmaBufferSegmentId = v44;
+    v43.DmaBufferPhysicalAddress = v47;
+    v43.DmaBufferSize = *(_DWORD *)(v4.QuadPart + 40);
+    v43.pDmaBuffer = v46;
+    v43.pDmaBufferPrivateData = *(void **)(v4.QuadPart + 128);
+    v20 = *(_QWORD *)(v4.QuadPart + 136);
+    v43.DmaBufferSubmissionStartOffset = LowPart;
+    v43.DmaBufferSubmissionEndOffset = a1[40].HighPart + LowPart;
+    v21 = *(_DWORD *)(v20 + 88);
+    v43.pAllocationList = *(const DXGK_ALLOCATIONLIST **)(v4.QuadPart + 112);
+    v43.AllocationListSize = a1[41].HighPart;
+    v43.pPatchLocationList = *(const D3DDDI_PATCHLOCATIONLIST **)(v4.QuadPart + 120);
+    LODWORD(v20) = *(_DWORD *)(v4.QuadPart + 52);
+    v43.DmaBufferPrivateDataSize = v21;
+    v22 = a1[43].LowPart;
+    v43.PatchLocationListSize = v20;
+    LODWORD(v20) = a1[42].LowPart;
+    v43.DmaBufferPrivateDataSubmissionStartOffset = v22;
+    v23 = a1[43].HighPart + v22;
+    v43.PatchLocationListSubmissionStart = v20;
+    v43.PatchLocationListSubmissionLength = a1[42].HighPart;
+    v43.DmaBufferPrivateDataSubmissionEndOffset = v23;
+    v43.SubmissionFenceId = v45.LowPart;
+    v24 = VidSchiSchedulerNodeToDriverEngine(v8, v19);
+    v25 = a1[9].LowPart;
+    v26 = (*(_BYTE *)(v3.QuadPart + 112) & 2) == 0;
+    v43.EngineOrdinal = v24;
+    v43.Flags.Value = ((v25 & 0x20 | (v25 >> 1) & 0x40) >> 4) | ((v25 & 0x8000) == 0 && v26 ? 0 : 8);
+    LODWORD(v13) = ADAPTER_RENDER::DdiPatch(v27, &v43);
+    if ( (int)v13 < 0 )
     {
-      ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))WdLogSingleEntry5)(
-        0LL,
-        281LL,
-        3LL,
-        v9,
-        (union _LARGE_INTEGER)v4.QuadPart,
-        a1);
+      v30 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v29, v28);
+      v30[3] = 281LL;
+      v30[4] = 3LL;
+      v30[5] = v8;
+      v30[6] = v3.QuadPart;
+      v30[7] = a1;
+      WdLogEvent5_WdCriticalError(v30);
       __debugbreak();
     }
     VIDMM_DMA_POOL::FlushPendingCPUAccess(
-      *(VIDMM_DMA_POOL **)(v5.QuadPart + 136),
-      (struct _VIDMM_DMA_BUFFER *)v5.QuadPart);
+      *(VIDMM_DMA_POOL **)(v4.QuadPart + 136),
+      (struct _VIDMM_DMA_BUFFER *)v4.QuadPart);
   }
-  DmaPacket = (union _LARGE_INTEGER *)VidSchiAllocateDmaPacket(v8);
+  DmaPacket = (union _LARGE_INTEGER *)VidSchiAllocateDmaPacket(v7);
   DmaPacket[7].QuadPart = (LONGLONG)a1;
   DmaPacket->LowPart = 912353622;
-  DmaPacket[6] = v4;
-  DmaPacket[8] = v5;
-  v27.QuadPart = MEMORY[0xFFFFF78000000320];
+  DmaPacket[6] = v3;
+  DmaPacket[8] = v4;
+  v32.QuadPart = MEMORY[0xFFFFF78000000320];
   DmaPacket[11].HighPart = 0;
-  v28 = DmaPacket[7];
-  DmaPacket[10] = v27;
+  v33 = DmaPacket[7];
+  DmaPacket[10] = v32;
   DmaPacket[9].LowPart = 7;
-  v27.LowPart = (*(_DWORD *)(v28.QuadPart + 72) >> 3) & 4;
-  DmaPacket[11].HighPart = v27.LowPart;
-  v29 = v27.LowPart | (*(_DWORD *)(v28.QuadPart + 72) >> 4) & 8;
-  DmaPacket[11].HighPart = v29;
-  v27.LowPart = v29 | (*(_DWORD *)(v28.QuadPart + 72) >> 8) & 0x100;
-  DmaPacket[11].HighPart = v27.LowPart;
-  v30 = v27.LowPart | (4 * (*(_DWORD *)(v28.QuadPart + 72) & 4));
-  DmaPacket[11].HighPart = v30;
-  v31 = a1[16].LowPart != 0;
-  DmaPacket[13] = v40;
+  v32.LowPart = (*(_DWORD *)(v33.QuadPart + 72) >> 3) & 4;
+  DmaPacket[11].HighPart = v32.LowPart;
+  v34 = v32.LowPart | (*(_DWORD *)(v33.QuadPart + 72) >> 4) & 8;
+  DmaPacket[11].HighPart = v34;
+  v32.LowPart = v34 | (*(_DWORD *)(v33.QuadPart + 72) >> 8) & 0x100;
+  DmaPacket[11].HighPart = v32.LowPart;
+  v35 = v32.LowPart | (4 * (*(_DWORD *)(v33.QuadPart + 72) & 4));
+  DmaPacket[11].HighPart = v35;
+  v36 = a1[16].LowPart != 0;
+  DmaPacket[13] = v45;
   DmaPacket[11].LowPart = 0;
-  v28.LowPart = v30 | (v31 ? 0x4000 : 0);
-  DmaPacket[11].HighPart = v28.LowPart;
+  v33.LowPart = v35 | (v36 ? 0x4000 : 0);
+  DmaPacket[11].HighPart = v33.LowPart;
   DmaPacket[12].LowPart = a1[14].LowPart;
-  DmaPacket[15].QuadPart = (LONGLONG)v41;
-  DmaPacket[16].LowPart = v39;
-  DmaPacket[17] = v42;
+  DmaPacket[15].QuadPart = (LONGLONG)v46;
+  DmaPacket[16].LowPart = v44;
+  DmaPacket[17] = v47;
   DmaPacket[18].LowPart = a1[40].LowPart;
   DmaPacket[18].HighPart = a1[40].LowPart + a1[40].HighPart;
   DmaPacket[19].LowPart = a1[43].LowPart;
@@ -196,27 +198,27 @@ LABEL_24:
   DmaPacket[20].HighPart = a1[41].HighPart;
   DmaPacket[21].LowPart = a1[42].LowPart;
   DmaPacket[21].HighPart = a1[42].HighPart;
-  DmaPacket[14] = *(union _LARGE_INTEGER *)(v5.QuadPart + 160);
-  v32 = v28.LowPart | ((a1[9].LowPart & 0x100 | 0x200) >> 8);
-  DmaPacket[11].HighPart = v32;
-  v33 = a1[9].LowPart;
-  if ( (v33 & 1) != 0 )
+  DmaPacket[14] = *(union _LARGE_INTEGER *)(v4.QuadPart + 160);
+  v37 = v33.LowPart | ((a1[9].LowPart & 0x100 | 0x200) >> 8);
+  DmaPacket[11].HighPart = v37;
+  v38 = a1[9].LowPart;
+  if ( (v38 & 1) != 0 )
   {
     HighPart = (unsigned int)a1[48].HighPart;
-    if ( (_DWORD)HighPart != -1 && (v33 & 0x40000) == 0 )
+    if ( (_DWORD)HighPart != -1 && (v38 & 0x40000) == 0 )
     {
-      if ( *(_DWORD *)(*(_QWORD *)(v9 + 8 * HighPart + 3200) + 44232LL) != -1 )
+      if ( *(_DWORD *)(*(_QWORD *)(v8 + 8 * HighPart + 3104) + 33288LL) != -1 )
       {
-        v35 = *(void (__fastcall **)(_QWORD))(v9 + 3056);
-        if ( v35 )
+        v40 = *(void (__fastcall **)(_QWORD))(v8 + 2960);
+        if ( v40 )
         {
-          v35(*(_QWORD *)(v9 + 3120));
-          v32 = DmaPacket[11].HighPart;
+          v40(*(_QWORD *)(v8 + 3024));
+          v37 = DmaPacket[11].HighPart;
         }
       }
-      DmaPacket[11].HighPart = v32 | 0x800;
+      DmaPacket[11].HighPart = v37 | 0x800;
     }
   }
   VidSchiSendToExecutionQueueWithWait((__int64)DmaPacket, 0);
-  return (unsigned int)v12;
+  return (unsigned int)v13;
 }

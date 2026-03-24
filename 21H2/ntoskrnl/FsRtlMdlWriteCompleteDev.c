@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlMdlWriteCompleteDev @ 0x1406E1760
+ * XREFs of FsRtlMdlWriteCompleteDev @ 0x1406BE700
  * Callers:
  *     <none>
  * Callees:
- *     CcMdlWriteComplete2 @ 0x1402581E0 (CcMdlWriteComplete2.c)
+ *     CcMdlWriteComplete2 @ 0x1402D05D8 (CcMdlWriteComplete2.c)
  */
 
 BOOLEAN __stdcall FsRtlMdlWriteCompleteDev(
@@ -14,6 +14,6 @@ BOOLEAN __stdcall FsRtlMdlWriteCompleteDev(
 {
   if ( (FileObject->Flags & 0x10) != 0 )
     return 0;
-  CcMdlWriteComplete2((__int64)FileObject, (__int64 *)FileOffset, MdlChain, (int)DeviceObject);
+  CcMdlWriteComplete2((__int64)FileObject, (__int64 *)FileOffset, MdlChain, (__int64)DeviceObject);
   return 1;
 }

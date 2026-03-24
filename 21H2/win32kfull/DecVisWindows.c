@@ -1,37 +1,34 @@
 /*
- * XREFs of DecVisWindows @ 0x1C001FD7C
+ * XREFs of DecVisWindows @ 0x1C004C78C
  * Callers:
- *     SetVisible @ 0x1C001FE88 (SetVisible.c)
- *     xxxSetWindowStyle @ 0x1C0050020 (xxxSetWindowStyle.c)
- *     SetMinimize @ 0x1C00CB6A0 (SetMinimize.c)
+ *     SetMinimize @ 0x1C002C16C (SetMinimize.c)
+ *     SetVisible @ 0x1C004BD40 (SetVisible.c)
+ *     xxxSetWindowStyle @ 0x1C005E1E0 (xxxSetWindowStyle.c)
  * Callees:
- *     FVisCountable @ 0x1C00201C0 (FVisCountable.c)
- *     ?_GetWindowCompositionInfo@@YAHPEBUtagWND@@PEAUWINDOWCOMPOSITIONINFO@@@Z @ 0x1C004D894 (-_GetWindowCompositionInfo@@YAHPEBUtagWND@@PEAUWINDOWCOMPOSITIONINFO@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     FVisCountable @ 0x1C004C070 (FVisCountable.c)
+ *     _GetWindowCompositionInfo @ 0x1C006DEB0 (_GetWindowCompositionInfo.c)
  */
 
-__int64 __fastcall DecVisWindows(struct tagWND *a1)
+__int64 __fastcall DecVisWindows(__int64 a1)
 {
   __int64 result; // rax
   __int64 v3; // rbx
   __int64 v4; // rax
   __int64 v5; // rcx
-  _WORD v6[32]; // [rsp+20h] [rbp-58h] BYREF
+  _OWORD v6[2]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v7; // [rsp+40h] [rbp-18h]
 
   memset(v6, 0, sizeof(v6));
+  v7 = 0LL;
   result = FVisCountable(a1);
   if ( (_DWORD)result )
   {
-    v3 = *((_QWORD *)a1 + 2);
+    v3 = *(_QWORD *)(a1 + 16);
     v4 = *(_QWORD *)(v3 + 424);
     --*(_DWORD *)(v3 + 900);
     --*(_DWORD *)(v4 + 1024);
-    if ( (unsigned int)_GetWindowCompositionInfo(a1, (struct WINDOWCOMPOSITIONINFO *)v6)
-      && ((v6[0] & 0x400) != 0 || (v6[0] & 0x800) != 0) )
-    {
+    if ( (unsigned int)GetWindowCompositionInfo(a1, v6) && ((v6[0] & 0x400) != 0 || (v6[0] & 0x800) != 0) )
       --*(_DWORD *)(*(_QWORD *)(v3 + 424) + 1028LL);
-    }
     v5 = *(_QWORD *)(v3 + 424);
     result = *(unsigned int *)(v5 + 1028);
     if ( *(_DWORD *)(v5 + 1024) <= (unsigned int)result && (*(_DWORD *)(v5 + 820) & 0x4000) != 0 )

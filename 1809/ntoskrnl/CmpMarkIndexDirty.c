@@ -2,9 +2,9 @@
  * XREFs of CmpMarkIndexDirty @ 0x1405AD40C
  * Callers:
  *     CmpMarkKeyDirty @ 0x1405AE028 (CmpMarkKeyDirty.c)
- *     CmpMarkKeyParentDirty @ 0x1407FD884 (CmpMarkKeyParentDirty.c)
+ *     CmpMarkKeyParentDirty @ 0x1407FD864 (CmpMarkKeyParentDirty.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpCopyCompressedName @ 0x1405AF298 (CmpCopyCompressedName.c)

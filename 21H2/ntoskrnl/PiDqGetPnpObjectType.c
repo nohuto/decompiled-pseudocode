@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqGetPnpObjectType @ 0x140777298
+ * XREFs of PiDqGetPnpObjectType @ 0x1406386A0
  * Callers:
- *     PiDqIrpPropertySet @ 0x14076DD0C (PiDqIrpPropertySet.c)
- *     PiDqQueryValidateQueryData @ 0x140776CFC (PiDqQueryValidateQueryData.c)
- *     PiDqPropertyCallback @ 0x1407770E0 (PiDqPropertyCallback.c)
- *     PiDqQueryAppendActionEntry @ 0x140777CF0 (PiDqQueryAppendActionEntry.c)
- *     PiDqActionDataCreate @ 0x140778100 (PiDqActionDataCreate.c)
+ *     PiDqQueryValidateQueryData @ 0x14062EEF0 (PiDqQueryValidateQueryData.c)
+ *     PiDqActionDataCreate @ 0x14062F9AC (PiDqActionDataCreate.c)
+ *     PiDqQueryAppendActionEntry @ 0x14062FC34 (PiDqQueryAppendActionEntry.c)
+ *     PiDqPropertyCallback @ 0x1406384F0 (PiDqPropertyCallback.c)
+ *     PiDqIrpPropertySet @ 0x14072E3E4 (PiDqIrpPropertySet.c)
  * Callees:
  *     <none>
  */
@@ -14,8 +14,8 @@ __int64 __fastcall PiDqGetPnpObjectType(int a1)
 {
   unsigned int v1; // edx
   int v2; // ecx
-  int v3; // ecx
   int v4; // ecx
+  int v5; // ecx
   int v6; // ecx
   int v7; // ecx
 
@@ -23,13 +23,13 @@ __int64 __fastcall PiDqGetPnpObjectType(int a1)
   v2 = a1 - 1;
   if ( v2 )
   {
-    v3 = v2 - 1;
-    if ( v3 )
+    v4 = v2 - 1;
+    if ( v4 )
     {
-      v4 = v3 - 1;
-      if ( v4 )
+      v5 = v4 - 1;
+      if ( v5 )
       {
-        v6 = v4 - 1;
+        v6 = v5 - 1;
         if ( v6 )
         {
           v7 = v6 - 3;

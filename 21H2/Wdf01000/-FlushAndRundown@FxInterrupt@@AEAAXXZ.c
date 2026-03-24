@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FlushAndRundown@FxInterrupt@@AEAAXXZ @ 0x1C008D128
+ * XREFs of ?FlushAndRundown@FxInterrupt@@AEAAXXZ @ 0x1C0089578
  * Callers:
- *     ?Dispose@FxInterrupt@@UEAAEXZ @ 0x1C008D110 (-Dispose@FxInterrupt@@UEAAEXZ.c)
+ *     ?Dispose@FxInterrupt@@UEAAEXZ @ 0x1C0089560 (-Dispose@FxInterrupt@@UEAAEXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxInterrupt::FlushAndRundown(FxInterrupt *this)

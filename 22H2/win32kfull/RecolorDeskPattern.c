@@ -1,15 +1,15 @@
 /*
- * XREFs of RecolorDeskPattern @ 0x1C00BDFC0
+ * XREFs of RecolorDeskPattern @ 0x1C01369E0
  * Callers:
- *     SetDesktopPattern @ 0x1C00AEAF4 (SetDesktopPattern.c)
+ *     SetDesktopPattern @ 0x1C0026030 (SetDesktopPattern.c)
  * Callees:
- *     GreSetBkColor @ 0x1C0027760 (GreSetBkColor.c)
- *     GreSetTextColor @ 0x1C0027D58 (GreSetTextColor.c)
- *     GreCreateCompatibleBitmapInternal @ 0x1C0057310 (GreCreateCompatibleBitmapInternal.c)
- *     GreMarkDeletableBrush @ 0x1C00AEC68 (GreMarkDeletableBrush.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     GreCreateDIBitmapReal @ 0x1C02DE52C (GreCreateDIBitmapReal.c)
+ *     GreMarkDeletableBrush @ 0x1C00261A4 (GreMarkDeletableBrush.c)
+ *     GreSetTextColor @ 0x1C0044578 (GreSetTextColor.c)
+ *     GreSetBkColor @ 0x1C0044600 (GreSetBkColor.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C00AADE8 (GreCreateCompatibleBitmapInternal.c)
+ *     GreCreateDIBitmapReal @ 0x1C00ABE5C (GreCreateDIBitmapReal.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 RecolorDeskPattern()
@@ -21,7 +21,7 @@ __int64 RecolorDeskPattern()
   __int64 v5; // r15
   __int64 PatternBrush; // rdi
   HBRUSH v7; // rcx
-  _DWORD v8[3]; // [rsp+78h] [rbp+7h] BYREF
+  unsigned int v8[3]; // [rsp+78h] [rbp+7h] BYREF
   __int64 v9; // [rsp+84h] [rbp+13h]
   __int64 v10; // [rsp+8Ch] [rbp+1Bh]
   int v11; // [rsp+94h] [rbp+23h]
@@ -37,10 +37,10 @@ __int64 RecolorDeskPattern()
   v0 = 0;
   if ( g_hbmDesktopPattern )
   {
-    v2 = GreSelectBitmap(ghdcMem, g_hbmDesktopPattern);
+    v2 = GreSelectBitmap(*(_QWORD *)ghdcMem, g_hbmDesktopPattern);
     if ( *(_DWORD *)(gpsi + 2220LL) )
     {
-      CompatibleBitmapInternal = GreCreateCompatibleBitmapInternal(*(_QWORD *)(gpDispInfo + 64LL), 8u, 8u, 0, 0LL, 0LL);
+      CompatibleBitmapInternal = GreCreateCompatibleBitmapInternal(*(HDC *)(gpDispInfo + 64LL), 8u, 8u, 0, 0LL, 0LL);
     }
     else
     {
@@ -59,12 +59,12 @@ __int64 RecolorDeskPattern()
       v18 = BYTE1(*(_DWORD *)(gpsi + 4600LL));
       v19 = *(_BYTE *)(gpsi + 4600LL);
       CompatibleBitmapInternal = GreCreateDIBitmapReal(
-                                   *(_QWORD *)(gpDispInfo + 64LL),
+                                   *(HDC *)(gpDispInfo + 64LL),
                                    0,
+                                   0LL,
+                                   v8,
                                    0,
-                                   (unsigned int)v8,
-                                   0,
-                                   48,
+                                   0x30u,
                                    0,
                                    0LL,
                                    0,
@@ -76,10 +76,10 @@ __int64 RecolorDeskPattern()
     v4 = CompatibleBitmapInternal;
     if ( CompatibleBitmapInternal )
     {
-      v5 = GreSelectBitmap(ghdcMem2, CompatibleBitmapInternal);
-      GreSetTextColor(ghdcMem2, *(_DWORD *)(gpsi + 4572LL));
-      GreSetBkColor(ghdcMem2, *(_DWORD *)(gpsi + 4600LL));
-      NtGdiBitBltInternal(ghdcMem2, 0, 0, 8, 8, ghdcMem, 0, 0, 13369376, 0, 0);
+      v5 = GreSelectBitmap(*(_QWORD *)ghdcMem2, CompatibleBitmapInternal);
+      GreSetTextColor(*(HDC *)ghdcMem2, *(_DWORD *)(gpsi + 4572LL));
+      GreSetBkColor(*(HDC *)ghdcMem2, *(_DWORD *)(gpsi + 4600LL));
+      NtGdiBitBltInternal(*(HDC *)ghdcMem2, 0, 0, 8, 8, *(HDC *)ghdcMem, 0, 0, 13369376, 0, 0);
       PatternBrush = GreCreatePatternBrush(v4);
       if ( PatternBrush )
       {
@@ -94,10 +94,10 @@ __int64 RecolorDeskPattern()
         v0 = 1;
         *(_QWORD *)(gpsi + 4704LL) = PatternBrush;
       }
-      GreSelectBitmap(ghdcMem2, v5);
+      GreSelectBitmap(*(_QWORD *)ghdcMem2, v5);
       GreDeleteObject(v4);
     }
-    GreSelectBitmap(ghdcMem, v2);
+    GreSelectBitmap(*(_QWORD *)ghdcMem, v2);
   }
   return v0;
 }

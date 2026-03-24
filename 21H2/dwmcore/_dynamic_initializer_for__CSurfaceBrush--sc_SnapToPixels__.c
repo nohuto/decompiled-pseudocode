@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CSurfaceBrush::sc_SnapToPixels__ @ 0x180002FB0
+ * XREFs of _dynamic_initializer_for__CSurfaceBrush::sc_SnapToPixels__ @ 0x180002920
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CSurfaceBrush::sc_SnapToPixels__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803D2330 = (unsigned __int64)CDropShadow::SetAnimatedProperty;
-  qword_1803D2340 = v1;
+  xmmword_180346440 = (unsigned __int64)CBrush::SetAnimatedProperty;
+  qword_180346450 = v1;
   return result;
 }

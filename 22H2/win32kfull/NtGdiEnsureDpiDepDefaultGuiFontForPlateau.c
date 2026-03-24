@@ -1,13 +1,13 @@
 /*
- * XREFs of NtGdiEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C02C2260
+ * XREFs of NtGdiEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C02ADF80
  * Callers:
  *     <none>
  * Callees:
- *     GreEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C02989F0 (GreEnsureDpiDepDefaultGuiFontForPlateau.c)
+ *     GreEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C0293200 (GreEnsureDpiDepDefaultGuiFontForPlateau.c)
  */
 
-__int64 __fastcall NtGdiEnsureDpiDepDefaultGuiFontForPlateau(Gre::Base *a1)
+__int64 __fastcall NtGdiEnsureDpiDepDefaultGuiFontForPlateau(__int64 a1, __int64 a2, __int64 a3)
 {
-  GreEnsureDpiDepDefaultGuiFontForPlateau(a1);
+  GreEnsureDpiDepDefaultGuiFontForPlateau(a1, a2, a3);
   return 0LL;
 }

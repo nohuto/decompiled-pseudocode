@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiSetBitmapAttributes @ 0x1C009D2D0
+ * XREFs of NtGdiSetBitmapAttributes @ 0x1C00A9770
  * Callers:
  *     <none>
  * Callees:
- *     GreMakeBitmapStock @ 0x1C009D2F0 (GreMakeBitmapStock.c)
+ *     GreMakeBitmapStock @ 0x1C00A9790 (GreMakeBitmapStock.c)
  */
 
 __int64 __fastcall NtGdiSetBitmapAttributes(__int64 a1, char a2)

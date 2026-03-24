@@ -1,20 +1,20 @@
 /*
- * XREFs of ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C02C7D6C
+ * XREFs of ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C0154D24
  * Callers:
- *     NtGdiCLIPOBJ_bEnum @ 0x1C02C8380 (NtGdiCLIPOBJ_bEnum.c)
- *     NtGdiFONTOBJ_cGetAllGlyphHandles @ 0x1C02CC6F0 (NtGdiFONTOBJ_cGetAllGlyphHandles.c)
- *     NtGdiFONTOBJ_vGetInfo @ 0x1C02CCFC0 (NtGdiFONTOBJ_vGetInfo.c)
- *     NtGdiHT_Get8BPPFormatPalette @ 0x1C02CD110 (NtGdiHT_Get8BPPFormatPalette.c)
- *     NtGdiHT_Get8BPPMaskPalette @ 0x1C02CD1D0 (NtGdiHT_Get8BPPMaskPalette.c)
- *     NtGdiXFORMOBJ_bApplyXform @ 0x1C02CDF20 (NtGdiXFORMOBJ_bApplyXform.c)
- *     NtGdiXLATEOBJ_cGetPalette @ 0x1C02CE1E0 (NtGdiXLATEOBJ_cGetPalette.c)
+ *     NtGdiHT_Get8BPPMaskPalette @ 0x1C0154B00 (NtGdiHT_Get8BPPMaskPalette.c)
+ *     NtGdiCLIPOBJ_bEnum @ 0x1C02B1BD0 (NtGdiCLIPOBJ_bEnum.c)
+ *     NtGdiFONTOBJ_cGetAllGlyphHandles @ 0x1C02B3FB0 (NtGdiFONTOBJ_cGetAllGlyphHandles.c)
+ *     NtGdiFONTOBJ_vGetInfo @ 0x1C02B46A0 (NtGdiFONTOBJ_vGetInfo.c)
+ *     NtGdiHT_Get8BPPFormatPalette @ 0x1C02B4800 (NtGdiHT_Get8BPPFormatPalette.c)
+ *     NtGdiXFORMOBJ_bApplyXform @ 0x1C02B5240 (NtGdiXFORMOBJ_bApplyXform.c)
+ *     NtGdiXLATEOBJ_cGetPalette @ 0x1C02B53F0 (NtGdiXLATEOBJ_cGetPalette.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall bSafeCopyBits(char *a1, void *a2, unsigned int a3)
 {
-  char *v3; // rax
+  char *v3; // r10
 
   if ( a1 && a2 )
   {

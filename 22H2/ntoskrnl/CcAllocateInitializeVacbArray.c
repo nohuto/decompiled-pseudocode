@@ -1,12 +1,13 @@
 /*
- * XREFs of CcAllocateInitializeVacbArray @ 0x1403C2F10
+ * XREFs of CcAllocateInitializeVacbArray @ 0x14037A8AC
  * Callers:
- *     CcGetVirtualAddress @ 0x140264CD0 (CcGetVirtualAddress.c)
- *     CcInitializePartitionVacbs @ 0x1403A0520 (CcInitializePartitionVacbs.c)
+ *     CcGetVirtualAddress @ 0x1402A15A0 (CcGetVirtualAddress.c)
+ *     CcInitializePartitionVacbs @ 0x1403C2F88 (CcInitializePartitionVacbs.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char *CcAllocateInitializeVacbArray()
@@ -14,8 +15,8 @@ char *CcAllocateInitializeVacbArray()
   KIRQL v0; // al
   char *PoolWithTag; // rax
   char *v2; // rbx
-  _QWORD *v3; // rcx
-  __int64 v4; // rax
+  _QWORD *v3; // rax
+  __int64 v4; // rcx
   KIRQL v6; // al
 
   v0 = KeAcquireQueuedSpinLock(4uLL);
@@ -28,11 +29,12 @@ char *CcAllocateInitializeVacbArray()
   {
     ++CcVacbArraysAllocated;
     KeReleaseQueuedSpinLock(4uLL, v0);
-    PoolWithTag = (char *)ExAllocatePoolWithTag((POOL_TYPE)1536, 0x20000uLL, 0x61566343u);
+    PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20000uLL, 0x61566343u);
     v2 = PoolWithTag;
     if ( PoolWithTag )
     {
-      v3 = PoolWithTag + 48;
+      memset(PoolWithTag, 0, 0x20000uLL);
+      v3 = v2 + 48;
       v4 = 3276LL;
       do
       {

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetEmitterAnimationCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021779C
+ * XREFs of ?EmitSetEmitterAnimationCommand@CParticleEmitterVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01D77C0
  * Callers:
- *     ?EmitUpdateCommands@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021BC50 (-EmitUpdateCommands@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01DAE80 (-EmitUpdateCommands@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CParticleEmitterVisualMarshaler::EmitSetEmitterAnimationCommand(
@@ -15,7 +15,7 @@ char __fastcall DirectComposition::CParticleEmitterVisualMarshaler::EmitSetEmitt
   __int64 v5; // rax
   void *v7; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( (*((_DWORD *)this + 137) & 2) == 0 )
+  if ( (*((_DWORD *)this + 136) & 2) == 0 )
     return 1;
   v3 = 0;
   v7 = 0LL;
@@ -25,13 +25,13 @@ char __fastcall DirectComposition::CParticleEmitterVisualMarshaler::EmitSetEmitt
     *(_DWORD *)v7 = 16;
     *(_QWORD *)(v4 + 4) = 0LL;
     *((_DWORD *)v4 + 3) = 0;
-    *((_DWORD *)v4 + 1) = 565;
-    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
-    v5 = *((_QWORD *)this + 47);
+    *((_DWORD *)v4 + 1) = 541;
+    *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+    v5 = *((_QWORD *)this + 46);
     if ( v5 )
-      v3 = *(_DWORD *)(v5 + 32);
+      v3 = *(_DWORD *)(v5 + 24);
     *((_DWORD *)v4 + 3) = v3;
-    *((_DWORD *)this + 137) &= ~2u;
+    *((_DWORD *)this + 136) &= ~2u;
     return 1;
   }
   return 0;

@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgkpWerWriteSecondaryData @ 0x14093BECC
+ * XREFs of DbgkpWerWriteSecondaryData @ 0x140889808
  * Callers:
- *     DbgkpWerWriteTriageDump @ 0x14093C030 (DbgkpWerWriteTriageDump.c)
+ *     DbgkpWerWriteTriageDump @ 0x140889968 (DbgkpWerWriteTriageDump.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x14041A7A0 (ZwWriteFile.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x1403F9B20 (ZwWriteFile.c)
  */
 
 NTSTATUS __fastcall DbgkpWerWriteSecondaryData(__int64 a1, void *a2)
@@ -20,8 +20,7 @@ NTSTATUS __fastcall DbgkpWerWriteSecondaryData(__int64 a1, void *a2)
   int v11; // [rsp+90h] [rbp+3Fh]
   int v12; // [rsp+94h] [rbp+43h]
 
-  v2 = *(__int128 **)(a1 + 160);
-  v9 = 0LL;
+  v2 = *(__int128 **)(a1 + 168);
   IoStatusBlock = 0LL;
   if ( !v2 )
     return 0;

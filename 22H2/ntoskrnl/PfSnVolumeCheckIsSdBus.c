@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnVolumeCheckIsSdBus @ 0x1408A5DF4
+ * XREFs of PfSnVolumeCheckIsSdBus @ 0x1408E0A2C
  * Callers:
- *     PfSnOpenVolumesForPrefetch @ 0x140686328 (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x140634420 (PfSnOpenVolumesForPrefetch.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x14041A720 (ZwWaitForSingleObject.c)
- *     ZwDeviceIoControlFile @ 0x14041A780 (ZwDeviceIoControlFile.c)
- *     ZwResetEvent @ 0x14041D740 (ZwResetEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x1403F9AA0 (ZwWaitForSingleObject.c)
+ *     ZwDeviceIoControlFile @ 0x1403F9B00 (ZwDeviceIoControlFile.c)
+ *     ZwResetEvent @ 0x1403FC960 (ZwResetEvent.c)
  */
 
 __int64 __fastcall PfSnVolumeCheckIsSdBus(HANDLE *a1, void *a2)

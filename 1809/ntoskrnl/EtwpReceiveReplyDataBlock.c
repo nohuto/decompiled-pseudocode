@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpReceiveReplyDataBlock @ 0x1406CAE0C
+ * XREFs of EtwpReceiveReplyDataBlock @ 0x1406CADEC
  * Callers:
  *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeRemoveQueueEx @ 0x140058D60 (KeRemoveQueueEx.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     EtwpUnreferenceDataBlock @ 0x1405C0D74 (EtwpUnreferenceDataBlock.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)

@@ -1,8 +1,8 @@
 /*
- * XREFs of AuthzBasepCompareUnsigned @ 0x14032551C
+ * XREFs of AuthzBasepCompareUnsigned @ 0x14032561C
  * Callers:
- *     AuthzBasepCompareFQBNOperands @ 0x140325030 (AuthzBasepCompareFQBNOperands.c)
- *     AuthzBasepCompareIntegerOperands @ 0x1403252A0 (AuthzBasepCompareIntegerOperands.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x140325130 (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepCompareIntegerOperands @ 0x1403253A0 (AuthzBasepCompareIntegerOperands.c)
  * Callees:
  *     <none>
  */

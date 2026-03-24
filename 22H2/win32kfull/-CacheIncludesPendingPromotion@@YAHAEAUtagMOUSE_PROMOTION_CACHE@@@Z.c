@@ -1,30 +1,28 @@
 /*
- * XREFs of ?CacheIncludesPendingPromotion@@YAHAEAUtagMOUSE_PROMOTION_CACHE@@@Z @ 0x1C01F79C4
+ * XREFs of ?CacheIncludesPendingPromotion@@YAHAEAUtagMOUSE_PROMOTION_CACHE@@@Z @ 0x1C0217FA4
  * Callers:
- *     ?ResetMousePromotionInfo@@YAXGG@Z @ 0x1C01F84A8 (-ResetMousePromotionInfo@@YAXGG@Z.c)
+ *     ?ResetMousePromotionInfo@@YAXGG@Z @ 0x1C0218B40 (-ResetMousePromotionInfo@@YAXGG@Z.c)
  * Callees:
- *     ?HasPendingPromotion@@YAHXZ @ 0x1C01F7E94 (-HasPendingPromotion@@YAHXZ.c)
+ *     <none>
  */
 
 __int64 __fastcall CacheIncludesPendingPromotion(struct tagMOUSE_PROMOTION_CACHE *a1)
 {
-  __int64 v2; // rdi
-  __int64 *v3; // rcx
+  __int64 *v1; // rax
 
-  v2 = SGDGetUserSessionState(a1);
-  if ( (unsigned int)HasPendingPromotion() )
+  if ( word_1C0339BB0 )
   {
-    if ( *(_WORD *)a1 == *(_WORD *)(v2 + 16280) )
+    if ( *(_WORD *)a1 == word_1C0339BB0 )
     {
-      v3 = (__int64 *)*((_QWORD *)a1 + 1);
-      if ( v3 )
+      v1 = (__int64 *)*((_QWORD *)a1 + 1);
+      if ( v1 )
       {
-        while ( v3 != *((__int64 **)a1 + 2) )
+        while ( v1 != *((__int64 **)a1 + 2) )
         {
-          if ( *((_DWORD *)v3 + 8) == *(_DWORD *)(v2 + 16284) )
+          if ( *((_DWORD *)v1 + 8) == dword_1C0339BB4 )
             return 1LL;
-          v3 = (__int64 *)*v3;
-          if ( !v3 )
+          v1 = (__int64 *)*v1;
+          if ( !v1 )
             return 0LL;
         }
       }

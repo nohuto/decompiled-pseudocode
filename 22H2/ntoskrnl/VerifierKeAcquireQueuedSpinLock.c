@@ -1,35 +1,28 @@
 /*
- * XREFs of VerifierKeAcquireQueuedSpinLock @ 0x140AD05D0
+ * XREFs of VerifierKeAcquireQueuedSpinLock @ 0x1409D3200
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViTargetIncrementCounter @ 0x140ACCBDC (ViTargetIncrementCounter.c)
- *     ViKeIrqlLogAndTrimMemory @ 0x140AD6DA8 (ViKeIrqlLogAndTrimMemory.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ViTargetIncrementCounter @ 0x1409D751C (ViTargetIncrementCounter.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DC28C (ViKeRaiseIrqlSanityChecks.c)
  */
 
 __int64 __fastcall VerifierKeAcquireQueuedSpinLock(__int64 a1)
 {
-  __int64 v1; // rbx
-  __int64 v3; // rcx
+  void *v2; // rcx
+  __int64 v3; // rbx
   __int64 result; // rax
-  __int64 retaddr; // [rsp+28h] [rbp+0h]
+  void *retaddr; // [rsp+28h] [rbp+0h]
 
-  v1 = 0LL;
-  if ( (MmVerifierData & 1) != 0 )
-  {
-    ++dword_140C13968;
-    v3 = retaddr;
-    if ( (MmVerifierData & 0x1000) != 0 )
-      ViTargetIncrementCounter(retaddr, 164LL);
-    LOBYTE(v3) = 2;
-    v1 = ViKeIrqlLogAndTrimMemory(v3);
-  }
+  ++dword_140C2A8E8;
+  v2 = retaddr;
+  if ( (MmVerifierData & 0x1000) != 0 )
+    ViTargetIncrementCounter(retaddr, 156LL);
+  LOBYTE(v2) = 2;
+  v3 = ViKeRaiseIrqlSanityChecks(v2, 0LL);
   result = ((__int64 (__fastcall *)(__int64))pXdvKeAcquireQueuedSpinLock)(a1);
-  if ( (MmVerifierData & 1) != 0 )
-  {
-    if ( v1 )
-      *(_WORD *)(v1 + 10) = KeGetPcr()->Prcb.Number;
-  }
+  if ( v3 )
+    *(_WORD *)(v3 + 10) = KeGetPcr()->Prcb.Number;
   return result;
 }

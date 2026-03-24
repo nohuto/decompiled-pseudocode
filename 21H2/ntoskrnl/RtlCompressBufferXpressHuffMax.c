@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlCompressBufferXpressHuffMax @ 0x1405F0724
+ * XREFs of RtlCompressBufferXpressHuffMax @ 0x140591144
  * Callers:
- *     RtlCompressBufferXpressHuff @ 0x140377520 (RtlCompressBufferXpressHuff.c)
- *     RtlCompressBufferProgress @ 0x14038CFA0 (RtlCompressBufferProgress.c)
+ *     RtlCompressBufferXpressHuff @ 0x140365D90 (RtlCompressBufferXpressHuff.c)
+ *     RtlCompressBufferProgress @ 0x1403835B0 (RtlCompressBufferProgress.c)
  * Callees:
- *     XpressDoHuffmanPass @ 0x140377DA0 (XpressDoHuffmanPass.c)
- *     XpressBuildHuffmanEncodings @ 0x140378090 (XpressBuildHuffmanEncodings.c)
- *     RtlpMakeXpressCallback @ 0x14038CF50 (RtlpMakeXpressCallback.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     XpressBuildHuffmanEncodings @ 0x140366620 (XpressBuildHuffmanEncodings.c)
+ *     XpressDoHuffmanPass @ 0x1403669D0 (XpressDoHuffmanPass.c)
+ *     RtlpMakeXpressCallback @ 0x140388F30 (RtlpMakeXpressCallback.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall RtlCompressBufferXpressHuffMax(
@@ -57,72 +57,73 @@ __int64 __fastcall RtlCompressBufferXpressHuffMax(
   unsigned __int8 *v45; // rax
   unsigned __int64 v46; // rdx
   __int64 v47; // rcx
-  unsigned __int64 v48; // r9
-  _BYTE *v49; // r8
-  unsigned __int64 v50; // rdx
-  char v51; // cl
-  unsigned __int8 v52; // cl
+  _BYTE *v48; // r8
+  unsigned __int64 v49; // rdx
+  char v50; // cl
+  unsigned __int8 v51; // cl
+  unsigned __int64 v52; // rax
   _WORD *v53; // rdi
   __int64 v54; // rax
-  unsigned __int8 v55; // al
-  int v56; // esi
-  char *v57; // rax
-  unsigned __int64 v58; // [rsp+30h] [rbp-98h]
-  unsigned __int64 v59; // [rsp+38h] [rbp-90h]
-  unsigned __int64 v60; // [rsp+40h] [rbp-88h]
-  __int64 v61; // [rsp+48h] [rbp-80h]
-  __int64 v62; // [rsp+50h] [rbp-78h]
-  char *v63; // [rsp+58h] [rbp-70h]
-  unsigned __int8 *v64; // [rsp+60h] [rbp-68h]
-  char *v65; // [rsp+68h] [rbp-60h]
-  _QWORD v66[2]; // [rsp+70h] [rbp-58h] BYREF
-  unsigned int v67; // [rsp+80h] [rbp-48h]
-  int v68; // [rsp+84h] [rbp-44h]
-  unsigned __int8 *v69; // [rsp+D0h] [rbp+8h]
-  int v70; // [rsp+E0h] [rbp+18h]
+  unsigned __int64 v55; // rax
+  unsigned __int8 v56; // al
+  int v57; // esi
+  char *v58; // rax
+  unsigned __int64 v59; // [rsp+30h] [rbp-98h]
+  unsigned __int64 v60; // [rsp+38h] [rbp-90h]
+  unsigned __int64 v61; // [rsp+40h] [rbp-88h]
+  __int64 v62; // [rsp+48h] [rbp-80h]
+  __int64 v63; // [rsp+50h] [rbp-78h]
+  char *v64; // [rsp+58h] [rbp-70h]
+  unsigned __int8 *v65; // [rsp+60h] [rbp-68h]
+  char *v66; // [rsp+68h] [rbp-60h]
+  _QWORD v67[2]; // [rsp+70h] [rbp-58h] BYREF
+  unsigned int v68; // [rsp+80h] [rbp-48h]
+  int v69; // [rsp+84h] [rbp-44h]
+  unsigned __int8 *v70; // [rsp+D0h] [rbp+8h]
+  int v71; // [rsp+E0h] [rbp+18h]
 
-  v70 = (int)a3;
+  v71 = (int)a3;
   v10 = a2;
-  v68 = 0;
-  v58 = a1 + a2;
-  v65 = &a3[a4];
+  v69 = 0;
+  v59 = a1 + a2;
+  v66 = &a3[a4];
   if ( a4 >= 0x12C )
   {
     if ( a1 <= 0x10001 )
       return 3221225659LL;
     memset(a6, 0, 0x40000uLL);
     v13 = (unsigned __int8 *)a1;
-    v63 = a3;
+    v64 = a3;
     v14 = a3;
     *((_QWORD *)a6 + 0x8000) = 0LL;
     if ( a7 && a9 <= v10 )
       v10 = a9;
     else
       a9 = v10;
-    v66[0] = a7;
+    v67[0] = a7;
     v15 = a6 + 1342240;
-    v66[1] = a8;
-    v67 = v10;
-    v69 = 0LL;
+    v67[1] = a8;
+    v68 = v10;
+    v70 = 0LL;
     while ( 1 )
     {
-      v61 = 0LL;
       v62 = 0LL;
+      v63 = 0LL;
       memset(a6 + 1339936, 0, 0x800uLL);
-      v16 = v58;
+      v16 = v59;
       v17 = v10;
-      v18 = (unsigned __int8 *)v58;
+      v18 = (unsigned __int8 *)v59;
       v19 = v15 + 4;
-      if ( (unsigned __int64)(v13 + 0x10000) <= v58 )
+      if ( (unsigned __int64)(v13 + 0x10000) <= v59 )
         v18 = v13 + 0x10000;
       v20 = 1;
       v21 = (unsigned __int64)&v13[v17];
-      v64 = v18;
+      v65 = v18;
       v22 = (unsigned __int64)(v18 - 5);
-      v59 = (unsigned __int64)(v18 - 5);
+      v60 = (unsigned __int64)(v18 - 5);
       if ( (unsigned __int64)(v18 - 5) < v21 )
         v21 = (unsigned __int64)(v18 - 5);
-      v60 = v21;
+      v61 = v21;
       if ( v13 == (unsigned __int8 *)a1 )
       {
         v20 = 2;
@@ -137,7 +138,7 @@ __int64 __fastcall RtlCompressBufferXpressHuffMax(
       v25 = (__int64)&v13[-a1] % 0x20000;
       do
       {
-        v26 = (unsigned __int16)XpressHashFunction[*v24] ^ (unsigned __int16)word_14000F6D0[v24[2]] ^ (unsigned __int64)(unsigned __int16)word_14000F4D0[v24[1]];
+        v26 = (unsigned __int16)XpressHashFunction[*v24] ^ (unsigned __int16)word_14003B300[v24[2]] ^ (unsigned __int64)(unsigned __int16)word_14003B100[v24[1]];
         v27 = *(_QWORD *)&a6[8 * v26];
         *(_QWORD *)&a6[8 * v26] = v24++;
         *(_QWORD *)&a6[8 * v25 + 0x40000] = v27;
@@ -145,7 +146,7 @@ __int64 __fastcall RtlCompressBufferXpressHuffMax(
       }
       while ( (unsigned __int64)v24 < v22 );
 LABEL_18:
-      v16 = v58;
+      v16 = v59;
       while ( (unsigned __int64)v13 < v21 )
       {
 LABEL_22:
@@ -173,7 +174,7 @@ LABEL_22:
               if ( !v38 )
               {
 LABEL_24:
-                v32 = v69;
+                v32 = v70;
                 v33 = v13 - 0x10000;
                 v34 = v13;
                 v35 = 0LL;
@@ -183,7 +184,7 @@ LABEL_24:
               if ( (v38 & 0xFFFFFF) == 0 )
               {
 LABEL_32:
-                v69 = v30;
+                v70 = v30;
                 v34 = v13;
                 v33 = v13 - 0x10000;
                 v32 = v30;
@@ -199,59 +200,60 @@ LABEL_70:
                     v46 = v34 - v32;
                     if ( v36 == 3 && v46 > 0x1000 )
                     {
-                      v22 = v59;
+                      v22 = v60;
                       v13 = v34;
-                      v21 = v60;
+                      v21 = v61;
                       goto LABEL_73;
                     }
                     if ( v46 < 0x100 )
                       v47 = *((unsigned __int8 *)XpressHighBitIndexTable + v46);
                     else
                       v47 = *((unsigned __int8 *)XpressHighBitIndexTable + (v46 >> 8)) + 8LL;
-                    v61 += v47;
-                    v48 = v36 - 3;
-                    v49 = v19 + 1;
-                    v50 = v46 - (1LL << v47);
-                    v51 = 16 * v47;
+                    v62 += v47;
+                    v48 = v19 + 1;
+                    v49 = v46 - (1LL << v47);
+                    v50 = 16 * v47;
                     if ( v36 - 3 < 0xF )
                     {
-                      v52 = v36 - 3 + v51;
-                      *v19 = v52;
+                      v51 = v36 - 3 + v50;
+                      *v19 = v51;
                       v53 = v19 + 1;
                     }
                     else
                     {
-                      v52 = v51 + 15;
-                      *v19 = v52;
+                      v51 = v50 + 15;
+                      v52 = v36 - 18;
+                      *v19 = v51;
                       v53 = v19 + 2;
                       if ( v36 - 18 >= 0xFF )
                       {
-                        *v49 = -1;
-                        if ( v48 >= 0x10000 )
+                        v55 = v52 + 15;
+                        *v48 = -1;
+                        if ( v55 >= 0x10000 )
                         {
-                          *(_DWORD *)(v49 + 3) = v48;
+                          *(_DWORD *)(v48 + 3) = v55;
                           *v53 = 0;
-                          v53 = v49 + 7;
                           v54 = 7LL;
+                          v53 = v48 + 7;
                         }
                         else
                         {
-                          *v53 = v48;
+                          *v53 = v55;
+                          v53 = v48 + 3;
                           v54 = 3LL;
-                          v53 = v49 + 3;
                         }
                       }
                       else
                       {
-                        *v49 = v36 - 18;
+                        *v48 = v52;
                         v54 = 1LL;
                       }
-                      v62 += v54;
+                      v63 += v54;
                     }
-                    v22 = v59;
-                    v21 = v60;
-                    ++*(_DWORD *)&a6[4 * v52 + 1340960];
-                    *v53 = v50;
+                    v22 = v60;
+                    v21 = v61;
+                    ++*(_DWORD *)&a6[4 * v51 + 1340960];
+                    *v53 = v49;
                     v19 = (unsigned __int8 *)(v53 + 1);
                     if ( v20 <= 0 )
                     {
@@ -352,7 +354,7 @@ LABEL_47:
                     v39 += 8;
                     if ( (unsigned __int64)(v41 + 32) >= v16 )
                     {
-                      v32 = v69;
+                      v32 = v70;
                       goto LABEL_47;
                     }
                   }
@@ -361,14 +363,14 @@ LABEL_47:
 LABEL_58:
                   if ( (_BYTE)v42 == (_BYTE)v43 )
                   {
-                    v16 = v58;
+                    v16 = v59;
                     if ( v41[1] != *((_BYTE *)v39 + 1) )
                     {
                       ++v41;
                       v39 = (_DWORD *)((char *)v39 + 1);
                       goto LABEL_61;
                     }
-                    v32 = v69;
+                    v32 = v70;
                     if ( v41[2] == *((_BYTE *)v39 + 2) )
                     {
                       v41 += 3;
@@ -383,7 +385,7 @@ LABEL_58:
                   else
                   {
 LABEL_61:
-                    v32 = v69;
+                    v32 = v70;
                   }
                 }
                 v44 = v41 - v34;
@@ -394,7 +396,7 @@ LABEL_61:
                   v35 += v44;
                   goto LABEL_69;
                 }
-                v69 = v30;
+                v70 = v30;
                 v36 = v44;
                 v32 = v30;
                 if ( v45 > v34 )
@@ -422,14 +424,14 @@ LABEL_73:
       }
       if ( (unsigned __int64)v13 < v22 )
         break;
-      v14 = v63;
-      v18 = v64;
+      v14 = v64;
+      v18 = v65;
 LABEL_91:
       while ( v13 < v18 )
       {
         ++*(_DWORD *)&a6[4 * *v13 + 1339936];
-        v55 = *v13++;
-        *v19++ = v55;
+        v56 = *v13++;
+        *v19++ = v56;
         if ( v20 <= 0 )
         {
           *(_DWORD *)v15 = 2 * v20;
@@ -447,31 +449,31 @@ LABEL_91:
       *(_DWORD *)v15 = 2 * v20 + 1;
       if ( (unsigned __int64)v13 < v16 )
       {
-        v56 = 0;
+        v57 = 0;
       }
       else
       {
         ++*((_DWORD *)a6 + 335240);
-        v56 = 1;
+        v57 = 1;
       }
-      if ( &v14[4 * ((unsigned __int64)(XpressBuildHuffmanEncodings((_QWORD *)a6 + 163840) + v61 + 31) >> 5) + 258 + v62] >= v65 )
+      if ( &v14[4 * ((unsigned __int64)(XpressBuildHuffmanEncodings((_QWORD *)a6 + 163840) + v62 + 31) >> 5) + 258 + v63] >= v66 )
         return 3221225507LL;
       v15 = a6 + 1342240;
-      v57 = XpressDoHuffmanPass((__int64)(a6 + 1310720), a6 + 1342240, (unsigned __int64)v19, v14, v56);
+      v58 = XpressDoHuffmanPass((__int64)(a6 + 1310720), a6 + 1342240, (unsigned __int64)v19, v14, v57);
       v10 = a9;
-      v14 = v57;
-      v63 = v57;
-      if ( v56 )
+      v14 = v58;
+      v64 = v58;
+      if ( v57 )
       {
-        *a5 = (_DWORD)v57 - v70;
+        *a5 = (_DWORD)v58 - v71;
         return 0LL;
       }
     }
-    XpressCallback = RtlpMakeXpressCallback((__int64)v66, v22, (__int64)v13);
-    v22 = v59;
+    XpressCallback = RtlpMakeXpressCallback((__int64)v67, v22, (__int64)v13);
+    v22 = v60;
     v21 = XpressCallback;
-    v16 = v58;
-    v60 = XpressCallback;
+    v16 = v59;
+    v61 = XpressCallback;
     goto LABEL_22;
   }
   return 3221225507LL;

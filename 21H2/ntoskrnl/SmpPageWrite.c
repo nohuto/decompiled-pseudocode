@@ -1,12 +1,12 @@
 /*
- * XREFs of SmpPageWrite @ 0x14037BC58
+ * XREFs of SmpPageWrite @ 0x1402D7A4C
  * Callers:
- *     MiStoreWriteIssue @ 0x14037BB94 (MiStoreWriteIssue.c)
+ *     MiStoreWriteIssue @ 0x1402D7980 (MiStoreWriteIssue.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     SmKmStoreRefFromStoreIndex @ 0x14035F5E8 (SmKmStoreRefFromStoreIndex.c)
- *     ?SmPageWrite@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@K@Z @ 0x14037BD80 (-SmPageWrite@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU.c)
- *     SmpKeyedStoreReference @ 0x14037D810 (SmpKeyedStoreReference.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     SmpKeyedStoreReference @ 0x1402D6170 (SmpKeyedStoreReference.c)
+ *     ?SmPageWrite@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@K@Z @ 0x1402D7B74 (-SmPageWrite@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
  */
 
 __int64 __fastcall SmpPageWrite(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6, int a7)
@@ -23,7 +23,9 @@ __int64 __fastcall SmpPageWrite(__int64 a1, __int64 a2, __int64 a3, __int64 a4, 
   v16 = a3;
   v10 = -1;
   if ( (*(_DWORD *)(a2 + 8) & 3) != 0
-    || (v11 = SmpKeyedStoreReference((ULONG_PTR)&qword_140D321C8), v10 = v11, v11 == -1) )
+    || (v11 = SmpKeyedStoreReference((volatile signed __int64 *)qword_140D24188, (__int64)&SmGlobals),
+        v10 = v11,
+        v11 == -1) )
   {
     v12 = v16;
   }
@@ -34,9 +36,9 @@ __int64 __fastcall SmpPageWrite(__int64 a1, __int64 a2, __int64 a3, __int64 a4, 
   }
   if ( (v12 & 0x7FF) != 0x400 )
     goto LABEL_7;
-  if ( dword_140D321F0 != -1 )
+  if ( dword_140D241B0 != -1 )
   {
-    LODWORD(v16) = dword_140D321F0 & 0x3FF | v12 & 0xFFFFF800;
+    LODWORD(v16) = dword_140D241B0 & 0x3FF | v12 & 0xFFFFF800;
 LABEL_7:
     v13 = SMKM_STORE_MGR<SM_TRAITS>::SmPageWrite(&SmGlobals, a1, v16, a4, a5 & 0x7FFFFFFFFFFFFFFFLL, a6, a7);
     goto LABEL_8;
@@ -45,8 +47,8 @@ LABEL_7:
 LABEL_8:
   if ( v10 != -1 )
   {
-    v15 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex((__int64)&SmGlobals, v10 & 0x3FF);
-    ExReleaseRundownProtection(v15 + 1);
+    v15 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(&SmGlobals, v10 & 0x3FF, a3, a4);
+    ExReleaseRundownProtection_0(v15 + 1);
   }
   return v13;
 }

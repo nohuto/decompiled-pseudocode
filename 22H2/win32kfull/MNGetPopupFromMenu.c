@@ -1,85 +1,99 @@
 /*
- * XREFs of MNGetPopupFromMenu @ 0x1C0064740
+ * XREFs of MNGetPopupFromMenu @ 0x1C00478F8
  * Callers:
- *     xxxSetMenuInfo @ 0x1C0062B7C (xxxSetMenuInfo.c)
- *     xxxInsertMenuItem @ 0x1C00638F0 (xxxInsertMenuItem.c)
- *     ?xxxRedrawForSetLPITEMInfo@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C00645A0 (-xxxRedrawForSetLPITEMInfo@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
- *     ?xxxRemoveDeleteMenuHelper@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@IKH@Z @ 0x1C00649F8 (-xxxRemoveDeleteMenuHelper@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@IKH@Z.c)
- *     ?zzzMNFadeSelection@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C02164D8 (-zzzMNFadeSelection@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
- *     xxxEnableMenuItem @ 0x1C0221F90 (xxxEnableMenuItem.c)
- *     ?GetMenuPwnd@@YAPEAUtagWND@@PEAU1@AEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C02378C0 (-GetMenuPwnd@@YAPEAUtagWND@@PEAU1@AEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
+ *     xxxSetMenuInfo @ 0x1C0046A14 (xxxSetMenuInfo.c)
+ *     xxxEnableMenuItem @ 0x1C0046F10 (xxxEnableMenuItem.c)
+ *     ?xxxRemoveDeleteMenuHelper@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@IKH@Z @ 0x1C0047358 (-xxxRemoveDeleteMenuHelper@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@IKH@Z.c)
+ *     ?xxxRedrawForSetLPITEMInfo@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0047758 (-xxxRedrawForSetLPITEMInfo@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     xxxInsertMenuItem @ 0x1C007929C (xxxInsertMenuItem.c)
+ *     ?zzzMNFadeSelection@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0236180 (-zzzMNFadeSelection@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     ?GetMenuPwnd@@YAPEAUtagWND@@PEAU1@AEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C024E17C (-GetMenuPwnd@@YAPEAUtagWND@@PEAU1@AEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
  * Callees:
- *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C0062940 (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
- *     ??4?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z @ 0x1C00A9F90 (--4-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z.c)
- *     safe_cast_fnid_to_PMENUWND @ 0x1C013A398 (safe_cast_fnid_to_PMENUWND.c)
- *     MNAnimate @ 0x1C0234404 (MNAnimate.c)
+ *     safe_cast_fnid_to_PMENUWND @ 0x1C007D7BC (safe_cast_fnid_to_PMENUWND.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ??4?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z @ 0x1C010F934 (--4-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z.c)
+ *     MNAnimate @ 0x1C024BE2C (MNAnimate.c)
  */
 
-__int64 __fastcall MNGetPopupFromMenu(__int64 a1, __int64 **a2)
+_DWORD *__fastcall MNGetPopupFromMenu(__int64 a1, __int64 **a2)
 {
-  __int64 v4; // rbx
+  struct _KTHREAD *CurrentThread; // r15
+  __int64 v5; // rdi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
   __int64 *ThreadWin32Thread; // rax
-  __int64 v6; // rax
-  __int64 *v8; // rbx
-  __int64 v9; // rbx
-  __int64 *v10; // rax
-  _QWORD *v11; // rax
+  __int64 v10; // rax
+  _DWORD *v11; // rbx
+  __int64 v12; // rdi
+  _QWORD *v13; // rcx
+  __int64 *v15; // rbx
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v18; // rcx
+  __int64 CurrentThreadProcess; // rax
   __int64 i; // rdx
-  __int64 v13; // rax
-  __int64 v14; // rbx
-  __int64 *v15; // [rsp+20h] [rbp-10h] BYREF
-  __int64 v16; // [rsp+28h] [rbp-8h] BYREF
+  __int64 v21; // rax
+  __int64 *v22; // [rsp+20h] [rbp-10h] BYREF
+  __int64 v23; // [rsp+28h] [rbp-8h] BYREF
 
-  v4 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v4 = *ThreadWin32Thread;
-  v15 = (__int64 *)gSmartObjNullRef;
-  v16 = *(_QWORD *)(v4 + 1512);
-  *(_QWORD *)(v4 + 1512) = &v16;
-  v6 = *(_QWORD *)(a1 + 80);
-  if ( v6 && (v8 = *(__int64 **)(*(_QWORD *)(v6 + 16) + 608LL)) != 0LL && (v8[1] & 4) != 0 )
+  CurrentThread = KeGetCurrentThread();
+  v5 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(a1)
+    || (CurrentProcess = PsGetCurrentProcess(v7, v6, v8),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v18),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
   {
-    if ( a2 )
-      *a2 = v8;
-    for ( i = *v8; ; i = *(_QWORD *)(v13 + 8) )
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v5 = *ThreadWin32Thread;
+  }
+  v22 = (__int64 *)gSmartObjNullRef;
+  v23 = *(_QWORD *)(v5 + 1472);
+  *(_QWORD *)(v5 + 1472) = &v23;
+  v10 = *(_QWORD *)(a1 + 80);
+  if ( v10 )
+  {
+    v15 = *(__int64 **)(*(_QWORD *)(v10 + 16) + 608LL);
+    if ( v15 )
     {
-      SmartObjStackRefBase<tagPOPUPMENU>::operator=(&v15, i);
-      if ( !*v15 )
+      if ( (v15[1] & 4) != 0 )
       {
-        v9 = 0LL;
-        v10 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-        if ( v10 )
-          v9 = *v10;
-        if ( v15 != (__int64 *)gSmartObjNullRef && !--*((_DWORD *)v15 + 2) )
+        if ( a2 )
+          *a2 = v15;
+        for ( i = *v15; ; i = *(_QWORD *)(v21 + 8) )
         {
-          if ( *((_BYTE *)v15 + 12) )
-            Win32FreeToPagedLookasideList(gpStackRefLookAside, v15);
+          SmartObjStackRefBase<tagPOPUPMENU>::operator=(&v22, i);
+          if ( !*v22 )
+            break;
+          if ( *(_QWORD *)(*v22 + 40) == a1 )
+          {
+            if ( (*(_DWORD *)*v22 & 1) != 0 )
+              break;
+            MNAnimate(v15, 0LL);
+            v11 = (_DWORD *)*v22;
+            goto LABEL_6;
+          }
+          if ( !*(_QWORD *)(*v22 + 24) )
+            break;
+          v21 = safe_cast_fnid_to_PMENUWND(*(_QWORD *)(*v22 + 24));
+          if ( !v21 )
+            break;
         }
-        v11 = *(_QWORD **)(v9 + 1512);
-        if ( v11 )
-          *(_QWORD *)(v9 + 1512) = *v11;
-        return 0LL;
       }
-      if ( *(_QWORD *)(*v15 + 40) == a1 )
-        break;
-      if ( !*(_QWORD *)(*v15 + 24) )
-        goto LABEL_4;
-      v13 = safe_cast_fnid_to_PMENUWND(*(_QWORD *)(*v15 + 24));
-      if ( !v13 )
-        goto LABEL_4;
     }
-    if ( (*(_DWORD *)*v15 & 1) != 0 )
-      goto LABEL_4;
-    MNAnimate(v8, 0LL);
-    v14 = *v15;
-    SmartObjStackRefBase<tagPOPUPMENU>::~SmartObjStackRefBase<tagPOPUPMENU>(&v15);
-    return v14;
   }
-  else
+  v11 = 0LL;
+LABEL_6:
+  v12 = W32GetThreadWin32Thread(KeGetCurrentThread());
+  if ( v22 != (__int64 *)gSmartObjNullRef && !--*((_DWORD *)v22 + 2) )
   {
-LABEL_4:
-    SmartObjStackRefBase<tagPOPUPMENU>::~SmartObjStackRefBase<tagPOPUPMENU>(&v15);
-    return 0LL;
+    if ( *((_BYTE *)v22 + 12) )
+      Win32FreeToPagedLookasideList(gpStackRefLookAside, v22);
   }
+  v13 = *(_QWORD **)(v12 + 1472);
+  if ( v13 )
+    *(_QWORD *)(v12 + 1472) = *v13;
+  return v11;
 }

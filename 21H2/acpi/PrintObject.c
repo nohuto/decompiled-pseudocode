@@ -1,21 +1,20 @@
 /*
- * XREFs of PrintObject @ 0x1C0067C8C
+ * XREFs of PrintObject @ 0x1C0066934
  * Callers:
- *     ParseArgObj @ 0x1C00083D4 (ParseArgObj.c)
- *     ReadObject @ 0x1C000A950 (ReadObject.c)
- *     AsyncEvalObject @ 0x1C00114E0 (AsyncEvalObject.c)
- *     ParsePackage @ 0x1C0012D00 (ParsePackage.c)
- *     ParseTerm @ 0x1C0013680 (ParseTerm.c)
- *     ParseScope @ 0x1C0014A90 (ParseScope.c)
- *     AccFieldUnit @ 0x1C0016690 (AccFieldUnit.c)
- *     ParseLocalObj @ 0x1C002CB68 (ParseLocalObj.c)
- *     PrintObject @ 0x1C0067C8C (PrintObject.c)
- *     NestAsyncEvalObject @ 0x1C006982C (NestAsyncEvalObject.c)
+ *     AsyncEvalObject @ 0x1C0005890 (AsyncEvalObject.c)
+ *     ParseTerm @ 0x1C0007480 (ParseTerm.c)
+ *     ParseScope @ 0x1C0008890 (ParseScope.c)
+ *     AccFieldUnit @ 0x1C000A0B0 (AccFieldUnit.c)
+ *     ReadObject @ 0x1C000B4C0 (ReadObject.c)
+ *     ParseArgObj @ 0x1C00227E4 (ParseArgObj.c)
+ *     ParseLocalObj @ 0x1C00232CC (ParseLocalObj.c)
+ *     PrintObject @ 0x1C0066934 (PrintObject.c)
+ *     NestAsyncEvalObject @ 0x1C00683FC (NestAsyncEvalObject.c)
  * Callees:
- *     ConPrintf @ 0x1C00290CC (ConPrintf.c)
- *     GetObjectTypeName @ 0x1C0066810 (GetObjectTypeName.c)
- *     PrintBuffData @ 0x1C0067BCC (PrintBuffData.c)
- *     PrintObject @ 0x1C0067C8C (PrintObject.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
+ *     PrintBuffData @ 0x1C0066874 (PrintBuffData.c)
+ *     PrintObject @ 0x1C0066934 (PrintObject.c)
  */
 
 ULONG __fastcall PrintObject(__int64 a1)

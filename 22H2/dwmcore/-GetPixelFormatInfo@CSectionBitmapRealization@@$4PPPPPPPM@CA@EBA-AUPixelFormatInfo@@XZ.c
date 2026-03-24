@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CSectionBitmapRealization@@$4PPPPPPPM@CA@EBA?AUPixelFormatInfo@@XZ @ 0x180121C40
+ * XREFs of ?GetPixelFormatInfo@CSectionBitmapRealization@@$4PPPPPPPM@CA@EBA?AUPixelFormatInfo@@XZ @ 0x1800F7F50
  * Callers:
  *     <none>
  * Callees:

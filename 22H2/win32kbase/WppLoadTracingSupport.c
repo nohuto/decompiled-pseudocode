@@ -1,44 +1,40 @@
 /*
- * XREFs of WppLoadTracingSupport @ 0x1C02BF3B4
+ * XREFs of WppLoadTracingSupport @ 0x1C027E494
  * Callers:
- *     ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00B5150 (-InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00ABCF0 (-InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-struct _LIST_ENTRY *WppLoadTracingSupport()
+PVOID WppLoadTracingSupport()
 {
-  struct _LIST_ENTRY *result; // rax
+  PVOID result; // rax
   struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
   unsigned int v2; // [rsp+50h] [rbp+10h] BYREF
 
   v2 = 0;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"PsGetVersion");
-  WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink = (struct _LIST_ENTRY *)MmGetSystemRoutineAddress(&DestinationString);
+  pfnWppGetVersion = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))MmGetSystemRoutineAddress(&DestinationString);
   RtlInitUnicodeString(&DestinationString, L"WmiTraceMessage");
-  WPP_MAIN_CB.DeviceQueue.1 = (struct _KDEVICE_QUEUE::$9FAF936D47973D5FBAA72DAF24011AE0::$18E3EACC1E717291AA7C720ECCD5C45C)MmGetSystemRoutineAddress(&DestinationString);
+  pfnWppTraceMessage = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))MmGetSystemRoutineAddress(&DestinationString);
   RtlInitUnicodeString(&DestinationString, L"WmiQueryTraceInformation");
-  *(_QWORD *)&WPP_MAIN_CB.Dpc.TargetInfoAsUlong = MmGetSystemRoutineAddress(&DestinationString);
-  result = WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink;
-  *(_DWORD *)&WPP_MAIN_CB.DeviceQueue.Type = 2;
-  if ( WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink )
-    result = (struct _LIST_ENTRY *)((__int64 (__fastcall *)(unsigned int *, _QWORD, _QWORD, _QWORD))WPP_MAIN_CB.DeviceQueue.DeviceListHead.Flink)(
-                                     &v2,
-                                     0LL,
-                                     0LL,
-                                     0LL);
+  pfnWppQueryTraceInformation = (__int64)MmGetSystemRoutineAddress(&DestinationString);
+  result = pfnWppGetVersion;
+  WPPTraceSuite = 2;
+  if ( pfnWppGetVersion )
+    result = (PVOID)pfnWppGetVersion(&v2, 0LL, 0LL, 0LL);
   if ( v2 >= 6 )
   {
     RtlInitUnicodeString(&DestinationString, L"EtwRegisterClassicProvider");
-    result = (struct _LIST_ENTRY *)MmGetSystemRoutineAddress(&DestinationString);
-    WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink = result;
+    result = MmGetSystemRoutineAddress(&DestinationString);
+    pfnEtwRegisterClassicProvider = (__int64)result;
     if ( result )
     {
       RtlInitUnicodeString(&DestinationString, L"EtwUnregister");
-      result = (struct _LIST_ENTRY *)MmGetSystemRoutineAddress(&DestinationString);
-      WPP_MAIN_CB.DeviceQueue.Lock = (KSPIN_LOCK)result;
-      *(_DWORD *)&WPP_MAIN_CB.DeviceQueue.Type = 4;
+      result = MmGetSystemRoutineAddress(&DestinationString);
+      pfnEtwUnregister = (__int64)result;
+      WPPTraceSuite = 4;
     }
   }
   return result;

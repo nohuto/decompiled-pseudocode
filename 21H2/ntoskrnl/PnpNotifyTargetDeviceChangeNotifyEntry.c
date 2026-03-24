@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpNotifyTargetDeviceChangeNotifyEntry @ 0x140944ADC
+ * XREFs of PnpNotifyTargetDeviceChangeNotifyEntry @ 0x1405CEDD8
  * Callers:
- *     PnpProcessDeferredRegistrations @ 0x14070A064 (PnpProcessDeferredRegistrations.c)
+ *     PnpProcessDeferredRegistrations @ 0x1406E76EC (PnpProcessDeferredRegistrations.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PsGetServerSiloServiceSessionId @ 0x1402DF7B0 (PsGetServerSiloServiceSessionId.c)
- *     PsGetCurrentServerSilo @ 0x1402F61B0 (PsGetCurrentServerSilo.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     IopGetSessionIdFromPDO @ 0x140749588 (IopGetSessionIdFromPDO.c)
- *     PnpNotifyDriverCallback @ 0x14078D3DC (PnpNotifyDriverCallback.c)
+ *     PsGetCurrentServerSilo @ 0x14025C9C0 (PsGetCurrentServerSilo.c)
+ *     PsGetServerSiloServiceSessionId @ 0x140264460 (PsGetServerSiloServiceSessionId.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PnpNotifyDriverCallback @ 0x1406E5CC4 (PnpNotifyDriverCallback.c)
+ *     IopGetSessionIdFromPDO @ 0x14073E25C (IopGetSessionIdFromPDO.c)
  */
 
-char __fastcall PnpNotifyTargetDeviceChangeNotifyEntry(__int64 a1, __int64 a2, int *a3, _DWORD *a4)
+void __fastcall PnpNotifyTargetDeviceChangeNotifyEntry(__int64 a1, __int64 a2, int *a3, _DWORD *a4)
 {
   int SessionIdFromPDO; // edi
   __int64 CurrentServerSilo; // rax
@@ -20,9 +20,9 @@ char __fastcall PnpNotifyTargetDeviceChangeNotifyEntry(__int64 a1, __int64 a2, i
   int v11; // eax
 
   SessionIdFromPDO = -1;
-  CurrentServerSilo = PsGetCurrentServerSilo();
+  CurrentServerSilo = PsGetCurrentServerSilo(a1, a2);
   if ( *(_DWORD *)(a1 + 20) != (unsigned int)PsGetServerSiloServiceSessionId(CurrentServerSilo) )
-    SessionIdFromPDO = IopGetSessionIdFromPDO(*(struct _DEVICE_OBJECT **)(a1 + 88));
+    SessionIdFromPDO = IopGetSessionIdFromPDO(*(_QWORD *)(a1 + 88));
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(*(PERESOURCE *)(a1 + 72), 1u);
@@ -38,5 +38,5 @@ char __fastcall PnpNotifyTargetDeviceChangeNotifyEntry(__int64 a1, __int64 a2, i
   }
   *a3 = v11;
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 72));
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegion();
 }

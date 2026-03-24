@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpRequestHwProfileChangeNotification @ 0x140956AC8
+ * XREFs of PnpRequestHwProfileChangeNotification @ 0x14089FDE8
  * Callers:
- *     PpProfileCancelHardwareProfileTransition @ 0x140963B40 (PpProfileCancelHardwareProfileTransition.c)
- *     PpProfileCancelTransitioningDock @ 0x140963BC8 (PpProfileCancelTransitioningDock.c)
- *     PpProfileCommitTransitioningDock @ 0x140963C74 (PpProfileCommitTransitioningDock.c)
- *     PpProfileQueryHardwareProfileChange @ 0x140963ED4 (PpProfileQueryHardwareProfileChange.c)
+ *     PpProfileCancelHardwareProfileTransition @ 0x1408AB3F8 (PpProfileCancelHardwareProfileTransition.c)
+ *     PpProfileCancelTransitioningDock @ 0x1408AB480 (PpProfileCancelTransitioningDock.c)
+ *     PpProfileCommitTransitioningDock @ 0x1408AB52C (PpProfileCommitTransitioningDock.c)
+ *     PpProfileQueryHardwareProfileChange @ 0x1408AB78C (PpProfileQueryHardwareProfileChange.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     PnpNotifyHwProfileChange @ 0x14095674C (PnpNotifyHwProfileChange.c)
- *     PnpSetHwProfileChangeEvent @ 0x14096485C (PnpSetHwProfileChangeEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
+ *     PnpNotifyHwProfileChange @ 0x14089FB18 (PnpNotifyHwProfileChange.c)
+ *     PnpSetHwProfileChangeEvent @ 0x1408AC000 (PnpSetHwProfileChangeEvent.c)
  */
 
 __int64 __fastcall PnpRequestHwProfileChangeNotification(GUID *Source1, int a2, _DWORD *a3, UNICODE_STRING *a4)
@@ -21,9 +21,8 @@ __int64 __fastcall PnpRequestHwProfileChangeNotification(GUID *Source1, int a2, 
 
   v10 = 0;
   memset(&Event, 0, sizeof(Event));
-  if ( Source1 == &GUID_HWPROFILE_QUERY_CHANGE )
-    goto LABEL_10;
-  if ( RtlCompareMemory(Source1, &GUID_HWPROFILE_QUERY_CHANGE, 0x10uLL) != 16
+  if ( Source1 != &GUID_HWPROFILE_QUERY_CHANGE
+    && RtlCompareMemory(Source1, &GUID_HWPROFILE_QUERY_CHANGE, 0x10uLL) != 16
     && Source1 != &GUID_HWPROFILE_CHANGE_CANCELLED
     && RtlCompareMemory(Source1, &GUID_HWPROFILE_CHANGE_CANCELLED, 0x10uLL) != 16
     && Source1 != &GUID_HWPROFILE_CHANGE_COMPLETE
@@ -31,9 +30,8 @@ __int64 __fastcall PnpRequestHwProfileChangeNotification(GUID *Source1, int a2, 
   {
     return 3221225488LL;
   }
-  if ( RtlCompareMemory(Source1, &GUID_HWPROFILE_QUERY_CHANGE, 0x10uLL) != 16 )
+  if ( Source1 != &GUID_HWPROFILE_QUERY_CHANGE && RtlCompareMemory(Source1, &GUID_HWPROFILE_QUERY_CHANGE, 0x10uLL) != 16 )
     return PnpSetHwProfileChangeEvent((_DWORD)Source1, 0, 0, 0, 0LL);
-LABEL_10:
   if ( a2 != 1 )
     return PnpNotifyHwProfileChange(Source1, a3, a4);
   KeInitializeEvent(&Event, NotificationEvent, 0);

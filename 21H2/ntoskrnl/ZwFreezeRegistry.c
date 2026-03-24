@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwFreezeRegistry @ 0x14041D5E0
+ * XREFs of ZwFreezeRegistry @ 0x1403FC180
  * Callers:
  *     <none>
  * Callees:

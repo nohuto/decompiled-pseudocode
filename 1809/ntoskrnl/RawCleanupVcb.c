@@ -1,11 +1,11 @@
 /*
- * XREFs of RawCleanupVcb @ 0x14068F9C8
+ * XREFs of RawCleanupVcb @ 0x14068F9A8
  * Callers:
- *     RawInitiateDeleteVolume @ 0x14010C61C (RawInitiateDeleteVolume.c)
- *     RawCheckForDeleteVolume @ 0x140169F9C (RawCheckForDeleteVolume.c)
+ *     RawInitiateDeleteVolume @ 0x14010C63C (RawInitiateDeleteVolume.c)
+ *     RawCheckForDeleteVolume @ 0x140169FBC (RawCheckForDeleteVolume.c)
  *     RawMountVolume @ 0x1405A2988 (RawMountVolume.c)
  * Callees:
- *     ExFreeCacheAwareRundownProtection @ 0x14010C8C0 (ExFreeCacheAwareRundownProtection.c)
+ *     ExFreeCacheAwareRundownProtection @ 0x14010C8E0 (ExFreeCacheAwareRundownProtection.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     FsRtlTeardownPerStreamContexts @ 0x140638AF0 (FsRtlTeardownPerStreamContexts.c)
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of IoFillDumpHeader @ 0x14027F4D4
+ * XREFs of IoFillDumpHeader @ 0x14027F5D4
  * Callers:
- *     IopConstructInMemoryDumpHeader @ 0x140280FDC (IopConstructInMemoryDumpHeader.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x14028217C (IopWriteCapsuleTriageDumpToFirmware.c)
- *     KeInitializeCrashDumpHeader @ 0x140282BE0 (KeInitializeCrashDumpHeader.c)
+ *     IopConstructInMemoryDumpHeader @ 0x1402810DC (IopConstructInMemoryDumpHeader.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x14028227C (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     KeInitializeCrashDumpHeader @ 0x140282CE0 (KeInitializeCrashDumpHeader.c)
  *     IopLiveDumpEndMirroringCallback @ 0x140578890 (IopLiveDumpEndMirroringCallback.c)
- *     DbgkpTriageDumpFillHeaders @ 0x140813290 (DbgkpTriageDumpFillHeaders.c)
+ *     DbgkpTriageDumpFillHeaders @ 0x140813270 (DbgkpTriageDumpFillHeaders.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1400A7900 (KeQueryActiveProcessorCountEx.c)
- *     RtlGetNtProductType @ 0x14012AC20 (RtlGetNtProductType.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
+ *     RtlGetNtProductType @ 0x14012AC40 (RtlGetNtProductType.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmGetPhysicalMemoryRanges @ 0x14075B680 (MmGetPhysicalMemoryRanges.c)
+ *     MmGetPhysicalMemoryRanges @ 0x14075B660 (MmGetPhysicalMemoryRanges.c)
  */
 
 __int64 __fastcall IoFillDumpHeader(

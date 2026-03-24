@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetExpressionType@CAnimationMarshaler@DirectComposition@@UEAA?AW4DCOMPOSITION_EXPRESSION_TYPE@@XZ @ 0x1C00C9DF0
+ * XREFs of ?GetExpressionType@CAnimationMarshaler@DirectComposition@@UEAA?AW4DCOMPOSITION_EXPRESSION_TYPE@@XZ @ 0x1C00BC190
  * Callers:
  *     <none>
  * Callees:

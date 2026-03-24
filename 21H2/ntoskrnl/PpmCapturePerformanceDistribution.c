@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmCapturePerformanceDistribution @ 0x1405D6FBC
+ * XREFs of PpmCapturePerformanceDistribution @ 0x140576C1C
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     PopExecuteOnTargetProcessors @ 0x140293A88 (PopExecuteOnTargetProcessors.c)
- *     KeEnumerateNextProcessor @ 0x140294050 (KeEnumerateNextProcessor.c)
- *     KeAddProcessorAffinityEx @ 0x140294460 (KeAddProcessorAffinityEx.c)
- *     KeGetPrcb @ 0x140348800 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PpmCapturePerformanceDistributionCallback @ 0x1405D71E0 (PpmCapturePerformanceDistributionCallback.c)
+ *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
+ *     PopExecuteOnTargetProcessors @ 0x14027B7DC (PopExecuteOnTargetProcessors.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PpmCapturePerformanceDistributionCallback @ 0x140576E40 (PpmCapturePerformanceDistributionCallback.c)
  */
 
 __int64 __fastcall PpmCapturePerformanceDistribution(_DWORD *a1, unsigned int a2, int a3, __int64 a4, int *a5)
@@ -36,9 +36,9 @@ __int64 __fastcall PpmCapturePerformanceDistribution(_DWORD *a1, unsigned int a2
   __int16 v27; // [rsp+50h] [rbp-B0h]
   int v28; // [rsp+52h] [rbp-AEh]
   __int16 v29; // [rsp+56h] [rbp-AAh]
-  _DWORD v30[68]; // [rsp+60h] [rbp-A0h] BYREF
+  _DWORD v30[44]; // [rsp+60h] [rbp-A0h] BYREF
 
-  memset(v30, 0, 0x108uLL);
+  memset(v30, 0, 0xA8uLL);
   v9 = *(unsigned __int16 **)a4;
   v24 = 4 * a3 + 4;
   v27 = *(_WORD *)(a4 + 8);
@@ -81,9 +81,9 @@ __int64 __fastcall PpmCapturePerformanceDistribution(_DWORD *a1, unsigned int a2
     __writecr8(CurrentIrql);
     if ( v13 < 0 )
     {
-      v30[0] = 2097153;
-      memset(&v30[1], 0, 0x104uLL);
-      KeAddProcessorAffinityEx((unsigned __int16 *)v30, *(_DWORD *)(Prcb + 36));
+      v30[0] = 1310721;
+      memset(&v30[1], 0, 0xA4uLL);
+      KeAddProcessorAffinityEx(v30, *(_DWORD *)(Prcb + 36));
       result = PopExecuteOnTargetProcessors(
                  (__int64)v30,
                  (__int64)PpmCapturePerformanceDistributionCallback,

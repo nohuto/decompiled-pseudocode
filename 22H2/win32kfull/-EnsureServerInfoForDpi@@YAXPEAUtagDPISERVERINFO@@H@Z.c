@@ -1,48 +1,45 @@
 /*
- * XREFs of ?EnsureServerInfoForDpi@@YAXPEAUtagDPISERVERINFO@@H@Z @ 0x1C01BF14C
+ * XREFs of ?EnsureServerInfoForDpi@@YAXPEAUtagDPISERVERINFO@@H@Z @ 0x1C01E9B4C
  * Callers:
- *     GetDPIServerInfoForDpi @ 0x1C008A410 (GetDPIServerInfoForDpi.c)
+ *     GetDPIServerInfoForDpi @ 0x1C0044E58 (GetDPIServerInfoForDpi.c)
  * Callees:
- *     GreTextInitialized @ 0x1C007A410 (GreTextInitialized.c)
- *     DeleteMetricsFont @ 0x1C008A250 (DeleteMetricsFont.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     CreateScaledFont @ 0x1C01BF458 (CreateScaledFont.c)
+ *     DeleteMetricsFont @ 0x1C00E1F40 (DeleteMetricsFont.c)
+ *     GreTextInitialized @ 0x1C00E31F8 (GreTextInitialized.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     CreateScaledFont @ 0x1C01E9E50 (CreateScaledFont.c)
  */
 
-void __fastcall EnsureServerInfoForDpi(struct tagDPISERVERINFO *a1, int a2)
+void __fastcall EnsureServerInfoForDpi(struct tagDPISERVERINFO *a1, __int64 a2, __int64 a3)
 {
-  __int64 v4; // rsi
-  __int64 v5; // rcx
+  int v3; // edi
+  __int64 v5; // rsi
   struct HLFONT__ *v6; // rcx
   struct HLFONT__ *v7; // rcx
-  _BYTE v8[8]; // [rsp+48h] [rbp-19h] BYREF
-  __int64 v9; // [rsp+50h] [rbp-11h]
-  __int64 v10[2]; // [rsp+58h] [rbp-9h] BYREF
-  __int64 v11; // [rsp+68h] [rbp+7h] BYREF
-  __int64 v12[9]; // [rsp+70h] [rbp+Fh] BYREF
+  _QWORD v8[14]; // [rsp+48h] [rbp-19h] BYREF
 
+  v3 = a2;
   if ( !*(_DWORD *)a1 )
   {
-    v4 = Get96DpiServerInfo();
-    if ( (unsigned int)GreTextInitialized(v5) )
+    v5 = Get96DpiServerInfo(a1, a2, a3);
+    if ( GreTextInitialized() )
     {
-      memset_0(v8, 0, 0x68uLL);
-      if ( (unsigned int)CreateScaledFont(*(_QWORD *)(v4 + 8), (__int64)v10, (__int64)v10 + 4, 0LL) )
+      memset(v8, 0, 0x68uLL);
+      if ( (unsigned int)CreateScaledFont(*(HSURF *)(v5 + 8), (__int64)&v8[2], (__int64)&v8[2] + 4, 0LL) )
       {
         v6 = (struct HLFONT__ *)*((_QWORD *)a1 + 1);
-        *((_QWORD *)a1 + 2) = v10[0];
-        *((_QWORD *)a1 + 1) = v9;
+        *((_QWORD *)a1 + 2) = v8[2];
+        *((_QWORD *)a1 + 1) = v8[1];
         DeleteMetricsFont(v6);
       }
-      if ( (unsigned int)CreateScaledFont(*(_QWORD *)(v4 + 24), (__int64)&v11, (__int64)&v11 + 4, (__int64)v12) )
+      if ( (unsigned int)CreateScaledFont(*(HSURF *)(v5 + 24), (__int64)&v8[4], (__int64)&v8[4] + 4, (__int64)&v8[5]) )
       {
         v7 = (struct HLFONT__ *)*((_QWORD *)a1 + 3);
-        *((_QWORD *)a1 + 4) = v11;
-        *((_QWORD *)a1 + 3) = v10[1];
+        *((_QWORD *)a1 + 4) = v8[4];
+        *((_QWORD *)a1 + 3) = v8[3];
         DeleteMetricsFont(v7);
       }
       *(_DWORD *)a1 = 1;
     }
-    *((_DWORD *)a1 + 1) = (*(_DWORD *)(v4 + 4) * a2 + 48) / 96;
+    *((_DWORD *)a1 + 1) = (v3 * *(_DWORD *)(v5 + 4) + 48) / 96;
   }
 }

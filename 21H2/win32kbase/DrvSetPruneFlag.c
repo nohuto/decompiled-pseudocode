@@ -1,12 +1,12 @@
 /*
- * XREFs of DrvSetPruneFlag @ 0x1C0174C84
+ * XREFs of DrvSetPruneFlag @ 0x1C0147BD0
  * Callers:
- *     ?xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@@KPEAXW4_MODE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0065210 (-xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@.c)
+ *     ?xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@@KPEAXW4_MODE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C001845C (-xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@.c)
  * Callees:
- *     ?DrvIsPermanentSettingChangesDisabled@@YAHXZ @ 0x1C00681FC (-DrvIsPermanentSettingChangesDisabled@@YAHXZ.c)
- *     DrvGetDeviceFromName @ 0x1C00719F0 (DrvGetDeviceFromName.c)
- *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C0072CC4 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?DrvIsPermanentSettingChangesDisabled@@YAHXZ @ 0x1C0017804 (-DrvIsPermanentSettingChangesDisabled@@YAHXZ.c)
+ *     DrvGetDeviceFromName @ 0x1C0021400 (DrvGetDeviceFromName.c)
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C00297C0 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DrvSetPruneFlag(const UNICODE_STRING *a1, unsigned __int8 a2, int a3)
@@ -40,7 +40,7 @@ __int64 __fastcall DrvSetPruneFlag(const UNICODE_STRING *a1, unsigned __int8 a2,
   if ( v9 < 0 )
     return 0xFFFFFFFFLL;
   if ( (*((_DWORD *)v6 + 40) & 0x800000) != 0
-    && (LOBYTE(v10) = (_BYTE)v3 == 0, (int)((__int64 (__fastcall *)(__int64))qword_1C02967B0)(v10) < 0) )
+    && (LOBYTE(v10) = (_BYTE)v3 == 0, (int)((__int64 (__fastcall *)(__int64))qword_1C02519C0)(v10) < 0) )
   {
     return 0xFFFFFFFFLL;
   }

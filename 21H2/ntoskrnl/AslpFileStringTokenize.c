@@ -1,22 +1,23 @@
 /*
- * XREFs of AslpFileStringTokenize @ 0x1403CB368
+ * XREFs of AslpFileStringTokenize @ 0x1403BD760
  * Callers:
- *     AslpFileMakeStringVersionAttributes @ 0x140841B4C (AslpFileMakeStringVersionAttributes.c)
- *     AslpFileVerQueryBlock @ 0x14084205C (AslpFileVerQueryBlock.c)
+ *     AslpFileMakeStringVersionAttributes @ 0x1407B29BC (AslpFileMakeStringVersionAttributes.c)
+ *     AslpFileVerQueryBlock @ 0x1407B2F90 (AslpFileVerQueryBlock.c)
  * Callees:
  *     <none>
  */
 
 _WORD *__fastcall AslpFileStringTokenize(_WORD *a1, __int64 a2, _WORD **a3)
 {
-  const WCHAR *v4; // r9
+  const WCHAR *v4; // r10
   WCHAR v5; // r8
-  _WORD *v6; // r8
-  _WORD *v7; // rdi
-  const WCHAR *v8; // r11
-  WCHAR v9; // dx
-  WCHAR v10; // r9
-  _WORD *v11; // r9
+  __int16 v6; // r9
+  _WORD *v7; // r8
+  _WORD *v8; // rdi
+  const WCHAR *v9; // r10
+  WCHAR v10; // dx
+  WCHAR v11; // r9
+  _WORD *v12; // r9
 
   if ( !a3 )
     return 0LL;
@@ -29,51 +30,55 @@ _WORD *__fastcall AslpFileStringTokenize(_WORD *a1, __int64 a2, _WORD **a3)
   while ( *a1 )
   {
     v4 = L"\\";
-    if ( !asc_1400126A8[0] )
+    if ( !asc_14000DE70[0] )
       break;
-    v5 = asc_1400126A8[0];
-    while ( v5 != *a1 )
+    v5 = asc_14000DE70[0];
+    do
     {
+      v6 = v5;
+      if ( v5 == *a1 )
+        break;
       v5 = *++v4;
-      if ( !*v4 )
-        goto LABEL_9;
+      v6 = *v4;
     }
+    while ( *v4 );
+    if ( !v6 )
+      break;
     ++a1;
   }
-LABEL_9:
-  v6 = a1;
   v7 = a1;
+  v8 = a1;
   if ( *a1 )
   {
     while ( 1 )
     {
-      v8 = L"\\";
-      v9 = asc_1400126A8[0];
-      if ( asc_1400126A8[0] )
+      v9 = L"\\";
+      v10 = asc_14000DE70[0];
+      if ( asc_14000DE70[0] )
       {
-        v10 = asc_1400126A8[0];
+        v11 = asc_14000DE70[0];
         do
         {
-          v9 = v10;
-          if ( v10 == *a1 )
+          v10 = v11;
+          if ( v11 == *a1 )
             break;
-          v9 = *++v8;
-          v10 = *v8;
+          v10 = *++v9;
+          v11 = *v9;
         }
-        while ( *v8 );
+        while ( *v9 );
       }
-      v11 = a1 + 1;
-      if ( v9 )
+      v12 = a1 + 1;
+      if ( v10 )
         break;
       ++a1;
-      if ( !*v11 )
-        goto LABEL_18;
+      if ( !*v12 )
+        goto LABEL_19;
     }
     *a1++ = 0;
   }
-LABEL_18:
+LABEL_19:
   *a3 = a1;
-  if ( a1 == v7 )
+  if ( a1 == v8 )
     return 0LL;
-  return v6;
+  return v7;
 }

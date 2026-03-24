@@ -4,9 +4,9 @@
  *     <none>
  * Callees:
  *     SepFilterCheck @ 0x140052760 (SepFilterCheck.c)
- *     SepLocateTokenTrustLevel @ 0x1400A8FE4 (SepLocateTokenTrustLevel.c)
- *     SeGetTrustLabelAce @ 0x1400AA930 (SeGetTrustLabelAce.c)
- *     RtlSidDominatesForTrust @ 0x1400AD180 (RtlSidDominatesForTrust.c)
+ *     SepLocateTokenTrustLevel @ 0x1400A9004 (SepLocateTokenTrustLevel.c)
+ *     SeGetTrustLabelAce @ 0x1400AA950 (SeGetTrustLabelAce.c)
+ *     RtlSidDominatesForTrust @ 0x1400AD1A0 (RtlSidDominatesForTrust.c)
  */
 
 bool __fastcall SeShouldCheckForAccessRightsFromParent(__int64 a1, __int64 a2, __int64 a3)

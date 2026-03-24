@@ -1,13 +1,13 @@
 /*
- * XREFs of ArbArbiterHandler @ 0x14084D090
+ * XREFs of ArbArbiterHandler @ 0x140771250
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ArbArbiterHandler(__int64 a1, int a2, __int64 a3)
@@ -23,36 +23,40 @@ __int64 __fastcall ArbArbiterHandler(__int64 a1, int a2, __int64 a3)
   KeWaitForSingleObject(*(PVOID *)(a1 + 8), Executive, 0, 0, 0LL);
   if ( a2 > 5 )
   {
-    switch ( a2 )
+    if ( a2 == 6 )
     {
-      case 6:
-        v7 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 200))(a1, a3);
-        goto LABEL_5;
-      case 7:
-        v7 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 192))(a1, a3);
-        goto LABEL_5;
-      case 8:
-LABEL_22:
-        v8 = -1073741822;
-        goto LABEL_9;
-      case 9:
+      v7 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 200))(a1, a3);
+      goto LABEL_5;
+    }
+    if ( a2 == 7 )
+    {
+      v7 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 192))(a1, a3);
+      goto LABEL_5;
+    }
+    if ( a2 != 8 )
+    {
+      if ( a2 == 9 )
+      {
         v7 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 184))(a1, a3);
         goto LABEL_5;
+      }
+      goto LABEL_23;
     }
-LABEL_25:
-    v8 = -1073741811;
+LABEL_24:
+    v8 = -1073741822;
     goto LABEL_9;
   }
-  switch ( a2 )
+  if ( a2 >= 4 )
+    goto LABEL_24;
+  if ( !a2 )
   {
-    case 5:
-      goto LABEL_22;
-    case 0:
-      v7 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 152))(a1, a3);
-      goto LABEL_5;
-    case 1:
-      v7 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 160))(a1, a3);
-      goto LABEL_5;
+    v7 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 152))(a1, a3);
+    goto LABEL_5;
+  }
+  if ( a2 == 1 )
+  {
+    v7 = (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 160))(a1, a3);
+    goto LABEL_5;
   }
   if ( a2 != 2 )
   {
@@ -61,9 +65,9 @@ LABEL_25:
       v7 = (*(__int64 (__fastcall **)(__int64))(a1 + 176))(a1);
       goto LABEL_5;
     }
-    if ( a2 == 4 )
-      goto LABEL_22;
-    goto LABEL_25;
+LABEL_23:
+    v8 = -1073741811;
+    goto LABEL_9;
   }
   v7 = (*(__int64 (__fastcall **)(__int64))(a1 + 168))(a1);
 LABEL_5:

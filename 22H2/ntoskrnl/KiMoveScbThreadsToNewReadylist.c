@@ -1,153 +1,146 @@
 /*
- * XREFs of KiMoveScbThreadsToNewReadylist @ 0x14030884C
+ * XREFs of KiMoveScbThreadsToNewReadylist @ 0x14037D9BC
  * Callers:
- *     KeSetSchedulingGroupRankBias @ 0x140205AD8 (KeSetSchedulingGroupRankBias.c)
- *     KiResetScb @ 0x140206598 (KiResetScb.c)
- *     KiTransitionSchedulingGroupGeneration @ 0x1403084DC (KiTransitionSchedulingGroupGeneration.c)
+ *     KeSetSchedulingGroupRankBias @ 0x1402DE278 (KeSetSchedulingGroupRankBias.c)
+ *     KiResetScb @ 0x1402DE5CC (KiResetScb.c)
  * Callees:
- *     KiAddThreadToPrcbQueue @ 0x140238920 (KiAddThreadToPrcbQueue.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x1402B3210 (KiGetThreadEffectiveRankNonZero.c)
- *     KiInsertDeferredReadyList @ 0x1402B9C24 (KiInsertDeferredReadyList.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x14024CE70 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiAddThreadToPrcbQueue @ 0x1402F4130 (KiAddThreadToPrcbQueue.c)
+ *     KiInsertDeferredReadyList @ 0x14035BAA0 (KiInsertDeferredReadyList.c)
  */
 
-int __fastcall KiMoveScbThreadsToNewReadylist(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall KiMoveScbThreadsToNewReadylist(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4)
 {
-  __int64 v4; // r10
-  char v7; // dl
-  bool v8; // r15
-  char v9; // cl
-  unsigned int v10; // esi
-  volatile signed __int32 *v11; // rax
-  _QWORD *v12; // rdi
-  _QWORD *v13; // r14
-  __int64 v14; // rbx
-  bool v15; // zf
-  __int64 v16; // r12
-  _QWORD *v17; // rcx
-  _QWORD *v18; // r8
-  __int64 v19; // rdx
-  _QWORD *v20; // rdx
-  _QWORD *v21; // r9
-  char v23; // [rsp+30h] [rbp-68h] BYREF
-  int v24; // [rsp+34h] [rbp-64h]
-  int v25; // [rsp+38h] [rbp-60h]
-  __int64 v26; // [rsp+40h] [rbp-58h]
-  __int64 v27; // [rsp+48h] [rbp-50h]
-  char v28; // [rsp+A0h] [rbp+8h]
-  char v29; // [rsp+A8h] [rbp+10h]
+  __int64 v4; // r11
+  char v6; // cl
+  unsigned int v8; // edi
+  char v9; // r12
+  bool v10; // r14
+  __int64 result; // rax
+  unsigned int v12; // r13d
+  int v13; // edi
+  _QWORD *v14; // rbx
+  __int64 v15; // r13
+  __int64 v16; // rdi
+  _QWORD *v17; // rsi
+  __int64 v18; // r10
+  __int64 v19; // r10
+  _QWORD *v20; // rcx
+  _QWORD *v21; // rdx
+  _QWORD *v22; // r9
+  unsigned int v23; // [rsp+30h] [rbp-58h]
+  unsigned int v24; // [rsp+34h] [rbp-54h]
+  __int64 v25; // [rsp+38h] [rbp-50h]
+  char v26; // [rsp+90h] [rbp+8h]
+  char v27; // [rsp+98h] [rbp+10h] BYREF
+  _QWORD *v28; // [rsp+A0h] [rbp+18h]
+  __int64 v29; // [rsp+A8h] [rbp+20h]
 
+  v29 = a4;
+  v28 = a3;
   v4 = 0LL;
-  v23 = 0;
-  v26 = 0LL;
-  v7 = 0;
-  v8 = 0;
+  v26 = 0;
+  v6 = 0;
+  v27 = 0;
+  v25 = 0LL;
+  v8 = *(unsigned __int16 *)(a1 + 114);
   v9 = 0;
-  v10 = *(unsigned __int16 *)(a1 + 114);
-  v29 = 0;
-  v28 = 0;
+  v10 = 0;
   if ( a2 )
   {
-    *(_WORD *)(a2 + 114) |= v10;
-    v26 = a2 + 136;
-    LODWORD(v11) = 1;
+    *(_WORD *)(a2 + 114) |= v8;
+    result = a2 + 136;
+    v25 = a2 + 136;
     v9 = 1;
-    v28 = 1;
   }
   else
   {
-    LODWORD(v11) = 1;
+    result = 1LL;
     if ( a3 )
     {
-      v7 = 1;
-      v29 = 1;
+      v6 = 1;
+      v26 = 1;
     }
     else
     {
-      v8 = a4 != 0;
+      v10 = a4 != 0;
     }
   }
-  if ( !v10 )
-    goto LABEL_5;
+  if ( !v8 )
+    goto LABEL_15;
   while ( 2 )
   {
-    _BitScanReverse((unsigned int *)&v11, v10);
-    v12 = (_QWORD *)(16LL * (unsigned int)v11 + a1 + 136);
-    v25 = v10 ^ (1 << (char)v11);
-    v27 = 16LL * (unsigned int)v11;
-    v13 = (_QWORD *)*v12;
-    v24 = (int)v11;
+    _BitScanReverse(&v12, v8);
+    v13 = v8 ^ (1 << v12);
+    v14 = (_QWORD *)(16LL * v12 + a1 + 136);
+    v24 = v12;
+    v15 = v29;
+    v23 = v13;
+    v16 = (__int64)v28;
+    v17 = (_QWORD *)*v14;
     do
     {
-      v14 = (__int64)(v13 - 27);
+      v18 = (__int64)(v17 - 27);
       if ( v9 )
       {
-        *(_QWORD *)(v14 + 944) = a2;
+        result = a2;
       }
       else
       {
-        *(_DWORD *)(v14 + 116) &= ~0x2000u;
-        v15 = (*(_DWORD *)(v14 + 120) & 0x400000) == 0;
-        *(_QWORD *)(v14 + 944) = v4;
-        if ( !v15 )
-        {
-          v11 = *(volatile signed __int32 **)(v14 + 968);
-          _InterlockedAnd(v11, 0xFFFBFFFF);
-        }
+        *(_DWORD *)(v18 + 116) &= ~0x2000u;
+        result = v4;
       }
-      v13 = (_QWORD *)*v13;
-      if ( v8 )
+      *(_QWORD *)(v18 + 944) = result;
+      v17 = (_QWORD *)*v17;
+      if ( v10 )
       {
-        LODWORD(v11) = KiInsertDeferredReadyList(a4, v14);
+        result = KiInsertDeferredReadyList(v15, v18);
       }
       else
       {
-        if ( !v7 )
+        if ( !v6 )
           continue;
-        KiGetThreadEffectiveRankNonZero(v14, a1, 0, (bool *)&v23);
-        LODWORD(v11) = KiAddThreadToPrcbQueue(a3, v14, *(char *)(v14 + 195), 0, v23);
+        KiGetThreadEffectiveRankNonZero(v18, a1, (__int64)a3, 0, (bool *)&v27);
+        result = KiAddThreadToPrcbQueue(v16, v19, (unsigned int)*(char *)(v19 + 195), 0LL, v27);
         v4 = 0LL;
       }
-      v7 = v29;
-      v9 = v28;
+      v6 = v26;
     }
-    while ( v13 != v12 );
-    v10 = v25;
-    v16 = v27;
+    while ( v17 != v14 );
+    v8 = v23;
     if ( v9 )
     {
-      v17 = (_QWORD *)*v12;
-      v18 = (_QWORD *)v12[1];
-      if ( *(_QWORD **)(*v12 + 8LL) != v12
-        || (_QWORD *)*v18 != v12
-        || (v19 = v26,
-            *v18 = v17,
-            v20 = (_QWORD *)(v16 + v19),
-            v17[1] = v18,
-            v21 = (_QWORD *)v20[1],
-            *(_QWORD **)(*v20 + 8LL) != v20)
-        || (_QWORD *)*v21 != v20
-        || *(_QWORD **)(*v17 + 8LL) != v17
-        || (_QWORD *)*v18 != v17 )
+      v20 = (_QWORD *)*v14;
+      a3 = (_QWORD *)v14[1];
+      if ( *(_QWORD **)(*v14 + 8LL) != v14
+        || (_QWORD *)*a3 != v14
+        || (*a3 = v20,
+            v20[1] = a3,
+            v21 = (_QWORD *)(v25 + 16LL * v24),
+            v22 = (_QWORD *)v21[1],
+            *(_QWORD **)(*v21 + 8LL) != v21)
+        || (_QWORD *)*v22 != v21
+        || *(_QWORD **)(*v20 + 8LL) != v20
+        || (_QWORD *)*a3 != v20 )
       {
         __fastfail(3u);
       }
-      *v21 = v17;
-      v20[1] = v17[1];
-      v11 = (volatile signed __int32 *)v17[1];
-      *(_QWORD *)v11 = v20;
-      v17[1] = v21;
-      v9 = v28;
+      *v22 = v20;
+      v21[1] = v20[1];
+      result = v20[1];
+      *(_QWORD *)result = v21;
+      v20[1] = v22;
     }
-    v12[1] = v12;
-    *v12 = v12;
-    if ( v10 )
+    v14[1] = v14;
+    *v14 = v14;
+    if ( v23 )
     {
-      v7 = v29;
+      v6 = v26;
       continue;
     }
     break;
   }
-LABEL_5:
+LABEL_15:
   *(_WORD *)(a1 + 114) = v4;
-  return (int)v11;
+  return result;
 }

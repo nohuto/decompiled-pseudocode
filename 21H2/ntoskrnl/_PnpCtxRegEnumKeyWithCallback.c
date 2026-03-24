@@ -1,22 +1,22 @@
 /*
- * XREFs of _PnpCtxRegEnumKeyWithCallback @ 0x14083EAEC
+ * XREFs of _PnpCtxRegEnumKeyWithCallback @ 0x1407B1488
  * Callers:
- *     PiCreateDriverSwDevices @ 0x14076ABAC (PiCreateDriverSwDevices.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x1407886D0 (DrvDbGetDriverPackageMappedProperty.c)
- *     _CmGetMatchingDeviceListForSubkey @ 0x14083DA50 (_CmGetMatchingDeviceListForSubkey.c)
- *     _CmGetMatchingDevicePanelListWorker @ 0x14083DC20 (_CmGetMatchingDevicePanelListWorker.c)
- *     _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x14083DEC8 (_CmGetMatchingFilteredDeviceInterfaceListWorker.c)
- *     _PnpGetGenericObjectList @ 0x14083E0F8 (_PnpGetGenericObjectList.c)
- *     _CmGetMatchingCommonClassListWorker @ 0x14083E2B8 (_CmGetMatchingCommonClassListWorker.c)
- *     _CmEnumSubkeyCallback @ 0x14083E410 (_CmEnumSubkeyCallback.c)
- *     _CmDeviceClassesSubkeyCallback @ 0x14083E6C0 (_CmDeviceClassesSubkeyCallback.c)
- *     PipHardwareConfigClearStartOverrides @ 0x14094017C (PipHardwareConfigClearStartOverrides.c)
- *     _CmDevicePanelEnumSubkeyCallback @ 0x140A28700 (_CmDevicePanelEnumSubkeyCallback.c)
- *     DrvDbGetObjectSubKeyCallback @ 0x140A2F0F0 (DrvDbGetObjectSubKeyCallback.c)
- *     DrvDbGetObjectSubKeyList @ 0x140A2F428 (DrvDbGetObjectSubKeyList.c)
- *     PipMigratePnpState @ 0x140B0EC60 (PipMigratePnpState.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x14063B8BC (DrvDbGetDriverPackageMappedProperty.c)
+ *     PiCreateDriverSwDevices @ 0x14074B23C (PiCreateDriverSwDevices.c)
+ *     _CmGetMatchingDeviceListForSubkey @ 0x1407AFF9C (_CmGetMatchingDeviceListForSubkey.c)
+ *     _CmGetMatchingDevicePanelListWorker @ 0x1407B0180 (_CmGetMatchingDevicePanelListWorker.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x1407B0448 (_CmGetMatchingFilteredDeviceInterfaceListWorker.c)
+ *     _PnpGetGenericObjectList @ 0x1407B0694 (_PnpGetGenericObjectList.c)
+ *     _CmGetMatchingCommonClassListWorker @ 0x1407B0854 (_CmGetMatchingCommonClassListWorker.c)
+ *     _CmDevicePanelEnumSubkeyCallback @ 0x1407B09B0 (_CmDevicePanelEnumSubkeyCallback.c)
+ *     _CmEnumSubkeyCallback @ 0x1407B0D10 (_CmEnumSubkeyCallback.c)
+ *     _CmDeviceClassesSubkeyCallback @ 0x1407B1000 (_CmDeviceClassesSubkeyCallback.c)
+ *     PipHardwareConfigClearStartOverrides @ 0x14089B5CC (PipHardwareConfigClearStartOverrides.c)
+ *     DrvDbGetObjectSubKeyCallback @ 0x14097E100 (DrvDbGetObjectSubKeyCallback.c)
+ *     DrvDbGetObjectSubKeyList @ 0x14097E440 (DrvDbGetObjectSubKeyList.c)
+ *     PipMigratePnpState @ 0x140A51084 (PipMigratePnpState.c)
  * Callees:
- *     _RegRtlEnumKeyWithCallback @ 0x14083EB44 (_RegRtlEnumKeyWithCallback.c)
+ *     _RegRtlEnumKeyWithCallback @ 0x1407B14E0 (_RegRtlEnumKeyWithCallback.c)
  */
 
 __int64 __fastcall PnpCtxRegEnumKeyWithCallback(__int64 a1, void *a2, __int64 a3, __int64 a4)

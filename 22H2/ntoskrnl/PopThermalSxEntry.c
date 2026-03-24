@@ -1,57 +1,51 @@
 /*
- * XREFs of PopThermalSxEntry @ 0x14058FCD8
+ * XREFs of PopThermalSxEntry @ 0x140389B58
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopCoolingSxTransition @ 0x140586BA0 (PopCoolingSxTransition.c)
- *     PopThermalStandbyEndTracking @ 0x14058FC28 (PopThermalStandbyEndTracking.c)
- *     PopTraceThermalZoneActiveActivity @ 0x140595DDC (PopTraceThermalZoneActiveActivity.c)
- *     PopTraceThermalZonePassiveHistogram @ 0x140595FB0 (PopTraceThermalZonePassiveHistogram.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x1408025F0 (PopThermalUpdateActiveTimeTracking.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x14098B070 (PopThermalUpdatePassiveTimeTracking.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopTraceThermalZonePassiveHistogram @ 0x140389D24 (PopTraceThermalZonePassiveHistogram.c)
+ *     PopTraceThermalZoneActiveActivity @ 0x140389EB4 (PopTraceThermalZoneActiveActivity.c)
+ *     PopCoolingSxTransition @ 0x14038A084 (PopCoolingSxTransition.c)
+ *     PopThermalStandbyEndTracking @ 0x14038A770 (PopThermalStandbyEndTracking.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140778578 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x14078DE1C (PopThermalUpdateActiveTimeTracking.c)
  */
 
-void PopThermalSxEntry()
+__int64 PopThermalSxEntry()
 {
-  __int64 v0; // rdx
-  __int64 v1; // r8
   struct _KTHREAD *CurrentThread; // rax
   PVOID *i; // rbx
-  __int64 v4; // rdx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
 
-  if ( !_InterlockedExchange(&PopThermalStateTransitionInProgress, 1) )
+  PopAcquireRwLockExclusive((ULONG_PTR)&PopSystemThermalInfo);
+  PopThermalStandbyEndTracking(4LL);
+  PopReleaseRwLock((ULONG_PTR)&PopSystemThermalInfo);
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  ExAcquirePushLockSharedEx((ULONG_PTR)&PopPolicyDeviceLock, 0LL);
+  for ( i = (PVOID *)PopThermal; i != &PopThermal; i = (PVOID *)*i )
   {
-    PopAcquireRwLockExclusive((ULONG_PTR)&PopSystemThermalInfo);
-    PopThermalStandbyEndTracking(4LL, v0, v1);
-    PopReleaseRwLock(&PopSystemThermalInfo);
-    CurrentThread = KeGetCurrentThread();
-    --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockSharedEx((ULONG_PTR)&PopPolicyDeviceLock, 0LL);
-    for ( i = (PVOID *)PopThermal; i != &PopThermal; i = (PVOID *)*i )
+    PopAcquireRwLockExclusive((ULONG_PTR)(i + 54));
+    if ( *((_BYTE *)i + 145) )
     {
-      PopAcquireRwLockExclusive((ULONG_PTR)(i + 54));
-      if ( *((_BYTE *)i + 145) )
-      {
-        LOBYTE(v4) = *((_BYTE *)i + 80);
-        PopThermalUpdatePassiveTimeTracking(i + 63, v4);
-        PopTraceThermalZonePassiveHistogram(i);
-      }
-      if ( *((_BYTE *)i + 505) )
-      {
-        LOBYTE(v4) = *((_BYTE *)i + 69);
-        PopThermalUpdateActiveTimeTracking(i + 63, v4);
-        PopTraceThermalZoneActiveActivity(i);
-      }
-      *((_BYTE *)i + 504) = 1;
-      PopReleaseRwLock((__int64 *)i + 54);
+      LOBYTE(v2) = *((_BYTE *)i + 80);
+      PopThermalUpdatePassiveTimeTracking(i + 63, v2);
+      PopTraceThermalZonePassiveHistogram(i);
     }
-    PopReleaseRwLock((__int64 *)&PopPolicyDeviceLock);
-    PopCoolingSxTransition(1);
-    PopAcquireRwLockExclusive((ULONG_PTR)&PopThermalStateTransitionContext);
-    byte_140C3C810 = 0;
-    PopReleaseRwLock(&PopThermalStateTransitionContext);
+    if ( *((_BYTE *)i + 505) )
+    {
+      LOBYTE(v2) = *((_BYTE *)i + 69);
+      PopThermalUpdateActiveTimeTracking(i + 63, v2);
+      PopTraceThermalZoneActiveActivity(i);
+    }
+    *((_BYTE *)i + 504) = 1;
+    PopReleaseRwLock((ULONG_PTR)(i + 54));
   }
+  PopReleaseRwLock((ULONG_PTR)&PopPolicyDeviceLock);
+  LOBYTE(v3) = 1;
+  return PopCoolingSxTransition(v3);
 }

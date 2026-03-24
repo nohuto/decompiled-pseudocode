@@ -1,44 +1,40 @@
 /*
- * XREFs of ?GetWindowBarrelVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@H@Z @ 0x1C01AD510
+ * XREFs of ?GetWindowBarrelVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@H@Z @ 0x1C01DA2F0
  * Callers:
- *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01AD114 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
+ *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01D9D54 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
  * Callees:
- *     FeedbackGetWindowSetting @ 0x1C01ADBFC (FeedbackGetWindowSetting.c)
+ *     FeedbackGetWindowSetting @ 0x1C01DAB10 (FeedbackGetWindowSetting.c)
  */
 
 __int64 __fastcall Feedback::GetWindowBarrelVisualizationSetting(Feedback *this, const struct tagPOINTER_INFO *a2)
 {
   unsigned int v2; // edi
   unsigned int v4; // ebx
-  __int64 v5; // rax
   int PointerBarrelVisualization; // eax
-  __int64 v7; // rcx
-  __int64 v8; // rax
-  __int64 v9; // rax
-  int v11; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  int v9; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = 0;
   v4 = 1;
   if ( (_DWORD)a2
-    || (v5 = SGDGetUserSessionState(this),
-        (PointerBarrelVisualization = CTouchProcessor::GetPointerBarrelVisualization(
-                                        *(CTouchProcessor **)(v5 + 3424),
-                                        *((_WORD *)this + 2))) == 0)
+    || (PointerBarrelVisualization = CTouchProcessor::GetPointerBarrelVisualization(
+                                       gpTouchProcessor,
+                                       *((_WORD *)this + 2))) == 0
     || (*((_DWORD *)this + 3) & 0x10000) != 0 )
   {
-    v7 = *((_QWORD *)this + 3);
-    if ( v7 )
+    v6 = *((_QWORD *)this + 3);
+    if ( v6 )
     {
-      v8 = ValidateHwnd(v7);
-      if ( v8 )
+      v7 = ValidateHwnd(v6);
+      if ( v7 )
       {
-        v11 = 1;
-        if ( (unsigned int)FeedbackGetWindowSetting(v8, 2LL, 1LL, &v11) )
-          v4 = v11;
+        v9 = 1;
+        if ( (unsigned int)FeedbackGetWindowSetting(v7, 2LL, 1LL, &v9) )
+          v4 = v9;
       }
     }
-    v9 = SGDGetUserSessionState(v7);
-    CTouchProcessor::SetPointerBarrelVisualization(*(CTouchProcessor **)(v9 + 3424), *((_WORD *)this + 2), v4);
+    CTouchProcessor::SetPointerBarrelVisualization(gpTouchProcessor, *((_WORD *)this + 2), v4);
   }
   else
   {

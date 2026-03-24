@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlSvmAcknowledgePageRequest @ 0x1405486E0
+ * XREFs of HvlSvmAcknowledgePageRequest @ 0x1404F69C0
  * Callers:
  *     <none>
  * Callees:
- *     HvlpFastAcknowledgePageRequest @ 0x14054934C (HvlpFastAcknowledgePageRequest.c)
- *     HvlpSlowAcknowledgePageRequest @ 0x140549558 (HvlpSlowAcknowledgePageRequest.c)
- *     HvlpHvToNtStatus @ 0x14054CA70 (HvlpHvToNtStatus.c)
+ *     HvlpFastAcknowledgePageRequest @ 0x1404F7580 (HvlpFastAcknowledgePageRequest.c)
+ *     HvlpSlowAcknowledgePageRequest @ 0x1404F778C (HvlpSlowAcknowledgePageRequest.c)
+ *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlSvmAcknowledgePageRequest(unsigned int a1, __int64 a2, _DWORD *a3)
@@ -21,7 +21,7 @@ __int64 __fastcall HvlSvmAcknowledgePageRequest(unsigned int a1, __int64 a2, _DW
   v7 = a1;
   if ( a1 )
   {
-    while ( v7 < 0x55 )
+    while ( v7 < 0x66 )
     {
       v8 = v7;
       if ( v7 > 2 )
@@ -32,13 +32,13 @@ LABEL_5:
       v6 = v9;
       if ( !v9 )
       {
-        a2 += 48LL * v11;
+        a2 += 40LL * v11;
         if ( v7 )
           continue;
       }
       goto LABEL_7;
     }
-    v8 = 85LL;
+    v8 = 102LL;
 LABEL_4:
     v9 = HvlpSlowAcknowledgePageRequest(v8, a2, &v11, v6);
     goto LABEL_5;

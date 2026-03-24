@@ -1,10 +1,10 @@
 /*
- * XREFs of NVMeGetFeaturesCurrentCacheValueCompletion @ 0x1C0003120
+ * XREFs of NVMeGetFeaturesCurrentCacheValueCompletion @ 0x1C00043C0
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbScsiData @ 0x1C00031F8 (GetSrbScsiData.c)
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
+ *     GetSrbScsiData @ 0x1C0004498 (GetSrbScsiData.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
  */
 
 unsigned __int64 __fastcall NVMeGetFeaturesCurrentCacheValueCompletion(__int64 a1, __int64 a2, _BYTE *a3)
@@ -45,7 +45,7 @@ unsigned __int64 __fastcall NVMeGetFeaturesCurrentCacheValueCompletion(__int64 a
         v13 = (unsigned int)(v11 + 10);
       *(_BYTE *)(v13 + v8) ^= (*(_BYTE *)(v13 + v8) ^ (4 * *a3)) & 4;
       v15 = 24LL;
-      result = *(unsigned int *)(v9 + a2);
+      result = *(unsigned int *)(a2 + v9);
       if ( v12 != 26 )
         v15 = 28LL;
       if ( result < v15 )
@@ -53,13 +53,14 @@ unsigned __int64 __fastcall NVMeGetFeaturesCurrentCacheValueCompletion(__int64 a
         result = 20LL;
         if ( v12 != 26 )
           v7 = 20;
-        v14 = v7;
+        *(_DWORD *)(a2 + v9) = v7;
       }
-      else if ( v12 != 26 )
+      else
       {
-        v14 = 28;
+        if ( v12 != 26 )
+          v14 = 28;
+        *(_DWORD *)(a2 + v9) = v14;
       }
-      *(_DWORD *)(v9 + a2) = v14;
     }
     else
     {

@@ -1,15 +1,16 @@
 /*
- * XREFs of bDeleteDCInternalEx @ 0x1C002DFD0
+ * XREFs of bDeleteDCInternalEx @ 0x1C003B2C0
  * Callers:
- *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C00205B4 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
- *     bDeleteDCInternal @ 0x1C00518F0 (bDeleteDCInternal.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C00D9014 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     DestroyCacheDC @ 0x1C00074F0 (DestroyCacheDC.c)
+ *     bDeleteDCInternal @ 0x1C0007A80 (bDeleteDCInternal.c)
+ *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C002D268 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C00C7F00 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
  * Callees:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C002E3D4 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C002E7BC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z @ 0x1C002EB80 (-bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z.c)
- *     EngSetLastError @ 0x1C008B610 (EngSetLastError.c)
- *     UserReleaseDC @ 0x1C00AC8F0 (UserReleaseDC.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C003B478 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C003B4D8 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z @ 0x1C003B51C (-bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z.c)
+ *     UserReleaseDC @ 0x1C0091F00 (UserReleaseDC.c)
+ *     EngSetLastError @ 0x1C009E670 (EngSetLastError.c)
  */
 
 __int64 __fastcall bDeleteDCInternalEx(HDC a1, unsigned int *a2)

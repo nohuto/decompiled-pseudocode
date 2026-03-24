@@ -1,20 +1,20 @@
 /*
- * XREFs of UsbhPCE_ResumeTimeout @ 0x1C0034130
+ * XREFs of UsbhPCE_ResumeTimeout @ 0x1C0035494
  * Callers:
- *     UsbhSshResumeDownstream @ 0x1C0009090 (UsbhSshResumeDownstream.c)
- *     UsbhWaitForPortResume @ 0x1C0039CEC (UsbhWaitForPortResume.c)
+ *     UsbhSshResumeDownstream @ 0x1C000C0F0 (UsbhSshResumeDownstream.c)
+ *     UsbhWaitForPortResume @ 0x1C003AFFC (UsbhWaitForPortResume.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
-int *__fastcall UsbhPCE_ResumeTimeout(__int64 a1, __int64 a2, unsigned __int16 a3)
+__int64 __fastcall UsbhPCE_ResumeTimeout(__int64 a1, __int64 a2, unsigned __int16 a3)
 {
   __int64 v3; // rsi
-  int *result; // rax
+  __int64 result; // rax
   int v7; // [rsp+28h] [rbp-20h]
 
   v3 = a3;
@@ -31,8 +31,8 @@ int *__fastcall UsbhPCE_ResumeTimeout(__int64 a1, __int64 a2, unsigned __int16 a
       v7);
   }
   Log(a1, 512, 1346711860, 0LL, v3);
-  result = (int *)UsbhGetPortData(a1, v3);
+  result = UsbhGetPortData(a1, v3);
   if ( result )
-    return UsbhDispatch_PortChangeQueueEventEx(a1, (__int64)result, 14LL, a2, 0LL, 0, 0LL, 0LL);
+    return UsbhDispatch_PortChangeQueueEventEx(a1, result, 14, a2, 0LL, 0, 0LL, 0LL);
   return result;
 }

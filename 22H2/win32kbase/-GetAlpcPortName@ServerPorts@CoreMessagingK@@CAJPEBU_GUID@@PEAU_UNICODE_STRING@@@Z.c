@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C00B11F8
+ * XREFs of ?GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C0074FC8
  * Callers:
- *     ?CreatePort@ServerPorts@CoreMessagingK@@SAJDQEAXPEBGPEAPEAX@Z @ 0x1C00B0FD8 (-CreatePort@ServerPorts@CoreMessagingK@@SAJDQEAXPEBGPEAPEAX@Z.c)
+ *     ?CreatePort@ServerPorts@CoreMessagingK@@SAJDQEAXPEBGPEAPEAX@Z @ 0x1C00759BC (-CreatePort@ServerPorts@CoreMessagingK@@SAJDQEAXPEBGPEAPEAX@Z.c)
  * Callees:
- *     ?RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C00B1290 (-RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z.c)
- *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00B1304 (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C0075060 (-RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z.c)
+ *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00750D8 (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
  */
 
 __int64 __fastcall CoreMessagingK::ServerPorts::GetAlpcPortName(const struct _GUID *a1, struct _UNICODE_STRING *a2)

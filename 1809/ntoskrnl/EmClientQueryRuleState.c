@@ -2,9 +2,9 @@
  * XREFs of EmClientQueryRuleState @ 0x1405653B0
  * Callers:
  *     PopFilterCapabilities @ 0x1405B0968 (PopFilterCapabilities.c)
- *     PoInitHiberServices @ 0x140745CB0 (PoInitHiberServices.c)
- *     PopEnableHiberFile @ 0x140745F9C (PopEnableHiberFile.c)
- *     PopDirectedDripsQueryEmSettings @ 0x140868594 (PopDirectedDripsQueryEmSettings.c)
+ *     PoInitHiberServices @ 0x140745C90 (PoInitHiberServices.c)
+ *     PopEnableHiberFile @ 0x140745F7C (PopEnableHiberFile.c)
+ *     PopDirectedDripsQueryEmSettings @ 0x140868574 (PopDirectedDripsQueryEmSettings.c)
  *     PopReadErrataDisablePrimaryDeviceFastResume @ 0x1409AB034 (PopReadErrataDisablePrimaryDeviceFastResume.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  *     KeInitializeClock @ 0x1409D8C58 (KeInitializeClock.c)

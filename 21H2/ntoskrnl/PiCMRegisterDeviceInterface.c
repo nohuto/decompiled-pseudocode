@@ -1,16 +1,16 @@
 /*
- * XREFs of PiCMRegisterDeviceInterface @ 0x140955EF8
+ * XREFs of PiCMRegisterDeviceInterface @ 0x1408B0D1C
  * Callers:
- *     PiCMHandleIoctl @ 0x14077BCA0 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140634850 (PiCMHandleIoctl.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x1402DF554 (PiControlFreeUserModeCallersBuffer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     IopRegisterDeviceInterface @ 0x140769C24 (IopRegisterDeviceInterface.c)
- *     PiCMReturnBufferResultData @ 0x14077C780 (PiCMReturnBufferResultData.c)
- *     _CmValidateDeviceName @ 0x14077FAC0 (_CmValidateDeviceName.c)
- *     PiAuDoesClientHaveAccess @ 0x14078A600 (PiAuDoesClientHaveAccess.c)
- *     PiCMCaptureRegisterInterfaceInputData @ 0x140954134 (PiCMCaptureRegisterInterfaceInputData.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x1402647E0 (PiControlFreeUserModeCallersBuffer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PiCMReturnBufferResultData @ 0x140637784 (PiCMReturnBufferResultData.c)
+ *     _CmValidateDeviceName @ 0x140642270 (_CmValidateDeviceName.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406A04D4 (PiAuDoesClientHaveAccess.c)
+ *     IopRegisterDeviceInterface @ 0x140748470 (IopRegisterDeviceInterface.c)
+ *     PiCMCaptureRegisterInterfaceInputData @ 0x1408AF140 (PiCMCaptureRegisterInterfaceInputData.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMRegisterDeviceInterface(
@@ -21,92 +21,102 @@ __int64 __fastcall PiCMRegisterDeviceInterface(
         int a5,
         _DWORD *a6)
 {
-  unsigned int v8; // ebx
-  _WORD *v9; // rdi
-  int v10; // esi
-  __int64 v11; // rcx
-  signed int v12; // r10d
-  __int64 v13; // rsi
+  _DWORD *v6; // r14
+  unsigned int v9; // ebx
+  _WORD *v10; // rdi
+  int v11; // esi
+  __int64 v12; // rcx
+  signed int v13; // r10d
   unsigned int v14; // edx
   int v15; // eax
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // bl
-  int v19; // eax
-  __int64 v20; // rbx
-  _WORD *v21; // [rsp+50h] [rbp-39h] BYREF
-  _DWORD *v22; // [rsp+58h] [rbp-31h]
-  __int128 v23; // [rsp+60h] [rbp-29h] BYREF
-  __int128 v24; // [rsp+70h] [rbp-19h]
-  __int128 v25; // [rsp+80h] [rbp-9h]
-  __int64 v26; // [rsp+90h] [rbp+7h]
+  __int64 v19; // rsi
+  __int64 v20; // r14
+  int v21; // eax
+  __int64 v22; // rbx
+  _WORD *v23; // [rsp+58h] [rbp-31h] BYREF
+  __int128 v24; // [rsp+60h] [rbp-29h] BYREF
+  __int128 v25; // [rsp+70h] [rbp-19h]
+  __int128 v26; // [rsp+80h] [rbp-9h]
+  __int64 v27; // [rsp+90h] [rbp+7h]
 
-  v22 = a6;
-  v21 = 0LL;
-  v26 = 0LL;
-  v8 = 0;
-  *a6 = 0;
-  v9 = 0LL;
+  v6 = a6;
   v23 = 0LL;
+  *a6 = 0;
+  v9 = 0;
   v24 = 0LL;
+  v27 = 0LL;
+  v10 = 0LL;
   v25 = 0LL;
-  v10 = PiCMCaptureRegisterInterfaceInputData(a1, a2, a5, (__int64)&v23);
-  if ( v10 < 0 )
-    goto LABEL_16;
+  v26 = 0LL;
+  v11 = PiCMCaptureRegisterInterfaceInputData(a1, a2, a5, (__int64)&v24);
+  if ( v11 < 0 )
+    goto LABEL_8;
   if ( !PiAuDoesClientHaveAccess(2u) )
   {
-    v12 = -1073741790;
-LABEL_12:
+    v13 = -1073741790;
+LABEL_4:
     v14 = 0;
-LABEL_13:
-    v15 = PiCMReturnBufferResultData(v12, v14, 0, 0LL, 0, SHIDWORD(v26), a3, a4, v22);
-    goto LABEL_14;
+LABEL_5:
+    v15 = PiCMReturnBufferResultData(v13, v14, 0, 0LL, 0, SHIDWORD(v27), a3, a4, a6);
+    goto LABEL_6;
   }
-  v13 = *((_QWORD *)&v24 + 1);
-  if ( !*((_QWORD *)&v24 + 1)
-    || DWORD1(v23)
-    || *((_QWORD *)&v25 + 1) && (unsigned int)v26 < 2
-    || !a3
-    || a4 < 0x14
-    || a4 - 20 < 2 )
+  v19 = *((_QWORD *)&v25 + 1);
+  if ( !*((_QWORD *)&v25 + 1) || DWORD1(v24) )
   {
-    v12 = -1073741811;
-    goto LABEL_12;
+    v13 = -1073741811;
   }
-  v12 = CmValidateDeviceName(v11, *((const wchar_t **)&v24 + 1));
-  if ( v12 >= 0 )
+  else
   {
-    v19 = IopRegisterDeviceInterface(v13, (__int64)&v23 + 8, *((__int64 *)&v25 + 1), 1, (PVOID *)&v21, 0LL);
-    v9 = v21;
-    v12 = v19;
-    if ( v19 >= 0 )
+    v20 = *((_QWORD *)&v26 + 1);
+    if ( *((_QWORD *)&v26 + 1) && (unsigned int)v27 < 2 || !a3 || a4 < 0x14 )
     {
-      v20 = -1LL;
-      do
-        ++v20;
-      while ( v21[v20] );
-      v8 = v20 + 1;
-      if ( 2 * (unsigned __int64)v8 > a4 - 20 )
+      v13 = -1073741811;
+      goto LABEL_4;
+    }
+    if ( a4 - 20 < 2 )
+    {
+      v13 = -1073741811;
+      goto LABEL_4;
+    }
+    v13 = CmValidateDeviceName(v12, *((const wchar_t **)&v25 + 1));
+    if ( v13 >= 0 )
+    {
+      v21 = IopRegisterDeviceInterface(v19, (int *)&v24 + 2, v20, 1, (PVOID *)&v23, 0LL);
+      v10 = v23;
+      v13 = v21;
+      if ( v21 >= 0 )
       {
-        v12 = -1073741789;
-        v14 = 2 * v8;
-        goto LABEL_13;
+        v22 = -1LL;
+        do
+          ++v22;
+        while ( v23[v22] );
+        v9 = v22 + 1;
+        if ( 2 * (unsigned __int64)v9 > a4 - 20 )
+        {
+          v13 = -1073741789;
+          v14 = 2 * v9;
+          goto LABEL_5;
+        }
       }
     }
+    v6 = a6;
   }
-  v14 = 2 * v8;
-  if ( v12 < 0 )
-    goto LABEL_13;
-  v15 = PiCMReturnBufferResultData(v12, v14, 0, v9, v14, SHIDWORD(v26), a3, a4, v22);
-LABEL_14:
-  v10 = v15;
-  if ( v9 )
-    ExFreePoolWithTag(v9, 0);
-LABEL_16:
+  v14 = 2 * v9;
+  if ( v13 < 0 )
+    goto LABEL_5;
+  v15 = PiCMReturnBufferResultData(v13, v14, 0, v10, v14, SHIDWORD(v27), a3, a4, v6);
+LABEL_6:
+  v11 = v15;
+  if ( v10 )
+    ExFreePoolWithTag(v10, 0);
+LABEL_8:
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
-  if ( *((_QWORD *)&v24 + 1) )
-    PiControlFreeUserModeCallersBuffer(CurrentThread->PreviousMode, *((void **)&v24 + 1));
   if ( *((_QWORD *)&v25 + 1) )
-    PiControlFreeUserModeCallersBuffer(PreviousMode, *((void **)&v25 + 1));
-  return (unsigned int)v10;
+    PiControlFreeUserModeCallersBuffer(CurrentThread->PreviousMode, *((void **)&v25 + 1));
+  if ( *((_QWORD *)&v26 + 1) )
+    PiControlFreeUserModeCallersBuffer(PreviousMode, *((void **)&v26 + 1));
+  return (unsigned int)v11;
 }

@@ -1,63 +1,44 @@
 /*
- * XREFs of VfInitBootDriversLoaded @ 0x140B5A754
+ * XREFs of VfInitBootDriversLoaded @ 0x140A4ED74
  * Callers:
- *     MiInitializeDriverImages @ 0x140B497A0 (MiInitializeDriverImages.c)
+ *     MiInitializeDriverImages @ 0x140A4E6F4 (MiInitializeDriverImages.c)
  * Callees:
- *     RtlSetAllBits @ 0x1402E1AE0 (RtlSetAllBits.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x1403C2C70 (ExInitializeNPagedLookasideListInternal.c)
- *     CarInit @ 0x1405D3D94 (CarInit.c)
- *     DifRegisterKernelPlugin @ 0x1405D4FD0 (DifRegisterKernelPlugin.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     NtSetDebugFilterState @ 0x1408310C0 (NtSetDebugFilterState.c)
- *     VfDriverLoadImage @ 0x140ABDE04 (VfDriverLoadImage.c)
- *     VfThunkGetNumberOfWdmThunk @ 0x140ABE314 (VfThunkGetNumberOfWdmThunk.c)
- *     VfAvlInitializeTreeEx @ 0x140ABE450 (VfAvlInitializeTreeEx.c)
- *     VfInitVerifierComponents @ 0x140AC3E40 (VfInitVerifierComponents.c)
- *     VfObjectContextInit @ 0x140AC4F94 (VfObjectContextInit.c)
- *     ViThunkFindAllExportAddresses @ 0x140B5A920 (ViThunkFindAllExportAddresses.c)
- *     VfDriverLoadBootDrivers @ 0x140B5AB2C (VfDriverLoadBootDrivers.c)
- *     ViLogAndLoadXdv @ 0x140B97CF4 (ViLogAndLoadXdv.c)
- *     VfSuspectDriversParseRegistryString @ 0x140B97D8C (VfSuspectDriversParseRegistryString.c)
- *     VfXdvExcludeParseRegistryString @ 0x140B97F3C (VfXdvExcludeParseRegistryString.c)
- *     VfTriageAddDrivers @ 0x140B980A8 (VfTriageAddDrivers.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     NtSetDebugFilterState @ 0x1407A58F0 (NtSetDebugFilterState.c)
+ *     VfDriverLoadImage @ 0x1409C20A0 (VfDriverLoadImage.c)
+ *     VfAvlInitializeTreeEx @ 0x1409C2644 (VfAvlInitializeTreeEx.c)
+ *     VfLookasideInitializeInternalNPagedList @ 0x1409C2758 (VfLookasideInitializeInternalNPagedList.c)
+ *     IoVerifierInit @ 0x1409C477C (IoVerifierInit.c)
+ *     VfInitVerifierComponents @ 0x1409C6E80 (VfInitVerifierComponents.c)
+ *     VfObjectContextInit @ 0x1409C8418 (VfObjectContextInit.c)
+ *     VfDriverLoadBootDrivers @ 0x140A4EE74 (VfDriverLoadBootDrivers.c)
+ *     VfThunkFindExportAddressAllTables @ 0x140A4EED0 (VfThunkFindExportAddressAllTables.c)
+ *     VfThunkInit @ 0x140A4F16C (VfThunkInit.c)
+ *     ViLogAndLoadXdv @ 0x140A938F4 (ViLogAndLoadXdv.c)
+ *     VfTriageAddDrivers @ 0x140A93974 (VfTriageAddDrivers.c)
+ *     VfSuspectDriversParseRegistryString @ 0x140A93DD8 (VfSuspectDriversParseRegistryString.c)
+ *     VfXdvExcludeParseRegistryString @ 0x140A93F94 (VfXdvExcludeParseRegistryString.c)
  */
 
 void __fastcall VfInitBootDriversLoaded(__int64 a1)
 {
-  __int64 v2; // r8
-  __int64 v3; // r8
-  __int64 v4; // r8
-  __int64 v5; // rdx
+  int v2; // esi
+  __int64 v3; // r9
+  __int64 v4; // rbx
+  __int64 v5; // rax
   __int64 v6; // rbx
-  __int64 v7; // rax
-  __int64 v8; // rbx
-  __int64 v9; // rdx
 
-  ViNumberOfWdmThunks = VfThunkGetNumberOfWdmThunk();
-  if ( (_QWORD)ViVerifierDriverAddedThunkListHead )
-    CarInit();
   VfBugcheckTmpDataLock = 0LL;
-  qword_140C368E8 = (__int64)&DifAPIThunkContextHead;
-  DifAPIThunkContextHead = (__int64)&DifAPIThunkContextHead;
-  DifpPoolTagsSize = (unsigned int)DifpPoolTagsSizeBytes >> 2;
-  VfRegularThunksBitMapHeader.Buffer = (unsigned int *)&VfRegularThunksBitMap;
-  VfRegularThunksBitMapHeader.SizeOfBitMap = 64;
-  RtlSetAllBits(&VfRegularThunksBitMapHeader);
-  VfPoolThunksBitMapHeader.SizeOfBitMap = 64;
-  VfPoolThunksBitMapHeader.Buffer = (unsigned int *)&VfPoolThunksBitMap;
-  RtlSetAllBits(&VfPoolThunksBitMapHeader);
-  VfDifThunksBitMapHeader.SizeOfBitMap = 544;
-  VfDifThunksBitMapHeader.Buffer = (unsigned int *)&VfDifThunksBitMap;
-  RtlSetAllBits(&VfDifThunksBitMapHeader);
-  ExInitializeNPagedLookasideListInternal(
+  v2 = BYTE4(VfRuleClasses) & 8;
+  VfThunkInit();
+  VfLookasideInitializeInternalNPagedList(
     (__int64)&ViAvlNodeLookaside,
     0LL,
-    (void (__stdcall *)(PVOID))VfUtilFreePoolCheckIRQL,
-    512,
-    48,
+    (__int64)VfUtilFreePoolCheckIRQL,
+    v3,
+    48LL,
     1413572182,
-    16,
-    VfInitializedWithoutReboot);
+    16);
   _InterlockedExchange(&ViAvlInitialized, 1);
   if ( !VfSafeMode )
   {
@@ -67,39 +48,45 @@ void __fastcall VfInitBootDriversLoaded(__int64 a1)
     }
     else
     {
-      dword_140C37348 = 0;
+      dword_140C1D068 = 0;
       _InterlockedExchange(&ViTargetInitialized, 1);
     }
   }
-  if ( (_QWORD)ViVerifierDriverAddedThunkListHead )
+  if ( ViVerifierDriverAddedThunkListHead )
     VfObjectContextInit();
-  ViThunkFindAllExportAddresses(a1, &VfRegularThunks, v2, &VfRegularThunksBitMapHeader);
-  ViThunkFindAllExportAddresses(a1, &VfPoolThunks, v3, &VfPoolThunksBitMapHeader);
-  ViThunkFindAllExportAddresses(a1, &VfDifThunks, v4, &VfDifThunksBitMapHeader);
-  if ( (_QWORD)ViVerifierDriverAddedThunkListHead )
+  VfThunkFindExportAddressAllTables(a1);
+  if ( ViVerifierDriverAddedThunkListHead )
   {
     NtSetDebugFilterState(0x5Du, 0, 1);
-    if ( (_DWORD)MmVerifyDriverBufferLength )
+    if ( MmVerifyDriverBufferLength )
       VfSuspectDriversParseRegistryString();
     if ( VfXdvSuppressDriversBufferLength )
       VfXdvExcludeParseRegistryString();
-    VfInitVerifierComponents(MmVerifierData, (unsigned int)ViVerifyAllDrivers, (unsigned int)KernelVerifier, 0);
+    VfInitVerifierComponents(MmVerifierData, ViVerifyAllDrivers, KernelVerifier);
+    IoVerifierInit(MmVerifierData);
     ViFullyInitialized = 1;
     VfTriageAddDrivers(a1);
-    v6 = *(_QWORD *)(a1 + 16);
-    v7 = *(_QWORD *)(v6 + 48) + *(unsigned int *)(v6 + 64);
-    ViDriverKernelBase = *(_QWORD *)(v6 + 48);
-    ViDriverKernelEnd = v7;
+    v4 = *(_QWORD *)(a1 + 16);
+    v5 = *(_QWORD *)(v4 + 48) + *(unsigned int *)(v4 + 64);
+    ViDriverKernelBase = *(_QWORD *)(v4 + 48);
+    ViDriverKernelEnd = v5;
     if ( KernelVerifier )
-      VfDriverLoadImage(v6, v5, 1u);
-    v8 = *(_QWORD *)v6;
-    DifRegisterKernelPlugin();
-    ViLogAndLoadXdv(a1);
-    while ( v8 != a1 + 16 )
+      VfDriverLoadImage(v4, 0, 1u, 0);
+    v6 = *(_QWORD *)v4;
+    if ( v2 )
+      ViLogAndLoadXdv(a1);
+    while ( v6 != a1 + 16 )
     {
-      if ( !RtlEqualUnicodeString((PCUNICODE_STRING)(v8 + 88), &XdvName, 1u) )
-        VfDriverLoadImage(v8, v9, 0);
-      v8 = *(_QWORD *)v8;
+      if ( RtlEqualUnicodeString((PCUNICODE_STRING)(v6 + 88), &XdvName, 1u) )
+      {
+        if ( !v2 )
+          ViLogAndLoadXdv(a1);
+      }
+      else
+      {
+        VfDriverLoadImage(v6, 0, 0, 0);
+      }
+      v6 = *(_QWORD *)v6;
     }
   }
   else

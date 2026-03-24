@@ -1,37 +1,30 @@
 /*
- * XREFs of DxgkAcquireAdapterStopResetSync @ 0x1C02C4E5C
+ * XREFs of DxgkAcquireAdapterStopResetSync @ 0x1C02172B4
  * Callers:
- *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z @ 0x1C005F2C8 (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z.c)
- *     DpiDisableMsBddFallbackDriver @ 0x1C0388570 (DpiDisableMsBddFallbackDriver.c)
- *     DpiEnableMsBddFallbackDriver @ 0x1C0388704 (DpiEnableMsBddFallbackDriver.c)
+ *     DpiDisableMsBddFallbackDriver @ 0x1C02C7D30 (DpiDisableMsBddFallbackDriver.c)
+ *     DpiEnableMsBddFallbackDriver @ 0x1C02C7EDC (DpiEnableMsBddFallbackDriver.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-__int64 __fastcall DxgkAcquireAdapterStopResetSync(__int64 a1, int a2)
+__int64 __fastcall DxgkAcquireAdapterStopResetSync(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rbx
+  __int64 v2; // rax
+  __int64 v4; // rbx
 
   if ( a1 )
   {
-    v3 = a1 + 136;
-    if ( a2 )
-    {
-      KeEnterCriticalRegion();
-      ExAcquirePushLockExclusiveEx(v3, 0LL);
-      *(_QWORD *)(v3 + 8) = KeGetCurrentThread();
-    }
-    else
-    {
-      KeEnterCriticalRegion();
-      ExAcquirePushLockSharedEx(v3, 0LL);
-    }
+    v4 = a1 + 136;
+    KeEnterCriticalRegion();
+    ExAcquirePushLockExclusiveEx(v4, 0LL);
+    *(_QWORD *)(v4 + 8) = KeGetCurrentThread();
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(2LL, 304LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"No hAdapter specified", 304LL, 0LL, 0LL, 0LL, 0LL);
+    v2 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v2 + 24) = 244LL;
+    WdLogEvent5_WdError(v2);
     return 3221225485LL;
   }
 }

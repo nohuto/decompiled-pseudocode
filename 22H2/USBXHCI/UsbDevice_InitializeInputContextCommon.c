@@ -1,80 +1,68 @@
 /*
- * XREFs of UsbDevice_InitializeInputContextCommon @ 0x1C00083C0
+ * XREFs of UsbDevice_InitializeInputContextCommon @ 0x1C00059BC
  * Callers:
- *     UsbDevice_InitializeInputContextForAddDropEndpoints @ 0x1C000AF80 (UsbDevice_InitializeInputContextForAddDropEndpoints.c)
+ *     UsbDevice_InitializeInputContextForAddDropEndpoints @ 0x1C0005AC0 (UsbDevice_InitializeInputContextForAddDropEndpoints.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0020600 (memset.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 __int64 __fastcall UsbDevice_InitializeInputContextCommon(__int64 a1)
 {
-  char v2; // r8
-  __int64 v3; // rbp
-  __int64 v4; // rax
-  unsigned int v5; // r9d
-  __int64 *v6; // rdi
-  _QWORD **v7; // rcx
-  _QWORD *v8; // rcx
-  __int64 v9; // rcx
-  char v10; // al
-  __int64 v11; // rdi
+  __int64 v2; // rdi
+  __int64 v3; // rax
+  unsigned int v4; // edx
+  void *v5; // rcx
+  __int64 v6; // rcx
+  char v7; // al
+  __int64 v8; // rdi
   __int64 result; // rax
-  __int64 v13; // rdx
-  int v14; // ecx
+  __int64 v10; // rdx
+  int v11; // ecx
 
-  v2 = *(_BYTE *)(a1 + 657);
-  v3 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 88LL);
-  v4 = *(_QWORD *)((v2 != 0 ? 648LL : 640LL) + a1);
-  if ( v4 )
-    v5 = *(_DWORD *)(v4 + 44);
+  v2 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 88LL);
+  v3 = *(_QWORD *)((*(_BYTE *)(a1 + 657) != 0 ? 648LL : 640LL) + a1);
+  if ( v3 )
+    v4 = *(_DWORD *)(v3 + 44);
   else
-    v5 = 0;
-  v6 = (__int64 *)(a1 + 640);
-  v7 = (_QWORD **)(a1 + 648);
-  if ( !v2 )
-    v7 = (_QWORD **)(a1 + 640);
-  v8 = *v7;
-  if ( v8 )
-    v8 = (_QWORD *)v8[2];
-  memset(v8, 0, v5);
-  if ( *(_BYTE *)(a1 + 657) )
-    v6 = (__int64 *)(a1 + 648);
-  v9 = *v6;
-  if ( *v6 )
-    v9 = *(_QWORD *)(v9 + 16);
-  v10 = -(*(_DWORD *)(v3 + 104) & 4);
-  *(_DWORD *)(v9 + 4) |= 1u;
-  v11 = v9 + (v10 != 0 ? 64LL : 32LL);
+    v4 = 0;
+  if ( v3 )
+    v5 = *(void **)(v3 + 16);
+  else
+    v5 = 0LL;
+  memset(v5, 0, v4);
+  v6 = *(_QWORD *)((*(_BYTE *)(a1 + 657) != 0 ? 648LL : 640LL) + a1);
+  if ( v6 )
+    v6 = *(_QWORD *)(v6 + 16);
+  v7 = -(*(_DWORD *)(v2 + 104) & 4);
+  *(_DWORD *)(v6 + 4) |= 1u;
+  v8 = v6 + (v7 != 0 ? 64LL : 32LL);
   if ( *(_BYTE *)(a1 + 136) )
   {
-    v14 = *(_DWORD *)v11 | 0x4000000;
-    *(_DWORD *)v11 = v14;
-    *(_BYTE *)(v11 + 7) = *(_BYTE *)(a1 + 140);
+    v11 = *(_DWORD *)v8 | 0x4000000;
+    *(_DWORD *)v8 = v11;
+    *(_BYTE *)(v8 + 7) = *(_BYTE *)(a1 + 140);
     if ( *(_DWORD *)(a1 + 20) == 2 )
     {
       if ( *(_DWORD *)(a1 + 144) > 1u )
-        *(_DWORD *)v11 = v14 | 0x2000000;
-      *(_DWORD *)(v11 + 8) ^= (*(_DWORD *)(v11 + 8) ^ (*(_DWORD *)(a1 + 148) << 16)) & 0x30000;
+        *(_DWORD *)v8 = v11 | 0x2000000;
+      *(_DWORD *)(v8 + 8) ^= (*(_DWORD *)(v8 + 8) ^ (*(_DWORD *)(a1 + 148) << 16)) & 0x30000;
     }
   }
-  result = *(_QWORD *)(a1 + 8);
-  if ( _bittest64((const signed __int64 *)(result + 336), 0x3Du) )
+  result = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 336LL);
+  if ( (result & 0x2000000000000000LL) != 0 && !*(_BYTE *)(a1 + 136) )
   {
-    if ( !*(_BYTE *)(a1 + 136) )
+    v10 = *(_QWORD *)(a1 + 24);
+    if ( v10 )
     {
-      v13 = *(_QWORD *)(a1 + 24);
-      if ( v13 )
+      if ( *(int *)(a1 + 20) < 2 )
       {
-        if ( *(int *)(a1 + 20) < 2 )
-        {
-          result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
-                     WdfDriverGlobals,
-                     v13,
-                     off_1C00632C0);
-          if ( *(_DWORD *)(result + 144) > 1u )
-            *(_DWORD *)v11 |= 0x2000000u;
-        }
+        result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+                   WdfDriverGlobals,
+                   v10,
+                   off_1C00602C0);
+        if ( *(_DWORD *)(result + 144) > 1u )
+          *(_DWORD *)v8 |= 0x2000000u;
       }
     }
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of __security_init_cookie @ 0x1C007E008
+ * XREFs of __security_init_cookie @ 0x1C007A008
  * Callers:
- *     FxDriverEntry @ 0x1C001CDD0 (FxDriverEntry.c)
+ *     FxDriverEntry @ 0x1C0018280 (FxDriverEntry.c)
  * Callees:
  *     <none>
  */

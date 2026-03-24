@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIThermalReadTemperatureComplete @ 0x1C0060E60
+ * XREFs of ACPIThermalReadTemperatureComplete @ 0x1C0060090
  * Callers:
  *     <none>
  * Callees:
- *     ACPIThermalLoopEx @ 0x1C00209D8 (ACPIThermalLoopEx.c)
- *     ACPIThermalUpdateTemperature @ 0x1C002167C (ACPIThermalUpdateTemperature.c)
+ *     ACPIThermalLoopEx @ 0x1C0012A28 (ACPIThermalLoopEx.c)
+ *     ACPIThermalUpdateTemperature @ 0x1C0013534 (ACPIThermalUpdateTemperature.c)
  */
 
 __int64 __fastcall ACPIThermalReadTemperatureComplete(__int64 a1, __int64 a2, __int64 a3)

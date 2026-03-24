@@ -1,23 +1,19 @@
 /*
- * XREFs of MiSanitizePage @ 0x140335A70
+ * XREFs of MiSanitizePage @ 0x1402E8FB8
  * Callers:
- *     MiMapContiguousMemory @ 0x140335858 (MiMapContiguousMemory.c)
- *     MiMapLockedPagesInUserSpace @ 0x140748A84 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x140A30D50 (MiMapViewOfPhysicalSection.c)
- *     MiRotateToFrameBuffer @ 0x140A31710 (MiRotateToFrameBuffer.c)
- *     MiRotateToFrameBufferNoCopy @ 0x140A31A14 (MiRotateToFrameBufferNoCopy.c)
+ *     MmRotatePhysicalView @ 0x14065FD60 (MmRotatePhysicalView.c)
+ *     MiMapLockedPagesInUserSpace @ 0x14076ACC0 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407C33C8 (MiMapViewOfPhysicalSection.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MiSanitizePage(unsigned __int64 a1)
 {
-  unsigned __int64 v1; // rdx
-  unsigned __int64 v2; // r8
+  __int64 result; // rax
 
-  v1 = a1;
-  v2 = 1LL << ((unsigned __int8)dword_140C65BE0 - 12);
-  if ( a1 >= v2 )
-    return (v2 - 1) & a1;
-  return v1;
+  result = a1 & 0xFFFFFFFFFLL;
+  if ( a1 < 0x1000000000LL )
+    return a1;
+  return result;
 }

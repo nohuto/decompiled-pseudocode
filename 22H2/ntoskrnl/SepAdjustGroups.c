@@ -1,10 +1,10 @@
 /*
- * XREFs of SepAdjustGroups @ 0x1407CB22C
+ * XREFs of SepAdjustGroups @ 0x1405DA938
  * Callers:
- *     NtAdjustGroupsToken @ 0x1407CAEE0 (NtAdjustGroupsToken.c)
+ *     NtAdjustGroupsToken @ 0x1405DA5F0 (NtAdjustGroupsToken.c)
  * Callees:
- *     RtlEqualSid @ 0x14022A790 (RtlEqualSid.c)
- *     RtlCopySid @ 0x140715020 (RtlCopySid.c)
+ *     RtlEqualSid @ 0x1403459F0 (RtlEqualSid.c)
+ *     RtlCopySid @ 0x140654560 (RtlCopySid.c)
  */
 
 __int64 __fastcall SepAdjustGroups(
@@ -19,45 +19,46 @@ __int64 __fastcall SepAdjustGroups(
         _DWORD *a9,
         char *a10)
 {
-  unsigned int v11; // ebp
-  unsigned int v13; // ecx
+  unsigned int v11; // eax
+  unsigned int v12; // ebp
   char v14; // r10
   ULONG v15; // edx
   char v16; // bl
-  unsigned int v17; // eax
+  unsigned int v17; // ecx
   __int64 v18; // rsi
-  __int64 v19; // rax
+  __int64 v19; // rcx
   __int64 v20; // rsi
   char v21; // al
   PSID v22; // r14
   _DWORD *v23; // r15
-  __int64 v25; // rax
+  __int64 v25; // rdx
   int v26; // ecx
   ULONG v27; // r14d
   int v28; // r15d
   ULONG v29; // r14d
-  __int64 v30; // rax
-  unsigned int v31; // [rsp+20h] [rbp-68h]
-  unsigned int v32; // [rsp+24h] [rbp-64h]
-  int v33; // [rsp+28h] [rbp-60h]
+  int v30; // eax
+  unsigned int v31; // eax
+  unsigned int v32; // [rsp+20h] [rbp-68h]
+  unsigned int v33; // [rsp+24h] [rbp-64h]
+  int v34; // [rsp+28h] [rbp-60h]
   PSID Sid1[2]; // [rsp+30h] [rbp-58h]
-  ULONG v35; // [rsp+90h] [rbp+8h]
-  char v37; // [rsp+A0h] [rbp+18h]
-  unsigned int v38; // [rsp+A8h] [rbp+20h]
-  char v39; // [rsp+D0h] [rbp+48h]
+  ULONG v36; // [rsp+90h] [rbp+8h]
+  char v38; // [rsp+A0h] [rbp+18h]
+  unsigned int v39; // [rsp+A8h] [rbp+20h]
+  char v40; // [rsp+D0h] [rbp+48h]
 
-  v38 = a4;
-  v37 = a3;
+  v39 = a4;
+  v38 = a3;
   v11 = 0;
-  v13 = 0;
+  v12 = 0;
+  v32 = 0;
   v14 = a2;
   v15 = 0;
-  v31 = 0;
   *a9 = 0;
   v16 = 1;
+  v36 = 0;
   v17 = 1;
-  v35 = 0;
-  v33 = 1;
+  v34 = 1;
   if ( *(_DWORD *)(a1 + 124) <= 1u )
     goto LABEL_11;
   do
@@ -68,20 +69,20 @@ __int64 __fastcall SepAdjustGroups(
     *(_OWORD *)Sid1 = *(_OWORD *)(v19 + 8 * v20);
     if ( !a3 )
     {
-      v32 = 0;
+      v33 = 0;
       v21 = 0;
-      v39 = 0;
+      v40 = 0;
       if ( !a4 )
         goto LABEL_9;
-      v22 = Sid1[0];
+      v22 = *(PSID *)(v19 + 8 * v20);
       v23 = (_DWORD *)(a5 + 8);
       while ( !v21 )
       {
         if ( RtlEqualSid(v22, *((PSID *)v23 - 1)) )
         {
           v25 = *(_QWORD *)(a1 + 152);
-          ++v31;
-          v39 = 1;
+          ++v32;
+          v40 = 1;
           v26 = *(_DWORD *)(v25 + 8 * v20 + 8);
           if ( ((*(_BYTE *)v23 ^ *(_BYTE *)(v25 + 8 * v20 + 8)) & 4) != 0 )
           {
@@ -90,7 +91,7 @@ __int64 __fastcall SepAdjustGroups(
             if ( (v26 & 0x10) != 0 )
               return 3221226163LL;
             v27 = (4 * *((unsigned __int8 *)Sid1[0] + 1) + 11) & 0xFFFFFFFC;
-            v35 += v27;
+            v36 += v27;
             if ( a2 )
             {
               if ( a6 )
@@ -98,9 +99,10 @@ __int64 __fastcall SepAdjustGroups(
                 *(_DWORD *)(a6 + 16 * ((unsigned int)*a9 + 1LL)) = Sid1[1];
                 *(_QWORD *)(a6 + 16LL * (unsigned int)*a9 + 8) = DestinationSid;
                 RtlCopySid(v27, DestinationSid, Sid1[0]);
+                v25 = *(_QWORD *)(a1 + 152);
                 DestinationSid += v27;
               }
-              *(_DWORD *)(*(_QWORD *)(a1 + 152) + 8 * v20 + 8) &= ~(*(_DWORD *)(*(_QWORD *)(a1 + 152) + 8 * v20 + 8) & 4);
+              *(_DWORD *)(v25 + 8 * v20 + 8) &= ~(*(_DWORD *)(v25 + 8 * v20 + 8) & 4);
               *(_DWORD *)(*(_QWORD *)(a1 + 152) + 8 * v20 + 8) |= *v23 & 4;
             }
             ++*a9;
@@ -108,10 +110,10 @@ __int64 __fastcall SepAdjustGroups(
           }
         }
         v23 += 4;
-        a4 = v38;
-        ++v32;
-        v21 = v39;
-        if ( v32 >= v38 )
+        a4 = v39;
+        ++v33;
+        v21 = v40;
+        if ( v33 >= v39 )
           goto LABEL_8;
       }
       goto LABEL_8;
@@ -120,7 +122,7 @@ __int64 __fastcall SepAdjustGroups(
     if ( ((v28 - 2) & 0xFFFFFFFD) == 0 )
     {
       v29 = (4 * *((unsigned __int8 *)Sid1[0] + 1) + 11) & 0xFFFFFFFC;
-      v35 = v29 + v15;
+      v36 = v29 + v15;
       if ( v14 )
       {
         if ( a6 )
@@ -128,34 +130,36 @@ __int64 __fastcall SepAdjustGroups(
           *(_DWORD *)(a6 + 16 * ((unsigned int)*a9 + 1LL)) = Sid1[1];
           *(_QWORD *)(a6 + 16LL * (unsigned int)*a9 + 8) = DestinationSid;
           RtlCopySid(v29, DestinationSid, Sid1[0]);
-          a4 = v38;
+          v19 = *(_QWORD *)(a1 + 152);
+          a4 = v39;
           DestinationSid += v29;
         }
-        v30 = *(_QWORD *)(a1 + 152);
+        v30 = *(_DWORD *)(v19 + 8 * v20 + 8);
         if ( v28 == 2 )
-          *(_DWORD *)(v30 + 8 * v20 + 8) |= 4u;
+          v31 = v30 | 4;
         else
-          *(_DWORD *)(v30 + 8 * v20 + 8) &= ~4u;
+          v31 = v30 & 0xFFFFFFFB;
+        *(_DWORD *)(v19 + 8 * v20 + 8) = v31;
       }
       ++*a9;
 LABEL_8:
-      a3 = v37;
+      a3 = v38;
     }
 LABEL_9:
-    v15 = v35;
-    v17 = v33 + 1;
+    v15 = v36;
+    v17 = v34 + 1;
     v14 = a2;
-    v33 = v17;
+    v34 = v17;
   }
   while ( v17 < *(_DWORD *)(a1 + 124) );
-  v13 = v31;
+  v11 = v32;
 LABEL_11:
-  if ( !a3 && v13 < a4 )
-    v11 = 262;
+  if ( !a3 && v11 < a4 )
+    v12 = 262;
   if ( !*a9 || !v14 )
     v16 = 0;
   *a10 = v16;
   if ( a6 )
     *a8 = 16 * *a9 + 8 + v15;
-  return v11;
+  return v12;
 }

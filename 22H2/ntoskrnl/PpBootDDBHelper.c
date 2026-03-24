@@ -1,20 +1,20 @@
 /*
- * XREFs of PpBootDDBHelper @ 0x140814E34
+ * XREFs of PpBootDDBHelper @ 0x1407A4350
  * Callers:
- *     PpInitializeBootDDB @ 0x140B42D24 (PpInitializeBootDDB.c)
+ *     PpInitializeBootDDB @ 0x140A53088 (PpInitializeBootDDB.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     SdbInitDatabaseInMemory @ 0x1406951D8 (SdbInitDatabaseInMemory.c)
- *     PnpLogEvent @ 0x140958B60 (PnpLogEvent.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     SdbInitDatabaseInMemory @ 0x140755900 (SdbInitDatabaseInMemory.c)
+ *     PnpLogEvent @ 0x1408A1F4C (PnpLogEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PpBootDDBHelper(void *Src, size_t Size, _QWORD *a3, __int64 *a4)
 {
-  unsigned int v6; // edi
-  void *Pool2; // rax
+  unsigned int v6; // ebp
+  PVOID PoolWithTag; // rax
   void *v9; // rbx
   __int64 inited; // rax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
@@ -28,11 +28,11 @@ __int64 __fastcall PpBootDDBHelper(void *Src, size_t Size, _QWORD *a3, __int64 *
       PiLoggedErrorEventsMask |= 1u;
     return 3221225473LL;
   }
-  Pool2 = (void *)ExAllocatePool2(256LL, (unsigned int)Size, 538996816LL);
-  v9 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)Size, 0x20207050u);
+  v9 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memmove(Pool2, Src, v6);
+    memmove(PoolWithTag, Src, v6);
     inited = SdbInitDatabaseInMemory((__int64)v9, v6);
     if ( inited )
     {

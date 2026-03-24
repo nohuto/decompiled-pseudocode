@@ -1,16 +1,16 @@
 /*
- * XREFs of MiComputeAgeDistribution @ 0x140265A04
+ * XREFs of MiComputeAgeDistribution @ 0x1402A6E8C
  * Callers:
- *     MiComputeSystemTrimCriteria @ 0x140266644 (MiComputeSystemTrimCriteria.c)
- *     MiOrderTrimList @ 0x140596B14 (MiOrderTrimList.c)
+ *     MiComputeSystemTrimCriteria @ 0x140271440 (MiComputeSystemTrimCriteria.c)
+ *     MiOrderTrimList @ 0x14053B640 (MiOrderTrimList.c)
  * Callees:
- *     MiUpdateClaimDistribution @ 0x140265B80 (MiUpdateClaimDistribution.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiUpdateClaimDistribution @ 0x1402A7000 (MiUpdateClaimDistribution.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall MiComputeAgeDistribution(__int64 a1, int a2)
@@ -36,11 +36,11 @@ __int64 __fastcall MiComputeAgeDistribution(__int64 a1, int a2)
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   memset(Src, 0, sizeof(Src));
-  v4 = *(_QWORD **)(a1 + 16600);
-  if ( a2 )
+  v4 = *(_QWORD **)(a1 + 6848);
+  if ( a2 == 1 )
   {
     KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-    v5 = (_QWORD **)(a1 + 16608);
+    v5 = (_QWORD **)(a1 + 6856);
     for ( i = *v5; i != v5; i = (_QWORD *)*i )
       MiUpdateClaimDistribution(i - 3, Src);
     memmove(v4 + 302, Src, 0x40uLL);

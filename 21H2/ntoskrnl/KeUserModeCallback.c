@@ -1,143 +1,118 @@
 /*
- * XREFs of KeUserModeCallback @ 0x1407A3EC0
+ * XREFs of KeUserModeCallback @ 0x1406F0030
  * Callers:
  *     <none>
  * Callees:
- *     KeExitRetpoline @ 0x14024B6F8 (KeExitRetpoline.c)
- *     MmSessionGetWin32Callouts @ 0x140281830 (MmSessionGetWin32Callouts.c)
- *     MmDeleteKernelStackEx @ 0x1402C1900 (MmDeleteKernelStackEx.c)
- *     MmCreateKernelStack @ 0x1402F4B70 (MmCreateKernelStack.c)
- *     KeGetProcessorNodeNumberByIndex @ 0x1402F509C (KeGetProcessorNodeNumberByIndex.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     KiCallUserMode @ 0x140423B80 (KiCallUserMode.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     MmCreateKernelShadowStack @ 0x1405A5990 (MmCreateKernelShadowStack.c)
- *     MmDeleteKernelShadowStack @ 0x1405A5DF0 (MmDeleteKernelShadowStack.c)
- *     ExCallCallBack @ 0x1406F8074 (ExCallCallBack.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
+ *     MmCreateKernelStack @ 0x14032A560 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStack @ 0x14032AB70 (MmDeleteKernelStack.c)
+ *     KeExitRetpoline @ 0x14035E888 (KeExitRetpoline.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KiCallUserMode @ 0x1404022D0 (KiCallUserMode.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
+ *     ExRaiseAccessViolation @ 0x1409560F0 (ExRaiseAccessViolation.c)
  */
 
-__int64 __fastcall KeUserModeCallback(int a1, const void *a2, unsigned int a3, int a4, __int64 a5)
+__int64 __fastcall KeUserModeCallback(int a1, const void *a2, unsigned int a3, __int64 a4, __int64 a5)
 {
-  unsigned __int64 v5; // rsi
-  unsigned __int64 v6; // r15
+  __int64 v5; // r15
   struct _KTHREAD *CurrentThread; // rbx
-  unsigned int ProcessorNodeNumberByIndex; // edi
+  unsigned __int8 CallbackNestingLevel; // cl
   __int64 KernelStack; // rax
-  _KERNEL_SHADOW_STACK_LIMIT v10; // rax
-  _KTRAP_FRAME *TrapFrame; // r12
-  SIZE_T v12; // rdx
-  unsigned __int64 v13; // r13
+  unsigned __int64 v9; // r14
+  _KTRAP_FRAME *TrapFrame; // r13
+  unsigned __int64 Rsp; // r12
+  unsigned __int64 v12; // rsi
+  unsigned __int64 v13; // rcx
+  unsigned __int64 v14; // rdx
+  unsigned __int64 v15; // rdx
+  unsigned __int64 v16; // r15
   unsigned __int8 BpbRetpolineState; // di
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  int v18; // r13d
-  unsigned __int64 v19; // rdi
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
-  unsigned __int64 v22; // rax
-  __int64 v23; // [rsp+38h] [rbp-80h] BYREF
-  unsigned __int64 v24; // [rsp+40h] [rbp-78h] BYREF
-  unsigned __int64 Rsp; // [rsp+48h] [rbp-70h]
-  unsigned __int64 v26; // [rsp+50h] [rbp-68h]
-  __int64 v27; // [rsp+58h] [rbp-60h]
-  struct _KTHREAD *v28; // [rsp+60h] [rbp-58h]
-  unsigned __int64 v29; // [rsp+68h] [rbp-50h]
-  _KTRAP_FRAME *v30; // [rsp+70h] [rbp-48h]
-  ULONG_PTR retaddr; // [rsp+B8h] [rbp+0h]
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  unsigned int v20; // esi
+  __int64 v21; // r8
+  unsigned __int64 v23; // rax
+  ULONG_PTR retaddr; // [rsp+98h] [rbp+0h]
 
-  v5 = 0LL;
-  v6 = 0LL;
-  v24 = 0LL;
-  v23 = 0LL;
+  v5 = a3;
   CurrentThread = KeGetCurrentThread();
-  v28 = CurrentThread;
   if ( (CurrentThread->MiscFlags & 0x1000) != 0 )
     KeBugCheckEx(0x107u, (ULONG_PTR)CurrentThread, 0LL, 0LL, 0LL);
   if ( KeGetCurrentIrql() )
     KeBugCheckEx(0x4Au, retaddr, KeGetCurrentIrql(), 0LL, 0LL);
   if ( CurrentThread->ApcStateIndex || CurrentThread->WaitBlock[3].SpareLong )
     KeBugCheckEx(1u, retaddr, CurrentThread->ApcStateIndex, CurrentThread->CombinedApcDisable, 0LL);
-  if ( ++CurrentThread->CallbackNestingLevel > 0x1Fu )
+  CallbackNestingLevel = CurrentThread->CallbackNestingLevel;
+  CurrentThread->CallbackNestingLevel = CallbackNestingLevel + 1;
+  if ( (unsigned __int8)(CallbackNestingLevel + 1) > 0x1Fu )
   {
-    v18 = -1073741571;
-    goto LABEL_17;
-  }
-  ProcessorNodeNumberByIndex = (unsigned __int16)KeGetProcessorNodeNumberByIndex(CurrentThread->IdealProcessor);
-  KernelStack = MmCreateKernelStack(0x10u, ProcessorNodeNumberByIndex, (__int64)CurrentThread);
-  v6 = KernelStack;
-  v27 = KernelStack;
-  if ( !KernelStack )
-  {
-    v18 = -1073741801;
-    goto LABEL_17;
-  }
-  *(_QWORD *)(KernelStack - 80) = KernelStack;
-  *(_QWORD *)(KernelStack - 72) = KernelStack - (unsigned int)KeKernelStackSize;
-  *(_QWORD *)(KernelStack - 64) = CurrentThread->StackBase;
-  *(_QWORD *)(KernelStack - 56) = CurrentThread->StackLimit;
-  *(_QWORD *)(KernelStack - 40) = CurrentThread->InitialStack;
-  if ( (_BYTE)KiKernelCetEnabled )
-  {
-    v18 = MmCreateKernelShadowStack((unsigned __int64)CurrentThread, 2, 16LL, ProcessorNodeNumberByIndex, &v24, &v23);
-    if ( v18 < 0 )
-      goto LABEL_17;
-    *(_QWORD *)(v6 - 8) = CurrentThread->KernelShadowStackInitial;
-    *(_QWORD *)(v6 - 32) = CurrentThread->KernelShadowStackBase;
-    v10.AllFields = (unsigned __int64)CurrentThread->KernelShadowStackLimit;
+    CurrentThread->CallbackNestingLevel = CallbackNestingLevel;
+    return 3221225725LL;
   }
   else
   {
-    *(_QWORD *)(KernelStack - 8) = 0LL;
-    *(_QWORD *)(KernelStack - 32) = 0LL;
-    *(_QWORD *)(KernelStack - 16) = 0LL;
-    v10.AllFields = 0LL;
-  }
-  *(_KERNEL_SHADOW_STACK_LIMIT *)(v6 - 24) = v10;
-  TrapFrame = CurrentThread->TrapFrame;
-  v30 = TrapFrame;
-  Rsp = TrapFrame->Rsp;
-  v29 = Rsp;
-  v12 = ((a3 + 15LL) & 0xFFFFFFFFFFFFFFF0uLL) + 88;
-  v13 = (Rsp - v12) & 0xFFFFFFFFFFFFFFF0uLL;
-  ProbeForWrite((volatile void *)v13, v12, 0x10u);
-  memmove((void *)(v13 + 88), a2, a3);
-  *(_QWORD *)(v13 + 32) = v13 + 88;
-  *(_DWORD *)(v13 + 40) = a3;
-  *(_DWORD *)(v13 + 44) = a1;
-  *(_QWORD *)(v13 + 72) = Rsp;
-  *(_QWORD *)(v13 + 48) = TrapFrame->Rip;
-  v26 = 0LL;
-  if ( (CurrentThread->MiscFlags & 0x100000) != 0 )
-  {
-    v22 = __readmsr(0x6A0u);
-    if ( (v22 & 1) != 0 )
+    KernelStack = MmCreateKernelStack(
+                    0,
+                    *(unsigned __int16 *)(*(_QWORD *)(KiProcessorBlock[CurrentThread->IdealProcessor] + 192) + 146LL),
+                    (__int64)CurrentThread);
+    v9 = KernelStack;
+    if ( KernelStack )
     {
-      v5 = __readmsr(0x6A7u);
-      v26 = v5;
+      *(_QWORD *)(KernelStack - 48) = KernelStack;
+      *(_QWORD *)(KernelStack - 40) = KernelStack - (unsigned int)KeKernelStackSize;
+      *(_QWORD *)(KernelStack - 32) = CurrentThread->StackBase;
+      *(_QWORD *)(KernelStack - 24) = CurrentThread->StackLimit;
+      *(_QWORD *)(KernelStack - 8) = CurrentThread->InitialStack;
+      TrapFrame = CurrentThread->TrapFrame;
+      Rsp = TrapFrame->Rsp;
+      v12 = (Rsp - (((v5 + 15) & 0xFFFFFFFFFFFFFFF0uLL) + 88)) & 0xFFFFFFFFFFFFFFF0uLL;
+      v13 = v12;
+      v14 = v12 + ((v5 + 15) & 0xFFFFFFFFFFFFFFF0uLL) + 87;
+      if ( v12 > v14 || v14 >= 0x7FFFFFFF0000LL )
+        ExRaiseAccessViolation();
+      v15 = (v14 & 0xFFFFFFFFFFFFF000uLL) + 4096;
+      do
+      {
+        *(_BYTE *)v13 = *(_BYTE *)v13;
+        v13 = (v13 & 0xFFFFFFFFFFFFF000uLL) + 4096;
+      }
+      while ( v13 != v15 );
+      memmove((void *)(v12 + 88), a2, (unsigned int)v5);
+      *(_QWORD *)(v12 + 32) = v12 + 88;
+      *(_DWORD *)(((Rsp - (((v5 + 15) & 0xFFFFFFFFFFFFFFF0uLL) + 88)) & 0xFFFFFFFFFFFFFFF0uLL) + 0x28) = v5;
+      *(_DWORD *)(((Rsp - (((v5 + 15) & 0xFFFFFFFFFFFFFFF0uLL) + 88)) & 0xFFFFFFFFFFFFFFF0uLL) + 0x2C) = a1;
+      *(_QWORD *)(((Rsp - (((v5 + 15) & 0xFFFFFFFFFFFFFFF0uLL) + 88)) & 0xFFFFFFFFFFFFFFF0uLL) + 0x48) = Rsp;
+      *(_QWORD *)(((Rsp - (((v5 + 15) & 0xFFFFFFFFFFFFFFF0uLL) + 88)) & 0xFFFFFFFFFFFFFFF0uLL) + 0x30) = TrapFrame->Rip;
+      v16 = 0LL;
+      if ( (CurrentThread->MiscFlags & 0x100000) != 0 )
+      {
+        v23 = __readmsr(0x6A0u);
+        if ( (v23 & 1) != 0 )
+          v16 = __readmsr(0x6A7u);
+      }
+      BpbRetpolineState = KeGetPcr()->Prcb.BpbRetpolineState;
+      TrapFrame->Rsp = v12;
+      v20 = KiCallUserMode(a4, a5, v9 - 48, v9);
+      if ( (BpbRetpolineState & 1) != 0 )
+        KeExitRetpoline(v19, v18, v21);
+      _mm_lfence();
+      if ( *((_DWORD *)CurrentThread->Teb + 1488) )
+      {
+        TrapFrame->Rsp -= 256LL;
+        PsInvokeWin32Callout(7, 0LL, 0, 0LL);
+      }
+      if ( v16 )
+        __writemsr(0x6A7u, v16);
+      TrapFrame->Rsp = Rsp;
+      --CurrentThread->CallbackNestingLevel;
+      MmDeleteKernelStack(v9, 0LL);
+      return v20;
+    }
+    else
+    {
+      --CurrentThread->CallbackNestingLevel;
+      return 3221225495LL;
     }
   }
-  BpbRetpolineState = KeGetPcr()->Prcb.BpbRetpolineState;
-  TrapFrame->Rsp = v13;
-  v18 = KiCallUserMode(a4, a5, (int)v6 - 80, v6, v24, v23);
-  if ( (BpbRetpolineState & 1) != 0 )
-    KeExitRetpoline(v16, v15, v17);
-  _mm_lfence();
-  v19 = Rsp;
-  if ( *((_DWORD *)CurrentThread->Teb + 1488) )
-  {
-    TrapFrame->Rsp -= 256LL;
-    Win32Callouts = MmSessionGetWin32Callouts();
-    ExCallCallBack((signed __int64 *)Win32Callouts, 7LL, 0LL);
-  }
-  if ( v5 )
-    __writemsr(0x6A7u, v5);
-  TrapFrame->Rsp = v19;
-LABEL_17:
-  --CurrentThread->CallbackNestingLevel;
-  if ( v6 )
-    MmDeleteKernelStackEx(v6, 4u, (__int64)CurrentThread);
-  if ( v23 )
-    MmDeleteKernelShadowStack(v24, 2, 4);
-  return (unsigned int)v18;
 }

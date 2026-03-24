@@ -1,218 +1,205 @@
 /*
- * XREFs of WheaReportHwError @ 0x1406106A0
+ * XREFs of WheaReportHwError @ 0x1405BB070
  * Callers:
- *     HalpCheckAndReportGhes @ 0x14033532C (HalpCheckAndReportGhes.c)
- *     HalpMcaReportError @ 0x140503858 (HalpMcaReportError.c)
- *     HalHandleNMI @ 0x1405063E0 (HalHandleNMI.c)
- *     WheaHwErrorReportSubmitDeviceDriver @ 0x140611450 (WheaHwErrorReportSubmitDeviceDriver.c)
+ *     HalpMcaReportError @ 0x1404BA9E0 (HalpMcaReportError.c)
+ *     HalHandleNMI @ 0x1404BD690 (HalHandleNMI.c)
+ *     HalpCheckAndReportGhes @ 0x1404CF888 (HalpCheckAndReportGhes.c)
+ *     WheaHwErrorReportSubmitDeviceDriver @ 0x1405BBEC0 (WheaHwErrorReportSubmitDeviceDriver.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x1403810A0 (WheaLogInternalEvent.c)
- *     WheaIsCriticalState @ 0x1403811C0 (WheaIsCriticalState.c)
- *     WheapGetErrorSourceFunction @ 0x14038136C (WheapGetErrorSourceFunction.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     WheaRecoveryBugCheck @ 0x140610630 (WheaRecoveryBugCheck.c)
- *     WheapAddToDumpFile @ 0x140610B68 (WheapAddToDumpFile.c)
- *     WheapAllocErrorRecord @ 0x140610BAC (WheapAllocErrorRecord.c)
- *     WheapApplyThresholdChecks @ 0x140610C28 (WheapApplyThresholdChecks.c)
- *     WheapAttemptErrorRecovery @ 0x140610CD4 (WheapAttemptErrorRecovery.c)
- *     WheapCompressErrorRecord @ 0x140610D98 (WheapCompressErrorRecord.c)
- *     WheapFreeErrorRecord @ 0x140610ED0 (WheapFreeErrorRecord.c)
- *     WheapGetErrorSource @ 0x140610F08 (WheapGetErrorSource.c)
- *     WheapPersistPageForMemoryError @ 0x140611038 (WheapPersistPageForMemoryError.c)
- *     WheapGenerateETWEvents @ 0x140613338 (WheapGenerateETWEvents.c)
- *     WheapWorkQueueAddItem @ 0x140613A00 (WheapWorkQueueAddItem.c)
+ *     WheaLogInternalEvent @ 0x1403BA6F0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     Feature_LogErrorRecords__private_ReportDeviceUsage @ 0x1403F8BF8 (Feature_LogErrorRecords__private_ReportDeviceUsage.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     WheapGetWheaInfo @ 0x1405BAD60 (WheapGetWheaInfo.c)
+ *     WheapAddToDumpFile @ 0x1405BB548 (WheapAddToDumpFile.c)
+ *     WheapAllocErrorRecord @ 0x1405BB58C (WheapAllocErrorRecord.c)
+ *     WheapApplyThresholdChecks @ 0x1405BB620 (WheapApplyThresholdChecks.c)
+ *     WheapAttemptErrorRecovery @ 0x1405BB7B8 (WheapAttemptErrorRecovery.c)
+ *     WheapCompressErrorRecord @ 0x1405BB830 (WheapCompressErrorRecord.c)
+ *     WheapFillOutErrorRecord @ 0x1405BB96C (WheapFillOutErrorRecord.c)
+ *     WheapFreeErrorRecord @ 0x1405BB9E8 (WheapFreeErrorRecord.c)
+ *     WheapGetErrorSource @ 0x1405BBA0C (WheapGetErrorSource.c)
+ *     WheapPersistPageForMemoryError @ 0x1405BBA98 (WheapPersistPageForMemoryError.c)
+ *     WheapGenerateETWEvents @ 0x1405BD350 (WheapGenerateETWEvents.c)
+ *     WheapWorkQueueAddItem @ 0x1405BD6E8 (WheapWorkQueueAddItem.c)
  */
 
 __int64 __fastcall WheaReportHwError(__int64 a1)
 {
-  int v1; // r11d
-  unsigned int v2; // ebx
+  unsigned int v1; // ebx
+  int v3; // ecx
   char v4; // r12
   _QWORD *WheaInfo; // rax
-  __int64 v7; // rcx
+  _QWORD *v7; // r13
+  __int64 v8; // rcx
   __int64 ErrorSource; // rax
-  unsigned int v9; // edx
-  unsigned int v10; // r11d
-  __int64 v11; // r14
-  _DWORD *v12; // rcx
-  __int64 v13; // rax
-  char *v14; // r15
-  int v15; // ecx
-  __int64 (__fastcall *ErrorSourceFunction)(__int64, __int64, char *, _QWORD, _QWORD); // rax
-  int v17; // eax
-  int v18; // edx
-  char v19; // [rsp+30h] [rbp-39h]
-  int v20; // [rsp+34h] [rbp-35h] BYREF
-  unsigned int v21; // [rsp+38h] [rbp-31h]
-  _QWORD *v22; // [rsp+40h] [rbp-29h]
-  unsigned __int64 v23; // [rsp+48h] [rbp-21h]
-  _DWORD Src[6]; // [rsp+50h] [rbp-19h] BYREF
-  __int64 v25; // [rsp+68h] [rbp-1h]
-  _DWORD v26[10]; // [rsp+70h] [rbp+7h] BYREF
+  ULONG_PTR v10; // rdx
+  __int64 v11; // r15
+  __int64 v12; // rax
+  _DWORD *v13; // r14
+  int v14; // ecx
+  char v15; // [rsp+38h] [rbp-39h]
+  int v16; // [rsp+3Ch] [rbp-35h] BYREF
+  unsigned __int64 v17; // [rsp+40h] [rbp-31h]
+  __int128 Src; // [rsp+48h] [rbp-29h] BYREF
+  __int128 v19; // [rsp+58h] [rbp-19h]
+  __int64 v20; // [rsp+68h] [rbp-9h]
+  _DWORD v21[10]; // [rsp+70h] [rbp-1h] BYREF
 
-  v1 = *(_DWORD *)(a1 + 20);
-  v2 = 0;
-  v20 = 0;
-  v19 = 0;
-  v23 = 0LL;
+  v1 = 0;
+  v20 = 0LL;
+  v16 = 0;
+  v15 = 0;
+  v3 = *(_DWORD *)(a1 + 20);
   v4 = 0;
-  if ( (v1 & 0xC0000000) == 0xC0000000 )
+  v17 = 0LL;
+  Src = 0LL;
+  v19 = 0LL;
+  if ( (v3 & 0xC0000000) == 0xC0000000 )
     return 3221225485LL;
-  if ( (v1 & 0x40000000) != 0 )
+  if ( (v3 & 0x40000000) != 0 )
   {
-    v19 = 1;
-    v1 &= ~0x40000000u;
-    v23 = (*(unsigned int *)(a1 + 8) + a1 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+    v15 = 1;
+    v3 &= ~0x40000000u;
+    v17 = (*(unsigned int *)(a1 + 8) + a1 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
 LABEL_7:
-    *(_DWORD *)(a1 + 20) = v1;
+    *(_DWORD *)(a1 + 20) = v3;
     goto LABEL_8;
   }
-  if ( v1 < 0 )
+  if ( v3 < 0 )
   {
-    v1 &= ~0x80000000;
+    v3 &= ~0x80000000;
     v4 = 1;
     goto LABEL_7;
   }
 LABEL_8:
-  if ( v1 == 3 && !v4 )
+  if ( v3 == 3 && !v4 )
     return 0LL;
-  WheaInfo = KeGetPcr()->Prcb.WheaInfo;
-  v22 = WheaInfo;
-  if ( !WheaInfo || (v7 = WheaInfo[1]) == 0 || !*(_DWORD *)(v7 + 4) )
+  Feature_LogErrorRecords__private_ReportDeviceUsage();
+  if ( !v4 && *(_DWORD *)(a1 + 20) != 2 && (*(_BYTE *)(a1 + 12) & 1) == 0 )
   {
-    if ( (unsigned int)v1 <= 1 && (*(_BYTE *)(a1 + 12) & 1) == 0 && !v4 )
-      KeBugCheckEx(0x124u, *(int *)(a1 + 28), 0LL, 0LL, 0LL);
-    Src[0] = 1733060695;
-    v12 = Src;
-    Src[1] = 1;
-    Src[2] = 32;
-    Src[3] = 1;
-    Src[5] = -2147483594;
-    Src[4] = 1280201291;
-    v25 = 2LL;
-    goto LABEL_75;
+    *(_QWORD *)&Src = 0x1674C6857LL;
+    *((_QWORD *)&Src + 1) = 40LL;
+    *(_QWORD *)&v19 = 0x800000054C4E524BuLL;
+    *((_QWORD *)&v19 + 1) = 0x800000008LL;
+    v20 = a1;
+    WheaLogInternalEvent(&Src);
   }
-  ErrorSource = WheapGetErrorSource(v7, *(unsigned int *)(a1 + 24));
+  WheaInfo = WheapGetWheaInfo();
+  v7 = WheaInfo;
+  if ( !WheaInfo || (v8 = WheaInfo[1]) == 0 || !*(_DWORD *)(v8 + 4) )
+  {
+    if ( *(_DWORD *)(a1 + 20) <= 1u && (*(_BYTE *)(a1 + 12) & 1) == 0 )
+      KeBugCheckEx(0x124u, *(int *)(a1 + 28), 0LL, 0LL, 0LL);
+    return 0LL;
+  }
+  ErrorSource = WheapGetErrorSource(v8, *(unsigned int *)(a1 + 24));
   v11 = ErrorSource;
   if ( !ErrorSource )
   {
-    if ( v10 <= 1 && (*(_BYTE *)(a1 + 12) & 1) == 0 && !v4 )
-      KeBugCheckEx(0x122u, 9uLL, *(int *)(a1 + 28), v9, 0LL);
+    if ( *(_DWORD *)(a1 + 20) <= 1u && (*(_BYTE *)(a1 + 12) & 1) == 0 )
+      KeBugCheckEx(0x122u, 9uLL, *(int *)(a1 + 28), v10, 0LL);
     return 3221225664LL;
   }
   _InterlockedAdd((volatile signed __int32 *)(ErrorSource + 24), 1u);
   if ( *(_DWORD *)(a1 + 20) == 2 && (unsigned __int8)WheapApplyThresholdChecks(ErrorSource) )
   {
-    v12 = v26;
-    v26[8] = *(_DWORD *)(a1 + 28);
-    v26[9] = *(_DWORD *)(a1 + 24);
-    v26[0] = 1733060695;
-    v26[1] = 1;
-    v26[2] = 40;
-    v26[3] = 1;
-    v26[5] = -2147483644;
-    v26[4] = 1280201291;
-    v26[6] = 2;
-    v26[7] = 8;
-LABEL_75:
-    WheaLogInternalEvent(v12);
+    v21[8] = *(_DWORD *)(a1 + 28);
+    v21[9] = *(_DWORD *)(a1 + 24);
+    v21[0] = 1733060695;
+    v21[1] = 1;
+    v21[2] = 40;
+    v21[3] = 1;
+    v21[5] = -2147483644;
+    v21[4] = 1280201291;
+    v21[6] = 2;
+    v21[7] = 8;
+    WheaLogInternalEvent(v21);
     return 0LL;
   }
-  v13 = WheapAllocErrorRecord(v11, &v20);
-  v14 = (char *)v13;
-  if ( !v13 )
+  v12 = WheapAllocErrorRecord(v11, &v16);
+  v13 = (_DWORD *)v12;
+  if ( !v12 )
   {
     ++*(_DWORD *)(v11 + 16);
     if ( *(_DWORD *)(a1 + 20) <= 1u && (*(_BYTE *)(a1 + 12) & 1) == 0 && !v4 )
       KeBugCheckEx(0x122u, 0xAuLL, *(int *)(a1 + 28), *(unsigned int *)(a1 + 24), 0LL);
     return 3221225626LL;
   }
-  v15 = *(_DWORD *)(v13 + 24) ^ (*(_DWORD *)(v13 + 24) ^ (*(_DWORD *)(a1 + 12) >> 2)) & 4;
-  *(_DWORD *)(v13 + 24) = v15;
-  *(_DWORD *)(v13 + 24) = v15 ^ ((unsigned __int8)v15 ^ (unsigned __int8)(*(_DWORD *)(a1 + 12) >> 2)) & 8;
-  ErrorSourceFunction = (__int64 (__fastcall *)(__int64, __int64, char *, _QWORD, _QWORD))WheapGetErrorSourceFunction(
-                                                                                            v11,
-                                                                                            2,
-                                                                                            0);
-  if ( ErrorSourceFunction )
-    v17 = ErrorSourceFunction(v11 + 96, a1, v14 + 40, (unsigned int)(v20 - 40), *(_QWORD *)(v11 + 56));
-  else
-    v17 = -1073741822;
-  v21 = v17;
-  _InterlockedDecrement((volatile signed __int32 *)(v11 + 92));
-  if ( v17 >= 0 )
+  *(_DWORD *)(v12 + 24) ^= (*(_DWORD *)(v12 + 24) ^ (*(_DWORD *)(a1 + 12) >> 2)) & 4;
+  *(_DWORD *)(v12 + 24) ^= ((unsigned __int8)*(_DWORD *)(v12 + 24) ^ (unsigned __int8)(*(_DWORD *)(a1 + 12) >> 2)) & 8;
+  v16 = WheapFillOutErrorRecord((unsigned int)(v16 - 40), a1, v11, v12 + 40);
+  if ( v16 >= 0 )
   {
-    if ( v4 || v19 )
-      *((_DWORD *)v14 + 36) |= 8u;
-    if ( (v14[144] & 2) != 0 )
+    if ( v4 || v15 )
+      v13[36] |= 8u;
+    if ( (v13[36] & 2) != 0 )
     {
-      if ( (*((_DWORD *)v14 + 6) & 1) != 0 && !WheaIsCriticalState() )
-      {
-        if ( WheapEventingInitialized != 1 )
-        {
-LABEL_45:
-          WheapFreeErrorRecord(v14);
-          return v2;
-        }
-LABEL_44:
-        WheapGenerateETWEvents(v14 + 40);
-        goto LABEL_45;
-      }
-LABEL_68:
-      WheapWorkQueueAddItem(v22[2], v14);
-      return v2;
+      WheapCompressErrorRecord(3LL, v13 + 10);
+      goto LABEL_40;
     }
     if ( !WheapPolicyIgnoreDummyWrite && !v4 )
     {
-      WheapCompressErrorRecord(0LL, v14 + 40);
-      if ( (int)PshedWriteErrorRecord(1LL, *((unsigned int *)v14 + 15), v14 + 40) < 0 )
+      WheapCompressErrorRecord(0LL, v13 + 10);
+      if ( (int)PshedWriteErrorRecord(1LL, (unsigned int)v13[15], v13 + 10) < 0 )
         WheapPolicyIgnoreDummyWrite = 1;
     }
-    v18 = *(_DWORD *)(a1 + 20);
-    if ( v18 == 1 )
+    v14 = *(_DWORD *)(a1 + 20);
+    if ( v14 == 1 )
     {
       if ( !v4 )
       {
-        PshedFinalizeErrorRecord(v14 + 40, v11 + 96);
-        WheapPersistPageForMemoryError(v14 + 40);
-        WheapCompressErrorRecord(3LL, v14 + 40);
-        PshedWriteErrorRecord(0LL, *((unsigned int *)v14 + 15), v14 + 40);
-        WheapAddToDumpFile(v14 + 40, *((unsigned int *)v14 + 15));
-        if ( v19 )
-          KeBugCheckEx(0x124u, *(int *)(v11 + 104), (ULONG_PTR)(v14 + 40), *(_QWORD *)(v23 + 72), *(_QWORD *)(v23 + 80));
-        PshedBugCheckSystem(v11 + 96, v14 + 40);
-        return v2;
+        PshedFinalizeErrorRecord(v13 + 10, v11 + 96);
+        WheapPersistPageForMemoryError(v13 + 10);
+        WheapCompressErrorRecord(3LL, v13 + 10);
+        PshedWriteErrorRecord(0LL, (unsigned int)v13[15], v13 + 10);
+        WheapAddToDumpFile(v13 + 10, (unsigned int)v13[15]);
+        if ( v15 )
+          KeBugCheckEx(0x124u, *(int *)(v11 + 104), (ULONG_PTR)(v13 + 10), *(_QWORD *)(v17 + 72), *(_QWORD *)(v17 + 80));
+        goto LABEL_57;
       }
     }
-    else if ( (unsigned int)(v18 - 2) > 1 )
+    else if ( (unsigned int)(v14 - 2) > 1 )
     {
-      if ( v18 )
+      if ( v14 )
       {
-        WheapFreeErrorRecord(v14);
+        WheapFreeErrorRecord(v13);
         return (unsigned int)-1073741811;
       }
-      PshedFinalizeErrorRecord(v14 + 40, v11 + 96);
-      WheapAttemptErrorRecovery(v14 + 40);
-      if ( *((_DWORD *)v14 + 13) == 2 )
+      PshedFinalizeErrorRecord(v13 + 10, v11 + 96);
+      WheapAttemptErrorRecovery(v13 + 10);
+      WheapCompressErrorRecord(3LL, v13 + 10);
+      if ( v13[13] == 2 )
       {
-        *((_DWORD *)v14 + 36) |= 1u;
+        v13[36] |= 1u;
       }
       else if ( !v4 )
       {
-        WheaRecoveryBugCheck((__int64)(v14 + 40), v11 + 96);
-        return v2;
+        WheapPersistPageForMemoryError(v13 + 10);
+        PshedWriteErrorRecord(0LL, (unsigned int)v13[15], v13 + 10);
+        WheapAddToDumpFile(v13 + 10, (unsigned int)v13[15]);
+LABEL_57:
+        PshedBugCheckSystem(v11 + 96, v13 + 10);
+        return v1;
       }
-      if ( (*((_DWORD *)v14 + 6) & 1) != 0 && WheapEventingInitialized == 1 && !WheaIsCriticalState() && v14[144] >= 0 )
-        goto LABEL_44;
-      goto LABEL_68;
+LABEL_40:
+      if ( (v13[6] & 1) != 0 )
+      {
+        if ( WheapEventingInitialized == 1 )
+          WheapGenerateETWEvents(v13 + 10);
+        WheapFreeErrorRecord(v13);
+        return v1;
+      }
+      goto LABEL_61;
     }
-    PshedFinalizeErrorRecord(v14 + 40, v11 + 96);
-    goto LABEL_68;
+    PshedFinalizeErrorRecord(v13 + 10, v11 + 96);
+    WheapCompressErrorRecord(3LL, v13 + 10);
+LABEL_61:
+    WheapWorkQueueAddItem(v7[2], v13);
+    return v1;
   }
   if ( *(_DWORD *)(a1 + 20) <= 1u && (*(_BYTE *)(a1 + 12) & 1) == 0 && !v4 )
     KeBugCheckEx(0x122u, 0xBuLL, *(int *)(a1 + 28), *(unsigned int *)(a1 + 24), 0LL);
-  WheapFreeErrorRecord(v14);
-  return v21;
+  WheapFreeErrorRecord(v13);
+  return (unsigned int)v16;
 }

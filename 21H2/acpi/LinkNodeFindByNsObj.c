@@ -1,7 +1,7 @@
 /*
- * XREFs of LinkNodeFindByNsObj @ 0x1C00B5F08
+ * XREFs of LinkNodeFindByNsObj @ 0x1C00B68A0
  * Callers:
- *     LinkNodeCrackPrt @ 0x1C00192F8 (LinkNodeCrackPrt.c)
+ *     LinkNodeCrackPrt @ 0x1C000EC74 (LinkNodeCrackPrt.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ __int64 __fastcall LinkNodeFindByNsObj(__int64 a1, __int64 *a2)
   {
     if ( &LinkNodeListHead == i )
       return 3221226021LL;
-    if ( *(_QWORD *)(v2 + 600) == a1 )
+    if ( *(_QWORD *)(v2 + 560) == a1 )
       break;
     i = *(__int64 **)(v2 + 56);
   }

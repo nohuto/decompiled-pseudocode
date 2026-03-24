@@ -1,149 +1,190 @@
 /*
- * XREFs of PopPlTraceLogPowerPlane @ 0x1405DEB88
+ * XREFs of PopPlTraceLogPowerPlane @ 0x14057EBD4
  * Callers:
- *     PopPlRegisterPowerPlane @ 0x1405DE9D4 (PopPlRegisterPowerPlane.c)
- *     PopDiagTraceControlCallback @ 0x14081CBF0 (PopDiagTraceControlCallback.c)
+ *     PopPlRegisterPowerPlane @ 0x14057EA24 (PopPlRegisterPowerPlane.c)
+ *     PopDiagTraceControlCallback @ 0x14067D270 (PopDiagTraceControlCallback.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x14024A9B0 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1)
+int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 v2; // rax
+  unsigned __int64 v4; // rax
   unsigned __int64 i; // rdi
-  unsigned __int16 *v4; // rcx
-  unsigned __int64 v5; // rdi
-  unsigned __int64 v6; // rsi
-  _QWORD *v7; // r14
-  __int64 v8; // rcx
-  int v9; // edx
-  int v11; // [rsp+48h] [rbp-C0h] BYREF
-  int v12; // [rsp+4Ch] [rbp-BCh] BYREF
-  int v13; // [rsp+50h] [rbp-B8h] BYREF
-  int v14; // [rsp+54h] [rbp-B4h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v15[2]; // [rsp+58h] [rbp-B0h] BYREF
-  int *v16; // [rsp+78h] [rbp-90h]
-  __int64 v17; // [rsp+80h] [rbp-88h]
-  __int64 *v18; // [rsp+88h] [rbp-80h]
-  __int64 v19; // [rsp+90h] [rbp-78h]
-  __int64 *v20; // [rsp+98h] [rbp-70h]
-  __int64 v21; // [rsp+A0h] [rbp-68h] BYREF
-  __int64 *v22; // [rsp+A8h] [rbp-60h]
-  __int64 v23; // [rsp+B0h] [rbp-58h] BYREF
-  __int64 *v24; // [rsp+B8h] [rbp-50h]
-  __int64 v25; // [rsp+C0h] [rbp-48h] BYREF
-  int *v26; // [rsp+C8h] [rbp-40h]
-  __int64 v27; // [rsp+D0h] [rbp-38h] BYREF
-  int *v28; // [rsp+D8h] [rbp-30h]
-  __int64 v29; // [rsp+E0h] [rbp-28h]
-  int *v30; // [rsp+E8h] [rbp-20h]
-  __int64 v31; // [rsp+F0h] [rbp-18h]
-  unsigned __int16 *v32; // [rsp+F8h] [rbp-10h]
-  __int64 v33; // [rsp+100h] [rbp-8h]
+  unsigned __int16 *v6; // rcx
+  unsigned __int64 v7; // rdi
+  unsigned __int64 v8; // rsi
+  _QWORD *v9; // r14
+  __int64 v10; // rcx
+  int v11; // edx
+  int v13; // [rsp+28h] [rbp-E0h]
+  int v14; // [rsp+30h] [rbp-D8h]
+  _WORD v15[2]; // [rsp+48h] [rbp-C0h] BYREF
+  __int16 v16; // [rsp+4Ch] [rbp-BCh] BYREF
+  int v17; // [rsp+50h] [rbp-B8h] BYREF
+  int v18; // [rsp+54h] [rbp-B4h] BYREF
+  int v19; // [rsp+58h] [rbp-B0h] BYREF
+  int v20; // [rsp+5Ch] [rbp-ACh] BYREF
+  int v21; // [rsp+60h] [rbp-A8h] BYREF
+  int v22; // [rsp+64h] [rbp-A4h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v23; // [rsp+68h] [rbp-A0h] BYREF
+  int *v24; // [rsp+88h] [rbp-80h]
+  __int64 v25; // [rsp+90h] [rbp-78h]
+  _DWORD *v26; // [rsp+98h] [rbp-70h]
+  __int64 v27; // [rsp+A0h] [rbp-68h]
+  __int64 v28; // [rsp+A8h] [rbp-60h]
+  _DWORD v29[2]; // [rsp+B0h] [rbp-58h] BYREF
+  _DWORD *v30; // [rsp+B8h] [rbp-50h]
+  __int64 v31; // [rsp+C0h] [rbp-48h]
+  __int64 v32; // [rsp+C8h] [rbp-40h]
+  _DWORD v33[2]; // [rsp+D0h] [rbp-38h] BYREF
+  int *v34; // [rsp+D8h] [rbp-30h]
+  __int64 v35; // [rsp+E0h] [rbp-28h]
+  int *v36; // [rsp+E8h] [rbp-20h]
+  __int64 v37; // [rsp+F0h] [rbp-18h]
+  _WORD *v38; // [rsp+F8h] [rbp-10h]
+  __int64 v39; // [rsp+100h] [rbp-8h]
+  unsigned __int16 *v40; // [rsp+108h] [rbp+0h]
+  __int64 v41; // [rsp+110h] [rbp+8h]
+  struct _EVENT_DATA_DESCRIPTOR v42; // [rsp+118h] [rbp+10h] BYREF
+  int *v43; // [rsp+138h] [rbp+30h]
+  __int64 v44; // [rsp+140h] [rbp+38h]
+  __int64 v45; // [rsp+148h] [rbp+40h]
+  __int64 v46; // [rsp+150h] [rbp+48h]
+  _DWORD *v47; // [rsp+158h] [rbp+50h]
+  __int64 v48; // [rsp+160h] [rbp+58h]
+  __int64 v49; // [rsp+168h] [rbp+60h]
+  _DWORD v50[2]; // [rsp+170h] [rbp+68h] BYREF
+  _DWORD *v51; // [rsp+178h] [rbp+70h]
+  __int64 v52; // [rsp+180h] [rbp+78h]
+  __int64 v53; // [rsp+188h] [rbp+80h]
+  _DWORD v54[2]; // [rsp+190h] [rbp+88h] BYREF
+  _WORD *v55; // [rsp+198h] [rbp+90h]
+  __int64 v56; // [rsp+1A0h] [rbp+98h]
+  __int64 v57; // [rsp+1A8h] [rbp+A0h]
+  int v58; // [rsp+1B0h] [rbp+A8h]
+  int v59; // [rsp+1B4h] [rbp+ACh]
+  struct _EVENT_DATA_DESCRIPTOR v60; // [rsp+1B8h] [rbp+B0h] BYREF
+  __int16 *v61; // [rsp+1D8h] [rbp+D0h]
+  __int64 v62; // [rsp+1E0h] [rbp+D8h]
+  _DWORD *v63; // [rsp+1E8h] [rbp+E0h]
+  __int64 v64; // [rsp+1F0h] [rbp+E8h]
+  __int64 v65; // [rsp+1F8h] [rbp+F0h]
+  _DWORD v66[2]; // [rsp+200h] [rbp+F8h] BYREF
+  int *v67; // [rsp+208h] [rbp+100h]
+  __int64 v68; // [rsp+210h] [rbp+108h]
+  int *v69; // [rsp+218h] [rbp+110h]
+  __int64 v70; // [rsp+220h] [rbp+118h]
 
-  LOWORD(v12) = 0;
-  if ( (unsigned int)dword_140C03A00 > 5 )
+  v15[0] = 0;
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    LOWORD(v11) = 1;
-    v16 = &v11;
-    v17 = 2LL;
-    v18 = &v21;
-    v20 = (__int64 *)*((_QWORD *)a1 + 1);
-    v21 = *a1;
-    v13 = *((_DWORD *)a1 + 12);
-    v22 = (__int64 *)&v13;
-    v14 = *((_DWORD *)a1 + 7);
-    v24 = (__int64 *)&v14;
-    v19 = 2LL;
-    v23 = 4LL;
-    v25 = 4LL;
-    tlgWriteEx_EtwWriteEx((__int64)&dword_140C03A00, (unsigned __int8 *)&word_140031FBE, 0LL, 1u, 0, 0, 7u, v15);
+    v16 = 1;
+    v61 = &v16;
+    v62 = 2LL;
+    v63 = v66;
+    v65 = *((_QWORD *)a1 + 1);
+    v66[0] = *a1;
+    v19 = *((_DWORD *)a1 + 12);
+    v67 = &v19;
+    v20 = *((_DWORD *)a1 + 7);
+    v69 = &v20;
+    v64 = 2LL;
+    v66[1] = 0;
+    v68 = 4LL;
+    v70 = 4LL;
+    tlgWriteEx_EtwWriteEx((__int64)&dword_140C02228, (unsigned __int8 *)&word_14002A436, a3, 1u, v13, v14, 7u, &v60);
   }
-  v2 = *((_QWORD *)a1 + 6);
-  for ( i = 0LL; i < v2; ++i )
+  v4 = *((_QWORD *)a1 + 6);
+  for ( i = 0LL; i < v4; ++i )
   {
-    v4 = *(unsigned __int16 **)(*((_QWORD *)a1 + 7) + 8 * i);
-    LOWORD(v12) = 4;
-    if ( (unsigned int)dword_140C03A00 > 5 )
+    v6 = *(unsigned __int16 **)(*((_QWORD *)a1 + 7) + 8 * i);
+    v15[0] = 4;
+    if ( (unsigned int)dword_140C02228 > 5 )
     {
-      LOWORD(v11) = 1;
-      v16 = &v11;
-      v17 = 2LL;
-      v18 = &v21;
-      v20 = (__int64 *)*((_QWORD *)v4 + 1);
-      v21 = *v4;
-      v22 = &v25;
-      v24 = (__int64 *)*((_QWORD *)a1 + 1);
-      v25 = *a1;
-      v14 = *((_DWORD *)v4 + 18);
-      v26 = &v14;
-      v13 = *((_DWORD *)v4 + 8);
-      v28 = &v13;
-      v30 = &v12;
-      v32 = v4 + 18;
-      v19 = 2LL;
-      v23 = 2LL;
-      v27 = 4LL;
-      v29 = 4LL;
+      LOWORD(v17) = 1;
+      v24 = &v17;
+      v25 = 2LL;
+      v26 = v29;
+      v28 = *((_QWORD *)v6 + 1);
+      v29[0] = *v6;
+      v30 = v33;
+      v32 = *((_QWORD *)a1 + 1);
+      v33[0] = *a1;
+      v21 = *((_DWORD *)v6 + 18);
+      v34 = &v21;
+      v22 = *((_DWORD *)v6 + 8);
+      v36 = &v22;
+      v38 = v15;
+      v40 = v6 + 18;
+      v27 = 2LL;
+      v29[1] = 0;
       v31 = 2LL;
-      v33 = 32LL;
-      tlgWriteEx_EtwWriteEx((__int64)&dword_140C03A00, (unsigned __int8 *)&byte_1400320A9, 0LL, 1u, 0, 0, 0xBu, v15);
+      v33[1] = 0;
+      v35 = 4LL;
+      v37 = 4LL;
+      v39 = 2LL;
+      v41 = 32LL;
+      tlgWriteEx_EtwWriteEx((__int64)&dword_140C02228, (unsigned __int8 *)&word_14002A39E, a3, 1u, v13, v14, 0xBu, &v23);
     }
-    v2 = *((_QWORD *)a1 + 6);
+    v4 = *((_QWORD *)a1 + 6);
   }
-  v5 = 0LL;
-  if ( v2 )
+  v7 = 0LL;
+  if ( v4 )
   {
     do
     {
-      v2 = *((_QWORD *)a1 + 7);
-      v6 = 0LL;
-      v7 = *(_QWORD **)(v2 + 8 * v5);
-      if ( v7[9] )
+      v4 = *((_QWORD *)a1 + 7);
+      v8 = 0LL;
+      v9 = *(_QWORD **)(v4 + 8 * v7);
+      if ( v9[9] )
       {
         do
         {
-          v2 = v7[10];
-          v8 = *(_QWORD *)(v2 + 8 * v6);
-          v9 = *(unsigned __int16 *)(v8 + 24);
-          LOWORD(v12) = *(_WORD *)(v8 + 24);
-          if ( (unsigned int)dword_140C03A00 > 5 )
+          v4 = v9[10];
+          v10 = *(_QWORD *)(v4 + 8 * v8);
+          v11 = *(unsigned __int16 *)(v10 + 24);
+          v15[0] = *(_WORD *)(v10 + 24);
+          if ( (unsigned int)dword_140C02228 > 5 )
           {
-            v18 = (__int64 *)v8;
-            v16 = &v11;
-            LOWORD(v11) = 1;
-            v20 = &v23;
-            v22 = (__int64 *)v7[1];
-            v23 = *(unsigned __int16 *)v7;
-            v24 = &v27;
-            v26 = (int *)*((_QWORD *)a1 + 1);
-            v27 = *a1;
-            v28 = &v12;
-            v30 = (int *)(v8 + 32);
-            v17 = 2LL;
-            v31 = (unsigned int)(8 * v9);
-            v19 = 16LL;
-            v21 = 2LL;
-            v25 = 2LL;
-            v29 = 2LL;
-            LODWORD(v2) = tlgWriteEx_EtwWriteEx(
-                            (__int64)&dword_140C03A00,
-                            (unsigned __int8 *)&dword_14003201C,
-                            0LL,
+            v45 = v10;
+            v43 = &v18;
+            LOWORD(v18) = 1;
+            v47 = v50;
+            v49 = v9[1];
+            v50[0] = *(unsigned __int16 *)v9;
+            v51 = v54;
+            v53 = *((_QWORD *)a1 + 1);
+            v54[0] = *a1;
+            v55 = v15;
+            v57 = v10 + 32;
+            v44 = 2LL;
+            v58 = 8 * v11;
+            v46 = 16LL;
+            v48 = 2LL;
+            v50[1] = 0;
+            v52 = 2LL;
+            v54[1] = 0;
+            v56 = 2LL;
+            v59 = 0;
+            LODWORD(v4) = tlgWriteEx_EtwWriteEx(
+                            (__int64)&dword_140C02228,
+                            (unsigned __int8 *)&byte_14002A311,
+                            a3,
                             1u,
-                            0,
-                            0,
+                            v13,
+                            v14,
                             0xAu,
-                            v15);
+                            &v42);
           }
-          ++v6;
+          ++v8;
         }
-        while ( v6 < v7[9] );
+        while ( v8 < v9[9] );
       }
-      ++v5;
+      ++v7;
     }
-    while ( v5 < *((_QWORD *)a1 + 6) );
+    while ( v7 < *((_QWORD *)a1 + 6) );
   }
-  return v2;
+  return v4;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of NlsKbdSendIMENotificationBase @ 0x1C00BA3A0
+ * XREFs of NlsKbdSendIMENotificationBase @ 0x1C00A88E0
  * Callers:
- *     NlsKbdSendIMEProc @ 0x1C01EB944 (NlsKbdSendIMEProc.c)
+ *     NlsKbdSendIMEProc @ 0x1C01ABFAC (NlsKbdSendIMEProc.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ __int64 __fastcall NlsKbdSendIMENotificationBase(int a1, int a2)
       gdwUpdateKeyboard |= 4u;
       LOWORD(gKbdImeStatus) = 0;
       HIDWORD(gKbdImeStatus) = a1;
-      dword_1C029A8E0 = a2;
+      dword_1C0255AE8 = a2;
     }
   }
   return result;

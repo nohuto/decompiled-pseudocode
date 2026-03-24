@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CheckOcclusionState@CVisualCapture@@$4PPPPPPPM@A@EAAJXZ @ 0x18011E520
+ * XREFs of ?CheckOcclusionState@CVisualCapture@@$4PPPPPPPM@A@EAAJXZ @ 0x1800F6380
  * Callers:
  *     <none>
  * Callees:

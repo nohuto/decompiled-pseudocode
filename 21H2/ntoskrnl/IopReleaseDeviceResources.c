@@ -1,23 +1,23 @@
 /*
- * XREFs of IopReleaseDeviceResources @ 0x140766A5C
+ * XREFs of IopReleaseDeviceResources @ 0x140738748
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1402DDAE4 (PnpRemoveLockedDeviceNode.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x14081059C (PnpSurpriseRemoveLockedDeviceNode.c)
- *     PnpDriverLoadingFailed @ 0x140862BA0 (PnpDriverLoadingFailed.c)
- *     PnpDisableDevice @ 0x140946EF8 (PnpDisableDevice.c)
+ *     PnpRemoveLockedDeviceNode @ 0x14036E5C8 (PnpRemoveLockedDeviceNode.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x140736198 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PnpDriverLoadingFailed @ 0x1407D2C50 (PnpDriverLoadingFailed.c)
+ *     PnpDisableDevice @ 0x1408A1D8C (PnpDisableDevice.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     PnpRequestDeviceAction @ 0x1402DCF44 (PnpRequestDeviceAction.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     IopQueryDeviceResources @ 0x140748758 (IopQueryDeviceResources.c)
- *     PipSetDevNodeFlags @ 0x14076FB70 (PipSetDevNodeFlags.c)
- *     _CmOpenDeviceRegKey @ 0x14077F2EC (_CmOpenDeviceRegKey.c)
- *     IopLegacyResourceAllocation @ 0x14081F570 (IopLegacyResourceAllocation.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     PnpRequestDeviceAction @ 0x140370854 (PnpRequestDeviceAction.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
+ *     PipSetDevNodeFlags @ 0x14074561C (PipSetDevNodeFlags.c)
+ *     IopQueryDeviceResources @ 0x14075046C (IopQueryDeviceResources.c)
+ *     IopLegacyResourceAllocation @ 0x140753474 (IopLegacyResourceAllocation.c)
  */
 
 __int64 __fastcall IopReleaseDeviceResources(__int64 a1, int a2)
@@ -41,7 +41,7 @@ __int64 __fastcall IopReleaseDeviceResources(__int64 a1, int a2)
   Data = 0LL;
   if ( a2 && (*(_DWORD *)(a1 + 396) & 1) == 0 )
   {
-    if ( (int)IopQueryDeviceResources(*(_QWORD *)(a1 + 32), 0, &Data, &DataSize) < 0 )
+    if ( (int)IopQueryDeviceResources(*(_QWORD *)(a1 + 32), 0LL, &Data, &DataSize) < 0 )
     {
       Data = 0LL;
       DataSize = 0;
@@ -59,21 +59,21 @@ __int64 __fastcall IopReleaseDeviceResources(__int64 a1, int a2)
     {
       v6 = *(_QWORD *)(a1 + 48);
       KeyHandle = 0LL;
-      if ( (int)CmOpenDeviceRegKey(PiPnpRtlCtx, v6, 20, 0, 983103, v5 != 0LL, (__int64)&KeyHandle, 0LL) >= 0 )
+      if ( (int)CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, v6, 20, 0, 983103, v5 != 0LL, (__int64)&KeyHandle, 0LL) >= 0 )
       {
         *(_DWORD *)&ValueName.Length = 1441812;
         ValueName.Buffer = (wchar_t *)L"BootConfig";
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
         ExAcquireResourceSharedLite(&PnpRegistryDeviceResource, 1u);
-        v5 = Data;
         if ( Data )
           ZwSetValueKey(KeyHandle, &ValueName, 0, 8u, Data, DataSize);
         else
           ZwDeleteValueKey(KeyHandle, &ValueName);
         ExReleaseResourceLite(&PnpRegistryDeviceResource);
-        KeLeaveCriticalRegion();
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
         ZwClose(KeyHandle);
+        v5 = Data;
       }
       if ( v5 )
       {

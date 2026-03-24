@@ -1,22 +1,24 @@
 /*
- * XREFs of PnpIoResourceListToCmResourceList @ 0x1C008FD9C
+ * XREFs of PnpIoResourceListToCmResourceList @ 0x1C009BAE0
  * Callers:
- *     ACPIBusIrpQueryResources @ 0x1C0080E90 (ACPIBusIrpQueryResources.c)
- *     AcpiTranslatePepDeviceControlResourcesInternal @ 0x1C008B630 (AcpiTranslatePepDeviceControlResourcesInternal.c)
- *     LinkNodeGetPossibleResources @ 0x1C00994C8 (LinkNodeGetPossibleResources.c)
+ *     ACPIBusIrpQueryResources @ 0x1C009C0D0 (ACPIBusIrpQueryResources.c)
+ *     AcpiTranslatePepDeviceControlResourcesInternal @ 0x1C00B1730 (AcpiTranslatePepDeviceControlResourcesInternal.c)
+ *     LinkNodeGetPossibleResources @ 0x1C00B6908 (LinkNodeGetPossibleResources.c)
  * Callees:
- *     <none>
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall PnpIoResourceListToCmResourceList(_DWORD *a1, _QWORD *a2)
 {
-  _DWORD *v4; // rbx
+  _DWORD *v4; // rdi
   int v5; // eax
-  _DWORD *Pool2; // rax
-  unsigned int v8; // r11d
-  __int64 v9; // r8
-  __int64 v10; // r9
-  int v11; // ecx
+  unsigned int v6; // ebp
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v8; // rbx
+  unsigned int v9; // r10d
+  __int64 v10; // r8
+  __int64 v11; // rdx
+  int v12; // ecx
 
   *a2 = 0LL;
   if ( !a1 )
@@ -27,71 +29,65 @@ __int64 __fastcall PnpIoResourceListToCmResourceList(_DWORD *a1, _QWORD *a2)
   v5 = a1[9];
   if ( !v5 )
     return 3221225488LL;
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, (unsigned int)(20 * (v5 + 1)), 1383097153LL);
-  if ( !Pool2 )
+  v6 = 20 * (v5 + 1);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6, 0x52706341u);
+  v8 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  v8 = 0;
-  *Pool2 = 1;
-  Pool2[1] = a1[1];
-  Pool2[2] = a1[2];
-  Pool2[3] = 65537;
-  Pool2[4] = v4[1];
-  if ( v4[1] )
+  memset(PoolWithTag, 0, v6);
+  *v8 = 1;
+  v9 = 0;
+  v8[1] = a1[1];
+  v8[2] = a1[2];
+  v8[3] = 65537;
+  for ( v8[4] = v4[1]; v9 < v4[1]; ++v9 )
   {
-    while ( 1 )
+    v10 = 5LL * v9;
+    v11 = 8LL * v9;
+    v12 = BYTE1(v4[v11 + 2]);
+    LOBYTE(v8[v10 + 5]) = v12;
+    BYTE1(v8[v10 + 5]) = BYTE2(v4[v11 + 2]);
+    HIWORD(v8[v10 + 5]) = v4[v11 + 3];
+    switch ( v12 )
     {
-      v9 = 5LL * v8;
-      v10 = 8LL * v8;
-      v11 = BYTE1(v4[v10 + 2]);
-      LOBYTE(Pool2[v9 + 5]) = v11;
-      BYTE1(Pool2[v9 + 5]) = BYTE2(v4[v10 + 2]);
-      HIWORD(Pool2[v9 + 5]) = v4[v10 + 3];
-      if ( v11 == 1 )
+      case 1:
+        goto LABEL_7;
+      case 2:
+        LOWORD(v8[5 * v9 + 6]) = v4[v11 + 4];
+        v8[5 * v9 + 7] = v4[v11 + 4];
+        *(_QWORD *)&v8[5 * v9 + 8] = 0xFFFFFFFFLL;
+        HIWORD(v8[5 * v9 + 6]) = 0;
+        continue;
+      case 3:
+        goto LABEL_7;
+      case 4:
+        if ( SLOBYTE(v4[v11 + 3]) < 0 )
+        {
+          v8[5 * v9 + 6] = v4[v11 + 6];
+          v8[5 * v9 + 7] = v4[v11 + 4];
+          LOBYTE(v8[5 * v9 + 8]) = v4[v11 + 7];
+        }
+        else
+        {
+          *(_QWORD *)&v8[5 * v9 + 6] = (unsigned int)v4[v11 + 4];
+        }
+        continue;
+      case 6:
+        v8[5 * v9 + 6] = v4[v11 + 5];
+        v8[5 * v9 + 7] = v4[v11 + 4];
+        continue;
+      case 7:
+LABEL_7:
+        v8[5 * v9 + 8] = v4[v11 + 4];
+        *(_QWORD *)&v8[5 * v9 + 6] = *(_QWORD *)&v4[v11 + 6];
         break;
-      switch ( v11 )
-      {
-        case 2:
-          LOWORD(Pool2[5 * v8 + 6]) = v4[v10 + 4];
-          Pool2[5 * v8 + 7] = v4[v10 + 4];
-          *(_QWORD *)&Pool2[5 * v8 + 8] = 0xFFFFFFFFLL;
-          HIWORD(Pool2[5 * v8 + 6]) = 0;
-          break;
-        case 3:
-          goto LABEL_19;
-        case 4:
-          if ( SLOBYTE(v4[v10 + 3]) >= 0 )
-          {
-            *(_QWORD *)&Pool2[5 * v8 + 6] = (unsigned int)v4[v10 + 4];
-          }
-          else
-          {
-            Pool2[5 * v8 + 6] = v4[v10 + 6];
-            Pool2[5 * v8 + 7] = v4[v10 + 4];
-            LOBYTE(Pool2[5 * v8 + 8]) = v4[v10 + 7];
-          }
-          break;
-        case 6:
-          Pool2[5 * v8 + 6] = v4[v10 + 5];
-          Pool2[5 * v8 + 7] = v4[v10 + 4];
-          break;
-        case 7:
-          goto LABEL_19;
-        default:
-          Pool2[5 * v8 + 6] = v4[v10 + 4];
-          Pool2[5 * v8 + 7] = v4[v10 + 5];
-          Pool2[5 * v8 + 8] = v4[v10 + 6];
-          break;
-      }
-LABEL_20:
-      if ( ++v8 >= v4[1] )
-        goto LABEL_21;
+      default:
+        v8[5 * v9 + 6] = v4[v11 + 4];
+        v8[5 * v9 + 7] = v4[v11 + 5];
+        v8[5 * v9 + 8] = v4[v11 + 6];
+        break;
     }
-LABEL_19:
-    Pool2[5 * v8 + 8] = v4[v10 + 4];
-    *(_QWORD *)&Pool2[5 * v8 + 6] = *(_QWORD *)&v4[v10 + 6];
-    goto LABEL_20;
   }
-LABEL_21:
-  *a2 = Pool2;
+  *a2 = v8;
   return 0LL;
 }

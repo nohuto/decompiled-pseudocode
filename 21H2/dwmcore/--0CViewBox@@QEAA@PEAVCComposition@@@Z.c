@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CViewBox@@QEAA@PEAVCComposition@@@Z @ 0x18019D4D4
+ * XREFs of ??0CViewBox@@QEAA@PEAVCComposition@@@Z @ 0x18016B64C
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800BE0A8 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2008 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
- *     ??0CComponentTransform2D@@QEAA@PEAVCComposition@@@Z @ 0x1800DBF38 (--0CComponentTransform2D@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CComponentTransform2D@@QEAA@PEAVCComposition@@@Z @ 0x1800C8668 (--0CComponentTransform2D@@QEAA@PEAVCComposition@@@Z.c)
  */
 
 CViewBox *__fastcall CViewBox::CViewBox(CViewBox *this, struct CComposition *a2)
@@ -13,9 +13,9 @@ CViewBox *__fastcall CViewBox::CViewBox(CViewBox *this, struct CComposition *a2)
 
   CComponentTransform2D::CComponentTransform2D(this, a2);
   *(_QWORD *)v2 = &CViewBox::`vftable';
-  *((_DWORD *)v2 + 60) = 1056964608;
-  *((_DWORD *)v2 + 61) = 1056964608;
+  *((_DWORD *)v2 + 58) = 1056964608;
+  *((_DWORD *)v2 + 59) = 1056964608;
   result = v2;
-  *((_DWORD *)v2 + 62) = 2;
+  *((_DWORD *)v2 + 60) = 2;
   return result;
 }

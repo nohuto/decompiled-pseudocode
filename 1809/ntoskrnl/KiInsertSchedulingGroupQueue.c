@@ -1,10 +1,10 @@
 /*
- * XREFs of KiInsertSchedulingGroupQueue @ 0x14011707C
+ * XREFs of KiInsertSchedulingGroupQueue @ 0x14011709C
  * Callers:
- *     KiInsertNonMaxOverQuotaScb @ 0x14011701C (KiInsertNonMaxOverQuotaScb.c)
- *     KiResortScbQueue @ 0x140117190 (KiResortScbQueue.c)
+ *     KiInsertNonMaxOverQuotaScb @ 0x14011703C (KiInsertNonMaxOverQuotaScb.c)
+ *     KiResortScbQueue @ 0x1401171B0 (KiResortScbQueue.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
  */
 
 char __fastcall KiInsertSchedulingGroupQueue(__int64 a1, __int64 a2, char a3)

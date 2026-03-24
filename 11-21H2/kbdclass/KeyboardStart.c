@@ -1,1 +1,143 @@
-/*\n * XREFs of KeyboardStart @ 0x1C0002AF0\n * Callers:\n *     KeyboardPnP @ 0x1C0002090 (KeyboardPnP.c)\n *     KeyboardStartWorker @ 0x1C0002A60 (KeyboardStartWorker.c)\n * Callees:\n *     __security_check_cookie @ 0x1C0002D30 (__security_check_cookie.c)\n *     KeyboardClassCheckWaitWakeEnabled @ 0x1C0004D9C (KeyboardClassCheckWaitWakeEnabled.c)\n *     KbdEnableDisablePort @ 0x1C000D3D0 (KbdEnableDisablePort.c)\n *     KeyboardSendIrpSynchronously @ 0x1C000E040 (KeyboardSendIrpSynchronously.c)\n *     KeyboardClassCreateWaitWakeIrp @ 0x1C000F4A4 (KeyboardClassCreateWaitWakeIrp.c)\n *     KeyboardClassGetWaitWakeEnableState @ 0x1C000F660 (KeyboardClassGetWaitWakeEnableState.c)\n */\n\n__int64 __fastcall KeyboardStart(__int64 a1, __int64 a2)\n{\n  IRP *v2; // r14\n  __int64 v3; // rbx\n  int Status; // edi\n  ULONG_PTR Information; // rsi\n  struct _IO_STACK_LOCATION *CurrentStackLocation; // rax\n  NTSTATUS v7; // r15d\n  struct _DEVICE_OBJECT *v8; // rcx\n  char v10; // di\n  char *v11; // rsi\n  struct _IO_STACK_LOCATION *v12; // rcx\n  ULONG_PTR v13; // rbp\n  struct _IRP *MasterIrp; // rdi\n  NTSTATUS v15; // esi\n  KIRQL v16; // al\n  _QWORD v17[2]; // [rsp+20h] [rbp-78h] BYREF\n  __int128 v18; // [rsp+30h] [rbp-68h]\n  __int128 v19; // [rsp+40h] [rbp-58h]\n  __int128 v20; // [rsp+50h] [rbp-48h]\n\n  v2 = *(IRP **)(a2 + 8);\n  v3 = *(_QWORD *)(a1 + 64);\n  Status = v2->IoStatus.Status;\n  if ( Status < 0 )\n    return (unsigned int)Status;\n  v2->IoStatus.Status = -1073741637;\n  Information = v2->IoStatus.Information;\n  v2->IoStatus.Information = 0LL;\n  v17[0] = 65600LL;\n  v18 = 0LL;\n  v19 = 0LL;\n  v20 = 0LL;\n  v17[1] = -1LL;\n  CurrentStackLocation = v2->Tail.Overlay.CurrentStackLocation;\n  CurrentStackLocation[-1].MinorFunction = 9;\n  CurrentStackLocation[-1].Parameters.WMI.ProviderId = (ULONG_PTR)v17;\n  if ( (int)KeyboardSendIrpSynchronously(*(PDEVICE_OBJECT *)(v3 + 16), v2) >= 0 && v2->IoStatus.Status >= 0 )\n  {\n    *(_DWORD *)(v3 + 284) = v20;\n    *(_DWORD *)(v3 + 288) = HIDWORD(v19);\n    *(_OWORD *)(v3 + 264) = v18;\n    *(_DWORD *)(v3 + 280) = v19;\n  }\n  v2->IoStatus.Status = Status;\n  v7 = 0;\n  v2->IoStatus.Information = Information;\n  *(_BYTE *)(v3 + 65) = 1;\n  if ( *(int *)(v3 + 284) <= 1 || *(int *)(v3 + 288) <= 1 )\n  {\n    *(_DWORD *)(v3 + 200) = 1;\n  }\n  else\n  {\n    *(_DWORD *)(v3 + 200) = 2;\n    KeyboardClassGetWaitWakeEnableState(v3);\n  }\n  v8 = *(struct _DEVICE_OBJECT **)v3;\n  *(_QWORD *)(v3 + 208) = &KeyboardClassWmiGuidList;\n  *(_QWORD *)(v3 + 248) = 0LL;\n  *(_QWORD *)(v3 + 216) = KeyboardClassQueryWmiRegInfo;\n  *(_QWORD *)(v3 + 224) = KeyboardClassQueryWmiDataBlock;\n  *(_QWORD *)(v3 + 232) = KeyboardClassSetWmiDataBlock;\n  *(_QWORD *)(v3 + 240) = KeyboardClassSetWmiDataItem;\n  *(_QWORD *)(v3 + 256) = 0LL;\n  IoWMIRegistrationControl(v8, 1u);\n  ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n  if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )\n  {\n    if ( SHIDWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) <= 0 )\n    {\n      ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n    }\n    else\n    {\n      v10 = *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * *(unsigned int *)(v3 + 196) + 16);\n      v11 = (char *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * *(unsigned int *)(v3 + 196);\n      v11[16] = 1;\n      ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n      if ( !v10 )\n      {\n        v7 = KbdEnableDisablePort(1LL, v2, v3, v11);\n        if ( v7 >= 0 )\n        {\n          v12 = v2->Tail.Overlay.CurrentStackLocation;\n          v12[-1].MajorFunction = 15;\n          v12[-1].Parameters.Read.ByteOffset.LowPart = 720904;\n          v12[-1].FileObject = *(PFILE_OBJECT *)v11;\n          v12[-1].Parameters.Read.Length = 0;\n          v12[-1].Parameters.Create.Options = 4;\n          v13 = v2->IoStatus.Information;\n          MasterIrp = v2->AssociatedIrp.MasterIrp;\n          v15 = v2->IoStatus.Status;\n          v2->IoStatus.Information = 0LL;\n          v2->AssociatedIrp.MasterIrp = (struct _IRP *)(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 156LL);\n          KeyboardSendIrpSynchronously(*(PDEVICE_OBJECT *)(v3 + 16), v2);\n          v7 = 0;\n          v2->IoStatus.Status = v15;\n          v2->IoStatus.Information = v13;\n          v2->AssociatedIrp.MasterIrp = MasterIrp;\n        }\n        else\n        {\n          v11[16] = 0;\n        }\n      }\n    }\n  }\n  else\n  {\n    ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n    v7 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 88), 1u);\n  }\n  if ( *(int *)(v3 + 284) > 1 && *(int *)(v3 + 288) > 1 )\n  {\n    v16 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v3 + 72));\n    if ( !*(_QWORD *)(v3 + 296) || *(_BYTE *)(v3 + 304) )\n    {\n      KeReleaseSpinLock((PKSPIN_LOCK)(v3 + 72), v16);\n      if ( (unsigned __int8)KeyboardClassCheckWaitWakeEnabled(v3) )\n        KeyboardClassCreateWaitWakeIrp((PVOID)v3);\n    }\n    else\n    {\n      KeReleaseSpinLock((PKSPIN_LOCK)(v3 + 72), v16);\n    }\n  }\n  return (unsigned int)v7;\n}\n
+/*
+ * XREFs of KeyboardStart @ 0x1C0002AF0
+ * Callers:
+ *     KeyboardPnP @ 0x1C0002090 (KeyboardPnP.c)
+ *     KeyboardStartWorker @ 0x1C0002A60 (KeyboardStartWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0002D30 (__security_check_cookie.c)
+ *     KeyboardClassCheckWaitWakeEnabled @ 0x1C0004D9C (KeyboardClassCheckWaitWakeEnabled.c)
+ *     KbdEnableDisablePort @ 0x1C000D3D0 (KbdEnableDisablePort.c)
+ *     KeyboardSendIrpSynchronously @ 0x1C000E040 (KeyboardSendIrpSynchronously.c)
+ *     KeyboardClassCreateWaitWakeIrp @ 0x1C000F4A4 (KeyboardClassCreateWaitWakeIrp.c)
+ *     KeyboardClassGetWaitWakeEnableState @ 0x1C000F660 (KeyboardClassGetWaitWakeEnableState.c)
+ */
+
+__int64 __fastcall KeyboardStart(__int64 a1, __int64 a2)
+{
+  IRP *v2; // r14
+  __int64 v3; // rbx
+  int Status; // edi
+  ULONG_PTR Information; // rsi
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
+  NTSTATUS v7; // r15d
+  struct _DEVICE_OBJECT *v8; // rcx
+  char v10; // di
+  char *v11; // rsi
+  struct _IO_STACK_LOCATION *v12; // rcx
+  ULONG_PTR v13; // rbp
+  struct _IRP *MasterIrp; // rdi
+  NTSTATUS v15; // esi
+  KIRQL v16; // al
+  _QWORD v17[2]; // [rsp+20h] [rbp-78h] BYREF
+  __int128 v18; // [rsp+30h] [rbp-68h]
+  __int128 v19; // [rsp+40h] [rbp-58h]
+  __int128 v20; // [rsp+50h] [rbp-48h]
+
+  v2 = *(IRP **)(a2 + 8);
+  v3 = *(_QWORD *)(a1 + 64);
+  Status = v2->IoStatus.Status;
+  if ( Status < 0 )
+    return (unsigned int)Status;
+  v2->IoStatus.Status = -1073741637;
+  Information = v2->IoStatus.Information;
+  v2->IoStatus.Information = 0LL;
+  v17[0] = 65600LL;
+  v18 = 0LL;
+  v19 = 0LL;
+  v20 = 0LL;
+  v17[1] = -1LL;
+  CurrentStackLocation = v2->Tail.Overlay.CurrentStackLocation;
+  CurrentStackLocation[-1].MinorFunction = 9;
+  CurrentStackLocation[-1].Parameters.WMI.ProviderId = (ULONG_PTR)v17;
+  if ( (int)KeyboardSendIrpSynchronously(*(PDEVICE_OBJECT *)(v3 + 16), v2) >= 0 && v2->IoStatus.Status >= 0 )
+  {
+    *(_DWORD *)(v3 + 284) = v20;
+    *(_DWORD *)(v3 + 288) = HIDWORD(v19);
+    *(_OWORD *)(v3 + 264) = v18;
+    *(_DWORD *)(v3 + 280) = v19;
+  }
+  v2->IoStatus.Status = Status;
+  v7 = 0;
+  v2->IoStatus.Information = Information;
+  *(_BYTE *)(v3 + 65) = 1;
+  if ( *(int *)(v3 + 284) <= 1 || *(int *)(v3 + 288) <= 1 )
+  {
+    *(_DWORD *)(v3 + 200) = 1;
+  }
+  else
+  {
+    *(_DWORD *)(v3 + 200) = 2;
+    KeyboardClassGetWaitWakeEnableState(v3);
+  }
+  v8 = *(struct _DEVICE_OBJECT **)v3;
+  *(_QWORD *)(v3 + 208) = &KeyboardClassWmiGuidList;
+  *(_QWORD *)(v3 + 248) = 0LL;
+  *(_QWORD *)(v3 + 216) = KeyboardClassQueryWmiRegInfo;
+  *(_QWORD *)(v3 + 224) = KeyboardClassQueryWmiDataBlock;
+  *(_QWORD *)(v3 + 232) = KeyboardClassSetWmiDataBlock;
+  *(_QWORD *)(v3 + 240) = KeyboardClassSetWmiDataItem;
+  *(_QWORD *)(v3 + 256) = 0LL;
+  IoWMIRegistrationControl(v8, 1u);
+  ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+  if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )
+  {
+    if ( SHIDWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) <= 0 )
+    {
+      ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+    }
+    else
+    {
+      v10 = *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * *(unsigned int *)(v3 + 196) + 16);
+      v11 = (char *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * *(unsigned int *)(v3 + 196);
+      v11[16] = 1;
+      ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+      if ( !v10 )
+      {
+        v7 = KbdEnableDisablePort(1LL, v2, v3, v11);
+        if ( v7 >= 0 )
+        {
+          v12 = v2->Tail.Overlay.CurrentStackLocation;
+          v12[-1].MajorFunction = 15;
+          v12[-1].Parameters.Read.ByteOffset.LowPart = 720904;
+          v12[-1].FileObject = *(PFILE_OBJECT *)v11;
+          v12[-1].Parameters.Read.Length = 0;
+          v12[-1].Parameters.Create.Options = 4;
+          v13 = v2->IoStatus.Information;
+          MasterIrp = v2->AssociatedIrp.MasterIrp;
+          v15 = v2->IoStatus.Status;
+          v2->IoStatus.Information = 0LL;
+          v2->AssociatedIrp.MasterIrp = (struct _IRP *)(*(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels + 156LL);
+          KeyboardSendIrpSynchronously(*(PDEVICE_OBJECT *)(v3 + 16), v2);
+          v7 = 0;
+          v2->IoStatus.Status = v15;
+          v2->IoStatus.Information = v13;
+          v2->AssociatedIrp.MasterIrp = MasterIrp;
+        }
+        else
+        {
+          v11[16] = 0;
+        }
+      }
+    }
+  }
+  else
+  {
+    ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+    v7 = IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 88), 1u);
+  }
+  if ( *(int *)(v3 + 284) > 1 && *(int *)(v3 + 288) > 1 )
+  {
+    v16 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v3 + 72));
+    if ( !*(_QWORD *)(v3 + 296) || *(_BYTE *)(v3 + 304) )
+    {
+      KeReleaseSpinLock((PKSPIN_LOCK)(v3 + 72), v16);
+      if ( (unsigned __int8)KeyboardClassCheckWaitWakeEnabled(v3) )
+        KeyboardClassCreateWaitWakeIrp((PVOID)v3);
+    }
+    else
+    {
+      KeReleaseSpinLock((PKSPIN_LOCK)(v3 + 72), v16);
+    }
+  }
+  return (unsigned int)v7;
+}

@@ -1,14 +1,14 @@
 /*
- * XREFs of SiOpenDevice @ 0x1406BB6BC
+ * XREFs of SiOpenDevice @ 0x1406A4E74
  * Callers:
- *     SiGetDiskPartitionInformation @ 0x1406BB628 (SiGetDiskPartitionInformation.c)
- *     SiGetDeviceNumberInformation @ 0x140A216DC (SiGetDeviceNumberInformation.c)
- *     SiGetDriveLayoutInformation @ 0x140A217B8 (SiGetDriveLayoutInformation.c)
- *     SiIssueSynchronousIoctl @ 0x140A218B8 (SiIssueSynchronousIoctl.c)
- *     SiQueryProperty @ 0x140A21954 (SiQueryProperty.c)
+ *     SiGetDiskPartitionInformation @ 0x1406A4DE0 (SiGetDiskPartitionInformation.c)
+ *     SiGetDriveLayoutInformation @ 0x14077AD0C (SiGetDriveLayoutInformation.c)
+ *     SiGetDeviceNumberInformation @ 0x140973770 (SiGetDeviceNumberInformation.c)
+ *     SiIssueSynchronousIoctl @ 0x14097384C (SiIssueSynchronousIoctl.c)
+ *     SiQueryProperty @ 0x1409738E8 (SiQueryProperty.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
  */
 
 NTSTATUS __fastcall SiOpenDevice(PCWSTR SourceString, PHANDLE FileHandle)
@@ -18,12 +18,13 @@ NTSTATUS __fastcall SiOpenDevice(PCWSTR SourceString, PHANDLE FileHandle)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
 
   *FileHandle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   IoStatusBlock = 0LL;

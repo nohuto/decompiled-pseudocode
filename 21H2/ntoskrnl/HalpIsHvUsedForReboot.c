@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpIsHvUsedForReboot @ 0x14050E854
+ * XREFs of HalpIsHvUsedForReboot @ 0x1404C2404
  * Callers:
- *     HalpMiscGetParameters @ 0x140B27364 (HalpMiscGetParameters.c)
+ *     HalpMiscGetParameters @ 0x140A6CF88 (HalpMiscGetParameters.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403B37B0 (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpIsXboxNanovisorPresent @ 0x1403B3A6C (HalpIsXboxNanovisorPresent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1F98 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpIsXboxNanovisorPresent @ 0x1403A2240 (HalpIsXboxNanovisorPresent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-bool HalpIsHvUsedForReboot()
+bool __fastcall HalpIsHvUsedForReboot(__int64 a1)
 {
-  if ( !HalpIsMicrosoftCompatibleHvLoaded() )
+  if ( !HalpIsMicrosoftCompatibleHvLoaded(a1) )
     return HalpIsXboxNanovisorPresent() != 0;
   _RAX = 1073741828LL;
   __asm { cpuid }

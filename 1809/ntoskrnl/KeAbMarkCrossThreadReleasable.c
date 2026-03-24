@@ -1,9 +1,9 @@
 /*
- * XREFs of KeAbMarkCrossThreadReleasable @ 0x1401660C0
+ * XREFs of KeAbMarkCrossThreadReleasable @ 0x1401660E0
  * Callers:
- *     ExDisownFastResource @ 0x140165650 (ExDisownFastResource.c)
+ *     ExDisownFastResource @ 0x140165670 (ExDisownFastResource.c)
  * Callees:
- *     KiAbForceProcessLockEntry @ 0x140166160 (KiAbForceProcessLockEntry.c)
+ *     KiAbForceProcessLockEntry @ 0x140166180 (KiAbForceProcessLockEntry.c)
  */
 
 unsigned __int8 __fastcall KeAbMarkCrossThreadReleasable(__int64 a1, _KLOCK_ENTRY *a2)

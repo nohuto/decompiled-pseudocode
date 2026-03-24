@@ -1,26 +1,27 @@
 /*
- * XREFs of UserAddAtomToAtomTableEx @ 0x1C00AF960
+ * XREFs of UserAddAtomToAtomTableEx @ 0x1C006A180
  * Callers:
- *     Win32UserInitialize @ 0x1C02DBF90 (Win32UserInitialize.c)
+ *     Win32UserInitialize @ 0x1C0297BBC (Win32UserInitialize.c)
  * Callees:
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     ?LkdForAtomAdditionFailure@@YAXPEAXJ@Z @ 0x1C014EE00 (-LkdForAtomAdditionFailure@@YAXPEAXJ@Z.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     ?LkdForAtomAdditionFailure@@YAXPEAXJ@Z @ 0x1C0138E0C (-LkdForAtomAdditionFailure@@YAXPEAXJ@Z.c)
  */
 
-__int64 __fastcall UserAddAtomToAtomTableEx(struct _RTL_ATOM_TABLE *a1, __int64 a2, int a3, __int64 a4)
+__int64 __fastcall UserAddAtomToAtomTableEx(struct _RTL_ATOM_TABLE *a1, __int64 a2, int a3)
 {
-  int v6; // ebx
+  int v5; // ebx
   __int64 result; // rax
-  ULONG v8; // eax
+  ULONG v7; // eax
+  __int64 v8; // rdx
   RTL_ATOM v9[12]; // [rsp+20h] [rbp-18h] BYREF
 
   v9[0] = 0;
-  v6 = RtlAddAtomToAtomTableEx(a1, a2, v9, a4);
-  if ( (int)(v6 + 0x80000000) >= 0 && v6 != -1073741773 )
+  v5 = RtlAddAtomToAtomTableEx(a1, a2, v9);
+  if ( (int)(v5 + 0x80000000) >= 0 && v5 != -1073741773 )
   {
-    LkdForAtomAdditionFailure(a1, v6);
-    v8 = RtlNtStatusToDosError(v6);
-    UserSetLastError(v8);
+    LkdForAtomAdditionFailure(a1, v5);
+    v7 = RtlNtStatusToDosError(v5);
+    UserSetLastError(v7, v8);
   }
   result = v9[0];
   if ( v9[0] )

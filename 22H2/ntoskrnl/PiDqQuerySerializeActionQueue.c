@@ -1,25 +1,25 @@
 /*
- * XREFs of PiDqQuerySerializeActionQueue @ 0x1407F9B80
+ * XREFs of PiDqQuerySerializeActionQueue @ 0x1406A83CC
  * Callers:
- *     PiDqIrpQueryCreate @ 0x1407F97F8 (PiDqIrpQueryCreate.c)
- *     PiDqIrpQueryGetResult @ 0x1407FBCFC (PiDqIrpQueryGetResult.c)
+ *     PiDqIrpQueryGetResult @ 0x1406A6E58 (PiDqIrpQueryGetResult.c)
+ *     PiDqIrpQueryCreate @ 0x1406A7E9C (PiDqIrpQueryCreate.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     PiDqActionDataCreate @ 0x1407F9F04 (PiDqActionDataCreate.c)
- *     PiDqQueryActionQueueEntryFree @ 0x1407FA180 (PiDqQueryActionQueueEntryFree.c)
- *     PiDqActionDataFree @ 0x1407FA1C4 (PiDqActionDataFree.c)
- *     PiDqQueryGetObjectManager @ 0x1407FA5D4 (PiDqQueryGetObjectManager.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407FA618 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     PiDqQueryGetObjectManager @ 0x1406A761C (PiDqQueryGetObjectManager.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1406A7660 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqQueryActionQueueEntryFree @ 0x1406A8748 (PiDqQueryActionQueueEntryFree.c)
+ *     PiDqActionDataCreate @ 0x1406A878C (PiDqActionDataCreate.c)
+ *     PiDqActionDataFree @ 0x1406A8934 (PiDqActionDataFree.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiDqQuerySerializeActionQueue(__int64 a1, __int64 a2, int a3, int *a4, _DWORD *a5)
+__int64 __fastcall PiDqQuerySerializeActionQueue(KSPIN_LOCK a1, __int64 a2, int a3, int *a4, _DWORD *a5)
 {
   int v7; // esi
   struct _KTHREAD *CurrentThread; // rax
-  __int64 *v9; // r15
+  ULONG_PTR v9; // r15
   int v10; // ebx
   struct _ERESOURCE *ObjectManager; // rax
   struct _KTHREAD *v12; // rax
@@ -28,14 +28,14 @@ __int64 __fastcall PiDqQuerySerializeActionQueue(__int64 a1, __int64 a2, int a3,
   __int64 *v15; // rbx
   __int64 v16; // rcx
   struct _KTHREAD *v18; // rax
-  _QWORD v19[3]; // [rsp+30h] [rbp-78h] BYREF
-  __int64 v20; // [rsp+48h] [rbp-60h] BYREF
-  int v21; // [rsp+50h] [rbp-58h]
-  int v22; // [rsp+54h] [rbp-54h]
-  PVOID P; // [rsp+58h] [rbp-50h]
-  __int64 v24; // [rsp+60h] [rbp-48h]
-  PVOID v25; // [rsp+B8h] [rbp+10h] BYREF
-  int *v26; // [rsp+C8h] [rbp+20h]
+  _QWORD v19[2]; // [rsp+30h] [rbp-58h] BYREF
+  __int64 v20; // [rsp+40h] [rbp-48h] BYREF
+  int v21; // [rsp+48h] [rbp-40h]
+  int v22; // [rsp+4Ch] [rbp-3Ch]
+  PVOID P; // [rsp+50h] [rbp-38h]
+  __int64 v24; // [rsp+58h] [rbp-30h]
+  PVOID v25; // [rsp+98h] [rbp+10h] BYREF
+  int *v26; // [rsp+A8h] [rbp+20h]
 
   v26 = a4;
   v7 = 0;
@@ -48,7 +48,7 @@ __int64 __fastcall PiDqQuerySerializeActionQueue(__int64 a1, __int64 a2, int a3,
   P = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v9 = (__int64 *)(a1 + 64);
+  v9 = a1 + 64;
   v19[1] = a1 + 64;
   ExAcquirePushLockExclusiveEx(a1 + 64, 0LL);
   v10 = *(_DWORD *)(a1 + 216);
@@ -56,8 +56,8 @@ __int64 __fastcall PiDqQuerySerializeActionQueue(__int64 a1, __int64 a2, int a3,
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( (v10 & 0x20) == 0 )
   {
-    ObjectManager = (struct _ERESOURCE *)PiDqQueryGetObjectManager(a1);
-    v7 = PiDqObjectManagerEnumerateAndRegisterQuery(ObjectManager);
+    ObjectManager = PiDqQueryGetObjectManager(a1);
+    v7 = PiDqObjectManagerEnumerateAndRegisterQuery(ObjectManager, a1);
   }
   if ( v7 < 0 )
   {
@@ -77,8 +77,7 @@ LABEL_30:
         *a5 = 0;
         v12 = KeGetCurrentThread();
         --v12->KernelApcDisable;
-        ExAcquirePushLockExclusiveEx((ULONG_PTR)v9, 0LL);
-        v19[2] = a1 + 184;
+        ExAcquirePushLockExclusiveEx(v9, 0LL);
         v25 = *(PVOID *)(a1 + 184);
         *(_QWORD *)(a1 + 184) = 0LL;
         ExReleasePushLockEx(v9, 0LL);
@@ -87,7 +86,7 @@ LABEL_30:
         {
           if ( v25 )
           {
-            NdrMesTypeEncode3(v19[0], "TP 3\a", &off_140002910, &off_140C02F40, 1, &v25);
+            NdrMesTypeEncode3(v19[0], "TP 3\a", &off_140003F60, &off_140C01A50, 1, &v25);
             if ( BYTE5(v24) )
             {
               v7 = -1073741819;
@@ -97,7 +96,7 @@ LABEL_30:
             {
               v18 = KeGetCurrentThread();
               --v18->KernelApcDisable;
-              ExAcquirePushLockExclusiveEx((ULONG_PTR)v9, 0LL);
+              ExAcquirePushLockExclusiveEx(v9, 0LL);
               *(_QWORD *)(a1 + 184) = v25;
               v25 = 0LL;
               ExReleasePushLockEx(v9, 0LL);
@@ -111,7 +110,7 @@ LABEL_30:
           }
           v13 = KeGetCurrentThread();
           --v13->KernelApcDisable;
-          ExAcquirePushLockExclusiveEx((ULONG_PTR)v9, 0LL);
+          ExAcquirePushLockExclusiveEx(v9, 0LL);
           v14 = (_QWORD *)(a1 + 192);
           v15 = *(__int64 **)(a1 + 192);
           if ( v15 == (__int64 *)(a1 + 192) )

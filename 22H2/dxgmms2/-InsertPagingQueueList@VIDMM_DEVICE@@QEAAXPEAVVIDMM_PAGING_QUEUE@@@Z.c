@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InsertPagingQueueList@VIDMM_DEVICE@@QEAAXPEAVVIDMM_PAGING_QUEUE@@@Z @ 0x1C0003848
+ * XREFs of ?InsertPagingQueueList@VIDMM_DEVICE@@QEAAXPEAVVIDMM_PAGING_QUEUE@@@Z @ 0x1C00158E4
  * Callers:
- *     ?InitializePagingQueue@VIDMM_PAGING_QUEUE@@QEAAJPEAVVIDMM_DEVICE@@IPEAVVIDMM_GLOBAL@@W4VIDMM_PAGING_QUEUE_TYPE@@@Z @ 0x1C008E718 (-InitializePagingQueue@VIDMM_PAGING_QUEUE@@QEAAJPEAVVIDMM_DEVICE@@IPEAVVIDMM_GLOBAL@@W4VIDMM_PAG.c)
+ *     ?InitializePagingQueue@VIDMM_PAGING_QUEUE@@QEAAJPEAVVIDMM_DEVICE@@IPEAVVIDMM_GLOBAL@@W4VIDMM_PAGING_QUEUE_TYPE@@@Z @ 0x1C00790D8 (-InitializePagingQueue@VIDMM_PAGING_QUEUE@@QEAAJPEAVVIDMM_DEVICE@@IPEAVVIDMM_GLOBAL@@W4VIDMM_PAG.c)
  * Callees:
- *     ?SetStatus@VIDMM_PAGING_QUEUE@@QEAAXW4VIDMM_PAGING_QUEUE_STATUS@@@Z @ 0x1C00890D0 (-SetStatus@VIDMM_PAGING_QUEUE@@QEAAXW4VIDMM_PAGING_QUEUE_STATUS@@@Z.c)
+ *     ?SetStatus@VIDMM_PAGING_QUEUE@@QEAAXW4VIDMM_PAGING_QUEUE_STATUS@@@Z @ 0x1C0073A44 (-SetStatus@VIDMM_PAGING_QUEUE@@QEAAXW4VIDMM_PAGING_QUEUE_STATUS@@@Z.c)
  */
 
 void __fastcall VIDMM_DEVICE::InsertPagingQueueList(__int64 **this, struct VIDMM_PAGING_QUEUE *a2)
@@ -14,20 +14,20 @@ void __fastcall VIDMM_DEVICE::InsertPagingQueueList(__int64 **this, struct VIDMM
   __int64 v7; // rcx
 
   KeEnterCriticalRegion();
-  ExAcquirePushLockExclusiveEx(this + 15, 0LL);
-  this[16] = (__int64 *)KeGetCurrentThread();
+  ExAcquirePushLockExclusiveEx(this + 14, 0LL);
+  this[15] = (__int64 *)KeGetCurrentThread();
   v4 = (struct VIDMM_PAGING_QUEUE *)((char *)a2 + 48);
-  v5 = (VIDMM_DEVICE **)this[14];
-  if ( *v5 != (VIDMM_DEVICE *)(this + 13) )
+  v5 = (VIDMM_DEVICE **)this[13];
+  if ( *v5 != (VIDMM_DEVICE *)(this + 12) )
     __fastfail(3u);
-  *(_QWORD *)v4 = this + 13;
   *((_QWORD *)a2 + 7) = v5;
+  *(_QWORD *)v4 = this + 12;
   *v5 = v4;
-  this[14] = (__int64 *)v4;
-  this[16] = 0LL;
-  ExReleasePushLockExclusiveEx(this + 15, 0LL);
+  this[13] = (__int64 *)v4;
+  this[15] = 0LL;
+  ExReleasePushLockExclusiveEx(this + 14, 0LL);
   KeLeaveCriticalRegion();
-  if ( *((_BYTE *)this + 57) )
+  if ( *((_BYTE *)this + 49) )
   {
     v6 = **this;
     KeEnterCriticalRegion();

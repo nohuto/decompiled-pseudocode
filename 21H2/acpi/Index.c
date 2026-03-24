@@ -1,15 +1,15 @@
 /*
- * XREFs of Index @ 0x1C0019050
+ * XREFs of Index @ 0x1C000B100
  * Callers:
  *     <none>
  * Callees:
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     ValidateArgTypes @ 0x1C00162B0 (ValidateArgTypes.c)
- *     WriteObject @ 0x1C0017010 (WriteObject.c)
- *     ValidateTarget @ 0x1C0018344 (ValidateTarget.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ValidateTarget @ 0x1C000B264 (ValidateTarget.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
  */
 
 __int64 __fastcall Index(struct _SLIST_ENTRY *a1, __int64 a2)
@@ -27,7 +27,7 @@ __int64 __fastcall Index(struct _SLIST_ENTRY *a1, __int64 a2)
   v4 = ValidateArgTypes((__int64)a1, *(_QWORD *)(a2 + 80), 1, "CI");
   if ( !v4 )
   {
-    v4 = ValidateTarget((__int64)a1, *(_QWORD *)(a2 + 80) + 80LL, 0x85u, (__int64)&v12);
+    v4 = ValidateTarget(a1, *(_QWORD *)(a2 + 80) + 80LL, 133LL, &v12);
     if ( !v4 )
     {
       v5 = *(_QWORD *)(a2 + 80);

@@ -1,11 +1,11 @@
 /*
- * XREFs of AcpiDiagTraceDeviceReset @ 0x1C0048694
+ * XREFs of AcpiDiagTraceDeviceReset @ 0x1C0049CE8
  * Callers:
- *     AcpiDeviceReset @ 0x1C00AD0C0 (AcpiDeviceReset.c)
+ *     AcpiDeviceReset @ 0x1C00AE4C0 (AcpiDeviceReset.c)
  * Callees:
- *     AMLIGetNameSpaceObjectPath @ 0x1C000661C (AMLIGetNameSpaceObjectPath.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     RtlStringCchLengthA @ 0x1C0048F34 (RtlStringCchLengthA.c)
+ *     AMLIGetNameSpaceObjectPath @ 0x1C00117C0 (AMLIGetNameSpaceObjectPath.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     RtlStringCchLengthA @ 0x1C004A554 (RtlStringCchLengthA.c)
  */
 
 void __fastcall AcpiDiagTraceDeviceReset(__int64 a1, int a2, int a3)
@@ -34,7 +34,7 @@ void __fastcall AcpiDiagTraceDeviceReset(__int64 a1, int a2, int a3)
 
   v23 = a3;
   v22 = a2;
-  v3 = *(__int64 **)(a1 + 760);
+  v3 = *(__int64 **)(a1 + 720);
   pcchLength[0] = 0LL;
   DestinationString = 0LL;
   if ( v3 )
@@ -43,9 +43,20 @@ void __fastcall AcpiDiagTraceDeviceReset(__int64 a1, int a2, int a3)
     if ( (int)AMLIGetNameSpaceObjectPath(v3, psz, &v11) >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, 0LL);
-      v4 = RtlStringCchLengthA(psz, 0x80uLL, pcchLength) < 0 ? 512 : LOWORD(pcchLength[0]);
-      v9 = v4;
-      DestinationString.Buffer = (wchar_t *)ExAllocatePool2(64LL, 2LL * ((unsigned int)v4 + 1), 1399874369LL);
+      if ( RtlStringCchLengthA(psz, 0x80uLL, pcchLength) < 0 )
+      {
+        v4 = 512;
+        v9 = 512;
+      }
+      else
+      {
+        v4 = pcchLength[0];
+        v9 = pcchLength[0];
+      }
+      DestinationString.Buffer = (wchar_t *)ExAllocatePoolWithTag(
+                                              NonPagedPoolNx,
+                                              2LL * ((unsigned int)v4 + 1),
+                                              0x53706341u);
       Buffer = DestinationString.Buffer;
       if ( DestinationString.Buffer )
       {

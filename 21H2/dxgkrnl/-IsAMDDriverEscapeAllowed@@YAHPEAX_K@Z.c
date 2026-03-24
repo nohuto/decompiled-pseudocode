@@ -1,35 +1,31 @@
 /*
- * XREFs of ?IsAMDDriverEscapeAllowed@@YAHPEAX_K@Z @ 0x1C0308DE0
+ * XREFs of ?IsAMDDriverEscapeAllowed@@YAHPEAX_K@Z @ 0x1C0268018
  * Callers:
- *     DxgkEscape @ 0x1C0179FA0 (DxgkEscape.c)
+ *     DxgkEscape @ 0x1C00F9100 (DxgkEscape.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-__int64 __fastcall IsAMDDriverEscapeAllowed(_DWORD *a1, unsigned __int64 a2)
+__int64 __fastcall IsAMDDriverEscapeAllowed(_DWORD *a1, unsigned __int64 a2, __int64 a3)
 {
-  unsigned int v2; // ecx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v6; // rax
 
   if ( a2 < 0xC )
   {
-    WdLogSingleEntry1(2LL, 677LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Driver private driver escape called with a buffer that is too small, failing the escape request.",
-      677LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v6 + 24) = 689LL;
+    WdLogEvent5_WdError(v6);
   }
   else
   {
-    v2 = a1[2] & 0xFFFFFF00;
-    if ( ((v2 - 16778752) & 0xFFFFFCFF) != 0 || v2 == 16779520 )
+    v3 = a1[2] & 0xFFFFFF00;
+    if ( (((_DWORD)v3 - 16778752) & 0xFFFFFCFF) != 0 || (_DWORD)v3 == 16779520 )
       return 1LL;
-    WdLogSingleEntry1(3LL, 664LL);
+    v4 = WdLogNewEntry5_WdWarning(v3, a2, a3);
+    *(_QWORD *)(v4 + 24) = 676LL;
+    WdLogEvent5_WdWarning(v4);
   }
   return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlLookupElementGenericTable @ 0x14021EC40
+ * XREFs of RtlLookupElementGenericTable @ 0x1403596F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x14021ECC0 (RtlSplay.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     RtlSplay @ 0x140359770 (RtlSplay.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 PVOID __stdcall RtlLookupElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)
@@ -13,26 +13,25 @@ PVOID __stdcall RtlLookupElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buf
   int v5; // eax
 
   TableRoot = Table->TableRoot;
-  if ( !Table->TableRoot )
-    return 0LL;
-  while ( 1 )
+  while ( TableRoot )
   {
     v5 = ((__int64 (__fastcall *)(PRTL_GENERIC_TABLE, PVOID, _RTL_SPLAY_LINKS **))Table->CompareRoutine)(
            Table,
            Buffer,
            &TableRoot[1].RightChild);
     if ( v5 )
-      break;
-    TableRoot = TableRoot->LeftChild;
-LABEL_4:
-    if ( !TableRoot )
-      return 0LL;
+    {
+      if ( v5 != 1 )
+      {
+        Table->TableRoot = RtlSplay(TableRoot);
+        return &TableRoot[1].RightChild;
+      }
+      TableRoot = TableRoot->RightChild;
+    }
+    else
+    {
+      TableRoot = TableRoot->LeftChild;
+    }
   }
-  if ( v5 == 1 )
-  {
-    TableRoot = TableRoot->RightChild;
-    goto LABEL_4;
-  }
-  Table->TableRoot = RtlSplay(TableRoot);
-  return &TableRoot[1].RightChild;
+  return 0LL;
 }

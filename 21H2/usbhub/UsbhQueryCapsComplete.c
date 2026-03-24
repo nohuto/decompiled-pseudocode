@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhQueryCapsComplete @ 0x1C0043510
+ * XREFs of UsbhQueryCapsComplete @ 0x1C00447D0
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
 __int64 __fastcall UsbhQueryCapsComplete(PDEVICE_OBJECT DeviceObject, PIRP Irp, __int64 Context)
@@ -23,7 +23,7 @@ __int64 __fastcall UsbhQueryCapsComplete(PDEVICE_OBJECT DeviceObject, PIRP Irp, 
       0,
       1u,
       0x12u,
-      (__int64)&WPP_70750b4e52e537afa0d3aa3795e637f0_Traceguids,
+      (__int64)&WPP_bd192adfbaab37968b6512a601d84f30_Traceguids,
       Status);
   }
   if ( Irp->PendingReturned )

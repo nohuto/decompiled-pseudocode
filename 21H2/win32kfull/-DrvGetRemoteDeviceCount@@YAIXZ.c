@@ -1,8 +1,8 @@
 /*
- * XREFs of ?DrvGetRemoteDeviceCount@@YAIXZ @ 0x1C01534F8
+ * XREFs of ?DrvGetRemoteDeviceCount@@YAIXZ @ 0x1C01634E0
  * Callers:
- *     xxxRemoteReconnect @ 0x1C01528E0 (xxxRemoteReconnect.c)
- *     DxgkEngGetRemoteDeviceCount @ 0x1C0275260 (DxgkEngGetRemoteDeviceCount.c)
+ *     xxxRemoteReconnect @ 0x1C0162570 (xxxRemoteReconnect.c)
+ *     DxgkEngGetRemoteDeviceCount @ 0x1C0277A90 (DxgkEngGetRemoteDeviceCount.c)
  * Callees:
  *     <none>
  */

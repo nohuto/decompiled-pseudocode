@@ -1,14 +1,14 @@
 /*
- * XREFs of ?IsCenteredGradient@CRadialGradientBrush@@AEBA_NXZ @ 0x18024E27C
+ * XREFs of ?IsCenteredGradient@CRadialGradientBrush@@AEBA_NXZ @ 0x1801E810C
  * Callers:
- *     ?CreateRadialGradientEffect@CRadialGradientBrush@@QEAAJPEAPEAVCRadialGradientEffect@@@Z @ 0x18024D9F0 (-CreateRadialGradientEffect@CRadialGradientBrush@@QEAAJPEAPEAVCRadialGradientEffect@@@Z.c)
- *     ?SetOriginOffsetProperty@CRadialGradientBrush@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x18024E3F0 (-SetOriginOffsetProperty@CRadialGradientBrush@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z.c)
+ *     ?CreateRadialGradientEffect@CRadialGradientBrush@@QEAAJPEAPEAVCRadialGradientEffect@@@Z @ 0x1801E7830 (-CreateRadialGradientEffect@CRadialGradientBrush@@QEAAJPEAPEAVCRadialGradientEffect@@@Z.c)
+ *     ?SetOriginOffsetProperty@CRadialGradientBrush@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1801E8260 (-SetOriginOffsetProperty@CRadialGradientBrush@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z.c)
  * Callees:
  *     <none>
  */
 
 bool __fastcall CRadialGradientBrush::IsCenteredGradient(CRadialGradientBrush *this)
 {
-  return COERCE_FLOAT(*((_DWORD *)this + 64) & _xmm) < 0.0000011920929
-      && COERCE_FLOAT(*((_DWORD *)this + 65) & _xmm) < 0.0000011920929;
+  return COERCE_FLOAT(*((_DWORD *)this + 52) & _xmm) < 0.0000011920929
+      && COERCE_FLOAT(*((_DWORD *)this + 53) & _xmm) < 0.0000011920929;
 }

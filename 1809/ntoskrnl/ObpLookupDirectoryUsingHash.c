@@ -5,8 +5,8 @@
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     ObpUnlockDirectory @ 0x140109EF8 (ObpUnlockDirectory.c)
- *     ObpLockDirectoryShared @ 0x140109F38 (ObpLockDirectoryShared.c)
+ *     ObpUnlockDirectory @ 0x140109F18 (ObpUnlockDirectory.c)
+ *     ObpLockDirectoryShared @ 0x140109F58 (ObpLockDirectoryShared.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
  */
 

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSetCompletionRoutineEx @ 0x14035C9A0
+ * XREFs of IoSetCompletionRoutineEx @ 0x14031DAB0
  * Callers:
- *     DifIoSetCompletionRoutineExWrapper @ 0x1405E1160 (DifIoSetCompletionRoutineExWrapper.c)
+ *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoSetCompletionRoutineEx(
@@ -15,22 +15,22 @@ NTSTATUS __stdcall IoSetCompletionRoutineEx(
         BOOLEAN InvokeOnError,
         BOOLEAN InvokeOnCancel)
 {
-  __int64 Pool2; // rax
-  void *v12; // rcx
+  _QWORD *PoolWithTag; // rax
+  PVOID v12; // rcx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
 
   if ( !InvokeOnError && !InvokeOnCancel && !InvokeOnSuccess )
     return -1073741811;
-  Pool2 = ExAllocatePool2(64LL, 32LL, 1934978889LL);
-  v12 = (void *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x73556F49u);
+  v12 = PoolWithTag;
+  if ( !PoolWithTag )
     return -1073741670;
-  *(_QWORD *)Pool2 = DeviceObject;
-  *(_QWORD *)(Pool2 + 16) = CompletionRoutine;
-  *(_QWORD *)(Pool2 + 8) = Context;
-  *(_BYTE *)(Pool2 + 24) = InvokeOnError;
-  *(_BYTE *)(Pool2 + 25) = InvokeOnSuccess;
-  *(_BYTE *)(Pool2 + 26) = InvokeOnCancel;
+  *PoolWithTag = DeviceObject;
+  PoolWithTag[2] = CompletionRoutine;
+  PoolWithTag[1] = Context;
+  *((_BYTE *)PoolWithTag + 24) = InvokeOnError;
+  *((_BYTE *)PoolWithTag + 25) = InvokeOnSuccess;
+  *((_BYTE *)PoolWithTag + 26) = InvokeOnCancel;
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
   CurrentStackLocation[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)&IopUnloadSafeCompletion;
   CurrentStackLocation[-1].Context = v12;

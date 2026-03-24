@@ -1,10 +1,10 @@
 /*
- * XREFs of rimOutOfBoundsPolicyUpdateStateAndApply @ 0x1C01AAD98
+ * XREFs of rimOutOfBoundsPolicyUpdateStateAndApply @ 0x1C017BB9C
  * Callers:
- *     rimApplyPointerDevicePolicies @ 0x1C00E2D30 (rimApplyPointerDevicePolicies.c)
+ *     rimApplyPointerDevicePolicies @ 0x1C0178FB0 (rimApplyPointerDevicePolicies.c)
  * Callees:
- *     RIMCmAddContactSuppressionReasons @ 0x1C01AFF90 (RIMCmAddContactSuppressionReasons.c)
- *     RIMCmRemoveContactSuppressionReasons @ 0x1C01B0A84 (RIMCmRemoveContactSuppressionReasons.c)
+ *     RIMCmAddContactSuppressionReasons @ 0x1C017FDC4 (RIMCmAddContactSuppressionReasons.c)
+ *     RIMCmRemoveContactSuppressionReasons @ 0x1C01804B8 (RIMCmRemoveContactSuppressionReasons.c)
  */
 
 __int64 __fastcall rimOutOfBoundsPolicyUpdateStateAndApply(__int64 a1, __int64 a2, int a3, __int64 a4, _DWORD *a5)
@@ -13,7 +13,7 @@ __int64 __fastcall rimOutOfBoundsPolicyUpdateStateAndApply(__int64 a1, __int64 a
 
   if ( a3 )
   {
-    result = RIMCmAddContactSuppressionReasons(a1, a2);
+    result = RIMCmAddContactSuppressionReasons(a1, a2, 8LL);
     *(_QWORD *)(a2 + 36) = a4;
   }
   else

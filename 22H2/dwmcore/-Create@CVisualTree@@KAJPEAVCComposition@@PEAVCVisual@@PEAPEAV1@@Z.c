@@ -1,48 +1,56 @@
 /*
- * XREFs of ?Create@CVisualTree@@KAJPEAVCComposition@@PEAVCVisual@@PEAPEAV1@@Z @ 0x18003A454
+ * XREFs of ?Create@CVisualTree@@KAJPEAVCComposition@@PEAVCVisual@@PEAPEAV1@@Z @ 0x180044074
  * Callers:
- *     ?GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z @ 0x18003A5F4 (-GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z.c)
+ *     ?GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z @ 0x18003DF38 (-GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??0CVisualTree@@IEAA@PEAVCComposition@@PEAVCVisual@@@Z @ 0x18003A17C (--0CVisualTree@@IEAA@PEAVCComposition@@PEAVCVisual@@@Z.c)
- *     ??2CVisualTree@@KAPEAX_K@Z @ 0x18003A4EC (--2CVisualTree@@KAPEAX_K@Z.c)
- *     ??0?$com_ptr_t@VCVisualTree@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCVisualTree@@@Z @ 0x18003A510 (--0-$com_ptr_t@VCVisualTree@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCVisualTree@@@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0?$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCCompositionSurfaceInfo@@@Z @ 0x180025A30 (--0-$com_ptr_t@VCCompositionSurfaceInfo@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCComposition.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18002D180 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??0CVisualTree@@IEAA@PEAVCComposition@@PEAVCVisual@@@Z @ 0x180044270 (--0CVisualTree@@IEAA@PEAVCComposition@@PEAVCVisual@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F7D8 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CVisualTree::Create(struct CComposition *a1, struct CVisual *a2, struct CVisualTree **a3)
 {
   CVisualTree *v6; // rax
-  struct CVisualTree *v7; // rbx
-  int v8; // eax
-  unsigned int v9; // edi
-  int v11; // [rsp+20h] [rbp-8h]
-  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
-  struct CVisualTree *v13; // [rsp+48h] [rbp+20h] BYREF
+  CVisualTree *v7; // rax
+  unsigned int v8; // ecx
+  struct CVisualTree *v9; // rbx
+  int v10; // eax
+  unsigned int v11; // ecx
+  unsigned int v12; // edi
+  void *retaddr; // [rsp+38h] [rbp+0h]
+  struct CVisualTree *v15; // [rsp+58h] [rbp+20h] BYREF
 
-  v6 = (CVisualTree *)CVisualTree::operator new((unsigned __int64)a1);
-  if ( v6 )
-    v6 = CVisualTree::CVisualTree(v6, a1, a2);
-  wil::com_ptr_t<CVisualTree,wil::err_returncode_policy>::com_ptr_t<CVisualTree,wil::err_returncode_policy>(&v13, v6);
-  v7 = v13;
-  v8 = (*(__int64 (__fastcall **)(struct CVisualTree *))(*(_QWORD *)v13 + 48LL))(v13);
-  v9 = v8;
-  if ( v8 < 0 )
+  v6 = (CVisualTree *)DefaultHeap::AllocClear(0x1708uLL);
+  if ( !v6 )
+    ModuleFailFastForHRESULT(2147942414LL, retaddr);
+  v7 = CVisualTree::CVisualTree(v6, a1, a2);
+  wil::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>::com_ptr_t<CCompositionSurfaceInfo,wil::err_returncode_policy>(
+    &v15,
+    (__int64)v7);
+  v9 = v15;
+  if ( v15 )
   {
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x17,
-      (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\visualtree.cpp",
-      (const char *)(unsigned int)v8,
-      v11);
+    v10 = (*(__int64 (__fastcall **)(struct CVisualTree *))(*(_QWORD *)v15 + 48LL))(v15);
+    v12 = v10;
+    if ( v10 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x18u, 0LL);
+    }
+    else
+    {
+      v15 = 0LL;
+      *a3 = v9;
+    }
   }
   else
   {
-    v13 = 0LL;
-    v9 = 0;
-    *a3 = v7;
+    v12 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147024882, 0x16u, 0LL);
   }
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v13);
-  return v9;
+  wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)&v15);
+  return v12;
 }

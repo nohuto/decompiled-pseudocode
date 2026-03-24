@@ -1,14 +1,12 @@
 /*
- * XREFs of KiBeginCounterAccumulation @ 0x140571770
+ * XREFs of KiBeginCounterAccumulation @ 0x14051BDB0
  * Callers:
- *     KiDirectSwitchThread @ 0x14020F360 (KiDirectSwitchThread.c)
- *     KiEndDebugAccumulation @ 0x14029B270 (KiEndDebugAccumulation.c)
- *     KiRetireDpcList @ 0x1402A8980 (KiRetireDpcList.c)
- *     KiBeginThreadAccountingPeriod @ 0x1402ECA00 (KiBeginThreadAccountingPeriod.c)
- *     KiChooseTargetProcessor @ 0x1403419B0 (KiChooseTargetProcessor.c)
- *     KiStartThreadCycleAccumulation @ 0x140345B70 (KiStartThreadCycleAccumulation.c)
- *     KiSelectIdleProcessor @ 0x140574678 (KiSelectIdleProcessor.c)
- *     KeEnableProfiling @ 0x140961F3C (KeEnableProfiling.c)
+ *     KiStartThreadCycleAccumulation @ 0x140231260 (KiStartThreadCycleAccumulation.c)
+ *     KiRetireDpcList @ 0x1402466B0 (KiRetireDpcList.c)
+ *     KiDirectSwitchThread @ 0x14024C840 (KiDirectSwitchThread.c)
+ *     KiBeginThreadAccountingPeriod @ 0x140288A40 (KiBeginThreadAccountingPeriod.c)
+ *     KiEndDebugAccumulation @ 0x14051DDB0 (KiEndDebugAccumulation.c)
+ *     KeEnableProfiling @ 0x1408BBFDC (KeEnableProfiling.c)
  * Callees:
  *     <none>
  */

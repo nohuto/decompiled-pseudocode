@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsValid@CCompSwapChain@@$4PPPPPPPM@A@EBAJXZ @ 0x180120060
+ * XREFs of ?IsValid@CCompSwapChain@@$4PPPPPPPM@A@EBAJXZ @ 0x1800F7950
  * Callers:
  *     <none>
  * Callees:

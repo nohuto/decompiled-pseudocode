@@ -1,10 +1,10 @@
 /*
- * XREFs of NtOpenKeyedEvent @ 0x140A06EF0
+ * XREFs of NtOpenKeyedEvent @ 0x14095B140
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x14067C970 (ObOpenObjectByName.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     ObOpenObjectByName @ 0x140655C50 (ObOpenObjectByName.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtOpenKeyedEvent(_QWORD *a1, int a2, __int64 a3)

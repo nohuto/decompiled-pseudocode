@@ -1,16 +1,16 @@
 /*
- * XREFs of SepAdtAuditObjectAccessWithContext @ 0x140723F80
+ * XREFs of SepAdtAuditObjectAccessWithContext @ 0x140627514
  * Callers:
- *     NtOpenObjectAuditAlarm @ 0x1406C5CA0 (NtOpenObjectAuditAlarm.c)
- *     SepAccessCheckAndAuditAlarm @ 0x140722B40 (SepAccessCheckAndAuditAlarm.c)
- *     SepAdtCloseObjectAuditAlarm @ 0x1409C8548 (SepAdtCloseObjectAuditAlarm.c)
- *     SepAdtDeleteObjectAuditAlarm @ 0x1409C8774 (SepAdtDeleteObjectAuditAlarm.c)
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409CB230 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     NtOpenObjectAuditAlarm @ 0x1406A8C60 (NtOpenObjectAuditAlarm.c)
+ *     SepAdtCloseObjectAuditAlarm @ 0x14091EAF8 (SepAdtCloseObjectAuditAlarm.c)
+ *     SepAdtDeleteObjectAuditAlarm @ 0x14091ED24 (SepAdtDeleteObjectAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x140921810 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
  * Callees:
- *     SepAdtAuditThisEventWithContext @ 0x140724320 (SepAdtAuditThisEventWithContext.c)
- *     SepAdtAuditThisEventByCategoryWithContext @ 0x1407243A0 (SepAdtAuditThisEventByCategoryWithContext.c)
- *     RtlPrefixUnicodeString @ 0x14077F870 (RtlPrefixUnicodeString.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x140882966 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140627AC0 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtAuditThisEventByCategoryWithContext @ 0x140627B40 (SepAdtAuditThisEventByCategoryWithContext.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x140920980 (SepAdtClassifyObjectIntoSubCategory.c)
  */
 
 __int64 __fastcall SepAdtAuditObjectAccessWithContext(
@@ -30,7 +30,7 @@ __int64 __fastcall SepAdtAuditObjectAccessWithContext(
   __int64 v16; // r9
   unsigned __int16 v17; // ax
 
-  *a7 = 118;
+  *a7 = 119;
   v11 = a3 != 0 ? 3 : 0;
   v12 = v11 | 0x30;
   if ( !a4 )
@@ -46,11 +46,11 @@ __int64 __fastcall SepAdtAuditObjectAccessWithContext(
     }
     else if ( a2 && RtlPrefixUnicodeString(&SepSamTypeNamePrefix, a2, 0) )
     {
-      v17 = 119;
+      v17 = 120;
     }
     else
     {
-      v17 = 120;
+      v17 = 121;
     }
     LOBYTE(v15) = a4;
     *a7 = v17;

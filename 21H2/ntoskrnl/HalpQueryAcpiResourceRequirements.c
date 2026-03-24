@@ -1,84 +1,87 @@
 /*
- * XREFs of HalpQueryAcpiResourceRequirements @ 0x140844658
+ * XREFs of HalpQueryAcpiResourceRequirements @ 0x1407B9344
  * Callers:
- *     HalpDispatchPnp @ 0x14081A830 (HalpDispatchPnp.c)
- *     HalpQueryResources @ 0x140844508 (HalpQueryResources.c)
+ *     HalpDispatchPnp @ 0x140764F80 (HalpDispatchPnp.c)
+ *     HalpQueryResources @ 0x1407B9214 (HalpQueryResources.c)
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x14036FA30 (HalQueryMaximumProcessorCount.c)
- *     HalpInterruptModel @ 0x14036FA84 (HalpInterruptModel.c)
- *     HalpInterruptGetIrtInfo @ 0x14084476C (HalpInterruptGetIrtInfo.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037B300 (HalQueryMaximumProcessorCount.c)
+ *     HalpInterruptModel @ 0x14037B354 (HalpInterruptModel.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HalpInterruptGetIrtInfo @ 0x1407B9474 (HalpInterruptGetIrtInfo.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall HalpQueryAcpiResourceRequirements(_QWORD *a1)
+__int64 __fastcall HalpQueryAcpiResourceRequirements(char **a1)
 {
   int v2; // eax
   __int64 result; // rax
-  int v4; // edi
-  unsigned int v5; // ebx
-  unsigned int v6; // r14d
-  unsigned int v7; // ebp
-  unsigned int v8; // esi
-  unsigned int v9; // edi
-  _DWORD *Pool2; // rax
-  char *v11; // rcx
-  __int64 v12; // rdx
-  __int64 v13; // [rsp+20h] [rbp-28h] BYREF
-  int v14; // [rsp+28h] [rbp-20h]
+  __int64 v4; // rcx
+  int v5; // ebx
+  unsigned int MaximumProcessorCount; // eax
+  unsigned int v7; // esi
+  unsigned int v8; // r15d
+  unsigned int v9; // ebp
+  unsigned int v10; // r13d
+  unsigned int v11; // edi
+  char *PoolWithTag; // r14
+  char *v13; // rax
+  __int64 v14; // rcx
+  __int64 v15; // [rsp+20h] [rbp-38h] BYREF
+  int v16; // [rsp+28h] [rbp-30h]
 
-  v13 = 0LL;
-  v14 = 0;
+  v15 = 0LL;
+  v16 = 0;
   v2 = HalpInterruptModel();
   if ( v2 > 0 && (v2 <= 4 || v2 == 4096) )
   {
-    result = HalpInterruptGetIrtInfo(&v13);
+    result = HalpInterruptGetIrtInfo(&v15);
     if ( (int)result < 0 )
       return result;
-    v4 = 205;
-    v5 = 205 - HIDWORD(v13) / (unsigned int)HalQueryMaximumProcessorCount();
+    v5 = 205;
+    MaximumProcessorCount = HalQueryMaximumProcessorCount(v4);
+    v7 = 205 - HIDWORD(v15) / MaximumProcessorCount;
   }
   else
   {
+    v7 = 0;
     v5 = 0;
-    v4 = 0;
   }
   if ( SecondaryIcServicesEnabled )
   {
-    v6 = v4;
-    v7 = 256;
+    v8 = v5;
+    v9 = 256;
   }
   else
   {
-    v6 = -1;
-    v7 = 0;
+    v8 = -1;
+    v9 = 0;
   }
-  v8 = v4 + v7 - v5;
-  v9 = 32 * (v8 - 1) + 72;
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, v9, 1097621832LL);
-  if ( !Pool2 )
-    return 3221225626LL;
-  Pool2[2] = -1;
-  *Pool2 = v9;
-  Pool2[7] = 1;
-  Pool2[1] = 15;
-  Pool2[8] = 65537;
-  Pool2[9] = v8;
-  if ( v8 )
+  v10 = v5 + v9 - v7;
+  v11 = 32 * (v10 - 1) + 72;
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v11, 0x206C6148u);
+  memset(PoolWithTag, 0, v11);
+  *((_DWORD *)PoolWithTag + 2) = -1;
+  *(_DWORD *)PoolWithTag = v11;
+  *((_DWORD *)PoolWithTag + 7) = 1;
+  *((_DWORD *)PoolWithTag + 1) = 15;
+  *((_DWORD *)PoolWithTag + 8) = 65537;
+  *((_DWORD *)PoolWithTag + 9) = v10;
+  if ( v10 )
   {
-    v11 = (char *)Pool2 + 42;
-    v12 = v8;
+    v13 = PoolWithTag + 42;
+    v14 = v10;
     do
     {
-      if ( v5 >= v6 && v5 < v7 )
-        v5 = v7;
-      *(_DWORD *)(v11 + 6) = v5;
-      *(_DWORD *)(v11 + 10) = v5++;
-      *(_WORD *)(v11 - 1) = 258;
-      v11 += 32;
-      --v12;
+      if ( v7 >= v8 && v7 < v9 )
+        v7 = v9;
+      *(_DWORD *)(v13 + 6) = v7;
+      *(_DWORD *)(v13 + 10) = v7++;
+      *(_WORD *)(v13 - 1) = 258;
+      v13 += 32;
+      --v14;
     }
-    while ( v12 );
+    while ( v14 );
   }
-  *a1 = Pool2;
+  *a1 = PoolWithTag;
   return 0LL;
 }

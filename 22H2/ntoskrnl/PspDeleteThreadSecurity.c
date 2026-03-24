@@ -1,30 +1,25 @@
 /*
- * XREFs of PspDeleteThreadSecurity @ 0x140747CE0
+ * XREFs of PspDeleteThreadSecurity @ 0x14061A184
  * Callers:
- *     PspThreadDelete @ 0x1407478D0 (PspThreadDelete.c)
+ *     PspThreadDelete @ 0x140619D80 (PspThreadDelete.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
  */
 
-LONG_PTR __fastcall PspDeleteThreadSecurity(__int64 a1)
+void __fastcall PspDeleteThreadSecurity(__int64 a1)
 {
-  LONG_PTR result; // rax
-  _QWORD *v2; // rdi
-  void *v4; // rcx
+  struct _DMA_ADAPTER *v2; // rcx
 
-  result = *(unsigned int *)(a1 + 1376);
-  v2 = (_QWORD *)(a1 + 1272);
-  if ( (result & 8) != 0 )
+  if ( (*(_DWORD *)(a1 + 1296) & 8) != 0 )
   {
-    result = ObfDereferenceObject((PVOID)(*v2 & 0xFFFFFFFFFFFFFFF8uLL));
-    v4 = *(void **)(a1 + 1544);
-    if ( v4 )
+    HalPutDmaAdapter((PADAPTER_OBJECT)(*(_QWORD *)(a1 + 1192) & 0xFFFFFFFFFFFFFFF8uLL));
+    v2 = *(struct _DMA_ADAPTER **)(a1 + 1464);
+    if ( v2 )
     {
-      result = ObfDereferenceObject(v4);
-      *(_QWORD *)(a1 + 1544) = 0LL;
+      HalPutDmaAdapter(v2);
+      *(_QWORD *)(a1 + 1464) = 0LL;
     }
-    _InterlockedAnd((volatile signed __int32 *)(a1 + 1376), 0xFFFFFFF7);
+    _InterlockedAnd((volatile signed __int32 *)(a1 + 1296), 0xFFFFFFF7);
   }
-  *v2 = 0LL;
-  return result;
+  *(_QWORD *)(a1 + 1192) = 0LL;
 }

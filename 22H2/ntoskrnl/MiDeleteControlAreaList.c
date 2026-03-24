@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteControlAreaList @ 0x1406244D4
+ * XREFs of MiDeleteControlAreaList @ 0x140529604
  * Callers:
- *     MiDereferenceSegmentThread @ 0x1403A7500 (MiDereferenceSegmentThread.c)
+ *     MiDereferenceSegmentThread @ 0x1403BCDD0 (MiDereferenceSegmentThread.c)
  * Callees:
- *     MiDeleteControlArea @ 0x1402199F0 (MiDeleteControlArea.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MiDeleteControlArea @ 0x140278164 (MiDeleteControlArea.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiDeleteControlAreaList(__int64 a1)
@@ -21,27 +21,30 @@ void __fastcall MiDeleteControlAreaList(__int64 a1)
   int v9; // eax
   bool v10; // zf
 
-  v2 = (volatile LONG *)(a1 + 1408);
+  v2 = (volatile LONG *)(a1 + 1344);
   while ( 1 )
   {
     v3 = ExAcquireSpinLockExclusive(v2);
-    v4 = *(_QWORD **)(a1 + 1840);
+    v4 = *(_QWORD **)(a1 + 1776);
     v5 = v3;
     if ( v4 )
-      *(_QWORD *)(a1 + 1840) = *v4;
+      *(_QWORD *)(a1 + 1776) = *v4;
     ExReleaseSpinLockExclusiveFromDpcLevel(v2);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-        v10 = (v9 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v9;
-        if ( v10 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+          v10 = (v9 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v9;
+          if ( v10 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v5);

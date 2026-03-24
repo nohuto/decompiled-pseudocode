@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpTiVadQueryEventWriteCallback @ 0x1408BD6A0
+ * XREFs of EtwpTiVadQueryEventWriteCallback @ 0x1408BD680
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     EtwProviderEnabled @ 0x1400F1760 (EtwProviderEnabled.c)
- *     EtwpTiFillVadEventWrite @ 0x140312D2C (EtwpTiFillVadEventWrite.c)
+ *     EtwProviderEnabled @ 0x1400F1780 (EtwProviderEnabled.c)
+ *     EtwpTiFillVadEventWrite @ 0x140312E2C (EtwpTiFillVadEventWrite.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpTiQueryVad @ 0x1408BD550 (EtwpTiQueryVad.c)
+ *     EtwpTiQueryVad @ 0x1408BD530 (EtwpTiQueryVad.c)
  */
 
 void __fastcall EtwpTiVadQueryEventWriteCallback(unsigned int *P)

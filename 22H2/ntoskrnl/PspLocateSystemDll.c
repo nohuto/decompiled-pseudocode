@@ -1,29 +1,29 @@
 /*
- * XREFs of PspLocateSystemDll @ 0x140801BE0
+ * XREFs of PspLocateSystemDll @ 0x140793A08
  * Callers:
- *     PsLocateSystemDlls @ 0x140801B58 (PsLocateSystemDlls.c)
+ *     PsLocateSystemDlls @ 0x140793980 (PsLocateSystemDlls.c)
  * Callees:
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     ZwSystemDebugControl @ 0x14041E040 (ZwSystemDebugControl.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     ObInitializeFastReference @ 0x1406B69CC (ObInitializeFastReference.c)
- *     MmCreateSpecialImageSection @ 0x1406B9664 (MmCreateSpecialImageSection.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     PspMapSystemDll @ 0x1407A37F0 (PspMapSystemDll.c)
- *     MmGetSectionInformation @ 0x1407BA640 (MmGetSectionInformation.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     ZwSystemDebugControl @ 0x1403FD200 (ZwSystemDebugControl.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     MmCreateSpecialImageSection @ 0x140608BE4 (MmCreateSpecialImageSection.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     MmGetSectionInformation @ 0x140621350 (MmGetSectionInformation.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     PspMapSystemDll @ 0x1406FCA38 (PspMapSystemDll.c)
+ *     ObInitializeFastReference @ 0x140703ECC (ObInitializeFastReference.c)
  */
 
-NTSTATUS __fastcall PspLocateSystemDll(UNICODE_STRING *a1, char a2)
+NTSTATUS __fastcall PspLocateSystemDll(ULONG_PTR *a1, char a2)
 {
+  UNICODE_STRING *v2; // rdi
   NTSTATUS result; // eax
   int SpecialImageSection; // eax
-  NTSTATUS v6; // eax
+  NTSTATUS v7; // eax
   int SectionInformation; // eax
-  PVOID v8; // rdx
-  __int64 *v9; // rcx
+  PVOID v9; // rdx
   int v10; // eax
-  wchar_t *v11; // [rsp+30h] [rbp-29h] BYREF
+  ULONG_PTR v11; // [rsp+30h] [rbp-29h] BYREF
   UNICODE_STRING v12; // [rsp+38h] [rbp-21h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+48h] [rbp-11h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-1h] BYREF
@@ -31,22 +31,23 @@ NTSTATUS __fastcall PspLocateSystemDll(UNICODE_STRING *a1, char a2)
   HANDLE Handle; // [rsp+D0h] [rbp+77h] BYREF
   PVOID Object; // [rsp+D8h] [rbp+7Fh] BYREF
 
+  v2 = (UNICODE_STRING *)(a1 + 3);
   v11 = 0LL;
   FileHandle = 0LL;
-  *(&ObjectAttributes.Length + 1) = 0;
   IoStatusBlock = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   v12 = 0LL;
   Handle = 0LL;
   if ( (NtGlobalFlag & 0x40000) != 0 )
   {
-    v12 = a1[1];
+    v12 = *v2;
     ZwSystemDebugControl(38LL, (__int64)&v12);
   }
+  ObjectAttributes.ObjectName = v2;
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 576;
-  ObjectAttributes.ObjectName = a1 + 1;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   result = ZwOpenFile(&FileHandle, 0x100020u, &ObjectAttributes, &IoStatusBlock, 1u, 0);
   if ( result >= 0 )
@@ -63,18 +64,17 @@ NTSTATUS __fastcall PspLocateSystemDll(UNICODE_STRING *a1, char a2)
       KeBugCheckEx(0x6Bu, SpecialImageSection, 3uLL, 0LL, 0LL);
     ObCloseHandle(FileHandle, 0);
     Object = 0LL;
-    v6 = ObReferenceObjectByHandle(Handle, 0xF001Fu, MmSectionObjectType, 0, &Object, 0LL);
-    if ( v6 < 0 )
-      KeBugCheckEx(0x6Bu, v6, 4uLL, 0LL, 0LL);
+    v7 = ObReferenceObjectByHandle(Handle, 0xF001Fu, MmSectionObjectType, 0, &Object, 0LL);
+    if ( v7 < 0 )
+      KeBugCheckEx(0x6Bu, v7, 4uLL, 0LL, 0LL);
     ObCloseHandle(Handle, 0);
     SectionInformation = MmGetSectionInformation((__int64)Object, 2, (__int64)&v11);
     if ( SectionInformation < 0 )
       KeBugCheckEx(0x6Bu, SectionInformation, 8uLL, 0LL, 0LL);
-    v8 = Object;
-    v9 = *(__int64 **)&a1->Length;
-    a1[3].Buffer = v11;
-    ObInitializeFastReference(v9, (__int64)v8);
-    *(_QWORD *)(*(_QWORD *)&a1->Length + 8LL) = 0LL;
+    v9 = Object;
+    a1[8] = v11;
+    ObInitializeFastReference(a1, (ULONG_PTR)v9);
+    a1[1] = 0LL;
     v10 = PspMapSystemDll(KeGetCurrentThread()->ApcState.Process, (__int64)a1, 0, 1);
     if ( v10 < 0 )
       KeBugCheckEx(0x6Bu, v10, 5uLL, 0LL, 0LL);

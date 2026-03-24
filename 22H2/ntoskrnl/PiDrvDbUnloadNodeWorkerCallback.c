@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDrvDbUnloadNodeWorkerCallback @ 0x1407E8B60
+ * XREFs of PiDrvDbUnloadNodeWorkerCallback @ 0x140725BC0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     PnpDiagnosticTraceObject @ 0x1403229A0 (PnpDiagnosticTraceObject.c)
- *     PiDrvDbUnloadNodeReset @ 0x14036B494 (PiDrvDbUnloadNodeReset.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PnpDiagnosticTraceObject @ 0x1403645B8 (PnpDiagnosticTraceObject.c)
+ *     PiDrvDbUnloadNodeReset @ 0x140364818 (PiDrvDbUnloadNodeReset.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
  */
 
 _QWORD *__fastcall PiDrvDbUnloadNodeWorkerCallback(__int64 a1)

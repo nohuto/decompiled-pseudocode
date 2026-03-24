@@ -1,62 +1,38 @@
 /*
- * XREFs of PpmHeteroHgsProcessorInit @ 0x1403C1E60
+ * XREFs of PpmHeteroHgsProcessorInit @ 0x1403CECBC
  * Callers:
- *     PpmCheckProcessorInit @ 0x1403C1E30 (PpmCheckProcessorInit.c)
- *     PpmHeteroHgsBackupProcessorInit @ 0x1405D90B0 (PpmHeteroHgsBackupProcessorInit.c)
- *     PoInitializePrcb @ 0x140A59654 (PoInitializePrcb.c)
+ *     PpmCheckProcessorInit @ 0x1403CEC90 (PpmCheckProcessorInit.c)
+ *     PpmHeteroHgsBackupProcessorInit @ 0x140577B60 (PpmHeteroHgsBackupProcessorInit.c)
  * Callees:
- *     PpmHeteroHgsProcessorThreadFeedbackInit @ 0x14025E708 (PpmHeteroHgsProcessorThreadFeedbackInit.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     PpmHeteroInitializeFeedbackClass @ 0x1405D9120 (PpmHeteroInitializeFeedbackClass.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-void __fastcall PpmHeteroHgsProcessorInit(__int64 a1, char a2)
+void __fastcall PpmHeteroHgsProcessorInit(__int64 a1)
 {
-  unsigned int v9; // r10d
-  __int64 v20; // r9
-  __int16 v21; // r11
-  bool v27; // zf
-  __int16 v28; // r8
-  int v29; // eax
+  unsigned int v7; // r9d
 
-  if ( PpmHeteroHgsEnabled || a2 )
+  if ( PpmHeteroHgsEnabled )
   {
     _RAX = 0LL;
     __asm { cpuid }
-    v9 = _RAX;
-    if ( (unsigned int)_RAX >= 7 )
+    v7 = _RAX;
+    _RAX = 6LL;
+    __asm { cpuid }
+    _RAX = 7LL;
+    *(_WORD *)(a1 + 33274) = WORD1(_RDX);
+    if ( v7 >= 7 )
     {
-      _RAX = 7LL;
       __asm { cpuid }
       if ( (_RDX & 0x8000) != 0 )
       {
-        if ( !a2 )
-          PpmHeteroHgsHeteroCoreTypes = 1;
         _RAX = 26LL;
-        if ( v9 >= 0x1A )
+        PpmHeteroHgsHeteroCoreTypes = 1;
+        if ( v7 >= 0x1A )
         {
           __asm { cpuid }
-          *(_BYTE *)(a1 + 34125) = BYTE3(_RAX);
+          *(_BYTE *)(a1 + 33279) = BYTE3(_RAX);
         }
       }
-    }
-    if ( !a2 )
-    {
-      PpmHeteroHgsProcessorThreadFeedbackInit();
-      _RAX = 6LL;
-      __asm { cpuid }
-      v27 = PpmHeteroHgsThreadEnabled == 0;
-      *(_WORD *)(v20 + 34126) = WORD1(_RDX);
-      if ( v27 )
-        v28 = 8 * (WORD1(_RDX) + 2);
-      else
-        v28 = ((PpmHeteroHgsCapabilityBits * *((_WORD *)PpmHeteroCapability + 2) + 15) & 0xFFF8)
-            + WORD1(_RDX) * ((v21 + PpmHeteroHgsCapabilityBits * *((_WORD *)PpmHeteroCapability + 2)) & 0xFFF8);
-      *(_WORD *)(v20 + 34122) = v28;
-      v29 = PpmHeteroInitializeFeedbackClass(v20);
-      if ( v29 < 0 )
-        KeBugCheckEx(0xA0u, 0x201uLL, v29, 0LL, 0LL);
     }
   }
 }

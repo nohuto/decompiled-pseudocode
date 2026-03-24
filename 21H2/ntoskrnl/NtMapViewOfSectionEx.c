@@ -1,9 +1,9 @@
 /*
- * XREFs of NtMapViewOfSectionEx @ 0x1406DD660
+ * XREFs of NtMapViewOfSectionEx @ 0x140711340
  * Callers:
  *     <none>
  * Callees:
- *     MiMapViewOfSectionExCommon @ 0x140756C90 (MiMapViewOfSectionExCommon.c)
+ *     MiMapViewOfSectionExCommon @ 0x1407125A8 (MiMapViewOfSectionExCommon.c)
  */
 
 __int64 __fastcall NtMapViewOfSectionEx(
@@ -17,8 +17,9 @@ __int64 __fastcall NtMapViewOfSectionEx(
         volatile void *a8,
         int a9)
 {
-  int v10; // [rsp+68h] [rbp-10h]
+  ULONGLONG ullMultiplicand; // [rsp+48h] [rbp-30h]
 
+  LODWORD(ullMultiplicand) = a9;
   return MiMapViewOfSectionExCommon(
            a1,
            a2,
@@ -29,9 +30,9 @@ __int64 __fastcall NtMapViewOfSectionEx(
            a6,
            a7,
            a8,
-           a9,
+           ullMultiplicand,
            0,
            0LL,
            KeGetCurrentThread()->PreviousMode,
-           v10);
+           0);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of SetThreadName @ 0x1C00BE740
+ * XREFs of SetThreadName @ 0x1C00B7640
  * Callers:
  *     <none>
  * Callees:

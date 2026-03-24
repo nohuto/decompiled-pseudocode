@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyDwm@CFlipToken@@UEBA_NXZ @ 0x1C00206B0
+ * XREFs of ?NotifyDwm@CFlipToken@@UEBA_NXZ @ 0x1C001BAA0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CFlipToken::NotifyDwm(CFlipToken *this)
 {
-  return *((_BYTE *)this + 563);
+  return *((_BYTE *)this + 559);
 }

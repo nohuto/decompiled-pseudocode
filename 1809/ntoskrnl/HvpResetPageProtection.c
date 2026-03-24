@@ -1,5 +1,5 @@
 /*
- * XREFs of HvpResetPageProtection @ 0x14068E7D0
+ * XREFs of HvpResetPageProtection @ 0x14068E7B0
  * Callers:
  *     HvResetDirtyData @ 0x1405A86E4 (HvResetDirtyData.c)
  * Callees:

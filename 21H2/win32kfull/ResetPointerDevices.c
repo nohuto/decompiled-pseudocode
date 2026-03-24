@@ -1,9 +1,9 @@
 /*
- * XREFs of ResetPointerDevices @ 0x1C00FD4D4
+ * XREFs of ResetPointerDevices @ 0x1C00294A8
  * Callers:
- *     xxxSwitchDesktop @ 0x1C00B0E54 (xxxSwitchDesktop.c)
- *     MasterInputThreadPrepareForRitTakeover @ 0x1C00FD2F0 (MasterInputThreadPrepareForRitTakeover.c)
- *     ?PrepareForMasterInputThreadTakingOver@@YAXPEAVLegacyInputDispatcher@@@Z @ 0x1C00FD3FC (-PrepareForMasterInputThreadTakingOver@@YAXPEAVLegacyInputDispatcher@@@Z.c)
+ *     ?PrepareForMasterInputThreadTakingOver@@YAXPEAVLegacyInputDispatcher@@@Z @ 0x1C00098A0 (-PrepareForMasterInputThreadTakingOver@@YAXPEAVLegacyInputDispatcher@@@Z.c)
+ *     xxxSwitchDesktop @ 0x1C0029904 (xxxSwitchDesktop.c)
+ *     MasterInputThreadPrepareForRitTakeover @ 0x1C010BEF4 (MasterInputThreadPrepareForRitTakeover.c)
  * Callees:
  *     <none>
  */

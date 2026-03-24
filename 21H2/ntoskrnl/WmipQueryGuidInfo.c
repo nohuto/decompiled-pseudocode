@@ -1,39 +1,41 @@
 /*
- * XREFs of WmipQueryGuidInfo @ 0x1409DD9A4
+ * XREFs of WmipQueryGuidInfo @ 0x140932DBC
  * Callers:
- *     WmipIoControl @ 0x1406C3540 (WmipIoControl.c)
+ *     WmipIoControl @ 0x1406A8220 (WmipIoControl.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall WmipQueryGuidInfo(__int64 a1)
 {
   void *v2; // rcx
   NTSTATUS v3; // ebx
-  PVOID v4; // rdi
-  __int64 v5; // rsi
-  __int64 ***v6; // rsi
-  __int64 **i; // rcx
-  PVOID Object; // [rsp+40h] [rbp+8h] BYREF
+  struct _DMA_ADAPTER *v4; // rdi
+  _DMA_OPERATIONS *DmaOperations; // rsi
+  void (__fastcall **p_FreeMapRegisters)(_DMA_ADAPTER *, void *, unsigned int); // rsi
+  void (__fastcall *i)(_DMA_ADAPTER *, void *, unsigned int); // rcx
+  PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = *(void **)a1;
-  Object = 0LL;
-  v3 = ObReferenceObjectByHandle(v2, 1u, WmipGuidObjectType, 1, &Object, 0LL);
+  DmaAdapter = 0LL;
+  v3 = ObReferenceObjectByHandle(v2, 1u, WmipGuidObjectType, 1, (PVOID *)&DmaAdapter, 0LL);
   if ( v3 >= 0 )
   {
-    v4 = Object;
-    v5 = *((_QWORD *)Object + 7);
-    if ( v5 )
+    v4 = DmaAdapter;
+    DmaOperations = DmaAdapter[3].DmaOperations;
+    if ( DmaOperations )
     {
       *(_BYTE *)(a1 + 8) = 0;
       KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
-      v6 = (__int64 ***)(v5 + 56);
-      for ( i = *v6; i != (__int64 **)v6; i = (__int64 **)*i )
+      p_FreeMapRegisters = &DmaOperations->FreeMapRegisters;
+      for ( i = *p_FreeMapRegisters;
+            (char *)i != (char *)p_FreeMapRegisters;
+            i = *(void (__fastcall **)(_DMA_ADAPTER *, void *, unsigned int))i )
       {
-        if ( ((_DWORD)i[2] & 4) != 0 )
+        if ( (*((_DWORD *)i + 4) & 4) != 0 )
         {
           *(_BYTE *)(a1 + 8) = 1;
           break;
@@ -45,7 +47,7 @@ __int64 __fastcall WmipQueryGuidInfo(__int64 a1)
     {
       v3 = -1073741055;
     }
-    ObfDereferenceObject(v4);
+    HalPutDmaAdapter(v4);
   }
   return (unsigned int)v3;
 }

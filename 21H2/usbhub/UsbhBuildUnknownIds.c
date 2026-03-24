@@ -1,12 +1,13 @@
 /*
- * XREFs of UsbhBuildUnknownIds @ 0x1C004F874
+ * XREFs of UsbhBuildUnknownIds @ 0x1C0050E08
  * Callers:
- *     UsbhSetEnumerationFailed @ 0x1C004E0C8 (UsbhSetEnumerationFailed.c)
+ *     UsbhSetEnumerationFailed @ 0x1C004F4D8 (UsbhSetEnumerationFailed.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhFreeID @ 0x1C004FAE8 (UsbhFreeID.c)
- *     UsbhMakeId @ 0x1C0050478 (UsbhMakeId.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     Feature_2473223486__private_IsEnabledDeviceUsage @ 0x1C001CFD8 (Feature_2473223486__private_IsEnabledDeviceUsage.c)
+ *     UsbhFreeID @ 0x1C0051094 (UsbhFreeID.c)
+ *     UsbhMakeId @ 0x1C0051A64 (UsbhMakeId.c)
  */
 
 void __fastcall UsbhBuildUnknownIds(__int64 a1, __int64 a2)
@@ -18,8 +19,8 @@ void __fastcall UsbhBuildUnknownIds(__int64 a1, __int64 a2)
   void *Id; // rbp
   __int64 v7; // rdi
   void *v8; // rcx
-  __int64 Pool2; // rax
-  int v10; // r8d
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v10; // rcx
   __int64 v11; // rsi
   int v12; // [rsp+40h] [rbp-38h] BYREF
   int v13; // [rsp+90h] [rbp+18h] BYREF
@@ -50,7 +51,7 @@ void __fastcall UsbhBuildUnknownIds(__int64 a1, __int64 a2)
       v5 = 5;
       break;
     case 0x40010007:
-      v4 = L"USB\\CONFIG_DESCRIPTOR_FAILURE";
+      v4 = (const wchar_t *)L"USB\\CONFIG_DESCRIPTOR_FAILURE";
       v5 = 3;
       break;
     default:
@@ -58,24 +59,26 @@ void __fastcall UsbhBuildUnknownIds(__int64 a1, __int64 a2)
   }
   v14 = 0;
   v13 = 0;
-  Id = (void *)UsbhMakeId(0, (_DWORD)v4, 0, (unsigned int)&v14, 2, 0, 0, 0LL);
+  Id = (void *)UsbhMakeId(0, (int)v4, 0, (int)&v14, 2, 0, 0, 0LL);
   if ( Id )
   {
-    v7 = UsbhMakeId(0, (_DWORD)v4, 0, (unsigned int)&v13, 2, 0, 0, 0LL);
+    v7 = UsbhMakeId(0, (int)v4, 0, (int)&v13, 2, 0, 0, 0LL);
     if ( v7 )
     {
-      Pool2 = ExAllocatePool2(64LL, 24LL, 1112885333LL);
-      v10 = Pool2;
-      if ( Pool2 )
+      Feature_2473223486__private_IsEnabledDeviceUsage();
+      PoolWithTag = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), 0x18uLL, 0x42554855u);
+      if ( PoolWithTag )
       {
         v12 = 24;
-        *(_OWORD *)Pool2 = *(_OWORD *)L"USB\\VID_nnnn";
-        *(_QWORD *)(Pool2 + 16) = *(_QWORD *)L"nnnn";
-        while ( *(_WORD *)Pool2 != 110 )
-          Pool2 += 2LL;
-        *(_DWORD *)Pool2 = 3145776;
-        *(_DWORD *)(Pool2 + 4) = 3145776;
-        v11 = UsbhMakeId(0, (unsigned int)L"&PID_nnnn", v10, (unsigned int)&v12, 2, 4, v5, 0LL);
+        *(_OWORD *)PoolWithTag = 0LL;
+        PoolWithTag[2] = 0LL;
+        v10 = PoolWithTag;
+        *(_OWORD *)PoolWithTag = *(_OWORD *)L"USB\\VID_nnnn";
+        for ( PoolWithTag[2] = *(_QWORD *)L"nnnn"; *(_WORD *)v10 != 110; v10 = (_QWORD *)((char *)v10 + 2) )
+          ;
+        *(_DWORD *)v10 = 3145776;
+        *((_DWORD *)v10 + 1) = 3145776;
+        v11 = UsbhMakeId(0, (int)L"&PID_nnnn", (int)PoolWithTag, (int)&v12, 2, 4, v5, 0LL);
         if ( v11 )
         {
           UsbhFreeID(v3 + 528);

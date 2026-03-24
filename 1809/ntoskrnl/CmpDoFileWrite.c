@@ -1,19 +1,19 @@
 /*
  * XREFs of CmpDoFileWrite @ 0x1405B3A60
  * Callers:
- *     CmpFileWrite @ 0x1406C8080 (CmpFileWrite.c)
- *     CmpWriteOffsetArrayToFile @ 0x1407F4754 (CmpWriteOffsetArrayToFile.c)
+ *     CmpFileWrite @ 0x1406C8060 (CmpFileWrite.c)
+ *     CmpWriteOffsetArrayToFile @ 0x1407F4734 (CmpWriteOffsetArrayToFile.c)
  * Callees:
  *     CmpSetRespectIoPriorityThread @ 0x140012FC4 (CmpSetRespectIoPriorityThread.c)
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
- *     CmpSetIoPriorityThread @ 0x14013ADF8 (CmpSetIoPriorityThread.c)
- *     CmpSetPriorityThread @ 0x14013AE0C (CmpSetPriorityThread.c)
- *     ZwWriteFile @ 0x1401B8270 (ZwWriteFile.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     CmpSetIoPriorityThread @ 0x14013AE18 (CmpSetIoPriorityThread.c)
+ *     CmpSetPriorityThread @ 0x14013AE2C (CmpSetPriorityThread.c)
+ *     ZwWriteFile @ 0x1401B8290 (ZwWriteFile.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpCreateEvent @ 0x1405B487C (CmpCreateEvent.c)
  */
 

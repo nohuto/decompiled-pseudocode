@@ -1,318 +1,321 @@
 /*
- * XREFs of PopPepInitializeVetoMasks @ 0x14059F354
+ * XREFs of PopPepInitializeVetoMasks @ 0x140574CDC
  * Callers:
- *     PoFxStartDevicePowerManagement @ 0x140395E40 (PoFxStartDevicePowerManagement.c)
- *     PopPepPlatformStateRegistered @ 0x14059FA24 (PopPepPlatformStateRegistered.c)
+ *     PopPepDeviceStarted @ 0x1403BDB2C (PopPepDeviceStarted.c)
+ *     PopPepPlatformStateRegistered @ 0x1405753FC (PopPepPlatformStateRegistered.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     PopPepUpdateIdleStateRefCount @ 0x14035D95C (PopPepUpdateIdleStateRefCount.c)
- *     PopFxReinitializeAccountingInstance @ 0x140396094 (PopFxReinitializeAccountingInstance.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmGetDeepSleepPlatformStateIndex @ 0x14058426C (PpmGetDeepSleepPlatformStateIndex.c)
- *     PopFxBugCheck @ 0x140588C70 (PopFxBugCheck.c)
- *     PopPluginRequestComponentIdleConstraints @ 0x14058C9D0 (PopPluginRequestComponentIdleConstraints.c)
- *     PopPluginRequestDeviceIdleConstraints @ 0x14058CAF8 (PopPluginRequestDeviceIdleConstraints.c)
- *     EmClientRuleEvaluate @ 0x140A87D30 (EmClientRuleEvaluate.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     PoFxIdleDevice @ 0x14036EFF4 (PoFxIdleDevice.c)
+ *     PopFxActivateDevice @ 0x14036F190 (PopFxActivateDevice.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1403A0164 (PopPepUpdateIdleStateRefCount.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PpmGetDeepSleepPlatformStateIndex @ 0x140565C2C (PpmGetDeepSleepPlatformStateIndex.c)
+ *     PopFxBugCheck @ 0x14056932C (PopFxBugCheck.c)
+ *     PopPluginRequestComponentIdleConstraints @ 0x14056DE00 (PopPluginRequestComponentIdleConstraints.c)
+ *     PopPluginRequestDeviceIdleConstraints @ 0x14056DF28 (PopPluginRequestDeviceIdleConstraints.c)
+ *     PopFxEnableEnhancedAccounting @ 0x140573ED4 (PopFxEnableEnhancedAccounting.c)
+ *     PopPepInitializeDebuggerMasks @ 0x140574BDC (PopPepInitializeDebuggerMasks.c)
+ *     PopPepResetDeviceAccountingLevel @ 0x140575DC8 (PopPepResetDeviceAccountingLevel.c)
+ *     EmClientRuleEvaluate @ 0x140990340 (EmClientRuleEvaluate.c)
  */
 
-__int64 __fastcall PopPepInitializeVetoMasks(__int64 a1, unsigned int a2)
+void __fastcall PopPepInitializeVetoMasks(__int64 a1, unsigned int a2)
 {
-  __int64 v2; // r12
-  __int64 v4; // r13
+  __int64 v2; // r15
+  ULONG_PTR v4; // rsi
   int v5; // eax
-  ULONG_PTR v6; // r14
-  char *v7; // r8
+  char v6; // sp
+  __int64 v7; // rdx
   __int128 v8; // xmm0
+  char *v9; // r8
   unsigned int i; // edi
-  int v10; // ecx
-  _DWORD *v11; // r8
-  KIRQL v12; // si
-  int DeepSleepPlatformStateIndex; // eax
-  __int64 v14; // rcx
-  __int64 v15; // rax
-  __int64 v16; // rdx
-  unsigned int v17; // ecx
-  unsigned int *v18; // r14
-  unsigned int v19; // esi
-  int v20; // r15d
-  _DWORD *v21; // r12
-  _BYTE *v22; // r13
-  unsigned int v23; // edi
-  unsigned int v24; // edx
-  __int64 v25; // rax
-  int v26; // eax
-  __int64 v27; // rax
-  unsigned int v28; // edi
-  __int64 v29; // rax
-  __int64 v30; // r13
-  unsigned int v31; // esi
-  unsigned int *v32; // r15
-  int v33; // edx
-  _DWORD *v34; // rax
-  _BYTE *v35; // rcx
-  unsigned int v36; // eax
-  _DWORD *v37; // rcx
-  __int64 v38; // rdi
+  int v11; // ecx
+  unsigned __int64 v12; // rdx
+  _DWORD *v13; // r8
+  KIRQL v14; // r12
+  __int64 v15; // rdi
+  signed __int32 v16; // r14d
+  __int64 v17; // rcx
+  unsigned int v18; // edx
+  unsigned int *v19; // r11
+  int v20; // r14d
+  unsigned int v21; // edx
+  __int64 v22; // r10
+  _DWORD *v23; // r9
+  unsigned int v24; // r8d
+  unsigned int v25; // edi
+  __int64 v26; // rax
+  int v27; // eax
+  __int64 v28; // rax
+  char v29; // al
+  unsigned int v30; // r12d
+  __int64 v31; // r13
+  __int64 v32; // r13
+  unsigned int *v33; // rdi
+  int v34; // r11d
+  unsigned int v35; // edx
+  __int64 v36; // r10
+  _DWORD *v37; // r8
+  __int64 v38; // r9
+  unsigned int v39; // eax
+  _DWORD *v40; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
-  int v42; // eax
-  bool v43; // zf
-  __int64 result; // rax
-  char v45; // [rsp+20h] [rbp-E0h]
-  KIRQL v46; // [rsp+21h] [rbp-DFh]
-  int v48; // [rsp+24h] [rbp-DCh]
-  ULONG_PTR BugCheckParameter2; // [rsp+28h] [rbp-D8h]
-  unsigned int BugCheckParameter2a; // [rsp+28h] [rbp-D8h]
-  int v51; // [rsp+30h] [rbp-D0h] BYREF
-  int v52; // [rsp+34h] [rbp-CCh]
-  __int128 *v53; // [rsp+38h] [rbp-C8h] BYREF
+  int v44; // eax
+  bool v45; // zf
+  char v46; // [rsp+20h] [rbp-E0h]
+  char v47; // [rsp+21h] [rbp-DFh]
+  KIRQL v48; // [rsp+22h] [rbp-DEh]
+  signed __int32 v49; // [rsp+24h] [rbp-DCh] BYREF
+  int v50; // [rsp+28h] [rbp-D8h] BYREF
+  int DeepSleepPlatformStateIndex; // [rsp+2Ch] [rbp-D4h]
+  __int128 *v52; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 v53; // [rsp+38h] [rbp-C8h]
   __int64 v54; // [rsp+40h] [rbp-C0h]
-  _DWORD *v55; // [rsp+48h] [rbp-B8h]
-  __int64 v56; // [rsp+50h] [rbp-B0h]
-  __int64 v57; // [rsp+58h] [rbp-A8h]
-  ULONG_PTR BugCheckParameter3; // [rsp+60h] [rbp-A0h]
-  __int128 v59; // [rsp+68h] [rbp-98h] BYREF
-  _QWORD v60[20]; // [rsp+80h] [rbp-80h] BYREF
-  _DWORD v61[32]; // [rsp+120h] [rbp+20h] BYREF
+  __int128 v55; // [rsp+48h] [rbp-B8h] BYREF
+  _QWORD v56[20]; // [rsp+60h] [rbp-A0h] BYREF
+  _DWORD v57[32]; // [rsp+100h] [rbp+0h] BYREF
 
   v2 = a2;
-  v51 = 0;
-  v59 = 0LL;
-  memset(v60, 0, 0x94uLL);
-  v4 = PopPepPlatformState;
-  v5 = v60[3];
-  v6 = *(_QWORD *)(a1 + 32);
-  v7 = (char *)&v60[3];
-  v53 = 0LL;
-  *(_BYTE *)(a1 + 188) = 0;
-  if ( (((unsigned __int8)&v60[16] - 104) & 4) != 0 )
-    v5 = 1;
-  BugCheckParameter2 = v6;
-  v8 = *(_OWORD *)(v6 + 216);
-  LODWORD(v60[3]) = v5;
-  v56 = v4;
-  if ( (((unsigned __int8)&v60[16] - 104) & 4) != 0 )
-    v7 = (char *)&v60[3] + 4;
-  *(_OWORD *)&v60[1] = v8;
-  memset64(v7, 0x100000001uLL, 16LL - ((((unsigned __int8)&v60[16] - 104) & 4) != 0LL));
-  if ( (((unsigned __int8)&v60[16] - 104) & 4) != 0 )
-    *(_DWORD *)&v7[(-(__int64)((((unsigned __int8)&v60[16] - 104) & 4) != 0LL) & 0xFFFFFFFFFFFFFFFCuLL) + 124] = 1;
-  for ( i = 0; i < (unsigned int)v2; ++i )
+  v50 = 0;
+  v55 = 0LL;
+  memset(v56, 0, 0x98uLL);
+  v4 = *(_QWORD *)(a1 + 32);
+  v52 = 0LL;
+  if ( *(_QWORD *)(v4 + 48) )
   {
-    LODWORD(v60[0]) = i;
-    *(_QWORD *)&v59 = v60;
-    DWORD2(v59) = 8;
-    v53 = &v59;
-    EmClientRuleEvaluate(&GUID_EM_PEP_UPADTE_DEVICE_CONTRAINT, &v53, 1LL, &v51);
-    if ( v51 == 2 )
-      *(_BYTE *)(a1 + 188) = 1;
-  }
-  v10 = v61[0];
-  v11 = v61;
-  if ( (((unsigned __int8)&v60[16] + 32) & 4) != 0 )
-    v10 = 1;
-  v61[0] = v10;
-  if ( (((unsigned __int8)&v60[16] + 32) & 4) != 0 )
-    v11 = &v61[1];
-  memset64(v11, 0x100000001uLL, 16LL - ((((unsigned __int8)&v60[16] + 32) & 4) != 0LL));
-  if ( (((unsigned __int8)&v60[16] + 32) & 4) != 0 )
-    *(_DWORD *)((char *)v11 + (-(__int64)((((unsigned __int8)&v60[16] + 32) & 4) != 0LL) & 0xFFFFFFFFFFFFFFFCuLL) + 124) = 1;
-  v12 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 64));
-  v46 = v12;
-  if ( *(_DWORD *)(a1 + 172) != 2 )
-  {
-    DeepSleepPlatformStateIndex = PpmGetDeepSleepPlatformStateIndex();
-    v14 = *(_QWORD *)(a1 + 32);
-    v52 = DeepSleepPlatformStateIndex;
-    if ( PopPluginRequestDeviceIdleConstraints(v14, (__int64)v61, v2) )
+    v5 = v56[3];
+    v7 = (v6 + 120) & 4;
+    *(_BYTE *)(a1 + 384) = 0;
+    v8 = *(_OWORD *)(v4 + 216);
+    v9 = (char *)&v56[3];
+    if ( ((v6 + 120) & 4) != 0 )
+      v5 = 1;
+    LODWORD(v56[3]) = v5;
+    if ( ((v6 + 120) & 4) != 0 )
+      v9 = (char *)&v56[3] + 4;
+    *(_OWORD *)&v56[1] = v8;
+    memset64(v9, 0x100000001uLL, 16LL - ((unsigned int)v7 != 0LL));
+    if ( ((v6 + 120) & 4) != 0 )
+      *(_DWORD *)&v9[(-(__int64)(v7 != 0) & 0xFFFFFFFFFFFFFFFCuLL) + 124] = 1;
+    for ( i = 0; i < (unsigned int)v2; ++i )
     {
-      if ( !*(_BYTE *)(a1 + 188) )
-        goto LABEL_28;
+      LODWORD(v56[0]) = i;
+      *(_QWORD *)&v55 = v56;
+      DWORD2(v55) = 8;
+      v52 = &v55;
+      EmClientRuleEvaluate(&GUID_EM_PEP_UPADTE_DEVICE_CONTRAINT, &v52, 1LL, &v50);
+      if ( v50 == 2 )
+        *(_BYTE *)(a1 + 384) = 1;
     }
-    else if ( !*(_BYTE *)(a1 + 188) )
+    v54 = *(_QWORD *)(*(_QWORD *)(v4 + 48) + 32LL);
+    PopFxActivateDevice(v54, 0, 0);
+    v11 = v57[0];
+    v12 = (unsigned __int64)v57 & 4;
+    v13 = v57;
+    if ( ((unsigned __int8)v57 & 4) != 0 )
+      v11 = 1;
+    v57[0] = v11;
+    if ( ((unsigned __int8)v57 & 4) != 0 )
+      v13 = &v57[1];
+    memset64(v13, 0x100000001uLL, 16LL - ((unsigned int)v12 != 0LL));
+    if ( ((unsigned __int8)v57 & 4) != 0 )
+      *(_DWORD *)((char *)v13 + (-(__int64)(v12 != 0) & 0xFFFFFFFFFFFFFFFCuLL) + 124) = 1;
+    v14 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 64));
+    v48 = v14;
+    v15 = 0LL;
+    DeepSleepPlatformStateIndex = PpmGetDeepSleepPlatformStateIndex();
+    v46 = 0;
+    v49 = _InterlockedCompareExchange(&PopFxDeviceAccountingLevel, 0, 0);
+    v16 = v49;
+    KxAcquireSpinLock((PKSPIN_LOCK)(v4 + 600));
+    *(_DWORD *)(v4 + 616) = v49;
+    memset((void *)(v4 + 632), 0, 0xC0uLL);
+    *(_BYTE *)(v4 + 608) = 0;
+    if ( PopPluginRequestDeviceIdleConstraints(*(_QWORD *)(a1 + 32), (__int64)v57, v2) || *(_BYTE *)(a1 + 384) )
     {
-LABEL_42:
-      v27 = *(int *)(a1 + 168);
-      if ( (_DWORD)v27 != 4 )
-        PopPepUpdateIdleStateRefCount(0, *(_DWORD *)(a1 + 4 * v27 + 140), 1, (volatile signed __int32 *)(a1 + 184));
-      if ( *(_BYTE *)(a1 + 124) )
+      v46 = PopFxEnableEnhancedAccounting(&v49);
+      if ( *(_BYTE *)(a1 + 384) && (_DWORD)v2 )
       {
-        v28 = 0;
-        v45 = 0;
-        for ( BugCheckParameter2a = 0; v28 < *(_DWORD *)(a1 + 180); BugCheckParameter2a = v28 )
+        v17 = 0LL;
+        v15 = v2;
+        do
         {
-          v29 = *(_QWORD *)(*(_QWORD *)(v6 + 832) + 8LL * v28);
-          BugCheckParameter3 = v28;
-          v30 = a1 + 208LL * v28;
-          v57 = v29;
-          memset(v61, 0, sizeof(v61));
-          if ( PopPluginRequestComponentIdleConstraints(*(_QWORD *)(a1 + 32), v28, (__int64)v61, v2) )
+          v18 = *(_DWORD *)((char *)&v56[3] + v17 * 4);
+          if ( v57[v17] < v18 )
+            v57[v17] = v18;
+          ++v17;
+          --v15;
+        }
+        while ( v15 );
+      }
+      v19 = v57;
+      v20 = 1;
+      v21 = v15;
+      if ( (_DWORD)v2 )
+      {
+        v22 = v15;
+        v23 = v57;
+        do
+        {
+          if ( *(_BYTE *)(v22 + PopPepPlatformState + 57) == (_BYTE)v15 && *v23 != 1 )
+            PopFxBugCheck(0x620uLL, v4, v21, 0LL);
+          v24 = *v19;
+          v25 = 1;
+          do
           {
-            v31 = 0;
-            v32 = v61;
-            v33 = 1;
-            v48 = 1;
+            if ( v25 >= v24 )
+              break;
+            v26 = v25++ - 1;
+            *(_DWORD *)(a1 + 4 * v26 + 144) |= v20;
+          }
+          while ( v25 <= 3 );
+          if ( DeepSleepPlatformStateIndex != -1 && v21 == DeepSleepPlatformStateIndex && v24 > 1 )
+          {
+            *(_DWORD *)(v4 + 612) = v24;
+            *(_QWORD *)(v4 + 624) = MEMORY[0xFFFFF78000000008];
+            *(_BYTE *)(v4 + 608) = 1;
+            _InterlockedOr((volatile signed __int32 *)(v4 + 824), 0x10u);
+          }
+          ++v19;
+          v20 *= 2;
+          ++v21;
+          v22 += 384LL;
+          ++v23;
+          LODWORD(v15) = 0;
+        }
+        while ( v21 < (unsigned int)v2 );
+      }
+      v27 = *(_DWORD *)(a1 + 152);
+      v16 = v49;
+      *(_QWORD *)(a1 + 156) = *(_QWORD *)(a1 + 144);
+      *(_DWORD *)(a1 + 164) = v27;
+    }
+    *(_DWORD *)(v4 + 616) = v16;
+    KxReleaseSpinLock((PKSPIN_LOCK)(v4 + 600));
+    v28 = *(int *)(a1 + 168);
+    if ( (_DWORD)v28 != 4 )
+      PopPepUpdateIdleStateRefCount(0, *(_DWORD *)(a1 + 4 * v28 + 140), 1);
+    v29 = *(_BYTE *)(a1 + 124);
+    if ( v29 )
+    {
+      v30 = v15;
+      v47 = v15;
+      if ( *(_DWORD *)(a1 + 180) > (unsigned int)v15 )
+      {
+        while ( 1 )
+        {
+          v53 = a1 + 200LL * v30;
+          v31 = *(_QWORD *)(*(_QWORD *)(v4 + 832) + 8LL * v30);
+          memset(v57, 0, sizeof(v57));
+          v32 = v31 + 200;
+          KxAcquireSpinLock((PKSPIN_LOCK)v32);
+          *(_DWORD *)(v32 + 16) = v16;
+          memset((void *)(v32 + 32), 0, 0xC0uLL);
+          *(_BYTE *)(v32 + 8) = 0;
+          if ( PopPluginRequestComponentIdleConstraints(*(_QWORD *)(a1 + 32), v30, (__int64)v57, v2) )
+          {
+            v46 = PopFxEnableEnhancedAccounting(&v49);
+            v33 = v57;
+            v34 = 1;
+            v35 = 0;
             if ( (_DWORD)v2 )
             {
-              v34 = v61;
-              v35 = (_BYTE *)(v56 + 57);
-              v55 = v61;
-              v54 = v56 + 57;
+              v36 = v53;
+              v37 = v57;
+              v38 = 0LL;
               do
               {
-                if ( !*v35 && *v34 )
-                  PopFxBugCheck(0x621uLL, v6, BugCheckParameter3, v31);
-                v36 = 0;
-                if ( *(_DWORD *)(v30 + 380) )
+                if ( !*(_BYTE *)(v38 + PopPepPlatformState + 57) && *v37 )
+                  PopFxBugCheck(0x621uLL, v4, v30, v35);
+                v39 = 0;
+                if ( *(_DWORD *)(v36 + 372) )
                 {
-                  v37 = (_DWORD *)(*(_QWORD *)(v30 + 392) + 16LL);
+                  v40 = (_DWORD *)(*(_QWORD *)(v36 + 376) + 16LL);
                   do
                   {
-                    if ( v36 >= *v32 )
+                    if ( v39 >= *v33 )
                       break;
-                    *v37 |= v33;
-                    ++v36;
-                    v37 += 6;
+                    *v40 |= v34;
+                    ++v39;
+                    v40 += 6;
                   }
-                  while ( v36 < *(_DWORD *)(v30 + 380) );
+                  while ( v39 < *(_DWORD *)(v36 + 372) );
                 }
-                if ( v52 != -1 && v31 == v52 && *v32 )
+                if ( DeepSleepPlatformStateIndex != -1 && v35 == DeepSleepPlatformStateIndex && *v33 )
                 {
-                  v38 = v57 + 200;
-                  KxAcquireSpinLock((PKSPIN_LOCK)(v57 + 200));
-                  PopFxReinitializeAccountingInstance(v38, 2);
-                  *(_DWORD *)(v38 + 12) = *v32;
-                  *(_QWORD *)(v38 + 24) = MEMORY[0xFFFFF78000000008];
-                  *(_BYTE *)(v38 + 8) = 1;
-                  KxReleaseSpinLock((volatile signed __int64 *)v38);
-                  v45 = 1;
-                  _InterlockedOr((volatile signed __int32 *)(v6 + 824), 0x10u);
-                  v33 = v48;
+                  *(_DWORD *)(v32 + 12) = *v33;
+                  *(_QWORD *)(v32 + 24) = MEMORY[0xFFFFF78000000008];
+                  *(_BYTE *)(v32 + 8) = 1;
+                  v47 = 1;
+                  _InterlockedOr((volatile signed __int32 *)(v4 + 824), 0x10u);
                 }
-                v33 *= 2;
-                v35 = (_BYTE *)(v54 + 448);
-                v34 = v55 + 1;
-                v48 = v33;
-                ++v32;
-                v54 += 448LL;
-                ++v31;
-                ++v55;
+                ++v33;
+                v34 *= 2;
+                ++v35;
+                v38 += 384LL;
+                ++v37;
               }
-              while ( v31 < (unsigned int)v2 );
-              v28 = BugCheckParameter2a;
+              while ( v35 < (unsigned int)v2 );
             }
+            v16 = v49;
           }
+          *(_DWORD *)(v32 + 16) = v16;
+          KxReleaseSpinLock((PKSPIN_LOCK)v32);
           PopPepUpdateIdleStateRefCount(
             0,
-            *(_DWORD *)(*(_QWORD *)(v30 + 392) + 24LL * *(unsigned int *)(v30 + 368) + 16),
-            1,
-            (volatile signed __int32 *)(v30 + 384));
-          if ( v45 )
-            _InterlockedOr((volatile signed __int32 *)(v6 + 824), 0x100u);
+            *(_DWORD *)(*(_QWORD *)(v53 + 376) + 24LL * *(unsigned int *)(v53 + 360) + 16),
+            1);
+          LOBYTE(v15) = 0;
+          if ( v47 )
+            _InterlockedOr((volatile signed __int32 *)(v4 + 824), 0x100u);
           else
-            _InterlockedAnd((volatile signed __int32 *)(v6 + 824), 0xFFFFFEFF);
-          ++v28;
+            _InterlockedAnd((volatile signed __int32 *)(v4 + 824), 0xFFFFFEFF);
+          if ( ++v30 >= *(_DWORD *)(a1 + 180) )
+            break;
+          v16 = v49;
         }
-        if ( *(_BYTE *)(a1 + 124) )
-          goto LABEL_68;
+        v29 = *(_BYTE *)(a1 + 124);
       }
-      if ( *(_BYTE *)(a1 + 188) )
-LABEL_68:
-        *(_DWORD *)(a1 + 172) = 2;
-      v12 = v46;
-      goto LABEL_70;
+      v14 = v48;
+      if ( v29 )
+        goto LABEL_70;
     }
-    if ( (_DWORD)v2 )
-    {
-      v15 = 0LL;
-      v16 = v2;
-      do
-      {
-        v17 = *(_DWORD *)((char *)&v60[3] + v15 * 4);
-        if ( v61[v15] < v17 )
-          v61[v15] = v17;
-        ++v15;
-        --v16;
-      }
-      while ( v16 );
-      v18 = v61;
-      v19 = 0;
-      v20 = 1;
-      goto LABEL_29;
-    }
-LABEL_28:
-    v19 = 0;
-    v18 = v61;
-    v20 = 1;
-    if ( !(_DWORD)v2 )
-    {
-LABEL_41:
-      v26 = *(_DWORD *)(a1 + 152);
-      v6 = BugCheckParameter2;
-      *(_QWORD *)(a1 + 156) = *(_QWORD *)(a1 + 144);
-      *(_DWORD *)(a1 + 164) = v26;
-      goto LABEL_42;
-    }
-LABEL_29:
-    v21 = v61;
-    v22 = (_BYTE *)(v4 + 57);
-    do
-    {
-      if ( !*v22 && *v21 != 1 )
-        PopFxBugCheck(0x620uLL, BugCheckParameter2, v19, 0LL);
-      v23 = *v18;
-      v24 = 1;
-      do
-      {
-        if ( v24 >= v23 )
-          break;
-        v25 = v24++ - 1;
-        *(_DWORD *)(a1 + 4 * v25 + 144) |= v20;
-      }
-      while ( v24 <= 3 );
-      if ( v52 != -1 && v19 == v52 && v23 > 1 )
-      {
-        KxAcquireSpinLock((PKSPIN_LOCK)(BugCheckParameter2 + 600));
-        PopFxReinitializeAccountingInstance(BugCheckParameter2 + 600, 2);
-        *(_DWORD *)(BugCheckParameter2 + 612) = *v18;
-        *(_QWORD *)(BugCheckParameter2 + 624) = MEMORY[0xFFFFF78000000008];
-        *(_BYTE *)(BugCheckParameter2 + 608) = 1;
-        KxReleaseSpinLock((volatile signed __int64 *)(BugCheckParameter2 + 600));
-        _InterlockedOr((volatile signed __int32 *)(BugCheckParameter2 + 824), 0x810u);
-      }
-      ++v18;
-      v20 *= 2;
-      ++v19;
-      v22 += 448;
-      ++v21;
-    }
-    while ( v19 < a2 );
-    LODWORD(v2) = a2;
-    goto LABEL_41;
-  }
+    if ( *(_BYTE *)(a1 + 384) != (_BYTE)v15 )
 LABEL_70:
-  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-  if ( KiIrqlFlags )
-  {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v12 <= 0xFu && CurrentIrql >= 2u )
+      *(_DWORD *)(a1 + 172) = 2;
+    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
+    if ( KiIrqlFlags )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v42 = ~(unsigned __int16)(-1LL << (v12 + 1));
-      v43 = (v42 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v42;
-      if ( v43 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && v14 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v44 = ~(unsigned __int16)(-1LL << (v14 + 1));
+          v45 = (v44 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v44;
+          if ( v45 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          LOBYTE(v15) = 0;
+        }
+      }
     }
+    __writecr8(v14);
+    PoFxIdleDevice(v54);
+    if ( v46 != (_BYTE)v15 )
+      PopPepResetDeviceAccountingLevel();
   }
-  result = v12;
-  __writecr8(v12);
-  return result;
+  else if ( (*(_DWORD *)(v4 + 824) & 2) != 0 )
+  {
+    PopPepInitializeDebuggerMasks(a1, v2);
+  }
 }

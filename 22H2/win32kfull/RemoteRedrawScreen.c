@@ -1,62 +1,45 @@
 /*
- * XREFs of RemoteRedrawScreen @ 0x1C01334E0
+ * XREFs of RemoteRedrawScreen @ 0x1C0162DB4
  * Callers:
- *     xxxRemoteDisconnect @ 0x1C0130984 (xxxRemoteDisconnect.c)
- *     xxxRemoteReconnect @ 0x1C0132780 (xxxRemoteReconnect.c)
- *     NtUserRemoteRedrawScreen @ 0x1C01D9C20 (NtUserRemoteRedrawScreen.c)
- *     RemotePassthruDisable @ 0x1C02030CC (RemotePassthruDisable.c)
- *     RemoteShadowCleanup @ 0x1C0203220 (RemoteShadowCleanup.c)
- *     RemoteShadowStart @ 0x1C020342C (RemoteShadowStart.c)
+ *     xxxRemoteDisconnect @ 0x1C01280E0 (xxxRemoteDisconnect.c)
+ *     xxxRemoteReconnect @ 0x1C0161DA0 (xxxRemoteReconnect.c)
+ *     NtUserRemoteRedrawScreen @ 0x1C0200A00 (NtUserRemoteRedrawScreen.c)
+ *     RemotePassthruDisable @ 0x1C0225E40 (RemotePassthruDisable.c)
+ *     RemoteShadowCleanup @ 0x1C0225F40 (RemoteShadowCleanup.c)
+ *     RemoteShadowStart @ 0x1C0226110 (RemoteShadowStart.c)
  * Callees:
- *     PopAndFreeW32ThreadLock @ 0x1C0062180 (PopAndFreeW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     xxxSwitchDesktop @ 0x1C006BB2C (xxxSwitchDesktop.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     xxxSwitchDesktop @ 0x1C0029864 (xxxSwitchDesktop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1530 (PopAndFreeW32ThreadLock.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-__int64 __fastcall RemoteRedrawScreen(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RemoteRedrawScreen(int a1)
 {
-  PDEVICE_OBJECT v3; // rcx
-  void *v4; // rdi
-  __int128 v6; // [rsp+40h] [rbp-39h] BYREF
-  __int64 v7; // [rsp+50h] [rbp-29h]
-  __int128 v8; // [rsp+58h] [rbp-21h] BYREF
-  __int64 v9; // [rsp+68h] [rbp-11h]
-  _BYTE v10[8]; // [rsp+70h] [rbp-9h] BYREF
-  GUID ActivityId; // [rsp+78h] [rbp-1h] BYREF
-  int v12; // [rsp+88h] [rbp+Fh]
-  char v13; // [rsp+A0h] [rbp+27h]
-  __int64 v14; // [rsp+B0h] [rbp+37h]
+  void *v1; // rdi
+  __int64 v2; // rdx
+  __int128 v4; // [rsp+30h] [rbp-39h] BYREF
+  __int64 v5; // [rsp+40h] [rbp-29h]
+  __int128 v6; // [rsp+48h] [rbp-21h] BYREF
+  __int64 v7; // [rsp+58h] [rbp-11h]
+  _QWORD v8[10]; // [rsp+60h] [rbp-9h] BYREF
 
-  v3 = WPP_GLOBAL_Control;
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      13,
-      4,
-      3,
-      13,
-      (__int64)&WPP_713a73a9a0bc322488e80543f5fb9642_Traceguids);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_(a1, 4, 9, 19, (__int64)&WPP_edddbb69987e325f9f0b7090eb098db8_Traceguids);
   if ( gbFreezeScreenUpdates )
   {
     gbFreezeScreenUpdates = 0;
-    if ( (unsigned int)UserRemoteConnectedSessionUsingWddm(v3, a2, a3) )
+    if ( (unsigned int)UserRemoteConnectedSessionUsingWddm() )
     {
-      memset_0(v10, 0, 0x48uLL);
-      EtwActivityIdControl(3u, &ActivityId);
-      v14 = MEMORY[0xFFFFF78000000014];
-      v12 = 66;
-      v13 = -1;
-      DrvSetMonitorPowerState(*(_QWORD *)(gpDispInfo + 16LL), 1LL, 0LL, v10);
+      memset(v8, 0, 0x48uLL);
+      EtwActivityIdControl(3u, (LPGUID)&v8[1]);
+      v8[8] = MEMORY[0xFFFFF78000000014];
+      LODWORD(v8[3]) = 66;
+      LOBYTE(v8[6]) = -1;
+      DrvSetMonitorPowerState(*(_QWORD *)(gpDispInfo + 16LL), 1LL, 0LL, v8);
     }
     else
     {
@@ -65,22 +48,26 @@ __int64 __fastcall RemoteRedrawScreen(__int64 a1, __int64 a2, __int64 a3)
     if ( gspdeskShouldBeForeground )
     {
       gbDesktopLocked = 0;
-      v4 = *(void **)(gspdeskShouldBeForeground + 40LL);
+      v1 = *(void **)(gspdeskShouldBeForeground + 40LL);
       if ( (*(_DWORD *)(gspdeskShouldBeForeground + 48LL) & 8) == 0 )
       {
+        v5 = 0LL;
         v7 = 0LL;
-        v9 = 0LL;
+        v4 = 0LL;
         v6 = 0LL;
-        v8 = 0LL;
-        PushW32ThreadLock((__int64)v4, &v8, UserDereferenceObject);
-        if ( v4 )
-          ObfReferenceObject(v4);
-        PushW32ThreadLock(gspdeskShouldBeForeground, &v6, UserDereferenceObject);
+        PushW32ThreadLock((__int64)v1, &v6, UserDereferenceObject);
+        if ( v1 )
+          ObfReferenceObject(v1);
+        PushW32ThreadLock(gspdeskShouldBeForeground, &v4, UserDereferenceObject);
+        v2 = gspdeskShouldBeForeground;
         if ( gspdeskShouldBeForeground )
+        {
           ObfReferenceObject(gspdeskShouldBeForeground);
-        xxxSwitchDesktop((__int64)v4, gspdeskShouldBeForeground, 2);
+          v2 = gspdeskShouldBeForeground;
+        }
+        xxxSwitchDesktop((__int64)v1, v2, 2);
+        PopAndFreeW32ThreadLock((__int64)&v4);
         PopAndFreeW32ThreadLock((__int64)&v6);
-        PopAndFreeW32ThreadLock((__int64)&v8);
       }
       LockObjectAssignment(gspdeskShouldBeForeground, 0LL);
     }

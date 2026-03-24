@@ -1,106 +1,94 @@
 /*
- * XREFs of ulGetNearestIndexFromColorref @ 0x1C009B700
+ * XREFs of ulGetNearestIndexFromColorref @ 0x1C0086DE0
  * Callers:
- *     GreGetNearestColor @ 0x1C005FC20 (GreGetNearestColor.c)
- *     ?vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z @ 0x1C0088CC0 (-vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z.c)
+ *     GreGetNearestColor @ 0x1C0021710 (GreGetNearestColor.c)
+ *     ?vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z @ 0x1C00679D0 (-vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z.c)
  * Callees:
- *     ?bIsPalDefault@XEPALOBJ@@QEBAHXZ @ 0x1C000B878 (-bIsPalDefault@XEPALOBJ@@QEBAHXZ.c)
- *     ?ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z @ 0x1C0089200 (-ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z.c)
- *     ?ulGetNearestFromPalentryNoExactMatchFirst@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@@Z @ 0x1C0157EB0 (-ulGetNearestFromPalentryNoExactMatchFirst@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@@Z.c)
- *     ?ulGetNearestFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@K@Z @ 0x1C016CE84 (-ulGetNearestFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@K@Z.c)
+ *     ?ulGetNearestFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@K@Z @ 0x1C0086E70 (-ulGetNearestFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@K@Z.c)
  */
 
-unsigned int __fastcall ulGetNearestIndexFromColorref(_DWORD *a1, __int64 a2, tagPALETTEENTRY a3, unsigned int a4)
+tagPALETTEENTRY __fastcall ulGetNearestIndexFromColorref(__int64 a1, __int64 a2, tagPALETTEENTRY a3, unsigned int a4)
 {
-  __int64 v6; // rax
-  __int64 v7; // rsi
-  unsigned int v8; // r8d
-  tagPALETTEENTRY NearestFromPalentry; // ebx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // [rsp+20h] [rbp-10h] BYREF
-  _DWORD *v14; // [rsp+50h] [rbp+20h] BYREF
-  __int64 v15; // [rsp+58h] [rbp+28h] BYREF
-  tagPALETTEENTRY v16; // [rsp+60h] [rbp+30h]
+  tagPALETTEENTRY v5; // edx
+  tagPALETTEENTRY result; // eax
+  __int64 v7; // r8
+  struct PALETTE *v8; // [rsp+20h] [rbp-10h] BYREF
+  __int64 v9; // [rsp+40h] [rbp+10h] BYREF
+  __int64 v10; // [rsp+48h] [rbp+18h] BYREF
+  tagPALETTEENTRY v11; // [rsp+50h] [rbp+20h]
 
-  v15 = a2;
-  v14 = a1;
-  v6 = SGDGetSessionState(a1);
-  v16 = a3;
-  v7 = *(_QWORD *)(v6 + 24);
-  if ( !v14 || (v14[6] & 0x800) != 0 )
+  v10 = a2;
+  v9 = a1;
+  v11 = a3;
+  if ( a1 && (*(_DWORD *)(a1 + 24) & 0x800) == 0 )
   {
-    if ( (*(_DWORD *)&a3 & 0x3000000) != 0 )
+    if ( (*(_DWORD *)&a3 & 0x1000000) == 0 )
     {
-      if ( !v15 )
-        return 0;
-      v16.peFlags = 0;
-      if ( (*(_DWORD *)&a3 & 0x1000000) != 0 )
-      {
-        NearestFromPalentry = v16;
-        if ( *(unsigned int *)&v16 >= *(_DWORD *)(v15 + 28) )
-          NearestFromPalentry = 0;
-      }
-      else
-      {
-        NearestFromPalentry = (tagPALETTEENTRY)XEPALOBJ::ulGetNearestFromPalentry((XEPALOBJ *)&v15, v16, a4);
-      }
-      if ( XEPALOBJ::bIsPalDefault((XEPALOBJ *)&v15) )
-        goto LABEL_33;
-      if ( !v14 )
-        goto LABEL_38;
-      v11 = *(_QWORD *)(v15 + 80);
-      if ( v11 )
-        return *(unsigned __int8 *)(*(unsigned int *)&NearestFromPalentry + v11 + 4);
-      if ( !v14 )
-      {
-LABEL_38:
-        v12 = *(_QWORD *)(v15 + 72);
-        if ( v12 )
-          return *(unsigned __int8 *)(*(unsigned int *)&NearestFromPalentry + v12 + 4);
-      }
-      a3 = *(tagPALETTEENTRY *)(*(_QWORD *)(v15 + 112) + 4LL * *(unsigned int *)&NearestFromPalentry);
-      v16 = a3;
-      if ( a3.peFlags == 2 )
-        return a3.peRed;
+      if ( (*(_DWORD *)&a3 & 0x10FF0000) == 0x10FF0000 )
+        return (unsigned int)a3.peRed < *(_DWORD *)(a1 + 28) ? (tagPALETTEENTRY)a3.peRed : 0;
+      v11.peFlags = 0;
+      v5 = v11;
+      return (tagPALETTEENTRY)XEPALOBJ::ulGetNearestFromPalentry((XEPALOBJ *)&v9, v5, a4);
     }
-    if ( (*(_DWORD *)&a3 & 0x10FF0000) == 0x10FF0000 )
-      return a3.peRed;
-    v16.peFlags = 0;
-    NearestFromPalentry = v16;
-    if ( v16 == 0xFFFFFF )
+    if ( a2 )
     {
-      NearestFromPalentry = (tagPALETTEENTRY)19;
-      goto LABEL_34;
+      v5 = *(tagPALETTEENTRY *)(*(_QWORD *)(a2 + 112)
+                              + 4LL
+                              * ((unsigned int)*(unsigned __int16 *)&a3.peRed < *(_DWORD *)(a2 + 28)
+                               ? *(unsigned __int16 *)&a3.peRed
+                               : 0));
+      return (tagPALETTEENTRY)XEPALOBJ::ulGetNearestFromPalentry((XEPALOBJ *)&v9, v5, a4);
     }
-    if ( v16 )
-    {
-      v13 = *(_QWORD *)(v7 + 6000);
-      NearestFromPalentry = (tagPALETTEENTRY)XEPALOBJ::ulGetNearestFromPalentry((XEPALOBJ *)&v13, v16, a4);
-    }
-LABEL_33:
-    if ( *(unsigned int *)&NearestFromPalentry < 0xA )
-      return (unsigned int)NearestFromPalentry;
-LABEL_34:
-    *(_DWORD *)&NearestFromPalentry += 236;
-    return (unsigned int)NearestFromPalentry;
-  }
-  if ( (*(_DWORD *)&a3 & 0x1000000) == 0 )
-  {
-    if ( (*(_DWORD *)&a3 & 0x10FF0000) == 0x10FF0000 )
-      return (unsigned int)a3.peRed < v14[7] ? a3.peRed : 0;
-    v16.peFlags = 0;
-    v8 = (unsigned int)v16;
-    goto LABEL_6;
-  }
-  if ( !v15 )
     return 0;
-  v8 = *(_DWORD *)(*(_QWORD *)(v15 + 112)
-                 + 4LL
-                 * (*(unsigned __int16 *)&a3.peRed & (unsigned int)-((unsigned int)*(unsigned __int16 *)&a3.peRed < *(_DWORD *)(v15 + 28))));
-LABEL_6:
-  if ( a4 )
-    return XEPALOBJ::ulDispatchGFPEFunction((ULONG_PTR *)&v14, v14[24], v8);
-  else
-    return XEPALOBJ::ulGetNearestFromPalentryNoExactMatchFirst((XEPALOBJ *)&v14, (struct tagPALETTEENTRY)v8);
+  }
+  if ( (*(_DWORD *)&a3 & 0x3000000) != 0 )
+  {
+    if ( !a2 )
+      return 0;
+    v11.peFlags = 0;
+    if ( (*(_DWORD *)&a3 & 0x1000000) != 0 )
+    {
+      result = v11;
+      if ( *(unsigned int *)&v11 >= *(_DWORD *)(a2 + 28) )
+        result = 0;
+    }
+    else
+    {
+      result = (tagPALETTEENTRY)XEPALOBJ::ulGetNearestFromPalentry((XEPALOBJ *)&v10, v11, a4);
+      a2 = v10;
+      a1 = v9;
+    }
+    if ( (struct PALETTE *)a2 == ppalDefault )
+      goto LABEL_31;
+    if ( a1 )
+      v7 = *(_QWORD *)(a2 + 80);
+    else
+      v7 = *(_QWORD *)(a2 + 72);
+    if ( v7 )
+      return (tagPALETTEENTRY)*(unsigned __int8 *)(*(unsigned int *)&result + v7 + 4);
+    a3 = *(tagPALETTEENTRY *)(*(_QWORD *)(a2 + 112) + 4LL * *(unsigned int *)&result);
+    v11 = a3;
+    if ( a3.peFlags == 2 )
+      return (tagPALETTEENTRY)a3.peRed;
+  }
+  if ( (*(_DWORD *)&a3 & 0x10FF0000) == 0x10FF0000 )
+    return (tagPALETTEENTRY)a3.peRed;
+  v11.peFlags = 0;
+  result = v11;
+  if ( v11 == 0xFFFFFF )
+  {
+    result = (tagPALETTEENTRY)19;
+LABEL_32:
+    *(_DWORD *)&result += 236;
+    return result;
+  }
+  if ( v11 )
+  {
+    v8 = ppalDefault;
+    result = (tagPALETTEENTRY)XEPALOBJ::ulGetNearestFromPalentry((XEPALOBJ *)&v8, v11, a4);
+  }
+LABEL_31:
+  if ( *(unsigned int *)&result >= 0xA )
+    goto LABEL_32;
+  return result;
 }

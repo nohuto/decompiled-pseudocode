@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM30_ReleasingResetReferenceInSuperSpeedDisabled @ 0x1C00124A0
+ * XREFs of HUBPSM30_ReleasingResetReferenceInSuperSpeedDisabled @ 0x1C0011080
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_ReleaseResetReference @ 0x1C0010B00 (HUBMUX_ReleaseResetReference.c)
+ *     HUBMUX_ReleaseResetReference @ 0x1C000F6D4 (HUBMUX_ReleaseResetReference.c)
  */
 
 __int64 __fastcall HUBPSM30_ReleasingResetReferenceInSuperSpeedDisabled(__int64 a1)

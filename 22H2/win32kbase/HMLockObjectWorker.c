@@ -1,5 +1,5 @@
 /*
- * XREFs of HMLockObjectWorker @ 0x1C008C8A0
+ * XREFs of HMLockObjectWorker @ 0x1C007B740
  * Callers:
  *     <none>
  * Callees:

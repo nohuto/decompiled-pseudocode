@@ -1,11 +1,11 @@
 /*
- * XREFs of Wmi_WdfEvtWmi_GetControllerCapabilities @ 0x1C0078140
+ * XREFs of Wmi_WdfEvtWmi_GetControllerCapabilities @ 0x1C0076D40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0019A00 (memmove.c)
- *     memset @ 0x1C0019CC0 (memset.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C001B000 (memmove.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 __int64 __fastcall Wmi_WdfEvtWmi_GetControllerCapabilities(__int64 a1, unsigned int a2, void *a3, unsigned int *a4)
@@ -18,7 +18,7 @@ __int64 __fastcall Wmi_WdfEvtWmi_GetControllerCapabilities(__int64 a1, unsigned 
   v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00612E8);
+         off_1C00602E8);
   v8 = *(_DWORD *)(v7 + 8);
   if ( v8 <= (unsigned int)v6 )
   {

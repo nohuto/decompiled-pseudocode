@@ -1,12 +1,12 @@
 /*
- * XREFs of ?VidSchiControlIndependentVidPnVSyncThread@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C0034A7C
+ * XREFs of ?VidSchiControlIndependentVidPnVSyncThread@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C002A978
  * Callers:
- *     VidSchiControlVSyncThread @ 0x1C0015040 (VidSchiControlVSyncThread.c)
+ *     VidSchiControlVSyncThread @ 0x1C0002600 (VidSchiControlVSyncThread.c)
  * Callees:
- *     ?NumberOfVSyncWaiter@DXGADAPTER@@QEAAKI@Z @ 0x1C00151AC (-NumberOfVSyncWaiter@DXGADAPTER@@QEAAKI@Z.c)
- *     VidSchiSetVSyncSuspended @ 0x1C00151D8 (VidSchiSetVSyncSuspended.c)
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     VidSchiControlVSync @ 0x1C00A3788 (VidSchiControlVSync.c)
+ *     ?NumberOfVSyncWaiter@DXGADAPTER@@QEAAKI@Z @ 0x1C0002758 (-NumberOfVSyncWaiter@DXGADAPTER@@QEAAKI@Z.c)
+ *     VidSchiSetVSyncSuspended @ 0x1C0002784 (VidSchiSetVSyncSuspended.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     VidSchiControlVSync @ 0x1C007B390 (VidSchiControlVSync.c)
  */
 
 void __fastcall VidSchiControlIndependentVidPnVSyncThread(struct _VIDSCH_GLOBAL *a1)
@@ -19,43 +19,43 @@ void __fastcall VidSchiControlIndependentVidPnVSyncThread(struct _VIDSCH_GLOBAL 
   __int64 v7; // rbp
   char v8; // cl
   signed __int32 v9; // eax
+  __int64 v10; // r9
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-88h] BYREF
-  _DWORD v11[16]; // [rsp+40h] [rbp-68h] BYREF
+  _DWORD v12[16]; // [rsp+40h] [rbp-68h] BYREF
 
-  v1 = (struct _ERESOURCE *)((char *)a1 + 1088);
-  ExAcquireResourceExclusiveLite((PERESOURCE)((char *)a1 + 1088), 1u);
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)a1 + 216, &LockHandle);
-  v3 = *((_DWORD *)a1 + 567);
+  v1 = (struct _ERESOURCE *)((char *)a1 + 1072);
+  ExAcquireResourceExclusiveLite((PERESOURCE)((char *)a1 + 1072), 1u);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)a1 + 214, &LockHandle);
+  v3 = *((_DWORD *)a1 + 547);
   for ( i = 0LL; v3; v3 &= ~(1 << MostSignificantBit) )
   {
     MostSignificantBit = (unsigned int)RtlFindMostSignificantBit(v3);
-    if ( *((_DWORD *)a1 + MostSignificantBit + 584) >= *((_DWORD *)a1 + 601) )
+    if ( *((_DWORD *)a1 + MostSignificantBit + 564) >= *((_DWORD *)a1 + 581) )
     {
-      *((_DWORD *)a1 + MostSignificantBit + 584) = -1;
-      v11[i] = MostSignificantBit;
+      *((_DWORD *)a1 + MostSignificantBit + 564) = -1;
+      v12[i] = MostSignificantBit;
       i = (unsigned int)(i + 1);
     }
   }
-  *((_QWORD *)a1 + 283) = 0LL;
+  *((_QWORD *)a1 + 273) = 0LL;
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   if ( (_DWORD)i )
   {
-    v6 = v11;
+    v6 = v12;
     do
     {
       v7 = *v6;
-      v8 = *((_BYTE *)a1 + v7 + 1808);
-      v9 = _InterlockedCompareExchange((volatile signed __int32 *)a1 + v7 + 568, 0, 0);
+      v8 = *((_BYTE *)a1 + v7 + 1792);
+      v9 = _InterlockedCompareExchange((volatile signed __int32 *)a1 + v7 + 548, 0, 0);
       if ( v8
         && !v9
-        && !*((_DWORD *)a1 + 5 * v7 + 474)
+        && !*((_DWORD *)a1 + 4 * (unsigned int)v7 + 470)
         && !(unsigned int)DXGADAPTER::NumberOfVSyncWaiter(*((DXGADAPTER **)a1 + 2), v7)
-        && !*((_DWORD *)a1 + v7 + 185)
-        && !*((_DWORD *)a1 + 203)
-        && !*((_DWORD *)a1 + 5 * v7 + 475) )
+        && !*((_DWORD *)a1 + v7 + 183)
+        && !*((_DWORD *)a1 + 201)
+        && !*((_DWORD *)a1 + 2 * v10 + 471) )
       {
-        VidSchiControlVSync(a1);
+        VidSchiControlVSync(a1, 0LL, 3LL, (unsigned int)v7);
         VidSchiSetVSyncSuspended((__int64)a1, v7, 1);
       }
       ++v6;

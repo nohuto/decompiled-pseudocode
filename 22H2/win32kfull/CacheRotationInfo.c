@@ -1,9 +1,9 @@
 /*
- * XREFs of CacheRotationInfo @ 0x1C00BE270
+ * XREFs of CacheRotationInfo @ 0x1C0136490
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 CacheRotationInfo()

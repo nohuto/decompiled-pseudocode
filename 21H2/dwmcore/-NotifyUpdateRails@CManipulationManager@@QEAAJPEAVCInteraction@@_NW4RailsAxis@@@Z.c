@@ -1,15 +1,15 @@
 /*
- * XREFs of ?NotifyUpdateRails@CManipulationManager@@QEAAJPEAVCInteraction@@_NW4RailsAxis@@@Z @ 0x1800E8484
+ * XREFs of ?NotifyUpdateRails@CManipulationManager@@QEAAJPEAVCInteraction@@_NW4RailsAxis@@@Z @ 0x1800D0530
  * Callers:
- *     ?SetRailsEnabled_RenderThread@CInteraction@@AEAAJ_NW4RailsAxis@@@Z @ 0x1800E83EC (-SetRailsEnabled_RenderThread@CInteraction@@AEAAJ_NW4RailsAxis@@@Z.c)
+ *     ?SetRailsEnabled_RenderThread@CInteraction@@AEAAJ_NW4RailsAxis@@@Z @ 0x1800D0498 (-SetRailsEnabled_RenderThread@CInteraction@@AEAAJ_NW4RailsAxis@@@Z.c)
  * Callees:
- *     ??_GInteractionUpdate@CManipulationManager@@QEAAPEAXI@Z @ 0x18002B7E0 (--_GInteractionUpdate@CManipulationManager@@QEAAPEAXI@Z.c)
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ??4?$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z @ 0x18006D8AC (--4-$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Insert@?$CQueue@PEAUInteractionUpdate@CManipulationManager@@@@AEAAJ_NPEAUInteractionUpdate@CManipulationManager@@@Z @ 0x1800E5668 (-Insert@-$CQueue@PEAUInteractionUpdate@CManipulationManager@@@@AEAAJ_NPEAUInteractionUpdate@CMan.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??_GInteractionUpdate@CManipulationManager@@QEAAPEAXI@Z @ 0x18004DC80 (--_GInteractionUpdate@CManipulationManager@@QEAAPEAXI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??4?$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z @ 0x180061F44 (--4-$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z.c)
+ *     ?Insert@?$CQueue@PEAUInteractionUpdate@CManipulationManager@@@@AEAAJ_NPEAUInteractionUpdate@CManipulationManager@@@Z @ 0x180061F8C (-Insert@-$CQueue@PEAUInteractionUpdate@CManipulationManager@@@@AEAAJ_NPEAUInteractionUpdate@CMan.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CManipulationManager::NotifyUpdateRails(__int64 a1, __int64 a2, char a3, int a4)
@@ -27,8 +27,11 @@ __int64 __fastcall CManipulationManager::NotifyUpdateRails(__int64 a1, __int64 a
   v7 = operator new(0x48uLL);
   v9 = (__int64)v7;
   if ( v7 )
-  {
     memset_0(v7, 0, 0x48uLL);
+  else
+    v9 = 0LL;
+  if ( v9 )
+  {
     *(_DWORD *)v9 = 9;
     v10 = *(_QWORD *)(v9 + 8);
     if ( v10 )
@@ -44,14 +47,14 @@ __int64 __fastcall CManipulationManager::NotifyUpdateRails(__int64 a1, __int64 a
     v15 = v13;
     if ( v13 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0x346u);
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x321u, 0LL);
       CManipulationManager::InteractionUpdate::`scalar deleting destructor'((CManipulationManager::InteractionUpdate *)v9);
     }
   }
   else
   {
     v15 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, -2147024882, 0x337u);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147024882, 0x312u, 0LL);
   }
   return v15;
 }

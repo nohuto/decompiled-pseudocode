@@ -1,27 +1,29 @@
 /*
- * XREFs of PoDiagCaptureUsermodeStack @ 0x1406E8628
+ * XREFs of PoDiagCaptureUsermodeStack @ 0x1406C366C
  * Callers:
- *     NtSetTimerResolution @ 0x1407D6CE0 (NtSetTimerResolution.c)
+ *     NtSetTimerResolution @ 0x1406DC720 (NtSetTimerResolution.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x140295F90 (RtlWalkFrameChain.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlWalkFrameChain @ 0x14021CEB0 (RtlWalkFrameChain.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-_DWORD *PoDiagCaptureUsermodeStack()
+PVOID *PoDiagCaptureUsermodeStack()
 {
-  __int64 Pool2; // rax
-  _DWORD *v1; // rbx
+  PVOID *PoolWithTag; // rax
+  PVOID *v1; // rbx
   ULONG v2; // eax
 
-  Pool2 = ExAllocatePool2(256LL, 264LL, 1346721364LL);
-  v1 = (_DWORD *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = (PVOID *)ExAllocatePoolWithTag(PagedPool, 0x108uLL, 0x50455654u);
+  v1 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v2 = RtlWalkFrameChain((PVOID *)(Pool2 + 8), 0x20u, 1u);
+    memset(PoolWithTag, 0, 0x108uLL);
+    v2 = RtlWalkFrameChain(v1 + 1, 0x20u, 1u);
     if ( v2 )
     {
-      *v1 = v2;
+      *(_DWORD *)v1 = v2;
     }
     else
     {

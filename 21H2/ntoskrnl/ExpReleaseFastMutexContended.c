@@ -1,23 +1,21 @@
 /*
- * XREFs of ExpReleaseFastMutexContended @ 0x140359548
+ * XREFs of ExpReleaseFastMutexContended @ 0x1402F171C
  * Callers:
- *     ExReleaseFastMutexUnsafeAndLeaveCriticalRegion @ 0x14022A110 (ExReleaseFastMutexUnsafeAndLeaveCriticalRegion.c)
- *     CcUnpinFileDataEx @ 0x14028A370 (CcUnpinFileDataEx.c)
- *     CcSetDirtyPinnedData @ 0x14029D3D0 (CcSetDirtyPinnedData.c)
- *     CcSetDirtyInMask @ 0x14029D860 (CcSetDirtyInMask.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     FsRtlCheckOplockEx2 @ 0x1402A5D00 (FsRtlCheckOplockEx2.c)
- *     FsRtlReleaseHeaderMutex @ 0x1402AE130 (FsRtlReleaseHeaderMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     CcPinFileData @ 0x14032AD00 (CcPinFileData.c)
- *     FsRtlReleaseEofLock @ 0x140358CC0 (FsRtlReleaseEofLock.c)
- *     FsRtlAcquireEofLock @ 0x14035D230 (FsRtlAcquireEofLock.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1407350A0 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
- *     CmpDelayCloseWorker @ 0x1407C0D40 (CmpDelayCloseWorker.c)
- *     CmpDeleteKeyObject @ 0x1407C2680 (CmpDeleteKeyObject.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     FsRtlAcquireEofLock @ 0x1402907F0 (FsRtlAcquireEofLock.c)
+ *     ExReleaseFastMutexUnsafeAndLeaveCriticalRegion @ 0x14029F330 (ExReleaseFastMutexUnsafeAndLeaveCriticalRegion.c)
+ *     FsRtlReleaseEofLock @ 0x1402EEC80 (FsRtlReleaseEofLock.c)
+ *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
+ *     CcSetDirtyPinnedData @ 0x1402F9310 (CcSetDirtyPinnedData.c)
+ *     CcPinFileData @ 0x14031F630 (CcPinFileData.c)
+ *     CcSetDirtyInMask @ 0x140336470 (CcSetDirtyInMask.c)
+ *     FsRtlReleaseHeaderMutex @ 0x140348BA0 (FsRtlReleaseHeaderMutex.c)
+ *     FsRtlCheckOplockEx2 @ 0x140353D20 (FsRtlCheckOplockEx2.c)
+ *     CmpPerformSingleKcbCacheLookup @ 0x1406F2EB0 (CmpPerformSingleKcbCacheLookup.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1406FB610 (CmpDereferenceKeyControlBlock.c)
  * Callees:
- *     KeSetEventBoostPriorityEx @ 0x1403595B4 (KeSetEventBoostPriorityEx.c)
+ *     KeSetEventBoostPriorityEx @ 0x1402F1788 (KeSetEventBoostPriorityEx.c)
  */
 
 __int64 __fastcall ExpReleaseFastMutexContended(volatile signed __int32 *a1, signed __int32 a2)
@@ -25,6 +23,8 @@ __int64 __fastcall ExpReleaseFastMutexContended(volatile signed __int32 *a1, sig
   int v3; // ecx
   bool v4; // zf
   __int64 result; // rax
+  char v6; // [rsp+40h] [rbp+8h] BYREF
+  int Priority; // [rsp+48h] [rbp+10h] BYREF
 
   do
   {
@@ -35,6 +35,9 @@ __int64 __fastcall ExpReleaseFastMutexContended(volatile signed __int32 *a1, sig
   }
   while ( !v4 );
   if ( !v3 )
-    return KeSetEventBoostPriorityEx((PVOID)(a1 + 6), 1, 1);
+  {
+    Priority = KeGetCurrentThread()->Priority;
+    return KeSetEventBoostPriorityEx((int)a1 + 24, (unsigned int)&v6, (unsigned int)&Priority, (_DWORD)a1, 1, 1);
+  }
   return result;
 }

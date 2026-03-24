@@ -1,29 +1,29 @@
 /*
- * XREFs of PopQueueTargetDpc @ 0x1402BFC20
+ * XREFs of PopQueueTargetDpc @ 0x140344920
  * Callers:
- *     PopExecuteOnTargetProcessors @ 0x1402BFAEC (PopExecuteOnTargetProcessors.c)
- *     PopExecuteProcessorCallback @ 0x1402BFBD0 (PopExecuteProcessorCallback.c)
+ *     PopExecuteOnTargetProcessors @ 0x1403447EC (PopExecuteOnTargetProcessors.c)
+ *     PopExecuteProcessorCallback @ 0x1403448D0 (PopExecuteProcessorCallback.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
+ *     KeInsertQueueDpc @ 0x14021FD00 (KeInsertQueueDpc.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
  */
 
-LONG __fastcall PopQueueTargetDpc(ULONG_PTR BugCheckParameter2, __int64 a2)
+BOOLEAN __fastcall PopQueueTargetDpc(PRKDPC Dpc, __int64 a2)
 {
   unsigned __int16 **v4; // rdx
-  int v6; // [rsp+48h] [rbp+10h] BYREF
+  int v6; // [rsp+38h] [rbp+10h] BYREF
 
   v4 = *(unsigned __int16 ***)(a2 + 32);
   v6 = 0;
   if ( (int)KeEnumerateNextProcessor(&v6, v4) < 0 )
     return KeSetEvent(*(PRKEVENT *)(a2 + 24), 0, 0);
-  *(_DWORD *)BugCheckParameter2 = 787;
-  *(_QWORD *)(BugCheckParameter2 + 24) = PopExecuteProcessorCallback;
-  *(_QWORD *)(BugCheckParameter2 + 32) = a2;
-  *(_QWORD *)(BugCheckParameter2 + 56) = 0LL;
-  *(_QWORD *)(BugCheckParameter2 + 16) = 0LL;
-  if ( !*(_QWORD *)(BugCheckParameter2 + 56) )
-    *(_WORD *)(BugCheckParameter2 + 2) = v6 + 2048;
-  return KiInsertQueueDpc(BugCheckParameter2, 0LL, 0LL, 0LL, 0);
+  Dpc->TargetInfoAsUlong = 787;
+  Dpc->DeferredRoutine = (PKDEFERRED_ROUTINE)PopExecuteProcessorCallback;
+  Dpc->DeferredContext = (PVOID)a2;
+  Dpc->DpcData = 0LL;
+  Dpc->ProcessorHistory = 0LL;
+  if ( !Dpc->DpcData )
+    Dpc->Number = v6 + 1280;
+  return KeInsertQueueDpc(Dpc, 0LL, 0LL);
 }

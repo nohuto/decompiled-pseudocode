@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pptqqqq_EtwWriteTransfer @ 0x1C0035430
+ * XREFs of McTemplateK0pptqqqq_EtwWriteTransfer @ 0x1C0035190
  * Callers:
- *     Controller_StopTimeTrackingForHandle @ 0x1C0032F20 (Controller_StopTimeTrackingForHandle.c)
+ *     Controller_StopTimeTrackingForHandle @ 0x1C0032EA0 (Controller_StopTimeTrackingForHandle.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C00351EC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0pptqqqq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

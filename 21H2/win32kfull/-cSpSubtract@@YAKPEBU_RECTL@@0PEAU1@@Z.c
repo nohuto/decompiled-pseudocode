@@ -1,10 +1,10 @@
 /*
- * XREFs of ?cSpSubtract@@YAKPEBU_RECTL@@0PEAU1@@Z @ 0x1C01569BC
+ * XREFs of ?cSpSubtract@@YAKPEBU_RECTL@@0PEAU1@@Z @ 0x1C02817F4
  * Callers:
- *     ?vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z @ 0x1C0155234 (-vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z.c)
- *     ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0155444 (-vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z.c)
+ *     ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0284204 (-vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z.c)
+ *     ?vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z @ 0x1C02845D0 (-vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall cSpSubtract(const struct _RECTL *a1, const struct _RECTL *a2, struct _RECTL *a3)
@@ -20,7 +20,7 @@ __int64 __fastcall cSpSubtract(const struct _RECTL *a1, const struct _RECTL *a2,
   v9.bottom = top;
   v7 = a3;
   if ( bIntersect(&v9, a1, a3) )
-    v7 = a3 + 1;
+    ++v7;
   v9.top = a2->top;
   v9.right = a2->left;
   v9.bottom = a2->bottom;

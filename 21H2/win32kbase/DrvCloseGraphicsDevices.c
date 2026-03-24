@@ -1,9 +1,9 @@
 /*
- * XREFs of DrvCloseGraphicsDevices @ 0x1C006A4B0
+ * XREFs of DrvCloseGraphicsDevices @ 0x1C00ADEC0
  * Callers:
- *     InitVideo @ 0x1C0068398 (InitVideo.c)
+ *     InitVideo @ 0x1C0099A18 (InitVideo.c)
  * Callees:
- *     bSetDeviceSessionUsage @ 0x1C006ACE0 (bSetDeviceSessionUsage.c)
+ *     bSetDeviceSessionUsage @ 0x1C00ADF30 (bSetDeviceSessionUsage.c)
  */
 
 LONG_PTR __fastcall DrvCloseGraphicsDevices(int a1)

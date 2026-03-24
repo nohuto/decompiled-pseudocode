@@ -1,10 +1,10 @@
 /*
- * XREFs of IopInterlockedIncrementUlong @ 0x1403027C4
+ * XREFs of IopInterlockedIncrementUlong @ 0x14028F76C
  * Callers:
- *     IopIncrementVpbRefCount @ 0x140302780 (IopIncrementVpbRefCount.c)
+ *     IopIncrementVpbRefCount @ 0x14028F728 (IopIncrementVpbRefCount.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0640 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x140291250 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402912F0 (KeAcquireQueuedSpinLock.c)
  */
 
 __int64 __fastcall IopInterlockedIncrementUlong(KSPIN_LOCK_QUEUE_NUMBER Number, _DWORD *a2)

@@ -1,32 +1,21 @@
 /*
- * XREFs of ?NlsKanaModeToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EC2D0
+ * XREFs of ?NlsKanaModeToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB920
  * Callers:
  *     <none>
  * Callees:
- *     ?NlsTestKeyStateToggle@@YAHE@Z @ 0x1C01EC73C (-NlsTestKeyStateToggle@@YAHE@Z.c)
+ *     ?NlsTestKeyStateToggle@@YAHE@Z @ 0x1C01ABE2C (-NlsTestKeyStateToggle@@YAHE@Z.c)
  */
 
 __int64 __fastcall NlsKanaModeToggleProc(struct tagKE *a1)
 {
-  __int16 v1; // bx
-  int v3; // eax
-  __int16 v4; // dx
-  __int16 v5; // ax
-  __int16 v6; // dx
-  __int64 result; // rax
+  int v1; // eax
+  __int16 v2; // r8
+  __int64 v3; // r9
 
-  v1 = *((_WORD *)a1 + 1);
-  v3 = NlsTestKeyStateToggle(0x15u);
-  v4 = *((_WORD *)a1 + 1) & 0xF00;
-  *((_WORD *)a1 + 1) = v4;
-  if ( v1 < 0 )
+  v1 = NlsTestKeyStateToggle(0x15u);
+  *(_WORD *)(v3 + 2) = v2 & 0xF00;
+  if ( v2 < 0 )
     return 0LL;
-  if ( v3 )
-    v5 = -32747;
-  else
-    v5 = 21;
-  v6 = v5 | v4;
-  result = 1LL;
-  *((_WORD *)a1 + 1) = v6;
-  return result;
+  *(_WORD *)(v3 + 2) = v2 & 0xF00 | (v1 != 0 ? -32747 : 21);
+  return 1LL;
 }

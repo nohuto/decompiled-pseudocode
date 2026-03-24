@@ -1,10 +1,10 @@
 /*
- * XREFs of DwmAsyncShellWindowChange @ 0x1C005971C
+ * XREFs of DwmAsyncShellWindowChange @ 0x1C00EB3DC
  * Callers:
- *     xxxSetShellWindow @ 0x1C003ABAC (xxxSetShellWindow.c)
- *     zzzComposeDesktop @ 0x1C0058DA4 (zzzComposeDesktop.c)
- *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C006DCB0 (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
- *     xxxFreeWindow @ 0x1C00E8F70 (xxxFreeWindow.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
+ *     xxxSetShellWindow @ 0x1C00D6C50 (xxxSetShellWindow.c)
+ *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C00D84E8 (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ *     zzzComposeDesktop @ 0x1C00EC528 (zzzComposeDesktop.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of ??1STACKMEMOBJ@@QEAA@XZ @ 0x1C02D37BC
+ * XREFs of ??1STACKMEMOBJ@@QEAA@XZ @ 0x1C02B8A60
  * Callers:
- *     NtGdiExtFloodFill @ 0x1C02D4500 (NtGdiExtFloodFill.c)
+ *     NtGdiExtFloodFill @ 0x1C02B97B0 (NtGdiExtFloodFill.c)
  * Callees:
  *     <none>
  */

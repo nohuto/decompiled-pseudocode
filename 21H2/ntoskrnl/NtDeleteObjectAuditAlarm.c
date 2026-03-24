@@ -1,25 +1,27 @@
 /*
- * XREFs of NtDeleteObjectAuditAlarm @ 0x1409CAC10
+ * XREFs of NtDeleteObjectAuditAlarm @ 0x140734BC0
  * Callers:
  *     <none>
  * Callees:
- *     SepProbeAndCaptureString_U @ 0x140723E0C (SepProbeAndCaptureString_U.c)
- *     SeCheckAuditPrivilege @ 0x140724008 (SeCheckAuditPrivilege.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     SepAdtDeleteObjectAuditAlarm @ 0x1409C8774 (SepAdtDeleteObjectAuditAlarm.c)
- *     SepAuditFailed @ 0x1409CF1A0 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     SepProbeAndCaptureString_U @ 0x1406273E8 (SepProbeAndCaptureString_U.c)
+ *     SeCheckAuditPrivilege @ 0x14062759C (SeCheckAuditPrivilege.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SepAdtDeleteObjectAuditAlarm @ 0x14091ED24 (SepAdtDeleteObjectAuditAlarm.c)
+ *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtDeleteObjectAuditAlarm(PUNICODE_STRING SubsystemName, PVOID HandleId, BOOLEAN GenerateOnClose)
 {
+  int v3; // edi
   char PreviousMode; // bl
   NTSTATUS v7; // ebx
   __int64 v8; // rcx
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+38h] [rbp-30h] BYREF
   PVOID P; // [rsp+88h] [rbp+20h] BYREF
 
+  v3 = (int)HandleId;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   P = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
@@ -33,12 +35,15 @@ NTSTATUS __stdcall NtDeleteObjectAuditAlarm(PUNICODE_STRING SubsystemName, PVOID
       v7 = SepProbeAndCaptureString_U((unsigned __int64)SubsystemName, (__int64)&P);
       if ( v7 >= 0 )
         SepAdtDeleteObjectAuditAlarm(
-          (const UNICODE_STRING *)P,
-          (unsigned __int64)HandleId,
-          (__int64 *)&SubjectContext,
+          (_DWORD)P,
+          v3,
+          (unsigned int)&SubjectContext,
+          0,
           0LL,
-          0LL,
-          0);
+          0,
+          v7,
+          SubjectContext.ClientToken,
+          *(_QWORD *)&SubjectContext.ImpersonationLevel);
     }
     else
     {

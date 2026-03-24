@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0qtqqq_EtwWriteTransfer @ 0x1C0041748
+ * XREFs of McTemplateK0qtqqq_EtwWriteTransfer @ 0x1C003AA30
  * Callers:
- *     _lambda_4c48f59c4c84661c362f6a1166e0c309_::operator() @ 0x1C0167008 (_lambda_4c48f59c4c84661c362f6a1166e0c309_--operator().c)
+ *     _lambda_d09497a32bb74d6babe0eba3071d053b_::operator() @ 0x1C020BB7C (_lambda_d09497a32bb74d6babe0eba3071d053b_--operator().c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qtqqq_EtwWriteTransfer(

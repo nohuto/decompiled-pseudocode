@@ -3,7 +3,7 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     PiDqObjectManagerInit @ 0x140739D64 (PiDqObjectManagerInit.c)
+ *     PiDqObjectManagerInit @ 0x140739D44 (PiDqObjectManagerInit.c)
  */
 
 __int64 PiDqInit()

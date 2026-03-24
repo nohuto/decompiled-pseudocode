@@ -1,12 +1,12 @@
 /*
- * XREFs of ?IsValid@CD2DBitmap@@UEBAJXZ @ 0x1800CCB4C
+ * XREFs of ?IsValid@CD2DBitmap@@UEBAJXZ @ 0x1800C48DC
  * Callers:
- *     ?IsValid@CD2DBitmap@@$4PPPPPPPM@A@EBAJXZ @ 0x180109830 (-IsValid@CD2DBitmap@@$4PPPPPPPM@A@EBAJXZ.c)
- *     ?IsValid@CD2DBitmap@@$4PPPPPPPM@CI@EBAJXZ @ 0x180109B10 (-IsValid@CD2DBitmap@@$4PPPPPPPM@CI@EBAJXZ.c)
- *     ?IsValid@CD2DBitmap@@$4PPPPPPPM@FI@EBAJXZ @ 0x18010CCD0 (-IsValid@CD2DBitmap@@$4PPPPPPPM@FI@EBAJXZ.c)
- *     ?CreateSubResourceTextureTarget@CDeviceTextureTarget@@UEBAJIPEAPEAVIDeviceTextureTarget@@@Z @ 0x1802902F0 (-CreateSubResourceTextureTarget@CDeviceTextureTarget@@UEBAJIPEAPEAVIDeviceTextureTarget@@@Z.c)
+ *     ?IsValid@CD2DBitmap@@$4PPPPPPPM@A@EBAJXZ @ 0x1800F62B0 (-IsValid@CD2DBitmap@@$4PPPPPPPM@A@EBAJXZ.c)
+ *     ?IsValid@CD2DBitmap@@$4PPPPPPPM@FI@EBAJXZ @ 0x1800F62C0 (-IsValid@CD2DBitmap@@$4PPPPPPPM@FI@EBAJXZ.c)
+ *     ?IsValid@CD2DBitmap@@$4PPPPPPPM@CI@EBAJXZ @ 0x1800F8300 (-IsValid@CD2DBitmap@@$4PPPPPPPM@CI@EBAJXZ.c)
+ *     ?CreateSubResourceTextureTarget@CDeviceTextureTarget@@UEBAJIPEAPEAVIDeviceTextureTarget@@@Z @ 0x180251D80 (-CreateSubResourceTextureTarget@CDeviceTextureTarget@@UEBAJIPEAPEAVIDeviceTextureTarget@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD2DBitmap::IsValid(CD2DBitmap *this)
@@ -16,5 +16,5 @@ __int64 __fastcall CD2DBitmap::IsValid(CD2DBitmap *this)
   if ( !*((_QWORD *)this - 19) )
     return 2291674892LL;
   v1 = (char *)this + *(int *)(*((_QWORD *)this - 32) + 8LL) - 256;
-  return *(unsigned int *)((*(__int64 (__fastcall **)(char *))(*(_QWORD *)v1 + 8LL))(v1) + 1088);
+  return *(unsigned int *)((*(__int64 (__fastcall **)(char *))(*(_QWORD *)v1 + 8LL))(v1) + 1128);
 }

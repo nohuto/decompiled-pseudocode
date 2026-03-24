@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetLightInfo@CCompositionSpotLight@@UEBAJPEBVCDrawingContext@@PEBVCMILMatrix@@PEAULightInfo@@@Z @ 0x180226610
+ * XREFs of ?GetLightInfo@CCompositionSpotLight@@UEBAJPEBVCDrawingContext@@PEBVCMILMatrix@@PEAULightInfo@@@Z @ 0x180020340
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     cosf_0 @ 0x18011B8A8 (cosf_0.c)
- *     ?CalcEyePointOrVector@CCompositionLight@@IEBA?AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@@@Z @ 0x180218AAC (-CalcEyePointOrVector@CCompositionLight@@IEBA-AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@.c)
- *     ?CalcLocalToDeviceMatrix@CCompositionLight@@IEBAJPEBVCDrawingContext@@PEBVCMILMatrix@@PEAVCVisual@@PEAV3@3@Z @ 0x180219154 (-CalcLocalToDeviceMatrix@CCompositionLight@@IEBAJPEBVCDrawingContext@@PEBVCMILMatrix@@PEAVCVisua.c)
- *     ?TransformAttenuation@CCompositionLight@@IEBAXAEBUfloat3@Numerics@Foundation@Windows@@AEBUfloat2@345@PEAULightInfo@@@Z @ 0x18021987C (-TransformAttenuation@CCompositionLight@@IEBAXAEBUfloat3@Numerics@Foundation@Windows@@AEBUfloat2.c)
+ *     ?TransformAttenuation@CCompositionLight@@IEBAXAEBUfloat3@Numerics@Foundation@Windows@@AEBUfloat2@345@PEAULightInfo@@@Z @ 0x1800204B0 (-TransformAttenuation@CCompositionLight@@IEBAXAEBUfloat3@Numerics@Foundation@Windows@@AEBUfloat2.c)
+ *     ?CalcEyePointOrVector@CCompositionLight@@IEBA?AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@@@Z @ 0x18002054C (-CalcEyePointOrVector@CCompositionLight@@IEBA-AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@.c)
+ *     ?CalcLocalToDeviceMatrix@CCompositionLight@@IEBAJPEBVCDrawingContext@@PEBVCMILMatrix@@PEAVCVisual@@PEAV3@3@Z @ 0x180020614 (-CalcLocalToDeviceMatrix@CCompositionLight@@IEBAJPEBVCDrawingContext@@PEBVCMILMatrix@@PEAVCVisua.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     cosf_0 @ 0x1800F3F93 (cosf_0.c)
  */
 
 __int64 __fastcall CCompositionSpotLight::GetLightInfo(
@@ -29,7 +29,7 @@ __int64 __fastcall CCompositionSpotLight::GetLightInfo(
   float v17; // xmm6_4
   float v18; // xmm0_4
   float v19; // xmm1_4
-  _DWORD v21[4]; // [rsp+30h] [rbp-28h] BYREF
+  _BYTE v21[16]; // [rsp+30h] [rbp-28h] BYREF
 
   *(_DWORD *)a4 = 3;
   v5 = this - a4;
@@ -37,7 +37,7 @@ __int64 __fastcall CCompositionSpotLight::GetLightInfo(
   v9 = 4LL;
   do
   {
-    *v6 = *(float *)((char *)v6 + v5 + 308) * *((float *)this + 99);
+    *v6 = *(float *)((char *)v6 + v5 + 300) * *((float *)this + 97);
     ++v6;
     --v9;
   }
@@ -46,7 +46,7 @@ __int64 __fastcall CCompositionSpotLight::GetLightInfo(
   v11 = 4LL;
   do
   {
-    *v10 = *(float *)((char *)v10 + v5 + 308) * *((float *)this + 100);
+    *v10 = *(float *)((char *)v10 + v5 + 300) * *((float *)this + 98);
     ++v10;
     --v11;
   }
@@ -55,34 +55,34 @@ __int64 __fastcall CCompositionSpotLight::GetLightInfo(
           (struct LightInfo *)((char *)a4 + 104),
           a2,
           a3,
-          *((struct CVisual **)this + 32),
+          *((struct CVisual **)this + 31),
           (struct LightInfo *)((char *)a4 + 104),
           (struct LightInfo *)((char *)a4 + 172));
   v14 = v12;
   if ( v12 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x5Bu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x68u, 0LL);
   }
   else
   {
-    *((_OWORD *)a4 + 5) = *(_OWORD *)CCompositionLight::CalcEyePointOrVector(v13, v21, *((_QWORD *)this + 32));
-    *(_QWORD *)((char *)a4 + 36) = *(_QWORD *)((char *)this + 356);
-    *((_DWORD *)a4 + 11) = *((_DWORD *)this + 91);
-    *((_QWORD *)a4 + 6) = *((_QWORD *)this + 46);
-    *((_DWORD *)a4 + 14) = *((_DWORD *)this + 94);
+    *((_OWORD *)a4 + 5) = *(_OWORD *)CCompositionLight::CalcEyePointOrVector(v13, v21, *((_QWORD *)this + 31));
+    *(_QWORD *)((char *)a4 + 36) = *(_QWORD *)((char *)this + 348);
+    *((_DWORD *)a4 + 11) = *((_DWORD *)this + 89);
+    *((_QWORD *)a4 + 6) = *((_QWORD *)this + 45);
+    *((_DWORD *)a4 + 14) = *((_DWORD *)this + 92);
     CCompositionLight::TransformAttenuation(
       v15,
-      (CCompositionSpotLight *)((char *)this + 344),
-      (CCompositionSpotLight *)((char *)this + 388),
+      (CCompositionSpotLight *)((char *)this + 336),
+      (CCompositionSpotLight *)((char *)this + 380),
       a4);
-    v16 = *((float *)this + 95);
+    v16 = *((float *)this + 93);
     v17 = 0.0;
-    if ( v16 >= 0.0 )
-      v18 = fminf(1.5707964, v16);
-    else
+    if ( v16 < 0.0 )
       v18 = 0.0;
+    else
+      v18 = fminf(1.5707964, v16);
     *((float *)a4 + 18) = cosf_0(v18);
-    v19 = *((float *)this + 96);
+    v19 = *((float *)this + 94);
     if ( v19 >= 0.0 )
       v17 = fminf(1.5707964, v19);
     *((float *)a4 + 19) = cosf_0(v17);

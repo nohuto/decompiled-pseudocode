@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpCheckNotifyAccess @ 0x1406BC164
+ * XREFs of CmpCheckNotifyAccess @ 0x1405EC75C
  * Callers:
- *     CmpNotifyTriggerCheck @ 0x14071EDD4 (CmpNotifyTriggerCheck.c)
+ *     CmpNotifyTriggerCheck @ 0x1405ED044 (CmpNotifyTriggerCheck.c)
  * Callees:
- *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x140721BF0 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405EF460 (CmpGetSecurityCacheEntryForKcbStack.c)
  */
 
 BOOLEAN __fastcall CmpCheckNotifyAccess(__int64 a1, __int64 a2, __int64 a3)

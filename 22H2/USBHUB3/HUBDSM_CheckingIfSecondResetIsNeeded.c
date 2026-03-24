@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_CheckingIfSecondResetIsNeeded @ 0x1C00209C0
+ * XREFs of HUBDSM_CheckingIfSecondResetIsNeeded @ 0x1C001E120
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_CheckingIfSecondResetIsNeeded(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall HUBDSM_CheckingIfSecondResetIsNeeded(__int64 a1)
      || (*(_DWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
                        WdfDriverGlobals,
                        WdfDriverGlobals->Driver,
-                       off_1C00691E8)
+                       off_1C00661C0)
                    + 4) & 0x20000) != 0
      || v1[8]) )
   {

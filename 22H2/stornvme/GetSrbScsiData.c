@@ -1,89 +1,116 @@
 /*
- * XREFs of GetSrbScsiData @ 0x1C0012BEC
+ * XREFs of GetSrbScsiData @ 0x1C0004498
  * Callers:
- *     MdlToPrp @ 0x1C0001A70 (MdlToPrp.c)
- *     SrbAssignQueueId @ 0x1C0001E60 (SrbAssignQueueId.c)
- *     NVMeGetFeaturesCurrentCacheValueCompletion @ 0x1C00159F0 (NVMeGetFeaturesCurrentCacheValueCompletion.c)
- *     NVMeModeSenseGetLogPageHealthInfoCompletion @ 0x1C0016A00 (NVMeModeSenseGetLogPageHealthInfoCompletion.c)
- *     NVMeWriteBufferFirmwareActivateCompletion @ 0x1C0018240 (NVMeWriteBufferFirmwareActivateCompletion.c)
- *     NVMeMapError @ 0x1C0020118 (NVMeMapError.c)
- *     NVMeSetSenseData @ 0x1C00241F8 (NVMeSetSenseData.c)
+ *     NVMeMapError @ 0x1C00010FC (NVMeMapError.c)
+ *     NVMeGetFeaturesCurrentCacheValueCompletion @ 0x1C00043C0 (NVMeGetFeaturesCurrentCacheValueCompletion.c)
+ *     NVMeModeSenseGetLogPageHealthInfoCompletion @ 0x1C0004670 (NVMeModeSenseGetLogPageHealthInfoCompletion.c)
+ *     ScsiToNVMe @ 0x1C0004A30 (ScsiToNVMe.c)
+ *     MdlToPrp @ 0x1C0005410 (MdlToPrp.c)
+ *     SrbAssignQueueId @ 0x1C0005900 (SrbAssignQueueId.c)
+ *     NVMeWriteBufferFirmwareActivateCompletion @ 0x1C0015A60 (NVMeWriteBufferFirmwareActivateCompletion.c)
+ *     NVMeSetSenseData @ 0x1C001BFEC (NVMeSetSenseData.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall GetSrbScsiData(__int64 a1, _DWORD *a2, _QWORD *a3, _QWORD *a4, _BYTE *a5)
 {
-  __int64 v5; // rdi
-  char v6; // bp
-  __int64 i; // rsi
-  __int64 v10; // rcx
-  __int64 v11; // rdx
-  int v12; // ecx
+  char v5; // al
+  __int64 v6; // rdi
+  char v7; // bp
+  __int64 v10; // rsi
+  __int64 v11; // rcx
+  __int64 v12; // rdx
   int v13; // ecx
   __int64 v14; // rcx
-  __int64 v15; // rax
-  __int64 v16; // rcx
+  int v16; // ecx
   __int64 v17; // rcx
+  __int64 v18; // rax
+  __int64 v19; // rcx
 
-  v5 = 0LL;
-  v6 = 0;
-  if ( *(_BYTE *)(a1 + 2) == 40 && !*(_DWORD *)(a1 + 20) )
+  v5 = *(_BYTE *)(a1 + 2);
+  v6 = 0LL;
+  v7 = 0;
+  if ( v5 == 40 && !*(_DWORD *)(a1 + 20) )
   {
-    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 56); i = (unsigned int)(i + 1) )
+    v10 = 0LL;
+    if ( *(_DWORD *)(a1 + 56) )
     {
-      v10 = *(unsigned int *)(a1 + 4 * i + 120);
-      if ( (unsigned int)v10 >= 0x80 && (unsigned int)v10 <= *(_DWORD *)(a1 + 16) )
+      while ( 1 )
       {
-        v11 = a1 + v10;
-        v12 = *(_DWORD *)(a1 + v10) - 64;
-        if ( !v12 || (v13 = v12 - 1) == 0 )
+        v11 = *(unsigned int *)(a1 + 4 * v10 + 120);
+        if ( (unsigned int)v11 >= 0x80 && (unsigned int)v11 <= *(_DWORD *)(a1 + 16) )
         {
-          v6 = 1;
-          if ( a2 )
-            *a2 = *(unsigned __int8 *)(v11 + 10);
-          v16 = v11 + 24;
-          if ( !*(_BYTE *)(v11 + 10) )
-            v16 = v5;
-          v5 = v16;
-          if ( a3 )
-            *a3 = v11 + 8;
-          if ( a4 )
+          v12 = a1 + v11;
+          v13 = *(_DWORD *)(a1 + v11) - 64;
+          if ( !v13 || (v16 = v13 - 1) == 0 )
           {
-            v15 = *(_QWORD *)(v11 + 16);
-LABEL_25:
-            *a4 = v15;
+            v7 = 1;
+            if ( a2 )
+              *a2 = *(unsigned __int8 *)(v12 + 10);
+            v14 = v12 + 24;
+            if ( !*(_BYTE *)(v12 + 10) )
+              v14 = v6;
+            v6 = v14;
+            if ( a3 )
+              *a3 = v12 + 8;
+            if ( !a4 )
+              goto LABEL_14;
+            v18 = *(_QWORD *)(v12 + 16);
+LABEL_41:
+            *a4 = v18;
+LABEL_14:
+            if ( a5 )
+              *a5 = *(_BYTE *)(v12 + 9);
+            goto LABEL_16;
           }
-LABEL_26:
-          if ( a5 )
-            *a5 = *(_BYTE *)(v11 + 9);
-          continue;
+          if ( v16 == 1 )
+          {
+            v7 = 1;
+            if ( a2 )
+              *a2 = *(_DWORD *)(v12 + 12);
+            v17 = v12 + 32;
+            if ( !*(_DWORD *)(v12 + 12) )
+              v17 = v6;
+            v6 = v17;
+            if ( a3 )
+              *a3 = v12 + 8;
+            if ( a4 )
+            {
+              v18 = *(_QWORD *)(v12 + 24);
+              goto LABEL_41;
+            }
+            goto LABEL_14;
+          }
         }
-        if ( v13 == 1 )
+LABEL_16:
+        v10 = (unsigned int)(v10 + 1);
+        if ( (unsigned int)v10 >= *(_DWORD *)(a1 + 56) )
         {
-          v6 = 1;
-          if ( a2 )
-            *a2 = *(_DWORD *)(v11 + 12);
-          v14 = v11 + 32;
-          if ( !*(_DWORD *)(v11 + 12) )
-            v14 = v5;
-          v5 = v14;
-          if ( a3 )
-            *a3 = v11 + 8;
-          if ( a4 )
-          {
-            v15 = *(_QWORD *)(v11 + 24);
-            goto LABEL_25;
-          }
-          goto LABEL_26;
+          v5 = *(_BYTE *)(a1 + 2);
+          break;
         }
       }
     }
   }
-  if ( *(_BYTE *)(a1 + 2) )
+  if ( v5 )
+    goto LABEL_19;
+  v7 = 1;
+  if ( a2 )
+    *a2 = *(unsigned __int8 *)(a1 + 10);
+  v19 = a1 + 72;
+  if ( !*(_BYTE *)(a1 + 10) )
+    v19 = v6;
+  v6 = v19;
+  if ( a3 )
+    *a3 = a1 + 4;
+  if ( a4 )
+    *a4 = *(_QWORD *)(a1 + 32);
+  if ( a5 )
   {
-    v17 = v5;
-    if ( !v6 )
+    *a5 = *(_BYTE *)(a1 + 11);
+LABEL_19:
+    if ( !v7 )
     {
       if ( a2 )
         *a2 = 0;
@@ -95,19 +122,5 @@ LABEL_26:
         *a5 = 0;
     }
   }
-  else
-  {
-    if ( a2 )
-      *a2 = *(unsigned __int8 *)(a1 + 10);
-    v17 = a1 + 72;
-    if ( !*(_BYTE *)(a1 + 10) )
-      v17 = v5;
-    if ( a3 )
-      *a3 = a1 + 4;
-    if ( a4 )
-      *a4 = *(_QWORD *)(a1 + 32);
-    if ( a5 )
-      *a5 = *(_BYTE *)(a1 + 11);
-  }
-  return v17;
+  return v6;
 }

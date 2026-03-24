@@ -1,32 +1,31 @@
 /*
- * XREFs of freepathalloc @ 0x1C0154300
+ * XREFs of freepathalloc @ 0x1C0023430
  * Callers:
- *     ?vFreeBlocks@EPATHOBJ@@QEAAXXZ @ 0x1C0153F10 (-vFreeBlocks@EPATHOBJ@@QEAAXXZ.c)
+ *     ?vFreeBlocks@EPATHOBJ@@QEAAXXZ @ 0x1C00233E0 (-vFreeBlocks@EPATHOBJ@@QEAAXXZ.c)
  * Callees:
- *     EngAcquireSemaphore @ 0x1C0044400 (EngAcquireSemaphore.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C0048150 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C0039FC4 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     EngAcquireSemaphore @ 0x1C003A230 (EngAcquireSemaphore.c)
  */
 
-void __fastcall freepathalloc(char *a1)
+void __fastcall freepathalloc(struct PATHALLOC *a1)
 {
-  __int64 v2; // rbx
+  unsigned int v2; // edx
   HSEMAPHORE v3; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  v3 = *(HSEMAPHORE *)(v2 + 6040);
-  EngAcquireSemaphore(v3);
-  if ( *(_DWORD *)(v2 + 6056) < 4u )
+  v3 = PATHALLOC::hsemFreelist;
+  EngAcquireSemaphore(PATHALLOC::hsemFreelist);
+  v2 = PATHALLOC::cFree;
+  if ( PATHALLOC::cFree >= 4 )
   {
-    *(_QWORD *)a1 = *(_QWORD *)(v2 + 6048);
-    ++*(_DWORD *)(v2 + 6056);
-    *(_QWORD *)(v2 + 6048) = a1;
+    Win32FreePool(a1);
+    --PATHALLOC::cAllocated;
   }
   else
   {
-    if ( a1 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, a1);
-    --*(_DWORD *)(v2 + 6060);
+    *(_QWORD *)a1 = PATHALLOC::freelist;
+    PATHALLOC::freelist = a1;
+    PATHALLOC::cFree = v2 + 1;
   }
-  SEMOBJ::vUnlock((PERESOURCE *)&v3);
+  SEMOBJ::vUnlock((SEMOBJ *)&v3);
 }

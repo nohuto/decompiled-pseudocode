@@ -1,117 +1,105 @@
 /*
- * XREFs of MiLogPinDriverAddressesWorker @ 0x140713230
+ * XREFs of MiLogPinDriverAddressesWorker @ 0x1407B4D80
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteAgg @ 0x1402A1A20 (_tlgWriteAgg.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     RtlInterlockedClearBitRun @ 0x1402A2030 (RtlInterlockedClearBitRun.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MiLogPinDriverAddress @ 0x140713440 (MiLogPinDriverAddress.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     _tlgWriteAgg @ 0x140375E94 (_tlgWriteAgg.c)
+ *     RtlInterlockedClearBitRun @ 0x1403BE2D0 (RtlInterlockedClearBitRun.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiLogPinDriverAddress @ 0x1407B4E84 (MiLogPinDriverAddress.c)
  */
 
 char MiLogPinDriverAddressesWorker()
 {
-  unsigned int v0; // ebx
-  __int64 *v1; // rdi
+  unsigned int v0; // edi
+  __int64 *v1; // rsi
   __int64 v2; // rax
-  _DWORD *v3; // r13
-  unsigned int v4; // r12d
-  _DWORD *v5; // r15
-  unsigned int i; // r14d
-  _DWORD *v7; // rbx
-  unsigned int j; // edi
-  int v9; // esi
-  __int64 v10; // r8
-  int v11; // r9d
-  __int64 v12; // r10
-  __int64 v14; // [rsp+30h] [rbp-89h] BYREF
-  unsigned int v15; // [rsp+38h] [rbp-81h] BYREF
-  BOOL v16; // [rsp+3Ch] [rbp-7Dh] BYREF
-  BOOL v17; // [rsp+40h] [rbp-79h] BYREF
-  char *v18; // [rsp+48h] [rbp-71h]
-  char *v19; // [rsp+50h] [rbp-69h]
-  __int64 v20; // [rsp+58h] [rbp-61h] BYREF
-  __int64 v21; // [rsp+60h] [rbp-59h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v22; // [rsp+70h] [rbp-49h] BYREF
-  __int64 *v23; // [rsp+90h] [rbp-29h]
-  __int64 v24; // [rsp+98h] [rbp-21h]
-  unsigned int *v25; // [rsp+A0h] [rbp-19h]
-  __int64 v26; // [rsp+A8h] [rbp-11h]
-  BOOL *v27; // [rsp+B0h] [rbp-9h]
-  __int64 v28; // [rsp+B8h] [rbp-1h]
-  BOOL *v29; // [rsp+C0h] [rbp+7h]
-  __int64 v30; // [rsp+C8h] [rbp+Fh]
-  __int64 *v31; // [rsp+D0h] [rbp+17h]
-  __int64 v32; // [rsp+D8h] [rbp+1Fh]
+  unsigned int v3; // r14d
+  _DWORD *v4; // rdi
+  unsigned int i; // r15d
+  unsigned int j; // esi
+  int v7; // r12d
+  __int64 v8; // r8
+  int v9; // r9d
+  __int64 v10; // r10
+  __int64 v12; // [rsp+38h] [rbp-69h] BYREF
+  unsigned int v13; // [rsp+40h] [rbp-61h] BYREF
+  BOOL v14; // [rsp+44h] [rbp-5Dh] BYREF
+  BOOL v15; // [rsp+48h] [rbp-59h] BYREF
+  __int64 v16; // [rsp+50h] [rbp-51h] BYREF
+  __int64 v17; // [rsp+58h] [rbp-49h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v18; // [rsp+68h] [rbp-39h] BYREF
+  __int64 *v19; // [rsp+88h] [rbp-19h]
+  __int64 v20; // [rsp+90h] [rbp-11h]
+  unsigned int *v21; // [rsp+98h] [rbp-9h]
+  __int64 v22; // [rsp+A0h] [rbp-1h]
+  BOOL *v23; // [rsp+A8h] [rbp+7h]
+  __int64 v24; // [rsp+B0h] [rbp+Fh]
+  BOOL *v25; // [rsp+B8h] [rbp+17h]
+  __int64 v26; // [rsp+C0h] [rbp+1Fh]
+  __int64 *v27; // [rsp+C8h] [rbp+27h]
+  __int64 v28; // [rsp+D0h] [rbp+2Fh]
 
   v0 = 0;
   v1 = MiPinDriverAddressLog;
   do
   {
     v2 = *v1;
-    v14 = v2;
+    v12 = v2;
     if ( (v2 & 1) != 0 )
     {
-      LODWORD(v14) = v2 & 0xFFFFFFFE;
-      MiPinDriverAddressLog[v0] = v14;
-      RtlInterlockedClearBitRun((__int64)&dword_140C29560, v0, 1u);
-      LOBYTE(v2) = MiLogPinDriverAddress(&v14);
+      LODWORD(v12) = v2 & 0xFFFFFFFE;
+      MiPinDriverAddressLog[v0] = v12;
+      RtlInterlockedClearBitRun((__int64)&dword_140C2A0C0, v0, 1u);
+      LOBYTE(v2) = MiLogPinDriverAddress(&v12);
     }
     ++v0;
     ++v1;
   }
   while ( v0 < 0x800 );
-  v3 = &unk_140C29674;
-  v4 = 0;
-  v19 = (char *)&unk_140C29674;
+  v3 = 0;
+  v4 = &unk_140C2A1D4;
   do
   {
-    v5 = v3;
-    v18 = (char *)v3;
     for ( i = 0; i < 2; ++i )
     {
-      v7 = v5;
       for ( j = 0; j < 2; ++j )
       {
-        v9 = *(v7 - 1);
-        if ( v9 != *v7 )
+        v7 = *(v4 - 1);
+        if ( v7 != *v4 )
         {
-          if ( **(_DWORD **)&qword_140C53448 > 5u )
+          if ( **(_DWORD **)&qword_140C4EEE0 > 5u )
           {
-            LOBYTE(v2) = tlgKeywordOn(*(__int64 *)&qword_140C53448, 0x400000000000LL);
+            LOBYTE(v2) = tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 0x400000000000LL);
             if ( (_BYTE)v2 )
             {
-              v24 = 8LL;
-              v15 = v4;
-              v20 = (unsigned int)(v9 - v11);
+              v20 = 8LL;
+              v13 = v3;
+              v16 = (unsigned int)(v7 - v9);
+              v22 = 4LL;
+              v24 = 4LL;
+              v19 = &v16;
               v26 = 4LL;
-              v28 = 4LL;
-              v23 = &v20;
-              v30 = 4LL;
+              v21 = &v13;
+              v17 = 0x1000000LL;
+              v28 = 8LL;
+              v14 = i == 1;
+              v23 = &v14;
+              v15 = j == 1;
               v25 = &v15;
-              v21 = 0x1000000LL;
-              v32 = 8LL;
-              v16 = i == 1;
-              v27 = &v16;
-              v17 = j == 1;
-              v29 = &v17;
-              v31 = &v21;
-              LOBYTE(v2) = tlgWriteAgg(v12, (unsigned __int8 *)&byte_14002DCE1, v10, 7u, &v22);
+              v27 = &v17;
+              LOBYTE(v2) = tlgWriteAgg(v10, (unsigned __int8 *)&byte_140026A08, v8, 7u, &v18);
             }
           }
-          *v7 = v9;
+          *v4 = v7;
         }
-        v7 += 2;
+        v4 += 2;
       }
-      v5 = v18 + 16;
-      v18 += 16;
     }
-    ++v4;
-    v3 = v19 + 32;
-    v19 += 32;
+    ++v3;
   }
-  while ( v4 < 2 );
-  word_140C296D0 = 0;
+  while ( v3 < 2 );
+  word_140C2A230 = 0;
   return v2;
 }

@@ -1,34 +1,30 @@
 /*
- * XREFs of KiFastReadyThread @ 0x140294574
+ * XREFs of KiFastReadyThread @ 0x140278190
  * Callers:
- *     KeReadyThread @ 0x140293184 (KeReadyThread.c)
- *     KiInSwapKernelStacks @ 0x14029A6E0 (KiInSwapKernelStacks.c)
+ *     KeReadyThread @ 0x140277A14 (KeReadyThread.c)
+ *     KiInSwapKernelStacks @ 0x1402E46BC (KiInSwapKernelStacks.c)
  * Callees:
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
- *     KiCheckForThreadDispatch @ 0x140294824 (KiCheckForThreadDispatch.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiEnterDeferredReadyState @ 0x1402F69A0 (KiEnterDeferredReadyState.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140340300 (KiFlushSoftwareInterruptBatch.c)
- *     KiDeferredReadySingleThread @ 0x1403405E0 (KiDeferredReadySingleThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceReadyThread @ 0x14062E258 (EtwTraceReadyThread.c)
+ *     KiReadyDeferredReadyList @ 0x140230D60 (KiReadyDeferredReadyList.c)
+ *     KiEnterDeferredReadyState @ 0x140248780 (KiEnterDeferredReadyState.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiCheckForThreadDispatch @ 0x1402783B4 (KiCheckForThreadDispatch.c)
+ *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceReadyThread @ 0x1405A7F70 (EtwTraceReadyThread.c)
  */
 
-__int64 __fastcall KiFastReadyThread(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall KiFastReadyThread(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  unsigned __int8 CurrentIrql; // r14
+  unsigned __int8 CurrentIrql; // si
   struct _KPRCB *CurrentPrcb; // rbp
-  _DWORD *v6; // rcx
-  __int64 v7; // rcx
-  _QWORD *v8; // rdi
-  char v9; // si
-  __int64 v10; // rdx
-  _DWORD *SchedulerAssist; // r9
+  _DWORD *v7; // rcx
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  int v11; // eax
+  _DWORD *v12; // rcx
   int v13; // eax
-  _DWORD *v14; // rcx
-  int v15; // eax
-  int v16; // [rsp+40h] [rbp+8h] BYREF
-  _QWORD *v17; // [rsp+48h] [rbp+10h] BYREF
+  int v14; // [rsp+40h] [rbp+8h] BYREF
+  _QWORD *v15; // [rsp+48h] [rbp+10h] BYREF
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
@@ -43,58 +39,45 @@ __int64 __fastcall KiFastReadyThread(__int64 a1, __int64 a2, __int64 a3)
   {
     LOBYTE(a3) = *(_BYTE *)(a1 + 567);
     LOBYTE(a2) = *(_BYTE *)(a1 + 566);
-    EtwTraceReadyThread(a1, a2, a3);
+    EtwTraceReadyThread(a1, a2, a3, 0LL);
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  v16 = 0;
+  v14 = 0;
   while ( 1 )
   {
-    v6 = CurrentPrcb->SchedulerAssist;
-    if ( v6 )
+    v7 = CurrentPrcb->SchedulerAssist;
+    if ( v7 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v13 = v6[6];
-        v6[6] = v13 + 1;
-        if ( v13 == -1 )
+        v11 = v7[6];
+        v7[6] = v11 + 1;
+        if ( v11 == -1 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
       break;
-    v14 = CurrentPrcb->SchedulerAssist;
-    if ( v14 )
+    v12 = CurrentPrcb->SchedulerAssist;
+    if ( v12 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v15 = v14[6] - 1;
-        v14[6] = v15;
-        if ( !v15 )
+        v13 = v12[6] - 1;
+        v12[6] = v13;
+        if ( !v13 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     do
-      KeYieldProcessorEx(&v16);
+      KeYieldProcessorEx(&v14, a2, a3, (__int64)SchedulerAssist);
     while ( *(_QWORD *)(a1 + 64) );
   }
   KiEnterDeferredReadyState(a1);
-  KiReleaseThreadLockSafe(v7);
-  v8 = (_QWORD *)(a1 + 216);
-  v9 = 0;
-  *v8 = 0LL;
-  v17 = 0LL;
-  do
-  {
-    KiDeferredReadySingleThread(CurrentPrcb, v8 - 27, &v17);
-    v8 = v17;
-    ++v9;
-    if ( v17 )
-      v17 = (_QWORD *)*v17;
-    if ( (v9 & 0xF) == 0 )
-      KiFlushSoftwareInterruptBatch(&CurrentPrcb->DeferredDispatchInterrupts);
-  }
-  while ( v8 );
-  KiFlushSoftwareInterruptBatch(&CurrentPrcb->DeferredDispatchInterrupts);
-  LOBYTE(v10) = CurrentIrql;
-  return KiCheckForThreadDispatch(CurrentPrcb, v10);
+  KiReleaseThreadLockSafe(v8);
+  *(_QWORD *)(a1 + 216) = 0LL;
+  v15 = (_QWORD *)(a1 + 216);
+  KiReadyDeferredReadyList((__int64)CurrentPrcb, &v15);
+  LOBYTE(v9) = CurrentIrql;
+  return KiCheckForThreadDispatch(CurrentPrcb, v9);
 }

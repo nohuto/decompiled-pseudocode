@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IoCreateDriver @ 0x14073A0B0 (IoCreateDriver.c)
+ *     IoCreateDriver @ 0x14073A090 (IoCreateDriver.c)
  */
 
 void __fastcall ViIrpLogExposeWmiCallback(PVOID P)

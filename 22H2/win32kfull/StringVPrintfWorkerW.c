@@ -1,8 +1,7 @@
 /*
- * XREFs of StringVPrintfWorkerW @ 0x1C003C630
+ * XREFs of StringVPrintfWorkerW @ 0x1C000963C
  * Callers:
- *     StringCchPrintfW @ 0x1C003C5F4 (StringCchPrintfW.c)
- *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C003D58C (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00095E4 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
  * Callees:
  *     <none>
  */

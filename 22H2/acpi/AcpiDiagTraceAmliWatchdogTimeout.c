@@ -1,47 +1,44 @@
 /*
- * XREFs of AcpiDiagTraceAmliWatchdogTimeout @ 0x1C00079E8
+ * XREFs of AcpiDiagTraceAmliWatchdogTimeout @ 0x1C004985C
  * Callers:
- *     AmliWatchdogTimeoutAction @ 0x1C0046FA4 (AmliWatchdogTimeoutAction.c)
+ *     AmliWatchdogTimeoutAction @ 0x1C0063064 (AmliWatchdogTimeoutAction.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     _tlgKeywordOn @ 0x1C0009240 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0009270 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1C000FB50 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C000FB80 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
-void __fastcall AcpiDiagTraceAmliWatchdogTimeout(_QWORD *a1, __int64 a2)
+void AcpiDiagTraceAmliWatchdogTimeout()
 {
-  __int64 v2; // r8
-  __int64 v3; // r9
-  unsigned __int64 v4; // r9
-  int v5; // [rsp+30h] [rbp-29h] BYREF
-  int v6; // [rsp+34h] [rbp-25h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v7; // [rsp+40h] [rbp-19h] BYREF
-  _DWORD *v8; // [rsp+60h] [rbp+7h]
-  __int64 v9; // [rsp+68h] [rbp+Fh]
-  __int64 v10; // [rsp+70h] [rbp+17h]
-  _DWORD v11[2]; // [rsp+78h] [rbp+1Fh] BYREF
-  int *v12; // [rsp+80h] [rbp+27h]
-  __int64 v13; // [rsp+88h] [rbp+2Fh]
-  int *v14; // [rsp+90h] [rbp+37h]
-  __int64 v15; // [rsp+98h] [rbp+3Fh]
+  __int64 v0; // r8
+  __int64 v1; // r9
+  unsigned __int64 v2; // r9
+  int v3; // [rsp+30h] [rbp-29h] BYREF
+  int v4; // [rsp+34h] [rbp-25h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v5; // [rsp+40h] [rbp-19h] BYREF
+  _DWORD *v6; // [rsp+60h] [rbp+7h]
+  __int64 v7; // [rsp+68h] [rbp+Fh]
+  __int64 v8; // [rsp+70h] [rbp+17h]
+  _DWORD v9[2]; // [rsp+78h] [rbp+1Fh] BYREF
+  int *v10; // [rsp+80h] [rbp+27h]
+  __int64 v11; // [rsp+88h] [rbp+2Fh]
+  int *v12; // [rsp+90h] [rbp+37h]
+  __int64 v13; // [rsp+98h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_1C006DCE0 > 5 )
+  if ( (unsigned int)dword_1C007F0E8 > 5 && tlgKeywordOn((__int64)&dword_1C007F0E8) )
   {
-    if ( (unsigned __int8)tlgKeywordOn(&dword_1C006DCE0, a2, *a1, MEMORY[0xFFFFF78000000008]) )
-    {
-      v4 = v3 - *(_QWORD *)(v2 + 456);
-      v8 = v11;
-      v10 = *(_QWORD *)(v2 + 448);
-      v11[0] = *(unsigned __int16 *)(v2 + 440);
-      v9 = 2LL;
-      v12 = &v5;
-      v6 = AmliWatchdogTimeout;
-      v14 = &v6;
-      v5 = v4 / 0x2710;
-      v11[1] = 0;
-      v13 = 4LL;
-      v15 = 4LL;
-      tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C006DCE0, (int)&dword_1C00629A1, v2, v4, 6u, &v7);
-    }
+    v2 = v1 - *(_QWORD *)(v0 + 456);
+    v6 = v9;
+    v8 = *(_QWORD *)(v0 + 448);
+    v9[0] = *(unsigned __int16 *)(v0 + 440);
+    v7 = 2LL;
+    v10 = &v3;
+    v4 = AmliWatchdogTimeout;
+    v12 = &v4;
+    v3 = v2 / 0x2710;
+    v9[1] = 0;
+    v11 = 4LL;
+    v13 = 4LL;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C007F0E8, (unsigned __int8 *)dword_1C0072691, v0, v2, 6u, &v5);
   }
 }

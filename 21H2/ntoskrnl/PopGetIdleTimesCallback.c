@@ -1,194 +1,224 @@
 /*
- * XREFs of PopGetIdleTimesCallback @ 0x140293600
+ * XREFs of PopGetIdleTimesCallback @ 0x14027BED0
  * Callers:
- *     PoGetIdleTimes @ 0x140293444 (PoGetIdleTimes.c)
+ *     PoGetIdleTimes @ 0x14027BD3C (PoGetIdleTimes.c)
  * Callees:
- *     PpmConvertTime @ 0x14029394C (PpmConvertTime.c)
- *     PpmContinueActiveTimeAccumulation @ 0x140293988 (PpmContinueActiveTimeAccumulation.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x14027B9CC (PpmContinueActiveTimeAccumulation.c)
+ *     PpmConvertTime @ 0x14027C22C (PpmConvertTime.c)
  */
 
-__int64 __fastcall PopGetIdleTimesCallback(struct _KPRCB *a1, __int64 a2, __int64 a3)
+__int64 __fastcall PopGetIdleTimesCallback(__int64 a1, __int64 a2, __int64 a3)
 {
   struct _KPRCB *CurrentPrcb; // rax
-  unsigned int v4; // ebx
-  BOOL v5; // r13d
-  signed __int64 IdleSequenceNumber; // rax
-  signed __int64 v10; // rtt
-  _PPM_IDLE_STATES *IdleStates; // r14
-  LARGE_INTEGER v12; // rbp
-  ULONG SpareLong0; // r12d
-  unsigned int v14; // r8d
-  unsigned __int64 v16; // rax
+  BOOL v7; // edi
+  unsigned __int64 v8; // rbp
+  _DWORD *v9; // r12
+  _QWORD *v10; // r15
+  signed __int64 v11; // rax
+  signed __int64 v12; // rtt
+  LARGE_INTEGER v13; // r8
+  unsigned __int64 QuadPart; // r13
+  signed __int64 v15; // rax
+  signed __int64 v16; // rtt
   unsigned __int64 v17; // rax
-  _PROC_IDLE_ACCOUNTING *v18; // r9
-  _PPM_IDLE_STATES *v19; // r8
-  unsigned int i; // r14d
-  unsigned int StateCount; // ecx
-  __int64 v22; // rdx
-  _DWORD *v23; // rdx
-  _QWORD *v24; // rbp
-  unsigned __int64 TotalTime; // rcx
-  _PROC_IDLE_ACCOUNTING *IdleAccounting; // [rsp+20h] [rbp-68h]
-  signed __int64 v27; // [rsp+28h] [rbp-60h]
-  unsigned __int64 IdleTimeEntry; // [rsp+30h] [rbp-58h]
-  _QWORD *v29; // [rsp+38h] [rbp-50h]
-  _DWORD *v30; // [rsp+40h] [rbp-48h]
+  unsigned int v18; // r8d
+  int v19; // r9d
+  unsigned __int64 v20; // rax
+  __int64 v22; // r10
+  unsigned int i; // edx
+  unsigned int v24; // ecx
+  _DWORD *v25; // r11
+  __int64 v26; // r8
+  int v27; // eax
+  int v28; // eax
+  int v29; // eax
+  _DWORD *v30; // r8
+  _QWORD *v31; // rcx
+  __int64 v32; // rcx
+  __int64 v33; // rax
+  unsigned int v34; // [rsp+20h] [rbp-68h]
+  _QWORD *v35; // [rsp+28h] [rbp-60h]
+  unsigned int *v36; // [rsp+30h] [rbp-58h]
+  __int64 v37; // [rsp+38h] [rbp-50h]
+  _QWORD *v38; // [rsp+40h] [rbp-48h]
   LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp-40h]
-  unsigned int KernelTime; // [rsp+90h] [rbp+8h]
-  _PPM_IDLE_STATES *v33; // [rsp+A8h] [rbp+20h]
+  unsigned int v40; // [rsp+90h] [rbp+8h]
+  int v41; // [rsp+A8h] [rbp+20h]
 
   CurrentPrcb = KeGetCurrentPrcb();
-  v4 = 0;
-  v27 = 0LL;
-  IdleTimeEntry = 0LL;
-  v5 = CurrentPrcb != a1;
-  v30 = 0LL;
-  v29 = 0LL;
-  if ( CurrentPrcb != a1 )
+  v7 = CurrentPrcb != (struct _KPRCB *)a1;
+  v8 = 0LL;
+  v9 = 0LL;
+  v10 = 0LL;
+  if ( CurrentPrcb != (struct _KPRCB *)a1 )
   {
-    _m_prefetchw((const void *)&a1->PowerState.IdleSequenceNumber);
-    IdleSequenceNumber = a1->PowerState.IdleSequenceNumber;
+    _m_prefetchw((const void *)(a1 + 32800));
+    v11 = *(_QWORD *)(a1 + 32800);
     do
     {
-      v10 = IdleSequenceNumber;
-      IdleSequenceNumber = _InterlockedCompareExchange64(
-                             (volatile signed __int64 *)&a1->PowerState.IdleSequenceNumber,
-                             IdleSequenceNumber,
-                             IdleSequenceNumber);
+      v12 = v11;
+      v11 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 32800), v11, v11);
     }
-    while ( v10 != IdleSequenceNumber );
-    v27 = IdleSequenceNumber;
-    if ( (IdleSequenceNumber & 1) == 0 )
-      return (unsigned int)-1073741823;
-    IdleTimeEntry = a1->PowerState.IdleTimeEntry;
+    while ( v12 != v11 );
+    v8 = v11;
+    if ( !v11 )
+      return 3221225473LL;
   }
-  IdleStates = a1->PowerState.IdleStates;
-  IdleAccounting = a1->PowerState.IdleAccounting;
-  v33 = IdleStates;
+  v36 = *(unsigned int **)(a1 + 32776);
+  v37 = *(_QWORD *)(a1 + 0x8000);
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  v12 = PerformanceCounter;
-  SpareLong0 = a1->IdleThread->SchedulerApc.SpareLong0;
-  KernelTime = a1->KernelTime;
+  QuadPart = PerformanceCounter.QuadPart;
+  v40 = *(_DWORD *)(*(_QWORD *)(a1 + 24) + 652LL);
+  v41 = *(_DWORD *)(a1 + 32388);
   if ( a2 )
   {
-    v18 = IdleAccounting;
     *(_OWORD *)a2 = 0LL;
     *(_OWORD *)(a2 + 16) = 0LL;
     *(_OWORD *)(a2 + 32) = 0LL;
-    if ( IdleAccounting )
+    if ( v36 )
     {
-      v19 = IdleStates;
-      if ( IdleStates )
+      v22 = v37;
+      if ( v37 )
       {
         for ( i = 0; ; ++i )
         {
-          StateCount = v18->StateCount;
-          if ( v18->StateCount >= v19->ProcessorIdleCount )
-            StateCount = v19->ProcessorIdleCount;
-          if ( i >= StateCount )
+          v24 = *v36;
+          v25 = v9;
+          v34 = i;
+          if ( *v36 >= *(_DWORD *)(v22 + 32) )
+            v24 = *(_DWORD *)(v22 + 32);
+          v38 = v10;
+          if ( i >= v24 )
           {
-            v12 = PerformanceCounter;
-            IdleStates = v33;
-            *(_QWORD *)a2 = PpmConvertTime(v18->PriorIdleTime, PopQpcFrequency, 10000000LL);
-            goto LABEL_8;
-          }
-          v22 = i;
-          if ( v19->State[v22].StateType )
+            QuadPart = PerformanceCounter.QuadPart;
+            *(_QWORD *)a2 = PpmConvertTime(*((_QWORD *)v36 + 3), PopQpcFrequency, 10000000LL);
             break;
-          if ( !v19->State[v22].ContextRetained )
-            goto LABEL_53;
-          if ( v19->State[v22].CacheCoherent != 0 )
-          {
-LABEL_31:
-            v23 = (_DWORD *)(a2 + 32);
-            v24 = (_QWORD *)(a2 + 8);
-            goto LABEL_34;
           }
-          if ( !v19->State[v22].CacheCoherent )
+          v26 = 248LL * i;
+          if ( *(_BYTE *)(v26 + v22 + 1056) )
           {
+            if ( *(_BYTE *)(v26 + v22 + 1056) == 1 )
+            {
+              v27 = 1;
+              goto LABEL_33;
+            }
+            if ( *(_BYTE *)(v26 + v22 + 1056) == 2 )
+            {
+              v27 = 2;
+              goto LABEL_33;
+            }
+          }
+          else if ( *(_BYTE *)(v26 + v22 + 1059) )
+          {
+            v27 = 2 - (*(_BYTE *)(v26 + v22 + 1060) != 0);
+            goto LABEL_33;
+          }
+          v27 = 3;
 LABEL_33:
-            v23 = (_DWORD *)(a2 + 36);
-            v24 = (_QWORD *)(a2 + 16);
-            goto LABEL_34;
-          }
-          if ( -(v19->State[v22].CacheCoherent != 0) == 1 )
-            goto LABEL_53;
-          v23 = 0LL;
-          v24 = 0LL;
-LABEL_34:
-          if ( i == v19->ActualState )
+          v28 = v27 - 1;
+          if ( v28 )
           {
-            v29 = v24;
-            v30 = v23;
+            v29 = v28 - 1;
+            if ( v29 )
+            {
+              if ( v29 == 1 )
+              {
+                v30 = (_DWORD *)(a2 + 40);
+                v31 = (_QWORD *)(a2 + 24);
+              }
+              else
+              {
+                v30 = 0LL;
+                v31 = 0LL;
+              }
+            }
+            else
+            {
+              v30 = (_DWORD *)(a2 + 36);
+              v31 = (_QWORD *)(a2 + 16);
+            }
           }
-          if ( v23 && v24 )
+          else
           {
-            *v23 += v18->State[i].FailureCount + v18->State[i].SuccessCount;
-            TotalTime = v18->State[i].TotalTime;
-            if ( v19->ActualState == i )
-              TotalTime += a1->PowerState.IdleTimeLast;
-            *v24 += PpmConvertTime(TotalTime, PopQpcFrequency, 10000000LL);
-            v19 = v33;
-            v18 = IdleAccounting;
+            v30 = (_DWORD *)(a2 + 32);
+            v31 = (_QWORD *)(a2 + 8);
+          }
+          v9 = v30;
+          v10 = v31;
+          v35 = v31;
+          if ( i != *(_DWORD *)(v22 + 20) )
+          {
+            v10 = v38;
+            v9 = v25;
+          }
+          if ( v30 && v31 )
+          {
+            *v30 += v36[250 * i + 13] + v36[250 * i + 14];
+            v32 = *(_QWORD *)&v36[250 * i + 10];
+            if ( *(_DWORD *)(v22 + 20) == i )
+              v32 += *(_QWORD *)(a1 + 32784);
+            v33 = PpmConvertTime(v32, PopQpcFrequency, 10000000LL);
+            i = v34;
+            v22 = v37;
+            *v35 += v33;
           }
         }
-        if ( v19->State[v22].StateType == 1 )
-          goto LABEL_31;
-        if ( v19->State[v22].StateType == 2 )
-          goto LABEL_33;
-LABEL_53:
-        v23 = (_DWORD *)(a2 + 40);
-        v24 = (_QWORD *)(a2 + 24);
-        goto LABEL_34;
       }
-      IdleStates = 0LL;
     }
   }
-LABEL_8:
   if ( a3 )
   {
-    if ( !v5 )
-      ((void (__fastcall *)(_QWORD, _QWORD))PpmContinueActiveTimeAccumulation)(a1, (LARGE_INTEGER)v12.QuadPart);
-    *(_QWORD *)(a3 + 8) = PpmConvertTime(a1->PowerState.PerfFeedback.StallTime, PopQpcFrequency, 10000000LL);
+    if ( !v7 )
+      PpmContinueActiveTimeAccumulation(a1, QuadPart, v13.QuadPart);
+    *(_QWORD *)(a3 + 8) = PpmConvertTime(*(_QWORD *)(a1 + 32968), PopQpcFrequency, 10000000LL);
   }
-  if ( !v5 )
-    goto LABEL_13;
-  _m_prefetchw((const void *)&a1->PowerState.IdleSequenceNumber);
-  if ( v27 != _InterlockedOr64((volatile signed __int64 *)&a1->PowerState.IdleSequenceNumber, 0LL) )
-    return (unsigned int)-1073741823;
-  if ( v12.QuadPart > IdleTimeEntry )
+  if ( !v7 )
+    goto LABEL_18;
+  _m_prefetchw((const void *)(a1 + 32800));
+  v15 = *(_QWORD *)(a1 + 32800);
+  do
   {
-    v16 = PpmConvertTime(v12.QuadPart - IdleTimeEntry, PopQpcFrequency, 10000000LL);
-    if ( v29 && v30 )
+    v16 = v15;
+    v15 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 32800), v15, v15);
+  }
+  while ( v16 != v15 );
+  if ( v8 != v15 )
+    return 3221225473LL;
+  if ( QuadPart > v8 )
+  {
+    v17 = PpmConvertTime(QuadPart - v8, PopQpcFrequency, 10000000LL);
+    if ( v10 && v9 )
     {
-      ++*v30;
-      *v29 += v16;
+      ++*v9;
+      *v10 += v17;
     }
-    v14 = KernelTime;
-    if ( v16 > (unsigned int)KeMaximumIncrement )
+    v18 = v40;
+    v19 = v41;
+    if ( v17 > (unsigned int)KeMaximumIncrement )
     {
-      v17 = v16 / (unsigned int)KeMaximumIncrement;
-      SpareLong0 = v17 + SpareLong0 - 1;
-      v14 = v17 + KernelTime - 1;
+      v20 = v17 / (unsigned int)KeMaximumIncrement;
+      v18 = v20 + v40 - 1;
+      v19 = v20 + v41 - 1;
     }
   }
   else
   {
-LABEL_13:
-    v14 = KernelTime;
+LABEL_18:
+    v19 = v41;
+    v18 = v40;
   }
   if ( a2 )
   {
-    if ( IdleAccounting && IdleStates )
+    if ( v36 && v37 )
       *(_QWORD *)a2 += *(_QWORD *)(a2 + 8) + *(_QWORD *)(a2 + 16) + *(_QWORD *)(a2 + 24);
     else
-      *(_QWORD *)a2 = SpareLong0 * (unsigned __int64)(unsigned int)KeMaximumIncrement;
+      *(_QWORD *)a2 = v18 * (unsigned __int64)(unsigned int)KeMaximumIncrement;
   }
   if ( a3 )
   {
-    *(_DWORD *)a3 = SpareLong0;
-    *(_DWORD *)(a3 + 4) = v14;
+    *(_DWORD *)a3 = v18;
+    *(_DWORD *)(a3 + 4) = v19;
   }
-  return v4;
+  return 0LL;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of KeFlushProcessTb @ 0x1402171FC
+ * XREFs of KeFlushProcessTb @ 0x140297284
  * Callers:
- *     MmOutSwapProcess @ 0x140211108 (MmOutSwapProcess.c)
- *     KeSwapDirectoryTableBase @ 0x140216C28 (KeSwapDirectoryTableBase.c)
- *     MiDeleteFinalPageTables @ 0x140216EE8 (MiDeleteFinalPageTables.c)
- *     MiDeleteProcessShadow @ 0x14027D408 (MiDeleteProcessShadow.c)
+ *     MmOutSwapProcess @ 0x14024A494 (MmOutSwapProcess.c)
+ *     MiDeleteFinalPageTables @ 0x140296F6C (MiDeleteFinalPageTables.c)
+ *     MiDeleteProcessShadow @ 0x140305768 (MiDeleteProcessShadow.c)
+ *     KeSwapDirectoryTableBase @ 0x14038DA34 (KeSwapDirectoryTableBase.c)
  * Callees:
- *     HvlFlushAddressSpaceTb @ 0x14039DA34 (HvlFlushAddressSpaceTb.c)
+ *     HvlFlushAddressSpaceTb @ 0x1403903EC (HvlFlushAddressSpaceTb.c)
  */
 
-__int64 __fastcall KeFlushProcessTb(__int64 a1)
+char __fastcall KeFlushProcessTb(__int64 a1)
 {
-  __int64 result; // rax
+  char result; // al
 
-  result = (unsigned int)HvlEnlightenments;
+  result = HvlEnlightenments & 1;
   if ( (HvlEnlightenments & 1) != 0 )
     return HvlFlushAddressSpaceTb(a1 & 0xFFFFFFFFFFFFF000uLL, 0LL, 0LL);
   return result;

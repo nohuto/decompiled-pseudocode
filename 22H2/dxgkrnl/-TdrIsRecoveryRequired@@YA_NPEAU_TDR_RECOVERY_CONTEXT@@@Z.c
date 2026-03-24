@@ -1,29 +1,32 @@
 /*
- * XREFs of ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030F310
+ * XREFs of ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02663B0
  * Callers:
- *     ?TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z @ 0x1C03D4A60 (-TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z.c)
+ *     ?TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z @ 0x1C03005F4 (-TriggerDisplayOnlyTdr@DXGDODPRESENT@@QEAAHW4_TDR_TIMEOUT_REASON@@I_K@Z.c)
  * Callees:
- *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000AF80 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02B8D38 (-PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030E0D0 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
- *     ?TdrHistoryIsLimitExhausted@@YA_NPEBU_TDR_HISTORY@@PEBU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030F1E0 (-TdrHistoryIsLimitExhausted@@YA_NPEBU_TDR_HISTORY@@PEBU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
- *     ?TdrIsDisplayOnlyTdr@@YA_NW4_TDR_TIMEOUT_REASON@@@Z @ 0x1C030F2B4 (-TdrIsDisplayOnlyTdr@@YA_NW4_TDR_TIMEOUT_REASON@@@Z.c)
- *     ?TdrRetrieveSecondaryBucketingKey@@YAXPEAU_TDR_RECOVERY_CONTEXT@@PEAK@Z @ 0x1C030F79C (-TdrRetrieveSecondaryBucketingKey@@YAXPEAU_TDR_RECOVERY_CONTEXT@@PEAK@Z.c)
- *     ?TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030F850 (-TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
- *     TdrAllowToDebugTimeout @ 0x1C030FBB8 (TdrAllowToDebugTimeout.c)
- *     TdrBugcheckOnTimeout @ 0x1C030FD40 (TdrBugcheckOnTimeout.c)
+ *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000903C (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C020EDE8 (-PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0265110 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ *     ?TdrHistoryIsLimitExhausted@@YA_NPEBU_TDR_HISTORY@@PEBU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0266280 (-TdrHistoryIsLimitExhausted@@YA_NPEBU_TDR_HISTORY@@PEBU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ *     ?TdrIsDisplayOnlyTdr@@YA_NW4_TDR_TIMEOUT_REASON@@@Z @ 0x1C0266354 (-TdrIsDisplayOnlyTdr@@YA_NW4_TDR_TIMEOUT_REASON@@@Z.c)
+ *     ?TdrRetrieveSecondaryBucketingKey@@YAXPEAU_TDR_RECOVERY_CONTEXT@@PEAK@Z @ 0x1C0266868 (-TdrRetrieveSecondaryBucketingKey@@YAXPEAU_TDR_RECOVERY_CONTEXT@@PEAK@Z.c)
+ *     ?TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0266910 (-TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ *     TdrAllowToDebugTimeout @ 0x1C0266C78 (TdrAllowToDebugTimeout.c)
+ *     TdrBugcheckOnTimeout @ 0x1C0266E00 (TdrBugcheckOnTimeout.c)
  */
 
 char __fastcall TdrIsRecoveryRequired(struct _TDR_RECOVERY_CONTEXT *a1)
 {
-  KIRQL CurrentIrql; // al
-  unsigned int v4; // eax
-  int v5; // ecx
-  __int64 v6; // rax
-  DXGADAPTER *v7; // rcx
-  int v8; // eax
-  unsigned int v9; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  unsigned __int8 CurrentIrql; // di
+  __int64 v5; // rax
+  unsigned int v7; // eax
+  int v8; // ecx
+  __int64 v9; // rax
+  DXGADAPTER *v10; // rcx
+  int v11; // eax
+  unsigned int v12; // [rsp+38h] [rbp+10h] BYREF
 
   if ( !g_TdrConfig
     || (unsigned int)TdrAllowToDebugTimeout()
@@ -34,36 +37,37 @@ char __fastcall TdrIsRecoveryRequired(struct _TDR_RECOVERY_CONTEXT *a1)
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql )
   {
-    WdLogSingleEntry2(0LL, a1, CurrentIrql);
+    v5 = WdLogNewEntry5_WdCriticalError(v3, v2);
+    *(_QWORD *)(v5 + 32) = CurrentIrql;
+    *(_QWORD *)(v5 + 24) = a1;
+    WdLogEvent5_WdCriticalError(v5);
     return 0;
   }
   if ( KeAreAllApcsDisabled() )
   {
-    v4 = *((_DWORD *)a1 + 4);
-    if ( v4 > 0xB || (v5 = 3730, !_bittest(&v5, v4)) )
+    v7 = *((_DWORD *)a1 + 4);
+    if ( v7 > 0xB || (v8 = 3730, !_bittest(&v8, v7)) )
     {
       TdrCollectDbgInfoStage1(a1, 0);
-      v9 = 0;
-      TdrRetrieveSecondaryBucketingKey(a1, &v9);
-      *((_QWORD *)a1 + 355) = 0LL;
+      v12 = 0;
+      TdrRetrieveSecondaryBucketingKey(a1, &v12);
+      *((_QWORD *)a1 + 354) = 0LL;
       TdrBugcheckOnTimeout((ULONG_PTR)a1);
     }
     WdDiagNotifyUser(8LL, 2LL, 0LL, 0LL);
     return 0;
   }
   TdrUpdateDbgReport(a1, 1);
-  v6 = *(_QWORD *)(*((_QWORD *)a1 + 4) + 2928LL);
-  if ( v6
-    && (*(int (__fastcall **)(struct _TDR_RECOVERY_CONTEXT *))(*(_QWORD *)(*(_QWORD *)(v6 + 736) + 8LL) + 584LL))(a1) < 0 )
+  v9 = *(_QWORD *)(*((_QWORD *)a1 + 4) + 2704LL);
+  if ( v9
+    && (*(int (__fastcall **)(struct _TDR_RECOVERY_CONTEXT *))(*(_QWORD *)(*(_QWORD *)(v9 + 616) + 8LL) + 584LL))(a1) < 0 )
   {
-    *((_QWORD *)a1 + 13) = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 4) + 2928LL) + 736LL) + 8LL)
+    *((_QWORD *)a1 + 12) = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 4) + 2704LL) + 616LL) + 8LL)
                                      + 584LL);
     TdrBugcheckOnTimeout((ULONG_PTR)a1);
   }
   TdrCollectDbgInfoStage1(a1, 1);
   if ( ((*((_DWORD *)a1 + 4) - 2) & 0xFFFFFFFB) == 0 && !*((_QWORD *)a1 + 9) && g_TdrDebugMode != 3 )
-    TdrBugcheckOnTimeout((ULONG_PTR)a1);
-  if ( !*(_BYTE *)(*((_QWORD *)a1 + 4) + 213LL) )
     TdrBugcheckOnTimeout((ULONG_PTR)a1);
   if ( TdrHistoryIsLimitExhausted((const struct _TDR_HISTORY *)&g_TdrHistory, a1, 0) && g_TdrDebugMode != 3 )
     TdrBugcheckOnTimeout((ULONG_PTR)a1);
@@ -71,11 +75,11 @@ char __fastcall TdrIsRecoveryRequired(struct _TDR_RECOVERY_CONTEXT *a1)
     TdrBugcheckOnTimeout((ULONG_PTR)a1);
   if ( !TdrIsDisplayOnlyTdr(*((_DWORD *)a1 + 4)) && !DXGADAPTER::IsDxgmms2(*((DXGADAPTER **)a1 + 4)) )
   {
-    v8 = DXGADAPTER::PrepareToReset(v7, a1);
-    if ( v8 < 0 )
+    v11 = DXGADAPTER::PrepareToReset(v10, a1);
+    if ( v11 < 0 )
     {
-      if ( v8 != -1073741643 )
-        *((_QWORD *)a1 + 13) = -1LL;
+      if ( v11 != -1073741643 )
+        *((_QWORD *)a1 + 12) = -1LL;
       TdrBugcheckOnTimeout((ULONG_PTR)a1);
     }
   }

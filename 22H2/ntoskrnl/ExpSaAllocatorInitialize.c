@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpSaAllocatorInitialize @ 0x1403AB2B0
+ * XREFs of ExpSaAllocatorInitialize @ 0x1403C9DE0
  * Callers:
- *     ExpSaInitialize @ 0x1403AB0D8 (ExpSaInitialize.c)
+ *     ExpSaInitialize @ 0x1403C9C5C (ExpSaInitialize.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall ExpSaAllocatorInitialize(_QWORD *a1, char a2)

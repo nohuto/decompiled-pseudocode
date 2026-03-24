@@ -1,25 +1,25 @@
 /*
- * XREFs of ResetSignal @ 0x1C00559E0
+ * XREFs of ResetSignal @ 0x1C0068A00
  * Callers:
  *     <none>
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     GetObjectPath @ 0x1C004BB90 (GetObjectPath.c)
- *     GetObjectTypeName @ 0x1C004BD70 (GetObjectTypeName.c)
- *     ValidateArgTypes @ 0x1C004CF0C (ValidateArgTypes.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     SignalASLEvent @ 0x1C0054E4C (SignalASLEvent.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     GetObjectPath @ 0x1C0023A98 (GetObjectPath.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
+ *     SignalASLEvent @ 0x1C0068798 (SignalASLEvent.c)
  */
 
 __int64 __fastcall ResetSignal(__int64 a1, _QWORD *a2)
 {
   unsigned int v4; // edi
-  __int64 v5; // rax
-  char v6; // cl
+  char v5; // cl
+  __int64 v6; // rax
   int v7; // ecx
   __int64 v8; // rax
-  void *ObjectPath; // rsi
+  _QWORD *ObjectPath; // rsi
   const void *ObjectTypeName; // rax
   const void *v11; // r11
   int v12; // ecx
@@ -30,11 +30,11 @@ __int64 __fastcall ResetSignal(__int64 a1, _QWORD *a2)
   v4 = ValidateArgTypes(a1, a2[10], 0, "O");
   if ( !v4 )
   {
-    v5 = *(_QWORD *)(a2[10] + 16LL);
-    v6 = gdwfAMLI;
-    a2[8] = v5;
-    if ( (v6 & 4) != 0 )
-      _InterlockedIncrement((volatile signed __int32 *)(v5 + 112));
+    v5 = gdwfAMLI;
+    v6 = *(_QWORD *)(a2[10] + 16LL);
+    a2[8] = v6;
+    if ( (v5 & 4) != 0 )
+      _InterlockedIncrement((volatile signed __int32 *)(v6 + 112));
     v7 = *(_DWORD *)(a2[7] + 8LL);
     if ( v7 == 9307 )
     {
@@ -47,7 +47,7 @@ __int64 __fastcall ResetSignal(__int64 a1, _QWORD *a2)
       v4 = -1072431095;
       LogError(-1072431095);
       AcpiDiagTraceAmlError(a1, -1072431095);
-      ObjectPath = (void *)GetObjectPath(a2[8]);
+      ObjectPath = GetObjectPath(a2[8]);
       ObjectTypeName = (const void *)GetObjectTypeName(*(unsigned __int16 *)(a2[8] + 66LL));
       v12 = 175;
     }
@@ -67,7 +67,7 @@ __int64 __fastcall ResetSignal(__int64 a1, _QWORD *a2)
       v4 = -1072431095;
       LogError(-1072431095);
       AcpiDiagTraceAmlError(a1, -1072431095);
-      ObjectPath = (void *)GetObjectPath(a2[8]);
+      ObjectPath = GetObjectPath(a2[8]);
       ObjectTypeName = (const void *)GetObjectTypeName(*(unsigned __int16 *)(a2[8] + 66LL));
       v12 = 174;
     }

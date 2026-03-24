@@ -1,10 +1,10 @@
 /*
- * XREFs of Controller_WdfEvtDeviceWakeFromS0Triggered @ 0x1C0036990
+ * XREFs of Controller_WdfEvtDeviceWakeFromS0Triggered @ 0x1C0034E00
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_q @ 0x1C001431C (WPP_RECORDER_SF_q.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Controller_WdfEvtDeviceWakeFromS0Triggered(__int64 a1)
@@ -17,12 +17,12 @@ __int64 __fastcall Controller_WdfEvtDeviceWakeFromS0Triggered(__int64 a1)
   v3 = *(_QWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                      WdfDriverGlobals,
                      a1,
-                     off_1C00633D8)
+                     off_1C00603D8)
                  + 8);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v2) = 4;
-    WPP_RECORDER_SF_q(*(_QWORD *)(v3 + 72), v2, 4, 93, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids, v1);
+    WPP_RECORDER_SF_i(*(_QWORD *)(v3 + 72), v2, 4, 92, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v1);
   }
-  return ((__int64 (__fastcall *)(__int64, _QWORD))qword_1C0064810)(UcxDriverGlobals, **(_QWORD **)(v3 + 152));
+  return ((__int64 (__fastcall *)(__int64, _QWORD))qword_1C00617B0)(UcxDriverGlobals, **(_QWORD **)(v3 + 152));
 }

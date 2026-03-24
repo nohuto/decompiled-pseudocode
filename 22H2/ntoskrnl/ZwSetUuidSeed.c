@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetUuidSeed @ 0x14041DEA0
+ * XREFs of ZwSetUuidSeed @ 0x1403FD080
  * Callers:
  *     <none>
  * Callees:

@@ -1,36 +1,39 @@
 /*
- * XREFs of ?RemoveComponentInternal@CoreWindowProp@@KAJPEAUtagWND@@0@Z @ 0x1C0238E50
+ * XREFs of ?RemoveComponentInternal@CoreWindowProp@@KAJPEAUtagWND@@0@Z @ 0x1C023DB3C
  * Callers:
- *     ?Delete@CoreWindowProp@@UEAAXXZ @ 0x1C0238C70 (-Delete@CoreWindowProp@@UEAAXXZ.c)
- *     ?RemoveComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z @ 0x1C0238E24 (-RemoveComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z.c)
+ *     ?Delete@CoreWindowProp@@UEAAXXZ @ 0x1C0135910 (-Delete@CoreWindowProp@@UEAAXXZ.c)
+ *     ?RemoveComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z @ 0x1C023DB10 (-RemoveComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z.c)
  * Callees:
- *     ??$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z @ 0x1C00821A8 (--$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z.c)
- *     ?ChangeRole@CoreWindowProp@@KAJPEAUtagWND@@W4COREWINDOWROLE@@_N@Z @ 0x1C0238BAC (-ChangeRole@CoreWindowProp@@KAJPEAUtagWND@@W4COREWINDOWROLE@@_N@Z.c)
- *     ?FindComponent@CoreWindowProp@@KAPEAUComponent@1@PEAUtagWND@@0PEAPEAU21@@Z @ 0x1C0238CC4 (-FindComponent@CoreWindowProp@@KAPEAUComponent@1@PEAUtagWND@@0PEAPEAU21@@Z.c)
- *     ?UnlinkAndDestroyComponent@CoreWindowProp@@IEAAXPEAUComponent@1@0@Z @ 0x1C0238EDC (-UnlinkAndDestroyComponent@CoreWindowProp@@IEAAXPEAUComponent@1@0@Z.c)
+ *     ?FindComponent@CoreWindowProp@@KAPEAUComponent@1@PEAUtagWND@@0PEAPEAU21@@Z @ 0x1C00051FC (-FindComponent@CoreWindowProp@@KAPEAUComponent@1@PEAUtagWND@@0PEAPEAU21@@Z.c)
+ *     ??$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z @ 0x1C006B788 (--$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z.c)
+ *     ?ChangeRole@CoreWindowProp@@KAJPEAUtagWND@@W4COREWINDOWROLE@@_N@Z @ 0x1C0123424 (-ChangeRole@CoreWindowProp@@KAJPEAUtagWND@@W4COREWINDOWROLE@@_N@Z.c)
+ *     ?UpdateProcessPriorityWhenComponentRemoved@PriorityBoostCUI@@YAXPEAUtagWND@@0@Z @ 0x1C0223624 (-UpdateProcessPriorityWhenComponentRemoved@PriorityBoostCUI@@YAXPEAUtagWND@@0@Z.c)
+ *     ?UnlinkAndDestroyComponent@CoreWindowProp@@IEAAXPEAUComponent@1@0@Z @ 0x1C023DBD0 (-UnlinkAndDestroyComponent@CoreWindowProp@@IEAAXPEAUComponent@1@0@Z.c)
  */
 
-__int64 __fastcall CoreWindowProp::RemoveComponentInternal(struct tagWND *a1, struct tagWND *a2)
+__int64 __fastcall CoreWindowProp::RemoveComponentInternal(struct tagWND *this, struct tagWND *a2)
 {
   unsigned int v4; // edi
   struct CoreWindowProp::Component *Component; // rax
   CoreWindowProp *v6; // rbx
-  struct CoreWindowProp::Component *v8; // [rsp+40h] [rbp+18h] BYREF
-  CoreWindowProp *v9; // [rsp+48h] [rbp+20h] BYREF
+  struct tagWND *v7; // r8
+  struct CoreWindowProp::Component *v9; // [rsp+50h] [rbp+18h] BYREF
+  CoreWindowProp *v10; // [rsp+58h] [rbp+20h] BYREF
 
-  v9 = 0LL;
+  v10 = 0LL;
   v4 = -1073741275;
-  if ( CWindowProp::GetProp<CoreWindowProp>((__int64)a1, (__int64 *)&v9) )
+  if ( CWindowProp::GetProp<CoreWindowProp>((__int64)this, (__int64 *)&v10) )
   {
-    v8 = 0LL;
-    Component = CoreWindowProp::FindComponent(a1, a2, &v8);
+    v9 = 0LL;
+    Component = CoreWindowProp::FindComponent(this, a2, &v9);
     if ( Component )
     {
-      v6 = v9;
-      CoreWindowProp::UnlinkAndDestroyComponent(v9, Component, v8);
+      v6 = v10;
+      CoreWindowProp::UnlinkAndDestroyComponent(v10, Component, v9);
       v4 = 0;
-      if ( !*((_DWORD *)v6 + 12) )
-        CoreWindowProp::ChangeRole((__int64)a1, 2, 0);
+      if ( !*((_DWORD *)v6 + 10) )
+        CoreWindowProp::ChangeRole((__int64)this, 2, 0);
+      PriorityBoostCUI::UpdateProcessPriorityWhenComponentRemoved(this, a2, v7);
     }
   }
   return v4;

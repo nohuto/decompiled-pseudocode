@@ -1,63 +1,75 @@
 /*
- * XREFs of RtlStringCbCatNW @ 0x140649BD4
+ * XREFs of RtlStringCbCatNW @ 0x1405C0B40
  * Callers:
- *     AslPathWildcardFindNext @ 0x140A1641C (AslPathWildcardFindNext.c)
+ *     AslPathWildcardFindNext @ 0x1409690C4 (AslPathWildcardFindNext.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall RtlStringCbCatNW(NTSTRSAFE_PWSTR pszDest, size_t cbDest, STRSAFE_PCNZWCH pszSrc, size_t cbToAppend)
 {
-  __int64 v4; // r10
-  NTSTRSAFE_PWSTR v5; // rax
+  __int64 v5; // r10
+  NTSTRSAFE_PWSTR v6; // rax
   NTSTATUS result; // eax
-  size_t v7; // r9
-  __int64 v8; // rdx
-  char *v9; // rcx
-  signed __int64 v10; // r8
-  __int16 v11; // ax
-  char *v12; // rax
+  __int64 v8; // r8
+  size_t v9; // r9
+  wchar_t *v10; // rcx
+  __int64 v11; // rdx
+  size_t v12; // r8
+  char *v13; // r11
+  wchar_t v14; // ax
+  wchar_t *v15; // rax
 
-  v4 = 260LL;
-  v5 = pszDest;
+  v5 = 260LL;
+  v6 = pszDest;
   do
   {
-    if ( !*v5 )
+    if ( !*v6 )
       break;
-    ++v5;
-    --v4;
+    ++v6;
+    --v5;
   }
-  while ( v4 );
-  result = -1073741811;
-  if ( !v4 )
-    return -1073741811;
-  v7 = cbToAppend >> 1;
-  if ( v7 <= 0x7FFFFFFE )
+  while ( v5 );
+  result = v5 == 0 ? 0xC000000D : 0;
+  if ( v5 )
+    v8 = 260 - v5;
+  else
+    v8 = 0LL;
+  if ( v5 )
   {
-    v8 = ((v4 - 260) & ((unsigned __int128)-(__int128)(unsigned __int64)v4 >> 64)) + 260;
-    v9 = (char *)pszDest + (-(__int64)(v4 != 0) & (2 * (260 - v4)));
-    if ( ((v4 - 260) & ((unsigned __int128)-(__int128)(unsigned __int64)v4 >> 64)) != 0xFFFFFFFFFFFFFEFCuLL )
+    v9 = cbToAppend >> 1;
+    if ( v9 <= 0x7FFFFFFE )
     {
-      v10 = (char *)pszSrc - v9;
-      do
+      v10 = &pszDest[v8];
+      v11 = 260 - v8;
+      if ( 260 != v8 )
       {
-        if ( !v7 )
-          break;
-        v11 = *(_WORD *)&v9[v10];
-        if ( !v11 )
-          break;
-        *(_WORD *)v9 = v11;
-        --v7;
-        v9 += 2;
-        --v8;
+        v12 = v9;
+        v13 = (char *)((char *)pszSrc - (char *)v10);
+        do
+        {
+          if ( !v12 )
+            break;
+          v14 = *(wchar_t *)((char *)v10 + (_QWORD)v13);
+          if ( !v14 )
+            break;
+          *v10 = v14;
+          --v12;
+          ++v10;
+          --v11;
+        }
+        while ( v11 );
       }
-      while ( v8 );
+      v15 = v10 - 1;
+      if ( v11 )
+        v15 = v10;
+      *v15 = 0;
+      return v11 == 0 ? 0x80000005 : 0;
     }
-    v12 = v9 - 2;
-    if ( v8 )
-      v12 = v9;
-    *(_WORD *)v12 = 0;
-    return v8 == 0 ? 0x80000005 : 0;
+    else
+    {
+      return -1073741811;
+    }
   }
   return result;
 }

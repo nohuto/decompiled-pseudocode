@@ -1,44 +1,43 @@
 /*
- * XREFs of ?DestroyHandle@CChannel@DirectComposition@@SAJI@Z @ 0x1C00215A0
+ * XREFs of ?DestroyHandle@CChannel@DirectComposition@@SAJI@Z @ 0x1C005A4F8
  * Callers:
- *     NtDCompositionDestroyChannel @ 0x1C0021370 (NtDCompositionDestroyChannel.c)
- *     NtDCompositionCreateChannel @ 0x1C0022ED0 (NtDCompositionCreateChannel.c)
- *     NtDCompositionCreateDwmChannel @ 0x1C00B9F60 (NtDCompositionCreateDwmChannel.c)
+ *     NtDCompositionDestroyChannel @ 0x1C005A4E0 (NtDCompositionDestroyChannel.c)
+ *     NtDCompositionCreateChannel @ 0x1C005BB10 (NtDCompositionCreateChannel.c)
+ *     NtDCompositionCreateDwmChannel @ 0x1C00AFFA0 (NtDCompositionCreateDwmChannel.c)
  * Callees:
- *     ?Release@CChannel@DirectComposition@@QEAAKXZ @ 0x1C0021510 (-Release@CChannel@DirectComposition@@QEAAKXZ.c)
- *     ?RemoveObject@?$CGenericTable@IVCChannel@DirectComposition@@$0HEGDEDEE@$00@DirectComposition@@QEAAPEAVCChannel@2@I@Z @ 0x1C0021540 (-RemoveObject@-$CGenericTable@IVCChannel@DirectComposition@@$0HEGDEDEE@$00@DirectComposition@@QE.c)
- *     ?Current@CProcessData@DirectComposition@@SAPEAV12@XZ @ 0x1C0023138 (-Current@CProcessData@DirectComposition@@SAPEAV12@XZ.c)
+ *     ?Release@CChannel@DirectComposition@@QEAAKXZ @ 0x1C005A59C (-Release@CChannel@DirectComposition@@QEAAKXZ.c)
+ *     ?RemoveObject@?$CGenericTable@IVCChannel@DirectComposition@@$0HEGDEDEE@$00@DirectComposition@@QEAAPEAVCChannel@2@I@Z @ 0x1C005A5CC (-RemoveObject@-$CGenericTable@IVCChannel@DirectComposition@@$0HEGDEDEE@$00@DirectComposition@@QE.c)
+ *     ?Current@CProcessData@DirectComposition@@SAPEAV12@XZ @ 0x1C005BD7C (-Current@CProcessData@DirectComposition@@SAPEAV12@XZ.c)
  */
 
-__int64 __fastcall DirectComposition::CChannel::DestroyHandle(int a1)
+__int64 __fastcall DirectComposition::CChannel::DestroyHandle()
 {
-  struct DirectComposition::CProcessData *v2; // rax
-  struct DirectComposition::CProcessData *v3; // rdi
-  struct _ERESOURCE *v4; // rbx
-  DirectComposition::CChannel *v5; // rsi
-  unsigned int v6; // ebx
+  DirectComposition::CChannel *v0; // rbx
+  struct DirectComposition::CProcessData *v1; // rax
+  struct DirectComposition::CProcessData *v2; // rsi
+  struct _ERESOURCE *v3; // rbx
+  unsigned int v4; // edi
 
-  v2 = DirectComposition::CProcessData::Current();
-  v3 = v2;
-  if ( v2 )
+  v0 = 0LL;
+  v1 = DirectComposition::CProcessData::Current();
+  v2 = v1;
+  if ( v1 )
   {
-    v4 = (struct _ERESOURCE *)*((_QWORD *)v2 + 1);
+    v3 = (struct _ERESOURCE *)*((_QWORD *)v1 + 1);
     KeEnterCriticalRegion();
-    ExAcquireResourceExclusiveLite(v4, 1u);
-    v5 = (DirectComposition::CChannel *)DirectComposition::CGenericTable<unsigned int,DirectComposition::CChannel,1952662340,1>::RemoveObject(
-                                          *(PRTL_GENERIC_TABLE *)v3,
-                                          a1);
-    v6 = 0;
-    if ( !v5 )
-      v6 = -1073741790;
-    ExReleaseResourceLite(*((PERESOURCE *)v3 + 1));
+    ExAcquireResourceExclusiveLite(v3, 1u);
+    v0 = (DirectComposition::CChannel *)DirectComposition::CGenericTable<unsigned int,DirectComposition::CChannel,1952662340,1>::RemoveObject(*(PRTL_GENERIC_TABLE *)v2);
+    v4 = 0;
+    if ( !v0 )
+      v4 = -1073741790;
+    ExReleaseResourceLite(*((PERESOURCE *)v2 + 1));
     KeLeaveCriticalRegion();
-    if ( v5 )
-      DirectComposition::CChannel::Release(v5);
   }
   else
   {
-    return (unsigned int)-1073741823;
+    v4 = -1073741823;
   }
-  return v6;
+  if ( v0 )
+    DirectComposition::CChannel::Release(v0);
+  return v4;
 }

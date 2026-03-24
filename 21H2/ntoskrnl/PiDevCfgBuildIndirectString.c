@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDevCfgBuildIndirectString @ 0x1407468A0
+ * XREFs of PiDevCfgBuildIndirectString @ 0x14073D1AC
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x1407702BC (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x140742E20 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1402D17BC (RtlUnicodeStringPrintf.c)
- *     RtlUnicodeStringPrintfEx @ 0x1402D1840 (RtlUnicodeStringPrintfEx.c)
- *     PnpValidateRegistryString @ 0x1402D199C (PnpValidateRegistryString.c)
- *     PnpDuplicateUnicodeString @ 0x1402D1DA4 (PnpDuplicateUnicodeString.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     PnpRegSzToString @ 0x14067AB94 (PnpRegSzToString.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     ExpAllocateStringRoutine @ 0x1406BE560 (ExpAllocateStringRoutine.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     PnpDuplicateUnicodeString @ 0x14036EEA0 (PnpDuplicateUnicodeString.c)
+ *     PnpValidateRegistryString @ 0x14036EF3C (PnpValidateRegistryString.c)
+ *     RtlUnicodeStringPrintf @ 0x14036EF9C (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringPrintfEx @ 0x14036F060 (RtlUnicodeStringPrintfEx.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
+ *     PnpRegSzToString @ 0x14074002C (PnpRegSzToString.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgBuildIndirectString(__int64 a1, unsigned __int16 *a2, __int64 a3, UNICODE_STRING *a4)
@@ -27,10 +27,10 @@ __int64 __fastcall PiDevCfgBuildIndirectString(__int64 a1, unsigned __int16 *a2,
   unsigned __int16 v12; // ax
   unsigned __int64 v13; // rbx
   wchar_t *StringRoutine; // rax
-  const WCHAR *v15; // rsi
-  NTSTATUS RegistryValue; // ebx
-  unsigned int v17; // edx
-  _WORD *v18; // rcx
+  wchar_t *v15; // rsi
+  int RegistryValue; // ebx
+  __int64 v17; // rdx
+  char *v18; // rcx
   unsigned int v19; // edx
   unsigned __int16 Length; // r15
   int v21; // esi
@@ -84,17 +84,17 @@ __int64 __fastcall PiDevCfgBuildIndirectString(__int64 a1, unsigned __int16 *a2,
       goto LABEL_24;
     memmove(StringRoutine, (const void *)(*((_QWORD *)a2 + 1) + 2LL), (unsigned int)v13);
     v15[v13 >> 1] = 0;
-    RegistryValue = IopGetRegistryValue(KeyHandle, v15, 0, &P);
-    RtlFreeUnicodeString(&UnicodeString);
+    RegistryValue = IopGetRegistryValue(KeyHandle);
+    RtlFreeAnsiString(&UnicodeString);
     if ( RegistryValue >= 0 )
     {
       v10 = (unsigned int *)P;
       if ( PnpValidateRegistryString(P) )
       {
         v17 = v10[3];
-        v18 = (_WORD *)((char *)v10 + v10[2]);
+        v18 = (char *)v10 + v10[2];
         LODWORD(P) = 0;
-        PnpRegSzToString(v18, v17, (int *)&P);
+        PnpRegSzToString(v18, v17, &P);
         LOWORD(v27) = (_WORD)P;
         WORD1(v27) = *((_WORD *)v10 + 6);
         *((_QWORD *)&v27 + 1) = (char *)v10 + v10[2];
@@ -146,7 +146,7 @@ LABEL_24:
   if ( a4 )
     RtlInitUnicodeString(a4, (PCWSTR)(*(_QWORD *)(a3 + 8) + 2 * v22));
 LABEL_19:
-  RtlFreeUnicodeString(&DestinationString);
+  RtlFreeAnsiString(&DestinationString);
   if ( v10 )
     ExFreePoolWithTag(v10, 0);
   if ( KeyHandle )

@@ -1,98 +1,88 @@
 /*
- * XREFs of xxxPSMTextOut @ 0x1C02417C4
+ * XREFs of xxxPSMTextOut @ 0x1C0252AAC
  * Callers:
- *     xxxDrawMenuBarUnderlines @ 0x1C00BAA10 (xxxDrawMenuBarUnderlines.c)
- *     ?xxxDrawMenuItemText@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGHH@Z @ 0x1C0233FEC (-xxxDrawMenuItemText@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGHH@Z.c)
- *     xxxRealDrawMenuItem @ 0x1C0236930 (xxxRealDrawMenuItem.c)
+ *     xxxDrawMenuBarUnderlines @ 0x1C00E1BE0 (xxxDrawMenuBarUnderlines.c)
+ *     ?xxxDrawMenuItemText@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGHH@Z @ 0x1C024BBEC (-xxxDrawMenuItemText@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGHH@Z.c)
+ *     xxxRealDrawMenuItem @ 0x1C024D2E4 (xxxRealDrawMenuItem.c)
  * Callees:
- *     GreGetTextColor @ 0x1C0014D18 (GreGetTextColor.c)
- *     GreSetBkColor @ 0x1C0027760 (GreSetBkColor.c)
- *     GreGetTextExtentW @ 0x1C007A468 (GreGetTextExtentW.c)
- *     ?GrepGetTextMetricsW@@YAHPEAUHDC__@@PEAU_TMW_INTERNAL@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C007DC34 (-GrepGetTextMetricsW@@YAHPEAUHDC__@@PEAU_TMW_INTERNAL@@W4EntryPoint@RFONTOBJ@@@Z.c)
- *     GreExtTextOutW @ 0x1C00A1DB0 (GreExtTextOutW.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C00F8AA8 (--1EUDCCountRegion@@QEAA@XZ.c)
- *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C00FA9A0 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     xxxClientPSMTextOut @ 0x1C02132C0 (xxxClientPSMTextOut.c)
- *     CALL_LPK @ 0x1C0225FD4 (CALL_LPK.c)
- *     GetPrefixCount @ 0x1C024D478 (GetPrefixCount.c)
+ *     GreSetBkColor @ 0x1C0044600 (GreSetBkColor.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     GreExtTextOutWInternal @ 0x1C00AAC5C (GreExtTextOutWInternal.c)
+ *     GreGetTextMetricsW @ 0x1C00E3244 (GreGetTextMetricsW.c)
+ *     GreGetTextExtentW @ 0x1C00E337C (GreGetTextExtentW.c)
+ *     GreGetTextColor @ 0x1C0157E4C (GreGetTextColor.c)
+ *     CALL_LPK @ 0x1C0158EEC (CALL_LPK.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     xxxClientPSMTextOut @ 0x1C0232E44 (xxxClientPSMTextOut.c)
+ *     GetPrefixCount @ 0x1C025E8A4 (GetPrefixCount.c)
  */
 
-void __fastcall xxxPSMTextOut(Gre::Base *a1, __int64 a2, __int64 a3, const WCHAR *a4, unsigned int a5, int a6)
+void __fastcall xxxPSMTextOut(HDC a1, unsigned int a2, unsigned int a3, PCWSTR SourceString, unsigned int a5, int a6)
 {
-  void *v6; // rsi
-  int v7; // r12d
-  unsigned int v9; // r13d
-  unsigned int v10; // r15d
-  struct tagTHREADINFO *v12; // rax
+  unsigned __int16 *v6; // rsi
+  int v8; // r12d
+  __int64 ThreadWin32Thread; // rax
   int PrefixCount; // edi
-  __int64 v14; // rcx
-  __int64 v15; // rax
-  int TextMetricsW; // ebx
-  int v17; // ebx
-  unsigned int v18; // edi
+  int TextMetricsW; // eax
+  int v15; // ebx
+  LONG v16; // edi
   int TextColor; // eax
-  int v20; // ebx
-  struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
-  _OWORD v22[2]; // [rsp+50h] [rbp-B0h] BYREF
-  __int128 v23; // [rsp+70h] [rbp-90h]
-  _OWORD v24[5]; // [rsp+90h] [rbp-70h] BYREF
-  _DWORD v25[4]; // [rsp+E0h] [rbp-20h] BYREF
+  int v18; // ebx
+  struct _POINTL v19; // [rsp+50h] [rbp-B0h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
+  __int128 v21; // [rsp+68h] [rbp-98h]
+  __int128 v22; // [rsp+88h] [rbp-78h]
+  _OWORD v23[5]; // [rsp+B0h] [rbp-50h] BYREF
+  struct tagRECT v24; // [rsp+100h] [rbp+0h] BYREF
 
-  v6 = &unk_1C035F940;
-  v7 = 0;
-  *(_QWORD *)&DestinationString.Length = 0LL;
-  v9 = a3;
-  v10 = a2;
-  v12 = PtiCurrentShared((__int64)a1, a2, a3, (__int64)a4);
-  if ( (unsigned int)CALL_LPK((__int64)v12) )
+  v6 = &word_1C0340B00;
+  v8 = 0;
+  v19 = 0LL;
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  if ( (unsigned int)CALL_LPK(ThreadWin32Thread) )
   {
     DestinationString = 0LL;
-    RtlInitUnicodeString(&DestinationString, a4);
-    xxxClientPSMTextOut(a1, v10, v9, (char **)&DestinationString, a5, a6);
+    RtlInitUnicodeString(&DestinationString, SourceString);
+    xxxClientPSMTextOut(a1, a2, a3, &DestinationString.Length, a5, a6);
   }
-  else if ( a5 < 0xFF || (v6 = (void *)Win32AllocPoolZInit(2LL * (int)(a5 + 1), 1953657685LL)) != 0LL )
+  else if ( a5 < 0xFF || (v6 = (unsigned __int16 *)Win32AllocPool(2LL * (int)(a5 + 1), 1953657685LL)) != 0LL )
   {
-    PrefixCount = GetPrefixCount(a4, a5, v6, a5);
+    PrefixCount = GetPrefixCount(SourceString, a5, v6, a5);
     if ( (a6 & 0x200000) == 0 )
-      GreExtTextOutW((__int64)a1, v10, v9, 0, 0LL, (__int64)v6, a5 - HIWORD(PrefixCount));
+      GreExtTextOutWInternal(a1, a2, a3, 0, 0LL, v6, a5 - HIWORD(PrefixCount), 0LL, 0LL, 0);
     if ( (_WORD)PrefixCount != 0xFFFF && (a6 & 0x100000) == 0 )
     {
-      memset_0(v24, 0, 0x44uLL);
-      v15 = SGDGetSessionState(v14);
-      EUDCCountRegion::EUDCCountRegion((EUDCCountRegion *)v22, *(struct Gre::Full::SESSION_GLOBALS **)(v15 + 32));
-      TextMetricsW = GrepGetTextMetricsW((HDC)a1, (struct _TMW_INTERNAL *)v24, 1027);
-      EUDCCountRegion::~EUDCCountRegion((EUDCCountRegion *)v22);
-      v22[0] = v24[0];
-      v23 = v24[2];
+      memset(v23, 0, 0x44uLL);
+      TextMetricsW = GreGetTextMetricsW(a1, (struct _TMW_INTERNAL *)v23);
+      v21 = v23[0];
+      v22 = v23[2];
       if ( TextMetricsW )
       {
-        v17 = v23;
-        v7 = DWORD1(v22[0]);
+        v15 = v22;
+        v8 = DWORD1(v21);
       }
       else
       {
-        v17 = 0;
+        v15 = 0;
       }
       if ( (_WORD)PrefixCount )
       {
-        GreGetTextExtentW((__int64)a1, (__int64)v6, (unsigned __int16)PrefixCount, (__int64)&DestinationString);
-        v10 += *(_DWORD *)&DestinationString.Length - v17;
+        GreGetTextExtentW(a1, v6, (unsigned __int16)PrefixCount, (struct tagSIZE *)&v19, 1);
+        a2 += v19.x - v15;
       }
-      GreGetTextExtentW((__int64)a1, (__int64)v6 + 2 * (unsigned __int16)PrefixCount, 1u, (__int64)&DestinationString);
-      v18 = v7 + v9 + 1;
-      v25[0] = v10;
-      v25[1] = v18;
-      v25[3] = v18 + 1;
-      v25[2] = v10 + DestinationString.Length - v17 / 2;
-      TextColor = GreGetTextColor((HDC)a1);
-      v20 = GreSetBkColor((HDC)a1, TextColor);
-      GreExtTextOutW((__int64)a1, v10, v18, 2u, (__int64)v25, (__int64)&word_1C030D60C, 0);
-      GreSetBkColor((HDC)a1, v20);
+      GreGetTextExtentW(a1, &v6[(unsigned __int16)PrefixCount], 1u, (struct tagSIZE *)&v19, 1);
+      v16 = v8 + a3 + 1;
+      v24.left = a2;
+      v24.top = v16;
+      v24.bottom = v16 + 1;
+      v24.right = a2 + LOWORD(v19.x) - v15 / 2;
+      TextColor = GreGetTextColor(a1);
+      v18 = GreSetBkColor(a1, TextColor);
+      GreExtTextOutWInternal(a1, a2, v16, 2, &v24, (unsigned __int16 *)&word_1C02E497C, 0, 0LL, 0LL, 0);
+      GreSetBkColor(a1, v18);
     }
-    if ( v6 != &unk_1C035F940 )
+    if ( v6 != &word_1C0340B00 )
       Win32FreePool(v6);
   }
 }

@@ -1,18 +1,20 @@
 /*
- * XREFs of MiReturnReservedEnclavePages @ 0x140AAD770
+ * XREFs of MiReturnReservedEnclavePages @ 0x1409B0EA0
  * Callers:
- *     MiAddPagesToEnclave @ 0x140646A80 (MiAddPagesToEnclave.c)
- *     MiInitializeEnclave @ 0x140A3DF08 (MiInitializeEnclave.c)
- *     MiDeleteEnclavePages @ 0x140AAD528 (MiDeleteEnclavePages.c)
+ *     MiAddPagesToEnclave @ 0x140549044 (MiAddPagesToEnclave.c)
+ *     MiInitializeEnclave @ 0x1408D2FE0 (MiInitializeEnclave.c)
+ *     MiDeleteEnclavePages @ 0x1409B0CA0 (MiDeleteEnclavePages.c)
  * Callees:
- *     MiGetPfnLink @ 0x140374DEC (MiGetPfnLink.c)
- *     MiReturnEnclavePage @ 0x140648A7C (MiReturnEnclavePage.c)
+ *     MiGetPfnLink @ 0x14032C1B0 (MiGetPfnLink.c)
+ *     MiReturnEnclavePage @ 0x14054B360 (MiReturnEnclavePage.c)
  */
 
 void __fastcall MiReturnReservedEnclavePages(__int64 a1, __int64 a2)
 {
   __int64 v3; // rcx
   __int64 v4; // rcx
+  __int64 v5; // r8
+  _DWORD *v6; // r9
 
   if ( a2 )
   {
@@ -22,7 +24,11 @@ void __fastcall MiReturnReservedEnclavePages(__int64 a1, __int64 a2)
       if ( !v3 )
         break;
       *(_QWORD *)(a1 + 96) = MiGetPfnLink(v3);
-      MiReturnEnclavePage(0xAAAAAAAAAAAAAAABuLL * ((v4 + 0x220000000000LL) >> 4));
+      MiReturnEnclavePage(
+        (v4 + 0x58000000000LL) / 48,
+        (__int64)((unsigned __int128)((v4 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3,
+        v5,
+        v6);
     }
   }
   *(_QWORD *)(a1 + 104) = 0LL;

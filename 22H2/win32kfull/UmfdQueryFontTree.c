@@ -1,11 +1,11 @@
 /*
- * XREFs of UmfdQueryFontTree @ 0x1C007B900
+ * XREFs of UmfdQueryFontTree @ 0x1C00FDC20
  * Callers:
  *     <none>
  * Callees:
- *     ??0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z @ 0x1C007EF30 (--0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z.c)
- *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C007FC30 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
- *     UmfdDrvFreeInternal @ 0x1C0306060 (UmfdDrvFreeInternal.c)
+ *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C009A580 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ *     ??0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z @ 0x1C00FDCD4 (--0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z.c)
+ *     UmfdDrvFreeInternal @ 0x1C02DE200 (UmfdDrvFreeInternal.c)
  */
 
 __int64 __fastcall UmfdQueryFontTree(__int64 a1, __int64 a2, int a3, int a4, _QWORD *a5)
@@ -29,7 +29,7 @@ __int64 __fastcall UmfdQueryFontTree(__int64 a1, __int64 a2, int a3, int a4, _QW
   v12 = a3;
   v13 = a4;
   v14 = a5;
-  if ( (int)UmfdClientSendAndWaitForCompletion(*(unsigned int *)(a2 + 8), v10) < 0 )
+  if ( (int)UmfdClientSendAndWaitForCompletion(*(_DWORD *)(a2 + 8), (__int64)v10) < 0 )
     return 0LL;
   result = v15;
   if ( !v15 )

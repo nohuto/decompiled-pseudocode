@@ -1,40 +1,42 @@
 /*
- * XREFs of NtDCompositionTelemetrySetApplicationId @ 0x1C0024FE0
+ * XREFs of NtDCompositionTelemetrySetApplicationId @ 0x1C005B8D0
  * Callers:
  *     <none>
  * Callees:
- *     ?TelemetrySetApplicationId@CApplicationChannel@DirectComposition@@QEAAJPEBG@Z @ 0x1C00237A4 (-TelemetrySetApplicationId@CApplicationChannel@DirectComposition@@QEAAJPEBG@Z.c)
- *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C00269C4 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005EB28 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     ?SetApplicationId@CTelemetryInfo@DirectComposition@@QEAAJ_KPEBX@Z @ 0x1C0099FA8 (-SetApplicationId@CTelemetryInfo@DirectComposition@@QEAAJ_KPEBX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall NtDCompositionTelemetrySetApplicationId(unsigned int a1, size_t Size, char *Src)
+__int64 __fastcall NtDCompositionTelemetrySetApplicationId(unsigned int a1, unsigned __int64 a2, char *a3)
 {
-  int v6; // ebx
-  struct DirectComposition::CApplicationChannel *v7; // rsi
-  struct DirectComposition::CApplicationChannel *v9; // [rsp+28h] [rbp-170h] BYREF
-  unsigned __int16 v10[152]; // [rsp+30h] [rbp-168h] BYREF
+  int v5; // ebx
+  struct DirectComposition::CApplicationChannel *v6; // r14
+  struct DirectComposition::CApplicationChannel *v8; // [rsp+68h] [rbp+20h] BYREF
 
-  v6 = 0;
-  v9 = 0LL;
-  memset(v10, 0, 0x12EuLL);
-  if ( !Src || !Size || (Size & 1) != 0 || Size > 0x12C )
-    v6 = -1073741811;
-  if ( v6 >= 0 )
+  v5 = 0;
+  v8 = 0LL;
+  if ( !a3 || !a2 || (a2 & 1) != 0 || a2 > 0x12C )
+    v5 = -1073741811;
+  if ( v5 >= 0 )
   {
-    if ( &Src[Size] < Src || (unsigned __int64)&Src[Size] > MmUserProbeAddress )
-      *(_BYTE *)MmUserProbeAddress = 0;
-    memmove(v10, Src, Size);
-    v6 = DirectComposition::CApplicationChannel::ReferenceHandleAndLock(a1, &v9);
-    v7 = v9;
-    if ( v6 >= 0 )
+    if ( a2 )
     {
-      v6 = DirectComposition::CApplicationChannel::TelemetrySetApplicationId(v9, v10);
-      (**(void (__fastcall ***)(struct DirectComposition::CApplicationChannel *))v7)(v7);
+      if ( ((unsigned __int8)a3 & 1) != 0 )
+        ExRaiseDatatypeMisalignment();
+      if ( (unsigned __int64)&a3[a2] > MmUserProbeAddress || &a3[a2] < a3 )
+        *(_BYTE *)MmUserProbeAddress = 0;
+    }
+    v5 = DirectComposition::CApplicationChannel::ReferenceHandleAndLock(a1, &v8);
+    v6 = v8;
+    if ( v5 >= 0 )
+    {
+      v5 = DirectComposition::CTelemetryInfo::SetApplicationId(
+             (struct DirectComposition::CApplicationChannel *)((char *)v8 + 528),
+             a2,
+             a3);
+      (**(void (__fastcall ***)(struct DirectComposition::CApplicationChannel *))v6)(v6);
     }
   }
-  return (unsigned int)v6;
+  return (unsigned int)v5;
 }

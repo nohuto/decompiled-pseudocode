@@ -1,26 +1,27 @@
 /*
- * XREFs of CcGetFlushedValidData @ 0x14027FB60
+ * XREFs of CcGetFlushedValidData @ 0x1402B9D30
  * Callers:
- *     CcWriteBehindInternal @ 0x140288760 (CcWriteBehindInternal.c)
+ *     CcWriteBehindInternal @ 0x14022DA70 (CcWriteBehindInternal.c)
  * Callees:
- *     CcFindBitmapRangeToClean @ 0x140242ECC (CcFindBitmapRangeToClean.c)
- *     MmGetControlAreaPartition @ 0x14027FC48 (MmGetControlAreaPartition.c)
- *     CcDecrementOpenCount @ 0x140282AF4 (CcDecrementOpenCount.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     CcFindBitmapRangeToClean @ 0x1402B9E1C (CcFindBitmapRangeToClean.c)
+ *     CcDecrementOpenCount @ 0x14031313C (CcDecrementOpenCount.c)
+ *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
+ *     MmGetControlAreaPartition @ 0x140332B10 (MmGetControlAreaPartition.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 LARGE_INTEGER __stdcall CcGetFlushedValidData(PSECTION_OBJECT_POINTERS SectionObjectPointer, BOOLEAN BcbListHeld)
 {
   char *SharedCacheMap; // rdi
-  __int64 v5; // r13
+  __int64 Partition; // r13
   LARGE_INTEGER v6; // rbx
   __int64 v8; // rcx
-  __int64 *BitmapRangeToClean; // rax
+  __int64 BitmapRangeToClean; // rax
   _QWORD *v10; // rdx
   _QWORD *v11; // rax
   __int64 v12; // rcx
@@ -30,33 +31,34 @@ LARGE_INTEGER __stdcall CcGetFlushedValidData(PSECTION_OBJECT_POINTERS SectionOb
   _DWORD *v16; // r8
   int v17; // eax
   bool v18; // zf
-  unsigned __int64 v19; // rbx
-  unsigned __int8 v20; // al
-  struct _KPRCB *v21; // r10
-  _DWORD *v22; // r9
-  int v23; // eax
-  unsigned __int64 v24; // rbx
-  unsigned __int8 v25; // al
-  struct _KPRCB *v26; // r10
-  _DWORD *v27; // r9
-  int v28; // eax
+  __int64 v19; // rax
+  unsigned __int64 v20; // rbx
+  unsigned __int8 v21; // al
+  struct _KPRCB *v22; // r10
+  _DWORD *v23; // r9
+  int v24; // eax
+  unsigned __int64 v25; // rbx
+  unsigned __int8 v26; // al
+  struct _KPRCB *v27; // r10
+  _DWORD *v28; // r9
+  int v29; // eax
   unsigned __int64 OldIrql; // rdi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
-  int v33; // eax
-  struct _KLOCK_QUEUE_HANDLE v34; // [rsp+30h] [rbp-30h] BYREF
+  int v34; // eax
+  struct _KLOCK_QUEUE_HANDLE v35; // [rsp+30h] [rbp-30h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+48h] [rbp-18h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  memset(&v34, 0, sizeof(v34));
+  memset(&v35, 0, sizeof(v35));
   if ( BcbListHeld )
   {
     SharedCacheMap = (char *)SectionObjectPointer->SharedCacheMap;
 LABEL_3:
-    v5 = *((_QWORD *)SharedCacheMap + 66);
-    if ( *(_QWORD *)(MmGetControlAreaPartition(SectionObjectPointer) + 8) != v5 )
-      KeBugCheckEx(0x34u, 0x206BuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+    Partition = CcGetPartition(SharedCacheMap);
+    if ( *(_QWORD *)(MmGetControlAreaPartition(SectionObjectPointer) + 8) != Partition )
+      KeBugCheckEx(0x34u, 0x1E8CuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
     v6 = *(LARGE_INTEGER *)(SharedCacheMap + 48);
     if ( *((_DWORD *)SharedCacheMap + 28) )
     {
@@ -64,7 +66,7 @@ LABEL_3:
       if ( v8 && *(_DWORD *)(v8 + 8) )
       {
         BitmapRangeToClean = CcFindBitmapRangeToClean(v8, 0LL);
-        v6.QuadPart = (BitmapRangeToClean[2] + *((unsigned int *)BitmapRangeToClean + 6)) << 12;
+        v6.QuadPart = (*(_QWORD *)(BitmapRangeToClean + 16) + *(unsigned int *)(BitmapRangeToClean + 24)) << 12;
       }
       v10 = SharedCacheMap + 16;
       v11 = (_QWORD *)*((_QWORD *)SharedCacheMap + 2);
@@ -80,22 +82,22 @@ LABEL_3:
     if ( !BcbListHeld )
     {
       KeReleaseGuardedMutex((PKGUARDED_MUTEX)SharedCacheMap + 5);
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v5 + 704), &v34);
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(Partition + 128), &v35);
       CcDecrementOpenCount(SharedCacheMap);
-      KeReleaseInStackQueuedSpinLockFromDpcLevel(&v34);
-      OldIrql = v34.OldIrql;
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&v35);
+      OldIrql = v35.OldIrql;
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( CurrentIrql <= 0xFu && v34.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          if ( CurrentIrql <= 0xFu && v35.OldIrql <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v33 = ~(unsigned __int16)(-1LL << (v34.OldIrql + 1));
-            v18 = (v33 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v33;
+            v34 = ~(unsigned __int16)(-1LL << (v35.OldIrql + 1));
+            v18 = (v34 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v34;
             if ( v18 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
@@ -109,49 +111,50 @@ LABEL_3:
   SharedCacheMap = (char *)SectionObjectPointer->SharedCacheMap;
   if ( SharedCacheMap )
   {
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(*((_QWORD *)SharedCacheMap + 66) + 704LL), &v34);
+    v19 = CcGetPartition(SectionObjectPointer->SharedCacheMap);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v19 + 128), &v35);
     ++*((_DWORD *)SharedCacheMap + 1);
     ++*((_DWORD *)SharedCacheMap + 134);
-    KeReleaseInStackQueuedSpinLockFromDpcLevel(&v34);
-    v19 = v34.OldIrql;
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&v35);
+    v20 = v35.OldIrql;
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v20 = KeGetCurrentIrql();
-        if ( v20 <= 0xFu && v34.OldIrql <= 0xFu && v20 >= 2u )
+        v21 = KeGetCurrentIrql();
+        if ( v21 <= 0xFu && v35.OldIrql <= 0xFu && v21 >= 2u )
         {
-          v21 = KeGetCurrentPrcb();
-          v22 = v21->SchedulerAssist;
-          v23 = ~(unsigned __int16)(-1LL << (v34.OldIrql + 1));
-          v18 = (v23 & v22[5]) == 0;
-          v22[5] &= v23;
+          v22 = KeGetCurrentPrcb();
+          v23 = v22->SchedulerAssist;
+          v24 = ~(unsigned __int16)(-1LL << (v35.OldIrql + 1));
+          v18 = (v24 & v23[5]) == 0;
+          v23[5] &= v24;
           if ( v18 )
-            KiRemoveSystemWorkPriorityKick(v21);
+            KiRemoveSystemWorkPriorityKick(v22);
         }
       }
     }
-    __writecr8(v19);
+    __writecr8(v20);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-    v24 = LockHandle.OldIrql;
+    v25 = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v25 = KeGetCurrentIrql();
-        if ( v25 <= 0xFu && LockHandle.OldIrql <= 0xFu && v25 >= 2u )
+        v26 = KeGetCurrentIrql();
+        if ( v26 <= 0xFu && LockHandle.OldIrql <= 0xFu && v26 >= 2u )
         {
-          v26 = KeGetCurrentPrcb();
-          v27 = v26->SchedulerAssist;
-          v28 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v18 = (v28 & v27[5]) == 0;
-          v27[5] &= v28;
+          v27 = KeGetCurrentPrcb();
+          v28 = v27->SchedulerAssist;
+          v29 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v18 = (v29 & v28[5]) == 0;
+          v28[5] &= v29;
           if ( v18 )
-            KiRemoveSystemWorkPriorityKick(v26);
+            KiRemoveSystemWorkPriorityKick(v27);
         }
       }
     }
-    __writecr8(v24);
+    __writecr8(v25);
     ExAcquireFastMutex((PFAST_MUTEX)SharedCacheMap + 5);
     goto LABEL_3;
   }

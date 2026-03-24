@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bSearchAllSpans@FLOODBM@@QEAAHJJAEAJ0PEAEAEAVSTACKOBJ@@PEAVSCANLINE@@@Z @ 0x1C02D40B8
+ * XREFs of ?bSearchAllSpans@FLOODBM@@QEAAHJJAEAJ0PEAEAEAVSTACKOBJ@@PEAVSCANLINE@@@Z @ 0x1C02B9310
  * Callers:
- *     ?bExtendScanline@FLOODBM@@QEAAHAEAVSTACKOBJ@@0JPEAE1@Z @ 0x1C02D39A0 (-bExtendScanline@FLOODBM@@QEAAHAEAVSTACKOBJ@@0JPEAE1@Z.c)
+ *     ?bExtendScanline@FLOODBM@@QEAAHAEAVSTACKOBJ@@0JPEAE1@Z @ 0x1C02B8C28 (-bExtendScanline@FLOODBM@@QEAAHAEAVSTACKOBJ@@0JPEAE1@Z.c)
  * Callees:
- *     ?bExpandScanline@STACKOBJ@@QEAAHKK@Z @ 0x1C02D38EC (-bExpandScanline@STACKOBJ@@QEAAHKK@Z.c)
- *     ?iColorGet@FLOODBM@@QEAAKJ@Z @ 0x1C02D42E8 (-iColorGet@FLOODBM@@QEAAKJ@Z.c)
- *     ?vFindExtent@FLOODBM@@QEAAXJAEAJ0@Z @ 0x1C02D43B4 (-vFindExtent@FLOODBM@@QEAAXJAEAJ0@Z.c)
+ *     ?bExpandScanline@STACKOBJ@@QEAAHKK@Z @ 0x1C02B8B7C (-bExpandScanline@STACKOBJ@@QEAAHKK@Z.c)
+ *     ?iColorGet@FLOODBM@@QEAAKJ@Z @ 0x1C02B9540 (-iColorGet@FLOODBM@@QEAAKJ@Z.c)
+ *     ?vFindExtent@FLOODBM@@QEAAXJAEAJ0@Z @ 0x1C02B9608 (-vFindExtent@FLOODBM@@QEAAXJAEAJ0@Z.c)
  */
 
 __int64 __fastcall FLOODBM::bSearchAllSpans(
@@ -24,29 +24,28 @@ __int64 __fastcall FLOODBM::bSearchAllSpans(
   __int64 v13; // r13
   unsigned int v14; // r12d
   unsigned int v15; // eax
-  __int64 v16; // r9
-  int v17; // r10d
-  STACKOBJ *v18; // r11
-  bool v19; // zf
-  unsigned int v20; // edx
-  unsigned int v21; // ecx
-  int *v22; // rax
-  unsigned int v23; // edx
-  unsigned int v24; // ecx
-  int *v25; // rax
-  __int64 v26; // rax
-  unsigned int v27; // r8d
-  unsigned int v29; // edx
-  unsigned int v30; // r11d
-  unsigned int *v31; // r9
-  signed int v32; // r10d
-  int *v33; // rdi
-  int v34; // ecx
-  __int64 v35; // rax
-  __int64 v36; // rcx
-  int *v37; // [rsp+68h] [rbp+20h]
+  int v16; // r10d
+  STACKOBJ *v17; // r11
+  bool v18; // zf
+  unsigned int v19; // edx
+  unsigned int v20; // ecx
+  int *v21; // rax
+  unsigned int v22; // edx
+  unsigned int v23; // ecx
+  int *v24; // rax
+  __int64 v25; // rax
+  unsigned int v26; // r8d
+  unsigned int v28; // edx
+  unsigned int v29; // r11d
+  unsigned int *v30; // r9
+  signed int v31; // r10d
+  int *v32; // rdi
+  int v33; // ecx
+  __int64 v34; // rax
+  __int64 v35; // rcx
+  int *v36; // [rsp+68h] [rbp+20h]
 
-  v37 = a4;
+  v36 = a4;
   v8 = 0;
   v10 = a2;
   v12 = (unsigned int *)*((_QWORD *)a7 + 2);
@@ -60,9 +59,9 @@ __int64 __fastcall FLOODBM::bSearchAllSpans(
       v15 = FLOODBM::iColorGet(this, v10);
       if ( *((_DWORD *)this + 8) )
       {
-        while ( v15 != v17 )
+        while ( v15 != v16 )
         {
-          v19 = ++v10 == a3;
+          v18 = ++v10 == a3;
           if ( v10 >= a3 )
             goto LABEL_12;
           v15 = FLOODBM::iColorGet(this, v10);
@@ -70,56 +69,56 @@ __int64 __fastcall FLOODBM::bSearchAllSpans(
       }
       else
       {
-        while ( v15 == v17 )
+        while ( v15 == v16 )
         {
-          v19 = ++v10 == a3;
+          v18 = ++v10 == a3;
           if ( v10 >= a3 )
             goto LABEL_12;
           v15 = FLOODBM::iColorGet(this, v10);
         }
       }
-      v19 = v10 == a3;
+      v18 = v10 == a3;
 LABEL_12:
-      if ( v19 )
+      if ( v18 )
       {
 LABEL_29:
-        a4 = v37;
+        a4 = v36;
         break;
       }
       if ( a8 )
       {
-        v20 = *((_DWORD *)a8 + 1);
-        v21 = 0;
-        if ( v20 )
+        v19 = *((_DWORD *)a8 + 1);
+        v20 = 0;
+        if ( v19 )
         {
-          v22 = (int *)((char *)a8 + 28);
-          while ( v10 >= *(v22 - 1) )
+          v21 = (int *)((char *)a8 + 28);
+          while ( v10 >= *(v21 - 1) )
           {
-            if ( v10 < *v22 )
+            if ( v10 < *v21 )
             {
-              v10 = *((_DWORD *)a8 + 2 * v21 + 7);
+              v10 = *((_DWORD *)a8 + 2 * v20 + 7);
               goto LABEL_28;
             }
-            ++v21;
-            v22 += 2;
-            if ( v21 >= v20 )
+            ++v20;
+            v21 += 2;
+            if ( v20 >= v19 )
               break;
           }
         }
       }
-      v23 = v12[1];
-      v24 = 0;
-      if ( v23 )
+      v22 = v12[1];
+      v23 = 0;
+      if ( v22 )
       {
-        v25 = (int *)(v12 + 7);
-        while ( v10 < *(v25 - 1) || v10 >= *v25 )
+        v24 = (int *)(v12 + 7);
+        while ( v10 < *(v24 - 1) || v10 >= *v24 )
         {
-          ++v24;
-          v25 += 2;
-          if ( v24 >= v23 )
+          ++v23;
+          v24 += 2;
+          if ( v23 >= v22 )
             goto LABEL_24;
         }
-        v10 = v12[2 * v24 + 7];
+        v10 = v12[2 * v23 + 7];
       }
       else
       {
@@ -127,22 +126,22 @@ LABEL_24:
         v14 += 8;
         if ( v14 > v12[2] )
         {
-          if ( !(unsigned int)STACKOBJ::bExpandScanline(v18, v14, 0LL, v16) )
+          if ( !(unsigned int)STACKOBJ::bExpandScanline(v17, v14, 0) )
             return 0LL;
           v12 = (unsigned int *)*((_QWORD *)a7 + 2);
         }
         FLOODBM::vFindExtent(this, v10, (int *)&v12[2 * v12[1] + 6], (int *)&v12[2 * v12[1] + 7]);
-        v26 = v12[1];
-        v10 = v12[2 * v26 + 7] + 1;
-        v12[1] = v26 + 1;
+        v25 = v12[1];
+        v10 = v12[2 * v25 + 7] + 1;
+        v12[1] = v25 + 1;
       }
 LABEL_28:
       if ( v10 >= a3 )
         goto LABEL_29;
     }
   }
-  v27 = v12[1];
-  if ( (_DWORD)v13 == v27 )
+  v26 = v12[1];
+  if ( (_DWORD)v13 == v26 )
   {
     *a5 = 0;
     *a4 = 0;
@@ -150,43 +149,43 @@ LABEL_28:
   else
   {
     *a4 = v12[2 * v13 + 6];
-    *a5 = v12[2 * v27 + 5];
-    if ( v27 != 1 )
+    *a5 = v12[2 * v26 + 5];
+    if ( v26 != 1 )
     {
       do
       {
+        v28 = v8;
         v29 = v8;
-        v30 = v8;
-        v31 = &v12[2 * v8];
-        v32 = v31[6];
-        if ( v8 < v27 )
+        v30 = &v12[2 * v8];
+        v31 = v30[6];
+        if ( v8 < v26 )
         {
-          v33 = (int *)(v31 + 6);
+          v32 = (int *)(v30 + 6);
           do
           {
-            v34 = *v33;
-            v35 = v30;
-            v33 += 2;
-            if ( v34 >= v32 )
-              v35 = v29;
-            ++v30;
-            v29 = v35;
-            if ( v34 >= v32 )
-              v34 = v32;
-            v32 = v34;
+            v33 = *v32;
+            v34 = v29;
+            v32 += 2;
+            if ( v33 >= v31 )
+              v34 = v28;
+            ++v29;
+            v28 = v34;
+            if ( v33 >= v31 )
+              v33 = v31;
+            v31 = v33;
           }
-          while ( v30 < v27 );
-          if ( v8 != (_DWORD)v35 )
+          while ( v29 < v26 );
+          if ( v8 != (_DWORD)v34 )
           {
-            v36 = *((_QWORD *)v31 + 3);
-            *((_QWORD *)v31 + 3) = *(_QWORD *)&v12[2 * v35 + 6];
-            *(_QWORD *)&v12[2 * (unsigned int)v35 + 6] = v36;
+            v35 = *((_QWORD *)v30 + 3);
+            *((_QWORD *)v30 + 3) = *(_QWORD *)&v12[2 * v34 + 6];
+            *(_QWORD *)&v12[2 * (unsigned int)v34 + 6] = v35;
           }
         }
-        v27 = v12[1];
+        v26 = v12[1];
         ++v8;
       }
-      while ( v8 < v27 - 1 );
+      while ( v8 < v26 - 1 );
     }
   }
   return 1LL;

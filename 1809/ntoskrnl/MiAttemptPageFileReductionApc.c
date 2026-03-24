@@ -1,5 +1,5 @@
 /*
- * XREFs of MiAttemptPageFileReductionApc @ 0x1402B7360
+ * XREFs of MiAttemptPageFileReductionApc @ 0x1402B7460
  * Callers:
  *     <none>
  * Callees:
@@ -10,12 +10,12 @@
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     MiOkToShrinkPageFiles @ 0x1400917F8 (MiOkToShrinkPageFiles.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x140124554 (MiInvalidatePageFileBitmapsCache.c)
- *     RtlFindLastBackwardRunClear @ 0x1401275B0 (RtlFindLastBackwardRunClear.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReduceCommitLimits @ 0x1402C0204 (MiReduceCommitLimits.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x140124574 (MiInvalidatePageFileBitmapsCache.c)
+ *     RtlFindLastBackwardRunClear @ 0x1401275D0 (RtlFindLastBackwardRunClear.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReduceCommitLimits @ 0x1402C0304 (MiReduceCommitLimits.c)
  */
 
 LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)

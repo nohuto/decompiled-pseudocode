@@ -1,44 +1,47 @@
 /*
- * XREFs of SleepstudyHelper_ComponentActive @ 0x14032D3A0
+ * XREFs of SleepstudyHelper_ComponentActive @ 0x140580680
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     SleepstudyHelper_ComponentActiveLocked @ 0x14032D410 (SleepstudyHelper_ComponentActiveLocked.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     SleepstudyHelper_ComponentActiveLocked @ 0x140580730 (SleepstudyHelper_ComponentActiveLocked.c)
  */
 
-__int64 __fastcall SleepstudyHelper_ComponentActive(KSPIN_LOCK *a1)
+__int64 __fastcall SleepstudyHelper_ComponentActive(PKSPIN_LOCK SpinLock)
 {
-  unsigned __int64 v2; // rdi
   unsigned int active; // esi
+  unsigned __int64 v3; // rdi
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v8; // eax
-  bool v9; // zf
+  int v7; // eax
+  bool v8; // zf
 
-  if ( a1 )
+  if ( SpinLock )
   {
-    v2 = KeAcquireSpinLockRaiseToDpc(a1);
-    active = SleepstudyHelper_ComponentActiveLocked(a1);
-    KxReleaseSpinLock((volatile signed __int64 *)a1);
+    v3 = KeAcquireSpinLockRaiseToDpc(SpinLock);
+    active = SleepstudyHelper_ComponentActiveLocked(SpinLock);
+    KxReleaseSpinLock(SpinLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-        v9 = (v8 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v8;
-        if ( v9 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v7 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+          v8 = (v7 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v7;
+          if ( v8 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
-    __writecr8(v2);
+    __writecr8(v3);
   }
   else
   {

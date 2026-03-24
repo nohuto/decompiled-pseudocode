@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SelfDestruct@FxSyncRequest@@UEAAXXZ @ 0x1C0013410
+ * XREFs of ?SelfDestruct@FxSyncRequest@@UEAAXXZ @ 0x1C0019FC0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
  */
 
 void __fastcall FxSyncRequest::SelfDestruct(FxSyncRequest *this)

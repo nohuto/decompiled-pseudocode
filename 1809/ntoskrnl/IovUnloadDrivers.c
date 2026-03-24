@@ -4,9 +4,9 @@
  *     IoShutdownSystem @ 0x140577C68 (IoShutdownSystem.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ZwDelayExecution @ 0x1401B87F0 (ZwDelayExecution.c)
+ *     ZwDelayExecution @ 0x1401B8810 (ZwDelayExecution.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObEnumerateObjectsByType @ 0x140861BB4 (ObEnumerateObjectsByType.c)
+ *     ObEnumerateObjectsByType @ 0x140861B94 (ObEnumerateObjectsByType.c)
  *     IovpUnloadDriver @ 0x140924A38 (IovpUnloadDriver.c)
  */
 

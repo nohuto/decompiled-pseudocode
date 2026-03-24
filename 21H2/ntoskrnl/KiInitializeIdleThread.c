@@ -1,41 +1,71 @@
 /*
- * XREFs of KiInitializeIdleThread @ 0x140A590DC
+ * XREFs of KiInitializeIdleThread @ 0x14099E424
  * Callers:
- *     KiInitializeKernel @ 0x140A580F0 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
  * Callees:
- *     KiInitializePriorityState @ 0x1403C1398 (KiInitializePriorityState.c)
- *     KiInitializePrcbThread @ 0x1403C1454 (KiInitializePrcbThread.c)
+ *     KeStartThread @ 0x140277A6C (KeStartThread.c)
+ *     KeInitThread @ 0x14098F2E0 (KeInitThread.c)
  */
 
-char __fastcall KiInitializeIdleThread(_QWORD *a1, __int64 a2, __int64 a3, struct _KPRCB *a4, __int64 a5)
+unsigned __int64 __fastcall KiInitializeIdleThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  int v5; // r10d
-  __int64 v9; // rax
-  __int64 v10; // [rsp+20h] [rbp-38h]
-  unsigned __int16 v11; // [rsp+28h] [rbp-30h]
-  __int16 v12; // [rsp+40h] [rbp-18h]
-  void *v13; // [rsp+70h] [rbp+18h] BYREF
+  __int16 v7; // dx
+  __int64 v8; // rax
+  int v9; // ecx
+  _QWORD *v10; // rbx
+  _QWORD *v11; // rax
+  unsigned __int64 result; // rax
 
-  v5 = 0;
-  v13 = a1;
-  if ( (_BYTE)KiKernelCetEnabled )
+  *(_DWORD *)(a1 + 80) = 0;
+  KeInitThread(a1, a2, (__int64)KiIdleLoop, 0LL, 0LL, 0LL, 0LL, a3, 0);
+  *(_DWORD *)(a1 + 116) &= ~0x4000u;
+  KeStartThread(a1, 0LL, 0LL);
+  *(_DWORD *)(a1 + 536) = *(_DWORD *)(a4 + 36);
+  *(_BYTE *)(a1 + 388) = 2;
+  v7 = *(unsigned __int8 *)(a4 + 208);
+  *(_WORD *)(a1 + 560) = v7;
+  v8 = *(_QWORD *)(a4 + 200);
+  *(_QWORD *)(a1 + 552) = v8;
+  v9 = *(_DWORD *)(a4 + 36);
+  *(_DWORD *)(a1 + 116) |= 8u;
+  *(_DWORD *)(a1 + 196) = v9;
+  *(_DWORD *)(a1 + 588) = v9;
+  *(_WORD *)(a1 + 584) = v7;
+  *(_QWORD *)(a1 + 576) = v8;
+  *(_BYTE *)(a1 + 113) = 1;
+  *(_BYTE *)(a1 + 390) = 2;
+  *(_QWORD *)(a1 + 1104) = KiIdleLoop;
+  *(_QWORD *)(a1 + 1232) = KiIdleLoop;
+  **(_BYTE **)(a4 + 56) = 127;
+  *(_BYTE *)(a1 + 195) = 127;
+  if ( *(_DWORD *)(a4 + 36) )
   {
-    v5 = 1;
-    v9 = *(_QWORD *)(*(_QWORD *)(a5 + 240) + 3712LL) + 4112LL;
-    a1[131] = v9;
-    a1[132] = a1[132] & 0xFF8 | (v9 - 12288) & 0xFFFFFFFFFFFFF002uLL | 2;
+    if ( KiSchedulerAssistThreadFlagEnabled )
+      _interlockedbittestandset((volatile signed __int32 *)a1, 0x16u);
   }
-  LOBYTE(v12) = 1;
-  KiInitializePrcbThread(
-    &v13,
-    a2,
-    (__int64)KiIdleLoop,
-    (__int64)a4,
-    v10,
-    v11,
-    (__int64)a4,
-    (__int64)&KiIdleThreadName,
-    v12,
-    v5);
-  return KiInitializePriorityState(&a4->PriorityState->AllFields, a4, (__int64)a1);
+  else
+  {
+    qword_140D24FE8 = (__int64)&qword_140D24FE0;
+    qword_140D24FE0 = (__int64)&qword_140D24FE0;
+    _InterlockedOr(dword_140D24E60, 0x8000u);
+    _InterlockedOr(dword_140D2527C, 0x400000u);
+  }
+  *(_QWORD *)(a1 + 1384) = a1 + 1376;
+  *(_QWORD *)(a1 + 1376) = a1 + 1376;
+  *(_QWORD *)(a1 + 1400) = a1 + 1392;
+  *(_QWORD *)(a1 + 1392) = a1 + 1392;
+  *(_QWORD *)(a1 + 1408) = 0LL;
+  v10 = (_QWORD *)(a1 + 1256);
+  v11 = (_QWORD *)qword_140D24FE8;
+  if ( *(__int64 **)qword_140D24FE8 != &qword_140D24FE0 )
+    __fastfail(3u);
+  *v10 = &qword_140D24FE0;
+  v10[1] = v11;
+  *v11 = v10;
+  qword_140D24FE8 = (__int64)v10;
+  result = (unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a4 + 36)] >> 6;
+  _InterlockedOr64(
+    (volatile signed __int64 *)(a3 + 8 * result + 376),
+    1LL << (KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a4 + 36)] & 0x3F));
+  return result;
 }

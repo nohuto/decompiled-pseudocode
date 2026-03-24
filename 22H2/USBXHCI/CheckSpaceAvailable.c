@@ -1,7 +1,7 @@
 /*
- * XREFs of CheckSpaceAvailable @ 0x1C0053B40
+ * XREFs of CheckSpaceAvailable @ 0x1C0050D60
  * Callers:
- *     WerKernelCreateReport @ 0x1C0053D44 (WerKernelCreateReport.c)
+ *     WerKernelCreateReport @ 0x1C0050F80 (WerKernelCreateReport.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ __int64 __fastcall CheckSpaceAvailable(HANDLE KeyHandle)
   v3 = ZwQueryKey(KeyHandle, KeyFullInformation, 0LL, 0, &Length);
   if ( v3 == -2147483643 || v3 == -1073741789 )
   {
-    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)1025, (int)Length, 0x7765726Bu);
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (int)Length, 0x7765726Bu);
     if ( PoolWithTag )
     {
       v5 = ZwQueryKey(KeyHandle, KeyFullInformation, PoolWithTag, Length, &Length);
@@ -28,17 +28,17 @@ __int64 __fastcall CheckSpaceAvailable(HANDLE KeyHandle)
         if ( PoolWithTag[5] < 0xAu )
           v1 = 1;
         else
-          DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR Live kernel queue size exceeded\n", 516);
+          DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR Live kernel queue size exceeded\n", 518);
       }
       else
       {
-        DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR ZwQueryKey failed with 0x%x\n", 510, v5);
+        DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR ZwQueryKey failed with 0x%x\n", 512, v5);
       }
       ExFreePoolWithTag(PoolWithTag, 0);
     }
     else
     {
-      DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR OOM\n", 493);
+      DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR OOM\n", 495);
     }
   }
   else
@@ -47,7 +47,7 @@ __int64 __fastcall CheckSpaceAvailable(HANDLE KeyHandle)
       0x96u,
       0,
       "WERLIVEKERNELREPORTING:%u: ERROR ZwQueryKey failed while determining the size with 0x%x\n",
-      485,
+      487,
       v3);
   }
   return v1;

@@ -1,23 +1,19 @@
 /*
- * XREFs of ?CalcIndependentFlipSupport@CDirectFlipInfo@@IEAAXXZ @ 0x1801DF234
+ * XREFs of ?CalcIndependentFlipSupport@CDirectFlipInfo@@IEAAXXZ @ 0x18018415C
  * Callers:
- *     ?Activate@CDirectFlipInfo@@QEAAJXZ @ 0x1801DEEC8 (-Activate@CDirectFlipInfo@@QEAAJXZ.c)
+ *     ?Activate@CDirectFlipInfo@@QEAAJXZ @ 0x180183EF0 (-Activate@CDirectFlipInfo@@QEAAJXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CDirectFlipInfo::CalcIndependentFlipSupport(CDirectFlipInfo *this)
 {
-  char v2; // bl
-  __int64 v3; // rax
+  __int64 v2; // rax
 
-  if ( CCommonRegistryData::m_fDisableIndependentFlip
-    || (v2 = 1, *((_DWORD *)this + 13) == 1)
-    || *((int *)this + 13) >= 3
-    || (v3 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)this + 184LL))(*(_QWORD *)this),
-        !(*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v3 + 136LL))(v3)) )
+  if ( !CCommonRegistryData::m_fDisableIndependentFlip && *((_DWORD *)this + 13) != 1 && *((int *)this + 13) < 3 )
   {
-    v2 = 0;
+    v2 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)this + 192LL))(*(_QWORD *)this);
+    if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v2 + 88LL))(v2) )
+      *((_DWORD *)this + 24) = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)this + 176LL))(*(_QWORD *)this);
   }
-  *((_BYTE *)this + 122) = v2;
 }

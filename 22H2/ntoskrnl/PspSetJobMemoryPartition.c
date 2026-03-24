@@ -1,84 +1,77 @@
 /*
- * XREFs of PspSetJobMemoryPartition @ 0x1409B2CD4
+ * XREFs of PspSetJobMemoryPartition @ 0x14090958C
  * Callers:
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
  * Callees:
- *     PsIsServerSilo @ 0x14020C040 (PsIsServerSilo.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     PsAssignProcessToJobObject @ 0x14069FF70 (PsAssignProcessToJobObject.c)
- *     SmCreatePartition @ 0x1407064D8 (SmCreatePartition.c)
- *     PsReferencePartitionByHandle @ 0x14076054C (PsReferencePartitionByHandle.c)
- *     PspConvertJobToMixed @ 0x1409B2214 (PspConvertJobToMixed.c)
- *     SmPartitionJobPaired @ 0x1409D6D54 (SmPartitionJobPaired.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PsDereferencePartition @ 0x140303F4C (PsDereferencePartition.c)
+ *     PsIsServerSilo @ 0x140361920 (PsIsServerSilo.c)
+ *     PsReferencePartitionByHandle @ 0x140676644 (PsReferencePartitionByHandle.c)
+ *     PsAssignProcessToJobObject @ 0x14071E780 (PsAssignProcessToJobObject.c)
+ *     PspConvertJobToMixed @ 0x140908D04 (PspConvertJobToMixed.c)
  */
 
 __int64 __fastcall PspSetJobMemoryPartition(__int64 a1, char a2, ULONG_PTR a3)
 {
   char v4; // r14
-  int Partition; // ebx
+  int v5; // ebx
   __int64 v6; // rcx
-  PVOID v7; // rdi
+  volatile signed __int32 *v7; // rdi
   PVOID Object; // [rsp+68h] [rbp+20h] BYREF
 
   Object = 0LL;
   v4 = 0;
-  Partition = PsReferencePartitionByHandle(a3, 1, a2, 0x624A7350u, &Object);
-  if ( Partition < 0 )
-    goto LABEL_14;
-  if ( _interlockedbittestandset((volatile signed __int32 *)Object + 32, 0) )
+  v5 = PsReferencePartitionByHandle(a3, 1, a2, 0x624A7350u, &Object);
+  if ( v5 < 0 )
+    goto LABEL_13;
+  if ( _interlockedbittestandset((volatile signed __int32 *)Object + 30, 0) )
   {
-    Partition = -1073741637;
-LABEL_14:
-    v7 = Object;
-    goto LABEL_15;
+    v5 = -1073741637;
+LABEL_13:
+    v7 = (volatile signed __int32 *)Object;
+    goto LABEL_14;
   }
   v4 = 1;
   ExAcquireResourceExclusiveLite((PERESOURCE)(a1 + 56), 1u);
-  if ( PsIsServerSilo(a1) || *(_QWORD *)(a1 + 1776) || *(_QWORD *)(a1 + 1272) != a1 + 1272 || *(_DWORD *)(a1 + 216) )
+  if ( PsIsServerSilo(a1) || *(_QWORD *)(a1 + 1560) || *(_QWORD *)(a1 + 1056) != a1 + 1056 || *(_DWORD *)(a1 + 216) )
   {
-    Partition = -1073741637;
+    v5 = -1073741637;
+    goto LABEL_12;
+  }
+  v5 = PspConvertJobToMixed(v6, 1);
+  if ( v5 < 0 )
+  {
+LABEL_12:
+    ExReleaseResourceLite((PERESOURCE)(a1 + 56));
     goto LABEL_13;
   }
-  Partition = PspConvertJobToMixed(v6, 1);
-  if ( Partition < 0 )
-  {
-LABEL_13:
-    ExReleaseResourceLite((PERESOURCE)(a1 + 56));
-    goto LABEL_14;
-  }
-  *(_QWORD *)(a1 + 1776) = -1LL;
+  *(_QWORD *)(a1 + 1560) = -1LL;
   ExReleaseResourceLite((PERESOURCE)(a1 + 56));
-  v7 = Object;
-  Partition = SmCreatePartition((__int64)Object);
-  if ( Partition >= 0 )
+  v7 = (volatile signed __int32 *)Object;
+  v5 = PsAssignProcessToJobObject(a1, *((PEPROCESS *)Object + 13), 0LL);
+  if ( v5 >= 0 )
   {
-    Partition = PsAssignProcessToJobObject((PVOID)a1, *((PVOID *)v7 + 14), 0LL);
-    if ( Partition >= 0 )
-    {
-      ObfReferenceObjectWithTag(v7, 0x624A7350u);
-      ExAcquireResourceExclusiveLite((PERESOURCE)(a1 + 56), 1u);
-      *(_QWORD *)(a1 + 1776) = v7;
-      *(_QWORD *)(a1 + 1784) = a1;
-      ExReleaseResourceLite((PERESOURCE)(a1 + 56));
-      SmPartitionJobPaired(v7, a1);
-      v4 = 0;
-      Partition = 0;
-    }
+    ObfReferenceObjectWithTag((PVOID)v7, 0x624A7350u);
+    ExAcquireResourceExclusiveLite((PERESOURCE)(a1 + 56), 1u);
+    *(_QWORD *)(a1 + 1560) = v7;
+    *(_QWORD *)(a1 + 1568) = a1;
+    ExReleaseResourceLite((PERESOURCE)(a1 + 56));
+    v4 = 0;
+    v5 = 0;
   }
-LABEL_15:
+LABEL_14:
   if ( v7 )
   {
-    if ( *(_QWORD *)(a1 + 1776) == -1LL )
-      *(_QWORD *)(a1 + 1776) = 0LL;
+    if ( *(_QWORD *)(a1 + 1560) == -1LL )
+      *(_QWORD *)(a1 + 1560) = 0LL;
     if ( v4 )
     {
-      _interlockedbittestandreset((volatile signed __int32 *)v7 + 32, 0);
-      v7 = Object;
+      _interlockedbittestandreset(v7 + 30, 0);
+      v7 = (volatile signed __int32 *)Object;
     }
     PsDereferencePartition((__int64)v7);
   }
-  return (unsigned int)Partition;
+  return (unsigned int)v5;
 }

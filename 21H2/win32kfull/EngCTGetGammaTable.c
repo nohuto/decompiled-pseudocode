@@ -1,5 +1,5 @@
 /*
- * XREFs of EngCTGetGammaTable @ 0x1C0114640
+ * XREFs of EngCTGetGammaTable @ 0x1C0127920
  * Callers:
  *     <none>
  * Callees:

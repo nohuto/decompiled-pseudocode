@@ -1,14 +1,14 @@
 /*
- * XREFs of IopAcquireReleaseDispatcherLock @ 0x140881870
+ * XREFs of IopAcquireReleaseDispatcherLock @ 0x1408A14EC
  * Callers:
- *     IopPassiveInterruptWorker @ 0x140560BB0 (IopPassiveInterruptWorker.c)
+ *     IopPassiveInterruptWorker @ 0x14050D5B0 (IopPassiveInterruptWorker.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
  */
 
-char __fastcall IopAcquireReleaseDispatcherLock(struct _KEVENT *a1, char a2)
+NTSTATUS __fastcall IopAcquireReleaseDispatcherLock(struct _KEVENT *a1, char a2)
 {
   struct _KEVENT *v2; // rcx
   struct _KTHREAD *CurrentThread; // rax
@@ -23,6 +23,6 @@ char __fastcall IopAcquireReleaseDispatcherLock(struct _KEVENT *a1, char a2)
   else
   {
     KeSetEvent(v2, 0, 0);
-    return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    return (unsigned int)KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
 }

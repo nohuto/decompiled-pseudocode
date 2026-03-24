@@ -1,5 +1,5 @@
 /*
- * XREFs of VidSchGetProcessInterferenceCount @ 0x1C00B47A0
+ * XREFs of VidSchGetProcessInterferenceCount @ 0x1C00891D0
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@ __int64 __fastcall VidSchGetProcessInterferenceCount(__int64 a1, _DWORD *a2)
 {
   __int64 result; // rax
 
-  result = *(unsigned int *)(a1 + 2672);
+  result = *(unsigned int *)(a1 + 2664);
   *a2 = result;
   return result;
 }

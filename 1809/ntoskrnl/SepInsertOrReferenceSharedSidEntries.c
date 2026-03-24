@@ -1,5 +1,5 @@
 /*
- * XREFs of SepInsertOrReferenceSharedSidEntries @ 0x1408A4324
+ * XREFs of SepInsertOrReferenceSharedSidEntries @ 0x1408A4304
  * Callers:
  *     SepSetTokenCapabilities @ 0x1405BCEA4 (SepSetTokenCapabilities.c)
  * Callees:
@@ -7,12 +7,12 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlRemoveEntryHashTable @ 0x1400D9C40 (RtlRemoveEntryHashTable.c)
- *     RtlInsertEntryHashTable @ 0x1400D9CA0 (RtlInsertEntryHashTable.c)
+ *     RtlRemoveEntryHashTable @ 0x1400D9C60 (RtlRemoveEntryHashTable.c)
+ *     RtlInsertEntryHashTable @ 0x1400D9CC0 (RtlInsertEntryHashTable.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlCopySid @ 0x1406491B0 (RtlCopySid.c)
- *     SepFindSharedSidEntry @ 0x1408A4294 (SepFindSharedSidEntry.c)
+ *     RtlCopySid @ 0x140649190 (RtlCopySid.c)
+ *     SepFindSharedSidEntry @ 0x1408A4274 (SepFindSharedSidEntry.c)
  */
 
 __int64 __fastcall SepInsertOrReferenceSharedSidEntries(unsigned int **a1, unsigned int **a2, unsigned int a3)

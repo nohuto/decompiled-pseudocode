@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbpGetCustomSdbFileName @ 0x140A52B78
+ * XREFs of SdbpGetCustomSdbFileName @ 0x140966E88
  * Callers:
- *     SdbGetPathCustomSdb @ 0x140A52710 (SdbGetPathCustomSdb.c)
+ *     SdbGetPathCustomSdb @ 0x140966A1C (SdbGetPathCustomSdb.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslGuidToString @ 0x14084F464 (AslGuidToString.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslGuidToString @ 0x1407C2798 (AslGuidToString.c)
  */
 
 __int64 __fastcall SdbpGetCustomSdbFileName(wchar_t *a1, __int64 a2, unsigned int *a3)
 {
   signed int v4; // ebx
-  __int64 v5; // rdx
+  __int64 v5; // rcx
   wchar_t *v6; // rax
-  __int64 v7; // r8
+  __int64 v7; // rax
   char *v8; // rcx
   __int64 v9; // rdi
-  __int64 v10; // rax
-  signed __int64 v11; // rdx
+  __int64 v10; // rdx
+  signed __int64 v11; // rax
   __int16 v12; // r8
   char *v13; // rax
 
@@ -34,8 +34,11 @@ __int64 __fastcall SdbpGetCustomSdbFileName(wchar_t *a1, __int64 a2, unsigned in
     --v5;
   }
   while ( v5 );
-  v7 = (43 - v5) & -(__int64)(v5 != 0);
   v4 = v5 == 0 ? 0xC000000D : 0;
+  if ( v5 )
+    v7 = 43 - v5;
+  else
+    v7 = 0LL;
   if ( v5 )
   {
     v8 = (char *)&a1[v7];

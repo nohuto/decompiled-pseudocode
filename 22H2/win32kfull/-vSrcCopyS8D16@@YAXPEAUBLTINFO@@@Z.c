@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vSrcCopyS8D16@@YAXPEAUBLTINFO@@@Z @ 0x1C02EC850
+ * XREFs of ?vSrcCopyS8D16@@YAXPEAUBLTINFO@@@Z @ 0x1C02CAEC0
  * Callers:
  *     <none>
  * Callees:
@@ -8,15 +8,15 @@
 
 void __fastcall vSrcCopyS8D16(struct BLTINFO *a1)
 {
-  unsigned int v1; // ebx
+  int v1; // ebx
   unsigned __int8 *v2; // r8
-  unsigned int v3; // esi
+  int v3; // esi
   int v4; // edi
   _WORD *v5; // rdx
-  __int64 v6; // r10
+  __int64 v6; // r11
   int i; // ebp
-  unsigned int v8; // eax
-  char v9; // r11
+  int v8; // r10d
+  int v9; // r10d
   unsigned __int64 v10; // r9
   int v11; // ecx
   __int64 v12; // rax
@@ -36,9 +36,9 @@ void __fastcall vSrcCopyS8D16(struct BLTINFO *a1)
       *v5++ = *(_WORD *)(v6 + 4LL * *v2++);
     }
     v9 = v8 - 2;
-    if ( (int)(v8 - 2) >= 0 )
+    if ( v9 >= 0 )
     {
-      v10 = (unsigned __int64)v8 >> 1;
+      v10 = (unsigned __int64)(unsigned int)(v9 + 2) >> 1;
       do
       {
         v11 = *(_DWORD *)(v6 + 4LL * v2[1]);
@@ -54,6 +54,6 @@ void __fastcall vSrcCopyS8D16(struct BLTINFO *a1)
       *v5++ = *(_WORD *)(v6 + 4LL * *v2++);
     if ( !--v4 )
       break;
-    v2 += (int)v3;
+    v2 += v3;
   }
 }

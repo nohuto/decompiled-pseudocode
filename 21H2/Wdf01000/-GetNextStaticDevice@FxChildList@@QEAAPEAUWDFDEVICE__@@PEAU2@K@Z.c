@@ -1,25 +1,29 @@
 /*
- * XREFs of ?GetNextStaticDevice@FxChildList@@QEAAPEAUWDFDEVICE__@@PEAU2@K@Z @ 0x1C005BF54
+ * XREFs of ?GetNextStaticDevice@FxChildList@@QEAAPEAUWDFDEVICE__@@PEAU2@K@Z @ 0x1C003B770
  * Callers:
- *     imp_WdfFdoRetrieveNextStaticChild @ 0x1C005B4F0 (imp_WdfFdoRetrieveNextStaticChild.c)
+ *     imp_WdfFdoRetrieveNextStaticChild @ 0x1C0039660 (imp_WdfFdoRetrieveNextStaticChild.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?MatchStateToFlags@FxDeviceDescriptionEntry@@QEAAEK@Z @ 0x1C003BCA0 (-MatchStateToFlags@FxDeviceDescriptionEntry@@QEAAEK@Z.c)
  */
 
-WDFDEVICE__ *__fastcall FxChildList::GetNextStaticDevice(FxChildList *this, WDFDEVICE__ *PreviousDevice, char Flags)
+WDFDEVICE__ *__fastcall FxChildList::GetNextStaticDevice(
+        FxChildList *this,
+        WDFDEVICE__ *PreviousDevice,
+        unsigned int Flags)
 {
   unsigned __int64 *p_m_ListLock; // r14
   unsigned __int64 ObjectHandleUnchecked; // rdi
   bool v8; // bl
-  KIRQL v9; // r11
-  char v10; // r8
-  _LIST_ENTRY *p_m_DescriptionListHead; // r10
-  _LIST_ENTRY *i; // rdx
-  _LIST_ENTRY *Blink; // rcx
-  int Flink; // r9d
-  _LIST_ENTRY *p_m_ModificationListHead; // r9
+  KIRQL v9; // r12
+  int v10; // r9d
+  char v11; // r10
+  _LIST_ENTRY *p_m_DescriptionListHead; // r11
+  FxDeviceDescriptionEntry *i; // r9
+  _WDF_CHILD_IDENTIFICATION_DESCRIPTION_HEADER *m_IdentificationDescription; // rbx
+  _LIST_ENTRY *p_m_ModificationListHead; // r8
   _LIST_ENTRY *j; // rdx
-  _LIST_ENTRY *v17; // rcx
+  _LIST_ENTRY *Flink; // rcx
 
   p_m_ListLock = &this->m_ListLock;
   ObjectHandleUnchecked = 0LL;
@@ -27,31 +31,30 @@ WDFDEVICE__ *__fastcall FxChildList::GetNextStaticDevice(FxChildList *this, WDFD
   v9 = KeAcquireSpinLockRaiseToDpc(&this->m_ListLock);
   if ( this->m_ScanCount )
   {
-    v10 = v8;
+    v10 = 1;
+    v11 = v8;
     if ( (Flags & 1) != 0 )
     {
       p_m_DescriptionListHead = &this->m_DescriptionListHead;
-      for ( i = this->m_DescriptionListHead.Flink; i != p_m_DescriptionListHead; i = i->Flink )
+      for ( i = (FxDeviceDescriptionEntry *)this->m_DescriptionListHead.Flink;
+            i != (FxDeviceDescriptionEntry *)p_m_DescriptionListHead;
+            i = (FxDeviceDescriptionEntry *)i->m_DescriptionLink.Flink )
       {
-        if ( !BYTE2(i[5].Flink) )
+        if ( !i->m_PendingDeleteOnScanEnd )
         {
-          Blink = i[1].Blink;
-          if ( v10 )
+          m_IdentificationDescription = i->m_IdentificationDescription;
+          if ( v11 && FxDeviceDescriptionEntry::MatchStateToFlags(i, Flags) )
           {
-            if ( (Flink = (int)i[1].Flink, Flink == 2)
-              || (Flags & 2) != 0 && (unsigned int)(Flink - 3) <= 1
-              || (Flags & 4) != 0 && Flink == 1 )
-            {
-              ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked((FxObject *)Blink->Blink);
-              if ( ObjectHandleUnchecked )
-                goto $Done_30;
-              break;
-            }
+            ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked(*(FxObject **)&m_IdentificationDescription[2].IdentificationDescriptionSize);
+            if ( ObjectHandleUnchecked )
+              goto $Done_10;
+            break;
           }
-          if ( (WDFDEVICE__ *)FxObject::GetObjectHandleUnchecked((FxObject *)Blink->Blink) == PreviousDevice )
-            v10 = 1;
+          if ( (WDFDEVICE__ *)FxObject::GetObjectHandleUnchecked(*(FxObject **)&m_IdentificationDescription[2].IdentificationDescriptionSize) == PreviousDevice )
+            v11 = 1;
         }
       }
+      v10 = 1;
     }
     if ( (Flags & 4) != 0 )
     {
@@ -60,19 +63,19 @@ WDFDEVICE__ *__fastcall FxChildList::GetNextStaticDevice(FxChildList *this, WDFD
       {
         if ( !BYTE2(j[2].Blink) )
         {
-          v17 = j[-1].Flink;
-          if ( v10 && LODWORD(j[1].Flink) == 1 )
+          Flink = j[-1].Flink;
+          if ( v11 && LODWORD(j[1].Flink) == v10 )
           {
-            ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked((FxObject *)v17->Blink);
+            ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked((FxObject *)Flink->Blink);
             break;
           }
-          if ( (WDFDEVICE__ *)FxObject::GetObjectHandleUnchecked((FxObject *)v17->Blink) == PreviousDevice )
-            v10 = 1;
+          if ( (WDFDEVICE__ *)FxObject::GetObjectHandleUnchecked((FxObject *)Flink->Blink) == PreviousDevice )
+            v11 = v10;
         }
       }
     }
   }
-$Done_30:
+$Done_10:
   KeReleaseSpinLock(p_m_ListLock, v9);
   return (WDFDEVICE__ *)ObjectHandleUnchecked;
 }

@@ -1,13 +1,15 @@
 /*
- * XREFs of ??$AcquireDdiEnumeratorCachedPathInfo@V?$const_mem_fun_t@PEAVDMMVIDPNPRESENTPATH@@VDMMVIDPNTOPOLOGY@@@KM_STL@@@DMMVIDPNTOPOLOGY@@QEAAJV?$const_mem_fun_t@PEAVDMMVIDPNPRESENTPATH@@VDMMVIDPNTOPOLOGY@@@KM_STL@@PEAPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@H@Z @ 0x1C01D5500
+ * XREFs of ??$AcquireDdiEnumeratorCachedPathInfo@V?$const_mem_fun_t@PEAVDMMVIDPNPRESENTPATH@@VDMMVIDPNTOPOLOGY@@@KM_STL@@@DMMVIDPNTOPOLOGY@@QEAAJV?$const_mem_fun_t@PEAVDMMVIDPNPRESENTPATH@@VDMMVIDPNTOPOLOGY@@@KM_STL@@PEAPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@H@Z @ 0x1C0158B10
  * Callers:
- *     ?AcquireFirstPathInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEAPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C01D53E0 (-AcquireFirstPathInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEA.c)
+ *     ?AcquireFirstPathInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEAPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C01589F0 (-AcquireFirstPathInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEA.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     memset @ 0x1C0028640 (memset.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?GetMacroVisionTriggerBits@DMMVIDPNPRESENTPATH@@QEBAIXZ @ 0x1C005D42C (-GetMacroVisionTriggerBits@DMMVIDPNPRESENTPATH@@QEBAIXZ.c)
+ *     ?IsPathSupportVirtualMode@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0130824 (-IsPathSupportVirtualMode@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
  */
 
 __int64 __fastcall DMMVIDPNTOPOLOGY::AcquireDdiEnumeratorCachedPathInfo<KM_STL::const_mem_fun_t<DMMVIDPNPRESENTPATH *,DMMVIDPNTOPOLOGY>>(
@@ -15,27 +17,42 @@ __int64 __fastcall DMMVIDPNTOPOLOGY::AcquireDdiEnumeratorCachedPathInfo<KM_STL::
         __int64 a2,
         _QWORD *a3)
 {
-  unsigned int v6; // ebp
+  unsigned int v6; // esi
   __int64 v7; // rdx
   __int64 v8; // rcx
-  __int64 v9; // rsi
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rax
-  __int64 v13; // rbx
-  _DWORD *v14; // rdi
-  int v15; // edx
-  int v16; // ecx
-  int v17; // eax
-  __int64 v18; // rax
-  __int128 v19; // xmm0
-  __int64 v20; // xmm1_8
-  unsigned __int64 v22; // rsi
-  void *v23; // rax
-  void *v24; // r15
+  __int64 v9; // rdi
+  char *v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  char *v15; // rbx
+  _DWORD *v16; // rbp
+  int v17; // ecx
+  int v18; // eax
+  __int64 v19; // rcx
+  int MacroVisionTriggerBits; // eax
+  __int64 v21; // rax
+  __int128 v22; // xmm0
+  __int64 v23; // xmm1_8
+  __int64 v25; // rax
+  __int64 v26; // rax
+  __int64 v27; // rax
+  __int64 v28; // rax
+  __int64 v29; // rax
+  SIZE_T v30; // rdi
+  PVOID v31; // rax
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  __int64 v34; // r8
+  __int64 v35; // r9
+  PVOID v36; // r15
 
   if ( !a3 )
-    WdLogSingleEntry0(1LL);
+  {
+    v25 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v25);
+  }
   v6 = 0;
   *a3 = 0LL;
   if ( *(_BYTE *)(a1 + 192) )
@@ -43,89 +60,108 @@ __int64 __fastcall DMMVIDPNTOPOLOGY::AcquireDdiEnumeratorCachedPathInfo<KM_STL::
     v9 = (*(__int64 (__fastcall **)(__int64))a2)(a1 + *(int *)(a2 + 8));
     if ( v9 )
     {
-      v12 = operator new[](0x178uLL, 0x4E506456u, 256LL);
-      v13 = v12;
-      if ( v12 )
+      v10 = (char *)operator new[](0x178uLL, 0x4E506456u, PagedPool);
+      v15 = v10;
+      if ( v10 )
       {
-        *(_DWORD *)v12 = 305419896;
-        *(_QWORD *)(v12 + 8) = v9;
-        memset((void *)(v12 + 16), 0, 0x168uLL);
+        *(_DWORD *)v10 = 305419896;
+        *((_QWORD *)v10 + 1) = v9;
+        memset(v10 + 16, 0, 0x168uLL);
         operator delete(0LL);
-        v14 = (_DWORD *)(v13 + 16);
-        *(_DWORD *)(v13 + 28) = *(_DWORD *)(v9 + 112);
-        v15 = *(_DWORD *)(v9 + 116);
-        if ( (unsigned int)(v15 - 254) > 1 && v15 && *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(v9 + 96) + 96LL) + 407LL) )
-          v15 = 1;
-        *(_DWORD *)(v13 + 36) = v15;
-        *(_DWORD *)(v13 + 24) = *(_DWORD *)(v9 + 104);
-        *v14 = *(_DWORD *)(*(_QWORD *)(v9 + 88) + 24LL);
-        *(_DWORD *)(v13 + 20) = *(_DWORD *)(*(_QWORD *)(v9 + 96) + 24LL);
-        *(_DWORD *)(v13 + 80) = *(_DWORD *)(v9 + 164);
-        v16 = *(_DWORD *)(v9 + 172);
-        *(_DWORD *)(v13 + 84) = v16;
-        *(_DWORD *)(v13 + 348) = *(_DWORD *)(v9 + 168);
-        if ( v16 == 2 )
-        {
-          if ( *(_DWORD *)(v9 + 172) != 2 )
-            WdLogSingleEntry0(1LL);
-          v17 = *(_DWORD *)(v9 + 176);
-        }
-        else
-        {
-          v17 = 0;
-        }
-        *(_DWORD *)(v13 + 88) = v17;
-        if ( v13 == -32 )
-          WdLogSingleEntry0(1LL);
-        *(_DWORD *)(v13 + 32) = *(_DWORD *)(v9 + 120);
-        if ( v13 == -40 )
-          WdLogSingleEntry0(1LL);
-        *(_DWORD *)(v13 + 40) = *(_DWORD *)(v9 + 124);
-        v18 = *(_QWORD *)(v9 + 184);
-        if ( v18 )
-        {
-          v19 = *(_OWORD *)(v18 + 16);
-          v20 = *(_QWORD *)(v18 + 32);
-        }
-        else
-        {
-          v19 = *(_OWORD *)&g_DefaultGammaRamp.Type;
-          v20 = 0LL;
-        }
-        *(_OWORD *)(v13 + 352) = v19;
-        *(_QWORD *)(v13 + 368) = v20;
-        if ( !*(_QWORD *)(v13 + 368) )
-          goto LABEL_16;
-        v22 = *(_QWORD *)(v13 + 360);
-        v23 = (void *)operator new[](v22, 0x4E506456u, 256LL);
-        v24 = v23;
-        if ( v23 )
-        {
-          memmove(v23, *(const void **)(v13 + 368), v22);
-          *(_QWORD *)(v13 + 368) = v24;
-LABEL_16:
-          *a3 = v14;
-          v13 = 0LL;
-LABEL_17:
-          operator delete((void *)v13);
-          return v6;
-        }
-        WdLogSingleEntry1(6LL, v22);
       }
       else
       {
-        v13 = 0LL;
-        WdLogSingleEntry1(6LL, a1);
+        v15 = 0LL;
       }
+      if ( v15 )
+      {
+        v16 = v15 + 16;
+        *((_DWORD *)v15 + 7) = *(_DWORD *)(v9 + 112);
+        v17 = *(_DWORD *)(v9 + 116);
+        if ( (unsigned int)(v17 - 254) > 1
+          && v17
+          && DMMVIDPNPRESENTPATH::IsPathSupportVirtualMode((DMMVIDPNPRESENTPATH *)v9, v11) )
+        {
+          v18 = 1;
+        }
+        else
+        {
+          v18 = *(_DWORD *)(v9 + 116);
+        }
+        *((_DWORD *)v15 + 9) = v18;
+        *((_DWORD *)v15 + 6) = *(_DWORD *)(v9 + 104);
+        *v16 = *(_DWORD *)(*(_QWORD *)(v9 + 88) + 24LL);
+        *((_DWORD *)v15 + 5) = *(_DWORD *)(*(_QWORD *)(v9 + 96) + 24LL);
+        *((_DWORD *)v15 + 20) = *(_DWORD *)(v9 + 164);
+        v19 = *(unsigned int *)(v9 + 172);
+        *((_DWORD *)v15 + 21) = v19;
+        *((_DWORD *)v15 + 87) = *(_DWORD *)(v9 + 168);
+        if ( (_DWORD)v19 == 2 )
+          MacroVisionTriggerBits = DMMVIDPNPRESENTPATH::GetMacroVisionTriggerBits((DMMVIDPNPRESENTPATH *)v9, v11);
+        else
+          MacroVisionTriggerBits = 0;
+        *((_DWORD *)v15 + 22) = MacroVisionTriggerBits;
+        if ( v15 == (char *)-32LL )
+        {
+          v28 = WdLogNewEntry5_WdAssertion(v19, v11);
+          WdLogEvent5_WdAssertion(v28);
+        }
+        *((_DWORD *)v15 + 8) = *(_DWORD *)(v9 + 120);
+        if ( v15 == (char *)-40LL )
+        {
+          v29 = WdLogNewEntry5_WdAssertion(v19, v11);
+          WdLogEvent5_WdAssertion(v29);
+        }
+        *((_DWORD *)v15 + 10) = *(_DWORD *)(v9 + 124);
+        v21 = *(_QWORD *)(v9 + 184);
+        if ( v21 )
+        {
+          v22 = *(_OWORD *)(v21 + 16);
+          v23 = *(_QWORD *)(v21 + 32);
+        }
+        else
+        {
+          v22 = *(_OWORD *)&g_DefaultGammaRamp.Type;
+          v23 = 0LL;
+        }
+        *((_OWORD *)v15 + 22) = v22;
+        *((_QWORD *)v15 + 46) = v23;
+        if ( !*((_QWORD *)v15 + 46) )
+          goto LABEL_19;
+        v30 = *((_QWORD *)v15 + 45);
+        v31 = operator new[](v30, 0x4E506456u, PagedPool);
+        v36 = v31;
+        if ( v31 )
+        {
+          memmove(v31, *((const void **)v15 + 46), v30);
+          *((_QWORD *)v15 + 46) = v36;
+LABEL_19:
+          *a3 = v16;
+          v15 = 0LL;
+LABEL_20:
+          operator delete(v15);
+          return v6;
+        }
+        v27 = WdLogNewEntry5_WdLowResource(v33, v32, v34, v35);
+        *(_QWORD *)(v27 + 24) = v30;
+      }
+      else
+      {
+        v27 = WdLogNewEntry5_WdLowResource(v12, v11, v13, v14);
+        *(_QWORD *)(v27 + 24) = a1;
+      }
+      WdLogEvent5_WdLowResource(v27);
       v6 = -1073741801;
-      goto LABEL_17;
+      goto LABEL_20;
     }
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v8, v7, v10, v11) + 24) = a2;
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(v8, v7) + 24) = a2;
     return 3223192359LL;
   }
   else
   {
-    WdLogSingleEntry1(2LL, a1);
+    v26 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v26 + 24) = a1;
+    WdLogEvent5_WdError(v26);
     return 3223192375LL;
   }
 }

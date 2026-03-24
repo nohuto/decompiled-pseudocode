@@ -1,15 +1,16 @@
 /*
- * XREFs of HvlpWriteEventLog @ 0x140548CA8
+ * XREFs of HvlpWriteEventLog @ 0x1404F9DB4
  * Callers:
- *     HvlPhase2Initialize @ 0x1403B4610 (HvlPhase2Initialize.c)
- *     HvlpCheckTscSync @ 0x140548500 (HvlpCheckTscSync.c)
- *     HvlpLogGuestStateScrubbingStatus @ 0x14054868C (HvlpLogGuestStateScrubbingStatus.c)
- *     HvlpLogHypervisorLaunchError @ 0x140548924 (HvlpLogHypervisorLaunchError.c)
- *     HvlpLogHypervisorSchedulerType @ 0x14054899C (HvlpLogHypervisorSchedulerType.c)
- *     HvlpLogIommuInitStatus @ 0x1405489F8 (HvlpLogIommuInitStatus.c)
- *     HvlpLogProcessorStartupFailure @ 0x140548BE0 (HvlpLogProcessorStartupFailure.c)
+ *     HvlPhase2Initialize @ 0x1403CE9B8 (HvlPhase2Initialize.c)
+ *     HvlpCheckTscSync @ 0x1404F9560 (HvlpCheckTscSync.c)
+ *     HvlpLogGuestStateScrubbingStatus @ 0x1404F96E8 (HvlpLogGuestStateScrubbingStatus.c)
+ *     HvlpLogHypervisorLaunchError @ 0x1404F995C (HvlpLogHypervisorLaunchError.c)
+ *     HvlpLogHypervisorSchedulerType @ 0x1404F99D4 (HvlpLogHypervisorSchedulerType.c)
+ *     HvlpLogIommuEvent @ 0x1404F9A30 (HvlpLogIommuEvent.c)
+ *     HvlpLogIommuInitStatus @ 0x1404F9B38 (HvlpLogIommuInitStatus.c)
+ *     HvlpLogProcessorStartupFailure @ 0x1404F9CEC (HvlpLogProcessorStartupFailure.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
  */
 
 NTSTATUS __fastcall HvlpWriteEventLog(

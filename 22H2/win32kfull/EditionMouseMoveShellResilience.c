@@ -1,23 +1,26 @@
 /*
- * XREFs of EditionMouseMoveShellResilience @ 0x1C00ACE70
+ * XREFs of EditionMouseMoveShellResilience @ 0x1C011ABF0
  * Callers:
  *     <none>
  * Callees:
- *     IsAdaptiveQueueDetachExempted @ 0x1C0006E7C (IsAdaptiveQueueDetachExempted.c)
+ *     IsAdaptiveQueueDetachExempted @ 0x1C003CDA0 (IsAdaptiveQueueDetachExempted.c)
  */
 
-void __fastcall EditionMouseMoveShellResilience(__int64 a1)
+void __fastcall EditionMouseMoveShellResilience(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v1; // rbx
-  __int64 v2; // rdx
+  __int64 v3; // rbx
+  __int64 v4; // rdx
 
-  v1 = *(_QWORD *)(a1 + 16);
-  v2 = *(_QWORD *)(v1 + 672);
-  if ( v2 && (*(_DWORD *)(v1 + 1272) & 0x40000) != 0 && (*(_DWORD *)(v2 + 200) & 0x80000) != 0 && *(_QWORD *)(v1 + 1424) )
+  v3 = *(_QWORD *)(a1 + 16);
+  v4 = *(_QWORD *)(v3 + 672);
+  if ( v4
+    && (*(_DWORD *)(v3 + 1232) & 0x40000) != 0
+    && (*(_DWORD *)(v4 + 196) & 0x100000) != 0
+    && *(_QWORD *)(v3 + 1384) )
   {
-    if ( !*(_DWORD *)(v2 + 276) )
-      *(_DWORD *)(v2 + 276) = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-    if ( !(unsigned int)IsAdaptiveQueueDetachExempted(v1) )
-      KeSetEvent(*(PRKEVENT *)(v1 + 1424), 1, 0);
+    if ( !*(_DWORD *)(v4 + 328) )
+      *(_DWORD *)(v4 + 328) = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+    if ( !IsAdaptiveQueueDetachExempted(v3, v4, a3) )
+      KeSetEvent(*(PRKEVENT *)(v3 + 1384), 1, 0);
   }
 }

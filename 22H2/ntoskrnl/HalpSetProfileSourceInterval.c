@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpSetProfileSourceInterval @ 0x140508090
+ * XREFs of HalpSetProfileSourceInterval @ 0x14036C6EC
  * Callers:
- *     HalpSetSystemInformation @ 0x14085EE10 (HalpSetSystemInformation.c)
+ *     HalpSetSystemInformation @ 0x140733730 (HalpSetSystemInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpSetProfileSourceInterval()
 {
-  return HalpProfileInterface[3]();
+  return (*((__int64 (**)(void))HalpProfileInterface[0] + 3))();
 }

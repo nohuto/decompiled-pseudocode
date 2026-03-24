@@ -1,18 +1,18 @@
 /*
- * XREFs of UsbhDispatch_PindicatorEvent @ 0x1C002E6CC
+ * XREFs of UsbhDispatch_PindicatorEvent @ 0x1C002FAA8
  * Callers:
- *     UsbhDisablePortIndicators @ 0x1C002E5F4 (UsbhDisablePortIndicators.c)
- *     UsbhEnablePortIndicators @ 0x1C002E7CC (UsbhEnablePortIndicators.c)
- *     UsbhDeviceOvercurrentPopup @ 0x1C002F1D4 (UsbhDeviceOvercurrentPopup.c)
- *     UsbhOvercurrentResetWorker @ 0x1C002F330 (UsbhOvercurrentResetWorker.c)
+ *     UsbhDisablePortIndicators @ 0x1C002F9D0 (UsbhDisablePortIndicators.c)
+ *     UsbhEnablePortIndicators @ 0x1C002FBA8 (UsbhEnablePortIndicators.c)
+ *     UsbhDeviceOvercurrentPopup @ 0x1C00305A4 (UsbhDeviceOvercurrentPopup.c)
+ *     UsbhOvercurrentResetWorker @ 0x1C0030700 (UsbhOvercurrentResetWorker.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     Usbh_PIND_Disable_Action @ 0x1C002ECEC (Usbh_PIND_Disable_Action.c)
- *     Usbh_PIND_Enable_Action @ 0x1C002EDB8 (Usbh_PIND_Enable_Action.c)
- *     Usbh_PIND_SetAuto_Action @ 0x1C002EE50 (Usbh_PIND_SetAuto_Action.c)
- *     Usbh_PIND_SetBlink_Action @ 0x1C002EF1C (Usbh_PIND_SetBlink_Action.c)
- *     Usbh_PIND_Timeout_Action @ 0x1C002F004 (Usbh_PIND_Timeout_Action.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     Usbh_PIND_Disable_Action @ 0x1C00300BC (Usbh_PIND_Disable_Action.c)
+ *     Usbh_PIND_Enable_Action @ 0x1C0030188 (Usbh_PIND_Enable_Action.c)
+ *     Usbh_PIND_SetAuto_Action @ 0x1C0030220 (Usbh_PIND_SetAuto_Action.c)
+ *     Usbh_PIND_SetBlink_Action @ 0x1C00302EC (Usbh_PIND_SetBlink_Action.c)
+ *     Usbh_PIND_Timeout_Action @ 0x1C00303D4 (Usbh_PIND_Timeout_Action.c)
  */
 
 void __fastcall UsbhDispatch_PindicatorEvent(__int64 a1, __int64 a2, int a3, __int64 a4)

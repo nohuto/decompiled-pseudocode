@@ -1,92 +1,105 @@
 /*
- * XREFs of ?Lock@VIDMM_RECYCLE_RANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@@Z @ 0x1C009E898
+ * XREFs of ?Lock@VIDMM_RECYCLE_RANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@@Z @ 0x1C0074A44
  * Callers:
- *     ?Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C00A17C0 (-Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SE.c)
+ *     ?Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C0074924 (-Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SE.c)
  * Callees:
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0005D98 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0019988 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C0019BB8 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?LockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@_K3@Z @ 0x1C00A1CA0 (-LockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PE.c)
- *     ?Transition@VIDMM_RECYCLE_RANGE@@QEAAXW4VIDMM_RECYCLE_RANGE_STATE@@@Z @ 0x1C00A3320 (-Transition@VIDMM_RECYCLE_RANGE@@QEAAXW4VIDMM_RECYCLE_RANGE_STATE@@@Z.c)
- *     ?RemoveFromDebounce@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00A426C (-RemoveFromDebounce@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0005710 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0017928 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024D70 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?RemoveFromDebounce@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C0075A14 (-RemoveFromDebounce@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
+ *     ?LockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@_K3@Z @ 0x1C0075A94 (-LockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@W4_LOCK_OPERATION@@PE.c)
+ *     ?Transition@VIDMM_RECYCLE_RANGE@@QEAAXW4VIDMM_RECYCLE_RANGE_STATE@@@Z @ 0x1C007DB70 (-Transition@VIDMM_RECYCLE_RANGE@@QEAAXW4VIDMM_RECYCLE_RANGE_STATE@@@Z.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VIDMM_RECYCLE_RANGE::Lock(
         VIDMM_RECYCLE_RANGE *this,
         struct _VIDMM_GLOBAL_ALLOC *a2,
-        enum _LOCK_OPERATION a3,
+        __int64 a3,
         struct VIDMM_SEGMENT *a4)
 {
-  __int64 v4; // r8
+  __int64 v4; // rdi
   __int64 v8; // rcx
-  enum _LOCK_OPERATION v9; // r8d
-  int v10; // esi
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  VIDMM_RECYCLE_HEAP_MGR *v14; // rcx
-  int v15; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v16; // [rsp+38h] [rbp-18h]
-  char v17; // [rsp+40h] [rbp-10h]
+  VIDMM_RECYCLE_HEAP_MGR *v9; // rcx
+  enum _LOCK_OPERATION v11; // r8d
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  int v14; // edi
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  _QWORD *v17; // rax
+  _QWORD *v18; // rax
+  int v19; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v20; // [rsp+38h] [rbp-20h]
+  char v21; // [rsp+40h] [rbp-18h]
 
   v4 = *((int *)this + 16);
   v8 = (unsigned int)(*((_DWORD *)this + 16) - 1);
   if ( (_DWORD)v8 )
   {
-    v14 = (VIDMM_RECYCLE_HEAP_MGR *)(unsigned int)(v8 - 1);
-    if ( (_DWORD)v14 )
+    v9 = (VIDMM_RECYCLE_HEAP_MGR *)(unsigned int)(v8 - 1);
+    if ( !(_DWORD)v9 )
     {
-      if ( (_DWORD)v14 != 1 )
-      {
-        g_DxgMmsBugcheckExportIndex = 1;
-        WdLogSingleEntry5(0LL, 270LL, 52LL, 2LL, v4, 0LL);
-        return 3221225473LL;
-      }
-      VIDMM_RECYCLE_HEAP_MGR::RemoveFromDebounce(v14, this);
+      ++*((_DWORD *)this + 23);
+      return 0LL;
+    }
+    if ( (_DWORD)v9 == 1 )
+    {
+      VIDMM_RECYCLE_HEAP_MGR::RemoveFromDebounce(v9, this);
       ++*((_DWORD *)this + 23);
       VIDMM_RECYCLE_RANGE::Transition(this, 2LL);
+      return 0LL;
+    }
+    v17 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v9, a2);
+    v17[7] = 0LL;
+    v17[3] = 270LL;
+    v17[4] = 52LL;
+    v17[5] = 2LL;
+    v17[6] = v4;
+    WdLogEvent5_WdCriticalError(v17);
+    return 3221225473LL;
+  }
+  else
+  {
+    v19 = -1;
+    v20 = 0LL;
+    if ( (qword_1C0050010 & 2) != 0 )
+    {
+      v21 = 1;
+      v19 = 8000;
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v8, &EventProfilerEnter, a3, 8000);
+    }
+    else
+    {
+      v21 = 0;
+    }
+    DXGETWPROFILER_BASE::PushProfilerEntry();
+    v14 = VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW::LockRange(
+            (VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *)(*((_QWORD *)this + 9) + 88LL),
+            a2,
+            v11,
+            a4,
+            *((void **)this + 4),
+            *((void **)this + 5));
+    if ( v14 < 0 )
+    {
+      v18 = (_QWORD *)WdLogNewEntry5_WdWarning(v13, v12);
+      v18[3] = this;
+      v18[4] = a2;
+      v18[5] = **(_QWORD **)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 9) + 32LL) + 8LL) + 8LL);
+      WdLogEvent5_WdWarning(v18);
     }
     else
     {
       ++*((_DWORD *)this + 23);
+      VIDMM_RECYCLE_RANGE::Transition(this, 2LL);
     }
-    return 0LL;
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v19);
+    if ( v21 )
+    {
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v15, &EventProfilerExit, v16, v19);
+    }
+    return (unsigned int)v14;
   }
-  v15 = -1;
-  v16 = 0LL;
-  if ( (qword_1C0076010 & 2) != 0 )
-  {
-    v17 = 1;
-    v15 = 8000;
-    if ( byte_1C0076981 < 0 )
-      McTemplateK0q_EtwWriteTransfer(v8, (__int64)&EventProfilerEnter, v4, 8000);
-  }
-  else
-  {
-    v17 = 0;
-  }
-  DXGETWPROFILER_BASE::PushProfilerEntry();
-  v10 = VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW::LockRange(
-          (VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *)(*((_QWORD *)this + 9) + 88LL),
-          a2,
-          v9,
-          a4,
-          *((void **)this + 4),
-          *((void **)this + 5));
-  if ( v10 < 0 )
-  {
-    WdLogSingleEntry3(3LL, this, a2, **(_QWORD **)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 9) + 32LL) + 8LL) + 8LL));
-  }
-  else
-  {
-    ++*((_DWORD *)this + 23);
-    VIDMM_RECYCLE_RANGE::Transition(this, 2LL);
-  }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v15);
-  if ( v17 )
-  {
-    if ( byte_1C0076981 < 0 )
-      McTemplateK0q_EtwWriteTransfer(v11, (__int64)&EventProfilerExit, v12, v15);
-  }
-  return (unsigned int)v10;
 }

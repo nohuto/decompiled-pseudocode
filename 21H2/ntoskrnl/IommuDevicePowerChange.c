@@ -1,12 +1,12 @@
 /*
- * XREFs of IommuDevicePowerChange @ 0x1405254E0
+ * XREFs of IommuDevicePowerChange @ 0x1404D7E50
  * Callers:
  *     <none>
  * Callees:
- *     ExRundownCompleted @ 0x1402095E0 (ExRundownCompleted.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402F0990 (ExWaitForRundownProtectionRelease.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     ExRundownCompleted @ 0x140251F40 (ExRundownCompleted.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IommuDevicePowerChange(__int64 a1, __int64 a2, char a3)
@@ -37,18 +37,18 @@ __int64 __fastcall IommuDevicePowerChange(__int64 a1, __int64 a2, char a3)
       }
     }
   }
-  v6 = (struct _EX_RUNDOWN_REF *)(a2 + 72);
+  v6 = (struct _EX_RUNDOWN_REF *)(a2 + 48);
   if ( a3 )
   {
     (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(*(_QWORD *)(a2 + 24) + 240LL))(
       *(_QWORD *)(*(_QWORD *)(a2 + 24) + 16LL),
       *(_QWORD *)(a2 + 40),
-      *(unsigned int *)(a2 + 80));
+      *(unsigned int *)(a2 + 56));
     _InterlockedExchange64((volatile __int64 *)v6, 0LL);
   }
   else
   {
-    ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)(a2 + 72));
+    ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)(a2 + 48));
     ExRundownCompleted(v6);
   }
   if ( v3 )

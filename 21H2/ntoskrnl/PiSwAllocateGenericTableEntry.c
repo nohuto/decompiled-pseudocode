@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwAllocateGenericTableEntry @ 0x1406EB580
+ * XREFs of PiSwAllocateGenericTableEntry @ 0x140773A90
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiSwAllocateGenericTableEntry(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
+PVOID __fastcall PiSwAllocateGenericTableEntry(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
 {
-  return ExAllocatePool2(256LL, ByteSize, 1466986064LL);
+  return ExAllocatePoolWithTag(PagedPool, ByteSize, 0x57706E50u);
 }

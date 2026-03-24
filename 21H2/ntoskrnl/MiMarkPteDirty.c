@@ -1,38 +1,35 @@
 /*
- * XREFs of MiMarkPteDirty @ 0x14023A12C
+ * XREFs of MiMarkPteDirty @ 0x1402FA54C
  * Callers:
- *     MmCheckCachedPageStates @ 0x140328690 (MmCheckCachedPageStates.c)
+ *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x14020D8D0 (MiUnlockPageTableInternal.c)
- *     MiGetAnyMultiplexedVm @ 0x14026DFC0 (MiGetAnyMultiplexedVm.c)
- *     MiUnlockWorkingSetShared @ 0x1402B0CE0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetOptimal @ 0x1402D0490 (MiLockWorkingSetOptimal.c)
- *     MiWriteValidPteNewProtection @ 0x14033DBC0 (MiWriteValidPteNewProtection.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
+ *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
+ *     MiWriteValidPteNewProtection @ 0x14030FA00 (MiWriteValidPteNewProtection.c)
+ *     MiLockWorkingSetOptimal @ 0x14030FC94 (MiLockWorkingSetOptimal.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
  */
 
-__int64 __fastcall MiMarkPteDirty(__int64 *a1)
+__int64 __fastcall MiMarkPteDirty(__int64 a1)
 {
   __int64 result; // rax
   __int64 AnyMultiplexedVm; // rdi
-  __int64 v4; // rax
-  __int64 v5; // rdx
-  unsigned __int64 v6; // rsi
-  __int64 v7; // rdx
-  char v8; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 v4; // rsi
+  __int64 v5; // rax
+  unsigned __int8 v6; // [rsp+38h] [rbp+10h] BYREF
 
-  result = *a1;
-  v8 = 0;
+  v6 = 0;
+  result = MI_READ_PTE_LOCK_FREE(a1);
   if ( (result & 0x42) == 0 && (result & 0x800) != 0 )
   {
     AnyMultiplexedVm = MiGetAnyMultiplexedVm(0LL);
-    v4 = MiLockWorkingSetOptimal(AnyMultiplexedVm, a1, &v8);
-    v5 = *a1;
-    v6 = v4;
-    if ( (*a1 & 1) != 0 && (v5 & 0x42) == 0 && (v5 & 0x800) != 0 )
+    v4 = MiLockWorkingSetOptimal(AnyMultiplexedVm, a1, &v6);
+    v5 = MI_READ_PTE_LOCK_FREE(a1);
+    if ( (v5 & 1) != 0 && (v5 & 0x42) == 0 && (v5 & 0x800) != 0 )
       MiWriteValidPteNewProtection(a1, v5 | 0x62);
-    MiUnlockPageTableInternal(AnyMultiplexedVm, v6);
-    LOBYTE(v7) = v8;
-    return MiUnlockWorkingSetShared(AnyMultiplexedVm, v7);
+    MiUnlockPageTableInternal(AnyMultiplexedVm, v4);
+    return MiUnlockWorkingSetShared(AnyMultiplexedVm, v6);
   }
   return result;
 }

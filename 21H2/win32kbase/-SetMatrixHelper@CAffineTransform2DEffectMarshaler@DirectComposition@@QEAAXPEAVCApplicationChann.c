@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetMatrixHelper@CAffineTransform2DEffectMarshaler@DirectComposition@@QEAAXPEAVCApplicationChannel@2@PEBUD2D_MATRIX_3X2_F@@PEA_N@Z @ 0x1C0219D54
+ * XREFs of ?SetMatrixHelper@CAffineTransform2DEffectMarshaler@DirectComposition@@QEAAXPEAVCApplicationChannel@2@PEBUD2D_MATRIX_3X2_F@@PEA_N@Z @ 0x1C01E3A14
  * Callers:
- *     ?SetBufferProperty@CAffineTransform2DEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0219C20 (-SetBufferProperty@CAffineTransform2DEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationCha.c)
+ *     ?SetBufferProperty@CAffineTransform2DEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E38F0 (-SetBufferProperty@CAffineTransform2DEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationCha.c)
  * Callees:
- *     ?UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C00B4480 (-UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z.c)
+ *     ?UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C0093AA8 (-UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CAffineTransform2DEffectMarshaler::SetMatrixHelper(
@@ -16,20 +16,20 @@ void __fastcall DirectComposition::CAffineTransform2DEffectMarshaler::SetMatrixH
   __int64 v6; // r10
 
   v5 = *a4;
-  v6 = *((_QWORD *)this + 16) - *(_QWORD *)a3;
+  v6 = *((_QWORD *)this + 15) - *(_QWORD *)a3;
   if ( !v6 )
   {
-    v6 = *((_QWORD *)this + 17) - *((_QWORD *)a3 + 1);
+    v6 = *((_QWORD *)this + 16) - *((_QWORD *)a3 + 1);
     if ( !v6 )
-      v6 = *((_QWORD *)this + 18) - *((_QWORD *)a3 + 2);
+      v6 = *((_QWORD *)this + 17) - *((_QWORD *)a3 + 2);
   }
   if ( v6 )
   {
     v5 = 1;
-    *((_OWORD *)this + 8) = *(_OWORD *)a3;
-    *((_QWORD *)this + 18) = *((_QWORD *)a3 + 2);
+    *(_OWORD *)((char *)this + 120) = *(_OWORD *)a3;
+    *((_QWORD *)this + 17) = *((_QWORD *)a3 + 2);
   }
-  if ( *((_QWORD *)this + 5) )
+  if ( *((_QWORD *)this + 4) )
   {
     DirectComposition::CApplicationChannel::UnbindAllAnimations(a2, this);
     v5 = 1;

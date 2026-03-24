@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetRealizationIndex@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBAIXZ @ 0x180123120
+ * XREFs of ?GetRealizationIndex@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBAIXZ @ 0x1800F8A10
  * Callers:
  *     <none>
  * Callees:

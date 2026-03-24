@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vRemoveRef@RBRUSH@@QEAAXW4RBTYPE@@@Z @ 0x1C007FC7C
+ * XREFs of ?vRemoveRef@RBRUSH@@QEAAXW4RBTYPE@@@Z @ 0x1C0066EF4
  * Callers:
- *     bDeleteBrush @ 0x1C00C82E0 (bDeleteBrush.c)
+ *     bDeleteBrush @ 0x1C001C340 (bDeleteBrush.c)
  * Callees:
- *     ?vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z @ 0x1C00802E0 (-vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z.c)
+ *     ?vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z @ 0x1C0067560 (-vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z.c)
  */
 
 __int64 __fastcall RBRUSH::vRemoveRef(volatile signed __int32 *a1, __int64 a2)

@@ -16,15 +16,15 @@
  *     MmGetSessionId @ 0x1400897B0 (MmGetSessionId.c)
  *     KeQueryValuesThread @ 0x14008EF50 (KeQueryValuesThread.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     RtlQueryPackageIdentity @ 0x1400A5010 (RtlQueryPackageIdentity.c)
- *     SeSecurityAttributePresent @ 0x1400A7030 (SeSecurityAttributePresent.c)
- *     PsIsProcessInSilo @ 0x1400CB0E8 (PsIsProcessInSilo.c)
- *     KeFlushProcessWriteBuffers @ 0x1400ECFD8 (KeFlushProcessWriteBuffers.c)
- *     SmIsCompressionProcess @ 0x14011AFC8 (SmIsCompressionProcess.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlQueryPackageIdentity @ 0x1400A5030 (RtlQueryPackageIdentity.c)
+ *     SeSecurityAttributePresent @ 0x1400A7050 (SeSecurityAttributePresent.c)
+ *     PsIsProcessInSilo @ 0x1400CB108 (PsIsProcessInSilo.c)
+ *     KeFlushProcessWriteBuffers @ 0x1400ECFF8 (KeFlushProcessWriteBuffers.c)
+ *     SmIsCompressionProcess @ 0x14011AFE8 (SmIsCompressionProcess.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
@@ -32,10 +32,10 @@
  *     ExpCopyProcessInfo @ 0x1405FE390 (ExpCopyProcessInfo.c)
  *     SeQueryUserSidToken @ 0x1406102AC (SeQueryUserSidToken.c)
  *     PsQueryProcessEnergyValues @ 0x1406372A0 (PsQueryProcessEnergyValues.c)
- *     ObOpenObjectByPointer @ 0x1406470E0 (ObOpenObjectByPointer.c)
- *     ExCheckFullProcessInformationAccess @ 0x140654314 (ExCheckFullProcessInformationAccess.c)
- *     ExIsRestrictedCaller @ 0x1406ADA0C (ExIsRestrictedCaller.c)
- *     KeSynchronizeWithDynamicProcessors @ 0x1406B4DE0 (KeSynchronizeWithDynamicProcessors.c)
+ *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1406542F4 (ExCheckFullProcessInformationAccess.c)
+ *     ExIsRestrictedCaller @ 0x1406AD9EC (ExIsRestrictedCaller.c)
+ *     KeSynchronizeWithDynamicProcessors @ 0x1406B4DC0 (KeSynchronizeWithDynamicProcessors.c)
  */
 
 __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, unsigned int a2, unsigned int *a3, _DWORD *a4, int a5)
@@ -741,9 +741,9 @@ LABEL_49:
               else
               {
                 v31 = -1073741275;
-                if ( v10[2].ActiveProcessors.Bitmap[9] && (_QWORD)xmmword_14040E320 )
+                if ( v10[2].ActiveProcessors.Bitmap[9] && (_QWORD)xmmword_14040E300 )
                 {
-                  v31 = ((__int64 (__fastcall *)(__int64, PVOID *))xmmword_14040E320)(v30, &P);
+                  v31 = ((__int64 (__fastcall *)(__int64, PVOID *))xmmword_14040E300)(v30, &P);
                   goto LABEL_264;
                 }
                 v32 = v10[1].ActiveProcessors.Bitmap[15];

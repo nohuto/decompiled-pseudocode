@@ -1,16 +1,13 @@
 /*
- * XREFs of CmpCompareTwoCompressedNames @ 0x14065C57C
+ * XREFs of CmpCompareTwoCompressedNames @ 0x140875E28
  * Callers:
- *     CmpCompareKeysByName @ 0x14065C51C (CmpCompareKeysByName.c)
- *     CmpFindNameInListCellWithStatus @ 0x140722280 (CmpFindNameInListCellWithStatus.c)
- *     CmpCompareInIndex @ 0x1407C4180 (CmpCompareInIndex.c)
- *     CmpDoCompareKeyName @ 0x1407C4460 (CmpDoCompareKeyName.c)
- *     CmpFindSubKeyInRoot @ 0x1407C5F80 (CmpFindSubKeyInRoot.c)
- *     CmpFindKcbInHashEntryByCompressedName @ 0x14091514C (CmpFindKcbInHashEntryByCompressedName.c)
- *     CmpSortedValueEnumStackValueCompareFunction @ 0x140921EA0 (CmpSortedValueEnumStackValueCompareFunction.c)
+ *     CmpDoCompareKeyName @ 0x1405EE600 (CmpDoCompareKeyName.c)
+ *     CmpFindNameInListCellWithStatus @ 0x140666030 (CmpFindNameInListCellWithStatus.c)
+ *     CmpFindKcbInHashEntryByCompressedName @ 0x14086EF30 (CmpFindKcbInHashEntryByCompressedName.c)
+ *     CmpCompareKeysByName @ 0x140875D54 (CmpCompareKeysByName.c)
+ *     CmpSortedValueEnumStackValueCompareFunction @ 0x14087BA10 (CmpSortedValueEnumStackValueCompareFunction.c)
  * Callees:
- *     NLS_UPCASE @ 0x1403477B0 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
  */
 
 __int64 __fastcall CmpCompareTwoCompressedNames(
@@ -19,13 +16,9 @@ __int64 __fastcall CmpCompareTwoCompressedNames(
         unsigned __int8 *a3,
         unsigned __int16 a4)
 {
-  unsigned __int16 v6; // bx
-  unsigned int v8; // r10d
-  unsigned int v9; // r11d
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned __int16 v12; // r10
-  _QWORD *v13; // rax
-  unsigned __int16 v14; // r11
+  unsigned __int16 v6; // r11
+  unsigned int v8; // r9d
+  unsigned int v9; // r10d
 
   v6 = a2;
   if ( a2 )
@@ -38,27 +31,17 @@ __int64 __fastcall CmpCompareTwoCompressedNames(
       {
         if ( v8 >= 0x61 )
         {
-          if ( v8 > 0x7A )
-          {
-            CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-            LOWORD(v8) = NLS_UPCASE(CurrentServerSiloGlobals[154], v12);
-          }
-          else
-          {
+          if ( v8 <= 0x7A )
             LOWORD(v8) = v8 - 32;
-          }
+          else
+            LOWORD(v8) = NLS_UPCASE(v8);
         }
         if ( v9 >= 0x61 )
         {
-          if ( v9 > 0x7A )
-          {
-            v13 = PsGetCurrentServerSiloGlobals();
-            LOWORD(v9) = NLS_UPCASE(v13[154], v14);
-          }
-          else
-          {
+          if ( v9 <= 0x7A )
             LOWORD(v9) = v9 - 32;
-          }
+          else
+            LOWORD(v9) = NLS_UPCASE(v9);
         }
         if ( (unsigned __int16)v8 != (unsigned __int16)v9 )
           return (unsigned __int16)v8 - (unsigned int)(unsigned __int16)v9;

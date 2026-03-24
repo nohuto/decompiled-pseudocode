@@ -1,46 +1,64 @@
 /*
- * XREFs of PspInitPhase1 @ 0x140B1E0A8
+ * XREFs of PspInitPhase1 @ 0x140A4B338
  * Callers:
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
- *     PsInitSystem @ 0x140B02300 (PsInitSystem.c)
+ *     PsInitSystem @ 0x140A4C2F8 (PsInitSystem.c)
  * Callees:
- *     strcpy_s @ 0x1403E71A0 (strcpy_s.c)
- *     KeBugCheck @ 0x14041F3B0 (KeBugCheck.c)
- *     VslRegisterSecureSystemProcess @ 0x14054F1B8 (VslRegisterSecureSystemProcess.c)
- *     ObInsertObject @ 0x14066BA50 (ObInsertObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     PsCreateMinimalProcess @ 0x140831810 (PsCreateMinimalProcess.c)
- *     PspInitializeBackgroundActivityModeratorCallouts @ 0x140B1E364 (PspInitializeBackgroundActivityModeratorCallouts.c)
- *     PspInitializeDesktopActivityModeratorCallouts @ 0x140B1E3C4 (PspInitializeDesktopActivityModeratorCallouts.c)
- *     PspInitializeHwTraceCallouts @ 0x140B1E41C (PspInitializeHwTraceCallouts.c)
- *     PspInitializeMMCSSCallouts @ 0x140B1E47C (PspInitializeMMCSSCallouts.c)
- *     PspInitializeOctagonExtensionHost @ 0x140B1E4DC (PspInitializeOctagonExtensionHost.c)
- *     PspInitializeSecExtensionHost @ 0x140B1E534 (PspInitializeSecExtensionHost.c)
- *     PspInitializeNetRateControl @ 0x140B1E58C (PspInitializeNetRateControl.c)
+ *     strcpy_s @ 0x1403D7D70 (strcpy_s.c)
+ *     KeBugCheck @ 0x1403FDED0 (KeBugCheck.c)
+ *     VslRegisterSecureSystemProcess @ 0x1404FD404 (VslRegisterSecureSystemProcess.c)
+ *     ObInsertObject @ 0x1406D41C0 (ObInsertObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     PsCreateMinimalProcess @ 0x1407C6284 (PsCreateMinimalProcess.c)
+ *     PspInitializeBackgroundActivityModeratorCallouts @ 0x140A47BDC (PspInitializeBackgroundActivityModeratorCallouts.c)
+ *     PspInitializeDesktopActivityModeratorCallouts @ 0x140A47C3C (PspInitializeDesktopActivityModeratorCallouts.c)
+ *     PspInitializeHwTraceCallouts @ 0x140A47C94 (PspInitializeHwTraceCallouts.c)
+ *     PspInitializeMMCSSCallouts @ 0x140A47CF4 (PspInitializeMMCSSCallouts.c)
+ *     PspInitializeOctagonExtensionHost @ 0x140A47D54 (PspInitializeOctagonExtensionHost.c)
+ *     PspInitializeSecExtensionHost @ 0x140A47DAC (PspInitializeSecExtensionHost.c)
+ *     PspInitializeNetRateControl @ 0x140A47E04 (PspInitializeNetRateControl.c)
  */
 
 bool PspInitPhase1()
 {
+  NTSTATUS inserted; // eax
+  __int64 v1; // rdx
+  __int64 v2; // rcx
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
   bool result; // al
-  NTSTATUS v1; // eax
-  HANDLE v2; // [rsp+60h] [rbp+8h] BYREF
+  NTSTATUS v16; // eax
+  HANDLE v17; // [rsp+60h] [rbp+8h] BYREF
   PVOID Object; // [rsp+68h] [rbp+10h] BYREF
 
-  if ( ObInsertObject(PspSystemPartition, 0LL, 0x1F0003u, 0, 0LL, &PspSystemPartitionHandle) < 0 )
+  inserted = ObInsertObject(PspSystemPartition, 0LL, 0x1F0003u, 0, 0LL, &PspSystemPartitionHandle);
+  v2 = 0LL;
+  if ( inserted < 0 )
+    v2 = (unsigned int)inserted;
+  if ( (int)v2 < 0 )
     KeBugCheck(0x60u);
   result = 0;
-  if ( (unsigned __int8)PspInitializeNetRateControl() )
+  if ( PspInitializeNetRateControl(v2, v1) )
   {
-    if ( (int)PspInitializeBackgroundActivityModeratorCallouts() >= 0
-      && (int)PspInitializeDesktopActivityModeratorCallouts() >= 0
-      && (int)PspInitializeMMCSSCallouts() >= 0
-      && (int)PspInitializeHwTraceCallouts() >= 0
-      && (int)PspInitializeOctagonExtensionHost() >= 0
-      && (int)PspInitializeSecExtensionHost() >= 0 )
+    if ( (int)PspInitializeBackgroundActivityModeratorCallouts(v4, v3) >= 0
+      && (int)PspInitializeDesktopActivityModeratorCallouts(v6, v5) >= 0
+      && (int)PspInitializeMMCSSCallouts(v8, v7) >= 0
+      && (int)PspInitializeHwTraceCallouts(v10, v9) >= 0
+      && (int)PspInitializeOctagonExtensionHost(v12, v11) >= 0
+      && (int)PspInitializeSecExtensionHost(v14, v13) >= 0 )
     {
       if ( !VslVsmEnabled )
         return 1;
-      v2 = 0LL;
+      v17 = 0LL;
       if ( (int)PsCreateMinimalProcess(
                   PsInitialSystemProcess,
                   0LL,
@@ -51,15 +69,15 @@ bool PspInitPhase1()
                   0,
                   0LL,
                   0LL,
-                  &v2) >= 0 )
+                  &v17) >= 0 )
       {
         Object = 0LL;
-        v1 = ObReferenceObjectByHandle(v2, 0, (POBJECT_TYPE)PsProcessType, 0, &Object, 0LL);
+        v16 = ObReferenceObjectByHandle(v17, 0, (POBJECT_TYPE)PsProcessType, 0, &Object, 0LL);
         PsSecureSystemProcess = (ULONG_PTR)Object;
-        if ( v1 >= 0 )
+        if ( v16 >= 0 )
         {
           strcpy_s((char *)Object + 1448, 0xFuLL, "Secure System");
-          if ( (int)VslRegisterSecureSystemProcess() >= 0 )
+          if ( VslRegisterSecureSystemProcess() >= 0 )
             return 1;
         }
       }

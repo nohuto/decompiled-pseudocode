@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIGetConvertToPnpID @ 0x1C001C530
+ * XREFs of ACPIGetConvertToPnpID @ 0x1C00280D0
  * Callers:
- *     ACPIGetWorkerForString @ 0x1C0019740 (ACPIGetWorkerForString.c)
+ *     ACPIGetWorkerForString @ 0x1C000C4F0 (ACPIGetWorkerForString.c)
  * Callees:
- *     ACPIWideStringToAnsiHelper @ 0x1C001C598 (ACPIWideStringToAnsiHelper.c)
- *     ACPIGetConvertToPnpIDWide @ 0x1C001C5D8 (ACPIGetConvertToPnpIDWide.c)
+ *     ACPIWideStringToAnsiHelper @ 0x1C00281A0 (ACPIWideStringToAnsiHelper.c)
+ *     ACPIGetConvertToPnpIDWide @ 0x1C00281E0 (ACPIGetConvertToPnpIDWide.c)
  */
 
 __int64 __fastcall ACPIGetConvertToPnpID(int a1, int a2, int a3, int a4, _QWORD *a5, unsigned int *a6)

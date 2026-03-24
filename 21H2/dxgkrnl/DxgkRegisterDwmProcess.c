@@ -1,86 +1,78 @@
 /*
- * XREFs of DxgkRegisterDwmProcess @ 0x1C01C8180
+ * XREFs of DxgkRegisterDwmProcess @ 0x1C0166600
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?DxgkLogCodePointPacketForSession@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@_KIIIU_LUID@@@Z @ 0x1C0014340 (-DxgkLogCodePointPacketForSession@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@_KIIIU_LUID@@@Z.c)
- *     ?VidSchRegisterAsDwm@VIDSCH_EXPORT@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C0014628 (-VidSchRegisterAsDwm@VIDSCH_EXPORT@@QEAAJPEAVDXGPROCESS@@@Z.c)
- *     ?ReferenceCurrentProcessAsDwm@DXGSESSIONDATA@@QEAAXXZ @ 0x1C0014670 (-ReferenceCurrentProcessAsDwm@DXGSESSIONDATA@@QEAAXXZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?VidSchRegisterAsDwm@VIDSCH_EXPORT@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C0019D38 (-VidSchRegisterAsDwm@VIDSCH_EXPORT@@QEAAJPEAVDXGPROCESS@@@Z.c)
+ *     ?ReferenceCurrentProcessAsDwm@DXGSESSIONDATA@@QEAAXXZ @ 0x1C0019D80 (-ReferenceCurrentProcessAsDwm@DXGSESSIONDATA@@QEAAXXZ.c)
+ *     ?DxgkLogCodePointPacketForSession@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@_KIIIU_LUID@@@Z @ 0x1C0019DF8 (-DxgkLogCodePointPacketForSession@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@_KIIIU_LUID@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
  */
 
-__int64 __fastcall DxgkRegisterDwmProcess(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall DxgkRegisterDwmProcess(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rcx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
   struct DXGPROCESS *Current; // rbx
   unsigned int CurrentProcessSessionId; // eax
+  __int64 v6; // rdx
   __int64 v7; // rcx
-  DXGSESSIONMGR *v8; // rdi
-  unsigned int v9; // eax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  DXGSESSIONMGR *v10; // rbx
+  unsigned int v11; // eax
   DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  unsigned int v11; // esi
-  __int64 v12; // rdi
-  VIDSCH_EXPORT *v13; // rbx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  struct DXGPROCESS *v18; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  int v15; // edi
+  __int64 i; // rsi
+  VIDSCH_EXPORT *v17; // rbx
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  struct DXGPROCESS *v20; // rax
   __int64 result; // rax
+  __int64 v22; // rax
 
-  Current = DXGPROCESS::GetCurrent(a1, a2, a3, a4);
+  Current = DXGPROCESS::GetCurrent(a1, a2);
   if ( Current )
   {
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v4);
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v3, v2);
     DxgkLogCodePointPacketForSession(0x73u, CurrentProcessSessionId, 0, 1, 0, 0LL);
-    *((_DWORD *)Current + 106) |= 4u;
-    v8 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-    if ( v8 )
+    *((_BYTE *)Current + 346) = 1;
+    v10 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal(v7, v6) + 102);
+    if ( v10 )
     {
-      v9 = PsGetCurrentProcessSessionId(v7);
-      SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v8, v9);
+      v11 = PsGetCurrentProcessSessionId(v9, v8);
+      SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v10, v11);
     }
     else
     {
       SessionDataForSpecifiedSession = 0LL;
     }
     DXGSESSIONDATA::ReferenceCurrentProcessAsDwm(SessionDataForSpecifiedSession);
-    v11 = 0;
-    v12 = 272LL;
-    *(_BYTE *)(*((_QWORD *)Current + 8) + 130LL) = 1;
-    while ( 1 )
+    v15 = 0;
+    for ( i = 232LL; ; i += 8LL )
     {
-      DXGGLOBAL_GetGlobal();
-      if ( *(_QWORD *)((char *)&DXGGLOBAL::m_pDxgmmsExport + v12 - 272) )
+      DXGGLOBAL::GetGlobal(v14, v13);
+      if ( *(_QWORD *)((char *)&DXGGLOBAL::m_pDxgmmsExport + i - 232) )
       {
-        v13 = *(VIDSCH_EXPORT **)((char *)DXGGLOBAL_GetGlobal() + v12);
-        v18 = DXGPROCESS::GetCurrent(v15, v14, v16, v17);
-        result = VIDSCH_EXPORT::VidSchRegisterAsDwm(v13, v18);
+        v17 = *(VIDSCH_EXPORT **)((char *)DXGGLOBAL::GetGlobal(v14, v13) + i);
+        v20 = DXGPROCESS::GetCurrent(v19, v18);
+        result = VIDSCH_EXPORT::VidSchRegisterAsDwm(v17, v20);
         if ( (int)result < 0 )
           break;
       }
-      ++v11;
-      v12 += 8LL;
-      if ( v11 >= 2 )
+      if ( (unsigned int)++v15 >= 2 )
         return 0LL;
     }
   }
   else
   {
-    WdLogSingleEntry1(2LL, 3650LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"An attempt was made to register the DWM process for a process that has no DXGPROCESS",
-      3650LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v22 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v22 + 24) = 3545LL;
+    WdLogEvent5_WdError(v22);
     return 3221225473LL;
   }
   return result;

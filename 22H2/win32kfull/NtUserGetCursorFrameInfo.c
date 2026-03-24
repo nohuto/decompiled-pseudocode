@@ -1,63 +1,49 @@
 /*
- * XREFs of NtUserGetCursorFrameInfo @ 0x1C00A7580
+ * XREFs of NtUserGetCursorFrameInfo @ 0x1C0161BA0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0028B20 (-GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
- *     HMValidateHandle @ 0x1C002D0F8 (HMValidateHandle.c)
- *     ?GetAnimatedCursorFrame@@YAPEAUtagCURSOR@@QEAUtagACON@@H@Z @ 0x1C00B6570 (-GetAnimatedCursorFrame@@YAPEAUtagCURSOR@@QEAUtagACON@@H@Z.c)
+ *     ?GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0066FD4 (-GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     HMValidateHandle @ 0x1C0067040 (HMValidateHandle.c)
+ *     ?_GetCursorFrameInfo@@YAPEAUtagCURSOR@@PEAU1@HPEAKPEAH@Z @ 0x1C0161C90 (-_GetCursorFrameInfo@@YAPEAUtagCURSOR@@PEAU1@HPEAKPEAH@Z.c)
  */
 
-__int64 __fastcall NtUserGetCursorFrameInfo(__int64 a1, __int64 a2, _DWORD *a3, int *a4)
+__int64 __fastcall NtUserGetCursorFrameInfo(unsigned __int64 a1, int a2, unsigned int *a3, int *a4)
 {
-  __int64 v6; // rsi
-  struct tagCURSOR *v8; // rax
-  _DWORD *v9; // rdx
+  __int64 v8; // rdi
+  struct tagCURSOR *v9; // rax
   __int64 v10; // rcx
-  struct tagCURSOR *AnimatedCursorFrame; // r8
-  __int64 v12; // r9
-  __int64 v13; // rbx
-  struct tagCURSOR *VirtualizedDpiCursor; // rdi
-  _DWORD *v15; // rcx
-  int v16; // eax
+  struct tagCURSOR *VirtualizedDpiCursor; // r10
+  _DWORD *v12; // rcx
+  _DWORD *v13; // rdx
+  struct tagCURSOR *CursorFrameInfo; // rax
+  unsigned int v16; // [rsp+20h] [rbp-28h] BYREF
+  int v17[9]; // [rsp+24h] [rbp-24h] BYREF
 
-  v6 = (int)a2;
-  EnterSharedCrit(a1, a2, a3);
-  v8 = (struct tagCURSOR *)HMValidateHandle(a1, 3u);
-  v13 = 0LL;
-  if ( v8 )
+  v8 = 0LL;
+  v16 = 0;
+  v17[0] = 0;
+  EnterSharedCrit(0LL, 1LL);
+  v9 = (struct tagCURSOR *)HMValidateHandle(a1, 3u);
+  if ( v9 )
   {
-    VirtualizedDpiCursor = GetVirtualizedDpiCursor(v8);
-    v15 = a3;
+    VirtualizedDpiCursor = GetVirtualizedDpiCursor(v9);
+    v12 = a3;
     if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-      v15 = (_DWORD *)MmUserProbeAddress;
-    *v15 = *v15;
-    v9 = a4;
+      v12 = (_DWORD *)MmUserProbeAddress;
+    *v12 = *v12;
+    v13 = a4;
     if ( (unsigned __int64)a4 >= MmUserProbeAddress )
-      v9 = (_DWORD *)MmUserProbeAddress;
-    *v9 = *v9;
-    if ( (*((_DWORD *)VirtualizedDpiCursor + 20) & 8) != 0 )
+      v13 = (_DWORD *)MmUserProbeAddress;
+    *v13 = *v13;
+    CursorFrameInfo = _GetCursorFrameInfo(VirtualizedDpiCursor, a2, &v16, v17);
+    if ( CursorFrameInfo )
     {
-      AnimatedCursorFrame = GetAnimatedCursorFrame(VirtualizedDpiCursor, v6);
-      if ( !AnimatedCursorFrame )
-        goto LABEL_10;
-      v16 = *((_DWORD *)VirtualizedDpiCursor + 23);
-      v10 = *(unsigned int *)(*((_QWORD *)VirtualizedDpiCursor + 14) + 4 * v6);
-      VirtualizedDpiCursor = AnimatedCursorFrame;
-    }
-    else
-    {
-      v16 = 1;
-      v10 = 0LL;
-    }
-    if ( VirtualizedDpiCursor )
-    {
-      v13 = *(_QWORD *)VirtualizedDpiCursor;
-      *a3 = v10;
-      *a4 = v16;
+      v8 = *(_QWORD *)CursorFrameInfo;
+      *a3 = v16;
+      *a4 = v17[0];
     }
   }
-LABEL_10:
-  UserSessionSwitchLeaveCrit(v10, v9, AnimatedCursorFrame, v12);
-  return v13;
+  UserSessionSwitchLeaveCrit(v10);
+  return v8;
 }

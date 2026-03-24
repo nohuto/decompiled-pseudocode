@@ -1,18 +1,18 @@
 /*
- * XREFs of ExEnumerateSystemFirmwareTables @ 0x1409F5D90
+ * XREFs of ExEnumerateSystemFirmwareTables @ 0x140949EC0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x14077EDF0 (ExpGetSystemFirmwareTableInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x14069061C (ExpGetSystemFirmwareTableInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExEnumerateSystemFirmwareTables(int a1, void *a2, int a3, _DWORD *a4)
 {
   unsigned int v9; // ebp
-  __int64 Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v11; // rbx
   int SystemFirmwareTableInformation; // edi
   int v13; // [rsp+48h] [rbp+10h] BYREF
@@ -21,24 +21,21 @@ __int64 __fastcall ExEnumerateSystemFirmwareTables(int a1, void *a2, int a3, _DW
   if ( !a2 && a3 )
     return 3221225485LL;
   v9 = a3 + 16;
-  Pool2 = ExAllocatePool2(256LL, (unsigned int)(a3 + 16), 1413894721LL);
-  v11 = (_DWORD *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)(a3 + 16), 0x54465241u);
+  v11 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 4) = 0;
-    *(_DWORD *)(Pool2 + 8) = 0;
-    *(_DWORD *)(Pool2 + 12) = a3;
-    *(_DWORD *)Pool2 = a1;
-    SystemFirmwareTableInformation = ExpGetSystemFirmwareTableInformation((char *)Pool2, 0, v9, &v13);
-    if ( (int)(SystemFirmwareTableInformation + 0x80000000) < 0 || SystemFirmwareTableInformation == -1073741789 )
+    PoolWithTag[1] = 0;
+    PoolWithTag[2] = 0;
+    PoolWithTag[3] = a3;
+    *PoolWithTag = a1;
+    SystemFirmwareTableInformation = ExpGetSystemFirmwareTableInformation((char *)PoolWithTag, 0, v9, &v13);
+    if ( ((int)(SystemFirmwareTableInformation + 0x80000000) < 0 || SystemFirmwareTableInformation == -1073741789) && a4 )
+      *a4 = v11[3];
+    if ( SystemFirmwareTableInformation >= 0 )
     {
-      if ( a4 )
-        *a4 = v11[3];
-      if ( SystemFirmwareTableInformation >= 0 )
-      {
-        if ( a2 )
-          memmove(a2, v11 + 4, (unsigned int)(v13 - 16));
-      }
+      if ( a2 )
+        memmove(a2, v11 + 4, (unsigned int)(v13 - 16));
     }
     ExFreePoolWithTag(v11, 0x54465241u);
   }

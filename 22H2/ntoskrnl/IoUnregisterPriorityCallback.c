@@ -1,90 +1,86 @@
 /*
- * XREFs of IoUnregisterPriorityCallback @ 0x140557580
+ * XREFs of IoUnregisterPriorityCallback @ 0x140506290
  * Callers:
- *     IopDeleteDriver @ 0x14085ED30 (IopDeleteDriver.c)
+ *     IopDeleteDriver @ 0x140771D30 (IopDeleteDriver.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140214F10 (ExReferenceCallBackBlock.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExCompareExchangeCallBack @ 0x14039FB68 (ExCompareExchangeCallBack.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DEFD0 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     ExWaitForCallBacks @ 0x1409FB5D0 (ExWaitForCallBacks.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReferenceCallBackBlock @ 0x14025A1B0 (ExReferenceCallBackBlock.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExCompareExchangeCallBack @ 0x1403AEFFC (ExCompareExchangeCallBack.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x14069ABC0 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ExWaitForCallBacks @ 0x14094F05C (ExWaitForCallBacks.c)
  */
 
 void __fastcall IoUnregisterPriorityCallback(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbp
-  signed __int64 *v3; // r14
-  __int64 v4; // r15
-  signed __int64 *v5; // rdi
-  struct _EX_RUNDOWN_REF *v6; // rax
-  struct _EX_RUNDOWN_REF *v7; // rbx
-  signed __int64 v8; // rax
-  signed __int64 v9; // rtt
-  signed __int64 v10; // rax
-  signed __int64 v11; // rtt
+  __int64 v3; // r15
+  signed __int64 *i; // r14
+  struct _EX_RUNDOWN_REF *v5; // rax
+  struct _EX_RUNDOWN_REF *v6; // rbx
+  signed __int64 v7; // rax
+  signed __int64 v8; // rtt
+  signed __int64 v9; // rax
+  signed __int64 v10; // rtt
 
   if ( (*(_DWORD *)(a1 + 16) & 0x200) == 0 )
     return;
   CurrentThread = KeGetCurrentThread();
-  v3 = IopUpdatePriorityCallbackRoutine;
   --CurrentThread->KernelApcDisable;
-  v4 = 0LL;
-  while ( 1 )
+  v3 = 0LL;
+  for ( i = IopUpdatePriorityCallbackRoutine; ; ++i )
   {
-    v5 = &IopUpdatePriorityCallbackRoutine[v4];
-    v6 = ExReferenceCallBackBlock(v5);
-    v7 = v6;
-    if ( v6 )
+    v5 = ExReferenceCallBackBlock(&IopUpdatePriorityCallbackRoutine[v3]);
+    v6 = v5;
+    if ( v5 )
     {
-      if ( v6[4].Count != a1 )
+      if ( v5[4].Count != a1 )
       {
-        _m_prefetchw(v3);
-        v10 = *v3;
-        while ( ((unsigned __int64)v7 ^ v10) < 0xF )
+        _m_prefetchw(i);
+        v9 = *i;
+        while ( ((unsigned __int64)v6 ^ v9) < 0xF )
         {
-          v11 = v10;
-          v10 = _InterlockedCompareExchange64(v3, v10 + 1, v10);
-          if ( v11 == v10 )
+          v10 = v9;
+          v9 = _InterlockedCompareExchange64(i, v9 + 1, v9);
+          if ( v10 == v9 )
             goto LABEL_15;
         }
-        ExReleaseRundownProtection_0(v7);
+        ExReleaseRundownProtection(v6);
         goto LABEL_15;
       }
-      if ( ExCompareExchangeCallBack(&IopUpdatePriorityCallbackRoutine[v4], 0LL, (__int64)v6) )
+      if ( ExCompareExchangeCallBack(&IopUpdatePriorityCallbackRoutine[v3], 0LL, (__int64)v5) )
         break;
     }
 LABEL_15:
-    v4 = (unsigned int)(v4 + 1);
-    ++v3;
-    if ( (unsigned int)v4 >= 8 )
+    v3 = (unsigned int)(v3 + 1);
+    if ( (unsigned int)v3 >= 8 )
     {
       KeLeaveCriticalRegionThread((__int64)CurrentThread);
       return;
     }
   }
-  _InterlockedAdd(&IopUpdatePriorityCallbackRoutineCount, 0xFFFFFFFF);
-  _m_prefetchw(v5);
-  v8 = *v5;
-  if ( ((unsigned __int64)v7 ^ *v5) >= 0xF )
+  _InterlockedDecrement(&IopUpdatePriorityCallbackRoutineCount);
+  _m_prefetchw(&IopUpdatePriorityCallbackRoutine[v3]);
+  v7 = IopUpdatePriorityCallbackRoutine[v3];
+  if ( ((unsigned __int64)v6 ^ v7) >= 0xF )
   {
 LABEL_9:
-    ExReleaseRundownProtection_0(v7);
+    ExReleaseRundownProtection(v6);
   }
   else
   {
     while ( 1 )
     {
-      v9 = v8;
-      v8 = _InterlockedCompareExchange64(v5, v8 + 1, v8);
-      if ( v9 == v8 )
+      v8 = v7;
+      v7 = _InterlockedCompareExchange64(&IopUpdatePriorityCallbackRoutine[v3], v7 + 1, v7);
+      if ( v8 == v7 )
         break;
-      if ( ((unsigned __int64)v7 ^ v8) >= 0xF )
+      if ( ((unsigned __int64)v6 ^ v7) >= 0xF )
         goto LABEL_9;
     }
   }
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  ExWaitForCallBacks(v7);
-  SC_ENV::Free(v7);
+  ExWaitForCallBacks(v6);
+  SC_ENV::Free(v6);
   *(_DWORD *)(a1 + 16) &= ~0x200u;
 }

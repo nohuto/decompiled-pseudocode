@@ -1,10 +1,10 @@
 /*
- * XREFs of ?MilInstrumentationHandleFailure_MaybeFailFast@@YAXJKIPEAX@Z @ 0x1800C22F8
+ * XREFs of ?MilInstrumentationHandleFailure_MaybeFailFast@@YAXJKIPEAX@Z @ 0x1800DB820
  * Callers:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  * Callees:
- *     ?IsOOM@@YA_NJ@Z @ 0x1800C22CC (-IsOOM@@YA_NJ@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?IsOOM@@YA_NJ@Z @ 0x1800DBA5C (-IsOOM@@YA_NJ@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 void __fastcall MilInstrumentationHandleFailure_MaybeFailFast(unsigned int a1, __int64 a2, unsigned int a3, void *a4)
@@ -13,11 +13,9 @@ void __fastcall MilInstrumentationHandleFailure_MaybeFailFast(unsigned int a1, _
     || a1 == -2003302654
     || a1 == -2147024890
     || IsOOM(a1)
-    || g_dwFailFastForThreadId
-    && g_dwFailFastForThreadId == GetCurrentThreadId()
-    && (g_hrFailFastExpectedError >= 0 || a1 == g_hrFailFastExpectedError) )
+    || g_dwFailFastForThreadId && g_dwFailFastForThreadId == GetCurrentThreadId() )
   {
-    ModuleFailFastForHRESULT(a1, a4);
+    ModuleFailFastForHRESULT(a1, 0LL);
   }
   DoStackCapture(a1, a3, a4);
 }

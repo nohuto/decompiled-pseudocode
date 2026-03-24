@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CompareDeviceVIDPID@@YAHU_UNICODE_STRING@@PEAU_KEY_VALUE_FULL_INFORMATION@@K@Z @ 0x1C01CFD84
+ * XREFs of ?CompareDeviceVIDPID@@YAHU_UNICODE_STRING@@PEAU_KEY_VALUE_FULL_INFORMATION@@K@Z @ 0x1C0220BA8
  * Callers:
- *     ?IsDeviceOnRegistryList@@YAHU_UNICODE_STRING@@0H@Z @ 0x1C01160C4 (-IsDeviceOnRegistryList@@YAHU_UNICODE_STRING@@0H@Z.c)
+ *     ?IsDeviceOnRegistryList@@YAHU_UNICODE_STRING@@0H@Z @ 0x1C01219CC (-IsDeviceOnRegistryList@@YAHU_UNICODE_STRING@@0H@Z.c)
  * Callees:
  *     <none>
  */

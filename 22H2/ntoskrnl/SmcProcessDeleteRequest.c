@@ -1,28 +1,25 @@
 /*
- * XREFs of SmcProcessDeleteRequest @ 0x1409D81CC
+ * XREFs of SmcProcessDeleteRequest @ 0x14092AA90
  * Callers:
- *     SmSetStoreInformation @ 0x1407E82F4 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1406A1334 (SmSetStoreInformation.c)
  * Callees:
- *     SmpGetProcessPartition @ 0x140344590 (SmpGetProcessPartition.c)
- *     SmcCacheDelete @ 0x1409DAC2C (SmcCacheDelete.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     SmcCacheDelete @ 0x14092D4BC (SmcCacheDelete.c)
  */
 
-__int64 __fastcall SmcProcessDeleteRequest(__int64 *a1, int a2, char a3)
+__int64 __fastcall SmcProcessDeleteRequest(__int64 a1, __int64 *a2, int a3, char a4)
 {
   __int64 result; // rax
-  __int64 ProcessPartition; // rax
-  __int64 v5; // [rsp+48h] [rbp+20h]
+  __int64 v5; // rax
 
-  if ( a2 != 8 )
+  if ( a3 != 8 )
     return 3221225990LL;
-  if ( a3 && ((unsigned __int8)a1 & 3) != 0 )
+  if ( a4 && ((unsigned __int8)a2 & 3) != 0 )
     ExRaiseDatatypeMisalignment();
-  v5 = *a1;
-  if ( (unsigned __int8)*a1 != 1 || (*a1 & 0xFFFFFF00) != 0 )
+  v5 = *a2;
+  if ( (unsigned __int8)*a2 != 1 || (v5 & 0xFFFFFF00) != 0 )
     return 3221225485LL;
-  ProcessPartition = SmpGetProcessPartition((__int64)KeGetCurrentThread()->ApcState.Process);
-  result = SmcCacheDelete(ProcessPartition + 2128, HIDWORD(v5));
+  result = SmcCacheDelete(a1, HIDWORD(v5));
   if ( (int)result >= 0 )
     return 0LL;
   return result;

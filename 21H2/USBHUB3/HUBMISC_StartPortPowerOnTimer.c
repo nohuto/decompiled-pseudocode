@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBMISC_StartPortPowerOnTimer @ 0x1C002F8A8
+ * XREFs of HUBMISC_StartPortPowerOnTimer @ 0x1C002F208
  * Callers:
- *     HUBPSM20_WaitingForPortPowerOnTimerOnResume @ 0x1C0011950 (HUBPSM20_WaitingForPortPowerOnTimerOnResume.c)
+ *     HUBPSM20_WaitingForPortPowerOnTimerOnResume @ 0x1C0011540 (HUBPSM20_WaitingForPortPowerOnTimerOnResume.c)
  * Callees:
  *     <none>
  */

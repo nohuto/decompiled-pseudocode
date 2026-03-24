@@ -1,8 +1,8 @@
 /*
- * XREFs of ?IsMessageDelegated@CPointerInfoNode@@QEBAHHHHH@Z @ 0x1C01CE1D0
+ * XREFs of ?IsMessageDelegated@CPointerInfoNode@@QEBAHHHHH@Z @ 0x1C0196AC4
  * Callers:
- *     ?IsAnyMessageDelegated@CPointerInfoNode@@QEBAHXZ @ 0x1C01CDE88 (-IsAnyMessageDelegated@CPointerInfoNode@@QEBAHXZ.c)
- *     ?IsMessageDelegated@CPointerInfoNode@@QEBAHI@Z @ 0x1C01CE1F4 (-IsMessageDelegated@CPointerInfoNode@@QEBAHI@Z.c)
+ *     ?IsAnyMessageDelegated@CPointerInfoNode@@QEBAHXZ @ 0x1C01966F8 (-IsAnyMessageDelegated@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?IsMessageDelegated@CPointerInfoNode@@QEBAHI@Z @ 0x1C0196AE8 (-IsMessageDelegated@CPointerInfoNode@@QEBAHI@Z.c)
  * Callees:
  *     <none>
  */

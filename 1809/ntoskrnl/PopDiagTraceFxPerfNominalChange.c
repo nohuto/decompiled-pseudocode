@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceFxPerfNominalChange @ 0x1402E0F00
+ * XREFs of PopDiagTraceFxPerfNominalChange @ 0x1402E1000
  * Callers:
- *     PopFxUpdateComponentPerfStateNominalChange @ 0x1402DA060 (PopFxUpdateComponentPerfStateNominalChange.c)
+ *     PopFxUpdateComponentPerfStateNominalChange @ 0x1402DA160 (PopFxUpdateComponentPerfStateNominalChange.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceFxPerfNominalChange(__int64 *a1, unsigned __int8 a2, int a3, unsigned int a4, __int64 a5)

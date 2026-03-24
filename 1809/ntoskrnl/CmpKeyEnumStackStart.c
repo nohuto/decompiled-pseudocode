@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpKeyEnumStackStart @ 0x1407FFA00
+ * XREFs of CmpKeyEnumStackStart @ 0x1407FF9E0
  * Callers:
- *     CmpSubtreeEnumeratorStart @ 0x1407FA954 (CmpSubtreeEnumeratorStart.c)
- *     CmpKeyEnumStackStartFromKeyNodeStack @ 0x1407FFB50 (CmpKeyEnumStackStartFromKeyNodeStack.c)
+ *     CmpSubtreeEnumeratorStart @ 0x1407FA934 (CmpSubtreeEnumeratorStart.c)
+ *     CmpKeyEnumStackStartFromKeyNodeStack @ 0x1407FFB30 (CmpKeyEnumStackStartFromKeyNodeStack.c)
  * Callees:
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     CmpStartKeyNodeStack @ 0x1407FA4BC (CmpStartKeyNodeStack.c)
- *     CmpKeyEnumStackEntryInitialize @ 0x1407FF678 (CmpKeyEnumStackEntryInitialize.c)
+ *     CmpStartKeyNodeStack @ 0x1407FA49C (CmpStartKeyNodeStack.c)
+ *     CmpKeyEnumStackEntryInitialize @ 0x1407FF658 (CmpKeyEnumStackEntryInitialize.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackStart(__int64 a1, __int16 a2)

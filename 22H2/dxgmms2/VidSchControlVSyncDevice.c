@@ -1,96 +1,85 @@
 /*
- * XREFs of VidSchControlVSyncDevice @ 0x1C0090D20
+ * XREFs of VidSchControlVSyncDevice @ 0x1C00884D0
  * Callers:
- *     VidSchiSetFlipDevice @ 0x1C0006310 (VidSchiSetFlipDevice.c)
- *     VidSchTerminateDevice @ 0x1C00896D0 (VidSchTerminateDevice.c)
- *     VidSchiCreateDeviceInternal @ 0x1C00900F0 (VidSchiCreateDeviceInternal.c)
+ *     VidSchiSetFlipDevice @ 0x1C0011C0C (VidSchiSetFlipDevice.c)
+ *     VidSchiCreateDeviceInternal @ 0x1C007FAC0 (VidSchiCreateDeviceInternal.c)
+ *     VidSchTerminateDevice @ 0x1C007FF30 (VidSchTerminateDevice.c)
  * Callees:
- *     ?IncrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0004B34 (-IncrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z.c)
- *     ?IncrementRequestVSyncReasonDevice@@YAXW4_VIDSCH_VSYNC_REASON_DEVICE@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0004B50 (-IncrementRequestVSyncReasonDevice@@YAXW4_VIDSCH_VSYNC_REASON_DEVICE@@PEAU_VIDSCH_DEVICE@@PEAU_V.c)
- *     ?DecrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0004E58 (-DecrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z.c)
- *     ?DerementRequestVSyncReasonDevice@@YAXW4_VIDSCH_VSYNC_REASON_DEVICE@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C00188AC (-DerementRequestVSyncReasonDevice@@YAXW4_VIDSCH_VSYNC_REASON_DEVICE@@PEAU_VIDSCH_DEVICE@@PEAU_VI.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     VidSchControlVSyncAdapter @ 0x1C0090EC0 (VidSchControlVSyncAdapter.c)
+ *     ?IncrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0015C58 (-IncrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     ?IncrementRequestVSyncReasonDevice@@YAXW4_VIDSCH_VSYNC_REASON_DEVICE@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0015C74 (-IncrementRequestVSyncReasonDevice@@YAXW4_VIDSCH_VSYNC_REASON_DEVICE@@PEAU_VIDSCH_DEVICE@@PEAU_V.c)
+ *     ?DecrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0015CA0 (-DecrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     ?DerementRequestVSyncReasonDevice@@YAXW4_VIDSCH_VSYNC_REASON_DEVICE@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0032B48 (-DerementRequestVSyncReasonDevice@@YAXW4_VIDSCH_VSYNC_REASON_DEVICE@@PEAU_VIDSCH_DEVICE@@PEAU_VI.c)
+ *     VidSchControlVSyncAdapter @ 0x1C0088620 (VidSchControlVSyncAdapter.c)
  */
 
-__int64 __fastcall VidSchControlVSyncDevice(__int64 a1, unsigned int a2, char a3, unsigned int a4)
+__int64 __fastcall VidSchControlVSyncDevice(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
-  unsigned int v4; // esi
-  int v8; // r15d
-  struct _VIDSCH_GLOBAL **v9; // r14
-  __int64 v10; // rbp
-  unsigned int *v11; // rdi
-  __int64 v13; // rcx
-  unsigned int v14; // r14d
+  int v4; // r14d
+  __int64 v5; // rbx
+  char v6; // r15
+  unsigned int v7; // r12d
+  __int64 v9; // rsi
+  struct _ERESOURCE *v10; // r13
+  __int64 v12; // rax
+  __int64 i; // rbp
 
-  v4 = a4;
-  v8 = 0;
+  v4 = 0;
+  v5 = a4;
+  v6 = a3;
+  v7 = a2;
   if ( !a1 )
   {
-    WdLogSingleEntry0(1LL);
-    goto LABEL_18;
+    v12 = WdLogNewEntry5_WdAssertion(0LL, a2, a3);
+    goto LABEL_17;
   }
-  v9 = (struct _VIDSCH_GLOBAL **)(a1 + 32);
-  v10 = *(_QWORD *)(a1 + 32);
+  v9 = *(_QWORD *)(a1 + 32);
   if ( a4 == -3 )
     goto LABEL_3;
-  if ( a4 >= *(_DWORD *)(*(_QWORD *)(a1 + 32) + 40LL) )
+  if ( a4 >= *(_DWORD *)(v9 + 40) )
   {
-    WdLogSingleEntry2(1LL, a4, *((unsigned int *)*v9 + 10));
-LABEL_18:
-    DxgkLogInternalTriageEvent(v13, 0x40000LL);
+    v12 = WdLogNewEntry5_WdAssertion(a1, a2, a3);
+    *(_QWORD *)(v12 + 24) = v5;
+    *(_QWORD *)(v12 + 32) = *(unsigned int *)(v9 + 40);
+LABEL_17:
+    WdLogEvent5_WdAssertion(v12);
     return 0LL;
   }
-  if ( !*(_BYTE *)(v10 + 2212) )
-  {
-    v4 = -3;
-    v9 = (struct _VIDSCH_GLOBAL **)(a1 + 32);
-  }
+  if ( !*(_BYTE *)(v9 + 2132) )
+    v5 = 4294967293LL;
 LABEL_3:
+  v10 = (struct _ERESOURCE *)(a1 + 968);
   ExAcquireResourceExclusiveLite((PERESOURCE)(a1 + 968), 1u);
-  if ( a3 )
+  if ( !v6 )
   {
-    v11 = (unsigned int *)(a1 + 1072);
+    if ( v7 < 4 )
+      DerementRequestVSyncReasonDevice(v7, a1, v9, v5);
+    DecrementRequestVSyncCount((unsigned int *)(a1 + 1072), *(struct _VIDSCH_GLOBAL **)(a1 + 32), v5);
   }
-  else
+  if ( !*(_BYTE *)(v9 + 2132) )
   {
-    if ( a2 < 4 )
-      DerementRequestVSyncReasonDevice(a2, a1, v10, v4);
-    v11 = (unsigned int *)(a1 + 1072);
-    DecrementRequestVSyncCount((unsigned int *)(a1 + 1072), *v9, v4);
+    if ( *(_DWORD *)(a1 + 1072) )
+      goto LABEL_7;
+    goto LABEL_6;
   }
-  if ( !*(_BYTE *)(v10 + 2212) )
+  if ( (_DWORD)v5 == -3 )
   {
-    if ( *v11 )
-      goto LABEL_8;
+    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v9 + 40); i = (unsigned int)(i + 1) )
+    {
+      if ( !*(_DWORD *)(a1 + 4 * i + 1072) )
+        v4 = VidSchControlVSyncAdapter((struct _VIDSCH_GLOBAL *)v9);
+    }
     goto LABEL_7;
   }
-  if ( v4 == -3 )
-  {
-    v14 = 0;
-    if ( *(_DWORD *)(v10 + 40) )
-    {
-      do
-      {
-        if ( !*(_DWORD *)(a1 + 4LL * v14 + 1072) )
-          v8 = VidSchControlVSyncAdapter((struct _VIDSCH_GLOBAL *)v10);
-        ++v14;
-      }
-      while ( v14 < *(_DWORD *)(v10 + 40) );
-      v11 = (unsigned int *)(a1 + 1072);
-    }
-    goto LABEL_8;
-  }
-  if ( !*(_DWORD *)(a1 + 4LL * v4 + 1072) )
+  if ( !*(_DWORD *)(a1 + 4 * v5 + 1072) )
+LABEL_6:
+    v4 = VidSchControlVSyncAdapter((struct _VIDSCH_GLOBAL *)v9);
 LABEL_7:
-    v8 = VidSchControlVSyncAdapter((struct _VIDSCH_GLOBAL *)v10);
-LABEL_8:
-  if ( a3 && v8 >= 0 )
+  if ( v6 && v4 >= 0 )
   {
-    IncrementRequestVSyncCount(v11, *(struct _VIDSCH_GLOBAL **)(a1 + 32), v4);
-    if ( a2 != 4 )
-      IncrementRequestVSyncReasonDevice(a2, a1, v10, v4);
+    IncrementRequestVSyncCount((unsigned int *)(a1 + 1072), *(struct _VIDSCH_GLOBAL **)(a1 + 32), v5);
+    if ( v7 != 4 )
+      IncrementRequestVSyncReasonDevice(v7, a1, v9, v5);
   }
-  ExReleaseResourceLite((PERESOURCE)(a1 + 968));
-  return (unsigned int)v8;
+  ExReleaseResourceLite(v10);
+  return (unsigned int)v4;
 }

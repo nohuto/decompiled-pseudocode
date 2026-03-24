@@ -5,7 +5,7 @@
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     MiAllocateVirtualMemoryPrepare @ 0x1405ED0B0 (MiAllocateVirtualMemoryPrepare.c)
  *     MiAllocateVirtualMemory @ 0x1405ED650 (MiAllocateVirtualMemory.c)
  *     PsReferencePartitionByHandle @ 0x1406083B4 (PsReferencePartitionByHandle.c)

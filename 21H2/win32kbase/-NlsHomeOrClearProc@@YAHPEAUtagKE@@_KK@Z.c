@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NlsHomeOrClearProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB360
+ * XREFs of ?NlsHomeOrClearProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB960
  * Callers:
  *     <none>
  * Callees:

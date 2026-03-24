@@ -1,17 +1,19 @@
 /*
- * XREFs of ?ContainsWheelTransition@CMouseProcessor@@CA_NAEBVCMouseEvent@1@@Z @ 0x1C01F5CE0
+ * XREFs of ?ContainsWheelTransition@CMouseProcessor@@CA_NAEBVCMouseEvent@1@@Z @ 0x1C009B8F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     <none>
  */
 
-char __fastcall CMouseProcessor::ContainsWheelTransition(const struct CMouseProcessor::CMouseEvent *a1)
+bool __fastcall CMouseProcessor::ContainsWheelTransition(const struct CMouseProcessor::CMouseEvent *a1)
 {
-  char v2; // bl
+  __int64 v1; // rax
+  char v2; // cl
 
+  v1 = *((_QWORD *)a1 + 1);
   v2 = 0;
-  if ( (*(unsigned __int16 (__fastcall **)(const struct CMouseProcessor::CMouseEvent *))(*(_QWORD *)a1 + 8LL))(a1) )
-    return ((**(__int64 (__fastcall ***)(const struct CMouseProcessor::CMouseEvent *))a1)(a1) & 0xC00) != 0;
+  if ( *(_WORD *)(v1 + 30) )
+    return (*(_WORD *)(v1 + 28) & 0xC00) != 0;
   return v2;
 }

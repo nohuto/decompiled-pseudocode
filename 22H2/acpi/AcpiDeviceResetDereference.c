@@ -1,10 +1,10 @@
 /*
- * XREFs of AcpiDeviceResetDereference @ 0x1C0023790
+ * XREFs of AcpiDeviceResetDereference @ 0x1C0052970
  * Callers:
- *     AcpiDeviceResetCompleteResetWorker @ 0x1C0023550 (AcpiDeviceResetCompleteResetWorker.c)
+ *     AcpiDeviceResetCompleteResetWorker @ 0x1C0052740 (AcpiDeviceResetCompleteResetWorker.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C002D0E0 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C0017F40 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall AcpiDeviceResetDereference(_QWORD *P)

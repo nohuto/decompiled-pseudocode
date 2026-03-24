@@ -1,144 +1,193 @@
 /*
- * XREFs of ?_UpdateLinkInfo@DXGMONITOR@@QEAAJ_N@Z @ 0x1C0209470
+ * XREFs of ?_UpdateLinkInfo@DXGMONITOR@@QEAAJ_N@Z @ 0x1C0183F54
  * Callers:
- *     ?_InitializeMonitorWithDriver@DXGMONITOR@@QEAAJPEAV1@AEAVIMonitorDeferredEventSource@DxgMonitor@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C020B164 (-_InitializeMonitorWithDriver@DXGMONITOR@@QEAAJPEAV1@AEAVIMonitorDeferredEventSource@DxgMonitor@.c)
- *     ?OnUsageUpdated@DXGMONITOR@@QEAAXAEAVIMonitorDeferredEventSource@DxgMonitor@@_N@Z @ 0x1C02103B4 (-OnUsageUpdated@DXGMONITOR@@QEAAXAEAVIMonitorDeferredEventSource@DxgMonitor@@_N@Z.c)
+ *     ?_OnMonitorFunctionDriverArrival@DXGMONITOR@@QEAAJPEAU_UNICODE_STRING@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C017EF60 (-_OnMonitorFunctionDriverArrival@DXGMONITOR@@QEAAJPEAU_UNICODE_STRING@@PEAU_DXGK_DISPLAY_SCENARI.c)
+ *     ?_InitializeMonitor@DXGMONITOR@@AEAAJIPEAU_DEVICE_OBJECT@@EEW4_DMM_VIDPN_MONITOR_TYPE@@PEAV1@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0183AE8 (-_InitializeMonitor@DXGMONITOR@@AEAAJIPEAU_DEVICE_OBJECT@@EEW4_DMM_VIDPN_MONITOR_TYPE@@PEAV1@PEA.c)
+ *     MonitorSetAppOverride @ 0x1C02F4D98 (MonitorSetAppOverride.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?DdiUpdateMonitorLinkInfo@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_UPDATEMONITORLINKINFO@@@Z @ 0x1C0220938 (-DdiUpdateMonitorLinkInfo@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_UPDATEMONITORLINKINFO@@@Z.c)
+ *     DpiGetIntegratedMonitorLinkInfo @ 0x1C02D93BC (DpiGetIntegratedMonitorLinkInfo.c)
  */
 
-__int64 __fastcall DXGMONITOR::_UpdateLinkInfo(DXGMONITOR *this, unsigned __int8 a2)
+__int64 __fastcall DXGMONITOR::_UpdateLinkInfo(DXGMONITOR *this, __int64 a2)
 {
-  __int64 v3; // rcx
-  unsigned int v4; // ebx
+  __int64 v2; // r8
+  DXGK_MONITORLINKINFO_USAGEHINTS v3; // ebx
   char v5; // r15
-  unsigned int *v6; // rsi
-  int v7; // eax
-  __int64 v8; // rcx
-  int v9; // r14d
-  int v10; // eax
-  int v11; // ebx
-  __int64 v12; // rcx
-  int v13; // ebx
-  char v14; // al
-  int v15; // ecx
-  int v16; // eax
-  __int64 v17; // rcx
-  __int64 v18; // rax
-  DXGMONITOR *v20; // rdx
-  __int64 v21; // r8
-  __int128 v22; // [rsp+20h] [rbp-20h] BYREF
+  ADAPTER_DISPLAY *v6; // r14
+  __int64 Value; // rcx
+  __int64 v8; // rsi
+  __int64 v10; // rax
+  __int64 v11; // rax
+  int updated; // eax
+  _QWORD *v13; // rax
+  __int64 v14; // rcx
+  int v15; // ebx
+  __int64 v16; // rax
+  __int64 v17; // r8
+  int v18; // eax
+  _QWORD *v19; // rax
+  int v20; // eax
+  __int64 v21; // rax
+  __int64 v22; // rax
+  DXGK_MONITORLINKINFO_USAGEHINTS v23; // eax
+  char v24; // al
+  _QWORD *v25; // rax
+  _QWORD *v26; // rax
+  _DXGKARG_UPDATEMONITORLINKINFO v27; // [rsp+20h] [rbp-20h] BYREF
 
-  *((_BYTE *)this + 177) &= ~4u;
-  v3 = *((_QWORD *)this + 21);
-  v22 = 0LL;
-  v4 = a2;
+  v2 = *((_QWORD *)this + 4);
+  v3.Value = (unsigned __int8)a2;
   v5 = 1;
-  v6 = (unsigned int *)((char *)this + 180);
-  if ( (*(unsigned int (__fastcall **)(__int64))(*(_QWORD *)v3 + 16LL))(v3) < 0x7000 )
+  v27 = 0LL;
+  if ( !v2 )
   {
-    v9 = -1073741637;
-    goto LABEL_25;
+    v10 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v10);
+    v2 = *((_QWORD *)this + 4);
   }
-  v7 = *v6;
-  v8 = *((_QWORD *)this + 24);
-  HIDWORD(v22) = 0;
-  LODWORD(v22) = v7;
-  *(_QWORD *)((char *)&v22 + 4) = v4;
-  v9 = (*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)v8 + 48LL))(v8, (char *)&v22 + 4);
-  if ( v9 < 0 )
+  v6 = *(ADAPTER_DISPLAY **)(v2 + 8);
+  if ( !v6 )
+  {
+    v11 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v11);
+    v2 = *((_QWORD *)this + 4);
+  }
+  *((_DWORD *)this + 10) &= ~0x400u;
+  Value = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v2 + 8) + 16LL) + 216LL) + 64LL);
+  if ( *(_DWORD *)(*(_QWORD *)(Value + 40) + 28LL) < 0x7000u )
+  {
+    LODWORD(v8) = -1073741637;
+    goto LABEL_7;
+  }
+  v27.MonitorLinkInfo.Capabilities.Value = 0;
+  v27.MonitorLinkInfo.DitheringSupport.Value = 0;
+  v27.VideoPresentTargetId = *((_DWORD *)this + 11);
+  v27.MonitorLinkInfo.UsageHints = v3;
+  LODWORD(v8) = DpiGetIntegratedMonitorLinkInfo(
+                  *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v2 + 8) + 16LL) + 216LL),
+                  v27.VideoPresentTargetId,
+                  &v27.MonitorLinkInfo);
+  if ( (int)v8 < 0 )
   {
     v5 = 0;
-    v10 = (*(__int64 (__fastcall **)(_QWORD, __int128 *))(**((_QWORD **)this + 24) + 96LL))(
-            *((_QWORD *)this + 24),
-            &v22);
-    v9 = v10;
-    if ( v10 < 0 )
+    updated = ADAPTER_DISPLAY::DdiUpdateMonitorLinkInfo(v6, &v27);
+    v8 = updated;
+    if ( updated < 0 )
     {
-      if ( v10 != -1073741637 )
+      if ( updated != -1073741637 )
       {
-        WdLogSingleEntry3(2LL, this, *v6, v10);
-        goto LABEL_25;
+        v13 = (_QWORD *)WdLogNewEntry5_WdError(Value, a2);
+        v13[3] = this;
+        v13[4] = *((unsigned int *)this + 11);
+        v13[5] = *((_QWORD *)v6 + 2);
+        v13[6] = v8;
+        WdLogEvent5_WdError(v13);
       }
-      goto LABEL_21;
+      goto LABEL_43;
     }
   }
-  v11 = 127;
-  if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)this + 21) + 64LL))(*((_QWORD *)this + 21)) )
-    v11 = 1663;
-  if ( (*(int (__fastcall **)(_QWORD))(**((_QWORD **)this + 21) + 8LL))(*((_QWORD *)this + 21)) >= 2600 )
+  v14 = *((_QWORD *)v6 + 2);
+  v15 = (*(_DWORD *)(v14 + 348) & 0x200) != 0 ? 1663 : 127;
+  if ( *(int *)(v14 + 2596) >= 2600 )
   {
-    if ( SBYTE8(v22) < 0 )
-      WdLogSingleEntry1(2LL, *v6);
-    v11 |= 0x800u;
+    if ( *(_BYTE *)&v27.MonitorLinkInfo.Capabilities.0 < 0 )
+    {
+      v16 = WdLogNewEntry5_WdError(v14, a2);
+      *(_QWORD *)(v16 + 24) = *((unsigned int *)this + 11);
+      *(_QWORD *)(v16 + 32) = *((_QWORD *)v6 + 2);
+      WdLogEvent5_WdError(v16);
+    }
+    v15 |= 0x800u;
   }
-  v12 = *((_QWORD *)this + 21);
-  DWORD2(v22) &= ~0x80u;
-  if ( (*(int (__fastcall **)(__int64))(*(_QWORD *)v12 + 8LL))(v12) < 2400 )
+  Value = v27.MonitorLinkInfo.Capabilities.Value;
+  LODWORD(Value) = v27.MonitorLinkInfo.Capabilities.Value & 0xFFFFFF7F;
+  v27.MonitorLinkInfo.Capabilities.Value &= ~0x80u;
+  v17 = *((_QWORD *)v6 + 2);
+  a2 = *(unsigned int *)(v17 + 2596);
+  if ( (int)a2 < 2400 )
   {
-    if ( (~v11 & DWORD2(v22)) != 0 )
+    if ( (~v15 & (unsigned int)Value) != 0 )
     {
-      WdLogSingleEntry1(2LL, *v6);
-      DWORD2(v22) &= v11;
+      v21 = WdLogNewEntry5_WdError(Value, a2);
+      *(_QWORD *)(v21 + 24) = *((unsigned int *)this + 11);
+      *(_QWORD *)(v21 + 32) = *((_QWORD *)v6 + 2);
+      WdLogEvent5_WdError(v21);
+      Value = v15 & v27.MonitorLinkInfo.Capabilities.Value;
+      v27.MonitorLinkInfo.Capabilities.Value &= v15;
     }
-LABEL_17:
-    v14 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 21) + 104LL))(*((_QWORD *)this + 21));
-    v15 = DWORD2(v22);
-    if ( v14 )
+    v22 = *((_QWORD *)v6 + 2);
+    if ( *(_DWORD *)(v22 + 2596) == 2300 && *(_DWORD *)(v22 + 324) == 1297040209 && v5 && byte_1C00B2B19 )
     {
-      v15 = DWORD2(v22) | 0x800;
-      DWORD2(v22) |= 0x800u;
+      LODWORD(Value) = Value | 0x100;
+      v27.MonitorLinkInfo.Capabilities.Value = Value;
     }
-    v16 = DWORD1(v22);
-    *((_BYTE *)this + 177) |= 4u;
-    *((_DWORD *)this + 90) = v15;
-    v17 = *((_QWORD *)this + 21);
-    *((_DWORD *)this + 89) = v16;
-    if ( (*(int (__fastcall **)(__int64))(*(_QWORD *)v17 + 8LL))(v17) >= 2400 )
-    {
-      v18 = HIDWORD(v22);
-      *((_DWORD *)this + 91) = HIDWORD(v22);
-      if ( (v18 & 3) == 0 )
-        goto LABEL_21;
-      WdLogSingleEntry3(2LL, v18, this, *v6);
-    }
-    *((_DWORD *)this + 91) = 0;
-LABEL_21:
-    if ( v9 >= 0 )
-      return (unsigned int)v9;
-    goto LABEL_25;
+    goto LABEL_39;
   }
-  v13 = v11 | 0x300;
-  if ( (*(int (__fastcall **)(_QWORD))(**((_QWORD **)this + 21) + 8LL))(*((_QWORD *)this + 21)) >= 2500 )
-    v13 |= 0x400u;
-  if ( (~v13 & DWORD2(v22)) == 0
-    && ((*(int (__fastcall **)(_QWORD))(**((_QWORD **)this + 21) + 8LL))(*((_QWORD *)this + 21)) > 2400
-     || v5
-     || (WORD4(v22) & 0x100) == 0) )
+  v18 = 1792;
+  if ( (int)a2 < 2500 )
+    v18 = 768;
+  if ( (~(v15 | v18) & (unsigned int)Value) == 0 && ((int)a2 > 2400 || v5 || (Value & 0x100) == 0) )
   {
-    if ( ((WORD4(v22) & 0x200) != 0 || (WORD4(v22) & 0x400) != 0)
-      && !(*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)this + 21) + 64LL))(*((_QWORD *)this + 21))
-      && !(*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)this + 21) + 72LL))(*((_QWORD *)this + 21)) )
+    if ( (Value & 0x200) != 0 || (Value & 0x400) != 0 )
     {
-      v9 = -1073741823;
-      v21 = *v6;
-      v20 = this;
-      goto LABEL_30;
+      v20 = *(_DWORD *)(v17 + 348);
+      if ( (v20 & 0x200) == 0 && (v20 & 8) == 0 )
+      {
+        LODWORD(v8) = -1073741823;
+        v19 = (_QWORD *)WdLogNewEntry5_WdError(Value, a2);
+        v19[3] = this;
+        v19[4] = *((unsigned int *)this + 11);
+        v19[5] = *((_QWORD *)v6 + 2);
+        goto LABEL_26;
+      }
     }
-    goto LABEL_17;
+LABEL_39:
+    v23.0 = (struct _DXGK_MONITORLINKINFO_USAGEHINTS::$93BFB232C2354556C10F40D8A24AA81F)v27.MonitorLinkInfo.UsageHints;
+    *((_DWORD *)this + 10) |= 0x400u;
+    *((DXGK_MONITORLINKINFO_USAGEHINTS *)this + 117) = v23;
+    *((_DWORD *)this + 118) = Value;
+    if ( *(int *)(*((_QWORD *)v6 + 2) + 2328LL) >= 9216 )
+    {
+      v24 = (char)v27.MonitorLinkInfo.DitheringSupport.0;
+      *((_DWORD *)this + 119) = v27.MonitorLinkInfo.DitheringSupport.Value;
+      if ( (v24 & 3) == 0 )
+        goto LABEL_43;
+      v25 = (_QWORD *)WdLogNewEntry5_WdError(Value, a2);
+      v25[3] = *((unsigned int *)this + 119);
+      v25[4] = this;
+      v25[5] = *((unsigned int *)this + 11);
+      v25[6] = *((_QWORD *)v6 + 2);
+      WdLogEvent5_WdError(v25);
+    }
+    *((_DWORD *)this + 119) = 0;
+LABEL_43:
+    if ( (int)v8 >= 0 )
+      return (unsigned int)v8;
+    goto LABEL_7;
   }
-  v9 = -1073741823;
-  v20 = (DXGMONITOR *)*v6;
-  v21 = -1073741823LL;
-LABEL_30:
-  WdLogSingleEntry2(2LL, v20, v21);
-LABEL_25:
-  *(_QWORD *)((char *)this + 356) = 0LL;
-  *((_DWORD *)this + 91) = 0;
-  if ( (*(int (__fastcall **)(_QWORD))(**((_QWORD **)this + 21) + 8LL))(*((_QWORD *)this + 21)) >= 2400 )
-    WdLogSingleEntry2(2LL, *v6, v9);
+  LODWORD(v8) = -1073741823;
+  v19 = (_QWORD *)WdLogNewEntry5_WdError(Value, a2);
+  v19[3] = *((unsigned int *)this + 11);
+  v19[4] = *((_QWORD *)v6 + 2);
+  v19[5] = -1073741823LL;
+LABEL_26:
+  WdLogEvent5_WdError(v19);
+LABEL_7:
+  *(_QWORD *)((char *)this + 468) = 0LL;
+  *((_DWORD *)this + 119) = 0;
+  if ( *(int *)(*((_QWORD *)v6 + 2) + 2596LL) >= 2400 )
+  {
+    v26 = (_QWORD *)WdLogNewEntry5_WdError(Value, a2);
+    v26[3] = *((_QWORD *)v6 + 2);
+    v26[4] = *((unsigned int *)this + 11);
+    v26[5] = (int)v8;
+    WdLogEvent5_WdError(v26);
+  }
   else
-    return 0;
-  return (unsigned int)v9;
+  {
+    LODWORD(v8) = 0;
+  }
+  return (unsigned int)v8;
 }

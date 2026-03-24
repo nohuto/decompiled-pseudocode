@@ -1,1 +1,140 @@
-/*\n * XREFs of KeyboardAddDevice @ 0x1C000D780\n * Callers:\n *     <none>\n * Callees:\n *     WPP_RECORDER_SF_d @ 0x1C00027F0 (WPP_RECORDER_SF_d.c)\n *     memmove @ 0x1C0002F40 (memmove.c)\n *     KeyboardAddDeviceEx @ 0x1C000D9F0 (KeyboardAddDeviceEx.c)\n *     KbdCreateClassObject @ 0x1C000DD20 (KbdCreateClassObject.c)\n */\n\n__int64 __fastcall KeyboardAddDevice(struct _DRIVER_OBJECT *IoObject, PDEVICE_OBJECT PhysicalDeviceObject)\n{\n  int v3; // r15d\n  __int64 result; // rax\n  __int64 v6; // rbx\n  PDEVICE_OBJECT v7; // rax\n  int v8; // eax\n  int v9; // edx\n  int v10; // r8d\n  unsigned int *Pool2; // rdi\n  NTSTATUS v12; // r14d\n  NTSTATUS v13; // eax\n  PVOID v14; // rdi\n  unsigned int v15; // esi\n  _DWORD *ErrorLogEntry; // rax\n  unsigned int v17; // eax\n  HANDLE KeyHandle; // [rsp+38h] [rbp-28h] BYREF\n  PVOID P; // [rsp+40h] [rbp-20h]\n  struct _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-18h] BYREF\n  ULONG Length; // [rsp+A0h] [rbp+40h] BYREF\n  int v22; // [rsp+A8h] [rbp+48h] BYREF\n\n  P = 0LL;\n  KeyHandle = 0LL;\n  v3 = 0;\n  v22 = 0;\n  result = KbdCreateClassObject(IoObject, 0);\n  if ( (int)result >= 0 )\n  {\n    v6 = MEMORY[0x40];\n    v7 = IoAttachDeviceToDeviceStack(0LL, PhysicalDeviceObject);\n    *(_QWORD *)(v6 + 16) = v7;\n    if ( v7 )\n    {\n      *(_QWORD *)(v6 + 24) = PhysicalDeviceObject;\n      *(_WORD *)(v6 + 64) = 1;\n      *(_DWORD *)(v6 + 188) = 1;\n      *(_DWORD *)(v6 + 192) = 1;\n      PoSetPowerState(0LL, DevicePowerState, (POWER_STATE)1);\n      *(_QWORD *)(v6 + 284) = 0LL;\n      *(_BYTE *)(v6 + 362) = 0;\n      *(_QWORD *)(v6 + 296) = 0LL;\n      *(_BYTE *)(v6 + 304) = 0;\n      *(_QWORD *)(v6 + 312) = 0LL;\n      *(_DWORD *)(v6 + 320) = 0;\n      *(_BYTE *)(v6 + 66) = 0;\n      *(_QWORD *)(v6 + 368) = 0LL;\n      *(_DWORD *)(v6 + 376) = 0;\n      v8 = IoOpenDriverRegistryKey(IoObject, 0LL, 131097LL, 0LL);\n      if ( v8 < 0 )\n      {\n        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n        {\n          LOBYTE(v9) = 3;\n          WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v9, v10, 15, (unsigned int)&KeyHandle, v8);\n        }\n      }\n      else\n      {\n        DestinationString = 0LL;\n        RtlInitUnicodeString(&DestinationString, L"AllowDisable");\n        if ( (unsigned int)DestinationString.MaximumLength + 28 >= (unsigned int)DestinationString.MaximumLength + 24 )\n        {\n          Length = DestinationString.MaximumLength + 28;\n          Pool2 = (unsigned int *)ExAllocatePool2(256LL, Length, 1130652235LL);\n          if ( Pool2 )\n          {\n            v12 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValueFullInformation, Pool2, Length, &Length);\n            if ( v12 >= 0 )\n            {\n              v17 = Pool2[3];\n              if ( v17 > 4 )\n              {\n                v12 = -1073741789;\n              }\n              else\n              {\n                memmove(&v22, (char *)Pool2 + Pool2[2], v17);\n                v3 = v22;\n              }\n            }\n            ExFreePoolWithTag(Pool2, 0);\n            if ( v12 >= 0 )\n              *(_BYTE *)(v6 + 66) = v3 != 0;\n          }\n        }\n        ZwClose(KeyHandle);\n      }\n      MEMORY[0x30] |= 0x2000u;\n      MEMORY[0x30] &= ~0x80u;\n      v13 = IoRegisterDeviceInterface(\n              PhysicalDeviceObject,\n              &GUID_DEVINTERFACE_KEYBOARD,\n              0LL,\n              (PUNICODE_STRING)(v6 + 88));\n      v14 = P;\n      v15 = v13;\n      if ( v13 < 0 )\n      {\n        IoDetachDevice(*(PDEVICE_OBJECT *)(v6 + 16));\n        *(_QWORD *)(v6 + 16) = 0LL;\n        IoDeleteDevice(0LL);\n      }\n      else\n      {\n        v15 = KeyboardAddDeviceEx(v6, P, 0LL);\n      }\n      if ( v14 )\n        ExFreePoolWithTag(v14, 0);\n      return v15;\n    }\n    else\n    {\n      ErrorLogEntry = IoAllocateErrorLogEntry(IoObject, 0x30u);\n      if ( ErrorLogEntry )\n      {\n        ErrorLogEntry[3] = -1073414129;\n        *ErrorLogEntry = 0;\n        *((_QWORD *)ErrorLogEntry + 3) = 0LL;\n        ErrorLogEntry[4] = 0;\n        ErrorLogEntry[5] = -1073741667;\n        IoWriteErrorLogEntry(ErrorLogEntry);\n      }\n      IoDeleteDevice(0LL);\n      return 3221225629LL;\n    }\n  }\n  return result;\n}\n
+/*
+ * XREFs of KeyboardAddDevice @ 0x1C000D780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C00027F0 (WPP_RECORDER_SF_d.c)
+ *     memmove @ 0x1C0002F40 (memmove.c)
+ *     KeyboardAddDeviceEx @ 0x1C000D9F0 (KeyboardAddDeviceEx.c)
+ *     KbdCreateClassObject @ 0x1C000DD20 (KbdCreateClassObject.c)
+ */
+
+__int64 __fastcall KeyboardAddDevice(struct _DRIVER_OBJECT *IoObject, PDEVICE_OBJECT PhysicalDeviceObject)
+{
+  int v3; // r15d
+  __int64 result; // rax
+  __int64 v6; // rbx
+  PDEVICE_OBJECT v7; // rax
+  int v8; // eax
+  int v9; // edx
+  int v10; // r8d
+  unsigned int *Pool2; // rdi
+  NTSTATUS v12; // r14d
+  NTSTATUS v13; // eax
+  PVOID v14; // rdi
+  unsigned int v15; // esi
+  _DWORD *ErrorLogEntry; // rax
+  unsigned int v17; // eax
+  HANDLE KeyHandle; // [rsp+38h] [rbp-28h] BYREF
+  PVOID P; // [rsp+40h] [rbp-20h]
+  struct _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-18h] BYREF
+  ULONG Length; // [rsp+A0h] [rbp+40h] BYREF
+  int v22; // [rsp+A8h] [rbp+48h] BYREF
+
+  P = 0LL;
+  KeyHandle = 0LL;
+  v3 = 0;
+  v22 = 0;
+  result = KbdCreateClassObject(IoObject, 0);
+  if ( (int)result >= 0 )
+  {
+    v6 = MEMORY[0x40];
+    v7 = IoAttachDeviceToDeviceStack(0LL, PhysicalDeviceObject);
+    *(_QWORD *)(v6 + 16) = v7;
+    if ( v7 )
+    {
+      *(_QWORD *)(v6 + 24) = PhysicalDeviceObject;
+      *(_WORD *)(v6 + 64) = 1;
+      *(_DWORD *)(v6 + 188) = 1;
+      *(_DWORD *)(v6 + 192) = 1;
+      PoSetPowerState(0LL, DevicePowerState, (POWER_STATE)1);
+      *(_QWORD *)(v6 + 284) = 0LL;
+      *(_BYTE *)(v6 + 362) = 0;
+      *(_QWORD *)(v6 + 296) = 0LL;
+      *(_BYTE *)(v6 + 304) = 0;
+      *(_QWORD *)(v6 + 312) = 0LL;
+      *(_DWORD *)(v6 + 320) = 0;
+      *(_BYTE *)(v6 + 66) = 0;
+      *(_QWORD *)(v6 + 368) = 0LL;
+      *(_DWORD *)(v6 + 376) = 0;
+      v8 = IoOpenDriverRegistryKey(IoObject, 0LL, 131097LL, 0LL);
+      if ( v8 < 0 )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v9) = 3;
+          WPP_RECORDER_SF_d(WPP_GLOBAL_Control->DeviceExtension, v9, v10, 15, (unsigned int)&KeyHandle, v8);
+        }
+      }
+      else
+      {
+        DestinationString = 0LL;
+        RtlInitUnicodeString(&DestinationString, L"AllowDisable");
+        if ( (unsigned int)DestinationString.MaximumLength + 28 >= (unsigned int)DestinationString.MaximumLength + 24 )
+        {
+          Length = DestinationString.MaximumLength + 28;
+          Pool2 = (unsigned int *)ExAllocatePool2(256LL, Length, 1130652235LL);
+          if ( Pool2 )
+          {
+            v12 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValueFullInformation, Pool2, Length, &Length);
+            if ( v12 >= 0 )
+            {
+              v17 = Pool2[3];
+              if ( v17 > 4 )
+              {
+                v12 = -1073741789;
+              }
+              else
+              {
+                memmove(&v22, (char *)Pool2 + Pool2[2], v17);
+                v3 = v22;
+              }
+            }
+            ExFreePoolWithTag(Pool2, 0);
+            if ( v12 >= 0 )
+              *(_BYTE *)(v6 + 66) = v3 != 0;
+          }
+        }
+        ZwClose(KeyHandle);
+      }
+      MEMORY[0x30] |= 0x2000u;
+      MEMORY[0x30] &= ~0x80u;
+      v13 = IoRegisterDeviceInterface(
+              PhysicalDeviceObject,
+              &GUID_DEVINTERFACE_KEYBOARD,
+              0LL,
+              (PUNICODE_STRING)(v6 + 88));
+      v14 = P;
+      v15 = v13;
+      if ( v13 < 0 )
+      {
+        IoDetachDevice(*(PDEVICE_OBJECT *)(v6 + 16));
+        *(_QWORD *)(v6 + 16) = 0LL;
+        IoDeleteDevice(0LL);
+      }
+      else
+      {
+        v15 = KeyboardAddDeviceEx(v6, P, 0LL);
+      }
+      if ( v14 )
+        ExFreePoolWithTag(v14, 0);
+      return v15;
+    }
+    else
+    {
+      ErrorLogEntry = IoAllocateErrorLogEntry(IoObject, 0x30u);
+      if ( ErrorLogEntry )
+      {
+        ErrorLogEntry[3] = -1073414129;
+        *ErrorLogEntry = 0;
+        *((_QWORD *)ErrorLogEntry + 3) = 0LL;
+        ErrorLogEntry[4] = 0;
+        ErrorLogEntry[5] = -1073741667;
+        IoWriteErrorLogEntry(ErrorLogEntry);
+      }
+      IoDeleteDevice(0LL);
+      return 3221225629LL;
+    }
+  }
+  return result;
+}

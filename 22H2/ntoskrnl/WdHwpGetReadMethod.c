@@ -1,7 +1,7 @@
 /*
- * XREFs of WdHwpGetReadMethod @ 0x14052A47C
+ * XREFs of WdHwpGetReadMethod @ 0x1404DE43C
  * Callers:
- *     WdHwCreateHardwareRegister @ 0x14052A348 (WdHwCreateHardwareRegister.c)
+ *     WdHwCreateHardwareRegister @ 0x1404DE308 (WdHwCreateHardwareRegister.c)
  * Callees:
  *     <none>
  */
@@ -31,7 +31,7 @@ __int64 (__fastcall *__fastcall WdHwpGetReadMethod(char a1, char a2))(unsigned _
     switch ( a2 )
     {
       case 1:
-        return (__int64 (__fastcall *)(unsigned __int16))WdHwpReadRegisterUChar;
+        return (__int64 (__fastcall *)(unsigned __int16))ReadNoFence8;
       case 2:
         return (__int64 (__fastcall *)(unsigned __int16))READ_REGISTER_USHORT;
       case 4:

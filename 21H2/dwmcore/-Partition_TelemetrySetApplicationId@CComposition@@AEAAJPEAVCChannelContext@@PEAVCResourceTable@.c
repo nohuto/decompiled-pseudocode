@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Partition_TelemetrySetApplicationId@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_TELEMETRYSETAPPLICATIONID@@PEBXI@Z @ 0x18006177C
+ * XREFs of ?Partition_TelemetrySetApplicationId@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_TELEMETRYSETAPPLICATIONID@@PEBXI@Z @ 0x180034E40
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?TelemetrySetApplicationId@CChannelContext@@QEAAJPEBG_K@Z @ 0x1800617F4 (-TelemetrySetApplicationId@CChannelContext@@QEAAJPEBG_K@Z.c)
- *     ?FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z @ 0x1801931C0 (-FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z.c)
+ *     ?TelemetrySetApplicationId@CChannelContext@@QEAAJPEBG_K@Z @ 0x180034EB8 (-TelemetrySetApplicationId@CChannelContext@@QEAAJPEBG_K@Z.c)
+ *     ?FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z @ 0x180155A90 (-FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z.c)
  */
 
 __int64 __fastcall CComposition::Partition_TelemetrySetApplicationId(
@@ -23,7 +23,7 @@ __int64 __fastcall CComposition::Partition_TelemetrySetApplicationId(
     || v6 > 0x96
     || a6 != *(_QWORD *)a5 + 8LL + (-(*(_DWORD *)a5 + 8) & 3) )
   {
-    CComposition::FailFastOnMalformedPacket(this, 2350814536LL, 0LL, this);
+    CComposition::FailFastOnMalformedPacket(this, 2350814536LL, 0LL);
   }
   CChannelContext::TelemetrySetApplicationId(a2, a5 + 4, v6);
   return 0LL;

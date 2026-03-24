@@ -1,22 +1,22 @@
 /*
- * XREFs of AcpiEjectBusNumberTranslator @ 0x1C00A1918
+ * XREFs of AcpiEjectBusNumberTranslator @ 0x1C00A362C
  * Callers:
- *     ACPIBusIrpQueryInterface @ 0x1C0005A80 (ACPIBusIrpQueryInterface.c)
+ *     ACPIBusIrpQueryInterface @ 0x1C0010C50 (ACPIBusIrpQueryInterface.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     PciConfigPinToLine @ 0x1C0001EC0 (PciConfigPinToLine.c)
- *     ACPIGet @ 0x1C0010180 (ACPIGet.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     PciConfigPinToLine @ 0x1C000CA40 (PciConfigPinToLine.c)
  */
 
 __int64 __fastcall AcpiEjectBusNumberTranslator(ULONG_PTR a1, __int64 a2)
 {
-  __int64 DeviceExtension; // rax
+  __int64 *DeviceExtension; // rax
   __int64 v4; // rcx
   __int64 v5; // rbx
   __int64 v7; // rcx
   __int64 v8; // [rsp+68h] [rbp+10h] BYREF
 
-  DeviceExtension = ACPIInternalGetDeviceExtension(a1);
+  DeviceExtension = (__int64 *)ACPIInternalGetDeviceExtension(a1);
   v4 = *(_QWORD *)(a2 + 184);
   v5 = *(_QWORD *)(v4 + 24);
   if ( *(_WORD *)(v4 + 18) )

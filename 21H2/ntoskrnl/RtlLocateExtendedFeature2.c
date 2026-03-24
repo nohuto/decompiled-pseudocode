@@ -1,13 +1,14 @@
 /*
- * XREFs of RtlLocateExtendedFeature2 @ 0x14025CB30
+ * XREFs of RtlLocateExtendedFeature2 @ 0x140381600
  * Callers:
- *     RtlpVirtualPopShadowStack @ 0x14025DAE4 (RtlpVirtualPopShadowStack.c)
- *     RtlpWalkFrameChain @ 0x140296110 (RtlpWalkFrameChain.c)
- *     RtlpUnwindPrologue @ 0x140297430 (RtlpUnwindPrologue.c)
- *     KeVerifyContextXStateCetU @ 0x140298378 (KeVerifyContextXStateCetU.c)
- *     KiInitializeContextThread @ 0x1402F444C (KiInitializeContextThread.c)
- *     KiUnwindUserSspForApcContextCopyBypass @ 0x14057C724 (KiUnwindUserSspForApcContextCopyBypass.c)
- *     RtlLocateExtendedFeature @ 0x1405E7C30 (RtlLocateExtendedFeature.c)
+ *     RtlpWalkFrameChain @ 0x14021D250 (RtlpWalkFrameChain.c)
+ *     RtlpUnwindPrologue @ 0x14021E5C0 (RtlpUnwindPrologue.c)
+ *     KiContinuePreviousModeUser @ 0x140276A00 (KiContinuePreviousModeUser.c)
+ *     KeVerifyContextXStateCetU @ 0x14027794C (KeVerifyContextXStateCetU.c)
+ *     KiInitializeContextThread @ 0x140278B0C (KiInitializeContextThread.c)
+ *     RtlpPopUserShadowStack @ 0x1402D23DC (RtlpPopUserShadowStack.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x140525194 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     RtlLocateExtendedFeature @ 0x14058F520 (RtlLocateExtendedFeature.c)
  * Callees:
  *     <none>
  */
@@ -33,15 +34,14 @@ char *__fastcall RtlLocateExtendedFeature2(_DWORD *a1, unsigned int a2, __int64 
   if ( ((*(_QWORD *)a3 | *(_QWORD *)(a3 + 816)) & (1LL << a2)) == 0 )
     return 0LL;
   v8 = *(_DWORD *)(a3 + 20);
-  if ( (v8 & 0xFFFFFFF8) != 0 )
+  if ( (v8 & 0xFFFFFFFC) != 0 )
     return 0LL;
   v9 = (int)a1[4];
-  if ( *a1 > (int)v9 )
-    return 0LL;
-  if ( a1[1] + *a1 < (int)v9 + a1[5] )
-    return 0LL;
-  v10 = (char *)a1 + v9;
-  if ( !(_DWORD *)((char *)a1 + v9) )
+  if ( *a1 > (int)v9 || a1[1] + *a1 < (int)v9 + a1[5] )
+    v10 = 0LL;
+  else
+    v10 = (char *)a1 + v9;
+  if ( !v10 )
     return 0LL;
   v11 = 2;
   if ( a4 )

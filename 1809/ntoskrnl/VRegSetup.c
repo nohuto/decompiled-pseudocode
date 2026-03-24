@@ -1,18 +1,18 @@
 /*
- * XREFs of VRegSetup @ 0x14075AE20
+ * XREFs of VRegSetup @ 0x14075AE00
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlpQueryRegistryValues @ 0x1405C58AC (RtlpQueryRegistryValues.c)
  *     ObSetSecurityObjectByPointer @ 0x1405CAD40 (ObSetSecurityObjectByPointer.c)
- *     IoCreateDevice @ 0x1406529F0 (IoCreateDevice.c)
- *     TraceLoggingRegisterEx @ 0x14071DC58 (TraceLoggingRegisterEx.c)
- *     PspStorageAllocSlot @ 0x140728958 (PspStorageAllocSlot.c)
- *     ObCreateObjectTypeEx @ 0x1407289FC (ObCreateObjectTypeEx.c)
- *     VrpInitializeLoadedDifferencingHives @ 0x14075AFE0 (VrpInitializeLoadedDifferencingHives.c)
+ *     IoCreateDevice @ 0x1406529D0 (IoCreateDevice.c)
+ *     TraceLoggingRegisterEx @ 0x14071DC38 (TraceLoggingRegisterEx.c)
+ *     PspStorageAllocSlot @ 0x140728938 (PspStorageAllocSlot.c)
+ *     ObCreateObjectTypeEx @ 0x1407289DC (ObCreateObjectTypeEx.c)
+ *     VrpInitializeLoadedDifferencingHives @ 0x14075AFC0 (VrpInitializeLoadedDifferencingHives.c)
  */
 
 __int64 __fastcall VRegSetup(PDRIVER_OBJECT DriverObject)

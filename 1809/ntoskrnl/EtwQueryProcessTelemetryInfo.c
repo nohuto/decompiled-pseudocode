@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwQueryProcessTelemetryInfo @ 0x1406A4CA0
+ * XREFs of EtwQueryProcessTelemetryInfo @ 0x1406A4C80
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
  *     PsGetProcessSessionId @ 0x140092310 (PsGetProcessSessionId.c)
- *     PsGetProcessStartKey @ 0x1400CCB90 (PsGetProcessStartKey.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PsGetProcessStartKey @ 0x1400CCBB0 (PsGetProcessStartKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MmGetSessionCreateTime @ 0x1405B3894 (MmGetSessionCreateTime.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
  *     SeQueryUserSidToken @ 0x1406102AC (SeQueryUserSidToken.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     EtwpQueryProcessCommandLine @ 0x14066C878 (EtwpQueryProcessCommandLine.c)
- *     EtwpQueryProcessOtherInfo @ 0x14066CA0C (EtwpQueryProcessOtherInfo.c)
- *     EtwpQueryTokenPackageInfo @ 0x14066CD6C (EtwpQueryTokenPackageInfo.c)
- *     PsAcquireProcessExitSynchronization @ 0x1406A4FD0 (PsAcquireProcessExitSynchronization.c)
+ *     EtwpQueryProcessCommandLine @ 0x14066C858 (EtwpQueryProcessCommandLine.c)
+ *     EtwpQueryProcessOtherInfo @ 0x14066C9EC (EtwpQueryProcessOtherInfo.c)
+ *     EtwpQueryTokenPackageInfo @ 0x14066CD4C (EtwpQueryTokenPackageInfo.c)
+ *     PsAcquireProcessExitSynchronization @ 0x1406A4FB0 (PsAcquireProcessExitSynchronization.c)
  */
 
 __int64 __fastcall EtwQueryProcessTelemetryInfo(

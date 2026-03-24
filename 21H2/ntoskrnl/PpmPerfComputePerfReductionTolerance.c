@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmPerfComputePerfReductionTolerance @ 0x1403D8CD0
+ * XREFs of PpmPerfComputePerfReductionTolerance @ 0x14056E774
  * Callers:
- *     PpmInfoAdjustSetting @ 0x1407FD448 (PpmInfoAdjustSetting.c)
+ *     PpmInfoAdjustSetting @ 0x14067AF64 (PpmInfoAdjustSetting.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtSetIRTimer @ 0x14013B510
+ * XREFs of NtSetIRTimer @ 0x14013B530
  * Callers:
  *     <none>
  * Callees:
- *     ExpSetTimer2 @ 0x1400FBFC0 (ExpSetTimer2.c)
+ *     ExpSetTimer2 @ 0x1400FBFE0 (ExpSetTimer2.c)
  */
 
 NTSTATUS __fastcall NtSetIRTimer(void *a1, __int64 a2)

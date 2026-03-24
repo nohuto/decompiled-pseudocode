@@ -1,11 +1,11 @@
 /*
- * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@U1@U?$_tlgWrapSz@D@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@2AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@2AEBU?$_tlgWrapSz@D@@3@Z @ 0x1C004416C
+ * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@U1@U?$_tlgWrapSz@D@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@2AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@2AEBU?$_tlgWrapSz@D@@3@Z @ 0x1C003C4EC
  * Callers:
- *     VidSchiMarkDeviceAsError @ 0x1C0018990 (VidSchiMarkDeviceAsError.c)
+ *     VidSchiMarkDeviceAsError @ 0x1C0015D40 (VidSchiMarkDeviceAsError.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     ExtractAggregateFieldTypes @ 0x1C0046C00 (ExtractAggregateFieldTypes.c)
- *     InsertEventEntryInLookUpTable @ 0x1C0046DB4 (InsertEventEntryInLookUpTable.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     ExtractAggregateFieldTypes @ 0x1C003E00C (ExtractAggregateFieldTypes.c)
+ *     InsertEventEntryInLookUpTable @ 0x1C003E1C0 (InsertEventEntryInLookUpTable.c)
  */
 
 NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
@@ -72,7 +72,7 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
   }
   else
   {
-    v10 = &unk_1C005BC91;
+    v10 = &unk_1C00451A8;
     v12 = 1;
   }
   v43 = 0;
@@ -99,24 +99,24 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
   v31 = 8;
   v28 = 4;
   EventDescriptor.Keyword = *(_QWORD *)(a2 + 3);
-  UserData.Ptr = (ULONGLONG)off_1C006E050;
+  UserData.Ptr = (ULONGLONG)off_1C0050050;
   v24 = a4;
   v25 = 8;
-  UserData.Size = *(unsigned __int16 *)off_1C006E050;
+  UserData.Size = *(unsigned __int16 *)off_1C0050050;
   v22 = *(unsigned __int16 *)(a2 + 11);
   v21 = a2 + 11;
   UserData.Reserved = 2;
   v23 = 1;
   v19 = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
   result = -1073741811;
-  if ( (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))qword_1C006E070 == TlgAggregateInternalRegisteredProviderEtwCallback )
+  if ( (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))qword_1C0050070 == TlgAggregateInternalRegisteredProviderEtwCallback )
   {
     v16 = ExtractAggregateFieldTypes(TlgAggregateInternalRegisteredProviderEtwCallback, &UserData);
     if ( v16 )
     {
       LOBYTE(v17) = 10;
       return InsertEventEntryInLookUpTable(
-               (unsigned int)&dword_1C006E048,
+               (unsigned int)&dword_1C0050048,
                (unsigned int)&EventDescriptor,
                v17,
                (unsigned int)&UserData,

@@ -1,19 +1,19 @@
 /*
- * XREFs of IopAllocateFoExtensionsOnCreate @ 0x14071CAFC
+ * XREFs of IopAllocateFoExtensionsOnCreate @ 0x14072044C
  * Callers:
- *     IopAllocRealFileObject @ 0x14072DDC0 (IopAllocRealFileObject.c)
+ *     IopAllocRealFileObject @ 0x1407030E0 (IopAllocRealFileObject.c)
  * Callees:
- *     PsIsServerSilo @ 0x14020A400 (PsIsServerSilo.c)
- *     PsReleaseSiloHardReference @ 0x14020B0E0 (PsReleaseSiloHardReference.c)
- *     PsAcquireSiloHardReference @ 0x14020B190 (PsAcquireSiloHardReference.c)
- *     IopSetFileObjectExtensionFlag @ 0x1402A34C8 (IopSetFileObjectExtensionFlag.c)
- *     IopGetSetSpecificExtension @ 0x1402A38B4 (IopGetSetSpecificExtension.c)
- *     IoGetSilo @ 0x1402A3FD0 (IoGetSilo.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     PsIsHostSilo @ 0x1402A6DF0 (PsIsHostSilo.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObReferenceObjectByPointer @ 0x1402E0270 (ObReferenceObjectByPointer.c)
- *     IopCheckStackForTransactionSupport @ 0x1403A0B00 (IopCheckStackForTransactionSupport.c)
+ *     PsReleaseSiloHardReference @ 0x140200960 (PsReleaseSiloHardReference.c)
+ *     PsAcquireSiloHardReference @ 0x140200A10 (PsAcquireSiloHardReference.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     PsIsHostSilo @ 0x140354A80 (PsIsHostSilo.c)
+ *     IopGetSetSpecificExtension @ 0x140356AE8 (IopGetSetSpecificExtension.c)
+ *     ObReferenceObjectByPointer @ 0x1403600E0 (ObReferenceObjectByPointer.c)
+ *     IopSetFileObjectExtensionFlag @ 0x1403621E0 (IopSetFileObjectExtensionFlag.c)
+ *     IoGetSilo @ 0x140362220 (IoGetSilo.c)
+ *     PsIsServerSilo @ 0x140362250 (PsIsServerSilo.c)
+ *     IopCheckStackForTransactionSupport @ 0x140394D34 (IopCheckStackForTransactionSupport.c)
  */
 
 int __fastcall IopAllocateFoExtensionsOnCreate(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
@@ -21,14 +21,14 @@ int __fastcall IopAllocateFoExtensionsOnCreate(__int64 a1, __int64 a2, __int64 a
   int SetSpecificExtension; // ebx
   int result; // eax
   int v11; // eax
-  __int64 v12; // rcx
+  __int64 v12; // rdx
+  _DWORD *v13; // rdi
+  __int64 v14; // rcx
   __int64 Silo; // rax
-  __int64 v14; // rdx
-  _DWORD *v15; // rdi
-  _QWORD *v16; // rax
-  __int64 v17; // rdx
+  __int64 v16; // rdx
+  _QWORD *v17; // rax
   __int64 v18; // rax
-  void *v19; // rsi
+  struct _DMA_ADAPTER *v19; // rsi
   _QWORD *v20; // [rsp+60h] [rbp+18h] BYREF
 
   SetSpecificExtension = -1073741811;
@@ -64,7 +64,7 @@ int __fastcall IopAllocateFoExtensionsOnCreate(__int64 a1, __int64 a2, __int64 a
       return -1073741811;
     if ( *(_WORD *)v18 != 16 )
       return -1073741811;
-    v19 = *(void **)(v18 + 8);
+    v19 = *(struct _DMA_ADAPTER **)(v18 + 8);
     if ( !v19 )
       return -1073741811;
     result = ObReferenceObjectByPointer(*(PVOID *)(v18 + 8), 0x120037u, (POBJECT_TYPE)TmTransactionObjectType, 0);
@@ -73,7 +73,7 @@ int __fastcall IopAllocateFoExtensionsOnCreate(__int64 a1, __int64 a2, __int64 a
     SetSpecificExtension = IopGetSetSpecificExtension(a1, 0, 0x10u, 1, &v20, 0LL);
     if ( SetSpecificExtension < 0 )
     {
-      ObfDereferenceObject(v19);
+      HalPutDmaAdapter(v19);
       return SetSpecificExtension;
     }
     *(_OWORD *)v20 = *(_OWORD *)*(_QWORD *)(a3 + 184);
@@ -81,36 +81,36 @@ int __fastcall IopAllocateFoExtensionsOnCreate(__int64 a1, __int64 a2, __int64 a
   }
   if ( (v11 & 0x40) == 0 && PsIsHostSilo(*(_QWORD *)(a4 + 8)) )
   {
-    v12 = *(_QWORD *)(a3 + 40);
-    if ( !v12 )
+    v14 = *(_QWORD *)(a3 + 40);
+    if ( !v14 )
       return SetSpecificExtension;
-    Silo = IoGetSilo(v12);
+    Silo = IoGetSilo(v14);
     if ( PsIsHostSilo(Silo) )
       return SetSpecificExtension;
   }
-  v14 = *(_QWORD *)(a3 + 40);
+  v12 = *(_QWORD *)(a3 + 40);
   SetSpecificExtension = 0;
-  v15 = *(_DWORD **)(a4 + 8);
-  if ( v14 && PsIsServerSilo(*(_QWORD *)(a4 + 8)) )
-    v15 = (_DWORD *)IoGetSilo(v17);
-  if ( PsIsHostSilo((__int64)v15) )
+  v13 = *(_DWORD **)(a4 + 8);
+  if ( v12 && PsIsServerSilo(*(_QWORD *)(a4 + 8)) )
+    v13 = (_DWORD *)IoGetSilo(v16);
+  if ( PsIsHostSilo((__int64)v13) )
     return SetSpecificExtension;
   v20 = 0LL;
-  result = PsAcquireSiloHardReference(v15);
+  result = PsAcquireSiloHardReference(v13);
   if ( result >= 0 )
   {
     SetSpecificExtension = IopGetSetSpecificExtension(a1, 7u, 0x10u, 1, &v20, 0LL);
     if ( SetSpecificExtension < 0 )
     {
-      PsReleaseSiloHardReference(v15);
+      PsReleaseSiloHardReference(v13);
     }
     else
     {
-      v16 = v20;
+      v17 = v20;
       *(_DWORD *)v20 = 16;
-      v16[1] = v15;
-      *((_DWORD *)v16 + 1) |= 1u;
-      ObfReferenceObjectWithTag(v15, 0x70536F49u);
+      v17[1] = v13;
+      *((_DWORD *)v17 + 1) |= 1u;
+      ObfReferenceObjectWithTag(v13, 0x70536F49u);
     }
     return SetSpecificExtension;
   }

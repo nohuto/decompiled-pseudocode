@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpCopyValue @ 0x1407FD3A4
+ * XREFs of CmpCopyValue @ 0x1407FD384
  * Callers:
- *     CmpCopyKeyPartial @ 0x1406FF8E0 (CmpCopyKeyPartial.c)
- *     CmpMergeKeyValues @ 0x1407FDB00 (CmpMergeKeyValues.c)
- *     CmpSyncKeyValues @ 0x1407FE4FC (CmpSyncKeyValues.c)
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140804EA0 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpCopyKeyPartial @ 0x1406FF8C0 (CmpCopyKeyPartial.c)
+ *     CmpMergeKeyValues @ 0x1407FDAE0 (CmpMergeKeyValues.c)
+ *     CmpSyncKeyValues @ 0x1407FE4DC (CmpSyncKeyValues.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140804E80 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpSetValueDataNew @ 0x1405ACE10 (CmpSetValueDataNew.c)
  *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
  *     CmpFreeValueData @ 0x1405ADF04 (CmpFreeValueData.c)
  *     CmpGetValueData @ 0x1405D20A0 (CmpGetValueData.c)
- *     CmpCopyCell @ 0x140695738 (CmpCopyCell.c)
+ *     CmpCopyCell @ 0x140695718 (CmpCopyCell.c)
  */
 
 __int64 __fastcall CmpCopyValue(__int64 a1, __int64 a2, ULONG_PTR a3, int a4)

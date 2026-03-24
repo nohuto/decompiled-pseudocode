@@ -1,20 +1,20 @@
 /*
- * XREFs of VslCapturePgoData @ 0x140941960
+ * XREFs of VslCapturePgoData @ 0x14088EE60
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x1403CE424 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x1403CE69C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     VslpUnlockPagesForTransfer @ 0x140393974 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x1403939C8 (VslpLockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall VslCapturePgoData(size_t Size, struct _MDL *a2)
 {
   __int64 v4; // rbp
   int v5; // ebx
-  unsigned int v6; // r14d
+  ULONG v6; // r14d
   __int64 *v8[10]; // [rsp+30h] [rbp-E8h] BYREF
   _QWORD v9[14]; // [rsp+80h] [rbp-98h] BYREF
 
@@ -36,7 +36,7 @@ __int64 __fastcall VslCapturePgoData(size_t Size, struct _MDL *a2)
       v9[2] = v8[0];
       v9[3] = v8[7];
       v9[1] = v4;
-      v5 = VslpEnterIumSecureMode(2u, 76, 0, (__int64)v9);
+      v5 = VslpEnterIumSecureMode(2u, 74, 0, (__int64)v9);
       VslpUnlockPagesForTransfer(v8);
       if ( v5 == -2147483622 )
         return 0;

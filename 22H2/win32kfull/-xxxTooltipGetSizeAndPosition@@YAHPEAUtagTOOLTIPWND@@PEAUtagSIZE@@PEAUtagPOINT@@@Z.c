@@ -1,17 +1,17 @@
 /*
- * XREFs of ?xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z @ 0x1C0225BF8
+ * XREFs of ?xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z @ 0x1C02427AC
  * Callers:
- *     ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C0225AC8 (-xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z.c)
+ *     ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C024267C (-xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z.c)
  * Callees:
- *     ?GetTooltipDC@@YAPEAUHDC__@@PEAUtagTOOLTIPWND@@PEAUtagMONITOR@@@Z @ 0x1C0040D04 (-GetTooltipDC@@YAPEAUHDC__@@PEAUtagTOOLTIPWND@@PEAUtagMONITOR@@@Z.c)
- *     GreGetTextExtentW @ 0x1C007A468 (GreGetTextExtentW.c)
- *     GetMonitorRect @ 0x1C00C46EC (GetMonitorRect.c)
- *     _MonitorFromPoint @ 0x1C00D03B0 (_MonitorFromPoint.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     xxxClientGetTextExtentPointW @ 0x1C0212AAC (xxxClientGetTextExtentPointW.c)
- *     ?GetCursorHeight@@YAHXZ @ 0x1C0225430 (-GetCursorHeight@@YAHXZ.c)
- *     CALL_LPK @ 0x1C0225FD4 (CALL_LPK.c)
+ *     GetMonitorRect @ 0x1C0041D58 (GetMonitorRect.c)
+ *     _MonitorFromPoint @ 0x1C0042060 (_MonitorFromPoint.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?GetTooltipDC@@YAPEAUHDC__@@PEAUtagTOOLTIPWND@@PEAUtagMONITOR@@@Z @ 0x1C00DB224 (-GetTooltipDC@@YAPEAUHDC__@@PEAUtagTOOLTIPWND@@PEAUtagMONITOR@@@Z.c)
+ *     GreGetTextExtentW @ 0x1C00E337C (GreGetTextExtentW.c)
+ *     CALL_LPK @ 0x1C0158EEC (CALL_LPK.c)
+ *     xxxClientGetTextExtentPointW @ 0x1C0159250 (xxxClientGetTextExtentPointW.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?GetCursorHeight@@YAHXZ @ 0x1C0242064 (-GetCursorHeight@@YAHXZ.c)
  */
 
 __int64 __fastcall xxxTooltipGetSizeAndPosition(struct tagTOOLTIPWND *a1, struct tagSIZE *a2, struct tagPOINT *a3)
@@ -19,27 +19,22 @@ __int64 __fastcall xxxTooltipGetSizeAndPosition(struct tagTOOLTIPWND *a1, struct
   __int64 v6; // rcx
   struct tagMONITOR *v7; // rax
   __int64 v8; // r14
-  Gre::Base *TooltipDC; // rbp
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  struct tagTHREADINFO *v15; // rax
-  const WCHAR *v16; // rdx
+  HDC TooltipDC; // rbp
+  __int64 ThreadWin32Thread; // rax
+  __int64 v12; // rax
+  const WCHAR *v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // rcx
+  unsigned __int16 *v16; // rdx
   __int64 v17; // r8
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v21; // rdx
-  __int64 v22; // r8
   __m128i *MonitorRect; // rax
   LONG cy; // r8d
   LONG y; // edx
-  unsigned __int64 v26; // xmm0_8
+  unsigned __int64 v21; // xmm0_8
   LONG cx; // edx
   LONG x; // ecx
-  __m128i v29; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v30; // [rsp+40h] [rbp-28h]
+  __m128i v24; // [rsp+30h] [rbp-48h] BYREF
+  _QWORD v25[3]; // [rsp+40h] [rbp-38h] BYREF
 
   v6 = *(_QWORD *)(gpsi + 4960LL);
   *a3 = (struct tagPOINT)v6;
@@ -47,20 +42,23 @@ __int64 __fastcall xxxTooltipGetSizeAndPosition(struct tagTOOLTIPWND *a1, struct
   v8 = (__int64)v7;
   if ( !v7 )
     return 0LL;
-  TooltipDC = (Gre::Base *)GetTooltipDC(a1, v7);
-  v15 = PtiCurrentShared(v12, v11, v13, v14);
-  if ( (unsigned int)CALL_LPK(v15) )
+  TooltipDC = GetTooltipDC(a1, v7);
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  if ( (unsigned int)CALL_LPK(ThreadWin32Thread) )
   {
-    v29 = 0LL;
-    v30 = 0LL;
-    ThreadLock(v8, &v29);
-    v16 = (const WCHAR *)*((_QWORD *)a1 + 6);
-    v17 = -1LL;
+    v25[2] = 0LL;
+    v12 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    v25[0] = *(_QWORD *)(v12 + 416);
+    *(_QWORD *)(v12 + 416) = v25;
+    v25[1] = v8;
+    HMLockObject(v8);
+    v13 = (const WCHAR *)*((_QWORD *)a1 + 6);
+    v14 = -1LL;
     do
-      ++v17;
-    while ( v16[v17] );
-    xxxClientGetTextExtentPointW(TooltipDC, v16, v17, a2);
-    if ( !ThreadUnlock1(v19, v18, v20) )
+      ++v14;
+    while ( v13[v14] );
+    xxxClientGetTextExtentPointW(TooltipDC, v13, v14, a2);
+    if ( !ThreadUnlock1(v15) )
     {
       _ReleaseDC(TooltipDC);
       return 0LL;
@@ -68,39 +66,39 @@ __int64 __fastcall xxxTooltipGetSizeAndPosition(struct tagTOOLTIPWND *a1, struct
   }
   else
   {
-    v21 = *((_QWORD *)a1 + 6);
-    v22 = -1LL;
+    v16 = (unsigned __int16 *)*((_QWORD *)a1 + 6);
+    v17 = -1LL;
     do
-      ++v22;
-    while ( *(_WORD *)(v21 + 2 * v22) );
-    GreGetTextExtentW((__int64)TooltipDC, v21, v22, (__int64)a2);
+      ++v17;
+    while ( v16[v17] );
+    GreGetTextExtentW(TooltipDC, v16, v17, a2, 1);
   }
   _ReleaseDC(TooltipDC);
   a2->cx += 6;
   a2->cy += 4;
-  MonitorRect = (__m128i *)GetMonitorRect((__int64)&v29, v8);
+  MonitorRect = (__m128i *)GetMonitorRect(&v24, v8);
   cy = a2->cy;
   y = a3->y;
-  v29 = *MonitorRect;
-  v26 = _mm_srli_si128(v29, 8).m128i_u64[0];
-  if ( y + cy < SHIDWORD(v26) )
+  v24 = *MonitorRect;
+  v21 = _mm_srli_si128(v24, 8).m128i_u64[0];
+  if ( y + cy < SHIDWORD(v21) )
   {
     a3->y += GetCursorHeight();
     *((_DWORD *)a1 + 8) |= 1u;
   }
   else
   {
-    a3->y = y - cy;
     *((_DWORD *)a1 + 8) &= ~1u;
+    a3->y = y - cy;
   }
   cx = a2->cx;
   x = a3->x;
-  if ( a3->x + a2->cx >= (int)v26 )
+  if ( a3->x + a2->cx >= (int)v21 )
   {
-    x = v26 - cx;
-    a3->x = v26 - cx;
+    x = v21 - cx;
+    a3->x = v21 - cx;
   }
-  if ( x < v29.m128i_i32[0] )
-    a3->x = v29.m128i_i32[0];
+  if ( x < v24.m128i_i32[0] )
+    a3->x = v24.m128i_i32[0];
   return 1LL;
 }

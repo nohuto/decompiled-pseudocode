@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessApplyPositionImpulse@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_APPLYPOSITIONIMPULSE@@@Z @ 0x18021B960
+ * XREFs of ?ProcessApplyPositionImpulse@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_APPLYPOSITIONIMPULSE@@@Z @ 0x1801CA4B4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?ApplyPositionImpulse@CInteractionTracker@@AEAA_NAEBUD2DVector3@@@Z @ 0x1802191C0 (-ApplyPositionImpulse@CInteractionTracker@@AEAA_NAEBUD2DVector3@@@Z.c)
- *     ?NotifyRequestIgnored@CInteractionTracker@@AEAAXH@Z @ 0x18021B7C4 (-NotifyRequestIgnored@CInteractionTracker@@AEAAXH@Z.c)
+ *     ?ApplyPositionImpulse@CInteractionTracker@@AEAA_NAEBUD2DVector3@@@Z @ 0x1801C8144 (-ApplyPositionImpulse@CInteractionTracker@@AEAA_NAEBUD2DVector3@@@Z.c)
+ *     ?NotifyRequestIgnored@CInteractionTracker@@AEAAXH@Z @ 0x1801CA310 (-NotifyRequestIgnored@CInteractionTracker@@AEAAXH@Z.c)
  */
 
 __int64 __fastcall CInteractionTracker::ProcessApplyPositionImpulse(
@@ -16,22 +16,22 @@ __int64 __fastcall CInteractionTracker::ProcessApplyPositionImpulse(
   int v6; // eax
   _DWORD v8[6]; // [rsp+20h] [rbp-18h] BYREF
 
-  *((_BYTE *)this + 540) |= 0x10u;
+  *((_BYTE *)this + 532) |= 0x10u;
   v4 = *((_DWORD *)a3 + 3);
   v8[0] = *((_DWORD *)a3 + 2);
   v8[2] = 0;
   v8[1] = v4;
   if ( CInteractionTracker::ApplyPositionImpulse(this, (const struct D2DVector3 *)v8) )
   {
-    v6 = *((_DWORD *)this + 47);
+    v6 = *((_DWORD *)this + 45);
     if ( v6 <= *((_DWORD *)a3 + 4) )
       v6 = *((_DWORD *)a3 + 4);
-    *((_DWORD *)this + 47) = v6;
+    *((_DWORD *)this + 45) = v6;
   }
   else
   {
     CInteractionTracker::NotifyRequestIgnored(this);
   }
-  *((_BYTE *)this + 540) &= ~0x10u;
+  *((_BYTE *)this + 532) &= ~0x10u;
   return 0LL;
 }

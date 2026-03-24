@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbDevice_HandleUnassignPinsForOffloadedEndpointsState @ 0x1C0049284
+ * XREFs of UsbDevice_HandleUnassignPinsForOffloadedEndpointsState @ 0x1C0046908
  * Callers:
- *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008988 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0007714 (UsbDevice_QueueConfigureEndpointEvent.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     UsbDevice_NumberOfOffloadedEndpointsInDropEndpointsList @ 0x1C0049458 (UsbDevice_NumberOfOffloadedEndpointsInDropEndpointsList.c)
- *     UsbDevice_SetResourceAssignment @ 0x1C00499BC (UsbDevice_SetResourceAssignment.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     UsbDevice_NumberOfOffloadedEndpointsInDropEndpointsList @ 0x1C0046ADC (UsbDevice_NumberOfOffloadedEndpointsInDropEndpointsList.c)
+ *     UsbDevice_SetResourceAssignment @ 0x1C0047040 (UsbDevice_SetResourceAssignment.c)
  */
 
-char __fastcall UsbDevice_HandleUnassignPinsForOffloadedEndpointsState(__int64 a1, __int64 a2, int a3, int a4)
+char __fastcall UsbDevice_HandleUnassignPinsForOffloadedEndpointsState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v6; // esi
   __int64 v7; // rax
@@ -27,7 +27,7 @@ char __fastcall UsbDevice_HandleUnassignPinsForOffloadedEndpointsState(__int64 a
       __debugbreak();
   }
   v6 = 0;
-  LODWORD(v7) = UsbDevice_NumberOfOffloadedEndpointsInDropEndpointsList(a2);
+  LODWORD(v7) = UsbDevice_NumberOfOffloadedEndpointsInDropEndpointsList(a2, a2, a3, a4);
   v11 = 0LL;
   *(_DWORD *)(a1 + 580) = v7;
   for ( i = v7; (unsigned int)v11 < *(_DWORD *)(a2 + 40); v11 = (unsigned int)(v11 + 1) )
@@ -35,8 +35,8 @@ char __fastcall UsbDevice_HandleUnassignPinsForOffloadedEndpointsState(__int64 a
     v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
            WdfDriverGlobals,
            *(_QWORD *)(*(_QWORD *)(a2 + 48) + 8 * v11),
-           off_1C00631A8);
-    if ( *(_DWORD *)(v7 + 1360) == 2 )
+           off_1C00601A8);
+    if ( *(_DWORD *)(v7 + 1352) == 2 )
     {
       ++v6;
       LOBYTE(v7) = UsbDevice_SetResourceAssignment(a1, v7, 0LL);

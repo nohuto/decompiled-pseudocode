@@ -1,12 +1,12 @@
 /*
- * XREFs of PopMarshalSettingValues @ 0x1406C05A4
+ * XREFs of PopMarshalSettingValues @ 0x14067CAB8
  * Callers:
- *     PopDispatchNotificationsToList @ 0x1406C0298 (PopDispatchNotificationsToList.c)
- *     PopGetSettingValue @ 0x1406C0510 (PopGetSettingValue.c)
+ *     PopDispatchNotificationsToList @ 0x14067BFD4 (PopDispatchNotificationsToList.c)
+ *     PopGetSettingValue @ 0x14067CA24 (PopGetSettingValue.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopMarshalSettingValues(__int64 a1, _DWORD *a2, unsigned int a3, unsigned int *a4)
@@ -16,11 +16,11 @@ __int64 __fastcall PopMarshalSettingValues(__int64 a1, _DWORD *a2, unsigned int 
   __int64 i; // rdx
   __int64 v10; // r8
   _DWORD *v11; // rax
+  void *v12; // rax
   __int64 j; // rbx
-  _DWORD *v13; // rdx
-  unsigned int v14; // r14d
-  unsigned int v15; // edi
-  void *v16; // rax
+  _DWORD *v14; // rdx
+  unsigned int v15; // r14d
+  unsigned int v16; // edi
   __int64 k; // rbx
   _DWORD *v18; // rcx
   PVOID P[2]; // [rsp+30h] [rbp-38h]
@@ -29,7 +29,7 @@ __int64 __fastcall PopMarshalSettingValues(__int64 a1, _DWORD *a2, unsigned int 
   *(_OWORD *)P = 0LL;
   v22 = 0LL;
   v7 = 0;
-  v8 = dword_140C232CC;
+  v8 = dword_140C23E8C;
   for ( i = 0LL; (unsigned int)i < 3; i = (unsigned int)(i + 1) )
   {
     v10 = (unsigned int)i;
@@ -39,13 +39,13 @@ __int64 __fastcall PopMarshalSettingValues(__int64 a1, _DWORD *a2, unsigned int 
     }
     else
     {
-      v16 = *(void **)(a1 + 8 * i + 64);
-      P[i] = v16;
+      v12 = *(void **)(a1 + 8 * i + 64);
+      P[i] = v12;
       v10 = (unsigned int)i;
       if ( (_DWORD)i == 2 )
       {
         v10 = 2LL;
-        if ( !v16 )
+        if ( !v12 )
           P[i] = P[1];
       }
     }
@@ -59,30 +59,30 @@ __int64 __fastcall PopMarshalSettingValues(__int64 a1, _DWORD *a2, unsigned int 
   }
   if ( a3 < v7 )
   {
-    v15 = -1073741789;
+    v16 = -1073741789;
   }
   else
   {
     for ( j = 0LL; (unsigned int)j < 3; j = (unsigned int)(j + 1) )
     {
-      v13 = P[j];
-      if ( v13 )
+      v14 = P[j];
+      if ( v14 )
       {
-        *a2 = v13[2];
-        a2[1] = v13[1];
-        v14 = v13[1];
-        memmove(a2 + 2, v13 + 3, v14);
+        *a2 = v14[2];
+        a2[1] = v14[1];
+        v15 = v14[1];
+        memmove(a2 + 2, v14 + 3, v15);
       }
       else
       {
         *a2 = 0;
         a2[1] = 0;
-        v14 = 0;
+        v15 = 0;
       }
-      a2 = (_DWORD *)((char *)a2 + v14 + 8);
+      a2 = (_DWORD *)((char *)a2 + v15 + 8);
     }
     *a4 = v7;
-    v15 = 0;
+    v16 = 0;
   }
   for ( k = 0LL; (unsigned int)k < 3; k = (unsigned int)(k + 1) )
   {
@@ -93,5 +93,5 @@ __int64 __fastcall PopMarshalSettingValues(__int64 a1, _DWORD *a2, unsigned int 
         ExFreePoolWithTag(v18, 0x74655350u);
     }
   }
-  return v15;
+  return v16;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?ApplyBlockRunRestrictions@VIDMM_LINEAR_POOL@@IEAAXPEA_NPEA_K1_KKE22@Z @ 0x1C00B099C
+ * XREFs of ?ApplyBlockRunRestrictions@VIDMM_LINEAR_POOL@@IEAAXPEA_NPEA_K1_KKE22@Z @ 0x1C0065990
  * Callers:
- *     ?FindBlockRun@VIDMM_LINEAR_POOL@@IEAAJ_KKE00W4_VIDMM_BLOCK_RUN_CONSTRAINT@@PEAPEAU_VIDMM_POOL_BLOCK@@2PEA_K3@Z @ 0x1C00B0750 (-FindBlockRun@VIDMM_LINEAR_POOL@@IEAAJ_KKE00W4_VIDMM_BLOCK_RUN_CONSTRAINT@@PEAPEAU_VIDMM_POOL_BL.c)
- *     ?GetLargestGap@VIDMM_LINEAR_POOL@@QEAA_K_KKE00@Z @ 0x1C0101EC8 (-GetLargestGap@VIDMM_LINEAR_POOL@@QEAA_K_KKE00@Z.c)
+ *     ?FindBlockRun@VIDMM_LINEAR_POOL@@IEAAJ_KKE00W4_VIDMM_BLOCK_RUN_CONSTRAINT@@PEAPEAU_VIDMM_POOL_BLOCK@@2PEA_K3@Z @ 0x1C0065730 (-FindBlockRun@VIDMM_LINEAR_POOL@@IEAAJ_KKE00W4_VIDMM_BLOCK_RUN_CONSTRAINT@@PEAPEAU_VIDMM_POOL_BL.c)
+ *     ?GetLargestGap@VIDMM_LINEAR_POOL@@QEAA_K_KKE00@Z @ 0x1C00CD6EC (-GetLargestGap@VIDMM_LINEAR_POOL@@QEAA_K_KKE00@Z.c)
  * Callees:
  *     <none>
  */
@@ -20,9 +20,9 @@ void __fastcall VIDMM_LINEAR_POOL::ApplyBlockRunRestrictions(
 {
   bool v9; // bl
   unsigned __int64 v13; // rdx
-  char *v14; // rdx
-  unsigned __int64 v15; // rdx
-  unsigned __int64 v16; // rax
+  VIDMM_LINEAR_POOL *v14; // r8
+  unsigned __int64 v15; // r8
+  char *v16; // rdx
   __int64 v17; // rcx
   __int64 v18; // rax
   __int64 v19; // rcx
@@ -33,7 +33,7 @@ void __fastcall VIDMM_LINEAR_POOL::ApplyBlockRunRestrictions(
   if ( a8 )
   {
     if ( a8 >= (unsigned __int64)*a4 )
-      goto LABEL_23;
+      goto LABEL_25;
     if ( a8 > *a3 )
     {
       *a3 = a8;
@@ -50,7 +50,7 @@ void __fastcall VIDMM_LINEAR_POOL::ApplyBlockRunRestrictions(
   if ( a9 )
   {
     if ( (unsigned __int64)a9 <= *a3 )
-      goto LABEL_23;
+      goto LABEL_25;
     if ( a9 < *a4 )
     {
       *a4 = a9;
@@ -64,44 +64,54 @@ void __fastcall VIDMM_LINEAR_POOL::ApplyBlockRunRestrictions(
       }
     }
   }
-  if ( !a7 )
+  v13 = 0LL;
+  if ( a7 )
   {
-    v15 = 0LL;
     if ( a6 )
     {
       this = (VIDMM_LINEAR_POOL *)a6;
-      v15 = ((unsigned __int64)*a4 - a5) % a6;
+      v13 = *a3 % a6;
     }
-    v16 = (unsigned __int64)*a4 - v15 - a5;
-    if ( v16 < *a3 )
-      goto LABEL_23;
-    *a3 = v16;
-LABEL_10:
-    if ( g_IsInternalReleaseOrDbg )
+    else
     {
-      v21 = WdLogNewEntry5_WdTrace(this);
-      *(_QWORD *)(v21 + 24) = *a3;
-      *(_QWORD *)(v21 + 32) = *a4;
+      this = 0LL;
     }
-    goto LABEL_12;
+    if ( !v13 )
+      goto LABEL_9;
+    this = (VIDMM_LINEAR_POOL *)((char *)this - v13);
+    v16 = (char *)this + *a3;
+    if ( v16 < (char *)*a4 )
+    {
+      *a3 = (unsigned __int64)v16;
+LABEL_9:
+      if ( g_IsInternalReleaseOrDbg )
+      {
+        v21 = WdLogNewEntry5_WdTrace(this);
+        *(_QWORD *)(v21 + 24) = *a3;
+        *(_QWORD *)(v21 + 32) = *a4;
+      }
+      goto LABEL_11;
+    }
   }
-  this = (VIDMM_LINEAR_POOL *)a6;
-  if ( !a6 )
-    goto LABEL_10;
-  v13 = *a3 % a6;
-  if ( !v13 )
-    goto LABEL_10;
-  this = (VIDMM_LINEAR_POOL *)(a6 - v13);
-  v14 = (char *)this + *a3;
-  if ( v14 < (char *)*a4 )
+  else
   {
-    *a3 = (unsigned __int64)v14;
-    goto LABEL_10;
+    v14 = *a4;
+    if ( a6 )
+    {
+      this = (VIDMM_LINEAR_POOL *)a6;
+      v13 = ((unsigned __int64)v14 - a5) % a6;
+    }
+    v15 = (unsigned __int64)v14 - v13 - a5;
+    if ( v15 >= *a3 )
+    {
+      *a3 = v15;
+      goto LABEL_9;
+    }
   }
-LABEL_23:
+LABEL_25:
   if ( g_IsInternalReleaseOrDbg )
     WdLogNewEntry5_WdTrace(this);
   v9 = 1;
-LABEL_12:
+LABEL_11:
   *a2 = v9;
 }

@@ -1,12 +1,11 @@
 /*
- * XREFs of _EnsureDpiDepSysMetCacheForPlateau @ 0x1C01E4CEC
+ * XREFs of _EnsureDpiDepSysMetCacheForPlateau @ 0x1C01EA560
  * Callers:
- *     ?xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z @ 0x1C0066D38 (-xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z.c)
- *     GetDpiDependentMetric @ 0x1C006718C (GetDpiDependentMetric.c)
- *     NtUserEnsureDpiDepSysMetCacheForPlateau @ 0x1C01F31D0 (NtUserEnsureDpiDepSysMetCacheForPlateau.c)
+ *     ?xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z @ 0x1C0061054 (-xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z.c)
+ *     GetDpiDependentMetric @ 0x1C00614D0 (GetDpiDependentMetric.c)
  * Callees:
- *     GetDpiCacheSlot @ 0x1C00671E0 (GetDpiCacheSlot.c)
- *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01E4D60 (_ScaleSystemMetricForDPIWithoutCache.c)
+ *     GetDpiCacheSlot @ 0x1C006152C (GetDpiCacheSlot.c)
+ *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01EA5E0 (_ScaleSystemMetricForDPIWithoutCache.c)
  */
 
 __int64 __fastcall EnsureDpiDepSysMetCacheForPlateau(unsigned int a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?TransformPointWithUniformSpaceMapping@@YAHPEAU_MDEV@@PEAH1H@Z @ 0x1C006283C
+ * XREFs of ?TransformPointWithUniformSpaceMapping@@YAHPEAU_MDEV@@PEAH1H@Z @ 0x1C00110B0
  * Callers:
- *     DrvUniformSpaceToPixelSpacePoint @ 0x1C0062810 (DrvUniformSpaceToPixelSpacePoint.c)
- *     DrvPixelSpaceToUniformSpacePoint @ 0x1C00CC750 (DrvPixelSpaceToUniformSpacePoint.c)
+ *     DrvPixelSpaceToUniformSpacePoint @ 0x1C000E6A0 (DrvPixelSpaceToUniformSpacePoint.c)
+ *     DrvUniformSpaceToPixelSpacePoint @ 0x1C0011080 (DrvUniformSpaceToPixelSpacePoint.c)
  * Callees:
- *     DrvIsUniformSpaceMapping @ 0x1C00628A0 (DrvIsUniformSpaceMapping.c)
- *     PtInRect @ 0x1C0063154 (PtInRect.c)
+ *     DrvIsUniformSpaceMapping @ 0x1C0011110 (DrvIsUniformSpaceMapping.c)
+ *     PtInRect @ 0x1C00707BC (PtInRect.c)
  */
 
 __int64 __fastcall TransformPointWithUniformSpaceMapping(struct _MDEV *a1, int *a2, int *a3, int a4)

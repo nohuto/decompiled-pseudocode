@@ -1,15 +1,13 @@
 /*
- * XREFs of ?RecordVaPagingHistorySetPageDirectory@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_DXGKARG_SETROOTPAGETABLE@@PEAX@Z @ 0x1C0089218
+ * XREFs of ?RecordVaPagingHistorySetPageDirectory@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_DXGKARG_SETROOTPAGETABLE@@PEAX@Z @ 0x1C0088A90
  * Callers:
- *     VidSchiSubmitRenderVirtualCommand @ 0x1C00AD180 (VidSchiSubmitRenderVirtualCommand.c)
- *     VidSchSetPagingNodePageDirectory @ 0x1C00C2CB8 (VidSchSetPagingNodePageDirectory.c)
- *     VidSchiEnsureRootPageTableUpdated @ 0x1C00C48E4 (VidSchiEnsureRootPageTableUpdated.c)
- *     VidSchiSetPagingHwContextPageDirectory @ 0x1C0108EA8 (VidSchiSetPagingHwContextPageDirectory.c)
+ *     VidSchiSubmitRenderVirtualCommand @ 0x1C007DD90 (VidSchiSubmitRenderVirtualCommand.c)
+ *     VidSchSetPagingNodePageDirectory @ 0x1C00D12E8 (VidSchSetPagingNodePageDirectory.c)
+ *     VidSchiSetPagingHwContextPageDirectory @ 0x1C00D1C8C (VidSchiSetPagingHwContextPageDirectory.c)
+ *     VidSchiEnsureRootPageTableUpdated @ 0x1C00D224C (VidSchiEnsureRootPageTableUpdated.c)
  * Callees:
- *     ??0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z @ 0x1C0001DD0 (--0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z.c)
- *     ??2@YAPEAX_KPEAVDXGK_LOG@@II@Z @ 0x1C0005300 (--2@YAPEAX_KPEAVDXGK_LOG@@II@Z.c)
- *     ?Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ @ 0x1C0017C04 (-Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ.c)
- *     ?AllocateVaPagingHistoryEntry@VIDMM_GLOBAL@@QEAAPEAXW4VIDMM_PAGING_HISTORY_ENTRY_TYPE@@_K@Z @ 0x1C00F19F4 (-AllocateVaPagingHistoryEntry@VIDMM_GLOBAL@@QEAAPEAXW4VIDMM_PAGING_HISTORY_ENTRY_TYPE@@_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001668 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0001FC0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::RecordVaPagingHistorySetPageDirectory(
@@ -18,37 +16,50 @@ void __fastcall VIDMM_GLOBAL::RecordVaPagingHistorySetPageDirectory(
         struct _DXGKARG_SETROOTPAGETABLE *a3,
         void *a4)
 {
-  __int64 v4; // rbx
-  _QWORD *VaPagingHistoryEntry; // rax
-  __int128 v10; // xmm1
-  __int64 v11; // rcx
-  _BYTE v12[24]; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD *v8; // rdi
+  __int64 v9; // rax
+  void *v10; // rcx
+  __int128 v11; // xmm1
+  __int64 v12; // rax
+  __int64 v13; // rax
 
-  v4 = 0LL;
-  if ( VIDMM_GLOBAL::GpuVaPagingHistoryFreEnabled || *((_QWORD *)this + 5123) )
+  if ( *((_QWORD *)this + 5123) )
   {
-    DXGAUTOPUSHLOCKFASTEXCLUSIVE::DXGAUTOPUSHLOCKFASTEXCLUSIVE(
-      (DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v12,
-      (VIDMM_GLOBAL *)((char *)this + 41000));
-    if ( VIDMM_GLOBAL::GpuVaPagingHistoryFreEnabled )
-      VaPagingHistoryEntry = operator new(56, (VIDMM_GLOBAL *)((char *)this + 41024), 9u, 0);
-    else
-      VaPagingHistoryEntry = (_QWORD *)VIDMM_GLOBAL::AllocateVaPagingHistoryEntry(this, 9LL, 56LL);
-    if ( VaPagingHistoryEntry )
+    v8 = operator new[](0x38uLL, 0x32356956u, PagedPool);
+    if ( v8 )
     {
-      *(_OWORD *)VaPagingHistoryEntry = *(_OWORD *)&a3->hContext;
-      v10 = *(_OWORD *)&a3->Address.SegmentOffset;
-      VaPagingHistoryEntry[6] = a4;
-      *((_OWORD *)VaPagingHistoryEntry + 1) = v10;
+      KeEnterCriticalRegion();
+      ExAcquirePushLockExclusiveEx((char *)this + 41000, 0LL);
+      *((_QWORD *)this + 5126) = KeGetCurrentThread();
+      v9 = *((unsigned int *)this + 10248);
+      if ( (_DWORD)v9 == dword_1C00503AC )
+      {
+        *((_DWORD *)this + 10248) = 0;
+        v9 = 0LL;
+      }
+      v10 = *(void **)(*((_QWORD *)this + 5123) + 24 * v9 + 16);
+      if ( v10 )
+        operator delete(v10);
+      *(_OWORD *)v8 = *(_OWORD *)&a3->hContext;
+      v11 = *(_OWORD *)&a3->Address.SegmentOffset;
+      v8[6] = a4;
+      *((_OWORD *)v8 + 1) = v11;
       if ( a2 )
-        v11 = *(_QWORD *)a2;
+        v12 = *(_QWORD *)a2;
       else
-        v11 = 0LL;
-      VaPagingHistoryEntry[4] = v11;
+        v12 = 0LL;
+      v8[4] = v12;
       if ( a2 )
-        v4 = *((_QWORD *)a2 + 4);
-      VaPagingHistoryEntry[5] = v4;
+        v13 = *((_QWORD *)a2 + 4);
+      else
+        v13 = 0LL;
+      v8[5] = v13;
+      *(_QWORD *)(*((_QWORD *)this + 5123) + 24LL * *((unsigned int *)this + 10248)) = MEMORY[0xFFFFF78000000014];
+      *(_QWORD *)(*((_QWORD *)this + 5123) + 24LL * *((unsigned int *)this + 10248) + 16) = v8;
+      *(_DWORD *)(*((_QWORD *)this + 5123) + 24LL * (unsigned int)(*((_DWORD *)this + 10248))++ + 8) = 9;
+      *((_QWORD *)this + 5126) = 0LL;
+      ExReleasePushLockExclusiveEx((char *)this + 41000, 0LL);
+      KeLeaveCriticalRegion();
     }
-    DXGAUTOPUSHLOCKFASTEXCLUSIVE::Release((DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v12);
   }
 }

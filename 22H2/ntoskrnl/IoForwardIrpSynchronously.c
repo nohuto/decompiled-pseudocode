@@ -1,9 +1,9 @@
 /*
- * XREFs of IoForwardIrpSynchronously @ 0x1407C4010
+ * XREFs of IoForwardIrpSynchronously @ 0x140689B00
  * Callers:
  *     <none>
  * Callees:
- *     IoSynchronousCallDriver @ 0x140354C60 (IoSynchronousCallDriver.c)
+ *     IoSynchronousCallDriver @ 0x140318390 (IoSynchronousCallDriver.c)
  */
 
 BOOLEAN __stdcall IoForwardIrpSynchronously(PDEVICE_OBJECT DeviceObject, PIRP Irp)

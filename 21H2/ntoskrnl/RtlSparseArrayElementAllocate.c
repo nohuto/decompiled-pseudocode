@@ -1,33 +1,35 @@
 /*
- * XREFs of RtlSparseArrayElementAllocate @ 0x14023D4C8
+ * XREFs of RtlSparseArrayElementAllocate @ 0x1402A4748
  * Callers:
- *     RtlpHpVaMgrRangeCreate @ 0x14023D3C8 (RtlpHpVaMgrRangeCreate.c)
+ *     RtlpHpVaMgrRangeCreate @ 0x1402A465C (RtlpHpVaMgrRangeCreate.c)
  * Callees:
- *     RtlCSparseBitmapLeaveLockingRegion @ 0x140363560 (RtlCSparseBitmapLeaveLockingRegion.c)
- *     RtlpCSparseBitmapUnlock @ 0x1403635BC (RtlpCSparseBitmapUnlock.c)
- *     RtlpCSparseBitmapPageCommit @ 0x140363A64 (RtlpCSparseBitmapPageCommit.c)
- *     memmove @ 0x140435B40 (memmove.c)
+ *     RtlCSparseBitmapLeaveLockingRegion @ 0x1402A47EC (RtlCSparseBitmapLeaveLockingRegion.c)
+ *     RtlpCSparseBitmapUnlock @ 0x1402A4830 (RtlpCSparseBitmapUnlock.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x1402A4A74 (RtlpCSparseBitmapPageCommit.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 void *__fastcall RtlSparseArrayElementAllocate(__int64 a1, __int64 a2, const void *a3)
 {
   int v3; // edi
-  __int64 v4; // rdx
+  __int64 v5; // rdx
   void *v6; // rbx
   __int128 v8; // [rsp+20h] [rbp-28h] BYREF
   __int128 v9; // [rsp+30h] [rbp-18h] BYREF
 
   v3 = *(_DWORD *)(a1 + 8);
-  v4 = a2 << v3;
-  *(_QWORD *)&v8 = 0LL;
-  v6 = (void *)(v4 + *(_QWORD *)(a1 + 24));
-  BYTE8(v8) = 0;
+  v5 = a2 << v3;
+  v6 = (void *)(v5 + *(_QWORD *)(a1 + 24));
+  v8 = 0LL;
   v9 = 0LL;
-  if ( (int)RtlpCSparseBitmapPageCommit(a1 + 16, (unsigned __int64)(8 * v4) >> 15, &v9, &v8) < 0 )
+  if ( (int)((__int64 (__fastcall *)(__int64, unsigned __int64, __int128 *, __int128 *))RtlpCSparseBitmapPageCommit)(
+              a1 + 16,
+              (unsigned __int64)(8 * v5) >> 15,
+              &v8,
+              &v9) < 0 )
     return 0LL;
   memmove(v6, a3, (unsigned int)(1 << v3));
-  RtlpCSparseBitmapUnlock(&v9);
-  v9 = v8;
+  RtlpCSparseBitmapUnlock(&v8);
   RtlCSparseBitmapLeaveLockingRegion(&v9);
   return v6;
 }

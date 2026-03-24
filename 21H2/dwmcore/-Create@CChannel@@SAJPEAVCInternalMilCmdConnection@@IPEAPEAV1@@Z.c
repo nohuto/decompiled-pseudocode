@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Create@CChannel@@SAJPEAVCInternalMilCmdConnection@@IPEAPEAV1@@Z @ 0x18002CE44
+ * XREFs of ?Create@CChannel@@SAJPEAVCInternalMilCmdConnection@@IPEAPEAV1@@Z @ 0x180027888
  * Callers:
- *     ?CreateChannel@CInternalMilCmdConnection@@QEAAJPEAPEAVCChannel@@@Z @ 0x18002CD68 (-CreateChannel@CInternalMilCmdConnection@@QEAAJPEAPEAVCChannel@@@Z.c)
+ *     ?CreateKernelChannel@CInternalMilCmdConnection@@AEAAJPEAPEAVCChannel@@@Z @ 0x1800277C0 (-CreateKernelChannel@CInternalMilCmdConnection@@AEAAJPEAPEAVCChannel@@@Z.c)
  * Callees:
- *     ??$ReleaseInterface@VCChannel@@@@YAXAEAPEAVCChannel@@@Z @ 0x18002CEEC (--$ReleaseInterface@VCChannel@@@@YAXAEAPEAVCChannel@@@Z.c)
- *     ??0CChannel@@AEAA@PEAVCInternalMilCmdConnection@@I@Z @ 0x18002CF54 (--0CChannel@@AEAA@PEAVCInternalMilCmdConnection@@I@Z.c)
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18004F61C (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ??$ReleaseInterface@VCChannel@@@@YAXAEAPEAVCChannel@@@Z @ 0x180027930 (--$ReleaseInterface@VCChannel@@@@YAXAEAPEAVCChannel@@@Z.c)
+ *     ??0CChannel@@AEAA@PEAVCInternalMilCmdConnection@@I@Z @ 0x180027994 (--0CChannel@@AEAA@PEAVCInternalMilCmdConnection@@I@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F358 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CChannel::Create(struct CInternalMilCmdConnection *a1, unsigned int a2, struct CChannel **a3)
@@ -48,13 +48,13 @@ __int64 __fastcall CChannel::Create(struct CInternalMilCmdConnection *a1, unsign
       if ( v10 >= 0 )
         v10 = -2003304445;
       MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v10, 0x42u, 0LL);
-      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v10, 0x1A2u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v10, 0x18Au, 0LL);
     }
   }
   else
   {
     v10 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147024882, 0x19Du, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147024882, 0x185u, 0LL);
   }
   ReleaseInterface<CChannel>(&v16);
   return (unsigned int)v10;

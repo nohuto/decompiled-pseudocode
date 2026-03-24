@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpCreateRangeListEntry @ 0x14083A160
+ * XREFs of RtlpCreateRangeListEntry @ 0x140764560
  * Callers:
- *     RtlAddRange @ 0x14083A010 (RtlAddRange.c)
+ *     RtlAddRange @ 0x140764410 (RtlAddRange.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202234 (ExAllocateFromNPagedLookasideList.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
  */
 
 _BYTE *__fastcall RtlpCreateRangeListEntry(__int64 a1, __int64 a2, char a3, __int64 a4, __int64 a5)
 {
   _BYTE *result; // rax
 
-  result = ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&RtlpRangeListEntryLookasideList);
+  result = ExAllocateFromNPagedLookasideList(&RtlpRangeListEntryLookasideList);
   if ( result )
   {
     result[33] = 0;

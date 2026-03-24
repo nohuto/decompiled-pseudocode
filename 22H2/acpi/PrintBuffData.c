@@ -1,11 +1,11 @@
 /*
- * XREFs of PrintBuffData @ 0x1C004E428
+ * XREFs of PrintBuffData @ 0x1C0066874
  * Callers:
- *     PrintObject @ 0x1C004E4E8 (PrintObject.c)
- *     DumpObject @ 0x1C0051EB8 (DumpObject.c)
- *     Buffer @ 0x1C0055E10 (Buffer.c)
+ *     Buffer @ 0x1C000B340 (Buffer.c)
+ *     PrintObject @ 0x1C0066934 (PrintObject.c)
+ *     DumpObject @ 0x1C0067738 (DumpObject.c)
  * Callees:
- *     ConPrintf @ 0x1C004D7D8 (ConPrintf.c)
+ *     ConPrintf @ 0x1C0065D60 (ConPrintf.c)
  */
 
 ULONG __fastcall PrintBuffData(unsigned __int8 *a1, unsigned int a2)

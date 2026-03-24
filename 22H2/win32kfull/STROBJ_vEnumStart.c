@@ -1,5 +1,5 @@
 /*
- * XREFs of STROBJ_vEnumStart @ 0x1C02DBDF0
+ * XREFs of STROBJ_vEnumStart @ 0x1C02BEA00
  * Callers:
  *     <none>
  * Callees:

@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPICreateRootSymbolicLink @ 0x1C009EBEC
+ * XREFs of ACPICreateRootSymbolicLink @ 0x1C009F4D4
  * Callers:
- *     ACPIDispatchAddDevice @ 0x1C0026D30 (ACPIDispatchAddDevice.c)
+ *     ACPIDispatchAddDevice @ 0x1C0025260 (ACPIDispatchAddDevice.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall ACPICreateRootSymbolicLink(PDEVICE_OBJECT DeviceObject)
 {
-  WCHAR *Pool2; // rbx
+  WCHAR *PoolWithTag; // rbx
   ULONG v3; // r8d
   struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
   ULONG ResultLength; // [rsp+58h] [rbp+10h] BYREF
@@ -17,17 +17,17 @@ void __fastcall ACPICreateRootSymbolicLink(PDEVICE_OBJECT DeviceObject)
   DestinationString = 0LL;
   if ( IoGetDeviceProperty(DeviceObject, DevicePropertyPhysicalDeviceObjectName, 0, 0LL, &ResultLength) == -1073741789 )
   {
-    Pool2 = (WCHAR *)ExAllocatePool2(64LL, ResultLength + 2LL, 1399874369LL);
-    if ( Pool2 )
+    PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(NonPagedPoolNx, ResultLength + 2LL, 0x53706341u);
+    if ( PoolWithTag )
     {
       v3 = (unsigned __int16)(ResultLength + 2);
       ResultLength = v3;
-      if ( IoGetDeviceProperty(DeviceObject, DevicePropertyPhysicalDeviceObjectName, v3, Pool2, &ResultLength) >= 0 )
+      if ( IoGetDeviceProperty(DeviceObject, DevicePropertyPhysicalDeviceObjectName, v3, PoolWithTag, &ResultLength) >= 0 )
       {
-        RtlInitUnicodeString(&DestinationString, Pool2);
+        RtlInitUnicodeString(&DestinationString, PoolWithTag);
         IoCreateSymbolicLink(&ACPISymbolicLinkName, &DestinationString);
       }
-      ExFreePoolWithTag(Pool2, 0);
+      ExFreePoolWithTag(PoolWithTag, 0);
     }
   }
 }

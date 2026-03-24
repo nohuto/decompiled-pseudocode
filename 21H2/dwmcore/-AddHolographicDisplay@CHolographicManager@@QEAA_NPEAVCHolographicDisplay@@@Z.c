@@ -1,20 +1,20 @@
 /*
- * XREFs of ?AddHolographicDisplay@CHolographicManager@@QEAA_NPEAVCHolographicDisplay@@@Z @ 0x1802951AC
+ * XREFs of ?AddHolographicDisplay@CHolographicManager@@QEAA_NPEAVCHolographicDisplay@@@Z @ 0x180252BC0
  * Callers:
- *     ?OnChanged@CHolographicDisplay@@AEAAXXZ @ 0x180298528 (-OnChanged@CHolographicDisplay@@AEAAXXZ.c)
+ *     ?OnChanged@CHolographicDisplay@@AEAAXXZ @ 0x180256628 (-OnChanged@CHolographicDisplay@@AEAAXXZ.c)
  * Callees:
- *     ?IsEnabled@CompositorTracing@@SA_NE_K@Z @ 0x180024D8C (-IsEnabled@CompositorTracing@@SA_NE_K@Z.c)
- *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x180024E64 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800CB358 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
- *     ?DwmHolographicDisplayAdd_@CompositorTracing@@QEAAXIAEBU_GUID@@@Z @ 0x180295790 (-DwmHolographicDisplayAdd_@CompositorTracing@@QEAAXIAEBU_GUID@@@Z.c)
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18029CF8C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800B8AF4 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C0950 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     ?IsEnabled@CompositorTracing@@SA_NE_K@Z @ 0x1800DB3BC (-IsEnabled@CompositorTracing@@SA_NE_K@Z.c)
+ *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800DB3E0 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
+ *     ?DwmHolographicDisplayAdd_@CompositorTracing@@QEAAXIAEBU_GUID@@@Z @ 0x1802531B0 (-DwmHolographicDisplayAdd_@CompositorTracing@@QEAAXIAEBU_GUID@@@Z.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A950 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
 bool __fastcall CHolographicManager::AddHolographicDisplay(RTL_SRWLOCK *this, struct CHolographicDisplay *a2)
 {
-  unsigned int v2; // ebp
+  unsigned int v2; // esi
   const struct _GUID *v3; // rbx
   __int64 v5; // rcx
   bool v6; // di
@@ -22,15 +22,16 @@ bool __fastcall CHolographicManager::AddHolographicDisplay(RTL_SRWLOCK *this, st
   __int64 v8; // rcx
   unsigned int Ptr; // eax
   unsigned int v10; // r8d
-  CHolographicInteropTaskQueue *v11; // rcx
-  struct IUnknown *v12; // r8
-  int v13; // eax
-  __int64 v14; // rcx
-  struct CHolographicDisplay *v16; // [rsp+58h] [rbp+10h] BYREF
+  int v11; // esi
+  int v12; // eax
+  __int64 v13; // rcx
+  CHolographicInteropTaskQueue *v14; // rcx
+  struct IUnknown *v15; // r8
+  CMILCOMBase *v17; // [rsp+58h] [rbp+10h] BYREF
 
-  v16 = a2;
-  v2 = *((_DWORD *)a2 + 22);
-  v3 = (const struct _GUID *)((char *)a2 + 92);
+  v17 = a2;
+  v2 = *((_DWORD *)a2 + 20);
+  v3 = (const struct _GUID *)((char *)a2 + 84);
   v6 = 0;
   if ( CompositorTracing::IsEnabled((__int64)this) )
   {
@@ -44,33 +45,37 @@ bool __fastcall CHolographicManager::AddHolographicDisplay(RTL_SRWLOCK *this, st
   v10 = Ptr + 1;
   if ( Ptr + 1 < Ptr )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, -2147024362, 0xB5u);
-    goto LABEL_13;
+    v11 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147024362, 0xB5u, 0LL);
+    goto LABEL_9;
   }
   if ( v10 > HIDWORD(this[16].Ptr) )
   {
-    v13 = DynArrayImpl<0>::AddMultipleAndSet((unsigned __int64)&this[14], 8u, 1, &v16);
-    if ( v13 < 0 )
+    v12 = DynArrayImpl<0>::AddMultipleAndSet((__int64)&this[14], 8, 1, &v17);
+    v11 = v12;
+    if ( v12 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0xC0u);
-      goto LABEL_13;
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0xC0u, 0LL);
+LABEL_9:
+      if ( v11 < 0 )
+        goto LABEL_14;
     }
   }
   else
   {
-    *((_QWORD *)this[14].Ptr + Ptr) = v16;
+    *((_QWORD *)this[14].Ptr + LODWORD(this[17].Ptr)) = v17;
     LODWORD(this[17].Ptr) = v10;
   }
-  CMILRefCountImpl::AddReference((struct CHolographicDisplay *)((char *)v16 + 8));
-  v11 = (CHolographicInteropTaskQueue *)this[6].Ptr;
-  if ( v11 )
+  CMILCOMBase::InternalAddRef(v17);
+  v14 = (CHolographicInteropTaskQueue *)this[6].Ptr;
+  if ( v14 )
   {
-    v12 = (struct IUnknown *)((char *)v16 + 72);
-    if ( !v16 )
-      v12 = 0LL;
-    v6 = CHolographicInteropTaskQueue::PostMessageW(v11, 6u, v12, 0LL, 0LL, 0LL, 0LL);
+    v15 = (struct IUnknown *)((char *)v17 + 64);
+    if ( !v17 )
+      v15 = 0LL;
+    v6 = CHolographicInteropTaskQueue::PostMessageW(v14, 6u, v15, 0LL, 0LL, 0LL, 0LL);
   }
-LABEL_13:
+LABEL_14:
   ReleaseSRWLockExclusive(this + 13);
   return v6;
 }

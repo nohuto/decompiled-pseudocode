@@ -1,16 +1,16 @@
 /*
- * XREFs of NtEnumerateSystemEnvironmentValuesEx @ 0x1409FF130
+ * XREFs of NtEnumerateSystemEnvironmentValuesEx @ 0x140953E70
  * Callers:
  *     <none>
  * Callees:
- *     ExUnlockUserBuffer @ 0x140206EC4 (ExUnlockUserBuffer.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     ExLockUserBuffer @ 0x140687918 (ExLockUserBuffer.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     IoEnumerateEnvironmentVariablesEx @ 0x1408407B0 (IoEnumerateEnvironmentVariablesEx.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExUnlockUserBuffer @ 0x1402EC94C (ExUnlockUserBuffer.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ExLockUserBuffer @ 0x1406605D0 (ExLockUserBuffer.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x14089993C (IoEnumerateEnvironmentVariablesEx.c)
  */
 
 __int64 __fastcall NtEnumerateSystemEnvironmentValuesEx(unsigned int a1, volatile void *a2, unsigned int *a3)
@@ -29,7 +29,7 @@ __int64 __fastcall NtEnumerateSystemEnvironmentValuesEx(unsigned int a1, volatil
   v13 = 0LL;
   v12 = 0;
   P = 0LL;
-  if ( dword_140C31AF0 != 2 )
+  if ( dword_140C197B0 != 2 )
     return 3221225474LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;

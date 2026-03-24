@@ -1,0 +1,43 @@
+/*
+ * XREFs of SetWindowCompositionDarkModeColors @ 0x1C0128FE4
+ * Callers:
+ *     NtUserSetWindowCompositionAttribute @ 0x1C0037AA0 (NtUserSetWindowCompositionAttribute.c)
+ * Callees:
+ *     SetWindowCompositionInfo @ 0x1C0037554 (SetWindowCompositionInfo.c)
+ *     DwmAsyncSetCompositionAttribute @ 0x1C00379B0 (DwmAsyncSetCompositionAttribute.c)
+ *     _GetWindowCompositionInfo @ 0x1C006DEB0 (_GetWindowCompositionInfo.c)
+ */
+
+__int64 __fastcall SetWindowCompositionDarkModeColors(__int64 *a1, __int128 *a2)
+{
+  unsigned int v4; // ebx
+  int v5; // ecx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  void *v9; // rax
+  _OWORD v10[2]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v11; // [rsp+40h] [rbp-18h]
+
+  memset(v10, 0, sizeof(v10));
+  v4 = -1073741816;
+  v11 = 0LL;
+  if ( (unsigned int)GetWindowCompositionInfo((__int64)a1, (__int64)v10) )
+  {
+    v5 = *(_DWORD *)a2 != 0;
+    if ( -__CFSHR__(v10[0], 17) == v5 )
+      return 0;
+    LODWORD(v10[0]) = v10[0] & 0xFFFEFFFF | (v5 << 16);
+    if ( !(unsigned int)SetWindowCompositionInfo((__int64)a1, (__int64)v10) )
+      return (unsigned int)-1073741801;
+    if ( !(unsigned int)IsWindowDesktopComposed(a1) )
+    {
+      return 0;
+    }
+    else
+    {
+      v9 = (void *)ReferenceDwmApiPort(v8, v7);
+      return (unsigned int)DwmAsyncSetCompositionAttribute(v9, *a1, 26, a2);
+    }
+  }
+  return v4;
+}

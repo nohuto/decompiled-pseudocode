@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CreatePartitionTable@SC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x140676090
+ * XREFs of ?CreatePartitionTable@SC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x1405C7400
  * Callers:
- *     ?CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x140675638 (-CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x1405C6B48 (-CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1406765EC (-WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C7950 (-WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
  */
 
 __int64 __fastcall SC_MBR::CreatePartitionTable(SC_MBR *this, struct _CREATE_DISK *a2)
@@ -17,7 +17,7 @@ __int64 __fastcall SC_MBR::CreatePartitionTable(SC_MBR *this, struct _CREATE_DIS
   _BYTE v9[180]; // [rsp+2Ch] [rbp-CCh] BYREF
 
   memset(v9, 0, sizeof(v9));
-  v4 = *(_QWORD *)(*(_QWORD *)this + 264LL);
+  v4 = *(_QWORD *)(*(_QWORD *)this + 256LL);
   memset((void *)(v4 + 446), 0, 0x40uLL);
   *(_DWORD *)(v4 + 440) = 0;
   *(_WORD *)(v4 + 510) = -21931;

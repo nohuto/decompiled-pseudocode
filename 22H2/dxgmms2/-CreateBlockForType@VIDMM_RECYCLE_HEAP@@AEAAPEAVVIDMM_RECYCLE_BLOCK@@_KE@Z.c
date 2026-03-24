@@ -1,13 +1,12 @@
 /*
- * XREFs of ?CreateBlockForType@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_BLOCK@@_KE@Z @ 0x1C008EF58
+ * XREFs of ?CreateBlockForType@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_BLOCK@@_KE@Z @ 0x1C0087984
  * Callers:
- *     ?CreateBlockAndRange@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@_KIE@Z @ 0x1C008EDC4 (-CreateBlockAndRange@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@_KIE@Z.c)
+ *     ?CreateBlockAndRange@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@_KIE@Z @ 0x1C0087734 (-CreateBlockAndRange@VIDMM_RECYCLE_HEAP@@AEAAPEAVVIDMM_RECYCLE_MULTIRANGE@@_KIE@Z.c)
  * Callees:
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0005F60 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_GVIDMM_RECYCLE_BLOCK@@QEAAPEAXI@Z @ 0x1C0017578 (--_GVIDMM_RECYCLE_BLOCK@@QEAAPEAXI@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     ??0VIDMM_RECYCLE_BLOCK@@QEAA@PEAVVIDMM_RECYCLE_HEAP@@@Z @ 0x1C008EFE8 (--0VIDMM_RECYCLE_BLOCK@@QEAA@PEAVVIDMM_RECYCLE_HEAP@@@Z.c)
- *     ?Allocate@VIDMM_RECYCLE_BLOCK@@QEAAJ_KE@Z @ 0x1C008F088 (-Allocate@VIDMM_RECYCLE_BLOCK@@QEAAJ_KE@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0001FC0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??_GVIDMM_RECYCLE_BLOCK@@QEAAPEAXI@Z @ 0x1C0015614 (--_GVIDMM_RECYCLE_BLOCK@@QEAAPEAXI@Z.c)
+ *     ?Allocate@VIDMM_RECYCLE_BLOCK@@QEAAJ_KE@Z @ 0x1C0087A18 (-Allocate@VIDMM_RECYCLE_BLOCK@@QEAAJ_KE@Z.c)
+ *     ??0VIDMM_RECYCLE_BLOCK@@QEAA@PEAVVIDMM_RECYCLE_HEAP@@@Z @ 0x1C0087C50 (--0VIDMM_RECYCLE_BLOCK@@QEAA@PEAVVIDMM_RECYCLE_HEAP@@@Z.c)
  */
 
 struct VIDMM_RECYCLE_BLOCK *__fastcall VIDMM_RECYCLE_HEAP::CreateBlockForType(
@@ -16,28 +15,35 @@ struct VIDMM_RECYCLE_BLOCK *__fastcall VIDMM_RECYCLE_HEAP::CreateBlockForType(
         unsigned __int8 a3)
 {
   VIDMM_RECYCLE_BLOCK *v6; // rax
-  VIDMM_RECYCLE_BLOCK *v7; // rax
-  VIDMM_RECYCLE_BLOCK *v8; // rdi
-  __int64 v10; // rcx
-  __int64 v11; // rcx
+  __int64 v7; // rcx
+  VIDMM_RECYCLE_BLOCK *v8; // rbx
+  __int64 v9; // rcx
+  __int64 v11; // rax
+  __int64 v12; // rax
 
-  v6 = (VIDMM_RECYCLE_BLOCK *)operator new(144LL, 0x31316956u, 256LL);
-  if ( v6 && (v7 = VIDMM_RECYCLE_BLOCK::VIDMM_RECYCLE_BLOCK(v6, this), (v8 = v7) != 0LL) )
+  v6 = (VIDMM_RECYCLE_BLOCK *)operator new[](0x90uLL, 0x31316956u, PagedPool);
+  if ( v6 )
+    v8 = VIDMM_RECYCLE_BLOCK::VIDMM_RECYCLE_BLOCK(v6, this);
+  else
+    v8 = 0LL;
+  if ( v8 )
   {
     if ( *((_BYTE *)this + 16) )
       a2 = (a2 + 0xFFFF) & 0xFFFFFFFFFFFF0000uLL;
-    if ( (int)VIDMM_RECYCLE_BLOCK::Allocate(v7, a2, a3) >= 0 )
+    if ( (int)VIDMM_RECYCLE_BLOCK::Allocate(v8, a2, a3) >= 0 )
       return v8;
-    _InterlockedIncrement(&dword_1C00767E4);
-    WdLogSingleEntry1(6LL, 9444LL);
-    DxgkLogInternalTriageEvent(v10, 262145LL);
+    _InterlockedIncrement(&dword_1C00506D4);
+    v12 = WdLogNewEntry5_WdLowResource(v9);
+    *(_QWORD *)(v12 + 24) = 9445LL;
+    WdLogEvent5_WdLowResource(v12);
     VIDMM_RECYCLE_BLOCK::`scalar deleting destructor'(v8);
   }
   else
   {
-    _InterlockedIncrement(&dword_1C00767E4);
-    WdLogSingleEntry1(6LL, 9426LL);
-    DxgkLogInternalTriageEvent(v11, 262145LL);
+    _InterlockedIncrement(&dword_1C00506D4);
+    v11 = WdLogNewEntry5_WdLowResource(v7);
+    *(_QWORD *)(v11 + 24) = 9427LL;
+    WdLogEvent5_WdLowResource(v11);
   }
   return 0LL;
 }

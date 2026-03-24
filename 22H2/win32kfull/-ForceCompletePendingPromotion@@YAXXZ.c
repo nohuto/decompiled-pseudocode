@@ -1,36 +1,37 @@
 /*
- * XREFs of ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C01F7D8C
+ * XREFs of ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C02183F8
  * Callers:
- *     xxxCleanupThreadPointerInputInfo @ 0x1C009BA60 (xxxCleanupThreadPointerInputInfo.c)
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
- *     ?ResetMousePromotionInfo@@YAXGG@Z @ 0x1C01F84A8 (-ResetMousePromotionInfo@@YAXGG@Z.c)
- *     ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C01F8C9C (-xxxPromotePointer@PointerPromotion@@YAHGKK@Z.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
+ *     xxxCleanupThreadPointerInputInfo @ 0x1C00FD5D0 (xxxCleanupThreadPointerInputInfo.c)
+ *     ?ResetMousePromotionInfo@@YAXGG@Z @ 0x1C0218B40 (-ResetMousePromotionInfo@@YAXGG@Z.c)
+ *     ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C0219274 (-xxxPromotePointer@PointerPromotion@@YAHGKK@Z.c)
  * Callees:
- *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C01F8228 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
- *     ?ResetPendingPromotion@@YAXXZ @ 0x1C01F8548 (-ResetPendingPromotion@@YAXXZ.c)
- *     ?ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C01F8684 (-ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
+ *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0218808 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
+ *     ?ResetPendingPromotion@@YAXXZ @ 0x1C0218BCC (-ResetPendingPromotion@@YAXXZ.c)
+ *     ?ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0218C80 (-ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
  */
 
-void __fastcall ForceCompletePendingPromotion(__int64 a1)
+void ForceCompletePendingPromotion(void)
 {
-  __int64 v1; // rbx
-  unsigned __int16 v2; // cx
-  struct tagMOUSE_PROMOTION_ENTRY *v3; // r9
-  unsigned int v4; // [rsp+40h] [rbp+8h] BYREF
-  struct tagMOUSE_PROMOTION_ENTRY *v5; // [rsp+48h] [rbp+10h] BYREF
-  struct tagMOUSE_PROMOTION_ENTRY *v6; // [rsp+50h] [rbp+18h] BYREF
+  unsigned __int16 v0; // bx
+  struct tagMOUSE_PROMOTION_ENTRY *v1; // r9
+  unsigned int v2; // [rsp+40h] [rbp+8h] BYREF
+  struct tagMOUSE_PROMOTION_ENTRY *v3; // [rsp+48h] [rbp+10h] BYREF
+  struct tagMOUSE_PROMOTION_ENTRY *v4; // [rsp+50h] [rbp+18h] BYREF
 
-  v6 = 0LL;
-  v5 = 0LL;
-  v1 = SGDGetUserSessionState(a1);
-  v2 = *(_WORD *)(v1 + 16280);
-  v4 = ((*(_DWORD *)(v1 + 16296) != 0) + 1) | (*(_DWORD *)(v1 + 16300) != 0 ? 50397184 : 16842752);
-  if ( !ValidatePointerPromotion(v2, *(_DWORD *)(v1 + 16284), &v4, &v6, &v5) )
+  v4 = 0LL;
+  v3 = 0LL;
+  v0 = word_1C0339BB0;
+  v2 = ((dword_1C0339BC0 != 0) + 16842753) | (dword_1C0339BC4 != 0 ? 0x2000000 : 0);
+  if ( !ValidatePointerPromotion(word_1C0339BB0, dword_1C0339BB4, &v2, &v4, &v3) )
     goto LABEL_5;
-  v3 = v5;
-  if ( v5 )
-    *((_DWORD *)v5 + 11) |= 0x20u;
-  if ( !PromotePointerInternal(*(_WORD *)(v1 + 16280), v4, v6, v3) )
+  v1 = v3;
+  if ( v3 )
+  {
+    *((_DWORD *)v3 + 11) |= 0x20u;
+    v0 = word_1C0339BB0;
+  }
+  if ( !PromotePointerInternal(v0, v2, v4, v1) )
 LABEL_5:
     ResetPendingPromotion();
 }

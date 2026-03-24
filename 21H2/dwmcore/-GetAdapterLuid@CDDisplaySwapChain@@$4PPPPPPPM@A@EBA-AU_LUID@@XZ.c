@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAdapterLuid@CDDisplaySwapChain@@$4PPPPPPPM@A@EBA?AU_LUID@@XZ @ 0x180108450
+ * XREFs of ?GetAdapterLuid@CDDisplaySwapChain@@$4PPPPPPPM@A@EBA?AU_LUID@@XZ @ 0x1800F7090
  * Callers:
  *     <none>
  * Callees:

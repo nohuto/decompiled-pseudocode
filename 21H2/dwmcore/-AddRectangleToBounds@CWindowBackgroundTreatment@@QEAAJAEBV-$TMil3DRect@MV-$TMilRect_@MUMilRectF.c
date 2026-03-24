@@ -1,14 +1,29 @@
 /*
- * XREFs of ?AddRectangleToBounds@CWindowBackgroundTreatment@@QEAAJAEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18000A530
+ * XREFs of ?AddRectangleToBounds@CWindowBackgroundTreatment@@QEAAJAEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180012C58
  * Callers:
- *     ?ProcessPostSubgraphWindowBackdropInput@CPreComputeContext@@AEAAJPEAVCVisual@@@Z @ 0x18000A124 (-ProcessPostSubgraphWindowBackdropInput@CPreComputeContext@@AEAAJPEAVCVisual@@@Z.c)
+ *     ?PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180088930 (-PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
  * Callees:
- *     ?UnionUnsafe@?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x1800CA048 (-UnionUnsafe@-$TMil3DRect@MV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@R.c)
+ *     ?UnionUnsafe@?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x1800B8360 (-UnionUnsafe@-$TMil3DRect@MV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@R.c)
  */
 
-__int64 __fastcall CWindowBackgroundTreatment::AddRectangleToBounds(__int64 a1, float *a2)
+__int64 __fastcall CWindowBackgroundTreatment::AddRectangleToBounds(__int64 a1, __int64 a2)
 {
-  if ( (float)(a2[2] - *a2) >= 0.99999988 && (float)(a2[3] - a2[1]) >= 0.99999988 )
-    TMil3DRect<float,TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(a1 + 88);
+  __int64 v3; // rcx
+
+  if ( (float)(*(float *)(a2 + 8) - *(float *)a2) >= 0.99999988
+    && (float)(*(float *)(a2 + 12) - *(float *)(a2 + 4)) >= 0.99999988 )
+  {
+    v3 = a1 + 144;
+    if ( *(_BYTE *)(a1 + 356) )
+    {
+      TMil3DRect<float,TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(v3);
+    }
+    else
+    {
+      *(_OWORD *)v3 = *(_OWORD *)a2;
+      *(_QWORD *)(v3 + 16) = *(_QWORD *)(a2 + 16);
+      *(_BYTE *)(a1 + 356) = 1;
+    }
+  }
   return 0LL;
 }

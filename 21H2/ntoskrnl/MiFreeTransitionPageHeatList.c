@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFreeTransitionPageHeatList @ 0x1405B7728
+ * XREFs of MiFreeTransitionPageHeatList @ 0x14055F5F4
  * Callers:
- *     MmCopyToCachedPage @ 0x1402BE8E0 (MmCopyToCachedPage.c)
- *     MmAccessFault @ 0x14031C860 (MmAccessFault.c)
- *     MmCheckCachedPageStates @ 0x140328690 (MmCheckCachedPageStates.c)
+ *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
+ *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
+ *     MmCopyToCachedPage @ 0x140331500 (MmCopyToCachedPage.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeTransitionPageHeatList(PSLIST_ENTRY ListEntry)
 {
-  if ( LOWORD(stru_140C52E60.Alignment) >= 0x40u )
+  if ( LOWORD(stru_140C4EA10.Alignment) >= 0x40u )
     ExFreePoolWithTag(ListEntry, 0);
   else
-    RtlpInterlockedPushEntrySList(&stru_140C52E60, ListEntry);
+    RtlpInterlockedPushEntrySList(&stru_140C4EA10, ListEntry);
 }

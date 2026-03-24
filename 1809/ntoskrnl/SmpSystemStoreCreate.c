@@ -1,14 +1,14 @@
 /*
- * XREFs of SmpSystemStoreCreate @ 0x14075EB48
+ * XREFs of SmpSystemStoreCreate @ 0x14075EB28
  * Callers:
- *     MiCreatePagingFile @ 0x14074BFD8 (MiCreatePagingFile.c)
- *     SmProcessConfigRequest @ 0x14075EA34 (SmProcessConfigRequest.c)
+ *     MiCreatePagingFile @ 0x14074BFB8 (MiCreatePagingFile.c)
+ *     SmProcessConfigRequest @ 0x14075EA14 (SmProcessConfigRequest.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     SmpDirtyStoreCreate @ 0x14066B50C (SmpDirtyStoreCreate.c)
+ *     SmpDirtyStoreCreate @ 0x14066B4EC (SmpDirtyStoreCreate.c)
  */
 
 __int64 SmpSystemStoreCreate()

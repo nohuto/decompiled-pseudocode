@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIThermalReadTemperature @ 0x1C0095BA4
+ * XREFs of ACPIThermalReadTemperature @ 0x1C00B5898
  * Callers:
- *     ACPIThermalWorker @ 0x1C00962F0 (ACPIThermalWorker.c)
+ *     ACPIThermalWorker @ 0x1C009AB00 (ACPIThermalWorker.c)
  * Callees:
- *     ACPIThermalUpdateTemperature @ 0x1C0042368 (ACPIThermalUpdateTemperature.c)
+ *     ACPIThermalUpdateTemperature @ 0x1C0013534 (ACPIThermalUpdateTemperature.c)
  */
 
 __int64 __fastcall ACPIThermalReadTemperature(__int64 a1, char a2)
@@ -15,18 +15,28 @@ __int64 __fastcall ACPIThermalReadTemperature(__int64 a1, char a2)
   unsigned int v8; // ecx
   unsigned int v9; // edx
   unsigned int v10; // eax
-  unsigned int v11; // eax
-  unsigned int v12; // eax
+  unsigned int v11; // ecx
+  bool v12; // cc
   unsigned int v13; // eax
-  unsigned int *v14; // rcx
-  __int64 v15; // r10
+  unsigned int v14; // ecx
+  bool v15; // cc
   unsigned int v16; // eax
-  IRP *v17; // rcx
-  __int64 v18; // rcx
-  struct _DEVICE_OBJECT *v19; // rdi
-  __int64 v20; // rdx
+  unsigned int v17; // ecx
+  bool v18; // cc
+  unsigned int v19; // eax
+  unsigned int v20; // ecx
+  bool v21; // cc
+  unsigned int *v22; // rcx
+  __int64 i; // r10
+  unsigned int v24; // eax
+  unsigned int v25; // edx
+  bool v26; // cc
+  IRP *v27; // rcx
+  __int64 v28; // rcx
+  struct _DEVICE_OBJECT *v29; // rdi
+  __int64 v30; // rdx
   __int64 result; // rax
-  int v22; // edx
+  int v32; // edx
 
   v2 = *(_QWORD *)(a1 + 200);
   v3 = 0;
@@ -34,128 +44,146 @@ __int64 __fastcall ACPIThermalReadTemperature(__int64 a1, char a2)
   v7 = (int *)(v2 + 224);
   *(_QWORD *)(v2 + 224) = 0LL;
   *(_DWORD *)(v2 + 232) = 0;
-  if ( a2 )
-    goto LABEL_45;
-  v8 = *(_DWORD *)(v2 + 104);
-  *v7 = -1;
-  if ( v8 )
+  if ( !a2 )
   {
-    v9 = *(_DWORD *)(v2 + 108);
-    v3 = v8 < v9 ? v9 - v8 : 0;
-    if ( ~v9 > v8 )
-      v6 = v9 + v8;
-  }
-  v10 = *(_DWORD *)(v2 + 20);
-  if ( v10 )
-  {
-    if ( v10 >= *(_DWORD *)(v2 + 16) )
+    v8 = *(_DWORD *)(v2 + 104);
+    *v7 = -1;
+    if ( v8 )
     {
-      if ( v10 > *(_DWORD *)(v2 + 16) && v10 < v6 )
+      v9 = *(_DWORD *)(v2 + 108);
+      v3 = v8 < v9 ? v9 - v8 : 0;
+      if ( ~v9 > v8 )
+        v6 = v9 + v8;
+    }
+    v10 = *(_DWORD *)(v2 + 20);
+    if ( v10 )
+    {
+      v11 = *(_DWORD *)(v2 + 16);
+      v12 = v10 <= v11;
+      if ( v10 < v11 )
+      {
+        if ( v10 > v3 )
+        {
+          v3 = *(_DWORD *)(v2 + 20);
+          goto LABEL_13;
+        }
+        v12 = v10 <= v11;
+      }
+      if ( !v12 && v10 < v6 )
         v6 = *(_DWORD *)(v2 + 20);
     }
-    else if ( v10 > v3 )
+LABEL_13:
+    v13 = *(_DWORD *)(v2 + 24);
+    if ( !v13 )
+      goto LABEL_21;
+    v14 = *(_DWORD *)(v2 + 16);
+    v15 = v13 <= v14;
+    if ( v13 < v14 )
     {
-      v3 = *(_DWORD *)(v2 + 20);
-    }
-  }
-  v11 = *(_DWORD *)(v2 + 24);
-  if ( v11 )
-  {
-    if ( v11 >= *(_DWORD *)(v2 + 16) )
-    {
-      if ( v11 > *(_DWORD *)(v2 + 16) && v11 < v6 )
-        v6 = *(_DWORD *)(v2 + 24);
-    }
-    else if ( v11 > v3 )
-    {
-      v3 = *(_DWORD *)(v2 + 24);
-    }
-  }
-  v12 = *(_DWORD *)(v2 + 28);
-  if ( v12 )
-  {
-    if ( v12 >= *(_DWORD *)(v2 + 16) )
-    {
-      if ( v12 > *(_DWORD *)(v2 + 16) && v12 < v6 )
-        v6 = *(_DWORD *)(v2 + 28);
-    }
-    else if ( v12 > v3 )
-    {
-      v3 = *(_DWORD *)(v2 + 28);
-    }
-  }
-  v13 = *(_DWORD *)(v2 + 76);
-  if ( v13 )
-  {
-    if ( v13 >= *(_DWORD *)(v2 + 16) )
-    {
-      if ( v13 > *(_DWORD *)(v2 + 16) && v13 < v6 )
-        v6 = *(_DWORD *)(v2 + 76);
-    }
-    else if ( v13 > v3 )
-    {
-      v3 = *(_DWORD *)(v2 + 76);
-    }
-  }
-  if ( *(_BYTE *)(v2 + 32) )
-  {
-    v14 = (unsigned int *)(v2 + 36);
-    v15 = *(unsigned __int8 *)(v2 + 32);
-    do
-    {
-      v16 = *v14;
-      if ( *v14 )
+      if ( v13 > v3 )
       {
-        if ( v16 >= *(_DWORD *)(v2 + 16) )
-        {
-          if ( v16 > *(_DWORD *)(v2 + 16) && v16 < v6 )
-            v6 = *v14;
-        }
-        else if ( v16 > v3 )
-        {
-          v3 = *v14;
-        }
+        v3 = *(_DWORD *)(v2 + 24);
+        goto LABEL_21;
       }
-      ++v14;
-      --v15;
+      v15 = v13 <= v14;
     }
-    while ( v15 );
-  }
-  if ( v3 || v6 != -1 )
-  {
-LABEL_45:
-    v17 = *(IRP **)(v2 + 208);
-    *(_DWORD *)(v2 + 228) = v3;
-    *(_DWORD *)(v2 + 232) = v6;
-    IoReuseIrp(v17, -1073741637);
-    v18 = *(_QWORD *)(*(_QWORD *)(v2 + 208) + 184LL);
-    *(_BYTE *)(v18 - 72) = 14;
-    *(_DWORD *)(v18 - 48) = 2703504;
-    *(_DWORD *)(v18 - 56) = 12;
-    *(_DWORD *)(v18 - 64) = 4;
-    *(_QWORD *)(*(_QWORD *)(v2 + 208) + 24LL) = v7;
-    v19 = *(struct _DEVICE_OBJECT **)(v2 + 216);
-    if ( a2 )
+    if ( !v15 && v13 < v6 )
+      v6 = *(_DWORD *)(v2 + 24);
+LABEL_21:
+    v16 = *(_DWORD *)(v2 + 28);
+    if ( !v16 )
+      goto LABEL_29;
+    v17 = *(_DWORD *)(v2 + 16);
+    v18 = v16 <= v17;
+    if ( v16 < v17 )
     {
-      result = IoSynchronousCallDriver(*(_QWORD *)(v2 + 216), *(_QWORD *)(v2 + 208));
-      if ( (int)result < 0 )
+      if ( v16 > v3 )
       {
-        *(_BYTE *)(v2 + 272) = 1;
-        return result;
+        v3 = *(_DWORD *)(v2 + 28);
+        goto LABEL_29;
       }
-      v22 = *v7;
-      *(_BYTE *)(v2 + 272) = 0;
-      ACPIThermalUpdateTemperature(a1, v22);
+      v18 = v16 <= v17;
     }
-    else
+    if ( !v18 && v16 < v6 )
+      v6 = *(_DWORD *)(v2 + 28);
+LABEL_29:
+    v19 = *(_DWORD *)(v2 + 76);
+    if ( !v19 )
+      goto LABEL_37;
+    v20 = *(_DWORD *)(v2 + 16);
+    v21 = v19 <= v20;
+    if ( v19 < v20 )
     {
-      KeClearEvent((PRKEVENT)(v2 + 248));
-      v20 = *(_QWORD *)(*(_QWORD *)(v2 + 208) + 184LL);
-      *(_QWORD *)(v20 - 16) = ACPIThermalReadTemperatureComplete;
-      *(_QWORD *)(v20 - 8) = a1;
-      *(_BYTE *)(v20 - 69) = -32;
-      IofCallDriver(v19, *(PIRP *)(v2 + 208));
+      if ( v19 > v3 )
+      {
+        v3 = *(_DWORD *)(v2 + 76);
+        goto LABEL_37;
+      }
+      v21 = v19 <= v20;
     }
+    if ( !v21 && v19 < v6 )
+      v6 = *(_DWORD *)(v2 + 76);
+LABEL_37:
+    if ( *(_BYTE *)(v2 + 32) )
+    {
+      v22 = (unsigned int *)(v2 + 36);
+      for ( i = *(unsigned __int8 *)(v2 + 32); i; --i )
+      {
+        v24 = *v22;
+        if ( *v22 )
+        {
+          v25 = *(_DWORD *)(v2 + 16);
+          v26 = v24 <= v25;
+          if ( v24 >= v25 )
+            goto LABEL_44;
+          if ( v24 <= v3 )
+          {
+            v26 = v24 <= v25;
+LABEL_44:
+            if ( !v26 && v24 < v6 )
+              v6 = *v22;
+            goto LABEL_47;
+          }
+          v3 = *v22;
+        }
+LABEL_47:
+        ++v22;
+      }
+    }
+    if ( !v3 && v6 == -1 )
+      return 0LL;
+  }
+  v27 = *(IRP **)(v2 + 208);
+  *(_DWORD *)(v2 + 228) = v3;
+  *(_DWORD *)(v2 + 232) = v6;
+  IoReuseIrp(v27, -1073741637);
+  v28 = *(_QWORD *)(*(_QWORD *)(v2 + 208) + 184LL);
+  *(_BYTE *)(v28 - 72) = 14;
+  *(_DWORD *)(v28 - 48) = 2703504;
+  *(_DWORD *)(v28 - 56) = 12;
+  *(_DWORD *)(v28 - 64) = 4;
+  *(_QWORD *)(*(_QWORD *)(v2 + 208) + 24LL) = v7;
+  v29 = *(struct _DEVICE_OBJECT **)(v2 + 216);
+  if ( a2 )
+  {
+    result = IoSynchronousCallDriver(*(_QWORD *)(v2 + 216), *(_QWORD *)(v2 + 208));
+    if ( (int)result < 0 )
+    {
+      *(_BYTE *)(v2 + 272) = 1;
+      return result;
+    }
+    v32 = *v7;
+    *(_BYTE *)(v2 + 272) = 0;
+    ACPIThermalUpdateTemperature(a1, v32);
+  }
+  else
+  {
+    KeClearEvent((PRKEVENT)(v2 + 248));
+    v30 = *(_QWORD *)(*(_QWORD *)(v2 + 208) + 184LL);
+    *(_QWORD *)(v30 - 16) = ACPIThermalReadTemperatureComplete;
+    *(_QWORD *)(v30 - 8) = a1;
+    *(_BYTE *)(v30 - 69) = -32;
+    IofCallDriver(v29, *(PIRP *)(v2 + 208));
   }
   return 0LL;
 }

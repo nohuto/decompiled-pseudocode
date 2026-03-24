@@ -1,7 +1,7 @@
 /*
- * XREFs of MiDoSingleFixup @ 0x140A480D4
+ * XREFs of MiDoSingleFixup @ 0x1408D7CA0
  * Callers:
- *     MiApplyRawFixups @ 0x140A47F50 (MiApplyRawFixups.c)
+ *     MiApplyRawFixups @ 0x1408D7B1C (MiApplyRawFixups.c)
  * Callees:
  *     <none>
  */

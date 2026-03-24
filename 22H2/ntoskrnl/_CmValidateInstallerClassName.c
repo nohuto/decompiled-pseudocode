@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmValidateInstallerClassName @ 0x140787D8C
+ * XREFs of _CmValidateInstallerClassName @ 0x14069BFB8
  * Callers:
- *     _PnpDispatchInstallerClass @ 0x14069AE50 (_PnpDispatchInstallerClass.c)
- *     _CmGetCommonClassRegKeyPath @ 0x1407881B4 (_CmGetCommonClassRegKeyPath.c)
- *     _CmGetDeviceInterfaceName @ 0x1407C5F48 (_CmGetDeviceInterfaceName.c)
- *     _PnpDispatchInterfaceClass @ 0x1407C6330 (_PnpDispatchInterfaceClass.c)
- *     _CmClassSubkeyCallback @ 0x140843910 (_CmClassSubkeyCallback.c)
+ *     _PnpDispatchInterfaceClass @ 0x1406B4230 (_PnpDispatchInterfaceClass.c)
+ *     _CmGetCommonClassRegKeyPath @ 0x1406BDDC0 (_CmGetCommonClassRegKeyPath.c)
+ *     _PnpDispatchInstallerClass @ 0x14073B280 (_PnpDispatchInstallerClass.c)
+ *     _CmGetDeviceInterfaceName @ 0x140745110 (_CmGetDeviceInterfaceName.c)
+ *     _CmClassSubkeyCallback @ 0x1407BD930 (_CmClassSubkeyCallback.c)
  * Callees:
- *     _PnpIsValidGuidString @ 0x1407882EC (_PnpIsValidGuidString.c)
+ *     _PnpIsValidGuidString @ 0x1406BDA50 (_PnpIsValidGuidString.c)
  */
 
 __int64 __fastcall CmValidateInstallerClassName(__int64 a1, const WCHAR *a2)

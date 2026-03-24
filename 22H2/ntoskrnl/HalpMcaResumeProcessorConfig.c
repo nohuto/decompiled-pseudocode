@@ -1,48 +1,48 @@
 /*
- * XREFs of HalpMcaResumeProcessorConfig @ 0x140A952C0
+ * XREFs of HalpMcaResumeProcessorConfig @ 0x140995A30
  * Callers:
- *     HalpPostSleepMP @ 0x140A97068 (HalpPostSleepMP.c)
- *     HalpDpPostReplaceInitialization @ 0x140A976B4 (HalpDpPostReplaceInitialization.c)
+ *     HalpPostSleepMP @ 0x140995854 (HalpPostSleepMP.c)
+ *     HalpDpPostReplaceInitialization @ 0x1409A8618 (HalpDpPostReplaceInitialization.c)
  * Callees:
- *     HalpCmciInitProcessor @ 0x1403807F8 (HalpCmciInitProcessor.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpMcaSetProcessorConfig @ 0x140A8B414 (HalpMcaSetProcessorConfig.c)
- *     HalpIsCmciImplemented @ 0x140A91BE8 (HalpIsCmciImplemented.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpIsCmciImplemented @ 0x140999C54 (HalpIsCmciImplemented.c)
+ *     HalpCmciInitProcessor @ 0x140999D10 (HalpCmciInitProcessor.c)
+ *     HalpMcaSetProcessorConfig @ 0x140999E38 (HalpMcaSetProcessorConfig.c)
  */
 
-char __fastcall HalpMcaResumeProcessorConfig(int a1)
+__int64 __fastcall HalpMcaResumeProcessorConfig(int a1)
 {
-  KPCR *Pcr; // rax
+  __int64 result; // rax
   __int64 i; // rdi
   __int64 v4; // rbx
-  _BYTE v6[976]; // [rsp+20h] [rbp-3E8h] BYREF
+  _BYTE v5[976]; // [rsp+20h] [rbp-3E8h] BYREF
 
-  memset(v6, 0, 0x3CCuLL);
-  LOBYTE(Pcr) = HalpFeatureBits;
+  memset(v5, 0, 0x3CCuLL);
+  result = (unsigned int)HalpFeatureBits;
   if ( (HalpFeatureBits & 0xC) != 0 )
   {
-    Pcr = KeGetPcr();
-    for ( i = *(_QWORD *)&Pcr->HalReserved[6]; i; i = *(_QWORD *)(i + 184) )
+    result = (__int64)KeGetPcr();
+    for ( i = *(_QWORD *)(result + 216); i; i = *(_QWORD *)(i + 176) )
     {
-      v4 = *(_QWORD *)(i + 172);
+      v4 = *(_QWORD *)(i + 164);
       if ( a1 )
       {
         if ( a1 == 1 )
         {
-          HalpMcaSetProcessorConfig((__int64)HalpMceErrorSource, *(_QWORD *)(i + 172));
-          LOBYTE(Pcr) = HalpIsCmciImplemented();
-          if ( (_BYTE)Pcr )
-            LOBYTE(Pcr) = HalpCmciInitProcessor((__int64)HalpCmcErrorSource, v4);
+          HalpMcaSetProcessorConfig(HalpMceErrorSource, *(_QWORD *)(i + 164));
+          result = HalpIsCmciImplemented();
+          if ( (_BYTE)result )
+            result = HalpCmciInitProcessor(HalpCmcErrorSource, v4);
         }
       }
       else
       {
-        memset(v6, 0, 0x3CCuLL);
-        PshedGetErrorSourceInfo(0LL, v6);
-        LOBYTE(Pcr) = HalpMcaSetProcessorConfig((__int64)v6, v4);
+        memset(v5, 0, 0x3CCuLL);
+        PshedGetErrorSourceInfo(0LL, v5);
+        result = HalpMcaSetProcessorConfig(v5, v4);
       }
     }
   }
-  return (char)Pcr;
+  return result;
 }

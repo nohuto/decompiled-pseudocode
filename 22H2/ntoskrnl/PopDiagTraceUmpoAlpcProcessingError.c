@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceUmpoAlpcProcessingError @ 0x140992088
+ * XREFs of PopDiagTraceUmpoAlpcProcessingError @ 0x1408EBC94
  * Callers:
- *     PopUmpoProcessMessages @ 0x1407A6E58 (PopUmpoProcessMessages.c)
+ *     PopUmpoProcessMessages @ 0x1406F31D4 (PopUmpoProcessMessages.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void PopDiagTraceUmpoAlpcProcessingError()
@@ -17,21 +17,15 @@ void PopDiagTraceUmpoAlpcProcessingError()
   int v4; // [rsp+60h] [rbp-18h]
   int v5; // [rsp+64h] [rbp-14h]
 
-  if ( (unsigned int)dword_140C03950 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
     {
       v5 = 0;
       v3 = &v1;
       v1 = v0;
       v4 = 4;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03950,
-        (unsigned __int8 *)&byte_14002DD27,
-        0LL,
-        0LL,
-        3u,
-        &v2);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02228, (unsigned __int8 *)byte_1400272FD, 0LL, 0LL, 3u, &v2);
     }
   }
 }

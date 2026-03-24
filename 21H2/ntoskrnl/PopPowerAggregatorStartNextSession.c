@@ -1,21 +1,20 @@
 /*
- * XREFs of PopPowerAggregatorStartNextSession @ 0x1408095C4
+ * XREFs of PopPowerAggregatorStartNextSession @ 0x140774C94
  * Callers:
- *     PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x140808910 (PopPowerAggregatorDisplayPoweringOnStateHandler.c)
- *     PopPowerAggregatorActiveToScreenOffStateHandler @ 0x14080C690 (PopPowerAggregatorActiveToScreenOffStateHandler.c)
+ *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140774B20 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
+ *     PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140774BE0 (PopPowerAggregatorSystemTransitionExitStateHandler.c)
+ *     PopPowerAggregatorActiveToScreenOffStateHandler @ 0x1408EDF00 (PopPowerAggregatorActiveToScreenOffStateHandler.c)
+ *     PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x1408EE120 (PopPowerAggregatorDisplayPoweringOnStateHandler.c)
+ *     PopPowerAggregatorScreenOffEnterStateHandler @ 0x1408EE7F0 (PopPowerAggregatorScreenOffEnterStateHandler.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PopGetMonitorReasonFromPowerEventId @ 0x14039ADE8 (PopGetMonitorReasonFromPowerEventId.c)
- *     PopSleepstudyStartNextSession @ 0x140809838 (PopSleepstudyStartNextSession.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopSleepstudyStartNextSession @ 0x140774CD8 (PopSleepstudyStartNextSession.c)
  */
 
-struct _KTHREAD *__fastcall PopPowerAggregatorStartNextSession(unsigned int a1, int a2)
+struct _KTHREAD *__fastcall PopPowerAggregatorStartNextSession(unsigned int a1, unsigned int a2)
 {
-  __int64 MonitorReasonFromPowerEventId; // rax
-
   PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorLock);
-  MonitorReasonFromPowerEventId = PopGetMonitorReasonFromPowerEventId(a2);
-  PopSleepstudyStartNextSession(a1, MonitorReasonFromPowerEventId & 0xFFFFFF);
+  PopSleepstudyStartNextSession(a1, a2);
   return PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
 }

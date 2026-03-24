@@ -1,5 +1,5 @@
 /*
- * XREFs of VidSchIsContextFlushable @ 0x1C00F4740
+ * XREFs of VidSchIsContextFlushable @ 0x1C00D1AA0
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 bool __fastcall VidSchIsContextFlushable(__int64 a1)
 {
   return !*(_DWORD *)(a1 + 796)
-      && (!*(_DWORD *)(a1 + 800) || !*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 104) + 32LL) + 816LL));
+      && (!*(_DWORD *)(a1 + 800) || !*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 104) + 32LL) + 808LL));
 }

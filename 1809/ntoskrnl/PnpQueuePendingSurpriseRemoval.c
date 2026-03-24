@@ -1,21 +1,21 @@
 /*
- * XREFs of PnpQueuePendingSurpriseRemoval @ 0x1406ED8CC
+ * XREFs of PnpQueuePendingSurpriseRemoval @ 0x1406ED8AC
  * Callers:
- *     PiEventRemovalPostSurpriseRemove @ 0x1406EF390 (PiEventRemovalPostSurpriseRemove.c)
+ *     PiEventRemovalPostSurpriseRemove @ 0x1406EF370 (PiEventRemovalPostSurpriseRemove.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
  *     PnpAcquireDependencyRelationsLock @ 0x14059D8F4 (PnpAcquireDependencyRelationsLock.c)
- *     IopEnumerateRelations @ 0x1406EE0D4 (IopEnumerateRelations.c)
- *     IopIsDescendantNode @ 0x1406EE7EC (IopIsDescendantNode.c)
- *     IopAllocateRelationList @ 0x1406EE99C (IopAllocateRelationList.c)
- *     IopFreeRelationList @ 0x1406EEA5C (IopFreeRelationList.c)
- *     PnpAllocateCriticalMemory @ 0x1406EEB84 (PnpAllocateCriticalMemory.c)
- *     IopCheckIfMergeRequired @ 0x14083AA88 (IopCheckIfMergeRequired.c)
- *     IopMergeRelationLists @ 0x14083AB88 (IopMergeRelationLists.c)
+ *     IopEnumerateRelations @ 0x1406EE0B4 (IopEnumerateRelations.c)
+ *     IopIsDescendantNode @ 0x1406EE7CC (IopIsDescendantNode.c)
+ *     IopAllocateRelationList @ 0x1406EE97C (IopAllocateRelationList.c)
+ *     IopFreeRelationList @ 0x1406EEA3C (IopFreeRelationList.c)
+ *     PnpAllocateCriticalMemory @ 0x1406EEB64 (PnpAllocateCriticalMemory.c)
+ *     IopCheckIfMergeRequired @ 0x14083AA68 (IopCheckIfMergeRequired.c)
+ *     IopMergeRelationLists @ 0x14083AB68 (IopMergeRelationLists.c)
  */
 
 _QWORD *__fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, void **a2, int a3, int a4)

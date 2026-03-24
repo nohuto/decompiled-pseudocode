@@ -1,9 +1,9 @@
 /*
- * XREFs of Bulk_EP_EnableForwardProgress @ 0x1C0044580
+ * XREFs of Bulk_EP_EnableForwardProgress @ 0x1C0043DE0
  * Callers:
  *     <none>
  * Callees:
- *     TR_EnsureSegments @ 0x1C0008D50 (TR_EnsureSegments.c)
+ *     TR_EnsureSegments @ 0x1C00098D0 (TR_EnsureSegments.c)
  */
 
 __int64 __fastcall Bulk_EP_EnableForwardProgress(__int64 a1, unsigned int a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PciGetRootBusCapability @ 0x1C008FD00
+ * XREFs of PciGetRootBusCapability @ 0x1C0098470
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     AcpiEvaluateDsmMethodOnPciRootBus @ 0x1C008FDE0 (AcpiEvaluateDsmMethodOnPciRootBus.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     AcpiEvaluateDsmMethodOnPciRootBus @ 0x1C0098550 (AcpiEvaluateDsmMethodOnPciRootBus.c)
  */
 
 char __fastcall PciGetRootBusCapability(__int64 a1, __int64 a2)
@@ -27,7 +27,7 @@ char __fastcall PciGetRootBusCapability(__int64 a1, __int64 a2)
   *(_BYTE *)(a1 + 216) = 0;
   if ( v4 < 0 )
     v5 = 0;
-  v6 = *(const char **)(a1 + 608);
+  v6 = *(const char **)(a1 + 568);
   if ( v6 && strstr(v6, "PNP0A08")
     || (v8 = *(const char **)(a1 + 192)) != 0LL && strstr(v8, "PNP0A08")
     || (v9 = *(const char **)(a1 + 200)) != 0LL && strstr(v9, "PNP0A08") )

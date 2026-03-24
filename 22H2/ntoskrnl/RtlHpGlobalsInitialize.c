@@ -1,25 +1,23 @@
 /*
- * XREFs of RtlHpGlobalsInitialize @ 0x1403985DC
+ * XREFs of RtlHpGlobalsInitialize @ 0x1403C3AD0
  * Callers:
- *     ExInitializePoolHeapManagement @ 0x1403970EC (ExInitializePoolHeapManagement.c)
- *     ExpInitSystemPhase0 @ 0x140B61954 (ExpInitSystemPhase0.c)
+ *     RtlHpKInitializeHeapManager @ 0x1403C3A48 (RtlHpKInitializeHeapManager.c)
+ *     ExpInitSystemPhase0 @ 0x140A69014 (ExpInitSystemPhase0.c)
  * Callees:
- *     RtlpHeapGenerateRandomValue64 @ 0x1403173A8 (RtlpHeapGenerateRandomValue64.c)
- *     RtlIsProcessorFeaturePresent @ 0x140364F00 (RtlIsProcessorFeaturePresent.c)
- *     memset @ 0x140435400 (memset.c)
+ *     RtlpHeapGenerateRandomValue64 @ 0x1402FF5BC (RtlpHeapGenerateRandomValue64.c)
  */
 
-char RtlHpGlobalsInitialize()
+void *RtlHpGlobalsInitialize()
 {
-  char result; // al
+  void *result; // rax
 
-  memset(&RtlpHpHeapGlobals, 0, 0x40uLL);
-  RtlpHpHeapGlobals = RtlpHeapGenerateRandomValue64();
-  qword_140C6B388 = RtlpHeapGenerateRandomValue64();
-  qword_140C6B390 = (__int64)&RtlpHeapFailureInfo;
-  result = RtlIsProcessorFeaturePresent(0x2Au);
-  if ( result )
-    LODWORD(qword_140C6B3B8) = qword_140C6B3B8 | 1;
-  LODWORD(qword_140C6B3B8) = qword_140C6B3B8 | 2;
+  RtlpHpHeapGlobals = 0LL;
+  qword_140C1DE50 = 0LL;
+  xmmword_140C1DE30 = 0LL;
+  unk_140C1DE40 = 0LL;
+  *(_QWORD *)&RtlpHpHeapGlobals = RtlpHeapGenerateRandomValue64();
+  *((_QWORD *)&RtlpHpHeapGlobals + 1) = RtlpHeapGenerateRandomValue64();
+  result = &RtlpHeapFailureInfo;
+  *(_QWORD *)&xmmword_140C1DE30 = &RtlpHeapFailureInfo;
   return result;
 }

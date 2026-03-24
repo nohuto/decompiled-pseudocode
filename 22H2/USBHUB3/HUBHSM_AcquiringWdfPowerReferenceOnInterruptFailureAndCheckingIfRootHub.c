@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_AcquiringWdfPowerReferenceOnInterruptFailureAndCheckingIfRootHub @ 0x1C0008440
+ * XREFs of HUBHSM_AcquiringWdfPowerReferenceOnInterruptFailureAndCheckingIfRootHub @ 0x1C0007C90
  * Callers:
  *     <none>
  * Callees:
- *     HUBFDO_AcquireWdfPowerReference @ 0x1C000DF34 (HUBFDO_AcquireWdfPowerReference.c)
+ *     HUBFDO_AcquireWdfPowerReference @ 0x1C000CD44 (HUBFDO_AcquireWdfPowerReference.c)
  */
 
 __int64 __fastcall HUBHSM_AcquiringWdfPowerReferenceOnInterruptFailureAndCheckingIfRootHub(__int64 a1)

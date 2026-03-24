@@ -1,14 +1,14 @@
 /*
- * XREFs of ?GreSetICMMode@@YAHPEAUHDC__@@KK@Z @ 0x1C00E3818
+ * XREFs of ?GreSetICMMode@@YAHPEAUHDC__@@KK@Z @ 0x1C014C758
  * Callers:
- *     NtGdiSetIcmMode @ 0x1C00E3800 (NtGdiSetIcmMode.c)
+ *     NtGdiSetIcmMode @ 0x1C014C740 (NtGdiSetIcmMode.c)
  * Callees:
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C002CEF0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C003FD70 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D630 (--0-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E9B0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00ACCE0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A69C (--0-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreSetICMMode(HDC a1, int a2, unsigned int a3)
@@ -45,7 +45,7 @@ __int64 __fastcall GreSetICMMode(HDC a1, int a2, unsigned int a3)
   if ( !v31[0] )
   {
     v5 = 0;
-    goto LABEL_46;
+    goto LABEL_45;
   }
   v25[1] = 0LL;
   UnexpectedThreadTerminationHandler<DLODCOBJ>::UnexpectedThreadTerminationHandler<DLODCOBJ>(v26);
@@ -58,7 +58,7 @@ __int64 __fastcall GreSetICMMode(HDC a1, int a2, unsigned int a3)
   v29 = 0LL;
   v28 = 0LL;
   if ( !DEVLOCKOBJ::bLock((DEVLOCKOBJ *)&v22, (struct XDCOBJ *)v31, 0) )
-    goto LABEL_43;
+    goto LABEL_42;
   v6 = *(_DWORD *)(v31[0] + 120LL);
   v7 = *(_QWORD *)(v31[0] + 48LL);
   v8 = v6 & 0xF0000000;
@@ -70,42 +70,42 @@ __int64 __fastcall GreSetICMMode(HDC a1, int a2, unsigned int a3)
     {
       v10 = 0;
       v9 = v6 & 0xF0;
-      goto LABEL_32;
+      goto LABEL_30;
     }
-    if ( ((a3 - 256) & 0xFFFFFCFF) != 0 || a3 == 768 )
-      goto LABEL_10;
-    v10 = a3;
-    v11 = (a3 >> 8) & 0xF;
-    if ( (a3 & 0x200) != 0 )
+    if ( ((a3 - 256) & 0xFFFFFCFF) == 0 && a3 != 768 )
     {
-      if ( !v7 )
-        goto LABEL_10;
-      if ( (*(_DWORD *)(v7 + 1792) & 0x2000000) == 0 || *(_DWORD *)(v31[0] + 32LL) == 1 )
-        v11 = 1;
+      v10 = a3;
+      v11 = (a3 >> 8) & 0xF;
+      if ( (a3 & 0x200) != 0 )
+      {
+        if ( !v7 )
+          goto LABEL_10;
+        if ( (*(_DWORD *)(v7 + 1824) & 0x2000000) == 0 || *(_DWORD *)(v31[0] + 32LL) == 1 )
+          v11 = 1;
+      }
+      v9 = v6 & 0xF0 | v11;
+      goto LABEL_31;
     }
-    v9 = v6 & 0xF0 | v11;
-    goto LABEL_32;
+LABEL_10:
+    v5 = 0;
+    goto LABEL_42;
   }
   if ( a2 == 2 )
   {
     v9 = (unsigned __int8)v6 | 0x20;
     if ( !a3 )
       v9 = v6 & 0xDF;
-    goto LABEL_32;
+    goto LABEL_31;
   }
   if ( (unsigned int)(a2 - 3) > 1 )
     goto LABEL_10;
   if ( ((a3 - 8) & 0xFFFFFFF7) == 0 )
   {
     v8 = 0x20000000;
-    goto LABEL_17;
+    goto LABEL_30;
   }
-  if ( a3 != 32 && a3 != 773 || !v7 || (*(_DWORD *)(v7 + 1792) & 0x4000000) == 0 )
-  {
-LABEL_10:
-    v5 = 0;
-    goto LABEL_43;
-  }
+  if ( a3 != 32 && a3 != 773 || !v7 || (*(_DWORD *)(v7 + 1824) & 0x4000000) == 0 )
+    goto LABEL_10;
   v9 = (unsigned __int8)v6 | 0x10;
   v8 = 0x20000000;
   if ( *(_DWORD *)(v31[0] + 32LL) != 1 )
@@ -113,10 +113,10 @@ LABEL_10:
     v9 = (unsigned __int8)v6;
     v8 = 0x10000000;
   }
-LABEL_17:
+LABEL_30:
   if ( a2 != 4 )
   {
-LABEL_32:
+LABEL_31:
     if ( (unsigned __int8)v6 != v9
       || (*(_DWORD *)(v31[0] + 120LL) & 0xF00) != v10
       || (*(_DWORD *)(v31[0] + 120LL) & 0xF0000000) != v8 )
@@ -152,12 +152,12 @@ LABEL_32:
       }
     }
   }
-LABEL_43:
+LABEL_42:
   DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v22);
   if ( v25[0] )
     DLODCOBJ::vUnlock((DLODCOBJ *)v25);
   UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v26);
-LABEL_46:
+LABEL_45:
   DCOBJ::~DCOBJ((DCOBJ *)v31);
   return v5;
 }

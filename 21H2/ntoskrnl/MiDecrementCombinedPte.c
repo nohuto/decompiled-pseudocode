@@ -1,58 +1,47 @@
 /*
- * XREFs of MiDecrementCombinedPte @ 0x1402399A8
+ * XREFs of MiDecrementCombinedPte @ 0x140366EC4
  * Callers:
- *     MiDereferenceCombineBlock @ 0x140239978 (MiDereferenceCombineBlock.c)
- *     MiDeleteSystemPagableVm @ 0x14027E810 (MiDeleteSystemPagableVm.c)
- *     MiDeletePteList @ 0x1402C3BA0 (MiDeletePteList.c)
- *     MiDeletePteRun @ 0x1402C8FD0 (MiDeletePteRun.c)
- *     MiDecommitPages @ 0x1402CE240 (MiDecommitPages.c)
- *     MiCopyOnWrite @ 0x140316400 (MiCopyOnWrite.c)
- *     MiDeleteVa @ 0x140330730 (MiDeleteVa.c)
- *     MiDeleteValidSystemPage @ 0x14033BEC0 (MiDeleteValidSystemPage.c)
- *     MiProcessCrcList @ 0x1406F2C30 (MiProcessCrcList.c)
- *     MiDereferenceCombineCrc @ 0x1406F33E4 (MiDereferenceCombineCrc.c)
+ *     MiDeletePteList @ 0x140231820 (MiDeletePteList.c)
+ *     MiDeletePteRun @ 0x140236C60 (MiDeletePteRun.c)
+ *     MiCopyOnWrite @ 0x14023F300 (MiCopyOnWrite.c)
+ *     MiDeleteSystemPagableVm @ 0x140305A80 (MiDeleteSystemPagableVm.c)
+ *     MiDeleteValidSystemPage @ 0x140328E20 (MiDeleteValidSystemPage.c)
+ *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
+ *     MiDeleteVa @ 0x140337A80 (MiDeleteVa.c)
+ *     MiDereferenceCombineBlock @ 0x140369F60 (MiDereferenceCombineBlock.c)
+ *     MiProcessCrcList @ 0x140726B20 (MiProcessCrcList.c)
+ *     MiDereferenceCombineCrc @ 0x14072783C (MiDereferenceCombineCrc.c)
  * Callees:
- *     MiFreeCombineBlock @ 0x140239A98 (MiFreeCombineBlock.c)
- *     MiDeleteMergedPte @ 0x140239C2C (MiDeleteMergedPte.c)
- *     MiLogCombinedPteDelete @ 0x1405B62A0 (MiLogCombinedPteDelete.c)
- *     MiReturnCrossPartitionCombineCharges @ 0x1405B6318 (MiReturnCrossPartitionCombineCharges.c)
+ *     MiDeleteMergedPte @ 0x140366E48 (MiDeleteMergedPte.c)
+ *     MiFreeCombineBlock @ 0x14036B730 (MiFreeCombineBlock.c)
+ *     MiLogCombinedPteDelete @ 0x14055D0D4 (MiLogCombinedPteDelete.c)
+ *     MiReturnCrossPartitionCombineCharges @ 0x14055D14C (MiReturnCrossPartitionCombineCharges.c)
  */
 
-__int64 __fastcall MiDecrementCombinedPte(__int64 a1, __int64 a2)
+__int64 __fastcall MiDecrementCombinedPte(__int64 a1, unsigned __int64 a2)
 {
-  volatile signed __int32 *v4; // r8
-  __int64 v5; // r14
-  signed __int64 v6; // rsi
-  unsigned int v7; // ebx
+  __int64 v3; // r8
+  __int64 v4; // rsi
+  unsigned int v5; // edi
 
-  v4 = *(volatile signed __int32 **)(((a2 - 48) & 0xFFFFFFFFFFFFF000uLL) + 0x10);
-  v5 = *(_QWORD *)v4;
-  _InterlockedExchangeAdd(v4 + 98, 0xFFFFFFFF);
-  if ( a1 && *(_QWORD *)(qword_140C51F48 + 8LL * *(unsigned __int16 *)(a1 + 174)) != v5 )
-    v6 = _InterlockedDecrement64((volatile signed __int64 *)(a2 + 8));
-  else
-    v6 = 1LL;
+  v3 = *(_QWORD *)(((a2 - 48) & 0xFFFFFFFFFFFFF000uLL) + 0x10);
+  v4 = *(_QWORD *)v3;
+  _InterlockedExchangeAdd((volatile signed __int32 *)(v3 + 392), 0xFFFFFFFF);
+  v5 = 0;
+  if ( a1
+    && *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a1 + 174)) != v4
+    && !_InterlockedDecrement64((volatile signed __int64 *)(a2 + 8)) )
+  {
+    MiReturnCrossPartitionCombineCharges(v4, 1LL);
+  }
   if ( _InterlockedDecrement64((volatile signed __int64 *)(a2 - 16)) )
+    return 2LL;
+  if ( *(_QWORD *)(a2 - 24) )
   {
-    v7 = 2;
+    v5 = MiDeleteMergedPte(v4, a2);
+    if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
+      MiLogCombinedPteDelete(a2);
   }
-  else
-  {
-    if ( *(_QWORD *)(a2 - 24) )
-    {
-      v7 = MiDeleteMergedPte(v5, a2);
-      if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
-        MiLogCombinedPteDelete(a2);
-      if ( a1 && *(_QWORD *)(qword_140C51F48 + 8LL * *(unsigned __int16 *)(a1 + 174)) != v5 )
-        v7 = 4;
-    }
-    else
-    {
-      v7 = 0;
-    }
-    MiFreeCombineBlock(a2 - 48);
-  }
-  if ( !v6 )
-    MiReturnCrossPartitionCombineCharges(v5, 1LL);
-  return v7;
+  MiFreeCombineBlock(a2 - 48);
+  return v5;
 }

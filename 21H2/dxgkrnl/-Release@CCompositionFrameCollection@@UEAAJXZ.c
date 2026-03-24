@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Release@CCompositionFrameCollection@@UEAAJXZ @ 0x1C001F4D0
+ * XREFs of ?Release@CCompositionFrameCollection@@UEAAJXZ @ 0x1C000DA20
  * Callers:
  *     <none>
  * Callees:
- *     ??_GCCompositionFrameCollection@@IEAAPEAXI@Z @ 0x1C001F4FC (--_GCCompositionFrameCollection@@IEAAPEAXI@Z.c)
+ *     ??_GCCompositionFrameCollection@@IEAAPEAXI@Z @ 0x1C000DA4C (--_GCCompositionFrameCollection@@IEAAPEAXI@Z.c)
  */
 
 __int64 __fastcall CCompositionFrameCollection::Release(CCompositionFrameCollection *this, unsigned int a2)

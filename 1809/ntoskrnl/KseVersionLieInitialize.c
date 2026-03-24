@@ -3,9 +3,9 @@
  * Callers:
  *     KseInitialize @ 0x1409AF930 (KseInitialize.c)
  * Callees:
- *     KsepDebugPrint @ 0x14029FB44 (KsepDebugPrint.c)
- *     KsepLogError @ 0x14029FDE4 (KsepLogError.c)
- *     KseRegisterShim @ 0x140728420 (KseRegisterShim.c)
+ *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x14029FEE4 (KsepLogError.c)
+ *     KseRegisterShim @ 0x140728400 (KseRegisterShim.c)
  */
 
 void KseVersionLieInitialize()

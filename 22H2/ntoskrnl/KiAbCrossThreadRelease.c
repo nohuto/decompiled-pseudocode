@@ -1,26 +1,27 @@
 /*
- * XREFs of KiAbCrossThreadRelease @ 0x1403CA6DC
+ * XREFs of KiAbCrossThreadRelease @ 0x14038E150
  * Callers:
- *     KeAbCrossThreadRelease @ 0x1403CA6A8 (KeAbCrossThreadRelease.c)
- *     KeAbCrossThreadDelete @ 0x140579600 (KeAbCrossThreadDelete.c)
+ *     KeAbCrossThreadRelease @ 0x14038E120 (KeAbCrossThreadRelease.c)
+ *     KeAbCrossThreadDelete @ 0x140520DB8 (KeAbCrossThreadDelete.c)
  * Callees:
- *     KiAbEntryRemoveFromTree @ 0x14024B530 (KiAbEntryRemoveFromTree.c)
- *     KiAbThreadRemoveBoostsSlow @ 0x140317C60 (KiAbThreadRemoveBoostsSlow.c)
+ *     KiAbThreadRemoveBoosts @ 0x1402CB3F0 (KiAbThreadRemoveBoosts.c)
+ *     KiAbEntryRemoveFromTree @ 0x1402E5430 (KiAbEntryRemoveFromTree.c)
  */
 
-unsigned __int8 __fastcall KiAbCrossThreadRelease(__int64 a1, __int64 a2, ULONG_PTR a3)
+unsigned __int8 __fastcall KiAbCrossThreadRelease(__int64 a1, unsigned __int64 a2, ULONG_PTR a3)
 {
-  __int64 v6; // r8
+  int v6; // r9d
   unsigned __int8 result; // al
+  int v8; // [rsp+38h] [rbp+10h] BYREF
 
   KiAbEntryRemoveFromTree(a2);
-  v6 = *(unsigned int *)(a2 + 88);
-  *(_DWORD *)(a2 + 88) = 0;
-  *(_BYTE *)(a2 + 18) = 0;
-  if ( (_DWORD)v6 )
-    KiAbThreadRemoveBoostsSlow(a3, a1, v6);
-  *(_QWORD *)a2 = 0LL;
-  result = 1 << *(_BYTE *)(a2 + 16);
+  v6 = *(_DWORD *)(a2 + 88);
+  *(_BYTE *)(a2 + 26) &= ~1u;
+  v8 = v6 & 0x1FFFF;
+  *(_DWORD *)(a2 + 88) = v6 & 0xFFFE0000;
+  KiAbThreadRemoveBoosts(a3, a1, &v8);
+  *(_QWORD *)(a2 + 32) = 0LL;
+  result = 1 << ((__int64)(a2 - *(_QWORD *)(a3 + 800)) / 96);
   _InterlockedOr8((volatile signed __int8 *)(a3 + 870), result);
   return result;
 }

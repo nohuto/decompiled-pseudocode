@@ -1,9 +1,7 @@
 /*
- * XREFs of RtlTimelineBitmapUpdate @ 0x14020E920
+ * XREFs of RtlTimelineBitmapUpdate @ 0x140251910
  * Callers:
- *     KiAccumulateCycleStats @ 0x14020E7E0 (KiAccumulateCycleStats.c)
- *     KiRetireDpcList @ 0x1402459D0 (KiRetireDpcList.c)
- *     PoEnergyContextUpdateComponentPower @ 0x1406A7514 (PoEnergyContextUpdateComponentPower.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x14060526C (PoEnergyContextUpdateComponentPower.c)
  * Callees:
  *     <none>
  */
@@ -12,19 +10,17 @@ void __fastcall RtlTimelineBitmapUpdate(unsigned int *a1, unsigned int a2)
 {
   unsigned int v3; // ecx
   unsigned int v4; // ecx
-  int v5; // eax
-  __int64 v6; // [rsp+8h] [rbp+8h]
+  __int64 v5; // [rsp+8h] [rbp+8h]
 
   v3 = *a1;
   if ( a2 > v3 )
   {
-    LODWORD(v6) = a2;
+    LODWORD(v5) = a2;
     if ( a2 - v3 >= 0x20 )
-      v5 = 1;
+      HIDWORD(v5) = 1;
     else
-      v5 = (a1[1] << (a2 - v3)) | 1;
-    HIDWORD(v6) = v5;
-    *(_QWORD *)a1 = v6;
+      HIDWORD(v5) = (a1[1] << (a2 - v3)) | 1;
+    *(_QWORD *)a1 = v5;
   }
   else
   {

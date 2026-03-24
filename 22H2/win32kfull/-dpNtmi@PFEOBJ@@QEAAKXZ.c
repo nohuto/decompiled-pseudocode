@@ -1,10 +1,9 @@
 /*
- * XREFs of ?dpNtmi@PFEOBJ@@QEAAKXZ @ 0x1C00821B8
+ * XREFs of ?dpNtmi@PFEOBJ@@QEAAKXZ @ 0x1C00A3728
  * Callers:
- *     cjCopyFontDataW @ 0x1C0004930 (cjCopyFontDataW.c)
- *     ?bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C0081D2C (-bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@.c)
+ *     ?bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C00A32E4 (-bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@.c)
  * Callees:
- *     ?IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C0082214 (-IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z.c)
+ *     ?IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C0062348 (-IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z.c)
  */
 
 __int64 __fastcall PFEOBJ::dpNtmi(PFEOBJ *this)
@@ -19,7 +18,7 @@ __int64 __fastcall PFEOBJ::dpNtmi(PFEOBJ *this)
   {
     v4 = v2[1];
     if ( v4 <= 0xC )
-      DbgPrint("Test it %d %Iu \n", v4, 12);
+      DbgPrint("Test it %d %llu \n", v4, 12LL);
     else
       return (unsigned int)(4 * *(_DWORD *)((char *)v2 + v2[51] + 4) + 368);
   }

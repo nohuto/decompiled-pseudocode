@@ -3,8 +3,8 @@
  * Callers:
  *     BvgaDriverInitialize @ 0x1409D7020 (BvgaDriverInitialize.c)
  * Callees:
- *     KeBugCheck @ 0x1401BBB80 (KeBugCheck.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KeBugCheck @ 0x1401BBBA0 (KeBugCheck.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

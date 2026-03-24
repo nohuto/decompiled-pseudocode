@@ -1,16 +1,16 @@
 /*
- * XREFs of imp_WdfDmaTransactionInitializeUsingOffset @ 0x1C0037D30
+ * XREFs of imp_WdfDmaTransactionInitializeUsingOffset @ 0x1C00307B0
  * Callers:
  *     <none>
  * Callees:
- *     imp_WdfDmaTransactionInitialize @ 0x1C0054510 (imp_WdfDmaTransactionInitialize.c)
+ *     imp_WdfDmaTransactionInitialize @ 0x1C0030590 (imp_WdfDmaTransactionInitialize.c)
  */
 
-int __fastcall imp_WdfDmaTransactionInitializeUsingOffset(
+__int64 __fastcall imp_WdfDmaTransactionInitializeUsingOffset(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFDMATRANSACTION__ *DmaTransaction,
         unsigned __int8 (__fastcall *EvtProgramDmaFunction)(WDFDMATRANSACTION__ *, WDFDEVICE__ *, void *, _WDF_DMA_DIRECTION, _SCATTER_GATHER_LIST *),
-        _WDF_DMA_DIRECTION DmaDirection,
+        unsigned int DmaDirection,
         _MDL *Mdl,
         unsigned __int64 Offset,
         unsigned __int64 Length)

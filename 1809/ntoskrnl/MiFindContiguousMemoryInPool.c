@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFindContiguousMemoryInPool @ 0x1401625B4
+ * XREFs of MiFindContiguousMemoryInPool @ 0x1401625D4
  * Callers:
- *     MiAllocateContiguousMemory @ 0x1400E64FC (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x1400E651C (MiAllocateContiguousMemory.c)
  * Callees:
- *     MiFreePoolPages @ 0x1401610E0 (MiFreePoolPages.c)
- *     MiExpandNonPagedPool @ 0x1401626C8 (MiExpandNonPagedPool.c)
- *     MiScanNonPagedPoolVa @ 0x1401635C0 (MiScanNonPagedPoolVa.c)
- *     MiPhysicalPoolCheck @ 0x140164528 (MiPhysicalPoolCheck.c)
+ *     MiFreePoolPages @ 0x140161100 (MiFreePoolPages.c)
+ *     MiExpandNonPagedPool @ 0x1401626E8 (MiExpandNonPagedPool.c)
+ *     MiScanNonPagedPoolVa @ 0x1401635E0 (MiScanNonPagedPoolVa.c)
+ *     MiPhysicalPoolCheck @ 0x140164548 (MiPhysicalPoolCheck.c)
  */
 
 unsigned __int64 __fastcall MiFindContiguousMemoryInPool(

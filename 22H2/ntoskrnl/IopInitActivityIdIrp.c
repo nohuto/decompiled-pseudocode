@@ -1,36 +1,35 @@
 /*
- * XREFs of IopInitActivityIdIrp @ 0x1405557C4
+ * XREFs of IopInitActivityIdIrp @ 0x14050091C
  * Callers:
- *     IopAllocateIrpPrivate @ 0x14022EFC0 (IopAllocateIrpPrivate.c)
- *     IopAllocateIrpWithExtension @ 0x14028FCA0 (IopAllocateIrpWithExtension.c)
- *     IopAllocateBackpocketIrp @ 0x140554A80 (IopAllocateBackpocketIrp.c)
- *     IopAllocateReserveIrp @ 0x140554D18 (IopAllocateReserveIrp.c)
- *     IovAllocateIrp @ 0x140AC1CE0 (IovAllocateIrp.c)
+ *     IopAllocateIrpPrivate @ 0x1402D2220 (IopAllocateIrpPrivate.c)
+ *     IopAllocateIrpWithExtension @ 0x1402E5F20 (IopAllocateIrpWithExtension.c)
+ *     IopAllocateBackpocketIrp @ 0x1404FFD50 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x1404FFFF0 (IopAllocateReserveIrp.c)
+ *     IovAllocateIrp @ 0x1409C47B0 (IovAllocateIrp.c)
  * Callees:
- *     EtwActivityIdControl @ 0x140208AA0 (EtwActivityIdControl.c)
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     IoSetActivityIdIrp @ 0x140290480 (IoSetActivityIdIrp.c)
- *     PnpIsSafeToExamineUserModeTeb @ 0x14031E030 (PnpIsSafeToExamineUserModeTeb.c)
- *     IopIsActivityTracingEventEnabled @ 0x1403C2A18 (IopIsActivityTracingEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     PnpIsSafeToExamineUserModeTeb @ 0x14026EEB8 (PnpIsSafeToExamineUserModeTeb.c)
+ *     EtwActivityIdControl @ 0x140308D90 (EtwActivityIdControl.c)
+ *     IoSetActivityIdIrp @ 0x140378C70 (IoSetActivityIdIrp.c)
+ *     IopIsActivityTracingEventEnabled @ 0x140398C98 (IopIsActivityTracingEventEnabled.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 int __fastcall IopInitActivityIdIrp(__int64 a1)
 {
-  bool v2; // r14
-  const GUID *RelatedActivityId; // rsi
-  const EVENT_DESCRIPTOR *v4; // rdi
+  char v2; // si
+  const GUID *RelatedActivityId; // rdi
+  const EVENT_DESCRIPTOR *v4; // r15
   struct _KTHREAD *CurrentThread; // rbx
   GUID *Flink; // rbx
-  bool IsActivityTracingEventEnabled; // al
-  __int64 v8; // rcx
-  _WORD *v9; // rax
-  char v11; // [rsp+40h] [rbp-68h]
+  __int64 v7; // rcx
+  _WORD *v8; // rax
+  char v10; // [rsp+40h] [rbp-68h]
   GUID ActivityId; // [rsp+60h] [rbp-48h] BYREF
-  __m128i v13; // [rsp+70h] [rbp-38h] BYREF
+  __m128i v12; // [rsp+70h] [rbp-38h] BYREF
 
   ActivityId = 0LL;
-  v13 = 0LL;
+  v12 = 0LL;
   v2 = 0;
   RelatedActivityId = 0LL;
   v4 = 0LL;
@@ -40,52 +39,54 @@ int __fastcall IopInitActivityIdIrp(__int64 a1)
     Flink = (GUID *)CurrentThread[1].WaitBlock[1].WaitListEntry.Flink;
     if ( Flink )
     {
-      IsActivityTracingEventEnabled = IopIsActivityTracingEventEnabled(&IoTrace_KernelIo_AllocateIrp);
-      if ( IsActivityTracingEventEnabled )
+      if ( IopIsActivityTracingEventEnabled(&IoTrace_KernelIo_AllocateIrp) )
+      {
         RelatedActivityId = Flink;
-      else
-        ActivityId = *Flink;
-      v2 = !IsActivityTracingEventEnabled;
-      v4 = (const EVENT_DESCRIPTOR *)((unsigned __int64)&IoTrace_KernelIo_AllocateIrp & -(__int64)IsActivityTracingEventEnabled);
-    }
-    else if ( PnpIsSafeToExamineUserModeTeb() && (*(_BYTE *)(a1 + 71) & 0x21) != 0x21 )
-    {
-      v11 = 0;
-      if ( KeGetPcr()->NtTib.$5C14B8504E5BBEA9C78932444904D36F::$B3978927B1617B2B8454E8E478E76600::Self )
-      {
-        v13 = *(__m128i *)&KeGetPcr()->NtTib.$5C14B8504E5BBEA9C78932444904D36F::$B3978927B1617B2B8454E8E478E76600::Self[105].SubSystemTib;
-        v11 = 1;
+        v4 = &IoTrace_KernelIo_AllocateIrp;
+        goto LABEL_18;
       }
-      if ( v11 )
+      ActivityId = *Flink;
+LABEL_17:
+      v2 = 1;
+      goto LABEL_18;
+    }
+    if ( PnpIsSafeToExamineUserModeTeb() && (*(_BYTE *)(a1 + 71) & 0x21) != 0x21 )
+    {
+      v10 = 0;
+      if ( KeGetPcr()->NtTib.$F9435DD2D5013AD282F92902EC38D096::$F6F33802D97B27D62ECE74CBF4C4A83B::Self )
       {
-        v8 = *(_QWORD *)&NullGuid.Data1 - v13.m128i_i64[0];
-        if ( *(_QWORD *)&NullGuid.Data1 == v13.m128i_i64[0] )
-          v8 = *(_QWORD *)NullGuid.Data4 - _mm_srli_si128(v13, 8).m128i_u64[0];
-        if ( v8 )
+        v12 = *(__m128i *)&KeGetPcr()->NtTib.$F9435DD2D5013AD282F92902EC38D096::$F6F33802D97B27D62ECE74CBF4C4A83B::Self[105].SubSystemTib;
+        v10 = 1;
+      }
+      if ( v10 )
+      {
+        v7 = *(_QWORD *)&NullGuid.Data1 - v12.m128i_i64[0];
+        if ( *(_QWORD *)&NullGuid.Data1 == v12.m128i_i64[0] )
+          v7 = *(_QWORD *)NullGuid.Data4 - _mm_srli_si128(v12, 8).m128i_u64[0];
+        if ( v7 )
         {
           if ( IopIsActivityTracingEventEnabled(&IoTrace_UserInitiatedIo) )
           {
-            RelatedActivityId = (const GUID *)&v13;
+            RelatedActivityId = (const GUID *)&v12;
             v4 = &IoTrace_UserInitiatedIo;
+            goto LABEL_18;
           }
-          else
-          {
-            ActivityId = (GUID)v13;
-            v2 = 1;
-          }
+          ActivityId = (GUID)v12;
+          goto LABEL_17;
         }
       }
     }
   }
+LABEL_18:
   if ( !v2 )
     EtwActivityIdControl(3u, &ActivityId);
-  LODWORD(v9) = IoSetActivityIdIrp(a1, &ActivityId);
-  if ( (int)v9 >= 0 )
+  LODWORD(v8) = IoSetActivityIdIrp(a1, &ActivityId);
+  if ( (int)v8 >= 0 )
   {
-    v9 = *(_WORD **)(a1 + 200);
-    *v9 |= 2u;
+    v8 = *(_WORD **)(a1 + 200);
+    *v8 |= 2u;
     if ( RelatedActivityId )
-      LODWORD(v9) = EtwWriteEx(IoTraceHandle, v4, 0LL, 0, &ActivityId, RelatedActivityId, 0, 0LL);
+      LODWORD(v8) = EtwWriteEx(IoTraceHandle, v4, 0LL, 0, &ActivityId, RelatedActivityId, 0, 0LL);
   }
-  return (int)v9;
+  return (int)v8;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of VfFilterAttach @ 0x140A9E12C
+ * XREFs of VfFilterAttach @ 0x1409E4EF4
  * Callers:
- *     VfDevObjPostAddDevice @ 0x140A91784 (VfDevObjPostAddDevice.c)
- *     VfDevObjPreAddDevice @ 0x140A917D8 (VfDevObjPreAddDevice.c)
+ *     VfDevObjPostAddDevice @ 0x1409D60A4 (VfDevObjPostAddDevice.c)
+ *     VfDevObjPreAddDevice @ 0x1409D60F8 (VfDevObjPreAddDevice.c)
  * Callees:
- *     IoAttachDeviceToDeviceStack @ 0x14024FBC0 (IoAttachDeviceToDeviceStack.c)
- *     IoInitializeRemoveLockEx @ 0x14025A9C0 (IoInitializeRemoveLockEx.c)
- *     IoGetAttachedDevice @ 0x1402A78F0 (IoGetAttachedDevice.c)
- *     IoDeleteDevice @ 0x1402D3820 (IoDeleteDevice.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     HviIsAnyHypervisorPresent @ 0x1403C03A0 (HviIsAnyHypervisorPresent.c)
- *     IoCreateDevice @ 0x14074ED50 (IoCreateDevice.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
- *     IoCreateDriver @ 0x14084F500 (IoCreateDriver.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     IoGetAttachedDevice @ 0x140353740 (IoGetAttachedDevice.c)
+ *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
+ *     IoInitializeRemoveLockEx @ 0x14037F3A0 (IoInitializeRemoveLockEx.c)
+ *     IoAttachDeviceToDeviceStack @ 0x140381290 (IoAttachDeviceToDeviceStack.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403A5A10 (HviIsAnyHypervisorPresent.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     IoCreateDevice @ 0x14071B4E0 (IoCreateDevice.c)
+ *     IoCreateDriver @ 0x1407A4F00 (IoCreateDriver.c)
  */
 
 void __fastcall VfFilterAttach(PDEVICE_OBJECT TargetDevice, int a2)
@@ -32,7 +32,7 @@ void __fastcall VfFilterAttach(PDEVICE_OBJECT TargetDevice, int a2)
   if ( !VfFilterCreated )
   {
     RtlInitUnicodeString(&DestinationString, L"\\DRIVER\\VERIFIER_FILTER");
-    IoCreateDriver(&DestinationString, (__int64 (__fastcall *)(void **, _QWORD))ViFilterDriverEntry);
+    IoCreateDriver(&DestinationString, (_DMA_OPERATIONS *)ViFilterDriverEntry);
     VfFilterCreated = 1;
   }
   v4 = VfFilterDriverObject;

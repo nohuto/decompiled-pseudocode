@@ -1,41 +1,44 @@
 /*
- * XREFs of PopUmpoSendPowerRequestOverrideQuery @ 0x14036ABA8
+ * XREFs of PopUmpoSendPowerRequestOverrideQuery @ 0x140282D74
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x14036A698 (PopPowerRequestCreateCommon.c)
- *     PopPowerRequestOverrideInitialize @ 0x140863534 (PopPowerRequestOverrideInitialize.c)
+ *     PopCreateUserPowerRequest @ 0x14067CD9C (PopCreateUserPowerRequest.c)
+ *     PopCreateKernelPowerRequest @ 0x1407727C8 (PopCreateKernelPowerRequest.c)
+ *     PopPowerRequestOverrideInitialize @ 0x1407D4314 (PopPowerRequestOverrideInitialize.c)
  * Callees:
- *     PoStoreRequester @ 0x14036AC64 (PoStoreRequester.c)
- *     PopUmpoSendPowerMessage @ 0x14036AF00 (PopUmpoSendPowerMessage.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PopUmpoSendPowerMessage @ 0x140282A48 (PopUmpoSendPowerMessage.c)
+ *     PoStoreRequester @ 0x140282E3C (PoStoreRequester.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopUmpoSendPowerRequestOverrideQuery(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v5; // rbp
-  __int64 Pool2; // rax
-  __int64 v7; // r9
-  _DWORD *v8; // rdi
-  int v9; // ebx
+  size_t v5; // rbp
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v7; // rbx
+  __int64 v8; // r9
+  int v9; // edi
   __int64 v11; // [rsp+30h] [rbp+8h] BYREF
 
   v11 = 0LL;
   LOBYTE(a4) = 1;
-  PoStoreRequester(*(_QWORD *)(a1 + 96), 0LL, &v11, a4);
-  v5 = v11;
-  Pool2 = ExAllocatePool2(256LL, v11 + 16, 1869638997LL);
-  v8 = (_DWORD *)Pool2;
-  if ( Pool2 )
+  PoStoreRequester(*(_QWORD *)(a1 + 80), 0LL, &v11, a4);
+  v5 = v11 + 16;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v11 + 16, 0x6F706D55u);
+  v7 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    LOBYTE(v7) = 1;
-    v9 = PoStoreRequester(*(_QWORD *)(a1 + 96), Pool2 + 16, &v11, v7);
+    memset(PoolWithTag, 0, v5);
+    LOBYTE(v8) = 1;
+    v9 = PoStoreRequester(*(_QWORD *)(a1 + 80), v7 + 4, &v11, v8);
     if ( v9 >= 0 )
     {
-      *v8 = 8;
-      v8[2] = *(_DWORD *)(a1 + 36);
-      v9 = PopUmpoSendPowerMessage(v8, v5 + 16);
+      *v7 = 8;
+      v7[2] = *(_DWORD *)(a1 + 28);
+      v9 = PopUmpoSendPowerMessage(v7, v5, 0);
     }
-    ExFreePoolWithTag(v8, 0x6F706D55u);
+    ExFreePoolWithTag(v7, 0x6F706D55u);
   }
   else
   {

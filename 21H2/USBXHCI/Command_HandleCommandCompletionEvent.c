@@ -1,25 +1,25 @@
 /*
- * XREFs of Command_HandleCommandCompletionEvent @ 0x1C0003A40
+ * XREFs of Command_HandleCommandCompletionEvent @ 0x1C0006928
  * Callers:
- *     Interrupter_DeferredWorkProcessor @ 0x1C0002BB0 (Interrupter_DeferredWorkProcessor.c)
+ *     Interrupter_DeferredWorkProcessor @ 0x1C0006130 (Interrupter_DeferredWorkProcessor.c)
  * Callees:
- *     DynamicLock_Release @ 0x1C0003E5C (DynamicLock_Release.c)
- *     Command_InternalSendCommand @ 0x1C0003E9C (Command_InternalSendCommand.c)
- *     DynamicLock_Acquire @ 0x1C0004248 (DynamicLock_Acquire.c)
- *     WPP_RECORDER_SF_qLLdd @ 0x1C00042BC (WPP_RECORDER_SF_qLLdd.c)
- *     XilCommand_GetCommandRingBufferLogicalAddress @ 0x1C0004390 (XilCommand_GetCommandRingBufferLogicalAddress.c)
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     Controller_RaiseAndTrackIrql @ 0x1C0005C20 (Controller_RaiseAndTrackIrql.c)
- *     Controller_LowerAndTrackIrql @ 0x1C0005CB4 (Controller_LowerAndTrackIrql.c)
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Command_HandleCommandRingStoppedEvent @ 0x1C002E454 (Command_HandleCommandRingStoppedEvent.c)
- *     WPP_RECORDER_SF_qL @ 0x1C002F454 (WPP_RECORDER_SF_qL.c)
- *     WPP_RECORDER_SF_qii @ 0x1C002F8EC (WPP_RECORDER_SF_qii.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031C54 (Controller_HwVerifierBreakIfEnabled.c)
- *     Controller_ReportFatalError @ 0x1C0032C20 (Controller_ReportFatalError.c)
- *     Etw_CommandCompleteError @ 0x1C004807C (Etw_CommandCompleteError.c)
- *     McTemplateK0ppb16qu_EtwWriteTransfer @ 0x1C0048A4C (McTemplateK0ppb16qu_EtwWriteTransfer.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00052C8 (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0005358 (Controller_RaiseAndTrackIrql.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     DynamicLock_Release @ 0x1C0006D40 (DynamicLock_Release.c)
+ *     Command_InternalSendCommand @ 0x1C0006D80 (Command_InternalSendCommand.c)
+ *     DynamicLock_Acquire @ 0x1C0007340 (DynamicLock_Acquire.c)
+ *     WPP_RECORDER_SF_qLLdd @ 0x1C00073B4 (WPP_RECORDER_SF_qLLdd.c)
+ *     XilCommand_GetCommandRingBufferLogicalAddress @ 0x1C0007488 (XilCommand_GetCommandRingBufferLogicalAddress.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Command_HandleCommandRingStoppedEvent @ 0x1C002E2A4 (Command_HandleCommandRingStoppedEvent.c)
+ *     WPP_RECORDER_SF_qL @ 0x1C002F170 (WPP_RECORDER_SF_qL.c)
+ *     WPP_RECORDER_SF_qii @ 0x1C002F608 (WPP_RECORDER_SF_qii.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
+ *     Etw_CommandCompleteError @ 0x1C0047DE8 (Etw_CommandCompleteError.c)
+ *     McTemplateK0ppb16qu_EtwWriteTransfer @ 0x1C0048814 (McTemplateK0ppb16qu_EtwWriteTransfer.c)
  */
 
 __int64 **__fastcall Command_HandleCommandCompletionEvent(__int64 a1, __int64 a2)
@@ -66,32 +66,32 @@ __int64 **__fastcall Command_HandleCommandCompletionEvent(__int64 a1, __int64 a2
     v6 = *(_QWORD *)(a1 + 8);
     if ( *(_BYTE *)(v6 + 553) )
     {
-      Controller_LowerAndTrackIrql(v6);
+      Controller_LowerAndTrackIrql((_QWORD *)v6);
       v5 = 1;
     }
   }
   DynamicLock_Acquire(*(_QWORD *)(a1 + 112));
   v9 = (__int64 *)(a1 + 80);
   v10 = *(__int64 **)(a1 + 80);
-  v11 = &WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids;
+  v11 = &WPP_72168dd6ef593f221f3405957586a4e9_Traceguids;
   if ( v10 != (__int64 *)(a1 + 80) )
   {
     v7 = *(_QWORD **)a2;
     while ( 1 )
     {
-      v14 = XilCommand_GetCommandRingBufferLogicalAddress(a1, v7, &WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids)
+      v14 = XilCommand_GetCommandRingBufferLogicalAddress(a1, v7, &WPP_72168dd6ef593f221f3405957586a4e9_Traceguids)
           + 16LL * *((unsigned int *)v10 + 5);
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
         if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
         {
           WPP_RECORDER_SF_qii(*(_QWORD *)(a1 + 16), v12, (_DWORD)v13, v8, v31, (char)v10, v14, v12);
-          v13 = &WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids;
+          v13 = &WPP_72168dd6ef593f221f3405957586a4e9_Traceguids;
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
         {
           LOBYTE(v12) = 5;
-          WPP_RECORDER_SF_DD(*(_QWORD *)(a1 + 16), v12, 7, 45, (__int64)v13, *(_DWORD *)(a1 + 44), *(_DWORD *)(a1 + 40));
+          WPP_RECORDER_SF_dd(*(_QWORD *)(a1 + 16), v12, 7, 45, (__int64)v13, *(_DWORD *)(a1 + 44), *(_DWORD *)(a1 + 40));
         }
       }
       v7 = *(_QWORD **)a2;
@@ -109,7 +109,7 @@ __int64 **__fastcall Command_HandleCommandCompletionEvent(__int64 a1, __int64 a2
     if ( (*((_BYTE *)v10 + 62) & 2) != 0 )
       *(_OWORD *)(v10 + 3) = *(_OWORD *)a2;
 LABEL_18:
-    v11 = &WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids;
+    v11 = &WPP_72168dd6ef593f221f3405957586a4e9_Traceguids;
   }
   v15 = (__int64 ***)*v9;
   if ( (__int64 *)*v9 != v9 )
@@ -127,12 +127,12 @@ LABEL_18:
         if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
         {
           LOBYTE(v7) = 5;
-          WPP_RECORDER_SF_DD(
+          WPP_RECORDER_SF_dd(
             *(_QWORD *)(a1 + 16),
             (_DWORD)v7,
             7,
             46,
-            (__int64)&WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids,
+            (__int64)&WPP_72168dd6ef593f221f3405957586a4e9_Traceguids,
             v16,
             *(_DWORD *)(a1 + 40));
         }
@@ -177,7 +177,7 @@ LABEL_73:
       v15 = (__int64 ***)*v9;
       if ( (__int64 *)*v9 == v9 )
         goto LABEL_33;
-      v11 = &WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids;
+      v11 = &WPP_72168dd6ef593f221f3405957586a4e9_Traceguids;
     }
     if ( v32 == (__int64 *)&v32 && !*(_BYTE *)(a1 + 120) )
     {
@@ -206,7 +206,7 @@ LABEL_33:
           (_DWORD)v7,
           7,
           49,
-          (__int64)&WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids);
+          (__int64)&WPP_72168dd6ef593f221f3405957586a4e9_Traceguids);
       }
     }
     else
@@ -219,7 +219,7 @@ LABEL_33:
           (_DWORD)v7,
           7,
           48,
-          (__int64)&WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids);
+          (__int64)&WPP_72168dd6ef593f221f3405957586a4e9_Traceguids);
       }
       (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD))(WdfFunctions_01023 + 2560))(
         WdfDriverGlobals,
@@ -266,7 +266,7 @@ LABEL_33:
           v27,
           7,
           50,
-          (__int64)&WPP_7e0bcb5bda0632cd0b4b69ae4ee19d35_Traceguids,
+          (__int64)&WPP_72168dd6ef593f221f3405957586a4e9_Traceguids,
           (char)v22,
           (unsigned __int8)HIBYTE(*((_WORD *)v22 + 18)) >> 2);
         LOBYTE(v26) = *((_BYTE *)v22 + 60);

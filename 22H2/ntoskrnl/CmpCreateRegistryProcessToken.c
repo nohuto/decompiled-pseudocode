@@ -1,25 +1,26 @@
 /*
- * XREFs of CmpCreateRegistryProcessToken @ 0x14080D218
+ * XREFs of CmpCreateRegistryProcessToken @ 0x140798BF0
  * Callers:
- *     CmpInitializeRegistryProcess @ 0x14080D05C (CmpInitializeRegistryProcess.c)
+ *     CmpInitializeRegistryProcess @ 0x140799280 (CmpInitializeRegistryProcess.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329A0 (PsReferencePrimaryTokenWithTag.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     SeQueryInformationToken @ 0x140719710 (SeQueryInformationToken.c)
- *     SeFilterToken @ 0x14080D380 (SeFilterToken.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PsReferencePrimaryToken @ 0x140654390 (PsReferencePrimaryToken.c)
+ *     SeQueryInformationToken @ 0x1406CF990 (SeQueryInformationToken.c)
+ *     SeFilterToken @ 0x140798D50 (SeFilterToken.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpCreateRegistryProcessToken(PACCESS_TOKEN *a1)
 {
-  PACCESS_TOKEN v2; // rdi
+  struct _DMA_ADAPTER *v2; // rdi
   struct _TOKEN_GROUPS *v3; // rsi
-  void *v4; // r14
+  struct _DMA_ADAPTER *v4; // r14
   NTSTATUS v5; // ebx
-  __int64 Pool; // rax
+  struct _LOOKASIDE_LIST_EX *v6; // r9
+  char *TransientPoolWithTag; // rax
   PVOID P; // [rsp+68h] [rbp+38h] BYREF
   PACCESS_TOKEN FilteredToken; // [rsp+70h] [rbp+40h] BYREF
   PVOID TokenInformation; // [rsp+78h] [rbp+48h] BYREF
@@ -27,26 +28,30 @@ __int64 __fastcall CmpCreateRegistryProcessToken(PACCESS_TOKEN *a1)
   TokenInformation = 0LL;
   v2 = 0LL;
   P = 0LL;
-  FilteredToken = 0LL;
   v3 = 0LL;
-  v4 = (void *)PsReferencePrimaryTokenWithTag((__int64)PsInitialSystemProcess, 0x746C6644u);
+  FilteredToken = 0LL;
+  v4 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(PsInitialSystemProcess);
   v5 = SeQueryInformationToken(v4, TokenUser, &TokenInformation);
   if ( v5 >= 0 )
   {
     v5 = SeQueryInformationToken(v4, TokenGroups, &P);
     if ( v5 >= 0 )
     {
-      Pool = CmpAllocatePool(256LL, 16LL * (unsigned int)(*(_DWORD *)P + 1) + 8, 876105027LL);
-      v3 = (struct _TOKEN_GROUPS *)Pool;
-      if ( Pool )
+      TransientPoolWithTag = (char *)CmpAllocateTransientPoolWithTag(
+                                       PagedPool,
+                                       16LL * (unsigned int)(*(_DWORD *)P + 1) + 8,
+                                       0x34384D43u,
+                                       v6);
+      v3 = (struct _TOKEN_GROUPS *)TransientPoolWithTag;
+      if ( TransientPoolWithTag )
       {
-        *(_DWORD *)Pool = *(_DWORD *)P + 1;
-        *(_OWORD *)(Pool + 8) = *(_OWORD *)TokenInformation;
-        memmove((void *)(Pool + 24), (char *)P + 8, 16LL * *(unsigned int *)P);
+        *(_DWORD *)TransientPoolWithTag = *(_DWORD *)P + 1;
+        *(_OWORD *)(TransientPoolWithTag + 8) = *(_OWORD *)TokenInformation;
+        memmove(TransientPoolWithTag + 24, (char *)P + 8, 16LL * *(unsigned int *)P);
         v5 = SeFilterToken(v4, 1u, v3, 0LL, 0LL, &FilteredToken);
         if ( v5 < 0 )
         {
-          v2 = FilteredToken;
+          v2 = (struct _DMA_ADAPTER *)FilteredToken;
         }
         else
         {
@@ -61,9 +66,9 @@ __int64 __fastcall CmpCreateRegistryProcessToken(PACCESS_TOKEN *a1)
     }
   }
   if ( v4 )
-    ObfDereferenceObject(v4);
+    HalPutDmaAdapter(v4);
   if ( v2 )
-    ObfDereferenceObject(v2);
+    HalPutDmaAdapter(v2);
   if ( TokenInformation )
     ExFreePoolWithTag(TokenInformation, 0);
   if ( P )

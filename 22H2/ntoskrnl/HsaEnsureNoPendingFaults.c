@@ -1,7 +1,7 @@
 /*
- * XREFs of HsaEnsureNoPendingFaults @ 0x14052F790
+ * XREFs of HsaEnsureNoPendingFaults @ 0x1404E2A48
  * Callers:
- *     HsaSetPasidAddressSpace @ 0x140530D30 (HsaSetPasidAddressSpace.c)
+ *     HsaSetPasidAddressSpace @ 0x1404E42B0 (HsaSetPasidAddressSpace.c)
  * Callees:
  *     <none>
  */
@@ -9,7 +9,7 @@
 __int64 __fastcall HsaEnsureNoPendingFaults(__int64 *a1, int a2)
 {
   unsigned __int64 v2; // r11
-  __int64 v3; // rdi
+  __int64 v4; // rdi
   __int64 v5; // rcx
   unsigned __int64 v6; // r11
   unsigned __int64 v7; // rax
@@ -20,7 +20,7 @@ __int64 __fastcall HsaEnsureNoPendingFaults(__int64 *a1, int a2)
   __int64 v12; // r8
 
   v2 = a1[14];
-  v3 = a1[12];
+  v4 = a1[12];
   v5 = *a1;
   v6 = v2 >> 4;
   v7 = *(_QWORD *)(v5 + 8240);
@@ -31,7 +31,7 @@ __int64 __fastcall HsaEnsureNoPendingFaults(__int64 *a1, int a2)
     v12 = (v7 >> 4) & 0x7FFF;
     if ( v12 == v8 )
       return 0LL;
-    v9 = v3 + 16 * v12;
+    v9 = v4 + 16 * v12;
     if ( *(_QWORD *)v9 >> 60 == 1
       && *(unsigned __int16 *)(v9 + 2) == a2
       && (*(_QWORD *)v9 & 0x24020000000000LL) != 0x20000000000LL )

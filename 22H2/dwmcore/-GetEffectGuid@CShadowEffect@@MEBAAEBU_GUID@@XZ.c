@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetEffectGuid@CShadowEffect@@MEBAAEBU_GUID@@XZ @ 0x180105CE0
+ * XREFs of ?GetEffectGuid@CShadowEffect@@MEBAAEBU_GUID@@XZ @ 0x1800E1F00
  * Callers:
  *     <none>
  * Callees:

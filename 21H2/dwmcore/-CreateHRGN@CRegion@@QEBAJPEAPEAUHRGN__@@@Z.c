@@ -1,17 +1,17 @@
 /*
- * XREFs of ?CreateHRGN@CRegion@@QEBAJPEAPEAUHRGN__@@@Z @ 0x1800FECC0
+ * XREFs of ?CreateHRGN@CRegion@@QEBAJPEAPEAUHRGN__@@@Z @ 0x1800E54A0
  * Callers:
- *     ?Present@CLegacyRemotingSwapChain@@UEAAJPEBVCRegion@@@Z @ 0x1800FEBD0 (-Present@CLegacyRemotingSwapChain@@UEAAJPEBVCRegion@@@Z.c)
- *     ?RailAppPresent@CLegacyRemotingSwapChain@@UEAAJ_KAEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180294420 (-RailAppPresent@CLegacyRemotingSwapChain@@UEAAJ_KAEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@U.c)
+ *     ?Present@CLegacyRemotingSwapChain@@UEAAJXZ @ 0x1800E53E0 (-Present@CLegacyRemotingSwapChain@@UEAAJXZ.c)
+ *     ?RailAppPresent@CLegacyRemotingSwapChain@@UEAAJ_KAEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180252040 (-RailAppPresent@CLegacyRemotingSwapChain@@UEAAJ_KAEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@U.c)
  * Callees:
- *     ?GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z @ 0x180069C74 (-GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800B4B40 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     ?GetRectangleCount@CRegion@FastRegion@@QEBAIXZ @ 0x1800B84E0 (-GetRectangleCount@CRegion@FastRegion@@QEBAIXZ.c)
- *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800D2754 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?GetRectangleCount@CRegion@FastRegion@@QEBAIXZ @ 0x18009B318 (-GetRectangleCount@CRegion@FastRegion@@QEBAIXZ.c)
+ *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x18009B354 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ?GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z @ 0x18009D204 (-GetBoundingRect@CRegion@FastRegion@@QEBA_NAEAUtagRECT@@@Z.c)
+ *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800C4980 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CRegion::CreateHRGN(int **this, HRGN *a2)
@@ -53,7 +53,7 @@ __int64 __fastcall CRegion::CreateHRGN(int **this, HRGN *a2)
       if ( !v13 )
       {
         v6 = -2147024882;
-        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, -2147024882, 0x5Fu);
+        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2147024882, 0x5Eu, 0LL);
         return (unsigned int)v6;
       }
       p_Data = v13;
@@ -90,7 +90,7 @@ __int64 __fastcall CRegion::CreateHRGN(int **this, HRGN *a2)
     if ( Region )
     {
       if ( v10 )
-        DefaultHeap::Free(v10);
+        operator delete(v10);
       goto LABEL_3;
     }
     LastError = GetLastError();
@@ -99,9 +99,9 @@ __int64 __fastcall CRegion::CreateHRGN(int **this, HRGN *a2)
       v6 = (unsigned __int16)LastError | 0x80070000;
     if ( v6 >= 0 )
       v6 = -2003304445;
-    MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0LL, v6, 0x7Bu);
+    MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v6, 0x75u, 0LL);
     if ( v10 )
-      DefaultHeap::Free(v10);
+      operator delete(v10);
   }
   else
   {
@@ -121,7 +121,7 @@ LABEL_3:
       v6 = (unsigned __int16)v8 | 0x80070000;
     if ( v6 >= 0 )
       v6 = -2003304445;
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v6, 0x4Au);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v6, 0x49u, 0LL);
   }
   return (unsigned int)v6;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpHsaFindReservedDomain @ 0x14052E31C
+ * XREFs of HalpHsaFindReservedDomain @ 0x1404E15D8
  * Callers:
- *     HsaGetBlockedDomain @ 0x14053006C (HsaGetBlockedDomain.c)
+ *     HsaGetBlockedDomain @ 0x1404E3670 (HsaGetBlockedDomain.c)
  * Callees:
  *     <none>
  */

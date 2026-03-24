@@ -1,16 +1,16 @@
 /*
- * XREFs of SepAdtInitializeAuditingOptions @ 0x140B648B0
+ * XREFs of SepAdtInitializeAuditingOptions @ 0x140A4BB0C
  * Callers:
- *     SeRmInitPhase1 @ 0x140B647DC (SeRmInitPhase1.c)
+ *     SeRmInitPhase1 @ 0x140A4BA3C (SeRmInitPhase1.c)
  * Callees:
- *     NtClose @ 0x1406E4570 (NtClose.c)
- *     NtSetEvent @ 0x1407ADAE0 (NtSetEvent.c)
- *     AdtpInitializeAuditingCommon @ 0x1408439E4 (AdtpInitializeAuditingCommon.c)
- *     SepAdtInitializeCrashOnFail @ 0x140843A24 (SepAdtInitializeCrashOnFail.c)
- *     SepAdtOpenRegAndSetupNotification @ 0x140843A84 (SepAdtOpenRegAndSetupNotification.c)
- *     SepAdtOpenEtwReadyEvent @ 0x140843B10 (SepAdtOpenEtwReadyEvent.c)
- *     SepAdtInitializePrivilegeAuditing @ 0x140844348 (SepAdtInitializePrivilegeAuditing.c)
- *     SepAdtInitializeBounds @ 0x1408443A8 (SepAdtInitializeBounds.c)
+ *     NtClose @ 0x14063E0A0 (NtClose.c)
+ *     NtSetEvent @ 0x140662510 (NtSetEvent.c)
+ *     SepAdtInitializeBounds @ 0x14079E654 (SepAdtInitializeBounds.c)
+ *     SepAdtInitializePrivilegeAuditing @ 0x14079E6D8 (SepAdtInitializePrivilegeAuditing.c)
+ *     SepAdtInitializeCrashOnFail @ 0x14079E738 (SepAdtInitializeCrashOnFail.c)
+ *     SepAdtOpenRegAndSetupNotification @ 0x14079E798 (SepAdtOpenRegAndSetupNotification.c)
+ *     SepAdtOpenEtwReadyEvent @ 0x14079E824 (SepAdtOpenEtwReadyEvent.c)
+ *     AdtpInitializeAuditingCommon @ 0x14079E8B0 (AdtpInitializeAuditingCommon.c)
  */
 
 int SepAdtInitializeAuditingOptions()

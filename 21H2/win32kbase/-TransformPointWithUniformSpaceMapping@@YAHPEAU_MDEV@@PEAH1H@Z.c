@@ -1,11 +1,11 @@
 /*
- * XREFs of ?TransformPointWithUniformSpaceMapping@@YAHPEAU_MDEV@@PEAH1H@Z @ 0x1C00B1D2C
+ * XREFs of ?TransformPointWithUniformSpaceMapping@@YAHPEAU_MDEV@@PEAH1H@Z @ 0x1C000FC40
  * Callers:
- *     DrvUniformSpaceToPixelSpacePoint @ 0x1C00B1D00 (DrvUniformSpaceToPixelSpacePoint.c)
- *     DrvPixelSpaceToUniformSpacePoint @ 0x1C00D4540 (DrvPixelSpaceToUniformSpacePoint.c)
+ *     DrvPixelSpaceToUniformSpacePoint @ 0x1C000D230 (DrvPixelSpaceToUniformSpacePoint.c)
+ *     DrvUniformSpaceToPixelSpacePoint @ 0x1C000FC10 (DrvUniformSpaceToPixelSpacePoint.c)
  * Callees:
- *     PtInRect @ 0x1C003C178 (PtInRect.c)
- *     DrvIsUniformSpaceMapping @ 0x1C00B1D90 (DrvIsUniformSpaceMapping.c)
+ *     DrvIsUniformSpaceMapping @ 0x1C000FCA0 (DrvIsUniformSpaceMapping.c)
+ *     PtInRect @ 0x1C006FD0C (PtInRect.c)
  */
 
 __int64 __fastcall TransformPointWithUniformSpaceMapping(struct _MDEV *a1, int *a2, int *a3, int a4)
@@ -21,7 +21,7 @@ __int64 __fastcall TransformPointWithUniformSpaceMapping(struct _MDEV *a1, int *
   int v17; // r11d
   char *v18; // r8
   float v19; // xmm3_4
-  unsigned __int64 v20; // [rsp+20h] [rbp-38h]
+  __int64 v20; // [rsp+20h] [rbp-38h]
 
   v8 = 0;
   if ( (unsigned int)DrvIsUniformSpaceMapping(a1) )
@@ -37,7 +37,7 @@ __int64 __fastcall TransformPointWithUniformSpaceMapping(struct _MDEV *a1, int *
       {
         v13 = (char *)a1 + 56 * v10;
         v14 = &v13[v12];
-        if ( PtInRect(&v13[v12], v20) )
+        if ( (unsigned int)PtInRect(&v13[v12], v20) )
           break;
         v10 = v15 + 1;
         if ( v10 >= v16 )

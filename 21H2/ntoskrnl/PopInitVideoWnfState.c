@@ -1,9 +1,9 @@
 /*
- * XREFs of PopInitVideoWnfState @ 0x140B301A8
+ * XREFs of PopInitVideoWnfState @ 0x140A73124
  * Callers:
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x14041F2A0 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
  */
 
 __int64 PopInitVideoWnfState()

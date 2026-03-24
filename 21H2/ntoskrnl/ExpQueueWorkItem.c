@@ -1,35 +1,66 @@
 /*
- * XREFs of ExpQueueWorkItem @ 0x1402EF0CC
+ * XREFs of ExpQueueWorkItem @ 0x1402414A0
  * Callers:
- *     ExQueueWorkItemEx @ 0x1402EEBC0 (ExQueueWorkItemEx.c)
- *     ExQueueWorkItemToPartition @ 0x1402EF060 (ExQueueWorkItemToPartition.c)
- *     ExQueueWorkItemToPrivatePool @ 0x140398000 (ExQueueWorkItemToPrivatePool.c)
- *     ExQueueWorkItemExFromIo @ 0x14063F338 (ExQueueWorkItemExFromIo.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     ExQueueWorkItemEx @ 0x14027A208 (ExQueueWorkItemEx.c)
+ *     ExQueueWorkItemFromIo @ 0x1402B6418 (ExQueueWorkItemFromIo.c)
+ *     ExQueueWorkItemToPartition @ 0x1402F78AC (ExQueueWorkItemToPartition.c)
+ *     ExQueueWorkItemToPrivatePool @ 0x14038B538 (ExQueueWorkItemToPrivatePool.c)
+ *     ExQueueWorkItemExFromIo @ 0x1405B6F68 (ExQueueWorkItemExFromIo.c)
  * Callees:
- *     ExpQueueWorkItemNode @ 0x1402EF254 (ExpQueueWorkItemNode.c)
- *     MmGetNextNode @ 0x14030B3F0 (MmGetNextNode.c)
- *     ExpIsPoolReadyForWork @ 0x140346770 (ExpIsPoolReadyForWork.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpNewThreadNecessary @ 0x140242890 (ExpNewThreadNecessary.c)
+ *     ExpIsPoolReadyForWork @ 0x1402428E0 (ExpIsPoolReadyForWork.c)
+ *     KiTryUnwaitThreadWithPriority @ 0x140242960 (KiTryUnwaitThreadWithPriority.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MmGetNextNode @ 0x1402936D4 (MmGetNextNode.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char __fastcall ExpQueueWorkItem(__int64 a1, int a2, int a3, unsigned int a4, unsigned int a5)
+__int64 __fastcall ExpQueueWorkItem(__int64 a1, _QWORD *a2, int a3, unsigned int a4, unsigned int a5)
 {
-  char v8; // r14
-  unsigned __int8 CurrentIrql; // bl
+  unsigned __int8 v5; // di
+  __int64 v6; // r15
+  unsigned int v7; // ebx
+  unsigned __int8 CurrentIrql; // r13
+  _KNODE *ParentNode; // rcx
   unsigned int NextNode; // ecx
-  unsigned int v12; // ebp
-  char *v13; // r10
-  int v14; // r10d
+  unsigned int v14; // r11d
+  __int64 v15; // rsi
+  unsigned int v16; // r10d
+  __int64 v17; // r11
+  __int64 v18; // rsi
+  _QWORD **v19; // r14
+  __int64 v20; // rcx
+  struct _KPRCB *CurrentPrcb; // rbp
+  _KTHREAD *CurrentThread; // rdi
+  __int64 v23; // rax
+  __int64 v24; // rdx
+  int v25; // ecx
+  unsigned int v26; // ecx
+  _QWORD *v27; // rbx
+  _QWORD *v28; // rax
+  _QWORD *v29; // rdx
+  _QWORD *v30; // rcx
+  __int64 v32; // rcx
+  _QWORD *v33; // rax
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v17; // al
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v19; // r9
-  int v20; // edx
-  bool v21; // zf
-  int v22; // [rsp+78h] [rbp+20h] BYREF
+  _DWORD *v35; // r9
+  unsigned __int8 v36; // al
+  struct _KPRCB *v37; // rax
+  _DWORD *v38; // r9
+  int v39; // edx
+  bool v40; // zf
+  int v41; // [rsp+30h] [rbp-58h] BYREF
+  __int64 v42; // [rsp+38h] [rbp-50h]
+  __int64 v43; // [rsp+40h] [rbp-48h]
+  int v45; // [rsp+A8h] [rbp+20h] BYREF
 
-  v8 = 0;
-  v22 = 0;
+  v5 = 0;
+  v6 = a3;
+  v7 = 0;
+  v45 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
@@ -37,44 +68,118 @@ char __fastcall ExpQueueWorkItem(__int64 a1, int a2, int a3, unsigned int a4, un
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
+  ParentNode = KeGetCurrentPrcb()->ParentNode;
   if ( a4 >= (unsigned __int16)KeNumberNodes )
-    a4 = KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0];
+    a4 = ParentNode->Affinity.Reserved[0];
   LOWORD(NextNode) = a4;
   if ( a4 < (unsigned __int16)KeNumberNodes )
   {
-    v12 = a5;
+    v14 = a5;
     while ( 1 )
     {
-      v13 = (char *)KeNodeBlock[(unsigned __int16)NextNode];
-      if ( v13 == (char *)&KiNodeInit + 280 * (unsigned __int16)NextNode )
-        v13 = 0LL;
-      if ( (unsigned __int8)ExpIsPoolReadyForWork(a1, v13, v12) )
+      v15 = KeNodeBlock[(unsigned __int16)NextNode];
+      if ( (_UNKNOWN *)v15 == (_UNKNOWN *)((char *)&KiNodeInit + 384 * (unsigned __int16)NextNode) )
+        v15 = 0LL;
+      v43 = v15;
+      if ( (unsigned __int8)ExpIsPoolReadyForWork(a1, v15, v14) )
         break;
-      NextNode = MmGetNextNode(a4, &v22);
+      NextNode = MmGetNextNode(v16, &v45);
       if ( NextNode >= (unsigned __int16)KeNumberNodes )
-        goto LABEL_10;
+        goto LABEL_26;
     }
-    ExpQueueWorkItemNode(a1, a2, a3, v14, v12);
-    v8 = 1;
+    v18 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL * *(unsigned __int16 *)(v15 + 146)) + 8 * v17);
+    if ( (v18 & 1) != 0 )
+      v18 = 0LL;
+    v19 = (_QWORD **)(v18 + 8);
+    v20 = KeGetCurrentIrql();
+    v42 = v20;
+    __writecr8(2uLL);
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)v20 <= 0xFu )
+    {
+      v35 = KeGetCurrentPrcb()->SchedulerAssist;
+      v35[5] |= (-1 << (v20 + 1)) & 4;
+    }
+    CurrentPrcb = KeGetCurrentPrcb();
+    v41 = 0;
+    CurrentThread = CurrentPrcb->CurrentThread;
+    while ( _interlockedbittestandset((volatile signed __int32 *)v18, 7u) )
+    {
+      do
+        KeYieldProcessorEx(&v41);
+      while ( (*(_DWORD *)v18 & 0x80u) != 0 );
+    }
+    if ( *v19 != v19 && (CurrentThread->Queue != (_DISPATCHER_HEADER *volatile)v18 || CurrentThread->WaitReason != 15) )
+    {
+      v23 = 32LL;
+      v24 = v18 + 664;
+      do
+      {
+        v25 = *(_DWORD *)(v24 - 4);
+        v24 -= 4LL;
+        v7 += v25;
+        --v23;
+        v26 = *(_DWORD *)(v18 + 664);
+        if ( v7 >= v26 )
+          goto LABEL_29;
+      }
+      while ( v23 > v6 );
+      if ( v7 < v26 )
+      {
+        v27 = *v19;
+        while ( 1 )
+        {
+          v28 = (_QWORD *)*v27;
+          v29 = v27;
+          v27 = v28;
+          v30 = (_QWORD *)v29[1];
+          if ( (_QWORD *)v28[1] != v29 || (_QWORD *)*v30 != v29 )
+            break;
+          *v30 = v28;
+          v28[1] = v30;
+          if ( (unsigned __int8)KiTryUnwaitThreadWithPriority(CurrentPrcb, v29, a2, (unsigned int)v6) )
+            goto LABEL_23;
+          if ( v27 == v19 )
+            goto LABEL_29;
+        }
+LABEL_44:
+        __fastfail(3u);
+      }
+    }
+LABEL_29:
+    ++*(_DWORD *)(v18 + 4);
+    v32 = v18 + 16 * v6 + 24;
+    v33 = *(_QWORD **)(v32 + 8);
+    if ( *v33 != v32 )
+      goto LABEL_44;
+    *a2 = v32;
+    a2[1] = v33;
+    *v33 = a2;
+    *(_QWORD *)(v32 + 8) = a2;
+LABEL_23:
+    _InterlockedAnd((volatile signed __int32 *)v18, 0xFFFFFF7F);
+    KiExitDispatcher((_DWORD)CurrentPrcb, 0, 1, 0, v42);
+    if ( (unsigned __int8)ExpNewThreadNecessary(v18, *(unsigned int *)(v18 + 720)) )
+      KeSetEvent((PRKEVENT)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 8LL * *(unsigned __int16 *)(v43 + 146)) + 16LL), 0, 0);
+    v5 = 1;
   }
-LABEL_10:
+LABEL_26:
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v17 = KeGetCurrentIrql();
-      if ( v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+      v36 = KeGetCurrentIrql();
+      if ( v36 <= 0xFu && CurrentIrql <= 0xFu && v36 >= 2u )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v19 = CurrentPrcb->SchedulerAssist;
-        v20 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v21 = (v20 & v19[5]) == 0;
-        v19[5] &= v20;
-        if ( v21 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v37 = KeGetCurrentPrcb();
+        v38 = v37->SchedulerAssist;
+        v39 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v40 = (v39 & v38[5]) == 0;
+        v38[5] &= v39;
+        if ( v40 )
+          KiRemoveSystemWorkPriorityKick(v37);
       }
     }
   }
   __writecr8(CurrentIrql);
-  return v8;
+  return v5;
 }

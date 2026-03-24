@@ -1,373 +1,345 @@
 /*
- * XREFs of VidSchiUpdateLastCompletedPresentTimestamp @ 0x1C0006920
+ * XREFs of VidSchiUpdateLastCompletedPresentTimestamp @ 0x1C000D450
  * Callers:
- *     VidSchUnwaitFlipQueue @ 0x1C0007760 (VidSchUnwaitFlipQueue.c)
- *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C00091C0 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
- *     VidSchiSubmitMmIoFlipCommand @ 0x1C00126D0 (VidSchiSubmitMmIoFlipCommand.c)
- *     VidSchiNeedToForcePreemptNode @ 0x1C0017CD4 (VidSchiNeedToForcePreemptNode.c)
- *     VidSchiIsHardwareCompletedDependingCommandForFlip @ 0x1C003A9A4 (VidSchiIsHardwareCompletedDependingCommandForFlip.c)
+ *     VidSchiIsHardwareCompletedDependingCommandForFlip @ 0x1C0003A90 (VidSchiIsHardwareCompletedDependingCommandForFlip.c)
+ *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C000A0C0 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
+ *     VidSchUnwaitFlipQueue @ 0x1C000D860 (VidSchUnwaitFlipQueue.c)
+ *     VidSchiNeedToForcePreemptNode @ 0x1C00156C8 (VidSchiNeedToForcePreemptNode.c)
  * Callees:
- *     VidSchiStartNodeYield @ 0x1C0018EE8 (VidSchiStartNodeYield.c)
- *     VidSchiMonitorRefreshPeriodFromNode @ 0x1C0018FA4 (VidSchiMonitorRefreshPeriodFromNode.c)
- *     McTemplateK0pqx_EtwWriteTransfer @ 0x1C002F0A8 (McTemplateK0pqx_EtwWriteTransfer.c)
- *     McTemplateK0pqxxxx_EtwWriteTransfer @ 0x1C003956C (McTemplateK0pqxxxx_EtwWriteTransfer.c)
+ *     VidSchiStartNodeYield @ 0x1C0014D00 (VidSchiStartNodeYield.c)
+ *     VidSchiMonitorRefreshPeriodFromNode @ 0x1C0014DBC (VidSchiMonitorRefreshPeriodFromNode.c)
+ *     McTemplateK0pqx_EtwWriteTransfer @ 0x1C0024BE4 (McTemplateK0pqx_EtwWriteTransfer.c)
+ *     McTemplateK0pqxxxx_EtwWriteTransfer @ 0x1C002E804 (McTemplateK0pqxxxx_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall VidSchiUpdateLastCompletedPresentTimestamp(__int64 a1, __int64 a2, char a3)
 {
   unsigned __int128 v3; // rax
-  LARGE_INTEGER *v4; // rsi
-  char v6; // r12
+  LARGE_INTEGER *v4; // r14
   char v7; // bl
-  LARGE_INTEGER v8; // rdi
-  __int64 v9; // rbp
-  LARGE_INTEGER v10; // rax
-  int v11; // edx
-  int v12; // ecx
-  int v13; // r8d
-  LARGE_INTEGER v14; // r11
-  __int64 v15; // r9
-  LARGE_INTEGER v16; // r15
-  unsigned __int64 v17; // rsi
+  LARGE_INTEGER v8; // rsi
+  __int64 v9; // r12
+  char v10; // r15
+  LARGE_INTEGER v11; // rax
+  int v12; // edx
+  LARGE_INTEGER v13; // rcx
+  int v14; // r8d
+  LARGE_INTEGER v15; // r9
+  LARGE_INTEGER v16; // rbp
+  unsigned __int64 v17; // r14
   unsigned __int64 QuadPart; // r8
-  unsigned __int64 v19; // r9
-  unsigned __int64 v20; // r13
-  unsigned __int64 v21; // r13
-  unsigned __int64 v22; // rax
-  unsigned __int64 v23; // rcx
-  unsigned __int128 v24; // rax
-  unsigned __int64 v25; // rbx
-  unsigned __int64 v26; // rax
-  char v27; // bp
-  int v28; // esi
-  __int64 v29; // rbx
-  unsigned __int64 v30; // r15
-  __int64 *v31; // rcx
-  __int64 v32; // r9
-  unsigned __int64 v33; // rdx
-  unsigned int i; // esi
-  __int64 *v35; // rbx
-  __int64 v36; // rbx
-  __int64 v37; // rcx
+  unsigned __int64 v19; // r10
+  unsigned __int64 v20; // r10
+  unsigned __int64 v21; // rax
+  unsigned __int64 v22; // rcx
+  unsigned __int128 v23; // rax
+  unsigned __int64 v24; // r10
+  unsigned __int64 v25; // rax
+  unsigned __int64 v26; // r11
+  __int64 v27; // rbx
+  int v28; // edi
+  __int64 v29; // rbp
+  __int64 *v30; // rcx
+  __int64 v31; // r9
+  unsigned int i; // edi
+  __int64 *v33; // rbx
+  __int64 v34; // rbx
+  __int64 v35; // rcx
   unsigned int refreshed; // eax
-  __int64 v39; // r11
-  unsigned __int64 v40; // r10
-  unsigned __int64 v41; // rcx
-  int v42; // ecx
+  unsigned __int64 v37; // r10
+  int v38; // ecx
+  unsigned __int64 v39; // rcx
+  unsigned __int64 v40; // r11
+  unsigned __int64 v41; // r8
+  unsigned __int64 v42; // r10
   unsigned __int64 v43; // r11
-  __int16 v44; // r12
-  __int64 v45; // rdx
-  unsigned __int64 v46; // r9
-  __int64 v47; // rdx
-  LONGLONG v48; // rcx
-  unsigned __int64 v49; // r8
-  unsigned __int64 v50; // r10
-  unsigned __int64 v51; // r11
-  union _LARGE_INTEGER v53; // [rsp+50h] [rbp-78h] BYREF
-  unsigned __int64 v54; // [rsp+58h] [rbp-70h]
-  __int64 v55; // [rsp+60h] [rbp-68h]
-  unsigned __int64 v56; // [rsp+68h] [rbp-60h]
-  LARGE_INTEGER v57; // [rsp+70h] [rbp-58h]
-  LARGE_INTEGER *v58; // [rsp+78h] [rbp-50h]
-  __int64 v59; // [rsp+80h] [rbp-48h]
-  unsigned int v60; // [rsp+D0h] [rbp+8h]
-  int v62; // [rsp+E8h] [rbp+20h]
+  unsigned __int64 v44; // r8
+  unsigned __int64 v45; // rtt
+  union _LARGE_INTEGER v47; // [rsp+50h] [rbp-68h] BYREF
+  unsigned __int64 v48; // [rsp+58h] [rbp-60h]
+  unsigned __int64 v49; // [rsp+60h] [rbp-58h]
+  __int64 v50; // [rsp+68h] [rbp-50h]
+  LARGE_INTEGER v51; // [rsp+70h] [rbp-48h]
+  LARGE_INTEGER *v52; // [rsp+78h] [rbp-40h]
+  unsigned int v53; // [rsp+C0h] [rbp+8h]
 
   *((_QWORD *)&v3 + 1) = a2;
   v4 = *(LARGE_INTEGER **)(a1 + 104);
   *(_QWORD *)&v3 = *(unsigned int *)(a1 + 404);
-  v6 = a3;
-  v58 = v4;
+  v52 = v4;
   v7 = BYTE8(v3);
   v8 = v4[4];
   v9 = gulPriorityToYieldPriorityBand[(_QWORD)v3];
-  v62 = v9;
   if ( !(_DWORD)v9 || (_DWORD)v9 == 3 )
     return v3;
-  v53.QuadPart = 0LL;
-  v10 = KeQueryPerformanceCounter(&v53);
-  v14 = v4[23];
-  v15 = v9;
-  v57 = v10;
-  v16 = v10;
-  v55 = v9;
-  if ( !v14.QuadPart && !v6 )
+  v10 = 0;
+  v47.QuadPart = 0LL;
+  v11 = KeQueryPerformanceCounter(&v47);
+  v15 = v4[23];
+  v16 = v11;
+  v51 = v11;
+  v50 = v9;
+  if ( !v15.QuadPart && !a3 )
   {
-    if ( (byte_1C0076981 & 1) != 0 )
-    {
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
       McTemplateK0pqxxxx_EtwWriteTransfer(
+        v13.LowPart,
         v12,
-        v11,
-        v13,
+        v14,
         *(_QWORD *)(v8.QuadPart + 16),
         1,
         *(_DWORD *)(a1 + 404),
-        v10.QuadPart,
+        v11.QuadPart,
         0,
         0);
-LABEL_60:
-      v27 = v60;
-      goto LABEL_26;
-    }
-    goto LABEL_41;
+LABEL_47:
+    v10 = v53;
+    goto LABEL_26;
   }
-  v17 = v10.QuadPart - v14.QuadPart;
-  v56 = v10.QuadPart - v14.QuadPart;
-  if ( v7 || v6 )
+  v17 = v11.QuadPart - v15.QuadPart;
+  if ( v7 || a3 )
   {
-    QuadPart = v53.QuadPart;
+    QuadPart = v47.QuadPart;
   }
   else
   {
-    QuadPart = v53.QuadPart;
+    QuadPart = v47.QuadPart;
+    v13.QuadPart = 10000000 * v17;
     if ( is_mul_ok(v17, 0x989680uLL) )
     {
-      if ( v53.QuadPart == 10000000 )
+      if ( v47.QuadPart == 10000000 )
       {
         *(_QWORD *)&v3 = 7609472 * v17;
-        v19 = 10000000 * v17 / 0x989680;
+        *((_QWORD *)&v3 + 1) = v13.QuadPart / 0x989680uLL;
       }
       else
       {
-        *(_QWORD *)&v3 = 10000000 * v17 / v53.QuadPart;
-        v19 = v3;
+        *(_QWORD *)&v3 = 10000000 * v17 / v47.QuadPart;
+        *((_QWORD *)&v3 + 1) = v3;
       }
     }
     else
     {
-      *(_QWORD *)&v3 = v17 / v53.QuadPart;
-      v19 = 10000000 * (v17 / v53.QuadPart) + 10000000 * (v17 % v53.QuadPart) / v53.QuadPart;
+      v13.QuadPart = v17 / v47.QuadPart;
+      *(_QWORD *)&v3 = 10000000 * (v17 % v47.QuadPart) / v47.QuadPart;
+      *((_QWORD *)&v3 + 1) = v3 + 10000000 * (v17 / v47.QuadPart);
     }
-    if ( v19 < *(_QWORD *)(v8.QuadPart + 2872) )
+    if ( *((_QWORD *)&v3 + 1) < *(_QWORD *)(v8.QuadPart + 2776) )
       return v3;
-    v15 = v9;
   }
-  v60 = *(_DWORD *)(v8.QuadPart + 4 * v15 + 204);
-  v20 = v17 * v60;
-  v3 = v20 * (unsigned __int128)0x47AE147AE147AE15uLL;
-  v21 = v20 / 0x64;
-  if ( !v21 && !v6 )
+  v53 = *(_DWORD *)(v8.QuadPart + 4 * v9 + 196);
+  v19 = v17 * v53;
+  v3 = v19 * (unsigned __int128)0x47AE147AE147AE15uLL;
+  v20 = v19 / 0x64;
+  v49 = v20;
+  if ( !v20 && !a3 )
   {
-    if ( (byte_1C0076981 & 1) != 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
       *(_QWORD *)&v3 = McTemplateK0pqxxxx_EtwWriteTransfer(
-                         0,
+                         v13.LowPart,
                          DWORD2(v3),
                          QuadPart,
                          *(_QWORD *)(v8.QuadPart + 16),
                          2,
                          *(_DWORD *)(a1 + 404),
-                         LOBYTE(v16.LowPart) - LOBYTE(v14.LowPart),
+                         v17,
                          0,
                          0);
     return v3;
   }
-  v22 = 10000000 * v21;
-  v54 = 0LL;
-  v23 = 10000000 * v21;
-  if ( is_mul_ok(v21, 0x989680uLL) )
+  v48 = 0LL;
+  v21 = 10000000 * v20;
+  v22 = 10000000 * v20;
+  if ( is_mul_ok(v20, 0x989680uLL) )
   {
     if ( QuadPart == 10000000 )
     {
-      v24 = v23 * (unsigned __int128)0xD6BF94D5E57A42BDuLL;
-      v25 = v23 / 0x989680;
+      v23 = v22 * (unsigned __int128)0xD6BF94D5E57A42BDuLL;
+      v24 = v22 / 0x989680;
     }
     else
     {
-      *((_QWORD *)&v24 + 1) = v22 % QuadPart;
-      v25 = v22 / QuadPart;
+      *((_QWORD *)&v23 + 1) = v21 % QuadPart;
+      v24 = v21 / QuadPart;
     }
   }
   else
   {
-    *((_QWORD *)&v24 + 1) = v21 % QuadPart;
-    v23 = 10000000 * (v21 / QuadPart);
-    v25 = v23 + 10000000 * (v21 % QuadPart) / QuadPart;
+    v22 = v20 / QuadPart;
+    *((_QWORD *)&v23 + 1) = 10000000 * (v20 % QuadPart) % QuadPart;
+    v24 = 10000000 * (v20 % QuadPart) / QuadPart + 10000000 * (v20 / QuadPart);
   }
-  v26 = *(_QWORD *)(v8.QuadPart + 2864);
-  v54 = v25;
-  if ( v25 > v26 )
+  v25 = *(_QWORD *)(v8.QuadPart + 2768);
+  v48 = v24;
+  if ( v24 > v25 )
   {
-    if ( !v6 )
+    if ( !a3 )
     {
-      if ( (byte_1C0076981 & 1) != 0 )
-      {
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
         McTemplateK0pqxxxx_EtwWriteTransfer(
-          v23,
-          DWORD2(v24),
+          v22,
+          DWORD2(v23),
           QuadPart,
           *(_QWORD *)(v8.QuadPart + 16),
           1,
           *(_DWORD *)(a1 + 404),
           v16.QuadPart,
-          v14.QuadPart,
+          v15.QuadPart,
           0);
-        goto LABEL_60;
-      }
-LABEL_41:
-      v27 = v60;
-      goto LABEL_27;
+      goto LABEL_47;
     }
-    v54 = v26;
-    if ( is_mul_ok(v26, QuadPart) )
+    LOBYTE(v24) = v25;
+    v48 = v25;
+    v49 = 0LL;
+    v39 = v25 * QuadPart;
+    if ( is_mul_ok(v25, QuadPart) )
     {
-      v21 = v26 * QuadPart / 0x989680;
+      v26 = v39 / 0x989680;
+      v49 = v39 / 0x989680;
     }
     else
     {
-      v21 = QuadPart * (v26 / 0x989680) + QuadPart * (v26 % 0x989680) / 0x989680;
-      v15 = v9;
+      v26 = QuadPart * (v25 / 0x989680) + QuadPart * (v48 - 10000000 * (v25 / 0x989680)) / 0x989680;
+      LOBYTE(v24) = v48;
+      v49 = v26;
     }
   }
-  v27 = 0;
+  else
+  {
+    v26 = v49;
+  }
+  v27 = 0LL;
   v28 = (1 << *(_DWORD *)(a1 + 404)) - 1;
-  v29 = 0LL;
-  if ( !*(_DWORD *)(v8.QuadPart + 80) )
-    goto LABEL_27;
-  v30 = v56;
+  if ( !*(_DWORD *)(v8.QuadPart + 72) )
+    goto LABEL_26;
+  v29 = v50;
   do
   {
-    v31 = *(__int64 **)(v8.QuadPart + 632);
-    if ( (unsigned int)v29 < *(_DWORD *)(v8.QuadPart + 704) )
-      v31 += v29;
-    v32 = *v31;
-    if ( (v28 & *(_DWORD *)(*v31 + 1768)) == 0 && (v28 & *(_DWORD *)(v32 + 1772)) == 0 )
-      goto LABEL_23;
-    v39 = v55;
-    v40 = *(_QWORD *)(v32 + 8 * v55 + 1968);
-    v41 = v30 * (100 - v60) / 0x64;
-    if ( v40 <= v41 && !v6 )
+    v30 = *(__int64 **)(v8.QuadPart + 624);
+    if ( (unsigned int)v27 < *(_DWORD *)(v8.QuadPart + 696) )
+      v30 += v27;
+    v31 = *v30;
+    if ( (v28 & *(_DWORD *)(*v30 + 1760)) != 0 || (v28 & *(_DWORD *)(v31 + 1764)) != 0 )
     {
-      if ( (byte_1C0076981 & 1) == 0 )
+      v37 = *(_QWORD *)(v31 + 8 * v29 + 1960);
+      if ( v37 <= v17 * (100 - v53) / 0x64 && !a3 )
       {
-LABEL_23:
-        LOBYTE(v33) = v54;
-        goto LABEL_24;
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) == 0 )
+        {
+LABEL_44:
+          LOBYTE(v24) = v48;
+          goto LABEL_24;
+        }
+        v50 = 0LL;
+        if ( is_mul_ok(v17, 0x989680uLL) )
+          v40 = v17 * (unsigned __int128)0x989680uLL / QuadPart;
+        else
+          v40 = 10000000 * (v17 / QuadPart) + 10000000 * (v17 % QuadPart) / QuadPart;
+        v50 = 0LL;
+        if ( is_mul_ok(v37, 0x989680uLL) )
+          v41 = v37 * (unsigned __int128)0x989680uLL / QuadPart;
+        else
+          v41 = 10000000 * (v37 / QuadPart) + 10000000 * (v37 % QuadPart) / QuadPart;
+        McTemplateK0pqxxxx_EtwWriteTransfer(
+          *(unsigned __int16 *)(v31 + 4),
+          *(_DWORD *)(a1 + 404),
+          v41,
+          *(_QWORD *)(v8.QuadPart + 16),
+          5,
+          *(_DWORD *)(a1 + 404),
+          v41,
+          *(_WORD *)(v31 + 4),
+          v40);
+LABEL_76:
+        QuadPart = v47.QuadPart;
+        v26 = v49;
+        goto LABEL_44;
       }
-      v59 = 0LL;
-      if ( is_mul_ok(v30, 0x989680uLL) )
+      v24 = v48;
+      v10 = 1;
+      *(_BYTE *)(v31 + 2016) = 1;
+      *(_QWORD *)(v31 + 2008) = v24;
+      *(_QWORD *)(v31 + 2000) = v26;
+      *(_QWORD *)(v31 + 1992) = 0LL;
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
       {
-        v43 = v30 * (unsigned __int128)0x989680uLL / QuadPart;
+        v50 = 0LL;
+        if ( is_mul_ok(v17, 0x989680uLL) )
+          v43 = v17 * (unsigned __int128)0x989680uLL / (unsigned __int64)v47.QuadPart;
+        else
+          v43 = 10000000 * (v17 / v47.QuadPart) + 10000000 * (v17 % v47.QuadPart) / v47.QuadPart;
+        v44 = *(_QWORD *)(v31 + 8 * v29 + 1960);
+        v50 = 0LL;
+        if ( is_mul_ok(v44, 0x989680uLL) )
+        {
+          v42 = v44 * (unsigned __int128)0x989680uLL / (unsigned __int64)v47.QuadPart;
+        }
+        else
+        {
+          v45 = v44;
+          v44 /= v47.QuadPart;
+          v42 = 10000000 * v44 + 10000000 * (v45 % v47.QuadPart) / v47.QuadPart;
+        }
+        McTemplateK0pqxxxx_EtwWriteTransfer(
+          *(unsigned __int16 *)(v31 + 4),
+          *(_DWORD *)(a1 + 404),
+          v44,
+          *(_QWORD *)(v8.QuadPart + 16),
+          0,
+          *(_DWORD *)(a1 + 404),
+          v42,
+          *(_WORD *)(v31 + 4),
+          v43);
+        goto LABEL_76;
       }
-      else
-      {
-        v41 = 10000000 * (v30 / QuadPart);
-        v43 = v41 + 10000000 * (v30 % QuadPart) / QuadPart;
-      }
-      v44 = *(_WORD *)(v32 + 4);
-      v59 = 0LL;
-      if ( is_mul_ok(v40, 0x989680uLL) )
-      {
-        v45 = v40 * (unsigned __int128)0x989680uLL % QuadPart;
-        v46 = v40 * (unsigned __int128)0x989680uLL / QuadPart;
-      }
-      else
-      {
-        v45 = v40 % QuadPart;
-        v41 = 10000000 * (v40 / QuadPart);
-        v46 = v41 + 10000000 * (v40 % QuadPart) / QuadPart;
-      }
-      McTemplateK0pqxxxx_EtwWriteTransfer(
-        v41,
-        v45,
-        QuadPart,
-        *(_QWORD *)(v8.QuadPart + 16),
-        5,
-        *(_DWORD *)(a1 + 404),
-        v46,
-        v44,
-        v43);
-LABEL_78:
-      QuadPart = v53.QuadPart;
-      v6 = a3;
-      goto LABEL_23;
+      QuadPart = v47.QuadPart;
     }
-    v33 = v54;
-    v27 = 1;
-    *(_BYTE *)(v32 + 2024) = 1;
-    *(_QWORD *)(v32 + 2000) = 0LL;
-    *(_QWORD *)(v32 + 2016) = v33;
-    *(_QWORD *)(v32 + 2008) = v21;
-    if ( (byte_1C0076981 & 1) != 0 )
-    {
-      LODWORD(v48) = v53.LowPart;
-      if ( is_mul_ok(v30, 0x989680uLL) )
-        v50 = v30 * (unsigned __int128)0x989680uLL / (unsigned __int64)v53.QuadPart;
-      else
-        v50 = 10000000 * (v30 / v53.QuadPart) + 10000000 * (v30 % v53.QuadPart) / v53.QuadPart;
-      v51 = *(_QWORD *)(v32 + 8 * v39 + 1968);
-      if ( is_mul_ok(v51, 0x989680uLL) )
-      {
-        v47 = v51 * (unsigned __int128)0x989680uLL % (unsigned __int64)v53.QuadPart;
-        v49 = v51 * (unsigned __int128)0x989680uLL / (unsigned __int64)v53.QuadPart;
-      }
-      else
-      {
-        v47 = v51 % v53.QuadPart;
-        v48 = 10000000 * (v51 / v53.QuadPart);
-        v49 = v48 + 10000000 * (v51 % v53.QuadPart) / v53.QuadPart;
-      }
-      McTemplateK0pqxxxx_EtwWriteTransfer(
-        v48,
-        v47,
-        v49,
-        *(_QWORD *)(v8.QuadPart + 16),
-        0,
-        *(_DWORD *)(a1 + 404),
-        v49,
-        *(_WORD *)(v32 + 4),
-        v50);
-      goto LABEL_78;
-    }
-    QuadPart = v53.QuadPart;
 LABEL_24:
-    v29 = (unsigned int)(v29 + 1);
+    v27 = (unsigned int)(v27 + 1);
   }
-  while ( (unsigned int)v29 < *(_DWORD *)(v8.QuadPart + 80) );
-  v16 = v57;
-  if ( v27 )
+  while ( (unsigned int)v27 < *(_DWORD *)(v8.QuadPart + 72) );
+  v16 = v51;
+  if ( v10 )
   {
-    v42 = *(_DWORD *)(a1 + 404) - 1;
-    *(_DWORD *)(v8.QuadPart + 200) = v42;
-    if ( (byte_1C0076981 & 1) != 0 )
+    v38 = *(_DWORD *)(a1 + 404) - 1;
+    *(_DWORD *)(v8.QuadPart + 192) = v38;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
       McTemplateK0pqx_EtwWriteTransfer(
-        v42,
+        v38,
         (unsigned int)&EventYieldStartAdapter,
         QuadPart,
         *(_QWORD *)(v8.QuadPart + 16),
-        v42,
-        v33);
+        v38,
+        v24);
   }
 LABEL_26:
-  v15 = v55;
-LABEL_27:
-  for ( i = 0; i < *(_DWORD *)(v8.QuadPart + 80); ++i )
+  for ( i = 0; i < *(_DWORD *)(v8.QuadPart + 72); ++i )
   {
-    v35 = *(__int64 **)(v8.QuadPart + 632);
-    if ( i < *(_DWORD *)(v8.QuadPart + 704) )
-      v35 += i;
-    v36 = *v35;
-    *(_QWORD *)(v36 + 8 * v15 + 1936) = 0LL;
-    *(_QWORD *)(v36 + 8 * v15 + 1968) = 0LL;
-    *(LARGE_INTEGER *)(v36 + 8 * v15 + 1904) = v16;
-    v37 = *(_QWORD *)(v36 + 8LL * *(unsigned int *)(v36 + 1560) + 1568);
-    if ( v37 && gulPriorityToYieldPriorityBand[*(unsigned int *)(v37 + 404)] >= v62 && v16.QuadPart )
-      *(LARGE_INTEGER *)(v36 + 8 * v15 + 1936) = v16;
-    if ( v27
-      && *(_BYTE *)(v36 + 2024)
-      && !*(_QWORD *)(v36 + 2000)
-      && v37
-      && *(_DWORD *)(v37 + 404) <= *(_DWORD *)(v8.QuadPart + 200) )
+    v33 = *(__int64 **)(v8.QuadPart + 624);
+    if ( i < *(_DWORD *)(v8.QuadPart + 696) )
+      v33 += i;
+    v34 = *v33;
+    *(_QWORD *)(v34 + 8LL * (int)v9 + 1928) = 0LL;
+    *(_QWORD *)(v34 + 8LL * (int)v9 + 1960) = 0LL;
+    *(LARGE_INTEGER *)(v34 + 8LL * (int)v9 + 1896) = v16;
+    v35 = *(_QWORD *)(v34 + 8LL * *(unsigned int *)(v34 + 1552) + 1560);
+    if ( v35 && gulPriorityToYieldPriorityBand[*(unsigned int *)(v35 + 404)] >= (int)v9 && v16.QuadPart )
+      *(LARGE_INTEGER *)(v34 + 8LL * (int)v9 + 1928) = v16;
+    if ( v10
+      && *(_BYTE *)(v34 + 2016)
+      && !*(_QWORD *)(v34 + 1992)
+      && v35
+      && *(_DWORD *)(v35 + 404) <= *(_DWORD *)(v8.QuadPart + 192) )
     {
-      refreshed = VidSchiMonitorRefreshPeriodFromNode(v36);
+      refreshed = VidSchiMonitorRefreshPeriodFromNode(v34);
       ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))VidSchiStartNodeYield)(
-        v36,
+        v34,
         (LARGE_INTEGER)v16.QuadPart,
-        (union _LARGE_INTEGER)v53.QuadPart,
+        (union _LARGE_INTEGER)v47.QuadPart,
         refreshed);
-      v15 = v62;
     }
   }
-  *(_QWORD *)&v3 = v58;
-  v58[23] = v16;
+  *(_QWORD *)&v3 = v52;
+  v52[23] = v16;
   return v3;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CaptureUsermodeParameters@FontManagementRequest@@UEAAXPEAX@Z @ 0x1C03067C0
+ * XREFs of ?CaptureUsermodeParameters@FontManagementRequest@@UEAAXPEAX@Z @ 0x1C02DE6D0
  * Callers:
  *     <none>
  * Callees:
- *     ?CaptureUsermodeFontObj@FontDriverDdiRequest@@KA_NPEAU_FONTOBJ@@0@Z @ 0x1C007F6E0 (-CaptureUsermodeFontObj@FontDriverDdiRequest@@KA_NPEAU_FONTOBJ@@0@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     ?CaptureUsermodeFontObj@FontDriverDdiRequest@@KA_NPEAU_FONTOBJ@@0@Z @ 0x1C009B338 (-CaptureUsermodeFontObj@FontDriverDdiRequest@@KA_NPEAU_FONTOBJ@@0@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 void __fastcall FontManagementRequest::CaptureUsermodeParameters(FontManagementRequest *this, _QWORD *a2)

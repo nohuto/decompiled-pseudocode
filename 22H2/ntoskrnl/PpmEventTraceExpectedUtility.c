@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceExpectedUtility @ 0x14034EE70
+ * XREFs of PpmEventTraceExpectedUtility @ 0x140398828
  * Callers:
- *     PpmPerfApplyProcessorState @ 0x14034EA0C (PpmPerfApplyProcessorState.c)
+ *     PpmPerfApplyProcessorState @ 0x14039843C (PpmPerfApplyProcessorState.c)
  * Callees:
- *     PpmEventGetEventDescriptorAndProcessorId @ 0x1402575B0 (PpmEventGetEventDescriptorAndProcessorId.c)
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     PpmEventGetEventDescriptorAndProcessorId @ 0x1403988CC (PpmEventGetEventDescriptorAndProcessorId.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventTraceExpectedUtility(__int64 a1)
@@ -43,9 +43,9 @@ char __fastcall PpmEventTraceExpectedUtility(__int64 a1)
   v13 = 0;
   EventDescriptorAndProcessorId = (const EVENT_DESCRIPTOR *)PpmEventGetEventDescriptorAndProcessorId(
                                                               a1,
-                                                              (__int64)PPM_ETW_EXPECTED_UTILITY,
-                                                              (__int64)PPM_ETW_EXPECTED_UTILITY_HV,
-                                                              (__int64)&v13,
+                                                              (unsigned int)PPM_ETW_EXPECTED_UTILITY,
+                                                              (unsigned int)PPM_ETW_EXPECTED_UTILITY_HV,
+                                                              (unsigned int)&v13,
                                                               (__int64)&v30);
   v3 = EventDescriptorAndProcessorId;
   if ( PpmEtwRegistered )

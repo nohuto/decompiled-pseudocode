@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlQueryStartedProcessors @ 0x140543D70
+ * XREFs of HvlQueryStartedProcessors @ 0x1404F2520
  * Callers:
- *     EtwpQueryUsedProcessorCount @ 0x1402E1C80 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140265E58 (EtwpQueryUsedProcessorCount.c)
  * Callees:
  *     <none>
  */
@@ -29,7 +29,7 @@ __int64 __fastcall HvlQueryStartedProcessors(unsigned int *a1, int *a2)
       v7 = HvlpLogicalProcessorCount;
     if ( v7 )
     {
-      v8 = dword_140D125E4;
+      v8 = dword_140D042E4;
       v9 = v7;
       do
       {

@@ -1,10 +1,10 @@
 /*
- * XREFs of TelemetryData_InsertTriageDataBlock @ 0x1C0050FC0
+ * XREFs of TelemetryData_InsertTriageDataBlock @ 0x1C00503BC
  * Callers:
- *     Controller_TelemetryReport @ 0x1C0033110 (Controller_TelemetryReport.c)
- *     Controller_TelemetryAddControllerData @ 0x1C00767AC (Controller_TelemetryAddControllerData.c)
+ *     Controller_TelemetryReport @ 0x1C00330D0 (Controller_TelemetryReport.c)
+ *     Controller_TelemetryAddControllerData @ 0x1C0075284 (Controller_TelemetryAddControllerData.c)
  * Callees:
- *     memmove @ 0x1C0019A00 (memmove.c)
+ *     memmove @ 0x1C001B000 (memmove.c)
  */
 
 __int64 __fastcall TelemetryData_InsertTriageDataBlock(__int64 *a1, const void *a2, unsigned int a3)

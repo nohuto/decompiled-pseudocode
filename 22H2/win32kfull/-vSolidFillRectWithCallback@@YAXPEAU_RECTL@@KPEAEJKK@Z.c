@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vSolidFillRectWithCallback@@YAXPEAU_RECTL@@KPEAEJKK@Z @ 0x1C0303B10
+ * XREFs of ?vSolidFillRectWithCallback@@YAXPEAU_RECTL@@KPEAEJKK@Z @ 0x1C02DAD40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall vSolidFillRectWithCallback(

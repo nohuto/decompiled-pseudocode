@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DisconnectObject@FtmBase@WRL@Microsoft@@UEAAJK@Z @ 0x1802947C0
+ * XREFs of ?DisconnectObject@FtmBase@WRL@Microsoft@@UEAAJK@Z @ 0x180244140
  * Callers:
  *     <none>
  * Callees:

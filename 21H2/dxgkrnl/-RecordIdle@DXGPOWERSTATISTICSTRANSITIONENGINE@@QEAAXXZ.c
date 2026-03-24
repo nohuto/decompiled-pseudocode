@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RecordIdle@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C0056D48
+ * XREFs of ?RecordIdle@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C0047B5C
  * Callers:
- *     ?SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z @ 0x1C00170F0 (-SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z.c)
+ *     ?SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z @ 0x1C00398E0 (-SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,6 @@ void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::RecordIdle(LARGE_INTEGER *th
 
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)&this[8], 0xFFFFFFFF) == 1 )
   {
-    memset(&LockHandle, 0, sizeof(LockHandle));
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&this[3].QuadPart, &LockHandle);
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
     v3 = this[4];

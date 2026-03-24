@@ -1,8 +1,8 @@
 /*
- * XREFs of VfAvlLookupTreeNode @ 0x14016C410
+ * XREFs of VfAvlLookupTreeNode @ 0x14016C430
  * Callers:
- *     VfTargetDriversRemove @ 0x14016C1C0 (VfTargetDriversRemove.c)
- *     VfTargetDriversGetNode @ 0x14030AC9C (VfTargetDriversGetNode.c)
+ *     VfTargetDriversRemove @ 0x14016C1E0 (VfTargetDriversRemove.c)
+ *     VfTargetDriversGetNode @ 0x14030AD9C (VfTargetDriversGetNode.c)
  *     VfDevObjIsDeviceRemoved @ 0x140933FC8 (VfDevObjIsDeviceRemoved.c)
  *     VfDevObjMarkDeviceRemoved @ 0x140934034 (VfDevObjMarkDeviceRemoved.c)
  *     ViDevObjRemove @ 0x1409343B8 (ViDevObjRemove.c)
@@ -27,11 +27,11 @@
  *     VerifierIoWMIRegistrationControl @ 0x140945DC0 (VerifierIoWMIRegistrationControl.c)
  * Callees:
  *     RtlLookupElementGenericTableFullAvl @ 0x140006B20 (RtlLookupElementGenericTableFullAvl.c)
- *     ViAvlReleaseTableLockFromDpcLevel @ 0x1400F5754 (ViAvlReleaseTableLockFromDpcLevel.c)
- *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x1400F5788 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
- *     ViAvlRaiseIrqlSafe @ 0x1400F57E0 (ViAvlRaiseIrqlSafe.c)
- *     ViAvlTableIndex @ 0x1400F5818 (ViAvlTableIndex.c)
- *     ViAvlNodeInitializeSessionId @ 0x1400F58B8 (ViAvlNodeInitializeSessionId.c)
+ *     ViAvlReleaseTableLockFromDpcLevel @ 0x1400F5774 (ViAvlReleaseTableLockFromDpcLevel.c)
+ *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x1400F57A8 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
+ *     ViAvlRaiseIrqlSafe @ 0x1400F5800 (ViAvlRaiseIrqlSafe.c)
+ *     ViAvlTableIndex @ 0x1400F5838 (ViAvlTableIndex.c)
+ *     ViAvlNodeInitializeSessionId @ 0x1400F58D8 (ViAvlNodeInitializeSessionId.c)
  */
 
 PVOID __fastcall VfAvlLookupTreeNode(__int64 *a1, __int64 a2, unsigned __int64 a3, __int64 a4)

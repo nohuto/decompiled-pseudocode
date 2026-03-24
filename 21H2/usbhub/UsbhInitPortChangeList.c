@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhInitPortChangeList @ 0x1C0033674
+ * XREFs of UsbhInitPortChangeList @ 0x1C00349D8
  * Callers:
- *     UsbhBusPnpStart @ 0x1C0035FB0 (UsbhBusPnpStart.c)
+ *     UsbhBusPnpStart @ 0x1C0037270 (UsbhBusPnpStart.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
 __int64 __fastcall UsbhInitPortChangeList(__int64 a1, __int64 a2)

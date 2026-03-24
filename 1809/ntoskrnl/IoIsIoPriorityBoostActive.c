@@ -1,5 +1,5 @@
 /*
- * XREFs of IoIsIoPriorityBoostActive @ 0x140126FA0
+ * XREFs of IoIsIoPriorityBoostActive @ 0x140126FC0
  * Callers:
  *     <none>
  * Callees:

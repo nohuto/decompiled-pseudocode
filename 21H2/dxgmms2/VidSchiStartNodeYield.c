@@ -1,13 +1,13 @@
 /*
- * XREFs of VidSchiStartNodeYield @ 0x1C00182B0
+ * XREFs of VidSchiStartNodeYield @ 0x1C0014D08
  * Callers:
- *     VidSchiProcessDpcCompletedPacket @ 0x1C0007C30 (VidSchiProcessDpcCompletedPacket.c)
- *     VidSchiSelectContext @ 0x1C0009E90 (VidSchiSelectContext.c)
- *     VidSchiUpdateLastCompletedPresentTimestamp @ 0x1C000C250 (VidSchiUpdateLastCompletedPresentTimestamp.c)
- *     ?VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C00181D8 (-VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C00095B0 (VidSchiProcessDpcCompletedPacket.c)
+ *     VidSchiSelectContext @ 0x1C000B380 (VidSchiSelectContext.c)
+ *     VidSchiUpdateLastCompletedPresentTimestamp @ 0x1C000D3F0 (VidSchiUpdateLastCompletedPresentTimestamp.c)
+ *     ?VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0014C2C (-VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z.c)
  * Callees:
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C002E3C0 (McTemplateK0p_EtwWriteTransfer.c)
- *     McTemplateK0pqxx_EtwWriteTransfer @ 0x1C00302BC (McTemplateK0pqxx_EtwWriteTransfer.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0023FCC (McTemplateK0p_EtwWriteTransfer.c)
+ *     McTemplateK0pqxx_EtwWriteTransfer @ 0x1C0026258 (McTemplateK0pqxx_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall VidSchiStartNodeYield(__int64 a1, __int64 a2, unsigned __int64 a3, int a4)
@@ -25,32 +25,37 @@ __int64 __fastcall VidSchiStartNodeYield(__int64 a1, __int64 a2, unsigned __int6
   unsigned __int64 v17; // r8
 
   v4 = *(_QWORD *)(a1 + 24);
-  v8 = *(unsigned int *)(v4 + 208);
-  if ( !*(_QWORD *)(v4 + 192) )
+  v8 = *(unsigned int *)(v4 + 200);
+  if ( !*(_QWORD *)(v4 + 184) )
   {
     v9 = (_DWORD)v8 == 10 && a4 == 16 ? 9500LL : (unsigned int)(100 * a4 * v8);
-    ExSetTimer(*(_QWORD *)(v4 + 184), -v9, v9, 0LL);
-    if ( (byte_1C006E941 & 1) != 0 )
+    ExSetTimer(*(_QWORD *)(v4 + 176), -v9, v9, 0LL);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
       McTemplateK0p_EtwWriteTransfer(v10, &EventYieldSetExpirationTimer, v11, *(_QWORD *)(v4 + 16));
   }
-  v12 = 100LL * *(_QWORD *)(a1 + 2008);
-  *(_QWORD *)(a1 + 2000) = a2;
+  v12 = 100LL * *(_QWORD *)(a1 + 2000);
+  *(_QWORD *)(a1 + 1992) = a2;
   result = a2 + 2 * (v12 / v8) + v12 / v8;
-  *(_QWORD *)(v4 + 192) = result;
-  if ( (byte_1C006E941 & 1) != 0 )
+  *(_QWORD *)(v4 + 184) = result;
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
   {
-    v14 = *(_QWORD *)(v4 + 192) - a2;
+    v14 = *(_QWORD *)(v4 + 184) - a2;
     if ( is_mul_ok(v14, 0x989680uLL) )
       v15 = v14 * (unsigned __int128)0x989680uLL / a3;
     else
-      v15 = 10000000 * (v14 / a3) + 10000000 * ((*(_QWORD *)(v4 + 192) - a2) % a3) / a3;
-    v16 = *(_QWORD *)(a1 + 2008);
+      v15 = 10000000 * ((*(_QWORD *)(v4 + 184) - a2) % a3) / a3 + 10000000 * (v14 / a3);
+    v16 = *(_QWORD *)(a1 + 2000);
     if ( is_mul_ok(v16, 0x989680uLL) )
+    {
       v17 = v16 * (unsigned __int128)0x989680uLL / a3;
+    }
     else
-      v17 = 10000000 * (v16 / a3) + 10000000 * (*(_QWORD *)(a1 + 2008) % a3) / a3;
+    {
+      v16 /= a3;
+      v17 = 10000000 * (*(_QWORD *)(a1 + 2000) % a3) / a3 + 10000000 * v16;
+    }
     return McTemplateK0pqxx_EtwWriteTransfer(
-             *(unsigned __int16 *)(a1 + 4),
+             v16,
              (unsigned int)&EventYieldStartNode,
              v17,
              *(_QWORD *)(v4 + 16),

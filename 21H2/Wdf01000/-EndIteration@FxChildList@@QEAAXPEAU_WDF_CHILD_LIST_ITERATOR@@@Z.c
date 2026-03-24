@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EndIteration@FxChildList@@QEAAXPEAU_WDF_CHILD_LIST_ITERATOR@@@Z @ 0x1C001311C
+ * XREFs of ?EndIteration@FxChildList@@QEAAXPEAU_WDF_CHILD_LIST_ITERATOR@@@Z @ 0x1C003B270
  * Callers:
- *     imp_WdfChildListEndIteration @ 0x1C0013080 (imp_WdfChildListEndIteration.c)
- *     imp_WdfFdoUnlockStaticChildListFromIteration @ 0x1C005B5E0 (imp_WdfFdoUnlockStaticChildListFromIteration.c)
+ *     imp_WdfChildListEndIteration @ 0x1C0038290 (imp_WdfChildListEndIteration.c)
+ *     imp_WdfFdoUnlockStaticChildListFromIteration @ 0x1C0039750 (imp_WdfFdoUnlockStaticChildListFromIteration.c)
  * Callees:
- *     ?EndScan@FxChildList@@QEAAXPEAK@Z @ 0x1C00131C0 (-EndScan@FxChildList@@QEAAXPEAK@Z.c)
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
+ *     ?EndScan@FxChildList@@QEAAXPEAK@Z @ 0x1C000E280 (-EndScan@FxChildList@@QEAAXPEAK@Z.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
  */
 
 void __fastcall FxChildList::EndIteration(FxChildList *this, _WDF_CHILD_LIST_ITERATOR *Iterator)

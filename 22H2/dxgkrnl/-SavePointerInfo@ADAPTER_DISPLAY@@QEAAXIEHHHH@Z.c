@@ -1,56 +1,38 @@
 /*
- * XREFs of ?SavePointerInfo@ADAPTER_DISPLAY@@QEAAXIEHHHH@Z @ 0x1C00551FC
+ * XREFs of ?SavePointerInfo@ADAPTER_DISPLAY@@QEAAXIEHHHH@Z @ 0x1C000DA50
  * Callers:
- *     ?SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@PEAVSESSION_VIEW@@QEAXII_N55@Z @ 0x1C01F2970 (-SetPointerShapeForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_D.c)
- *     ?SetPointerPositionForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEAVSESSION_VIEW@@PEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z @ 0x1C0339CD4 (-SetPointerPositionForDisplaySource@@YAJPEAVDISPLAY_SOURCE@@PEAVSESSION_VIEW@@PEBU_DXGKARG_SETPO.c)
+ *     ?DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z @ 0x1C014ECAC (-DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     <none>
  */
 
 void __fastcall ADAPTER_DISPLAY::SavePointerInfo(
         ADAPTER_DISPLAY *this,
-        unsigned int a2,
+        __int64 a2,
         char a3,
         int a4,
         int a5,
         int a6,
         int a7)
 {
-  __int64 v10; // rdi
-  int v11; // edx
-  int v12; // ecx
-  int v13; // r8d
-  __int64 v14; // rdx
+  __int64 v10; // rsi
+  __int64 v11; // rdx
+  __int64 v12; // rax
 
-  v10 = a2;
-  if ( a2 >= *((_DWORD *)this + 24) )
+  v10 = (unsigned int)a2;
+  if ( (unsigned int)a2 >= *((_DWORD *)this + 20) )
   {
-    WdLogSingleEntry1(1LL, 5920LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v12,
-          v11,
-          v13,
-          0LL,
-          2,
-          -1,
-          L"VidPnSourceId < m_NumVidPnSources",
-          5920LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v12 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v12 + 24) = 5753LL;
+    WdLogEvent5_WdAssertion(v12);
   }
-  v14 = 4000 * v10;
-  *(_BYTE *)(*((_QWORD *)this + 16) + 4000 * v10 + 765) = a3;
+  v11 = 3968 * v10;
+  *(_BYTE *)(3968 * v10 + *((_QWORD *)this + 14) + 725) = a3;
   if ( a3 )
   {
-    *(_DWORD *)(v14 + *((_QWORD *)this + 16) + 768) = a4;
-    *(_DWORD *)(v14 + *((_QWORD *)this + 16) + 772) = a5;
-    *(_DWORD *)(v14 + *((_QWORD *)this + 16) + 716) = a6;
-    *(_DWORD *)(v14 + *((_QWORD *)this + 16) + 720) = a7;
+    *(_DWORD *)(v11 + *((_QWORD *)this + 14) + 728) = a4;
+    *(_DWORD *)(v11 + *((_QWORD *)this + 14) + 732) = a5;
+    *(_DWORD *)(v11 + *((_QWORD *)this + 14) + 680) = a6;
+    *(_DWORD *)(v11 + *((_QWORD *)this + 14) + 684) = a7;
   }
 }

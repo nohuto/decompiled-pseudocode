@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCovSampCaptureFlush @ 0x1409EEF94
+ * XREFs of EtwpCovSampCaptureFlush @ 0x1409427D0
  * Callers:
- *     EtwpCoverageSamplerQuery @ 0x1409F2984 (EtwpCoverageSamplerQuery.c)
+ *     EtwpCoverageSamplerQuery @ 0x140946424 (EtwpCoverageSamplerQuery.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     memset @ 0x140435E00 (memset.c)
- *     EtwpCovSampCaptureQueueBuffer @ 0x140460CEC (EtwpCovSampCaptureQueueBuffer.c)
- *     EtwpCovSampCaptureFlushSampleBuffers @ 0x1406360C0 (EtwpCovSampCaptureFlushSampleBuffers.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     EtwpCovSampCaptureFlushSampleBuffers @ 0x1405AEC30 (EtwpCovSampCaptureFlushSampleBuffers.c)
+ *     EtwpCovSampCaptureQueueBuffer @ 0x1405AF068 (EtwpCovSampCaptureQueueBuffer.c)
  */
 
 NTSTATUS __fastcall EtwpCovSampCaptureFlush(__int64 a1)

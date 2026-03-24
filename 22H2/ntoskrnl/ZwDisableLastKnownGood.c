@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwDisableLastKnownGood @ 0x14041C2C0
+ * XREFs of ZwDisableLastKnownGood @ 0x1403FB580
  * Callers:
  *     <none>
  * Callees:

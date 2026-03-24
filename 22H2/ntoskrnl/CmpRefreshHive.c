@@ -1,324 +1,245 @@
 /*
- * XREFs of CmpRefreshHive @ 0x140A0C940
+ * XREFs of CmpRefreshHive @ 0x14087D448
  * Callers:
- *     CmRestoreKey @ 0x140A0ACF4 (CmRestoreKey.c)
+ *     CmRestoreKey @ 0x14087BF80 (CmRestoreKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     CmpDrainDelayDerefContext @ 0x14022D510 (CmpDrainDelayDerefContext.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     CmpInitializeDelayDerefContext @ 0x1402314A4 (CmpInitializeDelayDerefContext.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     CmpCleanUpKCBCacheTable @ 0x140699C14 (CmpCleanUpKCBCacheTable.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     CmpCreateHive @ 0x14070247C (CmpCreateHive.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14071092C (CmpFlushNotifiesOnKeyBodyList.c)
- *     HvpMarkCellDirty @ 0x1407474B0 (HvpMarkCellDirty.c)
- *     CmpLockRegistryExclusive @ 0x1407696FC (CmpLockRegistryExclusive.c)
- *     CmpRebuildKcbCache @ 0x140769740 (CmpRebuildKcbCache.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x140828CF4 (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140828D7C (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x140A177F4 (CmpSearchKeyControlBlockTreeEx.c)
- *     CmpDestroyHive @ 0x140A1CD50 (CmpDestroyHive.c)
- *     CmpSwapHiveStorage @ 0x140A1D070 (CmpSwapHiveStorage.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140AF6008 (CmpReleaseHiveLoadUnloadRundown.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140AF602C (CmpAcquireHiveLoadUnloadRundown.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140AF6160 (CmpPerformKeyBodyDeletionCheck.c)
- *     HvpGetBinContextInitialize @ 0x140AF6200 (HvpGetBinContextInitialize.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
- *     CmpLockKcbShared @ 0x140AF6530 (CmpLockKcbShared.c)
- *     CmpUnlockKcb @ 0x140AF65A0 (CmpUnlockKcb.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     CmpInitializeDelayDerefContext @ 0x1402D1878 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x1402D1890 (CmpDrainDelayDerefContext.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpLockKcbShared @ 0x140640230 (CmpLockKcbShared.c)
+ *     CmpUnlockKcb @ 0x140640260 (CmpUnlockKcb.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     CmpCleanUpKCBCacheTable @ 0x14066D23C (CmpCleanUpKCBCacheTable.c)
+ *     HvUnlockHiveFlusherShared @ 0x1406DF07C (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x1406DF0B4 (HvLockHiveFlusherShared.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x1406E59F0 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpLockRegistryExclusive @ 0x1406EB57C (CmpLockRegistryExclusive.c)
+ *     CmpRebuildKcbCache @ 0x14071CD6C (CmpRebuildKcbCache.c)
+ *     CmpCreateHive @ 0x14071D9E8 (CmpCreateHive.c)
+ *     HvUnlockHiveWriter @ 0x14071FE3C (HvUnlockHiveWriter.c)
+ *     HvLockHiveWriter @ 0x14071FE6C (HvLockHiveWriter.c)
+ *     CmpDestroyHive @ 0x140729DF8 (CmpDestroyHive.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x14079F008 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14079F9E4 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     CmpSearchKeyControlBlockTree @ 0x14086F204 (CmpSearchKeyControlBlockTree.c)
+ *     CmpSwapHiveStorage @ 0x14087315C (CmpSwapHiveStorage.c)
+ *     HvMarkCellDirty @ 0x14087BD38 (HvMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpRefreshHive(__int64 a1)
 {
-  struct _PRIVILEGE_SET *v1; // r14
-  char v3; // si
-  char v4; // r15
-  ULONG_PTR v5; // r13
-  ULONG_PTR v6; // rdi
+  char v2; // si
+  char v3; // r15
+  struct _PRIVILEGE_SET *v4; // r12
+  ULONG_PTR v5; // r14
+  __int64 v6; // rdi
   int Hive; // ebx
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  unsigned __int64 v12; // rbx
-  __int64 v13; // rax
-  __int64 v14; // r15
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  int v19; // eax
-  unsigned int v20; // r9d
-  __int64 v21; // r8
-  ULONG_PTR v22; // rdx
-  __int64 CellFlat; // rax
-  __int64 v24; // r14
-  ULONG_PTR v25; // rdx
-  __int64 CellPaged; // rax
-  __int64 v27; // r15
-  int v28; // eax
-  __int64 v29; // rdx
-  __int64 v30; // rcx
-  __int64 v31; // r8
-  __int64 v32; // r9
-  int v34; // [rsp+20h] [rbp-79h]
-  __int64 v35; // [rsp+60h] [rbp-39h] BYREF
-  struct _PRIVILEGE_SET *Pool; // [rsp+68h] [rbp-31h]
-  ULONG_PTR BugCheckParameter3[2]; // [rsp+70h] [rbp-29h] BYREF
-  __int128 v38; // [rsp+80h] [rbp-19h] BYREF
-  _OWORD v39[6]; // [rsp+90h] [rbp-9h] BYREF
-  BOOLEAN v40; // [rsp+108h] [rbp+6Fh]
-  char UnloadRundown; // [rsp+110h] [rbp+77h]
-  __int64 v42; // [rsp+118h] [rbp+7Fh] BYREF
+  __int64 v9; // r13
+  PLOOKASIDE_LIST_EX v10; // r9
+  struct _PRIVILEGE_SET *TransientPoolWithTag; // rax
+  int v12; // eax
+  unsigned int v13; // r9d
+  __int64 v14; // rdx
+  __int64 v15; // rbx
+  int v16; // eax
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  _DWORD *v19; // r9
+  __int64 v20; // [rsp+60h] [rbp-39h] BYREF
+  __int64 v21; // [rsp+68h] [rbp-31h]
+  __int128 v22; // [rsp+78h] [rbp-21h] BYREF
+  _OWORD v23[6]; // [rsp+88h] [rbp-11h] BYREF
+  char v24; // [rsp+100h] [rbp+67h]
+  BOOLEAN v25; // [rsp+108h] [rbp+6Fh]
+  PVOID P; // [rsp+110h] [rbp+77h] BYREF
+  __int64 v27; // [rsp+118h] [rbp+7Fh] BYREF
 
-  v1 = 0LL;
-  v40 = 0;
-  v42 = 0xFFFFFFFFLL;
-  memset(v39, 0, 32);
+  v27 = 0xFFFFFFFFLL;
+  v20 = 0xFFFFFFFFLL;
+  v2 = 0;
+  P = 0LL;
+  memset(v23, 0, 32);
   v3 = 0;
-  v4 = 0;
-  BugCheckParameter3[0] = 0LL;
-  v38 = 0LL;
-  Pool = 0LL;
-  HvpGetBinContextInitialize((char *)&v42 + 4);
-  v35 = 0xFFFFFFFFLL;
-  HvpGetBinContextInitialize((char *)&v35 + 4);
-  CmpInitializeDelayDerefContext(&v38);
+  v4 = 0LL;
+  v21 = 0LL;
+  v22 = 0LL;
+  CmpInitializeDelayDerefContext(&v22);
   v5 = *(_QWORD *)(a1 + 8);
   v6 = *(_QWORD *)(v5 + 32);
-  UnloadRundown = CmpAcquireHiveLoadUnloadRundown();
-  if ( !UnloadRundown )
-  {
-    Hive = -1073741431;
-    goto LABEL_66;
-  }
-  v40 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v6 + 1640));
-  if ( !v40 )
+  v25 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v6 + 1632));
+  if ( !v25 )
   {
     Hive = -1073740763;
-    goto LABEL_66;
+    goto LABEL_7;
   }
   CmpBecomeActiveFlusherAndReconciler(v6);
-  v3 = 1;
-  CmpLockRegistry(v9, v8, v10, v11);
+  v2 = 1;
+  CmpLockRegistry();
   CmpLockKcbShared(v5);
+  v24 = 1;
   Hive = CmpPerformKeyBodyDeletionCheck(a1, 0LL);
   if ( Hive < 0 )
-    goto LABEL_8;
-  if ( *(_BYTE *)(v6 + 2944) == 1 )
+    goto LABEL_6;
+  if ( *(_BYTE *)(v6 + 2936) == 1 )
   {
     Hive = -1073741431;
-LABEL_8:
+LABEL_6:
     CmpUnlockKcb(v5);
-    v1 = Pool;
-    v4 = 1;
-    goto LABEL_66;
+    v3 = 1;
+    goto LABEL_7;
   }
   if ( (*(_DWORD *)(v6 + 160) & 2) == 0 )
-    goto LABEL_29;
-  v12 = KeAbPreAcquire(v6 + 72, 0LL);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v6 + 72), 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)(v6 + 72), 0LL, v12, v6 + 72);
-  if ( v12 )
-    *(_BYTE *)(v12 + 18) = 1;
-  v13 = KeAbPreAcquire(v6 + 80, 0LL);
-  v14 = v13;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)(v6 + 80), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 80), v13, v6 + 80);
-  if ( v14 )
-    *(_BYTE *)(v14 + 18) = 1;
-  v4 = 0;
-  if ( *(_DWORD *)(v6 + 912) )
   {
-    Hive = -1073741823;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 80), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)(v6 + 80));
-    KeAbPostRelease(v6 + 80);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v6 + 72), 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)(v6 + 72));
-    KeAbPostRelease(v6 + 72);
-    Pool = 0LL;
-    goto LABEL_8;
-  }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 80), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)(v6 + 80));
-  KeAbPostRelease(v6 + 80);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v6 + 72), 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)(v6 + 72));
-  KeAbPostRelease(v6 + 72);
-  if ( (*(_DWORD *)(v5 + 184) & 0x40000) == 0 )
-  {
-LABEL_29:
+LABEL_19:
     Hive = -1073741811;
-    goto LABEL_8;
+    goto LABEL_6;
   }
-  if ( *(_DWORD *)(v6 + 2920) )
+  HvLockHiveFlusherShared(v6);
+  HvLockHiveWriter(v6);
+  if ( *(_DWORD *)(v6 + 904) )
   {
     Hive = -1073741823;
-    goto LABEL_8;
+    HvUnlockHiveWriter(v6);
+    HvUnlockHiveFlusherShared(v6);
+    v9 = 0LL;
+LABEL_45:
+    if ( v21 )
+      (*(void (__fastcall **)(__int64, __int64 *))(v6 + 16))(v6, &v27);
+    if ( v9 )
+      (*((void (__fastcall **)(PVOID, __int64 *))P + 2))(P, &v20);
+    v3 = 1;
+    if ( v24 )
+      goto LABEL_6;
+    goto LABEL_7;
+  }
+  HvUnlockHiveWriter(v6);
+  HvUnlockHiveFlusherShared(v6);
+  if ( (*(_DWORD *)(v5 + 184) & 0x40000) == 0 )
+    goto LABEL_19;
+  if ( *(_DWORD *)(v6 + 2912) )
+  {
+    Hive = -1073741823;
+    goto LABEL_6;
   }
   CmpUnlockKcb(v5);
-  CmpUnlockRegistry(v16, v15, v17, v18);
-  Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(256LL, 432LL, 859393347LL);
-  v1 = Pool;
-  if ( !Pool )
+  v24 = 0;
+  CmpUnlockRegistry();
+  TransientPoolWithTag = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithTag(PagedPool, 0x1B0uLL, 0x33394D43u, v10);
+  v4 = TransientPoolWithTag;
+  if ( !TransientPoolWithTag )
   {
     Hive = -1073741670;
-    goto LABEL_66;
+    goto LABEL_7;
   }
-  memset((char *)v39 + 8, 0, 24);
-  *(_QWORD *)&v39[0] = *(_QWORD *)(v6 + 1544);
-  v19 = *(_DWORD *)(v6 + 168);
-  if ( v19 )
+  memset(TransientPoolWithTag, 0, 0x1B0uLL);
+  memset((char *)v23 + 8, 0, 24);
+  *(_QWORD *)&v23[0] = *(_QWORD *)(v6 + 1536);
+  v12 = *(_DWORD *)(v6 + 164);
+  if ( v12 )
   {
-    if ( v19 == 1 )
+    if ( v12 == 1 )
     {
-      v20 = 1;
-      *((_QWORD *)&v39[0] + 1) = *(_QWORD *)(v6 + 1552);
+      v13 = 1;
+      *((_QWORD *)&v23[0] + 1) = *(_QWORD *)(v6 + 1544);
     }
     else
     {
-      v20 = 2;
-      *(_OWORD *)((char *)v39 + 8) = *(_OWORD *)(v6 + 1576);
+      v13 = 2;
+      *(_OWORD *)((char *)v23 + 8) = *(_OWORD *)(v6 + 1568);
     }
   }
   else
   {
-    v20 = 0;
+    v13 = 0;
   }
-  v21 = *(unsigned int *)(v6 + 160);
-  LODWORD(v21) = v21 & 0xFFFEFFFF;
   Hive = CmpCreateHive(
-           BugCheckParameter3,
+           (ULONG_PTR *)&P,
            2u,
-           v21,
-           v20,
+           *(_DWORD *)(v6 + 160) & 0xFFFEFFFF,
+           v13,
            0LL,
-           (__int64)v39,
+           v23,
            0LL,
-           (*(_DWORD *)(v6 + 4112) & 0x10000) != 0 ? 18415650 : 18415682,
+           (*(_DWORD *)(v6 + 4152) & 0x10000) != 0 ? 18415650 : 18415682,
            0LL,
            0LL,
            0LL,
-           (__int64)Pool);
+           (__int64)v4);
   if ( Hive >= 0 )
   {
     CmpLockRegistryExclusive();
+    v3 = 1;
     Hive = CmpPerformKeyBodyDeletionCheck(a1, 0LL);
-    if ( Hive < 0 )
+    if ( Hive >= 0 )
     {
-LABEL_65:
-      v4 = 1;
-      goto LABEL_66;
-    }
-    if ( *(_BYTE *)(v6 + 2944) == 1 )
-    {
-      Hive = -1073741431;
-      goto LABEL_65;
-    }
-    if ( (*(_DWORD *)(v6 + 160) & 2) == 0 )
-    {
-LABEL_44:
-      Hive = -1073741811;
-      goto LABEL_65;
-    }
-    if ( !*(_DWORD *)(v6 + 912) )
-    {
-      if ( (*(_DWORD *)(v5 + 184) & 0x40000) == 0 )
-        goto LABEL_44;
-      if ( !*(_DWORD *)(v6 + 2920) )
+      if ( *(_BYTE *)(v6 + 2936) == 1 )
       {
-        v22 = *(unsigned int *)(*(_QWORD *)(BugCheckParameter3[0] + 64) + 36LL);
-        if ( (_DWORD)v22 == *(_DWORD *)(*(_QWORD *)(v6 + 64) + 36LL) )
-        {
-          if ( (*(_BYTE *)(BugCheckParameter3[0] + 140) & 1) != 0 )
-            CellFlat = HvpGetCellFlat(BugCheckParameter3[0], v22, &v35);
-          else
-            CellFlat = HvpGetCellPaged(BugCheckParameter3[0], v22, (unsigned int *)&v35);
-          v24 = CellFlat;
-          v25 = *(unsigned int *)(*(_QWORD *)(v6 + 64) + 36LL);
-          if ( (*(_BYTE *)(v6 + 140) & 1) != 0 )
-            CellPaged = HvpGetCellFlat(v6, v25, &v42);
-          else
-            CellPaged = HvpGetCellPaged(v6, v25, (unsigned int *)&v42);
-          v27 = CellPaged;
-          Hive = HvpMarkCellDirty(
-                   BugCheckParameter3[0],
-                   *(unsigned int *)(*(_QWORD *)(BugCheckParameter3[0] + 64) + 36LL),
-                   0);
-          if ( Hive < 0 )
-          {
-            if ( v27 )
-            {
-              if ( (*(_BYTE *)(v6 + 140) & 1) != 0 )
-                HvpReleaseCellFlat(v6, &v42);
-              else
-                HvpReleaseCellPaged(v6, (unsigned int *)&v42);
-            }
-            if ( v24 )
-            {
-              if ( (*(_BYTE *)(BugCheckParameter3[0] + 140) & 1) != 0 )
-                HvpReleaseCellFlat(BugCheckParameter3[0], &v35);
-              else
-                HvpReleaseCellPaged(BugCheckParameter3[0], (unsigned int *)&v35);
-            }
-          }
-          else
-          {
-            v28 = *(_DWORD *)(v27 + 16);
-            *(_WORD *)(v24 + 2) |= 0xCu;
-            *(_DWORD *)(v24 + 16) = v28;
-            if ( (*(_BYTE *)(v6 + 140) & 1) != 0 )
-              HvpReleaseCellFlat(v6, &v42);
-            else
-              HvpReleaseCellPaged(v6, (unsigned int *)&v42);
-            if ( (*(_BYTE *)(BugCheckParameter3[0] + 140) & 1) != 0 )
-              HvpReleaseCellFlat(BugCheckParameter3[0], &v35);
-            else
-              HvpReleaseCellPaged(BugCheckParameter3[0], (unsigned int *)&v35);
-            CmpCleanUpKCBCacheTable(v6);
-            LOBYTE(v34) = 1;
-            CmpSearchKeyControlBlockTreeEx(CmpRefreshWorkerRoutine, v6, &v38, 0LL, v34);
-            CmpFlushNotifiesOnKeyBodyList(v5, 0, (__int64)&v38, 1);
-            CmpSwapHiveStorage(v6, BugCheckParameter3[0]);
-            CmpRebuildKcbCache(v5);
-            ++*(_DWORD *)(v6 + 212);
-            Hive = 0;
-          }
-          v1 = Pool;
-          goto LABEL_65;
-        }
-        goto LABEL_44;
+        Hive = -1073741431;
+        goto LABEL_7;
       }
+      if ( (*(_DWORD *)(v6 + 160) & 2) == 0 )
+        goto LABEL_37;
+      if ( *(_DWORD *)(v6 + 904) )
+      {
+LABEL_39:
+        Hive = -1073741823;
+        goto LABEL_7;
+      }
+      if ( (*(_DWORD *)(v5 + 184) & 0x40000) != 0 )
+      {
+        if ( *(_DWORD *)(v6 + 2912) )
+          goto LABEL_39;
+        v14 = *(unsigned int *)(*((_QWORD *)P + 8) + 36LL);
+        if ( (_DWORD)v14 == *(_DWORD *)(*(_QWORD *)(v6 + 64) + 36LL) )
+        {
+          v9 = (*((__int64 (__fastcall **)(PVOID, __int64, __int64 *))P + 1))(P, v14, &v20);
+          v15 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64 *))(v6 + 8))(
+                  v6,
+                  *(unsigned int *)(*(_QWORD *)(v6 + 64) + 36LL),
+                  &v27);
+          v21 = v15;
+          if ( HvMarkCellDirty((ULONG_PTR)P, *(unsigned int *)(*((_QWORD *)P + 8) + 36LL), 0) )
+          {
+            v16 = *(_DWORD *)(v15 + 16);
+            *(_WORD *)(v9 + 2) |= 0xCu;
+            *(_DWORD *)(v9 + 16) = v16;
+            (*(void (__fastcall **)(__int64, __int64 *))(v6 + 16))(v6, &v27);
+            (*((void (__fastcall **)(PVOID, __int64 *))P + 2))(P, &v20);
+            CmpCleanUpKCBCacheTable(v6, v17, v18, v19);
+            CmpSearchKeyControlBlockTree((__int64)CmpRefreshWorkerRoutine, v6, (__int64)&v22);
+            CmpFlushNotifiesOnKeyBodyList(v5, 0LL, (__int64)&v22, 1);
+            CmpSwapHiveStorage(v6, (__int64)P);
+            CmpRebuildKcbCache(v5, (__int64)&v22);
+            ++*(_DWORD *)(v6 + 204);
+            Hive = 0;
+            goto LABEL_7;
+          }
+          Hive = -1073741443;
+          goto LABEL_45;
+        }
+      }
+LABEL_37:
+      Hive = -1073741811;
     }
-    Hive = -1073741823;
-    goto LABEL_65;
   }
-LABEL_66:
-  CmpDrainDelayDerefContext((_QWORD **)&v38);
-  if ( v4 )
-    CmpUnlockRegistry(v30, v29, v31, v32);
+LABEL_7:
+  CmpDrainDelayDerefContext((_QWORD **)&v22);
   if ( v3 )
-    CmpFinishBeingActiveFlusherAndReconciler(v6, v29, v31, v32);
-  if ( v40 )
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v6 + 1640));
-  if ( UnloadRundown )
-    CmpReleaseHiveLoadUnloadRundown();
-  if ( BugCheckParameter3[0] )
-    CmpDestroyHive((PVOID)BugCheckParameter3[0]);
-  if ( v1 )
-    CmSiFreeMemory(v1);
+    CmpUnlockRegistry();
+  if ( v2 )
+    CmpFinishBeingActiveFlusherAndReconciler(v6);
+  if ( v25 )
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v6 + 1632));
+  if ( P )
+    CmpDestroyHive((volatile signed __int32 *)P);
+  if ( v4 )
+    CmSiFreeMemory(v4);
   return (unsigned int)Hive;
 }

@@ -1,28 +1,29 @@
 /*
- * XREFs of EtwTraceShouldYieldProcessor @ 0x14062E40C
+ * XREFs of EtwTraceShouldYieldProcessor @ 0x1405A811C
  * Callers:
- *     KeShouldYieldProcessor @ 0x140222100 (KeShouldYieldProcessor.c)
- *     MiDecommitPages @ 0x1402CE240 (MiDecommitPages.c)
- *     MiQueryAddressState @ 0x140318330 (MiQueryAddressState.c)
- *     MiWalkPageTablesRecursively @ 0x14031A5C0 (MiWalkPageTablesRecursively.c)
- *     MiGetPageChain @ 0x140323D70 (MiGetPageChain.c)
+ *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
+ *     MiWalkPageTablesRecursively @ 0x14020BDA0 (MiWalkPageTablesRecursively.c)
+ *     MiGetPageChain @ 0x140212D10 (MiGetPageChain.c)
+ *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
+ *     MiQueryAddressState @ 0x14032F730 (MiQueryAddressState.c)
+ *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
-void __fastcall EtwTraceShouldYieldProcessor(int a1, int a2, int a3)
+__int64 __fastcall EtwTraceShouldYieldProcessor(int a1, int a2, int a3)
 {
-  _DWORD v3[4]; // [rsp+30h] [rbp-38h] BYREF
-  _DWORD *v4; // [rsp+40h] [rbp-28h] BYREF
-  int v5; // [rsp+48h] [rbp-20h]
-  int v6; // [rsp+4Ch] [rbp-1Ch]
+  _DWORD v4[4]; // [rsp+30h] [rbp-38h] BYREF
+  _DWORD *v5; // [rsp+40h] [rbp-28h] BYREF
+  int v6; // [rsp+48h] [rbp-20h]
+  int v7; // [rsp+4Ch] [rbp-1Ch]
 
-  v3[0] = a1;
-  v3[1] = a2;
-  v4 = v3;
-  v6 = 0;
-  v3[2] = a3;
-  v5 = 12;
-  EtwTraceKernelEvent((__int64)&v4, 1u, 0x24000000u, 0xF6Du, 0x400A02u);
+  v4[0] = a1;
+  v4[1] = a2;
+  v5 = v4;
+  v7 = 0;
+  v4[2] = a3;
+  v6 = 12;
+  return EtwTraceKernelEvent((int)&v5, 1, 0x24000000u, 3949, 4196866);
 }

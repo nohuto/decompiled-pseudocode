@@ -1,14 +1,14 @@
 /*
- * XREFs of MiQueueExtentPfnDeletion @ 0x1402B6A8C
+ * XREFs of MiQueueExtentPfnDeletion @ 0x1402B6B8C
  * Callers:
- *     MiWorkingSetManager @ 0x1400EF594 (MiWorkingSetManager.c)
- *     MiClearFileOnlyPfn @ 0x1402B5664 (MiClearFileOnlyPfn.c)
+ *     MiWorkingSetManager @ 0x1400EF5B4 (MiWorkingSetManager.c)
+ *     MiClearFileOnlyPfn @ 0x1402B5764 (MiClearFileOnlyPfn.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiWakeFileOnlyReaper @ 0x1402B716C (MiWakeFileOnlyReaper.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWakeFileOnlyReaper @ 0x1402B726C (MiWakeFileOnlyReaper.c)
  */
 
 __int64 __fastcall MiQueueExtentPfnDeletion(_QWORD *a1, __int64 a2, __int64 a3)

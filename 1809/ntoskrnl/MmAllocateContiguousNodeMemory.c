@@ -1,13 +1,13 @@
 /*
- * XREFs of MmAllocateContiguousNodeMemory @ 0x1400E6460
+ * XREFs of MmAllocateContiguousNodeMemory @ 0x1400E6480
  * Callers:
- *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x140193540 (MmAllocateContiguousMemorySpecifyCacheNode.c)
- *     HvlpAllocateOverlayPages @ 0x1402793F4 (HvlpAllocateOverlayPages.c)
- *     IopInitializeInMemoryDumpData @ 0x140281648 (IopInitializeInMemoryDumpData.c)
+ *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x140193560 (MmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     HvlpAllocateOverlayPages @ 0x1402794F4 (HvlpAllocateOverlayPages.c)
+ *     IopInitializeInMemoryDumpData @ 0x140281748 (IopInitializeInMemoryDumpData.c)
  *     ViAllocateContiguousMemory @ 0x14092C590 (ViAllocateContiguousMemory.c)
  * Callees:
  *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
- *     MiAllocateContiguousMemory @ 0x1400E64FC (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x1400E651C (MiAllocateContiguousMemory.c)
  */
 
 __int64 __fastcall MmAllocateContiguousNodeMemory(int a1, __int64 a2, __int64 a3, __int16 a4, unsigned int a5, int a6)

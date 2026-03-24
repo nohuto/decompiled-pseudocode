@@ -1,92 +1,93 @@
 /*
- * XREFs of MonitorFillMonitorDeviceInfo @ 0x1C017B3DC
+ * XREFs of MonitorFillMonitorDeviceInfo @ 0x1C014D3D8
  * Callers:
- *     ?DisplayConfigFillTargetDeviceInfo@@YAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z @ 0x1C017C31C (-DisplayConfigFillTargetDeviceInfo@@YAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z.c)
+ *     ?DisplayConfigFillTargetDeviceInfo@@YAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z @ 0x1C014D238 (-DisplayConfigFillTargetDeviceInfo@@YAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z.c)
  * Callees:
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0002D88 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0007198 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?_FillMonitorDeviceInfo@DXGMONITOR@@QEBAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z @ 0x1C017B540 (-_FillMonitorDeviceInfo@DXGMONITOR@@QEBAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009DB4 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000A258 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?_FillMonitorDeviceInfo@DXGMONITOR@@QEAAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z @ 0x1C014D6FC (-_FillMonitorDeviceInfo@DXGMONITOR@@QEAAJPEAUDISPLAYCONFIG_TARGET_DEVICE_NAME@@@Z.c)
  */
 
-__int64 __fastcall MonitorFillMonitorDeviceInfo(__int64 a1, __int64 a2)
+__int64 __fastcall MonitorFillMonitorDeviceInfo(struct HDXGMONITOR__ *a1, __int64 a2)
 {
-  PZZWSTR v3; // rbx
-  int v4; // esi
-  __int64 v5; // rax
-  struct _DEVICE_OBJECT *v6; // rdx
+  __int64 result; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  PZZWSTR v6; // rbx
+  __int64 v7; // rcx
+  struct _DEVICE_OBJECT *v8; // rdx
   NTSTATUS DeviceInterfaces; // eax
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  int v12; // eax
-  int v13; // ecx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  int v12; // edi
+  int v13; // eax
+  __int64 v14; // rax
   __int64 v15; // rdx
   __int64 v16; // rcx
+  __int64 v17; // rax
+  __int64 v18; // rax
   PZZWSTR SymbolicLinkList; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !a1 || !a2 )
     return 3221225485LL;
-  MONITOR_MGR::AcquireMonitorShared(&SymbolicLinkList, a1);
-  v3 = SymbolicLinkList;
-  v4 = -1073741275;
-  if ( !SymbolicLinkList )
-  {
-    v15 = -1073741275LL;
-    v16 = 2LL;
-LABEL_23:
-    WdLogSingleEntry1(v16, v15);
-    goto LABEL_17;
-  }
-  if ( *((_DWORD *)SymbolicLinkList + 78) == 1 && !*(_BYTE *)(*((_QWORD *)SymbolicLinkList + 25) + 16LL) )
-  {
-    v15 = 1LL;
-    v16 = 7LL;
-    goto LABEL_23;
-  }
-  memset((void *)(a2 + 164), 0, 0x100uLL);
-  v5 = *((_QWORD *)v3 + 25);
-  v6 = *(struct _DEVICE_OBJECT **)(v5 + 8);
-  if ( !v6 || !*(_QWORD *)(v5 + 56) )
-  {
-LABEL_11:
-    v12 = DXGMONITOR::_FillMonitorDeviceInfo((DXGMONITOR *)v3, (struct DISPLAYCONFIG_TARGET_DEVICE_NAME *)a2);
-    if ( v12 == -1071841279 )
-    {
-      v12 = 0;
-    }
-    else if ( v12 < 0 )
-    {
-LABEL_16:
-      v4 = v12;
-      goto LABEL_17;
-    }
-    v13 = *(_DWORD *)(a2 + 20);
-    if ( (v13 & 1) == 0 && !*(_WORD *)(a2 + 36) )
-      *(_DWORD *)(a2 + 20) = v13 | 2;
-    goto LABEL_16;
-  }
   SymbolicLinkList = 0LL;
-  DeviceInterfaces = IoGetDeviceInterfaces(&GUID_DEVINTERFACE_MONITOR, v6, 0, &SymbolicLinkList);
-  v4 = DeviceInterfaces;
-  if ( DeviceInterfaces < 0 )
+  result = MONITOR_MGR::_GetMonitorFromHandle(a1, (struct DXGMONITOR **)&SymbolicLinkList);
+  if ( (int)result >= 0 )
   {
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v9, v8, v10, v11) + 24) = DeviceInterfaces;
-    goto LABEL_17;
-  }
-  v4 = RtlStringCchCopyW((char *)(a2 + 164), 128LL, (char *)SymbolicLinkList);
-  ExFreePoolWithTag(SymbolicLinkList, 0);
-  if ( v4 >= 0 )
-  {
-    *(_WORD *)(a2 + 166) = 92;
-    goto LABEL_11;
-  }
-LABEL_17:
-  if ( v3 )
-  {
-    ExReleaseResourceLite((PERESOURCE)(v3 + 12));
+    v6 = SymbolicLinkList;
+    if ( !SymbolicLinkList )
+    {
+      v14 = WdLogNewEntry5_WdAssertion(v5, v4);
+      WdLogEvent5_WdAssertion(v14);
+      v17 = WdLogNewEntry5_WdAssertion(v16, v15);
+      WdLogEvent5_WdAssertion(v17);
+    }
+    KeEnterCriticalRegion();
+    ExAcquireResourceSharedLite((PERESOURCE)(v6 + 148), 1u);
+    if ( *((_DWORD *)v6 + 108) == 1 && (*((_DWORD *)v6 + 10) & 0x10) == 0 )
+    {
+      v18 = WdLogNewEntry5_WdDmmEvent(v7);
+      *(_QWORD *)(v18 + 24) = v6;
+      WdLogEvent5_WdDmmEvent(v18);
+      v12 = -1073741275;
+    }
+    else
+    {
+      memset((void *)(a2 + 164), 0, 0x100uLL);
+      v8 = (struct _DEVICE_OBJECT *)*((_QWORD *)v6 + 7);
+      if ( !v8 || !*((_QWORD *)v6 + 12) )
+        goto LABEL_13;
+      SymbolicLinkList = 0LL;
+      DeviceInterfaces = IoGetDeviceInterfaces(&GUID_DEVINTERFACE_MONITOR, v8, 0, &SymbolicLinkList);
+      v12 = DeviceInterfaces;
+      if ( DeviceInterfaces < 0 )
+      {
+        *(_QWORD *)(WdLogNewEntry5_WdTrace(v11, v10) + 24) = DeviceInterfaces;
+      }
+      else
+      {
+        v12 = RtlStringCchCopyW((unsigned __int16 *)(a2 + 164), 0x80uLL, SymbolicLinkList);
+        ExFreePoolWithTag(SymbolicLinkList, 0);
+        if ( v12 >= 0 )
+        {
+          *(_WORD *)(a2 + 166) = 92;
+LABEL_13:
+          v12 = DXGMONITOR::_FillMonitorDeviceInfo((DXGMONITOR *)v6, (struct DISPLAYCONFIG_TARGET_DEVICE_NAME *)a2);
+          if ( v12 == -1071841279 )
+            v12 = 0;
+          if ( v12 >= 0 )
+          {
+            v13 = *(_DWORD *)(a2 + 20);
+            if ( (v13 & 1) == 0 && !*(_WORD *)(a2 + 36) )
+              *(_DWORD *)(a2 + 20) = v13 | 2;
+          }
+        }
+      }
+    }
+    ExReleaseResourceLite((PERESOURCE)(v6 + 148));
     KeLeaveCriticalRegion();
+    return (unsigned int)v12;
   }
-  return (unsigned int)v4;
+  return result;
 }

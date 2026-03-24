@@ -1,17 +1,17 @@
 /*
- * XREFs of ?SpBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C0019C20
+ * XREFs of ?SpBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C0096E60
  * Callers:
- *     ?SpCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z @ 0x1C0019BD0 (-SpCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z.c)
- *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C01137BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     ?SpCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z @ 0x1C00986E0 (-SpCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00F09BC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
  * Callees:
- *     ?bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C001A284 (-bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z.c)
- *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C001A564 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
- *     OffBitBlt @ 0x1C001AAC0 (OffBitBlt.c)
- *     ?CLIPOBJ_vOffset@@YAXPEAU_CLIPOBJ@@JJ@Z @ 0x1C001AC50 (-CLIPOBJ_vOffset@@YAXPEAU_CLIPOBJ@@JJ@Z.c)
- *     ?bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z @ 0x1C001ACB0 (-bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C00965B8 (-bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z.c)
+ *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C00968A0 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z @ 0x1C0098730 (-INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z.c)
+ *     ?bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z @ 0x1C010F18C (-bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     OffBitBlt @ 0x1C0129B40 (OffBitBlt.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall SpBitBlt(
@@ -27,380 +27,333 @@ __int64 __fastcall SpBitBlt(
         struct _POINTL *a10,
         unsigned int a11)
 {
-  struct _POINTL *v12; // rbx
-  unsigned int v13; // r12d
-  HDEV v14; // rax
-  struct _SURFOBJ *v15; // r14
+  struct _SURFOBJ *v11; // r15
+  struct _XLATEOBJ *v12; // r13
+  struct _POINTL *v13; // r12
+  unsigned int v14; // ebx
+  HDEV hdev; // rax
+  struct _SURFOBJ *v16; // r14
   PVOID *p_pvScan0; // rdi
   int hsurf; // eax
-  PVOID *v18; // rsi
-  int v19; // eax
-  _DWORD *p_hsurf; // r15
-  USHORT *v21; // rbx
-  HDEV hdev; // rax
-  BOOL (__stdcall *v23)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *); // r15
-  struct _CLIPOBJ *v24; // r10
-  LONG x; // ebx
-  LONG y; // r12d
-  int v27; // r14d
-  __int64 (__fastcall *v28)(struct _SURFOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *, struct _POINTL *, struct _BRUSHOBJ *, struct _POINTL *, unsigned int); // r10
-  CLIPOBJ *v30; // r15
+  PVOID *v19; // rsi
+  int v20; // eax
+  BOOL updated; // eax
+  int v22; // eax
+  __int64 (__fastcall *v23)(struct _SURFOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *, struct _POINTL *, struct _BRUSHOBJ *, struct _POINTL *, unsigned int); // r10
   USHORT *p_iType; // rbx
-  BOOL (__stdcall *v32)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4); // rcx
+  BOOL (__stdcall *v26)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4); // r13
+  _DWORD *v27; // r10
+  struct _POINTL *v28; // r8
+  CLIPOBJ *v29; // r15
+  __int64 *v30; // rdx
+  struct _POINTL v31; // rbx
+  LONG y; // r12d
+  int v33; // eax
+  LONG v34; // r12d
+  LONG v35; // ebx
+  int v36; // r14d
+  __int64 *v37; // r13
+  int v38; // edx
+  int v39; // r8d
+  __int64 *v40; // r12
+  USHORT *v41; // rbx
+  BOOL (__stdcall *v42)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4); // rcx
   __int64 ThreadWin32Thread; // rax
-  int v34; // edx
-  int v35; // r8d
-  int v36; // ecx
-  __int64 *v37; // r12
-  USHORT *v38; // rbx
-  BOOL (__stdcall *v39)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4); // rcx
-  int v40; // eax
-  __int64 v41; // rax
-  __int64 v42; // rax
-  struct _SURFOBJ *v43; // [rsp+70h] [rbp-90h] BYREF
-  int v44; // [rsp+78h] [rbp-88h]
+  __int64 v44; // rax
+  __int64 v45; // [rsp+48h] [rbp-B8h]
+  int v46; // [rsp+70h] [rbp-90h]
+  struct _SURFOBJ *v47; // [rsp+78h] [rbp-88h] BYREF
   CLIPOBJ *ppco; // [rsp+80h] [rbp-80h] BYREF
-  struct _POINTL v46; // [rsp+88h] [rbp-78h] BYREF
-  struct _CLIPOBJ *v47; // [rsp+90h] [rbp-70h]
-  int v48[2]; // [rsp+98h] [rbp-68h] BYREF
-  __int64 v49; // [rsp+A0h] [rbp-60h]
-  int v50; // [rsp+A8h] [rbp-58h]
-  __int64 v51; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 v52; // [rsp+B8h] [rbp-48h] BYREF
-  __int64 v53; // [rsp+C0h] [rbp-40h]
-  _DWORD v54[2]; // [rsp+C8h] [rbp-38h] BYREF
-  __int64 v55; // [rsp+D0h] [rbp-30h]
-  __int64 v56; // [rsp+D8h] [rbp-28h]
-  __int64 v57; // [rsp+E0h] [rbp-20h]
-  __int64 v58; // [rsp+E8h] [rbp-18h]
-  __int64 v59[2]; // [rsp+F0h] [rbp-10h] BYREF
-  __int64 v60[2]; // [rsp+100h] [rbp+0h] BYREF
-  _DWORD v61[4]; // [rsp+110h] [rbp+10h] BYREF
-  _BYTE v62[912]; // [rsp+120h] [rbp+20h] BYREF
+  struct _POINTL v49; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v50; // [rsp+90h] [rbp-70h] BYREF
+  __int64 v51; // [rsp+98h] [rbp-68h] BYREF
+  __int64 v52; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v53; // [rsp+A8h] [rbp-58h] BYREF
+  __int64 v54; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v55; // [rsp+B8h] [rbp-48h]
+  __int64 v56; // [rsp+C0h] [rbp-40h]
+  struct _POINTL *v57; // [rsp+C8h] [rbp-38h]
+  struct _POINTL v58; // [rsp+D0h] [rbp-30h] BYREF
+  struct _SURFOBJ *v59; // [rsp+D8h] [rbp-28h]
+  struct _POINTL *v60; // [rsp+E0h] [rbp-20h]
+  __int64 v61; // [rsp+E8h] [rbp-18h]
+  __int64 v62; // [rsp+F0h] [rbp-10h]
+  struct _POINTL *v63; // [rsp+F8h] [rbp-8h]
+  struct _RECTL v64; // [rsp+100h] [rbp+0h] BYREF
+  __int64 v65[2]; // [rsp+110h] [rbp+10h] BYREF
+  _DWORD v66[4]; // [rsp+120h] [rbp+20h] BYREF
+  __int64 *v67[114]; // [rsp+130h] [rbp+30h] BYREF
 
-  v46 = 0LL;
-  v51 = 0LL;
-  v52 = 0LL;
-  v12 = a7;
-  v13 = 1;
-  v58 = (__int64)a3;
+  v49 = 0LL;
+  v11 = a2;
+  v53 = 0LL;
+  v54 = 0LL;
+  v12 = a5;
+  v13 = a7;
+  v14 = 1;
+  v62 = (__int64)a3;
+  v59 = a2;
   ppco = a4;
-  v53 = (__int64)a5;
-  v55 = (__int64)a8;
-  v43 = a1;
-  v49 = (__int64)a7;
-  v57 = (__int64)a9;
-  v56 = (__int64)a10;
-  v44 = 1;
-  *(_OWORD *)v59 = 0LL;
-  *(_OWORD *)v60 = 0LL;
-  if ( !a2 || (v14 = a2->hdev) == 0LL || a2 != *((struct _SURFOBJ **)v14 + 14) )
+  v60 = a8;
+  v55 = (__int64)a10;
+  v47 = a1;
+  v56 = (__int64)a5;
+  v57 = a7;
+  v61 = (__int64)a9;
+  v46 = 1;
+  *(_OWORD *)v65 = 0LL;
+  if ( a2 )
+    hdev = a2->hdev;
+  else
+    hdev = 0LL;
+  if ( !hdev || a2 != *((struct _SURFOBJ **)hdev + 15) )
   {
-    *(struct _RECTL *)v59 = *a6;
-    ENUMUNDERLAYS::ENUMUNDERLAYS((ENUMUNDERLAYS *)v62, a1, a4, a6);
-    *(_QWORD *)v48 = 0LL;
+    v64 = *a6;
+    ENUMUNDERLAYS::ENUMUNDERLAYS((ENUMUNDERLAYS *)v67, a1, a4, a6);
     while ( 1 )
     {
-      while ( 1 )
+      if ( !(unsigned int)ENUMUNDERLAYS::bEnum(v67, &v47, &v49, &ppco) )
+        return v14;
+      v16 = v47;
+      p_pvScan0 = 0LL;
+      if ( v47 )
       {
-        if ( !(unsigned int)ENUMUNDERLAYS::bEnum((ENUMUNDERLAYS *)v62, &v43, &v46, &ppco) )
-          return v13;
-        v15 = v43;
-        p_pvScan0 = 0LL;
-        if ( v43 )
+        hsurf = (int)v47[1].hsurf;
+        if ( (hsurf & 0x80004000) != 0 && (hsurf & 0x200) == 0 )
         {
-          hsurf = (int)v43[1].hsurf;
-          if ( (hsurf & 0x80004000) != 0 && (hsurf & 0x200) == 0 )
-          {
-            p_pvScan0 = &v43[-1].pvScan0;
-            GreLockDisplayDevice(v43->hdev);
-          }
+          p_pvScan0 = &v47[-1].pvScan0;
+          GreLockDisplayDevice(v47->hdev);
         }
-        v18 = 0LL;
-        if ( a2 )
-        {
-          v19 = (int)a2[1].hsurf;
-          if ( (v19 & 0x80004000) != 0 && (v19 & 0x200) == 0 )
-          {
-            v18 = &a2[-1].pvScan0;
-            GreLockDisplayDevice(a2->hdev);
-          }
-        }
-        if ( !p_pvScan0 || *((_WORD *)p_pvScan0 + 50) != 1 || EngUpdateDeviceSurface((SURFOBJ *)(p_pvScan0 + 3), &ppco) )
-          break;
-        if ( v18 )
-          GreUnlockDisplayDevice(v18[6]);
-        GreUnlockDisplayDevice(p_pvScan0[6]);
       }
-      if ( a11 == 52428 )
-        break;
-      v30 = ppco;
-      if ( (unsigned __int8)a11 == a11 >> 8 )
+      v19 = 0LL;
+      if ( v11 )
       {
-        p_iType = &v15->iType;
-        if ( v15->iType != 1 )
-          goto LABEL_41;
-        if ( (unsigned int)bAllowShareAccess(v15) )
+        v20 = (int)v11[1].hsurf;
+        if ( (v20 & 0x80004000) != 0 && (v20 & 0x200) == 0 )
         {
-          if ( W32GetThreadWin32Thread(KeGetCurrentThread())
-            && *(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280)
-            && (*(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 104)
-             || *(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 108))
-            && (*(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 20LL) & 1) != 0 )
-          {
-            ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
-            LODWORD(v15) = (_DWORD)v43;
-            v32 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))(*(_QWORD *)(ThreadWin32Thread + 280) + 72LL);
-            goto LABEL_43;
-          }
-          v15 = v43;
+          v19 = &v11[-1].pvScan0;
+          GreLockDisplayDevice(v11->hdev);
         }
-        if ( *p_iType == 1 && (unsigned int)bAllowShareAccess(v15) )
-        {
-          if ( W32GetThreadWin32Thread(KeGetCurrentThread())
-            && *(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280)
-            && (*(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 104)
-             || *(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 108)) )
-          {
-            LODWORD(v15) = (_DWORD)v43;
-            goto LABEL_116;
-          }
-          v15 = v43;
-        }
-LABEL_41:
-        if ( ((__int64)v15[1].hsurf & 1) != 0 )
-        {
-          v32 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))*((_QWORD *)v15->hdev + 163);
-LABEL_43:
-          v12 = (struct _POINTL *)v49;
-          v13 &= OffBitBlt(
-                   (int)v32,
-                   (int)&v46,
-                   (int)v15,
-                   (int)v48,
-                   (__int64)a2,
-                   v58,
-                   v30,
-                   v53,
-                   (__int64)v59,
-                   v49,
-                   v55,
-                   v57,
-                   v56,
-                   a11);
-          goto LABEL_29;
-        }
-LABEL_116:
-        v32 = EngBitBlt;
-        goto LABEL_43;
       }
-      *(_OWORD *)v60 = *(_OWORD *)v59;
-      if ( !ppco )
-        goto LABEL_59;
-      if ( bIntersect(&ppco->rclBounds, (const struct _RECTL *)v59, (struct _RECTL *)v60) )
+      updated = 1;
+      if ( p_pvScan0 && *((_WORD *)p_pvScan0 + 50) == 1 )
+        updated = EngUpdateDeviceSurface((SURFOBJ *)(p_pvScan0 + 3), &ppco);
+      if ( updated )
       {
-        v30 = ppco;
+        if ( a11 == 52428 )
+        {
+          v22 = INVOKEOFFCOPYBITS(&v49, v16, &gptlZero, v11, ppco, v12, &v64, v13);
+          goto LABEL_17;
+        }
+        if ( (unsigned __int8)a11 == a11 >> 8 )
+        {
+          p_iType = &v16->iType;
+          if ( v16->iType == 1 && (unsigned int)bAllowShareAccess(v16) )
+          {
+            if ( W32GetThreadWin32Thread((__int64)KeGetCurrentThread())
+              && *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280)
+              && (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
+               || *(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108))
+              && (*(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 20LL) & 1) != 0 )
+            {
+              ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+              v16 = v47;
+              v26 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))(*(_QWORD *)(ThreadWin32Thread + 280) + 72LL);
+              goto LABEL_32;
+            }
+            v16 = v47;
+          }
+          if ( *p_iType == 1 && (unsigned int)bAllowShareAccess(v16) )
+          {
+            if ( W32GetThreadWin32Thread((__int64)KeGetCurrentThread())
+              && *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280)
+              && (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
+               || *(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108)) )
+            {
+              v16 = v47;
+LABEL_80:
+              v26 = EngBitBlt;
+LABEL_32:
+              v27 = (_DWORD *)v55;
+              v28 = v13;
+              v29 = ppco;
+              v30 = (__int64 *)v55;
+              v58 = 0LL;
+              v31 = v49;
+              v63 = v13;
+              y = v49.y;
+              v50 = v55;
+              if ( ppco && (v49.x || v49.y) )
+              {
+                ppco->rclBounds.left += v49.x;
+                v29->rclBounds.right += v31.x;
+                v29->rclBounds.top += y;
+                v29->rclBounds.bottom += y;
+                if ( v29->iDComplexity )
+                {
+                  v58 = v31;
+                  RGNOBJ::bOffset((RGNOBJ *)&v29[2].rclBounds.top, &v58);
+                  v30 = (__int64 *)v50;
+                  v28 = v63;
+                  v27 = (_DWORD *)v50;
+                }
+              }
+              v51 = 0LL;
+              v66[0] = v31.x + v64.left;
+              v66[2] = v31.x + v64.right;
+              v66[1] = y + v64.top;
+              v66[3] = y + v64.bottom;
+              if ( v57 )
+              {
+                v28 = (struct _POINTL *)&v51;
+                LODWORD(v51) = gptlZero.x + v57->x;
+                HIDWORD(v51) = gptlZero.y + v57->y;
+              }
+              v52 = 0LL;
+              if ( v27 )
+              {
+                v30 = &v52;
+                LODWORD(v52) = v31.x + *v27;
+                HIDWORD(v52) = y + v27[1];
+              }
+              v33 = ((__int64 (__fastcall *)(struct _SURFOBJ *, struct _SURFOBJ *, __int64, CLIPOBJ *, __int64, _DWORD *, struct _POINTL *, struct _POINTL *, __int64, __int64 *, unsigned int))v26)(
+                      v16,
+                      v59,
+                      v62,
+                      v29,
+                      v56,
+                      v66,
+                      v28,
+                      v60,
+                      v61,
+                      v30,
+                      a11);
+              v50 = 0LL;
+              v34 = -y;
+              v35 = -v31.x;
+              v36 = v33;
+              if ( v29 && (v35 || v34) )
+              {
+                v29->rclBounds.left += v35;
+                v29->rclBounds.right += v35;
+                v29->rclBounds.top += v34;
+                v29->rclBounds.bottom += v34;
+                if ( v29->iDComplexity )
+                {
+                  LODWORD(v50) = v35;
+                  HIDWORD(v50) = v34;
+                  RGNOBJ::bOffset((RGNOBJ *)&v29[2].rclBounds.top, (struct _POINTL *)&v50);
+                }
+              }
+              v11 = v59;
+              v14 = v36 & v46;
+              v13 = v57;
+              v12 = (struct _XLATEOBJ *)v56;
+LABEL_18:
+              v46 = v14;
+              goto LABEL_19;
+            }
+            v16 = v47;
+          }
+          if ( ((__int64)v16[1].hsurf & 1) != 0 )
+          {
+            v26 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))*((_QWORD *)v16->hdev + 164);
+            goto LABEL_32;
+          }
+          goto LABEL_80;
+        }
+        *(struct _RECTL *)v65 = v64;
+        if ( !ppco || bIntersect(&ppco->rclBounds, &v64, (struct _RECTL *)v65) )
+        {
+          v37 = 0LL;
+          v38 = LODWORD(v65[0]) - v64.left;
+          v39 = HIDWORD(v65[0]) - v64.top;
+          if ( v13 )
+          {
+            v37 = &v53;
+            LODWORD(v53) = v38 + v13->x;
+            HIDWORD(v53) = v39 + v13->y;
+          }
+          v40 = 0LL;
+          if ( v60 )
+          {
+            v40 = &v54;
+            LODWORD(v54) = v38 + v60->x;
+            HIDWORD(v54) = v39 + v60->y;
+          }
+          v41 = &v16->iType;
+          if ( v16->iType == 1 )
+          {
+            if ( (unsigned int)bAllowShareAccess(v16) )
+            {
+              if ( W32GetThreadWin32Thread((__int64)KeGetCurrentThread())
+                && *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280)
+                && (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
+                 || *(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108))
+                && (*(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 20LL) & 1) != 0 )
+              {
+                v44 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+                LODWORD(v16) = (_DWORD)v47;
+                v42 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))(*(_QWORD *)(v44 + 280) + 72LL);
+                goto LABEL_59;
+              }
+              v16 = v47;
+            }
+            if ( *v41 != 1 || !(unsigned int)bAllowShareAccess(v16) )
+              goto LABEL_57;
+            if ( !W32GetThreadWin32Thread((__int64)KeGetCurrentThread())
+              || !*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280)
+              || !*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
+              && !*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108) )
+            {
+              v16 = v47;
+              goto LABEL_57;
+            }
+            LODWORD(v16) = (_DWORD)v47;
+            goto LABEL_98;
+          }
+LABEL_57:
+          if ( ((__int64)v16[1].hsurf & 1) != 0 )
+          {
+            v42 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))*((_QWORD *)v16->hdev + 164);
+            goto LABEL_59;
+          }
+LABEL_98:
+          v42 = EngBitBlt;
 LABEL_59:
-        v34 = LODWORD(v60[0]) - LODWORD(v59[0]);
-        v35 = HIDWORD(v60[0]) - HIDWORD(v59[0]);
-        v47 = 0LL;
-        if ( v12 )
-        {
-          v36 = v34 + v12->x;
-          v47 = (struct _CLIPOBJ *)&v51;
-          LODWORD(v51) = v36;
-          HIDWORD(v51) = v35 + v12->y;
+          v45 = (__int64)v37;
+          v12 = (struct _XLATEOBJ *)v56;
+          v22 = OffBitBlt(
+                  (int)v42,
+                  (int)&v49,
+                  (int)v16,
+                  (int)&gptlZero,
+                  (__int64)v11,
+                  v62,
+                  ppco,
+                  v56,
+                  (__int64)v65,
+                  v45,
+                  (__int64)v40,
+                  v61,
+                  v55,
+                  a11);
+          v14 = v46;
+          v13 = v57;
+LABEL_17:
+          v14 &= v22;
+          goto LABEL_18;
         }
-        v37 = 0LL;
-        if ( v55 )
-        {
-          v37 = &v52;
-          LODWORD(v52) = v34 + *(_DWORD *)v55;
-          HIDWORD(v52) = v35 + *(_DWORD *)(v55 + 4);
-        }
-        v38 = &v15->iType;
-        if ( v15->iType == 1 )
-        {
-          if ( (unsigned int)bAllowShareAccess(v15) )
-          {
-            if ( !W32GetThreadWin32Thread(KeGetCurrentThread())
-              || !*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280)
-              || !*(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 104)
-              && !*(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 108)
-              || (*(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 20LL) & 1) == 0 )
-            {
-              v15 = v43;
-              goto LABEL_65;
-            }
-            v42 = W32GetThreadWin32Thread(KeGetCurrentThread());
-            LODWORD(v15) = (_DWORD)v43;
-            v39 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))(*(_QWORD *)(v42 + 280) + 72LL);
-          }
-          else
-          {
-LABEL_65:
-            if ( *v38 != 1 || !(unsigned int)bAllowShareAccess(v15) )
-              goto LABEL_67;
-            if ( !W32GetThreadWin32Thread(KeGetCurrentThread())
-              || !*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280)
-              || !*(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 104)
-              && !*(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 108) )
-            {
-              v15 = v43;
-              goto LABEL_67;
-            }
-            LODWORD(v15) = (_DWORD)v43;
-LABEL_130:
-            v39 = EngBitBlt;
-          }
-        }
-        else
-        {
-LABEL_67:
-          if ( ((__int64)v15[1].hsurf & 1) == 0 )
-            goto LABEL_130;
-          v39 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))*((_QWORD *)v15->hdev + 163);
-        }
-        v40 = OffBitBlt(
-                (int)v39,
-                (int)&v46,
-                (int)v15,
-                (int)v48,
-                (__int64)a2,
-                v58,
-                v30,
-                v53,
-                (__int64)v60,
-                (__int64)v47,
-                (__int64)v37,
-                v57,
-                v56,
-                a11);
-        v13 = v40 & v44;
-LABEL_28:
-        v12 = (struct _POINTL *)v49;
-LABEL_29:
-        v44 = v13;
       }
-      if ( v18 )
-        GreUnlockDisplayDevice(v18[6]);
+LABEL_19:
+      if ( v19 )
+        GreUnlockDisplayDevice(v19[6]);
       if ( p_pvScan0 )
         GreUnlockDisplayDevice(p_pvScan0[6]);
     }
-    p_hsurf = &v15[1].hsurf;
-    v47 = ppco;
-    if ( ((__int64)v15[1].hsurf & 0x400) == 0 && a2->hdev )
-    {
-      if ( a2->iType != 1 )
-        goto LABEL_75;
-      if ( !(unsigned int)bAllowShareAccess(a2) )
-        goto LABEL_87;
-      if ( !W32GetThreadWin32Thread(KeGetCurrentThread())
-        || !*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280)
-        || !*(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 104)
-        && !*(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 108)
-        || (*(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 20LL) & 0x400) == 0 )
-      {
-        v15 = v43;
-LABEL_87:
-        if ( a2->iType != 1 || !(unsigned int)bAllowShareAccess(a2) )
-        {
-LABEL_75:
-          if ( ((__int64)a2[1].hsurf & 0x400) != 0 )
-          {
-            hdev = a2->hdev;
-            goto LABEL_20;
-          }
-          goto LABEL_106;
-        }
-        if ( !W32GetThreadWin32Thread(KeGetCurrentThread())
-          || !*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280)
-          || !*(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 104)
-          && !*(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 108) )
-        {
-          v15 = v43;
-          goto LABEL_75;
-        }
-LABEL_105:
-        v15 = v43;
-        goto LABEL_106;
-      }
-LABEL_99:
-      v41 = W32GetThreadWin32Thread(KeGetCurrentThread());
-      v15 = v43;
-      v23 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))(*(_QWORD *)(v41 + 280)
-                                                                                                 + 80LL);
-      goto LABEL_21;
-    }
-    v21 = &v15->iType;
-    if ( v15->iType == 1 )
-    {
-      if ( (unsigned int)bAllowShareAccess(v15) )
-      {
-        if ( W32GetThreadWin32Thread(KeGetCurrentThread())
-          && *(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280)
-          && (*(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 104)
-           || *(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 108))
-          && (*(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280) + 20LL) & 0x400) != 0 )
-        {
-          goto LABEL_99;
-        }
-        v15 = v43;
-      }
-      if ( *v21 == 1 && (unsigned int)bAllowShareAccess(v15) )
-      {
-        if ( W32GetThreadWin32Thread(KeGetCurrentThread())
-          && *(_QWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 280)
-          && (*(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 104)
-           || *(_DWORD *)(W32GetThreadWin32Thread(KeGetCurrentThread()) + 108)) )
-        {
-          goto LABEL_105;
-        }
-        v15 = v43;
-      }
-    }
-    if ( (*p_hsurf & 0x400) != 0 )
-    {
-      hdev = v15->hdev;
-LABEL_20:
-      v23 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))*((_QWORD *)hdev + 164);
-LABEL_21:
-      v24 = v47;
-      x = v46.x;
-      y = v46.y;
-      if ( v47 )
-      {
-        CLIPOBJ_vOffset(v47, v46.x, v46.y);
-        v24 = v47;
-      }
-      v50 = 0;
-      v61[0] = x + LODWORD(v59[0]);
-      v61[2] = x + LODWORD(v59[1]);
-      v61[1] = y + HIDWORD(v59[0]);
-      v61[3] = y + HIDWORD(v59[1]);
-      v54[0] = v48[0] + *(_DWORD *)v49;
-      v54[1] = *(_DWORD *)(v49 + 4) + v48[1];
-      if ( v23 )
-        v27 = ((__int64 (__fastcall *)(struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, __int64, _DWORD *, _DWORD *))v23)(
-                v15,
-                a2,
-                v24,
-                v53,
-                v61,
-                v54);
-      else
-        v27 = v50;
-      if ( v47 )
-        CLIPOBJ_vOffset(v47, -x, -y);
-      v13 = v27 & v44;
-      goto LABEL_28;
-    }
-LABEL_106:
-    v23 = EngCopyBits;
-    goto LABEL_21;
   }
-  v28 = bSpBltFromScreen;
-  if ( a1 == a2 )
-    v28 = bSpBltScreenToScreen;
-  return (unsigned int)v28(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11);
+  v23 = bSpBltScreenToScreen;
+  if ( a1 != a2 )
+    v23 = (__int64 (__fastcall *)(struct _SURFOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *, struct _POINTL *, struct _BRUSHOBJ *, struct _POINTL *, unsigned int))bSpBltFromScreen;
+  return (unsigned int)v23(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11);
 }

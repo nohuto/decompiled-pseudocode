@@ -1,7 +1,7 @@
 /*
- * XREFs of CcUnmapInactiveViewsInternal @ 0x14026A9AC
+ * XREFs of CcUnmapInactiveViewsInternal @ 0x14026AAAC
  * Callers:
- *     CcUnmapInactiveViews @ 0x14026A860 (CcUnmapInactiveViews.c)
+ *     CcUnmapInactiveViews @ 0x14026A960 (CcUnmapInactiveViews.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
@@ -10,22 +10,22 @@
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     CcSetVacbInFreeList @ 0x140079BD0 (CcSetVacbInFreeList.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     CcDecrementOpenCount @ 0x1400ACF80 (CcDecrementOpenCount.c)
- *     CcGetPartition @ 0x1400AD010 (CcGetPartition.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x14012CEB4 (CcReleaseBcbLockAndVacbLock.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x14012CEF4 (CcAcquireBcbLockAndVacbLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     CcCanReuseVacb @ 0x14026A48C (CcCanReuseVacb.c)
- *     CcDereferenceVacbArray @ 0x14026A52C (CcDereferenceVacbArray.c)
- *     CcGetRandomVacbArrayWithReference @ 0x14026A5D8 (CcGetRandomVacbArrayWithReference.c)
- *     CcRecalculateVacbArrayHighwaterMark @ 0x14026A678 (CcRecalculateVacbArrayHighwaterMark.c)
- *     SetVacb @ 0x14026AF74 (SetVacb.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     CcDecrementOpenCount @ 0x1400ACFA0 (CcDecrementOpenCount.c)
+ *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x14012CED4 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x14012CF14 (CcAcquireBcbLockAndVacbLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     CcCanReuseVacb @ 0x14026A58C (CcCanReuseVacb.c)
+ *     CcDereferenceVacbArray @ 0x14026A62C (CcDereferenceVacbArray.c)
+ *     CcGetRandomVacbArrayWithReference @ 0x14026A6D8 (CcGetRandomVacbArrayWithReference.c)
+ *     CcRecalculateVacbArrayHighwaterMark @ 0x14026A778 (CcRecalculateVacbArrayHighwaterMark.c)
+ *     SetVacb @ 0x14026B074 (SetVacb.c)
  *     CcUnmapVacb @ 0x1405F284C (CcUnmapVacb.c)
- *     RtlRandom @ 0x1406C8B70 (RtlRandom.c)
+ *     RtlRandom @ 0x1406C8B50 (RtlRandom.c)
  */
 
 __int64 __fastcall CcUnmapInactiveViewsInternal(__int64 a1, unsigned int a2, char a3, _QWORD *a4)

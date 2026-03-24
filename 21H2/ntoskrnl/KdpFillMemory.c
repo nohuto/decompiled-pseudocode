@@ -1,81 +1,78 @@
 /*
- * XREFs of KdpFillMemory @ 0x140A72DF0
+ * XREFs of KdpFillMemory @ 0x1409B7430
  * Callers:
- *     KdpSendWaitContinue @ 0x140A6FB80 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
  * Callees:
- *     KdpCopyMemoryChunks @ 0x140A6F124 (KdpCopyMemoryChunks.c)
+ *     KdpCopyMemoryChunks @ 0x1409B9B9C (KdpCopyMemoryChunks.c)
  */
 
 __int64 __fastcall KdpFillMemory(__int64 a1, __int64 a2)
 {
   __int64 v2; // r13
-  int v3; // eax
-  int v4; // r14d
-  __int64 v5; // rbx
-  __int64 v6; // rcx
-  int v8; // edi
-  __int16 v9; // dx
-  int v10; // r15d
-  __int64 v11; // r12
-  __int64 v12; // rsi
-  char *v13; // rbp
+  int v3; // r14d
+  __int64 v4; // rbx
+  __int64 v5; // rcx
+  int v7; // eax
+  __int16 v8; // dx
+  int v9; // r15d
+  __int64 v10; // r12
+  __int64 v11; // rbp
+  int v12; // edi
+  char *v13; // rsi
   __int64 v14; // rcx
-  __int128 v16; // [rsp+30h] [rbp-48h] BYREF
-  int v18; // [rsp+90h] [rbp+18h] BYREF
+  bool v15; // zf
+  __int128 v17; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v19; // [rsp+90h] [rbp+18h] BYREF
 
   v2 = *(_QWORD *)(a2 + 8);
-  v3 = 0;
-  v4 = *(_DWORD *)(a1 + 24);
-  v5 = a1;
-  v6 = *(unsigned __int16 *)(a1 + 30);
-  v8 = 0;
-  v16 = 0LL;
-  v9 = *(_WORD *)(v5 + 28);
-  v10 = 5;
-  v11 = v6 + v2;
-  v12 = v2;
-  if ( (v9 & 2) != 0 )
+  v3 = *(_DWORD *)(a1 + 24);
+  v4 = a1;
+  v5 = *(unsigned __int16 *)(a1 + 30);
+  v7 = 0;
+  v17 = 0LL;
+  v8 = *(_WORD *)(v4 + 28);
+  v9 = 5;
+  v10 = v5 + v2;
+  v11 = v2;
+  v12 = 0;
+  if ( (v8 & 2) != 0 )
   {
-    v10 = 7;
+    v9 = 7;
   }
-  else if ( (v9 & 1) == 0 )
+  else if ( (v8 & 1) == 0 )
   {
-    v3 = -1073741811;
+    v7 = -1073741811;
   }
-  if ( (_WORD)v6 && *(_WORD *)a2 >= (unsigned __int16)v6 )
+  if ( !(_WORD)v5 || *(_WORD *)a2 < (unsigned __int16)v5 )
+    v7 = -1073741811;
+  if ( v7 >= 0 )
   {
-    if ( v3 >= 0 )
+    v13 = *(char **)(v4 + 16);
+    if ( v3 )
     {
-      v13 = *(char **)(v5 + 16);
-      if ( v4 )
+      do
       {
-        do
-        {
-          --v4;
-          v3 = KdpCopyMemoryChunks(v13, v12, 1u, 0, v10, &v18);
-          if ( v3 < 0 )
-            break;
-          v14 = v12 + 1;
-          ++v13;
-          ++v8;
-          v12 = v2;
-          if ( v14 != v11 )
-            v12 = v14;
-        }
-        while ( v4 );
-        v5 = a1;
-        if ( v8 )
-          v3 = 0;
+        --v3;
+        v7 = KdpCopyMemoryChunks(v13, v9, (__int64)&v19);
+        if ( v7 < 0 )
+          break;
+        v14 = v11 + 1;
+        ++v13;
+        ++v12;
+        v15 = v11 + 1 == v10;
+        v11 = v2;
+        if ( !v15 )
+          v11 = v14;
       }
+      while ( v3 );
+      if ( v12 )
+        v7 = 0;
+      v4 = a1;
     }
   }
-  else
-  {
-    v3 = -1073741811;
-  }
-  *(_DWORD *)(v5 + 8) = v3;
-  *(_DWORD *)(v5 + 24) = v8;
-  LOWORD(v16) = 56;
-  *((_QWORD *)&v16 + 1) = v5;
-  return KdSendPacket(2LL, &v16, 0LL, &KdpContext);
+  *(_DWORD *)(v4 + 8) = v7;
+  *(_DWORD *)(v4 + 24) = v12;
+  LOWORD(v17) = 56;
+  *((_QWORD *)&v17 + 1) = v4;
+  return KdSendPacket(2LL, &v17, 0LL, &KdpContext);
 }

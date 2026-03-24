@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMirrorReduceBlackWrites @ 0x140152DC0
+ * XREFs of MiMirrorReduceBlackWrites @ 0x140152DE0
  * Callers:
  *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
  * Callees:
- *     MiIsDecayPfn @ 0x140118BEC (MiIsDecayPfn.c)
- *     MiMirrorNodeLargePages @ 0x140152B88 (MiMirrorNodeLargePages.c)
- *     MiMirrorOmitPagesFromCopy @ 0x140152FDC (MiMirrorOmitPagesFromCopy.c)
+ *     MiIsDecayPfn @ 0x140118C0C (MiIsDecayPfn.c)
+ *     MiMirrorNodeLargePages @ 0x140152BA8 (MiMirrorNodeLargePages.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x140152FFC (MiMirrorOmitPagesFromCopy.c)
  */
 
 void __fastcall MiMirrorReduceBlackWrites(__int64 a1, __int64 a2, char a3, int a4)

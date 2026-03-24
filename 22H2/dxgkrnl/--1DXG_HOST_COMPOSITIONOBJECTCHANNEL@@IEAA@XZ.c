@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAA@XZ @ 0x1C0360988
+ * XREFs of ??1DXG_HOST_COMPOSITIONOBJECTCHANNEL@@IEAA@XZ @ 0x1C02B465C
  * Callers:
- *     ?Delete@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAAXXZ @ 0x1C0361940 (-Delete@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAAXXZ.c)
+ *     ?Delete@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAAXXZ @ 0x1C02B5770 (-Delete@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAAXXZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DXG_HOST_COMPOSITIONOBJECTCHANNEL::~DXG_HOST_COMPOSITIONOBJECTCHANNEL(
@@ -32,7 +32,7 @@ void __fastcall DXG_HOST_COMPOSITIONOBJECTCHANNEL::~DXG_HOST_COMPOSITIONOBJECTCH
   v5 = (void *)*((_QWORD *)this + 6);
   if ( v5 )
   {
-    operator delete(v5);
+    operator delete[](v5);
     *((_QWORD *)this + 6) = 0LL;
   }
   *((_QWORD *)this + 3) = 0LL;

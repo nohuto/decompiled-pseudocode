@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@?$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1802510B0
+ * XREFs of ?IsOfType@?$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801EB930
  * Callers:
  *     <none>
  * Callees:

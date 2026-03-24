@@ -1,110 +1,90 @@
 /*
- * XREFs of ?ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C01F8684
+ * XREFs of ?ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0218C80
  * Callers:
- *     ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C01F7D8C (-ForceCompletePendingPromotion@@YAXXZ.c)
- *     ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C01F8C9C (-xxxPromotePointer@PointerPromotion@@YAHGKK@Z.c)
+ *     ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C02183F8 (-ForceCompletePendingPromotion@@YAXXZ.c)
+ *     ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C0219274 (-xxxPromotePointer@PointerPromotion@@YAHGKK@Z.c)
  * Callees:
- *     ?FindCacheById@@YAPEAUtagMOUSE_PROMOTION_CACHE@@GPEAK@Z @ 0x1C0156098 (-FindCacheById@@YAPEAUtagMOUSE_PROMOTION_CACHE@@GPEAK@Z.c)
- *     ?FindMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagMOUSE_PROMOTION_QUEUE@@K@Z @ 0x1C01560FE (-FindMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagMOUSE_PROMOTION_QUEUE@@K@Z.c)
- *     ?DetectPromotionType@@YAKPEBUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C01F7C2C (-DetectPromotionType@@YAKPEBUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
- *     ?FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C01F7D18 (-FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_E.c)
+ *     ?DetectPromotionType@@YAKPEBUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0218244 (-DetectPromotionType@@YAKPEBUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
+ *     ?FindCacheById@@YAPEAUtagMOUSE_PROMOTION_CACHE@@GPEAK@Z @ 0x1C0218330 (-FindCacheById@@YAPEAUtagMOUSE_PROMOTION_CACHE@@GPEAK@Z.c)
+ *     ?FindMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagMOUSE_PROMOTION_QUEUE@@K@Z @ 0x1C0218364 (-FindMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagMOUSE_PROMOTION_QUEUE@@K@Z.c)
+ *     ?FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0218384 (-FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_E.c)
  */
 
 __int64 __fastcall ValidatePointerPromotion(
-        __int64 a1,
+        __int16 a1,
         unsigned int a2,
         unsigned int *a3,
         struct tagMOUSE_PROMOTION_ENTRY **a4,
         struct tagMOUSE_PROMOTION_ENTRY **a5)
 {
-  unsigned int v5; // esi
-  __int64 v9; // rcx
-  struct tagMOUSE_PROMOTION_CACHE *CacheById; // rbp
-  __int64 v11; // rcx
-  __int64 **v12; // rcx
-  __int64 v13; // rcx
-  struct tagMOUSE_PROMOTION_ENTRY *v14; // rdi
-  struct tagMOUSE_PROMOTION_ENTRY *v15; // rbx
+  unsigned int v5; // ebx
+  __int16 *CacheById; // rax
+  __int16 *v10; // rdi
+  __int64 **v11; // rcx
+  struct tagMOUSE_PROMOTION_ENTRY *v12; // r8
+  struct tagMOUSE_PROMOTION_ENTRY *v13; // r9
   struct tagMOUSE_PROMOTION_ENTRY *MousePromotionEntry; // rax
-  int v17; // r8d
-  struct tagMOUSE_PROMOTION_ENTRY **v18; // rax
-  int v20; // eax
-  bool v21; // zf
-  struct tagMOUSE_PROMOTION_ENTRY *v22; // [rsp+20h] [rbp-38h] BYREF
-  struct tagMOUSE_PROMOTION_ENTRY *v23; // [rsp+28h] [rbp-30h] BYREF
-  unsigned int v24; // [rsp+70h] [rbp+18h] BYREF
+  unsigned int v15; // r10d
+  struct tagMOUSE_PROMOTION_ENTRY **v16; // rax
+  int v18; // eax
+  struct tagMOUSE_PROMOTION_ENTRY *v19; // [rsp+20h] [rbp-38h] BYREF
+  struct tagMOUSE_PROMOTION_ENTRY *v20; // [rsp+28h] [rbp-30h] BYREF
+  unsigned int v21; // [rsp+70h] [rbp+18h] BYREF
 
   v5 = *a3;
-  v22 = 0LL;
-  v23 = 0LL;
-  v24 = 0;
-  CacheById = FindCacheById(a1, &v24);
-  if ( !CacheById
-    || CacheById == (struct tagMOUSE_PROMOTION_CACHE *)(SGDGetUserSessionState(v9) + 16064)
-    && (*(_DWORD *)(SGDGetUserSessionState(v11) + 16320) & 2) != 0 )
-  {
+  v19 = 0LL;
+  v20 = 0LL;
+  CacheById = (__int16 *)FindCacheById(a1, &v21);
+  v10 = CacheById;
+  if ( !CacheById || CacheById == word_1C0339AD8 && (dword_1C0339BD8 & 2) != 0 )
     return 0LL;
-  }
-  v12 = (__int64 **)((char *)CacheById + 8);
+  v11 = (__int64 **)(CacheById + 4);
   if ( v5 )
   {
-    if ( (unsigned int)FindMousePromotionInContactRange(v12, a2, &v22, &v23) )
+    if ( (unsigned int)FindMousePromotionInContactRange(v11, a2, &v19, &v20) )
     {
-      v14 = v22;
-      v15 = v23;
+      v12 = v19;
+      v13 = v20;
     }
     else
     {
-      v14 = 0LL;
-      v15 = 0LL;
+      v12 = 0LL;
+      v13 = 0LL;
     }
   }
   else
   {
-    MousePromotionEntry = FindMousePromotionEntry((struct tagMOUSE_PROMOTION_ENTRY **)v12, a2);
-    v14 = MousePromotionEntry;
+    MousePromotionEntry = FindMousePromotionEntry((struct tagMOUSE_PROMOTION_ENTRY **)v11, a2);
+    v12 = MousePromotionEntry;
     if ( MousePromotionEntry && (*((_DWORD *)MousePromotionEntry + 5) & 0x40004) != 0 )
-      v14 = 0LL;
-    v15 = v14;
+      v12 = 0LL;
+    v13 = v12;
   }
-  if ( !v14 )
+  if ( !v12 )
     return 0LL;
-  if ( v5 == 0x10000000 )
+  if ( v5 != 0x10000000 || (v5 = DetectPromotionType(v12, v13), v5 != v15) )
   {
-    v5 = DetectPromotionType(v14, v15);
-    if ( v5 == v17 )
+    v18 = v5 & 0x20000;
+    if ( v13 )
     {
-      if ( CacheById == (struct tagMOUSE_PROMOTION_CACHE *)(SGDGetUserSessionState(v13) + 16064) )
-      {
-        *a3 = 0x10000000;
-LABEL_17:
-        v18 = a5;
-        *a4 = v14;
-        *v18 = v15;
-        return 1LL;
-      }
+      if ( v18 && *((_DWORD *)v13 + 9) != a2 || (v5 & 0x1000000) == 0 && (*((_DWORD *)v13 + 5) & 0x8000) != 0 )
+        return 0LL;
+    }
+    else if ( v18 || v10 != word_1C0339AD8 )
+    {
       return 0LL;
     }
-  }
-  v20 = v5 & 0x20000;
-  if ( !v15 )
-  {
-    if ( v20 )
-      return 0LL;
-    v21 = CacheById == (struct tagMOUSE_PROMOTION_CACHE *)(SGDGetUserSessionState(v13) + 16064);
-    goto LABEL_23;
-  }
-  if ( v20 )
-  {
-    v21 = *((_DWORD *)v15 + 9) == a2;
-LABEL_23:
-    if ( !v21 )
-      return 0LL;
-  }
-  if ( !v15 || (v5 & 0x1000000) != 0 || (*((_DWORD *)v15 + 5) & 0x8000) == 0 )
-  {
     *a3 = v5;
     goto LABEL_17;
+  }
+  if ( v10 == word_1C0339AD8 )
+  {
+    *a3 = v15;
+LABEL_17:
+    v16 = a5;
+    *a4 = v12;
+    *v16 = v13;
+    return 1LL;
   }
   return 0LL;
 }

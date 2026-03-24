@@ -1,28 +1,31 @@
 /*
- * XREFs of ??1CFrameInfo@@QEAA@XZ @ 0x1801CA600
+ * XREFs of ??1CFrameInfo@@QEAA@XZ @ 0x180156410
  * Callers:
  *     <none>
  * Callees:
- *     ??_GTouchUpdateInfo@InteractionLatencyTelemetry@@QEAAPEAXI@Z @ 0x18001A93C (--_GTouchUpdateInfo@InteractionLatencyTelemetry@@QEAAPEAXI@Z.c)
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     ?ReleaseResponses@CFrameInfo@@QEAAXXZ @ 0x18007CB0C (-ReleaseResponses@CFrameInfo@@QEAAXXZ.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D0F68 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ??_GTouchUpdateInfo@CTelemetryTouchLatencyAnalysis@@QEAAPEAXI@Z @ 0x18001DA78 (--_GTouchUpdateInfo@CTelemetryTouchLatencyAnalysis@@QEAAPEAXI@Z.c)
+ *     ?ResetTokens@CScheduleFrameInfoVolatileData@@AEAAXXZ @ 0x180027168 (-ResetTokens@CScheduleFrameInfoVolatileData@@AEAAXXZ.c)
+ *     ?ReleaseResponses@CFrameInfo@@QEAAXXZ @ 0x1800271A8 (-ReleaseResponses@CFrameInfo@@QEAAXXZ.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x1800656F0 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800C0048 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
  */
 
 void __fastcall CFrameInfo::~CFrameInfo(CFrameInfo *this)
 {
   __int64 i; // rbx
-  InteractionLatencyTelemetry::TouchUpdateInfo *v3; // rcx
+  CTelemetryTouchLatencyAnalysis::TouchUpdateInfo *v3; // rcx
 
-  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 46); i = (unsigned int)(i + 1) )
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 50); i = (unsigned int)(i + 1) )
   {
-    v3 = *(InteractionLatencyTelemetry::TouchUpdateInfo **)(*((_QWORD *)this + 20) + 8 * i);
+    v3 = *(CTelemetryTouchLatencyAnalysis::TouchUpdateInfo **)(*((_QWORD *)this + 22) + 8 * i);
     if ( v3 )
-      InteractionLatencyTelemetry::TouchUpdateInfo::`scalar deleting destructor'(v3);
+      CTelemetryTouchLatencyAnalysis::TouchUpdateInfo::`scalar deleting destructor'(v3);
   }
-  *((_DWORD *)this + 46) = 0;
-  DynArrayImpl<0>::ShrinkToSize((__int64)this + 160, 8u);
+  *((_DWORD *)this + 50) = 0;
+  DynArrayImpl<0>::ShrinkToSize((__int64)this + 176, 8u);
   CFrameInfo::ReleaseResponses(this);
-  DynArrayImpl<1>::~DynArrayImpl<1>((void **)this + 24);
-  DynArrayImpl<1>::~DynArrayImpl<1>((void **)this + 20);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 208);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 176);
+  CScheduleFrameInfoVolatileData::ResetTokens(this);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 144);
 }

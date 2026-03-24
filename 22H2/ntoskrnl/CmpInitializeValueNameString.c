@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpInitializeValueNameString @ 0x140708514
+ * XREFs of CmpInitializeValueNameString @ 0x14066F2E8
  * Callers:
- *     CmpMergeKeyValues @ 0x140A22388 (CmpMergeKeyValues.c)
- *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x140A2922C (CmpLightWeightPrepareDeleteValueKeyUoW.c)
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x140A29B60 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x14066EF68 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x140731D08 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
+ *     CmpMergeKeyValues @ 0x1408794D0 (CmpMergeKeyValues.c)
  * Callees:
- *     CmSiBugCheck @ 0x1406177C4 (CmSiBugCheck.c)
- *     CmpCopyCompressedName @ 0x140708D60 (CmpCopyCompressedName.c)
+ *     CmSiBugCheck @ 0x1404EDDF4 (CmSiBugCheck.c)
+ *     CmpCopyCompressedName @ 0x1406E2D64 (CmpCopyCompressedName.c)
  */
 
 __int64 __fastcall CmpInitializeValueNameString(ULONG_PTR BugCheckParameter3, __int64 a2, __int64 a3)
@@ -24,7 +24,7 @@ __int64 __fastcall CmpInitializeValueNameString(ULONG_PTR BugCheckParameter3, __
     *(_WORD *)a2 = v4;
     if ( v4 > 0x7FFFu )
       CmSiBugCheck(0x31uLL, 1uLL, BugCheckParameter3, v4);
-    result = CmpCopyCompressedName(a3, 0x7FFFLL, BugCheckParameter3 + 20, *(unsigned __int16 *)(BugCheckParameter3 + 2));
+    result = CmpCopyCompressedName(a3, 0x7FFFLL, BugCheckParameter3 + 20);
     *(_QWORD *)(v6 + 8) = v7;
     *(_WORD *)(v6 + 2) = 0x7FFF;
   }

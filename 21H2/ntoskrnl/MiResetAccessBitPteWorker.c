@@ -1,15 +1,14 @@
 /*
- * XREFs of MiResetAccessBitPteWorker @ 0x1403C49DC
+ * XREFs of MiResetAccessBitPteWorker @ 0x14053BA80
  * Callers:
- *     MiResetAccessBitPte @ 0x1403C48E0 (MiResetAccessBitPte.c)
- *     MiResetAccessBitsEPTCallback @ 0x140596DF0 (MiResetAccessBitsEPTCallback.c)
+ *     MiResetAccessBitsEPTCallback @ 0x14053BB80 (MiResetAccessBitsEPTCallback.c)
  * Callees:
- *     MiFlushTbListEarly @ 0x140269FA8 (MiFlushTbListEarly.c)
- *     MiGetPfnPriority @ 0x140273234 (MiGetPfnPriority.c)
- *     MiGetVaAge @ 0x140274D80 (MiGetVaAge.c)
- *     MiSetVaAgeList @ 0x1403171A0 (MiSetVaAgeList.c)
- *     MiClearPteAccessed @ 0x140332A80 (MiClearPteAccessed.c)
- *     MiLogPageAccess @ 0x140333040 (MiLogPageAccess.c)
+ *     MiGetPfnPriority @ 0x1402185D0 (MiGetPfnPriority.c)
+ *     MiFlushTbListEarly @ 0x140289258 (MiFlushTbListEarly.c)
+ *     MiGetVaAge @ 0x1403090F0 (MiGetVaAge.c)
+ *     MiSetVaAgeList @ 0x14032D6B0 (MiSetVaAgeList.c)
+ *     MiClearPteAccessed @ 0x140339E00 (MiClearPteAccessed.c)
+ *     MiLogPageAccess @ 0x14033A650 (MiLogPageAccess.c)
  */
 
 void __fastcall MiResetAccessBitPteWorker(
@@ -21,11 +20,11 @@ void __fastcall MiResetAccessBitPteWorker(
         char a6)
 {
   int VaAge; // r10d
-  int v11; // esi
+  int v11; // ebp
   __int64 v12; // rbx
 
   VaAge = (unsigned __int8)MiGetVaAge(a1, a3);
-  if ( VaAge == 7 && (unsigned int)MiGetPfnPriority(a4) < dword_140C52B6C )
+  if ( VaAge == 7 && (unsigned int)MiGetPfnPriority(a4) < dword_140C4E82C )
   {
     v11 = 0;
   }
@@ -33,25 +32,25 @@ void __fastcall MiResetAccessBitPteWorker(
   {
     v11 = 1;
     if ( (unsigned int)(VaAge - 1) <= 5 )
-      MiSetVaAgeList(a1, a3, 1u, 0);
+      MiSetVaAgeList(a1, a3, 1LL, 0);
   }
   v12 = 0LL;
   if ( (a6 & 4) == 0 )
     v12 = *(_QWORD *)(a5 + 8);
   if ( (unsigned int)MiClearPteAccessed(a1, a4, a2, v12, *(_DWORD *)a5, (a6 & 4) != 0) )
   {
-    if ( v11 && (a6 & 4) == 0 && *(_DWORD *)a5 )
+    if ( v11 == 1 && (a6 & 4) == 0 && *(_DWORD *)a5 )
     {
-      if ( !v12 )
+      if ( v12 )
       {
-        MiLogPageAccess(a1, a2);
+LABEL_15:
+        MiFlushTbListEarly(v12, 0);
         return;
       }
+      MiLogPageAccess(a1, a2);
     }
-    else if ( !v12 )
-    {
+    if ( !v12 )
       return;
-    }
-    MiFlushTbListEarly(v12, 0);
+    goto LABEL_15;
   }
 }

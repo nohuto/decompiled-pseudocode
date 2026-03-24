@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmRestoreFromPurge @ 0x1C001C1F0
+ * XREFs of VidMmRestoreFromPurge @ 0x1C00230B0
  * Callers:
  *     <none>
  * Callees:
- *     ?RestoreFromPurge@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00AB1A8 (-RestoreFromPurge@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?RestoreFromPurge@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B34D4 (-RestoreFromPurge@VIDMM_GLOBAL@@QEAAXXZ.c)
  */
 
 void __fastcall VidMmRestoreFromPurge(VIDMM_GLOBAL *a1)

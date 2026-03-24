@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpGetNextToken @ 0x14080E23C
+ * XREFs of VrpGetNextToken @ 0x14080E21C
  * Callers:
- *     VrpCreateNamespaceNode @ 0x140809E5C (VrpCreateNamespaceNode.c)
- *     VrpPreLoadKey @ 0x14080B784 (VrpPreLoadKey.c)
- *     VrpPreOpenOrCreate @ 0x14080C300 (VrpPreOpenOrCreate.c)
- *     VrpTranslatePath @ 0x14080CB90 (VrpTranslatePath.c)
- *     VrpComparePath @ 0x14080E0F4 (VrpComparePath.c)
- *     VrpCountPathComponents @ 0x14080E1DC (VrpCountPathComponents.c)
+ *     VrpCreateNamespaceNode @ 0x140809E3C (VrpCreateNamespaceNode.c)
+ *     VrpPreLoadKey @ 0x14080B764 (VrpPreLoadKey.c)
+ *     VrpPreOpenOrCreate @ 0x14080C2E0 (VrpPreOpenOrCreate.c)
+ *     VrpTranslatePath @ 0x14080CB70 (VrpTranslatePath.c)
+ *     VrpComparePath @ 0x14080E0D4 (VrpComparePath.c)
+ *     VrpCountPathComponents @ 0x14080E1BC (VrpCountPathComponents.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of bDrvDisconnect @ 0x1C02BF004
+ * XREFs of bDrvDisconnect @ 0x1C02C066C
  * Callers:
- *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C00F099C (-InitiateWin32kCleanup@@YAHXZ.c)
- *     xxxRemoteConsoleShadowStop @ 0x1C02208E4 (xxxRemoteConsoleShadowStop.c)
- *     xxxRemotePassthruEnable @ 0x1C0220C50 (xxxRemotePassthruEnable.c)
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C000ADD4 (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     xxxRemoteConsoleShadowStop @ 0x1C0226F30 (xxxRemoteConsoleShadowStop.c)
+ *     xxxRemotePassthruEnable @ 0x1C0227220 (xxxRemotePassthruEnable.c)
  * Callees:
- *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0154B2C (--1SEMOBJEX@@QEAA@XZ.c)
- *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0154C08 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0163AF4 (--1SEMOBJEX@@QEAA@XZ.c)
+ *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0163BD0 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 bDrvDisconnect()
@@ -32,7 +32,7 @@ __int64 bDrvDisconnect()
       2u,
       ghsemDCVisRgn,
       3u,
-      *(HSEMAPHORE *)(gConsoleShadowhDev + 56),
+      *(HSEMAPHORE *)(gConsoleShadowhDev + 64),
       4u,
       ghsemSprite,
       5u,
@@ -40,13 +40,13 @@ __int64 bDrvDisconnect()
       6u);
     GreAcquireSemaphore(v6[6]);
     EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemDevLock()", v6[6], 11LL);
-    PDEVOBJ::vSync((PDEVOBJ *)&v6, (struct _SURFOBJ *)((v6[316] + 24LL) & -(__int64)(v6[316] != 0LL)), 0LL, 0);
-    v3 = (__int64 (__fastcall *)(HANDLE, PVOID))v6[411];
+    PDEVOBJ::vSync((PDEVOBJ *)&v6, (struct _SURFOBJ *)((v6[319] + 24LL) & -(__int64)(v6[319] != 0LL)), 0LL, 0);
+    v3 = (__int64 (__fastcall *)(HANDLE, PVOID))v6[414];
     if ( v3 )
     {
       v2 = v3(v1, v0);
       if ( v2 )
-        *(_DWORD *)(v6[220] + 60LL) = 3;
+        *(_DWORD *)(v6[224] + 60LL) = 3;
     }
     EtwTraceGreLockReleaseSemaphore(L"po.hsemDevLock()", v6[6]);
     GreReleaseSemaphoreInternal(v6[6]);

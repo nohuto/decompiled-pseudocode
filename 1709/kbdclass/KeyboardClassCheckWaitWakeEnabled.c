@@ -1,1 +1,22 @@
-/*\n * XREFs of KeyboardClassCheckWaitWakeEnabled @ 0x1C0004230\n * Callers:\n *     KeyboardClassPoRequestComplete @ 0x1C0001300 (KeyboardClassPoRequestComplete.c)\n *     KeyboardClassPower @ 0x1C0001BA0 (KeyboardClassPower.c)\n * Callees:\n *     <none>\n */\n\nchar __fastcall KeyboardClassCheckWaitWakeEnabled(__int64 a1)\n{\n  KSPIN_LOCK *v1; // rdi\n  __int64 v2; // rbx\n  KIRQL v3; // al\n\n  v1 = (KSPIN_LOCK *)(a1 + 72);\n  v2 = a1;\n  v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 72));\n  LOBYTE(v2) = *(_BYTE *)(v2 + 362);\n  KeReleaseSpinLock(v1, v3);\n  return v2;\n}\n
+/*
+ * XREFs of KeyboardClassCheckWaitWakeEnabled @ 0x1C0004230
+ * Callers:
+ *     KeyboardClassPoRequestComplete @ 0x1C0001300 (KeyboardClassPoRequestComplete.c)
+ *     KeyboardClassPower @ 0x1C0001BA0 (KeyboardClassPower.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall KeyboardClassCheckWaitWakeEnabled(__int64 a1)
+{
+  KSPIN_LOCK *v1; // rdi
+  __int64 v2; // rbx
+  KIRQL v3; // al
+
+  v1 = (KSPIN_LOCK *)(a1 + 72);
+  v2 = a1;
+  v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 72));
+  LOBYTE(v2) = *(_BYTE *)(v2 + 362);
+  KeReleaseSpinLock(v1, v3);
+  return v2;
+}

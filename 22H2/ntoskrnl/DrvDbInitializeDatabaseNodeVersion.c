@@ -1,11 +1,11 @@
 /*
- * XREFs of DrvDbInitializeDatabaseNodeVersion @ 0x140A6DDE0
+ * XREFs of DrvDbInitializeDatabaseNodeVersion @ 0x14097ECE4
  * Callers:
- *     DrvDbLoadDatabaseNode @ 0x1408775F0 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbLoadDatabaseNode @ 0x1406B7534 (DrvDbLoadDatabaseNode.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x140866854 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x140727CD0 (DrvDbSetDriverDatabaseMappedProperty.c)
  */
 
 __int64 __fastcall DrvDbInitializeDatabaseNodeVersion(__int64 a1, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall DrvDbInitializeDatabaseNodeVersion(__int64 a1, __int64 a2)
   HANDLE Handle; // [rsp+50h] [rbp+8h] BYREF
 
   Handle = 0LL;
-  v4 = *(_QWORD *)(a2 + 96);
+  v4 = *(_QWORD *)(a2 + 88);
   if ( *(_QWORD *)a1 )
     v5 = *(_QWORD *)(*(_QWORD *)a1 + 224LL);
   else
@@ -30,7 +30,7 @@ __int64 __fastcall DrvDbInitializeDatabaseNodeVersion(__int64 a1, __int64 a2)
            Handle,
            (__int64)DEVPKEY_DriverDatabase_Version,
            7u,
-           (const WCHAR *)(a2 + 68),
+           (const WCHAR *)(a2 + 60),
            4u);
     if ( v6 >= 0 )
       v6 = DrvDbSetDriverDatabaseMappedProperty(
@@ -39,7 +39,7 @@ __int64 __fastcall DrvDbInitializeDatabaseNodeVersion(__int64 a1, __int64 a2)
              Handle,
              (__int64)DEVPKEY_DriverDatabase_SchemaVersion,
              7u,
-             (const WCHAR *)(a2 + 72),
+             (const WCHAR *)(a2 + 64),
              4u);
   }
   if ( Handle )

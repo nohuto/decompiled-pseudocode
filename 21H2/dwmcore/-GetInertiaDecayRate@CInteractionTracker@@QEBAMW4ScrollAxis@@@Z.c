@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetInertiaDecayRate@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x18021AE28
+ * XREFs of ?GetInertiaDecayRate@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1801C9A50
  * Callers:
- *     ?StartInertiaWorker@CInteractionTrackerPositionAnimation@@MEAAXM_N@Z @ 0x1802563D0 (-StartInertiaWorker@CInteractionTrackerPositionAnimation@@MEAAXM_N@Z.c)
- *     ?StartInertiaWorker@CInteractionTrackerScaleAnimation@@MEAAXM_N@Z @ 0x180256A10 (-StartInertiaWorker@CInteractionTrackerScaleAnimation@@MEAAXM_N@Z.c)
+ *     ?StartInertiaWorker@CInteractionTrackerPositionAnimation@@MEAAXM_N@Z @ 0x180205BB0 (-StartInertiaWorker@CInteractionTrackerPositionAnimation@@MEAAXM_N@Z.c)
+ *     ?StartInertiaWorker@CInteractionTrackerScaleAnimation@@MEAAXM_N@Z @ 0x1802061B0 (-StartInertiaWorker@CInteractionTrackerScaleAnimation@@MEAAXM_N@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,11 +14,11 @@ float __fastcall CInteractionTracker::GetInertiaDecayRate(float *a1, int a2)
 
   result = 0.0;
   if ( !a2 )
-    return a1[29];
+    return a1[27];
   v3 = a2 - 1;
   if ( !v3 )
-    return a1[30];
+    return a1[28];
   if ( v3 == 1 )
-    return a1[43];
+    return a1[41];
   return result;
 }

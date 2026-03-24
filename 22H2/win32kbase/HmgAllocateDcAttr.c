@@ -1,122 +1,116 @@
 /*
- * XREFs of HmgAllocateDcAttr @ 0x1C00E02F0
+ * XREFs of HmgAllocateDcAttr @ 0x1C002C9D8
  * Callers:
- *     GreCreateDisplayDC @ 0x1C003BFE0 (GreCreateDisplayDC.c)
- *     GreSetDCOwnerEx @ 0x1C004BDD0 (GreSetDCOwnerEx.c)
+ *     GreSetDCOwnerEx @ 0x1C0038F20 (GreSetDCOwnerEx.c)
+ *     GreCreateDisplayDC @ 0x1C003CAC0 (GreCreateDisplayDC.c)
  * Callees:
- *     Win32FreePool @ 0x1C0038570 (Win32FreePool.c)
- *     GreReleaseHmgrSemaphore @ 0x1C00427F0 (GreReleaseHmgrSemaphore.c)
- *     GreAcquireHmgrSemaphore @ 0x1C0042870 (GreAcquireHmgrSemaphore.c)
- *     W32GetCurrentThread @ 0x1C0046320 (W32GetCurrentThread.c)
- *     ?HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z @ 0x1C008AA88 (-HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z.c)
- *     PALLOCNOZ @ 0x1C008AF78 (PALLOCNOZ.c)
- *     ?HmgFreeAllocateSecureUserMemory@@YAXPEAX0@Z @ 0x1C0158E0C (-HmgFreeAllocateSecureUserMemory@@YAXPEAX0@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     PALLOCMEM2 @ 0x1C002C278 (PALLOCMEM2.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C003A090 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C003A1E0 (GreAcquireHmgrSemaphore.c)
+ *     ?HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z @ 0x1C00810F0 (-HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z.c)
+ *     ?HmgFreeAllocateSecureUserMemory@@YAXPEAX0@Z @ 0x1C013F0B0 (-HmgFreeAllocateSecureUserMemory@@YAXPEAX0@Z.c)
  */
 
 __int64 HmgAllocateDcAttr()
 {
-  __int64 CurrentThread; // rax
-  __int64 v1; // rcx
-  __int64 v2; // rsi
-  __int64 v3; // rbx
-  __int64 CurrentProcessWin32Process; // rax
+  __int64 ThreadWin32Thread; // rax
+  __int64 v1; // rbx
+  __int64 v2; // rbp
+  __int64 CurrentProcessWin32Process; // rdi
   __int64 v5; // rcx
-  __int64 v6; // rbx
-  _QWORD *v7; // rcx
-  char *v8; // rdi
-  __int64 v9; // rax
+  _QWORD *v6; // rcx
+  _QWORD *v7; // rsi
+  __int64 v8; // rax
   __int64 v10; // rcx
-  __int64 *v12; // rcx
-  __int64 v13; // rdx
-  __int64 v14; // rdx
-  __int64 v15; // rdi
-  char *v16; // rdx
-  int v17; // eax
+  _QWORD *v11; // rdx
+  char *v12; // rsi
+  _QWORD *v13; // rax
+  _QWORD *v14; // rcx
+  __int64 v15; // rdx
+  __int64 v16; // rdx
+  _QWORD *v17; // rcx
   __int64 v18; // rcx
-  char **v19; // rax
-  void *v20; // [rsp+30h] [rbp+8h] BYREF
+  void *v19; // [rsp+30h] [rbp+8h] BYREF
 
-  CurrentThread = W32GetCurrentThread();
+  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  v1 = 0LL;
   v2 = 0LL;
-  v3 = *(_QWORD *)(CurrentThread + 24);
-  if ( v3 )
+  if ( *(_QWORD *)(ThreadWin32Thread + 24) )
   {
-    *(_QWORD *)(CurrentThread + 24) = 0LL;
-LABEL_23:
-    *(_QWORD *)(v3 + 352) = 0LL;
-    return v3;
+    v2 = *(_QWORD *)(ThreadWin32Thread + 24);
+    *(_QWORD *)(ThreadWin32Thread + 24) = 0LL;
+    return v2;
   }
-  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v1);
-  v6 = CurrentProcessWin32Process;
-  if ( CurrentProcessWin32Process )
-  {
-    v5 = -*(_QWORD *)CurrentProcessWin32Process;
-    v6 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-  }
+  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(0LL);
   GreAcquireHmgrSemaphore(v5);
-  if ( !*(_QWORD *)(v6 + 40) )
+  if ( *(_QWORD *)(CurrentProcessWin32Process + 40) )
+    goto LABEL_5;
+  v19 = 0LL;
+  v12 = (char *)HmgAllocateSecureUserMemory(&v19);
+  if ( !v12 )
+    goto LABEL_5;
+  v13 = PALLOCMEM2(0x70uLL, 1717789767LL, 0);
+  if ( v13 )
   {
-    v20 = 0LL;
-    v8 = (char *)HmgAllocateSecureUserMemory(&v20);
-    if ( v8 )
+    v14 = (_QWORD *)(CurrentProcessWin32Process + 192);
+    v15 = *(_QWORD *)(CurrentProcessWin32Process + 192);
+    if ( *(_QWORD *)(v15 + 8) != CurrentProcessWin32Process + 192 )
+      goto LABEL_10;
+    *v13 = v15;
+    v13[1] = v14;
+    *(_QWORD *)(v15 + 8) = v13;
+    v16 = 11LL;
+    *v14 = v13;
+    v17 = v13 + 3;
+    *((_DWORD *)v13 + 4) = 11;
+    *(_QWORD *)(CurrentProcessWin32Process + 40) = v12 + 3520;
+    do
     {
-      v9 = PALLOCNOZ(0x70u, 0x66636447u);
-      if ( !v9 )
-      {
-        HmgFreeAllocateSecureUserMemory(v8, v20);
-        GreReleaseHmgrSemaphore(v10);
-        return 0LL;
-      }
-      v12 = (__int64 *)(v6 + 192);
-      v13 = *(_QWORD *)(v6 + 192);
-      if ( *(_QWORD *)(v13 + 8) != v6 + 192 )
-        goto LABEL_20;
-      *(_QWORD *)v9 = v13;
-      *(_QWORD *)(v9 + 8) = v12;
-      *(_QWORD *)(v13 + 8) = v9;
-      v14 = 11LL;
-      *v12 = v9;
-      v7 = (_QWORD *)(v9 + 24);
-      *(_DWORD *)(v9 + 16) = 11;
-      *(_QWORD *)(v6 + 40) = v8 + 3600;
-      do
-      {
-        *v7 = v8;
-        v8 += 360;
-        ++v7;
-        --v14;
-      }
-      while ( v14 );
+      *v17 = v12;
+      v12 += 352;
+      ++v17;
+      --v16;
     }
-  }
-  if ( !*(_QWORD *)(v6 + 40) )
-    goto LABEL_22;
-  v2 = *(_QWORD *)(v6 + 40);
-  v15 = v6 + 192;
-  v16 = *(char **)(v6 + 192);
-  v17 = *((_DWORD *)v16 + 4) - 1;
-  *((_DWORD *)v16 + 4) = v17;
-  if ( v17 )
-  {
-    *(_QWORD *)(v6 + 40) = *(_QWORD *)&v16[8 * (v17 - 1) + 24];
-    goto LABEL_22;
-  }
-  v18 = *(_QWORD *)v16;
-  if ( *(char **)(*(_QWORD *)v16 + 8LL) != v16 || (v19 = (char **)*((_QWORD *)v16 + 1), *v19 != v16) )
-LABEL_20:
+    while ( v16 );
+LABEL_5:
+    v6 = *(_QWORD **)(CurrentProcessWin32Process + 40);
+    if ( !v6 )
+    {
+LABEL_8:
+      GreReleaseHmgrSemaphore(v6);
+      return v2;
+    }
+    v7 = (_QWORD *)(CurrentProcessWin32Process + 192);
+    v2 = *(_QWORD *)(CurrentProcessWin32Process + 40);
+    v8 = *(_QWORD *)(CurrentProcessWin32Process + 192);
+    if ( (*(_DWORD *)(v8 + 16))-- != 1 )
+    {
+      v6 = *(_QWORD **)(v8 + 8LL * (unsigned int)(*(_DWORD *)(v8 + 16) - 1) + 24);
+      *(_QWORD *)(CurrentProcessWin32Process + 40) = v6;
+      goto LABEL_8;
+    }
+    v10 = *(_QWORD *)v8;
+    if ( *(_QWORD *)(*(_QWORD *)v8 + 8LL) == v8 )
+    {
+      v11 = *(_QWORD **)(v8 + 8);
+      if ( *v11 == v8 )
+      {
+        *v11 = v10;
+        *(_QWORD *)(v10 + 8) = v11;
+        Win32FreePool(v8);
+        v6 = (_QWORD *)*v7;
+        if ( (_QWORD *)*v7 != v7 )
+          v1 = v6[(unsigned int)(*((_DWORD *)v6 + 4) - 1) + 3];
+        *(_QWORD *)(CurrentProcessWin32Process + 40) = v1;
+        goto LABEL_8;
+      }
+    }
+LABEL_10:
     __fastfail(3u);
-  *v19 = (char *)v18;
-  *(_QWORD *)(v18 + 8) = v19;
-  Win32FreePool(v16);
-  if ( *(_QWORD *)v15 == v15 )
-    v7 = 0LL;
-  else
-    v7 = *(_QWORD **)(*(_QWORD *)v15 + 8LL * (unsigned int)(*(_DWORD *)(*(_QWORD *)v15 + 16LL) - 1) + 24);
-  *(_QWORD *)(v6 + 40) = v7;
-LABEL_22:
-  v3 = v2;
-  GreReleaseHmgrSemaphore((__int64)v7);
-  if ( v2 )
-    goto LABEL_23;
-  return v3;
+  }
+  HmgFreeAllocateSecureUserMemory(v12, v19);
+  GreReleaseHmgrSemaphore(v18);
+  return 0LL;
 }

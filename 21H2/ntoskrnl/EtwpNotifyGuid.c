@@ -1,225 +1,221 @@
 /*
- * XREFs of EtwpNotifyGuid @ 0x1406EF64C
+ * XREFs of EtwpNotifyGuid @ 0x1406E1804
  * Callers:
- *     EtwpSendSessionNotification @ 0x1406EF58C (EtwpSendSessionNotification.c)
- *     NtTraceControl @ 0x1407954F0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
+ *     EtwpSendSessionNotification @ 0x1406E14E8 (EtwpSendSessionNotification.c)
  * Callees:
- *     PsGetCurrentThreadProcessId @ 0x1402A7BC0 (PsGetCurrentThreadProcessId.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     PsGetProcessId @ 0x140361530 (PsGetProcessId.c)
- *     memset @ 0x140435E00 (memset.c)
- *     EtwpCreateUmReplyObject @ 0x1406B8E18 (EtwpCreateUmReplyObject.c)
- *     EtwpAllocDataBlock @ 0x1406F21DC (EtwpAllocDataBlock.c)
- *     EtwpUnreferenceDataBlock @ 0x14078F0FC (EtwpUnreferenceDataBlock.c)
- *     EtwpFreeFilterInfo @ 0x14078FF9C (EtwpFreeFilterInfo.c)
- *     EtwpCheckGuidAccess @ 0x140790CA8 (EtwpCheckGuidAccess.c)
- *     EtwpSendDataBlock @ 0x140790CF8 (EtwpSendDataBlock.c)
- *     EtwpAccessCheck @ 0x140794404 (EtwpAccessCheck.c)
- *     EtwpFindGuidEntryByGuid @ 0x1407968D0 (EtwpFindGuidEntryByGuid.c)
- *     EtwpUnreferenceGuidEntry @ 0x140796B04 (EtwpUnreferenceGuidEntry.c)
- *     EtwpApplyTransientFilters @ 0x14080855C (EtwpApplyTransientFilters.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x1409EB814 (EtwpCheckCurrentUserProcessAccess.c)
- *     EtwpDemuxPrivateTraceHandle @ 0x1409EBA3C (EtwpDemuxPrivateTraceHandle.c)
- *     EtwpValidateTraceControlFilterDescriptors @ 0x1409F5224 (EtwpValidateTraceControlFilterDescriptors.c)
+ *     PsGetProcessId @ 0x14027B6A0 (PsGetProcessId.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     PsGetCurrentThreadProcessId @ 0x1402ED5E0 (PsGetCurrentThreadProcessId.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     KeEnterCriticalRegion @ 0x140351210 (KeEnterCriticalRegion.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     EtwpFindGuidEntryByGuid @ 0x1405EB9B0 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpAccessCheck @ 0x140643B58 (EtwpAccessCheck.c)
+ *     EtwpCreateUmReplyObject @ 0x14069C0FC (EtwpCreateUmReplyObject.c)
+ *     EtwpApplyTransientFilters @ 0x1406C3300 (EtwpApplyTransientFilters.c)
+ *     EtwpAllocDataBlock @ 0x1406E1760 (EtwpAllocDataBlock.c)
+ *     EtwpFreeFilterInfo @ 0x1406E2C4C (EtwpFreeFilterInfo.c)
+ *     EtwpSendDataBlock @ 0x1406E4054 (EtwpSendDataBlock.c)
+ *     EtwpUnreferenceDataBlock @ 0x1406E4984 (EtwpUnreferenceDataBlock.c)
+ *     EtwpDemuxPrivateTraceHandle @ 0x14093F01C (EtwpDemuxPrivateTraceHandle.c)
+ *     EtwpValidateTraceControlFilterDescriptors @ 0x140940CEC (EtwpValidateTraceControlFilterDescriptors.c)
+ *     EtwpCheckCurrentUserGuidAccess @ 0x1409414C0 (EtwpCheckCurrentUserGuidAccess.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x1409414D8 (EtwpCheckCurrentUserProcessAccess.c)
  */
 
 __int64 __fastcall EtwpNotifyGuid(__int64 a1, __int64 a2, char a3)
 {
-  unsigned int v3; // esi
+  int v3; // esi
   __int64 v7; // r8
-  ACCESS_MASK v8; // ebx
-  __int64 GuidEntryByGuid; // rax
-  _QWORD *v10; // rsi
-  int v11; // ebx
-  struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v14; // r12
-  int v15; // r14d
-  _QWORD *v16; // rbx
-  __int16 v17; // ax
-  HANDLE v18; // rax
-  bool v19; // zf
-  __int64 v20; // rdx
-  int v21; // eax
-  unsigned __int64 v22; // rcx
-  unsigned int v23; // eax
+  int v9; // ebx
+  unsigned __int64 v10; // rcx
+  unsigned int v11; // eax
+  ACCESS_MASK v12; // ebx
+  int v13; // eax
+  __int64 *GuidEntryByGuid; // rax
+  __int64 v15; // rsi
+  __int64 *v16; // r14
+  __int64 *v17; // r13
+  int v18; // r15d
+  __int64 i; // rbx
+  __int16 v20; // ax
+  __int64 v21; // rsi
   unsigned int ProcessId; // eax
-  int v25; // [rsp+20h] [rbp-79h]
-  bool v26; // [rsp+24h] [rbp-75h]
-  PVOID Object; // [rsp+38h] [rbp-61h] BYREF
-  unsigned __int64 v28; // [rsp+40h] [rbp-59h]
-  __int64 v29; // [rsp+48h] [rbp-51h]
-  HANDLE Handle; // [rsp+50h] [rbp-49h] BYREF
-  _QWORD v31[18]; // [rsp+60h] [rbp-39h] BYREF
-  __int16 v32; // [rsp+108h] [rbp+6Fh] BYREF
-  int v33; // [rsp+118h] [rbp+7Fh]
+  int v23; // eax
+  __int64 v24; // rax
+  bool v25; // zf
+  int v26; // [rsp+20h] [rbp-69h]
+  bool v27; // [rsp+24h] [rbp-65h]
+  __int64 v28; // [rsp+28h] [rbp-61h] BYREF
+  __int64 v29; // [rsp+30h] [rbp-59h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+38h] [rbp-51h] BYREF
+  __int64 v31; // [rsp+40h] [rbp-49h]
+  __int64 v32; // [rsp+48h] [rbp-41h] BYREF
+  __int64 v33[18]; // [rsp+50h] [rbp-39h] BYREF
+  __int16 v34; // [rsp+F8h] [rbp+6Fh] BYREF
+  int v35; // [rsp+108h] [rbp+7Fh]
 
   v3 = 0;
-  Handle = 0LL;
-  Object = 0LL;
-  v33 = 0;
-  v26 = 0;
+  v32 = 0LL;
+  DmaAdapter = 0LL;
+  v29 = 0LL;
   v28 = 0LL;
-  memset(v31, 0, 0x58uLL);
+  v35 = 0;
+  v27 = 0;
+  v31 = 0LL;
+  memset(v33, 0, 0x58uLL);
   v7 = *(unsigned int *)(a2 + 4);
-  if ( (unsigned int)v7 <= 0x10000 )
+  if ( (unsigned int)v7 > 0x10000 )
+    return 3221225990LL;
+  if ( *(_DWORD *)a2 == 11 )
   {
-    if ( *(_DWORD *)a2 == 11 )
+    if ( (unsigned int)v7 < 0x78 || (v10 = (*(_DWORD *)(a2 + 72) + 7) & 0xFFFFFFF8, v10 >= v7 - 76) )
     {
-      if ( (unsigned int)v7 < 0x78 || (v22 = (*(_DWORD *)(a2 + 72) + 7) & 0xFFFFFFF8, v22 >= v7 - 76) )
-      {
-        v11 = -2147483643;
-        goto LABEL_7;
-      }
-      v23 = *(_DWORD *)(v22 + a2 + 72);
-      if ( v23 )
-      {
-        v28 = v22 + a2 + 76;
-        if ( (unsigned int)EtwpValidateTraceControlFilterDescriptors(v23, v28, (unsigned int)(v7 - (v22 + 76)), v31) )
-        {
-          v11 = -1073741811;
-          goto LABEL_7;
-        }
-      }
-      *(_DWORD *)a2 = 4;
+      v9 = -2147483643;
+      goto LABEL_60;
     }
-    *(_DWORD *)(a2 + 36) = PsGetCurrentThreadProcessId();
-    if ( *(_DWORD *)a2 == 4 )
+    v11 = *(_DWORD *)(v10 + a2 + 72);
+    if ( v11 )
     {
-      if ( *(_DWORD *)(a2 + 4) < 0xF8u )
+      v31 = v10 + a2 + 76;
+      if ( (unsigned int)EtwpValidateTraceControlFilterDescriptors(v11, v31, (unsigned int)(v7 - (v10 + 76)), v33) )
       {
-        v11 = -1073741789;
-        goto LABEL_7;
-      }
-      v8 = 128;
-      v26 = (int)EtwpCheckGuidAccess(PrivateLoggerSecurityGuid, 128LL, 0LL) < 0;
-      *(_OWORD *)(a2 + 40) = PrivateLoggerNotificationGuid;
-    }
-    else
-    {
-      v8 = 4;
-      v3 = 1;
-    }
-    v25 = *(_DWORD *)(a2 + 32);
-    *(_DWORD *)(a2 + 20) = 0;
-    GuidEntryByGuid = EtwpFindGuidEntryByGuid(a1, a2 + 40, v3);
-    v10 = (_QWORD *)GuidEntryByGuid;
-    if ( !GuidEntryByGuid )
-    {
-      v11 = -1073741163;
-LABEL_7:
-      EtwpFreeFilterInfo(v31);
-      return (unsigned int)v11;
-    }
-    if ( a3 )
-    {
-      if ( *(_DWORD *)a2 != 4 )
-      {
-        v11 = EtwpAccessCheck(*(PSECURITY_DESCRIPTOR *)(GuidEntryByGuid + 72), v8);
-        if ( v11 < 0 )
-        {
-LABEL_26:
-          EtwpUnreferenceGuidEntry(v10);
-          goto LABEL_7;
-        }
+        v9 = -1073741811;
+        goto LABEL_60;
       }
     }
-    CurrentThread = KeGetCurrentThread();
-    --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)(v10 + 51), 0LL);
-    v14 = v10 + 7;
-    v10[52] = KeGetCurrentThread();
-    if ( (_QWORD *)*v14 == v14 )
-    {
-      v11 = -1073741162;
-    }
-    else
-    {
-      if ( !*(_BYTE *)(a2 + 12) )
-        goto LABEL_13;
-      v11 = EtwpCreateUmReplyObject((ULONG_PTR)v10, &Handle, &Object);
-      if ( v11 >= 0 )
-      {
-        *(_QWORD *)(a2 + 24) = Object;
-LABEL_13:
-        v15 = EtwpAllocDataBlock(*(unsigned int *)(a2 + 4), (void *)a2);
-        if ( v15 < 0 )
-        {
-LABEL_47:
-          v11 = -1073741801;
-        }
-        else
-        {
-          v16 = (_QWORD *)*v14;
-          if ( (_QWORD *)*v14 != v14 )
-          {
-            while ( 1 )
-            {
-              v29 = 0LL;
-              v17 = *((_WORD *)v16 + 49);
-              if ( (v17 & 2) == 0
-                || (v17 & 0x40) != 0
-                || v28 && !(unsigned __int8)EtwpApplyTransientFilters(v16, v28, v31[10], v31) )
-              {
-                goto LABEL_20;
-              }
-              if ( v25 && (unsigned int)PsGetProcessId((PEPROCESS)v16[10]) != v25 )
-                goto LABEL_20;
-              if ( v26 )
-              {
-                v15 = EtwpCheckCurrentUserProcessAccess(v16[10]);
-                if ( v15 < 0 )
-                  goto LABEL_20;
-              }
-              if ( *(_DWORD *)a2 != 4 )
-                break;
-              v32 = 0;
-              if ( *(_DWORD *)(a2 + 76) == 1 )
-                break;
-              ProcessId = (unsigned int)PsGetProcessId((PEPROCESS)v16[10]);
-              v15 = EtwpDemuxPrivateTraceHandle(ProcessId, *(_WORD *)(a2 + 80) & 0x7FFF, &v32);
-              if ( v15 >= 0 )
-              {
-                v15 = EtwpAllocDataBlock(*(unsigned int *)(a2 + 4), (void *)a2);
-                if ( v15 < 0 )
-                  goto LABEL_47;
-                v20 = 0LL;
-                MEMORY[0x50] = v32;
-                goto LABEL_30;
-              }
-LABEL_20:
-              v16 = (_QWORD *)*v16;
-              if ( v16 == v14 )
-                goto LABEL_21;
-            }
-            v20 = v29;
-LABEL_30:
-            v21 = EtwpSendDataBlock(v16, v20);
-            if ( v21 < 0 )
-              v15 = v21;
-            else
-              ++v33;
-            goto LABEL_20;
-          }
-LABEL_21:
-          v11 = 0;
-          v18 = Handle;
-          v19 = v33 == 0;
-          *(_DWORD *)(a2 + 20) = v33;
-          if ( v19 )
-            v11 = v15;
-          *(_QWORD *)(a2 + 24) = v18;
-        }
-      }
-    }
-    v10[52] = 0LL;
-    ExReleasePushLockEx((ULONG_PTR)(v10 + 51), 0LL);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-    if ( Object )
-      ObfDereferenceObject(Object);
-    goto LABEL_26;
+    *(_DWORD *)a2 = 4;
   }
-  return 3221225990LL;
+  *(_DWORD *)(a2 + 36) = PsGetCurrentThreadProcessId();
+  if ( *(_DWORD *)a2 == 4 )
+  {
+    if ( *(_DWORD *)(a2 + 4) < 0xF8u )
+    {
+      v9 = -1073741789;
+      goto LABEL_60;
+    }
+    v12 = 128;
+    v27 = (int)EtwpCheckCurrentUserGuidAccess(PrivateLoggerSecurityGuid, 128LL) < 0;
+    *(_OWORD *)(a2 + 40) = PrivateLoggerNotificationGuid;
+  }
+  else
+  {
+    v12 = 4;
+    v3 = 1;
+  }
+  v13 = *(_DWORD *)(a2 + 32);
+  *(_DWORD *)(a2 + 20) = 0;
+  v26 = v13;
+  GuidEntryByGuid = EtwpFindGuidEntryByGuid(a1, (_DWORD *)(a2 + 40), v3);
+  v15 = 0LL;
+  v16 = GuidEntryByGuid;
+  if ( !GuidEntryByGuid )
+  {
+    v9 = -1073741163;
+    goto LABEL_60;
+  }
+  if ( a3 )
+  {
+    if ( *(_DWORD *)a2 != 4 )
+    {
+      v9 = EtwpAccessCheck((PSECURITY_DESCRIPTOR)GuidEntryByGuid[9], v12, 0LL);
+      if ( v9 < 0 )
+        goto LABEL_59;
+    }
+  }
+  KeEnterCriticalRegion();
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)(v16 + 51), 0LL);
+  v17 = v16 + 7;
+  v16[52] = (__int64)KeGetCurrentThread();
+  if ( (__int64 *)*v17 == v17 )
+  {
+    v9 = -1073741162;
+    goto LABEL_53;
+  }
+  if ( *(_BYTE *)(a2 + 12) )
+  {
+    v9 = EtwpCreateUmReplyObject((ULONG_PTR)v16, (__int64)&v32, &DmaAdapter);
+    if ( v9 < 0 )
+      goto LABEL_53;
+    *(_QWORD *)(a2 + 24) = DmaAdapter;
+  }
+  v18 = EtwpAllocDataBlock(*(unsigned int *)(a2 + 4), (void *)a2, &v29);
+  if ( v18 < 0 )
+  {
+LABEL_27:
+    v9 = -1073741801;
+    goto LABEL_53;
+  }
+  for ( i = *v17; (__int64 *)i != v17; i = *(_QWORD *)i )
+  {
+    v20 = *(_WORD *)(i + 98);
+    v21 = v29;
+    if ( (v20 & 2) == 0
+      || (v20 & 0x40) != 0
+      || v31 && !EtwpApplyTransientFilters(i, v31, v33[10], v33)
+      || v26 && (unsigned int)PsGetProcessId(*(PEPROCESS *)(i + 80)) != v26
+      || v27 && (v18 = EtwpCheckCurrentUserProcessAccess(*(_QWORD *)(i + 80)), v18 < 0) )
+    {
+      v15 = 0LL;
+    }
+    else
+    {
+      if ( *(_DWORD *)a2 == 4 )
+      {
+        v34 = 0;
+        if ( *(_DWORD *)(a2 + 76) != 1 )
+        {
+          ProcessId = (unsigned int)PsGetProcessId(*(PEPROCESS *)(i + 80));
+          v15 = 0LL;
+          v18 = EtwpDemuxPrivateTraceHandle(ProcessId, *(_WORD *)(a2 + 80) & 0x7FFF, &v34);
+          if ( v18 < 0 )
+            continue;
+          v15 = v28;
+          if ( v28 )
+          {
+            EtwpUnreferenceDataBlock(v28);
+            v15 = 0LL;
+            v28 = 0LL;
+          }
+          v18 = EtwpAllocDataBlock(*(unsigned int *)(a2 + 4), (void *)a2, &v28);
+          if ( v18 < 0 )
+            goto LABEL_27;
+          v21 = v28;
+          *(_WORD *)(v28 + 80) = v34;
+        }
+      }
+      v23 = EtwpSendDataBlock(i, v21);
+      v15 = 0LL;
+      if ( v23 < 0 )
+        v18 = v23;
+      else
+        ++v35;
+    }
+  }
+  v9 = 0;
+  v24 = v32;
+  v25 = v35 == 0;
+  *(_DWORD *)(a2 + 20) = v35;
+  if ( v25 )
+    v9 = v18;
+  *(_QWORD *)(a2 + 24) = v24;
+LABEL_53:
+  v16[52] = v15;
+  ExReleasePushLockEx((ULONG_PTR)(v16 + 51), 0LL);
+  KeLeaveCriticalRegion();
+  if ( v29 )
+    EtwpUnreferenceDataBlock(v29);
+  if ( v28 )
+    EtwpUnreferenceDataBlock(v28);
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
+LABEL_59:
+  EtwpUnreferenceGuidEntry(v16);
+LABEL_60:
+  EtwpFreeFilterInfo(v33);
+  return (unsigned int)v9;
 }

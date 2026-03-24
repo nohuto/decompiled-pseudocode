@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SupportsFastLock@CD2DBitmap@@UEBA_NXZ @ 0x180020F60
+ * XREFs of ?SupportsFastLock@CD2DBitmap@@UEBA_NXZ @ 0x18003B840
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001EB80 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?TryFastWarpLock@CD2DBitmap@@IEBA_NPEAPEAEPEAI1PEAPEAUIUnknown@@@Z @ 0x180020FBC (-TryFastWarpLock@CD2DBitmap@@IEBA_NPEAPEAEPEAI1PEAPEAUIUnknown@@@Z.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18002D2C0 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?TryFastWarpLock@CD2DBitmap@@IEBA_NPEAPEAEPEAI1PEAPEAUIUnknown@@@Z @ 0x18003B89C (-TryFastWarpLock@CD2DBitmap@@IEBA_NPEAPEAEPEAI1PEAPEAUIUnknown@@@Z.c)
  */
 
 bool __fastcall CD2DBitmap::SupportsFastLock(CD2DBitmap *this)
@@ -18,7 +18,7 @@ bool __fastcall CD2DBitmap::SupportsFastLock(CD2DBitmap *this)
   {
     v5 = 0LL;
     CD2DBitmap::TryFastWarpLock((CD2DBitmap *)((char *)this - 96), &v6, &v4, &v3, &v5);
-    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v5);
+    wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)&v5);
   }
   return *((_BYTE *)this + 148);
 }

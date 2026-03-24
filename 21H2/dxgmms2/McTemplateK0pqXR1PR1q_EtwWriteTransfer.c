@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pqXR1PR1q_EtwWriteTransfer @ 0x1C0036B2C
+ * XREFs of McTemplateK0pqXR1PR1q_EtwWriteTransfer @ 0x1C002D6F8
  * Callers:
- *     VidSchiUnwaitMonitoredFences @ 0x1C000B960 (VidSchiUnwaitMonitoredFences.c)
+ *     VidSchiUnwaitMonitoredFences @ 0x1C000CC70 (VidSchiUnwaitMonitoredFences.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C002E360 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023F6C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0pqXR1PR1q_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
@@ -38,17 +38,17 @@ NTSTATUS McTemplateK0pqXR1PR1q_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 
   v19 = va_arg(va2, _QWORD);
   v21 = va_arg(va2, _QWORD);
   v22 = va_arg(va2, _QWORD);
-  v6 = 8LL;
-  v8 = 4LL;
   va_copy(v5, va);
-  v11 = 0;
+  v10 = 8 * v19;
   va_copy(v7, va1);
   v9 = v21;
-  v14 = 0;
-  v16 = 4LL;
   v12 = v22;
   va_copy(v15, va2);
-  v10 = 8 * v19;
   v13 = 8 * v19;
+  v6 = 8LL;
+  v8 = 4LL;
+  v11 = 0;
+  v14 = 0;
+  v16 = 4LL;
   return McGenEventWrite_EtwWriteTransfer(&DxgkControlGuid_Context, &EventUnwaitCpuWaiter, 0LL, 6u, &v4);
 }

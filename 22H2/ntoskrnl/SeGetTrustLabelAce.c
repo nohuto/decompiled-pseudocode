@@ -1,62 +1,61 @@
 /*
- * XREFs of SeGetTrustLabelAce @ 0x1402B5BF0
+ * XREFs of SeGetTrustLabelAce @ 0x140347390
  * Callers:
- *     SepTrustLevelCheck @ 0x1402B5B78 (SepTrustLevelCheck.c)
- *     SepVerifyDesktopAppxImage @ 0x1405B8000 (SepVerifyDesktopAppxImage.c)
- *     MiAllowImageMap @ 0x1406AF6A4 (MiAllowImageMap.c)
- *     SeShouldCheckForAccessRightsFromParent @ 0x140737900 (SeShouldCheckForAccessRightsFromParent.c)
- *     SepAdjustAccessStateForConstraints @ 0x1407AB890 (SepAdjustAccessStateForConstraints.c)
+ *     SepVerifyDesktopAppxImage @ 0x1402013A4 (SepVerifyDesktopAppxImage.c)
+ *     SepTrustLevelCheck @ 0x140347320 (SepTrustLevelCheck.c)
+ *     MiAllowImageMap @ 0x14061DE10 (MiAllowImageMap.c)
+ *     SeShouldCheckForAccessRightsFromParent @ 0x1406D5540 (SeShouldCheckForAccessRightsFromParent.c)
+ *     SeAdjustAccessStateForAccessConstraints @ 0x1406D7DA0 (SeAdjustAccessStateForAccessConstraints.c)
+ *     SepAdjustAccessStateForConstraints @ 0x14076EC80 (SepAdjustAccessStateForConstraints.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall SeGetTrustLabelAce(__int64 a1)
 {
-  __int16 v1; // r8
-  unsigned int v2; // r9d
+  __int16 v1; // r10
+  unsigned int i; // r8d
   __int64 result; // rax
   __int64 v5; // rax
   __int64 v6; // rcx
-  unsigned int v7; // r10d
+  unsigned int v7; // r11d
 
   v1 = *(_WORD *)(a1 + 2);
-  v2 = 0;
-  if ( (v1 & 0x10) != 0 )
+  for ( i = 0; ; ++i )
   {
-    while ( 1 )
+    if ( (v1 & 0x10) == 0 )
+      goto LABEL_3;
+    if ( v1 >= 0 )
+      break;
+    v5 = *(unsigned int *)(a1 + 12);
+    if ( (_DWORD)v5 )
     {
-      if ( v1 >= 0 )
-      {
-        v6 = *(_QWORD *)(a1 + 24);
-      }
-      else
-      {
-        v5 = *(unsigned int *)(a1 + 12);
-        if ( !(_DWORD)v5 )
-          return 0LL;
-        v6 = a1 + v5;
-      }
-      if ( !v6 )
-        break;
-      result = v6 + 8;
-      v7 = 0;
-      if ( !*(_WORD *)(v6 + 4) )
-        break;
-      while ( v7 < v2 || *(_BYTE *)result != 20 )
-      {
-        ++v7;
-        result += *(unsigned __int16 *)(result + 2);
-        if ( v7 >= *(unsigned __int16 *)(v6 + 4) )
-          return 0LL;
-      }
-      if ( (*(_BYTE *)(result + 1) & 8) != 0 )
-      {
-        v2 = v7 + 1;
-        if ( result )
-          continue;
-      }
-      return result;
+      v6 = a1 + v5;
+      goto LABEL_9;
     }
+LABEL_3:
+    result = 0LL;
+LABEL_4:
+    if ( !result )
+      return result;
   }
-  return 0LL;
+  v6 = *(_QWORD *)(a1 + 24);
+LABEL_9:
+  if ( !v6 )
+    goto LABEL_3;
+  result = v6 + 8;
+  v7 = 0;
+  if ( !*(_WORD *)(v6 + 4) )
+    goto LABEL_3;
+  while ( v7 < i || *(_BYTE *)result != 20 )
+  {
+    ++v7;
+    result += *(unsigned __int16 *)(result + 2);
+    if ( v7 >= *(unsigned __int16 *)(v6 + 4) )
+      goto LABEL_3;
+  }
+  i = v7;
+  if ( (*(_BYTE *)(result + 1) & 8) != 0 )
+    goto LABEL_4;
+  return result;
 }

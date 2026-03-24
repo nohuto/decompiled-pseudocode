@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CBrushRenderingEffectFactory@@QEAA@PEAVCDrawingContext@@PEAVCRenderingTechnique@@PEBUEffectStage@@@Z @ 0x1800878C8
+ * XREFs of ??0CBrushRenderingEffectFactory@@QEAA@PEAVCDrawingContext@@PEAVCRenderingTechnique@@PEBUEffectStage@@@Z @ 0x1800C5B54
  * Callers:
- *     ?UpdateDrawListCache@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@PEBVCDrawListBrush@@PEAUEffectStage@@PEAVCDrawListCache@@@Z @ 0x180086E30 (-UpdateDrawListCache@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@PEBVCDrawListBrush@@PEAUEff.c)
+ *     ?UpdateDrawListCache@CBrushRenderingGraph@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@PEAUEffectStage@@PEAVCDrawListCache@@@Z @ 0x1800C5754 (-UpdateDrawListCache@CBrushRenderingGraph@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawLi.c)
  * Callees:
  *     <none>
  */
@@ -12,21 +12,21 @@ CBrushRenderingEffectFactory *__fastcall CBrushRenderingEffectFactory::CBrushRen
         struct CRenderingTechnique *a3,
         const struct EffectStage *a4)
 {
-  unsigned int i; // eax
-  __int64 v5; // r8
-  __int64 v6; // rdx
-  bool v7; // zf
-  char v8; // dl
+  unsigned int v4; // edx
+  unsigned __int64 v5; // rax
+  char v6; // al
+  bool v8; // zf
 
-  *((_QWORD *)this + 1) = a3;
+  *((_QWORD *)this + 1) = a2;
+  *((_QWORD *)this + 2) = a3;
   *(_QWORD *)this = &CBrushRenderingEffectFactory::`vftable';
-  for ( i = 0; i < *((_DWORD *)a4 + 1); *((_BYTE *)this + v5 + 16) = v8 )
+  v4 = 0;
+  for ( *((_QWORD *)this + 3) = a4; v4 < *((_DWORD *)a4 + 1); a4 = (const struct EffectStage *)*((_QWORD *)this + 3) )
   {
-    v5 = i;
-    v6 = 104LL * i;
-    if ( !*((_BYTE *)a4 + v6 + 52) || (v7 = *((_BYTE *)a4 + v6 + 110) == 0, v8 = 1, v7) )
-      v8 = 0;
-    ++i;
+    v5 = (unsigned __int64)v4 << 7;
+    if ( !*((_BYTE *)a4 + v5 + 76) || (v8 = *((_BYTE *)a4 + v5 + 134) == 0, v6 = 1, v8) )
+      v6 = 0;
+    *((_BYTE *)this + v4++ + 32) = v6;
   }
   return this;
 }

@@ -1,32 +1,30 @@
 /*
- * XREFs of MiPurgePartitionStandby @ 0x14038E4BC
+ * XREFs of MiPurgePartitionStandby @ 0x140385004
  * Callers:
- *     MiFinishResume @ 0x14038DF70 (MiFinishResume.c)
- *     MiTrimAllSystemPagableMemory @ 0x1405970A0 (MiTrimAllSystemPagableMemory.c)
- *     MmPerformMemoryListCommand @ 0x140A5B810 (MmPerformMemoryListCommand.c)
+ *     MiFinishResume @ 0x1403848A0 (MiFinishResume.c)
+ *     MiTrimAllSystemPagableMemory @ 0x14053C040 (MiTrimAllSystemPagableMemory.c)
+ *     MmPerformMemoryListCommand @ 0x14099AB4C (MmPerformMemoryListCommand.c)
  * Callees:
- *     MiIsFreeZeroPfnCold @ 0x140268620 (MiIsFreeZeroPfnCold.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402C6EB0 (MiInsertPageInFreeOrZeroedList.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x14038E608 (MiRemoveLowestPriorityStandbyPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiIsFreeZeroPfnCold @ 0x140303120 (MiIsFreeZeroPfnCold.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140385120 (MiRemoveLowestPriorityStandbyPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiPurgePartitionStandby(__int64 a1, unsigned int a2)
+__int64 __fastcall MiPurgePartitionStandby(__int64 a1, unsigned int a2, __int64 a3, _DWORD *SchedulerAssist)
 {
   unsigned __int8 CurrentIrql; // bl
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  ULONG_PTR v9; // r14
-  __int64 v10; // rdi
-  int v11; // eax
-  _DWORD *SchedulerAssist; // r9
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  ULONG_PTR v11; // r14
+  __int64 v12; // rdi
+  int v13; // eax
   __int64 result; // rax
-  unsigned __int8 v14; // al
+  unsigned __int8 v15; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v16; // r9
   int v17; // eax
   bool v18; // zf
   unsigned __int8 v19; // al
@@ -44,34 +42,34 @@ __int64 __fastcall MiPurgePartitionStandby(__int64 a1, unsigned int a2)
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
-    v5 = MiRemoveLowestPriorityStandbyPage(a1, a2, 0x2000LL);
-    v9 = v5;
-    if ( v5 == -1 )
+    v7 = MiRemoveLowestPriorityStandbyPage(a1, a2, 0x2000LL, SchedulerAssist);
+    v11 = v7;
+    if ( v7 == -1 )
       break;
-    v10 = 48 * v5 - 0x220000000000LL;
+    v12 = 48 * v7 - 0x58000000000LL;
     v23 = 0;
-    while ( _interlockedbittestandset64((volatile signed __int32 *)(v10 + 24), 0x3FuLL) )
+    while ( _interlockedbittestandset64((volatile signed __int32 *)(v12 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v23, v6, v7, v8);
-      while ( *(__int64 *)(v10 + 24) < 0 );
+        KeYieldProcessorEx(&v23, v8, v9, v10);
+      while ( *(__int64 *)(v12 + 24) < 0 );
     }
-    *(_QWORD *)(v10 + 24) |= 0x4000000000000000uLL;
-    LOBYTE(v11) = MiIsFreeZeroPfnCold(v10);
-    MiInsertPageInFreeOrZeroedList(v9, v11 != 0 ? 1026 : 2);
-    _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    *(_QWORD *)(v12 + 24) |= 0x4000000000000000uLL;
+    LOBYTE(v13) = MiIsFreeZeroPfnCold(v12);
+    MiInsertPageInFreeOrZeroedList(v11, v13 != 0 ? 1026 : 2);
+    _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v14 = KeGetCurrentIrql();
-        if ( v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+        v15 = KeGetCurrentIrql();
+        if ( v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v16 = CurrentPrcb->SchedulerAssist;
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
           v17 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v18 = (v17 & v16[5]) == 0;
-          v16[5] &= v17;
+          v18 = (v17 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v17;
           if ( v18 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }

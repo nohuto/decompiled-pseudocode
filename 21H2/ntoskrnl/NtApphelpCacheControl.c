@@ -1,16 +1,16 @@
 /*
- * XREFs of NtApphelpCacheControl @ 0x140780D40
+ * XREFs of NtApphelpCacheControl @ 0x140686430
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     ExGetPreviousMode @ 0x1402DFD50 (ExGetPreviousMode.c)
- *     IoBuildDeviceIoControlRequest @ 0x140342880 (IoBuildDeviceIoControlRequest.c)
- *     IoGetDeviceObjectPointer @ 0x140710E60 (IoGetDeviceObjectPointer.c)
- *     AhcCacheQueryHwId @ 0x140A34148 (AhcCacheQueryHwId.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14022C130 (IoBuildDeviceIoControlRequest.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     ExGetPreviousMode @ 0x14029DFA0 (ExGetPreviousMode.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     IoGetDeviceObjectPointer @ 0x140620E20 (IoGetDeviceObjectPointer.c)
+ *     AhcCacheQueryHwId @ 0x1409800CC (AhcCacheQueryHwId.c)
  */
 
 __int64 __fastcall NtApphelpCacheControl(int a1, void *a2)
@@ -94,7 +94,7 @@ LABEL_6:
   {
 LABEL_7:
     KeInitializeEvent(&Event, SynchronizationEvent, 0);
-    v6 = IoBuildDeviceIoControlRequest(v3, g_AhcDeviceObject, a2, 0x188u, 0LL, 0, 0, &Event, &IoStatusBlock);
+    v6 = IoBuildDeviceIoControlRequest(v3, g_AhcDeviceObject, a2, 0x178u, 0LL, 0, 0, &Event, &IoStatusBlock);
     if ( !v6 )
       return (unsigned int)-1073741823;
     v6->RequestorMode = ExGetPreviousMode();
@@ -104,7 +104,7 @@ LABEL_7:
     && IoGetDeviceObjectPointer(&DestinationString, 0xC0000000, &FileObject, &DeviceObject) >= 0 )
   {
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&g_AhcDeviceObject, (signed __int64)DeviceObject, 0LL) )
-      ObfDereferenceObject(FileObject);
+      HalPutDmaAdapter((PADAPTER_OBJECT)FileObject);
     goto LABEL_7;
   }
   return v5;

@@ -2,9 +2,9 @@
  * XREFs of sub_140624870 @ 0x140624870
  * Callers:
  *     sub_140624C6C @ 0x140624C6C (sub_140624C6C.c)
- *     sub_1406D044C @ 0x1406D044C (sub_1406D044C.c)
+ *     sub_1406D042C @ 0x1406D042C (sub_1406D042C.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     sub_140624A54 @ 0x140624A54 (sub_140624A54.c)
  */
 

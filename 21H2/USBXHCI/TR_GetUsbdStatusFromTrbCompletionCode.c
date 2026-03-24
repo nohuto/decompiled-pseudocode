@@ -1,8 +1,8 @@
 /*
- * XREFs of TR_GetUsbdStatusFromTrbCompletionCode @ 0x1C0006570
+ * XREFs of TR_GetUsbdStatusFromTrbCompletionCode @ 0x1C0004588
  * Callers:
- *     Control_Transfer_Complete @ 0x1C00062CC (Control_Transfer_Complete.c)
- *     Bulk_Transfer_PrepareForCompletion @ 0x1C000E550 (Bulk_Transfer_PrepareForCompletion.c)
+ *     Control_Transfer_Complete @ 0x1C0004260 (Control_Transfer_Complete.c)
+ *     Bulk_Transfer_PrepareForCompletion @ 0x1C000C920 (Bulk_Transfer_PrepareForCompletion.c)
  * Callees:
  *     <none>
  */

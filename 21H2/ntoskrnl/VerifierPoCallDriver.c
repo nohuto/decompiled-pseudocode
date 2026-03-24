@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierPoCallDriver @ 0x140A8F2A0
+ * XREFs of VerifierPoCallDriver @ 0x1409D3860
  * Callers:
  *     <none>
  * Callees:
- *     IofCallDriverSpecifyReturn @ 0x1403B51A0 (IofCallDriverSpecifyReturn.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     IofCallDriverSpecifyReturn @ 0x14036E360 (IofCallDriverSpecifyReturn.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall VerifierPoCallDriver(void *a1, __int64 a2)
+__int64 __fastcall VerifierPoCallDriver(struct _DMA_ADAPTER *a1, __int64 a2)
 {
   void *retaddr; // [rsp+38h] [rbp+0h]
 

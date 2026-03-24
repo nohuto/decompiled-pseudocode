@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSessionCreateInternal @ 0x140715C88
+ * XREFs of MiSessionCreateInternal @ 0x140715C68
  * Callers:
- *     MiSessionCreate @ 0x140715028 (MiSessionCreate.c)
+ *     MiSessionCreate @ 0x140715008 (MiSessionCreate.c)
  * Callees:
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
@@ -18,16 +18,16 @@
  *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     RtlFindClearBitsAndSet @ 0x1400D95C0 (RtlFindClearBitsAndSet.c)
- *     MiGetPdeAddress @ 0x1400EDB44 (MiGetPdeAddress.c)
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     MiMarkSessionMasterProcess @ 0x140170890 (MiMarkSessionMasterProcess.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
+ *     MiGetPdeAddress @ 0x1400EDB64 (MiGetPdeAddress.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     MiMarkSessionMasterProcess @ 0x1401708B0 (MiMarkSessionMasterProcess.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiMapNewSession @ 0x140715F58 (MiMapNewSession.c)
+ *     MiMapNewSession @ 0x140715F38 (MiMapNewSession.c)
  */
 
 __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of NVMeFStateIdleTimerCallback @ 0x1C0005B80
+ * XREFs of NVMeFStateIdleTimerCallback @ 0x1C0006640
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,10 @@
 
 __int64 __fastcall NVMeFStateIdleTimerCallback(__int64 a1)
 {
-  *(_DWORD *)(a1 + 1680) &= ~0x20u;
+  StorPortDebugPrint(
+    3LL,
+    "StorNVMe - POWER: F-State Idle Timer Expired, Setting Latency Tolerance to %ums\n",
+    *(_DWORD *)(a1 + 1680));
+  *(_DWORD *)(a1 + 1664) &= ~0x20u;
   return StorPortExtendedFunction(51LL, a1, 0LL, 0LL);
 }

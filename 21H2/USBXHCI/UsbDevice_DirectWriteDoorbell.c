@@ -1,11 +1,10 @@
 /*
- * XREFs of UsbDevice_DirectWriteDoorbell @ 0x1C000900C
+ * XREFs of UsbDevice_DirectWriteDoorbell @ 0x1C000583C
  * Callers:
- *     Control_Transfer_MapIntoRing @ 0x1C00065C0 (Control_Transfer_MapIntoRing.c)
- *     Isoch_Stage_MapIntoRing @ 0x1C00090A0 (Isoch_Stage_MapIntoRing.c)
- *     Bulk_Stage_MapIntoRing @ 0x1C000F180 (Bulk_Stage_MapIntoRing.c)
+ *     Isoch_Stage_MapIntoRing @ 0x1C0001050 (Isoch_Stage_MapIntoRing.c)
+ *     Bulk_Stage_MapIntoRing @ 0x1C000D560 (Bulk_Stage_MapIntoRing.c)
  * Callees:
- *     McTemplateK0uqq_EtwWriteTransfer @ 0x1C0043C54 (McTemplateK0uqq_EtwWriteTransfer.c)
+ *     McTemplateK0uqq_EtwWriteTransfer @ 0x1C0043248 (McTemplateK0uqq_EtwWriteTransfer.c)
  */
 
 int *__fastcall UsbDevice_DirectWriteDoorbell(__int64 a1, unsigned __int8 a2, int a3)

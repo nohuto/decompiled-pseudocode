@@ -1,8 +1,8 @@
 /*
- * XREFs of UsbhRegCreateUsbflagsKey @ 0x1C0045C5C
+ * XREFs of UsbhRegCreateUsbflagsKey @ 0x1C0046FB4
  * Callers:
- *     UsbhGetMSOS_Descriptor @ 0x1C003227C (UsbhGetMSOS_Descriptor.c)
- *     UsbhRegDriverEntry @ 0x1C0045CB0 (UsbhRegDriverEntry.c)
+ *     UsbhGetMSOS_Descriptor @ 0x1C003356C (UsbhGetMSOS_Descriptor.c)
+ *     UsbhRegDriverEntry @ 0x1C0047010 (UsbhRegDriverEntry.c)
  * Callees:
  *     <none>
  */

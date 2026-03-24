@@ -1,10 +1,10 @@
 /*
- * XREFs of KeQueryOwnerMutant @ 0x140570BD0
+ * XREFs of KeQueryOwnerMutant @ 0x14051AE60
  * Callers:
- *     NtQueryMutant @ 0x140A02C80 (NtQueryMutant.c)
+ *     NtQueryMutant @ 0x140956F50 (NtQueryMutant.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __stdcall KeQueryOwnerMutant(PKMUTANT Mutant, PCLIENT_ID ClientId)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwSetVolumeInformationFile @ 0x14041DEC0
+ * XREFs of ZwSetVolumeInformationFile @ 0x1403FD0A0
  * Callers:
- *     DifZwSetVolumeInformationFileWrapper @ 0x1405F7DC0 (DifZwSetVolumeInformationFileWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

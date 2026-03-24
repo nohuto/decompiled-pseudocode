@@ -1,212 +1,98 @@
 /*
- * XREFs of UserDeleteBaseWindowHandle @ 0x1C0166AC0
+ * XREFs of UserDeleteBaseWindowHandle @ 0x1C01390C0
  * Callers:
- *     NtMITMinuserWindowDestroyed @ 0x1C0155200 (NtMITMinuserWindowDestroyed.c)
+ *     NtMITMinuserWindowDestroyed @ 0x1C012AD20 (NtMITMinuserWindowDestroyed.c)
  * Callees:
- *     UserIsUserCritSecInExclusive @ 0x1C002A1D0 (UserIsUserCritSecInExclusive.c)
- *     IS_USERCRIT_OWNED_SHARED @ 0x1C002C87C (IS_USERCRIT_OWNED_SHARED.c)
- *     HMValidateHandleNoSecure @ 0x1C0033980 (HMValidateHandleNoSecure.c)
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C0033A6C (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     UserSetLastError @ 0x1C003CCC0 (UserSetLastError.c)
- *     ?IsLockedShared@tagDomLock@@QEBA_NXZ @ 0x1C006D24C (-IsLockedShared@tagDomLock@@QEBA_NXZ.c)
- *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C006D270 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
- *     HMDestroyUnlockedObject @ 0x1C00D0380 (HMDestroyUnlockedObject.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0031C90 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_SF_q @ 0x1C0047360 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_qqq @ 0x1C0066C84 (WPP_RECORDER_SF_qqq.c)
+ *     HMDestroyUnlockedObject @ 0x1C00C0AB0 (HMDestroyUnlockedObject.c)
+ *     HMFindEntry @ 0x1C0113D30 (HMFindEntry.c)
  */
 
-__int64 __fastcall UserDeleteBaseWindowHandle(int a1, __int64 a2, __int64 a3)
+__int64 __fastcall UserDeleteBaseWindowHandle(__int64 a1)
 {
-  PDEVICE_OBJECT *v4; // r9
-  char v5; // di
-  struct tagTHREADINFO *v6; // r14
-  __int64 v7; // r13
-  __int64 v8; // rdx
-  __int64 v9; // rsi
-  __int64 v10; // r8
-  __int64 v11; // r9
-  struct _HANDLEENTRY *v12; // rbp
-  struct tagTHREADINFO *v13; // r15
-  __int64 v14; // rbx
-  int v15; // edx
-  int v16; // r8d
-  __int64 v17; // rcx
+  unsigned int v2; // ebx
+  int v3; // edx
+  __int64 v4; // rcx
+  __int64 ThreadWin32Thread; // rdi
+  char *v6; // rax
+  int v7; // edx
+  _BYTE v9[16]; // [rsp+40h] [rbp-48h] BYREF
+  __int64 v10; // [rsp+50h] [rbp-38h] BYREF
+  __int64 CurrentProcessWin32Process; // [rsp+58h] [rbp-30h]
+  __int64 v12; // [rsp+60h] [rbp-28h]
 
-  v4 = &WPP_GLOBAL_Control;
-  v5 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x400) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-  {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(a3) = 0;
-  }
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-  {
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
-      11,
-      16,
-      (__int64)&WPP_68b0a22091f43afc894dba60a7884b12_Traceguids);
-    v4 = &WPP_GLOBAL_Control;
-  }
-  v6 = gptiCurrent;
-  v7 = 0LL;
-  if ( (*((_DWORD *)gptiCurrent + 314) & 0x1000000) != 0 )
-  {
-    v9 = HMValidateHandleNoSecure(a1, 23);
-    if ( v9 )
-    {
-      if ( !gbInDestroyHandleTableObjects
-        && !UserIsUserCritSecInExclusive()
-        && (!IS_USERCRIT_OWNED_SHARED()
-         || !tagDomLock::IsLockedExclusive(&gDomainHandleManagerLock)
-         && !tagDomLock::IsLockedShared(&gDomainHandleManagerLock)) )
-      {
-        __int2c();
-      }
-      v12 = (struct _HANDLEENTRY *)((char *)qword_1C0294B68
-                                  + dword_1C0294B70 * (unsigned int)(unsigned __int16)*(_DWORD *)v9);
-      v13 = (struct tagTHREADINFO *)*((_QWORD *)gpKernelHandleTable
-                                    + 3
-                                    * ((__int64)(dword_1C0294B70 * (unsigned int)(unsigned __int16)*(_DWORD *)v9) >> 5)
-                                    + 1);
-      v14 = *((_QWORD *)v13 + 53);
-      if ( PsGetCurrentProcessWin32Process(3 * ((__int64)(dword_1C0294B70 * (unsigned int)(unsigned __int16)*(_DWORD *)v9) >> 5)) == v14
-        && v6 == v13 )
-      {
-        if ( (*((_BYTE *)v12 + 25) & 1) == 0 )
-        {
-          v7 = *(_QWORD *)(v9 + 56);
-          *(_QWORD *)(v9 + 56) = 0LL;
-          HMDestroyUnlockedObject(v12, v8, v10);
-          goto LABEL_70;
-        }
-        LOBYTE(v8) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                  && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x400) != 0
-                  && BYTE1(WPP_GLOBAL_Control->Timer) >= 5u;
-        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-          || (LOBYTE(v10) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-        {
-          LOBYTE(v10) = 0;
-        }
-        if ( (_BYTE)v8 || (_BYTE)v10 )
-          WPP_RECORDER_AND_TRACE_SF_q(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v8,
-            v10,
-            WPP_MAIN_CB.Queue.ListEntry.Flink,
-            5,
-            11,
-            17,
-            (__int64)&WPP_68b0a22091f43afc894dba60a7884b12_Traceguids,
-            a1);
-        v17 = 4317LL;
-      }
-      else
-      {
-        LOBYTE(v8) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                  && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x400) != 0
-                  && BYTE1(WPP_GLOBAL_Control->Timer) >= 5u;
-        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-          || (LOBYTE(v10) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-        {
-          LOBYTE(v10) = 0;
-        }
-        if ( (_BYTE)v8 || (_BYTE)v10 )
-          WPP_RECORDER_AND_TRACE_SF_q(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v8,
-            v10,
-            WPP_MAIN_CB.Queue.ListEntry.Flink,
-            5,
-            11,
-            18,
-            (__int64)&WPP_68b0a22091f43afc894dba60a7884b12_Traceguids,
-            a1);
-        v17 = 5LL;
-      }
-    }
-    else
-    {
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x400) == 0
-        || (LOBYTE(v8) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-      {
-        LOBYTE(v8) = 0;
-      }
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-        || (LOBYTE(v10) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-      {
-        LOBYTE(v10) = 0;
-      }
-      if ( (_BYTE)v8 || (_BYTE)v10 )
-        WPP_RECORDER_AND_TRACE_SF_q(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v8,
-          v10,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          5,
-          11,
-          19,
-          (__int64)&WPP_68b0a22091f43afc894dba60a7884b12_Traceguids,
-          a1);
-      v17 = 6LL;
-    }
-    UserSetLastError(v17, v8, v10, v11);
-    goto LABEL_70;
-  }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x400) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
-  {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(a3) = 0;
-  }
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_q(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
       5,
       11,
       20,
-      (__int64)&WPP_68b0a22091f43afc894dba60a7884b12_Traceguids,
-      (char)gptiCurrent);
-  UserSetLastError(4317LL, a2, a3, (__int64)v4);
-LABEL_70:
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x400) == 0
-    || (LOBYTE(v15) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+      (__int64)&WPP_9eff1062cb073ef34da0a1e13f35e357_Traceguids);
+  v2 = 0;
+  RIMLockExclusive((__int64)&gWndLock);
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  if ( (*(_DWORD *)(ThreadWin32Thread + 1232) & 0x1000000) != 0 )
   {
-    LOBYTE(v15) = 0;
+    v10 = a1;
+    v12 = ThreadWin32Thread;
+    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v4);
+    CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>((__int64)v9);
+    v6 = HMFindEntry(
+           (__int64)&v10,
+           (unsigned int (__fastcall *)(__int64, char *))anonymous_namespace_::lookForMatchingMinuserHwnd);
+    if ( v6 )
+    {
+      v2 = 1;
+      if ( (v6[25] & 1) == 0 )
+        HMDestroyUnlockedObject((struct _HANDLEENTRY *)v6);
+    }
+    else
+    {
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        goto LABEL_16;
+      LOBYTE(v7) = 2;
+      WPP_RECORDER_SF_qqq(
+        (_DWORD)gBaseLog,
+        v7,
+        11,
+        21,
+        (__int64)&WPP_9eff1062cb073ef34da0a1e13f35e357_Traceguids,
+        CurrentProcessWin32Process,
+        v12,
+        a1);
+    }
   }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v5 = 0;
-  if ( (_BYTE)v15 || v5 )
+  else
   {
-    LOBYTE(v16) = v5;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v15,
-      v16,
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_16;
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(v3) = 5;
+      WPP_RECORDER_SF_q(
+        (_DWORD)gBaseLog,
+        v3,
+        11,
+        22,
+        (__int64)&WPP_9eff1062cb073ef34da0a1e13f35e357_Traceguids,
+        ThreadWin32Thread);
+    }
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
       5,
       11,
-      21,
-      (__int64)&WPP_68b0a22091f43afc894dba60a7884b12_Traceguids);
-  }
-  return v7;
+      23,
+      (__int64)&WPP_9eff1062cb073ef34da0a1e13f35e357_Traceguids);
+LABEL_16:
+  qword_1C02554F8 = 0LL;
+  ExReleasePushLockExclusiveEx(&gWndLock, 0LL);
+  KeLeaveCriticalRegion();
+  return v2;
 }

@@ -1,9 +1,8 @@
 /*
- * XREFs of ZwOpenProcess @ 0x14041BC20
+ * XREFs of ZwOpenProcess @ 0x1403FA860
  * Callers:
- *     DifZwOpenProcessWrapper @ 0x140622490 (DifZwOpenProcessWrapper.c)
- *     BiLogFileOwnerProcess @ 0x14064CD50 (BiLogFileOwnerProcess.c)
- *     SepRmLsaConnectRequest @ 0x14083B480 (SepRmLsaConnectRequest.c)
+ *     BiLogFileOwnerProcess @ 0x1405C3B80 (BiLogFileOwnerProcess.c)
+ *     SepRmLsaConnectRequest @ 0x1407AD3B0 (SepRmLsaConnectRequest.c)
  * Callees:
  *     <none>
  */

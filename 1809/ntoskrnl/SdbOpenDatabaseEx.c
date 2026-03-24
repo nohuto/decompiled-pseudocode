@@ -1,18 +1,18 @@
 /*
- * XREFs of SdbOpenDatabaseEx @ 0x1408E59F4
+ * XREFs of SdbOpenDatabaseEx @ 0x1408E59D4
  * Callers:
- *     SdbpOpenLocalDatabaseEx @ 0x1408E8238 (SdbpOpenLocalDatabaseEx.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x1408E8218 (SdbpOpenLocalDatabaseEx.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SdbpValidateAndApplyCompatFlags @ 0x1405A2348 (SdbpValidateAndApplyCompatFlags.c)
  *     SdbpReadMappedData @ 0x1405C82F0 (SdbpReadMappedData.c)
- *     AslAlloc @ 0x14067C7A0 (AslAlloc.c)
- *     AslFileMappingCreate @ 0x14067E49C (AslFileMappingCreate.c)
- *     AslFileMappingDelete @ 0x14067E984 (AslFileMappingDelete.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
- *     SdbpOpenCompressedDatabase @ 0x1408E8F10 (SdbpOpenCompressedDatabase.c)
- *     AslFileMappingEnsureMappedAs @ 0x1408E99A8 (AslFileMappingEnsureMappedAs.c)
+ *     AslAlloc @ 0x14067C780 (AslAlloc.c)
+ *     AslFileMappingCreate @ 0x14067E47C (AslFileMappingCreate.c)
+ *     AslFileMappingDelete @ 0x14067E964 (AslFileMappingDelete.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     SdbpOpenCompressedDatabase @ 0x1408E8EF0 (SdbpOpenCompressedDatabase.c)
+ *     AslFileMappingEnsureMappedAs @ 0x1408E9988 (AslFileMappingEnsureMappedAs.c)
  */
 
 PVOID **SdbOpenDatabaseEx(const WCHAR *a1, __int64 a2, __int64 a3, ...)

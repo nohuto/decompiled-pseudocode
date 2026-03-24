@@ -1,9 +1,9 @@
 /*
- * XREFs of FxUninitializeBugCheckDriverInfo @ 0x1C0091130
+ * XREFs of FxUninitializeBugCheckDriverInfo @ 0x1C0090968
  * Callers:
- *     FxLibraryCommonDecommission @ 0x1C005FF88 (FxLibraryCommonDecommission.c)
+ *     FxLibraryCommonDecommission @ 0x1C00419C0 (FxLibraryCommonDecommission.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void FxUninitializeBugCheckDriverInfo()

@@ -1,16 +1,16 @@
 /*
- * XREFs of FxInitializeBugCheckDriverInfo @ 0x1C002EAB0
+ * XREFs of FxInitializeBugCheckDriverInfo @ 0x1C0090658
  * Callers:
- *     FxLibraryGlobalsCommission @ 0x1C002E278 (FxLibraryGlobalsCommission.c)
+ *     FxLibraryGlobalsCommission @ 0x1C00571F0 (FxLibraryGlobalsCommission.c)
  * Callees:
- *     RtlStringCopyWorkerA @ 0x1C0028BB4 (RtlStringCopyWorkerA.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     RtlStringCopyWorkerA @ 0x1C002E400 (RtlStringCopyWorkerA.c)
  */
 
 void FxInitializeBugCheckDriverInfo()
 {
   void (__fastcall *SystemRoutineAddress)(_KBUGCHECK_REASON_CALLBACK_RECORD *, _QWORD, __int64, const char *); // rbx
-  _FX_DUMP_DRIVER_INFO_ENTRY *Pool2; // rax
+  _FX_DUMP_DRIVER_INFO_ENTRY *PoolWithTag; // rax
   unsigned __int64 v2; // rdx
   unsigned __int64 *v3; // r8
   _UNICODE_STRING funcName; // [rsp+30h] [rbp-18h] BYREF
@@ -28,14 +28,17 @@ void FxInitializeBugCheckDriverInfo()
     SystemRoutineAddress = (void (__fastcall *)(_KBUGCHECK_REASON_CALLBACK_RECORD *, _QWORD, __int64, const char *))MmGetSystemRoutineAddress(&funcName);
     if ( SystemRoutineAddress )
     {
-      Pool2 = (_FX_DUMP_DRIVER_INFO_ENTRY *)ExAllocatePool2(64LL, 560LL, 1917089862LL);
-      FxLibraryGlobals.BugCheckDriverInfo = Pool2;
-      if ( Pool2 )
+      PoolWithTag = (_FX_DUMP_DRIVER_INFO_ENTRY *)ExAllocatePoolWithTag(
+                                                    ExDefaultNonPagedPoolType,
+                                                    0x230uLL,
+                                                    0x72447846u);
+      FxLibraryGlobals.BugCheckDriverInfo = PoolWithTag;
+      if ( PoolWithTag )
       {
         FxLibraryGlobals.BugCheckDriverInfoCount = 10;
-        Pool2->FxDriverGlobals = 0LL;
+        PoolWithTag->FxDriverGlobals = 0LL;
         FxLibraryGlobals.BugCheckDriverInfo->Version.Major = 1;
-        FxLibraryGlobals.BugCheckDriverInfo->Version.Minor = 33;
+        FxLibraryGlobals.BugCheckDriverInfo->Version.Minor = 31;
         FxLibraryGlobals.BugCheckDriverInfo->Version.Build = 0;
         if ( (int)RtlStringCopyWorkerA(FxLibraryGlobals.BugCheckDriverInfo->DriverName, v2, v3, "Wdf01000") < 0 )
           FxLibraryGlobals.BugCheckDriverInfo->DriverName[0] = 0;

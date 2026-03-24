@@ -1,11 +1,11 @@
 /*
- * XREFs of EngCreateDriverObj @ 0x1C0284730
+ * XREFs of EngCreateDriverObj @ 0x1C0285EF0
  * Callers:
- *     VerifierEngCreateDriverObj @ 0x1C02A6FA0 (VerifierEngCreateDriverObj.c)
+ *     VerifierEngCreateDriverObj @ 0x1C029DE60 (VerifierEngCreateDriverObj.c)
  * Callees:
- *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z @ 0x1C007E7B4 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??0HmgInsertObjectHelper@@QEAA@XZ @ 0x1C02651D4 (--0HmgInsertObjectHelper@@QEAA@XZ.c)
+ *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z @ 0x1C00BCC18 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0HmgInsertObjectHelper@@QEAA@XZ @ 0x1C026CE38 (--0HmgInsertObjectHelper@@QEAA@XZ.c)
  */
 
 HDRVOBJ __stdcall EngCreateDriverObj(PVOID pvObj, FREEOBJPROC pFreeObjProc, HDEV hdev)
@@ -29,7 +29,7 @@ HDRVOBJ __stdcall EngCreateDriverObj(PVOID pvObj, FREEOBJPROC pFreeObjProc, HDEV
     *((_QWORD *)Object + 3) = pvObj;
     *((_QWORD *)Object + 4) = pFreeObjProc;
     *((_QWORD *)Object + 5) = hdev;
-    *((_QWORD *)Object + 6) = *((_QWORD *)hdev + 221);
+    *((_QWORD *)Object + 6) = *((_QWORD *)hdev + 225);
     *((_QWORD *)Object + 7) = PsGetCurrentProcess(v9, v8, v10);
     HmgInsertObjectHelper::HmgInsertObjectHelper((HmgInsertObjectHelper *)v13);
     v3 = HmgInsertObjectHelper::Insert((HmgInsertObjectHelper *)v13, v11, 0x1Cu, 0);

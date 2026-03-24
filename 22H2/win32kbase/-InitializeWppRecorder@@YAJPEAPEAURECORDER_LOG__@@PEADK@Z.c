@@ -1,55 +1,52 @@
 /*
- * XREFs of ?InitializeWppRecorder@@YAJPEAPEAURECORDER_LOG__@@PEADK@Z @ 0x1C00B5298
+ * XREFs of ?InitializeWppRecorder@@YAJPEAPEAURECORDER_LOG__@@PEADK@Z @ 0x1C00ABE10
  * Callers:
- *     ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00B5150 (-InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00ABCF0 (-InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 __int64 __fastcall InitializeWppRecorder(struct RECORDER_LOG__ **a1, char *a2)
 {
-  __int64 v3; // rdx
-  __int64 v5; // r8
-  __int128 *v6; // rcx
-  char v7; // al
-  __int128 *v8; // rax
-  __int64 v10; // [rsp+20h] [rbp-40h] BYREF
-  __int64 v11; // [rsp+28h] [rbp-38h]
-  __int64 v12; // [rsp+30h] [rbp-30h]
-  __int64 v13; // [rsp+38h] [rbp-28h]
-  __int128 v14; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v15; // [rsp+50h] [rbp-10h]
+  __int64 v3; // r9
+  __int64 v4; // rdx
+  __int128 *v5; // rcx
+  char v6; // al
+  __int128 *v7; // rax
+  __int64 v9; // [rsp+20h] [rbp-40h] BYREF
+  __int64 v10; // [rsp+28h] [rbp-38h]
+  __int64 v11; // [rsp+30h] [rbp-30h]
+  __int64 v12; // [rsp+38h] [rbp-28h]
+  __int128 v13; // [rsp+40h] [rbp-20h] BYREF
 
-  v15 = 0LL;
-  v12 = 0LL;
-  v13 = 0x1000000000LL;
+  v11 = 0LL;
+  v12 = 0x1000000000LL;
   v3 = 16LL;
-  v11 = 0xC800000000LL;
-  v10 = 56LL;
-  v14 = 0LL;
-  LOBYTE(v14) = 0;
+  v10 = 0xC800000000LL;
+  v9 = 48LL;
+  v13 = 0LL;
+  LOBYTE(v13) = 0;
   if ( a2 )
   {
-    v5 = a2 - (char *)&v14;
-    v6 = &v14;
+    v4 = a2 - (char *)&v13;
+    v5 = &v13;
     do
     {
       if ( v3 == -2147483630 )
         break;
-      v7 = *((_BYTE *)v6 + v5);
-      if ( !v7 )
+      v6 = *((_BYTE *)v5 + v4);
+      if ( !v6 )
         break;
-      *(_BYTE *)v6 = v7;
-      v6 = (__int128 *)((char *)v6 + 1);
+      *(_BYTE *)v5 = v6;
+      v5 = (__int128 *)((char *)v5 + 1);
       --v3;
     }
     while ( v3 );
-    v8 = (__int128 *)((char *)v6 - 1);
+    v7 = (__int128 *)((char *)v5 - 1);
     if ( v3 )
-      v8 = v6;
-    *(_BYTE *)v8 = 0;
+      v7 = v5;
+    *(_BYTE *)v7 = 0;
   }
-  LODWORD(v11) = 4096;
-  v15 = 0x200000002LL;
-  return imp_WppRecorderLogCreate(WPP_GLOBAL_Control, &v10, a1);
+  LODWORD(v10) = 4096;
+  return imp_WppRecorderLogCreate(WPP_GLOBAL_Control, &v9, a1);
 }

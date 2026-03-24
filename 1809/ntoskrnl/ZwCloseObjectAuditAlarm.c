@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCloseObjectAuditAlarm @ 0x1401B88D0
+ * XREFs of ZwCloseObjectAuditAlarm @ 0x1401B88F0
  * Callers:
  *     <none>
  * Callees:

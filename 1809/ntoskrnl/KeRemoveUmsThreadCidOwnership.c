@@ -1,8 +1,8 @@
 /*
- * XREFs of KeRemoveUmsThreadCidOwnership @ 0x14084542C
+ * XREFs of KeRemoveUmsThreadCidOwnership @ 0x14084540C
  * Callers:
- *     KeUpdateUmsThreadState @ 0x1408455C8 (KeUpdateUmsThreadState.c)
- *     PspDisassociateUmsThreadFromPrimary @ 0x14088EDF0 (PspDisassociateUmsThreadFromPrimary.c)
+ *     KeUpdateUmsThreadState @ 0x1408455A8 (KeUpdateUmsThreadState.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x14088EDD0 (PspDisassociateUmsThreadFromPrimary.c)
  * Callees:
  *     <none>
  */

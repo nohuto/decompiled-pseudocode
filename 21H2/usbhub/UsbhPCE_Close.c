@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhPCE_Close @ 0x1C0033AA0
+ * XREFs of UsbhPCE_Close @ 0x1C0034E04
  * Callers:
- *     UsbhBusPnpStop_Action @ 0x1C0030B18 (UsbhBusPnpStop_Action.c)
- *     Usbh_PCE_Close_Action @ 0x1C0034E08 (Usbh_PCE_Close_Action.c)
+ *     UsbhBusPnpStop_Action @ 0x1C0031EC0 (UsbhBusPnpStop_Action.c)
+ *     Usbh_PCE_Close_Action @ 0x1C00360C4 (Usbh_PCE_Close_Action.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhReleaseEnumBusLockEx @ 0x1C000FB0C (UsbhReleaseEnumBusLockEx.c)
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
- *     WPP_RECORDER_SF_dq @ 0x1C002DFC0 (WPP_RECORDER_SF_dq.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C00029EC (UsbhReleaseEnumBusLockEx.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002F39C (WPP_RECORDER_SF_dq.c)
  */
 
 void __fastcall UsbhPCE_Close(__int64 a1, __int64 a2, __int64 a3)
@@ -31,6 +31,6 @@ void __fastcall UsbhPCE_Close(__int64 a1, __int64 a2, __int64 a3)
       a3);
   }
   Log(a1, 512, 1346712114, 0LL, *(unsigned __int16 *)(a2 + 4));
-  UsbhDispatch_PortChangeQueueEventEx(a1, a2, 22LL, a3, 0LL, 0, 0LL, 0LL);
+  UsbhDispatch_PortChangeQueueEventEx(a1, a2, 22, a3, 0LL, 0, 0LL, 0LL);
   UsbhReleaseEnumBusLockEx(a1, a2 + 24, *(_WORD *)(a2 + 4));
 }

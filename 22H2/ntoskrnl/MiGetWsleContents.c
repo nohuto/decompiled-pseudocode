@@ -1,35 +1,34 @@
 /*
- * XREFs of MiGetWsleContents @ 0x140216FD0
+ * XREFs of MiGetWsleContents @ 0x140339D50
  * Callers:
- *     MiCountSystemImageCommitment @ 0x14020ABD4 (MiCountSystemImageCommitment.c)
- *     MiConvertAndFlushWsleVas @ 0x14020B2FC (MiConvertAndFlushWsleVas.c)
- *     MiSetReadOnlyOnSectionView @ 0x140215318 (MiSetReadOnlyOnSectionView.c)
- *     MiOutSwapWorkingSetPte @ 0x140215680 (MiOutSwapWorkingSetPte.c)
- *     MiGetPfnProtection @ 0x1402160D4 (MiGetPfnProtection.c)
- *     MiSetWsleProtection @ 0x140216EE0 (MiSetWsleProtection.c)
- *     MiActivePageCombineCandidate @ 0x140216F34 (MiActivePageCombineCandidate.c)
- *     MiCombineWithExisting @ 0x1402179D4 (MiCombineWithExisting.c)
- *     MiTerminateWsle @ 0x140274730 (MiTerminateWsle.c)
- *     MiSetProtectionOnSection @ 0x140277B60 (MiSetProtectionOnSection.c)
- *     MiDeleteVa @ 0x14027A4A0 (MiDeleteVa.c)
- *     MiLockCode @ 0x140282210 (MiLockCode.c)
- *     MiMoveDirtyBitsToPfns @ 0x1402858F0 (MiMoveDirtyBitsToPfns.c)
- *     MiSetPagingOfDriver @ 0x140290C64 (MiSetPagingOfDriver.c)
- *     MmProtectPool @ 0x140296EA0 (MmProtectPool.c)
- *     NtLockVirtualMemory @ 0x1402A3000 (NtLockVirtualMemory.c)
- *     MmUnmapViewInSystemCache @ 0x1402D9FB0 (MmUnmapViewInSystemCache.c)
- *     MiTrimSharedPageFromViews @ 0x1402EFC5C (MiTrimSharedPageFromViews.c)
- *     MiGetWorkingSetInfoList @ 0x1402F1954 (MiGetWorkingSetInfoList.c)
- *     MiDemoteCombinedPte @ 0x1402F37B4 (MiDemoteCombinedPte.c)
- *     MiMakeVaRangeNoAccess @ 0x14035B5CC (MiMakeVaRangeNoAccess.c)
- *     MiStealPage @ 0x1403BBD7C (MiStealPage.c)
- *     MiProcessVmAccessedInfo @ 0x14046B95E (MiProcessVmAccessedInfo.c)
- *     MiMakeDriverPageStayResident @ 0x14061A3F8 (MiMakeDriverPageStayResident.c)
- *     MiDeprioritizeVirtualAddresses @ 0x14062D73C (MiDeprioritizeVirtualAddresses.c)
- *     MiUnmapRetpolineStubs @ 0x140641284 (MiUnmapRetpolineStubs.c)
- *     MiClearDriverHotPatchPtes @ 0x140641E5C (MiClearDriverHotPatchPtes.c)
- *     MiBuildForkPte @ 0x140662270 (MiBuildForkPte.c)
- *     MmFreeLoaderBlock @ 0x140B5E8D4 (MmFreeLoaderBlock.c)
+ *     MiTrimSharedPageFromViews @ 0x1402702C4 (MiTrimSharedPageFromViews.c)
+ *     MmUnmapViewInSystemCache @ 0x140294160 (MmUnmapViewInSystemCache.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140297B10 (MiMoveDirtyBitsToPfns.c)
+ *     MiLockCode @ 0x1402A3C40 (MiLockCode.c)
+ *     NtUnlockVirtualMemory @ 0x1402AE5C0 (NtUnlockVirtualMemory.c)
+ *     MiSetProtectionOnSection @ 0x1402B3300 (MiSetProtectionOnSection.c)
+ *     MiTerminateWsle @ 0x1402B7440 (MiTerminateWsle.c)
+ *     MiDeleteVa @ 0x1402B8110 (MiDeleteVa.c)
+ *     MiMakeVaRangeNoAccess @ 0x140321CF4 (MiMakeVaRangeNoAccess.c)
+ *     MiStealPage @ 0x140334CB4 (MiStealPage.c)
+ *     MiSetPagingOfDriver @ 0x140336B2C (MiSetPagingOfDriver.c)
+ *     MiGetWorkingSetInfoList @ 0x1403378AC (MiGetWorkingSetInfoList.c)
+ *     NtLockVirtualMemory @ 0x140339070 (NtLockVirtualMemory.c)
+ *     MiConvertAndFlushWsleVas @ 0x140339AFC (MiConvertAndFlushWsleVas.c)
+ *     MiGetPfnProtection @ 0x140339C98 (MiGetPfnProtection.c)
+ *     MmProtectPool @ 0x140362438 (MmProtectPool.c)
+ *     MiCrcStillIntact @ 0x1403674C4 (MiCrcStillIntact.c)
+ *     MiSharePages @ 0x140367CB0 (MiSharePages.c)
+ *     MiConvertPrivateToProto @ 0x1403699A0 (MiConvertPrivateToProto.c)
+ *     MiSetWsleProtection @ 0x14036AB70 (MiSetWsleProtection.c)
+ *     MiDemoteCombinedPte @ 0x14036ABB0 (MiDemoteCombinedPte.c)
+ *     MiCountSystemImageCommitment @ 0x14039E594 (MiCountSystemImageCommitment.c)
+ *     MiMakeDriverPageStayResident @ 0x14052DD94 (MiMakeDriverPageStayResident.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14053660C (MiDeprioritizeVirtualAddresses.c)
+ *     MiProcessVmAccessedInfo @ 0x14053B870 (MiProcessVmAccessedInfo.c)
+ *     MiUnmapRetpolineStubs @ 0x140544188 (MiUnmapRetpolineStubs.c)
+ *     MiBuildForkPte @ 0x1405581FC (MiBuildForkPte.c)
+ *     MmFreeLoaderBlock @ 0x140A4C7D0 (MmFreeLoaderBlock.c)
  * Callees:
  *     <none>
  */
@@ -47,7 +46,7 @@ unsigned __int64 __fastcall MiGetWsleContents(__int64 a1, unsigned __int64 a2)
   v3 = *(_QWORD *)v2;
   if ( v2 >= 0xFFFFF6FB7DBED000uLL
     && v2 <= 0xFFFFF6FB7DBED7F8uLL
-    && (MiFlags & 0x600000) != 0
+    && (MiFlags & 0xC00000) != 0
     && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
     && (v3 & 1) != 0
     && ((v3 & 0x20) == 0 || (v3 & 0x42) == 0) )

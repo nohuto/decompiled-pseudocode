@@ -5,10 +5,10 @@
  * Callees:
  *     KeSetCoalescableTimer @ 0x14001CDE0 (KeSetCoalescableTimer.c)
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1401001E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeExitRetpoline @ 0x14013914C (KeExitRetpoline.c)
- *     CcAdjustBcbDepth @ 0x1401C7B80 (CcAdjustBcbDepth.c)
- *     VslVerifyPage @ 0x14027C190 (VslVerifyPage.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeExitRetpoline @ 0x14013916C (KeExitRetpoline.c)
+ *     CcAdjustBcbDepth @ 0x1401C7BA0 (CcAdjustBcbDepth.c)
+ *     VslVerifyPage @ 0x14027C290 (VslVerifyPage.c)
  */
 
 char __fastcall sub_140580010(PKDPC Dpc, __int64 a2, __int64 a3, __int64 a4)

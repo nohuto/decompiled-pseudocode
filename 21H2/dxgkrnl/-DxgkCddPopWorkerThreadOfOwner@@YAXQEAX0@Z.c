@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DxgkCddPopWorkerThreadOfOwner@@YAXQEAX0@Z @ 0x1C01E99F0
+ * XREFs of ?DxgkCddPopWorkerThreadOfOwner@@YAXQEAX0@Z @ 0x1C014CEF0
  * Callers:
  *     <none>
  * Callees:
- *     ?PopWorkerThreadOfExclusiveOwner@DXGADAPTER@@AEAAXXZ @ 0x1C0013480 (-PopWorkerThreadOfExclusiveOwner@DXGADAPTER@@AEAAXXZ.c)
+ *     ?PopWorkerThreadOfExclusiveOwner@DXGADAPTER@@AEAAXXZ @ 0x1C000D090 (-PopWorkerThreadOfExclusiveOwner@DXGADAPTER@@AEAAXXZ.c)
  */
 
 void __fastcall DxgkCddPopWorkerThreadOfOwner(PERESOURCE *a1, PERESOURCE *a2)

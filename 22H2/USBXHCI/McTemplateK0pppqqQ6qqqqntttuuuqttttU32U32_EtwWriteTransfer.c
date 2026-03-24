@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer @ 0x1C004AFB8
+ * XREFs of McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer @ 0x1C0048A00
  * Callers:
- *     Etw_DeviceRundown @ 0x1C000FFD0 (Etw_DeviceRundown.c)
- *     Etw_DeviceUpdate @ 0x1C001D774 (Etw_DeviceUpdate.c)
- *     Etw_DeviceCreate @ 0x1C001E618 (Etw_DeviceCreate.c)
- *     Etw_DeviceDelete @ 0x1C004A9F0 (Etw_DeviceDelete.c)
+ *     Etw_DeviceRundown @ 0x1C000B108 (Etw_DeviceRundown.c)
+ *     Etw_DeviceUpdate @ 0x1C0018E54 (Etw_DeviceUpdate.c)
+ *     Etw_DeviceCreate @ 0x1C0019BE8 (Etw_DeviceCreate.c)
+ *     Etw_DeviceDelete @ 0x1C0048070 (Etw_DeviceDelete.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022398 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer(

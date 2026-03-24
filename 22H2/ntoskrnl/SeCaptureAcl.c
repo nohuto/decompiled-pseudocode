@@ -1,14 +1,14 @@
 /*
- * XREFs of SeCaptureAcl @ 0x1406BA348
+ * XREFs of SeCaptureAcl @ 0x1405DBC10
  * Callers:
- *     NtCreateTokenEx @ 0x1406BB530 (NtCreateTokenEx.c)
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
+ *     NtCreateTokenEx @ 0x1405DC930 (NtCreateTokenEx.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     SepCheckAcl @ 0x1406BA460 (SepCheckAcl.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     SepCheckAcl @ 0x1405DBD24 (SepCheckAcl.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SeCaptureAcl(
@@ -16,7 +16,7 @@ __int64 __fastcall SeCaptureAcl(
         char a2,
         __int64 a3,
         __int64 a4,
-        int a5,
+        POOL_TYPE PoolType,
         int a6,
         PVOID *a7,
         unsigned int *a8)
@@ -50,7 +50,7 @@ __int64 __fastcall SeCaptureAcl(
   if ( v11 < 8 )
     return 3221225591LL;
   *a8 = (v11 + 3) & 0xFFFFFFFC;
-  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)(a5 | 0x400), v11, 0x63416553u);
+  PoolWithTag = ExAllocatePoolWithTag(PoolType, v11, 0x63416553u);
   *a7 = PoolWithTag;
   if ( PoolWithTag )
   {

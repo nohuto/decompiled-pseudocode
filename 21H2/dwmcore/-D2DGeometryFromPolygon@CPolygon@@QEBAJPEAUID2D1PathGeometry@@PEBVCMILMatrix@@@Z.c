@@ -1,14 +1,14 @@
 /*
- * XREFs of ?D2DGeometryFromPolygon@CPolygon@@QEBAJPEAUID2D1PathGeometry@@PEBVCMILMatrix@@@Z @ 0x1801FA40C
+ * XREFs of ?D2DGeometryFromPolygon@CPolygon@@QEBAJPEAUID2D1PathGeometry@@PEBVCMILMatrix@@@Z @ 0x1801F783C
  * Callers:
- *     ?DrawBspPolygonList@CDrawingContext@@QEAAJPEAVCVisual@@0@Z @ 0x1801AFF60 (-DrawBspPolygonList@CDrawingContext@@QEAAJPEAVCVisual@@0@Z.c)
+ *     ?DrawBspPolygonList@CDrawingContext@@QEAAJPEAVCVisual@@0@Z @ 0x180175084 (-DrawBspPolygonList@CDrawingContext@@QEAAJPEAVCVisual@@0@Z.c)
  * Callees:
- *     ?Multiply@CMILMatrix@@SAXAEBV1@0PEAV1@@Z @ 0x1800572F0 (-Multiply@CMILMatrix@@SAXAEBV1@0PEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$ReleaseInterface@UID2D1GeometrySink@@@@YAXAEAPEAUID2D1GeometrySink@@@Z @ 0x1800D0BB4 (--$ReleaseInterface@UID2D1GeometrySink@@@@YAXAEAPEAUID2D1GeometrySink@@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z @ 0x180261134 (-Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z.c)
+ *     ?Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z @ 0x18000BA0C (-Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z.c)
+ *     ??$ReleaseInterface@UID2D1Geometry@@@@YAXAEAPEAUID2D1Geometry@@@Z @ 0x180017840 (--$ReleaseInterface@UID2D1Geometry@@@@YAXAEAPEAUID2D1Geometry@@@Z.c)
+ *     ?Multiply@CMILMatrix@@SAXAEBV1@0PEAV1@@Z @ 0x180041A78 (-Multiply@CMILMatrix@@SAXAEBV1@0PEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CPolygon::D2DGeometryFromPolygon(
@@ -22,7 +22,7 @@ __int64 __fastcall CPolygon::D2DGeometryFromPolygon(
   __int128 v8; // xmm0
   __int128 v9; // xmm1
   __m128 v10; // xmm6
-  __int64 v11; // rax
+  __int64 (__fastcall *v11)(struct ID2D1PathGeometry *, __int64 *); // rax
   __m128 v12; // xmm7
   int v13; // eax
   __int64 v14; // rcx
@@ -32,7 +32,7 @@ __int64 __fastcall CPolygon::D2DGeometryFromPolygon(
   __int64 v18; // rdi
   __m128 v19; // xmm0
   __m128 v20; // xmm1
-  __int64 v21; // rax
+  void (__fastcall *v21)(__int64, unsigned __int64); // rax
   int v22; // eax
   __int64 v23; // rcx
   __int64 v25[2]; // [rsp+38h] [rbp-59h] BYREF
@@ -54,19 +54,19 @@ __int64 __fastcall CPolygon::D2DGeometryFromPolygon(
   v26[2] = v8;
   v26[3] = v9;
   CMILMatrix::Multiply((const struct CMILMatrix *)(this + 18), (const struct CMILMatrix *)v26, (struct CMILMatrix *)v26);
-  CMILMatrix::Transform((CMILMatrix *)v26, this[2], (struct MilPoint4F *)&v28, 1u);
+  CMILMatrix::Transform((CMILMatrix *)v26, this[2], (struct MilPoint4F *)&v28, 1);
   v10 = (__m128)LODWORD(v28);
   v12 = (__m128)LODWORD(v29);
   v10.m128_f32[0] = v28 / v30;
-  v11 = *(_QWORD *)a2;
+  v11 = *(__int64 (__fastcall **)(struct ID2D1PathGeometry *, __int64 *))(*(_QWORD *)a2 + 136LL);
   v12.m128_f32[0] = v29 / v30;
   v28 = v28 / v30;
   v29 = v29 / v30;
-  v13 = (*(__int64 (__fastcall **)(struct ID2D1PathGeometry *, __int64 *))(v11 + 136))(a2, v25);
+  v13 = v11(a2, v25);
   v15 = v13;
   if ( v13 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0x221u);
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x221u, 0LL);
   }
   else
   {
@@ -85,15 +85,15 @@ __int64 __fastcall CPolygon::D2DGeometryFromPolygon(
           (CMILMatrix *)v26,
           (const struct MilPoint4F *)((char *)this[2] + v17),
           (struct MilPoint4F *)&v28,
-          1u);
+          1);
         v19 = (__m128)LODWORD(v28);
         v20 = (__m128)LODWORD(v29);
-        v21 = *(_QWORD *)v25[0];
+        v21 = *(void (__fastcall **)(__int64, unsigned __int64))(*(_QWORD *)v25[0] + 80LL);
         v28 = v28 / v30;
         v19.m128_f32[0] = v28;
         v29 = v29 / v30;
         v20.m128_f32[0] = v29;
-        (*(void (__fastcall **)(__int64, unsigned __int64))(v21 + 80))(v25[0], _mm_unpacklo_ps(v19, v20).m128_u64[0]);
+        v21(v25[0], _mm_unpacklo_ps(v19, v20).m128_u64[0]);
         v17 += 20LL;
         --v18;
       }
@@ -103,8 +103,8 @@ __int64 __fastcall CPolygon::D2DGeometryFromPolygon(
     v22 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v25[0] + 72LL))(v25[0]);
     v15 = v22;
     if ( v22 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0LL, v22, 0x235u);
+      MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0x235u, 0LL);
   }
-  ReleaseInterface<ID2D1GeometrySink>(v25);
+  ReleaseInterface<ID2D1Geometry>(v25);
   return v15;
 }

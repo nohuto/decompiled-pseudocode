@@ -1,21 +1,21 @@
 /*
- * XREFs of VslCreateSecureSection @ 0x140941CA0
+ * XREFs of VslCreateSecureSection @ 0x14088F1A0
  * Callers:
  *     <none>
  * Callees:
- *     MmSizeOfMdl @ 0x140206EA0 (MmSizeOfMdl.c)
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x1403CE424 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x1403CE69C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     MmSizeOfMdl @ 0x1402EB830 (MmSizeOfMdl.c)
+ *     VslpUnlockPagesForTransfer @ 0x140393974 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x1403939C8 (VslpLockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall VslCreateSecureSection(_QWORD *a1, __int64 a2, struct _MDL *a3, int a4, int a5)
 {
   __int64 result; // rax
   SIZE_T v10; // rax
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   __int64 *v12[10]; // [rsp+30h] [rbp-A1h] BYREF
   _QWORD v13[14]; // [rsp+80h] [rbp-51h] BYREF
 
@@ -36,7 +36,7 @@ __int64 __fastcall VslCreateSecureSection(_QWORD *a1, __int64 a2, struct _MDL *a
     v13[5] = v12[7];
     v13[1] = *(_QWORD *)(a2 + 992);
     LODWORD(v13[2]) = a4;
-    v11 = VslpEnterIumSecureMode(2u, 65, 0, (__int64)v13);
+    v11 = VslpEnterIumSecureMode(2u, 63, 0, (__int64)v13);
     VslpUnlockPagesForTransfer(v12);
     if ( v11 >= 0 )
       *a1 = v13[4];

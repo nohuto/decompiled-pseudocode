@@ -1,7 +1,7 @@
 /*
- * XREFs of MiEliminateStaleExtents @ 0x1402B5AF0
+ * XREFs of MiEliminateStaleExtents @ 0x1402B5BF0
  * Callers:
- *     MiAllocateFileExtents @ 0x1408521D0 (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x1408521B0 (MiAllocateFileExtents.c)
  * Callees:
  *     MiLockProtoPoolPage @ 0x14002F030 (MiLockProtoPoolPage.c)
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)

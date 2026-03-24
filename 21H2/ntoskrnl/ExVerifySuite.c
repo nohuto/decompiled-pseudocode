@@ -1,9 +1,10 @@
 /*
- * XREFs of ExVerifySuite @ 0x1403CCF10
+ * XREFs of ExVerifySuite @ 0x1403AF740
  * Callers:
- *     MmWriteTriageInformation @ 0x14059388C (MmWriteTriageInformation.c)
- *     PsLocateSystemDlls @ 0x1408455C8 (PsLocateSystemDlls.c)
- *     ExpUpdateProductSuiteTypeInRegistry @ 0x140B1D10C (ExpUpdateProductSuiteTypeInRegistry.c)
+ *     MmWriteTriageInformation @ 0x140538DBC (MmWriteTriageInformation.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     PsLocateSystemDlls @ 0x140798AF0 (PsLocateSystemDlls.c)
+ *     ExpUpdateProductSuiteTypeInRegistry @ 0x140A4208C (ExpUpdateProductSuiteTypeInRegistry.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of PfFbLogEntryComplete @ 0x14028BD60
+ * XREFs of PfFbLogEntryComplete @ 0x14026E710
  * Callers:
- *     PfLogEvent @ 0x14028BF68 (PfLogEvent.c)
- *     PfFileInfoNotify @ 0x1402DF520 (PfFileInfoNotify.c)
- *     PfLogDeleteHelper @ 0x1403608F0 (PfLogDeleteHelper.c)
+ *     PfLogDeleteHelper @ 0x14026E3C8 (PfLogDeleteHelper.c)
+ *     PfLogEvent @ 0x14026E544 (PfLogEvent.c)
+ *     PfFileInfoNotify @ 0x14029DC90 (PfFileInfoNotify.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall PfFbLogEntryComplete(PSLIST_ENTRY ListEntry, __int64 a2, __int64 a3)
@@ -22,17 +22,13 @@ void __fastcall PfFbLogEntryComplete(PSLIST_ENTRY ListEntry, __int64 a2, __int64
         v4 = ListEntry[2].Next,
         *((_QWORD *)&ListEntry[1].Next + 1) += (unsigned int)a3,
         v5 = (char *)v4 - *((_QWORD *)&ListEntry[1].Next + 1),
-        (__int64)v5 < SHIDWORD(Next[5].Next)) )
+        (__int64)v5 < SLODWORD(Next[5].Next)) )
   {
-    (*((void (__fastcall **)(PSLIST_ENTRY, char *, __int64, PSLIST_ENTRY))&Next[6].Next + 1))(
-      ListEntry,
-      v5,
-      a3,
-      ListEntry);
+    ((void (__fastcall *)(PSLIST_ENTRY, char *, __int64, PSLIST_ENTRY))Next[6].Next)(ListEntry, v5, a3, ListEntry);
   }
   else
   {
     RtlpInterlockedPushEntrySList((PSLIST_HEADER)&Next[2], ListEntry);
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)Next);
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)Next);
   }
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of TelemetryData_pDeleteDumpFile @ 0x1C0078E8C
+ * XREFs of TelemetryData_pDeleteDumpFile @ 0x1C0077A6C
  * Callers:
- *     TelemetryData_SubmitReport @ 0x1C0078BE8 (TelemetryData_SubmitReport.c)
+ *     TelemetryData_SubmitReport @ 0x1C00777C8 (TelemetryData_SubmitReport.c)
  * Callees:
  *     <none>
  */

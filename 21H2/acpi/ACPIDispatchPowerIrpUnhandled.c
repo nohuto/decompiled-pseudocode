@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIDispatchPowerIrpUnhandled @ 0x1C0052490
+ * XREFs of ACPIDispatchPowerIrpUnhandled @ 0x1C0052EE0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnregisterFeatureConfigurationChangeNotification @ 0x1409B5F30
+ * XREFs of RtlUnregisterFeatureConfigurationChangeNotification @ 0x140919070
  * Callers:
  *     <none>
  * Callees:
- *     CmFcManagerUnregisterFeatureConfigurationChangeNotification @ 0x140922CE4 (CmFcManagerUnregisterFeatureConfigurationChangeNotification.c)
+ *     CmFcManagerUnregisterFeatureConfigurationChangeNotification @ 0x14087DC34 (CmFcManagerUnregisterFeatureConfigurationChangeNotification.c)
  */
 
 void __fastcall RtlUnregisterFeatureConfigurationChangeNotification(struct _EX_RUNDOWN_REF *a1)

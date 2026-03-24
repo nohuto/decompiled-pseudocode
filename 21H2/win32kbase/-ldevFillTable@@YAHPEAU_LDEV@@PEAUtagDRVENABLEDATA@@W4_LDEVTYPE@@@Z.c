@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ldevFillTable@@YAHPEAU_LDEV@@PEAUtagDRVENABLEDATA@@W4_LDEVTYPE@@@Z @ 0x1C00792B8
+ * XREFs of ?ldevFillTable@@YAHPEAU_LDEV@@PEAUtagDRVENABLEDATA@@W4_LDEVTYPE@@@Z @ 0x1C00A76B8
  * Callers:
- *     ldevLoadDriver @ 0x1C0075290 (ldevLoadDriver.c)
- *     ?ldevBindDisplayStub@@YAPEAU_LDEV@@XZ @ 0x1C0078CE0 (-ldevBindDisplayStub@@YAPEAU_LDEV@@XZ.c)
- *     ldevLoadInternal @ 0x1C00C1F50 (ldevLoadInternal.c)
+ *     ldevLoadDriver @ 0x1C0015500 (ldevLoadDriver.c)
+ *     ldevLoadInternal @ 0x1C00A74C0 (ldevLoadInternal.c)
+ *     ?ldevBindDisplayStub@@YAPEAU_LDEV@@XZ @ 0x1C00A75EC (-ldevBindDisplayStub@@YAPEAU_LDEV@@XZ.c)
  * Callees:
- *     ?bFillFunctionTable@@YAHPEAU_DRVFN@@KPEAP6A_JXZ@Z @ 0x1C0079368 (-bFillFunctionTable@@YAHPEAU_DRVFN@@KPEAP6A_JXZ@Z.c)
+ *     ?bFillFunctionTable@@YAHPEAU_DRVFN@@KPEAP6A_JXZ@Z @ 0x1C00A7768 (-bFillFunctionTable@@YAHPEAU_DRVFN@@KPEAP6A_JXZ@Z.c)
  */
 
 __int64 __fastcall ldevFillTable(__int64 a1, int *a2)
@@ -27,7 +27,7 @@ __int64 __fastcall ldevFillTable(__int64 a1, int *a2)
     while ( 1 )
     {
       v6 = (unsigned int)(v6 - 1);
-      if ( !*(_QWORD *)(a1 + 8LL * (unsigned int)dword_1C025A0F0[v6] + 64) )
+      if ( !*(_QWORD *)(a1 + 8LL * (unsigned int)dword_1C0218140[v6] + 64) )
         break;
       if ( !(_DWORD)v6 )
       {
@@ -37,7 +37,7 @@ __int64 __fastcall ldevFillTable(__int64 a1, int *a2)
           while ( 1 )
           {
             v9 = (unsigned int)(v9 - 1);
-            if ( !*(_QWORD *)(a1 + 8LL * (unsigned int)dword_1C0268E90[v9] + 64) )
+            if ( !*(_QWORD *)(a1 + 8LL * (unsigned int)dword_1C0225C28[v9] + 64) )
               break;
             if ( !(_DWORD)v9 )
               goto LABEL_6;
@@ -50,7 +50,7 @@ LABEL_6:
           while ( 1 )
           {
             v7 = (unsigned int)(v7 - 1);
-            if ( (*(_QWORD *)(a1 + 8LL * (unsigned int)dword_1C025A0E0[2 * v7] + 64) == 0LL) != (*(_QWORD *)(a1 + 8LL * (unsigned int)dword_1C025A0E4[2 * v7] + 64) == 0LL) )
+            if ( (*(_QWORD *)(a1 + 8LL * (unsigned int)dword_1C0218130[2 * v7] + 64) == 0LL) != (*(_QWORD *)(a1 + 8LL * (unsigned int)dword_1C0218134[2 * v7] + 64) == 0LL) )
               break;
             if ( !(_DWORD)v7 )
               return 1LL;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetOwner@BamoDataProviderProxyImpl@BamoImpl@@UEBAPEAVBamoProxy@Bamo@Microsoft@@XZ @ 0x1800FAAB0
+ * XREFs of ?GetOwner@BamoDataProviderProxyImpl@BamoImpl@@UEBAPEAVBamoProxy@Bamo@Microsoft@@XZ @ 0x1800E23F0
  * Callers:
  *     <none>
  * Callees:

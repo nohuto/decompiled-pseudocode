@@ -1,11 +1,11 @@
 /*
- * XREFs of TxtpAddCacheEntry @ 0x140AEE988
+ * XREFs of TxtpAddCacheEntry @ 0x1409F45FC
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140384188 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtDisplayCharacter @ 0x1403AC6A8 (BgpTxtDisplayCharacter.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403852A0 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x14038682C (BgpFwAllocateMemory.c)
- *     BgpGxRectangleDestroy @ 0x140AEEA30 (BgpGxRectangleDestroy.c)
+ *     BgpFwFreeMemory @ 0x14039B660 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14039BE84 (BgpFwAllocateMemory.c)
+ *     BgpGxRectangleDestroy @ 0x1409F2290 (BgpGxRectangleDestroy.c)
  */
 
 __int64 __fastcall TxtpAddCacheEntry(__int64 *a1, __int16 a2, __int64 a3, __int64 a4)
@@ -44,7 +44,7 @@ LABEL_10:
       {
         a1[1] = (__int64)v14;
         *v14 = a1;
-        BgpGxRectangleDestroy(v13[6]);
+        BgpGxRectangleDestroy((__int64)v13[6]);
         BgpFwFreeMemory((__int64)v13);
         return v9;
       }

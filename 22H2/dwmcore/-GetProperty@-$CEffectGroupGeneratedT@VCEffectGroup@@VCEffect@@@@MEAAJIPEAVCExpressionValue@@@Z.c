@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetProperty@?$CEffectGroupGeneratedT@VCEffectGroup@@VCEffect@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C47E0
+ * XREFs of ?GetProperty@?$CEffectGroupGeneratedT@VCEffectGroup@@VCEffect@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x18016E750
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 __fastcall CEffectGroupGeneratedT<CEffectGroup,CEffect>::GetProperty(__i
   result = 0LL;
   if ( a2 )
     return 2147942487LL;
-  *(_DWORD *)a3 = *(_DWORD *)(a1 + 80);
+  *(_DWORD *)a3 = *(_DWORD *)(a1 + 72);
   *(_DWORD *)(a3 + 72) = 18;
   *(_BYTE *)(a3 + 76) = 1;
   return result;

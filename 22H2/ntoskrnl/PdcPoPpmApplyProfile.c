@@ -1,9 +1,9 @@
 /*
- * XREFs of PdcPoPpmApplyProfile @ 0x1408A5FD0
+ * XREFs of PdcPoPpmApplyProfile @ 0x1408EF980
  * Callers:
  *     <none>
  * Callees:
- *     PpmApplyProfile @ 0x14099D0D0 (PpmApplyProfile.c)
+ *     PpmApplyProfile @ 0x1408F5B4C (PpmApplyProfile.c)
  */
 
 __int64 PdcPoPpmApplyProfile()

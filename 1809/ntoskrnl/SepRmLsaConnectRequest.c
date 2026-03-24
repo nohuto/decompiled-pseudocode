@@ -1,7 +1,7 @@
 /*
- * XREFs of SepRmLsaConnectRequest @ 0x140740414
+ * XREFs of SepRmLsaConnectRequest @ 0x1407403F4
  * Callers:
- *     SepRmCommandServerThread @ 0x1407402C0 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x1407402A0 (SepRmCommandServerThread.c)
  * Callees:
  *     PsDetachSiloFromCurrentThread @ 0x14000FBB0 (PsDetachSiloFromCurrentThread.c)
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
@@ -9,19 +9,19 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     PsIsHostSilo @ 0x1400B8A60 (PsIsHostSilo.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwAcceptConnectPort @ 0x1401B81B0 (ZwAcceptConnectPort.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenProcess @ 0x1401B8630 (ZwOpenProcess.c)
- *     ZwCreateSection @ 0x1401B8AB0 (ZwCreateSection.c)
- *     ZwCompleteConnectPort @ 0x1401B94F0 (ZwCompleteConnectPort.c)
- *     ZwConnectPort @ 0x1401B9530 (ZwConnectPort.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     PsIsHostSilo @ 0x1400B8A80 (PsIsHostSilo.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwAcceptConnectPort @ 0x1401B81D0 (ZwAcceptConnectPort.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenProcess @ 0x1401B8650 (ZwOpenProcess.c)
+ *     ZwCreateSection @ 0x1401B8AD0 (ZwCreateSection.c)
+ *     ZwCompleteConnectPort @ 0x1401B9510 (ZwCompleteConnectPort.c)
+ *     ZwConnectPort @ 0x1401B9550 (ZwConnectPort.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     SepRmVerifyLsaProtectionLevel @ 0x14074069C (SepRmVerifyLsaProtectionLevel.c)
- *     SepRmCleanupRmLsaState @ 0x14089B798 (SepRmCleanupRmLsaState.c)
+ *     SepRmVerifyLsaProtectionLevel @ 0x14074067C (SepRmVerifyLsaProtectionLevel.c)
+ *     SepRmCleanupRmLsaState @ 0x14089B778 (SepRmCleanupRmLsaState.c)
  */
 
 __int64 __fastcall SepRmLsaConnectRequest(PPORT_MESSAGE ConnectionRequest)

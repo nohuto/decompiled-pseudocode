@@ -1,5 +1,5 @@
 /*
- * XREFs of ObAssignSecurity @ 0x14070EDD0
+ * XREFs of ObAssignSecurity @ 0x14070EDB0
  * Callers:
  *     <none>
  * Callees:

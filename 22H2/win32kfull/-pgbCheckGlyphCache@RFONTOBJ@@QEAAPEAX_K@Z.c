@@ -1,79 +1,76 @@
 /*
- * XREFs of ?pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z @ 0x1C007F49C
+ * XREFs of ?pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z @ 0x1C009AF98
  * Callers:
- *     xInsertMetricsPlusRFONTOBJ @ 0x1C007F014 (xInsertMetricsPlusRFONTOBJ.c)
- *     ?bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z @ 0x1C007F3E8 (-bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z.c)
- *     xInsertGlyphbitsRFONTOBJ @ 0x1C007F7E4 (xInsertGlyphbitsRFONTOBJ.c)
- *     ?bInsertGlyphbitsPath@RFONTOBJ@@QEAAHPEAU_GLYPHDATA@@K@Z @ 0x1C02FDA08 (-bInsertGlyphbitsPath@RFONTOBJ@@QEAAHPEAU_GLYPHDATA@@K@Z.c)
- *     ?bInsertMetricsPlusPath@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z @ 0x1C02FDB50 (-bInsertMetricsPlusPath@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z.c)
+ *     ?bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z @ 0x1C009AEE8 (-bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z.c)
+ *     xInsertMetricsPlusRFONTOBJ @ 0x1C009C988 (xInsertMetricsPlusRFONTOBJ.c)
+ *     xInsertGlyphbitsRFONTOBJ @ 0x1C009D7FC (xInsertGlyphbitsRFONTOBJ.c)
+ *     ?bInsertMetricsPlusPath@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z @ 0x1C015254C (-bInsertMetricsPlusPath@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z.c)
+ *     ?bInsertGlyphbitsPath@RFONTOBJ@@QEAAHPEAU_GLYPHDATA@@K@Z @ 0x1C02D50D4 (-bInsertGlyphbitsPath@RFONTOBJ@@QEAAHPEAU_GLYPHDATA@@K@Z.c)
  * Callees:
- *     <none>
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
  */
 
-unsigned __int64 __fastcall RFONTOBJ::pgbCheckGlyphCache(RFONTOBJ *this, __int64 a2, __int64 a3, __int64 a4)
+unsigned __int64 __fastcall RFONTOBJ::pgbCheckGlyphCache(RFONTOBJ *this, __int64 a2)
 {
-  __int64 v4; // rbx
-  unsigned __int64 v5; // r8
-  __int64 *v7; // rcx
-  __int64 v8; // r8
-  unsigned int v9; // ecx
-  __int64 v10; // rdi
-  _QWORD *v11; // rax
-  _QWORD *v12; // rcx
+  __int64 v2; // rbx
+  unsigned __int64 v3; // r8
+  __int64 *v5; // rcx
+  unsigned int v6; // r8d
+  size_t v7; // rcx
+  __int64 v8; // rdi
+  _QWORD *v9; // rax
+  _QWORD *v10; // rcx
+  __int64 v11; // rcx
+  __int64 v12; // rcx
   __int64 v13; // rax
-  __int64 v14; // rcx
-  __int64 v15; // rax
-  unsigned __int64 v16; // rcx
+  unsigned __int64 v14; // rcx
 
-  v4 = *(_QWORD *)this;
-  v5 = *(_QWORD *)(*(_QWORD *)this + 584LL);
-  if ( v5 + a2 >= v5 )
+  v2 = *(_QWORD *)this;
+  v3 = *(_QWORD *)(*(_QWORD *)this + 584LL);
+  if ( v3 + a2 >= v3 )
   {
-    if ( v5 + a2 <= *(_QWORD *)(v4 + 592) )
-      return v5;
-    v7 = *(__int64 **)(v4 + 576);
-    if ( v7 && (v14 = *v7) != 0 )
+    if ( v3 + a2 <= *(_QWORD *)(v2 + 592) )
+      return v3;
+    v5 = *(__int64 **)(v2 + 576);
+    if ( v5 && (v12 = *v5) != 0 )
     {
-      v5 = v14 + 8;
-      v15 = *(unsigned int *)(v4 + 552) - 8LL;
-      *(_QWORD *)(v4 + 576) = v14;
-      v16 = v15 + v14;
-      *(_QWORD *)(v4 + 584) = v5;
-      *(_QWORD *)(v4 + 592) = v16;
-      if ( v5 + a2 <= v16 )
-        return v5;
+      v3 = v12 + 8;
+      v13 = *(unsigned int *)(v2 + 552) - 8LL;
+      *(_QWORD *)(v2 + 576) = v12;
+      v14 = v13 + v12;
+      *(_QWORD *)(v2 + 584) = v3;
+      *(_QWORD *)(v2 + 592) = v14;
+      if ( v3 + a2 <= v14 )
+        return v3;
     }
     else
     {
-      v8 = *(unsigned int *)(v4 + 560);
-      if ( (_DWORD)v8 )
-        v9 = *(_DWORD *)(v4 + 552);
+      v6 = *(_DWORD *)(v2 + 560);
+      if ( v6 )
+        v7 = *(unsigned int *)(v2 + 552);
       else
-        v9 = *(_DWORD *)(v4 + 548);
-      if ( (*(_DWORD *)(v4 + 84) & 1) == 0 && (unsigned int)v8 < *(_DWORD *)(v4 + 556) )
+        v7 = *(unsigned int *)(v2 + 548);
+      if ( (*(_DWORD *)(v2 + 84) & 1) == 0 && v6 < *(_DWORD *)(v2 + 556) )
       {
-        v10 = v9;
-        if ( a2 + 8 <= (unsigned __int64)v9 )
+        v8 = (unsigned int)v7;
+        if ( a2 + 8 <= (unsigned __int64)(unsigned int)v7 )
         {
+          v9 = (_QWORD *)PALLOCMEM2(v7);
           if ( v9 )
           {
-            v11 = (_QWORD *)Win32AllocPool(v9, 543319879LL, v8, a4);
-            if ( v11 )
-            {
-              ++*(_DWORD *)(v4 + 560);
-              v12 = *(_QWORD **)(v4 + 576);
-              if ( v12 )
-                *v12 = v11;
-              else
-                *(_QWORD *)(v4 + 568) = v11;
-              *(_QWORD *)(v4 + 576) = v11;
-              *v11 = 0LL;
-              v13 = *(_QWORD *)(v4 + 576);
-              v5 = v13 + 8;
-              *(_QWORD *)(v4 + 584) = v13 + 8;
-              *(_QWORD *)(v4 + 592) = v10 + v13 - 8;
-              return v5;
-            }
+            ++*(_DWORD *)(v2 + 560);
+            v10 = *(_QWORD **)(v2 + 576);
+            if ( v10 )
+              *v10 = v9;
+            else
+              *(_QWORD *)(v2 + 568) = v9;
+            *(_QWORD *)(v2 + 576) = v9;
+            *v9 = 0LL;
+            v11 = *(_QWORD *)(v2 + 576);
+            v3 = v11 + 8;
+            *(_QWORD *)(v2 + 584) = v11 + 8;
+            *(_QWORD *)(v2 + 592) = v8 + v11 - 8;
+            return v3;
           }
           EngSetLastError(8u);
         }

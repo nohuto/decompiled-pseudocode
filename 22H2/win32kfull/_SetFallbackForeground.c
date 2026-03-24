@@ -1,7 +1,7 @@
 /*
- * XREFs of _SetFallbackForeground @ 0x1C01AE880
+ * XREFs of _SetFallbackForeground @ 0x1C01D2574
  * Callers:
- *     NtUserSetFallbackForeground @ 0x1C01DBB30 (NtUserSetFallbackForeground.c)
+ *     NtUserSetFallbackForeground @ 0x1C0201980 (NtUserSetFallbackForeground.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ __int64 __fastcall SetFallbackForeground(__int64 a1, int a2)
     v3 = *(_QWORD *)(a1 + 24) + 296LL;
     v5[1] = a1;
     v5[0] = v3;
-    HMAssignmentLock(v5, 0LL);
+    HMAssignmentLock(v5);
   }
   else
   {

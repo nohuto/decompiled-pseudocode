@@ -1,21 +1,21 @@
 /*
- * XREFs of ?bWiden@WIDENER@@IEAAHXZ @ 0x1C01309F0
+ * XREFs of ?bWiden@WIDENER@@IEAAHXZ @ 0x1C01408C8
  * Callers:
- *     ??0WIDENER@@QEAA@AEAVEPATHOBJ@@AEAVEXFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C01307B4 (--0WIDENER@@QEAA@AEAVEPATHOBJ@@AEAVEXFORMOBJ@@PEAU_LINEATTRS@@@Z.c)
+ *     ??0WIDENER@@QEAA@AEAVEPATHOBJ@@AEAVEXFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C0140688 (--0WIDENER@@QEAA@AEAVEPATHOBJ@@AEAVEXFORMOBJ@@PEAU_LINEATTRS@@@Z.c)
  * Callees:
- *     ?vPrependBeforeFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C012EE20 (-vPrependBeforeFigure@WIDEPATHOBJ@@QEAAXXZ.c)
- *     ?vAddEndCap@WIDENER@@IEAAXXZ @ 0x1C012EE88 (-vAddEndCap@WIDENER@@IEAAXXZ.c)
- *     ?vAddStartCap@WIDENER@@IEAAXXZ @ 0x1C012EF14 (-vAddStartCap@WIDENER@@IEAAXXZ.c)
- *     ?vNextEvent@LINER@@QEAAXXZ @ 0x1C0130BD0 (-vNextEvent@LINER@@QEAAXXZ.c)
- *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C0130EE8 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
- *     ?bBeginFigure@WIDEPATHOBJ@@QEAAHXZ @ 0x1C0131600 (-bBeginFigure@WIDEPATHOBJ@@QEAAHXZ.c)
- *     ?bValid@WIDENER@@QEBAHXZ @ 0x1C0131738 (-bValid@WIDENER@@QEBAHXZ.c)
- *     ?vEndFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C013177C (-vEndFigure@WIDEPATHOBJ@@QEAAXXZ.c)
- *     ?vReverseConcatenate@WIDEPATHOBJ@@QEAAXAEAV1@@Z @ 0x1C0131C48 (-vReverseConcatenate@WIDEPATHOBJ@@QEAAXAEAV1@@Z.c)
- *     ?ptfxFraction@@YA?AU_POINTFIX@@U1@PEAVLINEDATA@@AEAVEFLOAT@@2@Z @ 0x1C017045A (-ptfxFraction@@YA-AU_POINTFIX@@U1@PEAVLINEDATA@@AEAVEFLOAT@@2@Z.c)
- *     ?efNextStyleLength@STYLER@@IEAA?AVEFLOAT@@XZ @ 0x1C02CDD10 (-efNextStyleLength@STYLER@@IEAA-AVEFLOAT@@XZ.c)
- *     ?efWorldLength@STYLER@@IEAA?AVEFLOAT@@VEVECTORFX@@@Z @ 0x1C02CDD4C (-efWorldLength@STYLER@@IEAA-AVEFLOAT@@VEVECTORFX@@@Z.c)
- *     ?vPrependBeforeSubpath@WIDEPATHOBJ@@QEAAXXZ @ 0x1C02CE12C (-vPrependBeforeSubpath@WIDEPATHOBJ@@QEAAXXZ.c)
+ *     ?vAddEndCap@WIDENER@@IEAAXXZ @ 0x1C013F400 (-vAddEndCap@WIDENER@@IEAAXXZ.c)
+ *     ?vAddStartCap@WIDENER@@IEAAXXZ @ 0x1C013F48C (-vAddStartCap@WIDENER@@IEAAXXZ.c)
+ *     ?vNextEvent@LINER@@QEAAXXZ @ 0x1C0140AAC (-vNextEvent@LINER@@QEAAXXZ.c)
+ *     ?bBeginFigure@WIDEPATHOBJ@@QEAAHXZ @ 0x1C0140D28 (-bBeginFigure@WIDEPATHOBJ@@QEAAHXZ.c)
+ *     ?bValid@WIDENER@@QEBAHXZ @ 0x1C0140E60 (-bValid@WIDENER@@QEBAHXZ.c)
+ *     ?vEndFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C0140EA4 (-vEndFigure@WIDEPATHOBJ@@QEAAXXZ.c)
+ *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C0140F90 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
+ *     ?vReverseConcatenate@WIDEPATHOBJ@@QEAAXAEAV1@@Z @ 0x1C0141B34 (-vReverseConcatenate@WIDEPATHOBJ@@QEAAXAEAV1@@Z.c)
+ *     ?vPrependBeforeFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C0141F20 (-vPrependBeforeFigure@WIDEPATHOBJ@@QEAAXXZ.c)
+ *     ?efNextStyleLength@STYLER@@IEAA?AVEFLOAT@@XZ @ 0x1C02CF4DC (-efNextStyleLength@STYLER@@IEAA-AVEFLOAT@@XZ.c)
+ *     ?efWorldLength@STYLER@@IEAA?AVEFLOAT@@VEVECTORFX@@@Z @ 0x1C02CF518 (-efWorldLength@STYLER@@IEAA-AVEFLOAT@@VEVECTORFX@@@Z.c)
+ *     ?ptfxFraction@@YA?AU_POINTFIX@@U1@PEAVLINEDATA@@AEAVEFLOAT@@2@Z @ 0x1C02CF5A8 (-ptfxFraction@@YA-AU_POINTFIX@@U1@PEAVLINEDATA@@AEAVEFLOAT@@2@Z.c)
+ *     ?vPrependBeforeSubpath@WIDEPATHOBJ@@QEAAXXZ @ 0x1C02CFB98 (-vPrependBeforeSubpath@WIDEPATHOBJ@@QEAAXXZ.c)
  */
 
 __int64 __fastcall WIDENER::bWiden(WIDENER *this)
@@ -29,10 +29,10 @@ __int64 __fastcall WIDENER::bWiden(WIDENER *this)
   int v8; // ecx
   int v9; // ecx
   int v10; // ecx
-  WIDEPATHOBJ *v12; // rbx
-  WIDEPATHOBJ *v13; // rcx
-  char v14; // r10
-  struct WIDEPATHOBJ *v15; // r10
+  struct WIDEPATHOBJ *v12; // r10
+  WIDEPATHOBJ *v13; // rbx
+  WIDEPATHOBJ *v14; // rcx
+  char v15; // r10
   float v16; // xmm1_4
   int v17; // ecx
   __int64 v18; // r8
@@ -151,7 +151,7 @@ LABEL_3:
         if ( v3 > 5 )
           break;
         if ( v3 == 5 )
-          goto LABEL_23;
+          goto LABEL_19;
         if ( v3 )
         {
           v4 = v3 - 1;
@@ -177,18 +177,18 @@ LABEL_10:
             {
               WIDENER::vAddJoin(this, 0);
               WIDEPATHOBJ::vEndFigure((WIDENER *)((char *)this + 984));
-              v12 = (WIDENER *)((char *)this + 1136);
-              WIDEPATHOBJ::vEndFigure((WIDENER *)((char *)this + 1136));
               v13 = (WIDENER *)((char *)this + 1136);
-              if ( (v14 & 8) == 0 )
+              WIDEPATHOBJ::vEndFigure((WIDENER *)((char *)this + 1136));
+              v14 = (WIDENER *)((char *)this + 1136);
+              if ( (v15 & 8) == 0 )
               {
                 *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 143) + 40LL) + 16LL) |= 8u;
-                if ( !(unsigned int)WIDEPATHOBJ::bBeginFigure(v13) )
+                if ( !(unsigned int)WIDEPATHOBJ::bBeginFigure(v14) )
                   return 0LL;
                 WIDEPATHOBJ::vReverseConcatenate((WIDENER *)((char *)this + 1136), (WIDENER *)((char *)this + 984));
-                goto LABEL_22;
+                goto LABEL_26;
               }
-              if ( !(unsigned int)WIDEPATHOBJ::bBeginFigure(v13) )
+              if ( !(unsigned int)WIDEPATHOBJ::bBeginFigure(v14) )
                 return 0LL;
               WIDEPATHOBJ::vReverseConcatenate((WIDENER *)((char *)this + 1136), (WIDENER *)((char *)this + 984));
               WIDEPATHOBJ::vEndFigure((WIDENER *)((char *)this + 1136));
@@ -199,12 +199,12 @@ LABEL_10:
           }
           else
           {
-LABEL_23:
+LABEL_19:
             WIDENER::vAddEndCap(this);
             WIDEPATHOBJ::vEndFigure((WIDENER *)((char *)this + 984));
             if ( !(unsigned int)WIDENER::bValid(this) )
               return 0LL;
-            WIDEPATHOBJ::vReverseConcatenate((WIDENER *)((char *)this + 1136), v15);
+            WIDEPATHOBJ::vReverseConcatenate((WIDENER *)((char *)this + 1136), v12);
             WIDEPATHOBJ::vEndFigure((WIDENER *)((char *)this + 1136));
             *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 143) + 40LL) + 16LL) |= 8u;
             *((_DWORD *)this + 10) |= 8u;
@@ -244,13 +244,13 @@ LABEL_23:
       }
       else if ( !*((_DWORD *)this + 323) )
       {
-        v12 = (WIDENER *)((char *)this + 1136);
+        v13 = (WIDENER *)((char *)this + 1136);
         if ( !(unsigned int)WIDEPATHOBJ::bBeginFigure((WIDENER *)((char *)this + 1136)) )
           return 0LL;
         WIDENER::vAddStartCap(this);
         WIDENER::vAddEndCap(this);
-LABEL_22:
-        WIDEPATHOBJ::vEndFigure(v12);
+LABEL_26:
+        WIDEPATHOBJ::vEndFigure(v13);
         *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 143) + 40LL) + 16LL) |= 8u;
       }
     }

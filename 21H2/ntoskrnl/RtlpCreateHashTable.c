@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpCreateHashTable @ 0x14021FB10
+ * XREFs of RtlpCreateHashTable @ 0x1403767E0
  * Callers:
- *     RtlCreateHashTable @ 0x14021FAF0 (RtlCreateHashTable.c)
- *     RtlCreateHashTableEx @ 0x1403A7700 (RtlCreateHashTableEx.c)
- *     SepBuildCapPolicyTable @ 0x1403DA7FC (SepBuildCapPolicyTable.c)
- *     SepInitializeSingletonAttributesStructures @ 0x140B1E24C (SepInitializeSingletonAttributesStructures.c)
+ *     RtlCreateHashTable @ 0x1403767C0 (RtlCreateHashTable.c)
+ *     RtlCreateHashTableEx @ 0x14039B010 (RtlCreateHashTableEx.c)
+ *     SepBuildCapPolicyTable @ 0x1403CBB6C (SepBuildCapPolicyTable.c)
+ *     SepInitializeSingletonAttributesStructures @ 0x140A47A00 (SepInitializeSingletonAttributesStructures.c)
  * Callees:
- *     RtlpInitializeSecondLevelDir @ 0x14021FC78 (RtlpInitializeSecondLevelDir.c)
- *     RtlpAllocateSecondLevelDir @ 0x14021FC98 (RtlpAllocateSecondLevelDir.c)
- *     RtlDeleteHashTable @ 0x1403A3620 (RtlDeleteHashTable.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlpAllocateSecondLevelDir @ 0x1402BEB30 (RtlpAllocateSecondLevelDir.c)
+ *     RtlpInitializeSecondLevelDir @ 0x140376950 (RtlpInitializeSecondLevelDir.c)
+ *     RtlDeleteHashTable @ 0x1403793B0 (RtlDeleteHashTable.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall RtlpCreateHashTable(PVOID *a1, unsigned int a2, int a3, int a4)
@@ -18,7 +18,7 @@ char __fastcall RtlpCreateHashTable(PVOID *a1, unsigned int a2, int a3, int a4)
   unsigned int v4; // esi
   char *PoolWithTag; // rbx
   int v10; // eax
-  __int64 v11; // rax
+  PVOID v11; // rax
   __int64 v12; // r8
   unsigned int v14; // ebp
   char v15; // cl
@@ -27,7 +27,7 @@ char __fastcall RtlpCreateHashTable(PVOID *a1, unsigned int a2, int a3, int a4)
   _QWORD *v18; // rax
   _QWORD *v19; // rsi
   __int64 v20; // rdi
-  __int64 SecondLevelDir; // rax
+  PVOID SecondLevelDir; // rax
   __int64 v22; // rdx
   __int64 v23; // r8
 
@@ -66,7 +66,7 @@ char __fastcall RtlpCreateHashTable(PVOID *a1, unsigned int a2, int a3, int a4)
       *((_QWORD *)PoolWithTag + 4) = v19;
       while ( 1 )
       {
-        SecondLevelDir = RtlpAllocateSecondLevelDir((unsigned int)v20);
+        SecondLevelDir = RtlpAllocateSecondLevelDir(v20);
         if ( !SecondLevelDir )
           break;
         if ( (unsigned int)v20 >= v16 )
@@ -77,12 +77,12 @@ char __fastcall RtlpCreateHashTable(PVOID *a1, unsigned int a2, int a3, int a4)
         v19[v20] = v23;
         v20 = (unsigned int)(v20 + 1);
         if ( (unsigned int)v20 > v16 )
-          goto LABEL_9;
+          goto LABEL_7;
       }
     }
     goto LABEL_18;
   }
-  v11 = RtlpAllocateSecondLevelDir(0LL);
+  v11 = RtlpAllocateSecondLevelDir(0);
   if ( !v11 )
   {
 LABEL_18:
@@ -91,7 +91,7 @@ LABEL_18:
   }
   RtlpInitializeSecondLevelDir(v11, *((unsigned int *)PoolWithTag + 2));
   *((_QWORD *)PoolWithTag + 4) = v12;
-LABEL_9:
+LABEL_7:
   *a1 = PoolWithTag;
   return 1;
 }

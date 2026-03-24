@@ -1,44 +1,48 @@
 /*
- * XREFs of ?IsHigherProprity@COverlayContext@@CA_NAEBVOverlayPlaneInfo@1@0@Z @ 0x1801B8030
+ * XREFs of ?IsHigherProprity@COverlayContext@@CA_NAEBVOverlayPlaneInfo@1@0@Z @ 0x18017C744
  * Callers:
- *     ?InitCheckCandidatesList@COverlayContext@@CA_NAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x18003E4E4 (-InitCheckCandidatesList@COverlayContext@@CA_NAEBV-$span@PEAVCOverlayContext@@$0-0@gsl@@PEAV-$ve.c)
- *     ?FindLowestPriorityOverlayCandidateIndex@COverlayContext@@CAHAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@@Z @ 0x1801B7E28 (-FindLowestPriorityOverlayCandidateIndex@COverlayContext@@CAHAEBV-$span@PEAVOverlayPlaneInfo@COv.c)
+ *     ?InitCheckCandidatesList@COverlayContext@@CA_NAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@PEAV?$vector_facade@PEAVOverlayPlaneInfo@COverlayContext@@V?$buffer_impl@PEAVOverlayPlaneInfo@COverlayContext@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@@Z @ 0x18002FF10 (-InitCheckCandidatesList@COverlayContext@@CA_NAEBV-$span@PEAVCOverlayContext@@$0-0@gsl@@PEAV-$ve.c)
+ *     ?FindLowestPriorityOverlayCandidateIndex@COverlayContext@@CAHAEBV?$span@PEAVOverlayPlaneInfo@COverlayContext@@$0?0@gsl@@@Z @ 0x18017C154 (-FindLowestPriorityOverlayCandidateIndex@COverlayContext@@CAHAEBV-$span@PEAVOverlayPlaneInfo@COv.c)
  * Callees:
- *     ?GetColorChannelDepth@@YAIW4DXGI_FORMAT@@@Z @ 0x180039534 (-GetColorChannelDepth@@YAIW4DXGI_FORMAT@@@Z.c)
- *     ?IsDXGIColorSpaceRec2020@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x180089D54 (-IsDXGIColorSpaceRec2020@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?IsDXGIColorSpaceStudio@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1801B7EA0 (-IsDXGIColorSpaceStudio@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ?IsDXGIColorSpaceRec2020@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x180030A40 (-IsDXGIColorSpaceRec2020@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ?GetColorChannelDepth@@YAIW4DXGI_FORMAT@@@Z @ 0x180053140 (-GetColorChannelDepth@@YAIW4DXGI_FORMAT@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?IsDXGIColorSpaceStudio@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18017C538 (-IsDXGIColorSpaceStudio@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ?RequiresFrontPlane@OverlayPlaneInfo@COverlayContext@@QEBA_NXZ @ 0x18017CE38 (-RequiresFrontPlane@OverlayPlaneInfo@COverlayContext@@QEBA_NXZ.c)
  */
 
 char __fastcall COverlayContext::IsHigherProprity(
-        const struct COverlayContext::OverlayPlaneInfo *a1,
+        const struct COverlayContext::OverlayPlaneInfo *this,
         const struct COverlayContext::OverlayPlaneInfo *a2)
 {
   char v4; // bl
   char v5; // al
-  bool v6; // r9
-  char v7; // al
-  char v8; // r8
-  char v9; // al
-  int v10; // ecx
-  char v11; // r8
-  __int64 v12; // rax
-  __int64 (__fastcall ***v13)(_QWORD, _BYTE *); // rcx
-  int *v14; // rax
-  unsigned int ColorChannelDepth; // ebx
+  char v6; // al
+  char v7; // r9
+  char v8; // dl
+  bool v9; // zf
+  char v10; // al
+  char v12; // r8
+  char v13; // al
+  int v14; // ecx
+  char v15; // r8
   __int64 v16; // rax
   __int64 (__fastcall ***v17)(_QWORD, _BYTE *); // rcx
   int *v18; // rax
-  unsigned int v19; // eax
-  int v20; // ecx
-  int v21; // edx
-  int v22; // ecx
-  int v23; // edx
-  _BYTE v25[16]; // [rsp+20h] [rbp-28h] BYREF
+  unsigned int ColorChannelDepth; // ebx
+  __int64 v20; // rax
+  __int64 (__fastcall ***v21)(_QWORD, _BYTE *); // rcx
+  int *v22; // rax
+  unsigned int v23; // eax
+  int v24; // ecx
+  int v25; // edx
+  int v26; // ecx
+  int v27; // edx
+  _BYTE v28[16]; // [rsp+20h] [rbp-28h] BYREF
 
-  v4 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)a1 + 2) + 136LL))(*((_QWORD *)a1 + 2));
-  v5 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)a2 + 2) + 136LL))(*((_QWORD *)a2 + 2));
+  v4 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 2) + 128LL))(*((_QWORD *)this + 2));
+  v5 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)a2 + 2) + 128LL))(*((_QWORD *)a2 + 2));
   if ( v4 )
   {
     if ( !v5 )
@@ -48,44 +52,29 @@ char __fastcall COverlayContext::IsHigherProprity(
   {
     return 0;
   }
-  v6 = COverlayContext::s_bXbox;
   if ( COverlayContext::s_bXbox )
   {
-    IsDXGIColorSpaceRec2020(*((_DWORD *)a1 + 27));
-    v7 = IsDXGIColorSpaceRec2020(*((_DWORD *)a2 + 27));
-    if ( v8 )
-    {
-      if ( !v7 )
-        return 1;
-    }
-    else if ( v7 )
-    {
+    IsDXGIColorSpaceRec2020(*((_DWORD *)this + 27));
+    v6 = IsDXGIColorSpaceRec2020(*((_DWORD *)a2 + 27));
+    v9 = v12 == 0;
+  }
+  else
+  {
+    COverlayContext::OverlayPlaneInfo::RequiresFrontPlane(this);
+    v6 = COverlayContext::OverlayPlaneInfo::RequiresFrontPlane(a2);
+    v9 = v8 == 0;
+  }
+  if ( v9 )
+  {
+    if ( v6 )
       return 0;
-    }
   }
-  if ( *((_BYTE *)a1 + 176) )
+  else if ( !v6 )
   {
-    if ( !*((_BYTE *)a2 + 176) )
-      return 1;
+    return 1;
   }
-  else if ( *((_BYTE *)a2 + 176) )
-  {
-    return 0;
-  }
-  if ( !v6 )
-    goto LABEL_25;
-  IsDXGIColorSpaceStudio(*((_DWORD *)a1 + 27));
-  v9 = IsDXGIColorSpaceStudio(*((_DWORD *)a2 + 27));
-  if ( v11 )
-  {
-    if ( !v9 )
-      return 1;
-  }
-  else if ( v9 )
-  {
-    return 0;
-  }
-  if ( *((_DWORD *)a1 + 27) )
+  v10 = *((_BYTE *)a2 + 176);
+  if ( *((_BYTE *)this + 176) )
   {
     if ( !v10 )
       return 1;
@@ -94,30 +83,53 @@ char __fastcall COverlayContext::IsHigherProprity(
   {
     return 0;
   }
-  v12 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)a1 + 2) + 48LL))(*((_QWORD *)a1 + 2));
-  v13 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(*(int *)(*(_QWORD *)(v12 + 8) + 8LL) + v12 + 8);
-  v14 = (int *)(**v13)(v13, v25);
-  ColorChannelDepth = GetColorChannelDepth(*v14);
-  v16 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)a2 + 2) + 48LL))(*((_QWORD *)a2 + 2));
-  v17 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(*(int *)(*(_QWORD *)(v16 + 8) + 8LL) + v16 + 8);
-  v18 = (int *)(**v17)(v17, v25);
-  v19 = GetColorChannelDepth(*v18);
-  if ( ColorChannelDepth > v19 )
-    return 1;
-  if ( ColorChannelDepth >= v19 )
+  if ( !v7 )
+    goto LABEL_27;
+  IsDXGIColorSpaceStudio(*((_DWORD *)this + 27));
+  v13 = IsDXGIColorSpaceStudio(*((_DWORD *)a2 + 27));
+  if ( v15 )
   {
-LABEL_25:
-    v20 = (*((_DWORD *)a1 + 19) - *((_DWORD *)a1 + 17)) * (*((_DWORD *)a1 + 20) - *((_DWORD *)a1 + 18));
-    v21 = (*((_DWORD *)a2 + 19) - *((_DWORD *)a2 + 17)) * (*((_DWORD *)a2 + 20) - *((_DWORD *)a2 + 18));
-    if ( v20 > v21 )
+    if ( !v13 )
       return 1;
-    if ( v20 >= v21 )
+  }
+  else if ( v13 )
+  {
+    return 0;
+  }
+  if ( *((_DWORD *)this + 27) )
+  {
+    if ( !v14 )
+      return 1;
+  }
+  else if ( v14 )
+  {
+    return 0;
+  }
+  v16 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 2) + 48LL))(*((_QWORD *)this + 2));
+  v17 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(*(int *)(*(_QWORD *)(v16 + 8) + 8LL) + v16 + 8);
+  v18 = (int *)(**v17)(v17, v28);
+  ColorChannelDepth = GetColorChannelDepth(*v18);
+  v20 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)a2 + 2) + 48LL))(*((_QWORD *)a2 + 2));
+  v21 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(*(int *)(*(_QWORD *)(v20 + 8) + 8LL) + v20 + 8);
+  v22 = (int *)(**v21)(v21, v28);
+  v23 = GetColorChannelDepth(*v22);
+  if ( ColorChannelDepth <= v23 )
+  {
+    if ( ColorChannelDepth < v23 )
+      return 0;
+LABEL_27:
+    v24 = (*((_DWORD *)this + 19) - *((_DWORD *)this + 17)) * (*((_DWORD *)this + 20) - *((_DWORD *)this + 18));
+    v25 = (*((_DWORD *)a2 + 19) - *((_DWORD *)a2 + 17)) * (*((_DWORD *)a2 + 20) - *((_DWORD *)a2 + 18));
+    if ( v24 > v25 )
+      return 1;
+    if ( v24 >= v25 )
     {
-      v22 = (*((_DWORD *)a1 + 11) - *((_DWORD *)a1 + 9)) * (*((_DWORD *)a1 + 12) - *((_DWORD *)a1 + 10));
-      v23 = (*((_DWORD *)a2 + 11) - *((_DWORD *)a2 + 9)) * (*((_DWORD *)a2 + 12) - *((_DWORD *)a2 + 10));
-      if ( v22 > v23 || v22 >= v23 && *((_BYTE *)a1 + 180) && !*((_BYTE *)a2 + 180) )
+      v26 = (*((_DWORD *)this + 11) - *((_DWORD *)this + 9)) * (*((_DWORD *)this + 12) - *((_DWORD *)this + 10));
+      v27 = (*((_DWORD *)a2 + 11) - *((_DWORD *)a2 + 9)) * (*((_DWORD *)a2 + 12) - *((_DWORD *)a2 + 10));
+      if ( v26 > v27 || v26 >= v27 && *((_BYTE *)this + 216) && !*((_BYTE *)a2 + 216) )
         return 1;
     }
+    return 0;
   }
-  return 0;
+  return 1;
 }

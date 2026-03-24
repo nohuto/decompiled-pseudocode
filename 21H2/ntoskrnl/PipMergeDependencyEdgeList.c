@@ -1,50 +1,50 @@
 /*
- * XREFs of PipMergeDependencyEdgeList @ 0x140942B68
+ * XREFs of PipMergeDependencyEdgeList @ 0x14089DD70
  * Callers:
- *     PipMergeDependencyNodes @ 0x140942CE4 (PipMergeDependencyNodes.c)
+ *     PipMergeDependencyNodes @ 0x14089DEF4 (PipMergeDependencyNodes.c)
  * Callees:
- *     PiListEntryToDependencyEdge @ 0x14055F84C (PiListEntryToDependencyEdge.c)
- *     PipFreeDependencyEdge @ 0x14055FBE4 (PipFreeDependencyEdge.c)
- *     PipMoveListEntries @ 0x14055FDDC (PipMoveListEntries.c)
- *     PiPnpRtlEndOperation @ 0x140779A50 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140779DC4 (PiPnpRtlBeginOperation.c)
- *     PipDeleteDependencyNode @ 0x14085CA14 (PipDeleteDependencyNode.c)
- *     PipAddRequestToEdge @ 0x140942760 (PipAddRequestToEdge.c)
- *     PipNotifyDependenciesChanged @ 0x140942D5C (PipNotifyDependenciesChanged.c)
+ *     PiListEntryToDependencyEdge @ 0x14050C4F8 (PiListEntryToDependencyEdge.c)
+ *     PipFreeDependencyEdge @ 0x14050C720 (PipFreeDependencyEdge.c)
+ *     PipMoveListEntries @ 0x14050C918 (PipMoveListEntries.c)
+ *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
+ *     PipDeleteDependencyNode @ 0x1407CD6B0 (PipDeleteDependencyNode.c)
+ *     PipAddRequestToEdge @ 0x14089D95C (PipAddRequestToEdge.c)
+ *     PipNotifyDependenciesChanged @ 0x14089DF6C (PipNotifyDependenciesChanged.c)
  */
 
 void __fastcall PipMergeDependencyEdgeList(__int64 a1, __int64 a2, int a3)
 {
-  __int64 v3; // r15
+  __int64 v3; // rbp
   int v5; // esi
   __int64 *v6; // r14
   _QWORD **v7; // rdi
-  _QWORD *v8; // r13
+  _QWORD *v8; // r12
   __int64 v9; // rax
   __int64 v10; // r8
   __int64 v11; // rbx
   __int64 v12; // rax
   __int64 *v13; // r8
-  __int64 v14; // r15
-  __int64 v15; // rdx
-  bool v16; // r12
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  UNICODE_STRING *v19; // rsi
-  PCUNICODE_STRING *v20; // rdx
-  PVOID P; // [rsp+20h] [rbp-48h] BYREF
-  __int64 *v25; // [rsp+88h] [rbp+20h]
+  __int64 v14; // r13
+  bool v15; // bp
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  UNICODE_STRING *v18; // rsi
+  PCUNICODE_STRING *v19; // rdx
+  bool v20; // zf
+  PVOID P[9]; // [rsp+20h] [rbp-48h] BYREF
+  __int64 *v24; // [rsp+88h] [rbp+20h]
 
-  P = 0LL;
+  P[0] = 0LL;
   v3 = a2;
   v5 = a3;
   v6 = (__int64 *)((a3 != 0 ? 0x10 : 0) + a1 + 16);
-  v25 = v6;
+  v24 = v6;
   v7 = (_QWORD **)(a2 + 16 + (a3 != 0 ? 0x10 : 0));
-  PiPnpRtlBeginOperation((__int64 **)&P);
+  PiPnpRtlBeginOperation(P);
   v8 = *v7;
   if ( *v7 == v7 )
-    goto LABEL_21;
+    goto LABEL_22;
   do
   {
     v9 = PiListEntryToDependencyEdge((__int64)v8, v5);
@@ -52,65 +52,69 @@ void __fastcall PipMergeDependencyEdgeList(__int64 a1, __int64 a2, int a3)
     v11 = v9;
     v8 = (_QWORD *)*v8;
     if ( (__int64 *)*v6 == v6 )
-      goto LABEL_9;
+      goto LABEL_10;
     while ( 1 )
     {
       v12 = PiListEntryToDependencyEdge(v10, v5);
       v10 = *v13;
       v14 = v12;
-      if ( v5 )
+      if ( !v5 )
+      {
+        v15 = *(_QWORD *)(v11 + 32) == *(_QWORD *)(v12 + 32);
+        goto LABEL_7;
+      }
+      if ( *(_QWORD *)(v11 + 40) == *(_QWORD *)(v12 + 40) )
         break;
-      v15 = *(_QWORD *)(v11 + 32);
-      v16 = v15 == *(_QWORD *)(v12 + 32);
-      if ( v15 == *(_QWORD *)(v12 + 32) )
-        goto LABEL_12;
+      v15 = 0;
 LABEL_7:
+      if ( v15 )
+        goto LABEL_13;
       if ( (__int64 *)v10 == v6 )
       {
         v3 = a2;
-        goto LABEL_9;
+        goto LABEL_10;
       }
     }
-    if ( *(_QWORD *)(v11 + 40) != *(_QWORD *)(v12 + 40) )
-      goto LABEL_7;
-    v16 = 1;
-LABEL_12:
-    v19 = *(UNICODE_STRING **)(v11 + 56);
-    while ( v19 != (UNICODE_STRING *)(v11 + 56) )
+    v15 = 1;
+LABEL_13:
+    v18 = *(UNICODE_STRING **)(v11 + 56);
+    while ( v18 != (UNICODE_STRING *)(v11 + 56) )
     {
-      v20 = (PCUNICODE_STRING *)v19;
-      v19 = *(UNICODE_STRING **)&v19->Length;
-      PipAddRequestToEdge(v14, v20 + 2);
+      v19 = (PCUNICODE_STRING *)v18;
+      v18 = *(UNICODE_STRING **)&v18->Length;
+      PipAddRequestToEdge(v14, v19 + 2);
     }
     PipFreeDependencyEdge((_DWORD *)v11, v14);
     v5 = a3;
     v11 = 0LL;
+    v20 = !v15;
     v3 = a2;
-    if ( !v16 )
+    if ( v20 )
     {
-LABEL_9:
+LABEL_10:
       if ( v5 )
       {
-        v18 = *(_QWORD *)(v11 + 40);
-        v17 = a1;
+        v17 = *(_QWORD *)(v11 + 40);
+        v16 = a1;
         *(_QWORD *)(v11 + 32) = a1;
       }
       else
       {
-        v17 = *(_QWORD *)(v11 + 32);
-        v18 = a1;
+        v16 = *(_QWORD *)(v11 + 32);
+        v17 = a1;
         *(_QWORD *)(v11 + 40) = a1;
       }
-      PipNotifyDependenciesChanged(v18, v17);
+      PipNotifyDependenciesChanged(v17, v16);
       ++*(_DWORD *)(a1 + 88);
-      if ( (*(_DWORD *)(v3 + 88))-- == 1 )
+      v20 = (*(_DWORD *)(v3 + 88))-- == 1;
+      if ( v20 )
         PipDeleteDependencyNode((_QWORD *)v3);
     }
-    v6 = v25;
+    v6 = v24;
   }
   while ( v8 != v7 );
-LABEL_21:
+LABEL_22:
   PipMoveListEntries(v6, (__int64)v7);
-  if ( P )
-    PiPnpRtlEndOperation((PVOID **)P);
+  if ( P[0] )
+    PiPnpRtlEndOperation((PVOID **)P[0]);
 }

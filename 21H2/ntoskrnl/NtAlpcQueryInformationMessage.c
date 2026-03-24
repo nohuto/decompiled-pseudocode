@@ -1,18 +1,18 @@
 /*
- * XREFs of NtAlpcQueryInformationMessage @ 0x14066AA00
+ * XREFs of NtAlpcQueryInformationMessage @ 0x14062D120
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     AlpcpQueryHandleInformationMessage @ 0x14066AC1C (AlpcpQueryHandleInformationMessage.c)
- *     AlpcpQuerySidMessage @ 0x14066B464 (AlpcpQuerySidMessage.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     AlpcpUnlockMessage @ 0x1407A7628 (AlpcpUnlockMessage.c)
- *     AlpcpLookupMessage @ 0x1407ABD80 (AlpcpLookupMessage.c)
- *     AlpcpCaptureIdMessage @ 0x1407B0EB0 (AlpcpCaptureIdMessage.c)
- *     AlpcpQueryTokenModifiedIdMessage @ 0x14080C0F4 (AlpcpQueryTokenModifiedIdMessage.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     AlpcpLookupMessage @ 0x1405E6870 (AlpcpLookupMessage.c)
+ *     AlpcpCaptureIdMessage @ 0x1405E9E40 (AlpcpCaptureIdMessage.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     AlpcpQuerySidMessage @ 0x14062D314 (AlpcpQuerySidMessage.c)
+ *     AlpcpQueryHandleInformationMessage @ 0x14062D538 (AlpcpQueryHandleInformationMessage.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     AlpcpQueryTokenModifiedIdMessage @ 0x1408C23EC (AlpcpQueryTokenModifiedIdMessage.c)
  */
 
 __int64 __fastcall NtAlpcQueryInformationMessage(
@@ -27,21 +27,21 @@ __int64 __fastcall NtAlpcQueryInformationMessage(
   KPROCESSOR_MODE PreviousMode; // bl
   __int64 v11; // rsi
   __int64 v12; // rcx
-  int v13; // r14d
-  NTSTATUS v14; // ebx
-  int v15; // r9d
-  PVOID v16; // r15
+  unsigned int v13; // r14d
+  int v14; // ebx
+  __int64 v15; // r9
+  struct _DMA_ADAPTER *v16; // r15
   ULONG_PTR v17; // r14
   int v18; // edi
   int v19; // edi
-  NTSTATUS TokenModifiedIdMessage; // eax
-  int v22; // [rsp+30h] [rbp-38h] BYREF
+  int TokenModifiedIdMessage; // eax
+  unsigned int v22; // [rsp+30h] [rbp-38h] BYREF
   int v23; // [rsp+34h] [rbp-34h] BYREF
   PVOID Object; // [rsp+38h] [rbp-30h] BYREF
-  ULONG_PTR v25[2]; // [rsp+40h] [rbp-28h] BYREF
+  ULONG_PTR BugCheckParameter2[2]; // [rsp+40h] [rbp-28h] BYREF
 
   v23 = 0;
-  v25[0] = 0LL;
+  BugCheckParameter2[0] = 0LL;
   v22 = 0;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -67,59 +67,69 @@ __int64 __fastcall NtAlpcQueryInformationMessage(
   if ( !v22 )
   {
     v14 = -1073741811;
-    goto LABEL_19;
+    goto LABEL_20;
   }
   Object = 0LL;
   v14 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v14 >= 0 )
   {
-    v16 = Object;
-    v14 = AlpcpLookupMessage((_DWORD)Object, v13, v23, v15, (__int64)v25);
+    v16 = (struct _DMA_ADAPTER *)Object;
+    v14 = AlpcpLookupMessage((__int64)Object, v13, v23, v15, BugCheckParameter2);
     if ( v14 < 0 )
     {
-LABEL_18:
-      ObfDereferenceObject(v16);
-      goto LABEL_19;
+LABEL_19:
+      HalPutDmaAdapter(v16);
+      goto LABEL_20;
     }
-    v17 = v25[0];
-    if ( !*(_QWORD *)(v25[0] + 24) )
+    v17 = BugCheckParameter2[0];
+    if ( !*(_QWORD *)(BugCheckParameter2[0] + 24) )
     {
       v14 = -1073740029;
-      goto LABEL_17;
+      goto LABEL_18;
     }
     if ( a3 )
     {
       v18 = a3 - 1;
       if ( !v18 )
       {
-        TokenModifiedIdMessage = AlpcpQueryTokenModifiedIdMessage((_DWORD)v16, v25[0], (_DWORD)a4, Length, v11);
-        goto LABEL_16;
+        TokenModifiedIdMessage = AlpcpQueryTokenModifiedIdMessage(
+                                   (_DWORD)v16,
+                                   BugCheckParameter2[0],
+                                   (_DWORD)a4,
+                                   Length,
+                                   v11);
+        goto LABEL_17;
       }
       v19 = v18 - 1;
       if ( v19 )
       {
         if ( v19 == 1 )
         {
-          TokenModifiedIdMessage = AlpcpQueryHandleInformationMessage((_DWORD)v16, v25[0], (_DWORD)a4, Length, v11);
-LABEL_16:
-          v14 = TokenModifiedIdMessage;
+          TokenModifiedIdMessage = AlpcpQueryHandleInformationMessage(
+                                     (_DWORD)v16,
+                                     BugCheckParameter2[0],
+                                     (_DWORD)a4,
+                                     Length,
+                                     v11);
 LABEL_17:
+          v14 = TokenModifiedIdMessage;
+LABEL_18:
           AlpcpUnlockMessage(v17);
-          goto LABEL_18;
+          goto LABEL_19;
         }
       }
       else if ( !a4 && !(_DWORD)Length && !v11 )
       {
-        v14 = (*(_DWORD *)(v25[0] + 40) & 7) != 4 ? 0x103 : 0;
-        goto LABEL_17;
+        v14 = (*(_DWORD *)(BugCheckParameter2[0] + 40) & 7) != 4 ? 0x103 : 0;
+        goto LABEL_18;
       }
       v14 = -1073741811;
-      goto LABEL_17;
+      goto LABEL_18;
     }
-    TokenModifiedIdMessage = AlpcpQuerySidMessage((_DWORD)v16, v25[0], (_DWORD)a4, Length, v11);
-    goto LABEL_16;
+    TokenModifiedIdMessage = AlpcpQuerySidMessage((_DWORD)v16, BugCheckParameter2[0], (_DWORD)a4, Length, v11);
+    goto LABEL_17;
   }
-LABEL_19:
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+LABEL_20:
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)v14;
 }

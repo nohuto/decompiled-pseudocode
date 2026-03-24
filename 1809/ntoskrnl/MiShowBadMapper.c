@@ -1,19 +1,19 @@
 /*
- * XREFs of MiShowBadMapper @ 0x1402A5944
+ * XREFs of MiShowBadMapper @ 0x1402A5A44
  * Callers:
  *     MiFillSystemPtes @ 0x14005C300 (MiFillSystemPtes.c)
  *     MiDeleteVa @ 0x140069700 (MiDeleteVa.c)
- *     MiInsertPhysicalPteMapping @ 0x14010FE60 (MiInsertPhysicalPteMapping.c)
- *     MiMapMdlCommon @ 0x14018EAD4 (MiMapMdlCommon.c)
+ *     MiInsertPhysicalPteMapping @ 0x14010FE80 (MiInsertPhysicalPteMapping.c)
+ *     MiMapMdlCommon @ 0x14018EAF4 (MiMapMdlCommon.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlCaptureStackBackTrace @ 0x1400CCC90 (RtlCaptureStackBackTrace.c)
- *     MiLookupDataTableEntry @ 0x1400DA570 (MiLookupDataTableEntry.c)
- *     MmLockLoadedModuleListExclusive @ 0x1400F5D60 (MmLockLoadedModuleListExclusive.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlCaptureStackBackTrace @ 0x1400CCCB0 (RtlCaptureStackBackTrace.c)
+ *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
+ *     MmLockLoadedModuleListExclusive @ 0x1400F5D80 (MmLockLoadedModuleListExclusive.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 void __fastcall MiShowBadMapper(ULONG_PTR BugCheckParameter2, char a2)

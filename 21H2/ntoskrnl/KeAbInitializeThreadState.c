@@ -1,25 +1,30 @@
 /*
- * XREFs of KeAbInitializeThreadState @ 0x1402F476C
+ * XREFs of KeAbInitializeThreadState @ 0x140278E00
  * Callers:
- *     KeInitThread @ 0x140A48020 (KeInitThread.c)
+ *     KeInitThread @ 0x14098F2E0 (KeInitThread.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall KeAbInitializeThreadState(__int64 a1)
+__int16 __fastcall KeAbInitializeThreadState(__int64 a1)
 {
-  __int64 result; // rax
-  _BYTE *v2; // rdx
+  __int64 v1; // r8
+  __int64 v2; // r9
+  __int64 v3; // rdx
+  __int16 result; // ax
 
-  LODWORD(result) = 0;
-  v2 = (_BYTE *)(a1 + 1712);
+  v1 = 0LL;
+  *(_QWORD *)(a1 + 800) = a1 + 1616;
+  v2 = 6LL;
   do
   {
-    *v2 = result;
-    result = (unsigned int)(result + 1);
-    v2 += 96;
+    v3 = v1 + *(_QWORD *)(a1 + 800);
+    v1 += 96LL;
+    result = (unsigned __int16)(v3 - a1) >> 4;
+    *(_BYTE *)(v3 + 24) = result;
+    --v2;
   }
-  while ( (unsigned int)result < 6 );
+  while ( v2 );
   *(_DWORD *)(a1 + 116) |= 1u;
   *(_QWORD *)(a1 + 808) = 1LL;
   *(_QWORD *)(a1 + 816) = 1LL;

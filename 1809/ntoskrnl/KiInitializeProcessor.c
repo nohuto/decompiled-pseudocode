@@ -6,10 +6,10 @@
  * Callees:
  *     KeSetCoalescableTimer @ 0x14001CDE0 (KeSetCoalescableTimer.c)
  *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     KeInitializeGate @ 0x14013A354 (KeInitializeGate.c)
- *     KiInitializeDpcList @ 0x14013BA2C (KiInitializeDpcList.c)
- *     KeInitializeThreadedDpc @ 0x1401810C0 (KeInitializeThreadedDpc.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeInitializeGate @ 0x14013A374 (KeInitializeGate.c)
+ *     KiInitializeDpcList @ 0x14013BA4C (KiInitializeDpcList.c)
+ *     KeInitializeThreadedDpc @ 0x1401810E0 (KeInitializeThreadedDpc.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetColor@CProjectedShadowCaster@@QEBA?AU_D3DCOLORVALUE@@XZ @ 0x180201810
+ * XREFs of ?GetColor@CProjectedShadowCaster@@QEBA?AU_D3DCOLORVALUE@@XZ @ 0x18000C160
  * Callers:
- *     ?ComputeShadowColor@CProjectedShadow@@AEBA?AU_D3DCOLORVALUE@@PEAVCDrawingContext@@@Z @ 0x180114772 (-ComputeShadowColor@CProjectedShadow@@AEBA-AU_D3DCOLORVALUE@@PEAVCDrawingContext@@@Z.c)
- *     ?IsEmptyMaskContent@CProjectedShadowCaster@@QEBA_NXZ @ 0x1802018DC (-IsEmptyMaskContent@CProjectedShadowCaster@@QEBA_NXZ.c)
+ *     ?ComputeShadowColor@CProjectedShadow@@AEBA?AU_D3DCOLORVALUE@@PEAVCDrawingContext@@@Z @ 0x180009E54 (-ComputeShadowColor@CProjectedShadow@@AEBA-AU_D3DCOLORVALUE@@PEAVCDrawingContext@@@Z.c)
+ *     ?IsEmptyMaskContent@CProjectedShadowCaster@@QEBA_NXZ @ 0x18000C0E0 (-IsEmptyMaskContent@CProjectedShadowCaster@@QEBA_NXZ.c)
  * Callees:
  *     <none>
  */
@@ -11,12 +11,12 @@ struct _D3DCOLORVALUE *__fastcall CProjectedShadowCaster::GetColor(
         CProjectedShadowCaster *this,
         struct _D3DCOLORVALUE *__return_ptr retstr)
 {
-  __int64 v2; // rax
+  struct _D3DCOLORVALUE *v2; // rax
 
-  v2 = *((_QWORD *)this + 15);
+  v2 = (struct _D3DCOLORVALUE *)*((_QWORD *)this + 14);
   if ( v2 )
   {
-    *(struct _D3DCOLORVALUE *)&retstr->r = *(struct _D3DCOLORVALUE *)(v2 + 88);
+    *(struct _D3DCOLORVALUE *)&retstr->r = *(struct _D3DCOLORVALUE *)&v2[5].r;
   }
   else
   {

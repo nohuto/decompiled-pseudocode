@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlSectionTableFromVirtualAddress @ 0x1400F3430
+ * XREFs of RtlSectionTableFromVirtualAddress @ 0x1400F3450
  * Callers:
- *     RtlAddressInSectionTable @ 0x1400F33DC (RtlAddressInSectionTable.c)
- *     KeQueryKvaShadowRegion @ 0x14012B12C (KeQueryKvaShadowRegion.c)
+ *     RtlAddressInSectionTable @ 0x1400F33FC (RtlAddressInSectionTable.c)
+ *     KeQueryKvaShadowRegion @ 0x14012B14C (KeQueryKvaShadowRegion.c)
  *     KiShadowProcessorAllocation @ 0x140572D84 (KiShadowProcessorAllocation.c)
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x14067ACB8 (LdrpAccessResourceDataNoMultipleLanguage.c)
- *     KeSetTracepoint @ 0x140844E20 (KeSetTracepoint.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x14067AC98 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     KeSetTracepoint @ 0x140844E00 (KeSetTracepoint.c)
  *     KiVerifyXcpt15 @ 0x14098E2F0 (KiVerifyXcpt15.c)
  *     CcInitializeBcbProfiler @ 0x14098E324 (CcInitializeBcbProfiler.c)
  *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)

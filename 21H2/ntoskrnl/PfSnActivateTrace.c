@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnActivateTrace @ 0x14035FD2C
+ * XREFs of PfSnActivateTrace @ 0x1403607F0
  * Callers:
- *     PfSnBeginTrace @ 0x1407DA91C (PfSnBeginTrace.c)
+ *     PfSnBeginTrace @ 0x14071A8AC (PfSnBeginTrace.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     PfSnAddProcessTrace @ 0x14035FDEC (PfSnAddProcessTrace.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PfSnAddProcessTrace @ 0x1403608B0 (PfSnAddProcessTrace.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PfSnActivateTrace(__int64 a1)
@@ -22,25 +22,25 @@ __int64 __fastcall PfSnActivateTrace(__int64 a1)
   int v10; // eax
   bool v11; // zf
 
-  if ( ExAcquireRundownProtection(&stru_140C54640) )
+  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&stru_140C50400) )
   {
     *(_WORD *)(a1 + 486) |= 2u;
-    v2 = KeAcquireSpinLockRaiseToDpc(&qword_140C54690);
+    v2 = KeAcquireSpinLockRaiseToDpc(&qword_140C50450);
     v3 = PfSnAddProcessTrace(*(_QWORD *)(a1 + 352), a1);
     if ( v3 >= 0 )
     {
-      v4 = (_QWORD *)qword_140C54688;
+      v4 = (_QWORD *)qword_140C50448;
       v5 = (_QWORD *)(a1 + 8);
-      if ( *(__int64 **)qword_140C54688 != &PfSnGlobals )
+      if ( *(__int64 **)qword_140C50448 != &PfSnGlobals )
         __fastfail(3u);
       ++PfSnNumActiveTraces;
       *v5 = &PfSnGlobals;
       v3 = 0;
       *(_QWORD *)(a1 + 16) = v4;
       *v4 = v5;
-      qword_140C54688 = a1 + 8;
+      qword_140C50448 = a1 + 8;
     }
-    KxReleaseSpinLock(&qword_140C54690);
+    KxReleaseSpinLock(&qword_140C50450);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )

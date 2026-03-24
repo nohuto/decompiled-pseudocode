@@ -1,18 +1,18 @@
 /*
- * XREFs of ArbAddMmConfigRangeAsBootReserved @ 0x1408391E8
+ * XREFs of ArbAddMmConfigRangeAsBootReserved @ 0x1407A1E60
  * Callers:
- *     IopMemInitialize @ 0x140838FBC (IopMemInitialize.c)
+ *     IopMemInitialize @ 0x1407A1C34 (IopMemInitialize.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlAddRange @ 0x14083A010 (RtlAddRange.c)
- *     ArbpGetRegistryValue @ 0x14083B060 (ArbpGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlAddRange @ 0x140764410 (RtlAddRange.c)
+ *     ArbpGetRegistryValue @ 0x1407A2B30 (ArbpGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-NTSTATUS __fastcall ArbAddMmConfigRangeAsBootReserved(__int64 a1, int a2)
+NTSTATUS __fastcall ArbAddMmConfigRangeAsBootReserved(__int64 a1, __int64 a2)
 {
   unsigned int *v2; // rsi
   int v3; // edi
@@ -20,8 +20,8 @@ NTSTATUS __fastcall ArbAddMmConfigRangeAsBootReserved(__int64 a1, int a2)
   NTSTATUS v7; // ebx
   int RegistryValue; // eax
   int v9; // eax
-  __int64 v10; // r14
-  void *Pool2; // rax
+  SIZE_T v10; // r14
+  PVOID PoolWithTag; // rax
   unsigned int *i; // r14
   int v13; // eax
   int v14; // ecx
@@ -31,11 +31,11 @@ NTSTATUS __fastcall ArbAddMmConfigRangeAsBootReserved(__int64 a1, int a2)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-1h] BYREF
   HANDLE KeyHandle; // [rsp+E8h] [rbp+7Fh] BYREF
 
-  v2 = (unsigned int *)ArbMmConfigRange;
   KeyHandle = 0LL;
   Handle = 0LL;
+  v2 = (unsigned int *)ArbMmConfigRange;
   v3 = 0;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   v16 = 0LL;
   v17 = 0LL;
   if ( ArbMmConfigRange )
@@ -52,7 +52,7 @@ LABEL_9:
           break;
       }
     }
-    goto $cleanup$30;
+    goto LABEL_14;
   }
   ObjectAttributes.RootDirectory = 0LL;
   *((_QWORD *)&v16 + 1) = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Arbiters";
@@ -83,7 +83,7 @@ LABEL_9:
   {
     if ( RegistryValue != -1073741670 )
       v3 = 0;
-    goto $cleanup$30;
+    goto LABEL_14;
   }
   if ( MEMORY[4] == 10 )
   {
@@ -92,15 +92,15 @@ LABEL_9:
     if ( v9 )
     {
       v10 = (unsigned int)(32 * v9 + 8);
-      Pool2 = (void *)ExAllocatePool2(64LL, v10, 1315074625LL);
-      ArbMmConfigRange = (__int64)Pool2;
-      if ( Pool2 )
-        memmove(Pool2, v2, (unsigned int)v10);
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v10, 0x4E627241u);
+      ArbMmConfigRange = (__int64)PoolWithTag;
+      if ( PoolWithTag )
+        memmove(PoolWithTag, v2, (unsigned int)v10);
     }
     goto LABEL_9;
   }
   v3 = -1073741811;
-$cleanup$30:
+LABEL_14:
   ZwClose(Handle);
   ZwClose(KeyHandle);
   return v3;

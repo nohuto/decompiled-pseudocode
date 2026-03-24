@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpInterruptFindLinesForGsiRange @ 0x14031FD7C
+ * XREFs of HalpInterruptFindLinesForGsiRange @ 0x140378A18
  * Callers:
- *     HalDisableInterrupt @ 0x14031F710 (HalDisableInterrupt.c)
- *     HalpInterruptGsiToLine @ 0x14031FD30 (HalpInterruptGsiToLine.c)
- *     HalpInterruptRegisterLine @ 0x140379AF0 (HalpInterruptRegisterLine.c)
- *     HalpUnmaskInterrupt @ 0x14037CFB0 (HalpUnmaskInterrupt.c)
- *     HalpInterruptApplyOverrides @ 0x14037D0F8 (HalpInterruptApplyOverrides.c)
- *     HalpInterruptGetApicVersion @ 0x1403AA5B0 (HalpInterruptGetApicVersion.c)
- *     HalpMaskInterrupt @ 0x1403B1FF0 (HalpMaskInterrupt.c)
- *     HalpInterruptRequestInterrupt @ 0x140505280 (HalpInterruptRequestInterrupt.c)
- *     HalpInterruptPerformDirectedEndOfInterrupt @ 0x140506828 (HalpInterruptPerformDirectedEndOfInterrupt.c)
- *     HalpInterruptServiceActiveBoth @ 0x14050689C (HalpInterruptServiceActiveBoth.c)
+ *     HalDisableInterrupt @ 0x140376CF0 (HalDisableInterrupt.c)
+ *     HalpInterruptGetApicVersion @ 0x140378010 (HalpInterruptGetApicVersion.c)
+ *     HalpInterruptApplyOverrides @ 0x140378894 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptGsiToLine @ 0x1403789CC (HalpInterruptGsiToLine.c)
+ *     HalpUnmaskInterrupt @ 0x14038C4D0 (HalpUnmaskInterrupt.c)
+ *     HalpMaskInterrupt @ 0x1403A6890 (HalpMaskInterrupt.c)
+ *     HalpInterruptRegisterLine @ 0x1403B2370 (HalpInterruptRegisterLine.c)
+ *     HalpInterruptRequestInterrupt @ 0x1404BC6A0 (HalpInterruptRequestInterrupt.c)
+ *     HalpInterruptPerformDirectedEndOfInterrupt @ 0x1404BDA78 (HalpInterruptPerformDirectedEndOfInterrupt.c)
+ *     HalpInterruptServiceActiveBoth @ 0x1404BDAEC (HalpInterruptServiceActiveBoth.c)
  * Callees:
  *     <none>
  */
@@ -30,7 +30,7 @@ _DWORD *__fastcall HalpInterruptFindLinesForGsiRange(unsigned int a1, unsigned i
   {
     v5 = v2;
     v2 = (ULONG_PTR *)*v2;
-    v6 = (_QWORD **)(v5 + 33);
+    v6 = (_QWORD **)(v5 + 30);
     v7 = *v6;
     while ( v7 != v6 )
     {
@@ -44,7 +44,7 @@ _DWORD *__fastcall HalpInterruptFindLinesForGsiRange(unsigned int a1, unsigned i
         v10 = v8[6] - v8[5] + v9 - 1;
         if ( v10 < a2 && v10 >= a1 )
           return v8;
-        if ( v10 >= a2 && v9 < a1 )
+        if ( v9 < a1 && v10 >= a2 )
           return v8;
       }
     }

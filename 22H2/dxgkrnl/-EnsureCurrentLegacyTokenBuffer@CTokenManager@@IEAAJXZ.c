@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EnsureCurrentLegacyTokenBuffer@CTokenManager@@IEAAJXZ @ 0x1C001BD68
+ * XREFs of ?EnsureCurrentLegacyTokenBuffer@CTokenManager@@IEAAJXZ @ 0x1C001E49C
  * Callers:
- *     ?ProcessGdiSysmemTokens@CTokenManager@@IEAAJXZ @ 0x1C001BC5C (-ProcessGdiSysmemTokens@CTokenManager@@IEAAJXZ.c)
+ *     ?ProcessGdiSysmemTokens@CTokenManager@@IEAAJXZ @ 0x1C001E364 (-ProcessGdiSysmemTokens@CTokenManager@@IEAAJXZ.c)
  * Callees:
- *     ?Create@CLegacyTokenBuffer@@KAJPEAPEAV1@@Z @ 0x1C0017B14 (-Create@CLegacyTokenBuffer@@KAJPEAPEAV1@@Z.c)
+ *     ?Create@CLegacyTokenBuffer@@KAJPEAPEAV1@@Z @ 0x1C0012F04 (-Create@CLegacyTokenBuffer@@KAJPEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall CTokenManager::EnsureCurrentLegacyTokenBuffer(CTokenManager *this)
@@ -14,13 +14,13 @@ __int64 __fastcall CTokenManager::EnsureCurrentLegacyTokenBuffer(CTokenManager *
   __int64 v4; // r10
 
   result = 0LL;
-  if ( !*((_QWORD *)this + 24) )
+  if ( !*((_QWORD *)this + 23) )
   {
-    v2 = (_QWORD *)((char *)this + 168);
-    v3 = (CTokenManager *)*((_QWORD *)this + 21);
-    if ( v3 == (CTokenManager *)((char *)this + 168) )
+    v2 = (_QWORD *)((char *)this + 160);
+    v3 = (CTokenManager *)*((_QWORD *)this + 20);
+    if ( v3 == (CTokenManager *)((char *)this + 160) )
     {
-      return CLegacyTokenBuffer::Create((struct CLegacyTokenBuffer **)this + 24);
+      return CLegacyTokenBuffer::Create((struct CLegacyTokenBuffer **)this + 23);
     }
     else
     {
@@ -28,8 +28,8 @@ __int64 __fastcall CTokenManager::EnsureCurrentLegacyTokenBuffer(CTokenManager *
         __fastfail(3u);
       *v2 = v4;
       *(_QWORD *)(v4 + 8) = v2;
-      --*((_DWORD *)this + 46);
-      *((_QWORD *)this + 24) = v3;
+      --*((_DWORD *)this + 44);
+      *((_QWORD *)this + 23) = v3;
     }
   }
   return result;

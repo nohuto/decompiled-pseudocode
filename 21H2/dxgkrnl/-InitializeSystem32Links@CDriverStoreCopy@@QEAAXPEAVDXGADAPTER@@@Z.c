@@ -1,46 +1,71 @@
 /*
- * XREFs of ?InitializeSystem32Links@CDriverStoreCopy@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0303974
+ * XREFs of ?InitializeSystem32Links@CDriverStoreCopy@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0263340
  * Callers:
- *     ?SetRootDirectory@CDriverStoreCopy@@QEAAXPEAVDXGADAPTER@@PEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z @ 0x1C03042AC (-SetRootDirectory@CDriverStoreCopy@@QEAAXPEAVDXGADAPTER@@PEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_.c)
- *     ?VmBusGetNextHardLink@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C036E4D0 (-VmBusGetNextHardLink@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusGetNextHardLink@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0241DD0 (-VmBusGetNextHardLink@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?SetRootDirectory@CDriverStoreCopy@@QEAAXPEAVDXGADAPTER@@PEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z @ 0x1C0263CA0 (-SetRootDirectory@CDriverStoreCopy@@QEAAXPEAVDXGADAPTER@@PEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_.c)
  * Callees:
- *     DpiGetPnpRegistryKeyName @ 0x1C01DD1E0 (DpiGetPnpRegistryKeyName.c)
- *     ?EnumSingleDriverKey@CDriverStoreCopy@@IEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0303754 (-EnumSingleDriverKey@CDriverStoreCopy@@IEAAJPEAU_UNICODE_STRING@@@Z.c)
+ *     DpiGetPnpRegistryKeyName @ 0x1C01763F0 (DpiGetPnpRegistryKeyName.c)
+ *     ?EnumSingleDriverKey@CDriverStoreCopy@@IEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0263120 (-EnumSingleDriverKey@CDriverStoreCopy@@IEAAJPEAU_UNICODE_STRING@@@Z.c)
  */
 
 void __fastcall CDriverStoreCopy::InitializeSystem32Links(CDriverStoreCopy *this, struct DXGADAPTER *a2)
 {
   int PnpRegistryKeyName; // eax
-  __int64 v5; // r8
-  int v6; // eax
-  struct _UNICODE_STRING *v7; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // rbx
+  __int64 v9; // rax
+  int v10; // eax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  int v14; // eax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  int v18; // eax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  struct _UNICODE_STRING *v22; // [rsp+38h] [rbp+10h] BYREF
 
-  v7 = 0LL;
-  PnpRegistryKeyName = DpiGetPnpRegistryKeyName(*((_QWORD *)a2 + 27), 3, (__int64 *)&v7);
+  v22 = 0LL;
+  PnpRegistryKeyName = DpiGetPnpRegistryKeyName(*((_QWORD *)a2 + 27), 3LL, (__int64 *)&v22);
+  v8 = PnpRegistryKeyName;
   if ( PnpRegistryKeyName >= 0 )
   {
-    v6 = CDriverStoreCopy::EnumSingleDriverKey(this, v7);
-    if ( v6 < 0 )
+    v10 = CDriverStoreCopy::EnumSingleDriverKey(this, v22);
+    v8 = v10;
+    if ( v10 >= 0 )
     {
-      WdLogSingleEntry1(3LL, v6);
-      return;
-    }
-    PnpRegistryKeyName = DpiGetPnpRegistryKeyName(*((_QWORD *)a2 + 27), 2, (__int64 *)&v7);
-    if ( PnpRegistryKeyName >= 0 )
-    {
-      PnpRegistryKeyName = CDriverStoreCopy::EnumSingleDriverKey(this, v7);
-      if ( PnpRegistryKeyName >= 0 )
-        return;
-      v5 = 1143LL;
+      v14 = DpiGetPnpRegistryKeyName(*((_QWORD *)a2 + 27), 2LL, (__int64 *)&v22);
+      v8 = v14;
+      if ( v14 >= 0 )
+      {
+        v18 = CDriverStoreCopy::EnumSingleDriverKey(this, v22);
+        v8 = v18;
+        if ( v18 >= 0 )
+          return;
+        v9 = WdLogNewEntry5_WdWarning(v20, v19, v21);
+        *(_QWORD *)(v9 + 32) = 1139LL;
+      }
+      else
+      {
+        v9 = WdLogNewEntry5_WdWarning(v16, v15, v17);
+        *(_QWORD *)(v9 + 32) = 1133LL;
+      }
     }
     else
     {
-      v5 = 1137LL;
+      v9 = WdLogNewEntry5_WdWarning(v12, v11, v13);
     }
   }
   else
   {
-    v5 = 1124LL;
+    v9 = WdLogNewEntry5_WdWarning(v6, v5, v7);
+    *(_QWORD *)(v9 + 32) = 1120LL;
   }
-  WdLogSingleEntry2(3LL, PnpRegistryKeyName, v5);
+  *(_QWORD *)(v9 + 24) = v8;
+  WdLogEvent5_WdWarning(v9);
 }

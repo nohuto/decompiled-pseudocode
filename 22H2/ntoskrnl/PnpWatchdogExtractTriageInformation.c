@@ -1,94 +1,85 @@
 /*
- * XREFs of PnpWatchdogExtractTriageInformation @ 0x140560E3C
+ * XREFs of PnpWatchdogExtractTriageInformation @ 0x14050EE80
  * Callers:
- *     PnpWatchdogBugcheck @ 0x1405607B4 (PnpWatchdogBugcheck.c)
- *     PnpWatchdogEtwWrite @ 0x140560B10 (PnpWatchdogEtwWrite.c)
+ *     PnpWatchdogBugcheck @ 0x14050EAB0 (PnpWatchdogBugcheck.c)
+ *     PnpWatchdogEtwWrite @ 0x1408AB8E4 (PnpWatchdogEtwWrite.c)
  * Callees:
  *     <none>
  */
 
-__int16 *__fastcall PnpWatchdogExtractTriageInformation(
-        __int64 a1,
-        _QWORD *a2,
-        _QWORD *a3,
-        __int16 **a4,
-        _QWORD *a5,
-        _QWORD *a6)
+_QWORD *__fastcall PnpWatchdogExtractTriageInformation(__int64 a1, _QWORD *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5)
 {
-  int v6; // r10d
-  __int64 v8; // rbx
-  __int64 v9; // rdi
+  int v5; // r10d
+  __int64 v6; // rbx
+  __int64 v7; // r11
+  int v8; // r10d
+  int v9; // r10d
   int v10; // r10d
   int v11; // r10d
-  int v12; // r10d
-  int v13; // r10d
-  __int64 v14; // rcx
-  _QWORD *v15; // rcx
-  _QWORD *v16; // rcx
-  __int64 v17; // rcx
-  __int16 *result; // rax
+  __int64 v12; // rcx
+  _QWORD *v13; // rcx
+  _QWORD *v14; // rcx
+  __int64 v15; // rcx
+  _QWORD *result; // rax
 
-  v6 = *(_DWORD *)(a1 + 16);
+  v5 = *(_DWORD *)(a1 + 16);
+  v6 = 0LL;
   *a2 = 0LL;
-  v8 = 0LL;
-  v9 = 0LL;
-  v10 = v6 - 1;
-  if ( v10 )
+  v7 = 0LL;
+  v8 = v5 - 1;
+  if ( v8 )
   {
-    v11 = v10 - 1;
-    if ( v11 )
+    v9 = v8 - 1;
+    if ( v9 )
     {
-      v12 = v11 - 1;
-      if ( v12 )
+      v10 = v9 - 1;
+      if ( v10 )
       {
-        v13 = v12 - 1;
-        if ( v13 )
+        v11 = v10 - 1;
+        if ( v11 )
         {
-          if ( v13 != 1 )
+          if ( v11 != 1 )
             __fastfail(5u);
-          v14 = *(_QWORD *)(a1 + 24);
-          v9 = *(_QWORD *)(v14 + 8);
-          *a3 = *(_QWORD *)(v14 + 16);
+          v12 = *(_QWORD *)(a1 + 24);
+          v6 = *(_QWORD *)(v12 + 8);
+          *a3 = *(_QWORD *)(v12 + 16);
         }
         else
         {
-          v15 = *(_QWORD **)(a1 + 24);
-          v9 = v15[2];
-          *a3 = v15[3];
-          *a2 = v15[1];
+          v13 = *(_QWORD **)(a1 + 24);
+          v6 = v13[2];
+          *a3 = v13[3];
+          *a2 = v13[1];
         }
       }
       else
       {
-        v16 = *(_QWORD **)(a1 + 24);
-        *a3 = *(_QWORD *)&PnpDelayedRemoveWorkerThread;
-        v8 = v16[1];
-        *a2 = *v16;
+        v14 = *(_QWORD **)(a1 + 24);
+        *a3 = PnpDelayedRemoveWorkerThread;
+        v7 = v14[1];
+        *a2 = *v14;
       }
     }
     else
     {
-      *a3 = PnpDeviceActionThread;
-      v17 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL);
-      *a2 = v17;
-      if ( v17 )
-        v8 = *(_QWORD *)(v17 + 32);
+      *a3 = PnpDeviceActionThread[0];
+      v15 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL);
+      *a2 = v15;
+      if ( v15 )
+        v7 = *(_QWORD *)(v15 + 32);
     }
   }
   else
   {
-    *a3 = *(_QWORD *)&PnpDeviceEventThread;
-    v8 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL);
-    if ( v8 )
-      *a2 = *(_QWORD *)(*(_QWORD *)(v8 + 312) + 40LL);
+    *a3 = PnpDeviceEventThread;
+    v7 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 152LL);
+    if ( v7 )
+      *a2 = *(_QWORD *)(*(_QWORD *)(v7 + 312) + 40LL);
   }
+  if ( a4 )
+    *a4 = v7;
+  result = a5;
   if ( a5 )
-    *a5 = v8;
-  if ( a6 )
-    *a6 = v9;
-  result = &PnpEmptyUnicodeString;
-  if ( *(_WORD *)(a1 + 40) )
-    result = (__int16 *)(a1 + 40);
-  *a4 = result;
+    *a5 = v6;
   return result;
 }

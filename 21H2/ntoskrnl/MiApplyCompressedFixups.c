@@ -1,18 +1,18 @@
 /*
- * XREFs of MiApplyCompressedFixups @ 0x1407BF530
+ * XREFs of MiApplyCompressedFixups @ 0x1405FC7C0
  * Callers:
- *     MiPerformFixups @ 0x1407BF2E0 (MiPerformFixups.c)
+ *     MiPerformFixups @ 0x1405FC5B8 (MiPerformFixups.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-_DWORD *__fastcall MiApplyCompressedFixups(
+_QWORD *__fastcall MiApplyCompressedFixups(
         ULONG_PTR BugCheckParameter2,
-        _DWORD *BugCheckParameter3,
+        _QWORD *BugCheckParameter3,
         __int64 a3,
         __int64 a4)
 {
-  _DWORD *result; // rax
+  _QWORD *result; // rax
   unsigned __int16 v7; // r10
   char v8; // r11
   unsigned __int8 *BugCheckParameter4; // rbx
@@ -22,7 +22,7 @@ _DWORD *__fastcall MiApplyCompressedFixups(
 
   result = BugCheckParameter3;
   v7 = 4;
-  v8 = *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 96) + 32LL) + 64LL) & 0xF;
+  v8 = *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 96) + 32LL) + 68LL) & 0xF;
   BugCheckParameter4 = (unsigned __int8 *)(a3 & 0xFFFFFFFFFFFFFFFEuLL);
   while ( 1 )
   {
@@ -46,20 +46,17 @@ _DWORD *__fastcall MiApplyCompressedFixups(
     do
     {
 LABEL_7:
-      result = (_DWORD *)((char *)result + v7);
-      if ( result >= BugCheckParameter3 + 1024 )
+      result = (_QWORD *)((char *)result + v7);
+      if ( result >= BugCheckParameter3 + 512 )
         KeBugCheckEx(0x1Au, 0x31uLL, BugCheckParameter2, (ULONG_PTR)BugCheckParameter3, (ULONG_PTR)BugCheckParameter4);
-      if ( v8 )
+      if ( v8 == 10 )
       {
-        if ( v8 == 3 )
-        {
-          if ( ((unsigned __int16)result & 0xFFFu) <= 0xFFC )
-            *result += a4;
-        }
-        else if ( v8 == 10 && ((unsigned __int16)result & 0xFFFu) <= 0xFF8 )
-        {
-          *(_QWORD *)result += a4;
-        }
+        if ( ((unsigned __int16)result & 0xFFFu) <= 0xFF8 )
+          *result += a4;
+      }
+      else if ( v8 == 3 && ((unsigned __int16)result & 0xFFFu) <= 0xFFC )
+      {
+        *(_DWORD *)result += a4;
       }
       --v11;
     }

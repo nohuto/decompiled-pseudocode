@@ -1,24 +1,22 @@
 /*
- * XREFs of GetUserEUDCRegistryPath @ 0x1C008A64C
+ * XREFs of GetUserEUDCRegistryPath @ 0x1C00E6EF0
  * Callers:
- *     bReadUserSystemEUDCRegistry @ 0x1C0089700 (bReadUserSystemEUDCRegistry.c)
- *     bAddAllFlEntry @ 0x1C00897FC (bAddAllFlEntry.c)
- *     bWriteUserSystemEUDCRegistry @ 0x1C02A02D8 (bWriteUserSystemEUDCRegistry.c)
+ *     bAddAllFlEntry @ 0x1C00E6908 (bAddAllFlEntry.c)
+ *     bReadUserSystemEUDCRegistry @ 0x1C00E6D18 (bReadUserSystemEUDCRegistry.c)
+ *     bWriteUserSystemEUDCRegistry @ 0x1C029825C (bWriteUserSystemEUDCRegistry.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall GetUserEUDCRegistryPath(WCHAR *a1)
 {
-  __int64 v1; // rdi
   NTSTATUS appended; // ebx
   struct _UNICODE_STRING Destination; // [rsp+20h] [rbp-20h] BYREF
   struct _UNICODE_STRING KeyPath; // [rsp+30h] [rbp-10h] BYREF
 
+  Destination.Buffer = a1;
   *(_QWORD *)&Destination.Length = 17039360LL;
   KeyPath = 0LL;
-  Destination.Buffer = a1;
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
   if ( RtlFormatCurrentUserKeyPath(&KeyPath) < 0 )
   {
     appended = RtlAppendUnicodeToString(&Destination, L"\\Registry\\User\\.DEFAULT");
@@ -27,7 +25,7 @@ __int64 __fastcall GetUserEUDCRegistryPath(WCHAR *a1)
     appended = RtlAppendUnicodeToString(&Destination, L"\\EUDC\\");
     if ( appended < 0 )
       return (unsigned int)appended;
-    appended = RtlAppendUnicodeToString(&Destination, (PCWSTR)(v1 + 13944));
+    appended = RtlAppendUnicodeToString(&Destination, word_1C033C098);
   }
   else
   {
@@ -36,7 +34,7 @@ __int64 __fastcall GetUserEUDCRegistryPath(WCHAR *a1)
     {
       appended = RtlAppendUnicodeToString(&Destination, L"\\EUDC\\");
       if ( appended >= 0 )
-        appended = RtlAppendUnicodeToString(&Destination, (PCWSTR)(v1 + 13944));
+        appended = RtlAppendUnicodeToString(&Destination, word_1C033C098);
     }
     RtlFreeUnicodeString(&KeyPath);
   }

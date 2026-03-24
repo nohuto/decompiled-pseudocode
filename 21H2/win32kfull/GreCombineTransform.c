@@ -1,9 +1,9 @@
 /*
- * XREFs of GreCombineTransform @ 0x1C015F83C
+ * XREFs of GreCombineTransform @ 0x1C016D9B4
  * Callers:
- *     NtGdiCombineTransform @ 0x1C013A620 (NtGdiCombineTransform.c)
+ *     NtGdiCombineTransform @ 0x1C00FBE90 (NtGdiCombineTransform.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall GreCombineTransform(struct _XFORML *a1, __int64 a2, __int64 a3)

@@ -1,8 +1,7 @@
 /*
- * XREFs of ?bRedirHooked@SURFACE@@QEAAHXZ @ 0x1C0096494
+ * XREFs of ?bRedirHooked@SURFACE@@QEAAHXZ @ 0x1C00F8D04
  * Callers:
- *     ?SpTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@K@Z @ 0x1C000B5C0 (-SpTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ.c)
- *     EngDrawStream @ 0x1C0096250 (EngDrawStream.c)
+ *     EngDrawStream @ 0x1C00F8AC0 (EngDrawStream.c)
  * Callees:
  *     <none>
  */

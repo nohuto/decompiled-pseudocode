@@ -1,8 +1,9 @@
 /*
- * XREFs of SepAdtIncorporatePerUserPolicy @ 0x1409CD708
+ * XREFs of SepAdtIncorporatePerUserPolicy @ 0x140920ADC
  * Callers:
- *     SeAuditingWithTokenForSubcategory @ 0x1406BB250 (SeAuditingWithTokenForSubcategory.c)
- *     SepAdtAuditThisEventWithContext @ 0x1406C3580 (SepAdtAuditThisEventWithContext.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x140608B90 (SeAuditingWithTokenForSubcategory.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x140627E10 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140627EE0 (SepAdtAuditThisEventWithContext.c)
  * Callees:
  *     <none>
  */

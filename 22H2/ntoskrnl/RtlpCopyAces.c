@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpCopyAces @ 0x1406C4630
+ * XREFs of RtlpCopyAces @ 0x1406D6190
  * Callers:
- *     RtlpInheritAcl2 @ 0x1406C4180 (RtlpInheritAcl2.c)
- *     RtlpComputeMergedAcl2 @ 0x1409BC98C (RtlpComputeMergedAcl2.c)
+ *     RtlpInheritAcl2 @ 0x1406D5CF0 (RtlpInheritAcl2.c)
+ *     RtlpComputeMergedAcl2 @ 0x1409140A8 (RtlpComputeMergedAcl2.c)
  * Callees:
- *     RtlFindAceByType @ 0x1402AD1C0 (RtlFindAceByType.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlpCopyEffectiveAce @ 0x1406C4B30 (RtlpCopyEffectiveAce.c)
+ *     RtlFindAceByType @ 0x1402D29C0 (RtlFindAceByType.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlpCopyEffectiveAce @ 0x1406D66A0 (RtlpCopyEffectiveAce.c)
  */
 
 __int64 __fastcall RtlpCopyAces(
         __int64 a1,
-        __int64 a2,
+        GENERIC_MAPPING *a2,
         int a3,
         char a4,
         char a5,
@@ -21,289 +21,278 @@ __int64 __fastcall RtlpCopyAces(
         __int64 a8,
         __int64 a9,
         char a10,
-        char a11,
+        __int64 a11,
         int a12,
         unsigned int *a13,
         __int64 a14)
 {
-  char v14; // r14
-  __int64 v15; // r15
-  int v16; // esi
-  __int64 v17; // r11
+  char v14; // r10
+  int v15; // esi
+  GENERIC_MAPPING *GenericMapping; // r11
+  __int64 v17; // r15
   unsigned __int8 v18; // al
-  __int64 v19; // r9
-  unsigned int v20; // edx
-  unsigned __int16 *v21; // r10
-  int *v22; // rcx
-  int *v23; // rbx
-  unsigned int v24; // r8d
-  __int64 v25; // rdi
-  unsigned int v26; // ecx
-  unsigned int v27; // r13d
-  int v28; // eax
+  unsigned __int64 v19; // rcx
+  unsigned int v20; // r8d
+  int *i; // rbx
+  _BYTE *v22; // rdi
+  unsigned int v23; // r12d
+  unsigned int v24; // r13d
+  int v25; // eax
+  signed __int64 v26; // rsi
+  int v27; // ecx
+  GENERIC_MAPPING *v28; // rdx
   int v29; // ecx
-  signed __int64 v30; // rsi
-  bool v31; // r15
-  char v32; // r8
-  bool v33; // cf
-  unsigned int v35; // edx
-  int v36; // ecx
-  __int64 v37; // r8
-  int v38; // ecx
-  int v39; // eax
-  int v40; // eax
-  unsigned __int16 *v41; // rcx
-  int v42; // edx
-  _BYTE v44[15]; // [rsp+81h] [rbp-7Fh] BYREF
-  unsigned int v45; // [rsp+90h] [rbp-70h]
-  __int64 v46; // [rsp+98h] [rbp-68h]
-  void *v47; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v48; // [rsp+A8h] [rbp-58h]
-  int v49; // [rsp+B0h] [rbp-50h]
-  __int64 v50; // [rsp+B8h] [rbp-48h]
-  __int64 v51; // [rsp+C0h] [rbp-40h]
-  __int64 v52; // [rsp+C8h] [rbp-38h]
-  __int64 v53; // [rsp+D0h] [rbp-30h]
-  __int64 v54; // [rsp+D8h] [rbp-28h]
-  unsigned int *v55; // [rsp+E0h] [rbp-20h]
-  int v56; // [rsp+E8h] [rbp-18h]
-  unsigned __int16 v57; // [rsp+ECh] [rbp-14h]
+  unsigned int v30; // eax
+  int v31; // r8d
+  int GenericAll; // eax
+  int v34; // ecx
+  char v35; // al
+  void *v36; // r9
+  bool v37; // r15
+  char v38; // r8
+  int v39; // edx
+  char v40; // [rsp+80h] [rbp-71h]
+  _WORD v42[7]; // [rsp+82h] [rbp-6Fh] BYREF
+  void *v43; // [rsp+90h] [rbp-61h] BYREF
+  GENERIC_MAPPING *v44; // [rsp+98h] [rbp-59h]
+  int v45; // [rsp+A0h] [rbp-51h]
+  __int64 v46; // [rsp+A8h] [rbp-49h]
+  __int64 v47; // [rsp+B0h] [rbp-41h]
+  __int64 v48; // [rsp+B8h] [rbp-39h]
+  __int64 v49; // [rsp+C0h] [rbp-31h]
+  unsigned int *v50; // [rsp+C8h] [rbp-29h]
+  int v51; // [rsp+D0h] [rbp-21h]
+  unsigned __int16 v52; // [rsp+D4h] [rbp-1Dh]
 
   v14 = 0;
-  v15 = a14;
-  v16 = a3;
-  v54 = a6;
-  v17 = a2;
-  v53 = a7;
-  v52 = a8;
-  v51 = a9;
-  v55 = a13;
+  v15 = a3;
+  v49 = a6;
+  GenericMapping = a2;
+  v17 = a1;
+  v48 = a7;
+  v47 = a8;
+  v46 = a9;
+  v50 = a13;
   v18 = *(_BYTE *)a14 - 2;
-  v49 = a3;
-  v19 = a1;
-  v48 = a2;
-  v50 = a1;
-  v46 = a14;
+  v45 = a3;
+  v44 = a2;
+  *(_QWORD *)&v42[3] = a1;
+  v40 = 0;
   if ( v18 > 2u )
     return 3221225560LL;
-  v20 = *(unsigned __int16 *)(a14 + 4);
-  v21 = (unsigned __int16 *)(a14 + 2);
-  v22 = (int *)(a14 + 8);
-  v23 = 0LL;
+  v19 = a14 + 8;
+  v20 = 0;
+  for ( i = 0LL; v20 < *(unsigned __int16 *)(a14 + 4); v19 += *(unsigned __int16 *)(v19 + 2) )
+  {
+    if ( v19 >= a14 + (unsigned __int64)*(unsigned __int16 *)(a14 + 2) )
+      return 3221225597LL;
+    ++v20;
+  }
+  if ( v19 <= a14 + (unsigned __int64)*(unsigned __int16 *)(a14 + 2) )
+    i = (int *)v19;
+  v22 = (_BYTE *)(v17 + 8);
+  v23 = 0;
   v24 = 0;
-  *(_QWORD *)&v44[7] = a14 + 2;
-  if ( v20 )
+  if ( !*(_WORD *)(v17 + 4) )
   {
-    do
-    {
-      if ( (unsigned __int64)v22 >= a14 + (unsigned __int64)*v21 )
-        return 3221225597LL;
-      ++v24;
-      v22 = (int *)((char *)v22 + *((unsigned __int16 *)v22 + 1));
-    }
-    while ( v24 < v20 );
-    v19 = v50;
-  }
-  else
-  {
-    *(_QWORD *)&v44[7] = a14 + 2;
-  }
-  if ( (unsigned __int64)v22 <= a14 + (unsigned __int64)*v21 )
-    v23 = v22;
-  v25 = v19 + 8;
-  v26 = 0;
-  v27 = 0;
-  v45 = 0;
-  if ( !*(_WORD *)(v19 + 4) )
-  {
-LABEL_30:
-    *v55 = v27;
+LABEL_37:
+    *v50 = v23;
     return v14 != 0 ? 0xC0000023 : 0;
   }
-  v28 = a12;
-  do
+  v25 = a12;
+  while ( *v22 != 17 )
   {
-    if ( *(_BYTE *)v25 == 17 )
+    if ( v25 == 3 )
+      goto LABEL_34;
+LABEL_9:
+    switch ( v15 )
     {
-      if ( v28 != 3 )
-        goto LABEL_28;
-      if ( RtlFindAceByType(v15, 17, 0LL) )
-        break;
-      v26 = v45;
-      v19 = v50;
-      v21 = *(unsigned __int16 **)&v44[7];
-      v17 = v48;
-    }
-    else if ( v28 == 3 )
-    {
-      goto LABEL_28;
-    }
-    if ( v16 )
-    {
-      if ( v16 == 1 )
-      {
-        if ( (*(_BYTE *)(v25 + 1) & 0x10) != 0 )
-          goto LABEL_28;
-LABEL_15:
+      case 0:
+        if ( (v22[1] & 0x10) == 0 )
+          break;
+LABEL_12:
         if ( !a5 )
         {
-          v30 = *(unsigned __int16 *)(v25 + 2);
-          if ( v23 && v30 <= v15 + *v21 - (_QWORD)v23 )
+          v26 = *((unsigned __int16 *)v22 + 1);
+          if ( !i || v26 > a14 + *(unsigned __int16 *)(a14 + 2) - (_QWORD)i )
           {
-            if ( !v14 )
+            v14 = 1;
+            v40 = 1;
+            i = (int *)(a14 + *(unsigned __int16 *)(a14 + 2));
+            goto LABEL_33;
+          }
+          if ( !v14 )
+          {
+            memmove(i, v22, *((unsigned __int16 *)v22 + 1));
+            if ( (*(_BYTE *)i < 0xBu || (unsigned __int8)(*(_BYTE *)i - 13) <= 1u) && (*((_BYTE *)i + 1) & 8) == 0 )
             {
-              memmove(v23, (const void *)v25, *(unsigned __int16 *)(v25 + 2));
-              v35 = *(unsigned __int8 *)v23;
-              if ( ((unsigned __int8)v35 < 0xBu || (unsigned __int8)(v35 - 13) <= 1u) && (*((_BYTE *)v23 + 1) & 8) == 0 )
+              v27 = i[1];
+              v28 = v44;
+              if ( v27 < 0 )
               {
-                v36 = v23[1];
-                v37 = v48;
-                if ( v36 < 0 )
-                  v36 |= *(_DWORD *)v48;
-                if ( (v36 & 0x40000000) != 0 )
-                  v36 |= *(_DWORD *)(v48 + 4);
-                if ( (v36 & 0x20000000) != 0 )
-                  v36 |= *(_DWORD *)(v48 + 8);
-                if ( (v36 & 0x10000000) != 0 )
-                  v36 |= *(_DWORD *)(v48 + 12);
-                v38 = v36 & 0xFFFFFFF;
-                v23[1] = v38;
-                if ( (unsigned __int8)v35 <= 0xAu && (v39 = 1651, _bittest(&v39, v35)) )
-                  v40 = *(_DWORD *)(v37 + 12);
-                else
-                  v40 = *(_DWORD *)(v37 + 12) | 0x1000000;
-                v23[1] = v38 & v40;
+                v27 |= v44->GenericRead;
+                i[1] = v27;
               }
-              *((_BYTE *)v23 + 1) &= ~a4;
-              ++*(_WORD *)(v15 + 4);
-              goto LABEL_26;
+              if ( (v27 & 0x40000000) != 0 )
+              {
+                v27 |= v28->GenericWrite;
+                i[1] = v27;
+              }
+              if ( (v27 & 0x20000000) != 0 )
+              {
+                v27 |= v28->GenericExecute;
+                i[1] = v27;
+              }
+              if ( (v27 & 0x10000000) != 0 )
+                v27 |= v28->GenericAll;
+              v29 = v27 & 0xFFFFFFF;
+              i[1] = v29;
+              v30 = *(unsigned __int8 *)i;
+              if ( (unsigned __int8)v30 <= 0xAu && (v31 = 1651, _bittest(&v31, v30)) )
+                GenericAll = v28->GenericAll;
+              else
+                GenericAll = v28->GenericAll | 0x1000000;
+              i[1] = v29 & GenericAll;
             }
+            *((_BYTE *)i + 1) &= ~a4;
+            goto LABEL_31;
+          }
+LABEL_61:
+          i = (int *)(a14 + *(unsigned __int16 *)(a14 + 2));
+          goto LABEL_33;
+        }
+        v34 = 0;
+        v35 = v22[1];
+        v36 = i;
+        *(_DWORD *)&v42[1] = 0;
+        LODWORD(v26) = 0;
+        HIBYTE(v42[0]) = 0;
+        v43 = i;
+        v37 = a10 && (v35 & 3) != 0;
+        if ( (v35 & 8) == 0 )
+        {
+          LOBYTE(v42[0]) = 0;
+          if ( !(unsigned __int8)RtlpCopyEffectiveAce(
+                                   v22,
+                                   v48,
+                                   v47,
+                                   v46,
+                                   GenericMapping,
+                                   0LL,
+                                   0,
+                                   (__int64)&v43,
+                                   (__int64)&v42[1],
+                                   a14,
+                                   0LL,
+                                   (__int64)v42 + 1,
+                                   (__int64)v42) )
+            return 3221225597LL;
+          if ( LOBYTE(v42[0]) )
+          {
+            v14 = 1;
+            v40 = 1;
           }
           else
           {
-            v14 = 1;
+            v14 = v40;
           }
-          goto LABEL_58;
-        }
-        v29 = 0;
-        *(_DWORD *)&v44[3] = 0;
-        LODWORD(v30) = 0;
-        v44[1] = 0;
-        v47 = v23;
-        v31 = a10 && (*(_BYTE *)(v25 + 1) & 3) != 0;
-        if ( (*(_BYTE *)(v25 + 1) & 8) == 0 )
-        {
-          v44[0] = 0;
-          if ( !(unsigned __int8)RtlpCopyEffectiveAce(
-                                   (void *)v25,
-                                   v53,
-                                   v52,
-                                   v51,
-                                   v17,
-                                   0LL,
-                                   0,
-                                   (__int64)&v47,
-                                   (__int64)&v44[3],
-                                   v46,
-                                   0LL,
-                                   (__int64)&v44[1],
-                                   (__int64)v44) )
-            return 3221225597LL;
-          v29 = *(_DWORD *)&v44[3];
-          LODWORD(v30) = *(_DWORD *)&v44[3];
-          if ( v44[0] )
+          v34 = *(_DWORD *)&v42[1];
+          LODWORD(v26) = *(_DWORD *)&v42[1];
+          if ( !v14 && *(_DWORD *)&v42[1] )
           {
-            v14 = 1;
-          }
-          else if ( !v14 && *(_DWORD *)&v44[3] )
-          {
-            v32 = a4;
-            *((_BYTE *)v23 + 1) &= ~a4;
-            v29 = *(_DWORD *)&v44[3];
-LABEL_24:
-            if ( !v31 )
+            v38 = a4;
+            *((_BYTE *)i + 1) &= ~a4;
+            v36 = v43;
+            v34 = *(_DWORD *)&v42[1];
+LABEL_47:
+            if ( !v37 )
+              goto LABEL_48;
+            v39 = *(_DWORD *)(v22 + 10);
+            v51 = 0;
+            v52 = 768;
+            if ( !v39 )
+              v39 = *((unsigned __int16 *)v22 + 7) - v52;
+            if ( v34 && !HIBYTE(v42[0]) )
             {
-LABEL_25:
-              v15 = v46;
+              v17 = *(_QWORD *)&v42[3];
               if ( !v14 )
               {
-LABEL_26:
-                v23 = (int *)((char *)v23 + (unsigned int)v30);
-LABEL_27:
-                v26 = v45;
-                v27 += v30;
-                v19 = v50;
-                goto LABEL_28;
+                *((_BYTE *)i + 1) = ~v38 & (*((_BYTE *)i + 1) | v22[1] & 0x1F);
+                goto LABEL_32;
               }
-              goto LABEL_58;
+              goto LABEL_61;
             }
-            v42 = *(_DWORD *)(v25 + 10);
-            v56 = 0;
-            v57 = 768;
-            if ( !v42 )
-              v42 = *(unsigned __int16 *)(v25 + 14) - v57;
-            if ( !v29 || v44[1] )
+            if ( *v22 > 8u || *((_DWORD *)v22 + 1) || !v39 )
             {
-              if ( *(_BYTE *)v25 > 8u || *(_DWORD *)(v25 + 4) || !v42 )
+              LODWORD(v26) = *((unsigned __int16 *)v22 + 1) + (_DWORD)v26;
+              if ( (unsigned int)v26 > 0xFFFF )
+                return 3221225597LL;
+              if ( *((unsigned __int16 *)v22 + 1) > a14 + *(unsigned __int16 *)(a14 + 2) - (_QWORD)v36 )
               {
-                LODWORD(v30) = *(unsigned __int16 *)(v25 + 2) + (_DWORD)v30;
-                if ( (unsigned int)v30 > 0xFFFF )
-                  return 3221225597LL;
-                v41 = *(unsigned __int16 **)&v44[7];
-                v15 = v46;
-                if ( *(unsigned __int16 *)(v25 + 2) > v46 + (unsigned __int16)**(_WORD **)&v44[7] - (_QWORD)v47 )
-                {
-                  v14 = 1;
-                  v23 = (int *)(v46 + (unsigned __int16)**(_WORD **)&v44[7]);
-                  goto LABEL_27;
-                }
-                if ( !v14 )
-                {
-                  memmove(v47, (const void *)v25, *(unsigned __int16 *)(v25 + 2));
-                  *((_BYTE *)v47 + 1) |= 8u;
-                  *((_BYTE *)v47 + 1) &= ~a4;
-                  ++*(_WORD *)(v15 + 4);
-                  goto LABEL_26;
-                }
-LABEL_59:
-                v23 = (int *)(v15 + *v41);
-                goto LABEL_27;
+                v14 = 1;
+                v40 = 1;
               }
-              goto LABEL_25;
+              else if ( !v14 )
+              {
+                memmove(v36, v22, *((unsigned __int16 *)v22 + 1));
+                v17 = *(_QWORD *)&v42[3];
+                *((_BYTE *)v43 + 1) |= 8u;
+                *((_BYTE *)v43 + 1) &= ~a4;
+LABEL_31:
+                v14 = v40;
+                ++*(_WORD *)(a14 + 4);
+LABEL_32:
+                i = (int *)((char *)i + (unsigned int)v26);
+LABEL_33:
+                v23 += v26;
+                v15 = v45;
+                break;
+              }
             }
-            v15 = v46;
-            if ( !v14 )
+            else
             {
-              *((_BYTE *)v23 + 1) = ~v32 & (*((_BYTE *)v23 + 1) | *(_BYTE *)(v25 + 1) & 0x1F);
-              goto LABEL_26;
+LABEL_48:
+              if ( !v14 )
+              {
+                v17 = *(_QWORD *)&v42[3];
+                goto LABEL_32;
+              }
             }
-LABEL_58:
-            v41 = *(unsigned __int16 **)&v44[7];
-            goto LABEL_59;
+            v17 = *(_QWORD *)&v42[3];
+            goto LABEL_61;
           }
+          v36 = v43;
         }
-        v32 = a4;
-        goto LABEL_24;
-      }
-      if ( v16 == 2 )
-        goto LABEL_15;
+        v38 = a4;
+        goto LABEL_47;
+      case 1:
+        if ( (v22[1] & 0x10) != 0 )
+          break;
+        goto LABEL_12;
+      case 2:
+        goto LABEL_12;
     }
-    else if ( (*(_BYTE *)(v25 + 1) & 0x10) != 0 )
-    {
-      goto LABEL_15;
-    }
-LABEL_28:
-    ++v26;
-    v16 = v49;
-    v25 += *(unsigned __int16 *)(v25 + 2);
-    v21 = *(unsigned __int16 **)&v44[7];
-    v33 = v26 < *(unsigned __int16 *)(v19 + 4);
-    v28 = a12;
-    v17 = v48;
-    v45 = v26;
+LABEL_34:
+    GenericMapping = v44;
+    v22 += *((unsigned __int16 *)v22 + 1);
+    ++v24;
+    v25 = a12;
+    if ( v24 >= *(unsigned __int16 *)(v17 + 4) )
+      goto LABEL_35;
   }
-  while ( v33 );
-  if ( v27 <= 0xFFFF )
-    goto LABEL_30;
+  if ( v25 != 3 )
+    goto LABEL_34;
+  if ( !RtlFindAceByType(a14, 17, 0LL) )
+  {
+    v14 = v40;
+    GenericMapping = v44;
+    goto LABEL_9;
+  }
+LABEL_35:
+  if ( v23 <= 0xFFFF )
+  {
+    v14 = v40;
+    goto LABEL_37;
+  }
   return 3221225597LL;
 }

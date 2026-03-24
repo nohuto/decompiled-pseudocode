@@ -1,41 +1,52 @@
 /*
- * XREFs of CitModerncoreProcessForegroundChange @ 0x1C0234B58
+ * XREFs of CitModerncoreProcessForegroundChange @ 0x1C01FEC20
  * Callers:
- *     ??1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ @ 0x1C0066298 (--1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ.c)
+ *     <none>
  * Callees:
- *     ?CitpProcessForegroundChange@@YAHPEAUtagPROCESSINFO@@PEAUtagWND@@0PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C00A3C38 (-CitpProcessForegroundChange@@YAHPEAUtagPROCESSINFO@@PEAUtagWND@@0PEAUtagSHELL_INPUT_USAGE_DATA_.c)
+ *     ?CitpProcessForegroundChange@@YAHPEAUtagPROCESSINFO@@PEAUtagWND@@0PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C004C738 (-CitpProcessForegroundChange@@YAHPEAUtagPROCESSINFO@@PEAUtagWND@@0PEAUtagSHELL_INPUT_USAGE_DATA_.c)
  */
 
 __int64 __fastcall CitModerncoreProcessForegroundChange(int a1, int a2)
 {
-  struct tagPROCESSINFO *v2; // rbx
-  void *v3; // rsi
+  void *v2; // rbx
+  struct tagPROCESSINFO *v3; // rsi
   struct tagPROCESSINFO *v4; // rdi
+  NTSTATUS v5; // eax
+  struct _KPROCESS *v6; // rcx
+  NTSTATUS v7; // eax
+  struct _KPROCESS *v8; // rcx
   __int64 ProcessWin32Process; // rax
-  __int64 v6; // rax
-  PVOID Object; // [rsp+40h] [rbp+18h] BYREF
-  PEPROCESS Process; // [rsp+48h] [rbp+20h] BYREF
+  __int64 result; // rax
+  PEPROCESS v11; // [rsp+50h] [rbp+30h] BYREF
+  PEPROCESS Process; // [rsp+58h] [rbp+38h] BYREF
 
-  v2 = 0LL;
-  v3 = (void *)a2;
-  Object = 0LL;
-  v4 = 0LL;
+  v2 = (void *)a2;
   Process = 0LL;
-  if ( a1 && PsLookupProcessByProcessId((HANDLE)a1, (PEPROCESS *)&Object) >= 0 )
+  v3 = 0LL;
+  v11 = 0LL;
+  v4 = 0LL;
+  v5 = PsLookupProcessByProcessId((HANDLE)a1, &Process);
+  v6 = Process;
+  if ( v5 < 0 )
+    v6 = 0LL;
+  Process = v6;
+  v7 = PsLookupProcessByProcessId(v2, &v11);
+  v8 = v11;
+  if ( v7 < 0 )
+    v8 = 0LL;
+  v11 = v8;
+  if ( Process )
   {
-    ProcessWin32Process = PsGetProcessWin32Process(Object);
-    v4 = (struct tagPROCESSINFO *)ProcessWin32Process;
-    if ( ProcessWin32Process )
-      v4 = (struct tagPROCESSINFO *)(-(__int64)(*(_QWORD *)ProcessWin32Process != 0LL) & ProcessWin32Process);
-    ObfDereferenceObject(Object);
+    ProcessWin32Process = PsGetProcessWin32Process(Process);
+    v8 = v11;
+    v3 = (struct tagPROCESSINFO *)ProcessWin32Process;
   }
-  if ( (_DWORD)v3 && PsLookupProcessByProcessId(v3, &Process) >= 0 )
-  {
-    v6 = PsGetProcessWin32Process(Process);
-    if ( v6 )
-      v6 &= -(__int64)(*(_QWORD *)v6 != 0LL);
-    v2 = (struct tagPROCESSINFO *)v6;
-    ObfDereferenceObject(Process);
-  }
-  return CitpProcessForegroundChange(v2, 0LL, v4, 0LL);
+  if ( v8 )
+    v4 = (struct tagPROCESSINFO *)PsGetProcessWin32Process(v8);
+  result = CitpProcessForegroundChange(v4, 0LL, v3, 0LL);
+  if ( v11 )
+    result = ObfDereferenceObject(v11);
+  if ( Process )
+    return ObfDereferenceObject(Process);
+  return result;
 }

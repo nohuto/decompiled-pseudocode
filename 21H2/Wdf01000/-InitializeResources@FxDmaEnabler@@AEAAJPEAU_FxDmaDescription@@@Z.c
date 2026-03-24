@@ -1,13 +1,13 @@
 /*
- * XREFs of ?InitializeResources@FxDmaEnabler@@AEAAJPEAU_FxDmaDescription@@@Z @ 0x1C002DBB0
+ * XREFs of ?InitializeResources@FxDmaEnabler@@AEAAJPEAU_FxDmaDescription@@@Z @ 0x1C00322E8
  * Callers:
- *     ?ConfigureDmaAdapter@FxDmaEnabler@@AEAAJPEAU_DEVICE_DESCRIPTION@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C002DB68 (-ConfigureDmaAdapter@FxDmaEnabler@@AEAAJPEAU_DEVICE_DESCRIPTION@@W4_WDF_DMA_DIRECTION@@@Z.c)
+ *     ?ConfigureDmaAdapter@FxDmaEnabler@@AEAAJPEAU_DEVICE_DESCRIPTION@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C0031AA4 (-ConfigureDmaAdapter@FxDmaEnabler@@AEAAJPEAU_DEVICE_DESCRIPTION@@W4_WDF_DMA_DIRECTION@@@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_qLqdi @ 0x1C0055878 (WPP_IFR_SF_qLqdi.c)
- *     WPP_IFR_SF_qii @ 0x1C0055A74 (WPP_IFR_SF_qii.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qLqdi @ 0x1C003289C (WPP_IFR_SF_qLqdi.c)
+ *     WPP_IFR_SF_qii @ 0x1C0032A98 (WPP_IFR_SF_qii.c)
  */
 
 __int64 __fastcall FxDmaEnabler::InitializeResources(FxDmaEnabler *this, _FxDmaDescription *AdapterInfo)
@@ -16,12 +16,12 @@ __int64 __fastcall FxDmaEnabler::InitializeResources(FxDmaEnabler *this, _FxDmaD
   unsigned int *p_NumberOfMapRegisters; // r14
   _DMA_ADAPTER *DmaAdapter; // rax
   _DMA_ADAPTER *v7; // rcx
-  char v8; // al
+  const void *_a1; // rax
+  char v10; // al
   unsigned __int64 *p_PreallocatedSGListSize; // rdx
   signed int _a2; // ebp
-  unsigned __int64 m_MaximumLength; // rdx
-  const void *_a1; // rax
   const void *ObjectHandleUnchecked; // rax
+  unsigned __int64 m_MaximumLength; // rdx
   const void *v15; // rax
   __int64 id; // rdx
   unsigned int flags; // r8d
@@ -42,9 +42,9 @@ __int64 __fastcall FxDmaEnabler::InitializeResources(FxDmaEnabler *this, _FxDmaD
     WPP_IFR_SF_qL(m_Globals, 2u, 0xFu, 0x14u, WPP_FxDmaEnabler_cpp_Traceguids, _a1, 0xC0000001);
     return 3221225473LL;
   }
-  v8 = *((_BYTE *)this + 380);
+  v10 = *((_BYTE *)this + 380);
   p_PreallocatedSGListSize = &AdapterInfo->PreallocatedSGListSize;
-  if ( (v8 & 8) != 0 )
+  if ( (v10 & 8) != 0 )
   {
     traceGuid = (const _GUID *)&AdapterInfo->PreallocatedSGListSize;
     _a2 = ((__int64 (__fastcall *)(_DMA_ADAPTER *, _QWORD, _QWORD, _QWORD))v7->DmaOperations->CalculateScatterGatherList)(
@@ -59,7 +59,7 @@ __int64 __fastcall FxDmaEnabler::InitializeResources(FxDmaEnabler *this, _FxDmaD
       return (unsigned int)_a2;
     }
   }
-  else if ( (v8 & 4) != 0 )
+  else if ( (v10 & 4) != 0 )
   {
     *p_PreallocatedSGListSize = 40LL;
   }

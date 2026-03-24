@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReferenceOwningSession @ 0x140348B5C
+ * XREFs of MiReferenceOwningSession @ 0x1402EC5CC
  * Callers:
- *     MiCapturePfnVm @ 0x140215CFC (MiCapturePfnVm.c)
- *     MiLockStealSystemVm @ 0x14039875C (MiLockStealSystemVm.c)
+ *     MiLockStealSystemVm @ 0x1402EB854 (MiLockStealSystemVm.c)
+ *     MiCapturePfnVm @ 0x140367A50 (MiCapturePfnVm.c)
  * Callees:
- *     MiGetTopLevelPfn @ 0x140215FC0 (MiGetTopLevelPfn.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     MiSelectSessionAttachProcess @ 0x1402C1EB8 (MiSelectSessionAttachProcess.c)
- *     MiTryToAcquireExpansionLockAtDpc @ 0x140348BF8 (MiTryToAcquireExpansionLockAtDpc.c)
+ *     MiSelectSessionAttachProcess @ 0x14020653C (MiSelectSessionAttachProcess.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiTryToAcquireExpansionLockAtDpc @ 0x1402EC668 (MiTryToAcquireExpansionLockAtDpc.c)
+ *     MiGetTopLevelPfn @ 0x140333500 (MiGetTopLevelPfn.c)
  */
 
 _QWORD *__fastcall MiReferenceOwningSession(ULONG_PTR a1)
@@ -15,11 +15,9 @@ _QWORD *__fastcall MiReferenceOwningSession(ULONG_PTR a1)
   __int64 TopLevelPfn; // rax
   unsigned __int64 v3; // rbx
   _QWORD *v4; // rbx
-  __int128 v6; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v7; // [rsp+30h] [rbp-18h]
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  v6 = 0LL;
-  v7 = 0LL;
+  memset(&LockHandle, 0, sizeof(LockHandle));
   TopLevelPfn = MiGetTopLevelPfn(a1);
   if ( (*(_QWORD *)(TopLevelPfn + 24) & 0x4000000000000000LL) != 0 )
   {
@@ -31,10 +29,10 @@ _QWORD *__fastcall MiReferenceOwningSession(ULONG_PTR a1)
     v3 = (*(_QWORD *)TopLevelPfn >> 13) & 0x7FFFFFFFFFF0LL | 0xFFFF800000000000uLL;
     if ( TopLevelPfn != a1 )
       _InterlockedAnd64((volatile signed __int64 *)(TopLevelPfn + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( (unsigned int)MiTryToAcquireExpansionLockAtDpc(&v6) )
+    if ( (unsigned int)MiTryToAcquireExpansionLockAtDpc(&LockHandle) )
     {
       v4 = MiSelectSessionAttachProcess(v3);
-      KxReleaseQueuedSpinLock((volatile signed __int64 **)&v6);
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       return v4;
     }
   }

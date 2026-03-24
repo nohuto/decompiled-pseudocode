@@ -1,26 +1,26 @@
 /*
- * XREFs of PnpProcessRelation @ 0x140868F28
+ * XREFs of PnpProcessRelation @ 0x14074950C
  * Callers:
- *     PnpBuildRemovalRelationList @ 0x140868084 (PnpBuildRemovalRelationList.c)
- *     PnpProcessRelation @ 0x140868F28 (PnpProcessRelation.c)
- *     PnpProcessBusRelations @ 0x140869130 (PnpProcessBusRelations.c)
- *     PnpProcessDependencyRelations @ 0x14086931C (PnpProcessDependencyRelations.c)
+ *     PnpProcessRelation @ 0x14074950C (PnpProcessRelation.c)
+ *     PnpProcessDependencyRelations @ 0x140749770 (PnpProcessDependencyRelations.c)
+ *     PnpProcessBusRelations @ 0x1407497F8 (PnpProcessBusRelations.c)
+ *     PnpBuildRemovalRelationList @ 0x14074C04C (PnpBuildRemovalRelationList.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     PnpQueryDeviceRelations @ 0x140795430 (PnpQueryDeviceRelations.c)
- *     PipClearDevNodeFlags @ 0x14079856C (PipClearDevNodeFlags.c)
- *     PnpProcessRelation @ 0x140868F28 (PnpProcessRelation.c)
- *     PnpProcessBusRelations @ 0x140869130 (PnpProcessBusRelations.c)
- *     IopAddRelationToList @ 0x14086918C (IopAddRelationToList.c)
- *     PipIsDeviceInDeviceObjectList @ 0x14086921C (PipIsDeviceInDeviceObjectList.c)
- *     PnpProcessDependencyRelations @ 0x14086931C (PnpProcessDependencyRelations.c)
- *     IopMergeRelationLists @ 0x14096CAE4 (IopMergeRelationLists.c)
- *     IopRemoveRelationFromList @ 0x14096CC54 (IopRemoveRelationFromList.c)
- *     IopCancelPendingEject @ 0x14096CD38 (IopCancelPendingEject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     PipClearDevNodeFlags @ 0x140742F14 (PipClearDevNodeFlags.c)
+ *     PnpQueryDeviceRelations @ 0x1407433D8 (PnpQueryDeviceRelations.c)
+ *     PnpProcessRelation @ 0x14074950C (PnpProcessRelation.c)
+ *     PnpProcessDependencyRelations @ 0x140749770 (PnpProcessDependencyRelations.c)
+ *     PnpProcessBusRelations @ 0x1407497F8 (PnpProcessBusRelations.c)
+ *     IopAddRelationToList @ 0x1407498C8 (IopAddRelationToList.c)
+ *     IopIsRelationInList @ 0x1408B275C (IopIsRelationInList.c)
+ *     IopMergeRelationLists @ 0x1408B2778 (IopMergeRelationLists.c)
+ *     IopRemoveRelationFromList @ 0x1408B28E4 (IopRemoveRelationFromList.c)
+ *     IopCancelPendingEject @ 0x1408B29C8 (IopCancelPendingEject.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpProcessRelation(
@@ -39,99 +39,99 @@ __int64 __fastcall PnpProcessRelation(
   int v14; // ecx
   _QWORD *v15; // rcx
   unsigned int v16; // r14d
-  ULONG_PTR v17; // rsi
-  __int64 v18; // rcx
-  __int64 v19; // rcx
+  struct _DMA_ADAPTER *v17; // rsi
+  _DMA_OPERATIONS *DmaOperations; // rcx
+  unsigned __int8 (__fastcall *v19)(_DMA_ADAPTER *, _MDL *, void *, void *, unsigned int, unsigned __int8); // rcx
   int v20; // r12d
   int v21; // ecx
-  __int64 v22; // rcx
-  _WORD *v23; // rcx
-  __int64 v24; // rcx
+  _DMA_OPERATIONS *v22; // rcx
+  void (__fastcall **p_FreeMapRegisters)(_DMA_ADAPTER *, void *, unsigned int); // rcx
+  unsigned __int8 (__fastcall *FlushAdapterBuffers)(_DMA_ADAPTER *, _MDL *, void *, void *, unsigned int, unsigned __int8); // rcx
   unsigned __int16 *v25; // rdi
-  _WORD *v26; // rcx
-  __int64 v27; // rax
+  _DMA_OPERATIONS *v26; // rdx
+  _WORD *v27; // rcx
   __int64 v28; // rcx
-  unsigned int v29; // r14d
-  ULONG_PTR v30; // rsi
-  __int64 v31; // rcx
-  __int64 v32; // rcx
-  __int64 v33; // rcx
-  _WORD *v34; // rcx
-  __int64 v35; // rcx
-  unsigned __int16 *v36; // rdi
-  _WORD *v37; // rcx
-  __int64 v38; // rax
-  __int64 v39; // rcx
-  __int64 *i; // rsi
-  _QWORD *v41; // rcx
-  __int64 v42; // rcx
+  _WORD *v29; // rcx
+  __int64 v30; // rcx
+  unsigned int v31; // r14d
+  struct _DMA_ADAPTER *v32; // rsi
+  _DMA_OPERATIONS *v33; // rcx
+  unsigned __int8 (__fastcall *v34)(_DMA_ADAPTER *, _MDL *, void *, void *, unsigned int, unsigned __int8); // rcx
+  _DMA_OPERATIONS *v35; // rcx
+  void (__fastcall **v36)(_DMA_ADAPTER *, void *, unsigned int); // rcx
+  unsigned __int8 (__fastcall *v37)(_DMA_ADAPTER *, _MDL *, void *, void *, unsigned int, unsigned __int8); // rcx
+  unsigned __int16 *v38; // rdi
+  _DMA_OPERATIONS *v39; // rdx
+  _WORD *v40; // rcx
+  __int64 v41; // rcx
+  _WORD *v42; // rcx
   __int64 v43; // rcx
-  _WORD *v44; // rcx
+  __int64 *v44; // rsi
   __int64 v45; // rcx
-  __int64 v46; // rax
-  __int64 v47; // rsi
-  __int64 v48; // rdx
+  ULONG_PTR v46; // r8
+  __int64 v47; // rcx
+  _WORD *v48; // rcx
   __int64 v49; // rcx
-  __int64 v50; // r8
+  __int64 v50; // rsi
   __int64 v51; // rcx
-  __int64 v52; // rcx
-  __int64 v53; // r8
+  ULONG_PTR v52; // rcx
+  __int64 v53; // rdx
   __int64 v54; // rcx
-  __int64 v55; // rdx
-  __int64 v56; // rcx
-  __int64 v57; // r8
-  __int64 v58; // rax
-  __int64 v59; // rcx
+  __int64 v55; // rcx
+  __int64 v56; // rdx
+  __int64 v57; // rcx
+  __int64 v58; // rdx
+  __int64 v59; // rax
   __int64 v60; // rcx
-  __int64 v61; // r8
-  __int64 v62; // rax
+  __int64 v61; // rcx
+  __int64 v62; // rdx
   __int64 v63; // rcx
-  __int64 v64; // rcx
-  _WORD *v65; // rcx
-  __int64 v66; // rcx
-  __int64 v67; // rax
+  ULONG_PTR v64; // r8
+  __int64 v65; // rcx
+  _WORD *v66; // rcx
+  __int64 v67; // rcx
   __int64 v68; // rsi
-  __int64 v69; // rdx
-  __int64 v70; // rcx
-  __int64 v71; // r8
+  __int64 v69; // rcx
+  ULONG_PTR v70; // rcx
+  __int64 v71; // rdx
   __int64 v72; // rcx
   __int64 v73; // rcx
-  __int64 v74; // r8
+  __int64 v74; // rdx
   __int64 v75; // rcx
   __int64 v76; // rdx
-  __int64 v77; // rcx
-  __int64 v78; // r8
-  __int64 v79; // rax
-  __int64 v80; // rcx
-  __int64 v81; // rcx
+  __int64 v77; // rax
+  __int64 v78; // rcx
+  __int64 v79; // rcx
+  __int64 v80; // rdx
   PVOID P[2]; // [rsp+30h] [rbp-38h] BYREF
-  int v83; // [rsp+80h] [rbp+18h]
+  int v82; // [rsp+80h] [rbp+18h]
 
-  v83 = a3;
+  v82 = a3;
   v5 = 0LL;
   P[0] = 0LL;
   v7 = a3;
-  if ( (a2 & 0xFFFFFFFB) != 0 )
+  if ( (a2 & 0xFFFFFFFB) == 0 )
   {
-    if ( *(_DWORD *)(a1 + 300) == 790 )
-      return 0LL;
-    goto LABEL_3;
-  }
-  v21 = *(_DWORD *)(a1 + 300);
-  if ( (unsigned int)(v21 - 784) <= 1 || v21 == 790 )
-  {
-    *(_DWORD *)a4 = 13;
-    goto LABEL_154;
-  }
-  if ( *(int *)(a1 + 656) > 0 || ((v21 - 787) & 0xFFFFFFFD) == 0 )
-  {
-    *(_DWORD *)a4 = 5;
-LABEL_154:
+    v21 = *(_DWORD *)(a1 + 300);
+    if ( (unsigned int)(v21 - 782) <= 1 || v21 == 788 )
+    {
+      *(_DWORD *)a4 = 13;
+    }
+    else
+    {
+      if ( *(int *)(a1 + 656) <= 0 && ((v21 - 785) & 0xFFFFFFFD) != 0 )
+      {
+        if ( (unsigned int)(v21 - 778) <= 1 )
+          return 3221225488LL;
+        goto LABEL_3;
+      }
+      *(_DWORD *)a4 = 5;
+    }
     RtlCopyUnicodeString((PUNICODE_STRING)(a4 + 8), (PCUNICODE_STRING)(a1 + 40));
     return 3221225473LL;
   }
-  if ( v21 == 780 || v21 == 781 )
-    return 3221225488LL;
+  if ( *(_DWORD *)(a1 + 300) == 788 )
+    return 0LL;
 LABEL_3:
   v10 = BugCheckParameter3;
   v11 = IopAddRelationToList(BugCheckParameter3, *(_QWORD *)(a1 + 32), a3, 0LL);
@@ -144,215 +144,233 @@ LABEL_3:
     }
     else if ( v11 != -1073741670 )
     {
-      v63 = *(_QWORD *)(a1 + 32);
-      if ( v63 )
+      v64 = *(_QWORD *)(a1 + 32);
+      if ( v64 )
       {
-        IoAddTriageDumpDataBlock(v63, (PVOID)*(unsigned __int16 *)(v63 + 2));
-        v64 = *(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL);
-        if ( v64 )
+        IoAddTriageDumpDataBlock(*(_QWORD *)(a1 + 32), (PVOID)*(unsigned __int16 *)(v64 + 2));
+        v64 = *(_QWORD *)(a1 + 32);
+        v65 = *(_QWORD *)(v64 + 8);
+        if ( v65 )
         {
-          IoAddTriageDumpDataBlock(v64, (PVOID)(unsigned int)*(__int16 *)(v64 + 2));
-          v65 = (_WORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL) + 56LL);
-          if ( *v65 )
+          IoAddTriageDumpDataBlock(v65, (PVOID)(unsigned int)*(__int16 *)(v65 + 2));
+          v64 = *(_QWORD *)(a1 + 32);
+          v66 = (_WORD *)(*(_QWORD *)(v64 + 8) + 56LL);
+          if ( *v66 )
           {
-            IoAddTriageDumpDataBlock((ULONG)v65, (PVOID)2);
+            IoAddTriageDumpDataBlock((ULONG)v66, (PVOID)2);
             IoAddTriageDumpDataBlock(
               *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL) + 64LL),
               (PVOID)*(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL) + 56LL));
+            v64 = *(_QWORD *)(a1 + 32);
           }
         }
-        v66 = *(_QWORD *)(a1 + 32);
-        if ( v66 )
+        if ( v64 )
+          v67 = *(_QWORD *)(*(_QWORD *)(v64 + 312) + 40LL);
+        else
+          v67 = 0LL;
+        if ( v67 )
         {
-          v67 = *(_QWORD *)(v66 + 312);
-          if ( *(_QWORD *)(v67 + 40) )
+          if ( v64 )
+            v68 = *(_QWORD *)(*(_QWORD *)(v64 + 312) + 40LL);
+          else
+            v68 = 0LL;
+          if ( v64 )
+            v69 = *(_QWORD *)(*(_QWORD *)(v64 + 312) + 40LL);
+          else
+            LODWORD(v69) = 0;
+          IoAddTriageDumpDataBlock(v69, (PVOID)0x310);
+          if ( *(_WORD *)(v68 + 40) )
           {
-            v68 = *(_QWORD *)(v67 + 40);
-            IoAddTriageDumpDataBlock(v68, (PVOID)0x388);
-            if ( *(_WORD *)(v68 + 40) )
-            {
-              IoAddTriageDumpDataBlock(v68 + 40, (PVOID)2);
-              IoAddTriageDumpDataBlock(*(_QWORD *)(v68 + 48), (PVOID)*(unsigned __int16 *)(v68 + 40));
-            }
-            v69 = *(_QWORD *)(a1 + 32);
-            v70 = v69 + 312;
-            if ( v69 )
-              v71 = *(_QWORD *)(*(_QWORD *)v70 + 40LL);
+            IoAddTriageDumpDataBlock(v68 + 40, (PVOID)2);
+            IoAddTriageDumpDataBlock(*(_QWORD *)(v68 + 48), (PVOID)*(unsigned __int16 *)(v68 + 40));
+          }
+          v70 = *(_QWORD *)(a1 + 32);
+          if ( v70 )
+            v71 = *(_QWORD *)(*(_QWORD *)(v70 + 312) + 40LL);
+          else
+            v71 = 0LL;
+          if ( *(_WORD *)(v71 + 56) )
+          {
+            if ( v70 )
+              v72 = *(_QWORD *)(*(_QWORD *)(v70 + 312) + 40LL);
             else
-              v71 = 0LL;
-            if ( *(_WORD *)(v71 + 56) )
-            {
-              if ( v69 )
-                v72 = *(_QWORD *)(*(_QWORD *)v70 + 40LL);
-              else
-                LODWORD(v72) = 0;
-              IoAddTriageDumpDataBlock(v72 + 56, (PVOID)2);
-              v73 = *(_QWORD *)(a1 + 32);
-              if ( v73 )
-              {
-                v74 = *(_QWORD *)(*(_QWORD *)(v73 + 312) + 40LL);
-                v75 = v74;
-              }
-              else
-              {
-                v74 = 0LL;
-                v75 = 0LL;
-              }
-              IoAddTriageDumpDataBlock(*(_QWORD *)(v74 + 64), (PVOID)*(unsigned __int16 *)(v75 + 56));
-            }
-            v76 = *(_QWORD *)(a1 + 32);
-            v77 = v76 + 312;
-            if ( v76 )
-              v78 = *(_QWORD *)(*(_QWORD *)v77 + 40LL);
+              LODWORD(v72) = 0;
+            IoAddTriageDumpDataBlock(v72 + 56, (PVOID)2);
+            v73 = *(_QWORD *)(a1 + 32);
+            if ( v73 )
+              v74 = *(_QWORD *)(*(_QWORD *)(v73 + 312) + 40LL);
             else
-              v78 = 0LL;
-            if ( *(_QWORD *)(v78 + 16) )
+              v74 = 0LL;
+            if ( v73 )
+              v75 = *(_QWORD *)(*(_QWORD *)(v73 + 312) + 40LL);
+            else
+              v75 = 0LL;
+            IoAddTriageDumpDataBlock(*(_QWORD *)(v75 + 64), (PVOID)*(unsigned __int16 *)(v74 + 56));
+            v70 = *(_QWORD *)(a1 + 32);
+          }
+          if ( v70 )
+            v76 = *(_QWORD *)(*(_QWORD *)(v70 + 312) + 40LL);
+          else
+            v76 = 0LL;
+          v64 = v70;
+          if ( *(_QWORD *)(v76 + 16) )
+          {
+            v77 = v70 ? *(_QWORD *)(*(_QWORD *)(v70 + 312) + 40LL) : 0LL;
+            if ( *(_WORD *)(*(_QWORD *)(v77 + 16) + 56LL) )
             {
-              v79 = v76 ? *(_QWORD *)(*(_QWORD *)v77 + 40LL) : 0LL;
-              if ( *(_WORD *)(*(_QWORD *)(v79 + 16) + 56LL) )
-              {
-                if ( v76 )
-                  v80 = *(_QWORD *)(*(_QWORD *)v77 + 40LL);
-                else
-                  v80 = 0LL;
-                IoAddTriageDumpDataBlock(*(_QWORD *)(v80 + 16) + 56, (PVOID)2);
-                v81 = *(_QWORD *)(a1 + 32);
-                if ( v81 )
-                  v5 = *(_QWORD *)(*(_QWORD *)(v81 + 312) + 40LL);
-                IoAddTriageDumpDataBlock(
-                  *(_QWORD *)(*(_QWORD *)(v5 + 16) + 64LL),
-                  (PVOID)*(unsigned __int16 *)(*(_QWORD *)(v5 + 16) + 56LL));
-              }
+              if ( v70 )
+                v78 = *(_QWORD *)(*(_QWORD *)(v70 + 312) + 40LL);
+              else
+                v78 = 0LL;
+              IoAddTriageDumpDataBlock(*(_QWORD *)(v78 + 16) + 56, (PVOID)2);
+              v79 = *(_QWORD *)(a1 + 32);
+              if ( v79 )
+                v80 = *(_QWORD *)(*(_QWORD *)(v79 + 312) + 40LL);
+              else
+                v80 = 0LL;
+              if ( v79 )
+                v5 = *(_QWORD *)(*(_QWORD *)(v79 + 312) + 40LL);
+              IoAddTriageDumpDataBlock(
+                *(_QWORD *)(*(_QWORD *)(v5 + 16) + 64LL),
+                (PVOID)*(unsigned __int16 *)(*(_QWORD *)(v80 + 16) + 56LL));
+              v64 = *(_QWORD *)(a1 + 32);
             }
           }
         }
       }
-      KeBugCheckEx(0xCAu, 7uLL, *(_QWORD *)(a1 + 32), BugCheckParameter3, BugCheckParameter4);
+      KeBugCheckEx(0xCAu, 7uLL, v64, BugCheckParameter3, BugCheckParameter4);
     }
     return (unsigned int)BugCheckParameter4;
   }
   if ( (*(_DWORD *)(a1 + 396) & 0x80000) != 0 )
   {
-    for ( i = (__int64 *)IopPendingEjects; ; i = (__int64 *)*i )
+    v44 = (__int64 *)IopPendingEjects;
+    if ( (__int64 *)IopPendingEjects == &IopPendingEjects )
+      goto LABEL_80;
+    while ( 1 )
     {
-      if ( i == &IopPendingEjects )
-        goto LABEL_80;
-      v41 = (_QWORD *)i[8];
-      if ( v41 )
+      v45 = v44[8];
+      if ( v45 )
       {
-        if ( (unsigned __int8)PipIsDeviceInDeviceObjectList(*v41, *(_QWORD *)(a1 + 32), 0LL) )
+        if ( (unsigned __int8)IopIsRelationInList(v45, *(_QWORD *)(a1 + 32)) )
           break;
       }
+      v44 = (__int64 *)*v44;
+      if ( v44 == &IopPendingEjects )
+        goto LABEL_79;
     }
     if ( a2 == 4 )
     {
       LODWORD(BugCheckParameter4) = IopRemoveRelationFromList(BugCheckParameter3, *(_QWORD *)(a1 + 32));
-      IopCancelPendingEject(i);
-      IopMergeRelationLists(BugCheckParameter3, i[8], 0LL);
-      if ( v83 == 2 )
+      IopCancelPendingEject(v44);
+      IopMergeRelationLists(BugCheckParameter3, v44[8], 0LL);
+      if ( v82 == 2 )
         IopAddRelationToList(BugCheckParameter3, *(_QWORD *)(a1 + 32), 2LL, 0LL);
 LABEL_79:
-      if ( i == &IopPendingEjects )
-      {
+      if ( v44 != &IopPendingEjects )
+        return (unsigned int)BugCheckParameter4;
 LABEL_80:
-        v42 = *(_QWORD *)(a1 + 32);
-        if ( v42 )
+      v46 = *(_QWORD *)(a1 + 32);
+      if ( v46 )
+      {
+        IoAddTriageDumpDataBlock(*(_QWORD *)(a1 + 32), (PVOID)*(unsigned __int16 *)(v46 + 2));
+        v46 = *(_QWORD *)(a1 + 32);
+        v47 = *(_QWORD *)(v46 + 8);
+        if ( v47 )
         {
-          IoAddTriageDumpDataBlock(v42, (PVOID)*(unsigned __int16 *)(v42 + 2));
-          v43 = *(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL);
-          if ( v43 )
+          IoAddTriageDumpDataBlock(v47, (PVOID)(unsigned int)*(__int16 *)(v47 + 2));
+          v46 = *(_QWORD *)(a1 + 32);
+          v48 = (_WORD *)(*(_QWORD *)(v46 + 8) + 56LL);
+          if ( *v48 )
           {
-            IoAddTriageDumpDataBlock(v43, (PVOID)(unsigned int)*(__int16 *)(v43 + 2));
-            v44 = (_WORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL) + 56LL);
-            if ( *v44 )
-            {
-              IoAddTriageDumpDataBlock((ULONG)v44, (PVOID)2);
-              IoAddTriageDumpDataBlock(
-                *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL) + 64LL),
-                (PVOID)*(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL) + 56LL));
-            }
+            IoAddTriageDumpDataBlock((ULONG)v48, (PVOID)2);
+            IoAddTriageDumpDataBlock(
+              *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL) + 64LL),
+              (PVOID)*(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL) + 56LL));
+            v46 = *(_QWORD *)(a1 + 32);
           }
-          v45 = *(_QWORD *)(a1 + 32);
-          if ( v45 )
+        }
+        if ( v46 )
+          v49 = *(_QWORD *)(*(_QWORD *)(v46 + 312) + 40LL);
+        else
+          v49 = 0LL;
+        if ( v49 )
+        {
+          if ( v46 )
+            v50 = *(_QWORD *)(*(_QWORD *)(v46 + 312) + 40LL);
+          else
+            v50 = 0LL;
+          if ( v46 )
+            v51 = *(_QWORD *)(*(_QWORD *)(v46 + 312) + 40LL);
+          else
+            LODWORD(v51) = 0;
+          IoAddTriageDumpDataBlock(v51, (PVOID)0x310);
+          if ( *(_WORD *)(v50 + 40) )
           {
-            v46 = *(_QWORD *)(v45 + 312);
-            if ( *(_QWORD *)(v46 + 40) )
+            IoAddTriageDumpDataBlock(v50 + 40, (PVOID)2);
+            IoAddTriageDumpDataBlock(*(_QWORD *)(v50 + 48), (PVOID)*(unsigned __int16 *)(v50 + 40));
+          }
+          v52 = *(_QWORD *)(a1 + 32);
+          if ( v52 )
+            v53 = *(_QWORD *)(*(_QWORD *)(v52 + 312) + 40LL);
+          else
+            v53 = 0LL;
+          if ( *(_WORD *)(v53 + 56) )
+          {
+            if ( v52 )
+              v54 = *(_QWORD *)(*(_QWORD *)(v52 + 312) + 40LL);
+            else
+              LODWORD(v54) = 0;
+            IoAddTriageDumpDataBlock(v54 + 56, (PVOID)2);
+            v55 = *(_QWORD *)(a1 + 32);
+            if ( v55 )
+              v56 = *(_QWORD *)(*(_QWORD *)(v55 + 312) + 40LL);
+            else
+              v56 = 0LL;
+            if ( v55 )
+              v57 = *(_QWORD *)(*(_QWORD *)(v55 + 312) + 40LL);
+            else
+              v57 = 0LL;
+            IoAddTriageDumpDataBlock(*(_QWORD *)(v57 + 64), (PVOID)*(unsigned __int16 *)(v56 + 56));
+            v52 = *(_QWORD *)(a1 + 32);
+          }
+          if ( v52 )
+            v58 = *(_QWORD *)(*(_QWORD *)(v52 + 312) + 40LL);
+          else
+            v58 = 0LL;
+          v46 = v52;
+          if ( *(_QWORD *)(v58 + 16) )
+          {
+            v59 = v52 ? *(_QWORD *)(*(_QWORD *)(v52 + 312) + 40LL) : 0LL;
+            if ( *(_WORD *)(*(_QWORD *)(v59 + 16) + 56LL) )
             {
-              v47 = *(_QWORD *)(v46 + 40);
-              IoAddTriageDumpDataBlock(v47, (PVOID)0x388);
-              if ( *(_WORD *)(v47 + 40) )
-              {
-                IoAddTriageDumpDataBlock(v47 + 40, (PVOID)2);
-                IoAddTriageDumpDataBlock(*(_QWORD *)(v47 + 48), (PVOID)*(unsigned __int16 *)(v47 + 40));
-              }
-              v48 = *(_QWORD *)(a1 + 32);
-              v49 = v48 + 312;
-              if ( v48 )
-                v50 = *(_QWORD *)(*(_QWORD *)v49 + 40LL);
+              if ( v52 )
+                v60 = *(_QWORD *)(*(_QWORD *)(v52 + 312) + 40LL);
               else
-                v50 = 0LL;
-              if ( *(_WORD *)(v50 + 56) )
-              {
-                if ( v48 )
-                  v51 = *(_QWORD *)(*(_QWORD *)v49 + 40LL);
-                else
-                  LODWORD(v51) = 0;
-                IoAddTriageDumpDataBlock(v51 + 56, (PVOID)2);
-                v52 = *(_QWORD *)(a1 + 32);
-                if ( v52 )
-                {
-                  v53 = *(_QWORD *)(*(_QWORD *)(v52 + 312) + 40LL);
-                  v54 = v53;
-                }
-                else
-                {
-                  v53 = 0LL;
-                  v54 = 0LL;
-                }
-                IoAddTriageDumpDataBlock(*(_QWORD *)(v53 + 64), (PVOID)*(unsigned __int16 *)(v54 + 56));
-              }
-              v55 = *(_QWORD *)(a1 + 32);
-              v56 = v55 + 312;
-              if ( v55 )
-                v57 = *(_QWORD *)(*(_QWORD *)v56 + 40LL);
+                v60 = 0LL;
+              IoAddTriageDumpDataBlock(*(_QWORD *)(v60 + 16) + 56, (PVOID)2);
+              v61 = *(_QWORD *)(a1 + 32);
+              if ( v61 )
+                v62 = *(_QWORD *)(*(_QWORD *)(v61 + 312) + 40LL);
               else
-                v57 = 0LL;
-              if ( *(_QWORD *)(v57 + 16) )
-              {
-                v58 = v55 ? *(_QWORD *)(*(_QWORD *)v56 + 40LL) : 0LL;
-                if ( *(_WORD *)(*(_QWORD *)(v58 + 16) + 56LL) )
-                {
-                  if ( v55 )
-                    v59 = *(_QWORD *)(*(_QWORD *)v56 + 40LL);
-                  else
-                    v59 = 0LL;
-                  IoAddTriageDumpDataBlock(*(_QWORD *)(v59 + 16) + 56, (PVOID)2);
-                  v60 = *(_QWORD *)(a1 + 32);
-                  if ( v60 )
-                  {
-                    v61 = *(_QWORD *)(*(_QWORD *)(v60 + 312) + 40LL);
-                    v62 = v61;
-                  }
-                  else
-                  {
-                    v61 = 0LL;
-                    v62 = 0LL;
-                  }
-                  IoAddTriageDumpDataBlock(
-                    *(_QWORD *)(*(_QWORD *)(v61 + 16) + 64LL),
-                    (PVOID)*(unsigned __int16 *)(*(_QWORD *)(v62 + 16) + 56LL));
-                }
-              }
+                v62 = 0LL;
+              if ( v61 )
+                v63 = *(_QWORD *)(*(_QWORD *)(v61 + 312) + 40LL);
+              else
+                v63 = 0LL;
+              IoAddTriageDumpDataBlock(
+                *(_QWORD *)(*(_QWORD *)(v63 + 16) + 64LL),
+                (PVOID)*(unsigned __int16 *)(*(_QWORD *)(v62 + 16) + 56LL));
+              v46 = *(_QWORD *)(a1 + 32);
             }
           }
         }
-        KeBugCheckEx(0xCAu, 6uLL, *(_QWORD *)(a1 + 32), 0LL, 0LL);
       }
-      return (unsigned int)BugCheckParameter4;
+      KeBugCheckEx(0xCAu, 6uLL, v46, 0LL, 0LL);
     }
     if ( a2 )
     {
-      LODWORD(BugCheckParameter4) = IopRemoveRelationFromList(i[8], *(_QWORD *)(a1 + 32));
+      LODWORD(BugCheckParameter4) = IopRemoveRelationFromList(v44[8], *(_QWORD *)(a1 + 32));
       PipClearDevNodeFlags(a1, 0x80000);
       goto LABEL_79;
     }
@@ -362,9 +380,9 @@ LABEL_80:
   if ( (int)result >= 0 )
   {
     v14 = *(_DWORD *)(a1 + 300);
-    if ( (unsigned int)(v14 - 784) <= 1 )
+    if ( (unsigned int)(v14 - 782) <= 1 )
       v14 = *(_DWORD *)(a1 + 304);
-    if ( ((unsigned int)(v14 - 777) <= 1 || (unsigned int)(v14 - 780) <= 1)
+    if ( ((unsigned int)(v14 - 775) <= 1 || (unsigned int)(v14 - 778) <= 1)
       && (int)PnpQueryDeviceRelations(*(_QWORD *)(a1 + 32), 3, 0LL, (__int64)P) >= 0 )
     {
       v15 = P[0];
@@ -375,57 +393,65 @@ LABEL_80:
         {
           do
           {
-            v17 = v15[v16 + 1];
-            v18 = *(_QWORD *)(v17 + 312);
-            if ( (*(_DWORD *)(v18 + 32) & 2) != 0 || (v19 = *(_QWORD *)(v18 + 40)) == 0 || !*(_QWORD *)(v19 + 16) )
+            v17 = (struct _DMA_ADAPTER *)v15[v16 + 1];
+            DmaOperations = v17[19].DmaOperations;
+            if ( ((__int64)DmaOperations->AllocateAdapterChannel & 2) != 0
+              || (v19 = DmaOperations->FlushAdapterBuffers) == 0LL
+              || !*((_QWORD *)v19 + 2) )
             {
-              IoAddTriageDumpDataBlock(v17, (PVOID)*(unsigned __int16 *)(v17 + 2));
-              v22 = *(_QWORD *)(v17 + 8);
+              IoAddTriageDumpDataBlock((ULONG)v17, (PVOID)v17->Size);
+              v22 = v17->DmaOperations;
               if ( v22 )
               {
-                IoAddTriageDumpDataBlock(v22, (PVOID)(unsigned int)*(__int16 *)(v22 + 2));
-                v23 = (_WORD *)(*(_QWORD *)(v17 + 8) + 56LL);
-                if ( *v23 )
+                IoAddTriageDumpDataBlock((ULONG)v22, (PVOID)(unsigned int)SHIWORD(v22->Size));
+                p_FreeMapRegisters = &v17->DmaOperations->FreeMapRegisters;
+                if ( *(_WORD *)p_FreeMapRegisters )
                 {
-                  IoAddTriageDumpDataBlock((ULONG)v23, (PVOID)2);
+                  IoAddTriageDumpDataBlock((ULONG)p_FreeMapRegisters, (PVOID)2);
                   IoAddTriageDumpDataBlock(
-                    *(_QWORD *)(*(_QWORD *)(v17 + 8) + 64LL),
-                    (PVOID)*(unsigned __int16 *)(*(_QWORD *)(v17 + 8) + 56LL));
+                    (ULONG)v17->DmaOperations->MapTransfer,
+                    (PVOID)LOWORD(v17->DmaOperations->FreeMapRegisters));
                 }
               }
-              v24 = *(_QWORD *)(*(_QWORD *)(v17 + 312) + 40LL);
-              if ( v24 )
+              FlushAdapterBuffers = v17[19].DmaOperations->FlushAdapterBuffers;
+              if ( FlushAdapterBuffers )
               {
-                v25 = (unsigned __int16 *)(v24 + 40);
-                IoAddTriageDumpDataBlock(v24, (PVOID)0x388);
+                v25 = (unsigned __int16 *)((char *)FlushAdapterBuffers + 40);
+                IoAddTriageDumpDataBlock((ULONG)FlushAdapterBuffers, (PVOID)0x310);
                 if ( *v25 )
                 {
                   IoAddTriageDumpDataBlock((ULONG)v25, (PVOID)2);
                   IoAddTriageDumpDataBlock(*((_QWORD *)v25 + 1), (PVOID)*v25);
                 }
-                v26 = (_WORD *)(*(_QWORD *)(*(_QWORD *)(v17 + 312) + 40LL) + 56LL);
-                if ( *v26 )
+                v26 = v17[19].DmaOperations;
+                v27 = (_WORD *)((char *)v26->FlushAdapterBuffers + 56);
+                if ( *v27 )
                 {
-                  IoAddTriageDumpDataBlock((ULONG)v26, (PVOID)2);
+                  IoAddTriageDumpDataBlock((ULONG)v27, (PVOID)2);
                   IoAddTriageDumpDataBlock(
-                    *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v17 + 312) + 40LL) + 64LL),
-                    (PVOID)*(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(v17 + 312) + 40LL) + 56LL));
+                    *((_QWORD *)v17[19].DmaOperations->FlushAdapterBuffers + 8),
+                    (PVOID)*((unsigned __int16 *)v17[19].DmaOperations->FlushAdapterBuffers + 28));
+                  v26 = v17[19].DmaOperations;
                 }
-                v27 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v17 + 312) + 40LL) + 16LL);
-                if ( v27 && *(_WORD *)(v27 + 56) )
+                v28 = *((_QWORD *)v26->FlushAdapterBuffers + 2);
+                if ( v28 )
                 {
-                  IoAddTriageDumpDataBlock(v27 + 56, (PVOID)2);
-                  v28 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v17 + 312) + 40LL) + 16LL);
-                  IoAddTriageDumpDataBlock(*(_QWORD *)(v28 + 64), (PVOID)*(unsigned __int16 *)(v28 + 56));
+                  v29 = (_WORD *)(v28 + 56);
+                  if ( *v29 )
+                  {
+                    IoAddTriageDumpDataBlock((ULONG)v29, (PVOID)2);
+                    v30 = *((_QWORD *)v17[19].DmaOperations->FlushAdapterBuffers + 2);
+                    IoAddTriageDumpDataBlock(*(_QWORD *)(v30 + 64), (PVOID)*(unsigned __int16 *)(v30 + 56));
+                  }
                 }
               }
-              KeBugCheckEx(0xCAu, 0xBuLL, v17, 3uLL, 0LL);
+              KeBugCheckEx(0xCAu, 0xBuLL, (ULONG_PTR)v17, 3uLL, 0LL);
             }
-            v20 = PnpProcessRelation(v19, a2, 0, a4, v10);
-            ObfDereferenceObject((PVOID)v17);
+            v20 = PnpProcessRelation((int)v19, a2, 0, a4, v10);
+            HalPutDmaAdapter(v17);
             v15 = P[0];
             if ( v20 < 0 )
-              goto LABEL_35;
+              goto LABEL_36;
             v10 = BugCheckParameter3;
           }
           while ( ++v16 < *(_DWORD *)P[0] );
@@ -442,80 +468,85 @@ LABEL_80:
           v15 = P[0];
           if ( P[0] )
           {
-            v29 = 0;
+            v31 = 0;
             if ( *(_DWORD *)P[0] )
             {
               while ( 1 )
               {
-                v30 = v15[v29 + 1];
-                v31 = *(_QWORD *)(v30 + 312);
-                if ( (*(_DWORD *)(v31 + 32) & 2) != 0 || (v32 = *(_QWORD *)(v31 + 40)) == 0 || !*(_QWORD *)(v32 + 16) )
+                v32 = (struct _DMA_ADAPTER *)v15[v31 + 1];
+                v33 = v32[19].DmaOperations;
+                if ( ((__int64)v33->AllocateAdapterChannel & 2) != 0
+                  || (v34 = v33->FlushAdapterBuffers) == 0LL
+                  || !*((_QWORD *)v34 + 2) )
                 {
-                  IoAddTriageDumpDataBlock(v30, (PVOID)*(unsigned __int16 *)(v30 + 2));
-                  v33 = *(_QWORD *)(v30 + 8);
-                  if ( v33 )
-                  {
-                    IoAddTriageDumpDataBlock(v33, (PVOID)(unsigned int)*(__int16 *)(v33 + 2));
-                    v34 = (_WORD *)(*(_QWORD *)(v30 + 8) + 56LL);
-                    if ( *v34 )
-                    {
-                      IoAddTriageDumpDataBlock((ULONG)v34, (PVOID)2);
-                      IoAddTriageDumpDataBlock(
-                        *(_QWORD *)(*(_QWORD *)(v30 + 8) + 64LL),
-                        (PVOID)*(unsigned __int16 *)(*(_QWORD *)(v30 + 8) + 56LL));
-                    }
-                  }
-                  v35 = *(_QWORD *)(*(_QWORD *)(v30 + 312) + 40LL);
+                  IoAddTriageDumpDataBlock((ULONG)v32, (PVOID)v32->Size);
+                  v35 = v32->DmaOperations;
                   if ( v35 )
                   {
-                    v36 = (unsigned __int16 *)(v35 + 40);
-                    IoAddTriageDumpDataBlock(v35, (PVOID)0x388);
-                    if ( *v36 )
+                    IoAddTriageDumpDataBlock((ULONG)v35, (PVOID)(unsigned int)SHIWORD(v35->Size));
+                    v36 = &v32->DmaOperations->FreeMapRegisters;
+                    if ( *(_WORD *)v36 )
                     {
                       IoAddTriageDumpDataBlock((ULONG)v36, (PVOID)2);
-                      IoAddTriageDumpDataBlock(*((_QWORD *)v36 + 1), (PVOID)*v36);
-                    }
-                    v37 = (_WORD *)(*(_QWORD *)(*(_QWORD *)(v30 + 312) + 40LL) + 56LL);
-                    if ( *v37 )
-                    {
-                      IoAddTriageDumpDataBlock((ULONG)v37, (PVOID)2);
                       IoAddTriageDumpDataBlock(
-                        *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v30 + 312) + 40LL) + 64LL),
-                        (PVOID)*(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(v30 + 312) + 40LL) + 56LL));
+                        (ULONG)v32->DmaOperations->MapTransfer,
+                        (PVOID)LOWORD(v32->DmaOperations->FreeMapRegisters));
                     }
-                    v38 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v30 + 312) + 40LL) + 16LL);
-                    if ( v38 )
+                  }
+                  v37 = v32[19].DmaOperations->FlushAdapterBuffers;
+                  if ( v37 )
+                  {
+                    v38 = (unsigned __int16 *)((char *)v37 + 40);
+                    IoAddTriageDumpDataBlock((ULONG)v37, (PVOID)0x310);
+                    if ( *v38 )
                     {
-                      if ( *(_WORD *)(v38 + 56) )
+                      IoAddTriageDumpDataBlock((ULONG)v38, (PVOID)2);
+                      IoAddTriageDumpDataBlock(*((_QWORD *)v38 + 1), (PVOID)*v38);
+                    }
+                    v39 = v32[19].DmaOperations;
+                    v40 = (_WORD *)((char *)v39->FlushAdapterBuffers + 56);
+                    if ( *v40 )
+                    {
+                      IoAddTriageDumpDataBlock((ULONG)v40, (PVOID)2);
+                      IoAddTriageDumpDataBlock(
+                        *((_QWORD *)v32[19].DmaOperations->FlushAdapterBuffers + 8),
+                        (PVOID)*((unsigned __int16 *)v32[19].DmaOperations->FlushAdapterBuffers + 28));
+                      v39 = v32[19].DmaOperations;
+                    }
+                    v41 = *((_QWORD *)v39->FlushAdapterBuffers + 2);
+                    if ( v41 )
+                    {
+                      v42 = (_WORD *)(v41 + 56);
+                      if ( *v42 )
                       {
-                        IoAddTriageDumpDataBlock(v38 + 56, (PVOID)2);
-                        v39 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v30 + 312) + 40LL) + 16LL);
-                        IoAddTriageDumpDataBlock(*(_QWORD *)(v39 + 64), (PVOID)*(unsigned __int16 *)(v39 + 56));
+                        IoAddTriageDumpDataBlock((ULONG)v42, (PVOID)2);
+                        v43 = *((_QWORD *)v32[19].DmaOperations->FlushAdapterBuffers + 2);
+                        IoAddTriageDumpDataBlock(*(_QWORD *)(v43 + 64), (PVOID)*(unsigned __int16 *)(v43 + 56));
                       }
                     }
                   }
-                  KeBugCheckEx(0xCAu, 0xBuLL, v30, 1uLL, 0LL);
+                  KeBugCheckEx(0xCAu, 0xBuLL, (ULONG_PTR)v32, 1uLL, 0LL);
                 }
-                v20 = PnpProcessRelation(v32, a2, 0, a4, v10);
-                ObfDereferenceObject((PVOID)v30);
+                v20 = PnpProcessRelation((int)v34, a2, 0, a4, v10);
+                HalPutDmaAdapter(v32);
                 v15 = P[0];
                 if ( v20 < 0 )
                   break;
                 v10 = BugCheckParameter3;
-                if ( ++v29 >= *(_DWORD *)P[0] )
-                  goto LABEL_55;
+                if ( ++v31 >= *(_DWORD *)P[0] )
+                  goto LABEL_56;
               }
-LABEL_35:
+LABEL_36:
               ExFreePoolWithTag(v15, 0);
               return (unsigned int)v20;
             }
-LABEL_55:
+LABEL_56:
             ExFreePoolWithTag(v15, 0);
           }
         }
       }
     }
-    result = PnpProcessDependencyRelations(a1, a2, v83 != 0, a4, BugCheckParameter3);
+    result = PnpProcessDependencyRelations(a1, a2, v82 != 0, a4, BugCheckParameter3);
     if ( (int)result >= 0 )
     {
       LODWORD(BugCheckParameter4) = 0;

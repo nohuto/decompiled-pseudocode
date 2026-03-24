@@ -1,15 +1,15 @@
 /*
- * XREFs of HUBREG_WriteValueToDeviceHardwareKey @ 0x1C008583C
+ * XREFs of HUBREG_WriteValueToDeviceHardwareKey @ 0x1C007FD70
  * Callers:
- *     HUBMISC_InstallMsOs20RegistryProperties @ 0x1C0032B04 (HUBMISC_InstallMsOs20RegistryProperties.c)
- *     HUBPDO_EvtDevicePrepareHardware @ 0x1C007BF50 (HUBPDO_EvtDevicePrepareHardware.c)
- *     HUBMISC_SetExtPropDescSemaphoreInRegistry @ 0x1C0082230 (HUBMISC_SetExtPropDescSemaphoreInRegistry.c)
- *     HUBMISC_ParseAndWriteCustomPropertiesInRegistry @ 0x1C0082380 (HUBMISC_ParseAndWriteCustomPropertiesInRegistry.c)
- *     HUBREG_EvtWorkItemUpdateSqmDeviceSelectiveSuspended @ 0x1C0087700 (HUBREG_EvtWorkItemUpdateSqmDeviceSelectiveSuspended.c)
- *     HUBREG_UpdateSqmEnumerationFailureCode @ 0x1C00877B4 (HUBREG_UpdateSqmEnumerationFailureCode.c)
+ *     HUBMISC_InstallMsOs20RegistryProperties @ 0x1C002F91C (HUBMISC_InstallMsOs20RegistryProperties.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0077CC0 (HUBPDO_EvtDevicePrepareHardware.c)
+ *     HUBMISC_SetExtPropDescSemaphoreInRegistry @ 0x1C007C7B0 (HUBMISC_SetExtPropDescSemaphoreInRegistry.c)
+ *     HUBMISC_ParseAndWriteCustomPropertiesInRegistry @ 0x1C007C900 (HUBMISC_ParseAndWriteCustomPropertiesInRegistry.c)
+ *     HUBREG_EvtWorkItemUpdateSqmDeviceSelectiveSuspended @ 0x1C0081C20 (HUBREG_EvtWorkItemUpdateSqmDeviceSelectiveSuspended.c)
+ *     HUBREG_UpdateSqmEnumerationFailureCode @ 0x1C0081CD4 (HUBREG_UpdateSqmEnumerationFailureCode.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBREG_WriteValueToDeviceHardwareKey(__int64 a1, __int64 a2, unsigned int a3, int a4, __int64 a5)
@@ -56,7 +56,7 @@ LABEL_7:
       2u,
       5u,
       v11,
-      (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
+      (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
       v13);
   }
 LABEL_8:

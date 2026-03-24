@@ -1,45 +1,32 @@
 /*
- * XREFs of MiPageAttributeBatchChangeNeeded @ 0x1402F9B74
+ * XREFs of MiPageAttributeBatchChangeNeeded @ 0x140355540
  * Callers:
- *     MiUpdateCacheAttributeListsForPage @ 0x1402F9B08 (MiUpdateCacheAttributeListsForPage.c)
- *     MiConvertContiguousPages @ 0x1403BD470 (MiConvertContiguousPages.c)
- *     MiSwitchToTransition @ 0x1406331FC (MiSwitchToTransition.c)
+ *     MiConvertContiguousPages @ 0x140355124 (MiConvertContiguousPages.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x140355284 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiSwitchToTransition @ 0x140539E54 (MiSwitchToTransition.c)
  * Callees:
- *     MiTbFlushTimeStampMayNeedFlush @ 0x14021E3B4 (MiTbFlushTimeStampMayNeedFlush.c)
- *     MiChangePageAttribute @ 0x14036ED6C (MiChangePageAttribute.c)
+ *     MiChangePageAttribute @ 0x140284864 (MiChangePageAttribute.c)
  */
 
-__int64 __fastcall MiPageAttributeBatchChangeNeeded(__int64 a1, __int64 a2)
+__int64 __fastcall MiPageAttributeBatchChangeNeeded(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  int v2; // eax
-  __int64 v4; // r9
-  unsigned int v5; // r10d
-  __int64 v6; // r8
-  __int64 v7; // rax
+  int v4; // eax
+  char v6; // r8
+  unsigned int v7; // eax
   signed __int32 v8[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  v2 = *(unsigned __int8 *)(a1 + 34) >> 6;
-  if ( v2 != (_DWORD)a2 )
+  v4 = *(unsigned __int8 *)(a1 + 34) >> 6;
+  if ( v4 == (_DWORD)a2 )
+    return 0LL;
+  if ( v4 != 1 )
   {
-    if ( v2 == 1 )
-      return 1LL;
-    if ( v2 == 3 )
+    if ( v4 == 3
+      || (v6 = *(_BYTE *)(a1 + 31) & 0xF, _InterlockedOr(v8, 0), v7 = ((_BYTE)KiTbFlushTimeStamp - v6) & 0xF, v7 > 2)
+      || (v6 & 1) == 0 && v7 >= 2 )
     {
-      v6 = 0LL;
+      MiChangePageAttribute(a1, a2, 4LL, a4);
+      return 0LL;
     }
-    else
-    {
-      v7 = (*(_QWORD *)(a1 + 24) >> 59) & 7LL;
-      if ( ((*(_QWORD *)(a1 + 24) >> 59) & 7) == 0 )
-        return 1LL;
-      _InterlockedOr(v8, 0);
-      if ( MiTbFlushTimeStampMayNeedFlush(v7, KiTbFlushTimeStamp, 7) )
-        return 1LL;
-      v6 = 4LL;
-      a2 = v5;
-      a1 = v4;
-    }
-    MiChangePageAttribute(a1, a2, v6);
   }
-  return 0LL;
+  return 1LL;
 }

@@ -1,595 +1,634 @@
 /*
- * XREFs of ExpQuerySystemInformation @ 0x1407268C0
+ * XREFs of ExpQuerySystemInformation @ 0x1406C9E30
  * Callers:
- *     NtQuerySystemInformation @ 0x140726800 (NtQuerySystemInformation.c)
- *     NtQuerySystemInformationEx @ 0x1407C28C0 (NtQuerySystemInformationEx.c)
+ *     NtQuerySystemInformationEx @ 0x1406C7760 (NtQuerySystemInformationEx.c)
+ *     NtQuerySystemInformation @ 0x1406C9CB0 (NtQuerySystemInformation.c)
  * Callees:
- *     MmGetSharedCommit @ 0x14021DBAC (MmGetSharedCommit.c)
- *     MmGetResidentAvailablePages @ 0x14021DBBC (MmGetResidentAvailablePages.c)
- *     MmGetTotalCommittedPages @ 0x14021DBDC (MmGetTotalCommittedPages.c)
- *     MmGetTotalCommitLimit @ 0x14021DBFC (MmGetTotalCommitLimit.c)
- *     MmGetPeakCommitment @ 0x14021DC1C (MmGetPeakCommitment.c)
- *     MmGetAvailablePages @ 0x14021DC3C (MmGetAvailablePages.c)
- *     MmGetProcessPartitionId @ 0x14021E564 (MmGetProcessPartitionId.c)
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     KeIsUserCetAllowed @ 0x140223CE4 (KeIsUserCetAllowed.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PoGetIdleTimes @ 0x140252500 (PoGetIdleTimes.c)
- *     KeGetProcessorIndexFromNumber @ 0x140255090 (KeGetProcessorIndexFromNumber.c)
- *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
- *     PsIsHostSilo @ 0x1402AF8D0 (PsIsHostSilo.c)
- *     KeFlushProcessWriteBuffers @ 0x1402C000C (KeFlushProcessWriteBuffers.c)
- *     PoEnergyEstimationEnabled @ 0x1402C0B20 (PoEnergyEstimationEnabled.c)
- *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1BCC (KeEnumerateNextSchedulerSubNodeInNode.c)
- *     MmGetHighestPhysicalPage @ 0x1402F8938 (MmGetHighestPhysicalPage.c)
- *     MmQueryMemoryListInformation @ 0x1402F8958 (MmQueryMemoryListInformation.c)
- *     KeQueryLogicalProcessorRelationship @ 0x140305E80 (KeQueryLogicalProcessorRelationship.c)
- *     KeGetRecommendedSharedDataAlignment @ 0x140322120 (KeGetRecommendedSharedDataAlignment.c)
- *     KeQueryGroupAffinity @ 0x14032A0B0 (KeQueryGroupAffinity.c)
- *     PoGetPerfStateAndParkingInfo @ 0x14032A290 (PoGetPerfStateAndParkingInfo.c)
- *     KeQueryCycleTimeStatsProcessor @ 0x14033AB20 (KeQueryCycleTimeStatsProcessor.c)
- *     ExpGetSystemEmulationProcessorInformation @ 0x14033AB54 (ExpGetSystemEmulationProcessorInformation.c)
- *     ExpGetSystemProcessorInformation @ 0x14033AD3C (ExpGetSystemProcessorInformation.c)
- *     VslGetNestedPageProtectionFlags @ 0x14033FE30 (VslGetNestedPageProtectionFlags.c)
- *     ExpGetSystemEmulationBasicInformation @ 0x140346AAC (ExpGetSystemEmulationBasicInformation.c)
- *     ExpGetSystemBasicInformation @ 0x140346C48 (ExpGetSystemBasicInformation.c)
- *     KeQueryBootTimeValues @ 0x1403509EC (KeQueryBootTimeValues.c)
- *     MmQuerySystemWorkingSetInformation @ 0x140361BB0 (MmQuerySystemWorkingSetInformation.c)
- *     KeQueryActiveGroupCount @ 0x140361E20 (KeQueryActiveGroupCount.c)
- *     MmGetLowestPhysicalPage @ 0x14036E5A8 (MmGetLowestPhysicalPage.c)
- *     VslIsSecureKernelRunning @ 0x14036E8E0 (VslIsSecureKernelRunning.c)
- *     KeIsKernelCetEnabled @ 0x140387454 (KeIsKernelCetEnabled.c)
- *     KeInitializeSchedulerSubNodeEnumerationContext @ 0x1403908D0 (KeInitializeSchedulerSubNodeEnumerationContext.c)
- *     ExCpuSetResourceManagerAccessCheck @ 0x1403AFEAC (ExCpuSetResourceManagerAccessCheck.c)
- *     KeIsKernelCetAuditModeEnabled @ 0x1403B5F78 (KeIsKernelCetAuditModeEnabled.c)
- *     KeIsCetCapable @ 0x1403B5F8C (KeIsCetCapable.c)
- *     PsQueryCpuQuotaInformation @ 0x1403B60F8 (PsQueryCpuQuotaInformation.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwFilterBootOption @ 0x14041C3E0 (ZwFilterBootOption.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     HvlQueryActiveProcessors @ 0x1405400A0 (HvlQueryActiveProcessors.c)
- *     HvlQueryMinrootInfo @ 0x140540170 (HvlQueryMinrootInfo.c)
- *     HvlQueryProcessorTopologyCount @ 0x140540410 (HvlQueryProcessorTopologyCount.c)
- *     VslIsTrustletRunning @ 0x14054B838 (VslIsTrustletRunning.c)
- *     VslQuerySecureKernelProfileInformation @ 0x14054BF04 (VslQuerySecureKernelProfileInformation.c)
- *     KeQueryDpcWatchdogConfiguration @ 0x14056ADAC (KeQueryDpcWatchdogConfiguration.c)
- *     KeQuerySecureSpeculationInformation @ 0x140573B88 (KeQuerySecureSpeculationInformation.c)
- *     KeGetAffinitizedInterruptsInfo @ 0x140579C88 (KeGetAffinitizedInterruptsInfo.c)
- *     PpmCapturePerformanceDistribution @ 0x140597AAC (PpmCapturePerformanceDistribution.c)
- *     PsQueryActivityModerationUserSettings @ 0x1405A3E10 (PsQueryActivityModerationUserSettings.c)
- *     RtlCheckXfgFailureInformation @ 0x1405B1B00 (RtlCheckXfgFailureInformation.c)
- *     SeQueryTrustedPlatformModuleInformation @ 0x1405B9510 (SeQueryTrustedPlatformModuleInformation.c)
- *     VfGetVerifierInformation @ 0x1405D2108 (VfGetVerifierInformation.c)
- *     ExpGetLookasideInformation @ 0x140605318 (ExpGetLookasideInformation.c)
- *     ExpQueryBootLoaderMetadata @ 0x140605818 (ExpQueryBootLoaderMetadata.c)
- *     ExGetBigPoolInfo @ 0x140606FC0 (ExGetBigPoolInfo.c)
- *     ExPoolQueryLimits @ 0x140607430 (ExPoolQueryLimits.c)
- *     ExpQuerySystemPerformanceInformation @ 0x1406B1F04 (ExpQuerySystemPerformanceInformation.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     PsLookupProcessByProcessId @ 0x1406FA420 (PsLookupProcessByProcessId.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     ExpGetProcessInformation @ 0x1407432D0 (ExpGetProcessInformation.c)
- *     ExpQueryModuleInformation @ 0x1407589F0 (ExpQueryModuleInformation.c)
- *     PfQuerySuperfetchInformation @ 0x14075DE28 (PfQuerySuperfetchInformation.c)
- *     ExAcquireTimeRefreshLock @ 0x14075FE64 (ExAcquireTimeRefreshLock.c)
- *     WbDispatchOperation @ 0x140763928 (WbDispatchOperation.c)
- *     PsGetSupportedProcessorArchitectures @ 0x14076F4C0 (PsGetSupportedProcessorArchitectures.c)
- *     ExpGetSystemFlushInformation @ 0x14077D590 (ExpGetSystemFlushInformation.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x14077EDF0 (ExpGetSystemFirmwareTableInformation.c)
- *     ExpQueryNumaProcessorMap @ 0x1407B43C0 (ExpQueryNumaProcessorMap.c)
- *     ExHandleSPCall2 @ 0x1407BB880 (ExHandleSPCall2.c)
- *     KeBuildLogicalProcessorSystemInformation @ 0x1407C4D44 (KeBuildLogicalProcessorSystemInformation.c)
- *     CmQueryFeatureConfigurationSections @ 0x1407C6EC8 (CmQueryFeatureConfigurationSections.c)
- *     PsQueryFullProcessImageName @ 0x1407CE108 (PsQueryFullProcessImageName.c)
- *     ExpQueryModuleInformationEx @ 0x1407CE204 (ExpQueryModuleInformationEx.c)
- *     IoQuerySystemDeviceName @ 0x1407D19E4 (IoQuerySystemDeviceName.c)
- *     SeCodeIntegrityQueryInformation @ 0x1407D7224 (SeCodeIntegrityQueryInformation.c)
- *     PfSnQueryPrefetcherInformation @ 0x1407D7274 (PfSnQueryPrefetcherInformation.c)
- *     ExIsRestrictedCaller @ 0x1407D8DA4 (ExIsRestrictedCaller.c)
- *     CmQueryBuildVersionInformation @ 0x1407DB958 (CmQueryBuildVersionInformation.c)
- *     SeSecureBootQueryInformation @ 0x1407E0F60 (SeSecureBootQueryInformation.c)
- *     HvlQueryVsmProtectionInfo @ 0x1407E6BF8 (HvlQueryVsmProtectionInfo.c)
- *     IoQueryLowPriorityIoInformation @ 0x1407E92D0 (IoQueryLowPriorityIoInformation.c)
- *     ExQueryBootEntropyInformation @ 0x140822DA8 (ExQueryBootEntropyInformation.c)
- *     ExGetPoolTagInfo @ 0x1408312EC (ExGetPoolTagInfo.c)
- *     SmQueryStoreInformation @ 0x140842DDC (SmQueryStoreInformation.c)
- *     ExpQueryInterruptSteeringInformation @ 0x14084D474 (ExpQueryInterruptSteeringInformation.c)
- *     KeQueryCpuSetInformation @ 0x140851E5C (KeQueryCpuSetInformation.c)
- *     ExpQueryMemoryTopologyInformation @ 0x140852F58 (ExpQueryMemoryTopologyInformation.c)
- *     SeQueryHSTIResults @ 0x14085A48C (SeQueryHSTIResults.c)
- *     ExpGetSystemPlatformBinary @ 0x14085FAF8 (ExpGetSystemPlatformBinary.c)
- *     EtwQueryPerformanceTraceInformation @ 0x140860054 (EtwQueryPerformanceTraceInformation.c)
- *     ExpGetSystemWriteConstraintInformation @ 0x140862544 (ExpGetSystemWriteConstraintInformation.c)
- *     HvlQueryEnlightenmentInfo @ 0x1408633E0 (HvlQueryEnlightenmentInfo.c)
- *     IoQueryVhdBootInformation @ 0x14086399C (IoQueryVhdBootInformation.c)
- *     MmGetPageFileInformation @ 0x1408752E0 (MmGetPageFileInformation.c)
- *     CmQueryRegistryQuotaInformation @ 0x140884B6C (CmQueryRegistryQuotaInformation.c)
- *     HvlQueryDetailInfo @ 0x140940F08 (HvlQueryDetailInfo.c)
- *     HvlQuerySetBootPagesInfo @ 0x140941024 (HvlQuerySetBootPagesInfo.c)
- *     VslIsEncryptionKeyAvailable @ 0x140942844 (VslIsEncryptionKeyAvailable.c)
- *     VslTransformDumpKey @ 0x1409433B0 (VslTransformDumpKey.c)
- *     KeQuerySpeculationControlInformation @ 0x14097485C (KeQuerySpeculationControlInformation.c)
- *     KeQueryKvaShadowInformation @ 0x140975538 (KeQueryKvaShadowInformation.c)
- *     ObQueryRefTraceInformation @ 0x14097C648 (ObQueryRefTraceInformation.c)
- *     PsRootSiloInformation @ 0x1409AC840 (PsRootSiloInformation.c)
- *     SeSecurityModelQueryInformation @ 0x1409C9BCC (SeSecurityModelQueryInformation.c)
- *     ExpGetDeviceDataInformation @ 0x1409F6358 (ExpGetDeviceDataInformation.c)
- *     ExpGetHandleInformation @ 0x1409F6564 (ExpGetHandleInformation.c)
- *     ExpGetHandleInformationEx @ 0x1409F65E4 (ExpGetHandleInformationEx.c)
- *     ExpGetLockInformation @ 0x1409F6664 (ExpGetLockInformation.c)
- *     ExpGetObjectInformation @ 0x1409F66E4 (ExpGetObjectInformation.c)
- *     ExpGetSystemProcessorFeaturesInformation @ 0x1409F6774 (ExpGetSystemProcessorFeaturesInformation.c)
- *     ExpQueryChannelInformation @ 0x1409F67D0 (ExpQueryChannelInformation.c)
- *     ExpQueryCodeIntegrityCertificateInfo @ 0x1409F6910 (ExpQueryCodeIntegrityCertificateInfo.c)
- *     ExpQueryLegacyDriverInformation @ 0x1409F6E8C (ExpQueryLegacyDriverInformation.c)
- *     ExpQueryNumaAvailableMemory @ 0x1409F6F84 (ExpQueryNumaAvailableMemory.c)
- *     ExpQueryNumaProximityNode @ 0x1409F7138 (ExpQueryNumaProximityNode.c)
- *     ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x1409F7288 (ExpQueryPortableWorkspaceEfiLauncherInformation.c)
- *     ExpQuerySingleModuleInformation @ 0x1409F7498 (ExpQuerySingleModuleInformation.c)
- *     ExpReadComPlusPackage @ 0x1409F7590 (ExpReadComPlusPackage.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExpCovQueryInformation @ 0x140A0685C (ExpCovQueryInformation.c)
- *     ExpQueryOriginalImageFeatureInformation @ 0x140A072F4 (ExpQueryOriginalImageFeatureInformation.c)
- *     WheaQuerySystemInformation @ 0x140A077F0 (WheaQuerySystemInformation.c)
- *     CmQuerySingleFeatureConfiguration @ 0x140A11D2C (CmQuerySingleFeatureConfiguration.c)
- *     MmEnumerateBadPages @ 0x140A2FC54 (MmEnumerateBadPages.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     VfGetVerifierInformationEx @ 0x140ADE778 (VfGetVerifierInformationEx.c)
- *     BgkQueryBootGraphicsInformation @ 0x140AEDF54 (BgkQueryBootGraphicsInformation.c)
+ *     PoEnergyEstimationEnabled @ 0x1402056D0 (PoEnergyEstimationEnabled.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KeEnterCriticalRegionThread @ 0x14025ABE0 (KeEnterCriticalRegionThread.c)
+ *     MmQueryMemoryListInformation @ 0x14026EA10 (MmQueryMemoryListInformation.c)
+ *     PsGetCurrentProcess @ 0x1402BBC90 (PsGetCurrentProcess.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     KeEnterCriticalRegion @ 0x1402D19A0 (KeEnterCriticalRegion.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402D19C0 (PsIsCurrentThreadInServerSilo.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     MmGetHighestPhysicalPage @ 0x1402D3AC8 (MmGetHighestPhysicalPage.c)
+ *     ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator @ 0x1402D6DE0 (ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x140307180 (KeQueryLogicalProcessorRelationship.c)
+ *     ExpGetSystemEmulationBasicInformation @ 0x140316278 (ExpGetSystemEmulationBasicInformation.c)
+ *     ExCpuSetResourceManagerAccessCheck @ 0x140316414 (ExCpuSetResourceManagerAccessCheck.c)
+ *     KeQueryCycleTimeStatsProcessor @ 0x1403166E0 (KeQueryCycleTimeStatsProcessor.c)
+ *     KeQueryBootTimeValues @ 0x140317088 (KeQueryBootTimeValues.c)
+ *     MmQuerySystemWorkingSetInformation @ 0x14031AE60 (MmQuerySystemWorkingSetInformation.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x14031CAE4 (PoGetPerfStateAndParkingInfo.c)
+ *     KeQueryGroupAffinity @ 0x140322B10 (KeQueryGroupAffinity.c)
+ *     ExpGetSystemEmulationProcessorInformation @ 0x140327F1C (ExpGetSystemEmulationProcessorInformation.c)
+ *     MmGetLowestPhysicalPage @ 0x14032CF4C (MmGetLowestPhysicalPage.c)
+ *     VslIsSecureKernelRunning @ 0x14032D1FC (VslIsSecureKernelRunning.c)
+ *     MmGetSharedCommit @ 0x14033B124 (MmGetSharedCommit.c)
+ *     MmGetResidentAvailablePages @ 0x14033B134 (MmGetResidentAvailablePages.c)
+ *     VslGetNestedPageProtectionFlags @ 0x140340410 (VslGetNestedPageProtectionFlags.c)
+ *     KeFlushProcessWriteBuffers @ 0x140343D14 (KeFlushProcessWriteBuffers.c)
+ *     MmGetAvailablePages @ 0x140344570 (MmGetAvailablePages.c)
+ *     MmGetTotalCommittedPages @ 0x140344590 (MmGetTotalCommittedPages.c)
+ *     MmGetTotalCommitLimit @ 0x1403445B0 (MmGetTotalCommitLimit.c)
+ *     MmGetPeakCommitment @ 0x1403445D0 (MmGetPeakCommitment.c)
+ *     MmGetProcessPartitionId @ 0x1403445F0 (MmGetProcessPartitionId.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     ExpGetSystemProcessorInformation @ 0x1403446E0 (ExpGetSystemProcessorInformation.c)
+ *     ExpGetSystemBasicInformation @ 0x140344ADC (ExpGetSystemBasicInformation.c)
+ *     PoGetIdleTimes @ 0x140344D4C (PoGetIdleTimes.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140344E90 (KeGetProcessorIndexFromNumber.c)
+ *     KeQueryActiveGroupCount @ 0x1403544B0 (KeQueryActiveGroupCount.c)
+ *     KeIsUserCetAllowed @ 0x14035AE38 (KeIsUserCetAllowed.c)
+ *     KeGetRecommendedSharedDataAlignment @ 0x140360960 (KeGetRecommendedSharedDataAlignment.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
+ *     PsQueryCpuQuotaInformation @ 0x1403CF8B4 (PsQueryCpuQuotaInformation.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeIsCetCapable @ 0x1403F2480 (KeIsCetCapable.c)
+ *     ZwFilterBootOption @ 0x1403FB6A0 (ZwFilterBootOption.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HvlQueryActiveProcessors @ 0x1404F1E90 (HvlQueryActiveProcessors.c)
+ *     HvlQueryProcessorTopologyCount @ 0x1404F2090 (HvlQueryProcessorTopologyCount.c)
+ *     VslIsTrustletRunning @ 0x1404FC7A4 (VslIsTrustletRunning.c)
+ *     VslQuerySecureKernelProfileInformation @ 0x1404FCD30 (VslQuerySecureKernelProfileInformation.c)
+ *     KeQuerySecureSpeculationInformation @ 0x14051B448 (KeQuerySecureSpeculationInformation.c)
+ *     KeGetAffinitizedInterruptsInfo @ 0x140522428 (KeGetAffinitizedInterruptsInfo.c)
+ *     MmEnumerateBadPages @ 0x14056469C (MmEnumerateBadPages.c)
+ *     PpmCapturePerformanceDistribution @ 0x140576B5C (PpmCapturePerformanceDistribution.c)
+ *     PsQueryActivityModerationUserSettings @ 0x140581310 (PsQueryActivityModerationUserSettings.c)
+ *     SeQueryTrustedPlatformModuleInformation @ 0x140597420 (SeQueryTrustedPlatformModuleInformation.c)
+ *     ExpGetLookasideInformation @ 0x1405B1BC0 (ExpGetLookasideInformation.c)
+ *     ExGetBigPoolInfo @ 0x1405B369C (ExGetBigPoolInfo.c)
+ *     ExpQueryModuleInformation @ 0x1405ED940 (ExpQueryModuleInformation.c)
+ *     PsLookupProcessByProcessId @ 0x140625CA0 (PsLookupProcessByProcessId.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ExpGetProcessInformation @ 0x14063E980 (ExpGetProcessInformation.c)
+ *     SeCodeIntegrityQueryPolicyInformation @ 0x14065F160 (SeCodeIntegrityQueryPolicyInformation.c)
+ *     ExGetSessionPoolTagInformation @ 0x14066070C (ExGetSessionPoolTagInformation.c)
+ *     CmQueryFeatureConfigurationSections @ 0x1406842DC (CmQueryFeatureConfigurationSections.c)
+ *     ExIsRestrictedCaller @ 0x140686630 (ExIsRestrictedCaller.c)
+ *     PsQueryFullProcessImageName @ 0x14068D51C (PsQueryFullProcessImageName.c)
+ *     KeBuildLogicalProcessorSystemInformation @ 0x14068F6B8 (KeBuildLogicalProcessorSystemInformation.c)
+ *     SeCodeIntegrityQueryInformation @ 0x1406904A0 (SeCodeIntegrityQueryInformation.c)
+ *     ExpGetSystemFlushInformation @ 0x1406904F0 (ExpGetSystemFlushInformation.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x14069061C (ExpGetSystemFirmwareTableInformation.c)
+ *     PfSnQueryPrefetcherInformation @ 0x1406920B4 (PfSnQueryPrefetcherInformation.c)
+ *     IoQuerySystemDeviceName @ 0x14069663C (IoQuerySystemDeviceName.c)
+ *     SeSecureBootQueryInformation @ 0x14069F214 (SeSecureBootQueryInformation.c)
+ *     IoQueryLowPriorityIoInformation @ 0x1406A11A8 (IoQueryLowPriorityIoInformation.c)
+ *     MmGetPageFileInformation @ 0x1406A1644 (MmGetPageFileInformation.c)
+ *     SmQueryStoreInformation @ 0x1406A5798 (SmQueryStoreInformation.c)
+ *     ExpReadComPlusPackage @ 0x1406A5E50 (ExpReadComPlusPackage.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x1406BF5C0 (ExpQuerySystemPerformanceInformation.c)
+ *     PsWow64GetSupportedArchitectures @ 0x1406C74B8 (PsWow64GetSupportedArchitectures.c)
+ *     WbDispatchOperation @ 0x1406C7BE4 (WbDispatchOperation.c)
+ *     ExHandleSPCall2 @ 0x1406C8260 (ExHandleSPCall2.c)
+ *     MmGetNumberOfPhysicalPages @ 0x1406C8500 (MmGetNumberOfPhysicalPages.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     PfQuerySuperfetchInformation @ 0x1406CD5D0 (PfQuerySuperfetchInformation.c)
+ *     ExpQueryNumaProcessorMap @ 0x1406FDCF0 (ExpQueryNumaProcessorMap.c)
+ *     ExReleaseTimeRefreshLock @ 0x1407095C0 (ExReleaseTimeRefreshLock.c)
+ *     ExAcquireTimeRefreshLock @ 0x1407095E4 (ExAcquireTimeRefreshLock.c)
+ *     ExGetPoolTagInfo @ 0x14070C78C (ExGetPoolTagInfo.c)
+ *     SeQueryHSTIResults @ 0x140772D90 (SeQueryHSTIResults.c)
+ *     ExpQueryChannelInformation @ 0x14077A830 (ExpQueryChannelInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     CmQueryRegistryQuotaInformation @ 0x14077C89C (CmQueryRegistryQuotaInformation.c)
+ *     IoGetConfigurationInformation @ 0x140781A10 (IoGetConfigurationInformation.c)
+ *     ExQueryBootEntropyInformation @ 0x14079EFC4 (ExQueryBootEntropyInformation.c)
+ *     ExpQueryModuleInformationEx @ 0x1407B1ACC (ExpQueryModuleInformationEx.c)
+ *     KeQueryCpuSetInformation @ 0x1407C6FA8 (KeQueryCpuSetInformation.c)
+ *     ExpQueryMemoryTopologyInformation @ 0x1407C8350 (ExpQueryMemoryTopologyInformation.c)
+ *     ExpQueryInterruptSteeringInformation @ 0x1407CF4C4 (ExpQueryInterruptSteeringInformation.c)
+ *     ExpGetSystemPlatformBinary @ 0x1407CFE44 (ExpGetSystemPlatformBinary.c)
+ *     ExpGetSystemWriteConstraintInformation @ 0x1407D22D8 (ExpGetSystemWriteConstraintInformation.c)
+ *     HvlQueryEnlightenmentInfo @ 0x1407D2DDC (HvlQueryEnlightenmentInfo.c)
+ *     IoQueryVhdBootInformation @ 0x1407D33E4 (IoQueryVhdBootInformation.c)
+ *     ExSystemExceptionFilter @ 0x1407D4E30 (ExSystemExceptionFilter.c)
+ *     CmQuerySingleFeatureConfiguration @ 0x14086B1FC (CmQuerySingleFeatureConfiguration.c)
+ *     HvlQueryDetailInfo @ 0x14088E378 (HvlQueryDetailInfo.c)
+ *     HvlQueryVsmProtectionInfo @ 0x14088E494 (HvlQueryVsmProtectionInfo.c)
+ *     KeQuerySpeculationControlInformation @ 0x1408BB998 (KeQuerySpeculationControlInformation.c)
+ *     KeQueryKvaShadowInformation @ 0x1408BCCD8 (KeQueryKvaShadowInformation.c)
+ *     MmGetSessionMappedViewInformation @ 0x1408C4920 (MmGetSessionMappedViewInformation.c)
+ *     ObQueryRefTraceInformation @ 0x1408DE044 (ObQueryRefTraceInformation.c)
+ *     PsRootSiloInformation @ 0x140905C44 (PsRootSiloInformation.c)
+ *     SeSecurityModelQueryInformation @ 0x14091CDBC (SeSecurityModelQueryInformation.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x140937EBC (EtwQueryPerformanceTraceInformation.c)
+ *     ExGetSessionBigPoolInformation @ 0x140949FB0 (ExGetSessionBigPoolInformation.c)
+ *     ExpGetDeviceDataInformation @ 0x14094A1C8 (ExpGetDeviceDataInformation.c)
+ *     ExpGetHandleInformation @ 0x14094A3D4 (ExpGetHandleInformation.c)
+ *     ExpGetHandleInformationEx @ 0x14094A454 (ExpGetHandleInformationEx.c)
+ *     ExpGetLockInformation @ 0x14094A4D4 (ExpGetLockInformation.c)
+ *     ExpGetObjectInformation @ 0x14094A554 (ExpGetObjectInformation.c)
+ *     ExpGetSystemProcessorFeaturesInformation @ 0x14094A5E4 (ExpGetSystemProcessorFeaturesInformation.c)
+ *     ExpIsIumEncryptionKeyAvailable @ 0x14094A640 (ExpIsIumEncryptionKeyAvailable.c)
+ *     ExpQueryCodeIntegrityCertificateInfo @ 0x14094A6EC (ExpQueryCodeIntegrityCertificateInfo.c)
+ *     ExpQueryLegacyDriverInformation @ 0x14094AC64 (ExpQueryLegacyDriverInformation.c)
+ *     ExpQueryNumaAvailableMemory @ 0x14094AD5C (ExpQueryNumaAvailableMemory.c)
+ *     ExpQueryNumaProximityNode @ 0x14094AF0C (ExpQueryNumaProximityNode.c)
+ *     ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x14094B060 (ExpQueryPortableWorkspaceEfiLauncherInformation.c)
+ *     ExpQuerySingleModuleInformation @ 0x14094B270 (ExpQuerySingleModuleInformation.c)
+ *     ExpCovQueryInformation @ 0x14095782C (ExpCovQueryInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     VfGetVerifierInformation @ 0x1409ECAC4 (VfGetVerifierInformation.c)
+ *     VfGetVerifierInformationEx @ 0x1409ECB8C (VfGetVerifierInformationEx.c)
+ *     BgkQueryBootGraphicsInformation @ 0x1409F248C (BgkQueryBootGraphicsInformation.c)
  */
 
 int __fastcall ExpQuerySystemInformation(
-        int a1,
-        void *a2,
-        unsigned int a3,
-        __int64 a4,
+        unsigned int a1,
+        __int64 a2,
+        int a3,
+        unsigned __int64 a4,
         unsigned int Length,
         unsigned int *a6)
 {
-  unsigned int v8; // r13d
-  PVOID v9; // rdi
-  __int64 v10; // rcx
+  unsigned int v8; // r14d
+  unsigned __int8 v9; // r12
+  unsigned int v10; // esi
   ULONG v11; // r8d
-  LOGICAL_PROCESSOR_RELATIONSHIP v12; // r14d
+  __int64 v12; // rcx
   __int64 v13; // r9
-  int v14; // r15d
+  __int16 v14; // r10
   __int64 v15; // r8
-  void *v16; // r10
-  __int64 v17; // rdx
-  int SystemBasicInformation; // eax
+  unsigned int v16; // r11d
+  USHORT v17; // cx
   ULONG ActiveProcessorCount; // eax
-  int result; // eax
-  __int64 v21; // rcx
-  ULONG v22; // eax
-  unsigned int v23; // ecx
-  unsigned int v24; // r14d
-  _DWORD *v25; // r15
-  ULONG v26; // ecx
-  __int64 v27; // rcx
-  struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *v28; // r15
-  ULONG v29; // eax
-  struct _PROCESSOR_NUMBER *p_ProcNumber; // rax
-  unsigned __int16 v31; // ax
-  unsigned __int16 v32; // cx
-  unsigned __int16 v33; // cx
-  unsigned __int16 v34; // cx
+  USHORT ActiveGroupCount; // ax
+  __int64 v20; // rdx
+  unsigned __int64 v21; // rcx
+  int SystemBasicInformation; // eax
+  _KPROCESS *v23; // rax
+  unsigned __int16 v24; // di
+  unsigned __int16 v25; // cx
+  unsigned __int16 v26; // cx
+  unsigned __int16 v27; // cx
+  unsigned __int16 v28; // cx
+  __int64 v29; // rcx
+  __int64 v30; // rax
+  __int64 v31; // rax
+  signed int BootGraphicsInformation; // esi
+  _KPROCESS *v33; // rax
+  unsigned __int16 v34; // di
   unsigned __int16 v35; // cx
-  PVOID v36; // rsi
-  _OWORD *v37; // rsi
-  __int64 v38; // rcx
-  _OWORD *v39; // rax
-  __int64 v40; // r14
-  __int64 v41; // rcx
-  _OWORD *v42; // rax
-  __int64 v43; // rax
-  struct _KTHREAD *CurrentThread; // rax
-  __int64 v45; // rcx
-  int ModuleInformation; // eax
-  __int64 v47; // rsi
-  __int64 v48; // rcx
-  int v49; // r14d
-  unsigned __int64 v50; // rdi
-  char v51; // si
-  unsigned int v52; // esi
-  _DWORD *v53; // rdx
-  __int64 v54; // r14
-  __int64 v55; // rdx
+  _KPROCESS *CurrentProcess; // rax
   unsigned __int16 ProcessPartitionId; // ax
-  unsigned __int16 v57; // cx
-  unsigned __int16 v58; // cx
-  unsigned __int16 v59; // cx
-  int v60; // edx
-  int v61; // r8d
-  unsigned int v62; // ecx
-  __int64 v63; // rax
-  unsigned __int16 v64; // ax
-  unsigned __int16 v65; // cx
-  __int64 v66; // rcx
-  _QWORD *v67; // rax
-  unsigned __int8 v68; // r14
-  _DWORD *v69; // rdi
-  int v70; // eax
-  struct _KTHREAD *v71; // rax
-  int v72; // ecx
-  void *v73; // rcx
-  PVOID v74; // rsi
-  unsigned int v75; // eax
-  __int64 v76; // rax
-  bool IsUserCetAllowed; // al
-  int v78; // ecx
-  bool IsKernelCetEnabled; // al
-  int v80; // r8d
-  bool IsKernelCetAuditModeEnabled; // al
-  int v82; // edx
-  unsigned int v83; // r9d
-  int v84; // r10d
-  int v85; // edx
-  __int64 v86; // rdx
-  int v87; // eax
-  unsigned __int64 v88; // r14
-  _DWORD *Pool2; // rdi
-  unsigned __int64 v90; // rdx
-  struct _KTHREAD *v91; // r14
-  NTSTATUS v92; // edi
-  unsigned int v93; // ecx
-  unsigned int v94; // ecx
+  unsigned __int16 v38; // cx
+  unsigned __int16 v39; // cx
+  unsigned __int16 v40; // cx
+  __int64 v41; // rcx
+  unsigned int v42; // esi
+  unsigned int v43; // eax
+  _DWORD *v44; // r13
+  unsigned int v45; // ecx
+  unsigned __int64 v46; // r14
+  unsigned int v47; // ecx
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v49; // rdi
+  __int64 v50; // rdi
+  __int64 v51; // rdx
+  __int64 v52; // rcx
+  __int64 v53; // rcx
+  unsigned __int64 v54; // rsi
+  char v55; // r14
+  char *v56; // rdx
+  struct _KTHREAD *CurrentThread; // r14
+  NTSTATUS v58; // edi
+  int result; // eax
+  PCONFIGURATION_INFORMATION ConfigurationInformation; // rax
+  __int64 v61; // rcx
+  signed int ModuleInformation; // eax
+  int v63; // ecx
+  unsigned int v64; // eax
+  int v65; // ecx
+  int v66; // esi
+  unsigned int v67; // edx
+  unsigned int v68; // ebx
+  int v69; // ecx
+  int v70; // edx
+  __int64 *v71; // r12
+  __int64 v72; // r8
+  __int64 *v73; // r12
+  __int64 v74; // rdx
+  unsigned int i; // edi
+  _DWORD *v76; // rdx
+  __int64 v77; // rdi
+  __int64 v78; // rcx
+  _OWORD *v79; // rdi
+  __int64 v80; // rcx
+  _OWORD *v81; // rax
+  __int64 v82; // rsi
+  __int64 v83; // rcx
+  _OWORD *v84; // rax
+  __int64 *v85; // r12
+  __int64 v86; // rcx
+  __int64 v87; // r8
+  unsigned int v88; // r8d
+  int v89; // r9d
+  unsigned int v90; // eax
+  unsigned int v91; // r13d
+  unsigned __int16 j; // ax
+  __int64 v93; // rcx
+  _QWORD *v94; // rax
   unsigned int v95; // eax
-  unsigned int v96; // r14d
-  unsigned int v97; // esi
-  __int64 ProcessorIndexFromNumber; // rcx
-  _QWORD *v99; // rax
-  ULONG v100; // eax
-  int v101; // ecx
+  __int64 v96; // rcx
+  unsigned int v97; // eax
+  unsigned int v98; // r13d
+  __int64 v99; // rdx
+  _DWORD *PoolWithQuotaTag; // rdi
+  int v101; // eax
   int v102; // ecx
-  int v103; // edx
+  __int64 v103; // rax
   __int64 v104; // r8
   __int64 v105; // r9
   PVOID v106; // rdi
-  __int64 v107; // rax
-  int v108; // esi
-  PVOID v109; // r14
+  unsigned int v107; // ecx
+  PVOID v108; // r12
+  void *v109; // rcx
   unsigned int v110; // eax
-  bool v111; // cf
+  unsigned int v111; // r13d
   __int64 v112; // rcx
-  __int64 CurrentServerSilo; // rax
-  __int16 NestedPageProtectionFlags; // di
+  char v113; // cl
+  __int16 NestedPageProtectionFlags; // ax
   char v115; // cl
-  __int64 v116; // rdx
-  __int64 v117; // rcx
-  char IsEncryptionKeyAvailable; // al
-  unsigned __int16 *v119; // rax
-  unsigned __int16 *v120; // rsi
-  unsigned __int16 *v121; // rax
-  __int64 v122; // r14
-  struct _MDL *v123; // rax
-  unsigned __int8 v124; // r14
-  int v125; // eax
-  int VerifierInformation; // [rsp+40h] [rbp-7E8h]
-  ULONG v127; // [rsp+44h] [rbp-7E4h] BYREF
-  unsigned __int8 PreviousMode; // [rsp+48h] [rbp-7E0h]
-  unsigned __int16 v129; // [rsp+4Ch] [rbp-7DCh]
-  int v130; // [rsp+50h] [rbp-7D8h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+54h] [rbp-7D4h] BYREF
-  int v132; // [rsp+58h] [rbp-7D0h]
-  unsigned int Size; // [rsp+5Ch] [rbp-7CCh]
-  unsigned int Size_4; // [rsp+60h] [rbp-7C8h]
-  PVOID P; // [rsp+68h] [rbp-7C0h]
-  unsigned __int16 v136; // [rsp+70h] [rbp-7B8h]
-  _BYTE v137[4]; // [rsp+74h] [rbp-7B4h] BYREF
-  unsigned int v138; // [rsp+78h] [rbp-7B0h]
-  unsigned int v139; // [rsp+7Ch] [rbp-7ACh] BYREF
-  unsigned int *v140; // [rsp+80h] [rbp-7A8h]
-  char v141; // [rsp+B9h] [rbp-76Fh]
-  _QWORD *v142; // [rsp+110h] [rbp-718h]
-  struct _PROCESSOR_NUMBER *v143; // [rsp+118h] [rbp-710h]
-  PVOID Object; // [rsp+120h] [rbp-708h] BYREF
-  int v145; // [rsp+128h] [rbp-700h] BYREF
-  int v146; // [rsp+12Ch] [rbp-6FCh] BYREF
-  unsigned int v147; // [rsp+130h] [rbp-6F8h] BYREF
-  int v148; // [rsp+134h] [rbp-6F4h] BYREF
-  int v149; // [rsp+138h] [rbp-6F0h] BYREF
-  int v150; // [rsp+13Ch] [rbp-6ECh]
-  int v151; // [rsp+140h] [rbp-6E8h]
-  PVOID v152; // [rsp+148h] [rbp-6E0h] BYREF
-  PVOID v153; // [rsp+150h] [rbp-6D8h] BYREF
-  __int64 v154; // [rsp+158h] [rbp-6D0h]
-  HANDLE ProcessId[2]; // [rsp+160h] [rbp-6C8h]
-  unsigned __int64 v156; // [rsp+170h] [rbp-6B8h]
-  __int64 v157; // [rsp+178h] [rbp-6B0h] BYREF
-  __int64 v158; // [rsp+180h] [rbp-6A8h] BYREF
-  PVOID v159; // [rsp+188h] [rbp-6A0h] BYREF
-  __int64 v160; // [rsp+190h] [rbp-698h]
-  PVOID v161; // [rsp+198h] [rbp-690h] BYREF
-  __int128 v162; // [rsp+1A0h] [rbp-688h] BYREF
-  unsigned int v163; // [rsp+1B4h] [rbp-674h]
-  __int64 v164; // [rsp+1E8h] [rbp-640h]
-  int v165; // [rsp+5E8h] [rbp-240h]
-  __int128 v166; // [rsp+5F0h] [rbp-238h] BYREF
-  PVOID BaseAddress[2]; // [rsp+600h] [rbp-228h]
-  __int128 v168; // [rsp+610h] [rbp-218h]
-  volatile void *v169; // [rsp+620h] [rbp-208h]
-  _OWORD Src[27]; // [rsp+630h] [rbp-1F8h] BYREF
+  bool IsUserCetAllowed; // al
+  int v117; // ecx
+  unsigned __int8 IsKTMCommitCoordinator; // al
+  int v119; // edx
+  struct _DMA_ADAPTER *v120; // r14
+  signed int CpuSetInformation; // eax
+  struct _MDL *v122; // rax
+  struct _MDL *v123; // r14
+  int v124; // eax
+  __int64 v125; // rax
+  unsigned int Size; // [rsp+30h] [rbp-308h] BYREF
+  int Size_4; // [rsp+34h] [rbp-304h]
+  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-300h] BYREF
+  unsigned __int16 v129; // [rsp+3Ch] [rbp-2FCh]
+  int v130; // [rsp+40h] [rbp-2F8h]
+  unsigned int v131; // [rsp+44h] [rbp-2F4h]
+  char v132[4]; // [rsp+48h] [rbp-2F0h] BYREF
+  int v133; // [rsp+4Ch] [rbp-2ECh]
+  SIZE_T NumberOfBytes; // [rsp+50h] [rbp-2E8h] BYREF
+  int v135[2]; // [rsp+58h] [rbp-2E0h]
+  unsigned int *v136; // [rsp+60h] [rbp-2D8h]
+  int v137; // [rsp+68h] [rbp-2D0h] BYREF
+  char v138; // [rsp+6Ch] [rbp-2CCh]
+  unsigned __int16 v139; // [rsp+70h] [rbp-2C8h]
+  ULONG v140; // [rsp+74h] [rbp-2C4h]
+  unsigned int v141; // [rsp+78h] [rbp-2C0h]
+  unsigned int v142; // [rsp+7Ch] [rbp-2BCh]
+  LOGICAL_PROCESSOR_RELATIONSHIP RelationshipType; // [rsp+80h] [rbp-2B8h]
+  unsigned int v144; // [rsp+84h] [rbp-2B4h]
+  unsigned int v145; // [rsp+88h] [rbp-2B0h] BYREF
+  int v146; // [rsp+8Ch] [rbp-2ACh] BYREF
+  int v147; // [rsp+90h] [rbp-2A8h]
+  int v148; // [rsp+94h] [rbp-2A4h] BYREF
+  unsigned int v149; // [rsp+98h] [rbp-2A0h] BYREF
+  _QWORD *v150; // [rsp+A0h] [rbp-298h]
+  PEPROCESS Process; // [rsp+A8h] [rbp-290h] BYREF
+  PVOID v152; // [rsp+B0h] [rbp-288h] BYREF
+  PVOID P; // [rsp+B8h] [rbp-280h] BYREF
+  PVOID v154; // [rsp+C0h] [rbp-278h] BYREF
+  __int64 v155; // [rsp+C8h] [rbp-270h]
+  HANDLE Handle; // [rsp+D0h] [rbp-268h]
+  HANDLE ProcessId[2]; // [rsp+D8h] [rbp-260h]
+  char *v158; // [rsp+E8h] [rbp-250h]
+  __int64 v159; // [rsp+F0h] [rbp-248h] BYREF
+  int *v160; // [rsp+F8h] [rbp-240h]
+  PVOID Object; // [rsp+100h] [rbp-238h] BYREF
+  __int64 v162; // [rsp+108h] [rbp-230h]
+  __int128 v163; // [rsp+110h] [rbp-228h] BYREF
+  int v164; // [rsp+128h] [rbp-210h]
+  _OWORD Src[27]; // [rsp+140h] [rbp-1F8h] BYREF
 
-  Size = a3;
-  P = a2;
-  v8 = Length;
-  v140 = a6;
-  v9 = 0LL;
-  v139 = 0;
-  v157 = 0LL;
-  v147 = 0;
-  v148 = 0;
-  v132 = 0;
+  v133 = a3;
+  *(_QWORD *)v135 = a2;
+  v142 = a1;
+  v136 = a6;
+  v8 = 0;
+  LODWORD(NumberOfBytes) = 0;
+  v159 = 0LL;
+  v145 = 0;
   v146 = 0;
+  v131 = 0;
+  v137 = 0;
+  v139 = 0;
   v129 = 0;
-  v136 = 0;
-  v162 = 0LL;
-  Object = 0LL;
+  v163 = 0LL;
+  Process = 0LL;
   ProcNumber = 0;
-  *(_OWORD *)BaseAddress = 0LL;
-  v168 = 0LL;
-  v153 = 0LL;
-  v152 = 0LL;
-  v151 = 0;
-  v158 = 0LL;
-  v166 = 0LL;
+  RelationshipType = RelationProcessorCore;
+  v154 = 0LL;
+  P = 0LL;
+  v147 = 0;
   memset(Src, 0, sizeof(Src));
-  VerifierInformation = 0;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode )
+  Size_4 = 0;
+  v9 = KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
+  if ( v9 )
   {
-    if ( a1 < 88 && a1 >= 73 || a1 < 5 || a1 >= 174 && a1 < 188 )
+    switch ( a1 )
     {
-LABEL_4:
-      v11 = 4;
-LABEL_5:
-      v130 = 1;
-    }
-    else
-    {
-      switch ( a1 )
-      {
-        case 12:
-          v11 = 8;
-          goto LABEL_5;
-        case 35:
-        case 145:
-        case 147:
-        case 149:
-        case 158:
-        case 163:
-        case 169:
-        case 202:
-        case 227:
-          v130 = 1;
-          v11 = 1;
-          break;
-        default:
-          goto LABEL_4;
-      }
+      case 0xCu:
+        v11 = 8;
+        goto LABEL_6;
+      case 0x23u:
+      case 0x91u:
+      case 0x93u:
+      case 0x95u:
+      case 0x9Eu:
+      case 0xA3u:
+      case 0xA9u:
+      case 0xCAu:
+      case 0xE3u:
+        v10 = 1;
+        v11 = 1;
+        break;
+      default:
+        v11 = 4;
+LABEL_6:
+        v10 = 1;
+        break;
     }
     ProbeForWrite((volatile void *)a4, Length, v11);
     if ( a6 )
     {
-      v10 = (__int64)a6;
+      v12 = (__int64)a6;
       if ( (unsigned __int64)a6 >= 0x7FFFFFFF0000LL )
-        v10 = 0x7FFFFFFF0000LL;
-      *(_DWORD *)v10 = *(_DWORD *)v10;
+        v12 = 0x7FFFFFFF0000LL;
+      *(_DWORD *)v12 = *(_DWORD *)v12;
     }
   }
   else
   {
-    v130 = 1;
+    v10 = 1;
   }
-  v127 = 0;
-  v12 = RelationAll;
-  v150 = 0xFFFF;
+  Size = 0;
+  RelationshipType = RelationAll;
   v13 = 0LL;
-  v138 = 0;
-  LOWORD(v14) = 0;
-  LODWORD(v143) = 0;
-  v136 = 0;
+  v140 = 0;
+  v14 = 0;
+  v130 = 0;
   v129 = 0;
-  v154 = 0LL;
-  v164 = 0LL;
-  v160 = 0LL;
-  Size_4 = 9;
-  v151 = 9;
-  if ( a1 < 83 && a1 >= 74 || a1 >= 182 && a1 < 230 || a1 < 2 )
+  v139 = 0;
+  v155 = 0LL;
+  Handle = 0LL;
+  v162 = 0LL;
+  v15 = 9LL;
+  v141 = 9;
+  v147 = 9;
+  v16 = v142;
+  switch ( v142 )
   {
-LABEL_12:
-    v15 = v129;
-LABEL_13:
-    v16 = 0LL;
-LABEL_14:
-    v17 = Size_4;
+    case 2u:
+    case 0x21u:
+    case 0x24u:
+    case 0x41u:
+      v130 = 0xFFFF;
+      v129 = -1;
+      v17 = -1;
+      goto LABEL_15;
+    case 8u:
+    case 0x17u:
+    case 0x2Au:
+    case 0x3Du:
+    case 0x49u:
+    case 0x53u:
+    case 0x64u:
+    case 0x6Cu:
+    case 0x8Du:
+    case 0xA0u:
+      if ( (unsigned int)v133 < 2 )
+        return -1073741811;
+      v130 = (unsigned __int16)**(_WORD **)v135;
+      v129 = v130;
+      ActiveGroupCount = KeQueryActiveGroupCount();
+      v17 = v130;
+      if ( (unsigned __int16)v130 >= ActiveGroupCount )
+        return -1073741811;
 LABEL_15:
-    if ( a1 == 79 )
-    {
-      SystemBasicInformation = PfQuerySuperfetchInformation(v10, a4, Length, PreviousMode, &v127);
-    }
-    else if ( a1 == 185 )
-    {
-      SystemBasicInformation = WbDispatchOperation((void *)a4, Length);
-    }
-    else
-    {
-      switch ( a1 )
+      ActiveProcessorCount = KeQueryActiveProcessorCountEx(v17);
+      v13 = ActiveProcessorCount;
+      v140 = ActiveProcessorCount;
+      v14 = v130;
+      v15 = v141;
+      v16 = v142;
+LABEL_34:
+      v20 = (unsigned int)v133;
+      goto LABEL_35;
+    case 0x48u:
+      v20 = (unsigned int)v133;
+      if ( v133 != 4 )
+        return -1073741811;
+      v15 = (unsigned int)**(_DWORD **)v135;
+      v147 = **(_DWORD **)v135;
+      goto LABEL_35;
+    case 0x6Bu:
+      v20 = (unsigned int)v133;
+      if ( (unsigned int)v133 < 4 )
+        return -1073741811;
+      RelationshipType = **(_DWORD **)v135;
+      goto LABEL_35;
+    case 0x79u:
+      v20 = (unsigned int)v133;
+      if ( (unsigned int)v133 >= 2 )
       {
-        case 0:
-        case 114:
+        v139 = **(_WORD **)v135;
+        if ( v139 < (unsigned __int16)KeNumberNodes )
+          goto LABEL_35;
+      }
+      return -1073741811;
+    case 0xA5u:
+      v20 = (unsigned int)v133;
+      if ( v133 )
+      {
+        if ( v133 != 8 )
+          return -1073741811;
+        v155 = **(_QWORD **)v135;
+      }
+      else
+      {
+        v155 = 0LL;
+      }
+LABEL_35:
+      v21 = 0x140000000uLL;
+      switch ( v16 )
+      {
+        case 0u:
+        case 0x72u:
           if ( Length == 64 )
           {
             SystemBasicInformation = ExpGetSystemBasicInformation(a4);
-            v127 = 64;
-            break;
+            goto LABEL_639;
           }
           if ( a6 )
             *a6 = 64;
           return -1073741820;
-        case 1:
+        case 1u:
           if ( Length >= 0xC )
           {
             SystemBasicInformation = ExpGetSystemProcessorInformation(a4);
-            v127 = 12;
-            break;
+            Size = 12;
+            goto LABEL_640;
           }
           if ( a6 )
             *a6 = 12;
           return -1073741820;
-        case 2:
-          if ( Length >= 0x138 )
+        case 2u:
+          if ( Length < 0x138 )
           {
-            if ( Length > 0x158 )
-              v8 = 344;
-            ExpQuerySystemPerformanceInformation(v13, (void *)a4, v8);
-            goto LABEL_42;
+            if ( a6 )
+              *a6 = 344;
+            return -1073741820;
           }
-          if ( a6 )
-            *a6 = 344;
-          return -1073741820;
-        case 3:
+          v10 = 344;
+          if ( Length <= 0x158 )
+            v10 = Length;
+          ExpQuerySystemPerformanceInformation(v13, (void *)a4, v10);
+          goto LABEL_259;
+        case 3u:
           if ( Length <= 0x30 )
           {
             KeQueryBootTimeValues((_QWORD *)Src + 1, (LARGE_INTEGER *)Src, &Src[2]);
-            v21 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 157);
-            *(_QWORD *)&Src[1] = *(_QWORD *)(v21 + 440);
-            DWORD2(Src[1]) = *(_DWORD *)(v21 + 432);
+            v53 = *((_QWORD *)PsGetCurrentServerSiloGlobals(v52, v51) + 133);
+            *(_QWORD *)&Src[1] = *(_QWORD *)(v53 + 440);
+            DWORD2(Src[1]) = *(_DWORD *)(v53 + 432);
             *((_QWORD *)&Src[2] + 1) = MEMORY[0xFFFFF780000003B0];
             memmove((void *)a4, Src, Length);
-            goto LABEL_42;
+            goto LABEL_121;
           }
           if ( a6 )
             *a6 = 48;
           return -1073741820;
-        case 4:
-        case 10:
-        case 25:
-        case 29:
-        case 96:
+        case 4u:
+        case 0xAu:
+        case 0x19u:
+        case 0x1Du:
+        case 0x60u:
           return -1073741822;
-        case 5:
-        case 57:
-        case 148:
-          SystemBasicInformation = ExpGetProcessInformation(a4, Length, (unsigned int)&v127, 0, a1);
-          break;
-        case 6:
+        case 5u:
+        case 0x39u:
+        case 0x94u:
+          SystemBasicInformation = ExpGetProcessInformation((int *)a4, Length, &Size, 0LL, v16);
+          goto LABEL_640;
+        case 6u:
           return -1073741637;
-        case 7:
+        case 7u:
           if ( Length == 24 )
           {
-            *(_DWORD *)a4 = dword_140D53888;
-            *(_DWORD *)(a4 + 4) = dword_140D5388C;
-            *(_DWORD *)(a4 + 8) = dword_140D53890;
-            *(_DWORD *)(a4 + 12) = dword_140D53894;
-            *(_DWORD *)(a4 + 16) = dword_140D5389C;
-            *(_DWORD *)(a4 + 20) = dword_140D538A0;
-            goto LABEL_192;
+            ConfigurationInformation = IoGetConfigurationInformation();
+            *(_DWORD *)a4 = ConfigurationInformation->DiskCount;
+            *(_DWORD *)(a4 + 4) = ConfigurationInformation->FloppyCount;
+            *(_DWORD *)(a4 + 8) = ConfigurationInformation->CdRomCount;
+            *(_DWORD *)(a4 + 12) = ConfigurationInformation->TapeCount;
+            *(_DWORD *)(a4 + 16) = ConfigurationInformation->SerialCount;
+            *(_DWORD *)(a4 + 20) = ConfigurationInformation->ParallelCount;
+            goto LABEL_67;
           }
           if ( a6 )
             *a6 = 24;
           return -1073741820;
-        case 8:
-        case 141:
-          v23 = 48;
-          if ( a1 != 8 )
-            v23 = 72;
-          Size = v23;
-          if ( !Length || Length % v23 )
+        case 8u:
+        case 0x8Du:
+          v42 = 48;
+          if ( v16 != 8 )
+            v42 = 72;
+          if ( Length && !(Length % v42) )
           {
-            if ( a6 )
-              *a6 = v13 * v23;
-            return -1073741820;
-          }
-          Size_4 = 0;
-          v24 = 0;
-          v132 = 0;
-          while ( 1 )
-          {
-            v142 = (_QWORD *)a4;
-            if ( v24 >= (unsigned int)v13 )
-              break;
-            ProcNumber.Group = v14;
-            ProcNumber.Number = v24;
-            ProcNumber.Reserved = 0;
-            v25 = (_DWORD *)KiProcessorBlock[KeGetProcessorIndexFromNumber(&ProcNumber)];
-            v26 = Size_4;
-            if ( Length < Size_4 + Size )
-              goto LABEL_65;
-            Size_4 += Size;
-            PoGetIdleTimes(&ProcNumber, 0LL, (__int64)Src);
-            v27 = (unsigned int)KeMaximumIncrement;
-            *(_QWORD *)(a4 + 16) = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)v25[8274];
-            *(_QWORD *)(a4 + 8) = v27 * DWORD1(Src[0]);
-            *(_QWORD *)(a4 + 24) = v27 * (unsigned int)v25[8275];
-            *(_QWORD *)(a4 + 32) = v27 * (unsigned int)v25[8276];
-            *(_QWORD *)a4 = v27 * LODWORD(Src[0]);
-            *(_DWORD *)(a4 + 40) = v25[8272];
-            if ( a1 == 141 )
+            v131 = 0;
+            v43 = 0;
+            while ( 1 )
             {
-              *(_QWORD *)(a4 + 48) = v27 * (unsigned int)v25[8283];
-              *(_DWORD *)(a4 + 44) = 0;
-              *(_QWORD *)(a4 + 56) = 0LL;
-              *(_QWORD *)(a4 + 64) = 0LL;
+              v141 = v43;
+              if ( v43 >= (unsigned int)v13 )
+                break;
+              ProcNumber.Group = v14;
+              ProcNumber.Number = v43;
+              ProcNumber.Reserved = 0;
+              v44 = (_DWORD *)KiProcessorBlock[KeGetProcessorIndexFromNumber(&ProcNumber)];
+              v45 = v131;
+              if ( Length < v42 + v131 )
+                goto LABEL_91;
+              v131 += v42;
+              PoGetIdleTimes(&ProcNumber, 0LL, (__int64)Src);
+              *(_QWORD *)(a4 + 16) = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)v44[8098];
+              *(_QWORD *)(a4 + 8) = (unsigned int)KeMaximumIncrement * (unsigned __int64)DWORD1(Src[0]);
+              *(_QWORD *)(a4 + 24) = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)v44[8099];
+              *(_QWORD *)(a4 + 32) = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)v44[8100];
+              *(_QWORD *)a4 = (unsigned int)KeMaximumIncrement * (unsigned __int64)LODWORD(Src[0]);
+              *(_DWORD *)(a4 + 40) = v44[8096];
+              if ( v142 == 141 )
+              {
+                *(_QWORD *)(a4 + 48) = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)v44[8107];
+                *(_DWORD *)(a4 + 44) = 0;
+                *(_QWORD *)(a4 + 56) = 0LL;
+                *(_QWORD *)(a4 + 64) = 0LL;
+              }
+              a4 += v42;
+              v43 = v141 + 1;
+              LODWORD(v13) = v140;
+              v14 = v130;
             }
-            a4 += Size;
-            v132 = ++v24;
-            LOWORD(v14) = (_WORD)v143;
-            LODWORD(v13) = v138;
+            v45 = v131;
+LABEL_91:
+            Size = v45;
+            BootGraphicsInformation = Size_4;
+            goto LABEL_641;
           }
-          v26 = Size_4;
-          goto LABEL_65;
-        case 9:
+          if ( a6 )
+            *a6 = v13 * v42;
+          return -1073741820;
+        case 9u:
           if ( Length == 4 )
           {
             *(_DWORD *)a4 = NtGlobalFlag;
-            goto LABEL_164;
+            goto LABEL_160;
           }
           if ( a6 )
             *a6 = 4;
           return -1073741820;
-        case 11:
-          if ( (unsigned int)ExIsRestrictedCaller(PreviousMode) )
+        case 0xBu:
+          if ( ExIsRestrictedCaller(v9) )
             return -1073741790;
-          CurrentThread = KeGetCurrentThread();
-          --CurrentThread->KernelApcDisable;
+          KeEnterCriticalRegion();
           ExAcquireResourceExclusiveLite(&PsLoadedModuleResource, 1u);
-          ModuleInformation = ExpQueryModuleInformation(v45, a4, Length, &v127);
-          goto LABEL_113;
-        case 12:
+          ModuleInformation = ExpQueryModuleInformation(v61, (_DWORD *)a4, Length, &Size);
+          goto LABEL_167;
+        case 0xCu:
           if ( Length < 0x38 )
           {
             if ( a6 )
               *a6 = 56;
             return -1073741820;
           }
-          if ( (unsigned int)ExIsRestrictedCaller(PreviousMode) )
+          if ( ExIsRestrictedCaller(v9) )
             return -1073741790;
-          SystemBasicInformation = ExpGetLockInformation(a4, Length, &v127);
-          break;
-        case 13:
+          SystemBasicInformation = ExpGetLockInformation(a4, Length, &Size);
+          goto LABEL_640;
+        case 0xDu:
           if ( Length >= 0x128 )
-            goto LABEL_372;
+            goto LABEL_181;
           if ( a6 )
             *a6 = 296;
           return -1073741820;
-        case 14:
-        case 15:
-        case 19:
-LABEL_372:
-          VerifierInformation = -1073741822;
-          goto LABEL_30;
-        case 16:
+        case 0xEu:
+        case 0xFu:
+        case 0x13u:
+LABEL_181:
+          BootGraphicsInformation = -1073741822;
+          goto LABEL_641;
+        case 0x10u:
           if ( Length < 0x20 )
           {
             if ( a6 )
@@ -598,280 +637,281 @@ LABEL_372:
           }
           if ( (a4 & 7) != 0 )
             return -2147483646;
-          if ( !(unsigned int)ExIsRestrictedCaller(PreviousMode) )
+          if ( !ExIsRestrictedCaller(v9) )
           {
-            SystemBasicInformation = ExpGetHandleInformation(a4, Length, &v127);
-            break;
+            SystemBasicInformation = ExpGetHandleInformation(a4, Length, &Size);
+            goto LABEL_640;
           }
           return -1073741790;
-        case 17:
+        case 0x11u:
           if ( Length < 0x40 )
           {
             if ( a6 )
               *a6 = 64;
             return -1073741820;
           }
-          if ( (unsigned int)ExIsRestrictedCaller(PreviousMode) )
+          if ( ExIsRestrictedCaller(v9) )
             return -1073741790;
-          SystemBasicInformation = ExpGetObjectInformation(a4, Length, &v127);
-          break;
-        case 18:
-        case 144:
-          if ( a1 == 18 )
-            v75 = 32;
+          SystemBasicInformation = ExpGetObjectInformation(a4, Length, &Size);
+          goto LABEL_640;
+        case 0x12u:
+        case 0x90u:
+          v64 = 32;
+          if ( v16 != 18 )
+            v64 = 40;
+          Size = v64;
+          if ( Length >= v64 )
+          {
+            Size = 0;
+            LOBYTE(v8) = v16 == 144;
+            SystemBasicInformation = MmGetPageFileInformation(40LL, a4, Length, v8, &Size);
+            goto LABEL_640;
+          }
+          if ( a6 )
+            *a6 = v64;
+          return -1073741820;
+        case 0x15u:
+        case 0x51u:
+        case 0x77u:
+        case 0x78u:
+          if ( Length < 0x40 )
+          {
+            if ( a6 )
+              *a6 = 64;
+            return -1073741820;
+          }
+          v65 = 2;
+          if ( v16 == 119 )
+          {
+            v66 = 3;
+          }
           else
-            v75 = 40;
-          if ( Length >= v75 )
           {
-            SystemBasicInformation = MmGetPageFileInformation(
-                                       (unsigned int)&v127,
-                                       a4,
-                                       Length,
-                                       a1 == 144,
-                                       (__int64)&v127);
-            break;
+            if ( v16 == 120 )
+              v65 = 4;
+            v66 = v65;
           }
-          if ( a6 )
-            *a6 = v75;
-          return -1073741820;
-        case 21:
-        case 81:
-        case 119:
-        case 120:
-          if ( Length >= 0x40 )
-          {
-            v49 = 2;
-            if ( a1 == 119 )
-            {
-              v49 = 3;
-            }
-            else if ( a1 == 120 )
-            {
-              v49 = 4;
-            }
-            MmQuerySystemWorkingSetInformation(v49, Src);
-            *(_OWORD *)a4 = Src[0];
-            *(_DWORD *)(a4 + 16) = Src[1];
-            v132 = 64;
-            *(_QWORD *)(a4 + 24) = *((_QWORD *)&Src[1] + 1);
-            *(_OWORD *)(a4 + 32) = Src[2];
-            *(_OWORD *)(a4 + 48) = Src[3];
-            v127 = 64;
-            goto LABEL_30;
-          }
-          if ( a6 )
-            *a6 = 64;
-          return -1073741820;
-        case 22:
+          MmQuerySystemWorkingSetInformation(v66, Src);
+          *(_OWORD *)a4 = Src[0];
+          *(_DWORD *)(a4 + 16) = Src[1];
+          *(_QWORD *)(a4 + 24) = *((_QWORD *)&Src[1] + 1);
+          *(_OWORD *)(a4 + 32) = Src[2];
+          *(_OWORD *)(a4 + 48) = Src[3];
+          Size = 64;
+          BootGraphicsInformation = Size_4;
+          goto LABEL_641;
+        case 0x16u:
           if ( Length >= 0x30 )
           {
-            SystemBasicInformation = ExGetPoolTagInfo(a4, Length, &v127, v13);
-            break;
+            SystemBasicInformation = ExGetPoolTagInfo(a4, Length, &Size, v13);
+            goto LABEL_640;
           }
           if ( a6 )
             *a6 = 48;
           return -1073741820;
-        case 23:
-          v127 = 24 * v13;
+        case 0x17u:
+          Size = 24 * v13;
           if ( Length >= 24 * (int)v13 )
           {
-            v52 = 0;
-            v132 = 0;
-            while ( 1 )
+            for ( i = 0; i < (unsigned int)v13; ++i )
             {
-              v142 = (_QWORD *)a4;
-              if ( v52 >= (unsigned int)v13 )
-                break;
               ProcNumber.Group = v14;
-              ProcNumber.Number = v52;
+              ProcNumber.Number = i;
               ProcNumber.Reserved = 0;
-              v53 = (_DWORD *)KiProcessorBlock[KeGetProcessorIndexFromNumber(&ProcNumber)];
-              *(_DWORD *)a4 = v53[2895];
-              *(_DWORD *)(a4 + 4) = v53[3287];
-              *(_DWORD *)(a4 + 8) = v53[3307];
+              v76 = (_DWORD *)KiProcessorBlock[KeGetProcessorIndexFromNumber(&ProcNumber)];
+              *(_DWORD *)a4 = v76[2895];
+              *(_DWORD *)(a4 + 4) = v76[3127];
+              *(_DWORD *)(a4 + 8) = v76[3143];
               *(_DWORD *)(a4 + 12) = KeTimeIncrement;
               *(_DWORD *)(a4 + 16) = 0;
               *(_DWORD *)(a4 + 20) = 0;
               a4 += 24LL;
-              v132 = ++v52;
-              LODWORD(v13) = v138;
+              LODWORD(v13) = v140;
+              v14 = v130;
             }
-            goto LABEL_122;
+            goto LABEL_290;
           }
           if ( a6 )
             *a6 = 24 * v13;
           return -1073741820;
-        case 24:
+        case 0x18u:
           if ( Length == 20 )
           {
             *(_DWORD *)(a4 + 4) = KiMaximumDpcQueueDepth;
             *(_DWORD *)(a4 + 8) = KiMinimumDpcRate;
             *(_DWORD *)(a4 + 12) = KiAdjustDpcThreshold;
             *(_DWORD *)(a4 + 16) = KiIdealDpcRate;
-            goto LABEL_428;
+            goto LABEL_279;
           }
           if ( a6 )
             *a6 = 20;
           return -1073741820;
-        case 28:
-          if ( Length != 24 && Length != 12 )
+        case 0x1Cu:
+          if ( Length != 12 && Length != 24 )
           {
             if ( a6 )
               *a6 = 12;
             return -1073741820;
           }
-          LOBYTE(v10) = 1;
-          ExAcquireTimeRefreshLock(v10);
-          v50 = KeTimeAdjustmentFrequency;
-          v51 = KeTimeSynchronization;
-          ExReleaseResourceLite(&ExpTimeRefreshLock);
-          KeLeaveCriticalRegion();
+          LOBYTE(v21) = 1;
+          ExAcquireTimeRefreshLock(v21);
+          v54 = KeTimeAdjustmentFrequency;
+          v55 = KeTimeSynchronization;
+          ExReleaseTimeRefreshLock();
           if ( Length == 24 )
           {
-            *(_QWORD *)a4 = v50;
+            *(_QWORD *)a4 = v54;
             *(_QWORD *)(a4 + 8) = MEMORY[0xFFFFF78000000300];
-            *(_BYTE *)(a4 + 16) = v51;
+            *(_BYTE *)(a4 + 16) = v55;
           }
           else
           {
-            *(_DWORD *)a4 = MEMORY[0xFFFFF78000000300] * (unsigned __int64)(unsigned int)KeMaximumIncrement / v50;
+            *(_DWORD *)a4 = MEMORY[0xFFFFF78000000300] * (unsigned __int64)(unsigned int)KeMaximumIncrement / v54;
             *(_DWORD *)(a4 + 4) = KeMaximumIncrement;
-            *(_BYTE *)(a4 + 8) = v51;
+            *(_BYTE *)(a4 + 8) = v55;
           }
-LABEL_42:
-          v127 = v8;
-          goto LABEL_30;
-        case 31:
-          SystemBasicInformation = EtwQueryPerformanceTraceInformation(a4, Length, PreviousMode, &v127);
-          break;
-        case 33:
-          if ( Length >= 0x10 )
+LABEL_121:
+          Size = Length;
+          BootGraphicsInformation = Size_4;
+          goto LABEL_641;
+        case 0x1Fu:
+          SystemBasicInformation = EtwQueryPerformanceTraceInformation(a4, Length, v9, &Size);
+          goto LABEL_640;
+        case 0x21u:
+          if ( Length < 0x10 )
           {
-            v127 = 16;
-            v60 = 0;
-            v61 = 0;
-            v62 = 0;
-            v132 = 0;
-            while ( v62 < (unsigned int)v13 )
-            {
-              v63 = KiProcessorBlock[v62];
-              v60 += *(_DWORD *)(v63 + 34488);
-              v61 += *(_DWORD *)(v63 + 33136);
-              ++v62;
-            }
-            v132 = v62;
-            *(_DWORD *)a4 = v60;
-            *(_DWORD *)(a4 + 4) = v61;
-            *(_DWORD *)(a4 + 8) = 0;
-            *(_DWORD *)(a4 + 12) = 0;
-            goto LABEL_30;
+            if ( a6 )
+              *a6 = 16;
+            return -1073741820;
           }
-          if ( a6 )
-            *a6 = 16;
-          return -1073741820;
-        case 35:
+          Size = 16;
+          v69 = 0;
+          v70 = 0;
+          if ( (_DWORD)v13 )
+          {
+            v71 = KiProcessorBlock;
+            v72 = (unsigned int)v13;
+            do
+            {
+              v69 += *(_DWORD *)(*v71 + 33592);
+              v70 += *(_DWORD *)(*v71++ + 32432);
+              --v72;
+            }
+            while ( v72 );
+          }
+          *(_DWORD *)a4 = v69;
+          *(_DWORD *)(a4 + 4) = v70;
+          *(_DWORD *)(a4 + 8) = 0;
+          *(_DWORD *)(a4 + 12) = 0;
+          BootGraphicsInformation = Size_4;
+          goto LABEL_641;
+        case 0x23u:
           if ( Length >= 2 )
           {
             *(_BYTE *)a4 = (_BYTE)KdDebuggerEnabled;
             *(_BYTE *)(a4 + 1) = (_BYTE)KdDebuggerNotPresent;
-            v127 = 2;
-            goto LABEL_30;
+            Size = 2;
+            BootGraphicsInformation = Size_4;
+            goto LABEL_641;
           }
           if ( a6 )
             *a6 = 2;
           return -1073741820;
-        case 36:
-          if ( Length >= 0x30 )
+        case 0x24u:
+          if ( Length < 0x30 )
           {
-            v93 = 0;
-            v132 = 0;
-            while ( v93 < (unsigned int)v13 )
-              LODWORD(v9) = *(_DWORD *)(KiProcessorBlock[v93++] + 11580) + (_DWORD)v9;
-            v132 = v93;
-            *(_DWORD *)a4 = (_DWORD)v9;
-            *(_DWORD *)(a4 + 4) = KeThreadSwitchCounters;
-            *(_DWORD *)(a4 + 8) = dword_140C42268;
-            *(_DWORD *)(a4 + 12) = dword_140C42264;
-            *(_DWORD *)(a4 + 16) = dword_140C4226C;
-            *(_DWORD *)(a4 + 20) = dword_140C42270;
-            *(_DWORD *)(a4 + 24) = dword_140C42278;
-            *(_DWORD *)(a4 + 28) = dword_140C42274;
-            *(_DWORD *)(a4 + 32) = dword_140C4227C;
-            *(_DWORD *)(a4 + 36) = dword_140C42280;
-            *(_DWORD *)(a4 + 40) = dword_140C42284;
-            *(_DWORD *)(a4 + 44) = dword_140C42288;
-            v127 = 48;
-            goto LABEL_30;
+            if ( a6 )
+              *a6 = 48;
+            return -1073741820;
           }
-          if ( a6 )
-            *a6 = 48;
-          return -1073741820;
-        case 37:
+          if ( (_DWORD)v13 )
+          {
+            v73 = KiProcessorBlock;
+            v74 = (unsigned int)v13;
+            do
+            {
+              v8 += *(_DWORD *)(*v73++ + 11580);
+              --v74;
+            }
+            while ( v74 );
+          }
+          *(_DWORD *)a4 = v8;
+          *(_DWORD *)(a4 + 4) = KeThreadSwitchCounters;
+          *(_DWORD *)(a4 + 8) = dword_140C31CA8;
+          *(_DWORD *)(a4 + 12) = dword_140C31CA4;
+          *(_DWORD *)(a4 + 16) = dword_140C31CAC;
+          *(_DWORD *)(a4 + 20) = dword_140C31CB0;
+          *(_DWORD *)(a4 + 24) = dword_140C31CB8;
+          *(_DWORD *)(a4 + 28) = dword_140C31CB4;
+          *(_DWORD *)(a4 + 32) = dword_140C31CBC;
+          *(_DWORD *)(a4 + 36) = dword_140C31CC0;
+          *(_DWORD *)(a4 + 40) = dword_140C31CC4;
+          *(_DWORD *)(a4 + 44) = dword_140C31CC8;
+          Size = 48;
+          BootGraphicsInformation = Size_4;
+          goto LABEL_641;
+        case 0x25u:
           if ( Length >= 0x10 )
           {
-            SystemBasicInformation = CmQueryRegistryQuotaInformation(a4, v17, v15, v13);
-            v127 = 16;
-            break;
+            SystemBasicInformation = CmQueryRegistryQuotaInformation(a4, v20, v15, v13);
+            Size = 16;
+            goto LABEL_640;
           }
           if ( a6 )
             *a6 = 16;
           return -1073741820;
-        case 42:
-          v127 = 48 * v13;
+        case 0x2Au:
+          Size = 48 * v13;
           if ( Length < 48 * (int)v13 )
-            goto LABEL_258;
-          while ( 1 )
+            goto LABEL_104;
+          while ( v8 < (unsigned int)v13 )
           {
-            v132 = (int)v9;
-            v142 = (_QWORD *)a4;
-            if ( (unsigned int)v9 >= (unsigned int)v13 )
-              break;
             ProcNumber.Group = v14;
-            ProcNumber.Number = (unsigned __int8)v9;
+            ProcNumber.Number = v8;
             ProcNumber.Reserved = 0;
             PoGetIdleTimes(&ProcNumber, (__int64)Src, 0LL);
             *(_OWORD *)a4 = Src[0];
             *(_OWORD *)(a4 + 16) = Src[1];
             *(_OWORD *)(a4 + 32) = Src[2];
             a4 += 48LL;
-            LODWORD(v9) = (_DWORD)v9 + 1;
-            LODWORD(v13) = v138;
+            ++v8;
+            LODWORD(v13) = v140;
+            v14 = v130;
           }
-          goto LABEL_30;
-        case 43:
+          goto LABEL_62;
+        case 0x2Bu:
           if ( Length >= 0x18 )
           {
-            v127 = Length;
-            SystemBasicInformation = ExpQueryLegacyDriverInformation(a4, &v127, v15, v13);
-            break;
+            Size = Length;
+            SystemBasicInformation = ExpQueryLegacyDriverInformation(a4, &Size, v15, v13);
+            goto LABEL_640;
           }
           if ( a6 )
             *a6 = 24;
           return -1073741820;
-        case 44:
+        case 0x2Cu:
           if ( Length < 0xAC )
           {
             if ( a6 )
               *a6 = 172;
             return -1073741820;
           }
-          v47 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 157);
-          LOBYTE(v48) = 1;
-          ExAcquireTimeRefreshLock(v48);
-          Src[0] = *(_OWORD *)v47;
-          Src[1] = *(_OWORD *)(v47 + 16);
-          Src[2] = *(_OWORD *)(v47 + 32);
-          Src[3] = *(_OWORD *)(v47 + 48);
-          Src[4] = *(_OWORD *)(v47 + 64);
-          Src[5] = *(_OWORD *)(v47 + 80);
-          Src[6] = *(_OWORD *)(v47 + 96);
-          Src[7] = *(_OWORD *)(v47 + 112);
-          Src[8] = *(_OWORD *)(v47 + 128);
-          Src[9] = *(_OWORD *)(v47 + 144);
-          *(_QWORD *)&Src[10] = *(_QWORD *)(v47 + 160);
-          DWORD2(Src[10]) = *(_DWORD *)(v47 + 168);
-          ExReleaseResourceLite(&ExpTimeRefreshLock);
-          KeLeaveCriticalRegion();
+          v77 = *((_QWORD *)PsGetCurrentServerSiloGlobals(0x140000000LL, v20) + 133);
+          LOBYTE(v78) = 1;
+          ExAcquireTimeRefreshLock(v78);
+          Src[0] = *(_OWORD *)v77;
+          Src[1] = *(_OWORD *)(v77 + 16);
+          Src[2] = *(_OWORD *)(v77 + 32);
+          Src[3] = *(_OWORD *)(v77 + 48);
+          Src[4] = *(_OWORD *)(v77 + 64);
+          Src[5] = *(_OWORD *)(v77 + 80);
+          Src[6] = *(_OWORD *)(v77 + 96);
+          Src[7] = *(_OWORD *)(v77 + 112);
+          Src[8] = *(_OWORD *)(v77 + 128);
+          Src[9] = *(_OWORD *)(v77 + 144);
+          *(_QWORD *)&Src[10] = *(_QWORD *)(v77 + 160);
+          DWORD2(Src[10]) = *(_DWORD *)(v77 + 168);
+          ExReleaseTimeRefreshLock();
           *(_OWORD *)a4 = Src[0];
           *(_OWORD *)(a4 + 16) = Src[1];
           *(_OWORD *)(a4 + 32) = Src[2];
@@ -884,101 +924,100 @@ LABEL_42:
           *(_OWORD *)(a4 + 144) = Src[9];
           *(_QWORD *)(a4 + 160) = *(_QWORD *)&Src[10];
           *(_DWORD *)(a4 + 168) = DWORD2(Src[10]);
-          v127 = 172;
-LABEL_122:
-          VerifierInformation = 0;
-          goto LABEL_30;
-        case 45:
-          SystemBasicInformation = ExpGetLookasideInformation(a4, Length, &v127);
-          break;
-        case 50:
+          Size = 172;
+LABEL_290:
+          BootGraphicsInformation = 0;
+          goto LABEL_641;
+        case 0x2Du:
+          SystemBasicInformation = ExpGetLookasideInformation(a4, Length, &Size);
+          goto LABEL_640;
+        case 0x32u:
           if ( Length == 8 )
           {
             *(_QWORD *)a4 = 0xFFFF800000000000uLL;
-            goto LABEL_119;
+            goto LABEL_116;
           }
           if ( a6 )
             *a6 = 8;
           return -1073741820;
-        case 51:
+        case 0x33u:
           if ( Length >= 0x90 )
-          {
-            SystemBasicInformation = VfGetVerifierInformation((void *)a4, Length, &v127, 0);
-            break;
-          }
+            goto LABEL_307;
           if ( a6 )
             *a6 = 144;
           return -1073741820;
-        case 53:
+        case 0x35u:
           if ( Length >= 0x10 )
           {
-            v146 = *(_DWORD *)a4;
-            v169 = *(volatile void **)(a4 + 8);
-            v163 = *(_DWORD *)(a4 + 4);
-            ProbeForWrite(v169, v163, 4u);
-            SystemBasicInformation = ExpGetProcessInformation(
-                                       (_DWORD)v169,
-                                       v163,
-                                       (unsigned int)&v127,
-                                       (unsigned int)&v146,
-                                       5);
-            break;
+            v137 = *(_DWORD *)a4;
+            v160 = *(int **)(a4 + 8);
+            v144 = *(_DWORD *)(a4 + 4);
+            ProbeForWrite(v160, v144, 4u);
+            SystemBasicInformation = ExpGetProcessInformation(v160, v144, &Size, &v137, 5);
+            goto LABEL_640;
           }
           if ( a6 )
             *a6 = 16;
           return -1073741820;
-        case 55:
-          SystemBasicInformation = ExpQueryNumaProcessorMap(a4, Length, &v127, v13);
-          break;
-        case 56:
-          SystemBasicInformation = PfSnQueryPrefetcherInformation(v10, a4, Length, PreviousMode, &v127);
-          break;
-        case 58:
+        case 0x37u:
+          SystemBasicInformation = ExpQueryNumaProcessorMap(a4, Length, &Size, v13);
+          goto LABEL_640;
+        case 0x38u:
+          SystemBasicInformation = PfSnQueryPrefetcherInformation(0x140000000LL, (__int128 *)a4, Length, v9, &Size);
+          goto LABEL_640;
+        case 0x3Au:
           if ( Length >= 4 )
           {
             *(_DWORD *)a4 = KeGetRecommendedSharedDataAlignment();
-            goto LABEL_164;
+            goto LABEL_160;
           }
           if ( a6 )
             *a6 = 4;
           return -1073741820;
-        case 59:
+        case 0x3Bu:
           if ( Length != 4 )
           {
             if ( a6 )
               *a6 = 4;
             return -1073741820;
           }
-          if ( MEMORY[0xFFFFF780000002E0] != -1
-            || (result = ExpReadComPlusPackage(v10, v17, v15, v13), VerifierInformation = result, result >= 0) )
+          if ( MEMORY[0xFFFFF780000002E0] == -1 )
           {
-            *(_DWORD *)a4 = MEMORY[0xFFFFF780000002E0];
-            goto LABEL_164;
+            result = ExpReadComPlusPackage();
+            BootGraphicsInformation = result;
+            if ( result < 0 )
+              return result;
           }
-          return result;
-        case 60:
-          SystemBasicInformation = ExpQueryNumaAvailableMemory(a4, Length, &v127, v13);
-          break;
-        case 61:
-          v127 = 80 * v13;
-          if ( Length < 80 * (int)v13 )
-            goto LABEL_258;
-          v142 = (_QWORD *)a4;
-          while ( 1 )
+          else
           {
-            v132 = (int)v9;
-            if ( (unsigned int)v9 >= (unsigned int)v13 )
-              break;
+            BootGraphicsInformation = Size_4;
+          }
+          *(_DWORD *)a4 = MEMORY[0xFFFFF780000002E0];
+          Size = 4;
+          goto LABEL_641;
+        case 0x3Cu:
+          SystemBasicInformation = ExpQueryNumaAvailableMemory(a4, Length, &Size, v13);
+          goto LABEL_640;
+        case 0x3Du:
+          Size = 80 * v13;
+          if ( Length < 80 * (int)v13 )
+            goto LABEL_104;
+          while ( v8 < (unsigned int)v13 )
+          {
             ProcNumber.Group = v14;
-            ProcNumber.Number = (unsigned __int8)v9;
+            ProcNumber.Number = v8;
             ProcNumber.Reserved = 0;
-            v54 = KiProcessorBlock[KeGetProcessorIndexFromNumber(&ProcNumber)];
-            PoGetPerfStateAndParkingInfo(&ProcNumber, (__int64)Src, 0LL, &v157);
-            memset((void *)a4, 0, 0x50uLL);
-            v55 = (unsigned int)KeMaximumIncrement;
+            v50 = KiProcessorBlock[KeGetProcessorIndexFromNumber(&ProcNumber)];
+            PoGetPerfStateAndParkingInfo(&ProcNumber, (__int64)Src, 0LL, &v159);
+            *(_OWORD *)a4 = 0LL;
+            *(_OWORD *)(a4 + 16) = 0LL;
+            *(_OWORD *)(a4 + 32) = 0LL;
+            *(_OWORD *)(a4 + 48) = 0LL;
+            *(_OWORD *)(a4 + 64) = 0LL;
             *(_QWORD *)(a4 + 40) = (unsigned int)KeMaximumIncrement
-                                 * (unsigned __int64)(unsigned int)(*(_DWORD *)(v54 + 33092) + *(_DWORD *)(v54 + 33096));
-            *(_QWORD *)(a4 + 48) = v55 * *(unsigned int *)(*(_QWORD *)(v54 + 24) + 652LL);
+                                 * (unsigned __int64)(unsigned int)(*(_DWORD *)(v50 + 32388) + *(_DWORD *)(v50 + 32392));
+            *(_QWORD *)(a4 + 48) = (unsigned int)KeMaximumIncrement
+                                 * (unsigned __int64)*(unsigned int *)(*(_QWORD *)(v50 + 24) + 652LL);
             if ( BYTE12(Src[1]) )
             {
               *(_BYTE *)a4 = BYTE8(Src[0]);
@@ -986,34 +1025,36 @@ LABEL_122:
               *(_BYTE *)(a4 + 8) = Src[1];
               *(_DWORD *)(a4 + 12) = 1;
             }
-            *(_QWORD *)(a4 + 72) = v157;
+            *(_QWORD *)(a4 + 72) = v159;
             a4 += 80LL;
-            v142 = (_QWORD *)a4;
-            LODWORD(v9) = (_DWORD)v9 + 1;
-            LODWORD(v13) = v138;
+            v150 = (_QWORD *)a4;
+            ++v8;
+            LODWORD(v13) = v140;
+            v14 = v130;
           }
-          goto LABEL_30;
-        case 62:
-          if ( Length == 64 )
+          goto LABEL_62;
+        case 0x3Eu:
+          if ( Length != 64 )
           {
-            SystemBasicInformation = ExpGetSystemEmulationBasicInformation(a4);
-            v127 = 64;
-            break;
+            if ( a6 )
+              *a6 = 64;
+            return -1073741820;
           }
-          if ( a6 )
-            *a6 = 64;
-          return -1073741820;
-        case 63:
+          SystemBasicInformation = ExpGetSystemEmulationBasicInformation(a4);
+LABEL_639:
+          Size = 64;
+          goto LABEL_640;
+        case 0x3Fu:
           if ( Length >= 0xC )
           {
             SystemBasicInformation = ExpGetSystemEmulationProcessorInformation(a4);
-            v127 = 12;
-            break;
+            Size = 12;
+            goto LABEL_640;
           }
           if ( a6 )
             *a6 = 12;
           return -1073741820;
-        case 64:
+        case 0x40u:
           if ( Length < 0x38 )
           {
             if ( a6 )
@@ -1022,1082 +1063,1108 @@ LABEL_122:
           }
           if ( (a4 & 7) != 0 )
             return -2147483646;
-          if ( (unsigned int)ExIsRestrictedCaller(PreviousMode) )
-            return -1073741790;
-          SystemBasicInformation = ExpGetHandleInformationEx(a4, Length, &v127);
-          break;
-        case 65:
-          if ( Length >= 4 )
+          if ( !ExIsRestrictedCaller(v9) )
           {
-            v94 = 0;
-            v132 = 0;
-            while ( v94 < (unsigned int)v13 )
-              LODWORD(v9) = *(_DWORD *)(KiProcessorBlock[v94++] + 33532) + (_DWORD)v9;
-            v132 = v94;
-            *(_DWORD *)a4 = (_DWORD)v9;
-            goto LABEL_164;
+            SystemBasicInformation = ExpGetHandleInformationEx(a4, Length, &Size);
+            goto LABEL_640;
           }
-          if ( a6 )
-            *a6 = 4;
-          return -1073741820;
-        case 66:
+          return -1073741790;
+        case 0x41u:
+          if ( Length < 4 )
+          {
+            if ( a6 )
+              *a6 = 4;
+            return -1073741820;
+          }
+          if ( (_DWORD)v13 )
+          {
+            v85 = KiProcessorBlock;
+            v86 = (unsigned int)v13;
+            do
+            {
+              v8 += *(_DWORD *)(*v85++ + 32700);
+              --v86;
+            }
+            while ( v86 );
+          }
+          *(_DWORD *)a4 = v8;
+          goto LABEL_160;
+        case 0x42u:
           if ( Length < 0x20 )
           {
             if ( a6 )
               *a6 = 32;
             return -1073741820;
           }
-          if ( (unsigned int)ExIsRestrictedCaller(PreviousMode) )
+          if ( ExIsRestrictedCaller(v9) )
             return -1073741790;
-          SystemBasicInformation = ExGetBigPoolInfo((_DWORD *)a4, Length, &v127);
-          break;
-        case 69:
-        case 236:
-        case 237:
-          goto LABEL_202;
-        case 70:
+          SystemBasicInformation = ExGetBigPoolInfo((_DWORD *)a4, Length, 1, &Size);
+          goto LABEL_640;
+        case 0x43u:
+          if ( Length < 0x10 )
+          {
+            if ( a6 )
+              *a6 = 16;
+            return -1073741820;
+          }
+          v137 = *(_DWORD *)a4;
+          v160 = *(int **)(a4 + 8);
+          v67 = *(_DWORD *)(a4 + 4);
+          v144 = v67;
+          if ( ((unsigned __int8)v160 & 7) != 0 )
+            return -2147483646;
+          SystemBasicInformation = ExGetSessionPoolTagInformation((unsigned __int64)v160, v67, &Size, &v137);
+          goto LABEL_640;
+        case 0x44u:
+          if ( Length < 0x20 )
+          {
+            if ( a6 )
+              *a6 = 32;
+            return -1073741820;
+          }
+          v137 = *(_DWORD *)(a4 + 8);
+          if ( (a4 & 7) != 0 )
+            return -2147483646;
+          SystemBasicInformation = MmGetSessionMappedViewInformation(a4, Length, &Size, &v137);
+          goto LABEL_640;
+        case 0x45u:
+          goto LABEL_419;
+        case 0x46u:
           if ( Length == 4 )
           {
             *(_DWORD *)a4 = ObpObjectSecurityMode;
-            goto LABEL_164;
+            goto LABEL_160;
           }
           if ( a6 )
             *a6 = 4;
           return -1073741820;
-        case 72:
+        case 0x48u:
           if ( Length != 8 )
-            goto LABEL_479;
-          v86 = (unsigned int)(v17 - 7);
-          if ( (_DWORD)v86 )
+            return -1073741811;
+          v87 = (unsigned int)(v15 - 7);
+          if ( (_DWORD)v87 )
           {
-            if ( (_DWORD)v86 != 1 )
+            if ( (_DWORD)v87 != 1 )
               return -1073741637;
             *(_DWORD *)a4 = 8;
-            v87 = ((unsigned __int8 (__fastcall *)(__int64, __int64, __int64, __int64))off_140C01CE0[0])(
-                    v10,
-                    v86,
-                    v15,
-                    v13);
+            *(_DWORD *)(a4 + 4) = ((unsigned __int8 (__fastcall *)(unsigned __int64, __int64, __int64, __int64))off_140C008D0[0])(
+                                    0x140000000uLL,
+                                    v20,
+                                    v87,
+                                    v13);
           }
           else
           {
             *(_DWORD *)a4 = 7;
-            v87 = off_140C01CE8[0] != xKdEnumerateDebuggingDevices;
+            LOBYTE(v8) = off_140C008D8[0] != xKdEnumerateDebuggingDevices;
+            *(_DWORD *)(a4 + 4) = v8;
           }
-          *(_DWORD *)(a4 + 4) = v87;
-          goto LABEL_119;
-        case 73:
-          VerifierInformation = KeBuildLogicalProcessorSystemInformation((unsigned __int16)v14, a4, Length, &v127);
-          goto LABEL_30;
-        case 76:
-          SystemBasicInformation = ExpGetSystemFirmwareTableInformation((void *)a4);
-          break;
-        case 77:
-          if ( (unsigned int)ExIsRestrictedCaller(PreviousMode) )
+          goto LABEL_116;
+        case 0x49u:
+          BootGraphicsInformation = KeBuildLogicalProcessorSystemInformation(v14, a4, Length, &Size);
+          Size_4 = BootGraphicsInformation;
+          goto LABEL_641;
+        case 0x4Cu:
+          SystemBasicInformation = ExpGetSystemFirmwareTableInformation((char *)a4, v9, Length, &Size);
+          goto LABEL_640;
+        case 0x4Du:
+          if ( ExIsRestrictedCaller(v9) )
             return -1073741790;
-          if ( SeSinglePrivilegeCheck(SeLoadDriverPrivilege, PreviousMode) )
-            v130 = 0;
-          v71 = KeGetCurrentThread();
-          --v71->KernelApcDisable;
+          if ( SeSinglePrivilegeCheck(SeLoadDriverPrivilege, v9) )
+            v10 = 0;
+          KeEnterCriticalRegion();
           ExAcquireResourceExclusiveLite(&PsLoadedModuleResource, 1u);
-          ModuleInformation = ExpQueryModuleInformationEx(v72, a4, Length, v130, (__int64)&v127);
-LABEL_113:
-          VerifierInformation = ModuleInformation;
+          ModuleInformation = ExpQueryModuleInformationEx(v63, a4, Length, v10, (__int64)&Size);
+LABEL_167:
+          BootGraphicsInformation = ModuleInformation;
           ExReleaseResourceLite(&PsLoadedModuleResource);
-          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-          goto LABEL_30;
-        case 80:
-          SystemBasicInformation = MmQueryMemoryListInformation(0xFFFFFFFFFFFFFFFFuLL, (_OWORD *)a4, Length, v13, &v127);
-          break;
-        case 83:
-          v95 = 8 * v13;
-          v127 = 8 * v13;
+          KeLeaveCriticalRegion();
+          goto LABEL_641;
+        case 0x4Fu:
+          SystemBasicInformation = PfQuerySuperfetchInformation(0x40000000u, a4, Length, v9, (__int64)&Size);
+          goto LABEL_640;
+        case 0x50u:
+          SystemBasicInformation = MmQueryMemoryListInformation(
+                                     (ULONG_PTR **)0xFFFFFFFFFFFFFFFFLL,
+                                     (_OWORD *)a4,
+                                     Length,
+                                     v13,
+                                     &Size);
+          goto LABEL_640;
+        case 0x53u:
+          v90 = 8 * v13;
+          Size = 8 * v13;
           if ( Length < 8 )
-            goto LABEL_500;
-          if ( Length >= v95 )
-            v96 = v138;
-          else
-            v96 = Length >> 3;
-          v97 = Length < v95 ? 0xC0000004 : 0;
-          v142 = (_QWORD *)a4;
+            goto LABEL_383;
+          v91 = Length >> 3;
+          if ( Length >= v90 )
+            v91 = v13;
+          BootGraphicsInformation = Length < v90 ? 0xC0000004 : 0;
+          v150 = (_QWORD *)a4;
           KeFlushProcessWriteBuffers(1);
-          while ( 1 )
+          for ( j = v130; ; j = v129 )
           {
-            v132 = (int)v9;
-            if ( (unsigned int)v9 >= v96 )
+            v131 = v8;
+            if ( v8 >= v91 )
               break;
-            ProcNumber.Group = v14;
-            ProcNumber.Number = (unsigned __int8)v9;
+            ProcNumber.Group = j;
+            ProcNumber.Number = v8;
             ProcNumber.Reserved = 0;
-            ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber(&ProcNumber);
-            v99 = v142;
-            *v142 = *(_QWORD *)(*(_QWORD *)(KiProcessorBlock[ProcessorIndexFromNumber] + 24) + 72LL);
-            v142 = v99 + 1;
-            LODWORD(v9) = v132 + 1;
-            LOWORD(v14) = v136;
+            v93 = *(_QWORD *)(*(_QWORD *)(KiProcessorBlock[KeGetProcessorIndexFromNumber(&ProcNumber)] + 24) + 72LL);
+            v94 = v150;
+            *v150 = v93;
+            v150 = v94 + 1;
+            v8 = v131 + 1;
           }
-          goto LABEL_491;
-        case 86:
+          goto LABEL_641;
+        case 0x56u:
           SystemBasicInformation = ObQueryRefTraceInformation((volatile void *)a4, Length);
-          break;
-        case 87:
-          v127 = 8;
-          if ( Length != 8 )
+          goto LABEL_640;
+        case 0x57u:
+          Size = 8;
+          if ( Length == 8 )
           {
-            SystemBasicInformation = -1073741820;
-            break;
+            *(_DWORD *)a4 = MmSpecialPoolTag;
+            LOBYTE(v8) = MmSpecialPoolCatchOverruns != 0;
+            *(_DWORD *)(a4 + 4) = v8;
+            BootGraphicsInformation = Size_4;
           }
-          *(_DWORD *)a4 = MmSpecialPoolTag;
-          LOBYTE(v9) = MmSpecialPoolCatchOverruns != 0;
-          *(_DWORD *)(a4 + 4) = (_DWORD)v9;
-          goto LABEL_30;
-        case 88:
-          *(_OWORD *)ProcessId = 0LL;
-          v156 = 0LL;
-          v127 = 24;
+          else
+          {
+            BootGraphicsInformation = -1073741820;
+          }
+          goto LABEL_641;
+        case 0x58u:
+          Size = 24;
           if ( Length != 24 )
           {
-            SystemBasicInformation = -1073741820;
-            break;
+            BootGraphicsInformation = -1073741820;
+            goto LABEL_641;
           }
           *(_OWORD *)ProcessId = *(_OWORD *)a4;
-          v156 = *(_QWORD *)(a4 + 16);
+          v158 = *(char **)(a4 + 16);
           if ( LOWORD(ProcessId[1]) || (BYTE2(ProcessId[1]) & 1) != 0 )
-            goto LABEL_479;
-          if ( PreviousMode && WORD1(ProcessId[1]) )
+            return -1073741811;
+          if ( v9 && WORD1(ProcessId[1]) )
           {
-            if ( (v156 & 1) != 0 )
+            if ( ((unsigned __int8)v158 & 1) != 0 )
               ExRaiseDatatypeMisalignment();
-            v90 = v156 + WORD1(ProcessId[1]);
-            if ( v90 > 0x7FFFFFFF0000LL || v90 < v156 )
+            v56 = &v158[WORD1(ProcessId[1])];
+            if ( (unsigned __int64)v56 > 0x7FFFFFFF0000LL || v56 < v158 )
               MEMORY[0x7FFFFFFF0000] = 0;
           }
-          v91 = KeGetCurrentThread();
-          v145 = WORD1(ProcessId[1]);
-          --v91->KernelApcDisable;
-          v92 = PsLookupProcessByProcessId(ProcessId[0], (PEPROCESS *)&Object);
-          if ( v92 < 0 )
+          CurrentThread = KeGetCurrentThread();
+          v149 = WORD1(ProcessId[1]);
+          KeEnterCriticalRegionThread((__int64)CurrentThread);
+          v58 = PsLookupProcessByProcessId(ProcessId[0], &Process);
+          if ( v58 < 0 )
           {
-            KeLeaveCriticalRegionThread((__int64)v91);
-            return v92;
+            KeLeaveCriticalRegionThread((__int64)CurrentThread);
+            return v58;
           }
-          VerifierInformation = PsQueryFullProcessImageName(Object, a4 + 8, v156, &v145);
-          ObfDereferenceObjectWithTag(Object, 0x746C6644u);
-          KeLeaveCriticalRegionThread((__int64)v91);
-          if ( VerifierInformation == -1073741820 )
-            *(_WORD *)(a4 + 10) = v145;
-          goto LABEL_30;
-        case 90:
-          v127 = 32;
+          BootGraphicsInformation = PsQueryFullProcessImageName((__int64)Process, (_OWORD *)(a4 + 8), v158, &v149);
+          ObfDereferenceObjectWithTag(Process, 0x746C6644u);
+          KeLeaveCriticalRegionThread((__int64)CurrentThread);
+          if ( BootGraphicsInformation == -1073741820 )
+            *(_WORD *)(a4 + 10) = v149;
+          goto LABEL_641;
+        case 0x5Au:
+          Size = 32;
           if ( Length < 0x14 )
           {
             if ( a6 )
               *a6 = 32;
             return -1073741820;
           }
-          *(_OWORD *)a4 = *(_OWORD *)&ExpBootEnvironmentInformation;
-          *(_DWORD *)(a4 + 16) = dword_140C31AF0;
-          if ( Length < v127 )
-LABEL_428:
-            v127 = 20;
+          *(_OWORD *)a4 = ExpBootEnvironmentInformation;
+          *(_DWORD *)(a4 + 16) = dword_140C197B0;
+          if ( Length < Size )
+          {
+LABEL_279:
+            Size = 20;
+            BootGraphicsInformation = Size_4;
+          }
           else
-            *(_QWORD *)(a4 + 24) = qword_140C31AF8;
-          goto LABEL_30;
-        case 91:
-          SystemBasicInformation = HvlQueryEnlightenmentInfo(a4, Length, v15, &v127);
-          break;
-        case 92:
+          {
+            *(_QWORD *)(a4 + 24) = qword_140C197B8;
+            BootGraphicsInformation = Size_4;
+          }
+          goto LABEL_641;
+        case 0x5Bu:
+          SystemBasicInformation = HvlQueryEnlightenmentInfo(a4, Length, v9, &Size);
+          goto LABEL_640;
+        case 0x5Cu:
           if ( Length != 40 )
           {
             if ( a6 )
               *a6 = 40;
             return -1073741820;
           }
-          VerifierInformation = VfGetVerifierInformationEx(a4, v17, v15, v13);
-          if ( VerifierInformation >= 0 )
-            LODWORD(v9) = 40;
-          v127 = (unsigned int)v9;
-          goto LABEL_30;
-        case 95:
-          if ( !PreviousMode || !SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
+          SystemBasicInformation = VfGetVerifierInformationEx(a4, v20, v15, v13);
+          if ( SystemBasicInformation >= 0 )
+            v8 = 40;
+          Size = v8;
+          goto LABEL_640;
+        case 0x5Fu:
+          if ( !v9 || !SeSinglePrivilegeCheck(SeDebugPrivilege, v9) )
             return -1073741790;
           if ( Length >= 0x40 )
           {
-            SystemBasicInformation = ExpCovQueryInformation(a4, Length, &v127);
-            break;
+            SystemBasicInformation = ExpCovQueryInformation(a4, Length, &Size);
+            goto LABEL_640;
           }
           if ( a6 )
             *a6 = 64;
           return -1073741820;
-        case 98:
-          SystemBasicInformation = IoQuerySystemDeviceName(98LL, a4, Length, &v127);
-          break;
-        case 99:
-          SystemBasicInformation = IoQuerySystemDeviceName(99LL, a4, Length, &v127);
-          break;
-        case 100:
-          WORD4(v162) = v14;
-          *(_QWORD *)&v162 = KeQueryGroupAffinity(v14);
-          v88 = (0x101010101010101LL
-               * (((((_QWORD)v162 - (((unsigned __int64)v162 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-                 + ((((unsigned __int64)v162 - (((unsigned __int64)v162 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
-                 + (((((_QWORD)v162 - (((unsigned __int64)v162 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-                   + ((((unsigned __int64)v162 - (((unsigned __int64)v162 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
-          VerifierInformation = PpmCapturePerformanceDistribution(
-                                  0LL,
-                                  0,
-                                  (unsigned int)((0x101010101010101LL
-                                                * (((((_QWORD)v162
-                                                    - (((unsigned __int64)v162 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-                                                  + ((((unsigned __int64)v162
-                                                     - (((unsigned __int64)v162 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
-                                                  + (((((_QWORD)v162
-                                                      - (((unsigned __int64)v162 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-                                                    + ((((unsigned __int64)v162
-                                                       - (((unsigned __int64)v162 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24,
-                                  (__int64)&v162,
-                                  (int *)&v139);
-          SystemBasicInformation = -1073741820;
-          if ( VerifierInformation != -1073741820 )
-            goto LABEL_30;
-          if ( v139 > Length )
+        case 0x62u:
+          SystemBasicInformation = IoQuerySystemDeviceName(98);
+          goto LABEL_640;
+        case 0x63u:
+          SystemBasicInformation = IoQuerySystemDeviceName(99);
+          goto LABEL_640;
+        case 0x64u:
+          WORD4(v163) = v14;
+          *(_QWORD *)&v163 = KeQueryGroupAffinity(v14);
+          v46 = (0x101010101010101LL
+               * (((((_QWORD)v163 - (((unsigned __int64)v163 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+                 + ((((unsigned __int64)v163 - (((unsigned __int64)v163 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
+                 + (((((_QWORD)v163 - (((unsigned __int64)v163 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+                   + ((((unsigned __int64)v163 - (((unsigned __int64)v163 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
+          BootGraphicsInformation = PpmCapturePerformanceDistribution(
+                                      0LL,
+                                      0,
+                                      (unsigned int)((0x101010101010101LL
+                                                    * (((((_QWORD)v163
+                                                        - (((unsigned __int64)v163 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+                                                      + ((((unsigned __int64)v163
+                                                         - (((unsigned __int64)v163 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
+                                                      + (((((_QWORD)v163
+                                                          - (((unsigned __int64)v163 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+                                                        + ((((unsigned __int64)v163
+                                                           - (((unsigned __int64)v163 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24,
+                                      (__int64)&v163,
+                                      (int *)&NumberOfBytes);
+          if ( BootGraphicsInformation != -1073741820 )
+            goto LABEL_641;
+          v47 = NumberOfBytes;
+          if ( (unsigned int)NumberOfBytes > Length )
           {
-            v127 = v139;
-            break;
+            BootGraphicsInformation = -1073741820;
+            goto LABEL_97;
           }
-          Pool2 = (_DWORD *)ExAllocatePool2(64LL, v139, 1951223888LL);
-          P = Pool2;
-          if ( Pool2 )
+          PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)NumberOfBytes, 0x744D5050u);
+          v49 = PoolWithTag;
+          *(_QWORD *)v135 = PoolWithTag;
+          if ( PoolWithTag )
           {
-            VerifierInformation = PpmCapturePerformanceDistribution(Pool2, v139, v88, (__int64)&v162, (int *)&v127);
-            if ( VerifierInformation >= 0 )
-              memmove((void *)a4, Pool2, v127);
-            ExFreePoolWithTag(Pool2, 0x744D5050u);
+            memset(PoolWithTag, 0, (unsigned int)NumberOfBytes);
+            BootGraphicsInformation = PpmCapturePerformanceDistribution(
+                                        v49,
+                                        NumberOfBytes,
+                                        v46,
+                                        (__int64)&v163,
+                                        (int *)&Size);
+            if ( BootGraphicsInformation >= 0 )
+              memmove((void *)a4, v49, Size);
+            ExFreePoolWithTag(v49, 0x744D5050u);
           }
           else
           {
-            VerifierInformation = -1073741670;
+            BootGraphicsInformation = -1073741670;
           }
-          goto LABEL_30;
-        case 101:
-          SystemBasicInformation = ExpQueryNumaProximityNode(a4, Length, &v127, v13);
-          break;
-        case 102:
+          goto LABEL_641;
+        case 0x65u:
+          SystemBasicInformation = ExpQueryNumaProximityNode(a4, Length, &Size, v13);
+          goto LABEL_640;
+        case 0x66u:
           if ( Length >= 0x1B0 )
           {
-            v37 = (_OWORD *)*((_QWORD *)PsGetCurrentServerSiloGlobals() + 157);
-            LOBYTE(v38) = 1;
-            ExAcquireTimeRefreshLock(v38);
-            v39 = Src;
-            v40 = 3LL;
-            v41 = 3LL;
+            v79 = (_OWORD *)*((_QWORD *)PsGetCurrentServerSiloGlobals(0x140000000LL, v20) + 133);
+            LOBYTE(v80) = 1;
+            ExAcquireTimeRefreshLock(v80);
+            v81 = Src;
+            v82 = 3LL;
+            v83 = 3LL;
             do
             {
-              *v39 = *v37;
-              v39[1] = v37[1];
-              v39[2] = v37[2];
-              v39[3] = v37[3];
-              v39[4] = v37[4];
-              v39[5] = v37[5];
-              v39[6] = v37[6];
-              v39 += 8;
-              *(v39 - 1) = v37[7];
-              v37 += 8;
-              --v41;
+              *v81 = *v79;
+              v81[1] = v79[1];
+              v81[2] = v79[2];
+              v81[3] = v79[3];
+              v81[4] = v79[4];
+              v81[5] = v79[5];
+              v81[6] = v79[6];
+              v81 += 8;
+              *(v81 - 1) = v79[7];
+              v79 += 8;
+              --v83;
             }
-            while ( v41 );
-            *v39 = *v37;
-            v39[1] = v37[1];
-            v39[2] = v37[2];
-            ExReleaseResourceLite(&ExpTimeRefreshLock);
-            KeLeaveCriticalRegion();
-            v42 = Src;
+            while ( v83 );
+            *v81 = *v79;
+            v81[1] = v79[1];
+            v81[2] = v79[2];
+            ExReleaseTimeRefreshLock();
+            v84 = Src;
             do
             {
-              *(_OWORD *)a4 = *v42;
-              *(_OWORD *)(a4 + 16) = v42[1];
-              *(_OWORD *)(a4 + 32) = v42[2];
-              *(_OWORD *)(a4 + 48) = v42[3];
-              *(_OWORD *)(a4 + 64) = v42[4];
-              *(_OWORD *)(a4 + 80) = v42[5];
-              *(_OWORD *)(a4 + 96) = v42[6];
+              *(_OWORD *)a4 = *v84;
+              *(_OWORD *)(a4 + 16) = v84[1];
+              *(_OWORD *)(a4 + 32) = v84[2];
+              *(_OWORD *)(a4 + 48) = v84[3];
+              *(_OWORD *)(a4 + 64) = v84[4];
+              *(_OWORD *)(a4 + 80) = v84[5];
+              *(_OWORD *)(a4 + 96) = v84[6];
               a4 += 128LL;
-              *(_OWORD *)(a4 - 16) = v42[7];
-              v42 += 8;
-              --v40;
+              *(_OWORD *)(a4 - 16) = v84[7];
+              v84 += 8;
+              --v82;
             }
-            while ( v40 );
-            *(_OWORD *)a4 = *v42;
-            *(_OWORD *)(a4 + 16) = v42[1];
-            *(_OWORD *)(a4 + 32) = v42[2];
-            v127 = 432;
-            VerifierInformation = 0;
-            goto LABEL_30;
+            while ( v82 );
+            *(_OWORD *)a4 = *v84;
+            *(_OWORD *)(a4 + 16) = v84[1];
+            *(_OWORD *)(a4 + 32) = v84[2];
+            Size = 432;
+            BootGraphicsInformation = 0;
+            goto LABEL_641;
           }
           if ( a6 )
             *a6 = 432;
           return -1073741820;
-        case 103:
-          SystemBasicInformation = SeCodeIntegrityQueryInformation(a4, Length, &v127, v13);
-          break;
-        case 105:
-          VerifierInformation = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, unsigned int *))off_140C020E8[0])(
-                                  23LL,
-                                  0LL,
-                                  0LL,
-                                  &v139);
-          if ( VerifierInformation != -1073741820 )
-            goto LABEL_202;
-          v26 = v139;
-          if ( Length < v139 || !a4 )
-            goto LABEL_65;
-          v68 = PreviousMode;
-          if ( PreviousMode )
+        case 0x67u:
+          SystemBasicInformation = SeCodeIntegrityQueryInformation(a4, Length, (__int64)&Size);
+          goto LABEL_640;
+        case 0x69u:
+          BootGraphicsInformation = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, SIZE_T *))off_140C00A68[0])(
+                                      23LL,
+                                      0LL,
+                                      0LL,
+                                      &NumberOfBytes);
+          if ( BootGraphicsInformation != -1073741820 )
+            goto LABEL_419;
+          v99 = (unsigned int)NumberOfBytes;
+          if ( Length < (unsigned int)NumberOfBytes || !a4 )
           {
-            v69 = (_DWORD *)ExAllocatePool2(257LL, v139, 1868983881LL);
-            P = v69;
-            if ( !v69 )
+            Size = NumberOfBytes;
+            goto LABEL_641;
+          }
+          if ( v9 )
+          {
+            PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, (unsigned int)NumberOfBytes, 0x6F666E49u);
+            *(_QWORD *)v135 = PoolWithQuotaTag;
+            if ( !PoolWithQuotaTag )
             {
-              VerifierInformation = -1073741670;
-              goto LABEL_30;
+              BootGraphicsInformation = -1073741670;
+              goto LABEL_641;
             }
-            v26 = v139;
+            v99 = (unsigned int)NumberOfBytes;
           }
           else
           {
-            v69 = (_DWORD *)a4;
-            P = (PVOID)a4;
+            PoolWithQuotaTag = (_DWORD *)a4;
+            *(_QWORD *)v135 = a4;
           }
-          v70 = ((__int64 (__fastcall *)(__int64, _QWORD, _DWORD *, ULONG *))off_140C020E8[0])(23LL, v26, v69, &v127);
-          VerifierInformation = v70;
-          if ( !v68 )
-            goto LABEL_30;
-          if ( v70 >= 0 )
-            goto LABEL_519;
-          goto LABEL_520;
-        case 106:
-          VerifierInformation = -1073741821;
-          goto LABEL_30;
-        case 107:
-        case 231:
-          v28 = (struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)Src;
-          P = Src;
-          v29 = 80;
-          if ( Length < 0x50 )
-            v29 = Length;
-          v139 = v29;
-          v127 = v29;
-          if ( a1 == 231 )
-            p_ProcNumber = &ProcNumber;
-          else
-            p_ProcNumber = 0LL;
-          v143 = p_ProcNumber;
-          while ( 2 )
+          v101 = ((__int64 (__fastcall *)(__int64, __int64, _DWORD *, unsigned int *))off_140C00A68[0])(
+                   23LL,
+                   v99,
+                   PoolWithQuotaTag,
+                   &Size);
+          BootGraphicsInformation = v101;
+          if ( !v9 )
+            goto LABEL_641;
+          if ( v101 < 0 )
+            goto LABEL_430;
+          goto LABEL_429;
+        case 0x6Au:
+          BootGraphicsInformation = -1073741821;
+          goto LABEL_641;
+        case 0x6Bu:
+          Size = Length;
+          BootGraphicsInformation = KeQueryLogicalProcessorRelationship(
+                                      0LL,
+                                      RelationshipType,
+                                      (PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX)a4,
+                                      &Size);
+          Size_4 = BootGraphicsInformation;
+          goto LABEL_641;
+        case 0x6Cu:
+          v97 = 8 * v13;
+          Size = 8 * v13;
+          if ( Length < 8 )
+            goto LABEL_383;
+          v98 = Length >> 3;
+          if ( Length >= v97 )
+            v98 = v13;
+          BootGraphicsInformation = Length < v97 ? 0xC0000004 : 0;
+          while ( v8 < v98 )
           {
-            VerifierInformation = KeQueryLogicalProcessorRelationship(p_ProcNumber, v12, v28, &v127);
-            if ( VerifierInformation < 0 )
+            ProcNumber.Group = v14;
+            ProcNumber.Number = v8;
+            ProcNumber.Reserved = 0;
+            *(_QWORD *)a4 = *(_QWORD *)(KiProcessorBlock[KeGetProcessorIndexFromNumber(&ProcNumber)] + 32568);
+            a4 += 8LL;
+            v150 = (_QWORD *)a4;
+            ++v8;
+            v14 = v130;
+          }
+          goto LABEL_641;
+        case 0x6Du:
+          SystemBasicInformation = SmQueryStoreInformation(0x40000000, a4, Length, v9, &Size);
+          goto LABEL_640;
+        case 0x70u:
+          SystemBasicInformation = IoQueryVhdBootInformation(0x140000000uLL, a4, Length, &Size);
+          goto LABEL_640;
+        case 0x71u:
+          SystemBasicInformation = PsQueryCpuQuotaInformation((_DWORD *)a4, Length, v9, &Size);
+          goto LABEL_640;
+        case 0x73u:
+          if ( (_DWORD)v20 )
+          {
+            BootGraphicsInformation = -1073741820;
+          }
+          else
+          {
+            Size = 8;
+            if ( Length >= 8 )
             {
-              if ( VerifierInformation == -1073741820 )
-              {
-                if ( v127 <= Length )
-                {
-                  if ( v28 && v28 != (struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)Src )
-                    ExFreePoolWithTag(v28, 0);
-                  v28 = (struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)ExAllocatePool2(257LL, v127, 1868983881LL);
-                  P = v28;
-                  if ( v28 )
-                  {
-                    v139 = v127;
-                    p_ProcNumber = v143;
-                    continue;
-                  }
-                  VerifierInformation = -1073741670;
-                }
-                else
-                {
-                  VerifierInformation = -1073741820;
-                }
-              }
+              *(_DWORD *)a4 = DbgkErrorPortStartTimeout;
+              *(_DWORD *)(a4 + 4) = DbgkErrorPortCommTimeout;
+              BootGraphicsInformation = Size_4;
             }
             else
             {
-              memmove((void *)a4, v28, v127);
-              VerifierInformation = 0;
+              BootGraphicsInformation = -1073741820;
             }
-            break;
           }
-          if ( v28 && v28 != (struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX *)Src )
-            ExFreePoolWithTag(v28, 0);
-          goto LABEL_30;
-        case 108:
-          v127 = 8 * v13;
-          if ( Length < 8 )
-            goto LABEL_500;
-          if ( Length < 8 * (int)v13 )
-          {
-            LODWORD(v13) = Length >> 3;
-            v138 = Length >> 3;
-            VerifierInformation = -1073741820;
-          }
-          v142 = (_QWORD *)a4;
-          while ( 1 )
-          {
-            v132 = (int)v9;
-            if ( (unsigned int)v9 >= (unsigned int)v13 )
-              break;
-            ProcNumber.Group = v14;
-            ProcNumber.Number = (unsigned __int8)v9;
-            ProcNumber.Reserved = 0;
-            v66 = KeGetProcessorIndexFromNumber(&ProcNumber);
-            v67 = v142;
-            *v142 = *(_QWORD *)(KiProcessorBlock[v66] + 33400);
-            v142 = v67 + 1;
-            LODWORD(v9) = v132 + 1;
-            LOWORD(v14) = v136;
-            LODWORD(v13) = v138;
-          }
-          goto LABEL_30;
-        case 109:
-          SystemBasicInformation = SmQueryStoreInformation(v10, a4, Length, PreviousMode, &v127);
-          break;
-        case 112:
-          SystemBasicInformation = IoQueryVhdBootInformation(v10, a4, Length, &v127);
-          break;
-        case 113:
-          SystemBasicInformation = PsQueryCpuQuotaInformation((_DWORD *)a4, Length, PreviousMode, &v127);
-          break;
-        case 115:
-          if ( Size )
-          {
-            SystemBasicInformation = -1073741820;
-            break;
-          }
-          v127 = 8;
-          if ( Length < 8 )
-          {
-            SystemBasicInformation = -1073741820;
-            break;
-          }
-          *(_DWORD *)a4 = DbgkErrorPortStartTimeout;
-          *(_DWORD *)(a4 + 4) = DbgkErrorPortCommTimeout;
-          goto LABEL_30;
-        case 116:
-          SystemBasicInformation = IoQueryLowPriorityIoInformation(v10, a4, Length, &v127);
-          break;
-        case 117:
-          v127 = 1096;
+          goto LABEL_641;
+        case 0x74u:
+          SystemBasicInformation = IoQueryLowPriorityIoInformation(0x140000000LL, (_DWORD *)a4, Length, &Size);
+          goto LABEL_640;
+        case 0x75u:
+          Size = 1096;
           if ( Length != 1096 )
           {
-            SystemBasicInformation = -1073741820;
-            break;
+            BootGraphicsInformation = -1073741820;
+            goto LABEL_641;
           }
-          if ( !PreviousMode )
-          {
-            SystemBasicInformation = ExQueryBootEntropyInformation(a4, v17, v15, v13);
-            break;
-          }
-          return -1073741790;
-        case 118:
+          if ( v9 )
+            return -1073741790;
+          SystemBasicInformation = ExQueryBootEntropyInformation(a4, v20, v15, v13);
+          goto LABEL_640;
+        case 0x76u:
           if ( Length >= 0x110 )
           {
-            SystemBasicInformation = VfGetVerifierInformation((void *)a4, Length, &v127, 1);
-            break;
+LABEL_307:
+            SystemBasicInformation = VfGetVerifierInformation((void *)a4, Length);
+            goto LABEL_640;
           }
           if ( a6 )
             *a6 = 272;
           return -1073741820;
-        case 121:
-          v127 = 4 * (unsigned __int16)KeNumberNodes;
-          if ( Length < v127 )
+        case 0x79u:
+          Size = 4 * (unsigned __int16)KeNumberNodes;
+          if ( Length >= Size )
           {
-            SystemBasicInformation = -1073741820;
-            break;
+            v131 = 0;
+            v88 = 0;
+            v89 = v139;
+            while ( v88 < (unsigned __int16)KeNumberNodes )
+            {
+              *(_DWORD *)(a4 + 4LL * v88++) = *((_DWORD *)KeNodeDistance + v8 + v89 * (unsigned __int16)KeNumberNodes);
+              v8 = v88;
+              v131 = v88;
+            }
+            BootGraphicsInformation = Size_4;
           }
-          v132 = 0;
-          v83 = 0;
-          v84 = 0;
-          v85 = 0;
-          while ( (unsigned int)v9 < (unsigned __int16)KeNumberNodes )
+          else
           {
-            *(_DWORD *)(a4 + 4LL * v83) = *((_DWORD *)KeNodeDistance
-                                          + v85
-                                          + (unsigned __int16)v15 * (unsigned int)(unsigned __int16)KeNumberNodes);
-            v83 = v84 + 1;
-            v85 = v84 + 1;
-            v132 = v84 + 1;
-            LODWORD(v9) = ++v84;
+            BootGraphicsInformation = -1073741820;
           }
-          goto LABEL_30;
-        case 122:
-          v127 = 8;
+          goto LABEL_641;
+        case 0x7Au:
+          Size = 8;
           if ( Length != 8 || !a4 )
-            goto LABEL_258;
-          v69 = (_DWORD *)ExAllocatePool2(257LL, 8LL, 1868983881LL);
-          P = v69;
-          if ( !v69 )
+            goto LABEL_104;
+          PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, 8uLL, 0x6F666E49u);
+          v152 = PoolWithQuotaTag;
+          if ( !PoolWithQuotaTag )
           {
-            VerifierInformation = -1073741670;
-            goto LABEL_30;
+            BootGraphicsInformation = -1073741670;
+            goto LABEL_641;
           }
-          VerifierInformation = ((__int64 (__fastcall *)(__int64, __int64, _DWORD *, ULONG *))off_140C020E8[0])(
-                                  26LL,
-                                  8LL,
-                                  v69,
-                                  &v127);
-          if ( VerifierInformation >= 0 )
+          BootGraphicsInformation = ((__int64 (__fastcall *)(__int64, __int64, _DWORD *, unsigned int *))off_140C00A68[0])(
+                                      26LL,
+                                      8LL,
+                                      PoolWithQuotaTag,
+                                      &Size);
+          if ( BootGraphicsInformation >= 0 )
           {
-            *(_DWORD *)a4 = *v69;
-            v102 = *(_DWORD *)(a4 + 4) ^ (*(_DWORD *)(a4 + 4) ^ v69[1]) & 1;
+            *(_DWORD *)a4 = *PoolWithQuotaTag;
+            *(_DWORD *)(a4 + 4) ^= (PoolWithQuotaTag[1] ^ *(_DWORD *)(a4 + 4)) & 1;
+            v102 = *(_DWORD *)(a4 + 4) ^ ((unsigned __int8)*(_DWORD *)(a4 + 4) ^ (unsigned __int8)PoolWithQuotaTag[1]) & 2;
             *(_DWORD *)(a4 + 4) = v102;
-            v103 = v102 ^ (v69[1] ^ v102) & 2;
-            *(_DWORD *)(a4 + 4) = v103;
-            *(_DWORD *)(a4 + 4) = v103 ^ (v69[1] ^ v103) & 4;
+            *(_DWORD *)(a4 + 4) = v102 ^ (PoolWithQuotaTag[1] ^ v102) & 4;
           }
-          goto LABEL_520;
-        case 123:
-          if ( Length == 32 )
-          {
-            ProcessPartitionId = MmGetProcessPartitionId((__int64)KeGetCurrentThread()->ApcState.Process);
-            *(_QWORD *)&Src[0] = MmGetAvailablePages(ProcessPartitionId);
-            *((_QWORD *)&Src[0] + 1) = MmGetTotalCommittedPages(v57);
-            *(_QWORD *)&Src[1] = MmGetTotalCommitLimit(v58);
-            *((_QWORD *)&Src[1] + 1) = MmGetPeakCommitment(v59);
-            if ( *((_QWORD *)&Src[1] + 1) < *((_QWORD *)&Src[0] + 1) )
-              *((_QWORD *)&Src[1] + 1) = *((_QWORD *)&Src[0] + 1);
-            *(_OWORD *)a4 = Src[0];
-            *(_OWORD *)(a4 + 16) = Src[1];
-            goto LABEL_169;
-          }
-          if ( a6 )
-            *a6 = 32;
-          return -1073741820;
-        case 124:
-          v127 = 12;
-          if ( Length < 4 )
-          {
-            SystemBasicInformation = -1073741820;
-            break;
-          }
-          v165 = *(_DWORD *)a4;
-          if ( v165 != 1 )
-          {
-            VerifierInformation = -1073741637;
-            goto LABEL_30;
-          }
-          if ( Length < 0xC )
-          {
-            SystemBasicInformation = -1073741820;
-            break;
-          }
-          *(_DWORD *)(a4 + 8) = 0;
-          *(_DWORD *)(a4 + 4) = 0;
-          *(_DWORD *)(a4 + 8) = 1;
-          *(_DWORD *)(a4 + 4) = 1;
-          if ( MEMORY[0xFFFFF780000003C6] )
-            *(_DWORD *)(a4 + 4) &= ~1u;
-          goto LABEL_30;
-        case 126:
-          v127 = 32;
+          goto LABEL_430;
+        case 0x7Bu:
           if ( Length != 32 )
-          {
-            SystemBasicInformation = -1073741820;
-            break;
-          }
-          VerifierInformation = BgkQueryBootGraphicsInformation(0LL, Src, v15, v13);
-          if ( VerifierInformation < 0 )
-            goto LABEL_30;
-          if ( PreviousMode )
-            *(_QWORD *)&Src[0] = 0LL;
-          goto LABEL_244;
-        case 128:
-          if ( Size )
-          {
-            SystemBasicInformation = -1073741820;
-            break;
-          }
-          v108 = MmEnumerateBadPages(&v153, v17, v15, v13);
-          v109 = v153;
-          if ( v153 )
-            LODWORD(v9) = 8 * *(_DWORD *)v153;
-          v127 = (unsigned int)v9;
-          if ( Length < (unsigned int)v9 )
-            v108 = -1073741820;
-          VerifierInformation = v108;
-          if ( v153 )
-          {
-            if ( v108 >= 0 )
-              memmove((void *)a4, (char *)v153 + 8, (unsigned int)v9);
-            ExFreePoolWithTag(v109, 0);
-          }
-          goto LABEL_30;
-        case 133:
-          if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
-            return -1073741727;
-          SystemBasicInformation = ExpGetSystemPlatformBinary(a4, Length, PreviousMode);
-          break;
-        case 134:
-          v127 = 32;
-          if ( Length == 32 )
-            SystemBasicInformation = ExHandleSPCall2(v10, a4, v15, v13);
-          else
-            SystemBasicInformation = -1073741820;
-          break;
-        case 135:
-          v127 = 8;
-          if ( Length < 8 )
-          {
-            SystemBasicInformation = -1073741820;
-            break;
-          }
-          if ( (unsigned int)HvlQueryActiveProcessors(&v147, 0LL) )
-          {
-            VerifierInformation = -1073741637;
-          }
-          else
-          {
-            VerifierInformation = HvlQueryProcessorTopologyCount(0LL, &v148);
-            if ( VerifierInformation )
-            {
-              VerifierInformation = -1073741637;
-            }
-            else
-            {
-              *(_DWORD *)a4 = v147;
-              *(_DWORD *)(a4 + 4) = v148;
-            }
-          }
-          goto LABEL_30;
-        case 136:
-        case 137:
-          if ( Length == 48 )
-            return ExpGetDeviceDataInformation((unsigned int)a1, a4, 48LL, v13);
-          if ( a6 )
-            *a6 = 48;
-          return -1073741820;
-        case 138:
-          SystemBasicInformation = ExpQueryMemoryTopologyInformation((void *)a4);
-          break;
-        case 139:
-          SystemBasicInformation = ExpQueryChannelInformation((void *)a4);
-          break;
-        case 140:
-          if ( a6 || Length >= 8 )
-          {
-            VerifierInformation = BgkQueryBootGraphicsInformation(2LL, &v127, v15, v13);
-            if ( VerifierInformation >= 0 )
-            {
-              if ( v127 )
-              {
-                if ( Length >= v127 )
-                {
-                  VerifierInformation = BgkQueryBootGraphicsInformation(1LL, &v152, v104, v105);
-                  if ( VerifierInformation >= 0 )
-                  {
-                    v106 = v152;
-                    if ( v152 )
-                    {
-                      memmove((void *)a4, v152, v127);
-                      ExFreePoolWithTag(v106, 0x4B494742u);
-                    }
-                    else
-                    {
-                      VerifierInformation = -1073741670;
-                    }
-                  }
-                }
-                else
-                {
-                  VerifierInformation = -1073741789;
-                }
-              }
-              else
-              {
-                VerifierInformation = -1073741670;
-              }
-            }
-          }
-          else
-          {
-            VerifierInformation = -1073741811;
-          }
-          goto LABEL_30;
-        case 143:
-        case 145:
-        case 171:
-        case 179:
-          SystemBasicInformation = SeSecureBootQueryInformation((unsigned int)a1, a4, Length, &v127);
-          break;
-        case 147:
-          SystemBasicInformation = ExpQueryPortableWorkspaceEfiLauncherInformation(a4, Length, &v127, v13);
-          break;
-        case 149:
-          if ( Length >= 3 )
-          {
-            *(_BYTE *)a4 = KdpBootedNodebug == 0;
-            *(_BYTE *)(a4 + 1) = (_BYTE)KdDebuggerEnabled;
-            *(_BYTE *)(a4 + 2) = (_BYTE)KdDebuggerNotPresent == 0;
-            v127 = 3;
-            goto LABEL_30;
-          }
-          if ( a6 )
-            *a6 = 3;
-          return -1073741820;
-        case 150:
-          if ( a4 && !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
-            return -1073741727;
-          SystemBasicInformation = ExpQueryBootLoaderMetadata((void *)a4, Length, &v127);
-          break;
-        case 151:
-          v127 = 4;
-          if ( Length >= 4 )
-          {
-            *(_DWORD *)a4 = ExSoftRebootFlags;
-            goto LABEL_30;
-          }
-          if ( a6 )
-            *a6 = 4;
-          return -1073741820;
-        case 153:
-          if ( Size )
-          {
-            SystemBasicInformation = -1073741820;
-            break;
-          }
-          v127 = 32;
-          if ( Length < 0x20 )
-          {
-            if ( Length < 0xC )
-            {
-              VerifierInformation = -1073741820;
-            }
-            else
-            {
-              v127 = 12;
-              *(_QWORD *)a4 = PoOffCrashConfigTable;
-              *(_DWORD *)(a4 + 8) = DWORD2(PoOffCrashConfigTable);
-            }
-          }
-          else
-          {
-            *(_QWORD *)a4 = PoOffCrashConfigTable;
-            *(_DWORD *)(a4 + 8) = DWORD2(PoOffCrashConfigTable);
-            *(_QWORD *)(a4 + 16) = xmmword_140C3F890;
-            *(_DWORD *)(a4 + 24) = DWORD2(xmmword_140C3F890);
-          }
-          goto LABEL_30;
-        case 154:
-          if ( Length < 0x20 )
           {
             if ( a6 )
               *a6 = 32;
             return -1073741820;
           }
-          VerifierInformation = ExpGetSystemProcessorFeaturesInformation(a4, v17, v15, v13);
-LABEL_169:
-          v127 = 32;
-          goto LABEL_30;
-        case 156:
-          v127 = 128;
-          if ( Length != 128 )
+          CurrentProcess = PsGetCurrentProcess();
+          ProcessPartitionId = MmGetProcessPartitionId((__int64)CurrentProcess);
+          *(_QWORD *)&Src[0] = MmGetAvailablePages(ProcessPartitionId);
+          *((_QWORD *)&Src[0] + 1) = MmGetTotalCommittedPages(v38);
+          *(_QWORD *)&Src[1] = MmGetTotalCommitLimit(v39);
+          *((_QWORD *)&Src[1] + 1) = MmGetPeakCommitment(v40);
+          v41 = *((_QWORD *)&Src[1] + 1);
+          if ( *((_QWORD *)&Src[1] + 1) < *((_QWORD *)&Src[0] + 1) )
+            v41 = *((_QWORD *)&Src[0] + 1);
+          *((_QWORD *)&Src[1] + 1) = v41;
+          *(_OWORD *)a4 = Src[0];
+          *(_OWORD *)(a4 + 16) = Src[1];
+          Size = 32;
+          BootGraphicsInformation = Size_4;
+          goto LABEL_641;
+        case 0x7Cu:
+          Size = 12;
+          if ( Length >= 4 )
           {
-            SystemBasicInformation = -1073741820;
-            break;
+            v164 = *(_DWORD *)a4;
+            if ( v164 == 1 )
+            {
+              if ( Length >= 0xC )
+              {
+                *(_DWORD *)(a4 + 8) = 0;
+                *(_DWORD *)(a4 + 4) = 0;
+                *(_DWORD *)(a4 + 8) |= 1u;
+                *(_DWORD *)(a4 + 4) |= 1u;
+                if ( MEMORY[0xFFFFF780000003C6] )
+                  *(_DWORD *)(a4 + 4) &= ~1u;
+                BootGraphicsInformation = Size_4;
+              }
+              else
+              {
+                BootGraphicsInformation = -1073741820;
+              }
+            }
+            else
+            {
+              BootGraphicsInformation = -1073741637;
+            }
           }
-          VerifierInformation = BgkQueryBootGraphicsInformation(3LL, Src, v15, v13);
-          if ( VerifierInformation >= 0 )
-LABEL_244:
-            memmove((void *)a4, Src, v127);
-          goto LABEL_30;
-        case 157:
-          v127 = WORD5(ExpManufacturingInformation) + 24;
-          if ( Length < v127 )
+          else
           {
-            SystemBasicInformation = -1073741820;
-            break;
+            BootGraphicsInformation = -1073741820;
           }
-          v73 = (void *)(a4 + 24);
-          *(_OWORD *)a4 = 0LL;
-          *(_QWORD *)(a4 + 16) = 0LL;
-          *(_DWORD *)a4 = ExpManufacturingInformation;
-          *(_DWORD *)(a4 + 8) = DWORD2(ExpManufacturingInformation);
-          if ( WORD4(ExpManufacturingInformation) )
+          goto LABEL_641;
+        case 0x7Du:
+          if ( Length < 0x10 )
           {
-            *(_QWORD *)(a4 + 16) = v73;
-            memmove(v73, qword_140C31B10, WORD5(ExpManufacturingInformation));
+            if ( a6 )
+              *a6 = 16;
+            return -1073741820;
           }
-          goto LABEL_30;
-        case 158:
-          v127 = 1;
+          v137 = *(_DWORD *)a4;
+          v160 = *(int **)(a4 + 8);
+          v68 = *(_DWORD *)(a4 + 4);
+          v144 = v68;
+          if ( ((unsigned __int8)v160 & 7) != 0 )
+            return -2147483646;
+          if ( !ExIsRestrictedCaller(v9) )
+          {
+            SystemBasicInformation = ExGetSessionBigPoolInformation(v160, v68, &Size, &v137);
+            goto LABEL_640;
+          }
+          return -1073741790;
+        case 0x7Eu:
+          Size = 32;
+          if ( Length == 32 )
+          {
+            BootGraphicsInformation = BgkQueryBootGraphicsInformation(0LL, Src, v15, v13);
+            if ( BootGraphicsInformation >= 0 )
+            {
+              v103 = *(_QWORD *)&Src[0];
+              if ( v9 )
+                v103 = 0LL;
+              *(_QWORD *)&Src[0] = v103;
+              memmove((void *)a4, Src, Size);
+            }
+          }
+          else
+          {
+            BootGraphicsInformation = -1073741820;
+          }
+          goto LABEL_641;
+        case 0x80u:
+          if ( (_DWORD)v20 )
+          {
+            BootGraphicsInformation = -1073741820;
+          }
+          else
+          {
+            BootGraphicsInformation = MmEnumerateBadPages(&v154);
+            v108 = v154;
+            if ( v154 )
+              v8 = 8 * *(_DWORD *)v154;
+            Size = v8;
+            if ( Length < v8 )
+              BootGraphicsInformation = -1073741820;
+            if ( v154 )
+            {
+              if ( BootGraphicsInformation >= 0 )
+                memmove((void *)a4, (char *)v154 + 8, v8);
+              ExFreePoolWithTag(v108, 0);
+            }
+          }
+          goto LABEL_641;
+        case 0x85u:
+          if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, v9) )
+            return -1073741727;
+          SystemBasicInformation = ExpGetSystemPlatformBinary(a4, Length, v9);
+          goto LABEL_640;
+        case 0x86u:
+          Size = 32;
+          if ( Length != 32 )
+          {
+            BootGraphicsInformation = -1073741820;
+            goto LABEL_641;
+          }
+          SystemBasicInformation = ExHandleSPCall2(0x140000000LL, a4);
+          goto LABEL_640;
+        case 0x87u:
+          Size = 8;
+          if ( Length >= 8 )
+          {
+            if ( (unsigned int)HvlQueryActiveProcessors(&v145, 0LL) )
+            {
+              BootGraphicsInformation = -1073741637;
+            }
+            else
+            {
+              BootGraphicsInformation = HvlQueryProcessorTopologyCount(0LL, &v146);
+              if ( BootGraphicsInformation )
+              {
+                BootGraphicsInformation = -1073741637;
+              }
+              else
+              {
+                *(_DWORD *)a4 = v145;
+                *(_DWORD *)(a4 + 4) = v146;
+              }
+            }
+          }
+          else
+          {
+            BootGraphicsInformation = -1073741820;
+          }
+          goto LABEL_641;
+        case 0x88u:
+        case 0x89u:
+          if ( Length == 48 )
+            return ExpGetDeviceDataInformation(v16, a4, 48LL, v13);
+          if ( a6 )
+            *a6 = 48;
+          return -1073741820;
+        case 0x8Au:
+          SystemBasicInformation = ExpQueryMemoryTopologyInformation((void *)a4);
+          goto LABEL_640;
+        case 0x8Bu:
+          SystemBasicInformation = ExpQueryChannelInformation((void *)a4);
+          goto LABEL_640;
+        case 0x8Cu:
+          if ( a6 || Length >= 8 )
+          {
+            BootGraphicsInformation = BgkQueryBootGraphicsInformation(2LL, &Size, v15, v13);
+            if ( BootGraphicsInformation >= 0 )
+            {
+              if ( Size )
+              {
+                if ( Length >= Size )
+                {
+                  BootGraphicsInformation = BgkQueryBootGraphicsInformation(1LL, &P, v104, v105);
+                  if ( BootGraphicsInformation >= 0 )
+                  {
+                    v106 = P;
+                    if ( P )
+                    {
+                      memmove((void *)a4, P, Size);
+                      ExFreePoolWithTag(v106, 0x4B494742u);
+                    }
+                    else
+                    {
+                      BootGraphicsInformation = -1073741670;
+                    }
+                  }
+                }
+                else
+                {
+                  BootGraphicsInformation = -1073741789;
+                }
+              }
+              else
+              {
+                BootGraphicsInformation = -1073741670;
+              }
+            }
+          }
+          else
+          {
+            BootGraphicsInformation = -1073741811;
+          }
+          goto LABEL_641;
+        case 0x8Fu:
+        case 0x91u:
+        case 0xABu:
+        case 0xB3u:
+          SystemBasicInformation = SeSecureBootQueryInformation(v16, a4, Length, &Size);
+          goto LABEL_640;
+        case 0x93u:
+          SystemBasicInformation = ExpQueryPortableWorkspaceEfiLauncherInformation(a4, Length, &Size, v13);
+          goto LABEL_640;
+        case 0x95u:
+          if ( Length >= 3 )
+          {
+            *(_BYTE *)a4 = KdpBootedNodebug == 0;
+            *(_BYTE *)(a4 + 1) = (_BYTE)KdDebuggerEnabled;
+            *(_BYTE *)(a4 + 2) = (_BYTE)KdDebuggerNotPresent == 0;
+            v10 = 3;
+            goto LABEL_259;
+          }
+          if ( a6 )
+            *a6 = 3;
+          return -1073741820;
+        case 0x96u:
+          if ( !ExBootLoaderMetadata )
+            goto LABEL_62;
+          v107 = *(_DWORD *)ExBootLoaderMetadata;
+          Size = *(_DWORD *)ExBootLoaderMetadata;
+          if ( !a4 )
+            goto LABEL_62;
+          if ( Length < v107 )
+          {
+            BootGraphicsInformation = -1073741820;
+            goto LABEL_641;
+          }
+          if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, v9) )
+            return -1073741727;
+          memmove((void *)a4, (const void *)(ExBootLoaderMetadata + 4), Size);
+          BootGraphicsInformation = Size_4;
+          goto LABEL_641;
+        case 0x97u:
+          Size = 4;
+          if ( Length >= 4 )
+          {
+            *(_DWORD *)a4 = ExSoftRebootFlags;
+            BootGraphicsInformation = Size_4;
+            goto LABEL_641;
+          }
+          if ( a6 )
+            *a6 = 4;
+          return -1073741820;
+        case 0x99u:
+          if ( (_DWORD)v20 )
+          {
+            BootGraphicsInformation = -1073741820;
+            goto LABEL_641;
+          }
+          Size = 32;
+          if ( Length >= 0x20 )
+          {
+            *(_QWORD *)a4 = PoOffCrashConfigTable;
+            *(_DWORD *)(a4 + 8) = DWORD2(PoOffCrashConfigTable);
+            *(_QWORD *)(a4 + 16) = xmmword_140C251F0;
+            *(_DWORD *)(a4 + 24) = DWORD2(xmmword_140C251F0);
+LABEL_521:
+            BootGraphicsInformation = Size_4;
+            goto LABEL_641;
+          }
+          if ( Length >= 0xC )
+          {
+            Size = 12;
+            *(_QWORD *)a4 = PoOffCrashConfigTable;
+            *(_DWORD *)(a4 + 8) = DWORD2(PoOffCrashConfigTable);
+            goto LABEL_521;
+          }
+          BootGraphicsInformation = -1073741820;
+          Size_4 = -1073741820;
+LABEL_641:
+          if ( a6 )
+            *a6 = Size;
+          result = BootGraphicsInformation;
+          break;
+        case 0x9Au:
+          if ( Length >= 0x20 )
+          {
+            BootGraphicsInformation = ExpGetSystemProcessorFeaturesInformation(a4, v20, v15, v13);
+            Size = 32;
+            goto LABEL_641;
+          }
+          if ( a6 )
+            *a6 = 32;
+          return -1073741820;
+        case 0x9Cu:
+          Size = 128;
+          if ( Length == 128 )
+          {
+            BootGraphicsInformation = BgkQueryBootGraphicsInformation(3LL, Src, v15, v13);
+            if ( BootGraphicsInformation >= 0 )
+              memmove((void *)a4, Src, Size);
+          }
+          else
+          {
+            BootGraphicsInformation = -1073741820;
+          }
+          goto LABEL_641;
+        case 0x9Du:
+          Size = WORD5(ExpManufacturingInformation) + 24;
+          if ( Length >= Size )
+          {
+            v109 = (void *)(a4 + 24);
+            *(_OWORD *)a4 = 0LL;
+            *(_QWORD *)(a4 + 16) = 0LL;
+            *(_DWORD *)a4 = ExpManufacturingInformation;
+            *(_DWORD *)(a4 + 8) = DWORD2(ExpManufacturingInformation);
+            if ( WORD4(ExpManufacturingInformation) )
+            {
+              *(_QWORD *)(a4 + 16) = v109;
+              memmove(v109, qword_140C197D0, WORD5(ExpManufacturingInformation));
+            }
+            BootGraphicsInformation = Size_4;
+          }
+          else
+          {
+            BootGraphicsInformation = -1073741820;
+          }
+          goto LABEL_641;
+        case 0x9Eu:
+          Size = 1;
           if ( Length )
           {
             *(_BYTE *)a4 = PoEnergyEstimationEnabled();
-            goto LABEL_30;
+            BootGraphicsInformation = Size_4;
+            goto LABEL_641;
           }
           if ( a6 )
             *a6 = 1;
-          goto LABEL_258;
-        case 159:
-          SystemBasicInformation = HvlQueryDetailInfo(a4, Length, v15, &v127);
-          break;
-        case 160:
+          goto LABEL_104;
+        case 0x9Fu:
+          SystemBasicInformation = HvlQueryDetailInfo(a4, Length, v15, &Size);
+          goto LABEL_640;
+        case 0xA0u:
           v110 = (_DWORD)v13 << 6;
-          v127 = (_DWORD)v13 << 6;
+          Size = (_DWORD)v13 << 6;
           if ( Length < 0x40 )
-            goto LABEL_500;
-          v111 = Length < v110;
-          if ( Length < v110 )
+            goto LABEL_383;
+          v111 = Length >> 6;
+          if ( Length >= v110 )
+            v111 = v13;
+          BootGraphicsInformation = Length < v110 ? 0xC0000004 : 0;
+          while ( v8 < v111 )
           {
-            LODWORD(v13) = Length >> 6;
-            v138 = Length >> 6;
-            v111 = Length < v110;
-          }
-          v97 = v111 ? 0xC0000004 : 0;
-          v142 = (_QWORD *)a4;
-          while ( 1 )
-          {
-            v132 = (int)v9;
-            if ( (unsigned int)v9 >= (unsigned int)v13 )
-              break;
             ProcNumber.Group = v14;
-            ProcNumber.Number = (unsigned __int8)v9;
+            ProcNumber.Number = v8;
             ProcNumber.Reserved = 0;
             v112 = KiProcessorBlock[KeGetProcessorIndexFromNumber(&ProcNumber)];
             KeQueryCycleTimeStatsProcessor(v112, (_QWORD *)a4);
             a4 += 64LL;
-            v142 = (_QWORD *)a4;
-            LODWORD(v9) = (_DWORD)v9 + 1;
-            LODWORD(v13) = v138;
+            v150 = (_QWORD *)a4;
+            ++v8;
+            v14 = v130;
           }
-LABEL_491:
-          VerifierInformation = v97;
-          goto LABEL_30;
-        case 162:
-          SystemBasicInformation = SeQueryTrustedPlatformModuleInformation((int *)a4, Length, &v127);
-          break;
-        case 163:
-          if ( Length )
-          {
-            *(_BYTE *)a4 = KdIgnoreUmExceptions;
-            v127 = 1;
-            goto LABEL_30;
-          }
-          if ( a6 )
-            *a6 = 1;
-          return -1073741820;
-        case 164:
-        case 172:
-        case 189:
-        case 190:
-        case 199:
-        case 209:
-          if ( qword_140C37A48 )
-            SystemBasicInformation = qword_140C37A48((unsigned int)a1, P, Size, a4, Length, &v127);
-          else
-            SystemBasicInformation = -1073741823;
-          break;
-        case 165:
-          v127 = 16;
-          if ( Length == 16 )
-          {
-            LOBYTE(Src[0]) ^= (LOBYTE(Src[0]) ^ (16 * ExpFirmwarePageProtectionSupported)) & 0x10;
-            if ( VslIsSecureKernelRunning() )
-            {
-              CurrentServerSilo = PsGetCurrentServerSilo();
-              if ( PsIsHostSilo(CurrentServerSilo) )
-              {
-                v137[0] = 0;
-                LOBYTE(Src[0]) |= 1u;
-                NestedPageProtectionFlags = VslGetNestedPageProtectionFlags();
-                v115 = Src[0];
-                if ( (NestedPageProtectionFlags & 2) != 0 )
-                {
-                  v115 = LOBYTE(Src[0]) | 2;
-                  LOBYTE(Src[0]) |= 2u;
-                }
-                if ( (NestedPageProtectionFlags & 0x20) != 0 )
-                {
-                  v115 |= 4u;
-                  LOBYTE(Src[0]) = v115;
-                }
-                if ( (NestedPageProtectionFlags & 0x10) != 0 )
-                  LOBYTE(Src[0]) = v115 | 8;
-                v116 = BYTE1(Src[0]);
-                if ( (NestedPageProtectionFlags & 0x200) != 0 )
-                {
-                  LOBYTE(v116) = BYTE1(Src[0]) | 2;
-                  BYTE1(Src[0]) |= 2u;
-                }
-                v117 = v154;
-                if ( v154 )
-                {
-                  VerifierInformation = VslIsTrustletRunning(v154, v137);
-                  v116 = BYTE1(Src[0]);
-                  LOBYTE(v116) = (v137[0] ^ BYTE1(Src[0])) & 1 ^ BYTE1(Src[0]);
-                  BYTE1(Src[0]) = v116;
-                }
-                if ( (NestedPageProtectionFlags & 0x800) != 0 )
-                {
-                  LOBYTE(v116) = v116 | 4;
-                  BYTE1(Src[0]) = v116;
-                }
-                if ( (NestedPageProtectionFlags & 0x1000) != 0 )
-                {
-                  LOBYTE(v116) = v116 | 8;
-                  BYTE1(Src[0]) = v116;
-                }
-                IsEncryptionKeyAvailable = VslIsEncryptionKeyAvailable(v117, v116);
-                LOBYTE(Src[0]) ^= (LOBYTE(Src[0]) ^ (32 * IsEncryptionKeyAvailable)) & 0x20;
-              }
-            }
-            *(_OWORD *)a4 = Src[0];
-            goto LABEL_30;
-          }
-          if ( a6 )
-            *a6 = 16;
-          goto LABEL_258;
-        case 166:
-          SystemBasicInformation = SeQueryHSTIResults(a4, Length, &v127, v13);
-          break;
-        case 167:
-          SystemBasicInformation = ExpQuerySingleModuleInformation(a4, Length, PreviousMode, &v127);
-          break;
-        case 169:
-          SystemBasicInformation = HvlQueryVsmProtectionInfo((void *)a4);
-          break;
-        case 173:
-          result = ExCpuSetResourceManagerAccessCheck(PreviousMode);
-          VerifierInformation = result;
-          if ( result < 0 )
-            return result;
-          v127 = 264;
-          if ( Length != 264 )
-          {
-            SystemBasicInformation = -1073741820;
-            break;
-          }
-          v119 = (unsigned __int16 *)ExAllocatePool2(256LL, 264LL, 1868983881LL);
-          v120 = v119;
-          P = v119;
-          if ( !v119 )
-            return -1073741670;
-          *v119 = 1;
-          v119[1] = 32;
-          *((_DWORD *)v119 + 1) = 0;
-          memset(v119 + 4, 0, 0x100uLL);
-          KeGetAffinitizedInterruptsInfo(v120);
-          v121 = v120;
-          v122 = 2LL;
-          do
-          {
-            *(_OWORD *)a4 = *(_OWORD *)v121;
-            *(_OWORD *)(a4 + 16) = *((_OWORD *)v121 + 1);
-            *(_OWORD *)(a4 + 32) = *((_OWORD *)v121 + 2);
-            *(_OWORD *)(a4 + 48) = *((_OWORD *)v121 + 3);
-            *(_OWORD *)(a4 + 64) = *((_OWORD *)v121 + 4);
-            *(_OWORD *)(a4 + 80) = *((_OWORD *)v121 + 5);
-            *(_OWORD *)(a4 + 96) = *((_OWORD *)v121 + 6);
-            a4 += 128LL;
-            *(_OWORD *)(a4 - 16) = *((_OWORD *)v121 + 7);
-            v121 += 64;
-            --v122;
-          }
-          while ( v122 );
-          *(_QWORD *)a4 = *(_QWORD *)v121;
-          ExFreePoolWithTag(v120, 0);
-          goto LABEL_30;
-        case 174:
-          SystemBasicInformation = PsRootSiloInformation(a4, Length, &v127, v13);
-          break;
-        case 175:
-          if ( v16 )
-          {
-            v159 = 0LL;
-            result = ObReferenceObjectByHandle(v16, 0x1000u, (POBJECT_TYPE)PsProcessType, PreviousMode, &v159, 0LL);
-            v74 = v159;
-            Object = v159;
-            if ( result < 0 )
-              return result;
-            v9 = v159;
-          }
-          else
-          {
-            v74 = Object;
-          }
-          VerifierInformation = KeQueryCpuSetInformation((void *)a4);
-          if ( v9 )
-            ObfDereferenceObject(v74);
-          goto LABEL_30;
-        case 178:
+          goto LABEL_641;
+        case 0xA2u:
+          SystemBasicInformation = SeQueryTrustedPlatformModuleInformation((int *)a4, Length, &Size);
+          goto LABEL_640;
+        case 0xA3u:
           if ( !Length )
           {
-            VerifierInformation = -1073741789;
-            goto LABEL_30;
+            if ( a6 )
+              *a6 = 1;
+            return -1073741820;
           }
-          if ( PreviousMode && !SeSinglePrivilegeCheck(SeSystemProfilePrivilege, PreviousMode) )
-            return -1073741727;
-          v123 = (struct _MDL *)ExAllocatePool2(65LL, Length, 1868983881LL);
-          v69 = v123;
-          P = v123;
-          if ( !v123 )
+          *(_BYTE *)a4 = KdIgnoreUmExceptions;
+LABEL_259:
+          Size = v10;
+          BootGraphicsInformation = Size_4;
+          goto LABEL_641;
+        case 0xA4u:
+        case 0xACu:
+        case 0xBDu:
+        case 0xBEu:
+        case 0xC7u:
+        case 0xD1u:
+          SystemBasicInformation = SeCodeIntegrityQueryPolicyInformation(v16);
+          goto LABEL_640;
+        case 0xA5u:
+          Size = 16;
+          if ( Length != 16 )
           {
-            VerifierInformation = -1073741670;
-            goto LABEL_30;
+            if ( a6 )
+              *a6 = 16;
+            goto LABEL_104;
           }
-          VerifierInformation = VslQuerySecureKernelProfileInformation(v160, v123, Length, &v127);
-          if ( VerifierInformation >= 0 )
-            goto LABEL_519;
-          goto LABEL_520;
-        case 180:
-          SystemBasicInformation = ExpQueryInterruptSteeringInformation((_DWORD)P, Size, a4, Length, (__int64)&v127);
-          break;
-        case 181:
-        case 230:
-          if ( v16 )
+          LOBYTE(Src[0]) ^= (LOBYTE(Src[0]) ^ (16 * ExpFirmwarePageProtectionSupported)) & 0x10;
+          if ( VslIsSecureKernelRunning() )
           {
-            v161 = 0LL;
-            result = ObReferenceObjectByHandle(v16, 0x1000u, (POBJECT_TYPE)PsProcessType, PreviousMode, &v161, 0LL);
-            v36 = v161;
-            Object = v161;
-            if ( result < 0 )
-              return result;
-            v9 = v161;
+            v132[0] = 0;
+            LOBYTE(Src[0]) = v113 | 1;
+            NestedPageProtectionFlags = VslGetNestedPageProtectionFlags();
+            v115 = Src[0];
+            if ( (NestedPageProtectionFlags & 2) != 0 )
+            {
+              v115 = LOBYTE(Src[0]) | 2;
+              LOBYTE(Src[0]) |= 2u;
+            }
+            if ( (NestedPageProtectionFlags & 0x20) != 0 )
+            {
+              v115 |= 4u;
+              LOBYTE(Src[0]) = v115;
+            }
+            if ( (NestedPageProtectionFlags & 0x10) != 0 )
+              LOBYTE(Src[0]) = v115 | 8;
+            if ( (NestedPageProtectionFlags & 0x200) != 0 )
+              BYTE1(Src[0]) |= 2u;
+            if ( v155 )
+            {
+              BootGraphicsInformation = VslIsTrustletRunning(v155, v132);
+              BYTE1(Src[0]) ^= (v132[0] ^ BYTE1(Src[0])) & 1;
+            }
+            else
+            {
+              BootGraphicsInformation = Size_4;
+            }
+            LOBYTE(Src[0]) ^= (LOBYTE(Src[0]) ^ (32 * ExpIsIumEncryptionKeyAvailable())) & 0x20;
           }
           else
           {
-            v36 = Object;
+            BootGraphicsInformation = Size_4;
           }
-          VerifierInformation = PsGetSupportedProcessorArchitectures((void *)a4, (__int64)v36);
-          if ( v9 )
-            ObfDereferenceObject(v36);
-          goto LABEL_30;
-        case 182:
-          if ( Length == 56 )
+          *(_OWORD *)a4 = Src[0];
+          goto LABEL_641;
+        case 0xA6u:
+          SystemBasicInformation = SeQueryHSTIResults(a4, Length, &Size, v13);
+          goto LABEL_640;
+        case 0xA7u:
+          SystemBasicInformation = ExpQuerySingleModuleInformation(a4, Length, v9, &Size);
+          goto LABEL_640;
+        case 0xA9u:
+          SystemBasicInformation = HvlQueryVsmProtectionInfo((void *)a4, Length);
+          goto LABEL_640;
+        case 0xADu:
+          result = ExCpuSetResourceManagerAccessCheck(v9);
+          if ( result < 0 )
+            return result;
+          Size = 168;
+          if ( Length != 168 )
           {
-            v31 = MmGetProcessPartitionId((__int64)KeGetCurrentThread()->ApcState.Process);
-            *(_QWORD *)&Src[0] = *(_QWORD *)(*(_QWORD *)(qword_140C674C8 + 8LL * v31) + 17040LL) << 12;
-            *((_QWORD *)&Src[0] + 1) = MmGetAvailablePages(v31) << 12;
-            *(_QWORD *)&Src[1] = MmGetResidentAvailablePages(v32) << 12;
-            *((_QWORD *)&Src[1] + 1) = MmGetTotalCommittedPages(v33) << 12;
-            *((_QWORD *)&Src[2] + 1) = MmGetTotalCommitLimit(v34) << 12;
-            *(_QWORD *)&Src[3] = MmGetPeakCommitment(v35) << 12;
-            *(_QWORD *)&Src[2] = MmGetSharedCommit() << 12;
-            if ( *(_QWORD *)&Src[0] < *((_QWORD *)&Src[0] + 1) )
-              *(_QWORD *)&Src[0] = *((_QWORD *)&Src[0] + 1);
-            if ( *((_QWORD *)&Src[2] + 1) < *((_QWORD *)&Src[1] + 1) )
-              *((_QWORD *)&Src[2] + 1) = *((_QWORD *)&Src[1] + 1);
-            if ( *(_QWORD *)&Src[3] < *((_QWORD *)&Src[1] + 1) )
-              *(_QWORD *)&Src[3] = *((_QWORD *)&Src[1] + 1);
-            *(_OWORD *)a4 = Src[0];
-            *(_OWORD *)(a4 + 16) = Src[1];
-            *(_OWORD *)(a4 + 32) = Src[2];
-            *(_QWORD *)(a4 + 48) = *(_QWORD *)&Src[3];
-            v127 = 56;
-            goto LABEL_30;
+            BootGraphicsInformation = -1073741820;
+            goto LABEL_641;
           }
-          if ( a6 )
-            *a6 = 56;
-          return -1073741820;
-        case 183:
+          SystemBasicInformation = KeGetAffinitizedInterruptsInfo((_WORD *)a4);
+          goto LABEL_640;
+        case 0xAEu:
+          SystemBasicInformation = PsRootSiloInformation(a4, Length, &Size, v13);
+          goto LABEL_640;
+        case 0xAFu:
+          if ( Handle )
+          {
+            Object = 0LL;
+            result = ObReferenceObjectByHandle(Handle, 0x1000u, (POBJECT_TYPE)PsProcessType, v9, &Object, 0LL);
+            v120 = (struct _DMA_ADAPTER *)Object;
+            if ( result < 0 )
+              return result;
+          }
+          else
+          {
+            v120 = (struct _DMA_ADAPTER *)Process;
+          }
+          CpuSetInformation = KeQueryCpuSetInformation((void *)a4);
+          goto LABEL_583;
+        case 0xB2u:
+          if ( !Length )
+          {
+            BootGraphicsInformation = -1073741789;
+            goto LABEL_641;
+          }
+          if ( v9 && !SeSinglePrivilegeCheck(SeSystemProfilePrivilege, v9) )
+            return -1073741727;
+          v122 = (struct _MDL *)ExAllocatePoolWithQuotaTag((POOL_TYPE)520, Length, 0x6F666E49u);
+          v123 = v122;
+          *(_QWORD *)v135 = v122;
+          if ( v122 )
+          {
+            memset(v122, 0, Length);
+            BootGraphicsInformation = VslQuerySecureKernelProfileInformation(v162, v123, Length, &Size);
+            if ( BootGraphicsInformation >= 0 )
+              memmove((void *)a4, v123, Size);
+            ExFreePoolWithTag(v123, 0x6F666E49u);
+          }
+          else
+          {
+            BootGraphicsInformation = -1073741670;
+          }
+          goto LABEL_641;
+        case 0xB4u:
+          SystemBasicInformation = ExpQueryInterruptSteeringInformation(v135[0], v20, a4, Length, (__int64)&Size);
+          goto LABEL_640;
+        case 0xB5u:
+          if ( Handle )
+          {
+            v152 = 0LL;
+            result = ObReferenceObjectByHandle(Handle, 0x1000u, (POBJECT_TYPE)PsProcessType, v9, &v152, 0LL);
+            v120 = (struct _DMA_ADAPTER *)v152;
+            if ( result < 0 )
+              return result;
+          }
+          else
+          {
+            v120 = (struct _DMA_ADAPTER *)Process;
+          }
+          CpuSetInformation = PsWow64GetSupportedArchitectures((_DWORD *)a4, Length, &Size, (__int64)v120);
+LABEL_583:
+          BootGraphicsInformation = CpuSetInformation;
+          if ( v120 )
+            HalPutDmaAdapter(v120);
+          goto LABEL_641;
+        case 0xB6u:
+          if ( Length != 56 )
+          {
+            if ( a6 )
+              *a6 = 56;
+            return -1073741820;
+          }
+          v23 = PsGetCurrentProcess();
+          v24 = MmGetProcessPartitionId((__int64)v23);
+          *(_QWORD *)&Src[0] = MmGetNumberOfPhysicalPages(v24) << 12;
+          *((_QWORD *)&Src[0] + 1) = MmGetAvailablePages(v24) << 12;
+          *(_QWORD *)&Src[1] = MmGetResidentAvailablePages(v25) << 12;
+          *((_QWORD *)&Src[1] + 1) = MmGetTotalCommittedPages(v26) << 12;
+          *((_QWORD *)&Src[2] + 1) = MmGetTotalCommitLimit(v27) << 12;
+          *(_QWORD *)&Src[3] = MmGetPeakCommitment(v28) << 12;
+          *(_QWORD *)&Src[2] = MmGetSharedCommit() << 12;
+          v29 = *(_QWORD *)&Src[0];
+          if ( *(_QWORD *)&Src[0] < *((_QWORD *)&Src[0] + 1) )
+            v29 = *((_QWORD *)&Src[0] + 1);
+          *(_QWORD *)&Src[0] = v29;
+          v30 = *((_QWORD *)&Src[2] + 1);
+          if ( *((_QWORD *)&Src[2] + 1) < *((_QWORD *)&Src[1] + 1) )
+            v30 = *((_QWORD *)&Src[1] + 1);
+          *((_QWORD *)&Src[2] + 1) = v30;
+          v31 = *(_QWORD *)&Src[3];
+          if ( *(_QWORD *)&Src[3] < *((_QWORD *)&Src[1] + 1) )
+            v31 = *((_QWORD *)&Src[1] + 1);
+          *(_QWORD *)&Src[3] = v31;
+          *(_OWORD *)a4 = Src[0];
+          *(_OWORD *)(a4 + 16) = Src[1];
+          *(_OWORD *)(a4 + 32) = Src[2];
+          *(_QWORD *)(a4 + 48) = *(_QWORD *)&Src[3];
+          Size = 56;
+LABEL_62:
+          BootGraphicsInformation = Size_4;
+          goto LABEL_641;
+        case 0xB7u:
           if ( Length != 16 )
             return -1073741820;
           SystemBasicInformation = ExpQueryCodeIntegrityCertificateInfo(
@@ -2105,173 +2172,178 @@ LABEL_491:
                                      *(unsigned int *)(a4 + 8),
                                      v15,
                                      v13);
-          break;
-        case 184:
+          goto LABEL_640;
+        case 0xB8u:
           if ( Length != 24 )
           {
             if ( a6 )
               *a6 = 24;
             return -1073741820;
           }
-          v64 = MmGetProcessPartitionId((__int64)KeGetCurrentThread()->ApcState.Process);
-          *(_QWORD *)&Src[0] = *(_QWORD *)(*(_QWORD *)(qword_140C674C8 + 8LL * v64) + 17040LL) << 12;
-          *((_QWORD *)&Src[0] + 1) = MmGetLowestPhysicalPage(v64) << 12;
-          *(_QWORD *)&Src[1] = (MmGetHighestPhysicalPage(v65) << 12) + 4095;
+          v33 = PsGetCurrentProcess();
+          v34 = MmGetProcessPartitionId((__int64)v33);
+          *(_QWORD *)&Src[0] = MmGetNumberOfPhysicalPages(v34) << 12;
+          *((_QWORD *)&Src[0] + 1) = MmGetLowestPhysicalPage(v34) << 12;
+          *(_QWORD *)&Src[1] = (MmGetHighestPhysicalPage(v35) << 12) + 4095;
           *(_OWORD *)a4 = Src[0];
           *(_QWORD *)(a4 + 16) = *(_QWORD *)&Src[1];
-LABEL_192:
-          v127 = 24;
-          goto LABEL_30;
-        case 186:
+LABEL_67:
+          Size = 24;
+          BootGraphicsInformation = Size_4;
+          goto LABEL_641;
+        case 0xB9u:
+          SystemBasicInformation = WbDispatchOperation((char *)a4, Length);
+          goto LABEL_640;
+        case 0xBAu:
           if ( !Length )
           {
-            v141 = 1;
+            v138 = 1;
             return ZwFilterBootOption(1LL, 270532611LL);
           }
           if ( a6 )
             *a6 = 0;
           return -1073741820;
-        case 188:
+        case 0xBCu:
           if ( Length != 8 )
             return -1073741820;
-          VerifierInformation = PsQueryActivityModerationUserSettings(Src);
-          if ( VerifierInformation >= 0 )
+          BootGraphicsInformation = PsQueryActivityModerationUserSettings(Src);
+          if ( BootGraphicsInformation >= 0 )
             *(_QWORD *)a4 = *(_QWORD *)&Src[0];
-          goto LABEL_30;
-        case 192:
+          goto LABEL_641;
+        case 0xC0u:
           if ( Length >= 0x20 )
           {
-            VerifierInformation = ExpGetSystemFlushInformation(a4, v17, v15, v13);
-            v127 = 32;
-            goto LABEL_30;
+            BootGraphicsInformation = ExpGetSystemFlushInformation(a4);
+            Size = 32;
+            goto LABEL_641;
           }
           if ( a6 )
             *a6 = 32;
           return -1073741820;
-        case 193:
-          v100 = 8 * KeQueryActiveGroupCount();
-          v127 = v100;
-          if ( Length < v100 )
+        case 0xC1u:
+          v95 = 8 * KeQueryActiveGroupCount();
+          Size = v95;
+          if ( Length >= v95 )
           {
-LABEL_500:
-            VerifierInformation = -1073741789;
+            memset((void *)a4, 0, v95);
+            v131 = 0;
+            while ( v8 < (unsigned __int16)KeNumberNodes )
+            {
+              v96 = KeNodeBlock[v8];
+              v129 = *(_WORD *)(v96 + 144);
+              *(_QWORD *)(a4 + 8LL * v129) |= *(_QWORD *)(v96 + 24);
+              v8 = ++v131;
+            }
+            BootGraphicsInformation = Size_4;
           }
           else
           {
-            memset((void *)a4, 0, v100);
-            v132 = 0;
-            v101 = 0;
-            while ( (unsigned int)v9 < (unsigned __int16)KeNumberNodes )
-            {
-              KeInitializeSchedulerSubNodeEnumerationContext(&v166, KeNodeBlock[v101]);
-              while ( !(unsigned int)KeEnumerateNextSchedulerSubNodeInNode((__int64)&v166, &v158) )
-              {
-                v136 = *(_WORD *)(v158 + 136);
-                *(_QWORD *)(a4 + 8LL * v136) |= *(_QWORD *)(v158 + 16);
-              }
-              v101 = v132 + 1;
-              v132 = v101;
-              LODWORD(v9) = v101;
-            }
+LABEL_383:
+            BootGraphicsInformation = -1073741789;
           }
-          goto LABEL_30;
-        case 194:
-          SystemBasicInformation = VslTransformDumpKey(P, Size, (void *)a4, Length, (__int64)&v127, PreviousMode);
-          break;
-        case 195:
+          goto LABEL_641;
+        case 0xC3u:
+          if ( Length < 8 )
+          {
+            if ( a6 )
+              *a6 = 8;
+            return -1073741820;
+          }
+          SystemBasicInformation = ExpGetSystemWriteConstraintInformation(a4, v20, v15, v13);
+          Size = 8;
+LABEL_640:
+          BootGraphicsInformation = SystemBasicInformation;
+          goto LABEL_641;
+        case 0xC4u:
+          SystemBasicInformation = KeQueryKvaShadowInformation(a4, Length, &Size, v13);
+          goto LABEL_640;
+        case 0xC5u:
+          Size = 8;
           if ( Length >= 8 )
           {
-            SystemBasicInformation = ExpGetSystemWriteConstraintInformation(a4, v17, v15, v13);
-            v127 = 8;
-            break;
-          }
-          if ( a6 )
-            *a6 = 8;
-          return -1073741820;
-        case 196:
-          SystemBasicInformation = KeQueryKvaShadowInformation(a4, Length, &v127, v13);
-          break;
-        case 197:
-          v127 = 8;
-          if ( Length >= 8 )
-          {
-            v43 = qword_140C65B38;
+            v125 = qword_140C4DE48;
             *(_QWORD *)a4 = 0LL;
-            *(_QWORD *)a4 = v43;
-            goto LABEL_30;
-          }
-          SystemBasicInformation = -1073741820;
-          break;
-        case 198:
-          VerifierInformation = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, unsigned int *))off_140C020E8[0])(
-                                  34LL,
-                                  0LL,
-                                  0LL,
-                                  &v139);
-          if ( VerifierInformation != -1073741820 )
-            return -1073741637;
-          v26 = v139;
-          if ( Length < v139 || !a4 )
-          {
-LABEL_65:
-            v127 = v26;
-            goto LABEL_30;
-          }
-          v124 = PreviousMode;
-          if ( PreviousMode )
-          {
-            v69 = (_DWORD *)ExAllocatePool2(257LL, v139, 1868983881LL);
-            P = v69;
-            if ( !v69 )
-            {
-              VerifierInformation = -1073741670;
-              goto LABEL_30;
-            }
-            v26 = v139;
+            *(_QWORD *)a4 = v125;
+            BootGraphicsInformation = Size_4;
           }
           else
           {
-            v69 = (_DWORD *)a4;
-            P = (PVOID)a4;
+            BootGraphicsInformation = -1073741820;
           }
-          v125 = ((__int64 (__fastcall *)(__int64, _QWORD, _DWORD *, ULONG *))off_140C020E8[0])(34LL, v26, v69, &v127);
-          VerifierInformation = v125;
-          if ( v124 )
+          goto LABEL_641;
+        case 0xC6u:
+          BootGraphicsInformation = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, SIZE_T *))off_140C00A68[0])(
+                                      34LL,
+                                      0LL,
+                                      0LL,
+                                      &NumberOfBytes);
+          if ( BootGraphicsInformation != -1073741820 )
+            return -1073741637;
+          v47 = NumberOfBytes;
+          if ( Length < (unsigned int)NumberOfBytes || !a4 )
           {
-            if ( v125 >= 0 )
-LABEL_519:
-              memmove((void *)a4, v69, v127);
-LABEL_520:
-            ExFreePoolWithTag(v69, 0x6F666E49u);
+LABEL_97:
+            Size = v47;
+            goto LABEL_641;
           }
-          goto LABEL_30;
-        case 200:
-          SystemBasicInformation = IoQuerySystemDeviceName(200LL, a4, Length, &v127);
-          break;
-        case 201:
+          if ( v9 )
+          {
+            PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, (unsigned int)NumberOfBytes, 0x6F666E49u);
+            *(_QWORD *)v135 = PoolWithQuotaTag;
+            if ( !PoolWithQuotaTag )
+            {
+              BootGraphicsInformation = -1073741670;
+              goto LABEL_641;
+            }
+            v47 = NumberOfBytes;
+          }
+          else
+          {
+            PoolWithQuotaTag = (_DWORD *)a4;
+            *(_QWORD *)v135 = a4;
+          }
+          v124 = ((__int64 (__fastcall *)(__int64, _QWORD, _DWORD *, unsigned int *))off_140C00A68[0])(
+                   34LL,
+                   v47,
+                   PoolWithQuotaTag,
+                   &Size);
+          BootGraphicsInformation = v124;
+          if ( v9 )
+          {
+            if ( v124 >= 0 )
+LABEL_429:
+              memmove((void *)a4, PoolWithQuotaTag, Size);
+LABEL_430:
+            ExFreePoolWithTag(PoolWithQuotaTag, 0x6F666E49u);
+          }
+          goto LABEL_641;
+        case 0xC8u:
+          SystemBasicInformation = IoQuerySystemDeviceName(200);
+          goto LABEL_640;
+        case 0xC9u:
           SystemBasicInformation = KeQuerySpeculationControlInformation((void *)a4, Length);
-          break;
-        case 202:
-          v127 = 1;
+          goto LABEL_640;
+        case 0xCAu:
+          Size = 1;
           if ( Length != 1 )
           {
             if ( a6 )
               *a6 = 1;
-            goto LABEL_258;
+            goto LABEL_104;
           }
-          v149 = 0;
-          VerifierInformation = ((__int64 (__fastcall *)(__int64, __int64, _OWORD *, int *))off_140C020E8[0])(
-                                  47LL,
-                                  1LL,
-                                  Src,
-                                  &v149);
-          if ( VerifierInformation >= 0 && v149 == 1 )
+          v148 = 0;
+          BootGraphicsInformation = ((__int64 (__fastcall *)(__int64, __int64, _OWORD *, int *))off_140C00A68[0])(
+                                      47LL,
+                                      1LL,
+                                      Src,
+                                      &v148);
+          if ( BootGraphicsInformation >= 0 && v148 == 1 )
             *(_BYTE *)a4 = Src[0];
           else
-LABEL_202:
-            VerifierInformation = -1073741637;
-          goto LABEL_30;
-        case 206:
+LABEL_419:
+            BootGraphicsInformation = -1073741637;
+          goto LABEL_641;
+        case 0xCEu:
           if ( Length != 8 )
           {
             if ( a6 )
@@ -2280,260 +2352,90 @@ LABEL_202:
           }
           *(_BYTE *)a4 = *(_BYTE *)ExLeapSecondData != 0;
           *(_DWORD *)(a4 + 4) = 0;
-LABEL_119:
-          v127 = 8;
-          goto LABEL_30;
-        case 207:
+LABEL_116:
+          Size = 8;
+          BootGraphicsInformation = Size_4;
+          goto LABEL_641;
+        case 0xCFu:
           if ( Length == 4 )
           {
             *(_DWORD *)a4 = NtGlobalFlag2;
-            goto LABEL_164;
+            goto LABEL_160;
           }
           if ( a6 )
             *a6 = 4;
           return -1073741820;
-        case 208:
-          SystemBasicInformation = SeSecurityModelQueryInformation(a4, Length, &v127, v13);
-          break;
-        case 210:
-          SystemBasicInformation = CmQuerySingleFeatureConfiguration((_DWORD)P, Size, a4, Length, (__int64)&v127);
-          break;
-        case 211:
+        case 0xD0u:
+          SystemBasicInformation = SeSecurityModelQueryInformation(a4, Length, &Size, v13);
+          goto LABEL_640;
+        case 0xD2u:
+          SystemBasicInformation = CmQuerySingleFeatureConfiguration(v135[0], v20, a4, Length, (__int64)&Size);
+          goto LABEL_640;
+        case 0xD3u:
           SystemBasicInformation = CmQueryFeatureConfigurationSections(
-                                     (int)P,
-                                     Size,
-                                     a4,
+                                     *(__int128 **)v135,
+                                     v20,
+                                     (_OWORD *)a4,
                                      Length,
-                                     (__int64)&v127,
+                                     &Size,
                                      KeGetCurrentThread()->PreviousMode);
-          break;
-        case 213:
-          SystemBasicInformation = KeQuerySecureSpeculationInformation((unsigned int *)a4, Length, &v127);
-          break;
-        case 214:
-          if ( PreviousMode )
-            return -1073741727;
-          if ( !ExpSpacesBootInformation )
-            goto LABEL_30;
-          v76 = *(_QWORD *)ExpSpacesBootInformation;
-          if ( !*(_QWORD *)ExpSpacesBootInformation )
-            goto LABEL_30;
-          v127 = *(_QWORD *)ExpSpacesBootInformation;
-          if ( !a4 )
-            goto LABEL_30;
-          if ( Length >= (unsigned int)v76 )
+          goto LABEL_640;
+        case 0xD5u:
+          SystemBasicInformation = KeQuerySecureSpeculationInformation((unsigned int *)a4, Length, &Size);
+          goto LABEL_640;
+        case 0xDDu:
+          if ( Length != 4 )
           {
-            memmove((void *)a4, (const void *)(ExpSpacesBootInformation + 8), (unsigned int)v76);
-            goto LABEL_30;
+            if ( a6 )
+              *a6 = 4;
+            return -1073741820;
           }
-          SystemBasicInformation = -1073741820;
-          break;
-        case 215:
-          if ( PreviousMode )
-            return -1073741727;
-          v107 = ExpFwRamdiskInfo;
-          if ( !ExpFwRamdiskInfo )
+          *(_DWORD *)a4 = 0;
+          if ( !PsIsCurrentThreadInServerSilo(0x140000000LL, v20) )
           {
-            VerifierInformation = -1073741810;
-            goto LABEL_30;
-          }
-          v127 = 24;
-          if ( Length < 0x18 )
-          {
-            SystemBasicInformation = -1073741820;
-            break;
-          }
-          *(_OWORD *)a4 = *(_OWORD *)ExpFwRamdiskInfo;
-          *(_QWORD *)(a4 + 16) = *(_QWORD *)(v107 + 16);
-          goto LABEL_30;
-        case 216:
-          v127 = 32;
-          if ( Length == 32 )
-            SystemBasicInformation = WheaQuerySystemInformation(a4, 32LL, v15, v13);
-          else
-            SystemBasicInformation = -1073741820;
-          break;
-        case 221:
-          if ( Length == 4 )
-          {
-            *(_DWORD *)a4 = 0;
-            *(_DWORD *)a4 = KeIsCetCapable();
+            *(_DWORD *)a4 ^= (*(_DWORD *)a4 ^ KeIsCetCapable()) & 1;
             IsUserCetAllowed = KeIsUserCetAllowed();
-            *(_DWORD *)a4 = v78 ^ ((unsigned __int8)v78 ^ (unsigned __int8)(2 * IsUserCetAllowed)) & 2;
-            IsKernelCetEnabled = KeIsKernelCetEnabled();
-            *(_DWORD *)a4 = v80 | (IsKernelCetEnabled << 8);
-            IsKernelCetAuditModeEnabled = KeIsKernelCetAuditModeEnabled();
-            *(_DWORD *)a4 = v82 | (IsKernelCetAuditModeEnabled << 9);
-LABEL_164:
-            v127 = 4;
-            goto LABEL_30;
+            *(_DWORD *)a4 = v117 ^ ((unsigned __int8)v117 ^ (unsigned __int8)(2 * IsUserCetAllowed)) & 2;
+            IsKTMCommitCoordinator = ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator();
+            *(_DWORD *)a4 = v119 ^ ((unsigned __int16)v119 ^ (unsigned __int16)(IsKTMCommitCoordinator << 8)) & 0x100;
           }
-          if ( a6 )
-            *a6 = 4;
-          return -1073741820;
-        case 222:
-          SystemBasicInformation = CmQueryBuildVersionInformation(
-                                     P,
-                                     Size,
-                                     a4,
-                                     Length,
-                                     &v127,
-                                     KeGetCurrentThread()->PreviousMode);
-          break;
-        case 223:
-          if ( !P )
-            return -1073741821;
-          VerifierInformation = ExPoolQueryLimits(P, Size, (void *)a4, Length, KeGetCurrentThread()->PreviousMode);
-          if ( VerifierInformation >= 0 )
-            v127 = Size;
-          goto LABEL_30;
-        case 227:
-          v127 = 1;
+LABEL_160:
+          Size = 4;
+          BootGraphicsInformation = Size_4;
+          goto LABEL_641;
+        case 0xE3u:
+          Size = 1;
           if ( Length == 1 )
           {
             *(_BYTE *)a4 = 1;
-            goto LABEL_30;
+            BootGraphicsInformation = Size_4;
           }
-          if ( a6 )
-            *a6 = 1;
-LABEL_258:
-          SystemBasicInformation = -1073741820;
-          break;
-        case 228:
-        case 229:
-          v127 = Length;
-          SystemBasicInformation = KeQueryDpcWatchdogConfiguration((void *)a4, Length, a1);
-          break;
-        case 232:
-          SystemBasicInformation = RtlCheckXfgFailureInformation((char *)BaseAddress[1]);
-          break;
-        case 234:
-          v127 = 8856;
-          if ( Length >= 0x2298 )
-            SystemBasicInformation = HvlQueryMinrootInfo((_DWORD *)a4, Length, &v127);
           else
-            SystemBasicInformation = -1073741820;
-          break;
-        case 235:
-          SystemBasicInformation = HvlQuerySetBootPagesInfo((void *)a4, (__int64)&v127);
-          break;
-        case 238:
-          SystemBasicInformation = ExpQueryOriginalImageFeatureInformation(P, Size, a4, Length, &v127);
-          break;
+          {
+            if ( a6 )
+              *a6 = 1;
+LABEL_104:
+            BootGraphicsInformation = -1073741820;
+          }
+          goto LABEL_641;
         default:
           return -1073741821;
       }
-    }
-    VerifierInformation = SystemBasicInformation;
-LABEL_30:
-    if ( a6 )
-      *a6 = v127;
-    return VerifierInformation;
+      return result;
+    case 0xAFu:
+    case 0xB5u:
+      v20 = (unsigned int)v133;
+      if ( v133 != 8 )
+        return -1073741811;
+      Handle = **(HANDLE **)v135;
+      goto LABEL_35;
+    case 0xB2u:
+      v20 = (unsigned int)v133;
+      if ( v133 != 8 )
+        return -1073741811;
+      v162 = **(_QWORD **)v135;
+      goto LABEL_35;
+    default:
+      goto LABEL_34;
   }
-  else
-  {
-    switch ( a1 )
-    {
-      case 2:
-      case 33:
-      case 36:
-      case 65:
-        LOWORD(v14) = -1;
-        LODWORD(v143) = 0xFFFF;
-        v136 = -1;
-        ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
-        v13 = ActiveProcessorCount;
-        v138 = ActiveProcessorCount;
-        goto LABEL_12;
-      case 8:
-      case 23:
-      case 42:
-      case 61:
-      case 73:
-      case 83:
-      case 100:
-      case 108:
-      case 141:
-      case 160:
-        if ( Size < 2 )
-          goto LABEL_479;
-        v14 = *(unsigned __int16 *)P;
-        LODWORD(v143) = v14;
-        v136 = v14;
-        if ( (unsigned __int16)v14 >= KeQueryActiveGroupCount() )
-          goto LABEL_479;
-        v22 = KeQueryActiveProcessorCountEx(v14);
-        v13 = v22;
-        v138 = v22;
-        goto LABEL_12;
-      case 72:
-        if ( Size != 4 )
-          goto LABEL_479;
-        v17 = *(unsigned int *)P;
-        v151 = *(_DWORD *)P;
-        v16 = 0LL;
-        v15 = v129;
-        goto LABEL_15;
-      case 107:
-        if ( Size < 4 )
-          goto LABEL_479;
-        v12 = *(_DWORD *)P;
-        v150 = *(_DWORD *)P;
-        goto LABEL_12;
-      case 121:
-        if ( Size >= 2 )
-        {
-          v129 = *(_WORD *)P;
-          v15 = v129;
-          if ( v129 < (unsigned __int16)KeNumberNodes )
-            goto LABEL_13;
-        }
-        goto LABEL_479;
-      case 165:
-        if ( !Size )
-        {
-          v154 = 0LL;
-          goto LABEL_12;
-        }
-        if ( Size == 8 )
-        {
-          v154 = *(_QWORD *)P;
-          goto LABEL_12;
-        }
-LABEL_479:
-        result = -1073741811;
-        break;
-      case 175:
-      case 181:
-      case 230:
-        if ( Size != 8 )
-          goto LABEL_479;
-        v16 = *(void **)P;
-        v164 = *(_QWORD *)P;
-        v15 = v129;
-        goto LABEL_14;
-      case 178:
-        if ( Size != 8 )
-          goto LABEL_479;
-        v160 = *(_QWORD *)P;
-        goto LABEL_12;
-      case 231:
-        if ( Size < 8 )
-          goto LABEL_479;
-        v10 = (__int64)P;
-        ProcNumber = (struct _PROCESSOR_NUMBER)*((_DWORD *)P + 1);
-        v12 = *(_DWORD *)P;
-        v150 = *(_DWORD *)P;
-        goto LABEL_12;
-      case 232:
-        if ( Size < 0x20 )
-          goto LABEL_479;
-        *(_OWORD *)BaseAddress = *(_OWORD *)P;
-        v168 = *((_OWORD *)P + 1);
-        goto LABEL_12;
-      default:
-        goto LABEL_12;
-    }
-  }
-  return result;
 }

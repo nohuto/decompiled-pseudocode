@@ -3,7 +3,7 @@
  * Callers:
  *     MiFreeToSubAllocatedRegion @ 0x1405DF71C (MiFreeToSubAllocatedRegion.c)
  *     MmFreeVirtualMemory @ 0x1405EF4F0 (MmFreeVirtualMemory.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x14085A39C (MiLoadSectionIntoVsmEnclave.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x14085A37C (MiLoadSectionIntoVsmEnclave.c)
  * Callees:
  *     MiGetProcessPartition @ 0x14004D19C (MiGetProcessPartition.c)
  *     MiReturnProcessCommitment @ 0x140065D24 (MiReturnProcessCommitment.c)
@@ -11,9 +11,9 @@
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     MiFillCommitReturnInfo @ 0x140068550 (MiFillCommitReturnInfo.c)
  *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
- *     PspReturnQuota @ 0x1400BE9B0 (PspReturnQuota.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PspChangeJobMemoryUsageByProcess @ 0x14068C750 (PspChangeJobMemoryUsageByProcess.c)
+ *     PspReturnQuota @ 0x1400BE9D0 (PspReturnQuota.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x14068C730 (PspChangeJobMemoryUsageByProcess.c)
  */
 
 void __fastcall MiDecommitRegion(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

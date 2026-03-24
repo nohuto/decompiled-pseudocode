@@ -1,45 +1,57 @@
 /*
- * XREFs of PnpQueryRemoveLockedDeviceNode @ 0x140947628
+ * XREFs of PnpQueryRemoveLockedDeviceNode @ 0x1407341FC
  * Callers:
- *     PnpDeleteLockedDeviceNode @ 0x140766834 (PnpDeleteLockedDeviceNode.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140738574 (PnpDeleteLockedDeviceNode.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     PipSetDevNodeState @ 0x1402DE844 (PipSetDevNodeState.c)
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     PipClearDevNodeUserFlags @ 0x14074A08C (PipClearDevNodeUserFlags.c)
- *     IopRemoveDevice @ 0x140766C3C (IopRemoveDevice.c)
- *     PipSetDevNodeUserFlags @ 0x140767220 (PipSetDevNodeUserFlags.c)
- *     PiIrpQueryRemoveDevice @ 0x1409589A4 (PiIrpQueryRemoveDevice.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     PipSetDevNodeState @ 0x14036F9E8 (PipSetDevNodeState.c)
+ *     PiIrpQueryRemoveDevice @ 0x1407342EC (PiIrpQueryRemoveDevice.c)
+ *     IopRemoveDevice @ 0x1407388F4 (IopRemoveDevice.c)
+ *     PipClearDevNodeUserFlags @ 0x140749BB4 (PipClearDevNodeUserFlags.c)
+ *     PipSetDevNodeUserFlags @ 0x14074C32C (PipSetDevNodeUserFlags.c)
  */
 
-__int64 __fastcall PnpQueryRemoveLockedDeviceNode(__int64 a1, _DWORD *a2, UNICODE_STRING *a3)
+__int64 __fastcall PnpQueryRemoveLockedDeviceNode(__int64 a1, int a2, _DWORD *a3, UNICODE_STRING *a4)
 {
-  struct _DEVICE_OBJECT *v6; // rbp
-  int v7; // esi
+  struct _DEVICE_OBJECT *v8; // r14
+  int v9; // eax
+  unsigned int v10; // edi
   __int64 result; // rax
 
   switch ( *(_DWORD *)(a1 + 300) )
   {
-    case 0x305:
+    case 0x303:
+    case 0x304:
     case 0x306:
+    case 0x307:
     case 0x308:
-    case 0x309:
-    case 0x30A:
-      PipSetDevNodeUserFlags(a1, 512);
-      v6 = *(struct _DEVICE_OBJECT **)(a1 + 32);
-      v7 = PiIrpQueryRemoveDevice(v6);
-      if ( v7 < 0 )
+      PipSetDevNodeUserFlags(a1, 512LL);
+      v8 = *(struct _DEVICE_OBJECT **)(a1 + 32);
+      v9 = PiIrpQueryRemoveDevice(v8);
+      v10 = v9;
+      if ( v9 < 0 )
       {
-        IopRemoveDevice(v6, 3);
-        *a2 = 6;
-        RtlCopyUnicodeString(a3, (PCUNICODE_STRING)(a1 + 40));
+        if ( a2 == 54 && v9 == -1073740537 )
+        {
+          PipSetDevNodeState(a1, 784);
+          *(_DWORD *)(a1 + 704) |= 2u;
+        }
+        else
+        {
+          IopRemoveDevice(v8);
+          *a3 = 6;
+          RtlCopyUnicodeString(a4, (PCUNICODE_STRING)(a1 + 40));
+        }
       }
       else
       {
-        PipSetDevNodeState(a1, 786);
+        PipSetDevNodeState(a1, 784);
+        if ( a2 == 54 && (*(_DWORD *)(a1 + 704) & 2) != 0 )
+          v10 = -1073740537;
       }
-      PipClearDevNodeUserFlags(a1, 512);
-      result = (unsigned int)v7;
+      PipClearDevNodeUserFlags(a1, 512LL);
+      result = v10;
       break;
     default:
       result = 0LL;

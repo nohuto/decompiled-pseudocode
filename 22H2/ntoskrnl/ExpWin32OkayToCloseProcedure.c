@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWin32OkayToCloseProcedure @ 0x1407CCFA0
+ * XREFs of ExpWin32OkayToCloseProcedure @ 0x140686410
  * Callers:
  *     <none>
  * Callees:
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
+ *     PsInvokeWin32Callout @ 0x14061B5A0 (PsInvokeWin32Callout.c)
  */
 
 bool __fastcall ExpWin32OkayToCloseProcedure(__int64 a1, int *a2, __int64 a3, char a4)
@@ -33,29 +33,33 @@ bool __fastcall ExpWin32OkayToCloseProcedure(__int64 a1, int *a2, __int64 a3, ch
   if ( v7 == (POBJECT_TYPE *)ExActivationObjectType )
   {
     v8 = 38;
+    goto LABEL_9;
   }
-  else if ( v7 == (POBJECT_TYPE *)ExCoreMessagingObjectType )
+  if ( v7 == (POBJECT_TYPE *)ExCoreMessagingObjectType )
   {
     v8 = 34;
+    goto LABEL_9;
   }
-  else if ( v7 == (POBJECT_TYPE *)ExRawInputManagerObjectType )
+  if ( v7 == (POBJECT_TYPE *)ExRawInputManagerObjectType )
   {
     v8 = 28;
+    goto LABEL_9;
   }
-  else if ( v7 == (POBJECT_TYPE *)ExCompositionObjectType )
+  if ( v7 == (POBJECT_TYPE *)ExCompositionObjectType )
   {
     v8 = 19;
+    goto LABEL_9;
   }
-  else if ( v7 == ExDesktopObjectType )
+  if ( v7 == ExDesktopObjectType )
   {
     v8 = 9;
+    goto LABEL_9;
   }
-  else
+  if ( v7 == (POBJECT_TYPE *)ExWindowStationObjectType )
   {
-    if ( v7 != (POBJECT_TYPE *)ExWindowStationObjectType )
-      return v5 >= 0;
     v8 = 12;
+LABEL_9:
+    v5 = PsInvokeWin32Callout(v8, (__int64)v10, 1, (__int64)&v15);
   }
-  v5 = PsInvokeWin32Callout(v8, (__int64)v10, 1, (__int64)&v15);
   return v5 >= 0;
 }

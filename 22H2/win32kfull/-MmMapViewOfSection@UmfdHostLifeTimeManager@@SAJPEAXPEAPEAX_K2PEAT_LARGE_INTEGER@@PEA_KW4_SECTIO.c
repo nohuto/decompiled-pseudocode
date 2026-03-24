@@ -1,12 +1,11 @@
 /*
- * XREFs of ?MmMapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAXPEAPEAX_K2PEAT_LARGE_INTEGER@@PEA_KW4_SECTION_INHERIT@@KK4@Z @ 0x1C0079A68
+ * XREFs of ?MmMapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAXPEAPEAX_K2PEAT_LARGE_INTEGER@@PEA_KW4_SECTION_INHERIT@@KK4@Z @ 0x1C00A8208
  * Callers:
- *     ?UmfdEscEngMapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C0077730 (-UmfdEscEngMapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
- *     EngMapFontFileFDInternal @ 0x1C00794EC (EngMapFontFileFDInternal.c)
- *     cMapRemoteFonts @ 0x1C028BBA0 (cMapRemoteFonts.c)
+ *     EngMapFontFileFDInternal @ 0x1C00A4E0C (EngMapFontFileFDInternal.c)
+ *     ?UmfdEscEngMapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00A7F20 (-UmfdEscEngMapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     cMapRemoteFonts @ 0x1C028A208 (cMapRemoteFonts.c)
  * Callees:
- *     ??0UmfdHostSharedReadyLock@UmfdHostLifeTimeManager@@QEAA@XZ @ 0x1C0079BC0 (--0UmfdHostSharedReadyLock@UmfdHostLifeTimeManager@@QEAA@XZ.c)
- *     ??1AutoSharedUmfdLookupLock@@QEAA@XZ @ 0x1C013F038 (--1AutoSharedUmfdLookupLock@@QEAA@XZ.c)
+ *     ??0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00A82E4 (--0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
  */
 
 __int64 __fastcall UmfdHostLifeTimeManager::MmMapViewOfSection(
@@ -21,29 +20,26 @@ __int64 __fastcall UmfdHostLifeTimeManager::MmMapViewOfSection(
         unsigned int a9,
         unsigned __int64 *a10)
 {
-  __int64 v13; // rcx
-  __int64 v14; // rcx
-  __int64 v15; // rdi
-  unsigned int v16; // ebx
-  __int64 v18; // [rsp+70h] [rbp+18h] BYREF
+  unsigned int v13; // ebx
+  __int64 v15; // [rsp+70h] [rbp+18h] BYREF
 
-  v18 = a3;
-  UmfdHostLifeTimeManager::UmfdHostSharedReadyLock::UmfdHostSharedReadyLock((UmfdHostLifeTimeManager::UmfdHostSharedReadyLock *)&v18);
-  if ( *(_BYTE *)(*(_QWORD *)(SGDGetSessionState(v13) + 32) + 23536LL) )
+  v15 = a3;
+  AutoSharedPushLock::AutoSharedPushLock(
+    (AutoSharedPushLock *)&v15,
+    (struct _EX_PUSH_LOCK *)&UmfdHostLifeTimeManager::s_ReadyLock);
+  if ( UmfdHostLifeTimeManager::s_Ready )
   {
-    v15 = *(_QWORD *)(SGDGetSessionState(v14) + 32);
-    v16 = MmMapViewOfSection(a1, *(_QWORD *)(v15 + 23496), a2, 0LL, a4, a5, a6, 2, 0x400000, 2);
-    *a10 = *(_QWORD *)(v15 + 23488);
-    AutoSharedUmfdLookupLock::~AutoSharedUmfdLookupLock((AutoSharedUmfdLookupLock *)&v18);
-    return v16;
+    v13 = MmMapViewOfSection(a1, UmfdHostLifeTimeManager::s_UmfdHostProcess, a2, 0LL, a4, a5, a6, 2, 0x400000, 2);
+    *a10 = UmfdHostLifeTimeManager::s_UmfdHostGenerationId;
   }
   else
   {
-    if ( v18 )
-    {
-      GreReleasePushLockShared(v18);
-      KeLeaveCriticalRegion();
-    }
-    return 3221225473LL;
+    v13 = -1073741823;
   }
+  if ( v15 )
+  {
+    GreReleasePushLockShared(v15);
+    KeLeaveCriticalRegion();
+  }
+  return v13;
 }

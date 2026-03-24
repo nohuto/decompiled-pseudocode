@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceZoneS4TripPointExceeded @ 0x14099237C
+ * XREFs of PopDiagTraceZoneS4TripPointExceeded @ 0x1408EBF90
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x140373610 (PopCheckAndHandleThermalConditions.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1403C4D58 (PopCheckAndHandleThermalConditions.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     PopDiagTraceTripPointExceeded @ 0x140991F94 (PopDiagTraceTripPointExceeded.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14034C53C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PopDiagTraceTripPointExceeded @ 0x1408EBBA0 (PopDiagTraceTripPointExceeded.c)
  */
 
 void __fastcall PopDiagTraceZoneS4TripPointExceeded(__int64 a1, __int64 a2)
@@ -25,23 +25,24 @@ void __fastcall PopDiagTraceZoneS4TripPointExceeded(__int64 a1, __int64 a2)
       DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(a2, 0x67446F50u);
       v6 = DeviceAttachmentBaseRefWithTag;
       if ( DeviceAttachmentBaseRefWithTag )
-      {
         v7 = *(_QWORD *)(*((_QWORD *)DeviceAttachmentBaseRefWithTag + 39) + 40LL);
-        if ( v7 )
-        {
-          PopDiagTraceTripPointExceeded(
-            *(_WORD *)(v7 + 128) >> 1,
-            *(_QWORD *)(v7 + 136),
-            *(_DWORD *)(a1 + 76) / 0xAu,
-            (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_S4_TRIP_POINT_DIAGNOSTIC);
-          PopDiagTraceTripPointExceeded(
-            *(_WORD *)(v7 + 128) >> 1,
-            *(_QWORD *)(v7 + 136),
-            *(_DWORD *)(a1 + 76) / 0xAu,
-            (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_S4_TRIP_POINT_SYSTEM);
-        }
-        ObfDereferenceObjectWithTag(v6, 0x67446F50u);
+      else
+        v7 = 0LL;
+      if ( v7 )
+      {
+        PopDiagTraceTripPointExceeded(
+          *(_WORD *)(v7 + 128) >> 1,
+          *(_QWORD *)(v7 + 136),
+          *(_DWORD *)(a1 + 76) / 0xAu,
+          (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_S4_TRIP_POINT_DIAGNOSTIC);
+        PopDiagTraceTripPointExceeded(
+          *(_WORD *)(v7 + 128) >> 1,
+          *(_QWORD *)(v7 + 136),
+          *(_DWORD *)(a1 + 76) / 0xAu,
+          (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_S4_TRIP_POINT_SYSTEM);
       }
+      if ( v6 )
+        ObfDereferenceObjectWithTag(v6, 0x67446F50u);
     }
   }
 }

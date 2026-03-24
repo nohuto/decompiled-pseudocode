@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBISM_CheckingIfSSIsEnabled @ 0x1C003C6A0
+ * XREFs of HUBISM_CheckingIfSSIsEnabled @ 0x1C003C020
  * Callers:
  *     <none>
  * Callees:

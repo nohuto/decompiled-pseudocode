@@ -1,10 +1,10 @@
 /*
- * XREFs of ?TryGetInsetFieldPointer@CNineGridBrush@@AEAAPEAMK@Z @ 0x1800E791C
+ * XREFs of ?TryGetInsetFieldPointer@CNineGridBrush@@AEAAPEAMK@Z @ 0x1800CB47C
  * Callers:
- *     ?ProcessSetInsetProperty@CNineGridBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NINEGRIDBRUSH_SETINSETPROPERTY@@@Z @ 0x1800E7880 (-ProcessSetInsetProperty@CNineGridBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NINEGRIDBRUSH_SE.c)
- *     ?SetInsetProperty@CNineGridBrush@@QEAAXKM@Z @ 0x1800E78C8 (-SetInsetProperty@CNineGridBrush@@QEAAXKM@Z.c)
- *     ?GetProperty@CNineGridBrush@@UEAAJIPEAVCExpressionValue@@@Z @ 0x18023FB50 (-GetProperty@CNineGridBrush@@UEAAJIPEAVCExpressionValue@@@Z.c)
- *     ?SetProperty@CNineGridBrush@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x18023FC60 (-SetProperty@CNineGridBrush@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?ProcessSetInsetProperty@CNineGridBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NINEGRIDBRUSH_SETINSETPROPERTY@@@Z @ 0x1800CB3E4 (-ProcessSetInsetProperty@CNineGridBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_NINEGRIDBRUSH_SE.c)
+ *     ?SetInsetProperty@CNineGridBrush@@QEAAXKM@Z @ 0x1800CB42C (-SetInsetProperty@CNineGridBrush@@QEAAXKM@Z.c)
+ *     ?GetProperty@CNineGridBrush@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1801DA750 (-GetProperty@CNineGridBrush@@UEAAJIPEAVCExpressionValue@@@Z.c)
+ *     ?SetProperty@CNineGridBrush@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801DA810 (-SetProperty@CNineGridBrush@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
  * Callees:
  *     <none>
  */
@@ -19,26 +19,26 @@ float *__fastcall CNineGridBrush::TryGetInsetFieldPointer(CNineGridBrush *this, 
   int v7; // edx
 
   if ( !a2 )
-    return (float *)((char *)this + 120);
+    return (float *)((char *)this + 112);
   v2 = a2 - 1;
   if ( !v2 )
-    return (float *)((char *)this + 124);
+    return (float *)((char *)this + 116);
   v3 = v2 - 2;
   if ( !v3 )
-    return (float *)((char *)this + 96);
+    return (float *)((char *)this + 88);
   v4 = v3 - 1;
   if ( !v4 )
-    return (float *)((char *)this + 100);
+    return (float *)((char *)this + 92);
   v5 = v4 - 1;
   if ( !v5 )
-    return (float *)((char *)this + 112);
+    return (float *)((char *)this + 104);
   v6 = v5 - 1;
   if ( !v6 )
-    return (float *)((char *)this + 116);
+    return (float *)((char *)this + 108);
   v7 = v6 - 2;
   if ( !v7 )
-    return (float *)((char *)this + 104);
+    return (float *)((char *)this + 96);
   if ( v7 == 1 )
-    return (float *)((char *)this + 108);
+    return (float *)((char *)this + 100);
   return 0LL;
 }

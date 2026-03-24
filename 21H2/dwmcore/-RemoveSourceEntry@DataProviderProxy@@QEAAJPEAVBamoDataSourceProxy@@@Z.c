@@ -1,81 +1,87 @@
 /*
- * XREFs of ?RemoveSourceEntry@DataProviderProxy@@QEAAJPEAVBamoDataSourceProxy@@@Z @ 0x1801BE554
+ * XREFs of ?RemoveSourceEntry@DataProviderProxy@@QEAAJPEAVBamoDataSourceProxy@@@Z @ 0x180181ED8
  * Callers:
- *     ?RemoveDataSource@DataProviderProxy@@MEAAJPEAVBamoDataSourceProxy@@@Z @ 0x1801BE510 (-RemoveDataSource@DataProviderProxy@@MEAAJPEAVBamoDataSourceProxy@@@Z.c)
+ *     ?OnDisconnected@DataSourceProxy@@MEAAJXZ @ 0x180180A50 (-OnDisconnected@DataSourceProxy@@MEAAJXZ.c)
+ *     ?RemoveDataSource@DataProviderProxy@@MEAAJPEAVBamoDataSourceProxy@@@Z @ 0x180181EA0 (-RemoveDataSource@DataProviderProxy@@MEAAJPEAVBamoDataSourceProxy@@@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     memmove_0 @ 0x18010518B (memmove_0.c)
- *     ??$GetUniqueId@VBamoDataSourceProxy@@@DataProviderHelper@@YA_KPEAVBamoDataSourceProxy@@@Z @ 0x180195130 (--$GetUniqueId@VBamoDataSourceProxy@@@DataProviderHelper@@YA_KPEAVBamoDataSourceProxy@@@Z.c)
- *     ?_Tidy@?$vector@PEAVCDataSourceReader@@V?$allocator@PEAVCDataSourceReader@@@std@@@std@@AEAAXXZ @ 0x180195BD0 (-_Tidy@-$vector@PEAVCDataSourceReader@@V-$allocator@PEAVCDataSourceReader@@@std@@@std@@AEAAXXZ.c)
- *     ?_Unchecked_erase@?$_Hash@V?$_Umap_traits@_KV?$ComPtr@VBamoDataSourceProxy@@@WRL@Microsoft@@V?$_Uhash_compare@_KU?$hash@_K@std@@U?$equal_to@_K@2@@std@@V?$allocator@U?$pair@$$CB_KV?$ComPtr@VBamoDataSourceProxy@@@WRL@Microsoft@@@std@@@5@$0A@@std@@@std@@AEAAPEAU?$_List_node@U?$pair@$$CB_KV?$ComPtr@VBamoDataSourceProxy@@@WRL@Microsoft@@@std@@PEAX@2@PEAU32@@Z @ 0x180195C0C (-_Unchecked_erase@-$_Hash@V-$_Umap_traits@_KV-$ComPtr@VBamoDataSourceProxy@@@WRL@Microsoft@@V-$_.c)
- *     ??$find@X@?$_Hash@V?$_Umap_traits@_KV?$ComPtr@VBamoDataSourceProxy@@@WRL@Microsoft@@V?$_Uhash_compare@_KU?$hash@_K@std@@U?$equal_to@_K@2@@std@@V?$allocator@U?$pair@$$CB_KV?$ComPtr@VBamoDataSourceProxy@@@WRL@Microsoft@@@std@@@5@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CB_KV?$ComPtr@VBamoDataSourceProxy@@@WRL@Microsoft@@@std@@@std@@@std@@@1@AEB_K@Z @ 0x1801BDA94 (--$find@X@-$_Hash@V-$_Umap_traits@_KV-$ComPtr@VBamoDataSourceProxy@@@WRL@Microsoft@@V-$_Uhash_co.c)
- *     ?_Reallocate_exactly@?$vector@_KV?$allocator@_K@std@@@std@@AEAAX_K@Z @ 0x1801BE820 (-_Reallocate_exactly@-$vector@_KV-$allocator@_K@std@@@std@@AEAAX_K@Z.c)
+ *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800C3A14 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??$GetUniqueId@VDataSourceProxy@@@DataProviderHelper@@YA_KPEAVDataSourceProxy@@@Z @ 0x1801647D4 (--$GetUniqueId@VDataSourceProxy@@@DataProviderHelper@@YA_KPEAVDataSourceProxy@@@Z.c)
+ *     ?erase@?$list@U?$pair@$$CB_KV?$ComPtr@VDataProviderProxy@@@WRL@Microsoft@@@std@@V?$allocator@U?$pair@$$CB_KV?$ComPtr@VDataProviderProxy@@@WRL@Microsoft@@@std@@@2@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CB_KV?$ComPtr@VDataProviderProxy@@@WRL@Microsoft@@@std@@@std@@@std@@@2@V?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CB_KV?$ComPtr@VDataProviderProxy@@@WRL@Microsoft@@@std@@@std@@@std@@@2@@Z @ 0x180165468 (-erase@-$list@U-$pair@$$CB_KV-$ComPtr@VDataProviderProxy@@@WRL@Microsoft@@@std@@V-$allocator@U-$.c)
+ *     ?_End@?$_Hash@V?$_Umap_traits@PEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@V?$_Uhash_compare@PEAVCInteractionTracker@@U?$hash@PEAVCInteractionTracker@@@std@@U?$equal_to@PEAVCInteractionTracker@@@3@@std@@V?$allocator@U?$pair@QEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@@std@@@4@$0A@@std@@@std@@IEAA?AV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@@std@@@std@@@std@@@2@_K@Z @ 0x1801812AC (-_End@-$_Hash@V-$_Umap_traits@PEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@V-$.c)
  */
 
 __int64 __fastcall DataProviderProxy::RemoveSourceEntry(DataProviderProxy *this, struct BamoDataSourceProxy *a2)
 {
-  __int64 v3; // rbx
-  unsigned __int8 *v4; // rdx
-  _QWORD *v6; // rdx
-  _QWORD *v7; // rsi
-  _QWORD *i; // rdi
-  _QWORD *j; // rax
-  size_t v10; // rbx
-  __int64 v11; // rdx
-  char *v12; // rcx
-  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
-  __int64 Unique; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v15; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v3; // rsi
+  __int64 v4; // rcx
+  __int64 v5; // r10
+  _QWORD *v6; // rax
+  __int64 v7; // rcx
+  __int64 v8; // r11
+  _QWORD *v9; // rbx
+  __int64 appended; // rax
+  __int64 v12; // r11
+  __int64 v13; // rcx
+  __int64 v14; // rdx
+  __int64 v15; // rax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 Unique; // [rsp+30h] [rbp+8h] BYREF
 
-  Unique = DataProviderHelper::GetUniqueId<BamoDataSourceProxy>((__int64)a2);
+  Unique = DataProviderHelper::GetUniqueId<DataSourceProxy>((__int64)a2);
   v3 = Unique;
-  std::_Hash<std::_Umap_traits<unsigned __int64,Microsoft::WRL::ComPtr<BamoDataSourceProxy>,std::_Uhash_compare<unsigned __int64,std::hash<unsigned __int64>,std::equal_to<unsigned __int64>>,std::allocator<std::pair<unsigned __int64 const,Microsoft::WRL::ComPtr<BamoDataSourceProxy>>>,0>>::find<void>(
-    (_QWORD *)this + 10,
-    &v15,
-    (const unsigned __int8 *)&Unique);
-  v4 = (unsigned __int8 *)v15;
-  if ( v15 == *((_QWORD *)this + 11) )
+  v5 = *((_QWORD *)this + 16) & std::_Fnv1a_append_bytes(v4, (const unsigned __int8 *const)&Unique, 8uLL);
+  while ( 1 )
+  {
+    v6 = std::_Hash<std::_Umap_traits<CInteractionTracker *,enum InteractionTrackerBindingModeFlags,std::_Uhash_compare<CInteractionTracker *,std::hash<CInteractionTracker *>,std::equal_to<CInteractionTracker *>>,std::allocator<std::pair<CInteractionTracker * const,enum InteractionTrackerBindingModeFlags>>,0>>::_End(
+           (__int64)this + 80,
+           &Unique,
+           v5);
+    if ( v8 == *v6 )
+      break;
+    if ( *(_QWORD *)(v8 + 16) == v3 )
+      goto LABEL_6;
+  }
+  v8 = *((_QWORD *)this + 11);
+LABEL_6:
+  v9 = (_QWORD *)((char *)this + 88);
+  if ( v8 == *((_QWORD *)this + 11) )
   {
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0x85,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\dataproviderproxy.cpp",
+      (void *)0x84,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\dataproviderproxy.cpp",
       (const char *)0x8000000BLL);
     return 2147483659LL;
   }
   else
   {
-    *(_QWORD *)(*(_QWORD *)(v15 + 24) + 192LL) = 0LL;
-    std::_Hash<std::_Umap_traits<unsigned __int64,Microsoft::WRL::ComPtr<BamoDataSourceProxy>,std::_Uhash_compare<unsigned __int64,std::hash<unsigned __int64>,std::equal_to<unsigned __int64>>,std::allocator<std::pair<unsigned __int64 const,Microsoft::WRL::ComPtr<BamoDataSourceProxy>>>,0>>::_Unchecked_erase(
-      (__int64)this + 80,
-      v4);
-    v6 = (_QWORD *)*((_QWORD *)this + 19);
-    v7 = (_QWORD *)((char *)this + 144);
-    for ( i = (_QWORD *)*((_QWORD *)this + 18); i != v6 && v3 != *i; ++i )
-      ;
-    if ( i != v6 )
+    *(_QWORD *)(*(_QWORD *)(v8 + 24) + 192LL) = 0LL;
+    appended = std::_Fnv1a_append_bytes(v7, (const unsigned __int8 *const)(v8 + 16), 8uLL);
+    v13 = *((_QWORD *)this + 13);
+    v14 = 2 * (*((_QWORD *)this + 16) & appended);
+    if ( *(_QWORD *)(v13 + 16 * (*((_QWORD *)this + 16) & appended) + 8) == v12 )
     {
-      for ( j = i + 1; j != v6; ++j )
+      if ( *(_QWORD *)(v13 + 16 * (*((_QWORD *)this + 16) & appended)) == v12 )
       {
-        if ( v3 != *j )
-          *i++ = *j;
+        *(_QWORD *)(v13 + 16 * (*((_QWORD *)this + 16) & appended)) = *v9;
+        v13 = *((_QWORD *)this + 13);
+        v15 = *v9;
       }
-      if ( i != v6 )
-      {
-        v10 = *((_QWORD *)this + 19) - (_QWORD)v6;
-        memmove_0(i, v6, v10);
-        *((_QWORD *)this + 19) = (char *)i + v10;
-      }
-    }
-    v11 = *((_QWORD *)this + 19);
-    if ( v11 != *((_QWORD *)this + 20) )
-    {
-      v12 = (char *)this + 144;
-      if ( *v7 == v11 )
-        std::vector<CDataSourceReader *>::_Tidy((__int64)v12);
       else
-        std::vector<unsigned __int64>::_Reallocate_exactly(v12, (v11 - *v7) >> 3);
+      {
+        v15 = *(_QWORD *)(v12 + 8);
+      }
+      *(_QWORD *)(v13 + 8 * v14 + 8) = v15;
     }
+    else if ( *(_QWORD *)(v13 + 16 * (*((_QWORD *)this + 16) & appended)) == v12 )
+    {
+      *(_QWORD *)(v13 + 16 * (*((_QWORD *)this + 16) & appended)) = *(_QWORD *)v12;
+    }
+    std::list<std::pair<unsigned __int64 const,Microsoft::WRL::ComPtr<DataProviderProxy>>>::erase(
+      (__int64)this + 88,
+      &Unique,
+      (_QWORD **)v12);
     return 0LL;
   }
 }

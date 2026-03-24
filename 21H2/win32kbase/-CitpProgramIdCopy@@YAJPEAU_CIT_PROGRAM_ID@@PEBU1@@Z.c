@@ -1,19 +1,21 @@
 /*
- * XREFs of ?CitpProgramIdCopy@@YAJPEAU_CIT_PROGRAM_ID@@PEBU1@@Z @ 0x1C02404A4
+ * XREFs of ?CitpProgramIdCopy@@YAJPEAU_CIT_PROGRAM_ID@@PEBU1@@Z @ 0x1C01FE820
  * Callers:
- *     ?CitpProgDataEnsure@@YAPEAU_CIT_PROG_DATA@@PEAU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z @ 0x1C023FEBC (-CitpProgDataEnsure@@YAPEAU_CIT_PROG_DATA@@PEAU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z.c)
+ *     ?CitpProgDataEnsure@@YAPEAU_CIT_PROG_DATA@@PEAU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z @ 0x1C01FE234 (-CitpProgDataEnsure@@YAPEAU_CIT_PROG_DATA@@PEAU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z.c)
  * Callees:
- *     ?CitpProgramIdCleanup@@YAXPEAU_CIT_PROGRAM_ID@@@Z @ 0x1C004BBA0 (-CitpProgramIdCleanup@@YAXPEAU_CIT_PROGRAM_ID@@@Z.c)
- *     ?CitpStringDuplicate@@YAJPEAPEAGPEBG_K@Z @ 0x1C00A5E10 (-CitpStringDuplicate@@YAJPEAPEAGPEBG_K@Z.c)
- *     ?CitpLogFailureWorker@@YAXJPEBDI@Z @ 0x1C023FD24 (-CitpLogFailureWorker@@YAXJPEBDI@Z.c)
+ *     ?CitpProgramIdCleanup@@YAXPEAU_CIT_PROGRAM_ID@@@Z @ 0x1C008E24C (-CitpProgramIdCleanup@@YAXPEAU_CIT_PROGRAM_ID@@@Z.c)
+ *     ?CitpStringDuplicate@@YAJPEAPEAGPEBG_K@Z @ 0x1C008FC70 (-CitpStringDuplicate@@YAJPEAPEAGPEBG_K@Z.c)
+ *     Feature_3138188600__private_IsEnabledDeviceUsage @ 0x1C00CE654 (Feature_3138188600__private_IsEnabledDeviceUsage.c)
+ *     ?CitpLogFailureWorker@@YAXJPEBDI@Z @ 0x1C01FE090 (-CitpLogFailureWorker@@YAXJPEBDI@Z.c)
  */
 
 __int64 __fastcall CitpProgramIdCopy(struct _CIT_PROGRAM_ID *a1, const struct _CIT_PROGRAM_ID *a2)
 {
   const unsigned __int16 *v4; // rdx
-  int v5; // ebx
-  __int64 v7; // rdi
-  __int64 v8; // r8
+  const char *v5; // rdx
+  int v6; // ebx
+  size_t v7; // rdi
+  size_t v8; // r8
   const unsigned __int16 *v9; // rdx
 
   *(_OWORD *)a1 = *(_OWORD *)a2;
@@ -29,25 +31,41 @@ __int64 __fastcall CitpProgramIdCopy(struct _CIT_PROGRAM_ID *a1, const struct _C
     do
       ++v8;
     while ( v4[v8] );
-    v5 = CitpStringDuplicate((unsigned __int16 **)a1, v4, v8);
-    if ( v5 >= 0 )
+    v6 = CitpStringDuplicate((unsigned __int16 **)a1, v4, v8);
+    if ( v6 < 0 )
+      goto LABEL_20;
+    v9 = (const unsigned __int16 *)*((_QWORD *)a2 + 1);
+    if ( !v9 )
+      goto LABEL_21;
+    do
+      ++v7;
+    while ( v9[v7] );
+    v6 = CitpStringDuplicate((unsigned __int16 **)a1 + 1, v9, v7);
+    if ( v6 < 0 )
     {
-      v9 = (const unsigned __int16 *)*((_QWORD *)a2 + 1);
-      if ( !v9 )
-        return 0;
-      do
-        ++v7;
-      while ( v9[v7] );
-      v5 = CitpStringDuplicate((unsigned __int16 **)a1 + 1, v9, v7);
-      if ( v5 >= 0 )
-        return 0;
+LABEL_20:
+      if ( (unsigned int)Feature_3138188600__private_IsEnabledDeviceUsage() )
+        return (unsigned int)v6;
     }
+    else
+    {
+LABEL_21:
+      if ( (unsigned int)Feature_3138188600__private_IsEnabledDeviceUsage() )
+        return (unsigned int)v6;
+      v6 = 0;
+    }
+    if ( v6 >= 0 )
+      return (unsigned int)v6;
+LABEL_16:
+    CitpProgramIdCleanup(a1);
+    return (unsigned int)v6;
   }
-  else
+  v6 = -1073741637;
+  if ( !(unsigned int)Feature_3138188600__private_IsEnabledDeviceUsage() )
   {
-    v5 = -1073741637;
-    CitpLogFailureWorker(3221225659LL, 0LL);
+    CitpLogFailureWorker(3221225659LL, v5);
+    goto LABEL_16;
   }
-  CitpProgramIdCleanup((void **)a1);
-  return (unsigned int)v5;
+  CitpLogFailureWorker(3221225659LL, v5);
+  return (unsigned int)v6;
 }

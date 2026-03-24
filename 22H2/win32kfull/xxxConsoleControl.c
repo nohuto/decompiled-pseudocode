@@ -1,50 +1,47 @@
 /*
- * XREFs of xxxConsoleControl @ 0x1C00E3258
+ * XREFs of xxxConsoleControl @ 0x1C003BBB8
  * Callers:
- *     NtUserConsoleControl @ 0x1C00E3140 (NtUserConsoleControl.c)
+ *     NtUserConsoleControl @ 0x1C003BAA0 (NtUserConsoleControl.c)
  * Callees:
- *     DesktopAlloc @ 0x1C0065280 (DesktopAlloc.c)
- *     ?xxxSetConsoleCaretInfo@@YAHPEAU_CONSOLE_CARET_INFO@@@Z @ 0x1C00E18A4 (-xxxSetConsoleCaretInfo@@YAHPEAU_CONSOLE_CARET_INFO@@@Z.c)
- *     ?xxxUserNotifyConsoleApplication@@YAJPEAU_CONSOLE_PROCESS_INFO@@@Z @ 0x1C00E3594 (-xxxUserNotifyConsoleApplication@@YAJPEAU_CONSOLE_PROCESS_INFO@@@Z.c)
- *     xxxClientFreeWindowClassExtraBytes @ 0x1C00EBECC (xxxClientFreeWindowClassExtraBytes.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     ?xxxUserNotifyConsoleApplication@@YAJPEAU_CONSOLE_PROCESS_INFO@@@Z @ 0x1C003BF08 (-xxxUserNotifyConsoleApplication@@YAJPEAU_CONSOLE_PROCESS_INFO@@@Z.c)
+ *     ?xxxSetConsoleCaretInfo@@YAHPEAU_CONSOLE_CARET_INFO@@@Z @ 0x1C003C5C4 (-xxxSetConsoleCaretInfo@@YAHPEAU_CONSOLE_CARET_INFO@@@Z.c)
+ *     DesktopAlloc @ 0x1C004B200 (DesktopAlloc.c)
+ *     xxxClientFreeWindowClassExtraBytes @ 0x1C0051984 (xxxClientFreeWindowClassExtraBytes.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     xxxbFullscreenSwitch @ 0x1C021E2EC (xxxbFullscreenSwitch.c)
  */
 
 __int64 __fastcall xxxConsoleControl(int a1, struct _CONSOLE_PROCESS_INFO *a2, int a3)
 {
-  unsigned int v5; // edi
+  unsigned int v5; // ebx
   int v6; // ecx
   int v7; // ecx
   int v8; // ecx
   int v9; // ecx
   int v10; // ecx
   void *v11; // rcx
-  __int64 v12; // rcx
-  PVOID v13; // r15
-  int v14; // ebx
+  PVOID v12; // rdi
   __int64 ProcessWin32Process; // rax
-  __int64 v16; // r8
-  unsigned int v17; // edx
-  unsigned int v19; // eax
-  __int64 v20; // rax
-  __int64 v21; // r13
+  unsigned int v14; // edx
+  _QWORD *v16; // rax
+  _QWORD *v17; // rdi
+  _QWORD *v18; // r12
+  __int64 v19; // rcx
+  __int64 ThreadWin32Thread; // rax
+  char *v21; // rcx
   __int64 v22; // r15
-  __int64 v23; // rcx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v25; // rdx
-  __int64 v26; // rdx
-  __int64 v27; // r8
-  char *v28; // rcx
-  __int64 *v29; // r12
-  _DWORD *v30; // rbx
-  char *v31; // rax
-  __int64 v32; // rax
-  __int64 CurrentProcess; // [rsp+60h] [rbp-68h]
-  __int128 v34; // [rsp+78h] [rbp-50h] BYREF
-  __int64 v35; // [rsp+88h] [rbp-40h]
-  PVOID Object; // [rsp+E8h] [rbp+20h] BYREF
+  _DWORD *v23; // r15
+  __int64 v24; // rdx
+  __int64 v25; // r8
+  __int64 v26; // rax
+  PVOID Object[4]; // [rsp+38h] [rbp-80h] BYREF
+  __int64 CurrentProcess; // [rsp+58h] [rbp-60h]
+  _QWORD *v29; // [rsp+60h] [rbp-58h]
+  _QWORD v30[3]; // [rsp+68h] [rbp-50h] BYREF
+  const void *v31; // [rsp+80h] [rbp-38h]
+  int v32; // [rsp+D8h] [rbp+20h]
 
   v5 = 0;
   if ( !a1 )
@@ -52,137 +49,132 @@ __int64 __fastcall xxxConsoleControl(int a1, struct _CONSOLE_PROCESS_INFO *a2, i
   v6 = a1 - 1;
   if ( !v6 )
   {
-    if ( a3 != 8 )
-      return (unsigned int)-1073741811;
-    return (unsigned int)xxxUserNotifyConsoleApplication(a2);
+    if ( a3 == 8 )
+      return (unsigned int)xxxUserNotifyConsoleApplication(a2);
+    return (unsigned int)-1073741811;
   }
   v7 = v6 - 1;
   if ( !v7 )
   {
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 5434LL);
-    v19 = -1073741637;
-    if ( a3 != 24 )
-      return (unsigned int)-1073741811;
-    return v19;
-  }
-  v8 = v7 - 1;
-  if ( !v8 )
-  {
     if ( a3 == 24 )
     {
-      xxxSetConsoleCaretInfo(a2);
+      xxxbFullscreenSwitch(*(unsigned int *)a2, *((_QWORD *)a2 + 1));
       return v5;
     }
     return (unsigned int)-1073741811;
   }
-  v9 = v8 - 1;
-  if ( !v9 )
+  v8 = v7 - 1;
+  if ( v8 )
   {
-    if ( a3 == 16 )
+    v9 = v8 - 1;
+    if ( !v9 )
     {
-      v32 = ValidateHwnd(*(_QWORD *)a2);
-      if ( v32 )
+      if ( a3 == 16 )
       {
-        *(_DWORD *)(*(_QWORD *)(v32 + 16) + 884LL) = *((_DWORD *)a2 + 2);
-        return v5;
-      }
-    }
-    return (unsigned int)-1073741811;
-  }
-  v10 = v9 - 1;
-  if ( v10 )
-  {
-    if ( v10 != 1 )
-      return (unsigned int)-1073741821;
-    if ( a3 == 16 )
-    {
-      v20 = ValidateHwnd(*(_QWORD *)a2);
-      v21 = v20;
-      if ( !v20 )
-        return v5;
-      v22 = v20 + 40;
-      v23 = *(_QWORD *)(v20 + 40);
-      if ( (*(_BYTE *)(v23 + 18) & 4) != 0 || *(char *)(v23 + 19) < 0 || *(int *)(v23 + 200) < 8 )
-        return v5;
-      CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v23);
-      v25 = CurrentProcessWin32Process;
-      if ( CurrentProcessWin32Process )
-        v25 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-      if ( *(_QWORD *)(*(_QWORD *)(v21 + 16) + 424LL) != v25 )
-        return (unsigned int)-1073741790;
-      v34 = 0LL;
-      v35 = 0LL;
-      ThreadLock(v21, &v34);
-      v28 = *(char **)v22;
-      v29 = (__int64 *)(v21 + 24);
-      if ( (*(_DWORD *)(*(_QWORD *)v22 + 232LL) & 0x10) != 0 )
-      {
-        v30 = (_DWORD *)(*((_QWORD *)v28 + 37) + *(_QWORD *)(*v29 + 136));
-      }
-      else
-      {
-        v30 = DesktopAlloc(*v29, *((_DWORD *)v28 + 50));
-        if ( !v30 )
+        v26 = ValidateHwnd(*(_QWORD *)a2);
+        if ( v26 )
         {
-          v5 = -1073741801;
-LABEL_41:
-          ThreadUnlock1(v28, v26, v27);
+          *(_DWORD *)(*(_QWORD *)(v26 + 16) + 876LL) = *((_DWORD *)a2 + 2);
           return v5;
         }
-        if ( *(_QWORD *)(*(_QWORD *)v22 + 296LL) )
-        {
-          CurrentProcess = PsGetCurrentProcess(v28, v26, v27);
-          v31 = *(char **)v22;
-          LODWORD(Object) = *(_DWORD *)(*(_QWORD *)v22 + 200LL);
-          memmove(v30, *((const void **)v31 + 37), (int)Object);
-          if ( (*(_DWORD *)(CurrentProcess + 1124) & 0x40000008) == 0 )
-            xxxClientFreeWindowClassExtraBytes(v21, *(_QWORD *)(*(_QWORD *)v22 + 296LL));
-        }
-        v28 = (char *)v30 - *(_QWORD *)(*v29 + 136);
-        *(_QWORD *)(*(_QWORD *)v22 + 296LL) = v28;
       }
-      if ( v30 )
-      {
-        *v30 = *((_DWORD *)a2 + 2);
-        v30[1] = *((_DWORD *)a2 + 3);
-      }
-      *(_DWORD *)(*(_QWORD *)v22 + 232LL) |= 0x10u;
-      goto LABEL_41;
+      return (unsigned int)-1073741811;
     }
-    return (unsigned int)-1073741811;
-  }
-  if ( a3 != 16 )
-    return (unsigned int)-1073741811;
-  v11 = *(void **)a2;
-  Object = 0LL;
-  v5 = ObReferenceObjectByHandle(v11, 0x200u, (POBJECT_TYPE)PsProcessType, 1, &Object, 0LL);
-  v13 = Object;
-  if ( (v5 & 0x80000000) == 0 )
-  {
-    v14 = *(_DWORD *)SGDGetUserSessionState(v12);
-    if ( (unsigned int)PsGetProcessSessionId(v13) == v14 )
+    v10 = v9 - 1;
+    if ( !v10 )
     {
-      ProcessWin32Process = PsGetProcessWin32Process(v13);
-      v16 = ProcessWin32Process;
-      if ( ProcessWin32Process )
-        v16 = -(__int64)(*(_QWORD *)ProcessWin32Process != 0LL) & ProcessWin32Process;
-      if ( v16 )
+      if ( a3 == 16 )
       {
-        v17 = *(_DWORD *)(v16 + 12) | 0x4080000;
-        if ( !*((_DWORD *)a2 + 2) )
-          v17 = *(_DWORD *)(v16 + 12) & 0xFBF7FFFF;
-        *(_DWORD *)(v16 + 12) = v17;
+        v11 = *(void **)a2;
+        Object[0] = 0LL;
+        v5 = ObReferenceObjectByHandle(v11, 0x200u, (POBJECT_TYPE)PsProcessType, 1, Object, 0LL);
+        if ( (v5 & 0x80000000) == 0 )
+        {
+          v12 = Object[0];
+          if ( (unsigned int)PsGetProcessSessionId(Object[0]) == gSessionId )
+          {
+            ProcessWin32Process = PsGetProcessWin32Process(v12);
+            if ( ProcessWin32Process )
+            {
+              v14 = *(_DWORD *)(ProcessWin32Process + 12) | 0x4080000;
+              if ( !*((_DWORD *)a2 + 2) )
+                v14 = *(_DWORD *)(ProcessWin32Process + 12) & 0xFBF7FFFF;
+              *(_DWORD *)(ProcessWin32Process + 12) = v14;
+            }
+            else
+            {
+              v5 = -1073741816;
+            }
+          }
+          else
+          {
+            v5 = -1073741811;
+          }
+          ObfDereferenceObject(v12);
+        }
+        return v5;
       }
-      else
-      {
-        v5 = -1073741816;
-      }
+      return (unsigned int)-1073741811;
+    }
+    if ( v10 != 1 )
+      return (unsigned int)-1073741821;
+    if ( a3 != 16 )
+      return (unsigned int)-1073741811;
+    v16 = (_QWORD *)ValidateHwnd(*(_QWORD *)a2);
+    v17 = v16;
+    Object[2] = v16;
+    if ( !v16 )
+      return v5;
+    v18 = v16 + 5;
+    v29 = v16 + 5;
+    v19 = v16[5];
+    if ( (*(_BYTE *)(v19 + 18) & 4) != 0 || *(char *)(v19 + 19) < 0 || *(int *)(v19 + 200) < 8 )
+      return v5;
+    if ( *(_QWORD *)(v16[2] + 424LL) != PsGetCurrentProcessWin32Process(v19) )
+      return (unsigned int)-1073741790;
+    v30[2] = 0LL;
+    ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+    v30[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+    *(_QWORD *)(ThreadWin32Thread + 416) = v30;
+    v30[1] = v17;
+    HMLockObject(v17);
+    v22 = *v18;
+    if ( (*(_DWORD *)(*v18 + 232LL) & 0x800) != 0 )
+    {
+      v23 = (_DWORD *)(*(_QWORD *)(v17[3] + 128LL) + *(_QWORD *)(v22 + 296));
     }
     else
     {
-      v5 = -1073741811;
+      v23 = (_DWORD *)DesktopAlloc(v17[3], *(unsigned int *)(v22 + 200), 0LL);
+      Object[3] = v23;
+      if ( !v23 )
+      {
+        v5 = -1073741801;
+LABEL_33:
+        ThreadUnlock1(v21);
+        return v5;
+      }
+      if ( *(_QWORD *)(*v18 + 296LL) )
+      {
+        CurrentProcess = PsGetCurrentProcess(v21, v24, v25);
+        v32 = *(_DWORD *)(*v18 + 200LL);
+        v31 = *(const void **)(*v18 + 296LL);
+        memmove(v23, v31, v32);
+        if ( (*(_DWORD *)(CurrentProcess + 1124) & 0x40000008) == 0 )
+          xxxClientFreeWindowClassExtraBytes(v17, *(_QWORD *)(v17[5] + 296LL));
+      }
+      v21 = (char *)v23 - *(_QWORD *)(v17[3] + 128LL);
+      *(_QWORD *)(*v18 + 296LL) = v21;
     }
-    ObfDereferenceObject(v13);
+    if ( v23 )
+    {
+      *v23 = *((_DWORD *)a2 + 2);
+      v23[1] = *((_DWORD *)a2 + 3);
+    }
+    *(_DWORD *)(*v18 + 232LL) |= 0x800u;
+    goto LABEL_33;
   }
-  return v5;
+  if ( a3 == 24 )
+    xxxSetConsoleCaretInfo(a2);
+  return a3 != 24 ? 0xC000000D : 0;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpInitializeTrustedInstallerSid @ 0x140B2DE24
+ * XREFs of CmpInitializeTrustedInstallerSid @ 0x140A7199C
  * Callers:
- *     CmInitSystem1 @ 0x140B15F88 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     RtlLengthRequiredSid @ 0x14066A560 (RtlLengthRequiredSid.c)
- *     RtlInitializeSid @ 0x14078DDC0 (RtlInitializeSid.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlLengthRequiredSid @ 0x1405DC260 (RtlLengthRequiredSid.c)
+ *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 int CmpInitializeTrustedInstallerSid()

@@ -1,14 +1,14 @@
 /*
- * XREFs of CcPreparePinWrite @ 0x140705F90
+ * XREFs of CcPreparePinWrite @ 0x1406940F0
  * Callers:
  *     <none>
  * Callees:
- *     CcMapDataForOverwrite @ 0x14029C154 (CcMapDataForOverwrite.c)
- *     CcSetDirtyPinnedData @ 0x14029D3D0 (CcSetDirtyPinnedData.c)
- *     CcPinFileData @ 0x14032AD00 (CcPinFileData.c)
- *     memset @ 0x140435E00 (memset.c)
- *     CcUnpinData @ 0x1406FE6A0 (CcUnpinData.c)
- *     CcAllocateObcb @ 0x14080C6EC (CcAllocateObcb.c)
+ *     CcMapDataForOverwrite @ 0x1402AF3C8 (CcMapDataForOverwrite.c)
+ *     CcSetDirtyPinnedData @ 0x1402F9310 (CcSetDirtyPinnedData.c)
+ *     CcPinFileData @ 0x14031F630 (CcPinFileData.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CcUnpinData @ 0x1406E7C70 (CcUnpinData.c)
+ *     CcAllocateObcb @ 0x14077D2AC (CcAllocateObcb.c)
  */
 
 BOOLEAN __stdcall CcPreparePinWrite(
@@ -65,16 +65,7 @@ BOOLEAN __stdcall CcPreparePinWrite(
         v18 = v11;
         v21 = ++p_BcbVoid;
       }
-      if ( !(unsigned __int8)CcPinFileData(
-                               (__int64)FileObject,
-                               &v18,
-                               v8,
-                               0,
-                               1,
-                               Flags,
-                               (ULONG_PTR *)p_BcbVoid,
-                               (__int64 *)&v20,
-                               &v19) )
+      if ( !(unsigned __int8)CcPinFileData((__int64)FileObject, &v18, v8, 0, 1, Flags, (__int64 *)p_BcbVoid, &v20, &v19) )
       {
         v15 = 0;
         v16 = BcbVoid;

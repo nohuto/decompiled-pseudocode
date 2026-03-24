@@ -1,41 +1,41 @@
 /*
- * XREFs of MiPageFileNoFreeSpace @ 0x14059CCB4
+ * XREFs of MiPageFileNoFreeSpace @ 0x140543C34
  * Callers:
- *     MiGatherPagefilePages @ 0x14037AFC0 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x1402688A4 (MiGatherPagefilePages.c)
  * Callees:
- *     MiMakePagefileWriterEntryAvailable @ 0x14025B8B0 (MiMakePagefileWriterEntryAvailable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiFreeModifiedReservations @ 0x14059C6B4 (MiFreeModifiedReservations.c)
- *     MiIssuePageExtendRequest @ 0x14059C99C (MiIssuePageExtendRequest.c)
- *     MiCauseOverCommitPopup @ 0x1405B301C (MiCauseOverCommitPopup.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiMakePagefileWriterEntryAvailable @ 0x1402D00F4 (MiMakePagefileWriterEntryAvailable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeModifiedReservations @ 0x140543724 (MiFreeModifiedReservations.c)
+ *     MiIssuePageExtendRequest @ 0x140543944 (MiIssuePageExtendRequest.c)
+ *     MiCauseOverCommitPopup @ 0x1405503F0 (MiCauseOverCommitPopup.c)
  */
 
-__int64 __fastcall MiPageFileNoFreeSpace(__int64 a1, _QWORD *a2)
+__int64 __fastcall MiPageFileNoFreeSpace(__int64 a1, _QWORD *a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v2; // rdi
-  unsigned __int64 v4; // rbx
-  unsigned __int64 v6; // rsi
-  int v7; // r12d
-  unsigned __int64 v8; // r14
-  unsigned __int128 v9; // rax
+  __int64 v4; // rdi
+  unsigned __int64 v6; // rbx
+  unsigned __int64 v8; // rsi
+  int v9; // r12d
+  unsigned __int64 v10; // r14
+  unsigned __int128 v11; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v12; // zf
-  unsigned __int64 v13; // rcx
-  unsigned __int64 v14; // r8
-  unsigned int v15; // r9d
-  unsigned int v16; // edx
-  __int64 v17; // rcx
-  unsigned __int64 v18; // rbx
+  bool v14; // zf
+  unsigned __int64 v15; // rcx
+  unsigned __int64 v16; // r8
+  unsigned int v17; // r9d
+  unsigned int v18; // edx
+  __int64 v19; // rcx
+  unsigned __int64 v20; // rbx
 
-  v2 = *(_QWORD *)(a1 + 248);
-  v4 = 1LL;
-  MiFreeModifiedReservations(a1, 1);
-  v6 = 0LL;
-  v7 = 0;
-  v8 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 232));
+  v4 = *(_QWORD *)(a1 + 248);
+  v6 = 1LL;
+  MiFreeModifiedReservations(a1, 1LL, a3, a4);
+  v8 = 0LL;
+  v9 = 0;
+  v10 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 232));
   if ( *(_QWORD *)(a1 + 24) )
   {
     MiMakePagefileWriterEntryAvailable(a2);
@@ -43,77 +43,77 @@ __int64 __fastcall MiPageFileNoFreeSpace(__int64 a1, _QWORD *a2)
   else
   {
     *(_BYTE *)(a1 + 206) |= 1u;
-    v7 = 1;
+    v9 = 1;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 232));
-  *(_QWORD *)&v9 = (unsigned int)KiIrqlFlags;
+  *(_QWORD *)&v11 = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      *(_QWORD *)&v9 = KeGetCurrentIrql();
-      if ( (unsigned __int8)v9 <= 0xFu && (unsigned __int8)v8 <= 0xFu && (unsigned __int8)v9 >= 2u )
+      *(_QWORD *)&v11 = KeGetCurrentIrql();
+      if ( (unsigned __int8)v11 <= 0xFu && (unsigned __int8)v10 <= 0xFu && (unsigned __int8)v11 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        *(_QWORD *)&v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-        v12 = ((unsigned int)v9 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v9;
-        if ( v12 )
-          *(_QWORD *)&v9 = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        *(_QWORD *)&v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+        v14 = ((unsigned int)v11 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v11;
+        if ( v14 )
+          *(_QWORD *)&v11 = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
   }
-  __writecr8(v8);
-  if ( v7 )
+  __writecr8(v10);
+  if ( v9 == 1 )
   {
-    *(_QWORD *)&v9 = 2575857425LL;
+    *(_QWORD *)&v11 = 2575857425LL;
     *a2 = 2575857425LL;
-    v13 = *(_QWORD *)(v2 + 17496);
-    v14 = *(_QWORD *)(v2 + 17256);
-    if ( v14 > v13 )
-      v14 = *(_QWORD *)(v2 + 17496);
+    v15 = *(_QWORD *)(v4 + 7592);
+    v16 = *(_QWORD *)(v4 + 7464);
+    if ( v16 > v15 )
+      v16 = *(_QWORD *)(v4 + 7592);
     if ( (*(_BYTE *)(a1 + 204) & 0x10) == 0 )
     {
-      v9 = v13 * (unsigned __int128)0xCCCCCCCCCCCCCCCDuLL;
-      if ( v14 > (*((_QWORD *)&v9 + 1) & 0xFFFFFFFFFFFFFFF8uLL) && v13 < *(_QWORD *)(v2 + 16008) )
+      v11 = v15 * (unsigned __int128)0xCCCCCCCCCCCCCCCDuLL;
+      if ( v16 > (*((_QWORD *)&v11 + 1) & 0xFFFFFFFFFFFFFFF8uLL) && v15 < *(_QWORD *)(v4 + 6216) )
       {
-        MiCauseOverCommitPopup(v2);
+        MiCauseOverCommitPopup(v4);
 LABEL_27:
-        *(_QWORD *)&v9 = *(_QWORD *)(v2 + 17496);
-        if ( (unsigned __int64)v9 < *(_QWORD *)(v2 + 16008) )
-          *(_QWORD *)&v9 = MiIssuePageExtendRequest(v2, v4, 6, 0);
-        return v9;
+        *(_QWORD *)&v11 = *(_QWORD *)(v4 + 7592);
+        if ( (unsigned __int64)v11 < *(_QWORD *)(v4 + 6216) )
+          *(_QWORD *)&v11 = MiIssuePageExtendRequest(v4, v6, 6, 0);
+        return v11;
       }
-      if ( *(_QWORD *)(v2 + 17504) >= 0x1000uLL )
+      if ( *(_QWORD *)(v4 + 7600) >= 0x1000uLL )
       {
-        v15 = *(_DWORD *)(v2 + 16728);
-        v16 = 0;
-        if ( v15 )
+        v17 = *(_DWORD *)(v4 + 6936);
+        v18 = 0;
+        if ( v17 )
         {
-          v17 = v2 + 16736;
+          v19 = v4 + 6944;
           do
           {
-            if ( (*(_BYTE *)(*(_QWORD *)v17 + 204LL) & 0x50) == 0 )
+            if ( (*(_BYTE *)(*(_QWORD *)v19 + 204LL) & 0x50) == 0 )
             {
-              if ( v6 + *(_QWORD *)(*(_QWORD *)v17 + 24LL) < v6 )
+              if ( v8 + *(_QWORD *)(*(_QWORD *)v19 + 24LL) < v8 )
                 break;
-              v6 += *(_QWORD *)(*(_QWORD *)v17 + 24LL);
+              v8 += *(_QWORD *)(*(_QWORD *)v19 + 24LL);
             }
-            ++v16;
-            v17 += 8LL;
+            ++v18;
+            v19 += 8LL;
           }
-          while ( v16 < v15 );
+          while ( v18 < v17 );
         }
-        v18 = *(_QWORD *)(v2 + 17504);
-        if ( v18 > v6 )
+        v20 = *(_QWORD *)(v4 + 7600);
+        if ( v20 > v8 )
         {
-          v4 = v18 - v6;
-          if ( v4 )
+          v6 = v20 - v8;
+          if ( v6 )
             goto LABEL_27;
         }
       }
     }
   }
-  return v9;
+  return v11;
 }

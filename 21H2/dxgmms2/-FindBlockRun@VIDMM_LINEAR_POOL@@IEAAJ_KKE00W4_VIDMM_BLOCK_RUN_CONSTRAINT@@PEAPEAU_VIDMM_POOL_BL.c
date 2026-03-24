@@ -1,16 +1,16 @@
 /*
- * XREFs of ?FindBlockRun@VIDMM_LINEAR_POOL@@IEAAJ_KKE00W4_VIDMM_BLOCK_RUN_CONSTRAINT@@PEAPEAU_VIDMM_POOL_BLOCK@@2PEA_K3@Z @ 0x1C009C670
+ * XREFs of ?FindBlockRun@VIDMM_LINEAR_POOL@@IEAAJ_KKE00W4_VIDMM_BLOCK_RUN_CONSTRAINT@@PEAPEAU_VIDMM_POOL_BLOCK@@2PEA_K3@Z @ 0x1C0074AA0
  * Callers:
- *     ?Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z @ 0x1C009C224 (-Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z.c)
+ *     ?Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z @ 0x1C0074660 (-Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ?ApplyBlockRunRestrictions@VIDMM_LINEAR_POOL@@IEAAXPEA_NPEA_K1_KKE22@Z @ 0x1C009C96C (-ApplyBlockRunRestrictions@VIDMM_LINEAR_POOL@@IEAAXPEA_NPEA_K1_KKE22@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     ?ApplyBlockRunRestrictions@VIDMM_LINEAR_POOL@@IEAAXPEA_NPEA_K1_KKE22@Z @ 0x1C0074D00 (-ApplyBlockRunRestrictions@VIDMM_LINEAR_POOL@@IEAAXPEA_NPEA_K1_KKE22@Z.c)
  */
 
 __int64 __fastcall VIDMM_LINEAR_POOL::FindBlockRun(
-        __int64 a1,
-        unsigned __int64 a2,
-        __int64 a3,
+        VIDMM_LINEAR_POOL *a1,
+        __int64 a2,
+        int a3,
         char a4,
         unsigned __int64 a5,
         unsigned __int64 a6,
@@ -20,251 +20,208 @@ __int64 __fastcall VIDMM_LINEAR_POOL::FindBlockRun(
         unsigned __int64 *a10,
         unsigned __int64 *a11)
 {
-  __int64 v12; // r9
-  _QWORD *v13; // rcx
-  _QWORD *v14; // rdi
+  _QWORD *v11; // r12
+  _QWORD *v12; // rbx
+  VIDMM_LINEAR_POOL *v13; // r10
+  unsigned __int64 v14; // rsi
   _QWORD *v15; // r14
-  unsigned __int64 v16; // rsi
-  _QWORD *v17; // rbx
-  __int64 v18; // r15
-  unsigned __int64 v19; // rbp
-  unsigned __int64 v20; // r14
-  _QWORD *v21; // rbp
-  _QWORD *v22; // rdi
-  _QWORD *v23; // r12
-  __int64 v24; // rcx
+  unsigned __int64 v16; // rdi
+  __int64 v17; // r13
+  unsigned __int64 v18; // r15
+  unsigned __int64 v19; // r15
+  _QWORD *v20; // r12
+  _QWORD *v21; // rbx
+  unsigned __int64 *v22; // rsi
+  _QWORD *v24; // rsi
+  __int64 v25; // rax
   __int64 v26; // rax
-  __int64 v27; // rax
-  __int64 v28; // rax
-  int v29; // eax
+  _QWORD *v27; // rsi
+  _QWORD *v28; // rax
+  __int64 v29; // rax
   __int64 v30; // rax
-  __int64 v31; // rax
-  _QWORD *v32; // rax
-  __int64 v33; // rdx
-  __int64 v34; // r8
-  __int64 v35; // r9
-  __int64 v36; // rax
-  __int64 v37; // rax
-  _QWORD *v38; // rax
-  bool v39; // [rsp+50h] [rbp-58h] BYREF
-  unsigned int v40; // [rsp+54h] [rbp-54h]
-  unsigned __int64 v41; // [rsp+58h] [rbp-50h] BYREF
-  unsigned __int64 v42; // [rsp+60h] [rbp-48h] BYREF
-  unsigned __int64 v43; // [rsp+68h] [rbp-40h]
-  _QWORD *v44; // [rsp+70h] [rbp-38h]
+  _QWORD *v31; // rax
+  bool v32; // [rsp+50h] [rbp-20h] BYREF
+  unsigned int v33; // [rsp+54h] [rbp-1Ch]
+  unsigned __int64 v34; // [rsp+58h] [rbp-18h] BYREF
+  unsigned __int64 v35; // [rsp+60h] [rbp-10h] BYREF
+  unsigned __int64 v36; // [rsp+68h] [rbp-8h]
+  VIDMM_LINEAR_POOL *v37; // [rsp+B0h] [rbp+40h]
+  char v38; // [rsp+C8h] [rbp+58h]
 
-  v12 = a1;
-  v13 = 0LL;
-  v14 = *(_QWORD **)(v12 + 40);
-  v15 = (_QWORD *)(v12 + 40);
+  v38 = a4;
+  v37 = a1;
+  v11 = (_QWORD *)((char *)a1 + 40);
+  v12 = (_QWORD *)*((_QWORD *)a1 + 5);
+  v13 = a1;
   *a8 = 0LL;
   *a9 = 0LL;
   *a10 = 0LL;
   *a11 = 0LL;
-  if ( v14 == (_QWORD *)(v12 + 40) )
+  if ( v12 != (_QWORD *)((char *)a1 + 40) )
   {
-    if ( g_IsInternalReleaseOrDbg )
-      WdLogNewEntry5_WdTrace(0LL, a2, a3, v12);
-    return 3223191808LL;
-  }
-  v43 = (a2 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-  v40 = (a3 + 4095) & 0xFFFFF000;
-  if ( !a4 )
-  {
-    v14 = *(_QWORD **)(v12 + 48);
-    if ( v14 == v15 )
-      return 3223191808LL;
-  }
-  while ( 1 )
-  {
-    v16 = *(v14 - 3);
-    v17 = v14 - 3;
-    v18 = (__int64)(v14 - 3);
-    v19 = v16 + *(v14 - 2);
-    v41 = v16;
-    v42 = v19;
-    if ( a7 )
-      break;
-    if ( a4 )
-      v14 = (_QWORD *)*v14;
-    else
-      v14 = (_QWORD *)v14[1];
-    if ( *((_BYTE *)v17 + 56) == 2 )
-    {
-      if ( g_IsInternalReleaseOrDbg )
-      {
-        *(_QWORD *)(WdLogNewEntry5_WdTrace(v13, a2, a3, v12) + 24) = v17;
-        goto LABEL_35;
-      }
-      goto LABEL_12;
-    }
-    if ( !g_IsInternalReleaseOrDbg )
-      goto LABEL_9;
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v13, a2, a3, v12) + 24) = v17;
-LABEL_14:
-    v12 = a1;
-LABEL_9:
-    if ( v14 == v15 )
-      return 3223191808LL;
-  }
-  if ( g_IsInternalReleaseOrDbg )
-  {
-    v28 = WdLogNewEntry5_WdTrace(v13, a2, a3, v12);
-    v12 = a1;
-    *(_QWORD *)(v28 + 24) = v17;
-  }
-  if ( a4 )
-  {
-    v14 = (_QWORD *)*v14;
-    if ( v14 == v15 )
-      goto LABEL_35;
+    v14 = (a2 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+    v36 = v14;
+    v33 = (a3 + 4095) & 0xFFFFF000;
+    if ( !a4 )
+      v12 = (_QWORD *)*((_QWORD *)a1 + 6);
     while ( 1 )
     {
-      v13 = v14 - 3;
-      v44 = v14 - 3;
-      if ( *(v14 - 3) != v19 )
-        goto LABEL_35;
-      if ( a7 == 2 || *((_BYTE *)v13 + 56) == 2 )
-        goto LABEL_58;
-      v29 = (*(__int64 (__fastcall **)(_QWORD))(v12 + 32))(v13[2]);
-      v12 = a1;
-      if ( v29 )
+      if ( v12 == v11 )
+        return 3223191808LL;
+      v15 = v12 - 3;
+      v16 = *(v12 - 3);
+      v17 = (__int64)(v12 - 3);
+      v18 = v16 + *(v12 - 2);
+      v34 = v16;
+      v35 = v18;
+      if ( a7 )
         break;
-LABEL_59:
-      v14 = (_QWORD *)*v14;
-      if ( g_IsInternalReleaseOrDbg )
+      if ( a4 )
+        v12 = (_QWORD *)*v12;
+      else
+        v12 = (_QWORD *)v12[1];
+      if ( *((_BYTE *)v15 + 56) == 2 )
       {
-        v30 = WdLogNewEntry5_WdTrace(v13, a2, a3, v12);
-        v13 = v44;
-        v12 = a1;
-        *(_QWORD *)(v30 + 24) = v44;
-      }
-      if ( v14 == v15 )
-        goto LABEL_35;
-    }
-    v13 = v44;
-LABEL_58:
-    v19 += v13[1];
-    v18 = (__int64)v13;
-    v42 = v19;
-    goto LABEL_59;
-  }
-  v14 = (_QWORD *)v14[1];
-  if ( v14 == v15 )
-    goto LABEL_34;
-  do
-  {
-    v13 = v14 - 3;
-    v26 = *(v14 - 2) + *(v14 - 3);
-    v44 = v14 - 3;
-    if ( v26 != v16 )
-      break;
-    if ( a7 == 2 || *((_BYTE *)v13 + 56) == 2 )
-      goto LABEL_45;
-    if ( (*(unsigned int (__fastcall **)(_QWORD))(v12 + 32))(v13[2]) )
-    {
-      v13 = v44;
-LABEL_45:
-      v16 -= v13[1];
-      v18 = (__int64)v13;
-    }
-    v14 = (_QWORD *)v14[1];
-    if ( g_IsInternalReleaseOrDbg )
-    {
-      v31 = WdLogNewEntry5_WdTrace(v13, a2, a3, v12);
-      v13 = v44;
-      *(_QWORD *)(v31 + 24) = v44;
-    }
-    v12 = a1;
-  }
-  while ( v14 != v15 );
-  v41 = v16;
-LABEL_34:
-  v27 = (__int64)v17;
-  v17 = (_QWORD *)v18;
-  v18 = v27;
-LABEL_35:
-  if ( g_IsInternalReleaseOrDbg )
-  {
-    v32 = (_QWORD *)WdLogNewEntry5_WdTrace(v13, a2, a3, v12);
-    v32[3] = v19 - v16;
-    v32[4] = v17;
-    v32[5] = v18;
-    v36 = WdLogNewEntry5_WdTrace(v19 - v16, v33, v34, v35);
-    *(_QWORD *)(v36 + 24) = v16;
-    *(_QWORD *)(v36 + 32) = v19;
-  }
+        if ( !g_IsInternalReleaseOrDbg )
+          goto LABEL_12;
+        *(_QWORD *)(WdLogNewEntry5_WdTrace(a1) + 24) = v15;
+LABEL_37:
+        if ( g_IsInternalReleaseOrDbg )
+        {
+          v28 = (_QWORD *)WdLogNewEntry5_WdTrace(a1);
+          v28[3] = v18 - v16;
+          v28[4] = v15;
+          v28[5] = v17;
+          v29 = WdLogNewEntry5_WdTrace(v18 - v16);
+          *(_QWORD *)(v29 + 24) = v16;
+          *(_QWORD *)(v29 + 32) = v18;
+        }
 LABEL_12:
-  if ( v19 - v16 >= v43 )
-  {
+        if ( v18 - v16 >= v14 )
+        {
+          if ( g_IsInternalReleaseOrDbg )
+            WdLogNewEntry5_WdTrace(a1);
+          v32 = 0;
+          VIDMM_LINEAR_POOL::ApplyBlockRunRestrictions(a1, &v32, &v34, &v35, v14, v33, v38, a5, a6);
+          if ( v32 )
+            goto LABEL_14;
+          v16 = v34;
+          v18 = v35;
+        }
+        if ( v18 - v16 >= v14 )
+        {
+          v19 = v16 + v14;
+          if ( g_IsInternalReleaseOrDbg )
+          {
+            v30 = WdLogNewEntry5_WdTrace(a1);
+            *(_QWORD *)(v30 + 24) = v16;
+            *(_QWORD *)(v30 + 32) = v19;
+          }
+          v20 = *(_QWORD **)(v17 + 24);
+          v21 = v15 + 3;
+          while ( v21 != v20 )
+          {
+            v22 = v21 - 3;
+            v21 = (_QWORD *)*v21;
+            a1 = (VIDMM_LINEAR_POOL *)(*v22 + v22[1]);
+            if ( (unsigned __int64)a1 <= v16 )
+            {
+              v15 = v21 - 3;
+              if ( g_IsInternalReleaseOrDbg )
+                *(_QWORD *)(WdLogNewEntry5_WdTrace(a1) + 24) = v22;
+            }
+            else if ( *v22 >= v19 )
+            {
+              v17 = v22[4] - 24;
+              if ( !g_IsInternalReleaseOrDbg )
+                goto LABEL_28;
+              *(_QWORD *)(WdLogNewEntry5_WdTrace(a1) + 24) = v22;
+              break;
+            }
+          }
+          if ( g_IsInternalReleaseOrDbg )
+          {
+            v31 = (_QWORD *)WdLogNewEntry5_WdTrace(a1);
+            v31[3] = v15;
+            v31[4] = v17;
+            v31[5] = v16;
+            v31[6] = v19;
+          }
+LABEL_28:
+          *a8 = v15;
+          *a9 = v17;
+          *a10 = v16;
+          *a11 = v19;
+          return 0LL;
+        }
+LABEL_14:
+        a4 = v38;
+        v13 = v37;
+      }
+      else if ( g_IsInternalReleaseOrDbg )
+      {
+        *(_QWORD *)(WdLogNewEntry5_WdTrace(a1) + 24) = v15;
+        goto LABEL_14;
+      }
+    }
     if ( g_IsInternalReleaseOrDbg )
-      WdLogNewEntry5_WdTrace(v13, a2, a3, v12);
-    v39 = 0;
-    VIDMM_LINEAR_POOL::ApplyBlockRunRestrictions((VIDMM_LINEAR_POOL *)v13, &v39, &v41, &v42, v43, v40, a4, a5, a6);
-    if ( !v39 )
     {
-      v16 = v41;
-      v19 = v42;
-      goto LABEL_13;
+      v26 = WdLogNewEntry5_WdTrace(a1);
+      a4 = v38;
+      v13 = v37;
+      *(_QWORD *)(v26 + 24) = v15;
     }
-    goto LABEL_14;
+    if ( a4 )
+    {
+      v12 = (_QWORD *)*v12;
+      while ( v12 != v11 )
+      {
+        v27 = v12 - 3;
+        if ( *(v12 - 3) != v18 )
+          break;
+        if ( a7 == 2 || *((_BYTE *)v27 + 56) == 2 || (*((unsigned int (__fastcall **)(_QWORD))v13 + 4))(v27[2]) )
+        {
+          v18 += v27[1];
+          v17 = (__int64)(v12 - 3);
+          v35 = v18;
+        }
+        v12 = (_QWORD *)*v12;
+        if ( g_IsInternalReleaseOrDbg )
+          *(_QWORD *)(WdLogNewEntry5_WdTrace(a1) + 24) = v27;
+        v13 = v37;
+      }
+    }
+    else
+    {
+      v12 = (_QWORD *)v12[1];
+      if ( v12 != v11 )
+      {
+        do
+        {
+          v24 = v12 - 3;
+          if ( *(v12 - 2) + *(v12 - 3) != v16 )
+            break;
+          if ( a7 == 2 || *((_BYTE *)v24 + 56) == 2 || (*((unsigned int (__fastcall **)(_QWORD))v13 + 4))(v24[2]) )
+          {
+            v16 -= v24[1];
+            v17 = (__int64)(v12 - 3);
+          }
+          v12 = (_QWORD *)v12[1];
+          if ( g_IsInternalReleaseOrDbg )
+            *(_QWORD *)(WdLogNewEntry5_WdTrace(a1) + 24) = v24;
+          v13 = v37;
+        }
+        while ( v12 != v11 );
+        v34 = v16;
+      }
+      v25 = (__int64)v15;
+      v15 = (_QWORD *)v17;
+      v17 = v25;
+    }
+    v14 = v36;
+    goto LABEL_37;
   }
-LABEL_13:
-  if ( v19 - v16 < v43 )
-    goto LABEL_14;
-  v20 = v16 + v43;
   if ( g_IsInternalReleaseOrDbg )
-  {
-    v37 = WdLogNewEntry5_WdTrace(v13, a2, a3, v12);
-    *(_QWORD *)(v37 + 24) = v16;
-    *(_QWORD *)(v37 + 32) = v20;
-  }
-  v21 = *(_QWORD **)(v18 + 24);
-  v22 = v17 + 3;
-  if ( v17 + 3 == v21 )
-  {
-LABEL_25:
-    if ( g_IsInternalReleaseOrDbg )
-    {
-      v38 = (_QWORD *)WdLogNewEntry5_WdTrace(v13, a2, a3, v12);
-      v38[3] = v17;
-      v38[4] = v18;
-      v38[5] = v16;
-      v38[6] = v20;
-    }
-    goto LABEL_27;
-  }
-  while ( 2 )
-  {
-    a2 = *(v22 - 3);
-    v23 = v22 - 3;
-    v24 = *(v22 - 2);
-    v22 = (_QWORD *)*v22;
-    v13 = (_QWORD *)(a2 + v24);
-    if ( (unsigned __int64)v13 <= v16 )
-    {
-      v17 = v22 - 3;
-      if ( g_IsInternalReleaseOrDbg )
-        *(_QWORD *)(WdLogNewEntry5_WdTrace(v13, a2, a3, v12) + 24) = v23;
-LABEL_24:
-      if ( v22 == v21 )
-        goto LABEL_25;
-      continue;
-    }
-    break;
-  }
-  if ( a2 < v20 )
-    goto LABEL_24;
-  v18 = v23[4] - 24LL;
-  if ( g_IsInternalReleaseOrDbg )
-  {
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v13, a2, a3, v12) + 24) = v23;
-    goto LABEL_25;
-  }
-LABEL_27:
-  *a8 = v17;
-  *a9 = v18;
-  *a10 = v16;
-  *a11 = v20;
-  return 0LL;
+    WdLogNewEntry5_WdTrace(a1);
+  return 3223191808LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprMapPhysicalPages @ 0x140A6804C
+ * XREFs of PnprMapPhysicalPages @ 0x1409ADBDC
  * Callers:
- *     PnprMapTargetSparePhysicalPages @ 0x140A68220 (PnprMapTargetSparePhysicalPages.c)
+ *     PnprMapTargetSparePhysicalPages @ 0x1409ADDB0 (PnprMapTargetSparePhysicalPages.c)
  * Callees:
- *     MmMapLockedPagesWithReservedMapping @ 0x1403D7610 (MmMapLockedPagesWithReservedMapping.c)
- *     MmUnmapReservedMapping @ 0x1405858A0 (MmUnmapReservedMapping.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403C8A70 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmUnmapReservedMapping @ 0x140531C90 (MmUnmapReservedMapping.c)
  */
 
 __int64 __fastcall PnprMapPhysicalPages(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, _QWORD *a4)
@@ -31,14 +31,14 @@ __int64 __fastcall PnprMapPhysicalPages(__int64 a1, unsigned __int64 a2, unsigne
   {
     if ( (a2 & 0xFFF) != 0 || (v12 = *a3) == 0 || (v12 & 0xFFF) != 0 )
     {
-      v22 = *(_DWORD *)(PnprContext + 33272);
+      v22 = *(_DWORD *)(PnprContext + 20984);
       if ( !v22 )
-        v22 = 4085;
-      *(_DWORD *)(PnprContext + 33272) = v22;
-      v23 = *(_DWORD *)(v6 + 33276);
+        v22 = 4079;
+      *(_DWORD *)(PnprContext + 20984) = v22;
+      v23 = *(_DWORD *)(v6 + 20988);
       if ( !v23 )
         v23 = 8;
-      *(_DWORD *)(v6 + 33276) = v23;
+      *(_DWORD *)(v6 + 20988) = v23;
       return 3221225485LL;
     }
     else
@@ -82,28 +82,28 @@ __int64 __fastcall PnprMapPhysicalPages(__int64 a1, unsigned __int64 a2, unsigne
       else
       {
         v19 = PnprContext;
-        v20 = *(_DWORD *)(PnprContext + 33272);
+        v20 = *(_DWORD *)(PnprContext + 20984);
         if ( !v20 )
-          v20 = 4140;
-        *(_DWORD *)(PnprContext + 33272) = v20;
-        v21 = *(_DWORD *)(v19 + 33276);
+          v20 = 4134;
+        *(_DWORD *)(PnprContext + 20984) = v20;
+        v21 = *(_DWORD *)(v19 + 20988);
         if ( !v21 )
           v21 = 10;
-        *(_DWORD *)(v19 + 33276) = v21;
+        *(_DWORD *)(v19 + 20988) = v21;
         return 3221225626LL;
       }
     }
   }
   else
   {
-    v9 = *(_DWORD *)(PnprContext + 33272);
+    v9 = *(_DWORD *)(PnprContext + 20984);
     if ( !v9 )
-      v9 = 4077;
-    *(_DWORD *)(PnprContext + 33272) = v9;
-    v10 = *(_DWORD *)(v6 + 33276);
+      v9 = 4071;
+    *(_DWORD *)(PnprContext + 20984) = v9;
+    v10 = *(_DWORD *)(v6 + 20988);
     if ( !v10 )
       v10 = 8;
-    *(_DWORD *)(v6 + 33276) = v10;
+    *(_DWORD *)(v6 + 20988) = v10;
     return 3221225498LL;
   }
   return result;

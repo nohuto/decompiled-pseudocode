@@ -1,69 +1,76 @@
 /*
- * XREFs of VfWdfObjectGetTypedContext @ 0x1C00C5534
+ * XREFs of VfWdfObjectGetTypedContext @ 0x1C00C4514
  * Callers:
- *     VfEvtDeviceD0Entry @ 0x1C00C55F0 (VfEvtDeviceD0Entry.c)
- *     VfEvtDeviceD0EntryPostInterruptsEnabled @ 0x1C00C5720 (VfEvtDeviceD0EntryPostInterruptsEnabled.c)
- *     VfEvtDeviceD0Exit @ 0x1C00C57D0 (VfEvtDeviceD0Exit.c)
- *     VfEvtDeviceD0ExitPreInterruptsDisabled @ 0x1C00C5900 (VfEvtDeviceD0ExitPreInterruptsDisabled.c)
- *     VfEvtDevicePrepareHardware @ 0x1C00C59B0 (VfEvtDevicePrepareHardware.c)
- *     VfEvtDeviceQueryRemove @ 0x1C00C5AE0 (VfEvtDeviceQueryRemove.c)
- *     VfEvtDeviceQueryStop @ 0x1C00C5B70 (VfEvtDeviceQueryStop.c)
- *     VfEvtDeviceRelationsQuery @ 0x1C00C5C00 (VfEvtDeviceRelationsQuery.c)
- *     VfEvtDeviceReleaseHardware @ 0x1C00C5CA0 (VfEvtDeviceReleaseHardware.c)
- *     VfEvtDeviceSelfManagedIoCleanup @ 0x1C00C5DD0 (VfEvtDeviceSelfManagedIoCleanup.c)
- *     VfEvtDeviceSelfManagedIoFlush @ 0x1C00C5E60 (VfEvtDeviceSelfManagedIoFlush.c)
- *     VfEvtDeviceSelfManagedIoInit @ 0x1C00C5EF0 (VfEvtDeviceSelfManagedIoInit.c)
- *     VfEvtDeviceSelfManagedIoRestart @ 0x1C00C5F80 (VfEvtDeviceSelfManagedIoRestart.c)
- *     VfEvtDeviceSelfManagedIoSuspend @ 0x1C00C6010 (VfEvtDeviceSelfManagedIoSuspend.c)
- *     VfEvtDeviceSurpriseRemoval @ 0x1C00C60A0 (VfEvtDeviceSurpriseRemoval.c)
- *     VfEvtDeviceUsageNotification @ 0x1C00C6130 (VfEvtDeviceUsageNotification.c)
- *     VfEvtDeviceUsageNotificationEx @ 0x1C00C61E0 (VfEvtDeviceUsageNotificationEx.c)
- *     VfEvtIoCanceledOnQueue @ 0x1C00C6290 (VfEvtIoCanceledOnQueue.c)
- *     VfEvtIoDefault @ 0x1C00C6320 (VfEvtIoDefault.c)
- *     VfEvtIoDeviceControl @ 0x1C00C64E0 (VfEvtIoDeviceControl.c)
- *     VfEvtIoInternalDeviceControl @ 0x1C00C66B0 (VfEvtIoInternalDeviceControl.c)
- *     VfEvtIoRead @ 0x1C00C6880 (VfEvtIoRead.c)
- *     VfEvtIoResume @ 0x1C00C6A40 (VfEvtIoResume.c)
- *     VfEvtIoStop @ 0x1C00C6AD0 (VfEvtIoStop.c)
- *     VfEvtIoWrite @ 0x1C00C6BC0 (VfEvtIoWrite.c)
+ *     VfEvtDeviceD0Entry @ 0x1C00C45E0 (VfEvtDeviceD0Entry.c)
+ *     VfEvtDeviceD0EntryPostInterruptsEnabled @ 0x1C00C4700 (VfEvtDeviceD0EntryPostInterruptsEnabled.c)
+ *     VfEvtDeviceD0Exit @ 0x1C00C47A0 (VfEvtDeviceD0Exit.c)
+ *     VfEvtDeviceD0ExitPreInterruptsDisabled @ 0x1C00C48C0 (VfEvtDeviceD0ExitPreInterruptsDisabled.c)
+ *     VfEvtDevicePrepareHardware @ 0x1C00C4960 (VfEvtDevicePrepareHardware.c)
+ *     VfEvtDeviceQueryRemove @ 0x1C00C4A80 (VfEvtDeviceQueryRemove.c)
+ *     VfEvtDeviceQueryStop @ 0x1C00C4B10 (VfEvtDeviceQueryStop.c)
+ *     VfEvtDeviceRelationsQuery @ 0x1C00C4BA0 (VfEvtDeviceRelationsQuery.c)
+ *     VfEvtDeviceReleaseHardware @ 0x1C00C4C30 (VfEvtDeviceReleaseHardware.c)
+ *     VfEvtDeviceSelfManagedIoCleanup @ 0x1C00C4D50 (VfEvtDeviceSelfManagedIoCleanup.c)
+ *     VfEvtDeviceSelfManagedIoFlush @ 0x1C00C4DE0 (VfEvtDeviceSelfManagedIoFlush.c)
+ *     VfEvtDeviceSelfManagedIoInit @ 0x1C00C4E70 (VfEvtDeviceSelfManagedIoInit.c)
+ *     VfEvtDeviceSelfManagedIoRestart @ 0x1C00C4F00 (VfEvtDeviceSelfManagedIoRestart.c)
+ *     VfEvtDeviceSelfManagedIoSuspend @ 0x1C00C4F90 (VfEvtDeviceSelfManagedIoSuspend.c)
+ *     VfEvtDeviceSurpriseRemoval @ 0x1C00C5020 (VfEvtDeviceSurpriseRemoval.c)
+ *     VfEvtDeviceUsageNotification @ 0x1C00C50B0 (VfEvtDeviceUsageNotification.c)
+ *     VfEvtDeviceUsageNotificationEx @ 0x1C00C5150 (VfEvtDeviceUsageNotificationEx.c)
+ *     VfEvtIoCanceledOnQueue @ 0x1C00C51F0 (VfEvtIoCanceledOnQueue.c)
+ *     VfEvtIoDefault @ 0x1C00C5280 (VfEvtIoDefault.c)
+ *     VfEvtIoDeviceControl @ 0x1C00C5430 (VfEvtIoDeviceControl.c)
+ *     VfEvtIoInternalDeviceControl @ 0x1C00C55F0 (VfEvtIoInternalDeviceControl.c)
+ *     VfEvtIoRead @ 0x1C00C57B0 (VfEvtIoRead.c)
+ *     VfEvtIoResume @ 0x1C00C5960 (VfEvtIoResume.c)
+ *     VfEvtIoStop @ 0x1C00C59F0 (VfEvtIoStop.c)
+ *     VfEvtIoWrite @ 0x1C00C5AD0 (VfEvtIoWrite.c)
  * Callees:
- *     WPP_IFR_SF_sq @ 0x1C0013EA8 (WPP_IFR_SF_sq.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?_GetObjectFromHandle@FxObject@@SAPEAV1@PEAXPEAG@Z @ 0x1C002E6B8 (-_GetObjectFromHandle@FxObject@@SAPEAV1@PEAXPEAG@Z.c)
+ *     WPP_IFR_SF_sq @ 0x1C0038C64 (WPP_IFR_SF_sq.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
-char *__fastcall VfWdfObjectGetTypedContext(unsigned __int64 Handle, const _WDF_OBJECT_CONTEXT_TYPE_INFO *TypeInfo)
+char *__fastcall VfWdfObjectGetTypedContext(void *Handle, const _WDF_OBJECT_CONTEXT_TYPE_INFO *TypeInfo)
 {
-  _FX_DRIVER_GLOBALS **v3; // r8
-  __int64 v4; // rax
-  char *v5; // rax
+  FxObject *ObjectFromHandle; // rax
+  __int64 v4; // r11
+  FxObject *v5; // r9
+  _FX_DRIVER_GLOBALS *m_Globals; // r10
+  __int64 v7; // rcx
+  __int64 m_ObjectSize; // rax
+  char *v9; // rax
   const char *_a1; // rcx
   ULONG_PTR retaddr; // [rsp+48h] [rbp+0h]
+  unsigned __int16 offset; // [rsp+50h] [rbp+8h] BYREF
 
-  v3 = (_FX_DRIVER_GLOBALS **)(~Handle & 0xFFFFFFFFFFFFFFF8uLL);
-  if ( (Handle & 1) != 0 )
-    v3 = (_FX_DRIVER_GLOBALS **)((char *)v3 - *(unsigned __int16 *)v3);
-  if ( !Handle )
-    FxVerifierNullBugCheck(v3[2], retaddr);
-  if ( !TypeInfo )
-    FxVerifierNullBugCheck(v3[2], retaddr);
-  v4 = *((unsigned __int16 *)v3 + 5);
-  if ( (_WORD)v4 && (v5 = (char *)v3 + v4) != 0LL )
+  offset = 0;
+  ObjectFromHandle = FxObject::_GetObjectFromHandle((unsigned __int64)Handle, &offset);
+  v5 = ObjectFromHandle;
+  m_Globals = ObjectFromHandle->m_Globals;
+  if ( !v7 )
+    FxVerifierNullBugCheck(ObjectFromHandle->m_Globals, retaddr);
+  if ( !v4 )
+    FxVerifierNullBugCheck(ObjectFromHandle->m_Globals, retaddr);
+  m_ObjectSize = ObjectFromHandle->m_ObjectSize;
+  if ( (_WORD)m_ObjectSize && (v9 = (char *)v5 + m_ObjectSize) != 0LL )
   {
-    while ( *((const _WDF_OBJECT_CONTEXT_TYPE_INFO **)v5 + 4) != TypeInfo )
+    while ( *((_QWORD *)v9 + 4) != v4 )
     {
-      v5 = (char *)*((_QWORD *)v5 + 1);
-      if ( !v5 )
-        goto LABEL_11;
+      v9 = (char *)*((_QWORD *)v9 + 1);
+      if ( !v9 )
+        goto LABEL_9;
     }
-    return v5 + 48;
+    return v9 + 48;
   }
   else
   {
-LABEL_11:
+LABEL_9:
     _a1 = "<no typename given>";
-    if ( TypeInfo->ContextName )
-      _a1 = TypeInfo->ContextName;
-    WPP_IFR_SF_sq(v3[2], 3u, 0x12u, 0xAu, WPP_Verifier_cpp_Traceguids, _a1, (const void *)Handle);
+    if ( *(_QWORD *)(v4 + 8) )
+      _a1 = *(const char **)(v4 + 8);
+    WPP_IFR_SF_sq(m_Globals, 3u, 0x12u, 0xAu, WPP_Verifier_cpp_Traceguids, _a1, Handle);
     return 0LL;
   }
 }

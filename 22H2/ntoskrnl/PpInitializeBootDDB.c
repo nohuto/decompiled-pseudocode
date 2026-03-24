@@ -1,11 +1,11 @@
 /*
- * XREFs of PpInitializeBootDDB @ 0x140B42D24
+ * XREFs of PpInitializeBootDDB @ 0x140A53088
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     PpBootDDBHelper @ 0x140814E34 (PpBootDDBHelper.c)
- *     PiInitializeDDBCache @ 0x140B42F60 (PiInitializeDDBCache.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
+ *     PpBootDDBHelper @ 0x1407A4350 (PpBootDDBHelper.c)
+ *     PiInitializeDDBCache @ 0x140A53128 (PiInitializeDDBCache.c)
  */
 
 __int64 __fastcall PpInitializeBootDDB(__int64 a1, int a2)
@@ -35,7 +35,7 @@ __int64 __fastcall PpInitializeBootDDB(__int64 a1, int a2)
     v5 = *(void **)(v4 + 80);
     if ( v5 )
       PpBootDDBHelper(v5, *(unsigned int *)(v4 + 88), &PpBootDDBPatch, (__int64 *)&PpDDBPatchHandle);
-    BYTE1(NlsMbCodePageTag) = 1;
+    PpBootDDBInitialized = 1;
     return 0LL;
   }
   return result;

@@ -1,32 +1,25 @@
 /*
- * XREFs of FreePointerMessageParams @ 0x1C0153266
+ * XREFs of FreePointerMessageParams @ 0x1C01EF458
  * Callers:
- *     ?FreeQEntry@@YAXPEAUtagQMSG@@@Z @ 0x1C00126B0 (-FreeQEntry@@YAXPEAUtagQMSG@@@Z.c)
- *     ?CleanEventMessage@@YAXPEAUtagQMSG@@@Z @ 0x1C009CDF0 (-CleanEventMessage@@YAXPEAUtagQMSG@@@Z.c)
- *     DelQEntry @ 0x1C01184CC (DelQEntry.c)
- *     ?xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIH@Z @ 0x1C012A920 (-xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIH@Z.c)
- *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C012B430 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     ?xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIPEAU_QMSG_POSTCHAR_FLAGS@@H@Z @ 0x1C0057C00 (-xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIPEAU_QMSG_POSTCHAR_FLAGS@@H.c)
+ *     FreeQEntry @ 0x1C0065CB8 (FreeQEntry.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00C1DC0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     ?CleanEventMessage@@YAXPEAUtagQMSG@@@Z @ 0x1C010D500 (-CleanEventMessage@@YAXPEAUtagQMSG@@@Z.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall FreePointerMessageParams(__int64 a1)
+__int64 __fastcall FreePointerMessageParams(__int64 a1)
 {
-  __int64 v2; // rax
-  __int64 v3; // r8
+  __int64 v1; // r8
+  __int64 result; // rax
 
   if ( *(_DWORD *)(a1 + 24) != 595 )
   {
+    v1 = 2LL;
     if ( *(_DWORD *)(a1 + 96) )
-    {
-      v2 = SGDGetUserSessionState(a1);
-      v3 = 3LL;
-    }
-    else
-    {
-      v2 = SGDGetUserSessionState(a1);
-      v3 = 2LL;
-    }
-    CTouchProcessor::UnreferenceMsgDataExternal(*(_QWORD *)(v2 + 3424), *(_QWORD *)(a1 + 40), v3, a1);
+      v1 = 3LL;
+    return CTouchProcessor::UnreferenceMsgDataExternal(gpTouchProcessor, *(_QWORD *)(a1 + 40), v1, a1);
   }
+  return result;
 }

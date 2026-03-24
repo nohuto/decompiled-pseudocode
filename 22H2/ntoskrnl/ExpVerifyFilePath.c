@@ -1,102 +1,106 @@
 /*
- * XREFs of ExpVerifyFilePath @ 0x1408401A0
+ * XREFs of ExpVerifyFilePath @ 0x140952E18
  * Callers:
- *     NtEnumerateBootEntries @ 0x14083F840 (NtEnumerateBootEntries.c)
- *     NtTranslateFilePath @ 0x14083FEC0 (NtTranslateFilePath.c)
- *     ExpSetBootEntry @ 0x1409FD220 (ExpSetBootEntry.c)
- *     ExpSetDriverEntry @ 0x1409FD9B0 (ExpSetDriverEntry.c)
- *     ExpVerifyWindowsOsOptions @ 0x1409FE880 (ExpVerifyWindowsOsOptions.c)
+ *     ExpSetBootEntry @ 0x140951150 (ExpSetBootEntry.c)
+ *     ExpSetDriverEntry @ 0x140951944 (ExpSetDriverEntry.c)
+ *     ExpVerifyWindowsOsOptions @ 0x140952F74 (ExpVerifyWindowsOsOptions.c)
+ *     NtEnumerateBootEntries @ 0x140953360 (NtEnumerateBootEntries.c)
+ *     NtTranslateFilePath @ 0x140955960 (NtTranslateFilePath.c)
  * Callees:
- *     ExpSafeWcslen @ 0x14083FE94 (ExpSafeWcslen.c)
+ *     ExpSafeWcslen @ 0x140951120 (ExpSafeWcslen.c)
  */
 
-__int64 __fastcall ExpVerifyFilePath(_DWORD *a1, unsigned __int64 a2)
+__int64 __fastcall ExpVerifyFilePath(unsigned __int64 a1, unsigned __int64 a2)
 {
-  _DWORD *v2; // r8
+  unsigned __int64 v2; // r8
   __int64 v3; // rax
-  char *v4; // r9
-  int v5; // ecx
-  int v6; // ecx
-  int v7; // ecx
-  int v8; // ecx
+  unsigned __int64 v4; // r10
+  unsigned int v5; // r9d
   _WORD *i; // rcx
-  unsigned __int64 v10; // r11
-  char v11; // al
-  _WORD *v13; // rax
-  unsigned int v14; // eax
-  unsigned __int64 v15; // rdx
-  __int64 v16; // r8
-  int v17; // eax
-  int v18; // r9d
+  unsigned __int64 v7; // r10
+  char v8; // al
+  _WORD *v9; // rax
+  __int64 v10; // rax
+  unsigned int v12; // eax
+  unsigned __int64 v13; // rdx
+  __int64 v14; // r8
+  int v15; // eax
+  int v16; // r9d
 
-  if ( (unsigned __int64)a1 > a2 )
+  if ( a1 > a2 )
     return 3221225485LL;
-  v2 = a1 + 3;
-  if ( (unsigned __int64)(a1 + 3) > a2 )
+  v2 = a1 + 12;
+  if ( a1 + 12 > a2 )
     return 3221225485LL;
-  v3 = (unsigned int)a1[1];
+  v3 = *(unsigned int *)(a1 + 4);
   if ( (unsigned int)v3 < 0xC )
     return 3221225485LL;
-  v4 = (char *)a1 + v3;
-  if ( (_DWORD *)((char *)a1 + v3) < a1 )
+  v4 = a1 + v3;
+  if ( a1 + v3 < a1 )
     return 3221225485LL;
-  if ( (unsigned __int64)v4 > a2 )
+  if ( v4 > a2 )
     return 3221225485LL;
-  if ( *a1 != 1 )
+  if ( *(_DWORD *)a1 != 1 )
     return 3221225485LL;
-  v5 = a1[2];
-  if ( (unsigned int)(v5 - 1) > 4 )
+  v5 = *(_DWORD *)(a1 + 8);
+  if ( v5 - 1 > 4 )
     return 3221225485LL;
-  if ( (unsigned __int64)v4 < a2 )
-    a2 = (unsigned __int64)v4;
-  v6 = v5 - 1;
-  if ( v6 && (v7 = v6 - 1) != 0 )
+  if ( v4 < a2 )
+    a2 = a1 + v3;
+  if ( !v5 )
+    return 3221225485LL;
+  if ( v5 <= 2 )
   {
-    v8 = v7 - 1;
-    if ( v8 )
+    v15 = ExpSafeWcslen((_WORD *)(a1 + 12), a2);
+    v16 = -1;
+  }
+  else
+  {
+    if ( v5 != 3 )
     {
-      if ( v8 == 1 )
+      if ( v5 == 4 )
       {
-        for ( i = v2 + 1; (unsigned __int64)(v2 + 1) <= a2; i = v2 + 1 )
+        for ( i = (_WORD *)(a1 + 16); v2 + 4 <= a2; i = (_WORD *)(v2 + 4) )
         {
-          if ( *((unsigned __int16 *)v2 + 1) < 4u )
+          if ( *(unsigned __int16 *)(v2 + 2) < 4u )
             break;
-          v10 = (unsigned __int64)v2 + *((unsigned __int16 *)v2 + 1);
-          if ( v10 > a2 )
+          v7 = v2 + *(unsigned __int16 *)(v2 + 2);
+          if ( v7 > a2 )
             break;
-          v11 = *(_BYTE *)v2 & 0x7F;
-          if ( v11 == 127 )
+          v8 = *(_BYTE *)v2 & 0x7F;
+          if ( v8 == 127 )
             return 0LL;
-          if ( v11 == 4 && *((_BYTE *)v2 + 1) == 4 )
+          if ( v8 == 4 && *(_BYTE *)(v2 + 1) == 4 )
           {
-            v13 = i;
-            if ( (unsigned __int64)i >= v10 )
-              break;
-            while ( *v13 )
+            v9 = i;
+            if ( (unsigned __int64)i >= v7 )
+              goto LABEL_25;
+            do
             {
-              if ( (unsigned __int64)++v13 >= v10 )
-                return 3221225485LL;
+              if ( !*v9 )
+                break;
+              ++v9;
             }
-            if ( (unsigned int)(v13 - i) == -1 )
+            while ( (unsigned __int64)v9 < v7 );
+            if ( (unsigned __int64)v9 >= v7 )
+LABEL_25:
+              LODWORD(v10) = -1;
+            else
+              v10 = v9 - i;
+            if ( (_DWORD)v10 == -1 )
               break;
           }
-          v2 = (_DWORD *)((char *)v2
-                        + ((*((unsigned __int8 *)v2 + 3) << 8) | (unsigned __int64)*((unsigned __int8 *)v2 + 2)));
+          v2 += (*(unsigned __int8 *)(v2 + 3) << 8) | (unsigned __int64)*(unsigned __int8 *)(v2 + 2);
         }
       }
       return 3221225485LL;
     }
-    v14 = ExpSafeWcslen(v2, a2);
-    if ( v14 == -1 )
+    v12 = ExpSafeWcslen((_WORD *)(a1 + 12), a2);
+    if ( v12 == -1 )
       return 3221225485LL;
-    v17 = ExpSafeWcslen((_WORD *)(v16 + 2 * (v14 + 1LL)), v15);
+    v15 = ExpSafeWcslen((_WORD *)(v14 + 2 * (v12 + 1LL)), v13);
   }
-  else
-  {
-    v17 = ExpSafeWcslen(v2, a2);
-    v18 = -1;
-  }
-  if ( v17 == v18 )
+  if ( v15 == v16 )
     return 3221225485LL;
   return 0LL;
 }

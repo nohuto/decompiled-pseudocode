@@ -1,79 +1,168 @@
 /*
- * XREFs of HdlspDispatch @ 0x140AA8ED0
+ * XREFs of HdlspDispatch @ 0x1409EEE80
  * Callers:
- *     HeadlessDispatch @ 0x1403C2310 (HeadlessDispatch.c)
- *     HdlspKernelAddLogEntry @ 0x140AA9A28 (HdlspKernelAddLogEntry.c)
+ *     HeadlessDispatch @ 0x1403AF760 (HeadlessDispatch.c)
+ *     HdlspKernelAddLogEntry @ 0x1409EF9AC (HdlspKernelAddLogEntry.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     strcmp @ 0x1403E2AE0 (strcmp.c)
- *     sprintf_s @ 0x1403E7020 (sprintf_s.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     InbvPortGetByte @ 0x1406543F8 (InbvPortGetByte.c)
- *     InbvPortPollOnly @ 0x1406545B0 (InbvPortPollOnly.c)
- *     HdlspAddLogEntry @ 0x140AA8B28 (HdlspAddLogEntry.c)
- *     HdlspBugCheckProcessing @ 0x140AA8D9C (HdlspBugCheckProcessing.c)
- *     HdlspEnableTerminal @ 0x140AA9594 (HdlspEnableTerminal.c)
- *     HdlspGetLine @ 0x140AA9660 (HdlspGetLine.c)
- *     HdlspProcessDumpCommand @ 0x140AA9C94 (HdlspProcessDumpCommand.c)
- *     HdlspPutData @ 0x140AAA04C (HdlspPutData.c)
- *     HdlspPutString @ 0x140AAA178 (HdlspPutString.c)
- *     HdlspPutWideString @ 0x140AAA2B0 (HdlspPutWideString.c)
- *     HdlspSendBlueScreenInfo @ 0x140AAA374 (HdlspSendBlueScreenInfo.c)
- *     HdlspSendStringAtBaud @ 0x140AAA418 (HdlspSendStringAtBaud.c)
- *     HdlspSetBlueScreenInformation @ 0x140AAA44C (HdlspSetBlueScreenInformation.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     strcmp @ 0x1403D3730 (strcmp.c)
+ *     sprintf_s @ 0x1403D7BF0 (sprintf_s.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     InbvPortGetByte @ 0x1405C9CD4 (InbvPortGetByte.c)
+ *     InbvPortPollOnly @ 0x1405C9E80 (InbvPortPollOnly.c)
+ *     HdlspAddLogEntry @ 0x1409EEAE0 (HdlspAddLogEntry.c)
+ *     HdlspBugCheckProcessing @ 0x1409EED54 (HdlspBugCheckProcessing.c)
+ *     HdlspEnableTerminal @ 0x1409EF52C (HdlspEnableTerminal.c)
+ *     HdlspGetLine @ 0x1409EF5F8 (HdlspGetLine.c)
+ *     HdlspProcessDumpCommand @ 0x1409EFC18 (HdlspProcessDumpCommand.c)
+ *     HdlspPutData @ 0x1409EFFD0 (HdlspPutData.c)
+ *     HdlspPutString @ 0x1409F00C0 (HdlspPutString.c)
+ *     HdlspPutWideString @ 0x1409F01E8 (HdlspPutWideString.c)
+ *     HdlspSendBlueScreenInfo @ 0x1409F02AC (HdlspSendBlueScreenInfo.c)
+ *     HdlspSendStringAtBaud @ 0x1409F0350 (HdlspSendStringAtBaud.c)
+ *     HdlspSetBlueScreenInformation @ 0x1409F0384 (HdlspSetBlueScreenInformation.c)
  */
 
 __int64 __fastcall HdlspDispatch(KSPIN_LOCK *a1, int *a2, __int64 a3, __int64 a4, _QWORD *a5)
 {
   unsigned int v5; // ebx
-  int v9; // edi
-  char v10; // bp
-  KIRQL v11; // r13
-  int v12; // eax
-  unsigned __int8 v13; // al
-  struct _KPRCB *v14; // r10
-  _DWORD *v15; // r8
-  int v16; // eax
-  bool v17; // zf
+  signed int v9; // ebp
+  int v10; // r12d
+  char v11; // si
+  KIRQL v12; // r12
+  int v13; // eax
+  unsigned __int8 v14; // al
+  struct _KPRCB *v15; // r10
+  _DWORD *v16; // r8
+  int v17; // eax
+  bool v18; // zf
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r8
-  int v22; // eax
-  PKSPIN_LOCK v23; // rcx
-  unsigned int v24; // edx
+  int v23; // eax
+  const char *v24; // r8
   int v25; // eax
-  __int64 v26; // rcx
-  PKSPIN_LOCK v27; // rax
+  __int64 v26; // r9
+  char *v27; // rcx
   unsigned int v28; // eax
-  int v29; // edi
-  int v30; // edi
-  int v31; // edi
-  int v32; // edi
-  int v33; // edi
-  int v34; // edi
-  const char *v35; // r8
-  int v36; // eax
-  __int64 v37; // r9
-  char *v38; // rcx
   char Line; // al
+  PKSPIN_LOCK v30; // rcx
+  unsigned int v31; // edx
+  int v32; // eax
+  __int64 v33; // rcx
+  PKSPIN_LOCK v34; // rax
   char DstBuf[80]; // [rsp+30h] [rbp-98h] BYREF
 
   v5 = 0;
   v9 = (int)a1;
-  if ( (_DWORD)a1 == 17 )
-    goto LABEL_145;
-  v10 = 1;
-  switch ( (_DWORD)a1 )
+  v10 = 1228800;
+  v11 = 1;
+  if ( (unsigned int)a1 <= 0x14 && _bittest(&v10, (unsigned int)a1) )
+    goto LABEL_27;
+  if ( (HeadlessGlobals[6] & 2) != 0 )
+    v12 = -1;
+  else
+    v12 = KeAcquireSpinLockRaiseToDpc(HeadlessGlobals);
+  a1 = HeadlessGlobals;
+  v13 = *((_DWORD *)HeadlessGlobals + 12);
+  if ( (v13 & 0x40) == 0 )
   {
-    case 0xE:
-      goto LABEL_72;
-    case 0x14:
-      goto LABEL_67;
-    case 0xF:
-LABEL_72:
-      if ( v9 <= 11 )
+    *((_DWORD *)HeadlessGlobals + 12) = v13 | 0x40;
+    if ( v12 != 0xFF )
+    {
+      KxReleaseSpinLock(a1);
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && v12 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            a1 = (KSPIN_LOCK *)((unsigned int)v12 + 1);
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v23 = ~(unsigned __int16)(-1LL << (v12 + 1));
+            v18 = (v23 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v23;
+            if ( v18 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
+        }
+      }
+      __writecr8(v12);
+    }
+    v10 = 1228800;
+LABEL_27:
+    if ( v9 <= 16 )
+    {
+      if ( v9 == 16 )
+      {
+        if ( a4 && a5 && *a5 >= 0x20uLL )
+        {
+          v30 = HeadlessGlobals;
+          *(_DWORD *)a4 = 1;
+          *(_BYTE *)(a4 + 8) = 1;
+          *(_BYTE *)(a4 + 9) = (v30[6] & 8) != 0;
+          *(_DWORD *)(a4 + 24) = *((_DWORD *)v30 + 13);
+          v31 = *((_DWORD *)v30 + 12);
+          v32 = (v31 >> 9) & 7;
+          if ( v32 || (v31 & 8) != 0 )
+          {
+            *(_DWORD *)(a4 + 12) = v32;
+            *(_QWORD *)(a4 + 16) = v30[8];
+          }
+          else
+          {
+            *(_DWORD *)(a4 + 12) = 0;
+            *(_QWORD *)(a4 + 16) = 0LL;
+          }
+          *(_BYTE *)(a4 + 28) = *((_BYTE *)v30 + 84);
+          goto LABEL_145;
+        }
+        goto LABEL_47;
+      }
+      if ( v9 > 11 )
+      {
+        if ( v9 == 12 )
+        {
+          if ( a4 && a5 && *a5 == 1LL )
+          {
+            if ( (HeadlessGlobals[6] & 1) != 0 && InbvPortPollOnly(*((_DWORD *)HeadlessGlobals + 14)) )
+            {
+              InbvPortGetByte(*((_DWORD *)HeadlessGlobals + 14), (_BYTE *)a4);
+              goto LABEL_145;
+            }
+            goto LABEL_70;
+          }
+LABEL_47:
+          v5 = -1073741811;
+LABEL_145:
+          *((_DWORD *)HeadlessGlobals + 12) &= ~0x40u;
+          return v5;
+        }
+        if ( v9 != 13 )
+        {
+          if ( v9 == 14 )
+          {
+            *((_DWORD *)HeadlessGlobals + 12) = HeadlessGlobals[6] & 0xFFFFFFBD | 2;
+          }
+          else if ( (HeadlessGlobals[6] & 1) != 0 )
+          {
+            HdlspBugCheckProcessing();
+          }
+          return v5;
+        }
+        if ( !a4 || !a5 || *a5 < 2uLL )
+          goto LABEL_47;
+        if ( (HeadlessGlobals[6] & 1) != 0 )
+        {
+          Line = HdlspGetLine((void *)(a4 + 1), *a5 - 1LL);
+          goto LABEL_81;
+        }
+      }
+      else
       {
         if ( v9 != 11 )
         {
@@ -87,227 +176,137 @@ LABEL_72:
                 {
                   if ( (HeadlessGlobals[6] & 1) != 0 )
                     HdlspPutString(a2);
-                  goto LABEL_144;
+                  goto LABEL_145;
                 }
-                goto LABEL_143;
               }
-              if ( (unsigned int)(v9 - 4) <= 6 )
+              else
               {
-                if ( (HeadlessGlobals[6] & 1) != 0 )
+                if ( (unsigned int)(v9 - 4) > 6 )
                 {
-                  v29 = v9 - 4;
-                  if ( !v29 )
-                  {
-                    v38 = "\x1B[2J";
-                    goto LABEL_98;
-                  }
-                  v30 = v29 - 1;
-                  if ( !v30 )
-                  {
-                    v38 = "\x1B[0J";
-                    goto LABEL_98;
-                  }
-                  v31 = v30 - 1;
-                  if ( !v31 )
-                  {
-                    v38 = "\x1B[0K";
-                    goto LABEL_98;
-                  }
-                  v32 = v31 - 1;
-                  if ( !v32 )
-                  {
-                    v38 = "\x1B[0m";
-                    goto LABEL_98;
-                  }
-                  v33 = v32 - 1;
-                  if ( !v33 )
-                  {
-                    v38 = "\x1B[7m";
-                    goto LABEL_98;
-                  }
-                  v34 = v33 - 1;
-                  if ( v34 )
-                  {
-                    if ( v34 == 1 && a2 && a3 == 8 )
-                    {
-                      v35 = "\x1B[%d;%dH";
-                      v36 = *a2 + 1;
-                      v37 = (unsigned int)(a2[1] + 1);
-LABEL_92:
-                      sprintf_s(DstBuf, 0x50uLL, v35, v37, v36);
-                      v38 = DstBuf;
-LABEL_98:
-                      HdlspSendStringAtBaud(v38);
-                      goto LABEL_144;
-                    }
-                  }
-                  else if ( a2 && a3 == 8 )
-                  {
-                    v36 = *a2;
-                    v35 = "\x1B[%d;%dm";
-                    v37 = (unsigned int)a2[1];
-                    goto LABEL_92;
-                  }
-LABEL_143:
+LABEL_43:
                   v5 = -1073741811;
+                  goto LABEL_143;
                 }
-LABEL_144:
-                *((_DWORD *)HeadlessGlobals + 12) &= ~0x40u;
-                return v5;
+                if ( (HeadlessGlobals[6] & 1) == 0 )
+                {
+LABEL_143:
+                  if ( (unsigned int)v9 <= 0x14 && _bittest(&v10, v9) )
+                    return v5;
+                  goto LABEL_145;
+                }
+                switch ( v9 )
+                {
+                  case 4:
+                    v27 = "\x1B[2J";
+                    goto LABEL_57;
+                  case 5:
+                    v27 = "\x1B[0J";
+                    goto LABEL_57;
+                  case 6:
+                    v27 = "\x1B[0K";
+                    goto LABEL_57;
+                  case 7:
+                    v27 = "\x1B[0m";
+                    goto LABEL_57;
+                  case 8:
+                    v27 = "\x1B[7m";
+                    goto LABEL_57;
+                  case 9:
+                    if ( a2 && a3 == 8 )
+                    {
+                      v25 = *a2;
+                      v24 = "\x1B[%d;%dm";
+                      v26 = (unsigned int)a2[1];
+                      goto LABEL_51;
+                    }
+                    break;
+                  case 10:
+                    if ( a2 && a3 == 8 )
+                    {
+                      v24 = "\x1B[%d;%dH";
+                      v25 = *a2 + 1;
+                      v26 = (unsigned int)(a2[1] + 1);
+LABEL_51:
+                      sprintf_s(DstBuf, 0x50uLL, v24, v26, v25);
+                      v27 = DstBuf;
+LABEL_57:
+                      HdlspSendStringAtBaud(v27);
+                      goto LABEL_143;
+                    }
+                    break;
+                  default:
+                    goto LABEL_43;
+                }
               }
-              goto LABEL_125;
+              goto LABEL_47;
             }
-            if ( !a4 || !a5 || *a5 != 1LL )
-              goto LABEL_143;
-            if ( (HeadlessGlobals[6] & 1) != 0 )
+            if ( a4 && a5 && *a5 == 1LL )
             {
-              if ( (unsigned __int8)HdlspGetLine(DstBuf, 0x50uLL) )
+              if ( (HeadlessGlobals[6] & 1) != 0 )
               {
-                if ( strcmp(DstBuf, "reboot") && strcmp(DstBuf, "shutdown") )
-                  v10 = 0;
-                *(_BYTE *)a4 = v10;
+                if ( (unsigned __int8)HdlspGetLine(DstBuf, 0x50uLL) )
+                {
+                  if ( strcmp(DstBuf, "reboot") && strcmp(DstBuf, "shutdown") )
+                    v11 = 0;
+                  *(_BYTE *)a4 = v11;
+                }
+                goto LABEL_145;
               }
-              goto LABEL_144;
+LABEL_70:
+              *(_BYTE *)a4 = 0;
+              goto LABEL_145;
             }
-LABEL_142:
-            *(_BYTE *)a4 = 0;
-            goto LABEL_144;
+            goto LABEL_47;
           }
           if ( !a2 || a3 != 1 )
-            goto LABEL_143;
+            goto LABEL_47;
           LOBYTE(a1) = *(_BYTE *)a2;
           v28 = HdlspEnableTerminal(a1);
-LABEL_63:
+LABEL_74:
           v5 = v28;
-          goto LABEL_144;
+          goto LABEL_145;
         }
         if ( !a4 || !a5 || *a5 != 1LL )
-          goto LABEL_143;
+          goto LABEL_47;
         if ( (HeadlessGlobals[6] & 1) != 0 )
         {
           Line = InbvPortPollOnly(*((_DWORD *)HeadlessGlobals + 14));
-LABEL_120:
+LABEL_81:
           *(_BYTE *)a4 = Line;
-          goto LABEL_144;
-        }
-LABEL_119:
-        Line = 0;
-        goto LABEL_120;
-      }
-      if ( v9 == 12 )
-      {
-        if ( !a4 || !a5 || *a5 != 1LL )
-          goto LABEL_143;
-        if ( (HeadlessGlobals[6] & 1) != 0 && InbvPortPollOnly(*((_DWORD *)HeadlessGlobals + 14)) )
-        {
-          InbvPortGetByte(*((_DWORD *)HeadlessGlobals + 14), (_BYTE *)a4);
-          goto LABEL_144;
-        }
-        goto LABEL_142;
-      }
-      if ( v9 == 13 )
-      {
-        if ( !a4 || !a5 || *a5 < 2uLL )
-          goto LABEL_143;
-        if ( (HeadlessGlobals[6] & 1) != 0 )
-        {
-          Line = HdlspGetLine((void *)(a4 + 1), *a5 - 1LL);
-          goto LABEL_120;
-        }
-        goto LABEL_119;
-      }
-      if ( v9 != 14 )
-      {
-        if ( v9 == 15 )
-        {
-          if ( (HeadlessGlobals[6] & 1) != 0 )
-            HdlspBugCheckProcessing();
-          return v5;
-        }
-        goto LABEL_125;
-      }
-      *((_DWORD *)HeadlessGlobals + 12) = HeadlessGlobals[6] & 0xFFFFFFBD | 2;
-      return v5;
-  }
-  if ( (HeadlessGlobals[6] & 2) != 0 )
-    v11 = -1;
-  else
-    v11 = KeAcquireSpinLockRaiseToDpc(HeadlessGlobals);
-  a1 = HeadlessGlobals;
-  v12 = *((_DWORD *)HeadlessGlobals + 12);
-  if ( (v12 & 0x40) == 0 )
-  {
-    *((_DWORD *)HeadlessGlobals + 12) = v12 | 0x40;
-    if ( v11 != 0xFF )
-    {
-      KxReleaseSpinLock(a1);
-      if ( KiIrqlFlags )
-      {
-        if ( (KiIrqlFlags & 1) != 0 )
-        {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( CurrentIrql <= 0xFu && v11 <= 0xFu && CurrentIrql >= 2u )
-          {
-            CurrentPrcb = KeGetCurrentPrcb();
-            a1 = (KSPIN_LOCK *)((unsigned int)v11 + 1);
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v22 = ~(unsigned __int16)(-1LL << (v11 + 1));
-            v17 = (v22 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v22;
-            if ( v17 )
-              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-          }
+          goto LABEL_145;
         }
       }
-      __writecr8(v11);
+      Line = 0;
+      goto LABEL_81;
     }
-    if ( v9 <= 16 )
+    if ( v9 == 17 )
     {
-      if ( v9 == 16 )
+      if ( a2 )
       {
-        if ( a4 && a5 && *a5 >= 0x20uLL )
-        {
-          v23 = HeadlessGlobals;
-          *(_DWORD *)a4 = 1;
-          *(_BYTE *)(a4 + 8) = 1;
-          *(_BYTE *)(a4 + 9) = (v23[6] & 8) != 0;
-          *(_DWORD *)(a4 + 24) = *((_DWORD *)v23 + 13);
-          v24 = *((_DWORD *)v23 + 12);
-          v25 = (v24 >> 9) & 7;
-          if ( v25 || (v24 & 8) != 0 )
-          {
-            *(_DWORD *)(a4 + 12) = v25;
-            *(_QWORD *)(a4 + 16) = v23[8];
-          }
-          else
-          {
-            *(_DWORD *)(a4 + 12) = 0;
-            *(_QWORD *)(a4 + 16) = 0LL;
-          }
-          *(_BYTE *)(a4 + 28) = *((_BYTE *)v23 + 84);
-          goto LABEL_144;
-        }
+        HdlspAddLogEntry(a2);
         goto LABEL_143;
       }
-      goto LABEL_72;
+      return (unsigned int)-1073741811;
     }
-    if ( v9 != 17 )
+    else
     {
-      v26 = (unsigned int)(v9 - 18);
+      v33 = (unsigned int)(v9 - 18);
       if ( v9 == 18 )
       {
-        if ( !a2 || a3 != 1 )
-          goto LABEL_143;
-        LOBYTE(v26) = *(_BYTE *)a2;
-        HdlspProcessDumpCommand(v26);
-        goto LABEL_144;
+        if ( a2 && a3 == 1 )
+        {
+          LOBYTE(v33) = *(_BYTE *)a2;
+          HdlspProcessDumpCommand(v33);
+          goto LABEL_145;
+        }
+        goto LABEL_47;
       }
       if ( v9 == 19 )
       {
         if ( a2 )
         {
           v28 = HdlspSetBlueScreenInformation(a2, a3);
-          goto LABEL_63;
+          goto LABEL_74;
         }
         return 3221225485LL;
       }
@@ -316,79 +315,76 @@ LABEL_119:
         switch ( v9 )
         {
           case 21:
-            if ( !a4 || !a5 || *a5 < 0x10uLL )
-              goto LABEL_143;
-            *(_OWORD *)a4 = *(_OWORD *)((char *)HeadlessGlobals + 100);
-            goto LABEL_144;
+            if ( a4 && a5 && *a5 >= 0x10uLL )
+            {
+              *(_OWORD *)a4 = *(_OWORD *)((char *)HeadlessGlobals + 100);
+              goto LABEL_145;
+            }
+            break;
           case 22:
             if ( a2 && a3 )
             {
               if ( (HeadlessGlobals[6] & 1) != 0 )
                 HdlspPutData(a2, a3);
-              goto LABEL_144;
+              goto LABEL_145;
             }
-            goto LABEL_143;
+            break;
           case 23:
             if ( a2 )
             {
               if ( (HeadlessGlobals[6] & 1) != 0 )
                 HdlspPutWideString(a2);
-              goto LABEL_144;
+              goto LABEL_145;
             }
-            goto LABEL_143;
+            break;
           case 24:
-            if ( !a4 || !a5 || *a5 < 0xCuLL )
-              goto LABEL_143;
-            v27 = HeadlessGlobals;
-            *(_QWORD *)a4 = *(PKSPIN_LOCK)((char *)HeadlessGlobals + 118);
-            *(_DWORD *)(a4 + 8) = *(_DWORD *)((char *)v27 + 126);
-            goto LABEL_144;
+            if ( a4 && a5 && *a5 >= 0xCuLL )
+            {
+              v34 = HeadlessGlobals;
+              *(_QWORD *)a4 = *(PKSPIN_LOCK)((char *)HeadlessGlobals + 118);
+              *(_DWORD *)(a4 + 8) = *(_DWORD *)((char *)v34 + 126);
+              goto LABEL_145;
+            }
+            break;
+          default:
+            goto LABEL_43;
         }
-LABEL_125:
-        v5 = -1073741811;
-        if ( v9 == 17 || v9 == 20 )
-          return v5;
-        goto LABEL_144;
+        goto LABEL_47;
       }
-LABEL_67:
-      if ( (HeadlessGlobals[6] & 3) != 3 )
-        return v5;
-      if ( a2 && a3 == 4 )
+      if ( (HeadlessGlobals[6] & 3) == 3 )
       {
-        HdlspSendBlueScreenInfo((unsigned int)*a2);
-        HdlspSendStringAtBaud("\n\r!SAC>");
-        return v5;
+        if ( a2 && a3 == 4 )
+        {
+          HdlspSendBlueScreenInfo((unsigned int)*a2);
+          HdlspSendStringAtBaud("\n\r!SAC>");
+          return v5;
+        }
+        return 3221225485LL;
       }
-      return 3221225485LL;
     }
-LABEL_145:
-    if ( a2 )
-      HdlspAddLogEntry(a2);
-    else
-      return (unsigned int)-1073741811;
     return v5;
   }
-  if ( v11 != 0xFF )
+  if ( v12 != 0xFF )
   {
     KxReleaseSpinLock(HeadlessGlobals);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v13 = KeGetCurrentIrql();
-        if ( v13 <= 0xFu && v11 <= 0xFu && v13 >= 2u )
+        v14 = KeGetCurrentIrql();
+        if ( v14 <= 0xFu && v12 <= 0xFu && v14 >= 2u )
         {
-          v14 = KeGetCurrentPrcb();
-          v15 = v14->SchedulerAssist;
-          v16 = ~(unsigned __int16)(-1LL << (v11 + 1));
-          v17 = (v16 & v15[5]) == 0;
-          v15[5] &= v16;
-          if ( v17 )
-            KiRemoveSystemWorkPriorityKick((__int64)v14);
+          v15 = KeGetCurrentPrcb();
+          v16 = v15->SchedulerAssist;
+          v17 = ~(unsigned __int16)(-1LL << (v12 + 1));
+          v18 = (v17 & v16[5]) == 0;
+          v16[5] &= v17;
+          if ( v18 )
+            KiRemoveSystemWorkPriorityKick((__int64)v15);
         }
       }
     }
-    __writecr8(v11);
+    __writecr8(v12);
   }
   return 3221225473LL;
 }

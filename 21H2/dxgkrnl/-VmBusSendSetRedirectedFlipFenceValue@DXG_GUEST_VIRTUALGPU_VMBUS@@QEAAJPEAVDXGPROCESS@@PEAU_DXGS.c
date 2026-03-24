@@ -1,14 +1,10 @@
 /*
- * XREFs of ?VmBusSendSetRedirectedFlipFenceValue@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAU_DXGSHAREDSYNCOBJECT@@_K@Z @ 0x1C037CA50
+ * XREFs of ?VmBusSendSetRedirectedFlipFenceValue@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAU_DXGSHAREDSYNCOBJECT@@_K@Z @ 0x1C024BA7C
  * Callers:
- *     ?SubmitPresentHistoryTokenPreparation@@YAJPEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTER@@PEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAX_N@Z @ 0x1C0195D50 (-SubmitPresentHistoryTokenPreparation@@YAJPEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCOREDEVICEACCES.c)
+ *     ?SubmitPresentHistoryTokenPreparation@@YAJPEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTER@@PEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAX_N@Z @ 0x1C0157A30 (-SubmitPresentHistoryTokenPreparation@@YAJPEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCOREDEVICEACCES.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005CCCC (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?GetHostProcess@DXGPROCESS@@QEAAIXZ @ 0x1C033633C (-GetHostProcess@DXGPROCESS@@QEAAIXZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0364EA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncOrAsyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@@Z @ 0x1C037E9E4 (-VmBusSendSyncOrAsyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@@Z.c)
+ *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C024D240 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_M.c)
+ *     ?GetHostProcess@DXGPROCESS@@QEAAIXZ @ 0x1C0285260 (-GetHostProcess@DXGPROCESS@@QEAAIXZ.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSetRedirectedFlipFenceValue(
@@ -17,51 +13,34 @@ __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSetRedirectedFlipFenceVa
         struct _DXGSHAREDSYNCOBJECT *a3,
         __int64 a4)
 {
-  __int64 v8; // rdi
-  __int64 v9; // rdi
-  int v10; // ebx
-  int HostProcess; // eax
-  int v12; // eax
-  __int128 v14; // [rsp+50h] [rbp-148h] BYREF
-  int v15; // [rsp+60h] [rbp-138h]
+  int v4; // ebx
+  struct _MDL *v7; // r9
+  int v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rbx
+  __int64 v12; // rax
+  __int64 v14; // [rsp+20h] [rbp-38h] BYREF
+  unsigned int HostProcess; // [rsp+28h] [rbp-30h]
+  int v16; // [rsp+2Ch] [rbp-2Ch]
+  int v17; // [rsp+30h] [rbp-28h]
+  int v18; // [rsp+38h] [rbp-20h]
+  __int64 v19; // [rsp+40h] [rbp-18h]
 
-  v15 = 0;
+  v4 = *((_DWORD *)a3 + 2);
   v14 = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)&v14, this, 0x28u, 0LL, 0LL, 0LL);
-  v8 = v14;
-  if ( (_QWORD)v14 )
+  v16 = 0;
+  HostProcess = DXGPROCESS::GetHostProcess(a2);
+  v17 = 35;
+  v18 = v4;
+  v19 = a4;
+  v8 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(this, (struct DXGKVMB_COMMAND_BASE *)&v14, 0x28u, v7);
+  v11 = v8;
+  if ( v8 < 0 )
   {
-    v10 = *((_DWORD *)a3 + 2);
-    HostProcess = DXGPROCESS::GetHostProcess(a2);
-    *(_QWORD *)v8 = 0LL;
-    *(_DWORD *)(v8 + 20) = 0;
-    *(_BYTE *)(v8 + 12) = 0;
-    *(_DWORD *)(v8 + 12) &= 0x1FFu;
-    *(_DWORD *)(v8 + 8) = HostProcess;
-    *(_DWORD *)(v8 + 16) = 35;
-    *(_DWORD *)(v8 + 24) = v10;
-    *(_QWORD *)(v8 + 32) = a4;
-    v12 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSyncOrAsyncMessage(this, (struct DXGVMBUSMESSAGE *)&v14);
-    v9 = v12;
-    if ( v12 < 0 )
-    {
-      WdLogSingleEntry1(2LL, v12);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"VmBusSendSetRedirectedFlipFenceValue failed: 0x%I64x",
-        v9,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    }
+    v12 = WdLogNewEntry5_WdError(v10, v9);
+    *(_QWORD *)(v12 + 24) = v11;
+    WdLogEvent5_WdError(v12);
   }
-  else
-  {
-    LODWORD(v9) = -1073741801;
-  }
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)&v14);
-  return (unsigned int)v9;
+  return (unsigned int)v11;
 }

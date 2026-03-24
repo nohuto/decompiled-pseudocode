@@ -1,81 +1,61 @@
 /*
- * XREFs of DirtyVisRgnTrackers @ 0x1C00F319C
+ * XREFs of DirtyVisRgnTrackers @ 0x1C004E4D0
  * Callers:
- *     InternalInvalidate3 @ 0x1C0034D50 (InternalInvalidate3.c)
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
- *     ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C005A330 (-DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z.c)
- *     ?xxxRedrawForSetLPITEMInfo@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C00645A0 (-xxxRedrawForSetLPITEMInfo@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
- *     ?xxxRemoveDeleteMenuHelper@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@IKH@Z @ 0x1C00649F8 (-xxxRemoveDeleteMenuHelper@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@IKH@Z.c)
- *     xxxGetSystemMenu @ 0x1C0067088 (xxxGetSystemMenu.c)
- *     SelectWindowRgn @ 0x1C0077C08 (SelectWindowRgn.c)
- *     xxxDoPaint @ 0x1C008BD2C (xxxDoPaint.c)
- *     NtUserEndPaint @ 0x1C00964C0 (NtUserEndPaint.c)
- *     xxxSetClassData @ 0x1C00ADD68 (xxxSetClassData.c)
- *     DecomposeWindowIfNeeded @ 0x1C00C85B8 (DecomposeWindowIfNeeded.c)
- *     xxxSetWindowData @ 0x1C00CA930 (xxxSetWindowData.c)
- *     CreateVisRgnTracker @ 0x1C00CD0F8 (CreateVisRgnTracker.c)
- *     xxxBeginPaint @ 0x1C00CDA00 (xxxBeginPaint.c)
- *     xxxInternalDoSyncPaint @ 0x1C00CE0C0 (xxxInternalDoSyncPaint.c)
- *     ?xxxSendNCPaint@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C00CE8F8 (-xxxSendNCPaint@@YAXPEAUtagWND@@PEAUHRGN__@@@Z.c)
- *     ComposeWindowIfNeeded @ 0x1C00D3A58 (ComposeWindowIfNeeded.c)
- *     xxxSetWindowStyle @ 0x1C00EB620 (xxxSetWindowStyle.c)
- *     OffsetChildren @ 0x1C00F147C (OffsetChildren.c)
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
- *     LinkWindow @ 0x1C00F2760 (LinkWindow.c)
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
- *     xxxCalcClientRect @ 0x1C010ACC0 (xxxCalcClientRect.c)
- *     xxxDispatchMessage @ 0x1C0117884 (xxxDispatchMessage.c)
- *     xxxSimpleDoSyncPaint @ 0x1C0118654 (xxxSimpleDoSyncPaint.c)
- *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0122B94 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
- *     zzzUpdateLayeredWindow @ 0x1C01BD720 (zzzUpdateLayeredWindow.c)
- *     xxxEnableMenuItem @ 0x1C0221F90 (xxxEnableMenuItem.c)
+ *     DecomposeWindowIfNeeded @ 0x1C0035294 (DecomposeWindowIfNeeded.c)
+ *     CreateVisRgnTracker @ 0x1C0035F74 (CreateVisRgnTracker.c)
+ *     xxxDeferWindowPosAndCheckPoint @ 0x1C003E8DC (xxxDeferWindowPosAndCheckPoint.c)
+ *     xxxEnableMenuItem @ 0x1C0046F10 (xxxEnableMenuItem.c)
+ *     ?xxxRemoveDeleteMenuHelper@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@IKH@Z @ 0x1C0047358 (-xxxRemoveDeleteMenuHelper@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@IKH@Z.c)
+ *     ?xxxRedrawForSetLPITEMInfo@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0047758 (-xxxRedrawForSetLPITEMInfo@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     xxxCalcClientRect @ 0x1C004A800 (xxxCalcClientRect.c)
+ *     ComposeWindowIfNeeded @ 0x1C004C260 (ComposeWindowIfNeeded.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
+ *     DwmChildRectChange @ 0x1C004E0EC (DwmChildRectChange.c)
+ *     xxxDoPaint @ 0x1C0053408 (xxxDoPaint.c)
+ *     xxxDispatchMessage @ 0x1C006ADB4 (xxxDispatchMessage.c)
+ *     xxxSimpleDoSyncPaint @ 0x1C006D7A0 (xxxSimpleDoSyncPaint.c)
+ *     LinkWindow @ 0x1C006FC60 (LinkWindow.c)
+ *     InternalInvalidate3 @ 0x1C00746C4 (InternalInvalidate3.c)
+ *     ClearHungFlag @ 0x1C007BE28 (ClearHungFlag.c)
+ *     UnlinkWindow @ 0x1C007E8D8 (UnlinkWindow.c)
+ *     xxxGetSystemMenu @ 0x1C00DC574 (xxxGetSystemMenu.c)
+ *     xxxSetScrollBar @ 0x1C00F5D08 (xxxSetScrollBar.c)
+ *     xxxSetClassData @ 0x1C00FBF4C (xxxSetClassData.c)
+ *     SelectWindowRgn @ 0x1C011172C (SelectWindowRgn.c)
  * Callees:
- *     ?MarkDirty@CVisRgnTrackerProp@@QEAAXXZ @ 0x1C00A609C (-MarkDirty@CVisRgnTrackerProp@@QEAAXXZ.c)
- *     _GetProp @ 0x1C00F21FC (_GetProp.c)
- *     ?MarkDirtyWorker@@YAXPEAUtagWND@@@Z @ 0x1C00F3470 (-MarkDirtyWorker@@YAXPEAUtagWND@@@Z.c)
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C011E0F8 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??B?$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ @ 0x1C0138C00 (--B-$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ.c)
+ *     ?MarkDirtyWorker@@YAXPEAUtagWND@@@Z @ 0x1C004E67C (-MarkDirtyWorker@@YAXPEAUtagWND@@@Z.c)
+ *     ?MarkDirty@CVisRgnTrackerProp@@QEAAXXZ @ 0x1C004E8CC (-MarkDirty@CVisRgnTrackerProp@@QEAAXXZ.c)
+ *     ??$GetProp@VCVisRgnTrackerProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCVisRgnTrackerProp@@@Z @ 0x1C004E90C (--$GetProp@VCVisRgnTrackerProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCVisRgnTrackerProp@@@Z.c)
+ *     _GetDesktopWindow @ 0x1C0070420 (_GetDesktopWindow.c)
  */
 
-void __fastcall DirtyVisRgnTrackers(__int64 a1)
+void __fastcall DirtyVisRgnTrackers(struct tagWND *a1)
 {
   struct tagWND *v1; // rbx
   __int64 v2; // rax
   _QWORD *v3; // rdi
-  _QWORD *v4; // rdx
-  __int64 v5; // rcx
+  _QWORD *v4; // rcx
+  __int64 v5; // rdx
   char v6; // al
   __int64 v7; // rdx
-  __int64 v8; // r9
-  __int64 v9; // r8
-  __int64 *v10; // rax
-  __int64 v11; // rcx
-  char v12; // r14
-  __int64 v13; // rax
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  char v11; // si
   CVisRgnTrackerProp *Prop; // rax
-  __int64 v15; // rdi
-  __int64 AlignmentRequirement_low; // r15
-  PERESOURCE *v17; // rax
-  int v18; // esi
-  tagObjLock **v19; // rdi
-  __int64 v20; // rdi
-  struct _LIST_ENTRY *Flink; // rcx
-  struct _LIST_ENTRY *v22; // rax
-  struct tagWND *i; // rdi
-  __int128 v24; // [rsp+50h] [rbp-30h] BYREF
-  char v25; // [rsp+60h] [rbp-20h]
-  char v26; // [rsp+68h] [rbp-18h]
+  __int64 i; // rdi
+  CVisRgnTrackerProp *v14; // [rsp+20h] [rbp-18h] BYREF
 
   if ( a1 )
   {
-    v1 = (struct tagWND *)a1;
+    v1 = a1;
     v2 = *(_QWORD *)(gptiCurrent + 456LL);
     if ( v2 )
     {
-      if ( (*(_DWORD *)(**(_QWORD **)(v2 + 8) + 64LL) & 1) != 0 && (*(_DWORD *)(a1 + 320) & 0x2000000) != 0 )
+      if ( (*(_DWORD *)(**(_QWORD **)(v2 + 8) + 64LL) & 1) != 0
+        && (*(_DWORD *)(*((_QWORD *)a1 + 5) + 232LL) & 0x10) != 0 )
       {
-        v3 = *(_QWORD **)(a1 + 104);
+        v3 = (_QWORD *)*((_QWORD *)a1 + 13);
         v4 = v3;
         if ( v3 )
         {
@@ -91,88 +71,45 @@ void __fastcall DirtyVisRgnTrackers(__int64 a1)
               if ( v4 )
                 continue;
             }
-            goto LABEL_11;
+            goto LABEL_10;
           }
         }
         else
         {
-LABEL_11:
+LABEL_10:
           EtwTraceDwmVisRgnDirty(*(_QWORD *)v1, *v3);
-          v9 = *((_QWORD *)v1 + 13);
-          v10 = (__int64 *)((char *)v1 + 24);
-          if ( !v9 )
-            goto LABEL_17;
-          v11 = *v10;
-          v7 = 0LL;
-          if ( *v10 )
+          v7 = *((_QWORD *)v1 + 13);
+          if ( !v7 )
+            goto LABEL_27;
+          v8 = *((_QWORD *)v1 + 3);
+          v9 = 0LL;
+          if ( v8 )
           {
-            v11 = *(_QWORD *)(v11 + 8);
-            if ( v11 )
-              v7 = *(_QWORD *)(v11 + 24);
+            v10 = *(_QWORD *)(v8 + 8);
+            if ( v10 )
+              v9 = *(_QWORD *)(v10 + 24);
           }
-          if ( v9 == v7 )
+          if ( v7 == v9 )
           {
-            v12 = 1;
+            v11 = 1;
           }
           else
           {
-LABEL_17:
-            v11 = *v10;
-            v12 = 0;
-            if ( (!*v10 || (v13 = *(_QWORD *)(v11 + 8)) == 0 || v1 != *(struct tagWND **)(v13 + 24))
-              && (*(_BYTE *)(v3[5] + 31LL) & 2) != 0 )
+LABEL_27:
+            v11 = 0;
+            if ( v1 != (struct tagWND *)GetDesktopWindow(v1) && (*(_BYTE *)(v3[5] + 31LL) & 2) != 0 )
             {
-              Prop = (CVisRgnTrackerProp *)GetProp((__int64)v3, LOWORD(WPP_MAIN_CB.AlignmentRequirement), 1LL, v8);
-              if ( Prop )
-                CVisRgnTrackerProp::MarkDirty(Prop);
+              v14 = 0LL;
+              if ( (unsigned int)CWindowProp::GetProp<CVisRgnTrackerProp>(v3, &v14) )
+                CVisRgnTrackerProp::MarkDirty(v14);
             }
           }
-          v15 = *((_QWORD *)v1 + 18);
-          AlignmentRequirement_low = LOWORD(WPP_MAIN_CB.AlignmentRequirement);
-          v24 = 0LL;
-          v25 = 0;
-          v26 = 0;
-          v17 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(v11, v7, v9, v8);
-          if ( ExIsResourceAcquiredExclusiveLite(*v17) != 1 && IS_USERCRIT_OWNED_AT_ALL() )
-          {
-            v26 = 1;
-            if ( v15 == gObjDummyLock )
-              v15 = 0LL;
-            *(_QWORD *)&v24 = v15;
-            v18 = 0;
-            v19 = (tagObjLock **)&v24;
-            do
-            {
-              if ( *v19 )
-                tagObjLock::LockExclusive(*v19);
-              ++v18;
-              ++v19;
-            }
-            while ( !v18 );
-            v25 = 1;
-          }
-          v20 = RealGetProp(*((_QWORD *)v1 + 18), AlignmentRequirement_low, 1LL);
-          if ( v26 && v25 )
-          {
-            if ( (_QWORD)v24 )
-              tagObjLock::UnLockExclusive((tagObjLock *)v24);
-            v25 = 0;
-          }
-          if ( v20 && !*(_BYTE *)(v20 + 73) )
-          {
-            *(_BYTE *)(v20 + 73) = 1;
-            Flink = CVisRgnTrackerProp::s_DirtyList.Flink;
-            v22 = (struct _LIST_ENTRY *)(v20 + 24);
-            if ( CVisRgnTrackerProp::s_DirtyList.Flink->Blink != &CVisRgnTrackerProp::s_DirtyList )
-              __fastfail(3u);
-            v22->Flink = CVisRgnTrackerProp::s_DirtyList.Flink;
-            *(_QWORD *)(v20 + 32) = &CVisRgnTrackerProp::s_DirtyList;
-            Flink->Blink = v22;
-            CVisRgnTrackerProp::s_DirtyList.Flink = (struct _LIST_ENTRY *)(v20 + 24);
-          }
-          for ( i = (struct tagWND *)*((_QWORD *)v1 + 14); i; i = (struct tagWND *)*((_QWORD *)i + 11) )
-            MarkDirtyWorker(i);
-          if ( !v12 )
+          Prop = (CVisRgnTrackerProp *)RealGetProp(*((_QWORD *)v1 + 18), LOWORD(WPP_MAIN_CB.Queue.Wcb.CurrentIrp), 1LL);
+          if ( Prop )
+            CVisRgnTrackerProp::MarkDirty(Prop);
+          for ( i = *((_QWORD *)v1 + 14); i; i = *(_QWORD *)(i + 88) )
+            MarkDirtyWorker((struct tagWND *)i);
+          if ( !v11 )
           {
             while ( 1 )
             {

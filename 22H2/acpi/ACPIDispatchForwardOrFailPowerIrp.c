@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIDispatchForwardOrFailPowerIrp @ 0x1C0002A4C
+ * XREFs of ACPIDispatchForwardOrFailPowerIrp @ 0x1C002E4A0
  * Callers:
- *     ACPIWakeWaitIrp @ 0x1C00460C0 (ACPIWakeWaitIrp.c)
+ *     ACPIWakeWaitIrp @ 0x1C002E1E0 (ACPIWakeWaitIrp.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
  */
 
 __int64 __fastcall ACPIDispatchForwardOrFailPowerIrp(ULONG_PTR a1, IRP *a2)
@@ -13,7 +13,7 @@ __int64 __fastcall ACPIDispatchForwardOrFailPowerIrp(ULONG_PTR a1, IRP *a2)
   unsigned int v5; // ebx
 
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
-  if ( (*(_BYTE *)(DeviceExtension + 8) & 0x20) != 0 || !*(_QWORD *)(DeviceExtension + 776) )
+  if ( (*(_BYTE *)(DeviceExtension + 8) & 0x20) != 0 || !*(_QWORD *)(DeviceExtension + 736) )
   {
     v5 = -1073741822;
     a2->IoStatus.Status = -1073741822;
@@ -28,7 +28,7 @@ __int64 __fastcall ACPIDispatchForwardOrFailPowerIrp(ULONG_PTR a1, IRP *a2)
                                                                                + 6);
     CurrentStackLocation[-1].FileObject = CurrentStackLocation->FileObject;
     CurrentStackLocation[-1].Control = 0;
-    return (unsigned int)PoCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 776), a2);
+    return (unsigned int)PoCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 736), a2);
   }
   return v5;
 }

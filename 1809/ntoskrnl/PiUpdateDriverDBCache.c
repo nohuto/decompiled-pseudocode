@@ -1,16 +1,16 @@
 /*
- * XREFs of PiUpdateDriverDBCache @ 0x14067EC88
+ * XREFs of PiUpdateDriverDBCache @ 0x14067EC68
  * Callers:
- *     PiIsDriverBlocked @ 0x14067EB10 (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x14067EAF0 (PiIsDriverBlocked.c)
  * Callees:
  *     RtlLookupElementGenericTableAvl @ 0x140006BF0 (RtlLookupElementGenericTableAvl.c)
  *     RtlDeleteElementGenericTableAvl @ 0x140006CA0 (RtlDeleteElementGenericTableAvl.c)
  *     RtlInsertElementGenericTableAvl @ 0x140006F00 (RtlInsertElementGenericTableAvl.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     RtlNumberGenericTableElementsAvl @ 0x1400F51A0 (RtlNumberGenericTableElementsAvl.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     wcsrchr @ 0x1401978A0 (wcsrchr.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlNumberGenericTableElementsAvl @ 0x1400F51C0 (RtlNumberGenericTableElementsAvl.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1401978C0 (wcsrchr.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

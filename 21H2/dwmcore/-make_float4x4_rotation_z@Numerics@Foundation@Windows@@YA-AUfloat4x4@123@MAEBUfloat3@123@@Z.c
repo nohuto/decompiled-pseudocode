@@ -1,11 +1,11 @@
 /*
- * XREFs of ?make_float4x4_rotation_z@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@MAEBUfloat3@123@@Z @ 0x1802618C4
+ * XREFs of ?make_float4x4_rotation_z@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@MAEBUfloat3@123@@Z @ 0x1802120E0
  * Callers:
- *     ?Set2DAffineMatrix@CMILMatrix@@QEAAXAEBUfloat2@Numerics@Foundation@Windows@@M000@Z @ 0x180260B3C (-Set2DAffineMatrix@CMILMatrix@@QEAAXAEBUfloat2@Numerics@Foundation@Windows@@M000@Z.c)
- *     ?Set2DRotation@CMILMatrix@@QEAAXMMM@Z @ 0x180260CF0 (-Set2DRotation@CMILMatrix@@QEAAXMMM@Z.c)
+ *     ?Set2DAffineMatrix@CMILMatrix@@QEAAXAEBUfloat2@Numerics@Foundation@Windows@@M000@Z @ 0x1802116B0 (-Set2DAffineMatrix@CMILMatrix@@QEAAXAEBUfloat2@Numerics@Foundation@Windows@@M000@Z.c)
+ *     ?Set2DRotation@CMILMatrix@@QEAAXMMM@Z @ 0x18021185C (-Set2DRotation@CMILMatrix@@QEAAXMMM@Z.c)
  * Callees:
- *     cosf @ 0x1801018C8 (cosf.c)
- *     _o_sinf_0 @ 0x180101964 (_o_sinf_0.c)
+ *     cosf_0 @ 0x1800F4763 (cosf_0.c)
+ *     sinf_0 @ 0x1800F479F (sinf_0.c)
  */
 
 __int64 __fastcall Windows::Foundation::Numerics::make_float4x4_rotation_z(__int64 a1, float a2, float *a3)
@@ -16,8 +16,8 @@ __int64 __fastcall Windows::Foundation::Numerics::make_float4x4_rotation_z(__int
   float v8; // xmm4_4
   __int64 result; // rax
 
-  v5 = cosf(a2);
-  v6 = o_sinf_0(a2);
+  v5 = cosf_0(a2);
+  v6 = sinf_0(a2);
   v7 = *a3;
   v8 = a3[1];
   *(_DWORD *)(a1 + 16) = LODWORD(v6) ^ _xmm;

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaQueueAdapter @ 0x140513AD4
+ * XREFs of HalpDmaQueueAdapter @ 0x1404C7D94
  * Callers:
- *     HalAllocateAdapterChannelV2 @ 0x140457ED8 (HalAllocateAdapterChannelV2.c)
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x1404584D6 (HalpDmaProcessMapRegisterQueueV2.c)
- *     IoFreeAdapterChannelV2 @ 0x1404585B4 (IoFreeAdapterChannelV2.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140517830 (HalpAllocateDmaResourcesInternal.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x1404CA5DC (HalpAllocateDmaResourcesInternal.c)
+ *     HalAllocateAdapterChannelV2 @ 0x1404CC6E4 (HalAllocateAdapterChannelV2.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x1404CCCE8 (HalpDmaProcessMapRegisterQueueV2.c)
+ *     IoFreeAdapterChannelV2 @ 0x1404CCDCC (IoFreeAdapterChannelV2.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpDmaQueueAdapter(__int64 a1)

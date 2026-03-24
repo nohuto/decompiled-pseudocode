@@ -1,59 +1,61 @@
 /*
- * XREFs of ?ClipRectAndEdgeFlags@@YA_NAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@01PEAU1@PEAW42@@Z @ 0x1800E49FC
+ * XREFs of ?ClipRectAndEdgeFlags@@YA_NAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@01PEAU1@PEAW42@@Z @ 0x180012EF0
  * Callers:
- *     ?EnumerateBrushes@CPrimitiveGroupDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX@Z2@Z @ 0x18000BE80 (-EnumerateBrushes@CPrimitiveGroupDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush.c)
- *     ?AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@@Z @ 0x1800A81A0 (-AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAtt.c)
- *     ?InsertWARP@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@_N@Z @ 0x1801E30C4 (-InsertWARP@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributes.c)
+ *     ?AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@PEBVMatrix3x2F@D2D1@@@Z @ 0x180095BB0 (-AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAtt.c)
+ *     ?EnumerateBrushes@CPrimitiveGroupDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush@@PEAX@Z2@Z @ 0x1800F3A10 (-EnumerateBrushes@CPrimitiveGroupDrawListBrush@@UEBAJPEBVCDrawingContext@@P6AJPEBVCDrawListBrush.c)
  * Callees:
  *     <none>
  */
 
 bool __fastcall ClipRectAndEdgeFlags(__int64 a1, int a2, __int64 a3, int a4, _OWORD *a5, int *a6)
 {
-  char v7; // al
-  int v8; // eax
-  float v9; // xmm0_4
-  int v10; // edx
-  __int128 v12; // [rsp+0h] [rbp-18h]
+  char v8; // al
+  int v9; // eax
+  float v10; // xmm0_4
+  bool v11; // dl
+  int v12; // r9d
+  float v13; // xmm0_4
+  int v14; // edx
+  __int128 v16; // [rsp+0h] [rbp-18h]
 
   if ( (float)(*(float *)a3 - *(float *)a1) > 0.0000011920929 )
   {
-    LODWORD(v12) = *(_DWORD *)a3;
-    v7 = 1;
+    LODWORD(v16) = *(_DWORD *)a3;
+    v8 = 1;
   }
   else
   {
-    LODWORD(v12) = *(_DWORD *)a1;
-    v7 = 0;
+    LODWORD(v16) = *(_DWORD *)a1;
+    v8 = 0;
   }
-  v8 = v7 != 0 ? 0x3000000 : 0;
+  v9 = v8 != 0 ? 0x3000000 : 0;
   if ( (float)(*(float *)(a3 + 4) - *(float *)(a1 + 4)) > 0.0000011920929 )
   {
-    DWORD1(v12) = *(_DWORD *)(a3 + 4);
-    v8 |= 3u;
+    DWORD1(v16) = *(_DWORD *)(a3 + 4);
+    v9 |= 3u;
   }
   else
   {
-    DWORD1(v12) = *(_DWORD *)(a1 + 4);
+    DWORD1(v16) = *(_DWORD *)(a1 + 4);
   }
-  v9 = *(float *)(a1 + 8) - *(float *)(a3 + 8);
-  if ( v9 > 0.0000011920929 )
-    DWORD2(v12) = *(_DWORD *)(a3 + 8);
+  v10 = *(float *)(a1 + 8) - *(float *)(a3 + 8);
+  v11 = v10 > 0.0000011920929;
+  if ( v10 > 0.0000011920929 )
+    DWORD2(v16) = *(_DWORD *)(a3 + 8);
   else
-    DWORD2(v12) = *(_DWORD *)(a1 + 8);
-  v10 = v8 | 0x300;
-  if ( v9 <= 0.0000011920929 )
-    v10 = v8;
-  if ( (float)(*(float *)(a1 + 12) - *(float *)(a3 + 12)) > 0.0000011920929 )
-  {
-    HIDWORD(v12) = *(_DWORD *)(a3 + 12);
-    v10 |= 0x30000u;
-  }
+    DWORD2(v16) = *(_DWORD *)(a1 + 8);
+  v12 = v9 | 0x300;
+  v13 = *(float *)(a1 + 12) - *(float *)(a3 + 12);
+  if ( !v11 )
+    v12 = v9;
+  if ( v13 <= 0.0000011920929 )
+    HIDWORD(v16) = *(_DWORD *)(a1 + 12);
   else
-  {
-    HIDWORD(v12) = *(_DWORD *)(a1 + 12);
-  }
-  *a5 = v12;
-  *a6 = a4 & v10 | a2 & ~v10;
-  return v10 != 0;
+    HIDWORD(v16) = *(_DWORD *)(a3 + 12);
+  v14 = v12 | 0x30000;
+  if ( v13 <= 0.0000011920929 )
+    v14 = v12;
+  *a5 = v16;
+  *a6 = a4 & v14 | a2 & ~v14;
+  return v14 != 0;
 }

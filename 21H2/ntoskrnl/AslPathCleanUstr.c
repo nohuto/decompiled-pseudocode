@@ -1,11 +1,11 @@
 /*
- * XREFs of AslPathCleanUstr @ 0x140A1582C
+ * XREFs of AslPathCleanUstr @ 0x14096851C
  * Callers:
- *     AslPathWildcardFindFirst @ 0x140A15ECC (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindFirst @ 0x140968AF4 (AslPathWildcardFindFirst.c)
  * Callees:
- *     _wcsnicmp @ 0x1403E15D0 (_wcsnicmp.c)
- *     wcsncmp @ 0x1403E33F0 (wcsncmp.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
+ *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
+ *     wcsncmp @ 0x1403D4040 (wcsncmp.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslPathCleanUstr(unsigned __int16 *a1)
@@ -23,12 +23,12 @@ __int64 __fastcall AslPathCleanUstr(unsigned __int16 *a1)
   __int16 v12; // cx
   __int16 v13; // ax
   __int16 v14; // ax
-  __int64 v15; // rdx
-  __int16 v16; // cx
+  __int64 v15; // rcx
+  __int16 v16; // ax
   __int64 v17; // rcx
   __int16 v18; // ax
-  __int64 v19; // rcx
-  __int16 v20; // ax
+  __int64 v19; // rdx
+  __int16 v20; // cx
 
   v2 = *a1 >> 1;
   if ( *a1 < 2u || (v3 = (const wchar_t *)*((_QWORD *)a1 + 1), v4 = 0, !*v3) )
@@ -37,37 +37,30 @@ __int64 __fastcall AslPathCleanUstr(unsigned __int16 *a1)
     AslLogCallPrintf(1LL);
     return v4;
   }
-  v5 = 4;
-  if ( v2 < 8u )
+  if ( v2 < 8u || wcsnicmp(v3, L"\\??\\UNC\\", 8uLL) )
   {
-    if ( v2 < 4u )
+    v5 = 4;
+    if ( v2 >= 4u )
     {
-      if ( v2 <= 2u )
+      if ( !wcsncmp(*((const wchar_t **)a1 + 1), L"\\??\\", 4uLL) )
+      {
+        v5 = 3;
         goto LABEL_14;
-      goto LABEL_13;
+      }
+      if ( !wcsncmp(*((const wchar_t **)a1 + 1), L"\\\\?\\", 4uLL)
+        || !wcsncmp(*((const wchar_t **)a1 + 1), L"\\\\.\\", 4uLL) )
+      {
+        goto LABEL_14;
+      }
     }
-LABEL_7:
-    if ( !wcsncmp(*((const wchar_t **)a1 + 1), L"\\??\\", 4uLL) )
-    {
-      v5 = 3;
-      goto LABEL_15;
-    }
-    if ( !wcsncmp(*((const wchar_t **)a1 + 1), L"\\\\?\\", 4uLL)
-      || !wcsncmp(*((const wchar_t **)a1 + 1), L"\\\\.\\", 4uLL) )
-    {
-      goto LABEL_15;
-    }
-LABEL_13:
-    if ( !wcsncmp(*((const wchar_t **)a1 + 1), L"\\\\", 2uLL) )
-      goto LABEL_15;
-LABEL_14:
-    v5 = 1;
-    goto LABEL_15;
+    if ( v2 <= 2u || wcsncmp(*((const wchar_t **)a1 + 1), L"\\\\", 2uLL) )
+      v5 = 1;
   }
-  if ( wcsnicmp(v3, L"\\??\\UNC\\", 8uLL) )
-    goto LABEL_7;
-  v5 = 5;
-LABEL_15:
+  else
+  {
+    v5 = 5;
+  }
+LABEL_14:
   v6 = 0;
   do
   {
@@ -102,12 +95,12 @@ LABEL_15:
       {
         while ( i < v2 )
         {
-          v15 = *((_QWORD *)a1 + 1);
-          v16 = *(_WORD *)(v15 + 2LL * i);
-          if ( v16 == 92 || v16 == 47 )
+          v19 = *((_QWORD *)a1 + 1);
+          v20 = *(_WORD *)(v19 + 2LL * i);
+          if ( v20 == 92 || v20 == 47 )
             break;
           if ( i != v9 )
-            *(_WORD *)(v15 + 2LL * v9) = v16;
+            *(_WORD *)(v19 + 2LL * v9) = v20;
           ++v9;
           ++i;
         }
@@ -127,14 +120,22 @@ LABEL_15:
           if ( v14 != 92 && v14 != 47 )
             continue;
         }
-        while ( 1 )
+        if ( v9 < v6 )
+          goto LABEL_40;
+        do
         {
-          if ( v9 < v6 )
-          {
-LABEL_48:
-            ++v9;
-            goto LABEL_49;
-          }
+          v15 = *((_QWORD *)a1 + 1);
+          v16 = *(_WORD *)(v15 + 2LL * v9);
+          *(_WORD *)(v15 + 2LL * v9) = 0;
+          if ( v16 == 92 )
+            break;
+          --v9;
+        }
+        while ( v9 >= v6 );
+        if ( v9 < v6 )
+          goto LABEL_40;
+        do
+        {
           v17 = *((_QWORD *)a1 + 1);
           v18 = *(_WORD *)(v17 + 2LL * v9);
           *(_WORD *)(v17 + 2LL * v9) = 0;
@@ -142,18 +143,11 @@ LABEL_48:
             break;
           --v9;
         }
-        while ( 1 )
-        {
-          v19 = *((_QWORD *)a1 + 1);
-          v20 = *(_WORD *)(v19 + 2LL * v9);
-          *(_WORD *)(v19 + 2LL * v9) = 0;
-          if ( v20 == 92 )
-            break;
-          if ( --v9 < v6 )
-            goto LABEL_48;
-        }
+        while ( v9 >= v6 );
+        if ( v9 < v6 )
+LABEL_40:
+          ++v9;
       }
-LABEL_49:
       ++i;
     }
   }

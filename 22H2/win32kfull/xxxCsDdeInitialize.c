@@ -1,133 +1,118 @@
 /*
- * XREFs of xxxCsDdeInitialize @ 0x1C00AC42C
+ * XREFs of xxxCsDdeInitialize @ 0x1C0127D60
  * Callers:
- *     NtUserDdeInitialize @ 0x1C00AC330 (NtUserDdeInitialize.c)
+ *     NtUserDdeInitialize @ 0x1C0127C60 (NtUserDdeInitialize.c)
  * Callees:
- *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C0064FE4 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C009E5C0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
- *     xxxChangeMonitorFlags @ 0x1C00AC6D0 (xxxChangeMonitorFlags.c)
- *     ?xxxSetWindowLongPtr@@YA_KPEAUtagWND@@H_KHH@Z @ 0x1C00CA358 (-xxxSetWindowLongPtr@@YA_KPEAUtagWND@@H_KHH@Z.c)
- *     xxxDestroyWindow @ 0x1C00E8400 (xxxDestroyWindow.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     xxxCreateWindowEx @ 0x1C0075140 (xxxCreateWindowEx.c)
+ *     xxxDestroyWindow @ 0x1C007DC00 (xxxDestroyWindow.c)
+ *     ?xxxSetWindowLongPtr@@YA_KPEAUtagWND@@H_KHH@Z @ 0x1C0089BE8 (-xxxSetWindowLongPtr@@YA_KPEAUtagWND@@H_KHH@Z.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A94C (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE190 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     xxxChangeMonitorFlags @ 0x1C012802C (xxxChangeMonitorFlags.c)
  */
 
 __int64 __fastcall xxxCsDdeInitialize(_QWORD *a1, _QWORD *a2, _DWORD *a3, unsigned int a4, __int64 a5)
 {
-  __int64 v5; // rdi
-  _QWORD *CurrentProcessWin32Process; // rax
-  __int64 v9; // rcx
-  __int64 v10; // rax
-  int v11; // esi
-  __int64 Window; // rsi
-  __int64 v13; // r8
-  __int64 v14; // rax
-  __int64 v15; // rbx
-  struct tagWND **v16; // r14
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  __int64 v19; // rax
-  __int64 v20; // rdx
-  __int64 v21; // r8
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  __int64 v29; // rdx
-  __int64 v30; // rcx
-  __int64 v31; // r8
-  _BYTE v32[16]; // [rsp+98h] [rbp-51h] BYREF
-  _QWORD v33[2]; // [rsp+A8h] [rbp-41h] BYREF
-  _QWORD v34[3]; // [rsp+B8h] [rbp-31h] BYREF
-  _QWORD v35[3]; // [rsp+D0h] [rbp-19h] BYREF
-  _QWORD v36[10]; // [rsp+E8h] [rbp-1h] BYREF
+  __int64 v5; // rbx
+  __int64 v8; // rcx
+  __int64 CurrentProcessWin32Process; // rax
+  int v10; // edi
+  unsigned __int64 Window; // rsi
+  __int64 v12; // r8
+  __int64 v13; // rax
+  __int64 v14; // rdi
+  struct tagWND **v15; // r14
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  __int64 v19; // rcx
+  __int64 v20; // rcx
+  _QWORD v21[2]; // [rsp+98h] [rbp-41h] BYREF
+  _QWORD v22[3]; // [rsp+A8h] [rbp-31h] BYREF
+  _QWORD v23[3]; // [rsp+C0h] [rbp-19h] BYREF
+  _QWORD v24[10]; // [rsp+D8h] [rbp-1h] BYREF
 
   v5 = 0LL;
-  v36[2] = 0LL;
-  v35[2] = 0LL;
+  v24[2] = 0LL;
+  v23[2] = 0LL;
   if ( (*(_DWORD *)(gptiCurrent + 488LL) & 1) != 0 )
     return 16399LL;
-  CurrentProcessWin32Process = (_QWORD *)PsGetCurrentProcessWin32Process(a1);
-  if ( !CurrentProcessWin32Process || !*CurrentProcessWin32Process )
-    goto LABEL_7;
-  v10 = PsGetCurrentProcessWin32Process(v9);
-  if ( v10 )
-    v10 &= -(__int64)(*(_QWORD *)v10 != 0LL);
-  v11 = 1;
-  if ( !(unsigned int)IsImmersiveAppRestricted(v10) )
-LABEL_7:
-    v11 = 0;
-  SmartObjStackRefBase<tagMENU>::Init(v34, 0LL);
-  v34[2] = 0LL;
+  if ( !PsGetCurrentProcessWin32Process(a1)
+    || (CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v8),
+        v10 = 1,
+        !(unsigned int)IsImmersiveAppRestricted(CurrentProcessWin32Process)) )
+  {
+    v10 = 0;
+  }
+  SmartObjStackRefBase<tagMENU>::Init(v22, 0LL);
+  v22[2] = 0LL;
   Window = xxxCreateWindowEx(
              0,
-             *(unsigned __int16 *)(gpsi + 884LL),
+             (wchar_t *)*(unsigned __int16 *)(gpsi + 884LL),
              *(unsigned __int16 *)(gpsi + 884LL),
              0LL,
-             0xC0000000,
+             -1073741824,
              0,
              0,
              0,
              0,
              0LL,
-             (__int64)v34,
+             (__int64)v22,
              hModuleWin,
              0LL,
              0,
-             0x30Au,
-             v11,
+             -2147482870,
+             v10,
              0LL);
-  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v34);
+  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v22);
   if ( !Window )
     return 16399LL;
-  LOBYTE(v13) = 9;
-  v14 = HMAllocObject(gptiCurrent, 0LL, v13);
-  v15 = v14;
-  if ( !v14 )
+  LOBYTE(v12) = 9;
+  v13 = HMAllocObject(gptiCurrent, 0LL, v12);
+  v14 = v13;
+  if ( !v13 )
   {
     xxxDestroyWindow(Window);
     return 16399LL;
   }
-  v16 = (struct tagWND **)(v14 + 48);
-  v33[1] = Window;
-  v33[0] = v14 + 48;
-  HMAssignmentLock(v33, 0LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v32);
-  xxxSetWindowLongPtr(*v16, 0, *(_QWORD *)v15, 0, 0);
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)v32, v17, v18);
-  *(_QWORD *)(v15 + 56) = a5;
-  *(_QWORD *)(v15 + 24) = WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc;
-  *(_DWORD *)(v15 + 40) = 0;
-  *(_QWORD *)(v15 + 32) = *(_QWORD *)(gptiCurrent + 624LL);
-  v19 = *(_QWORD *)(gptiCurrent + 416LL);
-  *(_QWORD *)(gptiCurrent + 624LL) = v15;
-  v35[0] = v19;
-  *(_QWORD *)(gptiCurrent + 416LL) = v35;
-  v35[1] = v15;
-  WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc = (PKDPC)v15;
-  HMLockObject(v15);
-  v36[0] = *(_QWORD *)(gptiCurrent + 416LL);
-  *(_QWORD *)(gptiCurrent + 416LL) = v36;
-  v36[1] = Window;
+  v15 = (struct tagWND **)(v13 + 48);
+  v21[1] = Window;
+  v21[0] = v13 + 48;
+  HMAssignmentLock(v21);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v21);
+  xxxSetWindowLongPtr(*v15, 0LL, *(_QWORD *)v14, 0LL, 0);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v21);
+  *(_QWORD *)(v14 + 56) = a5;
+  *(_QWORD *)(v14 + 24) = WPP_MAIN_CB.Queue.Wcb.DeviceObject;
+  *(_DWORD *)(v14 + 40) = 0;
+  *(_QWORD *)(v14 + 32) = *(_QWORD *)(gptiCurrent + 624LL);
+  v16 = *(_QWORD *)(gptiCurrent + 416LL);
+  *(_QWORD *)(gptiCurrent + 624LL) = v14;
+  v23[0] = v16;
+  *(_QWORD *)(gptiCurrent + 416LL) = v23;
+  v23[1] = v14;
+  WPP_MAIN_CB.Queue.Wcb.DeviceObject = (PVOID)v14;
+  HMLockObject(v14);
+  v24[0] = *(_QWORD *)(gptiCurrent + 416LL);
+  *(_QWORD *)(gptiCurrent + 416LL) = v24;
+  v24[1] = Window;
   HMLockObject(Window);
-  xxxChangeMonitorFlags(v15, a4);
-  if ( (*(_BYTE *)(_HMPheFromObject(v15) + 25) & 1) != 0 )
+  xxxChangeMonitorFlags(v14, a4);
+  if ( (*(_BYTE *)(_HMPheFromObject(v14) + 25) & 1) != 0 )
   {
-    HMAssignmentUnlock(v16);
-    if ( ThreadUnlock1(v27, v26, v28) )
+    HMAssignmentUnlock(v15);
+    if ( ThreadUnlock1(v19) )
       xxxDestroyWindow(Window);
-    ThreadUnlock1(v30, v29, v31);
+    ThreadUnlock1(v20);
     return 16399LL;
   }
-  *a1 = *(_QWORD *)v15;
-  if ( *v16 )
-    v5 = *(_QWORD *)*v16;
+  *a1 = *(_QWORD *)v14;
+  if ( *v15 )
+    v5 = *(_QWORD *)*v15;
   *a2 = v5;
-  ThreadUnlock1(a1, v20, v21);
-  ThreadUnlock1(v23, v22, v24);
+  ThreadUnlock1(a1);
+  ThreadUnlock1(v17);
   *a3 = MonitorFlags;
   return 0LL;
 }

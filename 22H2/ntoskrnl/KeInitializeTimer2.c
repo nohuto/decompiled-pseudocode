@@ -1,16 +1,17 @@
 /*
- * XREFs of KeInitializeTimer2 @ 0x14031E320
+ * XREFs of KeInitializeTimer2 @ 0x14035A7C0
  * Callers:
- *     NtCreateWorkerFactory @ 0x1407860A0 (NtCreateWorkerFactory.c)
- *     NtCreateTimer2 @ 0x140786690 (NtCreateTimer2.c)
- *     PopDirectedDripsInitializeDisengageTimer @ 0x140802C0C (PopDirectedDripsInitializeDisengageTimer.c)
- *     PopThermalZoneAdd @ 0x1408247B0 (PopThermalZoneAdd.c)
- *     PopInitializeTimer @ 0x140849964 (PopInitializeTimer.c)
- *     ExpWorkQueueManagerInitialize @ 0x14084ABF0 (ExpWorkQueueManagerInitialize.c)
- *     EtwpCoverageEnsureContext @ 0x1408579E4 (EtwpCoverageEnsureContext.c)
- *     KiCompleteKernelInit @ 0x140A8D340 (KiCompleteKernelInit.c)
+ *     NtCreateWorkerFactory @ 0x140701710 (NtCreateWorkerFactory.c)
+ *     NtCreateTimer2 @ 0x140702200 (NtCreateTimer2.c)
+ *     PopDirectedDripsInitializeDisengageTimer @ 0x1407916EC (PopDirectedDripsInitializeDisengageTimer.c)
+ *     PopThermalZoneAdd @ 0x14079AA40 (PopThermalZoneAdd.c)
+ *     ExpWorkQueueManagerInitialize @ 0x1407C2F58 (ExpWorkQueueManagerInitialize.c)
+ *     PopInitializeTimer @ 0x1407C862C (PopInitializeTimer.c)
+ *     EtwpCoverageEnsureContext @ 0x1407C9F5C (EtwpCoverageEnsureContext.c)
+ *     KiCompleteKernelInit @ 0x14099D610 (KiCompleteKernelInit.c)
+ *     EtwpInitialize @ 0x140A41844 (EtwpInitialize.c)
  * Callees:
- *     KiInitializeTimer2 @ 0x14031E33C (KiInitializeTimer2.c)
+ *     KiInitializeTimer2 @ 0x14035A7DC (KiInitializeTimer2.c)
  */
 
 __int64 __fastcall KeInitializeTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

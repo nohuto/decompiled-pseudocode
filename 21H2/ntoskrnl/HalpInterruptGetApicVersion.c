@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpInterruptGetApicVersion @ 0x1403D8B80
+ * XREFs of HalpInterruptGetApicVersion @ 0x1403785A0
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptFindLinesForGsiRange @ 0x1402523CC (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140378FA8 (HalpInterruptFindLinesForGsiRange.c)
  */
 
-__int64 __fastcall HalpInterruptGetApicVersion(unsigned int a1)
+__int64 __fastcall HalpInterruptGetApicVersion(__int64 a1)
 {
-  _DWORD *LinesForGsiRange; // rax
+  __int64 LinesForGsiRange; // rax
   unsigned int v3; // [rsp+30h] [rbp+8h]
 
-  LinesForGsiRange = HalpInterruptFindLinesForGsiRange(a1, a1 + 1);
+  LinesForGsiRange = HalpInterruptFindLinesForGsiRange(a1, (unsigned int)(a1 + 1));
   if ( LinesForGsiRange )
   {
     LOWORD(v3) = 17;
-    HIBYTE(v3) = *((_BYTE *)LinesForGsiRange + 24) - *((_BYTE *)LinesForGsiRange + 20);
+    HIBYTE(v3) = *(_BYTE *)(LinesForGsiRange + 24) - *(_BYTE *)(LinesForGsiRange + 20);
     BYTE2(v3) = HIBYTE(v3) - 1;
   }
   else

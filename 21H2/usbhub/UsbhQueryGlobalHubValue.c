@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhQueryGlobalHubValue @ 0x1C0045610
+ * XREFs of UsbhQueryGlobalHubValue @ 0x1C0046940
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_q @ 0x1C002E090 (WPP_RECORDER_SF_q.c)
- *     WPP_RECORDER_SF_S @ 0x1C003ADD0 (WPP_RECORDER_SF_S.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002F46C (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003C0E0 (WPP_RECORDER_SF_S.c)
  */
 
-__int64 __fastcall UsbhQueryGlobalHubValue(__int64 a1, __int64 a2, _DWORD *a3, int a4, __int64 a5, _DWORD *a6)
+__int64 __fastcall UsbhQueryGlobalHubValue(const wchar_t *a1, __int64 a2, _DWORD *a3, int a4, __int64 a5, _DWORD *a6)
 {
   int v8; // r15d
   unsigned int v10; // ebx
@@ -30,10 +30,10 @@ __int64 __fastcall UsbhQueryGlobalHubValue(__int64 a1, __int64 a2, _DWORD *a3, i
     {
       if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
         WPP_RECORDER_SF_S(
-          WPP_GLOBAL_Control->DeviceExtension,
+          (__int64)WPP_GLOBAL_Control->DeviceExtension,
           a2,
-          (_DWORD)a3,
-          55,
+          (__int64)a3,
+          0x37u,
           (__int64)&WPP_290dcc7ac903398322657943f635c8d9_Traceguids,
           a1);
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )

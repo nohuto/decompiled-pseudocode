@@ -1,102 +1,68 @@
 /*
- * XREFs of PoExecuteIdleCheck @ 0x1403CB450
+ * XREFs of PoExecuteIdleCheck @ 0x140227E10
  * Callers:
- *     KiUpdateTime @ 0x1402C3670 (KiUpdateTime.c)
- *     KeClockInterruptNotify @ 0x1402C4670 (KeClockInterruptNotify.c)
+ *     KeClockInterruptNotify @ 0x140221600 (KeClockInterruptNotify.c)
+ *     KiUpdateTime @ 0x1402276F0 (KiUpdateTime.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140255050 (KeIsEmptyAffinityEx.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     KeAddProcessorAffinityEx @ 0x140257280 (KeAddProcessorAffinityEx.c)
- *     KiEnumerateNextProcessorNumber @ 0x140305C5C (KiEnumerateNextProcessorNumber.c)
- *     HalRequestIpi @ 0x14035BB40 (HalRequestIpi.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     PpmEventIdleDurationExpiration @ 0x14059A948 (PpmEventIdleDurationExpiration.c)
+ *     KiEnumerateNextProcessorNumber @ 0x1402284B0 (KiEnumerateNextProcessorNumber.c)
+ *     KeIsEmptyAffinityEx @ 0x140228520 (KeIsEmptyAffinityEx.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x140229340 (KeAddProcessorAffinityEx.c)
+ *     HalRequestIpi @ 0x140343EB0 (HalRequestIpi.c)
+ *     PpmGetIdleConstrainedMask @ 0x1403900C0 (PpmGetIdleConstrainedMask.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PpmEventIdleDurationExpiration @ 0x1405798F4 (PpmEventIdleDurationExpiration.c)
  */
 
 __int64 __fastcall PoExecuteIdleCheck(unsigned __int64 a1)
 {
   __int64 result; // rax
-  char v3; // bl
-  unsigned int v4; // r8d
-  __int64 v5; // r10
-  unsigned int v6; // eax
-  __int64 v7; // rcx
-  __int64 v8; // rdx
-  __int64 v9; // r9
-  __int64 v10; // r11
-  int v11; // ebx
+  unsigned int v3; // edi
   struct _KPRCB *Prcb; // rax
-  int v13; // [rsp+20h] [rbp-E0h] BYREF
-  __int128 v14; // [rsp+28h] [rbp-D8h] BYREF
-  __int64 v15; // [rsp+38h] [rbp-C8h]
-  _QWORD v16[34]; // [rsp+40h] [rbp-C0h] BYREF
-  _DWORD v17[68]; // [rsp+150h] [rbp+50h] BYREF
+  int v5; // [rsp+20h] [rbp-198h] BYREF
+  _QWORD v6[2]; // [rsp+28h] [rbp-190h] BYREF
+  __int16 v7; // [rsp+38h] [rbp-180h]
+  int v8; // [rsp+3Ah] [rbp-17Eh]
+  __int16 v9; // [rsp+3Eh] [rbp-17Ah]
+  _DWORD v10[44]; // [rsp+40h] [rbp-178h] BYREF
+  _QWORD v11[22]; // [rsp+F0h] [rbp-C8h] BYREF
 
-  v15 = 0LL;
-  v14 = 0LL;
-  memset(v17, 0, 0x108uLL);
-  LODWORD(v16[0]) = 2097153;
-  result = (__int64)memset((char *)v16 + 4, 0, 0x104uLL);
-  if ( !PpmIdleDurationExpirationTimeout )
-    return result;
-  if ( PpmIdleLastIdleDurationExpirationTime + PpmIdleDurationExpirationTimeout >= a1 )
-    return result;
-  v3 = 0;
-  result = (__int64)memset(&v16[1], 0, 8LL * LOWORD(v16[0]));
-  LOWORD(v16[0]) = 1;
-  v4 = 0;
-  if ( !KeNumberNodes )
-    return result;
-  do
+  v8 = 0;
+  v9 = 0;
+  memset(v11, 0, 0xA8uLL);
+  memset(&v10[2], 0, 0xA0uLL);
+  result = PpmIdleDurationExpirationTimeout;
+  if ( PpmIdleDurationExpirationTimeout )
   {
-    v5 = KeNodeBlock[v4];
-    v6 = *(_DWORD *)(v5 + 16);
-    while ( v6 )
+    if ( PpmIdleDurationExpirationTimeout + PpmIdleLastIdleDurationExpirationTime < a1 )
     {
-      _BitScanForward((unsigned int *)&v7, v6);
-      v13 = 0;
-      v6 &= ~(1 << v7);
-      v8 = *(_QWORD *)(v5 + 8 * v7 + 24);
-      v9 = *(unsigned __int16 *)(v8 + 136);
-      v10 = *(_QWORD *)(v8 + 72);
-      if ( LOWORD(v16[0]) <= (unsigned __int16)v9 )
+      result = PpmGetIdleConstrainedMask(v11);
+      if ( (_BYTE)result )
       {
-        if ( WORD1(v16[0]) <= (unsigned __int16)v9 )
-          goto LABEL_11;
-        LOWORD(v16[0]) = v9 + 1;
+        PpmIdleLastIdleDurationExpirationTime = a1;
+        v10[0] = 1310721;
+        memset(&v10[1], 0, 0xA4uLL);
+        v6[1] = v11[1];
+        v6[0] = v11;
+        v7 = 0;
+        while ( 1 )
+        {
+          v5 = 0;
+          if ( (int)KiEnumerateNextProcessorNumber(&v5, v6) < 0 )
+            break;
+          v3 = KiProcessorNumberToIndexMappingTable[64 * (unsigned __int16)v5 + BYTE2(v5)];
+          Prcb = (struct _KPRCB *)KeGetPrcb(v3);
+          if ( Prcb != KeGetCurrentPrcb() && Prcb->PowerState.IdleTimeExpiration <= a1 )
+            KeAddProcessorAffinityEx(v10, v3);
+        }
+        result = KeIsEmptyAffinityEx(v10);
+        if ( !(_DWORD)result )
+        {
+          PpmEventIdleDurationExpiration(v10);
+          return HalRequestIpi(0LL, v10);
+        }
       }
-      v16[v9 + 1] |= v10;
-LABEL_11:
-      if ( *(_QWORD *)(v8 + 72) )
-        v3 = 1;
-    }
-    result = (unsigned __int16)KeNumberNodes;
-    ++v4;
-  }
-  while ( v4 < (unsigned __int16)KeNumberNodes );
-  if ( v3 )
-  {
-    PpmIdleLastIdleDurationExpirationTime = a1;
-    v17[0] = 2097153;
-    memset(&v17[1], 0, 0x104uLL);
-    *((_QWORD *)&v14 + 1) = v16[1];
-    *(_QWORD *)&v14 = v16;
-    while ( 1 )
-    {
-      v13 = 0;
-      if ( (int)KiEnumerateNextProcessorNumber((__int64)&v13, (unsigned __int16 **)&v14) < 0 )
-        break;
-      v11 = KiProcessorNumberToIndexMappingTable[64 * (unsigned __int16)v13 + BYTE2(v13)];
-      Prcb = (struct _KPRCB *)KeGetPrcb(v11);
-      if ( Prcb != KeGetCurrentPrcb() && Prcb->PowerState.IdleTimeExpiration <= a1 )
-        KeAddProcessorAffinityEx((unsigned __int16 *)v17, v11);
-    }
-    result = KeIsEmptyAffinityEx(v17);
-    if ( !(_DWORD)result )
-    {
-      PpmEventIdleDurationExpiration(v17);
-      return HalRequestIpi(0, (__int64)v17);
     }
   }
   return result;

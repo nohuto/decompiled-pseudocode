@@ -1,24 +1,24 @@
 /*
- * XREFs of KsepLogEtwMessage @ 0x14020A5FC
+ * XREFs of KsepLogEtwMessage @ 0x140371FB8
  * Callers:
- *     KsepLogError @ 0x14020A5CC (KsepLogError.c)
- *     KsepLogInfo @ 0x140374700 (KsepLogInfo.c)
+ *     KsepLogInfo @ 0x140371F88 (KsepLogInfo.c)
+ *     KsepLogError @ 0x140372754 (KsepLogError.c)
  * Callees:
- *     RtlStringCbVPrintfA @ 0x14020A6D8 (RtlStringCbVPrintfA.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     RtlStringCbVPrintfA @ 0x1403720AC (RtlStringCbVPrintfA.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall KsepLogEtwMessage(int a1, int a2, const char *a3, va_list a4)
 {
   __int64 v5; // rax
   const EVENT_DESCRIPTOR *v6; // rdx
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+30h] [rbp-D0h] BYREF
-  char *v8; // [rsp+40h] [rbp-C0h]
-  int v9; // [rsp+48h] [rbp-B8h]
-  int v10; // [rsp+4Ch] [rbp-B4h]
-  char pszDest[256]; // [rsp+50h] [rbp-B0h] BYREF
-  int v12; // [rsp+170h] [rbp+70h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-C0h] BYREF
+  char *v8; // [rsp+50h] [rbp-B0h]
+  int v9; // [rsp+58h] [rbp-A8h]
+  int v10; // [rsp+5Ch] [rbp-A4h]
+  char pszDest[256]; // [rsp+60h] [rbp-A0h] BYREF
+  int v12; // [rsp+180h] [rbp+80h] BYREF
 
   v12 = a1;
   if ( KseEtwHandle && RtlStringCbVPrintfA(pszDest, 0x100uLL, a3, a4) >= 0 )
@@ -36,6 +36,6 @@ void __fastcall KsepLogEtwMessage(int a1, int a2, const char *a3, va_list a4)
     v9 = v5 + 1;
     if ( a2 )
       v6 = &KShimInfoMessage;
-    EtwWrite(KseEtwHandle, v6, 0LL, 2u, &UserData);
+    EtwWriteEx(KseEtwHandle, v6, 0LL, 0, 0LL, 0LL, 2u, &UserData);
   }
 }

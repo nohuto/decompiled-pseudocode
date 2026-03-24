@@ -1,12 +1,12 @@
 /*
- * XREFs of PsRootSiloInformation @ 0x1409AB8A0
+ * XREFs of PsRootSiloInformation @ 0x140905BF4
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PsGetCurrentSilo @ 0x140347D50 (PsGetCurrentSilo.c)
- *     PspGetNextSilo @ 0x14068A6A0 (PspGetNextSilo.c)
- *     PspIsSiloInSilo @ 0x1406E1570 (PspIsSiloInSilo.c)
+ *     PsGetCurrentSilo @ 0x14027C930 (PsGetCurrentSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PspGetNextSilo @ 0x140617AF0 (PspGetNextSilo.c)
+ *     PspIsSiloInSilo @ 0x1406BF51C (PspIsSiloInSilo.c)
  */
 
 __int64 __fastcall PsRootSiloInformation(_DWORD *a1, unsigned int a2, unsigned int *a3)
@@ -41,7 +41,7 @@ __int64 __fastcall PsRootSiloInformation(_DWORD *a1, unsigned int a2, unsigned i
         ObfDereferenceObjectWithTag(v12, 0x6E457350u);
         break;
       }
-      a1[v8 + 1] = HIDWORD(v12[89].Flink);
+      a1[v8 + 1] = HIDWORD(v12[77].Flink);
       v5 += 4;
       v8 = (unsigned int)(v8 + 1);
     }

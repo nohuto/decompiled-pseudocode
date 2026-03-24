@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAcpiGetFacsMappingDispatch @ 0x140394CA0
+ * XREFs of HalAcpiGetFacsMappingDispatch @ 0x1403BA150
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiGetFacsMapping @ 0x140394CB8 (HalpAcpiGetFacsMapping.c)
+ *     HalpAcpiGetFacsMapping @ 0x1403BA168 (HalpAcpiGetFacsMapping.c)
  */
 
 __int64 HalAcpiGetFacsMappingDispatch()

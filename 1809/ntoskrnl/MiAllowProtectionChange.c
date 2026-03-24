@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAllowProtectionChange @ 0x1400F15C8
+ * XREFs of MiAllowProtectionChange @ 0x1400F15E8
  * Callers:
- *     MiResetVirtualMemory @ 0x140132AB4 (MiResetVirtualMemory.c)
+ *     MiResetVirtualMemory @ 0x140132AD4 (MiResetVirtualMemory.c)
  *     MiAllocateVirtualMemory @ 0x1405ED650 (MiAllocateVirtualMemory.c)
  *     MmProtectVirtualMemory @ 0x1405EDFD0 (MmProtectVirtualMemory.c)
  * Callees:
  *     MiQueryAddressState @ 0x14003EAF0 (MiQueryAddressState.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiArbitraryCodeBlocked @ 0x140676760 (MiArbitraryCodeBlocked.c)
+ *     MiArbitraryCodeBlocked @ 0x140676740 (MiArbitraryCodeBlocked.c)
  */
 
 __int64 __fastcall MiAllowProtectionChange(

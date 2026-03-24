@@ -1,52 +1,48 @@
 /*
- * XREFs of GreGetDpiDepDefaultGuiFont @ 0x1C015F550
+ * XREFs of GreGetDpiDepDefaultGuiFont @ 0x1C0142630
  * Callers:
- *     GreGetStockObject @ 0x1C004D230 (GreGetStockObject.c)
+ *     GreGetStockObject @ 0x1C002BF90 (GreGetStockObject.c)
  * Callees:
- *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C004D320 (W32GetCurrentThreadDpiAwarenessContext.c)
- *     EngSetLastError @ 0x1C00AADD0 (EngSetLastError.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     GetDpiDepStockObjectPlateauSlot @ 0x1C015F4DC (GetDpiDepStockObjectPlateauSlot.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C002BEF4 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     EngSetLastError @ 0x1C009F430 (EngSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     GetDpiDepStockObjectPlateauSlot @ 0x1C01425C0 (GetDpiDepStockObjectPlateauSlot.c)
  */
 
-__int64 __fastcall GreGetDpiDepDefaultGuiFont(__int64 a1)
+void *__fastcall GreGetDpiDepDefaultGuiFont(int a1)
 {
   __int64 v1; // rbx
-  _QWORD *v2; // rdi
-  unsigned int v3; // esi
-  __int64 v4; // rcx
-  __int64 v5; // rax
+  unsigned int CurrentThreadDpiAwarenessContext; // eax
   int DpiDepStockObjectPlateauSlot; // eax
-  __int64 v7; // rax
-  __int64 v8; // rbp
+  unsigned int v4; // r11d
+  void **v5; // rax
+  __int64 v6; // rdi
 
   v1 = 0LL;
-  if ( (_DWORD)a1 != 17 )
-    return v1;
-  v2 = *(_QWORD **)(SGDGetSessionState(a1) + 24);
-  v3 = ((unsigned int)W32GetCurrentThreadDpiAwarenessContext() >> 8) & 0x1FF;
-  v5 = SGDGetSessionState(v4);
+  if ( a1 != 17 )
+    return (void *)v1;
+  CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext();
   DpiDepStockObjectPlateauSlot = GetDpiDepStockObjectPlateauSlot(
-                                   v3,
-                                   *(unsigned __int16 *)(*(_QWORD *)(v5 + 24) + 1248LL));
+                                   (CurrentThreadDpiAwarenessContext >> 8) & 0x1FF,
+                                   gdmLogPixels);
   if ( DpiDepStockObjectPlateauSlot == -1 )
   {
-    v7 = v2[397];
-    return *(_QWORD *)(v7 + 136);
+    v5 = gahStockObjects96;
+    return v5[17];
   }
   if ( DpiDepStockObjectPlateauSlot == -2 )
   {
 LABEL_11:
-    v7 = v2[396];
-    return *(_QWORD *)(v7 + 136);
+    v5 = gahStockObjects;
+    return v5[17];
   }
   if ( DpiDepStockObjectPlateauSlot < 0 )
   {
     EngSetLastError(0x57u);
     goto LABEL_11;
   }
-  v8 = DpiDepStockObjectPlateauSlot;
-  if ( !*(_QWORD *)(v2[398] + 8LL * DpiDepStockObjectPlateauSlot) && qword_1C0294678 )
-    qword_1C0294678(v3);
-  return *(_QWORD *)(v2[398] + 8 * v8);
+  v6 = DpiDepStockObjectPlateauSlot;
+  if ( !gahDpiDepDefaultGuiFonts[DpiDepStockObjectPlateauSlot] && qword_1C0255268 )
+    qword_1C0255268(v4);
+  return gahDpiDepDefaultGuiFonts[v6];
 }

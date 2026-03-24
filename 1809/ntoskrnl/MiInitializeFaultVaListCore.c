@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInitializeFaultVaListCore @ 0x1402AE9C8
+ * XREFs of MiInitializeFaultVaListCore @ 0x1402AEAC8
  * Callers:
  *     MiInitializePrototypePtes @ 0x14061F030 (MiInitializePrototypePtes.c)
- *     MmVirtualAccessFault @ 0x140859094 (MmVirtualAccessFault.c)
+ *     MmVirtualAccessFault @ 0x140859074 (MmVirtualAccessFault.c)
  * Callees:
  *     <none>
  */

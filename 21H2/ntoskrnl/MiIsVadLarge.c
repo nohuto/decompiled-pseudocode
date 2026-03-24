@@ -1,9 +1,10 @@
 /*
- * XREFs of MiIsVadLarge @ 0x14031077C
+ * XREFs of MiIsVadLarge @ 0x140318264
  * Callers:
- *     MiInPagePageTable @ 0x140353230 (MiInPagePageTable.c)
- *     MiProcessVaRangesInfoClass @ 0x140753B20 (MiProcessVaRangesInfoClass.c)
- *     MiRemoveVadCharges @ 0x1407BC750 (MiRemoveVadCharges.c)
+ *     MiInPagePageTable @ 0x14030BDC0 (MiInPagePageTable.c)
+ *     MiVadCommitCrossPartition @ 0x14031823C (MiVadCommitCrossPartition.c)
+ *     MiRemoveVadCharges @ 0x1406ED1F0 (MiRemoveVadCharges.c)
+ *     MiProcessVaRangesInfoClass @ 0x14070FBB4 (MiProcessVaRangesInfoClass.c)
  * Callees:
  *     <none>
  */
@@ -13,9 +14,9 @@ __int64 __fastcall MiIsVadLarge(__int64 a1)
   int v1; // eax
 
   v1 = *(_DWORD *)(a1 + 48);
-  if ( (v1 & 0x200000) != 0 )
+  if ( (v1 & 0x100000) != 0 )
   {
-    if ( (v1 & 0x800000) == 0 && (v1 & 0x180000u) < 0x100000 )
+    if ( (v1 & 0x400000) == 0 && (v1 & 0xC0000u) < 0x80000 )
       return 0LL;
   }
   else if ( (*(_DWORD *)(a1 + 64) & 0x1000000) == 0 )

@@ -1,104 +1,250 @@
 /*
- * XREFs of IvtFlushTbInternal @ 0x14052E568
+ * XREFs of IvtFlushTbInternal @ 0x1404DFAA4
  * Callers:
- *     IvtAttachDeviceDomainInternal @ 0x14052DF88 (IvtAttachDeviceDomainInternal.c)
- *     IvtFlushDomainTb @ 0x14052E520 (IvtFlushDomainTb.c)
- *     IvtInitializeIommu @ 0x140A63CE0 (IvtInitializeIommu.c)
+ *     IvtAttachDeviceDomainInternal @ 0x1404DF5C8 (IvtAttachDeviceDomainInternal.c)
+ *     IvtFlushDomainTb @ 0x1404DFA50 (IvtFlushDomainTb.c)
+ *     IvtInitializeIommu @ 0x1409A9950 (IvtInitializeIommu.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x1403119F0 (KxAcquireQueuedSpinLock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     IvtIommuSendCommand @ 0x14052F378 (IvtIommuSendCommand.c)
- *     IvtIommuWaitCommand @ 0x14052F618 (IvtIommuWaitCommand.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     HalpIommuGetNextFlushDevice @ 0x1404CBF7C (HalpIommuGetNextFlushDevice.c)
+ *     IvtIommuSendCommand @ 0x1404E0830 (IvtIommuSendCommand.c)
+ *     IvtIommuWaitCommand @ 0x1404E0A30 (IvtIommuWaitCommand.c)
  */
 
-__int64 __fastcall IvtFlushTbInternal(
+char __fastcall IvtFlushTbInternal(
         __int64 a1,
         __int64 a2,
         __int64 a3,
         char a4,
-        int a5,
-        __int64 a6,
-        __int64 a7,
-        unsigned int a8,
+        char a5,
+        int a6,
+        _QWORD *a7,
+        int a8,
         __int64 a9)
 {
-  unsigned int v9; // r12d
-  unsigned __int16 v11; // bx
-  _QWORD *i; // rcx
-  _QWORD *v13; // rcx
-  int v14; // r13d
-  unsigned __int64 v15; // r14
-  unsigned int v16; // edi
-  char v17; // si
-  unsigned __int64 v18; // rbx
-  unsigned int v19; // ecx
-  __int64 v20; // rdx
-  _QWORD *v22; // [rsp+20h] [rbp-40h]
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+28h] [rbp-38h] BYREF
-  unsigned __int64 v24; // [rsp+40h] [rbp-20h] BYREF
-  unsigned __int64 v25; // [rsp+48h] [rbp-18h]
+  char v9; // r15
+  int v10; // esi
+  unsigned __int64 v12; // rcx
+  unsigned __int64 v13; // rcx
+  __int64 v14; // rdx
+  __int64 v15; // rbx
+  _QWORD *v16; // rsi
+  unsigned __int64 v17; // rcx
+  __int16 v18; // bx
+  unsigned __int16 v19; // bx
+  __int64 v20; // rsi
+  int v21; // r8d
+  unsigned __int64 v22; // r12
+  __int64 v23; // rax
+  unsigned __int64 v24; // r12
+  unsigned int v25; // esi
+  int v26; // r14d
+  unsigned __int64 v27; // rbx
+  unsigned int v28; // ecx
+  __int16 v29; // r8
+  unsigned __int64 v30; // rcx
+  unsigned __int64 v31; // rbx
+  _QWORD *v32; // r15
+  _BYTE *v33; // rax
+  char result; // al
+  struct _EX_RUNDOWN_REF *v35; // rcx
+  _BYTE *v36; // [rsp+30h] [rbp-59h] BYREF
+  PEX_RUNDOWN_REF RunRef; // [rsp+38h] [rbp-51h] BYREF
+  __int128 v38; // [rsp+40h] [rbp-49h] BYREF
+  __int64 v39; // [rsp+50h] [rbp-39h] BYREF
+  _QWORD *v40; // [rsp+58h] [rbp-31h] BYREF
+  __int128 v41; // [rsp+60h] [rbp-29h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+70h] [rbp-19h] BYREF
+  __int64 v43; // [rsp+88h] [rbp-1h]
+  unsigned int v44; // [rsp+D0h] [rbp+47h]
+  int v45; // [rsp+D8h] [rbp+4Fh] BYREF
 
-  v9 = a8;
-  v25 = 0LL;
+  v9 = a5;
+  v10 = a8;
+  RunRef = 0LL;
+  v36 = 0LL;
+  v45 = 0;
+  v41 = 0LL;
+  v39 = 0LL;
+  v12 = (-(__int64)(a5 != 0) & 0xFFFFFFFFFFFFFFFCuLL) + 6;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( a8 && _bittest64((const signed __int64 *)(a1 + 216), 0x27u) )
+  v38 = 0LL;
+  if ( !a8 )
   {
-    LockHandle.LockQueue.Next = 0LL;
-    v11 = 0;
-    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 208);
-    v24 = ((unsigned __int64)(unsigned __int16)a3 << 16) | 0xF2;
-    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(a1 + 208));
-    for ( i = (_QWORD *)(a9 + 8LL * a8); ; i = v22 )
+    if ( a4 )
     {
-      v13 = i - 1;
-      --v9;
-      v14 = 0;
-      v22 = v13;
-      if ( ((*v13 >> 10) & 3) != 0 )
-        v14 = 9 * ((*v13 >> 10) & 3);
-      v15 = *v13 & 0xFFFFFFFFFFFFF000uLL;
-      v16 = (*(_DWORD *)v13 & 0x3FF) + 1;
-      while ( 1 )
+      if ( a5 )
+        v13 = v12 & 0xFFFFFFFFFFFFFFCFuLL | 0x10;
+      else
+        v13 = v12 & 0xFFFFFFFFFFFFFFCFuLL;
+    }
+    else
+    {
+      if ( a5 )
       {
-        v17 = 0;
-        v18 = v15 ^ ((unsigned __int16)v15 ^ v11) & 0xFFF;
-        if ( v16 > 1 )
-        {
-          do
-          {
-            if ( (((1 << (v14 + 13 + v17)) - 1) & (unsigned int)v15) != 0 )
-              break;
-            ++v17;
-          }
-          while ( 1 << v17 < v16 );
-        }
-        v19 = v16 < 1 << v17 ? (1 << v17) - v16 : 0;
-        if ( v19 >= 0x1F || v14 == 9 && v19 )
-          --v17;
-        v25 = ((unsigned __int8)v18 ^ (unsigned __int8)(v17 + v14)) & 0x3F ^ v18;
-        IvtIommuSendCommand(a1, &v24, 1LL);
-        if ( v16 <= 1 << v17 )
-          break;
-        v16 -= 1 << v17;
-        v15 += 1LL << (v17 + (unsigned __int8)v14 + 12);
-        if ( !v16 )
-          break;
-        v11 = v25;
+        *(_QWORD *)&v38 = v12 & 0xFFFFFFFF0000FFEFuLL | ((unsigned __int64)(unsigned __int16)a3 << 16) | 0x20;
+        goto LABEL_10;
       }
-      if ( !v9 )
-        break;
-      v11 = v25;
+      v13 = v12 & 0xFFF00000FFFFFFCFuLL | 0x20;
+    }
+    *(_QWORD *)&v38 = v13;
+LABEL_10:
+    IvtIommuSendCommand(a1, &v38, 0LL);
+    if ( v9 )
+      goto LABEL_48;
+    v40 = 0LL;
+    *((_QWORD *)&v41 + 1) = 0x8000000000000800uLL;
+    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 168);
+    v15 = 8LL;
+    LockHandle.LockQueue.Next = 0LL;
+    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(a1 + 168));
+    v16 = a7;
+    while ( HalpIommuGetNextFlushDevice(v16, &v40, &v39, &v45, &RunRef, &v36) )
+    {
+      if ( ExAcquireRundownProtection_0(RunRef) )
+      {
+        v17 = (unsigned __int64)(unsigned __int16)v39 << 12;
+        *v36 = 1;
+        *(_QWORD *)&v41 = v15 & 0xFFFFFFFF0000FE0FuLL | (16 * (v45 & 0x1F | v17));
+        IvtIommuSendCommand(a1, &v41, 1LL);
+        v15 = v41;
+      }
     }
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    goto LABEL_49;
+  }
+  v18 = WORD4(v38);
+  if ( a5 )
+  {
+    *(_QWORD *)&v38 = v12 ^ (v12 ^ (a3 << 16)) & 0xFFFF0000 | 0xF0;
   }
   else
   {
-    if ( a4 || a3 == 0x10000 )
-      v24 = 18LL;
-    else
-      v24 = ((unsigned __int64)(unsigned __int16)a3 << 16) | 0x22;
-    IvtIommuSendCommand(a1, &v24, 0LL);
+    *(_QWORD *)&v38 = v12 & 0xFFF00000FFFFFFCFuLL | 0x30;
+    v18 = WORD4(v38) | 0x80;
   }
-  return IvtIommuWaitCommand(a1, v20, 0LL);
+  LockHandle.LockQueue.Next = 0LL;
+  v19 = v18 & 0xFFBF;
+  LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 168);
+  KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(a1 + 168));
+  while ( 2 )
+  {
+    v20 = (unsigned int)(v10 - 1);
+    v21 = 0;
+    a6 = 0;
+    a8 = v20;
+    v22 = *(_QWORD *)(a9 + 8 * v20);
+    v23 = (v22 >> 10) & 3;
+    if ( ((v22 >> 10) & 3) != 0 )
+    {
+      v21 = 9 * v23;
+      a6 = 9 * v23;
+    }
+    v24 = v22 & 0xFFFFFFFFFFFFF000uLL;
+    v25 = (*(_DWORD *)(a9 + 8 * v20) & 0x3FF) + 1;
+    v44 = v25;
+    while ( 1 )
+    {
+      v26 = 0;
+      v27 = v24 ^ ((unsigned __int16)v24 ^ v19) & 0xFFF;
+      if ( v25 > 1 )
+      {
+        do
+        {
+          if ( (((1 << (v21 + 13 + v26)) - 1) & (unsigned int)v24) != 0 )
+            break;
+          ++v26;
+        }
+        while ( 1 << v26 < v25 );
+      }
+      v28 = v25 < 1 << v26 ? (1 << v26) - v25 : 0;
+      if ( v28 >= 0x1F || v21 == 9 && v28 )
+        --v26;
+      v43 = (unsigned int)(v26 + v21);
+      *((_QWORD *)&v38 + 1) = ((unsigned __int8)v27 ^ (unsigned __int8)(v26 + v21)) & 0x3F ^ v27;
+      IvtIommuSendCommand(a1, &v38, 1LL);
+      if ( (_QWORD *)*a7 != a7 && !v9 )
+      {
+        v29 = 0;
+        v30 = v24;
+        v31 = 8LL;
+        if ( v26 || a6 )
+        {
+          v29 = 2048;
+          v30 = (unsigned int)~(1 << (v43 + 11)) & (v24 | (unsigned int)((1 << (v43 + 11)) - 1));
+        }
+        v32 = a7;
+        v40 = 0LL;
+        *((_QWORD *)&v41 + 1) = v30 ^ ((unsigned __int16)v30 ^ (unsigned __int16)v29) & 0xFFF;
+        while ( 1 )
+        {
+          while ( 1 )
+          {
+            if ( !HalpIommuGetNextFlushDevice(v32, &v40, &v39, &v45, &RunRef, &v36) )
+            {
+              v25 = v44;
+              v9 = a5;
+              goto LABEL_42;
+            }
+            v31 = v31 & 0xFFFFFFFF0000FE0FuLL | (16 * (v45 & 0x1F | ((unsigned __int64)(unsigned __int16)v39 << 12)));
+            v33 = v36;
+            *(_QWORD *)&v41 = v31;
+            if ( !*v36 )
+              break;
+LABEL_40:
+            *v33 = 1;
+            IvtIommuSendCommand(a1, &v41, 1LL);
+            v31 = v41;
+          }
+          if ( ExAcquireRundownProtection_0(RunRef) )
+          {
+            v33 = v36;
+            goto LABEL_40;
+          }
+        }
+      }
+LABEL_42:
+      if ( v25 <= 1 << v26 )
+        break;
+      v25 -= 1 << v26;
+      v44 = v25;
+      v24 += 1LL << ((unsigned __int8)v43 + 12);
+      if ( !v25 )
+        break;
+      v19 = WORD4(v38);
+      v21 = a6;
+    }
+    v10 = a8;
+    if ( a8 )
+    {
+      v19 = WORD4(v38);
+      continue;
+    }
+    break;
+  }
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+LABEL_48:
+  v16 = a7;
+LABEL_49:
+  result = IvtIommuWaitCommand(a1, v14, 0LL);
+  v40 = 0LL;
+  if ( !v9 )
+  {
+    while ( 1 )
+    {
+      result = HalpIommuGetNextFlushDevice(v16, &v40, &v39, &v45, &RunRef, &v36);
+      if ( !result )
+        break;
+      if ( *v36 )
+      {
+        v35 = RunRef;
+        *v36 = 0;
+        ExReleaseRundownProtection_0(v35);
+      }
+    }
+  }
+  return result;
 }

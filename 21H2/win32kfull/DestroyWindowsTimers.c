@@ -1,13 +1,13 @@
 /*
- * XREFs of DestroyWindowsTimers @ 0x1C0060DA4
+ * XREFs of DestroyWindowsTimers @ 0x1C000B4B8
  * Callers:
- *     xxxFreeWindow @ 0x1C005E458 (xxxFreeWindow.c)
- *     ?xxxClientShutdown2@@YAJPEAUtagBWL@@I_K@Z @ 0x1C010945C (-xxxClientShutdown2@@YAJPEAUtagBWL@@I_K@Z.c)
+ *     ?xxxClientShutdown2@@YAJPEAUtagBWL@@I_K@Z @ 0x1C000B354 (-xxxClientShutdown2@@YAJPEAUtagBWL@@I_K@Z.c)
  * Callees:
- *     FreeTimer @ 0x1C0070D80 (FreeTimer.c)
+ *     FreeTimer @ 0x1C000B6C0 (FreeTimer.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016E324 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 DestroyWindowsTimers()
 {
-  return gtmrListHead[0];
+  return gtmrListHead;
 }

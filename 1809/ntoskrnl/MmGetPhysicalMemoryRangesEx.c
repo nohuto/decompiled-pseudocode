@@ -1,11 +1,11 @@
 /*
- * XREFs of MmGetPhysicalMemoryRangesEx @ 0x14075B6A0
+ * XREFs of MmGetPhysicalMemoryRangesEx @ 0x14075B680
  * Callers:
- *     MmGetPhysicalMemoryRanges @ 0x14075B680 (MmGetPhysicalMemoryRanges.c)
+ *     MmGetPhysicalMemoryRanges @ 0x14075B660 (MmGetPhysicalMemoryRanges.c)
  * Callees:
  *     MiPartitionObjectToPartition @ 0x140011CE4 (MiPartitionObjectToPartition.c)
  *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     MiGetPhysicalMemoryRanges @ 0x1406DAE1C (MiGetPhysicalMemoryRanges.c)
+ *     MiGetPhysicalMemoryRanges @ 0x1406DADFC (MiGetPhysicalMemoryRanges.c)
  */
 
 ULONG_PTR *__fastcall MmGetPhysicalMemoryRangesEx(ULONG_PTR **a1)

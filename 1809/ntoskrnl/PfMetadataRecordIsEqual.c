@@ -1,8 +1,8 @@
 /*
- * XREFs of PfMetadataRecordIsEqual @ 0x14065DB98
+ * XREFs of PfMetadataRecordIsEqual @ 0x14065DB78
  * Callers:
- *     PfSnOpenVolumesForPrefetch @ 0x14065DC6C (PfSnOpenVolumesForPrefetch.c)
- *     PfVerifyScenarioBuffer @ 0x140668B10 (PfVerifyScenarioBuffer.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x14065DC4C (PfSnOpenVolumesForPrefetch.c)
+ *     PfVerifyScenarioBuffer @ 0x140668AF0 (PfVerifyScenarioBuffer.c)
  * Callees:
  *     <none>
  */

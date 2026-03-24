@@ -1,7 +1,7 @@
 /*
- * XREFs of KiUncommitNodeAssignment @ 0x1402901D0
+ * XREFs of KiUncommitNodeAssignment @ 0x1402902D0
  * Callers:
- *     KiRemoveProcessorFromGroupDatabase @ 0x14029015C (KiRemoveProcessorFromGroupDatabase.c)
+ *     KiRemoveProcessorFromGroupDatabase @ 0x14029025C (KiRemoveProcessorFromGroupDatabase.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxAcpiForwardPepAcpiNotifyRequest @ 0x1405DDD88
+ * XREFs of PopFxAcpiForwardPepAcpiNotifyRequest @ 0x14057DE10
  * Callers:
- *     PopFxProcessWork @ 0x140354CBC (PopFxProcessWork.c)
+ *     PopFxProcessWork @ 0x140260844 (PopFxProcessWork.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PopFxBugCheck @ 0x1405CAE6C (PopFxBugCheck.c)
- *     PopFxFindAndReferenceAcpiDevice @ 0x1405CC3A0 (PopFxFindAndReferenceAcpiDevice.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
+ *     PopFxFindAndReferenceAcpiDevice @ 0x14056ABE0 (PopFxFindAndReferenceAcpiDevice.c)
  */
 
 LONG __fastcall PopFxAcpiForwardPepAcpiNotifyRequest(ULONG_PTR BugCheckParameter2, int *a2)
@@ -14,7 +14,6 @@ LONG __fastcall PopFxAcpiForwardPepAcpiNotifyRequest(ULONG_PTR BugCheckParameter
   LONG result; // eax
   _QWORD v5[5]; // [rsp+20h] [rbp-28h] BYREF
 
-  HIDWORD(v5[0]) = 0;
   result = PopFxFindAndReferenceAcpiDevice((__int64 *)BugCheckParameter2);
   if ( result >= 0 )
   {

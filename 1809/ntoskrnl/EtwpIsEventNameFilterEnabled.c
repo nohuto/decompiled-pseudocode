@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpIsEventNameFilterEnabled @ 0x1400CC27C
+ * XREFs of EtwpIsEventNameFilterEnabled @ 0x1400CC29C
  * Callers:
- *     EtwpWriteUserEvent @ 0x1406473F0 (EtwpWriteUserEvent.c)
+ *     EtwpWriteUserEvent @ 0x1406473D0 (EtwpWriteUserEvent.c)
  * Callees:
  *     <none>
  */

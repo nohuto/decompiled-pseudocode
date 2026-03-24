@@ -1,9 +1,9 @@
 /*
- * XREFs of Crashdump_Register_ResetController @ 0x1C004B964
+ * XREFs of Crashdump_Register_ResetController @ 0x1C004AEEC
  * Callers:
- *     Crashdump_InitializeWithControllerReset @ 0x1C004A724 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_InitializeWithControllerReset @ 0x1C0049C90 (Crashdump_InitializeWithControllerReset.c)
  * Callees:
- *     Crashdump_Register_StopController @ 0x1C004BED4 (Crashdump_Register_StopController.c)
+ *     Crashdump_Register_StopController @ 0x1C004B454 (Crashdump_Register_StopController.c)
  */
 
 __int64 __fastcall Crashdump_Register_ResetController(__int64 a1)

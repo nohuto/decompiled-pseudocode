@@ -1,8 +1,8 @@
 /*
- * XREFs of RegisterCDROMNotify @ 0x1C00BA9AC
+ * XREFs of RegisterCDROMNotify @ 0x1C01368F8
  * Callers:
- *     xxxRegisterForDeviceClassNotifications @ 0x1C00BA85C (xxxRegisterForDeviceClassNotifications.c)
- *     xxxRemoteReconnect @ 0x1C0132780 (xxxRemoteReconnect.c)
+ *     xxxRegisterForDeviceClassNotifications @ 0x1C0008590 (xxxRegisterForDeviceClassNotifications.c)
+ *     xxxRemoteReconnect @ 0x1C0161DA0 (xxxRemoteReconnect.c)
  * Callees:
  *     <none>
  */

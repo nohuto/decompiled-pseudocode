@@ -1,14 +1,14 @@
 /*
- * XREFs of ?vApplyMoveData@METAREGION@@AEAAHPEAU_RECTL@@PEAU_POINTL@@PEAVREGION@@@Z @ 0x1C02E0910
+ * XREFs of ?vApplyMoveData@METAREGION@@AEAAHPEAU_RECTL@@PEAU_POINTL@@PEAVREGION@@@Z @ 0x1C02C1418
  * Callers:
- *     ?vSpUpdateDirtyRgn@@YAXPEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUHDC__@@PEAUtagRECT@@PEAKH@Z @ 0x1C00D92B0 (-vSpUpdateDirtyRgn@@YAXPEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUHDC__@@PEAUtagRECT@@PEAKH@Z.c)
+ *     ?vSpUpdateDirtyRgn@@YAXPEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUHDC__@@PEAUtagRECT@@PEAKH@Z @ 0x1C00913E0 (-vSpUpdateDirtyRgn@@YAXPEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUHDC__@@PEAUtagRECT@@PEAKH@Z.c)
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00311EC (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ?vClearMoveData@METAREGION@@QEAAXH@Z @ 0x1C007B5E8 (-vClearMoveData@METAREGION@@QEAAXH@Z.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00D5ED4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?bIntersectMoveWithDirty@METAREGION@@AEAAHPEAU_RECTL@@@Z @ 0x1C02E0348 (-bIntersectMoveWithDirty@METAREGION@@AEAAHPEAU_RECTL@@@Z.c)
- *     ?vAddRectToMoveRegionHelper@METAREGION@@AEAAHPEAU_RECTL@@@Z @ 0x1C02E07D4 (-vAddRectToMoveRegionHelper@METAREGION@@AEAAHPEAU_RECTL@@@Z.c)
+ *     ?vClearMoveData@METAREGION@@QEAAXH@Z @ 0x1C0015BD8 (-vClearMoveData@METAREGION@@QEAAXH@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B12D0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B94F8 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?bIntersectMoveWithDirty@METAREGION@@AEAAHPEAU_RECTL@@@Z @ 0x1C02C0E1C (-bIntersectMoveWithDirty@METAREGION@@AEAAHPEAU_RECTL@@@Z.c)
+ *     ?vAddRectToMoveRegionHelper@METAREGION@@AEAAHPEAU_RECTL@@@Z @ 0x1C02C12B8 (-vAddRectToMoveRegionHelper@METAREGION@@AEAAHPEAU_RECTL@@@Z.c)
  */
 
 __int64 __fastcall METAREGION::vApplyMoveData(
@@ -19,18 +19,17 @@ __int64 __fastcall METAREGION::vApplyMoveData(
 {
   REGION *v4; // rsi
   unsigned int v8; // edi
-  struct _POINTL *v9; // r12
+  struct _POINTL *v9; // r15
   REGION *v10; // rcx
   REGION *v11; // rcx
   REGION *v12; // rcx
-  __int64 v14; // [rsp+20h] [rbp-40h] BYREF
-  __int64 v15; // [rsp+28h] [rbp-38h] BYREF
-  __int64 v16; // [rsp+30h] [rbp-30h] BYREF
-  _BYTE v17[8]; // [rsp+38h] [rbp-28h] BYREF
-  __int64 v18; // [rsp+40h] [rbp-20h] BYREF
-  struct _POINTL v19; // [rsp+48h] [rbp-18h] BYREF
-  int v20; // [rsp+50h] [rbp-10h]
-  int v21; // [rsp+54h] [rbp-Ch]
+  int v13; // eax
+  _QWORD v15[2]; // [rsp+20h] [rbp-60h] BYREF
+  struct _POINTL v16; // [rsp+30h] [rbp-50h] BYREF
+  _QWORD v17[2]; // [rsp+38h] [rbp-48h] BYREF
+  _QWORD v18[2]; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v19; // [rsp+58h] [rbp-28h] BYREF
+  _DWORD v20[4]; // [rsp+60h] [rbp-20h] BYREF
 
   v4 = a4;
   v8 = 1;
@@ -40,35 +39,37 @@ __int64 __fastcall METAREGION::vApplyMoveData(
     v4 = 0LL;
     METAREGION::vAddRectToMoveRegionHelper(this, a2);
     *((struct _POINTL *)this + 3) = *a3;
+    v13 = 1;
     *((_DWORD *)this + 10) = 1;
     goto LABEL_26;
   }
-  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v16);
-  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v16);
-  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v15);
-  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v15);
-  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v14);
-  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v14);
-  if ( v16 && v15 && v14 )
+  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v18);
+  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v18);
+  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v17);
+  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v17);
+  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v15);
+  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v15);
+  if ( v18[0] && v17[0] && v15[0] )
   {
-    v19 = (struct _POINTL)*((_QWORD *)this + 4);
-    if ( !RGNOBJ::bCopy((RGNOBJ *)&v15, (struct RGNOBJ *)&v19)
-      || (v9 = (struct _POINTL *)((char *)this + 24), !RGNOBJ::bOffset((RGNOBJ *)&v15, (struct _POINTL *)this + 3)) )
+    v16 = (struct _POINTL)*((_QWORD *)this + 4);
+    if ( !RGNOBJ::bCopy((RGNOBJ *)v17, (struct RGNOBJ *)&v16)
+      || (v9 = (struct _POINTL *)((char *)this + 24), !RGNOBJ::bOffset((RGNOBJ *)v17, (struct _POINTL *)this + 3)) )
     {
       METAREGION::vClearMoveData(this, 1);
 LABEL_9:
-      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v14);
-      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v15);
-      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v16);
+      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v15);
+      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v17);
+      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v18);
       return v8;
     }
-    RGNOBJ::vSet((RGNOBJ *)&v16, a2);
-    if ( RGNOBJ::iCombine((RGNOBJ *)&v14, (struct RGNOBJ *)&v16, (struct RGNOBJ *)&v15, 1) )
+    RGNOBJ::vSet((RGNOBJ *)v18, a2);
+    if ( RGNOBJ::iCombine((RGNOBJ *)v15, (struct RGNOBJ *)v18, (struct RGNOBJ *)v17, 1) )
     {
-      v19 = *(struct _POINTL *)(v14 + 56);
-      v20 = *(_DWORD *)(v14 + 64);
-      v21 = *(_DWORD *)(v14 + 68);
-      if ( ERECTL::bEmpty((ERECTL *)&v19) )
+      v20[0] = *(_DWORD *)(v15[0] + 96LL);
+      v20[1] = *(_DWORD *)(v15[0] + 100LL);
+      v20[2] = *(_DWORD *)(v15[0] + 104LL);
+      v20[3] = *(_DWORD *)(v15[0] + 108LL);
+      if ( ERECTL::bEmpty((ERECTL *)v20) )
       {
         v10 = (REGION *)*((_QWORD *)this + 4);
         if ( v10 )
@@ -91,23 +92,23 @@ LABEL_9:
         v4 = 0LL;
         goto LABEL_24;
       }
-      v18 = *((_QWORD *)this + 4);
-      RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v17);
-      RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v17);
-      v19.x = -v9->x;
-      v19.y = -*((_DWORD *)this + 7);
-      RGNOBJ::bOffset((RGNOBJ *)&v14, &v19);
-      if ( !RGNOBJ::iCombine((RGNOBJ *)v17, (struct RGNOBJ *)&v14, (struct RGNOBJ *)&v18, 1) )
+      v19 = *((_QWORD *)this + 4);
+      RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v20);
+      RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v20);
+      v16.x = -v9->x;
+      v16.y = -*((_DWORD *)this + 7);
+      RGNOBJ::bOffset((RGNOBJ *)v15, &v16);
+      if ( !RGNOBJ::iCombine((RGNOBJ *)v20, (struct RGNOBJ *)v15, (struct RGNOBJ *)&v19, 1) )
       {
         METAREGION::vClearMoveData(this, 1);
-        RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v17);
+        RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v20);
         goto LABEL_9;
       }
-      RGNOBJ::vSwap((RGNOBJ *)&v18, (struct RGNOBJ *)v17);
-      *((_QWORD *)this + 4) = v18;
+      RGNOBJ::vSwap((RGNOBJ *)&v19, (struct RGNOBJ *)v20);
+      *((_QWORD *)this + 4) = v19;
       v9->x += a3->x;
       *((_DWORD *)this + 7) += a3->y;
-      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v17);
+      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v20);
     }
     else
     {
@@ -116,11 +117,12 @@ LABEL_9:
     }
   }
 LABEL_24:
-  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v14);
-  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v15);
-  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v16);
+  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v15);
+  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v17);
+  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)v18);
+  v13 = *((_DWORD *)this + 10);
 LABEL_26:
-  if ( *((_DWORD *)this + 10) )
+  if ( v13 )
     v8 = METAREGION::bIntersectMoveWithDirty(this, a2);
   if ( v4 )
     REGION::vDeleteREGION(v4);

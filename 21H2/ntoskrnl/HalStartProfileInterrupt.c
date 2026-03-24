@@ -1,12 +1,12 @@
 /*
- * XREFs of HalStartProfileInterrupt @ 0x14050AD30
+ * XREFs of HalStartProfileInterrupt @ 0x1404BE810
  * Callers:
- *     <none>
+ *     KiStartProfileTarget @ 0x14051C0A0 (KiStartProfileTarget.c)
  * Callees:
- *     HalpStartProfileInterruptEx @ 0x14050BB90 (HalpStartProfileInterruptEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall HalStartProfileInterrupt(__int64 a1)
+__int64 __fastcall HalStartProfileInterrupt(unsigned int a1)
 {
-  return HalpStartProfileInterruptEx(a1, 0LL, 0LL, 0LL);
+  return (*((__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))HalpProfileInterface[0] + 1))(0LL, a1, 0LL);
 }

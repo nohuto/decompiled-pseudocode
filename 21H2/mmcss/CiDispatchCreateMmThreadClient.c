@@ -1,14 +1,14 @@
 /*
- * XREFs of CiDispatchCreateMmThreadClient @ 0x1C000AD60
+ * XREFs of CiDispatchCreateMmThreadClient @ 0x1C000AA00
  * Callers:
  *     <none>
  * Callees:
- *     WPP_SF_ @ 0x1C00046A8 (WPP_SF_.c)
- *     WPP_SF_dd @ 0x1C000493C (WPP_SF_dd.c)
- *     CiThreadCreate @ 0x1C000AED0 (CiThreadCreate.c)
- *     CiLookupTask @ 0x1C000B3D0 (CiLookupTask.c)
- *     CiTaskIndexCreate @ 0x1C000B4E0 (CiTaskIndexCreate.c)
- *     CiTaskIndexLocate @ 0x1C000B660 (CiTaskIndexLocate.c)
+ *     WPP_SF_ @ 0x1C00043F8 (WPP_SF_.c)
+ *     WPP_SF_dd @ 0x1C000468C (WPP_SF_dd.c)
+ *     CiThreadCreate @ 0x1C000AB70 (CiThreadCreate.c)
+ *     CiLookupTask @ 0x1C000B060 (CiLookupTask.c)
+ *     CiTaskIndexCreate @ 0x1C000B170 (CiTaskIndexCreate.c)
+ *     CiTaskIndexLocate @ 0x1C000B300 (CiTaskIndexLocate.c)
  */
 
 __int64 __fastcall CiDispatchCreateMmThreadClient(PIRP Irp, __int64 a2, __int64 a3)
@@ -52,7 +52,7 @@ __int64 __fastcall CiDispatchCreateMmThreadClient(PIRP Irp, __int64 a2, __int64 
         WPP_SF_(
           (__int64)WPP_GLOBAL_Control->AttachedDevice,
           0xDu,
-          (__int64)&WPP_0f75fd9923be30bc1807a9ff104f69db_Traceguids);
+          (__int64)&WPP_f2567f649f8e330a8ddb4ba7f0878bc2_Traceguids);
     }
     else
     {

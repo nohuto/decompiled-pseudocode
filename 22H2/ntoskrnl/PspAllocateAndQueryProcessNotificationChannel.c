@@ -1,20 +1,20 @@
 /*
- * XREFs of PspAllocateAndQueryProcessNotificationChannel @ 0x1407D1644
+ * XREFs of PspAllocateAndQueryProcessNotificationChannel @ 0x140604C58
  * Callers:
- *     NtQueryInformationProcess @ 0x1406FCB40 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406216C0 (NtQueryInformationProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwCreateWnfStateName @ 0x14041C0E0 (ZwCreateWnfStateName.c)
- *     ZwDeleteWnfStateName @ 0x14041C280 (ZwDeleteWnfStateName.c)
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x140735770 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x140736A80 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x1403FB3A0 (ZwCreateWnfStateName.c)
+ *     ZwDeleteWnfStateName @ 0x1403FB540 (ZwDeleteWnfStateName.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1406D5220 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D92C0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
  */
 
 __int64 __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __int64 a2, __int64 a3)
@@ -48,7 +48,7 @@ __int64 __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __i
   if ( !*(_QWORD *)(a2 + 2464) )
   {
     RtlCreateAcl(&Acl, 0x58u, 2u);
-    RtlpAddKnownAce((__int64)&Acl, 2u, 0, 1, (unsigned __int8 *)SeWorldSid, 0);
+    RtlpAddKnownAce((int)&Acl, 2, 0, 1, SeWorldSid, 0);
     RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
     RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
     result = ZwCreateWnfStateName((__int64)v20, 3LL);

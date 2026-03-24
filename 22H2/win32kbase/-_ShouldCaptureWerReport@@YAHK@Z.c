@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_ShouldCaptureWerReport@@YAHK@Z @ 0x1C01407F8
+ * XREFs of ?_ShouldCaptureWerReport@@YAHK@Z @ 0x1C0128C44
  * Callers:
- *     NtUserWin32kSysCallFilterStub @ 0x1C014DA60 (NtUserWin32kSysCallFilterStub.c)
+ *     NtUserWin32kSysCallFilterStub @ 0x1C0137110 (NtUserWin32kSysCallFilterStub.c)
  * Callees:
- *     ?_IsStackThrottled@@YAHXZ @ 0x1C01407A4 (-_IsStackThrottled@@YAHXZ.c)
+ *     ?_IsStackThrottled@@YAHXZ @ 0x1C0128BF0 (-_IsStackThrottled@@YAHXZ.c)
  */
 
 __int64 __fastcall _ShouldCaptureWerReport(unsigned int a1)

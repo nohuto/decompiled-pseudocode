@@ -3,10 +3,10 @@
  * Callers:
  *     KseInitialize @ 0x1409AF930 (KseInitialize.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     KsepDebugPrint @ 0x14029FB44 (KsepDebugPrint.c)
- *     KsepLogError @ 0x14029FDE4 (KsepLogError.c)
- *     KsepStringAnsiToUnicode @ 0x1407283D4 (KsepStringAnsiToUnicode.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x14029FEE4 (KsepLogError.c)
+ *     KsepStringAnsiToUnicode @ 0x1407283B4 (KsepStringAnsiToUnicode.c)
  *     KsepMatchInitBiosInfo @ 0x1409AF2B4 (KsepMatchInitBiosInfo.c)
  *     KsepMatchInitAcpiOemInfo @ 0x1409AF5FC (KsepMatchInitAcpiOemInfo.c)
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpEnumerateAutologgerPath @ 0x1408515A8
+ * XREFs of EtwpEnumerateAutologgerPath @ 0x14079B324
  * Callers:
- *     EtwpInitializeAutoLoggers @ 0x140851328 (EtwpInitializeAutoLoggers.c)
+ *     EtwpInitializeAutoLoggers @ 0x14079AFB4 (EtwpInitializeAutoLoggers.c)
  * Callees:
- *     RtlInsertElementGenericTableAvl @ 0x1402DEF50 (RtlInsertElementGenericTableAvl.c)
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14041BDA0 (ZwEnumerateKey.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlNtStatusToDosError @ 0x14069E070 (RtlNtStatusToDosError.c)
- *     RtlWriteRegistryValue @ 0x1406D76C0 (RtlWriteRegistryValue.c)
- *     EtwStartAutoLogger @ 0x140817CD8 (EtwStartAutoLogger.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInsertElementGenericTableAvl @ 0x140264B20 (RtlInsertElementGenericTableAvl.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlNtStatusToDosError @ 0x14068A4C0 (RtlNtStatusToDosError.c)
+ *     RtlWriteRegistryValue @ 0x1406B4930 (RtlWriteRegistryValue.c)
+ *     EtwStartAutoLogger @ 0x14079B594 (EtwStartAutoLogger.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, RTL_AVL_TABLE *a3)
@@ -24,8 +24,8 @@ void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, RTL_AV
   __int64 v6; // rbx
   ULONG v7; // r13d
   PCWSTR v8; // rax
-  size_t v9; // r15
-  wchar_t *Pool2; // rbx
+  SIZE_T v9; // r15
+  WCHAR *PoolWithTag; // rbx
   NTSTATUS v11; // edi
   NTSTATUS v12; // ecx
   const WCHAR *v13; // rdx
@@ -81,10 +81,10 @@ void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, RTL_AV
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
     v9 = (unsigned int)(2 * v6 + 260);
-    Pool2 = (wchar_t *)ExAllocatePool2(256LL, v9, 1953985605LL);
-    if ( Pool2 )
+    PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, v9, 0x74777445u);
+    if ( PoolWithTag )
     {
-      if ( !a2 || (v5 = (WCHAR *)ExAllocatePool2(256LL, v9, 1953985605LL)) != 0LL )
+      if ( !a2 || (v5 = (WCHAR *)ExAllocatePoolWithTag(PagedPool, v9, 0x74777445u)) != 0LL )
       {
         do
         {
@@ -108,10 +108,10 @@ void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, RTL_AV
             RtlInsertElementGenericTableAvl(Table, &KeyInformation[4], KeyInformation[3] + 2, NewElement);
             if ( NewElement[0] )
             {
-              if ( !RtlStringCbPrintfW(Pool2, v9, L"%ws\\%ws", Path, &KeyInformation[4])
+              if ( !RtlStringCbPrintfW(PoolWithTag, v9, L"%ws\\%ws", Path, &KeyInformation[4])
                 && (!a2 || !RtlStringCbPrintfW(v5, v9, L"%ws\\%ws", a2, &KeyInformation[4])) )
               {
-                EtwStartAutoLogger((wchar_t *)&KeyInformation[4], (__int64)Pool2, v5);
+                EtwStartAutoLogger((PCWSTR)&KeyInformation[4], PoolWithTag, v5);
               }
             }
           }
@@ -122,8 +122,8 @@ void __fastcall EtwpEnumerateAutologgerPath(PCWSTR Path, const WCHAR *a2, RTL_AV
     }
     if ( KeyHandle )
       ZwClose(KeyHandle);
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
     if ( v5 )
       ExFreePoolWithTag(v5, 0);
   }

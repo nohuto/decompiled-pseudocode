@@ -1,10 +1,10 @@
 /*
- * XREFs of ??$DeducingValueGetter@VCMesh2DEffect@@UD2D_MATRIX_4X4_F@@UID2D1EffectImpl@@@@YAJP8CMesh2DEffect@@EBA?AUD2D_MATRIX_4X4_F@@XZPEBUID2D1EffectImpl@@PEAEIPEAI@Z @ 0x1802BE850
+ * XREFs of ??$DeducingValueGetter@VCMesh2DEffect@@UD2D_MATRIX_4X4_F@@UID2D1EffectImpl@@@@YAJP8CMesh2DEffect@@EBA?AUD2D_MATRIX_4X4_F@@XZPEBUID2D1EffectImpl@@PEAEIPEAI@Z @ 0x18026C36C
  * Callers:
- *     ??$ValueGetter@P8CMesh2DEffect@@EBA?AUD2D_MATRIX_4X4_F@@XZ$H?GetWorldToProjection@1@QEBA?AU2@XZA@UID2D1EffectImpl@@@@YAJPEBUIUnknown@@PEAEIPEAI@Z @ 0x1802BE980 (--$ValueGetter@P8CMesh2DEffect@@EBA-AUD2D_MATRIX_4X4_F@@XZ$H-GetWorldToProjection@1@QEBA-AU2@XZA.c)
+ *     ??$ValueGetter@P8CMesh2DEffect@@EBA?AUD2D_MATRIX_4X4_F@@XZ$H?GetWorldToProjection@1@QEBA?AU2@XZA@UID2D1EffectImpl@@@@YAJPEBUIUnknown@@PEAEIPEAI@Z @ 0x18026C480 (--$ValueGetter@P8CMesh2DEffect@@EBA-AUD2D_MATRIX_4X4_F@@XZ$H-GetWorldToProjection@1@QEBA-AU2@XZA.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DeducingValueGetter<CMesh2DEffect,D2D_MATRIX_4X4_F,ID2D1EffectImpl>(

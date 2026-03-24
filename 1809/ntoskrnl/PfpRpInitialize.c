@@ -5,7 +5,7 @@
  * Callees:
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
  *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     PfpRpStart @ 0x140753098 (PfpRpStart.c)
+ *     PfpRpStart @ 0x140753078 (PfpRpStart.c)
  */
 
 __int64 __fastcall PfpRpInitialize(__int64 a1)

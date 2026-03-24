@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PrepareMessage@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@IGGPEBEPEADPEAI@Z @ 0x1C00A13D8
+ * XREFs of ?PrepareMessage@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@IGGPEBEPEADPEAI@Z @ 0x1C0099574
  * Callers:
- *     CoreUICallSendVaList @ 0x1C00A12B0 (CoreUICallSendVaList.c)
+ *     CoreUICallSendVaList @ 0x1C0099270 (CoreUICallSendVaList.c)
  * Callees:
- *     ?PrepareMessageWorker@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@GGPEBEPEADHIII@Z @ 0x1C00A1558 (-PrepareMessageWorker@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@GGPEBE.c)
- *     ?NotifyInvalidHelper@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@PEAUMsgCallState@@@Z @ 0x1C02369D4 (-NotifyInvalidHelper@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@PEAUMsg.c)
+ *     ?PrepareMessageWorker@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@GGPEBEPEADHIII@Z @ 0x1C00996F4 (-PrepareMessageWorker@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@GGPEBE.c)
+ *     ?NotifyInvalidHelper@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@PEAUMsgCallState@@@Z @ 0x1C0200D98 (-NotifyInvalidHelper@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@PEAUMsg.c)
  */
 
 __int64 __fastcall CoreMessaging::Calling::SendProcessor::PrepareMessage(
@@ -37,7 +37,7 @@ __int64 __fastcall CoreMessaging::Calling::SendProcessor::PrepareMessage(
     if ( v12 >> (v10 + *((_BYTE *)this + 128)) )
     {
       v13 = (struct IMessageCallSendHost *)*((_QWORD *)this + 17);
-      *((_DWORD *)this + 30) = 4;
+      *((_DWORD *)this + 30) = 104;
       return CoreMessaging::Calling::SendProcessor::NotifyInvalidHelper(
                v11,
                v13,

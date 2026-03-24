@@ -1,5 +1,5 @@
 /*
- * XREFs of PspSetProcessEnergyTrackingStateCallback @ 0x1406CEE80
+ * XREFs of PspSetProcessEnergyTrackingStateCallback @ 0x1406CEE60
  * Callers:
  *     <none>
  * Callees:

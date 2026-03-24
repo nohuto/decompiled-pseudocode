@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBFDO_IoctlResetHub @ 0x1C00785A4
+ * XREFs of HUBFDO_IoctlResetHub @ 0x1C00771FC
  * Callers:
- *     HUBFDO_EvtIoDeviceControl @ 0x1C0078740 (HUBFDO_EvtIoDeviceControl.c)
+ *     HUBFDO_EvtIoDeviceControl @ 0x1C0077390 (HUBFDO_EvtIoDeviceControl.c)
  * Callees:
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000C094 (McTemplateK0pqq_EtwWriteTransfer.c)
- *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C000FEC0 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
- *     HUBMISC_GetActivityIdIrp @ 0x1C0030B10 (HUBMISC_GetActivityIdIrp.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     HUBMISC_VerifyCallerIsAdmin @ 0x1C007DFD8 (HUBMISC_VerifyCallerIsAdmin.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000BCAC (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C000FAA4 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
+ *     HUBMISC_GetActivityIdIrp @ 0x1C0030470 (HUBMISC_GetActivityIdIrp.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBMISC_VerifyCallerIsAdmin @ 0x1C007C9FC (HUBMISC_VerifyCallerIsAdmin.c)
  */
 
 __int64 __fastcall HUBFDO_IoctlResetHub(__int64 a1, __int64 a2)
@@ -29,7 +29,7 @@ __int64 __fastcall HUBFDO_IoctlResetHub(__int64 a1, __int64 a2)
   v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          v4,
-         off_1C0067198);
+         off_1C0066170);
   IsAdmin = HUBMISC_VerifyCallerIsAdmin(*(_QWORD *)(v5 + 2520));
   if ( IsAdmin >= 0 )
   {
@@ -37,7 +37,7 @@ __int64 __fastcall HUBFDO_IoctlResetHub(__int64 a1, __int64 a2)
     v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
            WdfDriverGlobals,
            v7,
-           off_1C0067198);
+           off_1C0066170);
     if ( !HUBMUX_CheckAndQueueIfResetHubIsEnabled(v8) )
       IsAdmin = -1073741823;
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PopLayer@CD2DContext@@UEAAXPEBVID2DContextOwner@@@Z @ 0x1800E2090
+ * XREFs of ?PopLayer@CD2DContext@@UEAAXPEBVID2DContextOwner@@@Z @ 0x18002C7C0
  * Callers:
- *     ?RestoreState@CD2DLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x1800E2020 (-RestoreState@CD2DLayer@@UEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?RestoreState@CD2DLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x18002C6B0 (-RestoreState@CD2DLayer@@UEAAJPEAVCDrawingContext@@@Z.c)
  * Callees:
- *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x18007FAC8 (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
- *     ?ApplyCurrentClip@CD2DTarget@@QEAAXXZ @ 0x180080AB4 (-ApplyCurrentClip@CD2DTarget@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ApplyCurrentClip@CD2DTarget@@QEAAXXZ @ 0x18002C9D0 (-ApplyCurrentClip@CD2DTarget@@QEAAXXZ.c)
+ *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x180090B3C (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CD2DContext::PopLayer(CD2DContext *this, const struct ID2DContextOwner *a2)
@@ -14,11 +14,11 @@ void __fastcall CD2DContext::PopLayer(CD2DContext *this, const struct ID2DContex
   __int64 v4; // rbx
 
   CD2DContext::FlushDrawList(this);
-  v3 = *((_DWORD *)this + 88);
+  v3 = *((_DWORD *)this + 100);
   v4 = 0LL;
   if ( v3 )
-    v4 = *(_QWORD *)(*((_QWORD *)this + 41) + 8LL * (unsigned int)(v3 - 1));
-  (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(*(_QWORD *)(v4 + 16) + 200LL) + 328LL))(*(_QWORD *)(*(_QWORD *)(v4 + 16) + 200LL));
+    v4 = *(_QWORD *)(*((_QWORD *)this + 47) + 8LL * (unsigned int)(v3 - 1));
+  (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(*(_QWORD *)(v4 + 16) + 240LL) + 328LL))(*(_QWORD *)(*(_QWORD *)(v4 + 16) + 240LL));
   CD2DTarget::ApplyCurrentClip((CD2DTarget *)v4);
-  --*(_DWORD *)(v4 + 48);
+  --*(_DWORD *)(v4 + 52);
 }

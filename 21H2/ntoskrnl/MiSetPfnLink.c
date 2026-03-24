@@ -1,11 +1,12 @@
 /*
- * XREFs of MiSetPfnLink @ 0x140313D14
+ * XREFs of MiSetPfnLink @ 0x14031818C
  * Callers:
- *     MiPfPrepareSequentialReadList @ 0x1407BCB30 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x1407BD420 (MiPfPrepareReadList.c)
- *     MiAllocateTopLevelPage @ 0x1407F1AF8 (MiAllocateTopLevelPage.c)
- *     MiInitializeDynamicBitmap @ 0x14082B1B4 (MiInitializeDynamicBitmap.c)
- *     MiCaptureSparsePages @ 0x14097E614 (MiCaptureSparsePages.c)
+ *     MiAllocateTopLevelPage @ 0x1406D0824 (MiAllocateTopLevelPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x1406EF910 (MiPfPrepareReadList.c)
+ *     MiInitializeDynamicBitmap @ 0x1407868DC (MiInitializeDynamicBitmap.c)
+ *     MiMapNewSession @ 0x14078708C (MiMapNewSession.c)
+ *     MiCaptureSparsePages @ 0x1408D8564 (MiCaptureSparsePages.c)
  * Callees:
  *     <none>
  */

@@ -1,29 +1,30 @@
 /*
- * XREFs of VidSchWaitForCompletionEvent @ 0x1C0087E2C
+ * XREFs of VidSchWaitForCompletionEvent @ 0x1C0080A40
  * Callers:
- *     ?VidSchiSuspendResumeHwContexts@@YAXPEAU_VIDSCH_DEVICE@@_N@Z @ 0x1C00030C8 (-VidSchiSuspendResumeHwContexts@@YAXPEAU_VIDSCH_DEVICE@@_N@Z.c)
- *     VidSchiCompletePendingCommandInNodeHwQueue @ 0x1C0046FE8 (VidSchiCompletePendingCommandInNodeHwQueue.c)
- *     VidSchBlockUntilNoUnorderedWaitsInDevice @ 0x1C00862A0 (VidSchBlockUntilNoUnorderedWaitsInDevice.c)
- *     VidSchiAllocateDmaPacket @ 0x1C0087530 (VidSchiAllocateDmaPacket.c)
- *     VidSchiWaitFlushCompletion @ 0x1C0087DCC (VidSchiWaitFlushCompletion.c)
- *     VidSchiSubmitRenderVirtualCommand @ 0x1C00AD180 (VidSchiSubmitRenderVirtualCommand.c)
- *     VidSchSubmitCommand @ 0x1C00AD620 (VidSchSubmitCommand.c)
- *     VidSchiAllocateQueuePacket @ 0x1C00ADF10 (VidSchiAllocateQueuePacket.c)
- *     VidSchWaitForQueuedPresentLimit @ 0x1C00B1540 (VidSchWaitForQueuedPresentLimit.c)
- *     VidSchiWaitForDrainFlipQueue @ 0x1C00B5608 (VidSchiWaitForDrainFlipQueue.c)
- *     VidSchiAllocateHwQueuePacket @ 0x1C00C4732 (VidSchiAllocateHwQueuePacket.c)
- *     ?WaitOnAllocationPresentQueue@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@I@Z @ 0x1C00EB854 (-WaitOnAllocationPresentQueue@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@I@Z.c)
- *     ?WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z @ 0x1C00F0238 (-WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z.c)
- *     VidSchiWaitForCompletePreemption @ 0x1C0106E4C (VidSchiWaitForCompletePreemption.c)
- *     VidSchiWaitForEmptyHwQueue @ 0x1C0106F10 (VidSchiWaitForEmptyHwQueue.c)
+ *     ?VidSchiSuspendResumeHwContexts@@YAXPEAU_VIDSCH_DEVICE@@_N@Z @ 0x1C00127A8 (-VidSchiSuspendResumeHwContexts@@YAXPEAU_VIDSCH_DEVICE@@_N@Z.c)
+ *     VidSchiCompletePendingCommandInNodeHwQueue @ 0x1C003CA48 (VidSchiCompletePendingCommandInNodeHwQueue.c)
+ *     VidSchiSubmitRenderVirtualCommand @ 0x1C007DD90 (VidSchiSubmitRenderVirtualCommand.c)
+ *     VidSchSubmitCommand @ 0x1C007E2B0 (VidSchSubmitCommand.c)
+ *     VidSchiAllocateQueuePacket @ 0x1C007E910 (VidSchiAllocateQueuePacket.c)
+ *     VidSchiWaitFlushCompletion @ 0x1C008049C (VidSchiWaitFlushCompletion.c)
+ *     VidSchWaitForQueuedPresentLimit @ 0x1C0080500 (VidSchWaitForQueuedPresentLimit.c)
+ *     ?WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z @ 0x1C00808F8 (-WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z.c)
+ *     VidSchiSubmitPagingCommand @ 0x1C0085280 (VidSchiSubmitPagingCommand.c)
+ *     VidSchiAllocateDmaPacket @ 0x1C0086E5C (VidSchiAllocateDmaPacket.c)
+ *     ?WaitOnAllocationPresentQueue@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@I@Z @ 0x1C00B62B8 (-WaitOnAllocationPresentQueue@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@I@Z.c)
+ *     VidSchiWaitForCompletePreemption @ 0x1C00CF594 (VidSchiWaitForCompletePreemption.c)
+ *     VidSchiWaitForDrainFlipQueue @ 0x1C00CF658 (VidSchiWaitForDrainFlipQueue.c)
+ *     VidSchiWaitForEmptyHwQueue @ 0x1C00CF730 (VidSchiWaitForEmptyHwQueue.c)
+ *     VidSchBlockUntilNoUnorderedWaitsInDevice @ 0x1C00CF910 (VidSchBlockUntilNoUnorderedWaitsInDevice.c)
+ *     VidSchiAllocateHwQueuePacket @ 0x1C00D209C (VidSchiAllocateHwQueuePacket.c)
  * Callees:
- *     VidSchWaitForEvents @ 0x1C0001A80 (VidSchWaitForEvents.c)
- *     VidSchIsTDRPending @ 0x1C000B500 (VidSchIsTDRPending.c)
- *     VidSchiCheckTimeoutForced @ 0x1C000B610 (VidSchiCheckTimeoutForced.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C0019BB8 (McTemplateK0q_EtwWriteTransfer.c)
- *     VidSchiReportHwHang @ 0x1C0047458 (VidSchiReportHwHang.c)
- *     VidSchiPrepareToResetEngine @ 0x1C010621C (VidSchiPrepareToResetEngine.c)
- *     VidSchiResetEngines @ 0x1C0106348 (VidSchiResetEngines.c)
+ *     VidSchIsTDRPending @ 0x1C000C140 (VidSchIsTDRPending.c)
+ *     VidSchiCheckTimeoutForced @ 0x1C000C380 (VidSchiCheckTimeoutForced.c)
+ *     VidSchWaitForEvents @ 0x1C0011994 (VidSchWaitForEvents.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024D70 (McTemplateK0q_EtwWriteTransfer.c)
+ *     VidSchiReportHwHang @ 0x1C003D024 (VidSchiReportHwHang.c)
+ *     VidSchiPrepareToResetEngine @ 0x1C00CEBBC (VidSchiPrepareToResetEngine.c)
+ *     VidSchiResetEngines @ 0x1C00CED04 (VidSchiResetEngines.c)
  */
 
 __int64 __fastcall VidSchWaitForCompletionEvent(__int64 a1, __int64 a2, __int64 a3)
@@ -34,31 +35,33 @@ __int64 __fastcall VidSchWaitForCompletionEvent(__int64 a1, __int64 a2, __int64 
   int v8; // eax
   int v9; // ebx
   unsigned int v10; // r12d
-  __int64 v12; // rdx
-  __int64 v13; // rax
+  __int64 v12; // rax
+  __int64 *v13; // rbp
   __int64 v14; // rdx
   __int64 v15; // rax
-  __int64 *v16; // rbp
+  __int64 v16; // rcx
   __int64 v17; // r13
   int v18; // r14d
   unsigned __int64 v19; // rdi
   unsigned __int64 v20; // rbx
-  unsigned __int64 v21; // [rsp+30h] [rbp-48h]
-  __int64 v22; // [rsp+88h] [rbp+10h] BYREF
-  __int64 v23; // [rsp+98h] [rbp+20h] BYREF
+  unsigned __int64 v21; // rcx
+  _QWORD *v22; // rax
+  _QWORD v23[9]; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v24; // [rsp+88h] [rbp+10h] BYREF
+  unsigned __int64 v25; // [rsp+98h] [rbp+20h]
 
-  v22 = 0LL;
-  if ( (_DWORD)a3 != -1 && bTracingEnabled && (byte_1C0076981 & 1) != 0 )
-    McTemplateK0q_EtwWriteTransfer(a1, (__int64)&EventBlockThread, a3, a3);
+  v24 = 0LL;
+  if ( bTracingEnabled && (_DWORD)a3 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+    McTemplateK0q_EtwWriteTransfer(a1, (const EVENT_DESCRIPTOR *)"g", a3, a3);
   v5 = *(_DWORD *)(a2 + 32);
   v6 = 0LL;
   if ( (v5 & 0x40) != 0 )
   {
-    v15 = *(unsigned int *)(a2 + 48);
-    v16 = *(__int64 **)(a1 + 632);
-    if ( (unsigned int)v15 < *(_DWORD *)(a1 + 704) )
-      v16 += v15;
-    v6 = *v16;
+    v12 = *(unsigned int *)(a2 + 48);
+    v13 = *(__int64 **)(a1 + 624);
+    if ( (unsigned int)v12 < *(_DWORD *)(a1 + 696) )
+      v13 += v12;
+    v6 = *v13;
   }
   else if ( (v5 & 2) != 0 )
   {
@@ -70,39 +73,41 @@ __int64 __fastcall VidSchWaitForCompletionEvent(__int64 a1, __int64 a2, __int64 
   }
   if ( !*(_DWORD *)(a2 + 136) )
   {
+    *(_DWORD *)(a2 + 64) = 0;
     if ( (v5 & 0x20) != 0 )
     {
       v7 = a2 + 96;
     }
     else
     {
-      v12 = *(_QWORD *)(a2 + 24);
-      v13 = *(int *)(a2 + 16);
-      if ( v12 )
+      v14 = *(_QWORD *)(a2 + 24);
+      v15 = *(int *)(a2 + 16);
+      if ( !v14 )
       {
-        v7 = 56 * v13 + v12 + 320;
-      }
-      else
-      {
-        v14 = 56 * v13;
         if ( (v5 & 1) != 0 )
-          v7 = v6 + v14 + 240;
+          v16 = v6 + 56 * v15 + 240;
         else
-          v7 = v14 + a1 + 1416;
+          v16 = a1 + 56 * (v15 + 25);
+        *(_QWORD *)(a2 + 72) = v16;
+        goto LABEL_13;
       }
+      v7 = 56 * v15 + v14 + 320;
     }
     *(_QWORD *)(a2 + 72) = v7;
-    *(_DWORD *)(a2 + 64) = 1;
+LABEL_13:
+    ++*(_DWORD *)(a2 + 64);
     *(_QWORD *)(a2 + 144) = MEMORY[0xFFFFF78000000320];
+    goto LABEL_14;
   }
   while ( 1 )
   {
+LABEL_14:
     v8 = *(_DWORD *)(a2 + 136);
     v9 = 0;
     if ( v8 != -1 )
       *(_DWORD *)(a2 + 136) = v8 + 1;
     if ( *(_DWORD *)(a2 + 20) == 1
-      && (v22 = -10000000LL * g_TdrConfig[1], *(_QWORD *)(a2 + 56) = &v22, VidSchiCheckTimeoutForced(a1)) )
+      && (v24 = -10000000LL * g_TdrConfig[1], *(_QWORD *)(a2 + 56) = &v24, VidSchiCheckTimeoutForced(a1)) )
     {
       v9 = 1;
       v10 = 258;
@@ -117,9 +122,9 @@ __int64 __fastcall VidSchWaitForCompletionEvent(__int64 a1, __int64 a2, __int64 
               *(_BYTE *)(a2 + 152));
     }
     if ( (*(_DWORD *)(a2 + 20) != 1 || v10 != 258)
-      && (KeGetCurrentThread() != *(struct _KTHREAD **)(a1 + 168)
+      && (KeGetCurrentThread() != *(struct _KTHREAD **)(a1 + 160)
        || !v6
-       || !*(_DWORD *)(v6 + 2028) && !*(_DWORD *)(v6 + 2032)) )
+       || !*(_DWORD *)(v6 + 2020) && !*(_DWORD *)(v6 + 2024)) )
     {
       return v10;
     }
@@ -137,47 +142,52 @@ __int64 __fastcall VidSchWaitForCompletionEvent(__int64 a1, __int64 a2, __int64 
       v18 = 2;
       v17 = v6;
     }
-    if ( (*(_DWORD *)(*(_QWORD *)(a1 + 16) + 436LL) & 0x200) != 0 )
+    if ( (*(_DWORD *)(*(_QWORD *)(a1 + 16) + 348LL) & 0x200) != 0 )
     {
       v19 = __rdtsc();
       v20 = __readmsr(0x400000F6u);
-      v21 = 10 * (v19 - v20) / *((unsigned int *)KeGetCurrentPrcb() + 17);
-      WdLogSingleEntry3(8LL, v20, v19, v21);
-      if ( v20 > v19 || v21 <= 10000000 * (unsigned __int64)g_TdrConfig[1] )
+      v21 = *((unsigned int *)KeGetCurrentPrcb() + 17);
+      v25 = 10 * (v19 - v20) / v21;
+      v22 = (_QWORD *)WdLogNewEntry5_WdPresentTokenEvent(v21, 10 * (v19 - v20) % v21);
+      v22[5] = v25;
+      v22[3] = v20;
+      v22[4] = v19;
+      WdLogEvent5_WdPresentTokenEvent(v22);
+      if ( v20 > v19 || v25 <= 10000000 * (unsigned __int64)g_TdrConfig[1] )
         continue;
     }
-    if ( !VidSchIsTDRPending(a1) && v18 == 2 && *(_BYTE *)(a1 + 44) )
+    if ( VidSchIsTDRPending(a1) || v18 != 2 || !*(_BYTE *)(a1 + 44) )
     {
-      if ( !v6 )
-        goto LABEL_59;
-      if ( *(_DWORD *)(v6 + 2032) )
-        goto LABEL_56;
-      v23 = 0LL;
-      if ( !(unsigned __int8)VidSchiPrepareToResetEngine(v6, &v23) || !(unsigned __int8)VidSchiResetEngines(v6, v23) )
+LABEL_55:
+      if ( v6 )
+      {
+        if ( v18 == 2 && *(_DWORD *)(v6 + 2024) )
+          v18 = (*(_BYTE *)(v6 + 2017) != 0) + 10;
+        *(_BYTE *)(v6 + 2017) = 0;
+        *(_DWORD *)(v6 + 2020) = 0;
+        *(_BYTE *)(v6 + 2018) = 0;
+        *(_DWORD *)(v6 + 2024) = 0;
+      }
+      goto LABEL_60;
+    }
+    if ( v6 )
+    {
+      if ( *(_DWORD *)(v6 + 2024) )
+        goto LABEL_55;
+      v23[0] = 0LL;
+      if ( !(unsigned __int8)VidSchiPrepareToResetEngine(v6, v23) || !(unsigned __int8)VidSchiResetEngines(v6, v23[0]) )
       {
         v18 = 9;
-        *(_DWORD *)(v6 + 2028) = 0;
-        *(_BYTE *)(v6 + 2026) = 0;
-        goto LABEL_59;
+        *(_DWORD *)(v6 + 2020) = 0;
+        *(_BYTE *)(v6 + 2018) = 0;
+        goto LABEL_60;
       }
-      *(_DWORD *)(v6 + 2028) = 0;
-      *(_BYTE *)(v6 + 2026) = 0;
+      *(_DWORD *)(v6 + 2020) = 0;
+      *(_BYTE *)(v6 + 2018) = 0;
     }
     else
     {
-      if ( !v6 )
-        goto LABEL_59;
-      if ( v18 == 2 )
-      {
-LABEL_56:
-        if ( *(_DWORD *)(v6 + 2032) )
-          v18 = (*(_BYTE *)(v6 + 2025) != 0) + 10;
-      }
-      *(_BYTE *)(v6 + 2025) = 0;
-      *(_DWORD *)(v6 + 2028) = 0;
-      *(_BYTE *)(v6 + 2026) = 0;
-      *(_DWORD *)(v6 + 2032) = 0;
-LABEL_59:
+LABEL_60:
       if ( VidSchIsTDRPending(a1) || (unsigned int)VidSchiReportHwHang(a1, *(_QWORD *)(a2 + 144), v18, v17) )
         return v10;
     }

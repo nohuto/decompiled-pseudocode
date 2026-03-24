@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_Change_array@?$vector@UMipLevelSurface@CCompositionMipmapSurface@@V?$allocator@UMipLevelSurface@CCompositionMipmapSurface@@@std@@@std@@AEAAXQEAUMipLevelSurface@CCompositionMipmapSurface@@_K1@Z @ 0x18020D964
+ * XREFs of ?_Change_array@?$vector@UMipLevelSurface@CCompositionMipmapSurface@@V?$allocator@UMipLevelSurface@CCompositionMipmapSurface@@@std@@@std@@AEAAXQEAUMipLevelSurface@CCompositionMipmapSurface@@_K1@Z @ 0x1801BADD4
  * Callers:
- *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@UMipLevelSurface@CCompositionMipmapSurface@@V?$allocator@UMipLevelSurface@CCompositionMipmapSurface@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x18020CD2C (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@UMipLevelSurface@CCompositionMipmapSurface.c)
+ *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@UMipLevelSurface@CCompositionMipmapSurface@@V?$allocator@UMipLevelSurface@CCompositionMipmapSurface@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1801BA1E4 (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@UMipLevelSurface@CCompositionMipmapSurface.c)
  * Callees:
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
  */
 
 void __fastcall std::vector<CCompositionMipmapSurface::MipLevelSurface>::_Change_array(
@@ -18,6 +18,6 @@ void __fastcall std::vector<CCompositionMipmapSurface::MipLevelSurface>::_Change
   if ( v6 )
     std::_Deallocate<16,0>(v6, (*(_QWORD *)(a1 + 16) - (_QWORD)v6) & 0xFFFFFFFFFFFFFFE0uLL);
   *(_QWORD *)a1 = a2;
-  *(_QWORD *)(a1 + 8) = a2 + 32 * a3;
   *(_QWORD *)(a1 + 16) = a2 + 32 * a4;
+  *(_QWORD *)(a1 + 8) = a2 + 32 * a3;
 }

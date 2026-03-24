@@ -1,78 +1,79 @@
 /*
- * XREFs of ?OnDeviceRemoved@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C024CC7C
+ * XREFs of ?OnDeviceRemoved@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C024F74C
  * Callers:
- *     ?InkProcessorOnInkDeviceRemoved@@YAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C021AAA0 (-InkProcessorOnInkDeviceRemoved@@YAXPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?InkProcessorOnInkDeviceRemoved@@YAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C02206B4 (-InkProcessorOnInkDeviceRemoved@@YAXPEAURawInputManagerDeviceObject@@@Z.c)
  * Callees:
- *     ?RemoveInkFeedbackProvider@InkFeedbackServer@@QEAAJPEAVInkFeedbackProviderBase@@@Z @ 0x1C00F0088 (-RemoveInkFeedbackProvider@InkFeedbackServer@@QEAAJPEAVInkFeedbackProviderBase@@@Z.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@@Z @ 0x1C023AA94 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@55@Z @ 0x1C024C63C (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U3@U3@@-$_tlgWriteTe.c)
- *     ?FindInkDeviceByRimDeviceObject@InkProcessor@@AEBAPEAVInkDevice@@PEBURawInputManagerDeviceObject@@@Z @ 0x1C024C754 (-FindInkDeviceByRimDeviceObject@InkProcessor@@AEBAPEAVInkDevice@@PEBURawInputManagerDeviceObject.c)
- *     ?UnlinkAndReleaseInkDevice@InkProcessor@@AEAAXPEAPEAVInkDevice@@@Z @ 0x1C024D10C (-UnlinkAndReleaseInkDevice@InkProcessor@@AEAAXPEAPEAVInkDevice@@@Z.c)
+ *     ?RemoveInkFeedbackProvider@InkFeedbackServer@@QEAAJPEAVInkFeedbackProviderBase@@@Z @ 0x1C012E00C (-RemoveInkFeedbackProvider@InkFeedbackServer@@QEAAJPEAVInkFeedbackProviderBase@@@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@@Z @ 0x1C024EF58 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@55@Z @ 0x1C024F180 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U3@U3@@-$_tlgWriteTe.c)
+ *     ?FindInkDeviceByRimDeviceObject@InkProcessor@@AEBAPEAVInkDevice@@PEBURawInputManagerDeviceObject@@@Z @ 0x1C024F294 (-FindInkDeviceByRimDeviceObject@InkProcessor@@AEBAPEAVInkDevice@@PEBURawInputManagerDeviceObject.c)
+ *     ?UnlinkAndReleaseInkDevice@InkProcessor@@AEAAXPEAPEAVInkDevice@@@Z @ 0x1C024FBC0 (-UnlinkAndReleaseInkDevice@InkProcessor@@AEAAXPEAPEAVInkDevice@@@Z.c)
  */
 
 void __fastcall InkProcessor::OnDeviceRemoved(InkProcessor *this, struct RawInputManagerDeviceObject *a2)
 {
-  __int64 v4; // r8
-  __int64 v5; // r9
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  __int64 v6; // r9
   struct InkDevice *InkDeviceByRimDeviceObject; // rax
-  InkFeedbackServer *v7; // rcx
-  InkProcessor *v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  struct InkDevice *v11; // rax
-  char *v12; // rcx
-  struct InkDevice *v13; // [rsp+50h] [rbp-10h] BYREF
-  const char *v14; // [rsp+58h] [rbp-8h] BYREF
-  struct InkDevice *v15; // [rsp+80h] [rbp+20h] BYREF
-  __int64 v16; // [rsp+90h] [rbp+30h] BYREF
-  char *v17; // [rsp+98h] [rbp+38h] BYREF
+  InkFeedbackServer *v8; // rcx
+  InkProcessor *v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  struct InkDevice *v12; // rax
+  char *v13; // rcx
+  struct InkDevice *v14; // [rsp+50h] [rbp-10h] BYREF
+  const char *v15; // [rsp+58h] [rbp-8h] BYREF
+  struct InkDevice *v16; // [rsp+80h] [rbp+20h] BYREF
+  const char *v17; // [rsp+90h] [rbp+30h] BYREF
+  char *v18; // [rsp+98h] [rbp+38h] BYREF
 
   KeEnterCriticalRegion();
   ExAcquirePushLockExclusiveEx(this, 0LL);
   if ( *((_BYTE *)this + 8) )
   {
     InkDeviceByRimDeviceObject = InkProcessor::FindInkDeviceByRimDeviceObject(this, a2);
-    v15 = InkDeviceByRimDeviceObject;
+    v16 = InkDeviceByRimDeviceObject;
     if ( InkDeviceByRimDeviceObject )
     {
-      InkFeedbackServer::RemoveInkFeedbackProvider(v7, (struct InkDevice *)((char *)InkDeviceByRimDeviceObject + 32));
-      InkProcessor::UnlinkAndReleaseInkDevice(v8, &v15);
-      if ( (unsigned int)dword_1C0326250 > 4 )
+      InkFeedbackServer::RemoveInkFeedbackProvider(v8, (struct InkDevice *)((char *)InkDeviceByRimDeviceObject + 32));
+      InkProcessor::UnlinkAndReleaseInkDevice(v9, &v16);
+      if ( (unsigned int)dword_1C032B288 > 4 )
       {
-        v11 = v15;
-        v16 = (__int64)a2;
-        if ( v15 )
-          v12 = (char *)v15 + 32;
+        v12 = v16;
+        if ( v16 )
+          v13 = (char *)v16 + 32;
         else
-          v12 = 0LL;
-        LODWORD(v15) = 0;
-        v13 = v11;
-        v14 = "Ink device removed";
-        v17 = v12;
+          v13 = 0LL;
+        LODWORD(v16) = 0;
+        v14 = v12;
+        v15 = "Ink device removed";
+        v17 = (const char *)a2;
+        v18 = v13;
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
-          (__int64)v12,
-          byte_1C02F146A,
-          v9,
+          (__int64)v13,
+          byte_1C02F4005,
           v10,
-          (__int64)&v15,
-          (void **)&v14,
-          (__int64)&v13,
-          (__int64)&v17,
-          (__int64)&v16);
+          v11,
+          (__int64)&v16,
+          (void **)&v15,
+          (__int64)&v14,
+          (__int64)&v18,
+          (__int64)&v17);
       }
     }
   }
-  else if ( (unsigned int)dword_1C0326250 > 2 )
+  else if ( (unsigned int)dword_1C032B288 > 2 )
   {
-    LODWORD(v15) = -1073741823;
-    v16 = (__int64)"Ink processor not enabled";
+    LODWORD(v16) = -1073741823;
+    v17 = "Ink processor not enabled";
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapSz<char>>(
-      (__int64)&dword_1C0326250,
-      byte_1C02F1438,
       v4,
+      byte_1C02F3FD3,
       v5,
-      (__int64)&v15,
-      (void **)&v16);
+      v6,
+      (__int64)&v16,
+      (void **)&v17);
   }
   ExReleasePushLockExclusiveEx(this, 0LL);
   KeLeaveCriticalRegion();

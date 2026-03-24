@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiDxgkDdiAddDevice @ 0x1C0219FAC
+ * XREFs of DpiDxgkDdiAddDevice @ 0x1C019E04C
  * Callers:
- *     DpiAddDevice @ 0x1C01F84B0 (DpiAddDevice.c)
+ *     DpiAddDevice @ 0x1C017CFC0 (DpiAddDevice.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0ppq_EtwWriteTransfer @ 0x1C005C07C (McTemplateK0ppq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0ppq_EtwWriteTransfer @ 0x1C00524E0 (McTemplateK0ppq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall DpiDxgkDdiAddDevice(__int64 a1, __int64 a2, _QWORD *a3)
@@ -13,22 +13,23 @@ __int64 __fastcall DpiDxgkDdiAddDevice(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v7; // rcx
   __int64 v8; // rdi
   __int64 v9; // r8
-  _QWORD *v10; // rax
-  __int64 v12; // [rsp+28h] [rbp-10h]
+  __int64 v10; // r9
+  _QWORD *v11; // rax
+  __int64 v13; // [rsp+28h] [rbp-10h]
 
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     McTemplateK0ppq_EtwWriteTransfer(a1, &EventEnterDdiAddDevice, (__int64)a3, a2, 0LL, 0);
   v8 = (*(int (__fastcall **)(__int64, _QWORD *))(a1 + 144))(a2, a3);
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
   {
-    LODWORD(v12) = v8;
-    McTemplateK0ppq_EtwWriteTransfer(v7, &EventExitDdiAddDevice, v9, a2, *a3, v12);
+    LODWORD(v13) = v8;
+    McTemplateK0ppq_EtwWriteTransfer(v7, &EventExitDdiAddDevice, v9, a2, *a3, v13);
   }
-  v10 = (_QWORD *)WdLogNewEntry5_WdTrace(v7, v6);
-  v10[7] = 0LL;
-  v10[3] = a1;
-  v10[4] = a2;
-  v10[5] = a3;
-  v10[6] = v8;
+  v11 = (_QWORD *)WdLogNewEntry5_WdTrace(v7, v6, v9, v10);
+  v11[7] = 0LL;
+  v11[3] = a1;
+  v11[4] = a2;
+  v11[5] = a3;
+  v11[6] = v8;
   return (unsigned int)v8;
 }

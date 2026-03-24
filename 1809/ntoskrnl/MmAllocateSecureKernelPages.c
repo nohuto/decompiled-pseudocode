@@ -1,8 +1,8 @@
 /*
- * XREFs of MmAllocateSecureKernelPages @ 0x1402C2D4C
+ * XREFs of MmAllocateSecureKernelPages @ 0x1402C2E4C
  * Callers:
- *     PspIumAllocatePartitionState @ 0x1402EB408 (PspIumAllocatePartitionState.c)
- *     PspIumAllocatePhysicalPages @ 0x1402EB54C (PspIumAllocatePhysicalPages.c)
+ *     PspIumAllocatePartitionState @ 0x1402EB508 (PspIumAllocatePartitionState.c)
+ *     PspIumAllocatePhysicalPages @ 0x1402EB64C (PspIumAllocatePhysicalPages.c)
  * Callees:
  *     MmAllocatePartitionNodePagesForMdlEx @ 0x140010F40 (MmAllocatePartitionNodePagesForMdlEx.c)
  *     MiInitializeMdlPfn @ 0x1400113B8 (MiInitializeMdlPfn.c)
@@ -10,10 +10,10 @@
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
  *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetSlabPage @ 0x1402C28DC (MiGetSlabPage.c)
- *     MiReplenishSlabAllocator @ 0x1402C2BB4 (MiReplenishSlabAllocator.c)
- *     MmFreeSecureKernelPages @ 0x1402C3034 (MmFreeSecureKernelPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
+ *     MiReplenishSlabAllocator @ 0x1402C2CB4 (MiReplenishSlabAllocator.c)
+ *     MmFreeSecureKernelPages @ 0x1402C3134 (MmFreeSecureKernelPages.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

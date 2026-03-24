@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpInitializeRealTimeConnection @ 0x140B75BE8
+ * XREFs of EtwpInitializeRealTimeConnection @ 0x140A73310
  * Callers:
- *     EtwpInitialize @ 0x140B4B150 (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140A41844 (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObCreateObjectType @ 0x140821750 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObCreateObjectType @ 0x140790760 (ObCreateObjectType.c)
  */
 
 __int64 EtwpInitializeRealTimeConnection()
@@ -16,7 +16,7 @@ __int64 EtwpInitializeRealTimeConnection()
   DestinationString = 0LL;
   memset(v2, 0, 0x78uLL);
   BYTE2(v2[0]) |= 0x18u;
-  v2[7] = IopOpenIoRing;
+  v2[7] = EtwpOpenRealTimeConnectionObject;
   LOWORD(v2[0]) = 120;
   v2[8] = EtwpCloseRealTimeConnectionObject;
   LODWORD(v2[1]) = 256;

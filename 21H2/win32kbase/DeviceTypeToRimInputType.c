@@ -1,13 +1,16 @@
 /*
- * XREFs of DeviceTypeToRimInputType @ 0x1C0044E70
+ * XREFs of DeviceTypeToRimInputType @ 0x1C0054500
  * Callers:
- *     RIMAddInjectionDeviceOfType @ 0x1C0004880 (RIMAddInjectionDeviceOfType.c)
- *     RIMDiscoverDevicesOfInputType @ 0x1C0044B20 (RIMDiscoverDevicesOfInputType.c)
- *     rimCompleteReads @ 0x1C0044C40 (rimCompleteReads.c)
- *     RIMUnRegisterForInputDeviceTypeClassNotifications @ 0x1C0044CE0 (RIMUnRegisterForInputDeviceTypeClassNotifications.c)
- *     rimIssueReads @ 0x1C0044DC0 (rimIssueReads.c)
- *     RIMAddNonPnpDeviceOfType @ 0x1C0181990 (RIMAddNonPnpDeviceOfType.c)
- *     RIMAddNonPnpDeviceOfTypeUsingSuppliedFileHandle @ 0x1C0182000 (RIMAddNonPnpDeviceOfTypeUsingSuppliedFileHandle.c)
+ *     RIMDiscoverDevicesOfInputType @ 0x1C0052D04 (RIMDiscoverDevicesOfInputType.c)
+ *     RIMDeviceClassNotify @ 0x1C0052EC0 (RIMDeviceClassNotify.c)
+ *     rimCompleteReads @ 0x1C0053548 (rimCompleteReads.c)
+ *     rimIssueReads @ 0x1C0054368 (rimIssueReads.c)
+ *     RIMUnRegisterForInputDeviceTypeClassNotifications @ 0x1C005441C (RIMUnRegisterForInputDeviceTypeClassNotifications.c)
+ *     RIMAddInjectionDeviceOfType @ 0x1C01548A0 (RIMAddInjectionDeviceOfType.c)
+ *     RIMAddNonPnpDeviceOfType @ 0x1C0154F10 (RIMAddNonPnpDeviceOfType.c)
+ *     RIMAddNonPnpDeviceOfTypeUsingSuppliedFileHandle @ 0x1C0155280 (RIMAddNonPnpDeviceOfTypeUsingSuppliedFileHandle.c)
+ *     RIMDeviceNotify @ 0x1C016C3E0 (RIMDeviceNotify.c)
+ *     RIMVirtDeviceClassNotify @ 0x1C016CA24 (RIMVirtDeviceClassNotify.c)
  * Callees:
  *     <none>
  */

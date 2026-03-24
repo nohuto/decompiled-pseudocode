@@ -1,26 +1,37 @@
 /*
- * XREFs of ?VidSchiUpdateFlipQueueHistory@@YAXW4_VIDSCH_FLIP_QUEUE_HISTORY_EVENT@@PEAU_VIDSCH_GLOBAL@@IPEAUVIDSCH_FLIP_QUEUE@@K@Z @ 0x1C00133DC
+ * XREFs of ?VidSchiUpdateFlipQueueHistory@@YAXW4_VIDSCH_FLIP_QUEUE_HISTORY_EVENT@@PEAU_VIDSCH_GLOBAL@@IPEAUVIDSCH_FLIP_QUEUE@@K@Z @ 0x1C000245C
  * Callers:
- *     VidSchUnwaitFlipQueue @ 0x1C0007760 (VidSchUnwaitFlipQueue.c)
- *     VidSchiExecuteMmIoFlip @ 0x1C000FA10 (VidSchiExecuteMmIoFlip.c)
- *     VidSchiCompleteFlipEntry @ 0x1C0010C40 (VidSchiCompleteFlipEntry.c)
- *     VidSchiSubmitMmIoFlipCommand @ 0x1C00126D0 (VidSchiSubmitMmIoFlipCommand.c)
- *     VidSchiExecuteMmIoFlipAtPassiveLevel @ 0x1C00148F0 (VidSchiExecuteMmIoFlipAtPassiveLevel.c)
- *     VidSchiRestartQueuedFlip @ 0x1C003C144 (VidSchiRestartQueuedFlip.c)
- *     ?VidSchiCancelAndRequeueIndependentFlips@@YAXPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C00482F0 (-VidSchiCancelAndRequeueIndependentFlips@@YAXPEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     VidSchiSubmitMmIoFlipCommand @ 0x1C0002FF0 (VidSchiSubmitMmIoFlipCommand.c)
+ *     VidSchUnwaitFlipQueue @ 0x1C000D860 (VidSchUnwaitFlipQueue.c)
+ *     VidSchiExecuteMmIoFlip @ 0x1C000EB20 (VidSchiExecuteMmIoFlip.c)
+ *     VidSchiExecuteMmIoFlipAtPassiveLevel @ 0x1C002F540 (VidSchiExecuteMmIoFlipAtPassiveLevel.c)
  * Callees:
- *     ?UpdateHistory@VIDSCH_FLIP_QUEUE_HISTORY_ENTRY@@QEAAXW4_VIDSCH_FLIP_QUEUE_HISTORY_EVENT@@PEAU_VIDSCH_GLOBAL@@PEBU_VIDSCH_PRESENT_INFO@@PEAUVIDSCH_FLIP_QUEUE@@K@Z @ 0x1C0013440 (-UpdateHistory@VIDSCH_FLIP_QUEUE_HISTORY_ENTRY@@QEAAXW4_VIDSCH_FLIP_QUEUE_HISTORY_EVENT@@PEAU_VI.c)
+ *     ?UpdateHistory@_VIDSCH_FLIP_QUEUE_HISTORY_ENTRY@@QEAAXW4_VIDSCH_FLIP_QUEUE_HISTORY_EVENT@@PEBU_VIDSCH_PRESENT_INFO@@PEAUVIDSCH_FLIP_QUEUE@@KK@Z @ 0x1C0002538 (-UpdateHistory@_VIDSCH_FLIP_QUEUE_HISTORY_ENTRY@@QEAAXW4_VIDSCH_FLIP_QUEUE_HISTORY_EVENT@@PEBU_V.c)
+ *     memset @ 0x1C0018D80 (memset.c)
  */
 
-__int64 __fastcall VidSchiUpdateFlipQueueHistory(unsigned int a1, __int64 a2, unsigned int a3)
+__int64 __fastcall VidSchiUpdateFlipQueueHistory(
+        unsigned int a1,
+        __int64 a2,
+        unsigned int a3,
+        __int64 a4,
+        unsigned int a5)
 {
-  __int64 v4; // r9
-  __int64 v5; // r10
-  __int64 v6; // rcx
+  __int64 v6; // rax
+  __int64 v8; // r8
+  __int64 v9; // rbp
+  int v10; // edi
+  void *v11; // rbx
 
-  v4 = *(_QWORD *)(a2 + 8LL * a3 + 3200);
-  v5 = *(unsigned int *)(v4 + 144);
-  v6 = *(_QWORD *)(v4 + 136) + 112 * v5;
-  *(_DWORD *)(v4 + 144) = (v5 + 1) & (*(_DWORD *)(v4 + 128) - 1);
-  return VIDSCH_FLIP_QUEUE_HISTORY_ENTRY::UpdateHistory(v6, a1, a2);
+  v6 = a3;
+  v8 = 1344LL * a5;
+  v9 = *(_QWORD *)(a2 + 8 * v6 + 3104);
+  if ( (*(_DWORD *)(v8 + a4 + 1224) & 0x10) != 0 )
+    v10 = ((unsigned __int16)**(_DWORD **)(v8 + a4 + 1264) | (unsigned __int16)(**(_DWORD **)(v8 + a4 + 1264) >> 10)) & 0x3FF;
+  else
+    v10 = (1 << *(_DWORD *)(a2 + 144)) - 1;
+  v11 = (void *)(*(_QWORD *)(v9 + 120) + 72LL * *(unsigned int *)(v9 + 128));
+  memset(v11, 0, 0x48uLL);
+  *(_DWORD *)(v9 + 128) = (*(_DWORD *)(v9 + 128) + 1) & (*(_DWORD *)(v9 + 112) - 1);
+  return _VIDSCH_FLIP_QUEUE_HISTORY_ENTRY::UpdateHistory(v11, a1, v9, a4, v10, a5);
 }

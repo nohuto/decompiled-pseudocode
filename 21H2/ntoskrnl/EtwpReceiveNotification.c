@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpReceiveNotification @ 0x14078EF08
+ * XREFs of EtwpReceiveNotification @ 0x1406E478C
  * Callers:
- *     NtTraceControl @ 0x1407954F0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     EtwpReleaseQueueEntry @ 0x14078F094 (EtwpReleaseQueueEntry.c)
- *     EtwpUnreferenceDataBlock @ 0x14078F0FC (EtwpUnreferenceDataBlock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     EtwpReleaseQueueEntry @ 0x1406E491C (EtwpReleaseQueueEntry.c)
+ *     EtwpUnreferenceDataBlock @ 0x1406E4984 (EtwpUnreferenceDataBlock.c)
  */
 
 __int64 __fastcall EtwpReceiveNotification(void *a1, unsigned int a2, char a3, _DWORD *a4)
@@ -35,43 +35,39 @@ __int64 __fastcall EtwpReceiveNotification(void *a1, unsigned int a2, char a3, _
   v11 = (ULONG_PTR)&Flink[1];
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&Flink[1], 0LL);
   p_Blink = (char *)&Flink[1].Blink;
-  for ( i = *(char **)p_Blink; ; i = *(char **)i )
+  for ( i = *(char **)p_Blink; i != p_Blink && a3 != (*(_BYTE *)(*((_QWORD *)i + 3) + 99LL) & 1); i = *(char **)i )
+    ;
+  if ( i == p_Blink )
   {
-    if ( i == p_Blink )
-    {
-      ExReleasePushLockEx(v11, 0LL);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-      return (unsigned int)-2147483622;
-    }
-    if ( a3 == (*(_BYTE *)(*((_QWORD *)i + 3) + 99LL) & 1) )
-      break;
+    ExReleasePushLockEx(v11, 0LL);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    return (unsigned int)-2147483622;
   }
   v14 = *(char **)i;
-  if ( *(char **)(*(_QWORD *)i + 8LL) != i || (v15 = (void **)*((_QWORD *)i + 1), *v15 != i) )
-LABEL_18:
-    __fastfail(3u);
+  if ( *(char **)(*(_QWORD *)i + 8LL) != i )
+    goto LABEL_20;
+  v15 = (void **)*((_QWORD *)i + 1);
+  if ( *v15 != i )
+    goto LABEL_20;
   *v15 = v14;
   *((_QWORD *)v14 + 1) = v15;
   v16 = *((_QWORD *)i + 2);
-  if ( *(_DWORD *)(v16 + 4) > a2 )
-  {
-    v20 = *(char **)p_Blink;
-    if ( *(char **)(*(_QWORD *)p_Blink + 8LL) == p_Blink )
-    {
-      *(_QWORD *)i = v20;
-      v4 = -1073741789;
-      *((_QWORD *)i + 1) = p_Blink;
-      *((_QWORD *)v20 + 1) = i;
-      *(_QWORD *)p_Blink = i;
-      goto LABEL_8;
-    }
-    goto LABEL_18;
-  }
-LABEL_8:
+  if ( *(_DWORD *)(v16 + 4) <= a2 )
+    goto LABEL_9;
+  v20 = *(char **)p_Blink;
+  if ( *(char **)(*(_QWORD *)p_Blink + 8LL) != p_Blink )
+LABEL_20:
+    __fastfail(3u);
+  *(_QWORD *)i = v20;
+  v4 = -1073741789;
+  *((_QWORD *)i + 1) = p_Blink;
+  *((_QWORD *)v20 + 1) = i;
+  *(_QWORD *)p_Blink = i;
+LABEL_9:
   v17 = *(char **)p_Blink;
   *a4 = *(_DWORD *)(v16 + 4);
   ExReleasePushLockEx(v11, 0LL);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v4 >= 0 )
   {
     v18 = _InterlockedIncrement((volatile signed __int32 *)(v16 + 20));

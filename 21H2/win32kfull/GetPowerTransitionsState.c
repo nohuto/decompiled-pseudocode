@@ -1,19 +1,20 @@
 /*
- * XREFs of GetPowerTransitionsState @ 0x1C01218A0
+ * XREFs of GetPowerTransitionsState @ 0x1C0133F00
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GetPowerTransitionsState(_OWORD *a1)
+__int64 __fastcall GetPowerTransitionsState(__int64 a1)
 {
   __int64 result; // rax
 
-  result = *(_QWORD *)&gPowerTransitionsState[0];
-  *a1 = gPowerTransitionsState[0];
-  a1[1] = gPowerTransitionsState[1];
-  a1[2] = gPowerTransitionsState[2];
-  a1[3] = gPowerTransitionsState[3];
+  *(_OWORD *)a1 = *(_OWORD *)gPowerTransitionsState;
+  *(_OWORD *)(a1 + 16) = *(_OWORD *)&gPowerTransitionsState[4];
+  *(_OWORD *)(a1 + 32) = *(_OWORD *)&gPowerTransitionsState[8];
+  *(_QWORD *)(a1 + 48) = *(_QWORD *)&gPowerTransitionsState[12];
+  result = (unsigned int)gPowerTransitionsState[14];
+  *(_DWORD *)(a1 + 56) = result;
   return result;
 }

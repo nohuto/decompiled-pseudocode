@@ -1,5 +1,5 @@
 /*
- * XREFs of IvtProcessReservedDomains @ 0x140A64670
+ * XREFs of IvtProcessReservedDomains @ 0x1409AA2E0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 __fastcall IvtProcessReservedDomains(__int64 a1, unsigned int a2, __int6
   __int64 v7; // r10
   __int64 v8; // rcx
 
-  if ( a2 != **(_DWORD **)(a1 + 352) )
+  if ( a2 != **(_DWORD **)(a1 + 296) )
     return 3221225485LL;
   result = 0LL;
   if ( a2 )
@@ -25,7 +25,7 @@ __int64 __fastcall IvtProcessReservedDomains(__int64 a1, unsigned int a2, __int6
       v8 = *a3;
       v6 += 16LL;
       ++a3;
-      *(_QWORD *)(v6 + *(_QWORD *)(a1 + 352)) = v8;
+      *(_QWORD *)(v6 + *(_QWORD *)(a1 + 296)) = v8;
       --v7;
     }
     while ( v7 );

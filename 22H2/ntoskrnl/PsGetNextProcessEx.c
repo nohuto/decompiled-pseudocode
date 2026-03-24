@@ -1,41 +1,31 @@
 /*
- * XREFs of PsGetNextProcessEx @ 0x1407C0AE0
+ * XREFs of PsGetNextProcessEx @ 0x140697AE0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3620 (ObReferenceObjectSafeWithTag.c)
- *     PspUnlockProcessListShared @ 0x1403506E4 (PspUnlockProcessListShared.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     PsGetNextProcess @ 0x14062BFA0 (PsGetNextProcess.c)
  */
 
-unsigned __int64 __fastcall PsGetNextProcessEx(_QWORD *Object)
+void *__fastcall PsGetNextProcessEx(struct _DMA_ADAPTER *Object)
 {
-  struct _KTHREAD *CurrentThread; // rbp
-  __int64 *v3; // r14
-  int v4; // esi
-  __int64 *v5; // rbx
+  void *NextProcess; // rax
+  void *v3; // rbx
 
-  CurrentThread = KeGetCurrentThread();
-  v3 = 0LL;
-  v4 = 0;
-  --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&PspActiveProcessLock, 0LL);
-  v5 = (__int64 *)PsActiveProcessHead;
   if ( Object )
-    v5 = (__int64 *)Object[137];
-  while ( v5 != &PsActiveProcessHead )
   {
-    v3 = v5 - 137;
-    if ( ObReferenceObjectSafeWithTag((__int64)(v5 - 137)) )
-    {
-      v4 = 1;
-      break;
-    }
-    v5 = (__int64 *)*v5;
+    ObfReferenceObjectWithTag(Object, 0x6E457350u);
+    HalPutDmaAdapter(Object);
   }
-  PspUnlockProcessListShared((__int64)CurrentThread);
-  if ( Object )
-    ObfDereferenceObjectWithTag(Object, 0x746C6644u);
-  return (unsigned __int64)v3 & -(__int64)(v4 != 0);
+  NextProcess = (void *)PsGetNextProcess(Object);
+  v3 = NextProcess;
+  if ( NextProcess )
+  {
+    ObfReferenceObject(NextProcess);
+    ObfDereferenceObjectWithTag(v3, 0x6E457350u);
+  }
+  return v3;
 }

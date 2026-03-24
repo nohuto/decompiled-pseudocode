@@ -1,5 +1,5 @@
 /*
- * XREFs of ?DpiRuntimePowerIrpCompletion@@YAXPEAU_DEVICE_OBJECT@@ET_POWER_STATE@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1C001B8B0
+ * XREFs of ?DpiRuntimePowerIrpCompletion@@YAXPEAU_DEVICE_OBJECT@@ET_POWER_STATE@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1C0051220
  * Callers:
  *     <none>
  * Callees:
@@ -22,8 +22,7 @@ void __fastcall DpiRuntimePowerIrpCompletion(
   SystemState = (void *)(int)PowerState.SystemState;
   if ( !DeviceExtension || *((_DWORD *)DeviceExtension + 4) != 1953656900 || *((_DWORD *)DeviceExtension + 5) != 3 )
   {
-    memset(&LockHandle, 0, sizeof(LockHandle));
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)DeviceExtension + 512, &LockHandle);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)DeviceExtension + 509, &LockHandle);
     Context[1] = MEMORY[0xFFFFF78000000014];
     *((_DWORD *)Context + 5) = IoStatus->Status;
     WorkItem = IoAllocateWorkItem(*((PDEVICE_OBJECT *)DeviceExtension + 3));

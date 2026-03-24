@@ -1,38 +1,39 @@
 /*
- * XREFs of CChainingHelper::RunForAllAxes__lambda_f3ac08a02e4a7ab098607de630a59e6d___ @ 0x180276330
+ * XREFs of CChainingHelper::RunForAllAxes__lambda_f3ac08a02e4a7ab098607de630a59e6d___ @ 0x180214DB0
  * Callers:
- *     ?UpdateConfigurationIfDirty@CChainingHelper@@QEAAXXZ @ 0x1802766E0 (-UpdateConfigurationIfDirty@CChainingHelper@@QEAAXXZ.c)
+ *     ?UpdateConfigurationIfDirty@CChainingHelper@@QEAAXXZ @ 0x180215130 (-UpdateConfigurationIfDirty@CChainingHelper@@QEAAXXZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     _anonymous_namespace_::GetTemporaryConfigurationAxis @ 0x180276684 (_anonymous_namespace_--GetTemporaryConfigurationAxis.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     _anonymous_namespace_::GetTemporaryConfigurationAxis @ 0x1802150D4 (_anonymous_namespace_--GetTemporaryConfigurationAxis.c)
  */
 
-__int64 __fastcall CChainingHelper::RunForAllAxes__lambda_f3ac08a02e4a7ab098607de630a59e6d___(__int64 a1, __int64 *a2)
+__int64 __fastcall CChainingHelper::RunForAllAxes__lambda_f3ac08a02e4a7ab098607de630a59e6d___(
+        __int64 a1,
+        _QWORD *a2,
+        __int64 a3,
+        __int64 a4)
 {
-  int v2; // edi
-  __int64 v4; // rsi
-  __int64 v5; // r9
-  __int64 v6; // rbx
+  int v4; // ebx
+  __int64 v6; // rdi
   unsigned int TemporaryConfigurationAxis; // eax
-  __int64 v8; // r11
+  __int64 v8; // r10
+  __int64 v9; // r11
   __int64 result; // rax
 
-  v2 = 0;
-  v4 = 0LL;
+  v4 = 0;
+  v6 = 0LL;
   do
   {
-    v5 = *a2;
-    v6 = *(_QWORD *)(*a2 + 40);
-    LOBYTE(v5) = (*(_BYTE *)(v4 + *a2) & 4) != 0;
+    LOBYTE(a4) = (*(_BYTE *)(v6 + *a2) & 4) != 0;
     TemporaryConfigurationAxis = anonymous_namespace_::GetTemporaryConfigurationAxis(
-                                   (unsigned int)v2,
+                                   (unsigned int)v4,
                                    a2,
-                                   *(unsigned int *)(v4 + *a2 + 8),
-                                   v5);
-    result = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64))(v8 + 200))(v6 + 64, TemporaryConfigurationAxis, 1LL);
-    ++v2;
-    v4 += 12LL;
+                                   *(unsigned int *)(v6 + *a2 + 8),
+                                   a4);
+    result = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64))(v8 + 200))(v9, TemporaryConfigurationAxis, 1LL);
+    ++v4;
+    v6 += 12LL;
   }
-  while ( v2 < 3 );
+  while ( v4 < 3 );
   return result;
 }

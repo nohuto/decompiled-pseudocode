@@ -1,82 +1,73 @@
 /*
- * XREFs of RtlSidHashLookup @ 0x14034A4E0
+ * XREFs of RtlSidHashLookup @ 0x140347670
  * Callers:
- *     <none>
+ *     SepTokenIsOwner @ 0x1403475A0 (SepTokenIsOwner.c)
+ *     SepSidInTokenSidHash @ 0x140347854 (SepSidInTokenSidHash.c)
  * Callees:
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
  */
 
-const void **__fastcall RtlSidHashLookup(__int64 a1, unsigned __int8 *a2)
+const void **__fastcall RtlSidHashLookup(__int64 a1, unsigned __int16 *a2)
 {
-  __int64 v4; // rax
-  unsigned __int8 v5; // bp
-  __int16 v6; // r8
-  unsigned int v7; // r9d
-  unsigned __int64 i; // rdi
-  int v9; // esi
-  unsigned int v10; // esi
-  unsigned int v11; // edi
-  __int64 v13; // r13
-  int v14; // ecx
-  int v15; // r12d
-  const void **v16; // r15
-  __int64 v17; // rbp
-  const void **v18; // rbx
-  __int16 v19; // [rsp+60h] [rbp+8h]
-  unsigned int v20; // [rsp+70h] [rbp+18h]
+  unsigned __int8 v4; // r14
+  __int16 v5; // bp
+  unsigned int v6; // r12d
+  unsigned int v7; // edx
+  unsigned __int64 i; // rsi
+  unsigned int v9; // esi
+  int v11; // r13d
+  __int64 v12; // rcx
+  int v13; // edx
+  const void **v14; // r15
+  __int64 v15; // r15
+  unsigned int v16; // r14d
+  const void **v17; // rdi
+  int v18; // [rsp+60h] [rbp+8h]
+  __int64 v19; // [rsp+70h] [rbp+18h]
 
   if ( !a1 || !a2 )
     return 0LL;
-  v4 = a2[1];
-  v5 = 0;
-  v6 = *(_WORD *)a2;
-  v19 = *(_WORD *)a2;
-  v7 = 4 * v4 + 8;
-  LODWORD(v4) = a2[4 * v4 + 4];
-  v20 = v7;
-  for ( i = *(_QWORD *)(a1 + 8 * (v4 & 0xF) + 16) & *(_QWORD *)(a1 + 8 * ((unsigned __int64)(unsigned int)v4 >> 4) + 144);
-        i;
-        i >>= 8 )
+  v4 = 0;
+  v5 = *a2;
+  v6 = 4 * *((unsigned __int8 *)a2 + 1) + 8;
+  v7 = LOBYTE(a2[2 * ((unsigned __int64)*a2 >> 8) + 2]);
+  for ( i = *(_QWORD *)(a1 + 8LL * (v7 & 0xF) + 16) & *(_QWORD *)(a1 + 8 * ((unsigned __int64)v7 >> 4) + 144); i; i >>= 8 )
   {
-    LOBYTE(v9) = i;
+    LOBYTE(v11) = i;
     if ( (_BYTE)i )
     {
-      v13 = *(_QWORD *)(a1 + 8);
-      v14 = v5;
+      v12 = *(_QWORD *)(a1 + 8);
+      v19 = v12;
+      v13 = v4;
       do
       {
-        v15 = *((unsigned __int8 *)SidHashByteToIndexLookupTable + (unsigned __int8)v9);
-        v16 = (const void **)(v13 + 16LL * (unsigned int)(v14 + v15));
-        if ( *(_WORD *)*v16 == v6 )
+        v18 = *((unsigned __int8 *)SidHashByteToIndexLookupTable + (unsigned __int8)v11);
+        v14 = (const void **)(v12 + 16LL * (unsigned int)(v13 + v18));
+        if ( *(_WORD *)*v14 == v5 )
         {
-          if ( !memcmp(a2, *v16, v7) )
-            return v16;
-          v6 = v19;
-          v7 = v20;
-          v14 = v5;
+          if ( !memcmp(a2, *v14, v6) )
+            return v14;
+          v12 = v19;
+          v13 = v4;
         }
-        v9 = (unsigned __int8)v9 ^ (1 << v15);
+        v11 = (unsigned __int8)v11 ^ (1 << v18);
       }
-      while ( (_BYTE)v9 );
+      while ( (_BYTE)v11 );
     }
-    v5 += 8;
+    v4 += 8;
   }
-  v10 = *(_DWORD *)a1;
-  v11 = 64;
+  v9 = *(_DWORD *)a1;
   if ( *(_DWORD *)a1 <= 0x40u )
     return 0LL;
-  v17 = *(_QWORD *)(a1 + 8);
+  v15 = *(_QWORD *)(a1 + 8);
+  v16 = 64;
   while ( 1 )
   {
-    v18 = (const void **)(v17 + 16LL * v11);
-    if ( *(_WORD *)*v18 != v6 )
-      goto LABEL_19;
-    if ( !memcmp(a2, *v18, v7) )
-      return (const void **)(v17 + 16LL * v11);
-    v6 = v19;
-LABEL_19:
-    if ( ++v11 >= v10 )
+    v17 = (const void **)(v15 + 16LL * v16);
+    if ( *(_WORD *)*v17 == v5 && !memcmp(a2, *v17, v6) )
+      break;
+    if ( ++v16 >= v9 )
       return 0LL;
-    v7 = v20;
   }
+  return (const void **)(v15 + 16LL * v16);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRescanPagefileBitmaps @ 0x14018804C
+ * XREFs of MiRescanPagefileBitmaps @ 0x14018806C
  * Callers:
- *     MiFindFreePageFileSpace @ 0x14012411C (MiFindFreePageFileSpace.c)
+ *     MiFindFreePageFileSpace @ 0x14012413C (MiFindFreePageFileSpace.c)
  * Callees:
- *     MiRescanPageFileBitmapPortion @ 0x1401208EC (MiRescanPageFileBitmapPortion.c)
- *     RtlFindNextClearRunUlong @ 0x140120B48 (RtlFindNextClearRunUlong.c)
- *     MiInitializePagefileBitmapsCache @ 0x140188204 (MiInitializePagefileBitmapsCache.c)
+ *     MiRescanPageFileBitmapPortion @ 0x14012090C (MiRescanPageFileBitmapPortion.c)
+ *     RtlFindNextClearRunUlong @ 0x140120B68 (RtlFindNextClearRunUlong.c)
+ *     MiInitializePagefileBitmapsCache @ 0x140188224 (MiInitializePagefileBitmapsCache.c)
  */
 
 __int64 __fastcall MiRescanPagefileBitmaps(__int64 a1)

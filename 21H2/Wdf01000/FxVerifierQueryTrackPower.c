@@ -1,10 +1,10 @@
 /*
- * XREFs of FxVerifierQueryTrackPower @ 0x1C006BD1C
+ * XREFs of FxVerifierQueryTrackPower @ 0x1C0058434
  * Callers:
- *     FxDriverGlobalsInitializeDebugExtension @ 0x1C006B864 (FxDriverGlobalsInitializeDebugExtension.c)
+ *     FxDriverGlobalsInitializeDebugExtension @ 0x1C0056E84 (FxDriverGlobalsInitializeDebugExtension.c)
  * Callees:
- *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C0014DF4 (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
+ *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C00184EC (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
  */
 
 void __fastcall FxVerifierQueryTrackPower(void *Key, FxTrackPowerOption *TrackPower)
@@ -17,7 +17,7 @@ void __fastcall FxVerifierQueryTrackPower(void *Key, FxTrackPowerOption *TrackPo
   valueName.Buffer = valueName_buffer;
   wcscpy(valueName_buffer, L"TrackPower");
   *(_QWORD *)&valueName.Length = 1441812LL;
-  if ( FxRegKey::_QueryULong(Key, &valueName, &value) < 0 || value >= 3 )
+  if ( (int)FxRegKey::_QueryULong(Key, &valueName, &value) < 0 || value >= 3 )
     *TrackPower = FxTrackPowerNone;
   else
     *TrackPower = value;

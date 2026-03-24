@@ -1,31 +1,31 @@
 /*
- * XREFs of ?GetFirstItemSafe@CDataBlockReader@@QEAAJPEAIPEAPEAX0@Z @ 0x1800BBB58
+ * XREFs of ?GetFirstItemSafe@CDataBlockReader@@QEAAJPEAIPEAPEAX0@Z @ 0x180037FE4
  * Callers:
- *     ?CheckPrimitives@CRenderData@@AEAAJXZ @ 0x1800BB528 (-CheckPrimitives@CRenderData@@AEAAJXZ.c)
- *     ?GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z @ 0x1800BB664 (-GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z.c)
+ *     ?CheckPrimitiveCount@CRenderData@@AEAAJXZ @ 0x180037A20 (-CheckPrimitiveCount@CRenderData@@AEAAJXZ.c)
+ *     ?GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z @ 0x180037B18 (-GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetNextItemSafe@CDataStreamReader@@QEAAJPEAIPEAPEAX0@Z @ 0x1800BB9E0 (-GetNextItemSafe@CDataStreamReader@@QEAAJPEAIPEAPEAX0@Z.c)
+ *     ?GetNextItemSafe@CDataStreamReader@@QEAAJPEAIPEAPEAX0@Z @ 0x180037E98 (-GetNextItemSafe@CDataStreamReader@@QEAAJPEAIPEAPEAX0@Z.c)
  */
 
 __int64 __fastcall CDataBlockReader::GetFirstItemSafe(__int64 **this, unsigned int *a2, void **a3, unsigned int *a4)
 {
-  __int64 v6; // r8
-  char *v7; // rcx
-  int v8; // eax
-  __int64 v9; // r8
+  __int64 v5; // r10
+  char *v6; // rcx
+  int v7; // eax
+  __int64 v8; // r10
   __int64 result; // rax
 
-  v6 = **this;
-  if ( *this == (__int64 *)v6 )
+  v5 = **this;
+  if ( *this == (__int64 *)v5 )
     return 1LL;
-  this[1] = (__int64 *)v6;
-  v7 = (char *)(this + 2);
-  v8 = *(_DWORD *)(v6 + 20);
-  v9 = v6 + 24;
-  *(_QWORD *)v7 = v9;
-  *((_QWORD *)v7 + 1) = v9;
-  *((_DWORD *)v7 + 4) = v8;
-  result = CDataStreamReader::GetNextItemSafe((CDataStreamReader *)v7, a2, a3, a4);
+  this[1] = (__int64 *)v5;
+  v6 = (char *)(this + 2);
+  v7 = *(_DWORD *)(v5 + 20);
+  v8 = v5 + 24;
+  *(_QWORD *)v6 = v8;
+  *((_DWORD *)v6 + 4) = v7;
+  *((_QWORD *)v6 + 1) = v8;
+  result = CDataStreamReader::GetNextItemSafe((CDataStreamReader *)v6, a2, a3, a4);
   if ( (_DWORD)result == 1 && (__int64 *)*this[1] != *this )
     return 2147500037LL;
   return result;

@@ -5,8 +5,8 @@
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     ViHalPreprocessOptions @ 0x14092DD28 (ViHalPreprocessOptions.c)
  *     ViTagBuffer @ 0x14092EAEC (ViTagBuffer.c)
  */
@@ -65,12 +65,12 @@ LABEL_10:
       if ( *v16 && v18 >= a2 && v18 < (unsigned __int64)v17 )
       {
         ViHalPreprocessOptions(
-          byte_1404054A8,
+          byte_14040549C,
           "Driver is trying to map an address range(%p-%p) that is already mapped    at %p",
           (const void *)0x1D,
           (const void *)a2,
           v17);
-        VfReportIssueWithOptions(0xE6u, 0x1DuLL, a2, (ULONG_PTR)v17, *v16, byte_1404054A8);
+        VfReportIssueWithOptions(0xE6u, 0x1DuLL, a2, (ULONG_PTR)v17, *v16, byte_14040549C);
       }
       v16 += 4;
     }

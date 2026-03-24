@@ -1,65 +1,70 @@
 /*
- * XREFs of MiMakePageBad @ 0x14065E320
+ * XREFs of MiMakePageBad @ 0x140563874
  * Callers:
- *     MiScrubLargeMappedPage @ 0x14065E4AC (MiScrubLargeMappedPage.c)
- *     MiScrubNode @ 0x140A466E0 (MiScrubNode.c)
+ *     MiScrubLargeMappedPage @ 0x1405639C8 (MiScrubLargeMappedPage.c)
+ *     MiScrubNode @ 0x140563F8C (MiScrubNode.c)
+ *     MiScrubProcessPhysicalPages @ 0x1408D6690 (MiScrubProcessPhysicalPages.c)
  * Callees:
- *     MiIsPageOnBadList @ 0x1402186E0 (MiIsPageOnBadList.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiSetPfnRemovalRequested @ 0x14064DF24 (MiSetPfnRemovalRequested.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiIsPageOnBadList @ 0x140283BEC (MiIsPageOnBadList.c)
+ *     MiInsertPageInList @ 0x1402A6E90 (MiInsertPageInList.c)
+ *     MiAcquireNonPagedResources @ 0x1403571F0 (MiAcquireNonPagedResources.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSetPfnRemovalRequested @ 0x14054F368 (MiSetPfnRemovalRequested.c)
  */
 
-void __fastcall MiMakePageBad(ULONG_PTR a1, char a2)
+void __fastcall MiMakePageBad(ULONG_PTR a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v4; // rdi
-  PVOID Pool; // rbp
-  unsigned __int64 v6; // rsi
+  char v4; // bp
+  int v6; // esi
+  unsigned __int8 v7; // di
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r8
-  int v10; // eax
-  bool v11; // zf
+  _DWORD *SchedulerAssist; // r9
+  int v11; // eax
+  bool v12; // zf
 
-  v4 = 48 * a1 - 0x220000000000LL;
-  Pool = MiAllocatePool(64, 0x20uLL, 0x6C42694Du);
-  v6 = (unsigned __int8)MiLockPageInline(v4);
-  if ( !MiIsPageOnBadList(v4) )
+  v4 = a2;
+  v6 = a2 & 1;
+  if ( (a2 & 1) != 0 )
+    v7 = MiLockPageInline(a1, a2, a3, a4);
+  else
+    v7 = 17;
+  if ( !MiIsPageOnBadList(a1) )
   {
-    if ( (a2 & 1) != 0 && (*(_BYTE *)(v4 + 35) & 0x40) == 0 )
+    if ( (*(_BYTE *)(a1 + 35) & 0x40) == 0 )
     {
       MiAcquireNonPagedResources(
-        *(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(v4 + 40) >> 43) & 0x3FFLL)),
+        *(ULONG_PTR **)(qword_140C4E648 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL)),
         1uLL,
         0LL,
         1u);
-      MiSetPfnRemovalRequested(v4, 1, 0, (unsigned __int64)Pool);
-      Pool = 0LL;
-      _InterlockedIncrement(&dword_140C68094);
+      MiSetPfnRemovalRequested(a1, 1);
     }
-    if ( (a2 & 2) != 0 )
-      MiInsertPageInFreeOrZeroedList(a1, 2);
-  }
-  _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
-  {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( (v4 & 2) != 0 )
+      MiInsertPageInList(a1, 0x20u);
+    if ( v6 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-      v11 = (v10 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v10;
-      if ( v11 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 )
+        {
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            v11 = ~(unsigned __int16)(-1LL << (v7 + 1));
+            v12 = (v11 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v11;
+            if ( v12 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
+        }
+      }
+      __writecr8(v7);
     }
+    _InterlockedIncrement(&dword_140C4E7DC);
   }
-  __writecr8(v6);
-  if ( Pool )
-    ExFreePoolWithTag(Pool, 0);
 }

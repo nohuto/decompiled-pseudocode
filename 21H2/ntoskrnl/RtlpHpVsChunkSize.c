@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpVsChunkSize @ 0x1405F39B4
+ * XREFs of RtlpHpVsChunkSize @ 0x140595734
  * Callers:
- *     RtlpSizeHeapInternal @ 0x1405EB088 (RtlpSizeHeapInternal.c)
- *     RtlpHpSegSizeInternal @ 0x1405F32FC (RtlpHpSegSizeInternal.c)
+ *     RtlpSizeHeapInternal @ 0x14058BA58 (RtlpSizeHeapInternal.c)
+ *     RtlpHpSegSizeInternal @ 0x1405950C8 (RtlpHpSegSizeInternal.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +21,7 @@ __int64 __fastcall RtlpHpVsChunkSize(__int64 a1, __int64 a2, __int64 a3, int *a4
   v6 = *(_DWORD *)(a1 + 176) & 1;
   if ( v6 && (a2 & 0xFFF) == 0 )
     v5 -= 16LL;
-  if ( ((HIDWORD(v5) ^ HIDWORD(RtlpHpHeapGlobals) ^ HIDWORD(*(_QWORD *)v5)) & 0xFF0000) == 0 )
+  if ( ((HIDWORD(v5) ^ DWORD1(RtlpHpHeapGlobals) ^ HIDWORD(*(_QWORD *)v5)) & 0xFF0000) == 0 )
     return -1LL;
   v7 = 16 * (WORD1(RtlpHpHeapGlobals) ^ WORD1(v5) ^ *(unsigned __int16 *)(v5 + 2)) - 16;
   if ( v6 && ((v5 + 32) & 0xFFF) == 0 )

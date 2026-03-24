@@ -1,76 +1,111 @@
 /*
- * XREFs of ?_Growmap@?$deque@VCMegaRect@@V?$allocator@VCMegaRect@@@std@@@std@@AEAAX_K@Z @ 0x1800829A0
+ * XREFs of ?_Growmap@?$deque@VCMegaRect@@V?$allocator@VCMegaRect@@@std@@@std@@AEAAX_K@Z @ 0x18003A578
  * Callers:
- *     ?Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z @ 0x180084C60 (-Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z.c)
- *     ?SubmitRenderCommand@CD2DContext@@QEAAJ$$QEAV?$unique_ptr@VCBatchCommand@@U?$default_delete@VCBatchCommand@@@std@@@std@@PEAVCHwLightCollectionBuffer@@PEAVClipPlaneInfoRef@@@Z @ 0x18008C528 (-SubmitRenderCommand@CD2DContext@@QEAAJ$$QEAV-$unique_ptr@VCBatchCommand@@U-$default_delete@VCBa.c)
+ *     ??$emplace_back@AEAPEAVCHWDrawListEntry@@@?$deque@VCMegaRect@@V?$allocator@VCMegaRect@@@std@@@std@@QEAAAEAVCMegaRect@@AEAPEAVCHWDrawListEntry@@@Z @ 0x18003A444 (--$emplace_back@AEAPEAVCHWDrawListEntry@@@-$deque@VCMegaRect@@V-$allocator@VCMegaRect@@@std@@@st.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800861C0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
- *     ?_Throw_bad_array_new_length@std@@YAXXZ @ 0x1801A6F70 (-_Throw_bad_array_new_length@std@@YAXXZ.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 void *__fastcall std::deque<CMegaRect>::_Growmap(_QWORD *a1)
 {
-  unsigned __int64 v1; // rdx
+  unsigned __int64 v2; // rdx
   unsigned __int64 v3; // rcx
-  unsigned __int64 v4; // rbp
+  unsigned __int64 v4; // r14
   unsigned __int64 v5; // r12
-  __int64 v6; // r15
-  char *v7; // r14
-  size_t v8; // rbx
-  const void *v9; // rdx
-  char *v10; // rbx
-  size_t v11; // r8
-  char *v12; // rcx
+  SIZE_T v6; // rbx
+  HANDLE ProcessHeap; // rax
+  _QWORD *v8; // rbp
+  __int64 v9; // r15
+  size_t v10; // rbx
+  const void *v11; // rdx
+  char *v12; // rbx
+  size_t v13; // r8
+  char *v14; // rcx
   void *result; // rax
-  __int64 v14; // rcx
+  __int64 v16; // rcx
+  SIZE_T v17; // rcx
+  void *v18; // rax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  void *retaddr; // [rsp+38h] [rbp+0h]
 
-  v1 = a1[2];
-  v3 = 1LL;
-  if ( v1 )
-    v3 = v1;
+  v2 = 1LL;
+  v3 = a1[2];
+  if ( v3 )
+    v2 = v3;
   while ( 1 )
   {
-    v4 = v3 - v1;
-    if ( v3 >= 8 )
+    v4 = v2 - v3;
+    if ( v2 >= 8 )
     {
       if ( v4 )
         break;
     }
-    if ( 0x7FFFFFFFFFFFFFFLL - v3 < v3 )
+    if ( 0x249249249249249LL - v2 < v2 )
       std::_Xlength_error("deque<T> too long");
-    v3 *= 2LL;
+    v2 *= 2LL;
   }
   v5 = a1[3];
-  if ( v3 > 0x1FFFFFFFFFFFFFFFLL )
-    std::_Throw_bad_array_new_length();
-  v6 = 8 * v5;
-  v7 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(8 * v3);
-  v8 = 8LL * a1[2] - 8 * v5;
-  memmove_0(&v7[8 * v5], (const void *)(a1[1] + 8 * v5), v8);
-  v9 = (const void *)a1[1];
-  v10 = &v7[8 * v5 + v8];
-  if ( v5 > v4 )
+  v6 = 8 * v2;
+  if ( v2 > 0x1FFFFFFFFFFFFFFFLL )
+    v6 = -1LL;
+  if ( v6 >= 0x1000 )
   {
-    memmove_0(v10, v9, 8 * v4);
-    memmove_0(v7, (const void *)(8 * v4 + a1[1]), v6 - 8 * v4);
-    v12 = &v7[v6 - 8 * v4];
-    v11 = 8 * v4;
+    v17 = v6 + 39;
+    if ( v6 + 39 < v6 )
+      v17 = -1LL;
+    v18 = operator new(v17);
+    if ( !v18 )
+    {
+      _o__invalid_parameter_noinfo_noreturn(v20, v19);
+      __debugbreak();
+      goto LABEL_23;
+    }
+    v8 = (_QWORD *)(((unsigned __int64)v18 + 39) & 0xFFFFFFFFFFFFFFE0uLL);
+    *(v8 - 1) = v18;
   }
   else
   {
-    memmove_0(v10, v9, 8 * v5);
-    memset_0(&v10[v6], 0, 8 * (v4 - v5));
-    v11 = 8 * v5;
-    v12 = v7;
+    if ( v6 )
+    {
+      ProcessHeap = GetProcessHeap();
+      v8 = HeapAlloc(ProcessHeap, 0, v6);
+      if ( v8 )
+        goto LABEL_12;
+LABEL_23:
+      ModuleFailFastForHRESULT(2147942414LL, retaddr);
+    }
+    v8 = 0LL;
   }
-  result = memset_0(v12, 0, v11);
-  v14 = a1[1];
-  if ( v14 )
-    result = (void *)std::_Deallocate<16,0>(v14, 8LL * a1[2]);
-  a1[1] = v7;
+LABEL_12:
+  v9 = 8 * v5;
+  v10 = 8LL * a1[2] - 8 * v5;
+  memmove_0(&v8[v5], (const void *)(a1[1] + 8 * v5), v10);
+  v11 = (const void *)a1[1];
+  v12 = (char *)&v8[v5] + v10;
+  if ( v5 > v4 )
+  {
+    memmove_0(v12, v11, 8 * v4);
+    memmove_0(v8, (const void *)(8 * v4 + a1[1]), v9 - 8 * v4);
+    v14 = (char *)v8 + v9 - 8 * v4;
+    v13 = 8 * v4;
+  }
+  else
+  {
+    memmove_0(v12, v11, 8 * v5);
+    memset_0(&v12[v9], 0, 8 * (v4 - v5));
+    v13 = 8 * v5;
+    v14 = (char *)v8;
+  }
+  result = memset_0(v14, 0, v13);
+  v16 = a1[1];
+  if ( v16 )
+    result = (void *)std::_Deallocate<16,0>(v16, 8LL * a1[2]);
   a1[2] += v4;
+  a1[1] = v8;
   return result;
 }

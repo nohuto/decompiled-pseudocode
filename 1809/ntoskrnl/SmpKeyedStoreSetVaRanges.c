@@ -1,7 +1,7 @@
 /*
- * XREFs of SmpKeyedStoreSetVaRanges @ 0x1400E4B54
+ * XREFs of SmpKeyedStoreSetVaRanges @ 0x1400E4B74
  * Callers:
- *     SmStoreSetProcessVaRanges @ 0x14066B6FC (SmStoreSetProcessVaRanges.c)
+ *     SmStoreSetProcessVaRanges @ 0x14066B6DC (SmStoreSetProcessVaRanges.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -12,7 +12,7 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 SmpKeyedStoreSetVaRanges(ULONG_PTR BugCheckParameter2, ...)

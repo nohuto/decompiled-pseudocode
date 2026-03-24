@@ -1,7 +1,7 @@
 /*
- * XREFs of PsIsDiskCountersEnabled @ 0x1403D9790
+ * XREFs of PsIsDiskCountersEnabled @ 0x1403CAB80
  * Callers:
- *     ExpPcwHostCallback @ 0x14085B800 (ExpPcwHostCallback.c)
+ *     ExpPcwHostCallback @ 0x1407CC410 (ExpPcwHostCallback.c)
  * Callees:
  *     <none>
  */

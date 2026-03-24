@@ -1,12 +1,12 @@
 /*
- * XREFs of VidSchDestroyDeviceSyncObject @ 0x1C00145C0
+ * XREFs of VidSchDestroyDeviceSyncObject @ 0x1C0011E90
  * Callers:
- *     ?DestroyState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1C009935C (-DestroyState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ.c)
+ *     ?DestroyState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1C00832B4 (-DestroyState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ.c)
  * Callees:
- *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C0009A80 (--1HwQueueStagingList@@QEAA@XZ.c)
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0014690 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     VidSchiRundownMonitoredFenceCpuWaiters @ 0x1C00146C8 (VidSchiRundownMonitoredFenceCpuWaiters.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C0014924 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C000AFA0 (--1HwQueueStagingList@@QEAA@XZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011F60 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     VidSchiRundownMonitoredFenceCpuWaiters @ 0x1C0011F98 (VidSchiRundownMonitoredFenceCpuWaiters.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00129FC (-Release@AcquireSpinLock@@QEAAXXZ.c)
  */
 
 void __fastcall VidSchDestroyDeviceSyncObject(__int64 a1, __int64 a2, char a3, __int64 *a4)
@@ -21,7 +21,7 @@ void __fastcall VidSchDestroyDeviceSyncObject(__int64 a1, __int64 a2, char a3, _
 
   v4 = *(_QWORD *)(a1 + 8);
   v14 = 0;
-  v13[0] = v4 + 1728;
+  v13[0] = v4 + 1712;
   AcquireSpinLock::Acquire((AcquireSpinLock *)v13);
   v12 = 0;
   v11[1] = v11;

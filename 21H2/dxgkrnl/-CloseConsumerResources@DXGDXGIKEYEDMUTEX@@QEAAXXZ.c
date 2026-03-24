@@ -1,44 +1,44 @@
 /*
- * XREFs of ?CloseConsumerResources@DXGDXGIKEYEDMUTEX@@QEAAXXZ @ 0x1C031F7B8
+ * XREFs of ?CloseConsumerResources@DXGDXGIKEYEDMUTEX@@QEAAXXZ @ 0x1C0298AA4
  * Callers:
- *     ??1DXGDXGIKEYEDMUTEX@@QEAA@XZ @ 0x1C031EFF0 (--1DXGDXGIKEYEDMUTEX@@QEAA@XZ.c)
- *     ?MarkForPendingDestroy@OUTPUTDUPL_CONTEXT@@QEAAXXZ @ 0x1C0326FE0 (-MarkForPendingDestroy@OUTPUTDUPL_CONTEXT@@QEAAXXZ.c)
+ *     ??1DXGDXGIKEYEDMUTEX@@QEAA@XZ @ 0x1C0298530 (--1DXGDXGIKEYEDMUTEX@@QEAA@XZ.c)
+ *     ?MarkForPendingDestroy@OUTPUTDUPL_CONTEXT@@QEAAXXZ @ 0x1C02A1498 (-MarkForPendingDestroy@OUTPUTDUPL_CONTEXT@@QEAAXXZ.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?QueueSerializedWorkItem@CSERIALIZEDWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z @ 0x1C020B9B0 (-QueueSerializedWorkItem@CSERIALIZEDWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z.c)
- *     ?CloseLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAXW4_OUTPUTDUPL_MUTEX_TYPE@@H@Z @ 0x1C031FC2C (-CloseLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAXW4_OUTPUTDUPL_MUTEX_TYPE@@H@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?QueueSerializedWorkItem@CSERIALIZEDWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z @ 0x1C018B2EC (-QueueSerializedWorkItem@CSERIALIZEDWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z.c)
+ *     ?CloseLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAXW4_OUTPUTDUPL_MUTEX_TYPE@@H@Z @ 0x1C0298E4C (-CloseLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAXW4_OUTPUTDUPL_MUTEX_TYPE@@H@Z.c)
  */
 
-void __fastcall DXGDXGIKEYEDMUTEX::CloseConsumerResources(struct _KPROCESS **this, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall DXGDXGIKEYEDMUTEX::CloseConsumerResources(struct _KPROCESS **this, __int64 a2)
 {
   __int64 CurrentProcess; // rax
+  struct _KPROCESS *v4; // rdi
+  struct _KPROCESS *v5; // rsi
   struct _KPROCESS *v6; // rdi
-  struct _KPROCESS *v7; // rsi
   struct DXGGLOBAL *Global; // rax
-  __int64 v9; // r9
   struct _KAPC_STATE ApcState; // [rsp+20h] [rbp-48h] BYREF
 
   if ( *((_DWORD *)this + 10) )
   {
-    CurrentProcess = PsGetCurrentProcess(this, a2, a3, a4);
-    v6 = this[7];
-    v7 = (struct _KPROCESS *)CurrentProcess;
+    CurrentProcess = PsGetCurrentProcess(this, a2);
+    v4 = this[7];
+    v5 = (struct _KPROCESS *)CurrentProcess;
     memset(&ApcState, 0, sizeof(ApcState));
-    if ( (struct _KPROCESS *)CurrentProcess != v6 )
-      KeStackAttachProcess(v6, &ApcState);
+    if ( (struct _KPROCESS *)CurrentProcess != v4 )
+      KeStackAttachProcess(v4, &ApcState);
     DXGDXGIKEYEDMUTEX::CloseLocalMutex(this, 1LL, 1LL);
-    if ( v7 != v6 )
+    if ( v5 != v4 )
       KeUnstackDetachProcess(&ApcState);
   }
+  v6 = *this;
   if ( *this )
   {
-    Global = DXGGLOBAL_GetGlobal();
+    Global = DXGGLOBAL::GetGlobal((__int64)this, a2);
     CSERIALIZEDWORKQUEUE::QueueSerializedWorkItem(
-      (CSERIALIZEDWORKQUEUE ***)Global + 38119,
+      (CSERIALIZEDWORKQUEUE ***)Global + 38088,
       (void (*)(void *))DXGGLOBAL::DereferenceObjectWork,
-      *this,
-      v9);
+      v6);
     *this = 0LL;
   }
 }

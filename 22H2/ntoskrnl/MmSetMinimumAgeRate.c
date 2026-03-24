@@ -1,9 +1,9 @@
 /*
- * XREFs of MmSetMinimumAgeRate @ 0x1407E73E0
+ * XREFs of MmSetMinimumAgeRate @ 0x140676240
  * Callers:
- *     PfSetSuperfetchInformation @ 0x14075FEA4 (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x140709624 (PfSetSuperfetchInformation.c)
  * Callees:
- *     PsGetNextPartition @ 0x14036A720 (PsGetNextPartition.c)
+ *     PsGetNextPartition @ 0x140303EF8 (PsGetNextPartition.c)
  */
 
 _QWORD *__fastcall MmSetMinimumAgeRate(unsigned int a1)
@@ -11,30 +11,30 @@ _QWORD *__fastcall MmSetMinimumAgeRate(unsigned int a1)
   _QWORD *result; // rax
   _QWORD *v3; // r8
   __int64 v4; // r9
-  unsigned int v5; // eax
+  __int16 v5; // cx
+  unsigned int v6; // ecx
+  unsigned int v7; // eax
 
   for ( result = PsGetNextPartition(0LL); ; result = PsGetNextPartition(v3) )
   {
     v3 = result;
     if ( !result )
       break;
-    v4 = *(_QWORD *)(*result + 16920LL);
+    v4 = *(_QWORD *)(*result + 6848LL);
     if ( a1 )
     {
       if ( a1 < 0xC )
-      {
-        LOWORD(v5) = 1000;
-      }
+        v6 = 1;
       else
-      {
-        v5 = 0x3E8 / (a1 / 6);
-        if ( v5 <= 1 )
-          LOWORD(v5) = 1;
-      }
+        v6 = a1 / 6;
+      v7 = 0x3E8 / v6;
+      v5 = 1;
+      if ( v7 > 1 )
+        v5 = v7;
     }
     else
     {
-      LOWORD(v5) = 0;
+      v5 = 0;
     }
     *(_WORD *)(v4 + 2348) = v5;
   }

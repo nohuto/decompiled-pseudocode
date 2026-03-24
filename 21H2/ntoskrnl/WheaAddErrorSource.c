@@ -1,23 +1,24 @@
 /*
- * XREFs of WheaAddErrorSource @ 0x14084E510
+ * XREFs of WheaAddErrorSource @ 0x1407AF2C0
  * Callers:
- *     WheaAddErrorSourceDeviceDriver @ 0x14084E340 (WheaAddErrorSourceDeviceDriver.c)
+ *     WheaAddErrorSourceDeviceDriver @ 0x1407AF0F0 (WheaAddErrorSourceDeviceDriver.c)
  * Callees:
- *     WheapAddErrorSource @ 0x1403C0774 (WheapAddErrorSource.c)
- *     WheapCallErrorSourceInitialize @ 0x1403C08BC (WheapCallErrorSourceInitialize.c)
- *     WheaLogInternalEvent @ 0x1403D2A90 (WheaLogInternalEvent.c)
- *     WheapIsNonHestErrorSource @ 0x1403D2BC0 (WheapIsNonHestErrorSource.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     WheapInitializeErrorSource @ 0x140825964 (WheapInitializeErrorSource.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     WheaLogInternalEvent @ 0x1403BAD50 (WheaLogInternalEvent.c)
+ *     WheapCallErrorSourceInitialize @ 0x1403BAE50 (WheapCallErrorSourceInitialize.c)
+ *     WheapAddErrorSource @ 0x1403BB024 (WheapAddErrorSource.c)
+ *     WheapIsNonHestErrorSource @ 0x1403BB0A4 (WheapIsNonHestErrorSource.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     WheapInitializeErrorSource @ 0x1407AF744 (WheapInitializeErrorSource.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WheaAddErrorSource(__int128 *a1, __int64 a2)
 {
   __int128 *v2; // rbx
   __int64 v4; // r14
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   __int64 v6; // rdi
   __int64 v7; // rcx
   __int128 *v8; // r8
@@ -47,11 +48,12 @@ __int64 __fastcall WheaAddErrorSource(__int128 *a1, __int64 a2)
   v4 = 7LL;
   if ( WheapIsNonHestErrorSource(*((_DWORD *)a1 + 2)) )
   {
-    Pool2 = ExAllocatePool2(64LL, 1072LL, 1634035799LL);
-    v6 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x430uLL, 0x61656857u);
+    v6 = (__int64)PoolWithTag;
+    if ( PoolWithTag )
     {
-      v7 = Pool2 + 96;
+      memset(PoolWithTag, 0, 0x430uLL);
+      v7 = v6 + 96;
       v8 = v2;
       v9 = 7LL;
       do
@@ -86,10 +88,12 @@ __int64 __fastcall WheaAddErrorSource(__int128 *a1, __int64 a2)
         *(_QWORD *)(v6 + 56) = a2;
         WheapAddErrorSource(v11, v6);
         if ( WheapInitializationComplete )
+        {
           *(_DWORD *)(v6 + 108) = 2;
-        v12 = WheapCallErrorSourceInitialize(v6, 1u);
-        if ( v12 < 0 )
-          *(_DWORD *)(v6 + 108) = 1;
+          v12 = WheapCallErrorSourceInitialize(v6, 1u);
+          if ( v12 < 0 )
+            *(_DWORD *)(v6 + 108) = 1;
+        }
       }
     }
     else

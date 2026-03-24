@@ -1,48 +1,43 @@
 /*
- * XREFs of DxgkCreateDoDPrimarySection @ 0x1C02BD030
+ * XREFs of DxgkCreateDoDPrimarySection @ 0x1C0212C80
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 PVOID __fastcall DxgkCreateDoDPrimarySection(__int64 a1, unsigned int a2)
 {
-  unsigned int v2; // eax
+  __int64 v2; // rax
   int v4; // eax
-  __int64 v5; // rbx
-  PVOID v7; // rcx
-  PVOID Object; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v9; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rdi
+  __int64 v8; // rax
+  PVOID v10; // rcx
+  PVOID Object; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v12; // [rsp+60h] [rbp+18h] BYREF
 
-  v2 = *(_DWORD *)(a1 + 4);
+  v2 = *(unsigned int *)(a1 + 4);
   Object = 0LL;
-  if ( v2 > a2 )
-    a2 = v2;
-  *(_DWORD *)a1 = a2;
-  v9 = a2;
-  v4 = MmCreateSection(&Object, 0LL, 0LL, &v9, 4, 0x8000000, 0LL, 0LL);
+  if ( (unsigned int)v2 <= a2 )
+    v2 = a2;
+  *(_DWORD *)a1 = v2;
+  v12 = v2;
+  v4 = MmCreateSection(&Object, 0LL, 0LL, &v12, 4, 0x8000000, 0LL, 0LL);
+  v7 = v4;
   if ( v4 >= 0 )
   {
-    v7 = Object;
+    v10 = Object;
     *(_QWORD *)(a1 + 8) = Object;
-    ObfReferenceObject(v7);
+    ObfReferenceObject(v10);
     return Object;
   }
   else
   {
-    v5 = v4;
-    WdLogSingleEntry1(2LL, v4);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to create section object for DoD primary backing store (Status = 0x%I64x).",
-      v5,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v8 = WdLogNewEntry5_WdError(v6, v5);
+    *(_QWORD *)(v8 + 24) = v7;
+    WdLogEvent5_WdError(v8);
     return 0LL;
   }
 }

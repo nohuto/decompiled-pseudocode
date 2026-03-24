@@ -4,8 +4,8 @@
  *     MiAddWorkingSetEntries @ 0x140048CE0 (MiAddWorkingSetEntries.c)
  *     MmIsSessionExecutionValid @ 0x14009DB10 (MmIsSessionExecutionValid.c)
  *     RtlpxLookupFunctionTable @ 0x1400A18B0 (RtlpxLookupFunctionTable.c)
- *     MiLookupDataTableEntry @ 0x1400DA570 (MiLookupDataTableEntry.c)
- *     RtlPcToFileName @ 0x14018E870 (RtlPcToFileName.c)
+ *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
+ *     RtlPcToFileName @ 0x14018E890 (RtlPcToFileName.c)
  * Callees:
  *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14009D150 (ExAcquireSpinLockSharedAtDpcLevel.c)
  */

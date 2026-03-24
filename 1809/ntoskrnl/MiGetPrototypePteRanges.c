@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetPrototypePteRanges @ 0x1401251F4
+ * XREFs of MiGetPrototypePteRanges @ 0x140125214
  * Callers:
- *     MiReplacePageOfProtoPool @ 0x140124D7C (MiReplacePageOfProtoPool.c)
+ *     MiReplacePageOfProtoPool @ 0x140124D9C (MiReplacePageOfProtoPool.c)
  * Callees:
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
  *     MiObtainProtoBaseFromNode @ 0x1400961A4 (MiObtainProtoBaseFromNode.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, struct _RTL_BITMAP *a2)

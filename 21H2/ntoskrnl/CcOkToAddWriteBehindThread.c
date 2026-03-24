@@ -1,82 +1,80 @@
 /*
- * XREFs of CcOkToAddWriteBehindThread @ 0x140539900
+ * XREFs of CcOkToAddWriteBehindThread @ 0x1404E9D8C
  * Callers:
- *     CcWorkerThread @ 0x14035D970 (CcWorkerThread.c)
+ *     CcWorkerThread @ 0x1402F31F0 (CcWorkerThread.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CcOkToAddWriteBehindThread(__int64 a1, __int64 a2)
+__int64 __fastcall CcOkToAddWriteBehindThread(__int64 a1)
 {
-  unsigned int v2; // r8d
-  __int64 v3; // r9
-  unsigned int v6; // edx
-  __int64 v7; // r10
-  unsigned int v8; // eax
-  unsigned int v9; // ebx
-  __int64 v10; // r10
-  unsigned int v11; // r9d
-  bool v12; // cf
-  __int64 v13; // r8
-  int v14; // eax
-  int v15; // eax
-  unsigned int v16; // eax
-  int v17; // ecx
+  __int64 v1; // r9
+  __int64 v2; // r8
+  unsigned int v4; // edx
+  unsigned int v5; // edi
+  unsigned int v6; // eax
+  unsigned int v7; // r11d
+  __int64 v8; // rbx
+  unsigned int v9; // r9d
+  __int64 v10; // r8
+  int v11; // eax
+  int v12; // eax
+  unsigned int v13; // eax
+  int v14; // ecx
 
-  v2 = *(_DWORD *)(a1 + 912);
-  v3 = *(_QWORD *)(a1 + 1072);
-  v6 = 0;
-  v7 = *(unsigned int *)(a2 + 152);
-  v8 = *(_DWORD *)(v3 + 8 * v7);
-  v9 = v8 - v2;
-  *(_DWORD *)(v3 + 8 * v7) = v2;
-  v10 = *(unsigned int *)(a2 + 152);
-  v11 = 1;
-  v12 = v8 < v2;
-  v13 = *(_QWORD *)(a1 + 1072);
-  if ( v12 )
-    v9 = 0;
-  if ( (_DWORD)v10 )
-    v6 = *(_DWORD *)(v13 + 8LL * (unsigned int)(v10 - 1) + 4);
-  *(_DWORD *)(v13 + 8 * v10 + 4) = v9;
-  if ( v9 )
+  v1 = *(unsigned int *)(a1 + 320);
+  v2 = *(_QWORD *)(a1 + 720);
+  v4 = *(_DWORD *)(a1 + 496);
+  v5 = 0;
+  v6 = *(_DWORD *)(v2 + 8 * v1);
+  v7 = v6 - v4;
+  *(_DWORD *)(v2 + 8 * v1) = v4;
+  v8 = *(unsigned int *)(a1 + 320);
+  v9 = 1;
+  v10 = *(_QWORD *)(a1 + 720);
+  if ( v6 < v4 )
+    v7 = 0;
+  if ( (_DWORD)v8 )
+    v5 = *(_DWORD *)(v10 + 8LL * (unsigned int)(v8 - 1) + 4);
+  *(_DWORD *)(v10 + 8 * v8 + 4) = v7;
+  if ( v7 )
   {
-    v14 = *(_DWORD *)(a2 + 200);
-    if ( v9 < v6 )
+    v11 = *(_DWORD *)(a1 + 728);
+    if ( v7 < v5 )
     {
-      if ( v14 > 0 )
-        v14 = 0;
-      v15 = v14 - 1;
+      if ( v11 > 0 )
+        v11 = 0;
+      v12 = v11 - 1;
     }
     else
     {
-      if ( v14 < 0 )
-        v14 = 0;
-      v15 = v14 + 1;
+      if ( v11 < 0 )
+        v11 = 0;
+      v12 = v11 + 1;
     }
-    *(_DWORD *)(a2 + 200) = v15;
-    if ( v15 == 3 )
+    *(_DWORD *)(a1 + 728) = v12;
+    if ( v12 == 3 )
     {
-      v11 = 2;
-      *(_DWORD *)(a2 + 200) = 0;
-      v16 = *(_DWORD *)(a2 + 152);
-      if ( v16 < *(_DWORD *)(a1 + 800) )
+      v9 = 2;
+      *(_DWORD *)(a1 + 728) = 0;
+      v13 = *(_DWORD *)(a1 + 320);
+      if ( v13 < *(_DWORD *)(a1 + 324) )
       {
-        *(_DWORD *)(v13 + 8LL * (v16 + 1)) = *(_DWORD *)(a1 + 912);
-        *(_DWORD *)(v13 + 8LL * (unsigned int)(*(_DWORD *)(a2 + 152) + 1) + 4) = 0;
+        *(_DWORD *)(v10 + 8LL * (v13 + 1)) = *(_DWORD *)(a1 + 496);
+        *(_DWORD *)(v10 + 8LL * (unsigned int)(*(_DWORD *)(a1 + 320) + 1) + 4) = 0;
       }
     }
-    else if ( v15 == -3 )
+    else if ( v12 == -3 )
     {
-      v17 = *(_DWORD *)(a2 + 152);
-      v11 = 3;
-      *(_DWORD *)(a2 + 200) = 0;
-      if ( v17 )
+      v14 = *(_DWORD *)(a1 + 320);
+      v9 = 3;
+      *(_DWORD *)(a1 + 728) = 0;
+      if ( v14 )
       {
-        *(_DWORD *)(v13 + 8LL * (unsigned int)(v17 - 1)) = *(_DWORD *)(a1 + 912);
-        *(_DWORD *)(v13 + 8LL * (unsigned int)(*(_DWORD *)(a2 + 152) - 1) + 4) = 0;
+        *(_DWORD *)(v10 + 8LL * (unsigned int)(v14 - 1)) = *(_DWORD *)(a1 + 496);
+        *(_DWORD *)(v10 + 8LL * (unsigned int)(*(_DWORD *)(a1 + 320) - 1) + 4) = 0;
       }
     }
   }
-  return v11;
+  return v9;
 }

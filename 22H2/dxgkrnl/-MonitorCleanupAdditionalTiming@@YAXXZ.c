@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MonitorCleanupAdditionalTiming@@YAXXZ @ 0x1C03C8B20
+ * XREFs of ?MonitorCleanupAdditionalTiming@@YAXXZ @ 0x1C02F8CF0
  * Callers:
- *     MonitorCleanupGlobal @ 0x1C006BB94 (MonitorCleanupGlobal.c)
+ *     MonitorCleanupGlobal @ 0x1C005DFCC (MonitorCleanupGlobal.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
  */
 
 void MonitorCleanupAdditionalTiming(void)
@@ -12,10 +12,10 @@ void MonitorCleanupAdditionalTiming(void)
 
   while ( 1 )
   {
-    v0 = qword_1C01421E0;
-    if ( !qword_1C01421E0 )
+    v0 = qword_1C00B3208;
+    if ( !qword_1C00B3208 )
       break;
-    qword_1C01421E0 = *(void **)qword_1C01421E0;
-    operator delete(v0);
+    qword_1C00B3208 = *(void **)qword_1C00B3208;
+    operator delete[](v0);
   }
 }

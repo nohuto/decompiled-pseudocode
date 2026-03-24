@@ -1,11 +1,10 @@
 /*
- * XREFs of ?HighContrastHotKey@@YAHPEAUtagKE@@KH@Z @ 0x1C01B9490
+ * XREFs of ?HighContrastHotKey@@YAHPEAUtagKE@@KH@Z @ 0x1C01836B0
  * Callers:
  *     <none>
  * Callees:
- *     PostWinlogonMessage @ 0x1C0059750 (PostWinlogonMessage.c)
- *     ApiSetEditionPostAccessibilityShortcutNotification @ 0x1C020A4F4 (ApiSetEditionPostAccessibilityShortcutNotification.c)
- *     ApiSetEditionPostRitSound @ 0x1C020AA7C (ApiSetEditionPostRitSound.c)
+ *     PostWinlogonMessage @ 0x1C0074CD0 (PostWinlogonMessage.c)
+ *     ApiSetEditionPostRitSound @ 0x1C01CD51C (ApiSetEditionPostRitSound.c)
  */
 
 __int64 __fastcall HighContrastHotKey(struct tagKE *a1)
@@ -18,22 +17,22 @@ __int64 __fastcall HighContrastHotKey(struct tagKE *a1)
   v1 = *((_BYTE *)a1 + 2);
   v2 = *((_WORD *)a1 + 1) & 0x8000;
   v3 = (unsigned __int8)gLockBits | (unsigned __int8)gLatchBits | (unsigned __int8)gPhysModifierState;
-  v4 = dword_1C02959FC;
-  if ( (dword_1C02959FC & 1) != 0 )
+  v4 = dword_1C0250BBC;
+  if ( (dword_1C0250BBC & 1) != 0 )
   {
-    if ( (dword_1C02959FC & 4) != 0 && v1 == 44 && !(_DWORD)v2 && v3 == 17 )
+    if ( (dword_1C0250BBC & 4) != 0 && v1 == 44 && !(_DWORD)v2 && v3 == 17 )
     {
-      dword_1C02959FC &= ~1u;
+      dword_1C0250BBC &= ~1u;
       if ( (v4 & 0x10) != 0 )
         ApiSetEditionPostRitSound(1LL, v2, 0LL);
       PostWinlogonMessage(1026LL, 9u);
     }
     return 1LL;
   }
-  if ( (dword_1C02959FC & 4) == 0 || v1 != 44 || (_DWORD)v2 || v3 != 17 )
+  if ( (dword_1C0250BBC & 4) == 0 || v1 != 44 || (_DWORD)v2 || v3 != 17 )
     return 1LL;
-  if ( (dword_1C02959FC & 0x10) != 0 )
+  if ( (dword_1C0250BBC & 0x10) != 0 )
     ApiSetEditionPostRitSound(0LL, v2, 0LL);
-  ApiSetEditionPostAccessibilityShortcutNotification(5LL);
+  PostWinlogonMessage(1026LL, 5u);
   return 0LL;
 }

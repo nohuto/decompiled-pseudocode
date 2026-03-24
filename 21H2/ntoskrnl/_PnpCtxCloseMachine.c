@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpCtxCloseMachine @ 0x140A2296C
+ * XREFs of _PnpCtxCloseMachine @ 0x140974534
  * Callers:
- *     PiDevCfgInitDriverDatabaseCallback @ 0x14094C428 (PiDevCfgInitDriverDatabaseCallback.c)
- *     PipMigratePnpState @ 0x140B0EC60 (PipMigratePnpState.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x1408A6A98 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PipMigratePnpState @ 0x140A51084 (PipMigratePnpState.c)
  * Callees:
- *     ExDeleteResourceLite @ 0x14028A7C0 (ExDeleteResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     _PnpCtxDestroyNode @ 0x140A22A30 (_PnpCtxDestroyNode.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     _PnpCtxDestroyNode @ 0x1409745F8 (_PnpCtxDestroyNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCtxCloseMachine(PERESOURCE *P)
@@ -44,7 +44,7 @@ __int64 __fastcall PnpCtxCloseMachine(PERESOURCE *P)
   }
   while ( v2 >= 0 );
   ExReleaseResourceLite(P[30]);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v2 >= 0 )
   {
     v7 = P[30];

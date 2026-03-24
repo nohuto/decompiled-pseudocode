@@ -1,22 +1,29 @@
 /*
- * XREFs of ?_Reallocate_exactly@?$vector@UD2D1_GRADIENT_STOP@@V?$allocator@UD2D1_GRADIENT_STOP@@@std@@@std@@AEAAX_K@Z @ 0x1800BA33C
+ * XREFs of ?_Reallocate_exactly@?$vector@UD2D1_GRADIENT_STOP@@V?$allocator@UD2D1_GRADIENT_STOP@@@std@@@std@@AEAAX_K@Z @ 0x1801E7724
  * Callers:
- *     ?FlattenStops@CGradientBrush@@AEAAXXZ @ 0x1800BA248 (-FlattenStops@CGradientBrush@@AEAAXXZ.c)
+ *     ?reserve@?$vector@UD2D1_GRADIENT_STOP@@V?$allocator@UD2D1_GRADIENT_STOP@@@std@@@std@@QEAAX_K@Z @ 0x1801E77C8 (-reserve@-$vector@UD2D1_GRADIENT_STOP@@V-$allocator@UD2D1_GRADIENT_STOP@@@std@@@std@@QEAAX_K@Z.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800861C0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Get_size_of_n@$0BE@@std@@YA_K_K@Z @ 0x1800BA3C4 (--$_Get_size_of_n@$0BE@@std@@YA_K_K@Z.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050D58 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
  */
 
-__int64 __fastcall std::vector<D2D1_GRADIENT_STOP>::_Reallocate_exactly(__int64 a1, __int64 a2)
+__int64 __fastcall std::vector<D2D1_GRADIENT_STOP>::_Reallocate_exactly(__int64 a1, unsigned __int64 a2)
 {
-  unsigned __int64 v3; // rdi
-  SIZE_T size_of; // rax
-  void *v6; // rbx
+  __int64 v3; // r8
+  SIZE_T v5; // rcx
+  __int64 v6; // rdi
+  void *v7; // rbx
 
-  v3 = 0xCCCCCCCCCCCCCCCDuLL * ((__int64)(*(_QWORD *)(a1 + 8) - *(_QWORD *)a1) >> 2);
-  size_of = std::_Get_size_of_n<20>(a2);
-  v6 = (void *)std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
-  memmove_0(v6, *(const void **)a1, *(_QWORD *)(a1 + 8) - *(_QWORD *)a1);
-  return std::vector<D2D1_GRADIENT_STOP>::_Change_array(a1, v6, v3, a2);
+  v3 = *(_QWORD *)(a1 + 8) - *(_QWORD *)a1;
+  v5 = 20 * a2;
+  v6 = v3 / 20;
+  if ( a2 > 0xCCCCCCCCCCCCCCCLL )
+    v5 = -1LL;
+  v7 = (void *)std::_Allocate<16,std::_Default_allocate_traits,0>(v5);
+  memmove_0(v7, *(const void **)a1, *(_QWORD *)(a1 + 8) - *(_QWORD *)a1);
+  return std::vector<Particles::ParticleKeyframe<Windows::Foundation::Numerics::float2>>::_Change_array(
+           a1,
+           (__int64)v7,
+           v6,
+           a2);
 }

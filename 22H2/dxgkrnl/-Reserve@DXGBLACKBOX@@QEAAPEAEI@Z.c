@@ -1,48 +1,42 @@
 /*
- * XREFs of ?Reserve@DXGBLACKBOX@@QEAAPEAEI@Z @ 0x1C0307A28
+ * XREFs of ?Reserve@DXGBLACKBOX@@QEAAPEAEI@Z @ 0x1C02BC66C
  * Callers:
- *     ?LogDisplayBlackBoxData@DISPLAYSTATECHECKER@@AEAAXPEAI@Z @ 0x1C02F8F1C (-LogDisplayBlackBoxData@DISPLAYSTATECHECKER@@AEAAXPEAI@Z.c)
+ *     ?LogDisplayBlackBoxData@DISPLAYSTATECHECKER@@AEAAXPEAI@Z @ 0x1C02BBE20 (-LogDisplayBlackBoxData@DISPLAYSTATECHECKER@@AEAAXPEAI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
  */
 
 unsigned __int8 *__fastcall DXGBLACKBOX::Reserve(DXGBLACKBOX *this, int a2)
 {
   __int64 v5; // rax
   __int64 v6; // rcx
-  __int64 v7; // rbx
-  _BYTE v8[24]; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // rax
+  __int64 v9; // rbx
+  _BYTE v10[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( !*((_QWORD *)this + 7) )
+  if ( !*((_QWORD *)this + 6) )
     return 0LL;
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v8, (DXGBLACKBOX *)((char *)this + 8), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v8);
-  v5 = *((_QWORD *)this + 7);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v10, (DXGBLACKBOX *)((char *)this + 8), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v10);
+  v5 = *((_QWORD *)this + 6);
   v6 = *(unsigned int *)(v5 + 4);
-  if ( (unsigned int)(v6 + a2) <= 0x1000 )
+  v7 = (unsigned int)(v6 + a2);
+  if ( (unsigned int)v7 <= 0x1000 )
   {
-    *(_DWORD *)(v5 + 4) = v6 + a2;
-    v7 = v5 + v6;
+    *(_DWORD *)(v5 + 4) = v7;
+    v9 = v5 + v6;
   }
   else
   {
-    WdLogSingleEntry1(2LL, 82LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"DXGBLACKBOX::Reserve() ran out of space.",
-      82LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v7 = 0LL;
+    v8 = WdLogNewEntry5_WdError(v6, v7);
+    *(_QWORD *)(v8 + 24) = 82LL;
+    WdLogEvent5_WdError(v8);
+    v9 = 0LL;
   }
-  if ( v8[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v8);
-  return (unsigned __int8 *)v7;
+  if ( v10[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v10, v7);
+  return (unsigned __int8 *)v9;
 }

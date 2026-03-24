@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_VfWdfUsbInterfaceGetDescriptor @ 0x1C00C41E0
+ * XREFs of imp_VfWdfUsbInterfaceGetDescriptor @ 0x1C00C31E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall imp_VfWdfUsbInterfaceGetDescriptor(

@@ -1,136 +1,75 @@
 /*
- * XREFs of MmRemovePhysicalMemory @ 0x140969D90
+ * XREFs of MmRemovePhysicalMemory @ 0x1408C6370
  * Callers:
- *     WheapClearPoison @ 0x140A092FC (WheapClearPoison.c)
+ *     WheapClearPoison @ 0x14095D954 (WheapClearPoison.c)
  * Callees:
- *     MiFreeContiguousPages @ 0x140213FA8 (MiFreeContiguousPages.c)
- *     MiFindContiguousPagesEx @ 0x140277D10 (MiFindContiguousPagesEx.c)
- *     PsDereferencePartition @ 0x1403606C4 (PsDereferencePartition.c)
- *     MiReferenceRemovePartition @ 0x1405838B0 (MiReferenceRemovePartition.c)
- *     MiRemoveBadPages @ 0x14058E448 (MiRemoveBadPages.c)
- *     MiReturnBadPagesToBadList @ 0x14058EA88 (MiReturnBadPagesToBadList.c)
- *     MiAddRangeToPartitionTree @ 0x1405BD66C (MiAddRangeToPartitionTree.c)
- *     MiDeletePartitionPageNodes @ 0x1405BDF64 (MiDeletePartitionPageNodes.c)
- *     MiInsertPartitionPages @ 0x1405BE81C (MiInsertPartitionPages.c)
- *     MiRemovePhysicalMemory @ 0x140969850 (MiRemovePhysicalMemory.c)
- *     MiSpecialPurposeMemoryRemoved @ 0x14096E960 (MiSpecialPurposeMemoryRemoved.c)
+ *     MiFreeContiguousPages @ 0x140296068 (MiFreeContiguousPages.c)
+ *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
+ *     MiRemoveBadPages @ 0x14052EBC8 (MiRemoveBadPages.c)
+ *     MiReturnBadPagesToBadList @ 0x14052EFF8 (MiReturnBadPagesToBadList.c)
+ *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
  */
 
 NTSTATUS __stdcall MmRemovePhysicalMemory(PPHYSICAL_ADDRESS StartAddress, PLARGE_INTEGER NumberOfBytes)
 {
-  unsigned __int64 QuadPart; // rdi
-  ULONG_PTR *v3; // rbx
-  unsigned __int64 v4; // r14
-  int v6; // ecx
-  bool v7; // r15
-  unsigned __int64 v8; // rdi
-  NTSTATUS inserted; // esi
-  int ContiguousPages; // eax
-  int v11; // ecx
-  unsigned __int64 *v13; // [rsp+70h] [rbp-9h] BYREF
-  __int128 v14; // [rsp+78h] [rbp-1h]
-  int v15; // [rsp+88h] [rbp+Fh]
-  int v16; // [rsp+8Ch] [rbp+13h]
-  LONGLONG v17; // [rsp+E0h] [rbp+67h]
-  ULONG_PTR *v18; // [rsp+E8h] [rbp+6Fh] BYREF
-  unsigned __int64 v19; // [rsp+F0h] [rbp+77h] BYREF
-  __int64 v20; // [rsp+F8h] [rbp+7Fh] BYREF
+  unsigned __int64 QuadPart; // rbx
+  ULONG_PTR v4; // rdx
+  unsigned __int64 v5; // rbx
+  __int64 v6; // rcx
+  bool v7; // si
+  ULONG_PTR v8; // rdx
+  NTSTATUS result; // eax
+  NTSTATUS v10; // edi
+  __int64 v11; // r8
+  _DWORD *v12; // r9
+  ULONG_PTR BugCheckParameter2; // [rsp+70h] [rbp+8h] BYREF
 
-  QuadPart = StartAddress->QuadPart;
-  v3 = 0LL;
-  v4 = (unsigned __int64)NumberOfBytes->QuadPart >> 12;
-  v17 = StartAddress->QuadPart;
-  v6 = StartAddress->QuadPart;
-  v20 = 0LL;
-  v16 = 0;
-  v18 = 0LL;
-  v19 = 0LL;
-  v7 = (v17 & 1) != 0 && (v17 & 0xFFF) != 0;
+  QuadPart = NumberOfBytes->QuadPart;
+  v4 = StartAddress->QuadPart;
+  v5 = QuadPart >> 12;
+  BugCheckParameter2 = StartAddress->QuadPart;
+  v6 = (unsigned int)BugCheckParameter2;
+  v7 = (BugCheckParameter2 & 1) != 0 && (BugCheckParameter2 & 0xFFF) != 0;
   if ( v7 )
   {
-    LODWORD(v17) = v6 & 0xFFFFFFFE;
-    QuadPart = v17;
+    v6 = (unsigned int)BugCheckParameter2 & 0xFFFFFFFE;
+    LODWORD(BugCheckParameter2) = BugCheckParameter2 & 0xFFFFFFFE;
+    v4 = BugCheckParameter2;
   }
-  v8 = QuadPart >> 12;
-  if ( v8 >= v4 + v8 )
-  {
-    inserted = -1073741585;
-    goto LABEL_26;
-  }
-  inserted = MiReferenceRemovePartition(v8, (__int64 *)&v18);
-  if ( inserted < 0 )
-  {
-    v3 = v18;
-    goto LABEL_26;
-  }
+  v8 = v4 >> 12;
+  BugCheckParameter2 = v8;
+  if ( v8 >= v8 + v5 )
+    return -1073741585;
   if ( v7 )
-  {
-    v3 = v18;
-    if ( v18 != &MiSystemPartition )
-    {
-      inserted = -1073741637;
-      goto LABEL_26;
-    }
-    ContiguousPages = MiRemoveBadPages((__int64)v18, v8, v4);
-  }
+    result = MiRemoveBadPages(v6, v8, v5);
   else
+    result = MiFindContiguousPages(
+               (__int64)&MiSystemPartition,
+               v8,
+               v8 + v5 - 1,
+               0LL,
+               v5,
+               1u,
+               0x80000000,
+               0x80000000,
+               202375168,
+               0LL,
+               (__int64 *)&BugCheckParameter2);
+  if ( result >= 0 )
   {
-    v3 = v18;
-    ContiguousPages = MiFindContiguousPagesEx(
-                        (__int64)v18,
-                        v8,
-                        v4 + v8 - 1,
-                        0LL,
-                        0,
-                        v4,
-                        1u,
-                        0x80000000,
-                        0x80000000,
-                        202375168,
-                        1,
-                        0LL,
-                        &v20);
-  }
-  inserted = ContiguousPages;
-  if ( ContiguousPages >= 0 )
-  {
-    if ( v3 == &MiSystemPartition )
+    v10 = MiRemovePhysicalMemory(BugCheckParameter2, v5, 0x10u);
+    if ( v10 < 0 )
     {
-      inserted = MiRemovePhysicalMemory(v8, v4, 0x20u);
-      if ( inserted < 0 )
-      {
-LABEL_14:
-        if ( v7 )
-          MiReturnBadPagesToBadList(v8, v4);
-        else
-          MiFreeContiguousPages(v8, v4);
-        goto LABEL_26;
-      }
+      if ( v7 )
+        MiReturnBadPagesToBadList(BugCheckParameter2, v5, v11, v12);
+      else
+        MiFreeContiguousPages(BugCheckParameter2, v5, v11);
     }
     else
     {
-      if ( !MiAddRangeToPartitionTree(&v19, v8, v4, 2) )
-      {
-        inserted = -1073741670;
-        goto LABEL_26;
-      }
-      v13 = &v19;
-      v11 = 2055;
-      if ( _bittest((const signed __int32 *)v3 + 1, 8u) )
-        v11 = 3079;
-      v15 = v11;
-      v14 = 0LL;
-      inserted = MiInsertPartitionPages((__int16 *)v3, (__int64)&MiSystemPartition, (__int64)&v13, v4, 0LL);
-      if ( inserted < 0 )
-        goto LABEL_14;
-      if ( _bittest((const signed __int32 *)v3 + 1, 8u) )
-        MiSpecialPurposeMemoryRemoved(v3);
+      NumberOfBytes->QuadPart = v5 << 12;
     }
-    NumberOfBytes->QuadPart = v4 << 12;
+    return v10;
   }
-LABEL_26:
-  MiDeletePartitionPageNodes(&v19);
-  if ( v3 )
-    PsDereferencePartition(v3[22]);
-  return inserted;
+  return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vStrMirror04@@YAXPEAVSURFACE@@@Z @ 0x1C02C2830
+ * XREFs of ?vStrMirror04@@YAXPEAVSURFACE@@@Z @ 0x1C02C3E80
  * Callers:
  *     <none>
  * Callees:
@@ -65,20 +65,20 @@ void __fastcall vStrMirror04(unsigned int **a1)
         {
           if ( v8 == v7 )
           {
-            v14 = dword_1C02EC958[v12];
-            v15 = dword_1C02EC938[v12];
-            v16 = v6 & ~v14 | ((v6 & dword_1C02EC958[v13]) >> dword_1C02EC938[v13] << v15);
+            v14 = dword_1C02EFF78[v12];
+            v15 = dword_1C02EFF98[v12];
+            v16 = v6 & ~v14 | ((v6 & dword_1C02EFF78[v13]) >> dword_1C02EFF98[v13] << v15);
             v17 = (v6 & v14) >> v15;
             v18 = v25;
-            v6 = (v17 << dword_1C02EC938[v13]) | ~dword_1C02EC958[v13] & v16;
+            v6 = (v17 << dword_1C02EFF98[v13]) | ~dword_1C02EFF78[v13] & v16;
           }
           else
           {
-            v19 = dword_1C02EC938[v12];
-            v20 = v6 & dword_1C02EC958[v12];
-            v21 = dword_1C02EC958[v13];
-            v6 = v6 & ~dword_1C02EC958[v12] | ((v25 & (unsigned int)v21) >> dword_1C02EC938[v13] << v19);
-            v18 = (v20 >> v19 << dword_1C02EC938[v13]) | v25 & ~v21;
+            v19 = dword_1C02EFF98[v12];
+            v20 = v6 & dword_1C02EFF78[v12];
+            v21 = dword_1C02EFF78[v13];
+            v6 = v6 & ~dword_1C02EFF78[v12] | ((v25 & (unsigned int)v21) >> dword_1C02EFF98[v13] << v19);
+            v18 = (v20 >> v19 << dword_1C02EFF98[v13]) | v25 & ~v21;
             v25 = v18;
           }
           ++v12;

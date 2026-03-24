@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CInteractionContextTransformHelper@@QEAA@XZ @ 0x180039CCC
+ * XREFs of ??0CInteractionContextTransformHelper@@QEAA@XZ @ 0x1800B60FC
  * Callers:
- *     ??0CInteractionContextWrapper@@QEAA@XZ @ 0x180039BA8 (--0CInteractionContextWrapper@@QEAA@XZ.c)
+ *     ??0CInteractionContextWrapper@@QEAA@XZ @ 0x1800B5F28 (--0CInteractionContextWrapper@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */

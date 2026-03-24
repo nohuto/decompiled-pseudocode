@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FxObjectGetTypedContext@@YAPEAXPEAVFxObject@@PEBU_WDF_OBJECT_CONTEXT_TYPE_INFO@@@Z @ 0x1C006B2F4
+ * XREFs of ?FxObjectGetTypedContext@@YAPEAXPEAVFxObject@@PEBU_WDF_OBJECT_CONTEXT_TYPE_INFO@@@Z @ 0x1C00567E8
  * Callers:
- *     imp_WdfCxDeviceInitGetTypedContextWorker @ 0x1C0065700 (imp_WdfCxDeviceInitGetTypedContextWorker.c)
+ *     imp_WdfCxDeviceInitGetTypedContextWorker @ 0x1C004B4A0 (imp_WdfCxDeviceInitGetTypedContextWorker.c)
  * Callees:
- *     WPP_IFR_SF_sq @ 0x1C0013EA8 (WPP_IFR_SF_sq.c)
+ *     WPP_IFR_SF_sq @ 0x1C0038C64 (WPP_IFR_SF_sq.c)
  */
 
 char *__fastcall FxObjectGetTypedContext(FxObject *Object, const _WDF_OBJECT_CONTEXT_TYPE_INFO *TypeInfo)

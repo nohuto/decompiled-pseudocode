@@ -1,12 +1,12 @@
 /*
- * XREFs of MmLockPreChargedPagedPool @ 0x140808190
+ * XREFs of MmLockPreChargedPagedPool @ 0x140777740
  * Callers:
- *     HalpMcUpdateLock @ 0x1403989A4 (HalpMcUpdateLock.c)
- *     MiCreatePagingFileMap @ 0x1406F3A44 (MiCreatePagingFileMap.c)
- *     PopAllocateHiberContext @ 0x140802068 (PopAllocateHiberContext.c)
+ *     HalpMcUpdateLock @ 0x140387EE4 (HalpMcUpdateLock.c)
+ *     MiCreatePagingFileMap @ 0x14061C548 (MiCreatePagingFileMap.c)
+ *     PopAllocateHiberContext @ 0x140777C44 (PopAllocateHiberContext.c)
  * Callees:
- *     MiLockCode @ 0x140312BB0 (MiLockCode.c)
- *     MiGetPteAddress @ 0x140313C70 (MiGetPteAddress.c)
+ *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
+ *     MiLockCode @ 0x1403235B0 (MiLockCode.c)
  */
 
 __int64 __fastcall MmLockPreChargedPagedPool(unsigned __int64 a1)

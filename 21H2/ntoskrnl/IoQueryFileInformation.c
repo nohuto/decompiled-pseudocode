@@ -1,9 +1,9 @@
 /*
- * XREFs of IoQueryFileInformation @ 0x1406E9D00
+ * XREFs of IoQueryFileInformation @ 0x1406C5CF0
  * Callers:
- *     <none>
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
  * Callees:
- *     IopQueryXxxInformation @ 0x14071E6BC (IopQueryXxxInformation.c)
+ *     IopQueryXxxInformation @ 0x1406C9708 (IopQueryXxxInformation.c)
  */
 
 NTSTATUS __stdcall IoQueryFileInformation(
@@ -13,5 +13,5 @@ NTSTATUS __stdcall IoQueryFileInformation(
         PVOID FileInformation,
         PULONG ReturnedLength)
 {
-  return IopQueryXxxInformation(FileObject, (__int64)FileInformation, (__int64)ReturnedLength, 1);
+  return IopQueryXxxInformation((PADAPTER_OBJECT)FileObject, (__int64)FileInformation, (__int64)ReturnedLength, 1);
 }

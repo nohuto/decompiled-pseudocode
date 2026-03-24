@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockWorkingSetForLargeMapping @ 0x1406501B8
+ * XREFs of MiLockWorkingSetForLargeMapping @ 0x14054F718
  * Callers:
- *     MiCommitExistingVad @ 0x140276910 (MiCommitExistingVad.c)
- *     MiMapUserLargePages @ 0x140668E30 (MiMapUserLargePages.c)
+ *     MiCommitExistingVad @ 0x140218D50 (MiCommitExistingVad.c)
+ *     MiMapUserLargePages @ 0x14055E670 (MiMapUserLargePages.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExAllocatePoolMm @ 0x1402BBA40 (ExAllocatePoolMm.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 KIRQL __fastcall MiLockWorkingSetForLargeMapping(__int64 a1, __int64 a2, int a3)
@@ -17,45 +17,43 @@ KIRQL __fastcall MiLockWorkingSetForLargeMapping(__int64 a1, __int64 a2, int a3)
   void *v4; // rsi
   unsigned __int64 v5; // r14
   PVOID PoolMm; // rax
-  volatile LONG *v7; // rbx
+  LONG *v7; // rbx
   KIRQL v8; // al
-  __int64 v9; // r8
-  __int64 v10; // r9
-  KIRQL v11; // r15
-  volatile LONG *SharedVm; // rbx
+  KIRQL v9; // r15
+  LONG *SharedVm; // rbx
 
   if ( (*(_BYTE *)(a1 + 184) & 7) != 0 )
   {
-    SharedVm = (volatile LONG *)MiGetSharedVm(a1);
-    v11 = ExAcquireSpinLockExclusive(SharedVm);
+    SharedVm = MiGetSharedVm(a1);
+    v9 = ExAcquireSpinLockExclusive(SharedVm);
     goto LABEL_10;
   }
   v4 = 0LL;
-  v5 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28];
-  if ( !*(_QWORD *)(v5 + 624) )
+  v5 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[8];
+  if ( !*(_QWORD *)(v5 + 608) )
   {
     PoolMm = ExAllocatePoolMm(64, 0x800uLL, 0x6C53694Du, a3 | 0x80000000);
     v4 = PoolMm;
     if ( PoolMm )
       memset(PoolMm, 0, 0x800uLL);
   }
-  v7 = (volatile LONG *)MiGetSharedVm(a1);
+  v7 = MiGetSharedVm(a1);
   v8 = ExAcquireSpinLockExclusive(v7);
-  *((_DWORD *)v7 + 1) = 0;
-  v11 = v8;
+  v7[1] = 0;
+  v9 = v8;
   if ( v4 )
   {
-    if ( !*(_QWORD *)(v5 + 624) )
+    if ( !*(_QWORD *)(v5 + 608) )
     {
-      *(_QWORD *)(v5 + 624) = v4;
-      return v11;
+      *(_QWORD *)(v5 + 608) = v4;
+      return v9;
     }
-    MiUnlockWorkingSetExclusive(a1, v8, v9, v10);
+    MiUnlockWorkingSetExclusive(a1, v8);
     ExFreePoolWithTag(v4, 0);
-    SharedVm = (volatile LONG *)MiGetSharedVm(a1);
+    SharedVm = MiGetSharedVm(a1);
     ExAcquireSpinLockExclusive(SharedVm);
 LABEL_10:
-    *((_DWORD *)SharedVm + 1) = 0;
+    SharedVm[1] = 0;
   }
-  return v11;
+  return v9;
 }

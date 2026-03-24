@@ -1,16 +1,15 @@
 /*
- * XREFs of PopAcquireTransitionLock @ 0x14081CE58
+ * XREFs of PopAcquireTransitionLock @ 0x14078DA78
  * Callers:
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x140751B78 (PopPowerInformationInternal.c)
- *     PoInitHiberServices @ 0x1408288D4 (PoInitHiberServices.c)
- *     PopNotifyPolicyDevice @ 0x140858C40 (PopNotifyPolicyDevice.c)
- *     PopDirectedDripsSuspendDevices @ 0x14098C45C (PopDirectedDripsSuspendDevices.c)
- *     PopWnfHibernatePolicyCallback @ 0x14098FB30 (PopWnfHibernatePolicyCallback.c)
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
+ *     PoInitHiberServices @ 0x140790C78 (PoInitHiberServices.c)
+ *     PopNotifyPolicyDevice @ 0x1407C42E0 (PopNotifyPolicyDevice.c)
+ *     PopDirectedDripsSuspendDevices @ 0x1408E3A78 (PopDirectedDripsSuspendDevices.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     PopDirectedDripsNotify @ 0x140811764 (PopDirectedDripsNotify.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     PopDirectedDripsNotify @ 0x14078DB18 (PopDirectedDripsNotify.c)
  */
 
 int __fastcall PopAcquireTransitionLock(int a1)
@@ -18,7 +17,7 @@ int __fastcall PopAcquireTransitionLock(int a1)
   struct _KTHREAD *CurrentThread; // rax
 
   if ( a1 != 7 )
-    PopDirectedDripsNotify(8, 0LL);
+    PopDirectedDripsNotify(8LL, 0LL);
   LODWORD(CurrentThread) = KeWaitForSingleObject(&PopTransitionLock, WrExecutive, 0, 0, 0LL);
   PopTransitionLockAcquireReason = a1;
   if ( a1 != 1 )

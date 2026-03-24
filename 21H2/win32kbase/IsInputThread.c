@@ -1,23 +1,22 @@
 /*
- * XREFs of IsInputThread @ 0x1C0037C40
+ * XREFs of IsInputThread @ 0x1C0042120
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C00C64AC (xxxDestroyThreadInfo.c)
- *     ?UnreferenceFrameAndMessageData@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@@Z @ 0x1C01D866C (-UnreferenceFrameAndMessageData@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@@Z.c)
+ *     xxxDestroyThreadInfo @ 0x1C003EFB0 (xxxDestroyThreadInfo.c)
+ *     ?UnreferenceFrameAndMessageData@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@@Z @ 0x1C019F7FC (-UnreferenceFrameAndMessageData@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@@Z.c)
  * Callees:
  *     <none>
  */
 
-char IsInputThread()
+_BOOL8 IsInputThread()
 {
-  CInputThreadBase *v0; // rdi
-  char *v1; // rbx
+  CInputThread *v0; // rdi
+  bool v1; // bl
 
   v0 = gpInputThread;
-  v1 = (char *)gpInputThread + 8;
   KeEnterCriticalRegion();
-  ExAcquirePushLockSharedEx(v1, 0LL);
-  LOBYTE(v0) = (unsigned int)PsGetCurrentThreadId() == *((_DWORD *)v0 + 12);
-  ExReleasePushLockSharedEx(v1, 0LL);
+  ExAcquirePushLockSharedEx(v0, 0LL);
+  v1 = (unsigned int)PsGetCurrentThreadId() == *((_DWORD *)v0 + 10);
+  ExReleasePushLockSharedEx(v0, 0LL);
   KeLeaveCriticalRegion();
-  return (char)v0;
+  return v1;
 }

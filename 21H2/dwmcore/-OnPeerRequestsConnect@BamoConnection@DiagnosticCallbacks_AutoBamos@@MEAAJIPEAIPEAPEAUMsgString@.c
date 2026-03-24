@@ -1,5 +1,5 @@
 /*
- * XREFs of ?OnPeerRequestsConnect@BamoConnection@DiagnosticCallbacks_AutoBamos@@MEAAJIPEAIPEAPEAUMsgString@@@Z @ 0x1800F99B0
+ * XREFs of ?OnPeerRequestsConnect@BamoConnection@DiagnosticCallbacks_AutoBamos@@MEAAJIPEAIPEAPEAUMsgString@@@Z @ 0x1800E1E00
  * Callers:
  *     <none>
  * Callees:

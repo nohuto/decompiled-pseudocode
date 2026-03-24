@@ -1,13 +1,13 @@
 /*
- * XREFs of SeTokenIsRestricted @ 0x140228850
+ * XREFs of SeTokenIsRestricted @ 0x14035F3A0
  * Callers:
- *     SepAccessCheckAndAuditAlarm @ 0x1406C10C0 (SepAccessCheckAndAuditAlarm.c)
- *     SepNewTokenAsRestrictedAsProcessToken @ 0x1406C7894 (SepNewTokenAsRestrictedAsProcessToken.c)
- *     SeTokenCanImpersonate @ 0x1407354A0 (SeTokenCanImpersonate.c)
- *     NtCompareTokens @ 0x1407C7650 (NtCompareTokens.c)
- *     SeTokenIsAdmin @ 0x1407D0A20 (SeTokenIsAdmin.c)
- *     SepIsImpersonationAllowedDueToCapability @ 0x1407ED23C (SepIsImpersonationAllowedDueToCapability.c)
- *     NtImpersonateAnonymousToken @ 0x1407F5620 (NtImpersonateAnonymousToken.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406265D0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     SepIsImpersonationAllowedDueToCapability @ 0x140681634 (SepIsImpersonationAllowedDueToCapability.c)
+ *     SeTokenCanImpersonate @ 0x1406D41E0 (SeTokenCanImpersonate.c)
+ *     NtImpersonateAnonymousToken @ 0x14070DED0 (NtImpersonateAnonymousToken.c)
+ *     NtCompareTokens @ 0x14070E3A0 (NtCompareTokens.c)
+ *     SeTokenIsAdmin @ 0x14070E6D0 (SeTokenIsAdmin.c)
+ *     SepNewTokenAsRestrictedAsProcessToken @ 0x14070E75C (SepNewTokenAsRestrictedAsProcessToken.c)
  * Callees:
  *     <none>
  */

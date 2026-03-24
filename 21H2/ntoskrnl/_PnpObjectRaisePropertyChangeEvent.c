@@ -1,24 +1,24 @@
 /*
- * XREFs of _PnpObjectRaisePropertyChangeEvent @ 0x1407720B8
+ * XREFs of _PnpObjectRaisePropertyChangeEvent @ 0x1407460B4
  * Callers:
- *     _CmSetDeviceInterfaceMappedProperty @ 0x1406CE8B8 (_CmSetDeviceInterfaceMappedProperty.c)
- *     IopProcessSetInterfaceState @ 0x140769170 (IopProcessSetInterfaceState.c)
- *     _CmAddDeviceToContainerWorker @ 0x14076CA78 (_CmAddDeviceToContainerWorker.c)
- *     _CmRaisePropertyChangeEvent @ 0x140770200 (_CmRaisePropertyChangeEvent.c)
- *     _PnpSetObjectPropertyWorker @ 0x140771B04 (_PnpSetObjectPropertyWorker.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140772044 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
- *     _CmSetDeviceMappedProperty @ 0x1407894A8 (_CmSetDeviceMappedProperty.c)
- *     _CmRemoveDeviceFromContainerWorker @ 0x140A26994 (_CmRemoveDeviceFromContainerWorker.c)
- *     _CmAddPanelDeviceWorker @ 0x140A27B38 (_CmAddPanelDeviceWorker.c)
- *     _CmRemovePanelDeviceWorker @ 0x140A293B4 (_CmRemovePanelDeviceWorker.c)
- *     _CmSetInstallerClassMappedProperty @ 0x140A2C51C (_CmSetInstallerClassMappedProperty.c)
- *     _CmSetInterfaceClassMappedProperty @ 0x140A2CC38 (_CmSetInterfaceClassMappedProperty.c)
+ *     _CmRemoveDeviceFromContainerWorker @ 0x14072BC20 (_CmRemoveDeviceFromContainerWorker.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x1407310FC (_CmSetInstallerClassMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x14073A544 (_CmSetDeviceMappedProperty.c)
+ *     _CmRaisePropertyChangeEvent @ 0x1407443D4 (_CmRaisePropertyChangeEvent.c)
+ *     _PnpSetObjectPropertyWorker @ 0x140745D9C (_PnpSetObjectPropertyWorker.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140746040 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     IopProcessSetInterfaceState @ 0x1407490DC (IopProcessSetInterfaceState.c)
+ *     _CmAddDeviceToContainerWorker @ 0x140759280 (_CmAddDeviceToContainerWorker.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x1407661D4 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmAddPanelDeviceWorker @ 0x140977890 (_CmAddPanelDeviceWorker.c)
+ *     _CmRemovePanelDeviceWorker @ 0x140978BDC (_CmRemovePanelDeviceWorker.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x14097BDE0 (_CmSetInterfaceClassMappedProperty.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     _PnpInterfaceRaisePropertyChangeEventWorker @ 0x140771430 (_PnpInterfaceRaisePropertyChangeEventWorker.c)
- *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x140772190 (_PnpDeviceRaisePropertyChangeEventWorker.c)
- *     _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x140A27808 (_PnpInstallerClassRaisePropertyChangeEventWorker.c)
- *     _PnpInterfaceClassRaisePropertyChangeEventWorker @ 0x140A278FC (_PnpInterfaceClassRaisePropertyChangeEventWorker.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x14073489C (_PnpInstallerClassRaisePropertyChangeEventWorker.c)
+ *     _PnpInterfaceRaisePropertyChangeEventWorker @ 0x140745698 (_PnpInterfaceRaisePropertyChangeEventWorker.c)
+ *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1407461B0 (_PnpDeviceRaisePropertyChangeEventWorker.c)
+ *     _PnpInterfaceClassRaisePropertyChangeEventWorker @ 0x140977684 (_PnpInterfaceClassRaisePropertyChangeEventWorker.c)
  */
 
 __int64 __fastcall PnpObjectRaisePropertyChangeEvent(
@@ -41,7 +41,13 @@ __int64 __fastcall PnpObjectRaisePropertyChangeEvent(
       case 1:
         return PnpDeviceRaisePropertyChangeEventWorker(a1, a2, a4, a5, a6, *(_QWORD *)(a1 + 496));
       case 2:
-        return PnpInstallerClassRaisePropertyChangeEventWorker(a1, a2, a4, a5, a6, *(_QWORD *)(a1 + 496));
+        return PnpInstallerClassRaisePropertyChangeEventWorker(
+                 a1,
+                 a2,
+                 a4,
+                 a5,
+                 a6,
+                 *(__int64 (__fastcall **)(__int64, __int64, __int64))(a1 + 496));
       case 3:
         return PnpInterfaceRaisePropertyChangeEventWorker(
                  a1,

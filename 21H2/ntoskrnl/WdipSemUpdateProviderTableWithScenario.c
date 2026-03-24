@@ -1,9 +1,9 @@
 /*
- * XREFs of WdipSemUpdateProviderTableWithScenario @ 0x140840A78
+ * XREFs of WdipSemUpdateProviderTableWithScenario @ 0x14079A574
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x14083FE80 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadScenarioTable @ 0x140799978 (WdipSemLoadScenarioTable.c)
  * Callees:
- *     WdipSemUpdateProviderTableWithEvent @ 0x140840AEC (WdipSemUpdateProviderTableWithEvent.c)
+ *     WdipSemUpdateProviderTableWithEvent @ 0x14079A5E8 (WdipSemUpdateProviderTableWithEvent.c)
  */
 
 __int64 __fastcall WdipSemUpdateProviderTableWithScenario(__int64 a1)

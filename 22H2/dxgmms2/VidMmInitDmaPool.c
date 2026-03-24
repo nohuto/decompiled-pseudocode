@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmInitDmaPool @ 0x1C0017900
+ * XREFs of VidMmInitDmaPool @ 0x1C0016DC0
  * Callers:
  *     <none>
  * Callees:
- *     ?Init@VIDMM_DMA_POOL@@QEAAJXZ @ 0x1C00B2ED0 (-Init@VIDMM_DMA_POOL@@QEAAJXZ.c)
+ *     ?Init@VIDMM_DMA_POOL@@QEAAJXZ @ 0x1C008B728 (-Init@VIDMM_DMA_POOL@@QEAAJXZ.c)
  */
 
 __int64 __fastcall VidMmInitDmaPool(VIDMM_DMA_POOL *a1)

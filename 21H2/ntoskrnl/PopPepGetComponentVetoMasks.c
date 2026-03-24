@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPepGetComponentVetoMasks @ 0x1405D4F54
+ * XREFs of PopPepGetComponentVetoMasks @ 0x1405745B0
  * Callers:
- *     PopFxTraceDeviceRegistration @ 0x14082473C (PopFxTraceDeviceRegistration.c)
+ *     PopFxTraceDeviceRegistration @ 0x14067E618 (PopFxTraceDeviceRegistration.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall PopPepGetComponentVetoMasks(__int64 a1, unsigned int a2, __int64 a3)
@@ -23,7 +23,7 @@ char __fastcall PopPepGetComponentVetoMasks(__int64 a1, unsigned int a2, __int64
   bool v15; // zf
 
   v3 = (volatile LONG *)(a1 + 64);
-  v6 = a1 + 208LL * a2;
+  v6 = a1 + 200LL * a2;
   v7 = 0LL;
   v8 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(a1 + 64));
   v9 = *(_DWORD *)(a1 + 172);
@@ -49,14 +49,14 @@ char __fastcall PopPepGetComponentVetoMasks(__int64 a1, unsigned int a2, __int64
   __writecr8(v10);
   if ( v9 == 2 )
   {
-    if ( *(_DWORD *)(v6 + 380) )
+    if ( *(_DWORD *)(v6 + 372) )
     {
       do
       {
-        *(_DWORD *)(a3 + 4 * v7) = *(_DWORD *)(*(_QWORD *)(v6 + 392) + 24 * v7 + 16);
+        *(_DWORD *)(a3 + 4 * v7) = *(_DWORD *)(*(_QWORD *)(v6 + 376) + 24 * v7 + 16);
         v7 = (unsigned int)(v7 + 1);
       }
-      while ( (unsigned int)v7 < *(_DWORD *)(v6 + 380) );
+      while ( (unsigned int)v7 < *(_DWORD *)(v6 + 372) );
     }
     LOBYTE(v7) = 1;
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?AddPrimitiveClip@CCpuClip@@QEAAJPEBVCShape@@PEBVCMILMatrix@@@Z @ 0x1801FC0CC
+ * XREFs of ?AddPrimitiveClip@CCpuClip@@QEAAJPEBVCShape@@PEBVCMILMatrix@@@Z @ 0x18019D908
  * Callers:
- *     ?GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@@Z @ 0x180010390 (-GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEAVCDrawListCache.c)
+ *     ?GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEBUD2D_MATRIX_3X2_F@@PEAVCDrawListCache@@@Z @ 0x1800B9780 (-GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEBUD2D_MATRIX_3X2.c)
  * Callees:
- *     ?CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z @ 0x1800629A0 (-CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z.c)
- *     ?Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x1800806BC (-Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800DC518 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ?ConvertContextDependentClipToLocal@CCpuClip@@AEAAJXZ @ 0x1801FC1B0 (-ConvertContextDependentClipToLocal@CCpuClip@@AEAAJXZ.c)
+ *     ?ConvertContextDependentClipToLocal@CCpuClip@@AEAAJXZ @ 0x180018480 (-ConvertContextDependentClipToLocal@CCpuClip@@AEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x1800680DC (-Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
+ *     ?CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z @ 0x180080AA0 (-CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C876C (-Release@CShapePtr@@QEAAXXZ.c)
  */
 
 __int64 __fastcall CCpuClip::AddPrimitiveClip(CCpuClip *this, const struct CShape *a2, const struct CMILMatrix *a3)
@@ -23,16 +23,16 @@ __int64 __fastcall CCpuClip::AddPrimitiveClip(CCpuClip *this, const struct CShap
   struct CShape *v14; // rbx
   struct CShape *v16; // [rsp+50h] [rbp+8h] BYREF
 
-  v3 = (CCpuClip *)((char *)this + 80);
-  if ( *((_QWORD *)this + 10) || (v7 = CCpuClip::ConvertContextDependentClipToLocal(this), v9 = v7, v7 >= 0) )
+  v3 = (CCpuClip *)((char *)this + 16);
+  if ( *((_QWORD *)this + 2) || (v7 = CCpuClip::ConvertContextDependentClipToLocal((CShape **)this), v9 = v7, v7 >= 0) )
   {
     if ( *(_QWORD *)v3 )
     {
-      v12 = CShape::Combine(*(_QWORD *)v3, (__int64)a2, (__int64)a2, (__int64)a3, D2D1_COMBINE_MODE_INTERSECT, &v16);
+      v12 = CShape::Combine(*(_QWORD *)v3, (__int64)a2, (__int64)a2, (__int64)a3, 1, &v16);
       v9 = v12;
       if ( v12 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x58u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x4Au, 0LL);
         return v9;
       }
     }
@@ -42,7 +42,7 @@ __int64 __fastcall CCpuClip::AddPrimitiveClip(CCpuClip *this, const struct CShap
       v9 = v10;
       if ( v10 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x4Eu, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x40u, 0LL);
         return v9;
       }
     }
@@ -50,9 +50,9 @@ __int64 __fastcall CCpuClip::AddPrimitiveClip(CCpuClip *this, const struct CShap
     CShapePtr::Release(v3);
     *(_QWORD *)v3 = v14;
     *((_BYTE *)v3 + 8) = 1;
-    *((_BYTE *)this + 112) = 1;
+    *((_BYTE *)this + 32) = 1;
     return v9;
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x48u, 0LL);
+  MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x3Au, 0LL);
   return v9;
 }

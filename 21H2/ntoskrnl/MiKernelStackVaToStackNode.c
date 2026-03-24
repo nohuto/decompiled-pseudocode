@@ -1,12 +1,12 @@
 /*
- * XREFs of MiKernelStackVaToStackNode @ 0x1403936D8
+ * XREFs of MiKernelStackVaToStackNode @ 0x14038C194
  * Callers:
- *     MiInPageSingleKernelStack @ 0x14029A2A0 (MiInPageSingleKernelStack.c)
- *     MiResolvePageFileFault @ 0x1403927C4 (MiResolvePageFileFault.c)
+ *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
+ *     MiInPageSingleKernelStack @ 0x1402E4C40 (MiInPageSingleKernelStack.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall MiKernelStackVaToStackNode(unsigned __int64 a1)
@@ -21,8 +21,8 @@ _QWORD *__fastcall MiKernelStackVaToStackNode(unsigned __int64 a1)
   bool v10; // zf
 
   v2 = 0LL;
-  v3 = ExAcquireSpinLockShared(&dword_140C53070);
-  v4 = (_QWORD *)qword_140C53068;
+  v3 = ExAcquireSpinLockShared(&dword_140C4EBE0);
+  v4 = (_QWORD *)qword_140C4EBD8;
   while ( v4 )
   {
     if ( a1 > v4[3] )
@@ -39,7 +39,7 @@ _QWORD *__fastcall MiKernelStackVaToStackNode(unsigned __int64 a1)
       v4 = (_QWORD *)*v4;
     }
   }
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C53070);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4EBE0);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

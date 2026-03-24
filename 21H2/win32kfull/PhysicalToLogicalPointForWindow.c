@@ -1,9 +1,10 @@
 /*
- * XREFs of PhysicalToLogicalPointForWindow @ 0x1C01DFB10
+ * XREFs of PhysicalToLogicalPointForWindow @ 0x1C01E5BB0
  * Callers:
- *     ?_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z @ 0x1C0048C48 (-_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z.c)
+ *     ?PtInsideWindowFrameBounds@@YA_NAEBUtagPOINT@@PEBUtagWND@@@Z @ 0x1C023F364 (-PtInsideWindowFrameBounds@@YA_NAEBUtagPOINT@@PEBUtagWND@@@Z.c)
+ *     ?xxxRevalidateAndTransferCapture@CMoveSizeRequest@@AEAA_NPEAUtagWND@@@Z @ 0x1C0241A58 (-xxxRevalidateAndTransferCapture@CMoveSizeRequest@@AEAA_NPEAUtagWND@@@Z.c)
  * Callees:
- *     TransformVector @ 0x1C02073DC (TransformVector.c)
+ *     TransformVector @ 0x1C021757C (TransformVector.c)
  */
 
 __int64 __fastcall PhysicalToLogicalPointForWindow(__int64 a1, __int64 a2, _QWORD *a3)

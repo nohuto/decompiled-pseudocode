@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsAllocationDecommitCandidate@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C00E4128
+ * XREFs of ?IsAllocationDecommitCandidate@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C00AF564
  * Callers:
- *     ?TrimOfferCommitmentInternal@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS@@_KPEA_K@Z @ 0x1C00E7E10 (-TrimOfferCommitmentInternal@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3.c)
- *     ?VidMmProbeForDecommit@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS@@@Z @ 0x1C00EA0D4 (-VidMmProbeForDecommit@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3DKMT_T.c)
+ *     ?TrimOfferCommitmentInternal@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS@@_KPEA_K@Z @ 0x1C00B2BC4 (-TrimOfferCommitmentInternal@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3.c)
+ *     ?VidMmProbeForDecommit@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS@@@Z @ 0x1C00B4F90 (-VidMmProbeForDecommit@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3DKMT_T.c)
  * Callees:
- *     ?IsAllocationRepurposed@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00E4224 (-IsAllocationRepurposed@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?IsAllocationRepurposed@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00AF670 (-IsAllocationRepurposed@VIDMM_GLOBAL@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
  */
 
 char __fastcall VIDMM_GLOBAL::IsAllocationDecommitCandidate(
@@ -13,33 +13,33 @@ char __fastcall VIDMM_GLOBAL::IsAllocationDecommitCandidate(
         char a3)
 {
   __int64 v3; // r9
-  __int64 v4; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rcx
 
-  v3 = *((_QWORD *)a2 + 67);
-  if ( *(_WORD *)(v3 + 4) >= 2u )
+  v3 = *((_QWORD *)a2 + 62);
+  if ( *(_WORD *)(v3 + 4) < 2u )
   {
-    if ( (*((_DWORD *)a2 + 19) & 0x40) != 0 )
-    {
-      if ( (*(_DWORD *)v3 & 0x30) != 0 )
-      {
-        WdLogSingleEntry1(3LL, 3LL);
-      }
-      else
-      {
-        if ( !a3 || VIDMM_GLOBAL::IsAllocationRepurposed(this, a2) )
-          return 1;
-        if ( g_IsInternalReleaseOrDbg )
-          *(_QWORD *)(WdLogNewEntry5_WdTrace(v4) + 24) = 5LL;
-      }
-    }
-    else
-    {
-      WdLogSingleEntry1(3LL, 2LL);
-    }
+    v4 = WdLogNewEntry5_WdWarning(this, a2);
+    *(_QWORD *)(v4 + 24) = 1LL;
+LABEL_12:
+    WdLogEvent5_WdWarning(v4);
+    return 0;
   }
-  else
+  if ( (*((_DWORD *)a2 + 21) & 0x80u) == 0 )
   {
-    WdLogSingleEntry1(3LL, 1LL);
+    v4 = WdLogNewEntry5_WdWarning(this, a2);
+    *(_QWORD *)(v4 + 24) = 2LL;
+    goto LABEL_12;
   }
+  if ( (*(_DWORD *)v3 & 0x30) != 0 )
+  {
+    v4 = WdLogNewEntry5_WdWarning(this, a2);
+    *(_QWORD *)(v4 + 24) = 3LL;
+    goto LABEL_12;
+  }
+  if ( !a3 || VIDMM_GLOBAL::IsAllocationRepurposed(this, a2) )
+    return 1;
+  if ( g_IsInternalReleaseOrDbg )
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(v5) + 24) = 5LL;
   return 0;
 }

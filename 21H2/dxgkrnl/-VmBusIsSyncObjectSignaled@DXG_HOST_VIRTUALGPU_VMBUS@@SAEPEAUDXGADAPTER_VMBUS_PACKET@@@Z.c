@@ -1,145 +1,142 @@
 /*
- * XREFs of ?VmBusIsSyncObjectSignaled@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C036F0D0
+ * XREFs of ?VmBusIsSyncObjectSignaled@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0242600
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?Release@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C0009A8C (-Release@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
- *     ?AcquireShared@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C0009B5C (-AcquireShared@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
- *     ??0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z @ 0x1C0009BB0 (--0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000FA80 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005C664 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEA.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005DE78 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     ?GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z @ 0x1C016A93C (-GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C0004370 (-Release@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007018 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C00070D0 (-AcquireShared@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
+ *     ??0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z @ 0x1C0007124 (--0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00405FC (--$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEA.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C0041850 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     ?GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z @ 0x1C01165B0 (-GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusIsSyncObjectSignaled(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  __int64 v2; // rax
-  char v3; // bl
-  __int64 v4; // r14
-  struct DXGGLOBAL *Global; // rax
-  __int64 v6; // r15
-  unsigned int v7; // r12d
-  __int64 v8; // rax
-  __int64 v9; // rdx
-  int v10; // ecx
-  __int64 v11; // rsi
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  char v5; // bl
+  __int64 v6; // rax
+  __int64 v7; // r14
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  PERESOURCE *Global; // rax
+  __int64 v11; // rdx
+  __int64 v12; // r13
+  unsigned int v13; // r15d
+  __int64 v14; // rax
+  __int64 v15; // rdx
+  int v16; // ecx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  __int64 v19; // rsi
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // rax
   struct _VIDSCH_SYNC_OBJECT *VidSchSyncObject; // rax
-  __int64 v13; // rdx
-  char v14; // al
-  int v15; // ecx
-  __int64 v17; // [rsp+58h] [rbp-B0h] BYREF
-  struct ADAPTER_RENDER **v18; // [rsp+60h] [rbp-A8h]
-  _BYTE v19[16]; // [rsp+68h] [rbp-A0h] BYREF
-  _BYTE v20[16]; // [rsp+78h] [rbp-90h] BYREF
-  _BYTE v21[8]; // [rsp+88h] [rbp-80h] BYREF
-  DXGPUSHLOCK *v22; // [rsp+90h] [rbp-78h]
-  int v23; // [rsp+98h] [rbp-70h]
-  _BYTE v24[144]; // [rsp+A8h] [rbp-60h] BYREF
+  __int64 v24; // r9
+  char v25; // al
+  int v26; // ecx
+  __int64 v27; // rdx
+  __int64 v29; // [rsp+28h] [rbp-E0h] BYREF
+  struct ADAPTER_RENDER **v30; // [rsp+30h] [rbp-D8h]
+  _BYTE v31[16]; // [rsp+38h] [rbp-D0h] BYREF
+  _BYTE v32[16]; // [rsp+48h] [rbp-C0h] BYREF
+  DXGPUSHLOCK *v33[2]; // [rsp+58h] [rbp-B0h] BYREF
+  int v34; // [rsp+68h] [rbp-A0h]
+  _BYTE v35[144]; // [rsp+78h] [rbp-90h] BYREF
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v21, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v22);
-  v2 = *((_QWORD *)a1 + 10);
-  v3 = 0;
-  v23 = 1;
-  if ( *(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v33, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v33[1]);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 0;
+  v34 = 1;
+  if ( *(_BYTE *)(v4 + 165) )
   {
-    v4 = CastToVmBusCommand<DXGKVMB_COMMAND_DESTROYDEVICE>((__int64)a1);
-    if ( !v4 )
+    v7 = CastToVmBusCommand<DXGKVMB_COMMAND_DESTROYDEVICE>((__int64)a1);
+    if ( !v7 )
       goto LABEL_22;
-    v18 = *(struct ADAPTER_RENDER ***)(*((_QWORD *)a1 + 10) + 16LL);
-    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v24, (struct DXGADAPTER *const)v18, 0LL);
-    LODWORD(v17) = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v24, 0LL);
-    if ( (int)v17 < 0 )
+    v30 = *(struct ADAPTER_RENDER ***)(*((_QWORD *)a1 + 5) + 16LL);
+    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v35, (struct DXGADAPTER *const)v30, 0LL);
+    LODWORD(v29) = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v35, 0LL);
+    if ( (int)v29 < 0 )
     {
 LABEL_21:
-      VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 16), &v17, 4u);
-      v3 = 1;
-      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v24);
+      VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 9), &v29, 4u);
+      v5 = 1;
+      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v35, v27);
       goto LABEL_22;
     }
-    Global = DXGGLOBAL_GetGlobal();
-    DXGSYNCOBJECTLOCK::DXGSYNCOBJECTLOCK((DXGSYNCOBJECTLOCK *)v20, Global, 0);
-    DXGSYNCOBJECTLOCK::AcquireShared((DXGSYNCOBJECTLOCK *)v20);
-    v6 = *((_QWORD *)a1 + 11);
-    v7 = *(_DWORD *)(v4 + 24);
-    DXGPUSHLOCK::AcquireShared((DXGPUSHLOCK *)(v6 + 248));
-    v8 = (v7 >> 6) & 0xFFFFFF;
-    if ( (unsigned int)v8 < *(_DWORD *)(v6 + 296) )
+    Global = (PERESOURCE *)DXGGLOBAL::GetGlobal(v9, v8);
+    DXGSYNCOBJECTLOCK::DXGSYNCOBJECTLOCK((DXGSYNCOBJECTLOCK *)v32, Global, 0);
+    DXGSYNCOBJECTLOCK::AcquireShared((DXGSYNCOBJECTLOCK *)v32, v11);
+    v12 = *((_QWORD *)a1 + 6);
+    v13 = *(_DWORD *)(v7 + 24);
+    DXGPUSHLOCK::AcquireShared((DXGPUSHLOCK *)(v12 + 208));
+    v14 = (v13 >> 6) & 0xFFFFFF;
+    if ( (unsigned int)v14 < *(_DWORD *)(v12 + 256) )
     {
-      v9 = *(_QWORD *)(v6 + 280);
-      v10 = *(_DWORD *)(v9 + 16 * v8 + 8);
-      if ( ((v7 >> 25) & 0x60) == (*(_BYTE *)(v9 + 16 * v8 + 8) & 0x60) && (v10 & 0x2000) == 0 && (v10 & 0x1F) != 0 )
+      v15 = *(_QWORD *)(v12 + 240);
+      v16 = *(_DWORD *)(v15 + 16 * v14 + 8);
+      if ( ((v13 >> 25) & 0x60) == (*(_BYTE *)(v15 + 16 * v14 + 8) & 0x60) && (v16 & 0x2000) == 0 && (v16 & 0x1F) != 0 )
       {
-        if ( (v10 & 0x1F) == 8 )
+        v17 = v16 & 0x1F;
+        if ( (_BYTE)v17 == 8 )
         {
-          v11 = *(_QWORD *)(v9 + 16LL * (unsigned int)v8);
+          v19 = *(_QWORD *)(v15 + 16LL * (unsigned int)v14);
           goto LABEL_12;
         }
-        WdLogSingleEntry1(2LL, 267LL);
-        DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 267LL, 0LL, 0LL, 0LL, 0LL);
+        v18 = WdLogNewEntry5_WdError(v17, v15);
+        *(_QWORD *)(v18 + 24) = 316LL;
+        WdLogEvent5_WdError(v18);
       }
     }
-    v11 = 0LL;
+    v19 = 0LL;
 LABEL_12:
-    ExReleasePushLockSharedEx(v6 + 248, 0LL);
+    ExReleasePushLockSharedEx(v12 + 208, 0LL);
     KeLeaveCriticalRegion();
-    if ( v11 )
+    if ( v19 )
     {
-      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v19, (struct DXGFASTMUTEX *const)(v11 + 32), 0);
-      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v19);
-      VidSchSyncObject = DXGSYNCOBJECT::GetVidSchSyncObject((DXGSYNCOBJECT *)v11, v18[350]);
-      v14 = (*(__int64 (__fastcall **)(struct _VIDSCH_SYNC_OBJECT *))(*(_QWORD *)(*(_QWORD *)(v13 + 624) + 8LL) + 872LL))(VidSchSyncObject);
-      v15 = v17;
-      if ( !v14 )
-        v15 = -1071775484;
-      LODWORD(v17) = v15;
-      if ( v19[8] )
-        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v19);
+      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v31, (struct DXGFASTMUTEX *const)(v19 + 32), 0);
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v31);
+      VidSchSyncObject = DXGSYNCOBJECT::GetVidSchSyncObject((DXGSYNCOBJECT *)v19, v30[338]);
+      v25 = (*(__int64 (__fastcall **)(struct _VIDSCH_SYNC_OBJECT *))(*(_QWORD *)(v24 + 8) + 872LL))(VidSchSyncObject);
+      v26 = v29;
+      if ( !v25 )
+        v26 = -1071775484;
+      LODWORD(v29) = v26;
+      if ( v31[8] )
+        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v31, 3223191812LL);
     }
     else
     {
-      WdLogSingleEntry2(2LL, v6, *(unsigned int *)(v4 + 24));
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Invalid sync object, process 0x%I64x, handle 0x%I64x",
-        v6,
-        *(unsigned int *)(v4 + 24),
-        0LL,
-        0LL,
-        0LL);
-      LODWORD(v17) = -1073741811;
+      v22 = WdLogNewEntry5_WdError(v21, v20);
+      *(_QWORD *)(v22 + 24) = v12;
+      *(_QWORD *)(v22 + 32) = *(unsigned int *)(v7 + 24);
+      WdLogEvent5_WdError(v22);
+      LODWORD(v29) = -1073741811;
     }
-    if ( v20[8] )
-      DXGSYNCOBJECTLOCK::Release((DXGSYNCOBJECTLOCK *)v20);
+    if ( v32[8] )
+      DXGSYNCOBJECTLOCK::Release((DXGSYNCOBJECTLOCK *)v32);
     goto LABEL_21;
   }
-  WdLogSingleEntry1(2LL, 4216LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"The adapter is already closed by the guest",
-    4216LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
+  v6 = WdLogNewEntry5_WdError(v3, v2);
+  *(_QWORD *)(v6 + 24) = 3852LL;
+  WdLogEvent5_WdError(v6);
 LABEL_22:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v21);
-  return v3;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v33);
+  return v5;
 }

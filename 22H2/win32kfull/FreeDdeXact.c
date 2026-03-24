@@ -1,44 +1,35 @@
 /*
- * XREFs of FreeDdeXact @ 0x1C01FAFB0
+ * XREFs of FreeDdeXact @ 0x1C021C4B0
  * Callers:
- *     FindQMsg @ 0x1C012AFC0 (FindQMsg.c)
- *     ?PopState@@YAXPEAUtagDDECONV@@@Z @ 0x1C01F9B74 (-PopState@@YAXPEAUtagDDECONV@@@Z.c)
- *     xxxDDETrackGetMessageHook @ 0x1C01FB134 (xxxDDETrackGetMessageHook.c)
+ *     FindQMsg @ 0x1C0058200 (FindQMsg.c)
+ *     ?PopState@@YAXPEAUtagDDECONV@@@Z @ 0x1C021A8E4 (-PopState@@YAXPEAUtagDDECONV@@@Z.c)
+ *     xxxDDETrackGetMessageHook @ 0x1C021C734 (xxxDDETrackGetMessageHook.c)
  * Callees:
- *     ??0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z @ 0x1C011B7D0 (--0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z.c)
- *     ?RemovePublicObject@@YAHIPEAX@Z @ 0x1C01F9C1C (-RemovePublicObject@@YAHIPEAX@Z.c)
- *     GreDeleteServerMetaFile @ 0x1C02D2D08 (GreDeleteServerMetaFile.c)
+ *     ?RemovePublicObject@@YAHIPEAX@Z @ 0x1C021A9A8 (-RemovePublicObject@@YAHIPEAX@Z.c)
+ *     GreDeleteServerMetaFile @ 0x1C02B8054 (GreDeleteServerMetaFile.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
-struct _HANDLEENTRY *__fastcall FreeDdeXact(void **a1)
+__int64 __fastcall FreeDdeXact(__int64 a1)
 {
-  struct _HANDLEENTRY *result; // rax
-  _QWORD *v3; // rcx
-  char v4; // [rsp+38h] [rbp+10h] BYREF
+  __int64 result; // rax
+  __int64 v3; // rcx
 
-  IdentifyPrimaryDestroyTarget::IdentifyPrimaryDestroyTarget((IdentifyPrimaryDestroyTarget *)&v4, a1);
-  result = (struct _HANDLEENTRY *)HMMarkObjectDestroy(a1);
+  result = HMMarkObjectDestroy(a1);
   if ( (_DWORD)result )
   {
-    v3 = a1[7];
+    v3 = *(_QWORD *)(a1 + 56);
     if ( v3 )
     {
-      if ( (v3[2] & 0x24) != 0 )
-        GreDeleteServerMetaFile(v3[6]);
-      if ( ((_DWORD)a1[8] & 0x2000) != 0 )
+      if ( (*(_DWORD *)(v3 + 16) & 0x24) != 0 )
+        GreDeleteServerMetaFile(*(_QWORD *)(v3 + 48));
+      if ( (*(_DWORD *)(a1 + 64) & 0x2000) != 0 )
       {
-        RemovePublicObject(*((unsigned __int16 *)a1[7] + 37), *((void **)a1[7] + 6));
-        *((_DWORD *)a1 + 16) &= ~0x2000u;
+        RemovePublicObject(*(unsigned __int16 *)(*(_QWORD *)(a1 + 56) + 74LL), *(void **)(*(_QWORD *)(a1 + 56) + 48LL));
+        *(_DWORD *)(a1 + 64) &= ~0x2000u;
       }
-      Win32FreePool(a1[7]);
+      Win32FreePool(*(void **)(a1 + 56));
     }
-    result = (struct _HANDLEENTRY *)HMFreeObject(a1);
-  }
-  if ( v4 )
-  {
-    result = gphePrimaryDestroyTarget;
-    gphePrimaryDestroyTarget = 0LL;
+    return HMFreeObject(a1);
   }
   return result;
 }

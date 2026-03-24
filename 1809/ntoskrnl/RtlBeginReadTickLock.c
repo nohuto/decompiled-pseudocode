@@ -3,10 +3,10 @@
  * Callers:
  *     KiComputeThreadAffinity @ 0x14008A430 (KiComputeThreadAffinity.c)
  *     RtlGetSystemTimePrecise @ 0x14008A510 (RtlGetSystemTimePrecise.c)
- *     RtlGetMultiTimePrecise @ 0x140138678 (RtlGetMultiTimePrecise.c)
- *     KeCpuSetQueryUnparkRecommendation @ 0x140296420 (KeCpuSetQueryUnparkRecommendation.c)
- *     KiComputeCpuSetAffinityMask @ 0x140296E24 (KiComputeCpuSetAffinityMask.c)
- *     KeQueryCpuSetInformation @ 0x14075A834 (KeQueryCpuSetInformation.c)
+ *     RtlGetMultiTimePrecise @ 0x140138698 (RtlGetMultiTimePrecise.c)
+ *     KeCpuSetQueryUnparkRecommendation @ 0x140296520 (KeCpuSetQueryUnparkRecommendation.c)
+ *     KiComputeCpuSetAffinityMask @ 0x140296F24 (KiComputeCpuSetAffinityMask.c)
+ *     KeQueryCpuSetInformation @ 0x14075A814 (KeQueryCpuSetInformation.c)
  * Callees:
  *     <none>
  */

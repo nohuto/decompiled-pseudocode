@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpSetDevicePropertyData @ 0x1407071F8
+ * XREFs of PnpSetDevicePropertyData @ 0x1407071D8
  * Callers:
- *     IoSetDevicePropertyData @ 0x140707150 (IoSetDevicePropertyData.c)
+ *     IoSetDevicePropertyData @ 0x140707130 (IoSetDevicePropertyData.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PnpSetDeviceInstancePropertyChangeEvent @ 0x14016A1D0 (PnpSetDeviceInstancePropertyChangeEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PiPnpRtlSetObjectProperty @ 0x1406E5270 (PiPnpRtlSetObjectProperty.c)
- *     PnpSetInterruptInformation @ 0x1407592F4 (PnpSetInterruptInformation.c)
- *     RtlLCIDToCultureName @ 0x140896610 (RtlLCIDToCultureName.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PnpSetDeviceInstancePropertyChangeEvent @ 0x14016A1F0 (PnpSetDeviceInstancePropertyChangeEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PiPnpRtlSetObjectProperty @ 0x1406E5250 (PiPnpRtlSetObjectProperty.c)
+ *     PnpSetInterruptInformation @ 0x1407592D4 (PnpSetInterruptInformation.c)
+ *     RtlLCIDToCultureName @ 0x1408965F0 (RtlLCIDToCultureName.c)
  */
 
 __int64 __fastcall PnpSetDevicePropertyData(

@@ -1,5 +1,5 @@
 /*
- * XREFs of MiPurgeImageSection @ 0x140176600
+ * XREFs of MiPurgeImageSection @ 0x140176620
  * Callers:
  *     MiCheckControlArea @ 0x1400764A0 (MiCheckControlArea.c)
  * Callees:
@@ -17,11 +17,11 @@
  *     MiLockLeafPage @ 0x140080ED0 (MiLockLeafPage.c)
  *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
  *     MiReleasePageFileSpace @ 0x1400823A4 (MiReleasePageFileSpace.c)
- *     MiInvalidateCollidedIos @ 0x140117D28 (MiInvalidateCollidedIos.c)
- *     MiCapturePageFileInfoInline @ 0x140119DB0 (MiCapturePageFileInfoInline.c)
- *     MiDereferenceControlAreaPfnList @ 0x140119E0C (MiDereferenceControlAreaPfnList.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     MiInvalidateCollidedIos @ 0x140117D48 (MiInvalidateCollidedIos.c)
+ *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140119E2C (MiDereferenceControlAreaPfnList.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 char __fastcall MiPurgeImageSection(__int64 a1)

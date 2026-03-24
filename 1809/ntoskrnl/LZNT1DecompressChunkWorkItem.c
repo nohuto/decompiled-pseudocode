@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     LZNT1DecompressChunk @ 0x1401C6440 (LZNT1DecompressChunk.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     LZNT1DecompressChunk @ 0x1401C6460 (LZNT1DecompressChunk.c)
  */
 
 void __fastcall LZNT1DecompressChunkWorkItem(PVOID Entry)

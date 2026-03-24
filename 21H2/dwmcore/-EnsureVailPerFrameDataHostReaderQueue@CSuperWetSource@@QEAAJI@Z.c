@@ -1,64 +1,57 @@
 /*
- * XREFs of ?EnsureVailPerFrameDataHostReaderQueue@CSuperWetSource@@QEAAJI@Z @ 0x180216904
+ * XREFs of ?EnsureVailPerFrameDataHostReaderQueue@CSuperWetSource@@QEAAJI@Z @ 0x1801C3B58
  * Callers:
- *     ?EnqueueComputeScribbleOnHost@CGenericInk@@UEAAJ_KPEAVCComputeScribble@@@Z @ 0x180215820 (-EnqueueComputeScribbleOnHost@CGenericInk@@UEAAJ_KPEAVCComputeScribble@@@Z.c)
- *     ?SendMessageToHostForCreation@CSuperWetSource@@QEAAJ_K@Z @ 0x180216AC0 (-SendMessageToHostForCreation@CSuperWetSource@@QEAAJ_K@Z.c)
+ *     ?EnqueueComputeScribbleOnHost@CGenericInk@@UEAAJ_KPEAVCComputeScribble@@@Z @ 0x1801C2C50 (-EnqueueComputeScribbleOnHost@CGenericInk@@UEAAJ_KPEAVCComputeScribble@@@Z.c)
+ *     ?SendMessageToHostForCreation@CSuperWetSource@@QEAAJ_K@Z @ 0x1801C3C58 (-SendMessageToHostForCreation@CSuperWetSource@@QEAAJ_K@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x180190BB4 (-terminate@details@gsl@@YAXXZ.c)
- *     ?Create@CSharedCircularQueue@@SAJV?$span@E$0?0@gsl@@IPEAPEAV1@_N@Z @ 0x180216818 (-Create@CSharedCircularQueue@@SAJV-$span@E$0-0@gsl@@IPEAPEAV1@_N@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Create@CSharedCircularQueue@@SAJV?$span@E$0?0@gsl@@IPEAPEAV1@_N@Z @ 0x1801C3A6C (-Create@CSharedCircularQueue@@SAJV-$span@E$0-0@gsl@@IPEAPEAV1@_N@Z.c)
  */
 
 __int64 __fastcall CSuperWetSource::EnsureVailPerFrameDataHostReaderQueue(CSuperWetSource *this)
 {
-  __int64 v2; // rax
+  __int64 v2; // rcx
   int v3; // edi
   void *v4; // rcx
   LPVOID v6; // rax
   void *v7; // rcx
-  int v8[2]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v9; // [rsp+28h] [rbp-30h]
-  void **v10; // [rsp+30h] [rbp-28h]
-  volatile __int32 **v11; // [rsp+38h] [rbp-20h] BYREF
-  char v12; // [rsp+40h] [rbp-18h]
+  _QWORD v8[2]; // [rsp+20h] [rbp-38h] BYREF
+  void **v9; // [rsp+30h] [rbp-28h]
+  volatile __int32 **v10; // [rsp+38h] [rbp-20h] BYREF
+  char v11; // [rsp+40h] [rbp-18h]
   wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+0h]
 
-  if ( *((_QWORD *)this + 14) )
-    goto LABEL_12;
-  v11 = 0LL;
-  v10 = (void **)((char *)this + 112);
-  v2 = *((_QWORD *)this + 17);
-  v12 = 1;
-  if ( !v2 )
+  v2 = *((_QWORD *)this + 6);
+  if ( !v2 || *((_QWORD *)this + 3) )
+    goto LABEL_11;
+  v10 = 0LL;
+  v8[1] = v2;
+  v9 = (void **)((char *)this + 24);
+  v11 = 1;
+  v8[0] = 3968LL;
+  v3 = CSharedCircularQueue::Create((unsigned int *)v8, 0x7Cu, &v10, 1);
+  if ( v11 )
   {
-    gsl::details::terminate(this);
-    __debugbreak();
-  }
-  *(_QWORD *)v8 = 4096LL;
-  v9 = v2;
-  v3 = CSharedCircularQueue::Create((unsigned int *)v8, 0x80u, &v11, 1);
-  if ( v12 )
-  {
-    v4 = *v10;
-    *v10 = v11;
+    v4 = *v9;
+    *v9 = v10;
     if ( v4 )
       operator delete(v4);
   }
   if ( v3 >= 0 )
   {
-LABEL_12:
-    if ( *((_QWORD *)this + 15) )
+LABEL_11:
+    if ( *((_QWORD *)this + 4) )
       return 0LL;
-    v6 = DefaultHeap::Alloc(0x80uLL);
-    v7 = (void *)*((_QWORD *)this + 15);
-    *((_QWORD *)this + 15) = v6;
+    v6 = DefaultHeap::Alloc(0x7CuLL);
+    v7 = (void *)*((_QWORD *)this + 4);
+    *((_QWORD *)this + 4) = v6;
     if ( v7 )
     {
-      DefaultHeap::Free(v7);
-      v6 = (LPVOID)*((_QWORD *)this + 15);
+      operator delete(v7);
+      v6 = (LPVOID)*((_QWORD *)this + 4);
     }
     if ( v6 )
     {
@@ -68,8 +61,8 @@ LABEL_12:
     {
       wil::details::in1diag3::Return_Hr(
         retaddr,
-        (void *)0x31,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\superwetsource.cpp",
+        (void *)0x34,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\superwetsource.cpp",
         (const char *)0x8007000ELL);
       return 2147942414LL;
     }
@@ -78,8 +71,8 @@ LABEL_12:
   {
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0x2B,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\superwetsource.cpp",
+      (void *)0x2E,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\superwetsource.cpp",
       (const char *)(unsigned int)v3);
     return (unsigned int)v3;
   }

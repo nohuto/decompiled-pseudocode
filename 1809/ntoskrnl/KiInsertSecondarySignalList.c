@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInsertSecondarySignalList @ 0x14029367C
+ * XREFs of KiInsertSecondarySignalList @ 0x14029377C
  * Callers:
- *     KeDispatchSecondaryInterrupt @ 0x1402931F0 (KeDispatchSecondaryInterrupt.c)
+ *     KeDispatchSecondaryInterrupt @ 0x1402932F0 (KeDispatchSecondaryInterrupt.c)
  * Callees:
  *     KiInsertQueueDpc @ 0x1400621B0 (KiInsertQueueDpc.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireSecondarySignalListLock @ 0x1402932FC (KiAcquireSecondarySignalListLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSecondarySignalListLock @ 0x1402933FC (KiAcquireSecondarySignalListLock.c)
  */
 
 void __fastcall KiInsertSecondarySignalList(_QWORD **a1)

@@ -1,16 +1,13 @@
 /*
- * XREFs of ACPISetDeviceWorker @ 0x1C00215BC
+ * XREFs of ACPISetDeviceWorker @ 0x1C0013470
  * Callers:
- *     ACPICMButtonStartWorker @ 0x1C00029E0 (ACPICMButtonStartWorker.c)
- *     ACPIFanDeviceControl @ 0x1C0003160 (ACPIFanDeviceControl.c)
- *     ACPIFanLoop @ 0x1C0003664 (ACPIFanLoop.c)
- *     ACPIThermalLoopEx @ 0x1C00209D8 (ACPIThermalLoopEx.c)
- *     ACPIRootPowerCallBack @ 0x1C002ED80 (ACPIRootPowerCallBack.c)
- *     ACPICMButtonNotify @ 0x1C004D608 (ACPICMButtonNotify.c)
- *     ACPICMExperienceButtonHandleEvent @ 0x1C004D9FC (ACPICMExperienceButtonHandleEvent.c)
- *     ACPIFanFSTCallback @ 0x1C0054AC0 (ACPIFanFSTCallback.c)
- *     ACPIPepCleanupPlatformNotificationSupport @ 0x1C00B0268 (ACPIPepCleanupPlatformNotificationSupport.c)
- *     ACPIPepPowerSettingChangeCallback @ 0x1C00B0520 (ACPIPepPowerSettingChangeCallback.c)
+ *     ACPICMButtonStartWorker @ 0x1C000CC70 (ACPICMButtonStartWorker.c)
+ *     ACPIThermalLoopEx @ 0x1C0012A28 (ACPIThermalLoopEx.c)
+ *     ACPIRootPowerCallBack @ 0x1C0031590 (ACPIRootPowerCallBack.c)
+ *     ACPICMButtonNotify @ 0x1C004E918 (ACPICMButtonNotify.c)
+ *     ACPICMExperienceButtonHandleEvent @ 0x1C004ED7C (ACPICMExperienceButtonHandleEvent.c)
+ *     ACPIPepCleanupPlatformNotificationSupport @ 0x1C00B0D94 (ACPIPepCleanupPlatformNotificationSupport.c)
+ *     ACPIPepPowerSettingChangeCallback @ 0x1C00B1260 (ACPIPepPowerSettingChangeCallback.c)
  * Callees:
  *     <none>
  */
@@ -28,13 +25,13 @@ void __fastcall ACPISetDeviceWorker(__int64 a1, int a2)
   v6 = (_QWORD *)(a1 + 168);
   if ( !*v6 )
   {
-    v7 = (_QWORD *)qword_1C0080A68;
-    if ( *(__int64 **)qword_1C0080A68 != &ACPIDeviceWorkQueue )
+    v7 = (_QWORD *)qword_1C00818A8;
+    if ( *(__int64 **)qword_1C00818A8 != &ACPIDeviceWorkQueue )
       __fastfail(3u);
     *v6 = &ACPIDeviceWorkQueue;
     v6[1] = v7;
     *v7 = v6;
-    qword_1C0080A68 = (__int64)v6;
+    qword_1C00818A8 = (__int64)v6;
     v5 = ACPIWorkerBusy == 0;
     ACPIWorkerBusy = 1;
   }

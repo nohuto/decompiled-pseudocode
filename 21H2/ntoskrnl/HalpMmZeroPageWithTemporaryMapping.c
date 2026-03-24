@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMmZeroPageWithTemporaryMapping @ 0x1403BF274
+ * XREFs of HalpMmZeroPageWithTemporaryMapping @ 0x1403BB428
  * Callers:
- *     HalpMmAllocateAndInsertPageTablePage @ 0x1403BF1EC (HalpMmAllocateAndInsertPageTablePage.c)
+ *     HalpMmAllocateAndInsertPageTablePage @ 0x1403BB3A0 (HalpMmAllocateAndInsertPageTablePage.c)
  * Callees:
- *     HalpFlushTLB @ 0x1403BF630 (HalpFlushTLB.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     HalpFlushTLB @ 0x1403BBBB0 (HalpFlushTLB.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall HalpMmZeroPageWithTemporaryMapping(__int64 a1)
@@ -13,7 +13,7 @@ __int64 __fastcall HalpMmZeroPageWithTemporaryMapping(__int64 a1)
 
   if ( (MEMORY[0xFFFFF6FFFFFFE000] & 1) != 0 )
     return 3221225485LL;
-  MEMORY[0xFFFFF6FFFFFFE000] = a1 & 0xFFFFFFFFFF000LL | 0x8000000000000003uLL;
+  MEMORY[0xFFFFF6FFFFFFE000] = a1 & 0xFFFFFFFFF000LL | 0x8000000000000003uLL;
   _InterlockedOr(v2, 0);
   memset((void *)0xFFFFFFFFFFC00000LL, 0, 0x1000uLL);
   MEMORY[0xFFFFF6FFFFFFE000] = 0LL;

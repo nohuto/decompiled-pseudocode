@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpIrtAllocateIndex @ 0x140909B14
+ * XREFs of HalpIrtAllocateIndex @ 0x140865984
  * Callers:
- *     HalpInterruptRemapFixedLines @ 0x1403B9214 (HalpInterruptRemapFixedLines.c)
- *     HalpInterruptRemap @ 0x1403D57DC (HalpInterruptRemap.c)
+ *     HalpInterruptRemap @ 0x1403785E0 (HalpInterruptRemap.c)
+ *     HalpInterruptRemapFixedLines @ 0x1403CDB6C (HalpInterruptRemapFixedLines.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x1402054C0 (RtlFindClearBitsAndSet.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     RtlFindNextForwardRunClear @ 0x1402E1F90 (RtlFindNextForwardRunClear.c)
- *     RtlSetBits @ 0x1402E4C80 (RtlSetBits.c)
- *     RtlClearBits @ 0x140347580 (RtlClearBits.c)
- *     HalpIommuAllocateRemappingTableEntry @ 0x140510A40 (HalpIommuAllocateRemappingTableEntry.c)
- *     HalpIrtAllocateDeviceAperture @ 0x1409099C0 (HalpIrtAllocateDeviceAperture.c)
- *     HalpIrtExtendRemappingRange @ 0x140909EB0 (HalpIrtExtendRemappingRange.c)
- *     HalpIrtReleaseDeviceAperture @ 0x14090A0D0 (HalpIrtReleaseDeviceAperture.c)
+ *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
+ *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     RtlFindNextForwardRunClear @ 0x140267B70 (RtlFindNextForwardRunClear.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
+ *     HalpIommuAllocateRemappingTableEntry @ 0x1404C5318 (HalpIommuAllocateRemappingTableEntry.c)
+ *     HalpIrtAllocateDeviceAperture @ 0x140865830 (HalpIrtAllocateDeviceAperture.c)
+ *     HalpIrtExtendRemappingRange @ 0x140865D28 (HalpIrtExtendRemappingRange.c)
+ *     HalpIrtReleaseDeviceAperture @ 0x140865F48 (HalpIrtReleaseDeviceAperture.c)
  */
 
 __int64 __fastcall HalpIrtAllocateIndex(

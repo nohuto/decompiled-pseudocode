@@ -1,96 +1,95 @@
 /*
- * XREFs of SepInitializationPhase1 @ 0x140847FF0
+ * XREFs of SepInitializationPhase1 @ 0x14079D378
  * Callers:
- *     SeInitServerSilo @ 0x1409C5A90 (SeInitServerSilo.c)
- *     SeInitSystem @ 0x140B1E13C (SeInitSystem.c)
+ *     SeInitServerSilo @ 0x14091C0D4 (SeInitServerSilo.c)
+ *     SeInitSystem @ 0x140A478EC (SeInitSystem.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     RtlInitString @ 0x14036B950 (RtlInitString.c)
- *     SddlBaseInitialize @ 0x1403CE42C (SddlBaseInitialize.c)
- *     SepInitProcessAuditSd @ 0x1403CE4A4 (SepInitProcessAuditSd.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateEvent @ 0x14041C060 (ZwCreateEvent.c)
- *     ZwCreateDirectoryObject @ 0x14041CC80 (ZwCreateDirectoryObject.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     SepInitializeCodeIntegrity @ 0x140848850 (SepInitializeCodeIntegrity.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     SepInitializeSingletonAttributesStructures @ 0x140B1E24C (SepInitializeSingletonAttributesStructures.c)
- *     SepInitializeAuthorizationCallbacks @ 0x140B1E6B0 (SepInitializeAuthorizationCallbacks.c)
- *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140B1ED10 (SeMakeAnonymousLogonTokenNoEveryone.c)
- *     SeMakeAnonymousLogonToken @ 0x140B1EFA0 (SeMakeAnonymousLogonToken.c)
+ *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
+ *     SddlBaseInitialize @ 0x1403B45D0 (SddlBaseInitialize.c)
+ *     SepInitProcessAuditSd @ 0x1403B4648 (SepInitProcessAuditSd.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
+ *     ZwCreateDirectoryObject @ 0x1403FB880 (ZwCreateDirectoryObject.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x140676BE0 (RtlAddAccessAllowedAce.c)
+ *     ObInsertObject @ 0x1406D41C0 (ObInsertObject.c)
+ *     SepInitializeCodeIntegrity @ 0x14079DBAC (SepInitializeCodeIntegrity.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     SepInitializeSingletonAttributesStructures @ 0x140A47A00 (SepInitializeSingletonAttributesStructures.c)
+ *     SepInitializeAuthorizationCallbacks @ 0x140A47E64 (SepInitializeAuthorizationCallbacks.c)
+ *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140A484C0 (SeMakeAnonymousLogonTokenNoEveryone.c)
+ *     SeMakeAnonymousLogonToken @ 0x140A4874C (SeMakeAnonymousLogonToken.c)
  */
 
-char SepInitializationPhase1()
+char __fastcall SepInitializationPhase1(__int64 a1, __int64 a2)
 {
   bool IsCurrentThreadInServerSilo; // di
-  ACL *Pool2; // rax
-  ACL *v2; // rbx
-  HANDLE DirectoryHandle; // [rsp+48h] [rbp-39h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-31h] BYREF
-  HANDLE EventHandle; // [rsp+60h] [rbp-21h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-19h] BYREF
-  STRING DestinationString; // [rsp+98h] [rbp+17h] BYREF
-  _BYTE SecurityDescriptor[40]; // [rsp+A8h] [rbp+27h] BYREF
+  ACL *PoolWithTag; // rax
+  ACL *v4; // rbx
+  HANDLE DirectoryHandle; // [rsp+38h] [rbp-39h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-31h] BYREF
+  HANDLE EventHandle; // [rsp+50h] [rbp-21h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-19h] BYREF
+  STRING DestinationString; // [rsp+88h] [rbp+17h] BYREF
+  _BYTE SecurityDescriptor[40]; // [rsp+98h] [rbp+27h] BYREF
 
-  DestinationString = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   DirectoryHandle = 0LL;
   EventHandle = 0LL;
+  DestinationString = 0LL;
   UnicodeString = 0LL;
-  IsCurrentThreadInServerSilo = PsIsCurrentThreadInServerSilo();
+  IsCurrentThreadInServerSilo = PsIsCurrentThreadInServerSilo(a1, a2);
   if ( !IsCurrentThreadInServerSilo )
   {
-    ObInsertObjectEx(
-      (char *)(KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[5] & 0xFFFFFFFFFFFFFFF0uLL),
+    ObInsertObject(
+      (PVOID)(KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[5] & 0xFFFFFFFFFFFFFFF0uLL),
       0LL,
-      0,
       0,
       0,
       0LL,
       0LL);
-    SeAnonymousLogonToken = (PVOID)SeMakeAnonymousLogonToken();
+    SeAnonymousLogonToken = SeMakeAnonymousLogonToken();
     SeAnonymousLogonTokenNoEveryone = (PVOID)SeMakeAnonymousLogonTokenNoEveryone();
   }
-  RtlInitString(&DestinationString, "\\Security");
+  RtlInitAnsiString(&DestinationString, "\\Security");
   RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 1u);
   RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
-  Pool2 = (ACL *)ExAllocatePool2(64LL, 256LL, 538994003LL);
-  v2 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (ACL *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x100uLL, 0x20206553u);
+  v4 = PoolWithTag;
+  if ( !PoolWithTag )
     return 0;
-  RtlCreateAcl(Pool2, 0x100u, 2u);
-  RtlpAddKnownAce((__int64)v2, 2u, 0, 983055, (unsigned __int8 *)SeLocalSystemSid, 0);
-  RtlpAddKnownAce((__int64)v2, 2u, 0, 131075, (unsigned __int8 *)SeAliasAdminsSid, 0);
-  RtlpAddKnownAce((__int64)v2, 2u, 0, 2, (unsigned __int8 *)SeWorldSid, 0);
-  RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v2, 0);
+  RtlCreateAcl(PoolWithTag, 0x100u, 2u);
+  RtlAddAccessAllowedAce(v4, 2u, 0xF000Fu, SeLocalSystemSid);
+  RtlAddAccessAllowedAce(v4, 2u, 0x20003u, SeAliasAdminsSid);
+  RtlAddAccessAllowedAce(v4, 2u, 2u, SeWorldSid);
+  RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v4, 0);
   ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.SecurityQualityOfService = 0LL;
   ObjectAttributes.ObjectName = &UnicodeString;
   ObjectAttributes.Attributes = 80;
   ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
   ObjectAttributes.Length = 48;
-  ObjectAttributes.SecurityQualityOfService = 0LL;
   ZwCreateDirectoryObject(&DirectoryHandle, 0xF000Fu, &ObjectAttributes);
-  RtlFreeUnicodeString(&UnicodeString);
-  ExFreePoolWithTag(v2, 0);
-  RtlInitString(&DestinationString, "LSA_AUTHENTICATION_INITIALIZED");
+  RtlFreeAnsiString(&UnicodeString);
+  ExFreePoolWithTag(v4, 0);
+  RtlInitAnsiString(&DestinationString, "LSA_AUTHENTICATION_INITIALIZED");
   RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 1u);
+  ObjectAttributes.SecurityQualityOfService = 0LL;
   ObjectAttributes.RootDirectory = DirectoryHandle;
   ObjectAttributes.Length = 48;
   ObjectAttributes.ObjectName = &UnicodeString;
   ObjectAttributes.SecurityDescriptor = (PVOID)SePublicDefaultSd;
   ObjectAttributes.Attributes = 80;
-  ObjectAttributes.SecurityQualityOfService = 0LL;
   ZwCreateEvent(&EventHandle, 0x40000000u, &ObjectAttributes, NotificationEvent, 0);
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString(&UnicodeString);
   ZwClose(DirectoryHandle);
   ZwClose(EventHandle);
   if ( !IsCurrentThreadInServerSilo )

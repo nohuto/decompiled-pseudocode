@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0xxf_EventWriteTransfer @ 0x18011312E
+ * XREFs of McTemplateU0xxf_EventWriteTransfer @ 0x1801630D8
  * Callers:
- *     ?TracePresentStats@CScheduleFrameInfoVolatileData@@QEBAXXZ @ 0x180079DE0 (-TracePresentStats@CScheduleFrameInfoVolatileData@@QEBAXXZ.c)
+ *     ?GetPresentStatisticsAndAdjustRates@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18006F2C0 (-GetPresentStatisticsAndAdjustRates@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0xxf_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

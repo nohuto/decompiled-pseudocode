@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkEtwShutdown @ 0x1C0050E3C
+ * XREFs of DxgkEtwShutdown @ 0x1C0044A30
  * Callers:
- *     DxgkUnload @ 0x1C0301B10 (DxgkUnload.c)
+ *     DxgkUnload @ 0x1C0261750 (DxgkUnload.c)
  * Callees:
- *     McGenEventUnregister_EtwUnregister @ 0x1C0050E60 (McGenEventUnregister_EtwUnregister.c)
+ *     McGenEventUnregister_EtwUnregister @ 0x1C0044A54 (McGenEventUnregister_EtwUnregister.c)
  */
 
 __int64 DxgkEtwShutdown()

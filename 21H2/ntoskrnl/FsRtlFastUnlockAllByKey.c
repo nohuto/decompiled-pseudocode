@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlFastUnlockAllByKey @ 0x140541A60
+ * XREFs of FsRtlFastUnlockAllByKey @ 0x1404EF990
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlPrivateFastUnlockAll @ 0x14021D404 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x14029FA64 (FsRtlPrivateFastUnlockAll.c)
  */
 
 NTSTATUS __stdcall FsRtlFastUnlockAllByKey(

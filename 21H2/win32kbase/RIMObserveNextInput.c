@@ -1,9 +1,9 @@
 /*
- * XREFs of RIMObserveNextInput @ 0x1C0185310
+ * XREFs of RIMObserveNextInput @ 0x1C0157870
  * Callers:
  *     <none>
  * Callees:
- *     rimObsObserveNextInput @ 0x1C01B4A38 (rimObsObserveNextInput.c)
+ *     rimObsObserveNextInput @ 0x1C017E88C (rimObsObserveNextInput.c)
  */
 
 __int64 __fastcall RIMObserveNextInput(__int64 a1, __int64 a2)

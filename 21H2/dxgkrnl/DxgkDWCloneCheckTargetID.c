@@ -1,13 +1,16 @@
 /*
- * XREFs of DxgkDWCloneCheckTargetID @ 0x1C020EA70
+ * XREFs of DxgkDWCloneCheckTargetID @ 0x1C019768C
  * Callers:
- *     DpiFdoEnumChildDevices @ 0x1C020E59C (DpiFdoEnumChildDevices.c)
+ *     DpiFdoEnumChildDevices @ 0x1C01971D4 (DpiFdoEnumChildDevices.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
  */
 
-_BOOL8 __fastcall DxgkDWCloneCheckTargetID(int a1)
+_BOOL8 __fastcall DxgkDWCloneCheckTargetID(__int64 a1, __int64 a2)
 {
-  DXGGLOBAL_GetGlobal();
-  return (a1 & 0xFF000000) == 0;
+  int v2; // ebx
+
+  v2 = a1;
+  DXGGLOBAL::GetGlobal(a1, a2);
+  return (v2 & 0xFF000000) == 0;
 }

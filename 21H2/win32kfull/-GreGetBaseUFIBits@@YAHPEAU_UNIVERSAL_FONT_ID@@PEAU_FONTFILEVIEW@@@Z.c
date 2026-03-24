@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GreGetBaseUFIBits@@YAHPEAU_UNIVERSAL_FONT_ID@@PEAU_FONTFILEVIEW@@@Z @ 0x1C027965C
+ * XREFs of ?GreGetBaseUFIBits@@YAHPEAU_UNIVERSAL_FONT_ID@@PEAU_FONTFILEVIEW@@@Z @ 0x1C027BB18
  * Callers:
- *     NtGdiAddRemoteMMInstanceToDC @ 0x1C027AA50 (NtGdiAddRemoteMMInstanceToDC.c)
+ *     NtGdiAddRemoteMMInstanceToDC @ 0x1C027CEE0 (NtGdiAddRemoteMMInstanceToDC.c)
  * Callees:
- *     ?ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C0279FF0 (-ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z.c)
+ *     ?ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C027C480 (-ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z.c)
  */
 
 __int64 __fastcall GreGetBaseUFIBits(struct _UNIVERSAL_FONT_ID *a1, struct _FONTFILEVIEW *a2)

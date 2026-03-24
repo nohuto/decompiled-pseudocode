@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpValidateTraceControlFilterDescriptors @ 0x1409F5224
+ * XREFs of EtwpValidateTraceControlFilterDescriptors @ 0x140940CEC
  * Callers:
- *     EtwpNotifyGuid @ 0x1406EF64C (EtwpNotifyGuid.c)
+ *     EtwpNotifyGuid @ 0x1406E1804 (EtwpNotifyGuid.c)
  * Callees:
- *     EtwpAllocateFilter @ 0x1406CEEB0 (EtwpAllocateFilter.c)
+ *     EtwpAllocateFilter @ 0x1407B8158 (EtwpAllocateFilter.c)
  */
 
 __int64 __fastcall EtwpValidateTraceControlFilterDescriptors(unsigned int a1, __int64 a2, unsigned int a3, __int64 a4)

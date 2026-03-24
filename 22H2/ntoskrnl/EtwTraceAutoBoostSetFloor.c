@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceAutoBoostSetFloor @ 0x140466A9E
+ * XREFs of EtwTraceAutoBoostSetFloor @ 0x1405A742C
  * Callers:
- *     KiAbApplyWakeupBoost @ 0x1402BC870 (KiAbApplyWakeupBoost.c)
- *     KiAbSetMinimumThreadPriority @ 0x140318C48 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbApplyWakeupBoost @ 0x140271FFC (KiAbApplyWakeupBoost.c)
+ *     KiAbSetMinimumThreadPriority @ 0x140272404 (KiAbSetMinimumThreadPriority.c)
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x140214970 (EtwTraceSiloKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwTraceSiloKernelEvent @ 0x14025A0AC (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceAutoBoostSetFloor(
@@ -32,7 +32,7 @@ __int64 __fastcall EtwTraceAutoBoostSetFloor(
   int v21; // [rsp+48h] [rbp-18h]
   int v22; // [rsp+4Ch] [rbp-14h]
 
-  v15 = *(_DWORD *)(a1 + 1232);
+  v15 = *(_DWORD *)(a1 + 1152);
   v17 = a6;
   v14 = a2;
   v16 = a3;
@@ -43,5 +43,5 @@ __int64 __fastcall EtwTraceAutoBoostSetFloor(
   v19 = (a9 != 0 ? 2 : 0) | (4 * (a10 & 3)) | DpcRequestSummary & 1;
   v12 = *(_QWORD *)(a1 + 544);
   v20 = &v14;
-  return EtwTraceSiloKernelEvent(*(_QWORD *)(v12 + 2160), (int)&v20, 1, 0x20000200u, 1346, 5246466);
+  return EtwTraceSiloKernelEvent(*(_QWORD *)(v12 + 2160), (int)&v20, 1, 0x20000200u, 1346, 5245442);
 }

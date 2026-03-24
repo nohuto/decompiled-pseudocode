@@ -1,114 +1,111 @@
 /*
- * XREFs of ?VmBusSendEscape@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIIIW4_D3DKMT_ESCAPETYPE@@U_D3DDDI_ESCAPEFLAGS@@IPEAE@Z @ 0x1C038875C
+ * XREFs of ?VmBusSendEscape@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIIIW4_D3DKMT_ESCAPETYPE@@U_D3DDDI_ESCAPEFLAGS@@IPEAE@Z @ 0x1C0248A54
  * Callers:
- *     DxgkEscape @ 0x1C01B43F0 (DxgkEscape.c)
- *     ?DrtTestSignalEventCb@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@@Z @ 0x1C0307AF0 (-DrtTestSignalEventCb@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@@Z.c)
- *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C0307E5C (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
- *     ?DxgEscapeEvictWorker@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@PEAVDXGPROCESS@@@Z @ 0x1C0310358 (-DxgEscapeEvictWorker@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@PEAVDXGPROCESS@@@Z.c)
- *     ?DxgEscapeSuspendResumeProcess@@YAJPEAU_D3DKMT_ESCAPE@@PEAXPEAVDXGADAPTER@@1_N3@Z @ 0x1C0310FBC (-DxgEscapeSuspendResumeProcess@@YAJPEAU_D3DKMT_ESCAPE@@PEAXPEAVDXGADAPTER@@1_N3@Z.c)
+ *     DxgkEscape @ 0x1C0102F00 (DxgkEscape.c)
+ *     ?DrtTestSignalEventCb@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@@Z @ 0x1C025FBF4 (-DrtTestSignalEventCb@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@@Z.c)
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C025FCF4 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ *     ?DxgEscapeEvictWorker@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@PEAVDXGPROCESS@@@Z @ 0x1C02673C4 (-DxgEscapeEvictWorker@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@PEAVDXGPROCESS@@@Z.c)
+ *     ?DxgEscapeSuspendResumeProcess@@YAJPEAU_D3DKMT_ESCAPE@@PEAXPEAVDXGADAPTER@@1_N3@Z @ 0x1C0267E58 (-DxgEscapeSuspendResumeProcess@@YAJPEAU_D3DKMT_ESCAPE@@PEAXPEAVDXGADAPTER@@1_N3@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memmove @ 0x1C0028340 (memmove.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z @ 0x1C038FC20 (-VmBusSendSyncMessage@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAUDXGVMBUSMESSAGE@@PEAXPEAI@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C024DA2C (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendEscape(
         DXG_GUEST_VIRTUALGPU_VMBUS *this,
-        int a2,
-        int a3,
-        int a4,
-        unsigned int a5,
+        __int64 a2,
+        UINT a3,
+        UINT a4,
+        UINT a5,
         enum _D3DKMT_ESCAPETYPE a6,
         struct _D3DDDI_ESCAPEFLAGS a7,
-        unsigned int Size,
+        size_t Size,
         unsigned __int8 *Src)
 {
-  unsigned int v14; // ecx
-  unsigned int v15; // r8d
-  __int64 v16; // rcx
-  int v17; // edi
-  void *v18; // rbp
-  unsigned int v19[4]; // [rsp+50h] [rbp-168h] BYREF
-  __int128 v20; // [rsp+60h] [rbp-158h] BYREF
-  int v21; // [rsp+70h] [rbp-148h]
+  size_t v9; // rsi
+  UINT v12; // r12d
+  __int64 v14; // rax
+  unsigned int v16; // edi
+  struct _D3DDDI_ESCAPEFLAGS *v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  __int64 v21; // r9
+  struct _D3DDDI_ESCAPEFLAGS *v22; // rbx
+  __int64 v23; // rax
+  unsigned __int8 *v24; // rdx
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  int v27; // edi
+  __int64 v28; // r8
+  __int64 v29; // rax
+  struct _MDL *v30; // [rsp+28h] [rbp-20h]
 
-  if ( Size > 0x20000 )
+  v9 = (unsigned int)Size;
+  v12 = a2;
+  if ( (unsigned int)Size > 0x20000 )
   {
-    WdLogSingleEntry1(2LL, 12017LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"PrivateDriverDataSize is invalid",
-      12017LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v14 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v14 + 24) = 10098LL;
+    WdLogEvent5_WdError(v14);
     return 3221225485LL;
   }
-  v14 = (Size + 7) & 0xFFFFFFF8;
-  v19[0] = v14;
-  v21 = 0;
-  v15 = 56;
-  v20 = 0LL;
-  if ( v14 )
-    v15 = v14 + 55;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)&v20, this, v15, 0LL, 0LL, 0LL);
-  v16 = v20;
-  if ( (_QWORD)v20 )
+  v16 = 56;
+  LODWORD(Size) = (Size + 7) & 0xFFFFFFF8;
+  if ( (_DWORD)Size )
+    v16 = ((v9 + 7) & 0xFFFFFFF8) + 55;
+  v17 = (struct _D3DDDI_ESCAPEFLAGS *)operator new[](v16, 0x4B677844u, (POOL_TYPE)512);
+  v22 = v17;
+  if ( !v17 )
   {
-    *(struct _D3DDDI_ESCAPEFLAGS *)(v20 + 36) = a7;
-    *(_DWORD *)(v16 + 44) = a5;
-    *(_DWORD *)(v16 + 28) = a4;
-    v18 = (void *)(v16 + 48);
-    *(_BYTE *)(v16 + 12) = 0;
-    *(_DWORD *)(v16 + 12) &= 0x1FFu;
-    *(_DWORD *)(v16 + 32) = a6;
-    *(_QWORD *)v16 = 0LL;
-    *(_QWORD *)(v16 + 16) = 13LL;
-    *(_DWORD *)(v16 + 8) = a2;
-    *(_DWORD *)(v16 + 24) = a3;
-    *(_DWORD *)(v16 + 40) = Size;
-    memmove((void *)(v16 + 48), Src, Size);
-    if ( Size )
-    {
-      v17 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSyncMessage(this, (struct DXGVMBUSMESSAGE *)&v20, v18, v19);
-      if ( v17 < 0 )
-        goto LABEL_14;
-      if ( v19[0] >= Size )
-      {
-        memmove(Src, v18, Size);
-        goto LABEL_15;
-      }
-      v17 = -1073741823;
-    }
-    else
-    {
-      v17 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSyncMessage(this, (struct DXGVMBUSMESSAGE *)&v20, 0LL, 0LL);
-    }
-    if ( v17 >= 0 )
-      goto LABEL_15;
-LABEL_14:
-    WdLogSingleEntry1(3LL, v17);
-    goto LABEL_15;
+    v23 = WdLogNewEntry5_WdLowResource(v19, v18, v20, v21);
+    *(_QWORD *)(v23 + 24) = 10106LL;
+    WdLogEvent5_WdLowResource(v23);
+    return 3221225495LL;
   }
-  WdLogSingleEntry1(6LL, 12026LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    262145,
-    -1,
-    (__int64)L"Failed to allocate storage for input buffer",
-    12026LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-  v17 = -1073741801;
+  *(_QWORD *)&v17->0 = 0LL;
+  v17[3].Value = 0;
+  v24 = Src;
+  v17[4].Value = 13;
+  v17[2].Value = v12;
+  v17[6].Value = a3;
+  v17[9].0 = a7.0;
+  v17[7].Value = a4;
+  v17[11].Value = a5;
+  v17[8].Value = a6;
+  v17[10].Value = v9;
+  memmove(&v17[12], v24, v9);
+  if ( (_DWORD)v9 )
+  {
+    v27 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(
+            this,
+            (struct DXGKVMB_COMMAND_BASE *)v22,
+            v16,
+            &v22[12],
+            (unsigned int *)&Size,
+            v30);
+    if ( v27 < 0 )
+    {
+LABEL_14:
+      v29 = WdLogNewEntry5_WdWarning(v26, v25, v28);
+      *(_QWORD *)(v29 + 24) = v27;
+      WdLogEvent5_WdWarning(v29);
+      goto LABEL_15;
+    }
+    if ( (unsigned int)Size < (unsigned int)v9 )
+      v27 = -1073741823;
+    else
+      memmove(Src, &v22[12], v9);
+  }
+  else
+  {
+    v27 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(this, (struct DXGKVMB_COMMAND_BASE *)v22, v16, 0LL, 0LL, v30);
+  }
+  if ( v27 < 0 )
+    goto LABEL_14;
 LABEL_15:
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)&v20);
-  return (unsigned int)v17;
+  operator delete[](v22);
+  return (unsigned int)v27;
 }

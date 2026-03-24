@@ -1,9 +1,9 @@
 /*
- * XREFs of _dynamic_initializer_for__g_DeviceManager__ @ 0x180003D80
+ * XREFs of _dynamic_initializer_for__g_DeviceManager__ @ 0x180003610
  * Callers:
  *     <none>
  * Callees:
- *     ??0CDeviceManager@@QEAA@XZ @ 0x1800F7E34 (--0CDeviceManager@@QEAA@XZ.c)
+ *     ??0CDeviceManager@@QEAA@XZ @ 0x1800DF7C4 (--0CDeviceManager@@QEAA@XZ.c)
  */
 
 int __fastcall dynamic_initializer_for__g_DeviceManager__(CDeviceManager *a1)

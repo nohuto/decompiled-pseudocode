@@ -4,10 +4,10 @@
  *     IoStartIoRateControl @ 0x1400015D8 (IoStartIoRateControl.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     IoDiskIoAttributionQuery @ 0x1401053C4 (IoDiskIoAttributionQuery.c)
- *     ExGetExtensionTable @ 0x14010DBE4 (ExGetExtensionTable.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     IoDiskIoAttributionQuery @ 0x1401053E4 (IoDiskIoAttributionQuery.c)
+ *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IopIoRateStartRateControl(

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopSafeCopyUnicodeString @ 0x140209618
+ * XREFs of PopSafeCopyUnicodeString @ 0x14034CBE8
  * Callers:
- *     PopCaptureReasonContext @ 0x1402096D8 (PopCaptureReasonContext.c)
+ *     PopCaptureReasonContext @ 0x14034C910 (PopCaptureReasonContext.c)
  * Callees:
- *     RtlStringCbCopyUnicodeString @ 0x14020956C (RtlStringCbCopyUnicodeString.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     RtlStringCbCopyUnicodeString @ 0x14034CCAC (RtlStringCbCopyUnicodeString.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PopSafeCopyUnicodeString(PCUNICODE_STRING SourceString, wchar_t **a2, __int64 a3, char a4)
@@ -13,9 +13,9 @@ __int64 __fastcall PopSafeCopyUnicodeString(PCUNICODE_STRING SourceString, wchar
   __int64 Length; // rcx
   unsigned __int64 v8; // r8
   size_t v9; // rdx
-  __int64 v10; // rax
   wchar_t *Buffer; // rax
-  unsigned __int64 v13; // rcx
+  unsigned __int64 v11; // rcx
+  __int64 v12; // rax
 
   v4 = *a2;
   Length = SourceString->Length;
@@ -28,18 +28,18 @@ __int64 __fastcall PopSafeCopyUnicodeString(PCUNICODE_STRING SourceString, wchar
     Buffer = SourceString->Buffer;
     if ( ((unsigned __int8)Buffer & 1) != 0 )
       ExRaiseDatatypeMisalignment();
-    v13 = (unsigned __int64)Buffer + Length;
-    if ( v13 > 0x7FFFFFFF0000LL || v13 < (unsigned __int64)Buffer )
+    v11 = (unsigned __int64)Buffer + Length;
+    if ( v11 > 0x7FFFFFFF0000LL || v11 < (unsigned __int64)Buffer )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
   if ( RtlStringCbCopyUnicodeString(v4, v9, SourceString) < 0 )
     return 3221225485LL;
-  v10 = -1LL;
+  v12 = -1LL;
   do
-    ++v10;
-  while ( v4[v10] );
-  if ( SourceString->Length != 2 * v10 )
+    ++v12;
+  while ( v4[v12] );
+  if ( SourceString->Length != 2 * v12 )
     return 3221225485LL;
-  *a2 += v10 + 1;
+  *a2 += v12 + 1;
   return 0LL;
 }

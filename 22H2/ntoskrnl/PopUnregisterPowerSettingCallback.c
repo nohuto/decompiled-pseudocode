@@ -1,47 +1,47 @@
 /*
- * XREFs of PopUnregisterPowerSettingCallback @ 0x14058DCB4
+ * XREFs of PopUnregisterPowerSettingCallback @ 0x1403806BC
  * Callers:
- *     PopDispatchPowerSettingCallbacks @ 0x140782C60 (PopDispatchPowerSettingCallbacks.c)
- *     PoUnregisterPowerSettingCallback @ 0x140987120 (PoUnregisterPowerSettingCallback.c)
+ *     PopDispatchPowerSettingCallbacks @ 0x1406F2CD0 (PopDispatchPowerSettingCallbacks.c)
+ *     PoUnregisterPowerSettingCallback @ 0x140772340 (PoUnregisterPowerSettingCallback.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PopUnregisterPowerSettingCallback(_QWORD *a1)
+void __fastcall PopUnregisterPowerSettingCallback(__int64 *a1)
 {
-  _QWORD *v1; // rdx
-  void **v2; // rax
-  void **v3; // rax
+  __int64 *v1; // rdx
+  __int64 **v2; // rax
+  __int64 **v3; // rax
 
-  v1 = (_QWORD *)*a1;
-  if ( *((_BYTE *)a1 + 33) )
+  v1 = (__int64 *)*a1;
+  if ( !*((_BYTE *)a1 + 33) )
   {
-    if ( (_QWORD *)v1[1] == a1 )
+    if ( (__int64 *)v1[1] == a1 )
     {
-      v2 = (void **)a1[1];
+      v2 = (__int64 **)a1[1];
       if ( *v2 == a1 )
       {
         *v2 = v1;
-        v1[1] = v2;
-        a1[1] = a1;
-        *a1 = a1;
-        KeSetEvent(&PopPowerSettingCallbackReturned, 0, 0);
+        v1[1] = (__int64)v2;
+        *((_DWORD *)a1 + 4) = 0;
+        a1[1] = (__int64)a1;
+        *a1 = (__int64)a1;
+        ExFreePoolWithTag(a1, 0x74655350u);
         return;
       }
     }
-LABEL_8:
+LABEL_5:
     __fastfail(3u);
   }
-  if ( (_QWORD *)v1[1] != a1 )
-    goto LABEL_8;
-  v3 = (void **)a1[1];
+  if ( (__int64 *)v1[1] != a1 )
+    goto LABEL_5;
+  v3 = (__int64 **)a1[1];
   if ( *v3 != a1 )
-    goto LABEL_8;
+    goto LABEL_5;
   *v3 = v1;
-  v1[1] = v3;
-  *((_DWORD *)a1 + 4) = 0;
-  a1[1] = a1;
-  *a1 = a1;
-  ExFreePoolWithTag(a1, 0x74655350u);
+  v1[1] = (__int64)v3;
+  a1[1] = (__int64)a1;
+  *a1 = (__int64)a1;
+  KeSetEvent(&PopPowerSettingCallbackReturned, 0, 0);
 }

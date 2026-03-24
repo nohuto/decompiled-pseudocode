@@ -1,64 +1,48 @@
 /*
- * XREFs of UnlinkSendListSms @ 0x1C006C9DC
+ * XREFs of UnlinkSendListSms @ 0x1C006A290
  * Callers:
- *     xxxReceiverDied @ 0x1C006C930 (xxxReceiverDied.c)
- *     SuspendThreadQueue @ 0x1C00A7F30 (SuspendThreadQueue.c)
- *     ?SenderDied@@YAXPEAUtagSMS@@@Z @ 0x1C00BC56C (-SenderDied@@YAXPEAUtagSMS@@@Z.c)
- *     xxxReceiveMessage @ 0x1C01267C0 (xxxReceiveMessage.c)
+ *     xxxReceiveMessage @ 0x1C0058F60 (xxxReceiveMessage.c)
+ *     SendMsgCleanup @ 0x1C00DA140 (SendMsgCleanup.c)
+ *     xxxReceiverDied @ 0x1C00DAA6C (xxxReceiverDied.c)
+ *     SuspendThreadQueue @ 0x1C0117410 (SuspendThreadQueue.c)
  * Callees:
- *     _FreeTouchInputInfo @ 0x1C01B0580 (_FreeTouchInputInfo.c)
- *     _FreeGestureInfo @ 0x1C0204B90 (_FreeGestureInfo.c)
+ *     IsPointerParentNotify @ 0x1C006B28C (IsPointerParentNotify.c)
+ *     IsPointerInputMessageWithState @ 0x1C006B2B0 (IsPointerInputMessageWithState.c)
+ *     _FreeTouchInputInfo @ 0x1C01DC580 (_FreeTouchInputInfo.c)
+ *     _FreeGestureInfo @ 0x1C0227680 (_FreeGestureInfo.c)
  */
 
-__int64 __fastcall UnlinkSendListSms(__int64 *a1)
+__int64 __fastcall UnlinkSendListSms(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  int v2; // ecx
-  __int64 v3; // rcx
-  __int64 *v4; // rcx
-  __int64 **v5; // rax
-  void *v6; // rcx
-  __int64 v8; // rbx
-  __int64 v9; // rax
+  int v5; // ecx
+  __int64 v6; // rcx
+  __int64 *v7; // rax
+  __int64 **v8; // rcx
+  void *v9; // rcx
 
-  v2 = *((_DWORD *)a1 + 26);
-  if ( v2 == 576 )
+  v5 = *((_DWORD *)a1 + 26);
+  if ( v5 == 576 )
   {
     FreeTouchInputInfo(a1[12], 0LL);
   }
-  else if ( v2 == 281 )
+  else if ( v5 == 281 )
   {
-    FreeGestureInfo(a1[12], 0LL);
+    FreeGestureInfo(a1[12], 0LL, a3, a4);
   }
-  if ( (*((_DWORD *)a1 + 21) & 0x200) == 0 )
+  if ( (*((_DWORD *)a1 + 21) & 0x200) == 0
+    && ((unsigned int)IsPointerInputMessageWithState(*((unsigned int *)a1 + 26))
+     || (unsigned int)IsPointerParentNotify(v6, a1[11])) )
   {
-    v3 = *((unsigned int *)a1 + 26);
-    if ( (unsigned int)(v3 - 577) <= 3 )
-    {
-LABEL_21:
-      v8 = a1[12];
-      v9 = SGDGetUserSessionState(v3);
-      CTouchProcessor::UnreferenceMsgDataExternal(*(_QWORD *)(v9 + 3424), v8, 6LL, a1);
-      goto LABEL_8;
-    }
-    if ( (unsigned int)v3 >= 0x245 )
-    {
-      if ( (unsigned int)v3 <= 0x257 && (_DWORD)v3 != 589 && (_DWORD)v3 != 595 )
-        goto LABEL_21;
-    }
-    else if ( (_DWORD)v3 == 528 && *((_WORD *)a1 + 44) == 582 )
-    {
-      goto LABEL_21;
-    }
+    CTouchProcessor::UnreferenceMsgDataExternal(gpTouchProcessor, a1[12], 6LL, a1);
   }
-LABEL_8:
-  v4 = (__int64 *)*a1;
-  if ( *(__int64 **)(*a1 + 8) != a1 || (v5 = (__int64 **)a1[1], *v5 != a1) )
+  v7 = (__int64 *)*a1;
+  if ( *(__int64 **)(*a1 + 8) != a1 || (v8 = (__int64 **)a1[1], *v8 != a1) )
     __fastfail(3u);
-  *v5 = v4;
-  v4[1] = (__int64)v5;
+  *v8 = v7;
+  v7[1] = (__int64)v8;
   HMAssignmentUnlock(a1 + 14);
-  v6 = (void *)a1[15];
-  if ( v6 )
-    Win32FreePool(v6);
+  v9 = (void *)a1[15];
+  if ( v9 )
+    Win32FreePool(v9);
   return Win32FreeToPagedLookasideList(SMSLookaside, a1);
 }

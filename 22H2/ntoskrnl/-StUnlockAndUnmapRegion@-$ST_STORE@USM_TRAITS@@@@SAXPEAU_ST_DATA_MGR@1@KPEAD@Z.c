@@ -1,28 +1,28 @@
 /*
- * XREFs of ?StUnlockAndUnmapRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KPEAD@Z @ 0x1405C963C
+ * XREFs of ?StUnlockAndUnmapRegion@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KPEAD@Z @ 0x14034EDAC
  * Callers:
- *     ?StDmCurrentRegionSet@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x140345794 (-StDmCurrentRegionSet@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z.c)
- *     ?StCompactionPerformEmergency@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x1405C3908 (-StCompactionPerformEmergency@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
- *     ?StCompactionPerformInMem@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@K@Z @ 0x1405C3B98 (-StCompactionPerformInMem@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StCompactionPerformInMem@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@K@Z @ 0x14034E9A0 (-StCompactionPerformInMem@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StDmCurrentRegionSet@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x14034EC64 (-StDmCurrentRegionSet@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z.c)
+ *     ?StCompactionPerformEmergency@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14059A218 (-StCompactionPerformEmergency@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
  * Callees:
- *     SmFpFree @ 0x140465A48 (SmFpFree.c)
- *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1405C2484 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
+ *     SmFpFree @ 0x1402686A4 (SmFpFree.c)
+ *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x14026C418 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
  */
 
 void __fastcall ST_STORE<SM_TRAITS>::StUnlockAndUnmapRegion(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v3; // r9
   __int64 v5; // rsi
-  __int64 v6; // rax
-  __int64 v7; // rdx
-  unsigned __int64 v8; // rcx
-  struct _MDL *v9; // rdx
-  int v10; // ecx
-  __int64 v11; // r9
+  int v6; // ecx
+  __int64 v7; // r9
+  __int64 v8; // rax
+  __int64 v9; // r10
+  unsigned __int64 v10; // rcx
+  struct _MDL *v11; // r10
   __int64 v12; // rax
-  __int64 v13; // r10
+  __int64 v13; // rdx
   unsigned __int64 v14; // rcx
-  struct _MDL *v15; // r10
+  struct _MDL *v15; // rdx
   int v16; // [rsp+20h] [rbp-18h]
 
   v3 = *(_QWORD *)(a1 + 800);
@@ -33,30 +33,30 @@ void __fastcall ST_STORE<SM_TRAITS>::StUnlockAndUnmapRegion(__int64 a1, unsigned
   }
   else
   {
-    v6 = *(_QWORD *)(v3 + 6216);
-    v7 = *(_QWORD *)(v6 + 8LL * a2);
-    v8 = v7 & 0xFFFFFFFFFFFFFFFEuLL;
-    v9 = (struct _MDL *)(v7 & 0xFFFFFFFFFFFFFFF8uLL);
-    *(_QWORD *)(v6 + 8 * v5) = v8;
-    if ( (v8 & 3) == 0 )
-      SmFpFree(v3 + 6608, 5, (__int64)KeGetCurrentThread(), v9);
-  }
-  v10 = 0;
-  if ( !*(_BYTE *)(a1 + 776) )
-    v10 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 1032) + 2 * v5) >> 13;
-  v11 = *(_QWORD *)(a1 + 800);
-  if ( (*(_BYTE *)(v11 + 6021) & 4) != 0 )
-  {
-    SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(v11, v5, a3, v11, v16, (16 * v10) | 4);
-  }
-  else
-  {
-    v12 = *(_QWORD *)(v11 + 6216);
-    v13 = *(_QWORD *)(v12 + 8 * v5);
-    v14 = v13 & 0xFFFFFFFFFFFFFFFDuLL;
+    v12 = *(_QWORD *)(v3 + 6216);
+    v13 = *(_QWORD *)(v12 + 8LL * a2);
+    v14 = v13 & 0xFFFFFFFFFFFFFFFEuLL;
     v15 = (struct _MDL *)(v13 & 0xFFFFFFFFFFFFFFF8uLL);
     *(_QWORD *)(v12 + 8 * v5) = v14;
     if ( (v14 & 3) == 0 )
-      SmFpFree(v11 + 6608, 5, (__int64)KeGetCurrentThread(), v15);
+      SmFpFree(v3 + 6608, 5, (__int64)KeGetCurrentThread(), v15);
+  }
+  v6 = 0;
+  if ( !*(_BYTE *)(a1 + 776) )
+    v6 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 1032) + 2 * v5) >> 13;
+  v7 = *(_QWORD *)(a1 + 800);
+  if ( (*(_BYTE *)(v7 + 6021) & 4) != 0 )
+  {
+    SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(v7, v5, a3, v7, v16, (16 * v6) | 4);
+  }
+  else
+  {
+    v8 = *(_QWORD *)(v7 + 6216);
+    v9 = *(_QWORD *)(v8 + 8 * v5);
+    v10 = v9 & 0xFFFFFFFFFFFFFFFDuLL;
+    v11 = (struct _MDL *)(v9 & 0xFFFFFFFFFFFFFFF8uLL);
+    *(_QWORD *)(v8 + 8 * v5) = v10;
+    if ( (v10 & 3) == 0 )
+      SmFpFree(v7 + 6608, 5, (__int64)KeGetCurrentThread(), v11);
   }
 }

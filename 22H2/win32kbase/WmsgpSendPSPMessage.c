@@ -1,11 +1,11 @@
 /*
- * XREFs of WmsgpSendPSPMessage @ 0x1C02BFE24
+ * XREFs of WmsgpSendPSPMessage @ 0x1C027EBF4
  * Callers:
- *     SendWinlogonPowerMessageWorker @ 0x1C00D0550 (SendWinlogonPowerMessageWorker.c)
+ *     xxxSendWinlogonPowerMessage @ 0x1C00C2720 (xxxSendWinlogonPowerMessage.c)
  * Callees:
- *     ClientI_WMsgkSendPSPMessage @ 0x1C00CA5A4 (ClientI_WMsgkSendPSPMessage.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     ClientI_WMsgkSendPSPMessage @ 0x1C00C2A14 (ClientI_WMsgkSendPSPMessage.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 RPC_STATUS __fastcall WmsgpSendPSPMessage(__int64 a1, int a2, __int128 *a3, RPC_STATUS *a4)

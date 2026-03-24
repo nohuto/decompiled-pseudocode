@@ -1,43 +1,41 @@
 /*
- * XREFs of TtmpDispatchOpenTerminal @ 0x1409A687C
+ * XREFs of TtmpDispatchOpenTerminal @ 0x140900F28
  * Callers:
- *     TtmDispatchApi @ 0x1409A603C (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x1409006E4 (TtmDispatchApi.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     TtmiAcquireCurrentSession @ 0x1409A49E0 (TtmiAcquireCurrentSession.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
- *     TtmiOpenDefaultTerminal @ 0x1409AB14C (TtmiOpenDefaultTerminal.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     TtmiOpenDefaultTerminal @ 0x1408FD868 (TtmiOpenDefaultTerminal.c)
+ *     TtmiAcquireCurrentSession @ 0x1408FF014 (TtmiAcquireCurrentSession.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
  */
 
-__int64 __fastcall TtmpDispatchOpenTerminal(__int64 a1, __int64 a2)
+__int64 __fastcall TtmpDispatchOpenTerminal(__int64 a1, HANDLE *a2)
 {
   int v4; // eax
-  __int64 v5; // r8
-  unsigned int v6; // ebx
-  __int64 v7; // rdi
-  __int64 v8; // r9
-  __int64 v10; // [rsp+40h] [rbp+18h] BYREF
+  unsigned int v5; // ebx
+  __int64 v6; // rdi
+  HANDLE *v7; // r9
+  __int64 v9; // [rsp+40h] [rbp+18h] BYREF
 
-  v10 = 0LL;
-  v4 = TtmiAcquireCurrentSession((__int64)&v10);
-  v6 = v4;
+  v9 = 0LL;
+  v4 = TtmiAcquireCurrentSession((__int64)&v9);
+  v5 = v4;
   if ( v4 >= 0 )
   {
-    v8 = a2;
-    v7 = v10;
-    LOBYTE(v5) = KeGetCurrentThread()->PreviousMode;
-    v6 = TtmiOpenDefaultTerminal(v10, *(unsigned int *)(a1 + 8), v5, v8);
+    v7 = a2;
+    v6 = v9;
+    v5 = TtmiOpenDefaultTerminal(v9, *(_DWORD *)(a1 + 8), KeGetCurrentThread()->PreviousMode, v7);
   }
   else
   {
     TtmiLogError("TtmpDispatchOpenTerminal", 154LL, (unsigned int)v4, (unsigned int)v4);
-    v7 = v10;
+    v6 = v9;
   }
-  if ( v7 )
+  if ( v6 )
   {
     ExReleaseResourceLite(&TtmpSessionLock);
     KeLeaveCriticalRegion();
   }
-  return v6;
+  return v5;
 }

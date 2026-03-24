@@ -1,7 +1,7 @@
 /*
- * XREFs of ?QueryPStateEngineData@DXGADAPTER@@QEAAXIPEAU_DXGK_POWER_P_COMPONENT@@PEAI@Z @ 0x1C02BD3B4
+ * XREFs of ?QueryPStateEngineData@DXGADAPTER@@QEAAXIPEAU_DXGK_POWER_P_COMPONENT@@PEAI@Z @ 0x1C020EA10
  * Callers:
- *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C02FF2BC (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C025F574 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,14 +15,14 @@ void __fastcall DXGADAPTER::QueryPStateEngineData(
   __int64 v4; // r10
   __int64 v5; // rdx
 
-  v4 = *((_QWORD *)this + 513);
+  v4 = *((_QWORD *)this + 500);
   if ( v4 )
   {
-    if ( a2 < *((_DWORD *)this + 1028) )
+    if ( a2 < *((_DWORD *)this + 1002) )
     {
       v5 = 248LL * a2;
       *a3 = *(struct _DXGK_POWER_P_COMPONENT *)(v5 + v4);
-      *a4 = *(_DWORD *)(v5 + *((_QWORD *)this + 513) + 144);
+      *a4 = *(_DWORD *)(v5 + *((_QWORD *)this + 500) + 144);
     }
   }
 }

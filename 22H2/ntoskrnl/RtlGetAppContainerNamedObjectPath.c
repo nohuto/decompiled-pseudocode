@@ -1,36 +1,36 @@
 /*
- * XREFs of RtlGetAppContainerNamedObjectPath @ 0x1405A9F00
+ * XREFs of RtlGetAppContainerNamedObjectPath @ 0x1405869F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlEqualSid @ 0x14022A790 (RtlEqualSid.c)
- *     memset @ 0x140435400 (memset.c)
- *     NtQueryInformationToken @ 0x140730A90 (NtQueryInformationToken.c)
- *     RtlpGetTokenNamedObjectPath @ 0x1409BCC7C (RtlpGetTokenNamedObjectPath.c)
+ *     RtlEqualSid @ 0x1403459F0 (RtlEqualSid.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     NtQueryInformationToken @ 0x1406D0BB0 (NtQueryInformationToken.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x1409145B8 (RtlpGetTokenNamedObjectPath.c)
  */
 
-NTSTATUS __fastcall RtlGetAppContainerNamedObjectPath(__int64 TokenHandle, void *a2, char a3, _OWORD *a4)
+NTSTATUS __fastcall RtlGetAppContainerNamedObjectPath(__int64 TokenHandle, PSID Sid, char a3, _OWORD *a4)
 {
   NTSTATUS result; // eax
   char v9; // si
-  int v10; // [rsp+38h] [rbp-99h] BYREF
-  int TokenInformation; // [rsp+3Ch] [rbp-95h] BYREF
+  int TokenInformation; // [rsp+38h] [rbp-99h] BYREF
+  int v11; // [rsp+3Ch] [rbp-95h] BYREF
   __int64 v12; // [rsp+40h] [rbp-91h] BYREF
   PSID Sid2[12]; // [rsp+48h] [rbp-89h] BYREF
   PSID Sid1[12]; // [rsp+A8h] [rbp-29h] BYREF
   ULONG ReturnLength; // [rsp+150h] [rbp+7Fh] BYREF
 
-  v10 = 0;
+  TokenInformation = 0;
   ReturnLength = 0;
   memset(Sid2, 0, 0x58uLL);
   memset(Sid1, 0, 0x58uLL);
   if ( !a4 )
     return -1073741811;
-  if ( TokenHandle && a2 )
+  if ( TokenHandle && Sid )
     return -1073741776;
   LODWORD(v12) = 0;
-  TokenInformation = 0;
-  if ( a2 )
+  v11 = 0;
+  if ( Sid )
   {
     TokenHandle = -4LL;
     v9 = 0;
@@ -38,13 +38,17 @@ NTSTATUS __fastcall RtlGetAppContainerNamedObjectPath(__int64 TokenHandle, void 
   else
   {
     v9 = 1;
-    if ( !TokenHandle )
-      TokenHandle = -6LL;
-    v10 = 0;
-    result = NtQueryInformationToken((HANDLE)TokenHandle, TokenIsAppContainer, &v10, 4u, &ReturnLength);
+    if ( TokenHandle )
+      goto LABEL_11;
+    TokenHandle = -6LL;
+  }
+  if ( !Sid )
+  {
+LABEL_11:
+    result = NtQueryInformationToken((HANDLE)TokenHandle, TokenIsAppContainer, &TokenInformation, 4u, &ReturnLength);
     if ( result < 0 )
       return result;
-    if ( !v10 )
+    if ( !TokenInformation )
     {
       result = 0;
       *a4 = 0LL;
@@ -52,17 +56,12 @@ NTSTATUS __fastcall RtlGetAppContainerNamedObjectPath(__int64 TokenHandle, void 
     }
   }
   if ( !a3 || !v9 )
-    return RtlpGetTokenNamedObjectPath((HANDLE)TokenHandle, a2);
-  result = NtQueryInformationToken(
-             (HANDLE)0xFFFFFFFFFFFFFFFCLL,
-             TokenPrivateNameSpace,
-             &TokenInformation,
-             4u,
-             &ReturnLength);
+    return RtlpGetTokenNamedObjectPath((HANDLE)TokenHandle, Sid);
+  result = NtQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFCLL, TokenPrivateNameSpace, &v11, 4u, &ReturnLength);
   if ( result < 0 )
     return result;
-  if ( !TokenInformation )
-    return RtlpGetTokenNamedObjectPath((HANDLE)TokenHandle, a2);
+  if ( !v11 )
+    return RtlpGetTokenNamedObjectPath((HANDLE)TokenHandle, Sid);
   result = NtQueryInformationToken((HANDLE)TokenHandle, TokenPrivateNameSpace, &v12, 4u, &ReturnLength);
   if ( result < 0 )
     return result;
@@ -76,7 +75,7 @@ NTSTATUS __fastcall RtlGetAppContainerNamedObjectPath(__int64 TokenHandle, void 
     {
       if ( !RtlEqualSid(Sid1[0], Sid2[0]) )
         return -1073741637;
-      return RtlpGetTokenNamedObjectPath((HANDLE)TokenHandle, a2);
+      return RtlpGetTokenNamedObjectPath((HANDLE)TokenHandle, Sid);
     }
   }
   return result;

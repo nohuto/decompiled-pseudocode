@@ -1,42 +1,48 @@
 /*
- * XREFs of ??0DXGDISPLAYMANAGEROBJECT@@QEAA@_N@Z @ 0x1C016176C
+ * XREFs of ??0DXGDISPLAYMANAGEROBJECT@@QEAA@_N@Z @ 0x1C0156034
  * Callers:
- *     DxgkDispMgrCreate @ 0x1C0161580 (DxgkDispMgrCreate.c)
+ *     DxgkDispMgrCreate @ 0x1C0155E20 (DxgkDispMgrCreate.c)
  * Callees:
- *     <none>
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?reset@?$auto_ptr@VDXGFASTMUTEX@@@@QEAAXPEAVDXGFASTMUTEX@@@Z @ 0x1C0012DC4 (-reset@-$auto_ptr@VDXGFASTMUTEX@@@@QEAAXPEAVDXGFASTMUTEX@@@Z.c)
  */
 
 DXGDISPLAYMANAGEROBJECT *__fastcall DXGDISPLAYMANAGEROBJECT::DXGDISPLAYMANAGEROBJECT(
         DXGDISPLAYMANAGEROBJECT *this,
         char a2)
 {
-  DXGDISPLAYMANAGEROBJECT *result; // rax
+  _QWORD *v3; // rax
 
+  *((_QWORD *)this + 2) = 0LL;
+  *((_QWORD *)this + 4) = 0LL;
   *(_QWORD *)this = &ReferenceCounted::`vftable';
   *((_DWORD *)this + 2) = 1;
   *(_QWORD *)this = &DXGDISPLAYMANAGEROBJECT::`vftable';
-  *((_QWORD *)this + 3) = 0LL;
-  *((_DWORD *)this + 14) = 1;
-  *((_QWORD *)this + 4) = 0LL;
-  *((_QWORD *)this + 5) = 0LL;
-  *((_DWORD *)this + 12) = 0;
-  *((_DWORD *)this + 13) = 79;
-  *((_BYTE *)this + 64) = 1;
-  *((_QWORD *)this + 9) = 0LL;
-  *((_QWORD *)this + 10) = &Set<DXGTARGETENTRY>::`vftable';
-  *((_QWORD *)this + 11) = &DoublyLinkedList<DXGTARGETENTRY,DoubleLinkedListElementDeleter<DXGTARGETENTRY>>::`vftable';
-  *((_QWORD *)this + 14) = (char *)this + 104;
-  *((_QWORD *)this + 13) = (char *)this + 104;
-  *((_DWORD *)this + 24) = 0;
-  *((_QWORD *)this + 15) = 0LL;
-  *((_DWORD *)this + 32) = 2;
-  *((_QWORD *)this + 17) = &DoublyLinkedList<DXGDISPLAYMANAGERSOURCEOBJECT,DoubleLinkedListElementDeleter<DXGDISPLAYMANAGERSOURCEOBJECT>>::`vftable';
-  *((_QWORD *)this + 20) = (char *)this + 152;
-  *((_QWORD *)this + 19) = (char *)this + 152;
-  result = this;
-  *((_DWORD *)this + 36) = 0;
-  *((_QWORD *)this + 21) = 0LL;
-  *((_DWORD *)this + 44) = 2;
-  *((_BYTE *)this + 184) = a2;
-  return result;
+  *((_BYTE *)this + 24) = 1;
+  *((_DWORD *)this + 14) = 0;
+  *((_QWORD *)this + 10) = 0LL;
+  *((_QWORD *)this + 5) = &Set<DXGTARGETENTRY>::`vftable';
+  *((_QWORD *)this + 6) = &DoublyLinkedList<DXGTARGETENTRY,DoubleLinkedListElementDeleter<DXGTARGETENTRY>>::`vftable';
+  *((_QWORD *)this + 9) = (char *)this + 64;
+  *((_QWORD *)this + 8) = (char *)this + 64;
+  *((_DWORD *)this + 22) = 2;
+  *((_DWORD *)this + 26) = 0;
+  *((_QWORD *)this + 16) = 0LL;
+  *((_QWORD *)this + 12) = &DoublyLinkedList<DXGDISPLAYMANAGERSOURCEOBJECT,DoubleLinkedListElementDeleter<DXGDISPLAYMANAGERSOURCEOBJECT>>::`vftable';
+  *((_DWORD *)this + 34) = 2;
+  *((_BYTE *)this + 144) = a2;
+  *((_QWORD *)this + 15) = (char *)this + 112;
+  *((_QWORD *)this + 14) = (char *)this + 112;
+  v3 = operator new[](0x28uLL, 0x4B677844u, (POOL_TYPE)512);
+  if ( v3 )
+  {
+    *v3 = 0LL;
+    v3[1] = 0LL;
+    v3[2] = 0LL;
+    *((_DWORD *)v3 + 6) = 0;
+    *((_DWORD *)v3 + 7) = 79;
+    *((_DWORD *)v3 + 8) = 1;
+  }
+  auto_ptr<DXGFASTMUTEX>::reset((void **)this + 2, v3);
+  return this;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRetainScaling@CInteractionContextWrapper@@UEAAX_N@Z @ 0x1800FBF30
+ * XREFs of ?SetRetainScaling@CInteractionContextWrapper@@UEAAX_N@Z @ 0x1800E33C0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall CInteractionContextWrapper::SetRetainScaling(CInteractionContextWrapper *this, char a2)
 {
-  *((_BYTE *)this + 323) = a2;
+  *((_BYTE *)this + 331) = a2;
 }

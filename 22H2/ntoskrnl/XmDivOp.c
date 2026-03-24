@@ -1,20 +1,20 @@
 /*
- * XREFs of XmDivOp @ 0x1403A57B0
+ * XREFs of XmDivOp @ 0x1403C8D50
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x1403B8FA8 (XmStoreResult.c)
- *     longjmp @ 0x1403D7880 (longjmp.c)
+ *     XmStoreResult @ 0x1403966C0 (XmStoreResult.c)
+ *     longjmp @ 0x1403CFF70 (longjmp.c)
  */
 
-__int64 __fastcall XmDivOp(__int64 a1)
+_WORD *__fastcall XmDivOp(__int64 a1)
 {
   unsigned __int64 v1; // r10
   int v2; // eax
   unsigned __int16 *v3; // r11
   unsigned int v4; // r8d
-  unsigned __int64 v5; // rbx
-  unsigned __int64 v6; // rdi
+  unsigned __int64 v5; // rax
+  unsigned __int64 v6; // rbx
   __int64 v7; // rcx
   __int64 v8; // r11
   unsigned __int64 v10; // [rsp+30h] [rbp+8h]
@@ -49,7 +49,7 @@ __int64 __fastcall XmDivOp(__int64 a1)
   }
   if ( v4 >= (unsigned int)v1 )
     longjmp((_JBTYPE *)(a1 + 160), 3);
-  XmStoreResult(a1, (unsigned int)v5);
+  XmStoreResult(a1, v5);
   *(_QWORD *)(v7 + 88) = v8;
-  return XmStoreResult(v7, (unsigned int)v6);
+  return XmStoreResult(v7, v6);
 }

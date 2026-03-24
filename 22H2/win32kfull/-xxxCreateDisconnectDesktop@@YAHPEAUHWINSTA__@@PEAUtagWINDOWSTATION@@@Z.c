@@ -1,78 +1,73 @@
 /*
- * XREFs of ?xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z @ 0x1C00B684C
+ * XREFs of ?xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z @ 0x1C000DB68
  * Callers:
- *     xxxCreateDesktopEx @ 0x1C00683E4 (xxxCreateDesktopEx.c)
+ *     xxxCreateDesktopEx @ 0x1C00101D4 (xxxCreateDesktopEx.c)
  * Callees:
- *     xxxCreateDesktopEx @ 0x1C00683E4 (xxxCreateDesktopEx.c)
- *     _CloseDesktop @ 0x1C006AE68 (_CloseDesktop.c)
- *     ?ClearClipRgnOrMaxClip@tagWND@@QEAAXXZ @ 0x1C0077D58 (-ClearClipRgnOrMaxClip@tagWND@@QEAAXXZ.c)
- *     ?SetDisconnectDesktopSecurity@@YAJPEAUHDESK__@@@Z @ 0x1C00B6A1C (-SetDisconnectDesktopSecurity@@YAJPEAUHDESK__@@@Z.c)
+ *     ?SetDisconnectDesktopSecurity@@YAJPEAUHDESK__@@@Z @ 0x1C000DD44 (-SetDisconnectDesktopSecurity@@YAJPEAUHDESK__@@@Z.c)
+ *     xxxCreateDesktopEx @ 0x1C00101D4 (xxxCreateDesktopEx.c)
+ *     _CloseDesktop @ 0x1C00D8F78 (_CloseDesktop.c)
  */
 
-__int64 __fastcall xxxCreateDisconnectDesktop(HWINSTA a1, struct tagWINDOWSTATION *a2, __int64 a3, __int64 a4)
+__int64 __fastcall xxxCreateDisconnectDesktop(HWINSTA a1, struct tagWINDOWSTATION *a2)
 {
   __int64 EmptyRgnPublic; // rbx
-  NTSTATUS v7; // eax
-  NTSTATUS v8; // ebx
+  NTSTATUS v5; // eax
+  NTSTATUS v6; // edi
   struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
-  union _LARGE_INTEGER v11[3]; // [rsp+50h] [rbp-30h] BYREF
+  _DWORD v9[2]; // [rsp+50h] [rbp-30h] BYREF
+  HWINSTA v10; // [rsp+58h] [rbp-28h]
+  struct _UNICODE_STRING *p_DestinationString; // [rsp+60h] [rbp-20h]
   int v12; // [rsp+68h] [rbp-18h]
   int v13; // [rsp+6Ch] [rbp-14h]
   __int128 v14; // [rsp+70h] [rbp-10h]
   HANDLE Handle; // [rsp+B0h] [rbp+30h] BYREF
   PVOID Object; // [rsp+B8h] [rbp+38h] BYREF
 
-  v11[0].HighPart = 0;
+  DestinationString = 0LL;
+  v9[1] = 0;
   v13 = 0;
   Handle = 0LL;
-  DestinationString = 0LL;
-  EmptyRgnPublic = CreateEmptyRgnPublic(a1, a2, a3, a4);
+  EmptyRgnPublic = CreateEmptyRgnPublic();
   if ( EmptyRgnPublic )
   {
     RtlInitUnicodeString(&DestinationString, L"Disconnect");
-    v11[1].QuadPart = (LONGLONG)a1;
-    v11[2].QuadPart = (LONGLONG)&DestinationString;
-    v11[0].LowPart = 48;
+    p_DestinationString = &DestinationString;
+    v9[0] = 48;
+    v10 = a1;
     v12 = 192;
     v14 = 0LL;
-    if ( (int)xxxCreateDesktopEx(v11, 0, 0x2000000, 0, &Handle, 1) < 0 )
+    if ( (int)xxxCreateDesktopEx((unsigned int)v9, 0, 0x2000000, 0, (__int64)&Handle, 1) < 0 )
     {
       GreDeleteObject(EmptyRgnPublic);
     }
     else if ( (int)SetDisconnectDesktopSecurity((HDESK)Handle) < 0
            || (Object = 0LL,
-               v7 = ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)ExDesktopObjectType, 1, &Object, 0LL),
+               v5 = ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)ExDesktopObjectType, 1, &Object, 0LL),
                gspdeskDisconnect = Object,
-               v7 < 0) )
+               v5 < 0) )
     {
       GreDeleteObject(EmptyRgnPublic);
-      CloseDesktop((unsigned __int64)Handle, 1);
+      CloseDesktop(Handle);
       gspdeskDisconnect = 0LL;
     }
     else
     {
       *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)Object + 1) + 24LL) + 40LL) + 168LL) = EmptyRgnPublic;
       KeAttachProcess(gpepCSRSS);
-      v8 = ObOpenObjectByPointer(
-             gspdeskDisconnect,
-             0x200u,
-             0LL,
-             0x1F0003u,
-             0LL,
-             0,
-             (PHANDLE)&WPP_MAIN_CB.ActiveThreadCount);
-      if ( v8 >= 0 )
-        v8 = ObOpenObjectByPointer(a2, 0, 0LL, 0x1F0003u, 0LL, 0, &WPP_MAIN_CB.Dpc.DpcData);
+      v6 = ObOpenObjectByPointer(gspdeskDisconnect, 0x200u, 0LL, 0x1F0003u, 0LL, 0, &ghDisconnectDesk);
+      if ( v6 >= 0 )
+        v6 = ObOpenObjectByPointer(a2, 0, 0LL, 0x1F0003u, 0LL, 0, &ghDisconnectWinSta);
       KeDetachProcess();
-      if ( v8 >= 0 )
+      if ( v6 >= 0 )
         return 1LL;
-      tagWND::ClearClipRgnOrMaxClip(*(tagWND **)(*((_QWORD *)gspdeskDisconnect + 1) + 24LL));
-      if ( *(_QWORD *)&WPP_MAIN_CB.ActiveThreadCount )
+      GreDeleteObject(EmptyRgnPublic);
+      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)gspdeskDisconnect + 1) + 24LL) + 40LL) + 168LL) = 0LL;
+      if ( ghDisconnectDesk )
       {
-        ObCloseHandle(*(HANDLE *)&WPP_MAIN_CB.ActiveThreadCount, 0);
-        *(_QWORD *)&WPP_MAIN_CB.ActiveThreadCount = 0LL;
+        ObCloseHandle(ghDisconnectDesk, 0);
+        ghDisconnectDesk = 0LL;
       }
-      CloseDesktop((unsigned __int64)Handle, 1);
+      CloseDesktop(Handle);
     }
   }
   return 0LL;

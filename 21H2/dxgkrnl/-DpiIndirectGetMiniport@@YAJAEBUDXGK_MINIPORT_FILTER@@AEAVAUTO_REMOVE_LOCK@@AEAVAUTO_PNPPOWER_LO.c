@@ -1,16 +1,16 @@
 /*
- * XREFs of ?DpiIndirectGetMiniport@@YAJAEBUDXGK_MINIPORT_FILTER@@AEAVAUTO_REMOVE_LOCK@@AEAVAUTO_PNPPOWER_LOCK@@PEAPEAU_FDO_CONTEXT@@@Z @ 0x1C0391F84
+ * XREFs of ?DpiIndirectGetMiniport@@YAJAEBUDXGK_MINIPORT_FILTER@@AEAVAUTO_REMOVE_LOCK@@AEAVAUTO_PNPPOWER_LOCK@@PEAPEAU_FDO_CONTEXT@@@Z @ 0x1C02D4C98
  * Callers:
- *     ?DpiIndirectCbDisableRenderD3RequestsWorker@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C0391A10 (-DpiIndirectCbDisableRenderD3RequestsWorker@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z.c)
+ *     ?DpiIndirectCbDisableRenderD3RequestsWorker@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C02D46E0 (-DpiIndirectCbDisableRenderD3RequestsWorker@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z.c)
  * Callees:
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C001C320 (-AcquireMiniportListMutex@@YAXXZ.c)
- *     ?IsMiniportListMutexOwnedByCurrentThread@@YAEXZ @ 0x1C0021CB8 (-IsMiniportListMutexOwnedByCurrentThread@@YAEXZ.c)
- *     ??0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z @ 0x1C0021D08 (--0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z.c)
- *     ?Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ @ 0x1C0021DA4 (-Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ.c)
- *     ?Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ @ 0x1C0023598 (-Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ.c)
- *     ?Release@AUTO_REMOVE_LOCK@@QEAAXXZ @ 0x1C00235F0 (-Release@AUTO_REMOVE_LOCK@@QEAAXXZ.c)
- *     ?Free@?$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ @ 0x1C00604C4 (-Free@-$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ.c)
- *     DpiGetDeviceInstanceId @ 0x1C0388A08 (DpiGetDeviceInstanceId.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0018FF0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     ??0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z @ 0x1C001E414 (--0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z.c)
+ *     ?Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ @ 0x1C001E530 (-Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ.c)
+ *     ?IsMiniportListMutexOwnedByCurrentThread@@YAEXZ @ 0x1C001E5C0 (-IsMiniportListMutexOwnedByCurrentThread@@YAEXZ.c)
+ *     ?Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ @ 0x1C001EAEC (-Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ.c)
+ *     ?Release@AUTO_REMOVE_LOCK@@QEAAXXZ @ 0x1C001EB44 (-Release@AUTO_REMOVE_LOCK@@QEAAXXZ.c)
+ *     ?Free@?$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ @ 0x1C0052B08 (-Free@-$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ.c)
+ *     DpiGetDeviceInstanceId @ 0x1C02C8208 (DpiGetDeviceInstanceId.c)
  */
 
 __int64 __fastcall DpiIndirectGetMiniport(
@@ -44,9 +44,9 @@ __int64 __fastcall DpiIndirectGetMiniport(
     v5 = 1;
     v15 = 1;
   }
-  v7 = qword_1C01304C8;
+  v7 = qword_1C00B2B40;
   v14 = 0;
-  if ( (__int64 *)qword_1C01304C8 == &qword_1C01304C8 )
+  if ( (__int64 *)qword_1C00B2B40 == &qword_1C00B2B40 )
     goto LABEL_33;
   do
   {
@@ -128,14 +128,14 @@ LABEL_27:
       break;
     v7 = *(_QWORD *)v7;
   }
-  while ( (__int64 *)v7 != &qword_1C01304C8 );
+  while ( (__int64 *)v7 != &qword_1C00B2B40 );
   v5 = v15;
   if ( !v11 && DeviceInstanceId >= 0 )
 LABEL_33:
     DeviceInstanceId = -1073741275;
   if ( v5 )
   {
-    _InterlockedExchange64(&qword_1C01304D8, 0LL);
+    _InterlockedExchange64(&qword_1C00B2B50, 0LL);
     KeReleaseMutex(Mutex, 0);
   }
   return (unsigned int)DeviceInstanceId;

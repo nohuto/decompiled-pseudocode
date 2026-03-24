@@ -1,5 +1,5 @@
 /*
- * XREFs of xHalQueryIoPortAccessSupported @ 0x140371B20
+ * XREFs of xHalQueryIoPortAccessSupported @ 0x140364B60
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AssignMaximumBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z @ 0x1C0100ACC
+ * XREFs of ?AssignMaximumBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z @ 0x1C00C9860
  * Callers:
- *     ?AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z @ 0x1C0100530 (-AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z.c)
+ *     ?AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z @ 0x1C00C92A4 (-AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z.c)
  * Callees:
- *     ?AssignProcessBudget@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@PEAUVIDMM_PROCESS_ADAPTER_INFO@@_K@Z @ 0x1C0100BDC (-AssignProcessBudget@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@P.c)
+ *     ?AssignProcessBudget@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@PEAUVIDMM_PROCESS_ADAPTER_INFO@@_K@Z @ 0x1C00C9970 (-AssignProcessBudget@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@P.c)
  */
 
 void __fastcall VIDMM_GLOBAL::AssignMaximumBudgets(
@@ -12,20 +12,20 @@ void __fastcall VIDMM_GLOBAL::AssignMaximumBudgets(
         struct VIDMM_SEGMENT_GROUP_STATE *a3)
 {
   _DWORD *v4; // r15
-  struct VIDMM_SEGMENT_GROUP_STATE **v6; // rsi
+  char *v6; // rbx
   VIDMM_GLOBAL *v7; // r10
   int i; // ebp
   __int64 v9; // rdx
   _QWORD *v10; // rcx
   struct VIDMM_SEGMENT_GROUP_STATE *v11; // r14
   struct VIDMM_PROCESS_ADAPTER_INFO *v12; // r9
-  struct VIDMM_SEGMENT_GROUP_STATE *v13; // rbx
+  struct VIDMM_SEGMENT_GROUP_STATE *v13; // rdi
   __int64 v14; // rcx
   struct VIDMM_SEGMENT_GROUP_STATE **v15; // rax
-  struct VIDMM_SEGMENT_GROUP_STATE **v16; // rax
+  char **v16; // rax
 
-  v4 = (_DWORD *)((char *)a3 + 324);
-  v6 = (struct VIDMM_SEGMENT_GROUP_STATE **)((char *)a3 + 200);
+  v4 = (_DWORD *)((char *)a3 + 316);
+  v6 = (char *)a3 + 184;
   v7 = this;
   for ( i = 0; i < 3; ++i )
   {
@@ -39,8 +39,8 @@ void __fastcall VIDMM_GLOBAL::AssignMaximumBudgets(
     while ( v9 );
     if ( *v4 )
     {
-      v11 = *(v6 - 7);
-      while ( v11 != (struct VIDMM_SEGMENT_GROUP_STATE *)((char *)a3 + 16 * i + 144) )
+      v11 = (struct VIDMM_SEGMENT_GROUP_STATE *)*((_QWORD *)v6 - 6);
+      while ( v11 != (struct VIDMM_SEGMENT_GROUP_STATE *)((char *)a3 + 16 * i + 136) )
       {
         v12 = (struct VIDMM_SEGMENT_GROUP_STATE *)((char *)v11 - 408);
         v13 = v11;
@@ -51,19 +51,19 @@ void __fastcall VIDMM_GLOBAL::AssignMaximumBudgets(
           || (v15 = (struct VIDMM_SEGMENT_GROUP_STATE **)*((_QWORD *)v13 + 1), *v15 != v13)
           || (*v15 = (struct VIDMM_SEGMENT_GROUP_STATE *)v14,
               *(_QWORD *)(v14 + 8) = v15,
-              v16 = (struct VIDMM_SEGMENT_GROUP_STATE **)*v6,
-              *(struct VIDMM_SEGMENT_GROUP_STATE ***)*v6 != v6 - 1) )
+              v16 = (char **)*((_QWORD *)v6 + 1),
+              *v16 != v6) )
         {
           __fastfail(3u);
         }
         v7 = this;
-        *(_QWORD *)v13 = v6 - 1;
+        *(_QWORD *)v13 = v6;
         *((_QWORD *)v13 + 1) = v16;
-        *v16 = v13;
-        *v6 = v13;
+        *v16 = (char *)v13;
+        *((_QWORD *)v6 + 1) = v13;
       }
     }
     ++v4;
-    v6 += 2;
+    v6 += 16;
   }
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlUnalignedStringCbLengthW @ 0x1C001C6DC
+ * XREFs of RtlUnalignedStringCbLengthW @ 0x1C0015664
  * Callers:
- *     Controller_SetDeviceDescription @ 0x1C0073F2C (Controller_SetDeviceDescription.c)
+ *     Controller_SetDeviceDescription @ 0x1C006C400 (Controller_SetDeviceDescription.c)
  * Callees:
  *     <none>
  */
@@ -9,7 +9,7 @@
 NTSTATUS __stdcall RtlUnalignedStringCbLengthW(STRSAFE_PCUNZWCH psz, size_t cbMax, size_t *pcbLength)
 {
   size_t v3; // rdx
-  __int64 v5; // rax
+  size_t v5; // rax
   size_t i; // r8
   NTSTATUS v7; // ecx
 
@@ -24,7 +24,10 @@ NTSTATUS __stdcall RtlUnalignedStringCbLengthW(STRSAFE_PCUNZWCH psz, size_t cbMa
       ++psz;
     }
     v7 = i == 0 ? 0xC000000D : 0;
-    v5 = (v3 - i) & -(__int64)(i != 0);
+    if ( i )
+      v5 = v3 - i;
+    else
+      v5 = 0LL;
   }
   else
   {

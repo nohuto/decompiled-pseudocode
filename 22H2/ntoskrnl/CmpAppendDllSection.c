@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpAppendDllSection @ 0x140B35860
+ * XREFs of CmpAppendDllSection @ 0x140A38190
  * Callers:
  *     <none>
  * Callees:

@@ -1,185 +1,76 @@
 /*
- * XREFs of ?Open@DxgkCompositionObject@@SAJW4_OB_OPEN_REASON@@DPEAU_EPROCESS@@PEAXPEAKK@Z @ 0x1C000D760
+ * XREFs of ?Open@DxgkCompositionObject@@SAJW4_OB_OPEN_REASON@@DPEAU_EPROCESS@@PEAXPEAKK@Z @ 0x1C0016D20
  * Callers:
  *     <none>
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?GetSessionMgr@DXGGLOBAL@@QEAAPEAVDXGSESSIONMGR@@XZ @ 0x1C03134F0 (-GetSessionMgr@DXGGLOBAL@@QEAAPEAVDXGSESSIONMGR@@XZ.c)
- *     ?ReferenceSessionCSRSSProcess@DXGSESSIONMGR@@QEAAJKPEAPEAU_KPROCESS@@@Z @ 0x1C035557C (-ReferenceSessionCSRSSProcess@DXGSESSIONMGR@@QEAAJKPEAPEAU_KPROCESS@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?GetSessionMgr@DXGGLOBAL@@QEAAPEAVDXGSESSIONMGR@@XZ @ 0x1C026A484 (-GetSessionMgr@DXGGLOBAL@@QEAAPEAVDXGSESSIONMGR@@XZ.c)
+ *     ?ReferenceSessionCSRSSProcess@DXGSESSIONMGR@@QEAAJKPEAPEAU_KPROCESS@@@Z @ 0x1C029F4B4 (-ReferenceSessionCSRSSProcess@DXGSESSIONMGR@@QEAAJKPEAPEAU_KPROCESS@@@Z.c)
  */
 
-__int64 __fastcall DxgkCompositionObject::Open(
-        unsigned int a1,
-        unsigned __int8 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        int a6)
+__int64 __fastcall DxgkCompositionObject::Open(unsigned int a1, char a2, __int64 a3, __int64 a4, __int64 a5, int a6)
 {
   unsigned int v6; // eax
+  unsigned __int8 (__fastcall ***v8)(_QWORD); // rcx
   int ProcessSessionId; // eax
-  int v12; // ebx
+  int v13; // ebx
   __int64 CurrentProcess; // rax
-  unsigned int v14; // r14d
-  _QWORD *CurrentThreadWin32Thread; // rax
-  _QWORD *v16; // rbx
-  __int64 v17; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
   DXGGLOBAL *Global; // rax
   DXGSESSIONMGR *SessionMgr; // rax
-  int v21; // edx
-  int v22; // ecx
-  int v23; // r8d
-  int v24; // edx
-  int v25; // ecx
-  int v26; // r8d
-  int v27; // edx
-  int v28; // ecx
-  int v29; // r8d
-  char v30; // [rsp+138h] [rbp+30h]
-  PRKPROCESS PROCESS; // [rsp+140h] [rbp+38h] BYREF
-  unsigned int v32; // [rsp+148h] [rbp+40h]
-  struct _KAPC_STATE ApcState; // [rsp+150h] [rbp+48h] BYREF
-  _QWORD v34[25]; // [rsp+188h] [rbp+80h] BYREF
-  char v35; // [rsp+250h] [rbp+148h]
+  char v21; // [rsp+40h] [rbp-59h]
+  PRKPROCESS PROCESS; // [rsp+48h] [rbp-51h] BYREF
+  unsigned int v23; // [rsp+50h] [rbp-49h]
+  struct _KAPC_STATE ApcState; // [rsp+58h] [rbp-41h] BYREF
 
   v6 = *(_DWORD *)(a4 + 8);
-  v30 = 0;
+  v8 = *(unsigned __int8 (__fastcall ****)(_QWORD))(a4 + 16);
   PROCESS = 0LL;
-  v32 = v6;
-  if ( (unsigned __int8)PsIsSystemProcess(a3)
-    || (ProcessSessionId = PsGetProcessSessionIdEx(a3), ProcessSessionId != -1)
-    && ProcessSessionId == *(_DWORD *)(a4 + 8) )
+  v23 = v6;
+  v21 = 0;
+  if ( (**v8)(v8)
+    && ((unsigned __int8)PsIsSystemProcess(a3)
+     || (ProcessSessionId = PsGetProcessSessionIdEx(a3), ProcessSessionId != -1)
+     && ProcessSessionId == *(_DWORD *)(a4 + 8)) )
   {
-    v12 = 0;
+    v13 = 0;
     CurrentProcess = PsGetCurrentProcess();
-    v14 = v32;
-    if ( (unsigned int)PsGetProcessSessionIdEx(CurrentProcess) == v32
-      || (Global = DXGGLOBAL::GetGlobal(),
-          SessionMgr = DXGGLOBAL::GetSessionMgr(Global),
-          v12 = DXGSESSIONMGR::ReferenceSessionCSRSSProcess(SessionMgr, v14, &PROCESS),
-          v12 < 0) )
+    if ( (unsigned int)PsGetProcessSessionIdEx(CurrentProcess) != v23 )
     {
-      if ( v12 < 0 )
-        goto LABEL_15;
-    }
-    else
-    {
-      KeStackAttachProcess(PROCESS, &ApcState);
-      v30 = 1;
-    }
-    memset(v34, 0, sizeof(v34));
-    v35 = 0;
-    CurrentThreadWin32Thread = (_QWORD *)PsGetCurrentThreadWin32Thread();
-    v16 = CurrentThreadWin32Thread;
-    if ( CurrentThreadWin32Thread )
-    {
-      v17 = *CurrentThreadWin32Thread;
-      if ( v17 && *(_DWORD *)(v17 + 8) )
+      Global = DXGGLOBAL::GetGlobal(v16, v15);
+      SessionMgr = DXGGLOBAL::GetSessionMgr(Global);
+      v13 = DXGSESSIONMGR::ReferenceSessionCSRSSProcess(SessionMgr, v23, &PROCESS);
+      if ( v13 >= 0 )
       {
-        v34[0] = v17;
-        if ( !*(_QWORD *)&DXGGLOBAL::m_pGlobal )
-        {
-          WdLogSingleEntry1(1LL, 2407LL);
-          if ( bTracingEnabled )
-          {
-            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-              McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-                v22,
-                v21,
-                v23,
-                0,
-                2,
-                -1,
-                (__int64)L"m_pGlobal != NULL",
-                2407LL,
-                0LL,
-                0LL,
-                0LL,
-                0LL);
-          }
-        }
-        if ( (*(int (__fastcall **)(_QWORD))(*(_QWORD *)(*(_QWORD *)&DXGGLOBAL::m_pGlobal + 304552LL) + 8LL))(*v16) <= 1 )
-        {
-          WdLogSingleEntry1(1LL, 85LL);
-          if ( bTracingEnabled )
-          {
-            if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-              McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-                v25,
-                v24,
-                v26,
-                0,
-                2,
-                -1,
-                (__int64)L"newRefCount > 1",
-                85LL,
-                0LL,
-                0LL,
-                0LL,
-                0LL);
-          }
-        }
+        KeStackAttachProcess(PROCESS, &ApcState);
+        v21 = 1;
       }
     }
-    else
+    if ( v13 >= 0 )
     {
-      ExInitializeFastOwnerEntry(&v34[7]);
-      ExInitializeFastOwnerEntry(&v34[16]);
-      HIDWORD(v34[5]) |= 4u;
-      PsSetThreadWin32Thread(KeGetCurrentThread(), v34, 0LL);
-      v35 = 1;
-    }
-    v12 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64, __int64, __int64, int))(**(_QWORD **)(a4 + 16)
-                                                                                            + 8LL))(
-            *(_QWORD *)(a4 + 16),
-            a1,
-            a2,
-            a3,
-            a4,
-            a5,
-            a6);
-    if ( v35 )
-    {
-      PsSetThreadWin32Thread(KeGetCurrentThread(), 0LL, v34);
-    }
-    else if ( v34[0] )
-    {
-      if ( !*(_QWORD *)&DXGGLOBAL::m_pGlobal )
-      {
-        WdLogSingleEntry1(1LL, 2407LL);
-        if ( bTracingEnabled )
-        {
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-            McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-              v28,
-              v27,
-              v29,
-              0,
-              2,
-              -1,
-              (__int64)L"m_pGlobal != NULL",
-              2407LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-        }
-      }
-      (*(void (__fastcall **)(_QWORD))(*(_QWORD *)(*(_QWORD *)&DXGGLOBAL::m_pGlobal + 304552LL) + 16LL))(v34[0]);
+      LOBYTE(v17) = a2;
+      v13 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, __int64, __int64, __int64, int))(**(_QWORD **)(a4 + 16)
+                                                                                               + 24LL))(
+              *(_QWORD *)(a4 + 16),
+              a1,
+              v17,
+              a3,
+              a4,
+              a5,
+              a6);
     }
   }
   else
   {
-    v12 = -1073741790;
+    v13 = -1073741790;
   }
-LABEL_15:
-  if ( v30 )
+  if ( v21 )
     KeUnstackDetachProcess(&ApcState);
   if ( PROCESS )
     ObfDereferenceObject(PROCESS);
-  return (unsigned int)v12;
+  return (unsigned int)v13;
 }

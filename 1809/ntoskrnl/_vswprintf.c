@@ -1,9 +1,9 @@
 /*
- * XREFs of _vswprintf @ 0x140195850
+ * XREFs of _vswprintf @ 0x140195870
  * Callers:
  *     <none>
  * Callees:
- *     _vswprintf_l @ 0x14019586C (_vswprintf_l.c)
+ *     _vswprintf_l @ 0x14019588C (_vswprintf_l.c)
  */
 
 int __cdecl vswprintf(wchar_t *Dest, const wchar_t *Format, va_list Args)

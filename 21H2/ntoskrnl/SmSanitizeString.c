@@ -1,56 +1,57 @@
 /*
- * XREFs of SmSanitizeString @ 0x1405FABF8
+ * XREFs of SmSanitizeString @ 0x14059D1B0
  * Callers:
- *     SmKmVolumeQueryUniqueId @ 0x1409D75C0 (SmKmVolumeQueryUniqueId.c)
+ *     SmKmVolumeQueryUniqueId @ 0x14092D09C (SmKmVolumeQueryUniqueId.c)
  * Callees:
- *     isprint @ 0x1403E1AF0 (isprint.c)
+ *     isprint @ 0x1403D2730 (isprint.c)
  */
 
-int __fastcall SmSanitizeString(_WORD *a1, unsigned int a2)
+void __fastcall SmSanitizeString(char *a1, unsigned int a2)
 {
-  _UNKNOWN **v2; // rax
-  _WORD *v3; // rdi
-  unsigned __int64 v4; // rbp
-  unsigned int v5; // ebx
-  __int16 v6; // bx
-  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
+  char *v2; // rdi
+  unsigned __int64 v3; // r14
+  char *v4; // rdx
+  unsigned __int64 v5; // rbp
+  unsigned int v6; // ebx
+  __int16 v7; // bx
 
-  v2 = &retaddr;
-  v3 = a1;
-  v4 = (unsigned __int64)&a1[((unsigned __int64)a2 >> 1) - 1];
-  if ( (unsigned __int64)a1 < v4 )
+  v2 = a1;
+  v3 = 0LL;
+  v4 = &a1[2 * ((unsigned __int64)a2 >> 1) - 2];
+  v5 = (unsigned __int64)(v4 - a1 + 1) >> 1;
+  if ( a1 > v4 )
+    v5 = 0LL;
+  if ( v5 )
   {
     while ( 1 )
     {
-      v5 = (unsigned __int16)*v3;
-      if ( (_WORD)v5 )
+      v6 = *(unsigned __int16 *)v2;
+      if ( (_WORD)v6 )
         break;
-      LOWORD(v5) = 126;
-LABEL_11:
-      *v3++ = v5;
-      if ( (unsigned __int64)v3 >= v4 )
-        goto LABEL_12;
+      LOWORD(v6) = 126;
+LABEL_13:
+      *(_WORD *)v2 = v6;
+      ++v3;
+      v2 += 2;
+      if ( v3 >= v5 )
+        goto LABEL_14;
     }
-    if ( (unsigned __int16)v5 > 0xFFu )
+    if ( (unsigned __int16)v6 > 0xFFu )
     {
-      LODWORD(v2) = 87 * (v5 / 0x57);
-      v6 = *v3 % 0x57u;
+      v7 = *(_WORD *)v2 % 0x57u;
     }
     else
     {
-      LODWORD(v2) = isprint((unsigned __int16)*v3);
-      if ( (_DWORD)v2 )
-        goto LABEL_9;
-      LODWORD(v2) = 87 * (v5 / 0x57);
-      v6 = v5 % 0x57;
+      if ( isprint(*(unsigned __int16 *)v2) )
+        goto LABEL_11;
+      v7 = v6 % 0x57;
     }
-    LOWORD(v5) = v6 + 36;
-LABEL_9:
-    if ( (_WORD)v5 == 92 )
-      LOWORD(v5) = 95;
-    goto LABEL_11;
+    LOWORD(v6) = v7 + 36;
+LABEL_11:
+    if ( (_WORD)v6 == 92 )
+      LOWORD(v6) = 95;
+    goto LABEL_13;
   }
-LABEL_12:
-  *v3 = 0;
-  return (int)v2;
+LABEL_14:
+  *(_WORD *)v2 = 0;
 }

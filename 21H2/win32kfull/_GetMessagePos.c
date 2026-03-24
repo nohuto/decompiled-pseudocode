@@ -1,40 +1,46 @@
 /*
- * XREFs of _GetMessagePos @ 0x1C0101D84
+ * XREFs of _GetMessagePos @ 0x1C010FD20
  * Callers:
- *     NtUserGetMessagePos @ 0x1C0101D50 (NtUserGetMessagePos.c)
- *     xxxSysCommand @ 0x1C011BA1C (xxxSysCommand.c)
- *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z @ 0x1C020E1A8 (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z.c)
- *     ?xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0240920 (-xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z.c)
- *     xxxEndScroll @ 0x1C0241878 (xxxEndScroll.c)
- *     xxxSendHelpMessage @ 0x1C024A834 (xxxSendHelpMessage.c)
+ *     xxxSysCommand @ 0x1C0130714 (xxxSysCommand.c)
+ *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAU_MOVESIZEDATA@@@Z @ 0x1C020EF28 (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAU_MOVESIZEDATA@@@Z.c)
+ *     ?xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0244990 (-xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     xxxEndScroll @ 0x1C0245904 (xxxEndScroll.c)
+ *     xxxSendHelpMessage @ 0x1C025067C (xxxSendHelpMessage.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005BA00 (W32GetCurrentThreadDpiAwarenessContext.c)
  */
 
-__int64 GetMessagePos()
+__int64 __fastcall GetMessagePos(__int64 a1)
 {
-  __int64 v0; // rdx
-  _DWORD *ThreadWin32Thread; // rbx
-  __int64 v2; // rcx
-  unsigned int CurrentThreadDpiAwarenessContext; // edi
-  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int CurrentThreadDpiAwarenessContext; // eax
+  __int64 v2; // r8
+  unsigned int v3; // edi
+  int v4; // edx
+  int v5; // ecx
+  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
 
-  ThreadWin32Thread = (_DWORD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  LODWORD(v5) = ThreadWin32Thread[191];
-  v2 = (unsigned int)ThreadWin32Thread[192];
-  HIDWORD(v5) = ThreadWin32Thread[192];
-  if ( ThreadWin32Thread[193] )
+  v7 = *(_QWORD *)(gptiCurrent + 764LL);
+  if ( *(_DWORD *)(gptiCurrent + 772LL) )
   {
-    CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(v2, v0);
-    if ( (((unsigned __int16)(CurrentThreadDpiAwarenessContext >> 8) ^ (unsigned __int16)(ThreadWin32Thread[193] >> 8)) & 0x1FF) != 0 )
+    CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(a1);
+    v2 = *(unsigned int *)(gptiCurrent + 772LL);
+    v3 = CurrentThreadDpiAwarenessContext;
+    if ( (((unsigned __int16)(CurrentThreadDpiAwarenessContext >> 8) ^ (unsigned __int16)(*(_DWORD *)(gptiCurrent + 772LL) >> 8)) & 0x1FF) != 0 )
+      goto LABEL_14;
+    v4 = 1;
+    v5 = (v2 & 0xF) == 2 && (v2 & 0x20000000) != 0;
+    if ( (CurrentThreadDpiAwarenessContext & 0xF) != 2 || (CurrentThreadDpiAwarenessContext & 0x20000000) == 0 )
+      v4 = 0;
+    if ( v5 != v4 )
     {
-      LogicalToPhysicalDPIPoint(&v5, &v5, (unsigned int)ThreadWin32Thread[193], 0LL);
-      PhysicalToLogicalDPIPoint(&v5, &v5, CurrentThreadDpiAwarenessContext, 0LL);
+LABEL_14:
+      LogicalToPhysicalDPIPoint(&v7, &v7, v2, 0LL);
+      PhysicalToLogicalDPIPoint(&v7, &v7, v3, 0LL);
     }
   }
   else
   {
-    v5 = 0LL;
+    v7 = 0LL;
   }
-  return (unsigned __int16)v5 | (WORD2(v5) << 16);
+  return (unsigned __int16)v7 | (WORD2(v7) << 16);
 }

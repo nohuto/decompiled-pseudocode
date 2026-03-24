@@ -1,20 +1,23 @@
 /*
- * XREFs of ??_EStepInterpolation@@UEAAPEAXI@Z @ 0x1800DCC90
+ * XREFs of ??_EStepInterpolation@@UEAAPEAXI@Z @ 0x1800D0720
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
-StepInterpolation *__fastcall StepInterpolation::`vector deleting destructor'(StepInterpolation *this, char a2)
+StepInterpolation *__fastcall StepInterpolation::`vector deleting destructor'(
+        StepInterpolation *this,
+        char a2,
+        unsigned int a3)
 {
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this, 0x30uLL);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x30, a3);
     else
-      DefaultHeap::Free(this);
+      operator delete(this);
   }
   return this;
 }

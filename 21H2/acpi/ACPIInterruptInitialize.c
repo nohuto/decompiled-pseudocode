@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIInterruptInitialize @ 0x1C009E0C8
+ * XREFs of ACPIInterruptInitialize @ 0x1C0097F74
  * Callers:
- *     ACPIInitialize @ 0x1C00BE48C (ACPIInitialize.c)
+ *     ACPIInitialize @ 0x1C00BED6C (ACPIInitialize.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     OSInterruptVector @ 0x1C00BE3B0 (OSInterruptVector.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     OSInterruptVector @ 0x1C00BD980 (OSInterruptVector.c)
  */
 
 __int64 __fastcall ACPIInterruptInitialize(ULONG_PTR a1)
@@ -24,7 +24,7 @@ __int64 __fastcall ACPIInterruptInitialize(ULONG_PTR a1)
         2u,
         0x16u,
         0x27u,
-        (__int64)&WPP_786589887d18386d1941a386bf041506_Traceguids);
+        (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids);
   }
   return (unsigned int)v1;
 }

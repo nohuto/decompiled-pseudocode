@@ -1,14 +1,14 @@
 /*
- * XREFs of RemoveListHeadPte @ 0x1400AD7C0
+ * XREFs of RemoveListHeadPte @ 0x1400AD7E0
  * Callers:
- *     MiObtainSystemCacheView @ 0x1400AD200 (MiObtainSystemCacheView.c)
- *     MmAllocateSpecialPool @ 0x1402ACA64 (MmAllocateSpecialPool.c)
+ *     MiObtainSystemCacheView @ 0x1400AD220 (MiObtainSystemCacheView.c)
+ *     MmAllocateSpecialPool @ 0x1402ACB64 (MmAllocateSpecialPool.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall RemoveListHeadPte(__int64 *a1)

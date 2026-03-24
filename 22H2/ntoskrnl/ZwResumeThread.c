@@ -1,9 +1,9 @@
 /*
- * XREFs of ZwResumeThread @ 0x14041B0E0
+ * XREFs of ZwResumeThread @ 0x1403FA460
  * Callers:
- *     ExpWorkerFactoryCreateThread @ 0x140303D2C (ExpWorkerFactoryCreateThread.c)
- *     DbgkUserReportWorkRoutine @ 0x140939CF0 (DbgkUserReportWorkRoutine.c)
- *     StartFirstUserProcess @ 0x140B69B90 (StartFirstUserProcess.c)
+ *     ExpWorkerFactoryCreateThread @ 0x1402DC898 (ExpWorkerFactoryCreateThread.c)
+ *     DbgkUserReportWorkRoutine @ 0x140886DA0 (DbgkUserReportWorkRoutine.c)
+ *     StartFirstUserProcess @ 0x140A4BB74 (StartFirstUserProcess.c)
  * Callees:
  *     <none>
  */

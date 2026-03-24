@@ -1,48 +1,38 @@
 /*
- * XREFs of VidSchiFlushPendingHWSubmittedFlips @ 0x1C0001490
+ * XREFs of VidSchiFlushPendingHWSubmittedFlips @ 0x1C002F9B4
  * Callers:
- *     VidSchiSuspendFlipQueues @ 0x1C0086ED0 (VidSchiSuspendFlipQueues.c)
+ *     VidSchiSuspendFlipQueues @ 0x1C00CF510 (VidSchiSuspendFlipQueues.c)
  * Callees:
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ?DecrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z @ 0x1C0034508 (-DecrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z.c)
- *     ?IncrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z @ 0x1C0034B10 (-IncrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z.c)
- *     ?VidSchiSetInterruptTargetPresentId@@YAJPEAU_VIDSCH_GLOBAL@@II_K_NI@Z @ 0x1C004A2E8 (-VidSchiSetInterruptTargetPresentId@@YAJPEAU_VIDSCH_GLOBAL@@II_K_NI@Z.c)
- *     VidSchiWaitFlushCompletion @ 0x1C0087DCC (VidSchiWaitFlushCompletion.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     VidSchiWaitFlushCompletion @ 0x1C008049C (VidSchiWaitFlushCompletion.c)
  */
 
-__int64 __fastcall VidSchiFlushPendingHWSubmittedFlips(struct _VIDSCH_GLOBAL *a1, __int64 a2, unsigned int a3)
+__int64 __fastcall VidSchiFlushPendingHWSubmittedFlips(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rdi
-  bool v7; // zf
+  __int64 v2; // rdi
+  unsigned int *v5; // rbx
   __int64 result; // rax
-  _QWORD v9[20]; // [rsp+38h] [rbp-D0h] BYREF
-  _QWORD v10[20]; // [rsp+D8h] [rbp-30h] BYREF
+  _QWORD v7[20]; // [rsp+28h] [rbp-E0h] BYREF
+  _QWORD v8[20]; // [rsp+C8h] [rbp-40h] BYREF
 
-  v3 = a2 + 3088;
-  if ( *(_DWORD *)(a2 + 3088) )
+  v2 = a2 + 2352;
+  if ( *(_DWORD *)(a2 + 2352) )
   {
-    memset(v9, 0, sizeof(v9));
-    LODWORD(v9[4]) |= 0x10u;
-    v7 = *((_BYTE *)a1 + 59) == 0;
-    LODWORD(v9[2]) = 3;
-    v9[5] = v3;
-    if ( !v7 )
-    {
-      DXGADAPTER::IncrementVSyncWaiter(*((DXGADAPTER **)a1 + 2), a3);
-      VidSchiSetInterruptTargetPresentId(a1, a3, 0, 0LL, 1, 0);
-    }
-    VidSchiWaitFlushCompletion(a1, v9, 23LL);
-    if ( *((_BYTE *)a1 + 59) )
-      DXGADAPTER::DecrementVSyncWaiter(*((DXGADAPTER **)a1 + 2), a3);
+    memset(v7, 0, sizeof(v7));
+    LODWORD(v7[4]) |= 0x10u;
+    LODWORD(v7[2]) = 3;
+    v7[5] = v2;
+    VidSchiWaitFlushCompletion(a1, v7, 23LL);
   }
-  result = *(unsigned int *)(a2 + 3084);
+  v5 = (unsigned int *)(a2 + 2348);
+  result = *v5;
   if ( (_DWORD)result )
   {
-    memset(v10, 0, sizeof(v10));
-    LODWORD(v10[4]) |= 0x10u;
-    LODWORD(v10[2]) = 1;
-    v10[5] = a2 + 3084;
-    return VidSchiWaitFlushCompletion(a1, v10, 23LL);
+    memset(v8, 0, sizeof(v8));
+    LODWORD(v8[4]) |= 0x10u;
+    LODWORD(v8[2]) = 1;
+    v8[5] = v5;
+    return VidSchiWaitFlushCompletion(a1, v8, 23LL);
   }
   return result;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of SdbReadEntryInformation @ 0x140A4F3E4
+ * XREFs of SdbReadEntryInformation @ 0x1407C21FC
  * Callers:
- *     PiIsDriverBlocked @ 0x140692F18 (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x14077E204 (PiIsDriverBlocked.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     SdbGetDatabaseID @ 0x140695370 (SdbGetDatabaseID.c)
- *     SdbReadBinaryTag @ 0x140695430 (SdbReadBinaryTag.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
- *     SdbTagRefToTagID @ 0x14080B368 (SdbTagRefToTagID.c)
- *     SdbGetEntryFlags @ 0x14084F19C (SdbGetEntryFlags.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbReadBinaryTag @ 0x140755BB8 (SdbReadBinaryTag.c)
+ *     SdbGetDatabaseID @ 0x140757C50 (SdbGetDatabaseID.c)
+ *     SdbFindFirstTag @ 0x140759974 (SdbFindFirstTag.c)
+ *     SdbGetEntryFlags @ 0x1407C2408 (SdbGetEntryFlags.c)
+ *     SdbTagRefToTagID @ 0x1407C2850 (SdbTagRefToTagID.c)
  */
 
-__int64 __fastcall SdbReadEntryInformation(__int64 a1, unsigned int a2, __int64 a3)
+__int64 __fastcall SdbReadEntryInformation(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int BinaryTag; // ebx
   __int64 v5; // rsi
@@ -32,30 +32,30 @@ __int64 __fastcall SdbReadEntryInformation(__int64 a1, unsigned int a2, __int64 
   v16 = 0LL;
   v14 = 0LL;
   v15 = 0LL;
-  BinaryTag = SdbTagRefToTagID(a1, a2, &v13, (int *)&v12);
+  BinaryTag = SdbTagRefToTagID(a1, a2, &v13, &v12);
   if ( !BinaryTag )
-    goto LABEL_2;
+    goto LABEL_9;
   v5 = v13;
   v6 = v12;
-  FirstTag = SdbFindFirstTag(v13, v12, 36868LL);
+  FirstTag = SdbFindFirstTag(v13, v12, 36868);
   if ( !FirstTag )
-    goto LABEL_4;
-  BinaryTag = SdbReadBinaryTag(v5, FirstTag, (__int64)&v14, 0x10u);
+  {
+LABEL_10:
+    AslLogCallPrintf(1LL);
+    return 0;
+  }
+  BinaryTag = SdbReadBinaryTag(v5, FirstTag, (__int64)&v14, 16LL);
   if ( !BinaryTag )
   {
-LABEL_2:
+LABEL_9:
     AslLogCallPrintf(1LL);
     return BinaryTag;
   }
   if ( !(unsigned int)SdbGetDatabaseID(v5, (char *)&v15 + 8) )
-  {
-LABEL_4:
-    AslLogCallPrintf(1LL);
-    return 0;
-  }
-  EntryFlags = SdbGetEntryFlags((__int64)&v14, &v15);
+    goto LABEL_10;
+  EntryFlags = SdbGetEntryFlags(&v14, &v15);
   LODWORD(v15) = EntryFlags != 0 ? v15 : 0;
-  DWORD1(v15) = SdbFindFirstTag(v5, v6, 28687LL);
+  DWORD1(v15) = SdbFindFirstTag(v5, v6, 28687);
   if ( a3 )
   {
     v9 = v15;

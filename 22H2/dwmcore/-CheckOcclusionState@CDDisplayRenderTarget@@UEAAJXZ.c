@@ -1,57 +1,49 @@
 /*
- * XREFs of ?CheckOcclusionState@CDDisplayRenderTarget@@UEAAJXZ @ 0x1801E8344
+ * XREFs of ?CheckOcclusionState@CDDisplayRenderTarget@@UEAAJXZ @ 0x18018BFD4
  * Callers:
- *     ?CheckOcclusionState@CDDisplayRenderTarget@@$4PPPPPPPM@A@EAAJXZ @ 0x18011C1C0 (-CheckOcclusionState@CDDisplayRenderTarget@@$4PPPPPPPM@A@EAAJXZ.c)
+ *     ?CheckOcclusionState@CDDisplayRenderTarget@@$4PPPPPPPM@A@EAAJXZ @ 0x1800F4540 (-CheckOcclusionState@CDDisplayRenderTarget@@$4PPPPPPPM@A@EAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800CEACC (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
- *     ?CheckForOcclusionChange@CDDisplayRenderTarget@@IEAAJJ@Z @ 0x1801E8308 (-CheckForOcclusionChange@CDDisplayRenderTarget@@IEAAJJ@Z.c)
- *     ?TryEnsureSwapChain@CDDisplayRenderTarget@@IEAAJXZ @ 0x1801E96B4 (-TryEnsureSwapChain@CDDisplayRenderTarget@@IEAAJXZ.c)
- *     ?CheckOcclusionState@CDDisplaySwapChain@@QEAAJXZ @ 0x1802892E8 (-CheckOcclusionState@CDDisplaySwapChain@@QEAAJXZ.c)
+ *     ??$?9V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@YA_NAEBV?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@0@$$T@Z @ 0x18002ECD8 (--$-9V-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@w.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??4?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@QEAAAEAV01@$$T@Z @ 0x180164090 (--4-$unique_any_t@V-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH.c)
+ *     ?TryEnsureSwapChain@CDDisplayRenderTarget@@IEAAJXZ @ 0x18018D218 (-TryEnsureSwapChain@CDDisplayRenderTarget@@IEAAJXZ.c)
  */
 
-__int64 __fastcall CDDisplayRenderTarget::CheckOcclusionState(CDDisplaySwapChain **this)
+__int64 __fastcall CDDisplayRenderTarget::CheckOcclusionState(CDDisplayRenderTarget *this)
 {
-  unsigned int v2; // ebx
-  void **v3; // rsi
+  unsigned int v1; // ebx
+  void **v2; // rdi
+  __int64 v3; // rdx
   int v4; // eax
   __int64 v5; // rcx
-  int v6; // eax
-  __int64 v7; // rcx
 
-  v2 = 142213121;
-  if ( *((_DWORD *)this - 4654) )
+  v1 = 142213121;
+  if ( *((_DWORD *)this - 4650) )
   {
-    if ( *((_DWORD *)this - 4653) )
+    if ( *((_DWORD *)this - 4649) )
     {
-      v3 = (void **)(this - 2319);
-      if ( (unsigned __int64)*(this - 2319) - 1 <= 0xFFFFFFFFFFFFFFFDuLL )
+      v2 = (void **)((char *)this - 18528);
+      if ( wil::operator!=<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>((_QWORD *)this - 2316) )
       {
-        v4 = CDDisplayRenderTarget::TryEnsureSwapChain((CDDisplayRenderTarget *)(this - 2340));
-        if ( v4 == -2147023728 )
+        v4 = CDDisplayRenderTarget::TryEnsureSwapChain((CDDisplayRenderTarget *)(v3 - 18680));
+        if ( v4 < 0 )
         {
-          wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
-            v3,
-            0LL);
-        }
-        else if ( v4 != -2003304309 && v4 != 142213121 )
-        {
-          if ( v4 < 0 )
+          if ( v4 == -2147023728 )
           {
-            v2 = v4;
-            MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x140u, 0LL);
+            wil::unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>::operator=(v2);
           }
           else
           {
-            v6 = CDDisplaySwapChain::CheckOcclusionState(*(this - 2317));
-            v2 = v6;
-            if ( v6 < 0 )
-              MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x13Bu, 0LL);
+            v1 = v4;
+            MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x146u, 0LL);
           }
+        }
+        else
+        {
+          return 0;
         }
       }
     }
   }
-  CDDisplayRenderTarget::CheckForOcclusionChange((CDDisplayRenderTarget *)(this - 2340), v2);
-  return v2;
+  return v1;
 }

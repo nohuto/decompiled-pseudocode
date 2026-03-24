@@ -1,7 +1,7 @@
 /*
- * XREFs of VmpInvalidateOutstandingFaults @ 0x14030C998
+ * XREFs of VmpInvalidateOutstandingFaults @ 0x14030CA98
  * Callers:
- *     VmpFlushTbVaRange @ 0x14030C544 (VmpFlushTbVaRange.c)
+ *     VmpFlushTbVaRange @ 0x14030C644 (VmpFlushTbVaRange.c)
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14009D150 (ExAcquireSpinLockSharedAtDpcLevel.c)

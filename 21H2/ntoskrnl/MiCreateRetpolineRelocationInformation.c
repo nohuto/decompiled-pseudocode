@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCreateRetpolineRelocationInformation @ 0x1406ACFF0
+ * XREFs of MiCreateRetpolineRelocationInformation @ 0x140713C88
  * Callers:
- *     MiParseImageLoadConfig @ 0x140706ABC (MiParseImageLoadConfig.c)
- *     MiCaptureBootDriverRetpolineInfo @ 0x14082CB7C (MiCaptureBootDriverRetpolineInfo.c)
+ *     MiParseImageLoadConfig @ 0x140712E88 (MiParseImageLoadConfig.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x1407A5390 (MiCaptureBootDriverRetpolineInfo.c)
  * Callees:
- *     RtlCreateRetpolineRelocationInformation @ 0x140235150 (RtlCreateRetpolineRelocationInformation.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     MiFreeRetpolineRelocationInformation @ 0x14081C658 (MiFreeRetpolineRelocationInformation.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     RtlCreateRetpolineRelocationInformation @ 0x14035ED68 (RtlCreateRetpolineRelocationInformation.c)
+ *     MiFreeRetpolineRelocationInformation @ 0x14078D7C4 (MiFreeRetpolineRelocationInformation.c)
  */
 
 __int64 __fastcall MiCreateRetpolineRelocationInformation(__int64 a1, int a2, unsigned int a3, _QWORD *a4)
 {
   unsigned int v6; // ebx
-  unsigned int v9; // r14d
-  _DWORD *Pool; // rdi
+  unsigned int v8; // r14d
+  _QWORD *Pool; // rdi
   unsigned int v11; // ebx
   char *v12; // rax
   int RetpolineRelocationInformation; // ebx
@@ -21,40 +21,47 @@ __int64 __fastcall MiCreateRetpolineRelocationInformation(__int64 a1, int a2, un
   __int64 v16; // [rsp+30h] [rbp-38h]
 
   v6 = a3 >> 12;
-  v9 = 8 * (a3 >> 12);
-  Pool = MiAllocatePool(256, v9 + 56, 0x7252694Du);
-  if ( !Pool )
+  v8 = 8 * (a3 >> 12);
+  Pool = MiAllocatePool(256, v8 + 56, 0x7252694Du);
+  if ( Pool )
+  {
+    v11 = 4 * (*(_DWORD *)(a1 + 4) + 3 * v6);
+    v12 = (char *)MiAllocatePool(256, v11, 0x7252694Du);
+    Pool[6] = v12;
+    if ( v12 )
+    {
+      LODWORD(v16) = v11;
+      RetpolineRelocationInformation = RtlCreateRetpolineRelocationInformation(
+                                         a3,
+                                         *(_DWORD *)(a1 + 4),
+                                         *(_QWORD *)(a1 + 8),
+                                         *(_QWORD *)(a1 + 16),
+                                         *(_QWORD *)(a1 + 24),
+                                         v12,
+                                         v16,
+                                         Pool + 7,
+                                         v8);
+      if ( RetpolineRelocationInformation >= 0 )
+      {
+        *((_DWORD *)Pool + 2) = *(_DWORD *)a1;
+        v14 = dword_140C4CCB0 + 4095;
+        *((_DWORD *)Pool + 1) = a2;
+        *(_DWORD *)Pool = ((a3 + 4095) & 0xFFFFF000) + (v14 & 0xFFFFF000);
+        *a4 = Pool;
+        Pool = 0LL;
+        RetpolineRelocationInformation = 0;
+      }
+    }
+    else
+    {
+      RetpolineRelocationInformation = -1073741670;
+    }
+    if ( Pool )
+      MiFreeRetpolineRelocationInformation(Pool);
+  }
+  else
+  {
     return (unsigned int)-1073741670;
-  v11 = 4 * (*(_DWORD *)(a1 + 4) + 3 * v6);
-  v12 = (char *)MiAllocatePool(256, v11, 0x7252694Du);
-  *((_QWORD *)Pool + 6) = v12;
-  if ( !v12 )
-  {
-    RetpolineRelocationInformation = -1073741670;
-    goto LABEL_8;
   }
-  LODWORD(v16) = v11;
-  RetpolineRelocationInformation = RtlCreateRetpolineRelocationInformation(
-                                     a3,
-                                     *(_DWORD *)(a1 + 4),
-                                     *(_QWORD *)(a1 + 8),
-                                     *(_QWORD *)(a1 + 16),
-                                     *(_QWORD *)(a1 + 24),
-                                     v12,
-                                     v16,
-                                     Pool + 14,
-                                     v9);
-  if ( RetpolineRelocationInformation < 0 )
-  {
-LABEL_8:
-    MiFreeRetpolineRelocationInformation(Pool);
-    return (unsigned int)RetpolineRelocationInformation;
-  }
-  Pool[2] = *(_DWORD *)a1;
-  v14 = dword_140C4F478 + 4095;
-  Pool[1] = a2;
-  *Pool = ((a3 + 4095) & 0xFFFFF000) + (v14 & 0xFFFFF000);
-  RetpolineRelocationInformation = 0;
-  *a4 = Pool;
   return (unsigned int)RetpolineRelocationInformation;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_RECORDER_SF__HEX_ @ 0x1C0040DD8
+ * XREFs of WPP_RECORDER_SF__HEX_ @ 0x1C0041FF4
  * Callers:
- *     UsbhIoctlTraceOutput @ 0x1C0040730 (UsbhIoctlTraceOutput.c)
- *     UsbhExceptionTrace @ 0x1C004A388 (UsbhExceptionTrace.c)
+ *     UsbhIoctlTraceOutput @ 0x1C004193C (UsbhIoctlTraceOutput.c)
+ *     UsbhExceptionTrace @ 0x1C004B76C (UsbhExceptionTrace.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF__HEX_(
@@ -22,7 +22,7 @@ __int64 __fastcall WPP_RECORDER_SF__HEX_(
   v8 = (unsigned __int64)a3 >> 16;
   v10 = *((_DWORD *)&WPP_GLOBAL_Control->Timer + 20 * v8 + (((a3 - 1) >> 5) & 0x7FF) + 1);
   if ( _bittest(&v10, (a3 - 1) & 0x1F) )
-    ((void (__fastcall *)(_QWORD, __int64, __int64, _QWORD, __int64, __int64, _QWORD, _QWORD, _QWORD))pfnWppTraceMessage)(
+    ((void (__fastcall *)(_QWORD, __int64, __int64, _QWORD, __int64, __int64, _QWORD, _QWORD, _QWORD))WPP_MAIN_CB.SecurityDescriptor)(
       *((_QWORD *)&WPP_GLOBAL_Control->AttachedDevice + 10 * v8),
       43LL,
       a5,

@@ -3,12 +3,12 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1400CC4D0 (ExInitializeResourceLite.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x14015F980 (ExInitializeNPagedLookasideListInternal.c)
- *     FsFilterInit @ 0x14018F888 (FsFilterInit.c)
+ *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x14015F9A0 (ExInitializeNPagedLookasideListInternal.c)
+ *     FsFilterInit @ 0x14018F8A8 (FsFilterInit.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExInitializePagedLookasideList @ 0x14067BCD0 (ExInitializePagedLookasideList.c)
- *     FsRtlInitializeTieringHeat @ 0x140757F38 (FsRtlInitializeTieringHeat.c)
+ *     ExInitializePagedLookasideList @ 0x14067BCB0 (ExInitializePagedLookasideList.c)
+ *     FsRtlInitializeTieringHeat @ 0x140757F18 (FsRtlInitializeTieringHeat.c)
  *     FsRtlInitializeSmssEvent @ 0x1409D789C (FsRtlInitializeSmssEvent.c)
  *     FsRtlInitializeWorkerThread @ 0x1409D797C (FsRtlInitializeWorkerThread.c)
  *     FsRtlGetCompatibilityModeValue @ 0x1409D7A50 (FsRtlGetCompatibilityModeValue.c)

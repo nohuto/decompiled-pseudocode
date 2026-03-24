@@ -1,5 +1,5 @@
 /*
- * XREFs of NtUserSetThreadLayoutHandles @ 0x1C01DCED0
+ * XREFs of NtUserSetThreadLayoutHandles @ 0x1C0202630
  * Callers:
  *     <none>
  * Callees:
@@ -8,31 +8,31 @@
 
 __int64 __fastcall NtUserSetThreadLayoutHandles(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  __int64 v8; // rbx
-  __int64 v9; // rax
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  __int64 v7; // rbx
+  __int64 v8; // rax
+  __int64 v9; // rdx
   _QWORD v11[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  EnterCrit(0LL, 0LL);
-  v8 = 0LL;
-  v9 = *(_QWORD *)(gptiCurrent + 440LL);
-  if ( !v9 || *(_QWORD *)(v9 + 40) == a2 )
+  EnterCrit(0LL, 1LL);
+  v7 = 0LL;
+  v8 = *(_QWORD *)(gptiCurrent + 440LL);
+  if ( !v8 || *(_QWORD *)(v8 + 40) == a2 )
   {
-    v4 = HKLtoPKL(gptiCurrent, a1, v6, v7);
-    if ( v4 )
+    v9 = HKLtoPKL(gptiCurrent, a1, v5, v6);
+    if ( v9 )
     {
-      LOBYTE(v8) = (WORD1(a2) & 0xF000) == 0xE000;
-      if ( (_DWORD)v8 != ((WORD1(a1) & 0xF000) == 0xE000) )
+      LOBYTE(v7) = (WORD1(a2) & 0xF000) == 0xE000;
+      if ( (_DWORD)v7 != ((WORD1(a1) & 0xF000) == 0xE000) )
         *(_QWORD *)(gptiCurrent + 800LL) = a2;
-      v11[1] = v4;
       v11[0] = gptiCurrent + 440LL;
-      HMAssignmentLock(v11, 0LL);
-      v8 = 1LL;
+      v11[1] = v9;
+      HMAssignmentLock(v11);
+      v7 = 1LL;
     }
   }
-  UserSessionSwitchLeaveCrit(v5, v4, v6, v7);
-  return v8;
+  UserSessionSwitchLeaveCrit(v4);
+  return v7;
 }

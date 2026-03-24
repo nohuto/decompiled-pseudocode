@@ -1,27 +1,27 @@
 /*
- * XREFs of MiCloneProcessAddressSpace @ 0x14085E044
+ * XREFs of MiCloneProcessAddressSpace @ 0x14085E024
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406798D8 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406798B8 (MmInitializeProcessAddressSpace.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     PsReturnProcessNonPagedPoolQuota @ 0x140068570 (PsReturnProcessNonPagedPoolQuota.c)
  *     MiIsStoreProcess @ 0x1400837EC (MiIsStoreProcess.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     MiCloneVads @ 0x1402C8A68 (MiCloneVads.c)
- *     MiCreateCloneChain @ 0x1402C91F0 (MiCreateCloneChain.c)
- *     MiCreateForkWsles @ 0x1402C9454 (MiCreateForkWsles.c)
- *     MiInsertClone @ 0x1402CA7DC (MiInsertClone.c)
- *     MiLockDownWorkingSet @ 0x1402CA860 (MiLockDownWorkingSet.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     MiCloneVads @ 0x1402C8B68 (MiCloneVads.c)
+ *     MiCreateCloneChain @ 0x1402C92F0 (MiCreateCloneChain.c)
+ *     MiCreateForkWsles @ 0x1402C9554 (MiCreateForkWsles.c)
+ *     MiInsertClone @ 0x1402CA8DC (MiInsertClone.c)
+ *     MiLockDownWorkingSet @ 0x1402CA960 (MiLockDownWorkingSet.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MiUnlockVadRange @ 0x140604A50 (MiUnlockVadRange.c)
  *     MiLockVadRange @ 0x140604B60 (MiLockVadRange.c)
- *     MiAllocateChildVads @ 0x14085DA18 (MiAllocateChildVads.c)
- *     MiBuildNewCloneDescriptor @ 0x14085DEA0 (MiBuildNewCloneDescriptor.c)
- *     MiDeleteInsertedCloneVads @ 0x14085E388 (MiDeleteInsertedCloneVads.c)
- *     MiFreeCloneDescriptor @ 0x14085E678 (MiFreeCloneDescriptor.c)
- *     MiMapChildLargePageVads @ 0x14085E8D4 (MiMapChildLargePageVads.c)
+ *     MiAllocateChildVads @ 0x14085D9F8 (MiAllocateChildVads.c)
+ *     MiBuildNewCloneDescriptor @ 0x14085DE80 (MiBuildNewCloneDescriptor.c)
+ *     MiDeleteInsertedCloneVads @ 0x14085E368 (MiDeleteInsertedCloneVads.c)
+ *     MiFreeCloneDescriptor @ 0x14085E658 (MiFreeCloneDescriptor.c)
+ *     MiMapChildLargePageVads @ 0x14085E8B4 (MiMapChildLargePageVads.c)
  */
 
 __int64 __fastcall MiCloneProcessAddressSpace(__int64 BugCheckParameter1, _KPROCESS *a2, int a3)

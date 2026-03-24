@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vGradientFill4@@YAXPEAVSURFACE@@PEAU_TRIANGLEDATA@@@Z @ 0x1C02D1FC0
+ * XREFs of ?vGradientFill4@@YAXPEAVSURFACE@@PEAU_TRIANGLEDATA@@@Z @ 0x1C02D3AB0
  * Callers:
  *     <none>
  * Callees:
- *     ?XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z @ 0x1C0141AA0 (-XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z.c)
+ *     ?XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z @ 0x1C01542C4 (-XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z.c)
  */
 
 void __fastcall vGradientFill4(struct SURFACE *a1, struct _TRIANGLEDATA *a2)
@@ -69,7 +69,7 @@ void __fastcall vGradientFill4(struct SURFACE *a1, struct _TRIANGLEDATA *a2)
     v10 = *(_QWORD *)(v7 + 56);
     if ( (struct PALETTE *)v10 == ppalDefault )
     {
-      v11 = &unk_1C03311A4;
+      v11 = &unk_1C0335E54;
     }
     else
     {

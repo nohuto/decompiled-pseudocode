@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@CPropertySet@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D8360
+ * XREFs of ?IsOfType@CPropertySet@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C5120
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@CPropertyChangeResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D8410 (-IsOfType@CPropertyChangeResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CPropertyChangeResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C5150 (-IsOfType@CPropertyChangeResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall CPropertySet::IsOfType(__int64 a1, int a2)
@@ -11,7 +11,7 @@ char __fastcall CPropertySet::IsOfType(__int64 a1, int a2)
   char v2; // cl
   char v4; // al
 
-  if ( a2 == 133 )
+  if ( a2 == 134 )
     return 1;
   v4 = CPropertyChangeResource::IsOfType();
   v2 = 0;

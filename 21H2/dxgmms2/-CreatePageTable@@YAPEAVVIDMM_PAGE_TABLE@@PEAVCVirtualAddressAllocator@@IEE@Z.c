@@ -1,51 +1,66 @@
 /*
- * XREFs of ?CreatePageTable@@YAPEAVVIDMM_PAGE_TABLE@@PEAVCVirtualAddressAllocator@@IEE@Z @ 0x1C00A12A8
+ * XREFs of ?CreatePageTable@@YAPEAVVIDMM_PAGE_TABLE@@PEAVCVirtualAddressAllocator@@IEE@Z @ 0x1C0088FCC
  * Callers:
- *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C008AF00 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
- *     ?ExpandLargePagePte@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUVIDMM_PAGE_TABLE_LEVEL_DESC@@E_KIPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00E2518 (-ExpandLargePagePte@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUVIDMM_PAGE_TABL.c)
- *     ?ExpandZeroPte@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@II_K222PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00E2768 (-ExpandZeroPte@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@II_.c)
+ *     ?ExpandLargePagePteWithFix@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUVIDMM_PAGE_TABLE_LEVEL_DESC@@E_KIPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C005FBB0 (-ExpandLargePagePteWithFix@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUVIDMM_PA.c)
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00705F0 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
+ *     ?ExpandLargePagePte@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUVIDMM_PAGE_TABLE_LEVEL_DESC@@E_KIPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00BCCD8 (-ExpandLargePagePte@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUVIDMM_PAGE_TABL.c)
+ *     ?ExpandZeroPte@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@II_K222PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00BCF64 (-ExpandZeroPte@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@II_.c)
  * Callees:
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002E04 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     ?DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1C00A0644 (-DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
- *     ?InitializePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@IEE@Z @ 0x1C00A136C (-InitializePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@IEE@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1C0088D2C (-DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
+ *     ?InitializePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@IEE@Z @ 0x1C0089094 (-InitializePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@IEE@Z.c)
  */
 
-struct _KEVENT **__fastcall CreatePageTable(
+struct VIDMM_PAGE_TABLE *__fastcall CreatePageTable(
         struct CVirtualAddressAllocator *a1,
         unsigned int a2,
         unsigned __int8 a3,
         char a4)
 {
-  __int64 v5; // rbp
-  struct _KEVENT **v8; // rax
-  struct _KEVENT **v9; // rbx
-  unsigned int v10; // r8d
-  __int64 v12; // rcx
-  __int64 v13; // rcx
+  __int64 v5; // rsi
+  VIDMM_PAGE_TABLE *v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  VIDMM_PAGE_TABLE *v12; // rbx
+  unsigned int v13; // r8d
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v18; // rax
+  __int64 v19; // rax
 
   v5 = a2;
-  v8 = (struct _KEVENT **)operator new(48LL, 0x33356956u, 256LL);
-  v9 = v8;
+  v8 = (VIDMM_PAGE_TABLE *)operator new[](0x30uLL, 0x33356956u, PagedPool);
+  v12 = v8;
   if ( v8 )
   {
     *(_OWORD *)v8 = 0LL;
     *((_OWORD *)v8 + 1) = 0LL;
     *((_OWORD *)v8 + 2) = 0LL;
     *(_DWORD *)v8 = (v5 & 0x1F) << 7;
-    v10 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 11) + 40224LL) + 1584 * v5 + 76) >> 4;
-    if ( !a3 )
-      v10 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 11) + 40224LL) + 1584 * v5 + 76);
-    if ( (int)VIDMM_PAGE_TABLE::InitializePageTable((VIDMM_PAGE_TABLE *)v8, a1, v10, a3, a4) >= 0 )
-      return v9;
-    WdLogSingleEntry1(1LL, 4236LL);
-    DxgkLogInternalTriageEvent(v12, 0x40000LL);
-    VIDMM_PAGE_TABLE::DestroyPageTable(v9, a1, 0LL);
   }
   else
   {
-    WdLogSingleEntry1(1LL, 4221LL);
-    DxgkLogInternalTriageEvent(v13, 0x40000LL);
+    v12 = 0LL;
+  }
+  if ( v12 )
+  {
+    v13 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 11) + 40216LL) + 1584 * v5 + 76) >> 4;
+    if ( !a3 )
+      v13 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 11) + 40216LL) + 1584 * v5 + 76);
+    if ( (int)VIDMM_PAGE_TABLE::InitializePageTable(v12, a1, v13, a3, a4) >= 0 )
+      return v12;
+    v19 = WdLogNewEntry5_WdAssertion(v15, v14, v16);
+    *(_QWORD *)(v19 + 24) = 4599LL;
+    WdLogEvent5_WdAssertion(v19);
+    VIDMM_PAGE_TABLE::DestroyPageTable((struct _KEVENT **)v12, a1, 0LL);
+  }
+  else
+  {
+    v18 = WdLogNewEntry5_WdAssertion(v10, v9, v11);
+    *(_QWORD *)(v18 + 24) = 4584LL;
+    WdLogEvent5_WdAssertion(v18);
   }
   return 0LL;
 }

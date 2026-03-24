@@ -1,13 +1,14 @@
 /*
- * XREFs of EtwpUpdateLoggerGroupMasks @ 0x140827444
+ * XREFs of EtwpUpdateLoggerGroupMasks @ 0x140791EEC
  * Callers:
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
- *     EtwpUpdateTrace @ 0x1407F8630 (EtwpUpdateTrace.c)
+ *     EtwpStopLoggerInstance @ 0x140710AB0 (EtwpStopLoggerInstance.c)
+ *     EtwpStartLogger @ 0x140711A40 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x140791BF8 (EtwpUpdateTrace.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     EtwpGetFlagExtension @ 0x1407F85EC (EtwpGetFlagExtension.c)
- *     EtwpUpdateGroupMasks @ 0x1408274E8 (EtwpUpdateGroupMasks.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     EtwpGetFlagExtension @ 0x1407117C0 (EtwpGetFlagExtension.c)
+ *     EtwpUpdateGroupMasks @ 0x140791F80 (EtwpUpdateGroupMasks.c)
  */
 
 __int64 __fastcall EtwpUpdateLoggerGroupMasks(__int64 a1, __int64 a2)

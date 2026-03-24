@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIoSpaceIsConstant @ 0x1402166A4
+ * XREFs of MiIoSpaceIsConstant @ 0x140295E20
  * Callers:
- *     MiLookupIoPageNode @ 0x1402137E4 (MiLookupIoPageNode.c)
- *     MiIoSpaceRunIsConstant @ 0x140215D78 (MiIoSpaceRunIsConstant.c)
- *     MiReferenceIoPages @ 0x140215E54 (MiReferenceIoPages.c)
- *     MiMapContiguousMemoryLarge @ 0x1403C6E24 (MiMapContiguousMemoryLarge.c)
+ *     MiIoSpaceRunIsConstant @ 0x140294DA8 (MiIoSpaceRunIsConstant.c)
+ *     MiReferenceIoPages @ 0x140295A24 (MiReferenceIoPages.c)
+ *     MiMapContiguousMemoryLarge @ 0x1403B8854 (MiMapContiguousMemoryLarge.c)
+ *     MmProtectMdlSystemAddress @ 0x1405321B0 (MmProtectMdlSystemAddress.c)
  * Callees:
  *     <none>
  */
@@ -12,20 +12,29 @@
 _QWORD *__fastcall MiIoSpaceIsConstant(unsigned __int64 a1, __int64 a2)
 {
   _QWORD *result; // rax
+  unsigned __int64 v3; // r9
+  unsigned __int64 v5; // rdx
+  unsigned __int64 v6; // rcx
 
-  result = (_QWORD *)qword_140C53158;
-  while ( result )
+  result = (_QWORD *)qword_140C4ECA0;
+  v3 = a1 + a2 - 1;
+  while ( 1 )
   {
-    if ( a1 + a2 - 1 < result[3] )
+    while ( 1 )
     {
+      if ( !result )
+        return 0LL;
+      v5 = result[3];
+      if ( v3 >= v5 )
+        break;
       result = (_QWORD *)*result;
     }
-    else
-    {
-      if ( a1 <= result[4] )
-        return result;
-      result = (_QWORD *)result[1];
-    }
+    v6 = result[4];
+    if ( a1 <= v6 )
+      break;
+    result = (_QWORD *)result[1];
   }
-  return 0LL;
+  if ( a1 >= v5 && v3 > v6 )
+    return 0LL;
+  return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?pxrlStrRead01@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C00DFAB0
+ * XREFs of ?pxrlStrRead01@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C00F6AA0
  * Callers:
  *     <none>
  * Callees:
@@ -26,8 +26,8 @@ struct _XRUNLEN *__fastcall pxrlStrRead01(
   int v17; // r12d
   unsigned int *v18; // r13
   int v19; // r10d
-  __int64 v20; // rax
-  __int64 v21; // r9
+  __int64 v20; // r9
+  __int64 v21; // rax
   __int64 v22; // r8
   int v23; // eax
   int *v24; // rdi
@@ -101,10 +101,10 @@ struct _XRUNLEN *__fastcall pxrlStrRead01(
     v37 = a8 & 0x1F;
     while ( 1 )
     {
-      if ( (dword_1C02ED6E0[v37] & v34) != 0 )
+      if ( (dword_1C02F0B60[v37] & v34) != 0 )
       {
         v38 = (unsigned int)*v36;
-        if ( (dword_1C02ED6E0[v15] & v54) != 0 )
+        if ( (dword_1C02F0B60[v15] & v54) != 0 )
         {
           if ( !(_DWORD)v38 )
             goto LABEL_43;
@@ -201,8 +201,8 @@ LABEL_43:
   {
     v22 = *v18;
     ++v19;
-    v53 = v20 + 1;
-    if ( (v17 & dword_1C02ED6E0[v15]) != 0 )
+    v53 = v21 + 1;
+    if ( (v17 & dword_1C02F0B60[v15]) != 0 )
     {
       if ( !(_DWORD)v22 )
         goto LABEL_13;
@@ -215,10 +215,10 @@ LABEL_43:
       v23 = v58;
     }
     v16 += v22;
-    v24 = (int *)((char *)a2 + 4 * v21 + 16);
+    v24 = (int *)((char *)a2 + 4 * v20 + 16);
     for ( j = *v18; j; --j )
       *v24++ = v23;
-    v21 += v22;
+    v20 += v22;
 LABEL_13:
     ++v8;
     v26 = v10 + 1;
@@ -233,7 +233,7 @@ LABEL_13:
       v28 = v13;
     v10 = 0;
     v13 = v28;
-    v20 = v53;
+    v21 = v53;
     if ( (v26 & 0x20) == 0 )
       v10 = v26;
     v15 = 0LL;

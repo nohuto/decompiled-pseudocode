@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInterruptPowerChange @ 0x14051DF24
+ * XREFs of HalpInterruptPowerChange @ 0x1404D1974
  * Callers:
- *     HalpInterruptPowerComponentActiveCallback @ 0x14051DFC0 (HalpInterruptPowerComponentActiveCallback.c)
- *     HalpInterruptPowerComponentIdleCallback @ 0x14051DFE0 (HalpInterruptPowerComponentIdleCallback.c)
- *     HalpInterruptPowerCriticalTransitionCallback @ 0x14051E020 (HalpInterruptPowerCriticalTransitionCallback.c)
+ *     HalpInterruptPowerComponentActiveCallback @ 0x1404D1A10 (HalpInterruptPowerComponentActiveCallback.c)
+ *     HalpInterruptPowerComponentIdleCallback @ 0x1404D1A30 (HalpInterruptPowerComponentIdleCallback.c)
+ *     HalpInterruptPowerCriticalTransitionCallback @ 0x1404D1A70 (HalpInterruptPowerCriticalTransitionCallback.c)
  * Callees:
- *     HalpInterruptRestoreController @ 0x140396364 (HalpInterruptRestoreController.c)
- *     HalpInterruptInitializeController @ 0x1403AE924 (HalpInterruptInitializeController.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     HalpInterruptRestoreController @ 0x14038B5B0 (HalpInterruptRestoreController.c)
+ *     HalpInterruptInitializeController @ 0x1403A3658 (HalpInterruptInitializeController.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpInterruptPowerChange(ULONG_PTR BugCheckParameter3, char a2)
@@ -16,11 +16,11 @@ __int64 __fastcall HalpInterruptPowerChange(ULONG_PTR BugCheckParameter3, char a
   __int64 result; // rax
   int v5; // eax
 
-  v2 = *(_DWORD *)(BugCheckParameter3 + 232);
+  v2 = *(_DWORD *)(BugCheckParameter3 + 224);
   if ( a2 )
   {
     result = v2 & 0xFFFFFFFB;
-    *(_DWORD *)(BugCheckParameter3 + 232) = result;
+    *(_DWORD *)(BugCheckParameter3 + 224) = result;
     if ( (result & 2) == 0 )
     {
       v5 = HalpInterruptInitializeController(BugCheckParameter3);
@@ -34,7 +34,7 @@ __int64 __fastcall HalpInterruptPowerChange(ULONG_PTR BugCheckParameter3, char a
   else
   {
     result = v2 & 0xFFFFFFFA | 4;
-    *(_DWORD *)(BugCheckParameter3 + 232) = result;
+    *(_DWORD *)(BugCheckParameter3 + 224) = result;
   }
   return result;
 }

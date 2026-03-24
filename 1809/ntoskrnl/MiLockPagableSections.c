@@ -1,15 +1,15 @@
 /*
  * XREFs of MiLockPagableSections @ 0x1409BCE2C
  * Callers:
- *     MiCancelPhase0Locking @ 0x140653B2C (MiCancelPhase0Locking.c)
+ *     MiCancelPhase0Locking @ 0x140653B0C (MiCancelPhase0Locking.c)
  *     MiUnlockBootPageSections @ 0x1409BCD50 (MiUnlockBootPageSections.c)
  *     MiEnablePagingTheExecutive @ 0x1409BCDDC (MiEnablePagingTheExecutive.c)
  * Callees:
  *     MiLockPagableImageSection @ 0x14009ABB0 (MiLockPagableImageSection.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     MmLockPagableDataSection @ 0x140651680 (MmLockPagableDataSection.c)
- *     MiImagePagable @ 0x140653BA0 (MiImagePagable.c)
- *     MmImageSectionPagable @ 0x14065400C (MmImageSectionPagable.c)
+ *     MmLockPagableDataSection @ 0x140651660 (MmLockPagableDataSection.c)
+ *     MiImagePagable @ 0x140653B80 (MiImagePagable.c)
+ *     MmImageSectionPagable @ 0x140653FEC (MmImageSectionPagable.c)
  */
 
 void __fastcall MiLockPagableSections(_QWORD *a1, int a2)

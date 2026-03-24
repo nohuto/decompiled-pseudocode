@@ -1,16 +1,16 @@
 /*
- * XREFs of Crashdump_Command_SendCommand @ 0x1C004CA30
+ * XREFs of Crashdump_Command_SendCommand @ 0x1C004BFB0
  * Callers:
- *     Crashdump_Command_TestCommandRingOperation @ 0x1C004CDA8 (Crashdump_Command_TestCommandRingOperation.c)
- *     Crashdump_Endpoint_SetDequeuePointer @ 0x1C004D6F4 (Crashdump_Endpoint_SetDequeuePointer.c)
- *     Crashdump_Endpoint_StopEndpoint @ 0x1C004D7C0 (Crashdump_Endpoint_StopEndpoint.c)
- *     Crashdump_UsbDevice_ConfigureEndpoints @ 0x1C004DDA0 (Crashdump_UsbDevice_ConfigureEndpoints.c)
- *     Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C004E00C (Crashdump_UsbDevice_ConfigureEndpointsForSaveState.c)
- *     Crashdump_UsbDevice_SendAddressDeviceCommand @ 0x1C004EAEC (Crashdump_UsbDevice_SendAddressDeviceCommand.c)
- *     Crashdump_UsbDevice_SendEnableSlotCommand @ 0x1C004ED68 (Crashdump_UsbDevice_SendEnableSlotCommand.c)
- *     Crashdump_UsbDevice_SendResetDeviceCommand @ 0x1C004EE24 (Crashdump_UsbDevice_SendResetDeviceCommand.c)
+ *     Crashdump_Command_TestCommandRingOperation @ 0x1C004C328 (Crashdump_Command_TestCommandRingOperation.c)
+ *     Crashdump_Endpoint_SetDequeuePointer @ 0x1C004CC70 (Crashdump_Endpoint_SetDequeuePointer.c)
+ *     Crashdump_Endpoint_StopEndpoint @ 0x1C004CD3C (Crashdump_Endpoint_StopEndpoint.c)
+ *     Crashdump_UsbDevice_ConfigureEndpoints @ 0x1C004D31C (Crashdump_UsbDevice_ConfigureEndpoints.c)
+ *     Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C004D588 (Crashdump_UsbDevice_ConfigureEndpointsForSaveState.c)
+ *     Crashdump_UsbDevice_SendAddressDeviceCommand @ 0x1C004E070 (Crashdump_UsbDevice_SendAddressDeviceCommand.c)
+ *     Crashdump_UsbDevice_SendEnableSlotCommand @ 0x1C004E2EC (Crashdump_UsbDevice_SendEnableSlotCommand.c)
+ *     Crashdump_UsbDevice_SendResetDeviceCommand @ 0x1C004E3A8 (Crashdump_UsbDevice_SendResetDeviceCommand.c)
  * Callees:
- *     Crashdump_EventRing_Poll @ 0x1C004C3AC (Crashdump_EventRing_Poll.c)
+ *     Crashdump_EventRing_Poll @ 0x1C004B92C (Crashdump_EventRing_Poll.c)
  */
 
 __int64 __fastcall Crashdump_Command_SendCommand(__int64 a1, __int64 a2, _OWORD *a3)

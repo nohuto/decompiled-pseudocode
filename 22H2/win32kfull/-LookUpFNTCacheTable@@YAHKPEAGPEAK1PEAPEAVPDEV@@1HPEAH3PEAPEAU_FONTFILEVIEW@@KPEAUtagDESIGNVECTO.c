@@ -1,14 +1,14 @@
 /*
- * XREFs of ?LookUpFNTCacheTable@@YAHKPEAGPEAK1PEAPEAVPDEV@@1HPEAH3PEAPEAU_FONTFILEVIEW@@KPEAUtagDESIGNVECTOR@@K@Z @ 0x1C0114668
+ * XREFs of ?LookUpFNTCacheTable@@YAHKPEAGPEAK1PEAPEAVPDEV@@1HPEAH3PEAPEAU_FONTFILEVIEW@@KPEAUtagDESIGNVECTOR@@K@Z @ 0x1C00A7084
  * Callers:
- *     UmfdLoadFontFileView @ 0x1C0114178 (UmfdLoadFontFileView.c)
+ *     UmfdLoadFontFileView @ 0x1C00A6AA0 (UmfdLoadFontFileView.c)
  * Callees:
- *     SearchFNTCacheHlink @ 0x1C007611C (SearchFNTCacheHlink.c)
- *     ReadFileInfo @ 0x1C00A8560 (ReadFileInfo.c)
+ *     ReadFileInfo @ 0x1C00A66EC (ReadFileInfo.c)
+ *     SearchFNTCacheHlink @ 0x1C00A7224 (SearchFNTCacheHlink.c)
  */
 
 __int64 __fastcall LookUpFNTCacheTable(
-        Gre::Base *a1,
+        unsigned int a1,
         unsigned __int16 *a2,
         unsigned int *a3,
         unsigned int *a4,
@@ -22,137 +22,152 @@ __int64 __fastcall LookUpFNTCacheTable(
         struct tagDESIGNVECTOR *a12,
         unsigned int a13)
 {
-  unsigned int v13; // ebx
-  int *v14; // r14
-  unsigned int v18; // edi
-  __int64 v19; // rcx
-  __int64 v20; // r15
-  unsigned int v21; // ecx
-  __int64 v22; // rdx
+  struct PDEV **v13; // r13
+  unsigned int v14; // ebx
+  int *v15; // rsi
+  int *v17; // r14
+  __int64 v19; // r11
+  __int64 v21; // rcx
+  __int64 v22; // r8
   int v23; // eax
   struct tagDESIGNVECTOR *v24; // rdx
-  int v25; // esi
-  __int64 *v26; // r8
-  int *v27; // rdi
-  struct _FONTFILEVIEW **v28; // rsi
-  unsigned int v29; // ebp
-  unsigned int v30; // edx
-  _QWORD *v31; // rcx
-  struct _FONTFILEVIEW **v33; // rdx
-  _QWORD *v34; // r8
-  __int64 v35; // r9
-  _QWORD *v36; // rcx
-  __int64 v37; // rax
+  bool v25; // zf
+  struct PDEV **v26; // rdi
+  struct _FONTFILEVIEW **v27; // r14
+  unsigned int v28; // edx
+  _QWORD *v29; // rcx
+  unsigned int v30; // ecx
+  __int64 v32; // rax
+  unsigned __int64 v33; // r10
+  unsigned __int64 v34; // r9
+  struct _FONTFILEVIEW **v35; // rdx
+  _QWORD *v36; // r8
+  __int64 v37; // r9
+  _QWORD *v38; // rcx
+  __int64 v39; // rax
 
-  v13 = 0;
-  v14 = a9;
+  v13 = a5;
+  v14 = 0;
+  v15 = a9;
+  v17 = a8;
+  v19 = qword_1C0339BE8;
   *a3 = 0;
-  *a5 = 0LL;
-  *v14 = 0;
-  *a8 = 0;
-  v18 = (unsigned int)a1;
+  *v13 = 0LL;
+  *v15 = 0;
+  *v17 = 0;
   *a4 = 0;
-  Gre::Base::Globals(a1);
-  v20 = *(_QWORD *)(SGDGetSessionState(v19) + 32);
-  if ( *(_QWORD *)(v20 + 19392) )
+  if ( v19 )
   {
-    if ( !v18 )
-      return v13;
-    v21 = 0;
-    v22 = v18;
-    do
+    if ( !a1 )
+      return v14;
+    v21 = 0LL;
+    if ( a1 )
     {
-      v23 = *a2++;
-      v21 = v23 + 257 * v21;
-      --v22;
+      v22 = a1;
+      do
+      {
+        v23 = *a2++;
+        v21 = (unsigned int)(v23 + 257 * v21);
+        --v22;
+      }
+      while ( v22 );
     }
-    while ( v22 );
     v24 = a12;
     if ( a12 && a13 )
     {
-      while ( v24 < (struct tagDESIGNVECTOR *)((char *)a12 + 4 * ((unsigned __int64)a13 >> 2)) )
+      v33 = 0LL;
+      v34 = (unsigned __int64)a13 >> 2;
+      if ( a12 > (struct tagDESIGNVECTOR *)((char *)a12 + 4 * v34) )
+        v34 = 0LL;
+      if ( v34 )
       {
-        v21 = *(_DWORD *)v24 + 257 * v21;
-        v24 = (struct tagDESIGNVECTOR *)((char *)v24 + 4);
+        do
+        {
+          ++v33;
+          v21 = (unsigned int)(*(_DWORD *)v24 + 257 * v21);
+          v24 = (struct tagDESIGNVECTOR *)((char *)v24 + 4);
+        }
+        while ( v33 < v34 );
       }
     }
+    v25 = (dword_1C0339BE0 & 1) == 0;
     *a3 = v21;
-    v25 = *(_DWORD *)(v20 + 19384);
-    if ( (v25 & 1) != 0 )
+    if ( v25 )
     {
-      v26 = *(__int64 **)(v20 + 19392);
-      a9 = 0LL;
-      SearchFNTCacheHlink(v21, &a9, *v26);
-      v27 = a9;
-      if ( a9 )
+      if ( (unsigned int)ReadFileInfo((__int64 *)a10, a11) )
+        return v14;
+    }
+    else
+    {
+      a5 = 0LL;
+      SearchFNTCacheHlink(v21, &a5);
+      v26 = a5;
+      if ( a5 )
       {
-        if ( (a9[6] & 1) == 0 )
+        if ( ((_DWORD)a5[3] & 1) == 0 )
         {
-          if ( !a7 && (v25 & 4) != 0 )
+          if ( !a7 && (dword_1C0339BE0 & 4) != 0 )
           {
-            *a8 = 1;
+            *v17 = 1;
             if ( a11 )
             {
-              v33 = a10;
-              v34 = v27 + 10;
-              v35 = a11;
+              v35 = a10;
+              v36 = v26 + 5;
+              v37 = a11;
               do
               {
-                *((_DWORD *)*v33 + 6) = *((_DWORD *)v34 - 2);
-                v36 = *v33++;
-                v37 = *v34;
-                v34 += 2;
-                *v36 = v37;
-                --v35;
+                *((_DWORD *)*v35 + 6) = *((_DWORD *)v36 - 2);
+                v38 = *v35++;
+                v39 = *v36;
+                v36 += 2;
+                *v38 = v39;
+                --v37;
               }
-              while ( v35 );
+              while ( v37 );
             }
           }
           else
           {
-            v28 = a10;
-            v29 = a11;
+            v27 = a10;
             if ( (unsigned int)ReadFileInfo((__int64 *)a10, a11) )
             {
-              v30 = 0;
-              if ( v29 )
+              v28 = 0;
+              if ( a11 )
               {
-                v31 = v27 + 10;
-                while ( *((_DWORD *)*v28 + 6) == *((_DWORD *)v31 - 2) && *(_QWORD *)*v28 == *v31 )
+                v29 = v26 + 5;
+                while ( *((_DWORD *)*v27 + 6) == *((_DWORD *)v29 - 2) && *(_QWORD *)*v27 == *v29 )
                 {
-                  ++v30;
                   ++v28;
-                  v31 += 2;
-                  if ( v30 >= v29 )
-                    goto LABEL_17;
+                  ++v27;
+                  v29 += 2;
+                  if ( v28 >= a11 )
+                    goto LABEL_18;
                 }
+                v32 = qword_1C0339BE8;
                 *a3 = 0;
-                *(_DWORD *)(*(_QWORD *)(v20 + 19392) + 16LL) |= 2u;
+                *(_DWORD *)(v32 + 16) |= 2u;
                 return 0LL;
               }
             }
             else
             {
-              *v14 = 1;
+              *v15 = 1;
             }
           }
-LABEL_17:
-          v13 = 1;
-          *a4 = v27[1];
-          *a5 = *(struct PDEV **)(v20 + 8LL * *((unsigned __int16 *)v27 + 6) + 19416);
-          *a6 = *((unsigned __int16 *)v27 + 7);
+LABEL_18:
+          *a4 = *((_DWORD *)v26 + 1);
+          v14 = 1;
+          v30 = *((unsigned __int16 *)v26 + 7);
+          *v13 = (struct PDEV *)gaFntPDev[*((unsigned __int16 *)v26 + 6)];
+          *a6 = v30;
         }
-        return v13;
+        return v14;
       }
-      if ( (v25 & 4) == 0 )
-        return v13;
+      if ( (dword_1C0339BE0 & 4) == 0 )
+        return v14;
     }
-    else if ( (unsigned int)ReadFileInfo((__int64 *)a10, a11) )
-    {
-      return v13;
-    }
-    *v14 = 1;
-    return v13;
+    *v15 = 1;
+    return v14;
   }
   return 0LL;
 }

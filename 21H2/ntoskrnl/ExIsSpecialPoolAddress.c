@@ -1,19 +1,17 @@
 /*
- * XREFs of ExIsSpecialPoolAddress @ 0x140642384
+ * XREFs of ExIsSpecialPoolAddress @ 0x1405BA0C0
  * Callers:
- *     VfHandlePoolAlloc @ 0x140A90660 (VfHandlePoolAlloc.c)
- *     DifpExAllocatePoolWithQuota_LwSP_Exit @ 0x140AA6D90 (DifpExAllocatePoolWithQuota_LwSP_Exit.c)
- *     DifpExFreePoolWithTag_LwSP_Enter @ 0x140AA6DC0 (DifpExFreePoolWithTag_LwSP_Enter.c)
- *     DifpExFreePool_LwSP_Enter @ 0x140AA6DF0 (DifpExFreePool_LwSP_Enter.c)
- *     ExFreePoolSanityChecks @ 0x140AA7018 (ExFreePoolSanityChecks.c)
+ *     VfUtilIsSpecialPoolAddress @ 0x1409C68E0 (VfUtilIsSpecialPoolAddress.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D45D0 (VeAllocatePoolWithTagPriority.c)
+ *     ExFreePoolSanityChecks @ 0x1409ECF50 (ExFreePoolSanityChecks.c)
  * Callees:
- *     ExGetHeapFromVA @ 0x140366C48 (ExGetHeapFromVA.c)
- *     ExpHpIsSpecialPoolHeap @ 0x140461DE4 (ExpHpIsSpecialPoolHeap.c)
+ *     ExGetHeapFromVA @ 0x1402FAC7C (ExGetHeapFromVA.c)
+ *     ExpHpIsSpecialPoolHeap @ 0x1403CDD4C (ExpHpIsSpecialPoolHeap.c)
  */
 
 __int64 __fastcall ExIsSpecialPoolAddress(ULONG_PTR a1)
 {
-  unsigned __int64 HeapFromVA; // rax
+  __int64 HeapFromVA; // rax
 
   HeapFromVA = ExGetHeapFromVA(a1);
   return ExpHpIsSpecialPoolHeap(HeapFromVA);

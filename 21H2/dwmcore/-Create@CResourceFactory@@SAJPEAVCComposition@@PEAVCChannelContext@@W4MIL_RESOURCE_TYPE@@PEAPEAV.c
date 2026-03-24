@@ -1,2818 +1,2797 @@
 /*
- * XREFs of ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800BE0A8
+ * XREFs of ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2008
  * Callers:
- *     ?CreateEmptyResource@CResourceTable@@QEAAJPEAVCComposition@@PEAVCChannelContext@@PEBUtagMILCMD_CHANNEL_CREATERESOURCE@@PEAPEAVCResource@@@Z @ 0x1800BDEB8 (-CreateEmptyResource@CResourceTable@@QEAAJPEAVCComposition@@PEAVCChannelContext@@PEBUtagMILCMD_C.c)
+ *     ?CreateEmptyResource@CResourceTable@@QEAAJPEAVCComposition@@PEAVCChannelContext@@PEBUtagMILCMD_CHANNEL_CREATERESOURCE@@PEAPEAVCResource@@@Z @ 0x1800A1E44 (-CreateEmptyResource@CResourceTable@@QEAAJPEAVCComposition@@PEAVCChannelContext@@PEBUtagMILCMD_C.c)
  * Callees:
- *     ??0CWindowBackdropBrush@@IEAA@PEAVCComposition@@@Z @ 0x180019FD4 (--0CWindowBackdropBrush@@IEAA@PEAVCComposition@@@Z.c)
- *     ??2CWindowBackdropBrush@@KAPEAX_K@Z @ 0x18001A6C0 (--2CWindowBackdropBrush@@KAPEAX_K@Z.c)
- *     ??0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18001C6B8 (--0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CEffectBrush@@IEAA@PEAVCComposition@@@Z @ 0x180040500 (--0CEffectBrush@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CNineGridBrush@@QEAA@PEAVCComposition@@@Z @ 0x1800406C4 (--0CNineGridBrush@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CMaskBrush@@IEAA@PEAVCComposition@@@Z @ 0x180040C34 (--0CMaskBrush@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CLinearGradientBrush@@QEAA@PEAVCComposition@@@Z @ 0x180040E2C (--0CLinearGradientBrush@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CColorBrush@@QEAA@PEAVCComposition@@@Z @ 0x180041A78 (--0CColorBrush@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CAtlasedRectsGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x180042C8C (--0CAtlasedRectsGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z.c)
- *     ??0CSurfaceBrush@@QEAA@PEAVCComposition@@@Z @ 0x180043434 (--0CSurfaceBrush@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CSpriteVectorShape@@QEAA@PEAVCComposition@@@Z @ 0x180043AB0 (--0CSpriteVectorShape@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CContainerVectorShape@@QEAA@PEAVCComposition@@@Z @ 0x180043BAC (--0CContainerVectorShape@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CRenderData@@IEAA@PEAVCComposition@@@Z @ 0x180043CA0 (--0CRenderData@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z @ 0x180046514 (--0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CExpression@@QEAA@PEAVCComposition@@@Z @ 0x180046720 (--0CExpression@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CResource@@IEAA@PEAVCComposition@@@Z @ 0x180049D98 (--0CResource@@IEAA@PEAVCComposition@@@Z.c)
- *     ??2KeyframeInterpolation@@SAPEAX_K@Z @ 0x18004D79C (--2KeyframeInterpolation@@SAPEAX_K@Z.c)
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18004F61C (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ??2CKeyframeAnimation@@SAPEAX_K@Z @ 0x18004F904 (--2CKeyframeAnimation@@SAPEAX_K@Z.c)
- *     ??0CGdiSpriteBitmap@@IEAA@PEAVCComposition@@@Z @ 0x1800628F4 (--0CGdiSpriteBitmap@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CCachedVisualImage@@IEAA@PEAVCComposition@@_N@Z @ 0x180063908 (--0CCachedVisualImage@@IEAA@PEAVCComposition@@_N@Z.c)
- *     ??0CCompositionSurfaceBitmap@@IEAA@PEAVCComposition@@@Z @ 0x180063AB4 (--0CCompositionSurfaceBitmap@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CBitmapResource@@IEAA@PEAVCComposition@@PEAVIBitmapRealization@@@Z @ 0x180063BC8 (--0CBitmapResource@@IEAA@PEAVCComposition@@PEAVIBitmapRealization@@@Z.c)
- *     ??0CVisualSurface@@QEAA@PEAVCComposition@@@Z @ 0x180063DD4 (--0CVisualSurface@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CWindowNode@@IEAA@PEAVCComposition@@@Z @ 0x1800648C0 (--0CWindowNode@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CAnimationLoggingManager@@QEAA@PEAVCComposition@@@Z @ 0x180065068 (--0CAnimationLoggingManager@@QEAA@PEAVCComposition@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??0CVisual@@IEAA@PEAVCComposition@@@Z @ 0x180088200 (--0CVisual@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1800CDC6C (--0CAnimation@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CBaseAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1800CDD08 (--0CBaseAnimation@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CCombinedGeometry@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x1800CE144 (--0CCombinedGeometry@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z.c)
- *     ??0CGeometry@@IEAA@PEAVCComposition@@@Z @ 0x1800CE650 (--0CGeometry@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CManipulationTransform@@IEAA@PEAVCComposition@@@Z @ 0x1800DBD7C (--0CManipulationTransform@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CComponentTransform3D@@IEAA@PEAVCComposition@@@Z @ 0x1800DBE14 (--0CComponentTransform3D@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CComponentTransform2D@@QEAA@PEAVCComposition@@@Z @ 0x1800DBF38 (--0CComponentTransform2D@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CTransform3D@@IEAA@PEAVCComposition@@_N@Z @ 0x1800DBFB0 (--0CTransform3D@@IEAA@PEAVCComposition@@_N@Z.c)
- *     ??0CPropertySet@@QEAA@PEAVCComposition@@@Z @ 0x1800DC140 (--0CPropertySet@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CPrimitiveGroup@@IEAA@PEAVCComposition@@@Z @ 0x1800DF118 (--0CPrimitiveGroup@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CDesktopTree@@IEAA@PEAVCComposition@@@Z @ 0x1800DF880 (--0CDesktopTree@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CInteraction@@IEAA@PEAVCComposition@@@Z @ 0x1800E0380 (--0CInteraction@@IEAA@PEAVCComposition@@@Z.c)
- *     ??2CProxyGeometry@@KAPEAX_K@Z @ 0x1800E92C4 (--2CProxyGeometry@@KAPEAX_K@Z.c)
- *     ??2CSpriteVectorShape@@SAPEAX_K@Z @ 0x1800EA264 (--2CSpriteVectorShape@@SAPEAX_K@Z.c)
- *     ??2CSpriteVisual@@SAPEAX_K@Z @ 0x1800EA9DC (--2CSpriteVisual@@SAPEAX_K@Z.c)
- *     ??2CScaleTransform@@KAPEAX_K@Z @ 0x1800EB1C8 (--2CScaleTransform@@KAPEAX_K@Z.c)
- *     ??2CSurfaceBrush@@SAPEAX_K@Z @ 0x1800EB25C (--2CSurfaceBrush@@SAPEAX_K@Z.c)
- *     ??0CCompositionAmbientLight@@QEAA@PEAVCComposition@@@Z @ 0x1800EC2EC (--0CCompositionAmbientLight@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CCompositionDistantLight@@QEAA@PEAVCComposition@@@Z @ 0x1800EC340 (--0CCompositionDistantLight@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CCompositionSpotLight@@QEAA@PEAVCComposition@@@Z @ 0x1800EC3A8 (--0CCompositionSpotLight@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CDropShadow@@QEAA@PEAVCComposition@@@Z @ 0x1800ED1CC (--0CDropShadow@@QEAA@PEAVCComposition@@@Z.c)
- *     ??2CColorBrush@@SAPEAX_K@Z @ 0x1800ED454 (--2CColorBrush@@SAPEAX_K@Z.c)
- *     ??2CWindowNode@@KAPEAX_K@Z @ 0x1800EDA9C (--2CWindowNode@@KAPEAX_K@Z.c)
- *     ??0CBackdropBrush@@IEAA@PEAVCComposition@@@Z @ 0x1800EF35C (--0CBackdropBrush@@IEAA@PEAVCComposition@@@Z.c)
- *     ??2CPrimitiveGroup@@KAPEAX_K@Z @ 0x1800EF5C4 (--2CPrimitiveGroup@@KAPEAX_K@Z.c)
- *     ??2CRectangleGeometry@@KAPEAX_K@Z @ 0x1800EF638 (--2CRectangleGeometry@@KAPEAX_K@Z.c)
- *     ??2CCompositionSurfaceBitmap@@KAPEAX_K@Z @ 0x1800EF9F8 (--2CCompositionSurfaceBitmap@@KAPEAX_K@Z.c)
- *     ??2CSolidColorLegacyMilBrush@@KAPEAX_K@Z @ 0x1800EFC90 (--2CSolidColorLegacyMilBrush@@KAPEAX_K@Z.c)
- *     ??2CSharedSection@@KAPEAX_K@Z @ 0x1800F19D0 (--2CSharedSection@@KAPEAX_K@Z.c)
- *     ??2CCachedVisualImage@@KAPEAX_K@Z @ 0x1800F356C (--2CCachedVisualImage@@KAPEAX_K@Z.c)
- *     ??2CPathGeometry@@SAPEAX_K@Z @ 0x1800F44AC (--2CPathGeometry@@SAPEAX_K@Z.c)
- *     ??2CVisualReferenceController@@KAPEAX_K@Z @ 0x1800F8158 (--2CVisualReferenceController@@KAPEAX_K@Z.c)
- *     ??2CDesktopTree@@KAPEAX_K@Z @ 0x1800F8D30 (--2CDesktopTree@@KAPEAX_K@Z.c)
- *     ??2CTranslateTransform@@KAPEAX_K@Z @ 0x1800F8D54 (--2CTranslateTransform@@KAPEAX_K@Z.c)
- *     ??0CRemoteRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1800FD574 (--0CRemoteRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??2CSceneMetallicRoughnessMaterial@@SAPEAX_K@Z @ 0x180111F40 (--2CSceneMetallicRoughnessMaterial@@SAPEAX_K@Z.c)
- *     ??2CHueRotationEffect@@KAPEAX_K@Z @ 0x180111F70 (--2CHueRotationEffect@@KAPEAX_K@Z.c)
- *     ??2CParticleVector2Behavior@@CAPEAX_K@Z @ 0x18017BCB8 (--2CParticleVector2Behavior@@CAPEAX_K@Z.c)
- *     ??0?$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@IEAA@PEAVCComposition@@@Z @ 0x18019C350 (--0-$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@IEAA@PEAVCComp.c)
- *     ??0CArithmeticCompositeEffect@@IEAA@PEAVCComposition@@@Z @ 0x18019C3E8 (--0CArithmeticCompositeEffect@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CBlurredWallpaperBackdropBrush@@IEAA@PEAVCComposition@@@Z @ 0x18019C424 (--0CBlurredWallpaperBackdropBrush@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CBrightnessEffect@@IEAA@PEAVCComposition@@@Z @ 0x18019C4D0 (--0CBrightnessEffect@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18019C514 (--0CCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CColorMatrixEffect@@IEAA@PEAVCComposition@@@Z @ 0x18019C6E8 (--0CColorMatrixEffect@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18019C760 (--0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CFilterEffect@@IEAA@PEAVCComposition@@@Z @ 0x18019C948 (--0CFilterEffect@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CFloodEffect@@IEAA@PEAVCComposition@@@Z @ 0x18019C9B0 (--0CFloodEffect@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CGaussianBlurEffect@@IEAA@PEAVCComposition@@@Z @ 0x18019C9EC (--0CGaussianBlurEffect@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CGenericInk@@QEAA@PEAVCComposition@@@Z @ 0x18019CA28 (--0CGenericInk@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CGeometry2DGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x18019CB70 (--0CGeometry2DGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z.c)
- *     ??0CGeometryGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x18019CC0C (--0CGeometryGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z.c)
- *     ??0CIndirectSwapchainRenderTarget@@AEAA@PEAVCComposition@@@Z @ 0x18019CC8C (--0CIndirectSwapchainRenderTarget@@AEAA@PEAVCComposition@@@Z.c)
- *     ??0CInk@@QEAA@PEAVCComposition@@@Z @ 0x18019CE14 (--0CInk@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CLegacyStereoRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18019CF04 (--0CLegacyStereoRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CNaturalAnimation@@QEAA@PEAVCComposition@@@Z @ 0x18019D02C (--0CNaturalAnimation@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CParticleVector3Behavior@@AEAA@PEAVCComposition@@@Z @ 0x18019D09C (--0CParticleVector3Behavior@@AEAA@PEAVCComposition@@@Z.c)
- *     ??0CParticleVector4Behavior@@AEAA@PEAVCComposition@@@Z @ 0x18019D0F4 (--0CParticleVector4Behavior@@AEAA@PEAVCComposition@@@Z.c)
- *     ??0CRadialGradientBrush@@QEAA@PEAVCComposition@@@Z @ 0x18019D14C (--0CRadialGradientBrush@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CSceneMetallicRoughnessMaterial@@QEAA@PEAVCComposition@@@Z @ 0x18019D24C (--0CSceneMetallicRoughnessMaterial@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CShadowEffect@@IEAA@PEAVCComposition@@@Z @ 0x18019D2C4 (--0CShadowEffect@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CSnapshot@@IEAA@PEAVCComposition@@@Z @ 0x18019D308 (--0CSnapshot@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CTransform3DGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x18019D3C4 (--0CTransform3DGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z.c)
- *     ??0CTransformGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x18019D44C (--0CTransformGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z.c)
- *     ??0CViewBox@@QEAA@PEAVCComposition@@@Z @ 0x18019D4D4 (--0CViewBox@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CVirtualMonitorCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18019D514 (--0CVirtualMonitorCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CVisualBitmap@@IEAA@PEAVCComposition@@@Z @ 0x18019D630 (--0CVisualBitmap@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CYCbCrSurface@@IEAA@PEAVCComposition@@@Z @ 0x18019D714 (--0CYCbCrSurface@@IEAA@PEAVCComposition@@@Z.c)
- *     ??2CAnimationTrigger@@SAPEAX_K@Z @ 0x18019DE74 (--2CAnimationTrigger@@SAPEAX_K@Z.c)
- *     ??2CCaptureController@@CAPEAX_K@Z @ 0x18019DEA4 (--2CCaptureController@@CAPEAX_K@Z.c)
- *     ??2CBrightnessEffect@@KAPEAX_K@Z @ 0x18019DED4 (--2CBrightnessEffect@@KAPEAX_K@Z.c)
- *     ??2CBrush@@KAPEAX_K@Z @ 0x18019DF04 (--2CBrush@@KAPEAX_K@Z.c)
- *     ??2CCaptureRenderTarget@@KAPEAX_K@Z @ 0x18019DF34 (--2CCaptureRenderTarget@@KAPEAX_K@Z.c)
- *     ??2CClipBrush@@KAPEAX_K@Z @ 0x18019DF64 (--2CClipBrush@@KAPEAX_K@Z.c)
- *     ??2CColorMatrixEffect@@KAPEAX_K@Z @ 0x18019DF94 (--2CColorMatrixEffect@@KAPEAX_K@Z.c)
- *     ??2CCompositionPointLight@@SAPEAX_K@Z @ 0x18019DFC4 (--2CCompositionPointLight@@SAPEAX_K@Z.c)
- *     ??2CConditionalExpression@@SAPEAX_K@Z @ 0x18019DFF4 (--2CConditionalExpression@@SAPEAX_K@Z.c)
- *     ??2CLegacyAnimationTrigger@@SAPEAX_K@Z @ 0x18019E024 (--2CLegacyAnimationTrigger@@SAPEAX_K@Z.c)
- *     ??2CCursorVisual@@KAPEAX_K@Z @ 0x18019E054 (--2CCursorVisual@@KAPEAX_K@Z.c)
- *     ??2CDDisplayRenderTarget@@KAPEAX_K@Z @ 0x18019E084 (--2CDDisplayRenderTarget@@KAPEAX_K@Z.c)
- *     ??2CDataSourceReader@@SAPEAX_K@Z @ 0x18019E0B4 (--2CDataSourceReader@@SAPEAX_K@Z.c)
- *     ??2CProjectedShadow@@SAPEAX_K@Z @ 0x18019E0E4 (--2CProjectedShadow@@SAPEAX_K@Z.c)
- *     ??2CGeometryGroup@@KAPEAX_K@Z @ 0x18019E114 (--2CGeometryGroup@@KAPEAX_K@Z.c)
- *     ??2CInteractionTrackerBindingManager@@SAPEAX_K@Z @ 0x18019E144 (--2CInteractionTrackerBindingManager@@SAPEAX_K@Z.c)
- *     ??2CHolographicExclusiveView@@CAPEAX_K@Z @ 0x18019E174 (--2CHolographicExclusiveView@@CAPEAX_K@Z.c)
- *     ??2CHolographicInteropTexture@@KAPEAX_K@Z @ 0x18019E1A4 (--2CHolographicInteropTexture@@KAPEAX_K@Z.c)
- *     ??2CIndirectSwapchainRenderTarget@@SAPEAX_K@Z @ 0x18019E1D4 (--2CIndirectSwapchainRenderTarget@@SAPEAX_K@Z.c)
- *     ??2CRemoteAppRenderTarget@@KAPEAX_K@Z @ 0x18019E204 (--2CRemoteAppRenderTarget@@KAPEAX_K@Z.c)
- *     ??2CInteractionTracker@@SAPEAX_K@Z @ 0x18019E234 (--2CInteractionTracker@@SAPEAX_K@Z.c)
- *     ??2CLegacyStereoRenderTarget@@KAPEAX_K@Z @ 0x18019E264 (--2CLegacyStereoRenderTarget@@KAPEAX_K@Z.c)
- *     ??2CBspNode@@SAPEAX_K@Z @ 0x18019E294 (--2CBspNode@@SAPEAX_K@Z.c)
- *     ??2CLineGeometry@@SAPEAX_K@Z @ 0x18019E2C4 (--2CLineGeometry@@SAPEAX_K@Z.c)
- *     ??2CLinearGradientLegacyMilBrush@@KAPEAX_K@Z @ 0x18019E2F4 (--2CLinearGradientLegacyMilBrush@@KAPEAX_K@Z.c)
- *     ??2CLinearTransferEffect@@KAPEAX_K@Z @ 0x18019E324 (--2CLinearTransferEffect@@KAPEAX_K@Z.c)
- *     ??2CMagnifierRenderTarget@@CAPEAX_K@Z @ 0x18019E354 (--2CMagnifierRenderTarget@@CAPEAX_K@Z.c)
- *     ??2CManipulation@@KAPEAX_K@Z @ 0x18019E384 (--2CManipulation@@KAPEAX_K@Z.c)
- *     ??2CNaturalAnimation@@SAPEAX_K@Z @ 0x18019E3B4 (--2CNaturalAnimation@@SAPEAX_K@Z.c)
- *     ??2CParticleAttractor@@SAPEAX_K@Z @ 0x18019E3E4 (--2CParticleAttractor@@SAPEAX_K@Z.c)
- *     ??2CParticleEmitterVisual@@CAPEAX_K@Z @ 0x18019E414 (--2CParticleEmitterVisual@@CAPEAX_K@Z.c)
- *     ??2CParticleGenerator@@CAPEAX_K@Z @ 0x18019E444 (--2CParticleGenerator@@CAPEAX_K@Z.c)
- *     ??2CPrimitiveColor@@KAPEAX_K@Z @ 0x18019E474 (--2CPrimitiveColor@@KAPEAX_K@Z.c)
- *     ??2CSceneModelTransform@@SAPEAX_K@Z @ 0x18019E4A4 (--2CSceneModelTransform@@SAPEAX_K@Z.c)
- *     ??2CSceneVisual@@SAPEAX_K@Z @ 0x18019E4D4 (--2CSceneVisual@@SAPEAX_K@Z.c)
- *     ??2CTableTransferEffect@@KAPEAX_K@Z @ 0x18019E504 (--2CTableTransferEffect@@KAPEAX_K@Z.c)
- *     ??2CTransform3DGroup@@KAPEAX_K@Z @ 0x18019E534 (--2CTransform3DGroup@@KAPEAX_K@Z.c)
- *     ??2CTurbulenceEffect@@KAPEAX_K@Z @ 0x18019E564 (--2CTurbulenceEffect@@KAPEAX_K@Z.c)
- *     ??2CViewBox@@SAPEAX_K@Z @ 0x18019E594 (--2CViewBox@@SAPEAX_K@Z.c)
- *     ??2CVirtualMonitorCaptureRenderTarget@@KAPEAX_K@Z @ 0x18019E5C4 (--2CVirtualMonitorCaptureRenderTarget@@KAPEAX_K@Z.c)
- *     ??2CVisualCapture@@SAPEAX_K@Z @ 0x18019E5F4 (--2CVisualCapture@@SAPEAX_K@Z.c)
- *     ??0CRemoteAppRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1801C1DD8 (--0CRemoteAppRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CMagnifierRenderTarget@@AEAA@PEAVCComposition@@@Z @ 0x1801C7500 (--0CMagnifierRenderTarget@@AEAA@PEAVCComposition@@@Z.c)
- *     ??0CManipulation@@IEAA@PEAVCComposition@@@Z @ 0x1801F39CC (--0CManipulation@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CProjectedShadowCaster@@QEAA@PEAVCComposition@@@Z @ 0x180201238 (--0CProjectedShadowCaster@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CSceneVisual@@QEAA@PEAVCComposition@@@Z @ 0x1802024D8 (--0CSceneVisual@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CClipBrush@@IEAA@PEAVCComposition@@@Z @ 0x18020A8A4 (--0CClipBrush@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CCompositionPointLight@@QEAA@PEAVCComposition@@@Z @ 0x18020D9D4 (--0CCompositionPointLight@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CCompositionSkyBoxBrush@@QEAA@PEAVCComposition@@@Z @ 0x18020E1BC (--0CCompositionSkyBoxBrush@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CConditionalExpression@@QEAA@PEAVCComposition@@@Z @ 0x1802106CC (--0CConditionalExpression@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CCursorVisual@@IEAA@PEAVCComposition@@@Z @ 0x180211A6C (--0CCursorVisual@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CInjectionAnimation@@QEAA@PEAVCComposition@@@Z @ 0x180217138 (--0CInjectionAnimation@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CInteractionTracker@@QEAA@PEAVCComposition@@@Z @ 0x1802186E4 (--0CInteractionTracker@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CInteractionTrackerBindingManager@@QEAA@PEAVCComposition@@@Z @ 0x18021F52C (--0CInteractionTrackerBindingManager@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CLinearTransferEffect@@IEAA@PEAVCComposition@@@Z @ 0x180223CBC (--0CLinearTransferEffect@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CMeshGeometry2D@@IEAA@PEAVCComposition@@@Z @ 0x180224E48 (--0CMeshGeometry2D@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CParticleEmitter@@QEAA@PEAVCComposition@@@Z @ 0x18022B470 (--0CParticleEmitter@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CParticleEmitterVisual@@QEAA@PEAVCComposition@@@Z @ 0x18022D114 (--0CParticleEmitterVisual@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CProjectedShadow@@QEAA@PEAVCComposition@@@Z @ 0x18023270C (--0CProjectedShadow@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CProjectedShadowScene@@QEAA@PEAVCComposition@@@Z @ 0x180235EE8 (--0CProjectedShadowScene@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CSceneMesh@@QEAA@PEAVCComposition@@@Z @ 0x18023B9FC (--0CSceneMesh@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CSceneMeshRendererComponent@@QEAA@PEAVCComposition@@@Z @ 0x18023C2A0 (--0CSceneMeshRendererComponent@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CSceneSurfaceMaterialInput@@QEAA@PEAVCComposition@@@Z @ 0x18023E67C (--0CSceneSurfaceMaterialInput@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CSynchronousSuperWetInk@@QEAA@PEAVCComposition@@@Z @ 0x180240968 (--0CSynchronousSuperWetInk@@QEAA@PEAVCComposition@@@Z.c)
- *     ??0CTableTransferEffect@@IEAA@PEAVCComposition@@@Z @ 0x180241FD8 (--0CTableTransferEffect@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0?$CTextVisualGeneratedT@VCTextVisual@@VCVisual@@@@IEAA@PEAVCComposition@@@Z @ 0x180242698 (--0-$CTextVisualGeneratedT@VCTextVisual@@VCVisual@@@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CTurbulenceEffect@@IEAA@PEAVCComposition@@@Z @ 0x180242D2C (--0CTurbulenceEffect@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CVisualCapture@@QEAA@PEAVCComposition@@@Z @ 0x18024348C (--0CVisualCapture@@QEAA@PEAVCComposition@@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
- *     ??0CHolographicDisplay@@IEAA@PEAVCComposition@@@Z @ 0x1802982D4 (--0CHolographicDisplay@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CHolographicExclusiveMode@@IEAA@PEAVCComposition@@@Z @ 0x1802987E0 (--0CHolographicExclusiveMode@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CHolographicExclusiveView@@AEAA@PEAVCComposition@@@Z @ 0x180298B84 (--0CHolographicExclusiveView@@AEAA@PEAVCComposition@@@Z.c)
- *     ??0CHolographicInteropTarget@@IEAA@PEAVCComposition@@@Z @ 0x1802997C4 (--0CHolographicInteropTarget@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CHolographicInteropTexture@@IEAA@PEAVCComposition@@@Z @ 0x18029A8E8 (--0CHolographicInteropTexture@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CHolographicViewer@@IEAA@PEAVCComposition@@@Z @ 0x18029C580 (--0CHolographicViewer@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CProjectedShadowScene@@QEAA@PEAVCComposition@@@Z @ 0x18000D1F8 (--0CProjectedShadowScene@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CWindowBackdropBrush@@IEAA@PEAVCComposition@@@Z @ 0x18001AE94 (--0CWindowBackdropBrush@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CTransformGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x18001B18C (--0CTransformGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z.c)
+ *     ??0CProjectedShadow@@QEAA@PEAVCComposition@@@Z @ 0x18001CDB8 (--0CProjectedShadow@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??2CWindowBackdropBrush@@KAPEAX_K@Z @ 0x18001DB2C (--2CWindowBackdropBrush@@KAPEAX_K@Z.c)
+ *     ??0?$TValueResource@UMilSizeD@@UtagMILCMD_SIZERESOURCE@@$0KM@@@IEAA@PEAVCComposition@@@Z @ 0x18001E22C (--0-$TValueResource@UMilSizeD@@UtagMILCMD_SIZERESOURCE@@$0KM@@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CProjectedShadowCaster@@QEAA@PEAVCComposition@@@Z @ 0x18001EBEC (--0CProjectedShadowCaster@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??2CTransformGroup@@KAPEAX_K@Z @ 0x18001FD74 (--2CTransformGroup@@KAPEAX_K@Z.c)
+ *     ??2CProjectedShadowScene@@SAPEAX_K@Z @ 0x18001FF98 (--2CProjectedShadowScene@@SAPEAX_K@Z.c)
+ *     ??2CProjectedShadow@@SAPEAX_K@Z @ 0x18002029C (--2CProjectedShadow@@SAPEAX_K@Z.c)
+ *     ??2CProjectedShadowReceiver@@SAPEAX_K@Z @ 0x1800202C0 (--2CProjectedShadowReceiver@@SAPEAX_K@Z.c)
+ *     ??2CScaleTransform@@KAPEAX_K@Z @ 0x1800202E4 (--2CScaleTransform@@KAPEAX_K@Z.c)
+ *     ??0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x180025F2C (--0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCompositionDistantLight@@QEAA@PEAVCComposition@@@Z @ 0x180029B94 (--0CCompositionDistantLight@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCompositionSpotLight@@QEAA@PEAVCComposition@@@Z @ 0x180029BF4 (--0CCompositionSpotLight@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCompositionAmbientLight@@QEAA@PEAVCComposition@@@Z @ 0x180029CC0 (--0CCompositionAmbientLight@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCachedVisualImage@@IEAA@PEAVCComposition@@@Z @ 0x180032728 (--0CCachedVisualImage@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CAnimationLoggingManager@@QEAA@PEAVCComposition@@@Z @ 0x180034028 (--0CAnimationLoggingManager@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CBitmapResource@@IEAA@PEAVCComposition@@PEAVIBitmapRealization@@@Z @ 0x18003459C (--0CBitmapResource@@IEAA@PEAVCComposition@@PEAVIBitmapRealization@@@Z.c)
+ *     ??0CWindowNode@@IEAA@PEAVCComposition@@@Z @ 0x180035700 (--0CWindowNode@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CGdiSpriteBitmap@@IEAA@PEAVCComposition@@@Z @ 0x180036368 (--0CGdiSpriteBitmap@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCompositionSurfaceBitmap@@IEAA@PEAVCComposition@@@Z @ 0x1800367A8 (--0CCompositionSurfaceBitmap@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CAtlasedRectsGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x180036978 (--0CAtlasedRectsGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CRenderData@@IEAA@PEAVCComposition@@@Z @ 0x1800618EC (--0CRenderData@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CMaskBrush@@IEAA@PEAVCComposition@@@Z @ 0x180061A74 (--0CMaskBrush@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CSurfaceBrush@@QEAA@PEAVCComposition@@@Z @ 0x180061BF8 (--0CSurfaceBrush@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     ??0CExpression@@QEAA@PEAVCComposition@@@Z @ 0x180062760 (--0CExpression@@QEAA@PEAVCComposition@@@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F358 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??0CVisual@@IEAA@PEAVCComposition@@@Z @ 0x1800A0DD8 (--0CVisual@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CResource@@IEAA@PEAVCComposition@@@Z @ 0x1800A0F68 (--0CResource@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??2CSolidColorLegacyMilBrush@@KAPEAX_K@Z @ 0x1800AC200 (--2CSolidColorLegacyMilBrush@@KAPEAX_K@Z.c)
+ *     ??2KeyframeInterpolation@@SAPEAX_K@Z @ 0x1800AC380 (--2KeyframeInterpolation@@SAPEAX_K@Z.c)
+ *     ??0CColorBrush@@QEAA@PEAVCComposition@@@Z @ 0x1800B4D08 (--0CColorBrush@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1800BBD18 (--0CAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CBaseAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1800BBDB4 (--0CBaseAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CManipulationTransform@@IEAA@PEAVCComposition@@@Z @ 0x1800C84AC (--0CManipulationTransform@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CComponentTransform3D@@IEAA@PEAVCComposition@@@Z @ 0x1800C8544 (--0CComponentTransform3D@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CComponentTransform2D@@QEAA@PEAVCComposition@@@Z @ 0x1800C8668 (--0CComponentTransform2D@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CTransform3D@@IEAA@PEAVCComposition@@_N@Z @ 0x1800C86E0 (--0CTransform3D@@IEAA@PEAVCComposition@@_N@Z.c)
+ *     ??0CSolidColorLegacyMilBrush@@IEAA@PEAVCComposition@@@Z @ 0x1800CBE00 (--0CSolidColorLegacyMilBrush@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CGeometry@@IEAA@PEAVCComposition@@@Z @ 0x1800CBE40 (--0CGeometry@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CPrimitiveGroup@@IEAA@PEAVCComposition@@@Z @ 0x1800CC73C (--0CPrimitiveGroup@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CEffectBrush@@IEAA@PEAVCComposition@@@Z @ 0x1800CFB60 (--0CEffectBrush@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??2CPropertySet@@SAPEAX_K@Z @ 0x1800D1924 (--2CPropertySet@@SAPEAX_K@Z.c)
+ *     ??0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1800D1E24 (--0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CNineGridBrush@@QEAA@PEAVCComposition@@@Z @ 0x1800D32D4 (--0CNineGridBrush@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??2CSpriteVisual@@SAPEAX_K@Z @ 0x1800D34A8 (--2CSpriteVisual@@SAPEAX_K@Z.c)
+ *     ??2CSurfaceBrush@@SAPEAX_K@Z @ 0x1800D600C (--2CSurfaceBrush@@SAPEAX_K@Z.c)
+ *     ??2CWindowNode@@KAPEAX_K@Z @ 0x1800D8034 (--2CWindowNode@@KAPEAX_K@Z.c)
+ *     ??2CColorBrush@@SAPEAX_K@Z @ 0x1800D8924 (--2CColorBrush@@SAPEAX_K@Z.c)
+ *     ??2CCompositionSurfaceBitmap@@KAPEAX_K@Z @ 0x1800D90A0 (--2CCompositionSurfaceBitmap@@KAPEAX_K@Z.c)
+ *     ??2CRectangleGeometry@@KAPEAX_K@Z @ 0x1800D93AC (--2CRectangleGeometry@@KAPEAX_K@Z.c)
+ *     ??0CBackdropBrush@@IEAA@PEAVCComposition@@@Z @ 0x1800D95D8 (--0CBackdropBrush@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??2CPrimitiveGroup@@KAPEAX_K@Z @ 0x1800D9F58 (--2CPrimitiveGroup@@KAPEAX_K@Z.c)
+ *     ??2CSharedSection@@KAPEAX_K@Z @ 0x1800DCEF8 (--2CSharedSection@@KAPEAX_K@Z.c)
+ *     ??2CCachedVisualImage@@KAPEAX_K@Z @ 0x1800DD60C (--2CCachedVisualImage@@KAPEAX_K@Z.c)
+ *     ??2CVisualReferenceController@@KAPEAX_K@Z @ 0x1800DD9D0 (--2CVisualReferenceController@@KAPEAX_K@Z.c)
+ *     ??2CRedirectVisual@@SAPEAX_K@Z @ 0x1800DFA24 (--2CRedirectVisual@@SAPEAX_K@Z.c)
+ *     ??0CDesktopTree@@IEAA@PEAVCComposition@@@Z @ 0x1800DFA78 (--0CDesktopTree@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??2CTranslateTransform@@KAPEAX_K@Z @ 0x1800E0160 (--2CTranslateTransform@@KAPEAX_K@Z.c)
+ *     ??2CDesktopTree@@KAPEAX_K@Z @ 0x1800E05B4 (--2CDesktopTree@@KAPEAX_K@Z.c)
+ *     ??0CInteraction@@IEAA@PEAVCComposition@@@Z @ 0x1800E0C2C (--0CInteraction@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CDropShadow@@QEAA@PEAVCComposition@@@Z @ 0x1800E19AC (--0CDropShadow@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CRemoteRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1800E3DF0 (--0CRemoteRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CVisualGroup@@AEAA@PEAVCComposition@@@Z @ 0x1800E4DA0 (--0CVisualGroup@@AEAA@PEAVCComposition@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??0?$CScaleTransform3DGeneratedT@VCScaleTransform3D@@VCTransform3D@@@@IEAA@PEAVCComposition@@@Z @ 0x18016A060 (--0-$CScaleTransform3DGeneratedT@VCScaleTransform3D@@VCTransform3D@@@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0?$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@IEAA@PEAVCComposition@@@Z @ 0x18016A0B8 (--0-$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@IEAA@PEAVCComp.c)
+ *     ??0CArithmeticCompositeEffect@@IEAA@PEAVCComposition@@@Z @ 0x18016A184 (--0CArithmeticCompositeEffect@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CBrightnessEffect@@IEAA@PEAVCComposition@@@Z @ 0x18016A1C0 (--0CBrightnessEffect@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18016A204 (--0CCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CColorMatrixEffect@@IEAA@PEAVCComposition@@@Z @ 0x18016A3DC (--0CColorMatrixEffect@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCombinedGeometry@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x18016A454 (--0CCombinedGeometry@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z.c)
+ *     ??0CCompositionGlyphRun@@QEAA@PEAVCComposition@@@Z @ 0x18016A4D0 (--0CCompositionGlyphRun@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCompositionTextLine@@QEAA@PEAVCComposition@@@Z @ 0x18016A588 (--0CCompositionTextLine@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CContainerVectorShape@@QEAA@PEAVCComposition@@@Z @ 0x18016A648 (--0CContainerVectorShape@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18016A710 (--0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CFilterEffect@@IEAA@PEAVCComposition@@@Z @ 0x18016A8F0 (--0CFilterEffect@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CFloodEffect@@IEAA@PEAVCComposition@@@Z @ 0x18016A958 (--0CFloodEffect@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CGaussianBlurEffect@@IEAA@PEAVCComposition@@@Z @ 0x18016A994 (--0CGaussianBlurEffect@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CGenericInk@@QEAA@PEAVCComposition@@@Z @ 0x18016A9D0 (--0CGenericInk@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CGeometry2DGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x18016AB34 (--0CGeometry2DGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z.c)
+ *     ??0CGeometryGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x18016ABC8 (--0CGeometryGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z.c)
+ *     ??0CIndirectSwapchainRenderTarget@@AEAA@PEAVCComposition@@@Z @ 0x18016AC44 (--0CIndirectSwapchainRenderTarget@@AEAA@PEAVCComposition@@@Z.c)
+ *     ??0CInk@@QEAA@PEAVCComposition@@@Z @ 0x18016ADC4 (--0CInk@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CLegacyStereoRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18016AEB0 (--0CLegacyStereoRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CNaturalAnimation@@QEAA@PEAVCComposition@@@Z @ 0x18016AFD8 (--0CNaturalAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CPrimitiveGroupLayerClip@@IEAA@PEAVCComposition@@@Z @ 0x18016B048 (--0CPrimitiveGroupLayerClip@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CRadialGradientBrush@@QEAA@PEAVCComposition@@@Z @ 0x18016B118 (--0CRadialGradientBrush@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CSceneMetallicRoughnessMaterial@@QEAA@PEAVCComposition@@@Z @ 0x18016B20C (--0CSceneMetallicRoughnessMaterial@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CShadowEffect@@IEAA@PEAVCComposition@@@Z @ 0x18016B330 (--0CShadowEffect@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CSnapshot@@IEAA@PEAVCComposition@@@Z @ 0x18016B374 (--0CSnapshot@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CSpriteVectorShape@@QEAA@PEAVCComposition@@@Z @ 0x18016B428 (--0CSpriteVectorShape@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CTransform3DGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x18016B598 (--0CTransform3DGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z.c)
+ *     ??0CViewBox@@QEAA@PEAVCComposition@@@Z @ 0x18016B64C (--0CViewBox@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CVirtualMonitorCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18016B68C (--0CVirtualMonitorCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CVisualSurface@@QEAA@PEAVCComposition@@@Z @ 0x18016B7A0 (--0CVisualSurface@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CYCbCrSurface@@IEAA@PEAVCComposition@@@Z @ 0x18016B804 (--0CYCbCrSurface@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??2CAnimationTrigger@@SAPEAX_K@Z @ 0x18016BE4C (--2CAnimationTrigger@@SAPEAX_K@Z.c)
+ *     ??2CSceneMetallicRoughnessMaterial@@SAPEAX_K@Z @ 0x18016BE7C (--2CSceneMetallicRoughnessMaterial@@SAPEAX_K@Z.c)
+ *     ??2CContainerVectorShape@@SAPEAX_K@Z @ 0x18016BEAC (--2CContainerVectorShape@@SAPEAX_K@Z.c)
+ *     ??2CBrightnessEffect@@KAPEAX_K@Z @ 0x18016BEDC (--2CBrightnessEffect@@KAPEAX_K@Z.c)
+ *     ??2CBrush@@KAPEAX_K@Z @ 0x18016BF0C (--2CBrush@@KAPEAX_K@Z.c)
+ *     ??2CCaptureController@@CAPEAX_K@Z @ 0x18016BF3C (--2CCaptureController@@CAPEAX_K@Z.c)
+ *     ??2CCaptureRenderTarget@@KAPEAX_K@Z @ 0x18016BF6C (--2CCaptureRenderTarget@@KAPEAX_K@Z.c)
+ *     ??2CClipBrush@@KAPEAX_K@Z @ 0x18016BF9C (--2CClipBrush@@KAPEAX_K@Z.c)
+ *     ??2CLinearGradientBrush@@SAPEAX_K@Z @ 0x18016BFCC (--2CLinearGradientBrush@@SAPEAX_K@Z.c)
+ *     ??2CCombinedGeometry@@KAPEAX_K@Z @ 0x18016BFFC (--2CCombinedGeometry@@KAPEAX_K@Z.c)
+ *     ??2CCompositionPointLight@@SAPEAX_K@Z @ 0x18016C02C (--2CCompositionPointLight@@SAPEAX_K@Z.c)
+ *     ??2CConditionalExpression@@SAPEAX_K@Z @ 0x18016C05C (--2CConditionalExpression@@SAPEAX_K@Z.c)
+ *     ??2CCrossContainerGuestReadWriteSharedSection@@CAPEAX_K@Z @ 0x18016C08C (--2CCrossContainerGuestReadWriteSharedSection@@CAPEAX_K@Z.c)
+ *     ??2CCursorVisual@@SAPEAX_K@Z @ 0x18016C0BC (--2CCursorVisual@@SAPEAX_K@Z.c)
+ *     ??2CLegacyStereoRenderTarget@@KAPEAX_K@Z @ 0x18016C0EC (--2CLegacyStereoRenderTarget@@KAPEAX_K@Z.c)
+ *     ??2CDataSourceReader@@SAPEAX_K@Z @ 0x18016C11C (--2CDataSourceReader@@SAPEAX_K@Z.c)
+ *     ??2CEllipseGeometry@@SAPEAX_K@Z @ 0x18016C14C (--2CEllipseGeometry@@SAPEAX_K@Z.c)
+ *     ??2CHolographicExclusiveView@@CAPEAX_K@Z @ 0x18016C17C (--2CHolographicExclusiveView@@CAPEAX_K@Z.c)
+ *     ??2CHolographicInteropTarget@@KAPEAX_K@Z @ 0x18016C1AC (--2CHolographicInteropTarget@@KAPEAX_K@Z.c)
+ *     ??2CHolographicInteropTexture@@KAPEAX_K@Z @ 0x18016C1DC (--2CHolographicInteropTexture@@KAPEAX_K@Z.c)
+ *     ??2CIndirectSwapchainRenderTarget@@SAPEAX_K@Z @ 0x18016C20C (--2CIndirectSwapchainRenderTarget@@SAPEAX_K@Z.c)
+ *     ??2CInjectionAnimation@@SAPEAX_K@Z @ 0x18016C23C (--2CInjectionAnimation@@SAPEAX_K@Z.c)
+ *     ??2CInteractionTracker@@SAPEAX_K@Z @ 0x18016C26C (--2CInteractionTracker@@SAPEAX_K@Z.c)
+ *     ??2CLegacyVisualCaptureRenderTarget@@CAPEAX_K@Z @ 0x18016C29C (--2CLegacyVisualCaptureRenderTarget@@CAPEAX_K@Z.c)
+ *     ??2CLinearGradientLegacyMilBrush@@KAPEAX_K@Z @ 0x18016C2CC (--2CLinearGradientLegacyMilBrush@@KAPEAX_K@Z.c)
+ *     ??2CLinearTransferEffect@@KAPEAX_K@Z @ 0x18016C2FC (--2CLinearTransferEffect@@KAPEAX_K@Z.c)
+ *     ??2CLocalAppRenderTarget@@KAPEAX_K@Z @ 0x18016C32C (--2CLocalAppRenderTarget@@KAPEAX_K@Z.c)
+ *     ??2CMagnifierRenderTarget@@CAPEAX_K@Z @ 0x18016C35C (--2CMagnifierRenderTarget@@CAPEAX_K@Z.c)
+ *     ??2CManipulation@@KAPEAX_K@Z @ 0x18016C38C (--2CManipulation@@KAPEAX_K@Z.c)
+ *     ??2CNaturalAnimation@@SAPEAX_K@Z @ 0x18016C3BC (--2CNaturalAnimation@@SAPEAX_K@Z.c)
+ *     ??2CParticleAttractor@@SAPEAX_K@Z @ 0x18016C3EC (--2CParticleAttractor@@SAPEAX_K@Z.c)
+ *     ??2CParticleVector2Behavior@@CAPEAX_K@Z @ 0x18016C41C (--2CParticleVector2Behavior@@CAPEAX_K@Z.c)
+ *     ??2CParticleEmitterVisual@@CAPEAX_K@Z @ 0x18016C44C (--2CParticleEmitterVisual@@CAPEAX_K@Z.c)
+ *     ??2CParticleGenerator@@CAPEAX_K@Z @ 0x18016C47C (--2CParticleGenerator@@CAPEAX_K@Z.c)
+ *     ??2CPrimitiveGroupLayerClip@@KAPEAX_K@Z @ 0x18016C4AC (--2CPrimitiveGroupLayerClip@@KAPEAX_K@Z.c)
+ *     ??2CSharedSectionWrapper@@KAPEAX_K@Z @ 0x18016C4DC (--2CSharedSectionWrapper@@KAPEAX_K@Z.c)
+ *     ??2CRemoteAppRenderTarget@@KAPEAX_K@Z @ 0x18016C50C (--2CRemoteAppRenderTarget@@KAPEAX_K@Z.c)
+ *     ??2CBspNode@@SAPEAX_K@Z @ 0x18016C53C (--2CBspNode@@SAPEAX_K@Z.c)
+ *     ??2CSceneVisual@@SAPEAX_K@Z @ 0x18016C56C (--2CSceneVisual@@SAPEAX_K@Z.c)
+ *     ??2CInteractionTrackerPositionAnimation@@SAPEAX_K@Z @ 0x18016C59C (--2CInteractionTrackerPositionAnimation@@SAPEAX_K@Z.c)
+ *     ??2CSpriteVectorShape@@SAPEAX_K@Z @ 0x18016C5CC (--2CSpriteVectorShape@@SAPEAX_K@Z.c)
+ *     ??2CTableTransferEffect@@KAPEAX_K@Z @ 0x18016C5FC (--2CTableTransferEffect@@KAPEAX_K@Z.c)
+ *     ??2CTransform3DGroup@@KAPEAX_K@Z @ 0x18016C62C (--2CTransform3DGroup@@KAPEAX_K@Z.c)
+ *     ??2CTurbulenceEffect@@KAPEAX_K@Z @ 0x18016C65C (--2CTurbulenceEffect@@KAPEAX_K@Z.c)
+ *     ??2CVirtualMonitorCaptureRenderTarget@@KAPEAX_K@Z @ 0x18016C68C (--2CVirtualMonitorCaptureRenderTarget@@KAPEAX_K@Z.c)
+ *     ??2CVisualCapture@@SAPEAX_K@Z @ 0x18016C6BC (--2CVisualCapture@@SAPEAX_K@Z.c)
+ *     ??0CRemoteAppRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x180185EB0 (--0CRemoteAppRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CLocalAppRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18018A6EC (--0CLocalAppRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CMagnifierRenderTarget@@AEAA@PEAVCComposition@@@Z @ 0x18018B16C (--0CMagnifierRenderTarget@@AEAA@PEAVCComposition@@@Z.c)
+ *     ??0CClipBrush@@IEAA@PEAVCComposition@@@Z @ 0x1801B7934 (--0CClipBrush@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCompositionPointLight@@QEAA@PEAVCComposition@@@Z @ 0x1801BAE44 (--0CCompositionPointLight@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCompositionSkyBoxBrush@@QEAA@PEAVCComposition@@@Z @ 0x1801BB5B0 (--0CCompositionSkyBoxBrush@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CConditionalExpression@@QEAA@PEAVCComposition@@@Z @ 0x1801BD364 (--0CConditionalExpression@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CHwndBitmap@@IEAA@PEAVCComposition@@@Z @ 0x1801C4204 (--0CHwndBitmap@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CInjectionAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1801C4C04 (--0CInjectionAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CInteractionTracker@@QEAA@PEAVCComposition@@@Z @ 0x1801C76F8 (--0CInteractionTracker@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CInteractionTrackerBindingManager@@QEAA@PEAVCComposition@@@Z @ 0x1801CE24C (--0CInteractionTrackerBindingManager@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CLinearGradientBrush@@QEAA@PEAVCComposition@@@Z @ 0x1801D27CC (--0CLinearGradientBrush@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CLinearTransferEffect@@IEAA@PEAVCComposition@@@Z @ 0x1801D2FF0 (--0CLinearTransferEffect@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CManipulation@@IEAA@PEAVCComposition@@@Z @ 0x1801D3FCC (--0CManipulation@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CMeshGeometry2D@@IEAA@PEAVCComposition@@@Z @ 0x1801D6870 (--0CMeshGeometry2D@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CParticleEmitter@@QEAA@PEAVCComposition@@@Z @ 0x1801DC5CC (--0CParticleEmitter@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CParticleEmitterVisual@@QEAA@PEAVCComposition@@@Z @ 0x1801DE100 (--0CParticleEmitterVisual@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CSceneMesh@@QEAA@PEAVCComposition@@@Z @ 0x1801E8B14 (--0CSceneMesh@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CSceneMeshRendererComponent@@QEAA@PEAVCComposition@@@Z @ 0x1801E95AC (--0CSceneMeshRendererComponent@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0?$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@IEAA@PEAVCComposition@@@Z @ 0x1801EB650 (--0-$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CSceneSurfaceMaterialInput@@QEAA@PEAVCComposition@@@Z @ 0x1801EBF68 (--0CSceneSurfaceMaterialInput@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CSceneVisual@@QEAA@PEAVCComposition@@@Z @ 0x1801EC3A4 (--0CSceneVisual@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CSpatialRemarshaler@@QEAA@PEAVCComposition@@@Z @ 0x1801ECBBC (--0CSpatialRemarshaler@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CSynchronousSuperWetInk@@QEAA@PEAVCComposition@@@Z @ 0x1801EF3C4 (--0CSynchronousSuperWetInk@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CTableTransferEffect@@IEAA@PEAVCComposition@@@Z @ 0x1801F0988 (--0CTableTransferEffect@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0?$CTextVisualGeneratedT@VCTextVisual@@VCVisual@@@@IEAA@PEAVCComposition@@@Z @ 0x1801F0FDC (--0-$CTextVisualGeneratedT@VCTextVisual@@VCVisual@@@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CTurbulenceEffect@@IEAA@PEAVCComposition@@@Z @ 0x1801F1308 (--0CTurbulenceEffect@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CVisualCapture@@QEAA@PEAVCComposition@@@Z @ 0x1801F19E0 (--0CVisualCapture@@QEAA@PEAVCComposition@@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
+ *     ??0CHolographicDisplay@@IEAA@PEAVCComposition@@@Z @ 0x1802563E4 (--0CHolographicDisplay@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CHolographicExclusiveMode@@IEAA@PEAVCComposition@@@Z @ 0x1802568B0 (--0CHolographicExclusiveMode@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CHolographicExclusiveView@@AEAA@PEAVCComposition@@@Z @ 0x180256C58 (--0CHolographicExclusiveView@@AEAA@PEAVCComposition@@@Z.c)
+ *     ??0CHolographicInteropTarget@@IEAA@PEAVCComposition@@@Z @ 0x1802577E4 (--0CHolographicInteropTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CHolographicInteropTexture@@IEAA@PEAVCComposition@@@Z @ 0x1802585AC (--0CHolographicInteropTexture@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CHolographicViewer@@IEAA@PEAVCComposition@@@Z @ 0x180259F7C (--0CHolographicViewer@@IEAA@PEAVCComposition@@@Z.c)
  */
 
 __int64 __fastcall CResourceFactory::Create(
         struct CComposition *a1,
         struct CChannelContext *a2,
         unsigned int a3,
-        CResource **a4)
+        __int64 *a4)
 {
   unsigned int v7; // esi
   unsigned int v8; // r8d
   unsigned int v9; // r8d
-  unsigned int v10; // r8d
-  unsigned int v11; // r8d
-  CArithmeticCompositeEffect *v12; // rax
-  unsigned __int64 *v13; // rcx
-  CLegacyRenderTarget *v14; // rax
-  CResource *v15; // rax
-  CResource *v16; // rbx
-  void **v17; // rax
-  CAnimationLoggingManager *v18; // rax
-  CAnimation *v19; // rax
-  CFilterEffect *v20; // rax
-  CAtlasedRectsGroup *v21; // rax
-  struct CChannelContext *v22; // r8
-  unsigned int v23; // r8d
-  unsigned int v24; // r8d
-  unsigned int v25; // r8d
-  CFilterEffect *v26; // rax
-  CBitmapResource *v27; // rax
-  CBackdropBrush *v28; // rax
-  CResource *v29; // rax
-  CBlurredWallpaperBackdropBrush *v30; // rax
+  CVisual *v10; // rax
+  CProjectedShadowCaster *v11; // rax
+  void **v12; // rcx
+  __int64 v13; // rbx
+  unsigned int v15; // r8d
+  _DWORD *v16; // rax
+  unsigned int v17; // r8d
+  _DWORD *v18; // rax
+  unsigned int v19; // r8d
+  unsigned int v20; // r8d
+  unsigned int v21; // r8d
+  unsigned int v22; // r8d
+  CExpression *v23; // rax
+  CVisual *v24; // rax
+  void **v25; // rax
+  unsigned int v26; // r8d
+  CComponentTransform2D *v27; // rax
+  unsigned int v28; // r8d
+  CMaskBrush *v29; // rax
+  unsigned int v30; // r8d
   unsigned int v31; // r8d
   unsigned int v32; // r8d
   unsigned int v33; // r8d
   unsigned int v34; // r8d
-  CClipBrush *v35; // rax
-  CCaptureRenderTarget *v36; // rax
-  CResource *v37; // rax
-  CCachedVisualImage *v38; // rax
-  CBrightnessEffect *v39; // rax
-  CColorBrush *v40; // rax
+  unsigned int v35; // r8d
+  CRenderData *v36; // rax
+  unsigned int v37; // r8d
+  unsigned int v38; // r8d
+  CSurfaceBrush *v39; // rax
+  unsigned int v40; // r8d
   unsigned int v41; // r8d
-  unsigned int v42; // r8d
+  CKeyframeAnimation *v42; // rax
   unsigned int v43; // r8d
-  void *v44; // rax
-  CResource *v45; // rax
-  void **v46; // rax
-  CColorMatrixEffect *v47; // rax
-  CResource *v48; // rax
-  CCombinedGeometry *v49; // rax
+  unsigned int v44; // r8d
+  unsigned int v45; // r8d
+  unsigned int v46; // r8d
+  unsigned int v47; // r8d
+  unsigned int v48; // r8d
+  CWindowNode *v49; // rax
   unsigned int v50; // r8d
-  unsigned int v51; // r8d
-  unsigned int v52; // r8d
-  unsigned int v53; // r8d
-  CCompositionAmbientLight *v54; // rax
-  CFilterEffect *v55; // rax
-  CComponentTransform3D *v56; // rax
-  CComponentTransform2D *v57; // rax
-  CResource *v58; // rax
-  void **v59; // rax
-  CResource *v60; // rax
+  CComponentTransform3D *v51; // rax
+  CAtlasedRectsGroup *v52; // rax
+  struct CChannelContext *v53; // r8
+  unsigned int v54; // r8d
+  unsigned int v55; // r8d
+  unsigned int v56; // r8d
+  unsigned int v57; // r8d
+  CColorBrush *v58; // rax
+  _DWORD *v59; // rax
+  CGeometry *v60; // rax
   unsigned int v61; // r8d
-  unsigned int v62; // r8d
+  _DWORD *v62; // rax
   unsigned int v63; // r8d
-  CCompositionPointLight *v64; // rax
-  CResource *v65; // rax
-  CResource *v66; // rax
-  CCompositionDistantLight *v67; // rax
-  CCompositionSkyBoxBrush *v68; // rax
+  CCompositionSurfaceBitmap *v64; // rax
+  unsigned int v65; // r8d
+  unsigned int v66; // r8d
+  CGeometry *v67; // rax
+  unsigned int v68; // r8d
   unsigned int v69; // r8d
-  unsigned int v70; // r8d
-  unsigned int v71; // r8d
+  CAnimation *v70; // rax
+  CPrimitiveGroup *v71; // rax
   unsigned int v72; // r8d
-  unsigned int v73; // r8d
+  CVisual *v73; // rax
   unsigned int v74; // r8d
   unsigned int v75; // r8d
   unsigned int v76; // r8d
-  CDDisplayRenderTarget *v77; // rax
-  CResource *v78; // rax
-  CCursorVisual *v79; // rax
-  CResource *v80; // rax
-  CContainerVectorShape *v81; // rax
-  CConditionalExpression *v82; // rax
-  CResource *v83; // rax
-  CCompositionSurfaceBitmap *v84; // rax
-  CCompositionSpotLight *v85; // rax
-  CDesktopTree *v86; // rax
-  unsigned int v87; // r8d
+  unsigned int v77; // r8d
+  CInteraction *v78; // rax
+  CInteraction *v79; // rax
+  unsigned int v80; // r8d
+  unsigned int v81; // r8d
+  unsigned int v82; // r8d
+  unsigned int v83; // r8d
+  unsigned int v84; // r8d
+  unsigned int v85; // r8d
+  unsigned int v86; // r8d
+  CSolidColorLegacyMilBrush *v87; // rax
   unsigned int v88; // r8d
-  unsigned int v89; // r8d
+  CAnimationLoggingManager *v89; // rax
   unsigned int v90; // r8d
-  CExpression *v91; // rax
-  CResource *v92; // rax
-  void **v93; // rax
-  CResource *v94; // rax
-  CEffectBrush *v95; // rax
-  CDropShadow *v96; // rax
-  CResource *v97; // rax
+  unsigned int v91; // r8d
+  CBitmapResource *v92; // rax
+  CManipulationTransform *v93; // rax
+  unsigned int v94; // r8d
+  unsigned int v95; // r8d
+  _DWORD *v96; // rax
+  CEffectBrush *v97; // rax
   unsigned int v98; // r8d
-  unsigned int v99; // r8d
+  CNineGridBrush *v99; // rax
   unsigned int v100; // r8d
-  CGenericInk *v101; // rax
+  unsigned int v101; // r8d
   CGdiSpriteBitmap *v102; // rax
-  CGaussianBlurEffect *v103; // rax
-  CFloodEffect *v104; // rax
-  CGeometry2DGroup *v105; // rax
-  unsigned int v106; // r8d
-  unsigned int v107; // r8d
-  unsigned int v108; // r8d
-  unsigned int v109; // r8d
+  _DWORD *v103; // rax
+  CResource *v104; // rax
+  CCachedVisualImage *v105; // rax
+  CResource *v106; // rax
+  CBackdropBrush *v107; // rax
+  char *v108; // rax
+  CWindowBackdropBrush *v109; // rax
   unsigned int v110; // r8d
   unsigned int v111; // r8d
-  unsigned int v112; // r8d
-  unsigned int v113; // r8d
-  char *v114; // rax
-  CHolographicViewer *v115; // rax
-  CHolographicInteropTexture *v116; // rax
-  CHolographicInteropTarget *v117; // rax
-  CHolographicExclusiveView *v118; // rax
-  CHolographicExclusiveMode *v119; // rax
-  CHolographicDisplay *v120; // rax
-  CResource *v121; // rax
-  void **v122; // rax
-  CGeometryGroup *v123; // rax
-  CFilterEffect *v124; // rax
+  CCompositionAmbientLight *v112; // rax
+  CVisual *v113; // rax
+  CCompositionSpotLight *v114; // rax
+  unsigned int v115; // r8d
+  unsigned int v116; // r8d
+  CTransform3D *v117; // rax
+  CCompositionDistantLight *v118; // rax
+  CDropShadow *v119; // rax
+  unsigned int v120; // r8d
+  _DWORD *v121; // rax
+  unsigned int v122; // r8d
+  unsigned int v123; // r8d
+  unsigned int v124; // r8d
   unsigned int v125; // r8d
   unsigned int v126; // r8d
   unsigned int v127; // r8d
   unsigned int v128; // r8d
-  CInteraction *v129; // rax
-  CInk *v130; // rax
-  CInjectionAnimation *v131; // rax
-  CIndirectSwapchainRenderTarget *v132; // rax
-  char *v133; // rax
-  CInteractionTracker *v134; // rax
+  unsigned int v129; // r8d
+  _DWORD *v130; // rax
+  _DWORD *v131; // rax
+  void **v132; // rax
+  unsigned int v133; // r8d
+  unsigned int v134; // r8d
   unsigned int v135; // r8d
   unsigned int v136; // r8d
-  unsigned int v137; // r8d
-  CResource *v138; // rax
-  CVisual *v139; // rax
-  CKeyframeAnimation *v140; // rax
-  CInteractionTrackerBindingManager *v141; // rax
-  CLegacyRenderTarget *v142; // rax
+  CProjectedShadowScene *v137; // rax
+  _DWORD *v138; // rax
+  LPVOID v139; // rax
+  CTransformGroup *v140; // rax
+  unsigned int v141; // r8d
+  unsigned int v142; // r8d
   unsigned int v143; // r8d
   unsigned int v144; // r8d
   unsigned int v145; // r8d
   unsigned int v146; // r8d
   unsigned int v147; // r8d
-  unsigned int v148; // r8d
-  unsigned int v149; // r8d
-  unsigned int v150; // r8d
-  CManipulationTransform *v151; // rax
-  CManipulation *v152; // rax
-  CMagnifierRenderTarget *v153; // rax
-  CResource *v154; // rax
-  CLinearTransferEffect *v155; // rax
-  CResource *v156; // rax
-  CLinearGradientBrush *v157; // rax
-  CResource *v158; // rax
-  CLegacyStereoRenderTarget *v159; // rax
-  CMaskBrush *v160; // rax
-  unsigned int v161; // r8d
-  unsigned int v162; // r8d
-  unsigned int v163; // r8d
-  unsigned int v164; // r8d
-  CNaturalAnimation *v165; // rax
-  CMeshGeometry2D *v166; // rax
-  CResource *v167; // rax
-  CResource *v168; // rax
-  CResource *v169; // rax
-  CNineGridBrush *v170; // rax
-  unsigned int v171; // r8d
-  unsigned int v172; // r8d
-  unsigned int v173; // r8d
-  CResource *v174; // rax
-  void **v175; // rax
-  CResource *v176; // rax
-  CResource *v177; // rax
-  CResource *v178; // rax
-  CParticleEmitter *v179; // rax
-  unsigned int v180; // r8d
-  unsigned int v181; // r8d
-  unsigned int v182; // r8d
-  unsigned int v183; // r8d
-  unsigned int v184; // r8d
-  unsigned int v185; // r8d
-  unsigned int v186; // r8d
-  unsigned int v187; // r8d
-  CResource *v188; // rax
-  CResource *v189; // rax
-  CGeometry *v190; // rax
-  CParticleVector4Behavior *v191; // rax
-  CParticleVector3Behavior *v192; // rax
-  CResource *v193; // rax
-  CResource *v194; // rax
-  char *v195; // rax
-  CParticleEmitterVisual *v196; // rax
-  CPrimitiveGroup *v197; // rax
-  unsigned int v198; // r8d
-  unsigned int v199; // r8d
-  unsigned int v200; // r8d
-  unsigned int v201; // r8d
-  CResource *v202; // rax
-  CProjectedShadowScene *v203; // rax
-  CResource *v204; // rax
-  CProjectedShadowCaster *v205; // rax
-  CProjectedShadow *v206; // rax
-  CPropertySet *v207; // rax
-  unsigned int v208; // r8d
-  unsigned int v209; // r8d
-  unsigned int v210; // r8d
-  CResource *v211; // rax
-  CGeometry *v212; // rax
-  CRadialGradientBrush *v213; // rax
-  CGeometry *v214; // rax
-  CResource *v215; // rax
+  CDesktopTree *v148; // rax
+  CLegacyRenderTarget *v149; // rax
+  _DWORD *v150; // rax
+  _DWORD *v151; // rax
+  CProjectedShadowCaster *v152; // rax
+  unsigned int v153; // r8d
+  _DWORD *v154; // rax
+  CRemoteRenderTarget *v155; // rax
+  unsigned int v156; // r8d
+  CArithmeticCompositeEffect *v157; // rax
+  _DWORD *v158; // rax
+  CFilterEffect *v159; // rax
+  CFilterEffect *v160; // rax
+  CBrightnessEffect *v161; // rax
+  CClipBrush *v162; // rax
+  CCaptureRenderTarget *v163; // rax
+  _DWORD *v164; // rax
+  _DWORD *v165; // rax
+  unsigned int v166; // r8d
+  unsigned int v167; // r8d
+  unsigned int v168; // r8d
+  CCombinedGeometry *v169; // rax
+  LPVOID v170; // rax
+  _DWORD *v171; // rax
+  CColorMatrixEffect *v172; // rax
+  _DWORD *v173; // rax
+  CFilterEffect *v174; // rax
+  unsigned int v175; // r8d
+  unsigned int v176; // r8d
+  unsigned int v177; // r8d
+  CCompositionSkyBoxBrush *v178; // rax
+  CCompositionPointLight *v179; // rax
+  _DWORD *v180; // rax
+  CCompositionGlyphRun *v181; // rax
+  CDDisplayRenderTarget *v182; // rax
+  _DWORD *v183; // rax
+  CVisual *v184; // rax
+  _DWORD *v185; // rax
+  CContainerVectorShape *v186; // rax
+  CConditionalExpression *v187; // rax
+  CCompositionTextLine *v188; // rax
+  _DWORD *v189; // rax
+  CFloodEffect *v190; // rax
+  unsigned int v191; // r8d
+  CGeometry2DGroup *v192; // rax
+  CGenericInk *v193; // rax
+  CGaussianBlurEffect *v194; // rax
+  CGeometryGroup *v195; // rax
+  CFilterEffect *v196; // rax
+  CHolographicViewer *v197; // rax
+  CHolographicInteropTexture *v198; // rax
+  CHolographicInteropTarget *v199; // rax
+  CHolographicExclusiveView *v200; // rax
+  CHolographicExclusiveMode *v201; // rax
+  CHolographicDisplay *v202; // rax
+  _DWORD *v203; // rax
+  void **v204; // rax
+  CHwndBitmap *v205; // rax
+  CInk *v206; // rax
+  CInjectionAnimation *v207; // rax
+  CIndirectSwapchainRenderTarget *v208; // rax
+  CInteractionTracker *v209; // rax
+  CInteractionTrackerBindingManager *v210; // rax
+  unsigned int v211; // r8d
+  unsigned int v212; // r8d
+  unsigned int v213; // r8d
+  unsigned int v214; // r8d
+  unsigned int v215; // r8d
   unsigned int v216; // r8d
   unsigned int v217; // r8d
   unsigned int v218; // r8d
-  unsigned int v219; // r8d
-  unsigned int v220; // r8d
-  unsigned int v221; // r8d
-  unsigned int v222; // r8d
-  unsigned int v223; // r8d
-  CBaseAnimation *v224; // rax
-  CFilterEffect *v225; // rax
-  CResource *v226; // rax
-  CResource *v227; // rax
-  CRenderData *v228; // rax
-  CRemoteRenderTarget *v229; // rax
-  CRemoteAppRenderTarget *v230; // rax
-  CGeometry *v231; // rax
-  CVisual *v232; // rax
-  CResource *v233; // rax
-  unsigned int v234; // r8d
-  unsigned int v235; // r8d
-  unsigned int v236; // r8d
-  unsigned int v237; // r8d
-  CResource *v238; // rax
-  CSceneMetallicRoughnessMaterial *v239; // rax
-  CSceneMeshRendererComponent *v240; // rax
-  CSceneMesh *v241; // rax
-  CResource *v242; // rax
-  CResource *v243; // rax
-  unsigned int v244; // r8d
-  unsigned int v245; // r8d
-  unsigned int v246; // r8d
-  CVisual *v247; // rax
-  CShadowEffect *v248; // rax
-  CSceneVisual *v249; // rax
-  CSceneSurfaceMaterialInput *v250; // rax
-  CResource *v251; // rax
-  unsigned int v252; // r8d
-  unsigned int v253; // r8d
-  unsigned int v254; // r8d
-  unsigned int v255; // r8d
-  unsigned int v256; // r8d
-  unsigned int v257; // r8d
-  unsigned int v258; // r8d
-  unsigned int v259; // r8d
-  CVisual *v260; // rax
-  CSpriteVectorShape *v261; // rax
-  CResource *v262; // rax
-  CResource *v263; // rax
-  CSnapshot *v264; // rax
-  CTransform3D *v265; // rax
-  CResource *v266; // rax
-  CResource *v267; // rax
-  CResource *v268; // rax
-  CVisual *v269; // rax
-  unsigned int v270; // r8d
-  unsigned int v271; // r8d
-  unsigned int v272; // r8d
-  unsigned int v273; // r8d
-  CTransform3DGroup *v274; // rax
-  CResource *v275; // rax
-  CTableTransferEffect *v276; // rax
-  CSynchronousSuperWetInk *v277; // rax
-  CSurfaceBrush *v278; // rax
-  CTransformGroup *v279; // rax
-  unsigned int v280; // r8d
-  unsigned int v281; // r8d
+  CManipulation *v219; // rax
+  CMagnifierRenderTarget *v220; // rax
+  CLocalAppRenderTarget *v221; // rax
+  _DWORD *v222; // rax
+  CLinearTransferEffect *v223; // rax
+  _DWORD *v224; // rax
+  CLinearGradientBrush *v225; // rax
+  _DWORD *v226; // rax
+  CLegacyStereoRenderTarget *v227; // rax
+  CMeshGeometry2D *v228; // rax
+  char *v229; // rax
+  CNaturalAnimation *v230; // rax
+  unsigned int v231; // r8d
+  unsigned int v232; // r8d
+  _DWORD *v233; // rax
+  _DWORD *v234; // rax
+  _DWORD *v235; // rax
+  _DWORD *v236; // rax
+  void **v237; // rax
+  unsigned int v238; // r8d
+  unsigned int v239; // r8d
+  unsigned int v240; // r8d
+  unsigned int v241; // r8d
+  _DWORD *v242; // rax
+  _DWORD *v243; // rax
+  char *v244; // rax
+  CParticleEmitterVisual *v245; // rax
+  CParticleEmitter *v246; // rax
+  _DWORD *v247; // rax
+  unsigned int v248; // r8d
+  unsigned int v249; // r8d
+  unsigned int v250; // r8d
+  char *v251; // rax
+  _DWORD *v252; // rax
+  CGeometry *v253; // rax
+  _DWORD *v254; // rax
+  CProjectedShadow *v255; // rax
+  CPrimitiveGroupLayerClip *v256; // rax
+  _DWORD *v257; // rax
+  CRadialGradientBrush *v258; // rax
+  CGeometry *v259; // rax
+  char *v260; // rax
+  unsigned int v261; // r8d
+  CFilterEffect *v262; // rax
+  _DWORD *v263; // rax
+  CRemoteAppRenderTarget *v264; // rax
+  CBaseAnimation *v265; // rax
+  unsigned int v266; // r8d
+  unsigned int v267; // r8d
+  unsigned int v268; // r8d
+  CSceneMetallicRoughnessMaterial *v269; // rax
+  CSceneMeshRendererComponent *v270; // rax
+  CSceneMesh *v271; // rax
+  void *v272; // rax
+  CResource *v273; // rax
+  unsigned int v274; // r8d
+  unsigned int v275; // r8d
+  unsigned int v276; // r8d
+  CShadowEffect *v277; // rax
+  CSceneVisual *v278; // rax
+  CSceneSurfaceMaterialInput *v279; // rax
+  void *v280; // rax
+  CVisual *v281; // rax
   unsigned int v282; // r8d
-  CViewBox *v283; // rax
-  CTurbulenceEffect *v284; // rax
-  CTransform3D *v285; // rax
+  CSpriteVectorShape *v283; // rax
+  CSpatialRemarshaler *v284; // rax
+  CSnapshot *v285; // rax
   CTransform3D *v286; // rax
-  CVirtualMonitorCaptureRenderTarget *v287; // rax
-  unsigned int v288; // r8d
+  CResource *v287; // rax
+  CResource *v288; // rax
   unsigned int v289; // r8d
   unsigned int v290; // r8d
-  unsigned int v291; // r8d
-  unsigned int v292; // r8d
-  unsigned int v293; // r8d
-  unsigned int v294; // r8d
-  unsigned int v295; // r8d
-  CYCbCrSurface *v296; // rax
-  CWindowNode *v297; // rax
-  CWindowBackdropBrush *v298; // rax
-  CVisualSurface *v299; // rax
-  CResource *v300; // rax
-  CResource *v301; // rax
-  CVisualCapture *v302; // rax
-  CVisualBitmap *v303; // rax
-  CVisual *v304; // rax
+  void *v291; // rax
+  CTableTransferEffect *v292; // rax
+  CSynchronousSuperWetInk *v293; // rax
+  CVisual *v294; // rax
+  CTransform3DGroup *v295; // rax
+  unsigned int v296; // r8d
+  CTurbulenceEffect *v297; // rax
+  CTransform3D *v298; // rax
+  CViewBox *v299; // rax
+  CYCbCrSurface *v300; // rax
+  CVisualSurface *v301; // rax
+  CVisualGroup *v302; // rax
+  CVisualCapture *v303; // rax
+  CVirtualMonitorCaptureRenderTarget *v304; // rax
   void *retaddr; // [rsp+58h] [rbp+0h]
 
   v7 = 0;
-  if ( a3 > 0x69 )
+  if ( a3 <= 0x68 )
   {
-    if ( a3 > 0x97 )
+    if ( a3 == 104 )
     {
-      if ( a3 > 0xB2 )
-      {
-        if ( a3 > 0xC2 )
-        {
-          v288 = a3 - 195;
-          if ( !v288 )
-          {
-            v304 = (CVisual *)KeyframeInterpolation::operator new(0x2D8uLL);
-            if ( !v304 )
-              goto LABEL_546;
-            v14 = CVisual::CVisual(v304, a1);
-            goto LABEL_543;
-          }
-          v289 = v288 - 1;
-          if ( !v289 )
-          {
-            v303 = (CVisualBitmap *)CClipBrush::operator new((unsigned __int64)a1);
-            if ( v303 )
-            {
-              v14 = CVisualBitmap::CVisualBitmap(v303, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v290 = v289 - 1;
-          if ( !v290 )
-          {
-            v302 = (CVisualCapture *)CVisualCapture::operator new((unsigned __int64)a1);
-            if ( v302 )
-            {
-              v14 = CVisualCapture::CVisualCapture(v302, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v291 = v290 - 1;
-          if ( v291 )
-          {
-            v292 = v291 - 2;
-            if ( !v292 )
-            {
-              v300 = (CResource *)CVisualReferenceController::operator new((unsigned __int64)a1);
-              v16 = v300;
-              if ( v300 )
-              {
-                CResource::CResource(v300, a1);
-                v13 = (unsigned __int64 *)&CVisualReferenceController::`vftable';
-                *(_QWORD *)v16 = &CVisualReferenceController::`vftable';
-                *((_QWORD *)v16 + 9) = 0LL;
-                goto LABEL_544;
-              }
-              goto LABEL_23;
-            }
-            v293 = v292 - 1;
-            if ( !v293 )
-            {
-              v299 = (CVisualSurface *)KeyframeInterpolation::operator new(0xD0uLL);
-              if ( v299 )
-              {
-                v14 = CVisualSurface::CVisualSurface(v299, a1);
-                goto LABEL_543;
-              }
-              goto LABEL_23;
-            }
-            v294 = v293 - 2;
-            if ( !v294 )
-            {
-              v298 = (CWindowBackdropBrush *)CWindowBackdropBrush::operator new();
-              if ( v298 )
-              {
-                v14 = CWindowBackdropBrush::CWindowBackdropBrush(v298, a1);
-                goto LABEL_543;
-              }
-              goto LABEL_23;
-            }
-            v295 = v294 - 1;
-            if ( !v295 )
-            {
-              v297 = (CWindowNode *)CWindowNode::operator new((unsigned __int64)a1);
-              if ( v297 )
-              {
-                v14 = CWindowNode::CWindowNode(v297, a1);
-                goto LABEL_543;
-              }
-              goto LABEL_23;
-            }
-            if ( v295 == 2 )
-            {
-              v296 = (CYCbCrSurface *)CParticleVector2Behavior::operator new((unsigned __int64)a1);
-              if ( v296 )
-              {
-                v14 = CYCbCrSurface::CYCbCrSurface(v296, a1);
-                goto LABEL_543;
-              }
-              goto LABEL_23;
-            }
-            goto LABEL_524;
-          }
-          v301 = (CResource *)KeyframeInterpolation::operator new(0x58uLL);
-          v16 = v301;
-          if ( !v301 )
-            goto LABEL_23;
-          CResource::CResource(v301, a1);
-          v13 = (unsigned __int64 *)&CVisualGroup::`vftable';
-          *(_QWORD *)v16 = &CVisualGroup::`vftable';
-          *((_QWORD *)v16 + 8) = 0LL;
-          *((_QWORD *)v16 + 9) = 0LL;
-LABEL_101:
-          *((_QWORD *)v16 + 10) = 0LL;
-          goto LABEL_544;
-        }
-        if ( a3 == 194 )
-        {
-          v287 = (CVirtualMonitorCaptureRenderTarget *)CVirtualMonitorCaptureRenderTarget::operator new((unsigned __int64)a1);
-          if ( v287 )
-          {
-            v14 = CVirtualMonitorCaptureRenderTarget::CVirtualMonitorCaptureRenderTarget(v287, a1);
-            goto LABEL_543;
-          }
-          goto LABEL_23;
-        }
-        if ( a3 <= 0xBC )
-        {
-          if ( a3 == 188 )
-          {
-            v279 = (CTransformGroup *)CTransform3DGroup::operator new((unsigned __int64)a1);
-            if ( v279 )
-            {
-              v14 = CTransformGroup::CTransformGroup(v279, a1, a2);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v270 = a3 - 180;
-          if ( !v270 )
-          {
-            v278 = (CSurfaceBrush *)CSurfaceBrush::operator new((unsigned __int64)a1);
-            if ( v278 )
-            {
-              v14 = CSurfaceBrush::CSurfaceBrush(v278, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v271 = v270 - 1;
-          if ( !v271 )
-          {
-            v277 = (CSynchronousSuperWetInk *)KeyframeInterpolation::operator new(0x150uLL);
-            if ( v277 )
-            {
-              v14 = CSynchronousSuperWetInk::CSynchronousSuperWetInk(v277, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v272 = v271 - 1;
-          if ( !v272 )
-          {
-            v276 = (CTableTransferEffect *)CTableTransferEffect::operator new((unsigned __int64)a1);
-            if ( v276 )
-            {
-              v14 = CTableTransferEffect::CTableTransferEffect(v276, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v273 = v272 - 2;
-          if ( v273 )
-          {
-            if ( v273 == 3 )
-            {
-              v274 = (CTransform3DGroup *)CTransform3DGroup::operator new((unsigned __int64)a1);
-              if ( v274 )
-              {
-                v14 = CTransform3DGroup::CTransform3DGroup(v274, a1, a2);
-                goto LABEL_543;
-              }
-              goto LABEL_23;
-            }
-            goto LABEL_524;
-          }
-          v275 = (CResource *)KeyframeInterpolation::operator new(0x320uLL);
-          v16 = v275;
-          if ( !v275 )
-            goto LABEL_23;
-          CTextVisualGeneratedT<CTextVisual,CVisual>::CTextVisualGeneratedT<CTextVisual,CVisual>(v275, a1);
-          v17 = &CTextVisual::`vftable';
-          goto LABEL_22;
-        }
-        v280 = a3 - 189;
-        if ( v280 )
-        {
-          v281 = v280 - 1;
-          if ( v281 )
-          {
-            v282 = v281 - 1;
-            if ( !v282 )
-            {
-              v284 = (CTurbulenceEffect *)CTurbulenceEffect::operator new((unsigned __int64)a1);
-              if ( v284 )
-              {
-                v14 = CTurbulenceEffect::CTurbulenceEffect(v284, a1);
-                goto LABEL_543;
-              }
-              goto LABEL_23;
-            }
-            if ( v282 == 2 )
-            {
-              v283 = (CViewBox *)CViewBox::operator new((unsigned __int64)a1);
-              if ( v283 )
-              {
-                v14 = CViewBox::CViewBox(v283, a1);
-                goto LABEL_543;
-              }
-              goto LABEL_23;
-            }
-            goto LABEL_524;
-          }
-          v285 = (CTransform3D *)CBrightnessEffect::operator new((unsigned __int64)a1);
-          v16 = v285;
-          if ( !v285 )
-            goto LABEL_23;
-          CTransform3D::CTransform3D(v285, a1, 0);
-          v13 = (unsigned __int64 *)&CTranslateTransform3D::`vftable';
-        }
-        else
-        {
-          v286 = (CTransform3D *)CTranslateTransform::operator new((unsigned __int64)a1);
-          v16 = v286;
-          if ( !v286 )
-            goto LABEL_23;
-          CTransform3D::CTransform3D(v286, a1, 0);
-          v13 = (unsigned __int64 *)&CTranslateTransform::`vftable';
-        }
-      }
-      else
-      {
-        if ( a3 == 178 )
-        {
-          v269 = (CVisual *)KeyframeInterpolation::operator new(0x2E0uLL);
-          v16 = v269;
-          if ( !v269 )
-            goto LABEL_23;
-          CVisual::CVisual(v269, a1);
-          v17 = &CSuperWetInkVisual::`vftable';
-          goto LABEL_22;
-        }
-        if ( a3 <= 0xA8 )
-        {
-          if ( a3 == 168 )
-          {
-            v251 = (CResource *)CSharedSection::operator new((unsigned __int64)a1);
-            v16 = v251;
-            if ( !v251 )
-              goto LABEL_23;
-            *((_DWORD *)v251 + 2) = 0;
-            *((_QWORD *)v251 + 3) = 0LL;
-            *((_QWORD *)v251 + 2) = a1;
-            *((_QWORD *)v251 + 5) = 0LL;
-            *((_DWORD *)v251 + 8) = 0;
-            v17 = &CSharedSection::`vftable';
-            *((_QWORD *)v16 + 10) = 0LL;
-          }
-          else if ( a3 > 0xA0 )
-          {
-            v244 = a3 - 164;
-            if ( !v244 )
-            {
-              v250 = (CSceneSurfaceMaterialInput *)CAnimationTrigger::operator new((unsigned __int64)a1);
-              if ( v250 )
-              {
-                v14 = CSceneSurfaceMaterialInput::CSceneSurfaceMaterialInput(v250, a1);
-                goto LABEL_543;
-              }
-              goto LABEL_23;
-            }
-            v245 = v244 - 1;
-            if ( !v245 )
-            {
-              v249 = (CSceneVisual *)CSceneVisual::operator new((unsigned __int64)a1);
-              if ( v249 )
-              {
-                v14 = CSceneVisual::CSceneVisual(v249, a1);
-                goto LABEL_543;
-              }
-              goto LABEL_23;
-            }
-            v246 = v245 - 1;
-            if ( !v246 )
-            {
-              v248 = (CShadowEffect *)CSceneMetallicRoughnessMaterial::operator new((unsigned __int64)a1);
-              if ( v248 )
-              {
-                v14 = CShadowEffect::CShadowEffect(v248, a1);
-                goto LABEL_543;
-              }
-              goto LABEL_23;
-            }
-            if ( v246 != 1 )
-              goto LABEL_524;
-            v247 = (CVisual *)CSpriteVisual::operator new((unsigned __int64)a1);
-            v16 = v247;
-            if ( !v247 )
-              goto LABEL_23;
-            CVisual::CVisual(v247, a1);
-            v17 = &CShapeVisual::`vftable';
-          }
-          else
-          {
-            if ( a3 == 160 )
-            {
-              v243 = (CResource *)CParticleVector2Behavior::operator new((unsigned __int64)a1);
-              v16 = v243;
-              if ( v243 )
-              {
-                *((_DWORD *)v243 + 2) = 0;
-                *((_QWORD *)v243 + 3) = 0LL;
-                *((_QWORD *)v243 + 2) = a1;
-                *((_QWORD *)v243 + 5) = 0LL;
-                *((_DWORD *)v243 + 8) = 0;
-                *(_QWORD *)v243 = &CSceneNode::`vftable';
-                *((_QWORD *)v243 + 9) = 0LL;
-                *((_QWORD *)v243 + 10) = 0LL;
-                *((_QWORD *)v243 + 11) = 0LL;
-                *((_QWORD *)v243 + 12) = 0LL;
-                *((_QWORD *)v243 + 13) = 0LL;
-                *((_QWORD *)v243 + 14) = 0LL;
-                *((_QWORD *)v243 + 17) = 0LL;
-                goto LABEL_544;
-              }
-              goto LABEL_23;
-            }
-            v234 = a3 - 152;
-            if ( v234 )
-            {
-              v235 = v234 - 4;
-              if ( !v235 )
-              {
-                v241 = (CSceneMesh *)CBrightnessEffect::operator new((unsigned __int64)a1);
-                if ( v241 )
-                {
-                  v14 = CSceneMesh::CSceneMesh(v241, a1);
-                  goto LABEL_543;
-                }
-                goto LABEL_23;
-              }
-              v236 = v235 - 1;
-              if ( !v236 )
-              {
-                v240 = (CSceneMeshRendererComponent *)CAnimationTrigger::operator new((unsigned __int64)a1);
-                if ( v240 )
-                {
-                  v14 = CSceneMeshRendererComponent::CSceneMeshRendererComponent(v240, a1);
-                  goto LABEL_543;
-                }
-                goto LABEL_23;
-              }
-              v237 = v236 - 1;
-              if ( !v237 )
-              {
-                v239 = (CSceneMetallicRoughnessMaterial *)CSceneMetallicRoughnessMaterial::operator new((unsigned __int64)a1);
-                if ( v239 )
-                {
-                  v14 = CSceneMetallicRoughnessMaterial::CSceneMetallicRoughnessMaterial(v239, a1);
-                  goto LABEL_543;
-                }
-                goto LABEL_23;
-              }
-              if ( v237 != 1 )
-                goto LABEL_524;
-              v238 = (CResource *)CSceneModelTransform::operator new((unsigned __int64)a1);
-              v16 = v238;
-              if ( !v238 )
-                goto LABEL_23;
-              *((_DWORD *)v238 + 2) = 0;
-              *((_QWORD *)v238 + 2) = a1;
-              *((_QWORD *)v238 + 3) = 0LL;
-              *((_QWORD *)v238 + 5) = 0LL;
-              *((_DWORD *)v238 + 8) = 0;
-              v17 = &CSceneModelTransform::`vftable';
-            }
-            else
-            {
-              v242 = (CResource *)CSceneMetallicRoughnessMaterial::operator new((unsigned __int64)a1);
-              v16 = v242;
-              if ( !v242 )
-                goto LABEL_23;
-              *((_DWORD *)v242 + 2) = 0;
-              *((_QWORD *)v242 + 3) = 0LL;
-              *((_QWORD *)v242 + 2) = a1;
-              *((_QWORD *)v242 + 5) = 0LL;
-              *((_DWORD *)v242 + 8) = 0;
-              *((_DWORD *)v242 + 36) = 0;
-              *((_DWORD *)v242 + 8) |= 1u;
-              *((_DWORD *)v242 + 40) = 1065353216;
-              *((_DWORD *)v242 + 41) = 1065353216;
-              *((_DWORD *)v242 + 42) = 1065353216;
-              v17 = &CScaleTransform3D::`vftable';
-              *((_BYTE *)v16 + 156) = 0;
-            }
-          }
-          goto LABEL_22;
-        }
-        v252 = a3 - 169;
-        if ( !v252 )
-        {
-          v268 = (CResource *)CDataSourceReader::operator new((unsigned __int64)a1);
-          v16 = v268;
-          if ( !v268 )
-            goto LABEL_23;
-          *((_DWORD *)v268 + 2) = 0;
-          *((_QWORD *)v268 + 2) = a1;
-          *((_QWORD *)v268 + 3) = 0LL;
-          *((_QWORD *)v268 + 5) = 0LL;
-          *((_DWORD *)v268 + 8) = 0;
-          v59 = &CSharedSectionBase::`vftable';
-LABEL_100:
-          *(_QWORD *)v16 = v59;
-          goto LABEL_101;
-        }
-        v253 = v252 - 1;
-        if ( !v253 )
-        {
-          v267 = (CResource *)CPrimitiveColor::operator new((unsigned __int64)a1);
-          v16 = v267;
-          if ( v267 )
-          {
-            *((_DWORD *)v267 + 2) = 0;
-            *((_QWORD *)v267 + 3) = 0LL;
-            *((_QWORD *)v267 + 2) = a1;
-            *((_QWORD *)v267 + 5) = 0LL;
-            *((_DWORD *)v267 + 8) = 0;
-            *(_QWORD *)v267 = &CSharedSectionWrapper::`vftable';
-            *((_QWORD *)v267 + 8) = 0LL;
-            goto LABEL_544;
-          }
-          goto LABEL_23;
-        }
-        v254 = v253 - 1;
-        if ( !v254 )
-        {
-          v266 = (CResource *)KeyframeInterpolation::operator new(0x50uLL);
-          v16 = v266;
-          if ( v266 )
-          {
-            *((_DWORD *)v266 + 2) = 0;
-            *((_QWORD *)v266 + 3) = 0LL;
-            *((_QWORD *)v266 + 2) = a1;
-            *((_QWORD *)v266 + 5) = 0LL;
-            *((_DWORD *)v266 + 8) = 0;
-            *(_QWORD *)v266 = &TValueResource<MilSizeD,tagMILCMD_SIZERESOURCE,171>::`vftable';
-            *((_OWORD *)v266 + 4) = 0LL;
-            goto LABEL_544;
-          }
-          goto LABEL_23;
-        }
-        v255 = v254 - 1;
-        if ( v255 )
-        {
-          v256 = v255 - 1;
-          if ( !v256 )
-          {
-            v264 = (CSnapshot *)KeyframeInterpolation::operator new(0x88uLL);
-            if ( v264 )
-            {
-              v14 = CSnapshot::CSnapshot(v264, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v257 = v256 - 1;
-          if ( !v257 )
-          {
-            v263 = (CResource *)CSolidColorLegacyMilBrush::operator new((unsigned __int64)a1);
-            v16 = v263;
-            if ( v263 )
-            {
-              *((_DWORD *)v263 + 2) = 0;
-              *((_QWORD *)v263 + 3) = 0LL;
-              *((_QWORD *)v263 + 2) = a1;
-              *((_QWORD *)v263 + 5) = 0LL;
-              *((_DWORD *)v263 + 8) = 0;
-              *((_DWORD *)v263 + 8) |= 1u;
-              *(_QWORD *)v263 = &CSolidColorLegacyMilBrush::`vftable';
-              goto LABEL_544;
-            }
-            goto LABEL_23;
-          }
-          v258 = v257 - 1;
-          if ( !v258 )
-          {
-            v262 = (CResource *)CPrimitiveColor::operator new((unsigned __int64)a1);
-            v16 = v262;
-            if ( v262 )
-            {
-              *((_DWORD *)v262 + 2) = 0;
-              *((_QWORD *)v262 + 3) = 0LL;
-              *((_QWORD *)v262 + 2) = a1;
-              *((_QWORD *)v262 + 5) = 0LL;
-              *((_DWORD *)v262 + 8) = 0;
-              *(_QWORD *)v262 = &CSpatialRemarshaler::`vftable'{for `CNotificationResource'};
-              *((_QWORD *)v262 + 9) = &CSpatialRemarshaler::`vftable'{for `ISceneNotificationListener'};
-              goto LABEL_544;
-            }
-            goto LABEL_23;
-          }
-          v259 = v258 - 1;
-          if ( !v259 )
-          {
-            v261 = (CSpriteVectorShape *)CSpriteVectorShape::operator new((unsigned __int64)a1);
-            if ( v261 )
-            {
-              v14 = CSpriteVectorShape::CSpriteVectorShape(v261, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          if ( v259 != 1 )
-            goto LABEL_524;
-          v260 = (CVisual *)CSpriteVisual::operator new((unsigned __int64)a1);
-          v16 = v260;
-          if ( !v260 )
-            goto LABEL_23;
-          CVisual::CVisual(v260, a1);
-          v17 = &CSpriteVisual::`vftable';
-          goto LABEL_22;
-        }
-        v265 = (CTransform3D *)CBrightnessEffect::operator new((unsigned __int64)a1);
-        v16 = v265;
-        if ( !v265 )
-          goto LABEL_23;
-        CTransform3D::CTransform3D(v265, a1, 0);
-        v13 = (unsigned __int64 *)&CSkewTransform::`vftable';
-      }
+      v93 = (CManipulationTransform *)DefaultHeap::AllocClear(0x110uLL);
+      if ( !v93 )
+        ModuleFailFastForHRESULT(2147942414LL, retaddr);
+      v11 = CManipulationTransform::CManipulationTransform(v93, a1);
+      goto LABEL_9;
     }
-    else
+    if ( a3 > 0x35 )
     {
-      if ( a3 == 151 )
-      {
-        v233 = (CResource *)CScaleTransform::operator new((unsigned __int64)a1);
-        v16 = v233;
-        if ( !v233 )
-          goto LABEL_23;
-        *((_DWORD *)v233 + 2) = 0;
-        *((_QWORD *)v233 + 3) = 0LL;
-        *((_QWORD *)v233 + 2) = a1;
-        *((_QWORD *)v233 + 5) = 0LL;
-        *((_DWORD *)v233 + 8) = 0;
-        *((_DWORD *)v233 + 36) = 0;
-        *((_DWORD *)v233 + 8) |= 1u;
-        *((_DWORD *)v233 + 40) = 1065353216;
-        *((_DWORD *)v233 + 41) = 1065353216;
-        v17 = &CScaleTransform::`vftable';
-        *((_BYTE *)v16 + 156) = 0;
-        goto LABEL_22;
-      }
-      if ( a3 <= 0x7F )
-      {
-        if ( a3 == 127 )
-        {
-          v197 = (CPrimitiveGroup *)CPrimitiveGroup::operator new((unsigned __int64)a1);
-          if ( v197 )
-          {
-            v14 = CPrimitiveGroup::CPrimitiveGroup(v197, a1);
-            goto LABEL_543;
-          }
-          goto LABEL_23;
-        }
-        if ( a3 > 0x75 )
-        {
-          v180 = a3 - 118;
-          if ( !v180 )
-          {
-            v196 = (CParticleEmitterVisual *)CParticleEmitterVisual::operator new((unsigned __int64)a1);
-            if ( v196 )
-            {
-              v14 = CParticleEmitterVisual::CParticleEmitterVisual(v196, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v181 = v180 - 1;
-          if ( !v181 )
-          {
-            v195 = (char *)CParticleGenerator::operator new((unsigned __int64)a1);
-            v16 = (CResource *)v195;
-            if ( !v195 )
-              goto LABEL_23;
-            *((_DWORD *)v195 + 2) = 0;
-            *((_QWORD *)v195 + 3) = 0LL;
-            *((_QWORD *)v195 + 2) = a1;
-            *((_QWORD *)v195 + 5) = 0LL;
-            *((_DWORD *)v195 + 8) = 0;
-            *((_QWORD *)v195 + 10) = 1065353216LL;
-            *((_QWORD *)v195 + 12) = 1065353216LL;
-            *((_QWORD *)v195 + 14) = 1065353216LL;
-            *(_QWORD *)(v195 + 132) = 1065353216LL;
-            *(_QWORD *)(v195 + 148) = 1065353216LL;
-            *((_DWORD *)v195 + 39) = 1065353216;
-            *((_DWORD *)v195 + 40) = 1065353216;
-            *((_DWORD *)v195 + 41) = 1065353216;
-            *((_DWORD *)v195 + 42) = 1065353216;
-            *((_DWORD *)v195 + 43) = 1065353216;
-            *((_DWORD *)v195 + 44) = 1065353216;
-            *((_DWORD *)v195 + 45) = 1065353216;
-            *((_QWORD *)v195 + 23) = 1065353216LL;
-            *((_DWORD *)v195 + 48) = 1065353216;
-            *((_DWORD *)v195 + 49) = 1065353216;
-            *((_DWORD *)v195 + 50) = 1065353216;
-            *((_DWORD *)v195 + 51) = 1065353216;
-            *((_DWORD *)v195 + 52) = 1065353216;
-            *((_DWORD *)v195 + 53) = 1065353216;
-            *((_DWORD *)v195 + 54) = 1065353216;
-            *((_DWORD *)v195 + 56) = 1065353216;
-            *((_DWORD *)v195 + 57) = 1065353216;
-            v17 = &CParticleGenerator::`vftable';
-            *((_BYTE *)v16 + 104) = 1;
-            *((_DWORD *)v16 + 27) = 0;
-            *((_QWORD *)v16 + 15) = 0LL;
-            *((_DWORD *)v16 + 32) = 0;
-            *(_QWORD *)((char *)v16 + 140) = 0LL;
-            *((_BYTE *)v16 + 220) = 1;
-            goto LABEL_21;
-          }
-          v182 = v181 - 1;
-          if ( v182 )
-          {
-            v183 = v182 - 1;
-            if ( v183 )
-            {
-              v184 = v183 - 1;
-              if ( !v184 )
-              {
-                v192 = (CParticleVector3Behavior *)CParticleVector2Behavior::operator new((unsigned __int64)a1);
-                if ( v192 )
-                {
-                  v14 = CParticleVector3Behavior::CParticleVector3Behavior(v192, a1);
-                  goto LABEL_543;
-                }
-                goto LABEL_23;
-              }
-              v185 = v184 - 1;
-              if ( !v185 )
-              {
-                v191 = (CParticleVector4Behavior *)CParticleVector2Behavior::operator new((unsigned __int64)a1);
-                if ( v191 )
-                {
-                  v14 = CParticleVector4Behavior::CParticleVector4Behavior(v191, a1);
-                  goto LABEL_543;
-                }
-                goto LABEL_23;
-              }
-              v186 = v185 - 1;
-              if ( !v186 )
-              {
-                v190 = (CGeometry *)CPathGeometry::operator new((unsigned __int64)a1);
-                v16 = v190;
-                if ( !v190 )
-                  goto LABEL_23;
-                CGeometry::CGeometry(v190, a1);
-                v13 = (unsigned __int64 *)&CPathGeometry::`vftable';
-                *(_QWORD *)v16 = &CPathGeometry::`vftable';
-                goto LABEL_104;
-              }
-              v187 = v186 - 1;
-              if ( !v187 )
-              {
-                v189 = (CResource *)KeyframeInterpolation::operator new(0x50uLL);
-                v16 = v189;
-                if ( !v189 )
-                  goto LABEL_23;
-                *((_DWORD *)v189 + 2) = 0;
-                *((_QWORD *)v189 + 2) = a1;
-                *((_QWORD *)v189 + 3) = 0LL;
-                *((_QWORD *)v189 + 5) = 0LL;
-                *((_DWORD *)v189 + 8) = 0;
-                v46 = &TValueResource<MilPoint2D,tagMILCMD_POINTRESOURCE,125>::`vftable';
-                goto LABEL_74;
-              }
-              if ( v187 != 1 )
-                goto LABEL_524;
-              v188 = (CResource *)CPrimitiveColor::operator new((unsigned __int64)a1);
-              v16 = v188;
-              if ( !v188 )
-                goto LABEL_23;
-              *((_DWORD *)v188 + 2) = 0;
-              *((_QWORD *)v188 + 2) = a1;
-              *((_QWORD *)v188 + 3) = 0LL;
-              *((_QWORD *)v188 + 5) = 0LL;
-              *((_DWORD *)v188 + 8) = 0;
-              v17 = &CPrimitiveColor::`vftable';
-LABEL_22:
-              *(_QWORD *)v16 = v17;
-              goto LABEL_544;
-            }
-            v193 = (CResource *)CParticleVector2Behavior::operator new((unsigned __int64)a1);
-            v16 = v193;
-            if ( !v193 )
-              goto LABEL_23;
-            *((_DWORD *)v193 + 2) = 0;
-            *((_QWORD *)v193 + 3) = 0LL;
-            *((_QWORD *)v193 + 2) = a1;
-            *((_QWORD *)v193 + 5) = 0LL;
-            *((_DWORD *)v193 + 8) = 0;
-            *(_QWORD *)v193 = &CParticleVector2Behavior::`vftable'{for `CParticleVector2BehaviorGeneratedT<CParticleVector2Behavior,CParticleBaseBehavior>'};
-            v175 = &CParticleVector2Behavior::`vftable'{for `Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float2>'};
-          }
-          else
-          {
-            v194 = (CResource *)CParticleVector2Behavior::operator new((unsigned __int64)a1);
-            v16 = v194;
-            if ( !v194 )
-              goto LABEL_23;
-            *((_DWORD *)v194 + 2) = 0;
-            *((_QWORD *)v194 + 3) = 0LL;
-            *((_QWORD *)v194 + 2) = a1;
-            *((_QWORD *)v194 + 5) = 0LL;
-            *((_DWORD *)v194 + 8) = 0;
-            *(_QWORD *)v194 = &CParticleScalarBehavior::`vftable'{for `CParticleScalarBehaviorGeneratedT<CParticleScalarBehavior,CParticleBaseBehavior>'};
-            v175 = &CParticleScalarBehavior::`vftable'{for `Particles::LinearKeyframeAnimation<float>'};
-          }
-        }
-        else
-        {
-          if ( a3 == 117 )
-          {
-            v179 = (CParticleEmitter *)KeyframeInterpolation::operator new(0x78uLL);
-            if ( v179 )
-            {
-              v14 = CParticleEmitter::CParticleEmitter(v179, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          if ( a3 <= 0x6F )
-          {
-            if ( a3 == 111 )
-            {
-              v170 = (CNineGridBrush *)DefaultHeap::AllocClear(0xC8uLL);
-              if ( !v170 )
-                ModuleFailFastForHRESULT(2147942414LL, retaddr);
-              v14 = CNineGridBrush::CNineGridBrush(v170, a1);
-              goto LABEL_543;
-            }
-            v161 = a3 - 106;
-            if ( !v161 )
-            {
-              v169 = (CResource *)KeyframeInterpolation::operator new(0x58uLL);
-              v16 = v169;
-              if ( v169 )
-              {
-                *((_DWORD *)v169 + 2) = 0;
-                *((_QWORD *)v169 + 3) = 0LL;
-                *((_QWORD *)v169 + 2) = a1;
-                *((_QWORD *)v169 + 5) = 0LL;
-                *((_DWORD *)v169 + 8) = 0;
-                *((_OWORD *)v169 + 4) = 0LL;
-                *(_QWORD *)v169 = &TValueResource<D2D_MATRIX_3X2_F,tagMILCMD_MATRIXRESOURCE,106>::`vftable';
-                *((_QWORD *)v169 + 10) = 0LL;
-                goto LABEL_544;
-              }
-              goto LABEL_23;
-            }
-            v162 = v161 - 1;
-            if ( !v162 )
-            {
-              v168 = (CResource *)DefaultHeap::AllocClear(0xB8uLL);
-              v16 = v168;
-              if ( !v168 )
-                ModuleFailFastForHRESULT(2147942414LL, retaddr);
-              *((_DWORD *)v168 + 2) = 0;
-              *((_QWORD *)v168 + 3) = 0LL;
-              *((_QWORD *)v168 + 2) = a1;
-              *((_QWORD *)v168 + 5) = 0LL;
-              *((_DWORD *)v168 + 8) = 0;
-              *((_DWORD *)v168 + 36) = 0;
-              *((_DWORD *)v168 + 8) |= 1u;
-              *(_QWORD *)v168 = &CMatrixTransform::`vftable';
-              *((_DWORD *)v168 + 40) = 1065353216;
-              *((_DWORD *)v168 + 43) = 1065353216;
-              *((_BYTE *)v168 + 156) = 0;
-              goto LABEL_545;
-            }
-            v163 = v162 - 1;
-            if ( !v163 )
-            {
-              v167 = (CResource *)DefaultHeap::AllocClear(0xE0uLL);
-              v16 = v167;
-              if ( !v167 )
-                ModuleFailFastForHRESULT(2147942414LL, retaddr);
-              *((_DWORD *)v167 + 2) = 0;
-              *((_QWORD *)v167 + 3) = 0LL;
-              *((_QWORD *)v167 + 2) = a1;
-              *((_QWORD *)v167 + 5) = 0LL;
-              *((_DWORD *)v167 + 8) = 0;
-              *((_DWORD *)v167 + 36) = 0;
-              *((_DWORD *)v167 + 8) |= 1u;
-              *(_QWORD *)v167 = &CMatrixTransform3D::`vftable';
-              *((_DWORD *)v167 + 40) = 1065353216;
-              *((_DWORD *)v167 + 45) = 1065353216;
-              *((_DWORD *)v167 + 50) = 1065353216;
-              *((_DWORD *)v167 + 55) = 1065353216;
-              *((_BYTE *)v167 + 156) = 0;
-              goto LABEL_545;
-            }
-            v164 = v163 - 1;
-            if ( !v164 )
-            {
-              v166 = (CMeshGeometry2D *)CSceneMetallicRoughnessMaterial::operator new((unsigned __int64)a1);
-              if ( v166 )
-              {
-                v14 = CMeshGeometry2D::CMeshGeometry2D(v166, a1);
-                goto LABEL_543;
-              }
-              goto LABEL_23;
-            }
-            if ( v164 == 1 )
-            {
-              v165 = (CNaturalAnimation *)CNaturalAnimation::operator new((unsigned __int64)a1);
-              if ( v165 )
-              {
-                v14 = CNaturalAnimation::CNaturalAnimation(v165, a1);
-                goto LABEL_543;
-              }
-              goto LABEL_23;
-            }
-            goto LABEL_524;
-          }
-          v171 = a3 - 112;
-          if ( !v171 )
-          {
-            v178 = (CResource *)KeyframeInterpolation::operator new(0x48uLL);
-            v16 = v178;
-            if ( !v178 )
-              goto LABEL_23;
-            *((_DWORD *)v178 + 2) = 0;
-            *((_QWORD *)v178 + 2) = a1;
-            *((_QWORD *)v178 + 3) = 0LL;
-            *((_QWORD *)v178 + 5) = 0LL;
-            *((_DWORD *)v178 + 8) = 0;
-            v17 = &CNotificationResource::`vftable';
-            goto LABEL_22;
-          }
-          v172 = v171 - 1;
-          if ( !v172 )
-          {
-            v177 = (CResource *)CParticleAttractor::operator new((unsigned __int64)a1);
-            v16 = v177;
-            if ( !v177 )
-              goto LABEL_23;
-            *((_DWORD *)v177 + 2) = 0;
-            *((_QWORD *)v177 + 3) = 0LL;
-            *((_QWORD *)v177 + 2) = a1;
-            *((_QWORD *)v177 + 5) = 0LL;
-            *((_DWORD *)v177 + 8) = 0;
-            *(_QWORD *)v177 = &CParticleAttractor::`vftable'{for `CParticleAttractorGeneratedT<CParticleAttractor,CResource>'};
-            v122 = &CParticleAttractor::`vftable'{for `Particles::ISingleInputAnimator'};
-            goto LABEL_211;
-          }
-          v173 = v172 - 2;
-          if ( !v173 )
-          {
-            v176 = (CResource *)CHueRotationEffect::operator new((unsigned __int64)a1);
-            v16 = v176;
-            if ( !v176 )
-              goto LABEL_23;
-            *((_DWORD *)v176 + 2) = 0;
-            *((_QWORD *)v176 + 2) = a1;
-            *((_QWORD *)v176 + 3) = 0LL;
-            *((_QWORD *)v176 + 5) = 0LL;
-            *((_DWORD *)v176 + 8) = 0;
-            v17 = &CParticleBehaviors::`vftable';
-            goto LABEL_22;
-          }
-          if ( v173 != 1 )
-            goto LABEL_524;
-          v174 = (CResource *)CParticleVector2Behavior::operator new((unsigned __int64)a1);
-          v16 = v174;
-          if ( !v174 )
-            goto LABEL_23;
-          *((_DWORD *)v174 + 2) = 0;
-          *((_QWORD *)v174 + 3) = 0LL;
-          *((_QWORD *)v174 + 2) = a1;
-          *((_QWORD *)v174 + 5) = 0LL;
-          *((_DWORD *)v174 + 8) = 0;
-          *(_QWORD *)v174 = &CParticleColorBehavior::`vftable'{for `CParticleColorBehaviorGeneratedT<CParticleColorBehavior,CParticleBaseBehavior>'};
-          v175 = &CParticleColorBehavior::`vftable'{for `Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float3>'};
-        }
-        *((_QWORD *)v16 + 17) = 0LL;
-        *((_QWORD *)v16 + 16) = 0LL;
-        *((_QWORD *)v16 + 15) = 0LL;
-        *((_QWORD *)v16 + 13) = 0LL;
-        *((_QWORD *)v16 + 12) = 0LL;
-        *((_QWORD *)v16 + 11) = 0LL;
-        *((_QWORD *)v16 + 14) = v175;
-        goto LABEL_544;
-      }
-      if ( a3 > 0x8B )
-      {
-        v216 = a3 - 140;
-        if ( v216 )
-        {
-          v217 = v216 - 1;
-          if ( !v217 )
-          {
-            v231 = (CGeometry *)CScaleTransform::operator new((unsigned __int64)a1);
-            v16 = v231;
-            if ( v231 )
-            {
-              CGeometry::CGeometry(v231, a1);
-              v13[18] = 0LL;
-              *v13 = (unsigned __int64)&CRegionGeometry::`vftable';
-              v13[19] = 0LL;
-              v13[20] = 0LL;
-              *((_BYTE *)v13 + 168) = 1;
-              goto LABEL_544;
-            }
-            goto LABEL_23;
-          }
-          v218 = v217 - 1;
-          if ( !v218 )
-          {
-            v230 = (CRemoteAppRenderTarget *)CRemoteAppRenderTarget::operator new((unsigned __int64)a1);
-            if ( v230 )
-            {
-              v14 = CRemoteAppRenderTarget::CRemoteAppRenderTarget(v230, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v219 = v218 - 1;
-          if ( !v219 )
-          {
-            v229 = (CRemoteRenderTarget *)KeyframeInterpolation::operator new(0x1C8uLL);
-            if ( v229 )
-            {
-              v14 = CRemoteRenderTarget::CRemoteRenderTarget(v229, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v220 = v219 - 1;
-          if ( !v220 )
-          {
-            v228 = (CRenderData *)KeyframeInterpolation::operator new(0x158uLL);
-            if ( v228 )
-            {
-              v14 = CRenderData::CRenderData(v228, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v221 = v220 - 3;
-          if ( v221 )
-          {
-            v222 = v221 - 1;
-            if ( v222 )
-            {
-              v223 = v222 - 1;
-              if ( !v223 )
-              {
-                v225 = (CFilterEffect *)CHueRotationEffect::operator new((unsigned __int64)a1);
-                v16 = v225;
-                if ( v225 )
-                {
-                  CFilterEffect::CFilterEffect(v225, a1);
-                  v13 = (unsigned __int64 *)&CSaturationEffect::`vftable';
-                  *((_DWORD *)v16 + 40) = 1056964608;
-                  *(_QWORD *)v16 = &CSaturationEffect::`vftable';
-                  goto LABEL_544;
-                }
-                goto LABEL_23;
-              }
-              if ( v223 == 1 )
-              {
-                v224 = (CBaseAnimation *)CAnimationTrigger::operator new((unsigned __int64)a1);
-                v16 = v224;
-                if ( v224 )
-                {
-                  CBaseAnimation::CBaseAnimation(v224, a1);
-                  v13 = (unsigned __int64 *)&CScalar::`vftable'{for `CResource'};
-                  *((_QWORD *)v16 + 8) = &CScalar::`vftable'{for `IAnimationResource'};
-                  *(_QWORD *)v16 = &CScalar::`vftable'{for `CResource'};
-                  goto LABEL_544;
-                }
-                goto LABEL_23;
-              }
-              goto LABEL_524;
-            }
-            v226 = (CResource *)CGeometryGroup::operator new((unsigned __int64)a1);
-            v16 = v226;
-            if ( !v226 )
-              goto LABEL_23;
-            *((_DWORD *)v226 + 2) = 0;
-            *((_QWORD *)v226 + 3) = 0LL;
-            *((_QWORD *)v226 + 2) = a1;
-            *((_QWORD *)v226 + 5) = 0LL;
-            *((_DWORD *)v226 + 8) = 0;
-            *((_DWORD *)v226 + 36) = 0;
-            *((_DWORD *)v226 + 8) |= 1u;
-            *((_DWORD *)v226 + 43) = 1065353216;
-            v17 = &CRotateTransform3D::`vftable';
-            *((_BYTE *)v16 + 156) = 0;
-          }
-          else
-          {
-            v227 = (CResource *)CBrightnessEffect::operator new((unsigned __int64)a1);
-            v16 = v227;
-            if ( !v227 )
-              goto LABEL_23;
-            *((_DWORD *)v227 + 2) = 0;
-            *((_QWORD *)v227 + 3) = 0LL;
-            *((_QWORD *)v227 + 2) = a1;
-            *((_QWORD *)v227 + 5) = 0LL;
-            *((_DWORD *)v227 + 8) = 0;
-            v17 = &CRotateTransform::`vftable';
-            *((_DWORD *)v16 + 36) = 0;
-            *((_DWORD *)v16 + 8) |= 1u;
-            *((_BYTE *)v16 + 156) = 0;
-          }
-        }
-        else
-        {
-          v232 = (CVisual *)CManipulation::operator new((unsigned __int64)a1);
-          v16 = v232;
-          if ( !v232 )
-            goto LABEL_23;
-          CVisual::CVisual(v232, a1);
-          v17 = &CRedirectVisual::`vftable';
-        }
-        goto LABEL_22;
-      }
-      if ( a3 == 139 )
-      {
-        v215 = (CResource *)KeyframeInterpolation::operator new(0x50uLL);
-        v16 = v215;
-        if ( !v215 )
-          goto LABEL_23;
-        *((_DWORD *)v215 + 2) = 0;
-        *((_QWORD *)v215 + 2) = a1;
-        *((_QWORD *)v215 + 3) = 0LL;
-        *((_QWORD *)v215 + 5) = 0LL;
-        *((_DWORD *)v215 + 8) = 0;
-        v46 = &TValueResource<MilRectF,tagMILCMD_RECTRESOURCE,139>::`vftable';
-        goto LABEL_74;
-      }
-      if ( a3 <= 0x85 )
-      {
-        if ( a3 == 133 )
-        {
-          v207 = (CPropertySet *)CProxyGeometry::operator new((unsigned __int64)a1);
-          if ( v207 )
-          {
-            v14 = CPropertySet::CPropertySet(v207, a1);
-            goto LABEL_543;
-          }
-          goto LABEL_23;
-        }
-        v198 = a3 - 128;
-        if ( !v198 )
-        {
-          v206 = (CProjectedShadow *)CProjectedShadow::operator new((unsigned __int64)a1);
-          if ( v206 )
-          {
-            v14 = CProjectedShadow::CProjectedShadow(v206, a1);
-            goto LABEL_543;
-          }
-          goto LABEL_23;
-        }
-        v199 = v198 - 1;
-        if ( !v199 )
-        {
-          v205 = (CProjectedShadowCaster *)CInteractionTrackerBindingManager::operator new((unsigned __int64)a1);
-          if ( v205 )
-          {
-            v14 = CProjectedShadowCaster::CProjectedShadowCaster(v205, a1);
-            goto LABEL_543;
-          }
-          goto LABEL_23;
-        }
-        v200 = v199 - 1;
-        if ( !v200 )
-        {
-          v204 = (CResource *)CAnimationTrigger::operator new((unsigned __int64)a1);
-          v16 = v204;
-          if ( v204 )
-          {
-            *((_DWORD *)v204 + 2) = 0;
-            *((_QWORD *)v204 + 3) = 0LL;
-            *((_QWORD *)v204 + 2) = a1;
-            *((_QWORD *)v204 + 5) = 0LL;
-            *((_DWORD *)v204 + 8) = 0;
-            *(_QWORD *)v204 = &CProjectedShadowReceiver::`vftable';
-            *((_QWORD *)v204 + 9) = 0LL;
-            *((_QWORD *)v204 + 10) = 0LL;
-            *((_QWORD *)v204 + 11) = 0LL;
-            *((_QWORD *)v204 + 14) = 0LL;
-            goto LABEL_544;
-          }
-          goto LABEL_23;
-        }
-        v201 = v200 - 1;
-        if ( !v201 )
-        {
-          v203 = (CProjectedShadowScene *)CInteractionTrackerBindingManager::operator new((unsigned __int64)a1);
-          if ( v203 )
-          {
-            v14 = CProjectedShadowScene::CProjectedShadowScene(v203, a1);
-            goto LABEL_543;
-          }
-          goto LABEL_23;
-        }
-        if ( v201 != 1 )
-          goto LABEL_524;
-        v202 = (CResource *)CPrimitiveColor::operator new((unsigned __int64)a1);
-        v16 = v202;
-        if ( !v202 )
-          goto LABEL_23;
-        *((_DWORD *)v202 + 2) = 0;
-        *((_QWORD *)v202 + 2) = a1;
-        *((_QWORD *)v202 + 3) = 0LL;
-        *((_QWORD *)v202 + 5) = 0LL;
-        *((_DWORD *)v202 + 8) = 0;
-        v17 = &CPropertyChangeResource::`vftable';
-        goto LABEL_22;
-      }
-      v208 = a3 - 134;
-      if ( v208 )
-      {
-        v209 = v208 - 1;
-        if ( !v209 )
-        {
-          v213 = (CRadialGradientBrush *)CBrush::operator new((unsigned __int64)a1);
-          if ( v213 )
-          {
-            v14 = CRadialGradientBrush::CRadialGradientBrush(v213, a1);
-            goto LABEL_543;
-          }
-          goto LABEL_23;
-        }
-        v210 = v209 - 2;
-        if ( !v210 )
-        {
-          v212 = (CGeometry *)CRectangleGeometry::operator new((unsigned __int64)a1);
-          v16 = v212;
-          if ( v212 )
-          {
-            CGeometry::CGeometry(v212, a1);
-            v13 = (unsigned __int64 *)&CRectangleGeometry::`vftable';
-            *(_QWORD *)v16 = &CRectangleGeometry::`vftable';
-            *((_DWORD *)v16 + 48) = 0;
-            goto LABEL_544;
-          }
-          goto LABEL_23;
-        }
-        if ( v210 == 1 )
-        {
-          v211 = (CResource *)KeyframeInterpolation::operator new(0x60uLL);
-          v16 = v211;
-          if ( v211 )
-          {
-            *((_DWORD *)v211 + 2) = 0;
-            *((_QWORD *)v211 + 3) = 0LL;
-            *((_QWORD *)v211 + 2) = a1;
-            *((_QWORD *)v211 + 5) = 0LL;
-            *((_DWORD *)v211 + 8) = 0;
-            *((_OWORD *)v211 + 4) = 0LL;
-            *(_QWORD *)v211 = &TValueResource<MilRectD,tagMILCMD_RECTDRESOURCE,138>::`vftable';
-            *((_OWORD *)v211 + 5) = 0LL;
-            goto LABEL_544;
-          }
-          goto LABEL_23;
-        }
-        goto LABEL_524;
-      }
-      v214 = (CGeometry *)CProxyGeometry::operator new((unsigned __int64)a1);
-      v16 = v214;
-      if ( !v214 )
-        goto LABEL_23;
-      CGeometry::CGeometry(v214, a1);
-      v13 = (unsigned __int64 *)&CProxyGeometry::`vftable';
-    }
-    *(_QWORD *)v16 = v13;
-    goto LABEL_544;
-  }
-  if ( a3 == 105 )
-  {
-    v160 = (CMaskBrush *)DefaultHeap::AllocClear(0x90uLL);
-    if ( !v160 )
-      ModuleFailFastForHRESULT(2147942414LL, retaddr);
-    v14 = CMaskBrush::CMaskBrush(v160, a1);
-    goto LABEL_543;
-  }
-  if ( a3 > 0x33 )
-  {
-    if ( a3 > 0x51 )
-    {
-      if ( a3 <= 0x5E )
+      if ( a3 > 0x51 )
       {
         if ( a3 == 94 )
         {
-          v142 = (CLegacyRenderTarget *)DefaultHeap::AllocClear(0x4910uLL);
-          if ( !v142 )
-            ModuleFailFastForHRESULT(2147942414LL, retaddr);
-          v14 = CLegacyRenderTarget::CLegacyRenderTarget(v142, a1, 1);
-          goto LABEL_543;
-        }
-        if ( a3 > 0x58 )
-        {
-          v135 = a3 - 89;
-          if ( !v135 )
-          {
-            v141 = (CInteractionTrackerBindingManager *)CInteractionTrackerBindingManager::operator new((unsigned __int64)a1);
-            if ( v141 )
-            {
-              v14 = CInteractionTrackerBindingManager::CInteractionTrackerBindingManager(v141, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v136 = v135 - 1;
-          if ( !v136 )
-          {
-            v140 = (CKeyframeAnimation *)CKeyframeAnimation::operator new();
-            if ( v140 )
-            {
-              v14 = CKeyframeAnimation::CKeyframeAnimation(v140, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v137 = v136 - 1;
-          if ( !v137 )
-          {
-            v139 = (CVisual *)DefaultHeap::AllocClear(0x2F8uLL);
-            v16 = v139;
-            if ( !v139 )
-              ModuleFailFastForHRESULT(2147942414LL, retaddr);
-            CVisual::CVisual(v139, a1);
-            *(_QWORD *)v16 = &CLayerVisual::`vftable';
-            *((_QWORD *)v16 + 93) = 0LL;
-            goto LABEL_545;
-          }
-          if ( v137 == 1 )
-          {
-            v138 = (CResource *)CLegacyAnimationTrigger::operator new((unsigned __int64)a1);
-            v16 = v138;
-            if ( v138 )
-            {
-              *((_DWORD *)v138 + 2) = 0;
-              *((_QWORD *)v138 + 3) = 0LL;
-              *((_QWORD *)v138 + 2) = a1;
-              *((_QWORD *)v138 + 5) = 0LL;
-              *((_DWORD *)v138 + 8) = 0;
-              *(_QWORD *)v138 = &CLegacyAnimationTrigger::`vftable';
-              *((_QWORD *)v138 + 8) = 0LL;
-              *((_QWORD *)v138 + 9) = 0LL;
-              *((_QWORD *)v138 + 10) = 0LL;
-              *((_DWORD *)v138 + 22) = 0;
-              goto LABEL_544;
-            }
-            goto LABEL_23;
-          }
-        }
-        else
-        {
-          if ( a3 == 88 )
-          {
-            v134 = (CInteractionTracker *)CInteractionTracker::operator new((unsigned __int64)a1);
-            if ( v134 )
-            {
-              v14 = CInteractionTracker::CInteractionTracker(v134, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v125 = a3 - 82;
-          if ( !v125 )
-          {
-            v133 = (char *)DefaultHeap::AllocClear(0x100uLL);
-            v16 = (CResource *)v133;
-            if ( !v133 )
-              ModuleFailFastForHRESULT(2147942414LL, retaddr);
-            *((_DWORD *)v133 + 2) = 0;
-            *((_QWORD *)v133 + 3) = 0LL;
-            *((_QWORD *)v133 + 2) = a1;
-            *((_QWORD *)v133 + 5) = 0LL;
-            *((_DWORD *)v133 + 8) = 0;
-            *((_DWORD *)v133 + 8) |= 1u;
-            *(_QWORD *)v133 = &CImageLegacyMilBrush::`vftable';
-            *((_DWORD *)v133 + 16) = 1065353216;
-            *((_DWORD *)v133 + 17) = 1065353216;
-            *((_DWORD *)v133 + 18) = 1065353216;
-            *(_QWORD *)(v133 + 76) = 1065353216LL;
-            *(_QWORD *)(v133 + 84) = 0LL;
-            *((_DWORD *)v133 + 23) = 0;
-            v133[96] = 0;
-            *(_QWORD *)(v133 + 108) = 0LL;
-            *(_QWORD *)(v133 + 116) = 0LL;
-            goto LABEL_545;
-          }
-          v126 = v125 - 2;
-          if ( !v126 )
-          {
-            v132 = (CIndirectSwapchainRenderTarget *)CIndirectSwapchainRenderTarget::operator new((unsigned __int64)a1);
-            if ( v132 )
-            {
-              v14 = CIndirectSwapchainRenderTarget::CIndirectSwapchainRenderTarget(v132, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v127 = v126 - 1;
-          if ( !v127 )
-          {
-            v131 = (CInjectionAnimation *)CRemoteAppRenderTarget::operator new((unsigned __int64)a1);
-            if ( v131 )
-            {
-              v14 = CInjectionAnimation::CInjectionAnimation(v131, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v128 = v127 - 1;
-          if ( !v128 )
-          {
-            v130 = (CInk *)KeyframeInterpolation::operator new(0xF0uLL);
-            if ( v130 )
-            {
-              v14 = CInk::CInk(v130, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          if ( v128 == 1 )
-          {
-            v129 = (CInteraction *)DefaultHeap::AllocClear(0x6C8uLL);
-            if ( !v129 )
-              ModuleFailFastForHRESULT(2147942414LL, retaddr);
-            v14 = CInteraction::CInteraction(v129, a1);
-            goto LABEL_543;
-          }
-        }
-        goto LABEL_524;
-      }
-      v143 = a3 - 95;
-      if ( !v143 )
-      {
-        v159 = (CLegacyStereoRenderTarget *)CLegacyStereoRenderTarget::operator new((unsigned __int64)a1);
-        if ( v159 )
-        {
-          v14 = CLegacyStereoRenderTarget::CLegacyStereoRenderTarget(v159, a1);
-          goto LABEL_543;
-        }
-        goto LABEL_23;
-      }
-      v144 = v143 - 1;
-      if ( v144 )
-      {
-        v145 = v144 - 1;
-        if ( !v145 )
-        {
-          v157 = (CLinearGradientBrush *)DefaultHeap::AllocClear(0x120uLL);
-          if ( !v157 )
-            ModuleFailFastForHRESULT(2147942414LL, retaddr);
-          v14 = CLinearGradientBrush::CLinearGradientBrush(v157, a1);
-          goto LABEL_543;
-        }
-        v146 = v145 - 1;
-        if ( !v146 )
-        {
-          v156 = (CResource *)CLinearGradientLegacyMilBrush::operator new((unsigned __int64)a1);
-          v16 = v156;
-          if ( v156 )
-          {
-            *((_DWORD *)v156 + 2) = 0;
-            *((_QWORD *)v156 + 3) = 0LL;
-            *((_QWORD *)v156 + 2) = a1;
-            *((_QWORD *)v156 + 5) = 0LL;
-            *((_DWORD *)v156 + 8) = 0;
-            *((_DWORD *)v156 + 8) |= 1u;
-            *(_QWORD *)v156 = &CLinearGradientLegacyMilBrush::`vftable';
-            *((_QWORD *)v156 + 8) = 0LL;
-            *((_QWORD *)v156 + 9) = 0LL;
-            *((_QWORD *)v156 + 33) = 0LL;
-            *((_QWORD *)v156 + 34) = 0LL;
-            *((_QWORD *)v156 + 35) = 0LL;
-            goto LABEL_544;
-          }
-          goto LABEL_23;
-        }
-        v147 = v146 - 1;
-        if ( !v147 )
-        {
-          v155 = (CLinearTransferEffect *)CLinearTransferEffect::operator new((unsigned __int64)a1);
-          if ( v155 )
-          {
-            v14 = CLinearTransferEffect::CLinearTransferEffect(v155, a1);
-            goto LABEL_543;
-          }
-          goto LABEL_23;
-        }
-        v148 = v147 - 1;
-        if ( v148 )
-        {
-          v149 = v148 - 2;
+          v149 = (CLegacyRenderTarget *)DefaultHeap::AllocClear(0x48F8uLL);
           if ( !v149 )
-          {
-            v153 = (CMagnifierRenderTarget *)CMagnifierRenderTarget::operator new((unsigned __int64)a1);
-            if ( v153 )
-            {
-              v14 = CMagnifierRenderTarget::CMagnifierRenderTarget(v153, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          v150 = v149 - 1;
-          if ( !v150 )
-          {
-            v152 = (CManipulation *)CManipulation::operator new((unsigned __int64)a1);
-            if ( v152 )
-            {
-              v14 = CManipulation::CManipulation(v152, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          if ( v150 == 1 )
-          {
-            v151 = (CManipulationTransform *)DefaultHeap::AllocClear(0x118uLL);
-            if ( !v151 )
-              ModuleFailFastForHRESULT(2147942414LL, retaddr);
-            v14 = CManipulationTransform::CManipulationTransform(v151, a1);
-            goto LABEL_543;
-          }
-          goto LABEL_524;
-        }
-        v154 = (CResource *)CLineGeometry::operator new((unsigned __int64)a1);
-        v16 = v154;
-        if ( !v154 )
-          goto LABEL_23;
-        *((_DWORD *)v154 + 2) = 0;
-        *((_QWORD *)v154 + 3) = 0LL;
-        *((_QWORD *)v154 + 2) = a1;
-        *((_QWORD *)v154 + 5) = 0LL;
-        *((_DWORD *)v154 + 8) = 0;
-        *((_DWORD *)v154 + 23) = 1065353216;
-        v17 = &CLineGeometry::`vftable';
-        *((_QWORD *)v16 + 13) = 0LL;
-        *((_BYTE *)v16 + 112) = 0;
-        *((_QWORD *)v16 + 15) = 0LL;
-        *((_BYTE *)v16 + 128) = 0;
-        *((_DWORD *)v16 + 8) |= 1u;
-      }
-      else
-      {
-        v158 = (CResource *)CBspNode::operator new((unsigned __int64)a1);
-        v16 = v158;
-        if ( !v158 )
-          goto LABEL_23;
-        *((_DWORD *)v158 + 2) = 0;
-        *((_QWORD *)v158 + 2) = a1;
-        *((_QWORD *)v158 + 3) = 0LL;
-        *((_QWORD *)v158 + 5) = 0LL;
-        *((_DWORD *)v158 + 8) = 0;
-        v17 = &CLegacyVisualCaptureRenderTarget::`vftable';
-      }
-      goto LABEL_22;
-    }
-    if ( a3 == 81 )
-    {
-      v124 = (CFilterEffect *)CHueRotationEffect::operator new((unsigned __int64)a1);
-      v16 = v124;
-      if ( !v124 )
-        goto LABEL_23;
-      CFilterEffect::CFilterEffect(v124, a1);
-      v13 = (unsigned __int64 *)&CHueRotationEffect::`vftable';
-      goto LABEL_38;
-    }
-    if ( a3 <= 0x43 )
-    {
-      if ( a3 == 67 )
-      {
-        v105 = (CGeometry2DGroup *)CHueRotationEffect::operator new((unsigned __int64)a1);
-        if ( v105 )
-        {
-          v14 = CGeometry2DGroup::CGeometry2DGroup(v105, a1, a2);
-          goto LABEL_543;
-        }
-        goto LABEL_23;
-      }
-      if ( a3 <= 0x3C )
-      {
-        if ( a3 == 60 )
-        {
-          v97 = (CResource *)KeyframeInterpolation::operator new(0x48uLL);
-          v16 = v97;
-          if ( v97 )
-          {
-            *((_DWORD *)v97 + 2) = 0;
-            *((_QWORD *)v97 + 3) = 0LL;
-            *((_QWORD *)v97 + 2) = a1;
-            *((_QWORD *)v97 + 5) = 0LL;
-            *((_DWORD *)v97 + 8) = 0;
-            *(_QWORD *)v97 = &TValueResource<float,tagMILCMD_FLOATRESOURCE,60>::`vftable';
-            *((_DWORD *)v97 + 16) = 0;
-            goto LABEL_544;
-          }
-          goto LABEL_23;
-        }
-        v87 = a3 - 53;
-        if ( !v87 )
-        {
-          v96 = (CDropShadow *)DefaultHeap::AllocClear(0x130uLL);
-          if ( !v96 )
             ModuleFailFastForHRESULT(2147942414LL, retaddr);
-          v14 = CDropShadow::CDropShadow(v96, a1);
-          goto LABEL_543;
+          v11 = CLegacyRenderTarget::CLegacyRenderTarget(v149, a1, 1);
+          goto LABEL_9;
         }
-        v88 = v87 - 2;
-        if ( !v88 )
+        if ( a3 <= 0x5E )
         {
-          v95 = (CEffectBrush *)DefaultHeap::AllocClear(0xD0uLL);
-          if ( !v95 )
-            ModuleFailFastForHRESULT(2147942414LL, retaddr);
-          v14 = CEffectBrush::CEffectBrush(v95, a1);
-          goto LABEL_543;
-        }
-        v89 = v88 - 1;
-        if ( v89 )
-        {
-          v90 = v89 - 1;
-          if ( v90 )
+          if ( a3 <= 0x58 )
           {
-            if ( v90 == 1 )
+            if ( a3 == 88 )
             {
-              v91 = (CExpression *)DefaultHeap::AllocClear(0x1D0uLL);
-              if ( !v91 )
+              v209 = (CInteractionTracker *)CInteractionTracker::operator new((unsigned __int64)a1);
+              if ( v209 )
+              {
+                v11 = CInteractionTracker::CInteractionTracker(v209, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            v74 = a3 - 82;
+            if ( !v74 )
+            {
+              v108 = (char *)DefaultHeap::AllocClear(0xF8uLL);
+              v13 = (__int64)v108;
+              if ( !v108 )
                 ModuleFailFastForHRESULT(2147942414LL, retaddr);
-              v14 = CExpression::CExpression(v91, a1);
-              goto LABEL_543;
+              *((_DWORD *)v108 + 2) = 0;
+              *((_QWORD *)v108 + 2) = a1;
+              *((_QWORD *)v108 + 3) = 0LL;
+              *((_QWORD *)v108 + 5) = 0LL;
+              *((_DWORD *)v108 + 8) = 0;
+              *((_DWORD *)v108 + 8) |= 1u;
+              *(_QWORD *)v108 = &CImageLegacyMilBrush::`vftable';
+              *((_DWORD *)v108 + 14) = 1065353216;
+              *((_DWORD *)v108 + 15) = 1065353216;
+              *((_DWORD *)v108 + 16) = 1065353216;
+              *(_QWORD *)(v108 + 68) = 1065353216LL;
+              *(_QWORD *)(v108 + 76) = 0LL;
+              *((_DWORD *)v108 + 21) = 0;
+              v108[88] = 0;
+              *(_QWORD *)(v108 + 100) = 0LL;
+              *(_QWORD *)(v108 + 108) = 0LL;
+              goto LABEL_10;
             }
-            goto LABEL_524;
+            v75 = v74 - 2;
+            if ( !v75 )
+            {
+              v208 = (CIndirectSwapchainRenderTarget *)CIndirectSwapchainRenderTarget::operator new((unsigned __int64)a1);
+              if ( v208 )
+              {
+                v11 = CIndirectSwapchainRenderTarget::CIndirectSwapchainRenderTarget(v208, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            v76 = v75 - 1;
+            if ( !v76 )
+            {
+              v207 = (CInjectionAnimation *)CInjectionAnimation::operator new((unsigned __int64)a1);
+              if ( v207 )
+              {
+                v11 = CInjectionAnimation::CInjectionAnimation(v207, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            v77 = v76 - 1;
+            if ( !v77 )
+            {
+              v206 = (CInk *)KeyframeInterpolation::operator new(0xE8uLL);
+              if ( v206 )
+              {
+                v11 = CInk::CInk(v206, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            if ( v77 == 1 )
+            {
+              v78 = (CInteraction *)DefaultHeap::AllocClear(0x6C0uLL);
+              if ( !v78 )
+                ModuleFailFastForHRESULT(2147942414LL, retaddr);
+              v79 = CInteraction::CInteraction(v78, a1);
+              v12 = (void **)((char *)v79 + 8);
+              v13 = ((unsigned __int64)v79 + 8) & -(__int64)(v79 != 0LL);
+              goto LABEL_10;
+            }
+            goto LABEL_567;
           }
-          v92 = (CResource *)DefaultHeap::AllocClear(0xA0uLL);
-          v16 = v92;
-          if ( !v92 )
+          v40 = a3 - 89;
+          if ( !v40 )
+          {
+            v210 = (CInteractionTrackerBindingManager *)CCaptureController::operator new((unsigned __int64)a1);
+            if ( v210 )
+            {
+              v11 = CInteractionTrackerBindingManager::CInteractionTrackerBindingManager(v210, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          v41 = v40 - 1;
+          if ( !v41 )
+          {
+            v42 = (CKeyframeAnimation *)DefaultHeap::AllocClear(0x228uLL);
+            if ( !v42 )
+              ModuleFailFastForHRESULT(2147942414LL, retaddr);
+            v11 = CKeyframeAnimation::CKeyframeAnimation(v42, a1);
+            goto LABEL_9;
+          }
+          v72 = v41 - 1;
+          if ( v72 )
+          {
+            if ( v72 == 1 )
+            {
+              v150 = DefaultHeap::AllocClear(0x60uLL);
+              v13 = (__int64)v150;
+              if ( !v150 )
+                ModuleFailFastForHRESULT(2147942414LL, retaddr);
+              v150[2] = 0;
+              *((_QWORD *)v150 + 2) = a1;
+              *((_QWORD *)v150 + 3) = 0LL;
+              *((_QWORD *)v150 + 5) = 0LL;
+              v150[8] = 0;
+              *(_QWORD *)v150 = &CLegacyAnimationTrigger::`vftable';
+              *((_QWORD *)v150 + 7) = 0LL;
+              *((_QWORD *)v150 + 8) = 0LL;
+              *((_QWORD *)v150 + 9) = 0LL;
+              v150[20] = 0;
+              goto LABEL_10;
+            }
+            goto LABEL_567;
+          }
+          v73 = (CVisual *)DefaultHeap::AllocClear(0x280uLL);
+          v13 = (__int64)v73;
+          if ( !v73 )
             ModuleFailFastForHRESULT(2147942414LL, retaddr);
-          *((_DWORD *)v92 + 2) = 0;
-          *((_QWORD *)v92 + 3) = 0LL;
-          *((_QWORD *)v92 + 2) = a1;
-          *((_QWORD *)v92 + 5) = 0LL;
-          *((_DWORD *)v92 + 8) = 0;
-          *((_DWORD *)v92 + 23) = 1065353216;
-          v93 = &CEllipseGeometry::`vftable';
-          *((_QWORD *)v16 + 13) = 0LL;
-          *((_BYTE *)v16 + 112) = 0;
-          *((_QWORD *)v16 + 15) = 0LL;
-          *((_BYTE *)v16 + 128) = 0;
-          *((_DWORD *)v16 + 8) |= 1u;
+          CVisual::CVisual(v73, a1);
+          v25 = &CLayerVisual::`vftable';
+          goto LABEL_47;
+        }
+        v211 = a3 - 95;
+        if ( !v211 )
+        {
+          v227 = (CLegacyStereoRenderTarget *)CLegacyStereoRenderTarget::operator new((unsigned __int64)a1);
+          if ( v227 )
+          {
+            v11 = CLegacyStereoRenderTarget::CLegacyStereoRenderTarget(v227, a1);
+            goto LABEL_9;
+          }
+          goto LABEL_262;
+        }
+        v212 = v211 - 1;
+        if ( !v212 )
+        {
+          v226 = CLegacyVisualCaptureRenderTarget::operator new((unsigned __int64)a1);
+          v13 = (__int64)v226;
+          if ( !v226 )
+            goto LABEL_262;
+          v226[2] = 0;
+          *((_QWORD *)v226 + 2) = a1;
+          *((_QWORD *)v226 + 3) = 0LL;
+          *((_QWORD *)v226 + 5) = 0LL;
+          v226[8] = 0;
+          v25 = &CLegacyVisualCaptureRenderTarget::`vftable';
+          goto LABEL_47;
+        }
+        v213 = v212 - 1;
+        if ( !v213 )
+        {
+          v225 = (CLinearGradientBrush *)CLinearGradientBrush::operator new((unsigned __int64)a1);
+          if ( v225 )
+          {
+            v11 = CLinearGradientBrush::CLinearGradientBrush(v225, a1);
+            goto LABEL_9;
+          }
+          goto LABEL_262;
+        }
+        v214 = v213 - 1;
+        if ( v214 )
+        {
+          v215 = v214 - 1;
+          if ( !v215 )
+          {
+            v223 = (CLinearTransferEffect *)CLinearTransferEffect::operator new((unsigned __int64)a1);
+            if ( v223 )
+            {
+              v11 = CLinearTransferEffect::CLinearTransferEffect(v223, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          v216 = v215 - 1;
+          if ( v216 )
+          {
+            v217 = v216 - 1;
+            if ( !v217 )
+            {
+              v221 = (CLocalAppRenderTarget *)CLocalAppRenderTarget::operator new((unsigned __int64)a1);
+              if ( v221 )
+              {
+                v11 = CLocalAppRenderTarget::CLocalAppRenderTarget(v221, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            v218 = v217 - 1;
+            if ( !v218 )
+            {
+              v220 = (CMagnifierRenderTarget *)CMagnifierRenderTarget::operator new((unsigned __int64)a1);
+              if ( v220 )
+              {
+                v11 = CMagnifierRenderTarget::CMagnifierRenderTarget(v220, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            if ( v218 == 1 )
+            {
+              v219 = (CManipulation *)CManipulation::operator new((unsigned __int64)a1);
+              if ( v219 )
+              {
+                v11 = CManipulation::CManipulation(v219, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            goto LABEL_567;
+          }
+          v222 = CEllipseGeometry::operator new((unsigned __int64)a1);
+          v13 = (__int64)v222;
+          if ( !v222 )
+            goto LABEL_262;
+          v222[2] = 0;
+          *((_QWORD *)v222 + 2) = a1;
+          *((_QWORD *)v222 + 3) = 0LL;
+          *((_QWORD *)v222 + 5) = 0LL;
+          v222[8] = 0;
+          v222[21] = 1065353216;
+          v25 = &CLineGeometry::`vftable';
+          *(_QWORD *)(v13 + 96) = 0LL;
+          *(_BYTE *)(v13 + 104) = 0;
+          *(_QWORD *)(v13 + 112) = 0LL;
+          *(_BYTE *)(v13 + 120) = 0;
+          *(_DWORD *)(v13 + 32) |= 1u;
+          goto LABEL_47;
+        }
+        v224 = CLinearGradientLegacyMilBrush::operator new((unsigned __int64)a1);
+        v13 = (__int64)v224;
+        if ( !v224 )
+          goto LABEL_262;
+        v224[2] = 0;
+        *((_QWORD *)v224 + 2) = a1;
+        *((_QWORD *)v224 + 3) = 0LL;
+        *((_QWORD *)v224 + 5) = 0LL;
+        v224[8] = 0;
+        v224[8] |= 1u;
+        *(_QWORD *)v224 = &CLinearGradientLegacyMilBrush::`vftable';
+        *((_QWORD *)v224 + 7) = 0LL;
+        *((_QWORD *)v224 + 8) = 0LL;
+        *((_QWORD *)v224 + 31) = 0LL;
+        *((_QWORD *)v224 + 32) = 0LL;
+        *((_QWORD *)v224 + 33) = 0LL;
+        goto LABEL_10;
+      }
+      if ( a3 == 81 )
+      {
+        v205 = (CHwndBitmap *)CEllipseGeometry::operator new((unsigned __int64)a1);
+        if ( v205 )
+        {
+          v11 = CHwndBitmap::CHwndBitmap(v205, a1);
+          goto LABEL_9;
+        }
+        goto LABEL_262;
+      }
+      if ( a3 <= 0x44 )
+      {
+        if ( a3 == 68 )
+        {
+          v195 = (CGeometryGroup *)CCombinedGeometry::operator new((unsigned __int64)a1);
+          if ( v195 )
+          {
+            v11 = CGeometryGroup::CGeometryGroup(v195, a1, a2);
+            goto LABEL_9;
+          }
+          goto LABEL_262;
+        }
+        if ( a3 > 0x3D )
+        {
+          v100 = a3 - 62;
+          if ( !v100 )
+          {
+            v194 = (CGaussianBlurEffect *)CBrightnessEffect::operator new((unsigned __int64)a1);
+            if ( v194 )
+            {
+              v11 = CGaussianBlurEffect::CGaussianBlurEffect(v194, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          v101 = v100 - 1;
+          if ( !v101 )
+          {
+            v102 = (CGdiSpriteBitmap *)DefaultHeap::AllocClear(0x228uLL);
+            if ( !v102 )
+              ModuleFailFastForHRESULT(2147942414LL, retaddr);
+            v11 = CGdiSpriteBitmap::CGdiSpriteBitmap(v102, a1);
+            goto LABEL_9;
+          }
+          v191 = v101 - 1;
+          if ( !v191 )
+          {
+            v193 = (CGenericInk *)CHolographicExclusiveView::operator new((unsigned __int64)a1);
+            if ( v193 )
+            {
+              v11 = CGenericInk::CGenericInk(v193, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          if ( v191 == 3 )
+          {
+            v192 = (CGeometry2DGroup *)CContainerVectorShape::operator new((unsigned __int64)a1);
+            if ( v192 )
+            {
+              v11 = CGeometry2DGroup::CGeometry2DGroup(v192, a1, a2);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          goto LABEL_567;
+        }
+        if ( a3 == 61 )
+        {
+          v190 = (CFloodEffect *)CBrightnessEffect::operator new((unsigned __int64)a1);
+          if ( v190 )
+          {
+            v11 = CFloodEffect::CFloodEffect(v190, a1);
+            goto LABEL_9;
+          }
+          goto LABEL_262;
+        }
+        v19 = a3 - 55;
+        if ( !v19 )
+        {
+          v97 = (CEffectBrush *)DefaultHeap::AllocClear(0xC8uLL);
+          if ( !v97 )
+            ModuleFailFastForHRESULT(2147942414LL, retaddr);
+          v11 = CEffectBrush::CEffectBrush(v97, a1);
+          goto LABEL_9;
+        }
+        v20 = v19 - 1;
+        if ( v20 )
+        {
+          v21 = v20 - 1;
+          if ( v21 )
+          {
+            v22 = v21 - 1;
+            if ( !v22 )
+            {
+              v23 = (CExpression *)DefaultHeap::AllocClear(0x1B8uLL);
+              if ( !v23 )
+                ModuleFailFastForHRESULT(2147942414LL, retaddr);
+              v11 = CExpression::CExpression(v23, a1);
+              goto LABEL_9;
+            }
+            if ( v22 == 2 )
+            {
+              v138 = operator new(0x40uLL);
+              v13 = (__int64)v138;
+              if ( v138 )
+              {
+                v138[2] = 0;
+                *((_QWORD *)v138 + 2) = a1;
+                *((_QWORD *)v138 + 3) = 0LL;
+                *((_QWORD *)v138 + 5) = 0LL;
+                v138[8] = 0;
+                *(_QWORD *)v138 = &TValueResource<float,tagMILCMD_FLOATRESOURCE,60>::`vftable';
+                v138[14] = 0;
+                goto LABEL_10;
+              }
+              goto LABEL_262;
+            }
+            goto LABEL_567;
+          }
+          v189 = CEllipseGeometry::operator new((unsigned __int64)a1);
+          v13 = (__int64)v189;
+          if ( !v189 )
+            goto LABEL_262;
+          v189[2] = 0;
+          *((_QWORD *)v189 + 2) = a1;
+          *((_QWORD *)v189 + 3) = 0LL;
+          *((_QWORD *)v189 + 5) = 0LL;
+          v189[8] = 0;
+          v189[21] = 1065353216;
+          v25 = &CEllipseGeometry::`vftable';
+          *(_QWORD *)(v13 + 96) = 0LL;
+          *(_BYTE *)(v13 + 104) = 0;
+          *(_QWORD *)(v13 + 112) = 0LL;
+          *(_BYTE *)(v13 + 120) = 0;
+          *(_DWORD *)(v13 + 32) |= 1u;
         }
         else
         {
-          v94 = (CResource *)DefaultHeap::AllocClear(0x60uLL);
-          v16 = v94;
-          if ( !v94 )
+          v59 = DefaultHeap::AllocClear(0x58uLL);
+          v13 = (__int64)v59;
+          if ( !v59 )
             ModuleFailFastForHRESULT(2147942414LL, retaddr);
-          *((_DWORD *)v94 + 2) = 0;
-          *((_QWORD *)v94 + 3) = 0LL;
-          *((_QWORD *)v94 + 2) = a1;
-          *((_QWORD *)v94 + 5) = 0LL;
-          *((_DWORD *)v94 + 8) = 0;
-          *((_DWORD *)v94 + 20) = 1065353216;
-          v93 = &CEffectGroup::`vftable';
+          v59[2] = 0;
+          *((_QWORD *)v59 + 2) = a1;
+          *((_QWORD *)v59 + 3) = 0LL;
+          *((_QWORD *)v59 + 5) = 0LL;
+          v59[8] = 0;
+          v59[18] = 1065353216;
+          v25 = &CEffectGroup::`vftable';
         }
-        *(_QWORD *)v16 = v93;
-LABEL_545:
-        (*(void (__fastcall **)(CResource *))(*(_QWORD *)v16 + 8LL))(v16);
-        *a4 = v16;
-        return v7;
+        goto LABEL_47;
       }
-      v98 = a3 - 61;
-      if ( !v98 )
+      v122 = a3 - 71;
+      if ( !v122 )
       {
-        v104 = (CFloodEffect *)CBrightnessEffect::operator new((unsigned __int64)a1);
-        if ( v104 )
+        v203 = CAnimationTrigger::operator new((unsigned __int64)a1);
+        v13 = (__int64)v203;
+        if ( !v203 )
+          goto LABEL_262;
+        v203[2] = 0;
+        *((_QWORD *)v203 + 2) = a1;
+        *((_QWORD *)v203 + 3) = 0LL;
+        *((_QWORD *)v203 + 5) = 0LL;
+        v203[8] = 0;
+        *(_QWORD *)v203 = &CHolographicComposition::`vftable'{for `CNotificationResource'};
+        *((_QWORD *)v203 + 8) = &CHolographicComposition::`vftable'{for `IHolographicComposition'};
+        *((_QWORD *)v203 + 9) = a1;
+        v204 = (void **)*((_QWORD *)a1 + 17);
+        goto LABEL_378;
+      }
+      v123 = v122 - 1;
+      if ( !v123 )
+      {
+        v202 = (CHolographicDisplay *)CCaptureController::operator new((unsigned __int64)a1);
+        if ( v202 )
         {
-          v14 = CFloodEffect::CFloodEffect(v104, a1);
-          goto LABEL_543;
+          v11 = CHolographicDisplay::CHolographicDisplay(v202, a1);
+          goto LABEL_9;
         }
-        goto LABEL_23;
+        goto LABEL_262;
       }
-      v99 = v98 - 1;
-      if ( !v99 )
+      v124 = v123 - 1;
+      if ( !v124 )
       {
-        v103 = (CGaussianBlurEffect *)CBrightnessEffect::operator new((unsigned __int64)a1);
-        if ( v103 )
+        v201 = (CHolographicExclusiveMode *)CCrossContainerGuestReadWriteSharedSection::operator new((unsigned __int64)a1);
+        if ( v201 )
         {
-          v14 = CGaussianBlurEffect::CGaussianBlurEffect(v103, a1);
-          goto LABEL_543;
+          v11 = CHolographicExclusiveMode::CHolographicExclusiveMode(v201, a1);
+          goto LABEL_9;
         }
-        goto LABEL_23;
+        goto LABEL_262;
       }
-      v100 = v99 - 1;
-      if ( !v100 )
+      v125 = v124 - 1;
+      if ( !v125 )
       {
-        v102 = (CGdiSpriteBitmap *)DefaultHeap::AllocClear(0x1D8uLL);
-        if ( !v102 )
+        v200 = (CHolographicExclusiveView *)CHolographicExclusiveView::operator new((unsigned __int64)a1);
+        if ( v200 )
+        {
+          v11 = CHolographicExclusiveView::CHolographicExclusiveView(v200, a1);
+          goto LABEL_9;
+        }
+        goto LABEL_262;
+      }
+      v126 = v125 - 1;
+      if ( !v126 )
+      {
+        v199 = (CHolographicInteropTarget *)CHolographicInteropTarget::operator new((unsigned __int64)a1);
+        if ( v199 )
+        {
+          v11 = CHolographicInteropTarget::CHolographicInteropTarget(v199, a1);
+          goto LABEL_9;
+        }
+        goto LABEL_262;
+      }
+      v127 = v126 - 1;
+      if ( !v127 )
+      {
+        v198 = (CHolographicInteropTexture *)CHolographicInteropTexture::operator new((unsigned __int64)a1);
+        if ( v198 )
+        {
+          v11 = CHolographicInteropTexture::CHolographicInteropTexture(v198, a1);
+          goto LABEL_9;
+        }
+        goto LABEL_262;
+      }
+      v128 = v127 - 1;
+      if ( !v128 )
+      {
+        v197 = (CHolographicViewer *)CCombinedGeometry::operator new((unsigned __int64)a1);
+        if ( v197 )
+        {
+          v11 = CHolographicViewer::CHolographicViewer(v197, a1);
+          goto LABEL_9;
+        }
+        goto LABEL_262;
+      }
+      v129 = v128 - 2;
+      if ( !v129 )
+      {
+        v130 = DefaultHeap::AllocClear(0x50uLL);
+        if ( !v130 )
           ModuleFailFastForHRESULT(2147942414LL, retaddr);
-        v14 = CGdiSpriteBitmap::CGdiSpriteBitmap(v102, a1);
-        goto LABEL_543;
+        v13 = (__int64)(v130 + 2);
+        v130[4] = 0;
+        *((_QWORD *)v130 + 3) = a1;
+        *((_QWORD *)v130 + 4) = 0LL;
+        *((_QWORD *)v130 + 6) = 0LL;
+        v130[10] = 0;
+        *(_QWORD *)v130 = &CHoverPointerSource::`vftable'{for `IHoverPointerSourceResource'};
+        v12 = &CHoverPointerSource::`vftable'{for `CResource'};
+        *((_QWORD *)v130 + 1) = &CHoverPointerSource::`vftable'{for `CResource'};
+        *((_OWORD *)v130 + 4) = 0LL;
+        goto LABEL_10;
       }
-      if ( v100 == 1 )
-      {
-        v101 = (CGenericInk *)CProjectedShadow::operator new((unsigned __int64)a1);
-        if ( v101 )
-        {
-          v14 = CGenericInk::CGenericInk(v101, a1);
-          goto LABEL_543;
-        }
-        goto LABEL_23;
-      }
-      goto LABEL_524;
-    }
-    v106 = a3 - 68;
-    if ( !v106 )
-    {
-      v123 = (CGeometryGroup *)CGeometryGroup::operator new((unsigned __int64)a1);
-      if ( v123 )
-      {
-        v14 = CGeometryGroup::CGeometryGroup(v123, a1, a2);
-        goto LABEL_543;
-      }
-      goto LABEL_23;
-    }
-    v107 = v106 - 5;
-    if ( v107 )
-    {
-      v108 = v107 - 1;
-      if ( !v108 )
-      {
-        v120 = (CHolographicDisplay *)CInteractionTrackerBindingManager::operator new((unsigned __int64)a1);
-        if ( v120 )
-        {
-          v14 = CHolographicDisplay::CHolographicDisplay(v120, a1);
-          goto LABEL_543;
-        }
-        goto LABEL_23;
-      }
-      v109 = v108 - 1;
-      if ( !v109 )
-      {
-        v119 = (CHolographicExclusiveMode *)CLegacyAnimationTrigger::operator new((unsigned __int64)a1);
-        if ( v119 )
-        {
-          v14 = CHolographicExclusiveMode::CHolographicExclusiveMode(v119, a1);
-          goto LABEL_543;
-        }
-        goto LABEL_23;
-      }
-      v110 = v109 - 1;
-      if ( !v110 )
-      {
-        v118 = (CHolographicExclusiveView *)CHolographicExclusiveView::operator new((unsigned __int64)a1);
-        if ( v118 )
-        {
-          v14 = CHolographicExclusiveView::CHolographicExclusiveView(v118, a1);
-          goto LABEL_543;
-        }
-        goto LABEL_23;
-      }
-      v111 = v110 - 1;
-      if ( !v111 )
-      {
-        v117 = (CHolographicInteropTarget *)CBrush::operator new((unsigned __int64)a1);
-        if ( v117 )
-        {
-          v14 = CHolographicInteropTarget::CHolographicInteropTarget(v117, a1);
-          goto LABEL_543;
-        }
-        goto LABEL_23;
-      }
-      v112 = v111 - 1;
-      if ( !v112 )
-      {
-        v116 = (CHolographicInteropTexture *)CHolographicInteropTexture::operator new((unsigned __int64)a1);
-        if ( v116 )
-        {
-          v14 = CHolographicInteropTexture::CHolographicInteropTexture(v116, a1);
-          goto LABEL_543;
-        }
-        goto LABEL_23;
-      }
-      v113 = v112 - 1;
-      if ( !v113 )
-      {
-        v115 = (CHolographicViewer *)CGeometryGroup::operator new((unsigned __int64)a1);
-        if ( v115 )
-        {
-          v14 = CHolographicViewer::CHolographicViewer(v115, a1);
-          goto LABEL_543;
-        }
-        goto LABEL_23;
-      }
-      if ( v113 != 1 )
-        goto LABEL_524;
-      v114 = (char *)DefaultHeap::AllocClear(0x58uLL);
-      if ( !v114 )
-        ModuleFailFastForHRESULT(2147942414LL, retaddr);
-      v16 = (CResource *)(v114 + 8);
-      *((_DWORD *)v114 + 4) = 0;
-      *((_QWORD *)v114 + 3) = a1;
-      *((_QWORD *)v114 + 4) = 0LL;
-      *((_QWORD *)v114 + 6) = 0LL;
-      *((_DWORD *)v114 + 10) = 0;
-      *(_QWORD *)v114 = &CHoverPointerSource::`vftable'{for `IHoverPointerSourceResource'};
-      v13 = (unsigned __int64 *)&CHoverPointerSource::`vftable'{for `CResource'};
-      *((_QWORD *)v114 + 1) = &CHoverPointerSource::`vftable'{for `CResource'};
-      *(_OWORD *)(v114 + 72) = 0LL;
-      goto LABEL_544;
-    }
-    v121 = (CResource *)CAnimationTrigger::operator new((unsigned __int64)a1);
-    v16 = v121;
-    if ( !v121 )
-      goto LABEL_23;
-    *((_DWORD *)v121 + 2) = 0;
-    *((_QWORD *)v121 + 3) = 0LL;
-    *((_QWORD *)v121 + 2) = a1;
-    *((_QWORD *)v121 + 5) = 0LL;
-    *((_DWORD *)v121 + 8) = 0;
-    *(_QWORD *)v121 = &CHolographicComposition::`vftable'{for `CNotificationResource'};
-    *((_QWORD *)v121 + 9) = &CHolographicComposition::`vftable'{for `IHolographicComposition'};
-    *((_QWORD *)v121 + 10) = a1;
-    v122 = (void **)*((_QWORD *)a1 + 33);
-LABEL_211:
-    *((_QWORD *)v16 + 11) = v122;
-    goto LABEL_544;
-  }
-  if ( a3 == 51 )
-  {
-    v86 = (CDesktopTree *)CDesktopTree::operator new((unsigned __int64)a1);
-    if ( v86 )
-    {
-      v14 = CDesktopTree::CDesktopTree(v86, a1);
-      goto LABEL_543;
-    }
-    goto LABEL_23;
-  }
-  if ( a3 > 0x19 )
-  {
-    if ( a3 <= 0x26 )
-    {
-      if ( a3 == 38 )
-      {
-        v68 = (CCompositionSkyBoxBrush *)CHueRotationEffect::operator new((unsigned __int64)a1);
-        if ( v68 )
-        {
-          v14 = CCompositionSkyBoxBrush::CCompositionSkyBoxBrush(v68, a1);
-          goto LABEL_543;
-        }
-        goto LABEL_23;
-      }
-      if ( a3 > 0x1F )
-      {
-        v61 = a3 - 32;
-        if ( !v61 )
-        {
-          v67 = (CCompositionDistantLight *)DefaultHeap::AllocClear(0x128uLL);
-          if ( !v67 )
-            ModuleFailFastForHRESULT(2147942414LL, retaddr);
-          v14 = CCompositionDistantLight::CCompositionDistantLight(v67, a1);
-          goto LABEL_543;
-        }
-        v62 = v61 - 1;
-        if ( v62 )
-        {
-          v63 = v62 - 2;
-          if ( !v63 )
-          {
-            v65 = (CResource *)CBrightnessEffect::operator new((unsigned __int64)a1);
-            v16 = v65;
-            if ( v65 )
-            {
-              *((_DWORD *)v65 + 2) = 0;
-              *((_QWORD *)v65 + 3) = 0LL;
-              *((_QWORD *)v65 + 2) = a1;
-              *((_QWORD *)v65 + 5) = 0LL;
-              *((_DWORD *)v65 + 8) = 0;
-              *(_QWORD *)v65 = &CCompositionMipmapSurface::`vftable'{for `CPropertyChangeResource'};
-              *((_QWORD *)v65 + 10) = &CCompositionMipmapSurface::`vftable'{for `IDeviceResourceNotify'};
-              *((_QWORD *)v65 + 11) = &CCompositionMipmapSurface::`vftable'{for `ISceneNotificationListener'};
-              *((_QWORD *)v65 + 12) = 0LL;
-              *((_QWORD *)v65 + 13) = 0LL;
-              *((_QWORD *)v65 + 14) = 0LL;
-              *((_QWORD *)v65 + 19) = 0LL;
-              *((_QWORD *)v65 + 21) = 0LL;
-              goto LABEL_544;
-            }
-            goto LABEL_23;
-          }
-          if ( v63 == 1 )
-          {
-            v64 = (CCompositionPointLight *)CCompositionPointLight::operator new((unsigned __int64)a1);
-            if ( v64 )
-            {
-              v14 = CCompositionPointLight::CCompositionPointLight(v64, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_23;
-          }
-          goto LABEL_524;
-        }
-        v66 = (CResource *)KeyframeInterpolation::operator new(0x68uLL);
-        v16 = v66;
-        if ( !v66 )
-          goto LABEL_23;
-        *((_DWORD *)v66 + 2) = 0;
-        *((_QWORD *)v66 + 3) = 0LL;
-        *((_QWORD *)v66 + 2) = a1;
-        *((_QWORD *)v66 + 5) = 0LL;
-        *((_DWORD *)v66 + 8) = 0;
-        v17 = &CCompositionGlyphRun::`vftable';
-        *((_QWORD *)v16 + 8) = 0LL;
-        *((_QWORD *)v16 + 9) = 0LL;
-LABEL_20:
-        *((_QWORD *)v16 + 12) = 0LL;
-LABEL_21:
-        *((_QWORD *)v16 + 11) = 0LL;
-        goto LABEL_22;
-      }
-      if ( a3 != 31 )
-      {
-        v50 = a3 - 26;
-        if ( v50 )
-        {
-          v51 = v50 - 1;
-          if ( !v51 )
-          {
-            v57 = (CComponentTransform2D *)DefaultHeap::AllocClear(0xE0uLL);
-            if ( !v57 )
-              ModuleFailFastForHRESULT(2147942414LL, retaddr);
-            v14 = CComponentTransform2D::CComponentTransform2D(v57, a1);
-            goto LABEL_543;
-          }
-          v52 = v51 - 1;
-          if ( !v52 )
-          {
-            v56 = (CComponentTransform3D *)DefaultHeap::AllocClear(0x130uLL);
-            if ( !v56 )
-              ModuleFailFastForHRESULT(2147942414LL, retaddr);
-            v14 = CComponentTransform3D::CComponentTransform3D(v56, a1);
-            goto LABEL_543;
-          }
-          v53 = v52 - 1;
-          if ( v53 )
-          {
-            if ( v53 == 1 )
-            {
-              v54 = (CCompositionAmbientLight *)DefaultHeap::AllocClear(0x118uLL);
-              if ( !v54 )
-                ModuleFailFastForHRESULT(2147942414LL, retaddr);
-              v14 = CCompositionAmbientLight::CCompositionAmbientLight(v54, a1);
-              goto LABEL_543;
-            }
-            goto LABEL_524;
-          }
-          v55 = (CFilterEffect *)CHueRotationEffect::operator new((unsigned __int64)a1);
-          v16 = v55;
-          if ( !v55 )
-            goto LABEL_23;
-          CFilterEffect::CFilterEffect(v55, a1);
-          v13 = (unsigned __int64 *)&CCompositeEffect::`vftable';
-LABEL_38:
-          *(_QWORD *)v16 = v13;
-          *((_DWORD *)v16 + 40) = 0;
-          goto LABEL_544;
-        }
-        v58 = (CResource *)DefaultHeap::AllocClear(0x58uLL);
-        v16 = v58;
-        if ( !v58 )
-          ModuleFailFastForHRESULT(2147942414LL, retaddr);
-        *((_DWORD *)v58 + 2) = 0;
-        *((_QWORD *)v58 + 2) = a1;
-        *((_QWORD *)v58 + 3) = 0LL;
-        *((_QWORD *)v58 + 5) = 0LL;
-        *((_DWORD *)v58 + 8) = 0;
-        v59 = &CCompiledEffectTemplate::`vftable';
-        goto LABEL_100;
-      }
-      v60 = (CResource *)CBrightnessEffect::operator new((unsigned __int64)a1);
-      v16 = v60;
-      if ( !v60 )
-        goto LABEL_23;
-      *((_DWORD *)v60 + 2) = 0;
-      *((_QWORD *)v60 + 3) = 0LL;
-      *((_QWORD *)v60 + 2) = a1;
-      *((_QWORD *)v60 + 5) = 0LL;
-      *((_DWORD *)v60 + 8) = 0;
-      *(_QWORD *)v60 = &CCompositionCubeMap::`vftable'{for `CPropertyChangeResource'};
-      *((_QWORD *)v60 + 11) = 0LL;
-      *((_QWORD *)v60 + 12) = 0LL;
-      *((_QWORD *)v60 + 13) = 0LL;
-      *((_DWORD *)v60 + 28) = 0;
-      *((_DWORD *)v60 + 30) = -1;
-      *((_QWORD *)v60 + 10) = &CCompositionCubeMap::`vftable'{for `ICompositionSurfaceInfoListener'};
-      *((_QWORD *)v60 + 17) = 0LL;
-LABEL_104:
-      *((_QWORD *)v16 + 18) = 0LL;
-      goto LABEL_544;
-    }
-    v69 = a3 - 39;
-    if ( !v69 )
-    {
-      v85 = (CCompositionSpotLight *)DefaultHeap::AllocClear(0x198uLL);
-      if ( !v85 )
-        ModuleFailFastForHRESULT(2147942414LL, retaddr);
-      v14 = CCompositionSpotLight::CCompositionSpotLight(v85, a1);
-      goto LABEL_543;
-    }
-    v70 = v69 - 1;
-    if ( !v70 )
-    {
-      v84 = (CCompositionSurfaceBitmap *)CCompositionSurfaceBitmap::operator new((unsigned __int64)a1);
-      if ( v84 )
-      {
-        v14 = CCompositionSurfaceBitmap::CCompositionSurfaceBitmap(v84, a1);
-        goto LABEL_543;
-      }
-      goto LABEL_23;
-    }
-    v71 = v70 - 1;
-    if ( !v71 )
-    {
-      v83 = (CResource *)KeyframeInterpolation::operator new(0x70uLL);
-      v16 = v83;
-      if ( v83 )
-      {
-        *((_DWORD *)v83 + 2) = 0;
-        *((_QWORD *)v83 + 3) = 0LL;
-        *((_QWORD *)v83 + 2) = a1;
-        *((_QWORD *)v83 + 5) = 0LL;
-        *((_DWORD *)v83 + 8) = 0;
-        *((_QWORD *)v83 + 8) = 0LL;
-        *((_QWORD *)v83 + 9) = 0LL;
-        *(_QWORD *)v83 = &CCompositionTextLine::`vftable';
-        *((_QWORD *)v83 + 11) = 0LL;
-        *((_DWORD *)v83 + 24) = 0;
-        *((_QWORD *)v83 + 13) = 0LL;
-        goto LABEL_544;
-      }
-      goto LABEL_23;
-    }
-    v72 = v71 - 2;
-    if ( !v72 )
-    {
-      v82 = (CConditionalExpression *)CConditionalExpression::operator new((unsigned __int64)a1);
-      if ( v82 )
-      {
-        v14 = CConditionalExpression::CConditionalExpression(v82, a1);
-        goto LABEL_543;
-      }
-      goto LABEL_23;
-    }
-    v73 = v72 - 1;
-    if ( !v73 )
-    {
-      v81 = (CContainerVectorShape *)DefaultHeap::AllocClear(0xA8uLL);
-      if ( !v81 )
-        ModuleFailFastForHRESULT(2147942414LL, retaddr);
-      v14 = CContainerVectorShape::CContainerVectorShape(v81, a1, 1);
-      goto LABEL_543;
-    }
-    v74 = v73 - 2;
-    if ( v74 )
-    {
-      v75 = v74 - 2;
-      if ( !v75 )
-      {
-        v79 = (CCursorVisual *)CCursorVisual::operator new((unsigned __int64)a1);
-        if ( v79 )
-        {
-          v14 = CCursorVisual::CCursorVisual(v79, a1);
-          goto LABEL_543;
-        }
-        goto LABEL_23;
-      }
-      v76 = v75 - 1;
-      if ( v76 )
-      {
-        if ( v76 == 1 )
-        {
-          v77 = (CDDisplayRenderTarget *)CDDisplayRenderTarget::operator new((unsigned __int64)a1);
-          if ( v77 )
-          {
-            v14 = CDDisplayRenderTarget::CDDisplayRenderTarget(v77, a1);
-            goto LABEL_543;
-          }
-          goto LABEL_23;
-        }
-        goto LABEL_524;
-      }
-      v78 = (CResource *)CDataSourceReader::operator new((unsigned __int64)a1);
-      v16 = v78;
-      if ( !v78 )
-        goto LABEL_23;
-      *((_DWORD *)v78 + 2) = 0;
-      *((_QWORD *)v78 + 2) = a1;
-      *((_QWORD *)v78 + 3) = 0LL;
-      *((_QWORD *)v78 + 5) = 0LL;
-      *((_DWORD *)v78 + 8) = 0;
-      v17 = &CDataSourceReader::`vftable';
+      if ( v129 != 1 )
+        goto LABEL_567;
+      v196 = (CFilterEffect *)CContainerVectorShape::operator new((unsigned __int64)a1);
+      v13 = (__int64)v196;
+      if ( !v196 )
+        goto LABEL_262;
+      CFilterEffect::CFilterEffect(v196, a1);
+      v12 = &CHueRotationEffect::`vftable';
     }
     else
     {
-      v80 = (CResource *)CLegacyAnimationTrigger::operator new((unsigned __int64)a1);
-      v16 = v80;
-      if ( !v80 )
-        goto LABEL_23;
-      *((_DWORD *)v80 + 2) = 0;
-      *((_QWORD *)v80 + 3) = 0LL;
-      *((_QWORD *)v80 + 2) = a1;
-      *((_QWORD *)v80 + 5) = 0LL;
-      *((_DWORD *)v80 + 8) = 0;
-      v17 = &CCrossContainerGuestReadWriteSharedSection::`vftable';
-      *((_QWORD *)v16 + 10) = 0LL;
+      if ( a3 == 53 )
+      {
+        v119 = (CDropShadow *)DefaultHeap::AllocClear(0x138uLL);
+        if ( !v119 )
+          ModuleFailFastForHRESULT(2147942414LL, retaddr);
+        v11 = CDropShadow::CDropShadow(v119, a1);
+        goto LABEL_9;
+      }
+      if ( a3 > 0x1A )
+      {
+        if ( a3 > 0x27 )
+        {
+          v63 = a3 - 40;
+          if ( !v63 )
+          {
+            v64 = (CCompositionSurfaceBitmap *)CCompositionSurfaceBitmap::operator new((unsigned __int64)a1);
+            if ( v64 )
+            {
+              v11 = CCompositionSurfaceBitmap::CCompositionSurfaceBitmap(v64, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          v141 = v63 - 1;
+          if ( !v141 )
+          {
+            v188 = (CCompositionTextLine *)KeyframeInterpolation::operator new(0x98uLL);
+            if ( v188 )
+            {
+              v11 = CCompositionTextLine::CCompositionTextLine(v188, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          v142 = v141 - 2;
+          if ( !v142 )
+          {
+            v187 = (CConditionalExpression *)CConditionalExpression::operator new((unsigned __int64)a1);
+            if ( v187 )
+            {
+              v11 = CConditionalExpression::CConditionalExpression(v187, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          v143 = v142 - 1;
+          if ( !v143 )
+          {
+            v186 = (CContainerVectorShape *)CContainerVectorShape::operator new((unsigned __int64)a1);
+            if ( v186 )
+            {
+              v11 = CContainerVectorShape::CContainerVectorShape(v186, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          v144 = v143 - 2;
+          if ( !v144 )
+          {
+            v185 = CCrossContainerGuestReadWriteSharedSection::operator new((unsigned __int64)a1);
+            v13 = (__int64)v185;
+            if ( !v185 )
+              goto LABEL_262;
+            v185[2] = 0;
+            *((_QWORD *)v185 + 2) = a1;
+            *((_QWORD *)v185 + 3) = 0LL;
+            *((_QWORD *)v185 + 5) = 0LL;
+            v185[8] = 0;
+            v25 = &CCrossContainerGuestReadWriteSharedSection::`vftable';
+            *(_QWORD *)(v13 + 72) = 0LL;
+            goto LABEL_47;
+          }
+          v145 = v144 - 2;
+          if ( v145 )
+          {
+            v146 = v145 - 1;
+            if ( v146 )
+            {
+              v147 = v146 - 1;
+              if ( !v147 )
+              {
+                v182 = (CDDisplayRenderTarget *)CLegacyStereoRenderTarget::operator new((unsigned __int64)a1);
+                if ( v182 )
+                {
+                  v11 = CDDisplayRenderTarget::CDDisplayRenderTarget(v182, a1);
+                  goto LABEL_9;
+                }
+                goto LABEL_262;
+              }
+              if ( v147 == 1 )
+              {
+                v148 = (CDesktopTree *)CDesktopTree::operator new((unsigned __int64)a1);
+                if ( v148 )
+                {
+                  v11 = CDesktopTree::CDesktopTree(v148, a1);
+                  goto LABEL_9;
+                }
+                goto LABEL_262;
+              }
+              goto LABEL_567;
+            }
+            v183 = CDataSourceReader::operator new((unsigned __int64)a1);
+            v13 = (__int64)v183;
+            if ( !v183 )
+              goto LABEL_262;
+            v183[2] = 0;
+            *((_QWORD *)v183 + 2) = a1;
+            *((_QWORD *)v183 + 3) = 0LL;
+            *((_QWORD *)v183 + 5) = 0LL;
+            v183[8] = 0;
+            v25 = &CDataSourceReader::`vftable';
+            goto LABEL_47;
+          }
+          v184 = (CVisual *)CCursorVisual::operator new((unsigned __int64)a1);
+          v13 = (__int64)v184;
+          if ( !v184 )
+            goto LABEL_262;
+          CVisual::CVisual(v184, a1);
+          *(_BYTE *)(v13 + 93) |= 0x80u;
+          *(_QWORD *)v13 = &CCursorVisual::`vftable';
+          *(_QWORD *)(v13 + 640) = 0LL;
+          goto LABEL_10;
+        }
+        if ( a3 == 39 )
+        {
+          v114 = (CCompositionSpotLight *)DefaultHeap::AllocClear(0x190uLL);
+          if ( !v114 )
+            ModuleFailFastForHRESULT(2147942414LL, retaddr);
+          v11 = CCompositionSpotLight::CCompositionSpotLight(v114, a1);
+          goto LABEL_9;
+        }
+        if ( a3 == 32 )
+        {
+          v118 = (CCompositionDistantLight *)DefaultHeap::AllocClear(0x120uLL);
+          if ( !v118 )
+            ModuleFailFastForHRESULT(2147942414LL, retaddr);
+          v11 = CCompositionDistantLight::CCompositionDistantLight(v118, a1);
+          goto LABEL_9;
+        }
+        if ( a3 > 0x20 )
+        {
+          v175 = a3 - 33;
+          if ( !v175 )
+          {
+            v181 = (CCompositionGlyphRun *)KeyframeInterpolation::operator new(0x90uLL);
+            if ( v181 )
+            {
+              v11 = CCompositionGlyphRun::CCompositionGlyphRun(v181, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          v176 = v175 - 2;
+          if ( v176 )
+          {
+            v177 = v176 - 1;
+            if ( !v177 )
+            {
+              v179 = (CCompositionPointLight *)CCompositionPointLight::operator new((unsigned __int64)a1);
+              if ( v179 )
+              {
+                v11 = CCompositionPointLight::CCompositionPointLight(v179, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            if ( v177 == 2 )
+            {
+              v178 = (CCompositionSkyBoxBrush *)CContainerVectorShape::operator new((unsigned __int64)a1);
+              if ( v178 )
+              {
+                v11 = CCompositionSkyBoxBrush::CCompositionSkyBoxBrush(v178, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            goto LABEL_567;
+          }
+          v180 = CBrightnessEffect::operator new((unsigned __int64)a1);
+          v13 = (__int64)v180;
+          if ( !v180 )
+            goto LABEL_262;
+          v180[2] = 0;
+          *((_QWORD *)v180 + 2) = a1;
+          *((_QWORD *)v180 + 3) = 0LL;
+          *((_QWORD *)v180 + 5) = 0LL;
+          v180[8] = 0;
+          *(_QWORD *)v180 = &CCompositionMipmapSurface::`vftable'{for `CPropertyChangeResource'};
+          *((_QWORD *)v180 + 9) = &CCompositionMipmapSurface::`vftable'{for `IDeviceResourceNotify'};
+          *((_QWORD *)v180 + 10) = &CCompositionMipmapSurface::`vftable'{for `ISceneNotificationListener'};
+          *((_QWORD *)v180 + 11) = 0LL;
+          *((_QWORD *)v180 + 12) = 0LL;
+          *((_QWORD *)v180 + 13) = 0LL;
+          *((_QWORD *)v180 + 18) = 0LL;
+          *((_QWORD *)v180 + 20) = 0LL;
+          goto LABEL_10;
+        }
+        v26 = a3 - 27;
+        if ( !v26 )
+        {
+          v27 = (CComponentTransform2D *)DefaultHeap::AllocClear(0xD8uLL);
+          if ( !v27 )
+            ModuleFailFastForHRESULT(2147942414LL, retaddr);
+          v11 = CComponentTransform2D::CComponentTransform2D(v27, a1);
+          goto LABEL_9;
+        }
+        v50 = v26 - 1;
+        if ( !v50 )
+        {
+          v51 = (CComponentTransform3D *)DefaultHeap::AllocClear(0x128uLL);
+          if ( !v51 )
+            ModuleFailFastForHRESULT(2147942414LL, retaddr);
+          v11 = CComponentTransform3D::CComponentTransform3D(v51, a1);
+          goto LABEL_9;
+        }
+        v110 = v50 - 1;
+        if ( v110 )
+        {
+          v111 = v110 - 1;
+          if ( !v111 )
+          {
+            v112 = (CCompositionAmbientLight *)DefaultHeap::AllocClear(0x110uLL);
+            if ( !v112 )
+              ModuleFailFastForHRESULT(2147942414LL, retaddr);
+            v11 = CCompositionAmbientLight::CCompositionAmbientLight(v112, a1);
+            goto LABEL_9;
+          }
+          if ( v111 != 1 )
+            goto LABEL_567;
+          v173 = CBrightnessEffect::operator new((unsigned __int64)a1);
+          v13 = (__int64)v173;
+          if ( !v173 )
+            goto LABEL_262;
+          v173[2] = 0;
+          *((_QWORD *)v173 + 2) = a1;
+          *((_QWORD *)v173 + 3) = 0LL;
+          *((_QWORD *)v173 + 5) = 0LL;
+          v173[8] = 0;
+          *(_QWORD *)v173 = &CCompositionCubeMap::`vftable'{for `CPropertyChangeResource'};
+          *((_QWORD *)v173 + 9) = &CCompositionCubeMap::`vftable'{for `ICompositionSurfaceInfoListener'};
+          *((_QWORD *)v173 + 10) = 0LL;
+          *((_QWORD *)v173 + 11) = 0LL;
+          *((_QWORD *)v173 + 12) = 0LL;
+          v173[26] = 0;
+          v173[28] = -1;
+          *((_QWORD *)v173 + 16) = 0LL;
+          goto LABEL_307;
+        }
+        v174 = (CFilterEffect *)CContainerVectorShape::operator new((unsigned __int64)a1);
+        v13 = (__int64)v174;
+        if ( !v174 )
+          goto LABEL_262;
+        CFilterEffect::CFilterEffect(v174, a1);
+        v12 = &CCompositeEffect::`vftable';
+      }
+      else
+      {
+        if ( a3 == 26 )
+        {
+          v103 = DefaultHeap::AllocClear(0x50uLL);
+          v13 = (__int64)v103;
+          if ( !v103 )
+            ModuleFailFastForHRESULT(2147942414LL, retaddr);
+          v103[2] = 0;
+          *((_QWORD *)v103 + 2) = a1;
+          *((_QWORD *)v103 + 3) = 0LL;
+          *((_QWORD *)v103 + 5) = 0LL;
+          v103[8] = 0;
+          *(_QWORD *)v103 = &CCompiledEffectTemplate::`vftable';
+          goto LABEL_178;
+        }
+        if ( a3 > 0xD )
+        {
+          if ( a3 <= 0x15 )
+          {
+            if ( a3 == 21 )
+            {
+              v165 = operator new(0x50uLL);
+              v13 = (__int64)v165;
+              if ( !v165 )
+                goto LABEL_262;
+              v165[2] = 0;
+              *((_QWORD *)v165 + 2) = a1;
+              *((_QWORD *)v165 + 3) = 0LL;
+              *((_QWORD *)v165 + 5) = 0LL;
+              v165[8] = 0;
+              *(_QWORD *)v165 = &CColorGradientStop::`vftable';
+              *((_QWORD *)v165 + 7) = 0LL;
+              *((_QWORD *)v165 + 8) = 0LL;
+              v165[18] = 0;
+            }
+            else
+            {
+              v54 = a3 - 15;
+              if ( !v54 )
+              {
+                v105 = (CCachedVisualImage *)CCachedVisualImage::operator new((unsigned __int64)a1);
+                if ( v105 )
+                {
+                  v11 = CCachedVisualImage::CCachedVisualImage(v105, a1);
+                  goto LABEL_9;
+                }
+                goto LABEL_262;
+              }
+              v55 = v54 - 1;
+              if ( v55 )
+              {
+                v56 = v55 - 1;
+                if ( !v56 )
+                {
+                  v163 = (CCaptureRenderTarget *)CCaptureRenderTarget::operator new((unsigned __int64)a1);
+                  if ( v163 )
+                  {
+                    v11 = CCaptureRenderTarget::CCaptureRenderTarget(v163, a1);
+                    goto LABEL_9;
+                  }
+                  goto LABEL_262;
+                }
+                v57 = v56 - 2;
+                if ( !v57 )
+                {
+                  v162 = (CClipBrush *)CClipBrush::operator new((unsigned __int64)a1);
+                  if ( v162 )
+                  {
+                    v11 = CClipBrush::CClipBrush(v162, a1);
+                    goto LABEL_9;
+                  }
+                  goto LABEL_262;
+                }
+                if ( v57 == 1 )
+                {
+                  v58 = (CColorBrush *)CColorBrush::operator new((unsigned __int64)a1);
+                  if ( v58 )
+                  {
+                    v11 = CColorBrush::CColorBrush(v58, a1);
+                    goto LABEL_9;
+                  }
+                  goto LABEL_262;
+                }
+                goto LABEL_567;
+              }
+              v164 = CCaptureController::operator new((unsigned __int64)a1);
+              v13 = (__int64)v164;
+              if ( !v164 )
+                goto LABEL_262;
+              v164[2] = 0;
+              *((_QWORD *)v164 + 2) = a1;
+              *((_QWORD *)v164 + 3) = 0LL;
+              *((_QWORD *)v164 + 5) = 0LL;
+              v164[8] = 0;
+              *(_QWORD *)v164 = &CCaptureController::`vftable';
+              *((_QWORD *)v164 + 7) = 0LL;
+              *((_QWORD *)v164 + 8) = 0LL;
+              *((_QWORD *)v164 + 9) = 0LL;
+              *((_QWORD *)v164 + 10) = 0LL;
+              *((_QWORD *)v164 + 11) = 0LL;
+              *((_QWORD *)v164 + 15) = 0LL;
+              *((_WORD *)v164 + 48) = 257;
+            }
+            goto LABEL_10;
+          }
+          v166 = a3 - 22;
+          if ( !v166 )
+          {
+            v172 = (CColorMatrixEffect *)CLinearGradientBrush::operator new((unsigned __int64)a1);
+            if ( v172 )
+            {
+              v11 = CColorMatrixEffect::CColorMatrixEffect(v172, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          v167 = v166 - 1;
+          if ( v167 )
+          {
+            v168 = v167 - 1;
+            if ( !v168 )
+            {
+              v170 = operator new(0xA0uLL);
+              if ( v170 )
+              {
+                v11 = (CProjectedShadowCaster *)TValueResource<MilColorTransform,tagMILCMD_COLORTRANSFORMRESOURCE,24>::TValueResource<MilColorTransform,tagMILCMD_COLORTRANSFORMRESOURCE,24>(
+                                                  v170,
+                                                  a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            if ( v168 == 1 )
+            {
+              v169 = (CCombinedGeometry *)CCombinedGeometry::operator new((unsigned __int64)a1);
+              if ( v169 )
+              {
+                v11 = CCombinedGeometry::CCombinedGeometry(v169, a1, a2);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            goto LABEL_567;
+          }
+          v171 = operator new(0x48uLL);
+          v13 = (__int64)v171;
+          if ( !v171 )
+            goto LABEL_262;
+          v171[2] = 0;
+          *((_QWORD *)v171 + 2) = a1;
+          *((_QWORD *)v171 + 3) = 0LL;
+          *((_QWORD *)v171 + 5) = 0LL;
+          v171[8] = 0;
+          v132 = &TValueResource<_D3DCOLORVALUE,tagMILCMD_COLORRESOURCE,23>::`vftable';
+          goto LABEL_222;
+        }
+        if ( a3 == 13 )
+        {
+          v161 = (CBrightnessEffect *)CBrightnessEffect::operator new((unsigned __int64)a1);
+          if ( v161 )
+          {
+            v11 = CBrightnessEffect::CBrightnessEffect(v161, a1);
+            goto LABEL_9;
+          }
+          goto LABEL_262;
+        }
+        if ( a3 <= 6 )
+        {
+          if ( a3 == 6 )
+          {
+            v52 = (CAtlasedRectsGroup *)DefaultHeap::AllocClear(0x98uLL);
+            if ( !v52 )
+              ModuleFailFastForHRESULT(2147942414LL, retaddr);
+            v11 = CAtlasedRectsGroup::CAtlasedRectsGroup(v52, a1, v53);
+            goto LABEL_9;
+          }
+          v68 = a3 - 1;
+          if ( !v68 )
+          {
+            v159 = (CFilterEffect *)DefaultHeap::AllocClear(0xE0uLL);
+            v13 = (__int64)v159;
+            if ( !v159 )
+              ModuleFailFastForHRESULT(2147942414LL, retaddr);
+            CFilterEffect::CFilterEffect(v159, a1);
+            *(_QWORD *)(v13 + 152) = 0LL;
+            v12 = &CAffineTransform2DEffect::`vftable';
+            *(_QWORD *)(v13 + 160) = 1065353216LL;
+            *(_QWORD *)(v13 + 172) = 1065353216LL;
+            *(_DWORD *)(v13 + 184) = 1065353216;
+            *(_QWORD *)v13 = &CAffineTransform2DEffect::`vftable';
+            *(_DWORD *)(v13 + 168) = 0;
+            *(_DWORD *)(v13 + 180) = 0;
+            goto LABEL_10;
+          }
+          v69 = v68 - 1;
+          if ( !v69 )
+          {
+            v70 = (CAnimation *)DefaultHeap::AllocClear(0x130uLL);
+            if ( !v70 )
+              ModuleFailFastForHRESULT(2147942414LL, retaddr);
+            v11 = CAnimation::CAnimation(v70, a1);
+            goto LABEL_9;
+          }
+          v88 = v69 - 1;
+          if ( !v88 )
+          {
+            v89 = (CAnimationLoggingManager *)DefaultHeap::AllocClear(0xC0uLL);
+            if ( !v89 )
+              ModuleFailFastForHRESULT(2147942414LL, retaddr);
+            v11 = CAnimationLoggingManager::CAnimationLoggingManager(v89, a1);
+            goto LABEL_9;
+          }
+          v156 = v88 - 1;
+          if ( v156 )
+          {
+            if ( v156 == 1 )
+            {
+              v157 = (CArithmeticCompositeEffect *)CSceneMetallicRoughnessMaterial::operator new((unsigned __int64)a1);
+              if ( v157 )
+              {
+                v11 = CArithmeticCompositeEffect::CArithmeticCompositeEffect(v157, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            goto LABEL_567;
+          }
+          v158 = CAnimationTrigger::operator new((unsigned __int64)a1);
+          v13 = (__int64)v158;
+          if ( !v158 )
+            goto LABEL_262;
+          v158[2] = 0;
+          *((_QWORD *)v158 + 2) = a1;
+          *((_QWORD *)v158 + 3) = 0LL;
+          *((_QWORD *)v158 + 5) = 0LL;
+          v158[8] = 0;
+          v25 = &CAnimationTrigger::`vftable';
+          *(_QWORD *)(v13 + 80) = 0LL;
+          *(_QWORD *)(v13 + 88) = 0LL;
+          *(_QWORD *)(v13 + 96) = 0LL;
+          goto LABEL_47;
+        }
+        v15 = a3 - 7;
+        if ( !v15 )
+        {
+          v16 = DefaultHeap::AllocClear(0x88uLL);
+          v13 = (__int64)v16;
+          if ( !v16 )
+            ModuleFailFastForHRESULT(2147942414LL, retaddr);
+          v16[2] = 0;
+          *((_QWORD *)v16 + 2) = a1;
+          *((_QWORD *)v16 + 3) = 0LL;
+          *((_QWORD *)v16 + 5) = 0LL;
+          v16[8] = 0;
+          *(_QWORD *)v16 = &CAtlasedRectsMesh::`vftable';
+          *((_QWORD *)v16 + 14) = 0LL;
+          *((_QWORD *)v16 + 15) = 0LL;
+          *((_BYTE *)v16 + 128) = 1;
+          goto LABEL_10;
+        }
+        v90 = v15 - 1;
+        if ( !v90 )
+        {
+          v107 = (CBackdropBrush *)DefaultHeap::AllocClear(0x78uLL);
+          if ( !v107 )
+            ModuleFailFastForHRESULT(2147942414LL, retaddr);
+          v11 = CBackdropBrush::CBackdropBrush(v107, a1);
+          goto LABEL_9;
+        }
+        v91 = v90 - 3;
+        if ( !v91 )
+        {
+          v92 = (CBitmapResource *)operator new(0x70uLL);
+          if ( v92 )
+          {
+            v11 = CBitmapResource::CBitmapResource(v92, a1, 0LL);
+            goto LABEL_9;
+          }
+          goto LABEL_262;
+        }
+        if ( v91 != 1 )
+          goto LABEL_567;
+        v160 = (CFilterEffect *)CContainerVectorShape::operator new((unsigned __int64)a1);
+        v13 = (__int64)v160;
+        if ( !v160 )
+          goto LABEL_262;
+        CFilterEffect::CFilterEffect(v160, a1);
+        v12 = &CBlendEffect::`vftable';
+      }
     }
-    goto LABEL_22;
+    *(_QWORD *)v13 = v12;
+    *(_DWORD *)(v13 + 152) = 0;
+    goto LABEL_10;
   }
-  if ( a3 == 25 )
+  if ( a3 <= 0x97 )
   {
-    v49 = (CCombinedGeometry *)DefaultHeap::AllocClear(0xC0uLL);
-    if ( !v49 )
-      ModuleFailFastForHRESULT(2147942414LL, retaddr);
-    v14 = CCombinedGeometry::CCombinedGeometry(v49, a1, a2);
-    goto LABEL_543;
+    if ( a3 == 151 )
+    {
+      v265 = (CBaseAnimation *)CAnimationTrigger::operator new((unsigned __int64)a1);
+      v13 = (__int64)v265;
+      if ( !v265 )
+        goto LABEL_262;
+      CBaseAnimation::CBaseAnimation(v265, a1);
+      v12 = (void **)&CScalar::`vftable'{for `CResource'};
+      *(_QWORD *)(v13 + 56) = &CScalar::`vftable'{for `IAnimationResource'};
+      *(_QWORD *)v13 = &CScalar::`vftable'{for `CResource'};
+      goto LABEL_10;
+    }
+    if ( a3 > 0x7F )
+    {
+      if ( a3 <= 0x8B )
+      {
+        if ( a3 == 139 )
+        {
+          v260 = (char *)operator new(0x58uLL);
+          v13 = (__int64)v260;
+          if ( !v260 )
+            goto LABEL_262;
+          *((_DWORD *)v260 + 2) = 0;
+          *((_QWORD *)v260 + 2) = a1;
+          *((_QWORD *)v260 + 3) = 0LL;
+          *((_QWORD *)v260 + 5) = 0LL;
+          *((_DWORD *)v260 + 8) = 0;
+          *(_OWORD *)(v260 + 56) = 0LL;
+          *(_QWORD *)v260 = &TValueResource<MilRectD,tagMILCMD_RECTDRESOURCE,139>::`vftable';
+          *(_OWORD *)(v260 + 72) = 0LL;
+          goto LABEL_10;
+        }
+        if ( a3 <= 0x85 )
+        {
+          if ( a3 != 133 )
+          {
+            v133 = a3 - 128;
+            if ( !v133 )
+            {
+              v256 = (CPrimitiveGroupLayerClip *)CPrimitiveGroupLayerClip::operator new((unsigned __int64)a1);
+              if ( v256 )
+              {
+                v11 = CPrimitiveGroupLayerClip::CPrimitiveGroupLayerClip(v256, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            v134 = v133 - 1;
+            if ( !v134 )
+            {
+              v255 = (CProjectedShadow *)CProjectedShadow::operator new();
+              if ( v255 )
+              {
+                v11 = CProjectedShadow::CProjectedShadow(v255, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            v135 = v134 - 1;
+            if ( !v135 )
+            {
+              v152 = (CProjectedShadowCaster *)CProjectedShadowScene::operator new();
+              if ( v152 )
+              {
+                v11 = CProjectedShadowCaster::CProjectedShadowCaster(v152, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            v136 = v135 - 1;
+            if ( !v136 )
+            {
+              v151 = CProjectedShadowReceiver::operator new();
+              v13 = (__int64)v151;
+              if ( v151 )
+              {
+                v151[2] = 0;
+                *((_QWORD *)v151 + 2) = a1;
+                *((_QWORD *)v151 + 3) = 0LL;
+                *((_QWORD *)v151 + 5) = 0LL;
+                v151[8] = 0;
+                *(_QWORD *)v151 = &CProjectedShadowReceiver::`vftable';
+                *((_QWORD *)v151 + 8) = 0LL;
+                *((_QWORD *)v151 + 9) = 0LL;
+                *((_QWORD *)v151 + 10) = 0LL;
+                *((_QWORD *)v151 + 13) = 0LL;
+                goto LABEL_10;
+              }
+              goto LABEL_262;
+            }
+            if ( v136 == 1 )
+            {
+              v137 = (CProjectedShadowScene *)CProjectedShadowScene::operator new();
+              if ( v137 )
+              {
+                v11 = CProjectedShadowScene::CProjectedShadowScene(v137, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            goto LABEL_567;
+          }
+          v257 = CSharedSectionWrapper::operator new((unsigned __int64)a1);
+          v13 = (__int64)v257;
+          if ( !v257 )
+            goto LABEL_262;
+          v257[2] = 0;
+          *((_QWORD *)v257 + 2) = a1;
+          *((_QWORD *)v257 + 3) = 0LL;
+          *((_QWORD *)v257 + 5) = 0LL;
+          v257[8] = 0;
+          v25 = &CPropertyChangeResource::`vftable';
+          goto LABEL_47;
+        }
+        v17 = a3 - 134;
+        if ( !v17 )
+        {
+          v18 = CPropertySet::operator new((unsigned __int64)a1);
+          v13 = (__int64)v18;
+          if ( v18 )
+          {
+            v18[2] = 0;
+            *((_QWORD *)v18 + 2) = a1;
+            *((_QWORD *)v18 + 3) = 0LL;
+            *((_QWORD *)v18 + 5) = 0LL;
+            v18[8] = 0;
+            *(_QWORD *)v18 = &CPropertySet::`vftable';
+            *((_QWORD *)v18 + 10) = 0LL;
+            *((_QWORD *)v18 + 11) = 0LL;
+            *((_QWORD *)v18 + 12) = 0LL;
+            v18[26] = 0;
+            *((_QWORD *)v18 + 14) = 0LL;
+            *((_QWORD *)v18 + 15) = 0LL;
+            *((_QWORD *)v18 + 16) = 0LL;
+            v18[34] = 0;
+            goto LABEL_10;
+          }
+          goto LABEL_262;
+        }
+        v65 = v17 - 1;
+        if ( v65 )
+        {
+          v66 = v65 - 1;
+          if ( !v66 )
+          {
+            v258 = (CRadialGradientBrush *)CBrush::operator new((unsigned __int64)a1);
+            if ( v258 )
+            {
+              v11 = CRadialGradientBrush::CRadialGradientBrush(v258, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          if ( v66 != 2 )
+            goto LABEL_567;
+          v67 = (CGeometry *)CRectangleGeometry::operator new((unsigned __int64)a1);
+          v13 = (__int64)v67;
+          if ( !v67 )
+            goto LABEL_262;
+          CGeometry::CGeometry(v67, a1);
+          v12 = &CRectangleGeometry::`vftable';
+        }
+        else
+        {
+          v259 = (CGeometry *)CEllipseGeometry::operator new((unsigned __int64)a1);
+          v13 = (__int64)v259;
+          if ( !v259 )
+            goto LABEL_262;
+          CGeometry::CGeometry(v259, a1);
+          v12 = &CProxyGeometry::`vftable';
+        }
+        goto LABEL_127;
+      }
+      v30 = a3 - 140;
+      if ( v30 )
+      {
+        v31 = v30 - 1;
+        if ( !v31 )
+        {
+          v113 = (CVisual *)CRedirectVisual::operator new((unsigned __int64)a1);
+          v13 = (__int64)v113;
+          if ( !v113 )
+            goto LABEL_262;
+          CVisual::CVisual(v113, a1);
+          v25 = &CRedirectVisual::`vftable';
+          goto LABEL_47;
+        }
+        v32 = v31 - 1;
+        if ( !v32 )
+        {
+          v60 = (CGeometry *)CScaleTransform::operator new();
+          v13 = (__int64)v60;
+          if ( v60 )
+          {
+            CGeometry::CGeometry(v60, a1);
+            v12[17] = 0LL;
+            v12[18] = 0LL;
+            v12[19] = 0LL;
+            *v12 = &CRegionGeometry::`vftable';
+            *((_BYTE *)v12 + 160) = 1;
+            goto LABEL_10;
+          }
+          goto LABEL_262;
+        }
+        v33 = v32 - 1;
+        if ( !v33 )
+        {
+          v264 = (CRemoteAppRenderTarget *)CRemoteAppRenderTarget::operator new((unsigned __int64)a1);
+          if ( v264 )
+          {
+            v11 = CRemoteAppRenderTarget::CRemoteAppRenderTarget(v264, a1);
+            goto LABEL_9;
+          }
+          goto LABEL_262;
+        }
+        v34 = v33 - 1;
+        if ( !v34 )
+        {
+          v155 = (CRemoteRenderTarget *)KeyframeInterpolation::operator new(0x178uLL);
+          if ( v155 )
+          {
+            v11 = CRemoteRenderTarget::CRemoteRenderTarget(v155, a1);
+            goto LABEL_9;
+          }
+          goto LABEL_262;
+        }
+        v35 = v34 - 1;
+        if ( !v35 )
+        {
+          v36 = (CRenderData *)KeyframeInterpolation::operator new(0x138uLL);
+          if ( !v36 )
+            goto LABEL_262;
+          v11 = CRenderData::CRenderData(v36, a1);
+LABEL_9:
+          v13 = (__int64)v11;
+          goto LABEL_10;
+        }
+        v153 = v35 - 3;
+        if ( !v153 )
+        {
+          v154 = CScaleTransform::operator new();
+          v13 = (__int64)v154;
+          if ( !v154 )
+            goto LABEL_262;
+          v154[2] = 0;
+          *((_QWORD *)v154 + 2) = a1;
+          *((_QWORD *)v154 + 3) = 0LL;
+          *((_QWORD *)v154 + 5) = 0LL;
+          v154[8] = 0;
+          v25 = &CRotateTransform::`vftable';
+          *(_DWORD *)(v13 + 136) = 0;
+          *(_DWORD *)(v13 + 32) |= 1u;
+          *(_BYTE *)(v13 + 148) = 0;
+          goto LABEL_47;
+        }
+        v261 = v153 - 1;
+        if ( !v261 )
+        {
+          v263 = CCombinedGeometry::operator new((unsigned __int64)a1);
+          v13 = (__int64)v263;
+          if ( !v263 )
+            goto LABEL_262;
+          v263[2] = 0;
+          *((_QWORD *)v263 + 2) = a1;
+          *((_QWORD *)v263 + 3) = 0LL;
+          *((_QWORD *)v263 + 5) = 0LL;
+          v263[8] = 0;
+          v263[34] = 0;
+          v263[8] |= 1u;
+          v263[41] = 1065353216;
+          v25 = &CRotateTransform3D::`vftable';
+          *(_BYTE *)(v13 + 148) = 0;
+          goto LABEL_47;
+        }
+        if ( v261 != 1 )
+          goto LABEL_567;
+        v262 = (CFilterEffect *)CContainerVectorShape::operator new((unsigned __int64)a1);
+        v13 = (__int64)v262;
+        if ( !v262 )
+          goto LABEL_262;
+        CFilterEffect::CFilterEffect(v262, a1);
+        v12 = (void **)&CSaturationEffect::`vftable';
+        *(_DWORD *)(v13 + 152) = 1056964608;
+        *(_QWORD *)v13 = &CSaturationEffect::`vftable';
+        goto LABEL_10;
+      }
+      v131 = operator new(0x48uLL);
+      v13 = (__int64)v131;
+      if ( !v131 )
+        goto LABEL_262;
+      v131[2] = 0;
+      *((_QWORD *)v131 + 2) = a1;
+      *((_QWORD *)v131 + 3) = 0LL;
+      *((_QWORD *)v131 + 5) = 0LL;
+      v131[8] = 0;
+      v132 = &TValueResource<MilRectF,tagMILCMD_RECTRESOURCE,140>::`vftable';
+LABEL_222:
+      *(_QWORD *)v13 = v132;
+      *(_OWORD *)(v13 + 56) = 0LL;
+      goto LABEL_10;
+    }
+    if ( a3 == 127 )
+    {
+      v71 = (CPrimitiveGroup *)CPrimitiveGroup::operator new((unsigned __int64)a1);
+      if ( v71 )
+      {
+        v11 = CPrimitiveGroup::CPrimitiveGroup(v71, a1);
+        goto LABEL_9;
+      }
+      goto LABEL_262;
+    }
+    if ( a3 <= 0x74 )
+    {
+      if ( a3 != 116 )
+      {
+        if ( a3 <= 0x6E )
+        {
+          if ( a3 == 110 )
+          {
+            v230 = (CNaturalAnimation *)CNaturalAnimation::operator new((unsigned __int64)a1);
+            if ( v230 )
+            {
+              v11 = CNaturalAnimation::CNaturalAnimation(v230, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          v28 = a3 - 105;
+          if ( !v28 )
+          {
+            v29 = (CMaskBrush *)DefaultHeap::AllocClear(0x88uLL);
+            if ( !v29 )
+              ModuleFailFastForHRESULT(2147942414LL, retaddr);
+            v11 = CMaskBrush::CMaskBrush(v29, a1);
+            goto LABEL_9;
+          }
+          v94 = v28 - 1;
+          if ( v94 )
+          {
+            v95 = v94 - 1;
+            if ( !v95 )
+            {
+              v96 = DefaultHeap::AllocClear(0xB0uLL);
+              v13 = (__int64)v96;
+              if ( !v96 )
+                ModuleFailFastForHRESULT(2147942414LL, retaddr);
+              v96[2] = 0;
+              *((_QWORD *)v96 + 2) = a1;
+              *((_QWORD *)v96 + 3) = 0LL;
+              *((_QWORD *)v96 + 5) = 0LL;
+              v96[8] = 0;
+              v96[34] = 0;
+              v96[8] |= 1u;
+              *(_QWORD *)v96 = &CMatrixTransform::`vftable';
+              v96[38] = 1065353216;
+              v96[41] = 1065353216;
+              *((_BYTE *)v96 + 148) = 0;
+              goto LABEL_10;
+            }
+            v120 = v95 - 1;
+            if ( !v120 )
+            {
+              v121 = DefaultHeap::AllocClear(0xD8uLL);
+              v13 = (__int64)v121;
+              if ( !v121 )
+                ModuleFailFastForHRESULT(2147942414LL, retaddr);
+              v121[2] = 0;
+              *((_QWORD *)v121 + 2) = a1;
+              *((_QWORD *)v121 + 3) = 0LL;
+              *((_QWORD *)v121 + 5) = 0LL;
+              v121[8] = 0;
+              v121[34] = 0;
+              v121[8] |= 1u;
+              *(_QWORD *)v121 = &CMatrixTransform3D::`vftable';
+              v121[38] = 1065353216;
+              v121[43] = 1065353216;
+              v121[48] = 1065353216;
+              v121[53] = 1065353216;
+              *((_BYTE *)v121 + 148) = 0;
+              goto LABEL_10;
+            }
+            if ( v120 == 1 )
+            {
+              v228 = (CMeshGeometry2D *)CSceneMetallicRoughnessMaterial::operator new((unsigned __int64)a1);
+              if ( v228 )
+              {
+                v11 = CMeshGeometry2D::CMeshGeometry2D(v228, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            goto LABEL_567;
+          }
+          v229 = (char *)operator new(0x50uLL);
+          v13 = (__int64)v229;
+          if ( !v229 )
+            goto LABEL_262;
+          *((_DWORD *)v229 + 2) = 0;
+          *((_QWORD *)v229 + 2) = a1;
+          *((_QWORD *)v229 + 3) = 0LL;
+          *((_QWORD *)v229 + 5) = 0LL;
+          *((_DWORD *)v229 + 8) = 0;
+          *(_OWORD *)(v229 + 56) = 0LL;
+          *(_QWORD *)v229 = &TValueResource<D2D_MATRIX_3X2_F,tagMILCMD_MATRIXRESOURCE,106>::`vftable';
+          *((_QWORD *)v229 + 9) = 0LL;
+          goto LABEL_10;
+        }
+        v98 = a3 - 111;
+        if ( !v98 )
+        {
+          v99 = (CNineGridBrush *)DefaultHeap::AllocClear(0xC0uLL);
+          if ( !v99 )
+            ModuleFailFastForHRESULT(2147942414LL, retaddr);
+          v11 = CNineGridBrush::CNineGridBrush(v99, a1);
+          goto LABEL_9;
+        }
+        v231 = v98 - 1;
+        if ( !v231 )
+        {
+          v235 = KeyframeInterpolation::operator new(0x40uLL);
+          v13 = (__int64)v235;
+          if ( !v235 )
+            goto LABEL_262;
+          v235[2] = 0;
+          *((_QWORD *)v235 + 2) = a1;
+          *((_QWORD *)v235 + 3) = 0LL;
+          *((_QWORD *)v235 + 5) = 0LL;
+          v235[8] = 0;
+          v25 = &CNotificationResource::`vftable';
+          goto LABEL_47;
+        }
+        v232 = v231 - 1;
+        if ( v232 )
+        {
+          if ( v232 != 2 )
+            goto LABEL_567;
+          v233 = CContainerVectorShape::operator new((unsigned __int64)a1);
+          v13 = (__int64)v233;
+          if ( !v233 )
+            goto LABEL_262;
+          v233[2] = 0;
+          *((_QWORD *)v233 + 2) = a1;
+          *((_QWORD *)v233 + 3) = 0LL;
+          *((_QWORD *)v233 + 5) = 0LL;
+          v233[8] = 0;
+          v25 = &CParticleBehaviors::`vftable';
+          goto LABEL_47;
+        }
+        v234 = CParticleAttractor::operator new((unsigned __int64)a1);
+        v13 = (__int64)v234;
+        if ( !v234 )
+          goto LABEL_262;
+        v234[2] = 0;
+        *((_QWORD *)v234 + 2) = a1;
+        *((_QWORD *)v234 + 3) = 0LL;
+        *((_QWORD *)v234 + 5) = 0LL;
+        v234[8] = 0;
+        *(_QWORD *)v234 = &CParticleAttractor::`vftable'{for `CParticleAttractorGeneratedT<CParticleAttractor,CResource>'};
+        v204 = &CParticleAttractor::`vftable'{for `Particles::ISingleInputAnimator'};
+LABEL_378:
+        *(_QWORD *)(v13 + 80) = v204;
+        goto LABEL_10;
+      }
+      v236 = CParticleVector2Behavior::operator new((unsigned __int64)a1);
+      v13 = (__int64)v236;
+      if ( !v236 )
+        goto LABEL_262;
+      v236[2] = 0;
+      *((_QWORD *)v236 + 2) = a1;
+      *((_QWORD *)v236 + 3) = 0LL;
+      *((_QWORD *)v236 + 5) = 0LL;
+      v236[8] = 0;
+      *((_QWORD *)v236 + 10) = 0LL;
+      *((_QWORD *)v236 + 11) = 0LL;
+      *((_QWORD *)v236 + 12) = 0LL;
+      *((_QWORD *)v236 + 14) = 0LL;
+      *((_QWORD *)v236 + 15) = 0LL;
+      *((_QWORD *)v236 + 16) = 0LL;
+      *(_QWORD *)v236 = &CParticleColorBehavior::`vftable'{for `CParticleColorBehaviorGeneratedT<CParticleColorBehavior,CParticleBaseBehavior>'};
+      v237 = &CParticleColorBehavior::`vftable'{for `Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float3>'};
+LABEL_447:
+      *(_QWORD *)(v13 + 104) = v237;
+      goto LABEL_10;
+    }
+    if ( a3 <= 0x7A )
+    {
+      if ( a3 == 122 )
+      {
+        v247 = CParticleVector2Behavior::operator new((unsigned __int64)a1);
+        v13 = (__int64)v247;
+        if ( !v247 )
+          goto LABEL_262;
+        v247[2] = 0;
+        *((_QWORD *)v247 + 2) = a1;
+        *((_QWORD *)v247 + 3) = 0LL;
+        *((_QWORD *)v247 + 5) = 0LL;
+        v247[8] = 0;
+        *((_QWORD *)v247 + 10) = 0LL;
+        *((_QWORD *)v247 + 11) = 0LL;
+        *((_QWORD *)v247 + 12) = 0LL;
+        *((_QWORD *)v247 + 14) = 0LL;
+        *((_QWORD *)v247 + 15) = 0LL;
+        *((_QWORD *)v247 + 16) = 0LL;
+        *(_QWORD *)v247 = &CParticleVector3Behavior::`vftable'{for `CParticleVector3BehaviorGeneratedT<CParticleVector3Behavior,CParticleBaseBehavior>'};
+        v237 = &CParticleColorBehavior::`vftable'{for `Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float3>'};
+      }
+      else
+      {
+        v238 = a3 - 117;
+        if ( !v238 )
+        {
+          v246 = (CParticleEmitter *)KeyframeInterpolation::operator new(0x70uLL);
+          if ( v246 )
+          {
+            v11 = CParticleEmitter::CParticleEmitter(v246, a1);
+            goto LABEL_9;
+          }
+          goto LABEL_262;
+        }
+        v239 = v238 - 1;
+        if ( !v239 )
+        {
+          v245 = (CParticleEmitterVisual *)CParticleEmitterVisual::operator new((unsigned __int64)a1);
+          if ( v245 )
+          {
+            v11 = CParticleEmitterVisual::CParticleEmitterVisual(v245, a1);
+            goto LABEL_9;
+          }
+          goto LABEL_262;
+        }
+        v240 = v239 - 1;
+        if ( !v240 )
+        {
+          v244 = (char *)CParticleGenerator::operator new((unsigned __int64)a1);
+          v13 = (__int64)v244;
+          if ( !v244 )
+            goto LABEL_262;
+          *((_DWORD *)v244 + 2) = 0;
+          *((_QWORD *)v244 + 2) = a1;
+          *((_QWORD *)v244 + 3) = 0LL;
+          *((_QWORD *)v244 + 5) = 0LL;
+          *((_DWORD *)v244 + 8) = 0;
+          *((_QWORD *)v244 + 9) = 1065353216LL;
+          *((_QWORD *)v244 + 11) = 1065353216LL;
+          *((_QWORD *)v244 + 13) = 1065353216LL;
+          *(_QWORD *)(v244 + 124) = 1065353216LL;
+          *(_QWORD *)(v244 + 140) = 1065353216LL;
+          *((_DWORD *)v244 + 37) = 1065353216;
+          *((_DWORD *)v244 + 38) = 1065353216;
+          *((_DWORD *)v244 + 39) = 1065353216;
+          *((_DWORD *)v244 + 40) = 1065353216;
+          *((_DWORD *)v244 + 41) = 1065353216;
+          *((_DWORD *)v244 + 42) = 1065353216;
+          *((_DWORD *)v244 + 43) = 1065353216;
+          *((_QWORD *)v244 + 22) = 1065353216LL;
+          *((_DWORD *)v244 + 46) = 1065353216;
+          *((_DWORD *)v244 + 47) = 1065353216;
+          *((_DWORD *)v244 + 48) = 1065353216;
+          *((_DWORD *)v244 + 49) = 1065353216;
+          *((_DWORD *)v244 + 50) = 1065353216;
+          *((_DWORD *)v244 + 51) = 1065353216;
+          *((_DWORD *)v244 + 52) = 1065353216;
+          *((_DWORD *)v244 + 54) = 1065353216;
+          *((_DWORD *)v244 + 55) = 1065353216;
+          v25 = &CParticleGenerator::`vftable';
+          *(_QWORD *)(v13 + 80) = 0LL;
+          *(_BYTE *)(v13 + 96) = 1;
+          *(_DWORD *)(v13 + 100) = 0;
+          *(_QWORD *)(v13 + 112) = 0LL;
+          *(_DWORD *)(v13 + 120) = 0;
+          *(_QWORD *)(v13 + 132) = 0LL;
+          *(_BYTE *)(v13 + 212) = 1;
+          goto LABEL_47;
+        }
+        v241 = v240 - 1;
+        if ( v241 )
+        {
+          if ( v241 != 1 )
+            goto LABEL_567;
+          v242 = CParticleVector2Behavior::operator new((unsigned __int64)a1);
+          v13 = (__int64)v242;
+          if ( !v242 )
+            goto LABEL_262;
+          v242[2] = 0;
+          *((_QWORD *)v242 + 2) = a1;
+          *((_QWORD *)v242 + 3) = 0LL;
+          *((_QWORD *)v242 + 5) = 0LL;
+          v242[8] = 0;
+          *((_QWORD *)v242 + 10) = 0LL;
+          *((_QWORD *)v242 + 11) = 0LL;
+          *((_QWORD *)v242 + 12) = 0LL;
+          *((_QWORD *)v242 + 14) = 0LL;
+          *((_QWORD *)v242 + 15) = 0LL;
+          *((_QWORD *)v242 + 16) = 0LL;
+          *(_QWORD *)v242 = &CParticleVector2Behavior::`vftable'{for `CParticleVector2BehaviorGeneratedT<CParticleVector2Behavior,CParticleBaseBehavior>'};
+          v237 = &CParticleVector2Behavior::`vftable'{for `Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float2>'};
+        }
+        else
+        {
+          v243 = CParticleVector2Behavior::operator new((unsigned __int64)a1);
+          v13 = (__int64)v243;
+          if ( !v243 )
+            goto LABEL_262;
+          v243[2] = 0;
+          *((_QWORD *)v243 + 2) = a1;
+          *((_QWORD *)v243 + 3) = 0LL;
+          *((_QWORD *)v243 + 5) = 0LL;
+          v243[8] = 0;
+          *((_QWORD *)v243 + 10) = 0LL;
+          *((_QWORD *)v243 + 11) = 0LL;
+          *((_QWORD *)v243 + 12) = 0LL;
+          *((_QWORD *)v243 + 14) = 0LL;
+          *((_QWORD *)v243 + 15) = 0LL;
+          *((_QWORD *)v243 + 16) = 0LL;
+          *(_QWORD *)v243 = &CParticleScalarBehavior::`vftable'{for `CParticleScalarBehaviorGeneratedT<CParticleScalarBehavior,CParticleBaseBehavior>'};
+          v237 = &CParticleScalarBehavior::`vftable'{for `Particles::LinearKeyframeAnimation<float>'};
+        }
+      }
+      goto LABEL_447;
+    }
+    v248 = a3 - 123;
+    if ( !v248 )
+    {
+      v254 = CParticleVector2Behavior::operator new((unsigned __int64)a1);
+      v13 = (__int64)v254;
+      if ( !v254 )
+        goto LABEL_262;
+      v254[2] = 0;
+      *((_QWORD *)v254 + 2) = a1;
+      *((_QWORD *)v254 + 3) = 0LL;
+      *((_QWORD *)v254 + 5) = 0LL;
+      v254[8] = 0;
+      *((_QWORD *)v254 + 10) = 0LL;
+      *((_QWORD *)v254 + 11) = 0LL;
+      *((_QWORD *)v254 + 12) = 0LL;
+      *((_QWORD *)v254 + 14) = 0LL;
+      *((_QWORD *)v254 + 15) = 0LL;
+      *((_QWORD *)v254 + 16) = 0LL;
+      *(_QWORD *)v254 = &CParticleVector4Behavior::`vftable'{for `CParticleVector4BehaviorGeneratedT<CParticleVector4Behavior,CParticleBaseBehavior>'};
+      v237 = &CParticleVector4Behavior::`vftable'{for `Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float4>'};
+      goto LABEL_447;
+    }
+    v249 = v248 - 1;
+    if ( v249 )
+    {
+      v250 = v249 - 1;
+      if ( v250 )
+      {
+        if ( v250 != 1 )
+          goto LABEL_567;
+        v251 = (char *)CCaptureController::operator new((unsigned __int64)a1);
+        v13 = (__int64)v251;
+        if ( !v251 )
+          goto LABEL_262;
+        *((_DWORD *)v251 + 2) = 0;
+        *((_QWORD *)v251 + 2) = a1;
+        *((_QWORD *)v251 + 3) = 0LL;
+        *((_QWORD *)v251 + 5) = 0LL;
+        *((_DWORD *)v251 + 8) = 0;
+        *(_QWORD *)v251 = &CPrimitiveColor::`vftable'{for `CResource'};
+        *((_QWORD *)v251 + 7) = &CPrimitiveColor::`vftable'{for `IDeviceResourceNotify'};
+        *((_QWORD *)v251 + 8) = v251 + 96;
+        *((_QWORD *)v251 + 9) = v251 + 96;
+        *((_DWORD *)v251 + 20) = 2;
+        *(_QWORD *)(v251 + 84) = 2LL;
+        goto LABEL_10;
+      }
+      v252 = operator new(0x48uLL);
+      v13 = (__int64)v252;
+      if ( !v252 )
+        goto LABEL_262;
+      v252[2] = 0;
+      *((_QWORD *)v252 + 2) = a1;
+      *((_QWORD *)v252 + 3) = 0LL;
+      *((_QWORD *)v252 + 5) = 0LL;
+      v252[8] = 0;
+      v132 = &TValueResource<MilPoint2D,tagMILCMD_POINTRESOURCE,125>::`vftable';
+      goto LABEL_222;
+    }
+    v253 = (CGeometry *)CClipBrush::operator new((unsigned __int64)a1);
+    v13 = (__int64)v253;
+    if ( !v253 )
+      goto LABEL_262;
+    CGeometry::CGeometry(v253, a1);
+    v12 = &CPathGeometry::`vftable';
+    *(_QWORD *)v13 = &CPathGeometry::`vftable';
+LABEL_307:
+    *(_QWORD *)(v13 + 136) = 0LL;
+    goto LABEL_10;
   }
-  if ( a3 > 0xD )
+  if ( a3 <= 0xB2 )
   {
-    if ( a3 <= 0x14 )
+    if ( a3 == 178 )
     {
-      if ( a3 == 20 )
-      {
-        v40 = (CColorBrush *)CColorBrush::operator new((unsigned __int64)a1);
-        if ( v40 )
-        {
-          v14 = CColorBrush::CColorBrush(v40, a1);
-          goto LABEL_543;
-        }
-        goto LABEL_23;
-      }
-      v31 = a3 - 14;
-      if ( !v31 )
-      {
-        v39 = (CBrightnessEffect *)CBrightnessEffect::operator new((unsigned __int64)a1);
-        if ( v39 )
-        {
-          v14 = CBrightnessEffect::CBrightnessEffect(v39, a1);
-          goto LABEL_543;
-        }
-        goto LABEL_23;
-      }
-      v32 = v31 - 2;
-      if ( !v32 )
-      {
-        v38 = (CCachedVisualImage *)CCachedVisualImage::operator new((unsigned __int64)a1);
-        if ( v38 )
-        {
-          v14 = CCachedVisualImage::CCachedVisualImage(v38, a1, 0, 1);
-          goto LABEL_543;
-        }
-        goto LABEL_23;
-      }
-      v33 = v32 - 1;
-      if ( !v33 )
-      {
-        v37 = (CResource *)CCaptureController::operator new((unsigned __int64)a1);
-        v16 = v37;
-        if ( v37 )
-        {
-          *((_DWORD *)v37 + 2) = 0;
-          *((_QWORD *)v37 + 3) = 0LL;
-          *((_QWORD *)v37 + 2) = a1;
-          *((_QWORD *)v37 + 5) = 0LL;
-          *((_DWORD *)v37 + 8) = 0;
-          *(_QWORD *)v37 = &CCaptureController::`vftable';
-          *((_QWORD *)v37 + 8) = 0LL;
-          *((_QWORD *)v37 + 9) = 0LL;
-          *((_QWORD *)v37 + 10) = 0LL;
-          *((_QWORD *)v37 + 11) = 0LL;
-          *((_QWORD *)v37 + 12) = 0LL;
-          *((_QWORD *)v37 + 15) = 0LL;
-          *((_WORD *)v37 + 52) = 257;
-          goto LABEL_544;
-        }
-        goto LABEL_23;
-      }
-      v34 = v33 - 1;
-      if ( !v34 )
-      {
-        v36 = (CCaptureRenderTarget *)CCaptureRenderTarget::operator new((unsigned __int64)a1);
-        if ( v36 )
-        {
-          v14 = CCaptureRenderTarget::CCaptureRenderTarget(v36, a1);
-          goto LABEL_543;
-        }
-        goto LABEL_23;
-      }
-      if ( v34 == 1 )
-      {
-        v35 = (CClipBrush *)CClipBrush::operator new((unsigned __int64)a1);
-        if ( v35 )
-        {
-          v14 = CClipBrush::CClipBrush(v35, a1);
-          goto LABEL_543;
-        }
-        goto LABEL_23;
-      }
-      goto LABEL_524;
+      v24 = (CVisual *)CSpriteVisual::operator new((unsigned __int64)a1);
+      v13 = (__int64)v24;
+      if ( !v24 )
+        goto LABEL_262;
+      CVisual::CVisual(v24, a1);
+      v25 = &CSpriteVisual::`vftable';
+      goto LABEL_47;
     }
-    v41 = a3 - 21;
-    if ( !v41 )
+    if ( a3 <= 0xA8 )
     {
-      v48 = (CResource *)KeyframeInterpolation::operator new(0x58uLL);
-      v16 = v48;
-      if ( v48 )
+      if ( a3 == 168 )
       {
-        *((_DWORD *)v48 + 2) = 0;
-        *((_QWORD *)v48 + 3) = 0LL;
-        *((_QWORD *)v48 + 2) = a1;
-        *((_QWORD *)v48 + 5) = 0LL;
-        *((_DWORD *)v48 + 8) = 0;
-        *(_QWORD *)v48 = &CColorGradientStop::`vftable';
-        *((_QWORD *)v48 + 8) = 0LL;
-        *((_QWORD *)v48 + 9) = 0LL;
-        *((_DWORD *)v48 + 20) = 0;
-        goto LABEL_544;
+        v281 = (CVisual *)CInteractionTrackerPositionAnimation::operator new((unsigned __int64)a1);
+        v13 = (__int64)v281;
+        if ( !v281 )
+          goto LABEL_262;
+        CVisual::CVisual(v281, a1);
+        v25 = &CShapeVisual::`vftable';
+        goto LABEL_47;
       }
-      goto LABEL_23;
-    }
-    v42 = v41 - 1;
-    if ( !v42 )
-    {
-      v47 = (CColorMatrixEffect *)CColorMatrixEffect::operator new((unsigned __int64)a1);
-      if ( v47 )
+      if ( a3 > 0xA0 )
       {
-        v14 = CColorMatrixEffect::CColorMatrixEffect(v47, a1);
-        goto LABEL_543;
-      }
-      goto LABEL_23;
-    }
-    v43 = v42 - 1;
-    if ( v43 )
-    {
-      if ( v43 == 1 )
-      {
-        v44 = KeyframeInterpolation::operator new(0xA8uLL);
-        if ( v44 )
+        v274 = a3 - 161;
+        if ( v274 )
         {
-          v14 = (CLegacyRenderTarget *)TValueResource<MilColorTransform,tagMILCMD_COLORTRANSFORMRESOURCE,24>::TValueResource<MilColorTransform,tagMILCMD_COLORTRANSFORMRESOURCE,24>(
-                                         v44,
-                                         a1);
-          goto LABEL_543;
+          v275 = v274 - 4;
+          if ( !v275 )
+          {
+            v279 = (CSceneSurfaceMaterialInput *)CAnimationTrigger::operator new((unsigned __int64)a1);
+            if ( v279 )
+            {
+              v11 = CSceneSurfaceMaterialInput::CSceneSurfaceMaterialInput(v279, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          v276 = v275 - 1;
+          if ( !v276 )
+          {
+            v278 = (CSceneVisual *)CSceneVisual::operator new((unsigned __int64)a1);
+            if ( v278 )
+            {
+              v11 = CSceneVisual::CSceneVisual(v278, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          if ( v276 == 1 )
+          {
+            v277 = (CShadowEffect *)CSceneMetallicRoughnessMaterial::operator new((unsigned __int64)a1);
+            if ( v277 )
+            {
+              v11 = CShadowEffect::CShadowEffect(v277, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          goto LABEL_567;
         }
-        goto LABEL_23;
+        v280 = CParticleVector2Behavior::operator new((unsigned __int64)a1);
+        v13 = (__int64)v280;
+        if ( !v280 )
+          goto LABEL_262;
+        CSceneNodeGeneratedT<CSceneNode,CSceneObject>::CSceneNodeGeneratedT<CSceneNode,CSceneObject>(v280, a1);
+        v12 = (void **)&CSceneNode::`vftable';
+        *(_QWORD *)v13 = &CSceneNode::`vftable';
+        *(_QWORD *)(v13 + 128) = 0LL;
+        goto LABEL_10;
       }
-      goto LABEL_524;
+      if ( a3 == 160 )
+      {
+        v273 = (CResource *)CBspNode::operator new((unsigned __int64)a1);
+        v13 = (__int64)v273;
+        if ( !v273 )
+          goto LABEL_262;
+        CResource::CResource(v273, a1);
+        v12 = (void **)&CSceneModelTransform::`vftable';
+      }
+      else
+      {
+        v61 = a3 - 152;
+        if ( !v61 )
+        {
+          v62 = CScaleTransform::operator new();
+          v13 = (__int64)v62;
+          if ( !v62 )
+            goto LABEL_262;
+          v62[2] = 0;
+          *((_QWORD *)v62 + 2) = a1;
+          *((_QWORD *)v62 + 3) = 0LL;
+          *((_QWORD *)v62 + 5) = 0LL;
+          v62[8] = 0;
+          v62[34] = 0;
+          v62[8] |= 1u;
+          v62[38] = 1065353216;
+          v62[39] = 1065353216;
+          v25 = &CScaleTransform::`vftable';
+          *(_BYTE *)(v13 + 148) = 0;
+          goto LABEL_47;
+        }
+        v266 = v61 - 1;
+        if ( v266 )
+        {
+          v267 = v266 - 4;
+          if ( !v267 )
+          {
+            v271 = (CSceneMesh *)CBrightnessEffect::operator new((unsigned __int64)a1);
+            if ( v271 )
+            {
+              v11 = CSceneMesh::CSceneMesh(v271, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          v268 = v267 - 1;
+          if ( !v268 )
+          {
+            v270 = (CSceneMeshRendererComponent *)CAnimationTrigger::operator new((unsigned __int64)a1);
+            if ( v270 )
+            {
+              v11 = CSceneMeshRendererComponent::CSceneMeshRendererComponent(v270, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          if ( v268 == 1 )
+          {
+            v269 = (CSceneMetallicRoughnessMaterial *)CSceneMetallicRoughnessMaterial::operator new((unsigned __int64)a1);
+            if ( v269 )
+            {
+              v11 = CSceneMetallicRoughnessMaterial::CSceneMetallicRoughnessMaterial(v269, a1);
+              goto LABEL_9;
+            }
+            goto LABEL_262;
+          }
+          goto LABEL_567;
+        }
+        v272 = CSceneMetallicRoughnessMaterial::operator new((unsigned __int64)a1);
+        v13 = (__int64)v272;
+        if ( !v272 )
+          goto LABEL_262;
+        CScaleTransform3DGeneratedT<CScaleTransform3D,CTransform3D>::CScaleTransform3DGeneratedT<CScaleTransform3D,CTransform3D>(
+          v272,
+          a1);
+        v12 = (void **)&CScaleTransform3D::`vftable';
+      }
+LABEL_127:
+      *(_QWORD *)v13 = v12;
+      goto LABEL_10;
     }
-    v45 = (CResource *)KeyframeInterpolation::operator new(0x50uLL);
-    v16 = v45;
-    if ( !v45 )
-      goto LABEL_23;
-    *((_DWORD *)v45 + 2) = 0;
-    *((_QWORD *)v45 + 2) = a1;
-    *((_QWORD *)v45 + 3) = 0LL;
-    *((_QWORD *)v45 + 5) = 0LL;
-    *((_DWORD *)v45 + 8) = 0;
-    v46 = &TValueResource<_D3DCOLORVALUE,tagMILCMD_COLORRESOURCE,23>::`vftable';
-LABEL_74:
-    *(_QWORD *)v16 = v46;
-    *((_OWORD *)v16 + 4) = 0LL;
-    goto LABEL_544;
+    v80 = a3 - 169;
+    if ( !v80 )
+    {
+      v104 = (CResource *)CSharedSection::operator new((unsigned __int64)a1);
+      v13 = (__int64)v104;
+      if ( !v104 )
+        goto LABEL_262;
+      CResource::CResource(v104, a1);
+      v25 = &CSharedSection::`vftable';
+      v12[9] = 0LL;
+      goto LABEL_47;
+    }
+    v81 = v80 - 1;
+    if ( v81 )
+    {
+      v82 = v81 - 1;
+      if ( !v82 )
+      {
+        v287 = (CResource *)CSharedSectionWrapper::operator new((unsigned __int64)a1);
+        v13 = (__int64)v287;
+        if ( !v287 )
+          goto LABEL_262;
+        CResource::CResource(v287, a1);
+        v12 = (void **)&CSharedSectionWrapper::`vftable';
+        *(_QWORD *)v13 = &CSharedSectionWrapper::`vftable';
+        *(_QWORD *)(v13 + 56) = 0LL;
+        goto LABEL_10;
+      }
+      v83 = v82 - 1;
+      if ( !v83 )
+      {
+        v139 = operator new(0x48uLL);
+        if ( v139 )
+        {
+          v11 = (CProjectedShadowCaster *)TValueResource<MilSizeD,tagMILCMD_SIZERESOURCE,172>::TValueResource<MilSizeD,tagMILCMD_SIZERESOURCE,172>(
+                                            (__int64)v139,
+                                            (__int64)a1);
+          goto LABEL_9;
+        }
+        goto LABEL_262;
+      }
+      v84 = v83 - 1;
+      if ( v84 )
+      {
+        v85 = v84 - 1;
+        if ( !v85 )
+        {
+          v285 = (CSnapshot *)KeyframeInterpolation::operator new(0x80uLL);
+          if ( v285 )
+          {
+            v11 = CSnapshot::CSnapshot(v285, a1);
+            goto LABEL_9;
+          }
+          goto LABEL_262;
+        }
+        v86 = v85 - 1;
+        if ( !v86 )
+        {
+          v87 = (CSolidColorLegacyMilBrush *)CSolidColorLegacyMilBrush::operator new((unsigned __int64)a1);
+          if ( v87 )
+          {
+            v11 = CSolidColorLegacyMilBrush::CSolidColorLegacyMilBrush(v87, a1);
+            goto LABEL_9;
+          }
+          goto LABEL_262;
+        }
+        v282 = v86 - 1;
+        if ( !v282 )
+        {
+          v284 = (CSpatialRemarshaler *)CSharedSectionWrapper::operator new((unsigned __int64)a1);
+          if ( v284 )
+          {
+            v11 = CSpatialRemarshaler::CSpatialRemarshaler(v284, a1);
+            goto LABEL_9;
+          }
+          goto LABEL_262;
+        }
+        if ( v282 == 1 )
+        {
+          v283 = (CSpriteVectorShape *)CSpriteVectorShape::operator new((unsigned __int64)a1);
+          if ( v283 )
+          {
+            v11 = CSpriteVectorShape::CSpriteVectorShape(v283, a1);
+            goto LABEL_9;
+          }
+          goto LABEL_262;
+        }
+        goto LABEL_567;
+      }
+      v286 = (CTransform3D *)CBrightnessEffect::operator new((unsigned __int64)a1);
+      v13 = (__int64)v286;
+      if ( !v286 )
+        goto LABEL_262;
+      CTransform3D::CTransform3D(v286, a1, 0);
+      v12 = (void **)&CSkewTransform::`vftable';
+      goto LABEL_127;
+    }
+    v288 = (CResource *)CDataSourceReader::operator new((unsigned __int64)a1);
+    v13 = (__int64)v288;
+    if ( !v288 )
+      goto LABEL_262;
+    CResource::CResource(v288, a1);
+    v12 = &CSharedSectionBase::`vftable';
+    *(_QWORD *)v13 = &CSharedSectionBase::`vftable';
+LABEL_178:
+    *(_QWORD *)(v13 + 72) = 0LL;
+    goto LABEL_10;
   }
-  if ( a3 == 13 )
+  if ( a3 > 0xC1 )
   {
-    v30 = (CBlurredWallpaperBackdropBrush *)CCaptureController::operator new((unsigned __int64)a1);
-    if ( v30 )
-    {
-      v14 = CBlurredWallpaperBackdropBrush::CBlurredWallpaperBackdropBrush(v30, a1);
-      goto LABEL_543;
-    }
-    goto LABEL_23;
-  }
-  if ( a3 <= 6 )
-  {
-    if ( a3 == 6 )
-    {
-      v21 = (CAtlasedRectsGroup *)DefaultHeap::AllocClear(0xA0uLL);
-      if ( !v21 )
-        ModuleFailFastForHRESULT(2147942414LL, retaddr);
-      v14 = CAtlasedRectsGroup::CAtlasedRectsGroup(v21, a1, v22);
-      goto LABEL_543;
-    }
-    v8 = a3 - 1;
+    v8 = a3 - 194;
     if ( v8 )
     {
       v9 = v8 - 1;
       if ( !v9 )
       {
-        v19 = (CAnimation *)DefaultHeap::AllocClear(0x138uLL);
-        if ( !v19 )
+        v10 = (CVisual *)DefaultHeap::AllocClear(0x268uLL);
+        if ( !v10 )
           ModuleFailFastForHRESULT(2147942414LL, retaddr);
-        v14 = CAnimation::CAnimation(v19, a1);
-        goto LABEL_543;
+        v11 = CVisual::CVisual(v10, a1);
+        goto LABEL_9;
       }
-      v10 = v9 - 1;
-      if ( !v10 )
+      v43 = v9 - 1;
+      if ( v43 )
       {
-        v18 = (CAnimationLoggingManager *)DefaultHeap::AllocClear(0xC8uLL);
-        if ( !v18 )
-          ModuleFailFastForHRESULT(2147942414LL, retaddr);
-        v14 = CAnimationLoggingManager::CAnimationLoggingManager(v18, a1);
-        goto LABEL_543;
-      }
-      v11 = v10 - 1;
-      if ( v11 )
-      {
-        if ( v11 == 1 )
+        v44 = v43 - 1;
+        if ( v44 )
         {
-          v12 = (CArithmeticCompositeEffect *)CSceneMetallicRoughnessMaterial::operator new((unsigned __int64)a1);
-          if ( v12 )
+          v45 = v44 - 2;
+          if ( !v45 )
           {
-            v14 = CArithmeticCompositeEffect::CArithmeticCompositeEffect(v12, a1);
-LABEL_543:
-            v16 = v14;
-            goto LABEL_544;
+            v106 = (CResource *)CVisualReferenceController::operator new((unsigned __int64)a1);
+            v13 = (__int64)v106;
+            if ( v106 )
+            {
+              CResource::CResource(v106, a1);
+              v12 = &CVisualReferenceController::`vftable';
+              *(_QWORD *)v13 = &CVisualReferenceController::`vftable';
+              *(_QWORD *)(v13 + 64) = 0LL;
+              goto LABEL_10;
+            }
+            goto LABEL_262;
           }
-          goto LABEL_23;
+          v46 = v45 - 1;
+          if ( v46 )
+          {
+            v47 = v46 - 2;
+            if ( !v47 )
+            {
+              v109 = (CWindowBackdropBrush *)CWindowBackdropBrush::operator new();
+              if ( v109 )
+              {
+                v11 = CWindowBackdropBrush::CWindowBackdropBrush(v109, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            v48 = v47 - 1;
+            if ( !v48 )
+            {
+              v49 = (CWindowNode *)CWindowNode::operator new((unsigned __int64)a1);
+              if ( v49 )
+              {
+                v11 = CWindowNode::CWindowNode(v49, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+            if ( v48 == 2 )
+            {
+              v300 = (CYCbCrSurface *)CParticleVector2Behavior::operator new((unsigned __int64)a1);
+              if ( v300 )
+              {
+                v11 = CYCbCrSurface::CYCbCrSurface(v300, a1);
+                goto LABEL_9;
+              }
+              goto LABEL_262;
+            }
+LABEL_567:
+            v7 = -2003303421;
+            MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2003303421, 0x2C0u, 0LL);
+            return v7;
+          }
+          v301 = (CVisualSurface *)operator new(0xA0uLL);
+          if ( v301 )
+          {
+            v11 = CVisualSurface::CVisualSurface(v301, a1);
+            goto LABEL_9;
+          }
         }
-        goto LABEL_524;
+        else
+        {
+          v302 = (CVisualGroup *)operator new(0x50uLL);
+          if ( v302 )
+          {
+            v11 = CVisualGroup::CVisualGroup(v302, a1);
+            goto LABEL_9;
+          }
+        }
       }
-      v15 = (CResource *)CAnimationTrigger::operator new((unsigned __int64)a1);
-      v16 = v15;
-      if ( !v15 )
-        goto LABEL_23;
-      *((_DWORD *)v15 + 2) = 0;
-      *((_QWORD *)v15 + 2) = a1;
-      *((_QWORD *)v15 + 3) = 0LL;
-      *((_QWORD *)v15 + 5) = 0LL;
-      *((_DWORD *)v15 + 8) = 0;
-      v17 = &CAnimationTrigger::`vftable';
-      *((_QWORD *)v16 + 13) = 0LL;
-      goto LABEL_20;
+      else
+      {
+        v303 = (CVisualCapture *)CVisualCapture::operator new((unsigned __int64)a1);
+        if ( v303 )
+        {
+          v11 = CVisualCapture::CVisualCapture(v303, a1);
+          goto LABEL_9;
+        }
+      }
     }
-    v20 = (CFilterEffect *)DefaultHeap::AllocClear(0xE8uLL);
-    v16 = v20;
-    if ( !v20 )
-      ModuleFailFastForHRESULT(2147942414LL, retaddr);
-    CFilterEffect::CFilterEffect(v20, a1);
-    *((_QWORD *)v16 + 20) = 0LL;
-    v13 = (unsigned __int64 *)&CAffineTransform2DEffect::`vftable';
-    *((_QWORD *)v16 + 21) = 1065353216LL;
-    *(_QWORD *)((char *)v16 + 180) = 1065353216LL;
-    *((_DWORD *)v16 + 48) = 1065353216;
-    *(_QWORD *)v16 = &CAffineTransform2DEffect::`vftable';
-    *((_DWORD *)v16 + 44) = 0;
-    *((_DWORD *)v16 + 47) = 0;
-LABEL_544:
-    if ( v16 )
-      goto LABEL_545;
-LABEL_546:
-    v7 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v13, 0LL, 0LL, -2147024882, 0x2BFu);
-    return v7;
-  }
-  v23 = a3 - 7;
-  if ( !v23 )
-  {
-    v29 = (CResource *)DefaultHeap::AllocClear(0x90uLL);
-    v16 = v29;
-    if ( !v29 )
-      ModuleFailFastForHRESULT(2147942414LL, retaddr);
-    *((_DWORD *)v29 + 2) = 0;
-    *((_QWORD *)v29 + 3) = 0LL;
-    *((_QWORD *)v29 + 2) = a1;
-    *((_QWORD *)v29 + 5) = 0LL;
-    *((_DWORD *)v29 + 8) = 0;
-    *(_QWORD *)v29 = &CAtlasedRectsMesh::`vftable';
-    *((_QWORD *)v29 + 15) = 0LL;
-    *((_QWORD *)v29 + 16) = 0LL;
-    *((_BYTE *)v29 + 136) = 1;
-    goto LABEL_544;
-  }
-  v24 = v23 - 1;
-  if ( !v24 )
-  {
-    v28 = (CBackdropBrush *)DefaultHeap::AllocClear(0x80uLL);
-    if ( !v28 )
-      ModuleFailFastForHRESULT(2147942414LL, retaddr);
-    v14 = CBackdropBrush::CBackdropBrush(v28, a1);
-    goto LABEL_543;
-  }
-  v25 = v24 - 3;
-  if ( !v25 )
-  {
-    v27 = (CBitmapResource *)KeyframeInterpolation::operator new(0x78uLL);
-    if ( v27 )
+    else
     {
-      v14 = CBitmapResource::CBitmapResource(v27, a1, 0LL);
-      goto LABEL_543;
+      v304 = (CVirtualMonitorCaptureRenderTarget *)CVirtualMonitorCaptureRenderTarget::operator new((unsigned __int64)a1);
+      if ( v304 )
+      {
+        v11 = CVirtualMonitorCaptureRenderTarget::CVirtualMonitorCaptureRenderTarget(v304, a1);
+        goto LABEL_9;
+      }
     }
-LABEL_23:
-    v16 = 0LL;
-    goto LABEL_544;
+    goto LABEL_262;
   }
-  if ( v25 == 1 )
+  if ( a3 == 193 )
   {
-    v26 = (CFilterEffect *)CHueRotationEffect::operator new((unsigned __int64)a1);
-    v16 = v26;
-    if ( !v26 )
-      goto LABEL_23;
-    CFilterEffect::CFilterEffect(v26, a1);
-    v13 = (unsigned __int64 *)&CBlendEffect::`vftable';
-    goto LABEL_38;
+    v299 = (CViewBox *)CSpriteVectorShape::operator new((unsigned __int64)a1);
+    if ( v299 )
+    {
+      v11 = CViewBox::CViewBox(v299, a1);
+      goto LABEL_9;
+    }
+    goto LABEL_262;
   }
-LABEL_524:
-  v7 = -2003303421;
-  MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0LL, -2003303421, 0x2BCu);
+  if ( a3 > 0xBB )
+  {
+    v115 = a3 - 188;
+    if ( !v115 )
+    {
+      v140 = (CTransformGroup *)CTransformGroup::operator new();
+      if ( v140 )
+      {
+        v11 = CTransformGroup::CTransformGroup(v140, a1, (struct CResourceTable **)a2);
+        goto LABEL_9;
+      }
+      goto LABEL_262;
+    }
+    v116 = v115 - 1;
+    if ( v116 )
+    {
+      v296 = v116 - 1;
+      if ( v296 )
+      {
+        if ( v296 == 1 )
+        {
+          v297 = (CTurbulenceEffect *)CTurbulenceEffect::operator new((unsigned __int64)a1);
+          if ( v297 )
+          {
+            v11 = CTurbulenceEffect::CTurbulenceEffect(v297, a1);
+            goto LABEL_9;
+          }
+          goto LABEL_262;
+        }
+        goto LABEL_567;
+      }
+      v298 = (CTransform3D *)CBrightnessEffect::operator new((unsigned __int64)a1);
+      v13 = (__int64)v298;
+      if ( !v298 )
+      {
+LABEL_262:
+        v13 = 0LL;
+        goto LABEL_10;
+      }
+      CTransform3D::CTransform3D(v298, a1, 0);
+      v12 = (void **)&CTranslateTransform3D::`vftable';
+    }
+    else
+    {
+      v117 = (CTransform3D *)CTranslateTransform::operator new((unsigned __int64)a1);
+      v13 = (__int64)v117;
+      if ( !v117 )
+        goto LABEL_262;
+      CTransform3D::CTransform3D(v117, a1, 0);
+      v12 = &CTranslateTransform::`vftable';
+    }
+    goto LABEL_127;
+  }
+  if ( a3 == 187 )
+  {
+    v295 = (CTransform3DGroup *)CTransform3DGroup::operator new((unsigned __int64)a1);
+    if ( v295 )
+    {
+      v11 = CTransform3DGroup::CTransform3DGroup(v295, a1, a2);
+      goto LABEL_9;
+    }
+    goto LABEL_262;
+  }
+  v37 = a3 - 179;
+  if ( v37 )
+  {
+    v38 = v37 - 1;
+    if ( !v38 )
+    {
+      v39 = (CSurfaceBrush *)CSurfaceBrush::operator new((unsigned __int64)a1);
+      if ( !v39 )
+        goto LABEL_262;
+      v11 = CSurfaceBrush::CSurfaceBrush(v39, a1);
+      goto LABEL_9;
+    }
+    v289 = v38 - 1;
+    if ( !v289 )
+    {
+      v293 = (CSynchronousSuperWetInk *)KeyframeInterpolation::operator new(0x128uLL);
+      if ( v293 )
+      {
+        v11 = CSynchronousSuperWetInk::CSynchronousSuperWetInk(v293, a1);
+        goto LABEL_9;
+      }
+      goto LABEL_262;
+    }
+    v290 = v289 - 1;
+    if ( !v290 )
+    {
+      v292 = (CTableTransferEffect *)CTableTransferEffect::operator new((unsigned __int64)a1);
+      if ( v292 )
+      {
+        v11 = CTableTransferEffect::CTableTransferEffect(v292, a1);
+        goto LABEL_9;
+      }
+      goto LABEL_262;
+    }
+    if ( v290 != 2 )
+      goto LABEL_567;
+    v291 = KeyframeInterpolation::operator new(0x2B0uLL);
+    v13 = (__int64)v291;
+    if ( !v291 )
+      goto LABEL_262;
+    CTextVisualGeneratedT<CTextVisual,CVisual>::CTextVisualGeneratedT<CTextVisual,CVisual>(v291, a1);
+    v25 = &CTextVisual::`vftable';
+LABEL_47:
+    *(_QWORD *)v13 = v25;
+    goto LABEL_10;
+  }
+  v294 = (CVisual *)KeyframeInterpolation::operator new(0x270uLL);
+  v13 = (__int64)v294;
+  if ( !v294 )
+    goto LABEL_262;
+  CVisual::CVisual(v294, a1);
+  *(_QWORD *)(v13 + 616) = 0LL;
+  *(_QWORD *)v13 = &CSuperWetInkVisual::`vftable';
+LABEL_10:
+  if ( v13 )
+  {
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v13 + 8LL))(v13);
+    *a4 = v13;
+  }
+  else
+  {
+    v7 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v12, 0LL, 0, -2147024882, 0x2C3u, 0LL);
+  }
   return v7;
 }

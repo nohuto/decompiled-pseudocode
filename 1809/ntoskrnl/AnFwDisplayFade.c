@@ -5,15 +5,15 @@
  * Callees:
  *     KeSetCoalescableTimer @ 0x14001CDE0 (KeSetCoalescableTimer.c)
  *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1400A56D0 (KeInitializeDpc.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     BgpGxRectangleSize @ 0x14016ECB4 (BgpGxRectangleSize.c)
- *     BgpFwFreeMemory @ 0x14016ECCC (BgpFwFreeMemory.c)
- *     BgpGetBitsPerPixel @ 0x14016F1C0 (BgpGetBitsPerPixel.c)
- *     BgpGxConvertRectangleEx @ 0x14016F3A8 (BgpGxConvertRectangleEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     BgpClearScreen @ 0x140327614 (BgpClearScreen.c)
+ *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     BgpGxRectangleSize @ 0x14016ECD4 (BgpGxRectangleSize.c)
+ *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
+ *     BgpGetBitsPerPixel @ 0x14016F1E0 (BgpGetBitsPerPixel.c)
+ *     BgpGxConvertRectangleEx @ 0x14016F3C8 (BgpGxConvertRectangleEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     BgpClearScreen @ 0x140327714 (BgpClearScreen.c)
  *     BgpGxParseBitmap @ 0x14094E848 (BgpGxParseBitmap.c)
  *     BgpGxReadRectangle @ 0x14094E98C (BgpGxReadRectangle.c)
  *     BgpGxRectangleDestroy @ 0x14094F21C (BgpGxRectangleDestroy.c)
@@ -337,7 +337,7 @@ LABEL_35:
     KeResetEvent(&stru_1404DBDD0);
     KeInitializeTimerEx(&Timer, NotificationTimer);
     KeInitializeDpc(&stru_1404DBD10, AnFwpFadeAnimationTimer, 0LL);
-    byte_1404C64F0 = 1;
+    byte_1404C64E1 = 1;
     LogFwStat(1LL, 7LL, 0LL);
     KeSetCoalescableTimer(&Timer, 0LL, 0x1Eu, 0, &stru_1404DBD10);
     dword_140405AD0 |= 0x2000u;

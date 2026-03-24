@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_ECHolographicManager@@G7EAAPEAXI@Z @ 0x18010AB50
+ * XREFs of ??_ECHolographicManager@@G7EAAPEAXI@Z @ 0x1800F84C0
  * Callers:
  *     <none>
  * Callees:

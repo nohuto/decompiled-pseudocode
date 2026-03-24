@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiMiracastAddRefMiracastDeviceContext @ 0x1C005FE5C
+ * XREFs of DpiMiracastAddRefMiracastDeviceContext @ 0x1C0053380
  * Callers:
- *     DxgkMiracastStopAllMiracastSessions @ 0x1C01E4710 (DxgkMiracastStopAllMiracastSessions.c)
- *     DpiFdoStopMiracastSession @ 0x1C01F1460 (DpiFdoStopMiracastSession.c)
- *     DpiMiracastCbSendUserModeMessage @ 0x1C039E960 (DpiMiracastCbSendUserModeMessage.c)
- *     DpiMiracastGetDeviceContextFromName @ 0x1C039F134 (DpiMiracastGetDeviceContextFromName.c)
+ *     DxgkMiracastStopAllMiracastSessions @ 0x1C016A200 (DxgkMiracastStopAllMiracastSessions.c)
+ *     DpiFdoStopMiracastSession @ 0x1C0175EA0 (DpiFdoStopMiracastSession.c)
+ *     DpiMiracastCbSendUserModeMessage @ 0x1C02CDF90 (DpiMiracastCbSendUserModeMessage.c)
+ *     DpiMiracastGetDeviceContextFromName @ 0x1C02CE75C (DpiMiracastGetDeviceContextFromName.c)
  * Callees:
  *     <none>
  */

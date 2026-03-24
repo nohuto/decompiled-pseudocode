@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDeleteSecondaryIcEntry @ 0x140519DAC
+ * XREFs of HalpDeleteSecondaryIcEntry @ 0x1404D0A60
  * Callers:
- *     HalpUnregisterSecondaryIcInterface @ 0x14051A600 (HalpUnregisterSecondaryIcInterface.c)
+ *     HalpUnregisterSecondaryIcInterface @ 0x1404D1450 (HalpUnregisterSecondaryIcInterface.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     HalpAcquireSecondaryIcEntryExclusive @ 0x140519CC8 (HalpAcquireSecondaryIcEntryExclusive.c)
- *     HalpReleaseSecondaryIcEntryExclusive @ 0x14051A558 (HalpReleaseSecondaryIcEntryExclusive.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     HalpAcquireSecondaryIcEntryExclusive @ 0x1404D0770 (HalpAcquireSecondaryIcEntryExclusive.c)
+ *     HalpReleaseSecondaryIcEntryExclusive @ 0x1404D1360 (HalpReleaseSecondaryIcEntryExclusive.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpDeleteSecondaryIcEntry(PVOID P)
@@ -30,7 +30,7 @@ __int64 __fastcall HalpDeleteSecondaryIcEntry(PVOID P)
     v4[1] = v5;
     HalpReleaseSecondaryIcEntryExclusive(P, v3);
     ObfDereferenceObjectWithTag(*((PVOID *)P + 6), 0x746C6644u);
-    ExFreePoolWithTag(P, 0x326C6148u);
+    ExFreePoolWithTag(P, 0x536C6148u);
   }
   else
   {

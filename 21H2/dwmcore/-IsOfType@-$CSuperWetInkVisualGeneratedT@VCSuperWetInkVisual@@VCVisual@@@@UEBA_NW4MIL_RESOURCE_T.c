@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@?$CSuperWetInkVisualGeneratedT@VCSuperWetInkVisual@@VCVisual@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A0F90
+ * XREFs of ?IsOfType@?$CSuperWetInkVisualGeneratedT@VCSuperWetInkVisual@@VCVisual@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801EE170
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@CVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C5D30 (-IsOfType@CVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A8C60 (-IsOfType@CVisual@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall CSuperWetInkVisualGeneratedT<CSuperWetInkVisual,CVisual>::IsOfType(__int64 a1, int a2)
@@ -11,7 +11,7 @@ char __fastcall CSuperWetInkVisualGeneratedT<CSuperWetInkVisual,CVisual>::IsOfTy
   bool v2; // al
   char v3; // cl
 
-  if ( a2 == 178 )
+  if ( a2 == 179 )
     return 1;
   v2 = CVisual::IsOfType(a1, a2);
   v3 = 0;

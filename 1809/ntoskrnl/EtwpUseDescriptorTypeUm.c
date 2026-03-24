@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpUseDescriptorTypeUm @ 0x1408B64A8
+ * XREFs of EtwpUseDescriptorTypeUm @ 0x1408B6488
  * Callers:
  *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
  * Callees:

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlFormatMessageEx @ 0x1408913B4
+ * XREFs of RtlFormatMessageEx @ 0x140891394
  * Callers:
  *     PiGetDeviceRegProperty @ 0x140587C10 (PiGetDeviceRegProperty.c)
- *     PiGetDeviceRegistryProperty @ 0x140824738 (PiGetDeviceRegistryProperty.c)
- *     RtlFormatMessage @ 0x140891360 (RtlFormatMessage.c)
+ *     PiGetDeviceRegistryProperty @ 0x140824718 (PiGetDeviceRegistryProperty.c)
+ *     RtlFormatMessage @ 0x140891340 (RtlFormatMessage.c)
  * Callees:
  *     RtlStringCbCopyExW @ 0x140007504 (RtlStringCbCopyExW.c)
  *     RtlStringCchPrintfExW @ 0x140015EF4 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall RtlFormatMessageEx(

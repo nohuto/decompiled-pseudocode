@@ -1,16 +1,16 @@
 /*
- * XREFs of IsGetDesktopViewSupported @ 0x1C00B5124
+ * XREFs of IsGetDesktopViewSupported @ 0x1C00065F8
  * Callers:
- *     ValidateHwndEx @ 0x1C0045FD0 (ValidateHwndEx.c)
- *     ??0CHMRefHwndByHandle@@QEAA@PEAUHWND__@@_N111@Z @ 0x1C00DE4F0 (--0CHMRefHwndByHandle@@QEAA@PEAUHWND__@@_N111@Z.c)
+ *     ??0CHMRefHwndByHandle@@QEAA@PEAUHWND__@@_N111@Z @ 0x1C00061C0 (--0CHMRefHwndByHandle@@QEAA@PEAUHWND__@@_N111@Z.c)
+ *     ValidateHwndEx @ 0x1C0039A90 (ValidateHwndEx.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 IsGetDesktopViewSupported()
 {
-  if ( qword_1C02951E8 )
-    return qword_1C02951E8();
+  if ( qword_1C0255D60 )
+    return qword_1C0255D60();
   else
     return 3221225659LL;
 }

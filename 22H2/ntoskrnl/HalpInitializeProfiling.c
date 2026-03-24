@@ -1,66 +1,68 @@
 /*
- * XREFs of HalpInitializeProfiling @ 0x140A913E4
+ * XREFs of HalpInitializeProfiling @ 0x14099E74C
  * Callers:
- *     HalpHwPerfCntInitSystem @ 0x140A91320 (HalpHwPerfCntInitSystem.c)
+ *     HalpHwPerfCntInitSystem @ 0x14099E6B0 (HalpHwPerfCntInitSystem.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x14037858C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     strncmp @ 0x1403D8830 (strncmp.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpHvCpuid @ 0x14050AF2C (HalpHvCpuid.c)
- *     HalpLbrInitialize @ 0x140A9150C (HalpLbrInitialize.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1898 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     strncmp @ 0x1403D0E40 (strncmp.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpHvCpuid @ 0x1404C1D9C (HalpHvCpuid.c)
+ *     HalpLbrInitialize @ 0x14099E874 (HalpLbrInitialize.c)
  */
 
 __int64 __fastcall HalpInitializeProfiling(int a1)
 {
   __int64 v8; // rcx
   char Str1[16]; // [rsp+20h] [rbp-30h] BYREF
-  __int128 v14; // [rsp+30h] [rbp-20h] BYREF
+  __int128 v15; // [rsp+30h] [rbp-20h] BYREF
 
   *(_OWORD *)Str1 = 0LL;
-  v14 = 0LL;
-  LODWORD(KeGetCurrentPrcb()->HalReserved[2]) = 0;
+  v15 = 0LL;
+  if ( (HalpFeatureBits & 1) == 0 )
+    goto LABEL_17;
   if ( !a1 )
   {
-    if ( (HalpFeatureBits & 1) != 0 )
+    _RAX = 0LL;
+    __asm { cpuid }
+    *(_DWORD *)&Str1[4] = _RBX;
+    *(_DWORD *)&Str1[8] = _RDX;
+    *(_DWORD *)&Str1[12] = _RCX;
+    *(_DWORD *)Str1 = _RAX;
+    if ( !strncmp(&Str1[4], "AuthenticAMD", 0xCuLL) )
     {
-      _RAX = 0LL;
+      HalpProfileInterface[0] = (__int64 (__fastcall *)())Amd64ProfileInterface;
+    }
+    else if ( *(_DWORD *)Str1 >= 0xAu && !strncmp(&Str1[4], "GenuineIntel", 0xCuLL) )
+    {
+      _RAX = 10LL;
       __asm { cpuid }
+      *(_DWORD *)&Str1[8] = _RCX;
+      v8 = (unsigned __int8)_RAX;
       *(_DWORD *)&Str1[4] = _RBX;
-      *(_DWORD *)&Str1[8] = _RDX;
-      *(_DWORD *)&Str1[12] = _RCX;
-      *(_DWORD *)Str1 = _RAX;
-      if ( !strncmp(&Str1[4], "AuthenticAMD", 0xCuLL) )
+      *(_DWORD *)&Str1[12] = _RDX;
+      if ( (_BYTE)_RAX )
       {
-        HalpProfileInterface = &Amd64ProfileInterface;
-      }
-      else if ( *(_DWORD *)Str1 >= 0xAu && !strncmp(&Str1[4], "GenuineIntel", 0xCuLL) )
-      {
-        _RAX = 10LL;
-        __asm { cpuid }
-        *(_DWORD *)&Str1[8] = _RCX;
-        v8 = (unsigned __int8)_RAX;
-        *(_DWORD *)&Str1[4] = _RBX;
-        *(_DWORD *)&Str1[12] = _RDX;
-        if ( (_BYTE)_RAX )
+        if ( (_RAX & 0xFF000000) != 0 && (_RBX & 1) == 0 )
         {
-          if ( (_RAX & 0xFF000000) != 0 && (_RBX & 1) == 0 )
-          {
-            HalpProfileInterface = &EmonProfileInterface;
-            if ( (unsigned __int8)_RAX >= 4u )
-              HalpProfileFeatures |= 1u;
-          }
+          HalpProfileInterface[0] = (__int64 (__fastcall *)())EmonProfileInterface;
+          if ( (unsigned __int8)_RAX >= 4u )
+            HalpProfileFeatures |= 1u;
         }
       }
-      HalpPerfInterruptHandler = 0LL;
-      if ( HalpIsMicrosoftCompatibleHvLoaded(v8, _RDX) )
-      {
-        HalpHvCpuid(0x40000003u, &v14);
-        if ( (BYTE12(v14) & 4) == 0 )
-          HalpProfileInterface = &DefaultProfileInterface;
-      }
     }
-    HalpLbrInitialize();
+    HalpPerfInterruptHandler = 0LL;
+    if ( !HalpIsMicrosoftCompatibleHvLoaded(v8) || (HalpHvCpuid(0x40000003u, &v15), (BYTE12(v15) & 4) != 0) )
+    {
+LABEL_13:
+      HalpLbrInitialize();
+      return (*(__int64 (**)(void))HalpProfileInterface[0])();
+    }
+    HalpProfileInterface[0] = (__int64 (__fastcall *)())DefaultProfileInterface;
+LABEL_17:
+    if ( a1 )
+      return (*(__int64 (**)(void))HalpProfileInterface[0])();
+    goto LABEL_13;
   }
-  return (*HalpProfileInterface)();
+  return (*(__int64 (**)(void))HalpProfileInterface[0])();
 }

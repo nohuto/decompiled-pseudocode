@@ -1,19 +1,19 @@
 /*
- * XREFs of SmKmStoreAdd @ 0x1406ED88C
+ * XREFs of SmKmStoreAdd @ 0x14071109C
  * Callers:
- *     SmProcessCreateRequest @ 0x1406ED528 (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x140710D34 (SmProcessCreateRequest.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     SmAlloc @ 0x140260C2C (SmAlloc.c)
- *     SmEtwEnabled @ 0x140261818 (SmEtwEnabled.c)
- *     ExInitializePushLock @ 0x1402A0840 (ExInitializePushLock.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402F0990 (ExWaitForRundownProtectionRelease.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     SmKmEtwLogStoreChange @ 0x1409D55B0 (SmKmEtwLogStoreChange.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
+ *     SmEtwEnabled @ 0x1402DAE08 (SmEtwEnabled.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     SmKmEtwLogStoreChange @ 0x14092B06C (SmKmEtwLogStoreChange.c)
  */
 
 __int64 __fastcall SmKmStoreAdd(__int64 a1, __int64 a2, __int64 a3, int *a4)
@@ -29,7 +29,7 @@ __int64 __fastcall SmKmStoreAdd(__int64 a1, __int64 a2, __int64 a3, int *a4)
   __int16 v13; // cx
   int v14; // eax
   ULONGLONG *v15; // rax
-  struct _PRIVILEGE_SET *v18; // rax
+  struct _PRIVILEGE_SET *NonPaged; // rax
   struct _PRIVILEGE_SET *v19; // rbp
   unsigned __int64 v20; // r15
   LUID_AND_ATTRIBUTES *Privilege; // rdi
@@ -43,20 +43,20 @@ __int64 __fastcall SmKmStoreAdd(__int64 a1, __int64 a2, __int64 a3, int *a4)
   {
     if ( !*(_QWORD *)(a1 + 8 * v5) )
     {
-      v18 = (struct _PRIVILEGE_SET *)SmAlloc(0x500uLL, 0x61536D73u);
-      v19 = v18;
-      if ( !v18 )
+      NonPaged = (struct _PRIVILEGE_SET *)SSHSupportAllocateNonPaged(0x500uLL, 0x61536D73u);
+      v19 = NonPaged;
+      if ( !NonPaged )
         return (unsigned int)-1073741670;
-      v20 = (unsigned __int64)&v18[64];
-      if ( v18 < &v18[64] )
+      v20 = (unsigned __int64)&NonPaged[64];
+      if ( NonPaged < &NonPaged[64] )
       {
-        Privilege = v18->Privilege;
+        Privilege = NonPaged->Privilege;
         do
         {
           *(_OWORD *)&Privilege[-1].Luid.HighPart = 0LL;
           *(_OWORD *)&Privilege->Attributes = 0LL;
           Privilege[2].Luid = 0LL;
-          ExInitializePushLock((PEX_RUNDOWN_REF)Privilege);
+          ExInitializePushLock((PKSPIN_LOCK)&Privilege->Luid);
           ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)Privilege);
           *(_QWORD *)&Privilege->Attributes = 0LL;
           Privilege = (LUID_AND_ATTRIBUTES *)((char *)Privilege + 40);
@@ -148,7 +148,7 @@ LABEL_12:
       if ( v15 )
         SmKmEtwLogStoreChange(v15, *(_QWORD *)v7, SmEventStoreCreate);
       _InterlockedExchange64((volatile __int64 *)(v7 + 8), 0LL);
-      ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v7 + 8));
+      ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v7 + 8));
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v7 + 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(v7 + 16);
       KeAbPostRelease(v7 + 16);

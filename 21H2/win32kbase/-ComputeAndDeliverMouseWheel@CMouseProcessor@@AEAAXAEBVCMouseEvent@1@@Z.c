@@ -1,80 +1,72 @@
 /*
- * XREFs of ?ComputeAndDeliverMouseWheel@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z @ 0x1C01F97F0
+ * XREFs of ?ComputeAndDeliverMouseWheel@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z @ 0x1C01BF170
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ?AppCompatWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ @ 0x1C01F9450 (-AppCompatWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ.c)
- *     ?HittestWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ @ 0x1C01FAD64 (-HittestWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ.c)
- *     ?ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z @ 0x1C01FBCD8 (-ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z.c)
- *     APISetEditionGetMouseWheelRoutingMode @ 0x1C0205848 (APISetEditionGetMouseWheelRoutingMode.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?AppCompatWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ @ 0x1C01BED4C (-AppCompatWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ.c)
+ *     ?HittestWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ @ 0x1C01C0848 (-HittestWheelRoutingRequested@CMouseProcessor@@AEBA_NXZ.c)
+ *     ?ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z @ 0x1C01C17AC (-ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z.c)
+ *     APISetEditionGetMouseWheelRoutingMode @ 0x1C01CA2E0 (APISetEditionGetMouseWheelRoutingMode.c)
  */
 
 void __fastcall CMouseProcessor::ComputeAndDeliverMouseWheel(
         CMouseProcessor *this,
         const struct CMouseProcessor::CMouseEvent *a2)
 {
-  __int64 v4; // rdx
+  __int64 v2; // r8
+  const struct CMouseProcessor::CMouseEvent *v3; // rdi
   int MouseWheelRoutingMode; // ebx
   CMouseProcessor *v6; // rcx
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  int v9; // eax
-  _QWORD v10[2]; // [rsp+40h] [rbp-28h] BYREF
-  int v11; // [rsp+50h] [rbp-18h]
-  int v12; // [rsp+58h] [rbp-10h]
-  unsigned int v13; // [rsp+5Ch] [rbp-Ch]
+  __int64 v7; // rcx
+  unsigned __int16 v8; // ax
+  unsigned int v9; // ecx
+  _QWORD v10[2]; // [rsp+30h] [rbp-38h] BYREF
+  int v11; // [rsp+40h] [rbp-28h]
+  int v12; // [rsp+48h] [rbp-20h]
+  int v13; // [rsp+4Ch] [rbp-1Ch]
 
-  v4 = *((_QWORD *)a2 + 1);
+  v2 = *((_QWORD *)a2 + 1);
+  v3 = a2;
   MouseWheelRoutingMode = 2;
-  if ( (*(_DWORD *)(v4 + 112) & 8) != 0 )
-    goto LABEL_16;
-  if ( *(_DWORD *)(v4 + 104) == 34 || CMouseProcessor::AppCompatWheelRoutingRequested(this) )
+  if ( (*(_DWORD *)(v2 + 112) & 8) != 0 )
+    goto LABEL_10;
+  if ( *(_DWORD *)(v2 + 104) == 34 || CMouseProcessor::AppCompatWheelRoutingRequested(this) )
   {
     MouseWheelRoutingMode = 0;
   }
   else
   {
     if ( CMouseProcessor::HittestWheelRoutingRequested(v6) )
-      goto LABEL_16;
+      goto LABEL_10;
     MouseWheelRoutingMode = APISetEditionGetMouseWheelRoutingMode();
     if ( MouseWheelRoutingMode )
-      goto LABEL_16;
+      goto LABEL_10;
   }
   if ( !gpqForeground )
   {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20) == 0
-      || BYTE1(WPP_GLOBAL_Control->Timer) < 3u )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v4) = 0;
+      LOBYTE(a2) = 3;
+      WPP_RECORDER_SF_((_DWORD)gBaseLog, (_DWORD)a2, 6, 38, (__int64)&WPP_bc237edca6b43ca924b1688b2fc88a86_Traceguids);
     }
-    else
-    {
-      LODWORD(v4) = 1;
-    }
-    if ( (_BYTE)v4 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v4,
-        WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        3,
-        6,
-        39,
-        (__int64)&WPP_47101fbb63c9386296243f9d06c06c50_Traceguids);
     return;
   }
-LABEL_16:
-  if ( ((**(__int64 (__fastcall ***)(const struct CMouseProcessor::CMouseEvent *))a2)(a2) & 0xC00) == 0 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(3072LL, v7, v8);
-  v9 = (**(__int64 (__fastcall ***)(const struct CMouseProcessor::CMouseEvent *))a2)(a2);
-  v10[1] = *((_QWORD *)a2 + 1);
+LABEL_10:
+  v7 = *((_QWORD *)v3 + 1);
+  if ( (*(_WORD *)(v7 + 28) & 0xC00) == 0 )
+  {
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 4287);
+    v7 = *((_QWORD *)v3 + 1);
+  }
+  v8 = *(_WORD *)(v7 + 28);
+  v10[1] = v7;
   v10[0] = &CMouseProcessor::CWheelEvent::`vftable';
-  v13 = ((unsigned int)~v9 >> 10) & 1;
+  v9 = v8;
+  LOWORD(v9) = ~v8;
   v12 = MouseWheelRoutingMode;
   v11 = 3;
+  v13 = (v9 >> 10) & 1;
   CMouseProcessor::ProcessMouseWheel(this, (const struct CMouseProcessor::CWheelEvent *)v10);
 }

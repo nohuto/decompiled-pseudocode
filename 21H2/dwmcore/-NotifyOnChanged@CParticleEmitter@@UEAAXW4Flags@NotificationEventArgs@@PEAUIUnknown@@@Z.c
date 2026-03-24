@@ -1,13 +1,13 @@
 /*
- * XREFs of ?NotifyOnChanged@CParticleEmitter@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18022B670
+ * XREFs of ?NotifyOnChanged@CParticleEmitter@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1801DC7C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CParticleEmitter::NotifyOnChanged(__int64 a1, unsigned int a2, __int64 a3)
 {
-  (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 72) + 72LL))(*(_QWORD *)(a1 + 72));
+  (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(a1 + 64) + 72LL))(*(_QWORD *)(a1 + 64));
   return CResource::NotifyOnChanged(a1, a2, a3);
 }

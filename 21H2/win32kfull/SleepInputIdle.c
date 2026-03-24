@@ -1,7 +1,7 @@
 /*
- * XREFs of SleepInputIdle @ 0x1C00A4CBC
+ * XREFs of SleepInputIdle @ 0x1C00DA1E0
  * Callers:
- *     xxxDesktopThreadWaiter @ 0x1C00A4844 (xxxDesktopThreadWaiter.c)
+ *     xxxDesktopThreadWaiter @ 0x1C00D9FF4 (xxxDesktopThreadWaiter.c)
  * Callees:
  *     <none>
  */

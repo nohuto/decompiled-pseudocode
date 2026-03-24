@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetIdealProcessorThread @ 0x1403CE740
+ * XREFs of KeSetIdealProcessorThread @ 0x14037A290
  * Callers:
- *     NtSetInformationThread @ 0x140733AB0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x14064A5A0 (NtSetInformationThread.c)
  * Callees:
- *     KeSetIdealProcessorThreadByNumber @ 0x1403CE794 (KeSetIdealProcessorThreadByNumber.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x14037A2E4 (KeSetIdealProcessorThreadByNumber.c)
  */
 
 UCHAR __stdcall KeSetIdealProcessorThread(PKTHREAD Thread, UCHAR Processor)
 {
-  unsigned __int16 AffinityPrimaryGroup; // ax
+  unsigned __int16 Group; // ax
   int v4; // [rsp+30h] [rbp+8h] BYREF
   unsigned __int16 v5; // [rsp+38h] [rbp+10h] BYREF
   UCHAR v6; // [rsp+3Ah] [rbp+12h]
@@ -16,11 +16,11 @@ UCHAR __stdcall KeSetIdealProcessorThread(PKTHREAD Thread, UCHAR Processor)
 
   v4 = 0;
   if ( Thread == KeGetCurrentThread() )
-    AffinityPrimaryGroup = Thread->AffinityPrimaryGroup;
+    Group = Thread->Affinity.Group;
   else
-    AffinityPrimaryGroup = Thread->UserAffinityPrimaryGroup;
+    Group = Thread->UserAffinity.Group;
   v6 = Processor;
-  v5 = AffinityPrimaryGroup;
+  v5 = Group;
   v7 = 0;
   KeSetIdealProcessorThreadByNumber(Thread, &v5, &v4);
   return BYTE2(v4);

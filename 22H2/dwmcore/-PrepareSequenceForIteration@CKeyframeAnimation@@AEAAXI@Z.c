@@ -1,12 +1,11 @@
 /*
- * XREFs of ?PrepareSequenceForIteration@CKeyframeAnimation@@AEAAXI@Z @ 0x1800BD760
+ * XREFs of ?PrepareSequenceForIteration@CKeyframeAnimation@@AEAAXI@Z @ 0x1800ACE0C
  * Callers:
- *     ?CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180056390 (-CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x180057590 (-Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
- *     ?TimeSeek@CKeyframeAnimation@@AEAAJM@Z @ 0x1800BB33C (-TimeSeek@CKeyframeAnimation@@AEAAJM@Z.c)
- *     ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x1800BD3F8 (-Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z.c)
- *     ?Play@CKeyframeAnimation@@AEAAXPEAVCExpressionValueStack@@@Z @ 0x1800BD4B4 (-Play@CKeyframeAnimation@@AEAAXPEAVCExpressionValueStack@@@Z.c)
- *     ?StartAsTriggeredAnimation@CKeyframeAnimation@@UEAAJXZ @ 0x18023A420 (-StartAsTriggeredAnimation@CKeyframeAnimation@@UEAAJXZ.c)
+ *     ?TimeSeek@CKeyframeAnimation@@AEAAJM@Z @ 0x1800A9DC8 (-TimeSeek@CKeyframeAnimation@@AEAAJM@Z.c)
+ *     ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x1800A9ECC (-Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z.c)
+ *     ?Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x1800AC434 (-Calculate@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
+ *     ?Play@CKeyframeAnimation@@AEAAXPEAVCExpressionValueStack@@@Z @ 0x1800AC8EC (-Play@CKeyframeAnimation@@AEAAXPEAVCExpressionValueStack@@@Z.c)
+ *     ?ProgressSeek@CKeyframeAnimation@@AEAAJM@Z @ 0x1801D178C (-ProgressSeek@CKeyframeAnimation@@AEAAJM@Z.c)
  * Callees:
  *     <none>
  */
@@ -15,18 +14,19 @@ void __fastcall CKeyframeAnimation::PrepareSequenceForIteration(CKeyframeAnimati
 {
   int v2; // eax
   int v4; // xmm1_4
-  char v5; // cl
+  char v5; // r8
   int v6; // eax
-  __int64 v7; // rdx
-  char v8; // cl
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  char v9; // cl
 
-  v2 = *((_DWORD *)this + 143);
+  v2 = *((_DWORD *)this + 135);
   v4 = (int)FLOAT_1_0;
   if ( v2 )
   {
     if ( v2 == 2 )
     {
-      v5 = *((_BYTE *)this + 581) >> 3;
+      v5 = *((_BYTE *)this + 549) >> 3;
       if ( (a2 & 1) != 0 )
         v5 = ~v5;
     }
@@ -37,16 +37,18 @@ void __fastcall CKeyframeAnimation::PrepareSequenceForIteration(CKeyframeAnimati
   }
   else
   {
-    v5 = *((_BYTE *)this + 581) >> 3;
+    v5 = *((_BYTE *)this + 549) >> 3;
   }
-  v6 = *((_DWORD *)this + 136);
-  if ( v6 >= 0 && a2 == v6 && *((float *)this + 138) != 1.0 )
-    v4 = *((_DWORD *)this + 138);
-  *(_BYTE *)(*((_QWORD *)this + 49) + 140LL) ^= (*(_BYTE *)(*((_QWORD *)this + 49) + 140LL) ^ (8 * v5)) & 8;
-  v7 = *((_QWORD *)this + 49);
-  v8 = *(_BYTE *)(v7 + 140) & 0xEF | (*((float *)this + 132) >= 0.0 ? 0 : 0x10);
-  *(_BYTE *)(v7 + 140) = v8;
-  *(_BYTE *)(v7 + 96) = (v8 & 0x10) != 0;
-  *(_DWORD *)(*((_QWORD *)this + 49) + 132LL) = 0;
-  *(_DWORD *)(*((_QWORD *)this + 49) + 136LL) = v4;
+  v6 = *((_DWORD *)this + 128);
+  if ( v6 >= 0 && a2 == v6 && *((float *)this + 130) != 1.0 )
+    v4 = *((_DWORD *)this + 130);
+  v7 = *((_QWORD *)this + 45);
+  *(_BYTE *)(v7 + 140) &= ~8u;
+  *(_BYTE *)(v7 + 140) |= 8 * (v5 & 1);
+  v8 = *((_QWORD *)this + 45);
+  v9 = *(_BYTE *)(v8 + 140) & 0xEF | (*((float *)this + 124) >= 0.0 ? 0 : 0x10);
+  *(_BYTE *)(v8 + 140) = v9;
+  *(_BYTE *)(v8 + 96) = (v9 & 0x10) != 0;
+  *(_DWORD *)(*((_QWORD *)this + 45) + 132LL) = 0;
+  *(_DWORD *)(*((_QWORD *)this + 45) + 136LL) = v4;
 }

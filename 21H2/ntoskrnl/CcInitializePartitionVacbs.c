@@ -1,15 +1,15 @@
 /*
- * XREFs of CcInitializePartitionVacbs @ 0x1403D1490
+ * XREFs of CcInitializePartitionVacbs @ 0x1403C3328
  * Callers:
- *     CcInitializePartition @ 0x1403D0FE0 (CcInitializePartition.c)
+ *     CcInitializePartition @ 0x1403C2964 (CcInitializePartition.c)
  * Callees:
- *     CcSetVacbInFreeList @ 0x1402856A8 (CcSetVacbInFreeList.c)
- *     CcGetVacbFromFreeList @ 0x1402857B4 (CcGetVacbFromFreeList.c)
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     CcInsertVacbArray @ 0x1403A3B9C (CcInsertVacbArray.c)
- *     CcAllocateInitializeVacbArray @ 0x1403A5298 (CcAllocateInitializeVacbArray.c)
- *     MmReserveViewInSystemCache @ 0x14084D698 (MmReserveViewInSystemCache.c)
+ *     CcSetVacbInFreeList @ 0x14030FBFC (CcSetVacbInFreeList.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     CcGetVacbFromFreeList @ 0x140312CF0 (CcGetVacbFromFreeList.c)
+ *     CcInsertVacbArray @ 0x140379B94 (CcInsertVacbArray.c)
+ *     CcAllocateInitializeVacbArray @ 0x14037AE3C (CcAllocateInitializeVacbArray.c)
+ *     MmReserveViewInSystemCache @ 0x1407BC944 (MmReserveViewInSystemCache.c)
  */
 
 char __fastcall CcInitializePartitionVacbs(__int64 a1)
@@ -25,7 +25,7 @@ char __fastcall CcInitializePartitionVacbs(__int64 a1)
   KIRQL v11; // bl
 
   v1 = 1;
-  while ( *(_DWORD *)(a1 + 1184) < (unsigned int)CcMinimumFreeHighPriorityVacbs )
+  while ( *(_DWORD *)(a1 + 920) < (unsigned int)CcMinimumFreeHighPriorityVacbs )
   {
     v3 = KeAcquireQueuedSpinLock(4uLL);
     VacbFromFreeList = CcGetVacbFromFreeList(a1, 0);

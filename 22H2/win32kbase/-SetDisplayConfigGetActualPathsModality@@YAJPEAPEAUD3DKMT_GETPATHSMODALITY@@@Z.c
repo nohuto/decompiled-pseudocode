@@ -1,194 +1,172 @@
 /*
- * XREFs of ?SetDisplayConfigGetActualPathsModality@@YAJPEAPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C00158D0
+ * XREFs of ?SetDisplayConfigGetActualPathsModality@@YAJPEAPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C009E76C
  * Callers:
- *     DrvSetDisplayConfig @ 0x1C0014230 (DrvSetDisplayConfig.c)
+ *     DrvSetDisplayConfig @ 0x1C001A4C0 (DrvSetDisplayConfig.c)
  * Callees:
- *     GetPathsModality @ 0x1C0015BF8 (GetPathsModality.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     GetPathsModality @ 0x1C009E934 (GetPathsModality.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
-__int64 __fastcall SetDisplayConfigGetActualPathsModality(struct D3DKMT_GETPATHSMODALITY **a1, __int64 a2)
+__int64 __fastcall SetDisplayConfigGetActualPathsModality(struct D3DKMT_GETPATHSMODALITY **a1)
 {
   unsigned int v2; // ebx
-  __int64 DxgkWin32kInterface; // rax
-  __int64 v5; // rcx
-  __int64 v6; // rdx
-  __int64 v7; // rax
-  __int64 v8; // r8
-  int *v9; // rdx
-  int v10; // eax
-  unsigned int v11; // r12d
-  struct D3DKMT_GETPATHSMODALITY *v12; // rdi
-  unsigned int v13; // r8d
-  unsigned int v14; // esi
-  unsigned int v15; // r14d
-  _DWORD *v16; // rbx
-  int v18; // edx
-  _DWORD *v19; // rcx
-  __int64 v20; // r13
-  __int64 v21; // rdx
-  _OWORD *v22; // rcx
-  _OWORD *v23; // rax
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  int *v5; // rdx
+  int v6; // eax
+  int PathsModality; // r15d
+  struct D3DKMT_GETPATHSMODALITY *v8; // rdi
+  unsigned int v9; // r8d
+  unsigned int v10; // esi
+  unsigned int i; // r14d
+  _DWORD *v12; // rbx
+  int v14; // edx
+  _DWORD *v15; // rcx
+  __int64 v16; // r13
+  __int64 v17; // rdx
+  _OWORD *v18; // rax
+  _OWORD *v19; // rcx
+  __int128 v20; // xmm1
+  __int128 v21; // xmm0
+  __int128 v22; // xmm1
+  __int128 v23; // xmm0
   __int128 v24; // xmm1
   __int128 v25; // xmm0
   __int128 v26; // xmm1
-  __int128 v27; // xmm0
-  __int128 v28; // xmm1
-  __int128 v29; // xmm0
-  __int128 v30; // xmm1
-  __int128 v31; // xmm0
-  __int128 v32; // xmm1
-  __int64 v33; // rax
+  __int64 v27; // rax
+  int v28; // ecx
+  unsigned __int64 v29; // rdx
+  __int64 v30; // rax
+  unsigned __int64 v31; // rdx
+  __int64 v32; // rax
+  __int64 v33; // rdx
   __int64 v34; // rax
-  int v35; // ecx
-  unsigned __int64 v36; // rdx
-  __int64 v37; // rax
-  unsigned __int64 v38; // rdx
-  __int64 v39; // rax
-  __int64 v40; // rdx
-  __int64 v41; // rax
-  __int128 v42; // [rsp+20h] [rbp-E0h] BYREF
-  PVOID P[2]; // [rsp+30h] [rbp-D0h]
-  _BYTE v44[304]; // [rsp+40h] [rbp-C0h] BYREF
-  int PathsModality; // [rsp+1A8h] [rbp+A8h]
+  __int128 v35; // [rsp+28h] [rbp-E0h] BYREF
+  __int128 v36; // [rsp+38h] [rbp-D0h]
+  _BYTE v37[272]; // [rsp+48h] [rbp-C0h] BYREF
 
   v2 = 0;
-  v42 = 0LL;
-  *(_OWORD *)P = 0LL;
-  DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(a1, a2);
-  if ( (*(unsigned int (__fastcall **)(__int128 *, _QWORD))(DxgkWin32kInterface + 696))(&v42, 0LL) == -1073741789 )
+  v35 = 0LL;
+  v36 = 0LL;
+  if ( (unsigned int)((__int64 (__fastcall *)(__int128 *, _QWORD))qword_1C0250B68)(&v35, 0LL) == -1073741789 )
   {
-    P[1] = (PVOID)ExAllocatePool2(258LL, 1076LL * LODWORD(P[0]), 2004116844LL);
-    if ( P[1] )
+    *((_QWORD *)&v36 + 1) = ExAllocatePoolWithTag(PagedPool, 1076LL * (unsigned int)v36, 0x7774656Cu);
+    if ( *((_QWORD *)&v36 + 1) )
     {
-      HIDWORD(P[0]) = P[0];
-      v7 = DxDdGetDxgkWin32kInterface(v5, v6);
-      if ( (*(unsigned int (__fastcall **)(__int128 *, _QWORD))(v7 + 696))(&v42, 0LL) == -1073741789
-        && (v5 = LODWORD(P[0]), LODWORD(P[0]) <= HIDWORD(P[0])) )
+      DWORD1(v36) = v36;
+      if ( (unsigned int)((__int64 (__fastcall *)(__int128 *, _QWORD))qword_1C0250B68)(&v35, 0LL) == -1073741789
+        && (v3 = (unsigned int)v36, (unsigned int)v36 <= DWORD1(v36)) )
       {
-        if ( LODWORD(P[0]) )
+        if ( (_DWORD)v36 )
         {
-          v8 = LODWORD(P[0]);
-          v9 = (int *)((char *)P[1] + 1072);
+          v4 = (unsigned int)v36;
+          v5 = (int *)(*((_QWORD *)&v36 + 1) + 1072LL);
           do
           {
-            v10 = *v9;
-            v5 = v2++;
-            v9 += 269;
-            if ( (v10 & 1) == 0 )
-              v2 = v5;
-            --v8;
+            v6 = *v5;
+            v3 = v2++;
+            v5 += 269;
+            if ( (v6 & 1) == 0 )
+              v2 = v3;
+            --v4;
           }
-          while ( v8 );
+          while ( v4 );
         }
       }
       else
       {
-        P[0] = 0LL;
+        *(_QWORD *)&v36 = 0LL;
       }
     }
   }
-  PathsModality = GetPathsModality(v5, a1, 16777280LL);
-  v11 = PathsModality;
+  PathsModality = GetPathsModality(v3, a1, 16777280LL);
   if ( PathsModality >= 0 )
   {
-    v12 = *a1;
+    v8 = *a1;
     if ( v2 )
     {
-      v13 = (unsigned int)P[0];
-      v14 = 0;
-      v15 = *((unsigned __int16 *)v12 + 10);
-      if ( LODWORD(P[0]) )
+      v9 = v36;
+      v10 = 0;
+      for ( i = *((unsigned __int16 *)v8 + 10); v10 < v9; ++v10 )
       {
-        do
+        if ( i >= *((unsigned __int16 *)v8 + 11) )
+          break;
+        v12 = (_DWORD *)(*((_QWORD *)&v36 + 1) + 1076LL * v10);
+        if ( (v12[268] & 1) != 0 )
         {
-          if ( v15 >= *((unsigned __int16 *)v12 + 11) )
-            break;
-          v16 = (char *)P[1] + 1076 * v14;
-          if ( (v16[268] & 1) != 0 )
+          v14 = 0;
+          if ( *((_WORD *)v8 + 10) )
           {
-            v18 = 0;
-            if ( *((_WORD *)v12 + 10) )
+            v15 = (_DWORD *)((char *)v8 + 68);
+            while ( *(v15 - 1) != *v12 || *v15 != v12[1] || v15[2] != v12[2] )
             {
-              v19 = (_DWORD *)((char *)v12 + 76);
-              while ( *(v19 - 1) != *v16 || *v19 != v16[1] || v19[2] != v16[2] )
-              {
-                ++v18;
-                v19 += 74;
-                if ( v18 >= *((unsigned __int16 *)v12 + 10) )
-                  goto LABEL_27;
-              }
-            }
-            else
-            {
-LABEL_27:
-              v20 = (__int64)v12 + 296 * v15;
-              memset(v44, 0, 0x128uLL);
-              v21 = 2LL;
-              v22 = (_OWORD *)(v20 + 56);
-              v23 = v44;
-              do
-              {
-                v24 = v23[1];
-                *v22 = *v23;
-                v25 = v23[2];
-                v22[1] = v24;
-                v26 = v23[3];
-                v22[2] = v25;
-                v27 = v23[4];
-                v22[3] = v26;
-                v28 = v23[5];
-                v22[4] = v27;
-                v29 = v23[6];
-                v22[5] = v28;
-                v30 = v23[7];
-                v23 += 8;
-                v22[6] = v29;
-                v22 += 8;
-                *(v22 - 1) = v30;
-                --v21;
-              }
-              while ( v21 );
-              v31 = *v23;
-              v32 = v23[1];
-              v33 = *((_QWORD *)v23 + 4);
-              *v22 = v31;
-              v22[1] = v32;
-              *((_QWORD *)v22 + 4) = v33;
-              *(_DWORD *)(v20 + 84) = v16[2];
-              *(_QWORD *)(v20 + 72) = *(_QWORD *)v16;
-              v34 = 0x1000000000000000LL;
-              *(_BYTE *)(v20 + 185) = v16[268] & 2 | ((v16[268] & 4) != 0) | (v16[268] >> 3) & 4;
-              v35 = v16[264];
-              if ( v35 != 5 )
-                v34 = 0LL;
-              v36 = v34 | ((unsigned __int64)(v16[268] & 0x10) << 53);
-              v37 = 0x1000000000000000LL;
-              if ( v35 != 3 )
-                v37 = 0LL;
-              v38 = v37 | v36;
-              v39 = 0x800000000000000LL;
-              if ( v35 != 4 )
-                v39 = 0LL;
-              v40 = v39 | v38;
-              v41 = 0x508700000000000LL;
-              if ( v35 != 2 )
-                v41 = 0x108700000000000LL;
-              *(_QWORD *)(v20 + 56) |= v41 | v40;
-              v13 = (unsigned int)P[0];
-              ++v15;
+              ++v14;
+              v15 += 68;
+              if ( v14 >= *((unsigned __int16 *)v8 + 10) )
+                goto LABEL_28;
             }
           }
-          ++v14;
+          else
+          {
+LABEL_28:
+            v16 = (__int64)v8 + 272 * i;
+            memset(v37, 0, sizeof(v37));
+            v17 = 2LL;
+            v18 = (_OWORD *)(v16 + 48);
+            v19 = v37;
+            do
+            {
+              v20 = v19[1];
+              *v18 = *v19;
+              v21 = v19[2];
+              v18[1] = v20;
+              v22 = v19[3];
+              v18[2] = v21;
+              v23 = v19[4];
+              v18[3] = v22;
+              v24 = v19[5];
+              v18[4] = v23;
+              v25 = v19[6];
+              v18[5] = v24;
+              v26 = v19[7];
+              v19 += 8;
+              v18[6] = v25;
+              v18 += 8;
+              *(v18 - 1) = v26;
+              --v17;
+            }
+            while ( v17 );
+            *v18 = *v19;
+            *(_DWORD *)(v16 + 76) = v12[2];
+            *(_QWORD *)(v16 + 64) = *(_QWORD *)v12;
+            v27 = 0x1000000000000000LL;
+            *(_BYTE *)(v16 + 177) = v12[268] & 2 | ((v12[268] & 4) != 0);
+            v28 = v12[264];
+            if ( v28 != 5 )
+              v27 = 0LL;
+            v29 = v27 | ((unsigned __int64)(v12[268] & 0x10) << 53);
+            v30 = 0x1000000000000000LL;
+            if ( v28 != 3 )
+              v30 = 0LL;
+            v31 = v30 | v29;
+            v32 = 0x800000000000000LL;
+            if ( v28 != 4 )
+              v32 = 0LL;
+            v33 = v32 | v31;
+            v34 = 0x508700000000000LL;
+            if ( v28 != 2 )
+              v34 = 0x108700000000000LL;
+            *(_QWORD *)(v16 + 48) |= v34 | v33;
+            v9 = v36;
+            ++i;
+          }
         }
-        while ( v14 < v13 );
-        v11 = PathsModality;
       }
-      *((_WORD *)v12 + 10) = v15;
+      *((_WORD *)v8 + 10) = i;
     }
   }
-  if ( P[1] )
-    ExFreePoolWithTag(P[1], 0x7774656Cu);
-  return v11;
+  if ( *((_QWORD *)&v36 + 1) )
+    ExFreePoolWithTag(*((PVOID *)&v36 + 1), 0x7774656Cu);
+  return (unsigned int)PathsModality;
 }

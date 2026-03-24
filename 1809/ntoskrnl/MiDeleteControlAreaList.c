@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteControlAreaList @ 0x1402A20C8
+ * XREFs of MiDeleteControlAreaList @ 0x1402A21C8
  * Callers:
- *     MiDereferenceSegmentThread @ 0x140187580 (MiDereferenceSegmentThread.c)
+ *     MiDereferenceSegmentThread @ 0x1401875A0 (MiDereferenceSegmentThread.c)
  * Callees:
  *     MiDeleteControlArea @ 0x140094D1C (MiDeleteControlArea.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDeleteControlAreaList(__int64 a1)

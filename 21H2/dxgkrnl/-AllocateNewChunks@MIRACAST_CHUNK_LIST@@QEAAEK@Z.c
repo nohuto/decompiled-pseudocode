@@ -1,8 +1,8 @@
 /*
- * XREFs of ?AllocateNewChunks@MIRACAST_CHUNK_LIST@@QEAAEK@Z @ 0x1C0060BCC
+ * XREFs of ?AllocateNewChunks@MIRACAST_CHUNK_LIST@@QEAAEK@Z @ 0x1C0052F20
  * Callers:
- *     DxgNotifyDpcCB @ 0x1C0014800 (DxgNotifyDpcCB.c)
- *     DxgkMiracastStartMiracastSession @ 0x1C0063340 (DxgkMiracastStartMiracastSession.c)
+ *     DxgNotifyDpcCB @ 0x1C000D5D0 (DxgNotifyDpcCB.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C0055770 (DxgkMiracastStartMiracastSession.c)
  * Callees:
  *     <none>
  */

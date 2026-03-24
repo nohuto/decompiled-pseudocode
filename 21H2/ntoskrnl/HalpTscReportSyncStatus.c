@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTscReportSyncStatus @ 0x140822FF8
+ * XREFs of HalpTscReportSyncStatus @ 0x1407D2A90
  * Callers:
- *     HalpTimerInitSystem @ 0x1403BB0A0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403A85B0 (HalpTimerInitSystem.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403B3BA0 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A2374 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void HalpTscReportSyncStatus()
@@ -49,9 +49,9 @@ void HalpTscReportSyncStatus()
       }
       while ( v3 );
     }
-    if ( (unsigned int)dword_140C04538 > 5 )
+    if ( (unsigned int)dword_140C02E38 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_140C04538, 0x400000000000LL) )
+      if ( tlgKeywordOn((__int64)&dword_140C02E38, 0x400000000000LL) )
       {
         v12 = 0;
         v15 = 0;
@@ -66,8 +66,8 @@ void HalpTscReportSyncStatus()
         v14 = 8;
         v17 = 4;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C04538,
-          (unsigned __int8 *)byte_14002837B,
+          (__int64)&dword_140C02E38,
+          (unsigned __int8 *)byte_1400227B3,
           0LL,
           0LL,
           5u,

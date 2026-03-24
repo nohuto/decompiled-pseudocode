@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0RawUsageIndex@details_abi@wil@@QEAA@GGW4CountSize@12@G0@Z @ 0x180029630
+ * XREFs of ??0RawUsageIndex@details_abi@wil@@QEAA@GGW4CountSize@12@G0@Z @ 0x1800AF740
  * Callers:
- *     ??0UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x180028B68 (--0UsageIndexes@details_abi@wil@@QEAA@XZ.c)
- *     ?RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z @ 0x1800F3AD4 (-RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z.c)
+ *     ?RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z @ 0x1800AE67C (-RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z.c)
+ *     ??0UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x1800AEDB8 (--0UsageIndexes@details_abi@wil@@QEAA@XZ.c)
  * Callees:
- *     ?GetSize@UsageIndexProperty@details_abi@wil@@QEBA_KXZ @ 0x1800296B4 (-GetSize@UsageIndexProperty@details_abi@wil@@QEBA_KXZ.c)
+ *     ?GetSize@UsageIndexProperty@details_abi@wil@@QEBA_KXZ @ 0x1800AF7C4 (-GetSize@UsageIndexProperty@details_abi@wil@@QEBA_KXZ.c)
  */
 
 __int64 __fastcall wil::details_abi::RawUsageIndex::RawUsageIndex(

@@ -1,10 +1,10 @@
 /*
- * XREFs of XilCoreCommonBuffer_PreAllocateBuffers @ 0x1C0015AD8
+ * XREFs of XilCoreCommonBuffer_PreAllocateBuffers @ 0x1C0015EB8
  * Callers:
- *     CommonBuffer_WorkItem @ 0x1C0015A10 (CommonBuffer_WorkItem.c)
+ *     CommonBuffer_WorkItem @ 0x1C0015DF0 (CommonBuffer_WorkItem.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0015B94 (XilCoreCommonBuffer_AllocateBuffers.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0015F74 (XilCoreCommonBuffer_AllocateBuffers.c)
  */
 
 void __fastcall XilCoreCommonBuffer_PreAllocateBuffers(__int64 a1)
@@ -29,7 +29,7 @@ void __fastcall XilCoreCommonBuffer_PreAllocateBuffers(__int64 a1)
         if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
         {
           LOBYTE(v5) = 5;
-          WPP_RECORDER_SF_DD(
+          WPP_RECORDER_SF_dd(
             *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
             v5,
             8,

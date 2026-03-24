@@ -1,29 +1,29 @@
 /*
- * XREFs of StopFade @ 0x1C01E26E0
+ * XREFs of StopFade @ 0x1C01E8050
  * Callers:
- *     xxxDwmStopRedirection @ 0x1C0098410 (xxxDwmStopRedirection.c)
- *     zzzDwmStartRedirection @ 0x1C0098F14 (zzzDwmStartRedirection.c)
- *     xxxSwitchDesktop @ 0x1C00B0E54 (xxxSwitchDesktop.c)
- *     EditionHandleSonarKeyEvent @ 0x1C01081E0 (EditionHandleSonarKeyEvent.c)
- *     xxxTooltipWndProc @ 0x1C010CED0 (xxxTooltipWndProc.c)
- *     EditionStopSonar @ 0x1C01E2540 (EditionStopSonar.c)
- *     zzzAnimateFade @ 0x1C01E2D24 (zzzAnimateFade.c)
- *     zzzStartSonar @ 0x1C01E2F90 (zzzStartSonar.c)
- *     MNAnimate @ 0x1C0247828 (MNAnimate.c)
+ *     xxxSwitchDesktop @ 0x1C0029904 (xxxSwitchDesktop.c)
+ *     xxxTooltipWndProc @ 0x1C00DB220 (xxxTooltipWndProc.c)
+ *     zzzDwmStartRedirection @ 0x1C00E977C (zzzDwmStartRedirection.c)
+ *     xxxDwmStopRedirection @ 0x1C00E9970 (xxxDwmStopRedirection.c)
+ *     EditionHandleSonarKeyEvent @ 0x1C011AEF0 (EditionHandleSonarKeyEvent.c)
+ *     EditionStopSonar @ 0x1C01E7DE0 (EditionStopSonar.c)
+ *     zzzAnimateFade @ 0x1C01E865C (zzzAnimateFade.c)
+ *     zzzStartSonar @ 0x1C01E88C8 (zzzStartSonar.c)
+ *     MNAnimate @ 0x1C024C3EC (MNAnimate.c)
  * Callees:
- *     NtGdiBitBltInternal @ 0x1C003DD70 (NtGdiBitBltInternal.c)
- *     GreGetLayout @ 0x1C00C1400 (GreGetLayout.c)
- *     FindTimer @ 0x1C01041A4 (FindTimer.c)
- *     DeleteFadeSprite @ 0x1C01E24C0 (DeleteFadeSprite.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
+ *     GreGetLayout @ 0x1C0045FB4 (GreGetLayout.c)
+ *     NtGdiBitBltInternal @ 0x1C0088690 (NtGdiBitBltInternal.c)
+ *     DeleteFadeSprite @ 0x1C01E7D60 (DeleteFadeSprite.c)
  */
 
 __int64 StopFade()
 {
-  struct tagWND *v0; // rax
+  __int64 v0; // rax
   int v1; // ecx
   LONG v2; // edi
   HDC DCEx; // rbx
-  int v4; // esi
+  LONG v4; // esi
   unsigned __int8 Layout; // al
   __int64 StockObject; // rax
   __int64 result; // rax

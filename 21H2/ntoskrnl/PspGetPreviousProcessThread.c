@@ -1,14 +1,14 @@
 /*
- * XREFs of PspGetPreviousProcessThread @ 0x1407E64AC
+ * XREFs of PspGetPreviousProcessThread @ 0x1406DA084
  * Callers:
- *     PspTerminateAllThreads @ 0x1407E6274 (PspTerminateAllThreads.c)
+ *     PspTerminateAllThreads @ 0x1406D9E50 (PspTerminateAllThreads.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ObReferenceObjectSafeWithTag @ 0x140302BD0 (ObReferenceObjectSafeWithTag.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
  */
 
 __int64 __fastcall PspGetPreviousProcessThread(__int64 a1, _QWORD *a2)
@@ -28,13 +28,13 @@ __int64 __fastcall PspGetPreviousProcessThread(__int64 a1, _QWORD *a2)
   v7 = (signed __int64 *)(a1 + 1080);
   ExAcquirePushLockSharedEx(a1 + 1080, 0LL);
   if ( a2 )
-    v8 = a2[168];
+    v8 = a2[158];
   else
     v8 = *(_QWORD *)(v3 + 8);
   while ( v8 != v3 )
   {
-    v5 = v8 - 1336;
-    if ( ObReferenceObjectSafeWithTag(v8 - 1336) )
+    v5 = v8 - 1256;
+    if ( ObReferenceObjectSafeWithTag(v8 - 1256) )
     {
       v6 = 1;
       break;

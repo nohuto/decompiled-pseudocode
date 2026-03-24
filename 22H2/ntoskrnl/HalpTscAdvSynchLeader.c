@@ -1,129 +1,135 @@
 /*
- * XREFs of HalpTscAdvSynchLeader @ 0x14038ADF0
+ * XREFs of HalpTscAdvSynchLeader @ 0x14039C594
  * Callers:
- *     HalpTscSynchronizationWorker @ 0x14038B020 (HalpTscSynchronizationWorker.c)
+ *     HalpTscSynchronizationWorker @ 0x14039C4B0 (HalpTscSynchronizationWorker.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     HalpFindTimer @ 0x14037B658 (HalpFindTimer.c)
- *     HalpTscAdvSynchCalculateRemoteDeltas @ 0x14038B108 (HalpTscAdvSynchCalculateRemoteDeltas.c)
- *     HalpTscAdvSynchToLeader @ 0x14038B224 (HalpTscAdvSynchToLeader.c)
- *     HalpTscAdvSynchReadTimeStamp @ 0x14038B5FC (HalpTscAdvSynchReadTimeStamp.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HalpTscAdvSynchToTarget @ 0x140509FF8 (HalpTscAdvSynchToTarget.c)
- *     HalpTscTraceStatus @ 0x14050A4C0 (HalpTscTraceStatus.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     HalpTscAdvSynchCalculateRemoteDeltas @ 0x14039C7D4 (HalpTscAdvSynchCalculateRemoteDeltas.c)
+ *     HalpTscAdjustToLeader @ 0x14039C918 (HalpTscAdjustToLeader.c)
+ *     HalpTscAdvSynchReadTimeStamp @ 0x14039CD28 (HalpTscAdvSynchReadTimeStamp.c)
+ *     HalpFindTimer @ 0x14039CD58 (HalpFindTimer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HalpTscAdjustToTarget @ 0x1404C0EC8 (HalpTscAdjustToTarget.c)
+ *     HalpTscAdvSynchToLeader @ 0x1404C108C (HalpTscAdvSynchToLeader.c)
+ *     HalpTscAdvSynchToTarget @ 0x1404C12A8 (HalpTscAdvSynchToTarget.c)
+ *     HalpTscTraceStatus @ 0x1404C16D0 (HalpTscTraceStatus.c)
  */
 
 char __fastcall HalpTscAdvSynchLeader(__int64 a1)
 {
-  __int64 Number; // r15
-  unsigned int v3; // ebx
+  __int64 Number; // r12
+  unsigned int v3; // edi
   int v4; // r9d
-  __int64 TimeStamp; // r14
-  unsigned int i; // esi
-  unsigned __int64 v7; // r14
-  ULONG_PTR *Timer; // rax
-  ULONG_PTR *v9; // rsi
+  __int64 TimeStamp; // r15
+  unsigned int v6; // r14d
+  unsigned int i; // ebx
+  int v8; // r14d
+  __int64 Timer; // rax
+  __int64 v10; // rbx
   struct _KPRCB *CurrentPrcb; // rax
-  unsigned __int64 v11; // rdx
-  unsigned int v12; // r10d
-  __int64 v13; // rax
-  unsigned int v14; // r10d
-  __int64 v15; // r9
-  REGHANDLE v16; // r14
-  unsigned int v18; // [rsp+48h] [rbp-59h] BYREF
-  __int64 v19; // [rsp+50h] [rbp-51h] BYREF
-  __int64 v20; // [rsp+58h] [rbp-49h] BYREF
-  int v21; // [rsp+60h] [rbp-41h] BYREF
-  unsigned int v22; // [rsp+68h] [rbp-39h] BYREF
-  int v23; // [rsp+70h] [rbp-31h] BYREF
-  int v24; // [rsp+78h] [rbp-29h] BYREF
-  int v25; // [rsp+80h] [rbp-21h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+88h] [rbp-19h] BYREF
-  unsigned int *v27; // [rsp+98h] [rbp-9h]
-  __int64 v28; // [rsp+A0h] [rbp-1h]
-  int *v29; // [rsp+A8h] [rbp+7h]
-  __int64 v30; // [rsp+B0h] [rbp+Fh]
-  int *v31; // [rsp+B8h] [rbp+17h]
-  __int64 v32; // [rsp+C0h] [rbp+1Fh]
-  int *v33; // [rsp+C8h] [rbp+27h]
-  __int64 v34; // [rsp+D0h] [rbp+2Fh]
+  REGHANDLE v12; // r14
+  unsigned __int64 v13; // rdx
+  __int64 v14; // rbx
+  unsigned int v16; // [rsp+40h] [rbp-69h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-61h] BYREF
+  __int64 v18; // [rsp+50h] [rbp-59h] BYREF
+  int v19; // [rsp+58h] [rbp-51h] BYREF
+  unsigned int v20; // [rsp+60h] [rbp-49h] BYREF
+  int v21; // [rsp+68h] [rbp-41h] BYREF
+  int v22; // [rsp+70h] [rbp-39h] BYREF
+  int v23; // [rsp+78h] [rbp-31h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+80h] [rbp-29h] BYREF
+  unsigned int *v25; // [rsp+90h] [rbp-19h]
+  __int64 v26; // [rsp+98h] [rbp-11h]
+  int *v27; // [rsp+A0h] [rbp-9h]
+  __int64 v28; // [rsp+A8h] [rbp-1h]
+  int *v29; // [rsp+B0h] [rbp+7h]
+  __int64 v30; // [rsp+B8h] [rbp+Fh]
+  int *v31; // [rsp+C0h] [rbp+17h]
+  __int64 v32; // [rsp+C8h] [rbp+1Fh]
 
   Number = KeGetCurrentPrcb()->Number;
   v3 = 0;
   TimeStamp = HalpTscAdvSynchReadTimeStamp(Number);
   if ( HalpTscRequestedSynchronization )
   {
-    if ( !HalpTscRequestedIterations )
-      HalpTscRequestedIterations = 500;
     if ( *(_BYTE *)(a1 + 34) )
     {
       HalpTscAdvSynchToLeader(*(unsigned int *)(a1 + 36));
     }
     else
     {
-      v19 = 0LL;
-      v20 = 0LL;
-      v18 = KeGetCurrentPrcb()->Number;
-      HalpTscAdvSynchCalculateRemoteDeltas((unsigned int)&v19, (unsigned int)&v20, (unsigned int)&v18, v4);
-      if ( v18 != KeGetCurrentPrcb()->Number )
+      v17 = 0LL;
+      v18 = 0LL;
+      v16 = KeGetCurrentPrcb()->Number;
+      HalpTscAdvSynchCalculateRemoteDeltas((unsigned int)&v17, (unsigned int)&v18, (unsigned int)&v16, v4);
+      v6 = v16;
+      if ( v16 != KeGetCurrentPrcb()->Number )
       {
-        HalpTscAdvSynchReadTimeStamp((unsigned int)Number);
-        LODWORD(Number) = v12;
-        v13 = HalpTscAdvSynchReadTimeStamp(v12);
-        TimeStamp = v13 - v15;
-        HalpTscAdvSynchToTarget(v14);
+        v14 = HalpTscAdvSynchReadTimeStamp((unsigned int)Number) - TimeStamp;
+        LODWORD(Number) = v6;
+        TimeStamp = HalpTscAdvSynchReadTimeStamp(v6) - v14;
+        if ( HalpTscAdjustAvailable )
+          HalpTscAdjustToTarget(v6);
+        else
+          HalpTscAdvSynchToTarget(v6);
       }
       for ( i = 0; i < *(_DWORD *)(a1 + 40); ++i )
       {
-        if ( i != KeGetCurrentPrcb()->Number && i != v18 )
-          HalpTscAdvSynchToLeader(i);
+        if ( i != KeGetCurrentPrcb()->Number && i != v16 )
+        {
+          if ( HalpTscAdjustAvailable )
+            HalpTscAdjustToLeader(i);
+          else
+            HalpTscAdvSynchToLeader(i);
+        }
       }
     }
   }
-  v19 = 0LL;
-  v20 = 0LL;
-  v18 = KeGetCurrentPrcb()->Number;
-  HalpTscAdvSynchCalculateRemoteDeltas((unsigned int)&v19, (unsigned int)&v20, (unsigned int)&v18, v4);
-  v7 = (unsigned __int64)(1000000 * (HalpTscAdvSynchReadTimeStamp((unsigned int)Number) - TimeStamp))
+  v17 = 0LL;
+  v18 = 0LL;
+  v16 = KeGetCurrentPrcb()->Number;
+  HalpTscAdvSynchCalculateRemoteDeltas((unsigned int)&v17, (unsigned int)&v18, (unsigned int)&v16, v4);
+  v8 = (unsigned __int64)(1000000 * (HalpTscAdvSynchReadTimeStamp((unsigned int)Number) - TimeStamp))
      / *(_QWORD *)KeGetPcr()->HalReserved;
   Timer = HalpFindTimer(5, 0, 0, 0, 1);
-  v9 = Timer;
-  HalpTscMaximumComputedSpread = v20 - v19;
-  if ( v20 - v19 > (unsigned __int64)(unsigned int)HalpTscMaximumCounterSyncSpread )
+  v10 = Timer;
+  HalpTscMaximumComputedSpread = v18 - v17;
+  if ( v18 - v17 > (unsigned __int64)(unsigned int)HalpTscMaximumCounterSyncSpread )
   {
-    *((_DWORD *)Timer + 46) &= ~0x20u;
+    *(_DWORD *)(Timer + 184) &= ~0x20u;
     HalpTscSynchronizationFailureFallback = 1;
     LOBYTE(CurrentPrcb) = HalpTscTraceStatus(&HAL_ETW_EVENT_TIMER_SYNCH_FAILED);
   }
   else
   {
-    v24 = v19;
-    v23 = v20;
-    v22 = v18;
+    v22 = v17;
+    v21 = v18;
+    v20 = v16;
     LODWORD(CurrentPrcb) = KeGetCurrentPrcb()->Number;
-    v21 = (int)CurrentPrcb;
-    v25 = v7;
+    v19 = (int)CurrentPrcb;
+    v23 = v8;
     if ( HalpDiagnosticEventsRegistered )
     {
-      v16 = HalpDiagnosticEventHandle;
+      v12 = HalpDiagnosticEventHandle;
       LOBYTE(CurrentPrcb) = EtwEventEnabled(HalpDiagnosticEventHandle, &HAL_ETW_EVENT_TIMER_SYNCH_SUMMARY);
       if ( (_BYTE)CurrentPrcb )
       {
         *(_QWORD *)&UserData.Size = 4LL;
-        UserData.Ptr = (ULONGLONG)&v21;
+        UserData.Ptr = (ULONGLONG)&v19;
+        v26 = 4LL;
+        v25 = &v20;
         v28 = 4LL;
-        v27 = &v22;
+        v27 = &v21;
         v30 = 4LL;
-        v29 = &v23;
+        v29 = &v22;
         v32 = 4LL;
-        v31 = &v24;
-        v34 = 4LL;
-        v33 = &v25;
-        LOBYTE(CurrentPrcb) = EtwWriteEx(v16, &HAL_ETW_EVENT_TIMER_SYNCH_SUMMARY, 0LL, 0, 0LL, 0LL, 5u, &UserData);
+        v31 = &v23;
+        LOBYTE(CurrentPrcb) = EtwWriteEx(v12, &HAL_ETW_EVENT_TIMER_SYNCH_SUMMARY, 0LL, 0, 0LL, 0LL, 5u, &UserData);
       }
     }
-    *((_DWORD *)v9 + 46) |= 0x20u;
+    *(_DWORD *)(v10 + 184) |= 0x20u;
   }
   if ( *(_DWORD *)(a1 + 40) )
   {
@@ -132,17 +138,17 @@ char __fastcall HalpTscAdvSynchLeader(__int64 a1)
       CurrentPrcb = KeGetCurrentPrcb();
       if ( v3 != CurrentPrcb->Number )
       {
-        v11 = (unsigned __int64)v3 << 7;
-        _InterlockedExchange((volatile __int32 *)(v11 + TscRequest), 7);
-        LODWORD(CurrentPrcb) = *(_DWORD *)(v11 + TscRequest);
-        if ( (_DWORD)CurrentPrcb == 7 )
+        v13 = (unsigned __int64)v3 << 7;
+        _InterlockedExchange((volatile __int32 *)(v13 + TscRequest), 8);
+        LODWORD(CurrentPrcb) = *(_DWORD *)(v13 + TscRequest);
+        if ( (_DWORD)CurrentPrcb == 8 )
         {
           do
           {
             _mm_pause();
             LOBYTE(CurrentPrcb) = TscRequest;
           }
-          while ( *(_DWORD *)(v11 + TscRequest) == 7 );
+          while ( *(_DWORD *)(v13 + TscRequest) == 8 );
         }
       }
       ++v3;

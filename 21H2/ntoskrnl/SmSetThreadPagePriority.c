@@ -1,11 +1,11 @@
 /*
- * XREFs of SmSetThreadPagePriority @ 0x140238BC4
+ * XREFs of SmSetThreadPagePriority @ 0x1402E1280
  * Callers:
- *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140238330 (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     SmKmStoreHelperCommandProcess @ 0x14037DAEC (SmKmStoreHelperCommandProcess.c)
+ *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x1402D99DC (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     SmKmStoreHelperCommandProcess @ 0x1402E0400 (SmKmStoreHelperCommandProcess.c)
  * Callees:
- *     PsSetPagePriorityThread @ 0x14028F63C (PsSetPagePriorityThread.c)
- *     PsGetPagePriorityThread @ 0x14033D720 (PsGetPagePriorityThread.c)
+ *     PsGetPagePriorityThread @ 0x1402427D0 (PsGetPagePriorityThread.c)
+ *     PsSetPagePriorityThread @ 0x1402F75E4 (PsSetPagePriorityThread.c)
  */
 
 __int64 __fastcall SmSetThreadPagePriority(struct _KTHREAD **a1)
@@ -21,7 +21,7 @@ __int64 __fastcall SmSetThreadPagePriority(struct _KTHREAD **a1)
     CurrentThread = KeGetCurrentThread();
     *a1 = CurrentThread;
   }
-  result = PsGetPagePriorityThread(CurrentThread);
+  result = PsGetPagePriorityThread((__int64)CurrentThread);
   if ( (_DWORD)result != v4 )
     return PsSetPagePriorityThread(v3);
   return result;

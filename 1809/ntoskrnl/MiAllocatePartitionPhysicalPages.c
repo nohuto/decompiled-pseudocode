@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAllocatePartitionPhysicalPages @ 0x14085FE84
+ * XREFs of MiAllocatePartitionPhysicalPages @ 0x14085FE64
  * Callers:
- *     MmManagePartitionMoveMemory @ 0x140860AA4 (MmManagePartitionMoveMemory.c)
+ *     MmManagePartitionMoveMemory @ 0x140860A84 (MmManagePartitionMoveMemory.c)
  * Callees:
  *     MiAllocatePagesForMdl @ 0x140011048 (MiAllocatePagesForMdl.c)
  *     MiFreeMdlPageRun @ 0x140029DE0 (MiFreeMdlPageRun.c)
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)
- *     MiReleaseNonPagedResources @ 0x1400E18C8 (MiReleaseNonPagedResources.c)
- *     MiAcquireNonPagedResources @ 0x14013DA0C (MiAcquireNonPagedResources.c)
- *     MiFindLargeNodePage @ 0x1402A8F04 (MiFindLargeNodePage.c)
- *     MiAddMdlToPartitionTree @ 0x1402D0638 (MiAddMdlToPartitionTree.c)
- *     MiAddRangeToPartitionTree @ 0x1402D0708 (MiAddRangeToPartitionTree.c)
- *     MiFreePartitionTree @ 0x1402D1894 (MiFreePartitionTree.c)
- *     MiInsertPartitionPages @ 0x1402D1AA4 (MiInsertPartitionPages.c)
+ *     MiReleaseNonPagedResources @ 0x1400E18E8 (MiReleaseNonPagedResources.c)
+ *     MiAcquireNonPagedResources @ 0x14013DA2C (MiAcquireNonPagedResources.c)
+ *     MiFindLargeNodePage @ 0x1402A9004 (MiFindLargeNodePage.c)
+ *     MiAddMdlToPartitionTree @ 0x1402D0738 (MiAddMdlToPartitionTree.c)
+ *     MiAddRangeToPartitionTree @ 0x1402D0808 (MiAddRangeToPartitionTree.c)
+ *     MiFreePartitionTree @ 0x1402D1994 (MiFreePartitionTree.c)
+ *     MiInsertPartitionPages @ 0x1402D1BA4 (MiInsertPartitionPages.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x140860848 (MiUpdatePartitionLargePfnBitMap.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x140860828 (MiUpdatePartitionLargePfnBitMap.c)
  */
 
 __int64 __fastcall MiAllocatePartitionPhysicalPages(

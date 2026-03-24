@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhValidateMsOs20FunctionSubset @ 0x1C0052340
+ * XREFs of UsbhValidateMsOs20FunctionSubset @ 0x1C0053990
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C001F800 (memset.c)
- *     UsbhGetNextMsOs20Descriptor @ 0x1C0032D1C (UsbhGetNextMsOs20Descriptor.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     UsbhGetNextMsOs20Descriptor @ 0x1C003405C (UsbhGetNextMsOs20Descriptor.c)
  */
 
 char __fastcall UsbhValidateMsOs20FunctionSubset(__int64 a1, _DWORD *a2, unsigned __int16 *a3, unsigned __int64 a4)
@@ -18,7 +18,7 @@ char __fastcall UsbhValidateMsOs20FunctionSubset(__int64 a1, _DWORD *a2, unsigne
   char v12; // si
   __int64 v13; // rax
   __int64 v14; // rax
-  __int64 (__fastcall *v15)(); // r10
+  unsigned __int8 (__fastcall *v15)(__int64, _BYTE *, unsigned __int16 *, unsigned __int64); // r10
   _BYTE v17[64]; // [rsp+30h] [rbp-58h] BYREF
   unsigned __int16 *v18; // [rsp+A0h] [rbp+18h] BYREF
 
@@ -52,19 +52,13 @@ LABEL_18:
     if ( (unsigned int)v13 < 9 )
     {
       v14 = 2 * v13;
-      v15 = MsOs20DispatchTable[v14];
-      if ( !BYTE1(MsOs20DispatchTable[v14 + 1]) )
+      v15 = (unsigned __int8 (__fastcall *)(__int64, _BYTE *, unsigned __int16 *, unsigned __int64))*(&MsOs20DispatchTable + v14);
+      if ( !*((_BYTE *)&MsOs20DispatchTable + 8 * v14 + 9) )
       {
         Log(a1, 256, 1447449395, v11[1], 0LL);
         v12 = 0;
       }
-      v12 = ((unsigned __int8 (__fastcall *)(__int64, _BYTE *, unsigned __int16 *, unsigned __int64))v15)(
-              a1,
-              v17,
-              v11,
-              v10) != 0
-          ? v12
-          : 0;
+      v12 = v15(a1, v17, v11, v10) != 0 ? v12 : 0;
     }
     if ( !UsbhGetNextMsOs20Descriptor(v10, &v18) )
     {

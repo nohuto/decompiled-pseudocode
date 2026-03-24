@@ -1,30 +1,30 @@
 /*
- * XREFs of EtwpPsProvProcessEnumCallback @ 0x1409EB400
+ * XREFs of EtwpPsProvProcessEnumCallback @ 0x14093EB60
  * Callers:
- *     EtwpPsProvCaptureState @ 0x1409EB374 (EtwpPsProvCaptureState.c)
+ *     EtwpPsProvCaptureState @ 0x14093EAD8 (EtwpPsProvCaptureState.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     ObFastDereferenceObject @ 0x1402F89B0 (ObFastDereferenceObject.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     EtwpPsProvTraceProcess @ 0x14070AFEC (EtwpPsProvTraceProcess.c)
- *     EtwpQueryTokenPackageInfo @ 0x14070B934 (EtwpQueryTokenPackageInfo.c)
- *     EtwpQueryProcessOtherInfo @ 0x14070BACC (EtwpQueryProcessOtherInfo.c)
- *     PsSetProcessTelemetryAppState @ 0x14071147C (PsSetProcessTelemetryAppState.c)
- *     EtwpIsProcessZombie @ 0x140814978 (EtwpIsProcessZombie.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     EtwpQueryTokenPackageInfo @ 0x1406023FC (EtwpQueryTokenPackageInfo.c)
+ *     EtwpQueryProcessOtherInfo @ 0x140602928 (EtwpQueryProcessOtherInfo.c)
+ *     EtwpPsProvTraceProcess @ 0x140602CDC (EtwpPsProvTraceProcess.c)
+ *     PsSetProcessTelemetryAppState @ 0x1406CDED4 (PsSetProcessTelemetryAppState.c)
+ *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     EtwpIsProcessZombie @ 0x140797B94 (EtwpIsProcessZombie.c)
  */
 
-__int64 __fastcall EtwpPsProvProcessEnumCallback(_KPROCESS *BugCheckParameter1, _BYTE *a2)
+__int64 __fastcall EtwpPsProvProcessEnumCallback(PEPROCESS Process, _BYTE *a2)
 {
   char v4; // si
-  _QWORD *v5; // rcx
+  struct _EX_RUNDOWN_REF *v5; // rcx
   bool v6; // zf
   _DWORD *v7; // r9
-  unsigned __int64 v8; // r14
+  struct _DMA_ADAPTER *v8; // r14
   int v10; // [rsp+30h] [rbp-D0h] BYREF
   __int64 v11; // [rsp+38h] [rbp-C8h] BYREF
   _OWORD v12[3]; // [rsp+40h] [rbp-C0h] BYREF
@@ -34,43 +34,39 @@ __int64 __fastcall EtwpPsProvProcessEnumCallback(_KPROCESS *BugCheckParameter1, 
   v4 = 0;
   memset(v12, 0, sizeof(v12));
   memset(v13, 0, 0x198uLL);
-  if ( !EtwpIsProcessZombie((__int64)BugCheckParameter1) )
+  if ( !EtwpIsProcessZombie((__int64)Process) )
   {
     if ( a2[9] )
     {
-      if ( (*a2 & 1) != 0
-        && BugCheckParameter1 != PsIdleProcess
-        && (HIDWORD(BugCheckParameter1[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
-      {
+      if ( (*a2 & 1) != 0 && Process != PsIdleProcess && (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
         PsSetProcessTelemetryAppState(v5, 5);
-      }
     }
     else
     {
-      v6 = BugCheckParameter1 == PsIdleProcess;
+      v6 = Process == PsIdleProcess;
       a2[8] = 0;
       if ( !v6
-        && KeGetCurrentThread()->ApcState.Process != BugCheckParameter1
-        && ExAcquireRundownProtection((PEX_RUNDOWN_REF)&BugCheckParameter1[1].ProfileListHead.Blink) )
+        && KeGetCurrentThread()->ApcState.Process != Process
+        && ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&Process[1].ProfileListHead.Blink) )
       {
-        KiStackAttachProcess(BugCheckParameter1, 0LL, (__int64)v12, v7);
+        KiStackAttachProcess(Process, 0LL, (__int64)v12, v7);
         v4 = 1;
         a2[8] = 1;
       }
       if ( (*a2 & 0x10) != 0 )
       {
         v10 = 0;
-        v8 = PsReferencePrimaryTokenWithTag((__int64)BugCheckParameter1, 0x746C6644u);
-        EtwpQueryTokenPackageInfo(v8, (__int64)v13, &v10);
+        v8 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(Process);
+        EtwpQueryTokenPackageInfo((__int64)v8, (__int64)v13, &v10);
         if ( a2[8] )
-          EtwpQueryProcessOtherInfo((__int64)BugCheckParameter1, (__int64)&v11);
-        ObFastDereferenceObject((signed __int64 *)&BugCheckParameter1[1].Affinity.StaticBitmap[5], v8, 0x746C6644u);
-        EtwpPsProvTraceProcess((__int64)BugCheckParameter1, v10, v13, (int *)&v11, 771);
+          EtwpQueryProcessOtherInfo((__int64)Process, (__int64)&v11);
+        ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5], v8);
+        EtwpPsProvTraceProcess(Process, v10, v13, (int *)&v11, 771);
       }
       if ( v4 )
       {
-        KiUnstackDetachProcess((__int64)v12, 0LL);
-        ExReleaseRundownProtection((PEX_RUNDOWN_REF)&BugCheckParameter1[1].ProfileListHead.Blink);
+        KiUnstackDetachProcess((__int64)v12, 0);
+        ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&Process[1].ProfileListHead.Blink);
       }
     }
   }

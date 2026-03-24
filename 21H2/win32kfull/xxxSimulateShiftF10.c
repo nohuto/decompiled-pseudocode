@@ -1,7 +1,7 @@
 /*
- * XREFs of xxxSimulateShiftF10 @ 0x1C01D3B08
+ * XREFs of xxxSimulateShiftF10 @ 0x1C01D8374
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0067528 (xxxRealDefWindowProc.c)
+ *     xxxRealDefWindowProc @ 0x1C0049EC8 (xxxRealDefWindowProc.c)
  * Callees:
  *     <none>
  */

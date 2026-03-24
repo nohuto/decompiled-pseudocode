@@ -1,87 +1,55 @@
 /*
- * XREFs of MiGetControlAreaPtes @ 0x140287070
+ * XREFs of MiGetControlAreaPtes @ 0x140315EFC
  * Callers:
- *     MiOffsetToProtos @ 0x140286F90 (MiOffsetToProtos.c)
- *     MiMapViewOfDataSection @ 0x1406FB4D0 (MiMapViewOfDataSection.c)
- *     MiPfPrepareSequentialReadList @ 0x1407BCB30 (MiPfPrepareSequentialReadList.c)
+ *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
+ *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     MiFindLastSubsection @ 0x1402A13FC (MiFindLastSubsection.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiGetControlAreaPtes(__int64 a1)
 {
   int v1; // eax
-  volatile LONG *v3; // rsi
-  KIRQL v4; // al
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  unsigned __int64 i; // rdi
-  unsigned __int64 v8; // rbx
-  __int64 v10; // r8
-  __int64 v11; // rbx
-  __int64 v12; // rcx
+  volatile LONG *v4; // rbx
+  unsigned __int64 v5; // rsi
+  __int64 LastSubsection; // rax
+  unsigned __int64 v7; // rdi
   unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // rax
+  struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v16; // edx
-  bool v17; // zf
+  int v11; // edx
+  bool v12; // zf
 
   v1 = *(_DWORD *)(a1 + 56);
   if ( (v1 & 0x20) != 0 || !*(_QWORD *)(a1 + 64) || (v1 & 0x400) != 0 )
+    return *(unsigned int *)(*(_QWORD *)a1 + 8LL) | ((unsigned __int64)(*(_WORD *)(*(_QWORD *)a1 + 12LL) & 0x3FF) << 32);
+  v4 = (volatile LONG *)(a1 + 72);
+  v5 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(a1 + 72));
+  LastSubsection = MiFindLastSubsection(a1, 1);
+  v7 = (*(unsigned int *)(LastSubsection + 36) | ((unsigned __int64)(*(_WORD *)(LastSubsection + 32) & 0xFFC0) << 26))
+     + *(unsigned int *)(LastSubsection + 44)
+     - (unsigned __int64)(*(_DWORD *)(LastSubsection + 52) & 0x3FFFFFFF);
+  ExReleaseSpinLockSharedFromDpcLevel(v4);
+  if ( KiIrqlFlags )
   {
-    if ( KeGetCurrentIrql() >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v10 = 0LL;
-      v11 = a1 + 128;
-      if ( a1 != -128 )
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
       {
-        do
-        {
-          v12 = *(unsigned int *)(v11 + 44);
-          v11 = *(_QWORD *)(v11 + 16);
-          v10 += v12;
-        }
-        while ( v11 );
-      }
-      return v10;
-    }
-    else
-    {
-      return *(unsigned int *)(*(_QWORD *)a1 + 8LL) | ((unsigned __int64)(*(_WORD *)(*(_QWORD *)a1 + 12LL) & 0x3FF) << 32);
-    }
-  }
-  else
-  {
-    v3 = (volatile LONG *)(a1 + 72);
-    v4 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(a1 + 72));
-    v5 = *(_QWORD *)(a1 + 280);
-    v6 = 0LL;
-    for ( i = v4; v5; v5 = *(_QWORD *)(v5 + 8) )
-      v6 = v5;
-    v8 = (*(unsigned int *)(v6 - 20) | ((unsigned __int64)(*(_WORD *)(v6 - 24) & 0xFFC0) << 26))
-       + *(unsigned int *)(v6 - 12)
-       - (unsigned __int64)(*(_DWORD *)(v6 - 4) & 0x3FFFFFFF);
-    ExReleaseSpinLockSharedFromDpcLevel(v3);
-    if ( KiIrqlFlags )
-    {
-      if ( (KiIrqlFlags & 1) != 0 )
-      {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( CurrentIrql <= 0xFu && (unsigned __int8)i <= 0xFu && CurrentIrql >= 2u )
-        {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)i + 1));
-          v17 = (v16 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v16;
-          if ( v17 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-        }
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v12 = (v11 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v11;
+        if ( v12 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
-    __writecr8(i);
-    return v8;
   }
+  __writecr8(v5);
+  return v7;
 }

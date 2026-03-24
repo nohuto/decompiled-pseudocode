@@ -1,8 +1,8 @@
 /*
- * XREFs of ?D3DXVectorAreCloseToZero@@YAHAEBUD2DVector3@@@Z @ 0x18026F2B8
+ * XREFs of ?D3DXVectorAreCloseToZero@@YAHAEBUD2DVector3@@@Z @ 0x18021ED48
  * Callers:
- *     _anonymous_namespace_::CanAddThisColumnVectorToMatrix @ 0x18018ADE0 (_anonymous_namespace_--CanAddThisColumnVectorToMatrix.c)
- *     _anonymous_namespace_::ReverseAndLeftShift @ 0x18018EA64 (_anonymous_namespace_--ReverseAndLeftShift.c)
+ *     _anonymous_namespace_::CanAddThisColumnVectorToMatrix @ 0x18022C2C0 (_anonymous_namespace_--CanAddThisColumnVectorToMatrix.c)
+ *     _anonymous_namespace_::ReverseAndLeftShift @ 0x18022EE78 (_anonymous_namespace_--ReverseAndLeftShift.c)
  * Callees:
  *     <none>
  */

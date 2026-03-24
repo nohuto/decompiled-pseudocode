@@ -1,26 +1,26 @@
 /*
- * XREFs of MiExtendDynamicBitMap @ 0x1403AA370
+ * XREFs of MiExtendDynamicBitMap @ 0x1403C917C
  * Callers:
- *     MiObtainDynamicVa @ 0x140211064 (MiObtainDynamicVa.c)
- *     MiMarkSystemVaAllocated @ 0x140637320 (MiMarkSystemVaAllocated.c)
+ *     MiObtainDynamicVa @ 0x14030AF58 (MiObtainDynamicVa.c)
+ *     MiMarkSystemVaAllocated @ 0x14053DBB0 (MiMarkSystemVaAllocated.c)
  * Callees:
- *     MiSplitBitmapPages @ 0x14020B208 (MiSplitBitmapPages.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlClearBitsEx @ 0x14028BA00 (RtlClearBitsEx.c)
- *     MiReclaimSystemVa @ 0x14036716C (MiReclaimSystemVa.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlClearBitsEx @ 0x14027E980 (RtlClearBitsEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiSplitBitmapPages @ 0x14030B840 (MiSplitBitmapPages.c)
+ *     MiReclaimSystemVa @ 0x14030B8D8 (MiReclaimSystemVa.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiExtendDynamicBitMap(__int64 *a1, unsigned __int64 *a2, __int64 a3, int a4, int a5)
 {
-  unsigned __int64 v8; // r14
-  unsigned __int64 v9; // rsi
+  unsigned __int64 v8; // r15
+  unsigned __int64 v9; // r14
   __int64 v10; // rax
-  __int64 v11; // r13
+  __int64 v11; // rcx
   unsigned __int64 v12; // rdx
   unsigned __int64 v13; // r8
-  unsigned __int64 OldIrql; // rbx
+  unsigned __int64 OldIrql; // rdi
   __int64 v16; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // rax
@@ -32,31 +32,32 @@ __int64 __fastcall MiExtendDynamicBitMap(__int64 *a1, unsigned __int64 *a2, __in
   struct _KPRCB *v24; // r9
   _DWORD *v25; // r8
   int v26; // eax
-  unsigned __int64 v27; // rdi
+  unsigned __int64 v27; // rsi
   unsigned __int8 v28; // al
   struct _KPRCB *v29; // r9
   _DWORD *v30; // r8
   int v31; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v33; // [rsp+80h] [rbp+40h]
+  unsigned __int64 v33; // [rsp+70h] [rbp+30h]
+  __int64 v34; // [rsp+80h] [rbp+40h]
 
-  v33 = a3;
+  v34 = a3;
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( !a5 )
   {
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)a1 + 8, &LockHandle);
-    a3 = v33;
+    a3 = v34;
   }
   v8 = *a2;
   if ( a2 != (unsigned __int64 *)a1 && a1[5] != v8 )
   {
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( !KiIrqlFlags )
       goto LABEL_18;
-    CurrentIrql = KeGetCurrentIrql();
     if ( (KiIrqlFlags & 1) == 0 )
       goto LABEL_18;
+    CurrentIrql = KeGetCurrentIrql();
     if ( CurrentIrql > 0xFu )
       goto LABEL_18;
     if ( LockHandle.OldIrql > 0xFu )
@@ -91,12 +92,13 @@ __int64 __fastcall MiExtendDynamicBitMap(__int64 *a1, unsigned __int64 *a2, __in
     v11 = 0x8000LL;
     if ( a3 )
       v11 = a3;
-    if ( (unsigned int)MiSplitBitmapPages(a4, a2[1] + v10, v11) )
+    v33 = v11;
+    if ( (unsigned int)MiSplitBitmapPages(a4, v10 + a2[1], v11) == 1 )
     {
       v12 = *a2;
       v13 = v9 - v8;
-      if ( v8 + v11 <= v9 )
-        v13 = v11;
+      if ( v33 + v8 <= v9 )
+        v13 = v33;
       *a2 = v12 + v13;
       if ( a4 == 13 )
       {
@@ -110,11 +112,11 @@ __int64 __fastcall MiExtendDynamicBitMap(__int64 *a1, unsigned __int64 *a2, __in
       RtlClearBitsEx((__int64)a2, v12, v13);
       if ( a5 )
         return 1LL;
-      KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       OldIrql = LockHandle.OldIrql;
       if ( !KiIrqlFlags
-        || (v23 = KeGetCurrentIrql(), (KiIrqlFlags & 1) == 0)
-        || v23 > 0xFu
+        || (KiIrqlFlags & 1) == 0
+        || (v23 = KeGetCurrentIrql(), v23 > 0xFu)
         || LockHandle.OldIrql > 0xFu
         || v23 < 2u
         || (v24 = KeGetCurrentPrcb(),
@@ -136,24 +138,27 @@ LABEL_34:
   }
   if ( !a5 )
   {
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     v27 = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      v28 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && LockHandle.OldIrql <= 0xFu && v28 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v29 = KeGetCurrentPrcb();
-        v30 = v29->SchedulerAssist;
-        v31 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v21 = (v31 & v30[5]) == 0;
-        v30[5] &= v31;
-        if ( v21 )
-          KiRemoveSystemWorkPriorityKick(v29);
+        v28 = KeGetCurrentIrql();
+        if ( v28 <= 0xFu && LockHandle.OldIrql <= 0xFu && v28 >= 2u )
+        {
+          v29 = KeGetCurrentPrcb();
+          v30 = v29->SchedulerAssist;
+          v31 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v21 = (v31 & v30[5]) == 0;
+          v30[5] &= v31;
+          if ( v21 )
+            KiRemoveSystemWorkPriorityKick(v29);
+        }
       }
     }
     __writecr8(v27);
-    if ( a1 == &qword_140C66FC0 )
+    if ( a1 == &qword_140C4E1B8 )
       MiReclaimSystemVa(1);
   }
   return 0LL;

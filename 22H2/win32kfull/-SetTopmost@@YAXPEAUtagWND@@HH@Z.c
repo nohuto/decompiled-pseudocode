@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetTopmost@@YAXPEAUtagWND@@HH@Z @ 0x1C0095224
+ * XREFs of ?SetTopmost@@YAXPEAUtagWND@@HH@Z @ 0x1C00391D8
  * Callers:
- *     ?SetTopmostEnum@@YAXPEAUtagWND@@HH@Z @ 0x1C00951EC (-SetTopmostEnum@@YAXPEAUtagWND@@HH@Z.c)
- *     ?SetTopmost@@YAXPEAUtagWND@@HH@Z @ 0x1C0095224 (-SetTopmost@@YAXPEAUtagWND@@HH@Z.c)
+ *     ?SetTopmostEnum@@YAXPEAUtagWND@@HH@Z @ 0x1C00391A0 (-SetTopmostEnum@@YAXPEAUtagWND@@HH@Z.c)
+ *     ?SetTopmost@@YAXPEAUtagWND@@HH@Z @ 0x1C00391D8 (-SetTopmost@@YAXPEAUtagWND@@HH@Z.c)
  * Callees:
- *     ?SetTopmost@@YAXPEAUtagWND@@HH@Z @ 0x1C0095224 (-SetTopmost@@YAXPEAUtagWND@@HH@Z.c)
- *     NextOwnedWindow @ 0x1C00952AC (NextOwnedWindow.c)
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
+ *     NextOwnedWindow @ 0x1C00370AC (NextOwnedWindow.c)
+ *     ?SetTopmost@@YAXPEAUtagWND@@HH@Z @ 0x1C00391D8 (-SetTopmost@@YAXPEAUtagWND@@HH@Z.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
  */
 
 void __fastcall SetTopmost(struct tagWND *a1, int a2, int a3)

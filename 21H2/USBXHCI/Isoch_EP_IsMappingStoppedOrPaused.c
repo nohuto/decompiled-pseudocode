@@ -1,5 +1,5 @@
 /*
- * XREFs of Isoch_EP_IsMappingStoppedOrPaused @ 0x1C0040440
+ * XREFs of Isoch_EP_IsMappingStoppedOrPaused @ 0x1C003FCF0
  * Callers:
  *     <none>
  * Callees:

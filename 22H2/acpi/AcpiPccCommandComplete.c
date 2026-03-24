@@ -1,8 +1,8 @@
 /*
- * XREFs of AcpiPccCommandComplete @ 0x1C0004760
+ * XREFs of AcpiPccCommandComplete @ 0x1C0059B80
  * Callers:
- *     AcpiPccWatchdog @ 0x1C0004900 (AcpiPccWatchdog.c)
- *     ACPIPccProcessSci @ 0x1C0033B5C (ACPIPccProcessSci.c)
+ *     ACPIPccProcessSci @ 0x1C005984C (ACPIPccProcessSci.c)
+ *     AcpiPccWatchdog @ 0x1C005A3B0 (AcpiPccWatchdog.c)
  * Callees:
  *     <none>
  */
@@ -25,13 +25,13 @@ void __fastcall AcpiPccCommandComplete(__int64 a1)
   if ( _InterlockedExchange((volatile __int32 *)(a1 + 432), 0) )
   {
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
-    v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 648));
+    v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 640));
     v4 = *(__int16 **)(a1 + 48);
     v5 = v3;
     *(LARGE_INTEGER *)(a1 + 288) = PerformanceCounter;
     if ( *v4 < 0 && ((*(_BYTE *)a1 + 1) & 0xFE) == 0 )
       _InterlockedDecrement(&AcpiPccSciReferenceCount);
-    KeCancelTimer2(a1 + 440, 0LL);
+    KeCancelTimer((PKTIMER)(a1 + 440));
     if ( (**(_WORD **)(a1 + 56) & 1) != 0 )
     {
       v6 = 0;
@@ -73,9 +73,9 @@ void __fastcall AcpiPccCommandComplete(__int64 a1)
       }
       v9 = 0LL;
     }
-    KeInsertQueueDpc((PRKDPC)(a1 + 576), v9, 0LL);
+    KeInsertQueueDpc((PRKDPC)(a1 + 568), v9, 0LL);
 LABEL_21:
-    KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 648), v5);
+    KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 640), v5);
     if ( v7 )
     {
       *(_DWORD *)(v7 + 40) = 0;

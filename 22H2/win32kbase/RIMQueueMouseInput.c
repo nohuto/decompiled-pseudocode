@@ -1,19 +1,19 @@
 /*
- * XREFs of RIMQueueMouseInput @ 0x1C0197AEC
+ * XREFs of RIMQueueMouseInput @ 0x1C016A46C
  * Callers:
- *     RIMIDEInjectMouseInput @ 0x1C0196F20 (RIMIDEInjectMouseInput.c)
- *     ?DeliverMouseInputToRIM@@YAXPEBU_IVMouseInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z @ 0x1C01ECED4 (-DeliverMouseInputToRIM@@YAXPEBU_IVMouseInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z.c)
+ *     RIMIDEInjectMouseInput @ 0x1C01699D4 (RIMIDEInjectMouseInput.c)
+ *     ?DeliverMouseInputToRIM@@YAXPEBU_IVMouseInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z @ 0x1C01B3E5C (-DeliverMouseInputToRIM@@YAXPEBU_IVMouseInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z.c)
  * Callees:
- *     rimProcessDeviceBufferAndStartRead @ 0x1C0004A38 (rimProcessDeviceBufferAndStartRead.c)
- *     WPP_RECORDER_AND_TRACE_SF_ddd @ 0x1C0058ABC (WPP_RECORDER_AND_TRACE_SF_ddd.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z @ 0x1C0192EA4 (-DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0045174 (WPP_RECORDER_SF_ddd.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z @ 0x1C0166784 (-DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z.c)
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0175060 (rimProcessDeviceBufferAndStartRead.c)
  */
 
 __int64 __fastcall RIMQueueMouseInput(struct RawInputManagerObject *a1, struct RIMDEV *a2, _OWORD *a3, unsigned int a4)
 {
   int v4; // eax
-  unsigned int v5; // ebx
+  unsigned int v5; // edi
   __int64 v6; // rsi
   unsigned int v10; // eax
   _OWORD *v11; // rdx
@@ -21,38 +21,32 @@ __int64 __fastcall RIMQueueMouseInput(struct RawInputManagerObject *a1, struct R
   __int64 v13; // rax
   __int128 v14; // xmm0
   __int64 v15; // rcx
-  char v16; // dl
+  int v16; // edx
 
   v4 = *((_DWORD *)a2 + 46);
   v5 = 0;
   v6 = a4;
   if ( (v4 & 0x2000) == 0 && (v4 & 0x40) == 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 2073);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2072);
   if ( (unsigned int)v6 > 0x10 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 2074);
-  v10 = *((_DWORD *)a2 + 229);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2073);
+  v10 = *((_DWORD *)a2 + 231);
   if ( v10 + (unsigned int)v6 < v10 || v10 + (unsigned int)v6 > 0x10 )
   {
     InputTraceLogging::RIM::DropInput((__int64)a2);
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-      || (v16 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 2u) )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v16 = 0;
-    }
-    if ( v16 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_AND_TRACE_SF_ddd(
-        (__int64)WPP_GLOBAL_Control->AttachedDevice,
+      LOBYTE(v16) = 2;
+      WPP_RECORDER_SF_ddd(
+        (_DWORD)gRimLog,
         v16,
-        WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-        (__int64)gRimLog,
-        2u,
-        1u,
-        0x2Fu,
-        (__int64)&WPP_9f96ae63cfc83aaf8fc02e72e74825ab_Traceguids,
-        *((_DWORD *)a2 + 229),
+        1,
+        47,
+        (__int64)&WPP_6618ffd707d032c105188cf3f3e4149b_Traceguids,
+        *((_DWORD *)a2 + 231),
         16,
         v6);
+    }
     return (unsigned int)-1073741789;
   }
   else
@@ -63,21 +57,21 @@ __int64 __fastcall RIMQueueMouseInput(struct RawInputManagerObject *a1, struct R
       v12 = v6;
       do
       {
-        v13 = ((unsigned __int8)*((_DWORD *)a2 + 230) + 1) & 0xF;
-        *((_DWORD *)a2 + 230) = v13;
+        v13 = ((unsigned __int8)*((_DWORD *)a2 + 232) + 1) & 0xF;
+        *((_DWORD *)a2 + 232) = v13;
         v14 = *v11;
         v11 = (_OWORD *)((char *)v11 + 24);
         v15 = 3 * v13;
-        *(_OWORD *)((char *)a2 + 8 * v15 + 924) = v14;
-        *(_QWORD *)((char *)a2 + 8 * v15 + 940) = *((_QWORD *)v11 - 1);
-        ++*((_DWORD *)a2 + 229);
+        *(_OWORD *)((char *)a2 + 8 * v15 + 932) = v14;
+        *(_QWORD *)((char *)a2 + 8 * v15 + 948) = *((_QWORD *)v11 - 1);
+        ++*((_DWORD *)a2 + 231);
         --v12;
       }
       while ( v12 );
     }
-    *(_OWORD *)((char *)a2 + 852) = *(_OWORD *)((char *)a3 + 24 * (unsigned int)(v6 - 1));
-    *(_QWORD *)((char *)a2 + 868) = *((_QWORD *)a3 + 3 * (unsigned int)(v6 - 1) + 2);
-    rimProcessDeviceBufferAndStartRead(a1, a2, 1);
+    *(_OWORD *)((char *)a2 + 860) = *(_OWORD *)((char *)a3 + 24 * (unsigned int)(v6 - 1));
+    *(_QWORD *)((char *)a2 + 876) = *((_QWORD *)a3 + 3 * (unsigned int)(v6 - 1) + 2);
+    rimProcessDeviceBufferAndStartRead(a1, a2);
   }
   return v5;
 }

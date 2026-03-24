@@ -1,18 +1,17 @@
 /*
- * XREFs of ?CreateDesktopNotificationEvent@@YAJPEAX@Z @ 0x1C00B1B24
+ * XREFs of ?CreateDesktopNotificationEvent@@YAJPEAX@Z @ 0x1C000DEB8
  * Callers:
- *     xxxCreateWindowStation @ 0x1C006B42C (xxxCreateWindowStation.c)
+ *     xxxCreateWindowStation @ 0x1C000C6EC (xxxCreateWindowStation.c)
  * Callees:
- *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0069710 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0011430 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-NTSTATUS __fastcall CreateDesktopNotificationEvent(void *a1)
+int __fastcall CreateDesktopNotificationEvent(void *a1)
 {
-  unsigned int *v2; // rax
-  NTSTATUS result; // eax
-  WCHAR *v4; // rdx
-  NTSTATUS v5; // ebx
+  int result; // eax
+  WCHAR *v3; // rdx
+  NTSTATUS v4; // ebx
   void *DirectoryHandle; // [rsp+48h] [rbp-C0h] BYREF
   void *EventHandle; // [rsp+50h] [rbp-B8h] BYREF
   PVOID DestinationString[3]; // [rsp+58h] [rbp-B0h] BYREF
@@ -26,24 +25,23 @@ NTSTATUS __fastcall CreateDesktopNotificationEvent(void *a1)
   *(&ObjectAttributes.Attributes + 1) = 0;
   if ( gbNonServiceSession )
   {
-    v2 = (unsigned int *)SGDGetUserSessionState(a1);
-    result = RtlStringCchPrintfW(SourceString, 0x100uLL, (size_t *)L"\\Sessions\\%ld\\BaseNamedObjects", *v2);
+    result = RtlStringCchPrintfW(SourceString, 0x100uLL, L"\\Sessions\\%ld\\BaseNamedObjects", (unsigned int)gSessionId);
     if ( result < 0 )
       return result;
-    v4 = SourceString;
+    v3 = SourceString;
   }
   else
   {
-    v4 = L"\\BaseNamedObjects";
+    v3 = L"\\BaseNamedObjects";
   }
-  RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], v4);
+  RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], v3);
   ObjectAttributes.Length = 48;
   ObjectAttributes.ObjectName = (PUNICODE_STRING)&DestinationString[1];
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  v5 = ZwOpenDirectoryObject(&DirectoryHandle, 0x2000Fu, &ObjectAttributes);
-  if ( v5 >= 0 )
+  v4 = ZwOpenDirectoryObject(&DirectoryHandle, 0x2000Fu, &ObjectAttributes);
+  if ( v4 >= 0 )
   {
     RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], L"WinSta0_DesktopSwitch");
     ObjectAttributes.SecurityDescriptor = a1;
@@ -52,21 +50,21 @@ NTSTATUS __fastcall CreateDesktopNotificationEvent(void *a1)
     ObjectAttributes.ObjectName = (PUNICODE_STRING)&DestinationString[1];
     ObjectAttributes.Attributes = 640;
     ObjectAttributes.SecurityQualityOfService = 0LL;
-    v5 = ZwCreateEvent(&EventHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0);
+    v4 = ZwCreateEvent(&EventHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0);
     ZwClose(DirectoryHandle);
-    if ( v5 >= 0 )
+    if ( v4 >= 0 )
     {
       DestinationString[0] = 0LL;
-      v5 = ObReferenceObjectByHandle(EventHandle, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 0, DestinationString, 0LL);
+      v4 = ObReferenceObjectByHandle(EventHandle, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 0, DestinationString, 0LL);
       gpEventSwitchDesktop = DestinationString[0];
-      if ( v5 >= 0 )
+      if ( v4 >= 0 )
       {
         KeAttachProcess(gpepCSRSS);
-        v5 = ObOpenObjectByPointer(gpEventSwitchDesktop, 0, 0LL, 0x1F0003u, 0LL, 0, &ghEventSwitchDesktop);
+        v4 = ObOpenObjectByPointer(gpEventSwitchDesktop, 0, 0LL, 0x1F0003u, 0LL, 0, &ghEventSwitchDesktop);
         KeDetachProcess();
       }
       ZwClose(EventHandle);
     }
   }
-  return v5;
+  return v4;
 }

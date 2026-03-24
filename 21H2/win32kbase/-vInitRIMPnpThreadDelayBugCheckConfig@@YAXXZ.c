@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vInitRIMPnpThreadDelayBugCheckConfig@@YAXXZ @ 0x1C0056FAC
+ * XREFs of ?vInitRIMPnpThreadDelayBugCheckConfig@@YAXXZ @ 0x1C006CC44
  * Callers:
- *     RIMInitialize @ 0x1C0056920 (RIMInitialize.c)
+ *     RIMInitialize @ 0x1C006C2B0 (RIMInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 void vInitRIMPnpThreadDelayBugCheckConfig(void)

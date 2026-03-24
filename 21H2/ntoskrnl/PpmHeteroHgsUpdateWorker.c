@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmHeteroHgsUpdateWorker @ 0x1405D90F0
+ * XREFs of PpmHeteroHgsUpdateWorker @ 0x140577BA0
  * Callers:
  *     <none>
  * Callees:
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     PpmReinitializeHeteroEngine @ 0x140848BE8 (PpmReinitializeHeteroEngine.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
+ *     PpmReinitializeHeteroEngine @ 0x1407B9AE8 (PpmReinitializeHeteroEngine.c)
  */
 
 __int64 PpmHeteroHgsUpdateWorker()

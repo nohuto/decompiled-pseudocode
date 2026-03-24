@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DeviceCDROMNotify@@YAJPEAU_TARGET_DEVICE_CUSTOM_NOTIFICATION@@PEAU_CDROM_NOTIFY@@@Z @ 0x1C01D87F0
+ * XREFs of ?DeviceCDROMNotify@@YAJPEAU_TARGET_DEVICE_CUSTOM_NOTIFICATION@@PEAU_CDROM_NOTIFY@@@Z @ 0x1C01DDAA0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
- *     ShowAutorunCursor @ 0x1C01CFBC0 (ShowAutorunCursor.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     ShowAutorunCursor @ 0x1C01D4390 (ShowAutorunCursor.c)
  */
 
 __int64 __fastcall DeviceCDROMNotify(char *NotificationStructure, unsigned int *Context)
@@ -39,7 +39,7 @@ __int64 __fastcall DeviceCDROMNotify(char *NotificationStructure, unsigned int *
     v4 = 2;
 LABEL_10:
     Context[8] = v4;
-    v6 = (struct _LIST_ENTRY *)Win32AllocPoolNonPagedZInit(Context[4], 1886417749LL);
+    v6 = (struct _LIST_ENTRY *)Win32AllocPoolNonPaged(Context[4], 1886417749LL);
     v7 = v6;
     if ( v6 )
     {

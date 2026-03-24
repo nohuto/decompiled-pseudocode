@@ -1,23 +1,23 @@
 /*
- * XREFs of ??1VIDMM_RECYCLE_HEAP_MGR@@UEAA@XZ @ 0x1C0081C04
+ * XREFs of ??1VIDMM_RECYCLE_HEAP_MGR@@UEAA@XZ @ 0x1C007AD3C
  * Callers:
- *     ??_EVIDMM_RECYCLE_HEAP_MGR@@UEAAPEAXI@Z @ 0x1C0018100 (--_EVIDMM_RECYCLE_HEAP_MGR@@UEAAPEAXI@Z.c)
+ *     ??_EVIDMM_RECYCLE_HEAP_MGR@@UEAAPEAXI@Z @ 0x1C0002590 (--_EVIDMM_RECYCLE_HEAP_MGR@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0001344 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0001400 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C00014D4 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C0001904 (--3@YAXPEAX@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000209C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000242C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00024A4 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00027C4 (--1DXGFASTMUTEX@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ?FinalizedUnlock@VIDMM_RECYCLE_RANGE@@QEAAXAEA_N@Z @ 0x1C007C924 (-FinalizedUnlock@VIDMM_RECYCLE_RANGE@@QEAAXAEA_N@Z.c)
- *     ?DebouncedDecommit@VIDMM_RECYCLE_RANGE@@QEAAXAEAW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@@Z @ 0x1C007D0FC (-DebouncedDecommit@VIDMM_RECYCLE_RANGE@@QEAAXAEAW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@@Z.c)
- *     ?MergeSubrangesWherePossible@VIDMM_RECYCLE_MULTIRANGE@@QEAAEE@Z @ 0x1C007F7CC (-MergeSubrangesWherePossible@VIDMM_RECYCLE_MULTIRANGE@@QEAAEE@Z.c)
- *     ?RemoveFromDebounce@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C008108C (-RemoveFromDebounce@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
- *     ??1VIDMM_RECYCLE_HEAP@@QEAA@XZ @ 0x1C008200C (--1VIDMM_RECYCLE_HEAP@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001618 (--3@YAXPEAX@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001B74 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001BD0 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001C48 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000210C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002174 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C0002530 (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000255C (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     ?FinalizedUnlock@VIDMM_RECYCLE_RANGE@@QEAAXAEA_N@Z @ 0x1C0060D38 (-FinalizedUnlock@VIDMM_RECYCLE_RANGE@@QEAAXAEA_N@Z.c)
+ *     ?DebouncedDecommit@VIDMM_RECYCLE_RANGE@@QEAAXAEAW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@@Z @ 0x1C0076224 (-DebouncedDecommit@VIDMM_RECYCLE_RANGE@@QEAAXAEAW4VIDMM_RECYCLE_BLOCK_SHRINK_RESULT@@@Z.c)
+ *     ?MergeSubrangesWherePossible@VIDMM_RECYCLE_MULTIRANGE@@QEAAEE@Z @ 0x1C0077100 (-MergeSubrangesWherePossible@VIDMM_RECYCLE_MULTIRANGE@@QEAAEE@Z.c)
+ *     ?RemoveFromDebounce@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C0077FD4 (-RemoveFromDebounce@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
+ *     ??1VIDMM_RECYCLE_HEAP@@QEAA@XZ @ 0x1C007B144 (--1VIDMM_RECYCLE_HEAP@@QEAA@XZ.c)
  */
 
 void __fastcall VIDMM_RECYCLE_HEAP_MGR::~VIDMM_RECYCLE_HEAP_MGR(VIDMM_RECYCLE_HEAP_MGR *this)
@@ -39,16 +39,14 @@ void __fastcall VIDMM_RECYCLE_HEAP_MGR::~VIDMM_RECYCLE_HEAP_MGR(VIDMM_RECYCLE_HE
   struct _LOOKASIDE_LIST_EX *v16; // rcx
   struct _LOOKASIDE_LIST_EX *v17; // rcx
   void *v18; // rcx
-  struct VIDMM_RECYCLE_RANGE *v19; // r14
-  VIDMM_RECYCLE_BLOCK **v20; // rsi
-  __int64 v21; // r8
-  __int64 v22; // r9
-  bool v23; // [rsp+30h] [rbp-39h] BYREF
-  int v24; // [rsp+34h] [rbp-35h] BYREF
-  _BYTE v25[16]; // [rsp+38h] [rbp-31h] BYREF
-  char v26[8]; // [rsp+48h] [rbp-21h] BYREF
-  DXGPUSHLOCK *v27; // [rsp+50h] [rbp-19h]
-  int v28; // [rsp+58h] [rbp-11h]
+  VIDMM_RECYCLE_RANGE *v19; // rsi
+  struct VIDMM_RECYCLE_RANGE *v20; // r14
+  bool v21; // [rsp+30h] [rbp-39h] BYREF
+  int v22; // [rsp+34h] [rbp-35h] BYREF
+  _BYTE v23[16]; // [rsp+38h] [rbp-31h] BYREF
+  _BYTE v24[8]; // [rsp+48h] [rbp-21h] BYREF
+  DXGPUSHLOCK *v25; // [rsp+50h] [rbp-19h]
+  int v26; // [rsp+58h] [rbp-11h]
   struct _KAPC_STATE ApcState; // [rsp+60h] [rbp-9h] BYREF
 
   *(_QWORD *)this = &VIDMM_RECYCLE_HEAP_MGR::`vftable';
@@ -56,65 +54,65 @@ void __fastcall VIDMM_RECYCLE_HEAP_MGR::~VIDMM_RECYCLE_HEAP_MGR(VIDMM_RECYCLE_HE
   memset(&ApcState, 0, sizeof(ApcState));
   KeStackAttachProcess(*v2, &ApcState);
   DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK(
-    (DXGAUTOPUSHLOCK *)v26,
+    (DXGAUTOPUSHLOCK *)v24,
     (struct _KTHREAD **)VIDMM_RECYCLE_HEAP_MGR::_GlobalHeapManagerListLock,
     0);
-  DXGPUSHLOCK::AcquireExclusive(v27);
-  v3 = (char *)this + 1600;
-  v28 = 2;
-  v4 = *((_QWORD *)this + 200);
+  DXGPUSHLOCK::AcquireExclusive(v25);
+  v3 = (char *)this + 1592;
+  v26 = 2;
+  v4 = *((_QWORD *)this + 199);
   if ( v4 )
   {
-    if ( *(char **)(v4 + 8) != v3 || (v5 = (char **)*((_QWORD *)this + 201), *v5 != v3) )
+    if ( *(char **)(v4 + 8) != v3 || (v5 = (char **)*((_QWORD *)this + 200), *v5 != v3) )
       __fastfail(3u);
     *v5 = (char *)v4;
     *(_QWORD *)(v4 + 8) = v5;
   }
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v26);
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v25, (VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1328));
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v25);
-  _InterlockedExchange((volatile __int32 *)this + 396, 1);
-  v6 = (VIDMM_RECYCLE_HEAP_MGR *)*((unsigned int *)this + 384);
-  if ( (_DWORD)v6 && !KeCancelTimer((PKTIMER)((char *)this + 1376)) )
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v24);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v23, (VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1328));
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v23);
+  _InterlockedExchange((volatile __int32 *)this + 394, 1);
+  v6 = (VIDMM_RECYCLE_HEAP_MGR *)*((unsigned int *)this + 382);
+  if ( (_DWORD)v6 && !KeCancelTimer((PKTIMER)((char *)this + 1368)) )
   {
     KeFlushQueuedDpcs();
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v25);
-    KeWaitForSingleObject(*((PVOID *)this + 199), Executive, 0, 0, 0LL);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v25);
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v23);
+    KeWaitForSingleObject(*((PVOID *)this + 198), Executive, 0, 0, 0LL);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v23);
   }
-  v7 = (VIDMM_RECYCLE_HEAP_MGR *)*((_QWORD *)this + 193);
-  while ( v7 != (VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1544) )
+  v7 = (VIDMM_RECYCLE_HEAP_MGR *)*((_QWORD *)this + 192);
+  while ( v7 != (VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1536) )
   {
-    v19 = (VIDMM_RECYCLE_HEAP_MGR *)((char *)v7 - 104);
+    v20 = (VIDMM_RECYCLE_HEAP_MGR *)((char *)v7 - 104);
     v7 = *(VIDMM_RECYCLE_HEAP_MGR **)v7;
-    VIDMM_RECYCLE_HEAP_MGR::RemoveFromDebounce(v6, v19);
-    v23 = 0;
-    VIDMM_RECYCLE_RANGE::FinalizedUnlock(v19, &v23);
-    if ( !v23 )
+    VIDMM_RECYCLE_HEAP_MGR::RemoveFromDebounce(v6, v20);
+    v21 = 0;
+    VIDMM_RECYCLE_RANGE::FinalizedUnlock(v20, &v21);
+    if ( !v21 )
+    {
+      v6 = (VIDMM_RECYCLE_HEAP_MGR *)*((_QWORD *)v20 + 17);
+      if ( v6 )
+        VIDMM_RECYCLE_MULTIRANGE::MergeSubrangesWherePossible(v6);
+    }
+  }
+  v8 = (_QWORD *)((char *)this + 1552);
+  while ( 1 )
+  {
+    v9 = (_QWORD *)*v8;
+    if ( (_QWORD *)*v8 == v8 )
+      break;
+    v19 = (VIDMM_RECYCLE_RANGE *)(v9 - 13);
+    VIDMM_RECYCLE_HEAP_MGR::RemoveFromDebounce(v6, (struct VIDMM_RECYCLE_RANGE *)(v9 - 13));
+    v22 = 0;
+    VIDMM_RECYCLE_RANGE::DebouncedDecommit(v19, (enum VIDMM_RECYCLE_BLOCK_SHRINK_RESULT *)&v22);
+    if ( !v22 )
     {
       v6 = (VIDMM_RECYCLE_HEAP_MGR *)*((_QWORD *)v19 + 17);
       if ( v6 )
         VIDMM_RECYCLE_MULTIRANGE::MergeSubrangesWherePossible(v6);
     }
   }
-  v8 = (_QWORD *)((char *)this + 1560);
-  while ( 1 )
-  {
-    v9 = (_QWORD *)*v8;
-    if ( (_QWORD *)*v8 == v8 )
-      break;
-    v20 = (VIDMM_RECYCLE_BLOCK **)(v9 - 13);
-    VIDMM_RECYCLE_HEAP_MGR::RemoveFromDebounce(v6, (struct VIDMM_RECYCLE_RANGE *)(v9 - 13));
-    v24 = 0;
-    VIDMM_RECYCLE_RANGE::DebouncedDecommit(v20, (enum VIDMM_RECYCLE_BLOCK_SHRINK_RESULT *)&v24, v21, v22);
-    if ( !v24 )
-    {
-      v6 = v20[17];
-      if ( v6 )
-        VIDMM_RECYCLE_MULTIRANGE::MergeSubrangesWherePossible(v6);
-    }
-  }
-  v10 = (struct _SLIST_ENTRY **)((char *)this + 1656);
+  v10 = (struct _SLIST_ENTRY **)((char *)this + 1648);
   v11 = 4LL;
   do
   {
@@ -164,12 +162,12 @@ void __fastcall VIDMM_RECYCLE_HEAP_MGR::~VIDMM_RECYCLE_HEAP_MGR(VIDMM_RECYCLE_HE
     ExDeleteLookasideListEx(v17);
     operator delete(*((void **)this + 165));
   }
-  v18 = (void *)*((_QWORD *)this + 199);
+  v18 = (void *)*((_QWORD *)this + 198);
   if ( v18 )
     operator delete(v18);
   KeUnstackDetachProcess(&ApcState);
-  if ( v25[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v25);
+  if ( v23[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v23);
   DXGFASTMUTEX::~DXGFASTMUTEX((VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1328));
   VIDMM_RECYCLE_HEAP::~VIDMM_RECYCLE_HEAP((VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1240));
   VIDMM_RECYCLE_HEAP::~VIDMM_RECYCLE_HEAP((VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1168));

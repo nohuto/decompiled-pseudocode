@@ -1,21 +1,20 @@
 /*
- * XREFs of KeFindConfigurationNextEntry @ 0x140B708B0
+ * XREFs of KeFindConfigurationNextEntry @ 0x140A643A0
  * Callers:
- *     HalpAcpiFindRsdp @ 0x140B707BC (HalpAcpiFindRsdp.c)
- *     KeFindConfigurationNextEntry @ 0x140B708B0 (KeFindConfigurationNextEntry.c)
- *     KeFindConfigurationEntry @ 0x140B97160 (KeFindConfigurationEntry.c)
+ *     HalpAcpiFindRsdp @ 0x140A64290 (HalpAcpiFindRsdp.c)
+ *     KeFindConfigurationNextEntry @ 0x140A643A0 (KeFindConfigurationNextEntry.c)
+ *     KeFindConfigurationEntry @ 0x140A91FF0 (KeFindConfigurationEntry.c)
  * Callees:
- *     KeFindConfigurationNextEntry @ 0x140B708B0 (KeFindConfigurationNextEntry.c)
+ *     KeFindConfigurationNextEntry @ 0x140A643A0 (KeFindConfigurationNextEntry.c)
  */
 
-__int64 __fastcall KeFindConfigurationNextEntry(__int64 a1, int a2, int a3, int *a4, __int64 *a5)
+__int64 __fastcall KeFindConfigurationNextEntry(__int64 a1, int a2, int a3, int *a4, _QWORD *a5)
 {
-  __int64 v8; // rbx
+  __int64 v8; // rdi
   int v9; // ebp
-  __int64 v10; // rdx
-  __int64 i; // rdi
+  __int64 i; // rbx
   __int64 result; // rax
-  __int64 v13; // rcx
+  __int64 v12; // rcx
 
   v8 = a1;
   if ( a4 )
@@ -26,36 +25,28 @@ __int64 __fastcall KeFindConfigurationNextEntry(__int64 a1, int a2, int a3, int 
     return 0LL;
   while ( 2 )
   {
-    v10 = *a5;
     if ( *a5 )
     {
-      if ( v8 == v10 )
-      {
+      if ( v8 == *a5 )
         *a5 = 0LL;
-        v10 = 0LL;
-      }
 LABEL_7:
       for ( i = *(_QWORD *)(v8 + 16); i; i = *(_QWORD *)(i + 16) )
       {
-        if ( v10 )
+        if ( *a5 )
         {
-          if ( i == v10 )
-          {
+          if ( i == *a5 )
             *a5 = 0LL;
-            v10 = 0LL;
-          }
         }
         else if ( *(_DWORD *)(i + 24) == a2 && *(_DWORD *)(i + 28) == a3 && (a4 != 0LL ? *(_DWORD *)(i + 40) : 0) == v9 )
         {
           return i;
         }
-        v13 = *(_QWORD *)(i + 8);
-        if ( v13 )
+        v12 = *(_QWORD *)(i + 8);
+        if ( v12 )
         {
-          result = KeFindConfigurationNextEntry(v13, a2, a3, (_DWORD)a4, (__int64)a5);
+          result = KeFindConfigurationNextEntry(v12, a2, a3, (_DWORD)a4, (__int64)a5);
           if ( result )
             return result;
-          v10 = *a5;
         }
       }
       v8 = *(_QWORD *)(v8 + 8);

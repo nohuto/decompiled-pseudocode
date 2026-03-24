@@ -1,8 +1,8 @@
 /*
- * XREFs of MiRestrictRangeToNode @ 0x14017F28C
+ * XREFs of MiRestrictRangeToNode @ 0x14017F2AC
  * Callers:
- *     MiDescribePageRun @ 0x14017EF64 (MiDescribePageRun.c)
- *     MiInitializeDynamicPfns @ 0x1402A6604 (MiInitializeDynamicPfns.c)
+ *     MiDescribePageRun @ 0x14017EF84 (MiDescribePageRun.c)
+ *     MiInitializeDynamicPfns @ 0x1402A6704 (MiInitializeDynamicPfns.c)
  *     MiSwitchToPfns @ 0x1409BA954 (MiSwitchToPfns.c)
  *     MxCreateFreePfns @ 0x1409BAD10 (MxCreateFreePfns.c)
  *     MxInitializeFreeNodeDescriptors @ 0x1409BB3A8 (MxInitializeFreeNodeDescriptors.c)
@@ -11,7 +11,7 @@
  * Callees:
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiRestrictRangeToNode(unsigned __int64 a1, unsigned __int64 a2)

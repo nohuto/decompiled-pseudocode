@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpQueryMemory @ 0x140AB50E0
+ * XREFs of KdpQueryMemory @ 0x1409B771C
  * Callers:
- *     KdpSendWaitContinue @ 0x140AB17C8 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
  * Callees:
- *     MmIsSessionAddress @ 0x1402BC7B0 (MmIsSessionAddress.c)
+ *     MmIsSessionAddress @ 0x1402C9800 (MmIsSessionAddress.c)
  */
 
 __int64 __fastcall KdpQueryMemory(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall KdpQueryMemory(__int64 a1)
   else
   {
     v3 = *(_QWORD *)(a1 + 16);
-    *(_DWORD *)(a1 + 32) = v3 > 0x7FFFFFFEFFFFLL && 2 - MmIsSessionAddress(v3);
+    *(_DWORD *)(a1 + 32) = v3 >= 0x7FFFFFFEFFFFLL && 2 - MmIsSessionAddress(v3);
     *(_DWORD *)(a1 + 36) = 7;
   }
   *(_QWORD *)(a1 + 24) = 0LL;

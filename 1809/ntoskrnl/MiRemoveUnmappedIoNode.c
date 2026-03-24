@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRemoveUnmappedIoNode @ 0x1400E59B0
+ * XREFs of MiRemoveUnmappedIoNode @ 0x1400E59D0
  * Callers:
- *     MiReferenceIoPages @ 0x1400E5F8C (MiReferenceIoPages.c)
- *     MiMakeIoRangePermanent @ 0x1402AB90C (MiMakeIoRangePermanent.c)
+ *     MiReferenceIoPages @ 0x1400E5FAC (MiReferenceIoPages.c)
+ *     MiMakeIoRangePermanent @ 0x1402ABA0C (MiMakeIoRangePermanent.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
- *     MiInitializeIoPageNodeArray @ 0x1400E5978 (MiInitializeIoPageNodeArray.c)
+ *     MiInitializeIoPageNodeArray @ 0x1400E5998 (MiInitializeIoPageNodeArray.c)
  */
 
 __int64 __fastcall MiRemoveUnmappedIoNode(unsigned __int64 *a1, unsigned __int64 a2)

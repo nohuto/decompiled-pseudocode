@@ -1,24 +1,24 @@
 /*
- * XREFs of TtmiRetrieveEventFromQueue @ 0x1409AC1F0
+ * XREFs of TtmiRetrieveEventFromQueue @ 0x1409055DC
  * Callers:
- *     TtmpDispatchGetTerminalEvent @ 0x1409A67B8 (TtmpDispatchGetTerminalEvent.c)
+ *     TtmpDispatchGetTerminalEvent @ 0x140900E60 (TtmpDispatchGetTerminalEvent.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
- *     TtmiLogQueueDequeueEvent @ 0x1409A8E80 (TtmiLogQueueDequeueEvent.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
+ *     TtmiLogQueueDequeueEvent @ 0x140903400 (TtmiLogQueueDequeueEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall TtmiRetrieveEventFromQueue(__int64 a1, _OWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v5; // edi
+  unsigned int v5; // esi
   int v6; // edx
   _QWORD *v7; // rax
-  _QWORD *v8; // rsi
+  _QWORD *v8; // rdi
   __int64 v9; // rcx
   _OWORD *v10; // rbx
   __int64 v11; // rax
@@ -31,7 +31,7 @@ __int64 __fastcall TtmiRetrieveEventFromQueue(__int64 a1, _OWORD *a2)
   if ( !*(_BYTE *)(a1 + 168) )
   {
     v5 = -1073740032;
-    v6 = 476;
+    v6 = 477;
 LABEL_3:
     TtmiLogError("TtmiRetrieveEventFromQueue", v6, -1, v5);
     goto LABEL_13;
@@ -41,7 +41,7 @@ LABEL_3:
   if ( v8 == (_QWORD *)(a1 + 152) )
   {
     v5 = -2147483622;
-    v6 = 481;
+    v6 = 482;
     goto LABEL_3;
   }
   if ( (_QWORD *)v8[1] != v7 || (v9 = *v8, *(_QWORD **)(*v8 + 8LL) != v8) )
@@ -74,6 +74,6 @@ LABEL_3:
   ExFreePoolWithTag(v8, 0x716D7454u);
 LABEL_13:
   ExReleaseResourceLite((PERESOURCE)(a1 + 24));
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v5;
 }

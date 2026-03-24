@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpUpdatePmcEvents @ 0x1409E1DB8
+ * XREFs of EtwpUpdatePmcEvents @ 0x14093B040
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1409DEFB8 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140938560 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     EtwpAllocatePmcData @ 0x1409E01E4 (EtwpAllocatePmcData.c)
+ *     EtwpAllocatePmcData @ 0x140939700 (EtwpAllocatePmcData.c)
  */
 
 __int64 __fastcall EtwpUpdatePmcEvents(__int64 a1, __int64 a2, unsigned int a3)
@@ -15,19 +15,19 @@ __int64 __fastcall EtwpUpdatePmcEvents(__int64 a1, __int64 a2, unsigned int a3)
   PmcData = 0;
   if ( a3 && a3 <= 4 )
   {
-    if ( *(_QWORD *)(a1 + 1016) || (PmcData = EtwpAllocatePmcData(a1)) == 0 )
+    if ( *(_QWORD *)(a1 + 1000) || (PmcData = EtwpAllocatePmcData(a1)) == 0 )
     {
-      if ( *(_DWORD *)(*(_QWORD *)(a1 + 1016) + 8LL) )
+      if ( *(_DWORD *)(*(_QWORD *)(a1 + 1000) + 8LL) )
         PmcData = -1073741053;
       for ( i = 0LL; ; i = (unsigned int)(i + 1) )
       {
         v9[8] = i;
         if ( (unsigned int)i >= a3 )
           break;
-        *(_WORD *)(*(_QWORD *)(a1 + 1016) + 2 * i + 12) = *(_WORD *)(a2 + 4 * i);
+        *(_WORD *)(*(_QWORD *)(a1 + 1000) + 2 * i + 12) = *(_WORD *)(a2 + 4 * i);
       }
       _InterlockedOr(v9, 0);
-      *(_DWORD *)(*(_QWORD *)(a1 + 1016) + 8LL) = a3;
+      *(_DWORD *)(*(_QWORD *)(a1 + 1000) + 8LL) = a3;
     }
   }
   else

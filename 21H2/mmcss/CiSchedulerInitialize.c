@@ -1,9 +1,9 @@
 /*
- * XREFs of CiSchedulerInitialize @ 0x1C000D140
+ * XREFs of CiSchedulerInitialize @ 0x1C000E100
  * Callers:
- *     CsInitialize @ 0x1C000D320 (CsInitialize.c)
+ *     CsInitialize @ 0x1C000D2D0 (CsInitialize.c)
  * Callees:
- *     WPP_SF_ @ 0x1C00046A8 (WPP_SF_.c)
+ *     WPP_SF_ @ 0x1C00043F8 (WPP_SF_.c)
  */
 
 __int64 CiSchedulerInitialize()
@@ -38,7 +38,7 @@ __int64 CiSchedulerInitialize()
         WPP_SF_(
           (__int64)WPP_GLOBAL_Control->AttachedDevice,
           0xBu,
-          (__int64)&WPP_aa99675662263b3850e759e243765244_Traceguids);
+          (__int64)&WPP_d6228770c66e391feed760a5a2fdfd5b_Traceguids);
     }
     else
     {
@@ -53,7 +53,7 @@ __int64 CiSchedulerInitialize()
       WPP_SF_(
         (__int64)WPP_GLOBAL_Control->AttachedDevice,
         0xAu,
-        (__int64)&WPP_aa99675662263b3850e759e243765244_Traceguids);
+        (__int64)&WPP_d6228770c66e391feed760a5a2fdfd5b_Traceguids);
     return 3221225495LL;
   }
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ??1CAdapter@@IEAA@XZ @ 0x1C00192E0
+ * XREFs of ??1CAdapter@@IEAA@XZ @ 0x1C0013424
  * Callers:
- *     ??_GCAdapter@@IEAAPEAXI@Z @ 0x1C00192AC (--_GCAdapter@@IEAAPEAXI@Z.c)
+ *     ??_GCAdapter@@IEAAPEAXI@Z @ 0x1C00133F0 (--_GCAdapter@@IEAAPEAXI@Z.c)
  * Callees:
- *     ?DxgkCddDestroySynchronizationObject@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@@Z @ 0x1C01EA2B0 (-DxgkCddDestroySynchronizationObject@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@@Z.c)
- *     DxgkCloseAdapterInternal @ 0x1C01EEAA0 (DxgkCloseAdapterInternal.c)
- *     DxgkDestroyDeviceInternal @ 0x1C01EEAB8 (DxgkDestroyDeviceInternal.c)
- *     DxgkDestroyContextInternal @ 0x1C01EEAD0 (DxgkDestroyContextInternal.c)
+ *     DxgkCloseAdapterInternal @ 0x1C0157058 (DxgkCloseAdapterInternal.c)
+ *     DxgkDestroyDeviceInternal @ 0x1C0157070 (DxgkDestroyDeviceInternal.c)
+ *     DxgkDestroyContextInternal @ 0x1C0157088 (DxgkDestroyContextInternal.c)
+ *     ?DxgkCddDestroySynchronizationObject@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@@Z @ 0x1C01570A0 (-DxgkCddDestroySynchronizationObject@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@@Z.c)
  */
 
 void __fastcall CAdapter::~CAdapter(CAdapter *this)
@@ -16,31 +16,30 @@ void __fastcall CAdapter::~CAdapter(CAdapter *this)
   struct _D3DKMT_DESTROYSYNCHRONIZATIONOBJECT v4; // [rsp+30h] [rbp+8h] BYREF
 
   *(_QWORD *)this = &CAdapter::`vftable';
-  v2 = (void *)*((_QWORD *)this + 6);
+  v2 = (void *)*((_QWORD *)this + 5);
   if ( v2 != (void *)-1LL )
     ObCloseHandle(v2, 1);
-  v3 = (void *)*((_QWORD *)this + 8);
+  v3 = (void *)*((_QWORD *)this + 7);
   if ( v3 )
     ObfDereferenceObject(v3);
-  if ( *((_DWORD *)this + 14) )
+  if ( *((_DWORD *)this + 12) )
   {
-    v4.hSyncObject = *((_DWORD *)this + 14);
+    v4.hSyncObject = *((_DWORD *)this + 12);
     DxgkCddDestroySynchronizationObject(&v4);
   }
-  if ( *((_DWORD *)this + 18) )
+  if ( *((_DWORD *)this + 16) )
   {
-    v4.hSyncObject = *((_DWORD *)this + 18);
+    v4.hSyncObject = *((_DWORD *)this + 16);
     DxgkDestroyContextInternal(&v4);
   }
-  if ( *((_DWORD *)this + 11) )
+  if ( *((_DWORD *)this + 9) )
   {
-    v4.hSyncObject = *((_DWORD *)this + 11);
+    v4.hSyncObject = *((_DWORD *)this + 9);
     DxgkDestroyDeviceInternal(&v4);
   }
-  if ( *((_DWORD *)this + 10) )
+  if ( *((_DWORD *)this + 8) )
   {
-    v4.hSyncObject = *((_DWORD *)this + 10);
+    v4.hSyncObject = *((_DWORD *)this + 8);
     DxgkCloseAdapterInternal(&v4);
   }
-  *((_QWORD *)this + 4) = 0LL;
 }

@@ -1,34 +1,30 @@
 /*
- * XREFs of ExpFreeHandleTableEntry @ 0x1407408A8
+ * XREFs of ExpFreeHandleTableEntry @ 0x14061A23C
  * Callers:
- *     ObpCreateHandle @ 0x1406E45C0 (ObpCreateHandle.c)
- *     ObDuplicateObject @ 0x1406FB9A0 (ObDuplicateObject.c)
- *     ExDestroyHandle @ 0x14073FFAC (ExDestroyHandle.c)
- *     ExCreateHandleEx @ 0x140740974 (ExCreateHandleEx.c)
+ *     ExDestroyHandle @ 0x14061A1D8 (ExDestroyHandle.c)
+ *     ObpCreateHandle @ 0x140643C70 (ObpCreateHandle.c)
+ *     ExCreateHandleEx @ 0x140664860 (ExCreateHandleEx.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExpGetHandleExtraInfo @ 0x1408AB9AA (ExpGetHandleExtraInfo.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExpGetHandleExtraInfo @ 0x14094CB80 (ExpGetHandleExtraInfo.c)
  */
 
-signed __int32 __fastcall ExpFreeHandleTableEntry(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+char __fastcall ExpFreeHandleTableEntry(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v5; // r10
-  char v6; // si
+  __int64 v4; // r10
+  char v5; // si
   unsigned int Number; // eax
-  ULONG_PTR v8; // rbx
-  __int64 v9; // rax
-  __int64 v11; // rax
+  ULONG_PTR v7; // rbx
+  __int64 v8; // rax
+  __int64 v10; // rax
   _DWORD *HandleExtraInfo; // rax
-  __int64 v13; // [rsp+38h] [rbp+10h]
 
-  HIDWORD(v13) = HIDWORD(a2);
-  v5 = a1;
+  v4 = a1;
   if ( *(_DWORD *)(a1 + 4) )
   {
-    LODWORD(v13) = a2 & 0xFFFFFFFC;
-    HandleExtraInfo = (_DWORD *)ExpGetHandleExtraInfo(a1, v13, a3, a4);
+    HandleExtraInfo = (_DWORD *)ExpGetHandleExtraInfo(a1);
     if ( HandleExtraInfo )
     {
       *HandleExtraInfo = 0;
@@ -36,32 +32,32 @@ signed __int32 __fastcall ExpFreeHandleTableEntry(__int64 a1, __int64 a2, __int6
     }
   }
   *(_QWORD *)(a3 + 8) = 0LL;
-  v6 = *(_BYTE *)(v5 + 44) & 1;
-  if ( v6 )
+  v5 = *(_BYTE *)(v4 + 44) & 1;
+  if ( v5 )
     Number = 0;
   else
     Number = KeGetPcr()->Prcb.Number;
-  v8 = v5 + ((Number + 1LL) << 6);
-  ExAcquirePushLockExclusiveEx(v8, 0LL);
-  if ( v6 )
+  v7 = v4 + ((Number + 1LL) << 6);
+  ExAcquirePushLockExclusiveEx(v7, 0LL);
+  if ( v5 )
   {
-    v9 = *(_QWORD *)(v8 + 16);
-    if ( v9 )
-      *(_QWORD *)(v9 + 8) = a3;
-    else
+    v8 = *(_QWORD *)(v7 + 16);
+    if ( v8 )
       *(_QWORD *)(v8 + 8) = a3;
-    *(_QWORD *)(v8 + 16) = a3;
+    else
+      *(_QWORD *)(v7 + 8) = a3;
+    *(_QWORD *)(v7 + 16) = a3;
   }
   else
   {
-    v11 = *(_QWORD *)(v8 + 8);
-    *(_QWORD *)(a3 + 8) = v11;
-    if ( !v11 )
-      *(_QWORD *)(v8 + 16) = a3;
-    *(_QWORD *)(v8 + 8) = a3;
+    v10 = *(_QWORD *)(v7 + 8);
+    *(_QWORD *)(a3 + 8) = v10;
+    if ( !v10 )
+      *(_QWORD *)(v7 + 16) = a3;
+    *(_QWORD *)(v7 + 8) = a3;
   }
-  --*(_DWORD *)(v8 + 24);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)v8);
-  return KeAbPostRelease(v8);
+  --*(_DWORD *)(v7 + 24);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)v7);
+  return KeAbPostRelease(v7);
 }

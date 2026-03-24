@@ -1,12 +1,12 @@
 /*
- * XREFs of DebugService2 @ 0x1401C5380
+ * XREFs of DebugService2 @ 0x1401C53A0
  * Callers:
- *     DbgLoadImageSymbols @ 0x1400F4C40 (DbgLoadImageSymbols.c)
- *     DbgUnLoadImageSymbolsUnicode @ 0x14016C794 (DbgUnLoadImageSymbolsUnicode.c)
- *     DbgLoadUserImageSymbols @ 0x1401921D0 (DbgLoadUserImageSymbols.c)
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
- *     DbgCommandString @ 0x1402EC7E0 (DbgCommandString.c)
- *     DbgUnLoadImageSymbols @ 0x1402EC91C (DbgUnLoadImageSymbols.c)
+ *     DbgLoadImageSymbols @ 0x1400F4C60 (DbgLoadImageSymbols.c)
+ *     DbgUnLoadImageSymbolsUnicode @ 0x14016C7B4 (DbgUnLoadImageSymbolsUnicode.c)
+ *     DbgLoadUserImageSymbols @ 0x1401921F0 (DbgLoadUserImageSymbols.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
+ *     DbgCommandString @ 0x1402EC8E0 (DbgCommandString.c)
+ *     DbgUnLoadImageSymbols @ 0x1402ECA1C (DbgUnLoadImageSymbols.c)
  * Callees:
  *     <none>
  */

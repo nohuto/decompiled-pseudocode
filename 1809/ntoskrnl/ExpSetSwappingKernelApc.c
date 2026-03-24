@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     KeSetKernelStackSwapEnable @ 0x140101CC0 (KeSetKernelStackSwapEnable.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeSetKernelStackSwapEnable @ 0x140101CE0 (KeSetKernelStackSwapEnable.c)
  */
 
 LONG __fastcall ExpSetSwappingKernelApc(__int64 a1, __int64 a2, BOOLEAN *a3, struct _KEVENT **a4)

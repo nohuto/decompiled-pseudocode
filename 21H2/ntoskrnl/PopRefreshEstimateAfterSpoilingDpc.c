@@ -1,9 +1,9 @@
 /*
- * XREFs of PopRefreshEstimateAfterSpoilingDpc @ 0x1403B6E30
+ * XREFs of PopRefreshEstimateAfterSpoilingDpc @ 0x1403A7C70
  * Callers:
  *     <none>
  * Callees:
- *     PopBatteryQueueWork @ 0x14036972C (PopBatteryQueueWork.c)
+ *     PopBatteryQueueWork @ 0x14039AABC (PopBatteryQueueWork.c)
  */
 
 void PopRefreshEstimateAfterSpoilingDpc()

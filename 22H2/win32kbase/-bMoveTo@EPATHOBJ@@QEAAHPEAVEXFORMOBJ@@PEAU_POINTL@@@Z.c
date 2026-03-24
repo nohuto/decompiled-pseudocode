@@ -1,23 +1,28 @@
 /*
- * XREFs of ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z @ 0x1C0153828
+ * XREFs of ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z @ 0x1C0086A30
  * Callers:
- *     ?bAppend@EPATHOBJ@@QEAAHPEAV1@PEAU_POINTFIX@@@Z @ 0x1C0153490 (-bAppend@EPATHOBJ@@QEAAHPEAV1@PEAU_POINTFIX@@@Z.c)
- *     PATHOBJ_bMoveTo @ 0x1C0154220 (PATHOBJ_bMoveTo.c)
- *     ?bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C0156EB4 (-bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z.c)
- *     ?iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z @ 0x1C015CD90 (-iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z.c)
- *     bPolyPolygon @ 0x1C016D3A0 (bPolyPolygon.c)
+ *     ?bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C00BCFF4 (-bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z.c)
+ *     bPolyPolygon @ 0x1C00BDB30 (bPolyPolygon.c)
+ *     PATHOBJ_bMoveTo @ 0x1C00BFC90 (PATHOBJ_bMoveTo.c)
+ *     ?bAppend@EPATHOBJ@@QEAAHPEAV1@PEAU_POINTFIX@@@Z @ 0x1C013D240 (-bAppend@EPATHOBJ@@QEAAHPEAV1@PEAU_POINTFIX@@@Z.c)
+ *     ?iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z @ 0x1C0140900 (-iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z.c)
  * Callees:
- *     ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@AEAV?$umptr_r@U_POINTL@@@@@Z @ 0x1C01537B0 (-bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@AEAV-$umptr_r@U_POINTL@@@@@Z.c)
+ *     ?bXformRound@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z @ 0x1C00BC790 (-bXformRound@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z.c)
  */
 
 __int64 __fastcall EPATHOBJ::bMoveTo(EPATHOBJ *this, struct EXFORMOBJ *a2, struct _POINTL *a3)
 {
-  _QWORD v4[3]; // [rsp+20h] [rbp-28h] BYREF
-  __int16 v5; // [rsp+38h] [rbp-10h]
+  struct _POINTFIX *v5; // r8
+  struct _POINTFIX *v6; // r8
 
-  v4[0] = a3;
-  v4[2] = 0LL;
-  v4[1] = 1LL;
-  v5 = 0;
-  return EPATHOBJ::bMoveTo((__int64)this, (__int64 *)a2, (__int64)v4);
+  v5 = (struct _POINTFIX *)*((_QWORD *)this + 1);
+  if ( !v5 )
+    return 0LL;
+  v6 = v5 + 8;
+  if ( a2 )
+    EXFORMOBJ::bXformRound(a2, a3, v6, 1uLL);
+  else
+    *v6 = (struct _POINTFIX)*a3;
+  *(_DWORD *)(*((_QWORD *)this + 1) + 80LL) |= 5u;
+  return 1LL;
 }

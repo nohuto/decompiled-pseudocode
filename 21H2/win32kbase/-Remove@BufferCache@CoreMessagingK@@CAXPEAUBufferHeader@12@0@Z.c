@@ -1,8 +1,8 @@
 /*
- * XREFs of ?Remove@BufferCache@CoreMessagingK@@CAXPEAUBufferHeader@12@0@Z @ 0x1C003BCB8
+ * XREFs of ?Remove@BufferCache@CoreMessagingK@@CAXPEAUBufferHeader@12@0@Z @ 0x1C004D540
  * Callers:
- *     ?Free@BufferCache@CoreMessagingK@@SAXPEAX@Z @ 0x1C003BA9C (-Free@BufferCache@CoreMessagingK@@SAXPEAX@Z.c)
- *     ?AllocUninitialized@BufferCache@CoreMessagingK@@CAJGPEAPEAX@Z @ 0x1C003BBEC (-AllocUninitialized@BufferCache@CoreMessagingK@@CAJGPEAPEAX@Z.c)
+ *     ?Free@BufferCache@CoreMessagingK@@SAXPEAX@Z @ 0x1C004D3D4 (-Free@BufferCache@CoreMessagingK@@SAXPEAX@Z.c)
+ *     ?AllocUninitialized@BufferCache@CoreMessagingK@@CAJGPEAPEAX@Z @ 0x1C004D478 (-AllocUninitialized@BufferCache@CoreMessagingK@@CAJGPEAPEAX@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,1 +1,77 @@
-/*\n * XREFs of KeyboardClassPoRequestComplete @ 0x1C00011F0\n * Callers:\n *     <none>\n * Callees:\n *     KeyboardClassCheckWaitWakeEnabled @ 0x1C00046AC (KeyboardClassCheckWaitWakeEnabled.c)\n *     KeyboardClassLogError @ 0x1C0004904 (KeyboardClassLogError.c)\n *     WPP_RECORDER_SF_q @ 0x1C0005404 (WPP_RECORDER_SF_q.c)\n */\n\nvoid __fastcall KeyboardClassPoRequestComplete(\n        PDEVICE_OBJECT DeviceObject,\n        UCHAR MinorFunction,\n        POWER_STATE PowerState,\n        IRP *Context)\n{\n  PVOID DeviceExtension; // rdi\n  char v6; // bl\n  POWER_STATE v7; // ebx\n  KIRQL v8; // al\n  bool v9; // bp\n  int v10; // edx\n  _QWORD *PoolWithTag; // rsi\n  int v12; // r8d\n  PIO_WORKITEM WorkItem; // rax\n  NTSTATUS v14; // eax\n  struct _IO_WORKITEM *v15; // rcx\n  ULONG RemlockSize; // [rsp+20h] [rbp-28h]\n\n  DeviceExtension = DeviceObject->DeviceExtension;\n  v6 = (char)DeviceObject;\n  if ( Context )\n  {\n    v7.SystemState = (SYSTEM_POWER_STATE)Context->Tail.Overlay.CurrentStackLocation->Parameters.Power.State;\n    PoSetPowerState(*(PDEVICE_OBJECT *)DeviceExtension, SystemPowerState, v7);\n    *((POWER_STATE *)DeviceExtension + 48) = v7;\n    PoStartNextPowerIrp(Context);\n    ++Context->CurrentLocation;\n    ++Context->Tail.Overlay.CurrentStackLocation;\n    PoCallDriver(*((PDEVICE_OBJECT *)DeviceExtension + 2), Context);\n    IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)DeviceExtension + 1, Context, 0x20u);\n  }\n  else if ( *((int *)DeviceExtension + 71) > 1 && *((int *)DeviceExtension + 72) > 1 )\n  {\n    v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)DeviceExtension + 9);\n    v9 = *((_QWORD *)DeviceExtension + 37) && !*((_BYTE *)DeviceExtension + 304);\n    KeReleaseSpinLock((PKSPIN_LOCK)DeviceExtension + 9, v8);\n    if ( !v9 )\n    {\n      if ( (unsigned __int8)KeyboardClassCheckWaitWakeEnabled(DeviceExtension) )\n      {\n        PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0x20uLL, 0x4364624Bu);\n        if ( PoolWithTag )\n        {\n          WorkItem = IoAllocateWorkItem(*(PDEVICE_OBJECT *)DeviceExtension);\n          PoolWithTag[2] = WorkItem;\n          if ( WorkItem )\n          {\n            PoolWithTag[1] = DeviceExtension;\n            *PoolWithTag = 0LL;\n            v14 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)DeviceExtension + 1, PoolWithTag, &File, 1u, 0x20u);\n            v15 = (struct _IO_WORKITEM *)PoolWithTag[2];\n            if ( v14 >= 0 )\n            {\n              IoQueueWorkItem(v15, KeyboardClassCreateWaitWakeIrpWorker, DelayedWorkQueue, PoolWithTag);\n              return;\n            }\n            IoFreeWorkItem(v15);\n          }\n          ExFreePoolWithTag(PoolWithTag, 0);\n        }\n        WPP_RECORDER_SF_q(WPP_GLOBAL_Control->DeviceExtension, v10, v12, 96, RemlockSize, v6);\n        KeyboardClassLogError(*(_QWORD *)DeviceExtension, -2147155954, 1, -1073741670, 0, 0LL, 0);\n      }\n    }\n  }\n}\n
+/*
+ * XREFs of KeyboardClassPoRequestComplete @ 0x1C00011F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeyboardClassCheckWaitWakeEnabled @ 0x1C00046AC (KeyboardClassCheckWaitWakeEnabled.c)
+ *     KeyboardClassLogError @ 0x1C0004904 (KeyboardClassLogError.c)
+ *     WPP_RECORDER_SF_q @ 0x1C0005404 (WPP_RECORDER_SF_q.c)
+ */
+
+void __fastcall KeyboardClassPoRequestComplete(
+        PDEVICE_OBJECT DeviceObject,
+        UCHAR MinorFunction,
+        POWER_STATE PowerState,
+        IRP *Context)
+{
+  PVOID DeviceExtension; // rdi
+  char v6; // bl
+  POWER_STATE v7; // ebx
+  KIRQL v8; // al
+  bool v9; // bp
+  int v10; // edx
+  _QWORD *PoolWithTag; // rsi
+  int v12; // r8d
+  PIO_WORKITEM WorkItem; // rax
+  NTSTATUS v14; // eax
+  struct _IO_WORKITEM *v15; // rcx
+  ULONG RemlockSize; // [rsp+20h] [rbp-28h]
+
+  DeviceExtension = DeviceObject->DeviceExtension;
+  v6 = (char)DeviceObject;
+  if ( Context )
+  {
+    v7.SystemState = (SYSTEM_POWER_STATE)Context->Tail.Overlay.CurrentStackLocation->Parameters.Power.State;
+    PoSetPowerState(*(PDEVICE_OBJECT *)DeviceExtension, SystemPowerState, v7);
+    *((POWER_STATE *)DeviceExtension + 48) = v7;
+    PoStartNextPowerIrp(Context);
+    ++Context->CurrentLocation;
+    ++Context->Tail.Overlay.CurrentStackLocation;
+    PoCallDriver(*((PDEVICE_OBJECT *)DeviceExtension + 2), Context);
+    IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)DeviceExtension + 1, Context, 0x20u);
+  }
+  else if ( *((int *)DeviceExtension + 71) > 1 && *((int *)DeviceExtension + 72) > 1 )
+  {
+    v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)DeviceExtension + 9);
+    v9 = *((_QWORD *)DeviceExtension + 37) && !*((_BYTE *)DeviceExtension + 304);
+    KeReleaseSpinLock((PKSPIN_LOCK)DeviceExtension + 9, v8);
+    if ( !v9 )
+    {
+      if ( (unsigned __int8)KeyboardClassCheckWaitWakeEnabled(DeviceExtension) )
+      {
+        PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0x20uLL, 0x4364624Bu);
+        if ( PoolWithTag )
+        {
+          WorkItem = IoAllocateWorkItem(*(PDEVICE_OBJECT *)DeviceExtension);
+          PoolWithTag[2] = WorkItem;
+          if ( WorkItem )
+          {
+            PoolWithTag[1] = DeviceExtension;
+            *PoolWithTag = 0LL;
+            v14 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)DeviceExtension + 1, PoolWithTag, &File, 1u, 0x20u);
+            v15 = (struct _IO_WORKITEM *)PoolWithTag[2];
+            if ( v14 >= 0 )
+            {
+              IoQueueWorkItem(v15, KeyboardClassCreateWaitWakeIrpWorker, DelayedWorkQueue, PoolWithTag);
+              return;
+            }
+            IoFreeWorkItem(v15);
+          }
+          ExFreePoolWithTag(PoolWithTag, 0);
+        }
+        WPP_RECORDER_SF_q(WPP_GLOBAL_Control->DeviceExtension, v10, v12, 96, RemlockSize, v6);
+        KeyboardClassLogError(*(_QWORD *)DeviceExtension, -2147155954, 1, -1073741670, 0, 0LL, 0);
+      }
+    }
+  }
+}

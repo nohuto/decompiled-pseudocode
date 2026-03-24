@@ -1,14 +1,14 @@
 /*
- * XREFs of PsTerminateMinimalProcess @ 0x1409B137C
+ * XREFs of PsTerminateMinimalProcess @ 0x14090AD0C
  * Callers:
- *     PspTeardownPartition @ 0x1409B3490 (PspTeardownPartition.c)
- *     VmTerminateMemoryProcess @ 0x1409D9A20 (VmTerminateMemoryProcess.c)
+ *     PspTeardownPartition @ 0x14090D090 (PspTeardownPartition.c)
+ *     VmTerminateMemoryProcess @ 0x14092F250 (VmTerminateMemoryProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     PspRundownSingleProcess @ 0x140683990 (PspRundownSingleProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
  */
 
 bool __fastcall PsTerminateMinimalProcess(_DWORD *BugCheckParameter1, int a2)

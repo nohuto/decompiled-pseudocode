@@ -1,26 +1,26 @@
 /*
- * XREFs of ?StCompactRegions@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEADK1KK@Z @ 0x14038FC10
+ * XREFs of ?StCompactRegions@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEADK1KK@Z @ 0x1402DCC88
  * Callers:
- *     ?StDmCurrentRegionSet@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x14023814C (-StDmCurrentRegionSet@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z.c)
- *     ?StDmReuseCurrentRegion@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_CURRENT_REGION@1@@Z @ 0x1403828A4 (-StDmReuseCurrentRegion@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_CURRENT_REGION@1@.c)
- *     ?StCompactionPerformInMem@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@K@Z @ 0x14038F99C (-StCompactionPerformInMem@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@K@Z.c)
- *     ?StCompactionPerformEmergency@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x1405F80DC (-StCompactionPerformEmergency@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
+ *     ?StCompactionPerformInMem@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@K@Z @ 0x1402ACD88 (-StCompactionPerformInMem@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StDmReuseCurrentRegion@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_CURRENT_REGION@1@@Z @ 0x1402D1178 (-StDmReuseCurrentRegion@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_CURRENT_REGION@1@.c)
+ *     ?StDmCurrentRegionSet@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x1402E157C (-StDmCurrentRegionSet@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z.c)
+ *     ?StCompactionPerformEmergency@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14059A2D8 (-StCompactionPerformEmergency@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
  * Callees:
- *     ?BTreeSearchResultCleanup@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAXPEAU1@PEAUSEARCH_RESULT@1@K@Z @ 0x140237E94 (-BTreeSearchResultCleanup@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEX.c)
- *     ?BTreeSearchResultDeref@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAXPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x140237ED8 (-BTreeSearchResultDeref@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@.c)
- *     ?StDmpUpdateRegionState@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KJK@Z @ 0x14038032C (-StDmpUpdateRegionState@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KJK@Z.c)
- *     ?BTreeInsert@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAJPEAU1@PEAU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@PEAUSEARCH_RESULT@1@@Z @ 0x140380900 (-BTreeInsert@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION.c)
- *     ?BTreeSearchKey@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAJPEAU1@KPEAUSEARCH_RESULT@1@@Z @ 0x140380C38 (-BTreeSearchKey@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REG.c)
- *     ?StDmPageRecordUnprotect@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x1403812B0 (-StDmPageRecordUnprotect@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z.c)
- *     ?StDmCheckForCompaction@?$ST_STORE@USM_TRAITS@@@@SA?AW4_ST_COMPACTION_CHECK_RESULT@@PEAU_ST_DATA_MGR@1@K@Z @ 0x14038217C (-StDmCheckForCompaction@-$ST_STORE@USM_TRAITS@@@@SA-AW4_ST_COMPACTION_CHECK_RESULT@@PEAU_ST_DATA.c)
- *     ?BTreeChangeKey@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAKPEAU1@PEAUSEARCH_RESULT@1@K@Z @ 0x1403901F0 (-BTreeChangeKey@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REG.c)
- *     ?BTreeIteratorCleanup@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAXPEAUITERATOR@1@PEAU1@@Z @ 0x1403903B8 (-BTreeIteratorCleanup@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U.c)
- *     ?BTreeIteratorFromSearchResult@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAXPEAU1@PEAUITERATOR@1@PEAUSEARCH_RESULT@1@@Z @ 0x14039042C (-BTreeIteratorFromSearchResult@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_C.c)
- *     ?BTreeDelete@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAJPEAU1@KPEAUSEARCH_RESULT@1@@Z @ 0x1403904D4 (-BTreeDelete@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ?BTreeFindLeafSibling@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAPEAUNODE@?$B_TREE_HEADER@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAU1@PEAU23@K@Z @ 0x1405F6054 (-BTreeFindLeafSibling@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U.c)
+ *     ?StDmPageRecordUnprotect@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x140253FFC (-StDmPageRecordUnprotect@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z.c)
+ *     ?StDmpUpdateRegionState@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KJK@Z @ 0x1402DAE6C (-StDmpUpdateRegionState@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@KJK@Z.c)
+ *     ?BTreeInsert@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAJPEAU1@PEAU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@PEAUSEARCH_RESULT@1@@Z @ 0x1402DB4C4 (-BTreeInsert@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION.c)
+ *     ?BTreeSearchKey@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAJPEAU1@KPEAUSEARCH_RESULT@1@@Z @ 0x1402DB7EC (-BTreeSearchKey@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REG.c)
+ *     ?BTreeSearchResultDeref@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAXPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1402DB9F8 (-BTreeSearchResultDeref@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@.c)
+ *     ?BTreeChangeKey@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAKPEAU1@PEAUSEARCH_RESULT@1@K@Z @ 0x1402DD260 (-BTreeChangeKey@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REG.c)
+ *     ?BTreeIteratorCleanup@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAXPEAUITERATOR@1@PEAU1@@Z @ 0x1402DD418 (-BTreeIteratorCleanup@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U.c)
+ *     ?StDmCheckForCompaction@?$ST_STORE@USM_TRAITS@@@@SA?AW4_ST_COMPACTION_CHECK_RESULT@@PEAU_ST_DATA_MGR@1@K@Z @ 0x1402DDD88 (-StDmCheckForCompaction@-$ST_STORE@USM_TRAITS@@@@SA-AW4_ST_COMPACTION_CHECK_RESULT@@PEAU_ST_DATA.c)
+ *     ?BTreeSearchResultCleanup@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAXPEAU1@PEAUSEARCH_RESULT@1@K@Z @ 0x1402DEECC (-BTreeSearchResultCleanup@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEX.c)
+ *     ?BTreeIteratorFromSearchResult@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAXPEAU1@PEAUITERATOR@1@PEAUSEARCH_RESULT@1@@Z @ 0x1402DEF10 (-BTreeIteratorFromSearchResult@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_C.c)
+ *     ?BTreeDelete@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAJPEAU1@KPEAUSEARCH_RESULT@1@@Z @ 0x1402DEFB8 (-BTreeDelete@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ?BTreeFindLeafSibling@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_REGION_ENTRY_COMPARATOR@2@@@SAPEAUNODE@?$B_TREE_HEADER@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAU1@PEAU23@K@Z @ 0x140598194 (-BTreeFindLeafSibling@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StCompactRegions(
@@ -31,41 +31,41 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StCompactRegions(
         unsigned int a5,
         int a6)
 {
-  __int64 v7; // r13
+  __int64 v7; // rbx
   __int64 v8; // rcx
   _WORD *v9; // rax
-  int v10; // r12d
+  int v10; // r13d
   _QWORD *v11; // rsi
   int v12; // ecx
-  int v13; // edi
-  __int64 v14; // r15
-  unsigned __int64 v15; // rdx
-  __int64 v16; // rax
-  unsigned int v17; // r9d
-  __int64 v18; // rax
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  int v21; // r9d
-  __int64 v22; // rdi
-  int *v23; // rdi
-  int v24; // r9d
-  int v25; // r8d
-  int v26; // edx
-  unsigned int v27; // r10d
-  unsigned int v28; // r11d
-  __int64 v29; // rdx
-  __int64 v30; // rdi
-  __int64 v31; // r13
-  int v32; // eax
-  int v33; // edx
-  int *v34; // r13
-  unsigned int v35; // r15d
-  int v36; // eax
-  int v37; // eax
-  __int64 v38; // r8
-  _DWORD **v40; // rax
-  __int64 LeafSibling; // rax
-  int v42; // eax
+  _DWORD *v13; // r14
+  int v14; // ebx
+  unsigned __int64 v15; // r15
+  unsigned int *v16; // r12
+  __int64 v17; // rax
+  unsigned int *LeafSibling; // rax
+  unsigned int v19; // r9d
+  __int64 v20; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  int v23; // r9d
+  __int64 v24; // rbx
+  int *v25; // rbx
+  int v26; // r9d
+  int v27; // edx
+  int v28; // r8d
+  unsigned int v29; // r11d
+  size_t v30; // r8
+  __int64 v31; // rdx
+  __int64 v32; // rbx
+  __int64 v33; // r14
+  int v34; // eax
+  int v35; // edx
+  int *v36; // r14
+  unsigned int v37; // r15d
+  int v38; // eax
+  int v39; // eax
+  __int64 v40; // r8
+  int v41; // eax
   int v43; // [rsp+20h] [rbp-E0h]
   int v44; // [rsp+24h] [rbp-DCh]
   int v45; // [rsp+28h] [rbp-D8h]
@@ -75,24 +75,25 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StCompactRegions(
   __int128 v49; // [rsp+38h] [rbp-C8h] BYREF
   unsigned int v50; // [rsp+48h] [rbp-B8h]
   __int64 v51; // [rsp+50h] [rbp-B0h]
-  __int64 v52; // [rsp+58h] [rbp-A8h]
-  _WORD *v53; // [rsp+60h] [rbp-A0h]
+  _WORD *v52; // [rsp+58h] [rbp-A8h]
+  __int64 v53; // [rsp+60h] [rbp-A0h]
   int *v54; // [rsp+68h] [rbp-98h]
   _WORD *v55; // [rsp+70h] [rbp-90h]
-  _QWORD v56[22]; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v56; // [rsp+78h] [rbp-88h]
+  _QWORD v57[22]; // [rsp+80h] [rbp-80h] BYREF
 
   v7 = a3;
-  v52 = a2;
+  v53 = a2;
   v50 = a3;
   v46 = a5;
   v51 = a4;
-  memset(v56, 0, 0xA8uLL);
+  memset(v57, 0, 0xA8uLL);
   v8 = *(_QWORD *)(a1 + 1032);
   v44 = 0;
   v49 = 0LL;
   v9 = (_WORD *)(v8 + 2LL * a5);
   v55 = (_WORD *)(v8 + 2 * v7);
-  v53 = v9;
+  v52 = v9;
   if ( v55 == v9 )
     v10 = 0;
   else
@@ -101,176 +102,171 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StCompactRegions(
   ST_STORE<SM_TRAITS>::StDmPageRecordUnprotect(a1, *(_QWORD *)(a1 + 760));
   v11 = (_QWORD *)(a1 + 88);
   v12 = *(_DWORD *)(a1 + 120);
+  v13 = (_DWORD *)(a1 + 64);
+  v56 = a1 + 64;
   if ( (v12 & 1) != 0 )
   {
     B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeSearchResultDeref(
-      (__int64 *)(a1 + 64),
+      (_DWORD *)(a1 + 64),
       a1 + 88);
     v12 = *(_DWORD *)(a1 + 120);
   }
   *(_DWORD *)(a1 + 120) = v12 & 0xFFFFFFFE;
   **(_DWORD **)(a1 + 760) = (_DWORD)v7 << *(_DWORD *)(a1 + 812);
-  v13 = B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeSearchKey(
-          (char **)(a1 + 64),
+  v14 = B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeSearchKey(
+          (_DWORD *)(a1 + 64),
           *(_DWORD *)(a1 + 768),
           a1 + 88);
-  if ( v13 != -1073741818 )
+  if ( v14 != -1073741818 )
   {
     B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeIteratorFromSearchResult(
       a1 + 64,
       &v49,
       a1 + 88);
-    v14 = v49;
+    v15 = *((_QWORD *)&v49 + 1);
+    v16 = (unsigned int *)v49;
     while ( 1 )
     {
       if ( v44 )
       {
-        **(_DWORD **)(a1 + 760) = (_DWORD)v7 << *(_DWORD *)(a1 + 812);
-        v13 = B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeSearchKey(
-                (char **)(a1 + 64),
+        **(_DWORD **)(a1 + 760) = v50 << *(_DWORD *)(a1 + 812);
+        v14 = B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeSearchKey(
+                v13,
                 *(_DWORD *)(a1 + 768),
                 a1 + 88);
-        if ( v13 == -1073741818 )
+        if ( v14 == -1073741818 )
           break;
         B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeIteratorCleanup(
           &v49,
-          a1 + 64);
+          v13);
         B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeIteratorFromSearchResult(
-          a1 + 64,
+          v13,
           &v49,
           a1 + 88);
-        v14 = v49;
+        v15 = *((_QWORD *)&v49 + 1);
+        v16 = (unsigned int *)v49;
       }
-      if ( !v14 )
+      if ( !v16 )
       {
-LABEL_44:
-        v13 = 0;
+LABEL_51:
+        v14 = 0;
         break;
       }
-      v15 = *((_QWORD *)&v49 + 1) + 4LL;
-      v16 = (unsigned __int16)*(_DWORD *)v14 + 4LL;
+      v15 += 4LL;
+      v17 = (unsigned __int16)*v16 + 4LL;
       *((_QWORD *)&v49 + 1) = v15;
-      if ( v15 >= v14 + 4 * v16 )
+      if ( v15 < (unsigned __int64)&v16[v17] )
+        goto LABEL_12;
+      if ( **(_DWORD **)((unsigned __int64)(v13 + 4) & -(__int64)(v13 != 0LL)) == -1 )
       {
-        if ( a1 == -64 )
-          v40 = 0LL;
-        else
-          v40 = (_DWORD **)(a1 + 80);
-        if ( **v40 == -1 )
-        {
-          LeafSibling = 3358LL;
-          if ( **(_DWORD **)((a1 + 80) & -(__int64)(a1 != -64)) == -1 )
-            LeafSibling = *(_QWORD *)(v14 + 8);
-        }
-        else
-        {
-          LeafSibling = B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeFindLeafSibling(
-                          a1 + 64,
-                          v14);
-          if ( LeafSibling == -1 )
-          {
-            v15 = -1LL;
-            goto LABEL_12;
-          }
-        }
-        if ( LeafSibling )
-        {
-          v15 = LeafSibling + 16;
-          *(_QWORD *)&v49 = LeafSibling;
-          *((_QWORD *)&v49 + 1) = LeafSibling + 16;
-          v14 = LeafSibling;
-        }
-        else
-        {
-          v15 = 0LL;
-        }
+        LeafSibling = (unsigned int *)*((_QWORD *)v16 + 1);
       }
-LABEL_12:
-      if ( v15 == -1LL )
-        goto LABEL_69;
-      if ( !v15 )
-        goto LABEL_44;
-      v17 = *(_DWORD *)v15;
-      v18 = (unsigned int)(*(_DWORD *)(a1 + 464) * (*(_DWORD *)v15 & *(_DWORD *)(a1 + 460)));
-      v19 = (unsigned int)(*(_DWORD *)v15 >> *(_DWORD *)(a1 + 456));
-      _BitScanReverse((unsigned int *)&v20, v19);
-      v48 = v17;
-      v21 = *(_DWORD *)(a1 + 808);
-      v22 = *(_QWORD *)(*(_QWORD *)(a1 + 8 * v20 + 192) + 16 * (v19 ^ (unsigned int)(1 << v20)));
-      LODWORD(v20) = *(_DWORD *)(a1 + 812);
-      v23 = (int *)(*(unsigned int *)(a1 + 472) + v18 + v22);
-      v54 = v23;
-      v24 = *v23 & v21;
-      if ( (unsigned int)*v23 >> v20 != (_DWORD)v7 )
-        goto LABEL_44;
-      v25 = *(_DWORD *)(a1 + 824);
-      v26 = 4096;
-      v27 = v46;
-      if ( (v23[1] & 0xFFF) != 0 )
-        v26 = v23[1] & 0xFFF;
-      v47 = (unsigned int)(v26 + v25 + 15) >> 4;
-      v28 = v25 + (-*(_DWORD *)(*(_QWORD *)(a1 + 1016) + 8LL) & (v26 + *(_DWORD *)(*(_QWORD *)(a1 + 1016) + 8LL) - 1));
-      if ( v46 == (_DWORD)v7 || v47 + (*v53 & 0x1FFF) <= *(_DWORD *)(a1 + 816) )
+      else
       {
-        v29 = v51;
+        LeafSibling = (unsigned int *)B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeFindLeafSibling(
+                                        v13,
+                                        v16);
+        if ( LeafSibling == (unsigned int *)-1LL )
+          goto LABEL_13;
+      }
+      if ( LeafSibling )
+      {
+        v15 = (unsigned __int64)(LeafSibling + 4);
+        *(_QWORD *)&v49 = LeafSibling;
+        *((_QWORD *)&v49 + 1) = LeafSibling + 4;
+        v16 = LeafSibling;
+LABEL_12:
+        LeafSibling = (unsigned int *)v15;
+      }
+LABEL_13:
+      if ( LeafSibling == (unsigned int *)-1LL )
+        goto LABEL_66;
+      if ( !LeafSibling )
+        goto LABEL_51;
+      v19 = *LeafSibling;
+      v20 = *(_DWORD *)(a1 + 464) * (*LeafSibling & *(_DWORD *)(a1 + 460));
+      v21 = v19 >> *(_DWORD *)(a1 + 456);
+      _BitScanReverse((unsigned int *)&v22, v21);
+      v48 = v19;
+      v23 = *(_DWORD *)(a1 + 808);
+      v24 = *(_QWORD *)(*(_QWORD *)(a1 + 8 * v22 + 192) + 16 * (v21 ^ (unsigned int)(1 << v22)));
+      LODWORD(v22) = *(_DWORD *)(a1 + 812);
+      v25 = (int *)(*(unsigned int *)(a1 + 472) + v20 + v24);
+      v54 = v25;
+      v26 = *v25 & v23;
+      if ( (unsigned int)*v25 >> v22 != v50 )
+        goto LABEL_51;
+      v27 = 4096;
+      v28 = *(_DWORD *)(a1 + 824);
+      v29 = v46;
+      if ( (v25[1] & 0xFFF) != 0 )
+        v27 = v25[1] & 0xFFF;
+      v47 = (unsigned int)(v27 + v28 + 15) >> 4;
+      v30 = (-*(_DWORD *)(*(_QWORD *)(a1 + 1016) + 8LL) & (unsigned int)(v27
+                                                                       + *(_DWORD *)(*(_QWORD *)(a1 + 1016) + 8LL)
+                                                                       - 1))
+          + v28;
+      if ( v46 == v50 || v47 + (*v52 & 0x1FFF) <= *(_DWORD *)(a1 + 816) )
+      {
+        v31 = v51;
       }
       else
       {
         v10 = 0;
+        v31 = v53;
+        v29 = v50;
         v44 = 0;
-        v29 = v52;
-        v53 = v55;
-        v27 = v7;
-        v51 = v52;
+        v52 = v55;
+        v51 = v53;
         v43 = 0;
-        v46 = v7;
+        v46 = v50;
       }
-      if ( v24 != v10 || (_DWORD)v7 != v27 )
+      if ( v26 != v10 || v50 != v29 )
       {
-        if ( !v29 )
+        if ( !v31 )
         {
-          v13 = -1073741802;
+          v14 = -1073741802;
           break;
         }
-        memmove((void *)(v29 + (unsigned int)(16 * v10)), (const void *)(v52 + (unsigned int)(16 * v24)), v28);
-        ST_STORE<SM_TRAITS>::StDmPageRecordUnprotect(a1, (__int64)v23);
-        v30 = a1 + 96;
-        v31 = a1 + 96;
-        v32 = *(_DWORD *)(a1 + 112);
-        v33 = v10 | (v46 << *(_DWORD *)(a1 + 812));
-        v45 = v33;
-        if ( v32 != -1 && v32 )
-          v31 = *v11 + 16LL * (unsigned int)(v32 - 1);
-        if ( *(_QWORD *)v31 == v14 )
+        memmove((void *)(v31 + (unsigned int)(16 * v10)), (const void *)(v53 + (unsigned int)(16 * v26)), v30);
+        ST_STORE<SM_TRAITS>::StDmPageRecordUnprotect(a1, (__int64)v25);
+        v32 = a1 + 96;
+        v33 = a1 + 96;
+        v34 = *(_DWORD *)(a1 + 112);
+        v35 = v10 | (v46 << *(_DWORD *)(a1 + 812));
+        v45 = v35;
+        if ( v34 != -1 && v34 )
+          v33 = *v11 + 16LL * (unsigned int)(v34 - 1);
+        if ( *(unsigned int **)v33 == v16 )
         {
-          *(_QWORD *)(v31 + 8) = *((_QWORD *)&v49 + 1);
+          *(_QWORD *)(v33 + 8) = v15;
         }
         else
         {
           B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeSearchResultDeref(
-            (__int64 *)(a1 + 64),
+            (_DWORD *)(a1 + 64),
             a1 + 88);
           if ( *(_DWORD *)(a1 + 112) == -1 )
           {
-            *(_OWORD *)v31 = v49;
+            *(_OWORD *)v33 = v49;
           }
           else
           {
             B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeSearchKey(
-              (char **)(a1 + 64),
-              *(_DWORD *)(v14 + 16),
+              (_DWORD *)(a1 + 64),
+              v16[4],
               a1 + 88);
-            v42 = *(_DWORD *)(a1 + 112);
-            if ( v42 != -1 && v42 )
-              v30 = *v11 + 16LL * (unsigned int)(v42 - 1);
-            *(_QWORD *)(v30 + 8) = *((_QWORD *)&v49 + 1);
+            v41 = *(_DWORD *)(a1 + 112);
+            if ( v41 != -1 && v41 )
+              v32 = *v11 + 16LL * (unsigned int)(v41 - 1);
+            *(_QWORD *)(v32 + 8) = v15;
           }
-          v33 = v45;
+          v35 = v45;
         }
         if ( v44 )
         {
-LABEL_26:
-          v34 = v54;
+LABEL_27:
+          v36 = v54;
           **(_DWORD **)(a1 + 760) = *v54;
           B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeChangeKey(
             a1 + 64,
@@ -279,87 +275,90 @@ LABEL_26:
           B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeIteratorCleanup(
             &v49,
             a1 + 64);
-          v35 = v48;
-          *v34 = v45;
-          v48 = v35;
-          v56[0] = &v56[5];
+          v37 = v48;
+          *v36 = v45;
+          v48 = v37;
+          v57[0] = &v57[5];
           v49 = 0LL;
-          v56[1] = 0LL;
-          v56[2] = 0LL;
-          v56[4] = 0LL;
-          v56[3] = 0x800000000LL;
-          v13 = B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeInsert(
+          v57[1] = 0LL;
+          v57[2] = 0LL;
+          v57[4] = 0LL;
+          v57[3] = 0x800000000LL;
+          v14 = B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeInsert(
                   a1 + 64,
                   &v48,
-                  (__int64)v56);
+                  (__int64)v57);
           B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeSearchResultCleanup(
             a1 + 64,
-            (__int64)v56,
-            1);
-          if ( v13 < 0 )
+            v57,
+            1LL);
+          if ( v14 < 0 )
           {
-            *v34 = **(_DWORD **)(a1 + 760);
+            *v36 = **(_DWORD **)(a1 + 760);
             B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeChangeKey(
               a1 + 64,
               a1 + 88,
-              v35);
+              v37);
             break;
           }
-          v36 = B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeDelete(
+          v38 = B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeDelete(
                   a1 + 64,
                   *(unsigned int *)(a1 + 768),
                   a1 + 88);
-          v13 = v36;
-          if ( v36 == -1073741818 )
-            break;
-          if ( v36 < 0 )
+          v14 = v38;
+          if ( v38 < 0 )
+          {
+            if ( v38 == -1073741818 )
+              break;
             __int2c();
-          v14 = v49;
+          }
+          v15 = *((_QWORD *)&v49 + 1);
+          v16 = (unsigned int *)v49;
         }
         else
         {
-          **(_DWORD **)(a1 + 760) = v33;
-          v37 = B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeChangeKey(
+          **(_DWORD **)(a1 + 760) = v35;
+          v39 = B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeChangeKey(
                   a1 + 64,
                   a1 + 88,
                   *(unsigned int *)(a1 + 768));
-          if ( !v37 )
+          if ( !v39 )
           {
             v44 = 1;
-            goto LABEL_26;
+            goto LABEL_27;
           }
-          if ( v37 == -1 )
+          if ( v39 == -1 )
           {
-LABEL_69:
-            v13 = -1073741818;
+LABEL_66:
+            v14 = -1073741818;
             break;
           }
-          v38 = v48;
+          v40 = v48;
           *v54 = v45;
           B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeChangeKey(
             a1 + 64,
             a1 + 88,
-            v38);
+            v40);
         }
-        LODWORD(v7) = v50;
         if ( v50 != v46 )
         {
           ST_STORE<SM_TRAITS>::StDmpUpdateRegionState(a1, v50, -v47, 1);
           ST_STORE<SM_TRAITS>::StDmpUpdateRegionState(a1, v46, v47, 0);
         }
         v10 = v43;
+        v13 = (_DWORD *)(a1 + 64);
       }
       v10 += v47;
       v43 = v10;
-      if ( a6 && (unsigned int)ST_STORE<SM_TRAITS>::StDmCheckForCompaction(a1, 0) != 2 )
+      if ( a6 && (unsigned int)ST_STORE<SM_TRAITS>::StDmCheckForCompaction(a1, 0LL) != 2 )
       {
-        v13 = -2147483634;
+        v14 = -2147483634;
         break;
       }
     }
   }
   B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_REGION_ENTRY_COMPARATOR>::BTreeIteratorCleanup(
     &v49,
-    a1 + 64);
-  return (unsigned int)v13;
+    v56);
+  return (unsigned int)v14;
 }

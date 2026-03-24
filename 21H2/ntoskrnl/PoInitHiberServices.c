@@ -1,72 +1,101 @@
 /*
- * XREFs of PoInitHiberServices @ 0x1408288D4
+ * XREFs of PoInitHiberServices @ 0x140790C78
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14082830C (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x1407900CC (CmCompleteRegistryInitialization.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ExIsSoftBoot @ 0x1403B72A0 (ExIsSoftBoot.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExSubscribeWnfStateChange @ 0x1406D1FA0 (ExSubscribeWnfStateChange.c)
- *     PopBcdEstablishResumeObject @ 0x140800680 (PopBcdEstablishResumeObject.c)
- *     PopBcdClearPendingResume @ 0x140800968 (PopBcdClearPendingResume.c)
- *     BcdCloseStore @ 0x1408124A0 (BcdCloseStore.c)
- *     BcdOpenStore @ 0x1408125C4 (BcdOpenStore.c)
- *     PopHibernateEvaluation @ 0x140818DF4 (PopHibernateEvaluation.c)
- *     PopAcquireTransitionLock @ 0x14081CE58 (PopAcquireTransitionLock.c)
- *     PopReleaseTransitionLock @ 0x14081CF98 (PopReleaseTransitionLock.c)
- *     PopTraceHibernatePolicyUpdate @ 0x1408289F4 (PopTraceHibernatePolicyUpdate.c)
- *     PopInitializeHibernateGlobals @ 0x140828AC4 (PopInitializeHibernateGlobals.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ExIsSoftBoot @ 0x14039B470 (ExIsSoftBoot.c)
+ *     ZwQuerySystemInformation @ 0x1403FAA60 (ZwQuerySystemInformation.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PopBcdClearPendingResume @ 0x140781D60 (PopBcdClearPendingResume.c)
+ *     PopBcdEstablishResumeObject @ 0x140782280 (PopBcdEstablishResumeObject.c)
+ *     PopAcquireTransitionLock @ 0x14078DA78 (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x14078DAD4 (PopReleaseTransitionLock.c)
+ *     PopEnableHiberFile @ 0x1407910F0 (PopEnableHiberFile.c)
+ *     PoDisableSleepStates @ 0x1408E3C20 (PoDisableSleepStates.c)
+ *     PoShutdownBugCheck @ 0x1408E75C0 (PoShutdownBugCheck.c)
+ *     PopBcdClose @ 0x1408F584C (PopBcdClose.c)
+ *     PopBcdOpen @ 0x1408F5864 (PopBcdOpen.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     EmClientQueryRuleState @ 0x14098F620 (EmClientQueryRuleState.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 (*PoInitHiberServices())(void)
+void PoInitHiberServices()
 {
-  int v0; // eax
-  int v1; // ecx
-  unsigned int v2; // ebx
-  _DWORD *v3; // rdx
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // rdx
-  __int64 v7; // rbx
-  __int64 (*result)(void); // rax
-  bool v9; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v10; // [rsp+48h] [rbp+10h] BYREF
+  _DWORD *v0; // rsi
+  bool v1; // di
+  int v2; // eax
+  __int64 v3; // rbx
+  _DWORD *PoolWithTag; // rax
+  unsigned int v5; // r14d
+  __int64 v6; // rbx
+  int v7; // ecx
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rcx
+  char v12; // [rsp+78h] [rbp+48h] BYREF
+  __int64 v13; // [rsp+80h] [rbp+50h] BYREF
 
-  v10 = 0LL;
-  v9 = 0;
+  v13 = 0LL;
   RtlInitUnicodeString(&PoHiberFileRoot, L"\\OSDataRoot");
-  PopInitializeHibernateGlobals();
-  v0 = PopHiberFileTypeReg;
-  if ( PopHiberFileTypeReg != -1 || (v0 = PopHiberFileTypeDefaultReg, PopHiberFileTypeDefaultReg != -1) )
-    PopHiberFileType = v0;
-  PopAcquireTransitionLock(2);
-  PopAcquirePolicyLock(v1);
-  v2 = PopAllowHibernateReg;
-  LOBYTE(v3) = 1;
-  PopHibernateEvaluation(1, v3, &v9);
-  PopReleasePolicyLock(v5, v4);
-  PopReleaseTransitionLock(2);
-  LOBYTE(v6) = v9;
-  PopTraceHibernatePolicyUpdate(v2, v6);
-  if ( !ExIsSoftBoot() && (int)BcdOpenStore(0LL, 2u, &v10) >= 0 )
+  v0 = 0LL;
+  if ( PopHiberEnabledReg == -1 )
+    v1 = (unsigned int)(PopHiberEnabledDefaultReg - 1) > 0xFFFFFFFD;
+  else
+    v1 = PopHiberEnabledReg == 0;
+  v2 = PopHiberFileTypeReg;
+  if ( PopHiberFileTypeReg != -1 || (v2 = PopHiberFileTypeDefaultReg, PopHiberFileTypeDefaultReg != -1) )
+    PopHiberFileType = v2;
+  EmClientQueryRuleState(&GUID_EM_REMOVE_BAD_S3_PAGE_RULE, &v12);
+  if ( !ExIsSoftBoot() && (int)PopBcdOpen(&v13) >= 0 )
   {
-    v7 = v10;
-    PopBcdEstablishResumeObject(v10, 0LL);
-    PopBcdClearPendingResume(v7);
-    BcdCloseStore(v7);
+    v3 = v13;
+    PopBcdEstablishResumeObject(v13, 0LL);
+    PopBcdClearPendingResume(v3);
+    PopBcdClose(v3);
   }
-  if ( (int)ExSubscribeWnfStateChange(
-              (int)&PopHibernatePolicyWnfSubscription,
-              (int)&WNF_PO_HIBERNATE_POLICY_CHANGE,
-              1,
-              0,
-              (__int64)PopWnfHibernatePolicyCallback,
-              (__int64)&PopAllowHibernateReg) < 0 )
-    PopHibernatePolicyWnfSubscription = 0LL;
-  result = qword_140C5AD58;
-  if ( qword_140C5AD58 )
-    return (__int64 (*)(void))qword_140C5AD58();
-  return result;
+  if ( (unsigned int)ZwQuerySystemInformation(112LL, 0LL) == -1073741789 )
+  {
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0LL, 0x72626968u);
+    v0 = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      if ( (int)ZwQuerySystemInformation(112LL, (__int64)PoolWithTag) >= 0 && *(_BYTE *)v0 && v0[1] != -1 )
+      {
+        v1 = 1;
+        PoDisableSleepStates(2LL, 8LL, &v12);
+      }
+    }
+  }
+  v5 = 0;
+  v6 = 0LL;
+  do
+  {
+    if ( *(_DWORD *)((char *)&PopHiberForceDisabledReg + v6) )
+    {
+      v1 = 1;
+      if ( (int)PoDisableSleepStates(*(unsigned int *)((char *)PopHiberForceDisabledReasonMap + v6), 8LL, &v12) < 0 )
+      {
+        LOBYTE(v11) = 1;
+        PoShutdownBugCheck(v11, 160LL, 272LL, 0LL, 0LL, 0LL);
+      }
+    }
+    ++v5;
+    v6 += 4LL;
+  }
+  while ( v5 < 2 );
+  PopAcquireTransitionLock(2);
+  PopAcquirePolicyLock(v7);
+  LOBYTE(v8) = !v1;
+  PopEnableHiberFile(v8, 0LL);
+  PopReleasePolicyLock(v10, v9);
+  PopReleaseTransitionLock(2);
+  if ( qword_140C543C8 )
+    qword_140C543C8();
+  if ( v0 )
+    ExFreePoolWithTag(v0, 0x72626968u);
 }

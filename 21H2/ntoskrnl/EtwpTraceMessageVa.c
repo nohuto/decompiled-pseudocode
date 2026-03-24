@@ -1,406 +1,411 @@
 /*
- * XREFs of EtwpTraceMessageVa @ 0x14022A8D0
+ * XREFs of EtwpTraceMessageVa @ 0x14025D560
  * Callers:
- *     WmiTraceMessage @ 0x14022A8A0 (WmiTraceMessage.c)
- *     NtTraceEvent @ 0x1402FE320 (NtTraceEvent.c)
- *     WmiTraceMessageVa @ 0x140460660 (WmiTraceMessageVa.c)
+ *     NtTraceEvent @ 0x14025CC60 (NtTraceEvent.c)
+ *     WmiTraceMessage @ 0x1402CFEC0 (WmiTraceMessage.c)
+ *     WmiTraceMessageVa @ 0x1405A67D0 (WmiTraceMessageVa.c)
  * Callees:
- *     EtwpUpdateEventsLostCount @ 0x14022A874 (EtwpUpdateEventsLostCount.c)
- *     EtwpOpenLogger @ 0x14022AFF8 (EtwpOpenLogger.c)
- *     EtwpReleaseTraceBuffer @ 0x14022B0A0 (EtwpReleaseTraceBuffer.c)
- *     EtwpReserveTraceBuffer @ 0x1402ABBF0 (EtwpReserveTraceBuffer.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402FE2A0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpGetReserveTraceBufferStatus @ 0x1403884A4 (EtwpGetReserveTraceBufferStatus.c)
- *     EtwpSendTraceEvent @ 0x1403B3C40 (EtwpSendTraceEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     EtwpTraceLostWppEvent @ 0x14062D2A0 (EtwpTraceLostWppEvent.c)
- *     EtwpInvokeEventCallback @ 0x140632EEC (EtwpInvokeEventCallback.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     EtwpOpenLogger @ 0x14025DB98 (EtwpOpenLogger.c)
+ *     EtwpReleaseTraceBuffer @ 0x14025DC40 (EtwpReleaseTraceBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x1403506F0 (EtwpReserveTraceBuffer.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140360770 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpGetReserveTraceBufferStatus @ 0x14036CDBC (EtwpGetReserveTraceBufferStatus.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     EtwpSendTraceEvent @ 0x1405AAB68 (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x1405AB678 (EtwpInvokeEventCallback.c)
  */
 
 __int64 __fastcall EtwpTraceMessageVa(
         unsigned __int64 a1,
-        __int64 a2,
-        __int128 *a3,
-        unsigned __int16 a4,
+        char a2,
+        signed __int32 *a3,
+        __int16 a4,
         __int64 a5,
         unsigned __int8 a6)
 {
-  unsigned __int16 v6; // r9
-  __int64 v7; // rsi
-  int ReserveTraceBufferStatus; // ebx
-  unsigned __int64 v9; // rdi
-  __int64 v10; // r13
-  unsigned int v11; // r12d
+  unsigned int v7; // ebx
+  __int64 v8; // rdi
+  unsigned __int64 v9; // r12
+  unsigned __int64 v10; // r13
+  __int64 v11; // rsi
   __int64 v12; // rax
-  __int64 v13; // r14
+  __int64 v13; // r11
   int v14; // eax
-  char v15; // r13
-  char v16; // r15
-  unsigned __int64 v17; // r12
-  __int64 v18; // rax
-  unsigned __int64 v19; // rax
-  __int64 v20; // rcx
-  unsigned int v21; // ecx
-  unsigned int v22; // ecx
-  __int64 v23; // rdi
-  signed __int32 v24; // ecx
-  volatile signed __int32 *v25; // rax
-  unsigned __int64 v26; // r9
-  __int16 v27; // dx
-  __int64 v28; // r8
-  signed __int32 *v29; // rdi
+  char v15; // si
+  char v16; // r14
+  __int64 v17; // rax
+  unsigned __int64 v18; // rax
+  __int64 v19; // rcx
+  unsigned __int64 v20; // rcx
+  __int64 result; // rax
+  int v22; // ecx
+  int v23; // r10d
+  int v24; // r9d
+  int v25; // eax
+  int v26; // edx
+  unsigned int v27; // r13d
+  __int64 v28; // rbx
+  signed __int32 v29; // edx
+  __int64 v30; // r10
+  volatile signed __int32 *v31; // rax
+  unsigned __int64 v32; // r8
+  __int16 v33; // cx
+  signed __int32 *v34; // rax
+  signed __int32 *v35; // rbx
   struct _KTHREAD *CurrentThread; // rcx
-  int *v31; // rdi
-  unsigned __int64 v32; // rsi
-  char *v33; // rdx
-  size_t v34; // r15
-  unsigned __int8 v35; // di
-  unsigned __int64 v36; // rcx
-  char v38; // [rsp+30h] [rbp-108h]
-  char v39; // [rsp+31h] [rbp-107h]
-  char v40; // [rsp+32h] [rbp-106h]
-  unsigned int v41; // [rsp+34h] [rbp-104h]
-  char v42[4]; // [rsp+38h] [rbp-100h] BYREF
-  unsigned int v43; // [rsp+3Ch] [rbp-FCh]
-  unsigned __int8 v44; // [rsp+40h] [rbp-F8h]
-  unsigned __int8 v45; // [rsp+48h] [rbp-F0h]
-  unsigned __int16 v46; // [rsp+50h] [rbp-E8h]
-  unsigned int v47; // [rsp+54h] [rbp-E4h]
-  __int64 v48; // [rsp+58h] [rbp-E0h]
-  int *v49; // [rsp+60h] [rbp-D8h]
-  __int64 v50; // [rsp+68h] [rbp-D0h]
-  int CycleTime; // [rsp+70h] [rbp-C8h]
-  int CurrentRunTime; // [rsp+74h] [rbp-C4h]
-  __int64 v53; // [rsp+78h] [rbp-C0h]
-  unsigned __int64 v54; // [rsp+80h] [rbp-B8h]
-  unsigned __int64 v55; // [rsp+88h] [rbp-B0h]
-  unsigned int v56; // [rsp+90h] [rbp-A8h]
-  int v57; // [rsp+94h] [rbp-A4h]
-  int v58; // [rsp+98h] [rbp-A0h]
-  __int128 *v59; // [rsp+A0h] [rbp-98h]
-  __int64 v60; // [rsp+A8h] [rbp-90h] BYREF
-  unsigned __int64 v61; // [rsp+B0h] [rbp-88h]
-  __int64 v62; // [rsp+B8h] [rbp-80h]
-  unsigned __int64 v63; // [rsp+C0h] [rbp-78h]
-  __int64 v64; // [rsp+C8h] [rbp-70h]
-  __int128 v65; // [rsp+D0h] [rbp-68h] BYREF
-  __int64 v66; // [rsp+E0h] [rbp-58h]
-  __int128 v67; // [rsp+E8h] [rbp-50h] BYREF
+  _DWORD *v37; // rbx
+  unsigned __int64 v38; // rdi
+  char *v39; // rdx
+  size_t v40; // r15
+  int v41; // r9d
+  unsigned __int8 v42; // bl
+  __int64 v43; // r10
+  char v44; // [rsp+30h] [rbp-108h]
+  char v45; // [rsp+31h] [rbp-107h]
+  unsigned int v46; // [rsp+34h] [rbp-104h]
+  char v47; // [rsp+38h] [rbp-100h] BYREF
+  unsigned __int8 v48; // [rsp+39h] [rbp-FFh]
+  unsigned __int8 v49; // [rsp+40h] [rbp-F8h]
+  unsigned int v50; // [rsp+48h] [rbp-F0h]
+  _DWORD *v51; // [rsp+50h] [rbp-E8h]
+  __int16 v52; // [rsp+58h] [rbp-E0h]
+  unsigned int v53; // [rsp+5Ch] [rbp-DCh]
+  __int64 v54; // [rsp+60h] [rbp-D8h]
+  __int64 v55; // [rsp+68h] [rbp-D0h]
+  __int64 v56; // [rsp+70h] [rbp-C8h]
+  unsigned __int64 v57; // [rsp+78h] [rbp-C0h]
+  unsigned __int64 v58; // [rsp+80h] [rbp-B8h]
+  int v59; // [rsp+88h] [rbp-B0h]
+  int v60; // [rsp+8Ch] [rbp-ACh]
+  int v61; // [rsp+90h] [rbp-A8h]
+  int v62; // [rsp+94h] [rbp-A4h]
+  __int64 v63; // [rsp+98h] [rbp-A0h] BYREF
+  unsigned __int64 v64; // [rsp+A0h] [rbp-98h]
+  __int64 v65; // [rsp+A8h] [rbp-90h]
+  __int64 v66; // [rsp+B0h] [rbp-88h]
+  unsigned int CurrentRunTime; // [rsp+B8h] [rbp-80h]
+  int CycleTime; // [rsp+BCh] [rbp-7Ch]
+  signed __int32 *v69; // [rsp+C0h] [rbp-78h]
+  unsigned __int64 v70; // [rsp+C8h] [rbp-70h]
+  __int128 v71; // [rsp+D0h] [rbp-68h] BYREF
+  __int64 v72; // [rsp+E0h] [rbp-58h]
+  struct _KTHREAD *v73; // [rsp+E8h] [rbp-50h]
+  __int128 v74; // [rsp+F0h] [rbp-48h] BYREF
 
-  v46 = a4;
-  v59 = a3;
-  v47 = a2;
-  v6 = a1;
-  v55 = a1;
-  v7 = a5;
-  v44 = a6;
-  v45 = a6;
-  v65 = 0LL;
-  v66 = 0LL;
-  v42[0] = 0;
-  v67 = 0LL;
-  ReserveTraceBufferStatus = 0;
-  v41 = 0;
-  v60 = 0LL;
+  v52 = a4;
+  v69 = a3;
+  LOWORD(v7) = a1;
+  v58 = a1;
+  v8 = a5;
+  v48 = a6;
+  v49 = a6;
+  v71 = 0LL;
+  v72 = 0LL;
+  v47 = 0;
+  v74 = 0LL;
   v9 = 0LL;
-  v54 = 0LL;
-  v61 = 0LL;
+  v50 = 0;
+  v46 = 0;
+  v63 = 0LL;
+  v10 = 0LL;
+  v57 = 0LL;
+  v64 = 0LL;
   if ( a6 )
-    v10 = *(_QWORD *)(PsGetCurrentServerSiloGlobals(a1, a2, a3, a1) + 864);
+    v11 = *(_QWORD *)(PsGetCurrentServerSiloGlobals() + 864);
   else
-    v10 = EtwpHostSiloState;
-  v62 = v10;
-  v48 = v10;
-  v11 = v6;
-  v43 = v6;
-  if ( (unsigned int)v6 >= *(_DWORD *)(v10 + 16) )
-    return (unsigned int)-1073741816;
-  v12 = EtwpOpenLogger(v6, v10, a6, v42);
+    v11 = EtwpHostSiloState;
+  v66 = v11;
+  v54 = v11;
+  v7 = (unsigned __int16)v7;
+  v53 = v7;
+  if ( (unsigned int)(unsigned __int16)v7 >= *(_DWORD *)(v11 + 16) )
+    return 3221225480LL;
+  v12 = EtwpOpenLogger((unsigned __int16)v7, v11, a6, &v47);
   v13 = v12;
-  if ( (v64 = v12) == 0 )
-    return (unsigned int)-1073741816;
+  v65 = v12;
+  if ( !v12 )
+    return 3221225480LL;
   v14 = *(_DWORD *)(v12 + 12);
   if ( (v14 & 0x80u) != 0 )
   {
-    ReserveTraceBufferStatus = -1073741790;
-    v41 = -1073741790;
-    goto LABEL_91;
+    result = 3221225506LL;
+    goto LABEL_100;
   }
   if ( !a6 && (v14 & 0x1000000) != 0 )
   {
-    ReserveTraceBufferStatus = -1073741637;
-    v41 = -1073741637;
-    goto LABEL_91;
+    result = 3221225659LL;
+LABEL_100:
+    v46 = result;
+    goto LABEL_86;
   }
-  v50 = 0LL;
-  v15 = v47 & 0x40;
-  v38 = v47 & 0x40;
-  v16 = v47 & 0x80;
-  v40 = v47 & 0x80;
-  v39 = v47 & 0x80;
-  if ( (v47 & 0x40) != 0 )
-  {
-    if ( !HIDWORD(v55) )
-    {
-      ReserveTraceBufferStatus = -1073741306;
-      v41 = -1073741306;
-      v10 = v48;
-      goto LABEL_91;
-    }
-    v9 = a5 + HIDWORD(v55);
-    v54 = v9;
-    v61 = v9;
-  }
-  v17 = 0LL;
   v55 = 0LL;
-  v18 = a5;
-  v50 = a5;
+  v15 = a2 & 0x40;
+  v44 = a2 & 0x40;
+  v16 = a2 & 0x80;
+  v45 = a2 & 0x80;
+  if ( (a2 & 0x40) != 0 )
+  {
+    v10 = a5 + HIDWORD(v58);
+    v57 = v10;
+    v64 = v10;
+  }
+  v58 = 0LL;
+  v17 = a5;
+  v55 = a5;
   while ( 1 )
   {
     if ( !v15 )
     {
-      v19 = v18 + 8;
-LABEL_25:
-      v20 = *(_QWORD *)(v19 - 8);
-      goto LABEL_26;
+      v18 = v17 + 8;
+LABEL_13:
+      v19 = *(_QWORD *)(v18 - 8);
+      goto LABEL_14;
     }
     if ( !v16 )
     {
-      v19 = v18 + 8;
-      if ( v19 > v9 )
+      v18 = v17 + 8;
+      if ( v18 > v10 )
       {
-        ReserveTraceBufferStatus = -1073741306;
-        v41 = -1073741306;
-        v10 = v48;
-        v11 = v43;
-        goto LABEL_91;
+        result = 3221225990LL;
+        v46 = -1073741306;
+        v11 = v54;
+        goto LABEL_86;
       }
-      goto LABEL_25;
+      goto LABEL_13;
     }
-    v19 = v18 + 4;
-    if ( v19 > v9 )
+    v18 = v17 + 4;
+    if ( v18 > v10 )
     {
-      ReserveTraceBufferStatus = -1073741306;
-      v41 = -1073741306;
-      v10 = v48;
-      v11 = v43;
-      goto LABEL_91;
+      result = 3221225990LL;
+      v46 = -1073741306;
+      v11 = v54;
+      goto LABEL_86;
     }
-    v20 = *(unsigned int *)(v19 - 4);
-LABEL_26:
-    v50 = v19;
-    if ( !v20 )
+    v19 = *(unsigned int *)(v18 - 4);
+LABEL_14:
+    v55 = v18;
+    if ( !v19 )
       break;
     if ( v15 && v16 )
     {
-      v18 = v19 + 4;
-      v36 = *(unsigned int *)(v18 - 4);
+      v17 = v18 + 4;
+      v20 = *(unsigned int *)(v17 - 4);
     }
     else
     {
-      v18 = v19 + 8;
-      v36 = *(_QWORD *)(v18 - 8);
+      v17 = v18 + 8;
+      v20 = *(_QWORD *)(v17 - 8);
     }
-    v50 = v18;
-    if ( v36 )
+    v55 = v17;
+    if ( v20 )
     {
-      v17 += v36;
-      v55 = v17;
-      if ( v17 < v36 )
+      v9 += v20;
+      v58 = v9;
+      if ( v9 < v20 )
       {
-        ReserveTraceBufferStatus = -1073741675;
-        v41 = -1073741675;
-        v10 = v48;
-        v11 = v43;
-        goto LABEL_91;
+        result = 3221225621LL;
+        v46 = -1073741675;
+        v11 = v54;
+        goto LABEL_86;
       }
     }
   }
-  v67 = *v59;
-  v21 = v47 & 0xFFFFFFFE;
-  if ( *(_QWORD *)(v13 + 264) )
-    v21 = v47;
-  v56 = v21;
-  v57 = v21 & 1;
-  CycleTime = v21 & 2;
-  v58 = v21 & 4;
-  CurrentRunTime = v21 & 0x20;
-  v22 = (v58 != 0 ? 4 : 0)
-      + (CurrentRunTime != 0 ? 8 : 0)
-      + ((v21 & 0x18) != 0 ? 8 : 0)
-      + v17
-      + (CycleTime != 0 ? 0x10 : 0)
-      + 4 * v57
-      + 8;
-  v47 = v22;
-  if ( v17 > v22 )
+  if ( !*(_QWORD *)(v13 + 280) )
+    a2 &= ~1u;
+  v59 = a2 & 1;
+  v22 = 4;
+  if ( (a2 & 1) != 0 )
+    v23 = 4;
+  else
+    v23 = 0;
+  v61 = a2 & 2;
+  if ( (a2 & 2) != 0 )
+    v24 = 16;
+  else
+    v24 = 0;
+  v60 = a2 & 4;
+  if ( (a2 & 4) == 0 )
+    v22 = 0;
+  v25 = 8;
+  if ( (a2 & 0x18) != 0 )
+    v26 = 8;
+  else
+    v26 = 0;
+  v62 = a2 & 0x20;
+  if ( (a2 & 0x20) == 0 )
+    v25 = 0;
+  v27 = v9 + v23 + v24 + v22 + v26 + v25 + 8;
+  if ( v9 > v27 )
   {
-    ReserveTraceBufferStatus = -1073741306;
-    v41 = -1073741306;
-    if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_LOST_WPP_EVENT) )
-      EtwpTraceLostWppEvent(&v67, v46, v13 + 136, 3221225990LL);
-    EtwpUpdateEventsLostCount(v13);
-    goto LABEL_89;
+    result = 3221225990LL;
+LABEL_99:
+    v11 = v54;
+    goto LABEL_100;
   }
-  v23 = EtwpReserveTraceBuffer(v13, v22, (unsigned int)&v65, (unsigned int)&v60, 0);
-  v24 = 0;
-  v25 = *(volatile signed __int32 **)(v13 + 264);
-  if ( v25 )
+  v28 = EtwpReserveTraceBuffer(v13, v27, (unsigned int)&v71, (unsigned int)&v63, 0);
+  v29 = 0;
+  v30 = v65;
+  v31 = *(volatile signed __int32 **)(v65 + 280);
+  if ( v31 )
   {
-    v24 = _InterlockedIncrement(v25);
-    v17 = v55;
-    ReserveTraceBufferStatus = 0;
-    v15 = v38;
-    v26 = v61;
-    v54 = v61;
-    v16 = v39;
-    v40 = v39;
+    v29 = _InterlockedIncrement(v31);
+    v9 = v58;
+    v50 = 0;
+    v15 = v44;
+    v32 = v64;
+    v57 = v64;
+    v16 = v45;
   }
   else
   {
-    v26 = v54;
+    v32 = v57;
   }
-  if ( v23 )
+  if ( !v28 )
   {
-    *(_DWORD *)v23 = -1879048192;
-    *(_WORD *)v23 = v47;
-    *(_WORD *)(v23 + 4) = v46;
-    v27 = 64;
-    if ( !v16 )
-      v27 = 128;
-    v28 = v56;
-    *(_WORD *)(v23 + 6) = v27 | v56 & 0x3F;
-    v29 = (signed __int32 *)(v23 + 8);
-    v49 = v29;
-    if ( v57 )
-    {
-      *v29++ = v24;
-      v49 = v29;
-    }
-    if ( v58 )
-    {
-      *v29++ = *(_DWORD *)v59;
-    }
-    else
-    {
-      if ( !CycleTime )
-        goto LABEL_48;
-      *(_OWORD *)v29 = *v59;
-      v29 += 4;
-    }
-    v49 = v29;
-LABEL_48:
-    if ( (v28 & 8) != 0 )
-    {
-      *(_QWORD *)v29 = v60;
-      v29 += 2;
-      v49 = v29;
-    }
-    if ( CurrentRunTime )
-    {
-      CurrentThread = KeGetCurrentThread();
-      CurrentRunTime = CurrentThread[1].CurrentRunTime;
-      v31 = v49;
-      *v49 = CurrentRunTime;
-      v49 = ++v31;
-      CycleTime = CurrentThread[1].CycleTime;
-      *v31 = CycleTime;
-      v29 = v31 + 1;
-      v49 = v29;
-      v17 = v55;
-      ReserveTraceBufferStatus = 0;
-      v15 = v38;
-      v26 = v61;
-      v54 = v61;
-      v16 = v39;
-      v40 = v39;
-    }
-    v63 = v17;
-    v53 = a5;
-    while ( 1 )
+    result = EtwpGetReserveTraceBufferStatus(v30, v27, v32);
+    v7 = v53;
+    goto LABEL_99;
+  }
+  *(_DWORD *)v28 = -1879048192;
+  *(_WORD *)v28 = v27;
+  *(_WORD *)(v28 + 4) = v52;
+  if ( v16 )
+    v33 = 64;
+  else
+    v33 = 128;
+  *(_WORD *)(v28 + 6) = v33 | a2 & 0x3F;
+  v34 = v69;
+  v74 = *(_OWORD *)v69;
+  v35 = (signed __int32 *)(v28 + 8);
+  v51 = v35;
+  if ( v59 )
+  {
+    *v35++ = v29;
+    v51 = v35;
+  }
+  if ( v60 )
+  {
+    *v35++ = *v34;
+LABEL_53:
+    v51 = v35;
+  }
+  else if ( v61 )
+  {
+    *(_OWORD *)v35 = *(_OWORD *)v34;
+    v35 += 4;
+    goto LABEL_53;
+  }
+  if ( (a2 & 8) != 0 )
+  {
+    *(_QWORD *)v35 = v63;
+    v35 += 2;
+    v51 = v35;
+  }
+  if ( v62 )
+  {
+    CurrentThread = KeGetCurrentThread();
+    v73 = CurrentThread;
+    CurrentRunTime = CurrentThread[1].CurrentRunTime;
+    v37 = v51;
+    *v51 = CurrentRunTime;
+    v51 = ++v37;
+    CycleTime = CurrentThread[1].CycleTime;
+    *v37 = CycleTime;
+    v35 = v37 + 1;
+    v51 = v35;
+    v9 = v58;
+    v50 = 0;
+    v15 = v44;
+    v32 = v64;
+    v57 = v64;
+    v16 = v45;
+  }
+  v70 = v9;
+  v56 = a5;
+  while ( 1 )
+  {
+    do
     {
       if ( v15 && v16 )
       {
-        v32 = v7 + 4;
-        v33 = (char *)*(unsigned int *)(v32 - 4);
+        v38 = v8 + 4;
+        v39 = (char *)*(unsigned int *)(v38 - 4);
       }
       else
       {
-        v32 = v7 + 8;
-        v33 = *(char **)(v32 - 8);
+        v38 = v8 + 8;
+        v39 = *(char **)(v38 - 8);
       }
-      v53 = v32;
-      if ( !v33 )
-        break;
+      v56 = v38;
+      if ( !v39 )
+      {
+        v41 = v50;
+        goto LABEL_81;
+      }
       if ( !v15 )
-        goto LABEL_62;
-      if ( v32 >= v26 )
-        goto LABEL_71;
+        goto LABEL_66;
+      if ( v38 >= v32 )
+      {
+        v41 = -1073741306;
+        v50 = -1073741306;
+        v46 = -1073741306;
+        goto LABEL_81;
+      }
       if ( v16 )
       {
-        v7 = v32 + 4;
-        v34 = *(unsigned int *)(v7 - 4);
+        v8 = v38 + 4;
+        v40 = *(unsigned int *)(v8 - 4);
       }
       else
       {
-LABEL_62:
-        v7 = v32 + 8;
-        v34 = *(_QWORD *)(v7 - 8);
+LABEL_66:
+        v8 = v38 + 8;
+        v40 = *(_QWORD *)(v8 - 8);
       }
-      v53 = v7;
-      if ( v34 )
-      {
-        if ( v34 > v17 )
-        {
-LABEL_71:
-          ReserveTraceBufferStatus = -1073741306;
-          v41 = -1073741306;
-          break;
-        }
-        if ( v15 && ((unsigned __int64)&v33[v34] > 0x7FFFFFFF0000LL || &v33[v34] < v33) )
-          MEMORY[0x7FFFFFFF0000] = 0;
-        memmove(v29, v33, v34);
-        v17 -= v34;
-        v63 = v17;
-        v29 = (signed __int32 *)((char *)v29 + v34);
-        v49 = v29;
-        v26 = v54;
-      }
-      v16 = v40;
+      v56 = v8;
     }
-    v35 = v44;
-    v10 = v48;
-    if ( ReserveTraceBufferStatus >= 0 )
-    {
-      if ( (*(_DWORD *)(v13 + 12) & 0x80000) != 0
-        && (!(_BYTE)KdDebuggerNotPresent && !KdPitchDebugger || KdEventLoggingPresent) )
-      {
-        EtwpSendTraceEvent(v13, &v65);
-      }
-      if ( *(_QWORD *)(v13 + 1288) )
-        EtwpInvokeEventCallback(v13, &v65, &v67, v35);
-    }
-    EtwpReleaseTraceBuffer(&v65, v33, v28, v26);
-    goto LABEL_90;
+    while ( !v40 );
+    if ( v40 > v9 )
+      break;
+    if ( v15 && ((unsigned __int64)&v39[v40] > 0x7FFFFFFF0000LL || &v39[v40] < v39) )
+      MEMORY[0x7FFFFFFF0000] = 0;
+    memmove(v35, v39, v40);
+    v9 -= v40;
+    v70 = v9;
+    v35 = (signed __int32 *)((char *)v35 + v40);
+    v51 = v35;
+    v32 = v57;
   }
-  ReserveTraceBufferStatus = EtwpGetReserveTraceBufferStatus(v13, v47);
-  v41 = ReserveTraceBufferStatus;
-  if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_LOST_WPP_EVENT) )
-    EtwpTraceLostWppEvent(&v67, v46, v13 + 136, (unsigned int)ReserveTraceBufferStatus);
-LABEL_89:
-  v10 = v48;
-LABEL_90:
-  v11 = v43;
-LABEL_91:
-  if ( v42[0] )
+  v41 = -1073741306;
+  v50 = -1073741306;
+  v46 = -1073741306;
+LABEL_81:
+  v11 = v54;
+  v42 = v48;
+  if ( v41 >= 0 )
   {
-    ExReleaseRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v10 + 448) + 8LL * v11), 1u);
-    KiLeaveCriticalRegionUnsafe(KeGetCurrentThread());
-    return v41;
+    v43 = v65;
+    if ( (*(_DWORD *)(v65 + 12) & 0x80000) != 0
+      && (!(_BYTE)KdDebuggerNotPresent && !KdPitchDebugger || KdEventLoggingPresent) )
+    {
+      EtwpSendTraceEvent(v65, &v71, v32);
+      v43 = v65;
+    }
+    if ( *(_QWORD *)(v43 + 1272) )
+      EtwpInvokeEventCallback(v43, &v71, &v74, v42);
   }
-  return (unsigned int)ReserveTraceBufferStatus;
+  EtwpReleaseTraceBuffer(&v71, v39, v32);
+  result = v50;
+  v7 = v53;
+LABEL_86:
+  if ( v47 )
+  {
+    ExReleaseRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(v11 + 448) + 8LL * v7), 1u);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    return v46;
+  }
+  return result;
 }

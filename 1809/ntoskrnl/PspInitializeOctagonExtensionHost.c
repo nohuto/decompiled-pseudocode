@@ -3,8 +3,8 @@
  * Callers:
  *     PspInitPhase1 @ 0x1409AB320 (PspInitPhase1.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     ExRegisterHost @ 0x1407275DC (ExRegisterHost.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     ExRegisterHost @ 0x1407275BC (ExRegisterHost.c)
  */
 
 __int64 PspInitializeOctagonExtensionHost()

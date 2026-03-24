@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Release@CD2DBitmap@@$4PPPPPPPM@BFI@EAAKXZ @ 0x180123820
+ * XREFs of ?Release@CD2DBitmap@@$4PPPPPPPM@BFI@EAAKXZ @ 0x1800F5B90
  * Callers:
  *     <none>
  * Callees:

@@ -1,8 +1,8 @@
 /*
- * XREFs of BgpGxMarkClean @ 0x14025E8BC
+ * XREFs of BgpGxMarkClean @ 0x1402D3F9C
  * Callers:
- *     BgpGxCopyBitmapToRectangle @ 0x140AABD84 (BgpGxCopyBitmapToRectangle.c)
- *     BgpGxCopyRectangle @ 0x140AB16FC (BgpGxCopyRectangle.c)
+ *     BgpGxCopyBitmapToRectangle @ 0x1409F192C (BgpGxCopyBitmapToRectangle.c)
+ *     BgpGxCopyRectangle @ 0x1409F763C (BgpGxCopyRectangle.c)
  * Callees:
  *     <none>
  */

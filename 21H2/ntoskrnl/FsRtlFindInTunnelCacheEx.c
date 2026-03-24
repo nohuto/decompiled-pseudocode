@@ -1,16 +1,16 @@
 /*
- * XREFs of FsRtlFindInTunnelCacheEx @ 0x140694E60
+ * XREFs of FsRtlFindInTunnelCacheEx @ 0x1406889F0
  * Callers:
- *     FsRtlFindInTunnelCache @ 0x14092E170 (FsRtlFindInTunnelCache.c)
+ *     FsRtlFindInTunnelCache @ 0x14088B730 (FsRtlFindInTunnelCache.c)
  * Callees:
- *     FsRtlCompareNodeAndKey @ 0x14021D7F0 (FsRtlCompareNodeAndKey.c)
- *     FsRtlEmptyFreePoolList @ 0x14021D85C (FsRtlEmptyFreePoolList.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     FsRtlPruneTunnelCache @ 0x140694FD0 (FsRtlPruneTunnelCache.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     FsRtlCompareNodeAndKey @ 0x14029FEA8 (FsRtlCompareNodeAndKey.c)
+ *     FsRtlEmptyFreePoolList @ 0x14029FF14 (FsRtlEmptyFreePoolList.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     FsRtlPruneTunnelCache @ 0x140688E84 (FsRtlPruneTunnelCache.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall FsRtlFindInTunnelCacheEx(
@@ -36,7 +36,7 @@ char __fastcall FsRtlFindInTunnelCacheEx(
   v10 = Mutex;
   v11 = 0;
   v12 = 0LL;
-  if ( !*(_DWORD *)((char *)&NlsMbCodePageTag + 1) )
+  if ( !TunnelMaxEntries )
     return 0;
   v19[1] = v19;
   v19[0] = v19;

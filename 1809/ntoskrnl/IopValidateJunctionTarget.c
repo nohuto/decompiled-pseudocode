@@ -1,23 +1,23 @@
 /*
- * XREFs of IopValidateJunctionTarget @ 0x14081B6DC
+ * XREFs of IopValidateJunctionTarget @ 0x14081B6BC
  * Callers:
  *     IopXxxControlFile @ 0x1405E8BD0 (IopXxxControlFile.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     IopReferenceFileObject @ 0x14008C7EC (IopReferenceFileObject.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     IopVerifierExAllocatePoolWithQuota_0 @ 0x140101D18 (IopVerifierExAllocatePoolWithQuota_0.c)
- *     FsRtlValidateReparsePointBuffer @ 0x14011CB90 (FsRtlValidateReparsePointBuffer.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87D0 (ZwOpenFile.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     IopVerifierExAllocatePoolWithQuota_0 @ 0x140101D38 (IopVerifierExAllocatePoolWithQuota_0.c)
+ *     FsRtlValidateReparsePointBuffer @ 0x14011CBB0 (FsRtlValidateReparsePointBuffer.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     IoVolumeDeviceToGuidPath @ 0x1405A4540 (IoVolumeDeviceToGuidPath.c)
  *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
- *     IopQueryXxxInformation @ 0x140661740 (IopQueryXxxInformation.c)
- *     IoVolumeDeviceToDosName @ 0x140661A60 (IoVolumeDeviceToDosName.c)
+ *     IopQueryXxxInformation @ 0x140661720 (IopQueryXxxInformation.c)
+ *     IoVolumeDeviceToDosName @ 0x140661A40 (IoVolumeDeviceToDosName.c)
  */
 
 __int64 __fastcall IopValidateJunctionTarget(

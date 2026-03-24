@@ -1,14 +1,14 @@
 /*
- * XREFs of SmcCacheAdd @ 0x1409D77F8
+ * XREFs of SmcCacheAdd @ 0x14092D2D4
  * Callers:
- *     SmcProcessCreateRequest @ 0x1409D4BC0 (SmcProcessCreateRequest.c)
+ *     SmcProcessCreateRequest @ 0x14092A7E0 (SmcProcessCreateRequest.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
  */
 
 __int64 __fastcall SmcCacheAdd(__int64 a1, int *a2, int *a3)
@@ -44,7 +44,7 @@ __int64 __fastcall SmcCacheAdd(__int64 a1, int *a2, int *a3)
         *a3 = v11;
         a2 = 0LL;
         _InterlockedExchange64((volatile __int64 *)(v8 + 8), 0LL);
-        ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v8 + 8));
+        ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v8 + 8));
       }
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v8 + 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(v8 + 16);

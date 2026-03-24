@@ -1,22 +1,22 @@
 /*
- * XREFs of ExEnableRaiseUMExceptionOnInvalidHandleClose @ 0x1407D5314
+ * XREFs of ExEnableRaiseUMExceptionOnInvalidHandleClose @ 0x14068F954
  * Callers:
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
  */
 
 _QWORD *__fastcall ExEnableRaiseUMExceptionOnInvalidHandleClose(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rbp
-  volatile signed __int64 *v3; // rsi
+  volatile signed __int64 *v5; // rsi
 
   CurrentThread = KeGetCurrentThread();
-  v3 = (volatile signed __int64 *)(a1 + 56);
   --CurrentThread->KernelApcDisable;
+  v5 = (volatile signed __int64 *)(a1 + 56);
   ExAcquirePushLockExclusiveEx(a1 + 56, 0LL);
   if ( a2 )
   {
@@ -27,8 +27,8 @@ _QWORD *__fastcall ExEnableRaiseUMExceptionOnInvalidHandleClose(__int64 a1, int 
   {
     *(_BYTE *)(a1 + 44) &= ~0x10u;
   }
-  if ( (_InterlockedExchangeAdd64(v3, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v3);
-  KeAbPostRelease((ULONG_PTR)v3);
+  if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v5);
+  KeAbPostRelease((ULONG_PTR)v5);
   return KeLeaveCriticalRegionThread((__int64)CurrentThread);
 }

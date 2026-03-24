@@ -1,10 +1,10 @@
 /*
  * XREFs of PspLatchCriticalProcessName @ 0x140582780
  * Callers:
- *     PspCatchCriticalBreak @ 0x14088B490 (PspCatchCriticalBreak.c)
+ *     PspCatchCriticalBreak @ 0x14088B470 (PspCatchCriticalBreak.c)
  * Callees:
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     strncpy_s @ 0x14019B940 (strncpy_s.c)
+ *     strncpy_s @ 0x14019B960 (strncpy_s.c)
  */
 
 errno_t __fastcall PspLatchCriticalProcessName(__int64 a1, __int64 a2, int a3)

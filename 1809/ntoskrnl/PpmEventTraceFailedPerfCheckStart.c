@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTraceFailedPerfCheckStart @ 0x140138F44
+ * XREFs of PpmEventTraceFailedPerfCheckStart @ 0x140138F64
  * Callers:
  *     PpmCheckPeriodicStart @ 0x14008B6C0 (PpmCheckPeriodicStart.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventTraceFailedPerfCheckStart(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpPopulateMsiMessages @ 0x1403D5A9C
+ * XREFs of HalpPopulateMsiMessages @ 0x1403783A4
  * Callers:
- *     HalpInterruptRemap @ 0x1403D57DC (HalpInterruptRemap.c)
+ *     HalpInterruptRemap @ 0x1403785E0 (HalpInterruptRemap.c)
  * Callees:
- *     HalpInterruptGenerateMessage @ 0x1403D5B40 (HalpInterruptGenerateMessage.c)
+ *     HalpInterruptGenerateMessage @ 0x140378448 (HalpInterruptGenerateMessage.c)
  */
 
 __int64 __fastcall HalpPopulateMsiMessages(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // edi
   __int64 result; // rax
-  _DWORD *v8; // rbx
+  __int64 v8; // rbx
   __int64 v9; // r14
   _QWORD v10[5]; // [rsp+20h] [rbp-28h] BYREF
   __int64 v11; // [rsp+68h] [rbp+20h] BYREF
@@ -21,7 +21,7 @@ __int64 __fastcall HalpPopulateMsiMessages(__int64 a1, __int64 a2, unsigned int 
   result = 0LL;
   if ( a3 )
   {
-    v8 = (_DWORD *)(a2 + 48);
+    v8 = a2 + 48;
     do
     {
       v9 = a2 + 88LL * v3;
@@ -31,10 +31,10 @@ __int64 __fastcall HalpPopulateMsiMessages(__int64 a1, __int64 a2, unsigned int 
       ++v3;
       *(_QWORD *)(v9 + 44) = 0LL;
       *(_DWORD *)(v9 + 52) = 0;
-      *(v8 - 1) = HIDWORD(v11);
-      *v8 = v11;
-      v8[1] = v10[0];
-      v8 += 22;
+      *(_DWORD *)(v8 - 4) = HIDWORD(v11);
+      *(_DWORD *)v8 = v11;
+      *(_WORD *)(v8 + 4) = v10[0];
+      v8 += 88LL;
     }
     while ( v3 < a3 );
   }

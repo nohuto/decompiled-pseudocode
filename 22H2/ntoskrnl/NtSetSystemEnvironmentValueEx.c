@@ -1,88 +1,90 @@
 /*
- * XREFs of NtSetSystemEnvironmentValueEx @ 0x140A00360
+ * XREFs of NtSetSystemEnvironmentValueEx @ 0x1409556B0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x1403D9530 (_wcsnicmp.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     PsIsProcessAppContainer @ 0x14077F59C (PsIsProcessAppContainer.c)
- *     ExSetFirmwareEnvironmentVariable @ 0x1409FBA50 (ExSetFirmwareEnvironmentVariable.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1409FC894 (ExpFirmwareAccessAppContainerCheck.c)
- *     ExpSetFirmwareEnvironmentVariable @ 0x1409FDFA4 (ExpSetFirmwareEnvironmentVariable.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1403D1B10 (_wcsnicmp.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     PsIsProcessAppContainer @ 0x140690804 (PsIsProcessAppContainer.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExSetFirmwareEnvironmentVariable @ 0x14094F4F0 (ExSetFirmwareEnvironmentVariable.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x140950450 (ExpFirmwareAccessAppContainerCheck.c)
+ *     ExpSetFirmwareEnvironmentVariable @ 0x140951F1C (ExpSetFirmwareEnvironmentVariable.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall NtSetSystemEnvironmentValueEx(const void **a1, __int128 *a2, unsigned __int64 a3, int a4, int a5)
+__int64 __fastcall NtSetSystemEnvironmentValueEx(__m128i *a1, __int128 *a2, unsigned __int64 a3, int a4, int a5)
 {
-  unsigned __int16 v8; // ax
-  unsigned __int64 v9; // rdx
+  unsigned __int16 v8; // cx
+  size_t v9; // rbx
   unsigned __int64 v10; // rcx
-  size_t *Pool2; // rax
-  size_t *v12; // rdi
-  __int64 v13; // rcx
-  unsigned int v14; // ebx
-  char v15; // [rsp+30h] [rbp-78h]
-  unsigned int v16; // [rsp+38h] [rbp-70h]
-  void *Src[2]; // [rsp+48h] [rbp-60h]
-  __int128 v18; // [rsp+68h] [rbp-40h] BYREF
+  unsigned __int64 v11; // rcx
+  size_t *PoolWithTag; // rax
+  size_t *v13; // rdi
+  __int64 v14; // rax
+  unsigned int v15; // ebx
+  char v16; // [rsp+30h] [rbp-78h]
+  unsigned int v17; // [rsp+38h] [rbp-70h]
+  __m128i Src; // [rsp+50h] [rbp-58h]
+  __int128 v19; // [rsp+68h] [rbp-40h] BYREF
 
-  v18 = 0LL;
+  v19 = 0LL;
   if ( !KeGetCurrentThread()->PreviousMode )
-    return ExSetFirmwareEnvironmentVariable(a1, (int)a2, a3, a4, a5);
-  if ( dword_140C31AF0 != 2 )
+    return ExSetFirmwareEnvironmentVariable((__int64)a1, (int)a2, a3, a4, a5);
+  if ( dword_140C197B0 != 2 )
     return 3221225474LL;
   if ( ((unsigned __int8)a1 & 3) != 0 )
     goto LABEL_31;
-  *(_OWORD *)Src = *(_OWORD *)a1;
-  v8 = _mm_cvtsi128_si32(*(__m128i *)a1);
+  Src = *a1;
+  v8 = _mm_cvtsi128_si32(*a1);
   if ( !v8 )
     return 3221225477LL;
-  if ( ((__int64)Src[1] & 1) != 0 )
+  if ( (Src.m128i_i8[8] & 1) != 0 )
     ExRaiseDatatypeMisalignment();
-  v9 = (unsigned __int64)Src[1] + v8;
-  if ( v9 > 0x7FFFFFFF0000LL || (void *)v9 < Src[1] )
+  v9 = v8;
+  v10 = v8 + Src.m128i_i64[1];
+  if ( v10 > 0x7FFFFFFF0000LL || v10 < Src.m128i_i64[1] )
     MEMORY[0x7FFFFFFF0000] = 0;
   if ( ((unsigned __int8)a2 & 3) != 0 )
 LABEL_31:
     ExRaiseDatatypeMisalignment();
-  v16 = a3 != 0 ? a4 : 0;
-  if ( v16 )
+  v17 = a3 != 0 ? a4 : 0;
+  if ( v17 )
   {
-    v10 = a3 + (a4 & (unsigned int)-(a3 != 0));
-    if ( v10 > 0x7FFFFFFF0000LL || v10 < a3 )
+    v11 = a3 + (a4 & (unsigned int)-(a3 != 0));
+    if ( v11 > 0x7FFFFFFF0000LL || v11 < a3 )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
-  v15 = SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, 1);
-  if ( v15 )
+  v16 = SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, 1);
+  if ( v16 )
     goto LABEL_23;
-  if ( PsIsProcessAppContainer((__int64)KeGetCurrentThread()->ApcState.Process) )
-    v15 = ExpFirmwareAccessAppContainerCheck(2);
-  if ( !v15 )
+  if ( PsIsProcessAppContainer(KeGetCurrentThread()->ApcState.Process) )
+    v16 = ExpFirmwareAccessAppContainerCheck(2);
+  if ( !v16 )
     return 3221225569LL;
 LABEL_23:
-  v18 = *a2;
-  Pool2 = (size_t *)ExAllocatePool2(64LL, LOWORD(Src[0]) + 2LL, 1920364101LL);
-  v12 = Pool2;
-  if ( !Pool2 )
+  v19 = *a2;
+  PoolWithTag = (size_t *)ExAllocatePoolWithTag(NonPagedPoolNx, v9 + 2, 0x72766E45u);
+  v13 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  memmove(Pool2, Src[1], LOWORD(Src[0]));
-  *((_WORD *)v12 + ((unsigned __int64)LOWORD(Src[0]) >> 1)) = 0;
-  v13 = v18 - ExpSecureBootVendorGuid;
-  if ( (_QWORD)v18 == ExpSecureBootVendorGuid )
-    v13 = *((_QWORD *)&v18 + 1) - 0x4B788FE7F42860BDLL;
-  if ( v13 || wcsnicmp((const wchar_t *)v12, L"Kernel_", 7uLL) )
+  memmove(PoolWithTag, (const void *)Src.m128i_i64[1], v9);
+  *((_WORD *)v13 + (v9 >> 1)) = 0;
+  v14 = v19 - ExpSecureBootVendorGuid;
+  if ( (_QWORD)v19 == ExpSecureBootVendorGuid )
+    v14 = *((_QWORD *)&v19 + 1) - 0x4B788FE7F42860BDLL;
+  if ( v14 || wcsnicmp((const wchar_t *)v13, L"Kernel_", 7uLL) )
   {
-    v14 = ExpSetFirmwareEnvironmentVariable(v12, (__int64)&v18, a3, v16, a5, 1);
-    ExFreePoolWithTag(v12, 0);
-    return v14;
+    v15 = ExpSetFirmwareEnvironmentVariable(v13, (__int64)&v19, a3, v17, a5, 1);
+    ExFreePoolWithTag(v13, 0);
+    return v15;
   }
   else
   {
-    ExFreePoolWithTag(v12, 0);
+    ExFreePoolWithTag(v13, 0);
     return 3221225506LL;
   }
 }

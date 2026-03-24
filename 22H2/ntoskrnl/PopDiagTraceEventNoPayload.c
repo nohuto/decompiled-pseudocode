@@ -1,34 +1,33 @@
 /*
- * XREFs of PopDiagTraceEventNoPayload @ 0x140366FF0
+ * XREFs of PopDiagTraceEventNoPayload @ 0x1403265D4
  * Callers:
- *     PopScanIdleList @ 0x14032C730 (PopScanIdleList.c)
- *     PopThermalStandbyNotify @ 0x14058FC80 (PopThermalStandbyNotify.c)
- *     PopPowerInformationInternal @ 0x1407ED5EC (PopPowerInformationInternal.c)
- *     PopCoalescingNotify @ 0x140987090 (PopCoalescingNotify.c)
- *     PopDispatchSuperfetchNotification @ 0x140989840 (PopDispatchSuperfetchNotification.c)
- *     PopResumeApps @ 0x14098A4E4 (PopResumeApps.c)
- *     PopResumeServices @ 0x14098A55C (PopResumeServices.c)
- *     PopSetSystemAwayMode @ 0x14098A940 (PopSetSystemAwayMode.c)
- *     PopSuspendApps @ 0x14098AAC4 (PopSuspendApps.c)
- *     PopSuspendServices @ 0x14098AB18 (PopSuspendServices.c)
- *     PopNotifyCallbacksPreSleep @ 0x14098BB2C (PopNotifyCallbacksPreSleep.c)
- *     PopDiagTraceDevicesWakeEnd @ 0x14098E80C (PopDiagTraceDevicesWakeEnd.c)
- *     PopDiagTraceIoCoalescingOff @ 0x14098FCB8 (PopDiagTraceIoCoalescingOff.c)
- *     PopDiagTracePrepareSleep @ 0x1409914E4 (PopDiagTracePrepareSleep.c)
- *     PopDiagTracePrepareSleepEnd @ 0x140991500 (PopDiagTracePrepareSleepEnd.c)
- *     PopDiagTraceSuspendResumeNotification @ 0x140991D18 (PopDiagTraceSuspendResumeNotification.c)
- *     PopGracefulShutdown @ 0x140AA0B20 (PopGracefulShutdown.c)
- *     PopTransitionToSleep @ 0x140AA5400 (PopTransitionToSleep.c)
- *     PopFlushVolumes @ 0x140AA65A8 (PopFlushVolumes.c)
- *     PoBroadcastSystemState @ 0x140AA6B28 (PoBroadcastSystemState.c)
- *     PopBuildDeviceNotifyList @ 0x140AA71FC (PopBuildDeviceNotifyList.c)
- *     PopDiagTraceFlushSleepStudyLogger @ 0x140AA7EEC (PopDiagTraceFlushSleepStudyLogger.c)
- *     PopDiagTraceFlushSleepStudyLoggerEnd @ 0x140AA7F08 (PopDiagTraceFlushSleepStudyLoggerEnd.c)
- *     PopDiagTraceZeroHiberFile @ 0x140AA81A4 (PopDiagTraceZeroHiberFile.c)
- *     PopDiagTraceZeroHiberFileEnd @ 0x140AA81C0 (PopDiagTraceZeroHiberFileEnd.c)
+ *     PopScanIdleList @ 0x140349888 (PopScanIdleList.c)
+ *     PopThermalStandbyNotify @ 0x14056F7AC (PopThermalStandbyNotify.c)
+ *     PopPowerInformationInternal @ 0x1406F1BE4 (PopPowerInformationInternal.c)
+ *     PopDiagTracePrepareSleep @ 0x1407753E0 (PopDiagTracePrepareSleep.c)
+ *     PopDiagTracePrepareSleepEnd @ 0x1407753FC (PopDiagTracePrepareSleepEnd.c)
+ *     PopSuspendApps @ 0x140776E70 (PopSuspendApps.c)
+ *     PopSuspendServices @ 0x140776EC4 (PopSuspendServices.c)
+ *     PopResumeApps @ 0x140776F24 (PopResumeApps.c)
+ *     PopResumeServices @ 0x140776F9C (PopResumeServices.c)
+ *     PopDiagTraceSuperfetchNotification @ 0x140777018 (PopDiagTraceSuperfetchNotification.c)
+ *     PopNotifyCallbacksPreSleep @ 0x14077709C (PopNotifyCallbacksPreSleep.c)
+ *     PopDiagTraceDevicesWakeEnd @ 0x14077A4FC (PopDiagTraceDevicesWakeEnd.c)
+ *     PopCoalescingNotify @ 0x1408E6900 (PopCoalescingNotify.c)
+ *     PopSetSystemAwayMode @ 0x1408E7820 (PopSetSystemAwayMode.c)
+ *     PopDiagTraceIoCoalescingOff @ 0x1408EA97C (PopDiagTraceIoCoalescingOff.c)
+ *     PopTransitionToSleep @ 0x140990620 (PopTransitionToSleep.c)
+ *     PoBroadcastSystemState @ 0x140992AC4 (PoBroadcastSystemState.c)
+ *     PopBuildDeviceNotifyList @ 0x1409971A8 (PopBuildDeviceNotifyList.c)
+ *     PopFlushVolumes @ 0x140997CDC (PopFlushVolumes.c)
+ *     PopDiagTraceFlushSleepStudyLoggerEnd @ 0x140998F80 (PopDiagTraceFlushSleepStudyLoggerEnd.c)
+ *     PopDiagTraceFlushSleepStudyLogger @ 0x140998F9C (PopDiagTraceFlushSleepStudyLogger.c)
+ *     PopGracefulShutdown @ 0x1409B10A0 (PopGracefulShutdown.c)
+ *     PopDiagTraceZeroHiberFile @ 0x1409B2614 (PopDiagTraceZeroHiberFile.c)
+ *     PopDiagTraceZeroHiberFileEnd @ 0x1409B2630 (PopDiagTraceZeroHiberFileEnd.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
  */
 
 void __fastcall PopDiagTraceEventNoPayload(PCEVENT_DESCRIPTOR EventDescriptor)
@@ -39,6 +38,6 @@ void __fastcall PopDiagTraceEventNoPayload(PCEVENT_DESCRIPTOR EventDescriptor)
   {
     v2 = PopDiagHandle;
     if ( EtwEventEnabled(PopDiagHandle, EventDescriptor) )
-      EtwWrite(v2, EventDescriptor, 0LL, 0, 0LL);
+      EtwWriteEx(v2, EventDescriptor, 0LL, 0, 0LL, 0LL, 0, 0LL);
   }
 }

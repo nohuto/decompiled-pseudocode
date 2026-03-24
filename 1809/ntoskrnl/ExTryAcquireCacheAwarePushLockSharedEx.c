@@ -1,12 +1,12 @@
 /*
- * XREFs of ExTryAcquireCacheAwarePushLockSharedEx @ 0x14031ADD0
+ * XREFs of ExTryAcquireCacheAwarePushLockSharedEx @ 0x14031AED0
  * Callers:
  *     <none>
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
- *     ExfTryAcquirePushLockShared @ 0x140103C30 (ExfTryAcquirePushLockShared.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ExfTryAcquirePushLockShared @ 0x140103C50 (ExfTryAcquirePushLockShared.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall ExTryAcquireCacheAwarePushLockSharedEx(

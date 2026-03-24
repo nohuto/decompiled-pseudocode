@@ -1,8 +1,8 @@
 /*
- * XREFs of PspComputeQuantum @ 0x14079D40C
+ * XREFs of PspComputeQuantum @ 0x1406D9AFC
  * Callers:
- *     PsChangeQuantumTable @ 0x14068F5DC (PsChangeQuantumTable.c)
- *     PspComputeQuantumAndPriority @ 0x14079D364 (PspComputeQuantumAndPriority.c)
+ *     PspComputeQuantumAndPriority @ 0x1406D9A54 (PspComputeQuantumAndPriority.c)
+ *     PsChangeQuantumTable @ 0x14078C7B8 (PsChangeQuantumTable.c)
  * Callees:
  *     <none>
  */
@@ -17,8 +17,8 @@ char __fastcall PspComputeQuantum(__int64 a1, char a2)
   v2 = *(_QWORD *)(a1 + 1296);
   if ( !v2 || !PspUseJobSchedulingClasses )
     return *((_BYTE *)&PspForegroundQuantum + (PsPrioritySeparation & (unsigned int)-(a2 != 0)));
-  v4 = *(unsigned int *)(v2 + 1044);
+  v4 = *(unsigned int *)(v2 + 852);
   if ( (unsigned int)v4 >= 0xA )
-    v4 = *(unsigned int *)(v2 + 580);
+    v4 = *(unsigned int *)(v2 + 484);
   return *((_BYTE *)PspJobSchedulingClasses + v4);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of DestroyEventEntry @ 0x1C00B6AB4
+ * XREFs of DestroyEventEntry @ 0x1C01FF994
  * Callers:
- *     FlushEventEntryList @ 0x1C02BF9D8 (FlushEventEntryList.c)
+ *     FlushEventEntryList @ 0x1C027F570 (FlushEventEntryList.c)
  * Callees:
  *     <none>
  */

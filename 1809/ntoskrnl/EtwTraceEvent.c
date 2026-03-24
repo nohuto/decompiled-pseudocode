@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwTraceEvent @ 0x14030E6DC
+ * XREFs of EtwTraceEvent @ 0x14030E7DC
  * Callers:
- *     NtTraceEvent @ 0x1400CB490 (NtTraceEvent.c)
- *     IoWMIWriteEvent @ 0x14010BDA0 (IoWMIWriteEvent.c)
+ *     NtTraceEvent @ 0x1400CB4B0 (NtTraceEvent.c)
+ *     IoWMIWriteEvent @ 0x14010BDC0 (IoWMIWriteEvent.c)
  * Callees:
- *     EtwpReserveTraceBuffer @ 0x1400C75E0 (EtwpReserveTraceBuffer.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpOpenLogger @ 0x140113790 (EtwpOpenLogger.c)
- *     EtwpCloseLogger @ 0x14011383C (EtwpCloseLogger.c)
- *     EtwpReleaseTraceBuffer @ 0x140113878 (EtwpReleaseTraceBuffer.c)
- *     EtwpGetReserveTraceBufferStatus @ 0x14013F670 (EtwpGetReserveTraceBufferStatus.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     EtwpSendTraceEvent @ 0x14031315C (EtwpSendTraceEvent.c)
- *     EtwpInvokeEventCallback @ 0x140313C54 (EtwpInvokeEventCallback.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     EtwpReserveTraceBuffer @ 0x1400C7600 (EtwpReserveTraceBuffer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpOpenLogger @ 0x1401137B0 (EtwpOpenLogger.c)
+ *     EtwpCloseLogger @ 0x14011385C (EtwpCloseLogger.c)
+ *     EtwpReleaseTraceBuffer @ 0x140113898 (EtwpReleaseTraceBuffer.c)
+ *     EtwpGetReserveTraceBufferStatus @ 0x14013F690 (EtwpGetReserveTraceBufferStatus.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     EtwpSendTraceEvent @ 0x14031325C (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x140313D54 (EtwpInvokeEventCallback.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall EtwTraceEvent(unsigned __int16 a1, unsigned __int16 *a2, __int64 a3, int a4, char a5)

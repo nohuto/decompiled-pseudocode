@@ -1,48 +1,51 @@
 /*
- * XREFs of ?EraseIndexList@ParticleCollection@CParticleEmitterVisual@@QEAAXAEBV?$vector@HV?$allocator@H@std@@@std@@@Z @ 0x18022F17C
+ * XREFs of ?EraseIndexList@ParticleCollection@CParticleEmitterVisual@@QEAAXAEBV?$vector@HV?$allocator@H@std@@@std@@@Z @ 0x1801E022C
  * Callers:
- *     ?RemoveDeadParticles@CParticleEmitterVisual@@IEAAXM@Z @ 0x18022FC24 (-RemoveDeadParticles@CParticleEmitterVisual@@IEAAXM@Z.c)
+ *     ?RemoveDeadParticles@CParticleEmitterVisual@@IEAAXM@Z @ 0x1801E0D24 (-RemoveDeadParticles@CParticleEmitterVisual@@IEAAXM@Z.c)
  * Callees:
- *     ??$EraseIndexList@MV?$allocator@M@std@@@ParticleCollection@CParticleEmitterVisual@@AEAAXAEAV?$vector@MV?$allocator@M@std@@@std@@AEBV?$vector@HV?$allocator@H@std@@@3@@Z @ 0x18022B6C4 (--$EraseIndexList@MV-$allocator@M@std@@@ParticleCollection@CParticleEmitterVisual@@AEAAXAEAV-$ve.c)
- *     ??$EraseIndexList@Ufloat2@Numerics@Foundation@Windows@@V?$allocator@Ufloat2@Numerics@Foundation@Windows@@@std@@@ParticleCollection@CParticleEmitterVisual@@AEAAXAEAV?$vector@Ufloat2@Numerics@Foundation@Windows@@V?$allocator@Ufloat2@Numerics@Foundation@Windows@@@std@@@std@@AEBV?$vector@HV?$allocator@H@std@@@3@@Z @ 0x18022B708 (--$EraseIndexList@Ufloat2@Numerics@Foundation@Windows@@V-$allocator@Ufloat2@Numerics@Foundation@.c)
- *     ??$EraseIndexList@Ufloat3@Numerics@Foundation@Windows@@V?$allocator@Ufloat3@Numerics@Foundation@Windows@@@std@@@ParticleCollection@CParticleEmitterVisual@@AEAAXAEAV?$vector@Ufloat3@Numerics@Foundation@Windows@@V?$allocator@Ufloat3@Numerics@Foundation@Windows@@@std@@@std@@AEBV?$vector@HV?$allocator@H@std@@@3@@Z @ 0x18022B754 (--$EraseIndexList@Ufloat3@Numerics@Foundation@Windows@@V-$allocator@Ufloat3@Numerics@Foundation@.c)
- *     ??$EraseIndexList@Ufloat4@Numerics@Foundation@Windows@@V?$allocator@Ufloat4@Numerics@Foundation@Windows@@@std@@@ParticleCollection@CParticleEmitterVisual@@AEAAXAEAV?$vector@Ufloat4@Numerics@Foundation@Windows@@V?$allocator@Ufloat4@Numerics@Foundation@Windows@@@std@@@std@@AEBV?$vector@HV?$allocator@H@std@@@3@@Z @ 0x18022B7B8 (--$EraseIndexList@Ufloat4@Numerics@Foundation@Windows@@V-$allocator@Ufloat4@Numerics@Foundation@.c)
+ *     ??$EraseIndexList@MV?$allocator@M@std@@@ParticleCollection@CParticleEmitterVisual@@AEAAXAEAV?$vector@MV?$allocator@M@std@@@std@@AEBV?$vector@HV?$allocator@H@std@@@3@@Z @ 0x1801DC80C (--$EraseIndexList@MV-$allocator@M@std@@@ParticleCollection@CParticleEmitterVisual@@AEAAXAEAV-$ve.c)
+ *     ??$EraseIndexList@Ufloat2@Numerics@Foundation@Windows@@V?$allocator@Ufloat2@Numerics@Foundation@Windows@@@std@@@ParticleCollection@CParticleEmitterVisual@@AEAAXAEAV?$vector@Ufloat2@Numerics@Foundation@Windows@@V?$allocator@Ufloat2@Numerics@Foundation@Windows@@@std@@@std@@AEBV?$vector@HV?$allocator@H@std@@@3@@Z @ 0x1801DC874 (--$EraseIndexList@Ufloat2@Numerics@Foundation@Windows@@V-$allocator@Ufloat2@Numerics@Foundation@.c)
+ *     ??$EraseIndexList@Ufloat3@Numerics@Foundation@Windows@@V?$allocator@Ufloat3@Numerics@Foundation@Windows@@@std@@@ParticleCollection@CParticleEmitterVisual@@AEAAXAEAV?$vector@Ufloat3@Numerics@Foundation@Windows@@V?$allocator@Ufloat3@Numerics@Foundation@Windows@@@std@@@std@@AEBV?$vector@HV?$allocator@H@std@@@3@@Z @ 0x1801DC8E8 (--$EraseIndexList@Ufloat3@Numerics@Foundation@Windows@@V-$allocator@Ufloat3@Numerics@Foundation@.c)
+ *     ??$EraseIndexList@Ufloat4@Numerics@Foundation@Windows@@V?$allocator@Ufloat4@Numerics@Foundation@Windows@@@std@@@ParticleCollection@CParticleEmitterVisual@@AEAAXAEAV?$vector@Ufloat4@Numerics@Foundation@Windows@@V?$allocator@Ufloat4@Numerics@Foundation@Windows@@@std@@@std@@AEBV?$vector@HV?$allocator@H@std@@@3@@Z @ 0x1801DC974 (--$EraseIndexList@Ufloat4@Numerics@Foundation@Windows@@V-$allocator@Ufloat4@Numerics@Foundation@.c)
  */
 
 __int64 __fastcall CParticleEmitterVisual::ParticleCollection::EraseIndexList(__int64 a1, __int64 a2)
 {
   __int64 v4; // rcx
   __int64 v5; // rcx
-  int **v6; // r8
+  char **v6; // r8
   __int64 v7; // rcx
   __int64 v8; // rcx
   __int64 v9; // rcx
   __int64 v10; // rcx
-  int **v11; // r8
+  char **v11; // r8
   __int64 v12; // rcx
-  __int64 v13; // rcx
+  char **v13; // r8
   __int64 v14; // rcx
-  __int64 v15; // rcx
+  char **v15; // r8
   __int64 v16; // rcx
   __int64 v17; // rcx
-  int **v18; // r8
+  __int64 v18; // rcx
   __int64 v19; // rcx
-  __int64 v20; // rcx
+  char **v20; // r8
   __int64 v21; // rcx
   __int64 v22; // rcx
   __int64 v23; // rcx
-  int **v24; // r8
+  __int64 v24; // rcx
   __int64 v25; // rcx
+  char **v26; // r8
+  __int64 v27; // rcx
+  char **v28; // r8
   __int64 result; // rax
 
   CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float3,std::allocator<Windows::Foundation::Numerics::float3>>(
     a1,
     (__int64 *)a1,
-    (int **)a2);
+    (char **)a2);
   CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float4,std::allocator<Windows::Foundation::Numerics::float4>>(
     v4,
     (_QWORD *)(a1 + 24),
-    (int **)a2);
+    (char **)a2);
   CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float3,std::allocator<Windows::Foundation::Numerics::float3>>(
     v5,
     (__int64 *)(a1 + 48),
@@ -50,15 +53,15 @@ __int64 __fastcall CParticleEmitterVisual::ParticleCollection::EraseIndexList(__
   CParticleEmitterVisual::ParticleCollection::EraseIndexList<float,std::allocator<float>>(
     v7,
     (__int64 *)(a1 + 72),
-    (int **)a2);
+    (char **)a2);
   CParticleEmitterVisual::ParticleCollection::EraseIndexList<float,std::allocator<float>>(
     v8,
     (__int64 *)(a1 + 96),
-    (int **)a2);
+    (char **)a2);
   CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float4,std::allocator<Windows::Foundation::Numerics::float4>>(
     v9,
     (_QWORD *)(a1 + 120),
-    (int **)a2);
+    (char **)a2);
   CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float2,std::allocator<Windows::Foundation::Numerics::float2>>(
     v10,
     (__int64 *)(a1 + 144),
@@ -66,51 +69,51 @@ __int64 __fastcall CParticleEmitterVisual::ParticleCollection::EraseIndexList(__
   CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float2,std::allocator<Windows::Foundation::Numerics::float2>>(
     v12,
     (__int64 *)(a1 + 168),
-    (int **)a2);
-  CParticleEmitterVisual::ParticleCollection::EraseIndexList<float,std::allocator<float>>(
-    v13,
-    (__int64 *)(a1 + 192),
-    (int **)a2);
+    v13);
   CParticleEmitterVisual::ParticleCollection::EraseIndexList<float,std::allocator<float>>(
     v14,
-    (__int64 *)(a1 + 216),
-    (int **)a2);
-  CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float3,std::allocator<Windows::Foundation::Numerics::float3>>(
-    v15,
-    (__int64 *)(a1 + 240),
-    (int **)a2);
-  CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float4,std::allocator<Windows::Foundation::Numerics::float4>>(
+    (__int64 *)(a1 + 192),
+    v15);
+  CParticleEmitterVisual::ParticleCollection::EraseIndexList<float,std::allocator<float>>(
     v16,
-    (_QWORD *)(a1 + 264),
-    (int **)a2);
-  CParticleEmitterVisual::ParticleCollection::EraseIndexList<float,std::allocator<float>>(
+    (__int64 *)(a1 + 216),
+    (char **)a2);
+  CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float3,std::allocator<Windows::Foundation::Numerics::float3>>(
     v17,
-    (__int64 *)(a1 + 288),
-    v18);
-  CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float3,std::allocator<Windows::Foundation::Numerics::float3>>(
-    v19,
-    (__int64 *)(a1 + 312),
-    (int **)a2);
-  CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float3,std::allocator<Windows::Foundation::Numerics::float3>>(
-    v20,
-    (__int64 *)(a1 + 336),
-    (int **)a2);
-  CParticleEmitterVisual::ParticleCollection::EraseIndexList<float,std::allocator<float>>(
-    v21,
-    (__int64 *)(a1 + 360),
-    (int **)a2);
+    (__int64 *)(a1 + 240),
+    (char **)a2);
   CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float4,std::allocator<Windows::Foundation::Numerics::float4>>(
+    v18,
+    (_QWORD *)(a1 + 264),
+    (char **)a2);
+  CParticleEmitterVisual::ParticleCollection::EraseIndexList<float,std::allocator<float>>(
+    v19,
+    (__int64 *)(a1 + 288),
+    v20);
+  CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float3,std::allocator<Windows::Foundation::Numerics::float3>>(
+    v21,
+    (__int64 *)(a1 + 312),
+    (char **)a2);
+  CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float3,std::allocator<Windows::Foundation::Numerics::float3>>(
     v22,
-    (_QWORD *)(a1 + 384),
-    (int **)a2);
-  CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float2,std::allocator<Windows::Foundation::Numerics::float2>>(
+    (__int64 *)(a1 + 336),
+    (char **)a2);
+  CParticleEmitterVisual::ParticleCollection::EraseIndexList<float,std::allocator<float>>(
     v23,
-    (__int64 *)(a1 + 408),
-    v24);
+    (__int64 *)(a1 + 360),
+    (char **)a2);
+  CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float4,std::allocator<Windows::Foundation::Numerics::float4>>(
+    v24,
+    (_QWORD *)(a1 + 384),
+    (char **)a2);
   CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float2,std::allocator<Windows::Foundation::Numerics::float2>>(
     v25,
+    (__int64 *)(a1 + 408),
+    v26);
+  CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float2,std::allocator<Windows::Foundation::Numerics::float2>>(
+    v27,
     (__int64 *)(a1 + 432),
-    (int **)a2);
+    v28);
   result = (__int64)(*(_QWORD *)(a2 + 8) - *(_QWORD *)a2) >> 2;
   *(_DWORD *)(a1 + 456) -= result;
   return result;

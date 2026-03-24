@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpSegContextCompact @ 0x1401B63A8
+ * XREFs of RtlpHpSegContextCompact @ 0x1401B63C8
  * Callers:
- *     RtlpHpHeapCompact @ 0x1401B6224 (RtlpHpHeapCompact.c)
+ *     RtlpHpHeapCompact @ 0x1401B6244 (RtlpHpHeapCompact.c)
  * Callees:
  *     RtlpHpSegLockAcquire @ 0x14000B57C (RtlpHpSegLockAcquire.c)
  *     RtlpHpSegFreeRangeRemove @ 0x14000B644 (RtlpHpSegFreeRangeRemove.c)
  *     RtlpHpSegFreeRangeInsert @ 0x14000B704 (RtlpHpSegFreeRangeInsert.c)
  *     RtlpHpSegPageRangeCoalesce @ 0x14000B82C (RtlpHpSegPageRangeCoalesce.c)
- *     RtlpHpSegSegmentFree @ 0x1401546A4 (RtlpHpSegSegmentFree.c)
- *     RtlpHpSegHeapRemoveSegment @ 0x1402FCA70 (RtlpHpSegHeapRemoveSegment.c)
- *     RtlpHpSegLockRelease @ 0x1402FCA9C (RtlpHpSegLockRelease.c)
+ *     RtlpHpSegSegmentFree @ 0x1401546C4 (RtlpHpSegSegmentFree.c)
+ *     RtlpHpSegHeapRemoveSegment @ 0x1402FCB70 (RtlpHpSegHeapRemoveSegment.c)
+ *     RtlpHpSegLockRelease @ 0x1402FCB9C (RtlpHpSegLockRelease.c)
  */
 
 _QWORD *__fastcall RtlpHpSegContextCompact(__int64 a1, unsigned int a2)

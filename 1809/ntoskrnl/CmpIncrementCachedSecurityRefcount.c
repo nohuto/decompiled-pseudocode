@@ -4,7 +4,7 @@
  *     CmpCheckKey @ 0x1405DA210 (CmpCheckKey.c)
  * Callees:
  *     RtlUIntAdd @ 0x140001568 (RtlUIntAdd.c)
- *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35C4 (CmpFindSecurityCellCacheIndexNew.c)
+ *     CmpFindSecurityCellCacheIndexNew @ 0x1401B35E4 (CmpFindSecurityCellCacheIndexNew.c)
  */
 
 NTSTATUS __fastcall CmpIncrementCachedSecurityRefcount(__int64 a1, unsigned int a2)

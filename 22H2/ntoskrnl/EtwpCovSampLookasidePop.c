@@ -1,32 +1,41 @@
 /*
- * XREFs of EtwpCovSampLookasidePop @ 0x140469BA8
+ * XREFs of EtwpCovSampLookasidePop @ 0x1405AF44C
  * Callers:
- *     EtwpCovSampCaptureBufferGet @ 0x14046987C (EtwpCovSampCaptureBufferGet.c)
- *     EtwpCovSampSampleBufferReserve @ 0x140469D06 (EtwpCovSampSampleBufferReserve.c)
- *     EtwpCovSampCaptureQueueApc @ 0x1406034F0 (EtwpCovSampCaptureQueueApc.c)
+ *     EtwpCovSampCaptureBufferGet @ 0x1405AE510 (EtwpCovSampCaptureBufferGet.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x1405AED80 (EtwpCovSampCaptureQueueApc.c)
+ *     EtwpCovSampSampleBufferReserve @ 0x1405AF7EC (EtwpCovSampSampleBufferReserve.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1404287F0 (RtlpInterlockedPopEntrySList.c)
- *     EtwpCovSampCaptureReleaseToLookaside @ 0x140469B2A (EtwpCovSampCaptureReleaseToLookaside.c)
- *     EtwpCovSampCaptureQueueRebalance @ 0x140603718 (EtwpCovSampCaptureQueueRebalance.c)
+ *     KeInsertQueueDpc @ 0x14021FD00 (KeInsertQueueDpc.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x1405AF0A0 (EtwpCovSampCaptureReleaseToLookaside.c)
  */
 
-PSLIST_ENTRY __fastcall EtwpCovSampLookasidePop(__int64 a1, __int64 a2)
+struct _SLIST_ENTRY *__fastcall EtwpCovSampLookasidePop(__int64 a1, __int64 a2)
 {
-  PSLIST_ENTRY result; // rax
+  struct _SLIST_ENTRY *v4; // rdx
 
-  if ( *(_WORD *)a2 && (result = RtlpInterlockedPopEntrySList((PSLIST_HEADER)a2)) != 0LL )
+  if ( *(_WORD *)a2 )
+    v4 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)a2);
+  else
+    v4 = 0LL;
+  if ( !v4 )
   {
-    if ( *(_DWORD *)(a2 + 40) )
+    if ( *(_DWORD *)(a2 + 52) < *(_DWORD *)(a2 + 56) )
     {
-      result->Next = (_SLIST_ENTRY *)6941;
-      return result;
+      _InterlockedIncrement((volatile signed __int32 *)(a2 + 48));
+      if ( (unsigned int)(MEMORY[0xFFFFF78000000320] - *(_DWORD *)(a1 + 700)) >= 0x40 )
+      {
+        *(_DWORD *)(a1 + 700) = MEMORY[0xFFFFF78000000320];
+        KeInsertQueueDpc((PRKDPC)(a1 + 608), 0LL, 0LL);
+      }
     }
-    EtwpCovSampCaptureReleaseToLookaside(a1, a2, result);
+    return 0LL;
   }
-  else if ( *(_DWORD *)(a2 + 52) < *(_DWORD *)(a2 + 56) )
+  if ( !*(_DWORD *)(a2 + 40) )
   {
-    _InterlockedIncrement((volatile signed __int32 *)(a2 + 48));
-    EtwpCovSampCaptureQueueRebalance(a1);
+    EtwpCovSampCaptureReleaseToLookaside(a1, a2, v4);
+    return 0LL;
   }
-  return 0LL;
+  v4->Next = (_SLIST_ENTRY *)6941;
+  return v4;
 }

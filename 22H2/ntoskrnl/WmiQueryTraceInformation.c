@@ -1,17 +1,19 @@
 /*
- * XREFs of WmiQueryTraceInformation @ 0x140833A30
+ * XREFs of WmiQueryTraceInformation @ 0x140788980
  * Callers:
- *     WdipSemWriteSemActionsEvent @ 0x1408320E8 (WdipSemWriteSemActionsEvent.c)
+ *     WdipSemWriteSemActionsEvent @ 0x1407886A4 (WdipSemWriteSemActionsEvent.c)
+ *     VslpSkStartProfiling @ 0x140890A70 (VslpSkStartProfiling.c)
+ *     EtwpEventTracingCounterSetCallback @ 0x140982C10 (EtwpEventTracingCounterSetCallback.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwQueryTraceHandleByLoggerName @ 0x1407E5CC4 (EtwQueryTraceHandleByLoggerName.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BC864 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     EtwQueryTraceHandleByLoggerName @ 0x14078971C (EtwQueryTraceHandleByLoggerName.c)
  */
 
+// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall WmiQueryTraceInformation(
         TRACE_INFORMATION_CLASS TraceInformationClass,
         PVOID TraceInformation,
@@ -20,117 +22,119 @@ NTSTATUS __stdcall WmiQueryTraceInformation(
         PVOID Buffer)
 {
   unsigned __int64 v6; // r15
-  __int64 v8; // r13
   __int64 v9; // rdx
-  _DWORD *v10; // r9
-  int v11; // r10d
-  __int64 v12; // r12
-  int v13; // r10d
+  __int64 v10; // rcx
+  __int32 v11; // ebx
+  unsigned int v12; // ebx
+  _QWORD *CurrentServerSiloGlobals; // rax
   unsigned int *v14; // rax
-  unsigned int v15; // esi
-  int v16; // r10d
-  int v17; // r10d
-  int v18; // r10d
-  int v19; // r10d
-  int v20; // r10d
+  unsigned int v15; // ebx
+  __int32 v16; // ebx
+  __int32 v17; // ebx
+  __int32 v18; // ebx
+  int v19; // ebx
+  int v20; // ebx
   __int64 *v21; // rax
-  int v22; // r10d
-  int v23; // r10d
-  int v24; // r10d
-  int v25; // r10d
-  int v26; // r10d
-  unsigned int v27; // esi
-  unsigned int j; // r14d
-  unsigned int *v29; // r8
-  unsigned __int64 v30; // rdx
-  int v31; // ecx
+  __int32 v22; // ebx
+  __int32 v23; // ebx
+  __int32 v24; // ebx
+  __int32 v25; // ebx
+  int v26; // ebx
+  __int64 v27; // r13
+  unsigned int v28; // ebx
+  unsigned int j; // r9d
+  unsigned int v30; // r14d
+  unsigned int *v31; // rax
+  unsigned __int64 v32; // rdx
+  int v33; // ecx
   NTSTATUS result; // eax
-  unsigned int *v33; // rax
-  __int64 v34; // r14
-  __int64 v35; // rax
-  unsigned __int64 v36; // rax
-  unsigned __int64 v37; // rax
-  unsigned int v38; // eax
-  __int16 v39; // cx
-  __int64 v40; // rax
-  unsigned __int64 v41; // rcx
-  unsigned int *v42; // r12
-  unsigned int v43; // eax
-  unsigned int i; // r15d
-  __int64 v45; // rcx
-  __int64 v46; // rax
-  struct _KTHREAD *CurrentThread; // rcx
-  unsigned int *v48; // rax
-  NTSTATUS v49; // [rsp+24h] [rbp-44h]
-  unsigned int v50; // [rsp+28h] [rbp-40h]
-  unsigned int v51; // [rsp+28h] [rbp-40h]
-  __int64 v52; // [rsp+38h] [rbp-30h] BYREF
-  __int64 v53; // [rsp+40h] [rbp-28h]
-  struct _KTHREAD *v54; // [rsp+48h] [rbp-20h]
-  unsigned int Buffera; // [rsp+90h] [rbp+28h]
+  _QWORD *v35; // rax
+  unsigned int *v36; // rax
+  __int64 v37; // rbx
+  __int64 v38; // rax
+  unsigned __int64 v39; // rax
+  unsigned __int64 v40; // rax
+  unsigned int v41; // eax
+  __int16 v42; // cx
+  __int64 v43; // rax
+  unsigned __int64 v44; // rcx
+  __int64 v45; // r12
+  unsigned int v46; // ebx
+  _QWORD *v47; // rax
+  unsigned int *v48; // r10
+  unsigned int i; // r8d
+  struct _KTHREAD *CurrentThread; // rax
+  _QWORD *v51; // rax
+  unsigned int *v52; // rax
+  NTSTATUS v53; // [rsp+24h] [rbp-44h]
+  unsigned int v54; // [rsp+28h] [rbp-40h]
+  unsigned int v55; // [rsp+28h] [rbp-40h]
+  __int64 v56; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v57; // [rsp+40h] [rbp-28h]
+  struct _KTHREAD *v58; // [rsp+48h] [rbp-20h]
 
   v6 = TraceInformationLength;
-  v8 = 0LL;
-  v52 = 0LL;
-  v49 = 0;
-  v12 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 108);
-  if ( v10 )
-    *v10 = 0;
-  if ( v11 > 7 )
+  v56 = 0LL;
+  v53 = 0;
+  v9 = *((_QWORD *)PsGetCurrentServerSiloGlobals(*(__int64 *)&TraceInformationClass, (__int64)TraceInformation) + 108);
+  if ( RequiredLength )
+    *RequiredLength = 0;
+  if ( TraceInformationClass > TraceHandleByNameClass )
   {
-    v13 = v11 - 8;
-    if ( !v13 )
+    v11 = TraceInformationClass - 8;
+    if ( !v11 )
     {
       if ( (_DWORD)v6 != 4 )
         return -1073741820;
       if ( !Buffer )
         return -1073741776;
-      v14 = EtwpAcquireLoggerContextByLoggerId(v12, *(_DWORD *)Buffer, 0);
+      v12 = *(_DWORD *)Buffer;
+      CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals(v10, v9);
+      v14 = EtwpAcquireLoggerContextByLoggerId(CurrentServerSiloGlobals[108], v12, 0);
       if ( !v14 )
         return -1073741275;
-      v15 = v14[60];
+      v15 = v14[64];
       EtwpReleaseLoggerContext(v14, 0);
       if ( TraceInformation )
         *(_DWORD *)TraceInformation = v15;
-      if ( RequiredLength )
-        *RequiredLength = 4;
-      return v49;
+      goto LABEL_10;
     }
-    v16 = v13 - 1;
+    v16 = v11 - 1;
     if ( !v16 )
     {
       if ( !Buffer )
         return -1073741581;
       if ( !RequiredLength )
         return -1073741582;
-      *v10 = 32;
+      *RequiredLength = 32;
       if ( (unsigned int)v6 < 0x20 )
         return -1073741820;
       if ( !TraceInformation )
         return -1073741584;
-      v52 = *(_QWORD *)Buffer;
-      v51 = (unsigned __int16)v52;
+      v56 = *(_QWORD *)Buffer;
+      v55 = (unsigned __int16)v56;
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v48 = EtwpAcquireLoggerContextByLoggerId(v12, v51, 0);
-      if ( v48 )
+      v51 = PsGetCurrentServerSiloGlobals(v10, v9);
+      v52 = EtwpAcquireLoggerContextByLoggerId(v51[108], v55, 0);
+      if ( v52 )
       {
         *(_DWORD *)TraceInformation = 1;
-        *((_DWORD *)TraceInformation + 1) = v48[1];
-        *((_DWORD *)TraceInformation + 2) = v48[56];
-        *((_DWORD *)TraceInformation + 3) = v48[59];
-        *((_DWORD *)TraceInformation + 4) = v48[3];
-        *((_DWORD *)TraceInformation + 5) = v48[52];
-        *((_DWORD *)TraceInformation + 7) = v48[50];
-        *((_DWORD *)TraceInformation + 6) = v48[53];
-        EtwpReleaseLoggerContext(v48, 0);
+        *((_DWORD *)TraceInformation + 1) = v52[1];
+        *((_DWORD *)TraceInformation + 2) = v52[60];
+        *((_DWORD *)TraceInformation + 3) = v52[63];
+        *((_DWORD *)TraceInformation + 4) = v52[3];
+        *((_DWORD *)TraceInformation + 5) = v52[56];
+        *((_DWORD *)TraceInformation + 7) = v52[54];
+        *((_DWORD *)TraceInformation + 6) = v52[57];
+        EtwpReleaseLoggerContext(v52, 0);
       }
       else
       {
-        v49 = -1073741162;
+        v53 = -1073741162;
       }
-      KeLeaveCriticalRegion();
-      return v49;
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      return v53;
     }
     v17 = v16 - 1;
     if ( v17 )
@@ -139,8 +143,8 @@ NTSTATUS __stdcall WmiQueryTraceInformation(
       if ( !v18 )
       {
         if ( RequiredLength )
-          *v10 = 8;
-        if ( (unsigned __int8)EtwpBootPhase <= 1u )
+          *RequiredLength = 8;
+        if ( !EtwpInitialized )
           return -1073741661;
         if ( (_DWORD)v6 != 8 )
           return -1073741820;
@@ -153,29 +157,29 @@ NTSTATUS __stdcall WmiQueryTraceInformation(
       if ( !v19 )
       {
         if ( RequiredLength )
-          *v10 = 120;
-        if ( (unsigned __int8)EtwpBootPhase <= 1u )
+          *RequiredLength = 120;
+        if ( !EtwpInitialized )
           return -1073741661;
         if ( (_DWORD)v6 != 120 )
           return -1073741820;
         if ( !TraceInformation )
           return -1073741584;
-        *(_OWORD *)v9 = *(_OWORD *)EtwpAllNotifyRoutines;
-        *(_OWORD *)(v9 + 16) = *(_OWORD *)off_140A7B790;
-        *(_OWORD *)(v9 + 32) = *(_OWORD *)&off_140A7B7A0;
-        *(_OWORD *)(v9 + 48) = *(_OWORD *)&off_140A7B7B0;
-        *(_OWORD *)(v9 + 64) = *(_OWORD *)off_140A7B7C0;
-        *(_OWORD *)(v9 + 80) = *(_OWORD *)&off_140A7B7D0;
-        *(_OWORD *)(v9 + 96) = *(_OWORD *)off_140A7B7E0;
-        *(_QWORD *)(v9 + 112) = EtwpTraceRedirectedIo;
+        *(_OWORD *)TraceInformation = *(_OWORD *)EtwpAllNotifyRoutines;
+        *((_OWORD *)TraceInformation + 1) = *(_OWORD *)off_140986AA0;
+        *((_OWORD *)TraceInformation + 2) = *(_OWORD *)&off_140986AB0;
+        *((_OWORD *)TraceInformation + 3) = *(_OWORD *)&off_140986AC0;
+        *((_OWORD *)TraceInformation + 4) = *(_OWORD *)off_140986AD0;
+        *((_OWORD *)TraceInformation + 5) = *(_OWORD *)&off_140986AE0;
+        *((_OWORD *)TraceInformation + 6) = *(_OWORD *)off_140986AF0;
+        *((_QWORD *)TraceInformation + 14) = EtwpTraceRedirectedIo;
         return 0;
       }
       v20 = v19 - 1;
       if ( !v20 )
       {
         if ( RequiredLength )
-          *v10 = 8;
-        if ( (unsigned __int8)EtwpBootPhase <= 1u )
+          *RequiredLength = 8;
+        if ( !EtwpInitialized )
           return -1073741661;
         if ( (_DWORD)v6 != 8 )
           return -1073741820;
@@ -187,8 +191,8 @@ NTSTATUS __stdcall WmiQueryTraceInformation(
       if ( v20 == 2 )
       {
         if ( RequiredLength )
-          *v10 = 8;
-        if ( (unsigned __int8)EtwpBootPhase <= 1u )
+          *RequiredLength = 8;
+        if ( !EtwpInitialized )
           return -1073741661;
         if ( (_DWORD)v6 != 8 )
           return -1073741820;
@@ -196,63 +200,54 @@ NTSTATUS __stdcall WmiQueryTraceInformation(
           return -1073741584;
         v21 = (__int64 *)&EtwpWdfNotifyRoutines;
 LABEL_24:
-        *(_QWORD *)v9 = v21;
+        *(_QWORD *)TraceInformation = v21;
         return 0;
       }
       return -1073741821;
     }
-    v53 = 0LL;
+    v45 = 0LL;
+    v57 = 0LL;
     if ( (_DWORD)v6 != 8 )
       return -1073741820;
     if ( !Buffer )
       return -1073741776;
-    v50 = *(_DWORD *)Buffer;
-    v42 = EtwpAcquireLoggerContextByLoggerId(v12, *(_DWORD *)Buffer, 0);
-    if ( !v42 )
+    v46 = *(_DWORD *)Buffer;
+    v54 = *(_DWORD *)Buffer;
+    v47 = PsGetCurrentServerSiloGlobals(v10, v9);
+    v48 = EtwpAcquireLoggerContextByLoggerId(v47[108], v46, 0);
+    if ( !v48 )
       return -1073741275;
-    v43 = KeNumberProcessors_0;
-    Buffera = KeNumberProcessors_0;
-    for ( i = 0; i < v43; ++i )
+    for ( i = 0; i < (unsigned int)KeNumberProcessors_0; ++i )
     {
-      v45 = *((_QWORD *)v42 + 137);
-      if ( v45 == EtwpHostSiloState )
-        v46 = *(_QWORD *)(KeGetPrcb(i) + 34472) + 320LL;
-      else
-        v46 = *(_QWORD *)(v45 + 4144) + ((unsigned __int64)i << 6);
-      v8 += *(_QWORD *)(*(_QWORD *)(v46 + 8) + 8LL * v50);
-      v53 = v8;
-      v43 = Buffera;
+      v45 += *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v48 + 135) + 4136LL) + ((unsigned __int64)i << 6) + 8)
+                       + 8LL * v54);
+      v57 = v45;
     }
-    EtwpReleaseLoggerContext(v42, 0);
+    EtwpReleaseLoggerContext(v48, 0);
     if ( TraceInformation )
-      *(_QWORD *)TraceInformation = v8;
-    goto LABEL_67;
+      *(_QWORD *)TraceInformation = v45;
+    goto LABEL_98;
   }
-  if ( v11 != 7 )
+  if ( TraceInformationClass != TraceHandleByNameClass )
   {
-    if ( v11 )
+    if ( TraceInformationClass == TraceIdClass )
     {
-      v22 = v11 - 1;
-      if ( !v22 )
-      {
-        if ( (_DWORD)v6 != 8 )
-          return -1073741820;
-        if ( !Buffer )
-          return -1073741776;
-        v38 = *(_DWORD *)Buffer;
-        if ( *(_DWORD *)Buffer >= *(_DWORD *)(v12 + 16) )
-          return -1073741816;
-        v52 = 0LL;
-        v39 = v38;
-        if ( !v38 )
-          v39 = -1;
-        LOWORD(v52) = v39;
-        if ( TraceInformation )
-          *(_QWORD *)v9 = v52;
-        if ( RequiredLength )
-          *v10 = 8;
-        return v49;
-      }
+      if ( (_DWORD)v6 != 4 )
+        return -1073741820;
+      if ( !Buffer )
+        return -1073741776;
+      v40 = *((_QWORD *)Buffer + 1);
+      v56 = v40;
+      if ( !v40 || v40 == 0xFFFFFFFF )
+        return -1073741816;
+      LODWORD(v40) = (unsigned __int16)v40;
+      if ( (unsigned int)(unsigned __int16)v40 >= *(_DWORD *)(v9 + 16) )
+        return -1073741816;
+      goto LABEL_84;
+    }
+    v22 = TraceInformationClass - 1;
+    if ( v22 )
+    {
       v23 = v22 - 1;
       if ( v23 )
       {
@@ -269,110 +264,114 @@ LABEL_24:
             {
               if ( (unsigned int)v6 < 8 || !TraceInformation )
                 return -1073741820;
-              v27 = 0;
-              for ( j = 1; j < *(_DWORD *)(v12 + 16); ++j )
+              v27 = *((_QWORD *)PsGetCurrentServerSiloGlobals(v10, v9) + 108);
+              v28 = 0;
+              for ( j = 1; ; j = v30 + 1 )
               {
-                v29 = EtwpAcquireLoggerContextByLoggerId(v12, j, 0);
-                if ( v29 )
+                v30 = j;
+                if ( j >= *(_DWORD *)(v27 + 16) )
+                  break;
+                v31 = EtwpAcquireLoggerContextByLoggerId(v27, j, 0);
+                if ( v31 )
                 {
-                  if ( 8 * (unsigned __int64)(v27 + 1) <= v6 )
-                    *((_QWORD *)TraceInformation + v27) = j;
-                  EtwpReleaseLoggerContext(v29, 0);
-                  ++v27;
+                  if ( 8 * (unsigned __int64)(v28 + 1) <= v6 )
+                    *((_QWORD *)TraceInformation + v28) = v30;
+                  EtwpReleaseLoggerContext(v31, 0);
+                  ++v28;
                 }
               }
-              v30 = 8LL * v27;
-              v31 = 0;
-              if ( v30 > v6 )
-                v31 = 261;
-              v49 = v31;
+              v32 = 8LL * v28;
+              v33 = 0;
+              if ( v32 > v6 )
+                v33 = 261;
+              v53 = v33;
               if ( RequiredLength )
-                *RequiredLength = v30;
-              return v49;
+                *RequiredLength = v32;
+              return v53;
             }
             return -1073741821;
           }
           if ( (_DWORD)v6 != 8 )
             return -1073741820;
-          v33 = EtwpAcquireLoggerContextByLoggerId(v12, 1u, 0);
-          if ( !v33 )
+          v35 = PsGetCurrentServerSiloGlobals(v10, v9);
+          v36 = EtwpAcquireLoggerContextByLoggerId(v35[108], 1u, 0);
+          if ( !v36 )
             return -1073741275;
-          v34 = *v33;
-          v52 = v34;
-          EtwpReleaseLoggerContext(v33, 0);
+          v37 = *v36;
+          v56 = v37;
+          EtwpReleaseLoggerContext(v36, 0);
           if ( TraceInformation )
-            *(_QWORD *)TraceInformation = v34;
-LABEL_67:
+            *(_QWORD *)TraceInformation = v37;
+LABEL_98:
           if ( RequiredLength )
             *RequiredLength = 8;
-          return v49;
+          return v53;
         }
         if ( (unsigned int)v6 < 4 )
           return -1073741820;
         if ( !Buffer )
           return -1073741776;
-        v35 = *((_QWORD *)Buffer + 1);
-        v52 = v35;
-        if ( !v35 || v35 == 0xFFFFFFFFLL )
+        v38 = *((_QWORD *)Buffer + 1);
+        v56 = v38;
+        if ( !v38 || v38 == 0xFFFFFFFFLL )
           return -1073741816;
         if ( TraceInformation )
-          *(_DWORD *)v9 = BYTE2(v35);
-LABEL_109:
+          *(_DWORD *)TraceInformation = BYTE2(v38);
+LABEL_10:
         if ( RequiredLength )
-          *v10 = 4;
-        return v49;
+          *RequiredLength = 4;
+        return v53;
       }
       if ( (unsigned int)v6 < 4 )
         return -1073741820;
       if ( !Buffer )
         return -1073741776;
-      v36 = *((_QWORD *)Buffer + 1);
-      v52 = v36;
-      if ( !v36 || v36 == 0xFFFFFFFF )
+      v39 = *((_QWORD *)Buffer + 1);
+      v56 = v39;
+      if ( !v39 || v39 == 0xFFFFFFFF )
         return -1073741816;
-      v37 = HIDWORD(v36);
+      v40 = HIDWORD(v39);
+LABEL_84:
+      if ( TraceInformation )
+        *(_DWORD *)TraceInformation = v40;
+      goto LABEL_10;
     }
-    else
-    {
-      if ( (_DWORD)v6 != 4 )
-        return -1073741820;
-      if ( !Buffer )
-        return -1073741776;
-      v37 = *((_QWORD *)Buffer + 1);
-      v52 = v37;
-      if ( !v37 || v37 == 0xFFFFFFFF )
-        return -1073741816;
-      LODWORD(v37) = (unsigned __int16)v37;
-      if ( (unsigned int)(unsigned __int16)v37 >= *(_DWORD *)(v12 + 16) )
-        return -1073741816;
-    }
+    if ( (_DWORD)v6 != 8 )
+      return -1073741820;
+    if ( !Buffer )
+      return -1073741776;
+    v41 = *(_DWORD *)Buffer;
+    if ( *(_DWORD *)Buffer >= *(_DWORD *)(v9 + 16) )
+      return -1073741816;
+    v56 = 0LL;
+    v42 = v41;
+    if ( !v41 )
+      v42 = -1;
+    LOWORD(v56) = v42;
+LABEL_96:
     if ( TraceInformation )
-      *(_DWORD *)v9 = v37;
-    goto LABEL_109;
+      *(_QWORD *)TraceInformation = v56;
+    goto LABEL_98;
   }
-  v54 = KeGetCurrentThread();
-  if ( v54->PreviousMode )
+  v58 = KeGetCurrentThread();
+  if ( v58->PreviousMode )
   {
-    v40 = *(unsigned __int16 *)Buffer;
-    if ( (_WORD)v40 )
+    v43 = *(unsigned __int16 *)Buffer;
+    if ( (_WORD)v43 )
     {
-      v41 = *((_QWORD *)Buffer + 1);
-      if ( (v41 & 1) != 0 )
+      v44 = *((_QWORD *)Buffer + 1);
+      if ( (v44 & 1) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( v41 + v40 > 0x7FFFFFFF0000LL || v41 + v40 < v41 )
+      if ( v44 + v43 > 0x7FFFFFFF0000LL || v44 + v43 < v44 )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
   }
   if ( (_DWORD)v6 != 8 )
     return -1073741820;
-  v52 = 0LL;
-  result = EtwQueryTraceHandleByLoggerName((__int64)Buffer, &v52);
-  v49 = result;
+  v56 = 0LL;
+  result = EtwQueryTraceHandleByLoggerName(Buffer, &v56);
+  v53 = result;
   if ( result >= 0 )
-  {
-    if ( TraceInformation )
-      *(_QWORD *)TraceInformation = v52;
-    goto LABEL_67;
-  }
+    goto LABEL_96;
   return result;
 }

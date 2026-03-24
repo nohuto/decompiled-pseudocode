@@ -1,15 +1,15 @@
 /*
- * XREFs of SepLogTokenSidManagement @ 0x1409C9CC0
+ * XREFs of SepLogTokenSidManagement @ 0x14091CEC4
  * Callers:
- *     SepDereferenceSidValuesBlock @ 0x1409CF804 (SepDereferenceSidValuesBlock.c)
- *     SepSetTokenUserAndGroups @ 0x1409CF9AC (SepSetTokenUserAndGroups.c)
+ *     SepDereferenceSidValuesBlock @ 0x1409230B0 (SepDereferenceSidValuesBlock.c)
+ *     SepSetTokenUserAndGroups @ 0x14092320C (SepSetTokenUserAndGroups.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     RtlConvertLuidToUlonglong @ 0x1405B8440 (RtlConvertLuidToUlonglong.c)
- *     SepGetSidValuesDump @ 0x1405B8BD8 (SepGetSidValuesDump.c)
- *     SepGetSidManagementActionName @ 0x1409C9C44 (SepGetSidManagementActionName.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlConvertLuidToUlonglong @ 0x1405965A0 (RtlConvertLuidToUlonglong.c)
+ *     SepGetSidValuesDump @ 0x140596AE8 (SepGetSidValuesDump.c)
+ *     SepGetSidManagementActionName @ 0x14091CE48 (SepGetSidManagementActionName.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64 a4)
@@ -28,7 +28,7 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
   __int64 v17; // rax
   int v18; // eax
   unsigned int v19; // ebx
-  void *SidValuesDump; // r14
+  PVOID SidValuesDump; // r14
   __int64 v21; // rax
   __int64 v22; // rax
   unsigned int v23; // ebx
@@ -36,7 +36,7 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
   __int64 v25; // rax
   ULONG v26; // ebx
   void *v27; // rdi
-  __int64 v28; // rax
+  PVOID v28; // rax
   ULONG v29; // ecx
   __int64 v30; // rdx
   ULONG v31; // [rsp+30h] [rbp-D0h] BYREF
@@ -75,7 +75,7 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
   __int64 v64; // [rsp+108h] [rbp+8h]
   int *v65; // [rsp+110h] [rbp+10h]
   __int64 v66; // [rsp+118h] [rbp+18h]
-  void *v67; // [rsp+120h] [rbp+20h]
+  PVOID v67; // [rsp+120h] [rbp+20h]
   int v68; // [rsp+128h] [rbp+28h]
   int v69; // [rsp+12Ch] [rbp+2Ch]
 
@@ -105,8 +105,8 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
     v10 = 2;
     UserData.Size = v31;
     UserData.Reserved = 0;
-    v11 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[2];
-    v12 = &unk_140D1BF70;
+    v11 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2];
+    v12 = &unk_140CFA390;
     if ( v11 && *(_WORD *)v11 )
     {
       v13 = *(void **)(v11 + 8);
@@ -114,7 +114,7 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
     }
     else
     {
-      v13 = &unk_140D1BF70;
+      v13 = &unk_140CFA390;
       v14 = 2;
     }
     v44 = v13;
@@ -127,7 +127,7 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
     }
     else
     {
-      v15 = &unk_140D1BF70;
+      v15 = &unk_140CFA390;
       v16 = 2;
     }
     v47 = v15;
@@ -169,7 +169,7 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
     SidValuesDump = 0LL;
     if ( a2 && v18 )
     {
-      SidValuesDump = (void *)SepGetSidValuesDump((_DWORD *)a2, &v35);
+      SidValuesDump = SepGetSidValuesDump((_DWORD *)a2, &v35);
       v68 = v35;
       v19 = 12;
       v67 = SidValuesDump;
@@ -199,9 +199,9 @@ void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64
     {
       v28 = SepGetSidValuesDump((_DWORD *)a3, &v36);
       v29 = v36;
-      v27 = (void *)v28;
+      v27 = v28;
       v30 = 2LL * v26++;
-      *(&UserData.Ptr + v30) = v28;
+      *(&UserData.Ptr + v30) = (ULONGLONG)v28;
       *(&UserData.Size + 2 * v30) = v29;
       *(&UserData.Reserved + 2 * v30) = 0;
     }

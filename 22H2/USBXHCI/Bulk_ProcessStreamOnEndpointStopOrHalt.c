@@ -1,12 +1,12 @@
 /*
- * XREFs of Bulk_ProcessStreamOnEndpointStopOrHalt @ 0x1C0046D58
+ * XREFs of Bulk_ProcessStreamOnEndpointStopOrHalt @ 0x1C00442A0
  * Callers:
- *     Bulk_EP_FSEReceived @ 0x1C000FC70 (Bulk_EP_FSEReceived.c)
- *     Bulk_EP_EndpointHalted @ 0x1C0046AB0 (Bulk_EP_EndpointHalted.c)
+ *     Bulk_EP_FSEReceived @ 0x1C000F560 (Bulk_EP_FSEReceived.c)
+ *     Bulk_EP_EndpointHalted @ 0x1C0043E70 (Bulk_EP_EndpointHalted.c)
  * Callees:
- *     WPP_RECORDER_SF_DDDD @ 0x1C000E150 (WPP_RECORDER_SF_DDDD.c)
- *     Bulk_FindStage @ 0x1C000E248 (Bulk_FindStage.c)
- *     memmove @ 0x1C0020300 (memmove.c)
+ *     Bulk_FindStage @ 0x1C000BD10 (Bulk_FindStage.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C000E080 (WPP_RECORDER_SF_dddd.c)
+ *     memmove @ 0x1C001B000 (memmove.c)
  */
 
 __int64 __fastcall Bulk_ProcessStreamOnEndpointStopOrHalt(__int64 a1)
@@ -54,7 +54,7 @@ __int64 __fastcall Bulk_ProcessStreamOnEndpointStopOrHalt(__int64 a1)
       v11 = (v10 & 0x80u) == 0;
       v12 = v10 >> 8;
       v13 = 0LL;
-      if ( !v11 || (v7 & 0x200000000000LL) == 0 )
+      if ( (v7 & 0x200000000000LL) == 0 || !v11 )
         v13 = v12;
       goto LABEL_13;
     }
@@ -79,12 +79,12 @@ LABEL_13:
     {
       v14 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
       LOBYTE(v14) = 3;
-      WPP_RECORDER_SF_DDDD(
+      WPP_RECORDER_SF_dddd(
         *(_QWORD *)(v4 + 80),
         v14,
         14,
         12,
-        (__int64)&WPP_92c598da33ef340e00f5370896d293ba_Traceguids,
+        (__int64)&WPP_f900c8e8530d3ebbc4303e7a1e3d0cbe_Traceguids,
         *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
         *(_DWORD *)(v4 + 144),
         v5,

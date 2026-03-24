@@ -1,15 +1,15 @@
 /*
- * XREFs of ?TotalContactsCapturedUnderVisual@CManipulationContext@@SAIPEBUMCCollections@@PEAVCVisual@@PEAPEAVCInteraction@@@Z @ 0x180185280
+ * XREFs of ?TotalContactsCapturedUnderVisual@CManipulationContext@@SAIPEBUMCCollections@@PEAVCVisual@@PEAPEAVCInteraction@@@Z @ 0x1802369E0
  * Callers:
- *     ?QueueMidManipulationUpdate@CManipulationManager@@IEAAJW4MidManipulationUpdateType@@PEAVCVisual@@@Z @ 0x18017E7E8 (-QueueMidManipulationUpdate@CManipulationManager@@IEAAJW4MidManipulationUpdateType@@PEAVCVisual@.c)
+ *     ?QueueMidManipulationUpdate@CManipulationManager@@IEAAJW4MidManipulationUpdateType@@PEAVCVisual@@@Z @ 0x1802267FC (-QueueMidManipulationUpdate@CManipulationManager@@IEAAJW4MidManipulationUpdateType@@PEAVCVisual@.c)
  * Callees:
- *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x180049584 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
- *     ??4?$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z @ 0x18006D8AC (--4-$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z.c)
- *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D5E60 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
- *     ?GetTotalNumContacts@CInteraction@@AEBAIXZ @ 0x1800EEDA4 (-GetTotalNumContacts@CInteraction@@AEBAIXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetClosestInteractionAncestor@CManipulationContext@@SAPEAVCInteraction@@PEBVCVisual@@PEA_N@Z @ 0x180182958 (-GetClosestInteractionAncestor@CManipulationContext@@SAPEAVCInteraction@@PEBVCVisual@@PEA_N@Z.c)
- *     ?IsInteractionDescendantOfVisual@CManipulationContext@@CA_NPEBVCInteraction@@PEBVCVisual@@@Z @ 0x180183070 (-IsInteractionDescendantOfVisual@CManipulationContext@@CA_NPEBVCInteraction@@PEBVCVisual@@@Z.c)
+ *     ??4?$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z @ 0x180061F44 (--4-$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAAEAV012@PEAVCInteraction@@@Z.c)
+ *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x18009FEE0 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D3644 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetTotalNumContacts@CInteraction@@AEBAIXZ @ 0x180224D1C (-GetTotalNumContacts@CInteraction@@AEBAIXZ.c)
+ *     ?GetClosestInteractionAncestor@CManipulationContext@@SAPEAVCInteraction@@PEBVCVisual@@PEA_N@Z @ 0x1802343F4 (-GetClosestInteractionAncestor@CManipulationContext@@SAPEAVCInteraction@@PEBVCVisual@@PEA_N@Z.c)
+ *     ?IsInteractionDescendantOfVisual@CManipulationContext@@CA_NPEBVCInteraction@@PEBVCVisual@@@Z @ 0x180234AA0 (-IsInteractionDescendantOfVisual@CManipulationContext@@CA_NPEBVCInteraction@@PEBVCVisual@@@Z.c)
  */
 
 __int64 __fastcall CManipulationContext::TotalContactsCapturedUnderVisual(
@@ -35,7 +35,7 @@ __int64 __fastcall CManipulationContext::TotalContactsCapturedUnderVisual(
   if ( CVisual::GetInteractionInternal(a2) )
   {
     InteractionInternal = CVisual::GetInteractionInternal(a2);
-    Microsoft::WRL::ComPtr<CInteraction>::operator=((__int64 *)&v18, *((_QWORD *)InteractionInternal + 27));
+    Microsoft::WRL::ComPtr<CInteraction>::operator=((__int64 *)&v18, *((_QWORD *)InteractionInternal + 26));
     v9 = CVisual::GetInteractionInternal(a2);
     TotalNumContacts = CInteraction::GetTotalNumContacts(v9);
     v11 = v18;
@@ -48,7 +48,7 @@ __int64 __fastcall CManipulationContext::TotalContactsCapturedUnderVisual(
     v11 = v18;
     if ( v18 )
     {
-      for ( i = (CInteraction *)*((_QWORD *)v18 + 30); i; i = (CInteraction *)*((_QWORD *)i + 28) )
+      for ( i = (CInteraction *)*((_QWORD *)v18 + 29); i; i = (CInteraction *)*((_QWORD *)i + 27) )
       {
         if ( CManipulationContext::IsInteractionDescendantOfVisual(i, a2) )
           v4 += CInteraction::GetTotalNumContacts(i);
@@ -72,9 +72,9 @@ __int64 __fastcall CManipulationContext::TotalContactsCapturedUnderVisual(
       }
     }
   }
-  Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef((__int64 *)&v18);
+  Microsoft::WRL::ComPtr<IInteractionContextWrapper>::InternalAddRef((__int64 (__fastcall ****)(_QWORD))&v18);
   *a3 = v11;
   if ( v11 )
-    (*(void (__fastcall **)(struct CInteraction *))(*(_QWORD *)v11 + 16LL))(v11);
+    (*(void (__fastcall **)(struct CInteraction *))(*(_QWORD *)v11 + 8LL))(v11);
   return v4;
 }

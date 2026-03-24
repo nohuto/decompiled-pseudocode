@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlxQueryRegistryValues @ 0x1C00366C0
+ * XREFs of RtlxQueryRegistryValues @ 0x1C001B290
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall RtlxQueryRegistryValues(

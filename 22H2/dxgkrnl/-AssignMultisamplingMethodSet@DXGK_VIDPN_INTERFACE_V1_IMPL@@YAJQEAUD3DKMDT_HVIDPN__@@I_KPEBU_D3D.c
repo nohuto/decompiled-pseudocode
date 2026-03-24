@@ -1,14 +1,14 @@
 /*
- * XREFs of ?AssignMultisamplingMethodSet@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPN__@@I_KPEBU_D3DDDI_MULTISAMPLINGMETHOD@@@Z @ 0x1C03B8350
+ * XREFs of ?AssignMultisamplingMethodSet@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPN__@@I_KPEBU_D3DDDI_MULTISAMPLINGMETHOD@@@Z @ 0x1C02E84A0
  * Callers:
  *     <none>
  * Callees:
- *     ?FindById@?$IndexedSet@VDMMVIDPNSOURCE@@@@QEBAPEAVDMMVIDPNSOURCE@@I@Z @ 0x1C0006AD0 (-FindById@-$IndexedSet@VDMMVIDPNSOURCE@@@@QEBAPEAVDMMVIDPNSOURCE@@I@Z.c)
- *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDPN@@PEAUD3DKMDT_HVIDPN__@@@@SAPEAVDMMVIDPN@@PEAUD3DKMDT_HVIDPN__@@@Z @ 0x1C000A584 (-GetFromHandle@-$ExposedViaHandle@VDMMVIDPN@@PEAUD3DKMDT_HVIDPN__@@@@SAPEAVDMMVIDPN@@PEAUD3DKMDT.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?SetMultisamplingMethodSet@DMMVIDPNSOURCE@@QEAAJ_KPEBU_D3DDDI_MULTISAMPLINGMETHOD@@@Z @ 0x1C03BA368 (-SetMultisamplingMethodSet@DMMVIDPNSOURCE@@QEAAJ_KPEBU_D3DDDI_MULTISAMPLINGMETHOD@@@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?FindById@?$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C0009260 (-FindById@-$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
+ *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDPN@@PEAUD3DKMDT_HVIDPN__@@@@SAPEAVDMMVIDPN@@PEAUD3DKMDT_HVIDPN__@@@Z @ 0x1C0009790 (-GetFromHandle@-$ExposedViaHandle@VDMMVIDPN@@PEAUD3DKMDT_HVIDPN__@@@@SAPEAVDMMVIDPN@@PEAUD3DKMDT.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?SetMultisamplingMethodSet@DMMVIDPNSOURCE@@QEAAJ_KPEBU_D3DDDI_MULTISAMPLINGMETHOD@@@Z @ 0x1C02EA090 (-SetMultisamplingMethodSet@DMMVIDPNSOURCE@@QEAAJ_KPEBU_D3DDDI_MULTISAMPLINGMETHOD@@@Z.c)
  */
 
 __int64 __fastcall DXGK_VIDPN_INTERFACE_V1_IMPL::AssignMultisamplingMethodSet(
@@ -20,82 +20,84 @@ __int64 __fastcall DXGK_VIDPN_INTERFACE_V1_IMPL::AssignMultisamplingMethodSet(
   __int64 v7; // rbx
   __int64 v8; // rdx
   __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  _QWORD *v12; // rax
-  __int64 v13; // rsi
-  __int64 v14; // rax
-  DMMVIDPNSOURCE *v15; // rax
-  int v16; // eax
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  _QWORD *v21; // rax
+  _QWORD *v10; // rax
+  __int64 v11; // rsi
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rdx
+  DMMVIDPNSOURCE *v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  int v21; // eax
   __int64 v22; // rcx
-  __int64 v23; // r8
-  int v25; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v26; // [rsp+28h] [rbp-20h]
-  char v27; // [rsp+30h] [rbp-18h]
+  _QWORD *v23; // rax
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  int v27; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v28; // [rsp+28h] [rbp-20h]
+  char v29; // [rsp+30h] [rbp-18h]
 
-  v25 = -1;
-  v26 = 0LL;
+  v27 = -1;
+  v28 = 0LL;
   v7 = (unsigned int)a2;
-  if ( (qword_1C013F870 & 2) != 0 )
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v27 = 1;
-    v25 = 7047;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v29 = 1;
+    v27 = 7047;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, a3, 7047);
   }
   else
   {
-    v27 = 0;
+    v29 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v25, 7047);
-  v12 = (_QWORD *)WdLogNewEntry5_WdTrace(v9, v8, v10, v11);
-  v13 = v7;
-  v12[3] = a4;
-  v12[4] = a3;
-  v12[5] = v7;
-  v12[6] = this;
-  v14 = ExposedViaHandle<DMMVIDPN,D3DKMDT_HVIDPN__ *>::GetFromHandle((__int64)this);
-  if ( v14 )
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v27, 7047LL);
+  v10 = (_QWORD *)WdLogNewEntry5_WdTrace(v9, v8);
+  v11 = v7;
+  v10[3] = a4;
+  v10[4] = a3;
+  v10[5] = v7;
+  v10[6] = this;
+  v12 = ExposedViaHandle<DMMVIDPN,D3DKMDT_HVIDPN__ *>::GetFromHandle((__int64)this);
+  if ( v12 )
   {
-    v15 = (DMMVIDPNSOURCE *)IndexedSet<DMMVIDPNSOURCE>::FindById(*(_QWORD *)(v14 + 304), v7);
-    if ( v15 )
+    v17 = (DMMVIDPNSOURCE *)IndexedSet<DMMVIDEOPRESENTTARGET>::FindById(*(_QWORD *)(v12 + 304), v7);
+    if ( v17 )
     {
-      v16 = DMMVIDPNSOURCE::SetMultisamplingMethodSet(v15, a3, a4);
-      v7 = v16;
-      if ( v16 >= 0 )
+      v21 = DMMVIDPNSOURCE::SetMultisamplingMethodSet(v17, a3, a4);
+      v7 = v21;
+      if ( v21 >= 0 )
       {
         LODWORD(v7) = 0;
       }
       else
       {
-        v21 = (_QWORD *)WdLogNewEntry5_WdTrace(v18, v17, v19, v20);
-        v21[3] = v13;
-        v21[4] = this;
-        v21[5] = v7;
+        v23 = (_QWORD *)WdLogNewEntry5_WdTrace(v22, v16);
+        v23[3] = v11;
+        v23[4] = this;
+        v23[5] = v7;
       }
     }
     else
     {
-      WdLogSingleEntry1(2LL, v7);
+      v20 = WdLogNewEntry5_WdError(v19, v18);
+      *(_QWORD *)(v20 + 24) = v7;
+      WdLogEvent5_WdError(v20);
       LODWORD(v7) = -1071774972;
     }
   }
   else
   {
-    WdLogSingleEntry1(2LL, this);
+    v15 = WdLogNewEntry5_WdError(v14, v13);
+    *(_QWORD *)(v15 + 24) = this;
+    WdLogEvent5_WdError(v15);
     LODWORD(v7) = -1071774973;
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v25);
-  if ( v27 )
-  {
-    LOBYTE(v22) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v22, &EventProfilerExit, v23, v25);
-  }
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v27, v16);
+  if ( v29 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v24, &EventProfilerExit, v25, v27);
   return (unsigned int)v7;
 }

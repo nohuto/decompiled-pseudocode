@@ -1,25 +1,24 @@
 /*
- * XREFs of ?UnregisterGraphWalkRoot@CThreadContext@@SAXXZ @ 0x18007BBD4
+ * XREFs of ?UnregisterGraphWalkRoot@CThreadContext@@SAXXZ @ 0x180057DE0
  * Callers:
- *     ?UpdateCVIRenderTargets@CDesktopTree@@QEBAXAEBVRenderTargetInfo@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18004CDFC (-UpdateCVIRenderTargets@CDesktopTree@@QEBAXAEBVRenderTargetInfo@@AEBV-$TMilRect_@MUMilRectF@@UMi.c)
- *     ?PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006E9F0 (-PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?EndWalk@?$CGraphWalker@VCVisual@@@@QEAAXPEBVCVisual@@@Z @ 0x1800970C4 (-EndWalk@-$CGraphWalker@VCVisual@@@@QEAAXPEBVCVisual@@@Z.c)
- *     ?EndWalk@SubTreeContext@CPreComputeContext@@QEAAXJ@Z @ 0x1801B6314 (-EndWalk@SubTreeContext@CPreComputeContext@@QEAAXJ@Z.c)
+ *     ?EndWalk@?$CGraphWalker@VCVisual@@@@QEAAXPEAVCVisual@@@Z @ 0x180057E44 (-EndWalk@-$CGraphWalker@VCVisual@@@@QEAAXPEAVCVisual@@@Z.c)
+ *     ?UpdateCVIRenderTargets@CDesktopTree@@QEAAXPEBVCOcclusionContext@@AEBVRenderTargetInfo@@@Z @ 0x1800926DC (-UpdateCVIRenderTargets@CDesktopTree@@QEAAXPEBVCOcclusionContext@@AEBVRenderTargetInfo@@@Z.c)
+ *     ?EndWalk@?$CGraphWalker@VCVectorShape@@@@QEAAXPEAVCVectorShape@@@Z @ 0x180261188 (-EndWalk@-$CGraphWalker@VCVectorShape@@@@QEAAXPEAVCVectorShape@@@Z.c)
  * Callees:
- *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x180078B70 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
- *     ?GetCount@CPtrArrayBase@@IEBA_KXZ @ 0x1800AA890 (-GetCount@CPtrArrayBase@@IEBA_KXZ.c)
- *     ?RemoveAt@CPtrArrayBase@@IEAAX_K0@Z @ 0x1800D633C (-RemoveAt@CPtrArrayBase@@IEAAX_K0@Z.c)
+ *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x1800561B8 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ?GetCount@CPtrArrayBase@@IEBA_KXZ @ 0x1800C13A8 (-GetCount@CPtrArrayBase@@IEBA_KXZ.c)
+ *     ?RemoveAt@CPtrArrayBase@@IEAAX_K@Z @ 0x1800C1974 (-RemoveAt@CPtrArrayBase@@IEAAX_K@Z.c)
  */
 
 void CThreadContext::UnregisterGraphWalkRoot(void)
 {
   unsigned __int64 Count; // rax
   CPtrArrayBase *v1; // rcx
-  struct CThreadContext *v2; // [rsp+30h] [rbp+8h] BYREF
+  CPtrArrayBase *v2; // [rsp+30h] [rbp+8h] BYREF
 
   if ( (int)CThreadContext::GetCurrent(&v2) >= 0 )
   {
-    Count = CPtrArrayBase::GetCount((struct CThreadContext *)((char *)v2 + 24));
-    CPtrArrayBase::RemoveAt(v1, Count - 1, 1uLL);
+    Count = CPtrArrayBase::GetCount(v2);
+    CPtrArrayBase::RemoveAt(v1, Count - 1);
   }
 }

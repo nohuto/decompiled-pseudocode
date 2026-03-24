@@ -1,70 +1,86 @@
 /*
- * XREFs of ?SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z @ 0x1C0165450
+ * XREFs of ?SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z @ 0x1C01383A4
  * Callers:
- *     xxxSystemParametersInfo @ 0x1C0165BD0 (xxxSystemParametersInfo.c)
+ *     xxxSystemParametersInfo @ 0x1C000BBC0 (xxxSystemParametersInfo.c)
  * Callees:
- *     ?AccessTimeOutReset@@YAXXZ @ 0x1C005FA40 (-AccessTimeOutReset@@YAXXZ.c)
- *     ?SetAccessEnabledFlag@@YAXXZ @ 0x1C005FA80 (-SetAccessEnabledFlag@@YAXXZ.c)
- *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00C14FC (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
- *     FastWriteProfileValue @ 0x1C0149810 (FastWriteProfileValue.c)
+ *     ?AccessTimeOutReset@@YAXXZ @ 0x1C000C3E0 (-AccessTimeOutReset@@YAXXZ.c)
+ *     ?SetAccessEnabledFlag@@YAXXZ @ 0x1C000C420 (-SetAccessEnabledFlag@@YAXXZ.c)
+ *     CreateProfileUserName @ 0x1C000C7E0 (CreateProfileUserName.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0067D78 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
+ *     FastWriteProfileValue @ 0x1C011DCD0 (FastWriteProfileValue.c)
  */
 
 __int64 __fastcall SpiSetAccessTimeOut(int a1, unsigned int *a2, int a3, int a4, int *a5)
 {
-  unsigned int v6; // edi
-  __int64 v7; // rdi
-  __int64 v8; // rax
+  const UNICODE_STRING *ProfileUserName; // rsi
+  __int64 v8; // rdi
   __int64 v9; // rax
-  unsigned int v10; // eax
-  bool v11; // zf
-  __int64 v12; // rax
-  unsigned __int16 v14[40]; // [rsp+30h] [rbp-31h] BYREF
+  __int64 v10; // rax
+  unsigned int v11; // eax
+  bool v12; // zf
+  __int64 v13; // rax
+  __int128 v15; // [rsp+38h] [rbp-51h] BYREF
+  __int64 v16; // [rsp+48h] [rbp-41h]
+  wchar_t Dest[40]; // [rsp+58h] [rbp-31h] BYREF
 
-  if ( a1 && a1 != 12 )
-    return 0LL;
-  if ( !a2 )
-    return 0LL;
-  if ( *a2 != 12 )
-    return 0LL;
-  v6 = a2[1];
-  if ( (v6 & 3) != v6 || a2[2] > 0x36EE80 )
+  if ( a1 && a1 != 12 || !a2 || *a2 != 12 || (a2[1] & 3) != a2[1] || a2[2] > 0x36EE80 )
     return 0LL;
   if ( a3 )
   {
-    memset(v14, 0, sizeof(v14));
-    RtlStringCchPrintfW(v14, 40LL, L"%d", v6);
-    v7 = -1LL;
+    memset(Dest, 0, sizeof(Dest));
+    v15 = 0LL;
+    v16 = 0LL;
+    ProfileUserName = (const UNICODE_STRING *)CreateProfileUserName((__int64)&v15);
+    RtlStringCchPrintfW(Dest, 40LL, L"%d", a2[1]);
     v8 = -1LL;
-    do
-      ++v8;
-    while ( v14[v8] );
-    *a5 = (unsigned int)FastWriteProfileValue(0LL, 0x12u, (const WCHAR *)L"Flags", 1u, v14, 2 * (int)v8 + 2);
-    RtlStringCchPrintfW(v14, 40LL, L"%d", a2[2]);
     v9 = -1LL;
     do
       ++v9;
-    while ( v14[v9] );
-    v10 = (unsigned int)FastWriteProfileValue(0LL, 0x12u, (const WCHAR *)L"TimeToWait", 1u, v14, 2 * (int)v9 + 2);
-    v11 = (v10 & *a5) == 0;
-    *a5 &= v10;
+    while ( Dest[v9] );
+    *a5 = (unsigned int)FastWriteProfileValue(
+                          ProfileUserName,
+                          0x12u,
+                          (const WCHAR *)L"Flags",
+                          1u,
+                          Dest,
+                          2 * (int)v9 + 2);
+    RtlStringCchPrintfW(Dest, 40LL, L"%d", a2[2]);
+    v10 = -1LL;
+    do
+      ++v10;
+    while ( Dest[v10] );
+    v11 = (unsigned int)FastWriteProfileValue(
+                          ProfileUserName,
+                          0x12u,
+                          (const WCHAR *)L"TimeToWait",
+                          1u,
+                          Dest,
+                          2 * (int)v10 + 2);
+    v12 = (v11 & *a5) == 0;
+    *a5 &= v11;
     a4 = *a5;
-    if ( v11 )
+    if ( v12 )
     {
-      RtlStringCchPrintfW(v14, 40LL, L"%d", (unsigned int)qword_1C0295A14);
-      v12 = -1LL;
+      RtlStringCchPrintfW(Dest, 40LL, L"%d", (unsigned int)qword_1C0250BF4);
+      v13 = -1LL;
       do
-        ++v12;
-      while ( v14[v12] );
-      FastWriteProfileValue(0LL, 0x12u, (const WCHAR *)L"Flags", 1u, v14, 2 * v12 + 2);
-      RtlStringCchPrintfW(v14, 40LL, L"%d", HIDWORD(qword_1C0295A14));
+        ++v13;
+      while ( Dest[v13] );
+      FastWriteProfileValue(ProfileUserName, 0x12u, (const WCHAR *)L"Flags", 1u, Dest, 2 * v13 + 2);
+      RtlStringCchPrintfW(Dest, 40LL, L"%d", HIDWORD(qword_1C0250BF4));
       do
-        ++v7;
-      while ( v14[v7] );
-      FastWriteProfileValue(0LL, 0x12u, (const WCHAR *)L"TimeToWait", 1u, v14, 2 * v7 + 2);
-      return 0LL;
+        ++v8;
+      while ( Dest[v8] );
+      FastWriteProfileValue(ProfileUserName, 0x12u, (const WCHAR *)L"TimeToWait", 1u, Dest, 2 * v8 + 2);
+    }
+    if ( ProfileUserName )
+    {
+      if ( qword_1C02570E8 )
+        qword_1C02570E8(&v15);
     }
   }
   if ( !a4 )

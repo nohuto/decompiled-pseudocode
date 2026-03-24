@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPartitionIdToPointer @ 0x140134CC8
+ * XREFs of MiPartitionIdToPointer @ 0x140134CE8
  * Callers:
  *     MiReleaseProcessReferenceToSessionDataPage @ 0x14060751C (MiReleaseProcessReferenceToSessionDataPage.c)
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
- *     MiFreeReadListPages @ 0x140662980 (MiFreeReadListPages.c)
- *     MiDereferenceSessionFinal @ 0x1406E05D8 (MiDereferenceSessionFinal.c)
- *     MiDeleteLeakedSessionPool @ 0x1406E0920 (MiDeleteLeakedSessionPool.c)
- *     MiInitializeDynamicBitmap @ 0x140715740 (MiInitializeDynamicBitmap.c)
- *     MiMapNewSession @ 0x140715F58 (MiMapNewSession.c)
- *     MiMarkBootGuardPage @ 0x140729A8C (MiMarkBootGuardPage.c)
- *     MiCopyDirectMapHeader @ 0x140852BC4 (MiCopyDirectMapHeader.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
+ *     MiFreeReadListPages @ 0x140662960 (MiFreeReadListPages.c)
+ *     MiDereferenceSessionFinal @ 0x1406E05B8 (MiDereferenceSessionFinal.c)
+ *     MiDeleteLeakedSessionPool @ 0x1406E0900 (MiDeleteLeakedSessionPool.c)
+ *     MiInitializeDynamicBitmap @ 0x140715720 (MiInitializeDynamicBitmap.c)
+ *     MiMapNewSession @ 0x140715F38 (MiMapNewSession.c)
+ *     MiMarkBootGuardPage @ 0x140729A6C (MiMarkBootGuardPage.c)
+ *     MiCopyDirectMapHeader @ 0x140852BA4 (MiCopyDirectMapHeader.c)
  * Callees:
  *     <none>
  */

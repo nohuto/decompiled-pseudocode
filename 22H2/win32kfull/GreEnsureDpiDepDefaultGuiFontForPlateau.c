@@ -1,42 +1,37 @@
 /*
- * XREFs of GreEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C02989F0
+ * XREFs of GreEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C0293200
  * Callers:
- *     NtGdiEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C02C2260 (NtGdiEnsureDpiDepDefaultGuiFontForPlateau.c)
+ *     NtGdiEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C02ADF80 (NtGdiEnsureDpiDepDefaultGuiFontForPlateau.c)
  * Callees:
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C007E800 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0080520 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     hfontInitDefaultGuiFont @ 0x1C03B3AAC (hfontInitDefaultGuiFont.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BCDE8 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BCE1C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     hfontInitDefaultGuiFont @ 0x1C03929F0 (hfontInitDefaultGuiFont.c)
  */
 
-void __fastcall GreEnsureDpiDepDefaultGuiFontForPlateau(Gre::Base *a1)
+void __fastcall GreEnsureDpiDepDefaultGuiFontForPlateau(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned int v1; // ebx
-  struct Gre::Base::SESSION_GLOBALS *v2; // rdi
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  int v6; // ecx
-  int v7; // edx
-  __int64 v8; // rsi
-  char v9; // [rsp+38h] [rbp+10h] BYREF
+  unsigned int v3; // ebx
+  int v4; // ecx
+  int v5; // edx
+  __int64 v6; // rdi
+  char v7; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = (unsigned int)a1;
-  v2 = Gre::Base::Globals(a1);
-  if ( v1 != (unsigned __int16)DrvGetLogPixels(v4, v3, v5) && v1 != 96 && v1 == 24 * ((int)v1 / 24) )
+  v3 = a1;
+  if ( (_DWORD)a1 != (unsigned __int16)DrvGetLogPixels(a1, a2, a3) && v3 != 96 && v3 == 24 * ((int)v3 / 24) )
   {
-    v6 = v1 - 120;
-    if ( v1 - 120 <= 0x168 )
+    v4 = v3 - 120;
+    if ( v3 - 120 <= 0x168 )
     {
-      v7 = v6 / 24;
-      if ( v6 / 24 >= 0 )
+      v5 = v4 / 24;
+      if ( v4 / 24 >= 0 )
       {
-        v8 = v7;
-        if ( !*(_QWORD *)(*((_QWORD *)v2 + 398) + 8LL * v7) )
+        v6 = v5;
+        if ( !gahDpiDepDefaultGuiFonts[v5] )
         {
-          PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v9, (struct Gre::Base::SESSION_GLOBALS *)((char *)v2 + 2328));
-          if ( !*(_QWORD *)(*((_QWORD *)v2 + 398) + 8 * v8) )
-            *(_QWORD *)(*((_QWORD *)v2 + 398) + 8 * v8) = hfontInitDefaultGuiFont(v1);
-          PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v9);
+          PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v7, gDpiDepDefaultGuiFontsPushLock);
+          if ( !gahDpiDepDefaultGuiFonts[v6] )
+            gahDpiDepDefaultGuiFonts[v6] = (void *)hfontInitDefaultGuiFont(v3);
+          PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v7);
         }
       }
     }

@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSetIdealProcessorThreadByNumber @ 0x1403861B4
+ * XREFs of KeSetIdealProcessorThreadByNumber @ 0x14037A874
  * Callers:
- *     KeSetIdealProcessorThread @ 0x140386160 (KeSetIdealProcessorThread.c)
- *     NtSetInformationThread @ 0x14072EC80 (NtSetInformationThread.c)
- *     NtQueryInformationThread @ 0x1407BF670 (NtQueryInformationThread.c)
+ *     KeSetIdealProcessorThread @ 0x14037A820 (KeSetIdealProcessorThread.c)
+ *     NtQueryInformationThread @ 0x1405FB940 (NtQueryInformationThread.c)
+ *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x140293580 (KeGetProcessorIndexFromNumber.c)
- *     KeGetProcessorNumberFromIndex @ 0x1402949F0 (KeGetProcessorNumberFromIndex.c)
- *     KeSetIdealProcessorThreadEx @ 0x14035CE74 (KeSetIdealProcessorThreadEx.c)
+ *     KeGetProcessorNumberFromIndex @ 0x1402754F0 (KeGetProcessorNumberFromIndex.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
+ *     KeSetIdealProcessorThreadEx @ 0x1402EAD48 (KeSetIdealProcessorThreadEx.c)
  */
 
 __int64 __fastcall KeSetIdealProcessorThreadByNumber(

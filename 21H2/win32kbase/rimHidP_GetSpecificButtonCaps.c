@@ -1,15 +1,15 @@
 /*
- * XREFs of rimHidP_GetSpecificButtonCaps @ 0x1C018E844
+ * XREFs of rimHidP_GetSpecificButtonCaps @ 0x1C01635C4
  * Callers:
- *     RIMDeliverConfigRequest @ 0x1C018AB6C (RIMDeliverConfigRequest.c)
- *     RIMSendLatencyMgtDeviceRequest @ 0x1C018C954 (RIMSendLatencyMgtDeviceRequest.c)
- *     RIMAssignTouchType @ 0x1C018FAFC (RIMAssignTouchType.c)
- *     RIMGetDeviceButtons @ 0x1C0192130 (RIMGetDeviceButtons.c)
- *     RIMGetPointerDeviceProperties @ 0x1C0193110 (RIMGetPointerDeviceProperties.c)
- *     RIMRetrieveAllLinkIndexUsages @ 0x1C0194F6C (RIMRetrieveAllLinkIndexUsages.c)
- *     rimIDECheckConfidenceSupport @ 0x1C019AB98 (rimIDECheckConfidenceSupport.c)
+ *     RIMAssignTouchType @ 0x1C015BBC8 (RIMAssignTouchType.c)
+ *     RIMGetDeviceButtons @ 0x1C015D9D0 (RIMGetDeviceButtons.c)
+ *     RIMGetPointerDeviceProperties @ 0x1C015E2B0 (RIMGetPointerDeviceProperties.c)
+ *     RIMRetrieveAllLinkIndexUsages @ 0x1C015F66C (RIMRetrieveAllLinkIndexUsages.c)
+ *     RIMDeliverConfigRequest @ 0x1C0161484 (RIMDeliverConfigRequest.c)
+ *     RIMSendLatencyMgtDeviceRequest @ 0x1C0162284 (RIMSendLatencyMgtDeviceRequest.c)
+ *     rimIDECheckConfidenceSupport @ 0x1C0166F4C (rimIDECheckConfidenceSupport.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 int __fastcall rimHidP_GetSpecificButtonCaps(

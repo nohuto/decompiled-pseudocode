@@ -1,22 +1,22 @@
 /*
- * XREFs of BgkResumeFinished @ 0x140A99AF8
+ * XREFs of BgkResumeFinished @ 0x1409905DC
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x1403AD4F0 (BgkNotifyDisplayOwnershipChange.c)
- *     PopFreeHiberContext @ 0x1409886A0 (PopFreeHiberContext.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14039B440 (BgkNotifyDisplayOwnershipChange.c)
+ *     PopFreeHiberContext @ 0x14077404C (PopFreeHiberContext.c)
  * Callees:
- *     BgkpUnlockBgfxCodeSection @ 0x140AF02E0 (BgkpUnlockBgfxCodeSection.c)
- *     BgFreeContext @ 0x140AF2228 (BgFreeContext.c)
+ *     BgFreeContext @ 0x1409F1038 (BgFreeContext.c)
+ *     BgkpUnlockBgfxCodeSection @ 0x1409F13F0 (BgkpUnlockBgfxCodeSection.c)
  */
 
 __int64 BgkResumeFinished()
 {
   __int64 result; // rax
 
-  if ( !qword_140D18490 )
+  if ( !qword_140C50648 )
     return BgkpUnlockBgfxCodeSection();
   BgFreeContext();
-  qword_140D18490 = 0LL;
+  qword_140C50648 = 0LL;
   result = BgkpUnlockBgfxCodeSection();
-  byte_140D17FB8 = 0;
+  byte_140C50650 = 0;
   return result;
 }

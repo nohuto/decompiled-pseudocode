@@ -1,29 +1,30 @@
 /*
- * XREFs of imp_WdfDriverCreate @ 0x1C0027650
+ * XREFs of imp_WdfDriverCreate @ 0x1C004BEB0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00058D8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
- *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C0005B30 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
- *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C00062C0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z @ 0x1C0015654 (-FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z.c)
- *     ?Initialize@FxDriver@@QEAAJPEBU_UNICODE_STRING@@PEAU_WDF_DRIVER_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0022E2C (-Initialize@FxDriver@@QEAAJPEBU_UNICODE_STRING@@PEAU_WDF_DRIVER_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUT.c)
- *     ??0FxDriver@@QEAA@PEAU_DRIVER_OBJECT@@PEAU_WDF_DRIVER_CONFIG@@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00230E8 (--0FxDriver@@QEAA@PEAU_DRIVER_OBJECT@@PEAU_WDF_DRIVER_CONFIG@@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?_InitializeDriverName@FxDriver@@SAXPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z @ 0x1C0026F1C (-_InitializeDriverName@FxDriver@@SAXPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z.c)
- *     GetImageName @ 0x1C0026FBC (GetImageName.c)
- *     ??1FxAutoString@@QEAA@XZ @ 0x1C00278E4 (--1FxAutoString@@QEAA@XZ.c)
- *     FxInitialize @ 0x1C0027E24 (FxInitialize.c)
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     ?_InitializeTag@FxDriver@@SAXPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_DRIVER_CONFIG@@@Z @ 0x1C00315F0 (-_InitializeTag@FxDriver@@SAXPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_DRIVER_CONFIG@@@Z.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     WPP_IFR_SF_DDd @ 0x1C0052E4C (WPP_IFR_SF_DDd.c)
- *     ??$Write@U?$_tlgWrapperByRef@$0BA@@@U?$_tlgWrapSz@D@@U?$_tlgWrapSz@G@@U3@U?$_tlgWrapperByVal@$03@@U4@U?$_tlgWrapperByVal@$00@@U5@U5@U4@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByRef@$0BA@@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapSz@G@@5AEBU?$_tlgWrapperByVal@$03@@6AEBU?$_tlgWrapperByVal@$00@@776@Z @ 0x1C0065E18 (--$Write@U-$_tlgWrapperByRef@$0BA@@@U-$_tlgWrapSz@D@@U-$_tlgWrapSz@G@@U3@U-$_tlgWrapperByVal@$03.c)
- *     WPP_IFR_SF_dddd @ 0x1C00660B4 (WPP_IFR_SF_dddd.c)
- *     FxDestroy @ 0x1C006B75C (FxDestroy.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ??$Write@U?$_tlgWrapperByRef@$0BA@@@U?$_tlgWrapSz@D@@U?$_tlgWrapSz@G@@U3@U?$_tlgWrapperByVal@$03@@U4@U?$_tlgWrapperByVal@$00@@U5@U5@U4@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByRef@$0BA@@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapSz@G@@5AEBU?$_tlgWrapperByVal@$03@@6AEBU?$_tlgWrapperByVal@$00@@776@Z @ 0x1C00010AC (--$Write@U-$_tlgWrapperByRef@$0BA@@@U-$_tlgWrapSz@D@@U-$_tlgWrapSz@G@@U3@U-$_tlgWrapperByVal@$03.c)
+ *     ?FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z @ 0x1C000A094 (-FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z.c)
+ *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000A0E0 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C000B520 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_DDd @ 0x1C002E6DC (WPP_IFR_SF_DDd.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
+ *     _tlgKeywordOn @ 0x1C0042420 (_tlgKeywordOn.c)
+ *     ??1FxAutoString@@QEAA@XZ @ 0x1C0046B00 (--1FxAutoString@@QEAA@XZ.c)
+ *     WPP_IFR_SF_dddd @ 0x1C004BA18 (WPP_IFR_SF_dddd.c)
+ *     ??0FxDriver@@QEAA@PEAU_DRIVER_OBJECT@@PEAU_WDF_DRIVER_CONFIG@@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0053948 (--0FxDriver@@QEAA@PEAU_DRIVER_OBJECT@@PEAU_WDF_DRIVER_CONFIG@@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?Initialize@FxDriver@@QEAAJPEBU_UNICODE_STRING@@PEAU_WDF_DRIVER_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0053CA0 (-Initialize@FxDriver@@QEAAJPEBU_UNICODE_STRING@@PEAU_WDF_DRIVER_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUT.c)
+ *     ?_InitializeDriverName@FxDriver@@SAXPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z @ 0x1C0054054 (-_InitializeDriverName@FxDriver@@SAXPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z.c)
+ *     ?_InitializeTag@FxDriver@@SAXPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_DRIVER_CONFIG@@@Z @ 0x1C00540F0 (-_InitializeTag@FxDriver@@SAXPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_DRIVER_CONFIG@@@Z.c)
+ *     FxDestroy @ 0x1C0056D9C (FxDestroy.c)
+ *     FxInitialize @ 0x1C00570B8 (FxInitialize.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
+ *     GetImageName @ 0x1C005FDD8 (GetImageName.c)
  */
 
 __int64 __fastcall imp_WdfDriverCreate(
@@ -34,62 +35,74 @@ __int64 __fastcall imp_WdfDriverCreate(
         _WDF_DRIVER_CONFIG *DriverConfig,
         WDFDRIVER__ **Driver)
 {
-  _FX_DRIVER_GLOBALS *v6; // rbx
-  _WDF_DRIVER_CONFIG *v11; // rdi
+  _FX_DRIVER_GLOBALS *DriverName; // rbx
+  WDFDRIVER__ *v11; // r12
+  _WDF_DRIVER_CONFIG *v12; // rdi
+  unsigned int v13; // edi
   unsigned int DriverInitFlags; // eax
   __int64 result; // rax
-  WDFDRIVER__ **v14; // r15
-  _WDF_DRIVER_CONFIG *v15; // rdx
+  WDFDRIVER__ **v16; // r15
+  _WDF_DRIVER_CONFIG *v17; // rdx
+  int (__fastcall *v18)(WDFDRIVER__ *, WDFDEVICE_INIT *); // r11
   unsigned int DriverPoolTag; // eax
-  _WDF_DRIVER_CONFIG *v17; // r9
-  FxDriver *v18; // rax
-  FxDriver *v19; // rax
-  FxObject *v20; // r14
-  int v21; // esi
-  FxObject *v22; // rcx
-  WDFDRIVER__ *v23; // rcx
-  bool v24; // al
-  const _GUID *v25; // r8
-  const _GUID *v26; // r9
-  unsigned int v27; // edi
-  unsigned int DriverFlags; // ecx
-  bool v29; // al
-  _WDF_BIND_INFO *WdfBindInfo; // rcx
-  __int64 v31; // rcx
-  _tlgWrapperByVal<1> v32; // [rsp+70h] [rbp-39h] BYREF
-  FxAutoString imageName; // [rsp+80h] [rbp-29h] BYREF
-  _tlgWrapperByVal<4> v34; // [rsp+90h] [rbp-19h] BYREF
-  _tlgWrapperByVal<4> v35; // [rsp+94h] [rbp-15h] BYREF
-  _tlgWrapperByVal<4> v36; // [rsp+98h] [rbp-11h] BYREF
-  _tlgWrapSz<unsigned short> v37; // [rsp+A0h] [rbp-9h] BYREF
-  _tlgWrapSz<unsigned short> v38; // [rsp+A8h] [rbp-1h] BYREF
-  _tlgWrapSz<char> v39; // [rsp+B0h] [rbp+7h] BYREF
-  _tlgWrapperByRef<16> v40; // [rsp+B8h] [rbp+Fh] BYREF
-  void *retaddr; // [rsp+F8h] [rbp+4Fh]
-  WDFDRIVER__ *hDriver; // [rsp+100h] [rbp+57h] BYREF
-  _tlgWrapperByVal<1> hProvider; // [rsp+108h] [rbp+5Fh] BYREF
+  _WDF_DRIVER_CONFIG *v20; // r9
+  FxDriver *v21; // rax
+  FxDriver *v22; // rax
+  FxDriver *v23; // rsi
+  int v24; // r14d
+  int v25; // eax
+  _WDF_DRIVER_GLOBALS *v26; // rax
+  bool v27; // al
+  const _GUID *v28; // r9
+  _WDF_BIND_INFO *WdfBindInfo; // rax
+  const _tlgProvider_t *DriverFlags; // rcx
+  unsigned int Minor; // edx
+  const _GUID *Major; // r8
+  _tlgWrapperByVal<1> v33; // [rsp+70h] [rbp-29h] BYREF
+  _tlgWrapperByVal<4> v34; // [rsp+74h] [rbp-25h] BYREF
+  _tlgWrapperByVal<4> v35; // [rsp+78h] [rbp-21h] BYREF
+  _tlgWrapperByVal<4> v36; // [rsp+7Ch] [rbp-1Dh] BYREF
+  _tlgWrapSz<unsigned short> v37; // [rsp+80h] [rbp-19h] BYREF
+  _tlgWrapSz<unsigned short> v38; // [rsp+88h] [rbp-11h] BYREF
+  _tlgWrapSz<char> v39; // [rsp+90h] [rbp-9h] BYREF
+  _tlgWrapperByRef<16> v40; // [rsp+98h] [rbp-1h] BYREF
+  FxAutoString imageName; // [rsp+A0h] [rbp+7h] BYREF
+  void *retaddr; // [rsp+E8h] [rbp+4Fh]
+  _WDF_DRIVER_GLOBALS *v43; // [rsp+F0h] [rbp+57h] BYREF
+  WDFDRIVER__ *hDriver; // [rsp+F8h] [rbp+5Fh] BYREF
 
-  v6 = (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8];
+  v43 = DriverGlobals;
+  DriverName = (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName;
   hDriver = 0LL;
+  v11 = 0LL;
   if ( !DriverObject )
-    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], retaddr);
-  v6->IsDriverCompanion = 0;
+    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, retaddr);
+  DriverName->IsDriverCompanion = 0;
   if ( !RegistryPath )
-    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], retaddr);
-  v11 = DriverConfig;
+    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, retaddr);
+  v12 = DriverConfig;
   if ( !DriverConfig )
-    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], retaddr);
+    FxVerifierNullBugCheck((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, retaddr);
   if ( DriverConfig->Size != 32 )
   {
-    v27 = -1073741820;
-    WPP_IFR_SF_dddd(v6, 2u, 0x11u, 0xAu, WPP_FxDriverApi_cpp_Traceguids, DriverConfig->Size, 32, 32, -1073741820);
-    return v27;
+    v13 = -1073741820;
+    WPP_IFR_SF_dddd(
+      DriverName,
+      2u,
+      0x11u,
+      0xAu,
+      WPP_FxDriverApi_cpp_Traceguids,
+      DriverConfig->Size,
+      32,
+      32,
+      -1073741820);
+    return v13;
   }
   DriverInitFlags = DriverConfig->DriverInitFlags;
   if ( (DriverInitFlags & 0xFFFFFFEC) != 0 )
   {
     WPP_IFR_SF_DDd(
-      v6,
+      DriverName,
       (unsigned __int8)DriverObject,
       0x11u,
       0xBu,
@@ -99,118 +112,133 @@ __int64 __fastcall imp_WdfDriverCreate(
       -1073741811);
     return 3221225485LL;
   }
-  result = FxVerifierCheckIrqlLevel(v6, 0);
+  result = FxVerifierCheckIrqlLevel(DriverName, 0);
   if ( (int)result >= 0 )
   {
-    if ( v6->IsDriverCompanion || (result = FxValidateUnicodeString(v6, RegistryPath), (int)result >= 0) )
+    if ( DriverName->IsDriverCompanion || (result = FxValidateUnicodeString(DriverName, RegistryPath), (int)result >= 0) )
     {
-      if ( !v6->Driver && !DriverGlobals->Driver )
+      if ( DriverName->Driver || DriverGlobals->Driver )
       {
-        v14 = Driver;
-        if ( Driver )
-          *Driver = 0LL;
-        FxDriver::_InitializeDriverName(v6, RegistryPath);
-        if ( v11->Size == 32 && (DriverPoolTag = v11->DriverPoolTag) != 0 && DriverPoolTag != 543908932 )
-        {
-          v6->Tag = DriverPoolTag;
-          v6->Public.DriverTag = v11->DriverPoolTag;
-        }
-        else
-        {
-          FxDriver::_InitializeTag(v6, v15);
-        }
-        if ( (v11->DriverInitFlags & 3) != 1 || !v11->EvtDriverDeviceAdd )
-        {
-          result = FxValidateObjectAttributes(v6, DriverAttributes, 7);
-          if ( (int)result < 0 )
-            return result;
-          FxInitialize(v6, DriverObject, RegistryPath, v17);
-          *(_QWORD *)&imageName.m_UnicodeString.Length = 0LL;
-          imageName.m_UnicodeString.Buffer = (wchar_t *)64;
-          v18 = (FxDriver *)FxObjectHandleAllocCommon(
-                              v6,
-                              (FxPoolTypeOrPoolFlags *)&imageName,
-                              0x170uLL,
-                              0,
-                              DriverAttributes,
-                              0,
-                              FxObjectTypeExternal);
-          if ( v18 && (FxDriver::FxDriver(v18, DriverObject, v11, v6), (v20 = v19) != 0LL) )
-          {
-            v21 = FxDriver::Initialize(v19, RegistryPath, v11, DriverAttributes);
-            v22 = v20;
-            if ( v21 >= 0 )
-            {
-              v21 = FxObject::Commit(v20, (_FX_DRIVER_GLOBALS *)DriverAttributes, (void **)&hDriver, 0LL, 1u);
-              v22 = v20;
-              if ( v21 >= 0 )
-              {
-                v23 = hDriver;
-                DriverGlobals->Driver = hDriver;
-                v6->Driver = (FxDriver *)v20;
-                v6->Public.DriverFlags |= v11->DriverInitFlags;
-                v24 = (v11->DriverInitFlags & 3) == 0 || v11->EvtDriverUnload != 0LL;
-                v6->Public.DisplaceDriverUnload = v24;
-                if ( v14 )
-                  *v14 = v23;
-                if ( v6->TelemetryContext )
-                {
-                  imageName = 0LL;
-                  GetImageName(v6, &imageName.m_UnicodeString);
-                  if ( Tlgg_TelemetryProviderProv.LevelPlus1 > 5
-                    && (Tlgg_TelemetryProviderProv.KeywordAny & 0x200000000000LL) != 0
-                    && (Tlgg_TelemetryProviderProv.KeywordAll & 0x200000000000LL) == Tlgg_TelemetryProviderProv.KeywordAll )
-                  {
-                    DriverFlags = v6->Public.DriverFlags;
-                    v34.Value = v6->FxEnhancedVerifierOptions;
-                    v29 = (DriverFlags & 2) != 0;
-                    hProvider.Value = DriverFlags & 1;
-                    WdfBindInfo = v6->WdfBindInfo;
-                    LOBYTE(hDriver) = v29;
-                    v32.Value = v6->FxVerifierOn;
-                    v35.Value = WdfBindInfo->Version.Minor;
-                    v36.Value = WdfBindInfo->Version.Major;
-                    v37.Psz = L"01.033.0";
-                    v38.Psz = imageName.m_UnicodeString.Buffer;
-                    v39.Psz = v6->Public.DriverName;
-                    v40.Ptr = v6->TelemetryContext;
-                    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByRef<16>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<4>>(
-                      (const _tlgProvider_t *)WdfBindInfo,
-                      &tlgEvent_0._tlgChannel,
-                      v25,
-                      v26,
-                      &v40,
-                      &v39,
-                      &v38,
-                      &v37,
-                      &v36,
-                      &v35,
-                      &v32,
-                      &hProvider,
-                      (const _tlgWrapperByVal<1> *)&hDriver,
-                      &v34);
-                  }
-                  FxAutoString::~FxAutoString(&imageName);
-                }
-                return (unsigned int)v21;
-              }
-            }
-            FxObject::ClearEvtCallbacks(v22);
-            (*(void (__fastcall **)(__int64))(*(_QWORD *)v31 + 48LL))(v31);
-          }
-          else
-          {
-            v21 = -1073741670;
-          }
-          FxDestroy(v6);
-          return (unsigned int)v21;
-        }
-        WPP_IFR_SF_(v6, 2u, 0x11u, 0xEu, WPP_FxDriverApi_cpp_Traceguids);
+        v13 = -1073741437;
+        WPP_IFR_SF_qL(DriverName, 2u, 0x11u, 0xDu, WPP_FxDriverApi_cpp_Traceguids, DriverObject, 0xC0000183);
+        return v13;
+      }
+      v16 = Driver;
+      if ( Driver )
+        *Driver = 0LL;
+      FxDriver::_InitializeDriverName(DriverName, RegistryPath);
+      if ( v12->Size == 32 && (DriverPoolTag = v12->DriverPoolTag) != 0 && DriverPoolTag != 543908932 )
+      {
+        DriverName->Tag = DriverPoolTag;
+        DriverName->Public.DriverTag = v12->DriverPoolTag;
+      }
+      else
+      {
+        FxDriver::_InitializeTag(DriverName, v17);
+        v18 = 0LL;
+      }
+      if ( (v12->DriverInitFlags & 3) == 1 && v12->EvtDriverDeviceAdd != v18 )
+      {
+        WPP_IFR_SF_(DriverName, 2u, 0x11u, 0xEu, WPP_FxDriverApi_cpp_Traceguids);
         return 3221225485LL;
       }
-      v27 = -1073741437;
-      WPP_IFR_SF_qL(v6, 2u, 0x11u, 0xDu, WPP_FxDriverApi_cpp_Traceguids, DriverObject, 0xC0000183);
-      return v27;
+      result = FxValidateObjectAttributes(DriverName, DriverAttributes, 7);
+      if ( (int)result < 0 )
+        return result;
+      FxInitialize(DriverName, DriverObject, RegistryPath, v20);
+      v21 = (FxDriver *)FxObjectHandleAlloc(
+                          DriverName,
+                          ExDefaultNonPagedPoolType,
+                          0x168uLL,
+                          0,
+                          DriverAttributes,
+                          0,
+                          FxObjectTypeExternal);
+      if ( v21 )
+      {
+        FxDriver::FxDriver(v21, DriverObject, v12, DriverName);
+        v23 = v22;
+      }
+      else
+      {
+        v23 = 0LL;
+      }
+      if ( v23 )
+      {
+        v24 = FxDriver::Initialize(v23, RegistryPath, v12, DriverAttributes);
+        if ( v24 < 0 )
+          goto LABEL_46;
+        v25 = FxObject::Commit(v23, (_FX_DRIVER_GLOBALS *)DriverAttributes, (void **)&hDriver, 0LL, 1u);
+        v11 = hDriver;
+        v24 = v25;
+      }
+      else
+      {
+        v24 = -1073741670;
+      }
+      if ( v24 >= 0 )
+      {
+        v26 = v43;
+        DriverName->Driver = v23;
+        v26->Driver = v11;
+        DriverName->Public.DriverFlags |= v12->DriverInitFlags;
+        v27 = (v12->DriverInitFlags & 3) == 0 || v12->EvtDriverUnload != 0LL;
+        DriverName->Public.DisplaceDriverUnload = v27;
+        if ( v16 )
+          *v16 = v11;
+        if ( DriverName->TelemetryContext )
+        {
+          imageName = 0LL;
+          GetImageName(DriverName, &imageName.m_UnicodeString);
+          if ( Tlgg_TelemetryProviderProv.LevelPlus1 > 5 )
+          {
+            if ( tlgKeywordOn(&Tlgg_TelemetryProviderProv, 0x200000000000uLL) )
+            {
+              WdfBindInfo = DriverName->WdfBindInfo;
+              DriverFlags = (const _tlgProvider_t *)DriverName->Public.DriverFlags;
+              Minor = WdfBindInfo->Version.Minor;
+              Major = (const _GUID *)WdfBindInfo->Version.Major;
+              v34.Value = DriverName->FxEnhancedVerifierOptions;
+              LODWORD(WdfBindInfo) = (unsigned int)DriverFlags >> 1;
+              LOBYTE(DriverFlags) = (unsigned __int8)DriverFlags & 1;
+              v35.Value = Minor;
+              LOBYTE(v43) = (unsigned __int8)WdfBindInfo & 1;
+              v33.Value = DriverName->FxVerifierOn;
+              v37.Psz = L"01.031.0";
+              v38.Psz = imageName.m_UnicodeString.Buffer;
+              v39.Psz = DriverName->Public.DriverName;
+              v40.Ptr = DriverName->TelemetryContext;
+              LOBYTE(hDriver) = (_BYTE)DriverFlags;
+              v36.Value = (unsigned int)Major;
+              _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByRef<16>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<4>>(
+                DriverFlags,
+                &tlgEvent_0._tlgChannel,
+                Major,
+                v28,
+                &v40,
+                &v39,
+                &v38,
+                &v37,
+                &v36,
+                &v35,
+                &v33,
+                (const _tlgWrapperByVal<1> *)&hDriver,
+                (const _tlgWrapperByVal<1> *)&v43,
+                &v34);
+            }
+          }
+          FxAutoString::~FxAutoString(&imageName);
+        }
+        return (unsigned int)v24;
+      }
+LABEL_46:
+      if ( v23 )
+      {
+        FxObject::ClearEvtCallbacks(v23);
+        v23->DeleteObject(v23);
+      }
+      FxDestroy(DriverName);
+      return (unsigned int)v24;
     }
   }
   return result;

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIpv6StringToAddressExW @ 0x1401301B0
+ * XREFs of RtlIpv6StringToAddressExW @ 0x1401301D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlIpv6StringToAddressW @ 0x140130240 (RtlIpv6StringToAddressW.c)
- *     iswctype @ 0x1401983C8 (iswctype.c)
+ *     RtlIpv6StringToAddressW @ 0x140130260 (RtlIpv6StringToAddressW.c)
+ *     iswctype @ 0x1401983E8 (iswctype.c)
  */
 
 NTSTATUS __stdcall RtlIpv6StringToAddressExW(

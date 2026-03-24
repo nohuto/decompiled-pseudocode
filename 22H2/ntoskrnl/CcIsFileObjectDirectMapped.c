@@ -1,12 +1,12 @@
 /*
- * XREFs of CcIsFileObjectDirectMapped @ 0x140319978
+ * XREFs of CcIsFileObjectDirectMapped @ 0x14031AB74
  * Callers:
- *     CcCanIWriteStreamEx @ 0x14020FCA0 (CcCanIWriteStreamEx.c)
- *     CcCopyWriteWontFlush @ 0x140319640 (CcCopyWriteWontFlush.c)
+ *     CcCopyWriteWontFlush @ 0x14022B870 (CcCopyWriteWontFlush.c)
+ *     CcCanIWriteStreamEx @ 0x140293B50 (CcCanIWriteStreamEx.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall CcIsFileObjectDirectMapped(__int64 a1, char a2)
@@ -21,13 +21,13 @@ bool __fastcall CcIsFileObjectDirectMapped(__int64 a1, char a2)
   _DWORD *SchedulerAssist; // r9
   int v12; // edx
   bool v13; // zf
-  struct _KLOCK_QUEUE_HANDLE v14; // [rsp+20h] [rbp-28h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v2 = 0;
-  memset(&v14, 0, sizeof(v14));
+  memset(&LockHandle, 0, sizeof(LockHandle));
   v4 = a2 & 1;
   if ( (a2 & 1) == 0 )
-    KeAcquireInStackQueuedSpinLock(&CcMasterLock, &v14);
+    KeAcquireInStackQueuedSpinLock(&CcMasterLock, &LockHandle);
   v5 = *(_QWORD *)(a1 + 40);
   if ( v5 )
   {
@@ -37,20 +37,23 @@ bool __fastcall CcIsFileObjectDirectMapped(__int64 a1, char a2)
   }
   if ( !v4 )
   {
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&v14);
-    OldIrql = v14.OldIrql;
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v14.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v12 = ~(unsigned __int16)(-1LL << (v14.OldIrql + 1));
-        v13 = (v12 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v12;
-        if ( v13 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v12 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v13 = (v12 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v12;
+          if ( v13 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(OldIrql);

@@ -1,25 +1,25 @@
 /*
- * XREFs of FsRtlReleaseFileForCcFlush @ 0x1407B4D18
+ * XREFs of FsRtlReleaseFileForCcFlush @ 0x1406BFDE4
  * Callers:
- *     MiDestroySection @ 0x14020184C (MiDestroySection.c)
- *     MmFlushSection @ 0x140287370 (MmFlushSection.c)
- *     MiDeleteCachedSubsection @ 0x140623BB8 (MiDeleteCachedSubsection.c)
- *     MiFlushControlArea @ 0x1406245A4 (MiFlushControlArea.c)
- *     MmFlushVirtualMemory @ 0x1407B4808 (MmFlushVirtualMemory.c)
+ *     MmFlushSection @ 0x14033D70C (MmFlushSection.c)
+ *     MiDestroySection @ 0x14037EADC (MiDestroySection.c)
+ *     MiDeleteCachedSubsection @ 0x140528CEC (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x1405296D4 (MiFlushControlArea.c)
+ *     MmFlushVirtualMemory @ 0x140668FB4 (MmFlushVirtualMemory.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     IoGetBaseFileSystemDeviceObject @ 0x1402A1D30 (IoGetBaseFileSystemDeviceObject.c)
- *     FsFilterCtrlInit @ 0x1402A1D70 (FsFilterCtrlInit.c)
- *     FsFilterPerformCompletionCallbacks @ 0x1402A1E00 (FsFilterPerformCompletionCallbacks.c)
- *     FsFilterPerformCallbacks @ 0x1402A1E90 (FsFilterPerformCallbacks.c)
- *     FsFilterCtrlFree @ 0x1402A21A8 (FsFilterCtrlFree.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x140302AF0 (IoGetDeviceAttachmentBaseRef.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     FsFilterCtrlFree @ 0x1402D7408 (FsFilterCtrlFree.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x1402D7430 (FsFilterPerformCompletionCallbacks.c)
+ *     FsFilterPerformCallbacks @ 0x1402D74C0 (FsFilterPerformCallbacks.c)
+ *     FsFilterCtrlInit @ 0x1402D77E0 (FsFilterCtrlInit.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x1402D7870 (IoGetBaseFileSystemDeviceObject.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x14034C520 (IoGetDeviceAttachmentBaseRef.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 void __fastcall FsRtlReleaseFileForCcFlush(PFILE_OBJECT FileObject)
@@ -28,14 +28,14 @@ void __fastcall FsRtlReleaseFileForCcFlush(PFILE_OBJECT FileObject)
   PDEVICE_OBJECT *v3; // r12
   char v4; // r13
   __int64 v5; // r9
-  PDEVICE_OBJECT BaseFileSystemDeviceObject; // r14
-  struct _DRIVER_OBJECT *DriverObject; // rax
-  PFAST_IO_DISPATCH FastIoDispatch; // rsi
-  PDRIVER_ADD_DEVICE AddDevice; // rdi
+  struct _DMA_ADAPTER *BaseFileSystemDeviceObject; // r14
+  _DMA_OPERATIONS *DmaOperations; // rax
+  unsigned int (__fastcall *ReadDmaCounter)(_DMA_ADAPTER *); // rsi
+  __int64 v9; // rdi
   int v10; // eax
   char v11; // r13
-  __int64 (__fastcall *ReleaseForCcFlush)(PFILE_OBJECT, PDEVICE_OBJECT); // rax
-  struct _DRIVER_OBJECT *v13; // rax
+  __int64 (__fastcall *v12)(PFILE_OBJECT, struct _DMA_ADAPTER *); // rax
+  _DMA_OPERATIONS *v13; // rax
   PVOID FsContext; // rbx
   struct _ERESOURCE *v15; // rcx
   struct _ERESOURCE *v16; // rcx
@@ -49,17 +49,13 @@ void __fastcall FsRtlReleaseFileForCcFlush(PFILE_OBJECT FileObject)
   HIDWORD(v17) = 0;
   v4 = 0;
   RelatedDeviceObject = IoGetRelatedDeviceObject(FileObject);
-  BaseFileSystemDeviceObject = IoGetBaseFileSystemDeviceObject(FileObject);
-  DriverObject = BaseFileSystemDeviceObject->DriverObject;
-  FastIoDispatch = DriverObject->FastIoDispatch;
-  AddDevice = DriverObject->DriverExtension[1].AddDevice;
-  if ( AddDevice
-    && (*(_DWORD *)AddDevice >= 0x40u && *((_QWORD *)AddDevice + 7)
-     || *(_DWORD *)AddDevice >= 0x48u && *((_QWORD *)AddDevice + 8)) )
-  {
+  BaseFileSystemDeviceObject = (struct _DMA_ADAPTER *)IoGetBaseFileSystemDeviceObject(FileObject);
+  DmaOperations = BaseFileSystemDeviceObject->DmaOperations;
+  ReadDmaCounter = DmaOperations->ReadDmaCounter;
+  v9 = *((_QWORD *)DmaOperations->FreeAdapterChannel + 6);
+  if ( v9 && (*(_DWORD *)v9 >= 0x40u && *(_QWORD *)(v9 + 56) || *(_DWORD *)v9 >= 0x48u && *(_QWORD *)(v9 + 64)) )
     v4 = 1;
-  }
-  if ( RelatedDeviceObject == BaseFileSystemDeviceObject && !v4 )
+  if ( RelatedDeviceObject == (PDEVICE_OBJECT)BaseFileSystemDeviceObject && !v4 )
   {
     v3 = 0LL;
     goto LABEL_10;
@@ -74,21 +70,19 @@ void __fastcall FsRtlReleaseFileForCcFlush(PFILE_OBJECT FileObject)
     FileObject = (PFILE_OBJECT)v19[2];
     if ( ((__int64)v19[8] & 4) != 0 )
     {
-      BaseFileSystemDeviceObject = IoGetDeviceAttachmentBaseRef(v19[1]);
+      BaseFileSystemDeviceObject = (struct _DMA_ADAPTER *)IoGetDeviceAttachmentBaseRef(v19[1]);
       v11 = 1;
-      v13 = BaseFileSystemDeviceObject->DriverObject;
-      FastIoDispatch = v13->FastIoDispatch;
-      AddDevice = v13->DriverExtension[1].AddDevice;
+      v13 = BaseFileSystemDeviceObject->DmaOperations;
+      ReadDmaCounter = v13->ReadDmaCounter;
+      v9 = *((_QWORD *)v13->FreeAdapterChannel + 6);
 LABEL_11:
-      if ( !AddDevice
-        || (*(_DWORD *)AddDevice < 0x40u || !*((_QWORD *)AddDevice + 7))
-        && (*(_DWORD *)AddDevice < 0x48u || !*((_QWORD *)AddDevice + 8)) )
+      if ( !v9 || (*(_DWORD *)v9 < 0x40u || !*(_QWORD *)(v9 + 56)) && (*(_DWORD *)v9 < 0x48u || !*(_QWORD *)(v9 + 64)) )
       {
-        if ( FastIoDispatch
-          && FastIoDispatch->SizeOfFastIoDispatch >= 0xE0
-          && (ReleaseForCcFlush = (__int64 (__fastcall *)(PFILE_OBJECT, PDEVICE_OBJECT))FastIoDispatch->ReleaseForCcFlush) != 0LL )
+        if ( ReadDmaCounter
+          && *(_DWORD *)ReadDmaCounter >= 0xE0u
+          && (v12 = (__int64 (__fastcall *)(PFILE_OBJECT, struct _DMA_ADAPTER *))*((_QWORD *)ReadDmaCounter + 27)) != 0LL )
         {
-          v2 = ReleaseForCcFlush(FileObject, BaseFileSystemDeviceObject);
+          v2 = v12(FileObject, BaseFileSystemDeviceObject);
         }
         else
         {
@@ -97,7 +91,7 @@ LABEL_11:
         HIDWORD(v17) |= 1u;
       }
       if ( v11 )
-        ObfDereferenceObject(BaseFileSystemDeviceObject);
+        HalPutDmaAdapter(BaseFileSystemDeviceObject);
       goto LABEL_23;
     }
 LABEL_10:

@@ -1,13 +1,13 @@
 /*
- * XREFs of SeQuerySecurityAttributesToken @ 0x1406B7A00
+ * XREFs of SeQuerySecurityAttributesToken @ 0x140600F90
  * Callers:
- *     RtlpQueryPackageIdentityAttributes @ 0x1402261E8 (RtlpQueryPackageIdentityAttributes.c)
- *     SepVerifyDesktopAppxPackageName @ 0x1405B81D4 (SepVerifyDesktopAppxPackageName.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x140201574 (SepVerifyDesktopAppxPackageName.c)
+ *     RtlpQueryPackageIdentityAttributes @ 0x14024CFC8 (RtlpQueryPackageIdentityAttributes.c)
  * Callees:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14022C948 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14024E0D0 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
  */
 
 __int64 __fastcall SeQuerySecurityAttributesToken(
@@ -19,7 +19,7 @@ __int64 __fastcall SeQuerySecurityAttributesToken(
         __int64 a6)
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v11; // rdx
+  char v11; // dl
   unsigned int SecurityAttributesToken; // ebx
 
   if ( a5 )

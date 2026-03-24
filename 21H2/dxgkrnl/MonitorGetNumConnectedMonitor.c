@@ -1,33 +1,42 @@
 /*
- * XREFs of MonitorGetNumConnectedMonitor @ 0x1C01D47C8
+ * XREFs of MonitorGetNumConnectedMonitor @ 0x1C0148DC4
  * Callers:
- *     DxgkReportAdapterPowerRapidHpdTrigerEvent @ 0x1C0023838 (DxgkReportAdapterPowerRapidHpdTrigerEvent.c)
- *     ?GetNumTargetsWithMonitorObjects@VIDPN_MGR@@QEBA_KXZ @ 0x1C0029D40 (-GetNumTargetsWithMonitorObjects@VIDPN_MGR@@QEBA_KXZ.c)
- *     ?IsEmergencyMonitorConnected@@YAJPEAXIPEAE@Z @ 0x1C01D476C (-IsEmergencyMonitorConnected@@YAJPEAXIPEAE@Z.c)
- *     ?CommitVidPn@VIDPN_MGR@@QEAAJPEBVDMMVIDPN@@QEAXIW4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@EEAEBU_DMM_COMMITVIDPNREQUEST_DIAGINFO@@PEAE@Z @ 0x1C0399E6C (-CommitVidPn@VIDPN_MGR@@QEAAJPEBVDMMVIDPN@@QEAXIW4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@EEAEBU_D.c)
+ *     ?GetNumTargetsWithMonitorObjects@VIDPN_MGR@@QEBA_KXZ @ 0x1C005C1E0 (-GetNumTargetsWithMonitorObjects@VIDPN_MGR@@QEBA_KXZ.c)
+ *     ?IsEmergencyMonitorConnected@@YAJPEAXIPEAE@Z @ 0x1C0148D1C (-IsEmergencyMonitorConnected@@YAJPEAXIPEAE@Z.c)
+ *     ?CommitVidPn@VIDPN_MGR@@QEAAJPEBVDMMVIDPN@@QEAXIW4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@EEAEBU_DMM_COMMITVIDPNREQUEST_DIAGINFO@@PEAE@Z @ 0x1C014A320 (-CommitVidPn@VIDPN_MGR@@QEAAJPEBVDMMVIDPN@@QEAXIW4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@EEAEBU_D.c)
  * Callees:
- *     <none>
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
-__int64 __fastcall MonitorGetNumConnectedMonitor(__int64 a1, _DWORD *a2)
+__int64 __fastcall MonitorGetNumConnectedMonitor(DXGADAPTER *this, _DWORD *a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // rax
-  __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  __int64 v10; // rax
+  __int64 v11; // rax
 
-  *(_QWORD *)(WdLogNewEntry5_WdTrace(a1, a2) + 24) = a1;
-  if ( a1 && a2 )
+  *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2, a3, a4) + 24) = this;
+  if ( this && a2 )
   {
-    v4 = *(_QWORD *)(a1 + 2792);
-    if ( v4 )
+    if ( !DXGADAPTER::IsCoreResourceSharedOwner(this) )
     {
-      v5 = *(_QWORD *)(v4 + 112);
-      if ( v5 )
+      v10 = WdLogNewEntry5_WdAssertion(v7, v6);
+      WdLogEvent5_WdAssertion(v10);
+    }
+    v8 = *((_QWORD *)this + 337);
+    if ( v8 )
+    {
+      v7 = *(_QWORD *)(v8 + 96);
+      if ( v7 )
       {
-        *a2 = *(_DWORD *)(v5 + 32);
+        *a2 = *(_DWORD *)(v7 + 120);
         return 0LL;
       }
     }
-    WdLogSingleEntry1(2LL, a1);
+    v11 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v11 + 24) = this;
+    WdLogEvent5_WdError(v11);
   }
   return 3221225485LL;
 }

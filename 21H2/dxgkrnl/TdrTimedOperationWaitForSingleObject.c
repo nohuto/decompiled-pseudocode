@@ -1,11 +1,11 @@
 /*
- * XREFs of TdrTimedOperationWaitForSingleObject @ 0x1C0307060
+ * XREFs of TdrTimedOperationWaitForSingleObject @ 0x1C0266790
  * Callers:
  *     <none>
  * Callees:
- *     ?_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z @ 0x1C00526A4 (-_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z.c)
- *     TdrTimedOperationAllowToDebugTimeout @ 0x1C005270C (TdrTimedOperationAllowToDebugTimeout.c)
- *     TdrTimedOperationBugcheckOnTimeout @ 0x1C0052898 (TdrTimedOperationBugcheckOnTimeout.c)
+ *     ?_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z @ 0x1C00451B4 (-_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z.c)
+ *     TdrTimedOperationAllowToDebugTimeout @ 0x1C004521C (TdrTimedOperationAllowToDebugTimeout.c)
+ *     TdrTimedOperationBugcheckOnTimeout @ 0x1C00453A8 (TdrTimedOperationBugcheckOnTimeout.c)
  */
 
 __int64 __fastcall TdrTimedOperationWaitForSingleObject(

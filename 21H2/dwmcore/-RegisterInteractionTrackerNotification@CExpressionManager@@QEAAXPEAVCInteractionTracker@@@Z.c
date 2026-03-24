@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RegisterInteractionTrackerNotification@CExpressionManager@@QEAAXPEAVCInteractionTracker@@@Z @ 0x1801FDD60
+ * XREFs of ?RegisterInteractionTrackerNotification@CExpressionManager@@QEAAXPEAVCInteractionTracker@@@Z @ 0x1801AB354
  * Callers:
- *     ??0CInteractionTracker@@QEAA@PEAVCComposition@@@Z @ 0x1802186E4 (--0CInteractionTracker@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CInteractionTracker@@QEAA@PEAVCComposition@@@Z @ 0x1801C76F8 (--0CInteractionTracker@@QEAA@PEAVCComposition@@@Z.c)
  * Callees:
- *     ?AddMultipleAndSet@?$DynArrayImpl@$00@@IEAAJIIPEBX@Z @ 0x180043280 (-AddMultipleAndSet@-$DynArrayImpl@$00@@IEAAJIIPEBX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$00@@IEAAJIIPEBX@Z @ 0x180036A38 (-AddMultipleAndSet@-$DynArrayImpl@$00@@IEAAJIIPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 void __fastcall CExpressionManager::RegisterInteractionTrackerNotification(
@@ -41,23 +41,20 @@ void __fastcall CExpressionManager::RegisterInteractionTrackerNotification(
   {
 LABEL_5:
     v7 = (unsigned int)(v4 + 1);
-    if ( (unsigned int)v7 >= (unsigned int)v4 )
+    if ( (unsigned int)v7 < (unsigned int)v4 )
     {
-      if ( (unsigned int)v7 > *((_DWORD *)v2 + 5) )
-      {
-        v8 = DynArrayImpl<1>::AddMultipleAndSet((__int64)v2, 8u, (__int64)v2, &v10);
-        if ( v8 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0xC0u);
-      }
-      else
-      {
-        *(_QWORD *)(v5 + 8 * v4) = a2;
-        *((_DWORD *)v2 + 6) = v7;
-      }
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147024362, 0xB5u, 0LL);
+    }
+    else if ( (unsigned int)v7 > *((_DWORD *)v2 + 5) )
+    {
+      v8 = DynArrayImpl<1>::AddMultipleAndSet((__int64)v2, 8u, (__int64)v2, &v10);
+      if ( v8 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xC0u, 0LL);
     }
     else
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, -2147024362, 0xB5u);
+      *(_QWORD *)(v5 + 8 * v4) = a2;
+      *((_DWORD *)v2 + 6) = v7;
     }
   }
 }

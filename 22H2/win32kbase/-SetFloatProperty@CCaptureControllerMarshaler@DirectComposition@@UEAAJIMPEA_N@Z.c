@@ -1,7 +1,7 @@
 /*
- * XREFs of ?SetFloatProperty@CCaptureControllerMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C022EC60
+ * XREFs of ?SetFloatProperty@CCaptureControllerMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01F5C70
  * Callers:
- *     ?SetFloatProperty@?$CSharedResourceMarshaler@VCCaptureControllerMarshaler@DirectComposition@@$01@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C00D5D40 (-SetFloatProperty@-$CSharedResourceMarshaler@VCCaptureControllerMarshaler@DirectComposition@@$01.c)
+ *     <none>
  * Callees:
  *     <none>
  */
@@ -15,39 +15,26 @@ __int64 __fastcall DirectComposition::CCaptureControllerMarshaler::SetFloatPrope
   unsigned int v4; // r10d
   int v5; // r8d
   int v6; // edx
-  int v7; // edx
-  bool v8; // al
+  bool v7; // al
 
   v4 = 0;
   v5 = 0;
   v6 = a2 - 2;
   if ( v6 )
   {
-    v7 = v6 - 1;
-    if ( v7 )
+    if ( v6 != 1 )
     {
-      if ( v7 != 4 )
-      {
-        v4 = -1073741811;
-        goto LABEL_14;
-      }
-      v5 = 1024;
-      if ( *((float *)this + 22) != a3 )
-      {
-        *((float *)this + 22) = a3;
-LABEL_12:
-        v8 = 1;
-        goto LABEL_13;
-      }
+      v7 = *a4;
+      v4 = -1073741811;
+      goto LABEL_11;
     }
-    else
+    v5 = 128;
+    if ( *((float *)this + 17) != a3 )
     {
-      v5 = 128;
-      if ( *((float *)this + 17) != a3 )
-      {
-        *((float *)this + 17) = a3;
-        goto LABEL_12;
-      }
+      *((float *)this + 17) = a3;
+LABEL_9:
+      v7 = 1;
+      goto LABEL_10;
     }
   }
   else
@@ -56,14 +43,14 @@ LABEL_12:
     if ( *((float *)this + 16) != a3 )
     {
       *((float *)this + 16) = a3;
-      goto LABEL_12;
+      goto LABEL_9;
     }
   }
-  v8 = 0;
-LABEL_13:
-  *a4 = v8;
-LABEL_14:
-  if ( *a4 )
+  v7 = 0;
+LABEL_10:
+  *a4 = v7;
+LABEL_11:
+  if ( v7 )
     *((_DWORD *)this + 4) |= v5;
   return v4;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?D3DXVec4TransformArray@@YAPEAUD2DVector4@@PEAU1@IPEBU1@IPEBUD2DMatrix@@I@Z @ 0x18026F0D4
+ * XREFs of ?D3DXVec4TransformArray@@YAPEAUD2DVector4@@PEAU1@IPEBU1@IPEBUD2DMatrix@@I@Z @ 0x18021EB64
  * Callers:
- *     ?CompareAndSplit@CPolygon@@QEAAJPEAV1@PEAW4Relation@D2DVectorHelper@@PEAPEAV1@2@Z @ 0x1801F9358 (-CompareAndSplit@CPolygon@@QEAAJPEAV1@PEAW4Relation@D2DVectorHelper@@PEAPEAV1@2@Z.c)
- *     ?Transform@CExpressionValueStack@@QEAAJXZ @ 0x180250ABC (-Transform@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?CompareAndSplit@CPolygon@@QEAAJPEAV1@PEAW4Relation@D2DVectorHelper@@PEAPEAV1@2@Z @ 0x1801F680C (-CompareAndSplit@CPolygon@@QEAAJPEAV1@PEAW4Relation@D2DVectorHelper@@PEAPEAV1@2@Z.c)
+ *     ?Transform@CExpressionValueStack@@QEAAJXZ @ 0x180201A64 (-Transform@CExpressionValueStack@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */

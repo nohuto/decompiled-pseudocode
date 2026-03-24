@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserWaitForInputIdle @ 0x1C010E4F0
+ * XREFs of NtUserWaitForInputIdle @ 0x1C012CB10
  * Callers:
  *     <none>
  * Callees:
- *     xxxWaitForInputIdle @ 0x1C010E54C (xxxWaitForInputIdle.c)
+ *     xxxWaitForInputIdle @ 0x1C012CB70 (xxxWaitForInputIdle.c)
  */
 
 __int64 __fastcall NtUserWaitForInputIdle(__int64 a1, unsigned int a2, unsigned int a3)
@@ -11,7 +11,7 @@ __int64 __fastcall NtUserWaitForInputIdle(__int64 a1, unsigned int a2, unsigned 
   unsigned int v6; // ebx
   __int64 v7; // rcx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v6 = xxxWaitForInputIdle(a1, a2, a3);
   UserSessionSwitchLeaveCrit(v7);
   return v6;

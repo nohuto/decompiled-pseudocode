@@ -1,5 +1,5 @@
 /*
- * XREFs of KiGetPendingTick @ 0x1401303DC
+ * XREFs of KiGetPendingTick @ 0x1401303FC
  * Callers:
  *     KeResumeClockTimerFromIdle @ 0x140060910 (KeResumeClockTimerFromIdle.c)
  * Callees:

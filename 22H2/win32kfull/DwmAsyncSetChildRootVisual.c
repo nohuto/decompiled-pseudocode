@@ -1,5 +1,5 @@
 /*
- * XREFs of DwmAsyncSetChildRootVisual @ 0x1C026D8A0
+ * XREFs of DwmAsyncSetChildRootVisual @ 0x1C0275010
  * Callers:
  *     <none>
  * Callees:
@@ -22,7 +22,7 @@ __int64 __fastcall DwmAsyncSetChildRootVisual(PVOID Object, __int64 a2, __int64 
     memset(v6, 0, sizeof(v6));
     WORD2(v6[0]) = 0x8000;
     LODWORD(v6[0]) = 3932180;
-    v8 = 1073741854;
+    v8 = 1073741853;
     v9[1] = a3;
     v4 = LpcRequestPort(Object, v6);
     ObfDereferenceObject(Object);

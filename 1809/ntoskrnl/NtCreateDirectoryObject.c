@@ -1,5 +1,5 @@
 /*
- * XREFs of NtCreateDirectoryObject @ 0x1406ADCE0
+ * XREFs of NtCreateDirectoryObject @ 0x1406ADCC0
  * Callers:
  *     ObInitSystem @ 0x1409B1964 (ObInitSystem.c)
  *     ExpInitializeCallbacks @ 0x1409D92E4 (ExpInitializeCallbacks.c)
@@ -7,7 +7,7 @@
  *     IopCreateUmdfDirectory @ 0x1409D9F10 (IopCreateUmdfDirectory.c)
  *     CreateSystemRootLink @ 0x1409DA774 (CreateSystemRootLink.c)
  * Callees:
- *     ObpCreateDirectoryObject @ 0x1406ADCFC (ObpCreateDirectoryObject.c)
+ *     ObpCreateDirectoryObject @ 0x1406ADCDC (ObpCreateDirectoryObject.c)
  */
 
 NTSTATUS __stdcall NtCreateDirectoryObject(

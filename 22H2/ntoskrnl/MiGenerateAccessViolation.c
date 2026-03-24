@@ -1,23 +1,23 @@
 /*
- * XREFs of MiGenerateAccessViolation @ 0x140645FFC
+ * XREFs of MiGenerateAccessViolation @ 0x1405484A0
  * Callers:
- *     MiSystemFault @ 0x140261080 (MiSystemFault.c)
- *     MiCheckSystemPageTables @ 0x140261810 (MiCheckSystemPageTables.c)
- *     MiRaisedIrqlFault @ 0x1403416F0 (MiRaisedIrqlFault.c)
+ *     MiSystemFault @ 0x140291A80 (MiSystemFault.c)
+ *     MiCheckSystemPageTables @ 0x140292240 (MiCheckSystemPageTables.c)
+ *     MiRaisedIrqlFault @ 0x1402FB34C (MiRaisedIrqlFault.c)
  * Callees:
- *     MiDeterminePoolType @ 0x1402123E0 (MiDeterminePoolType.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314440 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD40 (ExAcquireSpinLockShared.c)
+ *     MiDeterminePoolType @ 0x14027B41C (MiDeterminePoolType.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiGenerateAccessViolation(unsigned __int64 *a1)
+_BOOL8 __fastcall MiGenerateAccessViolation(__int64 *a1)
 {
   unsigned __int64 v1; // rsi
-  unsigned int v2; // edi
-  KIRQL v3; // al
+  _QWORD **v2; // rdi
+  unsigned __int64 v3; // rbp
   _QWORD *v4; // rbx
-  unsigned __int64 v5; // rbp
+  _KPROCESS *Process; // rdi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -25,41 +25,52 @@ __int64 __fastcall MiGenerateAccessViolation(unsigned __int64 *a1)
   bool v10; // zf
 
   v1 = *a1;
-  v2 = 0;
-  if ( (unsigned int)MiDeterminePoolType(*a1) == 32 || KeGetCurrentIrql() > 2u )
+  if ( (unsigned int)MiDeterminePoolType(*a1) == 32 )
     return 0LL;
-  v3 = ExAcquireSpinLockShared(&dword_140C655B0);
-  v4 = (_QWORD *)BugCheckParameter2;
-  v5 = v3;
-  while ( v4 )
+  v2 = (_QWORD **)&unk_140C4C900;
+  v3 = ExAcquireSpinLockShared(&dword_140C4C8F8);
+  while ( 1 )
   {
-    if ( v1 <= v4[4] )
+    v4 = *v2;
+    while ( v4 )
     {
-      if ( v1 >= v4[3] )
-        break;
-      v4 = (_QWORD *)*v4;
+      if ( v1 > v4[4] )
+      {
+        v4 = (_QWORD *)v4[1];
+      }
+      else
+      {
+        if ( v1 >= v4[3] )
+          goto LABEL_14;
+        v4 = (_QWORD *)*v4;
+      }
     }
-    else
-    {
-      v4 = (_QWORD *)v4[1];
-    }
+    if ( v2 != (_QWORD **)&unk_140C4C900 )
+      break;
+    Process = KeGetCurrentThread()->ApcState.Process;
+    if ( (Process[1].DirectoryTableBase & 0x1000000000000LL) == 0 )
+      break;
+    v2 = (_QWORD **)(Process[1].AffinityPadding[5] + 1008);
   }
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C655B0);
+LABEL_14:
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4C8F8);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-      v10 = (v9 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v9;
-      if ( v10 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+        v10 = (v9 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v9;
+        if ( v10 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
-  __writecr8(v5);
-  LOBYTE(v2) = v4 != 0LL;
-  return v2;
+  __writecr8(v3);
+  return v4 != 0;
 }

@@ -1,30 +1,31 @@
 /*
- * XREFs of ?GetActivePpiPreference@CRotationMgr@@SA?AW4ORIENTATION_PREFERENCE@@PEAK@Z @ 0x1C01A6D78
+ * XREFs of ?GetActivePpiPreference@CRotationMgr@@SA?AW4ORIENTATION_PREFERENCE@@PEAK@Z @ 0x1C01D0AB4
  * Callers:
- *     ?xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ @ 0x1C0041DC4 (-xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ.c)
- *     ?IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z @ 0x1C01A7000 (-IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z.c)
+ *     ?xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ @ 0x1C002EBE4 (-xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ.c)
+ *     ?IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z @ 0x1C01D0D48 (-IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z.c)
  * Callees:
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C007E800 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0080520 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BCDE8 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BCE1C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
  */
 
 __int64 __fastcall CRotationMgr::GetActivePpiPreference(_DWORD *a1)
 {
-  PEPROCESS *v2; // rcx
-  unsigned int v3; // ebx
+  unsigned int v2; // ebx
+  PEPROCESS *v3; // rcx
   char v5; // [rsp+38h] [rbp+10h] BYREF
 
   PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v5, gRotationProcessLock);
-  if ( grpdeskRitInput && (v2 = *(PEPROCESS **)(grpdeskRitInput + 256LL)) != 0LL )
+  v2 = 0;
+  if ( grpdeskRitInput )
   {
-    if ( a1 )
-      *a1 = (unsigned int)PsGetProcessId(*v2);
-    v3 = *(_DWORD *)(*(_QWORD *)(grpdeskRitInput + 256LL) + 928LL);
-  }
-  else
-  {
-    v3 = 0;
+    v3 = *(PEPROCESS **)(grpdeskRitInput + 256LL);
+    if ( v3 )
+    {
+      if ( a1 )
+        *a1 = (unsigned int)PsGetProcessId(*v3);
+      v2 = *(_DWORD *)(*(_QWORD *)(grpdeskRitInput + 256LL) + 920LL);
+    }
   }
   PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v5);
-  return v3;
+  return v2;
 }

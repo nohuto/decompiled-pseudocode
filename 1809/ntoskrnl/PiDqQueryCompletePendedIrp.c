@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDqQueryCompletePendedIrp @ 0x1406DB9B0
+ * XREFs of PiDqQueryCompletePendedIrp @ 0x1406DB990
  * Callers:
- *     PiDqObjectManagerServiceActionQueue @ 0x1406F7500 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x1406F74E0 (PiDqObjectManagerServiceActionQueue.c)
  * Callees:
  *     PiDqQueryGetNextIoctlInfo @ 0x1405901DC (PiDqQueryGetNextIoctlInfo.c)
  *     PiDqIrpComplete @ 0x140590A9C (PiDqIrpComplete.c)

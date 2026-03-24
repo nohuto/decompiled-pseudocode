@@ -1,17 +1,17 @@
 /*
- * XREFs of ?Initialize@CAtlasTexture@@AEAAJPEAVCD3DDevice@@I@Z @ 0x1800F906C
+ * XREFs of ?Initialize@CAtlasTexture@@AEAAJPEAVCD3DDevice@@I@Z @ 0x18024C710
  * Callers:
- *     ?Create@CAtlasTexture@@SAJPEAVCD3DDevice@@IPEAPEAV1@@Z @ 0x1800F8FDC (-Create@CAtlasTexture@@SAJPEAVCD3DDevice@@IPEAPEAV1@@Z.c)
+ *     ?Create@CAtlasTexture@@SAJPEAVCD3DDevice@@IPEAPEAV1@@Z @ 0x18024C4AC (-Create@CAtlasTexture@@SAJPEAVCD3DDevice@@IPEAPEAV1@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x1800BAB68 (-CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo.c)
- *     ?InternalRelease@?$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F65A4 (-InternalRelease@-$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?GenerateWhitePixel@CAtlasTexture@@AEAAXXZ @ 0x1800F91D8 (-GenerateWhitePixel@CAtlasTexture@@AEAAXXZ.c)
- *     ??4?$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x1800F922C (--4-$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??4?$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x180011A78 (--4-$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
+ *     ?InternalRelease@?$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ @ 0x18001B590 (-InternalRelease@-$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180060864 (-CreateRenderTargetBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GenerateWhitePixel@CAtlasTexture@@AEAAXXZ @ 0x18024C694 (-GenerateWhitePixel@CAtlasTexture@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CAtlasTexture::Initialize(CAtlasTexture *this, struct CD3DDevice *a2, UINT32 a3)
@@ -34,7 +34,7 @@ __int64 __fastcall CAtlasTexture::Initialize(CAtlasTexture *this, struct CD3DDev
   struct IRenderTargetBitmap *v22; // [rsp+A8h] [rbp+28h] BYREF
   struct D2D_SIZE_U v23; // [rsp+B8h] [rbp+38h] BYREF
 
-  v3 = *((_QWORD *)a2 + 112);
+  v3 = *((_QWORD *)a2 + 117);
   v22 = 0LL;
   v14[2] = 0;
   v19 = 0;
@@ -46,7 +46,7 @@ __int64 __fastcall CAtlasTexture::Initialize(CAtlasTexture *this, struct CD3DDev
   v23.width = 2048;
   v23.height = a3;
   v21 = 0;
-  Microsoft::WRL::ComPtr<IRenderTargetBitmap>::InternalRelease((__int64 *)&v22);
+  Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease((__int64 *)&v22);
   v16 = 17;
   v15 = "DWM Atlas surface";
   v7 = CD3DDevice::CreateRenderTargetBitmap(
@@ -60,13 +60,13 @@ __int64 __fastcall CAtlasTexture::Initialize(CAtlasTexture *this, struct CD3DDev
   v9 = v7;
   if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0x47u);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x47u, 0LL);
   }
   else
   {
     v10 = (char *)v22 + *(int *)(*((_QWORD *)v22 + 1) + 8LL) + 8;
     (*(void (__fastcall **)(char *, CAtlasTexture *))(*(_QWORD *)v10 + 40LL))(v10, this);
-    Microsoft::WRL::ComPtr<IRenderTargetBitmap>::operator=((char *)this + 8, &v22);
+    Microsoft::WRL::ComPtr<IRenderTargetBitmap>::operator=((__int64 *)this + 1, (__int64 *)&v22);
     *((_DWORD *)this + 6) = a3 - 1;
     *((_DWORD *)this + 7) = a3 - 1;
     v11 = DefaultHeap::Alloc(saturated_mul(a3 - 1, 8uLL));
@@ -74,7 +74,7 @@ __int64 __fastcall CAtlasTexture::Initialize(CAtlasTexture *this, struct CD3DDev
     *((_QWORD *)this + 2) = v11;
     if ( v12 )
     {
-      DefaultHeap::Free(v12);
+      operator delete(v12);
       v11 = (void *)*((_QWORD *)this + 2);
     }
     if ( v11 )
@@ -85,9 +85,9 @@ __int64 __fastcall CAtlasTexture::Initialize(CAtlasTexture *this, struct CD3DDev
     else
     {
       v9 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)v12, 0LL, 0LL, -2147024882, 0x58u);
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)v12, 0LL, 0, -2147024882, 0x58u, 0LL);
     }
   }
-  Microsoft::WRL::ComPtr<IRenderTargetBitmap>::InternalRelease((__int64 *)&v22);
+  Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease((__int64 *)&v22);
   return v9;
 }

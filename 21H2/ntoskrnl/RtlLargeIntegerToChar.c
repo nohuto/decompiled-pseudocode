@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlLargeIntegerToChar @ 0x14075A900
+ * XREFs of RtlLargeIntegerToChar @ 0x14062C870
  * Callers:
- *     RtlInt64ToUnicodeString @ 0x14075A520 (RtlInt64ToUnicodeString.c)
+ *     RtlInt64ToUnicodeString @ 0x14062C590 (RtlInt64ToUnicodeString.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall RtlLargeIntegerToChar(unsigned __int64 *a1, unsigned __int64 a2, int a3, char *a4)

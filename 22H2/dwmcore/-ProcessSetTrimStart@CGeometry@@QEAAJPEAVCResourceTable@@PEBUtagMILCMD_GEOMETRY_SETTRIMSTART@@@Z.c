@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ProcessSetTrimStart@CGeometry@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_GEOMETRY_SETTRIMSTART@@@Z @ 0x180212104
+ * XREFs of ?ProcessSetTrimStart@CGeometry@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_GEOMETRY_SETTRIMSTART@@@Z @ 0x1801B5CBC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,8 +11,8 @@ __int64 __fastcall CGeometry::ProcessSetTrimStart(
         struct CResourceTable *a2,
         const struct tagMILCMD_GEOMETRY_SETTRIMSTART *a3)
 {
-  return ((__int64 (__fastcall *)(char *, void *, char *))xmmword_1803E43C0)(
-           (char *)this + SDWORD2(xmmword_1803E43C0),
+  return ((__int64 (__fastcall *)(char *, void *, char *))xmmword_180345BF0)(
+           (char *)this + SDWORD2(xmmword_180345BF0),
            &CGeometry::sc_TrimStart,
            (char *)a3 + 8);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of ?AnimateSingle@?$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@UEBAXAEAV?$span@M$0?0@gsl@@00@Z @ 0x180229FF0
+ * XREFs of ?AnimateSingle@?$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@UEBAXAEAV?$span@M$0?0@gsl@@00@Z @ 0x1801DB2F0
  * Callers:
  *     <none>
  * Callees:
- *     ??A?$span@M$0?0@gsl@@QEBAAEAM_K@Z @ 0x180229F68 (--A-$span@M$0-0@gsl@@QEBAAEAM_K@Z.c)
- *     ?GetValueAt@?$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MAEBV?$span@M$0?0@gsl@@AEAV78@@Z @ 0x18022A818 (-GetValueAt@-$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEBA-AUfl.c)
+ *     ??A?$span@M$0?0@gsl@@QEBAAEAM_J@Z @ 0x1801DB25C (--A-$span@M$0-0@gsl@@QEBAAEAM_J@Z.c)
+ *     ?GetValueAt@?$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MAEBV?$span@M$0?0@gsl@@AEAV78@@Z @ 0x1801DBB04 (-GetValueAt@-$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@QEBA-AUfl.c)
  */
 
 __int64 __fastcall Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float2>::AnimateSingle(
         int a1,
-        gsl::details *a2,
+        _QWORD *a2,
         int a3,
         __int64 a4)
 {

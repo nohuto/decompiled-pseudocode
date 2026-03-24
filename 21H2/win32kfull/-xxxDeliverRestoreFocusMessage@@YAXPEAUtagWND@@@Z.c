@@ -1,36 +1,36 @@
 /*
- * XREFs of ?xxxDeliverRestoreFocusMessage@@YAXPEAUtagWND@@@Z @ 0x1C010C53C
+ * XREFs of ?xxxDeliverRestoreFocusMessage@@YAXPEAUtagWND@@@Z @ 0x1C012619C
  * Callers:
- *     xxxSetModernAppWindow @ 0x1C0002004 (xxxSetModernAppWindow.c)
- *     xxxProcessEventMessage @ 0x1C005C220 (xxxProcessEventMessage.c)
- *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C007D36C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
- *     xxxSysCommand @ 0x1C011BA1C (xxxSysCommand.c)
- *     xxxTrackPopupMenuEx @ 0x1C024614C (xxxTrackPopupMenuEx.c)
+ *     xxxSetModernAppWindow @ 0x1C00058B0 (xxxSetModernAppWindow.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C003D28C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     xxxProcessEventMessage @ 0x1C00C1918 (xxxProcessEventMessage.c)
+ *     xxxSysCommand @ 0x1C0130714 (xxxSysCommand.c)
+ *     xxxTrackPopupMenuEx @ 0x1C024ABB0 (xxxTrackPopupMenuEx.c)
  * Callees:
- *     xxxSendMessage @ 0x1C0050D34 (xxxSendMessage.c)
- *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00AC3EC (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
- *     ?IsPartOfCompositeApplication@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C010C5A4 (-IsPartOfCompositeApplication@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
+ *     ?IsPartOfCompositeApplication@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C00376C4 (-IsPartOfCompositeApplication@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FC70 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     xxxSendMessage @ 0x1C005D634 (xxxSendMessage.c)
  */
 
 void __fastcall xxxDeliverRestoreFocusMessage(struct tagWND *a1)
 {
   struct tagWND *v1; // rbx
-  struct tagQ **v2; // rdi
+  __int64 v2; // rdi
 
   v1 = a1;
-  if ( *(char *)(*((_QWORD *)a1 + 5) + 232LL) < 0 )
+  if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 234LL) & 0x40) != 0 )
     v1 = *(struct tagWND **)(*((_QWORD *)a1 + 2) + 1400LL);
   if ( v1 )
   {
-    v2 = (struct tagQ **)*((_QWORD *)v1 + 2);
-    if ( v2[54] == (struct tagQ *)gpqForeground )
+    v2 = *((_QWORD *)v1 + 2);
+    if ( *(_QWORD *)(v2 + 432) == gpqForeground )
     {
       if ( (unsigned int)CoreWindowProp::IsPartOfCompositeApplication(v1) )
       {
-        if ( v2 == (struct tagQ **)gptiCurrent )
-          xxxSendMessage((ULONG_PTR)v1);
+        if ( v2 == gptiCurrent )
+          xxxSendMessage((unsigned __int64)v1, 0x2FBu, 0LL, 0LL);
         else
-          PostEventMessageEx((struct tagTHREADINFO *)v2, v2[54], 0x1Du, v1, 0, 0LL, 0LL, 0LL);
+          PostEventMessageEx((struct tagTHREADINFO *)v2, *(struct tagQ **)(v2 + 432), 0x1Du, v1, 0, 0LL, 0LL, 0LL);
       }
     }
   }

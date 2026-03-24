@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpCheckCreateAccess @ 0x1406B5674
+ * XREFs of CmpCheckCreateAccess @ 0x1406B5654
  * Callers:
- *     CmpCheckCreateAccessOnKcbStack @ 0x1406B55D4 (CmpCheckCreateAccessOnKcbStack.c)
+ *     CmpCheckCreateAccessOnKcbStack @ 0x1406B55B4 (CmpCheckCreateAccessOnKcbStack.c)
  * Callees:
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
- *     RtlIsSandboxedToken @ 0x14064A350 (RtlIsSandboxedToken.c)
+ *     RtlIsSandboxedToken @ 0x14064A330 (RtlIsSandboxedToken.c)
  */
 
 BOOLEAN __fastcall CmpCheckCreateAccess(

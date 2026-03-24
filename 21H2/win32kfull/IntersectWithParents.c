@@ -1,13 +1,13 @@
 /*
- * XREFs of IntersectWithParents @ 0x1C004B7F8
+ * XREFs of IntersectWithParents @ 0x1C0073118
  * Callers:
- *     xxxInternalInvalidate @ 0x1C004A420 (xxxInternalInvalidate.c)
- *     ?SpbTransfer@@YAHPEAUtagSPB@@PEAUtagWND@@H@Z @ 0x1C00C9674 (-SpbTransfer@@YAHPEAUtagSPB@@PEAUtagWND@@H@Z.c)
- *     ?ValidateParents@@YAHPEAUtagWND@@H@Z @ 0x1C00C9954 (-ValidateParents@@YAHPEAUtagWND@@H@Z.c)
- *     xxxGetUpdateRect @ 0x1C01071D4 (xxxGetUpdateRect.c)
- *     xxxGetUpdateRgn @ 0x1C0149BA0 (xxxGetUpdateRgn.c)
+ *     xxxInternalInvalidate @ 0x1C0072580 (xxxInternalInvalidate.c)
+ *     ?ValidateParents@@YAHPEAUtagWND@@H@Z @ 0x1C00F57E4 (-ValidateParents@@YAHPEAUtagWND@@H@Z.c)
+ *     xxxGetUpdateRgn @ 0x1C010DFB4 (xxxGetUpdateRgn.c)
+ *     xxxGetUpdateRect @ 0x1C0117F40 (xxxGetUpdateRect.c)
+ *     ?SpbTransfer@@YAHPEAUtagSPB@@PEAUtagWND@@H@Z @ 0x1C021A180 (-SpbTransfer@@YAHPEAUtagSPB@@PEAUtagWND@@H@Z.c)
  * Callees:
- *     PhysicalToLogicalInPlaceRect @ 0x1C004C854 (PhysicalToLogicalInPlaceRect.c)
+ *     PhysicalToLogicalInPlaceRect @ 0x1C0074724 (PhysicalToLogicalInPlaceRect.c)
  */
 
 __int64 __fastcall IntersectWithParents(__int64 a1, int *a2)

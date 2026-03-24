@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaCommitScatterMapBuffers @ 0x14051314C
+ * XREFs of HalpDmaCommitScatterMapBuffers @ 0x1404C7234
  * Callers:
- *     HalpDmaAllocateLocalScatterPool @ 0x140909214 (HalpDmaAllocateLocalScatterPool.c)
- *     HalpDmaGrowScatterMapBuffers @ 0x1409095FC (HalpDmaGrowScatterMapBuffers.c)
+ *     HalpDmaAllocateLocalScatterPool @ 0x140865078 (HalpDmaAllocateLocalScatterPool.c)
+ *     HalpDmaGrowScatterMapBuffers @ 0x140865468 (HalpDmaGrowScatterMapBuffers.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     HalpDmaGetTranslationEntries @ 0x1403CE07C (HalpDmaGetTranslationEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpDmaPrependTranslations @ 0x140457720 (HalpDmaPrependTranslations.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     HalpDmaGetTranslationEntries @ 0x1403BBFE0 (HalpDmaGetTranslationEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaPrependTranslations @ 0x1404C7D70 (HalpDmaPrependTranslations.c)
  */
 
 __int64 __fastcall HalpDmaCommitScatterMapBuffers(__int64 a1, __int64 a2, __int64 a3, int a4, _DWORD *a5)
@@ -81,7 +81,7 @@ __int64 __fastcall HalpDmaCommitScatterMapBuffers(__int64 a1, __int64 a2, __int6
       while ( v14 );
     }
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 120), &LockHandle);
-    v18 = HalpDmaPrependTranslations(v11, v9, *(_QWORD *)(a1 + 24));
+    v18 = HalpDmaPrependTranslations(v11, (unsigned int)v9, *(_QWORD *)(a1 + 24));
     *(_DWORD *)(a1 + 32) += v9;
     *(_QWORD *)(a1 + 24) = v18;
     if ( v12 )

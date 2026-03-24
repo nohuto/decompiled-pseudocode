@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlpGetMaxVirtualDiskNestingLevel @ 0x1403B1584
+ * XREFs of FsRtlpGetMaxVirtualDiskNestingLevel @ 0x1403CCDAC
  * Callers:
- *     FsRtlQueryMaximumVirtualDiskNestingLevel @ 0x1403C3BE0 (FsRtlQueryMaximumVirtualDiskNestingLevel.c)
+ *     FsRtlQueryMaximumVirtualDiskNestingLevel @ 0x14039A4F0 (FsRtlQueryMaximumVirtualDiskNestingLevel.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
  */
 
 __int64 FsRtlpGetMaxVirtualDiskNestingLevel()
@@ -24,12 +24,12 @@ __int64 FsRtlpGetMaxVirtualDiskNestingLevel()
   _BYTE KeyValueInformation[12]; // [rsp+A0h] [rbp+37h] BYREF
   unsigned int v11; // [rsp+ACh] [rbp+43h]
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
   ResultLength = 0;
-  *(&ObjectAttributes.Length + 1) = 0;
-  v0 = 2;
   ValueName = 0LL;
+  v0 = 2;
   DestinationString = 0LL;
   v6 = 0LL;
   RtlInitUnicodeString(

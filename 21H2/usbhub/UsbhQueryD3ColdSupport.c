@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhQueryD3ColdSupport @ 0x1C0056B50
+ * XREFs of UsbhQueryD3ColdSupport @ 0x1C0058228
  * Callers:
- *     UsbhPdoPnp_DeviceEnumerated @ 0x1C00544B0 (UsbhPdoPnp_DeviceEnumerated.c)
+ *     UsbhPdoPnp_DeviceEnumerated @ 0x1C0055B40 (UsbhPdoPnp_DeviceEnumerated.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C001F800 (memset.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001E180 (memset.c)
  */
 
 void __fastcall UsbhQueryD3ColdSupport(PDEVICE_OBJECT DeviceObject, PDEVICE_OBJECT a2)

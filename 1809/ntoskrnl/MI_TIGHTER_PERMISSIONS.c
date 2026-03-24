@@ -4,7 +4,7 @@
  *     MmProtectPool @ 0x14000E16C (MmProtectPool.c)
  *     MiSetSystemCodeProtection @ 0x1400862E0 (MiSetSystemCodeProtection.c)
  *     MmSetAddressRangeModifiedEx @ 0x140086780 (MmSetAddressRangeModifiedEx.c)
- *     MiProtectEnclavePages @ 0x1402BE020 (MiProtectEnclavePages.c)
+ *     MiProtectEnclavePages @ 0x1402BE120 (MiProtectEnclavePages.c)
  * Callees:
  *     <none>
  */

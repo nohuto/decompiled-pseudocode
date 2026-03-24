@@ -1,17 +1,13 @@
 /*
- * XREFs of MmIsSessionLeaderProcess @ 0x1407AA150
+ * XREFs of MmIsSessionLeaderProcess @ 0x140781840
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     MiInitializeSessionGlobals @ 0x1407AA030 (MiInitializeSessionGlobals.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
+ *     MiInitializeSessionGlobals @ 0x1407873A0 (MiInitializeSessionGlobals.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
  */
 
-_BOOL8 MmIsSessionLeaderProcess()
+_BOOL8 __fastcall MmIsSessionLeaderProcess(__int64 a1, __int64 a2)
 {
-  _QWORD *CurrentServerSiloGlobals; // rax
-  __int64 v1; // r8
-
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  return v1 == CurrentServerSiloGlobals[109];
+  return a1 == *((_QWORD *)PsGetCurrentServerSiloGlobals(a1, a2) + 109);
 }

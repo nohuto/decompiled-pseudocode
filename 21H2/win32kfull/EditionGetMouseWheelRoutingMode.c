@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionGetMouseWheelRoutingMode @ 0x1C01D4150
+ * XREFs of EditionGetMouseWheelRoutingMode @ 0x1C01D99E0
  * Callers:
  *     <none>
  * Callees:
- *     ?RawInputMouseRequestedByForeground@@YAHXZ @ 0x1C01D4008 (-RawInputMouseRequestedByForeground@@YAHXZ.c)
+ *     ?RawInputMouseRequestedByForeground@@YAHXZ @ 0x1C01D89A8 (-RawInputMouseRequestedByForeground@@YAHXZ.c)
  */
 
 __int64 EditionGetMouseWheelRoutingMode()

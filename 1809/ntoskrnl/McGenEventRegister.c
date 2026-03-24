@@ -1,10 +1,10 @@
 /*
- * XREFs of McGenEventRegister @ 0x140181CFC
+ * XREFs of McGenEventRegister @ 0x140181D1C
  * Callers:
- *     FsRtlpHeatRegisterVolume @ 0x140816558 (FsRtlpHeatRegisterVolume.c)
+ *     FsRtlpHeatRegisterVolume @ 0x140816538 (FsRtlpHeatRegisterVolume.c)
  *     PnpDiagInitialize @ 0x1409C8614 (PnpDiagInitialize.c)
  * Callees:
- *     EtwRegister @ 0x1406BE560 (EtwRegister.c)
+ *     EtwRegister @ 0x1406BE540 (EtwRegister.c)
  */
 
 ULONG __stdcall McGenEventRegister(

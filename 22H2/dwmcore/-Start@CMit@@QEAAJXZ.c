@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Start@CMit@@QEAAJXZ @ 0x1800CBF08
+ * XREFs of ?Start@CMit@@QEAAJXZ @ 0x1800B4FE0
  * Callers:
- *     ?Reset@CMit@@QEAAJXZ @ 0x1800CBEB8 (-Reset@CMit@@QEAAJXZ.c)
+ *     ?Reset@CMit@@QEAAJXZ @ 0x1800B4F90 (-Reset@CMit@@QEAAJXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CMit::Start(HANDLE *this)
@@ -16,7 +16,7 @@ __int64 __fastcall CMit::Start(HANDLE *this)
   if ( *((_BYTE *)this + 32) )
   {
     v4 = -2147467260;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, &dword_180356638, 2u, -2147467260, 0x5Bu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, &dword_1802DCFA8, 2u, -2147467260, 0x5Du, 0LL);
   }
   else
   {
@@ -32,7 +32,7 @@ __int64 __fastcall CMit::Start(HANDLE *this)
     else
     {
       v4 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v3, &dword_180356638, 2u, -2147024882, 0x6Du, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v3, &dword_1802DCFA8, 2u, -2147024882, 0x6Fu, 0LL);
     }
   }
   return v4;

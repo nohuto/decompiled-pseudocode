@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CColorBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00A7680
+ * XREFs of ?SetBufferProperty@CColorBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0099AA0
  * Callers:
  *     <none>
  * Callees:

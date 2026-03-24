@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C01441C0
+ * XREFs of ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C014BAF4
  * Callers:
- *     ?bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z @ 0x1C01438E0 (-bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z.c)
- *     ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C0143A2C (-bSetup@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z @ 0x1C014B210 (-bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z.c)
+ *     ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C014B35C (-bSetup@XCLIPOBJ@@IEAAHXZ.c)
  * Callees:
- *     ?bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z @ 0x1C0143264 (-bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z.c)
- *     ?vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z @ 0x1C01437DC (-vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z.c)
- *     ?vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z @ 0x1C0143F58 (-vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z.c)
+ *     ?vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z @ 0x1C014B114 (-vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z.c)
+ *     ?vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z @ 0x1C014B88C (-vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z.c)
+ *     ?bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z @ 0x1C014C404 (-bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z.c)
  */
 
 __int64 __fastcall XCLIPOBJ::bFindFirstSegment(XCLIPOBJ *this)
@@ -32,12 +32,13 @@ __int64 __fastcall XCLIPOBJ::bFindFirstSegment(XCLIPOBJ *this)
   int v20; // r10d
   LONG v21; // edx
   int v22; // r11d
-  int v23; // ecx
-  LONG v24; // edx
-  int v26; // ecx
-  int v27; // edx
-  int v28; // [rsp+40h] [rbp+8h] BYREF
-  int v29; // [rsp+44h] [rbp+Ch] BYREF
+  int v23; // eax
+  int v24; // ecx
+  LONG v25; // edx
+  int v27; // ecx
+  int v28; // edx
+  int v29; // [rsp+40h] [rbp+8h] BYREF
+  int v30; // [rsp+44h] [rbp+Ch] BYREF
 
   *(_QWORD *)(*((_QWORD *)this + 18) + 128LL) = *(_QWORD *)(*((_QWORD *)this + 18) + 152LL);
   v2 = *((_QWORD *)this + 18);
@@ -78,18 +79,18 @@ __int64 __fastcall XCLIPOBJ::bFindFirstSegment(XCLIPOBJ *this)
     *(_DWORD *)(*((_QWORD *)this + 18) + 144LL) = *(_DWORD *)(*((_QWORD *)this + 18) + 120LL);
     *(_DWORD *)(*((_QWORD *)this + 18) + 168LL) = *(_DWORD *)(*((_QWORD *)this + 18) + 124LL) + 1;
     v11 = (int *)*((_QWORD *)this + 18);
-    v28 = v11[24];
-    v29 = v11[25];
-    DDA_CLIPLINE::vUnflip((DDA_CLIPLINE *)(v11 + 16), &v28, &v29);
+    v29 = v11[24];
+    v30 = v11[25];
+    DDA_CLIPLINE::vUnflip((DDA_CLIPLINE *)(v11 + 16), &v29, &v30);
     if ( (*v13 & 5) != 0 )
     {
       v14 = v12[31];
-      v15 = v29;
+      v15 = v30;
     }
     else
     {
       v14 = v12[30];
-      v15 = v28;
+      v15 = v29;
     }
     if ( v14 - v15 >= 0 )
       v16 = v14 - v15;
@@ -124,31 +125,33 @@ __int64 __fastcall XCLIPOBJ::bFindFirstSegment(XCLIPOBJ *this)
       while ( 1 )
       {
         v23 = (v20 + v22) / 2;
+        v24 = v23;
         *((_DWORD *)this + 24) = v23;
-        v24 = v18[16].x;
-        if ( v24 >= v17[v23 + 3] )
+        v25 = v18[16].x;
+        if ( v25 >= v17[v23 + 3] )
           break;
-        v20 = v23 - 1;
-        if ( v24 >= v17[v23 + 2] )
+        if ( v25 >= v17[v23 + 2] )
           goto LABEL_17;
+        v20 = v23 - 1;
       }
       v22 = v23 + 1;
     }
-    while ( v24 >= v17[v23 + 4] );
-    *((_DWORD *)this + 24) = ++v23;
+    while ( v25 >= v17[v23 + 4] );
+    v24 = v23 + 1;
+    *((_DWORD *)this + 24) = v23 + 1;
 LABEL_17:
-    v19 = v23 - (((unsigned int)v18[3].x >> 22) & 1);
+    v19 = v24 - (((unsigned int)v18[3].x >> 22) & 1);
   }
   *((_DWORD *)this + 24) = v19;
   if ( (((unsigned __int8)v19 ^ (unsigned __int8)((unsigned int)v18[3].x >> 22)) & 1) != 0 )
     return 1LL;
-  v26 = *((_DWORD *)this + 25) + v19;
-  *((_DWORD *)this + 24) = v26;
-  v27 = v17[v26 + 3];
-  LOBYTE(v5) = v27 > v18[18].x;
+  v27 = *((_DWORD *)this + 25) + v19;
+  *((_DWORD *)this + 24) = v27;
+  v28 = v17[v27 + 3];
+  LOBYTE(v5) = v28 > v18[18].x;
   if ( (((unsigned int)v18[3].x >> 22) & 1) != v5 )
   {
-    XCLIPOBJ::bIntersectWall(this, v27, 0LL, v18 + 16, &v18[3].y);
+    XCLIPOBJ::bIntersectWall(this, v28, 0LL, v18 + 16, &v18[3].y);
     return 1LL;
   }
   return 0LL;

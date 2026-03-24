@@ -1,43 +1,35 @@
 /*
- * XREFs of MiInitializeImageExtents @ 0x1409706E4
+ * XREFs of MiInitializeImageExtents @ 0x1408D006C
  * Callers:
- *     MiEnableImageDirectMap @ 0x14059E4B0 (MiEnableImageDirectMap.c)
+ *     MiCreateImageFileMap @ 0x1406D33F4 (MiCreateImageFileMap.c)
  * Callees:
- *     MiDeleteSegmentPages @ 0x14027034C (MiDeleteSegmentPages.c)
- *     MiGetCommittedPages @ 0x140287C30 (MiGetCommittedPages.c)
- *     MiDereferencePerSessionProtos @ 0x1406DDA18 (MiDereferencePerSessionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1406DDB48 (MiCreatePerSessionProtos.c)
- *     MiAllocateFileExtents @ 0x14096F8CC (MiAllocateFileExtents.c)
+ *     MiDeleteSegmentPages @ 0x1402F7C0C (MiDeleteSegmentPages.c)
+ *     MiGetCommittedPages @ 0x140316CD0 (MiGetCommittedPages.c)
+ *     MiAllocateFileExtents @ 0x1408CF510 (MiAllocateFileExtents.c)
  */
 
-__int64 __fastcall MiInitializeImageExtents(__int64 a1)
+__int64 __fastcall MiInitializeImageExtents(__int64 *a1)
 {
-  __int64 result; // rax
+  ULONG_PTR v2; // rbx
   int FileExtents; // esi
-  ULONG_PTR i; // rdi
-  __int64 CommittedPages; // rdi
+  __int64 CommittedPages; // rbx
 
-  if ( (*(_DWORD *)(a1 + 56) & 0x8000000) == 0
-    || (result = MiCreatePerSessionProtos((__int64 *)a1, 0xFFFFFFFF), (int)result >= 0) )
+  v2 = (ULONG_PTR)(a1 + 16);
+  FileExtents = 0;
+  while ( v2 )
   {
-    FileExtents = 0;
-    for ( i = a1 + 128; i; i = *(_QWORD *)(i + 16) )
+    FileExtents = MiAllocateFileExtents(v2, 0, *(_QWORD *)(v2 + 8), *(_DWORD *)(v2 + 44), 0);
+    if ( FileExtents < 0 )
     {
-      FileExtents = MiAllocateFileExtents(i, 0, *(_QWORD *)(i + 8), *(_DWORD *)(i + 44), 0, 0xFFFFFFFF);
-      if ( FileExtents < 0 )
-      {
-        CommittedPages = MiGetCommittedPages((_QWORD *)a1);
-        if ( CommittedPages )
-          *(_QWORD *)(*(_QWORD *)a1 + 16LL) = 0LL;
-        MiDeleteSegmentPages(a1);
-        if ( CommittedPages )
-          *(_QWORD *)(*(_QWORD *)a1 + 16LL) = CommittedPages;
-        break;
-      }
+      CommittedPages = MiGetCommittedPages(a1);
+      if ( CommittedPages )
+        *(_QWORD *)(*a1 + 16) = 0LL;
+      MiDeleteSegmentPages(a1);
+      if ( CommittedPages )
+        *(_QWORD *)(*a1 + 16) = CommittedPages;
+      return (unsigned int)FileExtents;
     }
-    if ( (*(_DWORD *)(a1 + 56) & 0x8000000) != 0 )
-      MiDereferencePerSessionProtos((__int64 *)a1, 0xFFFFFFFF);
-    return (unsigned int)FileExtents;
+    v2 = *(_QWORD *)(v2 + 16);
   }
-  return result;
+  return (unsigned int)FileExtents;
 }

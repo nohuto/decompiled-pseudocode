@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetImageBitMapInfo @ 0x1402106F4
+ * XREFs of MiGetImageBitMapInfo @ 0x1402FA0E0
  * Callers:
- *     MiSelectImageBase @ 0x1406AAA28 (MiSelectImageBase.c)
- *     MiReturnImageBase @ 0x140721D10 (MiReturnImageBase.c)
+ *     MiReturnImageBase @ 0x1406382F8 (MiReturnImageBase.c)
+ *     MiSelectImageBase @ 0x14066AAC0 (MiSelectImageBase.c)
  * Callees:
  *     <none>
  */
@@ -15,11 +15,11 @@ __int64 __fastcall MiGetImageBitMapInfo(int a1, _QWORD *a2, _QWORD *a3, __int64 
   if ( a1 == 1 )
   {
     *a3 = 2013265920LL;
-    result = (__int64)&qword_140C658D8;
-    *a2 = &qword_140C658D8;
+    result = (__int64)&qword_140C4CBE0;
+    *a2 = &qword_140C4CBE0;
     if ( a4 )
     {
-      result = qword_140C658E8;
+      result = qword_140C4CBF0;
       goto LABEL_6;
     }
   }
@@ -27,29 +27,29 @@ __int64 __fastcall MiGetImageBitMapInfo(int a1, _QWORD *a2, _QWORD *a3, __int64 
   {
     if ( a1 == 2 )
     {
-      *a2 = &unk_140C65880;
-      result = (__int64)&qword_140C658D8;
-      a2[1] = &qword_140C658D8;
+      *a2 = &unk_140C4CB88;
+      result = (__int64)&qword_140C4CBE0;
+      a2[1] = &qword_140C4CBE0;
     }
     else
     {
       if ( a1 != 3 )
       {
-        *a2 = &qword_140C65848;
+        *a2 = &qword_140C4CB50;
         result = 0x7FFFFFFF0000LL;
         *a3 = 0x7FFFFFFF0000LL;
         if ( !a4 )
           return result;
-        result = qword_140C65858;
+        result = qword_140C4CB60;
         goto LABEL_6;
       }
-      result = (__int64)&unk_140C65880;
-      *a2 = &unk_140C65880;
+      result = (__int64)&unk_140C4CB88;
+      *a2 = &unk_140C4CB88;
     }
     *a3 = 2013265920LL;
     if ( a4 )
     {
-      result = qword_140C658C0;
+      result = qword_140C4CBC8;
 LABEL_6:
       *a4 = result;
     }

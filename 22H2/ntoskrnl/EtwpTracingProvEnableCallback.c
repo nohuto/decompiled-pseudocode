@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpTracingProvEnableCallback @ 0x1408662F0
+ * XREFs of EtwpTracingProvEnableCallback @ 0x1407D5620
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpGetNextGuidEntry @ 0x1406BF130 (EtwpGetNextGuidEntry.c)
- *     EtwpEventWriteEnableInfo @ 0x1409E35D4 (EtwpEventWriteEnableInfo.c)
- *     EtwpEventWriteGuidEntry @ 0x1409E36CC (EtwpEventWriteGuidEntry.c)
- *     EtwpEventWriteRegEntry @ 0x1409E38FC (EtwpEventWriteRegEntry.c)
- *     EtwpEventWriteTemplateSession @ 0x1409E3CB4 (EtwpEventWriteTemplateSession.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BC864 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpGetNextGuidEntry @ 0x1407148AC (EtwpGetNextGuidEntry.c)
+ *     EtwpEventWriteEnableInfo @ 0x1409397F4 (EtwpEventWriteEnableInfo.c)
+ *     EtwpEventWriteGuidEntry @ 0x1409398EC (EtwpEventWriteGuidEntry.c)
+ *     EtwpEventWriteRegEntry @ 0x140939A38 (EtwpEventWriteRegEntry.c)
+ *     EtwpEventWriteTemplateSession @ 0x140939ECC (EtwpEventWriteTemplateSession.c)
  */
 
 void __fastcall EtwpTracingProvEnableCallback(
@@ -23,9 +23,9 @@ void __fastcall EtwpTracingProvEnableCallback(
         ULONGLONG MatchAnyKeyword)
 {
   __int64 v4; // rcx
-  char v5; // bp
+  char v5; // r14
   unsigned int i; // ebx
-  signed __int64 *j; // rdx
+  __int64 *j; // rdx
   unsigned int *v8; // rax
   __int64 v9; // rcx
   unsigned int *v10; // rdi
@@ -37,7 +37,7 @@ void __fastcall EtwpTracingProvEnableCallback(
   __int64 v16; // r8
   signed __int64 *NextGuidEntry; // rax
   signed __int64 *v18; // rbx
-  signed __int64 *k; // rdx
+  __int64 *k; // rdx
   signed __int64 v20; // rax
   struct _KTHREAD *v21; // rax
   __int64 v22; // rcx
@@ -91,7 +91,7 @@ void __fastcall EtwpTracingProvEnableCallback(
       }
       while ( v13 < 8 );
       v18[52] = 0LL;
-      ExReleasePushLockEx(v18 + 51, 0LL);
+      ExReleasePushLockEx((ULONG_PTR)(v18 + 51), 0LL);
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       v4 = EtwpHostSiloState;
     }
@@ -135,7 +135,7 @@ void __fastcall EtwpTracingProvEnableCallback(
       if ( v5 )
       {
         v30[52] = 0LL;
-        ExReleasePushLockEx(v30 + 51, 0LL);
+        ExReleasePushLockEx((ULONG_PTR)(v30 + 51), 0LL);
         KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
         v5 = 0;
       }

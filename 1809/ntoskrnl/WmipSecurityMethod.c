@@ -1,19 +1,19 @@
 /*
- * XREFs of WmipSecurityMethod @ 0x1406AAAA0
+ * XREFs of WmipSecurityMethod @ 0x1406AAA80
  * Callers:
  *     <none>
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObQuerySecurityDescriptorInfo @ 0x1405C833C (ObQuerySecurityDescriptorInfo.c)
  *     ObSetSecurityDescriptorInfo @ 0x1405C8A30 (ObSetSecurityDescriptorInfo.c)
- *     ObAssignObjectSecurityDescriptor @ 0x1406AAC68 (ObAssignObjectSecurityDescriptor.c)
- *     ObDeassignSecurity @ 0x1406AACE0 (ObDeassignSecurity.c)
- *     WmipSaveGuidSecurityDescriptor @ 0x1407627B0 (WmipSaveGuidSecurityDescriptor.c)
+ *     ObAssignObjectSecurityDescriptor @ 0x1406AAC48 (ObAssignObjectSecurityDescriptor.c)
+ *     ObDeassignSecurity @ 0x1406AACC0 (ObDeassignSecurity.c)
+ *     WmipSaveGuidSecurityDescriptor @ 0x140762790 (WmipSaveGuidSecurityDescriptor.c)
  */
 
 __int64 __fastcall WmipSecurityMethod(

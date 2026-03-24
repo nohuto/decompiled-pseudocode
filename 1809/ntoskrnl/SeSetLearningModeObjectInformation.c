@@ -1,7 +1,7 @@
 /*
  * XREFs of SeSetLearningModeObjectInformation @ 0x14004E020
  * Callers:
- *     RtlpAllowsLowBoxAccess @ 0x1401330A0 (RtlpAllowsLowBoxAccess.c)
+ *     RtlpAllowsLowBoxAccess @ 0x1401330C0 (RtlpAllowsLowBoxAccess.c)
  *     ObReferenceObjectByName @ 0x1405C8DA0 (ObReferenceObjectByName.c)
  *     ObOpenObjectByNameEx @ 0x1405E2E30 (ObOpenObjectByNameEx.c)
  *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
@@ -10,13 +10,13 @@
  *     RtlStringCbCopyW @ 0x1400073A0 (RtlStringCbCopyW.c)
  *     RtlStringCbCatW @ 0x140007428 (RtlStringCbCatW.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     SepGetCurrentLogLevel @ 0x1402FF4A8 (SepGetCurrentLogLevel.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SepGetCurrentLogLevel @ 0x1402FF5A8 (SepGetCurrentLogLevel.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObQueryNameString @ 0x14065F680 (ObQueryNameString.c)
+ *     ObQueryNameString @ 0x14065F660 (ObQueryNameString.c)
  */
 
 void __fastcall SeSetLearningModeObjectInformation(__int64 a1)
@@ -33,7 +33,7 @@ void __fastcall SeSetLearningModeObjectInformation(__int64 a1)
   ULONG ReturnLength; // [rsp+58h] [rbp+10h] BYREF
   PVOID Object; // [rsp+60h] [rbp+18h] BYREF
 
-  if ( byte_1404400AC )
+  if ( byte_1404400A4 )
   {
     *(_QWORD *)(a1 + 40) = 0LL;
     *(_QWORD *)(a1 + 48) = 0LL;

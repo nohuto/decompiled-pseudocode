@@ -1,58 +1,65 @@
 /*
- * XREFs of rimDeviceResetApc @ 0x1C01B88C0
+ * XREFs of rimDeviceResetApc @ 0x1C00AE420
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C0033A6C (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     ??1ApiSetEditionCrit@@QEAA@XZ @ 0x1C004763C (--1ApiSetEditionCrit@@QEAA@XZ.c)
- *     ??0ApiSetEditionCrit@@QEAA@H@Z @ 0x1C0047C7C (--0ApiSetEditionCrit@@QEAA@H@Z.c)
- *     RIMDeliverDeviceResetRequest @ 0x1C00BEAB0 (RIMDeliverDeviceResetRequest.c)
- *     ?CompleteDeviceResetRequest@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z @ 0x1C01B882C (-CompleteDeviceResetRequest@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_SF_q @ 0x1C0047360 (WPP_RECORDER_SF_q.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     ??1ApiSetEditionCrit@@QEAA@XZ @ 0x1C0053D5C (--1ApiSetEditionCrit@@QEAA@XZ.c)
+ *     ??0ApiSetEditionCrit@@QEAA@HH@Z @ 0x1C0054218 (--0ApiSetEditionCrit@@QEAA@HH@Z.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C008F428 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RIMDeliverDeviceResetRequest @ 0x1C00AE4EC (RIMDeliverDeviceResetRequest.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
-void __fastcall rimDeviceResetApc(PVOID ApcContext, PIO_STATUS_BLOCK IoStatusBlock, __int64 Reserved)
+void __fastcall rimDeviceResetApc(PVOID *ApcContext, PIO_STATUS_BLOCK IoStatusBlock, ULONG Reserved)
 {
   int v5; // edx
-  int v6; // r8d
-  __int64 v7; // rsi
-  int v8; // eax
-  char v9; // [rsp+60h] [rbp+8h] BYREF
+  HANDLE *v6; // rsi
+  int v7; // eax
+  PVOID *v8; // [rsp+30h] [rbp-58h] BYREF
+  char v9[8]; // [rsp+38h] [rbp-50h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v10; // [rsp+40h] [rbp-48h] BYREF
+  PVOID *v11; // [rsp+60h] [rbp-28h]
+  int v12; // [rsp+68h] [rbp-20h]
+  int v13; // [rsp+6Ch] [rbp-1Ch]
 
-  ApiSetEditionCrit::ApiSetEditionCrit((ApiSetEditionCrit *)&v9, 1LL, Reserved);
-  InputTraceLogging::RIM::CompleteDeviceResetRequest((const struct RIMDEV *)ApcContext);
-  LOBYTE(v5) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  ApiSetEditionCrit::ApiSetEditionCrit((ApiSetEditionCrit *)v9, 1, 0);
+  if ( (unsigned int)dword_1C024BA90 > 4 && tlgKeywordOn((__int64)&dword_1C024BA90, 256LL) )
   {
-    LOBYTE(v6) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_q(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v5,
-      v6,
+    v13 = 0;
+    v11 = (PVOID *)&v8;
+    v8 = ApcContext;
+    v12 = 8;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C024BA90, (unsigned __int8 *)dword_1C021DCDB, 0LL, 0LL, 3u, &v10);
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v5) = 4;
+    WPP_RECORDER_SF_q(
       (_DWORD)gRimLog,
-      4,
+      v5,
       1,
       12,
-      (__int64)&WPP_65d7bcb466db3ec3acd35854a27b9a54_Traceguids,
+      (__int64)&WPP_a1cd941ed8813a57445e216c28be9b1b_Traceguids,
       (char)ApcContext);
   }
   if ( IoStatusBlock->Status >= 0 )
   {
-    v7 = *((_QWORD *)ApcContext + 42);
-    RIMLockExclusive(v7 + 104);
-    v8 = *((_DWORD *)ApcContext + 46);
-    if ( (v8 & 0x200000) == 0 )
+    v6 = (HANDLE *)ApcContext[42];
+    RIMLockExclusive((__int64)(v6 + 13));
+    v7 = *((_DWORD *)ApcContext + 46);
+    if ( (v7 & 0x80000) == 0 )
     {
-      *((_DWORD *)ApcContext + 46) = v8 | 0x200000;
-      ZwSetEvent(*(HANDLE *)(v7 + 344), 0LL);
+      *((_DWORD *)ApcContext + 46) = v7 | 0x80000;
+      ZwSetEvent(v6[48], 0LL);
     }
-    RIMDeliverDeviceResetRequest((char *)ApcContext);
-    *(_QWORD *)(v7 + 112) = 0LL;
-    ExReleasePushLockExclusiveEx(v7 + 104, 0LL);
+    RIMDeliverDeviceResetRequest(ApcContext);
+    v6[14] = 0LL;
+    ExReleasePushLockExclusiveEx(v6 + 13, 0LL);
     KeLeaveCriticalRegion();
   }
-  ObfDereferenceObject(*((PVOID *)ApcContext + 4));
-  ApiSetEditionCrit::~ApiSetEditionCrit((ApiSetEditionCrit *)&v9);
+  ObfDereferenceObject(ApcContext[4]);
+  ApiSetEditionCrit::~ApiSetEditionCrit((ApiSetEditionCrit *)v9);
 }

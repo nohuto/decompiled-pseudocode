@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionGetInputTransform @ 0x1C00AD900
+ * XREFs of EditionGetInputTransform @ 0x1C01F5830
  * Callers:
  *     <none>
  * Callees:
- *     ?GetTransform@InputTransform@@YAHPEBUtagWND@@PEAUtagINPUT_TRANSFORM@@@Z @ 0x1C00AD920 (-GetTransform@InputTransform@@YAHPEBUtagWND@@PEAUtagINPUT_TRANSFORM@@@Z.c)
+ *     ?GetTransform@InputTransform@@YAHPEBUtagWND@@PEAUtagINPUT_TRANSFORM@@@Z @ 0x1C0110434 (-GetTransform@InputTransform@@YAHPEBUtagWND@@PEAUtagINPUT_TRANSFORM@@@Z.c)
  */
 
 __int64 __fastcall EditionGetInputTransform(__int64 a1, const struct tagWND *a2, struct tagINPUT_TRANSFORM *a3)

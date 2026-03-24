@@ -1,9 +1,9 @@
 /*
- * XREFs of _dynamic_initializer_for__g_DDisplayManager__ @ 0x180003E90
+ * XREFs of _dynamic_initializer_for__g_DDisplayManager__ @ 0x1800036C0
  * Callers:
  *     <none>
  * Callees:
- *     ??0CDDisplayManager@@QEAA@XZ @ 0x1800F85C0 (--0CDDisplayManager@@QEAA@XZ.c)
+ *     ??0CDDisplayManager@@QEAA@XZ @ 0x1800E6B94 (--0CDDisplayManager@@QEAA@XZ.c)
  */
 
 int __fastcall dynamic_initializer_for__g_DDisplayManager__(CDDisplayManager *a1)

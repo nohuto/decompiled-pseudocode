@@ -1,16 +1,16 @@
 /*
- * XREFs of IsFreezeThawTimersSupported @ 0x1C0068A04
+ * XREFs of IsFreezeThawTimersSupported @ 0x1C0052850
  * Callers:
- *     UserProcessThawCallout @ 0x1C00681D0 (UserProcessThawCallout.c)
- *     UserProcessFreezeCallout @ 0x1C0068894 (UserProcessFreezeCallout.c)
+ *     UserProcessFreezeCallout @ 0x1C00525C8 (UserProcessFreezeCallout.c)
+ *     UserProcessThawCallout @ 0x1C0052A10 (UserProcessThawCallout.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 IsFreezeThawTimersSupported()
 {
-  if ( qword_1C02954F8 )
-    return qword_1C02954F8();
+  if ( qword_1C0256068 )
+    return qword_1C0256068();
   else
     return 3221225659LL;
 }

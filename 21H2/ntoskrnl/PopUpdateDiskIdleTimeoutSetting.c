@@ -1,12 +1,12 @@
 /*
- * XREFs of PopUpdateDiskIdleTimeoutSetting @ 0x14083248C
+ * XREFs of PopUpdateDiskIdleTimeoutSetting @ 0x14078FAAC
  * Callers:
- *     PopCoalescingSetActiveState @ 0x1405CFB5C (PopCoalescingSetActiveState.c)
- *     PopHardDiskPowerSettingCallback @ 0x14085FC80 (PopHardDiskPowerSettingCallback.c)
- *     PopCoalescingPowerSettingCallback @ 0x1408638B0 (PopCoalescingPowerSettingCallback.c)
- *     PopCoalescingInitialize @ 0x140B15390 (PopCoalescingInitialize.c)
+ *     PopCoalescingSetActiveState @ 0x14056EBC4 (PopCoalescingSetActiveState.c)
+ *     PopHardDiskPowerSettingCallback @ 0x140792080 (PopHardDiskPowerSettingCallback.c)
+ *     PopCoalescingPowerSettingCallback @ 0x1407D38A0 (PopCoalescingPowerSettingCallback.c)
+ *     PopCoalescingInitialize @ 0x140A391C0 (PopCoalescingInitialize.c)
  * Callees:
- *     PopSetPowerSettingValueAcDc @ 0x1407525EC (PopSetPowerSettingValueAcDc.c)
+ *     PopSetPowerSettingValueAcDc @ 0x140679E68 (PopSetPowerSettingValueAcDc.c)
  */
 
 __int64 PopUpdateDiskIdleTimeoutSetting()
@@ -20,7 +20,7 @@ __int64 PopUpdateDiskIdleTimeoutSetting()
   if ( v0 != PopCurrentDiskIdleTimeout )
   {
     PopCurrentDiskIdleTimeout = v0;
-    return PopSetPowerSettingValueAcDc(&GUID_DISK_IDLE_TIMEOUT, 4u, &PopCurrentDiskIdleTimeout);
+    return PopSetPowerSettingValueAcDc(&GUID_DISK_IDLE_TIMEOUT, 4LL, &PopCurrentDiskIdleTimeout);
   }
   return result;
 }

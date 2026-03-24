@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpInitializePreloadedHives @ 0x140B16904
+ * XREFs of CmpInitializePreloadedHives @ 0x140A5A924
  * Callers:
- *     CmInitSystem1 @ 0x140B15F88 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     CmpHiveRootSecurityDescriptor @ 0x140834D0C (CmpHiveRootSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     CmpInitializeSystemHive @ 0x140B169F0 (CmpInitializeSystemHive.c)
- *     CmpInitializePreloadedHive @ 0x140B16B94 (CmpInitializePreloadedHive.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x1407A841C (CmpHiveRootSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     CmpInitializeSystemHive @ 0x140A5AA10 (CmpInitializeSystemHive.c)
+ *     CmpInitializePreloadedHive @ 0x140A5ABA8 (CmpInitializePreloadedHive.c)
  */
 
 __int64 __fastcall CmpInitializePreloadedHives(__int64 a1, int a2)
@@ -49,7 +49,7 @@ __int64 __fastcall CmpInitializePreloadedHives(__int64 a1, int a2)
   }
   else
   {
-    qword_140C49818 = (__int64)&CmpPreloadedHivesList;
+    qword_140C48708 = (__int64)&CmpPreloadedHivesList;
     CmpPreloadedHivesList = (__int64)&CmpPreloadedHivesList;
     v4 = (_QWORD **)(*(_QWORD *)(a1 + 240) + 312LL);
     v5 = *v4;

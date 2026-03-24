@@ -1,41 +1,43 @@
 /*
- * XREFs of MiInitializeSlowPte @ 0x1406326E8
+ * XREFs of MiInitializeSlowPte @ 0x1405399EC
  * Callers:
- *     MiSlowRotateCopy @ 0x140632FD4 (MiSlowRotateCopy.c)
+ *     MiSlowRotateCopy @ 0x140539C3C (MiSlowRotateCopy.c)
  * Callees:
- *     MiMakeProtectionPfnCompatible @ 0x140217E84 (MiMakeProtectionPfnCompatible.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14023B32C (MiMakeProtectionPfnCompatible.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
  */
 
-char __fastcall MiInitializeSlowPte(unsigned __int64 *a1, unsigned __int64 a2, int a3)
+char __fastcall MiInitializeSlowPte(unsigned __int64 *a1, unsigned __int64 a2, unsigned int a3)
 {
+  __int64 v3; // r9
+  __int64 v4; // r10
   int ProtectionPfnCompatible; // r8d
-  __int64 v5; // r10
   unsigned __int64 ValidPte; // rbx
   int v8; // esi
   struct _KTHREAD *CurrentThread; // rax
   __int64 v10; // r8
   bool v11; // zf
 
+  v3 = a3;
+  v4 = a2;
   ProtectionPfnCompatible = 4;
-  v5 = a2;
-  if ( a2 <= qword_140C65CA0 && ((*(_QWORD *)(48 * a2 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+  if ( a2 <= 0xFFFFFFFFFLL && ((*(_QWORD *)(48 * a2 - 0x57FFFFFFFD8LL) >> 50) & 1) != 0 )
   {
-    ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(4, 48 * a2 - 0x220000000000LL);
+    ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(4, 48 * a2 - 0x58000000000LL);
   }
-  else if ( a3 )
+  else if ( (_DWORD)v3 )
   {
-    if ( a3 == 2 )
+    if ( (_DWORD)v3 == 2 )
       ProtectionPfnCompatible = 28;
   }
   else
   {
     ProtectionPfnCompatible = 12;
   }
-  ValidPte = MiMakeValidPte((unsigned __int64)a1, v5, ProtectionPfnCompatible | 0xA0000000);
+  ValidPte = MiMakeValidPte((unsigned __int64)a1, v4, ProtectionPfnCompatible | 0xA0000000, v3);
   v8 = 0;
   LODWORD(CurrentThread) = MiPteInShadowRange((unsigned __int64)a1);
   if ( (_DWORD)CurrentThread )
@@ -44,7 +46,7 @@ char __fastcall MiInitializeSlowPte(unsigned __int64 *a1, unsigned __int64 a2, i
     if ( (_DWORD)CurrentThread )
     {
       v8 = 1;
-      if ( HIBYTE(word_140C66DFC) )
+      if ( HIBYTE(word_140C4E008) )
         goto LABEL_16;
       v11 = (ValidPte & 1) == 0;
     }

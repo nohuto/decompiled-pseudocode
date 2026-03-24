@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCD2DContext@@UEAAPEAXI@Z @ 0x18027CBE0
+ * XREFs of ??_GCD2DContext@@UEAAPEAXI@Z @ 0x18023D8C0
  * Callers:
  *     <none>
  * Callees:
- *     ??1CD2DContext@@UEAA@XZ @ 0x1800217BC (--1CD2DContext@@UEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??1CD2DContext@@UEAA@XZ @ 0x18002AA38 (--1CD2DContext@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 CD2DContext *__fastcall CD2DContext::`scalar deleting destructor'(CD2DContext *this, char a2)

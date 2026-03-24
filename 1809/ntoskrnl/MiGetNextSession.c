@@ -3,14 +3,14 @@
  * Callers:
  *     MiEmptyAccessLogs @ 0x140010D20 (MiEmptyAccessLogs.c)
  *     MmGetNextSession @ 0x140012740 (MmGetNextSession.c)
- *     PsQueryCpuQuotaInformation @ 0x140193D84 (PsQueryCpuQuotaInformation.c)
+ *     PsQueryCpuQuotaInformation @ 0x140193DA4 (PsQueryCpuQuotaInformation.c)
  * Callees:
  *     KeReleaseInStackQueuedSpinLock @ 0x14001F500 (KeReleaseInStackQueuedSpinLock.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     PsGetThreadServerSilo @ 0x14007E5E0 (PsGetThreadServerSilo.c)
  *     MiSelectSessionAttachProcess @ 0x14007E614 (MiSelectSessionAttachProcess.c)
- *     KeIsExecutingInArbitraryThreadContext @ 0x1401B42CC (KeIsExecutingInArbitraryThreadContext.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1401B42EC (KeIsExecutingInArbitraryThreadContext.c)
  */
 
 void *__fastcall MiGetNextSession(_QWORD *Object)

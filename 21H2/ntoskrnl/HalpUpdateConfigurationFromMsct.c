@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpUpdateConfigurationFromMsct @ 0x140B4C8B8
+ * XREFs of HalpUpdateConfigurationFromMsct @ 0x140A8D2CC
  * Callers:
- *     HalpNumaInitializeStaticConfiguration @ 0x140AFA274 (HalpNumaInitializeStaticConfiguration.c)
- *     HalpGetNumaProcMemoryCount @ 0x140B4C3F8 (HalpGetNumaProcMemoryCount.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140A63EE0 (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140A8CEAC (HalpGetNumaProcMemoryCount.c)
  * Callees:
  *     <none>
  */
@@ -138,11 +138,11 @@ LABEL_41:
                 if ( v17 <= a2 )
                 {
                   v25 = *(_DWORD *)(v18 + 10);
-                  if ( v25 <= 0x800 && (!a4 || v25 <= a4) )
+                  if ( v25 <= 0x500 && (!a4 || v25 <= a4) )
                   {
                     v26 = v24 * v25 + v34;
                     v34 = v26;
-                    if ( v26 <= 0x800 && (!a4 || v26 <= a4) )
+                    if ( v26 <= 0x500 && (!a4 || v26 <= a4) )
                     {
                       while ( 1 )
                       {

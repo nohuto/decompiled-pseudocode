@@ -1,10 +1,10 @@
 /*
- * XREFs of VrpBecomeDiffHiveEntryTransitionOwner @ 0x14077CAF0
+ * XREFs of VrpBecomeDiffHiveEntryTransitionOwner @ 0x1405D6600
  * Callers:
- *     VrpLoadDifferencingHive @ 0x14077BFAC (VrpLoadDifferencingHive.c)
- *     VrpUnloadDifferencingHive @ 0x14077C3DC (VrpUnloadDifferencingHive.c)
+ *     VrpLoadDifferencingHive @ 0x1405D5E44 (VrpLoadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x1405D6264 (VrpUnloadDifferencingHive.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
  */
 
 char __fastcall VrpBecomeDiffHiveEntryTransitionOwner(__int64 a1)
@@ -19,8 +19,8 @@ char __fastcall VrpBecomeDiffHiveEntryTransitionOwner(__int64 a1)
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   *v1 = KeGetCurrentThread();
-  v3 = KeAbPreAcquire((__int64)v1, 0LL);
+  v3 = KeAbPreAcquire((ULONG_PTR)v1, 0LL, 0LL);
   if ( v3 )
-    *(_BYTE *)(v3 + 18) = 1;
+    *(_BYTE *)(v3 + 26) |= 1u;
   return 1;
 }

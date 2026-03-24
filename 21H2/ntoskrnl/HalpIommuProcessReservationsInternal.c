@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIommuProcessReservationsInternal @ 0x14051B720
+ * XREFs of HalpIommuProcessReservationsInternal @ 0x1404C9BA0
  * Callers:
- *     HalpIommuProcessReservations @ 0x1403BB9B8 (HalpIommuProcessReservations.c)
+ *     HalpIommuProcessReservations @ 0x1403AC5A8 (HalpIommuProcessReservations.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x1403BF104 (HalpMmAllocateMemoryInternal.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpIommuDetermineReservedPciRid @ 0x14051A924 (HalpIommuDetermineReservedPciRid.c)
- *     HalpIommuProcessMemoryErrata @ 0x14051B634 (HalpIommuProcessMemoryErrata.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpIommuDetermineReservedPciRid @ 0x1404C920C (HalpIommuDetermineReservedPciRid.c)
+ *     HalpIommuProcessMemoryErrata @ 0x1404C9AB4 (HalpIommuProcessMemoryErrata.c)
  */
 
 __int64 __fastcall HalpIommuProcessReservationsInternal(__int64 a1, __int64 a2)
@@ -22,19 +22,19 @@ __int64 __fastcall HalpIommuProcessReservationsInternal(__int64 a1, __int64 a2)
   if ( (_DWORD)result == -1073741789 )
   {
     MemoryInternal = (_DWORD *)HalpMmAllocateMemoryInternal(8 * v7 + 8, 1u);
-    *(_QWORD *)(a1 + 544) = MemoryInternal;
+    *(_QWORD *)(a1 + 528) = MemoryInternal;
     if ( MemoryInternal )
     {
       *MemoryInternal = v7;
       result = (*(__int64 (__fastcall **)(_QWORD, unsigned int *, __int64))(a1 + 328))(
                  *(_QWORD *)(a1 + 16),
                  &v7,
-                 *(_QWORD *)(a1 + 544) + 8LL);
+                 *(_QWORD *)(a1 + 528) + 8LL);
       if ( (int)result >= 0 )
       {
-        result = HalpIommuProcessMemoryErrata(v7, *(_QWORD *)(a1 + 544) + 8LL, a2);
+        result = HalpIommuProcessMemoryErrata(v7, *(_QWORD *)(a1 + 528) + 8LL, a2);
         if ( (int)result >= 0 )
-          return HalpIommuDetermineReservedPciRid(*(unsigned int **)(a1 + 544));
+          return HalpIommuDetermineReservedPciRid(*(unsigned int **)(a1 + 528));
       }
     }
     else

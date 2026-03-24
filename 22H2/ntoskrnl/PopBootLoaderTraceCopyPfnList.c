@@ -1,10 +1,10 @@
 /*
- * XREFs of PopBootLoaderTraceCopyPfnList @ 0x140AA1BD8
+ * XREFs of PopBootLoaderTraceCopyPfnList @ 0x140996BD0
  * Callers:
- *     PopBuildMemoryImageHeader @ 0x140AA1C78 (PopBuildMemoryImageHeader.c)
+ *     PopBuildMemoryImageHeader @ 0x140996714 (PopBuildMemoryImageHeader.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     PoSetHiberRange @ 0x14058E930 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x140387960 (PoSetHiberRange.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 void __fastcall PopBootLoaderTraceCopyPfnList(_QWORD *MemoryMap, __int64 a2)
@@ -18,12 +18,12 @@ void __fastcall PopBootLoaderTraceCopyPfnList(_QWORD *MemoryMap, __int64 a2)
   {
     v5 = (unsigned __int64)*(unsigned int *)(v2 + 40) >> 12;
     v6 = (PVOID *)(v2 + 48);
-    memmove((void *)(a2 + 768), v6, 8 * v5);
-    for ( *(_DWORD *)(a2 + 764) = v5; v5; --v5 )
+    memmove((void *)(a2 + 664), v6, 8 * v5);
+    for ( *(_DWORD *)(a2 + 660) = v5; v5; --v5 )
       PoSetHiberRange(MemoryMap, 0xC000u, *v6++, 1uLL, 0x644D6946u);
   }
   else
   {
-    *(_DWORD *)(a2 + 764) = 0;
+    *(_DWORD *)(a2 + 660) = 0;
   }
 }

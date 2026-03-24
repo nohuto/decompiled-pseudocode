@@ -1,46 +1,43 @@
 /*
- * XREFs of AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList @ 0x1C006A150
+ * XREFs of AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList @ 0x1C00B4680
  * Callers:
- *     NtGdiCreateOPMProtectedOutputs @ 0x1C00CF370 (NtGdiCreateOPMProtectedOutputs.c)
- *     NtGdiGetSuggestedOPMProtectedOutputArraySize @ 0x1C00D04B0 (NtGdiGetSuggestedOPMProtectedOutputArraySize.c)
- *     NtGdiCreateOPMProtectedOutput @ 0x1C016D080 (NtGdiCreateOPMProtectedOutput.c)
- *     NtGdiGetCertificate @ 0x1C016D300 (NtGdiGetCertificate.c)
- *     NtGdiGetCertificateSize @ 0x1C016D460 (NtGdiGetCertificateSize.c)
+ *     NtGdiCreateOPMProtectedOutputs @ 0x1C00BFA30 (NtGdiCreateOPMProtectedOutputs.c)
+ *     NtGdiGetSuggestedOPMProtectedOutputArraySize @ 0x1C00C0B50 (NtGdiGetSuggestedOPMProtectedOutputArraySize.c)
+ *     NtGdiCreateOPMProtectedOutput @ 0x1C0140140 (NtGdiCreateOPMProtectedOutput.c)
+ *     NtGdiGetCertificate @ 0x1C01403D0 (NtGdiGetCertificate.c)
+ *     NtGdiGetCertificateSize @ 0x1C0140530 (NtGdiGetCertificateSize.c)
  * Callees:
- *     UserSessionSwitchLeaveCrit @ 0x1C0029D70 (UserSessionSwitchLeaveCrit.c)
- *     AcquireCriticalSectionAndCheckState @ 0x1C006A120 (AcquireCriticalSectionAndCheckState.c)
- *     UpdateGraphicsDeviceList @ 0x1C006A194 (UpdateGraphicsDeviceList.c)
- *     UserRemoteConnectedSessionUsingXddm @ 0x1C006F4B0 (UserRemoteConnectedSessionUsingXddm.c)
+ *     UserRemoteConnectedSessionUsingXddm @ 0x1C001D190 (UserRemoteConnectedSessionUsingXddm.c)
+ *     UpdateGraphicsDeviceList @ 0x1C001DE68 (UpdateGraphicsDeviceList.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0036190 (UserSessionSwitchLeaveCrit.c)
+ *     AcquireCriticalSectionAndCheckState @ 0x1C00B46E0 (AcquireCriticalSectionAndCheckState.c)
  */
 
 __int64 AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList()
 {
   __int64 result; // rax
   __int64 v1; // rdx
-  __int64 v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  unsigned int v5; // ebx
-  int v6; // [rsp+30h] [rbp+8h] BYREF
+  int v2; // ebx
+  int v3; // [rsp+30h] [rbp+8h] BYREF
 
   result = AcquireCriticalSectionAndCheckState();
+  v2 = result;
   if ( (int)result >= 0 )
   {
-    v6 = 0;
-    UpdateGraphicsDeviceList(&v6);
-    if ( v6 && gfSwitchInProgress )
+    v3 = 0;
+    UpdateGraphicsDeviceList(&v3, v1);
+    if ( v3 && gfSwitchInProgress )
     {
-      v5 = -1071774232;
+      v2 = -1071774232;
 LABEL_8:
-      UserSessionSwitchLeaveCrit(v2, v1, v3, v4);
-      return v5;
+      UserSessionSwitchLeaveCrit();
+      return (unsigned int)v2;
     }
-    result = UserRemoteConnectedSessionUsingXddm();
-    if ( (_DWORD)result )
-    {
-      v5 = -1071774240;
+    if ( (unsigned int)UserRemoteConnectedSessionUsingXddm() )
+      v2 = -1071774240;
+    if ( v2 < 0 )
       goto LABEL_8;
-    }
+    return 0LL;
   }
   return result;
 }

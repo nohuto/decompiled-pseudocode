@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Uninitialize@CInpLockGuard@@QEAAXXZ @ 0x1C00B77D0
+ * XREFs of ?Uninitialize@CInpLockGuard@@QEAAXXZ @ 0x1C00760A0
  * Callers:
- *     UnInitializeInputComponents @ 0x1C00B6FA4 (UnInitializeInputComponents.c)
- *     ??1CTouchProcessor@@QEAA@XZ @ 0x1C00B743C (--1CTouchProcessor@@QEAA@XZ.c)
- *     ?Uninitialize@DelayZonePalmRejection@@SAXXZ @ 0x1C00B76E0 (-Uninitialize@DelayZonePalmRejection@@SAXXZ.c)
- *     ?CleanupDomainLocks@@YAXXZ @ 0x1C00BC1F4 (-CleanupDomainLocks@@YAXXZ.c)
+ *     UnInitializeInputComponents @ 0x1C00747B0 (UnInitializeInputComponents.c)
+ *     ??1CTouchProcessor@@QEAA@XZ @ 0x1C0075F88 (--1CTouchProcessor@@QEAA@XZ.c)
+ *     ?Uninitialize@DelayZonePalmRejection@@SAXXZ @ 0x1C0075FC0 (-Uninitialize@DelayZonePalmRejection@@SAXXZ.c)
+ *     ?CleanupDomainLocks@@YAXXZ @ 0x1C00AFB24 (-CleanupDomainLocks@@YAXXZ.c)
  * Callees:
  *     <none>
  */

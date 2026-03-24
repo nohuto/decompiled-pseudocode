@@ -1,18 +1,18 @@
 /*
- * XREFs of KiSetVpThreadSystemWork @ 0x140299660
+ * XREFs of KiSetVpThreadSystemWork @ 0x140299760
  * Callers:
  *     KiSwapThread @ 0x140056210 (KiSwapThread.c)
  *     KiInsertQueueDpc @ 0x1400621B0 (KiInsertQueueDpc.c)
- *     KiDeferredReadyThread @ 0x1400C3370 (KiDeferredReadyThread.c)
- *     KiChooseTargetProcessor @ 0x1400C43B0 (KiChooseTargetProcessor.c)
- *     KiDirectSwitchThread @ 0x1400C5210 (KiDirectSwitchThread.c)
- *     KiRetireDpcList @ 0x1400C64A0 (KiRetireDpcList.c)
- *     KiHvEnlightenedGuestPriorityKick @ 0x1400CFD78 (KiHvEnlightenedGuestPriorityKick.c)
- *     KiStartThreadCycleAccumulation @ 0x1400D1E50 (KiStartThreadCycleAccumulation.c)
- *     KiEndThreadAccountingPeriod @ 0x1400D2010 (KiEndThreadAccountingPeriod.c)
- *     KiBeginThreadAccountingPeriod @ 0x140100950 (KiBeginThreadAccountingPeriod.c)
+ *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
+ *     KiChooseTargetProcessor @ 0x1400C43D0 (KiChooseTargetProcessor.c)
+ *     KiDirectSwitchThread @ 0x1400C5230 (KiDirectSwitchThread.c)
+ *     KiRetireDpcList @ 0x1400C64C0 (KiRetireDpcList.c)
+ *     KiHvEnlightenedGuestPriorityKick @ 0x1400CFD98 (KiHvEnlightenedGuestPriorityKick.c)
+ *     KiStartThreadCycleAccumulation @ 0x1400D1E70 (KiStartThreadCycleAccumulation.c)
+ *     KiEndThreadAccountingPeriod @ 0x1400D2030 (KiEndThreadAccountingPeriod.c)
+ *     KiBeginThreadAccountingPeriod @ 0x140100970 (KiBeginThreadAccountingPeriod.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall KiSetVpThreadSystemWork(__int64 a1, char a2)

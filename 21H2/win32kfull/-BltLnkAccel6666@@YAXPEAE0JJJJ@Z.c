@@ -1,7 +1,7 @@
 /*
- * XREFs of ?BltLnkAccel6666@@YAXPEAE0JJJJ@Z @ 0x1C02DA50C
+ * XREFs of ?BltLnkAccel6666@@YAXPEAE0JJJJ@Z @ 0x1C02DC07C
  * Callers:
- *     ?BltLnkRect@@YAXPEAU_BLTLNKINFO@@PEAU_RECTL@@@Z @ 0x1C0007C70 (-BltLnkRect@@YAXPEAU_BLTLNKINFO@@PEAU_RECTL@@@Z.c)
+ *     ?BltLnkRect@@YAXPEAU_BLTLNKINFO@@PEAU_RECTL@@@Z @ 0x1C00CDAA0 (-BltLnkRect@@YAXPEAU_BLTLNKINFO@@PEAU_RECTL@@@Z.c)
  * Callees:
  *     <none>
  */

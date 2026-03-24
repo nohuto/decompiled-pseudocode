@@ -1,32 +1,36 @@
 /*
- * XREFs of EtwpInitializeCompressedWriter @ 0x1409ED4FC
+ * XREFs of EtwpInitializeCompressedWriter @ 0x1409486D4
  * Callers:
- *     EtwpSavePersistedLogger @ 0x1409EDAF4 (EtwpSavePersistedLogger.c)
+ *     EtwpSavePersistedLogger @ 0x140948CDC (EtwpSavePersistedLogger.c)
  * Callees:
- *     RtlGetCompressionWorkSpaceSize @ 0x1402F5920 (RtlGetCompressionWorkSpaceSize.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlGetCompressionWorkSpaceSize @ 0x14026D550 (RtlGetCompressionWorkSpaceSize.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpInitializeCompressedWriter(__int64 a1, int a2, __int64 a3)
 {
   unsigned int v3; // ebx
-  __int64 Pool2; // rax
-  __int64 v8; // rax
-  ULONG v10; // [rsp+40h] [rbp+8h] BYREF
-  ULONG v11; // [rsp+58h] [rbp+20h] BYREF
+  PVOID PoolWithTag; // rax
+  unsigned int v8; // esi
+  PVOID v9; // rax
+  SIZE_T NumberOfBytes; // [rsp+40h] [rbp+8h] BYREF
+  ULONG v12; // [rsp+58h] [rbp+20h] BYREF
 
   v3 = 0;
-  v11 = 0;
-  v10 = 0;
-  RtlGetCompressionWorkSpaceSize(3u, &v10, &v11);
-  Pool2 = ExAllocatePool2(256LL, v10, 1517777989LL);
-  *(_QWORD *)(a1 + 32) = Pool2;
-  if ( Pool2
+  v12 = 0;
+  LODWORD(NumberOfBytes) = 0;
+  RtlGetCompressionWorkSpaceSize(3u, (PULONG)&NumberOfBytes, &v12);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x5A777445u);
+  *(_QWORD *)(a1 + 32) = PoolWithTag;
+  if ( PoolWithTag
     && (*(_DWORD *)(a1 + 16) = a2,
         *(_DWORD *)(a1 + 48) = 2 * a2,
-        v8 = ExAllocatePool2(256LL, (unsigned int)(2 * a2), 1517777989LL),
-        (*(_QWORD *)(a1 + 40) = v8) != 0LL) )
+        v8 = 2 * a2,
+        v9 = ExAllocatePoolWithTag(PagedPool, v8, 0x5A777445u),
+        (*(_QWORD *)(a1 + 40) = v9) != 0LL) )
   {
+    memset(v9, 0, v8);
     *(_QWORD *)a1 = a3;
   }
   else

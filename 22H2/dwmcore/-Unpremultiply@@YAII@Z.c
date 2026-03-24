@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Unpremultiply@@YAII@Z @ 0x18027FD90
+ * XREFs of ?Unpremultiply@@YAII@Z @ 0x18021EE70
  * Callers:
- *     ?AlphaDivide_32bppPARGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BDB40 (-AlphaDivide_32bppPARGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z.c)
+ *     ?AlphaDivide_32bppPARGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x18021AD90 (-AlphaDivide_32bppPARGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z.c)
  * Callees:
  *     <none>
  */

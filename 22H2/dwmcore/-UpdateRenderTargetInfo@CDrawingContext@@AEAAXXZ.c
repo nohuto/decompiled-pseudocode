@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UpdateRenderTargetInfo@CDrawingContext@@AEAAXXZ @ 0x1800EC680
+ * XREFs of ?UpdateRenderTargetInfo@CDrawingContext@@AEAAXXZ @ 0x1800D4D30
  * Callers:
- *     ?PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z @ 0x18008D348 (-PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z.c)
- *     ?PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z @ 0x18008D934 (-PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z.c)
+ *     ?PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z @ 0x180076964 (-PushRenderTarget@CDrawingContext@@QEAAJPEAVIDeviceTarget@@@Z.c)
+ *     ?PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z @ 0x18008FD08 (-PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CDrawingContext::UpdateRenderTargetInfo(CDrawingContext *this)

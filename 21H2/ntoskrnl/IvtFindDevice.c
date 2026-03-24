@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtFindDevice @ 0x140537860
+ * XREFs of IvtFindDevice @ 0x1404E7B80
  * Callers:
  *     <none>
  * Callees:
- *     HalpIvtCheckIdPathMatch @ 0x140536FB4 (HalpIvtCheckIdPathMatch.c)
- *     IvtpGetNextInternalDeviceScope @ 0x1405378F4 (IvtpGetNextInternalDeviceScope.c)
+ *     HalpIvtCheckIdPathMatch @ 0x1404E72D0 (HalpIvtCheckIdPathMatch.c)
+ *     IvtpGetNextInternalDeviceScope @ 0x1404E7C14 (IvtpGetNextInternalDeviceScope.c)
  */
 
 char __fastcall IvtFindDevice(__int64 a1, __int64 a2, char a3, _QWORD *a4)
@@ -15,9 +15,9 @@ char __fastcall IvtFindDevice(__int64 a1, __int64 a2, char a3, _QWORD *a4)
   char *v9; // rsi
 
   v6 = a1;
-  if ( *(_DWORD *)a2 != 1 || *(_DWORD *)(a1 + 252) != *(unsigned __int16 *)(a2 + 8) )
+  if ( *(_DWORD *)a2 != 1 || *(_DWORD *)(a1 + 212) != *(unsigned __int16 *)(a2 + 8) )
     return 0;
-  if ( !a3 || !*(_BYTE *)(a1 + 268) )
+  if ( !a3 || !*(_BYTE *)(a1 + 228) )
   {
     v7 = 0LL;
     while ( 1 )

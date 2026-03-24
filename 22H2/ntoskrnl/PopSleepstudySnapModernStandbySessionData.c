@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSleepstudySnapModernStandbySessionData @ 0x1409934C8
+ * XREFs of PopSleepstudySnapModernStandbySessionData @ 0x1408FA43C
  * Callers:
- *     PopPowerAggregatorDisengageModernStandby @ 0x14099362C (PopPowerAggregatorDisengageModernStandby.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x1408EE09C (PopPowerAggregatorDisengageModernStandby.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopCalculateIdleInformation @ 0x1403C76E0 (PopCalculateIdleInformation.c)
+ *     KeQueryInterruptTimePrecise @ 0x140318820 (KeQueryInterruptTimePrecise.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopCalculateIdleInformation @ 0x140570350 (PopCalculateIdleInformation.c)
  */
 
 void PopSleepstudySnapModernStandbySessionData()
@@ -19,10 +19,10 @@ void PopSleepstudySnapModernStandbySessionData()
   v1 = 0LL;
   v2 = 0LL;
   PopAcquireRwLockExclusive((ULONG_PTR)&PopSleepstudySessionLock);
-  v0 = 13 * ((unsigned int)dword_140C3BD08 + 2LL);
+  v0 = 96LL * (unsigned int)dword_140C1E510;
   PopCalculateIdleInformation((__int64)&v1);
-  PopSleepstudySessionContext[v0 + 10] = v2;
-  PopSleepstudySessionContext[v0 + 11] = *((_QWORD *)&v1 + 1);
-  PopSleepstudySessionContext[v0 + 12] = RtlGetInterruptTimePrecise(&v3);
-  PopReleaseRwLock(&PopSleepstudySessionLock);
+  *(_QWORD *)&PopSleepstudySessionContext[v0 + 256] = v2;
+  *(_QWORD *)&PopSleepstudySessionContext[v0 + 264] = *((_QWORD *)&v1 + 1);
+  *(_QWORD *)&PopSleepstudySessionContext[v0 + 272] = KeQueryInterruptTimePrecise(&v3);
+  PopReleaseRwLock((ULONG_PTR)&PopSleepstudySessionLock);
 }

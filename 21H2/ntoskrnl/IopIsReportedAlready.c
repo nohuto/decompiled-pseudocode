@@ -1,94 +1,97 @@
 /*
- * XREFs of IopIsReportedAlready @ 0x14081EFBC
+ * XREFs of IopIsReportedAlready @ 0x1407AEDC8
  * Callers:
- *     IoReportDetectedDevice @ 0x14081EB20 (IoReportDetectedDevice.c)
+ *     IoReportDetectedDevice @ 0x1407AE910 (IoReportDetectedDevice.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     _CmGetDeviceRegProp @ 0x14077CD90 (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x14077F2EC (_CmOpenDeviceRegKey.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
- *     PnpIsDuplicateDevice @ 0x14094206C (PnpIsDuplicateDevice.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     PnpIsDuplicateDevice @ 0x14089D21C (PnpIsDuplicateDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 char __fastcall IopIsReportedAlready(__int64 a1, __int64 a2, const UNICODE_STRING *a3, __int64 a4, _DWORD *a5)
 {
-  void *v5; // rbx
-  void *v6; // rsi
-  char v7; // di
-  __int64 v10; // rdx
-  char *v13; // rax
-  HANDLE v14; // rcx
+  char *v5; // rdi
+  void *v6; // r14
+  void *v7; // rbx
+  char v8; // si
+  __int64 v12; // rdx
+  HANDLE v13; // rcx
   NTSTATUS RegistryValue; // ebx
-  bool v17; // sf
-  NTSTATUS v18; // eax
+  bool v16; // sf
+  NTSTATUS v17; // eax
   HANDLE KeyHandle; // [rsp+40h] [rbp-C0h] BYREF
-  int v20; // [rsp+48h] [rbp-B8h] BYREF
-  int v21; // [rsp+4Ch] [rbp-B4h] BYREF
+  int v19; // [rsp+48h] [rbp-B8h] BYREF
+  int v20; // [rsp+4Ch] [rbp-B4h] BYREF
   int Data; // [rsp+50h] [rbp-B0h] BYREF
   HANDLE Handle; // [rsp+58h] [rbp-A8h] BYREF
-  _DWORD *v24; // [rsp+60h] [rbp-A0h] BYREF
-  void *v25; // [rsp+68h] [rbp-98h] BYREF
+  _DWORD *v23; // [rsp+60h] [rbp-A0h] BYREF
+  void *v24; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
-  WCHAR SourceString[256]; // [rsp+80h] [rbp-80h] BYREF
+  PCUNICODE_STRING String1; // [rsp+80h] [rbp-80h]
+  WCHAR SourceString[256]; // [rsp+90h] [rbp-70h] BYREF
 
   v5 = 0LL;
   v6 = 0LL;
-  v25 = 0LL;
   v24 = 0LL;
-  v7 = 0;
+  v7 = 0LL;
+  v23 = 0LL;
   *a5 = 0;
+  v8 = 0;
   Handle = 0LL;
-  v10 = *(_QWORD *)(a1 + 8);
   KeyHandle = 0LL;
   Data = 0;
-  v20 = 0;
+  v19 = 0;
+  String1 = a3;
+  v12 = *(_QWORD *)(a1 + 8);
   DestinationString = 0LL;
-  v21 = 512;
+  v20 = 512;
   if ( (int)CmGetDeviceRegProp(
               *(__int64 *)&PiPnpRtlCtx,
-              v10,
+              v12,
               a2,
               5,
-              (__int64)&v20,
+              (__int64)&v19,
               (__int64)SourceString,
-              (__int64)&v21,
+              (__int64)&v20,
               0) < 0
-    || v20 != 1
-    || !v21
+    || v19 != 1
+    || !v20
     || RtlInitUnicodeStringEx(&DestinationString, SourceString) < 0
-    || !RtlEqualUnicodeString(a3, &DestinationString, 1u) )
+    || !RtlEqualUnicodeString(String1, &DestinationString, 1u) )
   {
     goto LABEL_10;
   }
   if ( (int)CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, *(_QWORD *)(a1 + 8), 20, 0, 131097, 0, (__int64)&Handle, 0LL) < 0
-    || (RegistryValue = IopGetRegistryValue(Handle, L"BootConfig", 0, &v24),
+    || (RegistryValue = IopGetRegistryValue(Handle, L"BootConfig", 0, &v23),
         ZwClose(Handle),
-        v17 = RegistryValue < 0,
-        v5 = v24,
-        v17)
-    || v24[1] != 8
-    || !v24[3] )
+        v16 = RegistryValue < 0,
+        v7 = v23,
+        v16)
+    || v23[1] != 8
+    || !v23[3] )
   {
-    v13 = 0LL;
+LABEL_7:
     if ( a4 )
       goto LABEL_10;
-LABEL_8:
-    if ( v13 )
-      goto LABEL_10;
-    goto LABEL_9;
-  }
-  v13 = (char *)v24 + (unsigned int)v24[2];
-  if ( !a4 )
     goto LABEL_8;
-  if ( !v13 || !(unsigned int)PnpIsDuplicateDevice(a4, (char *)v24 + (unsigned int)v24[2]) )
-    goto LABEL_10;
-LABEL_9:
-  *a5 = 1;
+  }
+  v5 = (char *)v23 + (unsigned int)v23[2];
+  if ( a4 )
+  {
+    if ( v5 && (unsigned int)PnpIsDuplicateDevice(a4, (char *)v23 + (unsigned int)v23[2]) )
+      *a5 = 1;
+    goto LABEL_7;
+  }
+LABEL_8:
+  if ( !v5 )
+    *a5 = 1;
 LABEL_10:
   if ( (int)CmOpenDeviceRegKey(
               *(__int64 *)&PiPnpRtlCtx,
@@ -99,11 +102,11 @@ LABEL_10:
               0,
               (__int64)&KeyHandle,
               0LL) < 0
-    || (v18 = IopGetRegistryValue(KeyHandle, L"DeviceReported", 0, &v25), v6 = v25, v18 < 0) )
+    || (v17 = IopGetRegistryValue(KeyHandle, L"DeviceReported", 0, &v24), v6 = v24, v17 < 0) )
   {
     if ( *a5 )
     {
-      v14 = KeyHandle;
+      v13 = KeyHandle;
       if ( !KeyHandle )
       {
         if ( (int)CmOpenDeviceRegKey(
@@ -116,13 +119,13 @@ LABEL_10:
                     (__int64)&KeyHandle,
                     0LL) < 0 )
           goto LABEL_17;
-        v14 = KeyHandle;
+        v13 = KeyHandle;
       }
       *(_DWORD *)&DestinationString.Length = 1966108;
       DestinationString.Buffer = L"DeviceReported";
       Data = 1;
-      if ( ZwSetValueKey(v14, &DestinationString, 0, 4u, &Data, 4u) >= 0 )
-        v7 = 1;
+      if ( ZwSetValueKey(v13, &DestinationString, 0, 4u, &Data, 4u) >= 0 )
+        v8 = 1;
     }
   }
 LABEL_17:
@@ -130,7 +133,7 @@ LABEL_17:
     ZwClose(KeyHandle);
   if ( v6 )
     ExFreePoolWithTag(v6, 0);
-  if ( v5 )
-    ExFreePoolWithTag(v5, 0);
-  return v7;
+  if ( v7 )
+    ExFreePoolWithTag(v7, 0);
+  return v8;
 }

@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlStringCbLengthW @ 0x14011CAA8
+ * XREFs of RtlStringCbLengthW @ 0x14011CAC8
  * Callers:
- *     AslpFileVerBlockGetValueOffset @ 0x140178EEC (AslpFileVerBlockGetValueOffset.c)
- *     AuthzBasepConvertRelativeToAbsoluteTokenAttribute @ 0x140324274 (AuthzBasepConvertRelativeToAbsoluteTokenAttribute.c)
+ *     AslpFileVerBlockGetValueOffset @ 0x140178F0C (AslpFileVerBlockGetValueOffset.c)
+ *     AuthzBasepConvertRelativeToAbsoluteTokenAttribute @ 0x140324374 (AuthzBasepConvertRelativeToAbsoluteTokenAttribute.c)
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
- *     _PnpRegQueryValueIndirect @ 0x1406A2FE0 (_PnpRegQueryValueIndirect.c)
- *     _PnpValidatePropertyData @ 0x1406A31E4 (_PnpValidatePropertyData.c)
- *     RtlpValidRelativeAttribute @ 0x1406C3470 (RtlpValidRelativeAttribute.c)
- *     PiSwIrpStartCreateWorker @ 0x1406D6E78 (PiSwIrpStartCreateWorker.c)
- *     PiSwCompleteCreate @ 0x1406D808C (PiSwCompleteCreate.c)
- *     PopValidateServiceNotification @ 0x1406E0EA4 (PopValidateServiceNotification.c)
- *     AslpFileVerStringBlockGetValue @ 0x14071F980 (AslpFileVerStringBlockGetValue.c)
- *     IoReportDetectedDevice @ 0x14072D240 (IoReportDetectedDevice.c)
- *     RtlpPopulateLanguageConfigList @ 0x14073DCB8 (RtlpPopulateLanguageConfigList.c)
- *     PpmRegisterProfiles @ 0x140756BA4 (PpmRegisterProfiles.c)
- *     PopFxValidateReturnedUnicodeString @ 0x14086A964 (PopFxValidateReturnedUnicodeString.c)
- *     PopDiagIdleWakeSourceAccountingToDiagnostic @ 0x14086FDDC (PopDiagIdleWakeSourceAccountingToDiagnostic.c)
- *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x140892F10 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
- *     RtlpGetTokenNamedObjectPath @ 0x140894DCC (RtlpGetTokenNamedObjectPath.c)
- *     LocalGetStringForRelativeAttribute @ 0x1408A9FF4 (LocalGetStringForRelativeAttribute.c)
+ *     _PnpRegQueryValueIndirect @ 0x1406A2FC0 (_PnpRegQueryValueIndirect.c)
+ *     _PnpValidatePropertyData @ 0x1406A31C4 (_PnpValidatePropertyData.c)
+ *     RtlpValidRelativeAttribute @ 0x1406C3450 (RtlpValidRelativeAttribute.c)
+ *     PiSwIrpStartCreateWorker @ 0x1406D6E58 (PiSwIrpStartCreateWorker.c)
+ *     PiSwCompleteCreate @ 0x1406D806C (PiSwCompleteCreate.c)
+ *     PopValidateServiceNotification @ 0x1406E0E84 (PopValidateServiceNotification.c)
+ *     AslpFileVerStringBlockGetValue @ 0x14071F960 (AslpFileVerStringBlockGetValue.c)
+ *     IoReportDetectedDevice @ 0x14072D220 (IoReportDetectedDevice.c)
+ *     RtlpPopulateLanguageConfigList @ 0x14073DC98 (RtlpPopulateLanguageConfigList.c)
+ *     PpmRegisterProfiles @ 0x140756B84 (PpmRegisterProfiles.c)
+ *     PopFxValidateReturnedUnicodeString @ 0x14086A944 (PopFxValidateReturnedUnicodeString.c)
+ *     PopDiagIdleWakeSourceAccountingToDiagnostic @ 0x14086FDBC (PopDiagIdleWakeSourceAccountingToDiagnostic.c)
+ *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x140892EF0 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x140894DAC (RtlpGetTokenNamedObjectPath.c)
+ *     LocalGetStringForRelativeAttribute @ 0x1408A9FD4 (LocalGetStringForRelativeAttribute.c)
  * Callees:
  *     <none>
  */

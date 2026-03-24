@@ -1,10 +1,10 @@
 /*
- * XREFs of TlgAggregateFlush @ 0x1C0241244
+ * XREFs of TlgAggregateFlush @ 0x1C0200074
  * Callers:
- *     ?PowerMonitorDimStateTelemetry@@YAXPEAU_DIM_UNDIM_TELEMETRY_DATA@@@Z @ 0x1C007D730 (-PowerMonitorDimStateTelemetry@@YAXPEAU_DIM_UNDIM_TELEMETRY_DATA@@@Z.c)
+ *     ?PowerMonitorDimStateTelemetry@@YAXPEAU_DIM_UNDIM_TELEMETRY_DATA@@@Z @ 0x1C0077B78 (-PowerMonitorDimStateTelemetry@@YAXPEAU_DIM_UNDIM_TELEMETRY_DATA@@@Z.c)
  * Callees:
- *     ?TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C0241200 (-TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
- *     LookUpTableFlushComplete @ 0x1C02C87EC (LookUpTableFlushComplete.c)
+ *     ?TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C0200030 (-TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
+ *     LookUpTableFlushComplete @ 0x1C027FA34 (LookUpTableFlushComplete.c)
  */
 
 void TlgAggregateFlush()
@@ -13,9 +13,9 @@ void TlgAggregateFlush()
   volatile signed __int16 *v1; // rdx
   struct _EX_TIMER *v2; // rcx
 
-  if ( (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))qword_1C02883A0 == TlgAggregateInternalRegisteredProviderEtwCallback )
+  if ( (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))qword_1C02463A0 == TlgAggregateInternalRegisteredProviderEtwCallback )
   {
-    v0 = qword_1C02883A8;
+    v0 = qword_1C02463A8;
     if ( KeGetCurrentIrql() >= 2u || (unsigned int)KeIsExecutingDpc() )
     {
       v1 = *(volatile signed __int16 **)(v0 + 264);

@@ -1,30 +1,35 @@
 /*
- * XREFs of HalpIsCmciImplemented @ 0x140A5367C
+ * XREFs of HalpIsCmciImplemented @ 0x140999C64
  * Callers:
- *     HalpMcaResumeProcessorConfig @ 0x140A5029C (HalpMcaResumeProcessorConfig.c)
- *     HalpInitializeCmc @ 0x140A5AA64 (HalpInitializeCmc.c)
- *     HalpMcaSetFeatureFlags @ 0x140A5B19C (HalpMcaSetFeatureFlags.c)
- *     HalpCorrectMachineCheckErrSrc @ 0x140A5B7B4 (HalpCorrectMachineCheckErrSrc.c)
+ *     HalpMcaResumeProcessorConfig @ 0x140995A40 (HalpMcaResumeProcessorConfig.c)
+ *     HalpInitializeCmc @ 0x1409A11B8 (HalpInitializeCmc.c)
+ *     HalpMcaSetFeatureFlags @ 0x1409A1434 (HalpMcaSetFeatureFlags.c)
+ *     HalpCorrectMachineCheckErrSrc @ 0x1409A17F4 (HalpCorrectMachineCheckErrSrc.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x1403AAE50 (HalpGetCpuVendor.c)
- *     HalpInterruptIsCmciSupported @ 0x1403DEB00 (HalpInterruptIsCmciSupported.c)
- *     HalpInterruptIsDeferredErrorSupported @ 0x14050910C (HalpInterruptIsDeferredErrorSupported.c)
+ *     HalpGetCpuInfo @ 0x1403A0F70 (HalpGetCpuInfo.c)
+ *     HalpInterruptIsCmciSupported @ 0x1403CF864 (HalpInterruptIsCmciSupported.c)
+ *     HalpInterruptIsDeferredErrorSupported @ 0x1404BC698 (HalpInterruptIsDeferredErrorSupported.c)
  */
 
 char HalpIsCmciImplemented()
 {
-  char CpuVendor; // al
+  char CpuInfo; // al
+  unsigned __int8 v2; // cl
   bool IsCmciSupported; // bl
-  signed __int32 v3[10]; // [rsp+0h] [rbp-28h] BYREF
+  signed __int32 v4[10]; // [rsp+0h] [rbp-28h] BYREF
+  unsigned __int8 v5; // [rsp+30h] [rbp+8h] BYREF
 
+  v5 = 0;
   if ( !HalpCmciImplementationChecked )
   {
-    CpuVendor = HalpGetCpuVendor();
-    if ( CpuVendor == 2 )
+    CpuInfo = HalpGetCpuInfo(0LL, 0LL, 0LL, &v5);
+    v2 = CpuInfo != 0 ? v5 : 0;
+    v5 = v2;
+    if ( v2 == 2 )
     {
       IsCmciSupported = HalpInterruptIsCmciSupported();
     }
-    else if ( CpuVendor == 1 )
+    else if ( v2 == 1 )
     {
       IsCmciSupported = HalpInterruptIsCmciSupported();
       if ( IsCmciSupported )
@@ -35,7 +40,7 @@ char HalpIsCmciImplemented()
       IsCmciSupported = 0;
     }
     HalpCmciImplementationPresent = IsCmciSupported;
-    _InterlockedOr(v3, 0);
+    _InterlockedOr(v4, 0);
     HalpCmciImplementationChecked = 1;
   }
   return HalpCmciImplementationPresent;

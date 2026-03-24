@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpAbortLightWeightTransaction @ 0x1406939B0
+ * XREFs of CmpAbortLightWeightTransaction @ 0x140693990
  * Callers:
- *     CmpCommitLightWeightTransaction @ 0x140693564 (CmpCommitLightWeightTransaction.c)
- *     CmpRollbackLightWeightTransaction @ 0x140693910 (CmpRollbackLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x140693544 (CmpCommitLightWeightTransaction.c)
+ *     CmpRollbackLightWeightTransaction @ 0x1406938F0 (CmpRollbackLightWeightTransaction.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmpCleanupLightWeightTransaction @ 0x140693A5C (CmpCleanupLightWeightTransaction.c)
- *     CmpTransMgrRollback @ 0x140694214 (CmpTransMgrRollback.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmpCleanupLightWeightTransaction @ 0x140693A3C (CmpCleanupLightWeightTransaction.c)
+ *     CmpTransMgrRollback @ 0x1406941F4 (CmpTransMgrRollback.c)
  */
 
 void __fastcall CmpAbortLightWeightTransaction(__int64 a1)
@@ -24,7 +24,7 @@ void __fastcall CmpAbortLightWeightTransaction(__int64 a1)
 
   v3 = 0;
   if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 1uLL) )
-    TlgWrite(&stru_1403FFAA0, &unk_14036BF67, 0LL, 0LL, 2u, &pData);
+    TlgWrite(&stru_1403FFAA0, &unk_14036C077, 0LL, 0LL, 2u, &pData);
   v2 = *(_QWORD *)(a1 + 16);
   if ( v2 )
   {
@@ -39,7 +39,7 @@ void __fastcall CmpAbortLightWeightTransaction(__int64 a1)
       v4 = v3;
       v6 = &v4;
       v7 = 4;
-      TlgWrite(&stru_1403FFAA0, &unk_14036BF31, 0LL, 0LL, 3u, &v5);
+      TlgWrite(&stru_1403FFAA0, &unk_14036C041, 0LL, 0LL, 3u, &v5);
     }
   }
 }

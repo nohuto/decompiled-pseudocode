@@ -1,12 +1,12 @@
 /*
- * XREFs of ?QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z @ 0x1C008024C
+ * XREFs of ?QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z @ 0x1C00689D8
  * Callers:
- *     NtFlipObjectQueryNextMessageToProducer @ 0x1C00815A0 (NtFlipObjectQueryNextMessageToProducer.c)
- *     NtFlipObjectReadNextMessageToProducer @ 0x1C00816A0 (NtFlipObjectReadNextMessageToProducer.c)
+ *     NtFlipObjectQueryNextMessageToProducer @ 0x1C0069C20 (NtFlipObjectQueryNextMessageToProducer.c)
+ *     NtFlipObjectReadNextMessageToProducer @ 0x1C0069D10 (NtFlipObjectReadNextMessageToProducer.c)
  * Callees:
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0013814 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C0013858 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?Dequeue@?$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ @ 0x1C0088138 (-Dequeue@-$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000FAAC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C00118B4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?Dequeue@?$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ @ 0x1C006D964 (-Dequeue@-$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ.c)
  */
 
 __int64 __fastcall FlipManagerObject::QueryNextMessageToProducer(
@@ -15,16 +15,16 @@ __int64 __fastcall FlipManagerObject::QueryNextMessageToProducer(
         struct CFlipConsumerMessage **a3)
 {
   int v6; // ebx
-  __int64 v7; // r11
+  __int64 v7; // r10
   __int64 v8; // rcx
   struct CFlipConsumerMessage *v9; // rcx
-  __int64 v10; // r11
-  _QWORD *v11; // r10
+  __int64 v10; // r10
+  _QWORD *v11; // r9
 
   v6 = CPushLock::AcquireLockExclusive((FlipManagerObject *)((char *)this + 40));
   if ( v6 >= 0 )
   {
-    v7 = *((_QWORD *)this + 32);
+    v7 = *((_QWORD *)this + 25);
     v6 = 0;
     v8 = *(_QWORD *)(v7 + 8);
     if ( v8 == v7 + 8 )

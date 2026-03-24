@@ -1,7 +1,7 @@
 /*
- * XREFs of CmSaveMergedKeys @ 0x14080231C
+ * XREFs of CmSaveMergedKeys @ 0x1408022FC
  * Callers:
- *     NtSaveMergedKeys @ 0x1407EA980 (NtSaveMergedKeys.c)
+ *     NtSaveMergedKeys @ 0x1407EA960 (NtSaveMergedKeys.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
@@ -10,23 +10,23 @@
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpIsKeyDeletedForKeyBody @ 0x1405D7310 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpUuidCreate @ 0x140680A8C (CmpUuidCreate.c)
- *     CmpUnlockTwoKcbs @ 0x1406BC658 (CmpUnlockTwoKcbs.c)
- *     CmpLockTwoKcbsShared @ 0x1406BC6A4 (CmpLockTwoKcbsShared.c)
- *     CmpCopyKeyPartial @ 0x1406FF8E0 (CmpCopyKeyPartial.c)
- *     CmpBlockTwoHiveWrites @ 0x1407F0774 (CmpBlockTwoHiveWrites.c)
- *     CmpDoAccessCheckOnSubtree @ 0x1407F4F8C (CmpDoAccessCheckOnSubtree.c)
- *     CmpDestroyHive @ 0x1407F6798 (CmpDestroyHive.c)
- *     CmpLogUnsupportedOperation @ 0x1407FA064 (CmpLogUnsupportedOperation.c)
- *     HvWriteExternal @ 0x1407FAD94 (HvWriteExternal.c)
- *     CmpCopySyncTree @ 0x1407FCB80 (CmpCopySyncTree.c)
- *     CmpMergeKeyValues @ 0x1407FDB00 (CmpMergeKeyValues.c)
- *     CmpCreateTemporaryHive @ 0x140802860 (CmpCreateTemporaryHive.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpUuidCreate @ 0x140680A6C (CmpUuidCreate.c)
+ *     CmpUnlockTwoKcbs @ 0x1406BC638 (CmpUnlockTwoKcbs.c)
+ *     CmpLockTwoKcbsShared @ 0x1406BC684 (CmpLockTwoKcbsShared.c)
+ *     CmpCopyKeyPartial @ 0x1406FF8C0 (CmpCopyKeyPartial.c)
+ *     CmpBlockTwoHiveWrites @ 0x1407F0754 (CmpBlockTwoHiveWrites.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x1407F4F6C (CmpDoAccessCheckOnSubtree.c)
+ *     CmpDestroyHive @ 0x1407F6778 (CmpDestroyHive.c)
+ *     CmpLogUnsupportedOperation @ 0x1407FA044 (CmpLogUnsupportedOperation.c)
+ *     HvWriteExternal @ 0x1407FAD74 (HvWriteExternal.c)
+ *     CmpCopySyncTree @ 0x1407FCB60 (CmpCopySyncTree.c)
+ *     CmpMergeKeyValues @ 0x1407FDAE0 (CmpMergeKeyValues.c)
+ *     CmpCreateTemporaryHive @ 0x140802840 (CmpCreateTemporaryHive.c)
  */
 
 __int64 __fastcall CmSaveMergedKeys(__int64 a1, __int64 a2, __int64 a3, char a4)
@@ -91,7 +91,7 @@ __int64 __fastcall CmSaveMergedKeys(__int64 a1, __int64 a2, __int64 a3, char a4)
   if ( (PVOID)v8 == CmpMasterHive || (PVOID)v6 == CmpMasterHive )
   {
     if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
-      TlgWrite(&stru_1403FFAA0, &unk_14036C5C9, 0LL, v18, 2u, &v36);
+      TlgWrite(&stru_1403FFAA0, &unk_14036C6D9, 0LL, v18, 2u, &v36);
     v11 = -1073741790;
 LABEL_42:
     if ( v29 )

@@ -1,9 +1,9 @@
 /*
  * XREFs of MmQuerySystemMemoryInformation @ 0x14000FE54
  * Callers:
- *     EtwpLogMemInfoTimerCallback @ 0x140310F70 (EtwpLogMemInfoTimerCallback.c)
+ *     EtwpLogMemInfoTimerCallback @ 0x140311070 (EtwpLogMemInfoTimerCallback.c)
  *     PfpPrivSourceEnum @ 0x1405B1B60 (PfpPrivSourceEnum.c)
- *     EtwpLogMemInfoRundown @ 0x1408BE9FC (EtwpLogMemInfoRundown.c)
+ *     EtwpLogMemInfoRundown @ 0x1408BE9DC (EtwpLogMemInfoRundown.c)
  * Callees:
  *     <none>
  */

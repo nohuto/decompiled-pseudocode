@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpWatchdogCheckPreResetNMI @ 0x14050EC90
+ * XREFs of HalpWatchdogCheckPreResetNMI @ 0x1404C2870
  * Callers:
- *     HalpPreprocessNmi @ 0x140259C50 (HalpPreprocessNmi.c)
+ *     HalpPreprocessNmi @ 0x1404D2D80 (HalpPreprocessNmi.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140303490 (RtlGetInterruptTimePrecise.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 int HalpWatchdogCheckPreResetNMI()

@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipQueueRegWork @ 0x1406B9040
+ * XREFs of WmipQueueRegWork @ 0x1406B9020
  * Callers:
- *     WmipUpdateRegistration @ 0x1406B8FF8 (WmipUpdateRegistration.c)
- *     WmipRegisterDevice @ 0x14070B24C (WmipRegisterDevice.c)
+ *     WmipUpdateRegistration @ 0x1406B8FD8 (WmipUpdateRegistration.c)
+ *     WmipRegisterDevice @ 0x14070B22C (WmipRegisterDevice.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

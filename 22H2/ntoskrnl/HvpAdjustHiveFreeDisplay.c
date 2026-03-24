@@ -1,31 +1,32 @@
 /*
- * XREFs of HvpAdjustHiveFreeDisplay @ 0x1407503A4
+ * XREFs of HvpAdjustHiveFreeDisplay @ 0x1407224EC
  * Callers:
- *     HvFreeHivePartial @ 0x140707258 (HvFreeHivePartial.c)
- *     HvLoadHive @ 0x14074F254 (HvLoadHive.c)
- *     HvpAddBin @ 0x14074F684 (HvpAddBin.c)
- *     HvpPerformLogFileRecovery @ 0x14080093C (HvpPerformLogFileRecovery.c)
- *     HvHiveStartMemoryBacked @ 0x140826DF0 (HvHiveStartMemoryBacked.c)
+ *     HvFreeHivePartial @ 0x14072090C (HvFreeHivePartial.c)
+ *     HvLoadHive @ 0x140721B18 (HvLoadHive.c)
+ *     HvpAddBin @ 0x140721E28 (HvpAddBin.c)
+ *     HvHiveStartMemoryBacked @ 0x14076FAD4 (HvHiveStartMemoryBacked.c)
+ *     HvpPerformLogFileRecovery @ 0x14087410C (HvpPerformLogFileRecovery.c)
  * Callees:
- *     HvpAdjustBitmap @ 0x140750420 (HvpAdjustBitmap.c)
+ *     HvpAdjustBitmap @ 0x140722568 (HvpAdjustBitmap.c)
  */
 
 __int64 __fastcall HvpAdjustHiveFreeDisplay(__int64 a1, unsigned int a2, int a3)
 {
-  unsigned int v5; // ebx
+  __int64 v5; // rbx
   __int64 v6; // r14
   __int64 result; // rax
 
   if ( a2 > 0x7FFFE000 )
     return 3221225804LL;
-  v5 = 0;
+  v5 = 0LL;
   v6 = 632LL * a3;
   while ( 1 )
   {
-    result = HvpAdjustBitmap(a1, a2, a1 + v6 + 24 * (v5 + 13LL));
+    result = HvpAdjustBitmap(a1, a2, v6 + 24 * v5 + a1 + 304);
     if ( (int)result < 0 )
       break;
-    if ( ++v5 >= 0x18 )
+    v5 = (unsigned int)(v5 + 1);
+    if ( (unsigned int)v5 >= 0x18 )
       return 0LL;
   }
   return result;

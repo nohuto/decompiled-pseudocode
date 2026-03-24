@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FreeThreadTable@FxVerifierLock@@SAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C006D750
+ * XREFs of ?FreeThreadTable@FxVerifierLock@@SAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C005A7B4
  * Callers:
- *     FxDestroy @ 0x1C006B75C (FxDestroy.c)
+ *     FxDestroy @ 0x1C0056D9C (FxDestroy.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
  */
 
 void __fastcall FxVerifierLock::FreeThreadTable(_FX_DRIVER_GLOBALS *FxDriverGlobals)

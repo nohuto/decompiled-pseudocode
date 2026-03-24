@@ -5,8 +5,8 @@
  * Callees:
  *     CcUnmapVacbArray @ 0x1400798E0 (CcUnmapVacbArray.c)
  *     CcReferenceSharedCacheMapFileObject @ 0x14007DF6C (CcReferenceSharedCacheMapFileObject.c)
- *     ObDereferenceObjectDeferDelete @ 0x1400C1040 (ObDereferenceObjectDeferDelete.c)
- *     CcPurgeCacheSection @ 0x1400E7A80 (CcPurgeCacheSection.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
+ *     CcPurgeCacheSection @ 0x1400E7AA0 (CcPurgeCacheSection.c)
  */
 
 void __fastcall CcUnmapAndPurge(__int64 a1, char a2)

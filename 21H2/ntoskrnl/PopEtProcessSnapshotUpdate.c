@@ -1,17 +1,17 @@
 /*
- * XREFs of PopEtProcessSnapshotUpdate @ 0x1407A5C98
+ * XREFs of PopEtProcessSnapshotUpdate @ 0x1406190C8
  * Callers:
- *     PopEtEnergyTrackerEnumSnapshotCallback @ 0x1406D8370 (PopEtEnergyTrackerEnumSnapshotCallback.c)
- *     PopEtProcessEnumSnapshotCallback @ 0x1407A5B90 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x140618FC0 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtEnergyTrackerEnumSnapshotCallback @ 0x1406B9298 (PopEtEnergyTrackerEnumSnapshotCallback.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PopEtProcessSnapshotCreate @ 0x140674BE4 (PopEtProcessSnapshotCreate.c)
- *     PopEtAggregateKeyCleanup @ 0x140674F0C (PopEtAggregateKeyCleanup.c)
- *     PopEtProcessSnapshotFind @ 0x1407A5E50 (PopEtProcessSnapshotFind.c)
- *     PopEtEnergyTrackerUpdateAggregate @ 0x1407A5F60 (PopEtEnergyTrackerUpdateAggregate.c)
- *     PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x1407A6424 (PopEtProcessSnapshotUpdateFromSnapshotContext.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopEtProcessSnapshotFind @ 0x140619280 (PopEtProcessSnapshotFind.c)
+ *     PopEtEnergyTrackerUpdateAggregate @ 0x140619394 (PopEtEnergyTrackerUpdateAggregate.c)
+ *     PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x1406197CC (PopEtProcessSnapshotUpdateFromSnapshotContext.c)
+ *     PopEtProcessSnapshotCreate @ 0x14069905C (PopEtProcessSnapshotCreate.c)
+ *     PopEtAggregateKeyCleanup @ 0x14069936C (PopEtAggregateKeyCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopEtProcessSnapshotUpdate(unsigned int *a1)
@@ -32,7 +32,7 @@ __int64 __fastcall PopEtProcessSnapshotUpdate(unsigned int *a1)
   v4 = (_QWORD *)v10;
   if ( !v10 )
   {
-    v6 = PopEtProcessSnapshotCreate((__int64)a1, &v10);
+    v6 = PopEtProcessSnapshotCreate(a1, &v10);
     if ( v6 < 0 )
       goto LABEL_6;
     v5 = *a1;

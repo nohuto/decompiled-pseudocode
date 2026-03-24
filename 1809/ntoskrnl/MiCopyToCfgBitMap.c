@@ -9,13 +9,13 @@
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
  *     MiSplitPrivatePage @ 0x140083B70 (MiSplitPrivatePage.c)
  *     MiCopyToUserVa @ 0x140084410 (MiCopyToUserVa.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiEliminateZeroPages @ 0x14066BED0 (MiEliminateZeroPages.c)
- *     RtlEnumRvaListFirst @ 0x1406AB164 (RtlEnumRvaListFirst.c)
+ *     MiEliminateZeroPages @ 0x14066BEB0 (MiEliminateZeroPages.c)
+ *     RtlEnumRvaListFirst @ 0x1406AB144 (RtlEnumRvaListFirst.c)
  */
 
 __int64 __fastcall MiCopyToCfgBitMap(

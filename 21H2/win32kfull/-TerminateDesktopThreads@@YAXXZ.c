@@ -1,10 +1,10 @@
 /*
- * XREFs of ?TerminateDesktopThreads@@YAXXZ @ 0x1C00F0720
+ * XREFs of ?TerminateDesktopThreads@@YAXXZ @ 0x1C000AA2C
  * Callers:
- *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C00F099C (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C000ADD4 (-InitiateWin32kCleanup@@YAHXZ.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0079D94 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     IPostQuitMessage @ 0x1C00AD668 (IPostQuitMessage.c)
+ *     IPostQuitMessage @ 0x1C000AD64 (IPostQuitMessage.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004DA78 (WPP_RECORDER_SF_.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -13,183 +13,103 @@ void TerminateDesktopThreads(void)
   ULONG v0; // ebx
   void *v1; // rcx
   int v2; // edx
-  int v3; // r8d
-  PVOID v4; // rcx
-  int v5; // edx
-  int v6; // r8d
-  int v7; // r9d
+  int v3; // ecx
+  int v4; // edx
+  int v5; // ecx
+  int v6; // edx
+  int v7; // ecx
   int v8; // edx
-  int v9; // r8d
-  int v10; // r9d
-  int v11; // edx
-  int v12; // r8d
-  int v13; // r9d
-  PVOID Object[2]; // [rsp+40h] [rbp-28h] BYREF
-  union _LARGE_INTEGER Timeout; // [rsp+70h] [rbp+8h] BYREF
+  int v9; // ecx
+  __int128 Object; // [rsp+40h] [rbp-18h] BYREF
+  union _LARGE_INTEGER Timeout; // [rsp+60h] [rbp+8h] BYREF
 
   v0 = 0;
-  *(_OWORD *)Object = 0LL;
+  Object = 0LL;
   if ( gpTouchProcessor )
     CTouchProcessor::CleanupInputDestHwndRefsForDesktopThreadExit(gpTouchProcessor);
-  v1 = (void *)gTermIO[8];
+  v1 = (void *)*((_QWORD *)&gTermIO + 8);
   if ( v1 )
   {
-    Object[0] = (PVOID)gTermIO[8];
+    *(_QWORD *)&Object = *((_QWORD *)&gTermIO + 8);
     ObfReferenceObject(v1);
     v0 = 1;
-    if ( gTermIO[7] )
+    if ( *((_QWORD *)&gTermIO + 7) )
     {
-      LOBYTE(v2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80) != 0
-                && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      if ( (_BYTE)v2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v2,
-          v3,
-          (unsigned int)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids,
-          4,
-          8,
-          10,
-          (__int64)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids);
+        LOBYTE(v2) = 4;
+        WPP_RECORDER_SF_(v3, v2, 8, 10, (__int64)&WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids);
       }
-      LODWORD(gTermIO[0]) |= 8u;
-      KeSetEvent((PRKEVENT)gTermIO[7], 1, 0);
+      gTermIO |= 8u;
+      KeSetEvent(*((PRKEVENT *)&gTermIO + 7), 1, 0);
     }
     else
     {
-      LOBYTE(v2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80) != 0
-                && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      if ( (_BYTE)v2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v2,
-          v3,
-          (unsigned int)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids,
-          4,
-          8,
-          11,
-          (__int64)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids);
+        LOBYTE(v2) = 4;
+        WPP_RECORDER_SF_(v3, v2, 8, 11, (__int64)&WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids);
       }
-      IPostQuitMessage(gTermIO[2], 0);
+      IPostQuitMessage(*((_QWORD *)&gTermIO + 2), 0LL);
     }
     gdwHydraHint |= 0x80000u;
   }
-  else if ( gTermIO[1] )
+  else if ( *((_QWORD *)&gTermIO + 1) )
   {
-    HMAssignmentUnlock(&gTermIO[1]);
+    HMAssignmentUnlock((char *)&gTermIO + 8);
   }
-  v4 = ::Object;
   if ( ::Object )
   {
-    Object[1] = ::Object;
+    *((_QWORD *)&Object + 1) = ::Object;
     ObfReferenceObject(::Object);
     ++v0;
-    LOBYTE(v11) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-               && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) != 0
-               && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)v11 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v12) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v11,
-        v12,
-        (unsigned int)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids,
-        4,
-        7,
-        12,
-        (__int64)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids);
+      LOBYTE(v4) = 4;
+      WPP_RECORDER_SF_(v5, v4, 7, 12, (__int64)&WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids);
     }
-    if ( qword_1C0336E78 )
+    if ( Event )
     {
-      LOBYTE(v11) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                 && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80) != 0
-                 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      if ( (_BYTE)v11 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v12) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v11,
-          v12,
-          v13,
-          4,
-          8,
-          13,
-          (__int64)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids);
+        LOBYTE(v4) = 4;
+        WPP_RECORDER_SF_(v5, v4, 8, 13, (__int64)&WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids);
       }
       gTermNOIO |= 8u;
-      KeSetEvent(qword_1C0336E78, 1, 0);
+      KeSetEvent(Event, 1, 0);
     }
     else
     {
-      LOBYTE(v11) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                 && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80) != 0
-                 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      if ( (_BYTE)v11 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v12) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v11,
-          v12,
-          (unsigned int)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids,
-          4,
-          8,
-          14,
-          (__int64)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids);
+        LOBYTE(v4) = 4;
+        WPP_RECORDER_SF_(v5, v4, 8, 14, (__int64)&WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids);
       }
-      IPostQuitMessage(qword_1C0336E50, 0);
+      IPostQuitMessage(qword_1C0339FE0, 0LL);
     }
   }
   if ( v0 )
   {
-    UserSessionSwitchLeaveCrit(v4);
-    LOBYTE(v5) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+      KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+    UserSessionSwitchLeaveCrit();
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v6) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v5,
-        v6,
-        v7,
-        4,
-        7,
-        15,
-        (__int64)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids);
+      LOBYTE(v6) = 4;
+      WPP_RECORDER_SF_(v7, v6, 7, 15, (__int64)&WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids);
     }
     Timeout.QuadPart = -3000000000LL;
-    while ( KeWaitForMultipleObjects(v0, Object, WaitAll, WrUserRequest, 0, 0, &Timeout, 0LL) == 258 )
+    while ( KeWaitForMultipleObjects(v0, (PVOID *)&Object, WaitAll, WrUserRequest, 0, 0, &Timeout, 0LL) == 258 )
       gdwHydraHint |= 0x800000u;
-    LOBYTE(v8) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)v8 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v9) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v8,
-        v9,
-        v10,
-        4,
-        7,
-        16,
-        (__int64)&WPP_429574f4a2b73b4c193b07039e2ef3d9_Traceguids);
+      LOBYTE(v8) = 4;
+      WPP_RECORDER_SF_(v9, v8, 7, 16, (__int64)&WPP_630c8375e76c3e1e29d982db09ca2999_Traceguids);
     }
-    ObfDereferenceObject(Object[0]);
+    ObfDereferenceObject((PVOID)Object);
     if ( v0 > 1 )
-      ObfDereferenceObject(Object[1]);
-    EnterCrit(1LL, 0LL);
+      ObfDereferenceObject(*((PVOID *)&Object + 1));
+    EnterCrit(0LL, 1LL);
   }
   gdwHydraHint |= 0x800u;
 }

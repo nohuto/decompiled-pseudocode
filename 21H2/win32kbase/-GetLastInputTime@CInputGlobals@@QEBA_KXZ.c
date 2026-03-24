@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetLastInputTime@CInputGlobals@@QEBA_KXZ @ 0x1C007D200
+ * XREFs of ?GetLastInputTime@CInputGlobals@@QEBA_KXZ @ 0x1C00774C0
  * Callers:
- *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C007C7B0 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
- *     ?UpdateAdaptiveSessionState@@YAXXZ @ 0x1C007CFEC (-UpdateAdaptiveSessionState@@YAXXZ.c)
- *     EtwTraceIdleStatus @ 0x1C00AB1F0 (EtwTraceIdleStatus.c)
- *     xxxProcessKeyEvent @ 0x1C00CABA0 (xxxProcessKeyEvent.c)
- *     EtwTraceIdleActionExpiration @ 0x1C00D03C0 (EtwTraceIdleActionExpiration.c)
+ *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C0076B30 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
+ *     PowerInputEvent @ 0x1C0077440 (PowerInputEvent.c)
+ *     EtwTraceIdleStatus @ 0x1C0095C20 (EtwTraceIdleStatus.c)
+ *     EtwTraceIdleActionExpiration @ 0x1C00B6430 (EtwTraceIdleActionExpiration.c)
+ *     xxxProcessKeyEvent @ 0x1C01B1220 (xxxProcessKeyEvent.c)
  * Callees:
  *     <none>
  */

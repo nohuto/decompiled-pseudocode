@@ -1,7 +1,7 @@
 /*
- * XREFs of AuthzBasepResetOperands @ 0x1400A6924
+ * XREFs of AuthzBasepResetOperands @ 0x1400A6944
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x1400A62E0 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1400A6300 (AuthzBasepEvaluateAceCondition.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

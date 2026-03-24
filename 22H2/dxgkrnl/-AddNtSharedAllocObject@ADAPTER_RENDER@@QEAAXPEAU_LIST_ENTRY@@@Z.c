@@ -1,7 +1,8 @@
 /*
- * XREFs of ?AddNtSharedAllocObject@ADAPTER_RENDER@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0054140
+ * XREFs of ?AddNtSharedAllocObject@ADAPTER_RENDER@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0008E70
  * Callers:
- *     ?DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@Z @ 0x1C03736F8 (-DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@.c)
+ *     ?CreateSharedResourceNtObject@@YAJDW4_HMGRENTRY_TYPE@@IPEAXPEAU_OBJECT_ATTRIBUTES@@DPEAPEAX@Z @ 0x1C012A790 (-CreateSharedResourceNtObject@@YAJDW4_HMGRENTRY_TYPE@@IPEAXPEAU_OBJECT_ATTRIBUTES@@DPEAPEAX@Z.c)
+ *     ?DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@Z @ 0x1C0239474 (-DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@.c)
  * Callees:
  *     <none>
  */
@@ -12,10 +13,10 @@ void __fastcall ADAPTER_RENDER::AddNtSharedAllocObject(ADAPTER_RENDER *this, str
   struct _LIST_ENTRY *v5; // rbx
   struct _LIST_ENTRY *Blink; // rax
 
-  v3 = (char *)this + 256;
+  v3 = (char *)this + 248;
   KeEnterCriticalRegion();
   ExAcquirePushLockExclusiveEx(v3, 0LL);
-  v5 = (struct _LIST_ENTRY *)((char *)this + 280);
+  v5 = (struct _LIST_ENTRY *)((char *)this + 272);
   *((_QWORD *)v3 + 1) = KeGetCurrentThread();
   Blink = v5->Blink;
   if ( Blink->Flink != v5 )

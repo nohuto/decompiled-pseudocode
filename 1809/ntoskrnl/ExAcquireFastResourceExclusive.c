@@ -1,20 +1,20 @@
 /*
- * XREFs of ExAcquireFastResourceExclusive @ 0x1401652B0
+ * XREFs of ExAcquireFastResourceExclusive @ 0x1401652D0
  * Callers:
- *     ExpFastResourceLegacyAcquireExclusive @ 0x140164AB4 (ExpFastResourceLegacyAcquireExclusive.c)
+ *     ExpFastResourceLegacyAcquireExclusive @ 0x140164AD4 (ExpFastResourceLegacyAcquireExclusive.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreWait @ 0x140005930 (KeAbPreWait.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     ExpTryAcquireResourceExclusive @ 0x140050D30 (ExpTryAcquireResourceExclusive.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     ExpWaitForResource @ 0x1401138D0 (ExpWaitForResource.c)
- *     ExpPrepareToWaitForResourceExclusive @ 0x140120D94 (ExpPrepareToWaitForResourceExclusive.c)
- *     ExpFindFastOwnerEntryForThread @ 0x140166064 (ExpFindFastOwnerEntryForThread.c)
- *     ExpAddFastOwnerEntryToThreadList @ 0x140166118 (ExpAddFastOwnerEntryToThreadList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     ExpWaitForResource @ 0x1401138F0 (ExpWaitForResource.c)
+ *     ExpPrepareToWaitForResourceExclusive @ 0x140120DB4 (ExpPrepareToWaitForResourceExclusive.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x140166084 (ExpFindFastOwnerEntryForThread.c)
+ *     ExpAddFastOwnerEntryToThreadList @ 0x140166138 (ExpAddFastOwnerEntryToThreadList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 char __fastcall ExAcquireFastResourceExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, char a3)

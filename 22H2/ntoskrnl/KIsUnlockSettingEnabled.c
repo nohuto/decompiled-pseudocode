@@ -1,12 +1,12 @@
 /*
- * XREFs of KIsUnlockSettingEnabled @ 0x1407E237C
+ * XREFs of KIsUnlockSettingEnabled @ 0x14069AC48
  * Callers:
- *     ExQueryFastCacheDevLicense @ 0x1407E2330 (ExQueryFastCacheDevLicense.c)
+ *     ExQueryFastCacheDevLicense @ 0x14069ABE0 (ExQueryFastCacheDevLicense.c)
  * Callees:
- *     CmIsStateSeparationEnabled @ 0x140367128 (CmIsStateSeparationEnabled.c)
- *     AppModelFreeUnicodeString @ 0x14036713C (AppModelFreeUnicodeString.c)
- *     KGetUnlockSetting @ 0x1407E24A4 (KGetUnlockSetting.c)
- *     KGetAppModelStateSeparatedRegKeyPath @ 0x1407E7030 (KGetAppModelStateSeparatedRegKeyPath.c)
+ *     CmIsStateSeparationEnabled @ 0x140323318 (CmIsStateSeparationEnabled.c)
+ *     AppModelFreeUnicodeString @ 0x14032332C (AppModelFreeUnicodeString.c)
+ *     KGetUnlockSetting @ 0x14069AD58 (KGetUnlockSetting.c)
+ *     KGetAppModelStateSeparatedRegKeyPath @ 0x14069F120 (KGetAppModelStateSeparatedRegKeyPath.c)
  */
 
 __int64 __fastcall KIsUnlockSettingEnabled(__int64 a1, _DWORD *a2)
@@ -30,17 +30,16 @@ __int64 __fastcall KIsUnlockSettingEnabled(__int64 a1, _DWORD *a2)
     v4 = KGetUnlockSetting(&v9, a1, a2);
     if ( v4 >= 0 )
     {
-      if ( !CmIsStateSeparationEnabled() || *a2 == 0xFFFF && (v4 = KGetUnlockSetting(v6, a1, a2), v4 >= 0) )
+      if ( CmIsStateSeparationEnabled() && *a2 == 0xFFFF )
+        v4 = KGetUnlockSetting(v6, a1, a2);
+      if ( v4 >= 0 && *a2 == 0xFFFF )
       {
-        if ( *a2 == 0xFFFF )
+        v4 = KGetAppModelStateSeparatedRegKeyPath(L"AppModelUnlock");
+        if ( v4 >= 0 )
         {
-          v4 = KGetAppModelStateSeparatedRegKeyPath(L"AppModelUnlock");
-          if ( v4 >= 0 )
-          {
-            v4 = KGetUnlockSetting(&v8, a1, a2);
-            if ( v4 >= 0 && CmIsStateSeparationEnabled() && *a2 == 0xFFFF )
-              v4 = KGetUnlockSetting(v7, a1, a2);
-          }
+          v4 = KGetUnlockSetting(&v8, a1, a2);
+          if ( v4 >= 0 && CmIsStateSeparationEnabled() && *a2 == 0xFFFF )
+            v4 = KGetUnlockSetting(v7, a1, a2);
         }
       }
     }

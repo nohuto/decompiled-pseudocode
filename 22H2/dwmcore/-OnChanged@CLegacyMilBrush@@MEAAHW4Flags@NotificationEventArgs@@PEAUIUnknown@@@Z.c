@@ -1,5 +1,5 @@
 /*
- * XREFs of ?OnChanged@CLegacyMilBrush@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800F1010
+ * XREFs of ?OnChanged@CLegacyMilBrush@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800CBC80
  * Callers:
  *     <none>
  * Callees:

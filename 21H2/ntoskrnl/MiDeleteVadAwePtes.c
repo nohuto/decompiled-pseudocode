@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteVadAwePtes @ 0x1405AA614
+ * XREFs of MiDeleteVadAwePtes @ 0x14054BB34
  * Callers:
- *     MiDeleteVa @ 0x140330730 (MiDeleteVa.c)
- *     MiDeleteLargeUserPde @ 0x1405B07F4 (MiDeleteLargeUserPde.c)
+ *     MiDeleteVa @ 0x140337A80 (MiDeleteVa.c)
+ *     MiDeleteLargeUserPde @ 0x14054F95C (MiDeleteLargeUserPde.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetAweViewPageSize @ 0x1405AB030 (MiGetAweViewPageSize.c)
- *     MiWriteAwePtes @ 0x1405ACB84 (MiWriteAwePtes.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetAweViewPageSize @ 0x14054C4D8 (MiGetAweViewPageSize.c)
+ *     MiWriteAwePtes @ 0x14054E298 (MiWriteAwePtes.c)
  */
 
 __int64 __fastcall MiDeleteVadAwePtes(__int64 a1, unsigned __int64 a2, __int64 *a3)
@@ -28,11 +28,11 @@ __int64 __fastcall MiDeleteVadAwePtes(__int64 a1, unsigned __int64 a2, __int64 *
   if ( (v7 & 1) != 0 )
   {
     v6 = 1LL;
-    AweViewPageSize = MiGetAweViewPageSize(a1, v8, 1LL, *(_QWORD *)(*(_QWORD *)(a1 + 32) + 16LL));
+    AweViewPageSize = MiGetAweViewPageSize(a1, v8, 1LL, *(_QWORD *)(*(_QWORD *)(a1 + 32) + 8LL));
     v12 = v11;
     if ( AweViewPageSize )
       v12 = AweViewPageSize;
-    if ( v12 == 16 )
+    if ( v12 != 512 )
       v6 = v11;
   }
   v13 = MiWriteAwePtes(a1, 0, v9, 0, a2, 0);

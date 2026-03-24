@@ -1,27 +1,28 @@
 /*
- * XREFs of InitializePointerDevicesPresenceState @ 0x1C003B250
+ * XREFs of InitializePointerDevicesPresenceState @ 0x1C000A870
  * Callers:
- *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C003B554 (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C000ADD4 (-InitiateWin32kCleanup@@YAHXZ.c)
  * Callees:
- *     ClosePointerDeviceProcessEvents @ 0x1C003A950 (ClosePointerDeviceProcessEvents.c)
- *     FreePointerDeviceClientList @ 0x1C003B1CC (FreePointerDeviceClientList.c)
+ *     FreePointerDeviceClientList @ 0x1C000A8D0 (FreePointerDeviceClientList.c)
  */
 
-int __fastcall InitializePointerDevicesPresenceState(__int64 a1)
+int __fastcall InitializePointerDevicesPresenceState(int a1)
 {
-  _QWORD *v1; // rax
-  __int64 v2; // rcx
+  struct _LIST_ENTRY *v1; // rax
 
-  if ( (_DWORD)a1 )
+  if ( a1 )
   {
-    v1 = (_QWORD *)(SGDGetUserSessionState(a1) + 16352);
-    v1[1] = v1;
-    *v1 = v1;
+    v1 = &gPointerDeviceClients;
+    qword_1C033A738 = (__int64)&gPointerDeviceClients;
+    gPointerDeviceClients.Flink = &gPointerDeviceClients;
   }
   else
   {
-    FreePointerDeviceClientList(a1);
-    LODWORD(v1) = ClosePointerDeviceProcessEvents(v2);
+    LODWORD(v1) = FreePointerDeviceClientList();
+    if ( ghPntrProcRunningEvent )
+      LODWORD(v1) = NtClose(ghPntrProcRunningEvent);
+    if ( ghPntrProcRequestEvent )
+      LODWORD(v1) = NtClose(ghPntrProcRequestEvent);
   }
   return (int)v1;
 }

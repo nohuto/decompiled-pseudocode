@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CreateRegionFromRect@@YAJAEBUtagRECT@@PEAPEAUIRegion@@@Z @ 0x1C016D620
+ * XREFs of ?CreateRegionFromRect@@YAJAEBUtagRECT@@PEAPEAUIRegion@@@Z @ 0x1C013F070
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CRegion@@SAJAEBUtagRECT@@PEAPEAV1@@Z @ 0x1C016D570 (-Create@CRegion@@SAJAEBUtagRECT@@PEAPEAV1@@Z.c)
+ *     ?Create@CRegion@@SAJAEBUtagRECT@@PEAPEAV1@@Z @ 0x1C013EFD0 (-Create@CRegion@@SAJAEBUtagRECT@@PEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall CreateRegionFromRect(struct _RECTL *a1, struct IRegion **a2)

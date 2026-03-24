@@ -3,7 +3,7 @@
  * Callers:
  *     VerifierMmMapIoSpace @ 0x1409448C0 (VerifierMmMapIoSpace.c)
  * Callees:
- *     MiIsPfn @ 0x1400A88C0 (MiIsPfn.c)
+ *     MiIsPfn @ 0x1400A88E0 (MiIsPfn.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  */
 

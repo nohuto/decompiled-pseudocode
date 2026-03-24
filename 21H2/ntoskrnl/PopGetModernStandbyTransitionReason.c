@@ -1,32 +1,40 @@
 /*
- * XREFs of PopGetModernStandbyTransitionReason @ 0x14039A88C
+ * XREFs of PopGetModernStandbyTransitionReason @ 0x140576500
  * Callers:
- *     PopCalculateCsSummary @ 0x140397424 (PopCalculateCsSummary.c)
- *     PopCaptureSleepStudyStatistics @ 0x14039A210 (PopCaptureSleepStudyStatistics.c)
- *     PopDiagTraceSleepStudyStart @ 0x14080A52C (PopDiagTraceSleepStudyStart.c)
- *     PopIdleCsStateChanged @ 0x14099CFAC (PopIdleCsStateChanged.c)
+ *     PopCalculateCsSummary @ 0x14056FEA0 (PopCalculateCsSummary.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
+ *     PopDiagTraceSleepStudyStart @ 0x1408EB288 (PopDiagTraceSleepStudyStart.c)
+ *     PopIdleCsStateChanged @ 0x1408F5634 (PopIdleCsStateChanged.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall PopGetModernStandbyTransitionReason(char a1)
+__int64 __fastcall PopGetModernStandbyTransitionReason(char a1, __int64 *a2)
 {
-  KIRQL v2; // al
-  unsigned int v3; // ebx
-  unsigned __int64 v4; // rsi
+  unsigned __int64 v4; // rdi
+  unsigned int v5; // ebx
+  __int64 v6; // rcx
   unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r10
+  struct _KPRCB *CurrentPrcb; // rax
   _DWORD *SchedulerAssist; // r9
-  int v9; // eax
-  bool v10; // zf
+  int v10; // edx
+  bool v11; // zf
 
-  v2 = KeAcquireSpinLockRaiseToDpc(&PopModernStandbyTransitionInfo);
-  v3 = dword_140C09760;
-  v4 = v2;
+  v4 = KeAcquireSpinLockRaiseToDpc(&PopModernStandbyTransitionInfo);
   if ( a1 )
-    v3 = dword_140C0975C;
+  {
+    v5 = dword_140C11774;
+    v6 = 0LL;
+  }
+  else
+  {
+    v5 = dword_140C11778;
+    v6 = qword_140C11780;
+  }
+  if ( a2 )
+    *a2 = v6;
   KxReleaseSpinLock(&PopModernStandbyTransitionInfo);
   if ( KiIrqlFlags )
   {
@@ -37,14 +45,14 @@ __int64 __fastcall PopGetModernStandbyTransitionReason(char a1)
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-        v10 = (v9 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v9;
-        if ( v10 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+        v11 = (v10 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v10;
+        if ( v11 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
   }
   __writecr8(v4);
-  return v3;
+  return v5;
 }

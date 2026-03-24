@@ -1,11 +1,11 @@
 /*
- * XREFs of EngUnlockDriverObj @ 0x1C016B320
+ * XREFs of EngUnlockDriverObj @ 0x1C014C5A0
  * Callers:
  *     <none>
  * Callees:
- *     HmgLock @ 0x1C0042980 (HmgLock.c)
- *     ??0?$HmgLockResult@VDRVOBJ@@@@QEAA@PEAU_BASEOBJECT@@@Z @ 0x1C00D2DC0 (--0-$HmgLockResult@VDRVOBJ@@@@QEAA@PEAU_BASEOBJECT@@@Z.c)
- *     ??1?$HmgLockResult@VDRVOBJ@@@@QEAA@XZ @ 0x1C00D2E04 (--1-$HmgLockResult@VDRVOBJ@@@@QEAA@XZ.c)
+ *     HmgLock @ 0x1C002EE50 (HmgLock.c)
+ *     ??0?$HmgLockResult@VDRVOBJ@@@@QEAA@PEAU_BASEOBJECT@@@Z @ 0x1C00CBAC8 (--0-$HmgLockResult@VDRVOBJ@@@@QEAA@PEAU_BASEOBJECT@@@Z.c)
+ *     ??1?$HmgLockResult@VDRVOBJ@@@@QEAA@XZ @ 0x1C00CBB0C (--1-$HmgLockResult@VDRVOBJ@@@@QEAA@XZ.c)
  */
 
 BOOL __stdcall EngUnlockDriverObj(HDRVOBJ hdo)

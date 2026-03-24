@@ -1,7 +1,7 @@
 /*
- * XREFs of xtoa @ 0x140195040
+ * XREFs of xtoa @ 0x140195060
  * Callers:
- *     _itoa @ 0x140195010 (_itoa.c)
+ *     _itoa @ 0x140195030 (_itoa.c)
  * Callees:
  *     <none>
  */

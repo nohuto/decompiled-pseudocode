@@ -1,21 +1,20 @@
 /*
- * XREFs of strncmp @ 0x1403E0910
+ * XREFs of strncmp @ 0x1403D1540
  * Callers:
- *     HalpAcpiGetCachedTable @ 0x140213BD4 (HalpAcpiGetCachedTable.c)
- *     HalpAcpiCheckAndMapTable @ 0x140215144 (HalpAcpiCheckAndMapTable.c)
- *     HvlDebuggerSupportInitialize @ 0x1403DF0F4 (HvlDebuggerSupportInitialize.c)
- *     RtlLookupImageSectionByName @ 0x1405EC554 (RtlLookupImageSectionByName.c)
- *     EtwpApplyPredicate @ 0x140637E70 (EtwpApplyPredicate.c)
- *     PopPowerRequestStatsIsDetailedRequestReason @ 0x1407F0E34 (PopPowerRequestStatsIsDetailedRequestReason.c)
- *     RtlValidateCorrelationVector @ 0x1409BB8C0 (RtlValidateCorrelationVector.c)
- *     ApiSetpFindImageSection @ 0x140A0A7C4 (ApiSetpFindImageSection.c)
- *     AslpFileHasSecuromWrapper @ 0x140A19878 (AslpFileHasSecuromWrapper.c)
- *     AslpHasStarForceWrapper @ 0x140A19CEC (AslpHasStarForceWrapper.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x140A202A4 (BiGetObjectReferenceFromEfiEntry.c)
- *     HalpInitializeProfiling @ 0x140A54FB4 (HalpInitializeProfiling.c)
- *     KiGetCpuVendor @ 0x140A56B08 (KiGetCpuVendor.c)
- *     KdInitSystem @ 0x140A70470 (KdInitSystem.c)
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
+ *     HalpAcpiGetCachedTable @ 0x140294814 (HalpAcpiGetCachedTable.c)
+ *     HalpAcpiCheckAndMapTable @ 0x140294BD8 (HalpAcpiCheckAndMapTable.c)
+ *     HvlDebuggerSupportInitialize @ 0x1403CFB90 (HvlDebuggerSupportInitialize.c)
+ *     RtlLookupImageSectionByName @ 0x14058CF04 (RtlLookupImageSectionByName.c)
+ *     EtwpApplyPredicate @ 0x1405B1604 (EtwpApplyPredicate.c)
+ *     RtlValidateCorrelationVector @ 0x140916270 (RtlValidateCorrelationVector.c)
+ *     ApiSetpFindImageSection @ 0x14095EAFC (ApiSetpFindImageSection.c)
+ *     AslpFileHasSecuromWrapper @ 0x14096BB44 (AslpFileHasSecuromWrapper.c)
+ *     AslpHasStarForceWrapper @ 0x14096BDF4 (AslpHasStarForceWrapper.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x140972338 (BiGetObjectReferenceFromEfiEntry.c)
+ *     HalpInitializeProfiling @ 0x14099B5DC (HalpInitializeProfiling.c)
+ *     KiGetCpuVendor @ 0x14099BF68 (KiGetCpuVendor.c)
+ *     KdInitSystem @ 0x1409B5160 (KdInitSystem.c)
+ *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
  * Callees:
  *     <none>
  */

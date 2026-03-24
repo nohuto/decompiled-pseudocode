@@ -1,30 +1,25 @@
 /*
- * XREFs of ?Delete@CVisRgnTrackerProp@@UEAAXXZ @ 0x1C00C8390
+ * XREFs of ?Delete@CVisRgnTrackerProp@@UEAAXXZ @ 0x1C00E91A0
  * Callers:
  *     <none>
  * Callees:
- *     ?FreeTrackedRegions@CVisRgnTrackerProp@@AEAAXXZ @ 0x1C00C83F4 (-FreeTrackedRegions@CVisRgnTrackerProp@@AEAAXXZ.c)
+ *     ?FreeTrackedRegions@CVisRgnTrackerProp@@AEAAXXZ @ 0x1C00E91F8 (-FreeTrackedRegions@CVisRgnTrackerProp@@AEAAXXZ.c)
  */
 
-void __fastcall CVisRgnTrackerProp::Delete(CVisRgnTrackerProp *this)
+void __fastcall CVisRgnTrackerProp::Delete(CVisRgnTrackerProp ***this)
 {
-  unsigned __int64 v2; // rcx
-  __int64 v3; // rdx
-  _QWORD *v4; // rax
+  CVisRgnTrackerProp **v2; // rcx
+  CVisRgnTrackerProp **v3; // rdx
 
-  CVisRgnTrackerProp::FreeTrackedRegions(this);
-  if ( *((_BYTE *)this + 73) )
+  CVisRgnTrackerProp::FreeTrackedRegions((CVisRgnTrackerProp *)this);
+  if ( *((_BYTE *)this + 65) )
   {
-    v2 = ((unsigned __int64)this + 24) & -(__int64)(this != 0LL);
-    v3 = *(_QWORD *)v2;
-    if ( *(_QWORD *)(*(_QWORD *)v2 + 8LL) != v2
-      || (v4 = *(_QWORD **)((((unsigned __int64)this + 24) & -(__int64)(this != 0LL)) + 8), *v4 != v2) )
-    {
+    v2 = this[2];
+    if ( v2[1] != (CVisRgnTrackerProp *)(this + 2) || (v3 = this[3], *v3 != (CVisRgnTrackerProp *)(this + 2)) )
       __fastfail(3u);
-    }
-    *v4 = v3;
-    *(_QWORD *)(v3 + 8) = v4;
-    *((_BYTE *)this + 73) = 0;
+    *v3 = (CVisRgnTrackerProp *)v2;
+    v2[1] = (CVisRgnTrackerProp *)v3;
+    *((_BYTE *)this + 65) = 0;
   }
   Win32FreePool(this);
 }

@@ -1,20 +1,16 @@
 /*
- * XREFs of HalpDmaReferenceDomainObject @ 0x14038F4EC
+ * XREFs of HalpDmaReferenceDomainObject @ 0x1403A0D14
  * Callers:
- *     HalJoinDmaDomain @ 0x14038EA90 (HalJoinDmaDomain.c)
- *     HalpDmaAllocateDomain @ 0x14038EB20 (HalpDmaAllocateDomain.c)
- *     HalpDmaIsAutomaticDomain @ 0x14038F240 (HalpDmaIsAutomaticDomain.c)
- *     HalpAllocateCommonBufferDmaThin @ 0x14038F344 (HalpAllocateCommonBufferDmaThin.c)
- *     HalpAllocateCommonBufferVectorInternal @ 0x14050F530 (HalpAllocateCommonBufferVectorInternal.c)
- *     HalCreateCommonBufferFromMdl @ 0x140511F50 (HalCreateCommonBufferFromMdl.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x140512490 (HalpAllocateDomainCommonBufferInternal.c)
- *     HalCreateCommonBufferFromMdlDmaThin @ 0x1405130A0 (HalCreateCommonBufferFromMdlDmaThin.c)
- *     HalCreateCommonBufferFromMdlDmarThin @ 0x1405138B0 (HalCreateCommonBufferFromMdlDmarThin.c)
- *     HalpAllocateCommonBufferDmarThin @ 0x140513C18 (HalpAllocateCommonBufferDmarThin.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x1403A0AF4 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalJoinDmaDomain @ 0x1403C6AE0 (HalJoinDmaDomain.c)
+ *     HalpDmaAllocateDomain @ 0x1403C6BB8 (HalpDmaAllocateDomain.c)
+ *     HalpDmaIsAutomaticDomain @ 0x1404C4B90 (HalpDmaIsAutomaticDomain.c)
+ *     HalAllocateCommonBufferVector @ 0x1404C5640 (HalAllocateCommonBufferVector.c)
+ *     HalpAllocateCommonBufferThin @ 0x1404CB230 (HalpAllocateCommonBufferThin.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpDmaReferenceDomainObject(__int64 a1)
@@ -37,25 +33,28 @@ __int64 __fastcall HalpDmaReferenceDomainObject(__int64 a1)
   {
     if ( (__int64 *)a1 == v4 )
     {
-      ++*(_DWORD *)(a1 + 112);
+      ++*(_DWORD *)(a1 + 128);
       v2 = 1;
       break;
     }
     v4 = (__int64 *)*v4;
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&HalpDmaDomainListLock);
+  KxReleaseSpinLock(&HalpDmaDomainListLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-      v11 = (v10 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v10;
-      if ( v11 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v11 = (v10 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v10;
+        if ( v11 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v5);

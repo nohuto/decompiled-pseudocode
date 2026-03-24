@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlNotifyFullChangeDirectory @ 0x1409300F0
+ * XREFs of FsRtlNotifyFullChangeDirectory @ 0x14088D670
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlNotifyFilterChangeDirectory @ 0x1406AAE50 (FsRtlNotifyFilterChangeDirectory.c)
+ *     FsRtlNotifyFilterChangeDirectory @ 0x140690480 (FsRtlNotifyFilterChangeDirectory.c)
  */
 
 void __stdcall FsRtlNotifyFullChangeDirectory(

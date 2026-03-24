@@ -1,16 +1,22 @@
 /*
- * XREFs of PspWow64GetSharedInformation @ 0x14084E398
+ * XREFs of PspWow64GetSharedInformation @ 0x140612094
  * Callers:
- *     PsThawMultiProcess @ 0x1402044E4 (PsThawMultiProcess.c)
- *     PspInitializeSystemDlls @ 0x140B686FC (PspInitializeSystemDlls.c)
+ *     PspPrepareSystemDllInitBlock @ 0x140611E28 (PspPrepareSystemDllInitBlock.c)
+ *     PspWow64InitThread @ 0x140679DC0 (PspWow64InitThread.c)
+ *     PsThawProcess @ 0x1406857E4 (PsThawProcess.c)
+ *     PspInitializeSystemDlls @ 0x140A4B284 (PspInitializeSystemDlls.c)
  * Callees:
  *     <none>
  */
 
 void *__fastcall PspWow64GetSharedInformation(int a1)
 {
-  if ( a1 == 1 )
+  int v1; // ecx
+
+  v1 = a1 - 1;
+  if ( !v1 )
     return &PsWowX86SharedInformation;
-  else
-    return 0LL;
+  if ( v1 == 1 )
+    return &PsWowArm32SharedInformation;
+  return 0LL;
 }

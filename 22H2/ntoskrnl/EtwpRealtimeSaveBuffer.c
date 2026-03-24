@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpRealtimeSaveBuffer @ 0x1407F61BC
+ * XREFs of EtwpRealtimeSaveBuffer @ 0x1406A1ABC
  * Callers:
- *     EtwpFlushBufferToRealtime @ 0x1406BD8AC (EtwpFlushBufferToRealtime.c)
- *     EtwpRealtimeSendEmptyMarker @ 0x1407F7B40 (EtwpRealtimeSendEmptyMarker.c)
- *     EtwpRealtimeUpdateReferenceTime @ 0x1408863B8 (EtwpRealtimeUpdateReferenceTime.c)
+ *     EtwpFlushBufferToRealtime @ 0x1406BE9F4 (EtwpFlushBufferToRealtime.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x140714534 (EtwpRealtimeSendEmptyMarker.c)
+ *     EtwpRealtimeUpdateReferenceTime @ 0x1407D04F8 (EtwpRealtimeUpdateReferenceTime.c)
  * Callees:
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     ZwWriteFile @ 0x14041A7A0 (ZwWriteFile.c)
- *     EtwpEventWriteTemplateAdmin @ 0x1409E3A70 (EtwpEventWriteTemplateAdmin.c)
- *     EtwpEventWriteTemplateBackingFile @ 0x1409E3B30 (EtwpEventWriteTemplateBackingFile.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     ZwWriteFile @ 0x1403F9B20 (ZwWriteFile.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x140939BAC (EtwpEventWriteTemplateAdmin.c)
+ *     EtwpEventWriteTemplateBackingFile @ 0x140939C6C (EtwpEventWriteTemplateBackingFile.c)
  */
 
 __int64 __fastcall EtwpRealtimeSaveBuffer(__int64 a1, __int64 Buffer)
@@ -19,27 +19,26 @@ __int64 __fastcall EtwpRealtimeSaveBuffer(__int64 a1, __int64 Buffer)
   __int64 QuadPart; // r9
   NTSTATUS v8; // ebp
   LONGLONG v9; // r8
-  int v10; // ecx
+  __int64 v10; // rax
   unsigned __int64 v11; // rcx
-  unsigned __int64 v12; // rax
-  bool v14; // sf
-  int v15; // edx
-  int v16; // ecx
-  int v17; // r8d
-  int v18; // edx
-  int v19; // ecx
+  bool v13; // sf
+  int v14; // edx
+  int v15; // ecx
+  int v16; // r8d
+  int v17; // edx
+  int v18; // ecx
+  int v19; // r8d
   int v20; // r8d
-  int v21; // r8d
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-18h] BYREF
   LARGE_INTEGER ByteOffset; // [rsp+70h] [rbp+8h] BYREF
 
-  v2 = *(LARGE_INTEGER *)(a1 + 384);
-  v3 = *(_QWORD *)(a1 + 400);
+  v2 = *(LARGE_INTEGER *)(a1 + 400);
+  v3 = *(_QWORD *)(a1 + 416);
   IoStatusBlock = 0LL;
-  v5 = *(_QWORD *)(a1 + 392);
+  v5 = *(_QWORD *)(a1 + 408);
   ByteOffset = v2;
   QuadPart = v2.QuadPart;
-  if ( v2.QuadPart >= v5 && v2.QuadPart + *(unsigned int *)(Buffer + 48) > *(_QWORD *)(a1 + 416) )
+  if ( v2.QuadPart >= v5 && v2.QuadPart + *(unsigned int *)(Buffer + 48) > *(_QWORD *)(a1 + 432) )
   {
     QuadPart = 72LL;
     v3 = v2.QuadPart;
@@ -48,7 +47,7 @@ __int64 __fastcall EtwpRealtimeSaveBuffer(__int64 a1, __int64 Buffer)
   if ( QuadPart >= v5 || QuadPart + *(unsigned int *)(Buffer + 48) < v5 )
   {
     v8 = ZwWriteFile(
-           *(HANDLE *)(a1 + 360),
+           *(HANDLE *)(a1 + 376),
            0LL,
            0LL,
            0LL,
@@ -59,55 +58,54 @@ __int64 __fastcall EtwpRealtimeSaveBuffer(__int64 a1, __int64 Buffer)
            0LL);
     if ( v8 < 0 )
     {
-      ++*(_DWORD *)(a1 + 260);
-      *(_DWORD *)(a1 + 448) = 2;
+      ++*(_DWORD *)(a1 + 276);
+      *(_DWORD *)(a1 + 464) = 2;
       if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_WRITE_FAILED) )
         EtwpEventWriteTemplateAdmin(
-          a1 + 368,
+          a1 + 384,
           (unsigned int)&ETW_EVENT_WRITE_FAILED,
-          v21,
-          a1 + 136,
-          a1 + 368,
+          v20,
+          a1 + 152,
+          a1 + 384,
           v8,
           *(_DWORD *)(a1 + 12));
     }
     else
     {
       v9 = ByteOffset.QuadPart + *(unsigned int *)(Buffer + 48);
-      v10 = *(_DWORD *)(a1 + 236);
-      *(_QWORD *)(a1 + 384) = v9;
+      v10 = *(_QWORD *)(a1 + 432);
+      *(_QWORD *)(a1 + 400) = v9;
       if ( v3 <= v9 )
         v3 = v9;
-      v11 = (unsigned int)(*(_DWORD *)(a1 + 4) * v10);
-      *(_QWORD *)(a1 + 400) = v3;
-      *(_QWORD *)(a1 + 408) += *(unsigned int *)(Buffer + 48);
-      v12 = *(_QWORD *)(a1 + 416) - *(_QWORD *)(a1 + 408);
-      ++*(_DWORD *)(a1 + 424);
-      if ( v12 <= v11 && *(int *)(a1 + 16) >= 0 )
+      *(_QWORD *)(a1 + 416) = v3;
+      *(_QWORD *)(a1 + 424) += *(unsigned int *)(Buffer + 48);
+      v11 = (unsigned int)(*(_DWORD *)(a1 + 4) * *(_DWORD *)(a1 + 252));
+      ++*(_DWORD *)(a1 + 440);
+      if ( v10 - *(_QWORD *)(a1 + 424) <= v11 && *(int *)(a1 + 16) >= 0 )
       {
         _InterlockedExchange((volatile __int32 *)(a1 + 16), -1073741432);
         if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_BACKING_FILE_FULL) )
-          EtwpEventWriteTemplateBackingFile(v19, v18, v20, a1 + 136);
+          EtwpEventWriteTemplateBackingFile(v18, v17, v19, a1 + 152);
       }
-      if ( !v8 )
-      {
-        if ( *(_WORD *)(Buffer + 54) == 6 )
-          _InterlockedOr((volatile signed __int32 *)(a1 + 816), 0x10000000u);
-        else
-          _InterlockedAnd((volatile signed __int32 *)(a1 + 816), 0xEFFFFFFF);
-      }
+    }
+    if ( !v8 )
+    {
+      if ( *(_WORD *)(Buffer + 54) == 6 )
+        _InterlockedOr((volatile signed __int32 *)(a1 + 832), 0x10000000u);
+      else
+        _InterlockedAnd((volatile signed __int32 *)(a1 + 832), 0xEFFFFFFF);
     }
     return (unsigned int)v8;
   }
   else
   {
-    ++*(_DWORD *)(a1 + 260);
-    v14 = *(int *)(a1 + 16) < 0;
-    *(_DWORD *)(a1 + 448) = 2;
-    if ( !v14 )
+    ++*(_DWORD *)(a1 + 276);
+    v13 = *(int *)(a1 + 16) < 0;
+    *(_DWORD *)(a1 + 464) = 2;
+    if ( !v13 )
       _InterlockedExchange((volatile __int32 *)(a1 + 16), -1073741432);
     if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_BACKING_FILE_FULL) )
-      EtwpEventWriteTemplateBackingFile(v16, v15, v17, a1 + 136);
+      EtwpEventWriteTemplateBackingFile(v15, v14, v16, a1 + 152);
     return 3221225864LL;
   }
 }

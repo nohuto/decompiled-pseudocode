@@ -1,154 +1,182 @@
 /*
- * XREFs of zzzDestroyQueue @ 0x1C012DDE0
+ * XREFs of zzzDestroyQueue @ 0x1C011D730
  * Callers:
- *     xxxCreateThreadInfo @ 0x1C004D550 (xxxCreateThreadInfo.c)
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
+ *     xxxCreateThreadInfo @ 0x1C003ED88 (xxxCreateThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
  * Callees:
- *     FreeQueue @ 0x1C0038668 (FreeQueue.c)
- *     ?IsAnyThreadAttached@tagQ@@QEBA_NXZ @ 0x1C003869C (-IsAnyThreadAttached@tagQ@@QEBA_NXZ.c)
- *     IsFreeMessageListSupported @ 0x1C00386BC (IsFreeMessageListSupported.c)
- *     FreeMessageList @ 0x1C00386E8 (FreeMessageList.c)
- *     ApiSetEditionUpdateRawMouseMode @ 0x1C0050440 (ApiSetEditionUpdateRawMouseMode.c)
- *     ?UnlockFocusWnd@tagQ@@QEAAPEAUtagWND@@XZ @ 0x1C0056CC0 (-UnlockFocusWnd@tagQ@@QEAAPEAUtagWND@@XZ.c)
- *     HMAssignmentUnlock @ 0x1C0056D00 (HMAssignmentUnlock.c)
- *     RecalculateQueueInfo @ 0x1C0098220 (RecalculateQueueInfo.c)
- *     IsClearDelegationCaptureSupported @ 0x1C009B050 (IsClearDelegationCaptureSupported.c)
- *     LockQCursor @ 0x1C009E354 (LockQCursor.c)
- *     ?RemoveThreadFromQSharingLists@tagTHREADINFO@@QEAA_NPEAUtagQ@@@Z @ 0x1C00A3210 (-RemoveThreadFromQSharingLists@tagTHREADINFO@@QEAA_NPEAUtagQ@@@Z.c)
- *     ClearDelegationCapture @ 0x1C00AA064 (ClearDelegationCapture.c)
- *     SetWakeBit @ 0x1C00C2C14 (SetWakeBit.c)
- *     xxxWindowEvent @ 0x1C00C4C0C (xxxWindowEvent.c)
- *     ?SetActiveWindow@tagQ@@QEAAPEAUtagWND@@PEAU2@@Z @ 0x1C00CFF20 (-SetActiveWindow@tagQ@@QEAAPEAUtagWND@@PEAU2@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_AND_TRACE_SF_qqq @ 0x1C012D794 (WPP_RECORDER_AND_TRACE_SF_qqq.c)
- *     ApiSetEditionSystemGenerateMove @ 0x1C0207A40 (ApiSetEditionSystemGenerateMove.c)
+ *     WPP_RECORDER_SF_qqq @ 0x1C0006624 (WPP_RECORDER_SF_qqq.c)
+ *     ??0?$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00073E0 (--0-$CLockExclusiveAllowRecursion@VDLT_QUEUE@@@@QEAA@AEAUtagObjLock@@@Z.c)
+ *     LockQCursor @ 0x1C00074E0 (LockQCursor.c)
+ *     Win32FreeToPagedLookasideList @ 0x1C002CF10 (Win32FreeToPagedLookasideList.c)
+ *     HMAssignmentUnlock @ 0x1C0031AA0 (HMAssignmentUnlock.c)
+ *     ApiSetEditionUpdateRawMouseMode @ 0x1C00462DC (ApiSetEditionUpdateRawMouseMode.c)
+ *     RecalculateQueueInfo @ 0x1C0083770 (RecalculateQueueInfo.c)
+ *     FreeMessageList @ 0x1C0094B18 (FreeMessageList.c)
+ *     IsFreeMessageListSupported @ 0x1C0095F54 (IsFreeMessageListSupported.c)
+ *     IsClearDelegationCaptureSupported @ 0x1C0098E04 (IsClearDelegationCaptureSupported.c)
+ *     ClearDelegationCapture @ 0x1C0099F84 (ClearDelegationCapture.c)
+ *     ApiSetEditionSystemGenerateMove @ 0x1C00A790C (ApiSetEditionSystemGenerateMove.c)
+ *     SetWakeBit @ 0x1C00B6ABC (SetWakeBit.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     xxxWindowEvent @ 0x1C01FC790 (xxxWindowEvent.c)
  */
 
-void __fastcall zzzDestroyQueue(tagQ *this, tagTHREADINFO *a2)
+__int64 (*__fastcall zzzDestroyQueue(__int64 a1, __int64 a2))(void)
 {
-  int v2; // esi
-  char v5; // dl
-  __int64 v6; // rdx
+  int v4; // r15d
+  int v5; // edx
   __int64 v7; // rbp
-  __int64 v8; // r11
-  __int64 v9; // r8
-  __int64 v10; // r10
-  int v11; // r9d
-  __int64 v12; // r14
-  __int64 v13; // rdx
-  int v14; // eax
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  int v18; // [rsp+20h] [rbp-48h]
+  _QWORD *v8; // r11
+  _QWORD *v9; // r10
+  _QWORD *v10; // r8
+  _QWORD *i; // r9
+  _QWORD *v12; // rdx
+  __int64 v13; // r14
+  __int16 v14; // si
+  __int64 v15; // r14
+  int v16; // esi
+  __int64 v17; // r8
+  __int64 v18; // xmm1_8
+  __int64 (*result)(void); // rax
+  __int64 v20; // rdx
+  int v21; // eax
+  int v22; // esi
+  int v23; // eax
+  __int128 v24; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v25; // [rsp+50h] [rbp-28h]
 
-  v2 = 0;
-  if ( a2 )
-    tagTHREADINFO::RemoveThreadFromQSharingLists(a2, this);
-  if ( tagQ::IsAnyThreadAttached(this) )
+  v4 = 0;
+  CLockExclusiveAllowRecursion<DLT_QUEUE>::CLockExclusiveAllowRecursion<DLT_QUEUE>((__int64)&v24, a1);
+  if ( (*(_DWORD *)(a1 + 392))-- == 1 )
   {
-    if ( *((tagTHREADINFO **)this + 9) == a2 )
+    if ( gpqForeground == a1 )
     {
-      v5 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40000) != 0
-        && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_AND_TRACE_SF_qqq(
-          (__int64)WPP_GLOBAL_Control->AttachedDevice,
-          v5,
-          WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-          (__int64)WPP_MAIN_CB.Queue.ListEntry.Flink,
-          v18,
-          0x13u,
-          0xBu,
-          (__int64)&WPP_58e5e48e7cdb3be4103bc9d4c641fa22_Traceguids);
-      *((_QWORD *)this + 9) = 0LL;
-    }
-    if ( a2 && (*((tagTHREADINFO **)this + 13) == a2 || *((tagTHREADINFO **)this + 12) == a2) )
-    {
-      v6 = *((_QWORD *)this + 60);
-      v7 = 0LL;
-      v8 = 0LL;
-      v9 = 0LL;
-      while ( v6 )
+      v20 = *(_QWORD *)(a1 + 112);
+      if ( v20 )
       {
-        if ( (*(_DWORD *)(v6 + 488) & 1) == 0 )
-        {
-          v10 = *((_QWORD *)a2 + 56);
-          v7 = v6;
-          v11 = *(_DWORD *)(v10 + 8);
-          if ( (v11 & 6) != 0 && (*(_BYTE *)(*(_QWORD *)(v6 + 448) + 16LL) & 6) != 0 )
-            v8 = v6;
-          if ( (v11 & 1) != 0 && (*(_BYTE *)(*(_QWORD *)(v6 + 448) + 16LL) & 1) != 0 )
-            v9 = v6;
-          if ( (*(_DWORD *)(v10 + 16) & 0x400) != 0 && (*(_DWORD *)(*(_QWORD *)(v6 + 448) + 16LL) & 0x400) != 0 )
-            v9 = v6;
-        }
-        v6 = *(_QWORD *)(v6 + 1528);
-      }
-      v12 = v7;
-      if ( v8 )
-        v12 = v8;
-      if ( v9 )
-        v7 = v9;
-      if ( qword_1C0295580 && (int)qword_1C0295580() >= 0 )
-      {
-        if ( v12 )
-          SetWakeBit(v12, *(_DWORD *)(*((_QWORD *)a2 + 56) + 8LL) & 6);
-        if ( v7 )
-        {
-          SetWakeBit(v7, *(_DWORD *)(*((_QWORD *)a2 + 56) + 8LL) & 1);
-          SetWakeBit(v7, *(_DWORD *)(*((_QWORD *)a2 + 56) + 8LL) & 0x400);
-        }
-      }
-      if ( *((tagTHREADINFO **)this + 13) == a2 )
-        *((_QWORD *)this + 13) = v7;
-      if ( *((tagTHREADINFO **)this + 12) == a2 )
-      {
-        *((_QWORD *)this + 12) = v12;
-        ApiSetEditionUpdateRawMouseMode((__int64)this);
+        v21 = 49;
+        if ( gdwDeferWinEvent )
+          v21 = 51;
+        xxxWindowEvent(-2147483645, v20, 0, 6, v21);
       }
     }
-    RecalculateQueueInfo();
+    v22 = -1073741637;
+    if ( qword_1C0256130 )
+      v23 = qword_1C0256130();
+    else
+      v23 = -1073741637;
+    if ( v23 >= 0 && qword_1C0256138 )
+      qword_1C0256138(a1);
+    HMAssignmentUnlock((__int64 *)(a1 + 112));
+    HMAssignmentUnlock((__int64 *)(a1 + 120));
+    HMAssignmentUnlock((__int64 *)(a1 + 128));
+    if ( (int)IsClearDelegationCaptureSupported() >= 0 )
+      ClearDelegationCapture();
+    HMAssignmentUnlock((__int64 *)(a1 + 296));
+    LockQCursor(a1, 0LL);
+    if ( (int)IsFreeMessageListSupported() >= 0 )
+    {
+      CLockExclusiveAllowRecursion<DLT_QUEUE>::CLockExclusiveAllowRecursion<DLT_QUEUE>((__int64)&v24, a1);
+      FreeMessageList(a1 + 24);
+    }
+    result = qword_1C0256150;
+    if ( qword_1C0256150 )
+    {
+      result = (__int64 (*)(void))qword_1C0256150();
+      v22 = (int)result;
+    }
+    if ( v22 >= 0 && gpqForeground == a1 )
+    {
+      result = (__int64 (*)(void))qword_1C0256158;
+      if ( qword_1C0256158 )
+        result = (__int64 (*)(void))qword_1C0256158(0LL);
+    }
+    if ( gpqForegroundPrev == a1 )
+      gpqForegroundPrev = 0LL;
+    if ( gpqCursor == (struct tagQ *)a1 )
+    {
+      gpqCursor = 0LL;
+      v4 = 1;
+    }
+    if ( *(_DWORD *)(a1 + 396) )
+      *(_DWORD *)(a1 + 388) |= 0x4000000u;
+    else
+      result = Win32FreeToPagedLookasideList((__int64)QLookaside, a1);
+    if ( v4 )
+      return (__int64 (*)(void))ApiSetEditionSystemGenerateMove(2u);
   }
   else
   {
-    if ( (tagQ *)gpqForeground == this )
+    if ( *(_QWORD *)(a1 + 64) == a2 )
     {
-      v13 = *((_QWORD *)this + 15);
-      if ( v13 )
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v14 = 49;
-        if ( gdwDeferWinEvent )
-          v14 = 51;
-        xxxWindowEvent(2147483651LL, v13, 0LL, 6LL, v14);
+        LOBYTE(v5) = 4;
+        WPP_RECORDER_SF_qqq(
+          WPP_MAIN_CB.Queue.ListEntry.Flink,
+          v5,
+          19,
+          17,
+          (__int64)&WPP_fd8c6326b31137ef50dc3f85fe1c9044_Traceguids,
+          a1,
+          (char)gptiCurrent,
+          *(_QWORD *)(a1 + 64));
+      }
+      *(_QWORD *)(a1 + 64) = 0LL;
+    }
+    if ( *(_QWORD *)(a1 + 96) == a2 || *(_QWORD *)(a1 + 88) == a2 )
+    {
+      v7 = 0LL;
+      v8 = 0LL;
+      v9 = 0LL;
+      v10 = (_QWORD *)(*(_QWORD *)(a2 + 456) + 168LL);
+      for ( i = (_QWORD *)*v10; i != v10; i = (_QWORD *)*i )
+      {
+        v12 = i - 93;
+        if ( (*(_DWORD *)(i - 32) & 1) == 0 && v12[54] == a1 )
+        {
+          v13 = *(_QWORD *)(a2 + 448);
+          v7 = (__int64)(i - 93);
+          v14 = *(_WORD *)(v13 + 6);
+          if ( (v14 & 6) != 0 && (*(_BYTE *)(v12[56] + 10LL) & 6) != 0 )
+            v8 = i - 93;
+          if ( (v14 & 1) != 0 && (*(_BYTE *)(v12[56] + 10LL) & 1) != 0 )
+            v9 = i - 93;
+          if ( (*(_WORD *)(v13 + 10) & 0x400) != 0 && (*(_WORD *)(v12[56] + 10LL) & 0x400) != 0 )
+            v9 = i - 93;
+        }
+      }
+      v15 = v7;
+      if ( v8 )
+        v15 = (__int64)v8;
+      if ( v9 )
+        v7 = (__int64)v9;
+      if ( qword_1C0256110 )
+        v16 = qword_1C0256110();
+      else
+        v16 = -1073741637;
+      if ( v16 >= 0 )
+      {
+        if ( v15 )
+          SetWakeBit(v15, *(_WORD *)(*(_QWORD *)(a2 + 448) + 6LL) & 6, (__int64)v10);
+        if ( v7 )
+        {
+          SetWakeBit(v7, *(_WORD *)(*(_QWORD *)(a2 + 448) + 6LL) & 1, (__int64)v10);
+          SetWakeBit(v7, *(_WORD *)(*(_QWORD *)(a2 + 448) + 6LL) & 0x400, v17);
+        }
+      }
+      v18 = *(_QWORD *)(a1 + 16);
+      v24 = *(_OWORD *)a1;
+      v25 = v18;
+      if ( *(_QWORD *)(a1 + 96) == a2 )
+        *(_QWORD *)(a1 + 96) = v7;
+      if ( *(_QWORD *)(a1 + 88) == a2 )
+      {
+        *(_QWORD *)(a1 + 88) = v15;
+        ApiSetEditionUpdateRawMouseMode(a1);
       }
     }
-    if ( qword_1C02955A0 && (int)qword_1C02955A0() >= 0 && qword_1C02955A8 )
-      qword_1C02955A8(this);
-    tagQ::UnlockFocusWnd(this);
-    tagQ::SetActiveWindow(this, 0LL);
-    HMAssignmentUnlock((__int64 *)this + 17);
-    if ( (int)IsClearDelegationCaptureSupported() >= 0 )
-      ClearDelegationCapture();
-    HMAssignmentUnlock((__int64 *)this + 38);
-    LockQCursor((__int64)this, 0LL);
-    if ( (int)IsFreeMessageListSupported() >= 0 )
-      FreeMessageList((__int64)this + 24);
-    if ( qword_1C02955C0 && (int)qword_1C02955C0() >= 0 && (tagQ *)gpqForeground == this && qword_1C02955C8 )
-      qword_1C02955C8(0LL);
-    if ( (tagQ *)gpqForegroundPrev == this )
-      gpqForegroundPrev = 0LL;
-    if ( gpqCursor == this )
-    {
-      gpqCursor = 0LL;
-      v2 = 1;
-    }
-    if ( *((_DWORD *)this + 100) )
-      *((_DWORD *)this + 99) |= 0x4000000u;
-    else
-      FreeQueue(this, v15, v16, v17);
-    if ( v2 )
-      ApiSetEditionSystemGenerateMove(2LL);
+    return (__int64 (*)(void))RecalculateQueueInfo();
   }
+  return result;
 }

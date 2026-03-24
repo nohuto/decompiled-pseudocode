@@ -1,24 +1,24 @@
 /*
- * XREFs of ?Allocate@FxPagedLookasideListFromPool@@UEAAJPEAPEAVFxMemoryObject@@@Z @ 0x1C006A550
+ * XREFs of ?Allocate@FxPagedLookasideListFromPool@@UEAAJPEAPEAVFxMemoryObject@@@Z @ 0x1C0054B60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     FxAllocateFromNPagedLookasideList @ 0x1C0038024 (FxAllocateFromNPagedLookasideList.c)
- *     ??0FxMemoryBufferFromLookaside@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxLookasideList@@_KG@Z @ 0x1C0038B70 (--0FxMemoryBufferFromLookaside@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxLookasideList@@_KG@Z.c)
- *     ??0FxMemoryBufferFromPoolLookaside@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxLookasideList@@_KPEAX@Z @ 0x1C0038C44 (--0FxMemoryBufferFromPoolLookaside@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxLookasideList@@_KPEAX@Z.c)
- *     ?InitObjectAlloc@FxLookasideList@@IEAAPEAXPEAX@Z @ 0x1C0038D36 (-InitObjectAlloc@FxLookasideList@@IEAAPEAXPEAX@Z.c)
- *     ?FxObjectAndHandleHeaderInit@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAU_WDF_OBJECT_ATTRIBUTES@@W4FxObjectType@@@Z @ 0x1C0038DCA (-FxObjectAndHandleHeaderInit@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAU_WDF_OBJECT_ATTRIBUTES@@W4F.c)
- *     ?InitPagedAlloc@FxPagedLookasideListFromPool@@IEAAPEAXPEAX@Z @ 0x1C006A810 (-InitPagedAlloc@FxPagedLookasideListFromPool@@IEAAPEAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     FxAllocateFromNPagedLookasideList @ 0x1C0035954 (FxAllocateFromNPagedLookasideList.c)
+ *     ?InitPagedAlloc@FxPagedLookasideListFromPool@@IEAAPEAXPEAX@Z @ 0x1C0054E20 (-InitPagedAlloc@FxPagedLookasideListFromPool@@IEAAPEAXPEAX@Z.c)
+ *     ??0FxMemoryBufferFromLookaside@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxLookasideList@@_KG@Z @ 0x1C0055FFC (--0FxMemoryBufferFromLookaside@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxLookasideList@@_KG@Z.c)
+ *     ??0FxMemoryBufferFromPoolLookaside@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxLookasideList@@_KPEAX@Z @ 0x1C00560D4 (--0FxMemoryBufferFromPoolLookaside@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxLookasideList@@_KPEAX@Z.c)
+ *     ?InitObjectAlloc@FxLookasideList@@IEAAPEAXPEAX@Z @ 0x1C005626C (-InitObjectAlloc@FxLookasideList@@IEAAPEAXPEAX@Z.c)
+ *     ?FxObjectAndHandleHeaderInit@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAU_WDF_OBJECT_ATTRIBUTES@@W4FxObjectType@@@Z @ 0x1C0056794 (-FxObjectAndHandleHeaderInit@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAU_WDF_OBJECT_ATTRIBUTES@@W4F.c)
  */
 
 __int64 __fastcall FxPagedLookasideListFromPool::Allocate(
         FxPagedLookasideListFromPool *this,
         FxMemoryBufferFromLookaside **PPMemory)
 {
-  FX_POOL_TRACKER *v4; // rax
+  PSLIST_ENTRY v4; // rax
   __int64 result; // rax
-  FX_POOL **inited; // rsi
+  FxMemoryBufferFromLookaside *inited; // rsi
   PSLIST_ENTRY v7; // rbp
   _WDF_OBJECT_ATTRIBUTES *p_m_MemoryAttributes; // r9
   _FX_DRIVER_GLOBALS *m_Globals; // rcx
@@ -27,11 +27,12 @@ __int64 __fastcall FxPagedLookasideListFromPool::Allocate(
   FxDeviceBase *m_MemoryDeviceBase; // rbx
   FxMemoryBufferFromPoolLookaside *v13; // rax
   FxMemoryBufferFromLookaside *v14; // rax
+  unsigned __int16 ObjectType; // [rsp+20h] [rbp-18h]
 
-  v4 = (FX_POOL_TRACKER *)FxAllocateFromNPagedLookasideList(&this->m_ObjectLookaside, (unsigned __int64)PPMemory);
+  v4 = FxAllocateFromNPagedLookasideList(&this->m_ObjectLookaside, (unsigned __int64)PPMemory);
   if ( !v4 )
     return 3221225626LL;
-  inited = FxLookasideList::InitObjectAlloc(this, v4);
+  inited = (FxMemoryBufferFromLookaside *)FxLookasideList::InitObjectAlloc(this, v4);
   ++this->m_PoolLookaside.L.TotalAllocates;
   v7 = ExpInterlockedPopEntrySList(&this->m_PoolLookaside.L.ListHead);
   if ( !v7 )
@@ -44,7 +45,7 @@ __int64 __fastcall FxPagedLookasideListFromPool::Allocate(
   }
   if ( !v7 )
   {
-    this->Reclaim(this, (FxMemoryBufferFromLookaside *)inited);
+    this->Reclaim(this, inited);
     return 3221225626LL;
   }
   if ( this->m_BufferSize < 0x1000 )
@@ -84,7 +85,7 @@ LABEL_14:
   if ( !v10 )
     goto LABEL_14;
   m_MemoryDeviceBase = this->m_MemoryDeviceBase;
-  FxMemoryBufferFromLookaside::FxMemoryBufferFromLookaside(v10, this->m_Globals, this, this->m_BufferSize);
+  FxMemoryBufferFromLookaside::FxMemoryBufferFromLookaside(v10, this->m_Globals, this, this->m_BufferSize, ObjectType);
   v11[1].FxMemoryObject::FxObject::__vftable = (FxMemoryBufferFromLookaside_vtbl *)v7;
   v11->FxMemoryObject::FxObject::__vftable = (FxMemoryBufferFromLookaside_vtbl *)FxMemoryBufferFromPoolLookaside::`vftable'{for `FxObject'};
   v11->FxMemoryObject::IFxMemory::__vftable = (IFxMemory_vtbl *)FxMemoryBufferFromPoolLookaside::`vftable'{for `IFxMemory'};

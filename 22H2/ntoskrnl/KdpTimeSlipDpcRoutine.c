@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpTimeSlipDpcRoutine @ 0x140AB2000
+ * XREFs of KdpTimeSlipDpcRoutine @ 0x1409B8F70
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
  */
 
 void __fastcall KdpTimeSlipDpcRoutine(

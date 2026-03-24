@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CMultiPrimitiveDrawListBrush@@UEBA_NW4DrawListBrushType@@@Z @ 0x1800E2C10
+ * XREFs of ?IsOfType@CMultiPrimitiveDrawListBrush@@UEBA_NW4DrawListBrushType@@@Z @ 0x1800C8BE0
  * Callers:
  *     <none>
  * Callees:

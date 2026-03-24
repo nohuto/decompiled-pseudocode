@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CVisualSurface@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800F7C90
+ * XREFs of ?IsOfType@CVisualSurface@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801F25F0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CVisualSurface::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 202;
+  return a2 == 200;
 }

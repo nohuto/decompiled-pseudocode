@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetMetaData@CIndirectSwapchainRenderTarget@@AEAAXPEAPEAXPEAI@Z @ 0x1801EF2D0
+ * XREFs of ?GetMetaData@CIndirectSwapchainRenderTarget@@AEAAXPEAPEAXPEAI@Z @ 0x1801899F0
  * Callers:
- *     ?ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x1801EF82C (-ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
- *     ?Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ @ 0x1801EFB90 (-Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ.c)
+ *     ?ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x180189EE4 (-ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
+ *     ?Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ @ 0x18018A120 (-Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -15,10 +15,10 @@ void __fastcall CIndirectSwapchainRenderTarget::GetMetaData(
   unsigned int v3; // r9d
   void *v4; // rax
 
-  v3 = *((_DWORD *)this + 480);
+  v3 = *((_DWORD *)this + 484);
   v4 = 0LL;
   if ( v3 )
-    v4 = (void *)*((_QWORD *)this + 237);
+    v4 = (void *)*((_QWORD *)this + 239);
   *a2 = v4;
   *a3 = v3;
 }

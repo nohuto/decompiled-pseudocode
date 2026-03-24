@@ -1,10 +1,10 @@
 /*
- * XREFs of KeQueryNumaGraph @ 0x140B50C1C
+ * XREFs of KeQueryNumaGraph @ 0x140A91590
  * Callers:
- *     MmInitSystem @ 0x140B07AB0 (MmInitSystem.c)
+ *     MmInitSystem @ 0x140A53D6C (MmInitSystem.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID KeQueryNumaGraph()

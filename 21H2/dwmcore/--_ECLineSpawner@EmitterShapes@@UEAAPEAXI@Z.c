@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_ECLineSpawner@EmitterShapes@@UEAAPEAXI@Z @ 0x18022DA20
+ * XREFs of ??_ECLineSpawner@EmitterShapes@@UEAAPEAXI@Z @ 0x1801D73F0
  * Callers:
- *     <none>
+ *     ??_ECFrictionAccelerator@@W7EAAPEAXI@Z @ 0x1800F6870 (--_ECFrictionAccelerator@@W7EAAPEAXI@Z.c)
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 EmitterShapes::CLineSpawner *__fastcall EmitterShapes::CLineSpawner::`vector deleting destructor'(

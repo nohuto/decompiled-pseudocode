@@ -1,17 +1,17 @@
 /*
- * XREFs of VerifierMmMapLockedPagesSpecifyCache @ 0x140AE4250
+ * XREFs of VerifierMmMapLockedPagesSpecifyCache @ 0x1409E6C00
  * Callers:
  *     <none>
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     VfCheckPagePriority @ 0x140AC47A0 (VfCheckPagePriority.c)
- *     ViTargetAddToCounter @ 0x140ACC994 (ViTargetAddToCounter.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
- *     VfFaultsInjectResourceFailure @ 0x140AD6FAC (VfFaultsInjectResourceFailure.c)
- *     VfFaultsIsSystemSufficientlyBooted @ 0x140AD70E8 (VfFaultsIsSystemSufficientlyBooted.c)
- *     ViMmMapLockedPagesSanityChecks @ 0x140AE4A58 (ViMmMapLockedPagesSanityChecks.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     VfCheckPagePriority @ 0x1409C7C24 (VfCheckPagePriority.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetAddToCounter @ 0x1409D72C0 (ViTargetAddToCounter.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DC83C (VfFaultsInjectResourceFailure.c)
+ *     VfFaultsIsSystemSufficientlyBooted @ 0x1409DC978 (VfFaultsIsSystemSufficientlyBooted.c)
+ *     VfAllocPoolNotification @ 0x1409DFFC4 (VfAllocPoolNotification.c)
+ *     ViMmMapLockedPagesSanityChecks @ 0x1409E7598 (ViMmMapLockedPagesSanityChecks.c)
  */
 
 PVOID __fastcall VerifierMmMapLockedPagesSpecifyCache(
@@ -28,7 +28,7 @@ PVOID __fastcall VerifierMmMapLockedPagesSpecifyCache(
   if ( (MmVerifierData & 1) != 0 )
     ViMmMapLockedPagesSanityChecks((ULONG_PTR)BugCheckParameter2);
   VfCheckPagePriority(Priority, retaddr);
-  if ( !_bittest16(&BugCheckParameter2->MdlFlags, 0xDu) && BugCheckOnFailure )
+  if ( (BugCheckParameter2->MdlFlags & 0x2000) == 0 && BugCheckOnFailure )
   {
     if ( (unsigned int)VfFaultsIsSystemSufficientlyBooted() && (MmVerifierData & 1) != 0 )
       VerifierBugCheckIfAppropriate(
@@ -37,23 +37,21 @@ PVOID __fastcall VerifierMmMapLockedPagesSpecifyCache(
         (ULONG_PTR)BugCheckParameter2,
         BugCheckParameter2->MdlFlags,
         BugCheckOnFailure);
-    goto LABEL_12;
+    goto LABEL_8;
   }
-  if ( (unsigned int)VfFaultsInjectResourceFailure(0) != 1
-    && ((VfRuleClasses & 0x40000) == 0
-     || !ViFnAutoFailInject
-     || !(unsigned __int8)ViFnAutoFailInject("MmMapLockedPagesSpecifyCache")) )
+  if ( (unsigned int)VfFaultsInjectResourceFailure(0) != 1 )
   {
-LABEL_12:
+LABEL_8:
     v10 = MmMapLockedPagesSpecifyCache(BugCheckParameter2, a2, a3, a4, BugCheckOnFailure, Priority);
+    VfAllocPoolNotification();
     if ( v10 )
     {
       if ( (MmVerifierData & 0x1000) != 0 )
-        ViTargetAddToCounter(retaddr, 200LL, 0xD0u, BugCheckParameter2->ByteCount);
+        ViTargetAddToCounter(retaddr, 192LL, 0xC8u, BugCheckParameter2->ByteCount);
     }
     return v10;
   }
   if ( a2 )
-    RtlRaiseStatus(-1073741670);
+    RtlRaiseStatus(0xC000009A);
   return 0LL;
 }

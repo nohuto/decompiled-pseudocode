@@ -1,9 +1,9 @@
 /*
- * XREFs of UserGetAtomNameFromAtomTable @ 0x1C00A7180
+ * XREFs of UserGetAtomNameFromAtomTable @ 0x1C009D160
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C003CCC0 (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C00388BC (UserSetLastError.c)
  */
 
 __int64 __fastcall UserGetAtomNameFromAtomTable(struct _RTL_ATOM_TABLE *a1, RTL_ATOM a2, WCHAR *AtomName, int a4)
@@ -11,8 +11,6 @@ __int64 __fastcall UserGetAtomNameFromAtomTable(struct _RTL_ATOM_TABLE *a1, RTL_
   int v4; // eax
   ULONG v6; // eax
   __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
   ULONG NameLength; // [rsp+58h] [rbp+20h] BYREF
 
   NameLength = 2 * a4;
@@ -20,6 +18,6 @@ __int64 __fastcall UserGetAtomNameFromAtomTable(struct _RTL_ATOM_TABLE *a1, RTL_
   if ( v4 >= 0 )
     return NameLength >> 1;
   v6 = RtlNtStatusToDosError(v4);
-  UserSetLastError(v6, v7, v8, v9);
+  UserSetLastError(v6, v7);
   return 0LL;
 }

@@ -1,55 +1,55 @@
 /*
- * XREFs of AnFwFadeCompletion @ 0x140AEDF7C
+ * XREFs of AnFwFadeCompletion @ 0x1409F21B4
  * Callers:
- *     BgpFwLibraryDisable @ 0x140AED1B0 (BgpFwLibraryDisable.c)
- *     BgpConsoleDisplayCharacter @ 0x140AF24C0 (BgpConsoleDisplayCharacter.c)
- *     BgpConsoleDisplayString @ 0x140AF2870 (BgpConsoleDisplayString.c)
- *     ResFwFreeContext @ 0x140AF2ED4 (ResFwFreeContext.c)
+ *     ResFwFreeContext @ 0x1409F107C (ResFwFreeContext.c)
+ *     BgpFwLibraryDisable @ 0x1409F3FE8 (BgpFwLibraryDisable.c)
+ *     BgpConsoleDisplayCharacter @ 0x1409F67B0 (BgpConsoleDisplayCharacter.c)
+ *     BgpConsoleDisplayString @ 0x1409F6B60 (BgpConsoleDisplayString.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     BgpFwReleaseLock @ 0x140384860 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403848B0 (BgpFwAcquireLock.c)
- *     LogFwStat @ 0x140AEE81C (LogFwStat.c)
- *     BgpGxRectangleDestroy @ 0x140AEEA30 (BgpGxRectangleDestroy.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     BgpFwReleaseLock @ 0x14039BBA8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039BBF8 (BgpFwAcquireLock.c)
+ *     BgpGxRectangleDestroy @ 0x1409F2290 (BgpGxRectangleDestroy.c)
+ *     LogFwStat @ 0x1409F27D8 (LogFwStat.c)
  */
 
 void AnFwFadeCompletion()
 {
-  if ( (dword_140C0E4B0 & 0xC00) != 0xC00 )
+  if ( (dword_140C134F0 & 0xC00) != 0xC00 )
   {
     LogFwStat(0LL, 7LL, 0LL);
     BgpFwReleaseLock();
-    KeWaitForSingleObject(&stru_140D16AC0, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&stru_140CF3300, Executive, 0, 0, 0LL);
     BgpFwAcquireLock();
-    if ( qword_140C0B518 )
+    if ( qword_140C10E88 )
     {
-      BgpGxRectangleDestroy(qword_140C0B518);
-      qword_140C0B518 = 0LL;
+      BgpGxRectangleDestroy(qword_140C10E88);
+      qword_140C10E88 = 0LL;
     }
-    if ( qword_140C0B548 )
+    if ( qword_140C10EB0 )
     {
-      BgpGxRectangleDestroy(qword_140C0B548);
-      qword_140C0B548 = 0LL;
+      BgpGxRectangleDestroy(qword_140C10EB0);
+      qword_140C10EB0 = 0LL;
     }
-    if ( qword_140C0B550 )
+    if ( qword_140C10EB8 )
     {
-      BgpGxRectangleDestroy(qword_140C0B550);
-      qword_140C0B550 = 0LL;
+      BgpGxRectangleDestroy(qword_140C10EB8);
+      qword_140C10EB8 = 0LL;
     }
-    if ( qword_140C0B558 )
+    if ( qword_140C10EC0 )
     {
-      BgpGxRectangleDestroy(qword_140C0B558);
-      qword_140C0B558 = 0LL;
+      BgpGxRectangleDestroy(qword_140C10EC0);
+      qword_140C10EC0 = 0LL;
     }
-    if ( qword_140C0B588 )
+    if ( qword_140C10EE8 )
     {
-      BgpGxRectangleDestroy(qword_140C0B588);
-      qword_140C0B588 = 0LL;
+      BgpGxRectangleDestroy(qword_140C10EE8);
+      qword_140C10EE8 = 0LL;
     }
-    if ( qword_140C0B590 )
+    if ( qword_140C10EF0 )
     {
-      BgpGxRectangleDestroy(qword_140C0B590);
-      qword_140C0B590 = 0LL;
+      BgpGxRectangleDestroy(qword_140C10EF0);
+      qword_140C10EF0 = 0LL;
     }
   }
 }

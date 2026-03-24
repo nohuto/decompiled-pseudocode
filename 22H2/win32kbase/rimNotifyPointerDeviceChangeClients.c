@@ -1,16 +1,15 @@
 /*
- * XREFs of rimNotifyPointerDeviceChangeClients @ 0x1C0190F00
+ * XREFs of rimNotifyPointerDeviceChangeClients @ 0x1C0165C74
  * Callers:
- *     rimSetDeviceDisplayConfig @ 0x1C01910D0 (rimSetDeviceDisplayConfig.c)
+ *     rimSetDeviceDisplayConfig @ 0x1C0165DEC (rimSetDeviceDisplayConfig.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ApiSetPostPointerEventMessage @ 0x1C02080FC (ApiSetPostPointerEventMessage.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ApiSetPostPointerEventMessage @ 0x1C01D00E0 (ApiSetPostPointerEventMessage.c)
  */
 
 unsigned int __fastcall rimNotifyPointerDeviceChangeClients(_DWORD *a1, __int64 a2, unsigned int *a3, int a4)
 {
-  unsigned int *v5; // rdi
   int v8; // ebx
   __int64 v9; // rdx
   unsigned int v10; // ecx
@@ -18,12 +17,11 @@ unsigned int __fastcall rimNotifyPointerDeviceChangeClients(_DWORD *a1, __int64 
   unsigned int v12; // ecx
   unsigned int result; // eax
 
-  v5 = a3;
   v8 = 0;
   if ( !a2 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 313);
-  v9 = v5[26];
-  if ( a1[498] != (_DWORD)v9 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 313);
+  v9 = a3[26];
+  if ( a1[500] != (_DWORD)v9 )
   {
     v9 = (unsigned int)(v9 - 1);
     if ( (_DWORD)v9 )
@@ -37,7 +35,7 @@ unsigned int __fastcall rimNotifyPointerDeviceChangeClients(_DWORD *a1, __int64 
           if ( (_DWORD)v9 == 1 )
             v8 = 32;
           else
-            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 336);
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 336);
         }
         else
         {
@@ -54,8 +52,8 @@ unsigned int __fastcall rimNotifyPointerDeviceChangeClients(_DWORD *a1, __int64 
       v8 = 4;
     }
   }
-  v10 = v5[27];
-  if ( a1[499] != v10 )
+  v10 = a3[27];
+  if ( a1[501] != v10 )
   {
     v11 = v10 - 2;
     if ( v11 )
@@ -67,27 +65,10 @@ unsigned int __fastcall rimNotifyPointerDeviceChangeClients(_DWORD *a1, __int64 
         {
           v8 |= 0x800u;
         }
-        else
+        else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-            || (LOBYTE(v9) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
-          {
-            LOBYTE(v9) = 0;
-          }
-          if ( (_BYTE)v9 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v9,
-              (_DWORD)a3,
-              (_DWORD)gRimLog,
-              3,
-              1,
-              10,
-              (__int64)&WPP_2aa4d20025f835b2fe1cb6898cbf8660_Traceguids);
-          }
+          LOBYTE(v9) = 3;
+          WPP_RECORDER_SF_((_DWORD)gRimLog, v9, 1, 10, (__int64)&WPP_516b30da09af3a4d670a255114438942_Traceguids);
         }
       }
       else
@@ -100,9 +81,9 @@ unsigned int __fastcall rimNotifyPointerDeviceChangeClients(_DWORD *a1, __int64 
       v8 |= 0x80u;
     }
   }
-  if ( a1[501] != v5[29] || a1[502] != v5[30] )
+  if ( a1[503] != a3[29] || a1[504] != a3[30] )
     v8 |= 0x400u;
-  if ( a1[503] != v5[31] || a1[504] != v5[32] )
+  if ( a1[505] != a3[31] || a1[506] != a3[32] )
     v8 |= 0x200u;
   result = v8 | 0x100;
   if ( !a4 )

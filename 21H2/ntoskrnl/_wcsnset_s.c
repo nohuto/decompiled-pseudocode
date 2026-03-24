@@ -1,9 +1,9 @@
 /*
- * XREFs of _wcsnset_s @ 0x1403E1670
+ * XREFs of _wcsnset_s @ 0x1403D22B0
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl wcsnset_s(wchar_t *Dst, size_t SizeInWords, wchar_t Val, size_t MaxCount)
@@ -22,12 +22,14 @@ LABEL_6:
     {
       while ( MaxCount )
       {
-        if ( !--SizeInWords )
-          goto LABEL_16;
-        *v5 = Val;
-        --MaxCount;
-        if ( !*++v5 )
-          goto LABEL_11;
+        if ( --SizeInWords )
+        {
+          *v5 = Val;
+          --MaxCount;
+          if ( *++v5 )
+            continue;
+        }
+        goto LABEL_11;
       }
     }
     else

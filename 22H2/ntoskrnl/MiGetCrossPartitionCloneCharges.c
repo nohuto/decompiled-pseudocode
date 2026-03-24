@@ -1,75 +1,60 @@
 /*
- * XREFs of MiGetCrossPartitionCloneCharges @ 0x14066487C
+ * XREFs of MiGetCrossPartitionCloneCharges @ 0x14055A8C4
  * Callers:
- *     MiChargeCrossPartitionSharedPage @ 0x140217844 (MiChargeCrossPartitionSharedPage.c)
- *     MiBuildForkPte @ 0x140662270 (MiBuildForkPte.c)
- *     MiHandleForkTransitionPte @ 0x1406649B8 (MiHandleForkTransitionPte.c)
+ *     MiBuildForkPte @ 0x1405581FC (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x14055A9A4 (MiHandleForkTransitionPte.c)
+ *     MiReferenceCloneProto @ 0x14055B4D8 (MiReferenceCloneProto.c)
  * Callees:
- *     MiChargeCommit @ 0x1402763A0 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
- *     MiGetCrossPartitionCharges @ 0x140659FE8 (MiGetCrossPartitionCharges.c)
+ *     MiChargeResident @ 0x140259EB8 (MiChargeResident.c)
+ *     MiGetCrossPartitionCharges @ 0x140562368 (MiGetCrossPartitionCharges.c)
  */
 
-__int64 __fastcall MiGetCrossPartitionCloneCharges(volatile signed __int64 *a1, char a2)
+__int64 __fastcall MiGetCrossPartitionCloneCharges(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned __int64 v2; // rbx
-  int v5; // esi
+  unsigned __int64 v5; // rbx
   struct _KPRCB *CurrentPrcb; // r8
   __int64 CachedResidentAvailable; // rdx
   bool v8; // zf
   signed __int32 v9; // eax
 
-  v2 = 1LL;
-  v5 = a2 & 1;
-  if ( (a2 & 1) != 0 && !(unsigned int)MiChargeCommit((unsigned __int64)a1, 1uLL, 0LL) )
+  v5 = 1LL;
+  if ( !(unsigned int)MiChargeResident((ULONG_PTR *)a1, 1uLL, 0LL, a4) )
     return 0LL;
-  if ( (a2 & 2) != 0 )
+  if ( (int)MiGetCrossPartitionCharges(a1, 6LL, 0LL, 1LL) < 0 )
   {
-    if ( !(unsigned int)MiChargeResident((void *)a1, 1uLL, 0LL) )
+    if ( (ULONG_PTR *)a1 != &MiSystemPartition )
+      goto LABEL_13;
+    CurrentPrcb = KeGetCurrentPrcb();
+    CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
+    if ( (_DWORD)CachedResidentAvailable == -1 )
+      goto LABEL_13;
+    if ( (unsigned __int64)(CachedResidentAvailable + 1) <= 0x100 )
     {
-      if ( v5 )
-        MiReturnCommit((__int64)a1, 1LL);
-      return 0LL;
+      do
+      {
+        v9 = _InterlockedCompareExchange(
+               (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+               CachedResidentAvailable + 1,
+               CachedResidentAvailable);
+        v8 = (_DWORD)CachedResidentAvailable == v9;
+        LODWORD(CachedResidentAvailable) = v9;
+        if ( v8 )
+          return 0LL;
+      }
+      while ( v9 != -1 && (unsigned __int64)(v9 + 1LL) <= 0x100 );
     }
-    if ( (int)MiGetCrossPartitionCharges((__int64)a1, 6, 0, 1LL) < 0 )
+    if ( (int)CachedResidentAvailable > 192
+      && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
+                                              (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                                              192,
+                                              CachedResidentAvailable) )
     {
-      if ( v5 )
-        MiReturnCommit((__int64)a1, 1LL);
-      if ( a1 != (volatile signed __int64 *)MiSystemPartition )
-        goto LABEL_18;
-      CurrentPrcb = KeGetCurrentPrcb();
-      CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
-      if ( (_DWORD)CachedResidentAvailable == -1 )
-        goto LABEL_18;
-      if ( (unsigned __int64)(CachedResidentAvailable + 1) <= 0x100 )
-      {
-        do
-        {
-          v9 = _InterlockedCompareExchange(
-                 (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                 CachedResidentAvailable + 1,
-                 CachedResidentAvailable);
-          v8 = (_DWORD)CachedResidentAvailable == v9;
-          LODWORD(CachedResidentAvailable) = v9;
-          if ( v8 )
-            return 0LL;
-        }
-        while ( v9 != -1 && (unsigned __int64)(v9 + 1LL) <= 0x100 );
-      }
-      if ( (int)CachedResidentAvailable > 192
-        && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
-                                                (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                                                192,
-                                                CachedResidentAvailable) )
-      {
-        v2 = (int)CachedResidentAvailable - 192 + 1LL;
-      }
-      if ( v2 )
-LABEL_18:
-        _InterlockedExchangeAdd64(a1 + 2160, v2);
-      return 0LL;
+      v5 = (int)CachedResidentAvailable - 192 + 1LL;
     }
+    if ( v5 )
+LABEL_13:
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v5);
+    return 0LL;
   }
   return 1LL;
 }

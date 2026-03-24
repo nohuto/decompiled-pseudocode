@@ -1,14 +1,14 @@
 /*
- * XREFs of McTemplateK0_EtwWriteTransfer @ 0x1C0044900
+ * XREFs of McTemplateK0_EtwWriteTransfer @ 0x1C0039F04
  * Callers:
- *     ?LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z @ 0x1C000A1D4 (-LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?DxgkpComponentIdleListTimerDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C0017DD0 (-DxgkpComponentIdleListTimerDpc@@YAXPEAU_KDPC@@PEAX11@Z.c)
- *     DpiDxgkDdiUnload @ 0x1C00665C4 (DpiDxgkDdiUnload.c)
- *     ?PDCIdleResiliencyEngagedCallBackFn@@YAJPEBU_GUID@@PEAXK1@Z @ 0x1C0222F60 (-PDCIdleResiliencyEngagedCallBackFn@@YAJPEBU_GUID@@PEAXK1@Z.c)
- *     ?ReportState@DXGGLOBAL@@QEAAXXZ @ 0x1C030C1C8 (-ReportState@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z @ 0x1C00378B4 (-LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?ProcessComponentIdleList@DXGADAPTER@@QEAAXXZ @ 0x1C0038958 (-ProcessComponentIdleList@DXGADAPTER@@QEAAXXZ.c)
+ *     DpiDxgkDdiUnload @ 0x1C00598A8 (DpiDxgkDdiUnload.c)
+ *     ?ReportState@DXGGLOBAL@@QEAAXXZ @ 0x1C026B2DC (-ReportState@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?PDCIdleResiliencyEngagedCallBackFn@@YAJPEBU_GUID@@PEAXK1@Z @ 0x1C02BF4F0 (-PDCIdleResiliencyEngagedCallBackFn@@YAJPEBU_GUID@@PEAXK1@Z.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0013C40 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C000BC78 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3)

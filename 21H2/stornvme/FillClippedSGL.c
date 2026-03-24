@@ -1,9 +1,9 @@
 /*
- * XREFs of FillClippedSGL @ 0x1C001A758
+ * XREFs of FillClippedSGL @ 0x1C00116F0
  * Callers:
- *     FirmwareDownload @ 0x1C001AA58 (FirmwareDownload.c)
- *     NVMeWriteBufferFirmwareDownload @ 0x1C001F6BC (NVMeWriteBufferFirmwareDownload.c)
- *     ProtocolCommandToNVMe @ 0x1C001FAF4 (ProtocolCommandToNVMe.c)
+ *     FirmwareDownload @ 0x1C00119E4 (FirmwareDownload.c)
+ *     NVMeWriteBufferFirmwareDownload @ 0x1C0015C4C (NVMeWriteBufferFirmwareDownload.c)
+ *     ProtocolCommandToNVMe @ 0x1C0016084 (ProtocolCommandToNVMe.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of MmSetGraphicsPtes @ 0x140A2EB60
+ * XREFs of MmSetGraphicsPtes @ 0x1408C6F00
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x140274970 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x140274B90 (MiObtainReferencedVadEx.c)
- *     MiGetVadPageSize @ 0x140275554 (MiGetVadPageSize.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     MiSetGraphicsPtes @ 0x140626550 (MiSetGraphicsPtes.c)
- *     MiGetAwePageSizeFromVa @ 0x14064A994 (MiGetAwePageSizeFromVa.c)
- *     MiLockAweVadsExclusive @ 0x14064B0A8 (MiLockAweVadsExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x14064BEF8 (MiUnlockAweVadsExclusive.c)
+ *     MiUnlockAndDereferenceVad @ 0x14021AF40 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14021B260 (MiObtainReferencedVadEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     MiSetGraphicsPtes @ 0x14053457C (MiSetGraphicsPtes.c)
+ *     MiGetAwePageSizeFromVa @ 0x14054C39C (MiGetAwePageSizeFromVa.c)
+ *     MiLockAweVadsExclusive @ 0x14054CF40 (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x14054DF38 (MiUnlockAweVadsExclusive.c)
+ *     MiGetVadPageSize @ 0x14055BCF0 (MiGetVadPageSize.c)
  */
 
 __int64 __fastcall MmSetGraphicsPtes(
@@ -21,127 +21,116 @@ __int64 __fastcall MmSetGraphicsPtes(
         int a5,
         int a6)
 {
-  unsigned __int64 v7; // rbp
-  ULONG_PTR v9; // rax
-  ULONG_PTR v12; // rax
+  unsigned __int64 v10; // rax
   struct _KTHREAD *CurrentThread; // r12
-  int v14; // r15d
-  __int64 *v15; // rax
-  char *v16; // rsi
-  int v18; // edx
-  unsigned int v19; // ebx
-  __int64 AwePageSizeFromVa; // rcx
-  unsigned __int64 v21; // rcx
-  unsigned __int64 v22; // r8
-  ULONG_PTR v23; // rdx
-  __int64 v24; // rax
-  int v25; // [rsp+20h] [rbp-38h]
-  unsigned int v26; // [rsp+60h] [rbp+8h] BYREF
+  unsigned __int64 v12; // rbp
+  int v13; // r15d
+  volatile signed __int32 *v14; // rax
+  char *v15; // rsi
+  int v17; // edx
+  unsigned int v18; // ebx
+  __int64 AwePageSizeFromVa; // r10
+  unsigned __int64 v20; // r10
+  unsigned __int64 v21; // r8
+  ULONG_PTR v22; // rax
+  __int64 v23; // rdx
+  int v24; // [rsp+20h] [rbp-38h]
+  unsigned int v25; // [rsp+60h] [rbp+8h] BYREF
 
-  v7 = BugCheckParameter3 + BugCheckParameter2 - 1;
-  v9 = v7;
-  if ( !BugCheckParameter3 )
-    v9 = BugCheckParameter2;
-  if ( v9 < BugCheckParameter2 )
-    goto LABEL_38;
-  v12 = BugCheckParameter2 + BugCheckParameter3 - 1;
-  if ( !BugCheckParameter3 )
-    v12 = BugCheckParameter2;
-  if ( v12 > 0x7FFFFFFEFFFFLL )
-LABEL_38:
-    KeBugCheckEx(0x1Au, 0xA000uLL, BugCheckParameter2, BugCheckParameter3, 0LL);
-  CurrentThread = KeGetCurrentThread();
-  v26 = 0;
-  v14 = 0;
-  v15 = MiObtainReferencedVadEx(BugCheckParameter2, 0, (int *)&v26);
-  v16 = (char *)v15;
-  if ( !v15 )
-    return v26;
-  v18 = *((_DWORD *)v15 + 12);
-  if ( (v18 & 0x2200000) != 0x2200000 )
-    goto LABEL_36;
-  if ( v7 <= (((*((unsigned int *)v15 + 7) | ((unsigned __int64)*((unsigned __int8 *)v15 + 33) << 32)) << 12) | 0xFFF) )
+  if ( BugCheckParameter2 >= 0xFFFF800000000000uLL
+    || (v10 = BugCheckParameter2 + BugCheckParameter3, BugCheckParameter2 + BugCheckParameter3 <= BugCheckParameter2)
+    || v10 >= 0xFFFF800000000000uLL )
   {
-    if ( (v18 & 0x70) == 0x30 )
+    KeBugCheckEx(0x1Au, 0xA000uLL, BugCheckParameter2, BugCheckParameter3, 0LL);
+  }
+  CurrentThread = KeGetCurrentThread();
+  v25 = 0;
+  v12 = v10 - 1;
+  v13 = 0;
+  v14 = MiObtainReferencedVadEx(BugCheckParameter2, 0, (int *)&v25);
+  v15 = (char *)v14;
+  if ( !v14 )
+    return v25;
+  v17 = *((_DWORD *)v14 + 12);
+  if ( (v17 & 0x1100000) == 0x1100000 )
+  {
+    if ( v12 > (((*((unsigned int *)v14 + 7) | ((unsigned __int64)*((unsigned __int8 *)v14 + 33) << 32)) << 12) | 0xFFF) )
     {
-      v14 = 1;
+      v18 = -1073741584;
+      goto LABEL_35;
+    }
+    if ( (v17 & 0x70) == 0x30 )
+    {
+      v13 = 1;
       MiLockAweVadsExclusive((__int64)CurrentThread);
       AwePageSizeFromVa = (__int64)MiGetAwePageSizeFromVa(BugCheckParameter2);
       if ( !AwePageSizeFromVa )
       {
-        v19 = -1073741585;
-LABEL_34:
-        MiUnlockAweVadsExclusive((__int64)CurrentThread);
-        goto LABEL_37;
+        v18 = -1073741585;
+        goto LABEL_34;
       }
-LABEL_17:
-      if ( (a6 & 0xFFFFFFFE) != 0 )
-      {
-        v19 = -1073741580;
-      }
-      else if ( a5 )
-      {
-        v19 = -1073741581;
-      }
-      else
-      {
-        v21 = AwePageSizeFromVa << 12;
-        if ( a4 == v21 )
-        {
-          v22 = v21 - 1;
-          if ( ((v21 - 1) & BugCheckParameter2) != 0 || (v22 & BugCheckParameter3) != 0 )
-          {
-            v19 = -1073741585;
-          }
-          else
-          {
-            if ( !a3 )
-              goto LABEL_32;
-            if ( (a6 & 1) != 0 )
-            {
-              v23 = 1LL;
-              v24 = 0LL;
-              goto LABEL_30;
-            }
-            v23 = BugCheckParameter3 / v21;
-            v24 = 0LL;
-            if ( BugCheckParameter3 / v21 )
-            {
-LABEL_30:
-              while ( (v22 & a3[v24]) == 0 )
-              {
-                if ( ++v24 >= v23 )
-                  goto LABEL_32;
-              }
-              v19 = -1073741583;
-            }
-            else
-            {
-LABEL_32:
-              v19 = MiSetGraphicsPtes(BugCheckParameter2, BugCheckParameter3, a3, a4, v25, a6);
-            }
-          }
-        }
-        else
-        {
-          v19 = -1073741582;
-        }
-      }
-      if ( !v14 )
-        goto LABEL_37;
-      goto LABEL_34;
     }
-    if ( (v18 & 0xA00000) == 0xA00000 )
+    else
     {
-      AwePageSizeFromVa = MiGetVadPageSize((__int64)v15);
-      goto LABEL_17;
+      if ( (v17 & 0x500000) != 0x500000 )
+        goto LABEL_32;
+      AwePageSizeFromVa = MiGetVadPageSize((__int64)v14);
     }
-LABEL_36:
-    v19 = -1073741585;
-    goto LABEL_37;
+    if ( (a6 & 0xFFFFFFFE) != 0 )
+    {
+      v18 = -1073741580;
+      goto LABEL_33;
+    }
+    if ( a5 )
+    {
+      v18 = -1073741581;
+      goto LABEL_33;
+    }
+    v20 = AwePageSizeFromVa << 12;
+    if ( a4 != v20 )
+    {
+      v18 = -1073741582;
+      goto LABEL_33;
+    }
+    v21 = v20 - 1;
+    if ( ((v20 - 1) & BugCheckParameter2) == 0 && (v21 & BugCheckParameter3) == 0 )
+    {
+      if ( a3 )
+      {
+        if ( (a6 & 1) != 0 )
+        {
+          v22 = 1LL;
+          goto LABEL_27;
+        }
+        v22 = BugCheckParameter3 / v20;
+        if ( BugCheckParameter3 / v20 )
+        {
+LABEL_27:
+          v23 = 0LL;
+          while ( (v21 & a3[v23]) == 0 )
+          {
+            if ( ++v23 >= v22 )
+              goto LABEL_30;
+          }
+          v18 = -1073741583;
+LABEL_33:
+          if ( !v13 )
+            goto LABEL_35;
+LABEL_34:
+          MiUnlockAweVadsExclusive((__int64)CurrentThread);
+          goto LABEL_35;
+        }
+      }
+LABEL_30:
+      v18 = MiSetGraphicsPtes(BugCheckParameter2, BugCheckParameter3, a3, a4, v24, a6);
+      goto LABEL_33;
+    }
+LABEL_32:
+    v18 = -1073741585;
+    goto LABEL_33;
   }
-  v19 = -1073741584;
-LABEL_37:
-  MiUnlockAndDereferenceVad(v16);
-  return v19;
+  v18 = -1073741585;
+LABEL_35:
+  MiUnlockAndDereferenceVad(v15);
+  return v18;
 }

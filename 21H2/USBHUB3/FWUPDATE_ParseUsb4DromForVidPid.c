@@ -1,10 +1,10 @@
 /*
- * XREFs of FWUPDATE_ParseUsb4DromForVidPid @ 0x1C003EAFC
+ * XREFs of FWUPDATE_ParseUsb4DromForVidPid @ 0x1C003E47C
  * Callers:
- *     HUBHSM_CheckingIfAllUsb4DromDataRead @ 0x1C00099A0 (HUBHSM_CheckingIfAllUsb4DromDataRead.c)
+ *     HUBHSM_CheckingIfAllUsb4DromDataRead @ 0x1C00096A0 (HUBHSM_CheckingIfAllUsb4DromDataRead.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_DDDD @ 0x1C0032B34 (WPP_RECORDER_SF_DDDD.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C00322CC (WPP_RECORDER_SF_DDDD.c)
  */
 
 void __fastcall FWUPDATE_ParseUsb4DromForVidPid(__int64 a1)
@@ -39,7 +39,7 @@ void __fastcall FWUPDATE_ParseUsb4DromForVidPid(__int64 a1)
               4u,
               3u,
               0x2Eu,
-              (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids,
+              (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids,
               *((unsigned __int16 *)v3 + 2),
               *((unsigned __int16 *)v3 + 3),
               *((unsigned __int16 *)v3 + 4),
@@ -75,6 +75,6 @@ LABEL_9:
       v8 = 44;
     }
 LABEL_11:
-    WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, v8, (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids);
+    WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, v8, (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids);
   }
 }

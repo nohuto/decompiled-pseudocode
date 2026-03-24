@@ -1,29 +1,29 @@
 /*
- * XREFs of CmpCreateKeyBody @ 0x14072F7D0
+ * XREFs of CmpCreateKeyBody @ 0x140649DB0
  * Callers:
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
- *     CmpStartSiloRegistryNamespace @ 0x14077D410 (CmpStartSiloRegistryNamespace.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
+ *     CmpStartSiloRegistryNamespace @ 0x1406A630C (CmpStartSiloRegistryNamespace.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsGetCurrentThreadProcessId @ 0x1402AF870 (PsGetCurrentThreadProcessId.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x1404287F0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObpPushStackInfo @ 0x140582C68 (ObpPushStackInfo.c)
- *     CmpRecordParseFailure @ 0x140693738 (CmpRecordParseFailure.c)
- *     ObpFreeObjectNameBuffer @ 0x1406C2FB0 (ObpFreeObjectNameBuffer.c)
- *     CmpIsKeyStackDeleted @ 0x1406D3F5C (CmpIsKeyStackDeleted.c)
- *     CmpLockKcbExclusive @ 0x1406D8518 (CmpLockKcbExclusive.c)
- *     ObpCaptureObjectCreateInformation @ 0x1406EEFC0 (ObpCaptureObjectCreateInformation.c)
- *     ObpAllocateObject @ 0x14072FBB0 (ObpAllocateObject.c)
- *     SeReleaseSecurityDescriptor @ 0x1407378D0 (SeReleaseSecurityDescriptor.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     CmpTransReferenceTransaction @ 0x140768EE0 (CmpTransReferenceTransaction.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x140769400 (CmpDereferenceKeyControlBlockUnsafe.c)
- *     ObpRegisterObject @ 0x14097D464 (ObpRegisterObject.c)
- *     CmpUnlockKcb @ 0x140AF65A0 (CmpUnlockKcb.c)
+ *     PsGetCurrentThreadProcessId @ 0x1402D2070 (PsGetCurrentThreadProcessId.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObpPushStackInfo @ 0x140564C68 (ObpPushStackInfo.c)
+ *     CmpLockKcbExclusive @ 0x1405EC35C (CmpLockKcbExclusive.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     CmpUnlockKcb @ 0x140640260 (CmpUnlockKcb.c)
+ *     CmpIsKeyStackDeleted @ 0x140648C60 (CmpIsKeyStackDeleted.c)
+ *     ObpAllocateObject @ 0x14064C950 (ObpAllocateObject.c)
+ *     CmpRecordParseFailure @ 0x14066C090 (CmpRecordParseFailure.c)
+ *     CmpTransReferenceTransaction @ 0x14066DFA0 (CmpTransReferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x14066E000 (CmpTransDereferenceTransaction.c)
+ *     ObpCaptureObjectCreateInformation @ 0x1406CF200 (ObpCaptureObjectCreateInformation.c)
+ *     SeReleaseSecurityDescriptor @ 0x1406D5510 (SeReleaseSecurityDescriptor.c)
+ *     ObpFreeObjectNameBuffer @ 0x1406DA108 (ObpFreeObjectNameBuffer.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x14071CD1C (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     ObpRegisterObject @ 0x1408DEE1C (ObpRegisterObject.c)
  */
 
 __int64 __fastcall CmpCreateKeyBody(
@@ -33,66 +33,69 @@ __int64 __fastcall CmpCreateKeyBody(
         __int64 a4,
         char a5,
         __int64 a6,
-        __int64 **a7,
+        ULONG_PTR **a7,
         bool *a8)
 {
-  signed __int64 v11; // rax
-  POBJECT_TYPE *v12; // rbp
-  struct _KPRCB *CurrentPrcb; // rsi
-  _GENERAL_LOOKASIDE *P; // rdi
-  PSLIST_ENTRY v15; // rbx
-  int Object; // edi
-  __int64 v17; // r8
-  __int64 v18; // r9
-  int v19; // ecx
-  __int64 v20; // rbx
-  __int64 *v21; // rbx
-  int v22; // eax
-  _GENERAL_LOOKASIDE *L; // rdi
+  ULONG_PTR v9; // rbx
+  ULONG_PTR *v10; // rdi
+  signed __int64 v13; // rax
+  POBJECT_TYPE *v14; // r14
+  struct _KPRCB *CurrentPrcb; // r13
+  _GENERAL_LOOKASIDE *P; // rbp
+  PSLIST_ENTRY v17; // rsi
+  int Information; // ebp
+  __int64 v19; // r8
+  __int64 v20; // r9
+  int v21; // ecx
+  __int64 v22; // rdi
+  unsigned int v23; // esi
+  int v24; // eax
+  ULONG_PTR *v25; // rsi
+  char v26; // r14
+  unsigned int v27; // r8d
+  ULONG_PTR v28; // rcx
+  ULONG_PTR v29; // rax
+  ULONG_PTR **v30; // rcx
+  char v31; // di
+  _GENERAL_LOOKASIDE *L; // rbp
   __int64 Size; // rdx
   void *(__fastcall *AllocateEx)(_POOL_TYPE, unsigned __int64, unsigned int, _LOOKASIDE_LIST_EX *); // rax
   __int64 Tag; // r8
   __int64 Type; // rcx
-  __int64 v28; // r14
-  __int64 *v29; // rdi
-  int i; // r9d
-  unsigned int v31; // r8d
-  __int64 v32; // rax
-  __int64 **v33; // rcx
-  bool v34; // dl
-  char v35; // bl
-  __int64 v37; // rcx
-  __int64 v38; // rax
+  int v38; // eax
   __int64 v39; // rax
-  struct _KPRCB *v40; // rdx
-  _GENERAL_LOOKASIDE *v41; // rcx
+  __int64 v40; // rax
+  struct _KPRCB *v41; // rax
+  _GENERAL_LOOKASIDE *v42; // r8
   _SLIST_ENTRY *Next; // rcx
-  struct _KPRCB *v43; // rdx
-  _GENERAL_LOOKASIDE *v44; // rcx
-  __int16 v45; // [rsp+40h] [rbp-68h] BYREF
-  __int64 v46; // [rsp+48h] [rbp-60h]
-  __int64 v47; // [rsp+50h] [rbp-58h] BYREF
-  __int64 v48; // [rsp+58h] [rbp-50h]
-  __int128 v49; // [rsp+60h] [rbp-48h] BYREF
+  struct _KPRCB *v44; // rdx
+  _GENERAL_LOOKASIDE *v45; // rcx
+  __int16 v46; // [rsp+40h] [rbp-68h] BYREF
+  __int64 v47; // [rsp+48h] [rbp-60h] BYREF
+  __int64 v48; // [rsp+50h] [rbp-58h]
+  __int128 v49; // [rsp+58h] [rbp-50h] BYREF
 
-  v46 = 0LL;
+  v9 = 0LL;
   v48 = 0LL;
-  v11 = _InterlockedIncrement64((volatile signed __int64 *)BugCheckParameter2);
-  if ( !v11 )
+  v10 = 0LL;
+  v13 = _InterlockedIncrement64((volatile signed __int64 *)BugCheckParameter2);
+  if ( !v13 )
     KeBugCheckEx(0x51u, 0x24uLL, BugCheckParameter2, 0LL, 0LL);
-  if ( v11 == 1 )
+  if ( v13 == 1 )
     KeBugCheckEx(0x51u, 0x15uLL, 0LL, 0LL, 0LL);
   if ( a4 )
   {
     if ( *(_QWORD *)(a4 + 56) )
     {
-      v46 = *(_QWORD *)(a4 + 56);
-      v22 = CmpTransReferenceTransaction(v46);
-      Object = v22;
-      if ( v22 < 0 )
+      v9 = *(_QWORD *)(a4 + 56);
+      v38 = CmpTransReferenceTransaction(v9);
+      v23 = v38;
+      if ( v38 < 0 )
       {
-        CmpRecordParseFailure(a3, 131840, v22);
-        goto LABEL_52;
+        CmpRecordParseFailure(a3, 131840LL, (unsigned int)v38);
+LABEL_47:
+        CmpDereferenceKeyControlBlockUnsafe(BugCheckParameter2);
+        return v23;
       }
     }
     else
@@ -100,203 +103,206 @@ __int64 __fastcall CmpCreateKeyBody(
       v48 = a4 + 88;
     }
   }
-  v12 = CmKeyObjectType;
+  v14 = CmKeyObjectType;
   v47 = 0LL;
   CurrentPrcb = KeGetCurrentPrcb();
-  v45 = 1;
+  v46 = 1;
   v49 = 0LL;
   P = CurrentPrcb->PPLookasideList[4].P;
   ++P->TotalAllocates;
-  v15 = RtlpInterlockedPopEntrySList(&P->ListHead);
-  if ( v15 )
-    goto LABEL_5;
-  ++P->AllocateMisses;
-  L = CurrentPrcb->PPLookasideList[4].L;
-  ++L->TotalAllocates;
-  v15 = RtlpInterlockedPopEntrySList(&L->ListHead);
-  if ( v15
-    || (Size = L->Size,
-        AllocateEx = L->AllocateEx,
-        Tag = L->Tag,
-        Type = (unsigned int)L->Type,
-        ++L->AllocateMisses,
-        (v15 = (PSLIST_ENTRY)((__int64 (__fastcall *)(__int64, __int64, __int64))AllocateEx)(Type, Size, Tag)) != 0LL) )
+  v17 = RtlpInterlockedPopEntrySList(&P->ListHead);
+  if ( !v17 )
   {
-LABEL_5:
-    LODWORD(v15->Next) = CurrentPrcb->Number;
-  }
-  if ( !v15 )
-  {
-    Object = -1073741670;
-LABEL_55:
-    CmpRecordParseFailure(a3, 132096, Object);
-    v28 = v46;
-    v35 = 1;
-    goto LABEL_38;
-  }
-  Object = ObpCaptureObjectCreateInformation(a2, a2, 0LL, &v49, (__int64)v15, 0);
-  if ( Object < 0 )
-  {
-    v40 = KeGetCurrentPrcb();
-    v41 = v40->PPLookasideList[4].P;
-    ++v41->TotalFrees;
-    if ( LOWORD(v41->ListHead.Alignment) < v41->Depth
-      || (++v41->FreeMisses,
-          v41 = v40->PPLookasideList[4].L,
-          ++v41->TotalFrees,
-          LOWORD(v41->ListHead.Alignment) < v41->Depth) )
+    ++P->AllocateMisses;
+    L = CurrentPrcb->PPLookasideList[4].L;
+    ++L->TotalAllocates;
+    v17 = RtlpInterlockedPopEntrySList(&L->ListHead);
+    if ( !v17 )
     {
-      RtlpInterlockedPushEntrySList(&v41->ListHead, v15);
+      Size = L->Size;
+      AllocateEx = L->AllocateEx;
+      Tag = L->Tag;
+      Type = (unsigned int)L->Type;
+      ++L->AllocateMisses;
+      v17 = (PSLIST_ENTRY)((__int64 (__fastcall *)(__int64, __int64, __int64))AllocateEx)(Type, Size, Tag);
+      if ( !v17 )
+      {
+        v23 = -1073741670;
+        goto LABEL_49;
+      }
+    }
+  }
+  LODWORD(v17->Next) = CurrentPrcb->Number;
+  Information = ObpCaptureObjectCreateInformation(a2, a2, 0, (unsigned int)&v49, (__int64)v17, 0);
+  if ( Information < 0 )
+  {
+    v41 = KeGetCurrentPrcb();
+    v42 = v41->PPLookasideList[4].P;
+    ++v42->TotalFrees;
+    if ( LOWORD(v42->ListHead.Alignment) < v42->Depth
+      || (++v42->FreeMisses,
+          v42 = v41->PPLookasideList[4].L,
+          ++v42->TotalFrees,
+          LOWORD(v42->ListHead.Alignment) < v42->Depth) )
+    {
+      RtlpInterlockedPushEntrySList(&v42->ListHead, v17);
     }
     else
     {
-      ++v41->FreeMisses;
-      ((void (__fastcall *)(PSLIST_ENTRY))v41->FreeEx)(v15);
+      ++v42->FreeMisses;
+      ((void (__fastcall *)(PSLIST_ENTRY))v42->FreeEx)(v17);
     }
-    goto LABEL_55;
+    goto LABEL_12;
   }
-  if ( ((__int64)v15->Next & (_DWORD)v12[9]) != 0 )
+  if ( ((__int64)v17->Next & (_DWORD)v14[9]) != 0 )
   {
-    Object = -1073741811;
-    goto LABEL_63;
+    Information = -1073741811;
+    goto LABEL_58;
   }
-  if ( ((__int64)v15->Next & 0x10) != 0 && !SeSinglePrivilegeCheck(SeCreatePermanentPrivilege, a2) )
+  if ( ((__int64)v17->Next & 0x10) != 0 && !SeSinglePrivilegeCheck(SeCreatePermanentPrivilege, a2) )
   {
-    Object = -1073741727;
-    goto LABEL_63;
+    Information = -1073741727;
+    goto LABEL_58;
   }
-  v19 = *((_DWORD *)v12 + 27);
-  HIDWORD(v15[1].Next) = *((_DWORD *)v12 + 26);
-  *((_DWORD *)&v15[1].Next + 2) = v19;
-  Object = ObpAllocateObject((_DWORD)v15, a2, (_DWORD)v12, (unsigned int)&v49, 112, (__int64)&v47, (__int64)&v45);
-  if ( Object < 0 )
+  v21 = *((_DWORD *)v14 + 27);
+  HIDWORD(v17[1].Next) = *((_DWORD *)v14 + 26);
+  *((_DWORD *)&v17[1].Next + 2) = v21;
+  Information = ObpAllocateObject((_DWORD)v17, a2, (_DWORD)v14, (unsigned int)&v49, 104, (__int64)&v47, (__int64)&v46);
+  if ( Information < 0 )
   {
-LABEL_63:
+LABEL_58:
     if ( *((_QWORD *)&v49 + 1) )
-      ObpFreeObjectNameBuffer((__int64)&v49);
-    Next = v15[2].Next;
+      ObpFreeObjectNameBuffer(&v49);
+    Next = v17[2].Next;
     if ( Next )
     {
-      LOBYTE(v17) = 1;
-      SeReleaseSecurityDescriptor(Next, LOBYTE(v15[1].Next), v17, v18);
-      v15[2].Next = 0LL;
+      LOBYTE(v19) = 1;
+      SeReleaseSecurityDescriptor(Next, LOBYTE(v17[1].Next), v19, v20);
+      v17[2].Next = 0LL;
     }
-    v43 = KeGetCurrentPrcb();
-    v44 = v43->PPLookasideList[4].P;
-    ++v44->TotalFrees;
-    if ( LOWORD(v44->ListHead.Alignment) < v44->Depth
-      || (++v44->FreeMisses,
-          v44 = v43->PPLookasideList[4].L,
-          ++v44->TotalFrees,
-          LOWORD(v44->ListHead.Alignment) < v44->Depth) )
+    v44 = KeGetCurrentPrcb();
+    v45 = v44->PPLookasideList[4].P;
+    ++v45->TotalFrees;
+    if ( LOWORD(v45->ListHead.Alignment) >= v45->Depth
+      && (++v45->FreeMisses,
+          v45 = v44->PPLookasideList[4].L,
+          ++v45->TotalFrees,
+          LOWORD(v45->ListHead.Alignment) >= v45->Depth) )
     {
-      RtlpInterlockedPushEntrySList(&v44->ListHead, v15);
+      ++v45->FreeMisses;
+      ((void (__fastcall *)(PSLIST_ENTRY))v45->FreeEx)(v17);
     }
     else
     {
-      ++v44->FreeMisses;
-      ((void (__fastcall *)(PSLIST_ENTRY))v44->FreeEx)(v15);
+      RtlpInterlockedPushEntrySList(&v45->ListHead, v17);
     }
-    goto LABEL_55;
+    goto LABEL_12;
   }
-  v20 = v47;
+  v22 = v47;
   if ( ObpTraceFlags )
   {
     ObpRegisterObject(v47);
-    ObpPushStackInfo(v20, 1, 1u, 0x746C6644u);
+    ObpPushStackInfo(v22, 1, 1u, 0x746C6644u);
   }
-  v21 = (__int64 *)(v20 + 48);
-  memset(v21, 0, 0x70uLL);
-  *((_WORD *)v21 + 25) = *(_WORD *)(a3 + 20);
-  v21[1] = BugCheckParameter2;
-  v21[3] = PsGetCurrentThreadProcessId();
-  *((_WORD *)v21 + 2) = 0;
-  *((_DWORD *)v21 + 24) = -1;
+  v10 = (ULONG_PTR *)(v22 + 48);
+LABEL_12:
+  v23 = Information;
+  if ( Information < 0 )
+  {
+LABEL_49:
+    CmpRecordParseFailure(a3, 132096LL, v23);
+    v31 = 1;
+    goto LABEL_30;
+  }
+  memset(v10, 0, 0x68uLL);
+  *((_WORD *)v10 + 25) = *(_WORD *)(a3 + 20);
+  v10[1] = BugCheckParameter2;
+  v10[3] = PsGetCurrentThreadProcessId();
+  *((_WORD *)v10 + 2) = 0;
+  *((_DWORD *)v10 + 24) = -1;
   if ( (*(_DWORD *)(BugCheckParameter2 + 184) & 0x400000) != 0 )
   {
-    v39 = *(int *)(BugCheckParameter2 + 96);
-    *(_DWORD *)v21 = v39;
-    *(_QWORD *)(a3 + 56) = v39;
+    v40 = *(int *)(BugCheckParameter2 + 96);
+    *(_DWORD *)v10 = v40;
+    *(_QWORD *)(a3 + 56) = v40;
   }
   else
   {
-    *(_DWORD *)v21 = 1803104306;
+    *(_DWORD *)v10 = 1803104306;
   }
-  v28 = v46;
   if ( a4 )
   {
-    v38 = v48;
-    v21[7] = v46;
-    v28 = 0LL;
-    v21[8] = v38;
+    v39 = v48;
+    v10[7] = v9;
+    v9 = 0LL;
+    v10[8] = v39;
   }
-  v21[10] = (__int64)(v21 + 9);
-  v21[9] = (__int64)(v21 + 9);
+  v10[10] = (ULONG_PTR)(v10 + 9);
+  v10[9] = (ULONG_PTR)(v10 + 9);
   if ( (*(_DWORD *)(a3 + 24) & 0x10) != 0 )
-    *((_WORD *)v21 + 24) |= 0x10u;
-  if ( (a5 & 2) == 0 || (*(_DWORD *)(BugCheckParameter2 + 184) & 0x400000) != 0 )
+    *((_WORD *)v10 + 24) |= 0x10u;
+  v24 = *(_DWORD *)(BugCheckParameter2 + 184);
+  if ( (v24 & 0x400000) != 0 )
   {
-LABEL_37:
-    v34 = (*(_DWORD *)(BugCheckParameter2 + 184) & 0x400000) != 0;
-    *a7 = v21;
-    v35 = 0;
-    Object = 0;
-    *a8 = v34;
-    goto LABEL_38;
-  }
-  v29 = v21 + 4;
-  if ( (a5 & 1) != 0 )
-    goto LABEL_44;
-  for ( i = 0; ; i = 2 )
-  {
-    v21[5] = (__int64)(v21 + 4);
+LABEL_29:
+    v23 = 0;
+    *a7 = v10;
     v31 = 0;
-    *v29 = (__int64)v29;
+    *a8 = (v24 & 0x400000) != 0;
+  }
+  else
+  {
+    v25 = v10 + 4;
+LABEL_21:
+    v26 = a5;
     do
     {
-      if ( !_InterlockedCompareExchange64(
-              (volatile signed __int64 *)(v21[1] + 8LL * v31 + 136),
-              (signed __int64)v21,
-              0LL) )
-        goto LABEL_36;
-      ++v31;
+      v10[5] = (ULONG_PTR)(v10 + 4);
+      v27 = 0;
+      *v25 = (ULONG_PTR)v25;
+      do
+      {
+        if ( !_InterlockedCompareExchange64(
+                (volatile signed __int64 *)(v10[1] + 8LL * v27 + 136),
+                (signed __int64)v10,
+                0LL) )
+          goto LABEL_28;
+        ++v27;
+      }
+      while ( v27 < 4 );
+      v28 = v10[1];
+      if ( v26 )
+      {
+        v29 = v28 + 120;
+        v30 = *(ULONG_PTR ***)(v28 + 128);
+        if ( *v30 != (ULONG_PTR *)v29 )
+          __fastfail(3u);
+        *v25 = v29;
+        v10[5] = (ULONG_PTR)v30;
+        *v30 = v25;
+        *(_QWORD *)(v29 + 8) = v25;
+LABEL_28:
+        v24 = *(_DWORD *)(BugCheckParameter2 + 184);
+        goto LABEL_29;
+      }
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v28 + 48), 1LL, 17LL) == 17 )
+      {
+        *(_QWORD *)(v28 + 56) = KeGetCurrentThread();
+        a5 = 1;
+        goto LABEL_21;
+      }
+      CmpUnlockKcb(v10[1]);
+      CmpLockKcbExclusive(v10[1]);
+      v26 = 1;
     }
-    while ( v31 < 4 );
-    if ( i )
-    {
-      v32 = v21[1] + 120;
-      v33 = *(__int64 ***)(v21[1] + 128);
-      if ( *v33 != (__int64 *)v32 )
-        __fastfail(3u);
-      *v29 = v32;
-      v21[5] = (__int64)v33;
-      *v33 = v29;
-      *(_QWORD *)(v32 + 8) = v29;
-LABEL_36:
-      *((_WORD *)v21 + 24) |= 0x40u;
-      goto LABEL_37;
-    }
-    v37 = v21[1];
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v37 + 48), 1LL, 17LL) == 17 )
-    {
-      *(_QWORD *)(v37 + 56) = KeGetCurrentThread();
-      continue;
-    }
-    CmpUnlockKcb(v21[1]);
-    CmpLockKcbExclusive(v21[1]);
-    if ( (*(_DWORD *)(v21[1] + 8) & 0x20000) != 0 || CmpIsKeyStackDeleted(a6) )
-      break;
-LABEL_44:
-    ;
+    while ( !CmpIsKeyStackDeleted(a6, a4) );
+    v23 = -1073741444;
+    v31 = 1;
   }
-  Object = -1073741444;
-  CmpRecordParseFailure(a3, 132352, -1073741444);
-  v35 = 1;
-LABEL_38:
-  if ( v28 )
-    ObfDereferenceObject((PVOID)(v28 & 0xFFFFFFFFFFFFFFFEuLL));
-  if ( v35 )
-LABEL_52:
-    CmpDereferenceKeyControlBlockUnsafe(BugCheckParameter2);
-  return (unsigned int)Object;
+LABEL_30:
+  if ( v9 )
+    CmpTransDereferenceTransaction(v9);
+  if ( v31 )
+    goto LABEL_47;
+  return v23;
 }

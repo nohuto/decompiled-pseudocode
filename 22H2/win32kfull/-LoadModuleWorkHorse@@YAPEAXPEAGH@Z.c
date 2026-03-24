@@ -1,13 +1,14 @@
 /*
- * XREFs of ?LoadModuleWorkHorse@@YAPEAXPEAGH@Z @ 0x1C028A8F0
+ * XREFs of ?LoadModuleWorkHorse@@YAPEAXPEAGH@Z @ 0x1C0288FAC
  * Callers:
- *     EngLoadModule @ 0x1C028B550 (EngLoadModule.c)
- *     EngLoadModuleForWrite @ 0x1C028B570 (EngLoadModuleForWrite.c)
+ *     EngLoadModule @ 0x1C0289BC0 (EngLoadModule.c)
+ *     EngLoadModuleForWrite @ 0x1C0289BE0 (EngLoadModuleForWrite.c)
  * Callees:
- *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C01150FC (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     ?GetModuleHandleAndIncrementRefcount@@YAPEAXPEBG@Z @ 0x1C028A814 (-GetModuleHandleAndIncrementRefcount@@YAPEAXPEBG@Z.c)
- *     bMapFile @ 0x1C028BAB8 (bMapFile.c)
- *     MakeSystemRelativePath @ 0x1C0305DFC (MakeSystemRelativePath.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0064C1C (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ?GetModuleHandleAndIncrementRefcount@@YAPEAXPEBG@Z @ 0x1C0288EE4 (-GetModuleHandleAndIncrementRefcount@@YAPEAXPEBG@Z.c)
+ *     bMapFile @ 0x1C028A12C (bMapFile.c)
+ *     MakeSystemRelativePath @ 0x1C02DC924 (MakeSystemRelativePath.c)
  */
 
 __int64 __fastcall LoadModuleWorkHorse(char *Source, int a2)
@@ -15,18 +16,16 @@ __int64 __fastcall LoadModuleWorkHorse(char *Source, int a2)
   __int64 v2; // rbx
   __int64 result; // rax
   __int64 v6; // rbp
-  __int64 v7; // r13
-  __int64 v8; // rax
+  __int64 v7; // r15
+  char *v8; // rax
   char *v9; // rbx
-  __int64 v10; // rsi
-  Gre::Base *v11; // rcx
-  unsigned __int64 v12; // rdi
+  char *v10; // rsi
+  unsigned __int64 v11; // rdi
+  unsigned __int64 v12; // rcx
   signed __int64 v13; // rdx
   __int16 v14; // ax
   char *v15; // rax
-  struct Gre::Base::SESSION_GLOBALS *v16; // rbx
-  __int64 v17; // rcx
-  struct Gre::Base::SESSION_GLOBALS **v18; // rax
+  struct _LIST_ENTRY *Blink; // rcx
   struct _UNICODE_STRING Destination; // [rsp+20h] [rbp-38h] BYREF
 
   v2 = -1LL;
@@ -46,68 +45,63 @@ __int64 __fastcall LoadModuleWorkHorse(char *Source, int a2)
       v7 = (2 * (_DWORD)v2 + 9) & 0xFFFFFFF8;
       if ( (unsigned int)MakeSystemRelativePath((PCWSTR)Source, &Destination) )
       {
-        if ( (_DWORD)v7 != -104 )
+        v8 = (char *)PALLOCMEM2((unsigned int)(v7 + 104), 1818846791LL, 1);
+        v9 = v8;
+        if ( v8 )
         {
-          v8 = Win32AllocPoolZInit((unsigned int)(v7 + 104), 1818846791LL);
-          v9 = (char *)v8;
-          if ( v8 )
+          v10 = &v8[v7];
+          if ( (unsigned int)bMapFile(Destination.Buffer) )
           {
-            v10 = v8 + v7;
-            if ( (unsigned int)bMapFile(Destination.Buffer) )
+            v11 = (unsigned __int64)(unsigned int)v7 >> 1;
+            v6 = (__int64)(v10 + 24);
+            if ( a2 )
             {
-              v12 = (unsigned __int64)(unsigned int)v7 >> 1;
-              v6 = v10 + 24;
-              if ( a2 )
+              if ( v11 )
               {
-                if ( v12 )
+                v12 = 2147483646 - v11;
+                v13 = (char *)&word_1C02E497C - v9;
+                do
                 {
-                  v11 = (Gre::Base *)(2147483646 - v12);
-                  v13 = (char *)&word_1C030D60C - v9;
-                  do
-                  {
-                    if ( !(Gre::Base *)((char *)v11 + v12) )
-                      break;
-                    v14 = *(_WORD *)&v9[v13];
-                    if ( !v14 )
-                      break;
-                    *(_WORD *)v9 = v14;
-                    v9 += 2;
-                    --v12;
-                  }
-                  while ( v12 );
-                  v15 = v9 - 2;
-                  if ( v12 )
-                    v15 = v9;
-                  *(_WORD *)v15 = 0;
+                  if ( !(v12 + v11) )
+                    break;
+                  v14 = *(_WORD *)&v9[v13];
+                  if ( !v14 )
+                    break;
+                  *(_WORD *)v9 = v14;
+                  v9 += 2;
+                  --v11;
                 }
-              }
-              else
-              {
-                StringCchCopyW(v9, v12, Source);
-              }
-              *(_DWORD *)(v10 + 16) = 1;
-              *(_DWORD *)(v10 + 20) = v7 + 24;
-              v16 = Gre::Base::Globals(v11);
-              v17 = *((_QWORD *)v16 + 405);
-              if ( v17 )
-                GreAcquireSemaphore(v17);
-              v18 = (struct Gre::Base::SESSION_GLOBALS **)*((_QWORD *)v16 + 404);
-              if ( *v18 != (struct Gre::Base::SESSION_GLOBALS *)((char *)v16 + 3224) )
-                __fastfail(3u);
-              *(_QWORD *)v10 = (char *)v16 + 3224;
-              *(_QWORD *)(v10 + 8) = v18;
-              *v18 = (struct Gre::Base::SESSION_GLOBALS *)v10;
-              *((_QWORD *)v16 + 404) = v10;
-              if ( *((_QWORD *)v16 + 405) )
-              {
-                EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.GreEngLoadModuleAllocListLock");
-                GreReleaseSemaphoreInternal(*((_QWORD *)v16 + 405));
+                while ( v11 );
+                v15 = v9 - 2;
+                if ( v11 )
+                  v15 = v9;
+                *(_WORD *)v15 = 0;
               }
             }
             else
             {
-              Win32FreePool(v9);
+              StringCchCopyW(v9, v11, Source);
             }
+            *((_DWORD *)v10 + 4) = 1;
+            *((_DWORD *)v10 + 5) = v7 + 24;
+            if ( GreEngLoadModuleAllocListLock )
+              GreAcquireSemaphore(GreEngLoadModuleAllocListLock);
+            Blink = GreEngLoadModuleAllocList.Blink;
+            if ( Blink->Flink != GreEngLoadModuleAllocList.Flink )
+              __fastfail(3u);
+            *(_QWORD *)v10 = GreEngLoadModuleAllocList.Flink;
+            *((_QWORD *)v10 + 1) = Blink;
+            Blink->Flink = (struct _LIST_ENTRY *)v10;
+            GreEngLoadModuleAllocList.Blink = (struct _LIST_ENTRY *)v10;
+            if ( GreEngLoadModuleAllocListLock )
+            {
+              EtwTraceGreLockReleaseSemaphore(L"GreEngLoadModuleAllocListLock", GreEngLoadModuleAllocListLock);
+              GreReleaseSemaphoreInternal(GreEngLoadModuleAllocListLock);
+            }
+          }
+          else
+          {
+            Win32FreePool(v9);
           }
         }
         Win32FreePool(Destination.Buffer);

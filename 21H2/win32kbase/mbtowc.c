@@ -1,9 +1,9 @@
 /*
- * XREFs of mbtowc @ 0x1C00D7AEC
+ * XREFs of mbtowc @ 0x1C00C6CB4
  * Callers:
- *     _woutput_l @ 0x1C00D6EA0 (_woutput_l.c)
+ *     _woutput_l @ 0x1C00C60C0 (_woutput_l.c)
  * Callees:
- *     RtlAnsiCharToUnicodeChar_0 @ 0x1C00D7C68 (RtlAnsiCharToUnicodeChar_0.c)
+ *     RtlAnsiCharToUnicodeChar_0 @ 0x1C00C6DF8 (RtlAnsiCharToUnicodeChar_0.c)
  */
 
 int __cdecl mbtowc(wchar_t *DstCh, const char *SrcCh, size_t SrcSizeInBytes)

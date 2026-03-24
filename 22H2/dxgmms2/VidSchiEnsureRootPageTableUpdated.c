@@ -1,92 +1,84 @@
 /*
- * XREFs of VidSchiEnsureRootPageTableUpdated @ 0x1C00C48E4
+ * XREFs of VidSchiEnsureRootPageTableUpdated @ 0x1C00D224C
  * Callers:
- *     VidSchSubmitCommandToHwQueue @ 0x1C00443B0 (VidSchSubmitCommandToHwQueue.c)
- *     VidSchiSuspendResumeHwContext @ 0x1C0046604 (VidSchiSuspendResumeHwContext.c)
+ *     VidSchSubmitCommandToHwQueue @ 0x1C0039FC0 (VidSchSubmitCommandToHwQueue.c)
+ *     VidSchiSuspendResumeHwContext @ 0x1C003C148 (VidSchiSuspendResumeHwContext.c)
  * Callees:
- *     ?DdiSetRootPageTable@ADAPTER_RENDER@@QEAAXPEAU_DXGKARG_SETROOTPAGETABLE@@@Z @ 0x1C0018798 (-DdiSetRootPageTable@ADAPTER_RENDER@@QEAAXPEAU_DXGKARG_SETROOTPAGETABLE@@@Z.c)
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     Feature_DxgkGpuVaIoMmu__private_IsEnabledDeviceUsage @ 0x1C0019B04 (Feature_DxgkGpuVaIoMmu__private_IsEnabledDeviceUsage.c)
- *     ?RecordVaPagingHistorySetPageDirectory@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_DXGKARG_SETROOTPAGETABLE@@PEAX@Z @ 0x1C0089218 (-RecordVaPagingHistorySetPageDirectory@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_DXGKARG_SETROO.c)
- *     ?GetPageDirectoryData@VIDMM_PROCESS@@QEAAXKIPEA_KPEAI10@Z @ 0x1C00C3F0A (-GetPageDirectoryData@VIDMM_PROCESS@@QEAAXKIPEA_KPEAI10@Z.c)
+ *     ?DdiSetRootPageTable@ADAPTER_RENDER@@QEAAXPEAU_DXGKARG_SETROOTPAGETABLE@@@Z @ 0x1C00160D8 (-DdiSetRootPageTable@ADAPTER_RENDER@@QEAAXPEAU_DXGKARG_SETROOTPAGETABLE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     ?RecordVaPagingHistorySetPageDirectory@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_DXGKARG_SETROOTPAGETABLE@@PEAX@Z @ 0x1C0088A90 (-RecordVaPagingHistorySetPageDirectory@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_DXGKARG_SETROO.c)
+ *     ?GetPageDirectoryData@VIDMM_PROCESS@@QEAAXKIPEA_KPEAI10@Z @ 0x1C00B8CF8 (-GetPageDirectoryData@VIDMM_PROCESS@@QEAAXKIPEA_KPEAI10@Z.c)
  */
 
-__int64 __fastcall VidSchiEnsureRootPageTableUpdated(_QWORD *a1)
+__int64 __fastcall VidSchiEnsureRootPageTableUpdated(char *a1)
 {
-  __int64 v1; // rdi
+  __int64 v1; // rbx
+  char *v2; // r14
   __int64 v3; // r15
-  __int64 v4; // rsi
-  __int64 result; // rax
+  __int64 v5; // rsi
   __int64 v6; // rax
   __int64 v7; // rcx
-  __int64 v8; // rdi
-  VIDMM_PROCESS *v9; // rdi
-  unsigned int v10; // edx
-  bool v11; // zf
-  DXGK_MULTIPLANE_OVERLAY_PLANE3 **ppPlanes; // rcx
+  VIDMM_PROCESS *v8; // rbx
+  UINT v9; // edx
+  bool v10; // zf
+  UINT64 SegmentOffset; // rcx
   unsigned int v13; // [rsp+40h] [rbp-40h] BYREF
   unsigned int v14; // [rsp+44h] [rbp-3Ch] BYREF
   unsigned __int64 v15; // [rsp+48h] [rbp-38h] BYREF
   unsigned __int64 v16; // [rsp+50h] [rbp-30h] BYREF
-  struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3 var28; // [rsp+58h] [rbp-28h] BYREF
+  struct _DXGKARG_SETROOTPAGETABLE v17; // [rsp+58h] [rbp-28h] BYREF
 
-  v1 = a1[1];
-  v3 = a1[2];
-  v4 = *(_QWORD *)(v1 + 32);
-  if ( !(unsigned int)Feature_DxgkGpuVaIoMmu__private_IsEnabledDeviceUsage()
-    || (result = *(unsigned int *)(v3 + 12), (result & 0x10) != 0) )
+  v1 = *((_QWORD *)a1 + 1);
+  v2 = a1 + 248;
+  v3 = *((_QWORD *)a1 + 2);
+  v5 = *(_QWORD *)(v1 + 32);
+  ExAcquirePushLockExclusiveEx(a1 + 248, 0LL);
+  v6 = *(_QWORD *)(v1 + 40);
+  v15 = 0LL;
+  v14 = 0;
+  v16 = 0LL;
+  v7 = *(_QWORD *)(v6 + 8);
+  v13 = 0;
+  v8 = *(VIDMM_PROCESS **)(v7 + 64);
+  if ( v8 )
+    v8 = (VIDMM_PROCESS *)*((_QWORD *)v8 + 1);
+  if ( v8 )
   {
-    ExAcquirePushLockExclusiveEx(a1 + 31, 0LL);
-    v6 = *(_QWORD *)(v1 + 40);
-    v15 = 0LL;
-    v14 = 0;
-    v16 = 0LL;
-    v7 = *(_QWORD *)(v6 + 8);
-    v13 = 0;
-    v8 = *(_QWORD *)(v7 + 64);
-    if ( v8 )
+    VIDMM_PROCESS::GetPageDirectoryData(
+      v8,
+      *(_DWORD *)(*(_QWORD *)(v5 + 16) + 232LL),
+      *(unsigned __int16 *)(v3 + 6),
+      &v15,
+      &v13,
+      &v14,
+      &v16);
+    if ( *((_QWORD *)a1 + 32) != v15 )
     {
-      v9 = *(VIDMM_PROCESS **)(v8 + 8);
-      if ( v9 )
+      v9 = v13;
+      if ( v13 )
       {
-        VIDMM_PROCESS::GetPageDirectoryData(
-          v9,
-          *(_DWORD *)(*(_QWORD *)(v4 + 16) + 240LL),
-          *(unsigned __int16 *)(v3 + 6),
-          &v15,
-          &v13,
-          &v14,
-          &v16);
-        if ( a1[32] != v15 )
+        *(&v17.Address.SegmentId + 1) = 0;
+        *(&v17.NumEntries + 1) = 0;
+        v10 = (*((_DWORD *)a1 + 14) & 0x1000) == 0;
+        SegmentOffset = v16;
+        *((_QWORD *)a1 + 32) = v15;
+        v17.hContext = (HANDLE)*((_QWORD *)a1 + 6);
+        v17.Address.SegmentId = v14;
+        v17.Address.SegmentOffset = SegmentOffset;
+        v17.NumEntries = v9;
+        if ( v10 )
         {
-          v10 = v13;
-          if ( v13 )
-          {
-            var28.PlaneCount = 0;
-            HIDWORD(var28.pPostComposition) = 0;
-            v11 = (a1[7] & 0x1000) == 0;
-            ppPlanes = (DXGK_MULTIPLANE_OVERLAY_PLANE3 **)v16;
-            a1[32] = v15;
-            *(_QWORD *)&var28.VidPnSourceId = a1[6];
-            var28.OutputFlags.Value = v14;
-            var28.ppPlanes = ppPlanes;
-            LODWORD(var28.pPostComposition) = v10;
-            if ( v11 )
-            {
-              ADAPTER_RENDER::DdiSetRootPageTable(*(ADAPTER_RENDER **)(v4 + 8), &var28);
-              ppPlanes = var28.ppPlanes;
-            }
-            a1[33] = ppPlanes;
-            VIDMM_GLOBAL::RecordVaPagingHistorySetPageDirectory(
-              *(VIDMM_GLOBAL **)(*(_QWORD *)(v4 + 8) + 768LL),
-              v9,
-              (struct _DXGKARG_SETROOTPAGETABLE *)&var28,
-              a1);
-          }
+          ADAPTER_RENDER::DdiSetRootPageTable(*(ADAPTER_RENDER **)(v5 + 8), &v17);
+          SegmentOffset = v17.Address.SegmentOffset;
         }
+        *((_QWORD *)a1 + 33) = SegmentOffset;
+        VIDMM_GLOBAL::RecordVaPagingHistorySetPageDirectory(
+          *(VIDMM_GLOBAL **)(*(_QWORD *)(v5 + 8) + 648LL),
+          v8,
+          &v17,
+          a1);
       }
     }
-    return ExReleasePushLockExclusiveEx(a1 + 31, 0LL);
   }
-  return result;
+  return ExReleasePushLockExclusiveEx(v2, 0LL);
 }

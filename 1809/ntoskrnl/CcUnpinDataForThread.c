@@ -1,10 +1,10 @@
 /*
- * XREFs of CcUnpinDataForThread @ 0x1407E8880
+ * XREFs of CcUnpinDataForThread @ 0x1407E8860
  * Callers:
  *     <none>
  * Callees:
  *     CcUnpinFileDataEx @ 0x140020910 (CcUnpinFileDataEx.c)
- *     ExReleaseResourceForThreadLite @ 0x140111390 (ExReleaseResourceForThreadLite.c)
+ *     ExReleaseResourceForThreadLite @ 0x1401113B0 (ExReleaseResourceForThreadLite.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CcUnpinData @ 0x1405DEDF0 (CcUnpinData.c)
  */

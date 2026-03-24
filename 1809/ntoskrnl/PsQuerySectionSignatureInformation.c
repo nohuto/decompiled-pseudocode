@@ -1,7 +1,7 @@
 /*
- * XREFs of PsQuerySectionSignatureInformation @ 0x1406AB110
+ * XREFs of PsQuerySectionSignatureInformation @ 0x1406AB0F0
  * Callers:
- *     PsConvertToGuiThread @ 0x1406AAFC0 (PsConvertToGuiThread.c)
+ *     PsConvertToGuiThread @ 0x1406AAFA0 (PsConvertToGuiThread.c)
  * Callees:
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
  */

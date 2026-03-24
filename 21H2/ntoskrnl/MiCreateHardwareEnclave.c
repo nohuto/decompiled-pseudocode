@@ -1,137 +1,137 @@
 /*
- * XREFs of MiCreateHardwareEnclave @ 0x140979A34
+ * XREFs of MiCreateHardwareEnclave @ 0x1408D28D0
  * Callers:
- *     MiCreateEnclave @ 0x140979918 (MiCreateEnclave.c)
+ *     MiCreateEnclave @ 0x1408D27DC (MiCreateEnclave.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402294F0 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140229550 (MiPteHasShadow.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     MiMakeValidPte @ 0x1402CBD10 (MiMakeValidPte.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     MiSetPfnBlink @ 0x140313CA0 (MiSetPfnBlink.c)
- *     MiPteInShadowRange @ 0x140317A80 (MiPteInShadowRange.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     KeGetIdealNodeNumberThread @ 0x14056D710 (KeGetIdealNodeNumberThread.c)
- *     MiGetVmPartition @ 0x14058DE04 (MiGetVmPartition.c)
- *     MiAllocateEnclavePages @ 0x1405A828C (MiAllocateEnclavePages.c)
- *     MiInitializeEnclavePfn @ 0x1405A95FC (MiInitializeEnclavePfn.c)
- *     MiReserveEnclavePages @ 0x1405A9E34 (MiReserveEnclavePages.c)
- *     KeCreateEnclave @ 0x1409614F8 (KeCreateEnclave.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiGetVmPartition @ 0x140535720 (MiGetVmPartition.c)
+ *     MiGetEnclavePage @ 0x14054A6D8 (MiGetEnclavePage.c)
+ *     MiInitializeEnclavePfn @ 0x14054AA28 (MiInitializeEnclavePfn.c)
+ *     MiReserveEnclavePages @ 0x14054B2EC (MiReserveEnclavePages.c)
+ *     KeCreateEnclave @ 0x1408BB49C (KeCreateEnclave.c)
  */
 
 __int64 __fastcall MiCreateHardwareEnclave(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4, _DWORD *a5)
 {
-  struct _KTHREAD *CurrentThread; // rbp
-  _KPROCESS *Process; // r15
-  __int64 v9; // r12
-  unsigned __int64 v10; // r14
-  __int64 VmPartition; // rsi
+  struct _KTHREAD *CurrentThread; // r13
+  _KPROCESS *Process; // r12
+  unsigned __int64 v9; // rbp
+  __int64 v10; // rbp
+  _QWORD *VmPartition; // rdi
   int v13; // ebx
-  unsigned __int16 IdealNodeNumberThread; // ax
-  __int64 EnclavePages; // rax
+  __int64 EnclavePage; // rax
+  _DWORD *v15; // r9
   __int64 v16; // rbx
-  unsigned __int64 v17; // rsi
-  __int64 v18; // rbx
+  unsigned __int64 v17; // r14
   unsigned __int64 ValidPte; // rbx
-  int v20; // r13d
-  int HasShadow; // eax
-  __int64 v22; // r11
-  unsigned int v23; // ecx
-  __int16 v24; // ax
-  _QWORD *v25; // rax
-  _QWORD *v26; // rdi
+  int v19; // r15d
+  __int64 v20; // r8
+  bool v21; // zf
+  unsigned __int64 v22; // rcx
+  __int16 v23; // cx
+  bool v24; // dl
+  __int16 v25; // cx
+  _QWORD *v26; // rax
+  _QWORD *v27; // rsi
   int v28; // [rsp+20h] [rbp-58h]
   int v29; // [rsp+80h] [rbp+8h] BYREF
   int v30; // [rsp+84h] [rbp+Ch]
-  __int64 v31; // [rsp+98h] [rbp+20h]
+  __int64 v31; // [rsp+88h] [rbp+10h]
+  __int64 v32; // [rsp+98h] [rbp+20h]
 
-  v31 = a4;
+  v32 = a4;
   v30 = HIDWORD(a1);
   CurrentThread = KeGetCurrentThread();
   v29 = 0;
   Process = CurrentThread->ApcState.Process;
-  v9 = (*(unsigned int *)(a2 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a2 + 32) << 32)) << 12;
-  v10 = ((*(unsigned int *)(a2 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a2 + 33) << 32)) << 12) | 0xFFF;
-  VmPartition = MiGetVmPartition((__int64)&Process[1].ActiveProcessors.StaticBitmap[26]);
-  if ( !ExAcquireRundownProtection(&stru_140C53428) )
+  v9 = (*(unsigned int *)(a2 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a2 + 33) << 32)) << 12;
+  v31 = (*(unsigned int *)(a2 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a2 + 32) << 32)) << 12;
+  v10 = v9 | 0xFFF;
+  VmPartition = (_QWORD *)MiGetVmPartition((__int64)&Process[1].ActiveProcessorsPadding[6]);
+  if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&stru_140C4EEC0) )
     return 3221225738LL;
   if ( !a3 || (v13 = MiReserveEnclavePages(a2, VmPartition, (a3 >> 12) + ((a3 & 0xFFF) != 0)), v13 >= 0) )
   {
-    IdealNodeNumberThread = KeGetIdealNodeNumberThread((__int64)KeGetCurrentThread());
-    EnclavePages = MiAllocateEnclavePages(VmPartition, IdealNodeNumberThread, 0, 1LL);
-    v16 = EnclavePages;
-    if ( !EnclavePages )
+    EnclavePage = MiGetEnclavePage(VmPartition, 0);
+    v16 = EnclavePage;
+    if ( EnclavePage == -1 )
     {
       v13 = -1073741801;
       goto LABEL_32;
     }
-    MiSetPfnBlink(EnclavePages, 0LL, 0);
     v17 = *(_QWORD *)(a2 + 80);
-    v18 = 0xAAAAAAAAAAAAAAABuLL * ((v16 + 0x220000000000LL) >> 4);
-    MiInitializeEnclavePfn(v18, v17, 4);
-    ValidPte = MiMakeValidPte(v17, v18, -1610612732);
-    v20 = 0;
+    MiInitializeEnclavePfn(EnclavePage, v17, 4LL, v15);
+    ValidPte = MiMakeValidPte(v17, v16, -1610612732);
+    v19 = 0;
     if ( MiPteInShadowRange(v17) )
     {
-      HasShadow = MiPteHasShadow();
-      v22 = 1LL;
-      if ( HasShadow )
+      if ( (unsigned int)MiPteHasShadow() )
       {
-        v20 = 1;
-        if ( !HIBYTE(word_140C51864) )
-          goto LABEL_10;
+        v19 = 1;
+        if ( !HIBYTE(word_140C4E008) )
+        {
+          v21 = (ValidPte & 1) == 0;
+          goto LABEL_13;
+        }
       }
       else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
       {
-LABEL_10:
-        if ( (ValidPte & 1) != 0 )
+        v21 = (ValidPte & 1) == 0;
+LABEL_13:
+        if ( !v21 )
           ValidPte |= 0x8000000000000000uLL;
       }
     }
-    else
-    {
-      v22 = 1LL;
-    }
     *(_QWORD *)v17 = ValidPte;
-    if ( v20 )
-      MiWritePteShadow(v17, ValidPte);
-    v23 = ((unsigned int)v22 & *(_DWORD *)(a2 + 72)) << 8;
-    if ( !Process[1].Affinity.StaticBitmap[30]
-      || (v24 = WORD2(Process[2].Affinity.StaticBitmap[20]), v24 != 332) && v24 != 452 )
+    if ( v19 )
+      MiWritePteShadow(v17, ValidPte, v20);
+    v22 = Process[1].AffinityPadding[10];
+    v24 = 0;
+    if ( v22 )
     {
-      LOWORD(v23) = v22 | v23;
+      v23 = *(_WORD *)(v22 + 8);
+      if ( v23 == 332 || v23 == 452 )
+        v24 = 1;
     }
-    v13 = KeCreateEnclave((__int64)(v17 << 25) >> 16, v9, v22 + v10 - v9, v31, v28, v23, &v29, a5);
+    v25 = ((*(_WORD *)(a2 + 72) & 1) << 8) | 1;
+    if ( v24 )
+      v25 = (*(_WORD *)(a2 + 72) & 1) << 8;
+    v13 = KeCreateEnclave((__int64)(v17 << 25) >> 16, v31, v10 - v31 + 1, v32, v28, v25, &v29, a5);
     if ( v13 >= 0 )
     {
       if ( (v29 & 2) != 0 )
+      {
         *(_DWORD *)(a2 + 64) |= 4u;
+        _InterlockedIncrement((volatile signed __int32 *)(Process[1].ActiveProcessorsPadding[8] + 296));
+      }
       *(_QWORD *)(a2 + 112) = Process;
       --CurrentThread->SpecialApcDisable;
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C53420, 0LL);
-      v25 = (_QWORD *)qword_140C53418;
-      v26 = (_QWORD *)(a2 + 120);
-      if ( *(__int64 **)qword_140C53418 != &qword_140C53410 )
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4EEB8, 0LL);
+      v26 = (_QWORD *)qword_140C4EEB0;
+      v27 = (_QWORD *)(a2 + 120);
+      if ( *(__int64 **)qword_140C4EEB0 != &qword_140C4EEA8 )
         __fastfail(3u);
-      *v26 = &qword_140C53410;
-      v26[1] = v25;
-      *v25 = v26;
-      qword_140C53418 = (__int64)v26;
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C53420, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(&qword_140C53420);
-      KeAbPostRelease((ULONG_PTR)&qword_140C53420);
-      if ( CurrentThread->SpecialApcDisable++ == -1
-        && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      {
-        KiCheckForKernelApcDelivery();
-      }
+      *v27 = &qword_140C4EEA8;
+      v27[1] = v26;
+      *v26 = v27;
+      qword_140C4EEB0 = (__int64)v27;
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4EEB8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(&qword_140C4EEB8);
+      KeAbPostRelease((ULONG_PTR)&qword_140C4EEB8);
+      KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
       v13 = 0;
     }
   }
 LABEL_32:
-  ExReleaseRundownProtection(&stru_140C53428);
+  ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_140C4EEC0);
   return (unsigned int)v13;
 }

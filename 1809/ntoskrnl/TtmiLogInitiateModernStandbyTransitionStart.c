@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogInitiateModernStandbyTransitionStart @ 0x1408841A4
+ * XREFs of TtmiLogInitiateModernStandbyTransitionStart @ 0x140884184
  * Callers:
- *     TtmpInitiateModernStandbyTransition @ 0x140880B20 (TtmpInitiateModernStandbyTransition.c)
+ *     TtmpInitiateModernStandbyTransition @ 0x140880B00 (TtmpInitiateModernStandbyTransition.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogInitiateModernStandbyTransitionStart(char a1, int a2)
@@ -43,7 +43,7 @@ void __fastcall TtmiLogInitiateModernStandbyTransitionStart(char a1, int a2)
       v10 = 4;
       v13 = 1;
       v16 = 4;
-      TlgWrite(&stru_14096D820, &unk_140371710, 0LL, 0LL, 5u, &pData);
+      TlgWrite(&stru_14096D820, &unk_140371865, 0LL, 0LL, 5u, &pData);
     }
   }
 }

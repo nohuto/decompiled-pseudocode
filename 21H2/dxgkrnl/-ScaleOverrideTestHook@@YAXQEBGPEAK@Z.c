@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ScaleOverrideTestHook@@YAXQEBGPEAK@Z @ 0x1C0019ADC
+ * XREFs of ?ScaleOverrideTestHook@@YAXQEBGPEAK@Z @ 0x1C000C334
  * Callers:
- *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C01D4AE8 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATIO.c)
+ *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C0145660 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHPEAU_GDIINFO@@PEAU_DPI_INFORMATION.c)
  * Callees:
- *     ?ScaleOverrideTestHookCore@DpiInternal@@YAXQEBGPEAK@Z @ 0x1C0013290 (-ScaleOverrideTestHookCore@DpiInternal@@YAXQEBGPEAK@Z.c)
+ *     ?ScaleOverrideTestHookCore@DpiInternal@@YAXQEBGPEAK@Z @ 0x1C000C358 (-ScaleOverrideTestHookCore@DpiInternal@@YAXQEBGPEAK@Z.c)
  */
 
-void __fastcall ScaleOverrideTestHook(DpiInternal *a1, unsigned __int16 *a2, unsigned int *a3)
+void __fastcall ScaleOverrideTestHook(DpiInternal *a1, const unsigned __int16 *a2, unsigned int *a3)
 {
   if ( g_OSTestSigningEnabled )
     DpiInternal::ScaleOverrideTestHookCore(a1, a2, a3);

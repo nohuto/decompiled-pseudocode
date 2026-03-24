@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionIsCompositeAppOrSelfDisabled @ 0x1C0155E60
+ * XREFs of EditionIsCompositeAppOrSelfDisabled @ 0x1C0208B30
  * Callers:
  *     <none>
  * Callees:
- *     ?IsCompositeAppOrSelfDisabled@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C00423D8 (-IsCompositeAppOrSelfDisabled@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
+ *     ?IsCompositeAppOrSelfDisabled@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C00D72C8 (-IsCompositeAppOrSelfDisabled@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
  */
 
 __int64 __fastcall EditionIsCompositeAppOrSelfDisabled(const struct tagWND *a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIIrpCompletionRoutineWorker @ 0x1C00917C0
+ * XREFs of ACPIIrpCompletionRoutineWorker @ 0x1C0091D50
  * Callers:
- *     ACPIIrpGenericFilterCompletionHandler @ 0x1C0005700 (ACPIIrpGenericFilterCompletionHandler.c)
+ *     ACPIIrpGenericFilterCompletionHandler @ 0x1C000E730 (ACPIIrpGenericFilterCompletionHandler.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIInternalDecrementIrpReferenceCount @ 0x1C000575C (ACPIInternalDecrementIrpReferenceCount.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInternalDecrementIrpReferenceCount @ 0x1C000E778 (ACPIInternalDecrementIrpReferenceCount.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall ACPIIrpCompletionRoutineWorker(ULONG_PTR DeviceObject, PVOID Context)
@@ -56,11 +56,10 @@ LABEL_5:
   ACPIInternalDecrementIrpReferenceCount(v7);
   IoFreeWorkItem(*((PIO_WORKITEM *)Context + 4));
   ExFreePoolWithTag(Context, 0);
-  if ( v8 != -1073741637 )
+  if ( v8 != 259 )
   {
-    if ( v8 == 259 )
-      return;
-    v6->IoStatus.Status = v8;
+    if ( v8 != -1073741637 )
+      v6->IoStatus.Status = v8;
+    IofCompleteRequest(v6, 0);
   }
-  IofCompleteRequest(v6, 0);
 }

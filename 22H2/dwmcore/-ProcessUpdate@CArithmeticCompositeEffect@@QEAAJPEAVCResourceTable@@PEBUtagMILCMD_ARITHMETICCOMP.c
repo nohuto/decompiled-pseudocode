@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessUpdate@CArithmeticCompositeEffect@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ARITHMETICCOMPOSITEEFFECT@@@Z @ 0x180221C30
+ * XREFs of ?ProcessUpdate@CArithmeticCompositeEffect@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ARITHMETICCOMPOSITEEFFECT@@@Z @ 0x1801B34B8
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CArithmeticCompositeEffect::ProcessUpdate(
@@ -11,8 +11,8 @@ __int64 __fastcall CArithmeticCompositeEffect::ProcessUpdate(
         struct CResourceTable *a2,
         const struct tagMILCMD_ARITHMETICCOMPOSITEEFFECT *a3)
 {
-  *((_OWORD *)this + 11) = *(_OWORD *)((char *)a3 + 8);
-  *((_DWORD *)this + 48) = *((_DWORD *)a3 + 6);
+  *(_OWORD *)((char *)this + 152) = *(_OWORD *)((char *)a3 + 8);
+  *((_DWORD *)this + 42) = *((_DWORD *)a3 + 6);
   (*(void (__fastcall **)(CArithmeticCompositeEffect *, _QWORD, _QWORD))(*(_QWORD *)this + 72LL))(this, 0LL, 0LL);
   return 0LL;
 }

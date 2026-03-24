@@ -1,1 +1,0 @@
-/*\n * XREFs of sub_1C000E770 @ 0x1C000E770\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\n__int64 __fastcall sub_1C000E770(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)\n{\n  ++*a5;\n  return 0LL;\n}\n

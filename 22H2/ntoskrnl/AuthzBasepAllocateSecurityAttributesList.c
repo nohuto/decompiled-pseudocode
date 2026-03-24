@@ -1,20 +1,20 @@
 /*
- * XREFs of AuthzBasepAllocateSecurityAttributesList @ 0x14036A93C
+ * XREFs of AuthzBasepAllocateSecurityAttributesList @ 0x14030A32C
  * Callers:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14022C948 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SepVerifyDesktopAppxPackageName @ 0x1405B81D4 (SepVerifyDesktopAppxPackageName.c)
- *     SepCreateClaimAttributes @ 0x1407CF994 (SepCreateClaimAttributes.c)
- *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140843BA4 (AuthzBasepInitializeSystemSecurityAttributes.c)
- *     SepDuplicateClaimAttributes @ 0x1409D14F4 (SepDuplicateClaimAttributes.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x140201574 (SepVerifyDesktopAppxPackageName.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14024E0D0 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepCreateClaimAttributes @ 0x1405DC724 (SepCreateClaimAttributes.c)
+ *     AuthzBasepInitializeSystemSecurityAttributes @ 0x14079E4F8 (AuthzBasepInitializeSystemSecurityAttributes.c)
+ *     SepDuplicateClaimAttributes @ 0x1409250C0 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     AuthzBasepMemAlloc @ 0x1402258AC (AuthzBasepMemAlloc.c)
+ *     AuthzBasepMemAlloc @ 0x14030A4AC (AuthzBasepMemAlloc.c)
  */
 
-_QWORD *__fastcall AuthzBasepAllocateSecurityAttributesList(__int64 a1, __int64 a2)
+_QWORD *AuthzBasepAllocateSecurityAttributesList()
 {
   _QWORD *result; // rax
 
-  result = (_QWORD *)AuthzBasepMemAlloc(48LL, a2, 1950442835LL);
+  result = (_QWORD *)AuthzBasepMemAlloc(0x30uLL);
   if ( result )
   {
     *result = 0LL;

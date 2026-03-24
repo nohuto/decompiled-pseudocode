@@ -1,10 +1,10 @@
 /*
- * XREFs of NtGdiSetBoundsRect @ 0x1C008BB00
+ * XREFs of NtGdiSetBoundsRect @ 0x1C0111230
  * Callers:
  *     <none>
  * Callees:
- *     GreSetBoundsRect @ 0x1C008BB64 (GreSetBoundsRect.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     GreSetBoundsRect @ 0x1C0111294 (GreSetBoundsRect.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall NtGdiSetBoundsRect(HDC a1, struct _POINTL *a2)

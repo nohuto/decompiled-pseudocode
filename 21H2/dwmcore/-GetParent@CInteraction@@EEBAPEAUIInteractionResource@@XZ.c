@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetParent@CInteraction@@EEBAPEAUIInteractionResource@@XZ @ 0x1801F2290
+ * XREFs of ?GetParent@CInteraction@@EEBAPEAUIInteractionResource@@XZ @ 0x1800E2B70
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct IInteractionResource *__fastcall CInteraction::GetParent(CInteraction *this)
 {
-  return (struct IInteractionResource *)((*((_QWORD *)this + 19) + 64LL) & -(__int64)(*((_QWORD *)this + 19) != 0LL));
+  return (struct IInteractionResource *)*((_QWORD *)this + 26);
 }

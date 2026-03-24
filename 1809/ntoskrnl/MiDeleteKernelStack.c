@@ -1,8 +1,8 @@
 /*
  * XREFs of MiDeleteKernelStack @ 0x14007A5B0
  * Callers:
- *     MiDeleteCachedKernelStack @ 0x1400A5E50 (MiDeleteCachedKernelStack.c)
- *     MmDeleteKernelStack @ 0x1400CA480 (MmDeleteKernelStack.c)
+ *     MiDeleteCachedKernelStack @ 0x1400A5E70 (MiDeleteCachedKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1400CA4A0 (MmDeleteKernelStack.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
@@ -12,8 +12,8 @@
  *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  *     MiDeleteValidSystemPage @ 0x14007A860 (MiDeleteValidSystemPage.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 unsigned __int64 __fastcall MiDeleteKernelStack(__int64 a1, char a2)

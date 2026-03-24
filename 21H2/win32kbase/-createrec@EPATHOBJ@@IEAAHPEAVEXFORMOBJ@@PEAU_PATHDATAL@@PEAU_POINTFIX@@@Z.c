@@ -1,18 +1,16 @@
 /*
- * XREFs of ?createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C0019374
+ * XREFs of ?createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C0080694
  * Callers:
- *     ?addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z @ 0x1C00192AC (-addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z.c)
- *     ?bAppend@EPATHOBJ@@QEAAHPEAV1@PEAU_POINTFIX@@@Z @ 0x1C016A0A0 (-bAppend@EPATHOBJ@@QEAAHPEAV1@PEAU_POINTFIX@@@Z.c)
+ *     ?addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z @ 0x1C00805CC (-addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z.c)
+ *     ?bAppend@EPATHOBJ@@QEAAHPEAV1@PEAU_POINTFIX@@@Z @ 0x1C013CF30 (-bAppend@EPATHOBJ@@QEAAHPEAV1@PEAU_POINTFIX@@@Z.c)
  * Callees:
- *     ?bXformRound@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z @ 0x1C001B1F0 (-bXformRound@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z.c)
- *     EngSetLastError @ 0x1C008B610 (EngSetLastError.c)
- *     freepathalloc @ 0x1C0090F40 (freepathalloc.c)
- *     ?vInclude@ERECTFX@@QEAAXAEAU_POINTFIX@@@Z @ 0x1C00CC16C (-vInclude@ERECTFX@@QEAAXAEAU_POINTFIX@@@Z.c)
- *     newpathalloc @ 0x1C00CCAC0 (newpathalloc.c)
- *     ?Feature_1592607032__private_IsEnabled@@YAHXZ @ 0x1C00D9644 (-Feature_1592607032__private_IsEnabled@@YAHXZ.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
- *     ?reinit@EPATHOBJ@@IEAAXXZ @ 0x1C016A1E0 (-reinit@EPATHOBJ@@IEAAXXZ.c)
- *     ?vOffsetPoints@@YAXPEAU_POINTFIX@@0IJJ@Z @ 0x1C016A274 (-vOffsetPoints@@YAXPEAU_POINTFIX@@0IJJ@Z.c)
+ *     EngSetLastError @ 0x1C009E670 (EngSetLastError.c)
+ *     ?bXformRound@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z @ 0x1C00BC570 (-bXformRound@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z.c)
+ *     ?vInclude@ERECTFX@@QEAAXAEAU_POINTFIX@@@Z @ 0x1C00BD398 (-vInclude@ERECTFX@@QEAAXAEAU_POINTFIX@@@Z.c)
+ *     newpathalloc @ 0x1C00BDC30 (newpathalloc.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
+ *     ?reinit@EPATHOBJ@@IEAAXXZ @ 0x1C013D070 (-reinit@EPATHOBJ@@IEAAXXZ.c)
+ *     ?vOffsetPoints@@YAXPEAU_POINTFIX@@0IJJ@Z @ 0x1C013D104 (-vOffsetPoints@@YAXPEAU_POINTFIX@@0IJJ@Z.c)
  */
 
 __int64 __fastcall EPATHOBJ::createrec(
@@ -21,49 +19,45 @@ __int64 __fastcall EPATHOBJ::createrec(
         struct _PATHDATAL *a3,
         struct _POINTFIX *a4)
 {
-  EXFORMOBJ *v6; // r10
-  __int64 v8; // r8
-  _QWORD *v9; // r14
+  EXFORMOBJ *v6; // r11
+  __int64 v8; // r10
+  __int64 v9; // r15
   __int64 v10; // rbx
   unsigned __int64 v11; // rcx
-  char *v12; // rax
+  unsigned __int64 v12; // rax
   unsigned int v13; // r12d
   int v14; // r8d
   __int64 v16; // rax
-  unsigned int v18; // ecx
-  __int64 v19; // rdi
-  int v20; // r8d
-  __int64 v21; // rax
-  __int64 v22; // rax
-  struct _POINTFIX *v23; // rcx
-  struct _POINTFIX *v24; // rdx
+  __int64 v18; // rdi
+  __int64 v19; // rax
+  __int64 v20; // rax
+  struct _POINTFIX *v21; // rcx
+  struct _POINTFIX *v22; // rdx
+  struct _POINTFIX *v23; // rdx
+  __int64 v24; // rcx
   struct _POINTFIX *v25; // rdx
-  __int64 v26; // rcx
-  struct _POINTFIX *v27; // rdx
-  __int64 v28; // r8
-  _QWORD *v29; // rax
-  _QWORD *v30; // [rsp+40h] [rbp-38h]
+  __int64 v26; // r8
+  _QWORD *v27; // rax
 
   v6 = a2;
   v8 = *((_QWORD *)this + 1);
-  v30 = *(_QWORD **)(v8 + 24);
-  v9 = v30;
-  v10 = 0LL;
-  if ( v30 )
+  v9 = *(_QWORD *)(v8 + 24);
+  LODWORD(v10) = 0;
+  if ( v9 )
   {
-    v11 = v30[1] + 24LL;
-    v12 = (char *)v30 + *((unsigned int *)v30 + 4);
-    if ( (unsigned __int64)v12 > v11 )
-      v10 = (__int64)&v12[-v11] >> 3;
+    v11 = *(_QWORD *)(v9 + 8) + 24LL;
+    v12 = v9 + *(unsigned int *)(v9 + 16);
+    if ( v12 > v11 )
+      v10 = (__int64)(v12 - v11) >> 3;
   }
   v13 = *(_DWORD *)(v8 + 80) & 1;
   v14 = *(_DWORD *)a3;
-  if ( (*(_DWORD *)a3 & 0x10) != 0 && (_DWORD)v10 )
-    v10 = 3 * (((unsigned int)v10 - v13) / 3) + v13;
+  if ( (v14 & 0x10) != 0 && (_DWORD)v10 )
+    LODWORD(v10) = 3 * (((unsigned int)v10 - v13) / 3) + v13;
   if ( (unsigned int)v10 < v13 + *((_DWORD *)a3 + 1) && (unsigned int)v10 < 8 )
   {
     v16 = newpathalloc();
-    v9 = (_QWORD *)v16;
+    v9 = v16;
     if ( !v16 )
     {
       EngSetLastError(8u);
@@ -72,83 +66,81 @@ __int64 __fastcall EPATHOBJ::createrec(
     }
     *(_QWORD *)v16 = *(_QWORD *)(*((_QWORD *)this + 1) + 24LL);
     *(_QWORD *)(*((_QWORD *)this + 1) + 24LL) = v16;
-    v10 = (unsigned int)(v16 + *(_DWORD *)(v16 + 16) - *(_DWORD *)(v16 + 8) - 24) >> 3;
+    LODWORD(v10) = (unsigned int)(v16 + *(_DWORD *)(v16 + 16) - *(_DWORD *)(v16 + 8) - 24) >> 3;
     v14 = *(_DWORD *)a3;
     if ( (*(_DWORD *)a3 & 0x10) != 0 )
-      v10 = 3 * (((unsigned int)v10 - v13) / 3) + v13;
+      LODWORD(v10) = 3 * (((unsigned int)v10 - v13) / 3) + v13;
     v6 = a2;
   }
-  v18 = v13 + *((_DWORD *)a3 + 1);
-  if ( (unsigned int)v10 > v18 )
-    v10 = v18;
-  v19 = v9[1];
-  v20 = v14 | 2;
-  *(_DWORD *)(v19 + 16) = v20;
-  *(_DWORD *)(v19 + 20) = v10;
-  *(_QWORD *)v19 = 0LL;
-  *(_QWORD *)(v19 + 8) = *(_QWORD *)(*((_QWORD *)this + 1) + 40LL);
-  v21 = *((_QWORD *)this + 1);
+  if ( (unsigned int)v10 > v13 + *((_DWORD *)a3 + 1) )
+    LODWORD(v10) = v13 + *((_DWORD *)a3 + 1);
+  v18 = *(_QWORD *)(v9 + 8);
+  *(_DWORD *)(v18 + 16) = v14 | 2;
+  *(_DWORD *)(v18 + 20) = v10;
+  *(_QWORD *)v18 = 0LL;
+  *(_QWORD *)(v18 + 8) = *(_QWORD *)(*((_QWORD *)this + 1) + 40LL);
+  v19 = *((_QWORD *)this + 1);
   if ( v13 )
   {
-    *(_QWORD *)(v19 + 24) = *(_QWORD *)(v21 + 64);
-    v10 = (unsigned int)(v10 - 1);
-    *(_DWORD *)(v19 + 16) = v20 | *(_DWORD *)(*((_QWORD *)this + 1) + 80LL) & 5;
+    *(_QWORD *)(v18 + 24) = *(_QWORD *)(v19 + 64);
+    LODWORD(v10) = v10 - 1;
+    *(_DWORD *)(v18 + 16) |= *(_DWORD *)(*((_QWORD *)this + 1) + 80LL) & 5;
     *(_DWORD *)(*((_QWORD *)this + 1) + 80LL) &= 0xFFFFFFFA;
   }
   else
   {
-    v22 = *(_QWORD *)(v21 + 40);
-    if ( v22 )
-      *(_DWORD *)(v22 + 16) &= ~2u;
+    v20 = *(_QWORD *)(v19 + 40);
+    if ( v20 )
+      *(_DWORD *)(v20 + 16) &= ~2u;
   }
-  v23 = (struct _POINTFIX *)(v19 + 8 * (v13 + 3LL));
-  v24 = (struct _POINTFIX *)*((_QWORD *)a3 + 1);
+  v21 = (struct _POINTFIX *)(v18 + 8 * (v13 + 3LL));
+  v22 = (struct _POINTFIX *)*((_QWORD *)a3 + 1);
   if ( a4 )
   {
-    vOffsetPoints(v23, v24, v10, a4->x, a4->y);
+    vOffsetPoints(v21, v22, v10, a4->x, a4->y);
   }
   else if ( v6 )
   {
-    EXFORMOBJ::bXformRound(v6, (struct _POINTL *)v24, (struct _POINTFIX *)(v19 + 8 * (v13 + 3LL)), (unsigned int)v10);
+    EXFORMOBJ::bXformRound(v6, (struct _POINTL *)v22, (struct _POINTFIX *)(v18 + 8 * (v13 + 3LL)), (unsigned int)v10);
   }
   else
   {
-    memmove(v23, v24, 8 * v10);
+    memmove(v21, v22, 8LL * (unsigned int)v10);
   }
   *((_DWORD *)a3 + 1) -= v10;
   *((_QWORD *)a3 + 1) += 8LL * (unsigned int)v10;
   *(_DWORD *)a3 &= 0xFFFFFFFA;
-  v25 = (struct _POINTFIX *)(v19 + 24);
-  v26 = *((_QWORD *)this + 1);
-  if ( !*(_QWORD *)(v26 + 40) )
+  v23 = (struct _POINTFIX *)(v18 + 24);
+  v24 = *((_QWORD *)this + 1);
+  if ( !*(_QWORD *)(v24 + 40) )
   {
-    *(_DWORD *)(v26 + 56) = v25->x;
+    *(_DWORD *)(v24 + 56) = v23->x;
     *(_DWORD *)(*((_QWORD *)this + 1) + 48LL) = *(_DWORD *)(*((_QWORD *)this + 1) + 56LL);
-    *(_DWORD *)(*((_QWORD *)this + 1) + 60LL) = *(_DWORD *)(v19 + 28);
+    *(_DWORD *)(*((_QWORD *)this + 1) + 60LL) = *(_DWORD *)(v18 + 28);
     *(_DWORD *)(*((_QWORD *)this + 1) + 52LL) = *(_DWORD *)(*((_QWORD *)this + 1) + 60LL);
-    v26 = *((_QWORD *)this + 1);
+    v24 = *((_QWORD *)this + 1);
   }
   if ( v13 + (_DWORD)v10 )
   {
     do
     {
-      ERECTFX::vInclude((ERECTFX *)(*((_QWORD *)this + 1) + 48LL), v25);
-      v25 = v27 + 1;
+      ERECTFX::vInclude((ERECTFX *)(*((_QWORD *)this + 1) + 48LL), v23);
+      v23 = v25 + 1;
     }
-    while ( v28 != 1 );
-    v26 = *((_QWORD *)this + 1);
+    while ( v26 != 1 );
+    v24 = *((_QWORD *)this + 1);
   }
-  v29 = *(_QWORD **)(v26 + 40);
-  if ( v29 )
+  v27 = *(_QWORD **)(v24 + 40);
+  if ( v27 )
   {
-    *v29 = v19;
-    *(_QWORD *)(*((_QWORD *)this + 1) + 40LL) = v19;
+    *v27 = v18;
+    *(_QWORD *)(*((_QWORD *)this + 1) + 40LL) = v18;
   }
   else
   {
-    *(_QWORD *)(v26 + 40) = v19;
-    *(_QWORD *)(*((_QWORD *)this + 1) + 32LL) = v19;
+    *(_QWORD *)(v24 + 40) = v18;
+    *(_QWORD *)(*((_QWORD *)this + 1) + 32LL) = v18;
   }
-  v9[1] = v19 + 8 * (*(unsigned int *)(v19 + 20) + 3LL);
+  *(_QWORD *)(v9 + 8) = v18 + 8 * (*(unsigned int *)(v18 + 20) + 3LL);
   return 1LL;
 }

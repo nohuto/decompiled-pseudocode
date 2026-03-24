@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpCreateSearchPathPartsFromPath @ 0x140722684
+ * XREFs of SdbpCreateSearchPathPartsFromPath @ 0x140722664
  * Callers:
- *     SdbpInitializeSearchDBContext @ 0x140722598 (SdbpInitializeSearchDBContext.c)
+ *     SdbpInitializeSearchDBContext @ 0x140722578 (SdbpInitializeSearchDBContext.c)
  * Callees:
- *     wcschr @ 0x1401976B0 (wcschr.c)
- *     AslAlloc @ 0x14067C7A0 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
+ *     wcschr @ 0x1401976D0 (wcschr.c)
+ *     AslAlloc @ 0x14067C780 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpCreateSearchPathPartsFromPath(const wchar_t *a1, _QWORD *a2)

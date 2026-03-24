@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ReclaimRange@VIDMM_CPU_HOST_APERTURE@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C001BD8A
+ * XREFs of ?ReclaimRange@VIDMM_CPU_HOST_APERTURE@@QEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00294DC
  * Callers:
- *     ?BuildMdlForAllocInCpuHostAperture@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAVVIDMM_CPU_HOST_APERTURE@@PEAPEAU_MDL@@@Z @ 0x1C00E08C0 (-BuildMdlForAllocInCpuHostAperture@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAVVIDMM_CPU_HOST_APERTU.c)
+ *     ?BuildMdlForAllocInCpuHostAperture@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAVVIDMM_CPU_HOST_APERTURE@@PEAPEAU_MDL@@@Z @ 0x1C00ACB80 (-BuildMdlForAllocInCpuHostAperture@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAVVIDMM_CPU_HOST_APERTU.c)
  * Callees:
  *     <none>
  */
@@ -15,12 +15,12 @@ char __fastcall VIDMM_CPU_HOST_APERTURE::ReclaimRange(VIDMM_CPU_HOST_APERTURE *t
   __int64 v6; // rdx
 
   result = 0;
-  if ( *((_QWORD *)a2 + 59) )
+  if ( *((_QWORD *)a2 + 55) )
   {
-    v3 = (_QWORD *)((char *)a2 + 480);
-    v4 = *((_QWORD *)a2 + 60);
-    if ( *(struct _VIDMM_GLOBAL_ALLOC **)(v4 + 8) != (struct _VIDMM_GLOBAL_ALLOC *)((char *)a2 + 480)
-      || (v5 = (_QWORD *)*((_QWORD *)a2 + 61), (_QWORD *)*v5 != v3)
+    v3 = (_QWORD *)((char *)a2 + 448);
+    v4 = *((_QWORD *)a2 + 56);
+    if ( *(struct _VIDMM_GLOBAL_ALLOC **)(v4 + 8) != (struct _VIDMM_GLOBAL_ALLOC *)((char *)a2 + 448)
+      || (v5 = (_QWORD *)*((_QWORD *)a2 + 57), (_QWORD *)*v5 != v3)
       || (*v5 = v4,
           *(_QWORD *)(v4 + 8) = v5,
           v6 = *(_QWORD *)this,

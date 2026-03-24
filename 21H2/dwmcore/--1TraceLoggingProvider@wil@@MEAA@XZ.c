@@ -1,8 +1,8 @@
 /*
- * XREFs of ??1TraceLoggingProvider@wil@@MEAA@XZ @ 0x18017BC7C
+ * XREFs of ??1TraceLoggingProvider@wil@@MEAA@XZ @ 0x180221FF0
  * Callers:
- *     ??_ECompositorTracing@@UEAAPEAXI@Z @ 0x18017BE50 (--_ECompositorTracing@@UEAAPEAXI@Z.c)
- *     ??_ETraceLoggingProvider@wil@@MEAAPEAXI@Z @ 0x18017BE90 (--_ETraceLoggingProvider@wil@@MEAAPEAXI@Z.c)
+ *     ??_ECompositorTracing@@UEAAPEAXI@Z @ 0x180222070 (--_ECompositorTracing@@UEAAPEAXI@Z.c)
+ *     ??_ETraceLoggingProvider@wil@@MEAAPEAXI@Z @ 0x1802220B0 (--_ETraceLoggingProvider@wil@@MEAAPEAXI@Z.c)
  * Callees:
  *     <none>
  */

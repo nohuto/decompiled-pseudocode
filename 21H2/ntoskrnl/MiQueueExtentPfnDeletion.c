@@ -1,55 +1,64 @@
 /*
- * XREFs of MiQueueExtentPfnDeletion @ 0x1405A0964
+ * XREFs of MiQueueExtentPfnDeletion @ 0x140541F6C
  * Callers:
- *     MiWorkingSetManager @ 0x140267320 (MiWorkingSetManager.c)
- *     MiClearFileOnlyPfn @ 0x14059DA64 (MiClearFileOnlyPfn.c)
+ *     MiWorkingSetManager @ 0x140272C60 (MiWorkingSetManager.c)
+ *     MiClearFileOnlyPfn @ 0x14053FCDC (MiClearFileOnlyPfn.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiWakeFileOnlyReaper @ 0x1405A1CC0 (MiWakeFileOnlyReaper.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWakeFileOnlyReaper @ 0x1405428B4 (MiWakeFileOnlyReaper.c)
  */
 
 void __fastcall MiQueueExtentPfnDeletion(_QWORD *a1)
 {
-  unsigned __int64 v2; // rbx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v6; // eax
-  bool v7; // zf
+  int v10; // eax
+  bool v11; // zf
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
+  memset(&LockHandle, 0, sizeof(LockHandle));
   if ( a1 )
   {
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C56920);
-    *a1 = qword_140C4F2A0;
-    qword_140C4F2A0 = (__int64)a1;
-    MiWakeFileOnlyReaper();
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C56920);
+    LockHandle.LockQueue.Next = 0LL;
+    LockHandle.LockQueue.Lock = qword_140C51DA0;
+    KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)qword_140C51DA0);
+    *a1 = qword_140C4CAE8;
+    qword_140C4CAE8 = (__int64)a1;
+    MiWakeFileOnlyReaper(v3, v2);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   }
   else
   {
-    v2 = ExAcquireSpinLockExclusive(&dword_140C56920);
-    MiWakeFileOnlyReaper();
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C56920);
+    KeAcquireInStackQueuedSpinLock(qword_140C51DA0, &LockHandle);
+    MiWakeFileOnlyReaper(v5, v4);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+        if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v6 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-          v7 = (v6 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v6;
-          if ( v7 )
+          v10 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v11 = (v10 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v10;
+          if ( v11 )
             KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
     }
-    __writecr8(v2);
+    __writecr8(OldIrql);
   }
 }

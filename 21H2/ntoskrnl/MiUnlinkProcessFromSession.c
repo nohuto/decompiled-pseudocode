@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnlinkProcessFromSession @ 0x14021721C
+ * XREFs of MiUnlinkProcessFromSession @ 0x1402972A4
  * Callers:
- *     MiDeleteFinalPageTables @ 0x140216EE8 (MiDeleteFinalPageTables.c)
+ *     MiDeleteFinalPageTables @ 0x140296F6C (MiDeleteFinalPageTables.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUnlinkProcessFromSession(__int64 a1)
@@ -31,8 +31,8 @@ __int64 __fastcall MiUnlinkProcessFromSession(__int64 a1)
     v3 = (__int64 *)(a1 + 1184);
     if ( *(_QWORD *)(a1 + 1184) )
     {
-      if ( (*(_BYTE *)(a1 + 1849) & 1) != 0 && !*(_QWORD *)(v2 + 616) )
-        *(_QWORD *)(v2 + 616) = 1LL;
+      if ( (*(_BYTE *)(a1 + 1849) & 1) != 0 && !*(_QWORD *)(v2 + 680) )
+        *(_QWORD *)(v2 + 680) = 1LL;
       v4 = (__int64 *)*v3;
       v5 = *(__int64 ***)(a1 + 1192);
       if ( *(__int64 **)(*v3 + 8) != v3 || *v5 != v3 )

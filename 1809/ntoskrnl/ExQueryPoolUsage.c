@@ -1,9 +1,9 @@
 /*
- * XREFs of ExQueryPoolUsage @ 0x1400F0E04
+ * XREFs of ExQueryPoolUsage @ 0x1400F0E24
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x14066CFFC (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x14066CFDC (ExpQuerySystemPerformanceInformation.c)
  * Callees:
- *     ExHeapQueryPoolUsage @ 0x1400EF3E0 (ExHeapQueryPoolUsage.c)
+ *     ExHeapQueryPoolUsage @ 0x1400EF400 (ExHeapQueryPoolUsage.c)
  */
 
 __int64 *__fastcall ExQueryPoolUsage(

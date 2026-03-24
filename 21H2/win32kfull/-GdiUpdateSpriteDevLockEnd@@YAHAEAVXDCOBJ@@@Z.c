@@ -1,16 +1,16 @@
 /*
- * XREFs of ?GdiUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@@Z @ 0x1C01576DC
+ * XREFs of ?GdiUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@@Z @ 0x1C01657E4
  * Callers:
- *     ?GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0037530 (-GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z.c)
+ *     ?GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0090370 (-GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z.c)
  * Callees:
- *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C0008914 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C0009024 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
- *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C0041E20 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
- *     ?bSpUpdateSpriteDevLockEnd@@YAHPEAUHDEV__@@AEAVXDCOBJ@@PEAU_RECTL@@@Z @ 0x1C0157970 (-bSpUpdateSpriteDevLockEnd@@YAHPEAUHDEV__@@AEAVXDCOBJ@@PEAU_RECTL@@@Z.c)
- *     ??1UNDOENGUPDATEDEVICESURFACE@@QEAA@XZ @ 0x1C0157A40 (--1UNDOENGUPDATEDEVICESURFACE@@QEAA@XZ.c)
- *     ??0UNDOENGUPDATEDEVICESURFACE@@QEAA@XZ @ 0x1C0157A64 (--0UNDOENGUPDATEDEVICESURFACE@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00B2CDC (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C00CE750 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEEF0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     ??1UNDOENGUPDATEDEVICESURFACE@@QEAA@XZ @ 0x1C0165924 (--1UNDOENGUPDATEDEVICESURFACE@@QEAA@XZ.c)
+ *     ?bSpUpdateSpriteDevLockEnd@@YAHPEAUHDEV__@@AEAVXDCOBJ@@PEAU_RECTL@@@Z @ 0x1C0165948 (-bSpUpdateSpriteDevLockEnd@@YAHPEAUHDEV__@@AEAVXDCOBJ@@PEAU_RECTL@@@Z.c)
+ *     ??0UNDOENGUPDATEDEVICESURFACE@@QEAA@XZ @ 0x1C0165A18 (--0UNDOENGUPDATEDEVICESURFACE@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall GdiUpdateSpriteDevLockEnd(struct XDCOBJ *a1)
@@ -18,9 +18,9 @@ __int64 __fastcall GdiUpdateSpriteDevLockEnd(struct XDCOBJ *a1)
   HDEV HDEV; // r14
   __int64 v4; // r8
   int v5; // ebx
+  struct _RECTL v6; // xmm0
   unsigned int i; // esi
-  struct _RECTL *v7; // r8
-  struct _RECTL v8; // xmm0
+  struct _RECTL *v8; // r8
   struct REGION *v9; // [rsp+30h] [rbp-D0h] BYREF
   HDEV v10; // [rsp+38h] [rbp-C8h] BYREF
   _BYTE v11[8]; // [rsp+40h] [rbp-C0h] BYREF
@@ -45,7 +45,7 @@ __int64 __fastcall GdiUpdateSpriteDevLockEnd(struct XDCOBJ *a1)
     PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v10);
     UNDOENGUPDATEDEVICESURFACE::UNDOENGUPDATEDEVICESURFACE((UNDOENGUPDATEDEVICESURFACE *)v12);
     SPRITELOCK::SPRITELOCK((SPRITELOCK *)v11, (struct PDEVOBJ *)&v10);
-    v9 = *(struct REGION **)(*(_QWORD *)a1 + 1184LL);
+    v9 = *(struct REGION **)(*(_QWORD *)a1 + 1192LL);
     if ( !v9 )
     {
       bSpUpdateSpriteDevLockEnd(HDEV, a1, &v13);
@@ -53,8 +53,8 @@ LABEL_5:
       SPRITELOCK::~SPRITELOCK((SPRITELOCK *)v11);
       UNDOENGUPDATEDEVICESURFACE::~UNDOENGUPDATEDEVICESURFACE((UNDOENGUPDATEDEVICESURFACE *)v12);
 LABEL_6:
-      REGION::vDeleteREGION(*(REGION **)(*(_QWORD *)a1 + 1184LL));
-      *(_QWORD *)(*(_QWORD *)a1 + 1184LL) = 0LL;
+      REGION::vDeleteREGION(*(REGION **)(*(_QWORD *)a1 + 1192LL));
+      *(_QWORD *)(*(_QWORD *)a1 + 1192LL) = 0LL;
       return 0LL;
     }
     if ( (unsigned int)RGNOBJ::iComplexity((RGNOBJ *)&v9) == 1 )
@@ -75,40 +75,40 @@ LABEL_6:
           goto LABEL_5;
         v5 = 1;
         XCLIPOBJ::cEnumStart((XCLIPOBJ *)v14, 0, 0, 4u, 0x14u);
-LABEL_13:
+LABEL_16:
         if ( !v5 )
-          goto LABEL_15;
+          goto LABEL_18;
         do
         {
           v5 = XCLIPOBJ::bEnum((XCLIPOBJ *)v14, 0x144u, (char *)v22, 0LL);
-LABEL_15:
+LABEL_18:
           for ( i = 0; i < v22[0]; ++i )
           {
-            v7 = (struct _RECTL *)&v22[4 * i + 1];
-            if ( v7->left < v13.left )
-              v7->left = v13.left;
-            if ( v7->right > v13.right )
-              v7->right = v13.right;
-            if ( v7->top < v13.top )
-              v7->top = v13.top;
-            if ( v7->bottom > v13.bottom )
-              v7->bottom = v13.bottom;
-            bSpUpdateSpriteDevLockEnd(HDEV, a1, v7);
+            v8 = (struct _RECTL *)&v22[4 * i + 1];
+            if ( v8->left < v13.left )
+              v8->left = v13.left;
+            if ( v8->right > v13.right )
+              v8->right = v13.right;
+            if ( v8->top < v13.top )
+              v8->top = v13.top;
+            if ( v8->bottom > v13.bottom )
+              v8->bottom = v13.bottom;
+            bSpUpdateSpriteDevLockEnd(HDEV, a1, v8);
           }
         }
         while ( v5 );
         goto LABEL_5;
       }
-      v8 = v15;
+      v6 = v15;
     }
     else
     {
-      v8 = v13;
+      v6 = v13;
     }
-    *(struct _RECTL *)&v22[1] = v8;
+    *(struct _RECTL *)&v22[1] = v6;
     v22[0] = 1;
     v5 = 0;
-    goto LABEL_13;
+    goto LABEL_16;
   }
   return 0LL;
 }

@@ -1,15 +1,14 @@
 /*
- * XREFs of Bulk_MapTransfers @ 0x1C000E85C
+ * XREFs of Bulk_MapTransfers @ 0x1C000CC18
  * Callers:
- *     Bulk_ProcessTransferEventWithED1 @ 0x1C000E0D4 (Bulk_ProcessTransferEventWithED1.c)
- *     Bulk_EP_StartMapping @ 0x1C000E4D0 (Bulk_EP_StartMapping.c)
- *     Bulk_WdfEvtIoQueueReadyNotification @ 0x1C000E7D0 (Bulk_WdfEvtIoQueueReadyNotification.c)
- *     Bulk_EvtDmaCallback @ 0x1C001A6F0 (Bulk_EvtDmaCallback.c)
- *     Bulk_CommonBufferCallback @ 0x1C0044500 (Bulk_CommonBufferCallback.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C000BEB4 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_EP_StartMapping @ 0x1C000C8B0 (Bulk_EP_StartMapping.c)
+ *     Bulk_WdfEvtIoQueueReadyNotification @ 0x1C000CBA0 (Bulk_WdfEvtIoQueueReadyNotification.c)
+ *     Bulk_CommonBufferCallback @ 0x1C0043D60 (Bulk_CommonBufferCallback.c)
+ *     Bulk_EvtDmaCallback @ 0x1C0044020 (Bulk_EvtDmaCallback.c)
  * Callees:
- *     TR_AttemptStateChange @ 0x1C000A724 (TR_AttemptStateChange.c)
- *     Bulk_MappingLoop @ 0x1C000E8C4 (Bulk_MappingLoop.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0013618 (WPP_RECORDER_SF_ddd.c)
+ *     Bulk_MappingLoop @ 0x1C000CC80 (Bulk_MappingLoop.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
  */
 
 __int64 __fastcall Bulk_MapTransfers(__int64 a1)
@@ -24,7 +23,7 @@ __int64 __fastcall Bulk_MapTransfers(__int64 a1)
     {
       v4 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
       LOBYTE(v4) = 5;
-      WPP_RECORDER_SF_ddd(
+      WPP_RECORDER_SF_ddL(
         *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
         v4,
         14,
@@ -39,7 +38,7 @@ __int64 __fastcall Bulk_MapTransfers(__int64 a1)
       break;
     if ( !*(_DWORD *)(a1 + 340) )
       break;
-    result = TR_AttemptStateChange(a1, 2, 3);
+    result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 108), 3, 2);
     if ( (_DWORD)result != 2 )
       break;
   }

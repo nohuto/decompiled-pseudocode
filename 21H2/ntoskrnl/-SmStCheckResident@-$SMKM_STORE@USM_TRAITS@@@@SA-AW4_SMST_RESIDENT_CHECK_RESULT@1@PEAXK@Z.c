@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SmStCheckResident@?$SMKM_STORE@USM_TRAITS@@@@SA?AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z @ 0x140395068
+ * XREFs of ?SmStCheckResident@?$SMKM_STORE@USM_TRAITS@@@@SA?AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z @ 0x1402C6DD4
  * Callers:
- *     ?SmStCompareRegionDataCallback@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU_SMKM_STORE_HELPER@@PEAXK@Z @ 0x140394DD0 (-SmStCompareRegionDataCallback@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU_SMKM_STORE_HELPER@@PEAXK@Z.c)
+ *     ?SmStCompareRegionDataCallback@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU_SMKM_STORE_HELPER@@PEAXK@Z @ 0x1402C6A90 (-SmStCompareRegionDataCallback@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU_SMKM_STORE_HELPER@@PEAXK@Z.c)
  * Callees:
- *     MmQueryVirtualMemory @ 0x1407BA750 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x14061E930 (MmQueryVirtualMemory.c)
  */
 
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStCheckResident(__int64 a1, unsigned int a2)
@@ -19,7 +19,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStCheckResident(__int64 a1, unsigned
   v7[0] = 0LL;
   v3 = ((a1 & 0xFFF) + 4095 + (unsigned __int64)a2) >> 12;
   v7[2] = 0LL;
-  if ( (int)MmQueryVirtualMemory(0xFFFFFFFFFFFFFFFFuLL, 16 * (int)v3, 0LL, 0) < 0 )
+  if ( (int)MmQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, 16LL * (unsigned int)v3, 0LL, 0) < 0 )
   {
     return 2;
   }

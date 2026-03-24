@@ -1,65 +1,65 @@
 /*
- * XREFs of KiDisconnectInterruptInternal @ 0x14031F688
+ * XREFs of KiDisconnectInterruptInternal @ 0x140376C64
  * Callers:
- *     KiDisconnectInterruptCommon @ 0x14031F540 (KiDisconnectInterruptCommon.c)
- *     KiProcessPendingDisconnect @ 0x1403A2AB0 (KiProcessPendingDisconnect.c)
+ *     KiDisconnectInterruptCommon @ 0x140376B1C (KiDisconnectInterruptCommon.c)
+ *     KiProcessPendingDisconnect @ 0x140521C84 (KiProcessPendingDisconnect.c)
  * Callees:
- *     HalDisableInterrupt @ 0x14031F710 (HalDisableInterrupt.c)
+ *     HalDisableInterrupt @ 0x140376CF0 (HalDisableInterrupt.c)
  */
 
 __int64 __fastcall KiDisconnectInterruptInternal(__int64 a1, __int64 a2)
 {
-  char v2; // r9
-  unsigned int v4; // r8d
-  __int64 v5; // rdi
-  _QWORD *v6; // rcx
-  _QWORD *v8; // rax
-  __int64 v9; // r8
-  _QWORD *v10; // rdx
-  __int64 v11; // rdx
+  char v4; // cl
+  unsigned int v5; // r8d
+  __int64 v6; // rdi
+  _QWORD *v7; // rdx
+  _QWORD *v9; // rax
+  __int64 v10; // r8
+  _QWORD *v11; // rcx
+  __int64 v12; // rcx
 
-  v2 = 0;
-  v4 = -1073741585;
+  v4 = 0;
+  v5 = -1073741585;
   if ( *(_BYTE *)(a1 + 95) )
   {
-    v5 = *(unsigned int *)(a1 + 88);
-    v6 = KeGetCurrentPrcb()->InterruptObject[v5];
-    if ( !*((_BYTE *)v6 + 93) )
+    v6 = *(unsigned int *)(a1 + 88);
+    v7 = KeGetCurrentPrcb()->InterruptObject[v6];
+    if ( !*((_BYTE *)v7 + 93) )
     {
-      v8 = (_QWORD *)v6[1];
-      if ( !v8 || v8 == v6 + 1 )
-        v2 = 1;
+      v9 = (_QWORD *)v7[1];
+      if ( !v9 || v9 == v7 + 1 )
+        v4 = 1;
     }
-    if ( (__int64 (__fastcall *)(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __int16))v6[10] != KiChainedDispatch
-      || v2 )
+    if ( (__int64 (__fastcall *)(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __int16))v7[10] != KiChainedDispatch
+      || v4 )
     {
       HalDisableInterrupt(a2);
-      KeGetCurrentPrcb()->InterruptObject[v5] = 0LL;
-      v4 = 0;
+      KeGetCurrentPrcb()->InterruptObject[v6] = 0LL;
+      v5 = 0;
     }
     else
     {
-      if ( (_QWORD *)a1 == v6 )
+      if ( (_QWORD *)a1 == v7 )
       {
-        v6 = (_QWORD *)(v6[1] - 8LL);
-        v6[10] = KiChainedDispatch;
-        KeGetCurrentPrcb()->InterruptObject[v5] = v6;
+        v7 = (_QWORD *)(v7[1] - 8LL);
+        v7[10] = KiChainedDispatch;
+        KeGetCurrentPrcb()->InterruptObject[v6] = v7;
       }
-      v9 = *(_QWORD *)(a1 + 8);
-      v10 = *(_QWORD **)(a1 + 16);
-      if ( *(_QWORD *)(v9 + 8) != a1 + 8 || *v10 != a1 + 8 )
+      v10 = *(_QWORD *)(a1 + 8);
+      v11 = *(_QWORD **)(a1 + 16);
+      if ( *(_QWORD *)(v10 + 8) != a1 + 8 || *v11 != a1 + 8 )
         __fastfail(3u);
-      *v10 = v9;
-      *(_QWORD *)(v9 + 8) = v10;
-      v11 = v6[1] - 8LL;
-      if ( v6 == (_QWORD *)v11 && *(_BYTE *)(v11 + 93) )
+      *v11 = v10;
+      *(_QWORD *)(v10 + 8) = v11;
+      v12 = v7[1] - 8LL;
+      if ( v7 == (_QWORD *)v12 && *(_BYTE *)(v12 + 93) )
       {
-        *(_QWORD *)(v11 + 80) = KiInterruptDispatch;
-        KeGetCurrentPrcb()->InterruptObject[v5] = (void *)v11;
+        *(_QWORD *)(v12 + 80) = KiInterruptDispatch;
+        KeGetCurrentPrcb()->InterruptObject[v6] = (void *)v12;
       }
-      v4 = 296;
+      v5 = 296;
     }
     *(_BYTE *)(a1 + 95) = 0;
   }
-  return v4;
+  return v5;
 }

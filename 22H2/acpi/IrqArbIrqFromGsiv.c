@@ -1,15 +1,15 @@
 /*
- * XREFs of IrqArbIrqFromGsiv @ 0x1C009D6CC
+ * XREFs of IrqArbIrqFromGsiv @ 0x1C00B70AC
  * Callers:
- *     IrqArbGetNextAllocationRange @ 0x1C009D3C0 (IrqArbGetNextAllocationRange.c)
- *     IrqArbpAssignIrqFromLinkNode @ 0x1C009DB1C (IrqArbpAssignIrqFromLinkNode.c)
- *     IrqArbpFindSuitableRangePci @ 0x1C009E1B4 (IrqArbpFindSuitableRangePci.c)
- *     IrqPolicyGetDistributionDisposition @ 0x1C00AC3AC (IrqPolicyGetDistributionDisposition.c)
+ *     IrqArbGetNextAllocationRange @ 0x1C0093DA0 (IrqArbGetNextAllocationRange.c)
+ *     IrqArbpFindSuitableRangePci @ 0x1C0096AB8 (IrqArbpFindSuitableRangePci.c)
+ *     IrqArbpAssignIrqFromLinkNode @ 0x1C00B730C (IrqArbpAssignIrqFromLinkNode.c)
+ *     IrqPolicyGetDistributionDisposition @ 0x1C00BCAA0 (IrqPolicyGetDistributionDisposition.c)
  * Callees:
- *     IrqArbpLookupIsaOverrideByGsiv @ 0x1C009E4B4 (IrqArbpLookupIsaOverrideByGsiv.c)
+ *     IrqArbpLookupIsaOverrideByGsiv @ 0x1C00951E8 (IrqArbpLookupIsaOverrideByGsiv.c)
  */
 
-__int64 __fastcall IrqArbIrqFromGsiv(__int64 a1)
+__int64 __fastcall IrqArbIrqFromGsiv(int a1)
 {
   char v1; // al
   unsigned int v2; // ecx

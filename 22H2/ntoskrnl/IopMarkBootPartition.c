@@ -1,29 +1,29 @@
 /*
- * XREFs of IopMarkBootPartition @ 0x140B3D4F0
+ * XREFs of IopMarkBootPartition @ 0x140A61890
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     IopCreateUnicodeFromAnsiBuffer @ 0x140375044 (IopCreateUnicodeFromAnsiBuffer.c)
- *     RtlStringCchPrintfA @ 0x14037507C (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     PnpHardwareConfigCreateBootDriverFlags @ 0x140812B88 (PnpHardwareConfigCreateBootDriverFlags.c)
- *     IopStoreBootDriveLetter @ 0x140B3CE40 (IopStoreBootDriveLetter.c)
- *     IopStoreSystemPartitionInformation @ 0x140B3F574 (IopStoreSystemPartitionInformation.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14034C53C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     IopCreateUnicodeFromAnsiBuffer @ 0x1403B7ED4 (IopCreateUnicodeFromAnsiBuffer.c)
+ *     RtlStringCchPrintfA @ 0x1403B7F0C (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     PnpHardwareConfigCreateBootDriverFlags @ 0x1407AC634 (PnpHardwareConfigCreateBootDriverFlags.c)
+ *     IopStoreSystemPartitionInformation @ 0x140A615B8 (IopStoreSystemPartitionInformation.c)
+ *     IopAssignBootDriveLetter @ 0x140A61AA8 (IopAssignBootDriveLetter.c)
  */
 
 __int64 __fastcall IopMarkBootPartition(__int64 a1, __int64 a2, UNICODE_STRING *a3)
 {
-  const char *v3; // r9
-  int v6; // ebx
+  __int64 v3; // r9
+  NTSTATUS v6; // ebx
   PVOID *v7; // rbx
   void *DeviceAttachmentBaseRefWithTag; // rax
   __int64 v9; // rcx
@@ -35,17 +35,19 @@ __int64 __fastcall IopMarkBootPartition(__int64 a1, __int64 a2, UNICODE_STRING *
   UNICODE_STRING UnicodeString; // [rsp+48h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-78h] BYREF
-  char pszDest[256]; // [rsp+A0h] [rbp-60h] BYREF
+  char pszFormat[24]; // [rsp+98h] [rbp-68h] BYREF
+  char pszDest[256]; // [rsp+B0h] [rbp-50h] BYREF
 
-  v3 = *(const char **)(a1 + 184);
+  v3 = *(_QWORD *)(a1 + 184);
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   FileHandle = 0LL;
   *(_QWORD *)&UnicodeString.Length = 0LL;
   UnicodeString.Buffer = 0LL;
-  *(&ObjectAttributes.Length + 1) = 0;
+  strcpy(pszFormat, "\\ArcName\\%s");
   DestinationString = 0LL;
   IoStatusBlock = 0LL;
-  v6 = RtlStringCchPrintfA(pszDest, 0x100uLL, "\\ArcName\\%s", v3);
+  v6 = RtlStringCchPrintfA(pszDest, 0x100uLL, pszFormat, v3);
   if ( v6 >= 0 )
   {
     RtlInitAnsiString(&DestinationString, pszDest);
@@ -92,15 +94,12 @@ __int64 __fastcall IopMarkBootPartition(__int64 a1, __int64 a2, UNICODE_STRING *
           ObCloseHandle(FileHandle, 0);
           ObfDereferenceObjectWithTag(v7, 0x746C6644u);
           ObfDereferenceObjectWithTag(v10, 0x746C6644u);
-          v6 = IopStoreBootDriveLetter(*(_QWORD *)(a1 + 200));
+          IopAssignBootDriveLetter();
+          v6 = IopCreateUnicodeFromAnsiBuffer(&UnicodeString, *(const char **)(a1 + 208));
           if ( v6 >= 0 )
           {
-            v6 = IopCreateUnicodeFromAnsiBuffer(&UnicodeString, *(const char **)(a1 + 208));
-            if ( v6 >= 0 )
-            {
-              IopStoreSystemPartitionInformation(v11, &UnicodeString);
-              RtlFreeUnicodeString(&UnicodeString);
-            }
+            IopStoreSystemPartitionInformation(v11, &UnicodeString.Length);
+            RtlFreeAnsiString(&UnicodeString);
           }
         }
       }

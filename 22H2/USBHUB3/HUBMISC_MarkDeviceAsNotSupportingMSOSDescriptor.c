@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMISC_MarkDeviceAsNotSupportingMSOSDescriptor @ 0x1C00820C4
+ * XREFs of HUBMISC_MarkDeviceAsNotSupportingMSOSDescriptor @ 0x1C007C644
  * Callers:
- *     HUBDSM_MarkDeviceAsNotSupportingMSOSDescriptor @ 0x1C0021B70 (HUBDSM_MarkDeviceAsNotSupportingMSOSDescriptor.c)
+ *     HUBDSM_MarkDeviceAsNotSupportingMSOSDescriptor @ 0x1C001F2D0 (HUBDSM_MarkDeviceAsNotSupportingMSOSDescriptor.c)
  * Callees:
- *     HUBREG_AssignUsbflagsValueForDevice @ 0x1C0083330 (HUBREG_AssignUsbflagsValueForDevice.c)
+ *     HUBREG_AssignUsbflagsValueForDevice @ 0x1C007D8C8 (HUBREG_AssignUsbflagsValueForDevice.c)
  */
 
 __int64 __fastcall HUBMISC_MarkDeviceAsNotSupportingMSOSDescriptor(__int64 a1)

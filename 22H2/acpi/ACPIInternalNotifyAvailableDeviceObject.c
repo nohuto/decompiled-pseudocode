@@ -1,37 +1,37 @@
 /*
- * XREFs of ACPIInternalNotifyAvailableDeviceObject @ 0x1C008311C
+ * XREFs of ACPIInternalNotifyAvailableDeviceObject @ 0x1C00A2218
  * Callers:
  *     ACPIDispatchIrp @ 0x1C0001010 (ACPIDispatchIrp.c)
  * Callees:
- *     WPP_RECORDER_SF_sqL @ 0x1C0023358 (WPP_RECORDER_SF_sqL.c)
- *     WPP_RECORDER_SF_sqSD @ 0x1C0024D00 (WPP_RECORDER_SF_sqSD.c)
- *     ACPIQueryDeviceBiosNameEx @ 0x1C0043BE4 (ACPIQueryDeviceBiosNameEx.c)
- *     AMLIGetNSObjectNotifyFlag @ 0x1C00483B4 (AMLIGetNSObjectNotifyFlag.c)
- *     AcpiExternalAddBiosNameDeviceAssociation @ 0x1C0083C6C (AcpiExternalAddBiosNameDeviceAssociation.c)
+ *     WPP_RECORDER_SF_sqL @ 0x1C002AF3C (WPP_RECORDER_SF_sqL.c)
+ *     AMLIGetNSObjectNotifyFlag @ 0x1C002D354 (AMLIGetNSObjectNotifyFlag.c)
+ *     WPP_RECORDER_SF_sqSD @ 0x1C00532D8 (WPP_RECORDER_SF_sqSD.c)
+ *     ACPIQueryDeviceBiosName @ 0x1C0099CE0 (ACPIQueryDeviceBiosName.c)
+ *     AcpiExternalAddBiosNameDeviceAssociation @ 0x1C00AF084 (AcpiExternalAddBiosNameDeviceAssociation.c)
  */
 
 __int64 __fastcall ACPIInternalNotifyAvailableDeviceObject(__int64 a1)
 {
   __int64 v2; // rcx
   int v3; // ebx
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // r9
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // r9
   int v8; // [rsp+20h] [rbp-48h]
   int v9; // [rsp+28h] [rbp-40h]
   int v10; // [rsp+38h] [rbp-30h]
   struct _UNICODE_STRING P; // [rsp+50h] [rbp-18h] BYREF
 
-  v2 = *(_QWORD *)(a1 + 760);
+  v2 = *(_QWORD *)(a1 + 720);
   P = 0LL;
   if ( v2 && AMLIGetNSObjectNotifyFlag(v2) )
   {
-    v3 = ACPIQueryDeviceBiosNameEx(*(_QWORD *)(a1 + 768), 1, &P);
+    v3 = ACPIQueryDeviceBiosName(*(_QWORD *)(a1 + 728), &P);
     if ( v3 >= 0 )
     {
-      v3 = AcpiExternalAddBiosNameDeviceAssociation(&P, *(_QWORD *)(a1 + 768));
+      v3 = AcpiExternalAddBiosNameDeviceAssociation(&P, *(_QWORD *)(a1 + 728));
       if ( v3 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_sqSD((__int64)WPP_GLOBAL_Control->DeviceExtension, v4, v5, v6, v8, v9);
+        WPP_RECORDER_SF_sqSD((__int64)WPP_GLOBAL_Control->DeviceExtension, v5, v6, v7, v8, v9);
     }
     else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
@@ -41,9 +41,9 @@ __int64 __fastcall ACPIInternalNotifyAvailableDeviceObject(__int64 a1)
         2u,
         6u,
         0x14u,
-        (__int64)&WPP_6f88517ea7123f8ddbeafbeda42a4256_Traceguids,
+        (__int64)&WPP_6862a416d8603aba0a2e2af82566a863_Traceguids,
         "ACPIInternalNotifyAvailableDeviceObject",
-        *(_QWORD *)(a1 + 768),
+        *(_QWORD *)(a1 + 728),
         v10);
     }
   }

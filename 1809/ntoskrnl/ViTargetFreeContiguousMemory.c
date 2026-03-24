@@ -5,9 +5,9 @@
  *     VerifierMmFreeContiguousMemorySpecifyCache @ 0x140944770 (VerifierMmFreeContiguousMemorySpecifyCache.c)
  *     VerifierMmFreeNonCachedMemory @ 0x1409447D0 (VerifierMmFreeNonCachedMemory.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x1400F5668 (VfAvlCleanupLockContext.c)
- *     VfAvlLookupTreeNode @ 0x14016C410 (VfAvlLookupTreeNode.c)
- *     VfAvlInitializeLockContext @ 0x14030B4B4 (VfAvlInitializeLockContext.c)
+ *     VfAvlCleanupLockContext @ 0x1400F5688 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14016C430 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x14030B5B4 (VfAvlInitializeLockContext.c)
  *     ViTargetFreeContiguousMemoryFromNode @ 0x140935008 (ViTargetFreeContiguousMemoryFromNode.c)
  *     ViTargetUpdateTreeAllowed @ 0x140935328 (ViTargetUpdateTreeAllowed.c)
  *     VfAvlEnumerateNodes @ 0x14093E0D8 (VfAvlEnumerateNodes.c)

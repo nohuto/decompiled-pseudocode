@@ -1,21 +1,20 @@
 /*
- * XREFs of IoSetFsTrackOffsetState @ 0x1405593B0
+ * XREFs of IoSetFsTrackOffsetState @ 0x140507C50
  * Callers:
  *     <none>
  * Callees:
- *     IopAllocateIrpExtension @ 0x14020C420 (IopAllocateIrpExtension.c)
- *     IopIrpHasValidCombinationOfExtensionTypes @ 0x140459D9C (IopIrpHasValidCombinationOfExtensionTypes.c)
+ *     IopAllocateIrpExtension @ 0x1402EE1B0 (IopAllocateIrpExtension.c)
+ *     IopIrpHasValidCombinationOfExtensionTypes @ 0x140507D60 (IopIrpHasValidCombinationOfExtensionTypes.c)
  */
 
 __int64 __fastcall IoSetFsTrackOffsetState(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v6; // r8
-  __int64 v7; // r9
+  __int64 v5; // r11
   _WORD *IrpExtension; // rax
 
-  if ( !IopIrpHasValidCombinationOfExtensionTypes(a1, 5LL, a3) )
+  if ( !(unsigned __int8)IopIrpHasValidCombinationOfExtensionTypes(a1, 5LL) )
     return 3221225659LL;
-  IrpExtension = IopAllocateIrpExtension(a1, 5, v6, v7);
+  IrpExtension = IopAllocateIrpExtension(v5, 5);
   if ( !IrpExtension )
     return 3221225626LL;
   *((_QWORD *)IrpExtension + 5) = a2;

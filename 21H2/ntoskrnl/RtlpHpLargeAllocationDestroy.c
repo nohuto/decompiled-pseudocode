@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLargeAllocationDestroy @ 0x1405F3870
+ * XREFs of RtlpHpLargeAllocationDestroy @ 0x1405955F0
  * Callers:
- *     RtlpHpHeapDestroy @ 0x14036EBE8 (RtlpHpHeapDestroy.c)
+ *     RtlpHpHeapDestroy @ 0x1403898BC (RtlpHpHeapDestroy.c)
  * Callees:
- *     RtlpHpFreeVA @ 0x140363E50 (RtlpHpFreeVA.c)
- *     RtlpHpMetadataFree @ 0x140370C00 (RtlpHpMetadataFree.c)
+ *     RtlpHpMetadataFree @ 0x1402A5660 (RtlpHpMetadataFree.c)
+ *     RtlpHpFreeVA @ 0x1402FA770 (RtlpHpFreeVA.c)
  */
 
 __int64 __fastcall RtlpHpLargeAllocationDestroy(__int64 a1, __int128 *a2)

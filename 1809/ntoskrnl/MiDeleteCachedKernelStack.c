@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeleteCachedKernelStack @ 0x1400A5E50
+ * XREFs of MiDeleteCachedKernelStack @ 0x1400A5E70
  * Callers:
- *     MiAdjustCachedStacks @ 0x1400A7708 (MiAdjustCachedStacks.c)
- *     MiEmptyKernelStackCache @ 0x1402BB584 (MiEmptyKernelStackCache.c)
+ *     MiAdjustCachedStacks @ 0x1400A7728 (MiAdjustCachedStacks.c)
+ *     MiEmptyKernelStackCache @ 0x1402BB684 (MiEmptyKernelStackCache.c)
  * Callees:
  *     MiDeleteKernelStack @ 0x14007A5B0 (MiDeleteKernelStack.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiDeleteCachedKernelStack(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpInitGlobalQuotaAllowed @ 0x140B2F008
+ * XREFs of CmpInitGlobalQuotaAllowed @ 0x140A723C4
  * Callers:
- *     CmInitSystem1 @ 0x140B15F88 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     MmGetNumberOfPhysicalPages @ 0x1406AD260 (MmGetNumberOfPhysicalPages.c)
+ *     MmGetNumberOfPhysicalPages @ 0x14064F740 (MmGetNumberOfPhysicalPages.c)
  */
 
 __int64 CmpInitGlobalQuotaAllowed()
@@ -14,27 +14,22 @@ __int64 CmpInitGlobalQuotaAllowed()
   __int64 result; // rax
 
   CmpSizeOfPagedPoolInBytes = MmSizeOfPagedPoolInBytes;
-  if ( CmRegistrySizeLimitLength == 4 && CmRegistrySizeLimitType == 4 && CmRegistrySizeLimit )
+  if ( CmRegistrySizeLimitLength == 4 && CmRegistrySizeLimitType == 4 && CmRegistrySizeLimit
+    || (v0 = 0, CmRegistrySizeLimitLength == 8) && CmRegistrySizeLimitType == 11 && CmRegistrySizeLimit )
   {
     v0 = 1;
   }
+  if ( v0 )
+  {
+    v1 = CmRegistrySizeLimit;
+    CmpQuotaExplicitlySet = 1;
+    if ( CmRegistrySizeLimit >= ((((unsigned __int64)MmSizeOfPagedPoolInBytes * (unsigned __int128)0xCCCCCCCCCCCCCCCDuLL) >> 64) & 0xFFFFFFFFFFFFFFF8uLL) )
+      v1 = (((unsigned __int64)MmSizeOfPagedPoolInBytes * (unsigned __int128)0xCCCCCCCCCCCCCCCDuLL) >> 64) & 0xFFFFFFFFFFFFFFF8uLL;
+  }
   else
   {
-    v0 = 0;
-    if ( CmRegistrySizeLimitLength == 8 && CmRegistrySizeLimitType == 11 && CmRegistrySizeLimit )
-      goto LABEL_20;
-  }
-  if ( !v0 )
-  {
     v1 = MmSizeOfPagedPoolInBytes / 3uLL;
-    goto LABEL_5;
   }
-LABEL_20:
-  v1 = CmRegistrySizeLimit;
-  CmpQuotaExplicitlySet = 1;
-  if ( CmRegistrySizeLimit >= ((((unsigned __int64)MmSizeOfPagedPoolInBytes * (unsigned __int128)0xCCCCCCCCCCCCCCCDuLL) >> 64) & 0xFFFFFFFFFFFFFFF8uLL) )
-    v1 = (((unsigned __int64)MmSizeOfPagedPoolInBytes * (unsigned __int128)0xCCCCCCCCCCCCCCCDuLL) >> 64) & 0xFFFFFFFFFFFFFFF8uLL;
-LABEL_5:
   CmpGlobalQuota = v1;
   if ( v1 > 0xFFFFFFFF )
   {

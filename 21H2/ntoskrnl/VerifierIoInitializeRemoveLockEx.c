@@ -1,17 +1,17 @@
 /*
- * XREFs of VerifierIoInitializeRemoveLockEx @ 0x140A91C30
+ * XREFs of VerifierIoInitializeRemoveLockEx @ 0x1409D64C0
  * Callers:
  *     <none>
  * Callees:
- *     VfAvlCleanupLockContext @ 0x1402D81DC (VfAvlCleanupLockContext.c)
- *     VfAvlInsertReservedTreeNode @ 0x1402D8234 (VfAvlInsertReservedTreeNode.c)
- *     VfAvlReserveNode @ 0x1402D83B4 (VfAvlReserveNode.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     VfAvlInitializeLockContext @ 0x14045F6C8 (VfAvlInitializeLockContext.c)
- *     VerifierBugCheckIfAppropriate @ 0x140A8C924 (VerifierBugCheckIfAppropriate.c)
- *     ViRemLockDeleteFirstTreeNode @ 0x140A91EDC (ViRemLockDeleteFirstTreeNode.c)
- *     ViRemLockFindSurrogate @ 0x140A91F88 (ViRemLockFindSurrogate.c)
+ *     VfAvlCleanupLockContext @ 0x140371B24 (VfAvlCleanupLockContext.c)
+ *     VfAvlInsertReservedTreeNode @ 0x140371B70 (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlReserveNode @ 0x140371CF0 (VfAvlReserveNode.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     VfAvlInitializeLockContext @ 0x1405A25D4 (VfAvlInitializeLockContext.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     ViRemLockDeleteFirstTreeNode @ 0x1409D6804 (ViRemLockDeleteFirstTreeNode.c)
+ *     ViRemLockFindSurrogate @ 0x1409D68B0 (ViRemLockFindSurrogate.c)
  */
 
 char __fastcall VerifierIoInitializeRemoveLockEx(
@@ -24,8 +24,8 @@ char __fastcall VerifierIoInitializeRemoveLockEx(
   __int64 Surrogate; // rax
   __int64 v10; // rbp
   int v11; // r14d
-  __int64 v12; // rax
-  _QWORD *v13; // rbp
+  char *v12; // rax
+  char *v13; // rbp
   void *v14; // rcx
   char result; // al
   __int128 v16; // [rsp+30h] [rbp-38h] BYREF
@@ -41,7 +41,7 @@ char __fastcall VerifierIoInitializeRemoveLockEx(
   Surrogate = ViRemLockFindSurrogate();
   if ( Surrogate )
   {
-    if ( (VfRuleClasses & 0x10) != 0 )
+    if ( (MmVerifierData & 0x10) != 0 )
       VerifierBugCheckIfAppropriate(0xC4u, 0xD7uLL, Surrogate + 16, BugCheckParameter3, 0LL);
     _InterlockedAdd(&ViRemLockReusedCount, 1u);
     v10 = a5;
@@ -60,7 +60,7 @@ char __fastcall VerifierIoInitializeRemoveLockEx(
              a4,
              a5);
   v12 = VfAvlReserveNode(&ViRemLockAvl, BugCheckParameter3, v10);
-  v13 = (_QWORD *)v12;
+  v13 = v12;
   if ( !v12 )
   {
     _InterlockedExchange(&ViRemLockAllocationFailures, 1);
@@ -71,7 +71,7 @@ char __fastcall VerifierIoInitializeRemoveLockEx(
              a4,
              a5);
   }
-  v14 = (void *)(v12 + 16);
+  v14 = v12 + 16;
   if ( a5 == 120 )
   {
     memset(v14, 0, 0x78uLL);

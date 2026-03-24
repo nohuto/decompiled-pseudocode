@@ -1,145 +1,264 @@
 /*
- * XREFs of ParseAcquire @ 0x1C005A110
+ * XREFs of ParseAcquire @ 0x1C000A6C0
  * Callers:
  *     <none>
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     AcquireGL @ 0x1C004ACD0 (AcquireGL.c)
- *     IsCompatableDSDTRevision @ 0x1C004BE48 (IsCompatableDSDTRevision.c)
- *     PerformMutexDriverCallbacks @ 0x1C004CA14 (PerformMutexDriverCallbacks.c)
- *     PerformMutexResourceBindings @ 0x1C004CBD8 (PerformMutexResourceBindings.c)
- *     ReleaseGL @ 0x1C004CEC8 (ReleaseGL.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     HeapFree @ 0x1C004EE6C (HeapFree.c)
- *     AcquireASLMutex @ 0x1C0054288 (AcquireASLMutex.c)
- *     ReleaseASLMutex @ 0x1C0054DF0 (ReleaseASLMutex.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     PerformMutexDriverCallbacks @ 0x1C0010328 (PerformMutexDriverCallbacks.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     ReleaseASLMutex @ 0x1C002F32C (ReleaseASLMutex.c)
+ *     AcquireGL @ 0x1C0065094 (AcquireGL.c)
+ *     ReleaseGL @ 0x1C0065C3C (ReleaseGL.c)
+ *     QueueContext @ 0x1C00686E4 (QueueContext.c)
  */
 
-__int64 __fastcall ParseAcquire(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall ParseAcquire(__int64 a1, __int64 a2, unsigned int a3)
 {
-  int v5; // edx
-  const void *v6; // rdi
+  int v4; // edx
+  unsigned int v5; // esi
   int v7; // eax
-  int v8; // eax
-  int v9; // eax
+  __int64 v8; // r9
+  __int64 v9; // rdi
   int v10; // eax
-  int v11; // eax
-  int v12; // eax
-  __int64 v13; // r8
-  int v14; // eax
-  __int64 v15; // rdx
-  int v16; // eax
-  int v17; // eax
-  int v18; // eax
+  unsigned __int16 v11; // r12
+  KSPIN_LOCK *v12; // rdi
+  KIRQL v13; // r15
+  int v14; // ecx
+  __int64 v15; // rax
+  _QWORD *v16; // rcx
+  _QWORD *v17; // rdx
+  __int64 v18; // r8
   int v19; // eax
   int v20; // eax
-  unsigned int v21; // r14d
-  __int64 v22; // rcx
+  _QWORD *v21; // rbx
+  _QWORD *v22; // rdi
+  __int64 v23; // r9
+  _QWORD *v24; // rax
+  _QWORD *i; // rdx
+  _QWORD *v26; // rcx
+  _QWORD *v27; // r8
+  __int64 v28; // rcx
+  _QWORD *v29; // rax
+  _QWORD *v30; // r8
+  __int64 v32; // r10
+  __int64 v33; // rcx
+  _QWORD *v34; // rax
+  __int64 v35; // rcx
+  _QWORD *v36; // rdi
+  __int64 v37; // rdx
+  _QWORD *v38; // rax
+  int v39; // eax
+  int v40; // eax
+  int v41; // edi
+  bool v42; // al
+  __int64 v43; // rcx
+  __int64 v44; // rcx
+  _QWORD *v45; // rax
 
-  v5 = *(_DWORD *)(a2 + 16);
-  LODWORD(v6) = a3;
-  if ( (v5 & 0xF) == 3 )
+  v4 = *(_DWORD *)(a2 + 16);
+  v5 = a3;
+  v7 = v4 & 0xF;
+  if ( v7 == 3 )
   {
     v7 = 3;
+    goto LABEL_53;
+  }
+  if ( a3 )
+  {
+    v7 = 5;
+    goto LABEL_53;
+  }
+  if ( (v4 & 0xF) != 0 )
+  {
+LABEL_53:
+    switch ( v7 )
+    {
+      case 1:
+        goto LABEL_6;
+      case 2:
+        goto LABEL_8;
+      case 3:
+        goto LABEL_20;
+      case 4:
+        goto LABEL_23;
+      case 5:
+        goto LABEL_25;
+      case 6:
+        goto LABEL_27;
+      default:
+        return v5;
+    }
+  }
+  v8 = *(_QWORD *)(a2 + 56);
+  v9 = *(_QWORD *)(a2 + 32);
+  *(_DWORD *)(a2 + 16) = v4 + 1;
+  if ( _InterlockedCompareExchange((volatile signed __int32 *)(v9 + 32), 0, 0) == 2
+    && (int)PerformMutexDriverCallbacks(4, v9, a1, v8, 0) >= 0 )
+  {
+    _InterlockedCompareExchange((volatile signed __int32 *)(v9 + 32), 3, 2);
+  }
+  v4 = *(_DWORD *)(a2 + 16);
+LABEL_6:
+  *(_DWORD *)(a2 + 16) = v4 + 1;
+  if ( ((v4 + 1) & 0x10000) != 0 )
+  {
+    v5 = AcquireGL(a1);
+    if ( v5 )
+      return v5;
+  }
+  v4 = *(_DWORD *)(a2 + 16);
+LABEL_8:
+  if ( (v4 & 0x10000) != 0 )
+    *(_DWORD *)(a2 + 16) = v4 | 0x20000;
+  v10 = *(_DWORD *)(a1 + 64);
+  v5 = 0;
+  v11 = *(_WORD *)(a2 + 40);
+  v12 = *(KSPIN_LOCK **)(a2 + 32);
+  if ( (v10 & 4) != 0 )
+  {
+    v5 = 32773;
+    *(_DWORD *)(a1 + 64) = v10 & 0xFFFFFFFB;
+LABEL_57:
+    v20 = *(_DWORD *)(a2 + 16);
+    goto LABEL_19;
+  }
+  v13 = KeAcquireSpinLockRaiseToDpc(v12 + 23);
+  if ( *(_DWORD *)v12 < *(_DWORD *)(a1 + 112) )
+  {
+    v5 = -1072431083;
+    LogError(3222536213LL);
+    AcpiDiagTraceAmlError(a1, 3222536213LL);
+    PrintDebugMessage(5, 0, 0, 0, 0LL);
   }
   else
   {
-    v7 = 5;
-    if ( !a3 )
-      v7 = v5 & 0xF;
-  }
-  if ( !v7 )
-  {
-    v13 = *(_QWORD *)(a2 + 56);
-    v14 = v5 + 1;
-    v15 = *(_QWORD *)(a2 + 32);
-    *(_DWORD *)(a2 + 16) = v14;
-    LODWORD(v6) = PerformMutexResourceBindings(a1, v15, v13);
-    if ( (_DWORD)v6 )
-      return (unsigned int)v6;
-LABEL_15:
-    ++*(_DWORD *)(a2 + 16);
-    if ( _bittest((const signed __int32 *)(a2 + 16), 0x10u) )
+    v14 = *((_DWORD *)v12 + 1);
+    if ( v14 )
     {
-      LODWORD(v6) = AcquireGL(a1);
-      if ( (_DWORD)v6 )
-        return (unsigned int)v6;
-    }
-    goto LABEL_17;
-  }
-  v8 = v7 - 1;
-  if ( !v8 )
-    goto LABEL_15;
-  v9 = v8 - 1;
-  if ( !v9 )
-  {
-LABEL_17:
-    v16 = *(_DWORD *)(a2 + 16);
-    if ( (v16 & 0x10000) != 0 )
-      *(_DWORD *)(a2 + 16) = v16 | 0x20000;
-    v17 = AcquireASLMutex(a1, *(KSPIN_LOCK **)(a2 + 32), *(_WORD *)(a2 + 40));
-    LODWORD(v6) = v17;
-    if ( v17 == 32772 )
-    {
-      v18 = *(_DWORD *)(a2 + 16);
-      if ( (v18 & 0x20000) != 0 )
+      if ( *(_QWORD *)(v12[1] + 8) == a1 )
       {
-        *(_DWORD *)(a2 + 16) = v18 & 0xFFFDFFFF;
-        v6 = (const void *)(int)ReleaseGL();
-        v19 = *(_DWORD *)(a2 + 16);
-        if ( (_DWORD)v6 )
+        *((_DWORD *)v12 + 1) = v14 + 1;
+      }
+      else
+      {
+        QueueContext(a1, v11, v12 + 2);
+        v5 = 32772;
+      }
+    }
+    else
+    {
+      v15 = HeapAlloc(*(struct _SLIST_ENTRY **)(a1 + 320), 1380865871, 0x28u);
+      if ( v15 )
+      {
+        v16 = (_QWORD *)(a1 + 48);
+        *(_QWORD *)(v15 + 8) = a1;
+        *(_QWORD *)(v15 + 16) = v12;
+        v17 = (_QWORD *)(v15 + 24);
+        *(_DWORD *)v15 = 1;
+        v18 = *(_QWORD *)(a1 + 48);
+        if ( *(_QWORD *)(v18 + 8) != a1 + 48 )
+          goto LABEL_48;
+        *v17 = v18;
+        *(_QWORD *)(v15 + 32) = v16;
+        *(_QWORD *)(v18 + 8) = v17;
+        *v16 = v17;
+        v12[1] = v15;
+        v19 = *(_DWORD *)v12;
+        *((_DWORD *)v12 + 1) = 1;
+        *(_DWORD *)(a1 + 112) = v19;
+      }
+      else
+      {
+        v5 = -1073741670;
+        LogError(3221225626LL);
+        AcpiDiagTraceAmlError(a1, 3221225626LL);
+        PrintDebugMessage(4, 0, 0, 0, 0LL);
+      }
+    }
+  }
+  KeReleaseSpinLock(v12 + 23, v13);
+  if ( v5 == 32772 )
+  {
+    v39 = *(_DWORD *)(a2 + 16);
+    if ( (v39 & 0x20000) != 0 )
+    {
+      *(_DWORD *)(a2 + 16) = v39 & 0xFFFDFFFF;
+      v5 = ReleaseGL(a1);
+      v40 = *(_DWORD *)(a2 + 16);
+      if ( v5 )
+      {
+        *(_DWORD *)(a2 + 16) = v40 + 3;
+        LogError(3222536195LL);
+        AcpiDiagTraceAmlError(a1, 3222536195LL);
+        PrintDebugMessage(119, v5, 0, 0, 0LL);
+        return (unsigned int)-1072431101;
+      }
+      else
+      {
+        *(_DWORD *)(a2 + 16) = v40 - 1;
+      }
+    }
+    return v5;
+  }
+  if ( v5 )
+    goto LABEL_57;
+  v20 = *(_DWORD *)(a2 + 16) | 0x80000;
+LABEL_19:
+  *(_DWORD *)(a2 + 16) = v20 + 1;
+LABEL_20:
+  if ( v5 == 32773
+    || *(_DWORD *)(*(_QWORD *)(a2 + 32) + 32LL) != 3
+    || (v5 = PerformMutexDriverCallbacks(2, *(_QWORD *)(a2 + 32), a1, *(_QWORD *)(a1 + 80), *(_WORD *)(a2 + 40)),
+        v5 != 32772) )
+  {
+    v4 = ++*(_DWORD *)(a2 + 16);
+LABEL_23:
+    if ( v5 )
+    {
+      if ( (v4 & 0x80000) != 0 )
+      {
+        *(_DWORD *)(a2 + 16) = v4 & 0xFFF7FFFF;
+        ReleaseASLMutex(a1, *(_QWORD *)(a2 + 32), 0LL);
+        v4 = *(_DWORD *)(a2 + 16);
+      }
+      if ( (v4 & 0x20000) != 0 )
+      {
+        *(_DWORD *)(a2 + 16) = v4 & 0xFFFDFFFF;
+        v41 = ReleaseGL(a1);
+        if ( v41 )
         {
-          *(_DWORD *)(a2 + 16) = v19 + 3;
-          LogError(-1072431101);
-          AcpiDiagTraceAmlError(a1, -1072431101);
-          PrintDebugMessage(119, v6, 0LL, 0LL, 0LL);
-          LODWORD(v6) = -1072431101;
-        }
-        else
-        {
-          *(_DWORD *)(a2 + 16) = v19 - 1;
+          LogError(3222536195LL);
+          AcpiDiagTraceAmlError(a1, 3222536195LL);
+          PrintDebugMessage(172, v41, 0, 0, 0LL);
+          v5 = -1072431101;
         }
       }
-      return (unsigned int)v6;
+      if ( *(_DWORD *)(*(_QWORD *)(a2 + 32) + 32LL) == 3 )
+      {
+        if ( *(_WORD *)(a2 + 40) == 0xFFFF )
+        {
+          *(_DWORD *)(a2 + 16) = 1;
+          return v5;
+        }
+        v5 = 32773;
+      }
     }
-    if ( !v17 )
-      *(_DWORD *)(a2 + 16) |= 0x80000u;
-    ++*(_DWORD *)(a2 + 16);
-    goto LABEL_27;
-  }
-  v10 = v9 - 1;
-  if ( !v10 )
-  {
-LABEL_27:
-    if ( (_DWORD)v6 != 32773 && *(_DWORD *)(*(_QWORD *)(a2 + 32) + 32LL) == 3 )
-    {
-      LODWORD(v6) = PerformMutexDriverCallbacks(2u, *(_QWORD *)(a2 + 32), a1, *(_QWORD *)(a1 + 80), *(_WORD *)(a2 + 40));
-      if ( (_DWORD)v6 == 32772 )
-        return (unsigned int)v6;
-    }
-    v5 = ++*(_DWORD *)(a2 + 16);
-    goto LABEL_31;
-  }
-  v11 = v10 - 1;
-  if ( v11 )
-  {
-    v12 = v11 - 1;
-    if ( v12 )
-    {
-      if ( v12 != 1 )
-        return (unsigned int)v6;
-      goto LABEL_47;
-    }
-LABEL_41:
-    if ( (v5 & 0x40000) != 0 )
+    v4 = ++*(_DWORD *)(a2 + 16);
+LABEL_25:
+    if ( (v4 & 0x40000) != 0 )
     {
       *(_WORD *)(*(_QWORD *)(a2 + 48) + 2LL) = 1;
-      if ( (_DWORD)v6 )
+      if ( v5 )
       {
-        LODWORD(v6) = 0;
-        *(_QWORD *)(*(_QWORD *)(a2 + 48) + 16LL) = (-(__int64)IsCompatableDSDTRevision() & 0xFFFFFFFF00000000uLL)
-                                                 + 0xFFFFFFFF;
+        v42 = IsCompatableDSDTRevision();
+        v43 = 0xFFFFFFFFLL;
+        if ( v42 )
+          v43 = -1LL;
+        v5 = 0;
+        *(_QWORD *)(*(_QWORD *)(a2 + 48) + 16LL) = v43;
       }
       else
       {
@@ -147,42 +266,85 @@ LABEL_41:
       }
     }
     ++*(_DWORD *)(a2 + 16);
-LABEL_47:
-    v22 = *(_QWORD *)(a1 + 416);
-    *(_QWORD *)(a1 + 416) = *(_QWORD *)(v22 + 8);
-    HeapFree(v22);
-    return (unsigned int)v6;
-  }
-LABEL_31:
-  if ( !(_DWORD)v6 )
-    goto LABEL_40;
-  if ( (v5 & 0x80000) != 0 )
-  {
-    *(_DWORD *)(a2 + 16) = v5 & 0xFFF7FFFF;
-    ReleaseASLMutex(a1, *(_QWORD *)(a2 + 32), 0);
-  }
-  v20 = *(_DWORD *)(a2 + 16);
-  if ( (v20 & 0x20000) != 0 )
-  {
-    *(_DWORD *)(a2 + 16) = v20 & 0xFFFDFFFF;
-    v21 = ReleaseGL();
-    if ( v21 )
+LABEL_27:
+    v21 = *(_QWORD **)(a1 + 416);
+    v22 = v21 - 2;
+    *(_QWORD *)(a1 + 416) = v21[1];
+    *((_DWORD *)v21 - 4) = 0;
+    NewIrql = KeAcquireSpinLockRaiseToDpc(&gmutHeap);
+    v23 = *(v21 - 1);
+    v24 = *(_QWORD **)(v23 + 40);
+    for ( i = (_QWORD *)(v23 + 40); v24 != i; v24 = (_QWORD *)*v24 )
     {
-      LogError(-1072431101);
-      AcpiDiagTraceAmlError(a1, -1072431101);
-      PrintDebugMessage(172, (const void *)v21, 0LL, 0LL, 0LL);
-      LODWORD(v6) = -1072431101;
+      if ( v21 < v24 )
+        break;
     }
+    v26 = (_QWORD *)v24[1];
+    if ( (_QWORD *)*v26 == v24 )
+    {
+      v21[1] = v26;
+      *v21 = v24;
+      *v26 = v21;
+      v24[1] = v21;
+      v27 = (_QWORD *)*v21;
+      v28 = *v21 - 16LL;
+      if ( (_QWORD *)*v21 != i )
+      {
+        v32 = *((unsigned int *)v22 + 1);
+        if ( (_QWORD *)v28 == (_QWORD *)((char *)v22 + v32) )
+        {
+          *((_DWORD *)v22 + 1) = v32 + *(_DWORD *)(v28 + 4);
+          v33 = *v27;
+          if ( *(_QWORD **)(*v27 + 8LL) != v27 )
+            goto LABEL_48;
+          v34 = (_QWORD *)v27[1];
+          if ( (_QWORD *)*v34 != v27 )
+            goto LABEL_48;
+          *v34 = v33;
+          *(_QWORD *)(v33 + 8) = v34;
+        }
+      }
+      v29 = (_QWORD *)v22[3];
+      v30 = v29 - 2;
+      if ( v29 != i )
+      {
+        v35 = *((unsigned int *)v30 + 1);
+        if ( v22 == (_QWORD *)((char *)v30 + v35) )
+        {
+          *((_DWORD *)v30 + 1) = *((_DWORD *)v22 + 1) + v35;
+          v44 = *v21;
+          if ( *(_QWORD **)(*v21 + 8LL) != v21 )
+            goto LABEL_48;
+          v45 = (_QWORD *)v21[1];
+          if ( (_QWORD *)*v45 != v21 )
+            goto LABEL_48;
+          *v45 = v44;
+          v22 = v30;
+          *(_QWORD *)(v44 + 8) = v45;
+        }
+      }
+      if ( *(_QWORD *)(v23 + 32) > (unsigned __int64)v22 + *((unsigned int *)v22 + 1) )
+      {
+LABEL_32:
+        KeReleaseSpinLock(&gmutHeap, NewIrql);
+        return v5;
+      }
+      *(_QWORD *)(v23 + 32) = v22;
+      v36 = v22 + 2;
+      v37 = *v36;
+      if ( *(_QWORD **)(*v36 + 8LL) == v36 )
+      {
+        v38 = (_QWORD *)v36[1];
+        if ( (_QWORD *)*v38 == v36 )
+        {
+          *v38 = v37;
+          *(_QWORD *)(v37 + 8) = v38;
+          goto LABEL_32;
+        }
+      }
+    }
+LABEL_48:
+    __fastfail(3u);
   }
-  if ( *(_DWORD *)(*(_QWORD *)(a2 + 32) + 32LL) != 3 )
-    goto LABEL_40;
-  if ( *(_WORD *)(a2 + 40) != 0xFFFF )
-  {
-    LODWORD(v6) = 32773;
-LABEL_40:
-    v5 = ++*(_DWORD *)(a2 + 16);
-    goto LABEL_41;
-  }
-  *(_DWORD *)(a2 + 16) = 1;
-  return (unsigned int)v6;
+  return v5;
 }

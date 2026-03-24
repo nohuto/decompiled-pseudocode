@@ -1,15 +1,13 @@
 /*
- * XREFs of FsRtlRemovePerStreamContext @ 0x1405418D0
+ * XREFs of FsRtlRemovePerStreamContext @ 0x1404F1500
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     ExAcquireAutoExpandPushLockExclusive @ 0x1402A3C30 (ExAcquireAutoExpandPushLockExclusive.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x1402AC890 (ExReleaseAutoExpandPushLockExclusive.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
  */
 
 PFSRTL_PER_STREAM_CONTEXT __stdcall FsRtlRemovePerStreamContext(
@@ -17,103 +15,70 @@ PFSRTL_PER_STREAM_CONTEXT __stdcall FsRtlRemovePerStreamContext(
         PVOID OwnerId,
         PVOID InstanceId)
 {
-  unsigned __int8 v6; // al
-  void *v7; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  struct _KTHREAD *v9; // rax
-  struct _FSRTL_PER_STREAM_CONTEXT *v10; // rdi
-  _LIST_ENTRY *p_FilterContexts; // rax
-  struct _LIST_ENTRY *Flink; // rcx
-  struct _LIST_ENTRY *v13; // rax
+  struct _FSRTL_PER_STREAM_CONTEXT *v7; // rbx
+  _LIST_ENTRY *p_FilterContexts; // rcx
+  struct _LIST_ENTRY *Flink; // rax
+  struct _LIST_ENTRY *v10; // rax
   struct _LIST_ENTRY *Blink; // rcx
-  unsigned __int8 v15; // al
-  void *AePushLock; // rcx
 
-  if ( StreamContext && (StreamContext->Flags2 & 2) != 0 )
+  if ( !StreamContext || (StreamContext->Flags2 & 2) == 0 )
+    return 0LL;
+  if ( (*((_BYTE *)StreamContext + 7) & 0xF0u) < 0x10 )
   {
-    v6 = *((_BYTE *)StreamContext + 7) >> 4;
-    if ( v6 < 3u )
-    {
-      if ( !v6 )
-      {
-        ExAcquireFastMutex(StreamContext->FastMutex);
-LABEL_9:
-        v10 = 0LL;
-        p_FilterContexts = &StreamContext->FilterContexts;
-        Flink = StreamContext->FilterContexts.Flink;
-        if ( InstanceId )
-        {
-          while ( Flink != p_FilterContexts )
-          {
-            if ( Flink[1].Flink == OwnerId && Flink[1].Blink == InstanceId )
-              goto LABEL_12;
-            Flink = Flink->Flink;
-          }
-        }
-        else if ( OwnerId )
-        {
-          while ( Flink != p_FilterContexts )
-          {
-            if ( Flink[1].Flink == OwnerId )
-              goto LABEL_12;
-            Flink = Flink->Flink;
-          }
-        }
-        else if ( Flink != p_FilterContexts )
-        {
-LABEL_12:
-          v10 = (struct _FSRTL_PER_STREAM_CONTEXT *)Flink;
-          if ( Flink )
-          {
-            v13 = Flink->Flink;
-            if ( Flink->Flink->Blink != Flink
-              || (Blink = Flink->Blink, (struct _FSRTL_PER_STREAM_CONTEXT *)Blink->Flink != v10) )
-            {
-              __fastfail(3u);
-            }
-            Blink->Flink = v13;
-            v13->Blink = Blink;
-          }
-        }
-        v15 = *((_BYTE *)StreamContext + 7) >> 4;
-        if ( v15 < 3u )
-        {
-          if ( !v15 )
-          {
-            KeReleaseGuardedMutex(StreamContext->FastMutex);
-            return v10;
-          }
-        }
-        else
-        {
-          AePushLock = StreamContext->AePushLock;
-          if ( AePushLock )
-          {
-            ExReleaseAutoExpandPushLockExclusive((ULONG_PTR)AePushLock, 0LL);
-LABEL_31:
-            KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-            return v10;
-          }
-        }
-        ExReleasePushLockEx((ULONG_PTR)&StreamContext->PushLock, 0LL);
-        goto LABEL_31;
-      }
-    }
-    else
-    {
-      v7 = StreamContext->AePushLock;
-      if ( v7 )
-      {
-        CurrentThread = KeGetCurrentThread();
-        --CurrentThread->KernelApcDisable;
-        ExAcquireAutoExpandPushLockExclusive((ULONG_PTR)v7, 0LL);
-        goto LABEL_9;
-      }
-    }
-    v9 = KeGetCurrentThread();
-    --v9->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&StreamContext->PushLock, 0LL);
-    goto LABEL_9;
+    ExAcquireFastMutex(StreamContext->FastMutex);
   }
-  return 0LL;
+  else
+  {
+    CurrentThread = KeGetCurrentThread();
+    --CurrentThread->KernelApcDisable;
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&StreamContext->PushLock, 0LL);
+  }
+  v7 = 0LL;
+  p_FilterContexts = &StreamContext->FilterContexts;
+  Flink = StreamContext->FilterContexts.Flink;
+  if ( InstanceId )
+  {
+    while ( Flink != p_FilterContexts )
+    {
+      if ( Flink[1].Flink == OwnerId && Flink[1].Blink == InstanceId )
+        goto LABEL_9;
+      Flink = Flink->Flink;
+    }
+  }
+  else if ( OwnerId )
+  {
+    while ( Flink != p_FilterContexts )
+    {
+      if ( Flink[1].Flink == OwnerId )
+        goto LABEL_9;
+      Flink = Flink->Flink;
+    }
+  }
+  else if ( Flink != p_FilterContexts )
+  {
+LABEL_9:
+    v7 = (struct _FSRTL_PER_STREAM_CONTEXT *)Flink;
+    if ( Flink )
+    {
+      v10 = Flink->Flink;
+      if ( (struct _FSRTL_PER_STREAM_CONTEXT *)v10->Blink != v7
+        || (Blink = v7->Links.Blink, (struct _FSRTL_PER_STREAM_CONTEXT *)Blink->Flink != v7) )
+      {
+        __fastfail(3u);
+      }
+      Blink->Flink = v10;
+      v10->Blink = Blink;
+    }
+  }
+  if ( (*((_BYTE *)StreamContext + 7) & 0xF0u) < 0x10 )
+  {
+    KeReleaseGuardedMutex(StreamContext->FastMutex);
+  }
+  else
+  {
+    ExReleasePushLockEx((ULONG_PTR)&StreamContext->PushLock, 0LL);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  }
+  return v7;
 }

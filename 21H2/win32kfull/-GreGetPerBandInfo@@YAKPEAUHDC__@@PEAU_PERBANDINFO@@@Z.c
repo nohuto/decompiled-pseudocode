@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GreGetPerBandInfo@@YAKPEAUHDC__@@PEAU_PERBANDINFO@@@Z @ 0x1C01425D8
+ * XREFs of ?GreGetPerBandInfo@@YAKPEAUHDC__@@PEAU_PERBANDINFO@@@Z @ 0x1C0154488
  * Callers:
- *     NtGdiGetPerBandInfo @ 0x1C0142530 (NtGdiGetPerBandInfo.c)
+ *     NtGdiGetPerBandInfo @ 0x1C01543E0 (NtGdiGetPerBandInfo.c)
  * Callees:
- *     ?bValidSurf@XDCOBJ@@QEAAHXZ @ 0x1C002BB70 (-bValidSurf@XDCOBJ@@QEAAHXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?bValidSurf@XDCOBJ@@QEAAHXZ @ 0x1C00B5924 (-bValidSurf@XDCOBJ@@QEAAHXZ.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall GreGetPerBandInfo(HDC a1, struct _PERBANDINFO *a2)
@@ -28,11 +28,11 @@ __int64 __fastcall GreGetPerBandInfo(HDC a1, struct _PERBANDINFO *a2)
     if ( v4 )
     {
       v5 = *(_QWORD *)(v8[0] + 48LL);
-      if ( *(_QWORD *)(v5 + 2536) )
+      if ( *(_QWORD *)(v5 + 2560) )
       {
         if ( (*(_DWORD *)(v4 + 112) & 0x2000000) != 0 )
         {
-          v6 = *(__int64 (__fastcall **)(__int64, struct _PERBANDINFO *))(v5 + 3264);
+          v6 = *(__int64 (__fastcall **)(__int64, struct _PERBANDINFO *))(v5 + 3288);
           if ( v6 )
           {
             v3 = v6(v4 + 24, a2);

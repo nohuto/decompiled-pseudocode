@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbDevice_HandleSendStopEndpointToOffloadedEndpointsState @ 0x1C0046CC8
+ * XREFs of UsbDevice_HandleSendStopEndpointToOffloadedEndpointsState @ 0x1C0046808
  * Callers:
- *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C000239C (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0007714 (UsbDevice_QueueConfigureEndpointEvent.c)
  * Callees:
- *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C000239C (UsbDevice_QueueConfigureEndpointEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_sds @ 0x1C003609C (WPP_RECORDER_SF_sds.c)
- *     UsbDevice_NumberOfOffloadedEndpointsInDropEndpointsList @ 0x1C0046F9C (UsbDevice_NumberOfOffloadedEndpointsInDropEndpointsList.c)
- *     UsbDevice_SendStopEndpointToOffloadedEndpoint @ 0x1C0047378 (UsbDevice_SendStopEndpointToOffloadedEndpoint.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0007714 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     UsbDevice_NumberOfOffloadedEndpointsInDropEndpointsList @ 0x1C0046ADC (UsbDevice_NumberOfOffloadedEndpointsInDropEndpointsList.c)
+ *     UsbDevice_SendStopEndpointToOffloadedEndpoint @ 0x1C0046F98 (UsbDevice_SendStopEndpointToOffloadedEndpoint.c)
  */
 
 __int64 __fastcall UsbDevice_HandleSendStopEndpointToOffloadedEndpointsState(
@@ -17,11 +17,10 @@ __int64 __fastcall UsbDevice_HandleSendStopEndpointToOffloadedEndpointsState(
         __int64 a4)
 {
   __int64 result; // rax
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
+  int v7; // edx
+  int v8; // r8d
+  int v9; // r9d
   __int64 v10; // rbx
-  __int64 v11; // [rsp+20h] [rbp-28h]
 
   result = UsbDevice_NumberOfOffloadedEndpointsInDropEndpointsList(a2, a2, a3, a4);
   v10 = 0LL;
@@ -35,7 +34,7 @@ __int64 __fastcall UsbDevice_HandleSendStopEndpointToOffloadedEndpointsState(
         result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
                    WdfDriverGlobals,
                    *(_QWORD *)(*(_QWORD *)(a2 + 48) + 8 * v10),
-                   off_1C00611A8);
+                   off_1C00601A8);
         if ( *(_DWORD *)(result + 1352) == 2 )
           result = UsbDevice_SendStopEndpointToOffloadedEndpoint(a1, result);
         v10 = (unsigned int)(v10 + 1);
@@ -46,15 +45,7 @@ __int64 __fastcall UsbDevice_HandleSendStopEndpointToOffloadedEndpointsState(
   else
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_sds(
-        (__int64)WPP_GLOBAL_Control->DeviceExtension,
-        v7,
-        v8,
-        v9,
-        v11,
-        "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\usbdevice.c",
-        240,
-        "Unexpected numberOfOffloadedEndpointsInDropEndpointsList in UsbDevice_HandleSendStopEndpointToOffloadedEndpointsState");
+      WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v7, v8, v9);
     if ( !KdRefreshDebuggerNotPresent() )
       __debugbreak();
     if ( *(_DWORD *)(a1 + 448) == 259 )

@@ -3,11 +3,11 @@
  * Callers:
  *     KiInitializeBootStructures @ 0x14056FE10 (KiInitializeBootStructures.c)
  * Callees:
- *     KeInitializeDpc @ 0x1400A56D0 (KeInitializeDpc.c)
- *     InitializeSListHead @ 0x1400F3160 (InitializeSListHead.c)
- *     KiInitializeDpcList @ 0x14013BA2C (KiInitializeDpcList.c)
- *     KiIntSteerInitPrcb @ 0x14013BA80 (KiIntSteerInitPrcb.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
+ *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
+ *     KiInitializeDpcList @ 0x14013BA4C (KiInitializeDpcList.c)
+ *     KiIntSteerInitPrcb @ 0x14013BAA0 (KiIntSteerInitPrcb.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall KiInitPrcb(__int64 a1, int a2)

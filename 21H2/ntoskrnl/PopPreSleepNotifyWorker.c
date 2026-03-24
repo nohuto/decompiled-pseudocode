@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPreSleepNotifyWorker @ 0x14099D0B0
+ * XREFs of PopPreSleepNotifyWorker @ 0x1408F56C0
  * Callers:
  *     <none>
  * Callees:
- *     PopOkayToQueueNextWorkItem @ 0x140368A78 (PopOkayToQueueNextWorkItem.c)
- *     ZwUpdateWnfStateData @ 0x14041F2A0 (ZwUpdateWnfStateData.c)
+ *     PopOkayToQueueNextWorkItem @ 0x1402D1FF4 (PopOkayToQueueNextWorkItem.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
  */
 
 __int64 PopPreSleepNotifyWorker()

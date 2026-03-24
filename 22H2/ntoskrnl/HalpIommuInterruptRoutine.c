@@ -1,26 +1,26 @@
 /*
- * XREFs of HalpIommuInterruptRoutine @ 0x140515620
+ * XREFs of HalpIommuInterruptRoutine @ 0x1404CBF30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 char HalpIommuInterruptRoutine()
 {
-  ULONG_PTR *v0; // rbx
+  __int64 *v0; // rbx
   unsigned int v1; // edi
   char v2; // si
-  ULONG_PTR *v3; // rcx
+  __int64 *v3; // rcx
 
-  v0 = (ULONG_PTR *)HalpIommuList;
+  v0 = (__int64 *)HalpIommuList;
   v1 = 0;
   v2 = 0;
   while ( v0 != &HalpIommuList )
   {
     v3 = v0;
-    v0 = (ULONG_PTR *)*v0;
-    if ( (v3[61] & 0x120) != 0 && ((unsigned __int8 (__fastcall *)(ULONG_PTR))v3[38])(v3[2]) )
+    v0 = (__int64 *)*v0;
+    if ( (v3[57] & 0x120) != 0 && ((unsigned __int8 (__fastcall *)(__int64))v3[36])(v3[2]) )
     {
       v2 = 1;
       (*(void (__fastcall **)(_QWORD))(HalIommuDispatch + 96))(v1);

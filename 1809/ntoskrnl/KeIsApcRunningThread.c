@@ -1,5 +1,5 @@
 /*
- * XREFs of KeIsApcRunningThread @ 0x140294B10
+ * XREFs of KeIsApcRunningThread @ 0x140294C10
  * Callers:
  *     VerifierKeIsApcRunningThread @ 0x140939BF0 (VerifierKeIsApcRunningThread.c)
  * Callees:

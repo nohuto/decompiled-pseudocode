@@ -1,9 +1,9 @@
 /*
- * XREFs of ?DrvIsPermanentSettingChangesDisabled@@YAHXZ @ 0x1C0161668
+ * XREFs of ?DrvIsPermanentSettingChangesDisabled@@YAHXZ @ 0x1C0018C74
  * Callers:
- *     DrvSetDisplayConfigValidateParams @ 0x1C00D71F0 (DrvSetDisplayConfigValidateParams.c)
- *     DrvChangeDisplaySettingsPreValidate @ 0x1C0165AFC (DrvChangeDisplaySettingsPreValidate.c)
- *     DrvSetPruneFlag @ 0x1C0167C4C (DrvSetPruneFlag.c)
+ *     DrvChangeDisplaySettingsPreValidate @ 0x1C001BB84 (DrvChangeDisplaySettingsPreValidate.c)
+ *     DrvSetDisplayConfigValidateParams @ 0x1C00CFC70 (DrvSetDisplayConfigValidateParams.c)
+ *     DrvSetPruneFlag @ 0x1C0147F20 (DrvSetPruneFlag.c)
  * Callees:
  *     <none>
  */

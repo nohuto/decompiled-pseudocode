@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UpdatePriorityClass@DXGDEVICE@@QEAAX_N@Z @ 0x1C0017F0C
+ * XREFs of ?UpdatePriorityClass@DXGDEVICE@@QEAAX_N@Z @ 0x1C0015A18
  * Callers:
- *     VidSchSyncPriorityDevice @ 0x1C00B4210 (VidSchSyncPriorityDevice.c)
+ *     VidSchSyncPriorityDevice @ 0x1C0088260 (VidSchSyncPriorityDevice.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DXGDEVICE::UpdatePriorityClass(DXGDEVICE *this)

@@ -1,20 +1,20 @@
 /*
- * XREFs of QueryRegistryHideMachine @ 0x140B6A03C
+ * XREFs of QueryRegistryHideMachine @ 0x140A4C008
  * Callers:
- *     StartFirstUserProcess @ 0x140B69B90 (StartFirstUserProcess.c)
+ *     StartFirstUserProcess @ 0x140A4BB74 (StartFirstUserProcess.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 bool QueryRegistryHideMachine()
 {
   int v0; // edi
-  _DWORD *Pool2; // rbx
+  _DWORD *PoolWithTag; // rbx
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
   ULONG ResultLength; // [rsp+80h] [rbp+10h] BYREF
@@ -38,22 +38,22 @@ bool QueryRegistryHideMachine()
     RtlInitUnicodeString(&DestinationString, L"HideMachine");
     if ( ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, 0LL, 0, &ResultLength) == -1073741789 )
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(256LL, ResultLength, 0x74696E49u);
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, ResultLength, 0x74696E49u);
+      if ( PoolWithTag )
       {
         if ( ZwQueryValueKey(
                KeyHandle,
                &DestinationString,
                KeyValuePartialInformation,
-               Pool2,
+               PoolWithTag,
                ResultLength,
                &ResultLength) >= 0
-          && Pool2[1] == 4
-          && Pool2[2] == 4 )
+          && PoolWithTag[1] == 4
+          && PoolWithTag[2] == 4 )
         {
-          v0 = Pool2[3];
+          v0 = PoolWithTag[3];
         }
-        ExFreePoolWithTag(Pool2, 0);
+        ExFreePoolWithTag(PoolWithTag, 0);
       }
     }
   }

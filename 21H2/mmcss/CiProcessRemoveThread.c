@@ -1,7 +1,7 @@
 /*
- * XREFs of CiProcessRemoveThread @ 0x1C000A990
+ * XREFs of CiProcessRemoveThread @ 0x1C000BC00
  * Callers:
- *     CiThreadCleanup @ 0x1C000A680 (CiThreadCleanup.c)
+ *     CiThreadCleanup @ 0x1C000B8E0 (CiThreadCleanup.c)
  * Callees:
  *     <none>
  */

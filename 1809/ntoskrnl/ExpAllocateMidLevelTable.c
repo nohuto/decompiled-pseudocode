@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpAllocateMidLevelTable @ 0x1406964F0
+ * XREFs of ExpAllocateMidLevelTable @ 0x1406964D0
  * Callers:
- *     ExpAllocateHandleTableEntrySlow @ 0x140696B94 (ExpAllocateHandleTableEntrySlow.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x140696B74 (ExpAllocateHandleTableEntrySlow.c)
  * Callees:
  *     ExpFreeTablePagedPool @ 0x14060690C (ExpFreeTablePagedPool.c)
- *     ExpAllocateTablePagedPool @ 0x140696564 (ExpAllocateTablePagedPool.c)
- *     ExpAllocateLowLevelTable @ 0x140696D88 (ExpAllocateLowLevelTable.c)
+ *     ExpAllocateTablePagedPool @ 0x140696544 (ExpAllocateTablePagedPool.c)
+ *     ExpAllocateLowLevelTable @ 0x140696D68 (ExpAllocateLowLevelTable.c)
  */
 
 __int64 *__fastcall ExpAllocateMidLevelTable(__int64 a1, __int64 *a2, __int64 a3)

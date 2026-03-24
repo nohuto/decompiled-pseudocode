@@ -1,13 +1,13 @@
 /*
- * XREFs of Isoch_FindTrbMatch @ 0x1C0044230
+ * XREFs of Isoch_FindTrbMatch @ 0x1C00415C0
  * Callers:
- *     Isoch_ProcessTransferEventWithED0 @ 0x1C0044BF4 (Isoch_ProcessTransferEventWithED0.c)
+ *     Isoch_ProcessTransferEventWithED0 @ 0x1C0041F88 (Isoch_ProcessTransferEventWithED0.c)
  * Callees:
- *     WPP_RECORDER_SF_DDqq @ 0x1C0006E20 (WPP_RECORDER_SF_DDqq.c)
- *     WPP_RECORDER_SF_DD @ 0x1C0007CC0 (WPP_RECORDER_SF_DD.c)
- *     TR_DoesSegmentContainDequeuePointer @ 0x1C000E380 (TR_DoesSegmentContainDequeuePointer.c)
- *     StageQueue_ForwardScanGetNextStage @ 0x1C0012F44 (StageQueue_ForwardScanGetNextStage.c)
- *     Isoch_CalculateBytesTransferred @ 0x1C0043914 (Isoch_CalculateBytesTransferred.c)
+ *     WPP_RECORDER_SF_DDqq @ 0x1C0004F80 (WPP_RECORDER_SF_DDqq.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     TR_DoesSegmentContainDequeuePointer @ 0x1C000BE44 (TR_DoesSegmentContainDequeuePointer.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C000C530 (StageQueue_ForwardScanGetNextStage.c)
+ *     Isoch_CalculateBytesTransferred @ 0x1C0040C80 (Isoch_CalculateBytesTransferred.c)
  */
 
 char __fastcall Isoch_FindTrbMatch(__int64 a1, signed __int64 *a2, __int64 *a3, _DWORD *a4, _DWORD *a5)
@@ -18,7 +18,7 @@ char __fastcall Isoch_FindTrbMatch(__int64 a1, signed __int64 *a2, __int64 *a3, 
   __int64 v9; // rcx
   int v10; // edx
   int v11; // edx
-  __int64 *i; // rsi
+  __int64 *i; // rdi
   unsigned __int8 *NextStage; // rax
   signed __int64 v14; // r10
   int v15; // edx
@@ -46,12 +46,12 @@ char __fastcall Isoch_FindTrbMatch(__int64 a1, signed __int64 *a2, __int64 *a3, 
       {
         v11 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
         LOBYTE(v11) = 4;
-        WPP_RECORDER_SF_DD(
+        WPP_RECORDER_SF_dd(
           *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
           v11,
           14,
           36,
-          (__int64)&WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
+          (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
           *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
           *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL));
       }
@@ -100,7 +100,7 @@ LABEL_20:
                 v19,
                 v18,
                 37,
-                (__int64)&WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
+                (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
                 *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
                 *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
                 i[3],
@@ -118,12 +118,12 @@ LABEL_20:
   {
     v10 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
     LOBYTE(v10) = 2;
-    WPP_RECORDER_SF_DD(
+    WPP_RECORDER_SF_dd(
       *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
       v10,
       14,
       35,
-      (__int64)&WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
+      (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
       *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
       *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL));
   }

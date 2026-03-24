@@ -1,38 +1,39 @@
 /*
- * XREFs of ComposeWindowIfNeeded @ 0x1C00202CC
+ * XREFs of ComposeWindowIfNeeded @ 0x1C004C300
  * Callers:
- *     SetVisible @ 0x1C001FE88 (SetVisible.c)
- *     xxxSetWindowStyle @ 0x1C0050020 (xxxSetWindowStyle.c)
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C006E60C (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
- *     zzzComposeDesktop @ 0x1C00B2FD8 (zzzComposeDesktop.c)
- *     SetDisplayAffinity @ 0x1C02439D4 (SetDisplayAffinity.c)
+ *     SetVisible @ 0x1C004BD40 (SetVisible.c)
+ *     xxxSetWindowStyle @ 0x1C005E1E0 (xxxSetWindowStyle.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068330 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     zzzComposeDesktop @ 0x1C00EC878 (zzzComposeDesktop.c)
+ *     SetDisplayAffinity @ 0x1C0248120 (SetDisplayAffinity.c)
  * Callees:
- *     ?IsChildWindowDpiBoundaryDesktopComposed@@YA_NPEAUtagWND@@@Z @ 0x1C002037C (-IsChildWindowDpiBoundaryDesktopComposed@@YA_NPEAUtagWND@@@Z.c)
- *     IsDesktopWindow @ 0x1C00205C0 (IsDesktopWindow.c)
- *     DwmAsyncChildStyleChange @ 0x1C006986C (DwmAsyncChildStyleChange.c)
- *     DirtyVisRgnTrackers @ 0x1C006C250 (DirtyVisRgnTrackers.c)
- *     IsToplevelWindowDesktopComposed @ 0x1C006FF18 (IsToplevelWindowDesktopComposed.c)
- *     ComposeWindow @ 0x1C00B37D8 (ComposeWindow.c)
+ *     ComposeWindow @ 0x1C00353BC (ComposeWindow.c)
+ *     IsChildWindowDpiBoundaryDesktopComposed @ 0x1C004C3AC (IsChildWindowDpiBoundaryDesktopComposed.c)
+ *     IsDesktopWindow @ 0x1C004C5F0 (IsDesktopWindow.c)
+ *     DwmAsyncChildStyleChange @ 0x1C004E0F0 (DwmAsyncChildStyleChange.c)
+ *     DirtyVisRgnTrackers @ 0x1C004E570 (DirtyVisRgnTrackers.c)
+ *     IsToplevelWindowDesktopComposed @ 0x1C006BF1C (IsToplevelWindowDesktopComposed.c)
  */
 
-__int64 __fastcall ComposeWindowIfNeeded(struct tagWND *a1)
+__int64 __fastcall ComposeWindowIfNeeded(__int64 a1, int a2)
 {
-  __int64 v2; // rcx
-  unsigned int v3; // esi
-  void *v5; // rax
+  __int64 v4; // rcx
+  unsigned int v5; // esi
+  __int64 v7; // rdx
+  void *v8; // rax
 
   if ( (unsigned int)IsToplevelWindowDesktopComposed(a1)
-    || (unsigned int)IsDesktopWindow(a1) && (unsigned int)IsWindowDesktopComposed(v2)
-    || IsChildWindowDpiBoundaryDesktopComposed(a1) )
+    || (unsigned int)IsDesktopWindow(a1) && (unsigned int)IsWindowDesktopComposed(v4)
+    || (unsigned int)IsChildWindowDpiBoundaryDesktopComposed(a1) )
   {
-    v3 = ComposeWindow(a1);
+    v5 = ComposeWindow((struct tagWND *)a1, a2 != 0 ? 13 : 5);
     DirtyVisRgnTrackers(a1);
-    v5 = (void *)ReferenceDwmApiPort();
-    DwmAsyncChildStyleChange(v5);
+    v8 = (void *)ReferenceDwmApiPort(*(_QWORD *)(a1 + 40), v7);
+    DwmAsyncChildStyleChange(v8);
   }
   else
   {
     return 4063234;
   }
-  return v3;
+  return v5;
 }

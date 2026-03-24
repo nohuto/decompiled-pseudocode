@@ -3,9 +3,9 @@
  * Callers:
  *     PopHandleWakeSources @ 0x140566540 (PopHandleWakeSources.c)
  * Callees:
- *     PopDiagTraceRtcWakeInfo @ 0x140142F08 (PopDiagTraceRtcWakeInfo.c)
- *     PopCurrentPowerStatePrecise @ 0x14071C1B0 (PopCurrentPowerStatePrecise.c)
- *     PopCalculateWakeTimeAdjustment @ 0x14086B65C (PopCalculateWakeTimeAdjustment.c)
+ *     PopDiagTraceRtcWakeInfo @ 0x140142F28 (PopDiagTraceRtcWakeInfo.c)
+ *     PopCurrentPowerStatePrecise @ 0x14071C190 (PopCurrentPowerStatePrecise.c)
+ *     PopCalculateWakeTimeAdjustment @ 0x14086B63C (PopCalculateWakeTimeAdjustment.c)
  */
 
 unsigned __int8 __fastcall PopValidateRTCWake(_BYTE *a1)
@@ -44,7 +44,7 @@ unsigned __int8 __fastcall PopValidateRTCWake(_BYTE *a1)
   if ( v2 )
   {
     PopCurrentPowerStatePrecise(v12, 0LL);
-    dword_140417760 = dword_14041810C;
+    dword_140417760 = dword_1404180CC;
   }
   v8 = dword_140417760;
   if ( dword_140417760 >= 0 )

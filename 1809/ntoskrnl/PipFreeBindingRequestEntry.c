@@ -1,8 +1,8 @@
 /*
- * XREFs of PipFreeBindingRequestEntry @ 0x140823F08
+ * XREFs of PipFreeBindingRequestEntry @ 0x140823EE8
  * Callers:
- *     PipFreeDependencyEdge @ 0x1402879B8 (PipFreeDependencyEdge.c)
- *     PipAddRequestToEdge @ 0x140823B9C (PipAddRequestToEdge.c)
+ *     PipFreeDependencyEdge @ 0x140287AB8 (PipFreeDependencyEdge.c)
+ *     PipAddRequestToEdge @ 0x140823B7C (PipAddRequestToEdge.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)

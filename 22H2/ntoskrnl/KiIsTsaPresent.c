@@ -1,39 +1,31 @@
 /*
- * XREFs of KiIsTsaPresent @ 0x1404103B4
+ * XREFs of KiIsTsaPresent @ 0x1403F2BD8
  * Callers:
- *     KiDetectHardwareSpecControlFeatures @ 0x14038294C (KiDetectHardwareSpecControlFeatures.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1403A8B3C (KiDetectHardwareSpecControlFeatures.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x140382EA0 (HviIsAnyHypervisorPresent.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403A5310 (HviIsAnyHypervisorPresent.c)
  */
 
-__int64 __fastcall KiIsTsaPresent(_BYTE *a1)
+_BOOL8 __fastcall KiIsTsaPresent(_BYTE *a1)
 {
-  bool IsAnyHypervisorPresent; // al
-  unsigned int v3; // edx
-  char v4; // al
-  unsigned __int8 v5; // cl
+  char v2; // cl
+  unsigned __int8 v3; // cl
+  _BOOL8 result; // rax
 
+  result = 0;
   if ( a1[141] == 1 && (KeFeatureBits2 & 0xC0000000000LL) != 0xC0000000000LL )
   {
-    IsAnyHypervisorPresent = HviIsAnyHypervisorPresent();
-    v3 = 0;
-    if ( IsAnyHypervisorPresent )
-      return 1LL;
-    v4 = a1[64];
-    if ( v4 >= 25 )
+    if ( HviIsAnyHypervisorPresent() )
+      return 1;
+    v2 = a1[64];
+    if ( v2 >= 25 )
     {
-      if ( v4 == 26 )
-      {
-        v5 = a1[67];
-        if ( v5 > 0x4Fu )
-        {
-          LOBYTE(v3) = (unsigned __int8)(v5 - 96) > 0x1Fu;
-          return v3;
-        }
-        return 0LL;
-      }
-      return 1LL;
+      if ( v2 != 26 )
+        return 1;
+      v3 = a1[67];
+      if ( v3 > 0x4Fu && (unsigned __int8)(v3 - 96) > 0x1Fu )
+        return 1;
     }
   }
-  return 0LL;
+  return result;
 }

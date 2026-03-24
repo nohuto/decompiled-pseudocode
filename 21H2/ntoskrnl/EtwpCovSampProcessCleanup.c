@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpCovSampProcessCleanup @ 0x1409F1CB0
+ * XREFs of EtwpCovSampProcessCleanup @ 0x140945700
  * Callers:
- *     EtwExitProcess @ 0x1407E0C78 (EtwExitProcess.c)
- *     EtwpCovSampContextCleanup @ 0x1409EF744 (EtwpCovSampContextCleanup.c)
- *     EtwpCovSampProcessEnsureContext @ 0x1409F1D50 (EtwpCovSampProcessEnsureContext.c)
- *     EtwpCoverageSamplerStop @ 0x1409F39DC (EtwpCoverageSamplerStop.c)
+ *     EtwExitProcess @ 0x140613F08 (EtwExitProcess.c)
+ *     EtwpCovSampContextCleanup @ 0x140943074 (EtwpCovSampContextCleanup.c)
+ *     EtwpCovSampProcessEnsureContext @ 0x1409457A0 (EtwpCovSampProcessEnsureContext.c)
+ *     EtwpCoverageSamplerStop @ 0x140947458 (EtwpCoverageSamplerStop.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     EtwpCovSampModuleDereference @ 0x1409F1878 (EtwpCovSampModuleDereference.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     EtwpCovSampModuleDereference @ 0x1409452C8 (EtwpCovSampModuleDereference.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpCovSampProcessCleanup(__int64 a1, char a2)
 {
   void *v4; // rcx
-  unsigned int v5; // r8d
-  int v6; // r8d
+  unsigned int v5; // r9d
+  int v6; // r9d
   __int64 v7; // rdx
 
   v4 = *(void **)(a1 + 24);
@@ -46,7 +46,7 @@ void __fastcall EtwpCovSampProcessCleanup(__int64 a1, char a2)
   if ( *(_QWORD *)a1 )
   {
     if ( a2 )
-      ObfDereferenceObject(**(PVOID **)a1);
+      HalPutDmaAdapter(**(PADAPTER_OBJECT **)a1);
     *(_QWORD *)a1 = 0LL;
   }
 }

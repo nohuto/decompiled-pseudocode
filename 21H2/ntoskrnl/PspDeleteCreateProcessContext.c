@@ -1,27 +1,28 @@
 /*
- * XREFs of PspDeleteCreateProcessContext @ 0x1407021EC
+ * XREFs of PspDeleteCreateProcessContext @ 0x140648A94
  * Callers:
- *     NtCreateUserProcess @ 0x14066D650 (NtCreateUserProcess.c)
- *     PspBuildCreateProcessContext @ 0x140670488 (PspBuildCreateProcessContext.c)
- *     NtCreateThreadEx @ 0x140701F10 (NtCreateThreadEx.c)
+ *     PspBuildCreateProcessContext @ 0x140608C44 (PspBuildCreateProcessContext.c)
+ *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
+ *     NtCreateThreadEx @ 0x1406487D0 (NtCreateThreadEx.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     PspDestroyProcessParameterOverrides @ 0x140648C30 (PspDestroyProcessParameterOverrides.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PspDeleteCreateProcessContext(__int64 a1)
+__int64 __fastcall PspDeleteCreateProcessContext(__int64 a1)
 {
   void *v2; // rcx
-  void *v3; // rcx
-  void *v4; // rcx
+  struct _DMA_ADAPTER *v3; // rcx
+  struct _DMA_ADAPTER *v4; // rcx
   void *v5; // rcx
   void *v6; // rcx
   void *v7; // rcx
-  void *v8; // rcx
+  struct _DMA_ADAPTER *v8; // rcx
   void *v9; // rcx
   void *v10; // rcx
   PVOID *v11; // rcx
@@ -29,7 +30,6 @@ void __fastcall PspDeleteCreateProcessContext(__int64 a1)
   void *v13; // rcx
   __int64 v14; // rax
   void *v15; // rcx
-  __int64 v16; // rcx
   unsigned __int64 v17; // rdi
   PVOID *v18; // rdx
   void *v19; // rcx
@@ -37,12 +37,12 @@ void __fastcall PspDeleteCreateProcessContext(__int64 a1)
   v2 = *(void **)(a1 + 168);
   if ( v2 )
     ObCloseHandle(v2, 0);
-  v3 = *(void **)(a1 + 176);
+  v3 = *(struct _DMA_ADAPTER **)(a1 + 176);
   if ( v3 )
-    ObfDereferenceObject(v3);
-  v4 = *(void **)(a1 + 152);
+    HalPutDmaAdapter(v3);
+  v4 = *(struct _DMA_ADAPTER **)(a1 + 152);
   if ( v4 )
-    ObfDereferenceObject(v4);
+    HalPutDmaAdapter(v4);
   v5 = *(void **)(a1 + 128);
   if ( v5 )
     ObfDereferenceObjectWithTag(v5, 0x72437350u);
@@ -52,9 +52,9 @@ void __fastcall PspDeleteCreateProcessContext(__int64 a1)
   v7 = *(void **)(a1 + 192);
   if ( v7 )
     ObCloseHandle(v7, 0);
-  v8 = *(void **)(a1 + 200);
+  v8 = *(struct _DMA_ADAPTER **)(a1 + 200);
   if ( v8 )
-    ObfDereferenceObject(v8);
+    HalPutDmaAdapter(v8);
   if ( (*(_BYTE *)(a1 + 8) & 4) != 0 )
     ExFreePoolWithTag(*(PVOID *)(a1 + 208), 0);
   v9 = *(void **)(a1 + 280);
@@ -63,56 +63,54 @@ void __fastcall PspDeleteCreateProcessContext(__int64 a1)
   v10 = *(void **)(a1 + 296);
   if ( v10 )
     ExFreePoolWithTag(v10, 0);
-  v11 = *(PVOID **)(a1 + 376);
+  v11 = *(PVOID **)(a1 + 400);
   if ( v11 )
   {
     v17 = 0LL;
-    if ( *(_DWORD *)(a1 + 388) )
+    if ( *(_DWORD *)(a1 + 412) )
     {
-      v18 = *(PVOID **)(a1 + 376);
+      v18 = *(PVOID **)(a1 + 400);
       do
       {
         if ( v11[v17] )
         {
           ObfDereferenceObjectWithTag(v11[v17], 0x6C4A7350u);
-          v11 = *(PVOID **)(a1 + 376);
+          v11 = *(PVOID **)(a1 + 400);
           v18 = v11;
         }
         ++v17;
       }
-      while ( v17 < *(unsigned int *)(a1 + 388) );
+      while ( v17 < *(unsigned int *)(a1 + 412) );
       v11 = v18;
     }
     ExFreePoolWithTag(v11, 0x6C4A7350u);
   }
-  v12 = *(void **)(a1 + 368);
+  v12 = *(void **)(a1 + 392);
   if ( v12 )
   {
-    memset(v12, 0, *(unsigned int *)(a1 + 384));
-    ExFreePoolWithTag(*(PVOID *)(a1 + 368), 0);
+    memset(v12, 0, *(unsigned int *)(a1 + 408));
+    ExFreePoolWithTag(*(PVOID *)(a1 + 392), 0);
   }
-  v13 = *(void **)(a1 + 400);
+  v13 = *(void **)(a1 + 424);
   if ( v13 )
   {
-    memset(v13, 0, *(unsigned int *)(a1 + 408));
-    ExFreePoolWithTag(*(PVOID *)(a1 + 400), 0);
+    memset(v13, 0, *(unsigned int *)(a1 + 432));
+    ExFreePoolWithTag(*(PVOID *)(a1 + 424), 0);
   }
-  v14 = *(_QWORD *)(a1 + 416);
+  v14 = *(_QWORD *)(a1 + 440);
   if ( v14 )
   {
     v19 = *(void **)(v14 + 8);
     if ( v19 || (v19 = *(void **)(v14 + 24)) != 0LL )
       ExFreePoolWithTag(v19, 0);
-    ExFreePoolWithTag(*(PVOID *)(a1 + 416), 0);
+    ExFreePoolWithTag(*(PVOID *)(a1 + 440), 0);
   }
-  v15 = *(void **)(a1 + 448);
+  v15 = *(void **)(a1 + 472);
   if ( v15 )
   {
     ExFreePoolWithTag(v15, 0);
-    *(_QWORD *)(a1 + 448) = 0LL;
+    *(_QWORD *)(a1 + 472) = 0LL;
   }
-  RtlFreeUnicodeString((PUNICODE_STRING)(a1 + 232));
-  v16 = *(_QWORD *)(a1 + 488);
-  if ( v16 )
-    PsDestroyProcessParameterOverrides(v16);
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 232));
+  return PspDestroyProcessParameterOverrides(*(_QWORD *)(a1 + 512));
 }

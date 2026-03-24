@@ -1,38 +1,38 @@
 /*
- * XREFs of ObSetHandleAttributes @ 0x14073FE00
+ * XREFs of ObSetHandleAttributes @ 0x1406F9440
  * Callers:
- *     NtSetInformationObject @ 0x140697640 (NtSetInformationObject.c)
+ *     NtSetInformationObject @ 0x1406F91D0 (NtSetInformationObject.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExGetHandlePointer @ 0x14022F740 (ExGetHandlePointer.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ObpIsKernelHandle @ 0x1402BEB24 (ObpIsKernelHandle.c)
- *     ExSetHandleAttributes @ 0x1402BF6BC (ExSetHandleAttributes.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ExfUnblockPushLock @ 0x140411A50 (ExfUnblockPushLock.c)
- *     ExMapHandleToPointer @ 0x140740120 (ExMapHandleToPointer.c)
- *     ObReferenceProcessHandleTable @ 0x140742B50 (ObReferenceProcessHandleTable.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     ObpIsKernelHandle @ 0x1402C8F50 (ObpIsKernelHandle.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExSetHandleAttributes @ 0x14034D9FC (ExSetHandleAttributes.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x1403F8BE0 (ExfUnblockPushLock.c)
+ *     ObReferenceProcessHandleTable @ 0x1405F57B4 (ObReferenceProcessHandleTable.c)
+ *     ExMapHandleToPointer @ 0x14061BF20 (ExMapHandleToPointer.c)
  */
 
-__int64 __fastcall ObSetHandleAttributes(__int64 a1, _BYTE *a2, char a3)
+__int64 __fastcall ObSetHandleAttributes(unsigned __int64 a1, _BYTE *a2, char a3)
 {
   __int64 v4; // rbx
   char v5; // r12
   char v6; // r15
   _KPROCESS *Process; // r14
-  __int64 v8; // rsi
+  _DWORD *v8; // r9
+  unsigned __int64 v9; // rsi
   struct _KTHREAD *CurrentThread; // rbp
-  __int64 *v10; // rax
-  volatile signed __int64 *v11; // rbx
-  unsigned __int64 HandlePointer; // rax
-  unsigned int v13; // edx
-  unsigned int v14; // ebx
-  signed __int32 v16[8]; // [rsp+0h] [rbp-88h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v17; // [rsp+20h] [rbp-68h] BYREF
+  signed __int64 *v11; // rax
+  volatile signed __int64 *v12; // r10
+  unsigned __int64 v13; // rax
+  unsigned int v14; // edx
+  unsigned int v15; // ebx
+  signed __int32 v17[8]; // [rsp+0h] [rbp-88h] BYREF
+  _OWORD v18[3]; // [rsp+20h] [rbp-68h] BYREF
 
-  memset(&v17, 0, sizeof(v17));
+  memset(v18, 0, sizeof(v18));
   v4 = a1;
   v5 = 0;
   v6 = 0;
@@ -40,54 +40,54 @@ __int64 __fastcall ObSetHandleAttributes(__int64 a1, _BYTE *a2, char a3)
   if ( ObpIsKernelHandle(a1, a3) )
   {
     v4 ^= 0xFFFFFFFF80000000uLL;
-    v8 = ObpKernelHandleTable;
+    v9 = ObpKernelHandleTable;
     if ( Process != PsInitialSystemProcess )
     {
-      KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)&v17);
+      KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v18, v8);
       v5 = 1;
     }
   }
   else if ( KeGetCurrentThread()->ApcStateIndex == 1 )
   {
-    v8 = ObReferenceProcessHandleTable(Process);
-    if ( !v8 )
+    v9 = ObReferenceProcessHandleTable((struct _EX_RUNDOWN_REF *)Process);
+    if ( !v9 )
       return 3221225480LL;
     v6 = 1;
   }
   else
   {
-    v8 = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[28];
+    v9 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[8];
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v10 = (__int64 *)ExMapHandleToPointer(v8, v4);
-  v11 = v10;
-  if ( v10 )
+  v11 = ExMapHandleToPointer(v9, v4);
+  v12 = v11;
+  if ( v11 )
   {
-    HandlePointer = ExGetHandlePointer(v10);
+    v13 = (*v11 >> 16) & 0xFFFFFFFFFFFFFFF0uLL;
     if ( !*a2
-      || (*(_DWORD *)(ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(HandlePointer + 24) ^ (unsigned __int64)BYTE1(HandlePointer)]
+      || (*(_DWORD *)(ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v13 + 24) ^ (unsigned __int64)BYTE1(v13)]
                     + 72) & 2) == 0 )
     {
-      v13 = (*a2 != 0 ? 2 : 0) | 1;
+      v14 = (*a2 != 0 ? 2 : 0) | 1;
       if ( !a2[1] )
-        v13 = *a2 != 0 ? 2 : 0;
-      ExSetHandleAttributes((__int64)v11, v13, 3);
+        v14 = *a2 != 0 ? 2 : 0;
+      ExSetHandleAttributes((__int64)v12, v14, 3);
     }
-    _InterlockedExchangeAdd64(v11, 1uLL);
-    _InterlockedOr(v16, 0);
-    if ( *(_QWORD *)(v8 + 48) )
-      ExfUnblockPushLock((volatile __int64 *)(v8 + 48), 0LL);
-    v14 = 0;
+    _InterlockedExchangeAdd64(v12, 1uLL);
+    _InterlockedOr(v17, 0);
+    if ( *(_QWORD *)(v9 + 48) )
+      ExfUnblockPushLock((volatile __int64 *)(v9 + 48), 0LL);
+    v15 = 0;
   }
   else
   {
-    v14 = -1073741790;
+    v15 = -1073741790;
   }
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( v5 )
-    KiUnstackDetachProcess(&v17);
+    KiUnstackDetachProcess((__int64)v18, 0);
   if ( v6 )
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&Process[1].ProfileListHead.Blink);
-  return v14;
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&Process[1].ProfileListHead.Blink);
+  return v15;
 }

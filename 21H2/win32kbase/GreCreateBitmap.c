@@ -1,17 +1,18 @@
 /*
- * XREFs of GreCreateBitmap @ 0x1C001A360
+ * XREFs of GreCreateBitmap @ 0x1C00271A0
  * Callers:
- *     bInitBRUSHOBJ @ 0x1C02E523C (bInitBRUSHOBJ.c)
- *     bInitBMOBJ @ 0x1C02E5FA0 (bInitBMOBJ.c)
+ *     ?GrepCreateDefaultBitmap@@YAPEAUHBITMAP__@@XZ @ 0x1C00C9D20 (-GrepCreateDefaultBitmap@@YAPEAUHBITMAP__@@XZ.c)
+ *     bInitBRUSHOBJ @ 0x1C02982A0 (bInitBRUSHOBJ.c)
+ *     bInitBMOBJ @ 0x1C029A888 (bInitBMOBJ.c)
  * Callees:
- *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C001A590 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
- *     ??1SURFREF@@QEAA@XZ @ 0x1C001F08C (--1SURFREF@@QEAA@XZ.c)
- *     HmgShareLockCheck @ 0x1C0020DC0 (HmgShareLockCheck.c)
- *     ??1SURFMEM@@QEAA@XZ @ 0x1C0025050 (--1SURFMEM@@QEAA@XZ.c)
- *     HmgSetOwner @ 0x1C0028640 (HmgSetOwner.c)
- *     EngSetLastError @ 0x1C008B610 (EngSetLastError.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ??0SURFREF@@QEAA@XZ @ 0x1C016C500 (--0SURFREF@@QEAA@XZ.c)
+ *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C00267F0 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002B724 (--1SURFREF@@QEAA@XZ.c)
+ *     HmgShareLockCheck @ 0x1C002DBE0 (HmgShareLockCheck.c)
+ *     ??1SURFMEM@@QEAA@XZ @ 0x1C00306C0 (--1SURFMEM@@QEAA@XZ.c)
+ *     HmgSetOwner @ 0x1C0035470 (HmgSetOwner.c)
+ *     EngSetLastError @ 0x1C009E670 (EngSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ??0SURFREF@@QEAA@XZ @ 0x1C013F6E4 (--0SURFREF@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreCreateBitmap(int a1, int a2, unsigned int a3, unsigned int a4, __int64 a5)
@@ -23,14 +24,15 @@ __int64 __fastcall GreCreateBitmap(int a1, int a2, unsigned int a3, unsigned int
   __int64 v9; // rdi
   __int64 v10; // rdx
   __int64 v11; // r8
-  __int64 v13; // [rsp+68h] [rbp-11h] BYREF
-  char v14; // [rsp+70h] [rbp-9h]
-  int v15; // [rsp+74h] [rbp-5h]
-  _DWORD v16[4]; // [rsp+78h] [rbp-1h] BYREF
-  HPALETTE v17; // [rsp+88h] [rbp+Fh]
-  __int64 v18; // [rsp+90h] [rbp+17h]
-  _BYTE v19[32]; // [rsp+98h] [rbp+1Fh] BYREF
-  int v21; // [rsp+D8h] [rbp+5Fh] BYREF
+  int v13; // eax
+  __int64 v14; // [rsp+68h] [rbp-11h] BYREF
+  char v15; // [rsp+70h] [rbp-9h]
+  int v16; // [rsp+74h] [rbp-5h]
+  _DWORD v17[4]; // [rsp+78h] [rbp-1h] BYREF
+  HPALETTE v18; // [rsp+88h] [rbp+Fh]
+  __int64 v19; // [rsp+90h] [rbp+17h]
+  _BYTE v20[32]; // [rsp+98h] [rbp+1Fh] BYREF
+  int v22; // [rsp+D8h] [rbp+5Fh] BYREF
 
   v5 = 0LL;
   v6 = a4 * a3;
@@ -47,11 +49,11 @@ __int64 __fastcall GreCreateBitmap(int a1, int a2, unsigned int a3, unsigned int
   }
   else
   {
-    v16[3] = 0;
-    v18 = 1LL;
-    v16[1] = a1;
-    v16[2] = a2;
-    v17 = 0LL;
+    v17[3] = 0;
+    v19 = 1LL;
+    v17[1] = a1;
+    v17[2] = a2;
+    v18 = 0LL;
     if ( v6 > 1 )
     {
       v8 = 4;
@@ -71,33 +73,31 @@ __int64 __fastcall GreCreateBitmap(int a1, int a2, unsigned int a3, unsigned int
     else
     {
       v8 = 1;
-      v17 = hpalMono;
+      v18 = hpalMono;
     }
-    v16[0] = v8;
-    v13 = 0LL;
-    v14 = 0;
+    v17[0] = v8;
+    v14 = 0LL;
     v15 = 0;
-    SURFMEM::bCreateDIB((SURFMEM *)&v13, (struct _DEVBITMAPINFO *)v16, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0);
-    if ( v13 )
+    v16 = 0;
+    SURFMEM::bCreateDIB((SURFMEM *)&v14, (struct _DEVBITMAPINFO *)v17, 0LL, 0LL, 0, 0LL, 0LL, 0, 1, 0, 0);
+    if ( v14 )
     {
-      *(_DWORD *)(v13 + 112) |= 0x4000000u;
+      *(_DWORD *)(v14 + 112) |= 0x4000000u;
       if ( a5 )
       {
-        v21 = 0;
-        if ( qword_1C029B640 )
-        {
-          if ( (int)qword_1C029B640() >= 0 && qword_1C029B648 )
-            qword_1C029B648(*(_QWORD *)(v13 + 32), (unsigned int)v7, a5, &v21);
-        }
+        v22 = 0;
+        v13 = qword_1C02568D0 ? qword_1C02568D0() : -1073741637;
+        if ( v13 >= 0 && qword_1C02568D8 )
+          qword_1C02568D8(*(_QWORD *)(v14 + 32), (unsigned int)v7, a5, &v22);
       }
       if ( v8 != 1 )
       {
-        *(_DWORD *)(v13 + 112) |= 0x800000u;
-        *(_DWORD *)(v13 + 112) |= 0x200u;
+        *(_DWORD *)(v14 + 112) |= 0x800000u;
+        *(_DWORD *)(v14 + 112) |= 0x200u;
       }
-      v14 |= 1u;
-      v9 = *(_QWORD *)(v13 + 32);
-      SURFREF::SURFREF((SURFREF *)v19);
+      v15 |= 1u;
+      v9 = *(_QWORD *)(v14 + 32);
+      SURFREF::SURFREF((SURFREF *)v20);
       LOBYTE(v10) = 5;
       if ( HmgShareLockCheck(v9, v10) )
       {
@@ -107,10 +107,10 @@ __int64 __fastcall GreCreateBitmap(int a1, int a2, unsigned int a3, unsigned int
           HmgSetOwner(v9, 2147483650LL, v11);
         }
       }
-      SURFREF::~SURFREF((SURFREF *)v19);
-      v5 = *(_QWORD *)(v13 + 32);
+      SURFREF::~SURFREF((SURFREF *)v20);
+      v5 = *(_QWORD *)(v14 + 32);
     }
-    SURFMEM::~SURFMEM((SURFMEM *)&v13);
+    SURFMEM::~SURFMEM((SURFMEM *)&v14);
     return v5;
   }
 }

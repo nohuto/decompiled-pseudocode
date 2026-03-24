@@ -1,11 +1,11 @@
 /*
- * XREFs of ValidateDeviceSignature @ 0x1C01E9620
+ * XREFs of ValidateDeviceSignature @ 0x1C01EF160
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckForSegmentedSignatureBlob@@YAJPEAXGPEAU_HIDP_VALUE_CAPS@@PEAG@Z @ 0x1C01E692C (-CheckForSegmentedSignatureBlob@@YAJPEAXGPEAU_HIDP_VALUE_CAPS@@PEAG@Z.c)
- *     ?RetrieveAndVerifySignature@@YAHPEAU_DEVICE_OBJECT@@PEAU_FILE_OBJECT@@GPEAU_HIDP_VALUE_CAPS@@PEAU_HIDP_CAPS@@PEAU_HIDP_PREPARSED_DATA@@U_HID_COLLECTION_INFORMATION@@GPEAK@Z @ 0x1C01E7508 (-RetrieveAndVerifySignature@@YAHPEAU_DEVICE_OBJECT@@PEAU_FILE_OBJECT@@GPEAU_HIDP_VALUE_CAPS@@PEA.c)
- *     ?_SqmTHQA@@YAXGGK@Z @ 0x1C01E896C (-_SqmTHQA@@YAXGGK@Z.c)
+ *     ?CheckForSegmentedSignatureBlob@@YAJPEAXGPEAU_HIDP_VALUE_CAPS@@PEAG@Z @ 0x1C01EC058 (-CheckForSegmentedSignatureBlob@@YAJPEAXGPEAU_HIDP_VALUE_CAPS@@PEAG@Z.c)
+ *     ?RetrieveAndVerifySignature@@YAHPEAU_DEVICE_OBJECT@@PEAU_FILE_OBJECT@@GPEAU_HIDP_VALUE_CAPS@@PEAU_HIDP_CAPS@@PEAU_HIDP_PREPARSED_DATA@@U_HID_COLLECTION_INFORMATION@@GPEAK@Z @ 0x1C01ECD8C (-RetrieveAndVerifySignature@@YAHPEAU_DEVICE_OBJECT@@PEAU_FILE_OBJECT@@GPEAU_HIDP_VALUE_CAPS@@PEA.c)
+ *     ?_SqmTHQA@@YAXGGK@Z @ 0x1C01EE2EC (-_SqmTHQA@@YAXGGK@Z.c)
  */
 
 __int64 __fastcall ValidateDeviceSignature(
@@ -70,7 +70,7 @@ __int64 __fastcall ValidateDeviceSignature(
   v23 = v11;
   ValueCapsLength = NumberFeatureValueCaps;
   if ( !(_WORD)NumberFeatureValueCaps
-    || (ValueCaps = (struct _HIDP_VALUE_CAPS *)Win32AllocPoolZInit(72 * NumberFeatureValueCaps, 1668707157LL)) == 0LL )
+    || (ValueCaps = (struct _HIDP_VALUE_CAPS *)Win32AllocPool(72 * NumberFeatureValueCaps, 1668707157LL)) == 0LL )
   {
     SpecificValueCaps = -1073741668;
     goto LABEL_24;
@@ -104,7 +104,7 @@ LABEL_23:
   Win32FreePool(ValueCaps);
 LABEL_24:
   if ( v11 == 1 || v11 == 2 && *(_DWORD *)(v14 + 24) == 7 || v9 )
-    *(_DWORD *)(v14 + 360) |= 0x100u;
+    *(_DWORD *)(v14 + 312) |= 0x100u;
   _SqmTHQA(*((_WORD *)v13 + 3), *((_WORD *)v13 + 4), v11);
   EtwTraceTHQAStop();
   if ( !v9 )

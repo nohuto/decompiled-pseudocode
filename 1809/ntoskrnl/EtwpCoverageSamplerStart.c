@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpCoverageSamplerStart @ 0x1408C8B70
+ * XREFs of EtwpCoverageSamplerStart @ 0x1408C8B50
  * Callers:
- *     EtwpSetCoverageSamplerInformation @ 0x1408C92DC (EtwpSetCoverageSamplerInformation.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x1408C92BC (EtwpSetCoverageSamplerInformation.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     KeStartProfile @ 0x140295B2C (KeStartProfile.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KeStartProfile @ 0x140295C2C (KeStartProfile.c)
  *     PsEnumProcesses @ 0x1405B1AFC (PsEnumProcesses.c)
- *     EtwpUpdateGlobalGroupMasks @ 0x1406C55B8 (EtwpUpdateGlobalGroupMasks.c)
- *     KeSetIntervalProfile @ 0x1406D6CE0 (KeSetIntervalProfile.c)
- *     MmEnumerateSystemImages @ 0x140726B8C (MmEnumerateSystemImages.c)
- *     PsSetLoadImageNotifyRoutineEx @ 0x140748240 (PsSetLoadImageNotifyRoutineEx.c)
- *     KeInitializeProfileCallback @ 0x14084454C (KeInitializeProfileCallback.c)
- *     EtwpCovSampCaptureContextStart @ 0x1408C3DA0 (EtwpCovSampCaptureContextStart.c)
- *     EtwpCoverageSamplerAllocateTable @ 0x1408C7B30 (EtwpCoverageSamplerAllocateTable.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1406C5598 (EtwpUpdateGlobalGroupMasks.c)
+ *     KeSetIntervalProfile @ 0x1406D6CC0 (KeSetIntervalProfile.c)
+ *     MmEnumerateSystemImages @ 0x140726B6C (MmEnumerateSystemImages.c)
+ *     PsSetLoadImageNotifyRoutineEx @ 0x140748220 (PsSetLoadImageNotifyRoutineEx.c)
+ *     KeInitializeProfileCallback @ 0x14084452C (KeInitializeProfileCallback.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1408C3D80 (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCoverageSamplerAllocateTable @ 0x1408C7B10 (EtwpCoverageSamplerAllocateTable.c)
  */
 
 __int64 __fastcall EtwpCoverageSamplerStart(_DWORD *Object)
@@ -87,8 +87,8 @@ LABEL_16:
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&EtwpCovSampGlobals, 0LL);
-  qword_140409E08 = (__int64)KeGetCurrentThread();
-  if ( qword_140409E18 )
+  qword_140409DC8 = (__int64)KeGetCurrentThread();
+  if ( qword_140409DD8 )
   {
     ImageNotifyRoutine = -1073740008;
   }
@@ -97,10 +97,10 @@ LABEL_16:
     ImageNotifyRoutine = EtwpCovSampCaptureContextStart(Object + 6);
     if ( ImageNotifyRoutine >= 0 )
     {
-      v11 = qword_140409E28;
+      v11 = qword_140409DE8;
       ObfReferenceObject(Object);
-      qword_140409E18 = (__int64)Object;
-      _InterlockedExchange64((volatile __int64 *)&stru_140409E20, 0LL);
+      qword_140409DD8 = (__int64)Object;
+      _InterlockedExchange64((volatile __int64 *)&stru_140409DE0, 0LL);
       Object[283] |= 1u;
       v12 = EtwpHostSiloState;
       v13 = *(_DWORD *)(EtwpHostSiloState + 4548) | 4;
@@ -140,9 +140,9 @@ LABEL_16:
     }
   }
 LABEL_29:
-  if ( (struct _KTHREAD *)qword_140409E08 == KeGetCurrentThread() )
+  if ( (struct _KTHREAD *)qword_140409DC8 == KeGetCurrentThread() )
   {
-    qword_140409E08 = 0LL;
+    qword_140409DC8 = 0LL;
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EtwpCovSampGlobals, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&EtwpCovSampGlobals);
     KeAbPostRelease((ULONG_PTR)&EtwpCovSampGlobals);

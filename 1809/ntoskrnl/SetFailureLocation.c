@@ -1,7 +1,7 @@
 /*
- * XREFs of SetFailureLocation @ 0x14026BA58
+ * XREFs of SetFailureLocation @ 0x14026BB58
  * Callers:
- *     CmpDoFileRead @ 0x1401342F4 (CmpDoFileRead.c)
+ *     CmpDoFileRead @ 0x140134314 (CmpDoFileRead.c)
  *     HvHiveStartFileBacked @ 0x1405A4A3C (HvHiveStartFileBacked.c)
  *     HvLoadHive @ 0x1405A4C9C (HvLoadHive.c)
  *     HvpInitMap @ 0x1405A5BE0 (HvpInitMap.c)
@@ -16,15 +16,15 @@
  *     HvCheckBin @ 0x1405F2100 (HvCheckBin.c)
  *     HvpEnlistFreeCells @ 0x1405F9800 (HvpEnlistFreeCells.c)
  *     HvCheckHive @ 0x1405F991C (HvCheckHive.c)
- *     CmpMountPreloadedHives @ 0x140735800 (CmpMountPreloadedHives.c)
- *     CmpLoadHiveThread @ 0x140735B50 (CmpLoadHiveThread.c)
- *     HvHiveStartMemoryBacked @ 0x14073CB2C (HvHiveStartMemoryBacked.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x14073CFFC (HvpBuildMapForMemoryBackedHive.c)
- *     HvpMapHiveImage @ 0x1407F796C (HvpMapHiveImage.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B80 (HvpPerformLogFileRecovery.c)
+ *     CmpMountPreloadedHives @ 0x1407357E0 (CmpMountPreloadedHives.c)
+ *     CmpLoadHiveThread @ 0x140735B30 (CmpLoadHiveThread.c)
+ *     HvHiveStartMemoryBacked @ 0x14073CB0C (HvHiveStartMemoryBacked.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x14073CFDC (HvpBuildMapForMemoryBackedHive.c)
+ *     HvpMapHiveImage @ 0x1407F794C (HvpMapHiveImage.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall SetFailureLocation(__int64 a1, int a2, int a3, int a4, int a5)
@@ -67,7 +67,7 @@ void __fastcall SetFailureLocation(__int64 a1, int a2, int a3, int a4, int a5)
     v20 = 4;
     v23 = 4;
     v26 = 4;
-    TlgWrite(&stru_1403FFAA0, &unk_140373E41, 0LL, 0LL, 6u, &pData);
+    TlgWrite(&stru_1403FFAA0, &unk_140373F51, 0LL, 0LL, 6u, &pData);
   }
   if ( a1 )
   {

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsProtected@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA_NXZ @ 0x18010D2D0
+ * XREFs of ?IsProtected@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA_NXZ @ 0x1800F9530
  * Callers:
  *     <none>
  * Callees:

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdateLastSubsectionSize @ 0x140365844
+ * XREFs of MiUpdateLastSubsectionSize @ 0x1402F9A78
  * Callers:
- *     MmExtendSection @ 0x1407065B4 (MmExtendSection.c)
+ *     MmExtendSection @ 0x14066933C (MmExtendSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x1402ED410 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetSubsectionCharges @ 0x14066B218 (MiGetSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B424 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x14025BF44 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSubsectionCharges @ 0x140554E08 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14055502C (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiUpdateLastSubsectionSize(__int64 a1, _QWORD *a2, unsigned int a3)
@@ -19,20 +19,19 @@ __int64 __fastcall MiUpdateLastSubsectionSize(__int64 a1, _QWORD *a2, unsigned i
   volatile LONG *v8; // r14
   unsigned __int64 v9; // rsi
   __int64 SubsectionHoldingCrossPartitionReferences; // rax
-  __int16 v11; // dx
-  __int64 v12; // r10
-  __int16 v13; // r9
-  __int64 v14; // rax
+  __int64 v11; // r10
+  __int16 v12; // r9
+  __int64 v13; // rax
   __int64 result; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v19; // eax
-  bool v20; // zf
-  unsigned __int8 v21; // al
-  struct _KPRCB *v22; // r10
-  _DWORD *v23; // r9
-  int v24; // eax
+  int v18; // eax
+  bool v19; // zf
+  unsigned __int8 v20; // al
+  struct _KPRCB *v21; // r10
+  _DWORD *v22; // r9
+  int v23; // eax
 
   v3 = *(_WORD **)a1;
   v5 = a3;
@@ -57,16 +56,19 @@ LABEL_6:
     ExReleaseSpinLockExclusiveFromDpcLevel(v8);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-        v20 = (v19 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v19;
-        if ( v20 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+          v19 = (v18 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v18;
+          if ( v19 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v9);
@@ -75,37 +77,39 @@ LABEL_6:
       return result;
     v7 = 1;
   }
-  v11 = *(_WORD *)(a1 + 34);
   *(_DWORD *)(a1 + 40) = (*a2 >> 12) - (*(_DWORD *)(a1 + 36) | ((*(_WORD *)(a1 + 32) & 0xFFC0) << 26));
-  *(_WORD *)(a1 + 34) = (16 * *(_WORD *)a2) | v11 & 0xF;
+  *(_WORD *)(a1 + 34) = *(_WORD *)(a1 + 34) & 0xF | (16 * *(_WORD *)a2);
   ExReleaseSpinLockExclusiveFromDpcLevel(v8);
   if ( KiIrqlFlags )
   {
-    v21 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v21 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v22 = KeGetCurrentPrcb();
-      v23 = v22->SchedulerAssist;
-      v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-      v20 = (v24 & v23[5]) == 0;
-      v23[5] &= v24;
-      if ( v20 )
-        KiRemoveSystemWorkPriorityKick(v22);
+      v20 = KeGetCurrentIrql();
+      if ( v20 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v20 >= 2u )
+      {
+        v21 = KeGetCurrentPrcb();
+        v22 = v21->SchedulerAssist;
+        v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+        v19 = (v23 & v22[5]) == 0;
+        v22[5] &= v23;
+        if ( v19 )
+          KiRemoveSystemWorkPriorityKick(v21);
+      }
     }
   }
   __writecr8(v9);
   if ( (_DWORD)v5 )
   {
-    v12 = *(_QWORD *)v3;
+    v11 = *(_QWORD *)v3;
     _InterlockedExchange64(
       (volatile __int64 *)(*(_QWORD *)v3 + 24LL),
       _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)v3 + 24LL), -1LL, -1LL) + (v5 << 12));
-    v13 = *(_WORD *)(v12 + 12);
-    v14 = *(unsigned int *)(v12 + 8);
-    *(_DWORD *)(v12 + 8) = v5 + v14;
-    *(_WORD *)(v12 + 12) = v13 ^ (v13 ^ ((v5 + (v14 | ((unsigned __int64)(v13 & 0x3FF) << 32))) >> 32)) & 0x3FF;
+    v12 = *(_WORD *)(v11 + 12);
+    v13 = *(unsigned int *)(v11 + 8);
+    *(_DWORD *)(v11 + 8) = v5 + v13;
+    *(_WORD *)(v11 + 12) = v12 ^ (v12 ^ ((v5 + (v13 | ((unsigned __int64)(v12 & 0x3FF) << 32))) >> 32)) & 0x3FF;
     if ( v7 == 2 )
-      MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_140C674C8 + 8LL * (v3[30] & 0x3FF)), 1LL, v5);
+      MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_140C4E648 + 8LL * (v3[30] & 0x3FF)), 1LL, v5);
   }
   return 0LL;
 }

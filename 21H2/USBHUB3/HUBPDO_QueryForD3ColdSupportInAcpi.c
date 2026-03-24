@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBPDO_QueryForD3ColdSupportInAcpi @ 0x1C0016534
+ * XREFs of HUBPDO_QueryForD3ColdSupportInAcpi @ 0x1C0016070
  * Callers:
- *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00167A0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C00162D0 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall HUBPDO_QueryForD3ColdSupportInAcpi(__int64 a1)
@@ -27,7 +27,7 @@ __int64 __fastcall HUBPDO_QueryForD3ColdSupportInAcpi(__int64 a1)
   v2 = *(_QWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                      WdfDriverGlobals,
                      a1,
-                     off_1C00670F8)
+                     off_1C00660D0)
                  + 24);
   result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD, __int64 *))(WdfFunctions_01015 + 1336))(
              WdfDriverGlobals,
@@ -42,7 +42,7 @@ __int64 __fastcall HUBPDO_QueryForD3ColdSupportInAcpi(__int64 a1)
                2u,
                5u,
                0x30u,
-               (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+               (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
                result);
     return result;
   }
@@ -90,7 +90,7 @@ LABEL_7:
                v6,
                5u,
                v5,
-               (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+               (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
                v7);
   }
 LABEL_16:

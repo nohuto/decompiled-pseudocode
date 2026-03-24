@@ -7,7 +7,7 @@
  *     SeTokenIsAdmin @ 0x1405BBCD0 (SeTokenIsAdmin.c)
  *     SepNewTokenAsRestrictedAsProcessToken @ 0x1405BBD54 (SepNewTokenAsRestrictedAsProcessToken.c)
  *     SeTokenCanImpersonate @ 0x1406380E0 (SeTokenCanImpersonate.c)
- *     SepIsImpersonationAllowedDueToCapability @ 0x1406AD96C (SepIsImpersonationAllowedDueToCapability.c)
+ *     SepIsImpersonationAllowedDueToCapability @ 0x1406AD94C (SepIsImpersonationAllowedDueToCapability.c)
  * Callees:
  *     <none>
  */

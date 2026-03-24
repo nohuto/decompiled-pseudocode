@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIProcessorContainerGetLpiStatesIoctl @ 0x1C003A988
+ * XREFs of ACPIProcessorContainerGetLpiStatesIoctl @ 0x1C005D55C
  * Callers:
- *     ACPIProcessorDeviceControl @ 0x1C008C580 (ACPIProcessorDeviceControl.c)
+ *     ACPIProcessorDeviceControl @ 0x1C009A990 (ACPIProcessorDeviceControl.c)
  * Callees:
- *     ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C003A524 (ACPIProcessorContainerComputeIoctlPayloadSize.c)
- *     ACPIProcessorContainerEvaluateLpiObjects @ 0x1C003A6F0 (ACPIProcessorContainerEvaluateLpiObjects.c)
- *     ACPIProcessorContainerFillIoctlBuffer @ 0x1C003A794 (ACPIProcessorContainerFillIoctlBuffer.c)
+ *     ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C005D0F0 (ACPIProcessorContainerComputeIoctlPayloadSize.c)
+ *     ACPIProcessorContainerEvaluateLpiObjects @ 0x1C005D2C4 (ACPIProcessorContainerEvaluateLpiObjects.c)
+ *     ACPIProcessorContainerFillIoctlBuffer @ 0x1C005D368 (ACPIProcessorContainerFillIoctlBuffer.c)
  */
 
 __int64 __fastcall ACPIProcessorContainerGetLpiStatesIoctl(PIRP Irp, __int64 a2)
@@ -49,7 +49,7 @@ __int64 __fastcall ACPIProcessorContainerGetLpiStatesIoctl(PIRP Irp, __int64 a2)
           *(_DWORD *)&MasterIrp->AllocationProcessorNumber = AcpiProcessorContainerCount;
           v11 = 24 * v9 + 8;
           v6 = ACPIProcessorContainerFillIoctlBuffer(
-                 (__int64 **)&AcpiProcessorContainerRootList,
+                 (__int64 ***)&AcpiProcessorContainerRootList,
                  -1,
                  (__int64)MasterIrp,
                  (int *)&v11,

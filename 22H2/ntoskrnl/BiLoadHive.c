@@ -1,19 +1,19 @@
 /*
- * XREFs of BiLoadHive @ 0x140809604
+ * XREFs of BiLoadHive @ 0x140785948
  * Callers:
- *     BiAddStoreFromFile @ 0x140804BEC (BiAddStoreFromFile.c)
+ *     BiAddStoreFromFile @ 0x140781CD8 (BiAddStoreFromFile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwLoadKey @ 0x14041C860 (ZwLoadKey.c)
- *     ZwLoadKey2 @ 0x14041C880 (ZwLoadKey2.c)
- *     ZwUnloadKey @ 0x14041E180 (ZwUnloadKey.c)
- *     BiLogMessage @ 0x140807BA0 (BiLogMessage.c)
- *     BiAcquirePrivilege @ 0x140808628 (BiAcquirePrivilege.c)
- *     BiReleasePrivilege @ 0x1408086B4 (BiReleasePrivilege.c)
- *     BiOpenKeyNonBcd @ 0x14080A094 (BiOpenKeyNonBcd.c)
- *     BiDoesHiveExist @ 0x14080A3B0 (BiDoesHiveExist.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwLoadKey @ 0x1403FBB20 (ZwLoadKey.c)
+ *     ZwLoadKey2 @ 0x1403FBB40 (ZwLoadKey2.c)
+ *     ZwUnloadKey @ 0x1403FD340 (ZwUnloadKey.c)
+ *     BiLogMessage @ 0x140784C9C (BiLogMessage.c)
+ *     BiOpenKeyNonBcd @ 0x140785880 (BiOpenKeyNonBcd.c)
+ *     BiReleasePrivilege @ 0x140785B38 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140785B90 (BiAcquirePrivilege.c)
+ *     BiDoesHiveExist @ 0x140785D64 (BiDoesHiveExist.c)
  */
 
 __int64 __fastcall BiLoadHive(PCWSTR SourceString, __int64 a2, HANDLE *a3)
@@ -38,9 +38,8 @@ __int64 __fastcall BiLoadHive(PCWSTR SourceString, __int64 a2, HANDLE *a3)
 
   v18 = 0LL;
   v19 = 0LL;
-  *(_QWORD *)&v20 = 0LL;
-  DWORD2(v20) = 0;
-  memset(&ObjectAttributes, 0, 44);
+  v20 = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   v15 = 0LL;
   v22 = 0LL;
   DestinationString = 0LL;
@@ -50,7 +49,7 @@ __int64 __fastcall BiLoadHive(PCWSTR SourceString, __int64 a2, HANDLE *a3)
     Handle = 0LL;
     if ( (unsigned __int8)BiDoesHiveExist(a2) )
     {
-      v7 = BiOpenKeyNonBcd(0LL, L"\\Registry\\Machine", 983103LL, &Handle);
+      v7 = BiOpenKeyNonBcd(0LL, L"\\Registry\\Machine", 0xF003Fu, &Handle);
       Key2 = v7;
       if ( v7 < 0 )
       {
@@ -72,7 +71,7 @@ __int64 __fastcall BiLoadHive(PCWSTR SourceString, __int64 a2, HANDLE *a3)
         DWORD2(v19) = 576;
         *(_QWORD *)&v19 = &v22;
         v20 = 0LL;
-        v9 = BiAcquirePrivilege(0x12u, (__int64)&v15);
+        v9 = BiAcquirePrivilege(18LL, &v15);
         Key2 = v9;
         if ( v9 < 0 )
         {
@@ -89,7 +88,7 @@ __int64 __fastcall BiLoadHive(PCWSTR SourceString, __int64 a2, HANDLE *a3)
             Key2 = ZwLoadKey2((__int64)&ObjectAttributes, (__int64)&v18);
           if ( Key2 < 0 )
             Key2 = ZwLoadKey((__int64)&ObjectAttributes, (__int64)&v18);
-          BiReleasePrivilege((unsigned int *)&v15);
+          BiReleasePrivilege(&v15);
           if ( Key2 < 0 )
           {
             v11 = 2LL;
@@ -110,9 +109,9 @@ __int64 __fastcall BiLoadHive(PCWSTR SourceString, __int64 a2, HANDLE *a3)
             Key2 = ZwOpenKey(a3, 0x20019u, &ObjectAttributes);
             if ( Key2 < 0 )
             {
-              BiAcquirePrivilege(0x11u, (__int64)&v15);
+              BiAcquirePrivilege(17LL, &v15);
               ZwUnloadKey((__int64)&ObjectAttributes, v12);
-              BiReleasePrivilege((unsigned int *)&v15);
+              BiReleasePrivilege(&v15);
               LODWORD(v13) = Key2;
               BiLogMessage(4LL, L"Failed open newly loaded key %ws. Flags: 0x%x Status: %x", SourceString, 576LL, v13);
             }

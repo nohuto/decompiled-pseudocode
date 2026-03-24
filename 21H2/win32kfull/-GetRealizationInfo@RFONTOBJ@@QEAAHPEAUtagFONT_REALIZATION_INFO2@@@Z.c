@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetRealizationInfo@RFONTOBJ@@QEAAHPEAUtagFONT_REALIZATION_INFO2@@@Z @ 0x1C0037300
+ * XREFs of ?GetRealizationInfo@RFONTOBJ@@QEAAHPEAUtagFONT_REALIZATION_INFO2@@@Z @ 0x1C0094DC8
  * Callers:
- *     GreGetRealizationInfo @ 0x1C0123E74 (GreGetRealizationInfo.c)
+ *     GreGetRealizationInfo @ 0x1C0137D04 (GreGetRealizationInfo.c)
  * Callees:
- *     ?IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C000F010 (-IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z.c)
+ *     ?IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C00623E8 (-IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z.c)
  */
 
 __int64 __fastcall RFONTOBJ::GetRealizationInfo(RFONTOBJ *this, struct tagFONT_REALIZATION_INFO2 *a2)

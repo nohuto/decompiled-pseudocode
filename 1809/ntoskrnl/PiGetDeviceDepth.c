@@ -1,8 +1,8 @@
 /*
- * XREFs of PiGetDeviceDepth @ 0x1406C89C8
+ * XREFs of PiGetDeviceDepth @ 0x1406C89A8
  * Callers:
- *     PiControlGetDeviceDepth @ 0x1406C8930 (PiControlGetDeviceDepth.c)
- *     PiCMGetDeviceDepth @ 0x140838168 (PiCMGetDeviceDepth.c)
+ *     PiControlGetDeviceDepth @ 0x1406C8910 (PiControlGetDeviceDepth.c)
+ *     PiCMGetDeviceDepth @ 0x140838148 (PiCMGetDeviceDepth.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14059AC4C (PnpDeviceObjectFromDeviceInstanceWithTag.c)

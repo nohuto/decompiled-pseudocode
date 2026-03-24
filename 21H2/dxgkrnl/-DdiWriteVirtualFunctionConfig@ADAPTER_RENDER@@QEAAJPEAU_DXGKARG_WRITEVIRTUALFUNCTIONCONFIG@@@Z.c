@@ -1,18 +1,17 @@
 /*
- * XREFs of ?DdiWriteVirtualFunctionConfig@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_WRITEVIRTUALFUNCTIONCONFIG@@@Z @ 0x1C035D9CC
+ * XREFs of ?DdiWriteVirtualFunctionConfig@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_WRITEVIRTUALFUNCTIONCONFIG@@@Z @ 0x1C0234EE0
  * Callers:
- *     ?WriteVirtualFunctionConfig@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_WRITEVIRTUALFUNCTIONCONFIG@@@Z @ 0x1C0361100 (-WriteVirtualFunctionConfig@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_WRITEVIRTUALFUNCTIONCONFIG@.c)
+ *     ?WriteVirtualFunctionConfig@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_WRITEVIRTUALFUNCTIONCONFIG@@@Z @ 0x1C02378A0 (-WriteVirtualFunctionConfig@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_WRITEVIRTUALFUNCTIONCONFIG@.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z @ 0x1C000B800 (-AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z.c)
- *     ?ReleaseDdiSync@DXGADAPTER@@QEAAXXZ @ 0x1C000B8C0 (-ReleaseDdiSync@DXGADAPTER@@QEAAXXZ.c)
- *     ??0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z @ 0x1C000BB00 (--0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C017D000 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z @ 0x1C0003ED0 (-AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z.c)
+ *     ?ReleaseDdiSync@DXGADAPTER@@QEAAXXZ @ 0x1C0003F90 (-ReleaseDdiSync@DXGADAPTER@@QEAAXXZ.c)
+ *     ??0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z @ 0x1C0004030 (--0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C00FBBF0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall ADAPTER_RENDER::DdiWriteVirtualFunctionConfig(
@@ -20,92 +19,107 @@ __int64 __fastcall ADAPTER_RENDER::DdiWriteVirtualFunctionConfig(
         struct _DXGKARG_WRITEVIRTUALFUNCTIONCONFIG *a2,
         __int64 a3)
 {
-  KIRQL CurrentIrql; // al
-  __int64 v6; // r15
-  struct DXGTHREAD *v7; // rbx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  unsigned __int8 CurrentIrql; // r15
+  struct DXGTHREAD *v8; // rdi
   struct DXGTHREAD *Current; // rax
-  int v9; // r14d
-  __int64 v10; // rdi
-  KIRQL v11; // al
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  int v15; // [rsp+50h] [rbp-29h] BYREF
-  __int64 v16; // [rsp+58h] [rbp-21h]
-  char v17; // [rsp+60h] [rbp-19h]
-  _BYTE v18[8]; // [rsp+68h] [rbp-11h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+70h] [rbp-9h] BYREF
+  int v10; // r14d
+  __int64 v11; // rdx
+  __int64 v12; // rbx
+  __int64 v13; // rcx
+  _QWORD *v14; // rax
+  unsigned __int8 v15; // cl
+  _QWORD *v16; // rax
+  __int64 v17; // rcx
+  bool v18; // sf
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  int v25; // [rsp+20h] [rbp-60h] BYREF
+  __int64 v26; // [rsp+28h] [rbp-58h]
+  char v27; // [rsp+30h] [rbp-50h]
+  _BYTE v28[8]; // [rsp+38h] [rbp-48h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+40h] [rbp-40h] BYREF
 
-  v15 = -1;
-  v16 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v25 = -1;
+  v26 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v17 = 1;
-    v15 = 5087;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v27 = 1;
+    v25 = 5087;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, a3, 5087);
   }
   else
   {
-    v17 = 0;
+    v27 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v15, 5087);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v25, 5087LL);
   DXGADAPTER::AcquireDdiSync(*((_QWORD *)this + 2), 1);
-  _InterlockedIncrement((volatile signed __int32 *)(*((_QWORD *)this + 2) + 4484LL));
+  _InterlockedIncrement((volatile signed __int32 *)(*((_QWORD *)this + 2) + 4364LL));
   CurrentIrql = KeGetCurrentIrql();
-  v6 = CurrentIrql;
-  v7 = 0LL;
-  if ( CurrentIrql < 2u && (Current = DXGTHREAD::GetCurrent(), (v7 = Current) != 0LL) )
-    v9 = *((_DWORD *)Current + 12);
+  v8 = 0LL;
+  if ( CurrentIrql < 2u && (Current = DXGTHREAD::GetCurrent(v6, v5), (v8 = Current) != 0LL) )
+    v10 = *((_DWORD *)Current + 8);
   else
-    v9 = 0;
+    v10 = 0;
   DXGVALIDATIONPROCESSATTACH::DXGVALIDATIONPROCESSATTACH(
-    (DXGVALIDATIONPROCESSATTACH *)v18,
+    (DXGVALIDATIONPROCESSATTACH *)v28,
     *((struct DXGADAPTER **)this + 2));
-  v10 = (*(int (__fastcall **)(_QWORD, struct _DXGKARG_WRITEVIRTUALFUNCTIONCONFIG *))(*(_QWORD *)(*((_QWORD *)this + 2)
-                                                                                                + 1040LL)
+  v12 = (*(int (__fastcall **)(_QWORD, struct _DXGKARG_WRITEVIRTUALFUNCTIONCONFIG *))(*(_QWORD *)(*((_QWORD *)this + 2)
+                                                                                                + 952LL)
                                                                                     + 40LL))(
-          *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 1040LL) + 8LL),
+          *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 952LL) + 8LL),
           a2);
-  if ( v18[0] )
+  if ( v28[0] )
     KeUnstackDetachProcess(&ApcState);
-  if ( (_BYTE)v6 != KeGetCurrentIrql() )
+  v13 = KeGetCurrentIrql();
+  if ( CurrentIrql != (_BYTE)v13 )
   {
-    v11 = KeGetCurrentIrql();
-    WdLogSingleEntry5(0LL, 275LL, 16LL, this, v6, v11);
+    v14 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v13, v11);
+    v14[3] = 275LL;
+    v14[4] = 16LL;
+    v14[5] = this;
+    v14[6] = CurrentIrql;
+    v15 = KeGetCurrentIrql();
+    v14[7] = v15;
+    WdLogEvent5_WdCriticalError(v14);
   }
-  if ( v7 && *((_DWORD *)v7 + 12) != v9 )
-    WdLogSingleEntry5(0LL, 275LL, 38LL, *((int *)v7 + 12), v9, 0LL);
-  _InterlockedDecrement((volatile signed __int32 *)(*((_QWORD *)this + 2) + 4484LL));
-  if ( (_DWORD)v10 == -1073741811
-    || (_DWORD)v10
-    && (WdLogSingleEntry1(2LL, v10),
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Driver returned an invalid NTSTATUS code: 0x%I64x",
-          v10,
-          0LL,
-          0LL,
-          0LL,
-          0LL),
-        (int)v10 < 0) )
+  if ( v8 && *((_DWORD *)v8 + 8) != v10 )
   {
-    WdLogSingleEntry1(2LL, v10);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"The driver failed DxgkDdiWriteVirtualFunctionConfig. Status: 0x%I64x",
-      v10,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v16 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v13, v11);
+    v16[3] = 275LL;
+    v16[4] = 38LL;
+    v17 = *((int *)v8 + 8);
+    v16[7] = 0LL;
+    v16[5] = v17;
+    v16[6] = v10;
+    WdLogEvent5_WdCriticalError(v16);
+  }
+  _InterlockedDecrement((volatile signed __int32 *)(*((_QWORD *)this + 2) + 4364LL));
+  if ( (_DWORD)v12 != -1073741811 )
+  {
+    v18 = (int)v12 < 0;
+    if ( !(_DWORD)v12 )
+      goto LABEL_20;
+    v19 = WdLogNewEntry5_WdError(v13, v11);
+    *(_QWORD *)(v19 + 24) = v12;
+    WdLogEvent5_WdError(v19);
+  }
+  v18 = (int)v12 < 0;
+LABEL_20:
+  if ( v18 )
+  {
+    v20 = WdLogNewEntry5_WdError(v13, v11);
+    *(_QWORD *)(v20 + 24) = v12;
+    WdLogEvent5_WdError(v20);
   }
   DXGADAPTER::ReleaseDdiSync(*((DXGADAPTER **)this + 2));
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v15);
-  if ( v17 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v12, &EventProfilerExit, v13, v15);
-  return (unsigned int)v10;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v25, v21);
+  if ( v27 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v22, &EventProfilerExit, v23, v25);
+  return (unsigned int)v12;
 }

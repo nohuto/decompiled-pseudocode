@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetFileOnlyRanges @ 0x1402A63A8
+ * XREFs of MiGetFileOnlyRanges @ 0x1402A64A8
  * Callers:
- *     MiGetPhysicalMemoryRanges @ 0x1406DAE1C (MiGetPhysicalMemoryRanges.c)
+ *     MiGetPhysicalMemoryRanges @ 0x1406DADFC (MiGetPhysicalMemoryRanges.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetNextNonGapPfnPage @ 0x140184448 (MiGetNextNonGapPfnPage.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     MiGetNextNonGapPfnPage @ 0x140184468 (MiGetNextNonGapPfnPage.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

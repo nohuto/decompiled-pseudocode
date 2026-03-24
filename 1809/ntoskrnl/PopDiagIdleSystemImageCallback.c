@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDiagIdleSystemImageCallback @ 0x14086FB50
+ * XREFs of PopDiagIdleSystemImageCallback @ 0x14086FB30
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x14015D6FC (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringPrintf @ 0x14015D71C (RtlUnicodeStringPrintf.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

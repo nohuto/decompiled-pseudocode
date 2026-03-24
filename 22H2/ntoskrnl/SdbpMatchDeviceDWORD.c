@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbpMatchDeviceDWORD @ 0x140A51634
+ * XREFs of SdbpMatchDeviceDWORD @ 0x140965F48
  * Callers:
- *     SdbpMatchOem @ 0x1408634B0 (SdbpMatchOem.c)
- *     SdbpMatchCpu @ 0x140863504 (SdbpMatchCpu.c)
- *     SdbpMatchBios @ 0x140863558 (SdbpMatchBios.c)
- *     SdbpMatchAcpi @ 0x1408635AC (SdbpMatchAcpi.c)
+ *     SdbpMatchAcpi @ 0x1407D3038 (SdbpMatchAcpi.c)
+ *     SdbpMatchOem @ 0x1407D308C (SdbpMatchOem.c)
+ *     SdbpMatchBios @ 0x1407D30E0 (SdbpMatchBios.c)
+ *     SdbpMatchCpu @ 0x1407D3134 (SdbpMatchCpu.c)
  * Callees:
- *     SdbpGetDeviceDWORD @ 0x140A50E88 (SdbpGetDeviceDWORD.c)
+ *     SdbpGetDeviceDWORD @ 0x1409659A8 (SdbpGetDeviceDWORD.c)
  */
 
 __int64 __fastcall SdbpMatchDeviceDWORD(

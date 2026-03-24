@@ -1,29 +1,32 @@
 /*
- * XREFs of IopDecDisableableDepends @ 0x14095855C
+ * XREFs of IopDecDisableableDepends @ 0x1407D52E8
  * Callers:
- *     PiProcessQueryDeviceState @ 0x140749F30 (PiProcessQueryDeviceState.c)
- *     IopRemoveDevice @ 0x140766C3C (IopRemoveDevice.c)
+ *     IopRemoveDevice @ 0x1407388F4 (IopRemoveDevice.c)
+ *     PiProcessQueryDeviceState @ 0x140749A3C (PiProcessQueryDeviceState.c)
  * Callees:
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140772044 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140746040 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
  */
 
-void __fastcall IopDecDisableableDepends(__int64 a1)
+__int64 __fastcall IopDecDisableableDepends(__int64 a1)
 {
   __int64 v1; // rbx
-  __int64 v2; // rdx
+  __int64 result; // rax
+  __int64 v3; // rdx
 
   if ( a1 )
   {
     v1 = a1;
     do
     {
-      if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v1 + 600), 0xFFFFFFFF) != 1 )
+      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(v1 + 600), 0xFFFFFFFF);
+      if ( (_DWORD)result != 1 )
         break;
-      v2 = *(_QWORD *)(v1 + 48);
-      if ( v2 )
-        PnpRaiseNtPlugPlayDevicePropertyChangeEvent(a1, v2, 11);
+      v3 = *(_QWORD *)(v1 + 48);
+      if ( v3 )
+        result = PnpRaiseNtPlugPlayDevicePropertyChangeEvent(a1, v3, 11);
       v1 = *(_QWORD *)(v1 + 16);
     }
     while ( v1 );
   }
+  return result;
 }

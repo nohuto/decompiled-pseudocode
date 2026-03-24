@@ -1,5 +1,5 @@
 /*
- * XREFs of EngFindImageProcAddress @ 0x1C026C1F0
+ * XREFs of EngFindImageProcAddress @ 0x1C02736D0
  * Callers:
  *     <none>
  * Callees:
@@ -9,7 +9,7 @@
 PVOID __stdcall EngFindImageProcAddress(HANDLE hModule, LPSTR lpProcName)
 {
   __int64 v3; // rax
-  char **i; // r8
+  struct _NEWPROCADDRESS near **i; // r8
   LPSTR v5; // rcx
   int v6; // r10d
   int v7; // edx
@@ -71,12 +71,12 @@ PVOID __stdcall EngFindImageProcAddress(HANDLE hModule, LPSTR lpProcName)
   else
   {
     v3 = 0LL;
-    for ( i = &off_1C030A510; ; i += 2 )
+    for ( i = &gaNewProcAddresses; ; i += 2 )
     {
       v5 = lpProcName;
       do
       {
-        v6 = (unsigned __int8)v5[*i - lpProcName];
+        v6 = (unsigned __int8)v5[*i - (struct _NEWPROCADDRESS near *)lpProcName];
         v7 = (unsigned __int8)*v5 - v6;
         if ( v7 )
           break;
@@ -89,6 +89,6 @@ PVOID __stdcall EngFindImageProcAddress(HANDLE hModule, LPSTR lpProcName)
       if ( (unsigned int)v3 >= 0x48 )
         return 0LL;
     }
-    return (&off_1C030A510)[2 * v3 + 1];
+    return *(&gaNewProcAddresses + 2 * v3 + 1);
   }
 }

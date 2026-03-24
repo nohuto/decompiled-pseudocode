@@ -1,30 +1,28 @@
 /*
- * XREFs of MiLocateOldestSecure @ 0x1403699EC
+ * XREFs of MiLocateOldestSecure @ 0x14037DC38
  * Callers:
- *     MiUnmapLockedPagesInUserSpace @ 0x1407E66E0 (MiUnmapLockedPagesInUserSpace.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x14076D36C (MiUnmapLockedPagesInUserSpace.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
  */
 
 _QWORD *__fastcall MiLocateOldestSecure(__int64 a1)
 {
   _QWORD *v2; // rsi
   _KPROCESS *Process; // rbp
-  volatile LONG *SharedVm; // rbx
+  LONG *SharedVm; // rbx
   KIRQL v5; // al
-  __int64 v6; // r8
-  __int64 v7; // r9
   _QWORD *i; // rdx
 
   v2 = 0LL;
   Process = KeGetCurrentThread()->ApcState.Process;
-  SharedVm = (volatile LONG *)MiGetSharedVm((__int64)&Process[1].ActiveProcessors.StaticBitmap[26]);
+  SharedVm = MiGetSharedVm((__int64)&Process[1].ActiveProcessorsPadding[6]);
   v5 = ExAcquireSpinLockExclusive(SharedVm);
-  *((_DWORD *)SharedVm + 1) = 0;
-  for ( i = (_QWORD *)(*(_QWORD *)(a1 + 56) & 0xFFFFFFFFFFFFFFF0uLL); i; i = (_QWORD *)*i )
+  SharedVm[1] = 0;
+  for ( i = *(_QWORD **)(a1 + 56); i; i = (_QWORD *)*i )
     v2 = i;
-  MiUnlockWorkingSetExclusive((__int64)&Process[1].ActiveProcessors.StaticBitmap[26], v5, v6, v7);
+  MiUnlockWorkingSetExclusive((__int64)&Process[1].ActiveProcessorsPadding[6], v5);
   return v2;
 }

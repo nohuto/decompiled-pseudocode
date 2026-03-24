@@ -1,13 +1,12 @@
 /*
- * XREFs of IoCreateObjectTypes @ 0x140AFD20C
+ * XREFs of IoCreateObjectTypes @ 0x140A3D6D8
  * Callers:
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObCreateObjectType @ 0x140824B10 (ObCreateObjectType.c)
- *     ObCreateObjectTypeEx @ 0x140824B30 (ObCreateObjectTypeEx.c)
- *     IopCreateIoRingObjectType @ 0x140B30970 (IopCreateIoRingObjectType.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
+ *     ObCreateObjectTypeEx @ 0x1407958F0 (ObCreateObjectTypeEx.c)
  */
 
 bool IoCreateObjectTypes()
@@ -44,8 +43,12 @@ bool IoCreateObjectTypes()
   HIDWORD(v2[2]) = 336;
   *((_QWORD *)&v2[4] + 1) = IopDeleteDriver;
   memset(&v2[5], 0, 24);
-  if ( ViVerifierEnabled && ((VfRuleClasses & 0xFFA9F6E6) != 0 || (VfRuleClasses & 0x200000000LL) != 0) )
+  if ( ViVerifierEnabled
+    && ((VfRuleClasses & 0xFFAFFFFF) != 0 || (VfRuleClasses & 0x200000000LL) != 0
+                                          || (VfRuleClasses & 0x400000000LL) != 0) )
+  {
     BYTE2(v2[0]) |= 0x20u;
+  }
   if ( (int)ObCreateObjectType(&DestinationString, (__int64)v2, 0LL, (__int64)&IoDriverObjectType) < 0 )
     return 0;
   RtlInitUnicodeString(&DestinationString, L"IoCompletion");
@@ -71,16 +74,15 @@ bool IoCreateObjectTypes()
   RtlInitUnicodeString(&DestinationString, L"File");
   BYTE3(v2[0]) |= 1u;
   *(_QWORD *)&v2[4] = IopCloseFile;
-  *((_QWORD *)&v2[2] + 1) = 0x11800000400LL;
   *((_QWORD *)&v2[4] + 1) = IopDeleteFile;
+  *((_QWORD *)&v2[2] + 1) = 0x11800000400LL;
   *(_QWORD *)&v2[5] = IopParseFile;
   *(_QWORD *)&v2[6] = IopQueryName;
   *(_QWORD *)((char *)v2 + 4) = 0x13000000001LL;
-  HIDWORD(v2[1]) = 2032127;
   BYTE2(v2[0]) = BYTE2(v2[0]) & 0xEB | 0x10;
   *(GENERIC_MAPPING *)((char *)v2 + 12) = IopFileMapping;
+  HIDWORD(v2[1]) = 2032127;
   *((_QWORD *)&v2[5] + 1) = IopGetSetSecurityObject;
   *(_QWORD *)&v2[7] = 0x20005010000000LL;
-  return (int)ObCreateObjectTypeEx(&DestinationString, v2, 0LL, (__int16 *)0x9B, &IoFileObjectType) >= 0
-      && (int)IopCreateIoRingObjectType() >= 0;
+  return (int)ObCreateObjectTypeEx(&DestinationString, v2, 0LL, (__int16 *)0x9B, (__int64 *)&IoFileObjectType) >= 0;
 }

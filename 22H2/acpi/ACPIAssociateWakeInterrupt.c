@@ -1,41 +1,39 @@
 /*
- * XREFs of ACPIAssociateWakeInterrupt @ 0x1C004433C
+ * XREFs of ACPIAssociateWakeInterrupt @ 0x1C00611B8
  * Callers:
- *     ACPIWakeEmulationEnable @ 0x1C00452C4 (ACPIWakeEmulationEnable.c)
+ *     ACPIWakeEmulationEnable @ 0x1C0061E34 (ACPIWakeEmulationEnable.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     ACPIDelayedFreeWakeInterrupt @ 0x1C0044688 (ACPIDelayedFreeWakeInterrupt.c)
- *     ACPIDereferenceWakeInterrupt @ 0x1C004487C (ACPIDereferenceWakeInterrupt.c)
- *     ACPIFindWakeInterruptForVector @ 0x1C00449CC (ACPIFindWakeInterruptForVector.c)
- *     OSPowerTryAcquireWakeInterruptChangeStateLock @ 0x1C0046340 (OSPowerTryAcquireWakeInterruptChangeStateLock.c)
- *     ACPIConnectWakeInterrupt @ 0x1C0098AC4 (ACPIConnectWakeInterrupt.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1C001C8A4 (ExAllocateFromNPagedLookasideList.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIDelayedFreeWakeInterrupt @ 0x1C00614EC (ACPIDelayedFreeWakeInterrupt.c)
+ *     ACPIDereferenceWakeInterrupt @ 0x1C0061638 (ACPIDereferenceWakeInterrupt.c)
+ *     ACPIFindWakeInterruptForVector @ 0x1C0061788 (ACPIFindWakeInterruptForVector.c)
+ *     OSPowerTryAcquireWakeInterruptChangeStateLock @ 0x1C0062484 (OSPowerTryAcquireWakeInterruptChangeStateLock.c)
+ *     ACPIConnectWakeInterrupt @ 0x1C00B6214 (ACPIConnectWakeInterrupt.c)
  */
 
 __int64 __fastcall ACPIAssociateWakeInterrupt(__int64 a1)
 {
   __int64 v1; // rbx
-  __int64 v3; // r13
+  __int64 v3; // r12
   KIRQL v4; // al
   KIRQL v5; // si
-  __int64 v7; // r12
-  unsigned int v8; // r15d
+  __int64 v7; // r15
+  unsigned int v8; // ebp
   __int64 v9; // rbx
   int v10; // edi
   _QWORD *v11; // rcx
   int v12; // eax
-  KIRQL v13; // bp
-  PVOID v14; // rax
-  int v15; // eax
-  _QWORD *v16; // rax
-  __int64 *v17; // rax
-  __int64 v18; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v19; // [rsp+38h] [rbp-30h]
-  __int64 v20; // [rsp+70h] [rbp+8h] BYREF
+  PVOID v13; // rax
+  int v14; // eax
+  _QWORD *v15; // rax
+  __int64 *v16; // rax
+  __int128 v17; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v18; // [rsp+70h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 16);
-  v20 = 0LL;
   v18 = 0LL;
-  LODWORD(v19) = 0;
+  v17 = 0LL;
   v3 = *(_QWORD *)(v1 + 40);
   v4 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
   v5 = v4;
@@ -46,54 +44,55 @@ __int64 __fastcall ACPIAssociateWakeInterrupt(__int64 a1)
   }
   v7 = *(_QWORD *)(a1 + 32);
   v8 = *(_DWORD *)(a1 + 24);
-  if ( (int)ACPIFindWakeInterruptForVector(v8, v7, &v20) < 0 )
+  if ( (int)ACPIFindWakeInterruptForVector(v8, v7, &v18) < 0 )
   {
-    v14 = ExAllocateFromNPagedLookasideList(&WakeInterruptLookAsideList);
-    v9 = (__int64)v14;
-    if ( !v14 )
+    v13 = ExAllocateFromNPagedLookasideList(&WakeInterruptLookAsideList);
+    v9 = (__int64)v13;
+    if ( !v13 )
     {
       v10 = -1073741670;
       KeReleaseSpinLock(&AcpiPowerLock, v5);
-      v9 = v20;
-      goto LABEL_24;
+      v9 = v18;
+      goto LABEL_25;
     }
-    memset(v14, 0, 0x60uLL);
+    memset(v13, 0, 0x60uLL);
     *(_QWORD *)(v9 + 8) = v9;
     *(_QWORD *)v9 = v9;
     *(_QWORD *)(v9 + 24) = v9 + 16;
     *(_QWORD *)(v9 + 16) = v9 + 16;
     *(_DWORD *)(v9 + 32) = v8;
-    v15 = *(_DWORD *)(a1 + 28);
+    v14 = *(_DWORD *)(a1 + 28);
     *(_DWORD *)(v9 + 56) = 0;
-    *(_DWORD *)(v9 + 36) = v15;
+    *(_DWORD *)(v9 + 36) = v14;
     *(_QWORD *)(v9 + 40) = v7;
     KeInitializeEvent((PRKEVENT)(v9 + 64), SynchronizationEvent, 0);
     *(_DWORD *)(v9 + 88) = 2;
-    v16 = *(_QWORD **)(v9 + 24);
-    if ( *v16 == v9 + 16 )
+    v15 = *(_QWORD **)(v9 + 24);
+    if ( *v15 == v9 + 16 )
     {
       *(_QWORD *)a1 = v9 + 16;
-      *(_QWORD *)(a1 + 8) = v16;
-      *v16 = a1;
+      *(_QWORD *)(a1 + 8) = v15;
+      *v15 = a1;
       *(_QWORD *)(v9 + 24) = a1;
-      v17 = (__int64 *)qword_1C006E9F8;
-      if ( *(__int64 **)qword_1C006E9F8 == &AcpiPowerWaitWakeInterruptList )
+      v16 = (__int64 *)qword_1C0081958;
+      if ( *(__int64 **)qword_1C0081958 == &AcpiPowerWaitWakeInterruptList )
       {
+        *(_QWORD *)(v9 + 8) = qword_1C0081958;
         *(_QWORD *)v9 = &AcpiPowerWaitWakeInterruptList;
-        *(_QWORD *)(v9 + 8) = v17;
-        *v17 = v9;
-        qword_1C006E9F8 = v9;
-        v20 = v9;
-        goto LABEL_20;
+        *v16 = v9;
+        v12 = 5;
+        qword_1C0081958 = v9;
+        v18 = v9;
+        goto LABEL_19;
       }
     }
-LABEL_27:
+LABEL_28:
     __fastfail(3u);
   }
-  v9 = v20;
-  if ( *(_DWORD *)(v20 + 36) == *(_DWORD *)(a1 + 28) )
+  v9 = v18;
+  if ( *(_DWORD *)(v18 + 36) == *(_DWORD *)(a1 + 28) )
   {
-    *(_DWORD *)(v20 + 88) += 2;
+    *(_DWORD *)(v18 + 88) += 2;
     v11 = *(_QWORD **)(v9 + 24);
     if ( *v11 == v9 + 16 )
     {
@@ -107,7 +106,7 @@ LABEL_27:
         {
           KeReleaseSpinLock(&AcpiPowerLock, v5);
           v10 = -1073741823;
-          goto LABEL_24;
+          goto LABEL_25;
         }
       }
       else
@@ -117,46 +116,46 @@ LABEL_27:
         v5 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
       }
       v12 = *(_DWORD *)(v9 + 56);
-      v13 = v5;
       if ( v12 == 3 )
       {
         KeSetEvent((PRKEVENT)(v9 + 64), 0, 0);
         KeReleaseSpinLock(&AcpiPowerLock, v5);
         v10 = 0;
-        goto LABEL_24;
+        goto LABEL_25;
       }
       *(_DWORD *)(v9 + 56) = 0;
+LABEL_19:
       if ( v12 == 4 )
       {
-        LODWORD(v18) = 1;
-        v19 = *(_QWORD *)(v9 + 48);
-        IoReportInterruptActive(&v18);
+        LODWORD(v17) = 1;
+        *((_QWORD *)&v17 + 1) = *(_QWORD *)(v9 + 48);
+        IoReportInterruptActive(&v17);
         v10 = 0;
-        goto LABEL_21;
       }
-LABEL_20:
-      KeReleaseSpinLock(&AcpiPowerLock, v5);
-      v10 = ACPIConnectWakeInterrupt(v3, v9);
-      v13 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
-      if ( v10 < 0 )
+      else
       {
-        *(_DWORD *)(v9 + 56) = 5;
-        goto LABEL_23;
+        KeReleaseSpinLock(&AcpiPowerLock, v5);
+        v10 = ACPIConnectWakeInterrupt(v3, v9);
+        v5 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
+        if ( v10 < 0 )
+        {
+          *(_DWORD *)(v9 + 56) = 5;
+          goto LABEL_24;
+        }
       }
-LABEL_21:
       *(_DWORD *)(v9 + 56) = 3;
-LABEL_23:
-      KeSetEvent((PRKEVENT)(v9 + 64), 0, 0);
-      KeReleaseSpinLock(&AcpiPowerLock, v13);
 LABEL_24:
+      KeSetEvent((PRKEVENT)(v9 + 64), 0, 0);
+      KeReleaseSpinLock(&AcpiPowerLock, v5);
+LABEL_25:
       if ( v9 )
       {
-        ACPIDereferenceWakeInterrupt(&v20);
+        ACPIDereferenceWakeInterrupt(&v18);
         ACPIDelayedFreeWakeInterrupt(v8, v7);
       }
       return (unsigned int)v10;
     }
-    goto LABEL_27;
+    goto LABEL_28;
   }
   KeReleaseSpinLock(&AcpiPowerLock, v5);
   return (unsigned int)-1073741637;

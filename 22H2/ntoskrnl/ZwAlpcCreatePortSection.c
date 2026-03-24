@@ -1,8 +1,7 @@
 /*
- * XREFs of ZwAlpcCreatePortSection @ 0x14041B620
+ * XREFs of ZwAlpcCreatePortSection @ 0x1403FA9A0
  * Callers:
- *     DifZwAlpcCreatePortSectionWrapper @ 0x1405ED110 (DifZwAlpcCreatePortSectionWrapper.c)
- *     CmFcpCreateAlpcSectionView @ 0x140680D58 (CmFcpCreateAlpcSectionView.c)
+ *     <none>
  * Callees:
  *     <none>
  */

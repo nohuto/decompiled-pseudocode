@@ -1,10 +1,10 @@
 /*
- * XREFs of PopNetPublishWnfStateUpdate @ 0x14085B538
+ * XREFs of PopNetPublishWnfStateUpdate @ 0x1407CD408
  * Callers:
- *     PopNetEvaluationWorkerCallback @ 0x1403AD1B0 (PopNetEvaluationWorkerCallback.c)
- *     PopNetInitialize @ 0x140B51D10 (PopNetInitialize.c)
+ *     PopNetEvaluationWorkerCallback @ 0x1403CAF50 (PopNetEvaluationWorkerCallback.c)
+ *     PopNetInitialize @ 0x140A3EBF8 (PopNetInitialize.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
  */
 
 __int64 __fastcall PopNetPublishWnfStateUpdate(char a1)

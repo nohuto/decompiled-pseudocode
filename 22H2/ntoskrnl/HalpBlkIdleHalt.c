@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpBlkIdleHalt @ 0x140B15060
+ * XREFs of HalpBlkIdleHalt @ 0x140A18060
  * Callers:
- *     HalpBlkIdleLoop @ 0x140B17530 (HalpBlkIdleLoop.c)
+ *     HalpBlkIdleLoop @ 0x140A1A530 (HalpBlkIdleLoop.c)
  * Callees:
  *     <none>
  */

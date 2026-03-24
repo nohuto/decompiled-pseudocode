@@ -1,10 +1,10 @@
 /*
- * XREFs of MmManagePartitionGetMemoryEvents @ 0x140760F54
+ * XREFs of MmManagePartitionGetMemoryEvents @ 0x140760F34
  * Callers:
  *     NtManagePartition @ 0x140608170 (NtManagePartition.c)
  * Callees:
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     ObOpenObjectByPointer @ 0x1406470E0 (ObOpenObjectByPointer.c)
+ *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
  */
 
 __int64 __fastcall MmManagePartitionGetMemoryEvents(PVOID **a1, __int64 a2, KPROCESSOR_MODE AccessMode)

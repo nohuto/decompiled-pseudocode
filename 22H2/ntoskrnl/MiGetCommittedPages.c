@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetCommittedPages @ 0x1402197E0
+ * XREFs of MiGetCommittedPages @ 0x140297350
  * Callers:
- *     MiDeleteSegmentPages @ 0x140219690 (MiDeleteSegmentPages.c)
- *     MiCreatePrototypePtes @ 0x14021BAA0 (MiCreatePrototypePtes.c)
- *     MiReferenceActiveSubsection @ 0x140288C80 (MiReferenceActiveSubsection.c)
- *     MiSetPagesModified @ 0x14062896C (MiSetPagesModified.c)
- *     MiComputeCrossPartitionSectionCharges @ 0x14066B138 (MiComputeCrossPartitionSectionCharges.c)
- *     MiMapViewOfDataSection @ 0x1407202F0 (MiMapViewOfDataSection.c)
- *     MiInsertSharedCommitNode @ 0x140722090 (MiInsertSharedCommitNode.c)
- *     MiRemoveSharedCommitNode @ 0x140722410 (MiRemoveSharedCommitNode.c)
- *     MiInitializeImageExtents @ 0x140A33EFC (MiInitializeImageExtents.c)
+ *     MiDeleteSegmentPages @ 0x14027828C (MiDeleteSegmentPages.c)
+ *     MiCreatePrototypePtes @ 0x140278478 (MiCreatePrototypePtes.c)
+ *     MiReferenceActiveSubsection @ 0x140296380 (MiReferenceActiveSubsection.c)
+ *     MiSetPagesModified @ 0x140534FF0 (MiSetPagesModified.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x140554D28 (MiComputeCrossPartitionSectionCharges.c)
+ *     MiRemoveSharedCommitNode @ 0x140638C00 (MiRemoveSharedCommitNode.c)
+ *     MiInsertSharedCommitNode @ 0x140638E70 (MiInsertSharedCommitNode.c)
+ *     MiMapViewOfDataSection @ 0x140639820 (MiMapViewOfDataSection.c)
+ *     MiInitializeImageExtents @ 0x1408D00BC (MiInitializeImageExtents.c)
  * Callees:
  *     <none>
  */

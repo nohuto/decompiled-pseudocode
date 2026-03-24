@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDevCfgGetDeviceClassConfigFlags @ 0x1406E66F4
+ * XREFs of PiDevCfgGetDeviceClassConfigFlags @ 0x140770EF0
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x1407702BC (PiDevCfgConfigureDevice.c)
- *     PpDevCfgProcessDeviceClass @ 0x14094EA0C (PpDevCfgProcessDeviceClass.c)
+ *     PpDevCfgProcessDeviceClass @ 0x14072FE5C (PpDevCfgProcessDeviceClass.c)
+ *     PiDevCfgConfigureDevice @ 0x140742E20 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
  */
 
-__int64 __fastcall PiDevCfgGetDeviceClassConfigFlags(int a1, int a2, _DWORD *a3)
+__int64 __fastcall PiDevCfgGetDeviceClassConfigFlags(__int64 a1, __int64 a2, _DWORD *a3)
 {
   int v7; // [rsp+80h] [rbp+18h] BYREF
   int v8; // [rsp+88h] [rbp+20h] BYREF
@@ -16,9 +16,9 @@ __int64 __fastcall PiDevCfgGetDeviceClassConfigFlags(int a1, int a2, _DWORD *a3)
   v7 = 0;
   v8 = 1;
   if ( (unsigned int)PnpGetObjectProperty(
-                       PiPnpRtlCtx,
+                       *(__int64 *)&PiPnpRtlCtx,
                        a1,
-                       2,
+                       2LL,
                        a2,
                        0LL,
                        (__int64)DEVPKEY_DeviceClass_ConfigFilters,
@@ -28,9 +28,9 @@ __int64 __fastcall PiDevCfgGetDeviceClassConfigFlags(int a1, int a2, _DWORD *a3)
                        (__int64)&v7,
                        0) == -1073741789
     || (unsigned int)PnpGetObjectProperty(
-                       PiPnpRtlCtx,
+                       *(__int64 *)&PiPnpRtlCtx,
                        a1,
-                       2,
+                       2LL,
                        a2,
                        0LL,
                        (__int64)DEVPKEY_DeviceClass_ConfigNotifyWnfTriggers,

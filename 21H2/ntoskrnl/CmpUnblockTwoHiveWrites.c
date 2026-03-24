@@ -1,24 +1,38 @@
 /*
- * XREFs of CmpUnblockTwoHiveWrites @ 0x14071A784
+ * XREFs of CmpUnblockTwoHiveWrites @ 0x140672258
  * Callers:
- *     CmpVirtualBranchIsReplicated @ 0x140718CA8 (CmpVirtualBranchIsReplicated.c)
- *     CmpVirtualPathPresent @ 0x140917930 (CmpVirtualPathPresent.c)
+ *     CmpVirtualBranchIsReplicated @ 0x1406720EC (CmpVirtualBranchIsReplicated.c)
+ *     CmpVirtualPathPresent @ 0x140870E50 (CmpVirtualPathPresent.c)
  * Callees:
- *     CmpDeleteHive @ 0x1406BBAD8 (CmpDeleteHive.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140AB41E0 (HvUnlockHiveFlusherExclusive.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     CmpDeleteHive @ 0x14071C6F4 (CmpDeleteHive.c)
  */
 
-void __fastcall CmpUnblockTwoHiveWrites(volatile signed __int32 *P, volatile signed __int32 *a2)
+void __fastcall CmpUnblockTwoHiveWrites(char *P, char *a2)
 {
+  char *v4; // rsi
+  char v5; // al
+
   if ( P )
-    HvUnlockHiveFlusherExclusive(P);
+  {
+    v4 = P + 72;
+    v5 = _InterlockedExchangeAdd64((volatile signed __int64 *)P + 9, 0xFFFFFFFFFFFFFFFFuLL);
+    if ( (v5 & 2) != 0 && (v5 & 4) == 0 )
+      ExfTryToWakePushLock(P + 72);
+    KeAbPostRelease((ULONG_PTR)v4);
+  }
   if ( a2 )
-    HvUnlockHiveFlusherExclusive(a2);
-  if ( P && _InterlockedExchangeAdd(P + 1058, 0xFFFFFFFF) == 1 )
+  {
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)a2 + 9, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(a2 + 72);
+    KeAbPostRelease((ULONG_PTR)(a2 + 72));
+  }
+  if ( P && !_InterlockedDecrement((volatile signed __int32 *)P + 1068) )
     CmpDeleteHive(P);
   if ( a2 )
   {
-    if ( _InterlockedExchangeAdd(a2 + 1058, 0xFFFFFFFF) == 1 )
+    if ( !_InterlockedDecrement((volatile signed __int32 *)a2 + 1068) )
       CmpDeleteHive(a2);
   }
 }

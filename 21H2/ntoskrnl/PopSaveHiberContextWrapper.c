@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSaveHiberContextWrapper @ 0x140429620
+ * XREFs of PopSaveHiberContextWrapper @ 0x140407740
  * Callers:
  *     <none>
  * Callees:
- *     KeSaveStateForHibernate @ 0x140420460 (KeSaveStateForHibernate.c)
- *     PopSaveHiberContext @ 0x140A4B9E0 (PopSaveHiberContext.c)
- *     PopHiberCheckResume @ 0x140A4E0E0 (PopHiberCheckResume.c)
+ *     KeSaveStateForHibernate @ 0x1403FEED0 (KeSaveStateForHibernate.c)
+ *     PopSaveHiberContext @ 0x1409937A0 (PopSaveHiberContext.c)
+ *     PopHiberCheckResume @ 0x1409988A0 (PopHiberCheckResume.c)
  */
 
 __int64 __fastcall PopSaveHiberContextWrapper(ULONG_PTR BugCheckParameter3)

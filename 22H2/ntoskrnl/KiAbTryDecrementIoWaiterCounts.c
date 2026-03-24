@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAbTryDecrementIoWaiterCounts @ 0x14033F5F8
+ * XREFs of KiAbTryDecrementIoWaiterCounts @ 0x1402E57C8
  * Callers:
- *     KiAbEntryRemoveFromTree @ 0x14024B530 (KiAbEntryRemoveFromTree.c)
+ *     KiAbEntryRemoveFromTree @ 0x1402E5430 (KiAbEntryRemoveFromTree.c)
  * Callees:
  *     <none>
  */
@@ -10,18 +10,18 @@ char __fastcall KiAbTryDecrementIoWaiterCounts(__int64 a1, __int64 a2)
 {
   char result; // al
 
-  if ( (*(_BYTE *)(a1 + 19) & 2) != 0 )
+  result = *(_BYTE *)(a1 + 27);
+  if ( (result & 2) != 0 )
   {
-    --*(_BYTE *)(a2 + 92);
-    result = *(_BYTE *)(a1 + 19) & 0xFD;
-    *(_BYTE *)(a1 + 19) = result;
+    *(_WORD *)(a2 + 90) ^= (*(_WORD *)(a2 + 90) ^ (2 * ((*(_WORD *)(a2 + 90) >> 1) - 1))) & 0x1FE;
+    *(_BYTE *)(a1 + 27) &= ~2u;
+    result = *(_BYTE *)(a1 + 27);
   }
-  if ( (*(_BYTE *)(a1 + 19) & 4) != 0 )
+  if ( (result & 4) != 0 )
   {
-    *(_DWORD *)(a2 + 92) ^= ((unsigned __int16)*(_DWORD *)(a2 + 92) ^ (unsigned __int16)(((unsigned __int16)(*(_DWORD *)(a2 + 92) >> 8)
-                                                                                        - 1) << 8)) & 0x7F00;
-    result = *(_BYTE *)(a1 + 19) & 0xFB;
-    *(_BYTE *)(a1 + 19) = result;
+    *(_WORD *)(a2 + 90) = *(_WORD *)(a2 + 90) & 0x1FF | (((*(_WORD *)(a2 + 90) >> 9) - 1) << 9);
+    result = *(_BYTE *)(a1 + 27) & 0xFB;
+    *(_BYTE *)(a1 + 27) = result;
   }
   return result;
 }

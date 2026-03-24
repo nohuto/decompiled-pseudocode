@@ -1,8 +1,8 @@
 /*
- * XREFs of DxgkConvertWddmVersionToD3DKMTDriverVersion @ 0x1C0026C3C
+ * XREFs of DxgkConvertWddmVersionToD3DKMTDriverVersion @ 0x1C0021CE0
  * Callers:
- *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01FECEC (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
- *     DxgkInitializeBlockList @ 0x1C02025FC (DxgkInitializeBlockList.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01845A8 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     DxgkInitializeBlockList @ 0x1C0187120 (DxgkInitializeBlockList.c)
  * Callees:
  *     <none>
  */
@@ -13,12 +13,6 @@ __int64 __fastcall DxgkConvertWddmVersionToD3DKMTDriverVersion(int a1)
 
   switch ( a1 )
   {
-    case 12288:
-      return 3000LL;
-    case 10496:
-      return 2900LL;
-    case 10240:
-      return 2800LL;
     case 9984:
       return 2700LL;
     case 9728:

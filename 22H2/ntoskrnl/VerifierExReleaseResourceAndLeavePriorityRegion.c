@@ -1,12 +1,14 @@
 /*
- * XREFs of VerifierExReleaseResourceAndLeavePriorityRegion @ 0x140AE5350
+ * XREFs of VerifierExReleaseResourceAndLeavePriorityRegion @ 0x1409E2400
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ViResourceReleaseSanityChecks @ 0x1409E26A8 (ViResourceReleaseSanityChecks.c)
  */
 
-__int64 VerifierExReleaseResourceAndLeavePriorityRegion()
+__int64 __fastcall VerifierExReleaseResourceAndLeavePriorityRegion(ULONG_PTR a1)
 {
-  return ((__int64 (*)(void))pXdvExReleaseResourceAndLeavePriorityRegion)();
+  ViResourceReleaseSanityChecks(a1);
+  return ((__int64 (__fastcall *)(ULONG_PTR))pXdvExReleaseResourceAndLeavePriorityRegion)(a1);
 }

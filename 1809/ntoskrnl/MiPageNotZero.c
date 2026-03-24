@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPageNotZero @ 0x1402BFA48
+ * XREFs of MiPageNotZero @ 0x1402BFB48
  * Callers:
- *     MiArePageContentsZero @ 0x1402BF668 (MiArePageContentsZero.c)
+ *     MiArePageContentsZero @ 0x1402BF768 (MiArePageContentsZero.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     KeZeroPages @ 0x1401C0910 (KeZeroPages.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x1401C0930 (KeZeroPages.c)
  */
 
 __int64 __fastcall MiPageNotZero(__m128i *BugCheckParameter1, ULONG_PTR BugCheckParameter2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhFreeTimerObject @ 0x1C003B1B0
+ * XREFs of UsbhFreeTimerObject @ 0x1C003C4DC
  * Callers:
- *     UsbhBusPnpStop_Action @ 0x1C0030B18 (UsbhBusPnpStop_Action.c)
- *     UsbhBusPnpStart @ 0x1C0035FB0 (UsbhBusPnpStart.c)
+ *     UsbhBusPnpStop_Action @ 0x1C0031EC0 (UsbhBusPnpStop_Action.c)
+ *     UsbhBusPnpStart @ 0x1C0037270 (UsbhBusPnpStart.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhDisableTimerObject @ 0x1C000B4D0 (UsbhDisableTimerObject.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhDisableTimerObject @ 0x1C0011260 (UsbhDisableTimerObject.c)
  */
 
 void __fastcall UsbhFreeTimerObject(__int64 a1, __int64 *a2)

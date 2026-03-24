@@ -1,11 +1,11 @@
 /*
- * XREFs of DesktopVerifyHeapRange @ 0x1C00E7440
+ * XREFs of DesktopVerifyHeapRange @ 0x1C00FD338
  * Callers:
- *     NtUserSetWindowLongPtr @ 0x1C004F2D0 (NtUserSetWindowLongPtr.c)
- *     NtUserSetWindowLong @ 0x1C00E4340 (NtUserSetWindowLong.c)
- *     DesktopVerifyHeapLargeUnicodeString @ 0x1C00E73F4 (DesktopVerifyHeapLargeUnicodeString.c)
+ *     NtUserSetWindowLongPtr @ 0x1C0089B70 (NtUserSetWindowLongPtr.c)
+ *     NtUserSetWindowLong @ 0x1C00FAF00 (NtUserSetWindowLong.c)
+ *     DesktopVerifyHeapLargeUnicodeString @ 0x1C00FD2EC (DesktopVerifyHeapLargeUnicodeString.c)
  * Callees:
- *     DesktopVerifyHeapPointer @ 0x1C00E7480 (DesktopVerifyHeapPointer.c)
+ *     DesktopVerifyHeapPointer @ 0x1C00FD378 (DesktopVerifyHeapPointer.c)
  */
 
 __int64 __fastcall DesktopVerifyHeapRange(__int64 a1, ULONG_PTR a2, __int64 a3)

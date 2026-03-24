@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipProcessWmiRegInfo @ 0x14075D0B0
+ * XREFs of WmipProcessWmiRegInfo @ 0x140756F38
  * Callers:
- *     WmipRegisterOrUpdateDS @ 0x14075EE80 (WmipRegisterOrUpdateDS.c)
+ *     WmipRegisterOrUpdateDS @ 0x14075678C (WmipRegisterOrUpdateDS.c)
  * Callees:
- *     WmipAddDataSource @ 0x14075D1B4 (WmipAddDataSource.c)
- *     WmipValidateWmiRegInfoString @ 0x14075D7DC (WmipValidateWmiRegInfoString.c)
- *     WmipUpdateDataSource @ 0x1409DE80C (WmipUpdateDataSource.c)
+ *     WmipAddDataSource @ 0x1407568A8 (WmipAddDataSource.c)
+ *     WmipValidateWmiRegInfoString @ 0x140757040 (WmipValidateWmiRegInfoString.c)
+ *     WmipUpdateDataSource @ 0x1407C3FC8 (WmipUpdateDataSource.c)
  */
 
 __int64 __fastcall WmipProcessWmiRegInfo(__int64 a1, unsigned int *a2, unsigned int a3, char a4)
@@ -48,7 +48,7 @@ LABEL_17:
       if ( a4 )
         updated = WmipUpdateDataSource(a1, v7, v6);
       else
-        updated = WmipAddDataSource(a1, (_DWORD)v7, v6, v16[0], v17);
+        updated = WmipAddDataSource(a1, (__int64)v7, v6, v16[0], v17);
       v11 = updated;
       v13 = v9 + 1;
       if ( v11 < 0 )

@@ -1,39 +1,38 @@
 /*
- * XREFs of NtUserDestroyInputContext @ 0x1C0149860
+ * XREFs of NtUserDestroyInputContext @ 0x1C01584D0
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandle @ 0x1C0024F44 (HMValidateHandle.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C00705E0 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00A2750 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ?DestroyInputContext@@YAHPEAUtagIMC@@@Z @ 0x1C01498D8 (-DestroyInputContext@@YAHPEAUtagIMC@@@Z.c)
+ *     HMValidateHandle @ 0x1C00670E0 (HMValidateHandle.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069AF0 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069B4C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     DestroyInputContext @ 0x1C015854C (DestroyInputContext.c)
  */
 
-__int64 __fastcall NtUserDestroyInputContext(__int64 a1)
+__int64 __fastcall NtUserDestroyInputContext(unsigned __int64 a1)
 {
-  struct tagIMC *v2; // rax
-  __int64 v3; // rdx
-  __int64 v4; // r8
-  int v5; // ebx
-  __int64 v6; // rcx
-  char v8; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v2; // r8
+  __int64 v3; // rax
+  int v4; // ebx
+  __int64 v5; // rcx
+  char v7; // [rsp+38h] [rbp+10h] BYREF
 
-  EnterCrit(0LL, 0LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v8);
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v7);
   if ( (*gpsi & 4) != 0 )
   {
-    v2 = (struct tagIMC *)HMValidateHandle(a1, 0x11u);
-    v5 = 0;
-    if ( v2 )
-      v5 = DestroyInputContext(v2);
+    v3 = HMValidateHandle(a1, 0x11u);
+    v4 = 0;
+    if ( v3 )
+      v4 = DestroyInputContext(v3);
   }
   else
   {
-    UserSetLastError(120LL, gpsi);
-    v5 = 0;
+    UserSetLastError(120LL, gpsi, v2);
+    v4 = 0;
   }
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v8, v3, v4);
-  UserSessionSwitchLeaveCrit(v6);
-  return v5;
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v7);
+  UserSessionSwitchLeaveCrit(v5);
+  return v4;
 }

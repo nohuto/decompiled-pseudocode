@@ -1,18 +1,18 @@
 /*
- * XREFs of PiSwIrpInterfacePropertySet @ 0x1406D779C
+ * XREFs of PiSwIrpInterfacePropertySet @ 0x1406D777C
  * Callers:
- *     PiSwDispatch @ 0x1406D7660 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x1406D7640 (PiSwDispatch.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiSwPropertySet @ 0x1406D7970 (PiSwPropertySet.c)
- *     PiSwUpdateArrayProperties @ 0x1406D7A90 (PiSwUpdateArrayProperties.c)
- *     PiSwDeviceFindInterfaceEntry @ 0x1406D7BA4 (PiSwDeviceFindInterfaceEntry.c)
- *     PiSwDeviceOperationsAllowed @ 0x1406D7C04 (PiSwDeviceOperationsAllowed.c)
- *     PiSwValidatePropertyArray @ 0x1406D7C30 (PiSwValidatePropertyArray.c)
+ *     PiSwPropertySet @ 0x1406D7950 (PiSwPropertySet.c)
+ *     PiSwUpdateArrayProperties @ 0x1406D7A70 (PiSwUpdateArrayProperties.c)
+ *     PiSwDeviceFindInterfaceEntry @ 0x1406D7B84 (PiSwDeviceFindInterfaceEntry.c)
+ *     PiSwDeviceOperationsAllowed @ 0x1406D7BE4 (PiSwDeviceOperationsAllowed.c)
+ *     PiSwValidatePropertyArray @ 0x1406D7C10 (PiSwValidatePropertyArray.c)
  */
 
 __int64 __fastcall PiSwIrpInterfacePropertySet(PIRP Irp)
@@ -37,7 +37,7 @@ __int64 __fastcall PiSwIrpInterfacePropertySet(PIRP Irp)
   v4 = MesDecodeBufferHandleCreate(Irp->AssociatedIrp.MasterIrp, CurrentStackLocation->Parameters.Create.Options, &v10);
   if ( v4 < 0 )
     goto LABEL_13;
-  NdrMesTypeDecode3(v10, "TP 3\a", &off_140908F48, &off_1403FF530, 4, &P);
+  NdrMesTypeDecode3(v10, "TP 3\a", &off_140908F28, &off_1403FF530, 4, &P);
   if ( P && *(_QWORD *)P && *((_QWORD *)P + 2) && *((_DWORD *)P + 2) )
   {
     v4 = PiSwValidatePropertyArray(*((_QWORD *)P + 2));

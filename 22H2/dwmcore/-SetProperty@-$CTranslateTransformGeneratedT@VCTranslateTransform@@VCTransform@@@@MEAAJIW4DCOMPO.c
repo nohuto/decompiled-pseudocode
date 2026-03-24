@@ -1,51 +1,46 @@
 /*
- * XREFs of ?SetProperty@?$CTranslateTransformGeneratedT@VCTranslateTransform@@VCTransform@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x18001AFF0
+ * XREFs of ?SetProperty@?$CTranslateTransformGeneratedT@VCTranslateTransform@@VCTransform@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800D8CA0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CTranslateTransformGeneratedT<CTranslateTransform,CTransform>::SetProperty(
-        __int64 *a1,
+        __int64 a1,
         int a2,
         int a3,
-        _DWORD *a4)
+        float *a4)
 {
-  __int64 v4; // rax
-  unsigned int v5; // ebx
-  __int64 v7; // rax
-  unsigned int v8; // [rsp+20h] [rbp-18h]
+  unsigned int v4; // ebx
+  unsigned int v6; // [rsp+20h] [rbp-18h]
 
   if ( a3 != 18 )
   {
-    v8 = 8564;
-LABEL_12:
-    v5 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)a1, 0LL, 0, -2147024809, v8, 0LL);
-    return v5;
+    v6 = 6589;
+LABEL_13:
+    v4 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024809, v6, 0LL);
+    return v4;
   }
   if ( !a2 )
   {
-    if ( *(float *)a4 != *((float *)a1 + 40) )
-    {
-      v7 = *a1;
-      *((_DWORD *)a1 + 40) = *a4;
-      (*(void (__fastcall **)(__int64 *, _QWORD, _QWORD))(v7 + 72))(a1, 0LL, 0LL);
-    }
-    return 0;
+    if ( *a4 == *(float *)(a1 + 152) )
+      return 0;
+    *(float *)(a1 + 152) = *a4;
+    goto LABEL_6;
   }
   if ( a2 != 1 )
   {
-    v8 = 8559;
-    goto LABEL_12;
+    v6 = 6584;
+    goto LABEL_13;
   }
-  if ( *(float *)a4 != *((float *)a1 + 41) )
+  if ( *a4 != *(float *)(a1 + 156) )
   {
-    v4 = *a1;
-    *((_DWORD *)a1 + 41) = *a4;
-    (*(void (__fastcall **)(__int64 *, _QWORD, _QWORD))(v4 + 72))(a1, 0LL, 0LL);
+    *(float *)(a1 + 156) = *a4;
+LABEL_6:
+    (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)a1 + 72LL))(a1, 0LL, 0LL);
   }
   return 0;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStoreLogWriteIssueFailure @ 0x1402C3FFC
+ * XREFs of MiStoreLogWriteIssueFailure @ 0x1402C40FC
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x14014CB80 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x14014CBA0 (MiStoreWriteModifiedPages.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
- *     _TlgWriteEx @ 0x140100898 (_TlgWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall MiStoreLogWriteIssueFailure(int a1, __int64 a2, int a3, __int64 a4, int a5, int a6)
@@ -80,7 +80,7 @@ void __fastcall MiStoreLogWriteIssueFailure(int a1, __int64 a2, int a3, __int64 
       v36 = 4;
       v39 = 4;
       v42 = 4;
-      TlgWriteEx(v10, &unk_14036E65E, v8, v9, v13, v14, 9u, &pData);
+      TlgWriteEx(v10, &unk_14036E6B8, v8, v9, v13, v14, 9u, &pData);
     }
   }
 }

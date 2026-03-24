@@ -1,12 +1,12 @@
 /*
- * XREFs of SmUniqueIdParseProductName @ 0x1405CA888
+ * XREFs of SmUniqueIdParseProductName @ 0x14059D1C0
  * Callers:
- *     SmKmEtwAppendProductName @ 0x1405CB41C (SmKmEtwAppendProductName.c)
+ *     SmKmEtwAppendProductName @ 0x14059DD08 (SmKmEtwAppendProductName.c)
  * Callees:
- *     wcschr @ 0x1403DB2B0 (wcschr.c)
- *     wcsstr @ 0x1403DB540 (wcsstr.c)
- *     StringCbCatW @ 0x1405CABF0 (StringCbCatW.c)
- *     StringCbCopyNW @ 0x1405CAC74 (StringCbCopyNW.c)
+ *     wcschr @ 0x1403D3810 (wcschr.c)
+ *     wcsstr @ 0x1403D3A90 (wcsstr.c)
+ *     StringCbCatW @ 0x14059D528 (StringCbCatW.c)
+ *     StringCbCopyNW @ 0x14059D5C0 (StringCbCopyNW.c)
  */
 
 __int64 __fastcall SmUniqueIdParseProductName(wchar_t *Str, STRSAFE_LPWSTR pszDest, size_t cbDest)

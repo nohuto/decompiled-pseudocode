@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPepGetComponentPreferedIdleState @ 0x1400FFFA4
+ * XREFs of PopPepGetComponentPreferedIdleState @ 0x1400FFFC4
  * Callers:
- *     PopPepUpdateIdleState @ 0x1400FFF44 (PopPepUpdateIdleState.c)
+ *     PopPepUpdateIdleState @ 0x1400FFF64 (PopPepUpdateIdleState.c)
  * Callees:
- *     PopPepArmIdleTimer @ 0x1402DC714 (PopPepArmIdleTimer.c)
+ *     PopPepArmIdleTimer @ 0x1402DC814 (PopPepArmIdleTimer.c)
  */
 
 __int64 __fastcall PopPepGetComponentPreferedIdleState(_DWORD *a1)

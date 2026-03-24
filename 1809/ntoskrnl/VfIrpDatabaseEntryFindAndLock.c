@@ -13,8 +13,8 @@
  *     VfIrpDatabaseEntryInsertAndLock @ 0x14093E2D0 (VfIrpDatabaseEntryInsertAndLock.c)
  * Callees:
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     ViIrpDatabaseAcquireLockShared @ 0x14030B50C (ViIrpDatabaseAcquireLockShared.c)
- *     ViIrpDatabaseReleaseLockShared @ 0x14030B590 (ViIrpDatabaseReleaseLockShared.c)
+ *     ViIrpDatabaseAcquireLockShared @ 0x14030B60C (ViIrpDatabaseAcquireLockShared.c)
+ *     ViIrpDatabaseReleaseLockShared @ 0x14030B690 (ViIrpDatabaseReleaseLockShared.c)
  *     VfUtilAddressRangeFitNoLock @ 0x140925FFC (VfUtilAddressRangeFitNoLock.c)
  *     VfIrpDatabaseEntryReleaseLock @ 0x14093E3A4 (VfIrpDatabaseEntryReleaseLock.c)
  *     ViIrpDatabaseFindPointer @ 0x14093E594 (ViIrpDatabaseFindPointer.c)

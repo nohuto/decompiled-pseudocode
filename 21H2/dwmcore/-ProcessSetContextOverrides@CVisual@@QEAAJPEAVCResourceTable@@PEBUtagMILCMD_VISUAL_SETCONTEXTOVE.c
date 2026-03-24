@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ProcessSetContextOverrides@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCONTEXTOVERRIDES@@@Z @ 0x1800F450C
+ * XREFs of ?ProcessSetContextOverrides@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCONTEXTOVERRIDES@@@Z @ 0x1801AE784
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetWorldRenderingScaleOverride@CVisual@@QEBAMXZ @ 0x180044E3C (-GetWorldRenderingScaleOverride@CVisual@@QEBAMXZ.c)
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x180048C04 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
- *     ?SetWorldUpVectorOverride@CVisual@@QEAAXUD2D_VECTOR_3F@@@Z @ 0x1800F45B4 (-SetWorldUpVectorOverride@CVisual@@QEAAXUD2D_VECTOR_3F@@@Z.c)
- *     ?SetWorldRenderingScaleOverride@CVisual@@QEAAXM@Z @ 0x1800F45F4 (-SetWorldRenderingScaleOverride@CVisual@@QEAAXM@Z.c)
- *     ?GetWorldUpVectorOverride@CVisual@@QEBA?AUD2D_VECTOR_3F@@XZ @ 0x1800F4634 (-GetWorldUpVectorOverride@CVisual@@QEBA-AUD2D_VECTOR_3F@@XZ.c)
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x18009F678 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
+ *     ?GetWorldRenderingScaleOverride@CVisual@@QEBAMXZ @ 0x180189408 (-GetWorldRenderingScaleOverride@CVisual@@QEBAMXZ.c)
+ *     ?GetWorldUpVectorOverride@CVisual@@QEBA?AUD2D_VECTOR_3F@@XZ @ 0x180189460 (-GetWorldUpVectorOverride@CVisual@@QEBA-AUD2D_VECTOR_3F@@XZ.c)
+ *     ?SetWorldRenderingScaleOverride@CVisual@@QEAAXM@Z @ 0x1801AEF18 (-SetWorldRenderingScaleOverride@CVisual@@QEAAXM@Z.c)
+ *     ?SetWorldUpVectorOverride@CVisual@@QEAAXUD2D_VECTOR_3F@@@Z @ 0x1801AEF60 (-SetWorldUpVectorOverride@CVisual@@QEAAXUD2D_VECTOR_3F@@@Z.c)
  */
 
 __int64 __fastcall CVisual::ProcessSetContextOverrides(
@@ -34,13 +34,13 @@ __int64 __fastcall CVisual::ProcessSetContextOverrides(
     v10.z = *((FLOAT *)a3 + 5);
     v10.y = v6;
     CVisual::SetWorldUpVectorOverride(this, &v10);
-    v7 = *((_QWORD *)this + 28);
+    v7 = *((_QWORD *)this + 27);
     v8 = (*(_DWORD *)(v7 + 4) & 0x40000) != 0 || (*(_DWORD *)(v7 + 4) & 0x20000) != 0;
-    *((_BYTE *)this + 103) &= ~1u;
-    *((_BYTE *)this + 103) |= v8;
-    if ( (*((_DWORD *)this + 24) & 0x4000) != 0 )
+    *((_BYTE *)this + 95) &= ~1u;
+    *((_BYTE *)this + 95) |= v8;
+    if ( (*((_DWORD *)this + 22) & 0x4000) != 0 )
     {
-      *((_QWORD *)this + 76) = 0LL;
+      *((_QWORD *)this + 55) = 0LL;
       CVisual::PropagateFlags((__int64)this, 0x10u);
     }
   }

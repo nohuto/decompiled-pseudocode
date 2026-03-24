@@ -1,14 +1,14 @@
 /*
- * XREFs of LogFwStat @ 0x140AACFEC
+ * XREFs of LogFwStat @ 0x1409F27D8
  * Callers:
- *     AnFwpProgressAnimationManual @ 0x140AAB478 (AnFwpProgressAnimationManual.c)
- *     AnFwDisplayFade @ 0x140AAC1BC (AnFwDisplayFade.c)
- *     AnFwFadeCompletion @ 0x140AACA74 (AnFwFadeCompletion.c)
- *     AnFwpFadeAnimationTimer @ 0x140AACB80 (AnFwpFadeAnimationTimer.c)
- *     AnFwpProgressIndicatorTimer @ 0x140AACEA0 (AnFwpProgressIndicatorTimer.c)
- *     AnFwDisplayProgressIndicator @ 0x140AAD1C4 (AnFwDisplayProgressIndicator.c)
+ *     AnFwDisplayFade @ 0x1409F1C00 (AnFwDisplayFade.c)
+ *     AnFwFadeCompletion @ 0x1409F21B4 (AnFwFadeCompletion.c)
+ *     AnFwpFadeAnimationTimer @ 0x1409F24C0 (AnFwpFadeAnimationTimer.c)
+ *     AnFwDisplayProgressIndicator @ 0x1409F4370 (AnFwDisplayProgressIndicator.c)
+ *     AnFwpProgressIndicatorTimer @ 0x1409F44C0 (AnFwpProgressIndicatorTimer.c)
+ *     AnFwpProgressAnimationManual @ 0x1409F7288 (AnFwpProgressAnimationManual.c)
  * Callees:
- *     BgpFwQueryPerformanceCounter @ 0x1403A7BD8 (BgpFwQueryPerformanceCounter.c)
+ *     BgpFwQueryPerformanceCounter @ 0x14039BE80 (BgpFwQueryPerformanceCounter.c)
  */
 
 LARGE_INTEGER __fastcall LogFwStat(int a1, int a2, LARGE_INTEGER *a3)
@@ -19,111 +19,111 @@ LARGE_INTEGER __fastcall LogFwStat(int a1, int a2, LARGE_INTEGER *a3)
   LARGE_INTEGER v7; // rax
   LARGE_INTEGER v8; // rax
   int v9; // edi
-  LARGE_INTEGER v10; // rax
+  int v10; // edi
   int v11; // edi
   int v12; // edi
   int v13; // edi
   int v14; // edi
-  int v15; // edi
+  LARGE_INTEGER v15; // rax
   LARGE_INTEGER v16; // rax
-  LARGE_INTEGER v17; // rax
-  int v18; // edi
+  int v17; // edi
+  LARGE_INTEGER v18; // rax
 
   v4 = a2;
   result = BgpFwQueryPerformanceCounter(a3);
-  qword_140CE1B00 = result.QuadPart;
+  qword_140CDB1C8 = result.QuadPart;
   if ( a1 )
   {
-    stru_140C5ABF0[v4] = result;
+    stru_140C542B0[v4] = result;
     return result;
   }
-  v6 = (LARGE_INTEGER)(*(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - stru_140C5ABF0[v4].QuadPart);
-  qword_140CE1B50 = v6.QuadPart;
+  v6 = (LARGE_INTEGER)(*(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - stru_140C542B0[v4].QuadPart);
+  qword_140CDB198 = v6.QuadPart;
   if ( !(_DWORD)v4 )
   {
-    v7.QuadPart = qword_140C0B448;
-    if ( v6.QuadPart < qword_140C0B448 )
+    v7.QuadPart = qword_140C11078;
+    if ( v6.QuadPart < qword_140C11078 )
       v7 = v6;
-    qword_140C0B448 = v7.QuadPart;
-    v8.QuadPart = qword_140CE1AE8;
-    if ( v6.QuadPart > qword_140CE1AE8 )
+    qword_140C11078 = v7.QuadPart;
+    v8.QuadPart = qword_140CDB178;
+    if ( v6.QuadPart > qword_140CDB178 )
       v8 = v6;
 LABEL_8:
-    qword_140CE1B30 += v6.QuadPart;
-    ++dword_140CE1B20;
-    qword_140CE1AE8 = v8.QuadPart;
+    qword_140CDB1E0 += v6.QuadPart;
+    ++dword_140CDB1F8;
+    qword_140CDB178 = v8.QuadPart;
     goto LABEL_9;
   }
   v9 = v4 - 1;
   if ( !v9 )
   {
-    v10.QuadPart = qword_140C0B448;
-    if ( v6.QuadPart < qword_140C0B448 )
-      v10 = v6;
-    qword_140C0B448 = v10.QuadPart;
-    v8.QuadPart = qword_140CE1AE8;
-    if ( v6.QuadPart > qword_140CE1AE8 )
+    v18.QuadPart = qword_140C11078;
+    if ( v6.QuadPart < qword_140C11078 )
+      v18 = v6;
+    qword_140C11078 = v18.QuadPart;
+    v8.QuadPart = qword_140CDB178;
+    if ( v6.QuadPart > qword_140CDB178 )
       v8 = v6;
-    qword_140CE1B40 += v6.QuadPart;
+    qword_140CDB1F0 += v6.QuadPart;
     goto LABEL_8;
   }
-  v11 = v9 - 1;
-  if ( v11 )
+  v10 = v9 - 1;
+  if ( v10 )
   {
+    v11 = v10 - 1;
+    if ( !v11 )
+    {
+      qword_140CDB1A0 += v6.QuadPart;
+      return (LARGE_INTEGER)qword_140CDB1C8;
+    }
     v12 = v11 - 1;
     if ( !v12 )
     {
-      qword_140CE1B60 += v6.QuadPart;
-      return (LARGE_INTEGER)qword_140CE1B00;
+      qword_140CDB1A8 += v6.QuadPart;
+      return (LARGE_INTEGER)qword_140CDB1C8;
     }
     v13 = v12 - 1;
-    if ( !v13 )
+    if ( v13 )
     {
-      qword_140CE1B58 += v6.QuadPart;
-      return (LARGE_INTEGER)qword_140CE1B00;
-    }
-    v14 = v13 - 1;
-    if ( v14 )
-    {
-      v15 = v14 - 1;
-      if ( v15 )
+      v14 = v13 - 1;
+      if ( v14 )
       {
-        v18 = v15 - 1;
-        if ( v18 )
+        v17 = v14 - 1;
+        if ( v17 )
         {
-          if ( v18 == 1 )
-            qword_140D01578 += v6.QuadPart;
+          if ( v17 == 1 )
+            qword_140CF5348 += v6.QuadPart;
         }
         else
         {
-          qword_140CE1B18 = v6.QuadPart;
+          qword_140CDB1B8 = v6.QuadPart;
         }
       }
       else
       {
-        v16.QuadPart = qword_140C0B458;
-        if ( v6.QuadPart < qword_140C0B458 )
+        v15.QuadPart = qword_140C11088;
+        if ( v6.QuadPart < qword_140C11088 )
+          v15 = v6;
+        qword_140C11088 = v15.QuadPart;
+        v16.QuadPart = qword_140CDB1C0;
+        if ( v6.QuadPart > qword_140CDB1C0 )
           v16 = v6;
-        qword_140C0B458 = v16.QuadPart;
-        v17.QuadPart = qword_140CE1B10;
-        if ( v6.QuadPart > qword_140CE1B10 )
-          v17 = v6;
-        qword_140CE1B38 += v6.QuadPart;
-        qword_140CE1AF8 += v6.QuadPart;
-        ++dword_140CE1B08;
-        qword_140CE1B10 = v17.QuadPart;
+        qword_140CDB1D8 += v6.QuadPart;
+        qword_140CDB1D0 += v6.QuadPart;
+        ++dword_140CDB1B0;
+        qword_140CDB1C0 = v16.QuadPart;
       }
-      return (LARGE_INTEGER)qword_140CE1B00;
+      return (LARGE_INTEGER)qword_140CDB1C8;
     }
-    qword_140CE1B38 += v6.QuadPart;
-    qword_140CE1B28 = v6.QuadPart;
+    qword_140CDB1D8 += v6.QuadPart;
+    qword_140CDB200 = v6.QuadPart;
   }
   else
   {
-    qword_140CE1B30 += v6.QuadPart;
-    qword_140CE1B78 = v6.QuadPart;
+    qword_140CDB1E0 += v6.QuadPart;
+    qword_140CDB180 = v6.QuadPart;
   }
 LABEL_9:
-  qword_140CE1AF8 += v6.QuadPart;
-  return (LARGE_INTEGER)qword_140CE1B00;
+  qword_140CDB1D0 += v6.QuadPart;
+  return (LARGE_INTEGER)qword_140CDB1C8;
 }

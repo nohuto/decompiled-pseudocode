@@ -1,23 +1,23 @@
 /*
- * XREFs of VhdiGetDiskParameters @ 0x140B9B9B4
+ * XREFs of VhdiGetDiskParameters @ 0x140A94628
  * Callers:
- *     VhdInitialize @ 0x140B3F4DC (VhdInitialize.c)
- *     IopGetBootDiskInformationLite @ 0x140B55268 (IopGetBootDiskInformationLite.c)
+ *     IopGetBootDiskInformationLite @ 0x140A45940 (IopGetBootDiskInformationLite.c)
+ *     VhdInitialize @ 0x140A73778 (VhdInitialize.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VhdiGetDiskParameters(_DWORD *a1, _DWORD *a2, _QWORD *a3, char *a4, _QWORD *a5)
+__int64 __fastcall VhdiGetDiskParameters(__int64 a1, _DWORD *a2, _QWORD *a3, char *a4, __int64 *a5)
 {
-  unsigned int v8; // r12d
-  unsigned int v9; // ecx
-  int v10; // eax
-  _DWORD *v11; // r14
+  unsigned int v9; // r14d
+  unsigned int v10; // ecx
+  int v11; // eax
   char v12; // bp
-  _DWORD *v13; // rax
+  __int64 v13; // rax
   int v14; // eax
+  __int64 v15; // rax
 
-  v8 = -1073741811;
+  v9 = -1073741811;
   if ( a1 )
   {
     if ( a2 )
@@ -26,47 +26,53 @@ __int64 __fastcall VhdiGetDiskParameters(_DWORD *a1, _DWORD *a2, _QWORD *a3, cha
       {
         if ( a5 )
         {
-          if ( a1[1] == 6 && a1[9] == 6 )
+          if ( *(_DWORD *)(a1 + 4) == 6 && *(_DWORD *)(a1 + 36) == 6 )
           {
-            v9 = a1[3];
-            if ( v9 >= 0x5C && v9 >= a1[17] + 56 && !a1[15] && a1[19] == 5 && a1[22] == 5 )
+            v10 = *(_DWORD *)(a1 + 12);
+            if ( v10 >= 0x5C
+              && v10 >= *(_DWORD *)(a1 + 68) + 56
+              && !*(_DWORD *)(a1 + 60)
+              && *(_DWORD *)(a1 + 76) == 5
+              && *(_DWORD *)(a1 + 88) == 5 )
             {
-              v10 = a1[23];
-              v11 = a1 + 27;
-              if ( !v10 && *v11 == 3 )
+              v11 = *(_DWORD *)(a1 + 92);
+              if ( v11 )
+              {
+                if ( v11 == 6 )
+                {
+                  v12 = 0;
+                  if ( !*(_DWORD *)(a1 + 124) )
+                  {
+                    memset(a2, 0, 0x90uLL);
+                    a2[6] = *(_DWORD *)a1;
+                    v14 = *(_DWORD *)(a1 + 128);
+                    if ( v14 == 1 )
+                    {
+                      *((_QWORD *)a2 + 1) = *(_QWORD *)(a1 + 108);
+                    }
+                    else
+                    {
+                      if ( v14 )
+                        return v9;
+                      *a2 = 1;
+                      *((_OWORD *)a2 + 3) = *(_OWORD *)(a1 + 108);
+                    }
+                    v13 = a1 + 132;
+                    goto LABEL_22;
+                  }
+                }
+              }
+              else if ( *(_DWORD *)(a1 + 108) == 3 )
               {
                 v12 = 1;
                 memset(a2, 0, 0x90uLL);
                 v13 = 0LL;
 LABEL_22:
                 *a3 = v13;
-                *a5 = (char *)a1 + (unsigned int)a1[25] + 92;
-                v8 = 0;
+                v15 = a1 + 92 + *(unsigned int *)(a1 + 100);
                 *a4 = v12;
-                return v8;
-              }
-              if ( v10 == 6 )
-              {
-                v12 = 0;
-                if ( !a1[31] )
-                {
-                  memset(a2, 0, 0x90uLL);
-                  a2[6] = *a1;
-                  v14 = a1[32];
-                  if ( v14 == 1 )
-                  {
-                    *((_QWORD *)a2 + 1) = *(_QWORD *)v11;
-LABEL_21:
-                    v13 = a1 + 33;
-                    goto LABEL_22;
-                  }
-                  if ( !v14 )
-                  {
-                    *a2 = 1;
-                    *((_OWORD *)a2 + 3) = *(_OWORD *)v11;
-                    goto LABEL_21;
-                  }
-                }
+                *a5 = v15;
+                return 0;
               }
             }
           }
@@ -74,5 +80,5 @@ LABEL_21:
       }
     }
   }
-  return v8;
+  return v9;
 }

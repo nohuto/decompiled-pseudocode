@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAcquireReleaseThreadLock @ 0x140121650
+ * XREFs of KiAcquireReleaseThreadLock @ 0x140121670
  * Callers:
  *     KeRundownApcQueues @ 0x1405F7DE0 (KeRundownApcQueues.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiAcquireReleaseThreadLock(__int64 a1, __int64 a2, __int64 a3)

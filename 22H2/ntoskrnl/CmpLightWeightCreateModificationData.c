@@ -1,48 +1,53 @@
 /*
- * XREFs of CmpLightWeightCreateModificationData @ 0x140A28AA8
+ * XREFs of CmpLightWeightCreateModificationData @ 0x14087F25C
  * Callers:
- *     CmpLightWeightPrepareAddKeyUoW @ 0x140A28DA0 (CmpLightWeightPrepareAddKeyUoW.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140A29058 (CmpLightWeightPrepareDeleteKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A29450 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x14087F404 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x14087F660 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x14087F814 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A27FB4 (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightDuplicateParentLists @ 0x140A28CB0 (CmpLightWeightDuplicateParentLists.c)
- *     CmpLightWeightUpdateModificationActions @ 0x140A2A04C (CmpLightWeightUpdateModificationActions.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14087EB14 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightDuplicateParentLists @ 0x14087F32C (CmpLightWeightDuplicateParentLists.c)
+ *     CmpLightWeightUpdateModificationActions @ 0x14087FDE8 (CmpLightWeightUpdateModificationActions.c)
  */
 
-__int64 __fastcall CmpLightWeightCreateModificationData(__int64 a1, unsigned int **a2)
+__int64 __fastcall CmpLightWeightCreateModificationData(
+        __int64 a1,
+        unsigned int **a2,
+        __int64 a3,
+        struct _LOOKASIDE_LIST_EX *a4)
 {
-  ULONG_PTR v4; // rbp
-  __int64 Pool; // rax
-  unsigned int *v6; // rdi
-  int updated; // ebx
+  ULONG_PTR v6; // rbp
+  unsigned int *TransientPoolWithTag; // rax
+  unsigned int *v8; // rbx
+  int updated; // edi
 
-  v4 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL);
-  Pool = CmpAllocatePool(256LL, 20LL, 2002079043LL);
-  v6 = (unsigned int *)Pool;
-  if ( Pool )
+  v6 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL);
+  TransientPoolWithTag = (unsigned int *)CmpAllocateTransientPoolWithTag(PagedPool, 0x14uLL, 0x77554D43u, a4);
+  v8 = TransientPoolWithTag;
+  if ( TransientPoolWithTag )
   {
-    *(_QWORD *)Pool = 0LL;
-    *(_DWORD *)(Pool + 8) = 0;
-    ++*(_DWORD *)Pool;
-    *(_DWORD *)(Pool + 12) = -1;
-    *(_DWORD *)(Pool + 16) = -1;
-    updated = CmpLightWeightDuplicateParentLists(v4, *(unsigned int *)(*(_QWORD *)(*(_QWORD *)(a1 + 48) + 72LL) + 40LL));
-    if ( updated < 0
-      || (updated = CmpLightWeightUpdateModificationActions(
-                      v6,
-                      *(_QWORD *)(*(_QWORD *)(a1 + 48) + 72LL),
-                      *(_QWORD *)(a1 + 56)),
-          updated < 0) )
+    *(_QWORD *)TransientPoolWithTag = 0LL;
+    TransientPoolWithTag[2] = 0;
+    ++*TransientPoolWithTag;
+    TransientPoolWithTag[3] = -1;
+    TransientPoolWithTag[4] = -1;
+    updated = CmpLightWeightDuplicateParentLists(v6);
+    if ( updated >= 0 )
     {
-      CmpLightWeightCleanupModifyKeyDataUoW(v4, v6);
+      updated = CmpLightWeightUpdateModificationActions(
+                  v8,
+                  *(_QWORD *)(*(_QWORD *)(a1 + 48) + 72LL),
+                  *(_QWORD *)(a1 + 56));
+      if ( updated >= 0 )
+      {
+        updated = 0;
+        *a2 = v8;
+        v8 = 0LL;
+      }
     }
-    else
-    {
-      updated = 0;
-      *a2 = v6;
-    }
+    if ( v8 )
+      CmpLightWeightCleanupModifyKeyDataUoW(v6, v8);
   }
   else
   {

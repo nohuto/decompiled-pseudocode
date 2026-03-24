@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpImageDirectoryEntryToDataEx @ 0x1402D6CE8
+ * XREFs of RtlpImageDirectoryEntryToDataEx @ 0x140253308
  * Callers:
- *     RtlImageDirectoryEntryToData @ 0x1402D6CB0 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
  * Callees:
- *     RtlpImageDirectoryEntryToData64 @ 0x1402D6DC0 (RtlpImageDirectoryEntryToData64.c)
- *     RtlpImageDirectoryEntryToData32 @ 0x1402D6E58 (RtlpImageDirectoryEntryToData32.c)
- *     RtlImageNtHeaderEx @ 0x1402FD9C0 (RtlImageNtHeaderEx.c)
+ *     RtlpImageDirectoryEntryToData64 @ 0x1402533E0 (RtlpImageDirectoryEntryToData64.c)
+ *     RtlpImageDirectoryEntryToData32 @ 0x140253460 (RtlpImageDirectoryEntryToData32.c)
+ *     RtlImageNtHeaderEx @ 0x14031C980 (RtlImageNtHeaderEx.c)
  */
 
 __int64 __fastcall RtlpImageDirectoryEntryToDataEx(

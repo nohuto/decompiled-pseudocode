@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_RECORDER_SF_sdqD @ 0x1C005DC40
+ * XREFs of WPP_RECORDER_SF_sdqD @ 0x1C005CD3C
  * Callers:
- *     EnableDisableDeviceTreeRegionSpace @ 0x1C002963C (EnableDisableDeviceTreeRegionSpace.c)
- *     EnableDisableRegionSpacesForDevice @ 0x1C005D840 (EnableDisableRegionSpacesForDevice.c)
+ *     EnableDisableDeviceTreeRegionSpace @ 0x1C0018210 (EnableDisableDeviceTreeRegionSpace.c)
+ *     EnableDisableRegionSpacesForDevice @ 0x1C005C920 (EnableDisableRegionSpacesForDevice.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_sdqD(__int64 a1, _DWORD a2, _DWORD a3, unsigned __int16 a4, __int64 a5, const char *a6, ...)
@@ -40,7 +40,7 @@ __int64 WPP_RECORDER_SF_sdqD(__int64 a1, _DWORD a2, _DWORD a3, unsigned __int16 
     pfnWppTraceMessage(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_46f050f87a9c3f86e1bf3d4ff5286087_Traceguids,
+      &WPP_f6167ec5c23d3e6afd934d9207ac58f7_Traceguids,
       a4,
       v12,
       v11,
@@ -55,5 +55,5 @@ __int64 WPP_RECORDER_SF_sdqD(__int64 a1, _DWORD a2, _DWORD a3, unsigned __int16 
   if ( !a6 )
     v6 = "NULL";
   LOWORD(v14) = a4;
-  return WppAutoLogTrace(a1, 2LL, 21LL, &WPP_46f050f87a9c3f86e1bf3d4ff5286087_Traceguids, v14, v6);
+  return WppAutoLogTrace(a1, 2LL, 21LL, &WPP_f6167ec5c23d3e6afd934d9207ac58f7_Traceguids, v14, v6);
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUpdateAwePageTable @ 0x1402B2048
+ * XREFs of MiUpdateAwePageTable @ 0x1402B2148
  * Callers:
- *     MiFreePhysicalPages @ 0x1402B07E0 (MiFreePhysicalPages.c)
- *     MiWriteAwePtes @ 0x1402B2178 (MiWriteAwePtes.c)
- *     MiDeleteEnclavePage @ 0x1402BDA54 (MiDeleteEnclavePage.c)
- *     MiWriteEnclavePte @ 0x1402BE928 (MiWriteEnclavePte.c)
+ *     MiFreePhysicalPages @ 0x1402B08E0 (MiFreePhysicalPages.c)
+ *     MiWriteAwePtes @ 0x1402B2278 (MiWriteAwePtes.c)
+ *     MiDeleteEnclavePage @ 0x1402BDB54 (MiDeleteEnclavePage.c)
+ *     MiWriteEnclavePte @ 0x1402BEA28 (MiWriteEnclavePte.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiGetUsedPtesHandle @ 0x140098700 (MiGetUsedPtesHandle.c)
- *     MiIncreaseUsedPtesCount @ 0x140110044 (MiIncreaseUsedPtesCount.c)
- *     MiDecreaseUsedPtesCount @ 0x14012F18C (MiDecreaseUsedPtesCount.c)
+ *     MiIncreaseUsedPtesCount @ 0x140110064 (MiIncreaseUsedPtesCount.c)
+ *     MiDecreaseUsedPtesCount @ 0x14012F1AC (MiDecreaseUsedPtesCount.c)
  */
 
 __int64 __fastcall MiUpdateAwePageTable(unsigned __int64 a1, __int64 a2, int a3)

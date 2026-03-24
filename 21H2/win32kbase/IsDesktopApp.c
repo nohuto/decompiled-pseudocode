@@ -1,5 +1,5 @@
 /*
- * XREFs of IsDesktopApp @ 0x1C009D560
+ * XREFs of IsDesktopApp @ 0x1C0086540
  * Callers:
  *     <none>
  * Callees:

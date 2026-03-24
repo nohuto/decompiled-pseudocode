@@ -1,11 +1,10 @@
 /*
- * XREFs of ?LogDisplayTelemetrySourceInfo@DISPLAYSTATECHECKER@@AEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@PEBUDXG_BLACKBOX_DISPLAY_SOURCE_INFO@@@Z @ 0x1C02EFDE8
+ * XREFs of ?LogDisplayTelemetrySourceInfo@DISPLAYSTATECHECKER@@AEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@PEBUDXG_BLACKBOX_DISPLAY_SOURCE_INFO@@@Z @ 0x1C02BBD60
  * Callers:
- *     ?LogDisplayTelemetryDiagData@DISPLAYSTATECHECKER@@AEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@W4DxgkrnlLiveDumpFailureReason@@@Z @ 0x1C02EFC7C (-LogDisplayTelemetryDiagData@DISPLAYSTATECHECKER@@AEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@W4Dxg.c)
+ *     ?LogDisplayTelemetryDiagData@DISPLAYSTATECHECKER@@AEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@W4DxgkrnlLiveDumpFailureReason@@@Z @ 0x1C02BBBEC (-LogDisplayTelemetryDiagData@DISPLAYSTATECHECKER@@AEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@W4Dxg.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     _tlgKeywordOn @ 0x1C0012AB4 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U?$_tlgWrapperByVal@$00@@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@444AEBU?$_tlgWrapperByVal@$00@@4444444444AEBU?$_tlgWrapSz@D@@@Z @ 0x1C004CC20 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U-$_tlgWrapperByVal@$00@@.c)
+ *     _tlgKeywordOn @ 0x1C000B1A8 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U?$_tlgWrapperByVal@$00@@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@444AEBU?$_tlgWrapperByVal@$00@@4444444444AEBU?$_tlgWrapSz@D@@@Z @ 0x1C004DA40 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U-$_tlgWrapperByVal@$00@@.c)
  */
 
 void __fastcall DISPLAYSTATECHECKER::LogDisplayTelemetrySourceInfo(
@@ -13,12 +12,12 @@ void __fastcall DISPLAYSTATECHECKER::LogDisplayTelemetrySourceInfo(
         struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a2,
         const struct DXG_BLACKBOX_DISPLAY_SOURCE_INFO *a3)
 {
-  unsigned int v4; // ebx
-  __int64 v5; // rsi
-  __int64 v6; // rcx
-  __int64 v7; // r9
-  char v8; // r10
-  __int64 v9; // r11
+  __int64 v4; // rdi
+  __int64 v5; // rcx
+  __int64 v6; // r9
+  __int64 v7; // r10
+  unsigned int v8; // r11d
+  __int64 v9; // rax
   int v10; // [rsp+B0h] [rbp-9h] BYREF
   int v11; // [rsp+B4h] [rbp-5h] BYREF
   int v12; // [rsp+B8h] [rbp-1h] BYREF
@@ -41,35 +40,34 @@ void __fastcall DISPLAYSTATECHECKER::LogDisplayTelemetrySourceInfo(
   v25 = this;
   if ( a3 && a2 )
   {
-    v4 = *((_DWORD *)a3 + 3);
-    v5 = *(_QWORD *)a3;
-    if ( (unsigned int)dword_1C012F918 > 5 )
+    v4 = *(_QWORD *)a3;
+    if ( (unsigned int)dword_1C00B1A90 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_1C012F918, 0x400000000400LL) )
+      if ( tlgKeywordOn((__int64)&dword_1C00B1A90, 0x400000000400LL) )
       {
-        LOBYTE(v25) = v8;
-        v22 = (const CHAR *)(v9 + 16);
-        v23 = v5;
+        LOBYTE(v25) = v6;
+        v22 = (const CHAR *)(v7 + 16);
+        v23 = v4;
         v24[0] = 33556480LL;
-        v26 = v7 & (v4 >> 14);
-        v27 = v7 & (v4 >> 13);
-        v10 = v7 & (v4 >> 12);
-        v11 = v7 & (v4 >> 11);
-        v12 = v7 & (v4 >> 10);
-        v13 = v7 & (v4 >> 9);
-        v14 = v7 & (v4 >> 8);
-        v15 = v7 & (v4 >> 7);
-        v16 = v7 & (v4 >> 6);
-        v17 = v7 & (v4 >> 5);
-        v18 = v7 & (v4 >> 2);
-        v19 = v7 & v4;
-        v21 = *(_DWORD *)(v9 + 8);
-        v20 = v7 & (v4 >> 1);
+        v26 = (v8 >> 14) & 1;
+        v27 = (v8 >> 13) & 1;
+        v10 = (v8 >> 12) & 1;
+        v11 = (v8 >> 11) & 1;
+        v12 = (v8 >> 10) & 1;
+        v13 = (v8 >> 9) & 1;
+        v14 = (v8 >> 8) & 1;
+        v15 = (v8 >> 7) & 1;
+        v16 = (v8 >> 6) & 1;
+        v17 = (v8 >> 5) & 1;
+        v18 = (v8 >> 2) & 1;
+        v19 = v8 & 1;
+        v21 = *(_DWORD *)(v7 + 8);
+        v20 = (v8 >> 1) & 1;
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<1>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>>(
-          v6,
-          byte_1C00979D6,
+          v5,
+          byte_1C00802FB,
           (const GUID *)((char *)a2 + 8),
-          v7,
+          v6,
           (__int64)v24,
           (__int64)&v23,
           (__int64)&v21,
@@ -93,7 +91,8 @@ void __fastcall DISPLAYSTATECHECKER::LogDisplayTelemetrySourceInfo(
   }
   else
   {
-    WdLogSingleEntry1(1LL, 375LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"Invalid parameters not expected", 375LL, 0LL, 0LL, 0LL, 0LL);
+    v9 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v9 + 24) = 350LL;
+    WdLogEvent5_WdAssertion(v9);
   }
 }

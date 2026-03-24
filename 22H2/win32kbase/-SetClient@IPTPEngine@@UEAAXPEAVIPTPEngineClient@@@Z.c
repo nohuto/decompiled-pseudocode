@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetClient@IPTPEngine@@UEAAXPEAVIPTPEngineClient@@@Z @ 0x1C00C97E0
+ * XREFs of ?SetClient@IPTPEngine@@UEAAXPEAVIPTPEngineClient@@@Z @ 0x1C00BC100
  * Callers:
  *     <none>
  * Callees:

@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwOpenPartition @ 0x14041DD00
+ * XREFs of ZwOpenPartition @ 0x1403FC880
  * Callers:
- *     IopLiveDumpOpenVMMemoryPartition @ 0x14055A6E4 (IopLiveDumpOpenVMMemoryPartition.c)
+ *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x140897910 (IopLiveDumpAllocateFromVMMemoryPartition.c)
  * Callees:
  *     <none>
  */

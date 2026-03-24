@@ -1,192 +1,160 @@
 /*
- * XREFs of MiInitSystem @ 0x140B47C18
+ * XREFs of MiInitSystem @ 0x140A53E5C
  * Callers:
- *     MmInitSystem @ 0x140B47AB4 (MmInitSystem.c)
+ *     MmInitSystem @ 0x140A53D6C (MmInitSystem.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
- *     MiLockPagableImageSection @ 0x14025A6C0 (MiLockPagableImageSection.c)
- *     MiReservePtes @ 0x14027D070 (MiReservePtes.c)
- *     MiSetPageTablePfnBuddy @ 0x1402923FC (MiSetPageTablePfnBuddy.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     PsSetPagePriorityThread @ 0x1402C1718 (PsSetPagePriorityThread.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
- *     ExGenRandom @ 0x1403173F0 (ExGenRandom.c)
- *     KeFlushCurrentTbOnly @ 0x14038A330 (KeFlushCurrentTbOnly.c)
- *     ExInitializePagedHeaps @ 0x140397374 (ExInitializePagedHeaps.c)
- *     MiInitializeWorkingSetManagerParameters @ 0x1403AE98C (MiInitializeWorkingSetManagerParameters.c)
- *     MiInitializeBootKernelShadowStacks @ 0x1403B595C (MiInitializeBootKernelShadowStacks.c)
- *     MiSetSlabAllocatorPolicy @ 0x1403B5B98 (MiSetSlabAllocatorPolicy.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     VslInitializeSecurePool @ 0x14054B6B0 (VslInitializeSecurePool.c)
- *     KdSetDbgPrintBufferSize @ 0x140567BE4 (KdSetDbgPrintBufferSize.c)
- *     MmLockPagableDataSection @ 0x1406AD5B0 (MmLockPagableDataSection.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     MiInitializeSystemWorkingSetList @ 0x1407AA178 (MiInitializeSystemWorkingSetList.c)
- *     PsCreateSystemThread @ 0x1407B86B0 (PsCreateSystemThread.c)
- *     MmConfigurePrefetchSeekThreshold @ 0x1407EB578 (MmConfigurePrefetchSeekThreshold.c)
- *     MiInitializeMemoryEvents @ 0x14081E318 (MiInitializeMemoryEvents.c)
- *     MiWriteProtectSystemImages @ 0x14081F1B8 (MiWriteProtectSystemImages.c)
- *     MiGenerateSecureCookie @ 0x1408636D0 (MiGenerateSecureCookie.c)
- *     MiFlushDeferredRetpolineImageLoadEvents @ 0x1408658B4 (MiFlushDeferredRetpolineImageLoadEvents.c)
- *     MiInitializeBootProcess @ 0x140B47394 (MiInitializeBootProcess.c)
- *     MiInitializeHotPatches @ 0x140B481F8 (MiInitializeHotPatches.c)
- *     MiAddLoaderHalIoMappings @ 0x140B48290 (MiAddLoaderHalIoMappings.c)
- *     MiAllocateDummyPage @ 0x140B48578 (MiAllocateDummyPage.c)
- *     MiInitializeRetpoline @ 0x140B48688 (MiInitializeRetpoline.c)
- *     MiCreateSlabAllocationsFromKernelHal @ 0x140B486E4 (MiCreateSlabAllocationsFromKernelHal.c)
- *     MiCreateSlabAllocationsFromLoaderBlock @ 0x140B48744 (MiCreateSlabAllocationsFromLoaderBlock.c)
- *     MiInitializeSystemSpaceMap @ 0x140B48AA0 (MiInitializeSystemSpaceMap.c)
- *     MiCreateEnclaveRegions @ 0x140B48B44 (MiCreateEnclaveRegions.c)
- *     MiInitializeApiSets @ 0x140B48C20 (MiInitializeApiSets.c)
- *     MiInitializeCfg @ 0x140B48CF8 (MiInitializeCfg.c)
- *     MiInitializeMirroring @ 0x140B49630 (MiInitializeMirroring.c)
- *     MiInitializeDriverImages @ 0x140B497A0 (MiInitializeDriverImages.c)
- *     MiInitializeTbFlushing @ 0x140B5F078 (MiInitializeTbFlushing.c)
- *     MiUnlockBootPageSections @ 0x140B6276C (MiUnlockBootPageSections.c)
- *     MiEnablePagingTheExecutive @ 0x140B627F8 (MiEnablePagingTheExecutive.c)
- *     MiComputeMemoryNodeProcessorAssignments @ 0x140B62B24 (MiComputeMemoryNodeProcessorAssignments.c)
- *     PsInitializeQuotaSystem @ 0x140B68CC8 (PsInitializeQuotaSystem.c)
- *     MiInitializeCacheFlushing @ 0x140B6B46C (MiInitializeCacheFlushing.c)
- *     MiInitializeSharedUserData @ 0x140B6CD50 (MiInitializeSharedUserData.c)
- *     MiSectionInitialization @ 0x140B71584 (MiSectionInitialization.c)
- *     MiInitializeRelocations @ 0x140B71D14 (MiInitializeRelocations.c)
- *     MiInitializeSessionIds @ 0x140B741D4 (MiInitializeSessionIds.c)
- *     MiInitializeModifiedWriterParameters @ 0x140B76764 (MiInitializeModifiedWriterParameters.c)
- *     MiFlushStrongCodeDriverLoadFailures @ 0x140B7693C (MiFlushStrongCodeDriverLoadFailures.c)
+ *     MiReservePtes @ 0x140226570 (MiReservePtes.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     PsSetPagePriorityThread @ 0x140277C64 (PsSetPagePriorityThread.c)
+ *     MiGetAnyMultiplexedVm @ 0x14027D77C (MiGetAnyMultiplexedVm.c)
+ *     MmUnlockPagableImageSection @ 0x14029B0A0 (MmUnlockPagableImageSection.c)
+ *     PsGetCurrentProcess @ 0x1402BBC90 (PsGetCurrentProcess.c)
+ *     MiSetPageTablePfnBuddy @ 0x1403570E4 (MiSetPageTablePfnBuddy.c)
+ *     MiCreateZeroThreadContext @ 0x1403ABAA8 (MiCreateZeroThreadContext.c)
+ *     MiStoreChargeReservedPages @ 0x1403B6D98 (MiStoreChargeReservedPages.c)
+ *     MiSetSlabAllocatorPolicy @ 0x1403B6DF8 (MiSetSlabAllocatorPolicy.c)
+ *     KeFlushCurrentTbOnly @ 0x1403B6E38 (KeFlushCurrentTbOnly.c)
+ *     ExInitializePagedHeaps @ 0x1403C3790 (ExInitializePagedHeaps.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x1403CB604 (MiInitializeWorkingSetManagerParameters.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     VslInitializeSecurePool @ 0x1404FC61C (VslInitializeSecurePool.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     MmConfigurePrefetchSeekThreshold @ 0x1406A692C (MmConfigurePrefetchSeekThreshold.c)
+ *     PsCreateSystemThread @ 0x1406FDA10 (PsCreateSystemThread.c)
+ *     MmLockPagableDataSection @ 0x1406FE5A0 (MmLockPagableDataSection.c)
+ *     MiInitializeSystemSpaceMap @ 0x140786650 (MiInitializeSystemSpaceMap.c)
+ *     MiInitializeSystemWorkingSetList @ 0x1407866BC (MiInitializeSystemWorkingSetList.c)
+ *     MiInitializeMemoryEvents @ 0x1407A0B04 (MiInitializeMemoryEvents.c)
+ *     MiWriteProtectSystemImages @ 0x1407A1A34 (MiWriteProtectSystemImages.c)
+ *     TlgRegisterAggregateProviderEx @ 0x1407A501C (TlgRegisterAggregateProviderEx.c)
+ *     MiFlushDeferredRetpolineImageLoadEvents @ 0x1407A56B8 (MiFlushDeferredRetpolineImageLoadEvents.c)
+ *     MiInitializePartitions @ 0x140A42DCC (MiInitializePartitions.c)
+ *     MiInitializeDriverImages @ 0x140A4E6F4 (MiInitializeDriverImages.c)
+ *     MiCreateSlabAllocationsFromKernelHal @ 0x140A504E4 (MiCreateSlabAllocationsFromKernelHal.c)
+ *     MiAddLoaderHalIoMappings @ 0x140A543A4 (MiAddLoaderHalIoMappings.c)
+ *     MiFlushStrongCodeDriverLoadFailures @ 0x140A54464 (MiFlushStrongCodeDriverLoadFailures.c)
+ *     MiUnlockBootPageSections @ 0x140A544E0 (MiUnlockBootPageSections.c)
+ *     MiEnablePagingTheExecutive @ 0x140A5456C (MiEnablePagingTheExecutive.c)
+ *     MiInitializeApiSets @ 0x140A54650 (MiInitializeApiSets.c)
+ *     MiInitializeMirroring @ 0x140A54728 (MiInitializeMirroring.c)
+ *     MiInitializeModifiedWriterParameters @ 0x140A54864 (MiInitializeModifiedWriterParameters.c)
+ *     MiComputeOptimalZeroPath @ 0x140A548A8 (MiComputeOptimalZeroPath.c)
+ *     MiInitializeCacheFlushing @ 0x140A54B0C (MiInitializeCacheFlushing.c)
+ *     MiInitializeSessionIds @ 0x140A54D74 (MiInitializeSessionIds.c)
+ *     MiCreateEnclaveRegions @ 0x140A54ED8 (MiCreateEnclaveRegions.c)
+ *     MiInitializeCfg @ 0x140A54F90 (MiInitializeCfg.c)
+ *     MiSectionInitialization @ 0x140A55074 (MiSectionInitialization.c)
+ *     MiMapBBTMemory @ 0x140A552A8 (MiMapBBTMemory.c)
+ *     MiHotAddBootDeferredDescriptors @ 0x140A552F0 (MiHotAddBootDeferredDescriptors.c)
+ *     MiInitializeTbFlushing @ 0x140A55330 (MiInitializeTbFlushing.c)
+ *     MiInitializeRelocations @ 0x140A55780 (MiInitializeRelocations.c)
+ *     MiAllocateDummyPage @ 0x140A55B98 (MiAllocateDummyPage.c)
+ *     RtlInitializeHistoryTable @ 0x140A55CFC (RtlInitializeHistoryTable.c)
+ *     MiInitializeKernelCfg @ 0x140A55E64 (MiInitializeKernelCfg.c)
+ *     MiInitializeLoadedModuleList @ 0x140A55E9C (MiInitializeLoadedModuleList.c)
+ *     MiCreateSlabAllocationsFromLoaderBlock @ 0x140A564C0 (MiCreateSlabAllocationsFromLoaderBlock.c)
+ *     MiInitializeRetpoline @ 0x140A56538 (MiInitializeRetpoline.c)
+ *     MiInitializeHotPatches @ 0x140A565A0 (MiInitializeHotPatches.c)
+ *     KdAllocateDynamicMemory @ 0x140A565F8 (KdAllocateDynamicMemory.c)
+ *     MiInitializeBootProcess @ 0x140A57868 (MiInitializeBootProcess.c)
+ *     MiInitializeSharedUserData @ 0x140A579E0 (MiInitializeSharedUserData.c)
+ *     PsInitializeQuotaSystem @ 0x140A6C13C (PsInitializeQuotaSystem.c)
+ *     MiInitializeCrashDumpPtes @ 0x140A92264 (MiInitializeCrashDumpPtes.c)
+ *     MiInitializeVadSecuring @ 0x140A92310 (MiInitializeVadSecuring.c)
  */
 
-char __fastcall MiInitSystem(int a1, __int64 a2)
+bool __fastcall MiInitSystem(int a1, __int64 a2)
 {
-  _KPROCESS *Process; // rbx
-  ULONG_PTR v4; // rax
-  unsigned int v5; // r14d
-  PKSTART_ROUTINE *v6; // r15
   char *AnyMultiplexedVm; // rax
-  unsigned int v9; // eax
-  int v10; // edx
-  __int64 v11; // rax
-  ULONG_PTR v12; // rax
-  HANDLE ThreadHandle; // [rsp+40h] [rbp-48h] BYREF
-  _QWORD v14[4]; // [rsp+48h] [rbp-40h] BYREF
+  int v4; // eax
+  __int64 v5; // r8
+  unsigned __int64 v6; // r9
+  ULONG_PTR v7; // rax
+  _KPROCESS *CurrentProcess; // rbx
+  _DWORD *v10; // r9
+  int v11; // ebp
+  PKSTART_ROUTINE *i; // r14
+  HANDLE ThreadHandle; // [rsp+40h] [rbp-38h] BYREF
+  _QWORD v14[4]; // [rsp+48h] [rbp-30h] BYREF
 
+  ThreadHandle = 0LL;
   v14[0] = KeBalanceSetManager;
   v14[1] = KeSwapProcessOrStack;
   v14[2] = MiRebuildLargePagesThread;
   v14[3] = MiZeroPageThread;
-  ThreadHandle = 0LL;
   if ( a1 )
   {
     if ( a1 == 1 )
     {
-      Process = KeGetCurrentThread()->ApcState.Process;
-      MiSetPageTablePfnBuddy(48 * (Process->DirectoryTableBase >> 12) - 0x220000000000LL, (__int64)Process, 0);
-      _InterlockedOr((volatile signed __int32 *)&Process[1].DirectoryTableBase + 1, 0x400u);
-      _InterlockedOr((volatile signed __int32 *)&Process[1].DirectoryTableBase + 1, 0x800u);
-      *(_DWORD *)(MmWriteableSharedUserData + 580) = 0x200000;
-      if ( (MiFlags & 0x4000) != 0 && (int)VslInitializeSecurePool(qword_140C6A698) < 0 )
+      CurrentProcess = PsGetCurrentProcess();
+      MiSetPageTablePfnBuddy(
+        48 * (CurrentProcess->DirectoryTableBase >> 12) - 0x58000000000LL,
+        (__int64)CurrentProcess,
+        0LL,
+        v10);
+      _InterlockedOr((volatile signed __int32 *)&CurrentProcess[1].DirectoryTableBase + 1, 0x400u);
+      _InterlockedOr((volatile signed __int32 *)&CurrentProcess[1].DirectoryTableBase + 1, 0x800u);
+      MEMORY[0xFFFFF78000000244] = 0x200000;
+      MiHotAddBootDeferredDescriptors();
+      if ( (MiFlags & 0x8000) == 0 || VslInitializeSecurePool(qword_140C4FB78) >= 0 )
       {
-        byte_140C68042 = 100;
-      }
-      else if ( (unsigned int)MiSectionInitialization() )
-      {
-        if ( (int)MiInitializeCfg() < 0 )
+        MiMapBBTMemory(a2);
+        if ( (unsigned int)MiSectionInitialization() )
         {
-          byte_140C68042 = 107;
-        }
-        else if ( (unsigned int)MiCreateEnclaveRegions(a2) )
-        {
-          qword_140C67348 = 0LL;
-          MiInitializeSessionIds();
-          v4 = MiReservePtes((__int64)&qword_140C69A40, 4u);
-          if ( v4 )
+          if ( (int)MiInitializeCfg() >= 0 )
           {
-            qword_140C697E8 = v4;
-            MiInitializeCacheFlushing();
-            if ( MiInitializeMemoryEvents(MiSystemPartition) )
+            if ( (unsigned int)MiCreateEnclaveRegions(a2) )
             {
-              if ( (int)MiAcquireNonPagedResources((unsigned __int64)MiSystemPartition, 0x20uLL, 0LL, 6u) < 0 )
+              qword_140C4E548 = 0LL;
+              qword_140C4EF08 = (__int64)&qword_140C4EF00;
+              qword_140C4EF00 = (__int64)&qword_140C4EF00;
+              MiInitializeSessionIds();
+              if ( (unsigned int)MiInitializePartitions(1) )
               {
-                byte_140C68042 = 0x80;
-              }
-              else
-              {
-                dword_140C6B504 |= 4u;
-                MiInitializeModifiedWriterParameters();
-                MiComputeMemoryNodeProcessorAssignments();
-                LOWORD(stru_140C673E8.Header.Lock) = 0;
-                qword_140C69908 = (__int64)&qword_140C69900;
-                qword_140C69900 = &qword_140C69900;
-                stru_140C673E8.Header.Size = 6;
-                stru_140C673E8.Header.WaitListHead.Blink = &stru_140C673E8.Header.WaitListHead;
-                stru_140C673E8.Header.WaitListHead.Flink = &stru_140C673E8.Header.WaitListHead;
-                MxDeferredBootAddMemoryWorkItem.WorkerRoutine = (void (__fastcall *)(void *))MiHotAddBootDeferredDescriptors;
-                stru_140C673E8.Header.SignalState = 0;
-                MxDeferredBootAddMemoryWorkItem.Parameter = 0LL;
-                MxDeferredBootAddMemoryWorkItem.List.Flink = 0LL;
-                ExQueueWorkItem(&MxDeferredBootAddMemoryWorkItem, NormalWorkQueue);
-                v5 = 0;
-                v6 = (PKSTART_ROUTINE *)v14;
-                do
+                MiInitializeCacheFlushing();
+                MiComputeOptimalZeroPath();
+                if ( MiInitializeMemoryEvents(&MiSystemPartition) )
                 {
-                  if ( PsCreateSystemThread(&ThreadHandle, 0x1FFFFFu, 0LL, 0LL, 0LL, *v6, MiSystemPartition) < 0 )
+                  if ( (unsigned int)MiStoreChargeReservedPages() )
                   {
-                    byte_140C68042 = -120;
-                    return 0;
+                    MiInitializeModifiedWriterParameters();
+                    qword_140C526A8 = (__int64)MiCreateZeroThreadContext(0LL, 0);
+                    if ( qword_140C526A8 )
+                    {
+                      v11 = 0;
+                      for ( i = (PKSTART_ROUTINE *)v14;
+                            PsCreateSystemThread(&ThreadHandle, 0x1FFFFFu, 0LL, 0LL, 0LL, *i, &MiSystemPartition) >= 0;
+                            ++i )
+                      {
+                        ObCloseHandle(ThreadHandle, 0);
+                        if ( (unsigned int)++v11 >= 4 )
+                        {
+                          if ( !(unsigned int)MiInitializeMirroring() )
+                            return 0;
+                          qword_140C4DDC8 = 0LL;
+                          MiWriteProtectSystemImages();
+                          _InterlockedDecrement(&dword_140C4EE48);
+                          return (int)MiInitializeApiSets(a2) >= 0;
+                        }
+                      }
+                    }
                   }
-                  ObCloseHandle(ThreadHandle, 0);
-                  ++v5;
-                  ++v6;
-                }
-                while ( v5 < 4 );
-                if ( (unsigned int)MiInitializeMirroring() )
-                {
-                  qword_140C65AE0 = 0LL;
-                  MiWriteProtectSystemImages();
-                  _InterlockedDecrement(&dword_140C698C8);
-                  if ( (int)MiInitializeApiSets(a2) < 0 )
-                  {
-                    byte_140C68042 = -112;
-                  }
-                  else
-                  {
-                    if ( (unsigned int)MiInitializeHotPatches(a2, 1LL) )
-                      return 1;
-                    byte_140C68042 = -108;
-                  }
-                }
-                else
-                {
-                  byte_140C68042 = -117;
                 }
               }
             }
             else
             {
-              byte_140C68042 = 123;
+              byte_140C4E7FA = 32;
             }
           }
-          else
-          {
-            byte_140C68042 = 116;
-          }
-        }
-        else
-        {
-          byte_140C68042 = 32;
         }
       }
-      else
-      {
-        byte_140C68042 = 104;
-      }
-      return 0;
     }
-    if ( a1 == 2 )
+    else if ( a1 == 2 )
     {
-      qword_140C69908 = (__int64)&qword_140C69900;
-      qword_140C69900 = &qword_140C69900;
       MiUnlockBootPageSections();
+      TlgRegisterAggregateProviderEx(&qword_140C046D8, (unsigned __int16 *)MiTracingEnabledCallback, 0LL);
+      *(_QWORD *)&qword_140C4EEE0 = &qword_140C046D8;
       MiFlushStrongCodeDriverLoadFailures();
       MiFlushDeferredRetpolineImageLoadEvents();
       return 1;
@@ -195,142 +163,88 @@ char __fastcall MiInitSystem(int a1, __int64 a2)
   else
   {
     MmTrackLockedPages &= 1u;
-    qword_140C67FB0 = MiReservePtes((__int64)&qword_140C69A40, 0x20u);
-    _InterlockedIncrement(&dword_140C698C8);
-    if ( (unsigned int)MiInitializeWorkingSetManagerParameters((__int64)MiSystemPartition) )
+    MiInitializeCrashDumpPtes();
+    _InterlockedIncrement(&dword_140C4EE48);
+    if ( (unsigned int)MiInitializeWorkingSetManagerParameters((__int64)&MiSystemPartition) )
     {
-      if ( (int)ExInitializePagedHeaps() < 0 )
-      {
-        byte_140C68042 = 52;
-      }
-      else
+      if ( (int)ExInitializePagedHeaps() >= 0 )
       {
         AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
-        if ( (unsigned int)MiInitializeSystemWorkingSetList(
-                             (__int64)MiSystemPartition,
-                             (__int64)AnyMultiplexedVm,
-                             4,
-                             0LL) )
+        if ( (unsigned int)MiInitializeSystemWorkingSetList(&MiSystemPartition, (__int64)AnyMultiplexedVm, 4u, 0LL) )
         {
           if ( (unsigned __int8)PsInitializeQuotaSystem(0LL) )
           {
-            qword_140C65B40 = MiGenerateSecureCookie();
+            MiInitializeVadSecuring();
             Seed = 305419896;
             if ( (unsigned int)MiInitializeSharedUserData() )
             {
-              if ( (int)MiInitializeBootProcess() < 0 )
-              {
-                byte_140C68042 = 68;
-              }
-              else
+              if ( (int)MiInitializeBootProcess() >= 0 )
               {
                 KeFlushCurrentTbOnly(3u);
                 MiAddLoaderHalIoMappings(MiLowHalVa, -1LL);
-                MiAddLoaderHalIoMappings(qword_140C6A6B8, qword_140C6A6B8 + 0x7FFFFFFFFFLL);
-                if ( KdPrintBufferAllocateSize )
-                  KdSetDbgPrintBufferSize(KdPrintBufferAllocateSize);
-                MiSetSlabAllocatorPolicy((__int64)MiSystemPartition);
-                if ( (unsigned int)MiInitializeHotPatches(a2, 0LL) )
+                MiAddLoaderHalIoMappings(qword_140C4FB88, qword_140C4FB88 + 0x7FFFFFFFFFLL);
+                KdAllocateDynamicMemory();
+                MiSetSlabAllocatorPolicy((__int64)&MiSystemPartition);
+                MiInitializeHotPatches(a2);
+                if ( (int)MiInitializeRetpoline() >= 0 )
                 {
-                  if ( (int)MiInitializeRetpoline() < 0 )
+                  qword_140D58868 = KeQueryPerformanceCounter(0LL).QuadPart;
+                  if ( (unsigned int)dword_140CFB1D8 > 2 )
+                    dword_140CFB1D8 = 0;
+                  if ( ((MiFlags & 4) == 0 || (int)MiCreateSlabAllocationsFromKernelHal() >= 0)
+                    && (int)MiCreateSlabAllocationsFromLoaderBlock(a2) >= 0 )
                   {
-                    byte_140C68042 = 75;
-                  }
-                  else
-                  {
-                    v9 = ExGenRandom(1);
-                    qword_140C66DF0 = v9;
-                    dword_140C66DF8 = 8 * (v9 & 3) + 8;
-                    qword_140D81828 = KeQueryPerformanceCounter(0LL).QuadPart;
-                    if ( (unsigned int)dword_140D1D228 > 2 )
-                      dword_140D1D228 = 0;
-                    if ( (MiFlags & 4) != 0 && (int)MiCreateSlabAllocationsFromKernelHal() < 0 )
+                    qword_140D58870 = KeQueryPerformanceCounter(0LL).QuadPart;
+                    if ( (unsigned int)MiInitializeDriverImages(a2) )
                     {
-                      byte_140C68042 = 80;
-                    }
-                    else if ( (int)MiCreateSlabAllocationsFromLoaderBlock(a2) < 0 )
-                    {
-                      byte_140C68042 = 84;
-                    }
-                    else
-                    {
-                      MiInitializeSystemSpaceMap();
-                      qword_140C65830 = 0LL;
-                      qword_140C67368 = 0LL;
-                      qword_140C67378 = 0LL;
-                      qword_140D81830 = KeQueryPerformanceCounter(0LL).QuadPart;
-                      MiInitializeBootKernelShadowStacks(a2);
-                      if ( (unsigned int)MiInitializeDriverImages(a2) )
+                      qword_140D58878 = KeQueryPerformanceCounter(0LL).QuadPart;
+                      v4 = -1;
+                      if ( qword_140C52890 <= 0xFFFFFFFF )
+                        v4 = qword_140C52890;
+                      MEMORY[0xFFFFF780000002E8] = v4;
+                      MEMORY[0xFFFFF78000000244] = 0;
+                      MiInitializeSystemSpaceMap(qword_140C4CD68);
+                      qword_140C4CB38 = 0LL;
+                      qword_140C4E568 = 0LL;
+                      qword_140C4E578 = 0LL;
+                      qword_140D58880 = KeQueryPerformanceCounter(0LL).QuadPart;
+                      if ( (unsigned int)MiInitializeLoadedModuleList(a2) )
                       {
-                        qword_140D81838 = KeQueryPerformanceCounter(0LL).QuadPart;
-                        v10 = -1;
-                        v11 = MmWriteableSharedUserData;
-                        if ( qword_140C6F790 <= 0xFFFFFFFF )
-                          v10 = qword_140C6F790;
-                        *(_DWORD *)(MmWriteableSharedUserData + 744) = v10;
-                        *(_DWORD *)(v11 + 580) = 0;
-                        LODWORD(MiFlags) = MiFlags | 0x800000;
-                        qword_140C6B938[0] = 0LL;
-                        MmConfigurePrefetchSeekThreshold(32);
-                        PsSetPagePriorityThread((__int64)KeGetCurrentThread(), 5);
-                        MiEnablePagingTheExecutive();
-                        ExPageLockHandle = MmLockPagableDataSection(MmShutdownSystem);
-                        MiLockPagableImageSection((ULONG_PTR)ExPageLockHandle, 0LL);
-                        qword_140C69800 = MiAllocateDummyPage();
-                        qword_140C69808 = 0xAAAAAAAAAAAAAAABuLL * ((qword_140C69800 + 0x220000000000LL) >> 4);
-                        v12 = MiReservePtes((__int64)&qword_140C69A40, 1u);
-                        MmBadPointer = (PVOID)v12;
-                        if ( v12 )
+                        if ( (int)MiInitializeKernelCfg() >= 0 )
                         {
-                          MmBadPointer = (PVOID)((__int64)(v12 << 25) >> 16);
-                          if ( (unsigned int)MiInitializeRelocations() )
+                          RtlInitializeHistoryTable();
+                          MiFlags |= 0x1000000u;
+                          qword_140C51190 = 0LL;
+                          MmConfigurePrefetchSeekThreshold(32);
+                          PsSetPagePriorityThread((__int64)KeGetCurrentThread(), 5);
+                          MiEnablePagingTheExecutive();
+                          ExPageLockHandle = MmLockPagableDataSection(MmShutdownSystem);
+                          MmUnlockPagableImageSection(ExPageLockHandle);
+                          qword_140C4ED70 = MiAllocateDummyPage();
+                          qword_140C4ED78 = (qword_140C4ED70 + 0x58000000000LL) / 48;
+                          v7 = MiReservePtes((__int64)&qword_140C4EF40, 1u, v5, v6);
+                          MmBadPointer = (PVOID)v7;
+                          if ( v7 )
                           {
-                            qword_140D81848 = KeQueryPerformanceCounter(0LL).QuadPart;
-                            MiInitializeTbFlushing();
-                            qword_140D81850 = KeQueryPerformanceCounter(0LL).QuadPart;
-                            qword_140C69A08 = (__int64)&qword_140C69A00;
-                            qword_140C69A00 = (__int64)&qword_140C69A00;
-                            return 1;
+                            MmBadPointer = (PVOID)((__int64)(v7 << 25) >> 16);
+                            if ( (unsigned int)MiInitializeRelocations() )
+                            {
+                              qword_140D58888 = KeQueryPerformanceCounter(0LL).QuadPart;
+                              MiInitializeTbFlushing();
+                              qword_140D58890 = KeQueryPerformanceCounter(0LL).QuadPart;
+                              return 1;
+                            }
                           }
-                          byte_140C68042 = 96;
                         }
-                        else
-                        {
-                          byte_140C68042 = 91;
-                        }
-                      }
-                      else
-                      {
-                        byte_140C68042 = 88;
                       }
                     }
                   }
-                }
-                else
-                {
-                  byte_140C68042 = 72;
                 }
               }
             }
-            else
-            {
-              byte_140C68042 = 64;
-            }
           }
-          else
-          {
-            byte_140C68042 = 59;
-          }
-        }
-        else
-        {
-          byte_140C68042 = 56;
         }
       }
-    }
-    else
-    {
-      byte_140C68042 = 48;
     }
   }
   return 0;

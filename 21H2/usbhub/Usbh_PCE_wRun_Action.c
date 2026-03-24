@@ -1,13 +1,13 @@
 /*
- * XREFs of Usbh_PCE_wRun_Action @ 0x1C00159C0
+ * XREFs of Usbh_PCE_wRun_Action @ 0x1C0007F60
  * Callers:
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhHubRunPortChangeQueue @ 0x1C0015150 (UsbhHubRunPortChangeQueue.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     WPP_RECORDER_SF_dq @ 0x1C002DFC0 (WPP_RECORDER_SF_dq.c)
- *     UsbhUnlockPcqWithTag @ 0x1C0034A70 (UsbhUnlockPcqWithTag.c)
+ *     UsbhHubRunPortChangeQueue @ 0x1C00071D0 (UsbhHubRunPortChangeQueue.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002F39C (WPP_RECORDER_SF_dq.c)
+ *     UsbhUnlockPcqWithTag @ 0x1C0035D2C (UsbhUnlockPcqWithTag.c)
  */
 
 void __fastcall Usbh_PCE_wRun_Action(__int64 a1, __int64 a2, __int64 a3)
@@ -16,7 +16,7 @@ void __fastcall Usbh_PCE_wRun_Action(__int64 a1, __int64 a2, __int64 a3)
   KIRQL v7; // al
   __int64 v8; // r8
   unsigned __int16 v9; // r9
-  KIRQL v10; // r15
+  KIRQL v10; // bp
   __int64 v11; // rdx
   __int64 v12; // rcx
   __int64 v13; // r8
@@ -55,7 +55,7 @@ void __fastcall Usbh_PCE_wRun_Action(__int64 a1, __int64 a2, __int64 a3)
   __int64 v46; // rcx
   __int64 v47; // rdx
   __int64 v48; // rax
-  __int64 v49; // r9
+  int v49; // r9d
   int v50; // eax
   __int64 v51; // rdx
   __int64 v52; // rax
@@ -64,6 +64,7 @@ void __fastcall Usbh_PCE_wRun_Action(__int64 a1, __int64 a2, __int64 a3)
   __int64 v55; // rax
   __int64 v56; // rax
   __int64 v57; // rax
+  KIRQL v58; // [rsp+70h] [rbp+8h]
 
   if ( !a1 )
     UsbhTrapFatal_Dbg(0LL, 0LL);
@@ -86,11 +87,13 @@ void __fastcall Usbh_PCE_wRun_Action(__int64 a1, __int64 a2, __int64 a3)
   *(_DWORD *)(a2 + 448) = 1;
   v9 = v8;
   v10 = v7;
+  v58 = v7;
   if ( (UsbhLogMask & 0x10) != 0 )
   {
     v11 = *(_QWORD *)(a1 + 64);
     if ( v11 )
     {
+      v10 = v7;
       v12 = *(_QWORD *)(v11 + 888)
           + 32LL
           * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v11 + 880)) & *(_DWORD *)(v11 + 884));
@@ -107,6 +110,7 @@ void __fastcall Usbh_PCE_wRun_Action(__int64 a1, __int64 a2, __int64 a3)
     v14 = *(_QWORD *)(a1 + 64);
     if ( v14 )
     {
+      v10 = v7;
       v15 = *(_QWORD *)(v14 + 888)
           + 32LL
           * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v14 + 880)) & *(_DWORD *)(v14 + 884));
@@ -132,6 +136,7 @@ void __fastcall Usbh_PCE_wRun_Action(__int64 a1, __int64 a2, __int64 a3)
     v20 = *(_QWORD *)(a1 + 64);
     if ( v20 )
     {
+      v10 = v7;
       v21 = *(_QWORD *)(v20 + 888)
           + 32LL
           * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v20 + 880)) & *(_DWORD *)(v20 + 884));
@@ -200,6 +205,7 @@ LABEL_19:
           *(_DWORD *)v26 = 757952880;
           *(_QWORD *)(v26 + 24) = v24;
 LABEL_22:
+          v10 = v58;
           *(_QWORD *)(v26 + 16) = v22;
           *(_QWORD *)(v26 + 8) = 0LL;
           v23 = *(_DWORD *)(a2 + 12);
@@ -231,7 +237,7 @@ LABEL_23:
           v48 = 32LL * *(unsigned int *)(a2 + 2400);
           *(_DWORD *)(a2 + 12) = 8;
           *(_DWORD *)(v48 + a2 + 1384) = 8;
-          v49 = *(int *)(a2 + 12);
+          v49 = *(_DWORD *)(a2 + 12);
           *(_QWORD *)(a2 + 384) = KeGetCurrentThread();
           Log(a1, 16, 1886465325, v49, *(unsigned __int16 *)(a2 + 4));
           v50 = *(_DWORD *)(a2 + 12);
@@ -255,7 +261,7 @@ LABEL_23:
           *(_DWORD *)(a2 + 12) = 17;
           *(_DWORD *)(v56 + a2 + 1384) = 17;
           *(_QWORD *)(a2 + 384) = KeGetCurrentThread();
-          UsbhUnlockPcqWithTag(a1, a2, v10, 0LL);
+          UsbhUnlockPcqWithTag(a1, a2, v58, 0LL);
           goto LABEL_33;
         case 17:
           Log(a1, 512, 1597337654, v18, *(unsigned __int16 *)(a2 + 4));
@@ -281,6 +287,7 @@ LABEL_56:
             v45 = *(_QWORD *)(a1 + 64);
             if ( v45 )
             {
+              v10 = v7;
               v46 = *(_QWORD *)(v45 + 888)
                   + 32LL
                   * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v45 + 880)) & *(_DWORD *)(v45 + 884));
@@ -329,7 +336,7 @@ LABEL_56:
   *(_DWORD *)(a2 + 448) = 0;
   *(_DWORD *)(v37 + a2 + 1384) = v34;
 LABEL_32:
-  KeReleaseSpinLock((PKSPIN_LOCK)(a2 + 440), v10);
+  KeReleaseSpinLock((PKSPIN_LOCK)(a2 + 440), v58);
 LABEL_33:
   UsbhHubRunPortChangeQueue(a1, a2, a3, v38);
 }

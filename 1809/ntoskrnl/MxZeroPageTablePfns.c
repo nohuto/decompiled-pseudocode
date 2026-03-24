@@ -5,7 +5,7 @@
  *     MxZeroPageTablePfns @ 0x1409C085C (MxZeroPageTablePfns.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     MxZeroPageTablePfns @ 0x1409C085C (MxZeroPageTablePfns.c)
  */
 

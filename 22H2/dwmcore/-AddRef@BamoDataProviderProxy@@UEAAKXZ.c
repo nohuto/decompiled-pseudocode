@@ -1,12 +1,13 @@
 /*
- * XREFs of ?AddRef@BamoDataProviderProxy@@UEAAKXZ @ 0x180104CD0
+ * XREFs of ?AddRef@BamoDataProviderProxy@@UEAAKXZ @ 0x1800E22B0
  * Callers:
- *     ?AddRef@BamoList_uint_Proxy@dataprovider_AutoBamos@Lib@Bamo@Microsoft@@W7EAAKXZ @ 0x18011D540 (-AddRef@BamoList_uint_Proxy@dataprovider_AutoBamos@Lib@Bamo@Microsoft@@W7EAAKXZ.c)
+ *     ?AddRef@CExpressionForce@@W7EAAKXZ @ 0x1800F5070 (-AddRef@CExpressionForce@@W7EAAKXZ.c)
+ *     ?AddRef@CMesh2DEffect@@WBA@EAAKXZ @ 0x1800F64C0 (-AddRef@CMesh2DEffect@@WBA@EAAKXZ.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall BamoDataProviderProxy::AddRef(BamoDataProviderProxy *this)
 {
-  return (**((__int64 (__fastcall ***)(char *))this + 2))((char *)this + 16);
+  return (unsigned int)_InterlockedIncrement((volatile signed __int32 *)this + 6);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpSvmServicePageFault @ 0x140641840
+ * XREFs of ExpSvmServicePageFault @ 0x1405B9460
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     MmAccessFault @ 0x14031C860 (MmAccessFault.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpSvmServicePageFault(char a1, signed __int64 a2, unsigned int a3)
@@ -31,8 +31,8 @@ __int64 __fastcall ExpSvmServicePageFault(char a1, signed __int64 a2, unsigned i
   memset(v19, 0, sizeof(v19));
   memset(&LockHandle, 0, sizeof(LockHandle));
   Process = KeGetCurrentThread()->ApcState.Process;
-  KeAcquireInStackQueuedSpinLock(&qword_140C11498, &LockHandle);
-  v7 = (_KPROCESS *)*((_QWORD *)qword_140C11490 + 2 * a3);
+  KeAcquireInStackQueuedSpinLock(&qword_140C16918, &LockHandle);
+  v7 = (_KPROCESS *)*((_QWORD *)qword_140C16910 + 2 * a3);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
@@ -71,6 +71,6 @@ __int64 __fastcall ExpSvmServicePageFault(char a1, signed __int64 a2, unsigned i
     v15 = MmAccessFault(v16, a2, 1, 0LL);
   }
   if ( v14 )
-    KiUnstackDetachProcess((__int64)v19, 0LL);
+    KiUnstackDetachProcess((__int64)v19, 0);
   return v15;
 }

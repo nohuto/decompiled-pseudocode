@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwRecoverTransactionManager @ 0x14041E600
+ * XREFs of ZwRecoverTransactionManager @ 0x1403FD140
  * Callers:
- *     CmpInitCmRM @ 0x140742E3C (CmpInitCmRM.c)
+ *     CmpInitCmRM @ 0x140716078 (CmpInitCmRM.c)
  * Callees:
  *     <none>
  */

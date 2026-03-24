@@ -1,12 +1,12 @@
 /*
- * XREFs of HalReportResourceUsage @ 0x140B4FE70
+ * XREFs of HalReportResourceUsage @ 0x140A3C280
  * Callers:
- *     Phase1InitializationDiscard @ 0x140B4FF9C (Phase1InitializationDiscard.c)
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     Phase1InitializationDiscard @ 0x140A3AAD4 (Phase1InitializationDiscard.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     HalpInitSystemHelper @ 0x140A8C358 (HalpInitSystemHelper.c)
- *     HalpReportResourceUsage @ 0x140B4423C (HalpReportResourceUsage.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     HalpInitSystemHelper @ 0x14099B988 (HalpInitSystemHelper.c)
+ *     HalpReportResourceUsage @ 0x140A391C0 (HalpReportResourceUsage.c)
  */
 
 void __fastcall HalReportResourceUsage(int a1)

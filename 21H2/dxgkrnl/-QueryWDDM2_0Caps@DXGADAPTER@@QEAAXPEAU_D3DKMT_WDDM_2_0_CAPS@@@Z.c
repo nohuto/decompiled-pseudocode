@@ -1,7 +1,7 @@
 /*
- * XREFs of ?QueryWDDM2_0Caps@DXGADAPTER@@QEAAXPEAU_D3DKMT_WDDM_2_0_CAPS@@@Z @ 0x1C01DF2B4
+ * XREFs of ?QueryWDDM2_0Caps@DXGADAPTER@@QEAAXPEAU_D3DKMT_WDDM_2_0_CAPS@@@Z @ 0x1C0168B70
  * Callers:
- *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018C4C0 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     ?DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C0126EB0 (-DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -19,21 +19,21 @@ void __fastcall DXGADAPTER::QueryWDDM2_0Caps(DXGADAPTER *this, struct _D3DKMT_WD
 
   v2 = 0;
   a2->Value = 0;
-  v4 = ((*((_DWORD *)this + 538) >> 5) & 1) == 0;
+  v4 = ((*((_DWORD *)this + 514) >> 5) & 1) == 0;
   a2->Value = v4;
-  v5 = *((_DWORD *)this + 539);
+  v5 = *((_DWORD *)this + 515);
   v6 = 0;
   if ( (v5 & 0x60) == 0x60 )
     v6 = 2;
   v7 = v4 | v6;
   a2->Value = v7;
-  if ( (*((_BYTE *)this + 2156) & 0xA0) == 0xA0 )
+  if ( (*((_BYTE *)this + 2060) & 0xA0) == 0xA0 )
     v2 = 4;
   v8 = v7 | v2;
   a2->Value = v8;
-  v9 = v8 | (*((_DWORD *)this + 665) > 1u ? 8 : 0);
+  v9 = v8 | (*((_DWORD *)this + 641) > 1u ? 8 : 0);
   a2->Value = v9;
-  v10 = v9 | (16 * (*((_DWORD *)this + 666) & 1));
+  v10 = v9 | (16 * (*((_DWORD *)this + 642) & 1));
   a2->Value = v10;
-  a2->Value = v10 | (32 * (*((_BYTE *)this + 2656) & 1));
+  a2->Value = v10 | (32 * (*((_BYTE *)this + 2560) & 1));
 }

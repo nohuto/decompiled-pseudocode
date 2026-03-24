@@ -1,222 +1,231 @@
 /*
- * XREFs of ?SmCompressCtxWorkerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x1403B2C00
+ * XREFs of ?SmCompressCtxWorkerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x140265340
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     KeSetActualBasePriorityThread @ 0x1402B9630 (KeSetActualBasePriorityThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ?SmCompressContextDeleteThreadParams@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_PARAMS@1@@Z @ 0x1405BE7A8 (-SmCompressContextDeleteThreadParams@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_P.c)
- *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x1405BE94C (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
- *     ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@EK@Z @ 0x1405BEB04 (-SmCompressCtxProcessReadyQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEA.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     KeSetActualBasePriorityThread @ 0x14022FF20 (KeSetActualBasePriorityThread.c)
+ *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x140265610 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
+ *     ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@EK@Z @ 0x140266374 (-SmCompressCtxProcessReadyQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEA.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ?SmCompressContextDeleteThreadParams@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_PARAMS@1@@Z @ 0x14032CB7C (-SmCompressContextDeleteThreadParams@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_P.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxWorkerThread(PRKEVENT *StartContext)
 {
   PRKEVENT v1; // rbx
   KIRQL v3; // al
-  struct _LIST_ENTRY *Flink; // rdx
+  struct _LIST_ENTRY *Flink; // rcx
   unsigned __int64 v5; // rdi
   LARGE_INTEGER *Timeout; // rax
+  struct _LIST_ENTRY **p_Blink; // rsi
+  unsigned __int64 v8; // rdi
+  LIST_ENTRY *p_WaitListHead; // rcx
+  LIST_ENTRY *Blink; // rdx
+  LIST_ENTRY *v11; // rsi
+  __int64 v12; // r8
+  PRKEVENT v13; // rdx
+  KIRQL v14; // al
+  unsigned __int64 Blink_high; // rdx
+  PRKEVENT v16; // rcx
+  struct _LIST_ENTRY *v17; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v10; // eax
-  bool v11; // zf
-  unsigned __int8 v12; // al
-  struct _KPRCB *v13; // r10
-  _DWORD *v14; // r9
-  int v15; // eax
-  struct _LIST_ENTRY **p_Blink; // rsi
-  unsigned __int64 v17; // rdi
-  LIST_ENTRY *v18; // rsi
-  LIST_ENTRY *p_WaitListHead; // rcx
-  LIST_ENTRY *Blink; // rdx
-  __int64 v21; // r8
-  unsigned __int8 v22; // cl
-  struct _KPRCB *v23; // r10
-  _DWORD *v24; // r9
-  int v25; // eax
-  PRKEVENT v26; // rdx
-  KIRQL v27; // al
-  unsigned __int64 Blink_high; // rdx
-  PRKEVENT v29; // rcx
-  PRKEVENT **v30; // rax
+  int v21; // eax
+  bool v22; // zf
+  unsigned __int8 v23; // al
+  struct _KPRCB *v24; // r10
+  _DWORD *v25; // r9
+  int v26; // eax
+  unsigned __int8 v27; // al
+  struct _KPRCB *v28; // r10
+  _DWORD *v29; // r9
+  int v30; // eax
   unsigned __int8 v31; // al
   struct _KPRCB *v32; // r9
   _DWORD *v33; // r8
   int v34; // eax
   PRKEVENT v35; // [rsp+30h] [rbp-20h] BYREF
-  PRKEVENT **v36; // [rsp+38h] [rbp-18h]
-  ULONG_PTR BugCheckParameter1; // [rsp+40h] [rbp-10h]
+  struct _LIST_ENTRY *v36; // [rsp+38h] [rbp-18h]
+  struct _KTHREAD *CurrentThread; // [rsp+40h] [rbp-10h]
   __int64 v38; // [rsp+80h] [rbp+30h] BYREF
 
   v1 = *StartContext;
   v38 = -50000000LL;
-  BugCheckParameter1 = (ULONG_PTR)KeGetCurrentThread();
+  CurrentThread = KeGetCurrentThread();
   v3 = ExAcquireSpinLockExclusive(&v1->Header.Lock);
   ++HIDWORD(v1[3].Header.WaitListHead.Blink);
   Flink = v1[3].Header.WaitListHead.Flink;
   v5 = v3;
   if ( (PRKEVENT)Flink->Flink != &v1[3] )
-    goto LABEL_62;
+    goto LABEL_60;
+  v36 = v1[3].Header.WaitListHead.Flink;
   v35 = v1 + 3;
-  v36 = (PRKEVENT **)Flink;
   Flink->Flink = (struct _LIST_ENTRY *)&v35;
   v1[3].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)&v35;
-  KeSetActualBasePriorityThread(BugCheckParameter1, (int)v1[5].Header.WaitListHead.Flink);
+  KeSetActualBasePriorityThread((__int64)CurrentThread, (int)v1[5].Header.WaitListHead.Flink);
   ExReleaseSpinLockExclusiveFromDpcLevel(&v1->Header.Lock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-      v11 = (v10 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v10;
-      if ( v11 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v22 = (v21 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v21;
+        if ( v22 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v5);
   KeSetEvent(StartContext[2], 0, 0);
   while ( 1 )
   {
-LABEL_4:
-    Timeout = (LARGE_INTEGER *)&v38;
-    if ( HIDWORD(v1[3].Header.WaitListHead.Blink) <= 1 )
-      Timeout = 0LL;
-    if ( KeWaitForSingleObject(&v1[1], WrKernel, 0, 0, Timeout) != 258 )
+    while ( 1 )
     {
+      Timeout = (LARGE_INTEGER *)&v38;
+      if ( HIDWORD(v1[3].Header.WaitListHead.Blink) <= 1 )
+        Timeout = 0LL;
+      if ( KeWaitForSingleObject(&v1[1], WrKernel, 0, 0, Timeout) == 258 )
+        break;
       p_Blink = 0LL;
-      LOBYTE(v17) = ExAcquireSpinLockExclusive(&v1->Header.Lock);
+      LOBYTE(v8) = ExAcquireSpinLockExclusive(&v1->Header.Lock);
       while ( 1 )
       {
-        if ( HIDWORD(v1[3].Header.WaitListHead.Blink) <= LODWORD(v1[3].Header.WaitListHead.Blink) )
+        if ( HIDWORD(v1[3].Header.WaitListHead.Blink) > LODWORD(v1[3].Header.WaitListHead.Blink) )
+        {
+          if ( !p_Blink )
+            goto LABEL_24;
+          v11 = 0LL;
+        }
+        else
         {
           p_WaitListHead = &v1->Header.WaitListHead;
           Blink = v1->Header.WaitListHead.Blink;
           if ( Blink == &v1->Header.WaitListHead )
           {
-            v18 = 0LL;
-LABEL_32:
+            v11 = 0LL;
             KeResetEvent(v1 + 1);
-            goto LABEL_33;
-          }
-          v18 = p_WaitListHead->Flink;
-          p_WaitListHead->Flink = p_WaitListHead->Flink->Flink;
-          if ( v18 == Blink )
-          {
-            v1->Header.WaitListHead.Blink = &v1->Header.WaitListHead;
-            p_WaitListHead->Flink = 0LL;
           }
           else
           {
-            --Blink->Flink;
+            v11 = p_WaitListHead->Flink;
+            p_WaitListHead->Flink = p_WaitListHead->Flink->Flink;
+            if ( v11 == Blink )
+            {
+              v1->Header.WaitListHead.Blink = &v1->Header.WaitListHead;
+              p_WaitListHead->Flink = 0LL;
+            }
+            else
+            {
+              --Blink->Flink;
+            }
           }
-          if ( !v18 )
-            goto LABEL_32;
         }
-        else
-        {
-          if ( !p_Blink )
-            goto LABEL_48;
-          v18 = 0LL;
-        }
-LABEL_33:
         if ( !v1[1].Header.SignalState && v1->Header.WaitListHead.Blink->Flink >= (struct _LIST_ENTRY *)3 )
           KeSetEvent(v1 + 1, 0, 0);
         ExReleaseSpinLockExclusiveFromDpcLevel(&v1->Header.Lock);
         if ( KiIrqlFlags )
         {
-          v22 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v22 >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            v23 = KeGetCurrentPrcb();
-            v24 = v23->SchedulerAssist;
-            v25 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v17 + 1));
-            v11 = (v25 & v24[5]) == 0;
-            v21 = (unsigned int)v25 & v24[5];
-            v24[5] = v21;
-            if ( v11 )
-              KiRemoveSystemWorkPriorityKick(v23);
+            v27 = KeGetCurrentIrql();
+            if ( v27 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v27 >= 2u )
+            {
+              v28 = KeGetCurrentPrcb();
+              v29 = v28->SchedulerAssist;
+              v30 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+              v22 = (v30 & v29[5]) == 0;
+              v12 = (unsigned int)v30 & v29[5];
+              v29[5] = v12;
+              if ( v22 )
+                KiRemoveSystemWorkPriorityKick(v28);
+            }
           }
         }
-        __writecr8((unsigned __int8)v17);
-        v26 = StartContext[1];
-        if ( !v18 )
-        {
-          LOBYTE(v21) = -1;
-          SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessReadyQueue(v1, v26, v21, 1LL);
-          goto LABEL_4;
-        }
-        p_Blink = &v18[-5].Blink;
-        SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessEntry(v1, v26, StartContext[3], StartContext[4], p_Blink);
-        v27 = ExAcquireSpinLockExclusive(&v1->Header.Lock);
+        __writecr8((unsigned __int8)v8);
+        v13 = StartContext[1];
+        if ( !v11 )
+          break;
+        p_Blink = &v11[-5].Blink;
+        SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessEntry(v1, v13, StartContext[3], StartContext[4], p_Blink);
+        v14 = ExAcquireSpinLockExclusive(&v1->Header.Lock);
         Blink_high = HIDWORD(v1[3].Header.WaitListHead.Blink);
-        LOBYTE(v17) = v27;
+        LOBYTE(v8) = v14;
         if ( LODWORD(v1[3].Header.WaitListHead.Blink) > (unsigned int)Blink_high
           && (unsigned __int64)v1->Header.WaitListHead.Blink->Flink >> 1 > Blink_high )
         {
           KeSetEvent(v1 + 2, 0, 0);
         }
       }
+      LOBYTE(v12) = -1;
+      SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessReadyQueue(v1, v13, v12, 1LL);
     }
-    v17 = ExAcquireSpinLockExclusive(&v1->Header.Lock);
+    v8 = ExAcquireSpinLockExclusive(&v1->Header.Lock);
     if ( HIDWORD(v1[3].Header.WaitListHead.Blink) > 1 )
       break;
     ExReleaseSpinLockExclusiveFromDpcLevel(&v1->Header.Lock);
     if ( KiIrqlFlags )
     {
-      v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v12 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v13 = KeGetCurrentPrcb();
-        v14 = v13->SchedulerAssist;
-        v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v17 + 1));
-        v11 = (v15 & v14[5]) == 0;
-        v14[5] &= v15;
-        if ( v11 )
-          KiRemoveSystemWorkPriorityKick(v13);
+        v23 = KeGetCurrentIrql();
+        if ( v23 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v23 >= 2u )
+        {
+          v24 = KeGetCurrentPrcb();
+          v25 = v24->SchedulerAssist;
+          v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+          v22 = (v26 & v25[5]) == 0;
+          v25[5] &= v26;
+          if ( v22 )
+            KiRemoveSystemWorkPriorityKick(v24);
+        }
       }
     }
-    __writecr8(v17);
+    __writecr8(v8);
   }
-LABEL_48:
+LABEL_24:
   if ( !v1[1].Header.SignalState
     && (v1->Header.WaitListHead.Blink != &v1->Header.WaitListHead || !LODWORD(v1[3].Header.WaitListHead.Blink)) )
   {
     KeSetEvent(v1 + 1, 0, 0);
   }
-  v29 = v35;
-  v30 = v36;
-  if ( (PRKEVENT *)v35->Header.WaitListHead.Flink != &v35 || *v36 != &v35 )
-LABEL_62:
+  v16 = v35;
+  v17 = v36;
+  if ( (PRKEVENT *)v35->Header.WaitListHead.Flink != &v35 || (PRKEVENT *)v36->Flink != &v35 )
+LABEL_60:
     __fastfail(3u);
-  *v36 = (PRKEVENT *)v35;
-  v29->Header.WaitListHead.Flink = (struct _LIST_ENTRY *)v30;
+  v36->Flink = (struct _LIST_ENTRY *)v35;
+  v16->Header.WaitListHead.Flink = v17;
   --HIDWORD(v1[3].Header.WaitListHead.Blink);
   ExReleaseSpinLockExclusiveFromDpcLevel(&v1->Header.Lock);
   if ( KiIrqlFlags )
   {
-    v31 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v31 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v32 = KeGetCurrentPrcb();
-      v33 = v32->SchedulerAssist;
-      v34 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v17 + 1));
-      v11 = (v34 & v33[5]) == 0;
-      v33[5] &= v34;
-      if ( v11 )
-        KiRemoveSystemWorkPriorityKick(v32);
+      v31 = KeGetCurrentIrql();
+      if ( v31 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v31 >= 2u )
+      {
+        v32 = KeGetCurrentPrcb();
+        v33 = v32->SchedulerAssist;
+        v34 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+        v22 = (v34 & v33[5]) == 0;
+        v33[5] &= v34;
+        if ( v22 )
+          KiRemoveSystemWorkPriorityKick(v32);
+      }
     }
   }
-  __writecr8((unsigned __int8)v17);
+  __writecr8((unsigned __int8)v8);
   SMKM_STORE_MGR<SM_TRAITS>::SmCompressContextDeleteThreadParams(StartContext);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSubscribeWnfStateChange @ 0x1401BB7D0
+ * XREFs of ZwSubscribeWnfStateChange @ 0x1401BB7F0
  * Callers:
  *     <none>
  * Callees:

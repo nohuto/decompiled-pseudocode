@@ -1,7 +1,7 @@
 /*
- * XREFs of DwmAsyncGhostChange @ 0x1C01455D8
+ * XREFs of DwmAsyncGhostChange @ 0x1C00049A0
  * Callers:
- *     ?xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0144D6C (-xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     ?xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0003D2C (-xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ __int64 __fastcall DwmAsyncGhostChange(PVOID Object, __int64 a2, __int64 a3)
     memset(v6, 0, sizeof(v6));
     WORD2(v6[0]) = 0x8000;
     LODWORD(v6[0]) = 3932180;
-    v8 = 1073741875;
+    v8 = 1073741874;
     v9[1] = a3;
     v4 = LpcRequestPort(Object, v6);
     ObfDereferenceObject(Object);

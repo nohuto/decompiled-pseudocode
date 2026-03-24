@@ -1,31 +1,26 @@
 /*
- * XREFs of ExpAcquireFannedOutPushLockShared @ 0x1403CD594
+ * XREFs of ExpAcquireFannedOutPushLockShared @ 0x140390440
  * Callers:
- *     FsRtlLookupPerStreamContextInternal @ 0x140230340 (FsRtlLookupPerStreamContextInternal.c)
- *     FsRtlLookupPerFileObjectContext @ 0x140326430 (FsRtlLookupPerFileObjectContext.c)
+ *     ExAcquireAutoExpandPushLockShared @ 0x1402E51D0 (ExAcquireAutoExpandPushLockShared.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140273540 (ExfAcquirePushLockSharedEx.c)
  */
 
-signed __int64 *__fastcall ExpAcquireFannedOutPushLockShared(
-        unsigned int a1,
-        unsigned int a2,
-        unsigned __int64 a3,
-        __int64 a4)
+unsigned __int64 *__fastcall ExpAcquireFannedOutPushLockShared(unsigned int a1, __int64 a2, ULONG_PTR a3)
 {
-  unsigned int v4; // eax
-  unsigned __int64 v5; // r11
-  unsigned int v6; // ecx
-  signed __int64 *v7; // rbx
+  unsigned int v3; // eax
+  unsigned __int64 v4; // r10
+  unsigned int v5; // ecx
+  unsigned __int64 *v6; // rbx
 
-  v4 = (a1 >> 13) & 0x3FFFF;
-  v5 = (unsigned __int64)a1 >> 4;
-  _BitScanReverse(&v6, v4);
-  v7 = (signed __int64 *)(*(_QWORD *)(*((_QWORD *)KeGetCurrentPrcb()->ExSaPageArray + v6 - 2)
-                                    + 8LL * (v4 ^ (1 << v6))
-                                    + 8)
-                        + 8 * (v5 & 0x1FF));
-  if ( _InterlockedCompareExchange64(v7, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v7, a2, a3, a4);
-  return v7;
+  v3 = (a1 >> 13) & 0x3FFFF;
+  v4 = (unsigned __int64)a1 >> 4;
+  _BitScanReverse(&v5, v3);
+  v6 = (unsigned __int64 *)(*(_QWORD *)(*((_QWORD *)KeGetCurrentPrcb()->ExSaPageArray + v5 - 2)
+                                      + 8LL * (v3 ^ (1 << v5))
+                                      + 8)
+                          + 8 * (v4 & 0x1FF));
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)v6, 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx(v6, a2, a3);
+  return v6;
 }

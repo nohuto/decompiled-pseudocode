@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpFindSubKeyByHashWithStatus @ 0x14073D230
+ * XREFs of CmpFindSubKeyByHashWithStatus @ 0x14073D210
  * Callers:
- *     CmpFindSubKeyByNameWithStatus @ 0x14073D11C (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x14073D0FC (CmpFindSubKeyByNameWithStatus.c)
  * Callees:
  *     CmpHashUnicodeComponent @ 0x1405AF2C4 (CmpHashUnicodeComponent.c)
  *     CmpDoCompareKeyName @ 0x1405D5C70 (CmpDoCompareKeyName.c)

@@ -1,58 +1,94 @@
 /*
- * XREFs of ?SetTargetAnalogCopyProtection@DMMVIDPNPRESENTPATH@@QEBAJXZ @ 0x1C03B9D9C
+ * XREFs of ?SetTargetAnalogCopyProtection@DMMVIDPNPRESENTPATH@@QEBAJXZ @ 0x1C02E9A60
  * Callers:
- *     ?DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@I@Z @ 0x1C0171B1C (-DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_C.c)
+ *     ?DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE@@I@Z @ 0x1C00EC44C (-DmmUpdateCopyProtectionOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_C.c)
  * Callees:
- *     ?IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C0002AE8 (-IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?GetMacroVisionTriggerBits@DMMVIDPNPRESENTPATH@@QEBAIXZ @ 0x1C006A980 (-GetMacroVisionTriggerBits@DMMVIDPNPRESENTPATH@@QEBAIXZ.c)
- *     ?DdiSetTargetAnalogCopyProtection@ADAPTER_DISPLAY@@QEAAJPEBU_DXGKARG_SETTARGETANALOGCOPYPROTECTION@@@Z @ 0x1C02CBE00 (-DdiSetTargetAnalogCopyProtection@ADAPTER_DISPLAY@@QEAAJPEBU_DXGKARG_SETTARGETANALOGCOPYPROTECTI.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C000A4B4 (-IsVidPnSourceActive@ADAPTER_DISPLAY@@QEBAEI@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?GetMacroVisionTriggerBits@DMMVIDPNPRESENTPATH@@QEBAIXZ @ 0x1C005D42C (-GetMacroVisionTriggerBits@DMMVIDPNPRESENTPATH@@QEBAIXZ.c)
+ *     ?DdiSetTargetAnalogCopyProtection@ADAPTER_DISPLAY@@QEAAJPEBU_DXGKARG_SETTARGETANALOGCOPYPROTECTION@@@Z @ 0x1C021EF44 (-DdiSetTargetAnalogCopyProtection@ADAPTER_DISPLAY@@QEAAJPEBU_DXGKARG_SETTARGETANALOGCOPYPROTECTI.c)
  */
 
-__int64 __fastcall DMMVIDPNPRESENTPATH::SetTargetAnalogCopyProtection(DMMVIDPNPRESENTPATH *this)
+__int64 __fastcall DMMVIDPNPRESENTPATH::SetTargetAnalogCopyProtection(DMMVIDPNPRESENTPATH *this, __int64 a2)
 {
-  __int64 v2; // rdi
   __int64 v3; // rdi
-  DXGADAPTER **v4; // rdi
-  __int64 v5; // r8
-  D3DDDI_VIDEO_PRESENT_TARGET_ID v6; // ecx
-  D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE v7; // eax
-  int v8; // eax
-  unsigned int v9; // edi
-  _DXGKARG_SETTARGETANALOGCOPYPROTECTION v11; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v4; // rax
+  __int64 v5; // rax
+  __int64 v6; // rsi
+  DXGADAPTER **v7; // rdi
+  __int64 v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  D3DDDI_VIDEO_PRESENT_TARGET_ID v16; // ecx
+  D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE v17; // eax
+  int v18; // eax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v22; // rdi
+  __int64 v23; // rax
+  __int64 v25; // rax
+  _DXGKARG_SETTARGETANALOGCOPYPROTECTION v26; // [rsp+20h] [rbp-28h] BYREF
 
-  v2 = *(_QWORD *)(*((_QWORD *)this + 12) + 96LL);
-  if ( !*(_QWORD *)(v2 + 40) )
-    WdLogSingleEntry0(1LL);
-  v3 = *(_QWORD *)(*(_QWORD *)(v2 + 40) + 88LL);
-  if ( !*(_QWORD *)(v3 + 8) )
-    WdLogSingleEntry0(1LL);
-  v4 = *(DXGADAPTER ***)(v3 + 8);
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(v4[2]) )
-    WdLogSingleEntry0(1LL);
-  if ( *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v4[2] + 27) + 64LL) + 40LL) + 28LL) < 0x700Au )
-    WdLogSingleEntry0(1LL);
-  if ( !ADAPTER_DISPLAY::IsVidPnSourceActive((ADAPTER_DISPLAY *)v4, *(_DWORD *)(*((_QWORD *)this + 11) + 24LL)) )
-    return 0LL;
-  v6 = *(_DWORD *)(*((_QWORD *)this + 12) + 24LL);
-  v11.CopyProtectionSupport = (D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT)*((_DWORD *)this + 42);
-  v7 = *((_DWORD *)this + 43);
-  v11.TargetId = v6;
-  v11.CopyProtectionType = v7;
-  if ( v7 == D3DKMDT_VPPMT_MACROVISION_APSTRIGGER )
-    v11.APSTriggerBits = DMMVIDPNPRESENTPATH::GetMacroVisionTriggerBits(this);
-  else
-    v11.APSTriggerBits = 0;
-  v8 = ADAPTER_DISPLAY::DdiSetTargetAnalogCopyProtection((ADAPTER_DISPLAY *)v4, &v11, v5);
-  v9 = v8;
-  if ( v8 == -1073741637 )
+  v3 = *(_QWORD *)(*((_QWORD *)this + 12) + 96LL);
+  v4 = *(_QWORD *)(v3 + 40);
+  if ( !v4 )
   {
-    WdLogSingleEntry2(3LL, this, -1073741637LL);
+    v5 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v5);
+    v4 = *(_QWORD *)(v3 + 40);
+  }
+  v6 = *(_QWORD *)(v4 + 88);
+  v7 = *(DXGADAPTER ***)(v6 + 8);
+  if ( !v7 )
+  {
+    v8 = WdLogNewEntry5_WdAssertion(this, a2);
+    WdLogEvent5_WdAssertion(v8);
+    v7 = *(DXGADAPTER ***)(v6 + 8);
+  }
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(v7[2]) )
+  {
+    v11 = WdLogNewEntry5_WdAssertion(v10, v9);
+    WdLogEvent5_WdAssertion(v11);
+  }
+  v12 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v7[2] + 27) + 64LL) + 40LL);
+  if ( *(_DWORD *)(v12 + 28) < 0x700Au )
+  {
+    v13 = WdLogNewEntry5_WdAssertion(v12, v9);
+    WdLogEvent5_WdAssertion(v13);
+  }
+  if ( !ADAPTER_DISPLAY::IsVidPnSourceActive((ADAPTER_DISPLAY *)v7, *(unsigned int *)(*((_QWORD *)this + 11) + 24LL)) )
+    return 0LL;
+  v16 = *(_DWORD *)(*((_QWORD *)this + 12) + 24LL);
+  v26.CopyProtectionSupport = (D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT)*((_DWORD *)this + 42);
+  v17 = *((_DWORD *)this + 43);
+  v26.TargetId = v16;
+  v26.CopyProtectionType = v17;
+  if ( v17 == D3DKMDT_VPPMT_MACROVISION_APSTRIGGER )
+    v26.APSTriggerBits = DMMVIDPNPRESENTPATH::GetMacroVisionTriggerBits(this, v14);
+  else
+    v26.APSTriggerBits = 0;
+  v18 = ADAPTER_DISPLAY::DdiSetTargetAnalogCopyProtection((ADAPTER_DISPLAY *)v7, &v26, v15);
+  v22 = v18;
+  if ( v18 == -1073741637 )
+  {
+    v23 = WdLogNewEntry5_WdWarning(v20, v19, v21);
+    *(_QWORD *)(v23 + 24) = this;
+    *(_QWORD *)(v23 + 32) = -1073741637LL;
+    WdLogEvent5_WdWarning(v23);
     return 3221225659LL;
   }
-  if ( v8 >= 0 )
+  if ( v18 >= 0 )
     return 0LL;
-  WdLogSingleEntry2(2LL, this, v8);
-  return v9;
+  v25 = WdLogNewEntry5_WdError(v20, v19);
+  *(_QWORD *)(v25 + 24) = this;
+  *(_QWORD *)(v25 + 32) = v22;
+  WdLogEvent5_WdError(v25);
+  return (unsigned int)v22;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of WakeRITForConfigSwitch @ 0x1C01D4470
+ * XREFs of WakeRITForConfigSwitch @ 0x1C01D9D80
  * Callers:
  *     <none>
  * Callees:
- *     WakeRIT @ 0x1C00FD22C (WakeRIT.c)
+ *     WakeRIT @ 0x1C010BE30 (WakeRIT.c)
  */
 
 __int64 WakeRITForConfigSwitch()

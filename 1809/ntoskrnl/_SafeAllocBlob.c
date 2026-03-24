@@ -1,11 +1,11 @@
 /*
- * XREFs of _SafeAllocBlob @ 0x1401825B8
+ * XREFs of _SafeAllocBlob @ 0x1401825D8
  * Callers:
- *     RtlpMuiRegCreateLanguages @ 0x14073DDE8 (RtlpMuiRegCreateLanguages.c)
- *     RtlpMuiRegCreateLanguageConfigList @ 0x14073DE44 (RtlpMuiRegCreateLanguageConfigList.c)
- *     RtlpMuiRegCreateStringPool @ 0x14073DEA8 (RtlpMuiRegCreateStringPool.c)
+ *     RtlpMuiRegCreateLanguages @ 0x14073DDC8 (RtlpMuiRegCreateLanguages.c)
+ *     RtlpMuiRegCreateLanguageConfigList @ 0x14073DE24 (RtlpMuiRegCreateLanguageConfigList.c)
+ *     RtlpMuiRegCreateStringPool @ 0x14073DE88 (RtlpMuiRegCreateStringPool.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

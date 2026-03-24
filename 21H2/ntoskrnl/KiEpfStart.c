@@ -1,13 +1,13 @@
 /*
- * XREFs of KiEpfStart @ 0x14057B194
+ * XREFs of KiEpfStart @ 0x140524254
  * Callers:
- *     KeWaitPhysicalFaultCompletion @ 0x14057AEEC (KeWaitPhysicalFaultCompletion.c)
- *     KiEpfHandleNotification @ 0x14057B170 (KiEpfHandleNotification.c)
+ *     KeWaitPhysicalFaultCompletion @ 0x140523F5C (KeWaitPhysicalFaultCompletion.c)
+ *     KiEpfHandleNotification @ 0x140524230 (KiEpfHandleNotification.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KeWaitForGate @ 0x140217454 (KeWaitForGate.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeSetKernelStackSwapEnable @ 0x1402F8AA0 (KeSetKernelStackSwapEnable.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeSetKernelStackSwapEnable @ 0x14022C190 (KeSetKernelStackSwapEnable.c)
+ *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
  */
 
 void __fastcall KiEpfStart(unsigned __int64 a1)
@@ -80,14 +80,14 @@ LABEL_6:
   KxReleaseSpinLock((PKSPIN_LOCK)(v2 + 16));
   if ( v5 )
   {
-    _InterlockedIncrement(&dword_140C2A8B0);
-    v6 = _InterlockedIncrement(&dword_140C2A8B4);
+    _InterlockedIncrement(&dword_140C2B090);
+    v6 = _InterlockedIncrement(&dword_140C2B094);
     do
-      v9 = dword_140C2A8B8;
-    while ( dword_140C2A8B8 < v6 && v9 != _InterlockedCompareExchange(&dword_140C2A8B8, v6, dword_140C2A8B8) );
+      v9 = dword_140C2B098;
+    while ( dword_140C2B098 < v6 && v9 != _InterlockedCompareExchange(&dword_140C2B098, v6, dword_140C2B098) );
     v10 = KeSetKernelStackSwapEnable(0);
-    KeWaitForGate((__int64)&v14, 0x27u);
+    KeWaitForGate((__int64)&v14, 39);
     KeSetKernelStackSwapEnable(v10);
-    _InterlockedDecrement(&dword_140C2A8B4);
+    _InterlockedDecrement(&dword_140C2B094);
   }
 }

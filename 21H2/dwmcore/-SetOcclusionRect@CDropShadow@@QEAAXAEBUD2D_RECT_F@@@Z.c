@@ -1,38 +1,41 @@
 /*
- * XREFs of ?SetOcclusionRect@CDropShadow@@QEAAXAEBUD2D_RECT_F@@@Z @ 0x180212A4C
+ * XREFs of ?SetOcclusionRect@CDropShadow@@QEAAXAEBUD2D_RECT_F@@@Z @ 0x1801BF5A8
  * Callers:
- *     ?RenderContent@CSpriteVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x18008CA50 (-RenderContent@CSpriteVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
+ *     ?RenderContent@CSpriteVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x1800B7F40 (-RenderContent@CSpriteVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
  * Callees:
- *     ?AreEqual@@YA_NAEBUD2D_RECT_F@@0@Z @ 0x180080760 (-AreEqual@@YA_NAEBUD2D_RECT_F@@0@Z.c)
- *     ?IsWellOrdered@@YA_NAEBUD2D_RECT_F@@@Z @ 0x180085F58 (-IsWellOrdered@@YA_NAEBUD2D_RECT_F@@@Z.c)
- *     ?IsEmpty@@YA_NAEBUD2D_RECT_F@@@Z @ 0x1800860E4 (-IsEmpty@@YA_NAEBUD2D_RECT_F@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x180058390 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?AreEqual@@YA_NAEBUD2D_RECT_F@@0@Z @ 0x1800C6F9C (-AreEqual@@YA_NAEBUD2D_RECT_F@@0@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall CDropShadow::SetOcclusionRect(CDropShadow *this, __m128 *a2)
+void __fastcall CDropShadow::SetOcclusionRect(CDropShadow *this, const struct D2D_RECT_F *a2)
 {
-  __int64 v2; // r9
-  struct D2D_RECT_F v3; // xmm6
-  const struct D2D_RECT_F *v4; // rcx
-  struct D2D_RECT_F *v5; // r8
-  __int64 *v6; // r9
-  __int64 v7; // rax
-  struct D2D_RECT_F v8; // [rsp+20h] [rbp-28h] BYREF
+  float bottom; // xmm4_4
+  float v3; // xmm1_4
+  float v4; // xmm2_4
+  float v5; // xmm3_4
+  float *v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  int v9; // xmm4_4
+  struct D2D_RECT_F v10; // [rsp+20h] [rbp-18h] BYREF
 
-  v8 = (struct D2D_RECT_F)_mm_sub_ps(*a2, (__m128)_xmm);
-  if ( IsWellOrdered(&v8) )
+  bottom = a2->bottom;
+  v3 = a2->left - -0.5;
+  v4 = a2->top - -0.5;
+  v5 = a2->right - 0.5;
+  v10.left = v3;
+  v10.top = v4;
+  v10.right = v5;
+  v10.bottom = bottom - 0.5;
+  if ( !AreEqual((const struct D2D_RECT_F *)((char *)this + 116), &v10)
+    && (!TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty(v6)
+     || !TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty(&v10.left)) )
   {
-    v3 = v8;
-  }
-  else
-  {
-    v3 = 0LL;
-    v8 = 0LL;
-  }
-  if ( !AreEqual((const struct D2D_RECT_F *)(v2 + 108), &v8) && (!IsEmpty(v4) || !IsEmpty(&v8)) )
-  {
-    v7 = *v6;
-    *v5 = v3;
-    (*(void (__fastcall **)(__int64 *, __int64))(v7 + 72))(v6, 5LL);
+    *(float *)v7 = v3;
+    *(float *)(v7 + 4) = v4;
+    *(float *)(v7 + 8) = v5;
+    *(_DWORD *)(v7 + 12) = v9;
+    (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v8 + 72LL))(v8, 5LL);
   }
 }

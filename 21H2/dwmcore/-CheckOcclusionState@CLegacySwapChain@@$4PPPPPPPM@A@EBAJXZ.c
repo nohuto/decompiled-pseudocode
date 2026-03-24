@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@A@EBAJXZ @ 0x180108D30
+ * XREFs of ?CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@A@EBAJXZ @ 0x1800F74A0
  * Callers:
  *     <none>
  * Callees:

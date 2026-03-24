@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AccessCheck@DxgkCompositionObject@@QEBAJKD@Z @ 0x1C006C364
+ * XREFs of ?AccessCheck@DxgkCompositionObject@@QEBAJKD@Z @ 0x1C005E768
  * Callers:
- *     NtDxgkRegisterVailProcess @ 0x1C0353BC0 (NtDxgkRegisterVailProcess.c)
+ *     NtDxgkRegisterVailProcess @ 0x1C02B8680 (NtDxgkRegisterVailProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 __int64 __fastcall DxgkCompositionObject::AccessCheck(DxgkCompositionObject *this)
@@ -17,7 +17,7 @@ __int64 __fastcall DxgkCompositionObject::AccessCheck(DxgkCompositionObject *thi
 
   memset(v5, 0, sizeof(v5));
   memset(v6, 0, sizeof(v6));
-  result = SeCreateAccessState(v5, v6, 1LL, &xmmword_1C0094A70);
+  result = SeCreateAccessState(v5, v6, 1LL, &xmmword_1C007C388);
   v4[0] = result;
   if ( (int)result >= 0 )
   {

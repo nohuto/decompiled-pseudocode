@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetJobLimitsJobPostCallback @ 0x1406CD1B0
+ * XREFs of PspSetJobLimitsJobPostCallback @ 0x1406CD190
  * Callers:
  *     <none>
  * Callees:
- *     PspApplyWorkingSetLimits @ 0x140889804 (PspApplyWorkingSetLimits.c)
+ *     PspApplyWorkingSetLimits @ 0x1408897E4 (PspApplyWorkingSetLimits.c)
  */
 
 __int64 __fastcall PspSetJobLimitsJobPostCallback(__int64 a1, __int64 a2)

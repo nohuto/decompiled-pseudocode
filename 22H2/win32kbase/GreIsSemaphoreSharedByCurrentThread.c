@@ -1,8 +1,8 @@
 /*
- * XREFs of GreIsSemaphoreSharedByCurrentThread @ 0x1C00B2DA0
+ * XREFs of GreIsSemaphoreSharedByCurrentThread @ 0x1C00A8E50
  * Callers:
- *     EngIsSemaphoreSharedByCurrentThread @ 0x1C00B2D80 (EngIsSemaphoreSharedByCurrentThread.c)
- *     GreIsVisRgnLockedShared @ 0x1C016A5C0 (GreIsVisRgnLockedShared.c)
+ *     EngIsSemaphoreSharedByCurrentThread @ 0x1C00A8E30 (EngIsSemaphoreSharedByCurrentThread.c)
+ *     GreIsVisRgnLockedShared @ 0x1C014B7A0 (GreIsVisRgnLockedShared.c)
  * Callees:
  *     <none>
  */

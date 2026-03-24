@@ -1,20 +1,25 @@
 /*
- * XREFs of _PnpCtxRegCloseKey @ 0x140876DE4
+ * XREFs of _PnpCtxRegCloseKey @ 0x1406B4684
  * Callers:
- *     PipUpdateDeviceProducts @ 0x140375490 (PipUpdateDeviceProducts.c)
- *     DrvDbGetConfigurationSubKeyCallback @ 0x140673F30 (DrvDbGetConfigurationSubKeyCallback.c)
- *     PipInitComputerIds @ 0x140B3D92C (PipInitComputerIds.c)
- *     PipCheckSystemFirmwareUpdated @ 0x140B3FC3C (PipCheckSystemFirmwareUpdated.c)
- *     IopInitializeBootDrivers @ 0x140B405B4 (IopInitializeBootDrivers.c)
- *     PipMigratePnpState @ 0x140B4324C (PipMigratePnpState.c)
- *     PipProcessPendingServices @ 0x140B435C4 (PipProcessPendingServices.c)
- *     PipProcessPendingOsExtensionResources @ 0x140B43650 (PipProcessPendingOsExtensionResources.c)
- *     PipResetDevices @ 0x140B436DC (PipResetDevices.c)
- *     PipMigrateCleanServiceCallback @ 0x140B953C0 (PipMigrateCleanServiceCallback.c)
- *     PipCommitPendingOsExtensionResource @ 0x140B95B80 (PipCommitPendingOsExtensionResource.c)
- *     PipCommitPendingService @ 0x140B95D90 (PipCommitPendingService.c)
+ *     PipUpdateDeviceProducts @ 0x1403C6D30 (PipUpdateDeviceProducts.c)
+ *     DrvDbGetConfigurationSubKeyCallback @ 0x1405C6440 (DrvDbGetConfigurationSubKeyCallback.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x1406B469C (DrvDbGetDriverPackageMappedProperty.c)
+ *     PiPnpRtlInit @ 0x1407A3780 (PiPnpRtlInit.c)
+ *     DrvDbCreateDatabaseNode @ 0x1407A4698 (DrvDbCreateDatabaseNode.c)
+ *     PiCMCreateDevice @ 0x1408AF490 (PiCMCreateDevice.c)
+ *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x14097D3F4 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
+ *     PipMigratePnpState @ 0x140A51084 (PipMigratePnpState.c)
+ *     PipProcessPendingOsExtensionResources @ 0x140A53388 (PipProcessPendingOsExtensionResources.c)
+ *     PipProcessPendingServices @ 0x140A53414 (PipProcessPendingServices.c)
+ *     PipResetDevices @ 0x140A53B50 (PipResetDevices.c)
+ *     PipInitComputerIds @ 0x140A5B730 (PipInitComputerIds.c)
+ *     PipCheckSystemFirmwareUpdated @ 0x140A5CA78 (PipCheckSystemFirmwareUpdated.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
+ *     PipMigrateCleanServiceCallback @ 0x140A90380 (PipMigrateCleanServiceCallback.c)
+ *     PipCommitPendingOsExtensionResource @ 0x140A90B40 (PipCommitPendingOsExtensionResource.c)
+ *     PipCommitPendingService @ 0x140A90D50 (PipCommitPendingService.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
  */
 
 NTSTATUS __fastcall PnpCtxRegCloseKey(__int64 a1, void *a2)

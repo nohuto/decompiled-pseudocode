@@ -1,17 +1,17 @@
 /*
- * XREFs of AdtpBuildStagingReasonAuditStringInternal @ 0x140670D88
+ * XREFs of AdtpBuildStagingReasonAuditStringInternal @ 0x1405C3294
  * Callers:
- *     AdtpBuildAccessReasonAuditString @ 0x14066FDD0 (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x1405C22BC (AdtpBuildAccessReasonAuditString.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     AdtpFormatPrefix @ 0x140671134 (AdtpFormatPrefix.c)
- *     StringCchPrintfExW @ 0x140671290 (StringCchPrintfExW.c)
- *     AdtpBuildAccessesString @ 0x140A5B944 (AdtpBuildAccessesString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     AdtpFormatPrefix @ 0x1405C363C (AdtpFormatPrefix.c)
+ *     StringCchPrintfExW @ 0x1405C3720 (StringCchPrintfExW.c)
+ *     AdtpBuildAccessesString @ 0x14096E308 (AdtpBuildAccessesString.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildStagingReasonAuditStringInternal(
@@ -22,10 +22,10 @@ __int64 __fastcall AdtpBuildStagingReasonAuditStringInternal(
         int a5,
         int a6,
         __int64 a7,
-        _WORD *a8)
+        __int64 a8)
 {
-  unsigned __int8 v8; // bl
   unsigned __int16 Length; // si
+  unsigned __int8 v9; // bl
   unsigned int v10; // eax
   int v11; // edi
   unsigned int v12; // ebx
@@ -36,53 +36,54 @@ __int64 __fastcall AdtpBuildStagingReasonAuditStringInternal(
   ULONG v17; // r15d
   size_t v18; // rdx
   unsigned int v19; // eax
+  unsigned int v21; // ebx
   NTSTATUS appended; // eax
-  size_t v21; // r14
-  __int64 v22; // r15
-  __int16 v23; // si
-  char *Pool2; // rbx
-  __int16 v25; // si
-  _WORD *v26; // rcx
-  __int64 v28; // [rsp+30h] [rbp-D0h]
-  __int64 v29; // [rsp+50h] [rbp-B0h] BYREF
-  UNICODE_STRING v30; // [rsp+58h] [rbp-A8h] BYREF
+  size_t v23; // r14
+  unsigned int v24; // ebx
+  _WORD *PoolWithTag; // rax
+  _WORD *v26; // rsi
+  __int64 v27; // rcx
+  __int16 v28; // bx
+  __int64 v29; // [rsp+30h] [rbp-D0h]
+  __int64 v30; // [rsp+50h] [rbp-B0h] BYREF
+  UNICODE_STRING v31; // [rsp+58h] [rbp-A8h] BYREF
   size_t pcchRemaining; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING Destination; // [rsp+70h] [rbp-90h] BYREF
   void *Src[2]; // [rsp+80h] [rbp-80h] BYREF
-  int v34; // [rsp+90h] [rbp-70h]
+  int v35; // [rsp+90h] [rbp-70h]
   UNICODE_STRING Source; // [rsp+98h] [rbp-68h] BYREF
-  size_t v36; // [rsp+A8h] [rbp-58h]
-  _WORD *v37; // [rsp+B0h] [rbp-50h]
+  size_t v37; // [rsp+A8h] [rbp-58h]
+  __int64 v38; // [rsp+B0h] [rbp-50h]
   wchar_t pszFormat[8]; // [rsp+B8h] [rbp-48h] BYREF
   wchar_t pszDest[20]; // [rsp+C8h] [rbp-38h] BYREF
-  char v40; // [rsp+F0h] [rbp-10h] BYREF
+  char v41; // [rsp+F0h] [rbp-10h] BYREF
 
-  v37 = a8;
-  Source.Buffer = (wchar_t *)&v40;
-  v36 = a4;
-  *(_OWORD *)Src = 0LL;
-  v8 = 0;
-  pcchRemaining = a3;
-  v30.Buffer = (wchar_t *)L"-";
+  v38 = a8;
+  v37 = a4;
+  Source.Buffer = (wchar_t *)&v41;
   Length = 2;
+  v9 = 0;
+  pcchRemaining = a3;
+  *(_OWORD *)Src = 0LL;
+  v31.Buffer = (wchar_t *)L"-";
   v10 = a5;
-  LOBYTE(v29) = 0;
   Destination = 0LL;
+  LOBYTE(v30) = 0;
   *(_QWORD *)&Source.Length = 1966080LL;
   wcscpy(pszFormat, L"# %d");
-  *(_QWORD *)&v30.Length = 131074LL;
+  *(_QWORD *)&v31.Length = 131074LL;
   while ( 1 )
   {
     v10 >>= 1;
     if ( !v10 )
       break;
-    ++v8;
+    ++v9;
   }
-  v11 = AdtpBuildAccessesString(a1, a2, a5, 2, (PUNICODE_STRING)Src, 0LL, 0LL, 0LL, (__int64)&v29);
+  v11 = AdtpBuildAccessesString(a1, a2, a5, 2, (PUNICODE_STRING)Src, 0LL, 0LL, 0LL, (__int64)&v30);
   if ( v11 < 0 )
-    goto LABEL_47;
-  v34 = LOWORD(Src[0]) >> 1;
-  v12 = *(_DWORD *)(a7 + 4LL * v8);
+    goto LABEL_33;
+  v35 = LOWORD(Src[0]) >> 1;
+  v12 = *(_DWORD *)(a7 + 4LL * v9);
   v13 = HIBYTE(v12);
   v14 = v12 & 0xFF0000;
   v15 = v13 & 0x7F;
@@ -139,68 +140,75 @@ LABEL_26:
   v11 = AdtpFormatPrefix(&Source, v17);
   if ( v11 >= 0 )
   {
-    if ( v14 == 196608 || (v18 = pcchRemaining, v14 == 393216) )
-      v18 = v36;
+    if ( v14 == 196608 || v14 == 393216 )
+      v18 = v37;
+    else
+      v18 = pcchRemaining;
     v19 = *(_DWORD *)(v18 + 8);
     if ( v19 )
     {
       if ( v15 >= v19 )
       {
         v11 = -1073741811;
-        goto LABEL_47;
+        goto LABEL_33;
       }
-      v30 = *(UNICODE_STRING *)(*(_QWORD *)(v18 + 16) + 16LL * v15);
-      Length = v30.Length;
+      v31 = *(UNICODE_STRING *)(*(_QWORD *)(v18 + 16) + 16LL * v15);
+      Length = v31.Length;
     }
     if ( Length <= 2u )
     {
-      LODWORD(v28) = v15;
+      LODWORD(v29) = v15;
       pcchRemaining = 0LL;
-      if ( StringCchPrintfExW(pszDest, 0x14uLL, 0LL, &pcchRemaining, 0, pszFormat, v28) >= 0 )
+      if ( StringCchPrintfExW(pszDest, 0x14uLL, 0LL, &pcchRemaining, 0, pszFormat, v29) >= 0 )
       {
-        v30.MaximumLength = 40;
+        v31.MaximumLength = 40;
         Length = 2 * (20 - pcchRemaining);
-        v30.Length = Length;
-        v30.Buffer = pszDest;
+        v31.Length = Length;
+        v31.Buffer = pszDest;
       }
     }
-    Destination.Buffer = (wchar_t *)ExAllocatePool2(256LL, (unsigned int)Length + 54, 1799447891LL);
-    if ( !Destination.Buffer )
-      goto LABEL_38;
-    Destination.Length = 0;
-    Destination.MaximumLength = 2 * (Length + 54);
-    RtlAppendUnicodeStringToString(&Destination, &Source);
-    if ( v17 != 1809 )
-      RtlAppendUnicodeStringToString(&Destination, &v30);
-    appended = RtlAppendUnicodeToString(&Destination, L"\r\n\t\t\t\t");
-    v21 = Destination.Length;
-    v11 = appended;
-    v22 = v34 + (Destination.Length >> 1);
-    v23 = v34 + (Destination.Length >> 1) + 1;
-    Pool2 = (char *)ExAllocatePool2(256LL, 2LL * (unsigned int)(v22 + 1), 1799447891LL);
-    if ( Pool2 )
+    v21 = Length + 54;
+    Destination.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v21, 0x6B416553u);
+    if ( Destination.Buffer )
     {
-      if ( LOWORD(Src[0]) )
-        memmove(Pool2, Src[1], LOWORD(Src[0]));
-      if ( (_WORD)v21 )
-        memmove(&Pool2[LOWORD(Src[0])], Destination.Buffer, v21);
-      *(_WORD *)&Pool2[2 * v22] = 0;
-      v25 = 2 * v23;
-      v26 = v37;
-      *v37 = v25 - 2;
-      v26[1] = v25;
-      *((_QWORD *)v26 + 1) = Pool2;
+      Destination.Length = 0;
+      Destination.MaximumLength = 2 * v21;
+      RtlAppendUnicodeStringToString(&Destination, &Source);
+      if ( v17 != 1809 )
+        RtlAppendUnicodeStringToString(&Destination, &v31);
+      appended = RtlAppendUnicodeToString(&Destination, L"\r\n\t\t\t\t");
+      v23 = Destination.Length;
+      v11 = appended;
+      v24 = v35 + 1 + (Destination.Length >> 1);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 2LL * v24, 0x6B416553u);
+      v26 = PoolWithTag;
+      if ( PoolWithTag )
+      {
+        if ( LOWORD(Src[0]) )
+          memmove(PoolWithTag, Src[1], LOWORD(Src[0]));
+        if ( (_WORD)v23 )
+          memmove((char *)v26 + LOWORD(Src[0]), Destination.Buffer, v23);
+        v27 = v38;
+        v26[v24 - 1] = 0;
+        v28 = 2 * v24;
+        *(_WORD *)(v27 + 2) = v28;
+        *(_QWORD *)(v27 + 8) = v26;
+        *(_WORD *)v27 = v28 - 2;
+      }
+      else
+      {
+        v11 = -1073741801;
+      }
     }
     else
     {
-LABEL_38:
       v11 = -1073741801;
     }
   }
-LABEL_47:
-  if ( (_BYTE)v29 && Src[1] )
-    ExFreePoolWithTag(Src[1], 0);
+LABEL_33:
+  if ( (_BYTE)v30 && Src[1] )
+    ExFreeHeapPool((ULONG_PTR)Src[1]);
   if ( Destination.Buffer )
-    ExFreePoolWithTag(Destination.Buffer, 0);
+    ExFreeHeapPool((ULONG_PTR)Destination.Buffer);
   return (unsigned int)v11;
 }

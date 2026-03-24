@@ -1,38 +1,36 @@
 /*
- * XREFs of ?DrvCheckGraphicsDeviceForSmoothRotation@@YAHPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0160DC4
+ * XREFs of ?DrvCheckGraphicsDeviceForSmoothRotation@@YAHPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0143F38
  * Callers:
- *     ?DrvUpdateDisplayModeInPdev@@YAHPEAUHDEV__@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C01623D4 (-DrvUpdateDisplayModeInPdev@@YAHPEAUHDEV__@@PEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ *     ?DrvUpdateDisplayModeInPdev@@YAHPEAUHDEV__@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0145058 (-DrvUpdateDisplayModeInPdev@@YAHPEAUHDEV__@@PEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
  * Callees:
- *     ?GetPrimaryAttachFlags@@YAHPEAUtagGRAPHICS_DEVICE@@GPEAK1@Z @ 0x1C00210F0 (-GetPrimaryAttachFlags@@YAHPEAUtagGRAPHICS_DEVICE@@GPEAK1@Z.c)
+ *     ?GetPrimaryAttachFlags@@YAHPEAUtagGRAPHICS_DEVICE@@GPEAK1@Z @ 0x1C0013860 (-GetPrimaryAttachFlags@@YAHPEAUtagGRAPHICS_DEVICE@@GPEAK1@Z.c)
  */
 
 __int64 __fastcall DrvCheckGraphicsDeviceForSmoothRotation(struct tagGRAPHICS_DEVICE *a1)
 {
-  __int64 v2; // rsi
-  __int16 v3; // ax
-  __int64 i; // rbx
-  __int16 v5; // ax
-  unsigned int v7; // [rsp+30h] [rbp+8h] BYREF
-  unsigned int v8; // [rsp+38h] [rbp+10h] BYREF
+  unsigned __int16 v2; // ax
+  wchar_t *i; // rbx
+  unsigned __int16 v4; // ax
+  unsigned int v6; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v7; // [rsp+38h] [rbp+10h] BYREF
 
-  v8 = 0;
   v7 = 0;
+  v6 = 0;
   if ( !a1 )
     return 0LL;
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  v3 = -1;
-  if ( !*(_DWORD *)(v2 + 1292) )
-    v3 = gProtocolType;
-  if ( !(unsigned int)GetPrimaryAttachFlags(a1, v3, &v8, &v7) || !v7 )
+  v2 = -1;
+  if ( !gForceDisconnect )
+    v2 = gProtocolType;
+  if ( !(unsigned int)GetPrimaryAttachFlags(a1, v2, &v7, &v6) || !v6 )
     return 0LL;
-  for ( i = *(_QWORD *)(v2 + 1264); i; i = *(_QWORD *)(i + 128) )
+  for ( i = gpGraphicsDeviceList; i; i = (wchar_t *)*((_QWORD *)i + 16) )
   {
     if ( a1 != (struct tagGRAPHICS_DEVICE *)i )
     {
-      v5 = -1;
-      if ( !*(_DWORD *)(v2 + 1292) )
-        v5 = gProtocolType;
-      if ( (unsigned int)GetPrimaryAttachFlags((struct tagGRAPHICS_DEVICE *)i, v5, &v8, &v7) && v7 )
+      v4 = -1;
+      if ( !gForceDisconnect )
+        v4 = gProtocolType;
+      if ( (unsigned int)GetPrimaryAttachFlags((struct tagGRAPHICS_DEVICE *)i, v4, &v7, &v6) && v6 )
         return 0LL;
     }
   }

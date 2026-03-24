@@ -4,7 +4,7 @@
  *     MiFindLargestLoaderDescriptor @ 0x1409BB2C8 (MiFindLargestLoaderDescriptor.c)
  * Callees:
  *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     MiRestrictRangeToNode @ 0x14017F28C (MiRestrictRangeToNode.c)
+ *     MiRestrictRangeToNode @ 0x14017F2AC (MiRestrictRangeToNode.c)
  *     MxPageAlwaysHot @ 0x1409BBD60 (MxPageAlwaysHot.c)
  *     MiInitializeBootMemoryDescriptor @ 0x1409BBD80 (MiInitializeBootMemoryDescriptor.c)
  */

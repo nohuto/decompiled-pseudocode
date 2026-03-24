@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHvGetMachineCheckContext @ 0x14050EE34
+ * XREFs of HalpHvGetMachineCheckContext @ 0x1404C2A14
  * Callers:
- *     HalpMcaPopulateErrorData @ 0x140507040 (HalpMcaPopulateErrorData.c)
- *     HalpHvMceConsumedMemoryErrorRecovery @ 0x14050E73C (HalpHvMceConsumedMemoryErrorRecovery.c)
+ *     HalpMcaPopulateErrorData @ 0x1404BA67C (HalpMcaPopulateErrorData.c)
+ *     HalpHvMceConsumedMemoryErrorRecovery @ 0x1404C22EC (HalpHvMceConsumedMemoryErrorRecovery.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpHvGetMachineCheckContext(__int64 a1, __int64 a2)
@@ -17,9 +17,9 @@ __int64 __fastcall HalpHvGetMachineCheckContext(__int64 a1, __int64 a2)
   v5 = 0;
   v4[0] = 0LL;
   v6 = 0;
-  if ( !qword_140C4C4F8 )
+  if ( !qword_140C4A1F8 )
     return 3221225473LL;
-  result = qword_140C4C4F8(a1, &v5, v4, &v6);
+  result = qword_140C4A1F8(a1, &v5, v4, &v6);
   *(_DWORD *)a2 = v5;
   *(_QWORD *)(a2 + 8) = v4[0];
   *(_DWORD *)(a2 + 16) = v6;

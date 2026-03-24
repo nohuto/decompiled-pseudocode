@@ -1,7 +1,7 @@
 /*
- * XREFs of PopSqmCreateDwordStreamEntry @ 0x1402E8A04
+ * XREFs of PopSqmCreateDwordStreamEntry @ 0x1402E8B04
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x14071A168 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14071A148 (PopBatteryApplyCompositeState.c)
  * Callees:
  *     <none>
  */

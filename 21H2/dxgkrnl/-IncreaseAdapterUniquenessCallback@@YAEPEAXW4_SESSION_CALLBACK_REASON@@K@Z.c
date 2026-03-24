@@ -1,14 +1,14 @@
 /*
- * XREFs of ?IncreaseAdapterUniquenessCallback@@YAEPEAXW4_SESSION_CALLBACK_REASON@@K@Z @ 0x1C02C3F90
+ * XREFs of ?IncreaseAdapterUniquenessCallback@@YAEPEAXW4_SESSION_CALLBACK_REASON@@K@Z @ 0x1C0216200
  * Callers:
  *     <none>
  * Callees:
- *     DxgkIncreaseSessionAdapterUniqueness @ 0x1C01DAAB8 (DxgkIncreaseSessionAdapterUniqueness.c)
+ *     DxgkIncreaseSessionAdapterUniqueness @ 0x1C015ECFC (DxgkIncreaseSessionAdapterUniqueness.c)
  */
 
-char __fastcall IncreaseAdapterUniquenessCallback(__int64 a1, int a2)
+char __fastcall IncreaseAdapterUniquenessCallback(__int64 a1, __int64 a2)
 {
-  if ( a2 == 1 )
-    DxgkIncreaseSessionAdapterUniqueness();
+  if ( (_DWORD)a2 == 1 )
+    DxgkIncreaseSessionAdapterUniqueness(a1, a2);
   return 1;
 }

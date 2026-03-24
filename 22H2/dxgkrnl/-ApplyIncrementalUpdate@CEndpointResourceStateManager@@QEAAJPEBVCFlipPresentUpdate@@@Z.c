@@ -1,154 +1,221 @@
 /*
- * XREFs of ?ApplyIncrementalUpdate@CEndpointResourceStateManager@@QEAAJPEBVCFlipPresentUpdate@@@Z @ 0x1C0085F74
+ * XREFs of ?ApplyIncrementalUpdate@CEndpointResourceStateManager@@QEAAJPEBVCFlipPresentUpdate@@@Z @ 0x1C006C13C
  * Callers:
- *     ?ApplyUpdateToConsumer@CFlipManager@@AEAAJPEAVCFlipPresentUpdate@@@Z @ 0x1C00829E0 (-ApplyUpdateToConsumer@CFlipManager@@AEAAJPEAVCFlipPresentUpdate@@@Z.c)
+ *     ?ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z @ 0x1C006AD44 (-ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z.c)
+ *     ?ConsumerDwmApplyUpdates@CFlipManager@@QEAAJ_K0AEBUtagCompositionRate@@AEAU_LIST_ENTRY@@PEAW4FlipPresentProcessResult@@@Z @ 0x1C006AEDC (-ConsumerDwmApplyUpdates@CFlipManager@@QEAAJ_K0AEBUtagCompositionRate@@AEAU_LIST_ENTRY@@PEAW4Fli.c)
  * Callees:
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0013814 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C0013858 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?NotifyFrame@CPresentRate@@QEAAXXZ @ 0x1C007D358 (-NotifyFrame@CPresentRate@@QEAAXXZ.c)
- *     ??2?$DXGQUOTAALLOCATOR@$0BAA@$0HDGCEDEG@@@SAPEAX_K@Z @ 0x1C0085778 (--2-$DXGQUOTAALLOCATOR@$0BAA@$0HDGCEDEG@@@SAPEAX_K@Z.c)
- *     ??2?$DXGQUOTAALLOCATOR@$0BAA@$0HDHCEDEG@@@SAPEAX_K@Z @ 0x1C0085EFC (--2-$DXGQUOTAALLOCATOR@$0BAA@$0HDHCEDEG@@@SAPEAX_K@Z.c)
- *     ?FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@@@Z @ 0x1C0086440 (-FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@.c)
- *     ?RemovePoolBufferState@CEndpointResourceStateManager@@QEAAXPEAVCPoolBufferResourceState@@@Z @ 0x1C0087DE8 (-RemovePoolBufferState@CEndpointResourceStateManager@@QEAAXPEAVCPoolBufferResourceState@@@Z.c)
- *     ?SetBoundBuffer@CContentResourceState@@QEAAXPEAVCPoolBufferResource@@@Z @ 0x1C0088958 (-SetBoundBuffer@CContentResourceState@@QEAAXPEAVCPoolBufferResource@@@Z.c)
- *     ?SetBoundPropertySet@CContentResourceState@@QEAAXPEAVCFlipPropertySet@@@Z @ 0x1C00889B0 (-SetBoundPropertySet@CContentResourceState@@QEAAXPEAVCFlipPropertySet@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ??2?$DXGQUOTAALLOCATOR@$00$0HDGCEDEG@@@SAPEAX_K@Z @ 0x1C006BFF4 (--2-$DXGQUOTAALLOCATOR@$00$0HDGCEDEG@@@SAPEAX_K@Z.c)
+ *     ??2?$DXGQUOTAALLOCATOR@$00$0HDHCEDEG@@@SAPEAX_K@Z @ 0x1C006C020 (--2-$DXGQUOTAALLOCATOR@$00$0HDHCEDEG@@@SAPEAX_K@Z.c)
+ *     ?Dequeue@?$CFlipObjectQueue@VCPoolBufferResourceState@@@@QEAAPEAVCPoolBufferResourceState@@XZ @ 0x1C006C614 (-Dequeue@-$CFlipObjectQueue@VCPoolBufferResourceState@@@@QEAAPEAVCPoolBufferResourceState@@XZ.c)
+ *     ?FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@@@Z @ 0x1C006C72C (-FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@.c)
+ *     ?RemovePoolBufferState@CEndpointResourceStateManager@@QEAAXPEAVCPoolBufferResourceState@@@Z @ 0x1C006D570 (-RemovePoolBufferState@CEndpointResourceStateManager@@QEAAXPEAVCPoolBufferResourceState@@@Z.c)
+ *     ?SetBoundBuffer@CContentResourceState@@QEAAXPEAVCPoolBufferResource@@@Z @ 0x1C006E918 (-SetBoundBuffer@CContentResourceState@@QEAAXPEAVCPoolBufferResource@@@Z.c)
+ *     ?SetBoundPropertySet@CContentResourceState@@QEAAXPEAVCFlipPropertySet@@@Z @ 0x1C006E974 (-SetBoundPropertySet@CContentResourceState@@QEAAXPEAVCFlipPropertySet@@@Z.c)
  */
 
 __int64 __fastcall CEndpointResourceStateManager::ApplyIncrementalUpdate(
         struct _LIST_ENTRY *this,
         const struct CFlipPresentUpdate *a2)
 {
-  unsigned int *v2; // rdi
-  unsigned int v3; // ebx
-  unsigned int *v4; // r15
-  CEndpointResourceStateManager *v6; // rcx
-  CEndpointResourceStateManager *v7; // rcx
-  CEndpointResourceStateManager *v8; // rcx
-  CEndpointResourceStateManager *v9; // rcx
-  CContentResourceState *v10; // rax
-  CContentResourceState *v11; // rbp
-  __int64 v12; // rbp
-  char *v13; // rbp
-  __int64 v14; // rax
-  __int64 v15; // rcx
-  char v16; // al
-  struct _LIST_ENTRY *v17; // rdx
-  struct _LIST_ENTRY *Blink; // rax
-  __int64 v19; // rax
-  __int64 v20; // rcx
-  char v21; // al
-  CEndpointResourceStateManager *v22; // rdx
-  CEndpointResourceStateManager **v23; // rax
-  struct CFlipResourceState *v24; // rax
+  unsigned __int64 v2; // rbx
+  __int64 v3; // rdi
+  unsigned int v4; // r15d
+  unsigned __int64 v7; // rdi
+  _QWORD *v8; // rax
+  _QWORD *v9; // rcx
+  char v10; // al
+  _QWORD *v11; // rax
+  _QWORD *v12; // rcx
+  _QWORD *v13; // rax
+  _QWORD *v14; // rcx
+  char v15; // al
+  _QWORD *v16; // rax
+  _QWORD *v17; // rcx
+  __int64 v18; // rax
+  unsigned int *v19; // rdi
+  unsigned int *v20; // r14
+  CEndpointResourceStateManager *v21; // rcx
+  CEndpointResourceStateManager *v22; // rcx
+  int v23; // ecx
+  CEndpointResourceStateManager *v24; // rcx
+  CContentResourceState *v25; // rbx
+  struct _LIST_ENTRY *v26; // rax
+  char *v27; // rcx
+  struct _LIST_ENTRY *v28; // rdx
+  struct _LIST_ENTRY **v29; // rax
+  CEndpointResourceStateManager **Blink; // rcx
+  struct CFlipResourceState *v31; // rax
   struct CPoolBufferResourceState *ResourceState; // rax
+  __int64 v33; // rax
+  _QWORD *v35; // [rsp+20h] [rbp-20h] BYREF
+  _QWORD **v36; // [rsp+28h] [rbp-18h]
+  _QWORD *v37; // [rsp+30h] [rbp-10h] BYREF
+  _QWORD **v38; // [rsp+38h] [rbp-8h]
 
-  v2 = (unsigned int *)*((_QWORD *)a2 + 6);
-  v3 = 0;
-  v4 = (unsigned int *)((char *)v2 + *((unsigned int *)a2 + 10));
-  while ( v2 < v4 )
+  v2 = *((_QWORD *)a2 + 6);
+  v3 = *((unsigned int *)a2 + 10);
+  v36 = &v35;
+  v4 = 0;
+  v35 = &v35;
+  v7 = v2 + v3;
+  v38 = &v37;
+  v37 = &v37;
+  while ( 1 )
   {
-    v6 = (CEndpointResourceStateManager *)*v2;
-    if ( !(_DWORD)v6 )
+    if ( v2 >= v7 )
     {
-      ResourceState = CEndpointResourceStateManager::FindResourceState(v6, *((_QWORD *)v2 + 1), this);
-      if ( !ResourceState )
-        return (unsigned int)-1073741823;
-      CEndpointResourceStateManager::RemovePoolBufferState((CEndpointResourceStateManager *)this, ResourceState);
-      goto LABEL_25;
-    }
-    v7 = (CEndpointResourceStateManager *)(unsigned int)((_DWORD)v6 - 1);
-    if ( !(_DWORD)v7 )
-    {
-      v24 = CEndpointResourceStateManager::FindResourceState(v7, *((_QWORD *)v2 + 1), this + 1);
-      if ( !v24 )
-        return (unsigned int)-1073741823;
-      (*(void (__fastcall **)(struct CFlipResourceState *))(*(_QWORD *)v24 + 24LL))(v24);
-      goto LABEL_25;
-    }
-    v8 = (CEndpointResourceStateManager *)(unsigned int)((_DWORD)v7 - 1);
-    if ( (_DWORD)v8 )
-    {
-      v9 = (CEndpointResourceStateManager *)(unsigned int)((_DWORD)v8 - 1);
-      if ( !(_DWORD)v9 )
+      v19 = (unsigned int *)*((_QWORD *)a2 + 6);
+      v20 = (unsigned int *)((char *)v19 + *((unsigned int *)a2 + 10));
+      while ( 1 )
       {
-        v13 = (char *)&this[1];
-        if ( CEndpointResourceStateManager::FindResourceState(v9, *(_QWORD *)(*((_QWORD *)v2 + 1) + 40LL), this + 1) )
-          return (unsigned int)-1073741823;
-        v14 = DXGQUOTAALLOCATOR<256,1936868166>::operator new();
-        v15 = v14;
-        if ( !v14 )
-          return (unsigned int)-1073741801;
-        *(_QWORD *)(v14 + 24) = *((_QWORD *)v2 + 1);
-        v16 = *(_BYTE *)(v14 + 32) & 0xF1;
-        *(_QWORD *)v15 = &CFlipResourceState::`vftable';
-        *(_BYTE *)(v15 + 32) = v16 | 1;
-        *(_QWORD *)(v15 + 16) = v15 + 8;
-        *(_QWORD *)(v15 + 8) = v15 + 8;
-        ++*(_DWORD *)(*(_QWORD *)(v15 + 24) + 24LL);
-        *(_BYTE *)(v15 + 64) &= 0xFCu;
-        *(_QWORD *)v15 = &CContentResourceState::`vftable';
-        *(_QWORD *)(v15 + 40) = 0LL;
-        *(_QWORD *)(v15 + 48) = 0LL;
-        *(_QWORD *)(v15 + 56) = 0LL;
-        v17 = (struct _LIST_ENTRY *)((v15 + 8) & -(__int64)(v15 != 0));
-        Blink = this[1].Blink;
-        if ( (char *)Blink->Flink != v13 )
-          goto LABEL_27;
-        v17->Flink = (struct _LIST_ENTRY *)v13;
-        *(_QWORD *)(((v15 + 8) & -(__int64)(v15 != 0)) + 8) = Blink;
-        Blink->Flink = v17;
-        this[1].Blink = v17;
-        goto LABEL_25;
-      }
-      if ( (_DWORD)v9 != 1 )
-        return (unsigned int)-1073741823;
-      v10 = CEndpointResourceStateManager::FindResourceState(v9, *((_QWORD *)v2 + 1), this + 1);
-      v11 = v10;
-      if ( !v10 )
-        return (unsigned int)-1073741823;
-      CContentResourceState::SetBoundBuffer(v10, *((struct CPoolBufferResource **)v2 + 2));
-      CContentResourceState::SetBoundPropertySet(v11, *((struct CFlipPropertySet **)v2 + 3));
-      *((_QWORD *)v11 + 7) = *((_QWORD *)v2 + 4);
-      v12 = *(_QWORD *)(*((_QWORD *)v11 + 3) + 48LL);
-      if ( v12 )
-      {
-        if ( (int)CPushLock::AcquireLockExclusive((CPushLock *)(v12 + 48)) >= 0 )
+        while ( 1 )
         {
-          CPresentRate::NotifyFrame((CPresentRate *)(v12 + 96));
-          CPushLock::ReleaseLock((CPushLock *)(v12 + 48));
+          if ( v19 >= v20 )
+            goto LABEL_22;
+          v21 = (CEndpointResourceStateManager *)*v19;
+          if ( !(_DWORD)v21 )
+          {
+            ResourceState = CEndpointResourceStateManager::FindResourceState(v21, *((_QWORD *)v19 + 1), this);
+            CEndpointResourceStateManager::RemovePoolBufferState((CEndpointResourceStateManager *)this, ResourceState);
+            goto LABEL_42;
+          }
+          v22 = (CEndpointResourceStateManager *)(unsigned int)((_DWORD)v21 - 1);
+          if ( !(_DWORD)v22 )
+          {
+            v31 = CEndpointResourceStateManager::FindResourceState(v22, *((_QWORD *)v19 + 1), this + 1);
+            (*(void (__fastcall **)(struct CFlipResourceState *))(*(_QWORD *)v31 + 24LL))(v31);
+            goto LABEL_42;
+          }
+          v23 = (_DWORD)v22 - 1;
+          if ( v23 )
+            break;
+          v29 = (struct _LIST_ENTRY **)CFlipObjectQueue<CPoolBufferResourceState>::Dequeue(&v35);
+          if ( v29 )
+            ++v29;
+          Blink = (CEndpointResourceStateManager **)this->Blink;
+          if ( *Blink != (CEndpointResourceStateManager *)this )
+            goto LABEL_45;
+          *v29 = this;
+          v29[1] = (struct _LIST_ENTRY *)Blink;
+          *Blink = (CEndpointResourceStateManager *)v29;
+          this->Blink = (struct _LIST_ENTRY *)v29;
+LABEL_42:
+          v19 += 4;
+        }
+        v24 = (CEndpointResourceStateManager *)(unsigned int)(v23 - 1);
+        if ( !(_DWORD)v24 )
+        {
+          v26 = (struct _LIST_ENTRY *)CFlipObjectQueue<CPoolBufferResourceState>::Dequeue(&v37);
+          v27 = (char *)&this[1];
+          if ( v26 )
+            v26 = (struct _LIST_ENTRY *)((char *)v26 + 8);
+          v28 = this[1].Blink;
+          if ( (char *)v28->Flink != v27 )
+            goto LABEL_45;
+          v26->Flink = (struct _LIST_ENTRY *)v27;
+          v26->Blink = v28;
+          v28->Flink = v26;
+          this[1].Blink = v26;
+          goto LABEL_42;
+        }
+        if ( (_DWORD)v24 == 1 )
+        {
+          v25 = CEndpointResourceStateManager::FindResourceState(v24, *((_QWORD *)v19 + 1), this + 1);
+          CContentResourceState::SetBoundBuffer(v25, *((struct CPoolBufferResource **)v19 + 2));
+          CContentResourceState::SetBoundPropertySet(v25, *((struct CFlipPropertySet **)v19 + 3));
+          v19 += 8;
         }
       }
-      v2 += 10;
     }
-    else
+    if ( *(_DWORD *)v2 < 2u )
+      goto LABEL_20;
+    if ( *(_DWORD *)v2 == 2 )
+      break;
+    if ( *(_DWORD *)v2 == 3 )
     {
-      if ( CEndpointResourceStateManager::FindResourceState(v8, *(_QWORD *)(*((_QWORD *)v2 + 1) + 40LL), this) )
-        return (unsigned int)-1073741823;
-      v19 = DXGQUOTAALLOCATOR<256,1935819590>::operator new();
-      v20 = v19;
-      if ( !v19 )
-        return (unsigned int)-1073741801;
-      *(_QWORD *)(v19 + 24) = *((_QWORD *)v2 + 1);
-      v21 = *(_BYTE *)(v19 + 32) & 0xF1;
-      *(_QWORD *)v20 = &CFlipResourceState::`vftable';
-      *(_BYTE *)(v20 + 32) = v21 | 1;
-      *(_QWORD *)(v20 + 16) = v20 + 8;
-      *(_QWORD *)(v20 + 8) = v20 + 8;
-      ++*(_DWORD *)(*(_QWORD *)(v20 + 24) + 24LL);
-      *(_QWORD *)v20 = &CPoolBufferResourceState::`vftable';
-      v22 = (CEndpointResourceStateManager *)((v20 + 8) & -(__int64)(v20 != 0));
-      v23 = (CEndpointResourceStateManager **)this->Blink;
-      if ( *v23 != (CEndpointResourceStateManager *)this )
-LABEL_27:
-        __fastfail(3u);
-      *(_QWORD *)v22 = this;
-      *(_QWORD *)(((v20 + 8) & -(__int64)(v20 != 0)) + 8) = v23;
-      *v23 = v22;
-      this->Blink = (struct _LIST_ENTRY *)v22;
-LABEL_25:
-      v2 += 4;
+      v8 = DXGQUOTAALLOCATOR<1,1936868166>::operator new();
+      v9 = v8;
+      if ( v8 )
+      {
+        v8[3] = *(_QWORD *)(v2 + 8);
+        v10 = v8[4] & 0xF1;
+        *v9 = &CFlipResourceState::`vftable';
+        *((_BYTE *)v9 + 32) = v10 | 1;
+        v9[2] = v9 + 1;
+        v9[1] = v9 + 1;
+        ++*(_DWORD *)(v9[3] + 24LL);
+        v9[5] = 0LL;
+        v9[6] = 0LL;
+        *((_BYTE *)v9 + 56) &= 0xFCu;
+        *v9 = &CContentResourceState::`vftable';
+      }
+      else
+      {
+        v9 = 0LL;
+      }
+      if ( !v9 )
+        goto LABEL_21;
+      v11 = v38;
+      v12 = v9 + 1;
+      if ( *v38 != &v37 )
+        goto LABEL_45;
+      v12[1] = v38;
+      *v12 = &v37;
+      *v11 = v12;
+      v38 = (_QWORD **)v12;
+LABEL_20:
+      v2 += 16LL;
+    }
+    else if ( *(_DWORD *)v2 == 4 )
+    {
+      v2 += 32LL;
     }
   }
-  return v3;
+  v13 = DXGQUOTAALLOCATOR<1,1935819590>::operator new();
+  v14 = v13;
+  if ( v13 )
+  {
+    v13[3] = *(_QWORD *)(v2 + 8);
+    v15 = v13[4] & 0xF1;
+    *v14 = &CFlipResourceState::`vftable';
+    *((_BYTE *)v14 + 32) = v15 | 1;
+    v14[2] = v14 + 1;
+    v14[1] = v14 + 1;
+    ++*(_DWORD *)(v14[3] + 24LL);
+    *v14 = &CPoolBufferResourceState::`vftable';
+  }
+  else
+  {
+    v14 = 0LL;
+  }
+  if ( v14 )
+  {
+    v16 = v36;
+    v17 = v14 + 1;
+    if ( *v36 != &v35 )
+LABEL_45:
+      __fastfail(3u);
+    v17[1] = v36;
+    *v17 = &v35;
+    *v16 = v17;
+    v36 = (_QWORD **)v17;
+    goto LABEL_20;
+  }
+LABEL_21:
+  v4 = -1073741801;
+LABEL_22:
+  while ( v35 != &v35 )
+  {
+    v18 = CFlipObjectQueue<CPoolBufferResourceState>::Dequeue(&v35);
+    if ( v18 )
+      (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v18 + 32LL))(v18, 1LL);
+  }
+  while ( v37 != &v37 )
+  {
+    v33 = CFlipObjectQueue<CPoolBufferResourceState>::Dequeue(&v37);
+    if ( v33 )
+      (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v33 + 32LL))(v33, 1LL);
+  }
+  return v4;
 }

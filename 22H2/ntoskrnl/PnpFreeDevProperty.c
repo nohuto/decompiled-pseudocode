@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpFreeDevProperty @ 0x140789C08
+ * XREFs of PnpFreeDevProperty @ 0x1406AC4C0
  * Callers:
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1406C9AF4 (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     PnpFreeDevPropertyArray @ 0x140789BA8 (PnpFreeDevPropertyArray.c)
- *     PnpCopyDevProperty @ 0x14081C1B0 (PnpCopyDevProperty.c)
- *     PiDqActionDataGetChangedProperties @ 0x14083BF38 (PiDqActionDataGetChangedProperties.c)
+ *     PnpFreeDevPropertyArray @ 0x1406AC460 (PnpFreeDevPropertyArray.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1406B1B74 (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PnpCopyDevProperty @ 0x14074D3C4 (PnpCopyDevProperty.c)
+ *     PiDqActionDataGetChangedProperties @ 0x140770E34 (PiDqActionDataGetChangedProperties.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpFreeDevProperty(__int64 a1, ULONG a2)

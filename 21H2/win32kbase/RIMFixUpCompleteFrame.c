@@ -1,144 +1,116 @@
 /*
- * XREFs of RIMFixUpCompleteFrame @ 0x1C01A675C
+ * XREFs of RIMFixUpCompleteFrame @ 0x1C0171B00
  * Callers:
- *     RIMFixUpCompleteFrames @ 0x1C01A6A04 (RIMFixUpCompleteFrames.c)
- *     rimFindOtherQueuedFrames @ 0x1C01A9290 (rimFindOtherQueuedFrames.c)
+ *     rimProcessInput @ 0x1C0175A18 (rimProcessInput.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     traceFrame @ 0x1C01A595C (traceFrame.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     traceFrame @ 0x1C0170FA4 (traceFrame.c)
  */
 
-_UNKNOWN **__fastcall RIMFixUpCompleteFrame(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, int a5)
+_UNKNOWN **__fastcall RIMFixUpCompleteFrame(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
-  int v5; // ebp
-  __int64 v7; // rdi
-  __int64 v8; // r14
-  int v9; // ebx
-  __int64 v10; // r15
+  int v4; // r15d
+  __int64 v7; // r14
+  int v8; // ebp
+  __int64 v9; // rax
+  __int64 v10; // rax
   __int64 v11; // rax
   __int64 v12; // rax
-  __int64 v13; // rax
-  __int64 v14; // rax
-  _QWORD *v15; // rbx
+  _QWORD *v13; // rdi
   unsigned int i; // ebp
-  __int64 v17; // rax
-  __int64 v18; // rax
-  _QWORD *v19; // rbp
-  __int64 v20; // rbx
-  __int64 v21; // rax
-  __int64 *v22; // r14
-  __int64 v23; // rbx
+  __int64 v15; // rax
+  __int64 v16; // rax
+  _QWORD *v17; // rbp
+  __int64 v18; // rdi
+  __int64 v19; // rax
+  __int64 *v20; // r14
+  __int64 v21; // rdi
   _UNKNOWN **result; // rax
 
-  v5 = 0;
-  v7 = a3;
-  v8 = a2;
-  if ( a5 || *(_DWORD *)(a1 + 880) != 1 )
+  v4 = *(_DWORD *)(a1 + 656);
+  v7 = a2;
+  v8 = 0;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v9 = 0;
-    v10 = 0LL;
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)gRimLog, a2, 1, 59, (__int64)&WPP_9651681dcc2638ebeb0ec510677294f4_Traceguids);
   }
-  else
-  {
-    v9 = 1;
-    v10 = 1LL;
-  }
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      58,
-      (__int64)&WPP_8675e8122247356a5f11107ee91523c0_Traceguids);
+  if ( v4 == 1 )
+    ProbeForWrite((volatile void *)a3, *(unsigned int *)a4, 8u);
+  v9 = *(_QWORD *)(v7 + 344);
   if ( v9 )
-    ProbeForWrite((volatile void *)v7, *(unsigned int *)a4, 8u);
-  v11 = *(_QWORD *)(v8 + 344);
+  {
+    *(_QWORD *)(a3 + 32) = v9;
+    v8 = 1;
+  }
+  v10 = a4[13];
+  if ( v10 )
+    *(_QWORD *)(a3 + 104) = a3 + v10 - (_QWORD)a4;
+  v11 = a4[15];
   if ( v11 )
   {
-    *(_QWORD *)(v7 + 32) = v11;
-    v5 = 1;
-  }
-  v12 = a4[27];
-  if ( v12 )
-    *(_QWORD *)(v7 + 216) = v7 + v12 - (_QWORD)a4;
-  v13 = a4[29];
-  if ( v13 )
-  {
-    v14 = v13 - (_QWORD)a4;
-    v15 = (_QWORD *)(v14 + v7);
-    *(_QWORD *)(v7 + 232) = v14 + v7;
-    if ( v5 )
+    v12 = v11 - (_QWORD)a4;
+    v13 = (_QWORD *)(v12 + a3);
+    *(_QWORD *)(a3 + 120) = v12 + a3;
+    if ( v8 )
     {
-      for ( i = 0; i < *(_DWORD *)(v7 + 24); v15 += 24 )
+      for ( i = 0; i < *(_DWORD *)(a3 + 24); v13 += 24 )
       {
-        if ( v10 )
-          ProbeForWrite(v15, 0xC0uLL, 8u);
+        if ( v4 == 1 )
+          ProbeForWrite(v13, 0xC0uLL, 8u);
         ++i;
-        v15[4] = *(_QWORD *)(v8 + 344);
+        v13[4] = *(_QWORD *)(v7 + 344);
       }
     }
-    traceFrame(v7, a2, a3);
+    traceFrame(a3);
   }
-  v17 = a4[28];
-  if ( v17 )
+  v15 = a4[14];
+  if ( v15 )
   {
-    v18 = v17 - (_QWORD)a4;
-    v19 = (_QWORD *)(v18 + v7);
-    *(_QWORD *)(v7 + 224) = v18 + v7;
-    v20 = a4[28];
-    if ( v20 )
+    v16 = v15 - (_QWORD)a4;
+    v17 = (_QWORD *)(v16 + a3);
+    *(_QWORD *)(a3 + 112) = v16 + a3;
+    v18 = a4[14];
+    if ( v18 )
     {
       do
       {
-        v21 = *(_QWORD *)(v20 + 8);
-        if ( v21 )
+        v19 = *(_QWORD *)(v18 + 8);
+        if ( v19 )
         {
-          if ( v10 )
+          if ( v4 == 1 )
           {
-            ProbeForWrite(v19, 0x18uLL, 8u);
-            v21 = *(_QWORD *)(v20 + 8);
+            ProbeForWrite(v17, 0x18uLL, 8u);
+            v19 = *(_QWORD *)(v18 + 8);
           }
-          v19[1] = v7 + v21 - (_QWORD)a4;
+          v17[1] = a3 + v19 - (_QWORD)a4;
         }
-        v22 = (__int64 *)(v20 + 16);
-        v23 = *(_QWORD *)(v20 + 16);
-        if ( !v23 )
+        v20 = (__int64 *)(v18 + 16);
+        v21 = *(_QWORD *)(v18 + 16);
+        if ( !v21 )
           break;
-        if ( v10 )
+        if ( v4 == 1 )
         {
-          ProbeForWrite(v19, 0x18uLL, 8u);
-          v23 = *v22;
+          ProbeForWrite(v17, 0x18uLL, 8u);
+          v21 = *v20;
         }
-        v19[2] = v23 - (_QWORD)a4 + v7;
-        v19 = (_QWORD *)(v23 - (_QWORD)a4 + v7);
-        v20 = *v22;
+        v17[2] = v21 - (_QWORD)a4 + a3;
+        v17 = (_QWORD *)(v21 - (_QWORD)a4 + a3);
+        v18 = *v20;
       }
-      while ( *v22 );
+      while ( *v20 );
     }
   }
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
   result = &WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    return (_UNKNOWN **)WPP_RECORDER_AND_TRACE_SF_(
-                          WPP_GLOBAL_Control->AttachedDevice,
-                          a2,
-                          a3,
+    LOBYTE(a2) = 4;
+    return (_UNKNOWN **)WPP_RECORDER_SF_(
                           (_DWORD)gRimLog,
-                          4,
+                          a2,
                           1,
-                          59,
-                          (__int64)&WPP_8675e8122247356a5f11107ee91523c0_Traceguids);
+                          60,
+                          (__int64)&WPP_9651681dcc2638ebeb0ec510677294f4_Traceguids);
   }
   return result;
 }

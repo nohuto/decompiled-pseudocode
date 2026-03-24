@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RedirectMouseToHwnd@CApplicationChannel@DirectComposition@@QEAAJIPEAUHWND__@@PEBUtagMsgRoutingInfo@@KK@Z @ 0x1C0214BB8
+ * XREFs of ?RedirectMouseToHwnd@CApplicationChannel@DirectComposition@@QEAAJIPEAUHWND__@@PEBUtagMsgRoutingInfo@@KK@Z @ 0x1C0082DF4
  * Callers:
- *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C008A134 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C007E324 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ?RedirectMouseToHwnd@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAUHWND__@@PEBUtagMsgRoutingInfo@@KK@Z @ 0x1C021B798 (-RedirectMouseToHwnd@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAUHWND.c)
+ *     ?RedirectMouseToHwnd@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAUHWND__@@PEBUtagMsgRoutingInfo@@KK@Z @ 0x1C0082EC0 (-RedirectMouseToHwnd@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAUHWND.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::RedirectMouseToHwnd(
@@ -17,14 +17,20 @@ __int64 __fastcall DirectComposition::CApplicationChannel::RedirectMouseToHwnd(
 {
   unsigned int v6; // ebx
   unsigned __int64 v8; // rcx
-  DirectComposition::CVisualMarshaler *v11; // rsi
+  DirectComposition::CVisualMarshaler *v11; // rdi
 
   v6 = 0;
   v8 = (unsigned int)(a2 - 1);
-  if ( a2
-    && v8 < *((_QWORD *)this + 10)
-    && (_mm_lfence(),
-        (v11 = *(DirectComposition::CVisualMarshaler **)(v8 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7))) != 0LL)
+  if ( a2 && v8 < *((_QWORD *)this + 10) )
+  {
+    _mm_lfence();
+    v11 = *(DirectComposition::CVisualMarshaler **)(v8 * *((_QWORD *)this + 11) + *((_QWORD *)this + 7));
+  }
+  else
+  {
+    v11 = 0LL;
+  }
+  if ( v11
     && (*(unsigned __int8 (__fastcall **)(DirectComposition::CVisualMarshaler *, __int64))(*(_QWORD *)v11 + 96LL))(
          v11,
          195LL)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsFlicksDisabledByGroupPolicy@@YAHXZ @ 0x1C00A0B30
+ * XREFs of ?IsFlicksDisabledByGroupPolicy@@YAHXZ @ 0x1C00E1394
  * Callers:
- *     ReadPointerDeviceSettingsFull @ 0x1C00A08E4 (ReadPointerDeviceSettingsFull.c)
+ *     ReadPointerDeviceSettingsFull @ 0x1C00E0A64 (ReadPointerDeviceSettingsFull.c)
  * Callees:
- *     GetLocalMachineRegistryDWORDValues @ 0x1C00A0DF8 (GetLocalMachineRegistryDWORDValues.c)
+ *     GetLocalMachineRegistryDWORDValues @ 0x1C00E1724 (GetLocalMachineRegistryDWORDValues.c)
  */
 
 __int64 __fastcall IsFlicksDisabledByGroupPolicy(__int64 a1)

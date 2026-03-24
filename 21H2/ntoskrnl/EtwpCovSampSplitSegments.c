@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCovSampSplitSegments @ 0x1409F21D0
+ * XREFs of EtwpCovSampSplitSegments @ 0x140945C78
  * Callers:
- *     EtwpSetCoverageSamplerInformation @ 0x1409F3EC0 (EtwpSetCoverageSamplerInformation.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x14094793C (EtwpSetCoverageSamplerInformation.c)
  * Callees:
- *     _wcslwr @ 0x1403E14F0 (_wcslwr.c)
- *     wcschr @ 0x1403E32C0 (wcschr.c)
+ *     _wcslwr @ 0x1403D2130 (_wcslwr.c)
+ *     wcschr @ 0x1403D3F10 (wcschr.c)
  */
 
 __int64 __fastcall EtwpCovSampSplitSegments(wchar_t *Str, __int64 a2)

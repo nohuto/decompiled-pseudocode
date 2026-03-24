@@ -1,53 +1,66 @@
 /*
- * XREFs of DrvUpdateRemoteGraphicsDeviceList @ 0x1C017511C
+ * XREFs of DrvUpdateRemoteGraphicsDeviceList @ 0x1C0148048
  * Callers:
- *     ?PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0146B18 (-PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0118400 (-PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  * Callees:
- *     UserIsUserCritSecIn @ 0x1C0090AB0 (UserIsUserCritSecIn.c)
- *     ?GreCleanupRemoteAdapterContext@@YAXPEAUtagREMOTE_CONTEXT@@@Z @ 0x1C00C5284 (-GreCleanupRemoteAdapterContext@@YAXPEAUtagREMOTE_CONTEXT@@@Z.c)
- *     ?DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00D4218 (-DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     UserIsUserCritSecIn @ 0x1C0049420 (UserIsUserCritSecIn.c)
+ *     ?GreCleanupRemoteAdapterContext@@YAXPEAUtagREMOTE_CONTEXT@@@Z @ 0x1C007D514 (-GreCleanupRemoteAdapterContext@@YAXPEAUtagREMOTE_CONTEXT@@@Z.c)
+ *     ?DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00C49BC (-DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 DrvUpdateRemoteGraphicsDeviceList()
 {
-  struct tagREMOTE_CONTEXT *v0; // rcx
+  __int64 v0; // rdx
+  struct tagREMOTE_CONTEXT *v1; // rcx
+  __int64 v2; // rax
   struct tagGRAPHICS_DEVICE *i; // rbx
-  int v2; // eax
-  int v3; // eax
-  unsigned int v4; // eax
-  char v6; // [rsp+40h] [rbp+8h] BYREF
+  int v4; // eax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rdi
+  __int64 v8; // rax
+  int v9; // eax
+  unsigned int v10; // eax
+  char v12; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !(unsigned int)UserIsUserCritSecIn() )
-    WdLogSingleEntry0(1LL);
-  GreCleanupRemoteAdapterContext(v0);
+  {
+    v2 = WdLogNewEntry5_WdAssertion(v1, v0);
+    WdLogEvent5_WdAssertion(v2);
+  }
+  GreCleanupRemoteAdapterContext(v1);
   if ( !gRemoteSessionUseWddm )
   {
     for ( i = gpRemoteGraphicsDeviceList; i; i = (struct tagGRAPHICS_DEVICE *)*((_QWORD *)i + 16) )
     {
       if ( (*((_DWORD *)i + 40) & 0x4000000) != 0 && !*((_QWORD *)i + 35) )
       {
-        v6 = 0;
+        v12 = 0;
         *((_QWORD *)i + 37) = 0LL;
-        v2 = ((__int64 (__fastcall *)(char *, char *, char *, char *, char *))qword_1C02967E8)(
+        v4 = ((__int64 (__fastcall *)(char *, char *, char *, char *, char *))qword_1C02519F8)(
                (char *)i + 280,
                (char *)i + 296,
                (char *)i + 304,
                (char *)i + 288,
-               &v6);
-        if ( v2 >= 0 )
+               &v12);
+        v7 = v4;
+        if ( v4 >= 0 )
         {
-          v3 = *((_DWORD *)i + 41);
-          if ( v6 )
-            v4 = v3 | 4;
+          v9 = *((_DWORD *)i + 41);
+          if ( v12 )
+            v10 = v9 | 4;
           else
-            v4 = v3 & 0xFFFFFFFB;
-          *((_DWORD *)i + 41) = v4;
+            v10 = v9 & 0xFFFFFFFB;
+          *((_DWORD *)i + 41) = v10;
           DrvUpdateRemoteAdapterInfo(i);
         }
         else
         {
-          WdLogSingleEntry2(2LL, i, v2);
+          v8 = WdLogNewEntry5_WdError(v6, v5);
+          *(_QWORD *)(v8 + 24) = i;
+          *(_QWORD *)(v8 + 32) = v7;
+          WdLogEvent5_WdError(v8);
         }
       }
     }

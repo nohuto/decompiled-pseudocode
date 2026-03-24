@@ -1,13 +1,13 @@
 /*
- * XREFs of PspUnlockProcessSharedUnsafe @ 0x1405E097C
+ * XREFs of PspUnlockProcessSharedUnsafe @ 0x140581B50
  * Callers:
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
  * Callees:
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
  */
 
-__int64 __fastcall PspUnlockProcessSharedUnsafe(__int64 a1)
+char __fastcall PspUnlockProcessSharedUnsafe(__int64 a1)
 {
   signed __int64 *v1; // rbx
 

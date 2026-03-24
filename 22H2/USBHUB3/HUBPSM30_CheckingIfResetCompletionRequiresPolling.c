@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM30_CheckingIfResetCompletionRequiresPolling @ 0x1C0013B60
+ * XREFs of HUBPSM30_CheckingIfResetCompletionRequiresPolling @ 0x1C0012640
  * Callers:
  *     <none>
  * Callees:

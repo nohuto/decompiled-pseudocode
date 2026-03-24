@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpSetSiloDeviceMap @ 0x14072C2D8
+ * XREFs of ObpSetSiloDeviceMap @ 0x14072C2B8
  * Callers:
- *     ObpCreateDosDevicesDirectory @ 0x14072C0C8 (ObpCreateDosDevicesDirectory.c)
+ *     ObpCreateDosDevicesDirectory @ 0x14072C0A8 (ObpCreateDosDevicesDirectory.c)
  * Callees:
  *     PsGetEffectiveServerSilo @ 0x14008FD30 (PsGetEffectiveServerSilo.c)
  *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     ObpSetDeviceMap @ 0x1406C699C (ObpSetDeviceMap.c)
+ *     ObpSetDeviceMap @ 0x1406C697C (ObpSetDeviceMap.c)
  */
 
 NTSTATUS __fastcall ObpSetSiloDeviceMap(__int64 a1, void *a2)

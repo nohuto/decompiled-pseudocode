@@ -1,5 +1,5 @@
 /*
- * XREFs of OutputAATo16BPP_555_RGB @ 0x1C0260AE0
+ * XREFs of OutputAATo16BPP_555_RGB @ 0x1C0263C50
  * Callers:
  *     <none>
  * Callees:

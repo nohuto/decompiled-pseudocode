@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiSetColorAdjustment @ 0x1C02AE9F0
+ * XREFs of NtGdiSetColorAdjustment @ 0x1C02B0290
  * Callers:
  *     <none>
  * Callees:
- *     GreSetColorAdjustment @ 0x1C029DB20 (GreSetColorAdjustment.c)
+ *     GreSetColorAdjustment @ 0x1C029F21C (GreSetColorAdjustment.c)
  */
 
 __int64 __fastcall NtGdiSetColorAdjustment(HDC a1, ULONG64 a2)

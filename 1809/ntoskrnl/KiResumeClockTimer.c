@@ -1,13 +1,13 @@
 /*
- * XREFs of KiResumeClockTimer @ 0x1401434AC
+ * XREFs of KiResumeClockTimer @ 0x1401434CC
  * Callers:
- *     KeResumeClockTimer @ 0x140143498 (KeResumeClockTimer.c)
- *     KeResumeClockTimerSafe @ 0x14028E804 (KeResumeClockTimerSafe.c)
+ *     KeResumeClockTimer @ 0x1401434B8 (KeResumeClockTimer.c)
+ *     KeResumeClockTimerSafe @ 0x14028E904 (KeResumeClockTimerSafe.c)
  * Callees:
  *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
- *     KiEventClockStateChange @ 0x1400FCF14 (KiEventClockStateChange.c)
- *     KiRestoreClockTickRate @ 0x1400FCFB8 (KiRestoreClockTickRate.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KiEventClockStateChange @ 0x1400FCF34 (KiEventClockStateChange.c)
+ *     KiRestoreClockTickRate @ 0x1400FCFD8 (KiRestoreClockTickRate.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 KiResumeClockTimer()

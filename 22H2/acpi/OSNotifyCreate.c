@@ -1,72 +1,68 @@
 /*
- * XREFs of OSNotifyCreate @ 0x1C0032600
+ * XREFs of OSNotifyCreate @ 0x1C001D650
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_qsL @ 0x1C0022ED8 (WPP_RECORDER_SF_qsL.c)
- *     OSNotifyCreateDevice @ 0x1C0032758 (OSNotifyCreateDevice.c)
- *     OSNotifyCreateOperationRegion @ 0x1C003287C (OSNotifyCreateOperationRegion.c)
- *     OSNotifyCreatePowerResource @ 0x1C0032A34 (OSNotifyCreatePowerResource.c)
- *     OSNotifyCreateProcessor @ 0x1C0032ADC (OSNotifyCreateProcessor.c)
- *     OSNotifyCreateThermalZone @ 0x1C0032BE0 (OSNotifyCreateThermalZone.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     OSNotifyCreateProcessor @ 0x1C001622C (OSNotifyCreateProcessor.c)
+ *     OSNotifyCreateOperationRegion @ 0x1C00182E8 (OSNotifyCreateOperationRegion.c)
+ *     OSNotifyCreateDevice @ 0x1C001B3BC (OSNotifyCreateDevice.c)
+ *     WPP_RECORDER_SF_qsL @ 0x1C001D830 (WPP_RECORDER_SF_qsL.c)
+ *     OSNotifyCreatePowerResource @ 0x1C002DF34 (OSNotifyCreatePowerResource.c)
+ *     OSNotifyCreateThermalZone @ 0x1C002F970 (OSNotifyCreateThermalZone.c)
  */
 
-__int64 __fastcall OSNotifyCreate(int a1, ULONG_PTR a2)
+__int64 __fastcall OSNotifyCreate(int a1, __int64 a2)
 {
-  int v4; // edx
-  KIRQL v5; // si
-  int v6; // ebx
-  int Device; // eax
-  __int64 v8; // rdx
+  KIRQL v4; // si
+  char Device; // al
+  char v6; // bl
+  int v7; // edx
 
-  v5 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
+  v4 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
   switch ( a1 )
   {
     case 6:
-      Device = OSNotifyCreateDevice(a2);
-      goto LABEL_14;
+      Device = OSNotifyCreateDevice(a2, 0LL);
+LABEL_3:
+      v6 = Device;
+      goto LABEL_4;
     case 10:
       Device = OSNotifyCreateOperationRegion(a2);
-      goto LABEL_14;
+      goto LABEL_3;
     case 11:
       Device = OSNotifyCreatePowerResource(a2);
-      goto LABEL_14;
+      goto LABEL_3;
     case 12:
       Device = OSNotifyCreateProcessor(a2, 0LL);
-      goto LABEL_14;
+      goto LABEL_3;
     case 13:
       Device = OSNotifyCreateThermalZone(a2, 0LL);
-LABEL_14:
-      v6 = Device;
-      goto LABEL_15;
+      goto LABEL_3;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v4) = 2;
-    WPP_RECORDER_SF_d(
-      WPP_GLOBAL_Control->DeviceExtension,
-      v4,
-      21,
-      10,
+    WPP_RECORDER_SF_D(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      2u,
+      0x15u,
+      0xAu,
       (__int64)&WPP_3b815367ceb5375a01194b74e08b1a28_Traceguids,
       a1);
-  }
   v6 = 0;
-LABEL_15:
-  KeReleaseSpinLock(&AcpiDeviceTreeLock, v5);
+LABEL_4:
+  KeReleaseSpinLock(&AcpiDeviceTreeLock, v4);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    dword_1C006FA40 = *(_DWORD *)(*(_QWORD *)a2 + 40LL);
-    byte_1C006FA44 = 0;
+    dword_1C0082780 = *(_DWORD *)(*(_QWORD *)a2 + 40LL);
+    byte_1C0082784 = 0;
     WPP_RECORDER_SF_qsL(
-      (__int64)WPP_GLOBAL_Control->DeviceExtension,
-      v8,
-      6u,
-      0xBu,
+      WPP_GLOBAL_Control->DeviceExtension,
+      v7,
+      6,
+      11,
       (__int64)&WPP_3b815367ceb5375a01194b74e08b1a28_Traceguids,
       a2,
-      &dword_1C006FA40,
+      (__int64)&dword_1C0082780,
       v6);
   }
   return 0LL;

@@ -1,9 +1,9 @@
 /*
- * XREFs of wctomb_s @ 0x1403DB9C4
+ * XREFs of wctomb_s @ 0x1403D3F34
  * Callers:
- *     _output_l @ 0x1403DC790 (_output_l.c)
+ *     _output_l @ 0x1403D4CCC (_output_l.c)
  * Callees:
- *     _wctomb_s_l @ 0x1403DB8C4 (_wctomb_s_l.c)
+ *     _wctomb_s_l @ 0x1403D3E34 (_wctomb_s_l.c)
  */
 
 errno_t __cdecl wctomb_s(int *SizeConverted, char *MbCh, rsize_t SizeInBytes, wchar_t WCh)

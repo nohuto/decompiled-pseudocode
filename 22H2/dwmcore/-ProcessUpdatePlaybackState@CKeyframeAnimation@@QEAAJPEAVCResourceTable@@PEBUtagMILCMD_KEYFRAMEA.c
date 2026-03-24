@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessUpdatePlaybackState@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_UPDATEPLAYBACKSTATE@@@Z @ 0x18009B5F4
+ * XREFs of ?ProcessUpdatePlaybackState@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_UPDATEPLAYBACKSTATE@@@Z @ 0x1800CC8BC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?UpdatePlaybackState@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationPlaybackState@@_N_K@Z @ 0x18009B580 (-UpdatePlaybackState@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationPlaybackState@@_N_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?UpdatePlaybackState@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationPlaybackState@@_N_K@Z @ 0x1800CC910 (-UpdatePlaybackState@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationPlaybackState@@_N_K@Z.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::ProcessUpdatePlaybackState(
@@ -12,37 +12,36 @@ __int64 __fastcall CKeyframeAnimation::ProcessUpdatePlaybackState(
         struct CResourceTable *a2,
         const struct tagMILCMD_KEYFRAMEANIMATION_UPDATEPLAYBACKSTATE *a3)
 {
-  unsigned int v3; // edx
+  __int64 v3; // rdx
+  __int64 v4; // r9
   int updated; // eax
-  unsigned int v5; // ecx
-  unsigned int v6; // ebx
+  __int64 v6; // rcx
+  unsigned int v7; // ebx
 
-  if ( *((_QWORD *)this + 49) )
+  if ( *((_QWORD *)this + 45) )
   {
-    v3 = *((_DWORD *)a3 + 2);
-    if ( v3 > 2 )
+    v3 = *((unsigned int *)a3 + 2);
+    if ( (unsigned int)v3 > 2 )
     {
-      v6 = -2003303421;
-      MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2003303421, 0x191u, 0LL);
+      v7 = -2003303421;
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003303421, 0x185u, 0LL);
     }
     else
     {
-      updated = CKeyframeAnimation::UpdatePlaybackState(
-                  (__int64)this,
-                  v3,
-                  *((_BYTE *)a3 + 24) != 0,
-                  *((_QWORD *)a3 + 2));
-      v6 = updated;
+      v4 = *((_QWORD *)a3 + 2);
+      LOBYTE(a3) = *((_BYTE *)a3 + 24) != 0;
+      updated = CKeyframeAnimation::UpdatePlaybackState(this, v3, a3, v4);
+      v7 = updated;
       if ( updated < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, updated, 0x198u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, updated, 0x18Cu, 0LL);
       else
         return 0;
     }
   }
   else
   {
-    v6 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2003303421, 0x18Au, 0LL);
+    v7 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003303421, 0x17Eu, 0LL);
   }
-  return v6;
+  return v7;
 }

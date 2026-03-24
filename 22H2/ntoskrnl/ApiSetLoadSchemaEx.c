@@ -1,24 +1,24 @@
 /*
- * XREFs of ApiSetLoadSchemaEx @ 0x140A09D9C
+ * XREFs of ApiSetLoadSchemaEx @ 0x14095E904
  * Callers:
- *     ApiSetLoadSchemaWithExtensions @ 0x140A09E6C (ApiSetLoadSchemaWithExtensions.c)
- *     ApiSetpLoadSchemaExtension @ 0x140A0A070 (ApiSetpLoadSchemaExtension.c)
+ *     ApiSetLoadSchemaWithExtensions @ 0x14095E9D4 (ApiSetLoadSchemaWithExtensions.c)
+ *     ApiSetpLoadSchemaExtension @ 0x14095EBD0 (ApiSetpLoadSchemaExtension.c)
  * Callees:
- *     ZwUnmapViewOfSection @ 0x14041ABE0 (ZwUnmapViewOfSection.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ApiSetpFindImageSection @ 0x140A09FEC (ApiSetpFindImageSection.c)
- *     ApiSetpLoadSchemaImage @ 0x140A0A2BC (ApiSetpLoadSchemaImage.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwUnmapViewOfSection @ 0x1403F9F60 (ZwUnmapViewOfSection.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ApiSetpFindImageSection @ 0x14095EB4C (ApiSetpFindImageSection.c)
+ *     ApiSetpLoadSchemaImage @ 0x14095EE14 (ApiSetpLoadSchemaImage.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall ApiSetLoadSchemaEx(__int64 a1, _QWORD *a2, size_t *a3)
+__int64 __fastcall ApiSetLoadSchemaEx(__int64 a1, _QWORD *a2, SIZE_T *a3)
 {
   int v5; // ebx
   __int64 ImageSection; // rax
-  size_t v7; // rsi
+  SIZE_T v7; // rsi
   char *v8; // r14
-  void *Pool2; // rax
-  void *v10; // rbp
+  PVOID PoolWithTag; // rax
+  PVOID v10; // rbp
   _QWORD v12[5]; // [rsp+20h] [rbp-28h] BYREF
   PVOID BaseAddress; // [rsp+68h] [rbp+20h] BYREF
 
@@ -32,11 +32,11 @@ __int64 __fastcall ApiSetLoadSchemaEx(__int64 a1, _QWORD *a2, size_t *a3)
     {
       v7 = *(unsigned int *)(ImageSection + 16);
       v8 = (char *)BaseAddress + *(unsigned int *)(ImageSection + 20);
-      Pool2 = (void *)ExAllocatePool2(256LL, v7, 1751339841LL);
-      v10 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v7, 0x68635341u);
+      v10 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        memmove(Pool2, v8, v7);
+        memmove(PoolWithTag, v8, v7);
         *a2 = v10;
         *a3 = v7;
       }

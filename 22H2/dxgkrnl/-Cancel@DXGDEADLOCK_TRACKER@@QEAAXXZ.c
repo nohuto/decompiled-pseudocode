@@ -1,125 +1,158 @@
 /*
- * XREFs of ?Cancel@DXGDEADLOCK_TRACKER@@QEAAXXZ @ 0x1C0195F94
+ * XREFs of ?Cancel@DXGDEADLOCK_TRACKER@@QEAAXXZ @ 0x1C01641D0
  * Callers:
- *     ??1DXGDEADLOCK_TRACKER@@QEAA@XZ @ 0x1C0195EDC (--1DXGDEADLOCK_TRACKER@@QEAA@XZ.c)
- *     ?StopDeadlockTrackers@DXGADAPTER@@QEAAXXZ @ 0x1C01EF9A4 (-StopDeadlockTrackers@DXGADAPTER@@QEAAXXZ.c)
+ *     ?AcquireCoreResourceShared@DXGADAPTER@@AEAAXPEAD@Z @ 0x1C01077E0 (-AcquireCoreResourceShared@DXGADAPTER@@AEAAXPEAD@Z.c)
+ *     ?AcquireCoreResourceExclusiveWithTracking@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@@Z @ 0x1C01305A8 (-AcquireCoreResourceExclusiveWithTracking@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0003734 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$01@@U?$_tlgWrapperByVal@$07@@U2@U2@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U3@U?$_tlgWrapSz@G@@U2@U1@U3@U3@U3@U3@U2@U3@U3@U3@U3@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$01@@AEBU?$_tlgWrapperByVal@$07@@44AEBU?$_tlgWrapperByVal@$03@@5555AEBU?$_tlgWrapSz@G@@43555545555555@Z @ 0x1C003E864 (--$Write@U-$_tlgWrapperByVal@$01@@U-$_tlgWrapperByVal@$07@@U2@U2@U-$_tlgWrapperByVa_ea_1C003E864.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004EC0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     _tlgKeywordOn @ 0x1C000C284 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$01@@U?$_tlgWrapperByVal@$07@@U2@U2@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U3@U?$_tlgWrapSz@G@@U2@U1@U3@U3@U3@U3@U2@U3@U3@U3@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$01@@AEBU?$_tlgWrapperByVal@$07@@44AEBU?$_tlgWrapperByVal@$03@@5555AEBU?$_tlgWrapSz@G@@4355554555555@Z @ 0x1C0036AF4 (--$Write@U-$_tlgWrapperByVal@$01@@U-$_tlgWrapperByVal@$07@@U2@U2@U-$_tlgWrapperByVa_ea_1C0036AF4.c)
  */
 
 void __fastcall DXGDEADLOCK_TRACKER::Cancel(DXGDEADLOCK_TRACKER *this)
 {
-  ULONGLONG UnbiasedInterruptTime; // rsi
-  signed __int64 v3; // rdi
+  DXGDEADLOCK_TRACKER *v1; // rbx
+  ULONGLONG UnbiasedInterruptTime; // rax
+  __int64 v3; // rdx
   __int64 v4; // rcx
-  unsigned __int8 IsDebuggerPresent; // al
-  __int64 v6; // rcx
-  ULONGLONG v7; // rsi
+  int IsDebuggerPresent; // edx
+  int v6; // eax
+  int v7; // ecx
   __int64 v8; // r8
   __int64 v9; // r9
-  int v10; // [rsp+E0h] [rbp-80h] BYREF
-  int v11; // [rsp+E4h] [rbp-7Ch] BYREF
-  int v12; // [rsp+E8h] [rbp-78h] BYREF
-  int v13; // [rsp+ECh] [rbp-74h] BYREF
-  int v14; // [rsp+F0h] [rbp-70h] BYREF
-  int v15; // [rsp+F4h] [rbp-6Ch] BYREF
-  int v16; // [rsp+F8h] [rbp-68h] BYREF
-  int v17; // [rsp+FCh] [rbp-64h] BYREF
-  int v18; // [rsp+100h] [rbp-60h] BYREF
-  int v19; // [rsp+104h] [rbp-5Ch] BYREF
-  int v20; // [rsp+108h] [rbp-58h] BYREF
-  int v21; // [rsp+10Ch] [rbp-54h] BYREF
-  int v22; // [rsp+110h] [rbp-50h] BYREF
-  int v23; // [rsp+114h] [rbp-4Ch] BYREF
-  __int64 v24; // [rsp+118h] [rbp-48h]
-  ULONGLONG v25; // [rsp+120h] [rbp-40h] BYREF
-  __int64 v26; // [rsp+128h] [rbp-38h] BYREF
-  void *v27; // [rsp+130h] [rbp-30h] BYREF
-  __int64 v28; // [rsp+138h] [rbp-28h] BYREF
-  signed __int64 v29; // [rsp+140h] [rbp-20h] BYREF
-  __int64 v30[5]; // [rsp+148h] [rbp-18h] BYREF
-  __int16 v31; // [rsp+180h] [rbp+20h] BYREF
-  __int16 v32; // [rsp+188h] [rbp+28h] BYREF
-  int v33; // [rsp+190h] [rbp+30h] BYREF
-  int v34; // [rsp+198h] [rbp+38h] BYREF
+  int v10; // r10d
+  int v11; // r11d
+  int v12; // ebx
+  int v13; // edi
+  __int16 v14; // si
+  int v15; // r15d
+  int v16; // r12d
+  int v17; // r13d
+  int v18; // r14d
+  __int64 v19; // rcx
+  _DWORD *v20; // [rsp+E0h] [rbp-80h] BYREF
+  int v21; // [rsp+E8h] [rbp-78h]
+  int v22; // [rsp+ECh] [rbp-74h] BYREF
+  int v23; // [rsp+F0h] [rbp-70h] BYREF
+  int v24; // [rsp+F4h] [rbp-6Ch] BYREF
+  int v25; // [rsp+F8h] [rbp-68h] BYREF
+  int v26; // [rsp+FCh] [rbp-64h] BYREF
+  int v27; // [rsp+100h] [rbp-60h] BYREF
+  int v28; // [rsp+104h] [rbp-5Ch] BYREF
+  int v29; // [rsp+108h] [rbp-58h] BYREF
+  int v30; // [rsp+10Ch] [rbp-54h] BYREF
+  int v31; // [rsp+110h] [rbp-50h] BYREF
+  int v32; // [rsp+114h] [rbp-4Ch] BYREF
+  int v33; // [rsp+118h] [rbp-48h] BYREF
+  int v34; // [rsp+11Ch] [rbp-44h] BYREF
+  int v35; // [rsp+120h] [rbp-40h] BYREF
+  int v36; // [rsp+124h] [rbp-3Ch] BYREF
+  __int64 v37; // [rsp+128h] [rbp-38h]
+  ULONGLONG v38; // [rsp+130h] [rbp-30h]
+  signed __int64 v39; // [rsp+138h] [rbp-28h]
+  ULONGLONG v40; // [rsp+140h] [rbp-20h] BYREF
+  __int64 v41; // [rsp+148h] [rbp-18h] BYREF
+  __int64 v42; // [rsp+150h] [rbp-10h] BYREF
+  signed __int64 v43; // [rsp+158h] [rbp-8h] BYREF
+  __int64 v44[10]; // [rsp+160h] [rbp+0h] BYREF
+  __int16 v46; // [rsp+1C8h] [rbp+68h] BYREF
+  __int16 v47; // [rsp+1D0h] [rbp+70h] BYREF
+  int v48; // [rsp+1D8h] [rbp+78h]
 
-  if ( _InterlockedCompareExchange((volatile signed __int32 *)this + 9, 0, 1) == 1 )
+  v1 = this;
+  if ( *((_BYTE *)this + 34) )
   {
-    if ( !KeCancelTimer((PKTIMER)((char *)this + 248)) )
+    *((_BYTE *)this + 34) = 0;
+    if ( !KeCancelTimer((PKTIMER)((char *)this + 168)) )
       KeFlushQueuedDpcs();
-    if ( !KeCancelTimer((PKTIMER)((char *)this + 40)) )
+    if ( !KeCancelTimer((PKTIMER)((char *)v1 + 40)) )
     {
       KeFlushQueuedDpcs();
-      if ( !KeCancelTimer((PKTIMER)((char *)this + 40)) )
+      if ( !KeCancelTimer((PKTIMER)((char *)v1 + 40)) )
         KeFlushQueuedDpcs();
     }
     UnbiasedInterruptTime = KeQueryUnbiasedInterruptTime();
-    v24 = *(_QWORD *)(*((_QWORD *)this + 3) + 404LL);
-    v3 = _InterlockedExchangeAdd64((volatile signed __int64 *)&DXGDEADLOCK_TRACKER::DeadlockCounter, 1uLL);
-    KeWaitForSingleObject((char *)this + 200, Executive, 0, 0, 0LL);
-    if ( (*((_BYTE *)this + 32) || *((_BYTE *)this + 33)) && (unsigned int)dword_1C013F918 > 5 )
+    v3 = *((_QWORD *)v1 + 3);
+    v38 = UnbiasedInterruptTime;
+    v37 = *(_QWORD *)(v3 + 316);
+    v39 = _InterlockedExchangeAdd64((volatile signed __int64 *)&DXGDEADLOCK_TRACKER::DeadlockCounter, 1uLL);
+    if ( (*((_BYTE *)v1 + 32) || *((_BYTE *)v1 + 33)) && (unsigned int)dword_1C00B1A90 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_1C013F918, 0x400000004000LL) )
+      if ( tlgKeywordOn((__int64)&dword_1C00B1A90, 0x400000004000LL) )
       {
         LOBYTE(v4) = 1;
-        v33 = *((unsigned __int8 *)this + 240);
-        IsDebuggerPresent = WdIsDebuggerPresent(v4);
-        v6 = *((_QWORD *)this + 3);
-        v34 = IsDebuggerPresent;
-        v7 = UnbiasedInterruptTime - *(_QWORD *)this;
-        v10 = *(_DWORD *)(v6 + 3016);
-        v11 = *(unsigned __int8 *)(v6 + 2870);
-        v12 = *((unsigned __int8 *)this + 33);
-        v13 = *(_DWORD *)(v6 + 4680);
-        v14 = *(_DWORD *)(v6 + 4676);
-        v25 = v7;
-        v15 = *(unsigned __int8 *)(v6 + 209);
-        v16 = *(unsigned __int8 *)(v6 + 2764);
-        v17 = *(unsigned __int8 *)(v6 + 2759);
-        v18 = *(_DWORD *)(v6 + 288);
-        v31 = *(_WORD *)(v6 + 2820);
-        v26 = *(_QWORD *)(v6 + 1824);
-        v27 = *(void **)(v6 + 1816);
-        v19 = *(_DWORD *)(v6 + 428);
-        v20 = *(_DWORD *)(v6 + 424);
-        v21 = *(_DWORD *)(v6 + 420);
-        v22 = *(_DWORD *)(v6 + 416);
-        v23 = *(_DWORD *)(v6 + 412);
-        v28 = v24;
-        v32 = 13;
-        v29 = v3;
-        v30[0] = 0x1000000LL;
-        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<2>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<8>,_tlgWrapperByVal<2>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-          v6,
-          byte_1C00A63E3,
+        IsDebuggerPresent = (unsigned __int8)WdIsDebuggerPresent(v4);
+        v20 = (_DWORD *)*((_QWORD *)v1 + 3);
+        v6 = v20[698];
+        v7 = *((unsigned __int8 *)v20 + 2646);
+        v8 = (unsigned int)v20[1120];
+        v9 = (unsigned int)v20[1119];
+        v10 = *((unsigned __int8 *)v20 + 209);
+        v11 = *((unsigned __int8 *)v20 + 2540);
+        v12 = *((unsigned __int8 *)v20 + 2535);
+        v13 = v20[70];
+        v14 = *((_WORD *)v20 + 1298);
+        v15 = v20[84];
+        v16 = v20[83];
+        v17 = v20[82];
+        v48 = v20[85];
+        v18 = v20[81];
+        v23 = v6;
+        v24 = v7;
+        v22 = IsDebuggerPresent;
+        v26 = v8;
+        v27 = v9;
+        v25 = *((unsigned __int8 *)this + 33);
+        v19 = (__int64)v20;
+        v40 = v38 - *(_QWORD *)this;
+        v28 = v10;
+        v29 = v11;
+        v30 = v12;
+        v31 = v13;
+        v46 = v14;
+        v41 = *((_QWORD *)v20 + 200);
+        v20 = (_DWORD *)*((_QWORD *)v20 + 199);
+        v21 = v18;
+        v36 = v18;
+        v42 = v37;
+        v43 = v39;
+        v47 = 12;
+        v32 = v48;
+        v33 = v15;
+        v34 = v16;
+        v35 = v17;
+        v44[0] = 0x1000000LL;
+        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<2>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<8>,_tlgWrapperByVal<2>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+          v19,
+          byte_1C007E2F3,
           v8,
           v9,
+          (__int64)&v47,
+          (__int64)v44,
+          (__int64)&v43,
+          (__int64)&v42,
+          (__int64)&v36,
+          (__int64)&v35,
+          (__int64)&v34,
+          (__int64)&v33,
           (__int64)&v32,
-          (__int64)v30,
+          (void **)&v20,
+          (__int64)&v41,
+          (__int64)&v46,
+          (__int64)&v31,
+          (__int64)&v30,
           (__int64)&v29,
           (__int64)&v28,
-          (__int64)&v23,
-          (__int64)&v22,
-          (__int64)&v21,
-          (__int64)&v20,
-          (__int64)&v19,
-          &v27,
+          (__int64)&v40,
+          (__int64)&v27,
           (__int64)&v26,
-          (__int64)&v31,
-          (__int64)&v18,
-          (__int64)&v17,
-          (__int64)&v16,
-          (__int64)&v15,
           (__int64)&v25,
-          (__int64)&v14,
-          (__int64)&v13,
-          (__int64)&v12,
-          (__int64)&v11,
-          (__int64)&v10,
-          (__int64)&v34,
-          (__int64)&v33);
+          (__int64)&v24,
+          (__int64)&v23,
+          (__int64)&v22);
+        v1 = this;
       }
     }
+    DXGADAPTER::ReleaseReference(*((DXGADAPTER **)v1 + 3));
   }
 }

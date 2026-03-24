@@ -1,36 +1,36 @@
 /*
- * XREFs of ExpParseEfiPath @ 0x140840470
+ * XREFs of ExpParseEfiPath @ 0x140950C00
  * Callers:
- *     ExpTranslateEfiPath @ 0x1408402B0 (ExpTranslateEfiPath.c)
+ *     ExpTranslateEfiPath @ 0x14095228C (ExpTranslateEfiPath.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpParseEfiPath(char *Src, _QWORD *a2, _QWORD *a3, char *a4)
 {
-  _WORD *Pool2; // rdi
-  _QWORD *v5; // r15
-  char *v6; // r12
+  _WORD *PoolWithTag; // rbx
+  _QWORD *v5; // r14
+  char *v6; // r15
   unsigned int v7; // esi
   _QWORD *v8; // rbp
-  unsigned int v10; // ebx
+  unsigned int v10; // edi
   char v11; // r11
   char v12; // al
   char *v13; // r13
-  unsigned int v14; // r14d
+  unsigned int v14; // r12d
   char *v15; // r10
   char v16; // cl
-  char v17; // al
-  void *v18; // rax
-  int v20; // eax
-  unsigned int v21; // esi
-  unsigned int v22; // r15d
-  unsigned int v23; // ebp
-  unsigned __int64 v24; // rax
+  int v17; // eax
+  char v18; // al
+  unsigned int v19; // esi
+  unsigned int v20; // r14d
+  unsigned int v21; // ebp
+  unsigned __int64 v23; // rax
+  PVOID v24; // rax
 
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   v5 = a3;
   v6 = 0LL;
   v7 = 0;
@@ -56,76 +56,76 @@ __int64 __fastcall ExpParseEfiPath(char *Src, _QWORD *a2, _QWORD *a3, char *a4)
     v6 = v15;
     while ( 1 )
     {
-      v20 = *((unsigned __int16 *)v15 + 1);
-      if ( v20 + v7 - 4 < v7 )
+      v17 = *((unsigned __int16 *)v15 + 1);
+      if ( v17 + v7 - 4 < v7 )
         break;
-      v7 = v20 + v7 - 4;
-      if ( v20 + v14 < v14 )
+      v7 = v17 + v7 - 4;
+      if ( v17 + v14 < v14 )
       {
         v14 = -1;
-        goto LABEL_24;
+        goto LABEL_16;
       }
-      v14 += v20;
+      v14 += v17;
       v10 = 0;
       v15 += (unsigned __int8)v15[2] | (unsigned __int64)((unsigned __int8)v15[3] << 8);
       v16 = *v15;
       if ( (*v15 & 0x7F) != 4 || v15[1] != 4 )
-        goto LABEL_7;
+        goto LABEL_17;
     }
     v7 = -1;
-LABEL_24:
+LABEL_16:
     v16 = *v15;
     v10 = -1073741675;
   }
-LABEL_7:
+LABEL_17:
   if ( (v16 & 0x7F) != 0x7F )
-    return (unsigned int)-1073741811;
+    v10 = -1073741811;
   if ( (v10 & 0x80000000) != 0 )
     return v10;
-  v17 = v13[41];
-  if ( v17 == 2 )
+  v18 = v13[41];
+  if ( v18 == 2 )
   {
-LABEL_10:
+LABEL_23:
     *a4 = v11;
     if ( v7 )
     {
-      v21 = v7 + 2;
-      Pool2 = (_WORD *)ExAllocatePool2(64LL, v21, 1920364101LL);
-      if ( !Pool2 )
+      v19 = v7 + 2;
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v19, 0x72766E45u);
+      if ( !PoolWithTag )
         return 3221225626LL;
-      v22 = 0;
+      v20 = 0;
       while ( (*v6 & 0x7F) != 0x7F )
       {
-        v23 = *((unsigned __int16 *)v6 + 1) - 4;
-        if ( v23 >= v21 )
-          goto LABEL_32;
-        memmove((char *)Pool2 + v22, v6 + 4, v23);
-        v21 -= v23;
-        v22 += v23;
+        v21 = *((unsigned __int16 *)v6 + 1) - 4;
+        if ( v21 >= v19 )
+          goto LABEL_29;
+        memmove((char *)PoolWithTag + v20, v6 + 4, v21);
+        v19 -= v21;
+        v20 += v21;
         v6 += *((unsigned __int16 *)v6 + 1);
       }
       v8 = a2;
-      v24 = v22;
+      v23 = v20;
       v5 = a3;
-      Pool2[v24 >> 1] = 0;
+      PoolWithTag[v23 >> 1] = 0;
     }
-    v18 = (void *)ExAllocatePool2(64LL, v14, 1920364101LL);
-    *v8 = v18;
-    if ( v18 )
+    v24 = ExAllocatePoolWithTag(NonPagedPoolNx, v14, 0x72766E45u);
+    *v8 = v24;
+    if ( !v24 )
     {
-      memmove(v18, v13, v14);
-      *v5 = Pool2;
-      return v10;
+      if ( PoolWithTag )
+LABEL_29:
+        ExFreePoolWithTag(PoolWithTag, 0);
+      return 3221225626LL;
     }
-    if ( Pool2 )
-LABEL_32:
-      ExFreePoolWithTag(Pool2, 0);
-    return 3221225626LL;
+    memmove(v24, v13, v14);
+    *v5 = PoolWithTag;
+    return v10;
   }
-  if ( v17 == 1 )
+  if ( v18 == 1 )
   {
     v11 = 0;
-    goto LABEL_10;
+    goto LABEL_23;
   }
   return 3221225485LL;
 }

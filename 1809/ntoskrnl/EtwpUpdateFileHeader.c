@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpUpdateFileHeader @ 0x140699E3C
+ * XREFs of EtwpUpdateFileHeader @ 0x140699E1C
  * Callers:
- *     EtwpCreateLogFile @ 0x140699B1C (EtwpCreateLogFile.c)
+ *     EtwpCreateLogFile @ 0x140699AFC (EtwpCreateLogFile.c)
  * Callees:
  *     EtwpQueryMaximumFileSize @ 0x140014A4C (EtwpQueryMaximumFileSize.c)
  *     EtwpResetBufferHeader @ 0x140015524 (EtwpResetBufferHeader.c)
  *     EtwpQueryUsedProcessorCount @ 0x14001557C (EtwpQueryUsedProcessorCount.c)
- *     EtwpInitializeBufferHeader @ 0x1400DD2BC (EtwpInitializeBufferHeader.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1401B8230 (ZwReadFile.c)
- *     ZwWriteFile @ 0x1401B8270 (ZwWriteFile.c)
- *     ZwQueryInformationFile @ 0x1401B8390 (ZwQueryInformationFile.c)
- *     ZwSetInformationFile @ 0x1401B8650 (ZwSetInformationFile.c)
- *     ZwQueryVolumeInformationFile @ 0x1401B8A90 (ZwQueryVolumeInformationFile.c)
+ *     EtwpInitializeBufferHeader @ 0x1400DD2DC (EtwpInitializeBufferHeader.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1401B8250 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x1401B8290 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x1401B83B0 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x1401B8670 (ZwSetInformationFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x1401B8AB0 (ZwQueryVolumeInformationFile.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpAddLogHeader @ 0x14069A648 (EtwpAddLogHeader.c)
- *     EtwpIsWow64Logger @ 0x14069AB70 (EtwpIsWow64Logger.c)
+ *     EtwpAddLogHeader @ 0x14069A628 (EtwpAddLogHeader.c)
+ *     EtwpIsWow64Logger @ 0x14069AB50 (EtwpIsWow64Logger.c)
  */
 
 NTSTATUS __fastcall EtwpUpdateFileHeader(__int64 a1, char a2)

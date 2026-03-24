@@ -1,12 +1,12 @@
 /*
- * XREFs of GetMAPPER_SignatureTable @ 0x1C00BEAE0
+ * XREFs of GetMAPPER_SignatureTable @ 0x1C0137540
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GetMAPPER_SignatureTable(__int64 a1)
+unsigned int **GetMAPPER_SignatureTable()
 {
-  return *(_QWORD *)(SGDGetSessionState(a1) + 32) + 19512LL;
+  return &MAPPER::SignatureTable;
 }

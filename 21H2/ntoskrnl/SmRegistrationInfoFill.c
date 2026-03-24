@@ -1,10 +1,10 @@
 /*
- * XREFs of SmRegistrationInfoFill @ 0x14085EA64
+ * XREFs of SmRegistrationInfoFill @ 0x1407CF2F8
  * Callers:
- *     SmGetRegistrationInfo @ 0x14085E9A0 (SmGetRegistrationInfo.c)
+ *     SmGetRegistrationInfo @ 0x1407CF24C (SmGetRegistrationInfo.c)
  * Callees:
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
  */
 
 __int64 __fastcall SmRegistrationInfoFill(void **a1, KPROCESSOR_MODE AccessMode, _QWORD *a3)

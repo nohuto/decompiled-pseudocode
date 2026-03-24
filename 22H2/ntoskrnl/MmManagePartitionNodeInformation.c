@@ -1,75 +1,111 @@
 /*
- * XREFs of MmManagePartitionNodeInformation @ 0x140A45A48
+ * XREFs of MmManagePartitionNodeInformation @ 0x1408DBC78
  * Callers:
- *     NtManagePartition @ 0x140760280 (NtManagePartition.c)
+ *     NtManagePartition @ 0x1406762C0 (NtManagePartition.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     MiGetPartitionNodeInformation @ 0x14065A118 (MiGetPartitionNodeInformation.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MmManagePartitionNodeInformation(__int64 *a1, unsigned int *a2, char a3)
+__int64 __fastcall MmManagePartitionNodeInformation(__int64 a1, unsigned int *a2, char a3)
 {
-  void *v6; // rdi
-  unsigned int v7; // ebx
-  __int64 v8; // rcx
-  SIZE_T v9; // r14
+  void *v5; // rsi
+  unsigned int v6; // edi
+  __int64 v7; // rcx
+  SIZE_T v8; // r15
   PVOID Pool; // rax
-  _QWORD *v11; // r15
-  __int64 v12; // rax
-  _QWORD *v13; // r12
-  unsigned int v14; // ebx
-  __int64 v15; // r14
-  __int64 v17; // [rsp+20h] [rbp-38h]
+  _QWORD *v10; // r13
+  _QWORD *v11; // r12
+  _QWORD *v12; // r14
+  unsigned int v13; // r15d
+  signed __int64 *v14; // rcx
+  struct _KTHREAD *CurrentThread; // [rsp+20h] [rbp-48h]
+  __int64 v17; // [rsp+28h] [rbp-40h]
+  PVOID v19; // [rsp+88h] [rbp+20h]
 
-  v6 = 0LL;
-  if ( a2[1] || (v8 = *a2, (_DWORD)v8 != (unsigned __int16)KeNumberNodes) )
+  v5 = 0LL;
+  v19 = 0LL;
+  if ( a2[1] || (v7 = *a2, (_DWORD)v7 != (unsigned __int16)KeNumberNodes) )
   {
-    v7 = -1073741811;
-    goto LABEL_16;
+    v6 = -1073741811;
+    goto LABEL_20;
   }
-  v9 = 72 * v8;
-  v17 = 72 * v8;
+  v8 = 72 * v7;
+  v17 = 72 * v7;
   if ( a3 )
   {
-    Pool = MiAllocatePool(64, 72 * v8, 0x694E694Du);
-    v6 = Pool;
+    Pool = MiAllocatePool(64, 72 * v7, 0x694E694Du);
+    v5 = Pool;
+    v19 = Pool;
     if ( !Pool )
     {
-      v7 = -1073741670;
-      goto LABEL_16;
+      v6 = -1073741670;
+      goto LABEL_20;
     }
-    v11 = Pool;
+    v10 = Pool;
+    LODWORD(v7) = *a2;
   }
   else
   {
-    v11 = (_QWORD *)*((_QWORD *)a2 + 1);
+    v10 = (_QWORD *)*((_QWORD *)a2 + 1);
   }
-  v12 = *a1;
-  v13 = v11;
-  v14 = 0;
-  if ( *a2 )
+  CurrentThread = KeGetCurrentThread();
+  v11 = *(_QWORD **)(*(_QWORD *)a1 + 16LL);
+  if ( (_DWORD)v7 )
   {
-    v15 = v12;
+    v12 = v10 + 7;
+    v13 = 0;
     do
     {
-      MiGetPartitionNodeInformation(v15, v14, v13);
-      v13 += 9;
-      ++v14;
+      memset(v12 - 7, 0, 0x48uLL);
+      --CurrentThread->SpecialApcDisable;
+      ExAcquirePushLockSharedEx((ULONG_PTR)(v11 + 537), 0LL);
+      *(v12 - 7) = v11[522];
+      *(v12 - 5) = v11[516];
+      *(v12 - 6) = v11[517];
+      *(v12 - 3) = v11[268];
+      *(v12 - 4) = v11[269];
+      *(v12 - 1) = v11[134];
+      *(v12 - 2) = v11[135];
+      v12[1] = *v11;
+      *v12 = v11[1];
+      v14 = v11 + 537;
+      if ( _InterlockedCompareExchange64(v11 + 537, 0LL, 17LL) != 17 )
+      {
+        ExfReleasePushLockShared(v14);
+        v14 = v11 + 537;
+      }
+      KeAbPostRelease((ULONG_PTR)v14);
+      KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+      if ( (unsigned __int64)(*(v12 - 5)
+                            + ((*v12 + v12[1]) << 18)
+                            + *(v12 - 6)
+                            + 16 * (*(v12 - 3) + *(v12 - 4) + 32LL * (*(v12 - 1) + *(v12 - 2)))) <= *(v12 - 7) )
+      {
+        ++v13;
+        v11 += 568;
+        v12 += 9;
+      }
     }
-    while ( v14 < *a2 );
-    v9 = v17;
+    while ( v13 < *a2 );
+    v5 = v19;
+    v8 = v17;
   }
   if ( a3 )
   {
-    ProbeForWrite(*((volatile void **)a2 + 1), v9, 8u);
-    memmove(*((void **)a2 + 1), v11, v9);
+    ProbeForWrite(*((volatile void **)a2 + 1), v8, 8u);
+    memmove(*((void **)a2 + 1), v10, v8);
   }
-  v7 = 0;
-LABEL_16:
-  if ( v6 )
-    ExFreePoolWithTag(v6, 0);
-  return v7;
+  v6 = 0;
+LABEL_20:
+  if ( v5 )
+    ExFreePoolWithTag(v5, 0);
+  return v6;
 }

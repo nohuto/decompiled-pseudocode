@@ -3,19 +3,19 @@
  * Callers:
  *     AlpcpProcessConnectionRequest @ 0x1406136BC (AlpcpProcessConnectionRequest.c)
  *     AlpcpProcessSynchronousRequest @ 0x140633A30 (AlpcpProcessSynchronousRequest.c)
- *     AlpcpReceiveLegacyConnectionReply @ 0x1406A60EC (AlpcpReceiveLegacyConnectionReply.c)
+ *     AlpcpReceiveLegacyConnectionReply @ 0x1406A60CC (AlpcpReceiveLegacyConnectionReply.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     AlpcpSignalAndWait @ 0x1400ABCB0 (AlpcpSignalAndWait.c)
- *     AlpcpWaitForSingleObject @ 0x140120404 (AlpcpWaitForSingleObject.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     AlpcpSignalAndWait @ 0x1400ABCD0 (AlpcpSignalAndWait.c)
+ *     AlpcpWaitForSingleObject @ 0x140120424 (AlpcpWaitForSingleObject.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     AlpcpCancelMessage @ 0x14061590C (AlpcpCancelMessage.c)
  *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
- *     AlpcpInsertMessagePendingQueue @ 0x14069BCA4 (AlpcpInsertMessagePendingQueue.c)
- *     AlpcpLogReceiveMessage @ 0x14084B980 (AlpcpLogReceiveMessage.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x14069BC84 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpLogReceiveMessage @ 0x14084B960 (AlpcpLogReceiveMessage.c)
  */
 
 __int64 __fastcall AlpcpReceiveSynchronousReply(

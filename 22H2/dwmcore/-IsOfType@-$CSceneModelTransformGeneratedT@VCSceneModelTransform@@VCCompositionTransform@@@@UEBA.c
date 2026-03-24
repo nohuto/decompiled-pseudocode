@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@?$CSceneModelTransformGeneratedT@VCSceneModelTransform@@VCCompositionTransform@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C5210
+ * XREFs of ?IsOfType@?$CSceneModelTransformGeneratedT@VCSceneModelTransform@@VCCompositionTransform@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F050
  * Callers:
  *     <none>
  * Callees:
@@ -10,5 +10,5 @@ bool __fastcall CSceneModelTransformGeneratedT<CSceneModelTransform,CComposition
         __int64 a1,
         int a2)
 {
-  return a2 == 160 || a2 == 44;
+  return a2 == 160 || a2 == 42;
 }

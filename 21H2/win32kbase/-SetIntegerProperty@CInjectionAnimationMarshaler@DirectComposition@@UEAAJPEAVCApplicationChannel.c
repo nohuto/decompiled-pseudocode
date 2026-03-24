@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetIntegerProperty@CInjectionAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0233620
+ * XREFs of ?SetIntegerProperty@CInjectionAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01F30C0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0098D70 (-SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I.c)
+ *     ?SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0084650 (-SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I.c)
  */
 
 __int64 __fastcall DirectComposition::CInjectionAnimationMarshaler::SetIntegerProperty(
@@ -19,18 +19,18 @@ __int64 __fastcall DirectComposition::CInjectionAnimationMarshaler::SetIntegerPr
   *a5 = 0;
   if ( a3 == 12 )
   {
-    if ( *((_QWORD *)this + 18) == a4 )
+    if ( *((_QWORD *)this + 17) == a4 )
       return v5;
-    *((_QWORD *)this + 18) = a4;
+    *((_QWORD *)this + 17) = a4;
     goto LABEL_8;
   }
   if ( a3 == 13 )
   {
-    if ( *((_QWORD *)this + 19) == a4 )
+    if ( *((_QWORD *)this + 18) == a4 )
       return v5;
-    *((_QWORD *)this + 19) = a4;
+    *((_QWORD *)this + 18) = a4;
 LABEL_8:
-    *((_DWORD *)this + 4) &= ~0x800u;
+    *((_DWORD *)this + 4) &= ~0x400u;
     *a5 = 1;
     return v5;
   }

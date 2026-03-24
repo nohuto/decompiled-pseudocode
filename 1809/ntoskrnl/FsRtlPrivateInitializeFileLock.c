@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlPrivateInitializeFileLock @ 0x140136C88
+ * XREFs of FsRtlPrivateInitializeFileLock @ 0x140136CA8
  * Callers:
  *     FsRtlPrivateLock @ 0x14008C8F0 (FsRtlPrivateLock.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAllocateFromNPagedLookasideList @ 0x140018B38 (ExAllocateFromNPagedLookasideList.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
  */
 
 char __fastcall FsRtlPrivateInitializeFileLock(_QWORD *a1, char a2)

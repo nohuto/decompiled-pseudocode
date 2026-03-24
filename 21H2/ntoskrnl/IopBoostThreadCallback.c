@@ -1,10 +1,10 @@
 /*
- * XREFs of IopBoostThreadCallback @ 0x14024EB80
+ * XREFs of IopBoostThreadCallback @ 0x1402C5DA0
  * Callers:
  *     <none>
  * Callees:
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1403494F0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140342370 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall IopBoostThreadCallback(__int64 a1, PVOID *a2)

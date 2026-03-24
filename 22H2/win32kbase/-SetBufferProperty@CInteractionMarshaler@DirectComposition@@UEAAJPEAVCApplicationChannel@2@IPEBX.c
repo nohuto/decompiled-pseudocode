@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SetBufferProperty@CInteractionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0093880
+ * XREFs of ?SetBufferProperty@CInteractionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0084570
  * Callers:
  *     <none>
  * Callees:
- *     ?ProcessUpdateConfiguration@CInteractionConfigurationGroup@DirectComposition@@QEAAJPEBUDwmInteractionConfiguration@@W4Enum@InteractionProperty@@PEA_N@Z @ 0x1C00938E4 (-ProcessUpdateConfiguration@CInteractionConfigurationGroup@DirectComposition@@QEAAJPEBUDwmIntera.c)
+ *     ?ProcessUpdateConfiguration@CInteractionConfigurationGroup@DirectComposition@@QEAAJPEBUDwmInteractionConfiguration@@W4Enum@InteractionProperty@@PEA_N@Z @ 0x1C00845CC (-ProcessUpdateConfiguration@CInteractionConfigurationGroup@DirectComposition@@QEAAJPEBUDwmIntera.c)
  */
 
 __int64 __fastcall DirectComposition::CInteractionMarshaler::SetBufferProperty(
         DirectComposition::CInteractionMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
-        int a3,
+        unsigned int a3,
         const void *a4,
         unsigned __int64 a5,
         bool *a6)
@@ -17,14 +17,14 @@ __int64 __fastcall DirectComposition::CInteractionMarshaler::SetBufferProperty(
   char *v6; // rcx
 
   *a6 = 0;
-  if ( a4 && a5 == 16 )
+  if ( a4 && a5 == 16 && a3 )
   {
-    if ( a3 == 1 || a3 == 2 || a3 == 3 )
+    if ( a3 <= 3 )
     {
       v6 = (char *)this + 56;
       return DirectComposition::CInteractionConfigurationGroup::ProcessUpdateConfiguration(v6, a4);
     }
-    if ( (unsigned int)(a3 - 8) <= 1 )
+    if ( a3 - 7 <= 1 )
     {
       v6 = (char *)this + 160;
       return DirectComposition::CInteractionConfigurationGroup::ProcessUpdateConfiguration(v6, a4);

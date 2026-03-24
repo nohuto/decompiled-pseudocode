@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUpdateWnfStateData @ 0x140712310
+ * XREFs of NtUpdateWnfStateData @ 0x14060EA00
  * Callers:
- *     SepSecureBootCheckForUpdates @ 0x140B6DC20 (SepSecureBootCheckForUpdates.c)
+ *     SepSecureBootCheckForUpdates @ 0x140A937A0 (SepSecureBootCheckForUpdates.c)
  * Callees:
- *     ExpNtUpdateWnfStateData @ 0x14071234C (ExpNtUpdateWnfStateData.c)
+ *     ExpNtUpdateWnfStateData @ 0x14060EA3C (ExpNtUpdateWnfStateData.c)
  */
 
 __int64 __fastcall NtUpdateWnfStateData(int a1, int a2, int a3, int a4, __int64 a5, int a6, int a7)

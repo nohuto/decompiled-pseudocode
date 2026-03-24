@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIDelayedFreeWakeInterrupt @ 0x1C00622A0
+ * XREFs of ACPIDelayedFreeWakeInterrupt @ 0x1C00614EC
  * Callers:
- *     ACPIAssociateWakeInterrupt @ 0x1C0061F5C (ACPIAssociateWakeInterrupt.c)
- *     ACPIFreeWaitWakePowerRequest @ 0x1C0062620 (ACPIFreeWaitWakePowerRequest.c)
+ *     ACPIAssociateWakeInterrupt @ 0x1C00611B8 (ACPIAssociateWakeInterrupt.c)
+ *     ACPIFreeWaitWakePowerRequest @ 0x1C00617D0 (ACPIFreeWaitWakePowerRequest.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1C00309D4 (ExFreeToNPagedLookasideList.c)
- *     ACPIFindWakeInterruptForVector @ 0x1C00625DC (ACPIFindWakeInterruptForVector.c)
- *     OSPowerTryAcquireWakeInterruptChangeStateLock @ 0x1C00637C4 (OSPowerTryAcquireWakeInterruptChangeStateLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x1C004C9C8 (ExFreeToNPagedLookasideList.c)
+ *     ACPIFindWakeInterruptForVector @ 0x1C0061788 (ACPIFindWakeInterruptForVector.c)
+ *     OSPowerTryAcquireWakeInterruptChangeStateLock @ 0x1C0062484 (OSPowerTryAcquireWakeInterruptChangeStateLock.c)
  */
 
 void __fastcall ACPIDelayedFreeWakeInterrupt(unsigned int a1, __int64 a2)
@@ -21,8 +21,7 @@ void __fastcall ACPIDelayedFreeWakeInterrupt(unsigned int a1, __int64 a2)
   PVOID Entry; // [rsp+50h] [rbp+18h] BYREF
 
   Entry = 0LL;
-  *(_QWORD *)&Parameters.Version = 0LL;
-  LODWORD(Parameters.ConnectionContext.Generic) = 0;
+  Parameters = 0LL;
   v4 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
   if ( (int)ACPIFindWakeInterruptForVector(a1, a2, &Entry) >= 0 )
   {

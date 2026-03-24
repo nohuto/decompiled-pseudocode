@@ -1,8 +1,8 @@
 /*
- * XREFs of ??0QpcTimeConverter@@QEAA@XZ @ 0x18002C0F8
+ * XREFs of ??0QpcTimeConverter@@QEAA@XZ @ 0x1800B6258
  * Callers:
- *     ??0CManipulationManager@@IEAA@PEAVCComposition@@@Z @ 0x18002BD14 (--0CManipulationManager@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CInteractionContextWrapper@@QEAA@XZ @ 0x18002BF74 (--0CInteractionContextWrapper@@QEAA@XZ.c)
+ *     ??0CManipulationManager@@IEAA@PEAVCComposition@@@Z @ 0x1800B5DF8 (--0CManipulationManager@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CInteractionContextWrapper@@QEAA@XZ @ 0x1800B60D8 (--0CInteractionContextWrapper@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */

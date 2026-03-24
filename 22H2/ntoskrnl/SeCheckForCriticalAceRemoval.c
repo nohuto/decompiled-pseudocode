@@ -1,14 +1,14 @@
 /*
- * XREFs of SeCheckForCriticalAceRemoval @ 0x14070FC70
+ * XREFs of SeCheckForCriticalAceRemoval @ 0x1406E7260
  * Callers:
- *     CmpSetSecurityDescriptorInfo @ 0x14070CFC8 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1406E5AEC (CmpSetSecurityDescriptorInfo.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14020BB20 (PsGetCurrentThreadProcess.c)
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     SepCheckForCriticalAceRemoval @ 0x14029740C (SepCheckForCriticalAceRemoval.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x140742C84 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     PsGetCurrentThreadProcess @ 0x140316F60 (PsGetCurrentThreadProcess.c)
+ *     SepCheckForCriticalAceRemoval @ 0x140347FBC (SepCheckForCriticalAceRemoval.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14062F1D8 (PsGetAllocatedFullProcessImageNameEx.c)
  */
 
 char __fastcall SeCheckForCriticalAceRemoval(__int64 a1, __int64 a2, __int64 *a3, _BYTE *a4)
@@ -30,16 +30,16 @@ char __fastcall SeCheckForCriticalAceRemoval(__int64 a1, __int64 a2, __int64 *a3
   v12 = 0LL;
   v10 = 0;
   v11[0] = 0;
-  LOBYTE(AllocatedFullProcessImageName) = (unsigned __int8)SepCheckForCriticalAceRemoval(a1, a2, a3, &v10, v11);
+  LOBYTE(AllocatedFullProcessImageName) = SepCheckForCriticalAceRemoval(a1, a2, a3, &v10, v11);
   if ( v10 )
   {
     if ( !v11[0] )
     {
       CurrentThreadProcess = PsGetCurrentThreadProcess();
-      AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx(CurrentThreadProcess, &v12);
-      if ( AllocatedFullProcessImageName >= 0 && (unsigned int)dword_140C06550 > 5 )
+      AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, (__int64)&v12);
+      if ( AllocatedFullProcessImageName >= 0 && (unsigned int)dword_140C02B70 > 5 )
       {
-        LOBYTE(AllocatedFullProcessImageName) = tlgKeywordOn((__int64)&dword_140C06550, 0x200000000000LL);
+        LOBYTE(AllocatedFullProcessImageName) = tlgKeywordOn((__int64)&dword_140C02B70, 0x200000000000LL);
         if ( (_BYTE)AllocatedFullProcessImageName )
         {
           v7 = *v12;
@@ -51,8 +51,8 @@ char __fastcall SeCheckForCriticalAceRemoval(__int64 a1, __int64 a2, __int64 *a3
           v18[0] = v7;
           v15 = 2;
           LOBYTE(AllocatedFullProcessImageName) = tlgWriteTransfer_EtwWriteTransfer(
-                                                    (__int64)&dword_140C06550,
-                                                    (unsigned __int8 *)&byte_1400342C7,
+                                                    (__int64)&dword_140C02B70,
+                                                    (unsigned __int8 *)&word_14002C316,
                                                     0LL,
                                                     0LL,
                                                     4u,

@@ -1,40 +1,39 @@
 /*
- * XREFs of SeSubProcessToken @ 0x1406B71F8
+ * XREFs of SeSubProcessToken @ 0x140603E44
  * Callers:
- *     PspInitializeProcessSecurity @ 0x1406B64F0 (PspInitializeProcessSecurity.c)
+ *     PspInitializeProcessSecurity @ 0x140703CD0 (PspInitializeProcessSecurity.c)
  * Callees:
- *     SepSetTrustLevelForProcessToken @ 0x140224B44 (SepSetTrustLevelForProcessToken.c)
- *     SepSetTokenBnoIsolation @ 0x140224BC8 (SepSetTokenBnoIsolation.c)
- *     SepMandatorySubProcessToken @ 0x140225BD0 (SepMandatorySubProcessToken.c)
- *     SepDesktopAppxSubProcessToken @ 0x140225D5C (SepDesktopAppxSubProcessToken.c)
- *     SeTokenGetNoChildProcessRestricted @ 0x1402265FC (SeTokenGetNoChildProcessRestricted.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepDeleteAccessState @ 0x140232250 (SepDeleteAccessState.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x140232B20 (SepCreateAccessStateFromSubjectContext.c)
- *     ObFastDereferenceObject @ 0x140297B60 (ObFastDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SeTokenIsNoChildProcessRestrictionEnforced @ 0x1405B9288 (SeTokenIsNoChildProcessRestrictionEnforced.c)
- *     SepSetTokenAllApplicationPackagesPolicy @ 0x1405B9480 (SepSetTokenAllApplicationPackagesPolicy.c)
- *     SepSetProcessUniqueAttribute @ 0x1406B7620 (SepSetProcessUniqueAttribute.c)
- *     SepSetTokenSessionById @ 0x1406B7AE0 (SepSetTokenSessionById.c)
- *     SeCreateAccessState @ 0x1406C2F10 (SeCreateAccessState.c)
- *     PsReferenceEffectiveToken @ 0x14071D75C (PsReferenceEffectiveToken.c)
- *     SepFinalizeTokenAcls @ 0x14071DE50 (SepFinalizeTokenAcls.c)
- *     SepDuplicateToken @ 0x140729BF0 (SepDuplicateToken.c)
- *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     SepAddTokenOriginClaim @ 0x1407E3BD4 (SepAddTokenOriginClaim.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x1407EF74C (SepDereferenceLowBoxNumberEntry.c)
- *     SepSetTokenLowboxNumber @ 0x1407F4DBC (SepSetTokenLowboxNumber.c)
- *     EtwTimLogProhibitChildProcessCreation @ 0x1409E9AB8 (EtwTimLogProhibitChildProcessCreation.c)
+ *     SepDesktopAppxSubProcessToken @ 0x14024FE28 (SepDesktopAppxSubProcessToken.c)
+ *     SepSetTrustLevelForProcessToken @ 0x140250FB8 (SepSetTrustLevelForProcessToken.c)
+ *     SepMandatorySubProcessToken @ 0x14025103C (SepMandatorySubProcessToken.c)
+ *     SepSetTokenBnoIsolation @ 0x1402511C8 (SepSetTokenBnoIsolation.c)
+ *     SeTokenGetNoChildProcessRestricted @ 0x140251258 (SeTokenGetNoChildProcessRestricted.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObFastDereferenceObject @ 0x140345620 (ObFastDereferenceObject.c)
+ *     SepDeleteAccessState @ 0x140345670 (SepDeleteAccessState.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x140345810 (SepCreateAccessStateFromSubjectContext.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SeTokenIsNoChildProcessRestrictionEnforced @ 0x140597198 (SeTokenIsNoChildProcessRestrictionEnforced.c)
+ *     SepSetTokenAllApplicationPackagesPolicy @ 0x140597390 (SepSetTokenAllApplicationPackagesPolicy.c)
+ *     SepFinalizeTokenAcls @ 0x1405D00A0 (SepFinalizeTokenAcls.c)
+ *     SepSetProcessUniqueAttribute @ 0x140603B5C (SepSetProcessUniqueAttribute.c)
+ *     SepSetTokenSessionById @ 0x140604300 (SepSetTokenSessionById.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x1406355DC (SepDereferenceLowBoxNumberEntry.c)
+ *     SepDuplicateToken @ 0x140651490 (SepDuplicateToken.c)
+ *     ObInsertObjectEx @ 0x1406520B0 (ObInsertObjectEx.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     PsReferenceEffectiveToken @ 0x1406D5B10 (PsReferenceEffectiveToken.c)
+ *     SeCreateAccessState @ 0x1406DA670 (SeCreateAccessState.c)
+ *     SepSetTokenLowboxNumber @ 0x14070F0FC (SepSetTokenLowboxNumber.c)
+ *     EtwTimLogProhibitChildProcessCreation @ 0x14072FCE8 (EtwTimLogProhibitChildProcessCreation.c)
+ *     SepAddTokenOriginClaim @ 0x140922BA0 (SepAddTokenOriginClaim.c)
  */
 
 __int64 __fastcall SeSubProcessToken(
         __int64 a1,
         __int64 a2,
-        PVOID *a3,
+        PADAPTER_OBJECT *a3,
         char a4,
         int a5,
         __int64 a6,
@@ -42,243 +41,246 @@ __int64 __fastcall SeSubProcessToken(
         __int64 a8,
         unsigned int a9,
         __int64 a10,
-        char *a11)
+        _BYTE *a11)
 {
-  unsigned __int8 v15; // r12
-  __int64 v16; // r12
-  int inserted; // ebx
-  int v18; // ecx
-  PVOID v19; // r10
-  char v20; // di
-  PVOID *v21; // rcx
-  char *v22; // rcx
-  unsigned int v24; // eax
-  unsigned int v25; // esi
-  __int64 v26; // rax
-  void *v27; // rbx
-  PVOID v28; // rcx
-  int v29; // eax
-  char v30; // [rsp+40h] [rbp-C0h] BYREF
-  char v31; // [rsp+41h] [rbp-BFh]
-  unsigned __int8 v32; // [rsp+42h] [rbp-BEh] BYREF
-  bool v33[5]; // [rsp+43h] [rbp-BDh] BYREF
-  PVOID Object; // [rsp+48h] [rbp-B8h] BYREF
-  bool v35; // [rsp+50h] [rbp-B0h] BYREF
-  char v36; // [rsp+51h] [rbp-AFh] BYREF
-  char v37[2]; // [rsp+52h] [rbp-AEh] BYREF
-  int v38; // [rsp+54h] [rbp-ACh] BYREF
-  int v39; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v40; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v41; // [rsp+68h] [rbp-98h]
-  __int64 v42; // [rsp+70h] [rbp-90h]
-  PVOID *v43; // [rsp+78h] [rbp-88h]
-  char *v44; // [rsp+80h] [rbp-80h]
-  __int128 v45; // [rsp+88h] [rbp-78h] BYREF
-  __int128 v46; // [rsp+98h] [rbp-68h]
-  __int128 v47; // [rsp+A8h] [rbp-58h]
-  __int128 v48; // [rsp+B8h] [rbp-48h] BYREF
-  PVOID v49; // [rsp+C8h] [rbp-38h]
-  struct _LIST_ENTRY *Flink; // [rsp+D0h] [rbp-30h]
-  struct _ACCESS_STATE AccessState; // [rsp+E0h] [rbp-20h] BYREF
-  _QWORD v52[28]; // [rsp+180h] [rbp+80h] BYREF
+  _BYTE *v11; // r14
+  int inserted; // edi
+  int v17; // ecx
+  PADAPTER_OBJECT v18; // r10
+  PADAPTER_OBJECT *v19; // rcx
+  unsigned int DmaOperations; // eax
+  unsigned int v22; // r14d
+  bool v23; // bl
+  __int64 v24; // rax
+  struct _DMA_ADAPTER *v25; // rbx
+  int v26; // eax
+  char v27; // [rsp+40h] [rbp-C0h] BYREF
+  bool v28; // [rsp+41h] [rbp-BFh] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp-B8h] BYREF
+  bool v30; // [rsp+50h] [rbp-B0h] BYREF
+  bool v31; // [rsp+51h] [rbp-AFh] BYREF
+  char v32; // [rsp+52h] [rbp-AEh] BYREF
+  char v33; // [rsp+53h] [rbp-ADh] BYREF
+  char v34; // [rsp+54h] [rbp-ACh]
+  char v35; // [rsp+55h] [rbp-ABh] BYREF
+  int v36; // [rsp+58h] [rbp-A8h] BYREF
+  int v37; // [rsp+5Ch] [rbp-A4h] BYREF
+  __int64 v38; // [rsp+60h] [rbp-A0h]
+  __int64 v39; // [rsp+68h] [rbp-98h]
+  __int64 v40; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v41; // [rsp+78h] [rbp-88h]
+  PADAPTER_OBJECT *v42; // [rsp+80h] [rbp-80h]
+  __int128 v43; // [rsp+88h] [rbp-78h] BYREF
+  PADAPTER_OBJECT v44; // [rsp+98h] [rbp-68h]
+  struct _LIST_ENTRY *Flink; // [rsp+A0h] [rbp-60h]
+  __int128 v46; // [rsp+A8h] [rbp-58h] BYREF
+  __int128 v47; // [rsp+B8h] [rbp-48h]
+  __int128 v48; // [rsp+C8h] [rbp-38h]
+  struct _SECURITY_SUBJECT_CONTEXT v49[5]; // [rsp+E0h] [rbp-20h] BYREF
+  _QWORD v50[28]; // [rsp+180h] [rbp+80h] BYREF
 
-  Object = 0LL;
-  v42 = a8;
-  v43 = a3;
-  HIDWORD(v48) = 0;
-  v41 = a2;
-  *(_QWORD *)&v47 = 0LL;
-  DWORD2(v47) = 0;
-  v44 = a11;
-  v45 = 0LL;
+  v11 = a11;
+  v41 = a8;
+  v42 = a3;
+  v39 = a2;
+  DmaAdapter = 0LL;
+  HIDWORD(v43) = 0;
+  v38 = (__int64)a11;
   v46 = 0LL;
-  memset(&AccessState, 0, sizeof(AccessState));
-  memset(v52, 0, sizeof(v52));
+  v47 = 0LL;
+  v48 = 0LL;
+  memset(v49, 0, sizeof(v49));
+  memset(v50, 0, sizeof(v50));
   *a3 = 0LL;
-  v32 = 0;
   *(_WORD *)a11 = 0;
   a11[2] = 0;
-  v30 = 0;
-  v36 = 0;
-  v37[0] = 0;
-  v31 = 0;
-  v40 = 0LL;
   v35 = 0;
-  v33[0] = 0;
-  SeTokenGetNoChildProcessRestricted(a2, (bool *)&v32, &v35, v33);
-  v15 = v32;
-  if ( __PAIR16__(v32, 0) != v33[0] )
+  v37 = 0;
+  v36 = 0;
+  v28 = 0;
+  v31 = 0;
+  v30 = 0;
+  v27 = 0;
+  v32 = 0;
+  v33 = 0;
+  v34 = 0;
+  v40 = 0LL;
+  SeTokenGetNoChildProcessRestricted(a2, &v28, &v31, &v30);
+  if ( v30 || v28 )
   {
-    v25 = -1073740643;
+    v22 = -1073740643;
     if ( (*(_DWORD *)a6 & 2) != 0 )
     {
-      v38 = 0;
-      v39 = 0;
-      v26 = PsReferenceEffectiveToken(
+      v24 = PsReferenceEffectiveToken(
               (unsigned int)KeGetCurrentThread(),
-              1953654867,
-              (unsigned int)&v38,
-              (unsigned int)v33,
-              (__int64)&v39,
+              (unsigned int)&v36,
+              (unsigned int)&v35,
+              (unsigned int)&v37,
               0LL);
-      v27 = (void *)v26;
-      if ( v38 == 2 && v39 < 2 || (v25 = SeTokenIsNoChildProcessRestrictionEnforced(v26) ? 0xC000049D : 0, v38 != 1) )
+      v25 = (struct _DMA_ADAPTER *)v24;
+      if ( v36 == 2 && v37 < 2 || (v22 = SeTokenIsNoChildProcessRestrictionEnforced(v24) ? 0xC000049D : 0, v36 != 1) )
       {
-        if ( v27 )
-          ObfDereferenceObjectWithTag(v27, 0x74726853u);
+        if ( v25 )
+          HalPutDmaAdapter(v25);
       }
       else
       {
-        ObFastDereferenceObject(
-          (signed __int64 *)&KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[5],
-          (unsigned __int64)v27,
-          0x74726853u);
+        ObFastDereferenceObject((signed __int64 *)&KeGetCurrentThread()->ApcState.Process[1].Affinity.Bitmap[5], v25);
       }
-      v15 = v32;
     }
     inserted = 0;
     if ( *(_DWORD *)(a6 + 8) != 1 )
-      inserted = v25;
-    if ( ((*(_DWORD *)(a1 + 2172) & 1) == 0 || *(_QWORD *)(a1 + 2240))
-      && inserted < 0
-      && (!v35 || !*(_DWORD *)(a6 + 12)) )
+      inserted = v22;
+    if ( (*(_DWORD *)(a1 + 2172) & 1) != 0 )
+      inserted = *(_QWORD *)(a1 + 2240) != 0LL ? inserted : 0;
+    if ( inserted >= 0 )
+      goto LABEL_46;
+    if ( v31 && *(_DWORD *)(a6 + 12) )
+      inserted = 0;
+    if ( inserted >= 0 )
     {
+LABEL_46:
+      v11 = (_BYTE *)v38;
+    }
+    else
+    {
+      v23 = v28;
       EtwTimLogProhibitChildProcessCreation(
-        (unsigned int)(v15 != 0) + 1,
+        (unsigned int)v28 + 1,
         *(_QWORD *)(a6 + 16),
         (*(_QWORD *)(a6 + 24) + 96LL) & -(__int64)(*(_QWORD *)(a6 + 24) != 0LL),
         (*(_QWORD *)(a6 + 24) + 112LL) & -(__int64)(*(_QWORD *)(a6 + 24) != 0LL));
-      if ( v15 )
-        goto LABEL_47;
+      if ( v23 )
+      {
+LABEL_22:
+        if ( inserted >= 0 )
+          goto LABEL_23;
+        goto LABEL_61;
+      }
+      v11 = (_BYTE *)v38;
     }
   }
-  v16 = v41;
-  LODWORD(v45) = 48;
-  *((_QWORD *)&v45 + 1) = 0LL;
-  DWORD2(v46) = 0;
-  *(_QWORD *)&v46 = 0LL;
-  v47 = 0LL;
-  inserted = SepDuplicateToken(v41, (unsigned int)&v45, 0, 1, 0, 0, 1, (__int64)&Object);
+  LODWORD(v46) = 48;
+  *((_QWORD *)&v46 + 1) = 0LL;
+  DWORD2(v47) = 0;
+  *(_QWORD *)&v47 = 0LL;
+  v48 = 0LL;
+  inserted = SepDuplicateToken(v39, (unsigned int)&v46, 0, 1, 0, 0, 1, (__int64)&DmaAdapter);
   if ( inserted < 0 )
   {
-LABEL_47:
-    v28 = 0LL;
-    Object = 0LL;
-LABEL_58:
-    v20 = v31;
-    goto LABEL_59;
+LABEL_54:
+    DmaAdapter = 0LL;
+    goto LABEL_22;
   }
-  v18 = (int)Object;
-  if ( (*((_DWORD *)Object + 50) & 0x4000) != 0 )
+  v17 = (int)DmaAdapter;
+  if ( ((__int64)DmaAdapter[12].DmaOperations & 0x4000) != 0 )
   {
-    v24 = *((_DWORD *)Object + 30);
-    if ( v24 != a5 )
+    DmaOperations = (unsigned int)DmaAdapter[7].DmaOperations;
+    if ( DmaOperations != a5 )
     {
-      SepDereferenceLowBoxNumberEntry(v24, *((_QWORD *)Object + 135));
-      *((_QWORD *)Object + 135) = 0LL;
-      SepSetTokenSessionById((_DWORD)Object, a5, 0, 0, 0LL);
-      *((_DWORD *)Object + 30) = a5;
-      v29 = SepSetTokenLowboxNumber(Object, *((_QWORD *)Object + 98));
-      inserted = v29;
-      if ( v29 < 0 )
-        goto LABEL_57;
-      v18 = (int)Object;
+      SepDereferenceLowBoxNumberEntry(DmaOperations, DmaAdapter[67].DmaOperations);
+      DmaAdapter[67].DmaOperations = 0LL;
+      SepSetTokenSessionById((_DWORD)DmaAdapter, a5, 0, 0, 0LL);
+      LODWORD(DmaAdapter[7].DmaOperations) = a5;
+      v26 = SepSetTokenLowboxNumber(DmaAdapter, *(_QWORD *)&DmaAdapter[49].Version);
+      inserted = v26;
+      if ( v26 < 0 )
+        goto LABEL_61;
+      v17 = (int)DmaAdapter;
     }
   }
-  SepSetTokenSessionById(v18, a5, 0, 0, 0LL);
-  *((_DWORD *)Object + 30) = a5;
-  *((_DWORD *)Object + 50) &= ~0x200000u;
+  SepSetTokenSessionById(v17, a5, 0, 0, 0LL);
+  LODWORD(DmaAdapter[7].DmaOperations) = a5;
+  LODWORD(DmaAdapter[12].DmaOperations) &= ~0x200000u;
   if ( (*(_DWORD *)a6 & 1) != 0 )
   {
-    *((_DWORD *)Object + 50) |= 0x80000u;
+    LODWORD(DmaAdapter[12].DmaOperations) |= 0x80000u;
     if ( (*(_DWORD *)a6 & 4) != 0 )
-      *((_DWORD *)Object + 50) |= 0x100000u;
+      LODWORD(DmaAdapter[12].DmaOperations) |= 0x100000u;
   }
-  inserted = SepSetTokenBnoIsolation((__int64)Object, 0, 0LL, 0, 0LL);
+  inserted = SepSetTokenBnoIsolation((__int64)DmaAdapter, 0, 0LL, 0, 0LL);
   if ( inserted < 0 )
-    goto LABEL_57;
-  inserted = SepDesktopAppxSubProcessToken((__int64)Object, a1, *(_DWORD *)(a6 + 4), &v36, v37);
+    goto LABEL_61;
+  inserted = SepDesktopAppxSubProcessToken((__int64)DmaAdapter, a1, *(_DWORD *)(a6 + 4), &v32, &v33);
   if ( inserted < 0 )
-    goto LABEL_57;
-  inserted = SepMandatorySubProcessToken((_DWORD *)(v16 & -(__int64)((a4 & 2) != 0)), (__int64)Object, a1, &v40);
+    goto LABEL_61;
+  inserted = SepMandatorySubProcessToken((_DWORD *)(v39 & -(__int64)((a4 & 2) != 0)), (__int64)DmaAdapter, a1, &v40);
   if ( inserted < 0 )
-    goto LABEL_57;
-  inserted = SepSetTrustLevelForProcessToken((__int64)Object, a1, &v30);
+    goto LABEL_61;
+  inserted = SepSetTrustLevelForProcessToken((__int64)DmaAdapter, a1, &v27);
   if ( inserted < 0 )
-    goto LABEL_57;
+    goto LABEL_61;
   if ( (SepTokenSingletonAttributesConfig & 3) == 3 )
   {
-    inserted = SepSetProcessUniqueAttribute(Object);
+    inserted = SepSetProcessUniqueAttribute((__int64)DmaAdapter);
     if ( inserted < 0 )
-      goto LABEL_57;
+      goto LABEL_61;
   }
-  v19 = Object;
-  if ( (*((_DWORD *)Object + 50) & 0x4000) == 0 || (a7 & 1) == 0 )
-    goto LABEL_12;
-  inserted = SepSetTokenAllApplicationPackagesPolicy((__int64)Object, a7);
-  if ( inserted < 0 )
+  v18 = DmaAdapter;
+  if ( ((__int64)DmaAdapter[12].DmaOperations & 0x4000) != 0 && (a7 & 1) != 0 )
   {
-LABEL_57:
-    v28 = Object;
-    goto LABEL_58;
+    inserted = SepSetTokenAllApplicationPackagesPolicy((__int64)DmaAdapter, a7);
+    if ( inserted < 0 )
+      goto LABEL_61;
+    v18 = DmaAdapter;
   }
-  v19 = Object;
-LABEL_12:
-  if ( v42 )
+  if ( v41 )
   {
-    SepAddTokenOriginClaim(v42, a9, v19, 0LL);
-    v19 = Object;
+    SepAddTokenOriginClaim(v41, a9, v18);
+    v18 = DmaAdapter;
   }
   if ( !a10 )
-    goto LABEL_15;
+  {
+LABEL_16:
+    if ( (a4 & 2) == 0 || v40 )
+      v27 = 1;
+    if ( v27 )
+    {
+      v44 = v18;
+      *(_QWORD *)&v43 = 0LL;
+      DWORD2(v43) = 0;
+      Flink = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
+      SepCreateAccessStateFromSubjectContext(&v43, v49, v50, 0, 0LL);
+    }
+    else
+    {
+      SeCreateAccessState(v49, v50, 0LL, 0LL);
+    }
+    v34 = 1;
+    inserted = ObInsertObjectEx(DmaAdapter, 0, 0LL, 0LL);
+    if ( inserted >= 0 )
+    {
+      SepFinalizeTokenAcls(DmaAdapter);
+      v19 = v42;
+      BYTE4(DmaAdapter[12].DmaOperations) = a4 & 1;
+      *v19 = DmaAdapter;
+      *v11 = v27;
+      v11[1] = v32;
+      v11[2] = v33;
+      goto LABEL_22;
+    }
+    goto LABEL_54;
+  }
   inserted = SepSetTokenBnoIsolation(
-               (__int64)v19,
+               (__int64)v18,
                *(_BYTE *)(a10 + 32),
                (__int128 *)a10,
                *(_DWORD *)(a10 + 16),
                *(_QWORD *)(a10 + 24));
-  if ( inserted < 0 )
-    goto LABEL_57;
-  v19 = Object;
-LABEL_15:
-  if ( (a4 & 2) == 0 || v40 )
-    v30 = 1;
-  if ( v30 )
-  {
-    v49 = v19;
-    *(_QWORD *)&v48 = 0LL;
-    DWORD2(v48) = 0;
-    Flink = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
-    SepCreateAccessStateFromSubjectContext(&v48, &AccessState, v52, 0, 0LL);
-  }
-  else
-  {
-    SeCreateAccessState(&AccessState, v52, 0LL, 0LL);
-  }
-  v20 = 1;
-  inserted = ObInsertObjectEx(Object, &AccessState, 0, 0LL, 0LL);
   if ( inserted >= 0 )
   {
-    SepFinalizeTokenAcls(Object);
-    v21 = v43;
-    *((_BYTE *)Object + 204) = a4 & 1;
-    *v21 = Object;
-    v22 = v44;
-    *v44 = v30;
-    v22[1] = v36;
-    v22[2] = v37[0];
-LABEL_21:
-    SepDeleteAccessState((__int64)&AccessState);
-    if ( !v30 )
-      SeReleaseSubjectContext(&AccessState.SubjectSecurityContext);
-    return (unsigned int)inserted;
+    v18 = DmaAdapter;
+    goto LABEL_16;
   }
-  v28 = 0LL;
-  Object = 0LL;
-LABEL_59:
-  if ( v28 )
-    ObfDereferenceObject(v28);
-  if ( v20 )
-    goto LABEL_21;
+LABEL_61:
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
+LABEL_23:
+  if ( v34 )
+  {
+    SepDeleteAccessState((__int64)v49);
+    if ( !v27 )
+      SeReleaseSubjectContext(&v49[1]);
+  }
   return (unsigned int)inserted;
 }

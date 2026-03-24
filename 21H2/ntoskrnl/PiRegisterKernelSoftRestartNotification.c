@@ -1,22 +1,23 @@
 /*
- * XREFs of PiRegisterKernelSoftRestartNotification @ 0x1408648F8
+ * XREFs of PiRegisterKernelSoftRestartNotification @ 0x1408B2DD4
  * Callers:
- *     IoRegisterPlugPlayNotification @ 0x140768390 (IoRegisterPlugPlayNotification.c)
+ *     IoRegisterPlugPlayNotification @ 0x1406C4890 (IoRegisterPlugPlayNotification.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     PnpDeferNotification @ 0x140768798 (PnpDeferNotification.c)
- *     PnpInitializeNotifyEntry @ 0x140768894 (PnpInitializeNotifyEntry.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PnpDeferNotification @ 0x1406C4C64 (PnpDeferNotification.c)
+ *     PnpInitializeNotifyEntry @ 0x1406C4D64 (PnpInitializeNotifyEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiRegisterKernelSoftRestartNotification(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
+__int64 __fastcall PiRegisterKernelSoftRestartNotification(__int64 a1, unsigned __int64 a2, __int64 a3, _QWORD *a4)
 {
-  int v8; // ebx
-  __int64 Pool2; // rax
-  _QWORD *v11; // rdi
-  _QWORD *v12; // rax
+  int v8; // edi
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v10; // rbx
+  _QWORD *v11; // rax
 
   if ( PnpKsrEnabled )
   {
@@ -26,27 +27,28 @@ __int64 __fastcall PiRegisterKernelSoftRestartNotification(__int64 a1, __int64 a
     }
     else
     {
-      Pool2 = ExAllocatePool2(256LL, 88LL, 1634758224LL);
-      v11 = (_QWORD *)Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x58uLL, 0x61706E50u);
+      v10 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        v8 = PnpInitializeNotifyEntry(Pool2, 4, a2, a3, a1, (__int64)&PnpKsrNotifyLock);
-        if ( v8 < 0 || (v8 = PnpDeferNotification((__int64)v11), v8 < 0) )
+        memset(PoolWithTag, 0, 0x58uLL);
+        v8 = PnpInitializeNotifyEntry((__int64)v10, 4, a2, a3, a1, (__int64)&PnpKsrNotifyLock);
+        if ( v8 < 0 || (v8 = PnpDeferNotification((__int64)v10), v8 < 0) )
         {
-          ExFreePoolWithTag(v11, 0x61706E50u);
+          ExFreePoolWithTag(v10, 0x61706E50u);
         }
         else
         {
           ExAcquireFastMutex(&PnpKsrNotifyLock);
-          v12 = (_QWORD *)qword_140C445C8;
-          if ( *(PVOID **)qword_140C445C8 != &PnpKsrNotifyList )
+          v11 = (_QWORD *)qword_140C43178;
+          if ( *(PVOID **)qword_140C43178 != &PnpKsrNotifyList )
             __fastfail(3u);
-          *v11 = &PnpKsrNotifyList;
-          v11[1] = v12;
-          *v12 = v11;
-          qword_140C445C8 = (__int64)v11;
+          *v10 = &PnpKsrNotifyList;
+          v10[1] = v11;
+          *v11 = v10;
+          qword_140C43178 = (__int64)v10;
           KeReleaseGuardedMutex(&PnpKsrNotifyLock);
-          *a4 = v11;
+          *a4 = v10;
         }
       }
       else

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCovSampCaptureQueueDpc @ 0x140460D60
+ * XREFs of EtwpCovSampCaptureQueueDpc @ 0x1405AF0D0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     RtlpInterlockedFlushSList @ 0x140429900 (RtlpInterlockedFlushSList.c)
- *     EtwpCovSampPushListSList @ 0x140460ED0 (EtwpCovSampPushListSList.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     RtlpInterlockedFlushSList @ 0x1404079B0 (RtlpInterlockedFlushSList.c)
+ *     EtwpCovSampPushListSList @ 0x1405AF790 (EtwpCovSampPushListSList.c)
  */
 
 void __fastcall EtwpCovSampCaptureQueueDpc(
@@ -18,10 +18,10 @@ void __fastcall EtwpCovSampCaptureQueueDpc(
   int v6; // [rsp+38h] [rbp+10h] BYREF
 
   v6 = 0;
-  v5 = RtlpInterlockedFlushSList((PSLIST_HEADER)DeferredContext + 51);
+  v5 = RtlpInterlockedFlushSList((PSLIST_HEADER)DeferredContext + 44);
   if ( v5 )
   {
-    if ( !EtwpCovSampPushListSList(DeferredContext + 832, v5, &v6) )
-      KeSetEvent((PRKEVENT)(DeferredContext + 848), *((_DWORD *)DeferredContext + 262), 0);
+    if ( !EtwpCovSampPushListSList(DeferredContext + 720, v5, &v6) )
+      KeSetEvent((PRKEVENT)(DeferredContext + 736), *((_DWORD *)DeferredContext + 234), 0);
   }
 }

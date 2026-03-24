@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetCurrentBackBuffer@CCompSwapChain@@UEBAPEAVIDeviceTarget@@XZ @ 0x18028EE40
+ * XREFs of ?GetCurrentBackBuffer@CCompSwapChain@@UEBAPEAVIDeviceTarget@@XZ @ 0x180251220
  * Callers:
  *     <none>
  * Callees:
@@ -11,7 +11,7 @@ struct IDeviceTarget *__fastcall CCompSwapChain::GetCurrentBackBuffer(CCompSwapC
   __int64 v1; // rdx
   struct IDeviceTarget *result; // rax
 
-  v1 = *((_QWORD *)this + 12);
+  v1 = *((_QWORD *)this + 5);
   result = 0LL;
   if ( v1 )
     return (struct IDeviceTarget *)(*(int *)(*(_QWORD *)(v1 + 8) + 24LL) + v1 + 8);

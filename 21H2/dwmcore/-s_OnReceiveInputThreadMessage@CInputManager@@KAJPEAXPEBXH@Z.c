@@ -1,10 +1,10 @@
 /*
- * XREFs of ?s_OnReceiveInputThreadMessage@CInputManager@@KAJPEAXPEBXH@Z @ 0x180181110
+ * XREFs of ?s_OnReceiveInputThreadMessage@CInputManager@@KAJPEAXPEBXH@Z @ 0x180222560
  * Callers:
  *     <none>
  * Callees:
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180177B90 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
- *     ?OnEdgyDetected@CManipulation@@QEAAXPEBUEdgyDetectedParams@@@Z @ 0x1801F40A4 (-OnEdgyDetected@CManipulation@@QEAAXPEBUEdgyDetectedParams@@@Z.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1800E9464 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?OnEdgyDetected@CManipulation@@QEAAXPEBUEdgyDetectedParams@@@Z @ 0x1801D4628 (-OnEdgyDetected@CManipulation@@QEAAXPEBUEdgyDetectedParams@@@Z.c)
  */
 
 __int64 __fastcall CInputManager::s_OnReceiveInputThreadMessage(
@@ -17,11 +17,14 @@ __int64 __fastcall CInputManager::s_OnReceiveInputThreadMessage(
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
   if ( a3 != 56 )
+  {
     wil::details::in1diag3::_FailFast_Unexpected(
       retaddr,
-      149LL,
+      (void *)0x95,
       (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\input\\inputmanager.cpp",
       a4);
+    __debugbreak();
+  }
   if ( *(_QWORD *)a2 )
   {
     v4 = *(CManipulation **)(*(_QWORD *)a2 + 16LL);

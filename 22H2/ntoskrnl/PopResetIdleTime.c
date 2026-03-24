@@ -1,21 +1,24 @@
 /*
- * XREFs of PopResetIdleTime @ 0x1403B43D8
+ * XREFs of PopResetIdleTime @ 0x140329C20
  * Callers:
- *     PopSystemRequiredSet @ 0x1403B43BC (PopSystemRequiredSet.c)
- *     PopSetSystemState @ 0x14058DFAC (PopSetSystemState.c)
- *     PopUserPresentSet @ 0x14058DFF4 (PopUserPresentSet.c)
+ *     PopSetSystemState @ 0x1403A57C0 (PopSetSystemState.c)
+ *     PopUserPresentSet @ 0x1403A5804 (PopUserPresentSet.c)
+ *     PopSystemRequiredSet @ 0x1403A7550 (PopSystemRequiredSet.c)
+ *     PopPolicySystemIdle @ 0x1406F2890 (PopPolicySystemIdle.c)
+ *     PopInitSIdle @ 0x14078C9A8 (PopInitSIdle.c)
  * Callees:
- *     PopHandleSystemIdleReset @ 0x1403B4408 (PopHandleSystemIdleReset.c)
- *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x140410BB4 (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
+ *     PopTraceSystemIdleTimeReset @ 0x140329C64 (PopTraceSystemIdleTimeReset.c)
+ *     PopHandleSystemIdleReset @ 0x140577564 (PopHandleSystemIdleReset.c)
  */
 
-__int64 __fastcall PopResetIdleTime(__int64 a1, __int64 a2)
+__int64 PopResetIdleTime()
 {
-  unsigned int v2; // ebx
-
-  v2 = a1;
   KeGetCurrentIrql();
-  if ( !PopPlatformAoAc )
-    Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage(a1, a2);
-  return PopHandleSystemIdleReset(v2);
+  if ( PopPlatformAoAc )
+    return PopHandleSystemIdleReset();
+  PopIsAboutToSleep = 0;
+  dword_140C23968 = 0;
+  byte_140C239B0 = 0;
+  dword_140C239A0 = 0;
+  return PopTraceSystemIdleTimeReset();
 }

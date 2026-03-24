@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiPnpNotifyGdi @ 0x1C021B58C
+ * XREFs of DpiPnpNotifyGdi @ 0x1C019E4F8
  * Callers:
- *     DpiFdoStartAdapterThreadImpl @ 0x1C02185F0 (DpiFdoStartAdapterThreadImpl.c)
- *     DpiFdoStopAdapter @ 0x1C039D274 (DpiFdoStopAdapter.c)
+ *     DpiFdoStartAdapterThreadImpl @ 0x1C0187BE8 (DpiFdoStartAdapterThreadImpl.c)
+ *     DpiFdoStopAdapter @ 0x1C02CC414 (DpiFdoStopAdapter.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C017CDCC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C0145F7C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
  */
 
 __int64 __fastcall DpiPnpNotifyGdi(__int64 a1, unsigned __int8 a2, __int64 a3, __int64 a4, char a5, __int64 a6)
@@ -32,8 +32,8 @@ __int64 __fastcall DpiPnpNotifyGdi(__int64 a1, unsigned __int8 a2, __int64 a3, _
     && (v12 = *(_QWORD *)(a1 + 64), *((_QWORD *)&v13 + 1) = *(_QWORD *)(v12 + 152), *(_DWORD *)(v12 + 16) == 1953656900)
     && *(_DWORD *)(v12 + 20) == 2 )
   {
-    BYTE12(v14) = *(_BYTE *)(v12 + 3920) >> 7;
-    BYTE14(v14) = *(_DWORD *)(v12 + 4000) == 3;
+    BYTE12(v14) = *(_BYTE *)(v12 + 3904) >> 7;
+    BYTE14(v14) = *(_DWORD *)(v12 + 3976) == 3;
     v9 = *(_QWORD *)(v12 + 2672);
   }
   else
@@ -42,7 +42,7 @@ __int64 __fastcall DpiPnpNotifyGdi(__int64 a1, unsigned __int8 a2, __int64 a3, _
   }
   *(_QWORD *)&v14 = a2;
   LODWORD(v13) = 7;
-  if ( !a1 || (BYTE13(v14) = 1, qword_1C0140740 != a1) )
+  if ( !a1 || (BYTE13(v14) = 1, qword_1C00B2DB8 != a1) )
     BYTE13(v14) = 0;
   HIBYTE(v14) = a5;
   v17 = 0LL;

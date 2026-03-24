@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetClipILIndexFromName@@YAIPEAGI@Z @ 0x1C02196F4
+ * XREFs of ?GetClipILIndexFromName@@YAIPEAGI@Z @ 0x1C021ED3C
  * Callers:
- *     InitClipboardILDef @ 0x1C011FA60 (InitClipboardILDef.c)
+ *     InitClipboardILDef @ 0x1C0134A30 (InitClipboardILDef.c)
  * Callees:
  *     <none>
  */

@@ -1,29 +1,29 @@
 /*
- * XREFs of PnpSetHwProfileChangeEvent @ 0x14096485C
+ * XREFs of PnpSetHwProfileChangeEvent @ 0x1408AC000
  * Callers:
- *     PnpRequestHwProfileChangeNotification @ 0x140956AC8 (PnpRequestHwProfileChangeNotification.c)
+ *     PnpRequestHwProfileChangeNotification @ 0x14089FDE8 (PnpRequestHwProfileChangeNotification.c)
  * Callees:
- *     PnpInsertEventInQueue @ 0x140786840 (PnpInsertEventInQueue.c)
- *     PnpCreateDeviceEventEntry @ 0x14079487C (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x140634C88 (PnpInsertEventInQueue.c)
+ *     PnpCreateDeviceEventEntry @ 0x14071B5A8 (PnpCreateDeviceEventEntry.c)
  */
 
 __int64 __fastcall PnpSetHwProfileChangeEvent(__int128 *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  __int64 DeviceEventEntry; // rax
+  _DWORD *DeviceEventEntry; // rax
   __int128 v11; // xmm0
 
   if ( PnpShutdownEvent.Header.SignalState )
     return 3221225865LL;
-  DeviceEventEntry = PnpCreateDeviceEventEntry(0xC0u);
+  DeviceEventEntry = PnpCreateDeviceEventEntry(0xC0uLL);
   if ( !DeviceEventEntry )
     return 3221225626LL;
-  *(_DWORD *)(DeviceEventEntry + 128) = 0;
-  *(_QWORD *)(DeviceEventEntry + 24) = a2;
-  *(_QWORD *)(DeviceEventEntry + 48) = a4;
-  *(_QWORD *)(DeviceEventEntry + 56) = a5;
+  DeviceEventEntry[32] = 0;
+  *((_QWORD *)DeviceEventEntry + 3) = a2;
+  *((_QWORD *)DeviceEventEntry + 6) = a4;
+  *((_QWORD *)DeviceEventEntry + 7) = a5;
   v11 = *a1;
-  *(_DWORD *)(DeviceEventEntry + 148) = 80;
-  *(_QWORD *)(DeviceEventEntry + 136) = a3;
-  *(_OWORD *)(DeviceEventEntry + 112) = v11;
-  return PnpInsertEventInQueue(DeviceEventEntry);
+  DeviceEventEntry[37] = 80;
+  *((_QWORD *)DeviceEventEntry + 17) = a3;
+  *((_OWORD *)DeviceEventEntry + 7) = v11;
+  return PnpInsertEventInQueue((__int64)DeviceEventEntry);
 }

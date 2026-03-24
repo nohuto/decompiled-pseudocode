@@ -1,5 +1,5 @@
 /*
- * XREFs of ??0_VIDMM_POOL_BLOCK@@QEAA@XZ @ 0x1C0019110
+ * XREFs of ??0_VIDMM_POOL_BLOCK@@QEAA@XZ @ 0x1C0016380
  * Callers:
  *     <none>
  * Callees:

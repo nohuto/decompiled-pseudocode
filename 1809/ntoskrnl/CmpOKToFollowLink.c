@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpOKToFollowLink @ 0x1406411F0
+ * XREFs of CmpOKToFollowLink @ 0x1406411D0
  * Callers:
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWriteAgg @ 0x140012A30 (_TlgWriteAgg.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C00 (PsIsCurrentThreadInServerSilo.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall CmpOKToFollowLink(_QWORD *a1, __int64 a2)
@@ -49,13 +49,13 @@ LABEL_7:
       v8 = 0x1000000LL;
       v10 = &v8;
       v11 = 8LL;
-      TlgWriteAgg((__int64)&stru_1403FFAA0, (unsigned __int8 *)dword_14036BAF9, v5, v6, 3u, &pData);
+      TlgWriteAgg((__int64)&stru_1403FFAA0, (unsigned __int8 *)dword_14036BC09, v5, v6, 3u, &pData);
       LODWORD(v6) = stru_1403FFAA0.LevelPlus1;
     }
     if ( (unsigned int)v6 > 5 )
     {
       if ( TlgKeywordOn(&stru_1403FFAA0, 0LL) )
-        TlgWrite(&stru_1403FFAA0, &unk_14036BAC2, 0LL, 0LL, 2u, &pData);
+        TlgWrite(&stru_1403FFAA0, &unk_14036BBD2, 0LL, 0LL, 2u, &pData);
     }
   }
   return 0;

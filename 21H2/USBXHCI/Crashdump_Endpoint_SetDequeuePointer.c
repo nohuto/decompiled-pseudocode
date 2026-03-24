@@ -1,9 +1,9 @@
 /*
- * XREFs of Crashdump_Endpoint_SetDequeuePointer @ 0x1C004D6F4
+ * XREFs of Crashdump_Endpoint_SetDequeuePointer @ 0x1C004CC70
  * Callers:
- *     Crashdump_Endpoint_PrepareForHibernate @ 0x1C004D004 (Crashdump_Endpoint_PrepareForHibernate.c)
+ *     Crashdump_Endpoint_PrepareForHibernate @ 0x1C004C580 (Crashdump_Endpoint_PrepareForHibernate.c)
  * Callees:
- *     Crashdump_Command_SendCommand @ 0x1C004CA30 (Crashdump_Command_SendCommand.c)
+ *     Crashdump_Command_SendCommand @ 0x1C004BFB0 (Crashdump_Command_SendCommand.c)
  */
 
 __int64 __fastcall Crashdump_Endpoint_SetDequeuePointer(__int64 a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PspInitializeProcessSecurity @ 0x14064E834
+ * XREFs of PspInitializeProcessSecurity @ 0x14064E814
  * Callers:
- *     PspAllocateProcess @ 0x14064BCD8 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
  *     MmGetSessionId @ 0x1400897B0 (MmGetSessionId.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
- *     ObInitializeFastReference @ 0x14064EA04 (ObInitializeFastReference.c)
- *     SeSubProcessToken @ 0x14064EA6C (SeSubProcessToken.c)
- *     SeAssignPrimaryToken @ 0x140748B44 (SeAssignPrimaryToken.c)
- *     PspIdentityBasedJobBreakaway @ 0x140889380 (PspIdentityBasedJobBreakaway.c)
+ *     ObInitializeFastReference @ 0x14064E9E4 (ObInitializeFastReference.c)
+ *     SeSubProcessToken @ 0x14064EA4C (SeSubProcessToken.c)
+ *     SeAssignPrimaryToken @ 0x140748B24 (SeAssignPrimaryToken.c)
+ *     PspIdentityBasedJobBreakaway @ 0x140889360 (PspIdentityBasedJobBreakaway.c)
  */
 
 __int64 __fastcall PspInitializeProcessSecurity(

@@ -1,131 +1,141 @@
 /*
- * XREFs of DpiGetDxgAdapterSafe @ 0x1C01B3530
+ * XREFs of DpiGetDxgAdapterSafe @ 0x1C01168A0
  * Callers:
- *     ?DxgkOpenAdapter@@YAJPEAU_D3DKMT_OPENADAPTER@@@Z @ 0x1C01B2620 (-DxgkOpenAdapter@@YAJPEAU_D3DKMT_OPENADAPTER@@@Z.c)
+ *     ?DxgkOpenAdapter@@YAJPEAU_D3DKMT_OPENADAPTER@@@Z @ 0x1C0115DA0 (-DxgkOpenAdapter@@YAJPEAU_D3DKMT_OPENADAPTER@@@Z.c)
  * Callees:
- *     DpiScheduleDelayedDevicePowerRequiredAtPassiveLevel @ 0x1C000B350 (DpiScheduleDelayedDevicePowerRequiredAtPassiveLevel.c)
+ *     DpiScheduleDelayedDevicePowerRequiredAtPassiveLevel @ 0x1C0005430 (DpiScheduleDelayedDevicePowerRequiredAtPassiveLevel.c)
  */
 
 __int64 __fastcall DpiGetDxgAdapterSafe(struct _DEVICE_OBJECT *a1, _QWORD *a2, _QWORD *a3)
 {
-  __int64 *v3; // rbx
-  unsigned int v6; // r12d
-  _QWORD *v7; // r14
-  struct _KMUTANT *v8; // r13
-  __int64 *v9; // rdi
-  struct _DEVICE_OBJECT *v10; // rcx
-  PDEVICE_OBJECT AttachedDeviceReference; // rcx
-  _QWORD *v12; // rax
-  _QWORD *v13; // r8
+  PRKMUTEX v4; // rcx
+  unsigned int v5; // r13d
+  __int64 *v6; // rdi
+  _QWORD *v8; // rsi
+  struct _KMUTANT *v9; // r15
+  __int64 *v10; // rbx
+  struct _DEVICE_OBJECT *v11; // rcx
+  PDEVICE_OBJECT AttachedDeviceReference; // rax
+  _QWORD *v13; // rax
+  _QWORD *v14; // r8
   _QWORD *i; // rdx
-  _QWORD *v15; // rax
-  _QWORD *v16; // r8
-  _QWORD *j; // rdx
-  __int64 v19; // rax
+  _QWORD *v16; // rax
+  _QWORD *v17; // rdx
+  _QWORD *j; // rcx
+  __int64 v19; // rdx
   __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v23; // rax
+  __int64 v24; // rcx
+  __int64 v25; // rax
 
-  v3 = 0LL;
+  v4 = Mutex;
+  v5 = -1073741811;
+  v6 = 0LL;
   *a2 = 0LL;
-  v6 = -1073741811;
-  KeWaitForSingleObject(Mutex, Executive, 0, 0, 0LL);
-  _InterlockedExchange64(&qword_1C01404D8, (__int64)KeGetCurrentThread());
-  v7 = (_QWORD *)qword_1C01404C8;
-  if ( (_QWORD *)*v7 != v7 )
+  KeWaitForSingleObject(v4, Executive, 0, 0, 0LL);
+  _InterlockedExchange64(&qword_1C00B2B50, (__int64)KeGetCurrentThread());
+  v8 = (_QWORD *)qword_1C00B2B40;
+  if ( (_QWORD *)*v8 != v8 )
   {
     do
     {
-      if ( v3 )
+      if ( v6 )
         break;
-      v8 = (struct _KMUTANT *)(v7 + 9);
-      KeWaitForSingleObject(v7 + 9, Executive, 0, 0, 0LL);
-      v9 = (__int64 *)v7[7];
-      if ( (__int64 *)*v9 != v9 )
+      v9 = (struct _KMUTANT *)(v8 + 9);
+      KeWaitForSingleObject(v8 + 9, Executive, 0, 0, 0LL);
+      v10 = (__int64 *)v8[7];
+      if ( (__int64 *)*v10 != v10 )
       {
         do
         {
-          if ( v3 )
+          if ( v6 )
             break;
-          if ( *((_DWORD *)v9 + 4) == 1953656900 && *((_DWORD *)v9 + 5) == 2 )
+          if ( *((_DWORD *)v10 + 4) == 1953656900 && *((_DWORD *)v10 + 5) == 2 )
           {
-            v10 = (struct _DEVICE_OBJECT *)v9[3];
-            if ( v10 == a1 || (struct _DEVICE_OBJECT *)v9[19] == a1 )
+            v11 = (struct _DEVICE_OBJECT *)v10[3];
+            if ( v11 == a1 || (struct _DEVICE_OBJECT *)v10[19] == a1 )
             {
-              v3 = v9;
+              v6 = v10;
             }
             else
             {
-              AttachedDeviceReference = IoGetAttachedDeviceReference(v10);
+              AttachedDeviceReference = IoGetAttachedDeviceReference(v11);
               if ( a1 == AttachedDeviceReference )
-                v3 = v9;
+                v6 = v10;
               ObfDereferenceObject(AttachedDeviceReference);
             }
-            if ( v3 )
+            if ( v6 )
               goto LABEL_26;
-            KeWaitForSingleObject(v9 + 450, Executive, 0, 0, 0LL);
-            v12 = (_QWORD *)v9[448];
-            v13 = v12;
-            for ( i = (_QWORD *)*v12; i != v13; i = (_QWORD *)*i )
+            KeWaitForSingleObject(v10 + 448, Executive, 0, 0, 0LL);
+            v13 = (_QWORD *)v10[446];
+            v14 = v13;
+            for ( i = (_QWORD *)*v13; i != v14; i = (_QWORD *)*i )
             {
-              if ( (struct _DEVICE_OBJECT *)v12[3] == a1 )
-                v3 = *(__int64 **)(v12[4] + 64LL);
-              v12 = i;
+              if ( (struct _DEVICE_OBJECT *)v13[3] == a1 )
+                v6 = *(__int64 **)(v13[4] + 64LL);
+              v13 = i;
             }
-            KeReleaseMutex((PRKMUTEX)(v9 + 450), 0);
-            if ( v3 )
+            KeReleaseMutex((PRKMUTEX)v10 + 64, 0);
+            if ( v6 )
               goto LABEL_26;
             KeEnterCriticalRegion();
-            ExAcquireResourceSharedLite((PERESOURCE)(v9 + 415), 1u);
-            v15 = (_QWORD *)v9[458];
-            v16 = v15;
-            for ( j = (_QWORD *)*v15; j != v16; j = (_QWORD *)*j )
+            ExAcquireResourceSharedLite((PERESOURCE)(v10 + 413), 1u);
+            v16 = (_QWORD *)v10[456];
+            v17 = v16;
+            for ( j = (_QWORD *)*v16; j != v17; j = (_QWORD *)*j )
             {
-              if ( (struct _DEVICE_OBJECT *)v15[3] == a1 )
-                v3 = *(__int64 **)(v15[4] + 64LL);
-              v15 = j;
+              if ( (struct _DEVICE_OBJECT *)v16[3] == a1 )
+                v6 = *(__int64 **)(v16[4] + 64LL);
+              v16 = j;
             }
-            ExReleaseResourceLite((PERESOURCE)(v9 + 415));
+            ExReleaseResourceLite((PERESOURCE)(v10 + 413));
             KeLeaveCriticalRegion();
-            if ( v3 )
+            if ( v6 )
             {
 LABEL_26:
               KeEnterCriticalRegion();
-              if ( *((_BYTE *)v3 + 484) )
-                _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v3[3] + 64) + 4104LL));
-              ExAcquireResourceSharedLite((PERESOURCE)v3[21], 1u);
-              if ( *((_DWORD *)v3 + 59) == 2 )
+              if ( *((_BYTE *)v6 + 484) )
+                _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v6[3] + 64) + 4080LL));
+              ExAcquireResourceSharedLite((PERESOURCE)v6[21], 1u);
+              if ( *((_DWORD *)v6 + 59) == 2 )
               {
-                v19 = v3[489];
-                if ( v19 )
+                v23 = v6[487];
+                if ( v23 )
                 {
-                  _InterlockedIncrement64((volatile signed __int64 *)(v19 + 24));
+                  _InterlockedIncrement64((volatile signed __int64 *)(v23 + 24));
+                  v5 = 0;
+                  *a2 = v6[487];
                   *a3 = -1LL;
-                  v6 = 0;
-                  *a2 = v3[489];
                 }
               }
-              if ( *((_BYTE *)v3 + 484) )
+              if ( *((_BYTE *)v6 + 484) )
               {
-                v20 = *(_QWORD *)(v3[3] + 64);
-                if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v20 + 4104), 0xFFFFFFFF) == 1 )
-                  DpiScheduleDelayedDevicePowerRequiredAtPassiveLevel((KSPIN_LOCK *)v20);
+                v24 = *(_QWORD *)(v6[3] + 64);
+                if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v24 + 4080), 0xFFFFFFFF) == 1 )
+                  DpiScheduleDelayedDevicePowerRequiredAtPassiveLevel((KSPIN_LOCK *)v24);
               }
-              ExReleaseResourceLite((PERESOURCE)v3[21]);
+              ExReleaseResourceLite((PERESOURCE)v6[21]);
               KeLeaveCriticalRegion();
             }
           }
-          v9 = (__int64 *)*v9;
+          v10 = (__int64 *)*v10;
         }
-        while ( *v9 != v7[7] );
-        v8 = (struct _KMUTANT *)(v7 + 9);
+        while ( *v10 != v8[7] );
+        v9 = (struct _KMUTANT *)(v8 + 9);
       }
-      KeReleaseMutex(v8, 0);
-      v7 = (_QWORD *)*v7;
+      KeReleaseMutex(v9, 0);
+      v8 = (_QWORD *)*v8;
     }
-    while ( *v7 != qword_1C01404C8 );
+    while ( *v8 != qword_1C00B2B40 );
   }
-  _InterlockedExchange64(&qword_1C01404D8, 0LL);
+  _InterlockedExchange64(&qword_1C00B2B50, 0LL);
   KeReleaseMutex(Mutex, 0);
   if ( !*a2 )
-    WdLogSingleEntry1(3LL, 0LL);
-  return v6;
+  {
+    v25 = WdLogNewEntry5_WdWarning(v20, v19, v21);
+    *(_QWORD *)(v25 + 24) = 0LL;
+    WdLogEvent5_WdWarning(v25);
+  }
+  return v5;
 }

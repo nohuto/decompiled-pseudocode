@@ -1,8 +1,8 @@
 /*
- * XREFs of isspace @ 0x1403E1B20
+ * XREFs of isspace @ 0x1403D2760
  * Callers:
- *     ?ScTrimString@@YAXPEAD@Z @ 0x140650B5C (-ScTrimString@@YAXPEAD@Z.c)
- *     CmpGetToken @ 0x140B18C50 (CmpGetToken.c)
+ *     ?ScTrimString@@YAXPEAD@Z @ 0x1405C6918 (-ScTrimString@@YAXPEAD@Z.c)
+ *     CmpGetToken @ 0x140A62394 (CmpGetToken.c)
  * Callees:
  *     <none>
  */

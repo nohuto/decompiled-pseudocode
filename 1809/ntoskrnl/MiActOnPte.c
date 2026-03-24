@@ -25,12 +25,12 @@
  *     MiUpdateWsleAge @ 0x1400948B4 (MiUpdateWsleAge.c)
  *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
  *     MiCheckUserVirtualAddress @ 0x140098EA0 (MiCheckUserVirtualAddress.c)
- *     MiSharedVaToPartition @ 0x14010978C (MiSharedVaToPartition.c)
- *     MiUpdatePageTableUseCount @ 0x14010FBD8 (MiUpdatePageTableUseCount.c)
- *     MiCapturePageFileInfoInline @ 0x140119DB0 (MiCapturePageFileInfoInline.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiDiscardTransitionPte @ 0x14015827C (MiDiscardTransitionPte.c)
+ *     MiSharedVaToPartition @ 0x1401097AC (MiSharedVaToPartition.c)
+ *     MiUpdatePageTableUseCount @ 0x14010FBF8 (MiUpdatePageTableUseCount.c)
+ *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
  */
 
 __int64 __fastcall MiActOnPte(

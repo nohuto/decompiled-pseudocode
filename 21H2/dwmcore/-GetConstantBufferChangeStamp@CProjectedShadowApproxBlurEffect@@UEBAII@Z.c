@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetConstantBufferChangeStamp@CProjectedShadowApproxBlurEffect@@UEBAII@Z @ 0x1800FCE90
+ * XREFs of ?GetConstantBufferChangeStamp@CProjectedShadowApproxBlurEffect@@UEBAII@Z @ 0x1800E3C70
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 __int64 __fastcall CProjectedShadowApproxBlurEffect::GetConstantBufferChangeStamp(
         CProjectedShadowApproxBlurEffect *this)
 {
-  return *((unsigned int *)this + 24);
+  return *((unsigned int *)this + 22);
 }

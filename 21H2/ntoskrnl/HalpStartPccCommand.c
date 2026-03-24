@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpStartPccCommand @ 0x14090AF30
+ * XREFs of HalpStartPccCommand @ 0x140866C28
  * Callers:
- *     HalpSendPccCommand @ 0x14090AEC4 (HalpSendPccCommand.c)
+ *     HalpSendPccCommand @ 0x140866BBC (HalpSendPccCommand.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HalpUpdateCoolingPacket @ 0x14052A6F0 (HalpUpdateCoolingPacket.c)
- *     HalpAcquirePccInterface @ 0x14090AB48 (HalpAcquirePccInterface.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HalpUpdateCoolingPacket @ 0x1404DCA00 (HalpUpdateCoolingPacket.c)
+ *     HalpAcquirePccInterface @ 0x140866824 (HalpAcquirePccInterface.c)
  */
 
 __int64 HalpStartPccCommand()
@@ -24,7 +24,7 @@ __int64 HalpStartPccCommand()
       return 3221225488LL;
     HalpUpdateCoolingPacket((__int64)v2);
   }
-  if ( qword_140C4A0C0 )
-    return (*((__int64 (__fastcall **)(_QWORD))&xmmword_140C4A090 + 1))(*((_QWORD *)&xmmword_140C4A070 + 1));
+  if ( qword_140C48CC0 )
+    return (*((__int64 (__fastcall **)(_QWORD))&xmmword_140C48C90 + 1))(*((_QWORD *)&xmmword_140C48C70 + 1));
   return 3221225488LL;
 }

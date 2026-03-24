@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ReduceFraction@@YAXPEAK0@Z @ 0x1C01DEE98
+ * XREFs of ?ReduceFraction@@YAXPEAK0@Z @ 0x1C01E4278
  * Callers:
- *     GetHimetricScaleForMonitor @ 0x1C01DF8D4 (GetHimetricScaleForMonitor.c)
+ *     GetHimetricScaleForMonitor @ 0x1C01E5724 (GetHimetricScaleForMonitor.c)
  * Callees:
  *     <none>
  */

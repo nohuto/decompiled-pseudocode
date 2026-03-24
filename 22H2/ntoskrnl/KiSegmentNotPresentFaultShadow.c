@@ -1,5 +1,5 @@
 /*
- * XREFs of KiSegmentNotPresentFaultShadow @ 0x140AF76C0
+ * XREFs of KiSegmentNotPresentFaultShadow @ 0x140A146C0
  * Callers:
  *     <none>
  * Callees:
@@ -19,7 +19,7 @@ void __fastcall __noreturn KiSegmentNotPresentFaultShadow(__int64 a1)
   {
     __asm { swapgs }
     _mm_lfence();
-    if ( !_bittest(MK_FP(__GS__, 40984LL), 1u) )
+    if ( !_bittest(MK_FP(__GS__, 36888LL), 1u) )
       __writecr3((unsigned __int64)&v5);
     __writegsqword(0x10u, v1);
     v4 = KeGetPcr()->IdtBase + 1056;

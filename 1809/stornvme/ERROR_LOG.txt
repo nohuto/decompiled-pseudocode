@@ -1,9 +1,9 @@
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001FDDA022D80>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001FDDA532DC0>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001FDDA3EEE40>) 
- 
+[EXCEPTION] NVMeGetLogPageCompletion @ 0x1C0001560: Hex-Rays returned no pseudocode for 0x1C0001560
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C0001560'), <traceback object at 0x000002D19FB2BCC0>)
+
+[EXCEPTION] NVMeIssueAsyncEventCommand @ 0x1C000176C: Hex-Rays returned no pseudocode for 0x1C000176C
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C000176C'), <traceback object at 0x000002D19FB2BCC0>)
+
+[EXCEPTION] NVMeHwBuildIo @ 0x1C0004040: Hex-Rays returned no pseudocode for 0x1C0004040
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C0004040'), <traceback object at 0x000002D19FAFBB00>)
+

@@ -1,10 +1,10 @@
 /*
- * XREFs of BiGetCurrentBootEntryIdentifier @ 0x140714D44
+ * XREFs of BiGetCurrentBootEntryIdentifier @ 0x140714D24
  * Callers:
- *     BcdOpenObject @ 0x140712E44 (BcdOpenObject.c)
+ *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8830 (ZwQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
  */
 
 NTSTATUS __fastcall BiGetCurrentBootEntryIdentifier(_OWORD *a1)

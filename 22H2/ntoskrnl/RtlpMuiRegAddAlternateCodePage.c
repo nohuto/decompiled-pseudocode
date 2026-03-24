@@ -1,27 +1,28 @@
 /*
- * XREFs of RtlpMuiRegAddAlternateCodePage @ 0x1403A0E04
+ * XREFs of RtlpMuiRegAddAlternateCodePage @ 0x1403A7BB4
  * Callers:
- *     RtlpMuiRegAddLanguageByName @ 0x140846910 (RtlpMuiRegAddLanguageByName.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x14078F12C (RtlpMuiRegAddLanguageByName.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     RtlUnicodeStringToInteger @ 0x14079EA50 (RtlUnicodeStringToInteger.c)
- *     LdrpQueryValueKey @ 0x140847830 (LdrpQueryValueKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlUnicodeStringToInteger @ 0x1406638D0 (RtlUnicodeStringToInteger.c)
+ *     LdrpQueryValueKey @ 0x14078F1EC (LdrpQueryValueKey.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void __fastcall RtlpMuiRegAddAlternateCodePage(__int64 a1, void *a2)
+PSLIST_ENTRY __fastcall RtlpMuiRegAddAlternateCodePage(__int64 a1, void *a2)
 {
   __int64 v4; // r14
-  int v5; // eax
+  PSLIST_ENTRY result; // rax
   int v6; // ecx
   unsigned int v7; // ecx
-  __int64 Pool2; // rax
-  const wchar_t *v9; // rbx
-  void *v10; // rdi
-  unsigned int v11; // r13d
-  unsigned int v12; // esi
+  unsigned int v8; // edi
+  ULONG_PTR v9; // rbx
+  unsigned int v10; // r13d
+  unsigned int v11; // esi
+  const wchar_t *v12; // rdi
   _WORD *v13; // r15
   __int64 v14; // rax
   ULONG Value; // [rsp+30h] [rbp-20h] BYREF
@@ -35,59 +36,65 @@ void __fastcall RtlpMuiRegAddAlternateCodePage(__int64 a1, void *a2)
   Value = 0;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"AlternateCodePage");
-  v5 = LdrpQueryValueKey(a2, &DestinationString, (__int64)&v17);
-  if ( v5 != -1073741772 )
+  result = (PSLIST_ENTRY)LdrpQueryValueKey(a2, &DestinationString, (__int64)&v17);
+  if ( (_DWORD)result != -1073741772 )
   {
     v6 = v17;
     if ( (_DWORD)v17 )
     {
-      if ( v5 == -2147483643 )
+      if ( (_DWORD)result == -2147483643 )
       {
         LODWORD(v17) = v17 + 2;
         v7 = (v6 + 5) & 0xFFFFFFFC;
         if ( v7 )
         {
-          Pool2 = ExAllocatePool2(256LL, v7, 1920232557LL);
-          v9 = (const wchar_t *)Pool2;
-          if ( Pool2 )
+          v8 = v7;
+          result = (PSLIST_ENTRY)ExAllocatePoolWithTag(PagedPool, v7, 0x72746C6Du);
+          v9 = (ULONG_PTR)result;
+          if ( result )
+            result = (PSLIST_ENTRY)memset(result, 0, v8);
+        }
+        else
+        {
+          v9 = 0LL;
+        }
+        if ( v9 )
+        {
+          if ( !(unsigned int)LdrpQueryValueKey(a2, &DestinationString, (__int64)&v17) && (v18 == 1 || v18 == 7) )
           {
-            v10 = (void *)Pool2;
-            if ( !(unsigned int)LdrpQueryValueKey(a2, &DestinationString, (__int64)&v17) && (v18 == 1 || v18 == 7) )
+            v10 = 0;
+            v11 = (unsigned int)v17 >> 1;
+            v12 = (const wchar_t *)v9;
+            if ( (unsigned int)v17 >> 1 )
             {
-              v11 = 0;
-              v12 = (unsigned int)v17 >> 1;
-              v10 = (void *)v9;
-              if ( (unsigned int)v17 >> 1 )
+              v13 = (_WORD *)(a1 + 20);
+              while ( v12 && *v12 )
               {
-                v13 = (_WORD *)(a1 + 20);
-                while ( v9 && *v9 )
+                if ( !wcsicmp(v12, L"*") )
                 {
-                  if ( !wcsicmp(v9, L"*") )
-                  {
-                    *(_WORD *)(a1 + 20) = -1;
-                    break;
-                  }
-                  RtlInitUnicodeString(&DestinationString, v9);
-                  if ( RtlUnicodeStringToInteger(&DestinationString, 0xAu, &Value)
-                    || (++v4, *v13 = Value, ++v13, v4 < 4) )
-                  {
-                    v14 = -1LL;
-                    do
-                      ++v14;
-                    while ( v9[v14] );
-                    v11 += v14 + 1;
-                    v9 += (unsigned int)(v14 + 1);
-                    if ( v11 < v12 )
-                      continue;
-                  }
-                  break;
+                  *(_WORD *)(a1 + 20) = -1;
+                  return ExFreeHeapPool(v9);
                 }
+                RtlInitUnicodeString(&DestinationString, v12);
+                if ( RtlUnicodeStringToInteger(&DestinationString, 0xAu, &Value) || (++v4, *v13 = Value, ++v13, v4 < 4) )
+                {
+                  v14 = -1LL;
+                  do
+                    ++v14;
+                  while ( v12[v14] );
+                  v10 += v14 + 1;
+                  v12 += (unsigned int)(v14 + 1);
+                  if ( v10 < v11 )
+                    continue;
+                }
+                return ExFreeHeapPool(v9);
               }
             }
-            ExFreePoolWithTag(v10, 0);
           }
+          return ExFreeHeapPool(v9);
         }
       }
     }
   }
+  return result;
 }

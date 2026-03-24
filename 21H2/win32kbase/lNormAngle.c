@@ -1,5 +1,5 @@
 /*
- * XREFs of lNormAngle @ 0x1C008B0D0
+ * XREFs of lNormAngle @ 0x1C007F410
  * Callers:
  *     <none>
  * Callees:
@@ -10,10 +10,10 @@ __int64 __fastcall lNormAngle(int a1)
 {
   if ( a1 >= 3600 )
   {
-    a1 %= 0xE10u;
+    a1 %= 3600;
     return (unsigned int)a1;
   }
   if ( a1 >= 0 )
     return (unsigned int)a1;
-  return 3599 - ~a1 % 0xE10u;
+  return (unsigned int)(3599 - ~a1 % 3600);
 }

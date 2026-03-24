@@ -1,7 +1,7 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyLocales @ 0x140A69020
+ * XREFs of _CmGetInstallerClassMappedPropertyLocales @ 0x14097B2A0
  * Callers:
- *     _PnpDispatchInstallerClass @ 0x14069AE50 (_PnpDispatchInstallerClass.c)
+ *     _PnpDispatchInstallerClass @ 0x14073B280 (_PnpDispatchInstallerClass.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyLocales(
         _DWORD *a7)
 {
   DEVPROPKEY **v7; // r8
-  unsigned int v8; // r11d
+  unsigned int v8; // ebx
   unsigned int v9; // r10d
   DEVPROPKEY *v10; // rdx
   __int64 v11; // rcx
@@ -24,7 +24,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyLocales(
   DEVPROPKEY **v13; // r8
   DEVPROPKEY *v14; // rdx
   __int64 v15; // rcx
-  int v16; // ebx
+  int v16; // r11d
   DEVPROPKEY **v17; // rdx
   unsigned int v18; // r8d
   DEVPROPKEY *v19; // r10
@@ -51,7 +51,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyLocales(
     if ( v9 >= 9 )
     {
       v12 = 0;
-      v13 = &off_140A79DF0;
+      v13 = &off_140985730;
       while ( 1 )
       {
         v14 = *v13;
@@ -68,7 +68,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyLocales(
         if ( v12 >= 0xD )
         {
           v16 = *(_DWORD *)(a4 + 16);
-          v17 = &off_140A785E0;
+          v17 = &off_140983F40;
           v18 = 0;
           while ( 1 )
           {

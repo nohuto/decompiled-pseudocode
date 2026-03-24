@@ -1,26 +1,26 @@
 /*
- * XREFs of ?UMPD_ldevFillTable@@YAHPEAU_LDEV@@PEBH@Z @ 0x1C02C0398
+ * XREFs of ?UMPD_ldevFillTable@@YAHPEAU_LDEV@@PEBH@Z @ 0x1C011615C
  * Callers:
- *     ?UMPD_ldevLoadDriver@@YAPEAU_LDEV@@PEAGW4_LDEVTYPE@@@Z @ 0x1C02C042C (-UMPD_ldevLoadDriver@@YAPEAU_LDEV@@PEAGW4_LDEVTYPE@@@Z.c)
+ *     ?UMPD_ldevLoadDriver@@YAPEAU_LDEV@@PEAGW4_LDEVTYPE@@@Z @ 0x1C0116058 (-UMPD_ldevLoadDriver@@YAPEAU_LDEV@@PEAGW4_LDEVTYPE@@@Z.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall UMPD_ldevFillTable(struct _LDEV *a1, const int *a2)
 {
-  __int64 (*const near **v2)(void); // rbx
-  __int64 (*const near **v4)(void); // rcx
+  char *v2; // rbx
+  _QWORD *v4; // rcx
   __int64 v5; // rdx
   __int64 v6; // rdx
 
-  v2 = (__int64 (*const near **)(void))((char *)a1 + 64);
-  memset_0((char *)a1 + 64, 0, 0x340uLL);
+  v2 = (char *)a1 + 64;
+  memset((char *)a1 + 64, 0, 0x340uLL);
   v4 = v2;
   v5 = 104LL;
   do
   {
     if ( *a2 )
-      *v4 = *(__int64 (*const near **)(void))((char *)v4 + (char *)&gpUMDriverFunc - (char *)v2);
+      *v4 = *(_QWORD *)((char *)v4 + (char *)&gpUMDriverFunc - v2);
     ++a2;
     ++v4;
     --v5;
@@ -30,11 +30,11 @@ __int64 __fastcall UMPD_ldevFillTable(struct _LDEV *a1, const int *a2)
   while ( 1 )
   {
     v6 = (unsigned int)(v6 - 1);
-    if ( !v2[dword_1C0329228[v6]] )
+    if ( !*(_QWORD *)&v2[8 * dword_1C02EAFF0[v6]] )
       break;
     if ( !(_DWORD)v6 )
     {
-      v2[42] = (__int64 (*const near *)(void))UMPDDrvFree;
+      *((_QWORD *)v2 + 42) = UMPDDrvFree;
       return 1LL;
     }
   }

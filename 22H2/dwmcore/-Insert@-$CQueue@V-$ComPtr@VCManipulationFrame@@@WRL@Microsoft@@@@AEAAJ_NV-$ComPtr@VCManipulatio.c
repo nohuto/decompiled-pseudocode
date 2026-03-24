@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Insert@?$CQueue@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@AEAAJ_NV?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@Z @ 0x18019E2F0
+ * XREFs of ?Insert@?$CQueue@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@AEAAJ_NV?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@Z @ 0x180224A4C
  * Callers:
- *     ?ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@@PEAX@Z @ 0x18019FEE8 (-ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@.c)
+ *     ?ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@@PEAX@Z @ 0x18022619C (-ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F3C10 (-InternalRelease@-$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ??4?$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x18012D260 (--4-$ComPtr@UIInteractionResource@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??4?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x180224384 (--4-$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
  */
 
 __int64 __fastcall CQueue<Microsoft::WRL::ComPtr<CManipulationFrame>>::Insert(__int64 a1, __int64 a2, __int64 *a3)
@@ -17,10 +17,11 @@ __int64 __fastcall CQueue<Microsoft::WRL::ComPtr<CManipulationFrame>>::Insert(__
   __int64 v7; // rcx
   _QWORD *v8; // rbx
   _QWORD *v9; // rax
+  __int64 v10; // rcx
 
   v4 = 0;
-  EnterCriticalSection(&stru_1803E6218);
-  if ( byte_1803E6214 )
+  EnterCriticalSection(&stru_18034B548);
+  if ( byte_18034B544 )
   {
     v4 = -2147023781;
     MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2147023781, 0x97u, 0LL);
@@ -34,15 +35,22 @@ __int64 __fastcall CQueue<Microsoft::WRL::ComPtr<CManipulationFrame>>::Insert(__
       *v6 = 0LL;
       v6[1] = 0LL;
       v6[2] = 0LL;
-      Microsoft::WRL::ComPtr<IInteractionResource>::operator=((__int64 (__fastcall ****)(_QWORD))v6 + 2, a3);
-      v9 = (_QWORD *)qword_1803E6208;
-      if ( *(__int64 **)qword_1803E6208 != &CManipulationManager::s_InputQueue )
+    }
+    else
+    {
+      v8 = 0LL;
+    }
+    if ( v8 )
+    {
+      Microsoft::WRL::ComPtr<CManipulationFrame>::operator=(v8 + 2, a3);
+      v9 = (_QWORD *)qword_18034B538;
+      if ( *(void ***)qword_18034B538 != &CManipulationManager::s_InputQueue )
         __fastfail(3u);
       *v8 = &CManipulationManager::s_InputQueue;
       v8[1] = v9;
       *v9 = v8;
-      ++dword_1803E6210;
-      qword_1803E6208 = (__int64)v8;
+      ++dword_18034B540;
+      qword_18034B538 = (__int64)v8;
     }
     else
     {
@@ -50,7 +58,12 @@ __int64 __fastcall CQueue<Microsoft::WRL::ComPtr<CManipulationFrame>>::Insert(__
       MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147024882, 0x9Cu, 0LL);
     }
   }
-  LeaveCriticalSection(&stru_1803E6218);
-  Microsoft::WRL::ComPtr<CRenderingEffect>::InternalRelease(a3);
+  LeaveCriticalSection(&stru_18034B548);
+  v10 = *a3;
+  if ( *a3 )
+  {
+    *a3 = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 8LL))(v10);
+  }
   return v4;
 }

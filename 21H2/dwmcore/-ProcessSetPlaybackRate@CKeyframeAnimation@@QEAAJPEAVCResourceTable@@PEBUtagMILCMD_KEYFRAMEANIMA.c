@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetPlaybackRate@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_SETPLAYBACKRATE@@@Z @ 0x180222830
+ * XREFs of ?ProcessSetPlaybackRate@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_SETPLAYBACKRATE@@@Z @ 0x1801D1B3C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?SetPlaybackRate@CKeyframeAnimation@@AEAAXM@Z @ 0x1800E3F48 (-SetPlaybackRate@CKeyframeAnimation@@AEAAXM@Z.c)
+ *     ?SetPlaybackRate@CKeyframeAnimation@@AEAAXM@Z @ 0x1800D81C8 (-SetPlaybackRate@CKeyframeAnimation@@AEAAXM@Z.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::ProcessSetPlaybackRate(

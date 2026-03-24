@@ -1,5 +1,5 @@
 /*
- * XREFs of EnterPowerCrit @ 0x1C007E760
+ * XREFs of EnterPowerCrit @ 0x1C0077C80
  * Callers:
  *     <none>
  * Callees:

@@ -1,31 +1,27 @@
 /*
- * XREFs of RtlpHeapListCompare @ 0x1405B57D4
+ * XREFs of RtlpHeapListCompare @ 0x140593F4C
  * Callers:
- *     RtlpHeapAddListEntry @ 0x1405B5584 (RtlpHeapAddListEntry.c)
- *     RtlpHeapFindListLookupEntry @ 0x1405B5634 (RtlpHeapFindListLookupEntry.c)
- *     RtlpHeapRemoveListEntry @ 0x1405B5850 (RtlpHeapRemoveListEntry.c)
+ *     RtlpHeapAddListEntry @ 0x140593CF8 (RtlpHeapAddListEntry.c)
+ *     RtlpHeapFindListLookupEntry @ 0x140593DA8 (RtlpHeapFindListLookupEntry.c)
+ *     RtlpHeapRemoveListEntry @ 0x140593FC8 (RtlpHeapRemoveListEntry.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1405B4B5C (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x1405934AC (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHeapListCompare(ULONG_PTR a1, __int64 a2, int a3, char a4)
 {
-  ULONG_PTR v5; // r8
-  int v6; // edx
-  int v9; // [rsp+38h] [rbp-10h]
+  int v7; // [rsp+38h] [rbp-10h]
 
   if ( a4 )
   {
-    v5 = a2 - 16;
-    v6 = *(_DWORD *)(a2 - 16 + 8);
-    LOWORD(v9) = v6;
+    v7 = *(_DWORD *)(a2 - 16 + 8);
     if ( *(_DWORD *)(a1 + 124) )
     {
-      v9 = *(_DWORD *)(a1 + 136) ^ v6;
-      if ( HIBYTE(v9) != ((unsigned __int8)v9 ^ (unsigned __int8)(BYTE1(v9) ^ BYTE2(v9))) )
-        RtlpLogHeapFailure(3, a1, v5, 0LL, 0LL, 0LL);
+      v7 = *(_DWORD *)(a2 - 16 + 8) ^ *(_DWORD *)(a1 + 136);
+      if ( HIBYTE(v7) != ((unsigned __int8)v7 ^ (unsigned __int8)(BYTE1(v7) ^ BYTE2(v7))) )
+        RtlpLogHeapFailure(3, a1, a2 - 16, 0LL, 0LL, 0LL);
     }
-    return (unsigned int)(a3 - (unsigned __int16)v9);
+    return (unsigned int)(a3 - (unsigned __int16)v7);
   }
   else
   {

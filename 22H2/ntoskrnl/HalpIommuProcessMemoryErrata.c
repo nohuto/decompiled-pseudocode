@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuProcessMemoryErrata @ 0x14039EB34
+ * XREFs of HalpIommuProcessMemoryErrata @ 0x1404C99F4
  * Callers:
- *     HalpIommuProcessReservationsInternal @ 0x14039E984 (HalpIommuProcessReservationsInternal.c)
+ *     HalpIommuProcessReservationsInternal @ 0x1404C9AE0 (HalpIommuProcessReservationsInternal.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpIommuProcessMemoryErrata(unsigned int a1, __int64 a2, __int64 a3)
@@ -16,7 +16,7 @@ __int64 __fastcall HalpIommuProcessMemoryErrata(unsigned int a1, __int64 a2, __i
   unsigned __int64 v10; // rax
   __int64 v11; // rcx
   unsigned __int64 v12; // rcx
-  bool v14; // zf
+  bool v13; // zf
 
   for ( i = 0LL; (unsigned int)i < a1; i = (unsigned int)(i + 1) )
   {
@@ -28,19 +28,19 @@ __int64 __fastcall HalpIommuProcessMemoryErrata(unsigned int a1, __int64 a2, __i
       {
         for ( k = *(_QWORD *)(a3 + 32); k != a3 + 32; k = *(_QWORD *)k )
         {
-          v10 = *(int *)(k + 24);
+          v10 = *(int *)(k + 16);
           if ( (unsigned int)v10 <= 0x25 )
           {
             v11 = 0x25C0C00048LL;
             if ( _bittest64(&v11, v10) )
               continue;
           }
-          v12 = *(_QWORD *)(k + 32) << 12;
-          if ( *(_QWORD *)v8 <= v12 + (*(_QWORD *)(k + 40) << 12) - 1LL && *(_QWORD *)(v8 + 8) >= v12 )
+          v12 = *(_QWORD *)(k + 24) << 12;
+          if ( *(_QWORD *)v8 <= v12 + (*(_QWORD *)(k + 32) << 12) - 1LL && *(_QWORD *)(v8 + 8) >= v12 )
           {
-            v14 = HalpIommuDmaGuardTableOptIn == 0;
+            v13 = HalpIommuDmaGuardTableOptIn == 0;
             *(_BYTE *)(v8 + 16) = 1;
-            if ( !v14 )
+            if ( !v13 )
               KeBugCheckEx(0x5Cu, 0x501uLL, v8, k, 0LL);
           }
         }

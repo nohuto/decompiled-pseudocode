@@ -1,203 +1,68 @@
 /*
- * XREFs of RIMInitializeDeadzone @ 0x1C018A6C4
+ * XREFs of RIMInitializeDeadzone @ 0x1C015EB10
  * Callers:
- *     RIMCreatePointerDeviceInfo @ 0x1C0187070 (RIMCreatePointerDeviceInfo.c)
- *     RIMVirtCreatePointerDeviceInfo @ 0x1C018CC18 (RIMVirtCreatePointerDeviceInfo.c)
- *     RIMIDECreatePointerDeviceInfo @ 0x1C0194488 (RIMIDECreatePointerDeviceInfo.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015BF5C (RIMCreatePointerDeviceInfo.c)
+ *     RIMVirtCreatePointerDeviceInfo @ 0x1C0160080 (RIMVirtCreatePointerDeviceInfo.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167888 (RIMIDECreatePointerDeviceInfo.c)
  * Callees:
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
- *     rimDestroyDeadzone @ 0x1C0185CAC (rimDestroyDeadzone.c)
- *     ?Initialize@RIMDeadzone@@QEAAJXZ @ 0x1C019B738 (-Initialize@RIMDeadzone@@QEAAJXZ.c)
- *     ?Release@RIMDeadzone@@QEAAXXZ @ 0x1C019BD24 (-Release@RIMDeadzone@@QEAAXXZ.c)
+ *     Win32AllocPoolZInit @ 0x1C00298B0 (Win32AllocPoolZInit.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     rimDestroyDeadzone @ 0x1C015B52C (rimDestroyDeadzone.c)
+ *     ?Initialize@RIMDeadzone@@QEAAJXZ @ 0x1C016E1B4 (-Initialize@RIMDeadzone@@QEAAJXZ.c)
+ *     ?Release@RIMDeadzone@@QEAAXXZ @ 0x1C016E63C (-Release@RIMDeadzone@@QEAAXXZ.c)
  */
 
-__int64 __fastcall RIMInitializeDeadzone(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 RIMInitializeDeadzone()
 {
-  int v4; // esi
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  NSInstrumentation::CLeakTrackingAllocator *v14; // rdi
-  int v15; // eax
-  __int64 Pool2; // rbx
-  _QWORD *v17; // rax
-  __int64 v18; // r10
-  __int64 v19; // rdi
-  PDEVICE_OBJECT *v20; // rdx
-  PDEVICE_OBJECT v21; // rcx
-  PDEVICE_OBJECT *v22; // rdx
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  __int64 v29; // r8
-  __int64 v30; // r9
-  __int64 v31; // rax
-  _QWORD v33[2]; // [rsp+40h] [rbp-79h] BYREF
-  PVOID BackTrace[24]; // [rsp+50h] [rbp-69h] BYREF
-  unsigned int v35; // [rsp+120h] [rbp+67h] BYREF
-  unsigned __int64 v36; // [rsp+128h] [rbp+6Fh] BYREF
-  __int64 v37; // [rsp+130h] [rbp+77h] BYREF
-  __int64 v38; // [rsp+138h] [rbp+7Fh] BYREF
+  int v0; // edi
+  RIMDeadzone *v1; // rax
+  int v2; // edx
+  RIMDeadzone *v3; // rbx
+  int v4; // edx
 
-  v4 = 0;
-  v5 = SGDGetUserSessionState(a1, a2, a3, a4);
-  RIMLockExclusive(v5 + 224);
-  if ( *(_QWORD *)(SGDGetUserSessionState(v7, v6, v8, v9) + 448) )
+  v0 = 0;
+  RIMLockExclusive((__int64)&gDeadzoneLock);
+  if ( RIMDeadzone::s_pRimDeadzoneInstance )
   {
-    v28 = *(_QWORD *)(SGDGetUserSessionState(v11, v10, v12, v13) + 448);
-    ++*(_DWORD *)(v28 + 4);
-    goto LABEL_44;
+    ++*((_DWORD *)RIMDeadzone::s_pRimDeadzoneInstance + 1);
   }
-  v14 = gpLeakTrackingAllocator;
-  v35 = 2053394514;
-  v37 = 260LL;
-  v38 = 64LL;
-  v15 = *(_DWORD *)gpLeakTrackingAllocator;
-  if ( !*(_DWORD *)gpLeakTrackingAllocator )
+  else
   {
-    Pool2 = ExAllocatePool2(260LL, 64LL, 2053394514LL);
-    if ( Pool2 )
-      _InterlockedIncrement64((volatile signed __int64 *)v14 + 14);
-    goto LABEL_17;
-  }
-  if ( v15 != 1 )
-  {
-    if ( v15 == 2 )
+    v1 = (RIMDeadzone *)Win32AllocPoolZInit(0x40uLL, 2053394514LL);
+    v3 = v1;
+    if ( v1 )
     {
-      v36 = 0LL;
-      if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 2053394514, &v36) )
+      memset(v1, 0, 0x40uLL);
+      v0 = RIMDeadzone::Initialize(v3);
+      if ( v0 < 0 )
       {
-        v33[0] = &v37;
-        v33[1] = &v35;
-        Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                  (__int64)v14,
-                  (__int64)v33,
-                  &v38);
-        goto LABEL_17;
-      }
-      Pool2 = ExAllocatePool2(v18, 80LL, 2053394514LL);
-      if ( Pool2 )
-      {
-        _InterlockedIncrement64((volatile signed __int64 *)v14 + 16);
-        NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-        if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 >= 0x1000 )
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                 (__int64)v14,
-                 Pool2,
-                 v36,
-                 (struct NSInstrumentation::CBackTrace *)BackTrace) )
-          {
-            v19 = Pool2;
-LABEL_21:
-            memset((void *)Pool2, 0, 0x40uLL);
-            v4 = RIMDeadzone::Initialize((RIMDeadzone *)Pool2);
-            if ( v4 < 0 )
-            {
-              v22 = &WPP_GLOBAL_Control;
-              LOBYTE(v22) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                         && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                         && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-              if ( (_BYTE)v22 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              {
-                LOBYTE(v12) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-                WPP_RECORDER_AND_TRACE_SF_(
-                  WPP_GLOBAL_Control->AttachedDevice,
-                  (_DWORD)v22,
-                  v12,
-                  (_DWORD)gRimLog,
-                  3,
-                  1,
-                  13,
-                  (__int64)&WPP_30f9ddf97da63da78d93eb777283153b_Traceguids);
-              }
-              RIMDeadzone::Release((RIMDeadzone *)Pool2);
-              rimDestroyDeadzone(v24, v23, v25, v26);
-              NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)Pool2);
-              v19 = 0LL;
-            }
-            goto LABEL_42;
-          }
+          LOBYTE(v4) = 3;
+          WPP_RECORDER_SF_((_DWORD)gRimLog, v4, 1, 13, (__int64)&WPP_55b2fa568459373c5b96b2ba3eae63fb_Traceguids);
         }
-        else if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                    (__int64)v14,
-                    (const void *)Pool2,
-                    v36,
-                    (struct NSInstrumentation::CBackTrace *)BackTrace) )
-        {
-          Pool2 += 16LL;
-          goto LABEL_17;
-        }
-        _InterlockedIncrement64((volatile signed __int64 *)v14 + 17);
-        _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
+        RIMDeadzone::Release(v3);
+        rimDestroyDeadzone();
+        Win32FreePool((__int64)v3);
+        v3 = 0LL;
       }
     }
-LABEL_32:
-    v19 = 0LL;
-    goto LABEL_33;
+    else
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        LOBYTE(v2) = 3;
+        WPP_RECORDER_SF_((_DWORD)gRimLog, v2, 1, 12, (__int64)&WPP_55b2fa568459373c5b96b2ba3eae63fb_Traceguids);
+      }
+      v0 = -1073741801;
+    }
+    RIMDeadzone::s_pRimDeadzoneInstance = v3;
   }
-  if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x7A645052u) )
-    goto LABEL_32;
-  v17 = (_QWORD *)ExAllocatePool2(v37 & 0xFFFFFFFFFFFFFFFDuLL, 80LL, v35);
-  Pool2 = (__int64)v17;
-  if ( !v17
-    || (_InterlockedIncrement64((volatile signed __int64 *)v14 + 14),
-        *v17 = 2053394514LL,
-        Pool2 = (__int64)(v17 + 2),
-        v17 == (_QWORD *)-16LL) )
-  {
-    NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-      *((NSInstrumentation::CPointerHashTable **)v14 + 1),
-      0x7A645052uLL);
-  }
-LABEL_17:
-  v19 = Pool2;
-  if ( Pool2 )
-    goto LABEL_21;
-LABEL_33:
-  v21 = WPP_GLOBAL_Control;
-  v20 = &WPP_GLOBAL_Control;
-  LOBYTE(v20) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-             && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-             && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-  LOBYTE(v12) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)v20 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      (_DWORD)v20,
-      v12,
-      (_DWORD)gRimLog,
-      3,
-      1,
-      12,
-      (__int64)&WPP_30f9ddf97da63da78d93eb777283153b_Traceguids);
-  v4 = -1073741801;
-LABEL_42:
-  *(_QWORD *)(SGDGetUserSessionState(v21, v20, v12, v13) + 448) = v19;
-LABEL_44:
-  v31 = SGDGetUserSessionState(v28, v27, v29, v30);
-  *(_QWORD *)(v31 + 232) = 0LL;
-  ExReleasePushLockExclusiveEx(v31 + 224, 0LL);
+  qword_1C02544E8 = 0LL;
+  ExReleasePushLockExclusiveEx(&gDeadzoneLock, 0LL);
   KeLeaveCriticalRegion();
-  return (unsigned int)v4;
+  return (unsigned int)v0;
 }

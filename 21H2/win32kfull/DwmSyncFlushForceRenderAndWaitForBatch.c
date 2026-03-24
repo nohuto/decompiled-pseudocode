@@ -1,9 +1,9 @@
 /*
- * XREFs of DwmSyncFlushForceRenderAndWaitForBatch @ 0x1C00CC990
+ * XREFs of DwmSyncFlushForceRenderAndWaitForBatch @ 0x1C002E8E0
  * Callers:
- *     DwmSyncFlushWindowChanges @ 0x1C00CC928 (DwmSyncFlushWindowChanges.c)
+ *     DwmSyncFlushWindowChanges @ 0x1C002E86C (DwmSyncFlushWindowChanges.c)
  * Callees:
- *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C00CCA80 (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
+ *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C002EB28 (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
  */
 
 __int64 __fastcall DwmSyncFlushForceRenderAndWaitForBatch(PVOID Object, int a2)
@@ -18,6 +18,7 @@ __int64 __fastcall DwmSyncFlushForceRenderAndWaitForBatch(PVOID Object, int a2)
   v4 = -1073741823;
   if ( Object )
   {
+    v4 = gbInVideoPnpCallout != 0 ? 0xC0000001 : 0;
     if ( !gbInVideoPnpCallout )
     {
       EtwTraceDwmSyncFlushForceRenderAndWaitForBatchBegin(0xFFFFFFFFLL);

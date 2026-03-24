@@ -1,34 +1,28 @@
 /*
- * XREFs of _strset_s @ 0x1403E6A80
+ * XREFs of _strset_s @ 0x1403D7650
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl strset_s(char *a1, size_t DstSize, int Value)
 {
-  char *v3; // rax
+  char *i; // rax
 
   if ( !a1 || !DstSize )
     goto LABEL_8;
-  v3 = a1;
-  if ( *a1 )
+  for ( i = a1; *i; *i++ = Value )
   {
-    do
-    {
-      if ( !--DstSize )
-        break;
-      *v3++ = Value;
-    }
-    while ( *v3 );
-    if ( !DstSize )
-    {
-      *a1 = 0;
+    if ( !--DstSize )
+      break;
+  }
+  if ( !DstSize )
+  {
+    *a1 = 0;
 LABEL_8:
-      xHalTimerWatchdogStop();
-      return 22;
-    }
+    xHalTimerWatchdogStop();
+    return 22;
   }
   return 0;
 }

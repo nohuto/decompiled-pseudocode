@@ -1,22 +1,19 @@
 /*
- * XREFs of MiSetImageProtection @ 0x14034B480
+ * XREFs of MiSetImageProtection @ 0x140357D28
  * Callers:
- *     MmLoadSystemImageEx @ 0x140703E70 (MmLoadSystemImageEx.c)
- *     MmChangeImageProtection @ 0x140723EB0 (MmChangeImageProtection.c)
- *     MiCompactServiceTable @ 0x1407BCE34 (MiCompactServiceTable.c)
- *     MiResolveImageImports @ 0x1407BCFD0 (MiResolveImageImports.c)
- *     MiProcessKernelCfgImageLoadConfig @ 0x1407D4964 (MiProcessKernelCfgImageLoadConfig.c)
- *     MiApplyHotPatchToDriverDataPages @ 0x140A34F98 (MiApplyHotPatchToDriverDataPages.c)
- *     MiPatchDataPagesCallback @ 0x140A3A7A0 (MiPatchDataPagesCallback.c)
+ *     MmChangeImageProtection @ 0x1406FE6A0 (MmChangeImageProtection.c)
+ *     MmLoadSystemImageEx @ 0x14075B2EC (MmLoadSystemImageEx.c)
+ *     MiProcessKernelCfgImageLoadConfig @ 0x14075C764 (MiProcessKernelCfgImageLoadConfig.c)
+ *     MiResolveImageImports @ 0x14075C7B4 (MiResolveImageImports.c)
+ *     MiCompactServiceTable @ 0x140789F28 (MiCompactServiceTable.c)
  * Callees:
- *     MiSetSystemCodeProtection @ 0x1402841F0 (MiSetSystemCodeProtection.c)
+ *     MiSetSystemCodeProtection @ 0x140357D78 (MiSetSystemCodeProtection.c)
  */
 
-__int64 __fastcall MiSetImageProtection(__int64 a1, unsigned __int64 a2, int a3, unsigned int a4)
+__int64 __fastcall MiSetImageProtection(__int64 a1, unsigned __int64 a2, unsigned int a3)
 {
   return MiSetSystemCodeProtection(
            a1,
            ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
-           (((a2 + (unsigned int)(a3 - 1)) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
-           a4);
+           (((a3 + a2 - 1) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
 }

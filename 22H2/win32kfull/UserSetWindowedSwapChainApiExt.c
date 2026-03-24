@@ -1,9 +1,9 @@
 /*
- * XREFs of UserSetWindowedSwapChainApiExt @ 0x1C0157250
+ * XREFs of UserSetWindowedSwapChainApiExt @ 0x1C015E3F0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetWindowedSwapChain @ 0x1C021C408 (UserSetWindowedSwapChain.c)
+ *     UserSetWindowedSwapChain @ 0x1C015E408 (UserSetWindowedSwapChain.c)
  */
 
 __int64 UserSetWindowedSwapChainApiExt()

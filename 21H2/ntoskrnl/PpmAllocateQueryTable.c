@@ -1,42 +1,46 @@
 /*
- * XREFs of PpmAllocateQueryTable @ 0x14099D480
+ * XREFs of PpmAllocateQueryTable @ 0x1408F5A60
  * Callers:
- *     PpmRegisterSpmSettings @ 0x14099DB50 (PpmRegisterSpmSettings.c)
+ *     PpmRegisterSpmSettings @ 0x1408F60F0 (PpmRegisterSpmSettings.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PpmAllocateQueryTable(__int64 a1)
+char *__fastcall PpmAllocateQueryTable(__int64 a1)
 {
-  __int64 result; // rax
-  __int64 v3; // r8
-  __int64 v4; // r10
-  wchar_t **v5; // r9
-  __int64 v6; // rdx
-  wchar_t *v7; // rcx
+  char *PoolWithTag; // rax
+  char *v3; // rbx
+  char *v4; // rdx
+  __int64 v5; // r9
+  wchar_t **v6; // r8
+  char *v7; // rcx
+  wchar_t *v8; // rax
 
-  result = ExAllocatePool2(256LL, 1256LL, 1884115027LL);
-  if ( result )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 0x4E8uLL, 0x704D5053u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v3 = result + 1176;
-    v4 = 20LL;
-    v5 = &PpmPolicyAliasList;
-    v6 = result + 24;
+    memset(PoolWithTag, 0, 0x4E8uLL);
+    v4 = v3 + 1176;
+    v5 = 20LL;
+    v6 = &PpmPolicyAliasList;
+    v7 = v3 + 24;
     do
     {
-      v7 = *v5;
-      v5 += 2;
-      *(_QWORD *)v6 = v3;
-      v3 += 4LL;
-      *(_QWORD *)(v6 - 8) = v7;
-      *(_QWORD *)(v6 + 16) = a1;
-      *(_DWORD *)(v6 + 24) = 4;
-      *(_DWORD *)(v6 + 8) = 67108868;
-      *(_DWORD *)(v6 - 16) = 288;
-      v6 += 56LL;
-      --v4;
+      v8 = *v6;
+      v6 += 2;
+      *(_QWORD *)v7 = v4;
+      v4 += 4;
+      *((_QWORD *)v7 - 1) = v8;
+      *((_QWORD *)v7 + 2) = a1;
+      *((_DWORD *)v7 + 6) = 4;
+      *((_DWORD *)v7 + 2) = 67108868;
+      *((_DWORD *)v7 - 4) = 288;
+      v7 += 56;
+      --v5;
     }
-    while ( v4 );
+    while ( v5 );
   }
-  return result;
+  return v3;
 }

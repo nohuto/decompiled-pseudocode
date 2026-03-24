@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwpCovSampCaptureContextStop @ 0x140603108
+ * XREFs of EtwpCovSampCaptureContextStop @ 0x1405AE99C
  * Callers:
- *     EtwpCoverageSamplerStop @ 0x1409F3774 (EtwpCoverageSamplerStop.c)
+ *     EtwpCoverageSamplerStop @ 0x1409474A8 (EtwpCoverageSamplerStop.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpCovSampCaptureCancelApcs @ 0x140602E70 (EtwpCovSampCaptureCancelApcs.c)
- *     EtwpCovSampCaptureCleanupLookasides @ 0x140602FD8 (EtwpCovSampCaptureCleanupLookasides.c)
- *     EtwpCovSampCaptureFlushSampleBuffers @ 0x1406032E0 (EtwpCovSampCaptureFlushSampleBuffers.c)
- *     EtwpCovSampCaptureFreeLookasides @ 0x1409F1040 (EtwpCovSampCaptureFreeLookasides.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpCovSampCaptureCancelApcs @ 0x1405AE704 (EtwpCovSampCaptureCancelApcs.c)
+ *     EtwpCovSampCaptureCleanupLookasides @ 0x1405AE868 (EtwpCovSampCaptureCleanupLookasides.c)
+ *     EtwpCovSampCaptureFlushSampleBuffers @ 0x1405AEB70 (EtwpCovSampCaptureFlushSampleBuffers.c)
+ *     EtwpCovSampCaptureFreeLookasides @ 0x140942958 (EtwpCovSampCaptureFreeLookasides.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall EtwpCovSampCaptureContextStop(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  volatile signed __int64 *v2; // r14
+  KSPIN_LOCK *v3; // rbp
   KIRQL v4; // al
   unsigned __int64 v5; // rsi
   __int64 *i; // rdx
@@ -28,65 +28,69 @@ _QWORD *__fastcall EtwpCovSampCaptureContextStop(__int64 a1)
   int v9; // eax
   _DWORD *SchedulerAssist; // r8
   bool v11; // zf
-  LARGE_INTEGER v12; // rax
+  LARGE_INTEGER v12; // rbx
   void *v13; // rcx
   void *v14; // rcx
   LARGE_INTEGER Timeout; // [rsp+50h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v2 = (volatile signed __int64 *)(a1 + 632);
   --CurrentThread->KernelApcDisable;
-  v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 632));
-  *(_DWORD *)(a1 + 1280) = 0;
+  v3 = (KSPIN_LOCK *)(a1 + 264);
+  v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 264));
+  *(_DWORD *)(a1 + 912) = 0;
   v5 = v4;
-  if ( *(_DWORD *)(a1 + 1284) )
-    *(_DWORD *)(a1 + 1284) = 0;
-  for ( i = *(__int64 **)(a1 + 944); i != (__int64 *)(a1 + 944); i = (__int64 *)*i )
+  if ( *(_DWORD *)(a1 + 916) )
+    *(_DWORD *)(a1 + 916) = 0;
+  for ( i = *(__int64 **)(a1 + 576); i != (__int64 *)(a1 + 576); i = (__int64 *)*i )
   {
     *((_DWORD *)i + 6) = 0;
     *((_DWORD *)i + 7) = 0;
   }
-  KeResetEvent((PRKEVENT)(a1 + 1256));
-  *(_DWORD *)(a1 + 1288) = 0;
-  KxReleaseSpinLock(v2);
+  KeResetEvent((PRKEVENT)(a1 + 888));
+  *(_DWORD *)(a1 + 920) = 0;
+  KxReleaseSpinLock(v3);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v11 = (v9 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v9;
-      if ( v11 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v11 = (v9 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v9;
+        if ( v11 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v5);
   EtwpCovSampCaptureFlushSampleBuffers(a1);
   EtwpCovSampCaptureCleanupLookasides(a1);
-  for ( Timeout.QuadPart = -2500000LL; KeWaitForSingleObject((PVOID)(a1 + 1256), Executive, 0, 0, &Timeout); Timeout = v12 )
+  v12.QuadPart = -2500000LL;
+  for ( Timeout.QuadPart = -2500000LL; KeWaitForSingleObject((PVOID)(a1 + 888), Executive, 0, 0, &Timeout); Timeout = v12 )
   {
     EtwpCovSampCaptureCancelApcs(a1);
     EtwpCovSampCaptureFlushSampleBuffers(a1);
-    v12.QuadPart = 2 * Timeout.QuadPart;
-    if ( 2 * Timeout.QuadPart < -9600000000LL )
+    v12.QuadPart *= 2LL;
+    if ( v12.QuadPart < -9600000000LL )
       v12.QuadPart = -9600000000LL;
   }
   EtwpCovSampCaptureFreeLookasides(a1);
-  v13 = *(void **)(a1 + 1320);
+  v13 = *(void **)(a1 + 952);
   if ( v13 )
   {
     ExFreePoolWithTag(v13, 0x56777445u);
-    *(_QWORD *)(a1 + 1320) = 0LL;
+    *(_QWORD *)(a1 + 952) = 0LL;
   }
-  v14 = *(void **)(a1 + 1328);
+  v14 = *(void **)(a1 + 960);
   if ( v14 )
   {
     ExFreePoolWithTag(v14, 0x56777445u);
-    *(_QWORD *)(a1 + 1328) = 0LL;
+    *(_QWORD *)(a1 + 960) = 0LL;
   }
-  *(_QWORD *)(a1 + 1312) = 0LL;
+  *(_QWORD *)(a1 + 944) = 0LL;
   return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

@@ -1,38 +1,40 @@
 /*
- * XREFs of VrpHandleIoctlModifyFlags @ 0x140926868
+ * XREFs of VrpHandleIoctlModifyFlags @ 0x140882F4C
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140692780 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x1405D3110 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     PsGetPermanentSiloContext @ 0x140211FA0 (PsGetPermanentSiloContext.c)
- *     PsGetJobSilo @ 0x140212000 (PsGetJobSilo.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140732D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsGetJobSilo @ 0x140200050 (PsGetJobSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x14035FF90 (PsGetPermanentSiloContext.c)
+ *     VrpUnlockJobContextExclusive @ 0x1405D2EBC (VrpUnlockJobContextExclusive.c)
+ *     VrpLockJobContextExclusive @ 0x1405D5E18 (VrpLockJobContextExclusive.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall VrpHandleIoctlModifyFlags(__int64 a1, unsigned int a2, char a3, __int64 a4, __int64 a5, __int64 a6)
+__int64 __fastcall VrpHandleIoctlModifyFlags(
+        __int64 a1,
+        unsigned int a2,
+        KPROCESSOR_MODE a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 a6)
 {
-  int JobSilo; // esi
-  int v8; // eax
+  int JobSilo; // edi
+  NTSTATUS v8; // eax
   PVOID v9; // rbx
-  struct _KTHREAD *CurrentThread; // rax
-  __int64 v11; // rdi
-  volatile signed __int64 *v12; // rbp
-  PVOID Object; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v10; // rbx
+  PVOID Object; // [rsp+68h] [rbp+28h] BYREF
 
   Object = 0LL;
-  a6 = 0LL;
   a5 = 0LL;
-  if ( a2 < 0x10 || (*(_DWORD *)(a1 + 12) & *(_DWORD *)(a1 + 8)) != 0 )
+  a6 = 0LL;
+  if ( a2 < 0x10 || (*(_DWORD *)(a1 + 8) & *(_DWORD *)(a1 + 12)) != 0 )
   {
     return (unsigned int)-1073741811;
   }
   else
   {
-    v8 = ObpReferenceObjectByHandleWithTag(*(_QWORD *)a1, 6, (__int64)PsJobType, a3, 0x52566D43u, &Object, 0LL, 0LL);
+    v8 = ObReferenceObjectByHandleWithTag(*(HANDLE *)a1, 6u, (POBJECT_TYPE)PsJobType, a3, 0x52566D43u, &Object, 0LL);
     v9 = Object;
     JobSilo = v8;
     if ( v8 >= 0 )
@@ -40,19 +42,13 @@ __int64 __fastcall VrpHandleIoctlModifyFlags(__int64 a1, unsigned int a2, char a
       JobSilo = PsGetJobSilo((__int64)Object);
       if ( JobSilo >= 0 )
       {
-        JobSilo = PsGetPermanentSiloContext(a5, VrpSiloContextSlot, (unsigned __int64 *)&a6);
+        JobSilo = PsGetPermanentSiloContext(a6, VrpSiloContextSlot, (unsigned __int64 *)&a5);
         if ( JobSilo >= 0 )
         {
-          CurrentThread = KeGetCurrentThread();
-          --CurrentThread->KernelApcDisable;
-          v11 = a6;
-          v12 = (volatile signed __int64 *)(a6 + 16);
-          ExAcquirePushLockExclusiveEx(a6 + 16, 0LL);
-          *(_DWORD *)(v11 + 80) = ~*(_DWORD *)(a1 + 12) & (*(_DWORD *)(a1 + 8) | *(_DWORD *)(v11 + 80));
-          if ( (_InterlockedExchangeAdd64(v12, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock(v12);
-          KeAbPostRelease((ULONG_PTR)v12);
-          KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+          v10 = a5;
+          VrpLockJobContextExclusive(a5);
+          *(_DWORD *)(v10 + 80) = ~*(_DWORD *)(a1 + 12) & (*(_DWORD *)(v10 + 80) | *(_DWORD *)(a1 + 8));
+          VrpUnlockJobContextExclusive(a5);
           v9 = Object;
         }
       }

@@ -1,8 +1,8 @@
 /*
- * XREFs of AcpiTranslateAccessSize @ 0x1C007CB28
+ * XREFs of AcpiTranslateAccessSize @ 0x1C00ACCE4
  * Callers:
- *     AcpiParseGenRegDesc @ 0x1C007CAD4 (AcpiParseGenRegDesc.c)
- *     ACPIPccInitialize @ 0x1C00894E8 (ACPIPccInitialize.c)
+ *     AcpiParseGenRegDesc @ 0x1C00ACC90 (AcpiParseGenRegDesc.c)
+ *     ACPIPccInitialize @ 0x1C00B0788 (ACPIPccInitialize.c)
  * Callees:
  *     <none>
  */

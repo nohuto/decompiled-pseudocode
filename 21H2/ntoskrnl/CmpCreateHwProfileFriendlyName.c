@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpCreateHwProfileFriendlyName @ 0x14091E3D0
+ * XREFs of CmpCreateHwProfileFriendlyName @ 0x140877940
  * Callers:
- *     CmpCloneHwProfile @ 0x14091DBC4 (CmpCloneHwProfile.c)
+ *     CmpCloneHwProfile @ 0x140877184 (CmpCloneHwProfile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403E5D20 (swprintf_s.c)
- *     wcscpy_s @ 0x1403E76C0 (wcscpy_s.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     KeGetBugMessageText @ 0x140566F64 (KeGetBugMessageText.c)
- *     RtlCreateUnicodeString @ 0x14066A0F0 (RtlCreateUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
+ *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     KeGetBugMessageText @ 0x140517AC4 (KeGetBugMessageText.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     RtlCreateUnicodeString @ 0x1406748C0 (RtlCreateUnicodeString.c)
  */
 
 __int64 __fastcall CmpCreateHwProfileFriendlyName(void *a1, char a2, unsigned int a3, UNICODE_STRING *a4)
@@ -31,9 +31,9 @@ __int64 __fastcall CmpCreateHwProfileFriendlyName(void *a1, char a2, unsigned in
   ULONG ResultLength; // [rsp+40h] [rbp-C0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+58h] [rbp-A8h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-98h] BYREF
-  STRING SourceString; // [rsp+98h] [rbp-68h] BYREF
-  UNICODE_STRING v22; // [rsp+A8h] [rbp-58h] BYREF
+  STRING SourceString; // [rsp+68h] [rbp-98h] BYREF
+  UNICODE_STRING v21; // [rsp+78h] [rbp-88h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-78h] BYREF
   wchar_t Dst[80]; // [rsp+C0h] [rbp-40h] BYREF
   _DWORD KeyValueInformation[64]; // [rsp+160h] [rbp+60h] BYREF
 
@@ -43,8 +43,8 @@ __int64 __fastcall CmpCreateHwProfileFriendlyName(void *a1, char a2, unsigned in
   SourceString = 0LL;
   UnicodeString = 0LL;
   DestinationString = 0LL;
-  v22 = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  v21 = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   if ( !a4 )
     return 3221225485LL;
   if ( a1 )
@@ -83,9 +83,9 @@ LABEL_10:
       }
       if ( (unsigned __int64)v10 + 12 <= 0xA0 )
       {
-        RtlInitUnicodeString(&v22, L"Hardware Profiles");
+        RtlInitUnicodeString(&v21, L"Hardware Profiles");
         ObjectAttributes.Length = 48;
-        ObjectAttributes.ObjectName = &v22;
+        ObjectAttributes.ObjectName = &v21;
         ObjectAttributes.RootDirectory = a1;
         ObjectAttributes.Attributes = 576;
         *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -131,7 +131,7 @@ LABEL_10:
       {
         v12 = -1073741823;
       }
-      RtlFreeUnicodeString(&UnicodeString);
+      RtlFreeAnsiString(&UnicodeString);
       if ( KeyHandle )
         ZwClose(KeyHandle);
       if ( v12 >= 0 )

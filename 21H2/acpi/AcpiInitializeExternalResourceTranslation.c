@@ -1,7 +1,7 @@
 /*
- * XREFs of AcpiInitializeExternalResourceTranslation @ 0x1C008EFD8
+ * XREFs of AcpiInitializeExternalResourceTranslation @ 0x1C0090698
  * Callers:
- *     DriverEntry @ 0x1C00BBAC8 (DriverEntry.c)
+ *     DriverEntry @ 0x1C00BB98C (DriverEntry.c)
  * Callees:
  *     <none>
  */

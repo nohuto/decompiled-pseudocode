@@ -1,12 +1,11 @@
 /*
- * XREFs of MiRotateComplete @ 0x140632E3C
+ * XREFs of MiRotateComplete @ 0x1402EB19C
  * Callers:
- *     MiRotateToFrameBuffer @ 0x140A31710 (MiRotateToFrameBuffer.c)
- *     MiRotateToFrameBufferNoCopy @ 0x140A31A14 (MiRotateToFrameBufferNoCopy.c)
+ *     MmRotatePhysicalView @ 0x14065FD60 (MmRotatePhysicalView.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall MiRotateComplete(unsigned __int64 *a1)
@@ -14,22 +13,20 @@ void __fastcall MiRotateComplete(unsigned __int64 *a1)
   _KPROCESS *Process; // rdx
   __int64 v3; // rbp
   unsigned __int64 *v4; // rdi
-  volatile LONG *SharedVm; // rbx
+  LONG *SharedVm; // rbx
   KIRQL v6; // al
-  __int64 v7; // r8
-  __int64 v8; // r9
-  unsigned __int8 v9; // dl
+  unsigned __int8 v7; // dl
   unsigned __int64 *i; // rax
 
   Process = KeGetCurrentThread()->ApcState.Process;
-  v3 = (__int64)&Process[1].ActiveProcessors.StaticBitmap[26];
-  v4 = &Process[1].Affinity.StaticBitmap[9];
-  SharedVm = (volatile LONG *)MiGetSharedVm((__int64)&Process[1].ActiveProcessors.StaticBitmap[26]);
+  v3 = (__int64)&Process[1].ActiveProcessorsPadding[6];
+  v4 = &Process[1].Affinity.Bitmap[9];
+  SharedVm = MiGetSharedVm((__int64)&Process[1].ActiveProcessorsPadding[6]);
   v6 = ExAcquireSpinLockExclusive(SharedVm);
-  *((_DWORD *)SharedVm + 1) = 0;
-  v9 = v6;
+  SharedVm[1] = 0;
+  v7 = v6;
   for ( i = (unsigned __int64 *)*v4; i != a1; i = (unsigned __int64 *)*i )
     v4 = i;
   *v4 = *i;
-  MiUnlockWorkingSetExclusive(v3, v9, v7, v8);
+  MiUnlockWorkingSetExclusive(v3, v7);
 }

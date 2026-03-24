@@ -1,20 +1,20 @@
 /*
- * XREFs of SepExpandSingletonArrays @ 0x14025C99C
+ * XREFs of SepExpandSingletonArrays @ 0x1403CDFC0
  * Callers:
- *     SepAddLuidToIndexEntry @ 0x140672348 (SepAddLuidToIndexEntry.c)
+ *     SepAddLuidToIndexEntry @ 0x140604128 (SepAddLuidToIndexEntry.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 SepExpandSingletonArrays()
 {
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v1; // rsi
   unsigned __int64 v2; // rdi
   _QWORD *v3; // rax
@@ -32,13 +32,13 @@ __int64 SepExpandSingletonArrays()
   _DWORD *v16; // r8
   int v17; // eax
 
-  Pool2 = (void *)ExAllocatePool2(64LL, 1536LL, 1950639443LL);
-  v1 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x600uLL, 0x74446553u);
+  v1 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225495LL;
-  memset(Pool2, 0, 0x600uLL);
+  memset(PoolWithTag, 0, 0x600uLL);
   v2 = ExAcquireSpinLockExclusive(SepSingletonGlobal);
-  v3 = (_QWORD *)ExAllocatePool2(64LL, 8LL * (unsigned int)(*((_DWORD *)SepSingletonGlobal + 1) + 1), 1950639443LL);
+  v3 = ExAllocatePoolWithTag(NonPagedPoolNx, 8LL * (unsigned int)(*((_DWORD *)SepSingletonGlobal + 1) + 1), 0x74446553u);
   v4 = v3;
   if ( !v3 )
   {

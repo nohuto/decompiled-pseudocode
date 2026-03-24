@@ -1,48 +1,51 @@
 /*
- * XREFs of VfPacketCreateAndLock @ 0x140ADE00C
+ * XREFs of VfPacketCreateAndLock @ 0x1409E19C8
  * Callers:
- *     IovpCallDriver1 @ 0x140ACD170 (IovpCallDriver1.c)
- *     VfIoAllocateIrp2 @ 0x140ACE760 (VfIoAllocateIrp2.c)
- *     ViIrpAllocateLockedPacket @ 0x140ACEC64 (ViIrpAllocateLockedPacket.c)
+ *     IovpCallDriver1 @ 0x1409CFC5C (IovpCallDriver1.c)
+ *     VfIoAllocateIrp2 @ 0x1409D11D8 (VfIoAllocateIrp2.c)
+ *     ViIrpAllocateLockedPacket @ 0x1409D1760 (ViIrpAllocateLockedPacket.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B00 (ExAllocateFromNPagedLookasideList.c)
- *     IovIsDisabledWithoutReboot @ 0x14055F628 (IovIsDisabledWithoutReboot.c)
- *     VfIrpDatabaseEntryInsertAndLock @ 0x140AE2818 (VfIrpDatabaseEntryInsertAndLock.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202C74 (ExAllocateFromNPagedLookasideList.c)
+ *     VfIrpDatabaseEntryInsertAndLock @ 0x1409E0868 (VfIrpDatabaseEntryInsertAndLock.c)
  */
 
-_DWORD *__fastcall VfPacketCreateAndLock(__int64 a1)
+char *__fastcall VfPacketCreateAndLock(unsigned __int64 a1)
 {
-  _DWORD *v2; // rax
+  char *result; // rax
   __int64 v3; // rdx
-  _DWORD *v4; // rbx
+  char *v4; // rbx
+  __int64 v5; // r8
+  _QWORD *v6; // rax
 
-  if ( IovIsDisabledWithoutReboot() )
-    return 0LL;
-  v2 = ExAllocateFromNPagedLookasideList(&ViPacketLookaside);
-  v4 = v2;
-  if ( !v2 )
-    return 0LL;
-  _InterlockedIncrement(&ViPacketCount);
-  v2[14] = 0;
-  *((_QWORD *)v2 + 9) = v2 + 16;
-  *((_QWORD *)v2 + 8) = v2 + 16;
-  *((_BYTE *)v2 + 80) = *(_BYTE *)(a1 + 66);
-  *((_QWORD *)v2 + 12) = 0LL;
-  *((_BYTE *)v2 + 104) = 0;
-  *((_QWORD *)v2 + 14) = 0LL;
-  *((_WORD *)v2 + 92) = 0;
-  *((_BYTE *)v2 + 186) = 0;
-  v2[47] = 0;
-  *((_QWORD *)v2 + 30) = 0LL;
-  v2[21] = 0;
-  *((_QWORD *)v2 + 11) = 0LL;
-  *((_QWORD *)v2 + 24) = 0LL;
-  *((_QWORD *)v2 + 25) = 0LL;
-  v2[52] = 0;
-  *((_QWORD *)v2 + 27) = 0LL;
-  *((_QWORD *)v2 + 31) = 0LL;
-  *((_QWORD *)v2 + 28) = 0LL;
-  v2[58] = MmVerifierData;
-  VfIrpDatabaseEntryInsertAndLock(a1, v3, v2);
-  return v4;
+  result = (char *)ExAllocateFromNPagedLookasideList(&ViPacketLookaside);
+  v4 = result;
+  if ( result )
+  {
+    *((_DWORD *)result + 14) = 0;
+    v5 = (__int64)result;
+    v6 = result + 64;
+    v6[1] = v6;
+    *v6 = v6;
+    LOBYTE(v6) = *(_BYTE *)(a1 + 66);
+    *((_QWORD *)v4 + 12) = 0LL;
+    v4[104] = 0;
+    *((_QWORD *)v4 + 14) = 0LL;
+    *((_WORD *)v4 + 92) = 0;
+    v4[186] = 0;
+    *((_DWORD *)v4 + 47) = 0;
+    *((_QWORD *)v4 + 30) = 0LL;
+    *((_DWORD *)v4 + 21) = 0;
+    *((_QWORD *)v4 + 11) = 0LL;
+    *((_QWORD *)v4 + 24) = 0LL;
+    *((_QWORD *)v4 + 25) = 0LL;
+    *((_DWORD *)v4 + 52) = 0;
+    *((_QWORD *)v4 + 27) = 0LL;
+    *((_QWORD *)v4 + 31) = 0LL;
+    *((_QWORD *)v4 + 28) = 0LL;
+    v4[80] = (char)v6;
+    *((_DWORD *)v4 + 58) = MmVerifierData;
+    VfIrpDatabaseEntryInsertAndLock(a1, v3, v5);
+    return v4;
+  }
+  return result;
 }

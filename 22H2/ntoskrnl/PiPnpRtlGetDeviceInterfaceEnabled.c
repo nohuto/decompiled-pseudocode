@@ -1,20 +1,24 @@
 /*
- * XREFs of PiPnpRtlGetDeviceInterfaceEnabled @ 0x1407BCA80
+ * XREFs of PiPnpRtlGetDeviceInterfaceEnabled @ 0x140686B50
  * Callers:
  *     <none>
  * Callees:
- *     ZwPlugPlayControl @ 0x14041CE00 (ZwPlugPlayControl.c)
+ *     ZwPlugPlayControl @ 0x1403FC080 (ZwPlugPlayControl.c)
  */
 
-__int64 __fastcall PiPnpRtlGetDeviceInterfaceEnabled(__int64 a1, __int128 *a2, _BYTE *a3, unsigned int a4)
+__int64 __fastcall PiPnpRtlGetDeviceInterfaceEnabled(__int64 a1, __int128 *a2, _BYTE *a3, int a4)
 {
+  __int128 v4; // xmm0
   __int64 result; // rax
-  __int128 v6; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v7; // [rsp+30h] [rbp-18h]
+  __int128 v7; // [rsp+20h] [rbp-28h] BYREF
+  int v8; // [rsp+30h] [rbp-18h]
+  int v9; // [rsp+34h] [rbp-14h]
 
-  v6 = *a2;
-  v7 = a4;
-  result = ZwPlugPlayControl(23LL, (__int64)&v6);
-  *a3 = BYTE4(v7);
+  v4 = *a2;
+  v9 = 0;
+  v8 = a4;
+  v7 = v4;
+  result = ZwPlugPlayControl(23LL, (__int64)&v7);
+  *a3 = v9;
   return result;
 }

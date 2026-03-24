@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHeapRemoveListEntry @ 0x1405F26CC
+ * XREFs of RtlpHeapRemoveListEntry @ 0x140594088
  * Callers:
- *     RtlpAllocateHeap @ 0x1405E80B0 (RtlpAllocateHeap.c)
- *     RtlpCoalesceFreeBlocks @ 0x1405E8A08 (RtlpCoalesceFreeBlocks.c)
- *     RtlpCreateSplitBlock @ 0x1405E8DF8 (RtlpCreateSplitBlock.c)
- *     RtlpPopulateListIndex @ 0x1405F27C0 (RtlpPopulateListIndex.c)
- *     RtlZeroHeap @ 0x1409BAF80 (RtlZeroHeap.c)
+ *     RtlpAllocateHeap @ 0x140588B30 (RtlpAllocateHeap.c)
+ *     RtlpCoalesceFreeBlocks @ 0x140589490 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpCreateSplitBlock @ 0x140589880 (RtlpCreateSplitBlock.c)
+ *     RtlpPopulateListIndex @ 0x14059417C (RtlpPopulateListIndex.c)
+ *     RtlZeroHeap @ 0x140915930 (RtlZeroHeap.c)
  * Callees:
- *     RtlpHeapListCompare @ 0x1405F2650 (RtlpHeapListCompare.c)
+ *     RtlpHeapListCompare @ 0x14059400C (RtlpHeapListCompare.c)
  */
 
 __int64 *__fastcall RtlpHeapRemoveListEntry(

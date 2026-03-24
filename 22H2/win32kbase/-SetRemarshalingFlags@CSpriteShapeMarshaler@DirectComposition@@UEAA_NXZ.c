@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CSpriteShapeMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C0215A50
+ * XREFs of ?SetRemarshalingFlags@CSpriteShapeMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C01E7FF0
  * Callers:
  *     <none>
  * Callees:
@@ -9,23 +9,22 @@
 char __fastcall DirectComposition::CSpriteShapeMarshaler::SetRemarshalingFlags(
         DirectComposition::CSpriteShapeMarshaler *this)
 {
-  _DWORD *v1; // rdx
+  int v1; // eax
 
-  v1 = (_DWORD *)((char *)this + 16);
   if ( *((_QWORD *)this + 7) )
-    *v1 |= 0x20u;
+    *((_DWORD *)this + 4) |= 0x20u;
   if ( *((_QWORD *)this + 9) )
-    *v1 |= 0x40u;
+    *((_DWORD *)this + 4) |= 0x40u;
   if ( *((_QWORD *)this + 8) )
-    *v1 |= 0x80u;
+    *((_DWORD *)this + 4) |= 0x80u;
   if ( *((_QWORD *)this + 10) )
-    *v1 |= 0x100u;
+    *((_DWORD *)this + 4) |= 0x100u;
+  v1 = *((_DWORD *)this + 4);
   if ( *((_DWORD *)this + 24) )
   {
-    *v1 |= 0x400u;
     *((_DWORD *)this + 25) = 0;
+    v1 |= 0x400u;
   }
-  *v1 |= 0x200u;
-  *v1 |= 0x7800u;
+  *((_DWORD *)this + 4) = v1 | 0x7A00;
   return 1;
 }

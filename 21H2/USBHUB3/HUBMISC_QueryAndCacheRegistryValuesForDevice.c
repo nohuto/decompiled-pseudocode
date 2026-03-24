@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBMISC_QueryAndCacheRegistryValuesForDevice @ 0x1C007DC90
+ * XREFs of HUBMISC_QueryAndCacheRegistryValuesForDevice @ 0x1C007C6B4
  * Callers:
- *     HUBDSM_QueryingRegistryValuesForDevice @ 0x1C001EF10 (HUBDSM_QueryingRegistryValuesForDevice.c)
+ *     HUBDSM_QueryingRegistryValuesForDevice @ 0x1C001E9D0 (HUBDSM_QueryingRegistryValuesForDevice.c)
  * Callees:
  *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001870 (McTemplateK0pq_EtwWriteTransfer.c)
- *     HUBMISC_ConvertUsbDeviceIdsToString @ 0x1C00315C8 (HUBMISC_ConvertUsbDeviceIdsToString.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     HUBREG_QueryUsbHardwareVerifierValue @ 0x1C007E918 (HUBREG_QueryUsbHardwareVerifierValue.c)
- *     HUBREG_QueryUsbflagsValuesForDevice @ 0x1C007F038 (HUBREG_QueryUsbflagsValuesForDevice.c)
+ *     HUBMISC_ConvertUsbDeviceIdsToString @ 0x1C0030EE4 (HUBMISC_ConvertUsbDeviceIdsToString.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     HUBREG_QueryUsbHardwareVerifierValue @ 0x1C007D2C0 (HUBREG_QueryUsbHardwareVerifierValue.c)
+ *     HUBREG_QueryUsbflagsValuesForDevice @ 0x1C007DA10 (HUBREG_QueryUsbflagsValuesForDevice.c)
  */
 
 __int64 __fastcall HUBMISC_QueryAndCacheRegistryValuesForDevice(__int64 a1)

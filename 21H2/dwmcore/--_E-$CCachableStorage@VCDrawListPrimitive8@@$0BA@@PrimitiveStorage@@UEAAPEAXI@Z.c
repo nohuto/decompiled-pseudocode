@@ -1,16 +1,17 @@
 /*
- * XREFs of ??_E?$CCachableStorage@VCDrawListPrimitive8@@$0BA@@PrimitiveStorage@@UEAAPEAXI@Z @ 0x180054520
+ * XREFs of ??_E?$CCachableStorage@VCDrawListPrimitive8@@$0BA@@PrimitiveStorage@@UEAAPEAXI@Z @ 0x180058F50
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCDrawListPrimitive8@@@Z @ 0x1800B2898 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCDrawListPrimitive8@@@Z.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCDrawListPrimitive8@@@Z @ 0x180057C44 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCDrawListPrimitive8@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1C00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
-_QWORD *__fastcall PrimitiveStorage::CCachableStorage<CDrawListPrimitive8,16>::`vector deleting destructor'(
-        _QWORD *a1,
-        char a2)
+CDrawListPolygonBuilder *__fastcall PrimitiveStorage::CCachableStorage<CDrawListPrimitive8,16>::`vector deleting destructor'(
+        CDrawListPolygonBuilder *lpMem,
+        char a2,
+        unsigned int a3)
 {
   struct CObjectCache *ObjectCache; // rax
 
@@ -19,22 +20,22 @@ _QWORD *__fastcall PrimitiveStorage::CCachableStorage<CDrawListPrimitive8,16>::`
   {
     if ( (a2 & 4) != 0 )
     {
-      __global_delete(a1, 0x2F8uLL);
+      CDrawListPolygonBuilder::AddBeziers(lpMem, (const struct D2D1_BEZIER_SEGMENT *)0x2F8, a3);
     }
     else
     {
-      ObjectCache = CThreadContext::GetObjectCache((struct CDrawListPrimitive8 *)a1);
+      ObjectCache = CThreadContext::GetObjectCache(lpMem);
       if ( *((_DWORD *)ObjectCache + 1) >= *(_DWORD *)ObjectCache )
       {
-        DefaultHeap::Free(a1);
+        operator delete(lpMem);
       }
       else
       {
-        *a1 = *((_QWORD *)ObjectCache + 1);
+        *(_QWORD *)lpMem = *((_QWORD *)ObjectCache + 1);
         ++*((_DWORD *)ObjectCache + 1);
-        *((_QWORD *)ObjectCache + 1) = a1;
+        *((_QWORD *)ObjectCache + 1) = lpMem;
       }
     }
   }
-  return a1;
+  return lpMem;
 }

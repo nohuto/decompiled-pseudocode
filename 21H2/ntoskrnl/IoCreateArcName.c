@@ -1,9 +1,9 @@
 /*
- * XREFs of IoCreateArcName @ 0x14080F050
+ * XREFs of IoCreateArcName @ 0x140780300
  * Callers:
  *     <none>
  * Callees:
- *     IopCreateArcName @ 0x14080F068 (IopCreateArcName.c)
+ *     IopCreateArcName @ 0x140780318 (IopCreateArcName.c)
  */
 
 __int64 __fastcall IoCreateArcName(struct _DEVICE_OBJECT *a1)

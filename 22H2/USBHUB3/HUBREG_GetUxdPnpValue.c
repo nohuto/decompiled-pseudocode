@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBREG_GetUxdPnpValue @ 0x1C0086554
+ * XREFs of HUBREG_GetUxdPnpValue @ 0x1C0080A7C
  * Callers:
- *     HUBID_BuildUxdPnpId @ 0x1C001DB6C (HUBID_BuildUxdPnpId.c)
+ *     HUBID_BuildUxdPnpId @ 0x1C001B2D8 (HUBID_BuildUxdPnpId.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBREG_GetUxdPnpValue(__int64 a1, const GUID *a2, __int64 a3)
@@ -57,7 +57,7 @@ LABEL_10:
       2u,
       5u,
       v7,
-      (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
+      (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
       v9);
   }
 LABEL_11:

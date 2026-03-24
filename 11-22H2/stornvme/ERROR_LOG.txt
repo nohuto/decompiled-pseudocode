@@ -1,6 +1,6 @@
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001C5EEE60780>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001C5EEE836C0>) 
- 
+[EXCEPTION] NVMeSplitIoCommandCompletion @ 0x1C0001FE0: Hex-Rays returned no pseudocode for 0x1C0001FE0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C0001FE0'), <traceback object at 0x000001D3089FCD00>)
+
+[EXCEPTION] ControllerAllocateUncachedExtension @ 0x1C0007528: Hex-Rays returned no pseudocode for 0x1C0007528
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C0007528'), <traceback object at 0x000001D30A03CD40>)
+

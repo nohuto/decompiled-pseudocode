@@ -1,41 +1,36 @@
 /*
- * XREFs of NtUserInvalidateRgn @ 0x1C00A2D00
+ * XREFs of NtUserInvalidateRgn @ 0x1C0115750
  * Callers:
  *     <none>
  * Callees:
- *     xxxRedrawWindow @ 0x1C0031604 (xxxRedrawWindow.c)
+ *     xxxRedrawWindow @ 0x1C00722B4 (xxxRedrawWindow.c)
  */
 
 __int64 __fastcall NtUserInvalidateRgn(__int64 a1, __int64 a2, int a3)
 {
   __int64 v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  int v11; // ebx
-  struct tagWND *v12; // rdi
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int128 v17; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v18; // [rsp+30h] [rbp-18h]
+  __int64 v7; // rcx
+  int v8; // ebx
+  struct tagWND *v9; // rdi
+  __int64 v10; // rcx
+  __int128 v12; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v13; // [rsp+30h] [rbp-18h]
 
-  v17 = 0LL;
-  v18 = 0LL;
-  EnterCrit(0LL, 0LL);
+  v12 = 0LL;
+  v13 = 0LL;
+  EnterCrit(0LL, 1LL);
   v6 = ValidateHwnd(a1);
-  v11 = 0;
-  v12 = (struct tagWND *)v6;
+  v8 = 0;
+  v9 = (struct tagWND *)v6;
   if ( v6 )
   {
-    *(_QWORD *)&v17 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v17;
-    *((_QWORD *)&v17 + 1) = v6;
+    *(_QWORD *)&v12 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v12;
+    *((_QWORD *)&v12 + 1) = v6;
     HMLockObject(v6);
-    v11 = xxxRedrawWindow(v12, 0LL, a2, a3 != 0 ? 5 : 1);
-    ThreadUnlock1(v14, v13, v15);
+    v8 = xxxRedrawWindow(v9, 0LL, a2, a3 != 0 ? 5 : 1);
+    ThreadUnlock1(v10);
   }
-  UserSessionSwitchLeaveCrit(v8, v7, v9, v10);
-  return v11;
+  UserSessionSwitchLeaveCrit(v7);
+  return v8;
 }

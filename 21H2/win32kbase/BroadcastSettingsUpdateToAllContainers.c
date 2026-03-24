@@ -1,43 +1,33 @@
 /*
- * XREFs of BroadcastSettingsUpdateToAllContainers @ 0x1C00BE610
+ * XREFs of BroadcastSettingsUpdateToAllContainers @ 0x1C000C1E0
  * Callers:
- *     UpdateMouseSensitivity @ 0x1C00BE580 (UpdateMouseSensitivity.c)
- *     _SetPrecisionTouchPadConfiguration @ 0x1C0148CEC (_SetPrecisionTouchPadConfiguration.c)
- *     SetSwapMouseButton @ 0x1C0151E30 (SetSwapMouseButton.c)
- *     xxxSystemParametersInfo @ 0x1C0165BD0 (xxxSystemParametersInfo.c)
- *     UnpackMouseSettings @ 0x1C01E8C74 (UnpackMouseSettings.c)
+ *     xxxSystemParametersInfo @ 0x1C000BBC0 (xxxSystemParametersInfo.c)
+ *     UpdateMouseSensitivity @ 0x1C000C140 (UpdateMouseSensitivity.c)
+ *     _SetPrecisionTouchPadConfiguration @ 0x1C011C010 (_SetPrecisionTouchPadConfiguration.c)
+ *     SetSwapMouseButton @ 0x1C01277B0 (SetSwapMouseButton.c)
+ *     UnpackMouseSettings @ 0x1C01AF9A0 (UnpackMouseSettings.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     isRootPartition @ 0x1C00384A0 (isRootPartition.c)
- *     ?SendSettingsUpdateToContainer@Settings@IVRootDeliver@@YAXAEBUCONTAINER_ID@@@Z @ 0x1C01E8A48 (-SendSettingsUpdateToContainer@Settings@IVRootDeliver@@YAXAEBUCONTAINER_ID@@@Z.c)
- *     ?ContainerConnected@CIVChannel@@SA_NK@Z @ 0x1C01F6520 (-ContainerConnected@CIVChannel@@SA_NK@Z.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     isRootPartition @ 0x1C0041628 (isRootPartition.c)
+ *     ?SendSettingsUpdateToContainer@Settings@IVRootDeliver@@YAXAEBUCONTAINER_ID@@@Z @ 0x1C01AF7DC (-SendSettingsUpdateToContainer@Settings@IVRootDeliver@@YAXAEBUCONTAINER_ID@@@Z.c)
  */
 
 void BroadcastSettingsUpdateToAllContainers()
 {
   const struct CONTAINER_ID *v0; // rdx
-  int v1; // r8d
-  int v2; // [rsp+50h] [rbp+8h] BYREF
+  int v1; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( isRootPartition() && CIVChannel::ContainerConnected(3u) )
+  if ( (unsigned __int8)isRootPartition() )
   {
-    LOBYTE(v0) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x800) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)v0 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( !gpHidInput || *((_DWORD *)gpHidInput + 314) )
     {
-      LOBYTE(v1) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        (_DWORD)v0,
-        v1,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        4,
-        12,
-        18,
-        (__int64)&WPP_76daf91aede7319b3291ff1c1ef65419_Traceguids);
+      v1 = 0;
+      IVRootDeliver::Settings::SendSettingsUpdateToContainer((IVRootDeliver::Settings *)&v1, v0);
     }
-    v2 = 0;
-    IVRootDeliver::Settings::SendSettingsUpdateToContainer((IVRootDeliver::Settings *)&v2, v0);
+    else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v0) = 4;
+      WPP_RECORDER_SF_((_DWORD)gBaseLog, (_DWORD)v0, 12, 18, (__int64)&WPP_e18a3e3623fd345076d33ab3e1bf5af6_Traceguids);
+    }
   }
 }

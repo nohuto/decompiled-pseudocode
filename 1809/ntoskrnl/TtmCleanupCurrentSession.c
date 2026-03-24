@@ -1,5 +1,5 @@
 /*
- * XREFs of TtmCleanupCurrentSession @ 0x14087F73C
+ * XREFs of TtmCleanupCurrentSession @ 0x14087F71C
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
@@ -9,11 +9,11 @@
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PoUnregisterPowerSettingCallback @ 0x1406DB570 (PoUnregisterPowerSettingCallback.c)
- *     TtmpCleanupPowerRequestsTrackingFromCurrentSession @ 0x14088078C (TtmpCleanupPowerRequestsTrackingFromCurrentSession.c)
- *     TtmpDereferenceSessionMaybeLast @ 0x140880970 (TtmpDereferenceSessionMaybeLast.c)
- *     TtmiLogCleanupCurrentSessionStart @ 0x140882E00 (TtmiLogCleanupCurrentSessionStart.c)
- *     TtmiLogCleanupCurrentSessionStop @ 0x140882EA4 (TtmiLogCleanupCurrentSessionStop.c)
+ *     PoUnregisterPowerSettingCallback @ 0x1406DB550 (PoUnregisterPowerSettingCallback.c)
+ *     TtmpCleanupPowerRequestsTrackingFromCurrentSession @ 0x14088076C (TtmpCleanupPowerRequestsTrackingFromCurrentSession.c)
+ *     TtmpDereferenceSessionMaybeLast @ 0x140880950 (TtmpDereferenceSessionMaybeLast.c)
+ *     TtmiLogCleanupCurrentSessionStart @ 0x140882DE0 (TtmiLogCleanupCurrentSessionStart.c)
+ *     TtmiLogCleanupCurrentSessionStop @ 0x140882E84 (TtmiLogCleanupCurrentSessionStop.c)
  */
 
 __int64 TtmCleanupCurrentSession()

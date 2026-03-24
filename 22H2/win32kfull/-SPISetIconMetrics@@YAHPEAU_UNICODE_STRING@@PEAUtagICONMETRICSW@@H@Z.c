@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z @ 0x1C01C7950
+ * XREFs of ?SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z @ 0x1C01D64B8
  * Callers:
- *     ?xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z @ 0x1C00B8E38 (-xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z.c)
+ *     ?xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z @ 0x1C0131CE0 (-xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z.c)
  * Callees:
- *     xxxInternalInvalidate @ 0x1C0032FD0 (xxxInternalInvalidate.c)
- *     SetIconMetrics @ 0x1C00761C4 (SetIconMetrics.c)
- *     ?RescaleIconMetrics@@YAXPEAUtagICONMETRICSW@@@Z @ 0x1C01C7524 (-RescaleIconMetrics@@YAXPEAUtagICONMETRICSW@@@Z.c)
- *     ?SetWindowMetricInt@@YAHPEAU_UNICODE_STRING@@GH@Z @ 0x1C01C80BC (-SetWindowMetricInt@@YAHPEAU_UNICODE_STRING@@GH@Z.c)
+ *     xxxInternalInvalidate @ 0x1C00724E0 (xxxInternalInvalidate.c)
+ *     SetIconMetrics @ 0x1C00E1F70 (SetIconMetrics.c)
+ *     ?RescaleIconMetrics@@YAXPEAUtagICONMETRICSW@@@Z @ 0x1C01D606C (-RescaleIconMetrics@@YAXPEAUtagICONMETRICSW@@@Z.c)
+ *     ?SetWindowMetricInt@@YAHPEAU_UNICODE_STRING@@GH@Z @ 0x1C01D6C28 (-SetWindowMetricInt@@YAHPEAU_UNICODE_STRING@@GH@Z.c)
  */
 
 __int64 __fastcall SPISetIconMetrics(struct _UNICODE_STRING *a1, struct tagICONMETRICSW *a2, int a3)
@@ -28,7 +28,7 @@ __int64 __fastcall SPISetIconMetrics(struct _UNICODE_STRING *a1, struct tagICONM
     v9 = SetWindowMetricInt(a1, 0x40u, *((_DWORD *)a2 + 1));
     v10 = SetWindowMetricInt(a1, 0x41u, *((_DWORD *)a2 + 2)) & v9;
     v11 = SetWindowMetricInt(a1, 0x42u, *((_DWORD *)a2 + 3)) & v10;
-    v5 = FastWriteProfileValue(a1, 23LL, 154LL, 3LL) & v11;
+    v5 = FastWriteProfileValue(a1, 23LL, 154LL, 3LL, (char *)a2 + 16, 92) & v11;
     v8 = v5;
   }
   if ( v8 )

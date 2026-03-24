@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpInitializeHvCrashdumpPhase2 @ 0x140548298
+ * XREFs of HvlpInitializeHvCrashdumpPhase2 @ 0x1404F9220
  * Callers:
- *     HvlPhase2Initialize @ 0x1403B4610 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x1403CE9B8 (HvlPhase2Initialize.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
  */
 
 char HvlpInitializeHvCrashdumpPhase2()

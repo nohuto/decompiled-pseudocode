@@ -1,10 +1,10 @@
 /*
- * XREFs of NtDCompositionCreateChannel @ 0x1C000CBA0
+ * XREFs of NtDCompositionCreateChannel @ 0x1C005AB10
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CApplicationChannel@DirectComposition@@SAJPEAI0PEAPEAX@Z @ 0x1C000CE0C (-Create@CApplicationChannel@DirectComposition@@SAJPEAI0PEAPEAX@Z.c)
- *     ?DestroyHandle@CChannel@DirectComposition@@SAJI@Z @ 0x1C00B0B08 (-DestroyHandle@CChannel@DirectComposition@@SAJI@Z.c)
+ *     ?DestroyHandle@CChannel@DirectComposition@@SAJI@Z @ 0x1C00594F8 (-DestroyHandle@CChannel@DirectComposition@@SAJI@Z.c)
+ *     ?Create@CApplicationChannel@DirectComposition@@SAJPEAI0PEAPEAX@Z @ 0x1C005ADF0 (-Create@CApplicationChannel@DirectComposition@@SAJPEAI0PEAPEAX@Z.c)
  */
 
 __int64 __fastcall NtDCompositionCreateChannel(unsigned int *a1, unsigned int *a2, void **a3)

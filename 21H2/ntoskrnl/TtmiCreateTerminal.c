@@ -1,30 +1,30 @@
 /*
- * XREFs of TtmiCreateTerminal @ 0x1409A2F78
+ * XREFs of TtmiCreateTerminal @ 0x1408FD52C
  * Callers:
- *     TtmInitCurrentSession @ 0x1409A4208 (TtmInitCurrentSession.c)
- *     TtmpDispatchCreateTerminal @ 0x1409A6850 (TtmpDispatchCreateTerminal.c)
+ *     TtmInitCurrentSession @ 0x1408FE65C (TtmInitCurrentSession.c)
+ *     TtmpDispatchCreateTerminal @ 0x140900C74 (TtmpDispatchCreateTerminal.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x1402054C0 (RtlFindClearBitsAndSet.c)
- *     KeInitializeDpc @ 0x1402940D0 (KeInitializeDpc.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeInitializeTimerEx @ 0x1402F4820 (KeInitializeTimerEx.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObInsertObject @ 0x14066BA50 (ObInsertObject.c)
- *     ObCreateObjectEx @ 0x14072B3B0 (ObCreateObjectEx.c)
- *     TtmpSetTerminalPendingCleanup @ 0x1409A3BE0 (TtmpSetTerminalPendingCleanup.c)
- *     TtmiUpdateActiveTerminalCount @ 0x1409A50A0 (TtmiUpdateActiveTerminalCount.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
- *     TtmiLogTerminalCreated @ 0x1409AA3FC (TtmiLogTerminalCreated.c)
+ *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
+ *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     TtmpSetTerminalPendingCleanup @ 0x1408FE0C0 (TtmpSetTerminalPendingCleanup.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x1408FF490 (TtmiUpdateActiveTerminalCount.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
+ *     TtmiLogTerminalCreated @ 0x1409046FC (TtmiLogTerminalCreated.c)
  */
 
 __int64 __fastcall TtmiCreateTerminal(
         __int64 a1,
         ACCESS_MASK a2,
-        unsigned __int8 a3,
-        HANDLE *a4,
+        char a3,
+        unsigned __int64 *a4,
         PVOID Object,
-        _QWORD *a6)
+        char **a6)
 {
   _DWORD *v6; // r14
   ULONG ClearBitsAndSet; // esi
@@ -35,11 +35,11 @@ __int64 __fastcall TtmiCreateTerminal(
   int v16; // eax
   char *v17; // rbx
   __int64 v18; // rdx
-  _QWORD *v19; // rdi
-  _QWORD *v20; // rdx
-  NTSTATUS inserted; // eax
-  _QWORD *v22; // rax
-  __int64 v24; // [rsp+20h] [rbp-78h]
+  char *v19; // rdi
+  char **v20; // rdx
+  int inserted; // eax
+  char **v22; // rax
+  char *v24; // [rsp+20h] [rbp-78h]
   __int128 v25; // [rsp+50h] [rbp-48h] BYREF
   __int128 v26; // [rsp+60h] [rbp-38h]
   __int128 v27; // [rsp+70h] [rbp-28h]
@@ -52,10 +52,10 @@ __int64 __fastcall TtmiCreateTerminal(
   if ( ClearBitsAndSet == -1 )
   {
     v12 = -1073741756;
-    TtmiLogError("TtmiAcquireTerminalId", 1599LL, 0xFFFFFFFFLL, 3221225540LL);
+    TtmiLogError("TtmiAcquireTerminalId", 1603LL, 0xFFFFFFFFLL, 3221225540LL);
     v13 = 3221225540LL;
     v14 = 3221225540LL;
-    v15 = 719LL;
+    v15 = 581LL;
 LABEL_3:
     TtmiLogError("TtmiCreateTerminal", v15, v14, v13);
     return v12;
@@ -65,13 +65,13 @@ LABEL_3:
   v25 = 0LL;
   LODWORD(v25) = 48;
   v27 = 0LL;
-  v16 = ObCreateObjectEx(0, TtmpTerminalObjectType, (int)&v25, a3, v24, 288, 0, 0, &Object, 0LL);
+  v16 = ObCreateObjectEx(0, TtmpTerminalObjectType, (__int64)&v25, a3, v24, 288, 0, 0, &Object, 0LL);
   v12 = v16;
   if ( v16 < 0 )
   {
     v13 = (unsigned int)v16;
     v14 = (unsigned int)v16;
-    v15 = 752LL;
+    v15 = 614LL;
     _bittestandreset(*(signed __int32 **)(a1 + 64), ClearBitsAndSet);
     goto LABEL_3;
   }
@@ -104,17 +104,17 @@ LABEL_3:
   *((_QWORD *)v17 + 29) = TtmpScheduledEvaluationWorker;
   *((_QWORD *)v17 + 30) = v17;
   _InterlockedAdd((volatile signed __int32 *)(a1 + 8), 1u);
-  v19 = Object;
+  v19 = (char *)Object;
   *((_QWORD *)Object + 2) = a1;
-  v20 = *(_QWORD **)(a1 + 48);
-  if ( *v20 != a1 + 40 )
+  v20 = *(char ***)(a1 + 48);
+  if ( *v20 != (char *)(a1 + 40) )
     __fastfail(3u);
-  v19[1] = v20;
-  *v19 = a1 + 40;
+  *((_QWORD *)v19 + 1) = v20;
+  *(_QWORD *)v19 = a1 + 40;
   *v20 = v19;
   *(_QWORD *)(a1 + 48) = v19;
   TtmiLogTerminalCreated(v19, ClearBitsAndSet);
-  inserted = ObInsertObject(v19, 0LL, a2, 1u, 0LL, a4);
+  inserted = ObInsertObjectEx(v19, 0LL, a2, 1, 0, 0LL, a4);
   v12 = inserted;
   if ( inserted >= 0 )
   {
@@ -123,12 +123,12 @@ LABEL_3:
     if ( v22 )
       *v22 = v19;
     else
-      ObfDereferenceObject(v19);
+      HalPutDmaAdapter((PADAPTER_OBJECT)v19);
     return 0;
   }
   else
   {
-    TtmiLogError("TtmiCreateTerminal", 843LL, (unsigned int)inserted, (unsigned int)inserted);
+    TtmiLogError("TtmiCreateTerminal", 705LL, (unsigned int)inserted, (unsigned int)inserted);
     TtmpSetTerminalPendingCleanup(a1, v19);
   }
   return v12;

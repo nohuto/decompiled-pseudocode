@@ -1,10 +1,10 @@
 /*
- * XREFs of WheaRequestDeferredRecovery @ 0x140612D30
+ * XREFs of WheaRequestDeferredRecovery @ 0x1405BCFF0
  * Callers:
- *     HalpMemoryErrorDeferredRecovery @ 0x1405199D4 (HalpMemoryErrorDeferredRecovery.c)
- *     HalpPmemErrorDeferredRecovery @ 0x140519BDC (HalpPmemErrorDeferredRecovery.c)
+ *     HalpMemoryErrorDeferredRecovery @ 0x1404CFE70 (HalpMemoryErrorDeferredRecovery.c)
+ *     HalpPmemErrorDeferredRecovery @ 0x1404D0088 (HalpPmemErrorDeferredRecovery.c)
  * Callees:
- *     HalRequestDeferredRecoveryServiceInterrupt @ 0x140506A30 (HalRequestDeferredRecoveryServiceInterrupt.c)
+ *     HalRequestDeferredRecoveryServiceInterrupt @ 0x1404BDC80 (HalRequestDeferredRecoveryServiceInterrupt.c)
  */
 
 char __fastcall WheaRequestDeferredRecovery(signed __int64 a1, __int64 a2)

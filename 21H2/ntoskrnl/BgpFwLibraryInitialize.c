@@ -1,395 +1,398 @@
 /*
- * XREFs of BgpFwLibraryInitialize @ 0x140AAD490
+ * XREFs of BgpFwLibraryInitialize @ 0x1409F29E8
  * Callers:
- *     BgLibraryInitialize @ 0x140AADB90 (BgLibraryInitialize.c)
+ *     BgLibraryInitialize @ 0x1409F1854 (BgLibraryInitialize.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     BgpFwReleaseLock @ 0x1403A7BF0 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403A7C40 (BgpFwAcquireLock.c)
- *     BgpFwFreeMemory @ 0x1403A8CB4 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x1403AA2B8 (BgpFwAllocateMemory.c)
- *     BgpFwLibraryEnable @ 0x1403AA8D8 (BgpFwLibraryEnable.c)
- *     BgpGxProcessQrCodeBitmap @ 0x1403DD848 (BgpGxProcessQrCodeBitmap.c)
- *     wcscpy_s @ 0x1403E76C0 (wcscpy_s.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     BgpFwReservePoolSwap @ 0x140AAB1AC (BgpFwReservePoolSwap.c)
- *     AnFwProgressIndicatorTransition @ 0x140AAB5FC (AnFwProgressIndicatorTransition.c)
- *     ResFwConfigureDisplayStringResources @ 0x140AAB88C (ResFwConfigureDisplayStringResources.c)
- *     AnFwConfigureProgressResources @ 0x140AAB930 (AnFwConfigureProgressResources.c)
- *     BgpFwInitializeReservePool @ 0x140AADC80 (BgpFwInitializeReservePool.c)
- *     LogFwInitialize @ 0x140AADCC4 (LogFwInitialize.c)
- *     BgpFwLibraryDestroy @ 0x140AAE918 (BgpFwLibraryDestroy.c)
- *     BgpBcInitializeCriticalMode @ 0x140B55C50 (BgpBcInitializeCriticalMode.c)
- *     BgpFoInitialize @ 0x140B5616C (BgpFoInitialize.c)
- *     BgpFwInitializeLock @ 0x140B56DF8 (BgpFwInitializeLock.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     BgpFwFreeMemory @ 0x14039BD60 (BgpFwFreeMemory.c)
+ *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
+ *     BgpFwAllocateMemory @ 0x14039C584 (BgpFwAllocateMemory.c)
+ *     BgpFwLibraryEnable @ 0x14039C888 (BgpFwLibraryEnable.c)
+ *     BgpGxProcessQrCodeBitmap @ 0x1403CE610 (BgpGxProcessQrCodeBitmap.c)
+ *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     BgpFwReservePoolSwap @ 0x1409F11AC (BgpFwReservePoolSwap.c)
+ *     ResFwConfigureDisplayStringResources @ 0x1409F16A8 (ResFwConfigureDisplayStringResources.c)
+ *     AnFwConfigureProgressResources @ 0x1409F1744 (AnFwConfigureProgressResources.c)
+ *     BgpFwInitializeReservePool @ 0x1409F35B8 (BgpFwInitializeReservePool.c)
+ *     LogFwInitialize @ 0x1409F3654 (LogFwInitialize.c)
+ *     BgpFwLibraryDestroy @ 0x1409F3F0C (BgpFwLibraryDestroy.c)
+ *     AnFwProgressIndicatorTransition @ 0x1409F7148 (AnFwProgressIndicatorTransition.c)
+ *     BgpFoInitialize @ 0x140A95E18 (BgpFoInitialize.c)
+ *     BgpBcInitializeCriticalMode @ 0x140A96A10 (BgpBcInitializeCriticalMode.c)
+ *     BgpFwInitializeLock @ 0x140A96FF8 (BgpFwInitializeLock.c)
  */
 
 __int64 __fastcall BgpFwLibraryInitialize(__int64 a1, unsigned int a2)
 {
   int v4; // ebp
-  __int64 result; // rax
-  __int64 v6; // r9
-  int v7; // ebx
-  unsigned int v8; // ebx
-  int v9; // eax
-  unsigned int v10; // r13d
-  int v11; // edx
-  int v12; // ecx
-  unsigned int v13; // edi
-  int v14; // eax
-  unsigned int v15; // r14d
-  unsigned int v16; // r12d
-  __int64 v17; // rax
-  __int64 v18; // r15
-  __int64 v19; // rdx
-  _OWORD *v20; // rcx
-  _OWORD *v21; // rax
-  __int128 v22; // xmm1
-  __int64 v23; // r8
+  int v5; // ebx
+  unsigned int v6; // ebx
+  int v7; // eax
+  unsigned int v8; // r13d
+  int v9; // edx
+  int v10; // ecx
+  unsigned int v11; // edi
+  int v12; // eax
+  unsigned int v13; // r14d
+  unsigned int v14; // r12d
+  _OWORD *v15; // rax
+  _OWORD *v16; // r15
+  __int64 v17; // rdx
+  _OWORD *v18; // rcx
+  __int128 v19; // xmm1
+  char *v20; // r8
+  _OWORD *v21; // rbx
+  int v22; // eax
+  __int64 v23; // rdi
   void *v24; // rbx
-  int v25; // eax
-  __int64 v26; // rdi
-  void *v27; // rbx
+  void *v25; // rax
+  __int64 v26; // rcx
+  __int64 v27; // rax
   void *v28; // rax
-  __int64 v29; // rcx
+  __int64 v29; // rdi
   __int64 v30; // rax
-  void *v31; // rax
-  __int64 v32; // rdi
-  __int64 v33; // rax
+  __int64 v31; // rdx
+  __int64 v32; // r8
+  _DWORD *v33; // r9
   __int64 v34; // rbx
-  __int64 v35; // rax
-  __int64 v36; // rcx
-  __int64 v37; // rax
-  __int64 v38; // rax
-  int v39; // eax
+  __int64 v35; // rdx
+  __int64 v36; // r8
+  _DWORD *v37; // r9
+  int v38; // eax
+  __int64 v39; // rax
   __int64 v40; // rcx
-  __int64 v41; // rcx
-  __int64 Memory; // rax
-  __int64 v43; // rbx
-  __int64 v44; // rcx
-  const wchar_t *v45; // r8
+  __int64 v41; // rax
+  __int64 v42; // rax
+  int v43; // eax
+  __int64 result; // rax
+  __int64 v45; // r9
   __int64 v46; // rcx
-  unsigned int v47; // [rsp+60h] [rbp+8h]
-  unsigned int v49; // [rsp+70h] [rbp+18h]
-  unsigned int v50; // [rsp+70h] [rbp+18h]
+  __int64 Memory; // rax
+  __int64 v48; // rbx
+  __int64 v49; // rcx
+  const wchar_t *v50; // r8
+  __int64 v51; // rcx
+  unsigned int v52; // [rsp+60h] [rbp+8h]
+  unsigned int v54; // [rsp+70h] [rbp+18h]
+  unsigned int v55; // [rsp+70h] [rbp+18h]
 
   if ( !a1 )
     return 3221225485LL;
-  if ( *(_DWORD *)(a1 + 116) < 5u )
+  if ( *(_DWORD *)(a1 + 116) < 4u )
     return 3221225561LL;
   v4 = *(_DWORD *)(a1 + 120) & 0x16FF0000;
-  if ( (dword_140C0DF90 & 1) != 0 && (dword_140C0DF90 & 4) == 0 && (*(_DWORD *)(a1 + 120) & 0x100000) == 0 )
+  if ( (dword_140C134F0 & 1) != 0 && (dword_140C134F0 & 4) == 0 && (*(_DWORD *)(a1 + 120) & 0x100000) == 0 )
     return 3221225485LL;
   if ( (*(_DWORD *)(a1 + 120) & 0x100000) != 0 )
   {
     BgpFwAcquireLock();
     if ( a2 == -1 )
     {
-      qword_140C0DF40 = 0LL;
-      dword_140C0DF90 = dword_140C0DF90 & 0xFFEFE7FD | 0x101800;
+      qword_140C134A0 = 0LL;
+      dword_140C134F0 = dword_140C134F0 & 0xFFEFE7FD | 0x101800;
       BgInternal = 0LL;
-      xmmword_140C0DF30 = 0LL;
+      xmmword_140C13490 = 0LL;
       result = BgpFwLibraryEnable(a1 + 32);
       if ( (int)result < 0 )
         return result;
-      dword_140C0DF90 &= ~0x2000u;
-      v6 = *(_QWORD *)(a1 + 16);
-      if ( v6 )
+      dword_140C134F0 &= ~0x2000u;
+      v45 = *(_QWORD *)(a1 + 16);
+      if ( v45 )
       {
-        BgpFwReservePoolSwap(0, *(_QWORD *)(a1 + 240), *(_DWORD *)(a1 + 248), v6);
-        qword_140C0E058 = ResFwConfigureDisplayStringResources(*(_QWORD *)(a1 + 256));
-        qword_140C0E050 = AnFwConfigureProgressResources(*(int **)(a1 + 264));
+        BgpFwReservePoolSwap(0, *(_QWORD *)(a1 + 240), *(_DWORD *)(a1 + 248), v45);
+        qword_140C135B8 = ResFwConfigureDisplayStringResources(*(_QWORD *)(a1 + 256));
+        qword_140C135B0 = AnFwConfigureProgressResources(*(int **)(a1 + 264));
       }
       else
       {
-        qword_140C0E058 = 0LL;
-        qword_140C0E050 = 0LL;
+        qword_140C135B8 = 0LL;
+        qword_140C135B0 = 0LL;
       }
       LogFwInitialize();
     }
     else
     {
-      dword_140C0DF90 &= ~0x1000u;
+      dword_140C134F0 &= ~0x1000u;
       AnFwProgressIndicatorTransition();
     }
     BgpFwReleaseLock();
-    goto LABEL_13;
+    goto LABEL_49;
   }
   if ( a2 == -1 )
   {
-    dword_140C0DF90 = BgpFwInitializeLock() | 0xC04;
-    qword_140C0E068 = (__int64)&qword_140C0E060;
-    qword_140C0E060 = (__int64)&qword_140C0E060;
-    v41 = *(_QWORD *)(v40 + 240);
-    if ( !v41 || !*(_DWORD *)(a1 + 248) )
+    dword_140C134F0 = BgpFwInitializeLock(0x100000LL) | 0xC04;
+    qword_140C135C8 = (__int64)&qword_140C135C0;
+    qword_140C135C0 = (__int64)&qword_140C135C0;
+    v46 = *(_QWORD *)(a1 + 240);
+    if ( !v46 || !*(_DWORD *)(a1 + 248) )
       return 3221225626LL;
-    BgpFwInitializeReservePool(v41, 0x4000LL, &unk_140D00140);
-    v7 = BgpFwLibraryEnable(a1 + 32);
-    if ( v7 < 0 )
-      goto LABEL_60;
-    xmmword_140C0DFC8 = *(_OWORD *)(a1 + 100);
-    if ( !*(_QWORD *)(a1 + 88) )
-      goto LABEL_67;
-    Memory = BgpFwAllocateMemory(0x18uLL);
-    if ( !Memory )
+    BgpFwInitializeReservePool(v46, 0x4000LL, &unk_140CF2A00);
+    v5 = BgpFwLibraryEnable(a1 + 32);
+    if ( v5 < 0 )
+      goto LABEL_59;
+    xmmword_140C13528 = *(_OWORD *)(a1 + 100);
+    if ( *(_QWORD *)(a1 + 88) )
     {
-LABEL_75:
-      v7 = -1073741801;
-      goto LABEL_60;
+      Memory = BgpFwAllocateMemory(0x18uLL);
+      if ( !Memory )
+        goto LABEL_72;
+      *(_QWORD *)Memory = *(_QWORD *)(a1 + 88);
+      *(_DWORD *)(Memory + 8) = *(_DWORD *)(a1 + 96);
+      *(_QWORD *)(Memory + 16) = *(_QWORD *)(a1 + 88);
+      *(_DWORD *)(Memory + 12) = 1;
+      qword_140C13598 = Memory;
+      v5 = BgpFoInitialize(Memory, 0LL);
+      if ( v5 < 0 )
+        goto LABEL_59;
     }
-    *(_QWORD *)Memory = *(_QWORD *)(a1 + 88);
-    *(_DWORD *)(Memory + 8) = *(_DWORD *)(a1 + 96);
-    *(_QWORD *)(Memory + 16) = *(_QWORD *)(a1 + 88);
-    *(_DWORD *)(Memory + 12) = 1;
-    qword_140C0E038 = Memory;
-    v7 = BgpFoInitialize(Memory, 0LL);
-    if ( v7 >= 0 )
+    if ( *(_DWORD *)(a1 + 116) >= 3u )
     {
-LABEL_67:
-      if ( *(_DWORD *)(a1 + 116) >= 3u )
-      {
-        qword_140C0E110 = *(_QWORD *)(a1 + 404);
-        dword_140C0E118 = *(_DWORD *)(a1 + 412);
-      }
-      dword_140C0E0F8 = *(_DWORD *)(a1 + 400);
-      v7 = BgpBcInitializeCriticalMode(a1, 0xFFFFFFFFLL);
-      if ( v7 >= 0 )
-        goto LABEL_13;
+      qword_140C13670 = *(_QWORD *)(a1 + 404);
+      dword_140C13678 = *(_DWORD *)(a1 + 412);
     }
-LABEL_60:
-    BgpFwLibraryDestroy();
-    return (unsigned int)v7;
+    dword_140C13658 = *(_DWORD *)(a1 + 400);
+    v5 = BgpBcInitializeCriticalMode(a1, 0xFFFFFFFFLL);
+    if ( v5 < 0 )
+      goto LABEL_59;
+    goto LABEL_49;
   }
   BgpFwAcquireLock();
-  v7 = BgpFwLibraryEnable(a1 + 32);
-  if ( v7 < 0 )
+  v5 = BgpFwLibraryEnable(a1 + 32);
+  if ( v5 >= 0 )
   {
-    BgpFwReleaseLock();
-    goto LABEL_60;
-  }
-  *(PHYSICAL_ADDRESS *)&xmmword_140C0DF70 = MmGetPhysicalAddress(qword_140C0DF40);
-  DWORD2(xmmword_140C0DF70) = DWORD2(BgInternal);
-  HIDWORD(xmmword_140C0DF70) = DWORD1(BgInternal);
-  LODWORD(xmmword_140C0DF80) = HIDWORD(BgInternal);
-  if ( (_DWORD)xmmword_140C0DF30 == 4 )
-  {
-    DWORD2(xmmword_140C0DF80) = 3;
-  }
-  else if ( (_DWORD)xmmword_140C0DF30 == 5 )
-  {
-    DWORD2(xmmword_140C0DF80) = 4;
-  }
-  else
-  {
-    DWORD2(xmmword_140C0DF80) = 0;
-  }
-  v8 = 0;
-  v9 = 432;
-  v10 = 0;
-  xmmword_140C0E070 = *(_OWORD *)(a1 + 272);
-  v11 = 0;
-  xmmword_140C0E080 = *(_OWORD *)(a1 + 288);
-  xmmword_140C0E090 = *(_OWORD *)(a1 + 304);
-  xmmword_140C0E0A0 = *(_OWORD *)(a1 + 320);
-  xmmword_140C0E0B0 = *(_OWORD *)(a1 + 336);
-  xmmword_140C0E0C0 = *(_OWORD *)(a1 + 352);
-  xmmword_140C0E0D0 = *(_OWORD *)(a1 + 368);
-  xmmword_140C0E0E0 = *(_OWORD *)(a1 + 384);
-  if ( *(_QWORD *)(a1 + 72) )
-  {
-    v10 = 32;
-    v11 = *(_DWORD *)(a1 + 84);
-    v8 = (*(_DWORD *)(a1 + 80) + 15) & 0xFFFFFFF0;
-    v9 = v8 + 464;
-  }
-  v12 = 0;
-  v13 = 0;
-  v47 = 0;
-  if ( *(_QWORD *)(a1 + 128) )
-  {
-    v12 = 32;
-    v47 = 32;
-    v13 = (*(_DWORD *)(a1 + 136) + 15) & 0xFFFFFFF0;
-    v9 += v13 + 32;
-  }
-  v14 = v11 + 16496 + v9;
-  v15 = v14 - v8 - v12 - v13 - v10 - 432;
-  v16 = ((v15 >> 3) + 15) & 0xFFFFFFF0;
-  v49 = v16 + v14;
-  v17 = BgpFwAllocateMemory(v16 + v14);
-  qword_140C0DFC0 = v17;
-  v18 = v17;
-  if ( !v17 )
-  {
-    BgpFwReleaseLock();
-    goto LABEL_75;
-  }
-  v19 = 3LL;
-  v20 = (_OWORD *)v17;
-  v21 = (_OWORD *)a1;
-  do
-  {
-    *v20 = *v21;
-    v20[1] = v21[1];
-    v20[2] = v21[2];
-    v20[3] = v21[3];
-    v20[4] = v21[4];
-    v20[5] = v21[5];
-    v20[6] = v21[6];
-    v20 += 8;
-    v22 = v21[7];
-    v21 += 8;
-    *(v20 - 1) = v22;
-    --v19;
-  }
-  while ( v19 );
-  *v20 = *v21;
-  v20[1] = v21[1];
-  *((_QWORD *)v20 + 4) = *((_QWORD *)v21 + 4);
-  *(_DWORD *)v18 = v49;
-  *(_DWORD *)(v18 + 120) |= 0x100000u;
-  *(_QWORD *)(v18 + 240) = 0LL;
-  *(_DWORD *)(v18 + 248) = 0;
-  *(_QWORD *)(v18 + 264) = 0LL;
-  *(_QWORD *)(v18 + 256) = 0LL;
-  v50 = v8 + v10;
-  v23 = v18 + v13 + v8 + v10 + v47 + 432;
-  BgpFwInitializeReservePool(v23 + v16, v15, v23);
-  qword_140C0E040 = 0LL;
-  if ( !v8 )
-    goto LABEL_76;
-  v24 = (void *)(v18 + 432 + v10);
-  memmove(v24, *(const void **)(a1 + 72), *(unsigned int *)(a1 + 80));
-  *(_DWORD *)(v18 + 444) = 1;
-  *(_QWORD *)(v18 + 432) = v24;
-  *(_DWORD *)(v18 + 440) = *(_DWORD *)(a1 + 80);
-  *(_QWORD *)(v18 + 448) = v24;
-  dword_140C0DF90 |= 0x800u;
-  v25 = BgpFoInitialize(v18 + 432, 1LL);
-  dword_140C0DF90 &= ~0x800u;
-  if ( v25 >= 0 )
-    qword_140C0E040 = v18 + 432;
-  if ( !qword_140C0E040 )
-LABEL_76:
-    DbgPrintEx(0x65u, 0, "BGFX system font initialization failure!\n");
-  qword_140C0E048 = 0LL;
-  if ( v13 )
-  {
-    v26 = v18 + v50 + 432;
-    v27 = (void *)(v26 + v47);
-    memmove(v27, *(const void **)(a1 + 128), *(unsigned int *)(a1 + 136));
-    *(_DWORD *)(v26 + 12) = 1;
-    *(_QWORD *)v26 = v27;
-    *(_DWORD *)(v26 + 8) = *(_DWORD *)(a1 + 136);
-    *(_QWORD *)(v26 + 16) = v27;
-    qword_140C0E048 = v26;
-  }
-  memset(&qword_140C0DFD8, 0, 0x58uLL);
-  if ( *(_QWORD *)(a1 + 144) )
-  {
-    v28 = (void *)BgpFwAllocateMemory(*(unsigned int *)(a1 + 160));
-    qword_140C0DFD8 = v28;
-    if ( v28 )
+    *(PHYSICAL_ADDRESS *)&xmmword_140C134D0 = MmGetPhysicalAddress(qword_140C134A0);
+    DWORD2(xmmword_140C134D0) = DWORD2(BgInternal);
+    HIDWORD(xmmword_140C134D0) = DWORD1(BgInternal);
+    LODWORD(xmmword_140C134E0) = HIDWORD(BgInternal);
+    if ( (_DWORD)xmmword_140C13490 == 4 )
     {
-      memmove(v28, *(const void **)(a1 + 144), *(unsigned int *)(a1 + 160));
-      LODWORD(dword_140C0DFE8) = *(_DWORD *)(a1 + 160);
-      qword_140C0DFEC = *(_QWORD *)(a1 + 164);
+      DWORD2(xmmword_140C134E0) = 3;
     }
-  }
-  v29 = *(_QWORD *)(a1 + 184);
-  if ( v29 && (int)BgpGxProcessQrCodeBitmap(v29, &qword_140C0E018) < 0 )
-    qword_140C0E018 = 0LL;
-  v30 = *(_QWORD *)(a1 + 216);
-  if ( v30 )
-  {
-    v43 = -1LL;
-    v44 = -1LL;
-    do
-      ++v44;
-    while ( *(_WORD *)(v30 + 2 * v44) );
-    Dst = (wchar_t *)BgpFwAllocateMemory(2 * v44 + 2);
-    if ( Dst )
+    else if ( (_DWORD)xmmword_140C13490 == 5 )
     {
-      v45 = *(const wchar_t **)(a1 + 216);
+      DWORD2(xmmword_140C134E0) = 4;
+    }
+    else
+    {
+      DWORD2(xmmword_140C134E0) = 0;
+    }
+    v6 = 0;
+    v7 = 416;
+    v8 = 0;
+    xmmword_140C135D0 = *(_OWORD *)(a1 + 272);
+    v9 = 0;
+    xmmword_140C135E0 = *(_OWORD *)(a1 + 288);
+    xmmword_140C135F0 = *(_OWORD *)(a1 + 304);
+    xmmword_140C13600 = *(_OWORD *)(a1 + 320);
+    xmmword_140C13610 = *(_OWORD *)(a1 + 336);
+    xmmword_140C13620 = *(_OWORD *)(a1 + 352);
+    xmmword_140C13630 = *(_OWORD *)(a1 + 368);
+    xmmword_140C13640 = *(_OWORD *)(a1 + 384);
+    if ( *(_QWORD *)(a1 + 72) )
+    {
+      v8 = 32;
+      v9 = *(_DWORD *)(a1 + 84);
+      v6 = (*(_DWORD *)(a1 + 80) + 15) & 0xFFFFFFF0;
+      v7 = v6 + 448;
+    }
+    v10 = 0;
+    v11 = 0;
+    v52 = 0;
+    if ( *(_QWORD *)(a1 + 128) )
+    {
+      v10 = 32;
+      v52 = 32;
+      v11 = (*(_DWORD *)(a1 + 136) + 15) & 0xFFFFFFF0;
+      v7 += v11 + 32;
+    }
+    v12 = v9 + 16480 + v7;
+    v13 = v12 - v6 - v10 - v11 - v8 - 416;
+    v14 = ((v13 >> 3) + 15) & 0xFFFFFFF0;
+    v54 = v14 + v12;
+    v15 = (_OWORD *)BgpFwAllocateMemory(v14 + v12);
+    qword_140C13520 = (__int64)v15;
+    v16 = v15;
+    if ( v15 )
+    {
+      v17 = 3LL;
+      v18 = (_OWORD *)a1;
       do
-        ++v43;
-      while ( v45[v43] );
-      wcscpy_s(Dst, v43 + 1, v45);
+      {
+        *v15 = *v18;
+        v15[1] = v18[1];
+        v15[2] = v18[2];
+        v15[3] = v18[3];
+        v15[4] = v18[4];
+        v15[5] = v18[5];
+        v15[6] = v18[6];
+        v15 += 8;
+        v19 = v18[7];
+        v18 += 8;
+        *(v15 - 1) = v19;
+        --v17;
+      }
+      while ( v17 );
+      *v15 = *v18;
+      v15[1] = v18[1];
+      *(_DWORD *)v16 = v54;
+      *((_DWORD *)v16 + 30) |= 0x100000u;
+      *((_QWORD *)v16 + 30) = 0LL;
+      *((_DWORD *)v16 + 62) = 0;
+      *((_QWORD *)v16 + 33) = 0LL;
+      *((_QWORD *)v16 + 32) = 0LL;
+      v55 = v6 + v8;
+      v20 = (char *)v16 + v11 + v6 + v8 + v52 + 416;
+      BgpFwInitializeReservePool(&v20[v14], v13, v20);
+      qword_140C135A0 = 0LL;
+      if ( !v6 )
+        goto LABEL_76;
+      v21 = &v16[v8 / 0x10 + 26];
+      memmove(v21, *(const void **)(a1 + 72), *(unsigned int *)(a1 + 80));
+      *((_DWORD *)v16 + 107) = 1;
+      *((_QWORD *)v16 + 52) = v21;
+      *((_DWORD *)v16 + 106) = *(_DWORD *)(a1 + 80);
+      *((_QWORD *)v16 + 54) = v21;
+      dword_140C134F0 |= 0x800u;
+      v22 = BgpFoInitialize(v16 + 26, 1LL);
+      dword_140C134F0 &= ~0x800u;
+      if ( v22 >= 0 )
+        qword_140C135A0 = (__int64)(v16 + 26);
+      if ( !qword_140C135A0 )
+LABEL_76:
+        DbgPrintEx(0x65u, 0, "BGFX system font initialization failure!\n");
+      qword_140C135A8 = 0LL;
+      if ( v11 )
+      {
+        v23 = (__int64)v16 + v55 + 416;
+        v24 = (void *)(v23 + v52);
+        memmove(v24, *(const void **)(a1 + 128), *(unsigned int *)(a1 + 136));
+        *(_DWORD *)(v23 + 12) = 1;
+        *(_QWORD *)v23 = v24;
+        *(_DWORD *)(v23 + 8) = *(_DWORD *)(a1 + 136);
+        *(_QWORD *)(v23 + 16) = v24;
+        qword_140C135A8 = v23;
+      }
+      memset(&qword_140C13538, 0, 0x58uLL);
+      if ( *(_QWORD *)(a1 + 144) )
+      {
+        v25 = (void *)BgpFwAllocateMemory(*(unsigned int *)(a1 + 160));
+        qword_140C13538 = v25;
+        if ( v25 )
+        {
+          memmove(v25, *(const void **)(a1 + 144), *(unsigned int *)(a1 + 160));
+          LODWORD(Size) = *(_DWORD *)(a1 + 160);
+          qword_140C1354C = *(_QWORD *)(a1 + 164);
+        }
+      }
+      v26 = *(_QWORD *)(a1 + 184);
+      if ( v26 && (int)BgpGxProcessQrCodeBitmap(v26, &qword_140C13578) < 0 )
+        qword_140C13578 = 0LL;
+      v27 = *(_QWORD *)(a1 + 216);
+      if ( v27 )
+      {
+        v48 = -1LL;
+        v49 = -1LL;
+        do
+          ++v49;
+        while ( *(_WORD *)(v27 + 2 * v49) );
+        Dst = (wchar_t *)BgpFwAllocateMemory(2 * v49 + 2);
+        if ( Dst )
+        {
+          v50 = *(const wchar_t **)(a1 + 216);
+          do
+            ++v48;
+          while ( v50[v48] );
+          wcscpy_s(Dst, v48 + 1, v50);
+        }
+      }
+      qword_140C13598 = 0LL;
+      if ( !*(_QWORD *)(a1 + 88) )
+        goto LABEL_35;
+      v28 = (void *)BgpFwAllocateMemory(*(unsigned int *)(a1 + 96));
+      v29 = (__int64)v28;
+      if ( !v28 )
+        goto LABEL_35;
+      memmove(v28, *(const void **)(a1 + 88), *(unsigned int *)(a1 + 96));
+      v30 = BgpFwAllocateMemory(0x18uLL);
+      v34 = v30;
+      if ( v30 )
+      {
+        *(_DWORD *)(v30 + 12) = 0;
+        *(_QWORD *)v30 = v29;
+        *(_DWORD *)(v30 + 8) = *(_DWORD *)(a1 + 96);
+        *(_QWORD *)(v30 + 16) = v29;
+        if ( (int)BgpFoInitialize(v30, 0LL) >= 0 )
+        {
+          qword_140C13598 = v34;
+LABEL_35:
+          if ( *(_DWORD *)(a1 + 116) >= 3u )
+          {
+            qword_140C13670 = *(_QWORD *)(a1 + 404);
+            dword_140C13678 = *(_DWORD *)(a1 + 412);
+          }
+          v38 = *(_DWORD *)(a1 + 400);
+          dword_140C134F0 |= 0x8000u;
+          dword_140C13658 = v38;
+          BgpBcInitializeCriticalMode(a1, a2);
+          dword_140C134F0 = dword_140C134F0 & 0xFFFF77FF | 0x800;
+          v39 = BgpFwAllocateMemory(0x38uLL);
+          dword_140C134F0 &= ~0x800u;
+          v40 = v39;
+          if ( v39 )
+          {
+            v41 = *(_QWORD *)(a1 + 256);
+            if ( v41 )
+            {
+              *(_OWORD *)v40 = *(_OWORD *)v41;
+              *(_QWORD *)(v40 + 16) = *(_QWORD *)(v41 + 16);
+              *(_DWORD *)(v40 + 24) = *(_DWORD *)(v41 + 24);
+              *((_QWORD *)v16 + 32) = v40;
+              v40 += 28LL;
+            }
+            v42 = *(_QWORD *)(a1 + 264);
+            if ( v42 )
+            {
+              *(_OWORD *)v40 = *(_OWORD *)v42;
+              *(_QWORD *)(v40 + 16) = *(_QWORD *)(v42 + 16);
+              *(_DWORD *)(v40 + 24) = *(_DWORD *)(v42 + 24);
+              *((_QWORD *)v16 + 33) = v40;
+            }
+          }
+          qword_140C135B8 = ResFwConfigureDisplayStringResources(*(_QWORD *)(a1 + 256));
+          qword_140C135B0 = AnFwConfigureProgressResources(*(int **)(a1 + 264));
+          v43 = *(_DWORD *)(a1 + 124);
+          dword_140C134F0 |= v4 | 0x80;
+          dword_140C134F4 = v43;
+          BgpFwReleaseLock();
+          qword_140C13590 = *(_QWORD *)(a1 + 232);
+LABEL_49:
+          dword_140C134F0 |= 1u;
+          v5 = 0;
+          goto LABEL_50;
+        }
+        BgpFwFreeMemory(v29, v35, v36, v37);
+        v51 = v34;
+      }
+      else
+      {
+        v51 = v29;
+      }
+      BgpFwFreeMemory(v51, v31, v32, v33);
+      goto LABEL_35;
     }
+    BgpFwReleaseLock();
+LABEL_72:
+    v5 = -1073741801;
+    goto LABEL_59;
   }
-  qword_140C0E038 = 0LL;
-  if ( !*(_QWORD *)(a1 + 88) )
-    goto LABEL_46;
-  v31 = (void *)BgpFwAllocateMemory(*(unsigned int *)(a1 + 96));
-  v32 = (__int64)v31;
-  if ( !v31 )
-    goto LABEL_46;
-  memmove(v31, *(const void **)(a1 + 88), *(unsigned int *)(a1 + 96));
-  v33 = BgpFwAllocateMemory(0x18uLL);
-  v34 = v33;
-  if ( !v33 )
-  {
-    v46 = v32;
-LABEL_85:
-    BgpFwFreeMemory(v46);
-    goto LABEL_46;
-  }
-  *(_DWORD *)(v33 + 12) = 0;
-  *(_QWORD *)v33 = v32;
-  *(_DWORD *)(v33 + 8) = *(_DWORD *)(a1 + 96);
-  *(_QWORD *)(v33 + 16) = v32;
-  if ( (int)BgpFoInitialize(v33, 0LL) < 0 )
-  {
-    BgpFwFreeMemory(v32);
-    v46 = v34;
-    goto LABEL_85;
-  }
-  qword_140C0E038 = v34;
-LABEL_46:
-  if ( *(_DWORD *)(a1 + 116) >= 3u )
-  {
-    qword_140C0E110 = *(_QWORD *)(a1 + 404);
-    dword_140C0E118 = *(_DWORD *)(a1 + 412);
-  }
-  dword_140C0E0F8 = *(_DWORD *)(a1 + 400);
-  if ( *(_DWORD *)(a1 + 116) >= 5u )
-    dword_140C0E11C = *(_DWORD *)(a1 + 416);
-  dword_140C0DF90 |= 0x8000u;
-  BgpBcInitializeCriticalMode(a1, a2);
-  dword_140C0DF90 = dword_140C0DF90 & 0xFFFF77FF | 0x800;
-  v35 = BgpFwAllocateMemory(0x48uLL);
-  dword_140C0DF90 &= ~0x800u;
-  v36 = v35;
-  if ( v35 )
-  {
-    v37 = *(_QWORD *)(a1 + 256);
-    if ( v37 )
-    {
-      *(_OWORD *)v36 = *(_OWORD *)v37;
-      *(_OWORD *)(v36 + 16) = *(_OWORD *)(v37 + 16);
-      *(_DWORD *)(v36 + 32) = *(_DWORD *)(v37 + 32);
-      *(_QWORD *)(v18 + 256) = v36;
-      v36 += 36LL;
-    }
-    v38 = *(_QWORD *)(a1 + 264);
-    if ( v38 )
-    {
-      *(_OWORD *)v36 = *(_OWORD *)v38;
-      *(_OWORD *)(v36 + 16) = *(_OWORD *)(v38 + 16);
-      *(_DWORD *)(v36 + 32) = *(_DWORD *)(v38 + 32);
-      *(_QWORD *)(v18 + 264) = v36;
-    }
-  }
-  qword_140C0E058 = ResFwConfigureDisplayStringResources(*(_QWORD *)(a1 + 256));
-  qword_140C0E050 = AnFwConfigureProgressResources(*(int **)(a1 + 264));
-  v39 = *(_DWORD *)(a1 + 124);
-  dword_140C0DF90 |= v4 | 0x80;
-  dword_140C0DF94 = v39;
   BgpFwReleaseLock();
-  qword_140C0E030 = *(_QWORD *)(a1 + 232);
-LABEL_13:
-  dword_140C0DF90 |= 1u;
-  return 0;
+LABEL_50:
+  if ( v5 < 0 )
+LABEL_59:
+    BgpFwLibraryDestroy();
+  return (unsigned int)v5;
 }

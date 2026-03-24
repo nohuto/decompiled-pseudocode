@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceUserDestroyHandle @ 0x1C0050604
+ * XREFs of EtwTraceUserDestroyHandle @ 0x1C000850C
  * Callers:
- *     ?HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C00305C8 (-HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z.c)
- *     HMFreeObject @ 0x1C004E3F0 (HMFreeObject.c)
- *     HMRemoveHandleForObject @ 0x1C0050440 (HMRemoveHandleForObject.c)
+ *     HMFreeObject @ 0x1C0007F10 (HMFreeObject.c)
+ *     HMRemoveHandleForObject @ 0x1C0008390 (HMRemoveHandleForObject.c)
+ *     ?HMDestroyUnlockedObjectWorker@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C004264C (-HMDestroyUnlockedObjectWorker@@YAXPEAU_HANDLEENTRY@@@Z.c)
  * Callees:
- *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0150614 (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0125FD8 (McTemplateK0pqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceUserDestroyHandle(int a1, char a2, int a3)

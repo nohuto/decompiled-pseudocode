@@ -1,7 +1,7 @@
 /*
- * XREFs of UninitializeTelemetryAssertsKM @ 0x1C008FA38
+ * XREFs of UninitializeTelemetryAssertsKM @ 0x1C008ED14
  * Callers:
- *     FxLibraryCommonDecommission @ 0x1C005FF88 (FxLibraryCommonDecommission.c)
+ *     FxLibraryCommonDecommission @ 0x1C00419C0 (FxLibraryCommonDecommission.c)
  * Callees:
  *     <none>
  */

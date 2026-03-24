@@ -1,14 +1,14 @@
 /*
- * XREFs of EnablePTPDevices @ 0x1C0148970
+ * XREFs of EnablePTPDevices @ 0x1C011BED0
  * Callers:
- *     NtUserEnableTouchPad @ 0x1C0158800 (NtUserEnableTouchPad.c)
+ *     NtUserEnableTouchPad @ 0x1C012DDF0 (NtUserEnableTouchPad.c)
  * Callees:
- *     AccessPTPEnabledStatus @ 0x1C0083020 (AccessPTPEnabledStatus.c)
- *     EtwTraceTouchPadEnabledStatusChangeStart @ 0x1C014E960 (EtwTraceTouchPadEnabledStatusChangeStart.c)
- *     EtwTraceTouchPadEnabledStatusChangeStop @ 0x1C014E990 (EtwTraceTouchPadEnabledStatusChangeStop.c)
- *     UpdateInputSettingWnfState @ 0x1C0165B30 (UpdateInputSettingWnfState.c)
- *     RIMDeliverConfigRequest @ 0x1C018AB6C (RIMDeliverConfigRequest.c)
- *     ?PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z @ 0x1C01DEE38 (-PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z.c)
+ *     AccessPTPEnabledStatus @ 0x1C000AE70 (AccessPTPEnabledStatus.c)
+ *     EtwTraceTouchPadEnabledStatusChangeStart @ 0x1C0123D20 (EtwTraceTouchPadEnabledStatusChangeStart.c)
+ *     EtwTraceTouchPadEnabledStatusChangeStop @ 0x1C0123D50 (EtwTraceTouchPadEnabledStatusChangeStop.c)
+ *     UpdateInputSettingWnfState @ 0x1C0138AA0 (UpdateInputSettingWnfState.c)
+ *     RIMDeliverConfigRequest @ 0x1C0161484 (RIMDeliverConfigRequest.c)
+ *     ?PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z @ 0x1C01A6B68 (-PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z.c)
  */
 
 __int64 __fastcall EnablePTPDevices(int a1)
@@ -23,15 +23,15 @@ __int64 __fastcall EnablePTPDevices(int a1)
   ExAcquirePushLockSharedEx(&CBaseInput::_sLock, 0LL);
   for ( i = CBaseInput::_spDevList; i; i = (struct DEVICEINFO *)*((_QWORD *)i + 7) )
   {
-    if ( *((_BYTE *)i + 48) == 3 && (v3 = *((_QWORD *)i + 57), *(_WORD *)(v3 + 42) == 13) && *(_WORD *)(v3 + 40) == 14 )
+    if ( *((_BYTE *)i + 48) == 3 && (v3 = *((_QWORD *)i + 58), *(_WORD *)(v3 + 42) == 13) && *(_WORD *)(v3 + 40) == 14 )
     {
       RIMDeliverConfigRequest(i);
     }
     else if ( (*((_DWORD *)i + 50) & 0x80u) != 0 )
     {
-      v4 = *((_QWORD *)i + 59);
+      v4 = *((_QWORD *)i + 60);
       if ( *(_DWORD *)(v4 + 24) == 7 )
-        *(_DWORD *)(v4 + 360) ^= (*(_DWORD *)(v4 + 360) ^ (a1 << 11)) & 0x800;
+        *(_DWORD *)(v4 + 312) ^= (*(_DWORD *)(v4 + 312) ^ (a1 << 11)) & 0x800;
     }
   }
   ExReleasePushLockSharedEx(&CBaseInput::_sLock, 0LL);

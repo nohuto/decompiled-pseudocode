@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptMarvin32ExpandSeed @ 0x1403F5BD4
+ * XREFs of SymCryptMarvin32ExpandSeed @ 0x1403EB824
  * Callers:
- *     HvInitializeHashLibrary @ 0x14080EB70 (HvInitializeHashLibrary.c)
+ *     HvInitializeHashLibrary @ 0x1407A59B0 (HvInitializeHashLibrary.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall SymCryptMarvin32ExpandSeed(_DWORD *a1, _DWORD *a2, __int64 a3
 
   result = 0LL;
   if ( a3 != 8 )
-    return 32769LL;
+    return 209715361LL;
   *a1 = *a2;
   a1[1] = a2[1];
   return result;

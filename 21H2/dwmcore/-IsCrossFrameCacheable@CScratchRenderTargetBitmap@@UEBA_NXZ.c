@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsCrossFrameCacheable@CScratchRenderTargetBitmap@@UEBA_NXZ @ 0x18028E4E0
+ * XREFs of ?IsCrossFrameCacheable@CScratchRenderTargetBitmap@@UEBA_NXZ @ 0x18024D750
  * Callers:
  *     <none>
  * Callees:

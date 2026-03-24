@@ -1,18 +1,18 @@
 /*
- * XREFs of SepAdtDetermineInsertQueue @ 0x1403DA1F0
+ * XREFs of SepAdtDetermineInsertQueue @ 0x1403CB860
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     SepAdtGenerateDiscardAudit @ 0x1409C89D0 (SepAdtGenerateDiscardAudit.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     SepAdtGenerateDiscardAudit @ 0x14091EF80 (SepAdtGenerateDiscardAudit.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall SepAdtDetermineInsertQueue(__int64 a1)
 {
   char v1; // bl
-  __int64 Pool2; // rax
-  __int64 v4; // rcx
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v4; // rcx
   int v5; // eax
   _OWORD P[2]; // [rsp+20h] [rbp-38h] BYREF
   __int64 v7; // [rsp+40h] [rbp-18h]
@@ -22,7 +22,7 @@ char __fastcall SepAdtDetermineInsertQueue(__int64 a1)
   {
     if ( SepAdtDiscardingAudits )
     {
-      if ( dword_140C5B0A0 >= (unsigned int)SepAdtMinListLength )
+      if ( dword_140C54710 >= (unsigned int)SepAdtMinListLength )
       {
         ++SepAdtCountEventsDiscarded;
         return v1;
@@ -30,16 +30,16 @@ char __fastcall SepAdtDetermineInsertQueue(__int64 a1)
       SepAdtDiscardingAudits = 0;
       if ( KeGetCurrentIrql() >= 2u )
       {
-        Pool2 = ExAllocatePool2(64LL, 40LL, 538994003LL);
-        v4 = Pool2;
-        if ( Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x20206553u);
+        v4 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          *(_QWORD *)(Pool2 + 24) = Pool2;
-          *(_QWORD *)(Pool2 + 16) = SepAdtGenerateDiscardAudit;
+          PoolWithTag[3] = PoolWithTag;
+          PoolWithTag[2] = SepAdtGenerateDiscardAudit;
           v5 = SepAdtCountEventsDiscarded;
-          *(_QWORD *)v4 = 0LL;
-          *(_DWORD *)(v4 + 32) = v5;
-          *(_BYTE *)(v4 + 36) = 1;
+          *v4 = 0LL;
+          *((_DWORD *)v4 + 8) = v5;
+          *((_BYTE *)v4 + 36) = 1;
           ExQueueWorkItem((PWORK_QUEUE_ITEM)v4, DelayedWorkQueue);
         }
       }
@@ -51,7 +51,7 @@ char __fastcall SepAdtDetermineInsertQueue(__int64 a1)
       }
       SepAdtCountEventsDiscarded = 0;
     }
-    if ( dword_140C5B0A0 >= (unsigned int)SepAdtMaxListLength )
+    if ( dword_140C54710 >= (unsigned int)SepAdtMaxListLength )
     {
       SepAdtDiscardingAudits = 1;
       SepAdtCountEventsDiscarded = 1;

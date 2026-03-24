@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ViKeIrqlLogCommon @ 0x14093AEAC (ViKeIrqlLogCommon.c)
  *     ViKeReleaseSpinLockCommon @ 0x14093B12C (ViKeReleaseSpinLockCommon.c)
  */

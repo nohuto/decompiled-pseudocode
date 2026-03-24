@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ulGetEntries@XEPALOBJ@@QEAAKKKPEAUtagPALETTEENTRY@@H@Z @ 0x1C00584C0
+ * XREFs of ?ulGetEntries@XEPALOBJ@@QEAAKKKPEAUtagPALETTEENTRY@@H@Z @ 0x1C012045C
  * Callers:
- *     GreGetPaletteEntries @ 0x1C0057290 (GreGetPaletteEntries.c)
- *     EngQueryPalette @ 0x1C0291730 (EngQueryPalette.c)
- *     NtGdiColorCorrectPalette @ 0x1C02CEE90 (NtGdiColorCorrectPalette.c)
- *     GreGetSystemPaletteEntries @ 0x1C02D1750 (GreGetSystemPaletteEntries.c)
- *     PALOBJ_cGetColors @ 0x1C02D9220 (PALOBJ_cGetColors.c)
- *     XLATEOBJ_cGetPalette @ 0x1C02DC040 (XLATEOBJ_cGetPalette.c)
- *     ?bSetHTSrcSurfInfo@@YAHPEAU_SURFOBJ@@VXEPALOBJ@@PEAU_HTSURFACEINFO@@PEAU_XLATEOBJ@@@Z @ 0x1C02DE900 (-bSetHTSrcSurfInfo@@YAHPEAU_SURFOBJ@@VXEPALOBJ@@PEAU_HTSURFACEINFO@@PEAU_XLATEOBJ@@@Z.c)
+ *     ?bSetHTSrcSurfInfo@@YAHPEAU_SURFOBJ@@VXEPALOBJ@@PEAU_HTSURFACEINFO@@PEAU_XLATEOBJ@@@Z @ 0x1C0019BDC (-bSetHTSrcSurfInfo@@YAHPEAU_SURFOBJ@@VXEPALOBJ@@PEAU_HTSURFACEINFO@@PEAU_XLATEOBJ@@@Z.c)
+ *     GreGetPaletteEntries @ 0x1C01203E0 (GreGetPaletteEntries.c)
+ *     EngQueryPalette @ 0x1C028DCF0 (EngQueryPalette.c)
+ *     NtGdiColorCorrectPalette @ 0x1C02B60D0 (NtGdiColorCorrectPalette.c)
+ *     GreGetSystemPaletteEntries @ 0x1C02B72F0 (GreGetSystemPaletteEntries.c)
+ *     PALOBJ_cGetColors @ 0x1C02BCEA0 (PALOBJ_cGetColors.c)
+ *     XLATEOBJ_cGetPalette @ 0x1C02BEC80 (XLATEOBJ_cGetPalette.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall XEPALOBJ::ulGetEntries(
@@ -19,7 +19,7 @@ __int64 __fastcall XEPALOBJ::ulGetEntries(
         struct tagPALETTEENTRY *a4,
         int a5)
 {
-  __int64 v5; // rdi
+  unsigned int v5; // edi
   struct tagPALETTEENTRY *v6; // rbx
   __int64 result; // rax
   unsigned int v8; // eax
@@ -39,7 +39,7 @@ __int64 __fastcall XEPALOBJ::ulGetEntries(
       v8 = result - a2;
       if ( a3 > v8 )
         v5 = v8;
-      memmove(a4, (const void *)(*(_QWORD *)(*(_QWORD *)this + 112LL) + 4LL * a2), 4 * v5);
+      memmove(a4, (const void *)(*(_QWORD *)(*(_QWORD *)this + 112LL) + 4LL * a2), 4LL * v5);
       if ( a5 )
       {
         v9 = &v6[v5];
@@ -49,7 +49,7 @@ __int64 __fastcall XEPALOBJ::ulGetEntries(
           ++v6;
         }
       }
-      return (unsigned int)v5;
+      return v5;
     }
   }
   return result;

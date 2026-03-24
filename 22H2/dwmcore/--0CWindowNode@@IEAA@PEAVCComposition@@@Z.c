@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CWindowNode@@IEAA@PEAVCComposition@@@Z @ 0x1800AB704
+ * XREFs of ??0CWindowNode@@IEAA@PEAVCComposition@@@Z @ 0x1800355C0
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C6E4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2488 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
- *     ??0CVisual@@IEAA@PEAVCComposition@@@Z @ 0x18009B648 (--0CVisual@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CVisual@@IEAA@PEAVCComposition@@@Z @ 0x1800A1258 (--0CVisual@@IEAA@PEAVCComposition@@@Z.c)
  */
 
 CWindowNode *__fastcall CWindowNode::CWindowNode(CWindowNode *this, struct CComposition *a2)
@@ -12,21 +12,31 @@ CWindowNode *__fastcall CWindowNode::CWindowNode(CWindowNode *this, struct CComp
 
   CVisual::CVisual(this, a2);
   *(_QWORD *)this = &CWindowNode::`vftable';
-  *((_QWORD *)this + 91) = 0LL;
-  *((_QWORD *)this + 92) = 0LL;
-  *((_QWORD *)this + 93) = 0LL;
-  *((_QWORD *)this + 94) = 0LL;
-  *((_QWORD *)this + 95) = 0LL;
-  *((_QWORD *)this + 96) = 0LL;
-  *((_QWORD *)this + 97) = 0LL;
-  *((_QWORD *)this + 98) = 0LL;
-  *((_DWORD *)this + 200) = 1065353216;
-  *((_DWORD *)this + 201) = 1065353216;
-  *((_DWORD *)this + 202) = 1065353216;
-  *(_QWORD *)((char *)this + 812) = 1065353216LL;
+  *((_QWORD *)this + 80) = 0LL;
+  *((_QWORD *)this + 81) = 0LL;
+  *((_QWORD *)this + 82) = 0LL;
+  *((_QWORD *)this + 83) = 0LL;
+  *((_QWORD *)this + 84) = 0LL;
+  *((_QWORD *)this + 85) = 0LL;
+  *((_QWORD *)this + 86) = 0LL;
+  *((_QWORD *)this + 87) = 0LL;
+  *((_QWORD *)this + 88) = 0LL;
+  *((_QWORD *)this + 89) = 0LL;
+  *((_QWORD *)this + 91) = (char *)this + 760;
+  *((_QWORD *)this + 92) = (char *)this + 760;
+  *((_DWORD *)this + 186) = 2;
+  *(_QWORD *)((char *)this + 748) = 2LL;
+  *((_DWORD *)this + 196) = 1065353216;
+  *((_DWORD *)this + 197) = 1065353216;
+  *((_DWORD *)this + 198) = 1065353216;
+  *(_QWORD *)((char *)this + 796) = 1065353216LL;
   result = this;
-  *(_QWORD *)((char *)this + 820) = 0LL;
-  *((_DWORD *)this + 207) = 0;
-  *((_BYTE *)this + 832) = 0;
+  *(_QWORD *)((char *)this + 804) = 0LL;
+  *((_DWORD *)this + 203) = 0;
+  *((_BYTE *)this + 816) = 0;
+  *((_QWORD *)this + 109) = 0LL;
+  *((_QWORD *)this + 110) = 0LL;
+  *((_QWORD *)this + 111) = 0LL;
+  *((_DWORD *)this + 224) = 0;
   return result;
 }

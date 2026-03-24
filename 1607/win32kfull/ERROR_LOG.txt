@@ -1,3 +1,3 @@
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x00000217471BF5C0>) 
- 
+[EXCEPTION] UnsetRedirectedWindow @ 0x1C00D7B74: Hex-Rays returned no pseudocode for 0x1C00D7B74
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1C00D7B74'), <traceback object at 0x0000020C60C7FF00>)
+

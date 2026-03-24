@@ -1,26 +1,26 @@
 /*
- * XREFs of _PnpGetGenericStorePropertyKeys @ 0x140698AAC
+ * XREFs of _PnpGetGenericStorePropertyKeys @ 0x140767F80
  * Callers:
- *     PiDqPnPGetObjectPropertyKeys @ 0x14069717C (PiDqPnPGetObjectPropertyKeys.c)
- *     _PnpGetObjectPropertyKeysWorker @ 0x140697384 (_PnpGetObjectPropertyKeysWorker.c)
- *     PiDevCfgCopyObjectProperties @ 0x140698298 (PiDevCfgCopyObjectProperties.c)
- *     PiCreateDriverSwDeviceCallback @ 0x14095A750 (PiCreateDriverSwDeviceCallback.c)
- *     DrvDbDeleteObjectSubKey @ 0x140A2DB88 (DrvDbDeleteObjectSubKey.c)
+ *     PiDevCfgCopyObjectProperties @ 0x140767E78 (PiDevCfgCopyObjectProperties.c)
+ *     PiDqPnPGetObjectPropertyKeys @ 0x1408A4918 (PiDqPnPGetObjectPropertyKeys.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x1408B46E0 (PiCreateDriverSwDeviceCallback.c)
+ *     _PnpGetObjectPropertyKeysWorker @ 0x140976AA0 (_PnpGetObjectPropertyKeysWorker.c)
+ *     DrvDbDeleteObjectSubKey @ 0x14097CDAC (DrvDbDeleteObjectSubKey.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x1402DF9D0 (RtlUnalignedStringCchLengthW.c)
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     RtlUnicodeStringToInteger @ 0x140698DE0 (RtlUnicodeStringToInteger.c)
- *     _PnpCtxRegEnumValue @ 0x14069946C (_PnpCtxRegEnumValue.c)
- *     _RegRtlEnumKey @ 0x1406CB3B4 (_RegRtlEnumKey.c)
- *     _PnpOpenPropertiesKey @ 0x14077EF20 (_PnpOpenPropertiesKey.c)
- *     _RegRtlQueryValue @ 0x14077FC64 (_RegRtlQueryValue.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
- *     RtlGUIDFromString @ 0x1407814E0 (RtlGUIDFromString.c)
+ *     RtlUnalignedStringCchLengthW @ 0x1402659E4 (RtlUnalignedStringCchLengthW.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _RegRtlQueryValue @ 0x140642318 (_RegRtlQueryValue.c)
+ *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
+ *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
+ *     _PnpOpenPropertiesKey @ 0x1406454C4 (_PnpOpenPropertiesKey.c)
+ *     RtlUnicodeStringToInteger @ 0x140684670 (RtlUnicodeStringToInteger.c)
+ *     _PnpCtxRegEnumValue @ 0x1406C4714 (_PnpCtxRegEnumValue.c)
+ *     _RegRtlEnumKey @ 0x140766B7C (_RegRtlEnumKey.c)
  */
 
-NTSTATUS __fastcall PnpGetGenericStorePropertyKeys(
+signed int __fastcall PnpGetGenericStorePropertyKeys(
         __int64 a1,
         __int64 a2,
         const wchar_t *a3,
@@ -30,146 +30,146 @@ NTSTATUS __fastcall PnpGetGenericStorePropertyKeys(
         unsigned int *a7)
 {
   char v7; // bl
-  __int64 v8; // r11
-  NTSTATUS result; // eax
-  int i; // r13d
-  int v12; // eax
-  __int64 v13; // rcx
-  int v14; // r15d
-  int v15; // eax
-  __int64 v16; // rcx
+  const WCHAR *v8; // rdi
+  __int64 v9; // r11
+  signed int result; // eax
+  ULONG i; // r13d
+  int v13; // eax
+  __int64 v14; // rcx
+  ULONG v15; // r15d
+  int v16; // eax
   __int64 v17; // rcx
-  unsigned int v18; // edi
-  int v19; // eax
-  bool v20; // zf
-  __int64 v21; // rax
-  __int64 v22; // rbx
-  int v23; // eax
-  int v25; // [rsp+44h] [rbp-BCh] BYREF
-  int v26; // [rsp+48h] [rbp-B8h] BYREF
+  __int64 v18; // rcx
+  ULONG v19; // edi
+  int v20; // eax
+  bool v21; // zf
+  int v22; // eax
+  __int64 v23; // rax
+  __int64 v24; // rbx
+  __int64 v25; // [rsp+28h] [rbp-D8h]
+  unsigned int v27; // [rsp+44h] [rbp-BCh] BYREF
+  int v28; // [rsp+48h] [rbp-B8h] BYREF
   ULONG Value; // [rsp+4Ch] [rbp-B4h] BYREF
   HANDLE Handle; // [rsp+50h] [rbp-B0h] BYREF
-  HANDLE v29; // [rsp+58h] [rbp-A8h] BYREF
-  HANDLE KeyHandle; // [rsp+60h] [rbp-A0h]
-  size_t pcchLength[2]; // [rsp+68h] [rbp-98h] BYREF
+  HANDLE v31; // [rsp+58h] [rbp-A8h] BYREF
+  HANDLE KeyHandle; // [rsp+60h] [rbp-A0h] BYREF
+  size_t pcchLength; // [rsp+68h] [rbp-98h] BYREF
+  const wchar_t *v34; // [rsp+70h] [rbp-90h]
   UNICODE_STRING DestinationString; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v33; // [rsp+88h] [rbp-78h]
+  __int64 v36; // [rsp+88h] [rbp-78h]
   GUID Guid; // [rsp+90h] [rbp-70h] BYREF
-  WCHAR v35[16]; // [rsp+A0h] [rbp-60h] BYREF
-  WCHAR SourceString[40]; // [rsp+C0h] [rbp-40h] BYREF
-  _BYTE v37[176]; // [rsp+110h] [rbp+10h] BYREF
+  unsigned int v38[8]; // [rsp+A0h] [rbp-60h] BYREF
+  unsigned int SourceString[20]; // [rsp+C0h] [rbp-40h] BYREF
+  _BYTE v40[176]; // [rsp+110h] [rbp+10h] BYREF
 
   v7 = 0;
-  pcchLength[1] = (size_t)a3;
+  v34 = a3;
+  v8 = a3;
   *a7 = 0;
-  v8 = a2;
-  v33 = a5;
+  v9 = a2;
+  v36 = a5;
   KeyHandle = 0LL;
-  v29 = 0LL;
+  v31 = 0LL;
   Handle = 0LL;
-  v26 = 0;
+  v28 = 0;
   Value = 0;
   Guid = 0LL;
   DestinationString = 0LL;
-  if ( !a3 || (result = RtlUnalignedStringCchLengthW(a3, 0x55uLL, pcchLength), result >= 0) )
+  if ( !a3 || (result = RtlUnalignedStringCchLengthW(a3, 0x55uLL, &pcchLength), result >= 0) )
   {
-    result = PnpOpenPropertiesKey(a1, v8, 0LL, 9LL, 0);
+    result = PnpOpenPropertiesKey(a1, v9, 0LL, 9u, 0, v25, &KeyHandle);
     if ( result == -1073741772 )
       return 0;
     if ( result >= 0 )
     {
-      for ( i = 0; ; i = pcchLength[0] )
+      for ( i = 0; ; i = pcchLength )
       {
         while ( 1 )
         {
           do
           {
-            v25 = 39;
-            v12 = RegRtlEnumKey(KeyHandle);
-            LODWORD(pcchLength[0]) = ++i;
+            v27 = 39;
+            v13 = RegRtlEnumKey(KeyHandle, i++, SourceString, &v27);
+            LODWORD(pcchLength) = i;
           }
-          while ( v12 == -1073741789 );
-          if ( v12 )
+          while ( v13 == -1073741789 );
+          if ( v13 )
           {
             ZwClose(KeyHandle);
             return a6 < *a7 ? 0xC0000023 : 0;
           }
-          if ( RtlInitUnicodeStringEx(&DestinationString, SourceString) >= 0
+          if ( RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)SourceString) >= 0
             && RtlGUIDFromString(&DestinationString, &Guid) >= 0 )
           {
-            LODWORD(v13) = 0;
+            v14 = 0LL;
             if ( a1 )
-              v13 = *(_QWORD *)(a1 + 224);
-            if ( (int)SysCtxRegOpenKey(v13, (_DWORD)KeyHandle, (unsigned int)SourceString, 0, 9, (__int64)&v29) >= 0 )
+              v14 = *(_QWORD *)(a1 + 224);
+            if ( (int)SysCtxRegOpenKey(v14, (__int64)KeyHandle, (__int64)SourceString, 0, 9u, (__int64)&v31) >= 0 )
               break;
           }
         }
-        v14 = 0;
+        v15 = 0;
         while ( 1 )
         {
           do
           {
-            v25 = 9;
-            v15 = RegRtlEnumKey(v29);
-            ++v14;
+            v27 = 9;
+            v16 = RegRtlEnumKey(v31, v15++, v38, &v27);
           }
-          while ( v15 == -1073741789 );
-          if ( v15 )
+          while ( v16 == -1073741789 );
+          if ( v16 )
             break;
-          if ( RtlInitUnicodeStringEx(&DestinationString, v35) >= 0
+          if ( RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)v38) >= 0
             && RtlUnicodeStringToInteger(&DestinationString, 0x10u, &Value) >= 0 )
           {
-            LODWORD(v16) = 0;
+            v17 = 0LL;
             if ( a1 )
-              v16 = *(_QWORD *)(a1 + 224);
-            if ( (int)SysCtxRegOpenKey(v16, (_DWORD)v29, (unsigned int)v35, 0, 1, (__int64)&Handle) >= 0 )
+              v17 = *(_QWORD *)(a1 + 224);
+            if ( (int)SysCtxRegOpenKey(v17, (__int64)v31, (__int64)v38, 0, 1u, (__int64)&Handle) >= 0 )
             {
               if ( a4 )
               {
-                v18 = 0;
+                v19 = 0;
                 do
                 {
-                  v25 = 85;
-                  v19 = PnpCtxRegEnumValue(v17, Handle, v18++, v37, &v25, &v26, 0LL, 0LL);
+                  v27 = 85;
+                  v20 = PnpCtxRegEnumValue(v18, Handle, v19++, v40, &v27, &v28, 0LL, 0LL);
                 }
-                while ( v19 == -1073741789 );
-                v20 = v19 == 0;
+                while ( v20 == -1073741789 );
+                v8 = v34;
+                v21 = v20 == 0;
               }
               else
               {
-                v25 = 0;
-                v23 = RegRtlQueryValue(Handle, (__int64)&v25);
-                if ( !v23 )
-                {
-LABEL_27:
-                  v7 = 1;
-                  goto LABEL_28;
-                }
-                v20 = v23 == -1073741789;
+                v27 = 0;
+                v22 = RegRtlQueryValue(Handle, v8, &v28, 0LL, &v27);
+                if ( !v22 )
+                  goto LABEL_31;
+                v21 = v22 == -1073741789;
               }
-              if ( v20 )
-                goto LABEL_27;
-LABEL_28:
+              if ( v21 )
+LABEL_31:
+                v7 = 1;
               ZwClose(Handle);
-              v20 = v7 == 0;
+              v21 = v7 == 0;
               v7 = 0;
-              if ( !v20 )
+              if ( !v21 )
               {
-                v21 = *a7;
-                if ( (unsigned int)v21 < a6 )
+                v23 = *a7;
+                if ( (unsigned int)v23 < a6 )
                 {
-                  v22 = v33;
-                  *(GUID *)(v33 + 20 * v21) = Guid;
-                  *(_DWORD *)(v22 + 20LL * *a7 + 16) = Value;
-                  LODWORD(v21) = *a7;
+                  v24 = v36;
+                  *(GUID *)(v36 + 20 * v23) = Guid;
+                  *(_DWORD *)(v24 + 20LL * *a7 + 16) = Value;
+                  LODWORD(v23) = *a7;
                 }
-                *a7 = v21 + 1;
+                *a7 = v23 + 1;
                 v7 = 0;
               }
             }
           }
         }
-        ZwClose(v29);
+        ZwClose(v31);
       }
     }
   }

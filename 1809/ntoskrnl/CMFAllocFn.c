@@ -1,7 +1,7 @@
 /*
- * XREFs of CMFAllocFn @ 0x1408D83E0
+ * XREFs of CMFAllocFn @ 0x1408D83C0
  * Callers:
- *     XpressDecodeCreate @ 0x14032C91C (XpressDecodeCreate.c)
+ *     XpressDecodeCreate @ 0x14032CA1C (XpressDecodeCreate.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */

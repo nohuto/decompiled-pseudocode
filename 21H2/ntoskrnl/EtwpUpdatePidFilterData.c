@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpUpdatePidFilterData @ 0x1409F5144
+ * XREFs of EtwpUpdatePidFilterData @ 0x140940C10
  * Callers:
- *     EtwpUpdateFilterData @ 0x14078F198 (EtwpUpdateFilterData.c)
+ *     EtwpUpdateFilterData @ 0x1406E32D0 (EtwpUpdateFilterData.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpUpdatePidFilterData(__int64 a1, __int64 a2, char a3)
 {
   unsigned int v3; // ebx
   unsigned int v6; // edi
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
 
   v3 = 0;
   if ( a3 )
@@ -25,16 +25,16 @@ __int64 __fastcall EtwpUpdatePidFilterData(__int64 a1, __int64 a2, char a3)
     v6 = *(_DWORD *)(a2 + 8) >> 2;
     if ( v6 <= 8 )
     {
-      Pool2 = *(_DWORD **)(a1 + 8);
-      if ( !Pool2 )
+      PoolWithTag = *(_DWORD **)(a1 + 8);
+      if ( !PoolWithTag )
       {
-        Pool2 = (_DWORD *)ExAllocatePool2(256LL, 36LL, 1182233669LL);
-        if ( !Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x24uLL, 0x46777445u);
+        if ( !PoolWithTag )
           return (unsigned int)-1073741801;
-        *(_QWORD *)(a1 + 8) = Pool2;
+        *(_QWORD *)(a1 + 8) = PoolWithTag;
       }
-      *Pool2 = v6;
-      memmove(Pool2 + 1, *(const void **)a2, 4LL * v6);
+      *PoolWithTag = v6;
+      memmove(PoolWithTag + 1, *(const void **)a2, 4LL * v6);
       return v3;
     }
     return (unsigned int)-1073741811;

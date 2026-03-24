@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpSetupLoggingState @ 0x14073257C
+ * XREFs of CmpSetupLoggingState @ 0x14073255C
  * Callers:
  *     CmpInitializeSystemHive @ 0x1409C3B30 (CmpInitializeSystemHive.c)
  *     CmpInitializePreloadedHive @ 0x1409C3CAC (CmpInitializePreloadedHive.c)

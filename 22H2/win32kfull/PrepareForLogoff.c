@@ -1,9 +1,9 @@
 /*
- * XREFs of PrepareForLogoff @ 0x1C003DACC
+ * XREFs of PrepareForLogoff @ 0x1C01326D0
  * Callers:
- *     NtUserPrepareForLogoff @ 0x1C003DA90 (NtUserPrepareForLogoff.c)
+ *     <none>
  * Callees:
- *     RegisterPerUserKeyboardIndicators @ 0x1C003E74C (RegisterPerUserKeyboardIndicators.c)
+ *     RegisterPerUserKeyboardIndicators @ 0x1C013278C (RegisterPerUserKeyboardIndicators.c)
  */
 
 __int64 PrepareForLogoff()
@@ -14,13 +14,13 @@ __int64 PrepareForLogoff()
   __int64 v4; // [rsp+30h] [rbp-18h]
 
   if ( (*(_DWORD *)(gptiCurrent + 488LL) & 0x20000000) != 0
-    && (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 760LL) + 24LL) & 0x80u) != 0 )
+    && (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 768LL) + 24LL) & 0x80u) != 0 )
   {
     return 0LL;
   }
   if ( PsGetThreadProcessId((PETHREAD)*gptiCurrent) == (HANDLE)gpidLogon && !gProtocolType )
   {
-    v0 = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 656LL);
+    v0 = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 424LL) + 664LL);
     if ( v0 )
     {
       if ( *(_DWORD *)(v0 + 184) || *(_DWORD *)(v0 + 188) )

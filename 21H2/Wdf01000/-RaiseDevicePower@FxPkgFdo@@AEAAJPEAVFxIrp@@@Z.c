@@ -1,14 +1,17 @@
 /*
- * XREFs of ?RaiseDevicePower@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C000C934
+ * XREFs of ?RaiseDevicePower@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C0010D44
  * Callers:
- *     ?DispatchDeviceSetPower@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C000C7CC (-DispatchDeviceSetPower@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z.c)
+ *     ?DispatchDeviceSetPower@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C0010E80 (-DispatchDeviceSetPower@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z.c)
  * Callees:
- *     ?SetCompletionRoutineEx@FxIrp@@QEAAXPEAU_DEVICE_OBJECT@@P6AJ0PEAU_IRP@@PEAX@Z2EEE@Z @ 0x1C00039DC (-SetCompletionRoutineEx@FxIrp@@QEAAXPEAU_DEVICE_OBJECT@@P6AJ0PEAU_IRP@@PEAX@Z2EEE@Z.c)
+ *     ?SetCompletionRoutineEx@FxIrp@@QEAAXPEAU_DEVICE_OBJECT@@P6AJ0PEAU_IRP@@PEAX@Z2EEE@Z @ 0x1C0010DEC (-SetCompletionRoutineEx@FxIrp@@QEAAXPEAU_DEVICE_OBJECT@@P6AJ0PEAU_IRP@@PEAX@Z2EEE@Z.c)
  */
 
 __int64 __fastcall FxPkgFdo::RaiseDevicePower(FxPkgFdo *this, FxIrp *Irp)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // r8
+  unsigned __int8 v6; // [rsp+20h] [rbp-28h]
+  unsigned __int8 v7; // [rsp+28h] [rbp-20h]
+  unsigned __int8 v8; // [rsp+30h] [rbp-18h]
 
   Irp->m_Irp->Tail.Overlay.CurrentStackLocation->Control |= 1u;
   CurrentStackLocation = Irp->m_Irp->Tail.Overlay.CurrentStackLocation;
@@ -21,8 +24,11 @@ __int64 __fastcall FxPkgFdo::RaiseDevicePower(FxPkgFdo *this, FxIrp *Irp)
   FxIrp::SetCompletionRoutineEx(
     Irp,
     this->m_DeviceBase->m_DeviceObject.m_DeviceObject,
-    (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))FxPkgFdo::RaiseDevicePowerCompletion,
-    this);
+    FxPkgFdo::RaiseDevicePowerCompletion,
+    this,
+    v6,
+    v7,
+    v8);
   PoCallDriver(this->m_DeviceBase->m_AttachedDevice.m_DeviceObject, Irp->m_Irp);
   return 259LL;
 }

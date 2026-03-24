@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_CheckingIfEnumRetryReachedMaximumOnRenumWithAddress0Ownership @ 0x1C00207F0
+ * XREFs of HUBDSM_CheckingIfEnumRetryReachedMaximumOnRenumWithAddress0Ownership @ 0x1C001DDD0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_IncrementEnumRetryCountAndCheckIfReachedMax @ 0x1C002E900 (HUBMISC_IncrementEnumRetryCountAndCheckIfReachedMax.c)
+ *     HUBMISC_IncrementEnumRetryCountAndCheckIfReachedMax @ 0x1C002B840 (HUBMISC_IncrementEnumRetryCountAndCheckIfReachedMax.c)
  */
 
 __int64 __fastcall HUBDSM_CheckingIfEnumRetryReachedMaximumOnRenumWithAddress0Ownership(__int64 a1)

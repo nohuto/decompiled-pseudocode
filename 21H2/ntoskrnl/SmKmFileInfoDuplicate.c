@@ -1,17 +1,17 @@
 /*
- * XREFs of SmKmFileInfoDuplicate @ 0x1409D5860
+ * XREFs of SmKmFileInfoDuplicate @ 0x14092B31C
  * Callers:
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140261CF8 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1402E27A8 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
  * Callees:
- *     SmAlloc @ 0x140260C2C (SmAlloc.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwDuplicateObject @ 0x14041BEE0 (ZwDuplicateObject.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     SmKmFileInfoCleanup @ 0x1409D57BC (SmKmFileInfoCleanup.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x1403FAB20 (ZwDuplicateObject.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
+ *     SmKmFileInfoCleanup @ 0x14092B278 (SmKmFileInfoCleanup.c)
  */
 
 __int64 __fastcall SmKmFileInfoDuplicate(_OWORD *a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall SmKmFileInfoDuplicate(_OWORD *a1, __int64 a2)
   NTSTATUS v4; // ebx
   void *v5; // rcx
   SIZE_T v6; // rbx
-  PVOID v7; // rax
+  PVOID NonPaged; // rax
   int v8; // eax
   __int128 v9; // xmm1
   __int128 v10; // xmm0
@@ -49,11 +49,11 @@ __int64 __fastcall SmKmFileInfoDuplicate(_OWORD *a1, __int64 a2)
         TargetHandle[3] = *(HANDLE *)(a2 + 24);
       }
       v6 = (unsigned int)(16 * *(_DWORD *)(a2 + 56));
-      v7 = SmAlloc(v6, 0x74586D73u);
-      TargetHandle[6] = v7;
-      if ( v7 )
+      NonPaged = SSHSupportAllocateNonPaged(v6, 0x74586D73u);
+      TargetHandle[6] = NonPaged;
+      if ( NonPaged )
       {
-        memmove(v7, *(const void **)(a2 + 48), v6);
+        memmove(NonPaged, *(const void **)(a2 + 48), v6);
         v8 = *(_DWORD *)(a2 + 56);
         v9 = *(_OWORD *)&TargetHandle[2];
         *a1 = *(_OWORD *)TargetHandle;

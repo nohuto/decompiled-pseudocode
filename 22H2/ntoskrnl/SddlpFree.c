@@ -1,9 +1,9 @@
 /*
- * XREFs of SddlpFree @ 0x1406834B8
+ * XREFs of SddlpFree @ 0x140926A20
  * Callers:
- *     SeConvertStringSidToSid @ 0x14020BA40 (SeConvertStringSidToSid.c)
+ *     SeConvertStringSidToSid @ 0x1403BFFE0 (SeConvertStringSidToSid.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SddlpFree(void *a1)

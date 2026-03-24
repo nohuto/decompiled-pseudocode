@@ -1,12 +1,12 @@
 /*
- * XREFs of KeInitializeUmsThread @ 0x140845334
+ * XREFs of KeInitializeUmsThread @ 0x140845314
  * Callers:
- *     PspAttachThreadToUmsCompletionList @ 0x1402E9D54 (PspAttachThreadToUmsCompletionList.c)
- *     PspUmsInitThread @ 0x14088AD2C (PspUmsInitThread.c)
+ *     PspAttachThreadToUmsCompletionList @ 0x1402E9E54 (PspAttachThreadToUmsCompletionList.c)
+ *     PspUmsInitThread @ 0x14088AD0C (PspUmsInitThread.c)
  * Callees:
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     KeInitializeQueue @ 0x1401219B0 (KeInitializeQueue.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     KeInitializeQueue @ 0x1401219D0 (KeInitializeQueue.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

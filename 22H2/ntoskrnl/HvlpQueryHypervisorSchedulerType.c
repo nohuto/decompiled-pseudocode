@@ -1,37 +1,45 @@
 /*
- * XREFs of HvlpQueryHypervisorSchedulerType @ 0x140542824
+ * XREFs of HvlpQueryHypervisorSchedulerType @ 0x1403F04B0
  * Callers:
- *     HvlPhase2Initialize @ 0x1403B4610 (HvlPhase2Initialize.c)
- *     HvlpDetermineEnlightenments @ 0x140549004 (HvlpDetermineEnlightenments.c)
+ *     HvlPhase2Initialize @ 0x1403CE9B8 (HvlPhase2Initialize.c)
+ *     HvlpDetermineEnlightenments @ 0x1404FA044 (HvlpDetermineEnlightenments.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CCD00 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x140540860 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1405414B0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14038FDC0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F24C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F30B0 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 HvlpQueryHypervisorSchedulerType()
 {
-  ULONG LowPart; // edi
-  PHYSICAL_ADDRESS *v1; // rbx
-  PHYSICAL_ADDRESS *v2; // rsi
-  __m256i v4; // [rsp+20h] [rbp-E8h] BYREF
-  __m256i v5; // [rsp+40h] [rbp-C8h] BYREF
-  int v6; // [rsp+60h] [rbp-A8h]
-  _BYTE v7[16]; // [rsp+68h] [rbp-A0h] BYREF
-  _BYTE v8[2064]; // [rsp+78h] [rbp-90h] BYREF
+  unsigned int v0; // edi
+  _DWORD *v1; // rbx
+  __int64 v2; // rax
+  __int64 v3; // r8
+  __int64 v4; // rdx
+  unsigned int *v5; // rsi
+  __int64 v6; // r9
+  __int128 v8; // [rsp+28h] [rbp-E0h] BYREF
+  __int128 v9; // [rsp+38h] [rbp-D0h]
+  __int128 v10; // [rsp+48h] [rbp-C0h] BYREF
+  __int128 v11; // [rsp+58h] [rbp-B0h]
+  _BYTE v12[16]; // [rsp+68h] [rbp-A0h] BYREF
+  _BYTE v13[2064]; // [rsp+78h] [rbp-90h] BYREF
 
-  v6 = 0;
-  memset(&v5.m256i_u64[1], 0, 24);
-  v5.m256i_i32[0] = 0;
-  memset(&v4.m256i_u64[1], 0, 24);
-  LowPart = 0;
-  v1 = HvlpAcquireHypercallPage((__int64)&v5.m256i_i64[1], 1, (__int64)v7, 8LL);
-  v2 = HvlpAcquireHypercallPage((__int64)&v4.m256i_i64[1], 2, (__int64)v8, 1032LL);
-  v1->LowPart = 15;
-  if ( !(unsigned __int16)HvcallInitiateHypercall(123) )
-    LowPart = v2->LowPart;
-  HvlpReleaseHypercallPage((__int64)&v4.m256i_i64[1]);
-  HvlpReleaseHypercallPage((__int64)&v5.m256i_i64[1]);
-  return LowPart;
+  v0 = 0;
+  v10 = 0LL;
+  v11 = 0LL;
+  v8 = 0LL;
+  v9 = 0LL;
+  v1 = (_DWORD *)HvlpAcquireHypercallPage(&v10, 1LL, v12, 8LL);
+  v2 = HvlpAcquireHypercallPage(&v8, 2LL, v13, 1032LL);
+  v3 = *((_QWORD *)&v9 + 1);
+  v4 = *((_QWORD *)&v11 + 1);
+  v5 = (unsigned int *)v2;
+  *v1 = 15;
+  if ( !(unsigned __int16)HvcallInitiateHypercall(123, v4, v3, v6) )
+    v0 = *v5;
+  HvlpReleaseHypercallPage(&v8);
+  HvlpReleaseHypercallPage(&v10);
+  return v0;
 }

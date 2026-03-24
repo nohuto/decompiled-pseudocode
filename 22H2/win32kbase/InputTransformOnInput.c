@@ -1,9 +1,9 @@
 /*
- * XREFs of InputTransformOnInput @ 0x1C00E7930
+ * XREFs of InputTransformOnInput @ 0x1C01FC368
  * Callers:
- *     ApiSetInputTransformOnInput @ 0x1C0207E7C (ApiSetInputTransformOnInput.c)
+ *     ApiSetInputTransformOnInput @ 0x1C01CF80C (ApiSetInputTransformOnInput.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (__fastcall *__fastcall InputTransformOnInput(_OWORD *a1))(_QWORD)
@@ -17,8 +17,8 @@ __int64 (__fastcall *__fastcall InputTransformOnInput(_OWORD *a1))(_QWORD)
   __int128 v7; // xmm0
   _OWORD v8[7]; // [rsp+20h] [rbp-78h] BYREF
 
-  result = qword_1C0296938;
-  if ( qword_1C0296938 )
+  result = qword_1C0257690;
+  if ( qword_1C0257690 )
   {
     v2 = a1[1];
     v8[0] = *a1;
@@ -33,7 +33,7 @@ __int64 (__fastcall *__fastcall InputTransformOnInput(_OWORD *a1))(_QWORD)
     v7 = a1[6];
     v8[5] = v6;
     v8[6] = v7;
-    return (__int64 (__fastcall *)(_QWORD))qword_1C0296938(v8);
+    return (__int64 (__fastcall *)(_QWORD))qword_1C0257690(v8);
   }
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpMarkKeyParentDirty @ 0x1407FD884
+ * XREFs of CmpMarkKeyParentDirty @ 0x1407FD864
  * Callers:
- *     CmpCopySyncTree2 @ 0x1407FCC24 (CmpCopySyncTree2.c)
+ *     CmpCopySyncTree2 @ 0x1407FCC04 (CmpCopySyncTree2.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpMarkIndexDirty @ 0x1405AD40C (CmpMarkIndexDirty.c)
  *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
  */

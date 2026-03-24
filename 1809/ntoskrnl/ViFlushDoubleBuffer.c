@@ -4,9 +4,9 @@
  *     VfFlushAdapterBuffers @ 0x14092AB00 (VfFlushAdapterBuffers.c)
  *     VfPutScatterGatherList @ 0x14092C170 (VfPutScatterGatherList.c)
  * Callees:
- *     MmMapLockedPages @ 0x1402A96F0 (MmMapLockedPages.c)
- *     VfUtilDbgPrint @ 0x14030994C (VfUtilDbgPrint.c)
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     MmMapLockedPages @ 0x1402A97F0 (MmMapLockedPages.c)
+ *     VfUtilDbgPrint @ 0x140309A4C (VfUtilDbgPrint.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     ViCopyBackModifiedBuffer @ 0x14092D10C (ViCopyBackModifiedBuffer.c)
  *     ViFindMappedRegisterInFile @ 0x14092D340 (ViFindMappedRegisterInFile.c)
  *     ViFreeMapRegistersToFile @ 0x14092D6BC (ViFreeMapRegistersToFile.c)
@@ -34,8 +34,8 @@ __int64 __fastcall ViFlushDoubleBuffer(_QWORD *a1, __int64 a2, int a3, unsigned 
     return 0LL;
   if ( !ViFindMappedRegisterInFile((__int64)a1, MdlBufferSa, v18) )
   {
-    ViHalPreprocessOptions(byte_1404054AC, "Cannot flush buffers that aren't mapped (Addr %p).", (const void *)0x16);
-    VfReportIssueWithOptions(0xE6u, 0x16uLL, v10, (ULONG_PTR)a1, 0LL, byte_1404054AC);
+    ViHalPreprocessOptions(byte_1404054A8, "Cannot flush buffers that aren't mapped (Addr %p).", (const void *)0x16);
+    VfReportIssueWithOptions(0xE6u, 0x16uLL, v10, (ULONG_PTR)a1, 0LL, byte_1404054A8);
     return 0LL;
   }
   v12 = a1[7];
@@ -55,11 +55,11 @@ __int64 __fastcall ViFlushDoubleBuffer(_QWORD *a1, __int64 a2, int a3, unsigned 
   if ( (unsigned int)v6 > v16 )
   {
     ViHalPreprocessOptions(
-      byte_1404054B0,
+      byte_1404054A4,
       "FLUSH: Can only flush %x bytes to end of map register file (%x attempted)",
       0x10000000,
       1);
-    VfReportIssueWithOptions(0xE6u, 0LL, 1uLL, v16, v6, byte_1404054B0);
+    VfReportIssueWithOptions(0xE6u, 0LL, 1uLL, v16, v6, byte_1404054A4);
     v13 = v18[0];
     LODWORD(v6) = v16;
   }

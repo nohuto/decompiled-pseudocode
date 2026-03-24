@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhBusAddInit @ 0x1C0035DD0
+ * XREFs of UsbhBusAddInit @ 0x1C0037090
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 void __fastcall UsbhBusAddInit(__int64 a1)

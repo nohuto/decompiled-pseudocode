@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0FxDeviceBase@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@GG@Z @ 0x1C00248A8
+ * XREFs of ??0FxDeviceBase@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@GG@Z @ 0x1C004D330
  * Callers:
- *     ??0FxDevice@@QEAA@PEAVFxDriver@@@Z @ 0x1C00246E4 (--0FxDevice@@QEAA@PEAVFxDriver@@@Z.c)
- *     ??0FxMpDevice@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@PEAU_DEVICE_OBJECT@@22@Z @ 0x1C0066DDC (--0FxMpDevice@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@PEAU_DEVICE_OBJECT@@22@Z.c)
+ *     ??0FxMpDevice@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@PEAU_DEVICE_OBJECT@@22@Z @ 0x1C004CD08 (--0FxMpDevice@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@PEAU_DEVICE_OBJECT@@22@Z.c)
+ *     ??0FxDevice@@QEAA@PEAVFxDriver@@@Z @ 0x1C0051370 (--0FxDevice@@QEAA@PEAVFxDriver@@@Z.c)
  * Callees:
- *     ??0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0007A14 (--0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ??0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0014298 (--0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
 void __fastcall FxDeviceBase::FxDeviceBase(
@@ -14,7 +14,7 @@ void __fastcall FxDeviceBase::FxDeviceBase(
         unsigned __int16 Type,
         unsigned __int16 Size)
 {
-  FxNonPagedObject::FxNonPagedObject(this, (_FX_DRIVER_GLOBALS *)Type, Size, FxDriverGlobals);
+  FxNonPagedObject::FxNonPagedObject(this, Type, Size, FxDriverGlobals);
   this->m_Driver = Driver;
   this->FxNonPagedObject::FxObject::__vftable = (FxDeviceBase_vtbl *)FxDeviceBase::`vftable'{for `FxNonPagedObject'};
   this->IFxHasCallbacks::__vftable = (IFxHasCallbacks_vtbl *)FxDevice::`vftable'{for `IFxHasCallbacks'};

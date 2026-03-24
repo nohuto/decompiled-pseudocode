@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpReleaseFastResourceExclusive @ 0x14039D3E4
+ * XREFs of ExpReleaseFastResourceExclusive @ 0x14038FBC0
  * Callers:
- *     ExReleaseFastResource @ 0x14039CF80 (ExReleaseFastResource.c)
- *     ExReleaseFastResourceExclusive @ 0x14063C8C0 (ExReleaseFastResourceExclusive.c)
- *     ExReleaseFastResourceShared @ 0x14063C9F0 (ExReleaseFastResourceShared.c)
+ *     ExReleaseFastResource @ 0x14038E8F0 (ExReleaseFastResource.c)
+ *     ExReleaseFastResourceExclusive @ 0x1405B4440 (ExReleaseFastResourceExclusive.c)
+ *     ExReleaseFastResourceShared @ 0x1405B4570 (ExReleaseFastResourceShared.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x1403119F0 (KxAcquireQueuedSpinLock.c)
- *     KeAbPostReleaseEx @ 0x140353BB0 (KeAbPostReleaseEx.c)
- *     KeWakeWaitChain @ 0x14035B8F4 (KeWakeWaitChain.c)
- *     ExpRotateFastOwnerEntrySublistHead @ 0x14039CEC8 (ExpRotateFastOwnerEntrySublistHead.c)
- *     ExpPrepareToWakeResourceExclusive @ 0x14039D600 (ExpPrepareToWakeResourceExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
+ *     KeWakeWaitChain @ 0x1402BA75C (KeWakeWaitChain.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     ExpRotateFastOwnerEntrySublistHead @ 0x14038EB48 (ExpRotateFastOwnerEntrySublistHead.c)
+ *     ExpPrepareToWakeResourceExclusive @ 0x14038FD98 (ExpPrepareToWakeResourceExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpReleaseFastResourceExclusive(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -26,9 +26,9 @@ __int64 __fastcall ExpReleaseFastResourceExclusive(ULONG_PTR BugCheckParameter2,
   __int64 v11; // rcx
   _QWORD *v12; // rax
   __int64 result; // rax
+  __int64 v14; // rcx
+  _QWORD *v15; // rax
   _DWORD *SchedulerAssist; // r9
-  __int64 v15; // rcx
-  _QWORD *v16; // rax
   unsigned __int8 v17; // al
   struct _KPRCB *v18; // r9
   _DWORD *v19; // r8
@@ -117,26 +117,26 @@ __int64 __fastcall ExpReleaseFastResourceExclusive(ULONG_PTR BugCheckParameter2,
           goto LABEL_11;
         }
       }
-LABEL_21:
+LABEL_18:
       __fastfail(3u);
     }
     KxAcquireQueuedSpinLock((__int64)&LockHandle, v6);
     ExpRotateFastOwnerEntrySublistHead(BugCheckParameter2, a2, 1);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-    v15 = *(_QWORD *)a2;
-    v16 = *(_QWORD **)(a2 + 8);
-    if ( *(_QWORD *)(*(_QWORD *)a2 + 8LL) != a2 || *v16 != a2 )
-      goto LABEL_21;
+    v14 = *(_QWORD *)a2;
+    v15 = *(_QWORD **)(a2 + 8);
+    if ( *(_QWORD *)(*(_QWORD *)a2 + 8LL) != a2 || *v15 != a2 )
+      goto LABEL_18;
   }
   else
   {
-    v15 = *(_QWORD *)a2;
-    v16 = *(_QWORD **)(a2 + 8);
-    if ( *(_QWORD *)(*(_QWORD *)a2 + 8LL) != a2 || *v16 != a2 )
-      goto LABEL_21;
+    v14 = *(_QWORD *)a2;
+    v15 = *(_QWORD **)(a2 + 8);
+    if ( *(_QWORD *)(*(_QWORD *)a2 + 8LL) != a2 || *v15 != a2 )
+      goto LABEL_18;
   }
-  *v16 = v15;
-  *(_QWORD *)(v15 + 8) = v16;
+  *v15 = v14;
+  *(_QWORD *)(v14 + 8) = v15;
   *(_QWORD *)a2 = 0LL;
   *(_QWORD *)(a2 + 8) = 0LL;
   if ( KiIrqlFlags )

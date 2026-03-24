@@ -1,105 +1,230 @@
 /*
- * XREFs of ?SendTouchInput@Pointer@IVRootDeliver@@YAJAEAUCContainerPointerInput@@@Z @ 0x1C01F35C4
+ * XREFs of ?SendTouchInput@Pointer@IVRootDeliver@@YAJAEAUCContainerPointerInput@@@Z @ 0x1C01BC80C
  * Callers:
- *     ?CheckandDeliverContainerInput@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@HH@Z @ 0x1C01BC6B8 (-CheckandDeliverContainerInput@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@HH@Z.c)
+ *     ?CheckandDeliverContainerInput@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@HH@Z @ 0x1C0189634 (-CheckandDeliverContainerInput@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@HH@Z.c)
  * Callees:
- *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0072E20 (RawInputManagerDeviceObjectResolveHandle.c)
- *     ?IVMeasureRimCompleteFrame@@YAJPEAURIMCOMPLETEFRAME@@PEAUCPointerInputFrame@@U_UNICODE_STRING@@AEAVCIVTouchSerializer@@@Z @ 0x1C01ED0F8 (-IVMeasureRimCompleteFrame@@YAJPEAURIMCOMPLETEFRAME@@PEAUCPointerInputFrame@@U_UNICODE_STRING@@A.c)
- *     ?IVSerializeRimCompleteFrameForTouchInputPacket@@YAJPEAURIMCOMPLETEFRAME@@PEAUCPointerInputFrame@@U_UNICODE_STRING@@HAEAVCIVTouchSerializer@@@Z @ 0x1C01ED4C0 (-IVSerializeRimCompleteFrameForTouchInputPacket@@YAJPEAURIMCOMPLETEFRAME@@PEAUCPointerInputFrame.c)
- *     ?ivrIVSend@@YAJAEBVCIVSerializer@@KAEBUCONTAINER_ID@@@Z @ 0x1C01EE8A4 (-ivrIVSend@@YAJAEBVCIVSerializer@@KAEBUCONTAINER_ID@@@Z.c)
- *     ?SendFrameToContainer@Pointer@InputTraceLogging@@SAXQEAURIMDEV@@PEBUCPointerInputFrame@@@Z @ 0x1C01F2BD4 (-SendFrameToContainer@Pointer@InputTraceLogging@@SAXQEAURIMDEV@@PEBUCPointerInputFrame@@@Z.c)
- *     ?ContainerConnected@CIVChannel@@SA_NK@Z @ 0x1C01F38C4 (-ContainerConnected@CIVChannel@@SA_NK@Z.c)
- *     ??0CIVSerializer@@QEAA@W4IVPacketType@@KK@Z @ 0x1C01FCE34 (--0CIVSerializer@@QEAA@W4IVPacketType@@KK@Z.c)
- *     ??1CIVSerializer@@UEAA@XZ @ 0x1C01FD0B8 (--1CIVSerializer@@UEAA@XZ.c)
- *     ?ExtendByMeasuredExtra@CIVSerializer@@QEAAJXZ @ 0x1C01FD240 (-ExtendByMeasuredExtra@CIVSerializer@@QEAAJXZ.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0047F78 (WPP_RECORDER_SF_d.c)
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0058C60 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     ??0CIVSerializer@@QEAA@_K@Z @ 0x1C01B3C24 (--0CIVSerializer@@QEAA@_K@Z.c)
+ *     ??1CIVSerializer@@QEAA@XZ @ 0x1C01B3C8C (--1CIVSerializer@@QEAA@XZ.c)
+ *     ?ExtendByMeasuredExtra@CIVSerializer@@QEAAJXZ @ 0x1C01B4AEC (-ExtendByMeasuredExtra@CIVSerializer@@QEAAJXZ.c)
+ *     ?IVMeasureRimCompleteFrame@@YAJPEAURIMCOMPLETEFRAME@@PEAUCPointerInputFrame@@U_UNICODE_STRING@@AEAUCIVSerializer@@@Z @ 0x1C01B53B0 (-IVMeasureRimCompleteFrame@@YAJPEAURIMCOMPLETEFRAME@@PEAUCPointerInputFrame@@U_UNICODE_STRING@@A.c)
+ *     ?IVSerializeRimCompleteFrameForTouchInputPacket@@YAJPEAURIMCOMPLETEFRAME@@PEAUCPointerInputFrame@@U_UNICODE_STRING@@HAEAUCIVSerializer@@@Z @ 0x1C01B5A3C (-IVSerializeRimCompleteFrameForTouchInputPacket@@YAJPEAURIMCOMPLETEFRAME@@PEAUCPointerInputFrame.c)
+ *     ?ivrIVSend@@YAJPEAXKPEAU_ETHREAD@@1KAEBUCONTAINER_ID@@P6AJPEAU_IVSRContext@@@Z@Z @ 0x1C01BA308 (-ivrIVSend@@YAJPEAXKPEAU_ETHREAD@@1KAEBUCONTAINER_ID@@P6AJPEAU_IVSRContext@@@Z@Z.c)
+ *     ?SendFrameToContainer@Pointer@InputTraceLogging@@SAXQEAURIMDEV@@PEBUCPointerInputFrame@@@Z @ 0x1C01BB268 (-SendFrameToContainer@Pointer@InputTraceLogging@@SAXQEAURIMDEV@@PEBUCPointerInputFrame@@@Z.c)
  */
 
 __int64 __fastcall IVRootDeliver::Pointer::SendTouchInput(
         IVRootDeliver::Pointer *this,
-        struct CContainerPointerInput *a2,
-        __int64 a3,
-        __int64 a4)
+        struct CContainerPointerInput *a2)
 {
-  __int64 v4; // rsi
-  PVOID v5; // rdi
-  __int64 v6; // r14
-  __int64 v8; // rax
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 result; // rax
-  char *v12; // rcx
-  int v13; // r12d
-  struct _UNICODE_STRING v14; // xmm6
-  int v15; // ebx
+  void *v3; // rdx
+  PVOID v4; // rdi
+  __int64 v5; // rsi
+  __int64 v6; // r15
+  char *v8; // rcx
+  struct _UNICODE_STRING v9; // xmm6
+  int v10; // r12d
+  int v11; // eax
+  int v12; // edx
+  unsigned int v13; // ebx
+  int v14; // edx
+  int v15; // edx
+  int v16; // eax
+  int v17; // r9d
   LARGE_INTEGER PerformanceCounter; // rax
-  struct _UNICODE_STRING v17; // [rsp+30h] [rbp-50h] BYREF
-  _QWORD v18[6]; // [rsp+40h] [rbp-40h] BYREF
-  PVOID Object; // [rsp+B0h] [rbp+30h] BYREF
+  _DWORD *v19; // rcx
+  struct _ETHREAD *CurrentThread; // rbx
+  int v21; // eax
+  int v22; // [rsp+30h] [rbp-51h]
+  struct CONTAINER_ID *v23; // [rsp+30h] [rbp-51h]
+  struct _UNICODE_STRING v24; // [rsp+48h] [rbp-39h] BYREF
+  struct _UNICODE_STRING v25; // [rsp+58h] [rbp-29h] BYREF
+  void *v26; // [rsp+68h] [rbp-19h] BYREF
+  unsigned int v27; // [rsp+70h] [rbp-11h]
+  __int64 v28; // [rsp+78h] [rbp-9h]
+  PVOID Object; // [rsp+E8h] [rbp+67h] BYREF
 
-  v4 = *(_QWORD *)this;
-  v5 = 0LL;
+  v3 = &WPP_ce934868e6283481801d375bb45badae_Traceguids;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(v3) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      (_DWORD)v3,
+      12,
+      23,
+      (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids);
+    v3 = &WPP_ce934868e6283481801d375bb45badae_Traceguids;
+  }
+  v4 = 0LL;
+  v5 = *(_QWORD *)this;
   v6 = *((_QWORD *)this + 1);
   Object = 0LL;
-  v8 = SGDGetUserSessionState(this, a2, a3, a4);
-  if ( !CIVChannel::ContainerConnected(*(_DWORD *)(*(_QWORD *)(v8 + 16840) + 1296LL)) )
-    return 0LL;
-  v12 = *(char **)(v4 + 32);
-  v13 = 0;
-  v14 = 0LL;
-  if ( v12 )
+  if ( *((_DWORD *)gpHidInput + 314) )
   {
-    result = RawInputManagerDeviceObjectResolveHandle(v12, 3u, *(_DWORD *)(v4 + 192) == 0, &Object);
-    if ( (int)result < 0 )
-      return result;
-    v5 = Object;
-    v14 = *(struct _UNICODE_STRING *)((char *)Object + 280);
-  }
-  else
-  {
-    v13 = 1;
-  }
-  CIVSerializer::CIVSerializer(v18, 3LL, v9, v10);
-  v18[0] = &CIVGenericSerializer::`vftable';
-  if ( v18[2] )
-  {
-    v17 = v14;
-    v15 = IVMeasureRimCompleteFrame(
-            (struct RIMCOMPLETEFRAME *)v4,
-            (const struct CPointerRawData **)v6,
-            &v17,
-            (struct CIVTouchSerializer *)v18);
-    if ( v15 >= 0 )
+    v8 = *(char **)(v5 + 32);
+    v9 = 0LL;
+    v10 = 0;
+    if ( v8 )
     {
-      v15 = CIVSerializer::ExtendByMeasuredExtra((CIVSerializer *)v18);
-      if ( v15 >= 0 )
+      v11 = RawInputManagerDeviceObjectResolveHandle(v8, 3u, *(_DWORD *)(v5 + 80) == 0, &Object);
+      v13 = v11;
+      if ( v11 < 0 )
       {
-        *(union _LARGE_INTEGER *)(v4 + 184) = gliQpcFreq;
-        PerformanceCounter = KeQueryPerformanceCounter(0LL);
-        v17 = v14;
-        *(LARGE_INTEGER *)(v4 + 112) = PerformanceCounter;
-        v15 = IVSerializeRimCompleteFrameForTouchInputPacket(
-                (struct RIMCOMPLETEFRAME *)v4,
-                (struct CPointerInputFrame *)v6,
-                &v17,
-                v13,
-                (struct CIVTouchSerializer *)v18);
-        if ( v15 >= 0 )
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          InputTraceLogging::Pointer::SendFrameToContainer(
-            *(struct RIMDEV *const *)(*(_QWORD *)(v6 + 256) + 16LL),
-            (const struct CPointerInputFrame *)v6);
-          v15 = ivrIVSend((const struct CIVSerializer *)v18, 2u, (IVRootDeliver::Pointer *)((char *)this + 16));
+          LOBYTE(v12) = 2;
+          WPP_RECORDER_SF_d(
+            WPP_MAIN_CB.Queue.ListEntry.Flink,
+            v12,
+            12,
+            25,
+            (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids,
+            v11);
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+            {
+              LOBYTE(v14) = 5;
+              WPP_RECORDER_SF_(
+                WPP_GLOBAL_Control->DeviceExtension,
+                v14,
+                12,
+                26,
+                (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids);
+            }
+          }
         }
+        return v13;
+      }
+      v4 = Object;
+      v9 = *(struct _UNICODE_STRING *)((char *)Object + 296);
+    }
+    else
+    {
+      v10 = 1;
+    }
+    CIVSerializer::CIVSerializer((CIVSerializer *)&v26, 128LL);
+    if ( !v28 )
+    {
+      v13 = -1073741801;
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        goto LABEL_31;
+      v17 = 30;
+      v22 = -1073741801;
+      goto LABEL_23;
+    }
+    v24 = v9;
+    v16 = IVMeasureRimCompleteFrame(
+            (struct RIMCOMPLETEFRAME *)v5,
+            (struct CPointerInputFrame *)v6,
+            &v24,
+            (struct CIVSerializer *)&v26);
+    v13 = v16;
+    if ( v16 < 0 )
+    {
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        goto LABEL_31;
+      v17 = 29;
+      goto LABEL_22;
+    }
+    v16 = CIVSerializer::ExtendByMeasuredExtra((CIVSerializer *)&v26);
+    v13 = v16;
+    if ( v16 >= 0 )
+    {
+      *(union _LARGE_INTEGER *)(v5 + 64) = gliQpcFreq;
+      PerformanceCounter = KeQueryPerformanceCounter(0LL);
+      v25 = v9;
+      *(LARGE_INTEGER *)(v5 + 48) = PerformanceCounter;
+      v16 = IVSerializeRimCompleteFrameForTouchInputPacket(
+              (struct RIMCOMPLETEFRAME *)v5,
+              (struct CPointerInputFrame *)v6,
+              &v25,
+              v10,
+              (struct CIVSerializer *)&v26);
+      v13 = v16;
+      if ( v16 >= 0 )
+      {
+        v19 = v26;
+        *(_DWORD *)v26 = v27 - 16;
+        v19[1] = 1;
+        *((_QWORD *)v19 + 1) = 3LL;
+        CurrentThread = KeGetCurrentThread();
+        InputTraceLogging::Pointer::SendFrameToContainer(
+          *(struct RIMDEV *const *)(*(_QWORD *)(v6 + 152) + 16LL),
+          (const struct CPointerInputFrame *)v6);
+        v21 = ivrIVSend(v26, v27, CurrentThread, CurrentThread, 2u, (IVRootDeliver::Pointer *)((char *)this + 16));
+        v13 = v21;
+        if ( v21 >= 0 || WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          v4 = Object;
+        }
+        else
+        {
+          LODWORD(v23) = v21;
+          LOBYTE(v15) = 2;
+          WPP_RECORDER_SF_d(
+            WPP_MAIN_CB.Queue.ListEntry.Flink,
+            v15,
+            12,
+            31,
+            (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids,
+            v23);
+          v4 = Object;
+        }
+        goto LABEL_31;
+      }
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v17 = 28;
+        goto LABEL_22;
       }
     }
+    else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v17 = 27;
+LABEL_22:
+      v22 = v16;
+LABEL_23:
+      LOBYTE(v15) = 2;
+      WPP_RECORDER_SF_d(
+        WPP_MAIN_CB.Queue.ListEntry.Flink,
+        v15,
+        12,
+        v17,
+        (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids,
+        v22);
+    }
+LABEL_31:
+    if ( v4 )
+      ObfDereferenceObject(v4);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(v15) = 5;
+      WPP_RECORDER_SF_(
+        WPP_GLOBAL_Control->DeviceExtension,
+        v15,
+        12,
+        32,
+        (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids);
+    }
+    CIVSerializer::~CIVSerializer((CIVSerializer *)&v26);
+    return v13;
   }
-  else
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v15 = -1073741801;
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(v3) = 5;
+      WPP_RECORDER_SF_(
+        WPP_GLOBAL_Control->DeviceExtension,
+        (_DWORD)v3,
+        12,
+        24,
+        (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids);
+    }
   }
-  if ( v5 )
-    ObfDereferenceObject(v5);
-  v18[0] = &CIVGenericSerializer::`vftable';
-  CIVSerializer::~CIVSerializer((CIVSerializer *)v18);
-  return (unsigned int)v15;
+  return 0LL;
 }

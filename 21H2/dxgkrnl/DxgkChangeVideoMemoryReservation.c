@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkChangeVideoMemoryReservation @ 0x1C02D78C0
+ * XREFs of DxgkChangeVideoMemoryReservation @ 0x1C0228F30
  * Callers:
  *     <none>
  * Callees:
- *     DxgkChangeVideoMemoryReservationInternal @ 0x1C02D78DC (DxgkChangeVideoMemoryReservationInternal.c)
+ *     DxgkChangeVideoMemoryReservationInternal @ 0x1C0228F4C (DxgkChangeVideoMemoryReservationInternal.c)
  */
 
 __int64 __fastcall DxgkChangeVideoMemoryReservation(__int64 a1, __int64 a2)

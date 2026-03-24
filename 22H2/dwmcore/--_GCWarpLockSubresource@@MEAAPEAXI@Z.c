@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCWarpLockSubresource@@MEAAPEAXI@Z @ 0x1800A8900
+ * XREFs of ??_GCWarpLockSubresource@@MEAAPEAXI@Z @ 0x18003B670
  * Callers:
  *     <none>
  * Callees:
- *     ??1CWarpLockSubresource@@MEAA@XZ @ 0x1800A8C30 (--1CWarpLockSubresource@@MEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ??1CWarpLockSubresource@@MEAA@XZ @ 0x18003B6AC (--1CWarpLockSubresource@@MEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
  */
 
 CWarpLockSubresource *__fastcall CWarpLockSubresource::`scalar deleting destructor'(

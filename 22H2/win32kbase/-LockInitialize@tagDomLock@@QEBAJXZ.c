@@ -1,19 +1,19 @@
 /*
- * XREFs of ?LockInitialize@tagDomLock@@QEBAJXZ @ 0x1C00B5820
+ * XREFs of ?LockInitialize@tagDomLock@@QEBAJXZ @ 0x1C00AD210
  * Callers:
- *     ?InitDomainLocks@@YAJXZ @ 0x1C00B5624 (-InitDomainLocks@@YAJXZ.c)
+ *     ?InitDomainLocks@@YAJXZ @ 0x1C00AD014 (-InitDomainLocks@@YAJXZ.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __fastcall tagDomLock::LockInitialize(tagDomLock *this)
 {
-  struct _ERESOURCE *Pool2; // rax
+  struct _ERESOURCE *PoolWithTag; // rax
 
-  Pool2 = (struct _ERESOURCE *)ExAllocatePool2(64LL, 104LL, 1919251285LL);
-  *(_QWORD *)this = Pool2;
-  if ( Pool2 )
-    return ExInitializeResourceLite(Pool2);
+  PoolWithTag = (struct _ERESOURCE *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x68uLL, 0x72657355u);
+  *(_QWORD *)this = PoolWithTag;
+  if ( PoolWithTag )
+    return ExInitializeResourceLite(PoolWithTag);
   else
     return -1073741801;
 }

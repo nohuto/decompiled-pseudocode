@@ -1,1 +1,37 @@
-/*\n * XREFs of WppInitKm @ 0x1C000DFB0\n * Callers:\n *     DriverEntry @ 0x1C00112E0 (DriverEntry.c)\n * Callees:\n *     _guard_dispatch_icall_nop @ 0x1C0002B60 (_guard_dispatch_icall_nop.c)\n */\n\nvoid __fastcall WppInitKm(__int64 a1, __int64 a2)\n{\n  struct _DEVICE_OBJECT *v4; // rbx\n  void (__fastcall *v5)(struct _DRIVER_OBJECT *, _QWORD, __int64 (__fastcall *)(__int64, unsigned __int8, __int64 *, __int64), struct _DEVICE_OBJECT *, PVPB *); // rax\n\n  if ( WPP_GLOBAL_Control != &WPP_MAIN_CB )\n  {\n    WPP_GLOBAL_Control = &WPP_MAIN_CB;\n    if ( WPPTraceSuite == 4 )\n    {\n      v4 = &WPP_MAIN_CB;\n      do\n      {\n        v5 = (void (__fastcall *)(struct _DRIVER_OBJECT *, _QWORD, __int64 (__fastcall *)(__int64, unsigned __int8, __int64 *, __int64), struct _DEVICE_OBJECT *, PVPB *))pfnEtwRegisterClassicProvider;\n        v4->Vpb = 0LL;\n        v5(v4->DriverObject, 0LL, WppClassicProviderCallback, v4, &v4->Vpb);\n        v4 = v4->NextDevice;\n      }\n      while ( v4 );\n    }\n    else if ( WPPTraceSuite == 2 )\n    {\n      *(_QWORD *)&WPP_MAIN_CB.Type = &WppTraceCallback;\n      IoWMIRegistrationControl(&WPP_MAIN_CB, 0x80010001);\n    }\n    WppAutoLogStart(WPP_GLOBAL_Control, a1, a2);\n    WPP_RECORDER_INITIALIZED = &WPP_MAIN_CB;\n  }\n}\n
+/*
+ * XREFs of WppInitKm @ 0x1C000DFB0
+ * Callers:
+ *     DriverEntry @ 0x1C00112E0 (DriverEntry.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0002B60 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall WppInitKm(__int64 a1, __int64 a2)
+{
+  struct _DEVICE_OBJECT *v4; // rbx
+  void (__fastcall *v5)(struct _DRIVER_OBJECT *, _QWORD, __int64 (__fastcall *)(__int64, unsigned __int8, __int64 *, __int64), struct _DEVICE_OBJECT *, PVPB *); // rax
+
+  if ( WPP_GLOBAL_Control != &WPP_MAIN_CB )
+  {
+    WPP_GLOBAL_Control = &WPP_MAIN_CB;
+    if ( WPPTraceSuite == 4 )
+    {
+      v4 = &WPP_MAIN_CB;
+      do
+      {
+        v5 = (void (__fastcall *)(struct _DRIVER_OBJECT *, _QWORD, __int64 (__fastcall *)(__int64, unsigned __int8, __int64 *, __int64), struct _DEVICE_OBJECT *, PVPB *))pfnEtwRegisterClassicProvider;
+        v4->Vpb = 0LL;
+        v5(v4->DriverObject, 0LL, WppClassicProviderCallback, v4, &v4->Vpb);
+        v4 = v4->NextDevice;
+      }
+      while ( v4 );
+    }
+    else if ( WPPTraceSuite == 2 )
+    {
+      *(_QWORD *)&WPP_MAIN_CB.Type = &WppTraceCallback;
+      IoWMIRegistrationControl(&WPP_MAIN_CB, 0x80010001);
+    }
+    WppAutoLogStart(WPP_GLOBAL_Control, a1, a2);
+    WPP_RECORDER_INITIALIZED = &WPP_MAIN_CB;
+  }
+}

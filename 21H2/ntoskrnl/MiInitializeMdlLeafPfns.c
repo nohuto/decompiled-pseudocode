@@ -1,46 +1,51 @@
 /*
- * XREFs of MiInitializeMdlLeafPfns @ 0x140589C40
+ * XREFs of MiInitializeMdlLeafPfns @ 0x1402E36BC
  * Callers:
- *     MiInitializeLargeMdlLeafPfns @ 0x140589B90 (MiInitializeLargeMdlLeafPfns.c)
+ *     MiInitializeMdlPages @ 0x1402E3564 (MiInitializeMdlPages.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x140533FE8 (MiInitializeLargeMdlLeafPfns.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     MiInitializeMdlSinglePage @ 0x14045B962 (MiInitializeMdlSinglePage.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiInitializeMdlPfn @ 0x1402E37C4 (MiInitializeMdlPfn.c)
+ *     MiConvertLargePfnToSmall @ 0x1403F5FC8 (MiConvertLargePfnToSmall.c)
  */
 
-__int64 __fastcall MiInitializeMdlLeafPfns(
-        __int64 a1,
-        __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4,
-        unsigned int a5)
+void __fastcall MiInitializeMdlLeafPfns(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4, unsigned int a5)
 {
-  unsigned __int64 *v7; // rsi
-  unsigned int v9; // r14d
-  volatile signed __int32 *v10; // rdi
-  __int64 result; // rax
-  int v12; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v6; // rdi
+  __int64 v8; // rsi
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  int v11; // [rsp+30h] [rbp+8h] BYREF
 
-  v7 = (unsigned __int64 *)(a1 + 48 * a2);
-  if ( v7 != (unsigned __int64 *)a1 )
+  v6 = a1 + 48 * a2;
+  if ( v6 != a1 )
   {
-    v9 = a5;
-    v10 = (volatile signed __int32 *)(v7 + 3);
+    v8 = (a3 >> 3) & 0xFFFFFFFFFFELL;
     do
     {
-      v7 -= 6;
-      v10 -= 12;
-      v12 = 0;
-      while ( _interlockedbittestandset64(v10, 0x3FuLL) )
+      v6 -= 48LL;
+      v11 = 0;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(v6 + 24), 0x3FuLL) )
       {
         do
-          KeYieldProcessorEx(&v12, a2, a3, a4);
-        while ( *(__int64 *)v10 < 0 );
+          KeYieldProcessorEx(&v11, a2, a3, a4);
+        while ( *(__int64 *)(v6 + 24) < 0 );
       }
-      MiInitializeMdlSinglePage(a1, v7, a3, a4, v9);
-      result = 0x7FFFFFFFFFFFFFFFLL;
-      _InterlockedAnd64((volatile signed __int64 *)v10, 0x7FFFFFFFFFFFFFFFuLL);
+      v9 = *(_QWORD *)(v6 + 40);
+      if ( (v9 & 0x1000000000LL) != 0 )
+      {
+        MiConvertLargePfnToSmall(a1, v6, a3, 1LL);
+        v9 = *(_QWORD *)(v6 + 40);
+      }
+      *(_QWORD *)v6 = 0LL;
+      v10 = a5;
+      *(_QWORD *)(v6 + 8) = 0xFFFFF68000000000uLL;
+      *(_QWORD *)(v6 + 16) = a4;
+      *(_QWORD *)(v6 + 40) = v9 & 0x7FFFFFF000000000LL | 0xFFFFFFFFDLL;
+      *(_QWORD *)v6 = v8;
+      MiInitializeMdlPfn(v6, v10);
+      _InterlockedAnd64((volatile signed __int64 *)(v6 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     }
-    while ( v7 != (unsigned __int64 *)a1 );
+    while ( v6 != a1 );
   }
-  return result;
 }

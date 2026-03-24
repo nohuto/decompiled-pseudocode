@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_ECMonitorPDO@OPM@@UEAAPEAXI@Z @ 0x1C01512E0
+ * XREFs of ??_ECMonitorPDO@OPM@@UEAAPEAXI@Z @ 0x1C013C200
  * Callers:
  *     <none>
  * Callees:
- *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C00835D0 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
- *     ??1CMonitorPDO@OPM@@UEAA@XZ @ 0x1C01512A0 (--1CMonitorPDO@OPM@@UEAA@XZ.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C008BEAC (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ??1CMonitorPDO@OPM@@UEAA@XZ @ 0x1C013C1B0 (--1CMonitorPDO@OPM@@UEAA@XZ.c)
  */
 
 char *__fastcall OPM::CMonitorPDO::`vector deleting destructor'(char *P, char a2)
@@ -30,7 +30,7 @@ char *__fastcall OPM::CMonitorPDO::`vector deleting destructor'(char *P, char a2
   }
   else
   {
-    OPM::CMonitorPDO::~CMonitorPDO((OPM::CMonitorPDO *)P, a2);
+    OPM::CMonitorPDO::~CMonitorPDO((OPM::CMonitorPDO *)P);
     if ( v3 && P )
       ExFreePoolWithTag(P, 0x4D504F47u);
     return P;

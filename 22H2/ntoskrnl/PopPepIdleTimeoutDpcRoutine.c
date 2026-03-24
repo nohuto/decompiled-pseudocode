@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepIdleTimeoutDpcRoutine @ 0x140369070
+ * XREFs of PopPepIdleTimeoutDpcRoutine @ 0x140574900
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItemEx @ 0x14030B180 (ExQueueWorkItemEx.c)
- *     PopPepArmIdleTimer @ 0x140354EF4 (PopPepArmIdleTimer.c)
+ *     ExQueueWorkItemEx @ 0x140343218 (ExQueueWorkItemEx.c)
+ *     PopPepArmIdleTimer @ 0x140573F14 (PopPepArmIdleTimer.c)
  */
 
 void PopPepIdleTimeoutDpcRoutine()

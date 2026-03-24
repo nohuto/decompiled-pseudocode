@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlPerformRetpolineRelocationsOnImage @ 0x1405EF20C
+ * XREFs of RtlPerformRetpolineRelocationsOnImage @ 0x14058FE7C
  * Callers:
- *     MiMapSystemImageWithLargePage @ 0x14098325C (MiMapSystemImageWithLargePage.c)
+ *     MiMapSystemImageWithLargePage @ 0x1408DA3D0 (MiMapSystemImageWithLargePage.c)
  * Callees:
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1405EF24C (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14058FEBC (RtlPerformRetpolineRelocationsOnImageEx.c)
  */
 
 __int64 __fastcall RtlPerformRetpolineRelocationsOnImage(int a1, int a2, int a3, int a4, __int64 a5, int a6)

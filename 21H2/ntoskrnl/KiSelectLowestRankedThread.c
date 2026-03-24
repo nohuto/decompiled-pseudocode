@@ -1,9 +1,10 @@
 /*
- * XREFs of KiSelectLowestRankedThread @ 0x14034412C
+ * XREFs of KiSelectLowestRankedThread @ 0x1402571A4
  * Callers:
- *     KiSelectReadyThreadEx @ 0x1402B7AE0 (KiSelectReadyThreadEx.c)
+ *     KiSelectReadyThreadEx @ 0x14022FEC0 (KiSelectReadyThreadEx.c)
+ *     KiSelectNextThread @ 0x14025708C (KiSelectNextThread.c)
  * Callees:
- *     KiSelectThreadFromSchedulingGroup @ 0x14021087C (KiSelectThreadFromSchedulingGroup.c)
+ *     KiSelectThreadFromSchedulingGroup @ 0x1402EB73C (KiSelectThreadFromSchedulingGroup.c)
  */
 
 __int64 __fastcall KiSelectLowestRankedThread(__int64 a1)
@@ -21,19 +22,18 @@ __int64 __fastcall KiSelectLowestRankedThread(__int64 a1)
 
   if ( KiPerfIsoEnabled )
   {
-    v8 = *(_QWORD *)(*(_QWORD *)(a1 + 192) + 8LL)
-       - ((*(_QWORD *)(*(_QWORD *)(a1 + 192) + 8LL) >> 1) & 0x5555555555555555LL);
+    v8 = **(_QWORD **)(a1 + 192) - ((**(_QWORD **)(a1 + 192) >> 1) & 0x5555555555555555LL);
     if ( (unsigned int)((0x101010101010101LL
                        * (((v8 & 0x3333333333333333LL)
                          + ((v8 >> 2) & 0x3333333333333333LL)
                          + (((v8 & 0x3333333333333333LL) + ((v8 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24 < KiPerfIsoEnabled )
       return 0LL;
     v9 = *(_QWORD *)(a1 + 200);
-    v10 = *(_QWORD *)(a1 + 34912);
+    v10 = *(_QWORD *)(a1 + 33880);
     if ( v9 != v10 )
     {
       v11 = v10 & ~v9;
-      if ( (*(_QWORD *)(*(_QWORD *)(a1 + 192) + 40LL) & v11) == 0 )
+      if ( (*(_QWORD *)(*(_QWORD *)(a1 + 192) + 24LL) & v11) == 0 )
       {
         _BitScanForward64(&v12, v11);
         if ( (*(_DWORD *)(KiProcessorBlock[KiProcessorNumberToIndexMappingTable[64 * *(unsigned __int8 *)(a1 + 208)
@@ -44,7 +44,7 @@ __int64 __fastcall KiSelectLowestRankedThread(__int64 a1)
     }
   }
   v2 = 0LL;
-  for ( i = a1 + 32560; ; i = v7 + 392 )
+  for ( i = a1 + 31856; ; i = v7 + 392 )
   {
     v4 = *(_QWORD *)(i + 8);
     if ( (v4 & 1) != 0 )
@@ -60,7 +60,7 @@ __int64 __fastcall KiSelectLowestRankedThread(__int64 a1)
     if ( !v5 )
       break;
     v7 = v5 - 88;
-    v2 = KiSelectThreadFromSchedulingGroup(a1, v5 - 88, 0);
+    v2 = KiSelectThreadFromSchedulingGroup(a1, v5 - 88, 0LL);
     if ( v2 )
       break;
   }

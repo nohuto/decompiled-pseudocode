@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PanAssertMode@@YAHPEAUDHPDEV__@@H@Z @ 0x1C02926C0
+ * XREFs of ?PanAssertMode@@YAHPEAUDHPDEV__@@H@Z @ 0x1C0294CB0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ?vUnLock@PANDEVLOCK@@QEAAXXZ @ 0x1C0294FAC (-vUnLock@PANDEVLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     ?vUnLock@PANDEVLOCK@@QEAAXXZ @ 0x1C0297528 (-vUnLock@PANDEVLOCK@@QEAAXXZ.c)
  */
 
 __int64 __fastcall PanAssertMode(struct DHPDEV__ *a1, unsigned int a2)

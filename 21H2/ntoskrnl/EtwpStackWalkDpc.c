@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpStackWalkDpc @ 0x140631A30
+ * XREFs of EtwpStackWalkDpc @ 0x1405A70E0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402FE2A0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     EtwpQueueStackWalkApc @ 0x1406314E0 (EtwpQueueStackWalkApc.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140360770 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     EtwpQueueStackWalkApc @ 0x1405A6C40 (EtwpQueueStackWalkApc.c)
  */
 
 void __fastcall EtwpStackWalkDpc(
@@ -13,14 +13,9 @@ void __fastcall EtwpStackWalkDpc(
         unsigned int *SystemArgument1,
         PVOID SystemArgument2)
 {
-  EtwpQueueStackWalkApc(
-    *((_QWORD *)SystemArgument1 + 105),
-    2u,
-    SystemArgument1,
-    0,
-    (_SLIST_ENTRY **)SystemArgument1 + 104);
+  EtwpQueueStackWalkApc(*((_QWORD *)SystemArgument1 + 107), 2u, SystemArgument1, SystemArgument1 + 212);
   ExReleaseRundownProtectionCacheAwareEx(
-    *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(*((_QWORD *)SystemArgument1 + 137) + 448LL) + 8LL * *SystemArgument1),
+    *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(*((_QWORD *)SystemArgument1 + 135) + 448LL) + 8LL * *SystemArgument1),
     1u);
-  _interlockedbittestandreset((volatile signed __int32 *)SystemArgument1 + 242, 1u);
+  _interlockedbittestandreset((volatile signed __int32 *)SystemArgument1 + 239, 1u);
 }

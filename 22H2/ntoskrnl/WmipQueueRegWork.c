@@ -1,38 +1,38 @@
 /*
- * XREFs of WmipQueueRegWork @ 0x14086C5C0
+ * XREFs of WmipQueueRegWork @ 0x140754964
  * Callers:
- *     WmipUpdateRegistration @ 0x140863464 (WmipUpdateRegistration.c)
- *     WmipRegisterDevice @ 0x14086C458 (WmipRegisterDevice.c)
+ *     WmipUpdateRegistration @ 0x140752FAC (WmipUpdateRegistration.c)
+ *     WmipRegisterDevice @ 0x1407547F8 (WmipRegisterDevice.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipQueueRegWork(int a1, __int64 a2)
 {
-  __int64 Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   unsigned int v5; // edi
-  __int64 v6; // rbx
-  __int64 *v7; // rax
+  _DWORD *v6; // rbx
+  _QWORD *v7; // rax
 
-  Pool2 = ExAllocatePool2(256LL, 32LL, 1885957463LL);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x70696D57u);
   v5 = 0;
-  v6 = Pool2;
-  if ( Pool2 )
+  v6 = PoolWithTag;
+  if ( PoolWithTag )
   {
     _InterlockedIncrement((volatile signed __int32 *)(a2 + 48));
-    *(_DWORD *)(Pool2 + 16) = a1;
-    *(_QWORD *)(Pool2 + 24) = a2;
+    PoolWithTag[4] = a1;
+    *((_QWORD *)PoolWithTag + 3) = a2;
     KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
-    v7 = (__int64 *)off_140C06998;
-    if ( *off_140C06998 != (_UNKNOWN *)&WmipRegWorkList )
+    v7 = off_140C02CF8;
+    if ( *off_140C02CF8 != (_UNKNOWN *)&WmipRegWorkList )
       __fastfail(3u);
     *(_QWORD *)v6 = &WmipRegWorkList;
-    *(_QWORD *)(v6 + 8) = v7;
+    *((_QWORD *)v6 + 1) = v7;
     *v7 = v6;
-    off_140C06998 = (_UNKNOWN **)v6;
+    off_140C02CF8 = (_UNKNOWN **)v6;
     KeReleaseMutex(&WmipSMMutex, 0);
     if ( _InterlockedIncrement(&WmipRegWorkItemCount) == 1 )
       ExQueueWorkItem(&WmipRegWorkQueue, DelayedWorkQueue);

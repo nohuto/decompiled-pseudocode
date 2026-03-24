@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetReferenceProperty@CSceneSurfaceMaterialInputMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0238080
+ * XREFs of ?SetReferenceProperty@CSceneSurfaceMaterialInputMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C01F7CC0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CSceneSurfaceMaterialInputMarshaler::SetReferenceProperty(
@@ -17,27 +17,20 @@ __int64 __fastcall DirectComposition::CSceneSurfaceMaterialInputMarshaler::SetRe
 {
   unsigned int v5; // ebx
   struct DirectComposition::CResourceMarshaler **v10; // r14
-  bool v11; // zf
-  char v12; // al
+  char v11; // al
 
   v5 = 0;
   *a5 = 0;
   if ( a3 != 1 )
     return 3221225485LL;
-  v10 = (struct DirectComposition::CResourceMarshaler **)((char *)this + 64);
-  if ( !a4
-    || (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
-         a4,
-         35LL)
-    || (v11 = (*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
-                a4,
-                201LL) == 0,
-        v12 = 0,
-        !v11) )
-  {
-    v12 = 1;
-  }
-  if ( v10 && v12 )
+  v10 = (struct DirectComposition::CResourceMarshaler **)((char *)this + 56);
+  if ( a4 )
+    v11 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+            a4,
+            35LL);
+  else
+    v11 = 1;
+  if ( v10 && v11 )
   {
     if ( *v10 != a4 )
     {

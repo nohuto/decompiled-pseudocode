@@ -1,17 +1,17 @@
 /*
- * XREFs of TtmpStopCallout @ 0x1409A3E1C
+ * XREFs of TtmpStopCallout @ 0x1408FD458
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x1409A2DC0 (TtmiSessionDeviceListWorker.c)
- *     TtmpCallAssignedToTerminal @ 0x1409A308C (TtmpCallAssignedToTerminal.c)
- *     TtmpCallSetBuiltinPanelState @ 0x1409A3128 (TtmpCallSetBuiltinPanelState.c)
- *     TtmpCallSetDisplayState @ 0x1409A31A8 (TtmpCallSetDisplayState.c)
- *     TtmpCallSetInputMode @ 0x1409A3258 (TtmpCallSetInputMode.c)
- *     TtmpUpdatePrimaryDisplayWnf @ 0x1409A3EAC (TtmpUpdatePrimaryDisplayWnf.c)
+ *     TtmiSessionDeviceListWorker @ 0x1408FC3F4 (TtmiSessionDeviceListWorker.c)
+ *     TtmpCallAssignedToTerminal @ 0x1408FC6C0 (TtmpCallAssignedToTerminal.c)
+ *     TtmpCallSetBuiltinPanelState @ 0x1408FC75C (TtmpCallSetBuiltinPanelState.c)
+ *     TtmpCallSetDisplayState @ 0x1408FC7DC (TtmpCallSetDisplayState.c)
+ *     TtmpCallSetInputMode @ 0x1408FC88C (TtmpCallSetInputMode.c)
+ *     TtmpUpdatePrimaryDisplayWnf @ 0x1408FD4E8 (TtmpUpdatePrimaryDisplayWnf.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     TtmpCalloutDestroyWatchdog @ 0x1409A33FC (TtmpCalloutDestroyWatchdog.c)
- *     TtmpGetCalloutTagFromCalloutType @ 0x1409A37A4 (TtmpGetCalloutTagFromCalloutType.c)
- *     TtmiLogCalloutStop @ 0x1409A6DD8 (TtmiLogCalloutStop.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     TtmpCalloutDestroyWatchdog @ 0x1408FCA30 (TtmpCalloutDestroyWatchdog.c)
+ *     TtmpGetCalloutTagFromCalloutType @ 0x1408FCDD4 (TtmpGetCalloutTagFromCalloutType.c)
+ *     TtmiLogCalloutStop @ 0x140901484 (TtmiLogCalloutStop.c)
  */
 
 BOOLEAN __fastcall TtmpStopCallout(__int64 a1, int a2)

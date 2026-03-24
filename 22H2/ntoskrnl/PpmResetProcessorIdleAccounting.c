@@ -1,61 +1,61 @@
 /*
- * XREFs of PpmResetProcessorIdleAccounting @ 0x14039F914
+ * XREFs of PpmResetProcessorIdleAccounting @ 0x1403C4434
  * Callers:
- *     PoIdle @ 0x1402C4B30 (PoIdle.c)
- *     PpmResetIdlePolicy @ 0x14039F868 (PpmResetIdlePolicy.c)
+ *     PoIdle @ 0x140221E90 (PoIdle.c)
+ *     PpmResetIdlePolicy @ 0x1403C43F8 (PpmResetIdlePolicy.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall PpmResetProcessorIdleAccounting(unsigned int *a1, __int64 a2)
 {
-  unsigned int v2; // esi
+  unsigned int v2; // edi
   unsigned int v3; // r13d
-  __int64 v6; // rdi
-  char *v7; // rbp
+  char *v6; // rbp
+  __int64 v7; // rsi
   __int64 v8; // r14
-  unsigned int *v9; // rax
-  unsigned int *v10; // rcx
+  _QWORD *v9; // rax
+  _QWORD *v10; // rcx
   __int64 v11; // rdx
   __int64 result; // rax
 
   v2 = *a1;
   v3 = a1[2];
-  v6 = *a1;
   *(_OWORD *)a1 = 0LL;
   *((_OWORD *)a1 + 1) = 0LL;
   *((_QWORD *)a1 + 4) = 0LL;
   if ( v2 )
   {
-    v7 = (char *)(a1 + 54);
+    v6 = (char *)(a1 + 52);
+    v7 = v2;
     v8 = v2;
     do
     {
       *(_OWORD *)a1 = 0LL;
       *((_OWORD *)a1 + 1) = 0LL;
       *((_QWORD *)a1 + 4) = 0LL;
-      memset(v7, 0, 0x340uLL);
-      v7 += 1008;
+      memset(v6, 0, 0x340uLL);
+      v6 += 1000;
       --v8;
     }
     while ( v8 );
-    v9 = a1 + 56;
+    v9 = a1 + 54;
     do
     {
-      *((_QWORD *)v9 - 20) = -1LL;
+      *(v9 - 19) = -1LL;
       v10 = v9;
       v11 = 26LL;
       do
       {
-        *(_QWORD *)v10 = -1LL;
-        v10 += 8;
+        *v10 = -1LL;
+        v10 += 4;
         --v11;
       }
       while ( v11 );
-      v9 += 252;
-      --v6;
+      v9 += 125;
+      --v7;
     }
-    while ( v6 );
+    while ( v7 );
   }
   a1[8] = 0;
   result = v3 + 1;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryInformationThread @ 0x1401B8610
+ * XREFs of ZwQueryInformationThread @ 0x1401B8630
  * Callers:
  *     <none>
  * Callees:

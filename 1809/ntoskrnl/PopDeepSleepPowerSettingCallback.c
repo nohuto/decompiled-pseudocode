@@ -1,5 +1,5 @@
 /*
- * XREFs of PopDeepSleepPowerSettingCallback @ 0x140762A50
+ * XREFs of PopDeepSleepPowerSettingCallback @ 0x140762A30
  * Callers:
  *     <none>
  * Callees:

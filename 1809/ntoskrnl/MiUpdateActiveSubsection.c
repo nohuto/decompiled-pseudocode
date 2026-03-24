@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUpdateActiveSubsection @ 0x1402B4618
+ * XREFs of MiUpdateActiveSubsection @ 0x1402B4718
  * Callers:
  *     MmExtendSection @ 0x14061C8CC (MmExtendSection.c)
  * Callees:
  *     MiReferenceSubsection @ 0x1400770E4 (MiReferenceSubsection.c)
  *     MiDecrementSubsections @ 0x140079410 (MiDecrementSubsections.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4BB4 (MiReturnCrossPartitionSectionCharges.c)
- *     MiAllocateFileExtents @ 0x1408521D0 (MiAllocateFileExtents.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiAllocateFileExtents @ 0x1408521B0 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiUpdateActiveSubsection(_QWORD *BugCheckParameter2)

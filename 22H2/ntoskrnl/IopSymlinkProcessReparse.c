@@ -1,12 +1,13 @@
 /*
- * XREFs of IopSymlinkProcessReparse @ 0x1407DFF9C
+ * XREFs of IopSymlinkProcessReparse @ 0x140683108
  * Callers:
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
  * Callees:
- *     IopSymlinkGetECP @ 0x1402FD8B0 (IopSymlinkGetECP.c)
- *     IopSymlinkRememberJunction @ 0x14087F8E8 (IopSymlinkRememberJunction.c)
- *     IopGraftName @ 0x14087F9E8 (IopGraftName.c)
- *     IopFindMatchingComponentsLengthR @ 0x140948074 (IopFindMatchingComponentsLengthR.c)
+ *     IopSymlinkGetMostRecentlyUsedName @ 0x1403142D0 (IopSymlinkGetMostRecentlyUsedName.c)
+ *     IopSymlinkGetECP @ 0x1403142F0 (IopSymlinkGetECP.c)
+ *     IopSymlinkRememberJunction @ 0x140682C94 (IopSymlinkRememberJunction.c)
+ *     IopGraftName @ 0x140683164 (IopGraftName.c)
+ *     IopFindMatchingComponentsLengthR @ 0x140894878 (IopFindMatchingComponentsLengthR.c)
  */
 
 int __fastcall IopSymlinkProcessReparse(__int64 a1, __int64 a2, __int64 a3, char a4)
@@ -14,10 +15,9 @@ int __fastcall IopSymlinkProcessReparse(__int64 a1, __int64 a2, __int64 a3, char
   unsigned __int64 v4; // rax
   __int64 v7; // rdx
   struct _ECP_LIST *v8; // rcx
-  _QWORD *v9; // rdx
-  _QWORD *v10; // rax
+  __int64 MostRecentlyUsedName; // rax
   unsigned __int16 MatchingComponentsLengthR; // ax
-  _QWORD *v13; // [rsp+30h] [rbp+8h] BYREF
+  UNICODE_STRING *v12; // [rsp+30h] [rbp+8h] BYREF
 
   v4 = *(_QWORD *)(a1 + 56);
   if ( v4 - 2684354563u <= 0x16 && (v7 = 4194817LL, _bittest64(&v7, v4 - 2684354563u)) )
@@ -28,26 +28,16 @@ int __fastcall IopSymlinkProcessReparse(__int64 a1, __int64 a2, __int64 a3, char
   else if ( v4 > 2 )
   {
     v8 = *(struct _ECP_LIST **)(a1 + 112);
-    v13 = 0LL;
-    LODWORD(v4) = IopSymlinkGetECP(v8, (PVOID *)&v13);
-    if ( (v4 & 0x80000000) != 0LL )
-      goto LABEL_12;
-    v9 = v13;
-    if ( v13[1] )
+    v12 = 0LL;
+    LODWORD(v4) = IopSymlinkGetECP(v8, (PVOID *)&v12);
+    if ( (v4 & 0x80000000) != 0LL
+      || (MostRecentlyUsedName = IopSymlinkGetMostRecentlyUsedName((__int64)v12),
+          MatchingComponentsLengthR = IopFindMatchingComponentsLengthR(a2 + 88, MostRecentlyUsedName + 16),
+          LODWORD(v4) = IopSymlinkRememberJunction(MatchingComponentsLengthR, a2, a1, v12),
+          (v4 & 0x80000000) != 0LL) )
     {
-      v10 = (_QWORD *)v13[1];
-      do
-      {
-        v9 = v10;
-        v10 = (_QWORD *)v10[1];
-      }
-      while ( v10 );
-    }
-    MatchingComponentsLengthR = IopFindMatchingComponentsLengthR(a2 + 88, v9 + 2);
-    LODWORD(v4) = IopSymlinkRememberJunction(MatchingComponentsLengthR, a2, a1, v13);
-    if ( (v4 & 0x80000000) != 0LL )
-LABEL_12:
       *(_DWORD *)(a1 + 48) = v4;
+    }
   }
   return v4;
 }

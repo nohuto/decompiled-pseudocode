@@ -1,16 +1,16 @@
 /*
- * XREFs of VidSchiProcessCrossAdapterSignaledSyncObjects @ 0x1C003AAE0
+ * XREFs of VidSchiProcessCrossAdapterSignaledSyncObjects @ 0x1C002FCFC
  * Callers:
- *     VidSchiScheduleCommandToRun @ 0x1C000A430 (VidSchiScheduleCommandToRun.c)
- *     ?VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C003DA80 (-VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel@@YAXPEAU_VIDSCH_GLOBAL@@@Z.c)
+ *     VidSchiScheduleCommandToRun @ 0x1C000B0A0 (VidSchiScheduleCommandToRun.c)
+ *     ?VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C00330E8 (-VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel@@YAXPEAU_VIDSCH_GLOBAL@@@Z.c)
  * Callees:
- *     ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0001980 (-SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z.c)
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C00032E4 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00033A8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
- *     VidSchiUnwaitMonitoredFences @ 0x1C00073A0 (VidSchiUnwaitMonitoredFences.c)
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     VidSchiCompleteSignalCommmand @ 0x1C003A498 (VidSchiCompleteSignalCommmand.c)
+ *     VidSchiUnwaitMonitoredFences @ 0x1C000CCD0 (VidSchiUnwaitMonitoredFences.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011E50 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00128EC (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0015F54 (-SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z.c)
+ *     VidSchiCompleteSignalCommmand @ 0x1C001667C (VidSchiCompleteSignalCommmand.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0018D80 (memset.c)
  */
 
 _QWORD *__fastcall VidSchiProcessCrossAdapterSignaledSyncObjects(struct HwQueueStagingList *a1, __int64 a2)
@@ -23,22 +23,22 @@ _QWORD *__fastcall VidSchiProcessCrossAdapterSignaledSyncObjects(struct HwQueueS
   _QWORD *result; // rax
   __int64 v10; // rcx
   _QWORD *v11; // rbx
-  __int64 v12; // r14
-  bool v13; // zf
-  __int64 v14; // rcx
-  __int64 v15; // [rsp+20h] [rbp-E0h] BYREF
-  __int64 *v16; // [rsp+28h] [rbp-D8h]
-  _QWORD v17[4]; // [rsp+30h] [rbp-D0h] BYREF
-  __int16 v18; // [rsp+50h] [rbp-B0h]
-  _QWORD v19[140]; // [rsp+60h] [rbp-A0h] BYREF
+  int v12; // eax
+  __int64 v13; // r14
+  bool v14; // zf
+  __int64 v15; // rcx
+  __int64 v16; // [rsp+20h] [rbp-E0h] BYREF
+  __int64 *v17; // [rsp+28h] [rbp-D8h]
+  _QWORD v18[4]; // [rsp+30h] [rbp-D0h] BYREF
+  __int16 v19; // [rsp+50h] [rbp-B0h]
+  _QWORD v20[134]; // [rsp+60h] [rbp-A0h] BYREF
 
-  memset(v19, 0, sizeof(v19));
-  v18 = 0;
-  v16 = &v15;
-  v15 = (__int64)&v15;
-  v17[0] = a2 + 3176;
-  AcquireSpinLock::Acquire((Acquire *)v17);
-  v4 = (__int64 **)(a2 + 3160);
+  v19 = 0;
+  v17 = &v16;
+  v16 = (__int64)&v16;
+  v18[0] = a2 + 3080;
+  AcquireSpinLock::Acquire((Acquire *)v18);
+  v4 = (__int64 **)(a2 + 3064);
   while ( 1 )
   {
     v5 = *v4;
@@ -46,56 +46,57 @@ _QWORD *__fastcall VidSchiProcessCrossAdapterSignaledSyncObjects(struct HwQueueS
       break;
     if ( (__int64 **)v5[1] != v4
       || (v6 = (__int64 *)*v5, *(__int64 **)(*v5 + 8) != v5)
-      || (*v4 = v6, v6[1] = (__int64)v4, *v5 = 0LL, v5[1] = 0LL, v7 = v5 + 2, v8 = v16, (__int64 *)*v16 != &v15) )
+      || (*v4 = v6, v6[1] = (__int64)v4, *v5 = 0LL, v5[1] = 0LL, v7 = v5 + 2, v8 = v17, (__int64 *)*v17 != &v16) )
     {
 LABEL_20:
       __fastfail(3u);
     }
-    v7[1] = (__int64)v16;
-    *v7 = (__int64)&v15;
+    v7[1] = (__int64)v17;
+    *v7 = (__int64)&v16;
     *v8 = (__int64)v7;
-    --*(_DWORD *)(a2 + 3192);
-    v16 = v7;
+    --*(_DWORD *)(a2 + 3096);
+    v17 = v7;
   }
-  AcquireSpinLock::Release((AcquireSpinLock *)v17);
+  AcquireSpinLock::Release((AcquireSpinLock *)v18);
   while ( 1 )
   {
-    result = (_QWORD *)v15;
-    if ( (__int64 *)v15 == &v15 )
+    result = (_QWORD *)v16;
+    if ( (__int64 *)v16 == &v16 )
       return result;
-    if ( *(__int64 **)(v15 + 8) != &v15 )
+    if ( *(__int64 **)(v16 + 8) != &v16 )
       goto LABEL_20;
-    v10 = *(_QWORD *)v15;
-    if ( *(_QWORD *)(*(_QWORD *)v15 + 8LL) != v15 )
+    v10 = *(_QWORD *)v16;
+    if ( *(_QWORD *)(*(_QWORD *)v16 + 8LL) != v16 )
       goto LABEL_20;
-    v15 = *(_QWORD *)v15;
-    *(_QWORD *)(v10 + 8) = &v15;
+    v16 = *(_QWORD *)v16;
+    *(_QWORD *)(v10 + 8) = &v16;
     v11 = result - 22;
     *result = 0LL;
     result[1] = 0LL;
-    v12 = *(_QWORD *)(a2 + 248);
-    if ( *((_DWORD *)result - 32) == 2 )
+    v12 = *((_DWORD *)result - 33);
+    v13 = *(_QWORD *)(a2 + 240);
+    if ( v12 == 2 )
     {
-      memset(v19, 0, sizeof(v19));
-      v13 = *((_BYTE *)v11 + 27) == 0;
-      LODWORD(v19[0]) = 895576406;
-      LODWORD(v19[6]) = 5;
-      v19[11] = v12;
-      if ( v13 )
-        v14 = v11[9];
+      memset(v20, 0, sizeof(v20));
+      v14 = *((_BYTE *)v11 + 27) == 0;
+      LODWORD(v20[0]) = 895576406;
+      LODWORD(v20[6]) = 5;
+      v20[11] = v13;
+      if ( v14 )
+        v15 = v11[9];
       else
-        v14 = *(_QWORD *)(v11[26] + 32LL);
-      v19[67] = v14;
-      v19[35] = v11;
-      HIDWORD(v19[34]) = 1;
-      VidSchiCompleteSignalCommmand((__int64)a1, (__int64)v19, 0);
+        v15 = *(_QWORD *)(v11[26] + 32LL);
+      v20[67] = v15;
+      v20[35] = v11;
+      HIDWORD(v20[34]) = 1;
+      VidSchiCompleteSignalCommmand((__int64)a1, (__int64)v20, 0);
     }
-    else if ( (unsigned int)(*((_DWORD *)result - 32) - 4) <= 1 )
+    else if ( (unsigned int)(v12 - 4) <= 1 )
     {
       if ( *(_BYTE *)(v11[26] + 48LL) )
         _VIDSCH_SYNC_OBJECT::SetToAlwaysSignaled((_VIDSCH_SYNC_OBJECT *)v11, a1, 0);
       else
-        VidSchiUnwaitMonitoredFences((__int64)a1, a2, 0LL);
+        VidSchiUnwaitMonitoredFences(a1, a2, 0LL);
     }
   }
 }

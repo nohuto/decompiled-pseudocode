@@ -1,12 +1,12 @@
 /*
- * XREFs of AslFileMappingGetImageTypeEx @ 0x140A1530C
+ * XREFs of AslFileMappingGetImageTypeEx @ 0x140968218
  * Callers:
- *     AslFileMappingGetFileKindDetail @ 0x140A15148 (AslFileMappingGetFileKindDetail.c)
+ *     AslFileMappingGetFileKindDetail @ 0x140968054 (AslFileMappingGetFileKindDetail.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslFileMappingEnsure @ 0x140841A58 (AslFileMappingEnsure.c)
- *     AslpFileGetImageNtHeader @ 0x140A193C4 (AslpFileGetImageNtHeader.c)
- *     AslpImageRvaToVa @ 0x140A19D70 (AslpImageRvaToVa.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslFileMappingEnsure @ 0x1407B28C8 (AslFileMappingEnsure.c)
+ *     AslpFileGetImageNtHeader @ 0x14096B664 (AslpFileGetImageNtHeader.c)
+ *     AslpImageRvaToVa @ 0x14096BE78 (AslpImageRvaToVa.c)
  */
 
 __int64 __fastcall AslFileMappingGetImageTypeEx(_WORD *a1, _WORD *a2, int *a3, _DWORD *a4, __int64 a5)
@@ -42,7 +42,7 @@ __int64 __fastcall AslFileMappingGetImageTypeEx(_WORD *a1, _WORD *a2, int *a3, _
     ImageNtHeader = -1073741701;
     goto LABEL_5;
   }
-  ImageNtHeader = AslpFileGetImageNtHeader(v16, a5);
+  ImageNtHeader = AslpFileGetImageNtHeader(v16);
   if ( ImageNtHeader < 0 )
   {
 LABEL_4:

@@ -1,24 +1,23 @@
 /*
- * XREFs of MiMapViewOfSection @ 0x1406FCA10
+ * XREFs of MiMapViewOfSection @ 0x1406EBA30
  * Callers:
- *     NtMapViewOfSection @ 0x1406FB000 (NtMapViewOfSection.c)
- *     MiMapViewOfSectionExCommon @ 0x140756C90 (MiMapViewOfSectionExCommon.c)
- *     MmMapViewOfSection @ 0x140785150 (MmMapViewOfSection.c)
- *     MmMapSecureViewOfSection @ 0x1407A6574 (MmMapSecureViewOfSection.c)
+ *     MmMapViewOfSection @ 0x140612470 (MmMapViewOfSection.c)
+ *     MmMapSecureViewOfSection @ 0x140660E50 (MmMapSecureViewOfSection.c)
+ *     NtMapViewOfSection @ 0x1406EAD00 (NtMapViewOfSection.c)
+ *     MiMapViewOfSectionExCommon @ 0x1407125A8 (MiMapViewOfSectionExCommon.c)
  * Callees:
- *     MiSectionControlArea @ 0x140287970 (MiSectionControlArea.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     MiMakeProtectionMask @ 0x14032BCC0 (MiMakeProtectionMask.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     MiUnmapViewOfSection @ 0x1406F8D30 (MiUnmapViewOfSection.c)
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     MiMapViewOfDataSection @ 0x1406FB4D0 (MiMapViewOfDataSection.c)
- *     MiValidateVadMetadataFlags @ 0x1406FCF80 (MiValidateVadMetadataFlags.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     MiArbitraryCodeBlocked @ 0x14079EC14 (MiArbitraryCodeBlocked.c)
- *     MiMapViewOfPhysicalSection @ 0x140852834 (MiMapViewOfPhysicalSection.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     MiMakeProtectionMask @ 0x14021AA20 (MiMakeProtectionMask.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     MiUnmapViewOfSection @ 0x14061E0F0 (MiUnmapViewOfSection.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     MiArbitraryCodeBlocked @ 0x140629364 (MiArbitraryCodeBlocked.c)
+ *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407C2C08 (MiMapViewOfPhysicalSection.c)
  */
 
 __int64 __fastcall MiMapViewOfSection(
@@ -26,212 +25,215 @@ __int64 __fastcall MiMapViewOfSection(
         __int64 a2,
         void **a3,
         unsigned __int64 a4,
-        unsigned int *a5,
+        unsigned __int64 *a5,
         int a6,
         int a7)
 {
-  ULONG_PTR v10; // r14
-  _WORD *v11; // r8
-  unsigned int *v12; // r11
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // r11
   unsigned __int64 v13; // r12
   __int64 v14; // rsi
-  int v15; // r9d
-  int v16; // r8d
-  int v17; // ecx
-  int v18; // r9d
-  int v19; // r8d
-  __int64 v20; // rcx
-  unsigned __int64 v21; // rax
-  unsigned __int64 v22; // r8
-  unsigned __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v25; // rdx
-  unsigned __int64 v26; // rcx
-  __int64 v27; // rdx
-  unsigned __int64 v28; // r9
-  int v29; // r10d
-  unsigned __int64 *v30; // rax
-  unsigned __int64 v31; // rdx
+  int v15; // r8d
+  int v16; // ecx
+  int v17; // r8d
+  int v18; // eax
+  __int64 v19; // rcx
+  unsigned __int64 v20; // rax
+  unsigned __int64 v21; // r8
+  unsigned __int64 v22; // rcx
+  __int64 v23; // r8
+  __int64 v24; // rdx
+  unsigned __int64 v25; // rcx
+  __int64 v26; // rdx
+  unsigned __int64 v27; // r8
+  int v28; // r10d
+  unsigned __int64 *v29; // rax
+  unsigned __int64 v30; // rdx
+  __int64 v31; // rdi
   int v32; // r8d
   __int16 v33; // ax
   unsigned int v34; // ecx
-  unsigned int ProtectionMask; // esi
+  int ProtectionMask; // esi
   int v36; // r8d
   _DWORD *v37; // r9
+  char v38; // r11
   struct _KTHREAD *CurrentThread; // rdx
-  __int64 v39; // rcx
   __int64 v40; // rcx
-  int v41; // edi
-  unsigned int *v42; // r11
-  int v43; // eax
-  int v44; // eax
+  int v41; // eax
+  int v42; // eax
+  int v43; // edi
+  int v45; // eax
   size_t v46; // r14
-  int v47; // eax
-  unsigned __int64 v48; // rax
-  BOOLEAN v49; // al
+  unsigned __int64 *v47; // r15
+  int v48; // eax
+  unsigned __int64 v49; // rax
   int v50; // eax
-  void *v51; // [rsp+48h] [rbp-E0h] BYREF
-  void *Src; // [rsp+50h] [rbp-D8h] BYREF
-  int v53; // [rsp+58h] [rbp-D0h]
-  unsigned __int64 v54; // [rsp+60h] [rbp-C8h]
-  ULONG_PTR BugCheckParameter1; // [rsp+68h] [rbp-C0h]
-  __int64 v56; // [rsp+70h] [rbp-B8h]
-  void **v57; // [rsp+78h] [rbp-B0h]
-  __int64 v58; // [rsp+80h] [rbp-A8h]
-  unsigned __int64 v59; // [rsp+88h] [rbp-A0h]
-  size_t v60; // [rsp+90h] [rbp-98h]
-  ULONG_PTR v61; // [rsp+98h] [rbp-90h]
-  __int64 v62; // [rsp+A0h] [rbp-88h]
-  void **v63; // [rsp+B0h] [rbp-78h]
-  _OWORD v64[3]; // [rsp+B8h] [rbp-70h] BYREF
+  char v51[8]; // [rsp+50h] [rbp-F8h] BYREF
+  void *v52; // [rsp+58h] [rbp-F0h] BYREF
+  void *Src; // [rsp+60h] [rbp-E8h] BYREF
+  int v54; // [rsp+68h] [rbp-E0h]
+  ULONG_PTR BugCheckParameter1; // [rsp+70h] [rbp-D8h]
+  __int64 v56; // [rsp+78h] [rbp-D0h]
+  unsigned __int64 v57; // [rsp+80h] [rbp-C8h]
+  unsigned __int64 *v58; // [rsp+88h] [rbp-C0h]
+  void **v59; // [rsp+90h] [rbp-B8h]
+  __int64 v60; // [rsp+98h] [rbp-B0h]
+  unsigned __int64 v61; // [rsp+A0h] [rbp-A8h]
+  size_t v62; // [rsp+A8h] [rbp-A0h]
+  ULONG_PTR v63; // [rsp+B0h] [rbp-98h]
+  __int64 v64; // [rsp+C0h] [rbp-88h]
+  void **v65; // [rsp+D0h] [rbp-78h]
+  _BYTE v66[48]; // [rsp+D8h] [rbp-70h] BYREF
 
-  v54 = a4;
-  v57 = a3;
-  v62 = a2;
-  v63 = a3;
-  memset(v64, 0, sizeof(v64));
-  v51 = 0LL;
+  v57 = a4;
+  v59 = a3;
+  v64 = a2;
+  v65 = a3;
+  v58 = a5;
+  memset(v66, 0, sizeof(v66));
+  v52 = 0LL;
   Src = 0LL;
-  v10 = *(_QWORD *)(a2 + 88);
-  BugCheckParameter1 = v10;
-  v61 = v10;
-  v53 = 0;
-  v58 = a1;
+  BugCheckParameter1 = *(_QWORD *)(a2 + 88);
+  v63 = BugCheckParameter1;
+  v54 = 0;
+  v60 = a1;
   v13 = MiSectionControlArea(a1);
-  v59 = v13;
+  v61 = v13;
   v14 = *(_QWORD *)v13;
   v56 = *(_QWORD *)(a2 + 24);
   if ( !a7 )
   {
     if ( (unsigned int)(a6 - 1) > 1 )
       return 3221225485LL;
-    if ( (*(_DWORD *)(v13 + 56) & 0x400) == 0 && *(_QWORD *)(a2 + 16) >= 0x10000uLL && (*v11 || *(_WORD *)v12) )
-      return 3221226016LL;
-  }
-  if ( !a7 && (*(_DWORD *)(a2 + 40) & 0x9F2BDFFF) != 0 )
-    return 3221225485LL;
-  v15 = *(_DWORD *)(a2 + 40);
-  if ( (v15 & 0x40000000) != 0 && !a7 && !*(_QWORD *)(v10 + 2240) )
-    return 3221225485LL;
-  v16 = *(_DWORD *)(a2 + 44);
-  if ( (v16 & 0xF0) != 0 || (*(_DWORD *)(a1 + 56) & 0x20) != 0 )
-    *(_DWORD *)(a2 + 60) |= 8u;
-  if ( (v16 & 0x40000000) != 0 )
-  {
-    if ( (v16 & 0xF0) == 0 || (*(_DWORD *)(a1 + 56) & 0x20) != 0 )
-      return 3221225485LL;
-    v16 &= ~0x40000000u;
-    *(_DWORD *)(a2 + 44) = v16;
-    *(_DWORD *)(a2 + 120) |= 2u;
-  }
-  if ( (*(_DWORD *)(a2 + 120) & 8) != 0 && ((v16 & 0xF0) == 0 || (*(_DWORD *)(a1 + 56) & 0x20) != 0) )
-    return 3221225485LL;
-  if ( (*(_DWORD *)(a1 + 56) & 0x20) == 0 )
-  {
-    v17 = MmCompatibleProtectionMask[MiMakeProtectionMask(*(_DWORD *)(a1 + 60) & 0xFFF) & 7] | 0x700;
-    if ( (v17 | v19) != v17 )
-      return 3221225550LL;
-    if ( (v18 & 0x840000) == 0
-      && !*(_WORD *)(a2 + 58)
-      && ((v18 & 0x20002000) == 0 || (*(_DWORD *)(v13 + 56) & 0x400) == 0) )
+    if ( (*(_DWORD *)(v13 + 56) & 0x400) == 0
+      && *(_QWORD *)(a2 + 16) >= 0x10000uLL
+      && (*(_WORD *)a3 != (_WORD)v12 || *(_WORD *)a5 != (_WORD)v12) )
     {
-      goto LABEL_19;
+      return 3221226016LL;
     }
+  }
+  if ( !a7
+    && ((*(_DWORD *)(a2 + 40) & 0x9F2BDFFF) != 0
+     || (*(_DWORD *)(a2 + 40) & 0x40000000) != 0 && *(_QWORD *)(v11 + 2240) == v12) )
+  {
     return 3221225485LL;
   }
-  if ( *(_QWORD *)(a2 + 72) && (*(_DWORD *)(a2 + 64) & 0x2000000) == 0 || (v15 & 0x2000) != 0 )
-    return 3221225485LL;
-  if ( (v15 & 0x20000000) != 0 )
+  v51[0] = 1;
+  v15 = *(_DWORD *)(a2 + 44);
+  if ( (v15 & 0x40000000) != 0 )
   {
-    if ( *(_QWORD *)v12
-      || (MiFlags & 0x20000) != 0
-      || (*(_DWORD *)(v13 + 56) & 0x20000) != 0
-      || (v49 = SeSinglePrivilegeCheck(SeLockMemoryPrivilege, *(_BYTE *)(a2 + 57)), v12 = a5, !v49) )
+    if ( (v15 & 0xF0) == 0 )
+      return 3221225485LL;
+    v51[0] = v12;
+    *(_DWORD *)(a2 + 44) = v15 & 0xBFFFFFFF;
+  }
+  if ( (*(_DWORD *)(v10 + 56) & 0x20) != 0 )
+  {
+    if ( *(_QWORD *)(a2 + 80) != v12 && (*(_DWORD *)(a2 + 60) & 0x2000000) == 0 )
+      return 3221225485LL;
+    v45 = *(_DWORD *)(a2 + 40);
+    if ( (v45 & 0x2000) != 0 )
+      return 3221225485LL;
+    if ( (v45 & 0x20000000) != 0
+      && (*a5 != v12
+       || (MiFlags & 0x40000) != 0
+       || (*(_DWORD *)(v13 + 56) & 0x20000) != 0
+       || !SeSinglePrivilegeCheck(SeLockMemoryPrivilege, *(_BYTE *)(a2 + 104))) )
     {
       *(_DWORD *)(a2 + 40) &= ~0x20000000u;
     }
   }
-LABEL_19:
-  v20 = *(_QWORD *)(a2 + 24);
-  v21 = v20 + *(_QWORD *)v12;
-  if ( v21 < *(_QWORD *)v12 )
+  else
+  {
+    v16 = MmCompatibleProtectionMask[MiMakeProtectionMask(*(_DWORD *)(v10 + 60) & 0xFFF) & 7] | 0x700;
+    if ( (v16 | v17) != v16 )
+      return 3221225550LL;
+    v18 = *(_DWORD *)(a2 + 40);
+    if ( (v18 & 0x840000) != 0 || (v18 & 0x20002000) != 0 && (*(_DWORD *)(v13 + 56) & 0x400) != 0 )
+      return 3221225485LL;
+  }
+  v19 = *(_QWORD *)(a2 + 24);
+  v20 = *a5 + v19;
+  if ( v20 < *a5 )
     return 3221225503LL;
-  v22 = *(_QWORD *)(a1 + 48);
-  if ( v21 > v22 && (*(_DWORD *)(a2 + 40) & 0x2000) == 0 )
+  v21 = *(_QWORD *)(a1 + 48);
+  if ( v20 > v21 && (*(_DWORD *)(a2 + 40) & 0x2000) == 0 )
     return 3221225503LL;
-  if ( !v20 )
-    *(_QWORD *)(a2 + 24) = v22 - *(_QWORD *)v12;
+  if ( !v19 )
+    *(_QWORD *)(a2 + 24) = v21 - *a5;
   if ( (*(_DWORD *)(v13 + 56) & 0x400) != 0 )
   {
-    if ( (*v12 & 0xFFF) != 0 )
+    if ( (*(_DWORD *)a5 & 0xFFF) != 0 )
     {
-      if ( (*(_DWORD *)(a2 + 60) & 2) != 0 )
+      if ( (*(_DWORD *)(a2 + 72) & 2) != 0 )
         return 3221226016LL;
-      *v12 &= 0xFFFFF000;
+      *(_DWORD *)a5 &= 0xFFFFF000;
     }
   }
   else
   {
-    v23 = *(_QWORD *)(a2 + 16);
-    if ( v23 > 0x10000 && *(_QWORD *)(v13 + 64) )
-      v23 = 0x10000LL;
-    v24 = *v12;
-    v25 = v24 & (v23 - 1);
-    if ( v25 )
+    v22 = *(_QWORD *)(a2 + 16);
+    if ( v22 > 0x10000 && *(_QWORD *)(v13 + 64) )
+      v22 = 0x10000LL;
+    v23 = *(unsigned int *)a5;
+    v24 = v23 & (v22 - 1);
+    if ( v24 )
     {
-      if ( (*(_DWORD *)(a2 + 60) & 2) != 0 )
+      if ( (*(_DWORD *)(a2 + 72) & 2) != 0 )
         return 3221226016LL;
-      *v12 = v24 & -(int)v23;
+      *(_DWORD *)a5 = v23 & -(int)v22;
       if ( (*(_DWORD *)(v13 + 56) & 0x20) == 0 )
       {
-        v48 = *(_QWORD *)(a2 + 24);
-        if ( v48 + v25 < v48 )
+        v49 = *(_QWORD *)(a2 + 24);
+        if ( v49 + v24 < v49 )
           return 3221225503LL;
-        *(_QWORD *)(a2 + 24) = v48 + v25;
+        *(_QWORD *)(a2 + 24) = v49 + v24;
       }
     }
   }
-  v26 = *(_QWORD *)(a2 + 24);
-  if ( (__int64)v26 <= 0 )
+  v25 = *(_QWORD *)(a2 + 24);
+  if ( (__int64)v25 <= 0 )
     return 3221225503LL;
-  v27 = *(_QWORD *)(a2 + 16);
-  if ( ((v27 - 1) & (unsigned __int64)*a3) == 0 )
-    goto LABEL_28;
-  if ( (*(_DWORD *)(a2 + 60) & 2) != 0 )
+  v26 = *(_QWORD *)(a2 + 16);
+  if ( ((v26 - 1) & (unsigned __int64)*a3) == 0 )
+    goto LABEL_24;
+  if ( (*(_DWORD *)(a2 + 72) & 2) != 0 )
     return 3221226016LL;
-  *a3 = (void *)((unsigned __int64)*a3 & -v27);
-  v26 = *(_QWORD *)(a2 + 24);
-LABEL_28:
-  *(_QWORD *)(a2 + 32) = v26;
-  v28 = v26;
-  if ( (v26 & 0xFFF) == 0 )
-    goto LABEL_29;
-  v28 = v26 + 4096 - (unsigned int)(v26 & 0xFFF);
-  if ( v28 < v26 )
+  *a3 = (void *)((unsigned __int64)*a3 & -v26);
+  v25 = *(_QWORD *)(a2 + 24);
+LABEL_24:
+  *(_QWORD *)(a2 + 32) = v25;
+  v27 = v25;
+  if ( (v25 & 0xFFF) == 0 )
+    goto LABEL_25;
+  v27 = v25 + 4096 - (unsigned int)(v25 & 0xFFF);
+  if ( v27 < v25 )
     return 3221225503LL;
-  *(_QWORD *)(a2 + 24) = v28;
-LABEL_29:
-  v29 = *(_DWORD *)(a2 + 60) & 1;
-  v30 = (unsigned __int64 *)a3;
-  if ( !v29 )
-    v30 = (unsigned __int64 *)a2;
-  v31 = *(_QWORD *)(a2 + 8);
-  if ( *v30 > v31 )
+  *(_QWORD *)(a2 + 24) = v27;
+LABEL_25:
+  v28 = *(_DWORD *)(a2 + 72) & 1;
+  v29 = (unsigned __int64 *)a3;
+  if ( !v28 )
+    v29 = (unsigned __int64 *)a2;
+  v30 = *(_QWORD *)(a2 + 8);
+  if ( *v29 > v30 )
     return 3221225485LL;
-  if ( v31 - *v30 + 1 < v28 )
-    return (unsigned int)(v29 != 0) - 1073741801;
-  if ( v54 > v26 && (*(_DWORD *)(a2 + 40) & 0x2000) == 0 )
+  if ( v30 - *v29 + 1 < v27 )
+    return (unsigned int)(v28 != 0) - 1073741801;
+  v31 = v57;
+  if ( v57 > v25 && (*(_DWORD *)(a2 + 40) & 0x2000) == 0 )
     return 3221225485LL;
-  if ( v26 > *(_QWORD *)(a1 + 48) && (*(_DWORD *)(a2 + 40) & 0x2000) == 0 )
+  if ( v25 > *(_QWORD *)(a1 + 48) && (*(_DWORD *)(a2 + 40) & 0x2000) == 0 )
     return 3221225503LL;
   v32 = *(_DWORD *)(a2 + 40);
   if ( (v32 & 0x2000) != 0 && (*(_DWORD *)(a1 + 60) & 0x44) == 0 )
     return 3221225550LL;
   if ( (v32 & 0x800000) != 0 && ((*(_DWORD *)(a1 + 56) & 0x20) == 0 || (v32 & 0x20000000) != 0)
-    || (*(_DWORD *)(a2 + 64) & 0x4000000) != 0
+    || (*(_DWORD *)(a2 + 60) & 0x4000000) != 0
     && ((*(_DWORD *)(v13 + 56) & 0x420) != 0
      || (v32 & 0xFFFFDFFF) != 0
-     || !v29
+     || !v28
      || *a3 != (void *)((unsigned __int64)*a3 & 0xFFFFFFFFFFFFF000uLL)
      || !v56) )
   {
@@ -255,8 +257,8 @@ LABEL_29:
   if ( ProtectionMask == -1 )
     return 3221225541LL;
   CurrentThread = KeGetCurrentThread();
-  v39 = *(_QWORD *)(a2 + 96);
-  if ( (*(_DWORD *)(v39 + 2512) & 0x100) != 0 && (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 0x40000) == 0 )
+  v40 = *(_QWORD *)(a2 + 96);
+  if ( (*(_DWORD *)(v40 + 2512) & 0x100) != 0 && (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 0x40000) == 0 )
   {
     if ( (*(_DWORD *)(a1 + 56) & 0x20) != 0 )
     {
@@ -264,72 +266,62 @@ LABEL_29:
     }
     else if ( (ProtectionMask & 2) != 0 )
     {
-      return MiArbitraryCodeBlocked(v39);
+      return MiArbitraryCodeBlocked(v40);
     }
   }
-  if ( v39 != v10 )
+  if ( v40 != BugCheckParameter1 )
   {
-    KiStackAttachProcess((_KPROCESS *)v10, 0LL, (__int64)v64, v37);
-    v53 = 1;
+    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v66, v37);
+    v54 = 1;
+    v38 = 0;
   }
-  v41 = MiValidateVadMetadataFlags(a2, CurrentThread);
-  if ( v41 >= 0 )
+  v41 = *(_DWORD *)(v13 + 56);
+  if ( (v41 & 0x400) != 0 )
   {
-    v43 = *(_DWORD *)(v13 + 56);
-    if ( (v43 & 0x400) != 0 )
+    v42 = MiMapViewOfPhysicalSection(a2, (_DWORD)a3, (_DWORD)a5, ProtectionMask, (__int64)v51);
+  }
+  else
+  {
+    if ( (v41 & 0x20) != 0 )
     {
-      v44 = MiMapViewOfPhysicalSection(v40, a3, v42, ProtectionMask);
-    }
-    else
-    {
-      if ( (v43 & 0x20) != 0 )
+      v52 = *a3;
+      Src = v52;
+      v46 = *(_QWORD *)(a2 + 24);
+      v62 = v46;
+      while ( 1 )
       {
-        v51 = *a3;
-        Src = v51;
-        v46 = *(_QWORD *)(a2 + 24);
-        v60 = v46;
-        while ( 1 )
+        v47 = v58;
+        v43 = MiMapViewOfImageSection(v13, a2, (unsigned __int64 *)&v52, v58, a1, a6, ProtectionMask, v38);
+        LODWORD(v57) = v43;
+        v48 = *(_DWORD *)(a2 + 40);
+        if ( (v48 & 0x20000000) == 0 )
+          break;
+        *(_DWORD *)(a2 + 40) = v48 & 0xDFFFFFFF;
+        v50 = MiMapViewOfImageSection(v13, a2, (unsigned __int64 *)&Src, v47, a1, a6, ProtectionMask, 0);
+        if ( v43 < 0 )
         {
-          v41 = MiMapViewOfImageSection(v13, a2, (unsigned __int64 *)&v51, v42, a1, a6, ProtectionMask, 0);
-          LODWORD(v54) = v41;
-          v47 = *(_DWORD *)(a2 + 40);
-          if ( (v47 & 0x20000000) == 0 )
-            break;
-          *(_DWORD *)(a2 + 40) = v47 & 0xDFFFFFFF;
-          v50 = MiMapViewOfImageSection(v13, a2, (unsigned __int64 *)&Src, a5, a1, a6, ProtectionMask, 0);
-          if ( v41 < 0 )
-          {
-            v51 = Src;
-            v41 = v50;
-            break;
-          }
-          if ( v50 >= 0 )
-          {
-            memmove(v51, Src, v46);
-            MiUnmapViewOfSection(BugCheckParameter1, (unsigned __int64)Src, 0, 0LL);
-            break;
-          }
-          MiUnmapViewOfSection(BugCheckParameter1, (unsigned __int64)v51, 0, 0LL);
-          v42 = a5;
+          v52 = Src;
+          v43 = v50;
+          break;
         }
-        if ( v41 >= 0 )
-          *v57 = v51;
-        goto LABEL_51;
+        if ( v50 >= 0 )
+        {
+          memmove(v52, Src, v46);
+          MiUnmapViewOfSection((_KPROCESS *)BugCheckParameter1, (unsigned __int64)Src, 0, 0LL);
+          break;
+        }
+        MiUnmapViewOfSection((_KPROCESS *)BugCheckParameter1, (unsigned __int64)v52, 0, 0LL);
+        v38 = 0;
       }
-      v44 = MiMapViewOfDataSection(
-              v13,
-              a2,
-              (unsigned __int64 *)a3,
-              (unsigned __int64 *)v42,
-              a1,
-              a6,
-              ProtectionMask,
-              v54);
+      if ( v43 >= 0 )
+        *v59 = v52;
+      goto LABEL_46;
     }
-    v41 = v44;
+    v42 = MiMapViewOfDataSection(v13, a2, (_DWORD)a3, (_DWORD)a5, a1, a6, ProtectionMask, v31, (__int64)v51);
   }
-LABEL_51:
-  if ( v53 )
-    KiUnstackDetachProcess((__int64)v64, 0LL);
-  return (unsigned int)v41;
+  v43 = v42;
+LABEL_46:
+  if ( v54 )
+    KiUnstackDetachProcess((__int64)v66, 0);
+  return (unsigned int)v43;
 }

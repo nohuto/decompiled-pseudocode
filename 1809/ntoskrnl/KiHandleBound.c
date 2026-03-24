@@ -1,12 +1,12 @@
 /*
- * XREFs of KiHandleBound @ 0x14028F320
+ * XREFs of KiHandleBound @ 0x14028F420
  * Callers:
- *     KiBoundFault @ 0x1401C9140 (KiBoundFault.c)
+ *     KiBoundFault @ 0x1401C9240 (KiBoundFault.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExReferenceCallBackBlock @ 0x140088AF0 (ExReferenceCallBackBlock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 KiHandleBound()

@@ -13,7 +13,7 @@
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     ExpSetKernelDataProtection @ 0x1405A15F4 (ExpSetKernelDataProtection.c)
  *     ExpGetKernelDataProtection @ 0x1405A1B24 (ExpGetKernelDataProtection.c)
- *     sub_1407045E8 @ 0x1407045E8 (sub_1407045E8.c)
+ *     sub_1407045C8 @ 0x1407045C8 (sub_1407045C8.c)
  */
 
 __int64 __fastcall ExpGenuinePolicyCacheProvider(int a1, int a2, int a3, int a4, _BYTE *a5)
@@ -205,7 +205,7 @@ LABEL_16:
   if ( v8 )
   {
     *a5 = 1;
-    return (unsigned int)sub_1407045E8(a1, a2, a3, a4, 0);
+    return (unsigned int)sub_1407045C8(a1, a2, a3, a4, 0);
   }
   else
   {

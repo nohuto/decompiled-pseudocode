@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMarkPxeAsShadowed @ 0x14017E6F0
+ * XREFs of MiMarkPxeAsShadowed @ 0x14017E710
  * Callers:
- *     MiInitializeShadowPageTable @ 0x14072A414 (MiInitializeShadowPageTable.c)
+ *     MiInitializeShadowPageTable @ 0x14072A3F4 (MiInitializeShadowPageTable.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiMarkPxeAsShadowed(unsigned int a1)

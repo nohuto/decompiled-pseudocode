@@ -1,131 +1,66 @@
 /*
- * XREFs of RIMAllocateAndLinkHidTLCInfo @ 0x1C0199C38
+ * XREFs of RIMAllocateAndLinkHidTLCInfo @ 0x1C00AC134
  * Callers:
- *     RIMCreateHidDesc @ 0x1C0056014 (RIMCreateHidDesc.c)
- *     RIMVirtCreateHidDesc @ 0x1C018DB94 (RIMVirtCreateHidDesc.c)
- *     RIMIDECreateHIDDesc @ 0x1C019B10C (RIMIDECreateHIDDesc.c)
- *     rimObsStartStopDeviceRead @ 0x1C01B5628 (rimObsStartStopDeviceRead.c)
+ *     RIMCreateHidDesc @ 0x1C00572E8 (RIMCreateHidDesc.c)
+ *     RIMVirtCreateHidDesc @ 0x1C0162D0C (RIMVirtCreateHidDesc.c)
+ *     RIMIDECreateHIDDesc @ 0x1C01674DC (RIMIDECreateHIDDesc.c)
+ *     rimObsStartStopDeviceRead @ 0x1C017F394 (rimObsStartStopDeviceRead.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C00438D8 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
- *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C0043DEC (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
- *     RIMIsLegacyDevice @ 0x1C0199FB4 (RIMIsLegacyDevice.c)
- *     RIMSearchHidTLCInfo @ 0x1C019A000 (RIMSearchHidTLCInfo.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     Win32AllocPoolZInit @ 0x1C0028440 (Win32AllocPoolZInit.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     RIMSearchHidTLCInfo @ 0x1C00AC2AC (RIMSearchHidTLCInfo.c)
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C00AC318 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C00AC35C (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
+ *     RIMIsLegacyDevice @ 0x1C00AC394 (RIMIsLegacyDevice.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall RIMAllocateAndLinkHidTLCInfo(unsigned __int16 a1, unsigned __int16 a2)
+_WORD *__fastcall RIMAllocateAndLinkHidTLCInfo(unsigned __int16 a1, unsigned __int16 a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // rdi
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  PVOID v11; // rsi
-  __int64 v12; // rax
-  int v13; // edx
-  __int64 Pool2; // rbx
-  int v15; // r8d
-  __int64 v16; // rax
-  __int64 v17; // rax
-  PVOID BackTrace[20]; // [rsp+40h] [rbp-B8h] BYREF
-  char v20; // [rsp+110h] [rbp+18h] BYREF
+  _WORD *v4; // rbx
+  _WORD *v5; // rax
+  int v6; // edx
+  _WORD *v7; // rcx
+  __int64 v8; // rax
+  __int64 v9; // rax
+  char v11; // [rsp+68h] [rbp+20h] BYREF
 
-  RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded(
-    (RIMLOCKExclusiveIfNeeded *)&v20,
-    (struct _KTHREAD **)&gTLCInfoLock);
-  v7 = 0LL;
+  RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v11, (struct RIMLOCK *)&gTLCInfoLock);
+  v4 = 0LL;
   if ( (unsigned int)RIMIsLegacyDevice(a1, a2) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v5, v4, v6);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 117LL);
   if ( RIMSearchHidTLCInfo(a1, a2) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v9, v8, v10);
-  v11 = gpLeakTrackingAllocator;
-  if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x70707352) != 0x70707352
-    || (v12 = 0LL, !*((_DWORD *)gpLeakTrackingAllocator + 11)) )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 122LL);
+  v5 = Win32AllocPoolZInit(0x30uLL, 1886417746LL);
+  v7 = v5;
+  if ( v5 )
   {
-LABEL_9:
-    Pool2 = ExAllocatePool2(260LL, 48LL);
-    goto LABEL_10;
-  }
-  while ( *((_DWORD *)gpLeakTrackingAllocator + v12) != 1886417746 )
-  {
-    if ( ++v12 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-      goto LABEL_9;
-  }
-  Pool2 = ExAllocatePool2(260LL, 64LL);
-  if ( !Pool2 )
-    goto LABEL_11;
-  memset(BackTrace, 0, sizeof(BackTrace));
-  RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-  if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-  {
-    if ( !NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-            (__int64)v11,
-            (const void *)Pool2,
-            (struct NSInstrumentation::CBackTrace *)BackTrace) )
-      goto LABEL_25;
-    Pool2 += 16LL;
-LABEL_10:
-    if ( Pool2 )
-      goto LABEL_21;
-LABEL_11:
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-      || (LOBYTE(v13) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
+    v5[8] = a1;
+    v5[9] = a2;
+    v8 = RawInputManagerObject::gHidRequestTable;
+    if ( *(_UNKNOWN **)(RawInputManagerObject::gHidRequestTable + 8LL) != &RawInputManagerObject::gHidRequestTable )
+      __fastfail(3u);
+    *((_QWORD *)v7 + 1) = &RawInputManagerObject::gHidRequestTable;
+    *(_QWORD *)v7 = v8;
+    *(_QWORD *)(v8 + 8) = v7;
+    v9 = qword_1C0255470;
+    RawInputManagerObject::gHidRequestTable = v7;
+    while ( (__int64 *)v9 != &qword_1C0255470 )
     {
-      LOBYTE(v13) = 0;
+      if ( *(_WORD *)(v9 + 16) == a1 )
+      {
+        *((_DWORD *)v7 + 8) = *(_DWORD *)(v9 + 20);
+        break;
+      }
+      v9 = *(_QWORD *)v9;
     }
-    if ( (_BYTE)v13 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v15) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v13,
-        v15,
-        (_DWORD)gRimLog,
-        3,
-        1,
-        10,
-        (__int64)&WPP_7d761a7d56943d27f6e74f7be67cf203_Traceguids);
-    }
-    goto LABEL_33;
+    v4 = v7;
   }
-  if ( !NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-          (__int64)v11,
-          Pool2,
-          (struct NSInstrumentation::CBackTrace *)BackTrace) )
+  else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-LABEL_25:
-    ExFreePoolWithTag((PVOID)Pool2, 0);
-    goto LABEL_11;
+    LOBYTE(v6) = 3;
+    WPP_RECORDER_SF_((_DWORD)gRimLog, v6, 1, 10, (__int64)&WPP_a0b5b16cda2033ba1f9b108e5e9119e6_Traceguids);
   }
-LABEL_21:
-  *(_WORD *)(Pool2 + 16) = a1;
-  *(_WORD *)(Pool2 + 18) = a2;
-  v16 = RawInputManagerObject::gHidRequestTable;
-  if ( *(_UNKNOWN **)(RawInputManagerObject::gHidRequestTable + 8LL) != &RawInputManagerObject::gHidRequestTable )
-    __fastfail(3u);
-  *(_QWORD *)(Pool2 + 8) = &RawInputManagerObject::gHidRequestTable;
-  *(_QWORD *)Pool2 = v16;
-  *(_QWORD *)(v16 + 8) = Pool2;
-  v17 = qword_1C029A1A0;
-  RawInputManagerObject::gHidRequestTable = Pool2;
-  while ( (__int64 *)v17 != &qword_1C029A1A0 )
-  {
-    if ( *(_WORD *)(v17 + 16) == a1 )
-    {
-      *(_DWORD *)(Pool2 + 32) = *(_DWORD *)(v17 + 20);
-      break;
-    }
-    v17 = *(_QWORD *)v17;
-  }
-  v7 = Pool2;
-LABEL_33:
-  RIMLOCKExclusiveIfNeeded::~RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v20);
-  return v7;
+  RIMLOCKExclusiveIfNeeded::~RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v11);
+  return v4;
 }

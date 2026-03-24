@@ -1,10 +1,9 @@
 /*
- * XREFs of ApiSetQueryApiSetPresence_0 @ 0x180102CA0
+ * XREFs of ApiSetQueryApiSetPresence_0 @ 0x1800E8DD0
  * Callers:
- *     IsNotifyInputSinkParentedPresent @ 0x180101E5C (IsNotifyInputSinkParentedPresent.c)
- *     IsNotifyInputSinkTransformChangedPresent @ 0x180101EB0 (IsNotifyInputSinkTransformChangedPresent.c)
- *     IsRegisterManipulationThreadPresent @ 0x180101F04 (IsRegisterManipulationThreadPresent.c)
- *     IsCreateHolographicCompositorPresent @ 0x18010301C (IsCreateHolographicCompositorPresent.c)
+ *     IsNotifyInputSinkParentedPresent @ 0x1800E8588 (IsNotifyInputSinkParentedPresent.c)
+ *     IsRegisterManipulationThreadPresent @ 0x1800E85DC (IsRegisterManipulationThreadPresent.c)
+ *     IsCreateHolographicCompositorPresent @ 0x1800E9128 (IsCreateHolographicCompositorPresent.c)
  * Callees:
  *     <none>
  */

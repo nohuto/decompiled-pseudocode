@@ -1,321 +1,399 @@
 /*
- * XREFs of HvAnalyzeLogFiles @ 0x1409246D8
+ * XREFs of HvAnalyzeLogFiles @ 0x140880C2C
  * Callers:
- *     HvLoadHive @ 0x14068C238 (HvLoadHive.c)
- *     HvRecoverFlushProtocolStateFromFiles @ 0x14091A344 (HvRecoverFlushProtocolStateFromFiles.c)
+ *     HvLoadHive @ 0x140722748 (HvLoadHive.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HvpCompareLogSequenceNumbers @ 0x14092503C (HvpCompareLogSequenceNumbers.c)
- *     HvpDetermineIncrementalLogFileMaximums @ 0x140925070 (HvpDetermineIncrementalLogFileMaximums.c)
- *     HvpDetermineLogFileApplicationOrder @ 0x14092512C (HvpDetermineLogFileApplicationOrder.c)
- *     HvpDetermineResultingLoggingState @ 0x140925284 (HvpDetermineResultingLoggingState.c)
- *     HvpIsReadErrorTransient @ 0x1409255A4 (HvpIsReadErrorTransient.c)
- *     HvpLogIneligibleLogHeader @ 0x1409256A0 (HvpLogIneligibleLogHeader.c)
- *     HvpLogInvalidLogHeader @ 0x140925768 (HvpLogInvalidLogHeader.c)
- *     HvpLogUnreadableLog @ 0x140925900 (HvpLogUnreadableLog.c)
- *     HvpHeaderCheckSum @ 0x140AB41B0 (HvpHeaderCheckSum.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HvpHeaderCheckSum @ 0x1407248A8 (HvpHeaderCheckSum.c)
+ *     HvpDetermineIncrementalLogFileMaximums @ 0x140881778 (HvpDetermineIncrementalLogFileMaximums.c)
+ *     HvpDetermineLatestLogFile @ 0x140881830 (HvpDetermineLatestLogFile.c)
+ *     HvpIsReadErrorTransient @ 0x140881984 (HvpIsReadErrorTransient.c)
+ *     HvpLogIneligibleLogHeader @ 0x140881A80 (HvpLogIneligibleLogHeader.c)
+ *     HvpLogInvalidLogHeader @ 0x140881B48 (HvpLogInvalidLogHeader.c)
+ *     HvpLogUnreadableLog @ 0x140881CE0 (HvpLogUnreadableLog.c)
  */
 
 __int64 __fastcall HvAnalyzeLogFiles(
-        _QWORD *a1,
-        unsigned int a2,
+        unsigned __int64 a1,
+        int a2,
         char a3,
-        unsigned int *a4,
-        unsigned int a5,
-        __int64 a6,
-        __int64 a7)
+        unsigned int a4,
+        __int64 a5,
+        _DWORD *a6,
+        __int64 a7,
+        __int64 a8)
 {
-  __int64 v8; // rsi
-  __int128 *v9; // rdi
-  _QWORD *v10; // rbx
-  int v11; // eax
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  unsigned int v14; // r14d
-  _QWORD *v15; // r12
-  __int128 *v16; // rbx
-  unsigned int *v17; // rsi
-  unsigned int v18; // r15d
-  __int64 v19; // r14
-  int v20; // edi
-  __int64 v21; // r9
-  int v22; // eax
-  int v23; // ecx
-  int v24; // eax
-  unsigned int v25; // r10d
+  unsigned int v8; // ebx
+  unsigned int v9; // eax
+  __int64 v10; // rdx
+  unsigned int v11; // r14d
+  __int128 *v12; // r15
+  _QWORD *v13; // rsi
+  int v14; // eax
+  unsigned int v15; // r12d
+  int v16; // r14d
+  unsigned int v17; // edi
+  __int128 *v18; // rsi
+  _QWORD *v19; // r13
+  unsigned int *v20; // r15
+  __int64 v21; // r12
+  __int64 v22; // r9
+  int v23; // eax
+  int v24; // ecx
+  int v25; // eax
   unsigned int v26; // r10d
-  __int64 result; // rax
-  char *v28; // r15
-  __int64 v29; // r13
-  __int64 v30; // r12
-  _BOOL8 v31; // rcx
+  __int64 v27; // rdi
+  __int64 v28; // r13
+  unsigned int v29; // eax
+  __int64 v30; // rdx
+  _OWORD *v31; // rcx
   _OWORD *v32; // rax
-  __int64 v33; // rdx
-  _OWORD *v34; // rcx
-  __int128 v35; // xmm1
-  int v36; // edi
-  __int128 *v37; // rbx
+  __int128 v33; // xmm1
+  __int128 *v34; // r15
+  unsigned int v35; // r13d
+  _QWORD *v36; // rsi
+  unsigned int v37; // r12d
   unsigned int v38; // r14d
-  signed __int64 v39; // rsi
-  _DWORD *v40; // rcx
-  bool v41; // zf
-  int v42; // eax
-  __int64 v43; // xmm1_8
-  unsigned __int8 *v44; // rdx
-  __int128 v45; // xmm1
-  int v46; // eax
-  __int128 v47; // xmm0
-  __int128 v48; // xmm1
-  __int128 v49; // xmm0
-  char v51; // [rsp+31h] [rbp-CFh] BYREF
-  char v52; // [rsp+32h] [rbp-CEh] BYREF
-  char v53; // [rsp+33h] [rbp-CDh] BYREF
-  unsigned int v54; // [rsp+34h] [rbp-CCh] BYREF
-  __int64 v55; // [rsp+38h] [rbp-C8h] BYREF
-  __int128 v56; // [rsp+40h] [rbp-C0h] BYREF
-  _QWORD *v57; // [rsp+50h] [rbp-B0h] BYREF
-  char *v58; // [rsp+58h] [rbp-A8h]
-  __int64 v59; // [rsp+60h] [rbp-A0h]
-  _OWORD v60[6]; // [rsp+70h] [rbp-90h] BYREF
-  _BYTE v61[24]; // [rsp+D0h] [rbp-30h] BYREF
-  __int64 *v62; // [rsp+F0h] [rbp-10h]
-  int v63; // [rsp+F8h] [rbp-8h]
-  int v64; // [rsp+FCh] [rbp-4h]
-  struct _EVENT_DATA_DESCRIPTOR v65; // [rsp+100h] [rbp+0h] BYREF
-  char *v66; // [rsp+120h] [rbp+20h]
-  int v67; // [rsp+128h] [rbp+28h]
-  int v68; // [rsp+12Ch] [rbp+2Ch]
-  char *v69; // [rsp+130h] [rbp+30h]
-  int v70; // [rsp+138h] [rbp+38h]
-  int v71; // [rsp+13Ch] [rbp+3Ch]
-  char *v72; // [rsp+140h] [rbp+40h]
-  int v73; // [rsp+148h] [rbp+48h]
-  int v74; // [rsp+14Ch] [rbp+4Ch]
-  unsigned int *v75; // [rsp+150h] [rbp+50h]
-  int v76; // [rsp+158h] [rbp+58h]
-  int v77; // [rsp+15Ch] [rbp+5Ch]
-  _QWORD *v78; // [rsp+160h] [rbp+60h]
-  int v79; // [rsp+168h] [rbp+68h]
-  int v80; // [rsp+16Ch] [rbp+6Ch]
+  _DWORD *v39; // rdx
+  bool v40; // zf
+  _DWORD *v41; // r8
+  _DWORD *v42; // r9
+  int v43; // eax
+  __int64 v44; // rdx
+  __int64 v45; // rcx
+  unsigned int v46; // r9d
+  unsigned int v47; // r15d
+  unsigned int v48; // r14d
+  _DWORD *v49; // rax
+  __int128 v50; // xmm0
+  __int64 v51; // xmm1_8
+  int v52; // eax
+  char *v53; // r14
+  char *v54; // rcx
+  _DWORD *v55; // rax
+  __int64 v56; // xmm1_8
+  _DWORD *v57; // rax
+  __int64 v58; // xmm1_8
+  __int128 v59; // xmm0
+  __int64 v60; // xmm1_8
+  unsigned int v61; // eax
+  __int64 v62; // rcx
+  __int64 v63; // rdx
+  __int128 v64; // xmm0
+  __int64 v65; // xmm1_8
+  __int128 v66; // xmm0
+  __int64 v67; // xmm1_8
+  char v69; // [rsp+30h] [rbp-D0h] BYREF
+  char v70; // [rsp+31h] [rbp-CFh] BYREF
+  char v71; // [rsp+32h] [rbp-CEh] BYREF
+  char v72; // [rsp+33h] [rbp-CDh]
+  unsigned int v73; // [rsp+34h] [rbp-CCh] BYREF
+  int v74; // [rsp+38h] [rbp-C8h] BYREF
+  unsigned __int64 v75; // [rsp+40h] [rbp-C0h] BYREF
+  _DWORD *v76; // [rsp+48h] [rbp-B8h]
+  __int64 v77; // [rsp+50h] [rbp-B0h] BYREF
+  __int128 v78; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v79; // [rsp+68h] [rbp-98h]
+  __int64 v80; // [rsp+70h] [rbp-90h]
+  __int128 v81; // [rsp+78h] [rbp-88h] BYREF
+  __int128 v82; // [rsp+88h] [rbp-78h] BYREF
+  __int128 v83; // [rsp+98h] [rbp-68h]
+  struct _EVENT_DATA_DESCRIPTOR v84[2]; // [rsp+A8h] [rbp-58h] BYREF
+  __int64 *v85; // [rsp+C8h] [rbp-38h]
+  __int64 v86; // [rsp+D0h] [rbp-30h]
+  struct _EVENT_DATA_DESCRIPTOR v87; // [rsp+E0h] [rbp-20h] BYREF
+  char *v88; // [rsp+100h] [rbp+0h]
+  __int64 v89; // [rsp+108h] [rbp+8h]
+  char *v90; // [rsp+110h] [rbp+10h]
+  __int64 v91; // [rsp+118h] [rbp+18h]
+  char *v92; // [rsp+120h] [rbp+20h]
+  __int64 v93; // [rsp+128h] [rbp+28h]
+  int *v94; // [rsp+130h] [rbp+30h]
+  __int64 v95; // [rsp+138h] [rbp+38h]
+  unsigned int *v96; // [rsp+140h] [rbp+40h]
+  __int64 v97; // [rsp+148h] [rbp+48h]
 
-  v54 = a2;
-  v57 = a1;
-  v58 = (char *)a4;
-  v55 = a6;
-  v59 = a7;
-  memset((char *)v60 + 4, 0, 0x58uLL);
-  v8 = 0LL;
-  LODWORD(v60[0]) = a5;
-  v56 = 0LL;
-  if ( !a5 )
-    goto LABEL_52;
-  v9 = &v56;
-  v10 = a4 + 4;
-  do
+  v8 = 0;
+  v74 = a2;
+  v9 = a4;
+  v10 = a5;
+  v75 = a1;
+  v11 = 0;
+  v79 = a5;
+  v76 = a6;
+  v73 = a4;
+  v72 = a3;
+  v80 = a7;
+  v77 = a8;
+  v78 = 0LL;
+  v81 = 0LL;
+  v82 = 0LL;
+  v83 = 0LL;
+  if ( a4 )
   {
-    v11 = ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, char *))*(v10 - 1))(*v10, 0LL, 512LL, (char *)&v56 + 8 * v8);
-    v14 = v11;
-    if ( v11 < 0 )
-    {
-      if ( (unsigned __int8)HvpIsReadErrorTransient((unsigned int)v11) )
-        return 3221225805LL;
-      HvpLogUnreadableLog(*((unsigned int *)v10 - 4), v14);
-      *(_QWORD *)v9 = 0LL;
-    }
-    v8 = (unsigned int)(v8 + 1);
-    v10 += 3;
-    v9 = (__int128 *)((char *)v9 + 8);
-  }
-  while ( (unsigned int)v8 < a5 );
-  v15 = v57;
-  v16 = &v56;
-  v17 = a4;
-  v18 = v54;
-  v19 = a5;
-  v20 = 0;
-  do
-  {
-    v21 = *(_QWORD *)v16;
-    if ( !*(_QWORD *)v16 )
-      goto LABEL_24;
-    if ( *(_DWORD *)v21 == 1718052210
-      && *(_DWORD *)(v21 + 4) == *(_DWORD *)(v21 + 8)
-      && *(_QWORD *)(v21 + 12) == *v15
-      && ((v22 = *(_DWORD *)(v21 + 28), v22 == 6) || v22 == 1)
-      && (v23 = *(_DWORD *)(v21 + 40), (unsigned int)(v23 - 1) <= 0x7FFFDFFF)
-      && (v23 & 0xFFF) == 0
-      && (v24 = HvpHeaderCheckSum(*(_QWORD *)v16, v12, v13), *(_DWORD *)(v21 + 508) == v24) )
-    {
-      if ( a3 || (int)HvpCompareLogSequenceNumbers(v25, v18) >= 0 )
-      {
-        ++v20;
-        goto LABEL_24;
-      }
-      HvpLogIneligibleLogHeader(*v17, v18, v26);
-    }
-    else
-    {
-      HvpLogInvalidLogHeader(v15, *v17, v21);
-    }
-    *(_QWORD *)v16 = 0LL;
-LABEL_24:
-    v17 += 6;
-    v16 = (__int128 *)((char *)v16 + 8);
-    --v19;
-  }
-  while ( v19 );
-  v28 = v58;
-  v29 = v59;
-  v30 = v55;
-  if ( !v20 )
-  {
-LABEL_52:
-    if ( (unsigned int)dword_140C03868 > 5 && tlgKeywordOn((__int64)&dword_140C03868, 0x400000000008LL) )
-    {
-      v44 = (unsigned __int8 *)&byte_14002A3AF;
-LABEL_55:
-      v62 = &v55;
-      v64 = 0;
-      v55 = 0x1000000LL;
-      v63 = 8;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03868, v44, 0LL, 0LL, 3u, (PEVENT_DATA_DESCRIPTOR)v61);
-    }
-    return 3221225804LL;
-  }
-  if ( v59 )
-  {
-    if ( v20 == 1 )
-      v31 = v56 == 0;
-    else
-      v31 = (int)HvpCompareLogSequenceNumbers(
-                   *(unsigned int *)(v56 + 4),
-                   *(unsigned int *)(*((_QWORD *)&v56 + 1) + 8LL)) < 0;
-    v32 = (_OWORD *)*((_QWORD *)&v56 + v31);
-    v33 = 4LL;
-    v34 = (_OWORD *)v29;
+    v12 = &v78;
+    v13 = (_QWORD *)(a5 + 16);
     do
     {
-      *v34 = *v32;
-      v34[1] = v32[1];
-      v34[2] = v32[2];
-      v34[3] = v32[3];
-      v34[4] = v32[4];
-      v34[5] = v32[5];
-      v34[6] = v32[6];
-      v34 += 8;
-      v35 = v32[7];
-      v32 += 8;
-      *(v34 - 1) = v35;
-      --v33;
+      v14 = ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, char *))*(v13 - 1))(
+              *v13,
+              0LL,
+              512LL,
+              (char *)&v78 + 8 * v11);
+      v15 = v14;
+      if ( v14 < 0 )
+      {
+        if ( (unsigned __int8)HvpIsReadErrorTransient((unsigned int)v14) )
+          return (unsigned int)-1073741491;
+        HvpLogUnreadableLog(*((unsigned int *)v13 - 4), v15);
+        *(_QWORD *)v12 = 0LL;
+      }
+      v9 = v73;
+      ++v11;
+      v13 += 3;
+      v12 = (__int128 *)((char *)v12 + 8);
     }
-    while ( v33 );
-    memset((void *)(v29 + 512), 0, 0xE00uLL);
-    *(_DWORD *)(v29 + 28) = 0;
+    while ( v11 < v73 );
+    v10 = v79;
   }
-  v36 = 0;
-  v37 = &v56;
-  v38 = 0;
-  v39 = (char *)v60 + 4 - v28;
-  while ( 2 )
+  v16 = 0;
+  if ( !v9 )
+    goto LABEL_61;
+  v17 = v74;
+  v18 = &v78;
+  v19 = (_QWORD *)v75;
+  v20 = (unsigned int *)v10;
+  v21 = v9;
+  do
   {
-    v40 = *(_DWORD **)v37;
-    if ( *(_QWORD *)v37 )
+    v22 = *(_QWORD *)v18;
+    if ( !*(_QWORD *)v18 )
+      goto LABEL_25;
+    if ( *(_DWORD *)v22 == 1718052210
+      && *(_DWORD *)(v22 + 4) == *(_DWORD *)(v22 + 8)
+      && *(_QWORD *)(v22 + 12) == *v19
+      && ((v23 = *(_DWORD *)(v22 + 28), v23 == 6) || v23 == 1)
+      && (v24 = *(_DWORD *)(v22 + 40), (unsigned int)(v24 - 1) <= 0x7FFFDFFF)
+      && (v24 & 0xFFF) == 0
+      && (v25 = HvpHeaderCheckSum(*(_DWORD **)v18), *(_DWORD *)(v22 + 508) == v25) )
     {
-      v41 = v40[7] == 6;
-      *(_DWORD *)&v61[4] = *(_DWORD *)v28;
-      v42 = v40[1];
-      *(_OWORD *)&v61[8] = 0LL;
-      *(_DWORD *)&v61[8] = v42;
-      if ( !v41 )
+      if ( v26 >= v17 )
       {
-        *(_DWORD *)&v61[16] = 0;
-        *(_DWORD *)&v61[12] = v42;
-        *(_DWORD *)&v61[20] = v40[10];
-        *(_DWORD *)v61 = 3;
-        goto LABEL_39;
+        ++v16;
+        goto LABEL_25;
       }
-      *(_DWORD *)v61 = 1;
-      result = HvpDetermineIncrementalLogFileMaximums(
-                 (_DWORD)v28,
-                 v42,
-                 (unsigned int)&v61[12],
-                 (unsigned int)&v61[20],
-                 (__int64)&v61[16]);
-      if ( (int)result >= 0 )
+      HvpLogIneligibleLogHeader(*v20, v17, v26);
+    }
+    else
+    {
+      HvpLogInvalidLogHeader(v19, *v20, v22);
+    }
+    *(_QWORD *)v18 = 0LL;
+LABEL_25:
+    v20 += 6;
+    v18 = (__int128 *)((char *)v18 + 8);
+    --v21;
+  }
+  while ( v21 );
+  v27 = v80;
+  v28 = v77;
+  if ( !v16 )
+  {
+LABEL_61:
+    if ( (unsigned int)dword_140C02130 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 0x400000000008LL) )
+    {
+      v77 = 0x1000000LL;
+      v85 = &v77;
+      v86 = 8LL;
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)byte_140023E1D, 0LL, 0LL, 3u, v84);
+    }
+    return (unsigned int)-1073741492;
+  }
+  if ( v77 )
+  {
+    if ( v16 == 1 )
+    {
+      v29 = (_QWORD)v78 == 0LL;
+    }
+    else
+    {
+      LODWORD(v75) = *(_DWORD *)(v78 + 4);
+      HIDWORD(v75) = *(_DWORD *)(*((_QWORD *)&v78 + 1) + 8LL);
+      v29 = HvpDetermineLatestLogFile(&v75);
+    }
+    v30 = 4LL;
+    v31 = (_OWORD *)*((_QWORD *)&v78 + v29);
+    v32 = (_OWORD *)v28;
+    do
+    {
+      *v32 = *v31;
+      v32[1] = v31[1];
+      v32[2] = v31[2];
+      v32[3] = v31[3];
+      v32[4] = v31[4];
+      v32[5] = v31[5];
+      v32[6] = v31[6];
+      v32 += 8;
+      v33 = v31[7];
+      v31 += 8;
+      *(v32 - 1) = v33;
+      --v30;
+    }
+    while ( v30 );
+    memset((void *)(v28 + 512), 0, 0xE00uLL);
+    *(_DWORD *)(v28 + 28) = 0;
+  }
+  v34 = &v78;
+  v35 = v73;
+  v36 = (_QWORD *)(v79 + 8);
+  v37 = 0;
+  v38 = 0;
+  do
+  {
+    v39 = *(_DWORD **)v34;
+    if ( *(_QWORD *)v34 )
+    {
+      v40 = v39[7] == 6;
+      v41 = (_DWORD *)&v81 + 6 * v37 + 3;
+      v42 = (_DWORD *)&v82 + 6 * v37;
+      *((_DWORD *)&v81 + 6 * v37 + 1) = *((_DWORD *)v36 - 2);
+      v43 = v39[1];
+      *((_DWORD *)&v81 + 6 * v37 + 2) = v43;
+      *((_DWORD *)&v81 + 6 * v37) = v38;
+      if ( v40 )
       {
-LABEL_39:
-        result = 0LL;
-        v43 = *(_QWORD *)&v61[16];
-        *(_OWORD *)&v28[v39] = *(_OWORD *)v61;
-        *(_QWORD *)&v28[v39 + 16] = v43;
+        v44 = v36[1];
+        *((_BYTE *)&v82 + 24 * v37 + 4) = 0;
+        v45 = *v36;
+        *(_QWORD *)v34 = 0LL;
+        if ( (int)HvpDetermineIncrementalLogFileMaximums(v45, v44, v41, v42) < 0 )
+          return (unsigned int)-1073741491;
       }
-      *(_QWORD *)v37 = 0LL;
-      if ( (_DWORD)result != -2147483614 )
+      else
       {
-        if ( (int)result < 0 )
-          return result;
-        ++v36;
+        *v41 = v43;
+        *v42 = v39[10];
+        *((_BYTE *)&v82 + 24 * v37 + 4) = 1;
       }
+      ++v37;
     }
     ++v38;
-    v28 += 24;
-    v37 = (__int128 *)((char *)v37 + 8);
-    if ( v38 < a5 )
-      continue;
-    break;
+    v36 += 3;
+    v34 = (__int128 *)((char *)v34 + 8);
   }
-  if ( !v36 )
+  while ( v38 < v35 );
+  v46 = dword_140C02130;
+  v47 = v83;
+  v48 = DWORD2(v81);
+  if ( (unsigned int)dword_140C02130 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 8LL) )
   {
-    if ( (unsigned int)dword_140C03868 > 5 && tlgKeywordOn((__int64)&dword_140C03868, 0x400000000008LL) )
+    v69 = v37;
+    v88 = &v69;
+    v70 = BYTE4(v81);
+    v89 = 1LL;
+    v90 = &v70;
+    v71 = BYTE12(v82);
+    v92 = &v71;
+    v94 = &v74;
+    v96 = &v73;
+    v91 = 1LL;
+    v93 = 1LL;
+    v74 = v48;
+    v95 = 4LL;
+    v73 = v47;
+    v97 = 4LL;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)&unk_140023DC0, 0LL, 0LL, 7u, &v87);
+    v46 = dword_140C02130;
+  }
+  if ( v37 == 1 )
+  {
+    v49 = v76;
+    v50 = v81;
+    v51 = v82;
+    goto LABEL_47;
+  }
+  if ( v72 )
+  {
+    v75 = __PAIR64__(v47, v48);
+    v61 = HvpDetermineLatestLogFile(&v75);
+    v62 = v61 == 0 ? 0x18 : 0;
+    v63 = 3LL * v61;
+    v40 = *(_DWORD *)((char *)&v81 + v62 + 12) + 1 == *((_DWORD *)&v81 + 6 * v61 + 2);
+    v49 = v76;
+    if ( v40 )
     {
-      v44 = (unsigned __int8 *)&word_14002A29E;
-      goto LABEL_55;
+      v64 = *(__int128 *)((char *)&v81 + v62);
+      *v76 = 2;
+      v65 = *(_QWORD *)((char *)&v82 + v62);
+      *(_OWORD *)v27 = v64;
+      v66 = *(__int128 *)((char *)&v81 + 8 * v63);
+      *(_QWORD *)(v27 + 16) = v65;
+      v67 = *((_QWORD *)&v82 + v63);
+      *(_OWORD *)(v27 + 24) = v66;
+      *(_QWORD *)(v27 + 40) = v67;
     }
-    return 3221225804LL;
+    else
+    {
+      v50 = *(__int128 *)((char *)&v81 + 8 * v63);
+      v51 = *((_QWORD *)&v82 + v63);
+LABEL_47:
+      *v49 = 1;
+      *(_OWORD *)v27 = v50;
+      *(_QWORD *)(v27 + 16) = v51;
+    }
   }
-  if ( (unsigned int)dword_140C03868 > 5 && tlgKeywordOn((__int64)&dword_140C03868, 8LL) )
+  else
   {
-    v68 = 0;
-    v71 = 0;
-    v74 = 0;
-    v77 = 0;
-    v80 = 0;
-    v66 = &v51;
-    v52 = BYTE8(v60[0]);
-    v69 = &v52;
-    v53 = v60[2];
-    v72 = &v53;
-    v54 = HIDWORD(v60[0]);
-    v75 = &v54;
-    LODWORD(v57) = DWORD1(v60[2]);
-    v78 = &v57;
-    v51 = v36;
-    v67 = 1;
-    v70 = 1;
-    v73 = 1;
-    v76 = 4;
-    v79 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03868, (unsigned __int8 *)byte_14002A241, 0LL, 0LL, 7u, &v65);
+    if ( v48 >= v47 )
+    {
+      v52 = DWORD1(v83);
+      v54 = (char *)&v82 + 8;
+      v47 = v48;
+      v53 = (char *)&v81;
+    }
+    else
+    {
+      v52 = HIDWORD(v81);
+      v53 = (char *)&v82 + 8;
+      v54 = (char *)&v81;
+    }
+    if ( v52 + 1 == v47 )
+    {
+      v57 = v76;
+      v58 = *((_QWORD *)v54 + 2);
+      *(_OWORD *)v27 = *(_OWORD *)v54;
+      v59 = *(_OWORD *)v53;
+      *(_QWORD *)(v27 + 16) = v58;
+      v60 = *((_QWORD *)v53 + 2);
+      *(_OWORD *)(v27 + 24) = v59;
+      *(_QWORD *)(v27 + 40) = v60;
+      *v57 = 2;
+    }
+    else
+    {
+      if ( v46 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 0x400000000000LL) )
+      {
+        v77 = 0x1000000LL;
+        v85 = &v77;
+        v86 = 8LL;
+        tlgWriteTransfer_EtwWriteTransfer(
+          (__int64)&dword_140C02130,
+          (unsigned __int8 *)byte_140023D00,
+          0LL,
+          0LL,
+          3u,
+          v84);
+      }
+      v55 = v76;
+      v56 = *((_QWORD *)v53 + 2);
+      *(_OWORD *)v27 = *(_OWORD *)v53;
+      *(_QWORD *)(v27 + 16) = v56;
+      *v55 = 1;
+    }
   }
-  LOBYTE(v12) = a3;
-  HvpDetermineLogFileApplicationOrder(v60, v12);
-  HvpDetermineResultingLoggingState(v60);
-  v45 = v60[1];
-  v46 = DWORD2(v60[5]);
-  *(_OWORD *)v30 = v60[0];
-  v47 = v60[2];
-  *(_OWORD *)(v30 + 16) = v45;
-  v48 = v60[3];
-  *(_OWORD *)(v30 + 32) = v47;
-  v49 = v60[4];
-  *(_OWORD *)(v30 + 48) = v48;
-  *(_QWORD *)&v48 = *(_QWORD *)&v60[5];
-  *(_OWORD *)(v30 + 64) = v49;
-  *(_QWORD *)(v30 + 80) = v48;
-  *(_DWORD *)(v30 + 88) = v46;
-  return 0LL;
+  return v8;
 }

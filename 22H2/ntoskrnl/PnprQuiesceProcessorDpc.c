@@ -1,22 +1,20 @@
 /*
- * XREFs of PnprQuiesceProcessorDpc @ 0x140A9D540
+ * XREFs of PnprQuiesceProcessorDpc @ 0x1409AE4D0
  * Callers:
  *     <none>
  * Callees:
- *     KeSaveExtendedAndSupervisorState @ 0x14020DDFC (KeSaveExtendedAndSupervisorState.c)
- *     KeRestoreExtendedAndSupervisorState @ 0x14020E048 (KeRestoreExtendedAndSupervisorState.c)
- *     KeGetProcessorNumberFromIndex @ 0x14030CCE0 (KeGetProcessorNumberFromIndex.c)
- *     HalGetProcessorIdByNtNumber @ 0x140383D00 (HalGetProcessorIdByNtNumber.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PnprGetStackLimits @ 0x140563084 (PnprGetStackLimits.c)
- *     KeRestoreProcessorSpecificFeatures @ 0x14056BFE4 (KeRestoreProcessorSpecificFeatures.c)
- *     KeSaveProcessorSpecificFeatures @ 0x14056C06C (KeSaveProcessorSpecificFeatures.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KeResumeClockTimerSafe @ 0x14056FA24 (KeResumeClockTimerSafe.c)
- *     KeSuspendClockTimerSafe @ 0x14056FB70 (KeSuspendClockTimerSafe.c)
- *     KeRestoreIptStateAfterProcessorComesOnline @ 0x1405726FC (KeRestoreIptStateAfterProcessorComesOnline.c)
- *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x140572738 (KeSaveIptStateBeforeProcessorGoesOffline.c)
- *     PnprMirrorMarkedPages @ 0x140A9D1EC (PnprMirrorMarkedPages.c)
+ *     KeSaveExtendedAndSupervisorState @ 0x14031A61C (KeSaveExtendedAndSupervisorState.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x14031C008 (KeRestoreExtendedAndSupervisorState.c)
+ *     KeGetProcessorNumberFromIndex @ 0x14033E500 (KeGetProcessorNumberFromIndex.c)
+ *     HalGetProcessorIdByNtNumber @ 0x140376FC0 (HalGetProcessorIdByNtNumber.c)
+ *     KeRestoreIptStateAfterProcessorComesOnline @ 0x140383644 (KeRestoreIptStateAfterProcessorComesOnline.c)
+ *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x140383D38 (KeSaveIptStateBeforeProcessorGoesOffline.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x140383DBC (KeRestoreProcessorSpecificFeatures.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PnprGetStackLimits @ 0x14050F4B8 (PnprGetStackLimits.c)
+ *     KeResumeClockTimerSafe @ 0x140513C54 (KeResumeClockTimerSafe.c)
+ *     KeSuspendClockTimerSafe @ 0x140513D30 (KeSuspendClockTimerSafe.c)
+ *     PnprMirrorMarkedPages @ 0x1409AE16C (PnprMirrorMarkedPages.c)
  */
 
 void __fastcall PnprQuiesceProcessorDpc(
@@ -25,46 +23,32 @@ void __fastcall PnprQuiesceProcessorDpc(
         PVOID SystemArgument1,
         PVOID SystemArgument2)
 {
-  unsigned int v4; // ebp
+  ULONG v4; // r14d
   int v5; // esi
   bool v6; // bl
   __int64 v7; // rax
-  volatile signed __int32 *SchedulerAssist; // rcx
-  __int64 v9; // rax
+  __int64 Group; // r15
+  __int64 v9; // rbp
   bool v10; // di
   __int64 v11; // r8
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *v13; // r8
-  signed __int32 v14; // eax
-  signed __int32 v15; // ett
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v19; // rcx
-  int v20; // eax
-  int v21; // eax
-  __int64 v22; // rax
-  struct _KPRCB *v23; // rcx
-  signed __int32 *v24; // r8
-  signed __int32 v25; // eax
-  signed __int32 v26; // ett
-  __int64 v27; // [rsp+20h] [rbp-68h] BYREF
-  _OWORD v28[3]; // [rsp+28h] [rbp-60h] BYREF
-  __int64 v29; // [rsp+58h] [rbp-30h]
-  int v30; // [rsp+80h] [rbp-8h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+98h] [rbp+10h] BYREF
-  unsigned int v32; // [rsp+A0h] [rbp+18h]
-  __int64 v33; // [rsp+A8h] [rbp+20h] BYREF
+  __int64 v12; // rcx
+  int v13; // eax
+  int v14; // eax
+  _OWORD v15[3]; // [rsp+20h] [rbp-78h] BYREF
+  __int64 v16; // [rsp+50h] [rbp-48h]
+  int v17; // [rsp+90h] [rbp-8h]
+  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+A8h] [rbp+10h] BYREF
+  unsigned int v19; // [rsp+B0h] [rbp+18h] BYREF
+  __int64 v20; // [rsp+B8h] [rbp+20h] BYREF
 
   ProcNumber = 0;
   v4 = (unsigned int)SystemArgument2;
-  v32 = 0;
+  v19 = 0;
   v5 = (int)SystemArgument1;
-  v27 = 0LL;
-  v33 = 0LL;
-  memset(v28, 0, sizeof(v28));
+  v20 = 0LL;
+  memset(v15, 0, sizeof(v15));
   v6 = 1;
-  v29 = 0LL;
+  v16 = 0LL;
   v7 = PnprContext;
   *DeferredContext = 1;
   _InterlockedAdd((volatile signed __int32 *)(v7 + 184), 1u);
@@ -73,19 +57,17 @@ void __fastcall PnprQuiesceProcessorDpc(
   if ( (*(_DWORD *)(PnprContext + 64) & 0x20) != 0 )
   {
     _disable();
-    SchedulerAssist = (volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
-    if ( SchedulerAssist )
-      _InterlockedOr(SchedulerAssist, 0x200000u);
-    v6 = (v30 & 0x200) != 0;
+    v6 = (v17 & 0x200) != 0;
     _InterlockedAdd((volatile signed __int32 *)(PnprContext + 192), 1u);
     while ( *(_DWORD *)(PnprContext + 192) < (int)SystemArgument1 )
       _mm_pause();
   }
   if ( KeGetProcessorNumberFromIndex((ULONG)SystemArgument2, &ProcNumber) < 0 )
-    goto LABEL_65;
-  v9 = *(_QWORD *)(**(_QWORD **)(PnprContext + 16) + 8LL * ProcNumber.Group);
-  if ( !_bittest64(&v9, ProcNumber.Number) )
-    goto LABEL_33;
+    goto LABEL_53;
+  Group = ProcNumber.Group;
+  v9 = 1LL << ProcNumber.Number;
+  if ( ((1LL << ProcNumber.Number) & *(_QWORD *)(**(_QWORD **)(PnprContext + 16) + 8LL * ProcNumber.Group)) == 0 )
+    goto LABEL_26;
   while ( *(int *)(PnprContext + 200) < 1 )
     _mm_pause();
   KeSuspendClockTimerSafe();
@@ -94,68 +76,50 @@ void __fastcall PnprQuiesceProcessorDpc(
   if ( ((MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF780000005F0]) & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
     v10 = (int)KeSaveExtendedAndSupervisorState(
                  (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF780000005F0]) & 0xFFFFFFFFFFFFFFFCuLL,
-                 (PVOID *)v28) >= 0;
-  KeSaveProcessorSpecificFeatures();
-  if ( (int)HalGetProcessorIdByNtNumber(v4) < 0 )
-LABEL_65:
+                 (PVOID *)v15) >= 0;
+  if ( HalGetProcessorIdByNtNumber(v4, &v19) < 0 )
+LABEL_53:
     __fastfail(5u);
-  if ( (*(_DWORD *)(PnprContext + 33184) & 2) != 0 )
+  if ( (*(_DWORD *)(PnprContext + 20896) & 2) != 0 )
   {
     LOBYTE(v11) = 1;
-    (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(PnprContext + 33224))(*(_QWORD *)(PnprContext + 33168), v32, v11);
+    (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(PnprContext + 20936))(*(_QWORD *)(PnprContext + 20880), v19, v11);
   }
   if ( (*(_DWORD *)(PnprContext + 64) & 0x20) != 0 )
-    ((void (__fastcall *)(_QWORD, __int64 *))off_140C01AF8[0])(*(_QWORD *)(PnprContext + 33160), &v27);
-  ((void (__fastcall *)(_QWORD))off_140C01A90[0])(*(_QWORD *)(PnprContext + 33160));
-  if ( (*(_DWORD *)(PnprContext + 33184) & 2) != 0 )
-    (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(PnprContext + 33224))(*(_QWORD *)(PnprContext + 33168), v32, 0LL);
+    ((void (__fastcall *)(_QWORD, __int64 *))off_140C006E8[0])(*(_QWORD *)(PnprContext + 20872), &v20);
+  ((void (__fastcall *)(_QWORD))off_140C00680[0])(*(_QWORD *)(PnprContext + 20872));
+  if ( (*(_DWORD *)(PnprContext + 20896) & 2) != 0 )
+    (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(PnprContext + 20936))(*(_QWORD *)(PnprContext + 20880), v19, 0LL);
   KeResumeClockTimerSafe();
   if ( (*(_DWORD *)(PnprContext + 64) & 0x20) != 0 && v6 )
-  {
-    CurrentPrcb = KeGetCurrentPrcb();
-    v13 = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-    if ( v13 )
-    {
-      _m_prefetchw(v13);
-      v14 = *v13;
-      do
-      {
-        v15 = v14;
-        v14 = _InterlockedCompareExchange(v13, v14 & 0xFFDFFFFF, v14);
-      }
-      while ( v15 != v14 );
-      if ( (v14 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-    }
     _enable();
-  }
-  KeRestoreProcessorSpecificFeatures((__int64)&v33);
+  KeRestoreProcessorSpecificFeatures();
   if ( v10 )
-    KeRestoreExtendedAndSupervisorState((__int64)v28);
-  KeRestoreIptStateAfterProcessorComesOnline(v17, v16, v18);
+    KeRestoreExtendedAndSupervisorState((__int64)v15);
+  KeRestoreIptStateAfterProcessorComesOnline();
   _InterlockedAdd((volatile signed __int32 *)(PnprContext + 204), 1u);
-LABEL_33:
+LABEL_26:
   if ( *(_DWORD *)(*(_QWORD *)(PnprContext + 24) + 4LL) && (*(_DWORD *)(PnprContext + 64) & 8) == 0 )
   {
     while ( *(int *)(PnprContext + 200) < 2 )
       _mm_pause();
     if ( (int)PnprMirrorMarkedPages() < 0 )
     {
-      v19 = PnprContext;
-      v20 = *(_DWORD *)(PnprContext + 33272);
-      if ( !v20 )
-        v20 = 2266;
-      *(_DWORD *)(PnprContext + 33272) = v20;
-      v21 = *(_DWORD *)(v19 + 33276);
-      if ( !v21 )
-        v21 = 1;
-      *(_DWORD *)(v19 + 33276) = v21;
+      v12 = PnprContext;
+      v13 = *(_DWORD *)(PnprContext + 20984);
+      if ( !v13 )
+        v13 = 2258;
+      *(_DWORD *)(PnprContext + 20984) = v13;
+      v14 = *(_DWORD *)(v12 + 20988);
+      if ( !v14 )
+        v14 = 1;
+      *(_DWORD *)(v12 + 20988) = v14;
     }
     _InterlockedAdd((volatile signed __int32 *)(PnprContext + 204), 1u);
   }
   while ( *(int *)(PnprContext + 200) < 4 )
     _mm_pause();
-  PnprGetStackLimits((char **)(PnprContext + 216 + 8LL * v4), (unsigned __int64 *)(PnprContext + 16600 + 8LL * v4));
+  PnprGetStackLimits((char **)(PnprContext + 216 + 8LL * v4), (unsigned __int64 *)(PnprContext + 10456 + 8LL * v4));
   _InterlockedAdd((volatile signed __int32 *)(PnprContext + 204), 1u);
   while ( *(int *)(PnprContext + 200) < 5 )
     _mm_pause();
@@ -163,28 +127,12 @@ LABEL_33:
   {
     while ( *(int *)(PnprContext + 200) < 6 )
       _mm_pause();
-    v22 = *(_QWORD *)(**(_QWORD **)(PnprContext + 16) + 8LL * ProcNumber.Group);
-    if ( _bittest64(&v22, ProcNumber.Number) )
+    if ( (v9 & *(_QWORD *)(**(_QWORD **)(PnprContext + 16) + 8 * Group)) != 0 )
     {
-      ((void (__fastcall *)(__int64))off_140C01B00[0])(v27);
+      ((void (__fastcall *)(__int64))off_140C006F0[0])(v20);
     }
     else if ( v6 )
     {
-      v23 = KeGetCurrentPrcb();
-      v24 = (signed __int32 *)v23->SchedulerAssist;
-      if ( v24 )
-      {
-        _m_prefetchw(v24);
-        v25 = *v24;
-        do
-        {
-          v26 = v25;
-          v25 = _InterlockedCompareExchange(v24, v25 & 0xFFDFFFFF, v25);
-        }
-        while ( v26 != v25 );
-        if ( (v25 & 0x200000) != 0 )
-          KiRemoveSystemWorkPriorityKick((__int64)v23);
-      }
       _enable();
     }
   }

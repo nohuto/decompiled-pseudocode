@@ -1,7 +1,7 @@
 /*
- * XREFs of AuthzBasepMergeAccessReasons @ 0x14064A73C
+ * XREFs of AuthzBasepMergeAccessReasons @ 0x1405C1660
  * Callers:
- *     SepCommonAccessCheckEx @ 0x140383ABC (SepCommonAccessCheckEx.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074 (SepCommonAccessCheckExWithAdminlessChecks.c)
  * Callees:
  *     <none>
  */

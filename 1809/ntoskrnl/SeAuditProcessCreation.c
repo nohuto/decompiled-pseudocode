@@ -1,24 +1,24 @@
 /*
- * XREFs of SeAuditProcessCreation @ 0x1407495D0
+ * XREFs of SeAuditProcessCreation @ 0x1407495B0
  * Callers:
  *     PspInsertProcess @ 0x1406093A8 (PspInsertProcess.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     PsQueryProcessCommandLine @ 0x14012A240 (PsQueryProcessCommandLine.c)
- *     SepAdtLogAuditRecord @ 0x140186DA0 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     PsQueryProcessCommandLine @ 0x14012A260 (PsQueryProcessCommandLine.c)
+ *     SepAdtLogAuditRecord @ 0x140186DC0 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     PsLookupProcessByProcessId @ 0x140646C40 (PsLookupProcessByProcessId.c)
- *     RtlCopySid @ 0x1406491B0 (RtlCopySid.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671E4 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x1408A47A0 (SepAuditFailed.c)
+ *     PsLookupProcessByProcessId @ 0x140646C20 (PsLookupProcessByProcessId.c)
+ *     RtlCopySid @ 0x140649190 (RtlCopySid.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671C4 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
  */
 
 void __fastcall SeAuditProcessCreation(struct _KPROCESS *BugCheckParameter1, unsigned __int16 *a2)
@@ -129,12 +129,12 @@ void __fastcall SeAuditProcessCreation(struct _KPROCESS *BugCheckParameter1, uns
               ExFreePoolWithTag(PoolWithTag, 0);
             }
           }
-          RtlInitUnicodeString(&DestinationString, &word_140766570);
+          RtlInitUnicodeString(&DestinationString, &word_140766550);
           v2 = 0;
         }
         else
         {
-          RtlInitUnicodeString(&DestinationString, &word_140766570);
+          RtlInitUnicodeString(&DestinationString, &word_140766550);
           v2 = 0;
         }
         PoolWithTag = (unsigned __int16 *)&DestinationString;

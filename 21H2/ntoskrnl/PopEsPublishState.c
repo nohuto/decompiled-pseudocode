@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEsPublishState @ 0x140863B7C
+ * XREFs of PopEsPublishState @ 0x1407D3D90
  * Callers:
- *     PopEsUpdateState @ 0x14024E2C8 (PopEsUpdateState.c)
- *     PopEsWorker @ 0x1406D1E90 (PopEsWorker.c)
+ *     PopEsUpdateState @ 0x14039A908 (PopEsUpdateState.c)
+ *     PopEsWorker @ 0x1407811F0 (PopEsWorker.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x14041F2A0 (ZwUpdateWnfStateData.c)
- *     PopSetPowerSettingValueAcDc @ 0x1407525EC (PopSetPowerSettingValueAcDc.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
+ *     PopSetPowerSettingValueAcDc @ 0x140679E68 (PopSetPowerSettingValueAcDc.c)
  */
 
 __int64 PopEsPublishState()
@@ -20,5 +20,5 @@ __int64 PopEsPublishState()
     v0 = 3;
   v2 = v0;
   ZwUpdateWnfStateData((__int64)&WNF_PO_ENERGY_SAVER_STATE, (__int64)&v2);
-  return PopSetPowerSettingValueAcDc(&GUID_POWER_SAVING_STATUS, 4u, &PopEsState);
+  return PopSetPowerSettingValueAcDc(&GUID_POWER_SAVING_STATUS, 4LL, &PopEsState);
 }

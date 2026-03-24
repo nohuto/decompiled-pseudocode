@@ -1,11 +1,11 @@
 /*
- * XREFs of HdlspSetBlueScreenInformation @ 0x140AEC4A8
+ * XREFs of HdlspSetBlueScreenInformation @ 0x1409F0384
  * Callers:
- *     HdlspDispatch @ 0x140AEAEB0 (HdlspDispatch.c)
+ *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
  * Callees:
- *     strcpy_s @ 0x1403DF230 (strcpy_s.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     strcpy_s @ 0x1403D7670 (strcpy_s.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HdlspSetBlueScreenInformation(unsigned int *a1, __int64 a2)
@@ -15,19 +15,19 @@ __int64 __fastcall HdlspSetBlueScreenInformation(unsigned int *a1, __int64 a2)
   unsigned __int64 v6; // rcx
   __int64 v7; // r11
   KSPIN_LOCK v8; // rcx
-  __int64 v9; // rdi
-  unsigned __int8 *v10; // rax
+  char **v9; // rdi
+  char *v10; // rax
   int v11; // r9d
   int v12; // edx
   __int64 v13; // r14
   char *v14; // r13
   __int64 v15; // rbp
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
   char *v17; // rsi
   PKSPIN_LOCK v18; // rax
-  void *v19; // rcx
+  unsigned __int8 *v19; // rcx
   KSPIN_LOCK v20; // rax
-  unsigned __int8 *v21; // rcx
+  char *v21; // rcx
   char *v22; // rax
   char *v23; // rax
   PKSPIN_LOCK v24; // rcx
@@ -45,16 +45,16 @@ __int64 __fastcall HdlspSetBlueScreenInformation(unsigned int *a1, __int64 a2)
       if ( v6 < a2 - 8 && !*((_BYTE *)a1 + (unsigned int)(v6 - 1) + 4) && !*((_BYTE *)a1 + a2 - 4) )
       {
         v8 = HeadlessGlobals[5];
-        v9 = v8;
+        v9 = (char **)v8;
         if ( v8 )
         {
           do
           {
-            v10 = *(unsigned __int8 **)v9;
+            v10 = *v9;
             do
             {
-              v11 = *((unsigned __int8 *)a1 + (_QWORD)v10 - *(_QWORD *)v9 + 4);
-              v12 = *v10 - v11;
+              v11 = (unsigned __int8)v10[(char *)(a1 + 1) - *v9];
+              v12 = (unsigned __int8)*v10 - v11;
               if ( v12 )
                 break;
               ++v10;
@@ -62,8 +62,8 @@ __int64 __fastcall HdlspSetBlueScreenInformation(unsigned int *a1, __int64 a2)
             while ( v11 );
             if ( !v12 )
               break;
-            v8 = v9;
-            v9 = *(_QWORD *)(v9 + 16);
+            v8 = (KSPIN_LOCK)v9;
+            v9 = (char **)v9[2];
           }
           while ( v9 );
         }
@@ -77,14 +77,14 @@ __int64 __fastcall HdlspSetBlueScreenInformation(unsigned int *a1, __int64 a2)
         {
           if ( v15 )
           {
-            Pool2 = (char *)ExAllocatePool2(64LL, v15 + 1, 0x736C6448u);
-            v17 = Pool2;
-            if ( Pool2 )
+            PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v15 + 1, 0x736C6448u);
+            v17 = PoolWithTag;
+            if ( PoolWithTag )
             {
-              strcpy_s(Pool2, v15 + 1, v14 + 4);
+              strcpy_s(PoolWithTag, v15 + 1, v14 + 4);
               v18 = HeadlessGlobals;
-              v19 = *(void **)(v9 + 8);
-              *(_QWORD *)(v9 + 8) = v17;
+              v19 = (unsigned __int8 *)v9[1];
+              v9[1] = v17;
               if ( (v18[6] & 2) == 0 )
                 goto LABEL_40;
             }
@@ -94,24 +94,24 @@ __int64 __fastcall HdlspSetBlueScreenInformation(unsigned int *a1, __int64 a2)
             }
             return v5;
           }
-          v20 = *(_QWORD *)(v9 + 16);
+          v20 = (KSPIN_LOCK)v9[2];
           *(_QWORD *)(v8 + 16) = v20;
-          if ( v2[5] == v9 )
+          if ( (char **)v2[5] == v9 )
             v2[5] = v20;
           if ( (v2[6] & 2) != 0 )
             return v5;
-          ExFreePoolWithTag(*(PVOID *)(v9 + 8), 0);
-          v21 = *(unsigned __int8 **)v9;
+          ExFreePoolWithTag(v9[1], 0);
+          v21 = *v9;
         }
         else
         {
           if ( !v15 )
             return (unsigned int)-1073741811;
-          v9 = ExAllocatePool2(64LL, 0x18uLL, 0x736C6448u);
+          v9 = (char **)ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x736C6448u);
           if ( !v9 )
             return v5;
-          v22 = (char *)ExAllocatePool2(64LL, v15 + 1, 0x736C6448u);
-          *(_QWORD *)(v9 + 8) = v22;
+          v22 = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v15 + 1, 0x736C6448u);
+          v9[1] = v22;
           if ( !v22 )
           {
             v5 = -1073741801;
@@ -123,14 +123,14 @@ __int64 __fastcall HdlspSetBlueScreenInformation(unsigned int *a1, __int64 a2)
           while ( *((_BYTE *)a1 + v13 + 4) );
           if ( v13 )
           {
-            v23 = (char *)ExAllocatePool2(64LL, v13 + 1, 0x736C6448u);
-            *(_QWORD *)v9 = v23;
+            v23 = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v13 + 1, 0x736C6448u);
+            *v9 = v23;
             if ( v23 )
             {
               strcpy_s(v23, v13 + 1, (const char *)a1 + 4);
               v24 = HeadlessGlobals;
-              *(_QWORD *)(v9 + 16) = HeadlessGlobals[5];
-              v24[5] = v9;
+              v9[2] = (char *)HeadlessGlobals[5];
+              v24[5] = (KSPIN_LOCK)v9;
               return v5;
             }
             v5 = -1073741801;
@@ -139,11 +139,11 @@ __int64 __fastcall HdlspSetBlueScreenInformation(unsigned int *a1, __int64 a2)
           {
             v5 = -1073741811;
           }
-          v21 = *(unsigned __int8 **)(v9 + 8);
+          v21 = v9[1];
         }
         ExFreePoolWithTag(v21, 0);
 LABEL_39:
-        v19 = (void *)v9;
+        v19 = (unsigned __int8 *)v9;
 LABEL_40:
         ExFreePoolWithTag(v19, 0);
         return v5;

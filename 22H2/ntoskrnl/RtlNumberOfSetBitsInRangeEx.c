@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlNumberOfSetBitsInRangeEx @ 0x1405A9020
+ * XREFs of RtlNumberOfSetBitsInRangeEx @ 0x140588210
  * Callers:
  *     <none>
  * Callees:
@@ -8,12 +8,12 @@
 
 __int64 __fastcall RtlNumberOfSetBitsInRangeEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)
 {
-  __int64 v4; // r10
+  __int64 v4; // r9
   unsigned __int64 v5; // r8
   unsigned __int64 v6; // r11
   __int64 v7; // rdi
   int v8; // esi
-  char *v9; // r9
+  char *v9; // r10
   unsigned __int64 v11; // rbx
   unsigned __int64 v12; // rcx
   char v13; // dl
@@ -39,14 +39,14 @@ __int64 __fastcall RtlNumberOfSetBitsInRangeEx(unsigned __int64 *a1, unsigned __
   v9 = (char *)((a2 >> 3) + a1[1]);
   if ( a2 >> 3 == v6 )
     return *((unsigned __int8 *)RtlpBitsClearTotal
-           + (unsigned __int8)~(*v9 & byte_140016E48[v7] & byte_140018F40[v8 + 1]));
+           + (unsigned __int8)~(*v9 & byte_14001B528[v7] & byte_14001E790[v8 + 1]));
   if ( (((unsigned __int8)a3 | (unsigned __int8)a2) & 0x3F) != 0 )
   {
     if ( (a2 & 7) != 0 )
     {
       v13 = *v9++;
       ++v5;
-      v4 = *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~(v13 & byte_140016E48[v7]));
+      v4 = *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~(v13 & byte_14001B528[v7]));
     }
     v14 = 8 - (v5 & 7);
     if ( (v14 & 0xFFFFFFFFFFFFFFF7uLL) != 0 )
@@ -87,23 +87,26 @@ __int64 __fastcall RtlNumberOfSetBitsInRangeEx(unsigned __int64 *a1, unsigned __
       }
       while ( v19 );
     }
-    return v4 + *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~(*v9 & byte_140018F40[v8 + 1]));
+    return v4 + *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~(*v9 & byte_14001E790[v8 + 1]));
   }
   else
   {
-    v11 = ((a3 - 1) >> 6) + 1;
-    do
+    if ( a3 )
     {
-      v12 = *(_QWORD *)v9;
-      v9 += 8;
-      v4 += (0x101010101010101LL
-           * ((((v12 - ((v12 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-             + (((v12 - ((v12 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
-             + ((((v12 - ((v12 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-               + (((v12 - ((v12 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
-      --v11;
+      v11 = ((a3 - 1) >> 6) + 1;
+      do
+      {
+        v12 = *(_QWORD *)v9;
+        v9 += 8;
+        v4 += (0x101010101010101LL
+             * ((((v12 - ((v12 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+               + (((v12 - ((v12 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
+               + ((((v12 - ((v12 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+                 + (((v12 - ((v12 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
+        --v11;
+      }
+      while ( v11 );
     }
-    while ( v11 );
     return v4;
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KseDsCompletionHookForStartDevice @ 0x14057DF40
+ * XREFs of KseDsCompletionHookForStartDevice @ 0x1405276F0
  * Callers:
  *     <none>
  * Callees:
- *     KsepDsEventPnpStartDevice @ 0x14057EB28 (KsepDsEventPnpStartDevice.c)
+ *     KsepDsEventPnpStartDevice @ 0x1405282D8 (KsepDsEventPnpStartDevice.c)
  */
 
 __int64 __fastcall KseDsCompletionHookForStartDevice(__int64 a1, __int64 a2)

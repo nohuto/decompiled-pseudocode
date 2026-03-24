@@ -1,5 +1,5 @@
 /*
- * XREFs of PopBatteryDeviceState @ 0x14086CE08
+ * XREFs of PopBatteryDeviceState @ 0x14086CDE8
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
@@ -75,8 +75,8 @@ LABEL_10:
       v11 = KeGetCurrentThread();
       --v11->KernelApcDisable;
       ExAcquirePushLockSharedEx((ULONG_PTR)&PopCB, 0LL);
-      v12 = qword_140417840;
-      if ( (__int64 *)qword_140417840 == &qword_140417840 )
+      v12 = qword_140417920;
+      if ( (__int64 *)qword_140417920 == &qword_140417920 )
         goto LABEL_23;
       do
       {
@@ -91,7 +91,7 @@ LABEL_10:
         v12 = *(_QWORD *)v12;
         v14 = 0LL;
       }
-      while ( (__int64 *)v12 != &qword_140417840 );
+      while ( (__int64 *)v12 != &qword_140417920 );
       if ( !v14 )
       {
 LABEL_23:

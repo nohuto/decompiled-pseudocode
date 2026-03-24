@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTracePolicyInitiatePowerActionApiCall @ 0x1409908CC
+ * XREFs of PopDiagTracePolicyInitiatePowerActionApiCall @ 0x140775950
  * Callers:
- *     NtInitiatePowerAction @ 0x14098B410 (NtInitiatePowerAction.c)
+ *     NtInitiatePowerAction @ 0x140775A10 (NtInitiatePowerAction.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14020BB20 (PsGetCurrentThreadProcess.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     PsGetCurrentThreadProcess @ 0x140316F60 (PsGetCurrentThreadProcess.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int16 __fastcall PopDiagTracePolicyInitiatePowerActionApiCall(int a1, int a2)
@@ -27,7 +27,7 @@ __int16 __fastcall PopDiagTracePolicyInitiatePowerActionApiCall(int a1, int a2)
 
   v15 = a2;
   v14 = a1;
-  v2 = (unsigned __int16 *)PsGetCurrentThreadProcess()[1].ActiveProcessors.StaticBitmap[2];
+  v2 = (unsigned __int16 *)PsGetCurrentThreadProcess()[1].ActiveProcessors.Bitmap[2];
   result = *v2 >> 1;
   v5 = result;
   if ( PopDiagHandleRegistered )

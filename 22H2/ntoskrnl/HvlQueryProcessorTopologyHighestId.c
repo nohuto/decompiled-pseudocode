@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlQueryProcessorTopologyHighestId @ 0x1405404E0
+ * XREFs of HvlQueryProcessorTopologyHighestId @ 0x1404F2160
  * Callers:
  *     <none>
  * Callees:
@@ -11,8 +11,8 @@ __int64 __fastcall HvlQueryProcessorTopologyHighestId(_DWORD *a1, _DWORD *a2)
   if ( (HvlpFlags & 2) == 0 )
     return 3221225506LL;
   if ( a1 )
-    *a1 = dword_140D18E10;
+    *a1 = dword_140CF687C;
   if ( a2 )
-    *a2 = dword_140D18E14;
+    *a2 = dword_140CF6880;
   return 0LL;
 }

@@ -1,18 +1,20 @@
 /*
- * XREFs of ?ReleaseOpmI2CSync@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C022EA54
+ * XREFs of ?ReleaseOpmI2CSync@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C01729E4
  * Callers:
- *     DxgkReleaseAdapterOpmI2CSync @ 0x1C022EC6E (DxgkReleaseAdapterOpmI2CSync.c)
+ *     DxgkReleaseAdapterOpmI2CSync @ 0x1C01729AC (DxgkReleaseAdapterOpmI2CSync.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
  */
 
-void __fastcall ADAPTER_DISPLAY::ReleaseOpmI2CSync(struct _KTHREAD **this)
+void __fastcall ADAPTER_DISPLAY::ReleaseOpmI2CSync(struct _KTHREAD **this, __int64 a2)
 {
-  if ( this[49] != KeGetCurrentThread() )
+  __int64 v3; // rax
+
+  if ( this[42] != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 4025LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_OpmI2CMutex.IsOwner()", 4025LL, 0LL, 0LL, 0LL, 0LL);
+    v3 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v3 + 24) = 3830LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  DXGFASTMUTEX::Release(this + 46);
+  DXGFASTMUTEX::Release(this + 40, a2);
 }

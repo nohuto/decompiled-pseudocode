@@ -1,75 +1,67 @@
 /*
- * XREFs of HalpMmAllocCtxAlloc @ 0x1403B1F04
+ * XREFs of HalpMmAllocCtxAlloc @ 0x14037CA48
  * Callers:
- *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403B58F0 (HalDmaAllocateCrashDumpRegistersEx.c)
- *     HalpTscReserveResources @ 0x1403BAB70 (HalpTscReserveResources.c)
- *     HalpTimerInitSystem @ 0x1403BB0A0 (HalpTimerInitSystem.c)
- *     HalpIommuAllocateDmaDomain @ 0x1403BB820 (HalpIommuAllocateDmaDomain.c)
- *     HalpAcpiAllocateMemory @ 0x1403BF088 (HalpAcpiAllocateMemory.c)
- *     HalpIommuGetDeviceId @ 0x1403CD2D0 (HalpIommuGetDeviceId.c)
- *     HalpDmaAllocateDomain @ 0x1403CD570 (HalpDmaAllocateDomain.c)
- *     HalpIommuCloneDeviceId @ 0x1403CD7E0 (HalpIommuCloneDeviceId.c)
- *     ExtEnvAllocateMemory @ 0x1403CE24C (ExtEnvAllocateMemory.c)
- *     HalpDmaInitializeControllers @ 0x1403CE2B4 (HalpDmaInitializeControllers.c)
- *     HalInitializeBios @ 0x1403D0150 (HalInitializeBios.c)
- *     HalpHvInitMcaPcrContext @ 0x1403D2700 (HalpHvInitMcaPcrContext.c)
- *     HalpCmciInitializeErrorPacket @ 0x1403D2750 (HalpCmciInitializeErrorPacket.c)
- *     IommupGetSystemContext @ 0x1403DB0A0 (IommupGetSystemContext.c)
- *     HalpDmaAllocateMapRegisters @ 0x140456F16 (HalpDmaAllocateMapRegisters.c)
- *     HalpInterruptSetLineSpecificOverride @ 0x140509344 (HalpInterruptSetLineSpecificOverride.c)
- *     HalpAllocatePmcCounterSetEx @ 0x14050ADB0 (HalpAllocatePmcCounterSetEx.c)
- *     HalpHvInitMcaStatusMsrCache @ 0x14050E490 (HalpHvInitMcaStatusMsrCache.c)
- *     HalpAllocateCommonBufferVectorInternal @ 0x140511BD0 (HalpAllocateCommonBufferVectorInternal.c)
- *     HalpDmaAllocateNewTranslationBuffer @ 0x140512EF0 (HalpDmaAllocateNewTranslationBuffer.c)
- *     HalpDmaGetReservedRegionsForHybridPassthroughDomain @ 0x140514F70 (HalpDmaGetReservedRegionsForHybridPassthroughDomain.c)
- *     HalpDmaGetReservedRegionsForTranslateDomain @ 0x140515200 (HalpDmaGetReservedRegionsForTranslateDomain.c)
- *     HalpIommuCreateIncreaseAliasTrack @ 0x14051A670 (HalpIommuCreateIncreaseAliasTrack.c)
- *     HalpIommuGetHardwareDomain @ 0x14051B094 (HalpIommuGetHardwareDomain.c)
- *     HalpIommuTraceFault @ 0x14051B8BC (HalpIommuTraceFault.c)
- *     HalpNumaAddRangeProximity @ 0x14051E390 (HalpNumaAddRangeProximity.c)
- *     EmonAddProfileSource @ 0x14051FB70 (EmonAddProfileSource.c)
- *     EmonAllocateResources @ 0x14051FFF8 (EmonAllocateResources.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x140522410 (ExtEnvAllocatePhysicalMemory.c)
- *     HalpRegisterUsbController @ 0x1405243A8 (HalpRegisterUsbController.c)
- *     IommuCreateAtsDevice @ 0x1405251A0 (IommuCreateAtsDevice.c)
- *     IommuEnableDevicePasid @ 0x140525930 (IommuEnableDevicePasid.c)
- *     IommuGetLibraryContext @ 0x1405263E0 (IommuGetLibraryContext.c)
- *     IommuMapDevice @ 0x1405264A0 (IommuMapDevice.c)
- *     IommuDomainAttachDevice @ 0x140527CF0 (IommuDomainAttachDevice.c)
- *     IommuDomainAttachDeviceEx @ 0x140527F70 (IommuDomainAttachDeviceEx.c)
- *     IommuRegisterInterfaceStateChangeCallback @ 0x140528900 (IommuRegisterInterfaceStateChangeCallback.c)
- *     IommuReserveLogicalAddressRange @ 0x140528B30 (IommuReserveLogicalAddressRange.c)
- *     HalpIommuAllocateAndZeroPageTable @ 0x140529428 (HalpIommuAllocateAndZeroPageTable.c)
- *     HalpIommuCreateDmarPageTable @ 0x140529654 (HalpIommuCreateDmarPageTable.c)
- *     Amd64AddProfileSource @ 0x14052AF40 (Amd64AddProfileSource.c)
- *     Amd64InitializeUncoreStatus @ 0x14052C0C8 (Amd64InitializeUncoreStatus.c)
- *     HalpBuddyAllocatorCreateAllocator @ 0x1405346EC (HalpBuddyAllocatorCreateAllocator.c)
- *     HalpBuddyAllocatorSplitNode @ 0x140534CBC (HalpBuddyAllocatorSplitNode.c)
- *     HalpIommuCreateDevice @ 0x140846E20 (HalpIommuCreateDevice.c)
- *     HalpDmaAllocateLocalContiguousPool @ 0x140908F2C (HalpDmaAllocateLocalContiguousPool.c)
- *     HalpDmaAllocateLocalScatterPool @ 0x140909214 (HalpDmaAllocateLocalScatterPool.c)
- *     HalpBuildResumeStructures @ 0x140A522B8 (HalpBuildResumeStructures.c)
- *     HalpMapNvsArea @ 0x140A52CF4 (HalpMapNvsArea.c)
- *     HalpMapCR3Ex @ 0x140A54D70 (HalpMapCR3Ex.c)
- *     HalpInitMemoryCachingRequirementsTable @ 0x140A55C3C (HalpInitMemoryCachingRequirementsTable.c)
- *     HalpMceInitializeErrorPacket @ 0x140A5A98C (HalpMceInitializeErrorPacket.c)
- *     HalpMcaInitializePcrContext @ 0x140A5B2F8 (HalpMcaInitializePcrContext.c)
- *     HalpAcpiDetectPiix4 @ 0x140AF8A58 (HalpAcpiDetectPiix4.c)
- *     HalpAcpiPopulateTableCache @ 0x140AF8B84 (HalpAcpiPopulateTableCache.c)
- *     HalpDmaInitializeMasterAdapter @ 0x140B1D9DC (HalpDmaInitializeMasterAdapter.c)
- *     HalpDmaAllocateTranslationBuffer @ 0x140B1DB14 (HalpDmaAllocateTranslationBuffer.c)
- *     HalpDmaInitializeDomain @ 0x140B1DB9C (HalpDmaInitializeDomain.c)
- *     HalpDmaAllocateMappingResources @ 0x140B1DD34 (HalpDmaAllocateMappingResources.c)
- *     HalpDmaAllocateReservedMapping @ 0x140B1DE58 (HalpDmaAllocateReservedMapping.c)
- *     HalpDmaAllocateEmergencyResources @ 0x140B1DEB4 (HalpDmaAllocateEmergencyResources.c)
- *     HalpDmaAllocateReservedMappingArray @ 0x140B4BE3C (HalpDmaAllocateReservedMappingArray.c)
+ *     HalpIommuGetDeviceId @ 0x140379A34 (HalpIommuGetDeviceId.c)
+ *     HalpTimerInitSystem @ 0x1403A85B0 (HalpTimerInitSystem.c)
+ *     HalpIommuAllocateDmaDomain @ 0x1403AC688 (HalpIommuAllocateDmaDomain.c)
+ *     HalpAcpiAllocateMemory @ 0x1403BB808 (HalpAcpiAllocateMemory.c)
+ *     HalpPteReserveResources @ 0x1403BBBE0 (HalpPteReserveResources.c)
+ *     HalpLaAddReservation @ 0x1403BC108 (HalpLaAddReservation.c)
+ *     HalpDmaInitializeControllers @ 0x1403BC1A4 (HalpDmaInitializeControllers.c)
+ *     HalInitializeBios @ 0x1403C4AB0 (HalInitializeBios.c)
+ *     HalpHvInitMcaPcrContext @ 0x1403C54F0 (HalpHvInitMcaPcrContext.c)
+ *     HalpDmaAllocateDomain @ 0x1403C71E8 (HalpDmaAllocateDomain.c)
+ *     IommupGetSystemContext @ 0x1403CC014 (IommupGetSystemContext.c)
+ *     HalpTscReserveResources @ 0x1403CD028 (HalpTscReserveResources.c)
+ *     HalpInterruptSetLineSpecificOverride @ 0x1403EFDC4 (HalpInterruptSetLineSpecificOverride.c)
+ *     HalpIommuCloneDeviceId @ 0x1403EFF58 (HalpIommuCloneDeviceId.c)
+ *     HalpIommuCreateIncreaseAliasTrack @ 0x1403F0080 (HalpIommuCreateIncreaseAliasTrack.c)
+ *     HalpAllocatePmcCounterSet @ 0x1404BE870 (HalpAllocatePmcCounterSet.c)
+ *     HalpHvInitMcaStatusMsrCache @ 0x1404C2090 (HalpHvInitMcaStatusMsrCache.c)
+ *     HalAllocateCommonBufferVector @ 0x1404C5700 (HalAllocateCommonBufferVector.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C68FC (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaAllocateNewTranslationBuffer @ 0x1404C6FD8 (HalpDmaAllocateNewTranslationBuffer.c)
+ *     HalpIommuGetHardwareDomain @ 0x1404C95F4 (HalpIommuGetHardwareDomain.c)
+ *     HalpIommuTraceFault @ 0x1404C9D3C (HalpIommuTraceFault.c)
+ *     HalpNumaAddRangeProximity @ 0x1404D1C60 (HalpNumaAddRangeProximity.c)
+ *     EmonAddProfileSource @ 0x1404D2DC0 (EmonAddProfileSource.c)
+ *     EmonAllocateResources @ 0x1404D31B8 (EmonAllocateResources.c)
+ *     ExtEnvAllocateMemory @ 0x1404D50F0 (ExtEnvAllocateMemory.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x1404D5140 (ExtEnvAllocatePhysicalMemory.c)
+ *     HalpRegisterUsbController @ 0x1404D7298 (HalpRegisterUsbController.c)
+ *     IommuEnableDevicePasid @ 0x1404D82A0 (IommuEnableDevicePasid.c)
+ *     IommuGetLibraryContext @ 0x1404D8DD0 (IommuGetLibraryContext.c)
+ *     IommuMapDevice @ 0x1404D8E90 (IommuMapDevice.c)
+ *     IommuDomainAttachDevice @ 0x1404DA3E0 (IommuDomainAttachDevice.c)
+ *     HalpLaInitializeState @ 0x1404DB200 (HalpLaInitializeState.c)
+ *     HalpLapSplitNode @ 0x1404DB6AC (HalpLapSplitNode.c)
+ *     HalpIommuAllocateAndZeroPageTable @ 0x1404DB798 (HalpIommuAllocateAndZeroPageTable.c)
+ *     HalpIommuCreateDmarPageTable @ 0x1404DB9BC (HalpIommuCreateDmarPageTable.c)
+ *     Amd64AddProfileSource @ 0x1404DD4C0 (Amd64AddProfileSource.c)
+ *     HalpIommuCreateDevice @ 0x1408649C4 (HalpIommuCreateDevice.c)
+ *     HalpDmaAllocateLocalContiguousPool @ 0x140864D90 (HalpDmaAllocateLocalContiguousPool.c)
+ *     HalpDmaAllocateLocalScatterPool @ 0x140865078 (HalpDmaAllocateLocalScatterPool.c)
+ *     HalpBuildResumeStructures @ 0x14099835C (HalpBuildResumeStructures.c)
+ *     HalpMapNvsArea @ 0x140998E28 (HalpMapNvsArea.c)
+ *     HalpMapCR3Ex @ 0x14099A2A0 (HalpMapCR3Ex.c)
+ *     HalpMcaInitializePcrContext @ 0x1409A023C (HalpMcaInitializePcrContext.c)
+ *     HalpInitMemoryCachingRequirementsTable @ 0x1409A0AAC (HalpInitMemoryCachingRequirementsTable.c)
+ *     HalpMceInitializeErrorPacket @ 0x1409A10E0 (HalpMceInitializeErrorPacket.c)
+ *     HalpCmciInitializeErrorPacket @ 0x1409A136C (HalpCmciInitializeErrorPacket.c)
+ *     HalpAcpiPopulateTableCache @ 0x140A6597C (HalpAcpiPopulateTableCache.c)
+ *     HalpDmaInitializeMasterAdapter @ 0x140A65B2C (HalpDmaInitializeMasterAdapter.c)
+ *     HalpDmaAllocateTranslationBuffer @ 0x140A65C64 (HalpDmaAllocateTranslationBuffer.c)
+ *     HalpDmaAllocateMappingResources @ 0x140A65DA8 (HalpDmaAllocateMappingResources.c)
+ *     HalpDmaAllocateReservedMapping @ 0x140A65ECC (HalpDmaAllocateReservedMapping.c)
+ *     HalpDmaAllocateEmergencyResources @ 0x140A65F28 (HalpDmaAllocateEmergencyResources.c)
+ *     HalpDmaAllocateReservedMappingArray @ 0x140A8C8F4 (HalpDmaAllocateReservedMappingArray.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlSetBits @ 0x1402E4C80 (RtlSetBits.c)
- *     HalpMmAllocCtxAllocBuffer @ 0x1403B2460 (HalpMmAllocCtxAllocBuffer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
+ *     HalpMmAllocCtxAllocBuffer @ 0x1403A4C5C (HalpMmAllocCtxAllocBuffer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpMmAllocCtxAlloc(__int64 a1, __int64 a2)
@@ -142,7 +134,7 @@ __int64 __fastcall HalpMmAllocCtxAlloc(__int64 a1, __int64 a2)
 
   v2 = 0LL;
   if ( !a2 )
-    KeBugCheckEx(0xACu, 0LL, 0xA0A0uLL, (ULONG_PTR)"minkernel\\hals\\lib\\mm\\memory.c", 0xBD8uLL);
+    KeBugCheckEx(0xACu, 0LL, 0xA0A0uLL, (ULONG_PTR)"minkernel\\hals\\lib\\mm\\memory.c", 0xC04uLL);
   v3 = (a2 + 15) & 0xFFFFFFFFFFFFFFF0uLL;
   v4 = v3 + 16;
   if ( v3 >= 0x1000 )
@@ -154,12 +146,12 @@ __int64 __fastcall HalpMmAllocCtxAlloc(__int64 a1, __int64 a2)
     v7 = (__int64 *)HalpMmAllocCtxAllocBuffer(4096LL, v4);
     if ( !v7 )
       return v2;
-LABEL_36:
+LABEL_30:
     v29 = 0LL;
-    LOBYTE(v8) = KeAcquireSpinLockRaiseToDpc(&qword_140C4DD50);
+    LOBYTE(v8) = KeAcquireSpinLockRaiseToDpc(&qword_140C4AFF0);
     goto LABEL_22;
   }
-  v6 = KeAcquireSpinLockRaiseToDpc(&qword_140C4DD50);
+  v6 = KeAcquireSpinLockRaiseToDpc(&qword_140C4AFF0);
   v7 = (__int64 *)HalpNPPoolAllocCtx;
   v8 = v6;
   while ( 2 )
@@ -188,7 +180,7 @@ LABEL_36:
         if ( v13 - v12 + 1 >= (unsigned int)v5 )
           break;
         v27 = -1;
-LABEL_31:
+LABEL_34:
         if ( !v12 )
           goto LABEL_20;
         v11 = v7[5];
@@ -213,7 +205,7 @@ LABEL_31:
           if ( *++v19 )
           {
             v43 = v67;
-            goto LABEL_69;
+            goto LABEL_66;
           }
           v36 = !_BitScanReverse64((unsigned __int64 *)&v41, v20);
           if ( v36 )
@@ -229,34 +221,34 @@ LABEL_31:
 LABEL_62:
         v27 = ((unsigned int)(((__int64)v19 - v18) >> 3) << 6) - v42;
         if ( v27 > v43 )
-          goto LABEL_29;
+          goto LABEL_32;
         v44 = &v19[(unsigned int)(v5 - v42) >> 6];
         while ( ++v19 != v44 )
         {
           if ( *v19 )
-            goto LABEL_69;
+            goto LABEL_66;
         }
         if ( (((_BYTE)v5 - (_BYTE)v42) & 0x3F) != 0 )
         {
-          v36 = !_BitScanForward64((unsigned __int64 *)&v45, *v19);
+          v36 = !_BitScanForward64((unsigned __int64 *)&v46, *v19);
           if ( v36 )
-            LODWORD(v45) = 64;
-          if ( (unsigned int)v45 < (((_BYTE)v5 - (_BYTE)v42) & 0x3Fu) )
+            LODWORD(v46) = 64;
+          if ( (unsigned int)v46 < (((_BYTE)v5 - (_BYTE)v42) & 0x3Fu) )
           {
-LABEL_69:
+LABEL_66:
             while ( (unsigned __int64)v19 <= v40 )
             {
               if ( !*++v19 )
               {
-                v36 = !_BitScanReverse64((unsigned __int64 *)&v46, *(v19 - 1));
+                v36 = !_BitScanReverse64((unsigned __int64 *)&v45, *(v19 - 1));
                 if ( v36 )
                   v42 = 64;
                 else
-                  v42 = 63 - v46;
+                  v42 = 63 - v45;
                 goto LABEL_62;
               }
             }
-            goto LABEL_29;
+            goto LABEL_32;
           }
         }
       }
@@ -299,7 +291,7 @@ LABEL_87:
                 }
               }
               if ( v19 == v48 )
-                goto LABEL_29;
+                goto LABEL_32;
               v36 = !_BitScanReverse64((unsigned __int64 *)&v54, v20);
               if ( v36 )
                 v47 = 64;
@@ -322,7 +314,7 @@ LABEL_87:
             while ( v20 == -1 )
             {
               if ( (unsigned __int64)++v19 > v22 )
-                goto LABEL_29;
+                goto LABEL_32;
               v20 = *v19;
             }
             _BitScanForward64(&v24, ~v20);
@@ -333,13 +325,13 @@ LABEL_17:
             if ( v26 )
               goto LABEL_18;
           }
-LABEL_29:
+LABEL_32:
           v27 = -1;
-LABEL_30:
+LABEL_33:
           v10 = *((_DWORD *)v7 + 6);
           v14 = v64;
           v9 = *((_DWORD *)v7 + 8);
-          goto LABEL_31;
+          goto LABEL_34;
         }
         do
         {
@@ -350,7 +342,7 @@ LABEL_41:
             if ( v35 )
             {
               if ( (unsigned __int64)++v19 > v22 )
-                goto LABEL_29;
+                goto LABEL_32;
               v20 = *v19;
               goto LABEL_41;
             }
@@ -359,7 +351,7 @@ LABEL_41:
               v23 = 63 - v37;
             v27 = (((unsigned int)(((__int64)v19 - v18) >> 3) + 1) << 6) - v23;
             if ( v27 > v67 )
-              goto LABEL_29;
+              goto LABEL_32;
             v38 = v5 - v23;
             if ( (_DWORD)v5 == v23 )
               goto LABEL_18;
@@ -410,7 +402,7 @@ LABEL_22:
           v7[1] = (__int64)&HalpNPPoolAllocCtx;
           *(_QWORD *)(v32 + 8) = v7;
           HalpNPPoolAllocCtx = (__int64)v7;
-          KxReleaseSpinLock(&qword_140C4DD50);
+          KxReleaseSpinLock(&qword_140C4AFF0);
           if ( KiIrqlFlags )
           {
             if ( (KiIrqlFlags & 1) != 0 )
@@ -445,11 +437,11 @@ LABEL_22:
         v7 = (__int64 *)*v7;
         continue;
       }
-      goto LABEL_30;
+      goto LABEL_33;
     }
     break;
   }
-  KxReleaseSpinLock(&qword_140C4DD50);
+  KxReleaseSpinLock(&qword_140C4AFF0);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
@@ -471,6 +463,6 @@ LABEL_22:
   __writecr8(v8);
   v7 = (__int64 *)HalpMmAllocCtxAllocBuffer(v55, 0x4000LL);
   if ( v7 )
-    goto LABEL_36;
+    goto LABEL_30;
   return v2;
 }

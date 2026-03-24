@@ -1,17 +1,17 @@
 /*
- * XREFs of ?EmitSetCompositorComment@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0022964
+ * XREFs of ?EmitSetCompositorComment@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0066AA4
  * Callers:
- *     ?EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0022A90 (-EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@.c)
+ *     ?EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00669D0 (-EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@.c)
  * Callees:
- *     ?StringCchLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C0024F6C (-StringCchLengthW@@YAJPEBG_KPEA_K@Z.c)
- *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C00264AC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C005C9DC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?StringCchLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C00670F8 (-StringCchLengthW@@YAJPEBG_KPEA_K@Z.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 char __fastcall DirectComposition::CAnimationLoggingManagerMarshaler::EmitSetCompositorComment(
         DirectComposition::CAnimationLoggingManagerMarshaler *this,
-        struct DirectComposition::CBatch **a2)
+        struct DirectComposition::CBatch ***a2)
 {
   char v2; // bl
   const unsigned __int16 *v5; // rcx
@@ -38,7 +38,7 @@ char __fastcall DirectComposition::CAnimationLoggingManagerMarshaler::EmitSetCom
       v7 += 4 - ((2 * (_BYTE)v6) & 3);
     v8 = v7 + 16;
     v9 = (unsigned int)(v7 + 16);
-    v12 = (void *)(4096LL - *(_QWORD *)(*((_QWORD *)*a2 + 17) + 40LL));
+    v12 = (void *)(4096LL - *((_QWORD *)(*a2)[17] + 5));
     if ( (unsigned __int64)v12 >= v9
       || DirectComposition::CBatch::AllocateNewFragment(a2, (unsigned __int64 *)&v12) && (unsigned __int64)v12 >= v9 )
     {
@@ -48,8 +48,8 @@ char __fastcall DirectComposition::CAnimationLoggingManagerMarshaler::EmitSetCom
       *(_DWORD *)v12 = v8;
       *(_QWORD *)(v10 + 4) = 0LL;
       *((_DWORD *)v10 + 3) = 0;
-      *((_DWORD *)v10 + 1) = 15;
-      *((_DWORD *)v10 + 2) = *((_DWORD *)this + 8);
+      *((_DWORD *)v10 + 1) = 16;
+      *((_DWORD *)v10 + 2) = *((_DWORD *)this + 6);
       *((_DWORD *)v10 + 3) = (_DWORD)v6;
       memmove(v10 + 16, *((const void **)this + 31), 2LL * (_QWORD)v6);
       *((_BYTE *)this + 256) &= ~1u;

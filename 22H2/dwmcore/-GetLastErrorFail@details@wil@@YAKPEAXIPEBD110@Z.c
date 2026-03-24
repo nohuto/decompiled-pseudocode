@@ -1,12 +1,11 @@
 /*
- * XREFs of ?GetLastErrorFail@details@wil@@YAKPEAXIPEBD110@Z @ 0x180198BF0
+ * XREFs of ?GetLastErrorFail@details@wil@@YAKPEAXIPEBD110@Z @ 0x18014D3D8
  * Callers:
- *     ??$ReportFailure_GetLastError@$02@details@wil@@YAKPEAXIPEBD110@Z @ 0x180197538 (--$ReportFailure_GetLastError@$02@details@wil@@YAKPEAXIPEBD110@Z.c)
- *     ??$ReportFailure_GetLastErrorHr@$00@details@wil@@YAJPEAXIPEBD110@Z @ 0x1801975C4 (--$ReportFailure_GetLastErrorHr@$00@details@wil@@YAJPEAXIPEBD110@Z.c)
- *     ?GetLastErrorFailHr@details@wil@@YAJXZ @ 0x180198C5C (-GetLastErrorFailHr@details@wil@@YAJXZ.c)
- *     ??$ReportFailure_GetLastError@$01@details@wil@@YAKPEAXIPEBD110@Z @ 0x18020213C (--$ReportFailure_GetLastError@$01@details@wil@@YAKPEAXIPEBD110@Z.c)
+ *     ?GetLastErrorFailHr@details@wil@@YAJXZ @ 0x18014D44C (-GetLastErrorFailHr@details@wil@@YAJXZ.c)
+ *     ?ReportFailure_GetLastError@details@wil@@YAKPEAXIPEBD110W4FailureType@2@@Z @ 0x18014E1E4 (-ReportFailure_GetLastError@details@wil@@YAKPEAXIPEBD110W4FailureType@2@@Z.c)
+ *     ?ReportFailure_GetLastErrorHr@details@wil@@YAJPEAXIPEBD110W4FailureType@2@@Z @ 0x18014E284 (-ReportFailure_GetLastErrorHr@details@wil@@YAJPEAXIPEBD110W4FailureType@2@@Z.c)
  * Callees:
- *     ??$ReportFailure_Hr@$01@details@wil@@YAXPEAXIPEBD110J@Z @ 0x180197670 (--$ReportFailure_Hr@$01@details@wil@@YAXPEAXIPEBD110J@Z.c)
+ *     ?ReportFailure_Hr@details@wil@@YAXPEAXIPEBD110W4FailureType@2@J@Z @ 0x18014E318 (-ReportFailure_Hr@details@wil@@YAXPEAXIPEBD110W4FailureType@2@J@Z.c)
  */
 
 DWORD __fastcall wil::details::GetLastErrorFail(
@@ -19,14 +18,12 @@ DWORD __fastcall wil::details::GetLastErrorFail(
 {
   unsigned int v7; // edi
   DWORD result; // eax
-  wil::details *v10; // [rsp+30h] [rbp-18h]
 
   v7 = (unsigned int)a2;
   result = GetLastError();
   if ( !result )
   {
-    LODWORD(v10) = -2147024228;
-    wil::details::ReportFailure_Hr<2>((__int64)this, v7, a3, 0LL, 0LL, (__int64)a6, v10);
+    wil::details::ReportFailure_Hr(this, v7, a3, 0LL, 0LL, a6, 2, -2147024228);
     return 668;
   }
   return result;

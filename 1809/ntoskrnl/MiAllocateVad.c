@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAllocateVad @ 0x14067A2E4
+ * XREFs of MiAllocateVad @ 0x14067A2C4
  * Callers:
  *     MiFreeVadRange @ 0x140025674 (MiFreeVadRange.c)
- *     MiAllocateProcessVads @ 0x14067A23C (MiAllocateProcessVads.c)
- *     MiCreatePlaceholderStorage @ 0x14085C6D8 (MiCreatePlaceholderStorage.c)
+ *     MiAllocateProcessVads @ 0x14067A21C (MiAllocateProcessVads.c)
+ *     MiCreatePlaceholderStorage @ 0x14085C6B8 (MiCreatePlaceholderStorage.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MiAddSecureEntry @ 0x1405F3490 (MiAddSecureEntry.c)

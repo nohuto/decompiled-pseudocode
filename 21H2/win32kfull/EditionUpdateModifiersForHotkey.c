@@ -1,5 +1,5 @@
 /*
- * XREFs of EditionUpdateModifiersForHotkey @ 0x1C010DA10
+ * XREFs of EditionUpdateModifiersForHotkey @ 0x1C01224C0
  * Callers:
  *     <none>
  * Callees:

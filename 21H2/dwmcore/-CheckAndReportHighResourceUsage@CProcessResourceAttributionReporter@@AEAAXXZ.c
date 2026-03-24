@@ -1,32 +1,40 @@
 /*
- * XREFs of ?CheckAndReportHighResourceUsage@CProcessResourceAttributionReporter@@AEAAXXZ @ 0x18007886C
+ * XREFs of ?CheckAndReportHighResourceUsage@CProcessResourceAttributionReporter@@AEAAXXZ @ 0x1800D3148
  * Callers:
- *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18007AFD4 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18006FCF0 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
  * Callees:
- *     ??_GHighResourceUsageReport@CProcessResourceAttributionReporter@@QEAAPEAXI@Z @ 0x1800245C0 (--_GHighResourceUsageReport@CProcessResourceAttributionReporter@@QEAAPEAXI@Z.c)
- *     ?ForEachChangedProcessAttribution@CProcessAttributionObserver@@QEAAXPEAXV?$function@$$A6AXPEAXK_KPEBGW4ProcessAttributionFlags@@AEBUProcessAttributionResourceCounters@@@Z@std@@@Z @ 0x180078A60 (-ForEachChangedProcessAttribution@CProcessAttributionObserver@@QEAAXPEAXV-$function@$$A6AXPEAXK_.c)
+ *     std::function_void___cdecl(void___unsigned_long_unsigned___int64_unsigned_short_const___enum_ProcessAttributionFlags_ProcessAttributionResourceCounters_const_&)_::function_void___cdecl(void___unsigned_long_unsigned___int64_unsigned_short_const___enum_ProcessAttributionFlags_ProcessAttributionResourceCounters_const_&)___lambda_d726b1e7ec95932be2432bf4c2269415__void_ @ 0x1800EA970 (std--function_void___cdecl(void___unsigned_long_unsigned___int64_unsigned_short_con_ea_1800EA970.c)
+ *     ??1?$unique_ptr@UHighResourceUsageReport@CProcessResourceAttributionReporter@@U?$default_delete@UHighResourceUsageReport@CProcessResourceAttributionReporter@@@std@@@std@@QEAA@XZ @ 0x1800EAB34 (--1-$unique_ptr@UHighResourceUsageReport@CProcessResourceAttributionReporter@@U-$default_delete@.c)
+ *     ??$?9UIDXGISwapChainDWM1@@Uerr_returncode_policy@wil@@@wil@@YA_NAEBV?$com_ptr_t@UIDXGISwapChainDWM1@@Uerr_returncode_policy@wil@@@0@$$T@Z @ 0x1800EAB54 (--$-9UIDXGISwapChainDWM1@@Uerr_returncode_policy@wil@@@wil@@YA_NAEBV-$com_ptr_t@UIDXGISwapChainD.c)
+ *     ?ForEachChangedProcessAttribution@CProcessAttributionObserver@@QEAAXPEAXV?$function@$$A6AXPEAXK_KPEBGW4ProcessAttributionFlags@@AEBUProcessAttributionResourceCounters@@@Z@std@@@Z @ 0x1800EB3C0 (-ForEachChangedProcessAttribution@CProcessAttributionObserver@@QEAAXPEAXV-$function@$$A6AXPEAXK_.c)
  */
 
-void __fastcall CProcessResourceAttributionReporter::CheckAndReportHighResourceUsage(union _SLIST_HEADER *this)
+void __fastcall CProcessResourceAttributionReporter::CheckAndReportHighResourceUsage(
+        union _SLIST_HEADER *this,
+        __int64 a2,
+        __int64 a3)
 {
-  ULONGLONG Region; // rcx
-  struct _TP_WORK *v4; // rcx
-  _QWORD v5[9]; // [rsp+20h] [rbp-48h] BYREF
+  ULONGLONG Region; // r9
+  __int64 v5; // rax
+  __int64 v6; // r9
+  struct _TP_WORK *v7; // rcx
+  _BYTE v8[72]; // [rsp+20h] [rbp-48h] BYREF
   PSLIST_ENTRY ListEntry; // [rsp+70h] [rbp+8h] BYREF
 
-  ListEntry = 0LL;
-  v5[0] = off_1802C1740;
-  v5[1] = &ListEntry;
   Region = this[3].Region;
-  v5[7] = v5;
-  CProcessAttributionObserver::ForEachChangedProcessAttribution(Region, this, v5);
-  if ( ListEntry )
+  ListEntry = 0LL;
+  v5 = std::function_void___cdecl_void___unsigned_long_unsigned___int64_unsigned_short_const___enum_ProcessAttributionFlags_ProcessAttributionResourceCounters_const____::function_void___cdecl_void___unsigned_long_unsigned___int64_unsigned_short_const___enum_ProcessAttributionFlags_ProcessAttributionResourceCounters_const______lambda_d726b1e7ec95932be2432bf4c2269415__void_(
+         v8,
+         &ListEntry,
+         a3,
+         Region);
+  CProcessAttributionObserver::ForEachChangedProcessAttribution(v6, this, v5);
+  if ( (unsigned __int8)wil::operator!=<IDXGISwapChainDWM1,wil::err_returncode_policy>(&ListEntry) )
   {
     InterlockedPushEntrySList(this + 1, ListEntry);
-    v4 = (struct _TP_WORK *)this->Region;
+    v7 = (struct _TP_WORK *)this->Region;
     ListEntry = 0LL;
-    SubmitThreadpoolWork(v4);
-    if ( ListEntry )
-      CProcessResourceAttributionReporter::HighResourceUsageReport::`scalar deleting destructor'((CProcessResourceAttributionReporter::HighResourceUsageReport *)ListEntry);
+    SubmitThreadpoolWork(v7);
   }
+  std::unique_ptr<CProcessResourceAttributionReporter::HighResourceUsageReport>::~unique_ptr<CProcessResourceAttributionReporter::HighResourceUsageReport>(&ListEntry);
 }

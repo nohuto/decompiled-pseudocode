@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0CD2DBitmapCache@@IEAA@XZ @ 0x180068108
+ * XREFs of ??0CD2DBitmapCache@@IEAA@XZ @ 0x180064274
  * Callers:
- *     ??0CWICBitmapRealization@@QEAA@XZ @ 0x1800665B0 (--0CWICBitmapRealization@@QEAA@XZ.c)
- *     ??0CRenderTargetBitmap@@IEAA@_N@Z @ 0x180067244 (--0CRenderTargetBitmap@@IEAA@_N@Z.c)
- *     ??0CBitmapRealization@@IEAA@W4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAVCDecodeBitmap@@_N@Z @ 0x180067EC8 (--0CBitmapRealization@@IEAA@W4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_.c)
- *     ??0CColorKeyBitmapRealization@@QEAA@XZ @ 0x1802A1A24 (--0CColorKeyBitmapRealization@@QEAA@XZ.c)
- *     ??0CDxHandleStereoBitmapRealization@@IEAA@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@@Z @ 0x1802A44F0 (--0CDxHandleStereoBitmapRealization@@IEAA@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION.c)
+ *     ??0CBitmapRealization@@IEAA@W4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAVCDecodeBitmap@@_N@Z @ 0x1800393AC (--0CBitmapRealization@@IEAA@W4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_.c)
+ *     ??0CWICBitmapRealization@@QEAA@XZ @ 0x18003D40C (--0CWICBitmapRealization@@QEAA@XZ.c)
+ *     ??0CRenderTargetBitmap@@IEAA@_N@Z @ 0x18006120C (--0CRenderTargetBitmap@@IEAA@_N@Z.c)
+ *     ??0CColorKeyBitmapRealization@@QEAA@XZ @ 0x1802624C0 (--0CColorKeyBitmapRealization@@QEAA@XZ.c)
+ *     ??0CDxHandleStereoBitmapRealization@@IEAA@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@@Z @ 0x180264AA4 (--0CDxHandleStereoBitmapRealization@@IEAA@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ CD2DBitmapCache *__fastcall CD2DBitmapCache::CD2DBitmapCache(CD2DBitmapCache *th
     v3 = (int *)*((_QWORD *)this + 2);
   }
   *((_DWORD *)this + 2) = 0;
-  *(_QWORD *)this = &CD2DBitmapCache::`vftable'{for `CMILCOMBaseT<IUnknown>'};
+  *(_QWORD *)this = &CD2DBitmapCache::`vftable'{for `CMILCOMBase'};
   *(_QWORD *)((char *)this + v3[1] + 16) = &CD2DBitmapCache::`vftable'{for `IDeviceResourceNotify'};
   v4 = *(int *)(*((_QWORD *)this + 2) + 4LL);
   result = this;

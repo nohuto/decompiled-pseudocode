@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpEventNameFilterSearch @ 0x1404615A6
+ * XREFs of EtwpEventNameFilterSearch @ 0x1405AC1EC
  * Callers:
- *     EtwpApplyEventNameFilter @ 0x140461038 (EtwpApplyEventNameFilter.c)
+ *     EtwpApplyEventNameFilter @ 0x1405ABB34 (EtwpApplyEventNameFilter.c)
  * Callees:
  *     <none>
  */
@@ -96,27 +96,28 @@ LABEL_20:
             * (BYTE4(v21)
              + 37 * (BYTE3(v21) + 37 * (BYTE2(v21) + 37 * (BYTE1(v21) + 37 * ((unsigned __int8)v18 + 11623883)))))))
           + HIBYTE(v21)) & ((v16 >> 5) - 1));
-    while ( 1 )
+    do
     {
       v19 = *(_QWORD *)v19;
       if ( (v19 & 1) != 0 )
-        break;
-      if ( v18 == (v17 & *(_QWORD *)(v19 + 8)) )
+        goto LABEL_29;
+    }
+    while ( v18 != (v17 & *(_QWORD *)(v19 + 8)) );
+LABEL_30:
+    while ( v19 )
+    {
+      if ( !strcmp(a1, *(const char **)(v19 + 16)) )
+        return 1;
+      while ( 1 )
       {
-LABEL_28:
-        if ( !v19 )
-          return 0;
-        if ( !strcmp(a1, *(const char **)(v19 + 16)) )
-          return 1;
-        while ( 1 )
-        {
-          v19 = *(_QWORD *)v19;
-          if ( (v19 & 1) != 0 )
-            return 0;
-          if ( (v6 & (-1LL << (v16 & 0x1F))) == ((-1LL << (v16 & 0x1F)) & *(_QWORD *)(v19 + 8)) )
-            goto LABEL_28;
-        }
+        v19 = *(_QWORD *)v19;
+        if ( (v19 & 1) != 0 )
+          break;
+        if ( (v6 & (-1LL << (v16 & 0x1F))) == ((-1LL << (v16 & 0x1F)) & *(_QWORD *)(v19 + 8)) )
+          goto LABEL_30;
       }
+LABEL_29:
+      v19 = 0LL;
     }
   }
   return 0;

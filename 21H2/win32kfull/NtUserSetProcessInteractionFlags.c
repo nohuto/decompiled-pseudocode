@@ -1,5 +1,5 @@
 /*
- * XREFs of NtUserSetProcessInteractionFlags @ 0x1C01FDE00
+ * XREFs of NtUserSetProcessInteractionFlags @ 0x1C0202890
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ __int64 __fastcall NtUserSetProcessInteractionFlags(char a1, char a2, char a3)
   _BYTE *CurrentProcessWin32Process; // rax
   __int64 v8; // rcx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   CurrentProcessWin32Process = (_BYTE *)PsGetCurrentProcessWin32Process(v6);
   CurrentProcessWin32Process[1033] = a1;
   CurrentProcessWin32Process[1032] = a2;

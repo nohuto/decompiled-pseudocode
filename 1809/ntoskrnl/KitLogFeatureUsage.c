@@ -1,14 +1,14 @@
 /*
- * XREFs of KitLogFeatureUsage @ 0x14031E700
+ * XREFs of KitLogFeatureUsage @ 0x14031E800
  * Callers:
  *     <none>
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     RtlPcToFileName @ 0x14018E870 (RtlPcToFileName.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlPcToFilePath @ 0x140899680 (RtlPcToFilePath.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     RtlPcToFileName @ 0x14018E890 (RtlPcToFileName.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlPcToFilePath @ 0x140899660 (RtlPcToFilePath.c)
  */
 
 NTSTATUS __fastcall KitLogFeatureUsage(ULONGLONG a1, unsigned __int64 a2, int a3)

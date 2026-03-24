@@ -6,10 +6,10 @@
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwFreeVirtualMemory @ 0x1401B8530 (ZwFreeVirtualMemory.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwFreeVirtualMemory @ 0x1401B8550 (ZwFreeVirtualMemory.c)
  *     RtlCreateUserStack @ 0x1405F8EDC (RtlCreateUserStack.c)
- *     PspWow64SetupCpuArea @ 0x1406A8258 (PspWow64SetupCpuArea.c)
+ *     PspWow64SetupCpuArea @ 0x1406A8238 (PspWow64SetupCpuArea.c)
  */
 
 __int64 __fastcall PspSetupUserStack(_KPROCESS *a1, __int64 a2, __int64 a3, char *a4)

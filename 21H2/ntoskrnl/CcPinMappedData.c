@@ -1,13 +1,13 @@
 /*
- * XREFs of CcPinMappedData @ 0x1407BEEB0
+ * XREFs of CcPinMappedData @ 0x1406EF380
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSharedStarveExclusive @ 0x1402339A0 (ExAcquireSharedStarveExclusive.c)
- *     CcFreeVirtualAddress @ 0x140329430 (CcFreeVirtualAddress.c)
- *     CcPinFileData @ 0x14032AD00 (CcPinFileData.c)
- *     CcUnpinData @ 0x1406FE6A0 (CcUnpinData.c)
- *     CcAllocateObcb @ 0x14080C6EC (CcAllocateObcb.c)
+ *     ExAcquireSharedStarveExclusive @ 0x14031E520 (ExAcquireSharedStarveExclusive.c)
+ *     CcPinFileData @ 0x14031F630 (CcPinFileData.c)
+ *     CcFreeVirtualAddress @ 0x1403209F0 (CcFreeVirtualAddress.c)
+ *     CcUnpinData @ 0x1406E7C70 (CcUnpinData.c)
+ *     CcAllocateObcb @ 0x14077D2AC (CcAllocateObcb.c)
  */
 
 BOOLEAN __stdcall CcPinMappedData(
@@ -43,7 +43,7 @@ BOOLEAN __stdcall CcPinMappedData(
     return 1;
   *Bcb = (char *)*Bcb - 1;
   SharedCacheMap = FileObject->SectionObjectPointer->SharedCacheMap;
-  __incgsdword(0x8454u);
+  __incgsdword(0x8114u);
   if ( *(_WORD *)*v8 != 765 )
   {
     v10 = v20;
@@ -72,7 +72,7 @@ BOOLEAN __stdcall CcPinMappedData(
                                (SharedCacheMap[38] & 0x200) == 0,
                                0,
                                v5,
-                               (ULONG_PTR *)v12,
+                               (__int64 *)v12,
                                &v18,
                                &v19) )
         goto LABEL_13;

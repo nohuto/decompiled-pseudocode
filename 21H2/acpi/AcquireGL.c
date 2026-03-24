@@ -1,12 +1,12 @@
 /*
- * XREFs of AcquireGL @ 0x1C0066318
+ * XREFs of AcquireGL @ 0x1C0065094
  * Callers:
- *     ParseAcquire @ 0x1C0017EA0 (ParseAcquire.c)
+ *     ParseAcquire @ 0x1C000A6C0 (ParseAcquire.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall AcquireGL(__int64 a1)
@@ -17,7 +17,7 @@ __int64 __fastcall AcquireGL(__int64 a1)
   v1 = 0;
   if ( ghGlobalLock )
   {
-    v3 = ghGlobalLock(5LL, 0LL, qword_1C0082828, RestartCtxtCallback, a1 + 328);
+    v3 = ghGlobalLock(5LL, 0LL, qword_1C00831A8, RestartCtxtCallback, a1 + 328);
     v1 = v3;
     if ( v3 == 259 )
     {
@@ -26,9 +26,9 @@ __int64 __fastcall AcquireGL(__int64 a1)
     else if ( v3 )
     {
       v1 = -1072431086;
-      LogError(3222536210LL);
+      LogError(-1072431086);
       AcpiDiagTraceAmlError(a1, -1072431086);
-      PrintDebugMessage(6, 0, 0, 0, 0LL);
+      PrintDebugMessage(6, 0LL, 0LL, 0LL, 0LL);
     }
   }
   return v1;

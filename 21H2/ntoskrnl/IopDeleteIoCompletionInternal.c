@@ -1,62 +1,99 @@
 /*
- * XREFs of IopDeleteIoCompletionInternal @ 0x140234678
+ * XREFs of IopDeleteIoCompletionInternal @ 0x1402A9B88
  * Callers:
- *     IopDeleteIoCompletion @ 0x1406ACB20 (IopDeleteIoCompletion.c)
- *     IopCloseIoCompletion @ 0x1406ACB40 (IopCloseIoCompletion.c)
+ *     IopDeleteIoCompletion @ 0x14068FA00 (IopDeleteIoCompletion.c)
+ *     IopCloseIoCompletion @ 0x14068FA20 (IopCloseIoCompletion.c)
  * Callees:
- *     KeRundownQueueEx @ 0x140234764 (KeRundownQueueEx.c)
- *     IopFreeWaitCompletionPacket @ 0x140234E1C (IopFreeWaitCompletionPacket.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     IopFreeCompletionListPackets @ 0x1406ACB64 (IopFreeCompletionListPackets.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeRundownQueueEx @ 0x1402A9CF8 (KeRundownQueueEx.c)
+ *     IopFreeWaitCompletionPacket @ 0x1402AA250 (IopFreeWaitCompletionPacket.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopFreeCompletionListPackets @ 0x1406D4FA0 (IopFreeCompletionListPackets.c)
  */
 
-__int64 __fastcall IopDeleteIoCompletionInternal(KSPIN_LOCK *a1, char a2)
+__int64 __fastcall IopDeleteIoCompletionInternal(KSPIN_LOCK *a1, __int64 a2)
 {
+  char v2; // si
   __int64 result; // rax
-  _QWORD *v5; // rbx
+  PVOID **v5; // rbx
   unsigned __int64 OldIrql; // rdi
-  _QWORD *v7; // rdi
-  _BYTE *v8; // rcx
-  __int64 v9; // rax
+  PVOID *v7; // rax
+  PVOID **v8; // rcx
+  PVOID *v9; // rax
+  PVOID *v10; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v12; // zf
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
+  bool v13; // zf
+  PVOID Object[2]; // [rsp+20h] [rbp-30h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-20h] BYREF
 
+  v2 = a2;
+  *(_OWORD *)Object = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( a2 )
+  if ( (_BYTE)a2 )
   {
     KeAcquireInStackQueuedSpinLock(a1 + 8, &LockHandle);
+    LOBYTE(a2) = 0;
     *((_BYTE *)a1 + 72) = 1;
   }
-  result = KeRundownQueueEx(a1);
-  v5 = (_QWORD *)result;
+  else
+  {
+    LOBYTE(a2) = 1;
+  }
+  result = KeRundownQueueEx(a1, a2);
+  v5 = (PVOID **)result;
   if ( result )
   {
-    v7 = (_QWORD *)result;
-    **(_QWORD **)(result + 8) = 0LL;
-    do
+    v7 = *(PVOID **)result;
+    if ( v7[1] == v5 )
     {
-      v8 = v7;
-      v7 = (_QWORD *)*v7;
-      *(_QWORD *)v8 = 0LL;
-      if ( v8[16] == 2 )
+      Object[0] = v7;
+      Object[1] = v5;
+      v7[1] = Object;
+      *v5 = Object;
+      v5 = (PVOID **)Object[0];
+      if ( Object[0] != Object )
       {
-        v9 = *((_QWORD *)v8 + 1);
-        if ( v7 )
-          v7[1] = v9;
-        else
-          v5[1] = v9;
-        if ( v5 == (_QWORD *)v8 )
-          v5 = v7;
-        result = IopFreeWaitCompletionPacket(v8, a1);
+        do
+        {
+          v8 = v5;
+          v5 = (PVOID **)*v5;
+          if ( *((_BYTE *)v8 + 16) == 2 )
+          {
+            v10 = v8[1];
+            if ( v5[1] != (PVOID *)v8 || *v10 != v8 )
+              goto LABEL_24;
+            *v10 = v5;
+            v5[1] = v10;
+            IopFreeWaitCompletionPacket(v8, a1);
+          }
+        }
+        while ( v5 != (PVOID **)Object );
+        v5 = (PVOID **)Object[0];
+      }
+      result = (__int64)Object;
+      if ( v5 == (PVOID **)Object )
+      {
+        v5 = 0LL;
+        goto LABEL_4;
+      }
+      v9 = (PVOID *)Object[1];
+      if ( v5[1] == Object && *(PVOID **)Object[1] == Object )
+      {
+        *(_QWORD *)Object[1] = v5;
+        v5[1] = v9;
+        Object[1] = Object;
+        result = (__int64)Object;
+        Object[0] = Object;
+        goto LABEL_4;
       }
     }
-    while ( v7 );
+LABEL_24:
+    __fastfail(3u);
   }
-  if ( a2 )
+LABEL_4:
+  if ( v2 )
   {
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     result = (unsigned int)KiIrqlFlags;
@@ -71,9 +108,9 @@ __int64 __fastcall IopDeleteIoCompletionInternal(KSPIN_LOCK *a1, char a2)
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
           result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+          v13 = ((unsigned int)result & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= result;
-          if ( v12 )
+          if ( v13 )
             result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
@@ -81,6 +118,9 @@ __int64 __fastcall IopDeleteIoCompletionInternal(KSPIN_LOCK *a1, char a2)
     __writecr8(OldIrql);
   }
   if ( v5 )
+  {
+    *v5[1] = 0LL;
     return IopFreeCompletionListPackets(v5);
+  }
   return result;
 }

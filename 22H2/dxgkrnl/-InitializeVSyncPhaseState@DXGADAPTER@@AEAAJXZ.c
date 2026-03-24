@@ -1,133 +1,112 @@
 /*
- * XREFs of ?InitializeVSyncPhaseState@DXGADAPTER@@AEAAJXZ @ 0x1C01FB000
+ * XREFs of ?InitializeVSyncPhaseState@DXGADAPTER@@AEAAJXZ @ 0x1C01910F4
  * Callers:
- *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01FC874 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C018F684 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0014F54 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C0005488 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
  */
 
 __int64 __fastcall DXGADAPTER::InitializeVSyncPhaseState(DXGADAPTER *this)
 {
-  unsigned int v2; // r13d
-  unsigned __int64 v3; // rax
-  unsigned __int64 v4; // rax
-  unsigned __int64 v5; // rax
-  unsigned __int64 v6; // rax
-  unsigned __int64 v7; // rax
-  unsigned __int64 v8; // rax
-  unsigned __int64 v9; // rax
-  unsigned __int64 v10; // rax
-  unsigned __int64 v11; // rax
-  char *v12; // rax
-  __int64 v13; // r12
-  char *v14; // rbx
-  unsigned int v15; // ebp
-  LARGE_INTEGER PerformanceCounter; // rbx
-  __int64 v17; // rdx
-  __int64 v18; // rsi
-  __int64 v19; // r14
-  __int64 v20; // r15
-  __int64 v21; // rax
-  __int64 v22; // rcx
-  __int64 v24; // [rsp+60h] [rbp+8h]
-  __int64 v25; // [rsp+68h] [rbp+10h]
+  unsigned int v2; // ebp
+  SIZE_T v3; // rax
+  SIZE_T v4; // rax
+  SIZE_T v5; // rax
+  SIZE_T v6; // rax
+  SIZE_T v7; // rax
+  SIZE_T v8; // rax
+  SIZE_T v9; // rax
+  SIZE_T v10; // rax
+  PVOID v11; // rax
+  unsigned int v12; // esi
+  __int64 v13; // rbx
+  __int64 v14; // r14
+  __int64 v15; // r13
+  __int64 v16; // r15
+  __int64 v17; // r12
+  __int64 v18; // rax
+  __int64 v19; // rcx
 
-  if ( (*((_DWORD *)this + 698) & 0x10) != 0 )
-    v2 = *((_DWORD *)this + 418);
+  if ( (*((_DWORD *)this + 642) & 0x10) != 0 )
+    v2 = *((_DWORD *)this + 362);
   else
     v2 = 1;
   v3 = 4LL * v2;
   if ( !is_mul_ok(v2, 4uLL) )
     v3 = -1LL;
-  *((_QWORD *)this + 514) = operator new[](v3, 0x4B677844u, 64LL);
+  *((_QWORD *)this + 486) = operator new[](v3, 0x4B677844u, (POOL_TYPE)512);
   v4 = (unsigned __int64)v2 << 6;
   if ( !is_mul_ok(v2, 0x40uLL) )
     v4 = -1LL;
-  *((_QWORD *)this + 515) = operator new[](v4, 0x4B677844u, 64LL);
+  *((_QWORD *)this + 487) = operator new[](v4, 0x4B677844u, (POOL_TYPE)512);
   v5 = (unsigned __int64)v2 << 6;
   if ( !is_mul_ok(v2, 0x40uLL) )
     v5 = -1LL;
-  *((_QWORD *)this + 516) = operator new[](v5, 0x4B677844u, 64LL);
+  *((_QWORD *)this + 488) = operator new[](v5, 0x4B677844u, (POOL_TYPE)512);
   v6 = 32LL * v2;
   if ( !is_mul_ok(v2, 0x20uLL) )
     v6 = -1LL;
-  *((_QWORD *)this + 517) = operator new[](v6, 0x4B677844u, 64LL);
+  *((_QWORD *)this + 489) = operator new[](v6, 0x4B677844u, (POOL_TYPE)512);
   v7 = 16LL * v2;
   if ( !is_mul_ok(v2, 0x10uLL) )
     v7 = -1LL;
-  *((_QWORD *)this + 518) = operator new[](v7, 0x4B677844u, 64LL);
+  *((_QWORD *)this + 490) = operator new[](v7, 0x4B677844u, (POOL_TYPE)512);
   v8 = 4LL * v2;
   if ( !is_mul_ok(v2, 4uLL) )
     v8 = -1LL;
-  *((_QWORD *)this + 519) = operator new[](v8, 0x4B677844u, 64LL);
+  *((_QWORD *)this + 491) = operator new(v8, 0x4B677844u, 1, (POOL_TYPE)512);
   v9 = 8LL * v2;
   if ( !is_mul_ok(v2, 8uLL) )
     v9 = -1LL;
-  *((_QWORD *)this + 526) = operator new[](v9, 0x4B677844u, 64LL);
+  *((_QWORD *)this + 498) = operator new(v9, 0x4B677844u, 1, (POOL_TYPE)512);
   v10 = 8LL * v2;
   if ( !is_mul_ok(v2, 8uLL) )
     v10 = -1LL;
-  *((_QWORD *)this + 525) = operator new[](v10, 0x4B677844u, 64LL);
-  v11 = 112LL * v2;
-  if ( !is_mul_ok(v2, 0x70uLL) )
-    v11 = -1LL;
-  v12 = (char *)operator new[](v11, 0x4B677844u, 64LL);
-  v13 = 0LL;
-  v14 = v12;
-  if ( v12 )
-    `vector constructor iterator'(v12, 112LL, v2, (void (__fastcall *)(char *))VSYNC_TIME_STATS::VSYNC_TIME_STATS);
-  else
-    v14 = 0LL;
-  *((_QWORD *)this + 527) = v14;
-  if ( !*((_QWORD *)this + 514)
-    || !*((_QWORD *)this + 515)
-    || !*((_QWORD *)this + 516)
-    || !*((_QWORD *)this + 517)
-    || !*((_QWORD *)this + 518)
-    || !*((_QWORD *)this + 519)
-    || !*((_QWORD *)this + 526)
-    || !*((_QWORD *)this + 525)
-    || !v14 )
+  v11 = operator new(v10, 0x4B677844u, 1, (POOL_TYPE)512);
+  *((_QWORD *)this + 497) = v11;
+  if ( !*((_QWORD *)this + 486)
+    || !*((_QWORD *)this + 487)
+    || !*((_QWORD *)this + 488)
+    || !*((_QWORD *)this + 489)
+    || !*((_QWORD *)this + 490)
+    || !*((_QWORD *)this + 491)
+    || !*((_QWORD *)this + 498)
+    || !v11 )
   {
     return 3221225495LL;
   }
-  v15 = 0;
-  PerformanceCounter = KeQueryPerformanceCounter(0LL);
+  v12 = 0;
   if ( v2 )
   {
+    v13 = 0LL;
+    v14 = 0LL;
+    v15 = 0LL;
+    v16 = 0LL;
     v17 = 0LL;
-    v25 = 0LL;
-    v24 = 0LL;
-    v18 = 0LL;
-    v19 = 0LL;
-    v20 = 0LL;
     do
     {
-      *(_DWORD *)(v17 + *((_QWORD *)this + 514)) = 0;
-      KeInitializeTimer((PKTIMER)(v13 + *((_QWORD *)this + 515)));
-      *(_QWORD *)(v19 + *((_QWORD *)this + 518)) = this;
-      *(_DWORD *)(*((_QWORD *)this + 518) + v19 + 8) = v15;
+      *(_DWORD *)(*((_QWORD *)this + 486) + v15) = 0;
+      KeInitializeTimer((PKTIMER)(v17 + *((_QWORD *)this + 487)));
+      *(_QWORD *)(v14 + *((_QWORD *)this + 490)) = this;
+      *(_DWORD *)(*((_QWORD *)this + 490) + v14 + 8) = v12;
       KeInitializeDpc(
-        (PRKDPC)(v13 + *((_QWORD *)this + 516)),
+        (PRKDPC)(v17 + *((_QWORD *)this + 488)),
         (PKDEFERRED_ROUTINE)DxgkpVSyncPhaseTimerDpc,
-        (PVOID)(v20 + *((_QWORD *)this + 518)));
-      v21 = *((_QWORD *)this + 517);
-      v19 += 16LL;
-      v22 = v20 + *((_QWORD *)this + 518);
-      ++v15;
-      v13 += 64LL;
-      v20 += 16LL;
-      *(_QWORD *)(v18 + v21) = 0LL;
-      *(_QWORD *)(v18 + v21 + 16) = DxgkpProcessVSyncPhaseThread;
-      *(_QWORD *)(v18 + v21 + 24) = v22;
-      v18 += 32LL;
-      v17 = v24 + 4;
-      v24 += 4LL;
-      *(LARGE_INTEGER *)(v25 + *((_QWORD *)this + 527)) = PerformanceCounter;
-      v25 += 112LL;
+        (PVOID)(v16 + *((_QWORD *)this + 490)));
+      v18 = *((_QWORD *)this + 489);
+      v15 += 4LL;
+      v19 = v16 + *((_QWORD *)this + 490);
+      v14 += 16LL;
+      ++v12;
+      v17 += 64LL;
+      v16 += 16LL;
+      *(_QWORD *)(v13 + v18 + 24) = v19;
+      *(_QWORD *)(v13 + v18) = 0LL;
+      *(_QWORD *)(v13 + v18 + 16) = DxgkpProcessVSyncPhaseThread;
+      v13 += 32LL;
     }
-    while ( v15 < v2 );
+    while ( v12 < v2 );
   }
   return 0LL;
 }

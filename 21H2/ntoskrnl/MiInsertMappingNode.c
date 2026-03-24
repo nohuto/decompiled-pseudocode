@@ -1,20 +1,20 @@
 /*
- * XREFs of MiInsertMappingNode @ 0x140386294
+ * XREFs of MiInsertMappingNode @ 0x1402C2818
  * Callers:
- *     MmAllocateMappingAddressEx @ 0x1407F9D50 (MmAllocateMappingAddressEx.c)
+ *     MmAllocateMappingAddressEx @ 0x1406AE4A0 (MmAllocateMappingAddressEx.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiInsertMappingNode(_QWORD *a1)
+__int64 __fastcall MiInsertMappingNode(__int64 a1)
 {
   unsigned __int64 v1; // rdi
   KIRQL v3; // al
   _QWORD *v4; // rdx
-  bool v5; // r8
+  __int64 v5; // r8
   unsigned __int64 v6; // rbx
   _QWORD *v7; // rcx
   __int64 result; // rax
@@ -22,35 +22,35 @@ __int64 __fastcall MiInsertMappingNode(_QWORD *a1)
   _DWORD *SchedulerAssist; // r9
   bool v11; // zf
 
-  v1 = a1[3];
-  v3 = ExAcquireSpinLockExclusive(&dword_140C53050);
-  v4 = (_QWORD *)qword_140C53058;
-  v5 = 0;
+  v1 = *(_QWORD *)(a1 + 24);
+  v3 = ExAcquireSpinLockExclusive(&dword_140C4EBC0);
+  v4 = (_QWORD *)qword_140C4EBC8;
+  LOBYTE(v5) = 0;
   v6 = v3;
-  if ( qword_140C53058 )
+  if ( qword_140C4EBC8 )
   {
     while ( 1 )
     {
-      if ( v1 >= v4[3] )
-      {
-        v7 = (_QWORD *)v4[1];
-        if ( !v7 )
-        {
-          v5 = 1;
-          break;
-        }
-      }
-      else
+      if ( v1 < v4[3] )
       {
         v7 = (_QWORD *)*v4;
         if ( !*v4 )
           break;
       }
+      else
+      {
+        v7 = (_QWORD *)v4[1];
+        if ( !v7 )
+        {
+          LOBYTE(v5) = 1;
+          break;
+        }
+      }
       v4 = v7;
     }
   }
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C53058, (unsigned __int64)v4, v5, a1);
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C53050);
+  RtlAvlInsertNodeEx(&qword_140C4EBC8, v4, v5, a1);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4EBC0);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

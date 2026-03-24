@@ -1,10 +1,10 @@
 /*
- * XREFs of PsIumResumeAfterHibernate @ 0x1405A5974
+ * XREFs of PsIumResumeAfterHibernate @ 0x14038D6FC
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
- *     PspInitPhase0 @ 0x140B4DF94 (PspInitPhase0.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
+ *     PspInitPhase0 @ 0x140A3D098 (PspInitPhase0.c)
  * Callees:
- *     VslRegisterLogPages @ 0x14054C0B0 (VslRegisterLogPages.c)
+ *     VslRegisterLogPages @ 0x1404FCEDC (VslRegisterLogPages.c)
  */
 
 __int64 PsIumResumeAfterHibernate()

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InitializeInterface@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNTOPOLOGY_INTERFACE@@@Z @ 0x1C02165C4
+ * XREFs of ?InitializeInterface@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNTOPOLOGY_INTERFACE@@@Z @ 0x1C017D394
  * Callers:
- *     ?_InitializeVidPnMiniportInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C0215D08 (-_InitializeVidPnMiniportInterfaces@VIDPN_MGR@@AEAAJXZ.c)
+ *     ?_InitializeVidPnMiniportInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C017D184 (-_InitializeVidPnMiniportInterfaces@VIDPN_MGR@@AEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -10,8 +10,13 @@ void __fastcall DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL::InitializeInterface(
         DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *this,
         struct _DXGK_VIDPNTOPOLOGY_INTERFACE *a2)
 {
+  __int64 v3; // rax
+
   if ( !this )
-    WdLogSingleEntry0(1LL);
+  {
+    v3 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    WdLogEvent5_WdAssertion(v3);
+  }
   *(_QWORD *)this = DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL::GetNumPaths;
   *((_QWORD *)this + 1) = DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL::GetNumPathsFromSource;
   *((_QWORD *)this + 2) = DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL::EnumPathTargetsFromSource;

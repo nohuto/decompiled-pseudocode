@@ -1,18 +1,18 @@
 /*
- * XREFs of ?Initialize@CAdapter@@IEAAJAEBUCSM_TOKEN_ADAPTER_INFO@@@Z @ 0x1C001952C
+ * XREFs of ?Initialize@CAdapter@@IEAAJAEBUCSM_TOKEN_ADAPTER_INFO@@@Z @ 0x1C001367C
  * Callers:
- *     ?Create@CAdapter@@SAJAEBUCSM_TOKEN_ADAPTER_INFO@@IPEAPEAV1@@Z @ 0x1C001946C (-Create@CAdapter@@SAJAEBUCSM_TOKEN_ADAPTER_INFO@@IPEAPEAV1@@Z.c)
+ *     ?Create@CAdapter@@SAJAEBUCSM_TOKEN_ADAPTER_INFO@@IPEAPEAV1@@Z @ 0x1C00135B0 (-Create@CAdapter@@SAJAEBUCSM_TOKEN_ADAPTER_INFO@@IPEAPEAV1@@Z.c)
  * Callees:
- *     ?UpdateRenderFence@CAdapter@@QEAAJPEAX@Z @ 0x1C0018EE0 (-UpdateRenderFence@CAdapter@@QEAAJPEAX@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     DxgkOpenAdapterFromLuidInternal @ 0x1C01EE560 (DxgkOpenAdapterFromLuidInternal.c)
- *     DxgkGetPresentHistoryReadyEvent @ 0x1C01EE580 (DxgkGetPresentHistoryReadyEvent.c)
+ *     ?UpdateRenderFence@CAdapter@@QEAAJPEAX@Z @ 0x1C0012AA8 (-UpdateRenderFence@CAdapter@@QEAAJPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     DxgkGetPresentHistoryReadyEvent @ 0x1C0156B30 (DxgkGetPresentHistoryReadyEvent.c)
+ *     DxgkOpenAdapterFromLuidInternal @ 0x1C0157040 (DxgkOpenAdapterFromLuidInternal.c)
  */
 
 __int64 __fastcall CAdapter::Initialize(CAdapter *this, const struct CSM_TOKEN_ADAPTER_INFO *a2)
 {
-  _QWORD *v4; // rcx
-  int PresentHistoryReadyEvent; // ebx
+  _QWORD *v4; // r9
+  int updated; // ebx
   void *v6; // rdx
   unsigned int v7; // ecx
   void **Handle; // rax
@@ -20,39 +20,33 @@ __int64 __fastcall CAdapter::Initialize(CAdapter *this, const struct CSM_TOKEN_A
   PVOID Object; // [rsp+40h] [rbp-28h] BYREF
   int v12; // [rsp+48h] [rbp-20h]
 
-  *((_QWORD *)this + 4) = PsGetCurrentProcess();
   *((_QWORD *)this + 3) = *(_QWORD *)a2;
   v12 = 0;
   v4 = (_QWORD *)(((unsigned __int64)this + 8) & -(__int64)(this != 0LL));
   v4[1] = v4;
   *v4 = v4;
   Object = (PVOID)*((_QWORD *)this + 3);
-  PresentHistoryReadyEvent = DxgkOpenAdapterFromLuidInternal(&Object);
-  if ( PresentHistoryReadyEvent >= 0 )
+  updated = DxgkOpenAdapterFromLuidInternal(&Object);
+  if ( updated >= 0 )
   {
-    *((_DWORD *)this + 10) = v12;
+    *((_DWORD *)this + 8) = v12;
     v6 = (void *)*((_QWORD *)a2 + 1);
-    if ( !v6 || (PresentHistoryReadyEvent = CAdapter::UpdateRenderFence(this, v6), PresentHistoryReadyEvent >= 0) )
+    if ( v6 )
+      updated = CAdapter::UpdateRenderFence(this, v6);
+    if ( updated >= 0 )
     {
-      v7 = *((_DWORD *)this + 10);
+      v7 = *((_DWORD *)this + 8);
       Object = 0LL;
-      PresentHistoryReadyEvent = DxgkGetPresentHistoryReadyEvent(v7);
-      if ( PresentHistoryReadyEvent >= 0 )
+      updated = DxgkGetPresentHistoryReadyEvent(v7);
+      if ( updated >= 0 )
       {
-        Handle = (void **)((char *)this + 48);
+        Handle = (void **)((char *)this + 40);
         v9 = Object;
-        PresentHistoryReadyEvent = ObOpenObjectByPointer(
-                                     Object,
-                                     0x80u,
-                                     0LL,
-                                     0x100000u,
-                                     (POBJECT_TYPE)ExEventObjectType,
-                                     1,
-                                     Handle);
+        updated = ObOpenObjectByPointer(Object, 0x80u, 0LL, 0x100000u, (POBJECT_TYPE)ExEventObjectType, 1, Handle);
         if ( v9 )
           ObfDereferenceObject(v9);
       }
     }
   }
-  return (unsigned int)PresentHistoryReadyEvent;
+  return (unsigned int)updated;
 }

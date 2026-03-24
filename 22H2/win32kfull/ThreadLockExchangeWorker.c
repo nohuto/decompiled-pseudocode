@@ -1,8 +1,7 @@
 /*
- * XREFs of ThreadLockExchangeWorker @ 0x1C01C0A4C
+ * XREFs of ThreadLockExchangeWorker @ 0x1C00D1360
  * Callers:
- *     xxxTimersProc @ 0x1C003FF80 (xxxTimersProc.c)
- *     xxxTimersProc_Old @ 0x1C013AF08 (xxxTimersProc_Old.c)
+ *     xxxTimersProc @ 0x1C0168118 (xxxTimersProc.c)
  * Callees:
  *     <none>
  */
@@ -14,8 +13,9 @@ __int64 __fastcall ThreadLockExchangeWorker(__int64 a1, __int64 a2)
   v2 = *(_QWORD *)(a2 + 8);
   *(_QWORD *)(a2 + 8) = a1;
   if ( a1 )
-    HMLockObjectWorker(a1);
+    HMLockObjectWorker();
   if ( v2 )
-    return HMUnlockObject(v2);
-  return v2;
+    return HMUnlockObjectWorker(v2);
+  else
+    return 0LL;
 }

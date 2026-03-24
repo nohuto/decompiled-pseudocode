@@ -5,8 +5,8 @@
  *     IopLiveDumpInitiateCorralStateChange @ 0x140578D24 (IopLiveDumpInitiateCorralStateChange.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeResumeClockTimerSafe @ 0x14028E804 (KeResumeClockTimerSafe.c)
- *     KeSuspendClockTimerSafe @ 0x14028E8A0 (KeSuspendClockTimerSafe.c)
+ *     KeResumeClockTimerSafe @ 0x14028E904 (KeResumeClockTimerSafe.c)
+ *     KeSuspendClockTimerSafe @ 0x14028E9A0 (KeSuspendClockTimerSafe.c)
  *     IopLiveDumpBufferDumpData @ 0x140577FC0 (IopLiveDumpBufferDumpData.c)
  */
 

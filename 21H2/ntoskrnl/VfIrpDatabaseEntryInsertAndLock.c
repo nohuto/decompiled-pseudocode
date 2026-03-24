@@ -1,12 +1,12 @@
 /*
- * XREFs of VfIrpDatabaseEntryInsertAndLock @ 0x140AA5AF8
+ * XREFs of VfIrpDatabaseEntryInsertAndLock @ 0x1409E0858
  * Callers:
- *     VfPacketCreateAndLock @ 0x140A9BFC0 (VfPacketCreateAndLock.c)
+ *     VfPacketCreateAndLock @ 0x1409E19B8 (VfPacketCreateAndLock.c)
  * Callees:
- *     ViIrpDatabaseAcquireLockExclusive @ 0x140602294 (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x1406022DC (ViIrpDatabaseReleaseLockExclusive.c)
- *     VfUtilAddressRangeAdd @ 0x140A81A04 (VfUtilAddressRangeAdd.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x140AA5A48 (VfIrpDatabaseEntryFindAndLock.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x1405A260C (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x1405A2654 (ViIrpDatabaseReleaseLockExclusive.c)
+ *     VfUtilAddressRangeAdd @ 0x1409C62CC (VfUtilAddressRangeAdd.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x1409E07A8 (VfIrpDatabaseEntryFindAndLock.c)
  */
 
 __int64 __fastcall VfIrpDatabaseEntryInsertAndLock(unsigned __int64 a1, __int64 a2, __int64 a3)
@@ -30,9 +30,9 @@ __int64 __fastcall VfIrpDatabaseEntryInsertAndLock(unsigned __int64 a1, __int64 
   *(_QWORD *)(a3 + 32) = a3 + 32;
   ViIrpDatabaseAcquireLockExclusive((KIRQL *)&v10);
   v6 = 16LL * (unsigned __int8)(-125 * (a1 >> 12));
-  v7 = (char *)ViIrpDatabase + v6;
-  v8 = *(_QWORD *)((char *)ViIrpDatabase + v6);
-  if ( *(PVOID *)(v8 + 8) != (char *)ViIrpDatabase + v6 )
+  v7 = (_QWORD *)(v6 + ViIrpDatabase);
+  v8 = *(_QWORD *)(v6 + ViIrpDatabase);
+  if ( *(_QWORD *)(v8 + 8) != v6 + ViIrpDatabase )
     __fastfail(3u);
   v4[1] = v7;
   *v4 = v8;

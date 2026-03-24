@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlMarkExceptionHandlingPages @ 0x14079C0D4
+ * XREFs of RtlMarkExceptionHandlingPages @ 0x14075E6F0
  * Callers:
- *     MiCaptureImageExceptionValues @ 0x140761188 (MiCaptureImageExceptionValues.c)
+ *     MiCaptureImageExceptionValues @ 0x14075E644 (MiCaptureImageExceptionValues.c)
  * Callees:
- *     RtlpConvertFunctionEntry @ 0x1402983F0 (RtlpConvertFunctionEntry.c)
- *     RtlSetBits @ 0x1402E4C80 (RtlSetBits.c)
- *     RtlpSearchFunctionTable @ 0x1402E5760 (RtlpSearchFunctionTable.c)
+ *     RtlpConvertFunctionEntry @ 0x140276440 (RtlpConvertFunctionEntry.c)
+ *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
+ *     RtlpSearchFunctionTable @ 0x1403974F0 (RtlpSearchFunctionTable.c)
  */
 
 __int64 __fastcall RtlMarkExceptionHandlingPages(
@@ -23,22 +23,21 @@ __int64 __fastcall RtlMarkExceptionHandlingPages(
   unsigned int v12; // eax
   unsigned int *i; // rbx
   int v14; // r12d
-  unsigned __int64 v15; // rdx
-  _BYTE *v16; // rbx
-  int v17; // eax
-  bool v18; // zf
-  unsigned int v19; // ecx
-  __int64 v20; // rax
-  char v21; // cl
-  unsigned int *v23; // rax
-  unsigned __int64 v24; // rax
-  unsigned __int64 v25; // [rsp+60h] [rbp+8h]
+  _BYTE *v15; // rbx
+  int v16; // eax
+  bool v17; // zf
+  unsigned int v18; // ecx
+  __int64 v19; // rax
+  char v20; // cl
+  unsigned int *v22; // rax
+  unsigned __int64 v23; // rax
+  unsigned __int64 v24; // [rsp+60h] [rbp+8h]
 
   v6 = a1 + a2;
   if ( a3 >= a1 )
   {
     v8 = a4 + a3;
-    v25 = v8;
+    v24 = v8;
     if ( v8 <= v6 )
     {
       v9 = a4 / 0xC;
@@ -53,52 +52,54 @@ LABEL_6:
         v12 = v11[2];
         for ( i = v11; (v12 & 1) != 0; v12 = i[2] )
         {
-          v24 = RtlpConvertFunctionEntry((__int64)i, a1);
-          i = (unsigned int *)v24;
-          if ( v24 >= a3 && v24 + 12 <= v8 )
+          v23 = RtlpConvertFunctionEntry((__int64)i, a1);
+          i = (unsigned int *)v23;
+          if ( v23 >= a3 && v23 + 12 <= v8 )
             break;
-          if ( v24 < a1 || v24 > v6 - 12 )
+          if ( v23 < a1 || v23 > v6 - 12 )
             return 3221225727LL;
           RtlSetBits(
             BitMapHeader,
-            (v24 - a1) >> 12,
-            ((unsigned __int64)(((_WORD)v24 - (_WORD)a1) & 0xFFF) + 12 > 0x1000) + 1);
+            (v23 - a1) >> 12,
+            ((unsigned __int64)(((_WORD)v23 - (_WORD)a1) & 0xFFF) + 12 > 0x1000) + 1);
         }
         v14 = 0;
         while ( 1 )
         {
-          v15 = i[2];
-          v16 = (_BYTE *)(v15 + a1);
-          if ( v15 + a1 < a1 || (unsigned __int64)(v16 + 6) > v6 )
+          v15 = (_BYTE *)(a1 + i[2]);
+          if ( (unsigned __int64)v15 < a1 || (unsigned __int64)(v15 + 6) > v6 )
             break;
-          v17 = (unsigned __int8)v16[2];
-          v18 = (v17 & 1) == 0;
-          v19 = 2 * v17 + 6;
-          v20 = (unsigned int)(2 * v17 + 8);
-          if ( v18 )
-            v20 = v19;
-          v21 = *v16 >> 3;
-          if ( (v21 & 4) != 0 )
+          v16 = (unsigned __int8)v15[2];
+          v17 = (v16 & 1) == 0;
+          v18 = 2 * v16 + 6;
+          v19 = (unsigned int)(2 * v16 + 8);
+          if ( v17 )
+            v19 = v18;
+          v20 = *v15 >> 3;
+          if ( (v20 & 4) != 0 )
           {
-            v20 = (unsigned int)(v20 + 12);
+            v19 = (unsigned int)(v19 + 12);
           }
-          else if ( (v21 & 3) != 0 )
+          else if ( (v20 & 3) != 0 )
           {
-            v20 = (unsigned int)(v20 + 8);
+            v19 = (unsigned int)(v19 + 8);
           }
-          if ( (unsigned __int64)&v16[v20] > v6 )
+          if ( (unsigned __int64)&v15[v19] > v6 )
             break;
-          RtlSetBits(BitMapHeader, v15 >> 12, ((v15 + (unsigned int)v20 + 4095LL) >> 12) - (v15 >> 12));
-          if ( (*v16 & 0x20) != 0 )
+          RtlSetBits(
+            BitMapHeader,
+            (unsigned __int64)&v15[-a1] >> 12,
+            ((unsigned __int64)&v15[(unsigned int)v19 + 4095 - a1] >> 12) - ((unsigned __int64)&v15[-a1] >> 12));
+          if ( (*v15 & 0x20) != 0 )
           {
             if ( (unsigned int)++v14 > 0x20 )
               return 3221225727LL;
-            i = (unsigned int *)&v16[2 * (((unsigned __int8)v16[2] + 1LL) & 0xFFFFFFFFFFFFFFFEuLL) + 4];
-            v23 = RtlpSearchFunctionTable(a3, v9, a1 + *i, a1);
-            if ( !v23 || v23[2] != i[2] )
+            i = (unsigned int *)&v15[2 * (((unsigned __int8)v15[2] + 1LL) & 0xFFFFFFFFFFFFFFFEuLL) + 4];
+            v22 = RtlpSearchFunctionTable(a3, v9, a1 + *i, a1);
+            if ( !v22 || v22[2] != i[2] )
               continue;
           }
-          v8 = v25;
+          v8 = v24;
           ++v10;
           v11 += 3;
           if ( v10 < v9 )

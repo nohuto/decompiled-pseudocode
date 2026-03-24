@@ -1,18 +1,18 @@
 /*
- * XREFs of xxxPSMGetTextExtent @ 0x1C025D454
+ * XREFs of xxxPSMGetTextExtent @ 0x1C02607E4
  * Callers:
- *     ?xxxMNItemSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAUtagPOINT@@@Z @ 0x1C00BF15C (-xxxMNItemSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAU.c)
- *     xxxDrawMenuBarUnderlines @ 0x1C011CE5C (xxxDrawMenuBarUnderlines.c)
- *     xxxRealDrawMenuItem @ 0x1C0248CAC (xxxRealDrawMenuItem.c)
+ *     ?xxxMNItemSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAUtagPOINT@@@Z @ 0x1C00481E8 (-xxxMNItemSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@HPEAUHDC__@@PEAUtagITEM@@HPEAU.c)
+ *     xxxDrawMenuBarUnderlines @ 0x1C00E1F30 (xxxDrawMenuBarUnderlines.c)
+ *     xxxRealDrawMenuItem @ 0x1C024D8A4 (xxxRealDrawMenuItem.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0061D10 (PopAndFreeAlwaysW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     CALL_LPK @ 0x1C00B9BC8 (CALL_LPK.c)
- *     xxxClientGetTextExtentPointW @ 0x1C00B9F08 (xxxClientGetTextExtentPointW.c)
- *     GreGetTextExtentW @ 0x1C00C43FC (GreGetTextExtentW.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     GetPrefixCount @ 0x1C025BA88 (GetPrefixCount.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BFD00 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     GreGetTextExtentW @ 0x1C00E36CC (GreGetTextExtentW.c)
+ *     CALL_LPK @ 0x1C01594AC (CALL_LPK.c)
+ *     xxxClientGetTextExtentPointW @ 0x1C0159810 (xxxClientGetTextExtentPointW.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     GetPrefixCount @ 0x1C025EE64 (GetPrefixCount.c)
  */
 
 __int64 __fastcall xxxPSMGetTextExtent(HDC a1, __int16 *a2, unsigned int a3, __int64 a4)
@@ -34,7 +34,7 @@ __int64 __fastcall xxxPSMGetTextExtent(HDC a1, __int16 *a2, unsigned int a3, __i
   }
   else
   {
-    result = Win32AllocPoolZInit(2LL * (int)(a3 + 1), 1953657685LL);
+    result = Win32AllocPool(2LL * (int)(a3 + 1), 1953657685LL);
     v10 = (__int16 *)result;
     if ( !result )
     {
@@ -47,9 +47,9 @@ __int64 __fastcall xxxPSMGetTextExtent(HDC a1, __int16 *a2, unsigned int a3, __i
   if ( (unsigned int)GetPrefixCount(a2, a3, (__int64)v10, a3) >> 16 )
     a2 = v10;
   if ( (unsigned int)CALL_LPK(ThreadWin32Thread) )
-    xxxClientGetTextExtentPointW(a1, (const WCHAR *)a2, v11, (_QWORD *)a4);
+    xxxClientGetTextExtentPointW(a1, (PCWSTR)a2, v11, (_QWORD *)a4);
   else
-    GreGetTextExtentW(a1, (unsigned __int16 *)a2, v11, (struct tagSIZE *)a4, 1u);
+    GreGetTextExtentW(a1, (unsigned __int16 *)a2, v11, (struct tagSIZE *)a4, 1);
   if ( v10 != (__int16 *)v14 )
     PopAndFreeAlwaysW32ThreadLock((__int64)&v12);
   return 1LL;

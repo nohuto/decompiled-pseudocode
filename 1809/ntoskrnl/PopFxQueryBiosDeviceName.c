@@ -1,7 +1,7 @@
 /*
- * XREFs of PopFxQueryBiosDeviceName @ 0x14015A65C
+ * XREFs of PopFxQueryBiosDeviceName @ 0x14015A67C
  * Callers:
- *     PopFxFindDeviceAndAllocateUniqueId @ 0x1406EBBBC (PopFxFindDeviceAndAllocateUniqueId.c)
+ *     PopFxFindDeviceAndAllocateUniqueId @ 0x1406EBB9C (PopFxFindDeviceAndAllocateUniqueId.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     IoGetDevicePropertyData @ 0x140586930 (IoGetDevicePropertyData.c)

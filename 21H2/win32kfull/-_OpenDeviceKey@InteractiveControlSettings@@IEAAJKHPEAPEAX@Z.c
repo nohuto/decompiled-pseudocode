@@ -1,90 +1,100 @@
 /*
- * XREFs of ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C010C288
+ * XREFs of ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C00E4510
  * Callers:
- *     ?ReadSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C010C13C (-ReadSettings@InteractiveControlSettings@@QEAAJXZ.c)
- *     ?WriteSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C0253550 (-WriteSettings@InteractiveControlSettings@@QEAAJXZ.c)
+ *     ?ReadSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C00E46B8 (-ReadSettings@InteractiveControlSettings@@QEAAJXZ.c)
+ *     ?WriteSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C02567C4 (-WriteSettings@InteractiveControlSettings@@QEAAJXZ.c)
  * Callees:
- *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C00A0F38 (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
- *     RtlUnicodeStringValidateWorker @ 0x1C00A10C8 (RtlUnicodeStringValidateWorker.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C00E165C (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C00E1918 (RtlUnicodeStringValidateDestWorker.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall InteractiveControlSettings::_OpenDeviceKey(
         InteractiveControlSettings *this,
         ACCESS_MASK a2,
-        ULONG a3,
+        __int64 a3,
         void **a4)
 {
-  size_t v6; // rdx
-  int v7; // ecx
-  ULONG v8; // r8d
-  const wchar_t *v9; // r10
-  __int64 v10; // r9
-  unsigned __int64 v11; // rdx
-  __int16 v12; // bx
-  WCHAR *v13; // r11
-  unsigned __int64 v14; // r8
-  UNICODE_STRING SourceString; // [rsp+40h] [rbp-C0h] BYREF
-  void *KeyHandle; // [rsp+50h] [rbp-B0h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
-  char v19; // [rsp+90h] [rbp-70h] BYREF
+  int v6; // edx
+  const wchar_t *v7; // r10
+  __int16 v8; // bx
+  __int64 v9; // r11
+  __int16 v10; // r8
+  size_t v11; // r9
+  char *v12; // rcx
+  PUNICODE_STRING Class; // [rsp+20h] [rbp-E0h]
+  ULONG CreateOptions; // [rsp+28h] [rbp-D8h]
+  void *KeyHandle; // [rsp+40h] [rbp-C0h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
+  size_t pcchDest; // [rsp+58h] [rbp-A8h] BYREF
+  size_t pcchDestLength; // [rsp+60h] [rbp-A0h] BYREF
+  wchar_t *ppszDest; // [rsp+68h] [rbp-98h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-90h] BYREF
+  char v22; // [rsp+A0h] [rbp-60h] BYREF
 
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
-  *(_DWORD *)(&SourceString.MaximumLength + 1) = 0;
+  *(_DWORD *)(&DestinationString.MaximumLength + 1) = 0;
   if ( grpWinStaList )
   {
-    *(_DWORD *)&SourceString.Length = 45875200;
-    SourceString.Buffer = (PWSTR)&v19;
-    v7 = RtlUnicodeStringCopy(&SourceString, (const struct _UNICODE_STRING *)(grpWinStaList + 200LL), a3);
-    if ( v7 >= 0 )
+    *(_DWORD *)&DestinationString.Length = 45875200;
+    DestinationString.Buffer = (PWSTR)&v22;
+    v6 = RtlUnicodeStringCopy(&DestinationString, (const struct _UNICODE_STRING *)(grpWinStaList + 200LL));
+    if ( v6 >= 0 )
     {
-      v7 = RtlUnicodeStringValidateWorker(&SourceString, v6, v8);
-      if ( v7 >= 0 )
+      ppszDest = 0LL;
+      pcchDest = 0LL;
+      pcchDestLength = 0LL;
+      v6 = RtlUnicodeStringValidateDestWorker(
+             &DestinationString,
+             &ppszDest,
+             &pcchDest,
+             &pcchDestLength,
+             (const size_t)Class,
+             CreateOptions);
+      if ( v6 >= 0 )
       {
-        v9 = L"\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\InteractiveControl";
-        v10 = 0x7FFFLL;
-        v7 = 0;
-        v11 = (unsigned __int64)SourceString.Length >> 1;
-        v12 = 0;
-        v13 = &SourceString.Buffer[v11];
-        v14 = ((unsigned __int64)SourceString.MaximumLength >> 1) - v11;
-        if ( v14 )
+        v7 = L"\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\InteractiveControl";
+        v8 = pcchDestLength;
+        v9 = 0x7FFFLL;
+        v6 = 0;
+        v10 = 0;
+        v11 = pcchDest - pcchDestLength;
+        if ( pcchDest == pcchDestLength )
+          goto LABEL_19;
+        v12 = (char *)ppszDest
+            + 2 * pcchDestLength
+            - (_QWORD)L"\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\\InteractiveControl";
+        do
         {
-          while ( v10 )
-          {
-            if ( *v9 )
-            {
-              *v13++ = *v9++;
-              --v10;
-              ++v12;
-              if ( --v14 )
-                continue;
-            }
-            if ( v14 || !v10 || !*v9 )
-              break;
-            goto LABEL_17;
-          }
+          if ( !v9 )
+            break;
+          if ( !*v7 )
+            break;
+          *(const wchar_t *)((char *)v7 + (_QWORD)v12) = *v7;
+          --v9;
+          ++v7;
+          ++v10;
+          --v11;
         }
-        else
-        {
-LABEL_17:
-          v7 = -2147483643;
-        }
-        SourceString.Length = 2 * (v12 + v11);
-        if ( v7 >= 0 )
-        {
-          ObjectAttributes.Length = 48;
-          ObjectAttributes.ObjectName = &SourceString;
-          ObjectAttributes.RootDirectory = 0LL;
-          ObjectAttributes.Attributes = 576;
-          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-          v7 = ZwOpenKey(&KeyHandle, a2, &ObjectAttributes);
-          if ( v7 < 0 )
-            v7 = ZwCreateKey(&KeyHandle, a2, &ObjectAttributes, 0, 0LL, 0, 0LL);
-          *a4 = KeyHandle;
-        }
+        while ( v11 );
+        if ( !v11 && v9 && *v7 )
+LABEL_19:
+          v6 = -2147483643;
+        DestinationString.Length = 2 * (v8 + v10);
+      }
+      if ( v6 >= 0 )
+      {
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.ObjectName = &DestinationString;
+        ObjectAttributes.RootDirectory = 0LL;
+        ObjectAttributes.Attributes = 576;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        v6 = ZwOpenKey(&KeyHandle, a2, &ObjectAttributes);
+        if ( v6 < 0 )
+          v6 = ZwCreateKey(&KeyHandle, a2, &ObjectAttributes, 0, 0LL, 0, 0LL);
+        *a4 = KeyHandle;
       }
     }
   }
@@ -92,5 +102,5 @@ LABEL_17:
   {
     return (unsigned int)-1073741595;
   }
-  return (unsigned int)v7;
+  return (unsigned int)v6;
 }

@@ -1,193 +1,102 @@
 /*
- * XREFs of KiUpdateRunTime @ 0x140307660
+ * XREFs of KiUpdateRunTime @ 0x1402275D0
  * Callers:
- *     KiUpdateTime @ 0x140304060 (KiUpdateTime.c)
- *     KeClockInterruptNotify @ 0x140305780 (KeClockInterruptNotify.c)
+ *     KiUpdateTime @ 0x140227730 (KiUpdateTime.c)
  * Callees:
- *     KiSetDpcRequestFlag @ 0x14022B9E4 (KiSetDpcRequestFlag.c)
- *     KiRequestSoftwareInterrupt @ 0x14022BA6C (KiRequestSoftwareInterrupt.c)
- *     HalRequestSoftwareInterrupt @ 0x14022BAA0 (HalRequestSoftwareInterrupt.c)
- *     KiShouldScanSharedReadyQueue @ 0x14029135C (KiShouldScanSharedReadyQueue.c)
- *     KeAccumulateTicks @ 0x1403078A0 (KeAccumulateTicks.c)
- *     KiCheckPreferredHeteroProcessor @ 0x140308640 (KiCheckPreferredHeteroProcessor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeCheckAndApplyBamQos @ 0x14045AAC0 (KeCheckAndApplyBamQos.c)
- *     KeUpdatePendingQosRequest @ 0x14045ABA8 (KeUpdatePendingQosRequest.c)
- *     PoSetProcessorQoS @ 0x14045E06E (PoSetProcessorQoS.c)
- *     KiSetClockTimer @ 0x14056CF48 (KiSetClockTimer.c)
+ *     KeAccumulateTicks @ 0x140224410 (KeAccumulateTicks.c)
+ *     KiCheckGroupSchedulingQuantumEnd @ 0x140228450 (KiCheckGroupSchedulingQuantumEnd.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x140258C00 (KiCheckPreferredHeteroProcessor.c)
+ *     KiShouldScanSharedReadyQueue @ 0x140259994 (KiShouldScanSharedReadyQueue.c)
+ *     HalRequestSoftwareInterrupt @ 0x140293E90 (HalRequestSoftwareInterrupt.c)
+ *     KeCheckAndApplyBamQos @ 0x14051E4A0 (KeCheckAndApplyBamQos.c)
+ *     KeUpdatePendingQosRequest @ 0x14051EE60 (KeUpdatePendingQosRequest.c)
+ *     PoSetProcessorQoS @ 0x14056E55C (PoSetProcessorQoS.c)
  */
 
-__int64 __fastcall KiUpdateRunTime(char a1, unsigned __int8 a2)
+unsigned __int64 __fastcall KiUpdateRunTime(char a1, unsigned __int8 a2)
 {
   struct _KPRCB *CurrentPrcb; // rbx
   __int16 v3; // bp
   int v4; // esi
-  struct _KPRCB *v5; // r9
-  bool v6; // zf
+  __int64 v5; // rcx
   _KTHREAD *CurrentThread; // rdi
-  __int64 result; // rax
-  struct _KPRCB *v9; // r14
-  _KPRCBFLAG v10; // ecx
-  _KSCHEDULING_GROUP *volatile SchedulingGroup; // rcx
-  __int64 i; // rcx
-  __int64 v13; // rdx
-  unsigned __int8 CurrentIrql; // di
-  _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v16; // al
-  _DWORD *v17; // r8
-  int v18; // eax
-  unsigned int PrcbFlags; // r8d
-  unsigned int v20; // edx
-  __int16 v21; // [rsp+50h] [rbp-8h]
+  unsigned __int64 result; // rax
+  struct _KPRCB *v8; // r14
+  _KPRCBFLAG v9; // eax
+  unsigned int PrcbFlags; // ecx
+  unsigned int v11; // edx
+  char v12; // al
+  __int16 v13; // [rsp+40h] [rbp-8h]
 
   CurrentPrcb = KeGetCurrentPrcb();
-  v3 = v21;
+  v3 = v13;
   ++CurrentPrcb->ClockInterrupts;
   ++CurrentPrcb->InterruptLastCount;
   _disable();
   v4 = MEMORY[0xFFFFF78000000320];
   if ( (v3 & 0x200) != 0 )
     _enable();
-  KeAccumulateTicks((_DWORD)CurrentPrcb, CurrentPrcb->LastTick, MEMORY[0xFFFFF78000000320], a2, a1);
-  v6 = KiClockTimerPerCpuTickScheduling == 0;
-  CurrentPrcb->ClockKeepAlive = 1;
-  if ( !v6 )
-  {
-    CurrentIrql = KeGetCurrentIrql();
-    __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
-    {
-      SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
-    }
-    KiSetClockTimer((_DWORD)CurrentPrcb, -KeMaximumIncrement, KeMaximumIncrement, 3, 1, 0);
-    if ( KiIrqlFlags )
-    {
-      if ( (KiIrqlFlags & 1) != 0 )
-      {
-        v16 = KeGetCurrentIrql();
-        if ( v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
-        {
-          v5 = KeGetCurrentPrcb();
-          v17 = v5->SchedulerAssist;
-          v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v6 = (v18 & v17[5]) == 0;
-          v17[5] &= v18;
-          if ( v6 )
-            KiRemoveSystemWorkPriorityKick(v5);
-        }
-      }
-    }
-    __writecr8(CurrentIrql);
-  }
+  KeAccumulateTicks((__int64)CurrentPrcb, CurrentPrcb->LastTick, MEMORY[0xFFFFF78000000320], a2, a1);
   CurrentThread = CurrentPrcb->CurrentThread;
+  CurrentPrcb->ClockKeepAlive = 1;
   if ( CurrentThread != CurrentPrcb->IdleThread )
   {
-    if ( (KiVelocityFlags & 0x8000) != 0 && (signed int)(CurrentPrcb->NormalPriorityReadyScanTick - v4) < 0 )
-    {
-      if ( KiShouldScanSharedReadyQueue((__int64)CurrentPrcb)
-        && (CurrentPrcb->SharedReadyQueue->ReadySummary & 0x300) != 0
-        || (CurrentPrcb->ReadySummary & 0x300) != 0 )
-      {
-        KiSetDpcRequestFlag((unsigned __int16 *)&CurrentPrcb->13244, 64);
-        KiRequestSoftwareInterrupt(CurrentPrcb, 2);
-      }
-      else
-      {
-        CurrentPrcb->NormalPriorityReadyScanTick = v4 + KiNormalPriorityBoostScanLatencyTicks;
-      }
-    }
     result = CurrentThread->CycleTime;
     if ( result >= CurrentThread->QuantumTarget )
-      goto LABEL_16;
-    result = KiCheckPreferredHeteroProcessor(CurrentThread, CurrentPrcb, 1LL, v5);
+      goto LABEL_7;
+    result = KiCheckPreferredHeteroProcessor(CurrentThread, CurrentPrcb, 1LL);
     if ( (_DWORD)result )
-      goto LABEL_16;
-    v9 = KeGetCurrentPrcb();
-    v10.PrcbFlags = (volatile int)v9->PrcbFlags;
-    if ( (v10.PrcbFlags & 0x300) != 0 )
+      goto LABEL_7;
+    v8 = KeGetCurrentPrcb();
+    v9.PrcbFlags = (volatile int)v8->PrcbFlags;
+    if ( (v9.PrcbFlags & 0x300) == 0 )
     {
-      _disable();
-      PrcbFlags = v9->PrcbFlags.PrcbFlags & 0xFFFFFCFF;
-      if ( (unsigned __int8)v9->PrcbFlags.PrcbFlags != LOBYTE(CurrentThread->ThreadFlags2) )
-      {
-        v20 = PrcbFlags | ((CurrentThread->ThreadFlags2 & 3) << 8);
-        v9->PrcbFlags.PrcbFlags = v20;
-        if ( (unsigned __int8)PoSetProcessorQoS(v9, (v20 >> 8) & 3) )
-          v9->PrcbFlags.PrcbFlags &= 0xFFFFFCFF;
-        PrcbFlags = v9->PrcbFlags.PrcbFlags;
-      }
-      else
-      {
-        v9->PrcbFlags.PrcbFlags = PrcbFlags;
-      }
-      if ( (PrcbFlags & 0x300) == 0 )
-        KeUpdatePendingQosRequest(v9);
-      if ( (v21 & 0x200) != 0 )
-        _enable();
+      if ( LOBYTE(CurrentThread->ThreadFlags2) != LOBYTE(v9.PrcbFlags) )
+        KeCheckAndApplyBamQos(v8, CurrentThread);
+      goto LABEL_4;
     }
-    else if ( LOBYTE(v10.PrcbFlags) != LOBYTE(CurrentThread->ThreadFlags2) )
+    _disable();
+    PrcbFlags = v8->PrcbFlags.PrcbFlags & 0xFFFFFCFF;
+    if ( (unsigned __int8)CurrentThread->ThreadFlags2 != LOBYTE(v8->PrcbFlags.PrcbFlags) )
     {
-      KeCheckAndApplyBamQos(v9, CurrentThread);
+      v11 = PrcbFlags | ((CurrentThread->ThreadFlags2 & 3) << 8);
+      v8->PrcbFlags.PrcbFlags = v11;
+      v12 = PoSetProcessorQoS(v8, (v11 >> 8) & 3);
+      PrcbFlags = v8->PrcbFlags.PrcbFlags;
+      if ( !v12 )
+      {
+LABEL_23:
+        if ( (PrcbFlags & 0x300) == 0 )
+          KeUpdatePendingQosRequest(v8);
+        if ( (v13 & 0x200) != 0 )
+          _enable();
+        goto LABEL_4;
+      }
+      PrcbFlags &= 0xFFFFFCFF;
     }
+    v8->PrcbFlags.PrcbFlags = PrcbFlags;
+    goto LABEL_23;
   }
-  result = MEMORY[0xFFFFF78000000320];
-  if ( MEMORY[0xFFFFF78000000320] > CurrentPrcb->GenerationTarget )
+LABEL_4:
+  result = KiCheckGroupSchedulingQuantumEnd(CurrentPrcb, CurrentThread);
+  if ( (_BYTE)result )
   {
-LABEL_16:
+LABEL_7:
     CurrentPrcb->QuantumEnd = 1;
-    if ( !CurrentPrcb->NestingLevel )
-      return HalRequestSoftwareInterrupt(2);
-    CurrentPrcb->InterruptRequest = 1;
-    return result;
-  }
-  SchedulingGroup = CurrentThread->SchedulingGroup;
-  if ( SchedulingGroup )
-  {
-    result = CurrentPrcb->ScbOffset;
-    for ( i = (__int64)SchedulingGroup + result; i; i = *(_QWORD *)(i + 408) )
+    if ( CurrentPrcb->NestingLevel )
     {
-      v13 = i - CurrentPrcb->ScbOffset;
-      result = *(unsigned __int8 *)(i + 112);
-      if ( (result & 4) != 0 )
-      {
-        if ( (result & 0x10) != 0 )
-        {
-          result = *(_QWORD *)(i + 24);
-LABEL_25:
-          if ( *(_QWORD *)i >= (unsigned __int64)result )
-            goto LABEL_16;
-          continue;
-        }
-        if ( (result & 2) == 0 )
-        {
-          result = *(_QWORD *)(v13 + 48);
-          if ( result <= 0 )
-            goto LABEL_16;
-          result = *(_QWORD *)(i + 24);
-          if ( *(_QWORD *)i >= (unsigned __int64)result )
-            goto LABEL_16;
-        }
-      }
-      else
-      {
-        if ( (result & 0x10) != 0 )
-        {
-          result = *(_QWORD *)(i + 8);
-          goto LABEL_25;
-        }
-        if ( (result & 2) == 0 )
-        {
-          result = *(_QWORD *)(v13 + 48);
-          if ( result <= 0 )
-            goto LABEL_16;
-        }
-      }
+      CurrentPrcb->InterruptRequest = 1;
     }
+    else
+    {
+      LOBYTE(v5) = 2;
+      return HalRequestSoftwareInterrupt(v5);
+    }
+    return result;
   }
   if ( (signed int)(CurrentPrcb->ReadyScanTick - v4) < 0 )
   {
-    result = KiShouldScanSharedReadyQueue((__int64)CurrentPrcb);
+    result = KiShouldScanSharedReadyQueue(v5);
     if ( !(_DWORD)result || (result = CurrentPrcb->SharedReadyQueue->ReadySummary, (result & 0x7FFE) == 0) )
     {
       if ( (CurrentPrcb->ReadySummary & 0x7FFE) == 0 )

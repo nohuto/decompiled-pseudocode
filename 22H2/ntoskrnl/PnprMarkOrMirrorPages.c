@@ -1,14 +1,14 @@
 /*
- * XREFs of PnprMarkOrMirrorPages @ 0x140A9D088
+ * XREFs of PnprMarkOrMirrorPages @ 0x1409AE008
  * Callers:
- *     PnprMirrorPhysicalMemory @ 0x1405630D0 (PnprMirrorPhysicalMemory.c)
- *     PnprRecopyAddress @ 0x1405632D0 (PnprRecopyAddress.c)
- *     PnprRecopyMappingReserve @ 0x140563328 (PnprRecopyMappingReserve.c)
+ *     PnprMirrorPhysicalMemory @ 0x14050F500 (PnprMirrorPhysicalMemory.c)
+ *     PnprRecopyAddress @ 0x14050F700 (PnprRecopyAddress.c)
+ *     PnprRecopyMappingReserve @ 0x14050F758 (PnprRecopyMappingReserve.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA20 (RtlClearBits.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x14023CB90 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     RtlClearBits @ 0x140206DC0 (RtlClearBits.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022CF70 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PnprMarkOrMirrorPages(unsigned __int64 a1, unsigned __int64 a2, char a3)
@@ -51,20 +51,20 @@ __int64 __fastcall PnprMarkOrMirrorPages(unsigned __int64 a1, unsigned __int64 a
     {
       if ( a3 )
       {
-        if ( (*(int (__fastcall **)(_QWORD, unsigned __int64, unsigned __int64))(v4 + 33216))(
-               *(_QWORD *)(v4 + 33168),
+        if ( (*(int (__fastcall **)(_QWORD, unsigned __int64, unsigned __int64))(v4 + 20928))(
+               *(_QWORD *)(v4 + 20880),
                v12 << 12,
                (v14 << 12) - (v12 << 12) + 4096) < 0 )
         {
           v15 = PnprContext;
-          v16 = *(_DWORD *)(PnprContext + 33272);
+          v16 = *(_DWORD *)(PnprContext + 20984);
           if ( !v16 )
-            v16 = 3432;
-          *(_DWORD *)(PnprContext + 33272) = v16;
-          v17 = *(_DWORD *)(v15 + 33276);
+            v16 = 3424;
+          *(_DWORD *)(PnprContext + 20984) = v16;
+          v17 = *(_DWORD *)(v15 + 20988);
           if ( !v17 )
             v17 = 8;
-          *(_DWORD *)(v15 + 33276) = v17;
+          *(_DWORD *)(v15 + 20988) = v17;
         }
       }
       else

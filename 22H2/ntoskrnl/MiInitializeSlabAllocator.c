@@ -1,33 +1,22 @@
 /*
- * XREFs of MiInitializeSlabAllocator @ 0x14039642C
+ * XREFs of MiInitializeSlabAllocator @ 0x1403AA9EC
  * Callers:
- *     MiInitializeNuma @ 0x1403961D8 (MiInitializeNuma.c)
+ *     MiInitializePartition @ 0x1407974EC (MiInitializePartition.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-void (__fastcall *__fastcall MiInitializeSlabAllocator(__int64 a1, int a2, int a3, __int64 a4))(__int64 a1)
+__int64 __fastcall MiInitializeSlabAllocator(__int64 a1, int a2, int a3)
 {
-  void (__fastcall *result)(__int64); // rax
+  __int64 result; // rax
 
-  memset((void *)a1, 0, 0x108uLL);
-  *(_QWORD *)(a1 + 24) = a4;
-  *(_DWORD *)(a1 + 80) = a2;
-  *(_QWORD *)(a1 + 128) = 0x3FFFFFFFFFLL;
-  *(_QWORD *)(a1 + 136) = 0x3FFFFFFFFFLL;
-  *(_QWORD *)(a1 + 256) = a1 + 248;
-  *(_QWORD *)(a1 + 248) = a1 + 248;
-  result = MiReplenishSlabAllocatorWorker;
-  *(_DWORD *)(a1 + 84) = a3;
-  *(_DWORD *)(a1 + 120) = 2;
-  *(_DWORD *)(a1 + 144) = 0;
-  *(_QWORD *)(a1 + 232) = MiReplenishSlabAllocatorWorker;
-  *(_QWORD *)(a1 + 240) = 0LL;
-  *(_QWORD *)(a1 + 216) = 0LL;
-  if ( a2 == 6 )
-  {
-    *(_DWORD *)(a1 + 88) |= 4u;
-    *(_QWORD *)(a1 + 56) = 512LL;
-  }
+  memset((void *)a1, 0, 0x78uLL);
+  *(_DWORD *)(a1 + 48) = a2;
+  result = 0xFFFFFFFFFLL;
+  *(_DWORD *)(a1 + 52) = a3;
+  *(_QWORD *)(a1 + 96) = 0LL;
+  *(_QWORD *)(a1 + 80) = 0xFFFFFFFFFLL;
+  *(_QWORD *)(a1 + 88) = 0xFFFFFFFFFLL;
+  *(_DWORD *)(a1 + 72) = 2;
   return result;
 }

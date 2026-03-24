@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeRebuildCandidateCounts @ 0x140B4AB30
+ * XREFs of MiInitializeRebuildCandidateCounts @ 0x140A68014
  * Callers:
- *     MiCreatePfnBitMaps @ 0x14081E81C (MiCreatePfnBitMaps.c)
+ *     MiCreatePfnBitMaps @ 0x1407B9CA4 (MiCreatePfnBitMaps.c)
  * Callees:
- *     MiUpdateLargePageCandidates @ 0x140376B58 (MiUpdateLargePageCandidates.c)
+ *     MiUpdateLargePageCandidates @ 0x14027F680 (MiUpdateLargePageCandidates.c)
  */
 
 __int64 __fastcall MiInitializeRebuildCandidateCounts(unsigned int a1, unsigned int a2)
@@ -26,14 +26,14 @@ __int64 __fastcall MiInitializeRebuildCandidateCounts(unsigned int a1, unsigned 
   __int64 v18; // [rsp+90h] [rbp+18h]
   unsigned __int8 *v19; // [rsp+98h] [rbp+20h]
 
-  v2 = dword_140C65C80[a2];
-  v3 = qword_140C6B510 + 25408LL * a1;
+  v2 = dword_140C4DF80[a2];
+  v3 = qword_140C50D90 + 4544LL * a1;
   v16 = v2;
   v4 = v3 + 1072LL * a2;
-  v14 = (unsigned __int8 *)(v3 + (unsigned int)MmNumberOfChannels + 23037LL);
+  v14 = (unsigned __int8 *)(v3 + (unsigned int)MmNumberOfChannels + 4317LL);
   v15 = v4;
-  v5 = (unsigned __int8 *)(v3 + 23037);
-  v19 = (unsigned __int8 *)(v3 + 23037);
+  v5 = (unsigned __int8 *)(v3 + 4317);
+  v19 = (unsigned __int8 *)(v3 + 4317);
   do
   {
     result = 32LL * *v5;
@@ -57,10 +57,7 @@ __int64 __fastcall MiInitializeRebuildCandidateCounts(unsigned int a1, unsigned 
               do
               {
                 for ( i = *v11; i != v11; i = (_QWORD *)*i )
-                  result = MiUpdateLargePageCandidates(
-                             0xAAAAAAAAAAAAAAABuLL * ((__int64)(i + 0x44000000000LL) >> 4),
-                             a2,
-                             1LL);
+                  result = MiUpdateLargePageCandidates((__int64)(i + 0xB000000000LL) / 48, a2, 1LL);
                 v11 += 3;
                 --v12;
               }

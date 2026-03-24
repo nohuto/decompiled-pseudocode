@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PowerCheckDeviceTypeOverload@FxPkgFdo@@EEAA?AW4_WDF_DEVICE_POWER_STATE@@XZ @ 0x1C000C090
+ * XREFs of ?PowerCheckDeviceTypeOverload@FxPkgFdo@@EEAA?AW4_WDF_DEVICE_POWER_STATE@@XZ @ 0x1C000DFF0
  * Callers:
  *     <none>
  * Callees:

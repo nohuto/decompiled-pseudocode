@@ -1,18 +1,18 @@
 /*
- * XREFs of UsbhSignalSuspendEvent @ 0x1C00349E0
+ * XREFs of UsbhSignalSuspendEvent @ 0x1C0035C9C
  * Callers:
- *     UsbhHubIsr @ 0x1C0004510 (UsbhHubIsr.c)
- *     Usbh_PCE_Suspend_Action @ 0x1C0008CC0 (Usbh_PCE_Suspend_Action.c)
- *     UsbhHubDispatchPortEvent @ 0x1C0016AF0 (UsbhHubDispatchPortEvent.c)
- *     UsbhRequestPortSuspend @ 0x1C001A734 (UsbhRequestPortSuspend.c)
- *     Usbh_CheckPortHwPendingStatus @ 0x1C001AEC0 (Usbh_CheckPortHwPendingStatus.c)
- *     UsbhEnumerate1 @ 0x1C001EDD0 (UsbhEnumerate1.c)
- *     Usbh_PCE_wChangeERROR_Action @ 0x1C00359FC (Usbh_PCE_wChangeERROR_Action.c)
- *     UsbhEnumerate2 @ 0x1C004BE8C (UsbhEnumerate2.c)
- *     UsbhPortDisconnect @ 0x1C004CDA0 (UsbhPortDisconnect.c)
+ *     Usbh_CheckPortHwPendingStatus @ 0x1C0001C3C (Usbh_CheckPortHwPendingStatus.c)
+ *     UsbhHubDispatchPortEvent @ 0x1C0008BD0 (UsbhHubDispatchPortEvent.c)
+ *     Usbh_PCE_Suspend_Action @ 0x1C000F4B0 (Usbh_PCE_Suspend_Action.c)
+ *     UsbhRequestPortSuspend @ 0x1C0016130 (UsbhRequestPortSuspend.c)
+ *     UsbhHubIsr @ 0x1C0019BF0 (UsbhHubIsr.c)
+ *     UsbhEnumerate1 @ 0x1C001C7A8 (UsbhEnumerate1.c)
+ *     Usbh_PCE_wChangeERROR_Action @ 0x1C0036CB8 (Usbh_PCE_wChangeERROR_Action.c)
+ *     UsbhEnumerate2 @ 0x1C004D298 (UsbhEnumerate2.c)
+ *     UsbhPortDisconnect @ 0x1C004E1B0 (UsbhPortDisconnect.c)
  * Callees:
- *     UsbhLogSignalSuspendEvent @ 0x1C0033834 (UsbhLogSignalSuspendEvent.c)
- *     UsbhSetPcqEventStatus @ 0x1C00348C0 (UsbhSetPcqEventStatus.c)
+ *     UsbhLogSignalSuspendEvent @ 0x1C0034B98 (UsbhLogSignalSuspendEvent.c)
+ *     UsbhSetPcqEventStatus @ 0x1C0035C24 (UsbhSetPcqEventStatus.c)
  */
 
 void __fastcall UsbhSignalSuspendEvent(__int64 a1, __int64 a2)

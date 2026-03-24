@@ -5,7 +5,7 @@
  *     MiProbeLeafPteAccess @ 0x1400420D0 (MiProbeLeafPteAccess.c)
  *     MiFaultInProbeAddress @ 0x1400936FC (MiFaultInProbeAddress.c)
  *     MmProbeAndLockSelectedPages @ 0x1400949E0 (MmProbeAndLockSelectedPages.c)
- *     MiSplitReducedCommitClonePage @ 0x1402A8390 (MiSplitReducedCommitClonePage.c)
+ *     MiSplitReducedCommitClonePage @ 0x1402A8490 (MiSplitReducedCommitClonePage.c)
  * Callees:
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  */

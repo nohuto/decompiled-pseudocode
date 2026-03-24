@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CLegacyAnimationTriggerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0223A50
+ * XREFs of ?SetBufferProperty@CLegacyAnimationTriggerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E9A00
  * Callers:
  *     <none>
  * Callees:

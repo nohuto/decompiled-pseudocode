@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlIncrementCcFastMdlReadWait @ 0x1403D3C70
+ * XREFs of FsRtlIncrementCcFastMdlReadWait @ 0x140393350
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void FsRtlIncrementCcFastMdlReadWait(void)
 {
-  __incgsdword(0x8444u);
+  __incgsdword(0x8104u);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRetryNonPagedAllocation @ 0x1400CB3EC
+ * XREFs of MiRetryNonPagedAllocation @ 0x1400CB40C
  * Callers:
- *     MiGetPoolPages @ 0x1400CB1A0 (MiGetPoolPages.c)
+ *     MiGetPoolPages @ 0x1400CB1C0 (MiGetPoolPages.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     MiSufficientAvailablePages @ 0x140055A50 (MiSufficientAvailablePages.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeAreInterruptsEnabled @ 0x1400CACE4 (KeAreInterruptsEnabled.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeAreInterruptsEnabled @ 0x1400CAD04 (KeAreInterruptsEnabled.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 MiRetryNonPagedAllocation()

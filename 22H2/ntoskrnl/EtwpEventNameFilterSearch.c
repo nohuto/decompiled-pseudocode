@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpEventNameFilterSearch @ 0x14046A6CE
+ * XREFs of EtwpEventNameFilterSearch @ 0x1405AC12C
  * Callers:
- *     EtwpApplyEventNameFilter @ 0x14046A156 (EtwpApplyEventNameFilter.c)
+ *     EtwpApplyEventNameFilter @ 0x1405ABA74 (EtwpApplyEventNameFilter.c)
  * Callees:
  *     <none>
  */
@@ -20,10 +20,11 @@ char __fastcall EtwpEventNameFilterSearch(const char *a1, unsigned __int16 a2, _
   int v13; // r11d
   int v14; // r11d
   int v15; // r11d
-  int v16; // r10d
+  unsigned int v16; // edi
   __int64 v17; // r11
-  __int64 v18; // r9
+  __int64 v18; // r10
   __int64 v19; // rdx
+  __int64 v21; // [rsp+10h] [rbp+8h]
 
   v3 = a2;
   v5 = (unsigned __int8 *)a1;
@@ -79,42 +80,44 @@ char __fastcall EtwpEventNameFilterSearch(const char *a1, unsigned __int16 a2, _
     v6 = *v5 + 37 * v6;
   }
 LABEL_20:
-  v16 = *(_DWORD *)(a3 + 28) >> 5;
+  v16 = *(_DWORD *)(a3 + 28);
   v17 = -1LL << (*(_BYTE *)(a3 + 28) & 0x1F);
   v18 = v17 & v6;
-  if ( v16 )
+  if ( v16 >> 5 )
   {
+    v21 = v17 & v6;
     v19 = *(_QWORD *)(a3 + 32)
         + 8LL
         * ((37
-          * (BYTE6(v18)
+          * (BYTE6(v21)
            + 37
-           * (BYTE5(v18)
+           * (BYTE5(v21)
             + 37
-            * (BYTE4(v18)
-             + 37 * (BYTE3(v18) + 37 * (BYTE2(v18) + 37 * (BYTE1(v18) + 37 * ((unsigned __int8)v18 + 11623883)))))))
-          + HIBYTE(v18)) & (unsigned int)(v16 - 1));
-    while ( 1 )
+            * (BYTE4(v21)
+             + 37 * (BYTE3(v21) + 37 * (BYTE2(v21) + 37 * (BYTE1(v21) + 37 * ((unsigned __int8)v18 + 11623883)))))))
+          + HIBYTE(v21)) & ((v16 >> 5) - 1));
+    do
     {
       v19 = *(_QWORD *)v19;
       if ( (v19 & 1) != 0 )
-        break;
-      if ( v18 == (v17 & *(_QWORD *)(v19 + 8)) )
+        goto LABEL_29;
+    }
+    while ( v18 != (v17 & *(_QWORD *)(v19 + 8)) );
+LABEL_30:
+    while ( v19 )
+    {
+      if ( !strcmp(a1, *(const char **)(v19 + 16)) )
+        return 1;
+      while ( 1 )
       {
-LABEL_28:
-        if ( !v19 )
-          return 0;
-        if ( !strcmp(a1, *(const char **)(v19 + 16)) )
-          return 1;
-        while ( 1 )
-        {
-          v19 = *(_QWORD *)v19;
-          if ( (v19 & 1) != 0 )
-            return 0;
-          if ( v18 == (v17 & *(_QWORD *)(v19 + 8)) )
-            goto LABEL_28;
-        }
+        v19 = *(_QWORD *)v19;
+        if ( (v19 & 1) != 0 )
+          break;
+        if ( (v6 & (-1LL << (v16 & 0x1F))) == ((-1LL << (v16 & 0x1F)) & *(_QWORD *)(v19 + 8)) )
+          goto LABEL_30;
       }
+LABEL_29:
+      v19 = 0LL;
     }
   }
   return 0;

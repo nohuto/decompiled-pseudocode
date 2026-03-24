@@ -1,10 +1,10 @@
 /*
- * XREFs of KiVerifyScopesExecute @ 0x140B5F520
+ * XREFs of KiVerifyScopesExecute @ 0x140A66230
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiVerifyPdata @ 0x140B5FC4C (KiVerifyPdata.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     KiVerifyPdata @ 0x140A66914 (KiVerifyPdata.c)
  */
 
 __int64 KiVerifyScopesExecute()
@@ -48,7 +48,7 @@ __int64 KiVerifyScopesExecute()
       ++v1;
       v8 = BugCheckParameter4;
     }
-    while ( (__int64)v1 < (__int64)&qword_140D81148 );
+    while ( (__int64)v1 < (__int64)&qword_140D58148 );
     --v0;
   }
   while ( v0 );

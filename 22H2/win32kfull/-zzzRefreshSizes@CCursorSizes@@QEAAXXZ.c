@@ -1,20 +1,19 @@
 /*
- * XREFs of ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C0024A88
+ * XREFs of ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C01668D8
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C0043D70 (xxxSystemParametersInfoWorker.c)
- *     xxxUpdatePerUserSystemParameters @ 0x1C0072BDC (xxxUpdatePerUserSystemParameters.c)
- *     EditionInitGlobalCursorSizes @ 0x1C00BCB40 (EditionInitGlobalCursorSizes.c)
- *     EditionzzzUpdateCursorSizes @ 0x1C00BDF10 (EditionzzzUpdateCursorSizes.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C0026774 (xxxUpdatePerUserSystemParameters.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
+ *     ??0CCursorSizes@@QEAA@XZ @ 0x1C0135C3C (--0CCursorSizes@@QEAA@XZ.c)
+ *     EditionzzzUpdateCursorSizes @ 0x1C0166CD0 (EditionzzzUpdateCursorSizes.c)
  * Callees:
- *     GetCursorSizeFromIndex @ 0x1C0027404 (GetCursorSizeFromIndex.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0040C00 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1C0041D94 (_tlgKeywordOn.c)
- *     ?zzzUpdateGlobalCursorSize@CCursorSizes@@QEAAXPEBUtagPOINT@@_N@Z @ 0x1C005B398 (-zzzUpdateGlobalCursorSize@CCursorSizes@@QEAAXPEBUtagPOINT@@_N@Z.c)
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00A4BA4 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C00B8B48 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?_CleanupUnneededSystemCursorSizes@@YAXI@Z @ 0x1C014E90E (-_CleanupUnneededSystemCursorSizes@@YAXI@Z.c)
- *     ?UpdateBaseSize@Cursor@InputTraceLogging@@SAXI@Z @ 0x1C01A89D4 (-UpdateBaseSize@Cursor@InputTraceLogging@@SAXI@Z.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C010AE58 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     GetCursorSizeFromIndex @ 0x1C0120FDC (GetCursorSizeFromIndex.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C012CC7C (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?zzzUpdateGlobalCursorSize@CCursorSizes@@QEAAXPEBUtagPOINT@@_N@Z @ 0x1C0166BB0 (-zzzUpdateGlobalCursorSize@CCursorSizes@@QEAAXPEBUtagPOINT@@_N@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C01D0930 (--$Write@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@.c)
+ *     ?UpdateBaseSize@Cursor@InputTraceLogging@@SAXI@Z @ 0x1C01D3A58 (-UpdateBaseSize@Cursor@InputTraceLogging@@SAXI@Z.c)
+ *     ?_CleanupUnneededSystemCursorSizes@@YAXI@Z @ 0x1C01D3AF0 (-_CleanupUnneededSystemCursorSizes@@YAXI@Z.c)
  */
 
 void __fastcall CCursorSizes::zzzRefreshSizes(CCursorSizes *this)
@@ -28,36 +27,31 @@ void __fastcall CCursorSizes::zzzRefreshSizes(CCursorSizes *this)
   INT CursorSizeFromIndex; // eax
   INT v9; // eax
   __int64 i; // rdx
-  __int128 v11; // xmm1
-  int *v12; // rcx
-  __int64 v13; // r9
-  int v14; // r8d
-  _DWORD *v15; // rdx
-  __int64 v16; // r10
-  __int64 v17; // rbx
-  __int64 v18; // rsi
-  char v19; // r13
-  bool v20; // zf
-  CCursorSizes *v21; // r13
-  unsigned __int16 v22; // cx
-  unsigned __int64 v23; // rax
-  unsigned int v24; // edi
-  int v26; // r9d
-  unsigned int v27; // [rsp+3Ch] [rbp-95h] BYREF
-  __int64 v28; // [rsp+40h] [rbp-91h] BYREF
-  CCursorSizes *v29; // [rsp+48h] [rbp-89h]
-  _OWORD v30[2]; // [rsp+50h] [rbp-81h] BYREF
-  __int64 v31; // [rsp+70h] [rbp-61h]
-  _OWORD v32[2]; // [rsp+78h] [rbp-59h] BYREF
-  __int64 v33; // [rsp+98h] [rbp-39h]
-  struct _EVENT_DATA_DESCRIPTOR v34; // [rsp+A0h] [rbp-31h] BYREF
-  unsigned int *v35; // [rsp+C0h] [rbp-11h]
-  __int64 v36; // [rsp+C8h] [rbp-9h]
-  struct _EVENT_DATA_DESCRIPTOR v37; // [rsp+D0h] [rbp-1h] BYREF
-  __int64 *v38; // [rsp+F0h] [rbp+1Fh]
-  __int64 v39; // [rsp+F8h] [rbp+27h]
+  unsigned __int16 v11; // cx
+  unsigned __int64 v12; // rax
+  __int128 v13; // xmm1
+  int *v14; // rcx
+  __int64 v15; // r9
+  int v16; // r8d
+  unsigned int *v17; // rdx
+  __int64 v18; // r10
+  __int64 v19; // rcx
+  __int64 v20; // rbx
+  char v21; // r13
+  __int64 v22; // rsi
+  unsigned int v23; // edi
+  bool v24; // zf
+  CCursorSizes *v25; // r13
+  unsigned int v26; // [rsp+3Ch] [rbp-35h] BYREF
+  int v27; // [rsp+40h] [rbp-31h] BYREF
+  CCursorSizes *v28; // [rsp+48h] [rbp-29h]
+  unsigned int v29[4]; // [rsp+50h] [rbp-21h] BYREF
+  __int128 v30; // [rsp+60h] [rbp-11h]
+  __int64 v31; // [rsp+70h] [rbp-1h]
+  _OWORD v32[2]; // [rsp+78h] [rbp+7h] BYREF
+  __int64 v33; // [rsp+98h] [rbp+27h]
 
-  v29 = this;
+  v28 = this;
   v2 = *(_DWORD *)UPDWORDPointer(8232LL);
   CPushLock::AcquireLockExclusive((CCursorSizes *)((char *)this + 64));
   v3 = *((_DWORD *)this + 1);
@@ -66,9 +60,9 @@ void __fastcall CCursorSizes::zzzRefreshSizes(CCursorSizes *this)
   v5 = 0;
   v6 = *(_OWORD *)((char *)this + 40);
   v7 = (_DWORD *)((char *)this + 24);
-  v30[0] = v4;
+  *(_OWORD *)v29 = v4;
   v31 = *((_QWORD *)this + 7);
-  v30[1] = v6;
+  v30 = v6;
   do
   {
     CursorSizeFromIndex = GetCursorSizeFromIndex(v5);
@@ -81,98 +75,104 @@ void __fastcall CCursorSizes::zzzRefreshSizes(CCursorSizes *this)
   while ( v5 < 5 );
   for ( i = *(_QWORD *)(gpDispInfo + 104LL); i; i = *(_QWORD *)(i + 56) )
   {
-    v22 = *(_WORD *)(*(_QWORD *)(i + 40) + 64LL);
-    if ( v22 >= 0x90u )
+    v11 = *(_WORD *)(*(_QWORD *)(i + 40) + 68LL);
+    if ( v11 >= 0x90u )
     {
-      if ( v22 >= 0xC0u )
+      if ( v11 >= 0xC0u )
       {
-        if ( v22 >= 0x120u )
-          v23 = (-(__int64)(v22 < 0x180u) & 0xFFFFFFFFFFFFFFF8uLL) + 56;
+        if ( v11 >= 0x120u )
+          v12 = (-(__int64)(v11 < 0x180u) & 0xFFFFFFFFFFFFFFF8uLL) + 56;
         else
-          v23 = 40LL;
+          v12 = 40LL;
       }
       else
       {
-        v23 = 32LL;
+        v12 = 32LL;
       }
     }
     else
     {
-      v23 = 24LL;
+      v12 = 24LL;
     }
-    *(_DWORD *)((char *)this + v23) = 1;
+    *(_DWORD *)((char *)this + v12) = 1;
   }
-  v11 = *(_OWORD *)((char *)this + 40);
+  v13 = *(_OWORD *)((char *)this + 40);
   v32[0] = *(_OWORD *)((char *)this + 24);
   v33 = *((_QWORD *)this + 7);
-  v32[1] = v11;
+  v32[1] = v13;
   CPushLock::ReleaseLock((CCursorSizes *)((char *)this + 64));
   if ( v2 != v3 )
     InputTraceLogging::Cursor::UpdateBaseSize(v2);
-  v12 = (int *)v32;
-  v13 = 5LL;
+  v14 = (int *)v32;
+  v15 = 5LL;
   do
   {
-    v14 = *v12;
-    v15 = v30;
-    v16 = 5LL;
+    v16 = *v14;
+    v17 = v29;
+    v18 = 5LL;
     do
     {
-      if ( v14 && *v15 && v12[1] == v15[1] )
+      if ( v16 && *v17 && v14[1] == v17[1] )
       {
-        v14 = 0;
-        *v15 = 0;
+        v16 = 0;
+        *v17 = 0;
       }
-      v15 += 2;
-      --v16;
+      v17 += 2;
+      --v18;
     }
-    while ( v16 );
-    *v12 = v14;
-    v12 += 2;
-    --v13;
+    while ( v18 );
+    *v14 = v16;
+    v14 += 2;
+    --v15;
   }
-  while ( v13 );
-  v17 = 0LL;
-  v18 = 5LL;
-  v19 = 0;
+  while ( v15 );
+  v19 = qword_1C032FB38;
+  v20 = 0LL;
+  v21 = 0;
+  v22 = 5LL;
   do
   {
-    if ( *(_DWORD *)((char *)v30 + v17) )
+    if ( v29[v20] )
     {
-      v24 = *(_DWORD *)((char *)v30 + v17 + 4);
-      if ( (unsigned int)dword_1C0359080 > 5 && (unsigned __int8)tlgKeywordOn(&dword_1C0359080, 8LL) )
+      v23 = v29[v20 + 1];
+      if ( (unsigned int)dword_1C032FB20 > 5 && (qword_1C032FB30 & 8) != 0 && (v19 & 8) == v19 )
       {
-        v27 = v24;
-        v35 = &v27;
-        v36 = 4LL;
-        tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C0359080, (int)&dword_1C0319D3A, 0, 0, 3u, &v34);
+        v26 = v29[v20 + 1];
+        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>>(
+          (unsigned int)&dword_1C032FB20,
+          (unsigned int)&unk_1C02F01E8,
+          v16,
+          v15,
+          (__int64)&v26);
       }
-      _CleanupUnneededSystemCursorSizes(v24);
+      _CleanupUnneededSystemCursorSizes(v23);
+      v19 = qword_1C032FB38;
     }
-    if ( *(_DWORD *)((char *)v32 + v17) )
+    if ( *(_DWORD *)((char *)v32 + v20 * 4) )
     {
-      v19 = 1;
-      if ( (unsigned int)dword_1C0359080 > 5 )
+      v21 = 1;
+      if ( (unsigned int)dword_1C032FB20 > 5 && (qword_1C032FB30 & 8) != 0 && (v19 & 8) == v19 )
       {
-        if ( (unsigned __int8)tlgKeywordOn(&dword_1C0359080, 8LL) )
-        {
-          LODWORD(v28) = v26;
-          v38 = &v28;
-          v39 = 4LL;
-          tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C0359080, (int)&dword_1C0319D06, 0, 0, 3u, &v37);
-        }
+        v27 = *(_DWORD *)((char *)v32 + v20 * 4 + 4);
+        _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>>(
+          (unsigned int)&dword_1C032FB20,
+          (unsigned int)&unk_1C02F01B4,
+          v16,
+          v15,
+          (__int64)&v27);
+        v19 = qword_1C032FB38;
       }
     }
-    v17 += 8LL;
-    --v18;
+    v20 += 2LL;
+    --v22;
   }
-  while ( v18 );
-  v20 = v19 == 0;
-  v21 = v29;
-  if ( !v20 )
+  while ( v22 );
+  v24 = v21 == 0;
+  v25 = v28;
+  if ( !v24 )
   {
     _InterlockedOr((volatile signed __int32 *)&Feedback::gdwPointerCursorOps, 4u);
     KeSetEvent(Feedback::gpevtPointerCursorOperation, 1, 0);
   }
-  CCursorSizes::zzzUpdateGlobalCursorSize(v21, (const struct tagPOINT *)(gpsi + 4960LL), 1);
+  CCursorSizes::zzzUpdateGlobalCursorSize(v25, (const struct tagPOINT *)(gpsi + 4960LL), 1);
 }

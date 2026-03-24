@@ -1,14 +1,14 @@
 /*
- * XREFs of ?CalculateInContactValueWorker@CInteractionTrackerScaleAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180256630
+ * XREFs of ?CalculateInContactValueWorker@CInteractionTrackerScaleAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180205DE0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?BoundaryFromValue@CInteractionTracker@@QEBA?AW4Boundary@@MW4ScrollAxis@@@Z @ 0x180219524 (-BoundaryFromValue@CInteractionTracker@@QEBA-AW4Boundary@@MW4ScrollAxis@@@Z.c)
- *     ?GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x18021AC2C (-GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
- *     ?UpdateCenterPointForState@CInteractionTracker@@QEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@@Z @ 0x18021E688 (-UpdateCenterPointForState@CInteractionTracker@@QEAAJPEAVCExpressionValueStack@@_KW4ScrollState@.c)
- *     ?UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z @ 0x180254B6C (-UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z.c)
- *     ?GetActiveManipulationVelocity@InteractionSourceManager@@QEBAMW4ScrollAxis@@@Z @ 0x180264278 (-GetActiveManipulationVelocity@InteractionSourceManager@@QEBAMW4ScrollAxis@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?BoundaryFromValue@CInteractionTracker@@QEBA?AW4Boundary@@MW4ScrollAxis@@@Z @ 0x1801C83F4 (-BoundaryFromValue@CInteractionTracker@@QEBA-AW4Boundary@@MW4ScrollAxis@@@Z.c)
+ *     ?GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1801C9880 (-GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
+ *     ?UpdateCenterPointForState@CInteractionTracker@@QEAAJPEAVCExpressionValueStack@@_KW4ScrollState@@@Z @ 0x1801CD660 (-UpdateCenterPointForState@CInteractionTracker@@QEAAJPEAVCExpressionValueStack@@_KW4ScrollState@.c)
+ *     ?UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z @ 0x1802042CC (-UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z.c)
+ *     ?GetActiveManipulationVelocity@InteractionSourceManager@@QEBAMW4ScrollAxis@@@Z @ 0x18021335C (-GetActiveManipulationVelocity@InteractionSourceManager@@QEBAMW4ScrollAxis@@@Z.c)
  */
 
 __int64 __fastcall CInteractionTrackerScaleAnimation::CalculateInContactValueWorker(
@@ -28,15 +28,15 @@ __int64 __fastcall CInteractionTrackerScaleAnimation::CalculateInContactValueWor
   __int64 v15; // rcx
   unsigned int v16; // ebx
 
-  v5 = *((_QWORD *)this + 44);
+  v5 = *((_QWORD *)this + 41);
   v8 = *(float *)&a4;
   if ( v5 )
     v5 = *(_QWORD *)(v5 + 16);
   CurrentValue = CInteractionTracker::GetCurrentValue(v5, 2);
-  ActiveManipulationVelocity = InteractionSourceManager::GetActiveManipulationVelocity(v5 + 200, 2LL);
-  *((_DWORD *)this + 121) = LODWORD(ActiveManipulationVelocity);
-  *(float *)&a4 = *(float *)&a4 * *((float *)this + 142);
-  *((_DWORD *)this + 142) = LODWORD(a4);
+  ActiveManipulationVelocity = InteractionSourceManager::GetActiveManipulationVelocity(v5 + 192, 2LL);
+  *((_DWORD *)this + 115) = LODWORD(ActiveManipulationVelocity);
+  *(float *)&a4 = *(float *)&a4 * *((float *)this + 146);
+  *((_DWORD *)this + 146) = LODWORD(a4);
   v12 = CInteractionTracker::BoundaryFromValue(v5, *(float *)&a4, 2u);
   v13 = CScrollAnimation::UpdateValueWithChaining((__int64)this, a4, v8, v12).m128_f32[0];
   if ( v13 == CurrentValue
@@ -47,7 +47,7 @@ __int64 __fastcall CInteractionTrackerScaleAnimation::CalculateInContactValueWor
   }
   else
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, updated, 0xE3u);
+    MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, updated, 0xE3u, 0LL);
   }
   return v16;
 }

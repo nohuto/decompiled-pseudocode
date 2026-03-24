@@ -1,9 +1,9 @@
 /*
- * XREFs of RIMIDEValidateLogicalDeviceSize @ 0x1C019764C
+ * XREFs of RIMIDEValidateLogicalDeviceSize @ 0x1C016A068
  * Callers:
- *     RIMPopulatePointerDevice @ 0x1C0182600 (RIMPopulatePointerDevice.c)
+ *     RIMPopulatePointerDevice @ 0x1C0161CFC (RIMPopulatePointerDevice.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
  */
 
 __int64 __fastcall RIMIDEValidateLogicalDeviceSize(_DWORD *a1, int a2, int a3)
@@ -13,41 +13,19 @@ __int64 __fastcall RIMIDEValidateLogicalDeviceSize(_DWORD *a1, int a2, int a3)
   v3 = 0;
   if ( a2 == -1 || a3 == -1 )
   {
-    LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u;
-    if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        a2,
-        a3,
-        (_DWORD)gRimLog,
-        2,
-        1,
-        52,
-        (__int64)&WPP_9f96ae63cfc83aaf8fc02e72e74825ab_Traceguids);
+      LOBYTE(a2) = 2;
+      WPP_RECORDER_SF_((_DWORD)gRimLog, a2, 1, 52, (__int64)&WPP_6618ffd707d032c105188cf3f3e4149b_Traceguids);
     }
     v3 = -1073741668;
   }
   if ( a1[33] - a1[31] <= 1 || a1[34] - a1[32] <= 1 )
   {
-    LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u;
-    if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        a2,
-        a3,
-        (_DWORD)gRimLog,
-        2,
-        1,
-        53,
-        (__int64)&WPP_9f96ae63cfc83aaf8fc02e72e74825ab_Traceguids);
+      LOBYTE(a2) = 2;
+      WPP_RECORDER_SF_((_DWORD)gRimLog, a2, 1, 53, (__int64)&WPP_6618ffd707d032c105188cf3f3e4149b_Traceguids);
     }
     return (unsigned int)-1073741668;
   }

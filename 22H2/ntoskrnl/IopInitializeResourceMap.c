@@ -1,18 +1,19 @@
 /*
- * XREFs of IopInitializeResourceMap @ 0x140B44840
+ * XREFs of IopInitializeResourceMap @ 0x140A39780
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlCmEncodeMemIoResource @ 0x140375A00 (RtlCmEncodeMemIoResource.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     __report_rangecheckfailure @ 0x1404FE1FC (__report_rangecheckfailure.c)
- *     IopCreateRegistryKeyEx @ 0x1407DAA18 (IopCreateRegistryKeyEx.c)
- *     IopWriteResourceList @ 0x14081AEF8 (IopWriteResourceList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     MmInitializeMemoryLimits @ 0x140B44B8C (MmInitializeMemoryLimits.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlCmEncodeMemIoResource @ 0x1403A8300 (RtlCmEncodeMemIoResource.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     __report_rangecheckfailure @ 0x1404B63BC (__report_rangecheckfailure.c)
+ *     IopCreateRegistryKeyEx @ 0x14073C1E4 (IopCreateRegistryKeyEx.c)
+ *     IopWriteResourceList @ 0x140751D5C (IopWriteResourceList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     MmInitializeMemoryLimits @ 0x140A39AE0 (MmInitializeMemoryLimits.c)
  */
 
 void __fastcall IopInitializeResourceMap(__int64 a1)
@@ -27,8 +28,8 @@ void __fastcall IopInitializeResourceMap(__int64 a1)
   __int64 v8; // r10
   unsigned __int64 v9; // r8
   ULONG v10; // r15d
-  _DWORD *Pool2; // rax
-  _DWORD *v12; // r12
+  struct _CM_PARTIAL_RESOURCE_DESCRIPTOR *PoolWithTag; // rax
+  struct _CM_PARTIAL_RESOURCE_DESCRIPTOR *v12; // r12
   unsigned int v13; // r13d
   struct _CM_PARTIAL_RESOURCE_DESCRIPTOR *v14; // rdi
   ULONGLONG v15; // rbx
@@ -46,7 +47,7 @@ void __fastcall IopInitializeResourceMap(__int64 a1)
   __int64 v27; // [rsp+48h] [rbp-49h]
   UNICODE_STRING v28; // [rsp+50h] [rbp-41h] BYREF
   UNICODE_STRING v29; // [rsp+60h] [rbp-31h] BYREF
-  _DWORD *v30; // [rsp+70h] [rbp-21h]
+  struct _CM_PARTIAL_RESOURCE_DESCRIPTOR *v30; // [rsp+70h] [rbp-21h]
   UNICODE_STRING DestinationString; // [rsp+78h] [rbp-19h] BYREF
   _BYTE v32[22]; // [rsp+88h] [rbp-9h] BYREF
   __int16 v33; // [rsp+9Eh] [rbp+Dh]
@@ -77,14 +78,14 @@ void __fastcall IopInitializeResourceMap(__int64 a1)
         v18 = 0LL;
         do
         {
-          if ( v18 >= 0x2C )
+          if ( v18 >= 0x29 )
 LABEL_33:
             _report_rangecheckfailure();
           v32[v18] = 0;
           ++v17;
           ++v18;
         }
-        while ( v17 < 0x2C );
+        while ( v17 < 0x29 );
         LOBYTE(v33) = 1;
         v34 = 1;
         v5 = (unsigned int *)MmInitializeMemoryLimits(v1, v32);
@@ -99,13 +100,13 @@ LABEL_33:
         v4 = 0LL;
         do
         {
-          if ( v4 >= 0x2C )
+          if ( v4 >= 0x29 )
             goto LABEL_33;
           v32[v4] = 0;
           ++v3;
           ++v4;
         }
-        while ( v3 < 0x2C );
+        while ( v3 < 0x29 );
         v32[3] = 1;
         v36 = 257;
         v32[6] = 1;
@@ -160,19 +161,20 @@ LABEL_33:
     while ( v8 );
     v10 = 20 * (v6 + 1);
     v25 = v10;
-    Pool2 = (_DWORD *)ExAllocatePool2(256LL, v10, 0x20207050u);
-    v30 = Pool2;
-    v12 = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = (struct _CM_PARTIAL_RESOURCE_DESCRIPTOR *)ExAllocatePoolWithTag(PagedPool, v10, 0x20207050u);
+    v30 = PoolWithTag;
+    v12 = PoolWithTag;
+    if ( !PoolWithTag )
     {
       if ( v2 )
         ExFreePoolWithTag(v5, 0);
       return;
     }
+    memset(PoolWithTag, 0, (unsigned int)(20 * (v6 + 1)));
     v13 = 0;
-    *Pool2 = 1;
-    Pool2[4] = v6;
-    v14 = (struct _CM_PARTIAL_RESOURCE_DESCRIPTOR *)(Pool2 + 5);
+    *(_DWORD *)&v12->Type = 1;
+    *((_DWORD *)&v12->u.Memory48 + 3) = v6;
+    v14 = v12 + 1;
     if ( !*v5 )
       goto LABEL_20;
     do

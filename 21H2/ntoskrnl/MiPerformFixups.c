@@ -1,141 +1,139 @@
 /*
- * XREFs of MiPerformFixups @ 0x1407BF2E0
+ * XREFs of MiPerformFixups @ 0x1405FC5B8
  * Callers:
- *     MiRevertRelocations @ 0x1406B8500 (MiRevertRelocations.c)
- *     MiRevertRelocatedImagePfn @ 0x1406F367C (MiRevertRelocatedImagePfn.c)
- *     MiRelocateImagePfn @ 0x1407BF070 (MiRelocateImagePfn.c)
+ *     MiRelocateImagePfn @ 0x1405FC260 (MiRelocateImagePfn.c)
+ *     MiRevertRelocatedImagePfn @ 0x14069BF78 (MiRevertRelocatedImagePfn.c)
+ *     MiRevertRelocations @ 0x1407158B8 (MiRevertRelocations.c)
  * Callees:
- *     MiApplyStraddleFixups @ 0x140241008 (MiApplyStraddleFixups.c)
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
- *     MiApplyRetpolineFixups @ 0x1402DB248 (MiApplyRetpolineFixups.c)
- *     MiApplyCompressedFixups @ 0x1407BF530 (MiApplyCompressedFixups.c)
- *     MiApplyRawFixups @ 0x14097FB60 (MiApplyRawFixups.c)
+ *     MiApplyRetpolineFixups @ 0x14029C6A4 (MiApplyRetpolineFixups.c)
+ *     MiApplyStraddleFixups @ 0x1402BA60C (MiApplyStraddleFixups.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     MiApplyCompressedFixups @ 0x1405FC7C0 (MiApplyCompressedFixups.c)
+ *     MiApplyRawFixups @ 0x1408D7ACC (MiApplyRawFixups.c)
  */
 
-void __fastcall MiPerformFixups(
+__int64 __fastcall MiPerformFixups(
         ULONG_PTR BugCheckParameter3,
-        __int64 *BugCheckParameter2,
+        _QWORD *BugCheckParameter2,
         unsigned int a3,
         __int64 a4,
         __int64 a5,
-        unsigned int a6)
+        char a6)
 {
-  unsigned int v6; // r13d
-  unsigned int v8; // ebp
-  __int64 v11; // rbx
-  _OWORD *v12; // r8
-  int v13; // r15d
-  unsigned __int16 *v14; // rdx
-  unsigned __int64 v15; // rdi
-  int v16; // ecx
-  _DWORD *v17; // rcx
-  unsigned __int64 v18; // rcx
-  __int128 v19; // xmm1
-  __int128 v20; // xmm0
-  unsigned int v21; // edi
+  __int64 result; // rax
+  __int64 v8; // rsi
+  ULONG_PTR v9; // r10
+  __int64 v11; // r15
+  int v12; // edi
+  _OWORD *v13; // r13
+  unsigned __int64 v14; // rbp
+  unsigned __int16 *v15; // r12
+  bool v16; // zf
+  char v17; // bp
+  int v18; // ecx
+  ULONG_PTR v19; // rcx
+  __int64 v20; // r8
+  unsigned __int64 v21; // rcx
+  __int128 v22; // xmm1
+  __int128 v23; // xmm0
+  __int64 v24; // rax
   int SystemRegionType; // eax
-  __int64 v23; // rdx
-  __int64 v24; // r8
-  __int128 v25; // [rsp+40h] [rbp-68h] BYREF
-  __int128 v26; // [rsp+50h] [rbp-58h]
-  __int128 v27; // [rsp+60h] [rbp-48h]
-  unsigned __int16 *v28; // [rsp+B0h] [rbp+8h]
-  __int64 v29; // [rsp+B8h] [rbp+10h]
-  _OWORD *v30; // [rsp+C8h] [rbp+20h]
+  __int64 v26; // rdx
+  __int64 v27; // r8
+  __int64 v28; // rcx
+  __int128 v29; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v30; // [rsp+50h] [rbp-48h]
+  __int64 v31; // [rsp+58h] [rbp-40h]
+  __int128 v32; // [rsp+60h] [rbp-38h]
 
-  v6 = a6;
+  result = BugCheckParameter2[12];
   v8 = a3;
-  if ( !a4 )
-    v6 = a6 & 0xFFFFFFFE;
-  v11 = *(_QWORD *)(BugCheckParameter2[12] + 32);
-  if ( (v6 & 1) != 0 && a3 < *(_DWORD *)(v11 + 56) )
+  v9 = (ULONG_PTR)BugCheckParameter2;
+  v11 = *(_QWORD *)(result + 32);
+  if ( (unsigned __int64)a3 < *(_QWORD *)(v11 + 56) )
   {
-    v12 = *(_OWORD **)(v11 + 88);
-    v13 = v8 << 12;
-    v29 = *BugCheckParameter2;
-    v30 = v12;
+    v12 = a3 << 12;
     while ( 1 )
     {
-      while ( 1 )
+      result = *(_QWORD *)v11;
+      v13 = *(_OWORD **)(v11 + 96);
+      v14 = *(_QWORD *)(*(_QWORD *)v11 + 8 * v8);
+      if ( v13 )
+        v15 = (unsigned __int16 *)*((_QWORD *)v13 + v8 + 7);
+      else
+        v15 = 0LL;
+      if ( v14 )
       {
-        v14 = 0LL;
-        v28 = 0LL;
-        v15 = *(_QWORD *)(*(_QWORD *)v11 + 8LL * v8);
-        if ( v12 )
+        if ( v14 > 1 )
         {
-          v14 = (unsigned __int16 *)*((_QWORD *)v12 + v8 + 7);
-          v28 = v14;
+          if ( *(_BYTE *)(v11 + 68) )
+            MiApplyCompressedFixups(v9, BugCheckParameter3);
+          else
+            MiApplyRawFixups(v9);
         }
+LABEL_9:
+        v16 = (v14 & 1) == 0;
+        v17 = a6;
+        if ( !v16 )
+          MiApplyStraddleFixups(v11, (char *)BugCheckParameter3, v12, a4, a5, a6);
         if ( v15 )
-          break;
-        if ( v14 )
-          goto LABEL_24;
+        {
+          v20 = *(_QWORD *)(*BugCheckParameter2 + 32LL);
+          if ( a5 )
+          {
+            v28 = a5;
+            if ( (a6 & 1) == 0 )
+              v28 = a4;
+            v21 = v20 + v28;
+          }
+          else
+          {
+            v21 = v20 + a4;
+            if ( (a6 & 1) == 0 )
+              v21 = *(_QWORD *)(*BugCheckParameter2 + 32LL);
+          }
+          v22 = v13[1];
+          v29 = *v13;
+          v23 = v13[2];
+          v24 = v22;
+          if ( a5 )
+            v24 = 0LL;
+          v31 = *((_QWORD *)&v22 + 1);
+          v30 = v24;
+          v32 = v23;
+          SystemRegionType = MiGetSystemRegionType(v21);
+          if ( SystemRegionType != 12 && SystemRegionType != 1 )
+            v17 = a6 | 1;
+          MiApplyRetpolineFixups(BugCheckParameter3, v26, v27, v12, (__int64)&v29, v15, v17);
+        }
+        v18 = *(_DWORD *)(v11 + 64);
+        result = v18 & 0xFFFFF000;
+        if ( (_DWORD)result == v12 )
+        {
+          v19 = BugCheckParameter3 + (v18 & 0xFFF);
+          if ( (v19 & 1) != 0 )
+            *(_DWORD *)(v19 - 1) += a4;
+          else
+            *(_QWORD *)v19 += a4;
+        }
         BugCheckParameter3 += 4096LL;
         if ( (BugCheckParameter3 & 0xFFF) == 0 )
-          return;
-        ++v8;
-        v13 += 4096;
+          return result;
+        v9 = (ULONG_PTR)BugCheckParameter2;
+        v8 = (unsigned int)(v8 + 1);
+        v12 += 4096;
       }
-      if ( v15 > 1 )
+      else
       {
-        if ( *(_BYTE *)(v11 + 64) )
-          MiApplyCompressedFixups((ULONG_PTR)BugCheckParameter2, BugCheckParameter3);
-        else
-          MiApplyRawFixups((ULONG_PTR)BugCheckParameter2);
-        v14 = v28;
-      }
-      if ( (v15 & 1) != 0 )
-      {
-        MiApplyStraddleFixups(v11, (char *)BugCheckParameter3, v13, a4, a5, v6);
-        v14 = v28;
-      }
-      if ( v14 )
-        break;
-LABEL_16:
-      v16 = *(_DWORD *)(v11 + 60);
-      if ( (v16 & 0xFFFFF000) == v13 )
-      {
-        v17 = (_DWORD *)(BugCheckParameter3 + (v16 & 0xFFF));
-        if ( (*(_BYTE *)(v29 + 14) & 0x40) != 0 )
-          *v17 += a4;
-        else
-          *(_QWORD *)v17 += a4;
-      }
-      BugCheckParameter3 += 4096LL;
-      if ( (BugCheckParameter3 & 0xFFF) == 0 )
-        return;
-      v12 = v30;
-      ++v8;
-      v13 += 4096;
-    }
-LABEL_24:
-    v18 = *(_QWORD *)(v29 + 32);
-    if ( (v6 & 4) != 0 )
-    {
-      if ( (v6 & 8) != 0 )
-      {
-        v18 += a5;
-        goto LABEL_26;
+        if ( v15 )
+          goto LABEL_9;
+        BugCheckParameter3 += 4096LL;
+        if ( (BugCheckParameter3 & 0xFFF) == 0 )
+          return result;
+        v8 = (unsigned int)(v8 + 1);
+        v12 += 4096;
       }
     }
-    else if ( (v6 & 8) == 0 )
-    {
-LABEL_26:
-      v19 = v30[1];
-      v25 = *v30;
-      v20 = v30[2];
-      v26 = v19;
-      v27 = v20;
-      if ( a5 )
-        *(_QWORD *)&v26 = 0LL;
-      v21 = v6;
-      SystemRegionType = MiGetSystemRegionType(v18);
-      if ( SystemRegionType != 12 && SystemRegionType != 1 )
-        v21 = v6 | 8;
-      MiApplyRetpolineFixups(BugCheckParameter3, v23, v24, v13, (__int64)&v25, v28, v21);
-      goto LABEL_16;
-    }
-    v18 += a4;
-    goto LABEL_26;
   }
+  return result;
 }

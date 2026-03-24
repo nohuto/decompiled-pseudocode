@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_GettingAlternateConfigurationDescriptorWithReturnedLength @ 0x1C001EEB0
+ * XREFs of HUBDSM_GettingAlternateConfigurationDescriptorWithReturnedLength @ 0x1C001E970
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_GetConfigDescriptorWithReturnedLengthUsingControlTransfer @ 0x1C002817C (HUBDTX_GetConfigDescriptorWithReturnedLengthUsingControlTransfer.c)
+ *     HUBDTX_GetConfigDescriptorWithReturnedLengthUsingControlTransfer @ 0x1C0027CD4 (HUBDTX_GetConfigDescriptorWithReturnedLengthUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBDSM_GettingAlternateConfigurationDescriptorWithReturnedLength(__int64 a1)

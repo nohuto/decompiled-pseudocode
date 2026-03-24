@@ -1,11 +1,11 @@
 /*
- * XREFs of NtGdiDescribePixelFormat @ 0x1C02C2110
+ * XREFs of NtGdiDescribePixelFormat @ 0x1C02ADD70
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     GreDescribePixelFormat @ 0x1C02D8008 (GreDescribePixelFormat.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     GreDescribePixelFormat @ 0x1C02BC050 (GreDescribePixelFormat.c)
  */
 
 __int64 __fastcall NtGdiDescribePixelFormat(HDC a1, __int64 a2, unsigned int a3, char *a4)

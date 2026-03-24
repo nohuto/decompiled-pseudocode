@@ -1,8 +1,8 @@
 /*
- * XREFs of ACPISystemPowerDetermineSupportedDeviceWakeState @ 0x1C00203FC
+ * XREFs of ACPISystemPowerDetermineSupportedDeviceWakeState @ 0x1C00163F4
  * Callers:
- *     ACPISystemPowerUpdateWakeCapabilitiesForFilters @ 0x1C001E928 (ACPISystemPowerUpdateWakeCapabilitiesForFilters.c)
- *     ACPISystemPowerUpdateWakeCapabilitiesForPDOs @ 0x1C001EF50 (ACPISystemPowerUpdateWakeCapabilitiesForPDOs.c)
+ *     ACPISystemPowerUpdateWakeCapabilitiesForFilters @ 0x1C0016C4C (ACPISystemPowerUpdateWakeCapabilitiesForFilters.c)
+ *     ACPISystemPowerUpdateWakeCapabilitiesForPDOs @ 0x1C0017FC0 (ACPISystemPowerUpdateWakeCapabilitiesForPDOs.c)
  * Callees:
  *     <none>
  */
@@ -13,10 +13,10 @@ __int64 __fastcall ACPISystemPowerDetermineSupportedDeviceWakeState(__int64 a1)
   int v2; // edx
   int v4; // eax
 
-  v1 = *(__int64 **)(a1 + 408);
+  v1 = *(__int64 **)(a1 + 368);
   v2 = 5;
   if ( !v1 )
-    return (*(_QWORD *)(a1 + 1000) & 0x500000000LL) != 0 ? 4u : 0;
+    return (*(_QWORD *)(a1 + 960) & 0x500000000LL) != 0 ? 4u : 0;
   do
   {
     v4 = v2;
@@ -27,6 +27,6 @@ __int64 __fastcall ACPISystemPowerDetermineSupportedDeviceWakeState(__int64 a1)
   }
   while ( v1 );
   if ( v2 == 5 )
-    return (*(_QWORD *)(a1 + 1000) & 0x500000000LL) != 0 ? 4u : 0;
+    return (*(_QWORD *)(a1 + 960) & 0x500000000LL) != 0 ? 4u : 0;
   return (unsigned int)v2;
 }

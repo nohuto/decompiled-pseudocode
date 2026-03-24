@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxUnregisterDeviceOrWait @ 0x14080D7EC
+ * XREFs of PopFxUnregisterDeviceOrWait @ 0x140736750
  * Callers:
- *     PoFxAbandonDevice @ 0x140766E4C (PoFxAbandonDevice.c)
- *     PoFxUnregisterDevice @ 0x140864C90 (PoFxUnregisterDevice.c)
+ *     PoFxAbandonDevice @ 0x140738B04 (PoFxAbandonDevice.c)
+ *     PoFxUnregisterDevice @ 0x1407D5160 (PoFxUnregisterDevice.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     PopFxLockDevice @ 0x1403A4868 (PopFxLockDevice.c)
- *     PopFxUnregisterDevice @ 0x14082310C (PopFxUnregisterDevice.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     PopFxLockDevice @ 0x14036E284 (PopFxLockDevice.c)
+ *     PopFxUnregisterDevice @ 0x1407B4F70 (PopFxUnregisterDevice.c)
  */
 
-NTSTATUS __fastcall PopFxUnregisterDeviceOrWait(struct _KEVENT *a1)
+LONG __fastcall PopFxUnregisterDeviceOrWait(struct _KEVENT *a1)
 {
   ULONG_PTR v2; // rax
 

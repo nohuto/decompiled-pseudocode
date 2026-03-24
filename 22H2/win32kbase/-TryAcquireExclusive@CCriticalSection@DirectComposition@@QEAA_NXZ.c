@@ -1,8 +1,8 @@
 /*
- * XREFs of ?TryAcquireExclusive@CCriticalSection@DirectComposition@@QEAA_NXZ @ 0x1C00874B4
+ * XREFs of ?TryAcquireExclusive@CCriticalSection@DirectComposition@@QEAA_NXZ @ 0x1C00AAF84
  * Callers:
- *     ?OnConnectionReconnected@CChannelGroup@DirectComposition@@QEAAXXZ @ 0x1C0087368 (-OnConnectionReconnected@CChannelGroup@DirectComposition@@QEAAXXZ.c)
- *     ?OnConnectionDisconnected@CChannelGroup@DirectComposition@@QEAAXXZ @ 0x1C0087408 (-OnConnectionDisconnected@CChannelGroup@DirectComposition@@QEAAXXZ.c)
+ *     ?OnConnectionReconnected@CChannelGroup@DirectComposition@@QEAAXXZ @ 0x1C00AAE38 (-OnConnectionReconnected@CChannelGroup@DirectComposition@@QEAAXXZ.c)
+ *     ?OnConnectionDisconnected@CChannelGroup@DirectComposition@@QEAAXXZ @ 0x1C00AAED8 (-OnConnectionDisconnected@CChannelGroup@DirectComposition@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

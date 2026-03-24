@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetDriverEntryOrder @ 0x1408D56D0
+ * XREFs of NtSetDriverEntryOrder @ 0x1408D56B0
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     IoSetEnvironmentVariableEx @ 0x140821608 (IoSetEnvironmentVariableEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     IoSetEnvironmentVariableEx @ 0x1408215E8 (IoSetEnvironmentVariableEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtSetDriverEntryOrder(PULONG Ids, PULONG Count)
@@ -28,7 +28,7 @@ NTSTATUS __stdcall NtSetDriverEntryOrder(PULONG Ids, PULONG Count)
 
   v2 = (unsigned int)Count;
   PoolWithTag = 0LL;
-  if ( dword_140409DD0 != 2 )
+  if ( dword_140409D90 != 2 )
     return -1073741822;
   if ( (unsigned int)Count > 0x3FFFFFFF )
     return -1073741811;

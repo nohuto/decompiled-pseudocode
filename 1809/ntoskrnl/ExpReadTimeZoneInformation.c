@@ -4,7 +4,7 @@
  *     ExpReadSiloTimeZoneMarker @ 0x14058387C (ExpReadSiloTimeZoneMarker.c)
  *     ExpTimeZoneInitSiloState @ 0x1405839E4 (ExpTimeZoneInitSiloState.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlpQueryRegistryValues @ 0x1405C58AC (RtlpQueryRegistryValues.c)
  */
 

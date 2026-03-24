@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_EDMMVIDPNTARGETMODE@@WCA@EAAPEAXI@Z @ 0x1C0028C70
+ * XREFs of ??_EDMMVIDPNTARGETMODE@@WCA@EAAPEAXI@Z @ 0x1C00291C0
  * Callers:
  *     <none>
  * Callees:

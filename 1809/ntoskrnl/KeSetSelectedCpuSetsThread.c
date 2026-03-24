@@ -1,5 +1,5 @@
 /*
- * XREFs of KeSetSelectedCpuSetsThread @ 0x140296980
+ * XREFs of KeSetSelectedCpuSetsThread @ 0x140296A80
  * Callers:
  *     NtSetInformationThread @ 0x1405E9EA0 (NtSetInformationThread.c)
  * Callees:
@@ -11,17 +11,17 @@
  *     KiGetThreadCpuSetMaskPointer @ 0x14008A73C (KiGetThreadCpuSetMaskPointer.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14009D150 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KiReadyDeferredReadyList @ 0x1400CDC04 (KiReadyDeferredReadyList.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D1F80 (KiEndThreadCycleAccumulation.c)
- *     KiQueueReadyThread @ 0x1400D2350 (KiQueueReadyThread.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiValidateCpuSetMasks @ 0x140117A74 (KiValidateCpuSetMasks.c)
- *     KiUpdateThreadCpuSets @ 0x14018CAB4 (KiUpdateThreadCpuSets.c)
- *     KiWriteCpuSetMasks @ 0x14018CB48 (KiWriteCpuSetMasks.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B7C (KiUpdatePriorityMatrixThreadState.c)
- *     KiSwapContext @ 0x1401C3F50 (KiSwapContext.c)
- *     EtwTraceIdealProcessor @ 0x14030FD0C (EtwTraceIdealProcessor.c)
+ *     KiReadyDeferredReadyList @ 0x1400CDC24 (KiReadyDeferredReadyList.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D1FA0 (KiEndThreadCycleAccumulation.c)
+ *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiValidateCpuSetMasks @ 0x140117A94 (KiValidateCpuSetMasks.c)
+ *     KiUpdateThreadCpuSets @ 0x14018CAD4 (KiUpdateThreadCpuSets.c)
+ *     KiWriteCpuSetMasks @ 0x14018CB68 (KiWriteCpuSetMasks.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
+ *     KiSwapContext @ 0x1401C3F70 (KiSwapContext.c)
+ *     EtwTraceIdealProcessor @ 0x14030FE0C (EtwTraceIdealProcessor.c)
  */
 
 __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char *a3)

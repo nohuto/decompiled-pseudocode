@@ -1,5 +1,5 @@
 /*
- * XREFs of PsUnregisterSiloMonitor @ 0x14088BAA0
+ * XREFs of PsUnregisterSiloMonitor @ 0x14088BA80
  * Callers:
  *     <none>
  * Callees:
@@ -9,15 +9,15 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PspGetHostSiloStorage @ 0x1402E954C (PspGetHostSiloStorage.c)
- *     PspGetServerSiloStatePointer @ 0x1402E9580 (PspGetServerSiloStatePointer.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PspGetHostSiloStorage @ 0x1402E964C (PspGetHostSiloStorage.c)
+ *     PspGetServerSiloStatePointer @ 0x1402E9680 (PspGetServerSiloStatePointer.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PspGetNextSilo @ 0x140600968 (PspGetNextSilo.c)
- *     PspStorageFreeSlot @ 0x14088F4D4 (PspStorageFreeSlot.c)
- *     PspStorageRemoveObject @ 0x14088F56C (PspStorageRemoveObject.c)
+ *     PspStorageFreeSlot @ 0x14088F4B4 (PspStorageFreeSlot.c)
+ *     PspStorageRemoveObject @ 0x14088F54C (PspStorageRemoveObject.c)
  */
 
 void __fastcall PsUnregisterSiloMonitor(void (__fastcall **P)(_QWORD))

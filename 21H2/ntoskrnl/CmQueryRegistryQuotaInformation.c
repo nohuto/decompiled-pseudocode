@@ -1,9 +1,9 @@
 /*
- * XREFs of CmQueryRegistryQuotaInformation @ 0x14080B5A8
+ * XREFs of CmQueryRegistryQuotaInformation @ 0x14077C99C
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     CmpUpdateGlobalQuotaAllowed @ 0x14068B198 (CmpUpdateGlobalQuotaAllowed.c)
+ *     CmpUpdateGlobalQuotaAllowed @ 0x140720E98 (CmpUpdateGlobalQuotaAllowed.c)
  */
 
 __int64 CmQueryRegistryQuotaInformation()

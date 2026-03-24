@@ -1,29 +1,27 @@
 /*
- * XREFs of ?NtStatusToHr@details@wil@@YAJJ@Z @ 0x180199264
+ * XREFs of ?NtStatusToHr@details@wil@@YAJJ@Z @ 0x1800B02C8
  * Callers:
- *     ?RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z @ 0x180199E24 (-RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z.c)
- *     ??$ReportFailure_NtStatus@$00@details@wil@@YAJPEAXIPEBD110J@Z @ 0x1801CE460 (--$ReportFailure_NtStatus@$00@details@wil@@YAJPEAXIPEBD110J@Z.c)
- *     ??$ReportFailure_NtStatus@$01@details@wil@@YAJPEAXIPEBD110J@Z @ 0x1802780B8 (--$ReportFailure_NtStatus@$01@details@wil@@YAJPEAXIPEBD110J@Z.c)
+ *     ?RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z @ 0x1800AEAFC (-RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall wil::details::NtStatusToHr(wil::details *this)
+signed int __fastcall wil::details::NtStatusToHr(wil::details *this)
 {
   int v1; // ebx
-  __int64 result; // rax
+  signed int result; // eax
 
   v1 = (int)this;
   if ( (int)this >= 0 )
-    return 0LL;
+    return 0;
   if ( (_DWORD)this == -1073741801 )
-    return 2147942414LL;
+    return -2147024882;
   if ( !wil::details::g_pfnRtlNtStatusToDosErrorNoTeb )
-    return v1 | 0x10000000u;
-  result = wil::details::g_pfnRtlNtStatusToDosErrorNoTeb();
-  if ( !(_DWORD)result || (_DWORD)result == 317 )
-    return v1 | 0x10000000u;
-  if ( (int)result > 0 )
+    return v1 | 0x10000000;
+  result = wil::details::g_pfnRtlNtStatusToDosErrorNoTeb((int)this);
+  if ( !result || result == 317 )
+    return v1 | 0x10000000;
+  if ( result > 0 )
     return (unsigned __int16)result | 0x80070000;
   return result;
 }

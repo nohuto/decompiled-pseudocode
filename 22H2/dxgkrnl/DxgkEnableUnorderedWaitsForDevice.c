@@ -1,98 +1,97 @@
 /*
- * XREFs of DxgkEnableUnorderedWaitsForDevice @ 0x1C016B350
+ * XREFs of DxgkEnableUnorderedWaitsForDevice @ 0x1C0259AB0
  * Callers:
  *     <none>
  * Callees:
- *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C00042E8 (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00076E8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ??0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z @ 0x1C0007CA4 (--0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z.c)
- *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0008088 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C018A268 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0005100 (-Release@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007BE0 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ??0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z @ 0x1C00088C4 (--0DXGDEVICEBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGDEVICE@@@Z.c)
+ *     ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0008F8C (--0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C00EEC04 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
-__int64 __fastcall DxgkEnableUnorderedWaitsForDevice(unsigned int a1, char a2)
+__int64 __fastcall DxgkEnableUnorderedWaitsForDevice(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v3; // rsi
+  char v4; // di
+  __int64 v5; // rsi
   struct _KTHREAD **Current; // rax
-  struct DXGDEVICE *v5; // rbx
-  __int64 v6; // rax
-  struct DXGDEVICE *v7; // rax
-  unsigned int v8; // edi
-  _QWORD v10[2]; // [rsp+50h] [rbp-30h] BYREF
-  _BYTE v11[8]; // [rsp+60h] [rbp-20h] BYREF
-  __int64 v12; // [rsp+68h] [rbp-18h]
-  char v13; // [rsp+70h] [rbp-10h]
-  struct DXGDEVICE *v14; // [rsp+B0h] [rbp+30h] BYREF
-  struct DXGDEVICE *v15; // [rsp+B8h] [rbp+38h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  unsigned int v10; // ebx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  struct DXGDEVICE *v13; // rbx
+  __int64 v14; // rax
+  __int64 v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // rax
+  struct DXGDEVICE *v20; // rax
+  _QWORD v22[2]; // [rsp+20h] [rbp-30h] BYREF
+  _BYTE v23[8]; // [rsp+30h] [rbp-20h] BYREF
+  __int64 v24; // [rsp+38h] [rbp-18h]
+  char v25; // [rsp+40h] [rbp-10h]
+  struct DXGDEVICE *v26; // [rsp+80h] [rbp+30h] BYREF
+  struct DXGDEVICE *v27; // [rsp+88h] [rbp+38h] BYREF
 
-  v3 = a1;
-  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent();
+  v4 = a2;
+  v5 = (unsigned int)a1;
+  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent(a1, a2, a3, a4);
   if ( Current )
   {
-    v14 = 0LL;
-    DXGDEVICEBYHANDLE::DXGDEVICEBYHANDLE((DXGDEVICEBYHANDLE *)&v15, v3, Current, &v14);
-    v5 = v14;
-    if ( v14 )
+    v26 = 0LL;
+    DXGDEVICEBYHANDLE::DXGDEVICEBYHANDLE((DXGDEVICEBYHANDLE *)&v27, (unsigned int)v5, Current, &v26);
+    v13 = v26;
+    if ( v26 )
     {
-      DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v10, v14);
-      v6 = *((_QWORD *)v5 + 2);
-      v13 = 0;
-      v12 = *(_QWORD *)(v6 + 16);
-      DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v11);
-      if ( *((_DWORD *)v5 + 152) == 1 )
+      DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE((DXGDEVICEACCESSLOCKEXCLUSIVE *)v22, v26);
+      v15 = *((_QWORD *)v13 + 2);
+      v25 = 0;
+      v24 = *(_QWORD *)(v15 + 16);
+      DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v23);
+      if ( *((_DWORD *)v13 + 144) == 1 )
       {
-        v7 = v14;
-        *((_BYTE *)v14 + 1899) = a2;
-        if ( !a2 && *((_QWORD *)v7 + 100) )
-          (*(void (**)(void))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v7 + 2) + 736LL) + 8LL) + 856LL))();
-        v8 = 0;
+        v20 = v26;
+        *((_BYTE *)v26 + 1867) = v4;
+        if ( !v4 && *((_QWORD *)v20 + 96) )
+          (*(void (**)(void))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)v13 + 2) + 616LL) + 8LL) + 856LL))();
+        v10 = 0;
       }
       else
       {
-        v8 = -1073741130;
-        WdLogSingleEntry2(3LL, v3, -1073741130LL);
+        v19 = WdLogNewEntry5_WdWarning(v17, v16, v18);
+        v10 = -1073741130;
+        *(_QWORD *)(v19 + 24) = v5;
+        *(_QWORD *)(v19 + 32) = -1073741130LL;
+        WdLogEvent5_WdWarning(v19);
       }
-      if ( v13 )
-        DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v11);
-      if ( v10[0] )
-        DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v10);
+      if ( v25 )
+        DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v23);
+      if ( v22[0] )
+        DXGDEVICEACCESSLOCKEXCLUSIVE::Release((DXGDEVICEACCESSLOCKEXCLUSIVE *)v22);
     }
     else
     {
-      v8 = -1073741811;
-      WdLogSingleEntry2(2LL, v3, -1073741811LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Invalid hDevice (0x%I64x) specified, returning 0x%I64x",
-        v3,
-        -1073741811LL,
-        0LL,
-        0LL,
-        0LL);
+      v14 = WdLogNewEntry5_WdError(v12, v11);
+      v10 = -1073741811;
+      *(_QWORD *)(v14 + 24) = v5;
+      *(_QWORD *)(v14 + 32) = -1073741811LL;
+      WdLogEvent5_WdError(v14);
     }
-    if ( v15 && _InterlockedExchangeAdd64((volatile signed __int64 *)v15 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-      ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v15 + 2), v15);
+    if ( v27 && _InterlockedExchangeAdd64((volatile signed __int64 *)v27 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
+      ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v27 + 2), v27);
   }
   else
   {
-    v8 = -1073741811;
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v9 = WdLogNewEntry5_WdError(v8, v7);
+    v10 = -1073741811;
+    *(_QWORD *)(v9 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v9);
   }
-  return v8;
+  return v10;
 }

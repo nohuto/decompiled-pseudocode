@@ -4,9 +4,9 @@
  *     MiWalkPageTablesRecursively @ 0x14006EE80 (MiWalkPageTablesRecursively.c)
  * Callees:
  *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     MiGetSystemCacheReverseMap @ 0x1400ADF30 (MiGetSystemCacheReverseMap.c)
- *     MiMakeSystemLeavesNonZero @ 0x14016A3C0 (MiMakeSystemLeavesNonZero.c)
- *     MiAdvanceToLastUntrimmableVa @ 0x1401B4D64 (MiAdvanceToLastUntrimmableVa.c)
+ *     MiGetSystemCacheReverseMap @ 0x1400ADF50 (MiGetSystemCacheReverseMap.c)
+ *     MiMakeSystemLeavesNonZero @ 0x14016A3E0 (MiMakeSystemLeavesNonZero.c)
+ *     MiAdvanceToLastUntrimmableVa @ 0x1401B4D84 (MiAdvanceToLastUntrimmableVa.c)
  */
 
 __int64 __fastcall MiComputePxeWalkAction(int *a1, unsigned __int64 a2, int a3)

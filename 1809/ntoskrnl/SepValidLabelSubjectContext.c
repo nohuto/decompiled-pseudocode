@@ -6,8 +6,8 @@
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     SepCopyTokenIntegrity @ 0x140091E20 (SepCopyTokenIntegrity.c)
- *     RtlSidDominates @ 0x1400A9210 (RtlSidDominates.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlSidDominates @ 0x1400A9230 (RtlSidDominates.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     SeSinglePrivilegeCheckEx @ 0x1406121AC (SeSinglePrivilegeCheckEx.c)
  */
 

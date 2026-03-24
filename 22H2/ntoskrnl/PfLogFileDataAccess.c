@@ -1,42 +1,39 @@
 /*
- * XREFs of PfLogFileDataAccess @ 0x1402DFBD4
+ * XREFs of PfLogFileDataAccess @ 0x140564D88
  * Callers:
- *     PfFileInfoNotify @ 0x1402DF520 (PfFileInfoNotify.c)
- *     MiLogRelocationRva @ 0x1406ABDA0 (MiLogRelocationRva.c)
+ *     MiLogRelocationRva @ 0x1406632A4 (MiLogRelocationRva.c)
  * Callees:
- *     PfLogEvent @ 0x14028BF68 (PfLogEvent.c)
- *     PsGetPagePriorityThread @ 0x1402E1520 (PsGetPagePriorityThread.c)
+ *     PsGetPagePriorityThread @ 0x140242140 (PsGetPagePriorityThread.c)
+ *     PfLogEvent @ 0x14026E544 (PfLogEvent.c)
  */
 
 __int64 __fastcall PfLogFileDataAccess(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
-  unsigned int PagePriorityThread; // eax
-  unsigned __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // r11
-  unsigned int v10; // r10d
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  _QWORD v14[4]; // [rsp+20h] [rbp-38h] BYREF
-  int v15; // [rsp+40h] [rbp-18h]
-  int v16; // [rsp+44h] [rbp-14h]
+  __int64 v5; // rdx
+  unsigned __int64 v6; // r8
+  __int64 v7; // r9
+  __int64 v8; // r10
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  _QWORD v12[4]; // [rsp+20h] [rbp-38h] BYREF
+  int v13; // [rsp+40h] [rbp-18h]
+  int v14; // [rsp+44h] [rbp-14h]
 
-  PagePriorityThread = PsGetPagePriorityThread(a2);
-  if ( PagePriorityThread < v10 )
+  if ( (unsigned int)PsGetPagePriorityThread(a2) < dword_140C4E82C )
     return 0LL;
-  v11 = *(_QWORD *)(v9 + 544);
-  v12 = *(_QWORD *)(v11 + 1088) ^ *(_QWORD *)(v11 + 1128);
-  v14[2] = v8 & 0x7FFFFFFFFFFFFFFFLL | ((__int64)a5 << 63);
-  v14[1] = v7 >> 12;
-  v15 = dword_140D0C250;
-  v16 = *(_DWORD *)(v11 + 1088);
-  v14[3] = v12 & 0x1FFFFFFFFFFFFFFFLL;
-  v14[0] = a1;
+  v10 = *(_QWORD *)(v5 + 544);
+  v11 = *(_QWORD *)(v10 + 1088) ^ *(_QWORD *)(v10 + 1128);
+  v12[2] = v7 & 0x7FFFFFFFFFFFFFFFLL | ((__int64)a5 << 63);
+  v12[1] = v6 >> 12;
+  v13 = dword_140CEC350;
+  v14 = *(_DWORD *)(v10 + 1088);
+  v12[3] = v11 & 0x1FFFFFFFFFFFFFFFLL;
+  v12[0] = v8;
   return PfLogEvent(
            10,
-           dword_140C650AC
+           dword_140C502DC
          + (unsigned int)((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
                          + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10),
-           v14,
+           v12,
            0x28u);
 }

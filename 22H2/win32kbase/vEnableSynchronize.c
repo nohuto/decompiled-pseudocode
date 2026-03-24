@@ -1,18 +1,19 @@
 /*
- * XREFs of vEnableSynchronize @ 0x1C0064088
+ * XREFs of vEnableSynchronize @ 0x1C00B4078
  * Callers:
- *     bDynamicModeChange @ 0x1C00C75B0 (bDynamicModeChange.c)
- *     ?DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z @ 0x1C0160E9C (-DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z.c)
+ *     bDynamicModeChange @ 0x1C00BAA30 (bDynamicModeChange.c)
+ *     ?bMakeSurface@PDEVOBJ@@QEAAHPEAUHSURF__@@@Z @ 0x1C013E1D0 (-bMakeSurface@PDEVOBJ@@QEAAHPEAUHSURF__@@@Z.c)
+ *     ?DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z @ 0x1C0143FF4 (-DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 (__fastcall *__fastcall vEnableSynchronize(__int64 a1))(_QWORD)
+__int64 (*vEnableSynchronize())(void)
 {
-  __int64 (__fastcall *result)(_QWORD); // rax
+  __int64 (*result)(void); // rax
 
-  result = qword_1C02947D8;
-  if ( qword_1C02947D8 )
-    return (__int64 (__fastcall *)(_QWORD))qword_1C02947D8(a1);
+  result = qword_1C02553C8;
+  if ( qword_1C02553C8 )
+    return (__int64 (*)(void))qword_1C02553C8();
   return result;
 }

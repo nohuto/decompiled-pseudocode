@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ReleaseD2DResources@CD2DInk@@UEAAXXZ @ 0x18028D5F0
+ * XREFs of ?ReleaseD2DResources@CD2DInk@@UEAAXXZ @ 0x18024D020
  * Callers:
  *     <none>
  * Callees:
- *     ??$ReleaseInterface@UID2D1Ink@@@@YAXAEAPEAUID2D1Ink@@@Z @ 0x1802174DC (--$ReleaseInterface@UID2D1Ink@@@@YAXAEAPEAUID2D1Ink@@@Z.c)
+ *     ??$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z @ 0x1800C186C (--$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z.c)
  */
 
 void __fastcall CD2DInk::ReleaseD2DResources(CD2DInk *this)
 {
-  ReleaseInterface<ID2D1Ink>((__int64 *)this + 10);
-  ReleaseInterface<ID2D1InkStyle>((__int64 *)this + 11);
+  ReleaseInterface<CResource>((__int64 *)this + 10);
+  ReleaseInterface<CResource>((__int64 *)this + 11);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z @ 0x1C0247BAC
+ * XREFs of ?SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z @ 0x1C0258EA0
  * Callers:
- *     ?GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z @ 0x1C0247894 (-GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z.c)
+ *     ?GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z @ 0x1C0258B18 (-GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z.c)
  * Callees:
- *     xxxSendInput @ 0x1C000A4E4 (xxxSendInput.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z @ 0x1C0247C84 (-SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z.c)
+ *     xxxSendInput @ 0x1C00BFF08 (xxxSendInput.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z @ 0x1C0258F78 (-SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z.c)
  */
 
 __int64 __fastcall InteractiveControlDefaultScroller::SendZoomHotkey(
@@ -17,26 +17,22 @@ __int64 __fastcall InteractiveControlDefaultScroller::SendZoomHotkey(
   __int64 v6; // rdx
   __int64 v7; // rcx
   __int64 CurrentKbdTables; // rax
-  _OWORD v10[2]; // [rsp+20h] [rbp-50h] BYREF
-  __int64 v11; // [rsp+40h] [rbp-30h]
-  __int128 v12; // [rsp+48h] [rbp-28h]
-  __int128 v13; // [rsp+58h] [rbp-18h]
-  __int64 v14; // [rsp+68h] [rbp-8h]
+  _OWORD v10[5]; // [rsp+20h] [rbp-50h] BYREF
 
   v4 = 1;
   InteractiveControlDefaultScroller::SendZoomModifiers(*((_BYTE *)this + 53), 1);
   if ( *((_BYTE *)this + 52) != 2 )
   {
-    memset_0(v10, 0, 0x50uLL);
+    memset(v10, 0, sizeof(v10));
     LODWORD(v10[0]) = 1;
     v5 = ((a2 >> 15) & 2) + 187;
     WORD4(v10[0]) = v5;
     CurrentKbdTables = GetCurrentKbdTables(v7, v6);
     WORD5(v10[0]) = InternalMapVirtualKeyEx(v5, 0LL, CurrentKbdTables);
-    v12 = v10[0];
-    HIDWORD(v12) = 2;
-    v14 = v11;
-    v13 = v10[1];
+    *(_OWORD *)((char *)&v10[2] + 8) = v10[0];
+    DWORD1(v10[3]) = 2;
+    *((_QWORD *)&v10[4] + 1) = *(_QWORD *)&v10[2];
+    *(_OWORD *)((char *)&v10[3] + 8) = v10[1];
     xxxSendInput(2u, (__int64)v10);
     return 0;
   }

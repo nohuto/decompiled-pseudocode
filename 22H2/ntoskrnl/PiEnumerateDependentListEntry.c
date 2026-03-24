@@ -1,13 +1,13 @@
 /*
- * XREFs of PiEnumerateDependentListEntry @ 0x140839E64
+ * XREFs of PiEnumerateDependentListEntry @ 0x14089D948
  * Callers:
- *     PipAttemptDependentsStart @ 0x14079C6BC (PipAttemptDependentsStart.c)
- *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x140839A10 (PipAddDependentsToRebuildPowerRelationsQueue.c)
- *     PipVisitDeviceObjectListEntry @ 0x140868E48 (PipVisitDeviceObjectListEntry.c)
- *     PnpProcessDependencyRelations @ 0x14086931C (PnpProcessDependencyRelations.c)
- *     PnpRequestDeviceRemovalWorker @ 0x140869470 (PnpRequestDeviceRemovalWorker.c)
+ *     PipAttemptDependentsStart @ 0x1407477D8 (PipAttemptDependentsStart.c)
+ *     PipVisitDeviceObjectListEntry @ 0x14074942C (PipVisitDeviceObjectListEntry.c)
+ *     PnpProcessDependencyRelations @ 0x140749770 (PnpProcessDependencyRelations.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x14074A8A0 (PnpRequestDeviceRemovalWorker.c)
+ *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x1407B6700 (PipAddDependentsToRebuildPowerRelationsQueue.c)
  * Callees:
- *     PiListEntryToDependencyEdge @ 0x140396904 (PiListEntryToDependencyEdge.c)
+ *     PiListEntryToDependencyEdge @ 0x14050C438 (PiListEntryToDependencyEdge.c)
  */
 
 __int64 __fastcall PiEnumerateDependentListEntry(__int64 a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetProperty@?$CTranslateTransformGeneratedT@VCTranslateTransform@@VCTransform@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C4C80
+ * XREFs of ?GetProperty@?$CTranslateTransformGeneratedT@VCTranslateTransform@@VCTransform@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x18016EBF0
  * Callers:
  *     <none>
  * Callees:
@@ -19,11 +19,11 @@ __int64 __fastcall CTranslateTransformGeneratedT<CTranslateTransform,CTransform>
   {
     if ( a2 != 1 )
       return 2147942487LL;
-    v4 = *(_DWORD *)(a1 + 164);
+    v4 = *(_DWORD *)(a1 + 156);
   }
   else
   {
-    v4 = *(_DWORD *)(a1 + 160);
+    v4 = *(_DWORD *)(a1 + 152);
   }
   *(_DWORD *)a3 = v4;
   *(_BYTE *)(a3 + 76) = 1;

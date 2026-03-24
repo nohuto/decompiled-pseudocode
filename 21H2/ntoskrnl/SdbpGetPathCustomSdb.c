@@ -1,33 +1,28 @@
 /*
- * XREFs of SdbpGetPathCustomSdb @ 0x140A14110
+ * XREFs of SdbpGetPathCustomSdb @ 0x140967190
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     SdbpGetPathAppPatch @ 0x140A13EC0 (SdbpGetPathAppPatch.c)
- *     AslPathCombine @ 0x140A15B1C (AslPathCombine.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbpGetPathAppPatch @ 0x140966F60 (SdbpGetPathAppPatch.c)
+ *     AslPathCombine @ 0x140968814 (AslPathCombine.c)
  */
 
-__int64 __fastcall SdbpGetPathCustomSdb(wchar_t *a1, size_t a2, const wchar_t *a3)
+__int64 __fastcall SdbpGetPathCustomSdb(wchar_t *a1, size_t a2)
 {
-  const wchar_t *v3; // r10
-  int v7; // ebx
-  wchar_t pszSrc[16]; // [rsp+30h] [rbp-258h] BYREF
-  wchar_t pszDest[264]; // [rsp+50h] [rbp-238h] BYREF
+  int v5; // ebx
+  wchar_t pszSrc[280]; // [rsp+30h] [rbp-258h] BYREF
 
-  v3 = a3;
   wcscpy(pszSrc, L"\\CustomSDB");
   if ( a2 < 0xB )
     return 3221225507LL;
   *a1 = 0;
-  pszDest[0] = 0;
-  if ( !a3 )
-    v3 = &word_140011C40;
-  v7 = AslPathCombine(pszSrc, v3, pszDest, 0x104uLL);
-  if ( v7 >= 0 )
-    return (unsigned int)SdbpGetPathAppPatch(a1, a2, pszDest);
+  pszSrc[16] = 0;
+  v5 = AslPathCombine(pszSrc);
+  if ( v5 >= 0 )
+    return (unsigned int)SdbpGetPathAppPatch(a1, a2);
   else
     AslLogCallPrintf(1LL);
-  return (unsigned int)v7;
+  return (unsigned int)v5;
 }

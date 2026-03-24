@@ -1,17 +1,17 @@
 /*
- * XREFs of SeSetSecurityAttributesTokenEx @ 0x1405F5440
+ * XREFs of SeSetSecurityAttributesTokenEx @ 0x140597580
  * Callers:
  *     <none>
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140204870 (AuthzBasepSetSecurityAttributesToken.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SepInternalSetSecurityAttributesToken @ 0x1405F3E6C (SepInternalSetSecurityAttributesToken.c)
- *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x1405F56A0 (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
- *     SepSetSingletonEntry @ 0x1405F577C (SepSetSingletonEntry.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1402508E0 (AuthzBasepSetSecurityAttributesToken.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     SepInternalSetSecurityAttributesToken @ 0x140595BEC (SepInternalSetSecurityAttributesToken.c)
+ *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x1405977E0 (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
+ *     SepSetSingletonEntry @ 0x1405978BC (SepSetSingletonEntry.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall SeSetSecurityAttributesTokenEx(
@@ -82,7 +82,7 @@ LABEL_13:
     }
     _InterlockedOr(v17, 0);
     ExReleaseResourceLite(v9[6]);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   if ( Object )
     ObfDereferenceObjectWithTag(Object, 0x746C6644u);

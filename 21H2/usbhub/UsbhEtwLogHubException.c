@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhEtwLogHubException @ 0x1C005B04C
+ * XREFs of UsbhEtwLogHubException @ 0x1C005C6FC
  * Callers:
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhEtwWrite @ 0x1C000CB00 (UsbhEtwWrite.c)
- *     UsbhEtwGetHubInfo @ 0x1C001E0D8 (UsbhEtwGetHubInfo.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhEtwWrite @ 0x1C00125E0 (UsbhEtwWrite.c)
+ *     UsbhEtwGetHubInfo @ 0x1C001BAFC (UsbhEtwGetHubInfo.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall UsbhEtwLogHubException(__int64 a1, int a2, int a3, int a4, char a5, __int64 a6, int a7)
@@ -32,7 +32,7 @@ NTSTATUS __fastcall UsbhEtwLogHubException(__int64 a1, int a2, int a3, int a4, c
   v10 = a4;
   memset(v18, 0, sizeof(v18));
   v19 = 0;
-  if ( dword_1C006A690 )
+  if ( dword_1C006C5F0 )
   {
     v9 = FdoExt(a1);
     v13 = v9[1298];

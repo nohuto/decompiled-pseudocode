@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerSourceChangeCallback @ 0x14017DCE0
+ * XREFs of PopPowerSourceChangeCallback @ 0x14017DD00
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PopBroadcastSessionInfo @ 0x14072987C (PopBroadcastSessionInfo.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PopBroadcastSessionInfo @ 0x14072985C (PopBroadcastSessionInfo.c)
  */
 
 __int64 __fastcall PopPowerSourceChangeCallback(_QWORD *a1, int *a2, int a3)

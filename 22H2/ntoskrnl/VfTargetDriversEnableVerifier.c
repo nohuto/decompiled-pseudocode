@@ -1,13 +1,13 @@
 /*
- * XREFs of VfTargetDriversEnableVerifier @ 0x140ACC480
+ * XREFs of VfTargetDriversEnableVerifier @ 0x1409D6DA4
  * Callers:
- *     VfSuspectApplyDifVolatileVerification @ 0x140ADB288 (VfSuspectApplyDifVolatileVerification.c)
+ *     VfSuspectDriversLoadCallback @ 0x1409D9BA8 (VfSuspectDriversLoadCallback.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x14020A004 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x14020A374 (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x140465E48 (VfAvlInitializeLockContext.c)
- *     ViTargetDriversFreeVerifiedData @ 0x1405CF39C (ViTargetDriversFreeVerifiedData.c)
- *     ViTargetDriversAllocateVerifiedData @ 0x140ACCA34 (ViTargetDriversAllocateVerifiedData.c)
+ *     VfAvlCleanupLockContext @ 0x140372304 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14037E564 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x1405A2514 (VfAvlInitializeLockContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ViTargetDriversAllocateVerifiedData @ 0x1409D7360 (ViTargetDriversAllocateVerifiedData.c)
  */
 
 __int64 __fastcall VfTargetDriversEnableVerifier(unsigned __int64 a1, __int64 a2)
@@ -32,11 +32,11 @@ __int64 __fastcall VfTargetDriversEnableVerifier(unsigned __int64 a1, __int64 a2
         {
           v5[7] = VerifiedData;
           v2 = 1;
-          ++dword_140C37348;
+          ++dword_140C1D068;
         }
         VfAvlCleanupLockContext((__int64)&v7);
         if ( !v2 )
-          ViTargetDriversFreeVerifiedData(VerifiedData);
+          ExFreePoolWithTag(VerifiedData, 0x44566656u);
       }
     }
   }

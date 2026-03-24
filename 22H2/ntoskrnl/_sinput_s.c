@@ -1,14 +1,14 @@
 /*
- * XREFs of _sinput_s @ 0x1403E1C34
+ * XREFs of _sinput_s @ 0x1403DA1C0
  * Callers:
- *     _snscanf_s @ 0x1403DE680 (_snscanf_s.c)
- *     sscanf_s @ 0x1403DF140 (sscanf_s.c)
+ *     _snscanf_s @ 0x1403D6AC0 (_snscanf_s.c)
+ *     sscanf_s @ 0x1403D7570 (sscanf_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
- *     _input_s @ 0x1403E1374 (_input_s.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
+ *     _input_s @ 0x1403D9814 (_input_s.c)
  */
 
-__int64 __fastcall sinput_s(char *a1, unsigned __int64 a2, unsigned __int8 *a3, __int64 a4)
+__int64 __fastcall sinput_s(char *a1, unsigned __int64 a2, unsigned __int8 *a3, _BYTE **a4)
 {
   FILE v5; // [rsp+30h] [rbp-38h] BYREF
 

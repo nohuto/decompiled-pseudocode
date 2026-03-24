@@ -1,12 +1,12 @@
 /*
- * XREFs of VslFinalizeLiveDumpInSk @ 0x14027AE28
+ * XREFs of VslFinalizeLiveDumpInSk @ 0x14027AF28
  * Callers:
  *     IopLiveDumpCaptureMemoryPages @ 0x140578508 (IopLiveDumpCaptureMemoryPages.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1401210B0 (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall VslFinalizeLiveDumpInSk(_QWORD *a1, __int64 a2)

@@ -1,11 +1,10 @@
 /*
- * XREFs of IoSetActivityIdThread @ 0x1402DE9B0
+ * XREFs of IoSetActivityIdThread @ 0x1402EE4E0
  * Callers:
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     IopSynchronousServiceTail @ 0x140731680 (IopSynchronousServiceTail.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x140775990 (PiDqObjectManagerServiceActionQueue.c)
- *     PiDqIrpQueryCreate @ 0x1407768EC (PiDqIrpQueryCreate.c)
- *     PnpDeviceEventWorker @ 0x1407D5E30 (PnpDeviceEventWorker.c)
+ *     PiDqIrpQueryCreate @ 0x14062F0BC (PiDqIrpQueryCreate.c)
+ *     PnpDeviceEventWorker @ 0x1406E78D0 (PnpDeviceEventWorker.c)
+ *     IopSynchronousServiceTail @ 0x1406FED80 (IopSynchronousServiceTail.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x140763120 (PiDqObjectManagerServiceActionQueue.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpKdWritePCIConfig @ 0x14052B290
+ * XREFs of HalpKdWritePCIConfig @ 0x1404DF250
  * Callers:
  *     <none>
  * Callees:
- *     HalpPCIConfig @ 0x14033F1A0 (HalpPCIConfig.c)
+ *     HalpPCIConfig @ 0x140309270 (HalpPCIConfig.c)
  */
 
 __int64 __fastcall HalpKdWritePCIConfig(unsigned int a1, unsigned int a2, void *a3, unsigned int a4, unsigned int a5)

@@ -1,10 +1,9 @@
 /*
- * XREFs of ??0EffectStage@@QEAA@XZ @ 0x18005517C
+ * XREFs of ??0EffectStage@@QEAA@XZ @ 0x1800C9DC0
  * Callers:
- *     ?ExecuteShaders@CGraphRenderingContext@CExternalEffectGraph@@QEBAJII@Z @ 0x18005430C (-ExecuteShaders@CGraphRenderingContext@CExternalEffectGraph@@QEBAJII@Z.c)
- *     ?RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@PEAVCDrawListCache@@@Z @ 0x18005464C (-RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBr.c)
+ *     ?RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@PEAVCDrawListCache@@@Z @ 0x180056A18 (-RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBr.c)
  * Callees:
- *     ??0EffectInput@@QEAA@XZ @ 0x1800D6AFC (--0EffectInput@@QEAA@XZ.c)
+ *     ??0EffectInput@@QEAA@XZ @ 0x180057D8C (--0EffectInput@@QEAA@XZ.c)
  */
 
 EffectStage *__fastcall EffectStage::EffectStage(EffectStage *this)
@@ -19,7 +18,7 @@ EffectStage *__fastcall EffectStage::EffectStage(EffectStage *this)
   do
   {
     EffectInput::EffectInput(v1);
-    v1 = (EffectInput *)((char *)v1 + 104);
+    v1 = (EffectInput *)((char *)v1 + 128);
     --v3;
   }
   while ( v3 );

@@ -1,23 +1,23 @@
 /*
- * XREFs of DivFD6 @ 0x1C0157C2C
+ * XREFs of DivFD6 @ 0x1C001CD3C
  * Callers:
- *     HT_CreateDeviceHalftoneInfo @ 0x1C0056A60 (HT_CreateDeviceHalftoneInfo.c)
- *     RaisePower @ 0x1C0157F8A (RaisePower.c)
- *     HT_ComputeRGBGammaTable @ 0x1C024FC10 (HT_ComputeRGBGammaTable.c)
- *     HT_Get8BPPFormatPalette @ 0x1C0250090 (HT_Get8BPPFormatPalette.c)
- *     HT_Get8BPPMaskPalette @ 0x1C02501A0 (HT_Get8BPPMaskPalette.c)
- *     CreateStandardMonoPattern @ 0x1C0251A90 (CreateStandardMonoPattern.c)
- *     ComputeInverseMatrix3x3 @ 0x1C02529E8 (ComputeInverseMatrix3x3.c)
- *     AdjustSrcDevGamma @ 0x1C0253414 (AdjustSrcDevGamma.c)
- *     CacheRGBToXYZ @ 0x1C02537A0 (CacheRGBToXYZ.c)
- *     ComputeBGRMappingTable @ 0x1C0253890 (ComputeBGRMappingTable.c)
- *     ComputeColorSpaceXForm @ 0x1C0254388 (ComputeColorSpaceXForm.c)
- *     ComputeRGBLUTAA @ 0x1C0254734 (ComputeRGBLUTAA.c)
- *     ScaleRGB @ 0x1C0255384 (ScaleRGB.c)
- *     pDCIAdjClr @ 0x1C02556B8 (pDCIAdjClr.c)
- *     BuildExpandAAInfo @ 0x1C0259B30 (BuildExpandAAInfo.c)
+ *     ComputeRGBLUTAA @ 0x1C001BA98 (ComputeRGBLUTAA.c)
+ *     pDCIAdjClr @ 0x1C001C170 (pDCIAdjClr.c)
+ *     AdjustSrcDevGamma @ 0x1C001CAF0 (AdjustSrcDevGamma.c)
+ *     RaisePower @ 0x1C001F468 (RaisePower.c)
+ *     BuildExpandAAInfo @ 0x1C00D3830 (BuildExpandAAInfo.c)
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C0112328 (HT_CreateDeviceHalftoneInfo.c)
+ *     ComputeColorSpaceXForm @ 0x1C011ACE4 (ComputeColorSpaceXForm.c)
+ *     ComputeInverseMatrix3x3 @ 0x1C011B23C (ComputeInverseMatrix3x3.c)
+ *     CreateStandardMonoPattern @ 0x1C0153034 (CreateStandardMonoPattern.c)
+ *     HT_Get8BPPMaskPalette @ 0x1C0154C20 (HT_Get8BPPMaskPalette.c)
+ *     HT_ComputeRGBGammaTable @ 0x1C0260BD0 (HT_ComputeRGBGammaTable.c)
+ *     HT_Get8BPPFormatPalette @ 0x1C0260EF0 (HT_Get8BPPFormatPalette.c)
+ *     CacheRGBToXYZ @ 0x1C0261258 (CacheRGBToXYZ.c)
+ *     ComputeBGRMappingTable @ 0x1C0261348 (ComputeBGRMappingTable.c)
+ *     ScaleRGB @ 0x1C02620EC (ScaleRGB.c)
  * Callees:
- *     U64DivU32RoundUp @ 0x1C02530B0 (U64DivU32RoundUp.c)
+ *     U64DivU32RoundUp @ 0x1C001DCC8 (U64DivU32RoundUp.c)
  */
 
 __int64 __fastcall DivFD6(int a1, int a2)
@@ -32,16 +32,16 @@ __int64 __fastcall DivFD6(int a1, int a2)
   unsigned int v9; // ecx
 
   v2 = a2;
-  if ( a2 > 0 )
-  {
-    v3 = 0;
-  }
-  else
+  if ( a2 <= 0 )
   {
     v2 = -a2;
     v3 = 1;
     if ( !a2 )
       return (a1 >> 31) + 0x80000000;
+  }
+  else
+  {
+    v3 = 0;
   }
   if ( v2 == 1000000 )
   {

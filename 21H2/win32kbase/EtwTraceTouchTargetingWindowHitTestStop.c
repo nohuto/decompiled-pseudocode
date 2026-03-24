@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceTouchTargetingWindowHitTestStop @ 0x1C014ED70
+ * XREFs of EtwTraceTouchTargetingWindowHitTestStop @ 0x1C0124130
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C014F270 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124580 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceTouchTargetingWindowHitTestStop(__int64 a1)

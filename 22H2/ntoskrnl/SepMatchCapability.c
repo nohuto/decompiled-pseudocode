@@ -1,23 +1,29 @@
 /*
- * XREFs of SepMatchCapability @ 0x1403545F4
+ * XREFs of SepMatchCapability @ 0x14031070C
  * Callers:
- *     SepMaximumAccessCheck @ 0x14022A180 (SepMaximumAccessCheck.c)
- *     SepNormalAccessCheckEx @ 0x14022AB08 (SepNormalAccessCheckEx.c)
- *     SepNormalAccessCheck @ 0x140233520 (SepNormalAccessCheck.c)
- *     SepMaximumAccessCheckEx @ 0x1403CD610 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheck @ 0x1402D1160 (SepNormalAccessCheck.c)
+ *     SepMaximumAccessCheck @ 0x1402D1A30 (SepMaximumAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x1403743A4 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheckEx @ 0x1403744CC (SepNormalAccessCheckEx.c)
  * Callees:
- *     SepSidInTokenSidHash @ 0x1402B6650 (SepSidInTokenSidHash.c)
+ *     SepSidInTokenSidHash @ 0x140347854 (SepSidInTokenSidHash.c)
  */
 
-char __fastcall SepMatchCapability(__int64 a1, int a2, unsigned __int8 *a3, int a4, _BYTE *a5, _DWORD *a6)
+_BYTE *__fastcall SepMatchCapability(__int64 a1, int a2, __int64 a3, int a4, _BYTE *a5, _DWORD *a6)
 {
-  char result; // al
+  _BYTE *result; // rax
+  char v9; // [rsp+20h] [rbp-28h]
+  char v10; // [rsp+28h] [rbp-20h]
+  char v11; // [rsp+30h] [rbp-18h]
 
-  result = SepSidInTokenSidHash((_DWORD *)(a1 + 808), 0LL, a3, 0, 1, 0);
-  if ( result )
+  v11 = 0;
+  v10 = 0;
+  v9 = 1;
+  result = (_BYTE *)SepSidInTokenSidHash(a1 + 808, 0LL, a3, 0LL, v9, v10, v11);
+  if ( (_BYTE)result )
   {
     *a6 |= a4 & a2;
-    result = (char)a5;
+    result = a5;
     *a5 = 1;
   }
   return result;

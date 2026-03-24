@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBHSM_GettingRootHubInfo @ 0x1C0009CB0
+ * XREFs of HUBHSM_GettingRootHubInfo @ 0x1C00094F0
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_GetRootHubInfoUsingUCXIoctl @ 0x1C0027854 (HUBUCX_GetRootHubInfoUsingUCXIoctl.c)
- *     HUBUCX_GetControllerInfo @ 0x1C0028844 (HUBUCX_GetControllerInfo.c)
+ *     HUBUCX_GetRootHubInfoUsingUCXIoctl @ 0x1C0024CE4 (HUBUCX_GetRootHubInfoUsingUCXIoctl.c)
+ *     HUBUCX_GetControllerInfo @ 0x1C0025C44 (HUBUCX_GetControllerInfo.c)
  */
 
 __int64 __fastcall HUBHSM_GettingRootHubInfo(__int64 a1)

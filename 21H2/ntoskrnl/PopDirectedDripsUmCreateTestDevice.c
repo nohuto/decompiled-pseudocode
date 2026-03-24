@@ -1,34 +1,35 @@
 /*
- * XREFs of PopDirectedDripsUmCreateTestDevice @ 0x14099EDDC
+ * XREFs of PopDirectedDripsUmCreateTestDevice @ 0x1408F84E0
  * Callers:
- *     PopDirectedDripsUmDirectedFxAddTestDevice @ 0x14099EE9C (PopDirectedDripsUmDirectedFxAddTestDevice.c)
+ *     PopDirectedDripsUmDirectedFxAddTestDevice @ 0x1408F85B4 (PopDirectedDripsUmDirectedFxAddTestDevice.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopDirectedDripsUmCreateTestDevice(int a1, _WORD *a2, _QWORD *a3, unsigned int *a4)
 {
   unsigned int v4; // r13d
   unsigned int v6; // edi
-  int v9; // esi
-  unsigned int v10; // ebx
-  __int64 v11; // rcx
-  __int64 Pool2; // rax
-  _DWORD *v13; // r14
+  int v8; // esi
+  unsigned int v9; // ebx
+  __int64 v10; // rcx
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v12; // r14
 
   v4 = 2 * a1;
   v6 = 2 * a1 + 8;
-  v9 = a1;
+  v8 = a1;
   if ( (unsigned int)(2 * a1) >= 0xFFFFFFF8 )
     return (unsigned int)-1073741675;
-  v10 = 0;
+  v9 = 0;
   if ( a1 )
   {
-    v11 = (unsigned int)(a1 - 1);
-    if ( !a2[v11] )
+    v10 = (unsigned int)(a1 - 1);
+    if ( !a2[v10] )
     {
-      v9 = v11;
+      v8 = v10;
       goto LABEL_7;
     }
   }
@@ -36,14 +37,15 @@ __int64 __fastcall PopDirectedDripsUmCreateTestDevice(int a1, _WORD *a2, _QWORD 
     return (unsigned int)-1073741675;
   v6 += 2;
 LABEL_7:
-  Pool2 = ExAllocatePool2(256LL, v6, 1297433668LL);
-  v13 = (_DWORD *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6, 0x4D554444u);
+  v12 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memmove((void *)(Pool2 + 8), a2, v4);
-    *v13 = 0;
-    v13[1] = v9;
-    *a3 = v13;
+    memset(PoolWithTag, 0, v6);
+    memmove(v12 + 2, a2, v4);
+    *v12 = 0;
+    v12[1] = v8;
+    *a3 = v12;
     if ( a4 )
       *a4 = v6;
   }
@@ -51,5 +53,5 @@ LABEL_7:
   {
     return (unsigned int)-1073741670;
   }
-  return v10;
+  return v9;
 }

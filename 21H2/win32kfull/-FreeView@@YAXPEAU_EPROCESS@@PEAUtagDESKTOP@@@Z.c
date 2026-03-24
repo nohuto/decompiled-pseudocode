@@ -1,11 +1,12 @@
 /*
- * XREFs of ?FreeView@@YAXPEAU_EPROCESS@@PEAUtagDESKTOP@@@Z @ 0x1C007A09C
+ * XREFs of ?FreeView@@YAXPEAU_EPROCESS@@PEAUtagDESKTOP@@@Z @ 0x1C004C908
  * Callers:
- *     UnmapDesktop @ 0x1C0078E40 (UnmapDesktop.c)
- *     FreeDesktop @ 0x1C011D500 (FreeDesktop.c)
+ *     UnmapDesktop @ 0x1C004EB70 (UnmapDesktop.c)
+ *     FreeDesktop @ 0x1C012C1E0 (FreeDesktop.c)
  * Callees:
- *     GetDesktopView @ 0x1C0078100 (GetDesktopView.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ??0?$CLockDomainExclusiveLeaf@VDLT_DESKTOP@@@@QEAA@XZ @ 0x1C004E9E4 (--0-$CLockDomainExclusiveLeaf@VDLT_DESKTOP@@@@QEAA@XZ.c)
+ *     GetDesktopView @ 0x1C004F040 (GetDesktopView.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 void __fastcall FreeView(PRKPROCESS PROCESS, struct tagDESKTOP *a2)
@@ -15,7 +16,8 @@ void __fastcall FreeView(PRKPROCESS PROCESS, struct tagDESKTOP *a2)
   _QWORD *DesktopView; // rdi
   _QWORD **v7; // rsi
   _QWORD *i; // rcx
-  struct _KAPC_STATE ApcState; // [rsp+20h] [rbp-58h] BYREF
+  _BYTE v9[8]; // [rsp+20h] [rbp-58h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+28h] [rbp-50h] BYREF
 
   if ( PROCESS )
   {
@@ -32,11 +34,12 @@ void __fastcall FreeView(PRKPROCESS PROCESS, struct tagDESKTOP *a2)
         KeStackAttachProcess(PROCESS, &ApcState);
         v5 = 1;
       }
-      DesktopView = GetDesktopView(ProcessWin32Process, (__int64)a2);
+      DesktopView = (_QWORD *)GetDesktopView(ProcessWin32Process, a2);
       if ( DesktopView )
       {
         PsGetProcessSessionId(PROCESS);
         MmUnmapViewOfSection(PROCESS, DesktopView[2]);
+        CLockDomainExclusiveLeaf<DLT_DESKTOP>::CLockDomainExclusiveLeaf<DLT_DESKTOP>(v9);
         v7 = (_QWORD **)(ProcessWin32Process + 704);
         for ( i = *v7; i; i = (_QWORD *)*i )
         {

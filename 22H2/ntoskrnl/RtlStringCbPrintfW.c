@@ -1,99 +1,100 @@
 /*
- * XREFs of RtlStringCbPrintfW @ 0x140229624
+ * XREFs of RtlStringCbPrintfW @ 0x140347B60
  * Callers:
- *     RtlQueryImageXfgFilter @ 0x1405A71A4 (RtlQueryImageXfgFilter.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14067033C (AdtpBuildAccessReasonAuditStringInternal.c)
- *     PfSnOpenVolumesForPrefetch @ 0x140686328 (PfSnOpenVolumesForPrefetch.c)
- *     MiDriverLoadSucceeded @ 0x140695BC4 (MiDriverLoadSucceeded.c)
- *     EtwpGetSecurityDescriptorByGuid @ 0x1406C0FAC (EtwpGetSecurityDescriptorByGuid.c)
- *     IopGetLegacyVetoListDrivers @ 0x1406C2444 (IopGetLegacyVetoListDrivers.c)
- *     WmipPrepareWnodeSI @ 0x1406C6594 (WmipPrepareWnodeSI.c)
- *     WmipInsertStaticNames @ 0x1406C8104 (WmipInsertStaticNames.c)
- *     PfSnGetPrefetchInstructions @ 0x14074D58C (PfSnGetPrefetchInstructions.c)
- *     EtwpRealtimeCreateLogfile @ 0x140773258 (EtwpRealtimeCreateLogfile.c)
- *     PiBuildDeviceNodeInstancePath @ 0x14078EAF8 (PiBuildDeviceNodeInstancePath.c)
- *     WmipSecurityMethod @ 0x1407BE310 (WmipSecurityMethod.c)
- *     IoWMIDeviceObjectToInstanceName @ 0x1407C4070 (IoWMIDeviceObjectToInstanceName.c)
- *     EtwpGenerateFileName @ 0x1407E9820 (EtwpGenerateFileName.c)
- *     EtwpCreateNtFileName @ 0x1407F71EC (EtwpCreateNtFileName.c)
- *     EtwpExpandFileName @ 0x1407F73F0 (EtwpExpandFileName.c)
- *     EtwpEnableAutoLoggerProvider @ 0x14080B754 (EtwpEnableAutoLoggerProvider.c)
- *     EtwpGetAutoLoggerProviderFilter @ 0x14080C0B0 (EtwpGetAutoLoggerProviderFilter.c)
- *     EtwpEnumerateAutologgerPath @ 0x14083DAD8 (EtwpEnumerateAutologgerPath.c)
- *     EtwpGetAutoLoggerEventNameFilter @ 0x14084DB00 (EtwpGetAutoLoggerEventNameFilter.c)
- *     PpmWmiRegisterInfo @ 0x14084FA60 (PpmWmiRegisterInfo.c)
- *     EtwpGetAutoLoggerLevelKwFilter @ 0x1408525D4 (EtwpGetAutoLoggerLevelKwFilter.c)
- *     SepSetSystemPaths @ 0x140856C00 (SepSetSystemPaths.c)
- *     SepReadAndPopulateCapes @ 0x14085D47C (SepReadAndPopulateCapes.c)
- *     CmpCreatePerfKeys @ 0x14085D770 (CmpCreatePerfKeys.c)
- *     EtwpLoadMicroarchitecturalPmcs @ 0x140862AC8 (EtwpLoadMicroarchitecturalPmcs.c)
- *     PnpUnloadAttachedDriver @ 0x140869C04 (PnpUnloadAttachedDriver.c)
- *     ExProcessorCounterSetCallback @ 0x14086E070 (ExProcessorCounterSetCallback.c)
- *     PipMakeGloballyUniqueId @ 0x140870EF0 (PipMakeGloballyUniqueId.c)
- *     PiNormalizeDeviceText @ 0x140871388 (PiNormalizeDeviceText.c)
- *     PipServiceInstanceToDeviceInstance @ 0x1409583D0 (PipServiceInstanceToDeviceInstance.c)
- *     KiSynchCounterSetCallback @ 0x140973F30 (KiSynchCounterSetCallback.c)
- *     KiSynchNumaCounterSetCallback @ 0x140974050 (KiSynchNumaCounterSetCallback.c)
- *     PfpSourceGetPrefetchSupport @ 0x14097EEF0 (PfpSourceGetPrefetchSupport.c)
- *     PfSnOperationProcess @ 0x14097F8F0 (PfSnOperationProcess.c)
- *     PopDirectedDripsDiagCreateBlockerEntryBoolean @ 0x14099DF84 (PopDirectedDripsDiagCreateBlockerEntryBoolean.c)
- *     PopDirectedDripsDiagCreateBlockerEntryULong @ 0x14099DFF0 (PopDirectedDripsDiagCreateBlockerEntryULong.c)
- *     WmipIncludeStaticNames @ 0x1409E0A34 (WmipIncludeStaticNames.c)
- *     EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x1409E2D44 (EtwpAddMicroarchitecturalPmcToPmcGroup.c)
- *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1409E3074 (EtwpAddMicroarchitecturalPmcToRegistry.c)
- *     EtwpFindMatchingPmcRegistryGroup @ 0x1409E3F88 (EtwpFindMatchingPmcRegistryGroup.c)
- *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1409E43C8 (EtwpLoadMicroarchitecturalProfileGroup.c)
- *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1409E4AD4 (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
- *     AdtpBuildSecurityDescriptorUnicodeString @ 0x140A5AFD4 (AdtpBuildSecurityDescriptorUnicodeString.c)
- *     BiGetPhysicalDriveName @ 0x140A5D0A0 (BiGetPhysicalDriveName.c)
- *     SiGetEfiSystemDevice @ 0x140A5FAB0 (SiGetEfiSystemDevice.c)
- *     SiGetEspFromFirmware @ 0x140A5FEA4 (SiGetEspFromFirmware.c)
- *     LkmdTelCreateReport @ 0x140A76B94 (LkmdTelCreateReport.c)
- *     VhdInitialize @ 0x140B3F4DC (VhdInitialize.c)
- *     PoFxRegisterDebugger @ 0x140B60C60 (PoFxRegisterDebugger.c)
- *     CreateSystemRootLink @ 0x140B6F884 (CreateSystemRootLink.c)
- *     CimfsInitialize @ 0x140B75330 (CimfsInitialize.c)
- *     MfgInitSystem @ 0x140B76340 (MfgInitSystem.c)
- *     EtwpEnableBootLoggerRegistryProviders @ 0x140B985B4 (EtwpEnableBootLoggerRegistryProviders.c)
- *     VhdiGetVolumeNumber @ 0x140B9BBAC (VhdiGetVolumeNumber.c)
- *     VhdiInitializeBootDisk @ 0x140B9BD30 (VhdiInitializeBootDisk.c)
- *     CimfsInitializeBootDisk @ 0x140B9C180 (CimfsInitializeBootDisk.c)
- *     RamdiskStart @ 0x140B9C590 (RamdiskStart.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C2834 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     PfSnGetPrefetchInstructions @ 0x14062D440 (PfSnGetPrefetchInstructions.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x140634420 (PfSnOpenVolumesForPrefetch.c)
+ *     EtwpRealtimeCreateLogfile @ 0x14065F4C4 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpExpandFileName @ 0x14065F6D8 (EtwpExpandFileName.c)
+ *     WmipSecurityMethod @ 0x1406818F0 (WmipSecurityMethod.c)
+ *     EtwpGenerateFileName @ 0x14068EAAC (EtwpGenerateFileName.c)
+ *     PfSnOperationProcess @ 0x1406A51B8 (PfSnOperationProcess.c)
+ *     WmipInsertStaticNames @ 0x1406B1C50 (WmipInsertStaticNames.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1406BD12C (EtwpGetSecurityDescriptorByGuid.c)
+ *     ExProcessorCounterSetCallback @ 0x1406C6A20 (ExProcessorCounterSetCallback.c)
+ *     IopGetLegacyVetoListDrivers @ 0x1406DA720 (IopGetLegacyVetoListDrivers.c)
+ *     PopDiagTracePowerRequestCreate @ 0x1406F5728 (PopDiagTracePowerRequestCreate.c)
+ *     PfpSourceGetPrefetchSupport @ 0x14070CBB0 (PfpSourceGetPrefetchSupport.c)
+ *     EtwpCreateNtFileName @ 0x140713BB0 (EtwpCreateNtFileName.c)
+ *     PnpUnloadAttachedDriver @ 0x14073AAA8 (PnpUnloadAttachedDriver.c)
+ *     WmipPrepareWnodeSI @ 0x140756DF4 (WmipPrepareWnodeSI.c)
+ *     MiDriverLoadSucceeded @ 0x14075BE34 (MiDriverLoadSucceeded.c)
+ *     PiNormalizeDeviceText @ 0x14076A260 (PiNormalizeDeviceText.c)
+ *     PiBuildDeviceNodeInstancePath @ 0x14076B22C (PiBuildDeviceNodeInstancePath.c)
+ *     PipMakeGloballyUniqueId @ 0x14076BBCC (PipMakeGloballyUniqueId.c)
+ *     IoWMIDeviceObjectToInstanceName @ 0x14078D0B0 (IoWMIDeviceObjectToInstanceName.c)
+ *     EtwpEnumerateAutologgerPath @ 0x1407961B4 (EtwpEnumerateAutologgerPath.c)
+ *     EtwpEnableAutoLoggerProvider @ 0x140797F58 (EtwpEnableAutoLoggerProvider.c)
+ *     EtwpGetAutoLoggerProviderFilter @ 0x140798578 (EtwpGetAutoLoggerProviderFilter.c)
+ *     CmpCreatePerfKeys @ 0x1407A7FF0 (CmpCreatePerfKeys.c)
+ *     EtwpGetAutoLoggerEventNameFilter @ 0x1407C64DC (EtwpGetAutoLoggerEventNameFilter.c)
+ *     PpmWmiRegisterInfo @ 0x1407C6758 (PpmWmiRegisterInfo.c)
+ *     SepSetSystemPaths @ 0x1407C9158 (SepSetSystemPaths.c)
+ *     EtwpGetAutoLoggerLevelKwFilter @ 0x1407CB028 (EtwpGetAutoLoggerLevelKwFilter.c)
+ *     SepReadAndPopulateCapes @ 0x1407CDD7C (SepReadAndPopulateCapes.c)
+ *     EtwpLoadMicroarchitecturalPmcs @ 0x1407D276C (EtwpLoadMicroarchitecturalPmcs.c)
+ *     PipServiceInstanceToDeviceInstance @ 0x1408A17F0 (PipServiceInstanceToDeviceInstance.c)
+ *     KiSynchCounterSetCallback @ 0x1408BAEF0 (KiSynchCounterSetCallback.c)
+ *     KiSynchNumaCounterSetCallback @ 0x1408BB000 (KiSynchNumaCounterSetCallback.c)
+ *     PopDirectedDripsDiagCreateBlockerEntryBoolean @ 0x1408F6DAC (PopDirectedDripsDiagCreateBlockerEntryBoolean.c)
+ *     PopDirectedDripsDiagCreateBlockerEntryULong @ 0x1408F6E18 (PopDirectedDripsDiagCreateBlockerEntryULong.c)
+ *     WmipIncludeStaticNames @ 0x14093282C (WmipIncludeStaticNames.c)
+ *     EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x1409391B0 (EtwpAddMicroarchitecturalPmcToPmcGroup.c)
+ *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1409394D0 (EtwpAddMicroarchitecturalPmcToRegistry.c)
+ *     EtwpFindMatchingPmcRegistryGroup @ 0x14093A1A0 (EtwpFindMatchingPmcRegistryGroup.c)
+ *     EtwpLoadMicroarchitecturalProfileGroup @ 0x14093A5DC (EtwpLoadMicroarchitecturalProfileGroup.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x14093ABF8 (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
+ *     AdtpBuildSecurityDescriptorUnicodeString @ 0x14096D99C (AdtpBuildSecurityDescriptorUnicodeString.c)
+ *     BiGetPhysicalDriveName @ 0x14096FDDC (BiGetPhysicalDriveName.c)
+ *     SiGetEfiSystemDevice @ 0x140973C20 (SiGetEfiSystemDevice.c)
+ *     LkmdTelCreateReport @ 0x140982E28 (LkmdTelCreateReport.c)
+ *     CreateSystemRootLink @ 0x140A6F6AC (CreateSystemRootLink.c)
+ *     VhdInitialize @ 0x140A73778 (VhdInitialize.c)
+ *     MfgInitSystem @ 0x140A73924 (MfgInitSystem.c)
+ *     PoFxRegisterDebugger @ 0x140A73A68 (PoFxRegisterDebugger.c)
+ *     VhdiGetVolumeNumber @ 0x140A94818 (VhdiGetVolumeNumber.c)
+ *     VhdiInitializeBootDisk @ 0x140A94990 (VhdiInitializeBootDisk.c)
+ *     RamdiskStart @ 0x140A95268 (RamdiskStart.c)
  * Callees:
- *     _vsnwprintf @ 0x1403D8350 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x1403D0970 (_vsnwprintf.c)
  */
 
 NTSTATUS RtlStringCbPrintfW(NTSTRSAFE_PWSTR pszDest, size_t cbDest, NTSTRSAFE_PCWSTR pszFormat, ...)
 {
   size_t v3; // rdx
-  unsigned __int64 v5; // rsi
-  NTSTATUS v6; // edi
+  NTSTATUS v5; // esi
+  unsigned __int64 v6; // rbx
   int v7; // eax
   va_list Args; // [rsp+78h] [rbp+20h] BYREF
 
   va_start(Args, pszFormat);
   v3 = cbDest >> 1;
-  if ( v3 - 1 <= 0x7FFFFFFE )
+  v5 = 0;
+  if ( v3 - 1 > 0x7FFFFFFE )
+    v5 = -1073741811;
+  if ( v5 < 0 )
   {
-    v5 = v3 - 1;
-    v6 = 0;
-    v7 = vsnwprintf(pszDest, v3 - 1, pszFormat, Args);
-    if ( v7 >= 0 )
-    {
-      if ( v7 == v5 )
-      {
-LABEL_6:
-        pszDest[v5] = 0;
-        return v6;
-      }
-      if ( v7 <= v5 )
-        return v6;
-    }
-    v6 = -2147483643;
-    goto LABEL_6;
+    if ( v3 )
+      *pszDest = 0;
   }
-  v6 = -1073741811;
-  if ( v3 )
-    *pszDest = 0;
-  return v6;
+  else
+  {
+    v6 = v3 - 1;
+    v5 = 0;
+    v7 = vsnwprintf(pszDest, v3 - 1, pszFormat, Args);
+    if ( v7 < 0 )
+      goto LABEL_9;
+    if ( v7 == v6 )
+    {
+      pszDest[v6] = 0;
+      return v5;
+    }
+    if ( v7 > v6 )
+    {
+LABEL_9:
+      pszDest[v6] = 0;
+      return -2147483643;
+    }
+  }
+  return v5;
 }

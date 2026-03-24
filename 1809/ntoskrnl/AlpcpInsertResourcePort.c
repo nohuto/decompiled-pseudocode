@@ -4,8 +4,8 @@
  *     AlpcpCreateView @ 0x140617D0C (AlpcpCreateView.c)
  *     AlpcpCreateSecurityContext @ 0x14061801C (AlpcpCreateSecurityContext.c)
  *     AlpcpCreateSection @ 0x14061AF74 (AlpcpCreateSection.c)
- *     AlpcpCreateReserve @ 0x1406A3FD8 (AlpcpCreateReserve.c)
- *     AlpcpMapLegacyPortRemoteView @ 0x1406DAF60 (AlpcpMapLegacyPortRemoteView.c)
+ *     AlpcpCreateReserve @ 0x1406A3FB8 (AlpcpCreateReserve.c)
+ *     AlpcpMapLegacyPortRemoteView @ 0x1406DAF40 (AlpcpMapLegacyPortRemoteView.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

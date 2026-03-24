@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwFlushVirtualMemory @ 0x14041D580
+ * XREFs of ZwFlushVirtualMemory @ 0x1403FC120
  * Callers:
- *     DifZwFlushVirtualMemoryWrapper @ 0x140620920 (DifZwFlushVirtualMemoryWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

@@ -1,26 +1,26 @@
 /*
- * XREFs of HalpAcpiGetAllTablesWork @ 0x1403BED70
+ * XREFs of HalpAcpiGetAllTablesWork @ 0x1403BB4F4
  * Callers:
- *     HalpAcpiGetAllTables @ 0x1403BED38 (HalpAcpiGetAllTables.c)
+ *     HalpAcpiGetAllTables @ 0x1403BB4BC (HalpAcpiGetAllTables.c)
  * Callees:
- *     HalpAcpiGetTableWork @ 0x140213AC0 (HalpAcpiGetTableWork.c)
- *     HalpAcpiCheckAndMapTable @ 0x140215144 (HalpAcpiCheckAndMapTable.c)
- *     MmUnmapIoSpace @ 0x140215660 (MmUnmapIoSpace.c)
- *     HalpAcpiCacheTable @ 0x1403BEF40 (HalpAcpiCacheTable.c)
- *     HalpAcpiCopyBiosTable @ 0x1403BEFA8 (HalpAcpiCopyBiosTable.c)
- *     HalpAcpiAllocateMemory @ 0x1403BF088 (HalpAcpiAllocateMemory.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     HalpAcpiGetTableWork @ 0x140294700 (HalpAcpiGetTableWork.c)
+ *     HalpAcpiCheckAndMapTable @ 0x140294BD8 (HalpAcpiCheckAndMapTable.c)
+ *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
+ *     HalpAcpiCacheTable @ 0x1403BB6C0 (HalpAcpiCacheTable.c)
+ *     HalpAcpiCopyBiosTable @ 0x1403BB728 (HalpAcpiCopyBiosTable.c)
+ *     HalpAcpiAllocateMemory @ 0x1403BB808 (HalpAcpiAllocateMemory.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall HalpAcpiGetAllTablesWork(__int64 a1)
 {
   unsigned int v1; // edi
   unsigned int *TableWork; // rax
-  unsigned int *v4; // rbp
-  __int64 v5; // rax
-  unsigned int *v6; // rcx
-  __int64 v7; // rdx
-  unsigned __int64 v8; // rax
+  unsigned int *v4; // rsi
+  __int64 v5; // rdx
+  __int64 v6; // rax
+  unsigned int *v7; // r8
+  unsigned __int64 v8; // rdx
   unsigned int *v9; // r14
   __int64 v10; // r12
   __int64 *v11; // r15
@@ -35,11 +35,11 @@ __int64 __fastcall HalpAcpiGetAllTablesWork(__int64 a1)
   _DWORD *Memory; // rax
   _DWORD *v21; // rbx
   __int64 i; // rcx
-  __int64 v23; // rax
-  int v24; // eax
+  int v23; // eax
+  __int64 v24; // rax
   unsigned int *v25; // rax
   __int64 v26; // rdx
-  __int64 v27; // r8
+  __int64 v27; // rcx
   unsigned int NumberOfBytes; // [rsp+70h] [rbp+8h] BYREF
   int NumberOfBytes_4; // [rsp+74h] [rbp+Ch]
 
@@ -53,27 +53,27 @@ __int64 __fastcall HalpAcpiGetAllTablesWork(__int64 a1)
     if ( TableWork )
     {
       v5 = TableWork[1];
-      v6 = 0LL;
-      v7 = (unsigned int)v5;
-      if ( (unsigned int)v5 >= 0x24 )
-        v7 = 36LL;
-      v8 = (unsigned __int64)(v5 - v7) >> 3;
+      v6 = 36LL;
+      v7 = 0LL;
+      if ( (unsigned int)v5 < 0x24 )
+        v6 = (unsigned int)v5;
+      v8 = (unsigned __int64)(v5 - v6) >> 3;
     }
     else
     {
       v25 = (unsigned int *)HalpAcpiGetTableWork(0LL, 0x54445352u, 0LL, 0LL);
-      v6 = v25;
+      v7 = v25;
       if ( !v25 )
         return HalpAcpiTablePointers;
       v26 = v25[1];
-      v27 = (unsigned int)v26;
-      if ( (unsigned int)v26 >= 0x24 )
-        v27 = 36LL;
+      v27 = 36LL;
+      if ( (unsigned int)v26 < 0x24 )
+        v27 = (unsigned int)v26;
       v8 = (unsigned __int64)(v26 - v27) >> 2;
     }
     if ( (_DWORD)v8 )
     {
-      v9 = v6 + 9;
+      v9 = v7 + 9;
       v10 = (unsigned int)v8;
       v11 = (__int64 *)(v4 + 9);
       do
@@ -107,7 +107,7 @@ __int64 __fastcall HalpAcpiGetAllTablesWork(__int64 a1)
         ++v17;
       v16 = *(_QWORD *)v16;
     }
-    Memory = (_DWORD *)HalpAcpiAllocateMemory(0LL, (unsigned int)(8 * v17 + 8));
+    Memory = (_DWORD *)HalpAcpiAllocateMemory(0LL, (unsigned int)(8 * v17 + 8), v7);
     v21 = Memory;
     if ( Memory )
     {
@@ -115,11 +115,11 @@ __int64 __fastcall HalpAcpiGetAllTablesWork(__int64 a1)
       *v21 = v17;
       for ( i = HalpAcpiTableCacheList; (__int64 *)i != &HalpAcpiTableCacheList; i = *(_QWORD *)i )
       {
-        v24 = *(_DWORD *)(i + 24);
-        if ( ((unsigned int)(v24 - 1413763908) > 0x14 || !_bittest(&v18, v24 - 1413763908)) && v24 != 1396916550 )
+        v23 = *(_DWORD *)(i + 24);
+        if ( ((unsigned int)(v23 - 1413763908) > 0x14 || !_bittest(&v18, v23 - 1413763908)) && v23 != 1396916550 )
         {
-          v23 = v1++;
-          *(_QWORD *)&v21[2 * v23 + 2] = i + 24;
+          v24 = v1++;
+          *(_QWORD *)&v21[2 * v24 + 2] = i + 24;
         }
       }
       HalpAcpiTablePointers = (__int64)v21;

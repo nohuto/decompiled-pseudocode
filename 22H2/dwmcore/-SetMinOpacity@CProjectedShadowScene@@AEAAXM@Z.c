@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetMinOpacity@CProjectedShadowScene@@AEAAXM@Z @ 0x180004778
+ * XREFs of ?SetMinOpacity@CProjectedShadowScene@@AEAAXM@Z @ 0x18000CC98
  * Callers:
- *     ?ProcessSetMinOpacity@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_SETMINOPACITY@@@Z @ 0x18024BEF4 (-ProcessSetMinOpacity@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHA.c)
- *     ?SetProperty@CProjectedShadowScene@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x18024BF90 (-SetProperty@CProjectedShadowScene@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?ProcessSetMinOpacity@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_SETMINOPACITY@@@Z @ 0x1801E4B30 (-ProcessSetMinOpacity@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHA.c)
+ *     ?SetProperty@CProjectedShadowScene@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801E4B70 (-SetProperty@CProjectedShadowScene@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
  * Callees:
- *     ?RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ @ 0x180005C2C (-RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ.c)
- *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180098F64 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
+ *     ?RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ @ 0x18000CDB4 (-RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ.c)
+ *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180066030 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
  */
 
 void __fastcall CProjectedShadowScene::SetMinOpacity(CProjectedShadowScene *this, float a2)
@@ -15,9 +15,9 @@ void __fastcall CProjectedShadowScene::SetMinOpacity(CProjectedShadowScene *this
 
   v3 = fmaxf(0.0, a2);
   v4 = fminf(1.0, v3);
-  if ( *((float *)this + 32) != v4 )
+  if ( *((float *)this + 30) != v4 )
   {
-    *((float *)this + 32) = v4;
+    *((float *)this + 30) = v4;
     CResource::InvalidateAnimationSources(this, 6u);
     CProjectedShadowScene::RequestRedrawAll(this);
   }

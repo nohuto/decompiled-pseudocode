@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCloneVads @ 0x1402C8A68
+ * XREFs of MiCloneVads @ 0x1402C8B68
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x14085E044 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x14085E024 (MiCloneProcessAddressSpace.c)
  * Callees:
  *     MiLocateVadEvent @ 0x140027BCC (MiLocateVadEvent.c)
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
@@ -15,22 +15,22 @@
  *     MiReturnFullProcessCharges @ 0x14007FF10 (MiReturnFullProcessCharges.c)
  *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
  *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     MiLockAweVadsExclusive @ 0x1402B11DC (MiLockAweVadsExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x1402B200C (MiUnlockAweVadsExclusive.c)
- *     MiBuildForkPte @ 0x1402C7AF0 (MiBuildForkPte.c)
- *     MiFreeForkMaps @ 0x1402C9F5C (MiFreeForkMaps.c)
- *     MiInitializeForkMaps @ 0x1402CA778 (MiInitializeForkMaps.c)
- *     MiInsertClone @ 0x1402CA7DC (MiInsertClone.c)
- *     MiUpdateForkMaps @ 0x1402CAB08 (MiUpdateForkMaps.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     MiLockAweVadsExclusive @ 0x1402B12DC (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x1402B210C (MiUnlockAweVadsExclusive.c)
+ *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
+ *     MiFreeForkMaps @ 0x1402CA05C (MiFreeForkMaps.c)
+ *     MiInitializeForkMaps @ 0x1402CA878 (MiInitializeForkMaps.c)
+ *     MiInsertClone @ 0x1402CA8DC (MiInsertClone.c)
+ *     MiUpdateForkMaps @ 0x1402CAC08 (MiUpdateForkMaps.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MiReturnFullProcessCommitment @ 0x1405F2998 (MiReturnFullProcessCommitment.c)
- *     MiBuildNewCloneDescriptor @ 0x14085DEA0 (MiBuildNewCloneDescriptor.c)
- *     MiFreeCloneDescriptor @ 0x14085E678 (MiFreeCloneDescriptor.c)
+ *     MiBuildNewCloneDescriptor @ 0x14085DE80 (MiBuildNewCloneDescriptor.c)
+ *     MiFreeCloneDescriptor @ 0x14085E658 (MiFreeCloneDescriptor.c)
  */
 
 __int64 __fastcall MiCloneVads(_QWORD *a1, struct _KPROCESS *a2, __int64 a3, __int64 a4, int a5, _DWORD *a6)

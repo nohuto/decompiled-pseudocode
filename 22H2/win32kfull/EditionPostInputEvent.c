@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionPostInputEvent @ 0x1C00B88F0
+ * XREFs of EditionPostInputEvent @ 0x1C01277F0
  * Callers:
  *     <none>
  * Callees:
- *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0050C44 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FBD0 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
  */
 
 __int64 __fastcall EditionPostInputEvent(
@@ -14,13 +14,21 @@ __int64 __fastcall EditionPostInputEvent(
         unsigned __int64 a5,
         __int64 a6)
 {
-  struct tagTHREADINFO **v8; // rax
+  __int64 v8; // rax
 
   if ( a1 == 30 )
     return 0LL;
-  v8 = (struct tagTHREADINFO **)ValidateHwnd(a2);
+  v8 = ValidateHwnd(a2);
   if ( !v8 )
     return 0LL;
   else
-    return PostEventMessageEx(v8[2], *((struct tagQ **)v8[2] + 54), a1, (struct tagWND *)v8, a4, a5, a6, 0LL);
+    return PostEventMessageEx(
+             *(struct tagTHREADINFO **)(v8 + 16),
+             *(struct tagQ **)(*(_QWORD *)(v8 + 16) + 432LL),
+             a1,
+             (struct tagWND *)v8,
+             a4,
+             a5,
+             a6,
+             0LL);
 }

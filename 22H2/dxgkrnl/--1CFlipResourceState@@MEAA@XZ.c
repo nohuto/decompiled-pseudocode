@@ -1,28 +1,26 @@
 /*
- * XREFs of ??1CFlipResourceState@@MEAA@XZ @ 0x1C00856DC
+ * XREFs of ??1CFlipResourceState@@MEAA@XZ @ 0x1C006BFAC
  * Callers:
- *     ??_ECFlipResourceState@@MEAAPEAXI@Z @ 0x1C0085800 (--_ECFlipResourceState@@MEAAPEAXI@Z.c)
- *     ??_GCPoolBufferResourceState@@UEAAPEAXI@Z @ 0x1C00858A0 (--_GCPoolBufferResourceState@@UEAAPEAXI@Z.c)
- *     ??1CContentResourceState@@UEAA@XZ @ 0x1C00886A8 (--1CContentResourceState@@UEAA@XZ.c)
+ *     ??_ECFlipResourceState@@MEAAPEAXI@Z @ 0x1C006C0A0 (--_ECFlipResourceState@@MEAAPEAXI@Z.c)
+ *     ??_GCPoolBufferResourceState@@UEAAPEAXI@Z @ 0x1C006C0F0 (--_GCPoolBufferResourceState@@UEAAPEAXI@Z.c)
+ *     ??1CContentResourceState@@UEAA@XZ @ 0x1C006E3B4 (--1CContentResourceState@@UEAA@XZ.c)
  * Callees:
- *     ?Release@CFlipResource@@QEAAKXZ @ 0x1C0082298 (-Release@CFlipResource@@QEAAKXZ.c)
+ *     ?Release@CFlipResource@@QEAAKXZ @ 0x1C006BD08 (-Release@CFlipResource@@QEAAKXZ.c)
  */
 
-void __fastcall CFlipResourceState::~CFlipResourceState(CFlipResource **this)
+void __fastcall CFlipResourceState::~CFlipResourceState(CFlipResourceState *this)
 {
-  unsigned __int64 v1; // r8
-  __int64 v2; // rdx
-  _QWORD *v3; // rax
+  CFlipResourceState **v1; // r8
+  CFlipResourceState **v2; // rdx
 
-  *this = (CFlipResource *)&CFlipResourceState::`vftable';
-  v1 = (unsigned __int64)(this + 1) & -(__int64)(this != 0LL);
-  v2 = *(_QWORD *)v1;
-  if ( *(_QWORD *)(*(_QWORD *)v1 + 8LL) != v1
-    || (v3 = *(_QWORD **)(((unsigned __int64)(this + 1) & -(__int64)(this != 0LL)) + 8), *v3 != v1) )
+  *(_QWORD *)this = &CFlipResourceState::`vftable';
+  v1 = (CFlipResourceState **)*((_QWORD *)this + 1);
+  if ( v1[1] != (CFlipResourceState *)((char *)this + 8)
+    || (v2 = (CFlipResourceState **)*((_QWORD *)this + 2), *v2 != (CFlipResourceState *)((char *)this + 8)) )
   {
     __fastfail(3u);
   }
-  *v3 = v2;
-  *(_QWORD *)(v2 + 8) = v3;
-  CFlipResource::Release(this[3]);
+  *v2 = (CFlipResourceState *)v1;
+  v1[1] = (CFlipResourceState *)v2;
+  CFlipResource::Release(*((CFlipResource **)this + 3));
 }

@@ -1,54 +1,50 @@
 /*
- * XREFs of rimCheckForRegistrationConflicts @ 0x1C005F020
+ * XREFs of rimCheckForRegistrationConflicts @ 0x1C00ABA8C
  * Callers:
- *     RIMRegisterForInputWithCallbacks @ 0x1C005E080 (RIMRegisterForInputWithCallbacks.c)
+ *     RIMRegisterForInputWithCallbacks @ 0x1C0088530 (RIMRegisterForInputWithCallbacks.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     RIMIsCurrentProcessTrusted @ 0x1C005F0F0 (RIMIsCurrentProcessTrusted.c)
- *     WPP_RECORDER_AND_TRACE_SF_qqqd @ 0x1C0186990 (WPP_RECORDER_AND_TRACE_SF_qqqd.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_SF_qqqd @ 0x1C0158844 (WPP_RECORDER_SF_qqqd.c)
  */
 
-__int64 __fastcall rimCheckForRegistrationConflicts(int a1)
+char __fastcall rimCheckForRegistrationConflicts(int a1)
 {
-  struct _LIST_ENTRY *Flink; // rdx
-  unsigned int v3; // edi
-  struct _LIST_ENTRY *v4; // rbx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  struct _LIST_ENTRY *Flink; // rdi
+  char v5; // si
+  struct _LIST_ENTRY *v6; // rbx
+  PVOID CurrentProcess; // rax
+  __int64 v9; // rdx
+  int v10; // r8d
+  int v11; // r9d
 
   RIMLockExclusive((__int64)&gObListLock);
   Flink = gObRimList.Flink;
-  v3 = 0;
+  v5 = 0;
   while ( Flink != &gObRimList )
   {
-    v4 = Flink - 1;
-    if ( !LOBYTE(Flink[4].Flink) && !BYTE1(v4[5].Flink) && (a1 & HIDWORD(v4[5].Flink)) != 0 && LODWORD(v4[68].Flink) )
+    v6 = Flink - 1;
+    if ( !LOBYTE(Flink[4].Flink) && !BYTE1(v6[5].Flink) && (a1 & HIDWORD(v6[5].Flink)) != 0 )
     {
-      if ( !(unsigned int)RIMIsCurrentProcessTrusted(&gObRimList)
-        || v4[2].Flink == (struct _LIST_ENTRY *)PsGetCurrentProcess(v6, v5, v7, v8) )
+      if ( LODWORD(v6[54].Flink) )
       {
-        v3 = 1;
-        LOBYTE(v5) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                  && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                  && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u;
-        if ( (_BYTE)v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        CurrentProcess = (PVOID)PsGetCurrentProcess(v3, v2);
+        if ( !CurrentProcess
+          || CurrentProcess != g_pepDwm
+          || v6[2].Flink == (struct _LIST_ENTRY *)PsGetCurrentProcess(v3, v9) )
         {
-          LOBYTE(v7) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          WPP_RECORDER_AND_TRACE_SF_qqqd(WPP_GLOBAL_Control->AttachedDevice, v5, v7, v8);
+          v5 = 1;
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            WPP_RECORDER_SF_qqqd(v3, v6[2].Flink, v10, v11);
+          break;
         }
       }
-      else
-      {
-        v3 = 2;
-      }
-      break;
     }
     Flink = Flink->Flink;
   }
-  qword_1C029A118 = 0LL;
+  qword_1C0255428 = 0LL;
   ExReleasePushLockExclusiveEx(&gObListLock, 0LL);
   KeLeaveCriticalRegion();
-  return v3;
+  return v5;
 }

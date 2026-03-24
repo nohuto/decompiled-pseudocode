@@ -1,30 +1,23 @@
 /*
- * XREFs of CmpDelayFreeRMWorker @ 0x1407E9430
+ * XREFs of CmpDelayFreeRMWorker @ 0x1406A2130
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ExDeleteResourceLite @ 0x1402A8CA0 (ExDeleteResourceLite.c)
- *     CmpLockRegistryExclusive @ 0x1407696FC (CmpLockRegistryExclusive.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
+ *     ExDeleteResourceLite @ 0x140275720 (ExDeleteResourceLite.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistryExclusive @ 0x1406EB57C (CmpLockRegistryExclusive.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 CmpDelayFreeRMWorker()
+void CmpDelayFreeRMWorker()
 {
   PERESOURCE *v0; // rbx
   __int64 v1; // rax
   __int64 v2; // rdx
   __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 v7[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  *(_OWORD *)v7 = 0LL;
-  CmpInitializeThreadInfo((__int64)v7);
   ExAcquireFastMutex(&CmpDelayFreeRMLock);
   while ( 1 )
   {
@@ -39,15 +32,14 @@ __int64 CmpDelayFreeRMWorker()
     }
     CmpDelayFreeRMListHead = *(PVOID *)CmpDelayFreeRMListHead;
     *(_QWORD *)(v1 + 8) = &CmpDelayFreeRMListHead;
-    ExReleaseFastMutex(&CmpDelayFreeRMLock);
-    CmpLockRegistryExclusive();
+    KeReleaseGuardedMutex(&CmpDelayFreeRMLock);
+    CmpLockRegistryExclusive(v3, v2);
     ExDeleteResourceLite(v0[16]);
     ExFreePoolWithTag(v0[16], 0);
     ExFreePoolWithTag(v0, 0x6D524D43u);
-    CmpUnlockRegistry(v3, v2, v4, v5);
+    CmpUnlockRegistry();
     ExAcquireFastMutex(&CmpDelayFreeRMLock);
   }
   CmpDelayFreeRMWorkItemActive = 0;
-  ExReleaseFastMutex(&CmpDelayFreeRMLock);
-  return CmCleanupThreadInfo(v7);
+  KeReleaseGuardedMutex(&CmpDelayFreeRMLock);
 }

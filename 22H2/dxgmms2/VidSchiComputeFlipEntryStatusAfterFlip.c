@@ -1,7 +1,8 @@
 /*
- * XREFs of VidSchiComputeFlipEntryStatusAfterFlip @ 0x1C0014E70
+ * XREFs of VidSchiComputeFlipEntryStatusAfterFlip @ 0x1C002F2AC
  * Callers:
- *     VidSchiExecuteMmIoFlipAtPassiveLevel @ 0x1C00148F0 (VidSchiExecuteMmIoFlipAtPassiveLevel.c)
+ *     ?VidSchiExecuteMmIoFlipMultiPlaneOverlay3@@YAXPEAU_VIDSCH_GLOBAL@@IPEAUVIDSCH_FLIP_QUEUE@@AEAU_VIDSCH_CALL_EXECUTE_FLIP@@PEAW4_VIDSCH_FLIP_STATUS@@K@Z @ 0x1C002ABDC (-VidSchiExecuteMmIoFlipMultiPlaneOverlay3@@YAXPEAU_VIDSCH_GLOBAL@@IPEAUVIDSCH_FLIP_QUEUE@@AEAU_V.c)
+ *     VidSchiExecuteMmIoFlipAtPassiveLevel @ 0x1C002F540 (VidSchiExecuteMmIoFlipAtPassiveLevel.c)
  * Callees:
  *     <none>
  */

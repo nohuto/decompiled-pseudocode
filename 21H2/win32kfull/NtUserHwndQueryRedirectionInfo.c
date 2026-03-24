@@ -1,225 +1,227 @@
 /*
- * XREFs of NtUserHwndQueryRedirectionInfo @ 0x1C016CB60
+ * XREFs of NtUserHwndQueryRedirectionInfo @ 0x1C01FD200
  * Callers:
  *     <none>
  * Callees:
- *     GetStyleWindow @ 0x1C004CDA0 (GetStyleWindow.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     RecreateRedirectionBitmap @ 0x1C008F778 (RecreateRedirectionBitmap.c)
- *     GreGetDxSharedSurface @ 0x1C00ED940 (GreGetDxSharedSurface.c)
- *     UserSetLastStatus @ 0x1C011A880 (UserSetLastStatus.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     GreGetHwndUpdateIds @ 0x1C026D470 (GreGetHwndUpdateIds.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     GetStyleWindow @ 0x1C0071560 (GetStyleWindow.c)
+ *     UserSetLastStatus @ 0x1C00EC7BC (UserSetLastStatus.c)
+ *     RecreateRedirectionBitmap @ 0x1C00F18E8 (RecreateRedirectionBitmap.c)
+ *     GreGetDxSharedSurface @ 0x1C0118EDC (GreGetDxSharedSurface.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     GreGetHwndUpdateIds @ 0x1C026F750 (GreGetHwndUpdateIds.c)
  */
 
-__int64 __fastcall NtUserHwndQueryRedirectionInfo(__int64 a1, __int64 a2, __int128 *a3, ULONG64 a4)
+__int64 __fastcall NtUserHwndQueryRedirectionInfo(__int64 a1, int a2, __int128 *a3, ULONG64 a4)
 {
-  __int128 *v5; // r13
-  int v6; // r15d
   int DxSharedSurface; // esi
   int v9; // edi
   __int64 v10; // rax
   ULONG64 v11; // rcx
   NTSTATUS v12; // ecx
-  HWND *StyleWindow; // rax
+  __int64 StyleWindow; // rax
   __int64 v14; // rdx
-  HWND *v15; // r10
-  unsigned int *v16; // rax
-  unsigned int v17; // r12d
+  __int64 v15; // r8
+  HWND *v16; // r10
+  unsigned int *v17; // rax
+  unsigned int v18; // r12d
   __int64 CurrentProcess; // rax
-  size_t v19; // rbx
-  int v20; // r14d
-  __int128 *v21; // rax
+  size_t v20; // rbx
+  int v21; // r14d
   __int128 *v22; // rax
-  int v23; // r15d
+  __int128 *v23; // rax
+  int v24; // r15d
   int HwndUpdateIds; // eax
-  HWND *v25; // r15
-  _DWORD *v26; // rax
-  unsigned int v28; // [rsp+30h] [rbp-C8h] BYREF
-  int v29; // [rsp+34h] [rbp-C4h]
-  unsigned int v30; // [rsp+38h] [rbp-C0h] BYREF
-  __int64 v31; // [rsp+40h] [rbp-B8h] BYREF
-  __int64 v32; // [rsp+48h] [rbp-B0h] BYREF
-  _QWORD v33[2]; // [rsp+50h] [rbp-A8h] BYREF
-  struct tagWND *v34; // [rsp+60h] [rbp-98h]
-  ULONG64 v35; // [rsp+70h] [rbp-88h]
+  HWND *v26; // r15
+  _DWORD *v27; // rax
+  unsigned int v29; // [rsp+30h] [rbp-C8h] BYREF
+  int v30; // [rsp+34h] [rbp-C4h]
+  unsigned int v31; // [rsp+38h] [rbp-C0h] BYREF
+  __int64 v32; // [rsp+40h] [rbp-B8h] BYREF
+  __int64 v33; // [rsp+48h] [rbp-B0h] BYREF
+  _QWORD v34[2]; // [rsp+50h] [rbp-A8h] BYREF
+  struct tagWND *v35; // [rsp+60h] [rbp-98h]
+  ULONG64 v36; // [rsp+70h] [rbp-88h]
   __int128 Src; // [rsp+98h] [rbp-60h] BYREF
-  __int128 v37; // [rsp+A8h] [rbp-50h]
+  __int128 v38; // [rsp+A8h] [rbp-50h]
 
-  v35 = a4;
-  v5 = a3;
-  v6 = a2;
+  v36 = a4;
   DxSharedSurface = -1073741811;
   Src = 0LL;
-  v37 = 0LL;
+  v38 = 0LL;
   v9 = 0;
+  v33 = 0LL;
+  v34[0] = 0LL;
   v32 = 0LL;
-  v33[0] = 0LL;
-  v31 = 0LL;
-  v30 = 0;
-  v28 = 0;
-  EnterSharedCrit(a1, a2, a3);
+  v31 = 0;
+  v29 = 0;
+  EnterSharedCrit(0LL, 1LL);
   v10 = ValidateHwnd(a1);
   if ( !v10 )
-    goto LABEL_54;
-  if ( v6 >= 5 )
+    goto LABEL_56;
+  if ( a2 >= 5 )
   {
-LABEL_3:
     v12 = -1073741821;
-LABEL_53:
+LABEL_55:
     UserSetLastStatus(v12, 1);
-    goto LABEL_54;
+    goto LABEL_56;
   }
-  StyleWindow = (HWND *)GetStyleWindow(v10, 2568);
-  v15 = StyleWindow;
-  v34 = (struct tagWND *)StyleWindow;
-  if ( !StyleWindow || (*((_WORD *)StyleWindow[5] + 21) & 0x2FFF) == 0x29D )
-    goto LABEL_52;
-  v16 = (unsigned int *)a4;
-  if ( a4 >= MmUserProbeAddress )
-    v16 = (unsigned int *)MmUserProbeAddress;
-  v17 = *v16;
-  v29 = *v16;
-  if ( v6 )
+  StyleWindow = GetStyleWindow(v10, 2568);
+  v16 = (HWND *)StyleWindow;
+  v35 = (struct tagWND *)StyleWindow;
+  if ( !StyleWindow || (*(_WORD *)(*(_QWORD *)(StyleWindow + 40) + 42LL) & 0x2FFF) == 0x29D )
   {
-    v11 = (unsigned int)(v6 - 1);
-    if ( v6 == 1 )
+    v12 = -1073741811;
+    goto LABEL_55;
+  }
+  v17 = (unsigned int *)a4;
+  if ( a4 >= MmUserProbeAddress )
+    v17 = (unsigned int *)MmUserProbeAddress;
+  v18 = *v17;
+  v30 = *v17;
+  if ( a2 )
+  {
+    v11 = (unsigned int)(a2 - 1);
+    if ( a2 == 1 )
     {
-      if ( !v5 )
-        goto LABEL_52;
-      v19 = 16LL;
-      if ( v17 < 0x10 )
+      if ( !a3 )
         goto LABEL_16;
-      v20 = 16;
-      v29 = 16;
+      v20 = 16LL;
+      if ( v18 < 0x10 )
+        goto LABEL_18;
+      v21 = 16;
+      v30 = 16;
     }
     else
     {
-      v11 = (unsigned int)(v6 - 2);
-      if ( v6 == 2 )
+      v11 = (unsigned int)(a2 - 2);
+      if ( a2 == 2 )
       {
-        if ( !v5 )
-          goto LABEL_52;
-        v20 = 4;
-        if ( v17 < 4 )
+        if ( !a3 )
           goto LABEL_16;
-        v29 = 4;
-        v19 = 4LL;
+        v21 = 4;
+        if ( v18 < 4 )
+          goto LABEL_18;
+        v30 = 4;
+        v20 = 4LL;
       }
       else
       {
-        if ( v6 != 3 )
-          goto LABEL_3;
-        CurrentProcess = PsGetCurrentProcess(v11, v14);
+        if ( a2 != 3 )
+        {
+          v12 = -1073741821;
+          goto LABEL_55;
+        }
+        CurrentProcess = PsGetCurrentProcess(v11, v14, v15);
         if ( !(unsigned int)IsProcessDwm(CurrentProcess) )
         {
           v12 = -1073741790;
-          goto LABEL_53;
+          goto LABEL_55;
         }
-        if ( !v5 )
-          goto LABEL_52;
-        v19 = 16LL;
-        if ( v17 < 0x10 )
+        if ( !a3 )
         {
 LABEL_16:
-          v12 = -1073741306;
-          goto LABEL_53;
+          v12 = DxSharedSurface;
+          goto LABEL_55;
         }
-        v20 = 16;
-        v29 = 16;
+        v20 = 16LL;
+        if ( v18 < 0x10 )
+        {
+LABEL_18:
+          v12 = -1073741306;
+          goto LABEL_55;
+        }
+        v21 = 16;
+        v30 = 16;
         v11 = MmUserProbeAddress;
-        v21 = v5;
-        if ( (unsigned __int64)v5 >= MmUserProbeAddress )
-          v21 = (__int128 *)MmUserProbeAddress;
-        Src = *v21;
-        v15 = (HWND *)v34;
+        v22 = a3;
+        if ( (unsigned __int64)a3 >= MmUserProbeAddress )
+          v22 = (__int128 *)MmUserProbeAddress;
+        Src = *v22;
+        v16 = (HWND *)v35;
       }
     }
   }
   else
   {
-    if ( !v5 )
-      goto LABEL_52;
-    v19 = 32LL;
-    if ( v17 < 0x20 )
+    if ( !a3 )
       goto LABEL_16;
-    v20 = 32;
-    v29 = 32;
+    v20 = 32LL;
+    if ( v18 < 0x20 )
+      goto LABEL_18;
+    v21 = 32;
+    v30 = 32;
     v11 = MmUserProbeAddress;
-    v22 = v5;
-    if ( (unsigned __int64)v5 >= MmUserProbeAddress )
-      v22 = (__int128 *)MmUserProbeAddress;
-    Src = *v22;
-    v37 = v22[1];
-    v28 = DWORD1(Src);
+    v23 = a3;
+    if ( (unsigned __int64)a3 >= MmUserProbeAddress )
+      v23 = (__int128 *)MmUserProbeAddress;
+    Src = *v23;
+    v38 = v23[1];
+    v29 = DWORD1(Src);
     if ( (DWORD1(Src) & 0xFFFFFFFB) != 0 )
-      goto LABEL_52;
+      goto LABEL_16;
   }
-  if ( !v6 )
+  if ( !a2 )
   {
-    v31 = v37;
-    DxSharedSurface = GreGetDxSharedSurface(*v15, v33, &v31, &v30, &v28, &v32);
+    v32 = v38;
+    DxSharedSurface = GreGetDxSharedSurface(*v16, v34, &v32, &v31, &v29, &v33);
     if ( DxSharedSurface == -1071775484 )
     {
       GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
-      v25 = (HWND *)v34;
-      DxSharedSurface = RecreateRedirectionBitmap(v34, 0, 0, 0, 1, 0LL);
+      v26 = (HWND *)v35;
+      DxSharedSurface = RecreateRedirectionBitmap((void **)v35, 0, 0, 0, 1, 0LL);
       GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
       if ( DxSharedSurface < 0 )
-        goto LABEL_52;
-      DxSharedSurface = GreGetDxSharedSurface(*v25, v33, &v31, &v30, &v28, &v32);
+        goto LABEL_16;
+      DxSharedSurface = GreGetDxSharedSurface(*v26, v34, &v32, &v31, &v29, &v33);
     }
-    if ( DxSharedSurface >= 0 )
-    {
-      *(_QWORD *)&Src = __PAIR64__(v28, v30);
-      *((_QWORD *)&Src + 1) = v32;
-      *(_QWORD *)&v37 = v31;
-      *((_QWORD *)&v37 + 1) = v33[0];
-      goto LABEL_46;
-    }
-LABEL_52:
-    v12 = DxSharedSurface;
-    goto LABEL_53;
+    if ( DxSharedSurface < 0 )
+      goto LABEL_16;
+    *(_QWORD *)&Src = __PAIR64__(v29, v31);
+    *((_QWORD *)&Src + 1) = v33;
+    *(_QWORD *)&v38 = v32;
+    *((_QWORD *)&v38 + 1) = v34[0];
+    goto LABEL_48;
   }
-  v23 = v6 - 1;
-  if ( v23 )
+  v24 = a2 - 1;
+  if ( v24 )
   {
-    if ( v23 != 1 )
-      goto LABEL_46;
-    HwndUpdateIds = GreGetDxSharedSurface(*v15, v33, &v31, &v30, &v28, &v32);
+    if ( v24 != 1 )
+      goto LABEL_48;
+    HwndUpdateIds = GreGetDxSharedSurface(*v16, v34, &v32, &v31, &v29, &v33);
     DxSharedSurface = HwndUpdateIds;
     if ( HwndUpdateIds == -1073741822 )
     {
       DxSharedSurface = 0;
-LABEL_36:
-      LODWORD(Src) = v28;
-      goto LABEL_46;
+LABEL_38:
+      LODWORD(Src) = v29;
+      goto LABEL_48;
     }
     if ( HwndUpdateIds >= 0 )
-      goto LABEL_36;
-LABEL_38:
+      goto LABEL_38;
+LABEL_40:
     v12 = HwndUpdateIds;
-    goto LABEL_53;
+    goto LABEL_55;
   }
-  HwndUpdateIds = GreGetHwndUpdateIds(*v15);
+  HwndUpdateIds = GreGetHwndUpdateIds(*v16);
   DxSharedSurface = HwndUpdateIds;
   if ( HwndUpdateIds < 0 )
-    goto LABEL_38;
-LABEL_46:
+    goto LABEL_40;
+LABEL_48:
   if ( DxSharedSurface >= 0 )
   {
     v9 = 1;
-    if ( (unsigned __int64)v5 >= MmUserProbeAddress )
-      v5 = (__int128 *)MmUserProbeAddress;
-    memmove(v5, &Src, v19);
+    if ( (unsigned __int64)a3 >= MmUserProbeAddress )
+      a3 = (__int128 *)MmUserProbeAddress;
+    memmove(a3, &Src, v20);
     v11 = MmUserProbeAddress;
-    v26 = (_DWORD *)v35;
-    if ( v35 >= MmUserProbeAddress )
-      v26 = (_DWORD *)MmUserProbeAddress;
-    *v26 = v20;
+    v27 = (_DWORD *)v36;
+    if ( v36 >= MmUserProbeAddress )
+      v27 = (_DWORD *)MmUserProbeAddress;
+    *v27 = v21;
   }
-LABEL_54:
+LABEL_56:
   UserSessionSwitchLeaveCrit(v11);
   return v9;
 }

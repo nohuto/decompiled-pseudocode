@@ -1,14 +1,14 @@
 /*
- * XREFs of ?EmitAddPrimitivesCommand@CPrimitiveGroupMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C009A8C0
+ * XREFs of ?EmitAddPrimitivesCommand@CPrimitiveGroupMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061EB0
  * Callers:
- *     ?EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C009A7E0 (-EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061DD0 (-EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CPrimitiveGroupMarshaler::EmitAddPrimitivesCommand(
         DirectComposition::CPrimitiveGroupMarshaler *this,
-        struct DirectComposition::CBatch ***a2)
+        struct DirectComposition::CBatch **a2)
 {
   char v3; // di
   char *v4; // rdx
@@ -24,9 +24,9 @@ char __fastcall DirectComposition::CPrimitiveGroupMarshaler::EmitAddPrimitivesCo
       *(_DWORD *)v6 = 24;
       *(_OWORD *)(v4 + 4) = 0LL;
       *((_DWORD *)v4 + 5) = 0;
-      *((_DWORD *)v4 + 1) = 284;
-      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
-      *((_DWORD *)v4 + 3) = *(_DWORD *)(*((_QWORD *)this + 7) + 32LL);
+      *((_DWORD *)v4 + 1) = 301;
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+      *((_DWORD *)v4 + 3) = *(_DWORD *)(*((_QWORD *)this + 7) + 24LL);
       *((_DWORD *)v4 + 4) = *((_DWORD *)this + 18);
       *((_DWORD *)v4 + 5) = *((_DWORD *)this + 16);
       *((_DWORD *)this + 4) |= 0x20u;

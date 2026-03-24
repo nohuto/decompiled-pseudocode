@@ -4,7 +4,7 @@
  *     MiClearVadBits @ 0x140025F60 (MiClearVadBits.c)
  *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MiClearVadCellBits(_DWORD *a1, unsigned int a2, unsigned int a3, __int64 a4, __int64 a5)
@@ -64,7 +64,7 @@ LABEL_3:
     v18 = (_BYTE *)(*((_QWORD *)a1 + 1) + ((unsigned __int64)v15 >> 3));
     if ( (unsigned int)(v17 + v16) <= 8 )
     {
-      v19 = ~(byte_140362048[v16] << v17);
+      v19 = ~(byte_140362158[v16] << v17);
 LABEL_14:
       *v18 &= v19;
       goto LABEL_15;
@@ -72,7 +72,7 @@ LABEL_14:
     if ( (v15 & 7) != 0 )
     {
       v16 = (unsigned int)(v17 + v16 - 8);
-      *v18++ &= byte_140362048[v17];
+      *v18++ &= byte_140362158[v17];
     }
     if ( (unsigned int)v16 > 8 )
     {
@@ -82,7 +82,7 @@ LABEL_14:
     }
     if ( (_DWORD)v16 )
     {
-      v19 = byte_140360C28[v16];
+      v19 = byte_140360D38[v16];
       goto LABEL_14;
     }
   }

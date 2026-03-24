@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_DDqDss @ 0x1C0023648
+ * XREFs of WPP_RECORDER_SF_DDqDss @ 0x1C000F150
  * Callers:
- *     ProcessorpFindAffinitizedIdtEntries @ 0x1C00995A0 (ProcessorpFindAffinitizedIdtEntries.c)
+ *     ProcessorpFindAffinitizedIdtEntries @ 0x1C0093160 (ProcessorpFindAffinitizedIdtEntries.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_DDqDss(
@@ -69,7 +69,7 @@ __int64 __fastcall WPP_RECORDER_SF_DDqDss(
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, char *, __int64, char *, __int64, char *, __int64, char *, __int64, const char *, __int64, const char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_1e63366df8ec383a090aab9dc42a0bec_Traceguids,
+      &WPP_3a81a75478543d9133d658d0ebd9234d_Traceguids,
       11LL,
       &a6,
       4LL,
@@ -99,5 +99,5 @@ __int64 __fastcall WPP_RECORDER_SF_DDqDss(
     while ( *(_BYTE *)(v12 + v13) );
   }
   LOWORD(v23) = 11;
-  return WppAutoLogTrace(a1, 4LL, 20LL, &WPP_1e63366df8ec383a090aab9dc42a0bec_Traceguids, v23, &a6);
+  return WppAutoLogTrace(a1, 4LL, 20LL, &WPP_3a81a75478543d9133d658d0ebd9234d_Traceguids, v23, &a6, 4LL, &a7);
 }

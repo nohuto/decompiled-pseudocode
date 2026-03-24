@@ -1,10 +1,10 @@
 /*
- * XREFs of SecureDump_Encrypt_DmpData @ 0x1402865A0
+ * XREFs of SecureDump_Encrypt_DmpData @ 0x1402866A0
  * Callers:
- *     IopLiveDumpWriteBuffer @ 0x140820638 (IopLiveDumpWriteBuffer.c)
+ *     IopLiveDumpWriteBuffer @ 0x140820618 (IopLiveDumpWriteBuffer.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     BCryptEncrypt @ 0x1402FE3B4 (BCryptEncrypt.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     BCryptEncrypt @ 0x1402FE4B4 (BCryptEncrypt.c)
  */
 
 __int64 __fastcall SecureDump_Encrypt_DmpData(

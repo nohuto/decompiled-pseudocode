@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwRegisterProtocolAddressInformation @ 0x1401BAE10
+ * XREFs of ZwRegisterProtocolAddressInformation @ 0x1401BAE30
  * Callers:
  *     <none>
  * Callees:

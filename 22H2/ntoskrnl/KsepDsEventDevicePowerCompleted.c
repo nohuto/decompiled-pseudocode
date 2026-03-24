@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDsEventDevicePowerCompleted @ 0x140581810
+ * XREFs of KsepDsEventDevicePowerCompleted @ 0x140527B80
  * Callers:
- *     KseDsCompletionHookForPowerDevice @ 0x140581290 (KseDsCompletionHookForPowerDevice.c)
+ *     KseDsCompletionHookForPowerDevice @ 0x140527600 (KseDsCompletionHookForPowerDevice.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall KsepDsEventDevicePowerCompleted(__int64 a1, __int64 a2, __int64 a3, int a4)

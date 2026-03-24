@@ -1,41 +1,41 @@
 /*
- * XREFs of MiRemoveEnclavePagesFromMirror @ 0x140AAD6E8
+ * XREFs of MiRemoveEnclavePagesFromMirror @ 0x1409B0E18
  * Callers:
- *     MiMirrorBlackPhase @ 0x140626C54 (MiMirrorBlackPhase.c)
+ *     MiMirrorBlackPhase @ 0x1403F36E4 (MiMirrorBlackPhase.c)
  * Callees:
- *     MiMirrorOmitPagesFromCopy @ 0x1406272F8 (MiMirrorOmitPagesFromCopy.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x14038576C (MiMirrorOmitPagesFromCopy.c)
  */
 
-_QWORD *__fastcall MiRemoveEnclavePagesFromMirror(__int64 a1)
+_QWORD *__fastcall MiRemoveEnclavePagesFromMirror(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD *result; // rax
-  _QWORD *v3; // rbx
-  _QWORD *v4; // rcx
-  _QWORD *v5; // rcx
+  _QWORD *v6; // rbx
+  _QWORD *v7; // rcx
+  _QWORD *v8; // rcx
 
-  result = (_QWORD *)qword_140C69988;
-  v3 = 0LL;
+  result = (_QWORD *)qword_140C4EE80;
+  v6 = 0LL;
   while ( result )
   {
-    v3 = result;
+    v6 = result;
     result = (_QWORD *)*result;
   }
-  while ( v3 )
+  while ( v6 )
   {
-    MiMirrorOmitPagesFromCopy(a1, v3[3], v3[4]);
-    result = (_QWORD *)v3[1];
-    v4 = v3;
+    MiMirrorOmitPagesFromCopy(a1, v6[3], v6[4], a4);
+    result = (_QWORD *)v6[1];
+    v7 = v6;
     if ( result )
     {
-      v5 = (_QWORD *)*result;
-      v3 = (_QWORD *)v3[1];
+      v8 = (_QWORD *)*result;
+      v6 = (_QWORD *)v6[1];
       if ( *result )
       {
         do
         {
-          result = (_QWORD *)*v5;
-          v3 = v5;
-          v5 = result;
+          result = (_QWORD *)*v8;
+          v6 = v8;
+          v8 = result;
         }
         while ( result );
       }
@@ -44,10 +44,10 @@ _QWORD *__fastcall MiRemoveEnclavePagesFromMirror(__int64 a1)
     {
       while ( 1 )
       {
-        v3 = (_QWORD *)(v3[2] & 0xFFFFFFFFFFFFFFFCuLL);
-        if ( !v3 || (_QWORD *)*v3 == v4 )
+        v6 = (_QWORD *)(v6[2] & 0xFFFFFFFFFFFFFFFCuLL);
+        if ( !v6 || (_QWORD *)*v6 == v7 )
           break;
-        v4 = v3;
+        v7 = v6;
       }
     }
   }

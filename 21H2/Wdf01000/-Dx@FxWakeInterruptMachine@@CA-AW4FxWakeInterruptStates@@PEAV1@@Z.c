@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Dx@FxWakeInterruptMachine@@CA?AW4FxWakeInterruptStates@@PEAV1@@Z @ 0x1C008E2E0
+ * XREFs of ?Dx@FxWakeInterruptMachine@@CA?AW4FxWakeInterruptStates@@PEAV1@@Z @ 0x1C008B8E0
  * Callers:
  *     <none>
  * Callees:
- *     ?AckPendingWakeInterruptOperation@FxPkgPnp@@QEAAXE@Z @ 0x1C0087BB0 (-AckPendingWakeInterruptOperation@FxPkgPnp@@QEAAXE@Z.c)
+ *     ?AckPendingWakeInterruptOperation@FxPkgPnp@@QEAAXE@Z @ 0x1C007F1D0 (-AckPendingWakeInterruptOperation@FxPkgPnp@@QEAAXE@Z.c)
  */
 
 __int64 __fastcall FxWakeInterruptMachine::Dx(FxWakeInterruptMachine *This)

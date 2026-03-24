@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlSendSyntheticClusterIpi @ 0x1402751A0
+ * XREFs of HvlSendSyntheticClusterIpi @ 0x1402752A0
  * Callers:
  *     <none>
  * Callees:
- *     HvcallpNoHypervisorPresent @ 0x14013E680 (HvcallpNoHypervisorPresent.c)
- *     HvlpFastSendSyntheticClusterIpiEx @ 0x140276340 (HvlpFastSendSyntheticClusterIpiEx.c)
- *     HvlpSlowSendSyntheticClusterIpiEx @ 0x140276594 (HvlpSlowSendSyntheticClusterIpiEx.c)
- *     HvlpAffinityToVirtualAffinity @ 0x1402793A0 (HvlpAffinityToVirtualAffinity.c)
- *     HvlpUseExtendedProcessorSetHypercalls @ 0x1402794B4 (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
+ *     HvlpFastSendSyntheticClusterIpiEx @ 0x140276440 (HvlpFastSendSyntheticClusterIpiEx.c)
+ *     HvlpSlowSendSyntheticClusterIpiEx @ 0x140276694 (HvlpSlowSendSyntheticClusterIpiEx.c)
+ *     HvlpAffinityToVirtualAffinity @ 0x1402794A0 (HvlpAffinityToVirtualAffinity.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x1402795B4 (HvlpUseExtendedProcessorSetHypercalls.c)
  */
 
 __int64 __fastcall HvlSendSyntheticClusterIpi(__int64 a1, __int64 a2)

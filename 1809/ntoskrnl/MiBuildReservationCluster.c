@@ -1,7 +1,7 @@
 /*
- * XREFs of MiBuildReservationCluster @ 0x14015009C
+ * XREFs of MiBuildReservationCluster @ 0x1401500BC
  * Callers:
- *     MiGatherPagefilePages @ 0x14014EFC0 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x14014EFE0 (MiGatherPagefilePages.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
@@ -13,18 +13,18 @@
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiReferencePageForModifiedWrite @ 0x14011BB74 (MiReferencePageForModifiedWrite.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120EE4 (MiLockNestedPageAtDpcInline.c)
- *     MiRefPageFileSpaceBitmaps @ 0x14014F8DC (MiRefPageFileSpaceBitmaps.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x14014FA88 (MiDerefPageFileSpaceBitmaps.c)
- *     MiGetPageForWriteCluster @ 0x140150640 (MiGetPageForWriteCluster.c)
- *     MiAddToReservationCluster @ 0x14015084C (MiAddToReservationCluster.c)
- *     MiGetPageFileSectionForReservation @ 0x1401576BC (MiGetPageFileSectionForReservation.c)
- *     MiReleasePageFileSectionInfo @ 0x140157C7C (MiReleasePageFileSectionInfo.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     MiReferencePageForModifiedWrite @ 0x14011BB94 (MiReferencePageForModifiedWrite.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x14014F8FC (MiRefPageFileSpaceBitmaps.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x14014FAA8 (MiDerefPageFileSpaceBitmaps.c)
+ *     MiGetPageForWriteCluster @ 0x140150660 (MiGetPageForWriteCluster.c)
+ *     MiAddToReservationCluster @ 0x14015086C (MiAddToReservationCluster.c)
+ *     MiGetPageFileSectionForReservation @ 0x1401576DC (MiGetPageFileSectionForReservation.c)
+ *     MiReleasePageFileSectionInfo @ 0x140157C9C (MiReleasePageFileSectionInfo.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

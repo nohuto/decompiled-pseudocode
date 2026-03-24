@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFatalExceptionHandler @ 0x14028F2BC
+ * XREFs of KiFatalExceptionHandler @ 0x14028F3BC
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn KiFatalExceptionHandler(ULONG_PTR *a1)

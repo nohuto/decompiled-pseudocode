@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTiLogAllocExecVm @ 0x14079EA28
+ * XREFs of EtwTiLogAllocExecVm @ 0x14062909C
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1407BE3C0 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
  * Callees:
- *     EtwProviderEnabled @ 0x1402EDE50 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x1402EDEB4 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillThreadIdentity @ 0x1402EDFB0 (EtwpTiFillThreadIdentity.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     EtwpTiFillProcessIdentity @ 0x14025F604 (EtwpTiFillProcessIdentity.c)
+ *     EtwProviderEnabled @ 0x14025F840 (EtwProviderEnabled.c)
+ *     EtwpTiFillThreadIdentity @ 0x14025F884 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 BOOLEAN EtwTiLogAllocExecVm(__int64 a1, char a2, ...)
@@ -60,7 +60,7 @@ BOOLEAN EtwTiLogAllocExecVm(__int64 a1, char a2, ...)
     v7 = KeGetCurrentThread()->Process;
     if ( v7 == (_KPROCESS *)a1 )
       v5 = 8LL;
-    v8 = *(const EVENT_DESCRIPTOR **)((char *)off_1400072E8 + (a2 != 0 ? 0 : 0x10) + v5);
+    v8 = *(const EVENT_DESCRIPTOR **)((char *)off_140006280 + (a2 != 0 ? 0 : 0x10) + v5);
     result = EtwEventEnabled(EtwThreatIntProvRegHandle, v8);
     if ( result )
     {

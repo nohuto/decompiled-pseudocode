@@ -1,33 +1,38 @@
 /*
- * XREFs of ?NotifyInvalidResource@CLegacyRemotingSwapChain@@UEAAXPEBVIDeviceResource@@@Z @ 0x1802942B0
+ * XREFs of ?NotifyInvalidResource@CLegacyRemotingSwapChain@@UEAAXPEBVIDeviceResource@@@Z @ 0x180251FA0
  * Callers:
  *     <none>
  * Callees:
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D92A8 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CLegacyRemotingSwapChain::NotifyInvalidResource(
         unsigned __int64 this,
         const struct IDeviceResource *a2)
 {
-  __int64 v2; // r8
-  char *v3; // rsi
-  const struct IDeviceResource *v4; // rdi
-  __int64 v6; // rcx
+  const struct IDeviceResource *v3; // rdi
+  __int64 v4; // rcx
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
 
-  v2 = *(_QWORD *)(this + 16);
-  v3 = (char *)(this - 64);
-  v4 = 0LL;
-  if ( v2 )
+  v3 = 0LL;
+  v4 = *(_QWORD *)(this + 16);
+  if ( v4 )
   {
-    v6 = *(int *)(*(_QWORD *)(v2 + 8) + 8LL) + v2 + 8;
-    (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v6 + 48LL))(
-      v6,
-      this & ((unsigned __int128)-(__int128)(unsigned __int64)v3 >> 64));
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset((__int64 *)(this + 16));
+    v5 = *(int *)(*(_QWORD *)(v4 + 8) + 8LL) + v4 + 8;
+    (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v5 + 48LL))(
+      v5,
+      this & ((unsigned __int128)-(__int128)(this - 72) >> 64));
+    v6 = *(_QWORD *)(this + 16);
+    *(_QWORD *)(this + 16) = 0LL;
+    if ( v6 )
+    {
+      v7 = v6 + 8 + *(int *)(*(_QWORD *)(v6 + 8) + 4LL);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+    }
   }
-  if ( v3 )
-    v4 = (const struct IDeviceResource *)(*(int *)(*(_QWORD *)(this - 56) + 12LL) + this - 56);
-  CDeviceResource::NotifyInvalid((CDeviceResource *)(this - 40), v4);
+  if ( this != 72 )
+    v3 = (const struct IDeviceResource *)(*(int *)(*(_QWORD *)(this - 48) + 8LL) + this - 48);
+  CDeviceResource::NotifyInvalid((CDeviceResource *)(this - 56), v3);
 }

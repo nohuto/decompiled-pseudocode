@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhPdoPnp_StopDevice @ 0x1C00560F0
+ * XREFs of UsbhPdoPnp_StopDevice @ 0x1C00577B0
  * Callers:
  *     <none>
  * Callees:
- *     UsbhUnlinkPdoDeviceHandle @ 0x1C00015D0 (UsbhUnlinkPdoDeviceHandle.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     SET_PDO_SWPNPSTATE @ 0x1C0052994 (SET_PDO_SWPNPSTATE.c)
- *     UsbhCloseDeviceConfiguration @ 0x1C0052ACC (UsbhCloseDeviceConfiguration.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhUnlinkPdoDeviceHandle @ 0x1C0018990 (UsbhUnlinkPdoDeviceHandle.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     SET_PDO_SWPNPSTATE @ 0x1C0053FE8 (SET_PDO_SWPNPSTATE.c)
+ *     UsbhCloseDeviceConfiguration @ 0x1C0054120 (UsbhCloseDeviceConfiguration.c)
  */
 
 __int64 __fastcall UsbhPdoPnp_StopDevice(ULONG_PTR a1, IRP *a2)

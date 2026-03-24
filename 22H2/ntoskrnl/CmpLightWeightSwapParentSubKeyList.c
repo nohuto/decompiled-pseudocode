@@ -1,52 +1,45 @@
 /*
- * XREFs of CmpLightWeightSwapParentSubKeyList @ 0x140A29F98
+ * XREFs of CmpLightWeightSwapParentSubKeyList @ 0x14087FD4C
  * Callers:
- *     CmpLightWeightCommitAddKeyUoW @ 0x140A28074 (CmpLightWeightCommitAddKeyUoW.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x140A28218 (CmpLightWeightCommitDeleteKeyUoW.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x140A28588 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmpLightWeightCommitAddKeyUoW @ 0x14087EB9C (CmpLightWeightCommitAddKeyUoW.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x14087ED24 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x14087EF14 (CmpLightWeightCommitRenameKeyUoW.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall CmpLightWeightSwapParentSubKeyList(ULONG_PTR a1, ULONG_PTR a2, __int64 a3)
+__int64 __fastcall CmpLightWeightSwapParentSubKeyList(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 CellFlat; // rax
-  int *v6; // r9
-  __int64 v7; // rdi
-  __int64 v8; // r11
+  __int64 v5; // r9
+  __int64 v6; // rbx
+  __int64 v7; // r11
+  int *v8; // r8
   int v9; // ecx
   int v10; // edx
-  __int64 v12; // [rsp+30h] [rbp+8h] BYREF
+  int v12; // [rsp+30h] [rbp+8h] BYREF
+  int v13; // [rsp+34h] [rbp+Ch]
 
-  v12 = 0xFFFFFFFFLL;
-  if ( (*(_BYTE *)(a1 + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(a1, a2, &v12);
-  else
-    CellFlat = HvpGetCellPaged(a1, a2, (unsigned int *)&v12);
-  v6 = (int *)(CellFlat + 20);
-  v7 = a3 - CellFlat;
-  v8 = 2LL;
+  v12 = -1;
+  v13 = 0;
+  v5 = (*(__int64 (__fastcall **)(__int64, __int64, int *))(a1 + 8))(a1, a2, &v12);
+  v6 = a3 - v5;
+  v7 = 2LL;
+  v8 = (int *)(v5 + 20);
   do
   {
-    v9 = v6[2];
-    v10 = *v6;
-    v6[2] = *(int *)((char *)v6 + v7 - 8);
-    *v6 = *(int *)((char *)v6 + v7 - 16);
-    *(int *)((char *)v6 + v7 - 8) = v9;
-    *(int *)((char *)v6++ + v7 - 16) = v10;
-    --v8;
+    v9 = v8[2];
+    v10 = *v8;
+    v8[2] = *(int *)((char *)v8 + v6 - 8);
+    *v8 = *(int *)((char *)v8 + v6 - 16);
+    *(int *)((char *)v8 + v6 - 8) = v9;
+    *(int *)((char *)v8++ + v6 - 16) = v10;
+    --v7;
   }
-  while ( v8 );
-  if ( !(*(_DWORD *)(CellFlat + 20) + *(_DWORD *)(CellFlat + 24)) )
+  while ( v7 );
+  if ( !(*(_DWORD *)(v5 + 20) + *(_DWORD *)(v5 + 24)) )
   {
-    *(_WORD *)(CellFlat + 52) = 0;
-    *(_DWORD *)(CellFlat + 56) = 0;
+    *(_WORD *)(v5 + 52) = 0;
+    *(_DWORD *)(v5 + 56) = 0;
   }
-  if ( (*(_BYTE *)(a1 + 140) & 1) != 0 )
-    return HvpReleaseCellFlat(a1, &v12);
-  else
-    return HvpReleaseCellPaged(a1, (unsigned int *)&v12);
+  return (*(__int64 (__fastcall **)(__int64, int *, int *))(a1 + 16))(a1, &v12, v8);
 }

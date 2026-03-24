@@ -1,26 +1,31 @@
 /*
- * XREFs of VerifierExFreePool @ 0x140A7F070
+ * XREFs of VerifierExFreePool @ 0x1409D5190
  * Callers:
- *     VerifierExFreePoolEx @ 0x140A7F0C0 (VerifierExFreePoolEx.c)
+ *     VerifierExFreePoolEx @ 0x1409D5200 (VerifierExFreePoolEx.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     MmKernelVerifierEnabled @ 0x14045B94E (MmKernelVerifierEnabled.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExFreePoolSanityChecks @ 0x140AA7018 (ExFreePoolSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     MmKernelVerifierEnabled @ 0x1405304B8 (MmKernelVerifierEnabled.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     VfFreePoolNotification @ 0x1409E0074 (VfFreePoolNotification.c)
+ *     VfIrpDatabaseCheckExFreePool @ 0x1409E070C (VfIrpDatabaseCheckExFreePool.c)
+ *     ExFreePoolSanityChecks @ 0x1409ECF50 (ExFreePoolSanityChecks.c)
  */
 
-void __fastcall VerifierExFreePool(__int64 a1)
+void __fastcall VerifierExFreePool(PVOID P)
 {
-  void *v2; // rcx
+  __int64 v2; // rcx
 
-  if ( (unsigned int)MmKernelVerifierEnabled() )
+  if ( (unsigned int)MmKernelVerifierEnabled()
+    || (VfFreePoolNotification(v2, 0LL),
+        VfIrpDatabaseCheckExFreePool((ULONG_PTR)P),
+        (unsigned int)MmKernelVerifierEnabled()) )
   {
-    ExFreePoolWithTag(v2, 0);
+    ExFreePoolWithTag(P, 0);
   }
   else
   {
     if ( (MmVerifierData & 1) != 0 )
-      ExFreePoolSanityChecks((ULONG_PTR)v2);
-    ((void (__fastcall *)(__int64))pXdvExFreePool)(a1);
+      ExFreePoolSanityChecks((ULONG_PTR)P);
+    ((void (__fastcall *)(PVOID))pXdvExFreePool)(P);
   }
 }

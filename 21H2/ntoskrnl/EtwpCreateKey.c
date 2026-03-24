@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCreateKey @ 0x14063323C
+ * XREFs of EtwpCreateKey @ 0x1405AB9C8
  * Callers:
- *     EtwpCreateKeyTreeForPath @ 0x1406332E0 (EtwpCreateKeyTreeForPath.c)
+ *     EtwpCreateKeyTreeForPath @ 0x1405ABA6C (EtwpCreateKeyTreeForPath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
  */
 
 __int64 __fastcall EtwpCreateKey(PCWSTR SourceString)
@@ -16,14 +16,15 @@ __int64 __fastcall EtwpCreateKey(PCWSTR SourceString)
   HANDLE KeyHandle; // [rsp+98h] [rbp+18h] BYREF
 
   KeyHandle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
-  ObjectAttributes.Attributes = 576;
+  ObjectAttributes.Length = 48;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  ObjectAttributes.Attributes = 576;
   v1 = ZwCreateKey(&KeyHandle, 0xF003Fu, &ObjectAttributes, 0, 0LL, 0, 0LL);
   if ( v1 >= 0 )
     ZwClose(KeyHandle);

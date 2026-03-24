@@ -1,8 +1,8 @@
 /*
- * XREFs of MiMapPageFileHash @ 0x14014FCB8
+ * XREFs of MiMapPageFileHash @ 0x14014FCD8
  * Callers:
- *     MiGatherPagefilePages @ 0x14014EFC0 (MiGatherPagefilePages.c)
- *     MiStoreUpdatePagefileHash @ 0x14014FB0C (MiStoreUpdatePagefileHash.c)
+ *     MiGatherPagefilePages @ 0x14014EFE0 (MiGatherPagefilePages.c)
+ *     MiStoreUpdatePagefileHash @ 0x14014FB2C (MiStoreUpdatePagefileHash.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiInitializePfnForOtherProcess @ 0x140026C2C (MiInitializePfnForOtherProcess.c)
@@ -19,12 +19,12 @@
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiWritePageFileHash @ 0x140151498 (MiWritePageFileHash.c)
- *     MiGetFileHashPage @ 0x14015171C (MiGetFileHashPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiWritePageFileHash @ 0x1401514B8 (MiWritePageFileHash.c)
+ *     MiGetFileHashPage @ 0x14015173C (MiGetFileHashPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiMapPageFileHash(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5)

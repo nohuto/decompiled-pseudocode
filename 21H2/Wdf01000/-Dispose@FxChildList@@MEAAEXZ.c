@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Dispose@FxChildList@@MEAAEXZ @ 0x1C005BCE0
+ * XREFs of ?Dispose@FxChildList@@MEAAEXZ @ 0x1C003B1A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 unsigned __int8 __fastcall FxChildList::Dispose(FxChildList *this)

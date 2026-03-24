@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CWindowNode@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800CC0E0
+ * XREFs of ?IsOfType@CWindowNode@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800BDCF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CWindowNode::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 204 || a2 == 195 || a2 == 112 || a2 == 132;
+  return a2 == 195 || a2 == 203 || a2 == 133 || a2 == 112;
 }

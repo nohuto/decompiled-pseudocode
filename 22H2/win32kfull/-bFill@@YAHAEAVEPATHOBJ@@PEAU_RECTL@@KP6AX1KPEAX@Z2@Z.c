@@ -1,313 +1,291 @@
 /*
- * XREFs of ?bFill@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@Z2@Z @ 0x1C02F5BD4
+ * XREFs of ?bFill@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@Z2@Z @ 0x1C01485D8
  * Callers:
- *     ?bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z @ 0x1C02F4F18 (-bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z.c)
+ *     ?bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z @ 0x1C0147B60 (-bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z.c)
  * Callees:
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00311EC (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00F3FD0 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C00B121C (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B12D0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall bFill(
         struct EPATHOBJ *a1,
         struct _RECTL *a2,
-        __int64 a3,
+        char a3,
         void (*a4)(struct _RECTL *, unsigned int, void *),
         void *a5)
 {
-  __int64 *v8; // rax
-  __int64 v9; // rcx
-  unsigned int v10; // edi
-  unsigned int i; // r12d
-  unsigned int v12; // ecx
-  __int64 v13; // r13
-  __int64 *v14; // rax
-  __int64 v15; // rcx
-  unsigned int v16; // edi
-  unsigned int j; // r12d
-  unsigned int v18; // ecx
-  __int64 v19; // r13
-  __int64 v21; // rax
-  _BYTE *v22; // r12
-  int v23; // eax
-  unsigned int v24; // ecx
-  unsigned int v25; // r13d
-  __int128 *v26; // r9
-  unsigned int v27; // edi
-  unsigned int v28; // esi
-  __int128 *v29; // rdx
-  unsigned int v30; // r10d
-  __int128 *v31; // rdi
-  int *v32; // r9
-  int v33; // r11d
-  int v34; // ecx
-  int v35; // ecx
-  int v36; // r11d
-  int *v37; // rax
-  unsigned int v38; // eax
-  unsigned int v39; // [rsp+20h] [rbp-658h]
-  unsigned int v40; // [rsp+24h] [rbp-654h]
-  char *v41; // [rsp+30h] [rbp-648h]
-  char v42; // [rsp+38h] [rbp-640h]
-  int *v43; // [rsp+60h] [rbp-618h]
-  int v44; // [rsp+70h] [rbp-608h]
-  __int128 v45; // [rsp+88h] [rbp-5F0h]
-  __int128 v46; // [rsp+98h] [rbp-5E0h] BYREF
-  __int128 v47; // [rsp+A8h] [rbp-5D0h]
-  __int128 v48; // [rsp+B8h] [rbp-5C0h]
-  _OWORD v49[3]; // [rsp+C8h] [rbp-5B0h] BYREF
-  _BYTE *v50; // [rsp+F8h] [rbp-580h] BYREF
-  int v51; // [rsp+100h] [rbp-578h]
-  int v52; // [rsp+104h] [rbp-574h]
-  _OWORD *v53; // [rsp+108h] [rbp-570h] BYREF
-  int v54; // [rsp+110h] [rbp-568h]
-  int v55; // [rsp+114h] [rbp-564h]
-  __int128 v56; // [rsp+118h] [rbp-560h] BYREF
-  _BYTE v57[320]; // [rsp+130h] [rbp-548h] BYREF
-  _BYTE v58[960]; // [rsp+270h] [rbp-408h] BYREF
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  char *v10; // r14
+  int v11; // eax
+  unsigned int v12; // r15d
+  __int128 *v13; // r9
+  unsigned int v14; // edi
+  unsigned int v15; // esi
+  __int128 *v16; // r8
+  __int128 *v17; // rdi
+  int v18; // ecx
+  unsigned int v20; // esi
+  unsigned int i; // r14d
+  unsigned int v22; // eax
+  __int64 v23; // r15
+  __int64 v24; // rcx
+  unsigned int v25; // esi
+  unsigned int j; // r14d
+  unsigned int v27; // eax
+  __int64 v28; // r15
+  int v29; // eax
+  int v30; // edx
+  int v31; // ecx
+  unsigned int v32; // [rsp+20h] [rbp-648h]
+  int *v33; // [rsp+28h] [rbp-640h]
+  int v34; // [rsp+48h] [rbp-620h]
+  __int128 v35; // [rsp+68h] [rbp-600h] BYREF
+  __int128 v36; // [rsp+78h] [rbp-5F0h]
+  __int128 v37; // [rsp+88h] [rbp-5E0h]
+  int v38; // [rsp+98h] [rbp-5D0h]
+  _OWORD *v39; // [rsp+A0h] [rbp-5C8h]
+  __int128 v40; // [rsp+A8h] [rbp-5C0h]
+  _OWORD v41[3]; // [rsp+B8h] [rbp-5B0h] BYREF
+  int v42[4]; // [rsp+E8h] [rbp-580h] BYREF
+  int v43[4]; // [rsp+F8h] [rbp-570h] BYREF
+  __int128 v44; // [rsp+108h] [rbp-560h] BYREF
+  _BYTE v45[320]; // [rsp+120h] [rbp-548h] BYREF
+  char v46; // [rsp+260h] [rbp-408h] BYREF
 
-  v42 = a3;
-  v46 = 0LL;
-  v47 = 0LL;
-  v48 = 0LL;
-  memset(v49, 0, sizeof(v49));
+  v35 = 0LL;
+  v36 = 0LL;
+  v37 = 0LL;
+  memset(v41, 0, sizeof(v41));
   if ( (a3 & 1) != 0 )
   {
-    v8 = (__int64 *)((char *)a1 + 48);
-    v41 = (char *)a1 + 48;
-    v9 = *((_QWORD *)a1 + 6);
-    if ( v9 )
+    v8 = *((_QWORD *)a1 + 6);
+    if ( v8 )
     {
       if ( a2 )
       {
-        v10 = 0;
+        v20 = 0;
         for ( i = 0; ; ++i )
         {
-          v12 = *((_DWORD *)a1 + 14);
-          if ( i >= v12 )
+          v22 = *((_DWORD *)a1 + 14);
+          if ( i >= v22 )
             break;
-          v13 = *v8;
-          v53 = *(_OWORD **)(*v8 + 16LL * i);
-          v54 = *(_DWORD *)(v13 + 16LL * i + 8);
-          v55 = *(_DWORD *)(v13 + 16LL * i + 12);
-          if ( a2->left >= *(_DWORD *)(v13 + 16LL * i)
-            || a2->top >= *(_DWORD *)(v13 + 16LL * i + 4)
-            || a2->right <= *(_DWORD *)(v13 + 16LL * i + 8)
-            || a2->bottom <= *(_DWORD *)(v13 + 16LL * i + 12) )
+          v23 = *((_QWORD *)a1 + 6);
+          v42[0] = *(_DWORD *)(v23 + 16LL * i);
+          v42[1] = *(_DWORD *)(v23 + 16LL * i + 4);
+          v42[2] = *(_DWORD *)(v23 + 16LL * i + 8);
+          v42[3] = *(_DWORD *)(v23 + 16LL * i + 12);
+          if ( a2->left >= *(_DWORD *)(v23 + 16LL * i)
+            || a2->top >= *(_DWORD *)(v23 + 16LL * i + 4)
+            || a2->right <= *(_DWORD *)(v23 + 16LL * i + 8)
+            || a2->bottom <= *(_DWORD *)(v23 + 16LL * i + 12) )
           {
-            ERECTL::operator*=((int *)&v53, &a2->left);
-            if ( v10 )
+            ERECTL::operator*=(v42, &a2->left);
+            if ( v20 )
             {
-              ((void (__fastcall *)(__int64, _QWORD, void *))a4)(v13 + 16LL * (i - v10), v10, a5);
-              v10 = 0;
+              ((void (__fastcall *)(__int64, _QWORD, void *))a4)(v23 + 16LL * (i - v20), v20, a5);
+              v20 = 0;
             }
-            if ( !ERECTL::bEmpty((ERECTL *)&v53) )
-              ((void (__fastcall *)(_OWORD **, __int64, void *))a4)(&v53, 1LL, a5);
+            if ( !ERECTL::bEmpty((ERECTL *)v42) )
+              ((void (__fastcall *)(int *, __int64, void *))a4)(v42, 1LL, a5);
           }
           else
           {
-            ++v10;
+            ++v20;
           }
-          v8 = (__int64 *)v41;
         }
-        if ( v10 )
-          ((void (__fastcall *)(__int64, _QWORD, void *))a4)(*v8 + 16LL * (v12 - v10), v10, a5);
+        if ( v20 )
+          ((void (__fastcall *)(__int64, _QWORD, void *))a4)(*((_QWORD *)a1 + 6) + 16LL * (v22 - v20), v20, a5);
       }
       else
       {
-        ((void (__fastcall *)(__int64, _QWORD, void *))a4)(v9, *((unsigned int *)a1 + 14), a5);
+        ((void (__fastcall *)(__int64, _QWORD, void *))a4)(v8, *((unsigned int *)a1 + 14), a5);
       }
       return 1LL;
     }
   }
-  if ( (a3 & 3) == 2 )
+  if ( (a3 & 1) == 0 && (a3 & 2) != 0 )
   {
-    v14 = (__int64 *)((char *)a1 + 64);
-    v15 = *((_QWORD *)a1 + 8);
-    if ( v15 )
+    v24 = *((_QWORD *)a1 + 8);
+    if ( v24 )
     {
       if ( a2 )
       {
-        v16 = 0;
+        v25 = 0;
         for ( j = 0; ; ++j )
         {
-          v18 = *((_DWORD *)a1 + 15);
-          if ( j >= v18 )
+          v27 = *((_DWORD *)a1 + 15);
+          if ( j >= v27 )
             break;
-          v19 = *v14;
-          if ( a2->left >= *(_DWORD *)(*v14 + 16LL * j)
-            || a2->top >= *(_DWORD *)(v19 + 16LL * j + 4)
-            || a2->right <= *(_DWORD *)(v19 + 16LL * j + 8)
-            || a2->bottom <= *(_DWORD *)(v19 + 16LL * j + 12) )
+          v28 = *((_QWORD *)a1 + 8);
+          if ( a2->left >= *(_DWORD *)(v28 + 16LL * j)
+            || a2->top >= *(_DWORD *)(v28 + 16LL * j + 4)
+            || a2->right <= *(_DWORD *)(v28 + 16LL * j + 8)
+            || a2->bottom <= *(_DWORD *)(v28 + 16LL * j + 12) )
           {
-            LODWORD(v50) = *(_DWORD *)(*v14 + 16LL * j);
-            HIDWORD(v50) = *(_DWORD *)(v19 + 16LL * j + 4);
-            v51 = *(_DWORD *)(v19 + 16LL * j + 8);
-            v52 = *(_DWORD *)(v19 + 16LL * j + 12);
-            ERECTL::operator*=((int *)&v50, &a2->left);
-            if ( v16 )
+            v43[0] = *(_DWORD *)(v28 + 16LL * j);
+            v43[1] = *(_DWORD *)(v28 + 16LL * j + 4);
+            v43[2] = *(_DWORD *)(v28 + 16LL * j + 8);
+            v43[3] = *(_DWORD *)(v28 + 16LL * j + 12);
+            ERECTL::operator*=(v43, &a2->left);
+            if ( v25 )
             {
-              ((void (__fastcall *)(__int64, _QWORD, void *))a4)(v19 + 16LL * (j - v16), v16, a5);
-              v16 = 0;
+              ((void (__fastcall *)(__int64, _QWORD, void *))a4)(v28 + 16LL * (j - v25), v25, a5);
+              v25 = 0;
             }
-            if ( !ERECTL::bEmpty((ERECTL *)&v50) )
-              ((void (__fastcall *)(_BYTE **, __int64, void *))a4)(&v50, 1LL, a5);
+            if ( !ERECTL::bEmpty((ERECTL *)v43) )
+              ((void (__fastcall *)(int *, __int64, void *))a4)(v43, 1LL, a5);
           }
           else
           {
-            ++v16;
+            ++v25;
           }
-          v14 = (__int64 *)((char *)a1 + 64);
         }
-        if ( v16 )
-          ((void (__fastcall *)(__int64, _QWORD, void *))a4)(*v14 + 16LL * (v18 - v16), v16, a5);
+        if ( v25 )
+          ((void (__fastcall *)(__int64, _QWORD, void *))a4)(*((_QWORD *)a1 + 8) + 16LL * (v27 - v25), v25, a5);
       }
       else
       {
-        ((void (__fastcall *)(__int64, _QWORD, void *))a4)(v15, *((unsigned int *)a1 + 15), a5);
+        ((void (__fastcall *)(__int64, _QWORD, void *))a4)(v24, *((unsigned int *)a1 + 15), a5);
       }
       return 1LL;
     }
   }
-  v21 = *((unsigned int *)a1 + 1);
-  if ( (unsigned int)v21 > 0x14 )
+  v9 = *((unsigned int *)a1 + 1);
+  if ( (unsigned int)v9 <= 0x14 )
   {
-    v24 = 48 * v21;
-    if ( (unsigned __int64)(48 * v21) > 0xFFFFFFFF )
-      return 0LL;
-    v22 = v24 ? (_BYTE *)Win32AllocPool(v24, 1734632775LL, a3, a4) : 0LL;
-    v50 = v22;
-    if ( !v22 )
-      return 0LL;
-    v23 = 1;
+    v10 = &v46;
+    v11 = 0;
   }
   else
   {
-    v22 = v58;
-    v50 = v58;
-    v23 = 0;
+    if ( (unsigned __int64)(48 * v9) > 0xFFFFFFFF )
+      return 0LL;
+    v38 = 48 * v9;
+    v10 = (char *)PALLOCMEM2(48 * v9, 1734632775LL, 0);
+    if ( !v10 )
+      return 0LL;
+    v11 = 1;
   }
-  v44 = v23;
-  v43 = (int *)v57;
-  v25 = 0;
-  v45 = 0LL;
-  v56 = 0LL;
+  v34 = v11;
+  v33 = (int *)v45;
+  v12 = 0;
+  v40 = 0LL;
+  v44 = 0LL;
   if ( a2 )
   {
-    v45 = (__int128)*a2;
-    DWORD1(v56) = 16 * a2->top;
-    HIDWORD(v56) = 16 * a2->bottom;
-    v26 = &v56;
+    v40 = (__int128)*a2;
+    DWORD1(v44) = 16 * a2->top;
+    HIDWORD(v44) = 16 * a2->bottom;
+    v13 = &v44;
   }
   else
   {
-    v26 = 0LL;
+    v13 = 0LL;
   }
-  v53 = v49;
-  v27 = bConstructGET(a1, v49, v22, v26);
-  v40 = v27;
-  if ( !v27 )
-    goto LABEL_85;
-  v28 = 0x80000000;
-  v29 = &v46;
-  *(_QWORD *)&v46 = &v46;
-  LODWORD(v47) = 0;
-  HIDWORD(v46) = 0x7FFFFFFF;
-  while ( v29 != &v46 )
+  v39 = v41;
+  v14 = bConstructGET(a1, v41, v10, v13);
+  v32 = v14;
+  if ( v14 )
   {
-    vAdvanceAETEdges(&v46);
-    v29 = (__int128 *)v46;
-    if ( (__int128 *)v46 == &v46 )
-      break;
-    if ( *(__int128 **)v46 != &v46 )
+    v15 = 0x80000000;
+    v16 = &v35;
+    *(_QWORD *)&v35 = &v35;
+    LODWORD(v36) = 0;
+    HIDWORD(v35) = 0x7FFFFFFF;
+LABEL_12:
+    if ( v16 != &v35 )
     {
-      vXSortAETEdges(&v46);
-      v29 = (__int128 *)v46;
-    }
-LABEL_60:
-    v30 = v28;
-    v39 = v28;
-    if ( *(_DWORD *)(*(_QWORD *)&v49[0] + 16LL) == v28 )
-    {
-      vMoveNewEdges(v49, &v46, v28);
-      v29 = (__int128 *)v46;
-      v30 = v28;
-    }
-    v31 = v29;
-    v28 = v30 + 1;
-    v32 = v43;
-    do
-    {
-      v33 = *((_DWORD *)v31 + 3);
-      if ( (v42 & 2) != 0 )
+      vAdvanceAETEdges(&v35);
+      v16 = (__int128 *)v35;
+      if ( (__int128 *)v35 != &v35 )
       {
-        v34 = *((_DWORD *)v31 + 10);
-        do
+        if ( *(__int128 **)v35 != &v35 )
         {
-          v31 = *(__int128 **)v31;
-          v34 += *((_DWORD *)v31 + 10);
+          vXSortAETEdges(&v35);
+          v16 = (__int128 *)v35;
         }
-        while ( v34 );
+        goto LABEL_16;
       }
-      else
+    }
+    if ( *(_OWORD **)&v41[0] != v39 )
+    {
+      v15 = *(_DWORD *)(*(_QWORD *)&v41[0] + 16LL);
+LABEL_16:
+      if ( *(_DWORD *)(*(_QWORD *)&v41[0] + 16LL) == v15 )
       {
-        v31 = *(__int128 **)v31;
+        vMoveNewEdges(v41, &v35, v15);
+        v16 = (__int128 *)v35;
       }
-      if ( v33 < *((_DWORD *)v31 + 3) )
+      v17 = v16;
+      while ( 1 )
       {
-        if ( a2 )
+        v18 = *((_DWORD *)v17 + 3);
+        if ( (a3 & 2) != 0 )
         {
-          v35 = v45;
-          if ( v33 >= (int)v45 )
-            v35 = v33;
-          *v32 = v35;
-          v36 = DWORD2(v45);
-          if ( *((_DWORD *)v31 + 3) <= SDWORD2(v45) )
-            v36 = *((_DWORD *)v31 + 3);
-          v37 = v32 + 4;
-          if ( v35 >= v36 )
-            v37 = v32;
-          v43 = v37;
-          v38 = v25 + 1;
-          if ( v35 >= v36 )
-            v38 = v25;
-          v25 = v38;
+          v29 = *((_DWORD *)v17 + 10);
+          do
+          {
+            v17 = *(__int128 **)v17;
+            v29 += *((_DWORD *)v17 + 10);
+          }
+          while ( v29 );
         }
         else
         {
-          *v32 = v33;
-          ++v25;
-          v43 = v32 + 4;
-          v36 = *((_DWORD *)v31 + 3);
+          v17 = *(__int128 **)v17;
         }
-        v32[2] = v36;
-        v32[1] = v39;
-        v32[3] = v28;
-        v32 = v43;
-        if ( v25 == 20 )
+        if ( v18 >= *((_DWORD *)v17 + 3) )
+          goto LABEL_27;
+        if ( a2 )
         {
-          ((void (__fastcall *)(_BYTE *, __int64, void *, int *))a4)(v57, 20LL, a5, v43);
-          v32 = (int *)v57;
-          v43 = (int *)v57;
-          v25 = 0;
-          v29 = (__int128 *)v46;
+          v30 = v40;
+          if ( v18 >= (int)v40 )
+            v30 = v18;
+          *v33 = v30;
+          v31 = DWORD2(v40);
+          if ( *((_DWORD *)v17 + 3) <= SDWORD2(v40) )
+            v31 = *((_DWORD *)v17 + 3);
+          v33[2] = v31;
+          v33[1] = v15;
+          v33[3] = v15 + 1;
+          if ( v30 >= v31 )
+            goto LABEL_25;
+        }
+        else
+        {
+          *v33 = v18;
+          v33[2] = *((_DWORD *)v17 + 3);
+          v33[1] = v15;
+          v33[3] = v15 + 1;
+        }
+        ++v12;
+        v33 += 4;
+LABEL_25:
+        if ( v12 == 20 )
+        {
+          ((void (__fastcall *)(_BYTE *, __int64, void *))a4)(v45, 20LL, a5);
+          v33 = (int *)v45;
+          v12 = 0;
+          v16 = (__int128 *)v35;
+        }
+LABEL_27:
+        v17 = *(__int128 **)v17;
+        if ( v17 == &v35 )
+        {
+          ++v15;
+          goto LABEL_12;
         }
       }
-      v31 = *(__int128 **)v31;
     }
-    while ( v31 != &v46 );
+    if ( v12 )
+      ((void (__fastcall *)(_BYTE *, _QWORD, void *))a4)(v45, v12, a5);
+    v14 = v32;
   }
-  if ( *(_OWORD **)&v49[0] != v53 )
-  {
-    v28 = *(_DWORD *)(*(_QWORD *)&v49[0] + 16LL);
-    goto LABEL_60;
-  }
-  if ( v25 )
-    ((void (__fastcall *)(_BYTE *, _QWORD, void *))a4)(v57, v25, a5);
-  v27 = v40;
-LABEL_85:
-  if ( v44 )
-    Win32FreePool(v22);
-  return v27;
+  if ( v34 )
+    Win32FreePool(v10);
+  return v14;
 }

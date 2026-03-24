@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0COverlayContext@@QEAA@PEAVIOverlayMonitorTarget@@@Z @ 0x18001CA0C
+ * XREFs of ??0COverlayContext@@QEAA@PEAVIOverlayMonitorTarget@@@Z @ 0x180026210
  * Callers:
- *     ??0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18001C6B8 (--0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
- *     ??0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18019C760 (--0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x180025F2C (--0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x18016A710 (--0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
  * Callees:
- *     <none>
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1800949F0 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
  */
 
 COverlayContext *__fastcall COverlayContext::COverlayContext(COverlayContext *this, struct IOverlayMonitorTarget *a2)
@@ -12,53 +12,58 @@ COverlayContext *__fastcall COverlayContext::COverlayContext(COverlayContext *th
   COverlayContext *result; // rax
 
   *(_QWORD *)this = a2;
-  *((_QWORD *)this + 1) = 0LL;
-  *(_OWORD *)((char *)this + 44) = 0LL;
-  *(_OWORD *)((char *)this + 60) = 0LL;
-  *(_QWORD *)((char *)this + 76) = 0LL;
-  *((_DWORD *)this + 21) = 0;
-  *((_QWORD *)this + 11) = (char *)this + 112;
-  *((_QWORD *)this + 12) = (char *)this + 112;
-  *((_QWORD *)this + 13) = (char *)this + 3696;
-  *((_QWORD *)this + 462) = (char *)this + 3720;
-  *((_QWORD *)this + 463) = (char *)this + 3720;
-  *((_QWORD *)this + 464) = (char *)this + 7304;
-  *((_QWORD *)this + 913) = (char *)this + 7328;
-  *((_QWORD *)this + 914) = (char *)this + 7328;
-  *((_QWORD *)this + 915) = (char *)this + 10912;
-  *((_QWORD *)this + 1379) = 0LL;
-  *((_QWORD *)this + 1382) = 0LL;
-  *((_QWORD *)this + 1384) = 0LL;
-  *((_QWORD *)this + 1385) = 0LL;
-  *((_QWORD *)this + 1380) = 0LL;
-  *((_QWORD *)this + 1381) = 0LL;
-  *((_QWORD *)this + 1383) = 0LL;
-  *((_QWORD *)this + 1386) = 0LL;
-  *((_QWORD *)this + 1387) = 0LL;
-  *((_BYTE *)this + 11104) = 0;
-  *(_QWORD *)((char *)this + 11108) = 0LL;
-  *(_OWORD *)((char *)this + 11116) = 0LL;
-  *(_QWORD *)((char *)this + 11132) = 0LL;
-  *(_QWORD *)((char *)this + 11140) = 0LL;
-  *((_QWORD *)this + 1394) = 0LL;
-  *((_DWORD *)this + 2790) = 0x1000000;
-  *((_WORD *)this + 5582) = 0;
-  *((_QWORD *)this + 1396) = 0LL;
-  *((_QWORD *)this + 1397) = (char *)this + 11184;
-  *((_DWORD *)this + 2796) = 0;
-  result = this;
-  *((_QWORD *)this + 1406) = 0LL;
-  *((_QWORD *)this + 1407) = 0LL;
-  *((_QWORD *)this + 1408) = 0LL;
-  *((_DWORD *)this + 2818) = 0;
-  *((_DWORD *)this + 4490) = -1;
+  *((_DWORD *)this + 4) = 0;
+  *((_OWORD *)this + 3) = 0LL;
+  *((_OWORD *)this + 4) = 0LL;
+  *((_QWORD *)this + 10) = 0LL;
+  *((_DWORD *)this + 22) = 0;
+  *((_QWORD *)this + 12) = (char *)this + 120;
+  *((_QWORD *)this + 13) = (char *)this + 120;
+  *((_QWORD *)this + 14) = (char *)this + 3704;
+  *((_QWORD *)this + 463) = (char *)this + 3728;
+  *((_QWORD *)this + 464) = (char *)this + 3728;
+  *((_QWORD *)this + 465) = (char *)this + 7312;
+  *((_QWORD *)this + 914) = (char *)this + 7336;
+  *((_QWORD *)this + 915) = (char *)this + 7336;
+  *((_QWORD *)this + 916) = (char *)this + 10920;
+  *((_DWORD *)this + 2760) = 0;
+  `vector constructor iterator'(
+    (char *)this + 11044,
+    0x10uLL,
+    8uLL,
+    TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>::TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>);
+  *((_QWORD *)this + 1399) = 0LL;
+  *((_QWORD *)this + 1401) = 0LL;
+  *((_QWORD *)this + 1402) = 0LL;
+  *((_QWORD *)this + 1397) = 0LL;
+  *((_QWORD *)this + 1398) = 0LL;
+  *((_QWORD *)this + 1400) = 0LL;
+  *((_QWORD *)this + 1403) = 0LL;
+  *((_QWORD *)this + 1404) = 0LL;
+  *((_DWORD *)this + 2810) = 0;
+  *(_OWORD *)((char *)this + 11244) = 0LL;
+  *(_QWORD *)((char *)this + 11260) = 0LL;
+  *((_DWORD *)this + 2817) = 0;
+  *((_DWORD *)this + 2818) = -1;
+  *((_DWORD *)this + 2819) = 0;
   *((_QWORD *)this + 1410) = 0LL;
-  *((_QWORD *)this + 1411) = 0LL;
-  *((_WORD *)this + 5648) = 1;
-  *((_BYTE *)this + 11299) = 0;
-  *((_BYTE *)this + 11301) = 0;
-  *(_QWORD *)((char *)this + 11316) = 0LL;
-  *((_DWORD *)this + 2831) = 0;
-  *((_BYTE *)this + 11328) = 0;
+  *((_DWORD *)this + 2822) = 256;
+  *((_QWORD *)this + 1412) = 0LL;
+  *((_QWORD *)this + 1413) = (char *)this + 11312;
+  *((_DWORD *)this + 2828) = 0;
+  result = this;
+  *((_QWORD *)this + 1422) = 0LL;
+  *((_QWORD *)this + 1423) = 0LL;
+  *((_QWORD *)this + 1424) = 0LL;
+  *((_DWORD *)this + 2850) = 0;
+  *((_DWORD *)this + 4520) = -1;
+  *((_QWORD *)this + 1426) = 0LL;
+  *((_WORD *)this + 5708) = 1;
+  *((_BYTE *)this + 11419) = 0;
+  *((_BYTE *)this + 11421) = 0;
+  *(_QWORD *)((char *)this + 11436) = 0LL;
+  *((_DWORD *)this + 2861) = 0;
+  *((_WORD *)this + 5724) = 0;
+  *((_BYTE *)this + 11450) = 0;
   return result;
 }

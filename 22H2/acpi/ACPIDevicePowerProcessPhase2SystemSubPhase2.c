@@ -1,16 +1,16 @@
 /*
- * XREFs of ACPIDevicePowerProcessPhase2SystemSubPhase2 @ 0x1C001FAC0
+ * XREFs of ACPIDevicePowerProcessPhase2SystemSubPhase2 @ 0x1C0051320
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_qD @ 0x1C001B528 (WPP_RECORDER_SF_qD.c)
- *     ACPIDeviceCompleteGenericPhase @ 0x1C001C560 (ACPIDeviceCompleteGenericPhase.c)
- *     LinkNodeRestoreHardwareState @ 0x1C005D7F8 (LinkNodeRestoreHardwareState.c)
+ *     ACPIDeviceCompleteGenericPhase @ 0x1C001FEE0 (ACPIDeviceCompleteGenericPhase.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00525D8 (WPP_RECORDER_SF_qd.c)
+ *     LinkNodeRestoreHardwareState @ 0x1C006BF7C (LinkNodeRestoreHardwareState.c)
  */
 
 __int64 __fastcall ACPIDevicePowerProcessPhase2SystemSubPhase2(__int64 a1)
 {
-  int v2; // edi
+  unsigned int v2; // edi
   __int64 v3; // rcx
   __int64 result; // rax
 
@@ -18,12 +18,12 @@ __int64 __fastcall ACPIDevicePowerProcessPhase2SystemSubPhase2(__int64 a1)
   v3 = 5LL;
   *(_DWORD *)(a1 + 212) = 5;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_qD(
+    WPP_RECORDER_SF_qd(
       WPP_GLOBAL_Control->DeviceExtension,
       4,
       10,
       64,
-      (__int64)&WPP_afb93ce9a898342faba18bc7242ff62e_Traceguids,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       a1,
       5);
   if ( *(_DWORD *)(a1 + 104) != 1 || (v2 = LinkNodeRestoreHardwareState(v3, a1), result = 259LL, v2 != 259) )

@@ -3,10 +3,10 @@
  * Callers:
  *     RtlpHpLargeLockAcquireShared @ 0x140008208 (RtlpHpLargeLockAcquireShared.c)
  *     RtlpHpLfhSubsegmentCreate @ 0x140009064 (RtlpHpLfhSubsegmentCreate.c)
- *     RtlpHpLfhSlotAllocate @ 0x1400BAE80 (RtlpHpLfhSlotAllocate.c)
- *     RtlpHpLfhContextCompact @ 0x1401B6534 (RtlpHpLfhContextCompact.c)
- *     RtlpHpLfhOwnerCompact @ 0x1401B65D0 (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x1402FD5FC (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1400BAEA0 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhContextCompact @ 0x1401B6554 (RtlpHpLfhContextCompact.c)
+ *     RtlpHpLfhOwnerCompact @ 0x1401B65F0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x1402FD6FC (RtlpHpLfhSubsegmentDecommitPages.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)

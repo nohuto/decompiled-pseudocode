@@ -1,29 +1,26 @@
 /*
- * XREFs of ?xwtol@@YAKPEBG@Z @ 0x1C020D12C
+ * XREFs of ?xwtol@@YAKPEBG@Z @ 0x1C018C024
  * Callers:
- *     ?InitializeDriverWorkarounds@DXGADAPTER@@AEAAXXZ @ 0x1C0202464 (-InitializeDriverWorkarounds@DXGADAPTER@@AEAAXXZ.c)
- *     ParseModeCap @ 0x1C020D024 (ParseModeCap.c)
+ *     ?InitializeDriverWorkarounds@DXGADAPTER@@AEAAXXZ @ 0x1C0186CE8 (-InitializeDriverWorkarounds@DXGADAPTER@@AEAAXXZ.c)
+ *     ParseModeCap @ 0x1C018BF1C (ParseModeCap.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall xwtol(const unsigned __int16 *a1)
 {
-  unsigned int v1; // edx
-  int v2; // r8d
+  unsigned int v2; // ecx
+  int v3; // edx
 
-  v1 = 0;
+  v2 = 0;
   while ( 1 )
   {
-    v2 = *a1;
-    if ( (unsigned __int16)(v2 - 48) <= 9u )
-    {
-      v1 = v2 + 2 * (5 * v1 - 24);
-      goto LABEL_4;
-    }
-    if ( v2 != 32 )
-      return v1;
-LABEL_4:
+    v3 = *a1;
+    if ( (unsigned __int16)(v3 - 48) > 9u && v3 != 32 )
+      break;
+    if ( v3 != 32 )
+      v2 = v3 + 2 * (5 * v2 - 24);
     ++a1;
   }
+  return v2;
 }

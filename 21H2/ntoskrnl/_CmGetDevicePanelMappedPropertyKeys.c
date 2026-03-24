@@ -1,8 +1,8 @@
 /*
- * XREFs of _CmGetDevicePanelMappedPropertyKeys @ 0x140A28B84
+ * XREFs of _CmGetDevicePanelMappedPropertyKeys @ 0x1409784BC
  * Callers:
- *     _PnpDispatchDevicePanel @ 0x14083D8B0 (_PnpDispatchDevicePanel.c)
- *     _CmDeleteDevicePanelWorker @ 0x140A28530 (_CmDeleteDevicePanelWorker.c)
+ *     _PnpDispatchDevicePanel @ 0x1407AFBE0 (_PnpDispatchDevicePanel.c)
+ *     _CmDeleteDevicePanelWorker @ 0x1409781E0 (_CmDeleteDevicePanelWorker.c)
  * Callees:
  *     <none>
  */
@@ -16,16 +16,16 @@ __int64 __fastcall CmGetDevicePanelMappedPropertyKeys(
         unsigned int a6,
         unsigned int *a7)
 {
-  __int64 **v7; // r11
-  unsigned int v8; // r10d
-  __int64 v9; // rcx
-  unsigned int v10; // r8d
+  __int64 **v7; // r10
+  unsigned int v8; // r9d
+  __int64 v9; // rax
+  unsigned int v10; // edx
   __int64 *v11; // rdx
   __int64 v12; // rcx
-  unsigned int v13; // eax
-  unsigned int v14; // edx
+  unsigned int v13; // ebx
+  unsigned int v14; // ecx
 
-  v7 = &off_14000AE18;
+  v7 = &off_140009D80;
   v8 = 0;
   *a7 = 0;
   v9 = 0LL;
@@ -51,8 +51,12 @@ __int64 __fastcall CmGetDevicePanelMappedPropertyKeys(
     ++v8;
     v7 += 2;
     if ( v8 >= 3 )
-      return a6 < (unsigned int)v9 ? 0xC0000023 : 0;
+      goto LABEL_11;
   }
   *a7 = 0;
+  LODWORD(v9) = 0;
+LABEL_11:
+  if ( v13 >= v10 )
+    return a6 < (unsigned int)v9 ? 0xC0000023 : 0;
   return v14;
 }

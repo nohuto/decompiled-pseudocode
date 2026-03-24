@@ -1,112 +1,125 @@
 /*
- * XREFs of HvpGenerateLogEntry @ 0x140705808
+ * XREFs of HvpGenerateLogEntry @ 0x140720D30
  * Callers:
- *     HvStoreModifiedData @ 0x1407075E4 (HvStoreModifiedData.c)
+ *     HvStoreModifiedData @ 0x140720430 (HvStoreModifiedData.c)
  * Callees:
- *     HvpGenerateLogEntryHeader @ 0x1402911EC (HvpGenerateLogEntryHeader.c)
- *     HvpGenerateLogEntryMetadata @ 0x140291370 (HvpGenerateLogEntryMetadata.c)
- *     HvpAllocateLogBuffers @ 0x1402913E0 (HvpAllocateLogBuffers.c)
- *     RtlNumberOfSetBits @ 0x140293450 (RtlNumberOfSetBits.c)
- *     HvpGenerateLogEntryDirtyData @ 0x140294F40 (HvpGenerateLogEntryDirtyData.c)
- *     memset @ 0x140435400 (memset.c)
- *     CmpLogDirtyVectorUse @ 0x1406BBF28 (CmpLogDirtyVectorUse.c)
- *     HvpGenerateLogEntryChecksums @ 0x140705728 (HvpGenerateLogEntryChecksums.c)
- *     HvpGenerateLogMetadata @ 0x140707130 (HvpGenerateLogMetadata.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlNumberOfSetBits @ 0x140253090 (RtlNumberOfSetBits.c)
+ *     HvpGenerateLogEntryDirtyData @ 0x140331580 (HvpGenerateLogEntryDirtyData.c)
+ *     HvpGenerateLogEntryMetadata @ 0x140361974 (HvpGenerateLogEntryMetadata.c)
+ *     HvpGenerateLogEntryHeader @ 0x1403619E0 (HvpGenerateLogEntryHeader.c)
+ *     HvpAllocateLogBuffers @ 0x140361B74 (HvpAllocateLogBuffers.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HvpGenerateLogMetadata @ 0x1406BF274 (HvpGenerateLogMetadata.c)
+ *     HvpGenerateLogEntryChecksums @ 0x140720ED8 (HvpGenerateLogEntryChecksums.c)
+ *     CmpLogDirtyVectorUse @ 0x140720FB0 (CmpLogDirtyVectorUse.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall HvpGenerateLogEntry(ULONG_PTR a1, __int64 *a2, _DWORD *a3, unsigned int *a4)
+__int64 __fastcall HvpGenerateLogEntry(ULONG_PTR BugCheckParameter2, PVOID **a2, _DWORD *a3, unsigned int *a4)
 {
   int v4; // edi
   char v6; // r13
   ULONG v7; // eax
-  unsigned int v8; // edi
-  void *Pool2; // r12
-  int v10; // eax
-  __int64 v11; // r8
-  __int64 v12; // r14
-  unsigned int v13; // esi
-  __int64 v14; // rbx
-  __int64 v15; // r8
-  __int64 v16; // r8
-  unsigned int v17; // eax
-  PVOID *v18; // rdi
-  PVOID *v20; // rbx
-  __int64 v21; // [rsp+28h] [rbp-40h]
-  unsigned int v22; // [rsp+40h] [rbp-28h] BYREF
-  int v23; // [rsp+44h] [rbp-24h]
-  unsigned int v24; // [rsp+48h] [rbp-20h] BYREF
-  PVOID *v25; // [rsp+50h] [rbp-18h] BYREF
-  unsigned int v26; // [rsp+B0h] [rbp+48h] BYREF
-  __int64 *v27; // [rsp+B8h] [rbp+50h]
-  _DWORD *v28; // [rsp+C0h] [rbp+58h]
-  unsigned int *v29; // [rsp+C8h] [rbp+60h]
+  int v8; // ebx
+  SIZE_T v9; // rdx
+  unsigned int v10; // edi
+  PVOID PoolWithTag; // r12
+  int v12; // eax
+  __int64 v13; // r8
+  __int64 v14; // r14
+  unsigned int v15; // esi
+  PVOID *v16; // rbx
+  __int64 v17; // r8
+  __int64 v18; // r8
+  __int64 v19; // r8
+  unsigned int v20; // eax
+  PVOID *v21; // rdi
+  PVOID *v23; // rbx
+  __int64 v24; // [rsp+28h] [rbp-40h]
+  int v25; // [rsp+30h] [rbp-38h]
+  __int64 v26; // [rsp+40h] [rbp-28h] BYREF
+  unsigned int v27; // [rsp+48h] [rbp-20h] BYREF
+  PVOID *v28; // [rsp+50h] [rbp-18h] BYREF
+  unsigned int v29; // [rsp+B0h] [rbp+48h] BYREF
+  PVOID **v30; // [rsp+B8h] [rbp+50h]
+  _DWORD *v31; // [rsp+C0h] [rbp+58h]
+  unsigned int *v32; // [rsp+C8h] [rbp+60h]
 
-  v29 = a4;
-  v28 = a3;
-  v27 = a2;
-  v4 = *(_DWORD *)(a1 + 180);
-  v25 = 0LL;
-  v22 = 0;
+  v32 = a4;
+  v31 = a3;
+  v30 = a2;
+  v4 = *(_DWORD *)(BugCheckParameter2 + 176);
+  v28 = 0LL;
+  v26 = 0LL;
   v6 = v4 == 0;
-  v23 = 0;
-  v24 = 0;
-  v26 = 0;
-  HvpGenerateLogMetadata((PRTL_BITMAP)(a1 + 88));
-  v7 = RtlNumberOfSetBits((PRTL_BITMAP)(a1 + 88));
-  CmpLogDirtyVectorUse(a1, 1, 0, v7);
-  v8 = ((v4 != 0 ? 4135 : 4647) + (*(_DWORD *)(a1 + 104) << 9)) & 0xFFFFF000;
-  Pool2 = (void *)ExAllocatePool2(264LL, 0LL, 1867074883LL);
-  if ( Pool2 )
+  v27 = 0;
+  v29 = 0;
+  HvpGenerateLogMetadata((PRTL_BITMAP)(BugCheckParameter2 + 88), 0LL, (unsigned int *)&v26 + 1);
+  v7 = RtlNumberOfSetBits((PRTL_BITMAP)(BugCheckParameter2 + 88));
+  v8 = HIDWORD(v26);
+  CmpLogDirtyVectorUse(BugCheckParameter2, 1LL, HIDWORD(v26), v7);
+  v9 = (unsigned int)(8 * v8);
+  v10 = (v9 + (v4 != 0 ? 4135 : 4647) + (*(_DWORD *)(BugCheckParameter2 + 104) << 9)) & 0xFFFFF000;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPoolCacheAligned, v9, 0x6F494D43u);
+  if ( PoolWithTag )
   {
-    v10 = HvpAllocateLogBuffers((__int64 *)&v25, &v24, v8);
-    v12 = v24;
-    v13 = v10;
-    if ( v10 < 0 )
+    v12 = HvpAllocateLogBuffers(&v28, &v27, v10);
+    v14 = v27;
+    v15 = v12;
+    if ( v12 < 0 )
     {
-      v18 = v25;
+      v21 = v28;
     }
     else
     {
-      v14 = (__int64)v25;
-      HvpGenerateLogEntryHeader(a1, (__int64)v25, v11, (__int64)&v26, &v22, v8, 0, v6);
-      HvpGenerateLogEntryMetadata(a1, v14, v15, (__int64)&v26, (__int64)&v22, (__int64)Pool2, v23);
-      HvpGenerateLogEntryDirtyData(a1, v14, v16, &v26, &v22, v21);
-      v17 = *(_DWORD *)(v14 + 24LL * v26 + 16);
-      if ( v22 < v17 )
-        memset((void *)(*(_QWORD *)(v14 + 24LL * v26 + 8) + v22), 0, v17 - v22);
-      HvpGenerateLogEntryChecksums(v14, v12, v6);
-      *v27 = v14;
-      *v28 = v12;
-      *v29 = v8;
-      v18 = 0LL;
-      v13 = 0;
+      v25 = v8;
+      v16 = v28;
+      HvpGenerateLogEntryHeader(BugCheckParameter2, (__int64)v28, v13, &v29, (unsigned int *)&v26, v10, v25, v6);
+      HvpGenerateLogEntryMetadata(
+        BugCheckParameter2,
+        (__int64)v16,
+        v17,
+        &v29,
+        (unsigned int *)&v26,
+        (__int64)PoolWithTag,
+        SHIDWORD(v26));
+      HvpGenerateLogEntryDirtyData(BugCheckParameter2, (int)v16, v18, (__int64)&v29, (__int64)&v26, v24);
+      v20 = (unsigned int)v16[3 * v29 + 2];
+      if ( (unsigned int)v26 < v20 )
+        memset((char *)v16[3 * v29 + 1] + (unsigned int)v26, 0, v20 - (unsigned int)v26);
+      LOBYTE(v19) = v6;
+      HvpGenerateLogEntryChecksums(v16, (unsigned int)v14, v19);
+      *v30 = v16;
+      *v31 = v14;
+      *v32 = v10;
+      v21 = 0LL;
+      v15 = 0;
     }
-    ExFreePoolWithTag(Pool2, 0);
-    if ( v18 )
+    ExFreePoolWithTag(PoolWithTag, 0);
+    if ( v21 )
     {
-      if ( (_DWORD)v12 )
+      if ( (_DWORD)v14 )
       {
-        v20 = v18 + 1;
+        v23 = v21 + 1;
         do
         {
-          if ( *v20 )
+          if ( *v23 )
           {
-            ExFreePoolWithTag(*v20, 0);
-            *v20 = 0LL;
+            ExFreePoolWithTag(*v23, 0);
+            *v23 = 0LL;
           }
-          v20 += 3;
-          --v12;
+          v23 += 3;
+          --v14;
         }
-        while ( v12 );
+        while ( v14 );
       }
-      ExFreePoolWithTag(v18, 0);
+      ExFreePoolWithTag(v21, 0);
     }
   }
   else
   {
     return (unsigned int)-1073741801;
   }
-  return v13;
+  return v15;
 }

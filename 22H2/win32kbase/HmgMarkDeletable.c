@@ -1,12 +1,12 @@
 /*
- * XREFs of HmgMarkDeletable @ 0x1C009DCF0
+ * XREFs of HmgMarkDeletable @ 0x1C0087350
  * Callers:
- *     DestroyCacheDC @ 0x1C005D380 (DestroyCacheDC.c)
- *     GreMarkDeletableBitmap @ 0x1C009DCA0 (GreMarkDeletableBitmap.c)
- *     GreMarkDeletableRgn @ 0x1C009DCC0 (GreMarkDeletableRgn.c)
+ *     DestroyCacheDC @ 0x1C0008970 (DestroyCacheDC.c)
+ *     GreMarkDeletableBitmap @ 0x1C0087300 (GreMarkDeletableBitmap.c)
+ *     GreMarkDeletableRgn @ 0x1C0087320 (GreMarkDeletableRgn.c)
  * Callees:
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0043330 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0043570 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0030700 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0030A00 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
  */
 
 __int64 __fastcall HmgMarkDeletable(unsigned int a1, char a2)

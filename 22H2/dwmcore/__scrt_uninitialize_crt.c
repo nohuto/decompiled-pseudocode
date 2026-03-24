@@ -1,9 +1,9 @@
 /*
- * XREFs of __scrt_uninitialize_crt @ 0x18010F428
+ * XREFs of __scrt_uninitialize_crt @ 0x1800E7094
  * Callers:
- *     dllmain_crt_process_detach @ 0x18010F650 (dllmain_crt_process_detach.c)
+ *     dllmain_crt_process_detach @ 0x1800E72B4 (dllmain_crt_process_detach.c)
  * Callees:
- *     __scrt_stub_for_acrt_uninitialize_critical @ 0x1801113BC (__scrt_stub_for_acrt_uninitialize_critical.c)
+ *     __scrt_stub_for_acrt_uninitialize_critical @ 0x1800E918C (__scrt_stub_for_acrt_uninitialize_critical.c)
  */
 
 char __fastcall _scrt_uninitialize_crt(__int64 a1, char a2)
@@ -12,7 +12,7 @@ char __fastcall _scrt_uninitialize_crt(__int64 a1, char a2)
   __int64 v3; // rcx
 
   v2 = a1;
-  if ( !byte_1803E5680 || !a2 )
+  if ( !byte_180346E51 || !a2 )
   {
     _scrt_stub_for_acrt_uninitialize_critical(a1);
     LOBYTE(v3) = v2;

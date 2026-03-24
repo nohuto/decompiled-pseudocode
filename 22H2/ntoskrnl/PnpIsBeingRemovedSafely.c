@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpIsBeingRemovedSafely @ 0x1408842E0
+ * XREFs of PnpIsBeingRemovedSafely @ 0x14074B4B0
  * Callers:
- *     PnpBuildUnsafeRemovalDeviceList @ 0x1408841B0 (PnpBuildUnsafeRemovalDeviceList.c)
+ *     PnpBuildUnsafeRemovalDeviceList @ 0x14074ADC4 (PnpBuildUnsafeRemovalDeviceList.c)
  * Callees:
  *     <none>
  */
@@ -10,10 +10,10 @@ bool __fastcall PnpIsBeingRemovedSafely(_DWORD *a1, int a2)
 {
   int v3; // ecx
 
-  if ( !a2 || (unsigned int)(a2 - 1) > 1 || (a1[140] & 0x200) != 0 )
+  if ( (unsigned int)(a2 - 1) > 1 || (a1[140] & 0x200) != 0 )
     return 1;
   v3 = a1[75];
-  if ( (unsigned int)(v3 - 784) <= 1 )
+  if ( (unsigned int)(v3 - 782) <= 1 )
     v3 = a1[76];
-  return (unsigned int)(v3 - 777) > 1 && (unsigned int)(v3 - 780) > 1;
+  return v3 == 777 || v3 <= 774 || v3 >= 780;
 }

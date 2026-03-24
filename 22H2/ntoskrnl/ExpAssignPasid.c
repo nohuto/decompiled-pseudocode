@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpAssignPasid @ 0x140A01800
+ * XREFs of ExpAssignPasid @ 0x140956CA4
  * Callers:
- *     ExpShareAddressSpaceWithDevice @ 0x14060DC10 (ExpShareAddressSpaceWithDevice.c)
+ *     ExShareAddressSpaceWithDevice @ 0x1405B71C0 (ExShareAddressSpaceWithDevice.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExpFreeAsid @ 0x14060D8A0 (ExpFreeAsid.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     ExpFreeAsid @ 0x1405B8970 (ExpFreeAsid.c)
  */
 
-__int64 __fastcall ExpAssignPasid(volatile signed __int32 *Object, signed __int32 a2)
+__int64 __fastcall ExpAssignPasid(PADAPTER_OBJECT DmaAdapter, signed __int32 a2)
 {
-  ObfReferenceObject((PVOID)Object);
-  if ( !_InterlockedCompareExchange(Object + 544, a2, 0) )
+  ObfReferenceObject(DmaAdapter);
+  if ( !_InterlockedCompareExchange((volatile signed __int32 *)&DmaAdapter[136], a2, 0) )
     return 1LL;
-  ExpFreeAsid(a2 - 1, (void *)Object);
-  ObfDereferenceObject((PVOID)Object);
+  ExpFreeAsid(a2 - 1);
+  HalPutDmaAdapter(DmaAdapter);
   return 0LL;
 }

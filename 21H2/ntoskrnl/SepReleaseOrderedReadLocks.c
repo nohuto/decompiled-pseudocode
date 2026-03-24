@@ -1,12 +1,12 @@
 /*
- * XREFs of SepReleaseOrderedReadLocks @ 0x14021F6B4
+ * XREFs of SepReleaseOrderedReadLocks @ 0x140360024
  * Callers:
- *     SepIsSiblingTokenByPointer @ 0x1406953C8 (SepIsSiblingTokenByPointer.c)
- *     NtCompareTokens @ 0x140695A40 (NtCompareTokens.c)
- *     SeTokenCanImpersonate @ 0x1407AFBE0 (SeTokenCanImpersonate.c)
+ *     SeTokenCanImpersonate @ 0x14065B420 (SeTokenCanImpersonate.c)
+ *     SepIsSiblingTokenByPointer @ 0x140716B0C (SepIsSiblingTokenByPointer.c)
+ *     NtCompareTokens @ 0x140717200 (NtCompareTokens.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
  */
 
 void __fastcall SepReleaseOrderedReadLocks(__int64 a1, __int64 a2)

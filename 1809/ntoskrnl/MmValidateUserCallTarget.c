@@ -1,11 +1,11 @@
 /*
- * XREFs of MmValidateUserCallTarget @ 0x14085C2A8
+ * XREFs of MmValidateUserCallTarget @ 0x14085C288
  * Callers:
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
- *     MmCheckForSafeExecution @ 0x140858C04 (MmCheckForSafeExecution.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
+ *     MmCheckForSafeExecution @ 0x140858BE4 (MmCheckForSafeExecution.c)
  * Callees:
  *     MiIsProcessCfgEnabled @ 0x1400884BC (MiIsProcessCfgEnabled.c)
- *     MiValidateUserCallTarget @ 0x1406A7668 (MiValidateUserCallTarget.c)
+ *     MiValidateUserCallTarget @ 0x1406A7648 (MiValidateUserCallTarget.c)
  */
 
 __int64 MmValidateUserCallTarget()

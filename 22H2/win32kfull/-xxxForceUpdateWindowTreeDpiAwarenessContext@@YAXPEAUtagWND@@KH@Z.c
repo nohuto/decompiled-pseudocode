@@ -1,15 +1,16 @@
 /*
- * XREFs of ?xxxForceUpdateWindowTreeDpiAwarenessContext@@YAXPEAUtagWND@@KH@Z @ 0x1C021FB04
+ * XREFs of ?xxxForceUpdateWindowTreeDpiAwarenessContext@@YAXPEAUtagWND@@KH@Z @ 0x1C01E3ECC
  * Callers:
- *     ?xxxForceUpdateProcessDpiAwarenessContext@@YAXPEAUtagWND@@K@Z @ 0x1C021F904 (-xxxForceUpdateProcessDpiAwarenessContext@@YAXPEAUtagWND@@K@Z.c)
- *     ?xxxForceUpdateWindowTreeDpiAwarenessContext@@YAXPEAUtagWND@@KH@Z @ 0x1C021FB04 (-xxxForceUpdateWindowTreeDpiAwarenessContext@@YAXPEAUtagWND@@KH@Z.c)
+ *     ?xxxForceUpdateWindowTreeDpiAwarenessContext@@YAXPEAUtagWND@@KH@Z @ 0x1C01E3ECC (-xxxForceUpdateWindowTreeDpiAwarenessContext@@YAXPEAUtagWND@@KH@Z.c)
+ *     xxxForceUpdateProcessDpiAwarenessContext @ 0x1C01E5EAC (xxxForceUpdateProcessDpiAwarenessContext.c)
  * Callees:
- *     xxxSetWindowPos @ 0x1C0028898 (xxxSetWindowPos.c)
- *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0050C44 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
- *     _PostMessage @ 0x1C00B6CD0 (_PostMessage.c)
- *     UpdateWindowMonitor @ 0x1C00D16E0 (UpdateWindowMonitor.c)
- *     GetPrimaryMonitorRectForWindow @ 0x1C0135648 (GetPrimaryMonitorRectForWindow.c)
- *     ?xxxForceUpdateWindowTreeDpiAwarenessContext@@YAXPEAUtagWND@@KH@Z @ 0x1C021FB04 (-xxxForceUpdateWindowTreeDpiAwarenessContext@@YAXPEAUtagWND@@KH@Z.c)
+ *     _PostMessage @ 0x1C002DBA0 (_PostMessage.c)
+ *     GetPrimaryMonitorRectForWindow @ 0x1C0040934 (GetPrimaryMonitorRectForWindow.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FBD0 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     xxxSetWindowPos @ 0x1C006BBB4 (xxxSetWindowPos.c)
+ *     UpdateWindowMonitor @ 0x1C00701D0 (UpdateWindowMonitor.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?xxxForceUpdateWindowTreeDpiAwarenessContext@@YAXPEAUtagWND@@KH@Z @ 0x1C01E3ECC (-xxxForceUpdateWindowTreeDpiAwarenessContext@@YAXPEAUtagWND@@KH@Z.c)
  */
 
 void __fastcall xxxForceUpdateWindowTreeDpiAwarenessContext(struct tagWND *a1, unsigned int a2, int a3)
@@ -17,27 +18,28 @@ void __fastcall xxxForceUpdateWindowTreeDpiAwarenessContext(struct tagWND *a1, u
   __int64 v3; // rax
   unsigned __int64 v5; // rbp
   unsigned int v7; // r14d
-  __int64 *v8; // rax
-  struct tagWND *i; // rsi
+  _QWORD *v8; // rax
+  __int64 i; // rsi
   __m128i *PrimaryMonitorRectForWindow; // rax
   __m128i v11; // xmm0
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int128 v15; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v16; // [rsp+50h] [rbp-28h]
-  __int128 v17; // [rsp+58h] [rbp-20h] BYREF
-  __int64 v18; // [rsp+68h] [rbp-10h]
+  int v12; // ecx
+  int v13; // edx
+  __int64 ThreadWin32Thread; // rax
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  __int128 v17; // [rsp+40h] [rbp-48h] BYREF
+  _QWORD v18[3]; // [rsp+50h] [rbp-38h] BYREF
+  _QWORD v19[3]; // [rsp+68h] [rbp-20h] BYREF
 
   v3 = *((_QWORD *)a1 + 5);
   v5 = a2;
   v7 = *(_DWORD *)(v3 + 288);
   *(_DWORD *)(v3 + 288) = a2;
-  v8 = (__int64 *)ValidateHmonitorNoRip(*(_QWORD *)(*((_QWORD *)a1 + 5) + 256LL));
+  v8 = (_QWORD *)ValidateHmonitorNoRip(*(_QWORD *)(*((_QWORD *)a1 + 5) + 256LL));
   UpdateWindowMonitor(a1, v8);
-  i = (struct tagWND *)*((_QWORD *)a1 + 14);
+  i = *((_QWORD *)a1 + 14);
   if ( !a3 )
-    goto LABEL_8;
+    goto LABEL_16;
   PostEventMessageEx(
     *((struct tagTHREADINFO **)a1 + 2),
     *(struct tagQ **)(*((_QWORD *)a1 + 2) + 432LL),
@@ -47,15 +49,23 @@ void __fastcall xxxForceUpdateWindowTreeDpiAwarenessContext(struct tagWND *a1, u
     v5,
     0LL,
     0LL);
-  PrimaryMonitorRectForWindow = (__m128i *)GetPrimaryMonitorRectForWindow((__int64)&v15, a1);
+  PrimaryMonitorRectForWindow = (__m128i *)GetPrimaryMonitorRectForWindow(&v17, (__int64)a1);
   v11 = _mm_srli_si128(*PrimaryMonitorRectForWindow, 8);
   PostMessage(
-    a1,
-    0x7Eu,
+    (int)a1,
+    126,
     *(unsigned __int16 *)(gpsi + 6996LL),
-    (unsigned __int16)(v11.m128i_i16[0] - *(_OWORD *)PrimaryMonitorRectForWindow) | (unsigned __int64)(int)((v11.m128i_i32[1] << 16) - (HIDWORD(PrimaryMonitorRectForWindow->m128i_i64[0]) << 16)));
+    (unsigned __int16)(v11.m128i_i16[0] - *(_OWORD *)PrimaryMonitorRectForWindow) | (unsigned int)((v11.m128i_i32[1] << 16)
+                                                                                                 - (HIDWORD(PrimaryMonitorRectForWindow->m128i_i64[0]) << 16)));
   if ( (((unsigned __int16)((unsigned int)v5 >> 8) ^ (unsigned __int16)(v7 >> 8)) & 0x1FF) != 0 )
+    goto LABEL_11;
+  v12 = 1;
+  v13 = (v7 & 0xF) == 2 && (v7 & 0x20000000) != 0;
+  if ( (v5 & 0xF) != 2 || (v5 & 0x20000000) == 0 )
+    v12 = 0;
+  if ( v13 != v12 )
   {
+LABEL_11:
     PostEventMessageEx(
       *((struct tagTHREADINFO **)a1 + 2),
       *(struct tagQ **)(*((_QWORD *)a1 + 2) + 432LL),
@@ -76,20 +86,26 @@ void __fastcall xxxForceUpdateWindowTreeDpiAwarenessContext(struct tagWND *a1, u
       0LL);
   }
   if ( *(_QWORD *)(*((_QWORD *)a1 + 5) + 240LL) )
-    goto LABEL_8;
-  v15 = 0LL;
-  v16 = 0LL;
-  ThreadLock(a1, &v15);
+    goto LABEL_16;
+  v18[2] = 0LL;
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v18[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = v18;
+  v18[1] = a1;
+  HMLockObject(a1);
   xxxSetWindowPos(a1, 0LL, 0LL, 0LL, 0, 0, 55);
-  for ( i = (struct tagWND *)*((_QWORD *)a1 + 14); ; i = (struct tagWND *)*((_QWORD *)i + 11) )
+  for ( i = *((_QWORD *)a1 + 14); ; i = *(_QWORD *)(i + 88) )
   {
-    ThreadUnlock1(v13, v12, v14);
-LABEL_8:
+    ThreadUnlock1(v15);
+LABEL_16:
     if ( !i )
       break;
-    v17 = 0LL;
-    v18 = 0LL;
-    ThreadLock(i, &v17);
-    xxxForceUpdateWindowTreeDpiAwarenessContext(i, v5, 0);
+    v19[2] = 0LL;
+    v16 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    v19[0] = *(_QWORD *)(v16 + 416);
+    *(_QWORD *)(v16 + 416) = v19;
+    v19[1] = i;
+    HMLockObject(i);
+    xxxForceUpdateWindowTreeDpiAwarenessContext((struct tagWND *)i, v5, 0);
   }
 }

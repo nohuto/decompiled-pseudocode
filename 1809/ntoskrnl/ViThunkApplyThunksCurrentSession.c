@@ -3,8 +3,8 @@
  * Callers:
  *     VfThunkApplyThunks @ 0x140936B30 (VfThunkApplyThunks.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C20 (RtlImageDirectoryEntryToData.c)
- *     VfTargetDriversGetNode @ 0x14030AC9C (VfTargetDriversGetNode.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
+ *     VfTargetDriversGetNode @ 0x14030AD9C (VfTargetDriversGetNode.c)
  *     ViIsDriverSuspectForVerifier @ 0x14092169C (ViIsDriverSuspectForVerifier.c)
  *     ViThunkReplaceAllSharedExports @ 0x1409370F4 (ViThunkReplaceAllSharedExports.c)
  *     ViThunkReplaceAllThunkedImports @ 0x140937180 (ViThunkReplaceAllThunkedImports.c)

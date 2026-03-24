@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpUnlockKcbStackFlusherLocksExclusive @ 0x1406163C4
+ * XREFs of CmpUnlockKcbStackFlusherLocksExclusive @ 0x14036B664
  * Callers:
- *     CmSaveKey @ 0x140A0BA40 (CmSaveKey.c)
+ *     CmSaveKey @ 0x140729A8C (CmSaveKey.c)
  * Callees:
- *     CmpGetKcbAtLayerHeight @ 0x1406D5850 (CmpGetKcbAtLayerHeight.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140AF668C (HvUnlockHiveFlusherExclusive.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x14071D558 (HvUnlockHiveFlusherExclusive.c)
  */
 
 void __fastcall CmpUnlockKcbStackFlusherLocksExclusive(__int64 a1)

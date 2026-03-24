@@ -1,19 +1,24 @@
 /*
- * XREFs of ?GetGpuPreferenceDListState@DXGPROCESS@@QEAA?AW4_D3DKMT_GPU_PREFERENCE_QUERY_STATE@@I@Z @ 0x1C0057B50
+ * XREFs of ?GetGpuPreferenceDListState@DXGPROCESS@@QEAA?AW4_D3DKMT_GPU_PREFERENCE_QUERY_STATE@@I@Z @ 0x1C0048B0C
  * Callers:
- *     DxgkGetCachedHybridQueryValue @ 0x1C01DC8E0 (DxgkGetCachedHybridQueryValue.c)
- *     DxgkCacheHybridQueryValue @ 0x1C01DDFF0 (DxgkCacheHybridQueryValue.c)
+ *     DxgkGetCachedHybridQueryValue @ 0x1C015FF50 (DxgkGetCachedHybridQueryValue.c)
+ *     DxgkCacheHybridQueryValue @ 0x1C0161F40 (DxgkCacheHybridQueryValue.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall DXGPROCESS::GetGpuPreferenceDListState(DXGPROCESS *this, unsigned int a2)
+__int64 __fastcall DXGPROCESS::GetGpuPreferenceDListState(DXGPROCESS *this, __int64 a2, __int64 a3)
 {
-  __int64 v2; // rcx
+  __int64 v3; // rbx
+  __int64 v4; // rcx
+  __int64 v6; // rax
 
-  v2 = *(_QWORD *)(*((_QWORD *)this + 6) + 8LL * a2);
-  if ( v2 )
-    return *(unsigned int *)(v2 + 72);
-  WdLogSingleEntry1(3LL, a2);
+  v3 = (unsigned int)a2;
+  v4 = *(_QWORD *)(*((_QWORD *)this + 6) + 8LL * (unsigned int)a2);
+  if ( v4 )
+    return *(unsigned int *)(v4 + 72);
+  v6 = WdLogNewEntry5_WdWarning(0LL, a2, a3);
+  *(_QWORD *)(v6 + 24) = v3;
+  WdLogEvent5_WdWarning(v6);
   return 0LL;
 }

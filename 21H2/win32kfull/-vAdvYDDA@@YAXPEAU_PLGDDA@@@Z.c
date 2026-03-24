@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vAdvYDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C02D78DC
+ * XREFs of ?vAdvYDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C02D91E0
  * Callers:
- *     EngPlgBlt @ 0x1C028A2A0 (EngPlgBlt.c)
+ *     EngPlgBlt @ 0x1C028C5F0 (EngPlgBlt.c)
  * Callees:
  *     <none>
  */

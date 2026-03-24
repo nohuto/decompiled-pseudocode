@@ -1,14 +1,14 @@
 /*
- * XREFs of AuthzBasepAddAccessTypeList @ 0x140228C04
+ * XREFs of AuthzBasepAddAccessTypeList @ 0x1402FAD8C
  * Callers:
- *     SepMaximumAccessCheck @ 0x14022A180 (SepMaximumAccessCheck.c)
- *     SepNormalAccessCheckEx @ 0x14022AB08 (SepNormalAccessCheckEx.c)
- *     SepNormalAccessCheck @ 0x140233520 (SepNormalAccessCheck.c)
- *     SepMaximumAccessCheckEx @ 0x1403CD610 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheck @ 0x1402D1160 (SepNormalAccessCheck.c)
+ *     SepMaximumAccessCheck @ 0x1402D1A30 (SepMaximumAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x1403743A4 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheckEx @ 0x1403744CC (SepNormalAccessCheckEx.c)
  * Callees:
- *     AuthzBasepSetAccessReasons @ 0x140229490 (AuthzBasepSetAccessReasons.c)
- *     AuthzBasepSetAppContainerAccessReasons @ 0x14066F14C (AuthzBasepSetAppContainerAccessReasons.c)
- *     AuthzBasepUpdateParentTypeList @ 0x14066F198 (AuthzBasepUpdateParentTypeList.c)
+ *     AuthzBasepSetAccessReasons @ 0x1402FAE80 (AuthzBasepSetAccessReasons.c)
+ *     AuthzBasepSetAppContainerAccessReasons @ 0x1405C164C (AuthzBasepSetAppContainerAccessReasons.c)
+ *     AuthzBasepUpdateParentTypeList @ 0x1405C1698 (AuthzBasepUpdateParentTypeList.c)
  */
 
 __int64 __fastcall AuthzBasepAddAccessTypeList(
@@ -19,8 +19,8 @@ __int64 __fastcall AuthzBasepAddAccessTypeList(
         unsigned int a5,
         int a6)
 {
-  unsigned int v8; // r13d
-  char v10; // bl
+  char v6; // bl
+  unsigned int v9; // r13d
   unsigned int v11; // edi
   unsigned __int16 *v12; // rsi
   int v13; // ecx
@@ -40,8 +40,8 @@ __int64 __fastcall AuthzBasepAddAccessTypeList(
   int v27; // edx
   int v28; // ecx
 
-  v8 = a2;
-  v10 = 0;
+  v6 = 0;
+  v9 = a2;
   if ( !a6 )
   {
     v11 = a5;
@@ -99,14 +99,14 @@ LABEL_9:
     goto LABEL_9;
   }
 LABEL_4:
-  v10 = 1;
+  v6 = 1;
 LABEL_5:
-  if ( v8 != 1 )
+  if ( v9 != 1 )
   {
-    if ( !v10 )
-      result = AuthzBasepUpdateParentTypeList(a1, v8, a3, a4, a6);
+    if ( !v6 )
+      result = AuthzBasepUpdateParentTypeList(a1, v9, a3, a4, a6);
     v19 = a3 + 1;
-    if ( (unsigned int)v19 < v8 )
+    if ( (unsigned int)v19 < v9 )
     {
       v20 = (unsigned int *)(48 * v19 + a1 + 28);
       do
@@ -120,8 +120,8 @@ LABEL_5:
           {
             if ( a6 != 2 )
             {
-              v21 = (*v20 & v11) == 0;
-              v22 = *v20 & v11;
+              v21 = (v11 & *v20) == 0;
+              v22 = v11 & *v20;
               *v20 = v22;
               if ( !v21 )
                 result = AuthzBasepSetAppContainerAccessReasons(v22, a2, a4, *(_QWORD *)(v20 + 3));
@@ -165,7 +165,7 @@ LABEL_35:
         LODWORD(v19) = v19 + 1;
         v20 += 12;
       }
-      while ( (unsigned int)v19 < v8 );
+      while ( (unsigned int)v19 < v9 );
     }
   }
   return result;

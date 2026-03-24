@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pppxsb16b16_EtwWriteTransfer @ 0x1C0036BD8
+ * XREFs of McTemplateK0pppxsb16b16_EtwWriteTransfer @ 0x1C00350AC
  * Callers:
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033674 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022398 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0pppxsb16b16_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

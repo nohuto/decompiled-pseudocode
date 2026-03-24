@@ -1,24 +1,24 @@
 /*
- * XREFs of SepRmCapUpdateWrkr @ 0x14085D710
+ * XREFs of SepRmCapUpdateWrkr @ 0x1407CDD70
  * Callers:
- *     SepRmCommandServerThread @ 0x14083B300 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x1407AD230 (SepRmCommandServerThread.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     SepBuildCapPolicyTable @ 0x1403DA7FC (SepBuildCapPolicyTable.c)
- *     SepRmDereferenceCapTable @ 0x1405F4304 (SepRmDereferenceCapTable.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     SepBuildCapPolicyTable @ 0x1403CBB6C (SepBuildCapPolicyTable.c)
+ *     SepRmDereferenceCapTable @ 0x140596390 (SepRmDereferenceCapTable.c)
  */
 
-char __fastcall SepRmCapUpdateWrkr(__int64 a1, __int64 a2)
+__int64 __fastcall SepRmCapUpdateWrkr(__int64 a1, __int64 a2)
 {
   __int64 v2; // rcx
   int v4; // ebp
   struct _KTHREAD *v5; // rcx
   volatile signed __int64 *v6; // rsi
   char v7; // bl
-  char result; // al
+  __int64 result; // rax
   struct _KTHREAD *CurrentThread; // rax
   __int64 v10; // [rsp+30h] [rbp+8h] BYREF
 
@@ -34,7 +34,7 @@ char __fastcall SepRmCapUpdateWrkr(__int64 a1, __int64 a2)
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&SepRmCapTableLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(&SepRmCapTableLock);
     KeAbPostRelease((ULONG_PTR)&SepRmCapTableLock);
-    result = KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    result = (__int64)KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   else
   {
@@ -56,7 +56,7 @@ char __fastcall SepRmCapUpdateWrkr(__int64 a1, __int64 a2)
     if ( (v7 & 2) != 0 && (v7 & 4) == 0 )
       ExfTryToWakePushLock(&SepRmCapTableLock);
     KeAbPostRelease((ULONG_PTR)&SepRmCapTableLock);
-    result = KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    result = (__int64)KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( v6 )
       result = SepRmDereferenceCapTable(v6);
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of IsPointerPrimary @ 0x1C01ECCAC
+ * XREFs of IsPointerPrimary @ 0x1C01F2438
  * Callers:
- *     xxxHandleMenuMessages @ 0x1C022D700 (xxxHandleMenuMessages.c)
+ *     xxxHandleMenuMessages @ 0x1C0233F78 (xxxHandleMenuMessages.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ int __fastcall IsPointerPrimary(__int64 a1, unsigned __int16 a2)
 
   ThreadPointerData = CTouchProcessor::GetThreadPointerData(
                         gpTouchProcessor,
-                        (struct tagTHREADINPUTPOINTERLIST *)(a1 + 1112),
+                        (struct tagTHREADINPUTPOINTERLIST *)(a1 + 1088),
                         a2,
                         0LL,
                         0LL,

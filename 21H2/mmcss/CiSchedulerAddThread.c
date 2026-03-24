@@ -1,10 +1,10 @@
 /*
- * XREFs of CiSchedulerAddThread @ 0x1C00028E0
+ * XREFs of CiSchedulerAddThread @ 0x1C0001850
  * Callers:
- *     CiThreadCreate @ 0x1C000AED0 (CiThreadCreate.c)
+ *     CiThreadCreate @ 0x1C000AB70 (CiThreadCreate.c)
  * Callees:
- *     CiSystemUpdateThreadTag @ 0x1C0002A20 (CiSystemUpdateThreadTag.c)
- *     CiSchedulerSetPriority @ 0x1C0002A60 (CiSchedulerSetPriority.c)
+ *     CiSchedulerSetPriority @ 0x1C0001940 (CiSchedulerSetPriority.c)
+ *     CiSystemUpdateThreadTag @ 0x1C0001B10 (CiSystemUpdateThreadTag.c)
  */
 
 void __fastcall CiSchedulerAddThread(__int64 a1, __int64 a2)
@@ -15,7 +15,7 @@ void __fastcall CiSchedulerAddThread(__int64 a1, __int64 a2)
   _QWORD *v7; // rcx
   _QWORD *v8; // rdx
   int v9; // eax
-  unsigned int v10; // ecx
+  __int64 v10; // rdx
 
   KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
   WPP_MAIN_CB.Queue.Wcb.CurrentIrp = KeGetCurrentThread();
@@ -45,17 +45,17 @@ FatalListEntryError:
   v9 = *(_DWORD *)(a1 + 184);
   if ( (v9 & 2) != 0 )
   {
-    v10 = 1;
+    v10 = 1LL;
+LABEL_9:
+    CiSystemUpdateThreadTag(a2, v10);
+    goto LABEL_7;
   }
-  else if ( (v9 & 4) != 0 )
+  if ( (v9 & 4) != 0 )
   {
-    v10 = 2;
+    v10 = 2LL;
+    goto LABEL_9;
   }
-  else
-  {
-    v10 = 3;
-  }
-  CiSystemUpdateThreadTag(a2, v10);
+LABEL_7:
   WPP_MAIN_CB.Queue.Wcb.CurrentIrp = 0LL;
   KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.DeviceObject, 0);
 }

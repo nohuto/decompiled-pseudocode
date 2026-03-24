@@ -1,95 +1,79 @@
 /*
- * XREFs of MiWriteTopLevelPxe @ 0x140201D04
+ * XREFs of MiWriteTopLevelPxe @ 0x14039D80C
  * Callers:
- *     MiDecommitLargePoolVa @ 0x140211A40 (MiDecommitLargePoolVa.c)
- *     MiDeleteSystemPageTable @ 0x14021DE10 (MiDeleteSystemPageTable.c)
- *     MiDeleteVa @ 0x14027A4A0 (MiDeleteVa.c)
- *     MiLinkPoolCommitChain @ 0x140286180 (MiLinkPoolCommitChain.c)
- *     MiDeletePteRun @ 0x1402D50F0 (MiDeletePteRun.c)
- *     MiZeroAndFlushPtes @ 0x140335CBC (MiZeroAndFlushPtes.c)
+ *     MiDeletePteRun @ 0x1402365D0 (MiDeletePteRun.c)
+ *     MiLinkPoolCommitChain @ 0x14028BBC0 (MiLinkPoolCommitChain.c)
+ *     MiDeleteVa @ 0x1402B8110 (MiDeleteVa.c)
+ *     MiDeleteTopLevelSessionMapping @ 0x1403F3AC8 (MiDeleteTopLevelSessionMapping.c)
+ *     MiMapNewSession @ 0x140786F8C (MiMapNewSession.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     MiReplicatePteChange @ 0x140367CB0 (MiReplicatePteChange.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiWriteTopLevelPxe(_QWORD *a1, __int64 a2)
+__int64 __fastcall MiWriteTopLevelPxe(__int64 *a1, __int64 a2)
 {
-  int v4; // eax
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  BOOL v7; // edx
+  BOOL v4; // eax
+  __int64 v5; // r8
+  int v6; // edx
   __int64 result; // rax
   unsigned __int64 OldIrql; // rbx
-  __int64 v10; // rdx
-  int v11; // r8d
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v14; // zf
-  struct _KLOCK_QUEUE_HANDLE v15; // [rsp+20h] [rbp-28h] BYREF
+  bool v12; // zf
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&v15, 0, sizeof(v15));
-  KeAcquireInStackQueuedSpinLock(&qword_140C698C0, &v15);
-  v4 = MiPteInShadowRange(a1);
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
+  v4 = MiPteInShadowRange((unsigned __int64)a1);
+  v6 = 0;
   if ( (a2 & 1) != 0 )
   {
-    v11 = 0;
-    v10 = a2;
     if ( !v4 )
-      goto LABEL_14;
-    if ( (unsigned int)MiPteHasShadow(v5, a2, 0LL) )
+      goto LABEL_3;
+    if ( (unsigned int)MiPteHasShadow() )
     {
-      v11 = 1;
-      if ( HIBYTE(word_140C66DFC) )
-      {
-LABEL_14:
-        *a1 = v10;
-        if ( !v11 )
-          goto LABEL_5;
-LABEL_15:
-        MiWritePteShadow(a1, v10);
-        goto LABEL_5;
-      }
+      v6 = 1;
+      if ( HIBYTE(word_140C4E008) )
+        goto LABEL_3;
     }
     else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
     {
-      goto LABEL_14;
+      goto LABEL_3;
     }
-    v10 |= 0x8000000000000000uLL;
-    goto LABEL_14;
+    a2 |= 0x8000000000000000uLL;
   }
-  v7 = 0;
-  if ( v4 )
-    v7 = MiPteHasShadow(v5, 0LL, v6) != 0;
-  *a1 = a2;
-  if ( v7 )
+  else if ( v4 )
   {
-    v10 = a2;
-    goto LABEL_15;
+    if ( (unsigned int)MiPteHasShadow() )
+      v6 = 1;
   }
-LABEL_5:
-  MiReplicatePteChange(a1, a2, 1LL);
-  result = KxReleaseQueuedSpinLock(&v15);
-  OldIrql = v15.OldIrql;
+LABEL_3:
+  *a1 = a2;
+  if ( v6 )
+    MiWritePteShadow((__int64)a1, a2, v5);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  result = (unsigned int)KiIrqlFlags;
+  OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && v15.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (v15.OldIrql + 1));
-      v14 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v14 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v12 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);

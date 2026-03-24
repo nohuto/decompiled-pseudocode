@@ -1,15 +1,15 @@
 /*
- * XREFs of PspLookupProcessQuotaBlock @ 0x1407F8D08
+ * XREFs of PspLookupProcessQuotaBlock @ 0x140690A4C
  * Callers:
- *     PspAssignProcessQuotaBlock @ 0x1407F8B1C (PspAssignProcessQuotaBlock.c)
+ *     PspAssignProcessQuotaBlock @ 0x140690864 (PspAssignProcessQuotaBlock.c)
  * Callees:
- *     RtlEqualSid @ 0x14022A790 (RtlEqualSid.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     PspUnlockQuotaListShared @ 0x140371084 (PspUnlockQuotaListShared.c)
- *     PspUnlockQuotaListExclusive @ 0x1403B537C (PspUnlockQuotaListExclusive.c)
- *     PspHashKeyValue @ 0x1407F8E04 (PspHashKeyValue.c)
- *     PspSafeReferenceQuotaBlock @ 0x1407FB810 (PspSafeReferenceQuotaBlock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     PspUnlockQuotaListShared @ 0x14031BA88 (PspUnlockQuotaListShared.c)
+ *     RtlEqualSid @ 0x1403459F0 (RtlEqualSid.c)
+ *     PspUnlockQuotaListExclusive @ 0x1403CF5DC (PspUnlockQuotaListExclusive.c)
+ *     PspHashKeyValue @ 0x140690B48 (PspHashKeyValue.c)
+ *     PspSafeReferenceQuotaBlock @ 0x140690D14 (PspSafeReferenceQuotaBlock.c)
  */
 
 __int64 __fastcall PspLookupProcessQuotaBlock(void *a1, __int64 a2, int a3, __int64 a4)
@@ -17,28 +17,28 @@ __int64 __fastcall PspLookupProcessQuotaBlock(void *a1, __int64 a2, int a3, __in
   struct _KTHREAD *CurrentThread; // rbp
   unsigned int v8; // eax
   __int64 v9; // rbx
-  ULONG_PTR v10; // rsi
-  _QWORD *i; // rdi
-  _QWORD *v13; // rax
+  signed __int64 *v10; // rsi
+  signed __int64 *i; // rdi
+  signed __int64 *v13; // rax
   _QWORD *v15; // rbx
   __int64 v16; // rcx
   _QWORD *v17; // rax
-  _QWORD *v18; // rdx
+  signed __int64 **v18; // rdx
 
   CurrentThread = KeGetCurrentThread();
   v8 = PspHashKeyValue();
   --CurrentThread->KernelApcDisable;
   v9 = 0LL;
-  v10 = PspQuotaBlockTable + 24LL * v8;
+  v10 = (signed __int64 *)(PspQuotaBlockTable + 24LL * v8);
   if ( a4 )
-    ExAcquirePushLockExclusiveEx(v10, 0LL);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)v10, 0LL);
   else
-    ExAcquirePushLockSharedEx(v10, 0LL);
+    ExAcquirePushLockSharedEx((ULONG_PTR)v10, 0LL);
   if ( a1 )
   {
-    for ( i = *(_QWORD **)(v10 + 8); ; i = (_QWORD *)*i )
+    for ( i = (signed __int64 *)v10[1]; ; i = (signed __int64 *)*i )
     {
-      if ( i == (_QWORD *)(v10 + 8) )
+      if ( i == v10 + 1 )
         goto LABEL_6;
       if ( RtlEqualSid(a1, i + 7) )
         break;
@@ -81,28 +81,28 @@ LABEL_6:
     if ( v9 )
     {
 LABEL_17:
-      PspUnlockQuotaListExclusive((__int64)CurrentThread, (volatile signed __int64 *)v10);
+      PspUnlockQuotaListExclusive((__int64)CurrentThread, (unsigned __int64)v10);
       return v9;
     }
-    v13 = (_QWORD *)(a4 + 520);
+    v13 = (signed __int64 *)(a4 + 520);
     if ( a3 )
     {
       PspDefaultQuotaBlock = a4;
       *v13 = 1LL;
       goto LABEL_17;
     }
-    v18 = *(_QWORD **)(v10 + 16);
-    if ( *v18 == v10 + 8 )
+    v18 = (signed __int64 **)v10[2];
+    if ( *v18 == v10 + 1 )
     {
-      *v13 = v10 + 8;
+      *v13 = (signed __int64)(v10 + 1);
       *(_QWORD *)(a4 + 528) = v18;
       *v18 = v13;
-      *(_QWORD *)(v10 + 16) = v13;
+      v10[2] = (signed __int64)v13;
       goto LABEL_17;
     }
 LABEL_31:
     __fastfail(3u);
   }
-  PspUnlockQuotaListShared((__int64)CurrentThread, (signed __int64 *)v10);
+  PspUnlockQuotaListShared((__int64)CurrentThread, v10);
   return v9;
 }

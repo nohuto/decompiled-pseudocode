@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpTraceStackKey @ 0x140468F10
+ * XREFs of EtwpTraceStackKey @ 0x1405ADCEC
  * Callers:
- *     EtwpTraceStackWalk @ 0x14046896C (EtwpTraceStackWalk.c)
+ *     EtwpTraceStackWalk @ 0x1405A7074 (EtwpTraceStackWalk.c)
  * Callees:
- *     KxTryToAcquireSpinLock @ 0x14020D904 (KxTryToAcquireSpinLock.c)
- *     EtwpLogKernelEvent @ 0x140233C80 (EtwpLogKernelEvent.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     RtlpInterlockedPopEntrySList @ 0x1404287F0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     EtwpDereferenceStackEntry @ 0x140468C12 (EtwpDereferenceStackEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     EtwpLogKernelEvent @ 0x1402D0790 (EtwpLogKernelEvent.c)
+ *     KxTryToAcquireSpinLock @ 0x140329D48 (KxTryToAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     EtwpDereferenceStackEntry @ 0x1405AD9F8 (EtwpDereferenceStackEntry.c)
  */
 
 char __fastcall EtwpTraceStackKey(
@@ -23,74 +23,75 @@ char __fastcall EtwpTraceStackKey(
         __int64 a5,
         unsigned int a6)
 {
-  unsigned int **v6; // r14
-  char v7; // bp
+  __int64 v6; // r11
+  char v7; // di
   unsigned int v8; // r15d
-  unsigned int *v9; // r13
-  unsigned int v10; // r11d
-  unsigned __int64 v11; // r8
+  unsigned __int64 v9; // r8
+  unsigned int v10; // ebx
+  PSLIST_ENTRY v11; // r13
   unsigned int v12; // r9d
   __int64 v13; // r10
   __int64 v14; // rax
   int v15; // edx
-  int v16; // ebx
-  unsigned int **v17; // rsi
-  unsigned __int8 CurrentIrql; // al
-  unsigned __int8 v19; // cl
-  _DWORD *SchedulerAssist; // r9
-  __int64 v21; // rdx
-  PSLIST_ENTRY v22; // rdi
-  unsigned int v23; // eax
-  unsigned int v24; // ecx
-  PSLIST_ENTRY v25; // r14
-  unsigned int Next; // edx
-  _SLIST_ENTRY *v27; // rcx
-  PSLIST_ENTRY *v28; // rax
-  unsigned int *v29; // rax
-  unsigned __int8 v30; // al
+  __int64 v16; // rdx
+  int v17; // ebx
+  _SLIST_ENTRY *v18; // r14
+  __int64 CurrentIrql; // rbp
+  _SLIST_ENTRY *Next; // rsi
+  unsigned int v21; // eax
+  unsigned int v22; // edx
+  unsigned __int64 Alignment; // rcx
+  unsigned int v24; // r8d
+  _SLIST_ENTRY *v25; // rdx
+  _SLIST_ENTRY **v26; // rax
+  _SLIST_ENTRY *v27; // rax
+  unsigned __int8 v28; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v32; // r8
-  int v33; // eax
-  bool v34; // zf
-  unsigned int *v35; // rax
-  __int64 v36; // rbx
+  _DWORD *v30; // r8
+  int v31; // eax
+  bool v32; // zf
+  unsigned __int8 v33; // cl
+  _DWORD *SchedulerAssist; // r9
+  PSLIST_ENTRY *v35; // rax
+  unsigned int v36; // ebx
   PSLIST_ENTRY v37; // rbp
-  union _SLIST_HEADER *v38; // r12
-  PSLIST_ENTRY v39; // rax
-  PSLIST_ENTRY v40; // r14
-  unsigned int v41; // r15d
-  unsigned __int8 v42; // al
-  struct _KPRCB *v43; // r9
-  _DWORD *v44; // r8
-  int v45; // eax
-  struct _SLIST_ENTRY *v46; // rbx
-  PSLIST_ENTRY *v47; // rax
-  unsigned __int8 v48; // al
-  struct _KPRCB *v49; // r9
-  _DWORD *v50; // r8
-  int v51; // eax
-  unsigned __int8 v53; // [rsp+30h] [rbp-88h]
-  unsigned __int8 v54; // [rsp+38h] [rbp-80h]
-  int v55; // [rsp+3Ch] [rbp-7Ch]
-  unsigned int v56; // [rsp+40h] [rbp-78h]
-  unsigned int **v57; // [rsp+48h] [rbp-70h]
-  unsigned int ListHead; // [rsp+50h] [rbp-68h]
-  union _SLIST_HEADER *ListHeada; // [rsp+50h] [rbp-68h]
-  PSLIST_ENTRY ListEntry; // [rsp+60h] [rbp-58h] BYREF
-  unsigned int **v61; // [rsp+68h] [rbp-50h]
+  PSLIST_ENTRY v38; // r15
+  unsigned int v39; // r12d
+  unsigned __int8 v40; // al
+  struct _KPRCB *v41; // r9
+  _DWORD *v42; // r8
+  int v43; // eax
+  _SLIST_ENTRY *v44; // rbx
+  _SLIST_ENTRY **v45; // rax
+  unsigned __int8 v46; // al
+  struct _KPRCB *v47; // r9
+  _DWORD *v48; // r8
+  int v49; // eax
+  int v51; // [rsp+34h] [rbp-94h]
+  unsigned int v52; // [rsp+38h] [rbp-90h]
+  PSLIST_HEADER ListHead; // [rsp+40h] [rbp-88h]
+  unsigned int v54; // [rsp+48h] [rbp-80h]
+  __int64 v55; // [rsp+50h] [rbp-78h]
+  PSLIST_ENTRY v56; // [rsp+58h] [rbp-70h] BYREF
+  PSLIST_ENTRY ListEntry; // [rsp+60h] [rbp-68h]
+  PKSPIN_LOCK SpinLock; // [rsp+68h] [rbp-60h]
+  _SLIST_ENTRY *v59; // [rsp+70h] [rbp-58h]
+  __int64 v60; // [rsp+78h] [rbp-50h]
 
-  v6 = *(unsigned int ***)(a1 + 1008);
-  ListEntry = 0LL;
-  v57 = v6;
+  v6 = *(_QWORD *)(a1 + 992);
+  v7 = 0;
+  v56 = 0LL;
+  v55 = v6;
   if ( !v6 )
-    return 0;
+    return v7;
   v8 = a6;
-  v9 = 0LL;
+  ListEntry = 0LL;
+  v9 = 4LL * a6;
   v10 = 0;
-  v11 = 4LL * a6;
+  v52 = 0;
+  v11 = 0LL;
   v12 = 0;
-  v56 = 0;
-  if ( v11 )
+  if ( v9 )
   {
     v13 = 0LL;
     do
@@ -101,218 +102,228 @@ char __fastcall EtwpTraceStackKey(
       v13 = v12;
       v10 += v15;
     }
-    while ( v12 < v11 );
+    while ( v12 < v9 );
     v8 = a6;
-    v56 = v10;
+    v52 = v10;
   }
-  v16 = 0;
-  v17 = &(&v6[2 * (v10 % *((_DWORD *)v6 + 2)) + 4])[v10 % *((_DWORD *)v6 + 2)];
-  v61 = v17;
+  v16 = v10 % *(_DWORD *)(v6 + 8);
+  v17 = 0;
+  v18 = (_SLIST_ENTRY *)(v6 + 8 * (v16 + 2 * (v16 + 2)));
+  v59 = v18;
   CurrentIrql = KeGetCurrentIrql();
-  v53 = CurrentIrql;
-  v7 = 1;
-  v54 = CurrentIrql;
-  if ( !CurrentIrql || CurrentIrql == 1 )
+  v60 = CurrentIrql;
+  if ( (unsigned __int8)CurrentIrql <= 1u )
   {
-    v19 = KeGetCurrentIrql();
+    v33 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v19 <= 0xFu )
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v33 <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( v19 == 2 )
-        LODWORD(v21) = 4;
-      else
-        v21 = (-1LL << (v19 + 1)) & 4;
-      SchedulerAssist[5] |= v21;
+      SchedulerAssist[5] |= (-1 << (v33 + 1)) & 4;
     }
-    goto LABEL_19;
   }
-  if ( CurrentIrql == 2 )
+  else if ( (_BYTE)CurrentIrql != 2 )
   {
-LABEL_19:
-    KxAcquireSpinLock((PKSPIN_LOCK)v17 + 2);
-    goto LABEL_20;
+    SpinLock = (PKSPIN_LOCK)&v18[1];
+    if ( !KxTryToAcquireSpinLock((volatile signed __int32 *)&v18[1]) )
+      return v7;
+    v17 = 0;
+    goto LABEL_10;
   }
-  if ( !KxTryToAcquireSpinLock((volatile signed __int32 *)v17 + 4) )
-    return 0;
-LABEL_20:
-  v22 = (PSLIST_ENTRY)*v17;
-  if ( *v17 != (unsigned int *)v17 )
+  SpinLock = (PKSPIN_LOCK)&v18[1];
+  KxAcquireSpinLock((PKSPIN_LOCK)&v18[1]);
+LABEL_10:
+  Next = v18->Next;
+  if ( v18->Next != v18 )
   {
-    v23 = v56;
+    v21 = v52;
     do
     {
-      ++v16;
-      if ( *((_DWORD *)&v22[1].Next + 3) == v23 && LODWORD(v22[2].Next) == v8 )
+      ++v17;
+      if ( *((_DWORD *)&Next[1].Next + 3) == v21 && LODWORD(Next[2].Next) == v8 )
       {
-        v24 = 0;
-        v25 = v22;
-        v55 = 0;
+        v22 = 0;
+        Alignment = (unsigned __int64)Next;
+        v51 = 0;
+        ListHead = (PSLIST_HEADER)Next;
         while ( 1 )
         {
-          Next = 32;
-          if ( LODWORD(v25[2].Next) < 0x20 )
-            Next = (unsigned int)v25[2].Next;
-          ListHead = Next;
-          if ( RtlCompareMemory(&v25[2].Next + 1, (const void *)(a5 + 8LL * v24), 8LL * Next) != 8LL * Next )
+          v24 = 32;
+          if ( *(_DWORD *)(Alignment + 32) < 0x20u )
+            v24 = *(_DWORD *)(Alignment + 32);
+          v54 = v24;
+          if ( RtlCompareMemory((const void *)(Alignment + 40), (const void *)(a5 + 8LL * v22), 8LL * v24) != 8LL * v24 )
             break;
-          v24 = ListHead + v55;
-          v25 = v25[1].Next;
-          v55 += ListHead;
-          if ( !v25 )
+          v22 = v54 + v51;
+          v51 += v54;
+          Alignment = ListHead[1].Alignment;
+          ListHead = (PSLIST_HEADER)Alignment;
+          if ( !Alignment )
           {
-            _InterlockedAdd((volatile signed __int32 *)&v22[1].Next + 2, 1u);
-            v27 = v22->Next;
-            v28 = (PSLIST_ENTRY *)*((_QWORD *)&v22->Next + 1);
-            if ( *(&v22->Next->Next + 1) == v22 && *v28 == v22 )
+            _InterlockedIncrement((volatile signed __int32 *)&Next[1].Next + 2);
+            v25 = Next->Next;
+            v26 = (_SLIST_ENTRY **)*((_QWORD *)&Next->Next + 1);
+            if ( *(&Next->Next->Next + 1) == Next && *v26 == Next )
             {
-              *v28 = v27;
-              *((_QWORD *)&v27->Next + 1) = v28;
-              v29 = *v17;
-              if ( *((unsigned int ***)*v17 + 1) == v17 )
+              *v26 = v25;
+              *((_QWORD *)&v25->Next + 1) = v26;
+              v27 = v18->Next;
+              if ( *(&v18->Next->Next + 1) == v18 )
               {
-                v22->Next = (_SLIST_ENTRY *)v29;
-                *((_QWORD *)&v22->Next + 1) = v17;
-                *((_QWORD *)v29 + 1) = v22;
-                *v17 = (unsigned int *)v22;
-                KxReleaseSpinLock((volatile signed __int64 *)v17 + 2);
+                Next->Next = v27;
+                *((_QWORD *)&Next->Next + 1) = v18;
+                *((_QWORD *)&v27->Next + 1) = Next;
+                v18->Next = Next;
+                KxReleaseSpinLock((PKSPIN_LOCK)&v18[1]);
                 if ( KiIrqlFlags )
                 {
-                  v30 = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && v53 <= 0xFu && v30 >= 2u )
+                  if ( (KiIrqlFlags & 1) != 0 )
                   {
-                    CurrentPrcb = KeGetCurrentPrcb();
-                    v32 = CurrentPrcb->SchedulerAssist;
-                    v33 = ~(unsigned __int16)(-1LL << (v54 + 1));
-                    v34 = (v33 & v32[5]) == 0;
-                    v32[5] &= v33;
-                    if ( v34 )
-                      KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                    v28 = KeGetCurrentIrql();
+                    if ( v28 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v28 >= 2u )
+                    {
+                      CurrentPrcb = KeGetCurrentPrcb();
+                      v30 = CurrentPrcb->SchedulerAssist;
+                      v31 = ~(unsigned __int16)(-1LL << ((unsigned __int8)CurrentIrql + 1));
+                      v32 = (v31 & v30[5]) == 0;
+                      v30[5] &= v31;
+                      if ( v32 )
+                        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+                    }
                   }
                 }
-                __writecr8(v53);
-                goto LABEL_82;
+                __writecr8((unsigned __int8)CurrentIrql);
+                goto LABEL_78;
               }
             }
-LABEL_72:
+LABEL_68:
             __fastfail(3u);
           }
         }
-        v23 = v56;
+        v21 = v52;
       }
-      v22 = v22->Next;
+      Next = Next->Next;
     }
-    while ( v22 != (PSLIST_ENTRY)v17 );
-    if ( v16 == 4 )
+    while ( Next != v18 );
+    if ( v17 == 4 )
     {
-      v9 = v17[1];
-      v35 = (unsigned int *)*((_QWORD *)v9 + 1);
-      if ( *(unsigned int ***)v9 != v17 || *(unsigned int **)v35 != v9 )
-        goto LABEL_72;
-      v17[1] = v35;
-      *(_QWORD *)v35 = v17;
+      v11 = (PSLIST_ENTRY)*((_QWORD *)&v18->Next + 1);
+      ListEntry = v11;
+      v35 = (PSLIST_ENTRY *)*((_QWORD *)&v11->Next + 1);
+      if ( v11->Next != v18 || *v35 != v11 )
+        goto LABEL_68;
+      *((_QWORD *)&v18->Next + 1) = v35;
+      *v35 = v18;
     }
-    v6 = v57;
   }
-  v22 = 0LL;
-  v36 = 0LL;
-  if ( v8 )
+  Next = 0LL;
+  v36 = 0;
+  if ( !v8 )
+    goto LABEL_67;
+  v37 = 0LL;
+  while ( 1 )
   {
-    v37 = 0LL;
-    v38 = (union _SLIST_HEADER *)(v6 + 2);
-    ListHeada = (union _SLIST_HEADER *)(v6 + 2);
-    do
+    v38 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(v55 + 16));
+    if ( !v38 )
+      break;
+    if ( v36 + 32 >= a6 )
+      v39 = a6 - v36;
+    else
+      v39 = 32;
+    memmove(&v38[2].Next + 1, (const void *)(a5 + 8LL * v36), 8LL * v39);
+    if ( v36 )
+      LODWORD(v38[2].Next) = v39;
+    else
+      Next = v38;
+    if ( v37 )
+      v37[1].Next = v38;
+    v37 = v38;
+    v38[1].Next = 0LL;
+    v8 = a6;
+    v36 += v39;
+    if ( v36 >= a6 )
+      goto LABEL_55;
+  }
+  v8 = a6;
+LABEL_55:
+  v18 = v59;
+  LOBYTE(CurrentIrql) = v60;
+  v11 = ListEntry;
+  if ( v36 < v8 )
+  {
+    KxReleaseSpinLock(SpinLock);
+    if ( KiIrqlFlags )
     {
-      v39 = RtlpInterlockedPopEntrySList(v38);
-      v40 = v39;
-      if ( !v39 )
-        break;
-      if ( (int)v36 + 32 >= v8 )
-        v41 = v8 - v36;
-      else
-        v41 = 32;
-      memmove(&v39[2].Next + 1, (const void *)(a5 + 8 * v36), 8LL * v41);
-      if ( (_DWORD)v36 )
-        LODWORD(v40[2].Next) = v41;
-      else
-        v22 = v40;
-      if ( v37 )
-        v37[1].Next = v40;
-      v40[1].Next = 0LL;
-      v36 = v41 + (unsigned int)v36;
-      v8 = a6;
-      v37 = v40;
-    }
-    while ( (unsigned int)v36 < a6 );
-    v17 = v61;
-    v7 = 1;
-    if ( (unsigned int)v36 < v8 )
-    {
-      KxReleaseSpinLock((volatile signed __int64 *)v61 + 2);
-      if ( KiIrqlFlags )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        v42 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v42 <= 0xFu && v53 <= 0xFu && v42 >= 2u )
+        v40 = KeGetCurrentIrql();
+        if ( v40 <= 0xFu && (unsigned __int8)v60 <= 0xFu && v40 >= 2u )
         {
-          v43 = KeGetCurrentPrcb();
-          v44 = v43->SchedulerAssist;
-          v45 = ~(unsigned __int16)(-1LL << (v54 + 1));
-          v34 = (v45 & v44[5]) == 0;
-          v44[5] &= v45;
-          if ( v34 )
-            KiRemoveSystemWorkPriorityKick(v43);
+          v41 = KeGetCurrentPrcb();
+          v42 = v41->SchedulerAssist;
+          v43 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v60 + 1));
+          v32 = (v43 & v42[5]) == 0;
+          v42[5] &= v43;
+          if ( v32 )
+            KiRemoveSystemWorkPriorityKick((__int64)v41);
         }
       }
-      __writecr8(v53);
-      if ( v22 )
-      {
-        do
-        {
-          v46 = v22[1].Next;
-          RtlpInterlockedPushEntrySList(ListHeada, v22);
-          v22 = v46;
-        }
-        while ( v46 );
-      }
-      if ( v9 )
-        EtwpDereferenceStackEntry((PSLIST_ENTRY)v9, v57);
-      return 0;
     }
-  }
-  *((_DWORD *)&v22[1].Next + 3) = v56;
-  LODWORD(v22[2].Next) = v8;
-  *((_DWORD *)&v22[1].Next + 2) = 2;
-  v47 = (PSLIST_ENTRY *)v17[1];
-  if ( *v47 != (PSLIST_ENTRY)v17 )
-    goto LABEL_72;
-  v22->Next = (_SLIST_ENTRY *)v17;
-  *((_QWORD *)&v22->Next + 1) = v47;
-  *v47 = v22;
-  v17[1] = (unsigned int *)v22;
-  KxReleaseSpinLock((volatile signed __int64 *)v17 + 2);
-  if ( KiIrqlFlags )
-  {
-    v48 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v48 <= 0xFu && v53 <= 0xFu && v48 >= 2u )
+    __writecr8((unsigned __int8)CurrentIrql);
+    if ( Next )
     {
-      v49 = KeGetCurrentPrcb();
-      v50 = v49->SchedulerAssist;
-      v51 = ~(unsigned __int16)(-1LL << (v54 + 1));
-      v34 = (v51 & v50[5]) == 0;
-      v50[5] &= v51;
-      if ( v34 )
-        KiRemoveSystemWorkPriorityKick(v49);
+      do
+      {
+        v44 = Next[1].Next;
+        RtlpInterlockedPushEntrySList((PSLIST_HEADER)(v55 + 16), Next);
+        Next = v44;
+      }
+      while ( v44 );
     }
+    if ( v11 )
+      EtwpDereferenceStackEntry(v11, (unsigned int **)v55);
   }
-  __writecr8(v53);
-  if ( v9 )
-    EtwpDereferenceStackEntry((PSLIST_ENTRY)v9, v57);
-LABEL_82:
-  ListEntry = v22;
-  *(_DWORD *)(a4 + 28) = 0;
-  *(_QWORD *)(a4 + 16) = &ListEntry;
-  *(_DWORD *)(a4 + 24) = 8;
-  EtwpLogKernelEvent(a4, *(_QWORD *)(a1 + 1096), *(_DWORD *)a1, 2u, a3, a2);
-  EtwpDereferenceStackEntry(ListEntry, *(unsigned int ***)(a1 + 1008));
+  else
+  {
+LABEL_67:
+    *((_DWORD *)&Next[1].Next + 3) = v52;
+    LODWORD(Next[2].Next) = v8;
+    *((_DWORD *)&Next[1].Next + 2) = 2;
+    v45 = (_SLIST_ENTRY **)*((_QWORD *)&v18->Next + 1);
+    if ( *v45 != v18 )
+      goto LABEL_68;
+    Next->Next = v18;
+    *((_QWORD *)&Next->Next + 1) = v45;
+    *v45 = Next;
+    *((_QWORD *)&v18->Next + 1) = Next;
+    KxReleaseSpinLock((PKSPIN_LOCK)&v18[1]);
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        v46 = KeGetCurrentIrql();
+        if ( v46 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v46 >= 2u )
+        {
+          v47 = KeGetCurrentPrcb();
+          v48 = v47->SchedulerAssist;
+          v49 = ~(unsigned __int16)(-1LL << ((unsigned __int8)CurrentIrql + 1));
+          v32 = (v49 & v48[5]) == 0;
+          v48[5] &= v49;
+          if ( v32 )
+            KiRemoveSystemWorkPriorityKick((__int64)v47);
+        }
+      }
+    }
+    __writecr8((unsigned __int8)CurrentIrql);
+    if ( v11 )
+      EtwpDereferenceStackEntry(v11, (unsigned int **)v55);
+LABEL_78:
+    v56 = Next;
+    *(_QWORD *)(a4 + 16) = &v56;
+    *(_QWORD *)(a4 + 24) = 8LL;
+    EtwpLogKernelEvent(a4, *(_QWORD *)(a1 + 1080), *(_DWORD *)a1, 2u, a3, a2);
+    EtwpDereferenceStackEntry(v56, *(unsigned int ***)(a1 + 992));
+    return 1;
+  }
   return v7;
 }

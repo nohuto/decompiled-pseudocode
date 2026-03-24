@@ -1,73 +1,73 @@
 /*
- * XREFs of xxxMNFindChar @ 0x1C023F070
+ * XREFs of xxxMNFindChar @ 0x1C0250318
  * Callers:
- *     xxxMNChar @ 0x1C02170F8 (xxxMNChar.c)
+ *     xxxMNChar @ 0x1C02372E4 (xxxMNChar.c)
  * Callees:
- *     xxxClientFindMnemChar @ 0x1C0212504 (xxxClientFindMnemChar.c)
- *     MNFindNextValidItem @ 0x1C023EFB0 (MNFindNextValidItem.c)
+ *     xxxClientFindMnemChar @ 0x1C02322F0 (xxxClientFindMnemChar.c)
+ *     MNFindNextValidItem @ 0x1C0250258 (MNFindNextValidItem.c)
  */
 
 __int64 __fastcall xxxMNFindChar(__int64 **a1, int a2, int a3, unsigned int *a4)
 {
   int v4; // ebp
   int v5; // ebx
+  __int16 v6; // r13
   unsigned int MnemChar; // esi
-  unsigned int v9; // edi
-  int ValidItem; // r13d
-  __int64 v11; // rax
-  __int64 v12; // rcx
+  unsigned int v10; // edi
+  int ValidItem; // r15d
+  __int64 v12; // rax
   __int64 v13; // rcx
-  int v14; // r12d
-  int v15; // eax
-  _QWORD *v16; // rax
-  const WCHAR *v17; // rdx
-  struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-48h] BYREF
-  __int16 v19; // [rsp+78h] [rbp+10h]
+  __int64 v14; // rcx
+  int v15; // r12d
+  int v16; // eax
+  _QWORD *v17; // rax
+  const WCHAR *v18; // rdx
+  struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
 
-  v19 = a2;
   v4 = -1;
   v5 = a3;
+  v6 = a2;
   if ( !a2 )
     return 0LL;
   MnemChar = 0;
-  v9 = -1;
+  v10 = -1;
   ValidItem = a3;
   if ( a3 < 0 )
   {
-    v11 = *(_QWORD *)(**a1 + 40);
-    v12 = (__int64)a1[2];
-    if ( !v12 )
-      v12 = **a1;
-    ValidItem = MNFindNextValidItem(v12, *(_DWORD *)(v11 + 44), -1, 1);
+    v12 = *(_QWORD *)(**a1 + 40);
+    v13 = (__int64)a1[2];
+    if ( !v13 )
+      v13 = **a1;
+    ValidItem = MNFindNextValidItem(v13, *(_DWORD *)(v12 + 44), -1, 1);
   }
   do
   {
-    v13 = (__int64)a1[2];
-    v14 = v5;
-    if ( !v13 )
-      v13 = **a1;
-    v15 = MNFindNextValidItem(v13, v5, 1, 1);
-    v5 = v15;
-    if ( v15 == -1 || v15 == v4 )
+    v14 = (__int64)a1[2];
+    v15 = v5;
+    if ( !v14 )
+      v14 = **a1;
+    v16 = MNFindNextValidItem(v14, v5, 1, 1);
+    v5 = v16;
+    if ( v16 == -1 || v16 == v4 )
       break;
     if ( v4 == -1 )
-      v4 = v15;
-    v16 = (_QWORD *)(*(_QWORD *)(**a1 + 88) + 96LL * v15);
-    v17 = (const WCHAR *)v16[3];
-    if ( v17 && *(_DWORD *)(*v16 + 48LL) )
+      v4 = v16;
+    v17 = (_QWORD *)(*(_QWORD *)(**a1 + 88) + 96LL * v16);
+    v18 = (const WCHAR *)v17[3];
+    if ( v18 && *(_DWORD *)(*v17 + 48LL) )
     {
       DestinationString = 0LL;
-      if ( *v17 == 8 )
-        ++v17;
-      RtlInitUnicodeString(&DestinationString, v17);
-      MnemChar = (unsigned int)xxxClientFindMnemChar((char **)&DestinationString, v19);
-      if ( MnemChar == 128 && v9 == -1 )
-        v9 = v5;
+      if ( *v18 == 8 )
+        ++v18;
+      RtlInitUnicodeString(&DestinationString, v18);
+      MnemChar = (unsigned int)xxxClientFindMnemChar(&DestinationString.Length, v6);
+      if ( MnemChar == 128 && v10 == -1 )
+        v10 = v5;
     }
   }
-  while ( v5 != v14 && MnemChar != 1 && ValidItem != v5 );
+  while ( v5 != v15 && MnemChar != 1 && ValidItem != v5 );
   if ( MnemChar == 1 )
-    v9 = v5;
+    v10 = v5;
   *a4 = MnemChar;
-  return v9;
+  return v10;
 }

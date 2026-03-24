@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierRtlHashUnicodeString @ 0x140AE2C30
+ * XREFs of VerifierRtlHashUnicodeString @ 0x1409E5980
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierRtlHashUnicodeString()

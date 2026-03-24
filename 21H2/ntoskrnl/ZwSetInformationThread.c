@@ -1,15 +1,14 @@
 /*
- * XREFs of ZwSetInformationThread @ 0x14041B900
+ * XREFs of ZwSetInformationThread @ 0x1403FA540
  * Callers:
- *     ExpWorkerFactoryCreateThread @ 0x1402D5484 (ExpWorkerFactoryCreateThread.c)
- *     DifZwSetInformationThreadWrapper @ 0x1406277D0 (DifZwSetInformationThreadWrapper.c)
- *     RtlAcquirePrivilege @ 0x1406CB6DC (RtlAcquirePrivilege.c)
- *     RtlImpersonateSelfEx @ 0x1406CB908 (RtlImpersonateSelfEx.c)
- *     RtlReleasePrivilege @ 0x1406DAE08 (RtlReleasePrivilege.c)
- *     BiReleasePrivilege @ 0x140813B50 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x140813BA8 (BiAcquirePrivilege.c)
- *     DbgkUserReportWorkRoutine @ 0x140929C60 (DbgkUserReportWorkRoutine.c)
- *     EtwpCovSampCaptureContextStart @ 0x1409EEA80 (EtwpCovSampCaptureContextStart.c)
+ *     ExpWorkerFactoryCreateThread @ 0x140286A28 (ExpWorkerFactoryCreateThread.c)
+ *     RtlAcquirePrivilege @ 0x1406B118C (RtlAcquirePrivilege.c)
+ *     RtlImpersonateSelfEx @ 0x1406B13C8 (RtlImpersonateSelfEx.c)
+ *     RtlReleasePrivilege @ 0x1406BABEC (RtlReleasePrivilege.c)
+ *     BiReleasePrivilege @ 0x140785C38 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140785C90 (BiAcquirePrivilege.c)
+ *     DbgkUserReportWorkRoutine @ 0x140886D50 (DbgkUserReportWorkRoutine.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1409422B8 (EtwpCovSampCaptureContextStart.c)
  * Callees:
  *     <none>
  */

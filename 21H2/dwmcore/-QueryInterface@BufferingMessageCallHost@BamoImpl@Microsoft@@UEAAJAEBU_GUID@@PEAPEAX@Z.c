@@ -1,5 +1,5 @@
 /*
- * XREFs of ?QueryInterface@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180197A20
+ * XREFs of ?QueryInterface@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180166B20
  * Callers:
  *     <none>
  * Callees:

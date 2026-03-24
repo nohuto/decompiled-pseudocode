@@ -1,7 +1,7 @@
 /*
- * XREFs of PspSiloInitializeUserSharedData @ 0x140887B58
+ * XREFs of PspSiloInitializeUserSharedData @ 0x140887B38
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x140887460 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x140887440 (PspInitializeServerSiloDeferred.c)
  * Callees:
  *     PsDetachSiloFromCurrentThread @ 0x14000FBB0 (PsDetachSiloFromCurrentThread.c)
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
@@ -9,9 +9,9 @@
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
  *     MmMapViewInSystemSpace @ 0x1405A23A0 (MmMapViewInSystemSpace.c)
  *     MmCreateSection @ 0x14061B2D0 (MmCreateSection.c)
- *     RtlpGetNtProductTypeFromRegistry @ 0x140703DE4 (RtlpGetNtProductTypeFromRegistry.c)
- *     PspSiloInitializeSuiteMask @ 0x14088796C (PspSiloInitializeSuiteMask.c)
- *     PspSiloInitializeSystemRootBuffer @ 0x1408879D0 (PspSiloInitializeSystemRootBuffer.c)
+ *     RtlpGetNtProductTypeFromRegistry @ 0x140703DC4 (RtlpGetNtProductTypeFromRegistry.c)
+ *     PspSiloInitializeSuiteMask @ 0x14088794C (PspSiloInitializeSuiteMask.c)
+ *     PspSiloInitializeSystemRootBuffer @ 0x1408879B0 (PspSiloInitializeSystemRootBuffer.c)
  */
 
 __int64 __fastcall PspSiloInitializeUserSharedData(struct _LIST_ENTRY *a1)

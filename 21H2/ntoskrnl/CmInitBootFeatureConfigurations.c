@@ -1,11 +1,12 @@
 /*
- * XREFs of CmInitBootFeatureConfigurations @ 0x140B15450
+ * XREFs of CmInitBootFeatureConfigurations @ 0x140A38340
  * Callers:
- *     KiInitializeBootStructures @ 0x140A57680 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
  * Callees:
- *     CmFcManagerStartBootPhase @ 0x140B154A4 (CmFcManagerStartBootPhase.c)
- *     wil_InitializeFeatureStagingFromBuffers @ 0x140B15550 (wil_InitializeFeatureStagingFromBuffers.c)
- *     CmFcManagerInitialize @ 0x140B15B24 (CmFcManagerInitialize.c)
+ *     wil_details_EvaluateFeatureDependencies @ 0x1405CC62C (wil_details_EvaluateFeatureDependencies.c)
+ *     wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140A385E8 (wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers.c)
+ *     CmFcManagerStartBootPhase @ 0x140A386D8 (CmFcManagerStartBootPhase.c)
+ *     CmFcManagerInitialize @ 0x140A38D64 (CmFcManagerInitialize.c)
  */
 
 __int64 __fastcall CmInitBootFeatureConfigurations(__int64 a1)
@@ -14,7 +15,8 @@ __int64 __fastcall CmInitBootFeatureConfigurations(__int64 a1)
   int v3; // ecx
 
   CmFcManagerInitialize();
-  v2 = (_QWORD *)(*(_QWORD *)(a1 + 240) + 3600LL);
-  wil_InitializeFeatureStagingFromBuffers(v2);
+  v2 = (_QWORD *)(*(_QWORD *)(a1 + 240) + 3568LL);
+  wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers(v2);
+  wil_details_EvaluateFeatureDependencies();
   return CmFcManagerStartBootPhase(v3, *v2, v2[1], v2[2], v2[3], v2[4]);
 }

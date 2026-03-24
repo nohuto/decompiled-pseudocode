@@ -1,12 +1,12 @@
 /*
- * XREFs of VmpProcessContextLockExclusive @ 0x14030D0AC
+ * XREFs of VmpProcessContextLockExclusive @ 0x14030D1AC
  * Callers:
- *     VmpFlushTb @ 0x14030C3CC (VmpFlushTb.c)
- *     VmpFlushTbVaRange @ 0x14030C544 (VmpFlushTbVaRange.c)
- *     VmpInsertMemoryRange @ 0x14030C6A0 (VmpInsertMemoryRange.c)
- *     VmpMergeMemoryRanges @ 0x14030CB10 (VmpMergeMemoryRanges.c)
- *     VmpRemoveMemoryRange @ 0x14030D510 (VmpRemoveMemoryRange.c)
- *     VmpSplitMemoryRange @ 0x14030D7D4 (VmpSplitMemoryRange.c)
+ *     VmpFlushTb @ 0x14030C4CC (VmpFlushTb.c)
+ *     VmpFlushTbVaRange @ 0x14030C644 (VmpFlushTbVaRange.c)
+ *     VmpInsertMemoryRange @ 0x14030C7A0 (VmpInsertMemoryRange.c)
+ *     VmpMergeMemoryRanges @ 0x14030CC10 (VmpMergeMemoryRanges.c)
+ *     VmpRemoveMemoryRange @ 0x14030D610 (VmpRemoveMemoryRange.c)
+ *     VmpSplitMemoryRange @ 0x14030D8D4 (VmpSplitMemoryRange.c)
  * Callees:
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */

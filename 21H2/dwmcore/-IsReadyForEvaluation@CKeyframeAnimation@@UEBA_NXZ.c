@@ -1,19 +1,17 @@
 /*
- * XREFs of ?IsReadyForEvaluation@CKeyframeAnimation@@UEBA_NXZ @ 0x1800D8790
+ * XREFs of ?IsReadyForEvaluation@CKeyframeAnimation@@UEBA_NXZ @ 0x1800CB690
  * Callers:
  *     <none>
  * Callees:
- *     ?IsReadyForEvaluation@CBaseExpression@@MEBA_NXZ @ 0x1800D87F0 (-IsReadyForEvaluation@CBaseExpression@@MEBA_NXZ.c)
+ *     <none>
  */
 
-char __fastcall CKeyframeAnimation::IsReadyForEvaluation(CKeyframeAnimation *this)
+bool __fastcall CKeyframeAnimation::IsReadyForEvaluation(CKeyframeAnimation *this)
 {
-  bool IsReadyForEvaluation; // al
-  char v3; // dl
+  char v1; // dl
 
-  IsReadyForEvaluation = CBaseExpression::IsReadyForEvaluation(this);
-  v3 = 0;
-  if ( IsReadyForEvaluation )
-    return *((_QWORD *)this + 48) != 0LL;
-  return v3;
+  v1 = 0;
+  if ( (*((_BYTE *)this + 208) & 0x12) == 2 )
+    return *((_QWORD *)this + 45) != 0LL;
+  return v1;
 }

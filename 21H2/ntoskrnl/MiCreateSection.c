@@ -1,25 +1,25 @@
 /*
- * XREFs of MiCreateSection @ 0x1406FD4A0
+ * XREFs of MiCreateSection @ 0x140705710
  * Callers:
- *     MiCreateSystemSection @ 0x1402D9E3C (MiCreateSystemSection.c)
- *     MmCreateSectionEx @ 0x14066BFB8 (MmCreateSectionEx.c)
- *     MmCreateSpecialImageSection @ 0x14066D4BC (MmCreateSpecialImageSection.c)
- *     MmCreateCacheManagerSection @ 0x1406B8C3C (MmCreateCacheManagerSection.c)
- *     MiCreateSectionCommon @ 0x1406FD140 (MiCreateSectionCommon.c)
+ *     MiCreateSystemSection @ 0x1403720DC (MiCreateSystemSection.c)
+ *     MmCreateSpecialImageSection @ 0x140608784 (MmCreateSpecialImageSection.c)
+ *     MmCreateCacheManagerSection @ 0x14069CB28 (MmCreateCacheManagerSection.c)
+ *     MmCreateSectionEx @ 0x1406D4704 (MmCreateSectionEx.c)
+ *     MiCreateSectionCommon @ 0x140707430 (MiCreateSectionCommon.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PsDereferencePartition @ 0x1403606C4 (PsDereferencePartition.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MmExtendSection @ 0x1406A377C (MmExtendSection.c)
- *     MiCreatePagingFileMap @ 0x1406F3A44 (MiCreatePagingFileMap.c)
- *     MiInitializeCreateSectionPacket @ 0x1406FD6C0 (MiInitializeCreateSectionPacket.c)
- *     MiFinishCreateSection @ 0x1406FD9F0 (MiFinishCreateSection.c)
- *     MiCreateImageOrDataSection @ 0x1406FDCD0 (MiCreateImageOrDataSection.c)
- *     MiLogSectionObjectEvent @ 0x14096C0AC (MiLogSectionObjectEvent.c)
+ *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiCreatePagingFileMap @ 0x14061C548 (MiCreatePagingFileMap.c)
+ *     MmExtendSection @ 0x1406894BC (MmExtendSection.c)
+ *     MiInitializeCreateSectionPacket @ 0x140705930 (MiInitializeCreateSectionPacket.c)
+ *     MiFinishCreateSection @ 0x140705C20 (MiFinishCreateSection.c)
+ *     MiCreateImageOrDataSection @ 0x140706F10 (MiCreateImageOrDataSection.c)
+ *     MiLogSectionObjectEvent @ 0x1408C7990 (MiLogSectionObjectEvent.c)
  */
 
 __int64 __fastcall MiCreateSection(
-        _QWORD *a1,
+        __int64 *a1,
         int a2,
         int a3,
         int a4,
@@ -37,7 +37,7 @@ __int64 __fastcall MiCreateSection(
   int SectionPacket; // edi
   int ImageOrDataSection; // eax
   __int64 v20; // rbx
-  _QWORD *v21; // rsi
+  __int64 v21; // rsi
   unsigned __int64 v22; // rax
   LARGE_INTEGER v23; // rdx
   int v25; // ebx
@@ -60,7 +60,7 @@ __int64 __fastcall MiCreateSection(
         goto LABEL_5;
       if ( v27[22] )
         PsDereferencePartition(v27[22]);
-      v25 = LODWORD(v27[0]) >> 26;
+      v25 = LODWORD(v27[0]) >> 25;
       memset(v27, 0, 0xC8uLL);
       SectionPacket = MiInitializeCreateSectionPacket(
                         (unsigned int)v27,
@@ -76,7 +76,7 @@ __int64 __fastcall MiCreateSection(
                         a11,
                         a12,
                         a13);
-      v17 = (v25 & 1) << 26;
+      v17 = (v25 & 1) << 25;
       if ( SectionPacket < 0 )
         goto LABEL_12;
     }
@@ -88,21 +88,21 @@ LABEL_5:
       if ( SectionPacket >= 0 )
       {
         v20 = v27[8];
-        v21 = (_QWORD *)v27[18];
+        v21 = v27[18];
         v22 = _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)v27[8] + 24LL), -1LL, -1LL);
-        if ( ((v27[0] & 9) == 0 && (*(_DWORD *)(v20 + 56) & 0x8000) != 0 || v21[6] > v22)
-          && (v23 = (LARGE_INTEGER)v21[6],
-              v21[6] = v22,
+        if ( ((v27[0] & 9) == 0 && (*(_DWORD *)(v20 + 56) & 0x8000) != 0 || *(_QWORD *)(v21 + 48) > v22)
+          && (v23 = *(LARGE_INTEGER *)(v21 + 48),
+              *(_QWORD *)(v21 + 48) = v22,
               v26[0] = v23,
-              SectionPacket = MmExtendSection((__int64)v21, v26, v27[0] & 1),
+              SectionPacket = MmExtendSection(v21, v26, v27[0] & 1),
               SectionPacket < 0) )
         {
-          ObfDereferenceObject(v21);
+          HalPutDmaAdapter((PADAPTER_OBJECT)v21);
         }
         else
         {
           *a1 = v21;
-          if ( (DWORD1(PerfGlobalGroupMask[0]) & 0x400001) != 0 && !*(_QWORD *)(v20 + 64) )
+          if ( (DWORD1(PerfGlobalGroupMask) & 0x400001) != 0 && !*(_QWORD *)(v20 + 64) )
             MiLogSectionObjectEvent(v21, 1LL);
         }
       }

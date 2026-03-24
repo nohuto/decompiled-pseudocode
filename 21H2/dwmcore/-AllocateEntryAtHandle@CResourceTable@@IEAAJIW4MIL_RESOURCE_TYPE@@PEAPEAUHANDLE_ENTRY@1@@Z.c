@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AllocateEntryAtHandle@CResourceTable@@IEAAJIW4MIL_RESOURCE_TYPE@@PEAPEAUHANDLE_ENTRY@1@@Z @ 0x1800612DC
+ * XREFs of ?AllocateEntryAtHandle@CResourceTable@@IEAAJIW4MIL_RESOURCE_TYPE@@PEAPEAUHANDLE_ENTRY@1@@Z @ 0x18005E7B0
  * Callers:
- *     ?DuplicateHandle@CResourceTable@@QEAAJPEAVCChannelContext@@I0I@Z @ 0x1800611C4 (-DuplicateHandle@CResourceTable@@QEAAJPEAVCChannelContext@@I0I@Z.c)
+ *     ?DuplicateHandle@CResourceTable@@QEAAJPEAVCChannelContext@@I0I@Z @ 0x18005E6A0 (-DuplicateHandle@CResourceTable@@QEAAJPEAVCChannelContext@@I0I@Z.c)
  * Callees:
- *     ?AssignEntry@HANDLE_TABLE@@QEAAJIK@Z @ 0x1800BE02C (-AssignEntry@HANDLE_TABLE@@QEAAJIK@Z.c)
+ *     ?AssignEntry@HANDLE_TABLE@@QEAAJIK@Z @ 0x18005E800 (-AssignEntry@HANDLE_TABLE@@QEAAJIK@Z.c)
  */
 
 __int64 __fastcall CResourceTable::AllocateEntryAtHandle(__int64 a1, unsigned int a2, unsigned int a3, _QWORD *a4)

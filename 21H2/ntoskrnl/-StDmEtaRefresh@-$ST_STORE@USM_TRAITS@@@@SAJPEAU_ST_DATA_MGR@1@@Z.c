@@ -1,29 +1,28 @@
 /*
- * XREFs of ?StDmEtaRefresh@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x1405F8ED4
+ * XREFs of ?StDmEtaRefresh@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14059B30C
  * Callers:
- *     ?StWorkItemProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14037FA00 (-StWorkItemProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StWorkItemProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1402DA510 (-StWorkItemProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
  * Callees:
- *     ?StDmEtaPerformIo@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x1405F8DD0 (-StDmEtaPerformIo@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z.c)
- *     ?StDmPickRandomRegion@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@@Z @ 0x1405F9C34 (-StDmPickRandomRegion@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@@Z.c)
+ *     ?StDmEtaPerformIo@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z @ 0x14059B208 (-StDmEtaPerformIo@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KK@Z.c)
+ *     ?StDmPickRandomRegion@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@@Z @ 0x14059C030 (-StDmPickRandomRegion@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@@Z.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmEtaRefresh(__int64 a1)
 {
-  unsigned int v1; // r14d
-  int v3; // ebp
-  __int64 v4; // rdx
+  unsigned int v1; // ebp
+  int v3; // r14d
+  __int64 v4; // r8
   int v5; // r10d
   __int64 v6; // r9
-  unsigned __int64 *i; // r8
+  unsigned __int64 *i; // rdx
   unsigned __int64 j; // rax
   int v9; // ecx
-  int v11; // ecx
-  unsigned int v12; // eax
-  int v13; // ecx
-  unsigned int v14; // edi
+  __int64 v11; // rdx
+  unsigned int v12; // ecx
+  unsigned int v13; // edi
   unsigned int *k; // rcx
   unsigned int m; // ebx
-  int v17; // eax
+  int v16; // eax
 
   v1 = 0xFFFF;
   if ( *(_DWORD *)(a1 + 784) <= 0xFFFFu )
@@ -47,41 +46,36 @@ LABEL_11:
         goto LABEL_11;
     }
     if ( j <= *i )
-    {
-      v12 = *(_DWORD *)j;
-    }
+      v11 = 0LL;
     else
-    {
-      v11 = *(_DWORD *)(j - 32);
-      v12 = *(_DWORD *)j;
-      v13 = v11 + 1;
-      if ( v13 )
-        v12 = v13 + ((v12 - v13) >> 1);
-    }
-    v14 = v1;
+      v11 = (unsigned int)(*(_DWORD *)(j - 32) + 1);
+    v12 = *(_DWORD *)j;
+    if ( (_DWORD)v11 )
+      v12 = v11 + ((v12 - (unsigned int)v11) >> 1);
+    v13 = v1;
     if ( v12 < v1 )
-      v14 = v12;
+      v13 = v12;
     if ( *(int *)(v4 + 8) <= 0 )
     {
       _m_prefetchw((const void *)(v4 + 48));
       if ( (_InterlockedOr((volatile signed __int32 *)(v4 + 48), 1u) & 1) == 0 )
       {
-        for ( k = *(unsigned int **)(v4 + 8LL * v5 + 16); *k < v14; k += 8 )
+        for ( k = *(unsigned int **)(v4 + 8LL * v5 + 16); *k < v13; k += 8 )
           ;
         k[1] = 112;
         for ( m = 0; m < 0x20; ++m )
         {
-          v17 = ST_STORE<SM_TRAITS>::StDmPickRandomRegion(a1, v4, i, v6);
-          if ( v17 == -1 )
+          v16 = ST_STORE<SM_TRAITS>::StDmPickRandomRegion(a1, v11, v4, v6);
+          if ( v16 == -1 )
           {
             v9 = -1073741448;
-LABEL_32:
+LABEL_33:
             _InterlockedAnd((volatile signed __int32 *)(*(_QWORD *)(a1 + 1000) + 48LL), 0xFFFFFFFE);
             return (unsigned int)v9;
           }
-          v9 = ST_STORE<SM_TRAITS>::StDmEtaPerformIo(a1, v17, v14);
+          v9 = ST_STORE<SM_TRAITS>::StDmEtaPerformIo(a1, v16, v13);
           if ( v9 < 0 )
-            goto LABEL_32;
+            goto LABEL_33;
         }
         _InterlockedAnd((volatile signed __int32 *)(*(_QWORD *)(a1 + 1000) + 48LL), 0xFFFFFFFE);
         if ( (unsigned int)++v3 < 0xA )

@@ -1,18 +1,18 @@
 /*
- * XREFs of CcZeroEndOfLastPage @ 0x14028866C
+ * XREFs of CcZeroEndOfLastPage @ 0x1403570FC
  * Callers:
- *     FsRtlCreateSectionForDataScan @ 0x1402031E0 (FsRtlCreateSectionForDataScan.c)
- *     MiCreateSystemSection @ 0x1402D9E3C (MiCreateSystemSection.c)
- *     MmCreateSpecialImageSection @ 0x14066D4BC (MmCreateSpecialImageSection.c)
- *     MiCreateSectionCommon @ 0x1406FD140 (MiCreateSectionCommon.c)
- *     MiCreateImageFileMap @ 0x140707E70 (MiCreateImageFileMap.c)
+ *     FsRtlCreateSectionForDataScan @ 0x1402E9010 (FsRtlCreateSectionForDataScan.c)
+ *     MiCreateSystemSection @ 0x1403720DC (MiCreateSystemSection.c)
+ *     MmCreateSpecialImageSection @ 0x140608784 (MmCreateSpecialImageSection.c)
+ *     MiCreateImageFileMap @ 0x1406D33F4 (MiCreateImageFileMap.c)
+ *     MiCreateSectionCommon @ 0x140707430 (MiCreateSectionCommon.c)
  * Callees:
- *     CcPurgeCacheSection @ 0x14027F0E0 (CcPurgeCacheSection.c)
- *     CcFlushCachePriv @ 0x140283030 (CcFlushCachePriv.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     FsRtlAcquireFileExclusive @ 0x1406FE2E0 (FsRtlAcquireFileExclusive.c)
- *     FsRtlReleaseFile @ 0x1406FE310 (FsRtlReleaseFile.c)
+ *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     CcPurgeCacheSection @ 0x1402F0920 (CcPurgeCacheSection.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     FsRtlAcquireFileExclusive @ 0x140707A40 (FsRtlAcquireFileExclusive.c)
+ *     FsRtlReleaseFile @ 0x140707A70 (FsRtlReleaseFile.c)
  */
 
 void __fastcall CcZeroEndOfLastPage(PFILE_OBJECT FileObject)
@@ -20,10 +20,10 @@ void __fastcall CcZeroEndOfLastPage(PFILE_OBJECT FileObject)
   char v1; // di
   PVOID FsContext; // rcx
   char v4; // al
-  int v5[6]; // [rsp+30h] [rbp-18h] BYREF
+  __int128 v5; // [rsp+30h] [rbp-18h] BYREF
 
   v1 = 0;
-  *(_OWORD *)v5 = 0LL;
+  v5 = 0LL;
   if ( !KeGetCurrentThread()[1].TrapFrame )
   {
     v1 = 1;
@@ -44,8 +44,8 @@ void __fastcall CcZeroEndOfLastPage(PFILE_OBJECT FileObject)
   }
   if ( (*((_BYTE *)FileObject->FsContext + 6) & 4) != 0 )
   {
-    CcFlushCachePriv((__int64)FileObject->SectionObjectPointer, 0LL, 0, 0LL, 0, v5);
-    if ( !v5[0] )
+    CcFlushCachePriv((__int64)FileObject->SectionObjectPointer, 0LL, 0, 0LL, 0, &v5);
+    if ( !(_DWORD)v5 )
       CcPurgeCacheSection(FileObject->SectionObjectPointer, 0LL, 0, 0);
   }
   if ( v1 )

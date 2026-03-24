@@ -1,9 +1,9 @@
 /*
- * XREFs of BmlCompareTargetModesWithMonitor @ 0x1C01D09E0
+ * XREFs of BmlCompareTargetModesWithMonitor @ 0x1C013F830
  * Callers:
- *     BmlCompareTargetModes @ 0x1C01B5A18 (BmlCompareTargetModes.c)
+ *     BmlCompareTargetModes @ 0x1C013B4E4 (BmlCompareTargetModes.c)
  * Callees:
- *     ?BmlGetTargetModePreferenceOnMonitor@@YA?AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARGETMODE@@EPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C01D0A50 (-BmlGetTargetModePreferenceOnMonitor@@YA-AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARG.c)
+ *     ?BmlGetTargetModePreferenceOnMonitor@@YA?AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARGETMODE@@EPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C013C09C (-BmlGetTargetModePreferenceOnMonitor@@YA-AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARG.c)
  */
 
 __int64 __fastcall BmlCompareTargetModesWithMonitor(__int64 a1, __int64 a2, char a3, __int64 a4)

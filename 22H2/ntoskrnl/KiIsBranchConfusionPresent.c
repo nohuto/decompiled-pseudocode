@@ -1,24 +1,16 @@
 /*
- * XREFs of KiIsBranchConfusionPresent @ 0x140382DF4
+ * XREFs of KiIsBranchConfusionPresent @ 0x1403F28F0
  * Callers:
- *     KiOptimizeSpecCtrlSettingsWorker @ 0x140381E90 (KiOptimizeSpecCtrlSettingsWorker.c)
- *     KiDetectHardwareSpecControlFeatures @ 0x14038294C (KiDetectHardwareSpecControlFeatures.c)
- *     KiIsSrsoMitigationDesired @ 0x140410240 (KiIsSrsoMitigationDesired.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1403A8B3C (KiDetectHardwareSpecControlFeatures.c)
+ *     KeOptimizeSpecCtrlSettings @ 0x1403C7210 (KeOptimizeSpecCtrlSettings.c)
+ *     KiIsSrsoMitigationDesired @ 0x1403F2A58 (KiIsSrsoMitigationDesired.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x140382EA0 (HviIsAnyHypervisorPresent.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403A5310 (HviIsAnyHypervisorPresent.c)
  */
 
-__int64 __fastcall KiIsBranchConfusionPresent(__int64 a1)
+_BOOL8 __fastcall KiIsBranchConfusionPresent(__int64 a1)
 {
-  char IsAnyHypervisorPresent; // al
-  unsigned int v4; // edx
-
-  if ( *(_BYTE *)(a1 + 141) != 1 || (KeFeatureBits2 & 0x1000000) != 0 )
-    return 0LL;
-  IsAnyHypervisorPresent = HviIsAnyHypervisorPresent();
-  v4 = 0;
-  if ( IsAnyHypervisorPresent )
-    return 1LL;
-  LOBYTE(v4) = *(_BYTE *)(a1 + 64) != 25;
-  return v4;
+  return *(_BYTE *)(a1 + 141) == 1
+      && (KeFeatureBits2 & 0x1000000) == 0
+      && (HviIsAnyHypervisorPresent() || *(_BYTE *)(a1 + 64) != 25);
 }

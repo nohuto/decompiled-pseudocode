@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpCreateMachineCheckErrorRecord @ 0x140506410
+ * XREFs of HalpCreateMachineCheckErrorRecord @ 0x1404B9AF0
  * Callers:
- *     HalpCreateErrorRecord @ 0x1405063D0 (HalpCreateErrorRecord.c)
+ *     HalpCreateErrorRecord @ 0x1404B9AB0 (HalpCreateErrorRecord.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HalpCreateMcaMemoryErrorRecord @ 0x140506578 (HalpCreateMcaMemoryErrorRecord.c)
- *     HalpCreateMcaProcessorErrorRecord @ 0x140506860 (HalpCreateMcaProcessorErrorRecord.c)
- *     HalpMcaAMDIsMemoryError @ 0x140509CE4 (HalpMcaAMDIsMemoryError.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalpCreateMcaMemoryErrorRecord @ 0x1404B9C58 (HalpCreateMcaMemoryErrorRecord.c)
+ *     HalpCreateMcaProcessorErrorRecord @ 0x1404B9ECC (HalpCreateMcaProcessorErrorRecord.c)
+ *     HalpMcaAMDIsMemoryError @ 0x1404BD194 (HalpMcaAMDIsMemoryError.c)
  */
 
 __int64 __fastcall HalpCreateMachineCheckErrorRecord(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -40,18 +40,18 @@ __int64 __fastcall HalpCreateMachineCheckErrorRecord(__int64 a1, __int64 a2, __i
   if ( v11 != 1 )
   {
     if ( v11 != 2 || !(unsigned __int8)HalpMcaAMDIsMemoryError(a2 + 80, v4) )
-      goto LABEL_9;
-LABEL_19:
+      goto LABEL_8;
+LABEL_18:
     McaMemoryErrorRecord = HalpCreateMcaMemoryErrorRecord(a1, a2, a3, a4);
-    goto LABEL_10;
+    goto LABEL_9;
   }
-  if ( v4 == 336 || v4 == 308 || (unsigned __int16)(v4 - 192) <= 0xFu || v4 == 378 || (v4 & 0xEF80) == 0x80 )
-    goto LABEL_19;
-LABEL_9:
+  if ( (v4 & 0xEF80) == 0x80 || (v4 & 0xEF00) == 0x100 && (v4 & 3) == 2 && (unsigned __int8)v4 >> 4 == 7 )
+    goto LABEL_18;
+LABEL_8:
   McaMemoryErrorRecord = HalpCreateMcaProcessorErrorRecord(a1, a2, a3, a4);
-LABEL_10:
+LABEL_9:
   v13 = McaMemoryErrorRecord;
-  if ( McaMemoryErrorRecord >= 0 && _bittest64((const signed __int64 *)(a2 + 120), 0x3Du) && *(_DWORD *)(a3 + 12) == 2 )
+  if ( McaMemoryErrorRecord >= 0 && (*(_QWORD *)(a2 + 120) & 0x2000000000000000LL) != 0 && *(_DWORD *)(a3 + 12) == 2 )
     *(_DWORD *)(a3 + 104) |= 1u;
   if ( v9 )
     KeRevertToUserGroupAffinityThread(&PreviousAffinity);

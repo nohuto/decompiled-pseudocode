@@ -1,11 +1,11 @@
 /*
- * XREFs of ?InitializePageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@@Z @ 0x1C009FDA0
+ * XREFs of ?InitializePageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@@Z @ 0x1C00888CC
  * Callers:
- *     ?CreatePageDirectory@@YAPEAVVIDMM_PAGE_DIRECTORY@@PEAVCVirtualAddressAllocator@@II@Z @ 0x1C009FD00 (-CreatePageDirectory@@YAPEAVVIDMM_PAGE_DIRECTORY@@PEAVCVirtualAddressAllocator@@II@Z.c)
+ *     ?CreatePageDirectory@@YAPEAVVIDMM_PAGE_DIRECTORY@@PEAVCVirtualAddressAllocator@@II@Z @ 0x1C0088830 (-CreatePageDirectory@@YAPEAVVIDMM_PAGE_DIRECTORY@@PEAVCVirtualAddressAllocator@@II@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C00029AC (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     ?CreateVidMmObjects@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@II@Z @ 0x1C00A1478 (-CreateVidMmObjects@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@II@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     ?CreateVidMmObjects@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@II@Z @ 0x1C00892DC (-CreateVidMmObjects@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@II@Z.c)
  */
 
 __int64 __fastcall VIDMM_PAGE_DIRECTORY::InitializePageDirectory(
@@ -17,20 +17,29 @@ __int64 __fastcall VIDMM_PAGE_DIRECTORY::InitializePageDirectory(
   __int64 v6; // r9
   int v7; // eax
   unsigned int v8; // edx
-  __int64 v9; // rcx
-  unsigned int v10; // r8d
-  unsigned int v11; // esi
-  unsigned __int64 v12; // rbp
-  __int64 v13; // rax
-  __int64 v14; // rax
-  __int64 v15; // rax
-  __int64 v16; // rax
-  int VidMmObjects; // ebx
-  __int64 v19; // rcx
+  unsigned int v9; // r8d
+  unsigned int v10; // edi
+  unsigned __int64 v11; // rbp
+  SIZE_T v12; // rax
+  PVOID v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  SIZE_T v17; // rax
+  PVOID v18; // rax
+  __int64 v19; // rdx
   __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  int VidMmObjects; // ebx
+  __int64 v25; // r8
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  __int64 v29; // rax
 
   v3 = *(_DWORD *)this;
-  v5 = *(_QWORD *)(*((_QWORD *)a2 + 11) + 40224LL) + 1584LL * ((v3 >> 7) & 0x1F);
+  v5 = *(_QWORD *)(*((_QWORD *)a2 + 11) + 40216LL) + 1584LL * ((v3 >> 7) & 0x1F);
   v6 = *((_QWORD *)a2 + 15) + 32LL * ((v3 >> 7) & 0x1F);
   if ( (v3 & 0x10) != 0 && !*(_DWORD *)(v6 + 16) )
     return 0LL;
@@ -40,49 +49,54 @@ __int64 __fastcall VIDMM_PAGE_DIRECTORY::InitializePageDirectory(
   *(_DWORD *)this = v8;
   if ( (v8 & 0x10) != 0 )
   {
-    v10 = *(_DWORD *)(v6 + 16);
-    v11 = *(_DWORD *)(v6 + 20);
+    v9 = *(_DWORD *)(v6 + 16);
+    v10 = *(_DWORD *)(v6 + 20);
   }
   else
   {
-    v9 = v8 & 7;
-    v10 = *(_DWORD *)(v5 + 48 * v9 + 88);
-    v11 = *(_DWORD *)(v5 + 48 * (v9 + 2));
+    v27 = v8 & 7;
+    v9 = *(_DWORD *)(v5 + 48 * v27 + 88);
+    v10 = *(_DWORD *)(v5 + 48 * (v27 + 2));
   }
-  v12 = 2 * v10;
+  v11 = 2 * v9;
   *(_DWORD *)this = v8 ^ ((unsigned __int8)v8 ^ (unsigned __int8)(v8 >> 6)) & 0x40;
   if ( (v8 & 0x1020) != 0x1020 )
-    v12 = v10;
-  v13 = 16 * v12;
-  if ( !is_mul_ok(v12, 0x10uLL) )
-    v13 = -1LL;
-  v14 = operator new[](v13, 0x37356956u, 256LL);
-  *((_QWORD *)this + 5) = v14;
-  if ( !v14 )
+    v11 = v9;
+  v12 = 16 * v11;
+  if ( !is_mul_ok(v11, 0x10uLL) )
+    v12 = -1LL;
+  v13 = operator new[](v12, 0x37356956u, PagedPool);
+  *((_QWORD *)this + 5) = v13;
+  if ( !v13 )
   {
-    WdLogSingleEntry1(1LL, 4309LL);
-LABEL_19:
-    DxgkLogInternalTriageEvent(v19, 0x40000LL);
+    v28 = WdLogNewEntry5_WdAssertion(v15, v14, v16);
+    *(_QWORD *)(v28 + 24) = 4672LL;
+LABEL_18:
+    WdLogEvent5_WdAssertion(v28);
     return 3221225495LL;
   }
-  v15 = 8 * v12;
-  if ( !is_mul_ok(v12, 8uLL) )
-    v15 = -1LL;
-  v16 = operator new[](v15, 0x33356956u, 256LL);
-  *((_QWORD *)this + 6) = v16;
-  if ( !v16 )
+  memset(v13, 0, 16LL * (unsigned int)v11);
+  v17 = 8 * v11;
+  if ( !is_mul_ok(v11, 8uLL) )
+    v17 = -1LL;
+  v18 = operator new[](v17, 0x33356956u, PagedPool);
+  *((_QWORD *)this + 6) = v18;
+  if ( !v18 )
   {
-    WdLogSingleEntry1(1LL, 4316LL);
-    goto LABEL_19;
+    v28 = WdLogNewEntry5_WdAssertion(v20, v19, v21);
+    *(_QWORD *)(v28 + 24) = 4680LL;
+    goto LABEL_18;
   }
+  memset(v18, 0, 8LL * (unsigned int)v11);
   VidMmObjects = VIDMM_PAGE_TABLE_BASE::CreateVidMmObjects(
                    this,
                    a2,
-                   v11,
+                   v10,
                    *(_DWORD *)(32LL * ((*(_DWORD *)this >> 7) & 0x1F) + *((_QWORD *)a2 + 15) + 24));
   if ( VidMmObjects >= 0 )
     return 0LL;
-  WdLogSingleEntry1(1LL, 4323LL);
-  DxgkLogInternalTriageEvent(v20, 0x40000LL);
+  v29 = WdLogNewEntry5_WdAssertion(v23, v22, v25);
+  *(_QWORD *)(v29 + 24) = 4688LL;
+  WdLogEvent5_WdAssertion(v29);
   return (unsigned int)VidMmObjects;
 }

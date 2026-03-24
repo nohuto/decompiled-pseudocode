@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptResetAllProcessors @ 0x14051F9A8
+ * XREFs of HalpInterruptResetAllProcessors @ 0x1404D2BEC
  * Callers:
- *     HalReturnToFirmware @ 0x14050A7E0 (HalReturnToFirmware.c)
+ *     HalReturnToFirmware @ 0x1404BE1A0 (HalReturnToFirmware.c)
  * Callees:
- *     HalRequestIpiSpecifyVector @ 0x140300100 (HalRequestIpiSpecifyVector.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpPowerWriteResetCommand @ 0x14050A93C (HalpPowerWriteResetCommand.c)
- *     HalpNmiReboot @ 0x14051FA44 (HalpNmiReboot.c)
+ *     HalRequestIpiSpecifyVector @ 0x14027B3E0 (HalRequestIpiSpecifyVector.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpPowerWriteResetCommand @ 0x1404BE30C (HalpPowerWriteResetCommand.c)
+ *     HalpNmiReboot @ 0x1404D2C88 (HalpNmiReboot.c)
  */
 
 void __noreturn HalpInterruptResetAllProcessors()
@@ -15,7 +15,7 @@ void __noreturn HalpInterruptResetAllProcessors()
   _DWORD *SchedulerAssist; // rdx
   bool v2; // zf
 
-  if ( HalpInterruptController && HalpInterruptProcessorsStarted != 1 && !dword_140C54AE8 )
+  if ( HalpInterruptController && HalpInterruptProcessorsStarted != 1 && !dword_140C50958 )
   {
     HalpNmiReboot();
     HalpRebootNow = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))HalpInterruptResetThisProcessor;

@@ -1,18 +1,18 @@
 /*
- * XREFs of SdbOpenDatabaseEx @ 0x140A108BC
+ * XREFs of SdbOpenDatabaseEx @ 0x14096408C
  * Callers:
- *     SdbpOpenLocalDatabaseEx @ 0x140A13764 (SdbpOpenLocalDatabaseEx.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x140966804 (SdbpOpenLocalDatabaseEx.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B444 (AslAlloc.c)
- *     AslFileMappingCreate @ 0x14075E160 (AslFileMappingCreate.c)
- *     AslFileMappingDelete @ 0x14075E448 (AslFileMappingDelete.c)
- *     SdbpReadMappedData @ 0x140797F3C (SdbpReadMappedData.c)
- *     SdbpValidateAndApplyCompatFlags @ 0x1407ED16C (SdbpValidateAndApplyCompatFlags.c)
- *     SdbpOpenCompressedDatabase @ 0x140A14498 (SdbpOpenCompressedDatabase.c)
- *     AslFileMappingEnsureMappedAs @ 0x140A15078 (AslFileMappingEnsureMappedAs.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     SdbpValidateAndApplyCompatFlags @ 0x1407562E8 (SdbpValidateAndApplyCompatFlags.c)
+ *     AslFileMappingDelete @ 0x140756368 (AslFileMappingDelete.c)
+ *     AslFileMappingCreate @ 0x1407589F8 (AslFileMappingCreate.c)
+ *     SdbpReadMappedData @ 0x14075A42C (SdbpReadMappedData.c)
+ *     AslAlloc @ 0x14075B098 (AslAlloc.c)
+ *     SdbpOpenCompressedDatabase @ 0x140967508 (SdbpOpenCompressedDatabase.c)
+ *     AslFileMappingEnsureMappedAs @ 0x140967F84 (AslFileMappingEnsureMappedAs.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 PVOID **SdbOpenDatabaseEx(const WCHAR *a1, __int64 a2, __int64 a3, ...)
@@ -34,13 +34,13 @@ PVOID **SdbOpenDatabaseEx(const WCHAR *a1, __int64 a2, __int64 a3, ...)
   v10 = 0LL;
   v11 = 0;
   AslLogCallPrintf(3LL);
-  v5 = (PVOID **)AslAlloc(v4, 0x580uLL);
+  v5 = (PVOID **)AslAlloc(v4, 0xA80uLL);
   v12 = v5;
   v6 = v5;
   if ( v5 )
   {
-    memset(v5, 0, 0x580uLL);
-    if ( (int)AslFileMappingCreate((wchar_t ***)v6, a1, 0LL, 0LL, 0LL) >= 0 )
+    memset(v5, 0, 0xA80uLL);
+    if ( (int)AslFileMappingCreate((__int64 *)v6, a1, 0LL, 0LL, 0LL) >= 0 )
     {
       v7 = (char *)(*v6)[3];
       if ( (unsigned __int64)(v7 - 42) <= 0x7FFFFFD5 && (int)AslFileMappingEnsureMappedAs() >= 0 )
@@ -55,7 +55,7 @@ PVOID **SdbOpenDatabaseEx(const WCHAR *a1, __int64 a2, __int64 a3, ...)
         {
           if ( v11 == 1717724275 )
           {
-            if ( (unsigned int)SdbpValidateAndApplyCompatFlags((__int64)v6, &v10, 0) )
+            if ( (unsigned int)SdbpValidateAndApplyCompatFlags((__int64)v6, &v10) )
               return v6;
 LABEL_18:
             if ( v6 )
@@ -67,7 +67,7 @@ LABEL_18:
           }
           if ( v11 == 1717724282 )
           {
-            if ( !(unsigned int)SdbpOpenCompressedDatabase((PVOID ***)va, 0LL, 0LL) )
+            if ( !(unsigned int)SdbpOpenCompressedDatabase((PVOID ***)va) )
             {
               AslLogCallPrintf(1LL);
               v6 = v12;

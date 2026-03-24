@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpGetBootStatusPathFromRegistry @ 0x1403A6B80
+ * XREFs of RtlpGetBootStatusPathFromRegistry @ 0x140399870
  * Callers:
- *     RtlpGetBootStatusPath @ 0x1403A6B24 (RtlpGetBootStatusPath.c)
+ *     RtlpGetBootStatusPath @ 0x140399814 (RtlpGetBootStatusPath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpGetBootStatusPathFromRegistry(_QWORD *a1)
@@ -27,12 +27,13 @@ __int64 __fastcall RtlpGetBootStatusPathFromRegistry(_QWORD *a1)
   v11 = 0;
   KeyHandle = 0LL;
   ResultLength = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\REGISTRY\\MACHINE\\SYSTEM\\CurrentControlSet\\Control");
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v2 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);

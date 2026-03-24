@@ -1,9 +1,9 @@
 /*
- * XREFs of PipCheckValidNewDependencyEdge @ 0x140839D5C
+ * XREFs of PipCheckValidNewDependencyEdge @ 0x14089DB98
  * Callers:
- *     PipAddDependencyEdgeBetweenNodes @ 0x1403966F8 (PipAddDependencyEdgeBetweenNodes.c)
+ *     PipAddDependencyEdgeBetweenNodes @ 0x14050C450 (PipAddDependencyEdgeBetweenNodes.c)
  * Callees:
- *     PiListEntryToDependencyEdge @ 0x140396904 (PiListEntryToDependencyEdge.c)
+ *     PiListEntryToDependencyEdge @ 0x14050C438 (PiListEntryToDependencyEdge.c)
  */
 
 char __fastcall PipCheckValidNewDependencyEdge(__int64 a1, __int64 a2)
@@ -14,9 +14,9 @@ char __fastcall PipCheckValidNewDependencyEdge(__int64 a1, __int64 a2)
   _QWORD *v5; // rcx
   __int64 v6; // r9
   __int64 v7; // r8
-  __int64 v9; // rax
-  __int64 *v10; // r8
-  __int64 v11; // r10
+  __int64 v8; // rax
+  __int64 *v9; // r8
+  __int64 v10; // r10
 
   if ( a1 == a2 )
     return 0;
@@ -44,9 +44,9 @@ char __fastcall PipCheckValidNewDependencyEdge(__int64 a1, __int64 a2)
   v7 = *(_QWORD *)(a2 + 16);
   while ( v7 != v6 )
   {
-    v9 = PiListEntryToDependencyEdge(v7, 0);
-    v7 = *v10;
-    if ( *(_QWORD *)(v9 + 32) == v11 )
+    v8 = PiListEntryToDependencyEdge(v7, 0);
+    v7 = *v9;
+    if ( *(_QWORD *)(v8 + 32) == v10 )
       return 0;
   }
   return 1;

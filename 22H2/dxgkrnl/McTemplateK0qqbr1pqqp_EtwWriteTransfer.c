@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0qqbr1pqqp_EtwWriteTransfer @ 0x1C0066A4C
+ * XREFs of McTemplateK0qqbr1pqqp_EtwWriteTransfer @ 0x1C0059CD8
  * Callers:
- *     DpiDxgkDdiQueryDeviceDescriptor @ 0x1C02102F0 (DpiDxgkDdiQueryDeviceDescriptor.c)
+ *     DpiDxgkDdiQueryDeviceDescriptor @ 0x1C0179350 (DpiDxgkDdiQueryDeviceDescriptor.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qqbr1pqqp_EtwWriteTransfer(

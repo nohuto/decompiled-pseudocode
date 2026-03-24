@@ -1,17 +1,22 @@
 /*
- * XREFs of ?DxgkEngIsDwmProcessApiExt@@YAHXZ @ 0x1C00A7DB0
+ * XREFs of ?DxgkEngIsDwmProcessApiExt@@YAHXZ @ 0x1C00982B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 DxgkEngIsDwmProcessApiExt(void)
 {
   unsigned int v0; // ebx
+  int v1; // eax
 
   v0 = 0;
-  if ( qword_1C02945C0 && (int)qword_1C02945C0() >= 0 && qword_1C02945C8 )
-    return (unsigned int)qword_1C02945C8();
+  if ( qword_1C02551B0 )
+    v1 = qword_1C02551B0();
+  else
+    v1 = -1073741637;
+  if ( v1 >= 0 && qword_1C02551B8 )
+    return (unsigned int)qword_1C02551B8();
   return v0;
 }

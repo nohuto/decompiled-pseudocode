@@ -1,65 +1,64 @@
 /*
- * XREFs of ?MNAllocMenuItems@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@_N@Z @ 0x1C00C2B30
+ * XREFs of ?MNAllocMenuItems@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@_N@Z @ 0x1C0102D74
  * Callers:
- *     xxxInsertMenuItem @ 0x1C0065F38 (xxxInsertMenuItem.c)
- *     ?xxxRemoveDeleteMenuHelper@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@IKH@Z @ 0x1C00C20C0 (-xxxRemoveDeleteMenuHelper@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@IKH@Z.c)
+ *     ?xxxRemoveDeleteMenuHelper@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@IKH@Z @ 0x1C00473F8 (-xxxRemoveDeleteMenuHelper@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@IKH@Z.c)
+ *     xxxInsertMenuItem @ 0x1C007933C (xxxInsertMenuItem.c)
  * Callees:
- *     ??4?$SharedMixedObjectPointerFieldrgItems@UtagITEM@@@tagMENU@@QEAAPEAUtagITEM@@PEAU2@@Z @ 0x1C00C2D10 (--4-$SharedMixedObjectPointerFieldrgItems@UtagITEM@@@tagMENU@@QEAAPEAUtagITEM@@PEAU2@@Z.c)
- *     DesktopAlloc @ 0x1C00C2D40 (DesktopAlloc.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     DesktopAlloc @ 0x1C004B2A0 (DesktopAlloc.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
-__int64 __fastcall MNAllocMenuItems(__int64 a1, unsigned __int8 a2)
+__int64 __fastcall MNAllocMenuItems(__int64 **a1, unsigned __int8 a2)
 {
   int v3; // r14d
   unsigned int v4; // esi
-  char *v5; // rbp
+  _QWORD *v5; // rbp
   char *v6; // r15
   __int64 v7; // rax
   __int64 v8; // rdx
   __int64 result; // rax
-  signed int v10; // ecx
-  __int64 v11; // rbx
+  __int64 v10; // r8
+  signed int v11; // ecx
+  __int64 v12; // rbx
 
   v3 = 16 * (a2 ^ 1) - 8;
   v4 = 0;
-  v5 = (char *)Win32AllocPoolZInit(96LL * (unsigned int)(v3 + *(_DWORD *)(**(_QWORD **)a1 + 60LL)), 1953066325LL);
+  v5 = (_QWORD *)Win32AllocPoolZInit(96LL * (unsigned int)(v3 + *(_DWORD *)(**a1 + 60)), 1953066325LL);
   if ( !v5 )
     return 0LL;
-  v6 = (char *)DesktopAlloc(
-                 *(_QWORD *)(**(_QWORD **)a1 + 24LL),
-                 (unsigned int)(112 * (v3 + *(_DWORD *)(**(_QWORD **)a1 + 60LL))),
-                 7LL);
+  v6 = (char *)DesktopAlloc(*(_QWORD *)(**a1 + 24), 112 * (v3 + *(_DWORD *)(**a1 + 60)));
   if ( !v6 )
   {
     Win32FreePool(v5);
     return 0LL;
   }
-  if ( *(_QWORD *)(**(_QWORD **)a1 + 88LL) )
+  if ( *(_QWORD *)(**a1 + 88) )
   {
-    v10 = *(_DWORD *)(**(_QWORD **)a1 + 60LL);
-    if ( v3 + v10 < (unsigned int)v10 )
-      v10 += v3;
-    v11 = v10;
-    memmove(v5, *(const void **)(**(_QWORD **)a1 + 88LL), 96LL * v10);
-    memmove(v6, *(const void **)(**(_QWORD **)a1 + 96LL), 112 * v11);
-    RtlFreeHeap(*(PVOID *)(*(_QWORD *)(**(_QWORD **)a1 + 24LL) + 128LL), 0, *(PVOID *)(**(_QWORD **)a1 + 96LL));
-    Win32FreePool(*(_QWORD *)(**(_QWORD **)a1 + 88LL));
+    v11 = *(_DWORD *)(**a1 + 60);
+    if ( v3 + v11 < (unsigned int)v11 )
+      v11 += v3;
+    v12 = v11;
+    memmove(v5, *(const void **)(**a1 + 88), 96LL * v11);
+    memmove(v6, *(const void **)(**a1 + 96), 112 * v12);
+    RtlFreeHeap(*(PVOID *)(*(_QWORD *)(**a1 + 24) + 128LL), 0, *(PVOID *)(**a1 + 96));
+    Win32FreePool(*(void **)(**a1 + 88));
   }
-  if ( v3 + *(_DWORD *)(**(_QWORD **)a1 + 60LL) )
+  if ( v3 + *(_DWORD *)(**a1 + 60) )
   {
     do
     {
       v7 = v4++;
-      v8 = 96 * v7;
-      *(_QWORD *)&v5[v8] = &v6[112 * v7];
-      *(_QWORD *)&v5[v8 + 8] = *(_QWORD *)&v5[v8] - *(_QWORD *)(*(_QWORD *)(**(_QWORD **)a1 + 24LL) + 16LL);
+      v8 = 12 * v7;
+      v5[v8] = &v6[112 * v7];
+      v5[v8 + 1] = v5[v8] - *(_QWORD *)(*(_QWORD *)(**a1 + 24) + 16LL);
     }
-    while ( v4 < v3 + *(_DWORD *)(**(_QWORD **)a1 + 60LL) );
+    while ( v4 < v3 + *(_DWORD *)(**a1 + 60) );
   }
-  *(_DWORD *)(**(_QWORD **)a1 + 60LL) += v3;
-  tagMENU::SharedMixedObjectPointerFieldrgItems<tagITEM>::operator=(**(_QWORD **)a1 + 88LL, v5);
   result = 1LL;
-  *(_QWORD *)(**(_QWORD **)a1 + 96LL) = **(_QWORD **)(**(_QWORD **)a1 + 88LL);
+  *(_DWORD *)(**a1 + 60) += v3;
+  v10 = **a1;
+  *(_QWORD *)(*(_QWORD *)(v10 + 40) + 32LL) = v5[1];
+  *(_QWORD *)(v10 + 88) = v5;
+  *(_QWORD *)(**a1 + 96) = **(_QWORD **)(**a1 + 88);
   return result;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SetSyncRefreshCountWaitTargetNonPaged@ADAPTER_DISPLAY@@QEAAXIIPEAE@Z @ 0x1C000B150
+ * XREFs of ?SetSyncRefreshCountWaitTargetNonPaged@ADAPTER_DISPLAY@@QEAAXIIPEAE@Z @ 0x1C0004AFC
  * Callers:
- *     ?DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z @ 0x1C01C73B0 (-DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z.c)
- *     ?SetSyncRefreshCountWaitTarget@ADAPTER_DISPLAY@@QEAAJIIIPEAE@Z @ 0x1C02BFF90 (-SetSyncRefreshCountWaitTarget@ADAPTER_DISPLAY@@QEAAJIIIPEAE@Z.c)
+ *     ?DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z @ 0x1C0100EC0 (-DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z.c)
+ *     ?SetSyncRefreshCountWaitTarget@ADAPTER_DISPLAY@@QEAAJIIIPEAE@Z @ 0x1C0215834 (-SetSyncRefreshCountWaitTarget@ADAPTER_DISPLAY@@QEAAJIIIPEAE@Z.c)
  * Callees:
  *     <none>
  */
@@ -13,21 +13,20 @@ void __fastcall ADAPTER_DISPLAY::SetSyncRefreshCountWaitTargetNonPaged(
         unsigned int a3,
         unsigned __int8 *a4)
 {
-  __int64 v4; // rbx
+  __int64 v6; // rbx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  v4 = *((_QWORD *)this + 16) + 4000LL * a2;
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v4 + 952), &LockHandle);
-  KeResetEvent(*(PRKEVENT *)(v4 + 928));
-  *(_DWORD *)(v4 + 936) = a3;
-  if ( a3 <= *(_DWORD *)(v4 + 940) && a3 )
+  v6 = *((_QWORD *)this + 14) + 3968LL * a2;
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v6 + 960), &LockHandle);
+  KeResetEvent(*(PRKEVENT *)(v6 + 936));
+  *(_DWORD *)(v6 + 944) = a3;
+  if ( a3 <= *(_DWORD *)(v6 + 948) && a3 )
   {
-    KeSetEvent(*(PRKEVENT *)(v4 + 928), 0, 0);
+    KeSetEvent(*(PRKEVENT *)(v6 + 936), 0, 0);
   }
-  else if ( !*(_BYTE *)(v4 + 944) )
+  else if ( !*(_BYTE *)(v6 + 952) )
   {
-    *(_BYTE *)(v4 + 944) = 1;
+    *(_BYTE *)(v6 + 952) = 1;
     *a4 = 0;
   }
   KeReleaseInStackQueuedSpinLock(&LockHandle);

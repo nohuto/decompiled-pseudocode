@@ -1,19 +1,19 @@
 /*
- * XREFs of RawSetInformation @ 0x1409B8828
+ * XREFs of RawSetInformation @ 0x14090F828
  * Callers:
- *     RawDispatch @ 0x140791C40 (RawDispatch.c)
+ *     RawDispatch @ 0x14062D7F0 (RawDispatch.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     RawBeginOperation @ 0x140321BDC (RawBeginOperation.c)
- *     RawEndOperation @ 0x140321F9C (RawEndOperation.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     RawBeginOperation @ 0x14026D924 (RawBeginOperation.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     RawEndOperation @ 0x1402DEA38 (RawEndOperation.c)
  */
 
 __int64 __fastcall RawSetInformation(__int64 a1, IRP *a2, __int64 a3)
 {
   unsigned int v6; // ebx
   struct _IRP *MasterIrp; // r14
-  __int64 v8; // rbp
+  __int64 v8; // rdi
 
   v6 = 0;
   if ( RawBeginOperation(a1, *(_QWORD *)(a3 + 48)) )
@@ -26,12 +26,13 @@ __int64 __fastcall RawSetInformation(__int64 a1, IRP *a2, __int64 a3)
         v6 = -1073741811;
       else
         *(_QWORD *)(v8 + 104) = *(_QWORD *)&MasterIrp->Type;
+      v8 = *(_QWORD *)(a3 + 48);
     }
     else
     {
       v6 = -1073741808;
     }
-    RawEndOperation(a1, *(_QWORD *)(a3 + 48));
+    RawEndOperation(a1, v8);
   }
   else
   {

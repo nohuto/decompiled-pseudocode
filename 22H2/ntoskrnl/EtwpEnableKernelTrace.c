@@ -1,295 +1,279 @@
 /*
- * XREFs of EtwpEnableKernelTrace @ 0x1407D5610
+ * XREFs of EtwpEnableKernelTrace @ 0x140793068
  * Callers:
- *     EtwpUpdateGlobalGroupMasks @ 0x1407D53FC (EtwpUpdateGlobalGroupMasks.c)
- *     EtwpFixBootLoggers @ 0x140B68B2C (EtwpFixBootLoggers.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x140792E60 (EtwpUpdateGlobalGroupMasks.c)
  * Callees:
- *     KeSetTimer2 @ 0x140250130 (KeSetTimer2.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     IoPerfInit @ 0x140558F78 (IoPerfInit.c)
- *     KeStartProfile @ 0x140573F7C (KeStartProfile.c)
- *     DbgSetDebugPrintCallback @ 0x1405A7870 (DbgSetDebugPrintCallback.c)
- *     EtwpDisableKernelTrace @ 0x1407D5984 (EtwpDisableKernelTrace.c)
- *     EtwpUpdateFileInfoDriverState @ 0x1407D5BF0 (EtwpUpdateFileInfoDriverState.c)
- *     AlpcRegisterLogRoutine @ 0x14097A0D8 (AlpcRegisterLogRoutine.c)
- *     ObEnableEtwReferenceTrace @ 0x14097C5BC (ObEnableEtwReferenceTrace.c)
- *     WmiSetNetworkNotify @ 0x1409E18EC (WmiSetNetworkNotify.c)
- *     EtwpTimeProfileStart @ 0x1409E6BF8 (EtwpTimeProfileStart.c)
+ *     KeSetTimer2 @ 0x14022BEC0 (KeSetTimer2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     IoPerfInit @ 0x140507A60 (IoPerfInit.c)
+ *     KeStartProfile @ 0x14051BB0C (KeStartProfile.c)
+ *     DbgSetDebugPrintCallback @ 0x140585520 (DbgSetDebugPrintCallback.c)
+ *     KeSetIntervalProfile @ 0x140734774 (KeSetIntervalProfile.c)
+ *     EtwpDisableKernelTrace @ 0x1407932FC (EtwpDisableKernelTrace.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x140793488 (EtwpUpdateFileInfoDriverState.c)
+ *     KeInitializeProfileCallback @ 0x1408BC194 (KeInitializeProfileCallback.c)
+ *     AlpcRegisterLogRoutine @ 0x1408C39EC (AlpcRegisterLogRoutine.c)
+ *     ObEnableEtwReferenceTrace @ 0x1408DDFD0 (ObEnableEtwReferenceTrace.c)
+ *     WmiSetNetworkNotify @ 0x140933598 (WmiSetNetworkNotify.c)
  */
 
-__int64 __fastcall EtwpEnableKernelTrace(_DWORD *a1, _DWORD *a2, __int64 a3, unsigned int a4)
+__int64 __fastcall EtwpEnableKernelTrace(const __m128i *a1, char *a2, __int64 a3, unsigned int a4)
 {
-  int updated; // edi
-  int v5; // r10d
-  int v7; // esi
-  _DWORD *v8; // r13
-  int v9; // r15d
-  int v10; // esi
-  __int64 (__fastcall *v11)(__int64, int, unsigned int, __int16); // r9
-  __int64 v12; // r12
-  int v13; // r14d
-  __int64 v14; // rdx
-  __int64 (__fastcall *v15)(__int64, int, unsigned int, __int16, unsigned __int8); // r8
-  __int64 v16; // rcx
-  _DWORD *v18; // rcx
-  __int64 v19; // r8
-  unsigned int i; // esi
-  _DWORD *v21; // rdx
-  char *v22; // rbx
-  __int64 v23; // r9
-  unsigned int v24; // [rsp+30h] [rbp-49h]
-  __int128 v27; // [rsp+50h] [rbp-29h] BYREF
-  __int128 v28; // [rsp+60h] [rbp-19h]
-  _OWORD v29[2]; // [rsp+70h] [rbp-9h] BYREF
+  int updated; // r15d
+  int v7; // ecx
+  int v8; // r14d
+  int v9; // eax
+  __int64 v10; // r12
+  int v11; // ecx
+  int v12; // ebx
+  int v13; // eax
+  int v14; // esi
+  int v15; // eax
+  int v16; // eax
+  int v17; // eax
+  unsigned int i; // ebx
+  signed __int64 v20; // rdi
+  char *v21; // rax
+  unsigned int v22; // [rsp+38h] [rbp-39h]
+  __int64 v23; // [rsp+40h] [rbp-31h]
+  _QWORD v24[2]; // [rsp+48h] [rbp-29h] BYREF
+  __int128 v25; // [rsp+58h] [rbp-19h] BYREF
+  __int128 v26; // [rsp+68h] [rbp-9h]
+  _OWORD v27[2]; // [rsp+78h] [rbp+7h] BYREF
 
-  v24 = a4;
+  v22 = a4;
   updated = 0;
-  v5 = a3;
-  v7 = (int)a1;
-  v27 = 0LL;
-  v28 = 0LL;
-  if ( !EtwpBootPhase )
+  v23 = a3;
+  v25 = 0LL;
+  v26 = 0LL;
+  if ( a2 )
   {
-    v18 = a2;
-    v19 = 8LL;
-    do
+    v7 = *((_DWORD *)a2 + 1);
+    if ( (v7 & 0x80000) != 0 )
     {
-      *v18 &= ~*(_DWORD *)((char *)v18 + (char *)&EtwpBootDeferredGroupMask - (char *)a2);
-      ++v18;
-      --v19;
+      v8 = 0x80000;
+      v9 = 8912896;
     }
-    while ( v19 );
-  }
-  v8 = a2 + 1;
-  if ( a2 && (*v8 & 0x80000) != 0 )
-  {
-    v9 = DWORD1(v27) | 0x80000;
-    DWORD1(v27) |= 0x80000u;
+    else
+    {
+      v8 = DWORD1(v25);
+      v9 = 0x800000;
+    }
+    if ( (v7 & 0x800000) != 0 )
+      v8 = v9;
+    DWORD1(v25) = v8;
   }
   else
   {
-    v9 = DWORD1(v27);
-    if ( !a2 )
-      goto LABEL_9;
+    v8 = DWORD1(v25);
   }
-  if ( (*v8 & 0x800000) != 0 )
+  if ( a1 && (a1->m128i_i32[1] & 0x880000) != 0 )
   {
-    v9 |= 0x800000u;
-    DWORD1(v27) = v9;
-  }
-  if ( (*v8 & 0x880000) != 0 )
-  {
-    *(_QWORD *)&v29[0] = 0LL;
-    *((_QWORD *)&v29[0] + 1) = -1LL;
+    v24[0] = 0LL;
+    v24[1] = -1LL;
     KeSetTimer2(
       (__int64)&EtwpMemInfoTimer,
       -10000LL * (unsigned int)EtwpMemInfoInterval,
       10000LL * (unsigned int)EtwpMemInfoInterval,
-      (__int64)v29);
-    a4 = v24;
-    v5 = a3;
+      (__int64)v24);
+    a4 = v22;
+    LODWORD(a3) = v23;
   }
-LABEL_9:
-  if ( (unsigned __int8)EtwpBootPhase > 3u )
+  v10 = 2LL;
+  if ( EtwpFileSystemReady && (updated = EtwpUpdateFileInfoDriverState((_DWORD)a1, (_DWORD)a2, 1, a3, a4)) != 0 || !a2 )
   {
-    updated = EtwpUpdateFileInfoDriverState(v7, (_DWORD)a2, 1, v5, a4);
-    if ( updated )
-      goto LABEL_55;
+LABEL_57:
+    if ( updated >= 0 )
+      return (unsigned int)updated;
+    goto LABEL_70;
   }
-  v10 = v27;
-  v11 = EtwpTraceFltIo;
-  if ( a2 )
+  v11 = *(_DWORD *)a2;
+  v12 = v25;
+  if ( (*(_DWORD *)a2 & 0x2000000) != 0 )
   {
-    if ( (*a2 & 0x2000000) != 0 )
-    {
-      v10 = v27 | 0x2000000;
-      qword_140C002E8 = (__int64)EtwpTraceFileIo;
-      LODWORD(v27) = v27 | 0x2000000;
-    }
-    if ( (*a2 & 0x4000000) != 0 )
-    {
-      v10 |= 0x4000000u;
-      qword_140C002E0 = (__int64)EtwpTraceFileIo;
-      LODWORD(v27) = v10;
-    }
-    if ( (*a2 & 0x200) != 0 )
-    {
-      v10 |= 0x200u;
-      qword_140C002D8 = (__int64)EtwpTraceFileName;
-      LODWORD(v27) = v10;
-    }
-    if ( (*a2 & 0x100) != 0 )
-    {
-      v10 |= 0x100u;
-      EtwpDiskIoNotifyRoutines = (__int64)EtwpTraceIo;
-      qword_140C00318 = (__int64)EtwpTraceRedirectedIo;
-      LODWORD(v27) = v10;
-    }
-    if ( (*a2 & 0x400) != 0 )
-    {
-      v10 |= 0x400u;
-      qword_140C64AC0 = (__int64)EtwpTraceIoInit;
-      LODWORD(v27) = v10;
-    }
-    v12 = (__int64)(a2 + 4);
-    if ( (a2[4] & 1) != 0 )
-    {
-      v13 = v28 | 1;
-      qword_140C64AC8 = (__int64)EtwpTraceOpticalIo;
-      LODWORD(v28) = v28 | 1;
-      goto LABEL_24;
-    }
+    v12 = v25 | 0x2000000;
+    qword_140C00EF8 = (__int64)EtwpTraceFileIo;
+    v11 = *(_DWORD *)a2;
+    LODWORD(v25) = v25 | 0x2000000;
   }
-  else
+  if ( (v11 & 0x4000000) != 0 )
   {
-    v12 = 16LL;
+    v12 |= 0x4000000u;
+    qword_140C00EF0 = (__int64)EtwpTraceFileIo;
+    v11 = *(_DWORD *)a2;
+    LODWORD(v25) = v12;
   }
-  v13 = v28;
-  if ( !a2 )
+  if ( (v11 & 0x200) != 0 )
   {
-    v14 = 0x100000LL;
-    goto LABEL_33;
+    v12 |= 0x200u;
+    qword_140C00EE8 = (__int64)EtwpTraceFileName;
+    v11 = *(_DWORD *)a2;
+    LODWORD(v25) = v12;
   }
-LABEL_24:
-  if ( (*(_DWORD *)v12 & 2) != 0 )
+  if ( (v11 & 0x100) != 0 )
   {
-    v13 |= 2u;
-    qword_140C64AD0 = (__int64)EtwpTraceOpticalIoInit;
-    LODWORD(v28) = v13;
+    v12 |= 0x100u;
+    EtwpDiskIoNotifyRoutines = (__int64)EtwpTraceIo;
+    qword_140C00ED8 = (__int64)EtwpTraceRedirectedIo;
+    v11 = *(_DWORD *)a2;
+    LODWORD(v25) = v12;
   }
-  if ( (*a2 & 0x200000) != 0 )
+  if ( (v11 & 0x400) != 0 )
   {
-    v10 |= 0x200000u;
+    v12 |= 0x400u;
+    qword_140C54760 = (__int64)EtwpTraceIoInit;
+    LODWORD(v25) = v12;
+  }
+  v13 = *((_DWORD *)a2 + 4);
+  v14 = v26;
+  if ( (v13 & 1) != 0 )
+  {
+    v14 = v26 | 1;
+    qword_140C54768 = (__int64)EtwpTraceOpticalIo;
+    v13 = *((_DWORD *)a2 + 4);
+    LODWORD(v26) = v26 | 1;
+  }
+  if ( (v13 & 2) != 0 )
+  {
+    v14 |= 2u;
+    qword_140C54770 = (__int64)EtwpTraceOpticalIoInit;
+    LODWORD(v26) = v14;
+  }
+  if ( (*(_DWORD *)a2 & 0x200000) != 0 )
+  {
+    v12 |= 0x200000u;
     EtwpSplitIoNotifyRoutines = (__int64)EtwpTraceSplitIo;
-    LODWORD(v27) = v10;
+    LODWORD(v25) = v12;
   }
-  if ( (*(_DWORD *)v12 & 0x400000) != 0 )
+  v15 = *((_DWORD *)a2 + 4);
+  if ( (v15 & 0x400000) != 0 )
   {
-    v13 |= 0x400000u;
-    qword_140C002F8 = (__int64)EtwpTraceFltIo;
-    LODWORD(v28) = v13;
+    v14 |= 0x400000u;
+    qword_140C00EB8 = (__int64)EtwpTraceFltIo;
+    v15 = *((_DWORD *)a2 + 4);
+    LODWORD(v26) = v14;
   }
-  if ( (*(_DWORD *)v12 & 0x80000) != 0 )
+  if ( (v15 & 0x80000) != 0 )
   {
-    v13 |= 0x80000u;
-    qword_140C00300 = (__int64)EtwpTraceFltIo;
-    LODWORD(v28) = v13;
+    v14 |= 0x80000u;
+    qword_140C00EC0 = (__int64)EtwpTraceFltIo;
+    v15 = *((_DWORD *)a2 + 4);
+    LODWORD(v26) = v14;
   }
-  v14 = 0x100000LL;
-  if ( (*(_DWORD *)v12 & 0x100000) != 0 )
+  if ( (v15 & 0x100000) != 0 )
   {
-    v13 |= 0x100000u;
-    qword_140C00308 = (__int64)EtwpTraceFltTimedIo;
-    LODWORD(v28) = v13;
-    goto LABEL_34;
+    v14 |= 0x100000u;
+    qword_140C00EC8 = (__int64)EtwpTraceFltTimedIo;
+    v15 = *((_DWORD *)a2 + 4);
+    LODWORD(v26) = v14;
   }
-LABEL_33:
-  if ( !a2 )
-    goto LABEL_55;
-LABEL_34:
-  if ( (*(_DWORD *)v12 & 0x200000) != 0 )
+  if ( (v15 & 0x200000) != 0 )
   {
-    v13 |= 0x200000u;
-    qword_140C00310 = (__int64)EtwpTraceFltTimedIo;
-    LODWORD(v28) = v13;
+    v14 |= 0x200000u;
+    qword_140C00ED0 = (__int64)EtwpTraceFltTimedIo;
+    v15 = *((_DWORD *)a2 + 4);
+    LODWORD(v26) = v14;
   }
-  v15 = EtwpTraceWdf;
-  if ( (*(_DWORD *)v12 & 0x1000000) != 0 )
+  if ( (v15 & 0x1000000) != 0 )
   {
-    v13 |= 0x1000000u;
-    qword_140C0C990 = (__int64)EtwpTraceWdf;
-    LODWORD(v28) = v13;
+    v14 |= 0x1000000u;
+    qword_140C12030 = (__int64)EtwpTraceWdf;
+    v15 = *((_DWORD *)a2 + 4);
+    LODWORD(v26) = v14;
   }
-  if ( (*(_DWORD *)v12 & 0x2000000) != 0 )
+  if ( (v15 & 0x2000000) != 0 )
   {
-    v13 |= 0x2000000u;
-    qword_140C0C998 = (__int64)EtwpTraceWdf;
-    LODWORD(v28) = v13;
+    v14 |= 0x2000000u;
+    qword_140C12038 = (__int64)EtwpTraceWdf;
+    LODWORD(v26) = v14;
   }
-  if ( (a2[2] & 0x8000000) != 0 )
+  if ( (*((_DWORD *)a2 + 2) & 0x8000000) != 0 )
   {
-    DWORD2(v27) |= 0x8000000u;
-    qword_140C0C9A0 = (__int64)EtwpSystemTraceWdf;
+    DWORD2(v25) |= 0x8000000u;
+    qword_140C12040 = (__int64)EtwpSystemTraceWdf;
   }
-  v16 = 0x20000LL;
-  if ( (*a2 & 0x20000) != 0 )
+  v16 = *(_DWORD *)a2;
+  if ( (*(_DWORD *)a2 & 0x20000) != 0 )
   {
     updated = 0;
-    CmpTraceRoutine = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))EtwpTraceRegistry;
-    v10 |= 0x20000u;
-    LODWORD(v27) = v10;
+    *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) = (BOOLEAN *)EtwpTraceRegistry;
+    v12 |= 0x20000u;
+    LODWORD(v25) = v12;
     CmpTraceTxrRoutine = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD))EtwpTraceRegistryTransaction;
   }
-  if ( (*a2 & 0x100000) != 0 )
+  if ( (v16 & 0x100000) != 0 )
   {
-    updated = AlpcRegisterLogRoutine(0x20000LL, 0x100000LL, EtwpTraceWdf, EtwpTraceFltIo);
+    updated = AlpcRegisterLogRoutine();
     if ( updated < 0 )
-      goto LABEL_76;
-    v10 |= 0x100000u;
-    LODWORD(v27) = v10;
+      goto LABEL_70;
+    v16 = *(_DWORD *)a2;
+    v12 |= 0x100000u;
+    LODWORD(v25) = v12;
   }
-  if ( (*a2 & 0x10000) != 0 )
+  if ( (v16 & 0x10000) != 0 )
   {
     EtwpTdiIoNotify = (__int64)EtwpTraceNetwork;
-    WmiSetNetworkNotify(EtwpTraceNetwork, v14, v15, v11);
-    v10 |= 0x10000u;
-    LODWORD(v27) = v10;
+    WmiSetNetworkNotify();
+    v12 |= 0x10000u;
+    LODWORD(v25) = v12;
   }
-  if ( (*v8 & 0x10) != 0 )
+  if ( (*((_DWORD *)a2 + 1) & 0x10) != 0 )
   {
     updated = IoPerfInit(1);
     if ( updated < 0 )
-      goto LABEL_76;
-    v9 |= 0x10u;
-    DWORD1(v27) = v9;
+      goto LABEL_70;
+    v8 |= 0x10u;
+    DWORD1(v25) = v8;
   }
-  if ( (*a2 & 0x40000) != 0 )
-  {
-    updated = DbgSetDebugPrintCallback((PDEBUG_PRINT_CALLBACK)EtwpTraceDebugPrint, 1u);
-    if ( updated < 0 )
-      goto LABEL_76;
-    LODWORD(v27) = v10 | 0x40000;
-  }
-  if ( (*v8 & 2) == 0 )
+  if ( (*(_DWORD *)a2 & 0x40000) == 0 )
   {
 LABEL_50:
-    if ( (*v8 & 0x400) != 0 )
+    v17 = *((_DWORD *)a2 + 1);
+    if ( (v17 & 2) != 0 )
+    {
+      KeSetIntervalProfile(EtwpProfileInterval, 0);
+      KeInitializeProfileCallback(&EtwpProfileObject, EtwpProfileInterrupt, 0LL, 0LL);
+      KeStartProfile((ULONG_PTR)&EtwpProfileObject);
+      v17 = *((_DWORD *)a2 + 1);
+      v8 |= 2u;
+      DWORD1(v25) = v8;
+    }
+    if ( (v17 & 0x400) != 0 )
     {
       for ( i = 0; i < EtwpPmcProfile; ++i )
-        KeStartProfile((ULONG_PTR)qword_140C31F88 + 616 * i);
-      DWORD1(v27) = v9 | 0x400;
+        KeStartProfile((ULONG_PTR)qword_140C19D98 + 248 * i);
+      DWORD1(v25) = v8 | 0x400;
     }
-    if ( (*(_DWORD *)v12 & 0x80u) != 0 )
+    if ( (*((_DWORD *)a2 + 4) & 0x80u) != 0 )
     {
-      ObEnableEtwReferenceTrace(v16, v14, v15, v11);
-      LODWORD(v28) = v13 | 0x80;
+      ObEnableEtwReferenceTrace();
+      LODWORD(v26) = v14 | 0x80;
     }
-    if ( (*v8 & 0x20000) != 0 )
+    if ( (*((_DWORD *)a2 + 1) & 0x20000) != 0 )
       _InterlockedIncrement(&EtwpEthreadSyncTrackingSequence);
-LABEL_55:
-    if ( updated >= 0 )
-      return (unsigned int)updated;
-    goto LABEL_76;
+    goto LABEL_57;
   }
-  updated = EtwpTimeProfileStart(v16, v14, v15, v11);
+  updated = DbgSetDebugPrintCallback((PDEBUG_PRINT_CALLBACK)EtwpTraceDebugPrint, 1u);
   if ( updated >= 0 )
   {
-    v9 |= 2u;
-    DWORD1(v27) = v9;
+    LODWORD(v25) = v12 | 0x40000;
     goto LABEL_50;
   }
-LABEL_76:
-  v21 = a1;
-  v22 = (char *)((char *)a2 - (char *)a1);
-  v23 = 8LL;
-  memset(v29, 0, sizeof(v29));
+LABEL_70:
+  v20 = a2 - (char *)a1;
+  memset(v27, 0, sizeof(v27));
+  v21 = (char *)((char *)v27 - (char *)a1);
   do
   {
-    *(_DWORD *)((char *)v21 + (char *)v29 - (char *)a1) = *v21 & ~*(_DWORD *)((char *)v21 + (_QWORD)v22);
-    ++v21;
-    --v23;
+    *(const __m128i *)((char *)a1 + (_QWORD)v21) = _mm_and_si128(
+                                                     _mm_andnot_si128(
+                                                       _mm_loadu_si128((const __m128i *)((char *)a1 + v20)),
+                                                       (__m128i)_xmm_ffffffffffffffffffffffffffffffff),
+                                                     _mm_loadu_si128(a1));
+    ++a1;
+    --v10;
   }
-  while ( v23 );
-  EtwpDisableKernelTrace(v29, &v27, a3, v24);
+  while ( v10 );
+  EtwpDisableKernelTrace(v27, &v25, v23, v22);
   return (unsigned int)updated;
 }

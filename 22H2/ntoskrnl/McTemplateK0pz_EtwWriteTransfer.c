@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pz_EtwWriteTransfer @ 0x140561204
+ * XREFs of McTemplateK0pz_EtwWriteTransfer @ 0x14050D804
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403C3C60 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x14036E304 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pz_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

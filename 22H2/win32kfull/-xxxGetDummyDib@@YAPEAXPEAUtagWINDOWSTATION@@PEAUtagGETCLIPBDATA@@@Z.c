@@ -1,36 +1,37 @@
 /*
- * XREFs of ?xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FD018
+ * XREFs of ?xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C015C61C
  * Callers:
- *     xxxGetClipboardData @ 0x1C01FDE64 (xxxGetClipboardData.c)
+ *     xxxGetClipboardData @ 0x1C002D328 (xxxGetClipboardData.c)
  * Callees:
- *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C00131A8 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
- *     HMValidateHandleNoRip @ 0x1C00244B4 (HMValidateHandleNoRip.c)
- *     ?SizeOfDibColorTable@@YAKPEAUtagBITMAPINFOHEADER@@@Z @ 0x1C01FC6A0 (-SizeOfDibColorTable@@YAKPEAUtagBITMAPINFOHEADER@@@Z.c)
- *     ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C01FC714 (-UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z.c)
- *     ?xxxBMPtoDIB@@YAPEAUtagBITMAPINFOHEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@PEAK@Z @ 0x1C01FC7BC (-xxxBMPtoDIB@@YAPEAUtagBITMAPINFOHEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@PEAK@Z.c)
- *     _ConvertMemHandle @ 0x1C01FD9D4 (_ConvertMemHandle.c)
- *     xxxGetClipboardData @ 0x1C01FDE64 (xxxGetClipboardData.c)
+ *     HMValidateHandleNoRip @ 0x1C0023BCC (HMValidateHandleNoRip.c)
+ *     xxxGetClipboardData @ 0x1C002D328 (xxxGetClipboardData.c)
+ *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C002F970 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
+ *     _ConvertMemHandle @ 0x1C012BC90 (_ConvertMemHandle.c)
+ *     ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C015C768 (-UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z.c)
+ *     ?SizeOfDibColorTable@@YAKPEAUtagBITMAPINFOHEADER@@@Z @ 0x1C015C82C (-SizeOfDibColorTable@@YAKPEAUtagBITMAPINFOHEADER@@@Z.c)
+ *     ?xxxBMPtoDIB@@YAPEAUtagBITMAPINFOHEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@PEAK@Z @ 0x1C015C860 (-xxxBMPtoDIB@@YAPEAUtagBITMAPINFOHEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@PEAK@Z.c)
  */
 
 void *__fastcall xxxGetDummyDib(struct tagWINDOWSTATION *a1, struct tagGETCLIPBDATA *a2)
 {
-  __int64 ClipboardData; // rbp
+  HPALETTE ClipboardData; // rbp
   struct tagCLIP *ClipFormat; // rax
-  void *result; // rax
-  struct tagCLIP *v7; // rax
-  HBRUSH v8; // rax
-  __int64 v9; // rdi
-  struct tagBITMAPINFOHEADER *v10; // rax
-  struct tagBITMAPINFOHEADER *v11; // rbp
-  int v12; // eax
+  struct tagCLIP *v6; // rax
+  HBITMAP v7; // rax
+  __int64 v8; // rdi
+  struct tagBITMAPINFOHEADER *v9; // rax
+  struct tagBITMAPINFOHEADER *v10; // rbp
+  unsigned int v11; // eax
+  __int64 v12; // r8
   struct tagCLIP *v13; // rax
   struct tagCLIP *v14; // rsi
-  __int64 v15; // rax
+  void *result; // rax
+  __int64 v16; // rax
 
   ClipboardData = 0LL;
   if ( (*(_DWORD *)(gpsi + 7004LL) & 1) != 0 )
   {
-    ClipboardData = xxxGetClipboardData(a1, 9u, a2);
+    ClipboardData = (HPALETTE)xxxGetClipboardData(a1, 9u, (__int64)a2);
     if ( !ClipboardData )
       return 0LL;
   }
@@ -39,7 +40,7 @@ void *__fastcall xxxGetDummyDib(struct tagWINDOWSTATION *a1, struct tagGETCLIPBD
   {
     if ( *((_QWORD *)ClipFormat + 1) != 2LL )
     {
-      result = (void *)xxxGetClipboardData(a1, 0x11u, a2);
+      result = xxxGetClipboardData(a1, 0x11u, (__int64)a2);
       if ( result )
       {
         *(_DWORD *)a2 = 17;
@@ -48,42 +49,43 @@ void *__fastcall xxxGetDummyDib(struct tagWINDOWSTATION *a1, struct tagGETCLIPBD
       }
     }
   }
-  v7 = FindClipFormat(a1, 2u, 1);
+  v6 = FindClipFormat(a1, 2u, 1);
+  if ( !v6 )
+    return 0LL;
+  if ( *((_QWORD *)v6 + 1) == 2LL )
+    return 0LL;
+  v7 = (HBITMAP)xxxGetClipboardData(a1, 2u, (__int64)a2);
   if ( !v7 )
     return 0LL;
-  if ( *((_QWORD *)v7 + 1) == 2LL )
-    return 0LL;
-  v8 = (HBRUSH)xxxGetClipboardData(a1, 2u, a2);
-  if ( !v8 )
-    return 0LL;
-  v9 = 0LL;
-  v10 = xxxBMPtoDIB(v8, ClipboardData, 0LL);
-  v11 = v10;
-  if ( v10 )
+  v8 = 0LL;
+  v9 = xxxBMPtoDIB(v7, ClipboardData, 0LL);
+  v10 = v9;
+  if ( v9 )
   {
-    v12 = SizeOfDibColorTable(v10);
-    v9 = ConvertMemHandle(
-           v11,
-           v11->biSize + v12 + abs32(v11->biHeight) * (((v11->biWidth * v11->biBitCount + 31) >> 3) & 0xFFFFFFFC));
-    Win32FreePool(v11);
-    if ( v9 )
+    v11 = SizeOfDibColorTable(v9);
+    v8 = ConvertMemHandle(
+           v10,
+           v10->biSize + v11 + abs32(v10->biHeight) * (((v10->biWidth * v10->biBitCount + 31) >> 3) & 0xFFFFFFFC),
+           v12);
+    Win32FreePool(v10);
+    if ( v8 )
     {
       v13 = FindClipFormat(a1, 8u, 1);
       v14 = v13;
       if ( v13 )
       {
         UT_FreeCBFormat(v13);
-        *((_QWORD *)v14 + 1) = v9;
+        *((_QWORD *)v14 + 1) = v8;
         *(_DWORD *)a2 = 8;
       }
       else
       {
-        v15 = HMValidateHandleNoRip(v9, 6);
-        if ( v15 )
-          HMUnlockDestroyObject(v15);
+        v16 = HMValidateHandleNoRip(v8, 6);
+        if ( v16 )
+          HMUnlockDestroyObject(v16);
         return 0LL;
       }
     }
   }
-  return (void *)v9;
+  return (void *)v8;
 }

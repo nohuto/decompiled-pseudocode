@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBHSM_WritingUsb4DromMetaData @ 0x1C0009EC0
+ * XREFs of HUBHSM_WritingUsb4DromMetaData @ 0x1C0009BC0
  * Callers:
  *     <none>
  * Callees:
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     FWUPDATE_SetMMIO @ 0x1C003EDF0 (FWUPDATE_SetMMIO.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     FWUPDATE_SetMMIO @ 0x1C003E770 (FWUPDATE_SetMMIO.c)
  */
 
 __int64 __fastcall HUBHSM_WritingUsb4DromMetaData(__int64 a1)

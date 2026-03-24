@@ -1,12 +1,12 @@
 /*
- * XREFs of EditionInitializeWppLogging @ 0x1C0119910
+ * XREFs of EditionInitializeWppLogging @ 0x1C012E0D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCopyWorkerA @ 0x1C0119A44 (RtlStringCopyWorkerA.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     WppInitKm @ 0x1C037791C (WppInitKm.c)
- *     WppLoadTracingSupport @ 0x1C03779D0 (WppLoadTracingSupport.c)
+ *     RtlStringCopyWorkerA @ 0x1C012E204 (RtlStringCopyWorkerA.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     WppInitKm @ 0x1C037B974 (WppInitKm.c)
+ *     WppLoadTracingSupport @ 0x1C037BA28 (WppLoadTracingSupport.c)
  */
 
 __int64 __fastcall EditionInitializeWppLogging(__int64 a1, __int64 a2)
@@ -43,8 +43,8 @@ __int64 __fastcall EditionInitializeWppLogging(__int64 a1, __int64 a2)
   v13 = 0x1000000000LL;
   RtlStringCopyWorkerA(pszDest, v4, v5, v6, v8);
   LODWORD(v11) = 512;
-  result = imp_WppRecorderLogCreate(WPP_GLOBAL_Control, &v10, &WPP_MAIN_CB.Queue);
+  result = imp_WppRecorderLogCreate(WPP_GLOBAL_Control, &v10, &gFullLog);
   if ( (int)result < 0 )
-    WPP_MAIN_CB.Queue.ListEntry.Flink = 0LL;
+    gFullLog = 0LL;
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Reset@CExpressionPerformanceCounter@@QEAAXXZ @ 0x180263358
+ * XREFs of ?Reset@CExpressionPerformanceCounter@@QEAAXXZ @ 0x180202AF4
  * Callers:
- *     ?UpdateExpressions@CExpressionManager@@QEAAX_K0@Z @ 0x1800514E4 (-UpdateExpressions@CExpressionManager@@QEAAX_K0@Z.c)
+ *     ?UpdateExpressions@CExpressionManager@@QEAAJ_K0@Z @ 0x1800737D0 (-UpdateExpressions@CExpressionManager@@QEAAJ_K0@Z.c)
  * Callees:
  *     <none>
  */

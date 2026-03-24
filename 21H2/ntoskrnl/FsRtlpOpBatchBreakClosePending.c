@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlpOpBatchBreakClosePending @ 0x14092E8CC
+ * XREFs of FsRtlpOpBatchBreakClosePending @ 0x14088BE5C
  * Callers:
- *     FsRtlpOplockFsctrlInternal @ 0x14071C610 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1405EA170 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     FsRtlpClearOwner @ 0x140240DB4 (FsRtlpClearOwner.c)
- *     FsRtlpModifyThreadPriorities @ 0x14024A390 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x14024E884 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     FsRtlpClearOwner @ 0x140375278 (FsRtlpClearOwner.c)
+ *     FsRtlpModifyThreadPriorities @ 0x140379E74 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1404F0C4C (FsRtlpRemoveAndCompleteWaitingIrp.c)
  */
 
 __int64 __fastcall FsRtlpOpBatchBreakClosePending(__int64 a1, __int64 a2, IRP *a3)
@@ -28,13 +28,13 @@ __int64 __fastcall FsRtlpOpBatchBreakClosePending(__int64 a1, __int64 a2, IRP *a
     {
       if ( (v8 & 0x82) != 0 )
       {
-        FsRtlpModifyThreadPriorities(a1, 0LL, 0LL);
+        FsRtlpModifyThreadPriorities(a1, 0LL, 0);
         FsRtlpClearOwner(a1, 0LL);
         *(_BYTE *)(a1 + 32) = 0;
         v9 = *(_DWORD *)(a1 + 144);
         if ( (v9 & 2) != 0 )
         {
-          ObfDereferenceObject(*(PVOID *)(a1 + 8));
+          HalPutDmaAdapter(*(PADAPTER_OBJECT *)(a1 + 8));
           v9 = *(_DWORD *)(a1 + 144);
         }
         *(_DWORD *)(a1 + 144) = v9 & 0x20 | 1;

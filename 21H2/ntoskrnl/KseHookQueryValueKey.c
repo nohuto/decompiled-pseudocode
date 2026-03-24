@@ -1,10 +1,10 @@
 /*
- * XREFs of KseHookQueryValueKey @ 0x140965AD0
+ * XREFs of KseHookQueryValueKey @ 0x1408C1AE0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall KseHookQueryValueKey(__int64 a1, const UNICODE_STRING *a2, int a3, _DWORD *a4)
@@ -14,7 +14,7 @@ __int64 __fastcall KseHookQueryValueKey(__int64 a1, const UNICODE_STRING *a2, in
   int v9; // ebx
   int v10; // ebx
 
-  v7 = ((__int64 (__fastcall *)(__int64, const UNICODE_STRING *))qword_140C07028)(a1, a2);
+  v7 = ((__int64 (__fastcall *)(__int64, const UNICODE_STRING *))qword_140C04ED8)(a1, a2);
   if ( (v7 & 0x80000000) != 0 )
     return v7;
   v8 = a3 - 1;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ??4CHMRefHwndByHandle@@QEAAAEAV0@AEBV0@@Z @ 0x1C012C5A0
+ * XREFs of ??4CHMRefHwndByHandle@@QEAAAEAV0@AEBV0@@Z @ 0x1C0113440
  * Callers:
  *     <none>
  * Callees:

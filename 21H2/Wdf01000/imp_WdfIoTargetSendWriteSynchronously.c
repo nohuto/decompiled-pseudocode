@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_WdfIoTargetSendWriteSynchronously @ 0x1C00735D0
+ * XREFs of imp_WdfIoTargetSendWriteSynchronously @ 0x1C0063F00
  * Callers:
  *     <none>
  * Callees:
- *     FxIoTargetSendIo @ 0x1C00726D4 (FxIoTargetSendIo.c)
+ *     FxIoTargetSendIo @ 0x1C0062804 (FxIoTargetSendIo.c)
  */
 
 __int64 __fastcall imp_WdfIoTargetSendWriteSynchronously(
@@ -16,7 +16,7 @@ __int64 __fastcall imp_WdfIoTargetSendWriteSynchronously(
         unsigned __int64 *BytesWritten)
 {
   return FxIoTargetSendIo(
-           (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+           (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
            IoTarget,
            Request,
            4u,

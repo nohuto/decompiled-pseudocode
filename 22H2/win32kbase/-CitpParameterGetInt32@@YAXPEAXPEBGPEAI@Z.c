@@ -1,9 +1,10 @@
 /*
- * XREFs of ?CitpParameterGetInt32@@YAXPEAXPEBGPEAI@Z @ 0x1C00B6494
+ * XREFs of ?CitpParameterGetInt32@@YAXPEAXPEBGPEAI@Z @ 0x1C008D824
  * Callers:
- *     ?CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z @ 0x1C00B6308 (-CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z.c)
+ *     ?CitpUpdateActiveBootId@@YAJIEPEAG0PEAX@Z @ 0x1C008D0B0 (-CitpUpdateActiveBootId@@YAJIEPEAG0PEAX@Z.c)
+ *     ?CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z @ 0x1C008D630 (-CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 void __fastcall CitpParameterGetInt32(HANDLE KeyHandle, const unsigned __int16 *a2, unsigned int *a3)

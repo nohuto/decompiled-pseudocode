@@ -1,11 +1,11 @@
 /*
- * XREFs of bSetDeviceSessionUsage @ 0x1C006ACE0
+ * XREFs of bSetDeviceSessionUsage @ 0x1C00ADF30
  * Callers:
- *     DrvCleanupOneGraphicsDevice @ 0x1C0069DB0 (DrvCleanupOneGraphicsDevice.c)
- *     DrvCloseGraphicsDevices @ 0x1C006A4B0 (DrvCloseGraphicsDevices.c)
- *     DrvUpdateGraphicsDeviceList @ 0x1C006ADB0 (DrvUpdateGraphicsDeviceList.c)
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001DEE0 (DrvUpdateGraphicsDeviceList.c)
+ *     DrvCleanupOneGraphicsDevice @ 0x1C007D360 (DrvCleanupOneGraphicsDevice.c)
+ *     DrvCloseGraphicsDevices @ 0x1C00ADEC0 (DrvCloseGraphicsDevices.c)
  * Callees:
- *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C006CFA0 (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
+ *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C001D00C (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
  */
 
 __int64 __fastcall bSetDeviceSessionUsage(__int64 a1, int a2)

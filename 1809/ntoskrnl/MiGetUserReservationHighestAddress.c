@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetUserReservationHighestAddress @ 0x14069626C
+ * XREFs of MiGetUserReservationHighestAddress @ 0x14069624C
  * Callers:
  *     MiAllocateVirtualMemoryPrepare @ 0x1405ED0B0 (MiAllocateVirtualMemoryPrepare.c)
  *     MiMapParametersInitialize @ 0x1405F0080 (MiMapParametersInitialize.c)
- *     MiMapExParametersInitialize @ 0x140676E8C (MiMapExParametersInitialize.c)
- *     MiMapLockedPagesInUserSpace @ 0x140695B44 (MiMapLockedPagesInUserSpace.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x140695EC0 (MiAllocateNewSubAllocatedRegion.c)
- *     MiMapImageInSystemProcess @ 0x14084C394 (MiMapImageInSystemProcess.c)
- *     MiAllocateEnclaveVad @ 0x140859178 (MiAllocateEnclaveVad.c)
+ *     MiMapExParametersInitialize @ 0x140676E6C (MiMapExParametersInitialize.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140695B24 (MiMapLockedPagesInUserSpace.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140695EA0 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiMapImageInSystemProcess @ 0x14084C374 (MiMapImageInSystemProcess.c)
+ *     MiAllocateEnclaveVad @ 0x140859158 (MiAllocateEnclaveVad.c)
  * Callees:
  *     <none>
  */

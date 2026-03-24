@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsOfType@?$CSceneRendererComponentGeneratedT@VCSceneRendererComponent@@VCSceneComponent@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18023C808
+ * XREFs of ?IsOfType@?$CSceneRendererComponentGeneratedT@VCSceneRendererComponent@@VCSceneComponent@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801E9AC8
  * Callers:
- *     ?IsOfType@CSceneMeshRendererComponent@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18023C830 (-IsOfType@CSceneMeshRendererComponent@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CSceneMeshRendererComponent@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801E9AF0 (-IsOfType@CSceneMeshRendererComponent@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -10,5 +10,5 @@ bool __fastcall CSceneRendererComponentGeneratedT<CSceneRendererComponent,CScene
         __int64 a1,
         int a2)
 {
-  return ((a2 - 153) & 0xFFFFFFF5) == 0 && a2 != 155;
+  return ((a2 - 154) & 0xFFFFFFF5) == 0 && a2 != 156;
 }

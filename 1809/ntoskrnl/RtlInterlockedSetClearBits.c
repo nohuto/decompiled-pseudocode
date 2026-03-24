@@ -4,7 +4,7 @@
  *     PspAssociateCompletionPortCallback @ 0x140585450 (PspAssociateCompletionPortCallback.c)
  *     PspRundownSingleProcess @ 0x140603A48 (PspRundownSingleProcess.c)
  *     PspApplyJobChainLimitsToProcess @ 0x140603EB0 (PspApplyJobChainLimitsToProcess.c)
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

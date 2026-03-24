@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessSetCenterPoint@CComponentTransform2D@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPONENTTRANSFORM2D_SETCENTERPOINT@@@Z @ 0x1800E2858
+ * XREFs of ?ProcessSetCenterPoint@CComponentTransform2D@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPONENTTRANSFORM2D_SETCENTERPOINT@@@Z @ 0x1800D02CC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CComponentTransform2D::ProcessSetCenterPoint(
@@ -18,8 +18,8 @@ __int64 __fastcall CComponentTransform2D::ProcessSetCenterPoint(
   v3 = *((_DWORD *)a3 + 3);
   LODWORD(v5) = *((_DWORD *)a3 + 2);
   HIDWORD(v5) = v3;
-  return ((__int64 (__fastcall *)(char *, void *, struct CResourceTable **))xmmword_1803D00F8)(
-           (char *)this + SDWORD2(xmmword_1803D00F8),
+  return ((__int64 (__fastcall *)(char *, void *, struct CResourceTable **))xmmword_1803442B8)(
+           (char *)this + SDWORD2(xmmword_1803442B8),
            &CComponentTransform2D::sc_Center,
            &v5);
 }

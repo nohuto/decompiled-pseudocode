@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpFreeVetoInformation @ 0x140833058
+ * XREFs of PnpFreeVetoInformation @ 0x140833038
  * Callers:
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140840770 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140840750 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SolidColorLegacyMilBrushUpdate@CChannel@@UEAAJINAEBU_D3DCOLORVALUE@@III@Z @ 0x18006FF40
+ * XREFs of ?SolidColorLegacyMilBrushUpdate@CChannel@@UEAAJINAEBU_D3DCOLORVALUE@@III@Z @ 0x1800D5890
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180070B20 (-CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E524 (-CheckOptionalHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CChannel::SolidColorLegacyMilBrushUpdate(
@@ -26,19 +26,19 @@ __int64 __fastcall CChannel::SolidColorLegacyMilBrushUpdate(
   unsigned int v15; // ebx
   _DWORD v17[6]; // [rsp+20h] [rbp-40h] BYREF
   __int128 v18; // [rsp+38h] [rbp-28h]
-  char *v19; // [rsp+90h] [rbp+30h] BYREF
+  struct _RTL_CRITICAL_SECTION *v19; // [rsp+90h] [rbp+30h] BYREF
 
-  v19 = (char *)this + 168;
+  v19 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
   EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
-  CChannel::CheckHandle(this, a2, 174LL);
+  CChannel::CheckHandle((__int64)this, a2, 175);
   v10 = a5;
-  CChannel::CheckOptionalHandle(this, a5, 60LL);
+  CChannel::CheckOptionalHandle((__int64)this, a5, 60);
   v11 = a6;
-  CChannel::CheckOptionalHandle(this, a6, 185LL);
+  CChannel::CheckOptionalHandle((__int64)this, a6, 185);
   v12 = a7;
-  CChannel::CheckOptionalHandle(this, a7, 185LL);
+  CChannel::CheckOptionalHandle((__int64)this, a7, 185);
   v13 = *(_OWORD *)&a4->r;
-  v17[0] = 499;
+  v17[0] = 504;
   v17[1] = a2;
   v17[3] = v10;
   v17[4] = v11;

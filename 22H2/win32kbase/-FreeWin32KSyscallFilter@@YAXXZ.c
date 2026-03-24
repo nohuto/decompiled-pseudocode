@@ -1,8 +1,8 @@
 /*
- * XREFs of ?FreeWin32KSyscallFilter@@YAXXZ @ 0x1C00C14E8
+ * XREFs of ?FreeWin32KSyscallFilter@@YAXXZ @ 0x1C00B4938
  * Callers:
- *     InitializeWin32KSyscallFilter @ 0x1C0097170 (InitializeWin32KSyscallFilter.c)
- *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C0134470 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ *     InitializeWin32KSyscallFilter @ 0x1C0069460 (InitializeWin32KSyscallFilter.c)
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C011BB50 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
  * Callees:
  *     <none>
  */

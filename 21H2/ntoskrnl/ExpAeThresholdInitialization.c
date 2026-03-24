@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpAeThresholdInitialization @ 0x140B1A290
+ * XREFs of ExpAeThresholdInitialization @ 0x140A66D28
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140AFCEF0 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140A3CEBC (ExpInitSystemPhase1.c)
  * Callees:
- *     KeGenericCallDpc @ 0x140217420 (KeGenericCallDpc.c)
- *     ExpAeMeasureContention @ 0x1403CB204 (ExpAeMeasureContention.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeGenericCallDpc @ 0x1402ECF00 (KeGenericCallDpc.c)
+ *     ExpAeMeasureContention @ 0x1403BD064 (ExpAeMeasureContention.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 char ExpAeThresholdInitialization()

@@ -1,14 +1,14 @@
 /*
- * XREFs of zzzInternalShowCaret @ 0x1C00C2D88
+ * XREFs of zzzInternalShowCaret @ 0x1C006A12C
  * Callers:
- *     NtUserShowCaret @ 0x1C00725B0 (NtUserShowCaret.c)
- *     xxxScrollWindowEx @ 0x1C00BFE8C (xxxScrollWindowEx.c)
- *     xxxEndPaint @ 0x1C00C4E2C (xxxEndPaint.c)
- *     zzzShowCaret @ 0x1C023AA6C (zzzShowCaret.c)
+ *     xxxEndPaint @ 0x1C0046240 (xxxEndPaint.c)
+ *     xxxScrollWindowEx @ 0x1C006788C (xxxScrollWindowEx.c)
+ *     NtUserShowCaret @ 0x1C0069BA0 (NtUserShowCaret.c)
+ *     zzzShowCaret @ 0x1C02418E4 (zzzShowCaret.c)
  * Callees:
- *     xxxWindowEvent @ 0x1C0073AB0 (xxxWindowEvent.c)
- *     ?UT_InvertCaret@@YAXXZ @ 0x1C00C2950 (-UT_InvertCaret@@YAXXZ.c)
- *     ?CreateCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z @ 0x1C00C2E38 (-CreateCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z.c)
+ *     ?CreateCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z @ 0x1C002C9C8 (-CreateCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z.c)
+ *     ?UT_InvertCaret@@YAXXZ @ 0x1C004500C (-UT_InvertCaret@@YAXXZ.c)
+ *     xxxWindowEvent @ 0x1C00814D0 (xxxWindowEvent.c)
  */
 
 void zzzInternalShowCaret()
@@ -32,7 +32,7 @@ void zzzInternalShowCaret()
       if ( (v3 & 1) != 0 )
         UT_InvertCaret();
       CreateCaretTimer(*(struct tagWND **)(v0 + 296), (struct tagQ *)v0);
-      xxxWindowEvent(0x8002u, *(struct tagWND **)(v0 + 296), -8, 0, gdwDeferWinEvent != 0 ? 2 : 0);
+      xxxWindowEvent(0x8002u, gdwDeferWinEvent != 0 ? 2 : 0);
     }
   }
   else

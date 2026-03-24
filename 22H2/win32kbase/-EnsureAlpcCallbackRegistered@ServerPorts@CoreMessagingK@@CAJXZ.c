@@ -1,7 +1,7 @@
 /*
- * XREFs of ?EnsureAlpcCallbackRegistered@ServerPorts@CoreMessagingK@@CAJXZ @ 0x1C00B1538
+ * XREFs of ?EnsureAlpcCallbackRegistered@ServerPorts@CoreMessagingK@@CAJXZ @ 0x1C007591C
  * Callers:
- *     ?CreateAlpcPort@ServerPorts@CoreMessagingK@@CAJQEAXPEAU_UNICODE_STRING@@PEAUServerPortInfo@2@@Z @ 0x1C00B1428 (-CreateAlpcPort@ServerPorts@CoreMessagingK@@CAJQEAXPEAU_UNICODE_STRING@@PEAUServerPortInfo@2@@Z.c)
+ *     ?CreateAlpcPort@ServerPorts@CoreMessagingK@@CAJQEAXPEAU_UNICODE_STRING@@PEAUServerPortInfo@2@@Z @ 0x1C007580C (-CreateAlpcPort@ServerPorts@CoreMessagingK@@CAJQEAXPEAU_UNICODE_STRING@@PEAUServerPortInfo@2@@Z.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +25,7 @@ __int64 CoreMessagingK::ServerPorts::EnsureAlpcCallbackRegistered(void)
   {
     CoreMessagingK::ServerPorts::s_CallbackRegistration = ExRegisterCallback(
                                                             CoreMessagingK::ServerPorts::s_CallbackObject,
-                                                            CoreMessagingK::ServerPorts::PortSignaledCallback,
+                                                            (PCALLBACK_FUNCTION)CoreMessagingK::ServerPorts::PortSignaledCallback,
                                                             0LL);
     if ( !CoreMessagingK::ServerPorts::s_CallbackRegistration )
     {

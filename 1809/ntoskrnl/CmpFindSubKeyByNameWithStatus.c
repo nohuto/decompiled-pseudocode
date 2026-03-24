@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpFindSubKeyByNameWithStatus @ 0x14073D11C
+ * XREFs of CmpFindSubKeyByNameWithStatus @ 0x14073D0FC
  * Callers:
  *     CmpFindPathByNameEx @ 0x140580574 (CmpFindPathByNameEx.c)
- *     CmpMarkCurrentValueDirty @ 0x1407367D4 (CmpMarkCurrentValueDirty.c)
- *     CmpFindSubKeyByName @ 0x14073D0FC (CmpFindSubKeyByName.c)
- *     CmpFindControlSet @ 0x14073D2DC (CmpFindControlSet.c)
- *     CmpWalkUnicodeStringPath @ 0x14073D6EC (CmpWalkUnicodeStringPath.c)
- *     CmRenameKey @ 0x1407EDB14 (CmRenameKey.c)
- *     CmpCopySyncTree2 @ 0x1407FCC24 (CmpCopySyncTree2.c)
- *     CmpSyncSubKeysAfterDelete @ 0x1407FE968 (CmpSyncSubKeysAfterDelete.c)
+ *     CmpMarkCurrentValueDirty @ 0x1407367B4 (CmpMarkCurrentValueDirty.c)
+ *     CmpFindSubKeyByName @ 0x14073D0DC (CmpFindSubKeyByName.c)
+ *     CmpFindControlSet @ 0x14073D2BC (CmpFindControlSet.c)
+ *     CmpWalkUnicodeStringPath @ 0x14073D6CC (CmpWalkUnicodeStringPath.c)
+ *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
+ *     CmpCopySyncTree2 @ 0x1407FCC04 (CmpCopySyncTree2.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x1407FE948 (CmpSyncSubKeysAfterDelete.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpFindSubKeyInRoot @ 0x1405D4F64 (CmpFindSubKeyInRoot.c)
  *     CmpFindSubKeyInLeafWithStatus @ 0x1405D5370 (CmpFindSubKeyInLeafWithStatus.c)
- *     CmpFindSubKeyByHashWithStatus @ 0x14073D230 (CmpFindSubKeyByHashWithStatus.c)
+ *     CmpFindSubKeyByHashWithStatus @ 0x14073D210 (CmpFindSubKeyByHashWithStatus.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByNameWithStatus(__int64 a1, __int64 a2, unsigned __int16 *a3, _DWORD *a4)

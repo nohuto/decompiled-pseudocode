@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitHoverPointerSource@CInteractionMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A77D0
+ * XREFs of ?EmitHoverPointerSource@CInteractionMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0065BCC
  * Callers:
- *     ?EmitUpdateCommands@CInteractionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A71D0 (-EmitUpdateCommands@CInteractionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CInteractionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0064F40 (-EmitUpdateCommands@CInteractionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CInteractionMarshaler::EmitHoverPointerSource(
@@ -25,11 +25,11 @@ char __fastcall DirectComposition::CInteractionMarshaler::EmitHoverPointerSource
     *(_DWORD *)v7 = 16;
     *(_QWORD *)(v5 + 4) = 0LL;
     *((_DWORD *)v5 + 3) = 0;
-    *((_DWORD *)v5 + 1) = 190;
-    *((_DWORD *)v5 + 2) = *((_DWORD *)this + 8);
-    v6 = *((_QWORD *)this + 41);
+    *((_DWORD *)v5 + 1) = 200;
+    *((_DWORD *)v5 + 2) = *((_DWORD *)this + 6);
+    v6 = *((_QWORD *)this + 40);
     if ( v6 )
-      v4 = *(_DWORD *)(v6 + 32);
+      v4 = *(_DWORD *)(v6 + 24);
     *((_DWORD *)v5 + 3) = v4;
     *((_DWORD *)this + 4) &= ~0x2000u;
     return 1;

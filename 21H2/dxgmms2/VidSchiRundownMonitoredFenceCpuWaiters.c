@@ -1,24 +1,25 @@
 /*
- * XREFs of VidSchiRundownMonitoredFenceCpuWaiters @ 0x1C00146C8
+ * XREFs of VidSchiRundownMonitoredFenceCpuWaiters @ 0x1C0011F98
  * Callers:
- *     VidSchDestroyDeviceSyncObject @ 0x1C00145C0 (VidSchDestroyDeviceSyncObject.c)
+ *     VidSchDestroyDeviceSyncObject @ 0x1C0011E90 (VidSchDestroyDeviceSyncObject.c)
  * Callees:
- *     VidSchiUnwaitMonitoredFences @ 0x1C000B960 (VidSchiUnwaitMonitoredFences.c)
+ *     VidSchiUnwaitMonitoredFences @ 0x1C000CC70 (VidSchiUnwaitMonitoredFences.c)
  */
 
-void __fastcall VidSchiRundownMonitoredFenceCpuWaiters(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall VidSchiRundownMonitoredFenceCpuWaiters(struct HwQueueStagingList *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r13
-  __int64 v6; // rax
-  _QWORD *v7; // rbx
+  struct HwQueueStagingList *v6; // rax
+  _QWORD *v7; // rdi
   _QWORD *v8; // rsi
   unsigned int i; // ebp
-  _QWORD *v10; // rdi
+  _QWORD *v10; // rbx
+  _QWORD *v11; // rax
 
   v3 = *(_QWORD *)(a3 + 32);
   v6 = a1;
-  v7 = *(_QWORD **)(v3 + 840);
-  if ( v7 != (_QWORD *)(v3 + 840) )
+  v7 = *(_QWORD **)(v3 + 832);
+  if ( v7 != (_QWORD *)(v3 + 832) )
   {
     do
     {
@@ -31,13 +32,19 @@ void __fastcall VidSchiRundownMonitoredFenceCpuWaiters(__int64 a1, __int64 a2, _
           v10 = (_QWORD *)(v8[4] + 16LL * i);
           if ( *v10 == a2 || !a2 )
           {
-            WdLogSingleEntry5(4LL, *v10, a3, **(_QWORD **)(*v10 + 64LL), v10[1], *(unsigned __int8 *)(*v10 + 28LL));
+            v11 = (_QWORD *)WdLogNewEntry5_WdEvent(a1, a2);
+            v11[3] = *v10;
+            v11[4] = a3;
+            v11[5] = **(_QWORD **)(*v10 + 64LL);
+            v11[6] = v10[1];
+            v11[7] = *(unsigned __int8 *)(*v10 + 28LL);
+            WdLogEvent5_WdEvent(v11);
             *v10 = 0LL;
           }
         }
       }
     }
-    while ( v7 != (_QWORD *)(v3 + 840) );
+    while ( v7 != (_QWORD *)(v3 + 832) );
     v6 = a1;
   }
   VidSchiUnwaitMonitoredFences(v6, v3, 0LL);

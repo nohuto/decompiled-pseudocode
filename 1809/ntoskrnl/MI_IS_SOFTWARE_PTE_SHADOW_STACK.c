@@ -1,8 +1,8 @@
 /*
- * XREFs of MI_IS_SOFTWARE_PTE_SHADOW_STACK @ 0x140140798
+ * XREFs of MI_IS_SOFTWARE_PTE_SHADOW_STACK @ 0x1401407B8
  * Callers:
  *     MiIssueHardFault @ 0x14001BCD0 (MiIssueHardFault.c)
- *     MiCombineCandidate @ 0x1400B26B0 (MiCombineCandidate.c)
+ *     MiCombineCandidate @ 0x1400B26D0 (MiCombineCandidate.c)
  * Callees:
  *     <none>
  */

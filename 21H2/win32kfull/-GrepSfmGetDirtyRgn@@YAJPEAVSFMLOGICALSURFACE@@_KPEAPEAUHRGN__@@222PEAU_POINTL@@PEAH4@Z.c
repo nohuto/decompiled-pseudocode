@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GrepSfmGetDirtyRgn@@YAJPEAVSFMLOGICALSURFACE@@_KPEAPEAUHRGN__@@222PEAU_POINTL@@PEAH4@Z @ 0x1C0022588
+ * XREFs of ?GrepSfmGetDirtyRgn@@YAJPEAVSFMLOGICALSURFACE@@_KPEAPEAUHRGN__@@222PEAU_POINTL@@PEAH4@Z @ 0x1C00BCCC8
  * Callers:
- *     GreSfmGetDirtyRgn @ 0x1C00223E8 (GreSfmGetDirtyRgn.c)
+ *     GreSfmGetDirtyRgn @ 0x1C00BCB28 (GreSfmGetDirtyRgn.c)
  * Callees:
- *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C0022804 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00228A4 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00228D8 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ?vClearMoveData@METAREGION@@QEAAXH@Z @ 0x1C0082950 (-vClearMoveData@METAREGION@@QEAAXH@Z.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C008E0D4 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vClearMoveData@METAREGION@@QEAAXH@Z @ 0x1C0015BD8 (-vClearMoveData@METAREGION@@QEAAXH@Z.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00B9858 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C00BCF24 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BD148 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BD17C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
  */
 
 __int64 __fastcall GrepSfmGetDirtyRgn(
@@ -24,12 +24,12 @@ __int64 __fastcall GrepSfmGetDirtyRgn(
   unsigned int v13; // edi
   int *v14; // rcx
   __int64 v15; // rax
-  __int64 v16; // r8
-  int *v17; // rdx
-  bool v18; // zf
-  struct RGNOBJ *v19; // rdx
-  HRGN v20; // rax
-  HRGN v22; // rax
+  HRGN v16; // rax
+  __int64 v17; // r8
+  int *v18; // rdx
+  HRGN v19; // rax
+  bool v21; // zf
+  struct RGNOBJ *v22; // rdx
   __int64 v23; // rax
   __int64 v24; // rcx
   HRGN *v25; // r14
@@ -89,9 +89,9 @@ __int64 __fastcall GrepSfmGetDirtyRgn(
         if ( a9 )
         {
           EtwTraceDWMGetDirtyRegion(*(_QWORD *)a1, 0LL);
-          v22 = RGNOBJ::hrgnAssociate((RGNOBJ *)&a9);
-          *a3 = v22;
-          if ( v22 )
+          v16 = RGNOBJ::hrgnAssociate((RGNOBJ *)&a9);
+          *a3 = v16;
+          if ( v16 )
           {
             *((_QWORD *)a1 + 16) = 0LL;
             *((_DWORD *)a1 + 63) &= ~2u;
@@ -102,15 +102,15 @@ __int64 __fastcall GrepSfmGetDirtyRgn(
     if ( a4 && ((*((_DWORD *)a1 + 63) & 4) != 0 || !a2) )
     {
       RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v30);
-      v16 = *((_QWORD *)a1 + 11);
-      v17 = (int *)*((_QWORD *)a1 + 10);
-      v33 = v16;
-      a9 = v17;
+      v17 = *((_QWORD *)a1 + 11);
+      v18 = (int *)*((_QWORD *)a1 + 10);
+      v33 = v17;
+      a9 = v18;
       if ( v30 )
       {
-        if ( (v16 != 0) == (v17 != 0LL) )
+        if ( (v17 != 0) == (v18 != 0LL) )
         {
-          if ( v16 && v17 )
+          if ( v17 && v18 )
           {
             RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v32);
             RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)v32);
@@ -128,19 +128,19 @@ __int64 __fastcall GrepSfmGetDirtyRgn(
         }
         else
         {
-          v18 = v17 == 0LL;
-          v19 = (struct RGNOBJ *)&a9;
-          if ( v18 )
-            v19 = (struct RGNOBJ *)&v33;
-          RGNOBJ::bCopy((RGNOBJ *)&v30, v19);
+          v21 = v18 == 0LL;
+          v22 = (struct RGNOBJ *)&a9;
+          if ( v21 )
+            v22 = (struct RGNOBJ *)&v33;
+          RGNOBJ::bCopy((RGNOBJ *)&v30, v22);
         }
         if ( a9 && (*((_DWORD *)a1 + 63) & 0x10) != 0 )
           RGNOBJ::vSet((RGNOBJ *)&a9);
         if ( v30 )
         {
-          v20 = RGNOBJ::hrgnAssociate((RGNOBJ *)&v30);
-          *a4 = v20;
-          if ( !v20 )
+          v19 = RGNOBJ::hrgnAssociate((RGNOBJ *)&v30);
+          *a4 = v19;
+          if ( !v19 )
             RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v30);
         }
       }

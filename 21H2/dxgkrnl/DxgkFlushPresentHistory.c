@@ -1,20 +1,19 @@
 /*
- * XREFs of DxgkFlushPresentHistory @ 0x1C01E6FB0
+ * XREFs of DxgkFlushPresentHistory @ 0x1C016C4F0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C000A6FC (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C000BD00 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ??0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z @ 0x1C000F8D4 (--0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C01BB044 (-FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z.c)
+ *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C00024D8 (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004130 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ??0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z @ 0x1C0007174 (--0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C013D324 (-FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z.c)
  */
 
 __int64 __fastcall DxgkFlushPresentHistory(__int64 a1, __int64 a2, __int64 a3)
@@ -22,96 +21,100 @@ __int64 __fastcall DxgkFlushPresentHistory(__int64 a1, __int64 a2, __int64 a3)
   __int64 v3; // rdi
   __int64 v4; // rdx
   __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
   struct _KTHREAD **Current; // rax
-  struct DXGADAPTER *v9; // rbx
-  int v10; // eax
-  __int64 v11; // rcx
-  unsigned int v12; // ebx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  struct DXGADAPTER *v16; // [rsp+50h] [rbp-B0h] BYREF
-  int v17; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v18; // [rsp+60h] [rbp-A0h]
-  char v19; // [rsp+68h] [rbp-98h]
-  DXGADAPTER *v20; // [rsp+70h] [rbp-90h] BYREF
-  _BYTE v21[144]; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  struct DXGADAPTER *v12; // rbx
+  int v13; // r8d
+  int v14; // eax
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // rcx
+  unsigned int v18; // ebx
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rax
+  struct DXGADAPTER *v26; // [rsp+30h] [rbp-79h] BYREF
+  int v27; // [rsp+38h] [rbp-71h] BYREF
+  __int64 v28; // [rsp+40h] [rbp-69h]
+  char v29; // [rsp+48h] [rbp-61h]
+  DXGADAPTER *v30; // [rsp+50h] [rbp-59h] BYREF
+  _BYTE v31[144]; // [rsp+60h] [rbp-49h] BYREF
 
-  v17 = -1;
-  v18 = 0LL;
+  v27 = -1;
+  v28 = 0LL;
   v3 = (unsigned int)a1;
-  if ( (qword_1C012F870 & 2) != 0 )
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v19 = 1;
-    v17 = 2189;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v29 = 1;
+    v27 = 2189;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2189);
   }
   else
   {
-    v19 = 0;
+    v29 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v17, 2189);
-  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent(v5, v4, v6, v7);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v27, 2189LL);
+  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent(v5, v4);
   if ( !Current )
   {
-    v12 = -1073741811;
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context, returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v23 = WdLogNewEntry5_WdError(v8, v7);
+    v18 = -1073741811;
+    *(_QWORD *)(v23 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v23);
     goto LABEL_14;
   }
-  v16 = 0LL;
-  DXGADAPTERBYHANDLE::DXGADAPTERBYHANDLE((DXGADAPTERBYHANDLE *)&v20, v3, Current, &v16, 1);
-  v9 = v16;
-  if ( v16 )
+  v26 = 0LL;
+  DXGADAPTERBYHANDLE::DXGADAPTERBYHANDLE((DXGADAPTERBYHANDLE *)&v30, (unsigned int)v3, Current, &v26, 1);
+  v12 = v26;
+  if ( v26 )
   {
-    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v21, v16, 0LL);
-    v10 = COREADAPTERACCESS::AcquireExclusive((__int64)v21);
-    if ( v10 != -1073741130 )
+    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v31, v26, 0LL);
+    v14 = COREADAPTERACCESS::AcquireExclusive((__int64)v31, (unsigned int)(v13 + 2));
+    if ( v14 != -1073741130 )
     {
-      if ( v10 < 0 )
+      if ( v14 < 0 )
       {
 LABEL_16:
-        v12 = v10;
+        v18 = v14;
 LABEL_11:
-        COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v21);
+        COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v31, v15);
         goto LABEL_12;
       }
-      v11 = *((_QWORD *)v9 + 350);
-      if ( v11 )
+      v17 = *((_QWORD *)v12 + 338);
+      if ( v17 )
       {
-        if ( !*((_BYTE *)v9 + 209) )
-          ADAPTER_RENDER::FlushScheduler(v11, 1u, 0xFFFFFFFF, 0);
-        v12 = 0;
+        if ( !*((_BYTE *)v12 + 209) )
+          ADAPTER_RENDER::FlushScheduler(v17, 1, 0xFFFFFFFF, 0);
+        v18 = 0;
         goto LABEL_11;
       }
-      WdLogSingleEntry2(3LL, v3, -1073741637LL);
+      v25 = WdLogNewEntry5_WdWarning(0LL, v15, v16);
+      *(_QWORD *)(v25 + 24) = v3;
+      *(_QWORD *)(v25 + 32) = -1073741637LL;
+      WdLogEvent5_WdWarning(v25);
     }
-    v10 = 0;
+    v14 = 0;
     goto LABEL_16;
   }
-  v12 = -1073741811;
-  WdLogSingleEntry2(3LL, v3, -1073741811LL);
+  v24 = WdLogNewEntry5_WdWarning(v10, v9, v11);
+  v18 = -1073741811;
+  *(_QWORD *)(v24 + 24) = v3;
+  *(_QWORD *)(v24 + 32) = -1073741811LL;
+  WdLogEvent5_WdWarning(v24);
 LABEL_12:
-  if ( v20 )
-    DXGADAPTER::ReleaseReference(v20);
+  if ( v30 )
+    DXGADAPTER::ReleaseReference(v30);
 LABEL_14:
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v17);
-  if ( v19 )
-  {
-    LOBYTE(v13) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v13, &EventProfilerExit, v14, v17);
-  }
-  return v12;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v27, v19);
+  if ( v29 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v20, &EventProfilerExit, v21, v27);
+  return v18;
 }

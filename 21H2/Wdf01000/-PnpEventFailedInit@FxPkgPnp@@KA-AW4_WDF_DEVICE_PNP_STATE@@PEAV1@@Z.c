@@ -1,19 +1,19 @@
 /*
- * XREFs of ?PnpEventFailedInit@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C0083D70
+ * XREFs of ?PnpEventFailedInit@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007A460
  * Callers:
  *     <none>
  * Callees:
- *     ?PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z @ 0x1C002BFE4 (-PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z.c)
- *     ?ReleasePowerThread@FxPkgPnp@@AEAAXXZ @ 0x1C00305C8 (-ReleasePowerThread@FxPkgPnp@@AEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z @ 0x1C007B4AC (-PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z.c)
+ *     ?ReleasePowerThread@FxPkgPnp@@AEAAXXZ @ 0x1C008267C (-ReleasePowerThread@FxPkgPnp@@AEAAXXZ.c)
  */
 
-__int64 __fastcall FxPkgPnp::PnpEventFailedInit(FxPkgPnp *This, unsigned __int8 a2)
+__int64 __fastcall FxPkgPnp::PnpEventFailedInit(FxPkgPnp *This)
 {
-  unsigned __int8 v3; // dl
+  unsigned __int8 v2; // dl
 
-  FxPkgPnp::ReleasePowerThread(This, a2);
+  FxPkgPnp::ReleasePowerThread(This);
   This->ReleaseReenumerationInterface(This);
-  FxPkgPnp::PnpFinishProcessingIrp(This, v3);
+  FxPkgPnp::PnpFinishProcessingIrp(This, v2);
   return 261LL;
 }

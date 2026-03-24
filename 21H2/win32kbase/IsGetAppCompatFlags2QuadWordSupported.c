@@ -1,15 +1,15 @@
 /*
- * XREFs of IsGetAppCompatFlags2QuadWordSupported @ 0x1C003767C
+ * XREFs of IsGetAppCompatFlags2QuadWordSupported @ 0x1C003CC8C
  * Callers:
- *     UserThreadCallout @ 0x1C0037070 (UserThreadCallout.c)
+ *     UserThreadCallout @ 0x1C003C590 (UserThreadCallout.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 IsGetAppCompatFlags2QuadWordSupported()
 {
-  if ( qword_1C029C778 )
-    return qword_1C029C778();
+  if ( qword_1C0257A18 )
+    return qword_1C0257A18();
   else
     return 3221225659LL;
 }

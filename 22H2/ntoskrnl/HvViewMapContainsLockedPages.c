@@ -1,12 +1,12 @@
 /*
- * XREFs of HvViewMapContainsLockedPages @ 0x140751734
+ * XREFs of HvViewMapContainsLockedPages @ 0x14071BE00
  * Callers:
- *     CmpRecheckHiveVolumePolicy @ 0x1402F634C (CmpRecheckHiveVolumePolicy.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x140361750 (CmpRecheckHiveVolumePolicy.c)
  * Callees:
  *     <none>
  */
 
 bool __fastcall HvViewMapContainsLockedPages(__int64 a1)
 {
-  return (*(_DWORD *)(a1 + 32) & 4) != 0;
+  return (*(_BYTE *)(a1 + 32) & 4) != 0;
 }

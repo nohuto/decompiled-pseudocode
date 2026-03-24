@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetOutputType@CKeyframeAnimation@@MEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800E3D50
+ * XREFs of ?SetOutputType@CKeyframeAnimation@@MEAAJW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800D89F0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::SetOutputType(__int64 a1, int a2)
@@ -15,13 +15,13 @@ __int64 __fastcall CKeyframeAnimation::SetOutputType(__int64 a1, int a2)
   v2 = (unsigned int)(a2 - 11);
   if ( (unsigned int)v2 <= 0x3C && (v3 = 0x1C000200010000C1LL, _bittest64(&v3, v2)) )
   {
-    *(_DWORD *)(a1 + 152) = a2;
+    *(_DWORD *)(a1 + 144) = a2;
     return 0;
   }
   else
   {
     v4 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0LL, -2003303421, 0xB4u);
+    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2003303421, 0xB2u, 0LL);
   }
   return v4;
 }

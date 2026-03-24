@@ -1,68 +1,67 @@
 /*
- * XREFs of TlgUnregisterAggregateProvider @ 0x1C03D80D8
+ * XREFs of TlgUnregisterAggregateProvider @ 0x1C0301500
  * Callers:
- *     ?DxgkCleanupTelemetry@@YAXXZ @ 0x1C004F1A0 (-DxgkCleanupTelemetry@@YAXXZ.c)
+ *     ?DxgkCleanupTelemetry@@YAXXZ @ 0x1C004C950 (-DxgkCleanupTelemetry@@YAXXZ.c)
  * Callees:
- *     LookUpTableFlushComplete @ 0x1C0228560 (LookUpTableFlushComplete.c)
- *     CancelTimerCallbacksAndDeleteTimer @ 0x1C03D7E04 (CancelTimerCallbacksAndDeleteTimer.c)
- *     DestroyAggregateSession @ 0x1C03D7E94 (DestroyAggregateSession.c)
+ *     LookUpTableFlushComplete @ 0x1C019E9CC (LookUpTableFlushComplete.c)
+ *     CancelTimerCallbacksAndDeleteTimer @ 0x1C03011C0 (CancelTimerCallbacksAndDeleteTimer.c)
+ *     DestroyAggregateSession @ 0x1C0301250 (DestroyAggregateSession.c)
  */
 
 void __fastcall TlgUnregisterAggregateProvider(__int64 a1)
 {
-  _QWORD *v2; // rsi
-  __int64 v3; // rcx
-  __int64 *v4; // rdx
-  __int64 *v5; // rax
-  REGHANDLE v6; // rcx
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  REGHANDLE v9; // rcx
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  REGHANDLE v12; // rcx
+  REGHANDLE v2; // rcx
+  _QWORD *v3; // rsi
+  __int64 v4; // rcx
+  __int64 *v5; // rdx
+  __int64 *v6; // rax
+  REGHANDLE v7; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  REGHANDLE v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // r8
 
   if ( *(void (__fastcall **)(const struct _GUID *, __int64, char, __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, _QWORD *))(a1 + 40) == TlgAggregateInternalRegisteredProviderEtwCallback )
   {
-    v2 = 0LL;
-    ExAcquirePushLockExclusiveEx(&unk_1C01411E0, 0LL);
-    v3 = qword_1C0141CD8;
-    v4 = &qword_1C0141CD8;
-    while ( v3 )
+    v3 = 0LL;
+    ExAcquirePushLockExclusiveEx(&unk_1C00B3538, 0LL);
+    v4 = qword_1C00B4118;
+    v5 = &qword_1C00B4118;
+    while ( v4 )
     {
-      v5 = (__int64 *)(v3 + 352);
-      if ( *(_QWORD *)(v3 + 344) == a1 )
+      v6 = (__int64 *)(v4 + 352);
+      if ( *(_QWORD *)(v4 + 344) == a1 )
       {
-        v2 = (_QWORD *)v3;
-        *v4 = *v5;
-        LookUpTableFlushComplete(v3);
-        if ( !qword_1C0141CD8 )
+        v3 = (_QWORD *)v4;
+        *v5 = *v6;
+        LookUpTableFlushComplete(v4);
+        if ( !qword_1C00B4118 )
         {
-          v6 = qword_1C013FA68;
-          qword_1C013FA68 = 0LL;
-          dword_1C013FA48 = 0;
-          EtwUnregister(v6);
+          v7 = qword_1C00B1B58;
+          qword_1C00B1B58 = 0LL;
+          dword_1C00B1B38 = 0;
+          EtwUnregister(v7);
         }
         break;
       }
-      v3 = *v5;
-      v4 = v5;
+      v4 = *v6;
+      v5 = v6;
     }
-    ExReleasePushLockExclusiveEx(&unk_1C01411E0, 0LL);
-    if ( v2 )
-      CancelTimerCallbacksAndDeleteTimer((__int64)v2, v7, v8);
-    v9 = *(_QWORD *)(a1 + 32);
+    ExReleasePushLockExclusiveEx(&unk_1C00B3538, 0LL);
+    if ( v3 )
+      CancelTimerCallbacksAndDeleteTimer((__int64)v3, v8, v9);
+    v10 = *(_QWORD *)(a1 + 32);
     *(_QWORD *)(a1 + 32) = 0LL;
     *(_DWORD *)a1 = 0;
-    EtwUnregister(v9);
-    *(_QWORD *)(a1 + 40) = 0LL;
-    DestroyAggregateSession(v2, v10, v11);
+    EtwUnregister(v10);
+    DestroyAggregateSession(v3, v11, v12);
   }
   else
   {
-    v12 = *(_QWORD *)(a1 + 32);
+    v2 = *(_QWORD *)(a1 + 32);
     *(_QWORD *)(a1 + 32) = 0LL;
     *(_DWORD *)a1 = 0;
-    EtwUnregister(v12);
+    EtwUnregister(v2);
   }
 }

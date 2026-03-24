@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MulRenderHint@@YAJPEAUDHPDEV__@@K_KPEAX@Z @ 0x1C02A1D70
+ * XREFs of ?MulRenderHint@@YAJPEAUDHPDEV__@@K_KPEAX@Z @ 0x1C02A3FD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall MulRenderHint(struct DHPDEV__ *a1, unsigned int a2, __int64 a3, __int64 **a4)
@@ -24,10 +24,10 @@ __int64 __fastcall MulRenderHint(struct DHPDEV__ *a1, unsigned int a2, __int64 a
   while ( v4 )
   {
     v10 = v4[6];
-    v11 = *(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, __int128 *))(v10 + 3408);
+    v11 = *(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, __int128 *))(v10 + 3432);
     if ( v11 )
     {
-      if ( (*(_DWORD *)(v10 + 1792) & 0x8000000) != 0 )
+      if ( (*(_DWORD *)(v10 + 1824) & 0x8000000) != 0 )
       {
         v12 = (__int128 *)a4;
       }
@@ -48,7 +48,7 @@ __int64 __fastcall MulRenderHint(struct DHPDEV__ *a1, unsigned int a2, __int64 a
           v16 = a4[2];
         }
       }
-      v9 = v11(*(_QWORD *)(v10 + 1768), a2, a3, v12);
+      v9 = v11(*(_QWORD *)(v10 + 1800), a2, a3, v12);
     }
     else
     {

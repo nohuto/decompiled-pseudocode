@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpBusTypeGuidInitialize @ 0x140B438F0
+ * XREFs of PnpBusTypeGuidInitialize @ 0x140A5358C
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PnpBusTypeGuidInitialize()
@@ -11,7 +11,7 @@ __int64 PnpBusTypeGuidInitialize()
   __int64 result; // rax
 
   PnpBusTypeGuidCountMax = 16;
-  PnpBusTypeGuidArray = (PVOID)ExAllocatePool2(256LL, 0x100uLL, 0x75737050u);
+  PnpBusTypeGuidArray = ExAllocatePoolWithTag(PagedPool, 0x100uLL, 0x75737050u);
   if ( PnpBusTypeGuidArray )
   {
     PnpBusTypeGuidCount = 0;

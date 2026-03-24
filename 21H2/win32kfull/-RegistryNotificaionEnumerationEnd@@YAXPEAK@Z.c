@@ -1,9 +1,9 @@
 /*
- * XREFs of ?RegistryNotificaionEnumerationEnd@@YAXPEAK@Z @ 0x1C00F9740
+ * XREFs of ?RegistryNotificaionEnumerationEnd@@YAXPEAK@Z @ 0x1C010EB14
  * Callers:
- *     GreAddFontResourceWInternal @ 0x1C00F9550 (GreAddFontResourceWInternal.c)
+ *     GreAddFontResourceWInternal @ 0x1C010E924 (GreAddFontResourceWInternal.c)
  * Callees:
- *     ?bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z @ 0x1C00F97F0 (-bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z.c)
+ *     ?bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z @ 0x1C010EBC4 (-bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z.c)
  */
 
 void __fastcall RegistryNotificaionEnumerationEnd(unsigned int *a1)

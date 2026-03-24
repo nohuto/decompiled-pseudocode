@@ -4,7 +4,7 @@
  *     MxCreateFreePfns @ 0x1409BAD10 (MxCreateFreePfns.c)
  * Callees:
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall MiInitializeBlankPfns(__int64 *a1, unsigned int a2, unsigned int a3, __int64 a4, int a5)

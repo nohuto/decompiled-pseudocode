@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpDeferredFreeCompletionPacketLookaside @ 0x14010AB7C
+ * XREFs of AlpcpDeferredFreeCompletionPacketLookaside @ 0x14010AB9C
  * Callers:
- *     AlpcpLookasidePacketCallbackRoutine @ 0x14010A840 (AlpcpLookasidePacketCallbackRoutine.c)
- *     AlpcpFreeCompletionPacketLookaside @ 0x14010AA44 (AlpcpFreeCompletionPacketLookaside.c)
+ *     AlpcpLookasidePacketCallbackRoutine @ 0x14010A860 (AlpcpLookasidePacketCallbackRoutine.c)
+ *     AlpcpFreeCompletionPacketLookaside @ 0x14010AA64 (AlpcpFreeCompletionPacketLookaside.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IoFreeMiniCompletionPacket @ 0x14068E870 (IoFreeMiniCompletionPacket.c)
+ *     IoFreeMiniCompletionPacket @ 0x14068E850 (IoFreeMiniCompletionPacket.c)
  */
 
 void __fastcall AlpcpDeferredFreeCompletionPacketLookaside(_QWORD *P)

@@ -1,17 +1,17 @@
 /*
- * XREFs of NtInitializeEnclave @ 0x14085AD00
+ * XREFs of NtInitializeEnclave @ 0x14085ACE0
  * Callers:
  *     <none>
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     MiInitializeEnclave @ 0x14085A260 (MiInitializeEnclave.c)
+ *     MiInitializeEnclave @ 0x14085A240 (MiInitializeEnclave.c)
  */
 
 __int64 __fastcall NtInitializeEnclave(

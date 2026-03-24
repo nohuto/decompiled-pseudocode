@@ -1,76 +1,96 @@
 /*
- * XREFs of ?Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02C1C28
+ * XREFs of ?Reset@ADAPTER_RENDER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0217300
  * Callers:
- *     ?Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C02B9C5C (-Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C020FAD0 (-Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
  * Callees:
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000B020 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?ResumeVidMmWorkerThread@ADAPTER_RENDER@@AEAAXEE@Z @ 0x1C0197C98 (-ResumeVidMmWorkerThread@ADAPTER_RENDER@@AEAAXEE@Z.c)
- *     ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C0197D5C (-FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z.c)
- *     ?DisablePinnedHardware@ADAPTER_RENDER@@QEAAXXZ @ 0x1C01EF674 (-DisablePinnedHardware@ADAPTER_RENDER@@QEAAXXZ.c)
- *     ?PurgeSegments@ADAPTER_RENDER@@AEAAXU_VIDMM_PURGE_FLAGS@@PEAVDXGPROCESS@@@Z @ 0x1C01EF8E0 (-PurgeSegments@ADAPTER_RENDER@@AEAAXU_VIDMM_PURGE_FLAGS@@PEAVDXGPROCESS@@@Z.c)
- *     ?RestoreFromPurgeSegments@ADAPTER_RENDER@@AEAAXXZ @ 0x1C01F3AE0 (-RestoreFromPurgeSegments@ADAPTER_RENDER@@AEAAXXZ.c)
- *     ?ResetSchedulerFromTDR@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02C1E50 (-ResetSchedulerFromTDR@ADAPTER_RENDER@@QEAAXXZ.c)
- *     ?RestartSchedulerFromTDR@ADAPTER_RENDER@@QEAAJXZ @ 0x1C02C1EE4 (-RestartSchedulerFromTDR@ADAPTER_RENDER@@QEAAJXZ.c)
- *     ?DdiRestartFromTimeout@ADAPTER_RENDER@@QEAAJXZ @ 0x1C02CA754 (-DdiRestartFromTimeout@ADAPTER_RENDER@@QEAAJXZ.c)
- *     ?Reset@DXGDEVICE@@QEAAXE@Z @ 0x1C02ED24C (-Reset@DXGDEVICE@@QEAAXE@Z.c)
- *     TdrBugcheckOnTimeout @ 0x1C030FD40 (TdrBugcheckOnTimeout.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003700 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C00EAD78 (-FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z.c)
+ *     ?ResumeVidMmWorkerThread@ADAPTER_RENDER@@AEAAXEE@Z @ 0x1C00EB110 (-ResumeVidMmWorkerThread@ADAPTER_RENDER@@AEAAXEE@Z.c)
+ *     ?PurgeSegments@ADAPTER_RENDER@@AEAAXU_VIDMM_PURGE_FLAGS@@PEAVDXGPROCESS@@@Z @ 0x1C016B338 (-PurgeSegments@ADAPTER_RENDER@@AEAAXU_VIDMM_PURGE_FLAGS@@PEAVDXGPROCESS@@@Z.c)
+ *     ?DisablePinnedHardware@ADAPTER_RENDER@@QEAAXXZ @ 0x1C017660C (-DisablePinnedHardware@ADAPTER_RENDER@@QEAAXXZ.c)
+ *     ?RestoreFromPurgeSegments@ADAPTER_RENDER@@AEAAXXZ @ 0x1C0177D8C (-RestoreFromPurgeSegments@ADAPTER_RENDER@@AEAAXXZ.c)
+ *     ?DdiRestartFromTimeout@ADAPTER_RENDER@@QEAAJXZ @ 0x1C021E040 (-DdiRestartFromTimeout@ADAPTER_RENDER@@QEAAJXZ.c)
+ *     ?Reset@DXGDEVICE@@QEAAXXZ @ 0x1C0257004 (-Reset@DXGDEVICE@@QEAAXXZ.c)
+ *     TdrBugcheckOnTimeout @ 0x1C0266E00 (TdrBugcheckOnTimeout.c)
  */
 
 __int64 __fastcall ADAPTER_RENDER::Reset(ADAPTER_RENDER *this, ULONG_PTR BugCheckParameter1)
 {
   _QWORD *i; // rdx
+  __int64 v5; // rdx
   _BYTE *j; // rax
-  int restarted; // esi
-  __int64 v7; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  int v13; // esi
+  __int64 v14; // rax
   DXGDEVICE *k; // rdi
-  DXGDEVICE *v9; // rdi
+  DXGDEVICE *v16; // rdi
   DXGDEVICE *m; // rbx
 
-  ADAPTER_RENDER::FlushScheduler((__int64)this, 4u, 0xFFFFFFFF, 0);
+  ADAPTER_RENDER::FlushScheduler((__int64)this, 4, 0xFFFFFFFF, 0);
   ADAPTER_RENDER::DisablePinnedHardware((PERESOURCE **)this);
   ADAPTER_RENDER::PurgeSegments((struct _EX_RUNDOWN_REF *)this, 0, 0LL);
-  ADAPTER_RENDER::FlushScheduler((__int64)this, 4u, 0xFFFFFFFF, 0);
+  ADAPTER_RENDER::FlushScheduler((__int64)this, 4, 0xFFFFFFFF, 0);
   KeEnterCriticalRegion();
-  ExAcquirePushLockExclusiveEx((char *)this + 256, 0LL);
-  *((_QWORD *)this + 33) = KeGetCurrentThread();
-  for ( i = (_QWORD *)*((_QWORD *)this + 35); i != (_QWORD *)((char *)this + 280); i = (_QWORD *)*i )
+  ExAcquirePushLockExclusiveEx((char *)this + 248, 0LL);
+  *((_QWORD *)this + 32) = KeGetCurrentThread();
+  for ( i = (_QWORD *)*((_QWORD *)this + 34); i != (_QWORD *)((char *)this + 272); i = (_QWORD *)*i )
     *(_DWORD *)(i[2] + 12LL) |= 0x10u;
-  *((_QWORD *)this + 33) = 0LL;
-  ExReleasePushLockExclusiveEx((char *)this + 256, 0LL);
+  *((_QWORD *)this + 32) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)this + 248, 0LL);
   KeLeaveCriticalRegion();
   DXGFASTMUTEX::Acquire((ADAPTER_RENDER *)((char *)this + 192));
-  for ( j = (_BYTE *)*((_QWORD *)this + 30); j != (char *)this + 240 && j; j = *(_BYTE **)j )
+  for ( j = (_BYTE *)*((_QWORD *)this + 29); j != (char *)this + 232 && j; j = *(_BYTE **)j )
     j[25] = 1;
-  DXGFASTMUTEX::Release((struct _KTHREAD **)this + 24);
-  ADAPTER_RENDER::ResetSchedulerFromTDR(this);
+  DXGFASTMUTEX::Release((struct _KTHREAD **)this + 24, v5);
+  v8 = *((_QWORD *)this + 78);
+  if ( !v8 )
+  {
+    v9 = WdLogNewEntry5_WdAssertion(0LL, v7);
+    *(_QWORD *)(v9 + 24) = 2507LL;
+    WdLogEvent5_WdAssertion(v9);
+    v8 = *((_QWORD *)this + 78);
+  }
+  (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)(*((_QWORD *)this + 77) + 8LL) + 744LL))(v8, 1LL);
   if ( (int)ADAPTER_RENDER::DdiRestartFromTimeout(this) < 0 )
   {
-    *(_QWORD *)(BugCheckParameter1 + 104) = *(_QWORD *)(*((_QWORD *)this + 2) + 576LL);
+    *(_QWORD *)(BugCheckParameter1 + 96) = *(_QWORD *)(*((_QWORD *)this + 2) + 488LL);
     TdrBugcheckOnTimeout(BugCheckParameter1);
   }
-  restarted = ADAPTER_RENDER::RestartSchedulerFromTDR(this);
-  v7 = *((_QWORD *)this + 92);
-  if ( restarted < 0 )
+  v11 = *((_QWORD *)this + 78);
+  if ( !v11 )
   {
-    *(_QWORD *)(BugCheckParameter1 + 104) = *(_QWORD *)(*(_QWORD *)(v7 + 8) + 752LL);
+    v12 = WdLogNewEntry5_WdAssertion(0LL, v10);
+    *(_QWORD *)(v12 + 24) = 2524LL;
+    WdLogEvent5_WdAssertion(v12);
+    v11 = *((_QWORD *)this + 78);
+  }
+  v13 = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)(*((_QWORD *)this + 77) + 8LL) + 752LL))(v11, 1LL);
+  v14 = *(_QWORD *)(*((_QWORD *)this + 77) + 8LL);
+  if ( v13 < 0 )
+  {
+    *(_QWORD *)(BugCheckParameter1 + 96) = *(_QWORD *)(v14 + 752);
     TdrBugcheckOnTimeout(BugCheckParameter1);
   }
-  (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(v7 + 8) + 592LL))(*((_QWORD *)this + 93), 0LL);
+  (*(void (__fastcall **)(_QWORD, _QWORD))(v14 + 592))(*((_QWORD *)this + 78), 0LL);
   ADAPTER_RENDER::RestoreFromPurgeSegments((PERESOURCE **)this);
-  if ( KeGetCurrentThread() != *(struct _KTHREAD **)(BugCheckParameter1 + 2904) )
-    ADAPTER_RENDER::ResumeVidMmWorkerThread((PERESOURCE **)this, 1, 0);
-  *(_OWORD *)((char *)this + 824) = 0LL;
-  *(_OWORD *)((char *)this + 840) = 0LL;
-  *(_OWORD *)((char *)this + 1224) = 0LL;
+  ADAPTER_RENDER::ResumeVidMmWorkerThread((PERESOURCE **)this, 1, 0);
+  *(_OWORD *)((char *)this + 696) = 0LL;
+  *(_OWORD *)((char *)this + 712) = 0LL;
+  *((_OWORD *)this + 68) = 0LL;
   for ( k = (DXGDEVICE *)*((_QWORD *)this + 18); k != (ADAPTER_RENDER *)((char *)this + 144) && k; k = *(DXGDEVICE **)k )
   {
-    if ( *((_DWORD *)k + 116) != 3 )
-      DXGDEVICE::Reset(k, 1u);
+    if ( *((_DWORD *)k + 108) != 3 )
+      DXGDEVICE::Reset(k);
   }
-  v9 = (ADAPTER_RENDER *)((char *)this + 160);
-  for ( m = (DXGDEVICE *)*((_QWORD *)this + 20); m != v9 && m; m = *(DXGDEVICE **)m )
-    DXGDEVICE::Reset(m, 1u);
-  return (unsigned int)restarted;
+  v16 = (ADAPTER_RENDER *)((char *)this + 160);
+  for ( m = (DXGDEVICE *)*((_QWORD *)this + 20); m != v16 && m; m = *(DXGDEVICE **)m )
+    DXGDEVICE::Reset(m);
+  return (unsigned int)v13;
 }

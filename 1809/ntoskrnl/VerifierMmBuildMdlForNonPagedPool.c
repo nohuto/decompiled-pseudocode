@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     MmDeterminePoolType @ 0x1402B909C (MmDeterminePoolType.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MmDeterminePoolType @ 0x1402B919C (MmDeterminePoolType.c)
  *     MmAreMdlPagesLocked @ 0x140924CC8 (MmAreMdlPagesLocked.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  *     VfTargetDriversGetVerifierData @ 0x1409349E8 (VfTargetDriversGetVerifierData.c)

@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBUCX_DeleteEndpointsAndFreeResourcesForInterface @ 0x1C0028608
+ * XREFs of HUBUCX_DeleteEndpointsAndFreeResourcesForInterface @ 0x1C0025A14
  * Callers:
- *     HUBDSM_DeletingEndpointsForNewInterfaceOnFailure @ 0x1C00242D0 (HUBDSM_DeletingEndpointsForNewInterfaceOnFailure.c)
- *     HUBDSM_DeletingEndpointsForOldInterface @ 0x1C0024340 (HUBDSM_DeletingEndpointsForOldInterface.c)
- *     HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration @ 0x1C00286A8 (HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration.c)
+ *     HUBDSM_DeletingEndpointsForNewInterfaceOnFailure @ 0x1C0021AF0 (HUBDSM_DeletingEndpointsForNewInterfaceOnFailure.c)
+ *     HUBDSM_DeletingEndpointsForOldInterface @ 0x1C0021B60 (HUBDSM_DeletingEndpointsForOldInterface.c)
+ *     HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration @ 0x1C0025AB4 (HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBUCX_DeleteEndpointsAndFreeResourcesForInterface(__int64 *a1, __int64 a2)

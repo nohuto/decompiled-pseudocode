@@ -1,75 +1,79 @@
 /*
- * XREFs of WheapCompressErrorRecord @ 0x140610D98
+ * XREFs of WheapCompressErrorRecord @ 0x1405BB830
  * Callers:
- *     WheaRecoveryBugCheck @ 0x140610630 (WheaRecoveryBugCheck.c)
- *     WheaReportHwError @ 0x1406106A0 (WheaReportHwError.c)
- *     WheapGenerateETWEvents @ 0x140613338 (WheapGenerateETWEvents.c)
+ *     WheapReportBootError @ 0x1405BAE04 (WheapReportBootError.c)
+ *     WheaReportHwError @ 0x1405BB070 (WheaReportHwError.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 void *__fastcall WheapCompressErrorRecord(char a1, __int64 a2)
 {
-  unsigned int *v2; // rsi
-  unsigned __int16 *v3; // rdi
-  unsigned __int16 v6; // cx
-  _QWORD *v7; // rbx
-  __int16 v8; // r15
-  unsigned int i; // ebp
-  __int64 v10; // rax
-  int v11; // r12d
-  unsigned int v12; // ebx
-  unsigned int j; // r15d
-  __int64 v14; // rax
+  unsigned __int16 v2; // r8
+  _QWORD *v5; // rbx
+  __int16 v6; // bp
+  unsigned int i; // esi
+  __int64 v8; // rax
+  unsigned int *v9; // rsi
+  int v10; // r14d
+  unsigned int v11; // ebx
+  unsigned int v12; // ebp
+  __int64 v13; // rax
   void *result; // rax
 
-  v2 = (unsigned int *)(a2 + 128);
-  v3 = (unsigned __int16 *)(a2 + 10);
+  v2 = *(_WORD *)(a2 + 10);
   if ( (a1 & 2) != 0 )
   {
-    v6 = *v3;
-    v7 = (_QWORD *)(a2 + 128);
-    v8 = 0;
-    for ( i = 0; i < v6; ++i )
+    v5 = (_QWORD *)(a2 + 128);
+    v6 = 0;
+    for ( i = 0; i < v2; ++i )
     {
-      v10 = v7[2] - *(_QWORD *)&WHEA_ERROR_PACKET_SECTION_GUID.Data1;
-      if ( !v10 )
-        v10 = v7[3] - *(_QWORD *)WHEA_ERROR_PACKET_SECTION_GUID.Data4;
-      if ( v10 )
+      v8 = v5[2] - *(_QWORD *)&WHEA_ERROR_PACKET_SECTION_GUID.Data1;
+      if ( !v8 )
+        v8 = v5[3] - *(_QWORD *)WHEA_ERROR_PACKET_SECTION_GUID.Data4;
+      if ( v8 )
       {
-        v7 += 9;
+        v5 += 9;
       }
       else
       {
-        if ( v6 - i != 1 )
+        if ( v2 - i != 1 )
         {
-          memmove(v7, v7 + 9, 72 * (v6 - i - 1));
-          v6 = *v3;
+          memmove(v5, v5 + 9, 72 * (v2 - i - 1));
+          v2 = *(_WORD *)(a2 + 10);
         }
-        ++v8;
+        ++v6;
       }
     }
-    *v3 = v6 - v8;
+    v2 -= v6;
+    *(_WORD *)(a2 + 10) = v2;
   }
-  v11 = a1 & 1;
-  if ( v11 )
-    v12 = 72 * *v3 + 128;
+  v9 = (unsigned int *)(a2 + 128);
+  v10 = a1 & 1;
+  if ( v10 )
+    v11 = 72 * v2 + 128;
   else
-    v12 = *v2;
-  for ( j = 0; j < *v3; v2 += 18 )
+    v11 = *v9;
+  v12 = 0;
+  if ( v2 )
   {
-    v14 = *v2;
-    if ( v12 < (unsigned int)v14 )
+    do
     {
-      memmove((void *)(a2 + v12), (const void *)(a2 + v14), v2[1]);
-      *v2 = v12;
+      v13 = *v9;
+      if ( v11 < (unsigned int)v13 )
+      {
+        memmove((void *)(a2 + v11), (const void *)(a2 + v13), v9[1]);
+        *v9 = v11;
+      }
+      v11 += v9[1];
+      ++v12;
+      v9 += 18;
     }
-    v12 += v2[1];
-    ++j;
+    while ( v12 < *(unsigned __int16 *)(a2 + 10) );
   }
-  result = memset((void *)(a2 + v12), 0, *(_DWORD *)(a2 + 20) - v12);
-  if ( v11 )
-    *(_DWORD *)(a2 + 20) = v12;
+  result = memset((void *)(a2 + v11), 0, *(_DWORD *)(a2 + 20) - v11);
+  if ( v10 )
+    *(_DWORD *)(a2 + 20) = v11;
   return result;
 }

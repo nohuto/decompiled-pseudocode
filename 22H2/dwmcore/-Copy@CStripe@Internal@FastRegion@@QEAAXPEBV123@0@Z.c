@@ -1,8 +1,8 @@
 /*
- * XREFs of ?Copy@CStripe@Internal@FastRegion@@QEAAXPEBV123@0@Z @ 0x180047EC8
+ * XREFs of ?Copy@CStripe@Internal@FastRegion@@QEAAXPEBV123@0@Z @ 0x18009CC2C
  * Callers:
- *     ?Subtract@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x180046D88 (-Subtract@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z.c)
- *     ?Union@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x18004722C (-Union@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z.c)
+ *     ?Union@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x180099350 (-Union@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z.c)
+ *     ?Subtract@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x18009A92C (-Subtract@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z.c)
  * Callees:
  *     <none>
  */

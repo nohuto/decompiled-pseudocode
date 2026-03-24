@@ -1,13 +1,14 @@
 /*
- * XREFs of HUBID_BuildUxdPnpId @ 0x1C001B834
+ * XREFs of HUBID_BuildUxdPnpId @ 0x1C001B2D8
  * Callers:
- *     HUBPDO_AssignPDOIds @ 0x1C007A95C (HUBPDO_AssignPDOIds.c)
+ *     HUBPDO_AssignPDOIds @ 0x1C007945C (HUBPDO_AssignPDOIds.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0043840 (memmove.c)
- *     HUBREG_GetUxdPnpValue @ 0x1C0081FE8 (HUBREG_GetUxdPnpValue.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
+ *     memset @ 0x1C0042D40 (memset.c)
+ *     HUBREG_GetUxdPnpValue @ 0x1C0080A7C (HUBREG_GetUxdPnpValue.c)
  */
 
 void *__fastcall HUBID_BuildUxdPnpId(__int64 a1, const void **a2)
@@ -35,11 +36,12 @@ void *__fastcall HUBID_BuildUxdPnpId(__int64 a1, const void **a2)
         WdfDriverGlobals,
         v7,
         a2);
-      result = (void *)ExAllocatePool2(64LL, *(unsigned __int16 *)a2 + 2LL, 1681082453LL);
+      result = ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, *(unsigned __int16 *)a2 + 2LL, 0x64334855u);
       v5 = result;
       if ( result )
       {
-        result = memmove(result, a2[1], *(unsigned __int16 *)a2);
+        memset(result, 0, *(unsigned __int16 *)a2 + 2LL);
+        result = memmove(v5, a2[1], *(unsigned __int16 *)a2);
         *(_WORD *)a2 += 2;
         a2[1] = v5;
       }
@@ -50,7 +52,7 @@ void *__fastcall HUBID_BuildUxdPnpId(__int64 a1, const void **a2)
                            3u,
                            5u,
                            0xBu,
-                           (__int64)&WPP_383dd33ad5aa36822a5ed6eec24c7223_Traceguids);
+                           (__int64)&WPP_7fec0416b3b03b46e271cc8e8691f9a7_Traceguids);
       }
     }
   }
@@ -61,7 +63,7 @@ void *__fastcall HUBID_BuildUxdPnpId(__int64 a1, const void **a2)
                        3u,
                        5u,
                        0xAu,
-                       (__int64)&WPP_383dd33ad5aa36822a5ed6eec24c7223_Traceguids,
+                       (__int64)&WPP_7fec0416b3b03b46e271cc8e8691f9a7_Traceguids,
                        (_DWORD)result);
   }
   if ( v7 )

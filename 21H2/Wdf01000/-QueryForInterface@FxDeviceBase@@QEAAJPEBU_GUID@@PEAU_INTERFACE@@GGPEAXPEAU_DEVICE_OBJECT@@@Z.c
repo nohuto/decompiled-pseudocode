@@ -1,13 +1,13 @@
 /*
- * XREFs of ?QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z @ 0x1C0019CCC
+ * XREFs of ?QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z @ 0x1C004F890
  * Callers:
- *     imp_WdfFdoQueryForInterface @ 0x1C0018790 (imp_WdfFdoQueryForInterface.c)
- *     ?QueryForReenumerationInterface@FxPkgFdo@@EEAAJXZ @ 0x1C0029810 (-QueryForReenumerationInterface@FxPkgFdo@@EEAAJXZ.c)
- *     ?QueryForPowerThread@FxPkgFdo@@EEAAJXZ @ 0x1C0029900 (-QueryForPowerThread@FxPkgFdo@@EEAAJXZ.c)
- *     ?QuerySecureDeviceToken@FxCompanionTarget@@UEAAJPEA_K@Z @ 0x1C0061310 (-QuerySecureDeviceToken@FxCompanionTarget@@UEAAJPEA_K@Z.c)
- *     ?QueryForDsfInterface@FxPkgFdo@@AEAAJXZ @ 0x1C008E8C4 (-QueryForDsfInterface@FxPkgFdo@@AEAAJXZ.c)
+ *     imp_WdfFdoQueryForInterface @ 0x1C0039510 (imp_WdfFdoQueryForInterface.c)
+ *     ?QuerySecureDeviceToken@FxCompanionTarget@@UEAAJPEA_K@Z @ 0x1C0043940 (-QuerySecureDeviceToken@FxCompanionTarget@@UEAAJPEA_K@Z.c)
+ *     ?QueryForPowerThread@FxPkgFdo@@EEAAJXZ @ 0x1C00847B0 (-QueryForPowerThread@FxPkgFdo@@EEAAJXZ.c)
+ *     ?QueryForReenumerationInterface@FxPkgFdo@@EEAAJXZ @ 0x1C0084820 (-QueryForReenumerationInterface@FxPkgFdo@@EEAAJXZ.c)
+ *     ?QueryForDsfInterface@FxPkgFdo@@AEAAJXZ @ 0x1C008C288 (-QueryForDsfInterface@FxPkgFdo@@AEAAJXZ.c)
  * Callees:
- *     ?_QueryForInterface@FxQueryInterface@@SAJPEAU_DEVICE_OBJECT@@PEBU_GUID@@PEAU_INTERFACE@@GGPEAX@Z @ 0x1C0019D70 (-_QueryForInterface@FxQueryInterface@@SAJPEAU_DEVICE_OBJECT@@PEBU_GUID@@PEAU_INTERFACE@@GGPEAX@Z.c)
+ *     ?_QueryForInterface@FxQueryInterface@@SAJPEAU_DEVICE_OBJECT@@PEBU_GUID@@PEAU_INTERFACE@@GGPEAX@Z @ 0x1C004142C (-_QueryForInterface@FxQueryInterface@@SAJPEAU_DEVICE_OBJECT@@PEBU_GUID@@PEAU_INTERFACE@@GGPEAX@Z.c)
  */
 
 __int64 __fastcall FxDeviceBase::QueryForInterface(
@@ -16,7 +16,7 @@ __int64 __fastcall FxDeviceBase::QueryForInterface(
         _INTERFACE *Interface,
         unsigned __int16 Size,
         unsigned __int16 Version,
-        void *InterfaceSpecificData,
+        _NAMED_PIPE_CREATE_PARAMETERS *InterfaceSpecificData,
         _DEVICE_OBJECT *TargetDevice)
 {
   _DEVICE_OBJECT *AttachedDeviceReference; // rdi

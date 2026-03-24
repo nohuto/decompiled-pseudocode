@@ -1,11 +1,11 @@
 /*
- * XREFs of GetDisplayAffinity @ 0x1C0243980
+ * XREFs of GetDisplayAffinity @ 0x1C02480CC
  * Callers:
- *     NtUserGetWindowDisplayAffinity @ 0x1C01F72A0 (NtUserGetWindowDisplayAffinity.c)
- *     SetDisplayAffinity @ 0x1C02439D4 (SetDisplayAffinity.c)
+ *     NtUserGetWindowDisplayAffinity @ 0x1C01FC890 (NtUserGetWindowDisplayAffinity.c)
+ *     SetDisplayAffinity @ 0x1C0248120 (SetDisplayAffinity.c)
  * Callees:
- *     _GetProp @ 0x1C006B844 (_GetProp.c)
- *     _IsTopLevelWindow @ 0x1C006D904 (_IsTopLevelWindow.c)
+ *     _GetProp @ 0x1C006B990 (_GetProp.c)
+ *     _IsTopLevelWindow @ 0x1C006FC88 (_IsTopLevelWindow.c)
  */
 
 __int64 __fastcall GetDisplayAffinity(__int64 a1, _DWORD *a2)
@@ -15,10 +15,10 @@ __int64 __fastcall GetDisplayAffinity(__int64 a1, _DWORD *a2)
 
   v2 = 0;
   *a2 = 0;
-  if ( IsTopLevelWindow(a1) && (*(_BYTE *)(*(_QWORD *)(v4 + 40) + 26LL) & 8) != 0 )
+  if ( (unsigned int)IsTopLevelWindow(a1) && (*(_BYTE *)(*(_QWORD *)(v4 + 40) + 26LL) & 8) != 0 )
   {
     v2 = 1;
-    *a2 = GetProp(v4, (unsigned __int16)atomDispAffinity, 1u);
+    *a2 = GetProp(v4, (unsigned __int16)atomDispAffinity, 1LL);
   }
   return v2;
 }

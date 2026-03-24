@@ -1,11 +1,11 @@
 /*
- * XREFs of XmImulImmediate @ 0x140535340
+ * XREFs of XmImulImmediate @ 0x1404E5660
  * Callers:
- *     XmEmulateStream @ 0x1403A32AC (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
  * Callees:
- *     XmSetDestinationValue @ 0x1403A3038 (XmSetDestinationValue.c)
- *     XmGetImmediateSourceValue @ 0x1403A3060 (XmGetImmediateSourceValue.c)
- *     XmEvaluateAddressSpecifier @ 0x1403A30B4 (XmEvaluateAddressSpecifier.c)
+ *     XmSetDestinationValue @ 0x140396F98 (XmSetDestinationValue.c)
+ *     XmGetImmediateSourceValue @ 0x140396FC0 (XmGetImmediateSourceValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140397014 (XmEvaluateAddressSpecifier.c)
  */
 
 __int64 __fastcall XmImulImmediate(__int64 a1)

@@ -1,38 +1,42 @@
 /*
- * XREFs of ?SetDeviceFailedAttemptRestart@FxPkgPnp@@AEAAXE@Z @ 0x1C0088A74
+ * XREFs of ?SetDeviceFailedAttemptRestart@FxPkgPnp@@AEAAXE@Z @ 0x1C00828E8
  * Callers:
- *     ?SetDeviceFailed@FxPkgPnp@@QEAAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_DEVICE_FAILED_ACTION@@@Z @ 0x1C0088A24 (-SetDeviceFailed@FxPkgPnp@@QEAAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_DEVICE_FAILED_ACTION@@@Z.c)
- *     ?_WorkItemSetDeviceFailedAttemptRestart@FxPkgPnp@@CAXPEAX@Z @ 0x1C0089050 (-_WorkItemSetDeviceFailedAttemptRestart@FxPkgPnp@@CAXPEAX@Z.c)
- *     ?_WorkItemSetDeviceFailedRestartAlways@FxPkgPnp@@CAXPEAX@Z @ 0x1C0089070 (-_WorkItemSetDeviceFailedRestartAlways@FxPkgPnp@@CAXPEAX@Z.c)
+ *     ?SetDeviceFailed@FxPkgPnp@@QEAAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_DEVICE_FAILED_ACTION@@@Z @ 0x1C0082898 (-SetDeviceFailed@FxPkgPnp@@QEAAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_DEVICE_FAILED_ACTION@@@Z.c)
+ *     ?_WorkItemSetDeviceFailedAttemptRestart@FxPkgPnp@@CAXPEAX@Z @ 0x1C0083550 (-_WorkItemSetDeviceFailedAttemptRestart@FxPkgPnp@@CAXPEAX@Z.c)
+ *     ?_WorkItemSetDeviceFailedRestartAlways@FxPkgPnp@@CAXPEAX@Z @ 0x1C0083570 (-_WorkItemSetDeviceFailedRestartAlways@FxPkgPnp@@CAXPEAX@Z.c)
  * Callees:
- *     ?EnqueueWorker@FxSystemWorkItem@@AEAAEP6AXPEAX@Z0E@Z @ 0x1C0003538 (-EnqueueWorker@FxSystemWorkItem@@AEAAEP6AXPEAX@Z0E@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?InvalidateDeviceState@FxPkgPnp@@AEAAXXZ @ 0x1C0088730 (-InvalidateDeviceState@FxPkgPnp@@AEAAXXZ.c)
- *     ?PnpCheckAndIncrementRestartCount@FxPkgPnp@@AEAAEXZ @ 0x1C008DE0C (-PnpCheckAndIncrementRestartCount@FxPkgPnp@@AEAAEXZ.c)
+ *     ?EnqueueWorker@FxSystemWorkItem@@AEAAEP6AXPEAX@Z0E@Z @ 0x1C0004224 (-EnqueueWorker@FxSystemWorkItem@@AEAAEP6AXPEAX@Z0E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?InvalidateDeviceState@FxPkgPnp@@AEAAXXZ @ 0x1C0080F74 (-InvalidateDeviceState@FxPkgPnp@@AEAAXXZ.c)
+ *     ?PnpCheckAndIncrementRestartCount@FxPkgPnp@@AEAAEXZ @ 0x1C008B160 (-PnpCheckAndIncrementRestartCount@FxPkgPnp@@AEAAEXZ.c)
  */
 
-void __fastcall FxPkgPnp::SetDeviceFailedAttemptRestart(FxPkgPnp *this, unsigned __int8 ReenumerateAlways)
+void __fastcall FxPkgPnp::SetDeviceFailedAttemptRestart(FxPkgPnp *this, __int64 ReenumerateAlways, __int64 a3)
 {
   FxSystemWorkItem *m_SetDeviceFailedAttemptRestartWorkItem; // rcx
   void (__fastcall *v5)(void *); // rdx
 
+  LOBYTE(a3) = ReenumerateAlways;
   if ( KeGetCurrentIrql() )
   {
     m_SetDeviceFailedAttemptRestartWorkItem = this->m_SetDeviceFailedAttemptRestartWorkItem;
     if ( m_SetDeviceFailedAttemptRestartWorkItem )
     {
       v5 = FxPkgPnp::_WorkItemSetDeviceFailedRestartAlways;
-      if ( !ReenumerateAlways )
+      if ( !(_BYTE)a3 )
         v5 = FxPkgPnp::_WorkItemSetDeviceFailedAttemptRestart;
-      FxSystemWorkItem::EnqueueWorker(m_SetDeviceFailedAttemptRestartWorkItem, v5, this, 0);
+      FxSystemWorkItem::EnqueueWorker(m_SetDeviceFailedAttemptRestartWorkItem, v5, this, 1u);
       return;
     }
 $InvalidateDevice:
     FxPkgPnp::InvalidateDeviceState(this);
     return;
   }
-  if ( !ReenumerateAlways && !FxPkgPnp::PnpCheckAndIncrementRestartCount(this)
-    || this->AskParentToRemoveAndReenumerate(this) < 0 )
+  if ( !(_BYTE)ReenumerateAlways && !FxPkgPnp::PnpCheckAndIncrementRestartCount(this)
+    || ((int (__fastcall *)(FxPkgPnp *, __int64, __int64))this->AskParentToRemoveAndReenumerate)(
+         this,
+         ReenumerateAlways,
+         a3) < 0 )
   {
     goto $InvalidateDevice;
   }

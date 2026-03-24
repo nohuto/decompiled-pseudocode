@@ -1,66 +1,67 @@
 /*
- * XREFs of RtlpFcQueryFeatureConfigurationFromBuffers @ 0x1407D14B4
+ * XREFs of RtlpFcQueryFeatureConfigurationFromBuffers @ 0x14091A310
  * Callers:
- *     RtlQueryFeatureConfigurationFromBuffers @ 0x140374DF8 (RtlQueryFeatureConfigurationFromBuffers.c)
- *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x1407D144C (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
+ *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x140778E34 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
+ *     wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140A385E8 (wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers.c)
  * Callees:
- *     RtlFindLowerBoundInSortedArray @ 0x1406D8470 (RtlFindLowerBoundInSortedArray.c)
- *     RtlpFcLinearSearchInSortedArray @ 0x1409C8100 (RtlpFcLinearSearchInSortedArray.c)
+ *     RtlpFcLinearSearchInSortedArray @ 0x14091A1A4 (RtlpFcLinearSearchInSortedArray.c)
+ *     RtlpFcLowerBounds @ 0x14091A21C (RtlpFcLowerBounds.c)
  */
 
 __int64 __fastcall RtlpFcQueryFeatureConfigurationFromBuffers(int a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _DWORD *v4; // rbp
   unsigned int v5; // ebx
-  int v8; // eax
-  _DWORD *LowerBoundInSortedArray; // rsi
-  unsigned __int64 v10; // rdx
+  _DWORD *v8; // rsi
+  unsigned __int64 v9; // rdx
+  __int64 v10; // rax
   _DWORD *v11; // rbp
-  unsigned int v12; // edx
+  unsigned int v12; // eax
   unsigned __int64 v13; // rdx
   unsigned __int64 v14; // rcx
-  int v15; // edx
+  int v15; // eax
   int v17; // [rsp+50h] [rbp+8h] BYREF
 
   v17 = a1;
   v4 = *(_DWORD **)(a2 + 8);
   v5 = 0;
-  v8 = a1;
-  LowerBoundInSortedArray = 0LL;
+  v8 = 0LL;
   if ( !v4 )
     goto LABEL_9;
-  v10 = (unsigned __int64)(v4 + 1);
+  v9 = (unsigned __int64)(v4 + 1);
   if ( *v4 )
   {
-    LowerBoundInSortedArray = (_DWORD *)RtlFindLowerBoundInSortedArray(
-                                          (__int64)&v17,
-                                          v10,
-                                          (unsigned int)*v4,
-                                          a4,
-                                          (int (__fastcall *)(__int64, unsigned __int64))RtlFcpCompareFeatureIdToFeature);
-    v8 = v17;
-    if ( LowerBoundInSortedArray == &v4[4 * *v4 + 1] || *LowerBoundInSortedArray != v17 )
-      LowerBoundInSortedArray = 0LL;
+    v8 = (_DWORD *)RtlpFcLowerBounds(
+                     (__int64)&v17,
+                     v9,
+                     (unsigned int)*v4,
+                     12LL,
+                     (int (__fastcall *)(__int64, unsigned __int64))RtlFcpCompareFeatureIdToFeature);
+    a1 = v17;
+    if ( v8 == &v4[3 * *v4 + 1] || *v8 != v17 )
+      v8 = 0LL;
   }
   else
   {
-    LowerBoundInSortedArray = (_DWORD *)RtlpFcLinearSearchInSortedArray(
-                                          (unsigned int)&v17,
-                                          v10,
-                                          0,
-                                          a4,
-                                          (__int64)RtlFcpCompareFeatureIdToFeature);
-    v8 = v17;
+    v10 = RtlpFcLinearSearchInSortedArray(
+            (__int64)&v17,
+            v9,
+            0LL,
+            12LL,
+            (__int64 (__fastcall *)(__int64, __int64))RtlFcpCompareFeatureIdToFeature);
+    a1 = v17;
+    v8 = (_DWORD *)v10;
   }
-  if ( LowerBoundInSortedArray )
+  if ( v8 )
   {
-    *(_OWORD *)a4 = *(_OWORD *)LowerBoundInSortedArray;
+    *(_QWORD *)a4 = *(_QWORD *)v8;
+    *(_DWORD *)(a4 + 8) = v8[2];
   }
   else
   {
 LABEL_9:
-    *(_OWORD *)a4 = 0LL;
-    *(_DWORD *)a4 = v8;
+    *(_QWORD *)(a4 + 4) = 0LL;
+    *(_DWORD *)a4 = a1;
   }
   v11 = *(_DWORD **)(a3 + 8);
   if ( v11 )
@@ -68,18 +69,23 @@ LABEL_9:
     v13 = (unsigned __int64)(v11 + 1);
     if ( *v11 )
     {
-      v14 = RtlFindLowerBoundInSortedArray(
+      v14 = RtlpFcLowerBounds(
               (__int64)&v17,
               v13,
               (unsigned int)*v11,
-              a4,
+              16LL,
               (int (__fastcall *)(__int64, unsigned __int64))RtlFcpCompareFeatureIdToFeature);
       if ( (_DWORD *)v14 == &v11[4 * *v11 + 1] || *(_DWORD *)v14 != v17 )
         v14 = 0LL;
     }
     else
     {
-      v14 = RtlpFcLinearSearchInSortedArray((unsigned int)&v17, v13, 0, a4, (__int64)RtlFcpCompareFeatureIdToFeature);
+      v14 = RtlpFcLinearSearchInSortedArray(
+              (__int64)&v17,
+              v13,
+              0LL,
+              16LL,
+              (__int64 (__fastcall *)(__int64, __int64))RtlFcpCompareFeatureIdToFeature);
     }
     v15 = *(_DWORD *)(a4 + 4);
     if ( v14 )
@@ -100,7 +106,7 @@ LABEL_9:
   *(_DWORD *)(a4 + 4) &= ~0x80u;
   v12 = *(_DWORD *)(a4 + 4);
 LABEL_22:
-  if ( !LowerBoundInSortedArray && (v12 & 0x40) == 0 )
+  if ( !v8 && (v12 & 0x40) == 0 )
     return (v12 & 0x80u) != 0 ? 279 : -1073741275;
   return v5;
 }

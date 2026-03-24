@@ -1,27 +1,18 @@
 /*
- * XREFs of ?GreSelectPenInternal@@YAPEAUHPEN__@@AEAVXDCOBJ@@PEAU1@H@Z @ 0x1C0150AA0
+ * XREFs of ?GreSelectPenInternal@@YAPEAUHPEN__@@AEAVXDCOBJ@@PEAU1@H@Z @ 0x1C00C8080
  * Callers:
- *     GreSelectPen @ 0x1C0150E50 (GreSelectPen.c)
+ *     GreSelectPen @ 0x1C013C150 (GreSelectPen.c)
  * Callees:
- *     GreDCSelectPen @ 0x1C00067B0 (GreDCSelectPen.c)
- *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C0043040 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
+ *     GreDCSelectPen @ 0x1C0022200 (GreDCSelectPen.c)
+ *     HmgPentryFromPobj @ 0x1C002FA40 (HmgPentryFromPobj.c)
  */
 
 __int64 __fastcall GreSelectPenInternal(DC **a1, __int64 a2, int a3)
 {
-  __int64 v3; // rdi
-  struct OBJECT *v6; // rbx
-  __int64 v7; // rax
+  __int64 v3; // rbx
 
   v3 = 0LL;
-  if ( a3 )
-    return GreDCSelectPen(*a1, a2);
-  v6 = *a1;
-  v7 = SGDGetSessionState(a1);
-  if ( (*((_DWORD *)GdiHandleManager::GetEntryFromObject(
-                      *(GdiHandleEntryDirectory ***)(*(_QWORD *)(v7 + 24) + 8008LL),
-                      v6)
-        + 2) & 0xFFFFFFFE) != 0 )
+  if ( a3 || (*(_DWORD *)(HmgPentryFromPobj(*a1) + 8) & 0xFFFFFFFE) != 0 )
     return GreDCSelectPen(*a1, a2);
   return v3;
 }

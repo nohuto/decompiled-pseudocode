@@ -3,10 +3,10 @@
  * Callers:
  *     CmGetSystemDriverList @ 0x1409CC66C (CmGetSystemDriverList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     CmpFindSubKeyByName @ 0x14073D0FC (CmpFindSubKeyByName.c)
- *     CmpFindValueByName @ 0x14073D878 (CmpFindValueByName.c)
- *     CmpValueToData @ 0x14073D8A8 (CmpValueToData.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByName @ 0x14073D0DC (CmpFindSubKeyByName.c)
+ *     CmpFindValueByName @ 0x14073D858 (CmpFindValueByName.c)
+ *     CmpValueToData @ 0x14073D888 (CmpValueToData.c)
  *     CmpDoSort @ 0x1409CD210 (CmpDoSort.c)
  */
 

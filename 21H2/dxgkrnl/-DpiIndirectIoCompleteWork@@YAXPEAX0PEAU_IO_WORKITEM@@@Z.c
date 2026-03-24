@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DpiIndirectIoCompleteWork@@YAXPEAX0PEAU_IO_WORKITEM@@@Z @ 0x1C03922B0
+ * XREFs of ?DpiIndirectIoCompleteWork@@YAXPEAX0PEAU_IO_WORKITEM@@@Z @ 0x1C02D4FD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
  */
 
 void __fastcall DpiIndirectIoCompleteWork(PVOID IoObject, PVOID *Context, PIO_WORKITEM IoWorkItem)

@@ -1,58 +1,53 @@
 /*
- * XREFs of VerifierExInitializePagedLookasideList @ 0x140A9EF30
+ * XREFs of VerifierExInitializePagedLookasideList @ 0x1409E1410
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VfUtilSynchronizationObjectSanityChecks @ 0x1409C6B0C (VfUtilSynchronizationObjectSanityChecks.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     VfTargetDriversIsEnabled @ 0x1409D6F30 (VfTargetDriversIsEnabled.c)
+ *     ViLookasideTrackList @ 0x1409E17BC (ViLookasideTrackList.c)
  */
 
-PVOID (__stdcall *__fastcall VerifierExInitializePagedLookasideList(
-        __int64 a1,
+__int64 __fastcall VerifierExInitializePagedLookasideList(
+        ULONG_PTR BugCheckParameter2,
         __int64 a2,
         __int64 a3,
-        __int64 a4,
-        __int64 a5,
+        int a4,
+        ULONG_PTR BugCheckParameter3,
         int a6,
-        __int16 a7))(POOL_TYPE PoolType, SIZE_T NumberOfBytes, ULONG Tag)
+        __int16 a7)
 {
-  __int16 v8; // r10
-  PVOID (__stdcall *result)(POOL_TYPE, SIZE_T, ULONG); // rax
-  void *v10; // rax
+  unsigned int v11; // ebx
+  int IsEnabled; // ebp
+  __int16 v13; // cx
+  unsigned __int64 retaddr; // [rsp+68h] [rbp+0h]
 
-  v8 = 0;
-  if ( (VfRuleClasses & 1) == 0 )
-    v8 = a7;
+  v11 = 0;
+  IsEnabled = VfTargetDriversIsEnabled(retaddr);
+  if ( IsEnabled )
+  {
+    if ( BugCheckParameter3 < 8 && (MmVerifierData & 1) != 0 )
+      VerifierBugCheckIfAppropriate(0xC4u, 0xCDuLL, BugCheckParameter2, BugCheckParameter3, 8LL);
+    VfUtilSynchronizationObjectSanityChecks((PVOID)BugCheckParameter2, 0x80uLL);
+    v13 = 0;
+  }
+  else
+  {
+    v13 = a7;
+  }
   pXdvExInitializePagedLookasideList(
-    a1,
+    BugCheckParameter2,
     a2,
     a3,
     a4,
-    a5,
+    BugCheckParameter3,
     a6,
-    v8,
-    1,
-    (__int64 (__fastcall *)(__int64, __int64, __int64, __int64))ExInitializePagedLookasideListInternal);
-  result = (PVOID (__stdcall *)(POOL_TYPE, SIZE_T, ULONG))(unsigned int)VfRuleClasses;
-  if ( (VfRuleClasses & 1) != 0 )
-  {
-    result = (PVOID (__stdcall *)(POOL_TYPE, SIZE_T, ULONG))ExFreePoolWithTag;
-    if ( *(void (__stdcall **)(PVOID, ULONG))(a1 + 56) == ExFreePoolWithTag )
-    {
-      result = *(PVOID (__stdcall **)(POOL_TYPE, SIZE_T, ULONG))(a1 + 48);
-      if ( result == ExAllocatePoolWithTag )
-      {
-        v10 = VerifierExAllocatePoolWithTag;
-      }
-      else
-      {
-        if ( result != ExAllocatePoolWithQuotaTag )
-          return result;
-        v10 = VerifierExAllocatePoolWithQuotaTag;
-      }
-      *(_QWORD *)(a1 + 48) = v10;
-      result = (PVOID (__stdcall *)(POOL_TYPE, SIZE_T, ULONG))VerifierExFreePool;
-      *(_QWORD *)(a1 + 56) = VerifierExFreePool;
-    }
-  }
-  return result;
+    v13,
+    IsEnabled,
+    (__int64)ExInitializePagedLookasideListInternal);
+  if ( IsEnabled || KernelVerifier )
+    v11 = 1;
+  return ViLookasideTrackList(BugCheckParameter2, v11);
 }

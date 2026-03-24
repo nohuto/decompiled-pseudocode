@@ -1,7 +1,7 @@
 /*
- * XREFs of ?Contains@CRgnData@Internal@FastRegion@@QEBA_NAEBUtagRECT@@@Z @ 0x180069CAC
+ * XREFs of ?Contains@CRgnData@Internal@FastRegion@@QEBA_NAEBUtagRECT@@@Z @ 0x1800C76D0
  * Callers:
- *     ?Contains@CRegion@FastRegion@@QEBA_NAEBV12@@Z @ 0x180069B2C (-Contains@CRegion@FastRegion@@QEBA_NAEBV12@@Z.c)
+ *     ?Contains@CRegion@FastRegion@@QEBA_NAEBV12@@Z @ 0x1800C75F4 (-Contains@CRegion@FastRegion@@QEBA_NAEBV12@@Z.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ char __fastcall FastRegion::Internal::CRgnData::Contains(
   LONG v7; // r11d
   LONG v8; // edx
   LONG *j; // r9
-  LONG v10; // esi
+  LONG v11; // esi
 
   left = a2->left;
   if ( a2->left >= *((_DWORD *)this + 1) )
@@ -42,12 +42,12 @@ char __fastcall FastRegion::Internal::CRgnData::Contains(
               v8 = left;
               for ( j = (LONG *)((char *)i + *(i - 1) - 8); j < (LONG *)((char *)i + i[1]); j += 2 )
               {
-                v10 = v8;
+                v11 = v8;
                 if ( *j > v8 )
                   break;
                 v8 = j[1];
-                if ( v8 <= v10 )
-                  v8 = v10;
+                if ( v8 <= v11 )
+                  v8 = v11;
               }
               if ( v8 < right )
                 break;

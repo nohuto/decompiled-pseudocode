@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vLine1Octant07@@YAXPEAU_DDALINE@@PEAEJK@Z @ 0x1C02FC800
+ * XREFs of ?vLine1Octant07@@YAXPEAU_DDALINE@@PEAEJK@Z @ 0x1C01609A0
  * Callers:
  *     <none>
  * Callees:
@@ -35,28 +35,6 @@ void __fastcall vLine1Octant07(struct _DDALINE *a1, unsigned __int8 *a2, int a3,
     for ( *v8 = v9 | v11; v10; --v10 )
     {
       LOBYTE(v9) = (unsigned __int8)v9 >> 1;
-      v12 = v8 + 1;
-      v13 = v9;
-      if ( !(_BYTE)v9 )
-        LOBYTE(v9) = 0x80;
-      if ( v13 )
-        v12 = v8;
-      v14 = v6 + v4 < 0;
-      v4 += v6;
-      v8 = v12;
-      if ( !v14 )
-      {
-        v4 -= v5;
-        v8 = &v12[v7];
-      }
-      *v8 |= v9;
-    }
-  }
-  else
-  {
-    for ( *v8 = v11 & ~(_BYTE)v9; v10; --v10 )
-    {
-      LOBYTE(v9) = (unsigned __int8)v9 >> 1;
       v15 = v8 + 1;
       v16 = v9;
       if ( !(_BYTE)v9 )
@@ -70,6 +48,28 @@ void __fastcall vLine1Octant07(struct _DDALINE *a1, unsigned __int8 *a2, int a3,
       {
         v4 -= v5;
         v8 = &v15[v7];
+      }
+      *v8 |= v9;
+    }
+  }
+  else
+  {
+    for ( *v8 = v11 & ~(_BYTE)v9; v10; --v10 )
+    {
+      LOBYTE(v9) = (unsigned __int8)v9 >> 1;
+      v12 = v8 + 1;
+      v13 = v9;
+      if ( !(_BYTE)v9 )
+        LOBYTE(v9) = 0x80;
+      if ( v13 )
+        v12 = v8;
+      v14 = v6 + v4 < 0;
+      v4 += v6;
+      v8 = v12;
+      if ( !v14 )
+      {
+        v4 -= v5;
+        v8 = &v12[v7];
       }
       *v8 &= ~(_BYTE)v9;
     }

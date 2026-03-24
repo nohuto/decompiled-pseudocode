@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GotoStartState@FxUsbPipe@@UEAAJPEAU_LIST_ENTRY@@E@Z @ 0x1C007A1C0
+ * XREFs of ?GotoStartState@FxUsbPipe@@UEAAJPEAU_LIST_ENTRY@@E@Z @ 0x1C006D630
  * Callers:
  *     <none>
  * Callees:
- *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C00196F8 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
- *     ?GotoStartState@FxIoTarget@@MEAAJPEAU_LIST_ENTRY@@E@Z @ 0x1C00296B0 (-GotoStartState@FxIoTarget@@MEAAJPEAU_LIST_ENTRY@@E@Z.c)
- *     ?FormatRepeater@FxUsbPipeContinuousReader@@QEAAJPEAUFxUsbPipeRepeatReader@@@Z @ 0x1C00799DC (-FormatRepeater@FxUsbPipeContinuousReader@@QEAAJPEAUFxUsbPipeRepeatReader@@@Z.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C000CA80 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     ?GotoStartState@FxIoTarget@@MEAAJPEAU_LIST_ENTRY@@E@Z @ 0x1C0065210 (-GotoStartState@FxIoTarget@@MEAAJPEAU_LIST_ENTRY@@E@Z.c)
+ *     ?FormatRepeater@FxUsbPipeContinuousReader@@QEAAJPEAUFxUsbPipeRepeatReader@@@Z @ 0x1C006CEC4 (-FormatRepeater@FxUsbPipeContinuousReader@@QEAAJPEAUFxUsbPipeRepeatReader@@@Z.c)
  */
 
 __int64 __fastcall FxUsbPipe::GotoStartState(FxUsbPipe *this, _LIST_ENTRY *RequestListHead, unsigned __int8 Lock)
@@ -42,7 +42,7 @@ LABEL_7:
       {
         Request = v10->m_Readers[v11].Request;
         Request[1].m_SpinLock.m_Lock = (unsigned __int64)this;
-        FxObject::AddRef(Request, this, 1196, "minkernel\\wdf\\framework\\shared\\targets\\usb\\fxusbpipe.cpp");
+        FxObject::AddRef(Request, this, 1199, "minkernel\\wdf\\framework\\shared\\targets\\usb\\fxusbpipe.cpp");
         _InterlockedIncrement(&this->m_Reader->m_Pipe->m_IoCount);
         Blink = RequestListHead->Blink;
         p_m_Globals = (_LIST_ENTRY *)&Request[1].m_Globals;

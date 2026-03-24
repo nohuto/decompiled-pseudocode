@@ -1,17 +1,16 @@
 /*
- * XREFs of RootHub_WaitForPendingU3TransitionCompletion @ 0x1C0010600
+ * XREFs of RootHub_WaitForPendingU3TransitionCompletion @ 0x1C0011CC0
  * Callers:
- *     RootHub_D0Exit @ 0x1C0010368 (RootHub_D0Exit.c)
- *     RootHub_UcxEvtClearPortFeature @ 0x1C0015740 (RootHub_UcxEvtClearPortFeature.c)
- *     RootHub_UcxEvtSetPortFeature @ 0x1C0016FA0 (RootHub_UcxEvtSetPortFeature.c)
+ *     RootHub_D0Exit @ 0x1C000B838 (RootHub_D0Exit.c)
+ *     RootHub_UcxEvtClearPortFeature @ 0x1C00120A0 (RootHub_UcxEvtClearPortFeature.c)
+ *     RootHub_UcxEvtSetPortFeature @ 0x1C0013360 (RootHub_UcxEvtSetPortFeature.c)
  * Callees:
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     WPP_RECORDER_SF_dD @ 0x1C00181D4 (WPP_RECORDER_SF_dD.c)
- *     RootHub_ReleaseReadModifyWriteLock @ 0x1C0018300 (RootHub_ReleaseReadModifyWriteLock.c)
- *     RootHub_AcquireReadModifyWriteLock @ 0x1C0018344 (RootHub_AcquireReadModifyWriteLock.c)
- *     XilRegister_WriteUlong @ 0x1C0018478 (XilRegister_WriteUlong.c)
- *     WPP_RECORDER_SF_dDD @ 0x1C0040C40 (WPP_RECORDER_SF_dDD.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     RootHub_ReleaseReadModifyWriteLock @ 0x1C0011EE0 (RootHub_ReleaseReadModifyWriteLock.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     RootHub_AcquireReadModifyWriteLock @ 0x1C0013DD0 (RootHub_AcquireReadModifyWriteLock.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     WPP_RECORDER_SF_dDD @ 0x1C003E6AC (WPP_RECORDER_SF_dDD.c)
  */
 
 __int64 __fastcall RootHub_WaitForPendingU3TransitionCompletion(_QWORD *a1, int a2, char a3)
@@ -66,13 +65,13 @@ __int64 __fastcall RootHub_WaitForPendingU3TransitionCompletion(_QWORD *a1, int 
     if ( v12 == v11 )
       goto LABEL_34;
     v11 = v12;
-    v15 = *(_BYTE *)(a1[6] + 120 * v29 + 13);
+    v15 = *(_BYTE *)(a1[6] + 112 * v29 + 13);
     if ( v15 == 2 )
     {
       v13 = &WPP_RECORDER_INITIALIZED;
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         goto LABEL_9;
-      v16 = 238;
+      v16 = 235;
       goto LABEL_8;
     }
     if ( v15 != 3 )
@@ -80,15 +79,15 @@ __int64 __fastcall RootHub_WaitForPendingU3TransitionCompletion(_QWORD *a1, int 
     v13 = &WPP_RECORDER_INITIALIZED;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v16 = 239;
+      v16 = 236;
 LABEL_8:
       LOBYTE(v13) = 4;
-      WPP_RECORDER_SF_dD(
+      WPP_RECORDER_SF_dd(
         *(_QWORD *)(a1[1] + 72LL),
         (_DWORD)v13,
         11,
         v16,
-        (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
         a2,
         v12);
       v13 = &WPP_RECORDER_INITIALIZED;
@@ -105,7 +104,7 @@ LABEL_9:
       || v17 == 288
       || v17 == 352
       || (v14 & 0x10) != 0
-      || *(_BYTE *)(a1[6] + 120 * v29 + 18) )
+      || *(_BYTE *)(a1[6] + 112 * v29 + 18) )
     {
       v9 = 0;
       goto LABEL_12;
@@ -117,8 +116,8 @@ LABEL_9:
         *(_QWORD *)(a1[1] + 72LL),
         (_DWORD)v13,
         11,
-        241,
-        (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
+        238,
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
         a2,
         v5);
     }
@@ -133,12 +132,12 @@ LABEL_34:
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v13) = 2;
-    WPP_RECORDER_SF_dD(
+    WPP_RECORDER_SF_dd(
       *(_QWORD *)(a1[1] + 72LL),
       (_DWORD)v13,
       11,
-      240,
-      (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
+      237,
+      (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
       a2,
       v12);
   }
@@ -148,17 +147,16 @@ LABEL_12:
   {
     v24 = a1[1];
     ++*(_DWORD *)(v24 + 492);
-    ++*(_DWORD *)(v24 + 536);
     *(_BYTE *)(v24 + 472) = 1;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v13) = 2;
-      WPP_RECORDER_SF_dD(
+      WPP_RECORDER_SF_dd(
         *(_QWORD *)(a1[1] + 72LL),
         (_DWORD)v13,
         11,
-        242,
-        (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
+        239,
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
         a2,
         v14);
     }
@@ -169,7 +167,6 @@ LABEL_12:
     {
       v25 = a1[1];
       ++*(_DWORD *)(v25 + 496);
-      ++*(_DWORD *)(v25 + 540);
       *(_BYTE *)(v25 + 472) = 1;
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -179,8 +176,8 @@ LABEL_12:
         *(_QWORD *)(a1[1] + 72LL),
         (_DWORD)v13,
         11,
-        243,
-        (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
+        240,
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
         v5,
         a2);
     }

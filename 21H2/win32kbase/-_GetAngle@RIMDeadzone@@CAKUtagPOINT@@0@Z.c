@@ -1,73 +1,95 @@
 /*
- * XREFs of ?_GetAngle@RIMDeadzone@@CAKUtagPOINT@@0@Z @ 0x1C01A2B84
+ * XREFs of ?_GetAngle@RIMDeadzone@@CAKUtagPOINT@@0@Z @ 0x1C016E844
  * Callers:
- *     ?IsInDeadzone@RIMDeadzone@@QEAAHAEBUDEVICE_OUTPUT_CONFIG@@AEBUtagPOINTER_INFO@@01W4tagHANDEDNESS@@@Z @ 0x1C01A243C (-IsInDeadzone@RIMDeadzone@@QEAAHAEBUDEVICE_OUTPUT_CONFIG@@AEBUtagPOINTER_INFO@@01W4tagHANDEDNESS.c)
- *     ?IsInDeadzone@RIMDeadzone@@QEAAHPEAUtagHPD_CONTACT@@@Z @ 0x1C01A273C (-IsInDeadzone@RIMDeadzone@@QEAAHPEAUtagHPD_CONTACT@@@Z.c)
+ *     ?IsInDeadzone@RIMDeadzone@@QEAAHPEAUtagHPD_CONTACT@@@Z @ 0x1C016E2DC (-IsInDeadzone@RIMDeadzone@@QEAAHPEAUtagHPD_CONTACT@@@Z.c)
+ *     ?IsInDeadzone@RIMDeadzone@@QEAAHUtagRECT@@UtagPOINT@@1W4tagHANDEDNESS@@@Z @ 0x1C016E4E0 (-IsInDeadzone@RIMDeadzone@@QEAAHUtagRECT@@UtagPOINT@@1W4tagHANDEDNESS@@@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-__int64 __fastcall RIMDeadzone::_GetAngle(struct tagPOINT a1, struct tagPOINT a2, __int64 a3)
+__int64 __fastcall RIMDeadzone::_GetAngle(struct tagPOINT a1, struct tagPOINT a2)
 {
+  int v2; // r14d
   int v3; // esi
   int v4; // ebx
-  unsigned int v5; // edi
-  signed int v6; // eax
-  signed int *v7; // rdx
-  __int64 v8; // rcx
-  unsigned int v9; // eax
-  int v10; // edi
+  int v5; // ebp
+  unsigned int v6; // edi
+  unsigned int v7; // ecx
+  signed int v8; // eax
+  signed int *v9; // rdx
+  bool v10; // cc
+  int v11; // esi
+  int v12; // esi
+  int v13; // eax
 
-  v3 = a1.x - a2.x;
+  v2 = a1.x - a2.x;
+  v3 = 4;
   v4 = a1.y - a2.y;
+  v5 = 0;
   if ( a1.x == a2.x )
   {
-    v5 = 90;
+    v6 = 90;
   }
   else
   {
-    v6 = abs32(100 * v4 / v3);
-    v7 = (signed int *)&RIMDeadzone::s_adwTangentLookup;
-    v8 = 0LL;
-    while ( v6 > *v7 )
+    v7 = 0;
+    v8 = abs32(100 * v4 / v2);
+    v9 = (signed int *)&RIMDeadzone::s_adwTangentLookup;
+    do
     {
-      v8 = (unsigned int)(v8 + 1);
-      ++v7;
-      if ( (unsigned int)v8 >= 0x12 )
-      {
-        if ( (_DWORD)v8 == 18 )
-        {
-          v5 = 90;
-          goto LABEL_10;
-        }
+      if ( v8 <= *v9 )
         break;
-      }
+      ++v7;
+      ++v9;
     }
-    v5 = 5 * v8;
-    if ( (unsigned int)(5 * v8) > 0x5A )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v8, v7, a3);
-LABEL_10:
-    if ( v3 < 0 )
+    while ( v7 < 0x12 );
+    if ( v7 == 18 )
+    {
+      v6 = 90;
+    }
+    else
+    {
+      v6 = 5 * v7;
+      if ( 5 * v7 > 0x5A )
+        MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 262);
+    }
+    v10 = v2 <= 0;
+    if ( v2 < 0 )
       goto LABEL_13;
   }
-  v9 = v5;
   if ( v4 >= 0 )
-  {
-    v10 = 360;
-LABEL_17:
-    v5 = v10 - v9;
-    return v5 % 0x168;
-  }
+    goto LABEL_16;
+  v10 = v2 <= 0;
 LABEL_13:
-  v9 = v5;
-  if ( v3 <= 0 )
+  if ( v10 )
   {
-    if ( v4 < 0 )
-    {
-      v10 = 180;
-      goto LABEL_17;
-    }
-    v5 += 180;
+    LOBYTE(v5) = v4 >= 0;
+    v3 = v5 + 2;
   }
-  return v5 % 0x168;
+  else
+  {
+    v3 = 1;
+  }
+LABEL_16:
+  v11 = v3 - 2;
+  if ( !v11 )
+  {
+    v13 = 180;
+    goto LABEL_22;
+  }
+  v12 = v11 - 1;
+  if ( v12 )
+  {
+    if ( v12 == 1 )
+    {
+      v13 = 360;
+LABEL_22:
+      v6 = v13 - v6;
+    }
+  }
+  else
+  {
+    v6 += 180;
+  }
+  return v6 % 0x168;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of SepAddLuidToIndexEntry @ 0x14064EFCC
+ * XREFs of SepAddLuidToIndexEntry @ 0x14064EFAC
  * Callers:
- *     SepSetProcessUniqueAttribute @ 0x14064EEB4 (SepSetProcessUniqueAttribute.c)
+ *     SepSetProcessUniqueAttribute @ 0x14064EE94 (SepSetProcessUniqueAttribute.c)
  * Callees:
  *     RtlNumberOfSetBits @ 0x14000F440 (RtlNumberOfSetBits.c)
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
@@ -9,12 +9,12 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlFindClearBitsAndSet @ 0x1400D95C0 (RtlFindClearBitsAndSet.c)
- *     SepInitSingletonEntry @ 0x1400D9938 (SepInitSingletonEntry.c)
- *     SepCleanupMarkedForDeletionEntries @ 0x1400D99A0 (SepCleanupMarkedForDeletionEntries.c)
- *     RtlInsertEntryHashTable @ 0x1400D9CA0 (RtlInsertEntryHashTable.c)
- *     SepExpandSingletonArrays @ 0x14013B58C (SepExpandSingletonArrays.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
+ *     SepInitSingletonEntry @ 0x1400D9958 (SepInitSingletonEntry.c)
+ *     SepCleanupMarkedForDeletionEntries @ 0x1400D99C0 (SepCleanupMarkedForDeletionEntries.c)
+ *     RtlInsertEntryHashTable @ 0x1400D9CC0 (RtlInsertEntryHashTable.c)
+ *     SepExpandSingletonArrays @ 0x14013B5AC (SepExpandSingletonArrays.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,75 +1,86 @@
 /*
- * XREFs of ?TransferOwnershipToSystemProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU2@@Z @ 0x1C00A51D8
+ * XREFs of ?TransferOwnershipToSystemProcess@VIDMM_GLOBAL@@IEAAPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU2@@Z @ 0x1C0060FB4
  * Callers:
- *     ?TransferAllocationOwnership@VIDMM_GLOBAL@@IEAA_NPEAUVIDMM_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@1@Z @ 0x1C00A5000 (-TransferAllocationOwnership@VIDMM_GLOBAL@@IEAA_NPEAUVIDMM_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@1@Z.c)
+ *     ?TransferAllocationOwnership@VIDMM_GLOBAL@@IEAA_NPEAUVIDMM_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@1@Z @ 0x1C0061AB4 (-TransferAllocationOwnership@VIDMM_GLOBAL@@IEAA_NPEAUVIDMM_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@1@Z.c)
  * Callees:
- *     ?VidMmRecordAlloc@@YAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@PEAVVIDMM_SEGMENT@@_KW4VIDMM_ALLOC_RECORD_TYPE@@@Z @ 0x1C0002298 (-VidMmRecordAlloc@@YAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@PEAVVID.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C002EB8C (McTemplateK0pqq_EtwWriteTransfer.c)
- *     ?CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C0089AE0 (-CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_D.c)
- *     ?OpenOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAXHPEAVDXGALLOCATION@@PEAPEAUVIDMM_ALLOC@@PEAE@Z @ 0x1C00929E0 (-OpenOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAXHPEAVDXGALL.c)
- *     ?TransferProbeAndLockToNewProcess@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_LOCAL_ALLOC@@0@Z @ 0x1C00A5300 (-TransferProbeAndLockToNewProcess@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_LOCAL_ALLOC@@0@Z.c)
+ *     ?VidMmRecordAlloc@@YAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@PEAVVIDMM_SEGMENT@@_KW4VIDMM_ALLOC_RECORD_TYPE@@@Z @ 0x1C0001160 (-VidMmRecordAlloc@@YAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@PEAVVID.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C0024A48 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     ?TransferProbeAndLockToNewProcess@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_LOCAL_ALLOC@@0@Z @ 0x1C0061CE8 (-TransferProbeAndLockToNewProcess@VIDMM_GLOBAL@@IEAAJPEAU_VIDMM_LOCAL_ALLOC@@0@Z.c)
+ *     ?CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C006A030 (-CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAU_VIDMM_LOCAL_ALLOC@@EU_D3DDDICB_D.c)
+ *     ?OpenOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAXHPEAVDXGALLOCATION@@PEAPEAUVIDMM_ALLOC@@PEAE@Z @ 0x1C00788B0 (-OpenOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAXHPEAVDXGALL.c)
  */
 
 struct _VIDMM_LOCAL_ALLOC *__fastcall VIDMM_GLOBAL::TransferOwnershipToSystemProcess(
-        VIDMM_GLOBAL *this,
+        struct VIDMM_DEVICE **this,
         struct _VIDMM_GLOBAL_ALLOC *a2,
         struct _VIDMM_LOCAL_ALLOC *a3)
 {
-  struct VIDMM_DEVICE *v6; // rdx
-  __int64 v8; // r8
-  struct _VIDMM_LOCAL_ALLOC *v9; // rbx
+  struct _VIDMM_LOCAL_ALLOC *v3; // rdi
+  __int64 v7; // rcx
+  __int64 v8; // rsi
+  __int64 v9; // r8
   __int64 v10; // rcx
   __int64 v11; // r9
   int v13; // eax
   __int64 v14; // rcx
-  __int64 v15; // rcx
-  struct _D3DDDICB_DESTROYALLOCATION2FLAGS v16[2]; // [rsp+20h] [rbp-48h]
-  struct _KEVENT **v17; // [rsp+28h] [rbp-40h]
-  unsigned __int8 v18; // [rsp+70h] [rbp+8h] BYREF
-  struct VIDMM_ALLOC *v19; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v15; // rax
+  _QWORD *v16; // rax
+  __int64 v17; // [rsp+20h] [rbp-38h]
+  __int64 v18; // [rsp+28h] [rbp-30h]
+  unsigned __int8 v19; // [rsp+60h] [rbp+8h] BYREF
+  struct VIDMM_ALLOC *v20; // [rsp+78h] [rbp+20h] BYREF
 
-  v19 = 0LL;
-  v6 = (struct VIDMM_DEVICE *)*((_QWORD *)this + 5049);
-  v18 = 0;
-  if ( (int)VIDMM_GLOBAL::OpenOneAllocation(this, v6, (struct VIDMM_ALLOC ***)a2, 0LL, 0, 0LL, &v19, &v18) < 0 )
+  v3 = 0LL;
+  v20 = 0LL;
+  v19 = 0;
+  LODWORD(v8) = VIDMM_GLOBAL::OpenOneAllocation((VIDMM_GLOBAL *)this, this[5049], a2, 0LL, 0, 0LL, &v20, &v19);
+  if ( (int)v8 < 0 )
   {
-    _InterlockedIncrement(&dword_1C006E724);
-    WdLogSingleEntry2(6LL, a2, *((_QWORD *)a2 + 1));
-    DxgkLogInternalTriageEvent(v14, 262145LL);
-    return 0LL;
+    _InterlockedIncrement(&dword_1C0050674);
+    v15 = WdLogNewEntry5_WdLowResource(v7);
+    *(_QWORD *)(v15 + 24) = a2;
+    *(_QWORD *)(v15 + 32) = *((_QWORD *)a2 + 1);
+    WdLogEvent5_WdLowResource(v15);
   }
-  v9 = *(struct _VIDMM_LOCAL_ALLOC **)v19;
-  if ( *((int *)a2 + 91) > 0 )
+  else
   {
-    v13 = VIDMM_GLOBAL::TransferProbeAndLockToNewProcess(this, a3, *(struct _VIDMM_LOCAL_ALLOC **)v19);
-    if ( v13 < 0 )
+    v3 = *(struct _VIDMM_LOCAL_ALLOC **)v20;
+    if ( *((int *)a2 + 85) > 0 )
     {
-      _InterlockedIncrement(&dword_1C006E724);
-      WdLogSingleEntry3(6LL, a2, *((_QWORD *)a2 + 1), v13);
-      DxgkLogInternalTriageEvent(v15, 262145LL);
-      VIDMM_GLOBAL::CloseOneAllocation(this, (struct _KEVENT *)v19, 0LL, 0LL, 0, 0LL);
-      return 0LL;
+      v13 = VIDMM_GLOBAL::TransferProbeAndLockToNewProcess((VIDMM_GLOBAL *)this, a3, *(struct _VIDMM_LOCAL_ALLOC **)v20);
+      v8 = v13;
+      if ( v13 >= 0 )
+        goto LABEL_4;
+      _InterlockedIncrement(&dword_1C0050674);
+      v16 = (_QWORD *)WdLogNewEntry5_WdLowResource(v14);
+      v16[3] = a2;
+      v16[4] = *((_QWORD *)a2 + 1);
+      v16[5] = v8;
+      WdLogEvent5_WdLowResource(v16);
+      VIDMM_GLOBAL::CloseOneAllocation((VIDMM_GLOBAL *)this, v20, 0LL, 0, 0, 0LL);
     }
   }
+  if ( (int)v8 < 0 )
+    return 0LL;
+LABEL_4:
   if ( bTracingEnabled )
   {
-    v10 = v9 ? *(unsigned int *)(*((_QWORD *)v9 + 1) + 8LL) : 0LL;
-    if ( (byte_1C006E941 & 8) != 0 )
+    v10 = v3 ? *(unsigned int *)(*((_QWORD *)v3 + 1) + 8LL) : 0LL;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
     {
-      LODWORD(v17) = v10;
-      v16[0] = *(struct _D3DDDICB_DESTROYALLOCATION2FLAGS *)(*((_QWORD *)a3 + 1) + 8LL);
-      McTemplateK0pqq_EtwWriteTransfer(v10, &EventTransferAllocationOwnership, v8, a2, *(_QWORD *)&v16[0].0, v17);
+      LODWORD(v18) = v10;
+      LODWORD(v17) = *(_DWORD *)(*((_QWORD *)a3 + 1) + 8LL);
+      McTemplateK0pqq_EtwWriteTransfer(v10, &EventTransferAllocationOwnership, v9, a2, v17, v18);
     }
   }
   if ( *((_QWORD *)a3 + 1) )
   {
-    v11 = *((_QWORD *)a2 + 15);
+    v11 = *((_QWORD *)a2 + 16);
     if ( v11 )
     {
-      VidMmRecordAlloc(this, (__int64)a2, (__int64)a3, v11, *((_QWORD *)a2 + 2), 1);
-      VidMmRecordAlloc(this, (__int64)a2, (__int64)v9, *((_QWORD *)a2 + 15), *((_QWORD *)a2 + 2), 0);
+      VidMmRecordAlloc((VIDMM_GLOBAL *)this, (__int64)a2, (__int64)a3, v11, *((_QWORD *)a2 + 2), 1);
+      VidMmRecordAlloc((VIDMM_GLOBAL *)this, (__int64)a2, (__int64)v3, *((_QWORD *)a2 + 16), *((_QWORD *)a2 + 2), 0);
     }
   }
-  return v9;
+  return v3;
 }

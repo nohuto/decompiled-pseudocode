@@ -1,45 +1,42 @@
 /*
- * XREFs of ?GetHandleObject@DXGCHANNELENDPOINTPROXY@@UEAAPEAXIW4_HMGRENTRY_TYPE@@@Z @ 0x1C0366170
+ * XREFs of ?GetHandleObject@DXGCHANNELENDPOINTPROXY@@UEAAPEAXIW4_HMGRENTRY_TYPE@@@Z @ 0x1C02B3430
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-__int64 __fastcall DXGCHANNELENDPOINTPROXY::GetHandleObject(__int64 a1, unsigned int a2, int a3)
+__int64 __fastcall DXGCHANNELENDPOINTPROXY::GetHandleObject(__int64 a1, __int64 a2, int a3)
 {
-  __int64 v3; // rbx
-  unsigned int v7; // eax
-  __int64 v8; // r9
+  unsigned int v4; // ebx
+  __int64 v6; // rax
+  __int64 v7; // rax
+  __int64 v8; // r8
   int v9; // ecx
+  __int64 v10; // rcx
+  __int64 v11; // rax
 
-  v3 = 0LL;
-  if ( *(struct _KTHREAD **)(a1 + 96) != KeGetCurrentThread() )
+  v4 = a2;
+  if ( *(struct _KTHREAD **)(a1 + 88) != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 532LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_HandleTableMutex.IsOwner()", 532LL, 0LL, 0LL, 0LL, 0LL);
+    v6 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v6 + 24) = 532LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  v7 = (a2 >> 6) & 0xFFFFFF;
-  if ( v7 < *(_DWORD *)(a1 + 56) )
+  v7 = (v4 >> 6) & 0xFFFFFF;
+  if ( (unsigned int)v7 >= *(_DWORD *)(a1 + 56) )
+    return 0LL;
+  v8 = *(_QWORD *)(a1 + 40);
+  v9 = *(_DWORD *)(v8 + 16 * v7 + 8);
+  if ( ((v4 >> 25) & 0x60) != (*(_BYTE *)(v8 + 16 * v7 + 8) & 0x60) || (v9 & 0x2000) != 0 || (v9 & 0x1F) == 0 )
+    return 0LL;
+  v10 = v9 & 0x1F;
+  if ( a3 != (_DWORD)v10 )
   {
-    v8 = *(_QWORD *)(a1 + 40);
-    if ( ((a2 >> 25) & 0x60) == (*(_BYTE *)(v8 + 16LL * v7 + 8) & 0x60)
-      && (*(_DWORD *)(v8 + 16LL * v7 + 8) & 0x2000) == 0 )
-    {
-      v9 = *(_DWORD *)(v8 + 16LL * v7 + 8) & 0x1F;
-      if ( v9 )
-      {
-        if ( a3 == v9 )
-        {
-          return *(_QWORD *)(v8 + 16LL * v7);
-        }
-        else
-        {
-          WdLogSingleEntry1(2LL, 316LL);
-          DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 316LL, 0LL, 0LL, 0LL, 0LL);
-        }
-      }
-    }
+    v11 = WdLogNewEntry5_WdError(v10, 2LL * (unsigned int)v7);
+    *(_QWORD *)(v11 + 24) = 316LL;
+    WdLogEvent5_WdError(v11);
+    return 0LL;
   }
-  return v3;
+  return *(_QWORD *)(v8 + 16LL * (unsigned int)v7);
 }

@@ -1,39 +1,42 @@
 /*
- * XREFs of NtQueryInformationToken @ 0x1407B13E0
+ * XREFs of NtQueryInformationToken @ 0x140657DF0
  * Callers:
- *     RtlGetAppContainerNamedObjectPath @ 0x1405E5200 (RtlGetAppContainerNamedObjectPath.c)
- *     RtlpGetTokenNamedObjectPath @ 0x1409B9B50 (RtlpGetTokenNamedObjectPath.c)
+ *     RtlGetAppContainerNamedObjectPath @ 0x140586AB0 (RtlGetAppContainerNamedObjectPath.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x140914568 (RtlpGetTokenNamedObjectPath.c)
  * Callees:
- *     SepTokenPrivilegeCount @ 0x14022B1D0 (SepTokenPrivilegeCount.c)
- *     SeQueryMandatoryPolicyToken @ 0x14022B1FC (SeQueryMandatoryPolicyToken.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     SepDeReferenceLogonSessionDirect @ 0x1402D6A98 (SepDeReferenceLogonSessionDirect.c)
- *     SepConvertTokenPrivileges @ 0x1402ECB64 (SepConvertTokenPrivileges.c)
- *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x1402ED7E0 (SepConvertTokenPrivilegesToLuidAndAttributes.c)
- *     SepCopyTokenIntegrity @ 0x1402ED98C (SepCopyTokenIntegrity.c)
- *     SepIsSandboxedToken @ 0x1402EF3E8 (SepIsSandboxedToken.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     SepReferenceTokenByHandle @ 0x1402F8F70 (SepReferenceTokenByHandle.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x140300534 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     AuthzBasepQuerySecurityAttributesToken @ 0x1403005E0 (AuthzBasepQuerySecurityAttributesToken.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlCopySidAndAttributesArray @ 0x14066A420 (RtlCopySidAndAttributesArray.c)
- *     RtlCopySid @ 0x14066A4E0 (RtlCopySid.c)
- *     SepReferenceLogonSessionSilo @ 0x14066B900 (SepReferenceLogonSessionSilo.c)
- *     SepCopyTokenAccessInformation @ 0x1406A293C (SepCopyTokenAccessInformation.c)
- *     SepGetTokenAccessInformationBufferSize @ 0x1406A2C44 (SepGetTokenAccessInformationBufferSize.c)
- *     AuthzBasepQueryClaimAttributesToken @ 0x1406C1884 (AuthzBasepQueryClaimAttributesToken.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
- *     NtClose @ 0x140731D50 (NtClose.c)
- *     RtlIsElevatedRid @ 0x14079FAF0 (RtlIsElevatedRid.c)
- *     SeQuerySessionIdToken @ 0x14079FB80 (SeQuerySessionIdToken.c)
- *     SepDuplicateToken @ 0x1407CDED0 (SepDuplicateToken.c)
- *     ExRaiseAccessViolation @ 0x140A021F0 (ExRaiseAccessViolation.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     SepTokenPrivilegeCount @ 0x140202A20 (SepTokenPrivilegeCount.c)
+ *     SeQueryMandatoryPolicyToken @ 0x140202A4C (SeQueryMandatoryPolicyToken.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14024E760 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x14024E800 (AuthzBasepQuerySecurityAttributesToken.c)
+ *     SepConvertTokenPrivileges @ 0x1402527D4 (SepConvertTokenPrivileges.c)
+ *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x140252800 (SepConvertTokenPrivilegesToLuidAndAttributes.c)
+ *     SepCopyTokenIntegrity @ 0x14025299C (SepCopyTokenIntegrity.c)
+ *     SeIsSModeAdminlessEnabled @ 0x140252ED0 (SeIsSModeAdminlessEnabled.c)
+ *     SepReferenceTokenByHandle @ 0x14027CA20 (SepReferenceTokenByHandle.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x14027F814 (SepDeReferenceLogonSessionDirect.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     RtlIsSandboxedTokenHandle @ 0x1402D2E70 (RtlIsSandboxedTokenHandle.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     KeEnterCriticalRegion @ 0x140351210 (KeEnterCriticalRegion.c)
+ *     Feature_PPLEnforcement__private_ReportDeviceUsage @ 0x1403F8B74 (Feature_PPLEnforcement__private_ReportDeviceUsage.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SepGetStackTraceHash @ 0x140596110 (SepGetStackTraceHash.c)
+ *     SepCopyTokenAccessInformation @ 0x1405DBD68 (SepCopyTokenAccessInformation.c)
+ *     RtlCopySidAndAttributesArray @ 0x1405DC280 (RtlCopySidAndAttributesArray.c)
+ *     SepGetTokenAccessInformationBufferSize @ 0x1405DC348 (SepGetTokenAccessInformationBufferSize.c)
+ *     SepReferenceLogonSessionSilo @ 0x1405DC7FC (SepReferenceLogonSessionSilo.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     RtlIsElevatedRid @ 0x1406744C0 (RtlIsElevatedRid.c)
+ *     SeQuerySessionIdToken @ 0x140692F80 (SeQuerySessionIdToken.c)
+ *     AuthzBasepQueryClaimAttributesToken @ 0x1406A558C (AuthzBasepQueryClaimAttributesToken.c)
+ *     ObInsertObject @ 0x1406D41C0 (ObInsertObject.c)
+ *     NtClose @ 0x1406F0980 (NtClose.c)
+ *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
+ *     RtlCopySid @ 0x140706ED0 (RtlCopySid.c)
+ *     EtwTraceAdminlessAccessFailure @ 0x14093FC38 (EtwTraceAdminlessAccessFailure.c)
  */
 
 NTSTATUS __stdcall NtQueryInformationToken(
@@ -43,1286 +46,1216 @@ NTSTATUS __stdcall NtQueryInformationToken(
         ULONG TokenInformationLength,
         PULONG ReturnLength)
 {
-  __int64 v5; // r12
   __int64 v9; // rdi
-  KPROCESSOR_MODE PreviousMode; // r14
-  unsigned __int64 v11; // rcx
-  unsigned __int64 v12; // rdx
-  unsigned __int64 v13; // rdx
-  PULONG v14; // r15
-  __int64 v15; // rcx
+  KPROCESSOR_MODE PreviousMode; // r15
+  __int64 v11; // rcx
+  PULONG v12; // r14
   NTSTATUS result; // eax
-  _DWORD *v17; // rcx
-  struct _KTHREAD *CurrentThread; // rax
-  PVOID v19; // r13
-  unsigned int v20; // r14d
-  char *v21; // rbx
-  const void **v22; // r12
-  unsigned int v23; // ecx
-  unsigned int v24; // r15d
-  unsigned int v25; // eax
-  struct _KTHREAD *v26; // rcx
-  bool v27; // zf
-  _DWORD *v28; // rbx
-  struct _KTHREAD *v29; // rax
-  unsigned int *v30; // rbx
-  int v31; // edx
-  __int64 v32; // rax
-  struct _ERESOURCE *v33; // rcx
-  unsigned int v34; // r13d
-  struct _KTHREAD *v35; // rax
-  __int64 v36; // rcx
-  char *v37; // rdx
-  struct _KTHREAD *v38; // rax
-  unsigned int v39; // ecx
-  struct _ERESOURCE *v40; // rcx
+  struct _KTHREAD *v14; // rax
+  PADAPTER_OBJECT v15; // rbx
+  unsigned int DmaOperations_high; // eax
+  ULONG v17; // r8d
+  __int64 p_AllocateCommonBuffer; // rdx
+  __int64 v19; // r9
+  struct _KTHREAD *v20; // rax
+  unsigned int v21; // eax
+  ULONG v22; // r8d
+  __int64 v23; // rdx
+  __int64 v24; // r9
+  struct _KTHREAD *v25; // rax
+  PADAPTER_OBJECT v26; // rdi
+  unsigned int v27; // eax
+  ULONG v28; // ebx
+  PADAPTER_OBJECT v29; // rcx
+  struct _KTHREAD *v30; // rax
+  ULONG v31; // ecx
+  struct _KTHREAD *v32; // rax
+  ULONG v33; // ecx
+  struct _KTHREAD *v34; // rax
+  _DMA_OPERATIONS *DmaOperations; // rax
+  ULONG v36; // eax
+  char *v37; // rcx
+  int AllocateAdapterChannel; // ecx
+  char IsSModeAdminlessEnabled; // al
+  int v40; // ecx
   struct _KTHREAD *v41; // rax
-  __int64 v42; // rax
-  unsigned int v43; // eax
-  char *v44; // rcx
-  struct _KTHREAD *v45; // rax
-  PVOID v46; // rdi
-  __int64 v47; // rdx
-  unsigned int v48; // eax
-  unsigned int v49; // r13d
-  struct _KTHREAD *v50; // rax
-  char v51; // r8
-  PSID v52; // r9
-  unsigned __int8 *v53; // rcx
-  char *v54; // rdx
-  _DWORD *v55; // r8
-  int v56; // ecx
-  struct _KTHREAD *v57; // rax
-  ULONG v58; // r8d
-  struct _KTHREAD *v59; // rax
-  unsigned int v60; // ecx
+  int v42; // edx
+  _DMA_OPERATIONS *v43; // rax
+  struct _KTHREAD *v44; // rax
+  ULONG v45; // r10d
+  unsigned int v46; // ecx
+  unsigned int v47; // r11d
+  unsigned int v48; // r8d
+  _DMA_OPERATIONS *v49; // rdx
+  __int64 v50; // r9
+  unsigned int v51; // ecx
+  unsigned int v52; // r12d
+  unsigned int v53; // r15d
+  int v54; // eax
+  __int64 v55; // rdx
+  __int64 v56; // r9
+  ULONG v57; // ecx
+  char *v58; // r9
+  __int64 v59; // rdi
+  __int64 v60; // r14
   struct _KTHREAD *v61; // rax
-  PVOID v62; // r14
-  unsigned __int8 IsElevatedRid; // bl
-  unsigned int v64; // r15d
+  unsigned __int8 *Src; // rdi
+  char v63; // r15
+  ULONG TokenAccessInformationBufferSize; // eax
   struct _KTHREAD *v65; // rax
-  PVOID v66; // r14
-  __int64 v67; // rax
-  unsigned int v68; // ebx
-  __int128 *v69; // r13
-  struct _KTHREAD *v70; // rax
-  _DWORD *v71; // rcx
-  unsigned int v72; // ebx
-  struct _ERESOURCE *v73; // rcx
-  struct _KTHREAD *v74; // rax
-  __int64 v75; // rax
-  unsigned int v76; // r11d
-  ULONG v77; // r8d
-  struct _KTHREAD *v78; // rax
-  unsigned int v79; // eax
-  unsigned int v80; // ebx
-  struct _KTHREAD *v81; // rax
-  int v82; // r10d
-  unsigned int v83; // ecx
-  unsigned int v84; // r11d
-  unsigned int v85; // r8d
-  __int64 v86; // rdx
-  __int64 v87; // r9
-  unsigned int v88; // r14d
-  unsigned int v89; // r13d
-  unsigned int v90; // ecx
-  unsigned int v91; // ecx
-  char *v92; // r9
-  __int64 v93; // r15
-  __int64 v94; // rdi
-  struct _KTHREAD *v95; // rax
-  unsigned int v96; // eax
-  ULONG v97; // r8d
-  __int64 v98; // rdx
-  __int64 v99; // r9
-  struct _KTHREAD *v100; // rax
-  unsigned int v101; // ebx
-  __int64 v102; // rax
-  struct _KTHREAD *v103; // rax
-  unsigned __int8 *v104; // rdi
-  char v105; // r14
-  unsigned int TokenAccessInformationBufferSize; // eax
-  struct _KTHREAD *v107; // rax
-  unsigned int v108; // eax
-  ULONG v109; // r8d
-  __int64 v110; // rdx
-  __int64 v111; // r9
-  int v112; // r12d
-  _DWORD *v113; // r15
-  NTSTATUS v114; // r13d
-  struct _KTHREAD *v115; // rax
-  unsigned int v116; // edx
-  unsigned int v117; // r9d
-  __int64 v118; // r10
-  __int64 v119; // r8
-  unsigned int v120; // eax
-  _QWORD *v121; // rbx
-  NTSTATUS v122; // r14d
+  int v66; // ebx
+  PADAPTER_OBJECT v67; // r14
+  NTSTATUS v68; // r12d
+  int v69; // eax
+  int v70; // r9d
+  _QWORD *v71; // rbx
+  NTSTATUS v72; // r15d
   NTSTATUS inserted; // ebx
-  __int64 v124; // rdx
-  __int64 v125; // r9
-  __int64 v126; // rdx
-  __int64 v127; // r9
-  int v128; // r9d
-  struct _KTHREAD *v129; // rax
-  void *v130; // rcx
-  int v131; // eax
-  struct _KTHREAD *v132; // rax
-  PVOID v133; // rbx
-  __int64 v134; // rax
-  __int64 v135; // rdx
-  __int64 v136; // r9
-  struct _KTHREAD *v137; // rax
-  PVOID v138; // rbx
-  __int64 v139; // rdx
-  PSID DestinationSid; // [rsp+20h] [rbp-188h]
-  __int64 v141; // [rsp+80h] [rbp-128h] BYREF
-  PVOID Object; // [rsp+88h] [rbp-120h] BYREF
-  PSID SourceSid; // [rsp+90h] [rbp-118h] BYREF
-  __int64 v144; // [rsp+98h] [rbp-110h] BYREF
-  int v145; // [rsp+A0h] [rbp-108h] BYREF
-  NTSTATUS SecurityAttributesToken; // [rsp+A4h] [rbp-104h]
-  int v147; // [rsp+A8h] [rbp-100h] BYREF
-  HANDLE Handle; // [rsp+B0h] [rbp-F8h] BYREF
-  int v149; // [rsp+B8h] [rbp-F0h]
-  ULONG SessionId; // [rsp+BCh] [rbp-ECh] BYREF
-  int v151; // [rsp+C0h] [rbp-E8h] BYREF
-  int v152; // [rsp+C4h] [rbp-E4h] BYREF
-  int v153; // [rsp+C8h] [rbp-E0h] BYREF
-  int v154; // [rsp+CCh] [rbp-DCh] BYREF
-  PVOID v155; // [rsp+D0h] [rbp-D8h] BYREF
-  _QWORD *v156; // [rsp+D8h] [rbp-D0h] BYREF
-  int v157; // [rsp+E0h] [rbp-C8h] BYREF
-  unsigned int v158; // [rsp+E4h] [rbp-C4h] BYREF
-  unsigned int v159; // [rsp+E8h] [rbp-C0h]
-  int v160; // [rsp+ECh] [rbp-BCh]
-  __int128 v161; // [rsp+F0h] [rbp-B8h] BYREF
-  __int128 v162; // [rsp+100h] [rbp-A8h]
-  __int128 v163; // [rsp+110h] [rbp-98h] BYREF
-  int v164[2]; // [rsp+120h] [rbp-88h]
-  char *v165; // [rsp+128h] [rbp-80h]
-  __int128 v166; // [rsp+130h] [rbp-78h] BYREF
-  _DWORD v167[2]; // [rsp+140h] [rbp-68h] BYREF
-  __int64 v168; // [rsp+148h] [rbp-60h]
-  __int64 v169; // [rsp+150h] [rbp-58h]
-  int v170; // [rsp+158h] [rbp-50h]
-  int v171; // [rsp+15Ch] [rbp-4Ch]
-  __int128 v172; // [rsp+160h] [rbp-48h]
-  __int128 v173; // [rsp+170h] [rbp-38h]
+  struct _DMA_ADAPTER *v74; // rcx
+  struct _KTHREAD *v75; // rax
+  unsigned __int8 IsElevatedRid; // bl
+  unsigned int v77; // r15d
+  int DmaOperations_low_high; // edi
+  int v79; // eax
+  struct _KTHREAD *v80; // rax
+  _DMA_OPERATIONS *v81; // rax
+  ULONG v82; // ebx
+  struct _KTHREAD *v83; // rax
+  __int64 v84; // rcx
+  char *v85; // rdx
+  struct _KTHREAD *v86; // rax
+  unsigned int v87; // eax
+  ULONG v88; // r8d
+  _DMA_OPERATIONS *v89; // rdx
+  __int64 v90; // r9
+  struct _KTHREAD *v91; // rax
+  __int64 v92; // rdx
+  ULONG v93; // eax
+  struct _KTHREAD *v94; // rax
+  unsigned int v95; // edx
+  unsigned int v96; // r9d
+  _DMA_OPERATIONS *v97; // r10
+  __int64 v98; // r8
+  ULONG v99; // eax
+  struct _KTHREAD *v100; // rax
+  PADAPTER_OBJECT v101; // r15
+  _DMA_OPERATIONS *v102; // r12
+  void *(__fastcall *GetDmaDomain)(_DMA_ADAPTER *); // rcx
+  void *(__fastcall *AllocateCommonBufferWithBounds)(_DMA_ADAPTER *, _LARGE_INTEGER *, _LARGE_INTEGER *, unsigned int, unsigned int, _MEMORY_CACHING_TYPE *, unsigned int, _LARGE_INTEGER *); // r12
+  ULONG v105; // ebx
+  NTSTATUS v106; // ebx
+  struct _KTHREAD *v107; // rax
+  _DMA_OPERATIONS *v108; // rdx
+  unsigned int Size; // r11d
+  ULONG v110; // r8d
+  void (__fastcall *PutDmaAdapter)(_DMA_ADAPTER *); // rdx
+  __int64 v112; // r9
+  struct _KTHREAD *v113; // rax
+  _DMA_OPERATIONS *v114; // rcx
+  ULONG v115; // ebx
+  ULONG v116; // ebx
+  struct _KTHREAD *v117; // rax
+  char v118; // r9
+  PSID v119; // r8
+  unsigned __int8 *v120; // rcx
+  char *v121; // rdx
+  PADAPTER_OBJECT v122; // rbx
+  char v123; // dl
+  NTSTATUS SecurityAttributesToken; // edi
+  ULONG v125; // ebx
+  __int64 v126; // rax
+  struct _KTHREAD *CurrentThread; // rax
+  ULONG v128; // r8d
+  PVOID *NewObject; // [rsp+20h] [rbp-188h]
+  char v130[8]; // [rsp+80h] [rbp-128h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+88h] [rbp-120h] BYREF
+  PSID DestinationSid; // [rsp+90h] [rbp-118h] BYREF
+  __int64 v133; // [rsp+98h] [rbp-110h] BYREF
+  int v134; // [rsp+A0h] [rbp-108h] BYREF
+  ULONG v135; // [rsp+A4h] [rbp-104h] BYREF
+  NTSTATUS v136; // [rsp+A8h] [rbp-100h]
+  int v137; // [rsp+ACh] [rbp-FCh]
+  ULONG SessionId; // [rsp+B0h] [rbp-F8h] BYREF
+  int v139; // [rsp+B4h] [rbp-F4h] BYREF
+  int v140; // [rsp+B8h] [rbp-F0h] BYREF
+  int v141; // [rsp+BCh] [rbp-ECh] BYREF
+  int v142; // [rsp+C0h] [rbp-E8h] BYREF
+  int v143; // [rsp+C4h] [rbp-E4h] BYREF
+  int v144; // [rsp+C8h] [rbp-E0h] BYREF
+  int v145; // [rsp+CCh] [rbp-DCh] BYREF
+  int v146; // [rsp+D0h] [rbp-D8h] BYREF
+  int v147; // [rsp+D4h] [rbp-D4h] BYREF
+  int v148; // [rsp+D8h] [rbp-D0h] BYREF
+  HANDLE Handle; // [rsp+E0h] [rbp-C8h] BYREF
+  _QWORD *v150; // [rsp+E8h] [rbp-C0h] BYREF
+  PVOID Object; // [rsp+F0h] [rbp-B8h] BYREF
+  __int128 v152; // [rsp+F8h] [rbp-B0h] BYREF
+  __int128 v153; // [rsp+108h] [rbp-A0h]
+  __int128 v154; // [rsp+118h] [rbp-90h] BYREF
+  __int64 v155; // [rsp+128h] [rbp-80h]
+  __int128 v156; // [rsp+130h] [rbp-78h] BYREF
+  _DWORD v157[2]; // [rsp+140h] [rbp-68h] BYREF
+  __int64 v158; // [rsp+148h] [rbp-60h]
+  __int64 v159; // [rsp+150h] [rbp-58h]
+  int v160; // [rsp+158h] [rbp-50h]
+  int v161; // [rsp+15Ch] [rbp-4Ch]
+  __int128 v162; // [rsp+160h] [rbp-48h]
+  __int128 v163; // [rsp+170h] [rbp-38h]
 
-  v5 = TokenInformationLength;
   v9 = 0LL;
-  Object = 0LL;
-  v145 = 0;
-  v158 = 0;
-  v157 = 0;
-  *(_QWORD *)v164 = 0LL;
+  DmaAdapter = 0LL;
+  v134 = 0;
   v147 = 0;
-  v166 = 0LL;
-  v144 = 0LL;
+  v145 = 0;
+  v155 = 0LL;
+  v148 = 0;
+  v156 = 0LL;
+  v133 = 0LL;
   SessionId = 0;
-  v173 = 0LL;
-  v161 = 0LL;
-  v162 = 0LL;
   v163 = 0LL;
-  LOBYTE(v141) = 0;
-  SourceSid = 0LL;
+  v152 = 0LL;
+  v153 = 0LL;
+  v154 = 0LL;
+  v130[0] = 0;
+  DestinationSid = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (_DWORD)v5 )
-    {
-      v11 = (unsigned __int64)TokenInformation;
-      if ( ((unsigned __int8)TokenInformation & 3) != 0 )
-        ExRaiseDatatypeMisalignment();
-      v12 = (unsigned __int64)TokenInformation + v5 - 1;
-      if ( (unsigned __int64)TokenInformation > v12 || v12 >= 0x7FFFFFFF0000LL )
-        ExRaiseAccessViolation();
-      v13 = (v12 & 0xFFFFFFFFFFFFF000uLL) + 4096;
-      do
-      {
-        *(_BYTE *)v11 = *(_BYTE *)v11;
-        v11 = (v11 & 0xFFFFFFFFFFFFF000uLL) + 4096;
-      }
-      while ( v11 != v13 );
-    }
-    v14 = ReturnLength;
-    v15 = (__int64)ReturnLength;
-    if ( (unsigned __int64)ReturnLength >= 0x7FFFFFFF0000LL )
-      v15 = 0x7FFFFFFF0000LL;
-    *(_DWORD *)v15 = *(_DWORD *)v15;
+    ProbeForWrite(TokenInformation, TokenInformationLength, 4u);
+    v11 = 0x7FFFFFFF0000LL;
+    v12 = ReturnLength;
+    if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+      v11 = (__int64)ReturnLength;
+    *(_DWORD *)v11 = *(_DWORD *)v11;
   }
   else
   {
-    v14 = ReturnLength;
+    v12 = ReturnLength;
   }
   if ( TokenInformationClass == TokenUser )
   {
-    result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
+    result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
     if ( result < 0 )
       return result;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v19 = Object;
-    ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-    v20 = 4 * *(unsigned __int8 *)(**((_QWORD **)v19 + 19) + 1LL) + 24;
-    *v14 = v20;
-    if ( (unsigned int)v5 >= v20 )
+    v15 = DmaAdapter;
+    ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+    v128 = 4 * *(unsigned __int8 *)(*(_QWORD *)v15[9].DmaOperations + 1LL) + 24;
+    *v12 = v128;
+    if ( TokenInformationLength >= v128 )
     {
-      v21 = (char *)TokenInformation + 16;
-      v22 = (const void **)*((_QWORD *)v19 + 19);
-      v160 = 0;
-      v165 = (char *)TokenInformation + 16;
-      v159 = v20;
-      while ( !(_DWORD)v9 )
-      {
-        v23 = 4 * *((unsigned __int8 *)*v22 + 1) + 8;
-        v24 = (4 * *((unsigned __int8 *)*v22 + 1) + 11) & 0xFFFFFFFC;
-        if ( v23 > v20 )
-          goto LABEL_36;
-        v20 -= v24;
-        v159 = v20;
-        *(_QWORD *)TokenInformation = v21;
-        *((_DWORD *)TokenInformation + 2) = *((_DWORD *)v22 + 2);
-        v25 = 4 * *((unsigned __int8 *)*v22 + 1) + 8;
-        if ( v25 <= v23 )
-          memmove(v21, *v22, v25);
-        v21 += v24;
-        v165 = v21;
-        LODWORD(v9) = 1;
-        v160 = 1;
-      }
-      v144 = __PAIR64__(HIDWORD(v21), v20);
-LABEL_36:
-      ExReleaseResourceLite(*((PERESOURCE *)v19 + 6));
-      v26 = KeGetCurrentThread();
-      v27 = v26->KernelApcDisable++ == -1;
-      if ( v27
-        && ($CEA84C04E3712D858E5667A507841A2A *)v26->ApcState.ApcListHead[0].Flink != &v26->152
-        && !v26->SpecialApcDisable )
-      {
-        KiCheckForKernelApcDelivery();
-      }
-LABEL_38:
-      v17 = Object;
-      goto LABEL_39;
+      RtlCopySidAndAttributesArray(
+        1u,
+        (__int64)v15[9].DmaOperations,
+        v128,
+        (__int64)TokenInformation,
+        (char *)TokenInformation + 16,
+        &v133,
+        (unsigned int *)&v133);
+LABEL_242:
+      ExReleaseResourceLite(*(PERESOURCE *)&v15[3].Version);
+      KeLeaveCriticalRegion();
+LABEL_243:
+      v29 = v15;
+      goto LABEL_244;
     }
-    v40 = (struct _ERESOURCE *)*((_QWORD *)v19 + 6);
-LABEL_66:
-    ExReleaseResourceLite(v40);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-    goto LABEL_67;
+LABEL_240:
+    ExReleaseResourceLite(*(PERESOURCE *)&v15[3].Version);
+    KeLeaveCriticalRegion();
+    v29 = v15;
   }
-  if ( TokenInformationClass != TokenType )
+  else
   {
-    switch ( TokenInformationClass )
+    if ( TokenInformationClass != TokenType )
     {
-      case TokenGroups:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          v95 = KeGetCurrentThread();
-          --v95->KernelApcDisable;
-          v30 = (unsigned int *)Object;
-          ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-          v96 = v30[31];
-          v97 = 16 * v96 - 8;
-          if ( v96 > 1 )
+      switch ( TokenInformationClass )
+      {
+        case TokenGroups:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v14 = KeGetCurrentThread();
+          --v14->KernelApcDisable;
+          v15 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          DmaOperations_high = HIDWORD(v15[7].DmaOperations);
+          v17 = 16 * DmaOperations_high - 8;
+          if ( DmaOperations_high > 1 )
           {
-            v98 = *((_QWORD *)v30 + 19) + 16LL;
-            v99 = v96 - 1;
+            p_AllocateCommonBuffer = (__int64)&v15[9].DmaOperations->AllocateCommonBuffer;
+            v19 = DmaOperations_high - 1;
             do
             {
-              v97 += 4 * *(unsigned __int8 *)(*(_QWORD *)v98 + 1LL) + 8;
-              v98 += 16LL;
-              --v99;
+              v17 += 4 * *(unsigned __int8 *)(*(_QWORD *)p_AllocateCommonBuffer + 1LL) + 8;
+              p_AllocateCommonBuffer += 16LL;
+              --v19;
             }
-            while ( v99 );
+            while ( v19 );
           }
-          *v14 = v97;
-          if ( (unsigned int)v5 >= v97 )
-          {
-            *(_DWORD *)TokenInformation = v30[31] - 1;
-            RtlCopySidAndAttributesArray(
-              v30[31] - 1,
-              *((_QWORD *)v30 + 19) + 16LL,
-              v97,
-              (__int64)TokenInformation + 8,
-              (char *)TokenInformation + 16 * v30[31] - 8,
-              &v144,
-              (ULONG *)&v144);
-            goto LABEL_52;
-          }
-          goto LABEL_65;
-        }
-        return result;
-      case TokenPrivileges:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          v78 = KeGetCurrentThread();
-          --v78->KernelApcDisable;
-          v46 = Object;
-          ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-          v79 = SepTokenPrivilegeCount((__int64)v46);
-          if ( v79 <= 1 )
-            v80 = 16;
+          *v12 = v17;
+          if ( TokenInformationLength < v17 )
+            goto LABEL_240;
+          *(_DWORD *)TokenInformation = HIDWORD(v15[7].DmaOperations) - 1;
+          RtlCopySidAndAttributesArray(
+            HIDWORD(v15[7].DmaOperations) - 1,
+            (__int64)&v15[9].DmaOperations->AllocateCommonBuffer,
+            v17,
+            (__int64)TokenInformation + 8,
+            (char *)TokenInformation + (unsigned int)(16 * HIDWORD(v15[7].DmaOperations) - 32) + 24,
+            &v133,
+            (unsigned int *)&v133);
+          goto LABEL_242;
+        case TokenPrivileges:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v25 = KeGetCurrentThread();
+          --v25->KernelApcDisable;
+          v26 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          v27 = SepTokenPrivilegeCount((__int64)v26);
+          if ( v27 <= 1 )
+            v28 = 16;
           else
-            v80 = 12 * v79 + 4;
-          *v14 = v80;
-          if ( (unsigned int)v5 >= v80 )
-          {
-            SepConvertTokenPrivileges((__int64)v46, TokenInformation);
-            goto LABEL_80;
-          }
-          goto LABEL_147;
-        }
-        return result;
-      case TokenOwner:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          v59 = KeGetCurrentThread();
-          --v59->KernelApcDisable;
-          v30 = (unsigned int *)Object;
-          ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-          v60 = 4 * *(unsigned __int8 *)(*(_QWORD *)(*((_QWORD *)v30 + 19) + 16LL * v30[36]) + 1LL) + 16;
-          *v14 = v60;
-          if ( (unsigned int)v5 < v60 )
-            goto LABEL_65;
+            v28 = 12 * v27 + 4;
+          *v12 = v28;
+          if ( TokenInformationLength < v28 )
+            goto LABEL_26;
+          SepConvertTokenPrivileges((__int64)v26, TokenInformation);
+          goto LABEL_28;
+        case TokenOwner:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v30 = KeGetCurrentThread();
+          --v30->KernelApcDisable;
+          v15 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          v31 = 4
+              * *(unsigned __int8 *)(*((_QWORD *)&v15[9].DmaOperations->Size + 2 * *(unsigned int *)&v15[9].Version)
+                                   + 1LL)
+              + 16;
+          *v12 = v31;
+          if ( TokenInformationLength < v31 )
+            goto LABEL_240;
           *(_QWORD *)TokenInformation = (char *)TokenInformation + 8;
-          RtlCopySid(v60 - 8, (char *)TokenInformation + 8, *(PSID *)(*((_QWORD *)v30 + 19) + 16LL * v30[36]));
-          goto LABEL_52;
-        }
-        return result;
-      case TokenPrimaryGroup:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          v38 = KeGetCurrentThread();
-          --v38->KernelApcDisable;
-          v30 = (unsigned int *)Object;
-          ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-          v39 = 4 * *(unsigned __int8 *)(*((_QWORD *)v30 + 21) + 1LL) + 16;
-          *v14 = v39;
-          if ( (unsigned int)v5 < v39 )
-            goto LABEL_65;
+          RtlCopySid(
+            v31 - 8,
+            (char *)TokenInformation + 8,
+            *((PSID *)&v15[9].DmaOperations->Size + 2 * *(unsigned int *)&v15[9].Version));
+          goto LABEL_242;
+        case TokenPrimaryGroup:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v32 = KeGetCurrentThread();
+          --v32->KernelApcDisable;
+          v15 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          v33 = 4 * BYTE1(v15[10].DmaOperations->Size) + 16;
+          *v12 = v33;
+          if ( TokenInformationLength < v33 )
+            goto LABEL_240;
           *(_QWORD *)TokenInformation = (char *)TokenInformation + 8;
-          RtlCopySid(v39 - 8, (char *)TokenInformation + 8, *((PSID *)v30 + 21));
-          goto LABEL_52;
-        }
-        return result;
-      case TokenDefaultDacl:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          v145 = 8;
-          v41 = KeGetCurrentThread();
-          --v41->KernelApcDisable;
-          v30 = (unsigned int *)Object;
-          ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-          v42 = *((_QWORD *)v30 + 23);
-          if ( v42 )
-            v43 = *(unsigned __int16 *)(v42 + 2) + 8;
+          RtlCopySid(v33 - 8, (char *)TokenInformation + 8, v15[10].DmaOperations);
+          goto LABEL_242;
+        case TokenDefaultDacl:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v134 = 8;
+          v34 = KeGetCurrentThread();
+          --v34->KernelApcDisable;
+          v15 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          DmaOperations = v15[11].DmaOperations;
+          if ( DmaOperations )
+            v36 = HIWORD(DmaOperations->Size) + 8;
           else
-            v43 = v145;
-          *v14 = v43;
-          if ( (unsigned int)v5 >= v43 )
+            v36 = v134;
+          *v12 = v36;
+          if ( TokenInformationLength < v36 )
+            goto LABEL_240;
+          v37 = (char *)TokenInformation + 8;
+          if ( v15[11].DmaOperations )
           {
-            v44 = (char *)TokenInformation + 8;
-            if ( *((_QWORD *)v30 + 23) )
-            {
-              *(_QWORD *)TokenInformation = v44;
-              memmove(v44, *((const void **)v30 + 23), *(unsigned __int16 *)(*((_QWORD *)v30 + 23) + 2LL));
-            }
-            else
-            {
-              *(_QWORD *)TokenInformation = 0LL;
-            }
-            goto LABEL_52;
+            *(_QWORD *)TokenInformation = v37;
+            memmove(v37, v15[11].DmaOperations, HIWORD(v15[11].DmaOperations->Size));
           }
-          goto LABEL_65;
-        }
-        return result;
-      case TokenSource:
-        result = SepReferenceTokenByHandle(
-                   TokenHandle,
-                   0x10u,
-                   PreviousMode,
-                   (int)TokenHandle,
-                   &Object,
-                   &v141,
-                   &SourceSid);
-        if ( result >= 0 )
-        {
-          *v14 = 16;
-          if ( (unsigned int)v5 < 0x10 )
-            goto LABEL_67;
-          v17 = Object;
-          *(_OWORD *)TokenInformation = *(_OWORD *)Object;
-          goto LABEL_39;
-        }
-        return result;
-      case TokenImpersonationLevel:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          v17 = Object;
-          if ( *((_DWORD *)Object + 48) != 2 )
+          else
           {
-            ObfDereferenceObjectWithTag(Object, 0x74726853u);
+            *(_QWORD *)TokenInformation = 0LL;
+          }
+          goto LABEL_242;
+        case TokenSource:
+          result = SepReferenceTokenByHandle(TokenHandle, 0x10u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          *v12 = 16;
+          if ( TokenInformationLength < 0x10 )
+            goto LABEL_45;
+          v29 = DmaAdapter;
+          *(struct _DMA_ADAPTER *)TokenInformation = *DmaAdapter;
+          goto LABEL_244;
+        case TokenImpersonationLevel:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v29 = DmaAdapter;
+          if ( *(_DWORD *)&DmaAdapter[12].Version != 2 )
+          {
+            HalPutDmaAdapter(DmaAdapter);
             return -1073741821;
           }
-          *v14 = 4;
-          if ( (unsigned int)v5 < 4 )
-            goto LABEL_68;
-          *(_DWORD *)TokenInformation = v17[49];
-          goto LABEL_39;
-        }
-        return result;
-      case TokenStatistics:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          *v14 = 56;
-          if ( (unsigned int)v5 < 0x38 )
-            goto LABEL_67;
-          v29 = KeGetCurrentThread();
-          --v29->KernelApcDisable;
-          v30 = (unsigned int *)Object;
-          ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-          v149 = 0;
-          *(_QWORD *)TokenInformation = *((_QWORD *)v30 + 2);
-          *((_QWORD *)TokenInformation + 1) = *((_QWORD *)v30 + 3);
-          *((_QWORD *)TokenInformation + 2) = *((_QWORD *)v30 + 5);
-          *((_DWORD *)TokenInformation + 6) = v30[48];
-          *((_DWORD *)TokenInformation + 7) = v30[49];
-          *((_DWORD *)TokenInformation + 8) = v30[34];
-          v31 = v30[34] - 4 * *(unsigned __int8 *)(*((_QWORD *)v30 + 21) + 1LL) - 8;
-          v149 = v31;
-          v32 = *((_QWORD *)v30 + 23);
-          if ( v32 )
+          *v12 = 4;
+          if ( TokenInformationLength < 4 )
+            goto LABEL_246;
+          *(_DWORD *)TokenInformation = *(_DWORD *)(&v29[12].Size + 1);
+          goto LABEL_244;
+        case TokenStatistics:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          *v12 = 56;
+          if ( TokenInformationLength < 0x38 )
+            goto LABEL_45;
+          v41 = KeGetCurrentThread();
+          --v41->KernelApcDisable;
+          v15 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          v137 = 0;
+          *(struct _DMA_ADAPTER *)TokenInformation = v15[1];
+          *((_QWORD *)TokenInformation + 2) = v15[2].DmaOperations;
+          *((_DWORD *)TokenInformation + 6) = *(_DWORD *)&v15[12].Version;
+          *((_DWORD *)TokenInformation + 7) = *(_DWORD *)(&v15[12].Size + 1);
+          *((_DWORD *)TokenInformation + 8) = v15[8].DmaOperations;
+          v42 = LODWORD(v15[8].DmaOperations) - 4 * BYTE1(v15[10].DmaOperations->Size) - 8;
+          v137 = v42;
+          v43 = v15[11].DmaOperations;
+          if ( v43 )
           {
-            v31 -= *(unsigned __int16 *)(v32 + 2);
-            v149 = v31;
+            v42 -= HIWORD(v43->Size);
+            v137 = v42;
           }
-          *((_DWORD *)TokenInformation + 9) = v31;
-          *((_DWORD *)TokenInformation + 10) = v30[31] - 1;
-          *((_DWORD *)TokenInformation + 11) = SepTokenPrivilegeCount((__int64)v30);
-          *((_QWORD *)TokenInformation + 6) = *((_QWORD *)v30 + 7);
-          goto LABEL_52;
-        }
-        return result;
-      case TokenRestrictedSids:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          v57 = KeGetCurrentThread();
-          --v57->KernelApcDisable;
-          v30 = (unsigned int *)Object;
-          ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-          v58 = 16 * v30[32] + 8;
-          if ( v30[32] )
+          *((_DWORD *)TokenInformation + 9) = v42;
+          *((_DWORD *)TokenInformation + 10) = HIDWORD(v15[7].DmaOperations) - 1;
+          *((_DWORD *)TokenInformation + 11) = SepTokenPrivilegeCount((__int64)v15);
+          *((_QWORD *)TokenInformation + 6) = v15[3].DmaOperations;
+          goto LABEL_242;
+        case TokenRestrictedSids:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v20 = KeGetCurrentThread();
+          --v20->KernelApcDisable;
+          v15 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          v21 = *(_DWORD *)&v15[8].Version;
+          v22 = 16 * v21 + 8;
+          if ( v21 )
           {
-            v124 = *((_QWORD *)v30 + 20);
-            v125 = v30[32];
+            v23 = *(_QWORD *)&v15[10].Version;
+            v24 = v21;
             do
             {
-              v58 += 4 * *(unsigned __int8 *)(*(_QWORD *)v124 + 1LL) + 8;
-              v124 += 16LL;
-              --v125;
+              v22 += 4 * *(unsigned __int8 *)(*(_QWORD *)v23 + 1LL) + 8;
+              v23 += 16LL;
+              --v24;
             }
-            while ( v125 );
+            while ( v24 );
           }
-          *v14 = v58;
-          if ( (unsigned int)v5 >= v58 )
-          {
-            *(_DWORD *)TokenInformation = v30[32];
-            RtlCopySidAndAttributesArray(
-              v30[32],
-              *((_QWORD *)v30 + 20),
-              v58,
-              (__int64)TokenInformation + 8,
-              (char *)TokenInformation + 16 * v30[32] + 8,
-              &v144,
-              (ULONG *)&v144);
-            goto LABEL_52;
-          }
-          goto LABEL_65;
-        }
-        return result;
-      case TokenSessionId:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          *v14 = 4;
-          if ( (unsigned int)v5 < 4 )
-            goto LABEL_67;
-          v28 = Object;
-          SeQuerySessionIdToken(Object, &SessionId);
+          *v12 = v22;
+          if ( TokenInformationLength < v22 )
+            goto LABEL_240;
+          *(_DWORD *)TokenInformation = *(_DWORD *)&v15[8].Version;
+          RtlCopySidAndAttributesArray(
+            *(_DWORD *)&v15[8].Version,
+            *(_QWORD *)&v15[10].Version,
+            v22,
+            (__int64)TokenInformation + 8,
+            (char *)TokenInformation + (unsigned int)(16 * *(_DWORD *)&v15[8].Version) + 8,
+            &v133,
+            (unsigned int *)&v133);
+          goto LABEL_242;
+        case TokenSessionId:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          *v12 = 4;
+          if ( TokenInformationLength < 4 )
+            goto LABEL_45;
+          v15 = DmaAdapter;
+          SeQuerySessionIdToken(DmaAdapter, &SessionId);
           *(_DWORD *)TokenInformation = SessionId;
-          *v14 = 4;
-          v17 = v28;
-          goto LABEL_39;
-        }
-        return result;
-      case TokenGroupsAndPrivileges:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          v81 = KeGetCurrentThread();
-          --v81->KernelApcDisable;
-          v30 = (unsigned int *)Object;
-          ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-          v147 = SepTokenPrivilegeCount((__int64)v30);
-          v82 = 12 * v147;
-          v83 = v30[31];
-          v84 = 16 * v83;
-          v85 = 16 * v83;
-          if ( v83 )
+          *v12 = 4;
+          goto LABEL_243;
+        case TokenGroupsAndPrivileges:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v44 = KeGetCurrentThread();
+          --v44->KernelApcDisable;
+          v15 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          v135 = SepTokenPrivilegeCount((__int64)v15);
+          v45 = 12 * v135;
+          v46 = HIDWORD(v15[7].DmaOperations);
+          v47 = 16 * v46;
+          v48 = 16 * v46;
+          if ( v46 )
           {
-            v86 = *((_QWORD *)v30 + 19);
-            v87 = v83;
+            v49 = v15[9].DmaOperations;
+            v50 = v46;
             do
             {
-              v85 += (4 * *(unsigned __int8 *)(*(_QWORD *)v86 + 1LL) + 15) & 0xFFFFFFF8;
-              v86 += 16LL;
-              --v87;
+              v48 += (4 * *(unsigned __int8 *)(*(_QWORD *)&v49->Size + 1LL) + 15) & 0xFFFFFFF8;
+              v49 = (_DMA_OPERATIONS *)((char *)v49 + 16);
+              --v50;
             }
-            while ( v87 );
+            while ( v50 );
           }
-          v88 = 16 * v30[32];
-          v89 = v88;
-          v90 = v88;
-          if ( v30[32] )
+          v51 = *(_DWORD *)&v15[8].Version;
+          v52 = 16 * v51;
+          v53 = 16 * v51;
+          v54 = 16 * v51;
+          if ( v51 )
           {
-            v126 = *((_QWORD *)v30 + 20);
-            v127 = v30[32];
+            v55 = *(_QWORD *)&v15[10].Version;
+            v56 = v51;
             do
             {
-              v89 += (4 * *(unsigned __int8 *)(*(_QWORD *)v126 + 1LL) + 15) & 0xFFFFFFF8;
-              v90 = v89;
-              v126 += 16LL;
-              --v127;
+              v53 += (4 * *(unsigned __int8 *)(*(_QWORD *)v55 + 1LL) + 15) & 0xFFFFFFF8;
+              v54 = v53;
+              v55 += 16LL;
+              --v56;
             }
-            while ( v127 );
+            while ( v56 );
           }
-          v91 = v90 + v82 + v85 + 56;
-          *v14 = v91;
-          if ( (unsigned int)v5 >= v91 )
+          v57 = v45 + v54 + v48 + 56;
+          *v12 = v57;
+          if ( TokenInformationLength < v57 )
+            goto LABEL_240;
+          *((_QWORD *)TokenInformation + 6) = v15[1].DmaOperations;
+          *((_DWORD *)TokenInformation + 1) = v48;
+          *(_DWORD *)TokenInformation = HIDWORD(v15[7].DmaOperations);
+          v58 = (char *)TokenInformation + 56;
+          *((_QWORD *)TokenInformation + 1) = (char *)TokenInformation + 56;
+          *((_DWORD *)TokenInformation + 5) = v53;
+          *((_DWORD *)TokenInformation + 4) = *(_DWORD *)&v15[8].Version;
+          if ( *(_DWORD *)&v15[8].Version )
           {
-            *((_QWORD *)TokenInformation + 6) = *((_QWORD *)v30 + 3);
-            *((_DWORD *)TokenInformation + 1) = v85;
-            *(_DWORD *)TokenInformation = v30[31];
-            v92 = (char *)TokenInformation + 56;
-            *((_QWORD *)TokenInformation + 1) = (char *)TokenInformation + 56;
-            *((_DWORD *)TokenInformation + 5) = v89;
-            *((_DWORD *)TokenInformation + 4) = v30[32];
-            if ( v30[32] )
-            {
-              v93 = (__int64)&v92[(v85 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL];
-              *((_QWORD *)TokenInformation + 3) = v93;
-            }
-            else
-            {
-              *((_QWORD *)TokenInformation + 3) = 0LL;
-              v93 = *(_QWORD *)v164;
-            }
-            *((_DWORD *)TokenInformation + 9) = v82;
-            *((_DWORD *)TokenInformation + 8) = v147;
-            v94 = (__int64)&v92[v89 + v85];
-            *((_QWORD *)TokenInformation + 5) = v94;
-            RtlCopySidAndAttributesArray(
-              v30[31],
-              *((_QWORD *)v30 + 19),
-              v85 - v84,
-              (__int64)v92,
-              &v92[v84],
-              &v144,
-              (ULONG *)&v144);
-            if ( v93 )
-              RtlCopySidAndAttributesArray(
-                v30[32],
-                *((_QWORD *)v30 + 20),
-                v89 - v88,
-                v93,
-                (char *)(v93 + v88),
-                &v144,
-                (ULONG *)&v144);
-            SepConvertTokenPrivilegesToLuidAndAttributes(v30, v94);
-            goto LABEL_52;
-          }
-          goto LABEL_65;
-        }
-        return result;
-      case TokenSandBoxInert:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          *v14 = 4;
-          if ( (unsigned int)v5 < 4 )
-            return -1073741789;
-          v17 = Object;
-          *(_DWORD *)TokenInformation = (*((_DWORD *)Object + 50) & 0x40) != 0;
-          goto LABEL_39;
-        }
-        return result;
-      case TokenAuditPolicy:
-        if ( !SeSinglePrivilegeCheck(SeSecurityPrivilege, PreviousMode) )
-          return -1073741727;
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, v128, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          *v14 = 30;
-          if ( (unsigned int)v5 < 0x1E )
-            goto LABEL_67;
-          v129 = KeGetCurrentThread();
-          --v129->KernelApcDisable;
-          v30 = (unsigned int *)Object;
-          ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-          *(_OWORD *)TokenInformation = *(_OWORD *)(v30 + 22);
-          *((_QWORD *)TokenInformation + 2) = *((_QWORD *)v30 + 13);
-          *((_DWORD *)TokenInformation + 6) = v30[28];
-          *((_WORD *)TokenInformation + 14) = *((_WORD *)v30 + 58);
-          goto LABEL_52;
-        }
-        return result;
-      case TokenOrigin:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          *v14 = 8;
-          if ( (unsigned int)v5 < 8 )
-            goto LABEL_67;
-          v17 = Object;
-          *(_QWORD *)TokenInformation = *((_QWORD *)Object + 28);
-          goto LABEL_39;
-        }
-        return result;
-      case TokenElevationType:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          *v14 = 4;
-          if ( (unsigned int)v5 < 4 )
-            goto LABEL_67;
-          v55 = Object;
-          v56 = *(_DWORD *)(*((_QWORD *)Object + 27) + 32LL);
-          if ( (v56 & 4) != 0 )
-          {
-            *(_DWORD *)TokenInformation = 3;
-          }
-          else if ( (v56 & 2) != 0 )
-          {
-            *(_DWORD *)TokenInformation = 2;
+            v59 = (__int64)&v58[(v48 + 7LL) & 0xFFFFFFFFFFFFFFF8uLL];
+            *((_QWORD *)TokenInformation + 3) = v59;
           }
           else
           {
-            *(_DWORD *)TokenInformation = 1;
+            *((_QWORD *)TokenInformation + 3) = 0LL;
+            v59 = v155;
           }
-          v17 = v55;
-          goto LABEL_39;
-        }
-        return result;
-      case TokenLinkedToken:
-        v156 = 0LL;
-        Handle = 0LL;
-        v155 = 0LL;
-        v167[1] = 0;
-        v171 = 0;
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          *v14 = 8;
-          if ( (_DWORD)v5 != 8 )
+          *((_DWORD *)TokenInformation + 9) = v45;
+          *((_DWORD *)TokenInformation + 8) = v135;
+          v60 = (__int64)&v58[v53 + v48];
+          *((_QWORD *)TokenInformation + 5) = v60;
+          RtlCopySidAndAttributesArray(
+            HIDWORD(v15[7].DmaOperations),
+            (__int64)v15[9].DmaOperations,
+            v48 - v47,
+            (__int64)v58,
+            &v58[v47],
+            &v133,
+            (unsigned int *)&v133);
+          if ( v59 )
+            RtlCopySidAndAttributesArray(
+              *(_DWORD *)&v15[8].Version,
+              *(_QWORD *)&v15[10].Version,
+              v53 - v52,
+              v59,
+              (char *)(v59 + v52),
+              &v133,
+              (unsigned int *)&v133);
+          SepConvertTokenPrivilegesToLuidAndAttributes(v15, v60);
+          goto LABEL_242;
+        case TokenSandBoxInert:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          *v12 = 4;
+          if ( TokenInformationLength < 4 )
+            return -1073741789;
+          v29 = DmaAdapter;
+          *(_DWORD *)TokenInformation = (LODWORD(DmaAdapter[12].DmaOperations) >> 6) & 1;
+          goto LABEL_244;
+        case TokenAuditPolicy:
+          if ( !SeSinglePrivilegeCheck(SeSecurityPrivilege, PreviousMode) )
+            return -1073741727;
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          *v12 = 31;
+          if ( TokenInformationLength < 0x1F )
+            goto LABEL_45;
+          v65 = KeGetCurrentThread();
+          --v65->KernelApcDisable;
+          v15 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          *(struct _DMA_ADAPTER *)TokenInformation = *(PADAPTER_OBJECT)((char *)v15 + 88);
+          *((_QWORD *)TokenInformation + 2) = v15[6].DmaOperations;
+          *((_DWORD *)TokenInformation + 6) = *(_DWORD *)&v15[7].Version;
+          *((_WORD *)TokenInformation + 14) = *(&v15[7].Size + 1);
+          *((_BYTE *)TokenInformation + 30) = *((_BYTE *)&v15[7].Size + 4);
+          goto LABEL_242;
+        case TokenOrigin:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          *v12 = 8;
+          if ( TokenInformationLength < 8 )
+            goto LABEL_45;
+          v29 = DmaAdapter;
+          *(_QWORD *)TokenInformation = *(_QWORD *)&DmaAdapter[14].Version;
+          goto LABEL_244;
+        case TokenElevationType:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          *v12 = 4;
+          if ( TokenInformationLength < 4 )
+            goto LABEL_45;
+          v15 = DmaAdapter;
+          AllocateAdapterChannel = (int)DmaAdapter[13].DmaOperations->AllocateAdapterChannel;
+          if ( (AllocateAdapterChannel & 4) != 0 )
           {
-            ObfDereferenceObjectWithTag(Object, 0x74726853u);
+            IsSModeAdminlessEnabled = SeIsSModeAdminlessEnabled();
+            v40 = 3;
+            if ( IsSModeAdminlessEnabled )
+              v40 = 1;
+            *(_DWORD *)TokenInformation = v40;
+          }
+          else
+          {
+            LOBYTE(v9) = (AllocateAdapterChannel & 2) != 0;
+            *(_DWORD *)TokenInformation = v9 + 1;
+          }
+          goto LABEL_243;
+        case TokenLinkedToken:
+          v150 = 0LL;
+          Handle = 0LL;
+          Object = 0LL;
+          v157[1] = 0;
+          v161 = 0;
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          *v12 = 8;
+          if ( TokenInformationLength == 8 )
+          {
+            v66 = -(SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) != 0);
+            if ( SeIsSModeAdminlessEnabled() )
+            {
+              v135 = 0;
+              SepGetStackTraceHash(&v135);
+              EtwTraceAdminlessAccessFailure(v135, 1LL, 0LL);
+              HalPutDmaAdapter(DmaAdapter);
+              return -1073741729;
+            }
+            else
+            {
+              v67 = DmaAdapter;
+              v68 = SepReferenceLogonSessionSilo(
+                      &DmaAdapter[13].DmaOperations->AllocateCommonBuffer,
+                      (__int64)DmaAdapter[13].DmaOperations->AllocateAdapterChannelEx,
+                      (__int64 *)&v150);
+              if ( v68 >= 0 )
+              {
+                v157[0] = 48;
+                v158 = 0LL;
+                v69 = 0;
+                if ( !PreviousMode )
+                  v69 = 512;
+                v160 = v69;
+                v159 = 0LL;
+                v162 = 0LL;
+                v70 = v66 + 2;
+                v71 = v150;
+                v72 = SepDuplicateToken(v150[6], (unsigned int)v157, 0, v70, 1, 0, 0, (__int64)&Object);
+                SepDeReferenceLogonSessionDirect(v71);
+                if ( v72 >= 0 )
+                {
+                  inserted = ObInsertObject(Object, 0LL, 0xF01FFu, 0, 0LL, &Handle);
+                  if ( inserted >= 0 )
+                  {
+                    *(_QWORD *)TokenInformation = Handle;
+LABEL_112:
+                    HalPutDmaAdapter(v67);
+                    return 0;
+                  }
+                  else
+                  {
+                    v74 = v67;
+LABEL_110:
+                    HalPutDmaAdapter(v74);
+                    return inserted;
+                  }
+                }
+                else
+                {
+                  HalPutDmaAdapter(v67);
+                  return v72;
+                }
+              }
+              else
+              {
+                HalPutDmaAdapter(v67);
+                return v68;
+              }
+            }
+          }
+          else
+          {
+            HalPutDmaAdapter(DmaAdapter);
             return -1073741820;
           }
-          if ( SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
-            v112 = 1;
-          else
-            v112 = 2;
-          v113 = Object;
-          v114 = SepReferenceLogonSessionSilo(
-                   (_DWORD *)(*((_QWORD *)Object + 27) + 16LL),
-                   *(_QWORD *)(*((_QWORD *)Object + 27) + 160LL),
-                   (__int64 *)&v156);
-          if ( v114 >= 0 )
-          {
-            v167[0] = 48;
-            v168 = 0LL;
-            if ( PreviousMode )
-              v170 = 0;
-            else
-              v170 = 512;
-            v169 = 0LL;
-            v172 = 0LL;
-            v121 = v156;
-            v122 = SepDuplicateToken(v156[6], (unsigned int)v167, 0, v112, 1, 0, 0, (__int64)&v155);
-            SepDeReferenceLogonSessionDirect(v121);
-            if ( v122 >= 0 )
-            {
-              inserted = ObInsertObjectEx((char *)v155, 0LL, 0xF01FFu, 0, 0, 0LL, &Handle);
-              if ( inserted >= 0 )
-              {
-                *(_QWORD *)TokenInformation = Handle;
-                v17 = v113;
-                goto LABEL_39;
-              }
-              v130 = v113;
-              goto LABEL_241;
-            }
-            ObfDereferenceObjectWithTag(v113, 0x74726853u);
-            return v122;
-          }
-          else
-          {
-            ObfDereferenceObjectWithTag(v113, 0x74726853u);
-            return v114;
-          }
-        }
-        return result;
-      case TokenElevation:
-        *v14 = 4;
-        if ( (_DWORD)v5 != 4 )
-          return -1073741820;
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          v61 = KeGetCurrentThread();
-          --v61->KernelApcDisable;
-          v62 = Object;
-          ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-          IsElevatedRid = (*((_QWORD *)v62 + 8) & 0x1120160684LL) != 0;
-          v64 = *((_DWORD *)v62 + 31);
-          if ( v64 )
+        case TokenElevation:
+          *v12 = 4;
+          if ( TokenInformationLength != 4 )
+            return -1073741820;
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v75 = KeGetCurrentThread();
+          --v75->KernelApcDisable;
+          v67 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          IsElevatedRid = (*(_QWORD *)&v67[4].Version & 0x1120160684LL) != 0;
+          v77 = HIDWORD(v67[7].DmaOperations);
+          if ( v77 )
           {
             do
             {
               if ( IsElevatedRid )
                 break;
-              IsElevatedRid = RtlIsElevatedRid(*((_QWORD *)v62 + 19) + 16LL * (unsigned int)v9);
+              IsElevatedRid = RtlIsElevatedRid((char *)v67[9].DmaOperations + 16 * (unsigned int)v9);
               LODWORD(v9) = v9 + 1;
             }
-            while ( (unsigned int)v9 < v64 );
+            while ( (unsigned int)v9 < v77 );
           }
-          ExReleaseResourceLite(*((PERESOURCE *)v62 + 6));
-          KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+          ExReleaseResourceLite(*(PERESOURCE *)&v67[3].Version);
+          KeLeaveCriticalRegion();
           *(_DWORD *)TokenInformation = IsElevatedRid;
-          goto LABEL_38;
-        }
-        return result;
-      case TokenHasRestrictions:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          *v14 = 1;
-          if ( !(_DWORD)v5 )
-            goto LABEL_67;
-          v17 = Object;
-          *(_BYTE *)TokenInformation = (*((_DWORD *)Object + 50) & 0x810) != 0;
-          goto LABEL_39;
-        }
-        return result;
-      case TokenAccessInformation:
-        LODWORD(Handle) = 0;
-        LODWORD(v156) = 0;
-        LODWORD(v155) = 0;
-        v154 = 0;
-        v153 = 0;
-        v152 = 0;
-        v151 = 0;
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result >= 0 )
-        {
-          v103 = KeGetCurrentThread();
-          --v103->KernelApcDisable;
-          v30 = (unsigned int *)Object;
-          ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-          v104 = (unsigned __int8 *)SourceSid;
-          v105 = v141;
+          goto LABEL_112;
+        case TokenHasRestrictions:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          *v12 = 1;
+          if ( !TokenInformationLength )
+            goto LABEL_45;
+          v29 = DmaAdapter;
+          *(_BYTE *)TokenInformation = ((__int64)DmaAdapter[12].DmaOperations & 0x810) != 0;
+          goto LABEL_244;
+        case TokenAccessInformation:
+          v146 = 0;
+          v144 = 0;
+          v143 = 0;
+          v142 = 0;
+          v141 = 0;
+          v140 = 0;
+          v139 = 0;
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v61 = KeGetCurrentThread();
+          --v61->KernelApcDisable;
+          v15 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          Src = (unsigned __int8 *)DestinationSid;
+          v63 = v130[0];
           TokenAccessInformationBufferSize = SepGetTokenAccessInformationBufferSize(
-                                               (__int64)v30,
-                                               v141,
-                                               (__int64)SourceSid,
+                                               (__int64)v15,
+                                               v130[0],
+                                               (__int64)DestinationSid,
+                                               &v148,
                                                &v147,
-                                               (int *)&v158,
-                                               (int *)&Handle,
-                                               &v157,
-                                               (int *)&v156,
-                                               (unsigned int *)&v155,
-                                               &v154,
-                                               &v153,
-                                               (unsigned int *)&v152,
-                                               &v151);
-          *v14 = TokenAccessInformationBufferSize;
-          if ( (unsigned int)v5 < TokenAccessInformationBufferSize )
-            goto LABEL_65;
+                                               &v146,
+                                               &v145,
+                                               &v144,
+                                               (unsigned int *)&v143,
+                                               &v142,
+                                               &v141,
+                                               (unsigned int *)&v140,
+                                               &v139);
+          *v12 = TokenAccessInformationBufferSize;
+          if ( TokenInformationLength < TokenAccessInformationBufferSize )
+            goto LABEL_240;
           SepCopyTokenAccessInformation(
-            (__int64)v30,
+            (__int64)v15,
             (__int64)TokenInformation,
-            v5,
+            TokenInformationLength,
+            v148,
             v147,
-            v158,
-            (unsigned int)Handle,
-            v157,
-            (int)v156,
-            (int)v155,
-            v154,
-            v153,
-            v152,
-            v151,
-            v105,
-            v104);
-          goto LABEL_52;
-        }
-        return result;
-      case TokenVirtualizationAllowed:
-      case TokenVirtualizationEnabled:
-      case TokenUIAccess:
-      case TokenIsAppContainer:
-      case TokenIsRestricted:
-      case TokenPrivateNameSpace:
-      case MaxTokenInfoClass:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result < 0 )
-          return result;
-        *v14 = 4;
-        if ( (unsigned int)v5 < 4 )
-          goto LABEL_67;
-        v17 = Object;
-        if ( TokenInformationClass == TokenVirtualizationAllowed )
-        {
-          LODWORD(v9) = (*((_DWORD *)Object + 50) >> 9) & 1;
-          goto LABEL_26;
-        }
-        if ( TokenInformationClass == TokenVirtualizationEnabled )
-        {
-          LODWORD(v9) = (*((_DWORD *)Object + 50) >> 10) & 1;
-          goto LABEL_26;
-        }
-        if ( TokenInformationClass != TokenUIAccess )
-        {
+            v146,
+            v145,
+            v144,
+            v143,
+            v142,
+            v141,
+            v140,
+            v139,
+            v63,
+            Src);
+          goto LABEL_242;
+        case TokenVirtualizationAllowed:
+        case TokenVirtualizationEnabled:
+        case TokenUIAccess:
+        case TokenIsRestricted:
+        case TokenPrivateNameSpace:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          *v12 = 4;
+          if ( TokenInformationLength < 4 )
+            goto LABEL_45;
+          v29 = DmaAdapter;
           switch ( TokenInformationClass )
           {
-            case TokenIsRestricted:
-              v131 = *((_DWORD *)Object + 50);
-              if ( (v131 & 0x10) == 0 && (v131 & 8) == 0 )
-                goto LABEL_26;
-              break;
-            case TokenPrivateNameSpace:
-              if ( (*((_DWORD *)Object + 50) & 0x10000) == 0 )
-                goto LABEL_26;
-              break;
-            case MaxTokenInfoClass:
-              LODWORD(v9) = SepIsSandboxedToken(Object, PreviousMode);
-              goto LABEL_26;
-            default:
-              if ( (*((_DWORD *)Object + 50) & 0x4000) == 0 )
-              {
-LABEL_26:
-                *(_DWORD *)TokenInformation = v9;
-                goto LABEL_39;
-              }
-              break;
+            case TokenVirtualizationAllowed:
+              DmaOperations_low_high = LODWORD(DmaAdapter[12].DmaOperations) >> 9;
+LABEL_135:
+              LODWORD(v9) = DmaOperations_low_high & 1;
+              goto LABEL_136;
+            case TokenVirtualizationEnabled:
+              DmaOperations_low_high = LODWORD(DmaAdapter[12].DmaOperations) >> 10;
+              goto LABEL_135;
+            case TokenUIAccess:
+              DmaOperations_low_high = LODWORD(DmaAdapter[12].DmaOperations) >> 12;
+              goto LABEL_135;
           }
-          LODWORD(v9) = 1;
-          goto LABEL_26;
-        }
-        LODWORD(v9) = (*((_DWORD *)Object + 50) >> 12) & 1;
-        goto LABEL_26;
-      case TokenIntegrityLevel:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result < 0 )
-          return result;
-        v45 = KeGetCurrentThread();
-        --v45->KernelApcDisable;
-        v46 = Object;
-        ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-        SepCopyTokenIntegrity((__int64)v46);
-        v47 = v166;
-        v48 = 4 * *(unsigned __int8 *)(v166 + 1) + 24;
-        *v14 = v48;
-        if ( (unsigned int)v5 < v48 )
-        {
-LABEL_147:
-          v40 = (struct _ERESOURCE *)*((_QWORD *)v46 + 6);
-          goto LABEL_66;
-        }
-        RtlCopySidAndAttributesArray(
-          1u,
-          (__int64)&v166,
-          4 * *(unsigned __int8 *)(v47 + 1) + 8,
-          (__int64)TokenInformation,
-          (char *)TokenInformation + 16,
-          &v144,
-          (ULONG *)&v144);
-LABEL_80:
-        v33 = (struct _ERESOURCE *)*((_QWORD *)v46 + 6);
-        goto LABEL_53;
-      case TokenMandatoryPolicy:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result < 0 )
-          return result;
-        *v14 = 4;
-        if ( (unsigned int)v5 < 4 )
-          goto LABEL_67;
-        inserted = SeQueryMandatoryPolicyToken((__int64)Object, TokenInformation);
-        SecurityAttributesToken = inserted;
-LABEL_241:
-        ObfDereferenceObjectWithTag(v130, 0x74726853u);
-        return inserted;
-      case TokenLogonSid:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result < 0 )
-          return result;
-        v115 = KeGetCurrentThread();
-        --v115->KernelApcDisable;
-        v66 = Object;
-        ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-        v116 = 0;
-        v117 = *((_DWORD *)v66 + 31);
-        if ( !v117 )
-          goto LABEL_202;
-        v118 = *((_QWORD *)v66 + 19);
-        while ( (*(_DWORD *)(v118 + 16LL * v116 + 8) & 0xC0000000) != 0xC0000000 )
-        {
-          if ( ++v116 >= v117 )
-            goto LABEL_202;
-        }
-        v9 = *(_QWORD *)(v118 + 16LL * v116);
-LABEL_202:
-        if ( !v9 )
-        {
-          ExReleaseResourceLite(*((PERESOURCE *)v66 + 6));
-          KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-          ObfDereferenceObjectWithTag(Object, 0x74726853u);
-          return -1073741275;
-        }
-        v119 = 16LL * v116;
-        v120 = 4 * *(unsigned __int8 *)(*(_QWORD *)(v119 + *((_QWORD *)v66 + 19)) + 1LL) + 32;
-        *v14 = v120;
-        if ( (unsigned int)v5 < v120 )
-        {
-LABEL_121:
-          v40 = (struct _ERESOURCE *)*((_QWORD *)v66 + 6);
-          goto LABEL_66;
-        }
-        *(_DWORD *)TokenInformation = 1;
-        RtlCopySidAndAttributesArray(
-          1u,
-          v119 + *((_QWORD *)v66 + 19),
-          4 * *(unsigned __int8 *)(*(_QWORD *)(v119 + *((_QWORD *)v66 + 19)) + 1LL) + 8,
-          (__int64)TokenInformation + 8,
-          (char *)TokenInformation + 24,
-          &v144,
-          (ULONG *)&v144);
-LABEL_174:
-        v33 = (struct _ERESOURCE *)*((_QWORD *)v66 + 6);
-LABEL_53:
-        ExReleaseResourceLite(v33);
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-        goto LABEL_38;
-      case TokenCapabilities:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result < 0 )
-          return result;
-        v107 = KeGetCurrentThread();
-        --v107->KernelApcDisable;
-        v30 = (unsigned int *)Object;
-        ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-        v108 = v30[200];
-        v109 = 16 * v108 + 8;
-        if ( v108 )
-        {
-          v110 = *((_QWORD *)v30 + 99);
-          v111 = v108;
-          do
+          if ( TokenInformationClass != TokenIsRestricted )
           {
-            v109 += 4 * *(unsigned __int8 *)(*(_QWORD *)v110 + 1LL) + 8;
-            v110 += 16LL;
-            --v111;
+            DmaOperations_low_high = HIWORD(LODWORD(DmaAdapter[12].DmaOperations));
+            goto LABEL_135;
           }
-          while ( v111 );
-        }
-        *v14 = v109;
-        if ( (unsigned int)v5 < v109 )
-          goto LABEL_65;
-        *(_DWORD *)TokenInformation = v30[200];
-        RtlCopySidAndAttributesArray(
-          v30[200],
-          *((_QWORD *)v30 + 99),
-          v109,
-          (__int64)TokenInformation + 8,
-          (char *)TokenInformation + 16 * v30[200] + 8,
-          &v144,
-          (ULONG *)&v144);
-        goto LABEL_52;
-      case TokenAppContainerSid:
-        v34 = 8;
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result < 0 )
-          return result;
-        v35 = KeGetCurrentThread();
-        --v35->KernelApcDisable;
-        v30 = (unsigned int *)Object;
-        ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-        v36 = *((_QWORD *)v30 + 98);
-        if ( v36 )
-          v34 = 4 * *(unsigned __int8 *)(v36 + 1) + 16;
-        *v14 = v34;
-        if ( (unsigned int)v5 < v34 )
-          goto LABEL_65;
-        v37 = (char *)TokenInformation + 8;
-        if ( !v36 )
-          v37 = 0LL;
-        *(_QWORD *)TokenInformation = v37;
-        if ( v37 )
-          RtlCopySid(v34 - 8, v37, *((PSID *)v30 + 98));
-        goto LABEL_52;
-      case TokenAppContainerNumber:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result < 0 )
-          return result;
-        *v14 = 4;
-        if ( (unsigned int)v5 < 4 )
-          goto LABEL_67;
-        v132 = KeGetCurrentThread();
-        --v132->KernelApcDisable;
-        v133 = Object;
-        ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-        v134 = *((_QWORD *)v133 + 135);
-        if ( v134 )
-          LODWORD(v9) = *(_DWORD *)(v134 + 40);
-        ExReleaseResourceLite(*((PERESOURCE *)v133 + 6));
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-        *(_DWORD *)TokenInformation = v9;
-        goto LABEL_38;
-      case TokenUserClaimAttributes:
-      case TokenDeviceClaimAttributes:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result < 0 )
-          return result;
-        v65 = KeGetCurrentThread();
-        --v65->KernelApcDisable;
-        v66 = Object;
-        ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-        v67 = *((_QWORD *)v66 + 137);
-        if ( v67
-          && (*(_QWORD *)(v67 + 576) || TokenInformationClass != TokenUserClaimAttributes)
-          && ((v69 = *(__int128 **)(v67 + 584)) != 0LL || TokenInformationClass != TokenDeviceClaimAttributes) )
-        {
-          if ( TokenInformationClass == TokenUserClaimAttributes )
-            v69 = *(__int128 **)(v67 + 576);
-          AuthzBasepQueryClaimAttributesToken(v69, 0LL, 0, &v145);
-          v68 = v145;
-        }
-        else
-        {
-          v68 = 16;
-          *(_QWORD *)&v162 = (char *)&v161 + 8;
-          *((_QWORD *)&v161 + 1) = (char *)&v161 + 8;
-          DWORD2(v162) = 0;
-          *((_QWORD *)&v163 + 1) = &v163;
-          *(_QWORD *)&v163 = &v163;
-          v69 = &v161;
-        }
-        *v14 = v68;
-        if ( (unsigned int)v5 < v68 )
-          goto LABEL_121;
-        SecurityAttributesToken = AuthzBasepQueryClaimAttributesToken(v69, TokenInformation, v5, &v145);
-        goto LABEL_132;
-      case TokenDeviceGroups:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result < 0 )
-          return result;
-        v74 = KeGetCurrentThread();
-        --v74->KernelApcDisable;
-        v30 = (unsigned int *)Object;
-        ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-        v75 = *((_QWORD *)v30 + 137);
-        if ( v75 && (v76 = *(_DWORD *)v75) != 0 )
-        {
-          v77 = 16 * v76 + 8;
-        }
-        else
-        {
-          v76 = 0;
-          v77 = 24;
-        }
-        if ( v76 )
-        {
-          v135 = *(_QWORD *)(v75 + 8);
-          v136 = v76;
-          do
-          {
-            v77 += 4 * *(unsigned __int8 *)(*(_QWORD *)v135 + 1LL) + 8;
-            v135 += 16LL;
-            --v136;
-          }
-          while ( v136 );
-        }
-        *v14 = v77;
-        if ( (unsigned int)v5 < v77 )
-          goto LABEL_65;
-        *(_OWORD *)TokenInformation = 0LL;
-        *((_QWORD *)TokenInformation + 2) = 0LL;
-        *(_DWORD *)TokenInformation = v76;
-        if ( v76 )
+          v79 = (int)DmaAdapter[12].DmaOperations;
+          if ( (v79 & 0x10) != 0 || (v79 & 8) != 0 )
+            LODWORD(v9) = 1;
+LABEL_136:
+          *(_DWORD *)TokenInformation = v9;
+          break;
+        case TokenIntegrityLevel:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v91 = KeGetCurrentThread();
+          --v91->KernelApcDisable;
+          v15 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          SepCopyTokenIntegrity((__int64)v15);
+          v92 = v156;
+          v93 = 4 * *(unsigned __int8 *)(v156 + 1) + 24;
+          *v12 = v93;
+          if ( TokenInformationLength < v93 )
+            goto LABEL_240;
           RtlCopySidAndAttributesArray(
-            v76,
-            *(_QWORD *)(*((_QWORD *)v30 + 137) + 8LL),
-            v77,
-            (__int64)TokenInformation + 8,
-            (char *)TokenInformation + 16 * v76 + 8,
-            &v144,
-            (ULONG *)&v144);
-        goto LABEL_52;
-      case TokenSecurityAttributes:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result < 0 )
-          return result;
-        v70 = KeGetCurrentThread();
-        --v70->KernelApcDisable;
-        v66 = Object;
-        ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-        v71 = (_DWORD *)*((_QWORD *)v66 + 97);
-        if ( v71 )
-        {
-          LODWORD(DestinationSid) = 0;
-          AuthzBasepQuerySecurityAttributesToken(v71, 0LL, 0LL, 0LL, (size_t)DestinationSid, &v145);
-          v72 = v145;
-        }
-        else
-        {
-          v72 = 16;
-        }
-        *v14 = v72;
-        if ( (unsigned int)v5 < v72 )
-          goto LABEL_121;
-        LODWORD(DestinationSid) = v5;
-        SecurityAttributesToken = AuthzBasepQuerySecurityAttributesToken(
-                                    *((_DWORD **)v66 + 97),
-                                    0LL,
-                                    0LL,
-                                    TokenInformation,
-                                    (size_t)DestinationSid,
-                                    &v145);
-LABEL_132:
-        v73 = (struct _ERESOURCE *)*((_QWORD *)v66 + 6);
-        goto LABEL_133;
-      case TokenProcessTrustLevel:
-        v49 = 8;
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result < 0 )
-          return result;
-        v50 = KeGetCurrentThread();
-        --v50->KernelApcDisable;
-        v30 = (unsigned int *)Object;
-        ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-        v51 = v141;
-        v52 = SourceSid;
-        if ( (_BYTE)v141 )
-          v53 = (unsigned __int8 *)SourceSid;
-        else
-          v53 = (unsigned __int8 *)*((_QWORD *)v30 + 138);
-        if ( v53 )
-          v49 = 4 * v53[1] + 16;
-        *v14 = v49;
-        if ( (unsigned int)v5 < v49 )
-        {
-LABEL_65:
-          v40 = (struct _ERESOURCE *)*((_QWORD *)v30 + 6);
-          goto LABEL_66;
-        }
-        v54 = (char *)TokenInformation + 8;
-        if ( !v53 )
-          v54 = 0LL;
-        *(_QWORD *)TokenInformation = v54;
-        if ( v54 )
-        {
-          if ( !v51 )
-            v52 = (PSID)*((_QWORD *)v30 + 138);
-          RtlCopySid(v49 - 8, v54, v52);
-        }
-LABEL_52:
-        v33 = (struct _ERESOURCE *)*((_QWORD *)v30 + 6);
-        goto LABEL_53;
-      case TokenSingletonAttributes:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result < 0 )
-          return result;
-        v137 = KeGetCurrentThread();
-        --v137->KernelApcDisable;
-        v138 = Object;
-        ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-        SecurityAttributesToken = SepInternalQuerySecurityAttributesTokenEx(
-                                    (__int64)v138,
-                                    v139,
-                                    0LL,
-                                    0,
-                                    1,
-                                    (__int64)TokenInformation,
-                                    v5,
-                                    (__int64)v14);
-        v73 = (struct _ERESOURCE *)*((_QWORD *)v138 + 6);
-LABEL_133:
-        ExReleaseResourceLite(v73);
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-        ObfDereferenceObjectWithTag(Object, 0x74726853u);
-        return SecurityAttributesToken;
-      case TokenBnoIsolation:
-        result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-        if ( result < 0 )
-          return result;
-        v100 = KeGetCurrentThread();
-        --v100->KernelApcDisable;
-        v66 = Object;
-        ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
-        v101 = 16;
-        v102 = *((_QWORD *)v66 + 144);
-        if ( v102 )
-          v101 = *(unsigned __int16 *)(v102 + 42) + 16;
-        *v14 = v101;
-        if ( (unsigned int)v5 < v101 )
-          goto LABEL_121;
-        if ( *((_QWORD *)v66 + 144) )
-        {
-          *((_BYTE *)TokenInformation + 8) = 1;
-          *(_QWORD *)TokenInformation = (char *)TokenInformation + 16;
-          memmove(
+            1u,
+            (__int64)&v156,
+            4 * *(unsigned __int8 *)(v92 + 1) + 8,
+            (__int64)TokenInformation,
             (char *)TokenInformation + 16,
-            *(const void **)(*((_QWORD *)v66 + 144) + 48LL),
-            *(unsigned __int16 *)(*((_QWORD *)v66 + 144) + 42LL));
-        }
-        else
-        {
-          *((_BYTE *)TokenInformation + 8) = 0;
-          *(_QWORD *)TokenInformation = 0LL;
-        }
-        goto LABEL_174;
-      default:
-        return -1073741821;
+            &v133,
+            (unsigned int *)&v133);
+          goto LABEL_242;
+        case TokenMandatoryPolicy:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          *v12 = 4;
+          if ( TokenInformationLength < 4 )
+            goto LABEL_45;
+          inserted = SeQueryMandatoryPolicyToken((__int64)DmaAdapter, TokenInformation);
+          v136 = inserted;
+          goto LABEL_110;
+        case TokenLogonSid:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v94 = KeGetCurrentThread();
+          --v94->KernelApcDisable;
+          v15 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          v95 = 0;
+          v96 = HIDWORD(v15[7].DmaOperations);
+          if ( !v96 )
+            goto LABEL_173;
+          v97 = v15[9].DmaOperations;
+          while ( (*(_DWORD *)(&v97->PutDmaAdapter + 2 * v95) & 0xC0000000) != 0xC0000000 )
+          {
+            if ( ++v95 >= v96 )
+              goto LABEL_173;
+          }
+          v9 = *((_QWORD *)&v97->Size + 2 * v95);
+LABEL_173:
+          if ( !v9 )
+          {
+            ExReleaseResourceLite(*(PERESOURCE *)&v15[3].Version);
+            KeLeaveCriticalRegion();
+            HalPutDmaAdapter(v15);
+            return -1073741275;
+          }
+          v98 = 16LL * v95;
+          v99 = 4 * *(unsigned __int8 *)(*(_QWORD *)((char *)&v15[9].DmaOperations->Size + v98) + 1LL) + 32;
+          *v12 = v99;
+          if ( TokenInformationLength < v99 )
+            goto LABEL_240;
+          *(_DWORD *)TokenInformation = 1;
+          RtlCopySidAndAttributesArray(
+            1u,
+            (__int64)v15[9].DmaOperations + v98,
+            4 * *(unsigned __int8 *)(*(_QWORD *)((char *)&v15[9].DmaOperations->Size + v98) + 1LL) + 8,
+            (__int64)TokenInformation + 8,
+            (char *)TokenInformation + 24,
+            &v133,
+            (unsigned int *)&v133);
+          goto LABEL_242;
+        case TokenIsAppContainer:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          *v12 = 4;
+          v29 = DmaAdapter;
+          if ( TokenInformationLength < 4 )
+            goto LABEL_246;
+          LOBYTE(v9) = ((__int64)DmaAdapter[12].DmaOperations & 0x4000) != 0;
+          *(_DWORD *)TokenInformation = v9;
+          goto LABEL_244;
+        case TokenCapabilities:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v86 = KeGetCurrentThread();
+          --v86->KernelApcDisable;
+          v15 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          v87 = *(_DWORD *)&v15[50].Version;
+          v88 = 16 * v87 + 8;
+          if ( v87 )
+          {
+            v89 = v15[49].DmaOperations;
+            v90 = v87;
+            do
+            {
+              v88 += 4 * *(unsigned __int8 *)(*(_QWORD *)&v89->Size + 1LL) + 8;
+              v89 = (_DMA_OPERATIONS *)((char *)v89 + 16);
+              --v90;
+            }
+            while ( v90 );
+          }
+          *v12 = v88;
+          if ( TokenInformationLength < v88 )
+            goto LABEL_240;
+          *(_DWORD *)TokenInformation = *(_DWORD *)&v15[50].Version;
+          RtlCopySidAndAttributesArray(
+            *(_DWORD *)&v15[50].Version,
+            (__int64)v15[49].DmaOperations,
+            v88,
+            (__int64)TokenInformation + 8,
+            (char *)TokenInformation + (unsigned int)(16 * *(_DWORD *)&v15[50].Version) + 8,
+            &v133,
+            (unsigned int *)&v133);
+          goto LABEL_242;
+        case TokenAppContainerSid:
+          v82 = 8;
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v83 = KeGetCurrentThread();
+          --v83->KernelApcDisable;
+          v26 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          v84 = *(_QWORD *)&v26[49].Version;
+          if ( v84 )
+            v82 = 4 * *(unsigned __int8 *)(v84 + 1) + 16;
+          *v12 = v82;
+          if ( TokenInformationLength < v82 )
+            goto LABEL_26;
+          v85 = (char *)TokenInformation + 8;
+          if ( !v84 )
+            v85 = 0LL;
+          *(_QWORD *)TokenInformation = v85;
+          if ( v85 )
+            RtlCopySid(v82 - 8, v85, *(PSID *)&v26[49].Version);
+          goto LABEL_28;
+        case TokenAppContainerNumber:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          *v12 = 4;
+          if ( TokenInformationLength < 4 )
+            goto LABEL_45;
+          v80 = KeGetCurrentThread();
+          --v80->KernelApcDisable;
+          v15 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          v81 = v15[67].DmaOperations;
+          if ( v81 )
+            LODWORD(v9) = v81->FlushAdapterBuffers;
+          ExReleaseResourceLite(*(PERESOURCE *)&v15[3].Version);
+          KeLeaveCriticalRegion();
+          *(_DWORD *)TokenInformation = v9;
+          goto LABEL_243;
+        case TokenUserClaimAttributes:
+        case TokenDeviceClaimAttributes:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v100 = KeGetCurrentThread();
+          --v100->KernelApcDisable;
+          v101 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          v102 = v101[68].DmaOperations;
+          if ( v102
+            && ((GetDmaDomain = v102[1].GetDmaDomain) != 0LL || TokenInformationClass != TokenUserClaimAttributes)
+            && ((AllocateCommonBufferWithBounds = v102[1].AllocateCommonBufferWithBounds) != 0LL
+             || TokenInformationClass != TokenDeviceClaimAttributes) )
+          {
+            if ( TokenInformationClass == TokenUserClaimAttributes )
+              AllocateCommonBufferWithBounds = (void *(__fastcall *)(_DMA_ADAPTER *, _LARGE_INTEGER *, _LARGE_INTEGER *, unsigned int, unsigned int, _MEMORY_CACHING_TYPE *, unsigned int, _LARGE_INTEGER *))GetDmaDomain;
+            AuthzBasepQueryClaimAttributesToken(AllocateCommonBufferWithBounds, 0LL, 0LL, &v134);
+            v105 = v134;
+          }
+          else
+          {
+            v105 = 16;
+            *(_QWORD *)&v153 = (char *)&v152 + 8;
+            *((_QWORD *)&v152 + 1) = (char *)&v152 + 8;
+            DWORD2(v153) = 0;
+            *((_QWORD *)&v154 + 1) = &v154;
+            *(_QWORD *)&v154 = &v154;
+            AllocateCommonBufferWithBounds = (void *(__fastcall *)(_DMA_ADAPTER *, _LARGE_INTEGER *, _LARGE_INTEGER *, unsigned int, unsigned int, _MEMORY_CACHING_TYPE *, unsigned int, _LARGE_INTEGER *))&v152;
+          }
+          *v12 = v105;
+          if ( TokenInformationLength < v105 )
+            goto LABEL_188;
+          v106 = AuthzBasepQueryClaimAttributesToken(
+                   AllocateCommonBufferWithBounds,
+                   TokenInformation,
+                   TokenInformationLength,
+                   &v134);
+          v136 = v106;
+          goto LABEL_190;
+        case TokenDeviceGroups:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v107 = KeGetCurrentThread();
+          --v107->KernelApcDisable;
+          v15 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          v108 = v15[68].DmaOperations;
+          if ( v108 && (Size = v108->Size) != 0 )
+          {
+            v110 = 16 * Size + 8;
+          }
+          else
+          {
+            Size = 0;
+            v110 = 24;
+          }
+          if ( Size )
+          {
+            PutDmaAdapter = v108->PutDmaAdapter;
+            v112 = Size;
+            do
+            {
+              v110 += 4 * *(unsigned __int8 *)(*(_QWORD *)PutDmaAdapter + 1LL) + 8;
+              PutDmaAdapter = (void (__fastcall *)(_DMA_ADAPTER *))((char *)PutDmaAdapter + 16);
+              --v112;
+            }
+            while ( v112 );
+          }
+          *v12 = v110;
+          if ( TokenInformationLength < v110 )
+            goto LABEL_240;
+          *(_OWORD *)TokenInformation = 0LL;
+          *((_QWORD *)TokenInformation + 2) = 0LL;
+          *(_DWORD *)TokenInformation = Size;
+          if ( Size )
+            RtlCopySidAndAttributesArray(
+              Size,
+              (__int64)v15[68].DmaOperations->PutDmaAdapter,
+              v110,
+              (__int64)TokenInformation + 8,
+              (char *)TokenInformation + 16 * Size + 8,
+              &v133,
+              (unsigned int *)&v133);
+          goto LABEL_242;
+        case TokenSecurityAttributes:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v113 = KeGetCurrentThread();
+          --v113->KernelApcDisable;
+          v101 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          v114 = v101[48].DmaOperations;
+          if ( v114 )
+          {
+            LODWORD(NewObject) = 0;
+            AuthzBasepQuerySecurityAttributesToken(v114, 0LL, 0LL, 0LL, (size_t)NewObject, &v134);
+            v115 = v134;
+          }
+          else
+          {
+            v115 = 16;
+          }
+          *v12 = v115;
+          if ( TokenInformationLength < v115 )
+            goto LABEL_188;
+          LODWORD(NewObject) = TokenInformationLength;
+          v106 = AuthzBasepQuerySecurityAttributesToken(
+                   &v101[48].DmaOperations->Size,
+                   0LL,
+                   0LL,
+                   TokenInformation,
+                   (size_t)NewObject,
+                   &v134);
+          v136 = v106;
+LABEL_190:
+          ExReleaseResourceLite(*(PERESOURCE *)&v101[3].Version);
+          KeLeaveCriticalRegion();
+          HalPutDmaAdapter(v101);
+          return v106;
+        case TokenProcessTrustLevel:
+          v116 = 8;
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          v117 = KeGetCurrentThread();
+          --v117->KernelApcDisable;
+          v26 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          v118 = v130[0];
+          v119 = DestinationSid;
+          v120 = (unsigned __int8 *)DestinationSid;
+          if ( !v130[0] )
+            v120 = *(unsigned __int8 **)&v26[69].Version;
+          if ( v120 )
+            v116 = 4 * v120[1] + 16;
+          *v12 = v116;
+          if ( TokenInformationLength < v116 )
+          {
+LABEL_26:
+            ExReleaseResourceLite(*(PERESOURCE *)&v26[3].Version);
+            KeLeaveCriticalRegion();
+            v29 = v26;
+            goto LABEL_246;
+          }
+          v121 = (char *)TokenInformation + 8;
+          if ( !v120 )
+            v121 = 0LL;
+          *(_QWORD *)TokenInformation = v121;
+          if ( v121 )
+          {
+            if ( !v118 )
+              v119 = *(PSID *)&v26[69].Version;
+            RtlCopySid(v116 - 8, v121, v119);
+          }
+LABEL_28:
+          ExReleaseResourceLite(*(PERESOURCE *)&v26[3].Version);
+          KeLeaveCriticalRegion();
+          HalPutDmaAdapter(v26);
+          return 0;
+        case TokenSingletonAttributes:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result >= 0 )
+          {
+            KeEnterCriticalRegion();
+            v122 = DmaAdapter;
+            ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+            SecurityAttributesToken = SepInternalQuerySecurityAttributesTokenEx(
+                                        (__int64)v122,
+                                        v123,
+                                        0LL,
+                                        0,
+                                        1,
+                                        (__int64)TokenInformation,
+                                        TokenInformationLength,
+                                        (__int64)v12);
+            v136 = SecurityAttributesToken;
+            ExReleaseResourceLite(*(PERESOURCE *)&v122[3].Version);
+            KeLeaveCriticalRegion();
+            HalPutDmaAdapter(v122);
+            return SecurityAttributesToken;
+          }
+          return result;
+        case TokenBnoIsolation:
+          result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+          if ( result < 0 )
+            return result;
+          KeEnterCriticalRegion();
+          v101 = DmaAdapter;
+          ExAcquireResourceSharedLite(*(PERESOURCE *)&DmaAdapter[3].Version, 1u);
+          v125 = 16;
+          v126 = *(_QWORD *)&v101[72].Version;
+          if ( v126 )
+            v125 = *(unsigned __int16 *)(v126 + 42) + 16;
+          *v12 = v125;
+          if ( TokenInformationLength < v125 )
+          {
+LABEL_188:
+            ExReleaseResourceLite(*(PERESOURCE *)&v101[3].Version);
+            KeLeaveCriticalRegion();
+            v29 = v101;
+            goto LABEL_246;
+          }
+          if ( *(_QWORD *)&v101[72].Version )
+          {
+            *((_BYTE *)TokenInformation + 8) = 1;
+            *(_QWORD *)TokenInformation = (char *)TokenInformation + 16;
+            memmove(
+              (char *)TokenInformation + 16,
+              *(const void **)(*(_QWORD *)&v101[72].Version + 48LL),
+              *(unsigned __int16 *)(*(_QWORD *)&v101[72].Version + 42LL));
+          }
+          else
+          {
+            *((_BYTE *)TokenInformation + 8) = 0;
+            *(_QWORD *)TokenInformation = 0LL;
+          }
+          ExReleaseResourceLite(*(PERESOURCE *)&v101[3].Version);
+          KeLeaveCriticalRegion();
+          HalPutDmaAdapter(v101);
+          return 0;
+        case MaxTokenInfoClass:
+          *v12 = 4;
+          if ( TokenInformationLength < 4 )
+            return -1073741789;
+          *(_DWORD *)TokenInformation = (unsigned __int8)RtlIsSandboxedTokenHandle(TokenHandle);
+          return 0;
+        case TokenAppContainerNumber|TokenAuditPolicy:
+          Feature_PPLEnforcement__private_ReportDeviceUsage();
+          return -1073741821;
+        default:
+          return -1073741821;
+      }
+      goto LABEL_244;
     }
-  }
-  result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, (int)TokenHandle, &Object, &v141, &SourceSid);
-  if ( result >= 0 )
-  {
-    *v14 = 4;
-    if ( (unsigned int)v5 >= 4 )
+    result = SepReferenceTokenByHandle(TokenHandle, 8u, PreviousMode, &DmaAdapter, v130, &DestinationSid);
+    if ( result < 0 )
+      return result;
+    *v12 = 4;
+    if ( TokenInformationLength >= 4 )
     {
-      v17 = Object;
-      *(_DWORD *)TokenInformation = *((_DWORD *)Object + 48);
-LABEL_39:
-      ObfDereferenceObjectWithTag(v17, 0x74726853u);
+      v29 = DmaAdapter;
+      *(_DWORD *)TokenInformation = *(_DWORD *)&DmaAdapter[12].Version;
+LABEL_244:
+      HalPutDmaAdapter(v29);
       return 0;
     }
-LABEL_67:
-    v17 = Object;
-LABEL_68:
-    ObfDereferenceObjectWithTag(v17, 0x74726853u);
-    return -1073741789;
+LABEL_45:
+    v29 = DmaAdapter;
   }
-  return result;
+LABEL_246:
+  HalPutDmaAdapter(v29);
+  return -1073741789;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSetTargetProcessorDpc @ 0x140294000
+ * XREFs of KeSetTargetProcessorDpc @ 0x140294100
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1400A7900 (KeQueryActiveProcessorCountEx.c)
- *     KeSetTargetProcessorDpcEx @ 0x14013A090 (KeSetTargetProcessorDpcEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
+ *     KeSetTargetProcessorDpcEx @ 0x14013A0B0 (KeSetTargetProcessorDpcEx.c)
  */
 
 void __stdcall KeSetTargetProcessorDpc(PRKDPC Dpc, CCHAR Number)

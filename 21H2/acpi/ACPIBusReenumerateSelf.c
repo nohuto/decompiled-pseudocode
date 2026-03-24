@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIBusReenumerateSelf @ 0x1C004CBF0
+ * XREFs of ACPIBusReenumerateSelf @ 0x1C004DEF0
  * Callers:
  *     <none>
  * Callees:
@@ -13,12 +13,12 @@ void __fastcall ACPIBusReenumerateSelf(__int64 a1)
   KIRQL v4; // di
 
   v2 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
-  v3 = *(_QWORD *)(a1 + 792);
+  v3 = *(_QWORD *)(a1 + 752);
   v4 = v2;
-  if ( v3 && *(_QWORD *)(v3 + 784) )
+  if ( v3 && *(_QWORD *)(v3 + 744) )
   {
-    *(_QWORD *)(a1 + 1000) |= 0x20000000uLL;
-    IoInvalidateDeviceRelations(*(PDEVICE_OBJECT *)(v3 + 784), BusRelations);
+    *(_QWORD *)(a1 + 960) |= 0x20000000uLL;
+    IoInvalidateDeviceRelations(*(PDEVICE_OBJECT *)(v3 + 744), BusRelations);
   }
   KeReleaseSpinLock(&AcpiDeviceTreeLock, v4);
 }

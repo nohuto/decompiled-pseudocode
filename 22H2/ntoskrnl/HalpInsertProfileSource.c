@@ -1,50 +1,58 @@
 /*
- * XREFs of HalpInsertProfileSource @ 0x14050792C
+ * XREFs of HalpInsertProfileSource @ 0x1404BED50
  * Callers:
- *     EmonAddProfileSource @ 0x14051C9B0 (EmonAddProfileSource.c)
- *     Amd64AddProfileSource @ 0x1405288D0 (Amd64AddProfileSource.c)
+ *     EmonAddProfileSource @ 0x1404D2D00 (EmonAddProfileSource.c)
+ *     Amd64AddProfileSource @ 0x1404DD400 (Amd64AddProfileSource.c)
  * Callees:
- *     wcsncmp @ 0x1403DB3F0 (wcsncmp.c)
+ *     wcsncmp @ 0x1403D3940 (wcsncmp.c)
  */
 
-char __fastcall HalpInsertProfileSource(__int64 a1, __int64 a2, int a3, __int64 **a4)
+char __fastcall HalpInsertProfileSource(__int64 a1, _QWORD **a2, int a3, _QWORD *a4)
 {
-  __int64 *v4; // rsi
-  int v5; // edi
-  __int64 *v6; // rbx
-  __int64 *v9; // rbp
-  __int64 **v10; // rax
-  __int64 **v11; // rcx
+  int v4; // esi
+  _QWORD *v5; // rdi
+  _QWORD **v9; // rbx
+  _DWORD *v10; // rbp
+  _QWORD *v11; // rax
+  _QWORD *v12; // rcx
 
   *a4 = 0LL;
-  v4 = (__int64 *)HalpProfileSourceDescriptorListHead;
-  v5 = a3 + 1;
-  v6 = &HalpProfileSourceDescriptorListHead;
-  while ( v4 != &HalpProfileSourceDescriptorListHead )
+  v4 = a3 + 1;
+  v5 = *a2;
+  v9 = a2;
+  if ( *a2 == a2 )
   {
-    v9 = v4 - 1;
-    if ( !wcsncmp((const wchar_t *)v4[36], *(const wchar_t **)(a1 + 296), 0xFFuLL) )
-    {
-      *a4 = v9;
-      return 0;
-    }
-    if ( v5 == *(_DWORD *)v9 )
-    {
-      v6 = (__int64 *)*v4;
-      ++v5;
-    }
-    if ( !v5 )
-      return 0;
-    v4 = (__int64 *)*v4;
+LABEL_7:
+    *(_DWORD *)a1 = v4;
+    v11 = (_QWORD *)(a1 + 8);
+    v12 = v9[1];
+    if ( (_QWORD **)*v12 != v9 )
+      __fastfail(3u);
+    *v11 = v9;
+    *(_QWORD *)(a1 + 16) = v12;
+    *v12 = v11;
+    v9[1] = v11;
+    return 1;
   }
-  *(_DWORD *)a1 = v5;
-  v10 = (__int64 **)(a1 + 8);
-  v11 = (__int64 **)v6[1];
-  if ( *v11 != v6 )
-    __fastfail(3u);
-  *v10 = v6;
-  *(_QWORD *)(a1 + 16) = v11;
-  *v11 = (__int64 *)v10;
-  v6[1] = (__int64)v10;
-  return 1;
+  else
+  {
+    while ( 1 )
+    {
+      v10 = v5 - 1;
+      if ( !wcsncmp((const wchar_t *)v5[24], *(const wchar_t **)(a1 + 200), 0xFFuLL) )
+        break;
+      if ( v4 == *v10 )
+      {
+        v9 = (_QWORD **)*v5;
+        ++v4;
+      }
+      if ( !v4 )
+        return 0;
+      v5 = (_QWORD *)*v5;
+      if ( v5 == a2 )
+        goto LABEL_7;
+    }
+    *a4 = v10;
+    return 0;
+  }
 }

@@ -1,104 +1,101 @@
 /*
- * XREFs of CmpCloseKeyObject @ 0x1407685A0
+ * XREFs of CmpCloseKeyObject @ 0x1406E3D70
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     EtwGetKernelTraceTimestamp @ 0x1402A2E70 (EtwGetKernelTraceTimestamp.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     CmpDelayedDerefKeys @ 0x1406D591C (CmpDelayedDerefKeys.c)
- *     CmpPostNotify @ 0x140766D70 (CmpPostNotify.c)
- *     CmpSignalDeferredPosts @ 0x1407687C4 (CmpSignalDeferredPosts.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140AF62F0 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
- *     CmpLockKcbShared @ 0x140AF6530 (CmpLockKcbShared.c)
- *     CmpUnlockKcb @ 0x140AF65A0 (CmpUnlockKcb.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402F1D90 (EtwGetKernelTraceTimestamp.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpPostNotify @ 0x1405ED0C0 (CmpPostNotify.c)
+ *     CmpDelayedDerefKeys @ 0x1405ED57C (CmpDelayedDerefKeys.c)
+ *     CmpUnlockKcb @ 0x140640260 (CmpUnlockKcb.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140649D20 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpSignalDeferredPosts @ 0x1406E0680 (CmpSignalDeferredPosts.c)
  */
 
 __int64 __fastcall CmpCloseKeyObject(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
+  __int64 v4; // rsi
+  __int64 result; // rax
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 *v12; // rdi
-  __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // rbp
-  __int64 v17; // rcx
-  __int64 v18; // rdi
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  __int64 v21; // r8
-  __int64 v22; // r9
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  __int128 v27; // [rsp+40h] [rbp-68h] BYREF
-  __int128 v28; // [rsp+50h] [rbp-58h] BYREF
-  __int128 v29; // [rsp+60h] [rbp-48h] BYREF
-  _OWORD v30[2]; // [rsp+70h] [rbp-38h] BYREF
+  __int64 v9; // rdi
+  char IsKeyDeletedForKeyBody; // al
+  ULONG_PTR v11; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // rcx
+  __int64 v15; // rdi
+  __int128 v16; // [rsp+40h] [rbp-58h] BYREF
+  __int128 v17; // [rsp+50h] [rbp-48h] BYREF
+  _OWORD v18[2]; // [rsp+60h] [rbp-38h] BYREF
 
-  memset(v30, 0, sizeof(v30));
-  v29 = 0LL;
-  v28 = 0LL;
-  v27 = 0LL;
-  if ( CmpTraceRoutine )
-    EtwGetKernelTraceTimestamp((__int64)v30, 0x20000LL);
-  CmpInitializeThreadInfo((__int64)&v29);
+  v4 = 0LL;
+  v17 = 0LL;
+  v16 = 0LL;
+  memset(v18, 0, sizeof(v18));
+  if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
+  {
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v18, 0x20000LL, a3, a4);
+    if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
+    {
+      if ( a2 )
+        v4 = *(_QWORD *)(a2 + 8);
+    }
+  }
   if ( a4 <= 1 && *(_DWORD *)a2 == 1803104306 && *(_QWORD *)(a2 + 16) )
   {
-    *((_QWORD *)&v28 + 1) = &v28;
-    *(_QWORD *)&v28 = &v28;
-    *((_QWORD *)&v27 + 1) = &v27;
-    *(_QWORD *)&v27 = &v27;
+    *((_QWORD *)&v17 + 1) = &v17;
+    *(_QWORD *)&v17 = &v17;
+    *((_QWORD *)&v16 + 1) = &v16;
+    *(_QWORD *)&v16 = &v16;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    CmpLockRegistry(v7, v6, v8, v9);
-    CmpLockKcbShared(*(_QWORD *)(a2 + 8));
-    if ( (unsigned __int8)CmpIsKeyDeletedForKeyBody(a2, 0LL) )
+    CmpLockRegistry();
+    v9 = *(_QWORD *)(a2 + 8);
+    ExAcquirePushLockSharedEx(v9 + 48, 0LL);
+    _InterlockedIncrement((volatile signed __int32 *)(v9 + 56));
+    IsKeyDeletedForKeyBody = CmpIsKeyDeletedForKeyBody(a2, 0LL);
+    v11 = *(_QWORD *)(a2 + 8);
+    if ( IsKeyDeletedForKeyBody )
     {
-      CmpUnlockKcb(*(_QWORD *)(a2 + 8));
-      CmpUnlockRegistry(v24, v23, v25, v26);
+      CmpUnlockKcb(v11);
+      CmpUnlockRegistry();
     }
     else
     {
-      v12 = (unsigned __int64 *)(*(_QWORD *)(*(_QWORD *)(a2 + 8) + 32LL) + 1680LL);
-      v13 = KeAbPreAcquire((__int64)v12, 0LL);
-      v16 = v13;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)v12, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v12, v13, (__int64)v12);
-      if ( v16 )
-        *(_BYTE *)(v16 + 18) = 1;
-      v17 = *(_QWORD *)(a2 + 16);
-      if ( v17 && *(_QWORD *)(v17 + 16) != v17 + 16 )
-        CmpPostNotify(v17, v14, v15, 267LL, 0, (void **)&v27, &v28);
-      v18 = *(_QWORD *)(*(_QWORD *)(a2 + 8) + 32LL);
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v18 + 1680), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)(v18 + 1680));
-      KeAbPostRelease(v18 + 1680);
+      ExAcquirePushLockExclusiveEx(*(_QWORD *)(v11 + 32) + 1672LL, 0LL);
+      v14 = *(_QWORD *)(a2 + 16);
+      if ( v14 && *(_QWORD *)(v14 + 16) != v14 + 16 )
+        CmpPostNotify(v14, v12, v13, 267LL, 0, &v16, &v17);
+      v15 = *(_QWORD *)(*(_QWORD *)(a2 + 8) + 32LL);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v15 + 1672), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)(v15 + 1672));
+      KeAbPostRelease(v15 + 1672);
       CmpUnlockKcb(*(_QWORD *)(a2 + 8));
-      CmpUnlockRegistry(v20, v19, v21, v22);
-      CmpDelayedDerefKeys((void **)&v27);
-      CmpSignalDeferredPosts(&v28);
+      CmpUnlockRegistry();
+      CmpDelayedDerefKeys((void **)&v16);
+      CmpSignalDeferredPosts((_QWORD **)&v17);
     }
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  if ( CmpTraceRoutine )
+  result = *(__int64 *)((char *)&NlsMbCodePageTag + 7);
+  if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
   {
-    LOBYTE(v7) = 27;
-    CmpTraceRoutine(v7, v30, 0LL, 0LL);
+    LOBYTE(a1) = 27;
+    return (*(__int64 (__fastcall **)(__int64, _OWORD *, _QWORD, _QWORD, __int64, _QWORD))((char *)&NlsMbCodePageTag + 7))(
+             a1,
+             v18,
+             0LL,
+             0LL,
+             v4,
+             0LL);
   }
-  return CmCleanupThreadInfo((__int64 *)&v29);
+  return result;
 }

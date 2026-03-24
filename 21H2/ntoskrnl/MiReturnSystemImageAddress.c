@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReturnSystemImageAddress @ 0x140761FC0
+ * XREFs of MiReturnSystemImageAddress @ 0x14075FCA4
  * Callers:
- *     MiUnloadSystemImage @ 0x1406F4FB8 (MiUnloadSystemImage.c)
- *     MiReturnImageBase @ 0x1406FC148 (MiReturnImageBase.c)
- *     MiGetSystemAddressForImage @ 0x140761A2C (MiGetSystemAddressForImage.c)
+ *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
+ *     MiReturnImageBase @ 0x1406EABD8 (MiReturnImageBase.c)
+ *     MiGetSystemAddressForImage @ 0x14075E8AC (MiGetSystemAddressForImage.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
- *     MiGetPteAddress @ 0x140313C70 (MiGetPteAddress.c)
- *     MiReleaseDriverPtes @ 0x14076200C (MiReleaseDriverPtes.c)
+ *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     MiReleaseDriverPtes @ 0x14075FCF0 (MiReleaseDriverPtes.c)
  */
 
 __int64 __fastcall MiReturnSystemImageAddress(unsigned __int64 a1, unsigned __int64 a2)

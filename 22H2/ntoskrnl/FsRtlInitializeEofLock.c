@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlInitializeEofLock @ 0x1403414F0
+ * XREFs of FsRtlInitializeEofLock @ 0x140302E10
  * Callers:
  *     <none>
  * Callees:

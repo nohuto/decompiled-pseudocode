@@ -1,10 +1,10 @@
 /*
- * XREFs of CcFreeVacbArray @ 0x140936C14
+ * XREFs of CcFreeVacbArray @ 0x140867824
  * Callers:
- *     CcDereferenceVacbArray @ 0x140537FEC (CcDereferenceVacbArray.c)
+ *     CcDereferenceVacbArray @ 0x1404EAFE0 (CcDereferenceVacbArray.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcFreeVacbArray(_DWORD *a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?isSorted@@YA_NPEAU_SODISPSURF@@0JJ@Z @ 0x1C02B2DC0
+ * XREFs of ?isSorted@@YA_NPEAU_SODISPSURF@@0JJ@Z @ 0x1C02A6890
  * Callers:
- *     ?vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z @ 0x1C02B31EC (-vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z.c)
+ *     ?vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z @ 0x1C02A6CA8 (-vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z.c)
  * Callees:
  *     <none>
  */
 
 bool __fastcall isSorted(struct _SODISPSURF *a1, struct _SODISPSURF *a2, int a3, int a4)
 {
-  _DWORD *v4; // r10
-  _DWORD *v5; // r11
-  int v6; // ecx
+  _DWORD *v4; // r11
+  _DWORD *v5; // r10
+  int v6; // eax
   int v8; // edx
   int v9; // ebx
 

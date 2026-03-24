@@ -1,26 +1,26 @@
 /*
- * XREFs of ?EnsureD2DGeometry@CRectanglesShape@@IEBAJXZ @ 0x1800D0C14
+ * XREFs of ?EnsureD2DGeometry@CRectanglesShape@@IEBAJXZ @ 0x180017874
  * Callers:
- *     ?GetD2DGeometry@CRectanglesShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z @ 0x1800D0B10 (-GetD2DGeometry@CRectanglesShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z.c)
+ *     ?GetD2DGeometry@CRectanglesShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z @ 0x180017470 (-GetD2DGeometry@CRectanglesShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRectanglesShape::EnsureD2DGeometry(CRectanglesShape *this)
 {
   unsigned int v1; // ebx
   int v3; // eax
-  __int64 v4; // rcx
+  unsigned int v4; // ecx
   int v5; // eax
-  __int64 v6; // rcx
+  unsigned int v6; // ecx
   unsigned int i; // esi
   int v8; // eax
-  __int64 v9; // rcx
+  unsigned int v9; // ecx
   signed __int64 v10; // rcx
   int v12; // eax
-  __int64 v13; // rcx
+  unsigned int v13; // ecx
   __int64 v14; // [rsp+30h] [rbp-30h] BYREF
   signed __int64 v15; // [rsp+38h] [rbp-28h] BYREF
   signed __int64 v16; // [rsp+40h] [rbp-20h] BYREF
@@ -35,7 +35,7 @@ __int64 __fastcall CRectanglesShape::EnsureD2DGeometry(CRectanglesShape *this)
   if ( *((_DWORD *)this + 10) == 1 )
   {
     v17 = *(_OWORD *)*((_QWORD *)this + 2);
-    v12 = (*(__int64 (__fastcall **)(_QWORD, __int128 *, signed __int64 *))(*g_DeviceManager + 40LL))(
+    v12 = (*(__int64 (__fastcall **)(void *, __int128 *, signed __int64 *))(*(_QWORD *)g_DeviceManager + 40LL))(
             g_DeviceManager,
             &v17,
             &v16);
@@ -46,15 +46,17 @@ __int64 __fastcall CRectanglesShape::EnsureD2DGeometry(CRectanglesShape *this)
       v16 = 0LL;
       goto LABEL_9;
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0x14Bu);
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x14Bu, 0LL);
   }
   else
   {
-    v3 = (*(__int64 (__fastcall **)(_QWORD, signed __int64 *))(*g_DeviceManager + 80LL))(g_DeviceManager, &v15);
+    v3 = (*(__int64 (__fastcall **)(void *, signed __int64 *))(*(_QWORD *)g_DeviceManager + 80LL))(
+           g_DeviceManager,
+           &v15);
     v1 = v3;
     if ( v3 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, v3, 0x152u);
+      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, v3, 0x152u, 0LL);
     }
     else
     {
@@ -62,7 +64,7 @@ __int64 __fastcall CRectanglesShape::EnsureD2DGeometry(CRectanglesShape *this)
       v1 = v5;
       if ( v5 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, v5, 0x154u);
+        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x154u, 0LL);
       }
       else
       {
@@ -102,7 +104,7 @@ LABEL_9:
             (*(void (__fastcall **)(signed __int64))(*(_QWORD *)v10 + 16LL))(v10);
           goto LABEL_10;
         }
-        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0x168u);
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x168u, 0LL);
       }
     }
   }

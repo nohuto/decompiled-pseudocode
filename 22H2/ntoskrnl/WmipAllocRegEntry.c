@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipAllocRegEntry @ 0x1403C2024
+ * XREFs of WmipAllocRegEntry @ 0x140371884
  * Callers:
- *     WmipRegisterDevice @ 0x14086C458 (WmipRegisterDevice.c)
- *     WmipInitializeDataStructs @ 0x140B3C6E4 (WmipInitializeDataStructs.c)
+ *     WmipRegisterDevice @ 0x1407547F8 (WmipRegisterDevice.c)
+ *     WmipInitializeDataStructs @ 0x140A69EBC (WmipInitializeDataStructs.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B00 (ExAllocateFromNPagedLookasideList.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     WmipAllocProviderId @ 0x1407E9194 (WmipAllocProviderId.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202C74 (ExAllocateFromNPagedLookasideList.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     WmipAllocProviderId @ 0x1406A5B24 (WmipAllocProviderId.c)
  */
 
 _QWORD *__fastcall WmipAllocRegEntry(__int64 a1, int a2)
@@ -39,26 +39,29 @@ _QWORD *__fastcall WmipAllocRegEntry(__int64 a1, int a2)
     v6 = KeAcquireSpinLockRaiseToDpc(&WmipRegistrationSpinLock);
     ++WmipInUseRegEntryCount;
     v7 = v6;
-    v8 = off_140C042E0;
-    if ( *off_140C042E0 != (_UNKNOWN *)&WmipInUseRegEntryHead )
+    v8 = off_140C02BB0;
+    if ( *off_140C02BB0 != (_UNKNOWN *)&WmipInUseRegEntryHead )
       __fastfail(3u);
     *v5 = &WmipInUseRegEntryHead;
     v5[1] = v8;
     *v8 = v5;
-    off_140C042E0 = (_UNKNOWN **)v5;
-    KxReleaseSpinLock((volatile signed __int64 *)&WmipRegistrationSpinLock);
+    off_140C02BB0 = (_UNKNOWN **)v5;
+    KxReleaseSpinLock(&WmipRegistrationSpinLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-        v14 = (v13 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v13;
-        if ( v14 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v13 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+          v14 = (v13 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v13;
+          if ( v14 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(v7);

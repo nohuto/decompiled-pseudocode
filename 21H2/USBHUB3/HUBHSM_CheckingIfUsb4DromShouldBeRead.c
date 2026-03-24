@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_CheckingIfUsb4DromShouldBeRead @ 0x1C0009A20
+ * XREFs of HUBHSM_CheckingIfUsb4DromShouldBeRead @ 0x1C0009720
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
  */
 
 __int64 __fastcall HUBHSM_CheckingIfUsb4DromShouldBeRead(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall HUBHSM_CheckingIfUsb4DromShouldBeRead(__int64 a1)
   if ( !*(_BYTE *)(v1 + 240) || *(_DWORD *)(v1 + 160) != 1 )
     return 2041LL;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_(*(_QWORD *)(v1 + 2520), 4u, 3u, 0x33u, (__int64)&WPP_2fd11ae104fa34a9334eddada324a17a_Traceguids);
+    WPP_RECORDER_SF_(*(_QWORD *)(v1 + 2520), 4u, 3u, 0x33u, (__int64)&WPP_ed60294ab0b33001d37f1713c861e88d_Traceguids);
   *(_DWORD *)(v1 + 2700) = 0;
   *(_DWORD *)(v1 + 2696) = 0;
   *(_QWORD *)(v1 + 2688) = v1 + 2664;

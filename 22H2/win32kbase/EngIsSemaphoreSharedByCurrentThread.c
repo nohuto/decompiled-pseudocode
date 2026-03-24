@@ -1,9 +1,9 @@
 /*
- * XREFs of EngIsSemaphoreSharedByCurrentThread @ 0x1C00B2D80
+ * XREFs of EngIsSemaphoreSharedByCurrentThread @ 0x1C00A8E30
  * Callers:
  *     <none>
  * Callees:
- *     GreIsSemaphoreSharedByCurrentThread @ 0x1C00B2DA0 (GreIsSemaphoreSharedByCurrentThread.c)
+ *     GreIsSemaphoreSharedByCurrentThread @ 0x1C00A8E50 (GreIsSemaphoreSharedByCurrentThread.c)
  */
 
 BOOL __stdcall EngIsSemaphoreSharedByCurrentThread(HSEMAPHORE hsem)

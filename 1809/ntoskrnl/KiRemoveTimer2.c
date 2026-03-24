@@ -1,14 +1,14 @@
 /*
- * XREFs of KiRemoveTimer2 @ 0x1400FB710
+ * XREFs of KiRemoveTimer2 @ 0x1400FB730
  * Callers:
- *     KeCancelTimer2 @ 0x1400FAF50 (KeCancelTimer2.c)
- *     KeDisableTimer2 @ 0x1400FB134 (KeDisableTimer2.c)
- *     KiTimer2Expiration @ 0x1400FB3D0 (KiTimer2Expiration.c)
- *     KeSetTimer2 @ 0x1400FC150 (KeSetTimer2.c)
- *     KiInsertTimer2WithCollectionLockHeld @ 0x1400FC4A0 (KiInsertTimer2WithCollectionLockHeld.c)
- *     KiAdjustTimer2DueTimes @ 0x14016FE14 (KiAdjustTimer2DueTimes.c)
+ *     KeCancelTimer2 @ 0x1400FAF70 (KeCancelTimer2.c)
+ *     KeDisableTimer2 @ 0x1400FB154 (KeDisableTimer2.c)
+ *     KiTimer2Expiration @ 0x1400FB3F0 (KiTimer2Expiration.c)
+ *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
+ *     KiInsertTimer2WithCollectionLockHeld @ 0x1400FC4C0 (KiInsertTimer2WithCollectionLockHeld.c)
+ *     KiAdjustTimer2DueTimes @ 0x14016FE34 (KiAdjustTimer2DueTimes.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
  */
 
 char __fastcall KiRemoveTimer2(__int64 a1)

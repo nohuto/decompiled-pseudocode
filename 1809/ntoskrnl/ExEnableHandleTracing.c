@@ -1,7 +1,7 @@
 /*
- * XREFs of ExEnableHandleTracing @ 0x1408CDC94
+ * XREFs of ExEnableHandleTracing @ 0x1408CDC74
  * Callers:
- *     PsSetProcessHandleTracingInformation @ 0x140888774 (PsSetProcessHandleTracingInformation.c)
+ *     PsSetProcessHandleTracingInformation @ 0x140888754 (PsSetProcessHandleTracingInformation.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
@@ -9,11 +9,11 @@
  *     PsReturnProcessNonPagedPoolQuota @ 0x140068570 (PsReturnProcessNonPagedPoolQuota.c)
  *     PsChargeProcessNonPagedPoolQuota @ 0x140076C10 (PsChargeProcessNonPagedPoolQuota.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     MmGetMaximumNonPagedPoolInBytes @ 0x14013B7F4 (MmGetMaximumNonPagedPoolInBytes.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     MmGetMaximumNonPagedPoolInBytes @ 0x14013B814 (MmGetMaximumNonPagedPoolInBytes.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExDereferenceHandleDebugInfo @ 0x1408CDC34 (ExDereferenceHandleDebugInfo.c)
+ *     ExDereferenceHandleDebugInfo @ 0x1408CDC14 (ExDereferenceHandleDebugInfo.c)
  */
 
 __int64 __fastcall ExEnableHandleTracing(__int64 a1, unsigned int a2)

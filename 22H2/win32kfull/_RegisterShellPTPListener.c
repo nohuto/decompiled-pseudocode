@@ -1,39 +1,41 @@
 /*
- * XREFs of _RegisterShellPTPListener @ 0x1C00B9BB8
+ * XREFs of _RegisterShellPTPListener @ 0x1C01328A8
  * Callers:
- *     NtUserRegisterShellPTPListener @ 0x1C00B9AE0 (NtUserRegisterShellPTPListener.c)
+ *     NtUserRegisterShellPTPListener @ 0x1C01327E0 (NtUserRegisterShellPTPListener.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
-__int64 __fastcall RegisterShellPTPListener(__int64 a1, int a2)
+__int64 __fastcall RegisterShellPTPListener(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v3; // rcx
   __int64 v4; // rcx
-  _QWORD *v5; // rcx
-  _QWORD v7[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v5; // rcx
+  __int64 *v6; // rcx
+  __int64 v7; // r8
+  _QWORD v9[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v3 = *(_QWORD *)(a1 + 24);
-  if ( v3 && (v4 = *(_QWORD *)(v3 + 8)) != 0 )
+  v4 = *(_QWORD *)(a1 + 24);
+  if ( v4 && (v5 = *(_QWORD *)(v4 + 8)) != 0 )
   {
-    v5 = (_QWORD *)(v4 + 232);
-    if ( !a2 )
+    v6 = (__int64 *)(v5 + 232);
+    v7 = *v6;
+    if ( !(_DWORD)a2 )
     {
-      if ( *v5 == a1 )
-        HMAssignmentUnlock(v5);
+      if ( v7 == a1 )
+        HMAssignmentUnlock(v6);
       return 1LL;
     }
-    if ( !*v5 )
+    if ( !v7 )
     {
-      v7[0] = v5;
-      v7[1] = a1;
-      HMAssignmentLock(v7, 0LL);
+      v9[0] = v6;
+      v9[1] = a1;
+      HMAssignmentLock(v9);
       return 1LL;
     }
   }
   else
   {
-    UserSetLastError(87LL);
+    UserSetLastError(87LL, a2, a3);
   }
   return 0LL;
 }

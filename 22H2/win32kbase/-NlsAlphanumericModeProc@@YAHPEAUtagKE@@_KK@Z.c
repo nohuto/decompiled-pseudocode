@@ -1,24 +1,21 @@
 /*
- * XREFs of ?NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EBD30
+ * XREFs of ?NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB3D0
  * Callers:
  *     <none>
  * Callees:
- *     xxxKeyEventEx @ 0x1C006A7C8 (xxxKeyEventEx.c)
- *     ?NlsClearKeyStateToggle@@YAXE@Z @ 0x1C01EBE44 (-NlsClearKeyStateToggle@@YAXE@Z.c)
- *     ?NlsGetCurrentInputMode@@YAEPEBE@Z @ 0x1C01EC010 (-NlsGetCurrentInputMode@@YAEPEBE@Z.c)
- *     ?NlsTestKeyStateToggle@@YAHE@Z @ 0x1C01EC73C (-NlsTestKeyStateToggle@@YAHE@Z.c)
- *     NlsKbdSendIMEProc @ 0x1C01EC7A0 (NlsKbdSendIMEProc.c)
+ *     xxxKeyEventEx @ 0x1C004CFD0 (xxxKeyEventEx.c)
+ *     ?NlsClearKeyStateToggle@@YAXE@Z @ 0x1C01AB4E8 (-NlsClearKeyStateToggle@@YAXE@Z.c)
+ *     ?NlsGetCurrentInputMode@@YAEPEAE@Z @ 0x1C01AB6A4 (-NlsGetCurrentInputMode@@YAEPEAE@Z.c)
+ *     ?NlsTestKeyStateToggle@@YAHE@Z @ 0x1C01ABE2C (-NlsTestKeyStateToggle@@YAHE@Z.c)
+ *     NlsKbdSendIMEProc @ 0x1C01ABEDC (NlsKbdSendIMEProc.c)
  */
 
 __int64 __fastcall NlsAlphanumericModeProc(struct tagKE *a1, __int64 a2)
 {
-  __int16 v2; // ax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
+  __int16 v2; // r8
+  __int16 v5; // r8
   unsigned __int8 CurrentInputMode; // al
-  __int16 v10; // bx
+  __int16 v7; // r11
 
   v2 = *((_WORD *)a1 + 1);
   if ( v2 < 0 )
@@ -26,13 +23,12 @@ __int64 __fastcall NlsAlphanumericModeProc(struct tagKE *a1, __int64 a2)
   *((_WORD *)a1 + 1) = v2 & 0x8F00;
   if ( !(unsigned int)NlsTestKeyStateToggle(0xF0u) )
   {
-    CurrentInputMode = NlsGetCurrentInputMode(&byte_1C0266894);
-    v10 = CurrentInputMode;
+    CurrentInputMode = NlsGetCurrentInputMode(&NlsAlphaNumMode);
     NlsClearKeyStateToggle(CurrentInputMode);
     xxxKeyEventEx(
-      (unsigned __int16)(*((_WORD *)a1 + 1) | v10) | 0x8000u,
+      *((_WORD *)a1 + 1) | v7 | 0x8000,
       *(unsigned __int8 *)a1,
-      *((unsigned int *)a1 + 1),
+      *((_DWORD *)a1 + 1),
       a2,
       *((void **)a1 + 1),
       (unsigned __int16 *)a1 + 8,
@@ -40,9 +36,10 @@ __int64 __fastcall NlsAlphanumericModeProc(struct tagKE *a1, __int64 a2)
       0,
       0LL,
       0LL);
+    v5 = *((_WORD *)a1 + 1);
   }
-  *((_WORD *)a1 + 1) |= 0xF0u;
-  if ( !*(_DWORD *)(SGDGetUserSessionState(v6, v5, v7, v8) + 13940) )
+  *((_WORD *)a1 + 1) = v5 | 0xF0;
+  if ( !gdwIMEOpenStatus )
   {
     if ( (unsigned int)NlsTestKeyStateToggle(0x15u) )
       NlsKbdSendIMEProc(1LL, 2LL);

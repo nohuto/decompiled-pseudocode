@@ -1,39 +1,36 @@
 /*
- * XREFs of HalEfiSetTime @ 0x14050CF50
+ * XREFs of HalEfiSetTime @ 0x1404C3C00
  * Callers:
- *     HalSetRealTimeClock @ 0x1404FED20 (HalSetRealTimeClock.c)
+ *     HalSetRealTimeClock @ 0x1404B6A90 (HalSetRealTimeClock.c)
  * Callees:
- *     ExSystemTimeToLocalTime @ 0x14033B0F0 (ExSystemTimeToLocalTime.c)
- *     RtlpTimeToTimeFields @ 0x14033B4C8 (RtlpTimeToTimeFields.c)
- *     HalpEfiDecrementEfiCall @ 0x14035E4B4 (HalpEfiDecrementEfiCall.c)
- *     HalpConvertEfiToNtStatus @ 0x14035E4DC (HalpConvertEfiToNtStatus.c)
- *     HalpEfiIncrementEfiCall @ 0x14035E510 (HalpEfiIncrementEfiCall.c)
- *     HalpEfiStartRuntimeCode @ 0x14035E538 (HalpEfiStartRuntimeCode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     RtlpTimeToTimeFields @ 0x14030D368 (RtlpTimeToTimeFields.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HalpConvertEfiToNtStatus @ 0x1404C3EB4 (HalpConvertEfiToNtStatus.c)
+ *     HalpEfiStartRuntimeCode @ 0x1404C3EE8 (HalpEfiStartRuntimeCode.c)
  */
 
-__int64 __fastcall HalEfiSetTime(PLARGE_INTEGER SystemTime)
+__int64 __fastcall HalEfiSetTime(__int64 *a1)
 {
   __int64 result; // rax
-  __int64 v3; // r8
+  __int64 v3; // rax
   __int64 v4; // r8
-  __int64 v5; // r8
-  LARGE_INTEGER LocalTime; // [rsp+20h] [rbp-30h] BYREF
-  __int128 v7; // [rsp+28h] [rbp-28h] BYREF
+  __int64 v5; // rax
+  __int128 v6; // [rsp+20h] [rbp-30h] BYREF
+  __int64 v7; // [rsp+30h] [rbp-20h] BYREF
   __int128 v8; // [rsp+38h] [rbp-18h] BYREF
 
-  LocalTime.QuadPart = 0LL;
   v8 = 0LL;
-  v7 = 0LL;
+  v6 = 0LL;
   if ( !HalEfiRuntimeServicesTable || !*HalEfiRuntimeServicesTable || !HalEfiRuntimeServicesTable[1] )
     return 3221225474LL;
-  if ( !SystemTime )
+  if ( !a1 )
     return 3221225485LL;
-  HalpEfiIncrementEfiCall(&HalpEfiTimeCalls);
-  HalpEfiStartRuntimeCode(1u);
-  ((void (__fastcall *)(__int128 *, _QWORD))*HalEfiRuntimeServicesTable)(&v8, 0LL);
+  _InterlockedIncrement(&HalpEfiTimeCalls);
+  HalpEfiStartRuntimeCode(1LL);
+  v3 = ((__int64 (__fastcall *)(__int128 *, _QWORD))*HalEfiRuntimeServicesTable)(&v8, 0LL);
   _InterlockedAnd((volatile signed __int32 *)&KeGetPcr()->HalReserved[8], 0xFFFFFFFE);
-  HalpEfiDecrementEfiCall(&HalpEfiTimeCalls);
+  _InterlockedDecrement(&HalpEfiTimeCalls);
   result = HalpConvertEfiToNtStatus(v3);
   if ( (int)result >= 0 )
   {
@@ -41,13 +38,18 @@ __int64 __fastcall HalEfiSetTime(PLARGE_INTEGER SystemTime)
     {
       if ( ExpRealTimeIsUniversal )
       {
-        LocalTime = *SystemTime;
+        v7 = *a1;
         WORD6(v8) = 0;
       }
       else
       {
         WORD6(v8) = MEMORY[0xFFFFF78000000020] / 0x23C34600uLL;
-        ExSystemTimeToLocalTime(SystemTime, &LocalTime);
+        v7 = *a1
+           - *(_QWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals(
+                                       MEMORY[0xFFFFF78000000020],
+                                       MEMORY[0xFFFFF78000000020] / 0x23C34600uLL)
+                         + 133)
+                       + 440LL);
         if ( MEMORY[0xFFFFF78000000240] )
         {
           if ( MEMORY[0xFFFFF78000000240] == 1 )
@@ -65,24 +67,24 @@ __int64 __fastcall HalEfiSetTime(PLARGE_INTEGER SystemTime)
     }
     else
     {
-      LocalTime.QuadPart = SystemTime->QuadPart - 600000000LL * SWORD6(v8);
+      v7 = *a1 - 600000000LL * SWORD6(v8);
     }
 LABEL_12:
-    RtlpTimeToTimeFields((__int64 *)&LocalTime, &v7, v4);
-    LOWORD(v8) = v7;
-    BYTE2(v8) = BYTE2(v7);
-    BYTE3(v8) = BYTE4(v7);
-    BYTE4(v8) = BYTE6(v7);
-    BYTE5(v8) = BYTE8(v7);
-    BYTE6(v8) = BYTE10(v7);
-    DWORD2(v8) = 1000000 * SWORD6(v7);
-    HalpEfiIncrementEfiCall(&HalpEfiTimeCalls);
-    HalpEfiIncrementEfiCall(&HalpEfiTimeWrites);
-    HalpEfiStartRuntimeCode(2u);
-    ((void (__fastcall *)(__int128 *))HalEfiRuntimeServicesTable[1])(&v8);
+    RtlpTimeToTimeFields(&v7, &v6, v4);
+    LOWORD(v8) = v6;
+    BYTE2(v8) = BYTE2(v6);
+    BYTE3(v8) = BYTE4(v6);
+    BYTE4(v8) = BYTE6(v6);
+    BYTE5(v8) = BYTE8(v6);
+    BYTE6(v8) = BYTE10(v6);
+    DWORD2(v8) = 1000000 * SWORD6(v6);
+    _InterlockedIncrement(&HalpEfiTimeCalls);
+    _InterlockedIncrement(&HalpEfiTimeWrites);
+    HalpEfiStartRuntimeCode(2LL);
+    v5 = ((__int64 (__fastcall *)(__int128 *))HalEfiRuntimeServicesTable[1])(&v8);
     _InterlockedAnd((volatile signed __int32 *)&KeGetPcr()->HalReserved[8], 0xFFFFFFFD);
-    HalpEfiDecrementEfiCall(&HalpEfiTimeWrites);
-    HalpEfiDecrementEfiCall(&HalpEfiTimeCalls);
+    _InterlockedDecrement(&HalpEfiTimeWrites);
+    _InterlockedDecrement(&HalpEfiTimeCalls);
     return HalpConvertEfiToNtStatus(v5);
   }
   return result;

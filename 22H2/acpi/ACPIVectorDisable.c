@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIVectorDisable @ 0x1C0004FF0
+ * XREFs of ACPIVectorDisable @ 0x1C0060D00
  * Callers:
- *     ACPIEcMaskInterrupt @ 0x1C0002CB0 (ACPIEcMaskInterrupt.c)
- *     ACPIVectorDisable2 @ 0x1C0044040 (ACPIVectorDisable2.c)
+ *     ACPIEcMaskInterrupt @ 0x1C00537B8 (ACPIEcMaskInterrupt.c)
+ *     ACPIVectorDisable2 @ 0x1C0060DD0 (ACPIVectorDisable2.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
- *     ACPIGpeEnableDisableEvents @ 0x1C002C2BC (ACPIGpeEnableDisableEvents.c)
- *     ACPIGpeIndexToGpeRegister @ 0x1C002C3BC (ACPIGpeIndexToGpeRegister.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     ACPIGpeIndexToGpeRegister @ 0x1C001A108 (ACPIGpeIndexToGpeRegister.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C00265D0 (ACPIGpeEnableDisableEvents.c)
  */
 
 __int64 __fastcall ACPIVectorDisable(__int64 a1, unsigned int *a2)
@@ -14,33 +14,29 @@ __int64 __fastcall ACPIVectorDisable(__int64 a1, unsigned int *a2)
   int v2; // esi
   __int64 v3; // rbx
   KIRQL v4; // di
-  __int64 v5; // rcx
-  char v6; // dl
-  char v7; // dl
-  int v8; // edx
+  __int64 v5; // rdx
+  __int64 v6; // rdx
+  int v8; // [rsp+28h] [rbp-10h]
 
   v2 = *a2;
   v3 = (unsigned int)ACPIGpeIndexToGpeRegister(*a2);
   v4 = KeAcquireSpinLockRaiseToDpc(&GpeTableLock);
-  ACPIGpeEnableDisableEvents(0LL);
-  v5 = v2 & 7;
-  v6 = 1 << v5;
-  LOBYTE(v5) = 1;
-  v7 = ~v6;
-  *((_BYTE *)GpeEnable + v3) &= v7;
-  *((_BYTE *)GpeCurEnable + v3) &= v7;
-  ACPIGpeEnableDisableEvents(v5);
+  ACPIGpeEnableDisableEvents(0, v5);
+  v6 = (unsigned __int8)~(1 << (v2 & 7));
+  *((_BYTE *)GpeEnable + v3) &= v6;
+  *((_BYTE *)GpeCurEnable + v3) &= v6;
+  ACPIGpeEnableDisableEvents(1, v6);
   KeReleaseSpinLock(&GpeTableLock, v4);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v8) = 4;
-    WPP_RECORDER_SF_d(
-      WPP_GLOBAL_Control->DeviceExtension,
-      v8,
-      14,
-      12,
+    v8 = v2;
+    WPP_RECORDER_SF_D(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      4u,
+      0xEu,
+      0xCu,
       (__int64)&WPP_7b0d4207db2a3169cd3bb4e871adee9d_Traceguids,
-      v2);
+      v8);
   }
   return 0LL;
 }

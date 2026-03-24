@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIVectorClear @ 0x1C0061880
+ * XREFs of ACPIVectorClear @ 0x1C0060AC0
  * Callers:
- *     ACPIVectorClear2 @ 0x1C00618C0 (ACPIVectorClear2.c)
+ *     ACPIVectorClear2 @ 0x1C0060B00 (ACPIVectorClear2.c)
  * Callees:
- *     ACPIGpeIndexToGpeRegister @ 0x1C001D5CC (ACPIGpeIndexToGpeRegister.c)
- *     ACPIWriteGpeStatusRegister @ 0x1C001FE48 (ACPIWriteGpeStatusRegister.c)
+ *     ACPIGpeIndexToGpeRegister @ 0x1C001A108 (ACPIGpeIndexToGpeRegister.c)
+ *     ACPIWriteGpeStatusRegister @ 0x1C0026890 (ACPIWriteGpeStatusRegister.c)
  */
 
 __int64 __fastcall ACPIVectorClear(__int64 a1, unsigned int *a2)

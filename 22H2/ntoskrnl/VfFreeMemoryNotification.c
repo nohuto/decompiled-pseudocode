@@ -1,14 +1,14 @@
 /*
- * XREFs of VfFreeMemoryNotification @ 0x140AC30E8
+ * XREFs of VfFreeMemoryNotification @ 0x1409C5FF0
  * Callers:
- *     MmFreeContiguousMemory @ 0x1403C2FA0 (MmFreeContiguousMemory.c)
+ *     MmFreeContiguousMemory @ 0x1402E9070 (MmFreeContiguousMemory.c)
  * Callees:
- *     VfRemLockDeleteMemoryRange @ 0x140AC11C2 (VfRemLockDeleteMemoryRange.c)
- *     VfDeadlockDeleteMemoryRange @ 0x140AC16EC (VfDeadlockDeleteMemoryRange.c)
+ *     VfRemLockDeleteMemoryRange @ 0x1409D671C (VfRemLockDeleteMemoryRange.c)
+ *     VfDeadlockDeleteMemoryRange @ 0x1409DDE40 (VfDeadlockDeleteMemoryRange.c)
  */
 
-void __fastcall VfFreeMemoryNotification(unsigned __int64 a1, __int64 a2)
+__int64 __fastcall VfFreeMemoryNotification(__int64 a1, __int64 a2)
 {
   VfDeadlockDeleteMemoryRange(a1, a2);
-  VfRemLockDeleteMemoryRange(a1, a2);
+  return VfRemLockDeleteMemoryRange(a1, a2);
 }

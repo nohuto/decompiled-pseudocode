@@ -1,15 +1,15 @@
 /*
- * XREFs of KiRescheduleThreadAfterAffinityChange @ 0x140115688
+ * XREFs of KiRescheduleThreadAfterAffinityChange @ 0x1401156A8
  * Callers:
- *     KiUpdateGlobalCpuSetConfiguration @ 0x140114D84 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiSetAffinityThread @ 0x14011545C (KiSetAffinityThread.c)
- *     KiUpdateThreadCpuSets @ 0x14018CAB4 (KiUpdateThreadCpuSets.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140114DA4 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiSetAffinityThread @ 0x14011547C (KiSetAffinityThread.c)
+ *     KiUpdateThreadCpuSets @ 0x14018CAD4 (KiUpdateThreadCpuSets.c)
  * Callees:
- *     KiInsertDeferredReadyList @ 0x1400ACBA8 (KiInsertDeferredReadyList.c)
- *     KiPrcbInGroupAffinity @ 0x1400D5714 (KiPrcbInGroupAffinity.c)
- *     KiSelectNextThread @ 0x1400D7148 (KiSelectNextThread.c)
- *     KiPrepareReadyThreadForRescheduling @ 0x1401172F4 (KiPrepareReadyThreadForRescheduling.c)
- *     KiRemoveThreadFromAnyReadyQueue @ 0x140117760 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiInsertDeferredReadyList @ 0x1400ACBC8 (KiInsertDeferredReadyList.c)
+ *     KiPrcbInGroupAffinity @ 0x1400D5734 (KiPrcbInGroupAffinity.c)
+ *     KiSelectNextThread @ 0x1400D7168 (KiSelectNextThread.c)
+ *     KiPrepareReadyThreadForRescheduling @ 0x140117314 (KiPrepareReadyThreadForRescheduling.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x140117780 (KiRemoveThreadFromAnyReadyQueue.c)
  */
 
 __int64 __fastcall KiRescheduleThreadAfterAffinityChange(

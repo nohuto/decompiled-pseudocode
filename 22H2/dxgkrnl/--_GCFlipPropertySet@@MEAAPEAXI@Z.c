@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GCFlipPropertySet@@MEAAPEAXI@Z @ 0x1C007FB20
+ * XREFs of ??_GCFlipPropertySet@@MEAAPEAXI@Z @ 0x1C0068340
  * Callers:
  *     <none>
  * Callees:
- *     ??1CFlipPropertySetBase@@MEAA@XZ @ 0x1C0085588 (--1CFlipPropertySetBase@@MEAA@XZ.c)
+ *     ??1CFlipPropertySetBase@@MEAA@XZ @ 0x1C006BE9C (--1CFlipPropertySetBase@@MEAA@XZ.c)
  */
 
 CFlipPropertySetBase *__fastcall CFlipPropertySet::`scalar deleting destructor'(CFlipPropertySetBase *P, char a2)

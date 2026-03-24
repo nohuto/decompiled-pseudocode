@@ -1,17 +1,17 @@
 /*
- * XREFs of FONTOBJ_cGetGlyphs @ 0x1C0298770
+ * XREFs of FONTOBJ_cGetGlyphs @ 0x1C0292FB0
  * Callers:
- *     NtGdiFONTOBJ_cGetGlyphs @ 0x1C02CC810 (NtGdiFONTOBJ_cGetGlyphs.c)
+ *     NtGdiFONTOBJ_cGetGlyphs @ 0x1C02B40C0 (NtGdiFONTOBJ_cGetGlyphs.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?bInsertGlyphbitsLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@K@Z @ 0x1C02FD85C (-bInsertGlyphbitsLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@K@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AE74 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?bInsertGlyphbitsLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@K@Z @ 0x1C02D4F2C (-bInsertGlyphbitsLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@K@Z.c)
  */
 
 ULONG __stdcall FONTOBJ_cGetGlyphs(FONTOBJ *pfo, ULONG iMode, ULONG cGlyph, HGLYPH *phg, PVOID *ppvGlyph)
 {
   ULONG result; // eax
   HGLYPH v6; // eax
-  int inserted; // eax
+  ULONG v7; // ebx
   struct _GLYPHPOS v8; // [rsp+20h] [rbp-28h] BYREF
   FONTOBJ *v9; // [rsp+68h] [rbp+20h] BYREF
 
@@ -22,19 +22,18 @@ ULONG __stdcall FONTOBJ_cGetGlyphs(FONTOBJ *pfo, ULONG iMode, ULONG cGlyph, HGLY
     v6 = *phg;
     v9 = pfo;
     v8.hg = v6;
-    inserted = RFONTOBJ::bInsertGlyphbitsLookaside((RFONTOBJ *)&v9, &v8, iMode);
-    v9 = 0LL;
-    if ( inserted )
+    if ( (unsigned int)RFONTOBJ::bInsertGlyphbitsLookaside((RFONTOBJ *)&v9, &v8, iMode) )
     {
+      v7 = 1;
       *ppvGlyph = v8.pgdf;
-      RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v9);
-      return 1;
     }
     else
     {
-      RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v9);
-      return 0;
+      v7 = 0;
     }
+    v9 = 0LL;
+    RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v9);
+    return v7;
   }
   return result;
 }

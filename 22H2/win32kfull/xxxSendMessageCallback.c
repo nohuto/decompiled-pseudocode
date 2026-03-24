@@ -1,203 +1,205 @@
 /*
- * XREFs of xxxSendMessageCallback @ 0x1C004D5BC
+ * XREFs of xxxSendMessageCallback @ 0x1C0040544
  * Callers:
- *     xxxCapture @ 0x1C00117FC (xxxCapture.c)
- *     ?QueueNotifyTransformableMessage@@YAXPEAUtagWND@@I_K_JHH@Z @ 0x1C004AA20 (-QueueNotifyTransformableMessage@@YAXPEAUtagWND@@I_K_JHH@Z.c)
- *     _anonymous_namespace_::NotifyIAMWindowManagementEvent @ 0x1C004C7AC (_anonymous_namespace_--NotifyIAMWindowManagementEvent.c)
- *     xxxBroadcastMessageEx @ 0x1C004C8D0 (xxxBroadcastMessageEx.c)
- *     xxxSendNotifyMessage @ 0x1C004D370 (xxxSendNotifyMessage.c)
- *     ?xxxWrapSendMessageCallback@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C004D480 (-xxxWrapSendMessageCallback@@YA_JPEAUtagWND@@I_K_J1@Z.c)
- *     ?xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR@@@Z @ 0x1C01C984C (-xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR.c)
+ *     _anonymous_namespace_::NotifyIAMWindowManagementEvent @ 0x1C003E18C (_anonymous_namespace_--NotifyIAMWindowManagementEvent.c)
+ *     xxxBroadcastMessageEx @ 0x1C003FDE8 (xxxBroadcastMessageEx.c)
+ *     xxxSendNotifyMessage @ 0x1C00402D0 (xxxSendNotifyMessage.c)
+ *     ?xxxWrapSendMessageCallback@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C00403E0 (-xxxWrapSendMessageCallback@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ *     xxxCapture @ 0x1C00C02CC (xxxCapture.c)
+ *     ?QueueNotifyTransformableMessage@@YAXPEAUtagWND@@I_K_JHH@Z @ 0x1C00F5668 (-QueueNotifyTransformableMessage@@YAXPEAUtagWND@@I_K_JHH@Z.c)
+ *     ?xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR@@@Z @ 0x1C01F2E90 (-xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR.c)
  * Callees:
- *     xxxBroadcastMessageEx @ 0x1C004C8D0 (xxxBroadcastMessageEx.c)
- *     xxxInterSendMsgEx @ 0x1C004D920 (xxxInterSendMsgEx.c)
- *     ??0?$ObjectLock@$$V@?$DomainExclusive@$$V@?$DomainShared@VDLT_HOOK@@@SharedUserCritOnly@@QEAA@XZ @ 0x1C004F384 (--0-$ObjectLock@$$V@-$DomainExclusive@$$V@-$DomainShared@VDLT_HOOK@@@SharedUserCritOnly@@QEAA@XZ.c)
- *     FreeDelayedHooks @ 0x1C009B3F0 (FreeDelayedHooks.c)
- *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C00D3128 (-xxxCallHook@@YAHH_K_JH@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     SfnDWORD @ 0x1C0123CE0 (SfnDWORD.c)
- *     ?xxxSendMessageToClient@@YAXPEAUtagWND@@I_K_JPEAUtagSMS@@HPEA_J@Z @ 0x1C0127BE0 (-xxxSendMessageToClient@@YAXPEAUtagWND@@I_K_JPEAUtagSMS@@HPEA_J@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??1?$ObjectLock@$$V@?$DomainExclusive@VDLT_HANDLEMANAGER@@@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@XZ @ 0x1C0139AF4 (--1-$ObjectLock@$$V@-$DomainExclusive@VDLT_HANDLEMANAGER@@@-$DomainShared@$$V@SharedUserCritOnly.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     ?xxxSendMessageToClient@@YAXPEAUtagWND@@I_K_JPEAUtagSMS@@HPEA_J@Z @ 0x1C0059E70 (-xxxSendMessageToClient@@YAXPEAUtagWND@@I_K_JPEAUtagSMS@@HPEA_J@Z.c)
+ *     xxxInterSendMsgEx @ 0x1C005A250 (xxxInterSendMsgEx.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C005B860 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     SfnDWORD @ 0x1C006B320 (SfnDWORD.c)
+ *     xxxBroadcastMessage @ 0x1C0134A58 (xxxBroadcastMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall xxxSendMessageCallback(
-        struct tagWND *a1,
+        unsigned __int64 *a1,
         unsigned int a2,
         unsigned __int64 a3,
-        __int128 *a4,
-        void (__fastcall *a5)(struct tagWND *, _QWORD, unsigned __int64, __int64),
-        unsigned __int64 a6,
+        __int64 a4,
+        void (__fastcall *BugCheckParameter3)(unsigned __int64 *, _QWORD, __int64, __int64),
+        __int64 a6,
         int a7,
         int a8,
         int a9)
 {
-  __int64 v11; // rsi
-  unsigned int v13; // edi
-  ULONG_PTR v15; // r9
-  __int64 v16; // rax
-  __int64 *v17; // rcx
-  BOOL v19; // ecx
-  __int64 v20; // rcx
-  __int64 v21; // rax
-  __int64 *v22; // rcx
-  unsigned __int64 v23; // rax
-  int *v24; // rcx
-  int v25; // eax
-  unsigned int *v26; // rcx
-  unsigned int v27; // eax
-  unsigned int v28; // eax
-  BOOL v29; // ecx
-  __int64 v30; // [rsp+50h] [rbp-D8h] BYREF
-  __int64 v31; // [rsp+58h] [rbp-D0h]
-  __int64 v32; // [rsp+60h] [rbp-C8h]
-  __int64 v33[2]; // [rsp+68h] [rbp-C0h] BYREF
-  __int128 v34; // [rsp+78h] [rbp-B0h]
-  __int128 v35; // [rsp+88h] [rbp-A0h]
-  int v36; // [rsp+98h] [rbp-90h]
-  ULONG_PTR BugCheckParameter3; // [rsp+A0h] [rbp-88h]
-  ULONG_PTR BugCheckParameter2; // [rsp+A8h] [rbp-80h]
-  _BYTE v39[56]; // [rsp+B0h] [rbp-78h] BYREF
+  __int64 v9; // r11
+  __int64 v10; // r14
+  __int64 *v12; // rbx
+  int v13; // esi
+  ULONG_PTR v14; // r9
+  unsigned __int64 v15; // rax
+  __int64 *v16; // rcx
+  int v18; // eax
+  unsigned __int64 v19; // rcx
+  BOOL v20; // ecx
+  _DWORD *v21; // rcx
+  unsigned int *v22; // rcx
+  unsigned int v23; // eax
+  unsigned int v24; // eax
+  unsigned __int64 v25; // rax
+  BOOL v26; // ecx
+  __int64 v27; // [rsp+58h] [rbp-70h] BYREF
+  __int64 v28[2]; // [rsp+60h] [rbp-68h] BYREF
+  __int128 v29; // [rsp+70h] [rbp-58h]
+  __int128 v30; // [rsp+80h] [rbp-48h]
+  int v31; // [rsp+D8h] [rbp+10h]
+  int v32; // [rsp+D8h] [rbp+10h]
+  unsigned __int64 v33; // [rsp+E0h] [rbp+18h]
 
-  v31 = (__int64)a4;
-  v11 = a2;
-  BugCheckParameter2 = (ULONG_PTR)a1;
-  v30 = 0LL;
-  *(_OWORD *)v33 = 0LL;
-  v34 = 0LL;
-  v35 = 0LL;
+  v33 = a3;
+  v9 = a4;
+  v10 = a2;
+  v12 = 0LL;
+  v27 = 0LL;
   v13 = 1;
-  if ( a2 < 0x400 && (_bittest16(&MessageTable[a2], 9u) || a2 == 537 && (a3 & 0x8000) != 0) )
+  if ( BugCheckParameter3 || (v31 = 1, a6 != 1) )
+    v31 = 0;
+  if ( a2 >= 0x400 )
+  {
+    v18 = 0;
+  }
+  else
+  {
+    if ( (MessageTable[a2] & 0x200) == 0 && (a2 != 537 || (a3 & 0x8000) == 0) )
+      goto LABEL_7;
+    v18 = 1;
+  }
+  if ( v18 )
   {
     UserSetLastError(1159LL);
     return 0LL;
   }
-  if ( a1 != (struct tagWND *)-1LL )
+LABEL_7:
+  if ( a1 == (unsigned __int64 *)-1LL )
   {
-    v15 = 0LL;
-    BugCheckParameter3 = 0LL;
+    *(_OWORD *)v28 = 0LL;
+    *(_QWORD *)&v29 = 0LL;
+    if ( BugCheckParameter3 )
+    {
+      v13 = 3;
+      v28[0] = (__int64)BugCheckParameter3;
+      v28[1] = a6;
+      LODWORD(v29) = a7;
+      v12 = v28;
+    }
+    return xxxBroadcastMessage(0, a2, a3, a4, v13, (__int64)v12, a8);
+  }
+  else
+  {
+    v14 = 0LL;
+    LOWORD(v15) = 0;
     if ( a1 )
-      v16 = *(_QWORD *)a1;
-    else
-      v16 = 0LL;
-    v32 = v16;
-    v36 = (unsigned __int16)v16;
-    if ( (unsigned __int64)(unsigned __int16)v16 >= *(_QWORD *)(gpsi + 8LL)
-      || (v15 = gSharedInfo[1] + LODWORD(gSharedInfo[2]) * (unsigned int)(unsigned __int16)v16,
-          *(struct tagWND **)(gpKernelHandleTable + 24LL * (unsigned __int16)v16) != a1)
-      || *(_BYTE *)(v15 + 24) != 1 )
+      v15 = *a1;
+    if ( (unsigned __int64)(unsigned __int16)v15 >= *(_QWORD *)(gpsi + 8LL)
+      || (v14 = gSharedInfo[1] + (unsigned int)(unsigned __int16)v15 * LODWORD(gSharedInfo[2]),
+          *(unsigned __int64 **)(gpKernelHandleTable + 24LL * (unsigned __int16)v15) != a1)
+      || *(_BYTE *)(v14 + 24) != 1 )
     {
-      KeBugCheckEx(0x197u, 1uLL, (ULONG_PTR)a1, v15, 1uLL);
+      KeBugCheckEx(0x197u, 1uLL, (ULONG_PTR)a1, v14, 1uLL);
     }
-    if ( __PAIR128__(a6, (unsigned __int64)a5) == __PAIR128__(1LL, 0LL) || gptiCurrent != *((_QWORD *)a1 + 2) )
+    if ( !v31 && gptiCurrent == a1[2] )
     {
-      v17 = 0LL;
-      if ( a5 )
+      if ( ((*(_BYTE *)(gptiCurrent + 680LL) | *(_BYTE *)(**(_QWORD **)(gptiCurrent + 464LL) + 16LL)) & 0x20) != 0 )
       {
-        LODWORD(v33[0]) = a7 != 0 ? 257 : 1;
-        v33[1] = (__int64)a5;
-        *(_QWORD *)&v34 = a6;
-        v17 = v33;
+        v20 = a2 < 0x400 && ((unsigned __int16)MessageTable[a2] >> 14) & 1;
+        if ( !v20 || (*(_BYTE *)(a1[5] + 18) & 4) == 0 )
+        {
+          *((_QWORD *)&v29 + 1) = *a1;
+          LODWORD(v29) = a2;
+          v28[1] = a3;
+          v28[0] = v9;
+          *(_QWORD *)&v30 = 0LL;
+          xxxCallHook(0, 0LL, (__int64)v28, 4);
+          a3 = v33;
+          v9 = a4;
+        }
       }
-      return xxxInterSendMsgEx(a1, a2, a3, a4, 0, *((_QWORD *)a1 + 2), v17, a8, a9);
-    }
-    SharedUserCritOnly::DomainShared<DLT_HOOK>::DomainExclusive<>::ObjectLock<>::ObjectLock<>(v39);
-    if ( ((*(_BYTE *)(gptiCurrent + 680LL) | *(_BYTE *)(**(_QWORD **)(gptiCurrent + 464LL) + 16LL)) & 0x20) != 0 )
-    {
-      v19 = (unsigned int)v11 < 0x400 && ((unsigned __int16)MessageTable[v11] >> 14) & 1;
-      if ( !v19 || (*(_BYTE *)(*((_QWORD *)a1 + 5) + 18LL) & 4) == 0 )
+      v19 = a1[5];
+      if ( (*(_BYTE *)(v19 + 18) & 4) != 0 )
       {
-        *((_QWORD *)&v34 + 1) = *(_QWORD *)a1;
-        LODWORD(v34) = v11;
-        v33[1] = a3;
-        v33[0] = v31;
-        *(_QWORD *)&v35 = 0LL;
-        xxxCallHook(0, 0LL, (__int64)v33, 4);
+        v25 = *(_QWORD *)(v19 + 120);
+        if ( v25 >= 7 )
+          return 0LL;
+        v27 = ((__int64 (__fastcall *)(unsigned __int64 *, _QWORD, unsigned __int64, __int64))(&gServerHandlers)[v25])(
+                a1,
+                (unsigned int)v10,
+                a3,
+                v9);
       }
-    }
-    SharedUserCritOnly::DomainShared<>::DomainExclusive<DLT_HANDLEMANAGER>::ObjectLock<>::~ObjectLock<>(v39);
-    FreeDelayedHooks();
-    v20 = *((_QWORD *)a1 + 5);
-    if ( (*(_BYTE *)(v20 + 18) & 4) == 0 )
-    {
-      xxxSendMessageToClient(a1, v11, a3, v31, 0LL, 0, &v30);
-      v21 = v30;
-LABEL_25:
-      if ( a5 )
+      else
+      {
+        xxxSendMessageToClient((struct tagWND *)a1, v10, a3, v9, 0LL, 0, &v27);
+      }
+      if ( BugCheckParameter3 )
       {
         if ( a7 )
         {
-          v24 = *(int **)(gptiCurrent + 448LL);
-          v25 = *v24;
-          LODWORD(v32) = *v24 & 8;
-          *v24 = v25 | 4;
+          v21 = *(_DWORD **)(gptiCurrent + 448LL);
+          v32 = *v21 & 8;
+          *v21 |= 4u;
           **(_DWORD **)(gptiCurrent + 448LL) |= 8u;
-          if ( (_DWORD)v11 == 576 || (_DWORD)v11 == 281 )
-            ((void (__fastcall *)(struct tagWND *, _QWORD, unsigned __int64, __int64, void (__fastcall *)(struct tagWND *, _QWORD, unsigned __int64, __int64), _QWORD, int, _QWORD))gapfnScSendMessage[(unsigned __int8)MessageTable[(unsigned __int16)v11]])(
+          if ( (_DWORD)v10 == 576 || (_DWORD)v10 == 281 )
+            ((void (__fastcall *)(unsigned __int64 *, _QWORD, __int64, __int64, void (__fastcall *)(unsigned __int64 *, _QWORD, __int64, __int64), _QWORD, int, _QWORD))gapfnScSendMessage[(unsigned __int8)MessageTable[(unsigned __int16)v10]])(
               a1,
-              (unsigned int)v11,
+              (unsigned int)v10,
               a6,
-              v30,
-              a5,
+              v27,
+              BugCheckParameter3,
               *(_QWORD *)(gpsi + 752LL),
               1,
               0LL);
           else
-            SfnDWORD((_DWORD)a1, v11, a6, v30, (__int64)a5, *(_QWORD *)(gpsi + 752LL));
+            SfnDWORD((_DWORD)a1, v10, a6, v27, (__int64)BugCheckParameter3, *(_QWORD *)(gpsi + 752LL));
           **(_DWORD **)(gptiCurrent + 448LL) &= ~4u;
-          v26 = *(unsigned int **)(gptiCurrent + 448LL);
-          v27 = *v26;
-          if ( (_DWORD)v32 )
-            v28 = v27 | 8;
+          v22 = *(unsigned int **)(gptiCurrent + 448LL);
+          v23 = *v22;
+          if ( v32 )
+            v24 = v23 | 8;
           else
-            v28 = v27 & 0xFFFFFFF7;
-          *v26 = v28;
+            v24 = v23 & 0xFFFFFFF7;
+          *v22 = v24;
         }
         else
         {
-          a5(a1, (unsigned int)v11, a6, v21);
+          BugCheckParameter3(a1, (unsigned int)v10, a6, v27);
         }
       }
-      SharedUserCritOnly::DomainShared<DLT_HOOK>::DomainExclusive<>::ObjectLock<>::ObjectLock<>(v39);
       if ( ((*(_DWORD *)(gptiCurrent + 680LL) | *(_DWORD *)(**(_QWORD **)(gptiCurrent + 464LL) + 16LL)) & 0x2000) != 0 )
       {
-        v29 = (unsigned int)v11 < 0x400 && ((unsigned __int16)MessageTable[v11] >> 14) & 1;
-        if ( !v29 || (*(_BYTE *)(*((_QWORD *)a1 + 5) + 18LL) & 4) == 0 )
+        v26 = (unsigned int)v10 < 0x400 && ((unsigned __int16)MessageTable[v10] >> 14) & 1;
+        if ( !v26 || (*(_BYTE *)(a1[5] + 18) & 4) == 0 )
         {
-          v35 = *(unsigned __int64 *)a1;
-          DWORD2(v34) = v11;
-          *(_QWORD *)&v34 = a3;
-          v33[1] = v31;
-          v33[0] = v30;
-          xxxCallHook(0, 0LL, (__int64)v33, 12);
+          v30 = *a1;
+          DWORD2(v29) = v10;
+          *(_QWORD *)&v29 = v33;
+          v28[1] = a4;
+          v28[0] = v27;
+          xxxCallHook(0, 0LL, (__int64)v28, 12);
         }
       }
-      SharedUserCritOnly::DomainShared<>::DomainExclusive<DLT_HANDLEMANAGER>::ObjectLock<>::~ObjectLock<>(v39);
-      FreeDelayedHooks();
       return 1LL;
     }
-    v23 = *(_QWORD *)(v20 + 120);
-    if ( v23 < 7 )
+    else
     {
-      v21 = ((__int64 (__fastcall *)(struct tagWND *, _QWORD, unsigned __int64, __int64))(&gServerHandlers)[v23])(
-              a1,
-              (unsigned int)v11,
-              a3,
-              v31);
-      v30 = v21;
-      goto LABEL_25;
+      *(_OWORD *)v28 = 0LL;
+      v29 = 0LL;
+      v30 = 0LL;
+      v16 = 0LL;
+      if ( BugCheckParameter3 )
+      {
+        LODWORD(v28[0]) = a7 != 0 ? 257 : 1;
+        v28[1] = (__int64)BugCheckParameter3;
+        *(_QWORD *)&v29 = a6;
+        v16 = v28;
+      }
+      return xxxInterSendMsgEx(a1, a2, a3, v9, 0, a1[2], v16, a8, a9);
     }
-    return 0LL;
   }
-  v22 = 0LL;
-  if ( a5 )
-  {
-    v13 = 3;
-    v33[0] = (__int64)a5;
-    v33[1] = a6;
-    LODWORD(v34) = a7;
-    v22 = v33;
-  }
-  return xxxBroadcastMessageEx(0LL, a2, a3, a4, v13, (union tagBROADCASTMSG *)v22, a8, 0);
 }

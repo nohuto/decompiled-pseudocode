@@ -1,11 +1,13 @@
 /*
- * XREFs of FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x14073A280
+ * XREFs of FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x140662410
  * Callers:
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
- *     IopSymlinkAllocateAndAddECP @ 0x1407CDE5C (IopSymlinkAllocateAndAddECP.c)
+ *     IopSymlinkPropagateToExtensionIfNeeded @ 0x140650C60 (IopSymlinkPropagateToExtensionIfNeeded.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x14068303C (IopSymlinkAllocateAndAddECP.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B00 (ExAllocateFromNPagedLookasideList.c)
- *     FsRtlAllocateExtraCreateParameter @ 0x140742EE0 (FsRtlAllocateExtraCreateParameter.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202C74 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     FsRtlAllocateExtraCreateParameter @ 0x1406BD480 (FsRtlAllocateExtraCreateParameter.c)
  */
 
 NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterFromLookasideList(
@@ -33,25 +35,38 @@ NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterFromLookasideList(
              CleanupCallback,
              *((_DWORD *)LookasideList + 10),
              EcpContext);
-  v10 = (char *)ExAllocateFromNPagedLookasideList((PPAGED_LOOKASIDE_LIST)LookasideList);
-  if ( v10 )
+  if ( (Flags & 2) != 0 )
   {
-    *((_QWORD *)v10 + 2) = 0LL;
-    *((_QWORD *)v10 + 1) = 0LL;
-    *(_QWORD *)v10 = 1215324997LL;
-    v11 = *EcpType;
-    *((_QWORD *)v10 + 8) = 0LL;
-    *((_QWORD *)v10 + 5) = CleanupCallback;
-    *(GUID *)(v10 + 24) = v11;
-    *((_DWORD *)v10 + 12) = v8;
-    *((_DWORD *)v10 + 13) = v6;
-    *((_QWORD *)v10 + 7) = LookasideList;
-    *EcpContext = v10 + 72;
-    return 0;
+    v10 = (char *)ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)LookasideList);
   }
   else
   {
-    *EcpContext = 0LL;
-    return -1073741670;
+    ++*((_DWORD *)LookasideList + 5);
+    v10 = (char *)RtlpInterlockedPopEntrySList((PSLIST_HEADER)LookasideList);
+    if ( v10 )
+    {
+LABEL_6:
+      *(_QWORD *)v10 = 1215324997LL;
+      *((_QWORD *)v10 + 2) = 0LL;
+      *((_QWORD *)v10 + 1) = 0LL;
+      v11 = *EcpType;
+      *((_QWORD *)v10 + 8) = 0LL;
+      *((_QWORD *)v10 + 5) = CleanupCallback;
+      *(GUID *)(v10 + 24) = v11;
+      *((_DWORD *)v10 + 12) = v8;
+      *((_DWORD *)v10 + 13) = v6;
+      *((_QWORD *)v10 + 7) = LookasideList;
+      *EcpContext = v10 + 72;
+      return 0;
+    }
+    ++*((_DWORD *)LookasideList + 6);
+    v10 = (char *)(*((__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))LookasideList + 6))(
+                    *((unsigned int *)LookasideList + 9),
+                    *((unsigned int *)LookasideList + 11),
+                    *((unsigned int *)LookasideList + 10));
   }
+  if ( v10 )
+    goto LABEL_6;
+  *EcpContext = 0LL;
+  return -1073741670;
 }

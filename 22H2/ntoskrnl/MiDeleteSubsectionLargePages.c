@@ -1,191 +1,108 @@
 /*
- * XREFs of MiDeleteSubsectionLargePages @ 0x14064EE18
+ * XREFs of MiDeleteSubsectionLargePages @ 0x1403F5BB4
  * Callers:
- *     MiDeleteSubsectionPages @ 0x140218F10 (MiDeleteSubsectionPages.c)
+ *     MiDeleteSubsectionPages @ 0x140238AE0 (MiDeleteSubsectionPages.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiSetPfnTbFlushStamp @ 0x1402E1630 (MiSetPfnTbFlushStamp.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiGetLeafPfnBuddy @ 0x140389ACC (MiGetLeafPfnBuddy.c)
- *     MiConvertSmallPageRangeToLarge @ 0x1403B7D00 (MiConvertSmallPageRangeToLarge.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFreeLargePages @ 0x1406682C0 (MiFreeLargePages.c)
- *     MmReturnChargesToLockPagedPool @ 0x140A30A10 (MmReturnChargesToLockPagedPool.c)
- *     MmUnlockPreChargedPagedPool @ 0x140A30AA0 (MmUnlockPreChargedPagedPool.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140234880 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiSetPfnTbFlushStamp @ 0x14023FAD0 (MiSetPfnTbFlushStamp.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     MiUpdateLargePageBitMap @ 0x140280710 (MiUpdateLargePageBitMap.c)
+ *     MiUnlockPage @ 0x140306A9C (MiUnlockPage.c)
+ *     MiGetLeafPfnBuddy @ 0x1403801FC (MiGetLeafPfnBuddy.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x1403F5800 (MiConvertSmallPageRangeToLarge.c)
+ *     MiFreeLargePages @ 0x14055E3D8 (MiFreeLargePages.c)
+ *     MmUnlockPreChargedPagedPool @ 0x140774270 (MmUnlockPreChargedPagedPool.c)
+ *     MmReturnChargesToLockPagedPool @ 0x1408C8530 (MmReturnChargesToLockPagedPool.c)
  */
 
-__int64 __fastcall MiDeleteSubsectionLargePages(__int64 *a1, _QWORD *a2, __int64 a3)
+__int64 __fastcall MiDeleteSubsectionLargePages(__int64 a1, _QWORD *a2, __int64 a3)
 {
-  __int64 v3; // r14
-  __int64 v4; // rbp
-  unsigned __int64 v5; // rdi
-  _QWORD *v6; // rbx
-  __int64 *v7; // r15
-  ULONG_PTR v8; // rsi
-  unsigned __int64 LeafPfnBuddy; // r13
-  __int64 v10; // r8
-  _QWORD *v11; // rax
-  unsigned __int64 *v12; // rbx
-  unsigned __int64 v13; // r15
-  unsigned __int64 v14; // r12
-  unsigned __int64 v15; // rdx
-  bool v16; // zf
-  unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v20; // eax
-  __int64 v21; // rbx
-  __int64 v22; // rsi
-  __int64 v23; // rcx
-  __int64 v24; // rbx
-  struct _KPRCB *v25; // r8
-  __int64 CachedResidentAvailable; // rdx
-  signed __int32 v27; // eax
-  signed __int32 v29[8]; // [rsp+0h] [rbp-88h] BYREF
-  __int64 v31; // [rsp+98h] [rbp+10h] BYREF
-  __int64 v32; // [rsp+A0h] [rbp+18h]
-  __int64 v33; // [rsp+A8h] [rbp+20h]
+  __int64 v3; // rsi
+  __int64 v4; // r12
+  _QWORD *v5; // rbx
+  __int64 v6; // r14
+  ULONG_PTR v8; // rdi
+  __int64 v9; // r8
+  _DWORD *v10; // r9
+  unsigned __int64 LeafPfnBuddy; // r15
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  _DWORD *v14; // r9
+  unsigned __int64 v15; // r13
+  unsigned __int64 *v16; // rbx
+  unsigned __int64 v17; // rcx
+  bool v18; // zf
+  __int64 v19; // rbx
+  __int64 result; // rax
+  signed __int32 v21[8]; // [rsp+0h] [rbp-78h] BYREF
+  unsigned __int8 v23; // [rsp+88h] [rbp+10h]
+  __int64 v24; // [rsp+98h] [rbp+20h] BYREF
 
-  v32 = a3;
-  v31 = 0LL;
+  v24 = 0LL;
   v3 = 0LL;
   v4 = 0LL;
-  v33 = 0LL;
-  v5 = 0LL;
-  v6 = a2;
-  v7 = a1;
+  v5 = a2;
+  v6 = a1;
   if ( a2 )
   {
     do
     {
-      v8 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v6 + 0x44000000000LL) >> 4);
-      LeafPfnBuddy = MiGetLeafPfnBuddy(v6);
-      if ( v10 )
+      v8 = (__int64)(v5 + 0xB000000000LL) / 48;
+      LeafPfnBuddy = MiGetLeafPfnBuddy(v5);
+      if ( a3 )
       {
         MiUpdateLargePageBitMap(
-          *(_QWORD *)(qword_140C674C8 + 8 * ((v6[5] >> 43) & 0x3FFLL)),
-          0xAAAAAAAAAAAAAAABuLL * ((__int64)(v6 + 0x44000000000LL) >> 4),
+          *(_QWORD *)(qword_140C4E648 + 8 * ((v5[5] >> 39) & 0x3FFLL)),
+          (__int64)(v5 + 0xB000000000LL) / 48,
           0x200uLL,
           0,
           1);
-        v11 = v6 + 3072;
-        if ( v6 < v6 + 3072 )
+        v15 = (unsigned __int64)(v5 + 3072);
+        if ( v5 < v5 + 3072 )
         {
-          v12 = v6 + 3;
-          v4 += 512LL;
-          v13 = (unsigned __int64)v11;
+          v16 = v5 + 3;
+          v3 += 512LL;
           do
           {
-            v14 = (unsigned __int8)MiLockPageInline((__int64)(v12 - 3));
-            v15 = *v12 & 0xC000000000000000uLL;
-            v16 = *((_WORD *)v12 + 4) == 2;
-            *((_WORD *)v12 + 4) -= 2;
-            *v12 = v15;
-            if ( v16 )
+            v23 = MiLockPageInline((__int64)(v16 - 3), v12, v13, v14);
+            v17 = *v16 & 0xC000000000000000uLL;
+            v18 = *((_WORD *)v16 + 4) == 2;
+            *((_WORD *)v16 + 4) -= 2;
+            *v16 = v17;
+            if ( v18 )
             {
-              _InterlockedOr(v29, 0);
-              MiSetPfnTbFlushStamp((__int64)(v12 - 3), KiTbFlushTimeStamp, 1);
+              _InterlockedOr(v21, 0);
+              MiSetPfnTbFlushStamp((__int64)(v16 - 3), KiTbFlushTimeStamp, 1);
               MiInsertPageInFreeOrZeroedList(v8, 2);
-              ++v5;
             }
             else
             {
-              if ( (v15 & 0x4000000000000000LL) == 0 )
-                *v12 = v15 | 0x4000000000000000LL;
-              *((_BYTE *)v12 + 10) |= 7u;
+              if ( (v17 & 0x4000000000000000LL) == 0 )
+                *v16 = v17 | 0x4000000000000000LL;
+              *((_BYTE *)v16 + 10) |= 7u;
             }
-            _InterlockedAnd64((volatile signed __int64 *)v12, 0x7FFFFFFFFFFFFFFFuLL);
-            if ( KiIrqlFlags )
-            {
-              CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
-              {
-                CurrentPrcb = KeGetCurrentPrcb();
-                SchedulerAssist = CurrentPrcb->SchedulerAssist;
-                v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
-                v16 = (v20 & SchedulerAssist[5]) == 0;
-                SchedulerAssist[5] &= v20;
-                if ( v16 )
-                  KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-              }
-            }
-            __writecr8(v14);
-            v12 += 6;
+            MiUnlockPage((__int64)(v16 - 3), v23);
+            v16 += 6;
             ++v8;
           }
-          while ( (unsigned __int64)(v12 - 3) < v13 );
-          v3 = v33;
+          while ( (unsigned __int64)(v16 - 3) < v15 );
         }
       }
       else
       {
-        MiConvertSmallPageRangeToLarge(0xAAAAAAAAAAAAAAABuLL * ((__int64)(v6 + 0x44000000000LL) >> 4), 1);
-        v3 += MiFreeLargePages(
-                *(_QWORD *)(qword_140C674C8 + 8 * ((v6[5] >> 43) & 0x3FFLL)),
-                (_DWORD)v6,
-                (unsigned int)&v31,
-                (unsigned int)&v31,
-                3);
-        v33 = v3;
-        v4 += 512LL;
+        MiConvertSmallPageRangeToLarge((__int64)(v5 + 0xB000000000LL) / 48, 1LL, v9, v10);
+        v4 += MiFreeLargePages(v5, &v24);
+        v3 += 512LL;
       }
-      v6 = (_QWORD *)LeafPfnBuddy;
+      v5 = (_QWORD *)LeafPfnBuddy;
     }
     while ( LeafPfnBuddy );
-    v7 = a1;
+    v6 = a1;
   }
-  v21 = 8LL * *((unsigned int *)v7 + 11);
-  MmUnlockPreChargedPagedPool(v7[1], v21);
-  MmReturnChargesToLockPagedPool(v7[1], v21);
-  v22 = *v7;
-  v23 = *(_WORD *)(*v7 + 60) & 0x3FF;
-  v24 = *(_QWORD *)(qword_140C674C8 + 8 * v23);
-  if ( !v5 )
-    goto LABEL_35;
-  MiReturnCommit(*(_QWORD *)(qword_140C674C8 + 8 * v23), v5);
-  if ( (unsigned __int16 *)v24 != MiSystemPartition
-    || (v25 = KeGetCurrentPrcb(),
-        CachedResidentAvailable = (int)v25->CachedResidentAvailable,
-        (_DWORD)CachedResidentAvailable == -1) )
-  {
-LABEL_34:
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(v24 + 17280), v5);
-    goto LABEL_35;
-  }
-  if ( v5 + CachedResidentAvailable > 0x100 || v5 >= 0x80000 )
-  {
-LABEL_30:
-    if ( (int)CachedResidentAvailable > 192
-      && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
-                                              (volatile signed __int32 *)&v25->CachedResidentAvailable,
-                                              192,
-                                              CachedResidentAvailable) )
-    {
-      v5 += (int)CachedResidentAvailable - 192;
-    }
-    if ( !v5 )
-      goto LABEL_35;
-    goto LABEL_34;
-  }
-  while ( 1 )
-  {
-    v27 = _InterlockedCompareExchange(
-            (volatile signed __int32 *)&v25->CachedResidentAvailable,
-            CachedResidentAvailable + v5,
-            CachedResidentAvailable);
-    v16 = (_DWORD)CachedResidentAvailable == v27;
-    LODWORD(CachedResidentAvailable) = v27;
-    if ( v16 )
-      break;
-    if ( v27 == -1 || v5 + v27 > 0x100 )
-      goto LABEL_30;
-  }
-LABEL_35:
-  *(_QWORD *)(v22 + 120) ^= (*(_QWORD *)(v22 + 120) ^ (*(_QWORD *)(v22 + 120) - v4)) & 0xFFFFFFFFFLL;
-  _InterlockedExchangeAdd64(
-    (volatile signed __int64 *)(*(_QWORD *)(qword_140C674C8 + 8LL * (*(_WORD *)(v22 + 60) & 0x3FF)) + 17848LL),
-    -v4);
-  return v3;
+  v19 = 8LL * *(unsigned int *)(v6 + 44);
+  MmUnlockPreChargedPagedPool(*(_QWORD *)(v6 + 8), v19);
+  MmReturnChargesToLockPagedPool(*(_QWORD *)(v6 + 8), v19);
+  result = v4;
+  *(_QWORD *)(*(_QWORD *)v6 + 120LL) ^= (*(_QWORD *)(*(_QWORD *)v6 + 120LL) ^ (*(_QWORD *)(*(_QWORD *)v6 + 120LL) - v3)) & 0xFFFFFFFFFLL;
+  return result;
 }

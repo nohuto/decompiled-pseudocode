@@ -1,40 +1,40 @@
 /*
- * XREFs of InitializeGdiCrossSessionGlobals @ 0x1C00BD9A0
+ * XREFs of InitializeGdiCrossSessionGlobals @ 0x1C01370E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 InitializeGdiCrossSessionGlobals()
+__int64 __fastcall InitializeGdiCrossSessionGlobals(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  struct _RTL_AVL_TABLE *v1; // rcx
-  struct _RTL_AVL_TABLE *v2; // rcx
+  struct _RTL_AVL_TABLE *v5; // rcx
+  struct _RTL_AVL_TABLE *v6; // rcx
 
-  if ( !(unsigned int)UserIsCurrentSessionHostServiceSession() )
+  if ( gSessionId != (unsigned int)RtlGetCurrentServiceSessionId(a1, a2, a3, a4) )
     return 1LL;
-  *gpxsGlobals = GreCreateSemaphore();
-  if ( *gpxsGlobals )
+  *(_QWORD *)gpxsGlobals = GreCreateSemaphore();
+  if ( *(_QWORD *)gpxsGlobals )
   {
-    *(_QWORD *)(gpxsGlobals + 8LL) = Win32AllocPoolNonPaged(104LL, 1717988935LL);
-    v1 = *(struct _RTL_AVL_TABLE **)(gpxsGlobals + 8LL);
-    if ( v1 )
+    *((_QWORD *)gpxsGlobals + 1) = Win32AllocPoolNonPaged(104LL, 1717988935LL);
+    v5 = (struct _RTL_AVL_TABLE *)*((_QWORD *)gpxsGlobals + 1);
+    if ( v5 )
     {
       RtlInitializeGenericTableAvl(
-        v1,
+        v5,
         GDINetworkedFontFileNodeCompare,
         GDINetworkedFontFileNodeAlloc,
         GDINetworkedFontFileNodeFree,
         0LL);
-      *(_QWORD *)(gpxsGlobals + 16LL) = GreCreateSemaphore();
-      if ( *(_QWORD *)(gpxsGlobals + 16LL) )
+      *((_QWORD *)gpxsGlobals + 2) = GreCreateSemaphore();
+      if ( *((_QWORD *)gpxsGlobals + 2) )
       {
-        *(_QWORD *)(gpxsGlobals + 24LL) = Win32AllocPoolNonPaged(104LL, 1717990471LL);
-        v2 = *(struct _RTL_AVL_TABLE **)(gpxsGlobals + 24LL);
-        if ( v2 )
+        *((_QWORD *)gpxsGlobals + 3) = Win32AllocPoolNonPaged(104LL, 1717990471LL);
+        v6 = (struct _RTL_AVL_TABLE *)*((_QWORD *)gpxsGlobals + 3);
+        if ( v6 )
         {
           RtlInitializeGenericTableAvl(
-            v2,
+            v6,
             GDITrustedFontFileCompare,
             GDITrustedFontFileAlloc,
             GDITrustedFontFileFree,

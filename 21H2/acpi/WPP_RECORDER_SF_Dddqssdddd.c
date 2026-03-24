@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_Dddqssdddd @ 0x1C0021420
+ * XREFs of WPP_RECORDER_SF_Dddqssdddd @ 0x1C001498C
  * Callers:
- *     ACPIThermalWorker @ 0x1C00959C0 (ACPIThermalWorker.c)
+ *     ACPIThermalWorker @ 0x1C009AB00 (ACPIThermalWorker.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_Dddqssdddd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
@@ -98,7 +98,7 @@ __int64 WPP_RECORDER_SF_Dddqssdddd(__int64 a1, __int64 a2, __int64 a3, __int64 a
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, const char *, __int64, const char *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_bf1c19637c3439bdfb442f7739d79163_Traceguids,
+      &WPP_18eab87a8b67317afec152b8fbe84dda_Traceguids,
       31LL,
       (__int64 *)va,
       4LL,
@@ -140,7 +140,7 @@ __int64 WPP_RECORDER_SF_Dddqssdddd(__int64 a1, __int64 a2, __int64 a3, __int64 a
            a1,
            4LL,
            16LL,
-           &WPP_bf1c19637c3439bdfb442f7739d79163_Traceguids,
+           &WPP_18eab87a8b67317afec152b8fbe84dda_Traceguids,
            v17,
            (__int64 *)va,
            4LL,

@@ -1,10 +1,10 @@
 /*
- * XREFs of SepAdtInitializePrivilegeAuditing @ 0x14084CAF8
+ * XREFs of SepAdtInitializePrivilegeAuditing @ 0x14079E2A8
  * Callers:
- *     SepAdtRegNotificationCallback @ 0x14084CA10 (SepAdtRegNotificationCallback.c)
- *     SepAdtInitializeAuditingOptions @ 0x140B22004 (SepAdtInitializeAuditingOptions.c)
+ *     SepAdtRegNotificationCallback @ 0x14079E1C0 (SepAdtRegNotificationCallback.c)
+ *     SepAdtInitializeAuditingOptions @ 0x140A4BB0C (SepAdtInitializeAuditingOptions.c)
  * Callees:
- *     SepRegQueryValue @ 0x1406958D0 (SepRegQueryValue.c)
+ *     SepRegQueryValue @ 0x140717098 (SepRegQueryValue.c)
  */
 
 char SepAdtInitializePrivilegeAuditing()

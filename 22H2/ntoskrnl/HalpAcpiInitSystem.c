@@ -1,63 +1,32 @@
 /*
- * XREFs of HalpAcpiInitSystem @ 0x140A90C00
+ * XREFs of HalpAcpiInitSystem @ 0x1409A0060
  * Callers:
  *     <none>
  * Callees:
- *     HalpNumaSwapP0NodeToFront @ 0x1403A4C58 (HalpNumaSwapP0NodeToFront.c)
- *     HalpAcpiInitDiscard @ 0x140B66744 (HalpAcpiInitDiscard.c)
- *     HalpAcpiDetectPiix4 @ 0x140B66778 (HalpAcpiDetectPiix4.c)
- *     HalpAcpiPopulateTableCache @ 0x140B667EC (HalpAcpiPopulateTableCache.c)
- *     HalpAcpiPrmCacheInit @ 0x140B66860 (HalpAcpiPrmCacheInit.c)
- *     HalpAuditAcpiTables @ 0x140B66DA8 (HalpAuditAcpiTables.c)
+ *     HalpNumaSwapP0NodeToFront @ 0x1403BB674 (HalpNumaSwapP0NodeToFront.c)
+ *     HalpAcpiInitDiscard @ 0x140A63B68 (HalpAcpiInitDiscard.c)
+ *     HalpAuditAcpiTables @ 0x140A65350 (HalpAuditAcpiTables.c)
+ *     HalpAcpiPopulateTableCache @ 0x140A6597C (HalpAcpiPopulateTableCache.c)
  */
 
 __int64 __fastcall HalpAcpiInitSystem(int a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx
-  int v4; // ecx
-  int v5; // ecx
-  int v6; // ecx
-  int v7; // ecx
-  int v8; // ecx
-  __int64 result; // rax
 
   v3 = 0;
-  v4 = a1 - 7;
-  if ( !v4 )
+  switch ( a1 )
   {
-    HalpAcpiLoaderBlock = a3;
-    HalpAcpiInitDiscard(a3);
-    return v3;
-  }
-  v5 = v4 - 5;
-  if ( !v5 )
-  {
-    HalpNumaSwapP0NodeToFront();
-    return v3;
-  }
-  v6 = v5 - 5;
-  if ( !v6 )
-  {
-    HalpAuditAcpiTables(a3);
-    return v3;
-  }
-  v7 = v6 - 6;
-  if ( !v7 )
-  {
-    result = HalpAcpiPrmCacheInit();
-    if ( (int)result < 0 )
-      return result;
-    return (unsigned int)HalpAcpiPopulateTableCache();
-  }
-  v8 = v7 - 1;
-  if ( v8 )
-  {
-    if ( v8 == 4 )
-      return (unsigned int)HalpAcpiDetectPiix4();
-  }
-  else
-  {
-    HalpAcpiLoaderBlock = 0LL;
+    case 7:
+      HalpAcpiInitDiscard(a3);
+      break;
+    case 12:
+      HalpNumaSwapP0NodeToFront();
+      break;
+    case 17:
+      HalpAuditAcpiTables(a3);
+      break;
+    case 23:
+      return (unsigned int)HalpAcpiPopulateTableCache();
   }
   return v3;
 }

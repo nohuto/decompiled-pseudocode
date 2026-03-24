@@ -1,41 +1,45 @@
 /*
- * XREFs of IopProcessWorkItem @ 0x14031E4D0
+ * XREFs of IopProcessWorkItem @ 0x14026F6D0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     PspRevertContainerImpersonation @ 0x140259D1C (PspRevertContainerImpersonation.c)
- *     PsImpersonateContainerOfThread @ 0x140259DC0 (PsImpersonateContainerOfThread.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     EtwTraceThreadWorkItem @ 0x1405FD780 (EtwTraceThreadWorkItem.c)
+ *     PsImpersonateContainerOfThread @ 0x14021BC50 (PsImpersonateContainerOfThread.c)
+ *     PspRevertContainerImpersonation @ 0x14021FAA0 (PspRevertContainerImpersonation.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     EtwTraceThreadWorkItem @ 0x1405A8300 (EtwTraceThreadWorkItem.c)
  */
 
 struct _KTHREAD *__fastcall IopProcessWorkItem(__int64 a1)
 {
-  int v1; // ebp
-  _WORD *v2; // rsi
-  void (__fastcall *v4)(_WORD *, __int64, __int64); // r14
-  __int64 v5; // rax
+  _WORD *v1; // rbp
+  void (__fastcall *v3)(_WORD *, __int64, __int64); // rdi
+  int v4; // r14d
+  __int64 v5; // rcx
   __int64 v6; // rcx
-  void *v7; // rdi
+  void *v7; // rsi
   __int64 v8; // rdx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  _DWORD *v11; // r9
   struct _KTHREAD *result; // rax
-  __int128 v10; // [rsp+30h] [rbp-38h] BYREF
+  _WORD *v13; // rcx
+  __int128 v14; // [rsp+30h] [rbp-38h] BYREF
 
-  v1 = 0;
-  v2 = *(_WORD **)(a1 + 40);
-  v4 = *(void (__fastcall **)(_WORD *, __int64, __int64))(a1 + 32);
-  v10 = 0LL;
+  v1 = *(_WORD **)(a1 + 40);
+  v3 = *(void (__fastcall **)(_WORD *, __int64, __int64))(a1 + 32);
+  v4 = 0;
+  v14 = 0LL;
   v5 = *(_QWORD *)&NullGuid.Data1 - *(_QWORD *)(a1 + 68);
-  if ( *(_QWORD *)&NullGuid.Data1 == *(_QWORD *)(a1 + 68) )
+  if ( !v5 )
     v5 = *(_QWORD *)NullGuid.Data4 - *(_QWORD *)(a1 + 76);
   if ( v5 )
   {
-    v1 = 1;
-    v10 = *(_OWORD *)(a1 + 68);
-    KeGetCurrentThread()[1].WaitBlock[1].WaitListEntry.Flink = (struct _LIST_ENTRY *)&v10;
+    v4 = 1;
+    v14 = *(_OWORD *)(a1 + 68);
+    KeGetCurrentThread()[1].WaitBlock[1].WaitListEntry.Flink = (struct _LIST_ENTRY *)&v14;
   }
   v6 = *(_QWORD *)(a1 + 56);
   if ( v6 )
@@ -49,32 +53,32 @@ struct _KTHREAD *__fastcall IopProcessWorkItem(__int64 a1)
     v7 = 0LL;
   }
   if ( (DWORD2(PerfGlobalGroupMask) & 0x8000000) != 0 )
-    EtwTraceThreadWorkItem(v4, 1344LL);
+    EtwTraceThreadWorkItem(v3, 1344LL);
   v8 = *(_QWORD *)(a1 + 48);
   if ( *(_DWORD *)(a1 + 64) )
   {
-    v4(v2, v8, a1);
-  }
-  else if ( *v2 == 3 )
-  {
-    ((void (__fastcall *)(_WORD *, __int64))v4)(v2, v8);
+    v3(v1, v8, a1);
   }
   else
   {
-    ((void (__fastcall *)(_QWORD, __int64))v4)(0LL, v8);
+    if ( *v1 == 3 )
+      v13 = v1;
+    else
+      v13 = 0LL;
+    ((void (__fastcall *)(_WORD *, __int64))v3)(v13, v8);
   }
   if ( (DWORD2(PerfGlobalGroupMask) & 0x8000000) != 0 )
-    EtwTraceThreadWorkItem(v4, 1345LL);
-  ObfDereferenceObjectWithTag(v2, 0x746C6644u);
-  if ( v1 )
+    EtwTraceThreadWorkItem(v3, 1345LL);
+  ObfDereferenceObjectWithTag(v1, 0x746C6644u);
+  if ( v4 )
     KeGetCurrentThread()[1].WaitBlock[1].WaitListEntry.Flink = 0LL;
   if ( v7 )
   {
-    PspRevertContainerImpersonation((ULONG_PTR)KeGetCurrentThread());
+    PspRevertContainerImpersonation((ULONG_PTR)KeGetCurrentThread(), v9, v10, v11);
     ObfDereferenceObjectWithTag(v7, 0x746C6644u);
   }
   result = KeGetCurrentThread();
   if ( result->WaitBlock[3].SpareLong )
-    KeBugCheckEx(1u, (ULONG_PTR)v4, KeGetCurrentThread()->ApcStateIndex, KeGetCurrentThread()->CombinedApcDisable, 0LL);
+    KeBugCheckEx(1u, (ULONG_PTR)v3, KeGetCurrentThread()->ApcStateIndex, KeGetCurrentThread()->CombinedApcDisable, 0LL);
   return result;
 }

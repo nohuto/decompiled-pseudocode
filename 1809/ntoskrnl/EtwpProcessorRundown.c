@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpProcessorRundown @ 0x1408BF5C0
+ * XREFs of EtwpProcessorRundown @ 0x1408BF5A0
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140726194 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140726174 (EtwpKernelTraceRundown.c)
  * Callees:
  *     KeGetProcessorNumberFromIndex @ 0x1400897F0 (KeGetProcessorNumberFromIndex.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7900 (KeQueryActiveProcessorCountEx.c)
- *     EtwpLogKernelEvent @ 0x1400C71B0 (EtwpLogKernelEvent.c)
- *     KeQueryActiveGroupCount @ 0x1400E3BF0 (KeQueryActiveGroupCount.c)
- *     KeQueryHighestNodeNumber @ 0x1400E3C00 (KeQueryHighestNodeNumber.c)
- *     KeQueryNodeActiveAffinity @ 0x1400E3C20 (KeQueryNodeActiveAffinity.c)
- *     KeQueryGroupAffinity @ 0x1400F3660 (KeQueryGroupAffinity.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
+ *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
+ *     KeQueryActiveGroupCount @ 0x1400E3C10 (KeQueryActiveGroupCount.c)
+ *     KeQueryHighestNodeNumber @ 0x1400E3C20 (KeQueryHighestNodeNumber.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
+ *     KeQueryGroupAffinity @ 0x1400F3680 (KeQueryGroupAffinity.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

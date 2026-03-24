@@ -1,27 +1,25 @@
 /*
- * XREFs of ?UnmapDeferredSharedSectionViews@CComposition@@IEAAXXZ @ 0x1801B522C
+ * XREFs of ?UnmapDeferredSharedSectionViews@CComposition@@IEAAXXZ @ 0x180155C70
  * Callers:
- *     ??1CComposition@@MEAA@XZ @ 0x1801B3CEC (--1CComposition@@MEAA@XZ.c)
+ *     ??1CComposition@@MEAA@XZ @ 0x180154BF0 (--1CComposition@@MEAA@XZ.c)
  * Callees:
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D54D8 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800BFE98 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
  */
 
 void __fastcall CComposition::UnmapDeferredSharedSectionViews(CComposition *this)
 {
-  __int64 v2; // rsi
-  char *v3; // rbx
+  __int64 v2; // rdi
 
-  if ( *((_DWORD *)this + 208) )
+  if ( *((_DWORD *)this + 170) )
   {
     v2 = 0LL;
-    v3 = (char *)this + 808;
     do
     {
-      UnmapViewOfFile(*(LPCVOID *)(*(_QWORD *)v3 + 8 * v2));
+      UnmapViewOfFile(*(LPCVOID *)(*((_QWORD *)this + 82) + 8 * v2));
       v2 = (unsigned int)(v2 + 1);
     }
-    while ( (unsigned int)v2 < *((_DWORD *)this + 208) );
-    *((_DWORD *)v3 + 6) = 0;
-    DynArrayImpl<0>::ShrinkToSize((__int64)v3, 8u);
+    while ( (unsigned int)v2 < *((_DWORD *)this + 170) );
+    *((_DWORD *)this + 170) = 0;
+    DynArrayImpl<0>::ShrinkToSize((__int64)this + 656, 8u);
   }
 }

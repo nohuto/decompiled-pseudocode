@@ -1,20 +1,19 @@
 /*
- * XREFs of ?KernelCreateCompositionInputSink@CompositionInputObject@@SAJPEBUCOMPOSITION_INPUT_SINK_V2@@PEAPEAX@Z @ 0x1C0058084
+ * XREFs of ?KernelCreateCompositionInputSink@CompositionInputObject@@SAJPEBUCOMPOSITION_INPUT_SINK_V2@@PEAPEAX@Z @ 0x1C00944D4
  * Callers:
- *     ?_CreateCompositionInputSink@@YAJPEBUCOMPOSITION_INPUT_SINK@@HPEAPEAX@Z @ 0x1C0057E3C (-_CreateCompositionInputSink@@YAJPEBUCOMPOSITION_INPUT_SINK@@HPEAPEAX@Z.c)
- *     ?RedirectMouseToHwnd@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAUHWND__@@PEBUtagMsgRoutingInfo@@KK@Z @ 0x1C021B798 (-RedirectMouseToHwnd@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAUHWND.c)
+ *     ?RedirectMouseToHwnd@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAUHWND__@@PEBUtagMsgRoutingInfo@@KK@Z @ 0x1C0082EC0 (-RedirectMouseToHwnd@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAUHWND.c)
+ *     ?_CreateCompositionInputSink@@YAJPEBUCOMPOSITION_INPUT_SINK@@HPEAPEAX@Z @ 0x1C009428C (-_CreateCompositionInputSink@@YAJPEBUCOMPOSITION_INPUT_SINK@@HPEAPEAX@Z.c)
  * Callees:
- *     UserIsCurrentProcessDwm @ 0x1C0014970 (UserIsCurrentProcessDwm.c)
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     ?Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z @ 0x1C003802C (-Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z.c)
- *     UserAllocDefaultCompositionSecurityDescriptor @ 0x1C0058980 (UserAllocDefaultCompositionSecurityDescriptor.c)
- *     ?ValidateInputSink@CompositionInputObject@@SAJAEBUCOMPOSITION_INPUT_SINK_V2@@@Z @ 0x1C0059208 (-ValidateInputSink@CompositionInputObject@@SAJAEBUCOMPOSITION_INPUT_SINK_V2@@@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C0093F40 (-ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z.c)
- *     ?Create@CompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4CompositionObjectType@@KP6AJPEAU1@PEAXPEAPEAVICompositionObject@@@Z3PEAPEAX@Z @ 0x1C009C73C (-Create@CompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4CompositionObjectType@@KP6AJPEAU1@PEA.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@U1@U2@U2@U1@U1@U?$_tlgWrapperByRef@$0BA@@@U3@U1@U2@U2@U1@U1@U4@U3@U1@U2@U2@U1@U1@U4@U3@U1@U2@U2@U1@U1@U4@U3@U1@U2@U2@U1@U1@U4@U?$_tlgWrapSz@G@@U5@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@34433AEBU?$_tlgWrapperByRef@$0BA@@@5344336534433653443365344336AEBU?$_tlgWrapSz@G@@7@Z @ 0x1C023C814 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@D@@U1@U2@U2@U1@U1@U-.c)
- *     ?CompositionInputQueueTypeToString@InputTraceLogging@@CAPEBDW4CompositionInputQueueType@@@Z @ 0x1C023CD1C (-CompositionInputQueueTypeToString@InputTraceLogging@@CAPEBDW4CompositionInputQueueType@@@Z.c)
+ *     UserAllocDefaultCompositionSecurityDescriptor @ 0x1C002A140 (UserAllocDefaultCompositionSecurityDescriptor.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z @ 0x1C004387C (-Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z.c)
+ *     UserIsCurrentProcessDwm @ 0x1C00478C0 (UserIsCurrentProcessDwm.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
+ *     ?ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C0082B80 (-ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     ?Create@CompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4CompositionObjectType@@KP6AJPEAU1@PEAXPEAPEAVICompositionObject@@@Z3PEAPEAX@Z @ 0x1C0091DF8 (-Create@CompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4CompositionObjectType@@KP6AJPEAU1@PEA.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@U1@U2@U2@U1@U1@U?$_tlgWrapperByRef@$0BA@@@U3@U1@U2@U2@U1@U1@U4@U3@U1@U2@U2@U1@U1@U4@U3@U1@U2@U2@U1@U1@U4@U3@U1@U2@U2@U1@U1@U4@U?$_tlgWrapSz@G@@U5@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@34433AEBU?$_tlgWrapperByRef@$0BA@@@5344336534433653443365344336AEBU?$_tlgWrapSz@G@@7@Z @ 0x1C01FA9FC (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@D@@U1@U2@U2@U1@U1@U-.c)
+ *     ?CompositionInputQueueTypeToString@InputTraceLogging@@CAPEBDW4CompositionInputQueueType@@@Z @ 0x1C01FAF04 (-CompositionInputQueueTypeToString@InputTraceLogging@@CAPEBDW4CompositionInputQueueType@@@Z.c)
  */
 
 __int64 __fastcall CompositionInputObject::KernelCreateCompositionInputSink(
@@ -30,33 +29,33 @@ __int64 __fastcall CompositionInputObject::KernelCreateCompositionInputSink(
   __int128 v9; // xmm1
   __int128 v10; // xmm0
   __int128 v11; // xmm1
-  __int128 v12; // xmm0
-  __int64 v13; // rax
-  __int128 v14; // xmm1
-  int v15; // edi
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  __int64 v20; // rcx
-  unsigned int v21; // ebx
-  int v22; // eax
-  PVOID v23; // rsi
-  __int64 v24; // r9
-  _OWORD *v25; // rcx
-  __int64 v26; // rdx
-  _OWORD *v27; // rax
+  __int64 v12; // rax
+  int v13; // ebx
+  __int128 v14; // xmm0
+  __int128 v15; // xmm1
+  int v16; // ecx
+  ACCESS_MASK v17; // edi
+  int v18; // eax
+  PVOID v19; // rsi
+  __int64 v20; // r9
+  _OWORD *v21; // rcx
+  __int64 v22; // rdx
+  _OWORD *v23; // rax
+  __int128 v24; // xmm1
+  __int128 v25; // xmm0
+  __int128 v26; // xmm1
+  __int128 v27; // xmm0
   __int128 v28; // xmm1
   __int128 v29; // xmm0
   __int128 v30; // xmm1
   __int128 v31; // xmm0
   __int128 v32; // xmm1
-  __int128 v33; // xmm0
-  __int128 v34; // xmm1
-  __int128 v35; // xmm0
-  __int128 v36; // xmm1
-  __int64 v37; // rax
-  HANDLE v38; // rbx
+  __int64 v33; // rax
+  __int64 v34; // rdx
+  __int64 v35; // r8
+  __int64 v36; // r9
+  HANDLE v37; // rdi
+  __int64 v38; // r8
   PVOID v40; // r14
   const wchar_t *v41; // rax
   const wchar_t *v42; // rax
@@ -108,44 +107,43 @@ __int64 __fastcall CompositionInputObject::KernelCreateCompositionInputSink(
   PVOID v88; // [rsp+2A0h] [rbp+C0h]
   __int64 v89; // [rsp+2A8h] [rbp+C8h]
   _BYTE v90[304]; // [rsp+2B0h] [rbp+D0h] BYREF
-  _BYTE v91[4]; // [rsp+3E0h] [rbp+200h] BYREF
-  int v92; // [rsp+3E4h] [rbp+204h]
-  unsigned int v93; // [rsp+3E8h] [rbp+208h]
-  __int64 v94; // [rsp+3F0h] [rbp+210h]
-  int v95; // [rsp+3F8h] [rbp+218h]
-  int v96; // [rsp+3FCh] [rbp+21Ch]
-  __int64 v97; // [rsp+400h] [rbp+220h]
-  __int64 v98; // [rsp+408h] [rbp+228h]
-  char v99; // [rsp+410h] [rbp+230h] BYREF
-  unsigned int v100; // [rsp+420h] [rbp+240h]
-  __int64 v101; // [rsp+428h] [rbp+248h]
-  int v102; // [rsp+430h] [rbp+250h]
-  int v103; // [rsp+434h] [rbp+254h]
-  __int64 v104; // [rsp+438h] [rbp+258h]
-  __int64 v105; // [rsp+440h] [rbp+260h]
-  char v106; // [rsp+448h] [rbp+268h] BYREF
-  unsigned int v107; // [rsp+458h] [rbp+278h]
-  __int64 v108; // [rsp+460h] [rbp+280h]
-  int v109; // [rsp+468h] [rbp+288h]
-  int v110; // [rsp+46Ch] [rbp+28Ch]
-  __int64 v111; // [rsp+470h] [rbp+290h]
-  __int64 v112; // [rsp+478h] [rbp+298h]
-  char v113; // [rsp+480h] [rbp+2A0h] BYREF
-  unsigned int v114; // [rsp+490h] [rbp+2B0h]
-  __int64 v115; // [rsp+498h] [rbp+2B8h]
-  int v116; // [rsp+4A0h] [rbp+2C0h]
-  int v117; // [rsp+4A4h] [rbp+2C4h]
-  __int64 v118; // [rsp+4A8h] [rbp+2C8h]
-  __int64 v119; // [rsp+4B0h] [rbp+2D0h]
-  char v120; // [rsp+4B8h] [rbp+2D8h] BYREF
-  unsigned int v121; // [rsp+4C8h] [rbp+2E8h]
-  __int64 v122; // [rsp+4D0h] [rbp+2F0h]
-  int v123; // [rsp+4D8h] [rbp+2F8h]
-  int v124; // [rsp+4DCh] [rbp+2FCh]
-  __int64 v125; // [rsp+4E0h] [rbp+300h]
-  __int64 v126; // [rsp+4E8h] [rbp+308h]
-  char v127; // [rsp+4F0h] [rbp+310h] BYREF
-  char v128; // [rsp+500h] [rbp+320h]
+  _DWORD v91[2]; // [rsp+3E0h] [rbp+200h] BYREF
+  unsigned int v92; // [rsp+3E8h] [rbp+208h]
+  __int64 v93; // [rsp+3F0h] [rbp+210h]
+  int v94; // [rsp+3F8h] [rbp+218h]
+  int v95; // [rsp+3FCh] [rbp+21Ch]
+  __int64 v96; // [rsp+400h] [rbp+220h]
+  __int64 v97; // [rsp+408h] [rbp+228h]
+  char v98; // [rsp+410h] [rbp+230h] BYREF
+  unsigned int v99; // [rsp+420h] [rbp+240h]
+  __int64 v100; // [rsp+428h] [rbp+248h]
+  int v101; // [rsp+430h] [rbp+250h]
+  int v102; // [rsp+434h] [rbp+254h]
+  __int64 v103; // [rsp+438h] [rbp+258h]
+  __int64 v104; // [rsp+440h] [rbp+260h]
+  char v105; // [rsp+448h] [rbp+268h] BYREF
+  unsigned int v106; // [rsp+458h] [rbp+278h]
+  __int64 v107; // [rsp+460h] [rbp+280h]
+  int v108; // [rsp+468h] [rbp+288h]
+  int v109; // [rsp+46Ch] [rbp+28Ch]
+  __int64 v110; // [rsp+470h] [rbp+290h]
+  __int64 v111; // [rsp+478h] [rbp+298h]
+  char v112; // [rsp+480h] [rbp+2A0h] BYREF
+  unsigned int v113; // [rsp+490h] [rbp+2B0h]
+  __int64 v114; // [rsp+498h] [rbp+2B8h]
+  int v115; // [rsp+4A0h] [rbp+2C0h]
+  int v116; // [rsp+4A4h] [rbp+2C4h]
+  __int64 v117; // [rsp+4A8h] [rbp+2C8h]
+  __int64 v118; // [rsp+4B0h] [rbp+2D0h]
+  char v119; // [rsp+4B8h] [rbp+2D8h] BYREF
+  unsigned int v120; // [rsp+4C8h] [rbp+2E8h]
+  __int64 v121; // [rsp+4D0h] [rbp+2F0h]
+  int v122; // [rsp+4D8h] [rbp+2F8h]
+  int v123; // [rsp+4DCh] [rbp+2FCh]
+  __int64 v124; // [rsp+4E0h] [rbp+300h]
+  __int64 v125; // [rsp+4E8h] [rbp+308h]
+  char v126; // [rsp+4F0h] [rbp+310h] BYREF
+  char v127; // [rsp+500h] [rbp+320h]
 
   Handle = (HANDLE)-1LL;
   v2 = v91;
@@ -172,36 +170,38 @@ __int64 __fastcall CompositionInputObject::KernelCreateCompositionInputSink(
     --v3;
   }
   while ( v3 );
-  v12 = *(_OWORD *)a1;
-  v13 = *((_QWORD *)a1 + 4);
-  v14 = *((_OWORD *)a1 + 1);
+  v12 = *((_QWORD *)a1 + 4);
+  v13 = 0;
+  v14 = *(_OWORD *)a1;
   Object = 0LL;
-  *v2 = v12;
-  v2[1] = v14;
-  *((_QWORD *)v2 + 4) = v13;
-  v15 = CompositionInputObject::ValidateInputSink((const struct COMPOSITION_INPUT_SINK_V2 *)v91);
-  if ( UserIsCurrentProcessDwm(v17, v16, v18, v19) )
+  v15 = *((_OWORD *)a1 + 1);
+  *v2 = v14;
+  v2[1] = v15;
+  *((_QWORD *)v2 + 4) = v12;
+  if ( v91[0] != 232 && (v91[0] != 296 || v120 > 4) || v92 > 4 || v99 > 4 || v106 > 4 || v113 > 4 )
+    v13 = -1073741811;
+  if ( UserIsCurrentProcessDwm((__int64)a1, (__int64)a2) )
   {
-    v20 = 0LL;
-    v21 = 3;
+    v16 = 0;
+    v17 = 3;
   }
   else
   {
-    v20 = 3221225472LL;
-    v21 = -1073741824;
+    v16 = -1073741824;
+    v17 = -1073741824;
   }
-  if ( v15 < 0 )
+  if ( v13 < 0 )
   {
-    v38 = Handle;
-LABEL_27:
-    if ( v38 != (HANDLE)-1LL )
-      NtClose(v38);
-    return (unsigned int)v15;
+    v37 = Handle;
+LABEL_35:
+    if ( v37 != (HANDLE)-1LL )
+      NtClose(v37);
+    return (unsigned int)v13;
   }
-  v22 = UserAllocDefaultCompositionSecurityDescriptor(v20, &Object);
-  v23 = Object;
-  v15 = v22;
-  if ( v22 >= 0 )
+  v18 = UserAllocDefaultCompositionSecurityDescriptor(v16, (struct _ACL **)&Object);
+  v19 = Object;
+  v13 = v18;
+  if ( v18 >= 0 )
   {
     v83[1] = 0;
     v87 = 0;
@@ -212,101 +212,111 @@ LABEL_27:
     v83[0] = 48;
     v88 = Object;
     KeEnterCriticalRegion();
-    v25 = v90;
-    v26 = 2LL;
-    v27 = v91;
+    v21 = v90;
+    v22 = 2LL;
+    v23 = v91;
     do
     {
-      v28 = v27[1];
-      *v25 = *v27;
-      v29 = v27[2];
-      v25[1] = v28;
-      v30 = v27[3];
-      v25[2] = v29;
-      v31 = v27[4];
-      v25[3] = v30;
-      v32 = v27[5];
-      v25[4] = v31;
-      v33 = v27[6];
-      v25[5] = v32;
-      v34 = v27[7];
-      v27 += 8;
-      v25[6] = v33;
-      v25 += 8;
-      *(v25 - 1) = v34;
-      --v26;
+      v24 = v23[1];
+      *v21 = *v23;
+      v25 = v23[2];
+      v21[1] = v24;
+      v26 = v23[3];
+      v21[2] = v25;
+      v27 = v23[4];
+      v21[3] = v26;
+      v28 = v23[5];
+      v21[4] = v27;
+      v29 = v23[6];
+      v21[5] = v28;
+      v30 = v23[7];
+      v23 += 8;
+      v21[6] = v29;
+      v21 += 8;
+      *(v21 - 1) = v30;
+      --v22;
     }
-    while ( v26 );
-    v35 = *v27;
-    LOBYTE(v24) = 1;
-    v36 = v27[1];
-    v37 = *((_QWORD *)v27 + 4);
-    *v25 = v35;
-    v25[1] = v36;
-    *((_QWORD *)v25 + 4) = v37;
-    v15 = CompositionObject::Create(v25, v83, v21, v24, 2, 192, CompositionInputObject::ObjectInit, v90, &Handle);
+    while ( v22 );
+    v31 = *v23;
+    LOBYTE(v20) = 1;
+    v32 = v23[1];
+    v33 = *((_QWORD *)v23 + 4);
+    *v21 = v31;
+    v21[1] = v32;
+    *((_QWORD *)v21 + 4) = v33;
+    v13 = CompositionObject::Create(
+            (__int64)v21,
+            (__int64)v83,
+            v17,
+            v20,
+            2,
+            200,
+            (__int64 (__fastcall *)(PVOID, __int64, char *))CompositionInputObject::ObjectInit,
+            (__int64)v90,
+            &Handle);
     KeLeaveCriticalRegion();
-    if ( v15 >= 0 )
+    if ( v13 >= 0 )
     {
-      v38 = Handle;
+      v37 = Handle;
       *a2 = Handle;
-      if ( !InputTraceLogging::Enabled(0) )
-        goto LABEL_11;
+      if ( !InputTraceLogging::Enabled(0, v34, v35, v36) )
+        goto LABEL_18;
       Object = 0LL;
-      if ( (int)CompositionInputObject::ResolveHandle(v38, 1u, 1, (struct CompositionInputObject **)&Object) >= 0 )
+      LOBYTE(v38) = 1;
+      if ( (int)CompositionInputObject::ResolveHandle(v37, 1LL, v38, (struct CompositionInputObject **)&Object) >= 0 )
       {
         v40 = Object;
-        if ( (unsigned int)dword_1C028EE70 > 5 && tlgKeywordOn((__int64)&dword_1C028EE70, 4LL) )
+        if ( (unsigned int)dword_1C024BA90 > 5 && tlgKeywordOn((__int64)&dword_1C024BA90, 4LL) )
         {
           v41 = L"FallbackInteraction";
-          if ( (v128 & 2) == 0 )
-            v41 = &word_1C0251294;
+          if ( (v127 & 2) == 0 )
+            v41 = &word_1C0210C64;
           *(_QWORD *)&v54[1] = v41;
           v42 = L"Implicit";
-          if ( (v128 & 1) == 0 )
-            v42 = &word_1C0251294;
+          if ( (v127 & 1) == 0 )
+            v42 = &word_1C0210C64;
           v55 = (__int64)v42;
-          v56 = (__int64)&v127;
-          v57 = v126;
-          v58 = v125;
-          v49 = v124;
-          v45 = v123;
-          v59 = v122;
-          v60 = InputTraceLogging::CompositionInputQueueTypeToString(v121);
-          v61 = (__int64)&v120;
-          v62 = v119;
-          v63 = v118;
-          v46 = v117;
-          v47 = v116;
-          v64 = v115;
-          v65 = InputTraceLogging::CompositionInputQueueTypeToString(v114);
-          v66 = (__int64)&v113;
-          v67 = v112;
-          v68 = v111;
-          v48 = v110;
-          v54[0] = v109;
-          v69 = v108;
-          v70 = InputTraceLogging::CompositionInputQueueTypeToString(v107);
-          v71 = (__int64)&v106;
-          v72 = v105;
-          v73 = v104;
-          v50 = v103;
-          v51 = v102;
-          v74 = v101;
-          v75 = InputTraceLogging::CompositionInputQueueTypeToString(v100);
-          v76 = (__int64)&v99;
-          v77 = v98;
-          v78 = v97;
-          v52 = v96;
-          v53 = v95;
-          v79 = v94;
-          v80 = InputTraceLogging::CompositionInputQueueTypeToString(v93);
-          LODWORD(Object) = v92;
-          v81 = (__int64)v38;
+          v56 = (__int64)&v126;
+          v57 = v125;
+          v58 = v124;
+          v49 = v123;
+          v45 = v122;
+          v59 = v121;
+          v60 = InputTraceLogging::CompositionInputQueueTypeToString(v120);
+          v61 = (__int64)&v119;
+          v62 = v118;
+          v63 = v117;
+          v46 = v116;
+          v47 = v115;
+          v64 = v114;
+          v65 = InputTraceLogging::CompositionInputQueueTypeToString(v113);
+          v66 = (__int64)&v112;
+          v67 = v111;
+          v68 = v110;
+          v48 = v109;
+          v54[0] = v108;
+          v69 = v107;
+          v70 = InputTraceLogging::CompositionInputQueueTypeToString(v106);
+          v71 = (__int64)&v105;
+          v72 = v104;
+          v73 = v103;
+          v50 = v102;
+          v51 = v101;
+          v74 = v100;
+          v75 = InputTraceLogging::CompositionInputQueueTypeToString(v99);
+          v76 = (__int64)&v98;
+          v77 = v97;
+          v78 = v96;
+          v52 = v95;
+          v53 = v94;
+          v79 = v93;
+          v80 = InputTraceLogging::CompositionInputQueueTypeToString(v92);
+          LODWORD(Object) = v91[1];
+          v81 = (__int64)v37;
           v82 = (__int64)v40;
           _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByRef<16>,_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByRef<16>,_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByRef<16>,_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByRef<16>,_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByRef<16>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>>(
-            (int)&dword_1C028EE70,
-            (int)&dword_1C0264B0A,
+            (int)&dword_1C024BA90,
+            (int)&dword_1C0221968,
             (__int64)&v82,
             (__int64)&v81,
             (__int64)&Object,
@@ -352,16 +362,14 @@ LABEL_27:
       }
     }
   }
-  v38 = Handle;
-LABEL_11:
-  if ( v23 )
+  v37 = Handle;
+LABEL_18:
+  if ( v19 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      v23);
-    v38 = Handle;
+    Win32FreePool((__int64)v19);
+    v37 = Handle;
   }
-  if ( v15 < 0 )
-    goto LABEL_27;
-  return (unsigned int)v15;
+  if ( v13 < 0 )
+    goto LABEL_35;
+  return (unsigned int)v13;
 }

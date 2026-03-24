@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0?$SmartObjStackRef@UtagPOPUPMENU@@@@QEAA@XZ @ 0x1C012CCB8
+ * XREFs of ??0?$SmartObjStackRef@UtagPOPUPMENU@@@@QEAA@XZ @ 0x1C011C4F0
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0046340 (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
  */
 
 _QWORD *__fastcall SmartObjStackRef<tagPOPUPMENU>::SmartObjStackRef<tagPOPUPMENU>(_QWORD *a1)
@@ -13,7 +13,7 @@ _QWORD *__fastcall SmartObjStackRef<tagPOPUPMENU>::SmartObjStackRef<tagPOPUPMENU
   ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   a1[1] = 0LL;
   *a1 = &gSmartObjNullRef;
-  a1[1] = *(_QWORD *)(ThreadWin32Thread + 1512);
-  *(_QWORD *)(ThreadWin32Thread + 1512) = a1 + 1;
+  a1[1] = *(_QWORD *)(ThreadWin32Thread + 1472);
+  *(_QWORD *)(ThreadWin32Thread + 1472) = a1 + 1;
   return a1;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmSiLockViewOfSection @ 0x14020B76C
+ * XREFs of CmSiLockViewOfSection @ 0x140362B90
  * Callers:
- *     HvpViewMapMakeViewRangeValid @ 0x14068DB00 (HvpViewMapMakeViewRangeValid.c)
+ *     HvpViewMapMakeViewRangeValid @ 0x140723924 (HvpViewMapMakeViewRangeValid.c)
  * Callees:
- *     ZwLockVirtualMemory @ 0x14041D9E0 (ZwLockVirtualMemory.c)
+ *     ZwLockVirtualMemory @ 0x1403FC560 (ZwLockVirtualMemory.c)
  */
 
 __int64 __fastcall CmSiLockViewOfSection(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)

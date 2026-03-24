@@ -1,32 +1,41 @@
 /*
- * XREFs of ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0069710
+ * XREFs of ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0011430
  * Callers:
- *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0024CFC (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
- *     ?CreateShutdownEvent@@YAJPEBGKPEAPEAX@Z @ 0x1C003CFF0 (-CreateShutdownEvent@@YAJPEBGKPEAPEAX@Z.c)
- *     xxxSystemParametersInfoWorker @ 0x1C0043D70 (xxxSystemParametersInfoWorker.c)
- *     xxxResolveDesktop @ 0x1C0067670 (xxxResolveDesktop.c)
- *     xxxUpdatePerUserSystemParameters @ 0x1C0072BDC (xxxUpdatePerUserSystemParameters.c)
- *     ?CreateDesktopNotificationEvent@@YAJPEAX@Z @ 0x1C00B1B24 (-CreateDesktopNotificationEvent@@YAJPEAX@Z.c)
- *     ?GrepDwmCreateComposedEvent@@YAJPEAUDwmState@@@Z @ 0x1C00B1D78 (-GrepDwmCreateComposedEvent@@YAJPEAUDwmState@@@Z.c)
- *     ?ProbeAndDeepCaptureWinStaDesktopObjectAttributes@@YAJHPEAU_OBJECT_ATTRIBUTES@@AEAY0BAA@GAEAU1@AEAU_SECURITY_QUALITY_OF_SERVICE@@AEAPEAXAEAU_UNICODE_STRING@@AEAPEAG@Z @ 0x1C013B3F8 (-ProbeAndDeepCaptureWinStaDesktopObjectAttributes@@YAJHPEAU_OBJECT_ATTRIBUTES@@AEAY0BAA@GAEAU1@A.c)
- *     ?SetHighContrastWorker@@YAHPEAUtagINTERNALSETHIGHCONTRAST@@HPEAH@Z @ 0x1C01C7C6C (-SetHighContrastWorker@@YAHPEAUtagINTERNALSETHIGHCONTRAST@@HPEAH@Z.c)
- *     ?SetMouseKeys@@YAHPEAU_UNICODE_STRING@@PEAUtagMOUSEKEYS@@@Z @ 0x1C01C7EBC (-SetMouseKeys@@YAHPEAU_UNICODE_STRING@@PEAUtagMOUSEKEYS@@@Z.c)
- *     ?SetSoundSentry@@YAHPEAU_UNICODE_STRING@@PEAUtagSOUNDSENTRYW@@@Z @ 0x1C01C7FBC (-SetSoundSentry@@YAHPEAU_UNICODE_STRING@@PEAUtagSOUNDSENTRYW@@@Z.c)
- *     UpdateWinIniInt @ 0x1C01C86A0 (UpdateWinIniInt.c)
+ *     ?CreateDesktopNotificationEvent@@YAJPEAX@Z @ 0x1C000DEB8 (-CreateDesktopNotificationEvent@@YAJPEAX@Z.c)
+ *     ?GrepDwmCreateComposedEvent@@YAJPEAUDwmState@@@Z @ 0x1C000E288 (-GrepDwmCreateComposedEvent@@YAJPEAUDwmState@@@Z.c)
+ *     ?CreateShutdownEvent@@YAJPEBGKPEAPEAX@Z @ 0x1C000E704 (-CreateShutdownEvent@@YAJPEBGKPEAPEAX@Z.c)
+ *     xxxResolveDesktop @ 0x1C000F4F0 (xxxResolveDesktop.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C0026774 (xxxUpdatePerUserSystemParameters.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
+ *     ?SetSystemCursor@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@KPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@PEAGI@Z @ 0x1C012906C (-SetSystemCursor@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@KPEAU_UNICODE_STRING@@W4InputTracin.c)
+ *     ?ProbeAndDeepCaptureWinStaDesktopObjectAttributes@@YAJHPEAU_OBJECT_ATTRIBUTES@@AEAY0BAA@GAEAU1@AEAU_SECURITY_QUALITY_OF_SERVICE@@AEAPEAXAEAU_UNICODE_STRING@@AEAPEAG@Z @ 0x1C01686D4 (-ProbeAndDeepCaptureWinStaDesktopObjectAttributes@@YAJHPEAU_OBJECT_ATTRIBUTES@@AEAY0BAA@GAEAU1@A.c)
+ *     ?SetHighContrastWorker@@YAHPEAUtagINTERNALSETHIGHCONTRAST@@HPEAH@Z @ 0x1C01D67E8 (-SetHighContrastWorker@@YAHPEAUtagINTERNALSETHIGHCONTRAST@@HPEAH@Z.c)
+ *     ?SetMouseKeys@@YAHPEAU_UNICODE_STRING@@PEAUtagMOUSEKEYS@@@Z @ 0x1C01D6A28 (-SetMouseKeys@@YAHPEAU_UNICODE_STRING@@PEAUtagMOUSEKEYS@@@Z.c)
+ *     ?SetSoundSentry@@YAHPEAU_UNICODE_STRING@@PEAUtagSOUNDSENTRYW@@@Z @ 0x1C01D6B28 (-SetSoundSentry@@YAHPEAU_UNICODE_STRING@@PEAUtagSOUNDSENTRYW@@@Z.c)
+ *     UpdateWinIniInt @ 0x1C01D7540 (UpdateWinIniInt.c)
+ *     ?ReadTabletButtonConfig@@YAJIQEBGPEAUtagTABLET_BUTTON_DESK_CONFIG@@@Z @ 0x1C01D843C (-ReadTabletButtonConfig@@YAJIQEBGPEAUtagTABLET_BUTTON_DESK_CONFIG@@@Z.c)
+ *     ?ReadTabletButtonIndex@@YAJIPEAK@Z @ 0x1C01D86A4 (-ReadTabletButtonIndex@@YAJIPEAK@Z.c)
  * Callees:
- *     RtlStringVPrintfWorkerW @ 0x1C006974C (RtlStringVPrintfWorkerW.c)
+ *     RtlStringVPrintfWorkerW_0 @ 0x1C0011488 (RtlStringVPrintfWorkerW_0.c)
  */
 
-NTSTATUS RtlStringCchPrintfW(unsigned __int16 *a1, size_t a2, size_t *a3, ...)
+__int64 RtlStringCchPrintfW(unsigned __int16 *a1, size_t a2, size_t *a3, ...)
 {
-  NTSTATUS result; // eax
+  int v3; // r9d
   va_list va; // [rsp+68h] [rbp+20h] BYREF
 
   va_start(va, a3);
-  if ( a2 - 1 <= 0x7FFFFFFE )
-    return RtlStringVPrintfWorkerW(a1, a2, a3, (NTSTRSAFE_PCWSTR)a3, va);
-  result = -1073741811;
-  if ( a2 )
-    *a1 = 0;
-  return result;
+  v3 = 0;
+  if ( a2 - 1 > 0x7FFFFFFE )
+    v3 = -1073741811;
+  if ( v3 < 0 )
+  {
+    if ( a2 )
+      *a1 = 0;
+  }
+  else
+  {
+    return (unsigned int)RtlStringVPrintfWorkerW_0(a1, a2, a3, (NTSTRSAFE_PCWSTR)a3, va);
+  }
+  return (unsigned int)v3;
 }

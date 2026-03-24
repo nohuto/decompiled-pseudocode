@@ -1,16 +1,16 @@
 /*
- * XREFs of MiObtainSystemVa @ 0x14026B32C
+ * XREFs of MiObtainSystemVa @ 0x1402B37E0
  * Callers:
- *     MiExpandSystemCache @ 0x14024280C (MiExpandSystemCache.c)
- *     MiReservePoolMemory @ 0x14024D0D4 (MiReservePoolMemory.c)
- *     MiExpandPtes @ 0x14026A818 (MiExpandPtes.c)
- *     MiGetPageTablesForLargeMap @ 0x1403C736C (MiGetPageTablesForLargeMap.c)
- *     MiReserveDriverPtes @ 0x1407621C0 (MiReserveDriverPtes.c)
- *     MiInitializeSystemPtes @ 0x140B06A84 (MiInitializeSystemPtes.c)
- *     MiMapBBTMemory @ 0x140B092AC (MiMapBBTMemory.c)
+ *     MiReservePoolMemory @ 0x1402B2E74 (MiReservePoolMemory.c)
+ *     MiExpandSystemCache @ 0x1402B2F2C (MiExpandSystemCache.c)
+ *     MiExpandPtes @ 0x1402B3298 (MiExpandPtes.c)
+ *     MiGetPageTablesForLargeMap @ 0x1403B8DC4 (MiGetPageTablesForLargeMap.c)
+ *     MiReserveDriverPtes @ 0x14075FEA4 (MiReserveDriverPtes.c)
+ *     MiInitializeSystemPtes @ 0x140A4E1C4 (MiInitializeSystemPtes.c)
+ *     MiMapBBTMemory @ 0x140A552A8 (MiMapBBTMemory.c)
  * Callees:
- *     MiObtainDynamicVa @ 0x14026B354 (MiObtainDynamicVa.c)
- *     MiSystemVaToDynamicBitmap @ 0x14026CF08 (MiSystemVaToDynamicBitmap.c)
+ *     MiObtainDynamicVa @ 0x1402B3808 (MiObtainDynamicVa.c)
+ *     MiSystemVaToDynamicBitmap @ 0x1402B407C (MiSystemVaToDynamicBitmap.c)
  */
 
 __int64 __fastcall MiObtainSystemVa(unsigned int a1, __int64 a2, __int64 a3)

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDbgCopyMemory @ 0x1402BA650
+ * XREFs of MiDbgCopyMemory @ 0x1402BA750
  * Callers:
- *     MmDbgCopyMemory @ 0x1402BB4E0 (MmDbgCopyMemory.c)
+ *     MmDbgCopyMemory @ 0x1402BB5E0 (MmDbgCopyMemory.c)
  * Callees:
  *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
- *     KeGenericCallDpc @ 0x1401203D0 (KeGenericCallDpc.c)
- *     MmGetPhysicalAddress @ 0x1401210B0 (MmGetPhysicalAddress.c)
- *     MiCopyFromUntrustedMemory @ 0x1402BA3F0 (MiCopyFromUntrustedMemory.c)
- *     MiCopyToUntrustedMemory @ 0x1402BA518 (MiCopyToUntrustedMemory.c)
- *     MiDbgReleaseAddress @ 0x1402BAD0C (MiDbgReleaseAddress.c)
- *     MiDbgTranslatePhysicalAddress @ 0x1402BADF8 (MiDbgTranslatePhysicalAddress.c)
- *     MiDbgUnTranslatePhysicalAddress @ 0x1402BB1A4 (MiDbgUnTranslatePhysicalAddress.c)
- *     MiDbgWriteCheck @ 0x1402BB284 (MiDbgWriteCheck.c)
+ *     KeGenericCallDpc @ 0x1401203F0 (KeGenericCallDpc.c)
+ *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
+ *     MiCopyFromUntrustedMemory @ 0x1402BA4F0 (MiCopyFromUntrustedMemory.c)
+ *     MiCopyToUntrustedMemory @ 0x1402BA618 (MiCopyToUntrustedMemory.c)
+ *     MiDbgReleaseAddress @ 0x1402BAE0C (MiDbgReleaseAddress.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x1402BAEF8 (MiDbgTranslatePhysicalAddress.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x1402BB2A4 (MiDbgUnTranslatePhysicalAddress.c)
+ *     MiDbgWriteCheck @ 0x1402BB384 (MiDbgWriteCheck.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MiDbgCopyMemory(

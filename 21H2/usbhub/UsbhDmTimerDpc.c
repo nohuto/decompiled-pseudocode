@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhDmTimerDpc @ 0x1C000E2D0
+ * XREFs of UsbhDmTimerDpc @ 0x1C0014280
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhEtwWrite @ 0x1C000CB00 (UsbhEtwWrite.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhEtwWrite @ 0x1C00125E0 (UsbhEtwWrite.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 void __fastcall UsbhDmTimerDpc(
@@ -66,41 +66,42 @@ void __fastcall UsbhDmTimerDpc(
   __int64 v52; // rcx
   __int64 v53; // r8
   __int64 v54; // rdx
-  int v55; // ecx
-  __int64 v56; // r8
-  int v57; // eax
-  __int64 v58; // rdx
-  __int64 v59; // rcx
-  KIRQL v60; // al
-  __int64 v61; // rdx
-  __int64 v62; // rcx
-  __int64 v63; // rdx
-  __int64 v64; // rcx
-  int v65; // eax
-  __int64 v66; // [rsp+50h] [rbp-61h]
-  KIRQL v67; // [rsp+6Ch] [rbp-45h]
-  __int64 *v68; // [rsp+88h] [rbp-29h] BYREF
-  __int64 **v69; // [rsp+90h] [rbp-21h]
-  int v70; // [rsp+98h] [rbp-19h] BYREF
-  __int64 v71; // [rsp+A0h] [rbp-11h] BYREF
-  int v72; // [rsp+A8h] [rbp-9h]
-  __int128 v73; // [rsp+B0h] [rbp-1h] BYREF
-  __int128 v74; // [rsp+C0h] [rbp+Fh]
-  int v75; // [rsp+D0h] [rbp+1Fh]
+  int v55; // eax
+  int v56; // ecx
+  __int64 v57; // r8
+  int v58; // eax
+  __int64 v59; // rdx
+  __int64 v60; // rcx
+  KIRQL v61; // al
+  __int64 v62; // rdx
+  __int64 v63; // rcx
+  __int64 v64; // rdx
+  __int64 v65; // rcx
+  int v66; // eax
+  __int64 v67; // [rsp+50h] [rbp-61h]
+  KIRQL v68; // [rsp+6Ch] [rbp-45h]
+  __int64 *v69; // [rsp+88h] [rbp-29h] BYREF
+  __int64 **v70; // [rsp+90h] [rbp-21h]
+  _DWORD v71[4]; // [rsp+98h] [rbp-19h] BYREF
+  __int64 v72; // [rsp+A8h] [rbp-9h] BYREF
+  int v73; // [rsp+B0h] [rbp-1h]
+  __int128 v74; // [rsp+B8h] [rbp+7h] BYREF
+  __int128 v75; // [rsp+C8h] [rbp+17h]
+  int v76; // [rsp+D8h] [rbp+27h]
 
   v5 = 1;
   if ( !DeferredContext )
     UsbhTrapFatal_Dbg(0LL, 0LL);
   v6 = DeferredContext[8];
   if ( !v6 )
-    goto LABEL_110;
+    goto LABEL_113;
   if ( *(_DWORD *)v6 != 541218120 )
     UsbhTrapFatal_Dbg(DeferredContext, DeferredContext[8]);
-  v67 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v6 + 3728));
+  v68 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v6 + 3728));
   v7 = (__int64 ****)(v6 + 3744);
-  v8 = v67;
-  v69 = &v68;
-  v68 = (__int64 *)&v68;
+  v8 = v68;
+  v70 = &v69;
+  v69 = (__int64 *)&v69;
 LABEL_5:
   v9 = 0LL;
   while ( 1 )
@@ -109,10 +110,10 @@ LABEL_5:
     if ( *v7 == (__int64 ***)v7 )
       break;
     if ( v10[1] != (__int64 **)v7 )
-      goto LABEL_104;
+      goto LABEL_108;
     v11 = *v10;
     if ( (*v10)[1] != (__int64 *)v10 )
-      goto LABEL_104;
+      goto LABEL_108;
     *v7 = (__int64 ***)v11;
     v12 = v10 - 7;
     v11[1] = (__int64 *)v7;
@@ -151,13 +152,13 @@ LABEL_5:
         }
       }
       *((_DWORD *)v10 - 13) = 2;
-      v19 = v69;
-      if ( *v69 != (__int64 *)&v68 )
-        goto LABEL_104;
-      v10[1] = v69;
-      *v10 = &v68;
+      v19 = v70;
+      if ( *v70 != (__int64 *)&v69 )
+        goto LABEL_108;
+      v10[1] = v70;
+      *v10 = &v69;
       *v19 = v10;
-      v69 = (__int64 **)v10;
+      v70 = (__int64 **)v10;
       v20 = *((int *)v10 - 11);
       if ( (int)v20 > 0 )
       {
@@ -176,7 +177,7 @@ LABEL_5:
           }
         }
         TimeIncrement = KeQueryTimeIncrement();
-        v8 = v67;
+        v8 = v68;
         *((_DWORD *)v10 - 11) += -15 - (TimeIncrement - 1) / 0x2710;
         *((_DWORD *)v10 - 9) = 1;
         goto LABEL_5;
@@ -197,103 +198,105 @@ LABEL_5:
       }
       KeReleaseSpinLock((PKSPIN_LOCK)(v6 + 3728), v8);
       v53 = *((unsigned int *)v10 - 8);
-      v70 = *((_DWORD *)v10 - 8);
-      v71 = 0LL;
-      v72 = 0;
-      v73 = 0LL;
-      v75 = 0;
+      v71[0] = *((_DWORD *)v10 - 8);
+      v72 = 0LL;
+      v73 = 0;
       v74 = 0LL;
-      if ( dword_1C006A690 )
+      v76 = 0;
+      v75 = 0LL;
+      if ( dword_1C006C5F0 )
       {
         v54 = DeferredContext[8];
         if ( !v54 )
           UsbhTrapFatal_Dbg(DeferredContext, 0LL);
         if ( *(_DWORD *)v54 != 541218120 )
           UsbhTrapFatal_Dbg(DeferredContext, v54);
-        LODWORD(v71) = *(_DWORD *)(v54 + 5192);
-        WORD2(v71) = *(_WORD *)(v54 + 5196);
-        HIWORD(v71) = *(_DWORD *)(v54 + 5200);
-        v72 = *(_DWORD *)(v54 + 5228);
-        *(_QWORD *)&v73 = *(unsigned int *)(v54 + 2548);
-        DWORD2(v73) = *(unsigned __int16 *)(v54 + 5208);
-        v55 = *(_WORD *)(v54 + 5208) != 0;
-        DWORD1(v73) = v55;
-        HIDWORD(v73) = *(unsigned __int16 *)(v54 + 5210);
-        if ( HIDWORD(v73) )
-          DWORD1(v73) = ++v55;
-        LODWORD(v74) = *(unsigned __int16 *)(v54 + 5212);
-        if ( (_DWORD)v74 )
-          DWORD1(v73) = ++v55;
-        DWORD1(v74) = *(unsigned __int16 *)(v54 + 5214);
-        if ( DWORD1(v74) )
-          DWORD1(v73) = ++v55;
-        DWORD2(v74) = *(unsigned __int16 *)(v54 + 5216);
-        if ( DWORD2(v74) )
-          DWORD1(v73) = ++v55;
-        HIDWORD(v74) = *(unsigned __int16 *)(v54 + 5218);
+        LODWORD(v72) = *(_DWORD *)(v54 + 5192);
+        WORD2(v72) = *(_WORD *)(v54 + 5196);
+        v55 = *(_DWORD *)(v54 + 5200);
+        HIWORD(v72) = v55;
+        v71[2] = v55;
+        v73 = *(_DWORD *)(v54 + 5228);
+        *(_QWORD *)&v74 = *(unsigned int *)(v54 + 2548);
+        DWORD2(v74) = *(unsigned __int16 *)(v54 + 5208);
+        v56 = *(_WORD *)(v54 + 5208) != 0;
+        DWORD1(v74) = v56;
+        HIDWORD(v74) = *(unsigned __int16 *)(v54 + 5210);
         if ( HIDWORD(v74) )
-          DWORD1(v73) = v55 + 1;
-        LODWORD(v66) = 4;
-        v75 = *(_DWORD *)(v54 + 2536);
-        UsbhEtwWrite(&USBHUB_ETW_EVENT_HUB_TIMER_CALLBACK, 0LL, &v71, 12LL, &v73, 36LL, &v70, 4LL, v10 + 2, v66, 0LL);
+          DWORD1(v74) = ++v56;
+        LODWORD(v75) = *(unsigned __int16 *)(v54 + 5212);
+        if ( (_DWORD)v75 )
+          DWORD1(v74) = ++v56;
+        DWORD1(v75) = *(unsigned __int16 *)(v54 + 5214);
+        if ( DWORD1(v75) )
+          DWORD1(v74) = ++v56;
+        DWORD2(v75) = *(unsigned __int16 *)(v54 + 5216);
+        if ( DWORD2(v75) )
+          DWORD1(v74) = ++v56;
+        HIDWORD(v75) = *(unsigned __int16 *)(v54 + 5218);
+        if ( HIDWORD(v75) )
+          DWORD1(v74) = v56 + 1;
+        LODWORD(v67) = 4;
+        v76 = *(_DWORD *)(v54 + 2536);
+        UsbhEtwWrite(&USBHUB_ETW_EVENT_HUB_TIMER_CALLBACK, 0LL, &v72, 12LL, &v74, 36LL, v71, 4LL, v10 + 2, v67, 0LL);
         v53 = *((unsigned int *)v10 - 8);
       }
-      v56 = ((unsigned int (__fastcall *)(__int64 ***, _QWORD *, __int64, _QWORD, _DWORD, _DWORD))*(v10 - 1))(
+      v57 = ((unsigned int (__fastcall *)(__int64 ***, _QWORD *, __int64, _QWORD, _DWORD, _DWORD))*(v10 - 1))(
               v10 - 7,
               DeferredContext,
               v53,
               *(v10 - 2),
               *((_DWORD *)v10 - 7),
               *((_DWORD *)v10 - 6));
-      v57 = *((_DWORD *)v10 - 10);
-      *((_DWORD *)v10 - 9) = v56;
-      *((_DWORD *)v10 - 11) = v57;
+      v58 = *((_DWORD *)v10 - 10);
+      *((_DWORD *)v10 - 9) = v57;
+      *((_DWORD *)v10 - 11) = v58;
       if ( (UsbhLogMask & 0x2000) != 0 )
       {
-        v58 = DeferredContext[8];
-        if ( v58 )
+        v59 = DeferredContext[8];
+        if ( v59 )
         {
-          v59 = *(_QWORD *)(v58 + 888)
+          v60 = *(_QWORD *)(v59 + 888)
               + 32LL
-              * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v58 + 880)) & *(_DWORD *)(v58 + 884));
-          *(_DWORD *)v59 = 1381133668;
-          *(_QWORD *)(v59 + 8) = 0LL;
-          *(_QWORD *)(v59 + 16) = v12;
-          *(_QWORD *)(v59 + 24) = v56;
+              * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v59 + 880)) & *(_DWORD *)(v59 + 884));
+          *(_DWORD *)v60 = 1381133668;
+          *(_QWORD *)(v60 + 8) = 0LL;
+          *(_QWORD *)(v60 + 16) = v12;
+          *(_QWORD *)(v60 + 24) = v57;
         }
       }
-      v60 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v6 + 3728));
+      v61 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v6 + 3728));
       v9 = 0LL;
-      v8 = v60;
-      v67 = v60;
+      v8 = v61;
+      v68 = v61;
       if ( (UsbhLogMask & 0x2000) != 0 )
       {
-        v61 = DeferredContext[8];
-        if ( v61 )
+        v62 = DeferredContext[8];
+        if ( v62 )
         {
-          v62 = *(_QWORD *)(v61 + 888)
+          v63 = *(_QWORD *)(v62 + 888)
               + 32LL
-              * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v61 + 880)) & *(_DWORD *)(v61 + 884));
-          *(_DWORD *)v62 = 876965220;
-          *(_QWORD *)(v62 + 8) = 0LL;
-          *(_QWORD *)(v62 + 16) = v12;
-          *(_QWORD *)(v62 + 24) = 0LL;
+              * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v62 + 880)) & *(_DWORD *)(v62 + 884));
+          *(_DWORD *)v63 = 876965220;
+          *(_QWORD *)(v63 + 8) = 0LL;
+          *(_QWORD *)(v63 + 16) = v12;
+          *(_QWORD *)(v63 + 24) = 0LL;
         }
       }
     }
   }
   while ( 1 )
   {
-    v35 = v68;
-    if ( v68 == (__int64 *)&v68 )
+    v35 = v69;
+    if ( v69 == (__int64 *)&v69 )
       break;
-    if ( (__int64 **)v68[1] != &v68 )
-      goto LABEL_104;
-    v24 = (__int64 *)*v68;
-    if ( *(__int64 **)(*v68 + 8) != v68 )
-      goto LABEL_104;
-    v68 = (__int64 *)*v68;
-    v24[1] = (__int64)&v68;
+    if ( (__int64 **)v69[1] != &v69 )
+      goto LABEL_108;
+    v24 = (__int64 *)*v69;
+    if ( *(__int64 **)(*v69 + 8) != v69 )
+      goto LABEL_108;
+    v69 = (__int64 *)*v69;
+    v24[1] = (__int64)&v69;
     v25 = v35 - 7;
     if ( (UsbhLogMask & 0x2000) != 0 )
     {
@@ -348,16 +351,16 @@ LABEL_5:
       }
       if ( (UsbhLogMask & 0x2000) != 0 )
       {
-        v63 = DeferredContext[8];
-        if ( v63 )
+        v64 = DeferredContext[8];
+        if ( v64 )
         {
-          v64 = *(_QWORD *)(v63 + 888)
+          v65 = *(_QWORD *)(v64 + 888)
               + 32LL
-              * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v63 + 880)) & *(_DWORD *)(v63 + 884));
-          *(_DWORD *)v64 = 861039972;
-          *(_QWORD *)(v64 + 8) = v9;
-          *(_QWORD *)(v64 + 16) = v25;
-          *(_QWORD *)(v64 + 24) = v9;
+              * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v64 + 880)) & *(_DWORD *)(v64 + 884));
+          *(_DWORD *)v65 = 861039972;
+          *(_QWORD *)(v65 + 8) = v9;
+          *(_QWORD *)(v65 + 16) = v25;
+          *(_QWORD *)(v65 + 24) = v9;
         }
       }
       *((_DWORD *)v25 + 1) = v9;
@@ -370,7 +373,7 @@ LABEL_5:
 LABEL_36:
       v34 = *(__int64 ***)(v6 + 3752);
       if ( *v34 != (__int64 *)v7 )
-        goto LABEL_104;
+        goto LABEL_108;
       *v35 = (__int64)v7;
       v35[1] = (__int64)v34;
       *v34 = v35;
@@ -386,19 +389,23 @@ LABEL_36:
   }
   if ( *v7 == (__int64 ***)v7 )
   {
-    if ( (UsbhLogMask & 0x2000) == 0
-      || (v47 = DeferredContext[8]) == 0
-      || (v48 = *(_QWORD *)(v47 + 888)
-              + 32LL
-              * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v47 + 880)) & *(_DWORD *)(v47 + 884)),
-          *(_DWORD *)v48 = 1414360420,
-          *(_QWORD *)(v48 + 8) = v9,
-          *(_QWORD *)(v48 + 16) = v9,
-          *(_QWORD *)(v48 + 24) = v9,
-          *(_DWORD *)(v6 + 3736)) )
+    if ( (UsbhLogMask & 0x2000) != 0 )
     {
-      *(_DWORD *)(v6 + 3736) = 2;
+      v47 = DeferredContext[8];
+      if ( v47 )
+      {
+        v48 = *(_QWORD *)(v47 + 888)
+            + 32LL
+            * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v47 + 880)) & *(_DWORD *)(v47 + 884));
+        *(_DWORD *)v48 = 1414360420;
+        *(_QWORD *)(v48 + 8) = v9;
+        *(_QWORD *)(v48 + 16) = v9;
+        *(_QWORD *)(v48 + 24) = v9;
+        LODWORD(v36) = *(_DWORD *)(v6 + 3736);
+      }
     }
+    if ( (_DWORD)v36 )
+      *(_DWORD *)(v6 + 3736) = 2;
   }
   else
   {
@@ -436,57 +443,62 @@ LABEL_45:
       *(_QWORD *)(v41 + 24) = v9;
     }
   }
-  KeReleaseSpinLock((PKSPIN_LOCK)(v6 + 3728), v67);
+  KeReleaseSpinLock((PKSPIN_LOCK)(v6 + 3728), v68);
   if ( !v5 )
     return;
-  v42 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);
-  WPP_MAIN_CB.Dpc.DeferredRoutine = (void (__fastcall *)(_KDPC *, void *, void *, void *))&WPP_MAIN_CB.Dpc.DeferredContext;
+  v42 = KeAcquireSpinLockRaiseToDpc(&HubG);
+  qword_1C006C500 = (__int64)&dword_1C006C508;
   v43 = DeferredContext[8];
   if ( !v43 )
-LABEL_110:
+LABEL_113:
     UsbhTrapFatal_Dbg(DeferredContext, 0LL);
   if ( *(_DWORD *)v43 != 541218120 )
     UsbhTrapFatal_Dbg(DeferredContext, DeferredContext[8]);
   v44 = (_QWORD *)(v43 + 2512);
   v45 = *(_QWORD **)(v43 + 2512);
-  if ( v45 != (_QWORD *)(v43 + 2512) && v45 )
+  if ( v45 != (_QWORD *)(v43 + 2512) )
   {
-    while ( 1 )
+    v46 = 0LL;
+    if ( v45 )
     {
-      if ( v45 == v44 )
-        goto LABEL_106;
-      v46 = v45 - 3;
-      if ( v45 == (_QWORD *)24 || *(_DWORD *)v46 != 1397515890 )
-LABEL_105:
-        UsbhTrapFatal_Dbg(DeferredContext, DeferredContext);
-      if ( v46[2] == v6 + 3848 )
-        break;
-      v45 = (_QWORD *)*v45;
-      if ( !v45 )
-        goto LABEL_105;
-    }
-    v49 = (_QWORD *)*v45;
-    if ( *(_QWORD **)(*v45 + 8LL) == v45 )
-    {
-      v50 = (_QWORD *)v45[1];
-      if ( (_QWORD *)*v50 == v45 )
+      while ( v45 != v44 )
       {
-        *v50 = v49;
-        v49[1] = v50;
-        ExFreePoolWithTag(v45 - 3, 0);
-        goto LABEL_67;
+        v46 = v45 - 3;
+        if ( v45 != (_QWORD *)24 && *(_DWORD *)v46 == 1397515890 )
+        {
+          if ( v46[2] == v6 + 3848 )
+            break;
+          v45 = (_QWORD *)*v45;
+          if ( v45 )
+            continue;
+        }
+        UsbhTrapFatal_Dbg(DeferredContext, DeferredContext);
+      }
+      if ( v46 && v45 != v44 )
+      {
+        v49 = (_QWORD *)*v45;
+        if ( *(_QWORD **)(*v45 + 8LL) == v45 )
+        {
+          v50 = (_QWORD *)v45[1];
+          if ( (_QWORD *)*v50 == v45 )
+          {
+            *v50 = v49;
+            v49[1] = v50;
+            ExFreePoolWithTag(v46, 0);
+            goto LABEL_70;
+          }
+        }
+LABEL_108:
+        __fastfail(3u);
       }
     }
-LABEL_104:
-    __fastfail(3u);
   }
-LABEL_106:
-  v65 = *(_DWORD *)(v43 + 2528);
-  if ( v65 )
-    *(_DWORD *)(v43 + 2528) = v65 - 1;
-LABEL_67:
+  v66 = *(_DWORD *)(v43 + 2528);
+  if ( v66 )
+    *(_DWORD *)(v43 + 2528) = v66 - 1;
+LABEL_70:
   if ( (_QWORD *)*v44 == v44 && !*(_DWORD *)(v43 + 2528) )
     KeSetEvent((PRKEVENT)(v43 + 2488), 0, 0);
-  WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
-  KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v42);
+  qword_1C006C500 = 0LL;
+  KeReleaseSpinLock(&HubG, v42);
 }

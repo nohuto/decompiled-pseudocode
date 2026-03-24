@@ -1,13 +1,13 @@
 /*
- * XREFs of IoUnregisterFileSystem @ 0x14080C290
+ * XREFs of IoUnregisterFileSystem @ 0x14077D110
  * Callers:
- *     RawShutdown @ 0x1409B4E80 (RawShutdown.c)
+ *     RawShutdown @ 0x14090F280 (RawShutdown.c)
  * Callees:
- *     IopDecrementDeviceObjectRefCount @ 0x140259288 (IopDecrementDeviceObjectRefCount.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     IopDecrementDeviceObjectRefCount @ 0x14036135C (IopDecrementDeviceObjectRefCount.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void __stdcall IoUnregisterFileSystem(PDEVICE_OBJECT DeviceObject)
@@ -44,6 +44,6 @@ void __stdcall IoUnregisterFileSystem(PDEVICE_OBJECT DeviceObject)
   }
   ++IopFsRegistrationOps;
   ExReleaseResourceLite(&IopDatabaseResource);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   IopDecrementDeviceObjectRefCount((ULONG_PTR)DeviceObject, 1);
 }

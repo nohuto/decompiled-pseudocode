@@ -1,68 +1,70 @@
 /*
- * XREFs of PsSwapImpersonationToken @ 0x1407261F4
+ * XREFs of PsSwapImpersonationToken @ 0x140706BD0
  * Callers:
- *     NtOpenThreadTokenEx @ 0x140725A50 (NtOpenThreadTokenEx.c)
+ *     NtOpenThreadTokenEx @ 0x140705F00 (NtOpenThreadTokenEx.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
  */
 
-__int64 __fastcall PsSwapImpersonationToken(__int64 a1, void *a2, unsigned __int64 a3)
+__int64 __fastcall PsSwapImpersonationToken(__int64 a1, struct _DMA_ADAPTER *a2, struct _DMA_ADAPTER *a3)
 {
-  void *v3; // r14
-  struct _KTHREAD *CurrentThread; // r13
-  int v8; // edi
+  int v3; // edi
+  struct _DMA_ADAPTER *v7; // r14
+  struct _KTHREAD *CurrentThread; // r15
   __int64 v9; // rcx
-  void *v11; // rcx
+  char v10; // al
+  struct _DMA_ADAPTER *v12; // rcx
 
-  v3 = 0LL;
-  if ( (*(_DWORD *)(a1 + 1376) & 8) != 0 )
+  v3 = 0;
+  v7 = 0LL;
+  if ( (*(_DWORD *)(a1 + 1296) & 8) != 0 )
   {
     CurrentThread = KeGetCurrentThread();
-    v8 = 0;
-    ObfReferenceObject((PVOID)a3);
+    ObfReferenceObject(a3);
     --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx(a1 + 1360, 0LL);
-    if ( (*(_DWORD *)(a1 + 1376) & 8) != 0 )
+    ExAcquirePushLockExclusiveEx(a1 + 1280, 0LL);
+    if ( (*(_DWORD *)(a1 + 1296) & 8) != 0 )
     {
-      v9 = *(_QWORD *)(a1 + 1272);
-      if ( (void *)(v9 & 0xFFFFFFFFFFFFFFF8uLL) == a2 && (*(_DWORD *)(a1 + 1376) & 0x100) != 0 )
+      v9 = *(_QWORD *)(a1 + 1192);
+      if ( (struct _DMA_ADAPTER *)(v9 & 0xFFFFFFFFFFFFFFF8uLL) == a2 && (*(_DWORD *)(a1 + 1296) & 0x100) != 0 )
       {
-        v3 = *(void **)(a1 + 1544);
-        *(_QWORD *)(a1 + 1544) = 0LL;
-        *(_QWORD *)(a1 + 1272) = a3 | v9 & 7;
-        _InterlockedAnd((volatile signed __int32 *)(a1 + 1376), 0xFFFFFEFF);
+        v7 = *(struct _DMA_ADAPTER **)(a1 + 1464);
+        *(_QWORD *)(a1 + 1464) = 0LL;
+        *(_QWORD *)(a1 + 1192) = (unsigned __int64)a3 | v9 & 7;
+        _InterlockedAnd((volatile signed __int32 *)(a1 + 1296), 0xFFFFFEFF);
       }
       else
       {
-        v8 = -1073741823;
+        v3 = -1073741823;
       }
     }
     else
     {
-      v8 = -1073741700;
+      v3 = -1073741700;
     }
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 1360), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(a1 + 1360);
-    KeAbPostRelease(a1 + 1360);
+    v10 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 1280), 0xFFFFFFFFFFFFFFFFuLL);
+    if ( (v10 & 2) != 0 && (v10 & 4) == 0 )
+      ExfTryToWakePushLock(a1 + 1280);
+    KeAbPostRelease(a1 + 1280);
     KeLeaveCriticalRegionThread((__int64)CurrentThread);
-    if ( v8 < 0 )
+    if ( v3 < 0 )
     {
-      v11 = (void *)a3;
+      v12 = a3;
     }
     else
     {
-      ObfDereferenceObject(a2);
-      if ( !v3 )
-        return (unsigned int)v8;
-      v11 = v3;
+      HalPutDmaAdapter(a2);
+      if ( !v7 )
+        return (unsigned int)v3;
+      v12 = v7;
     }
-    ObfDereferenceObject(v11);
-    return (unsigned int)v8;
+    HalPutDmaAdapter(v12);
+    return (unsigned int)v3;
   }
   return 3221225596LL;
 }

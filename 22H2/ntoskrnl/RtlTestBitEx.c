@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlTestBitEx @ 0x140410D40
+ * XREFs of RtlTestBitEx @ 0x14036D060
  * Callers:
  *     <none>
  * Callees:

@@ -1,45 +1,22 @@
 /*
- * XREFs of DxgkIsAdapterCoreSyncAcquired @ 0x1C01F2EAC
+ * XREFs of DxgkIsAdapterCoreSyncAcquired @ 0x1C02174B0
  * Callers:
- *     DpiPowerArbiterThread @ 0x1C0217840 (DpiPowerArbiterThread.c)
- *     DpExcludeAdapterAccess @ 0x1C0386800 (DpExcludeAdapterAccess.c)
- *     DpiFdoWaitConnectionChangeComplete @ 0x1C038BE24 (DpiFdoWaitConnectionChangeComplete.c)
- *     DpiMiracastSendSyncUserModeRequest @ 0x1C038DDAC (DpiMiracastSendSyncUserModeRequest.c)
+ *     DpiPowerArbiterThread @ 0x1C019D6B0 (DpiPowerArbiterThread.c)
+ *     DpExcludeAdapterAccess @ 0x1C02C5B00 (DpExcludeAdapterAccess.c)
+ *     DpiFdoWaitConnectionChangeComplete @ 0x1C02CCC94 (DpiFdoWaitConnectionChangeComplete.c)
+ *     DpiMiracastSendSyncUserModeRequest @ 0x1C02CED50 (DpiMiracastSendSyncUserModeRequest.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreSyncAcquired@DXGADAPTER@@QEAAEW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C020DBF4 (-IsCoreSyncAcquired@DXGADAPTER@@QEAAEW4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
  */
 
-BOOLEAN __fastcall DxgkIsAdapterCoreSyncAcquired(DXGADAPTER *this, int a2)
+BOOLEAN __fastcall DxgkIsAdapterCoreSyncAcquired(DXGADAPTER *a1, __int64 a2)
 {
-  char v2; // di
-  __int64 v5; // rbx
+  __int64 v2; // rax
 
-  v2 = 0;
-  if ( this )
-  {
-    if ( a2 == 1 )
-      return DXGADAPTER::IsCoreResourceSharedOwner(this);
-    if ( a2 != 2 && a2 != 5 )
-    {
-      v5 = a2;
-      WdLogSingleEntry1(2LL, a2);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Invalid synchronization level 0x%I64x",
-        v5,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      return v2;
-    }
-    return DXGADAPTER::IsCoreResourceExclusiveOwner((PERESOURCE *)this);
-  }
-  WdLogSingleEntry1(2LL, 366LL);
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"No pAdapter specified", 366LL, 0LL, 0LL, 0LL, 0LL);
+  if ( a1 )
+    return DXGADAPTER::IsCoreSyncAcquired(a1, a2);
+  v2 = WdLogNewEntry5_WdError(0LL, a2);
+  *(_QWORD *)(v2 + 24) = 306LL;
+  WdLogEvent5_WdError(v2);
   return 0;
 }

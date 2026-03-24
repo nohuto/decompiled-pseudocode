@@ -1,18 +1,17 @@
 /*
- * XREFs of ?IsUsingDefaultMonitorProfile@DXGDMM_INTERFACE_V1_IMPL@@YAJQEAXIPEAE@Z @ 0x1C03B58F0
+ * XREFs of ?IsUsingDefaultMonitorProfile@DXGDMM_INTERFACE_V1_IMPL@@YAJQEAXIPEAE@Z @ 0x1C02E3F30
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00072BC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z @ 0x1C01832C0 (-ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z.c)
- *     ?GetConnectedMonitorHandle@VIDPN_MGR@@QEAAJIPEAPEAUHDXGMONITOR__@@@Z @ 0x1C0183694 (-GetConnectedMonitorHandle@VIDPN_MGR@@QEAAJIPEAPEAUHDXGMONITOR__@@@Z.c)
- *     MonitorIsUsingDefaultMonitorProfile @ 0x1C03C4510 (MonitorIsUsingDefaultMonitorProfile.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C00039E8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00071C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C0009550 (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z @ 0x1C0149F08 (-ReleaseMonitorHandle@VIDPN_MGR@@QEAAJPEAUHDXGMONITOR__@@@Z.c)
+ *     ?GetConnectedMonitorHandle@VIDPN_MGR@@QEAAJIPEAPEAUHDXGMONITOR__@@@Z @ 0x1C014A020 (-GetConnectedMonitorHandle@VIDPN_MGR@@QEAAJIPEAPEAUHDXGMONITOR__@@@Z.c)
+ *     MonitorIsUsingDefaultMonitorProfile @ 0x1C02F4540 (MonitorIsUsingDefaultMonitorProfile.c)
  */
 
 __int64 __fastcall DXGDMM_INTERFACE_V1_IMPL::IsUsingDefaultMonitorProfile(
@@ -22,99 +21,126 @@ __int64 __fastcall DXGDMM_INTERFACE_V1_IMPL::IsUsingDefaultMonitorProfile(
         unsigned __int8 *a4)
 {
   __int64 v6; // rsi
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rdx
   __int64 IsUsingDefaultMonitorProfile; // rbx
-  __int64 v8; // rax
-  VIDPN_MGR *v9; // r14
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rax
+  VIDPN_MGR *v17; // r14
   int ConnectedMonitorHandle; // eax
-  struct HDXGMONITOR__ *v11; // rdi
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  int v15; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v16; // [rsp+58h] [rbp-18h]
-  char v17; // [rsp+60h] [rbp-10h]
-  struct HDXGMONITOR__ *v18; // [rsp+B0h] [rbp+40h] BYREF
-  __int64 v19; // [rsp+B8h] [rbp+48h] BYREF
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rax
+  __int64 v22; // rdx
+  _QWORD *v23; // rax
+  struct HDXGMONITOR__ *v24; // rdi
+  __int64 v25; // rax
+  __int64 v26; // rcx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  int v30; // [rsp+20h] [rbp-20h] BYREF
+  __int64 v31; // [rsp+28h] [rbp-18h]
+  char v32; // [rsp+30h] [rbp-10h]
+  struct HDXGMONITOR__ *v33; // [rsp+80h] [rbp+40h] BYREF
+  __int64 v34; // [rsp+88h] [rbp+48h] BYREF
 
-  v15 = -1;
-  v16 = 0LL;
+  v30 = -1;
+  v31 = 0LL;
   v6 = (unsigned int)a2;
-  if ( (qword_1C013F870 & 2) != 0 )
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v17 = 1;
-    v15 = 6056;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v32 = 1;
+    v30 = 6056;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, a3, 6056);
   }
   else
   {
-    v17 = 0;
+    v32 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v15, 6056);
-  if ( !a3 )
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v30, 6056LL);
+  if ( a3 )
   {
-    WdLogSingleEntry1(2LL, 0LL);
-    LODWORD(IsUsingDefaultMonitorProfile) = -1073741811;
-    goto LABEL_24;
-  }
-  if ( !this )
-  {
-    WdLogSingleEntry1(2LL, 0LL);
+    if ( !this )
+    {
+      v12 = WdLogNewEntry5_WdError(v8, v7);
+      *(_QWORD *)(v12 + 24) = 0LL;
 LABEL_13:
-    LODWORD(IsUsingDefaultMonitorProfile) = -1071775742;
-    goto LABEL_24;
-  }
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(this) )
-    WdLogSingleEntry0(1LL);
-  v8 = *((_QWORD *)this + 365);
-  if ( !v8 )
-  {
-    WdLogSingleEntry1(2LL, this);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified adapter handle 0x%I64x is a render only adapter.",
-      (__int64)this,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    goto LABEL_13;
-  }
-  v9 = *(VIDPN_MGR **)(v8 + 104);
-  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>((__int64)&v19, (__int64)v9);
-  v18 = 0LL;
-  ConnectedMonitorHandle = VIDPN_MGR::GetConnectedMonitorHandle(v9, v6, &v18);
-  LODWORD(IsUsingDefaultMonitorProfile) = ConnectedMonitorHandle;
-  if ( ConnectedMonitorHandle == -1073741275 )
-  {
-    WdLogSingleEntry2(2LL, v6, this);
-    LODWORD(IsUsingDefaultMonitorProfile) = -1071774920;
-  }
-  else if ( ConnectedMonitorHandle >= 0 )
-  {
-    v11 = v18;
-    if ( !v18 )
-      WdLogSingleEntry0(1LL);
-    IsUsingDefaultMonitorProfile = (int)MonitorIsUsingDefaultMonitorProfile(v11, a3);
-    VIDPN_MGR::ReleaseMonitorHandle(v9, v11);
-    if ( (int)IsUsingDefaultMonitorProfile >= 0 )
-      LODWORD(IsUsingDefaultMonitorProfile) = 0;
+      WdLogEvent5_WdError(v12);
+      LODWORD(IsUsingDefaultMonitorProfile) = -1071775742;
+      goto LABEL_25;
+    }
+    if ( !DXGADAPTER::IsCoreResourceSharedOwner(this) )
+    {
+      v15 = WdLogNewEntry5_WdAssertion(v14, v13);
+      WdLogEvent5_WdAssertion(v15);
+    }
+    v16 = *((_QWORD *)this + 337);
+    if ( !v16 )
+    {
+      v12 = WdLogNewEntry5_WdError(v14, v13);
+      *(_QWORD *)(v12 + 24) = this;
+      goto LABEL_13;
+    }
+    v17 = *(VIDPN_MGR **)(v16 + 88);
+    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v34, (__int64)v17);
+    v33 = 0LL;
+    ConnectedMonitorHandle = VIDPN_MGR::GetConnectedMonitorHandle(v17, (unsigned int)v6, &v33);
+    IsUsingDefaultMonitorProfile = ConnectedMonitorHandle;
+    if ( ConnectedMonitorHandle == -1073741275 )
+    {
+      v21 = WdLogNewEntry5_WdError(v20, v19);
+      *(_QWORD *)(v21 + 24) = v6;
+      *(_QWORD *)(v21 + 32) = this;
+      WdLogEvent5_WdError(v21);
+      LODWORD(IsUsingDefaultMonitorProfile) = -1071774920;
+    }
     else
-      WdLogSingleEntry2(2LL, v11, IsUsingDefaultMonitorProfile);
-  }
-  else
-  {
-    WdLogSingleEntry3(2LL, v6, this, ConnectedMonitorHandle);
-  }
-  DXGFASTMUTEX::Release((struct _KTHREAD **)(v19 + 40));
+    {
+      if ( ConnectedMonitorHandle >= 0 )
+      {
+        v24 = v33;
+        if ( !v33 )
+        {
+          v25 = WdLogNewEntry5_WdAssertion(v20, v19);
+          WdLogEvent5_WdAssertion(v25);
+        }
+        IsUsingDefaultMonitorProfile = (int)MonitorIsUsingDefaultMonitorProfile(v24, a3);
+        VIDPN_MGR::ReleaseMonitorHandle(v17, v24);
+        if ( (int)IsUsingDefaultMonitorProfile >= 0 )
+        {
+          LODWORD(IsUsingDefaultMonitorProfile) = 0;
+          goto LABEL_24;
+        }
+        v23 = (_QWORD *)WdLogNewEntry5_WdError(v26, v22);
+        v23[3] = v24;
+        v23[4] = IsUsingDefaultMonitorProfile;
+      }
+      else
+      {
+        v23 = (_QWORD *)WdLogNewEntry5_WdError(v20, v19);
+        v23[3] = v6;
+        v23[4] = this;
+        v23[5] = IsUsingDefaultMonitorProfile;
+      }
+      WdLogEvent5_WdError(v23);
+    }
 LABEL_24:
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v15);
-  if ( v17 )
-  {
-    LOBYTE(v12) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v12, &EventProfilerExit, v13, v15);
+    DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v34 + 40), v22);
+    goto LABEL_25;
   }
+  v9 = WdLogNewEntry5_WdError(v8, v7);
+  *(_QWORD *)(v9 + 24) = 0LL;
+  WdLogEvent5_WdError(v9);
+  LODWORD(IsUsingDefaultMonitorProfile) = -1073741811;
+LABEL_25:
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v30, v10);
+  if ( v32 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v27, &EventProfilerExit, v28, v30);
   return (unsigned int)IsUsingDefaultMonitorProfile;
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of IopCleanupNotifications @ 0x1403D87A8
+ * XREFs of IopCleanupNotifications @ 0x14037C458
  * Callers:
- *     IopDeleteFileObjectExtension @ 0x140203B8C (IopDeleteFileObjectExtension.c)
- *     IopDeleteDevice @ 0x140774EC0 (IopDeleteDevice.c)
- *     IopUnloadDriver @ 0x140856DC0 (IopUnloadDriver.c)
+ *     IopDeleteFileObjectExtension @ 0x140252C8C (IopDeleteFileObjectExtension.c)
+ *     IopDeleteDevice @ 0x1406B2FD0 (IopDeleteDevice.c)
+ *     IopUnloadDriver @ 0x140769798 (IopUnloadDriver.c)
  * Callees:
- *     ExUnregisterCallback @ 0x14025DE40 (ExUnregisterCallback.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ExUnregisterCallback @ 0x140381970 (ExUnregisterCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall IopCleanupNotifications(PVOID a1, PVOID a2)
+_QWORD *__fastcall IopCleanupNotifications(PVOID a1, PVOID a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   PVOID *v5; // rdi
-  PVOID *v6; // rbx
-  PVOID v7; // rcx
-  PVOID *v8; // rcx
-  PVOID **v9; // rax
+  PVOID *v7; // rbx
+  PVOID v8; // rcx
+  PVOID *v9; // rcx
+  PVOID **v10; // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -28,21 +28,21 @@ void __fastcall IopCleanupNotifications(PVOID a1, PVOID a2)
   v5 = (PVOID *)IopSessionNotificationQueueHead;
   while ( v5 != &IopSessionNotificationQueueHead )
   {
-    v6 = v5;
+    v7 = v5;
     v5 = (PVOID *)*v5;
-    v7 = v6[2];
-    if ( v7 == a1 && (!a2 || v6[5] == a2) )
+    v8 = v7[2];
+    if ( v8 == a1 && (!a2 || v7[5] == a2) )
     {
-      ObfDereferenceObject(v7);
-      ExUnregisterCallback(v6[4]);
-      v8 = (PVOID *)*v6;
-      if ( *((PVOID **)*v6 + 1) != v6 || (v9 = (PVOID **)v6[1], *v9 != v6) )
+      ObfDereferenceObjectWithTag(v8, 0x746C6644u);
+      ExUnregisterCallback(v7[4]);
+      v9 = (PVOID *)*v7;
+      if ( *((PVOID **)*v7 + 1) != v7 || (v10 = (PVOID **)v7[1], *v10 != v7) )
         __fastfail(3u);
-      *v9 = v8;
-      v8[1] = v9;
-      ExFreePoolWithTag(v6, 0);
+      *v10 = v9;
+      v9[1] = v10;
+      ExFreePoolWithTag(v7, 0);
     }
   }
   ExReleasePushLockEx((ULONG_PTR)&IopSessionNotificationLock, 0LL);
-  KeLeaveCriticalRegion();
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

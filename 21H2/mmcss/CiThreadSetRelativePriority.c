@@ -1,10 +1,10 @@
 /*
- * XREFs of CiThreadSetRelativePriority @ 0x1C000AC80
+ * XREFs of CiThreadSetRelativePriority @ 0x1C000A920
  * Callers:
- *     CiDispatchFastIoDeviceControl @ 0x1C000AA20 (CiDispatchFastIoDeviceControl.c)
+ *     CiDispatchFastIoDeviceControl @ 0x1C000A6C0 (CiDispatchFastIoDeviceControl.c)
  * Callees:
- *     CiSchedulerCommitPriority @ 0x1C00027F0 (CiSchedulerCommitPriority.c)
- *     CiThreadUpdatePriorities @ 0x1C000B210 (CiThreadUpdatePriorities.c)
+ *     CiSchedulerCommitPriority @ 0x1C0001760 (CiSchedulerCommitPriority.c)
+ *     CiThreadUpdatePriorities @ 0x1C000AEA0 (CiThreadUpdatePriorities.c)
  */
 
 __int64 __fastcall CiThreadSetRelativePriority(__int64 a1, unsigned __int8 a2)
@@ -12,7 +12,6 @@ __int64 __fastcall CiThreadSetRelativePriority(__int64 a1, unsigned __int8 a2)
   unsigned int v4; // ebp
   __int64 v5; // r15
   PEPROCESS ThreadProcess; // rdi
-  __int64 v7; // rcx
 
   v4 = -1073741811;
   if ( (unsigned __int8)(a2 + 2) <= 4u )
@@ -26,7 +25,7 @@ __int64 __fastcall CiThreadSetRelativePriority(__int64 a1, unsigned __int8 a2)
       if ( ThreadProcess == (PEPROCESS)PsGetCurrentProcess() )
       {
         CiThreadUpdatePriorities(a1, v5, a2);
-        CiSchedulerCommitPriority(v7);
+        CiSchedulerCommitPriority(a1);
         v4 = 0;
       }
     }

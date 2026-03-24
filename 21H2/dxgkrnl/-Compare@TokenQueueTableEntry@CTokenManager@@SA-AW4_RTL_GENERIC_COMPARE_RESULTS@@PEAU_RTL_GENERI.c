@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Compare@TokenQueueTableEntry@CTokenManager@@SA?AW4_RTL_GENERIC_COMPARE_RESULTS@@PEAU_RTL_GENERIC_TABLE@@PEAX1@Z @ 0x1C001B270
+ * XREFs of ?Compare@TokenQueueTableEntry@CTokenManager@@SA?AW4_RTL_GENERIC_COMPARE_RESULTS@@PEAU_RTL_GENERIC_TABLE@@PEAX1@Z @ 0x1C00186E0
  * Callers:
  *     <none>
  * Callees:

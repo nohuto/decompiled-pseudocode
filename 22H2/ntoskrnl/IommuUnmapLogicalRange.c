@@ -1,28 +1,19 @@
 /*
- * XREFs of IommuUnmapLogicalRange @ 0x14045E4F0
+ * XREFs of IommuUnmapLogicalRange @ 0x1404DACE0
  * Callers:
- *     <none>
+ *     IommuMapLogicalRange @ 0x1404DA8D0 (IommuMapLogicalRange.c)
  * Callees:
- *     HalpIommuDomainFreeLogicalAddressRange @ 0x14045E08E (HalpIommuDomainFreeLogicalAddressRange.c)
- *     HalpIommuDomainUnmapLogicalRange @ 0x140517F68 (HalpIommuDomainUnmapLogicalRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9274 (HalpIommuDomainUnmapLogicalRange.c)
  */
 
-__int64 __fastcall IommuUnmapLogicalRange(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall IommuUnmapLogicalRange(ULONG_PTR a1, ULONG_PTR a2, __int64 a3)
 {
-  int v3; // eax
-  __int16 v4; // bx
-  __int64 result; // rax
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v4; // [rsp+30h] [rbp+8h] BYREF
 
-  v3 = *(_DWORD *)(a1 + 8);
-  v4 = a2;
-  if ( v3 && v3 != 3 )
+  if ( !*(_BYTE *)(a1 + 44) )
     return 3221225711LL;
   if ( (a2 & 0xFFF) != 0 )
     return 3221225712LL;
-  v7 = a3 << 12;
-  result = HalpIommuDomainUnmapLogicalRange(a1, a2, &v7, 0LL);
-  if ( (int)result >= 0 )
-    return HalpIommuDomainFreeLogicalAddressRange(a1, v4);
-  return result;
+  v4 = a3 << 12;
+  return HalpIommuDomainUnmapLogicalRange(a1, a2, (unsigned __int64 *)&v4, 0);
 }

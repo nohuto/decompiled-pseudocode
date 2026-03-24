@@ -1,62 +1,62 @@
 /*
- * XREFs of RtlpNameprepAsciiRealWorker @ 0x1405ECB04
+ * XREFs of RtlpNameprepAsciiRealWorker @ 0x14058D4B4
  * Callers:
- *     RtlpNameprepAsciiWorker @ 0x1409BBD10 (RtlpNameprepAsciiWorker.c)
+ *     RtlpNameprepAsciiWorker @ 0x140916690 (RtlpNameprepAsciiWorker.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x1402E0AC4 (RtlStringCchLengthW.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     FindEmailAt @ 0x1405EC744 (FindEmailAt.c)
- *     RtlpValidateAsciiStd3AndLength @ 0x1409BBDD8 (RtlpValidateAsciiStd3AndLength.c)
- *     punycode_encode @ 0x1409BC59C (punycode_encode.c)
- *     RtlNormalizeString @ 0x1409BE510 (RtlNormalizeString.c)
+ *     RtlStringCchLengthW @ 0x140264E74 (RtlStringCchLengthW.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     FindEmailAt @ 0x14058D0F4 (FindEmailAt.c)
+ *     RtlpValidateAsciiStd3AndLength @ 0x140916758 (RtlpValidateAsciiStd3AndLength.c)
+ *     punycode_encode @ 0x140916F24 (punycode_encode.c)
+ *     RtlNormalizeString @ 0x140918E80 (RtlNormalizeString.c)
  */
 
 NTSTATUS __fastcall RtlpNameprepAsciiRealWorker(
         int a1,
-        const WCHAR *a2,
+        wchar_t *a2,
         __int64 a3,
         void *a4,
         LONG *a5,
         char a6,
-        void *Src,
+        wchar_t *Str1,
         char a8,
-        const WCHAR *a9,
+        void *Src,
         char a10)
 {
   __int16 v10; // r11
   void *v11; // r12
-  LONG v12; // ebx
+  int v12; // edi
+  wchar_t *v13; // r15
   LONG *v14; // rsi
   int v15; // r14d
-  char v16; // di
-  char v17; // dl
-  bool v18; // r13
-  char v19; // al
-  LONG v20; // r11d
+  char v16; // dl
+  bool v17; // r13
+  char v18; // al
+  LONG v19; // r11d
   NTSTATUS result; // eax
-  const WCHAR *v22; // rdx
-  LONG v23; // eax
-  WCHAR *v24; // r9
-  LONG v25; // ecx
-  LONG v26; // edi
+  LONG v21; // ebx
+  int v22; // eax
+  wchar_t *v23; // r9
+  LONG v24; // ecx
   LONG EmailAt; // eax
-  WCHAR *v28; // r10
-  bool v29; // zf
-  bool v30; // zf
-  __int16 v31; // dx
-  WCHAR v32; // cx
+  WCHAR *v26; // r10
+  bool v27; // zf
+  bool v28; // zf
+  wchar_t v29; // dx
+  wchar_t v30; // cx
+  _WORD *v31; // r13
+  LONG v32; // edi
   bool v33; // cc
-  _WORD *v34; // r15
-  const WCHAR *v35; // r13
-  __int64 v36; // rax
-  char v37; // [rsp+28h] [rbp-18h]
+  __int64 v34; // rax
+  char v35; // [rsp+28h] [rbp-18h]
   size_t pcchLength; // [rsp+30h] [rbp-10h] BYREF
-  int v39; // [rsp+38h] [rbp-8h]
+  int v37; // [rsp+38h] [rbp-8h]
   LONG DestinationStringLength; // [rsp+78h] [rbp+38h] BYREF
 
   v10 = 0;
   v11 = a4;
   v12 = a3;
+  v13 = a2;
   if ( a2 )
   {
     if ( (int)a3 >= -1 )
@@ -68,173 +68,160 @@ NTSTATUS __fastcall RtlpNameprepAsciiRealWorker(
         if ( *a5 >= 0 && (v15 <= 0 || a4) && (a1 & 0xFFFFFFF8) == 0 )
         {
           a8 = 0;
-          v16 = 0;
-          v39 = a1 & 1;
+          v37 = a1 & 1;
           DestinationStringLength = a1 & 4;
-          v17 = DestinationStringLength != 0;
-          v18 = (a1 & 2) != 0;
+          v16 = DestinationStringLength != 0;
+          v17 = (a1 & 2) != 0;
           a10 = DestinationStringLength != 0;
           if ( (_DWORD)a3 != -1 )
           {
 LABEL_11:
-            if ( v12 > 0 && a2[v12 - 1] == v10 )
+            if ( v12 > 0 && v13[v12 - 1] == v10 )
             {
-              v16 = 1;
-              --v12;
               a8 = 1;
+              --v12;
             }
-            LOBYTE(a3) = v17;
-            LOBYTE(a4) = v18;
-            v19 = RtlpValidateAsciiStd3AndLength(a2, (unsigned int)v12, a3, a4);
-            v20 = 0;
-            if ( v19 )
+            LOBYTE(a3) = v16;
+            LOBYTE(a4) = v17;
+            v18 = RtlpValidateAsciiStd3AndLength(v13, (unsigned int)v12, a3, a4);
+            v19 = 0;
+            if ( v18 )
             {
               if ( !v12 )
                 return -1073740010;
-              if ( v16 )
-                ++v12;
-              if ( !v11 || !v15 )
-                goto LABEL_24;
-              if ( v12 <= v15 )
-              {
-                v22 = a2;
-LABEL_23:
-                memmove(v11, v22, 2LL * v12);
-LABEL_24:
-                *v14 = v12;
-                return 0;
-              }
-              goto LABEL_71;
+              v21 = v12 + 1;
+              if ( !a8 )
+                v21 = v12;
+              goto LABEL_65;
             }
-            v23 = 0;
-            v24 = (WCHAR *)Src;
-            v25 = 511;
-            v26 = 0;
+            v22 = 0;
+            v23 = Str1;
+            v24 = 511;
+            v21 = 0;
             if ( !DestinationStringLength )
-              goto LABEL_31;
-            EmailAt = FindEmailAt((__int64)a2, v12);
+              goto LABEL_28;
+            EmailAt = FindEmailAt((__int64)v13, v12);
             LODWORD(pcchLength) = EmailAt;
             if ( !EmailAt )
-              goto LABEL_48;
+              goto LABEL_55;
             DestinationStringLength = 511;
-            result = RtlNormalizeString(1u, a2, EmailAt, v28, &DestinationStringLength);
-            v26 = DestinationStringLength;
-            v20 = 0;
-            v29 = result == 0;
+            result = RtlNormalizeString(1u, v13, EmailAt, v26, &DestinationStringLength);
+            v21 = DestinationStringLength;
+            v19 = 0;
+            v27 = result == 0;
             if ( result >= 0 )
             {
               if ( DestinationStringLength )
               {
-                v23 = pcchLength;
-                v24 = (WCHAR *)((char *)Src + 2 * DestinationStringLength);
-                v25 = 511 - DestinationStringLength;
-LABEL_31:
-                if ( v23 >= v12 )
+                v22 = pcchLength;
+                v23 = &Str1[DestinationStringLength];
+                v24 = 511 - DestinationStringLength;
+LABEL_28:
+                if ( v22 >= v12 )
                 {
-LABEL_35:
-                  if ( v26 > 0 )
+LABEL_32:
+                  if ( v21 > 0 )
                   {
-                    v31 = *((_WORD *)Src + v26 - 1);
-                    if ( v31 == 46 )
+                    v29 = Str1[v21 - 1];
+                    if ( v29 == 46 )
                     {
-                      v32 = a2[v12 - 1];
-                      if ( v32 != 46 && v32 != 12290 && v32 != 0xFF0E && v32 != 0xFF61 )
-                        goto LABEL_48;
+                      v30 = v13[v12 - 1];
+                      if ( v30 != 46 && v30 != 12290 && v30 != 0xFF0E && v30 != 0xFF61 )
+                        goto LABEL_55;
                     }
-                    else if ( !v31 )
-                    {
-                      goto LABEL_48;
-                    }
+                    if ( !v29 )
+                      goto LABEL_55;
                   }
-                  v34 = Src;
-                  v37 = v18;
-                  v35 = a9;
+                  v13 = Str1;
+                  v35 = v17;
+                  v31 = Src;
                   DestinationStringLength = 515;
-                  result = punycode_encode((wchar_t *)Src, a10, v37);
-                  v12 = DestinationStringLength;
-                  v20 = 0;
-                  if ( !DestinationStringLength )
-                    goto LABEL_49;
-                  if ( !a6 )
+                  result = punycode_encode(Str1, a10, v35);
+                  v32 = DestinationStringLength;
+                  v19 = 0;
+                  if ( DestinationStringLength )
                   {
-                    if ( a8 )
+                    if ( a6 )
                     {
-                      if ( v26 > 511 )
-                        goto LABEL_48;
-                      v36 = v26++;
-                      v34[v36] = 0;
-                    }
-                    if ( v11 && v15 )
-                    {
-                      if ( v26 > v15 )
+                      if ( !a8 )
+                        goto LABEL_44;
+                      if ( DestinationStringLength < 515 )
                       {
-LABEL_71:
-                        result = -1073741789;
-                        goto LABEL_49;
+                        v31[DestinationStringLength] = 0;
+                        ++v32;
+LABEL_44:
+                        if ( v11 && v15 )
+                        {
+                          if ( v32 > v15 )
+                          {
+LABEL_68:
+                            result = -1073741789;
+                            goto LABEL_56;
+                          }
+                          memmove(v11, v31, 2LL * v32);
+                        }
+                        *v14 = v32;
+                        return 0;
                       }
-                      memmove(v11, v34, 2LL * v26);
+                      goto LABEL_55;
                     }
-                    *v14 = v26;
-                    return 0;
-                  }
-                  if ( !a8 )
-                  {
-LABEL_61:
-                    if ( !v11 || !v15 )
-                      goto LABEL_24;
-                    if ( v12 <= v15 )
+                    if ( !a8 )
                     {
-                      v22 = v35;
-                      goto LABEL_23;
+LABEL_65:
+                      if ( v11 && v15 )
+                      {
+                        if ( v21 > v15 )
+                          goto LABEL_68;
+                        memmove(v11, v13, 2LL * v21);
+                      }
+                      *v14 = v21;
+                      return 0;
                     }
-                    goto LABEL_71;
+                    if ( v21 <= 511 )
+                    {
+                      v34 = v21++;
+                      v13[v34] = 0;
+                      goto LABEL_65;
+                    }
+LABEL_55:
+                    result = -1073740010;
                   }
-                  if ( DestinationStringLength < 515 )
-                  {
-                    v35[DestinationStringLength] = 0;
-                    ++v12;
-                    goto LABEL_61;
-                  }
-LABEL_48:
-                  result = -1073740010;
-                  goto LABEL_49;
+LABEL_56:
+                  *v14 = v19;
+                  return result;
                 }
-                DestinationStringLength = v25;
-                result = RtlNormalizeString(((v39 ^ 1) << 8) + 13, &a2[v23], v12 - v23, v24, &DestinationStringLength);
-                v20 = 0;
-                v30 = result == 0;
+                DestinationStringLength = v24;
+                result = RtlNormalizeString(((v37 ^ 1) << 8) + 13, &v13[v22], v12 - v22, v23, &DestinationStringLength);
+                v19 = 0;
+                v28 = result == 0;
                 if ( result >= 0 )
                 {
                   if ( DestinationStringLength )
                   {
-                    v26 += DestinationStringLength;
-                    goto LABEL_35;
+                    v21 += DestinationStringLength;
+                    goto LABEL_32;
                   }
-                  v30 = result == 0;
+                  v28 = result == 0;
                 }
-                if ( v30 || result == -1073741789 || result == -1073740009 )
-                  goto LABEL_48;
+                if ( v28 || result == -1073741789 || result == -1073740009 )
+                  goto LABEL_55;
                 v33 = DestinationStringLength <= 0;
-LABEL_47:
-                if ( v33 )
-                {
-LABEL_49:
-                  *v14 = v20;
-                  return result;
-                }
-                goto LABEL_48;
+LABEL_54:
+                if ( !v33 )
+                  goto LABEL_55;
+                goto LABEL_56;
               }
-              v29 = result == 0;
+              v27 = result == 0;
             }
-            if ( v29 || result == -1073741789 || result == -1073740009 )
-              goto LABEL_48;
+            if ( v27 || result == -1073741789 || result == -1073740009 )
+              goto LABEL_55;
             v33 = DestinationStringLength <= 0;
-            goto LABEL_47;
+            goto LABEL_54;
           }
           pcchLength = 0LL;
-          if ( RtlStringCchLengthW(a2, 0x7FFFFFFFuLL, &pcchLength) >= 0 )
+          if ( RtlStringCchLengthW(v13, 0x7FFFFFFFuLL, &pcchLength) >= 0 )
           {
-            v17 = a10;
+            v16 = a10;
             v12 = pcchLength + 1;
             goto LABEL_11;
           }

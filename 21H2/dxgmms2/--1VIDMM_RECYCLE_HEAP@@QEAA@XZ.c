@@ -1,110 +1,110 @@
 /*
- * XREFs of ??1VIDMM_RECYCLE_HEAP@@QEAA@XZ @ 0x1C008200C
+ * XREFs of ??1VIDMM_RECYCLE_HEAP@@QEAA@XZ @ 0x1C007B144
  * Callers:
- *     ??1VIDMM_RECYCLE_HEAP_MGR@@UEAA@XZ @ 0x1C0081C04 (--1VIDMM_RECYCLE_HEAP_MGR@@UEAA@XZ.c)
+ *     ??1VIDMM_RECYCLE_HEAP_MGR@@UEAA@XZ @ 0x1C007AD3C (--1VIDMM_RECYCLE_HEAP_MGR@@UEAA@XZ.c)
  * Callees:
- *     ?Defragment@VIDMM_SEGMENT@@UEAAX_K0@Z @ 0x1C00843B0 (-Defragment@VIDMM_SEGMENT@@UEAAX_K0@Z.c)
+ *     ?Defragment@VIDMM_SEGMENT@@UEAAX_K0@Z @ 0x1C00750F0 (-Defragment@VIDMM_SEGMENT@@UEAAX_K0@Z.c)
  */
 
-void __fastcall VIDMM_RECYCLE_HEAP::~VIDMM_RECYCLE_HEAP(VIDMM_RECYCLE_HEAP *this, __int64 a2, unsigned __int64 a3)
+void __fastcall VIDMM_RECYCLE_HEAP::~VIDMM_RECYCLE_HEAP(VIDMM_RECYCLE_HEAP *this)
 {
-  _QWORD *v4; // rcx
-  _QWORD *v5; // rax
-  _QWORD *v6; // rax
-  __int64 v7; // rdi
-  unsigned __int64 v8; // rdi
-  _QWORD *v9; // rcx
-  _QWORD *v10; // rax
-  _QWORD *v11; // rax
-  __int64 v12; // rdi
-  unsigned __int64 v13; // rdi
-  _QWORD *v14; // rcx
-  _QWORD *v15; // rax
-  _QWORD *v16; // rax
-  __int64 v17; // rdi
-  unsigned __int64 v18; // rdi
+  _QWORD *v2; // rcx
+  _QWORD *v3; // rax
+  _QWORD *v4; // rax
+  __int64 v5; // rdi
+  unsigned __int64 v6; // rdi
+  _QWORD *v7; // rcx
+  _QWORD *v8; // rax
+  _QWORD *v9; // rax
+  __int64 v10; // rdi
+  unsigned __int64 v11; // rdi
+  _QWORD *v12; // rcx
+  _QWORD *v13; // rax
+  _QWORD *v14; // rax
+  __int64 v15; // rdi
+  unsigned __int64 v16; // rdi
 
-  v4 = (_QWORD *)*((_QWORD *)this + 6);
-  if ( v4 )
+  v2 = (_QWORD *)*((_QWORD *)this + 6);
+  if ( v2 )
   {
     while ( 1 )
     {
       while ( 1 )
       {
-        while ( *v4 )
+        while ( *v2 )
         {
-          v5 = v4;
-          v4 = (_QWORD *)*v4;
-          *v5 = 0LL;
+          v3 = v2;
+          v2 = (_QWORD *)*v2;
+          *v3 = 0LL;
         }
-        if ( !v4[1] )
+        if ( !v2[1] )
           break;
-        v6 = v4;
-        v4 = (_QWORD *)v4[1];
-        v6[1] = 0LL;
+        v4 = v2;
+        v2 = (_QWORD *)v2[1];
+        v4[1] = 0LL;
       }
-      v7 = v4[2];
-      VIDMM_SEGMENT::Defragment((VIDMM_SEGMENT *)v4, 0LL, a3);
-      v8 = v7 & 0xFFFFFFFFFFFFFFFCuLL;
-      if ( !v8 )
+      v5 = v2[2];
+      VIDMM_SEGMENT::Defragment((VIDMM_SEGMENT *)v2);
+      v6 = v5 & 0xFFFFFFFFFFFFFFFCuLL;
+      if ( !v6 )
         break;
-      v4 = (_QWORD *)v8;
+      v2 = (_QWORD *)v6;
     }
   }
   *((_QWORD *)this + 6) = 0LL;
-  v9 = (_QWORD *)*((_QWORD *)this + 7);
-  if ( v9 )
+  v7 = (_QWORD *)*((_QWORD *)this + 7);
+  if ( v7 )
   {
     while ( 1 )
     {
       while ( 1 )
       {
-        while ( *v9 )
+        while ( *v7 )
         {
-          v10 = v9;
-          v9 = (_QWORD *)*v9;
-          *v10 = 0LL;
+          v8 = v7;
+          v7 = (_QWORD *)*v7;
+          *v8 = 0LL;
         }
-        if ( !v9[1] )
+        if ( !v7[1] )
           break;
-        v11 = v9;
-        v9 = (_QWORD *)v9[1];
-        v11[1] = 0LL;
+        v9 = v7;
+        v7 = (_QWORD *)v7[1];
+        v9[1] = 0LL;
       }
-      v12 = v9[2];
-      VIDMM_SEGMENT::Defragment((VIDMM_SEGMENT *)v9, 0LL, a3);
-      v13 = v12 & 0xFFFFFFFFFFFFFFFCuLL;
-      if ( !v13 )
+      v10 = v7[2];
+      VIDMM_SEGMENT::Defragment((VIDMM_SEGMENT *)v7);
+      v11 = v10 & 0xFFFFFFFFFFFFFFFCuLL;
+      if ( !v11 )
         break;
-      v9 = (_QWORD *)v13;
+      v7 = (_QWORD *)v11;
     }
   }
   *((_QWORD *)this + 7) = 0LL;
-  v14 = (_QWORD *)*((_QWORD *)this + 8);
-  if ( v14 )
+  v12 = (_QWORD *)*((_QWORD *)this + 8);
+  if ( v12 )
   {
     while ( 1 )
     {
       while ( 1 )
       {
-        while ( *v14 )
+        while ( *v12 )
         {
-          v15 = v14;
-          v14 = (_QWORD *)*v14;
-          *v15 = 0LL;
+          v13 = v12;
+          v12 = (_QWORD *)*v12;
+          *v13 = 0LL;
         }
-        if ( !v14[1] )
+        if ( !v12[1] )
           break;
-        v16 = v14;
-        v14 = (_QWORD *)v14[1];
-        v16[1] = 0LL;
+        v14 = v12;
+        v12 = (_QWORD *)v12[1];
+        v14[1] = 0LL;
       }
-      v17 = v14[2];
-      VIDMM_SEGMENT::Defragment((VIDMM_SEGMENT *)v14, 0LL, a3);
-      v18 = v17 & 0xFFFFFFFFFFFFFFFCuLL;
-      if ( !v18 )
+      v15 = v12[2];
+      VIDMM_SEGMENT::Defragment((VIDMM_SEGMENT *)v12);
+      v16 = v15 & 0xFFFFFFFFFFFFFFFCuLL;
+      if ( !v16 )
         break;
-      v14 = (_QWORD *)v18;
+      v12 = (_QWORD *)v16;
     }
   }
   *((_QWORD *)this + 8) = 0LL;

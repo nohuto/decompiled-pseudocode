@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCopyPagesIntoEnclave @ 0x1408594AC
+ * XREFs of MiCopyPagesIntoEnclave @ 0x14085948C
  * Callers:
- *     NtLoadEnclaveData @ 0x14085AFD0 (NtLoadEnclaveData.c)
+ *     NtLoadEnclaveData @ 0x14085AFB0 (NtLoadEnclaveData.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -12,19 +12,19 @@
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiGetPteFromCopyList @ 0x14012D7E8 (MiGetPteFromCopyList.c)
- *     MiCreatePteCopyList @ 0x14012EBC0 (MiCreatePteCopyList.c)
- *     MiReleasePteCopyList @ 0x140131840 (MiReleasePteCopyList.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     KeAddEnclavePage @ 0x14028F6B4 (KeAddEnclavePage.c)
- *     MiGetVmPartition @ 0x1402B4480 (MiGetVmPartition.c)
- *     MiGetPageForEnclave @ 0x1402BDECC (MiGetPageForEnclave.c)
- *     MiInitializeEnclavePfn @ 0x1402BDF30 (MiInitializeEnclavePfn.c)
- *     MiReturnEnclavePage @ 0x1402BE7E0 (MiReturnEnclavePage.c)
- *     MiWriteEnclavePte @ 0x1402BE928 (MiWriteEnclavePte.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiGetPteFromCopyList @ 0x14012D808 (MiGetPteFromCopyList.c)
+ *     MiCreatePteCopyList @ 0x14012EBE0 (MiCreatePteCopyList.c)
+ *     MiReleasePteCopyList @ 0x140131860 (MiReleasePteCopyList.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     KeAddEnclavePage @ 0x14028F7B4 (KeAddEnclavePage.c)
+ *     MiGetVmPartition @ 0x1402B4580 (MiGetVmPartition.c)
+ *     MiGetPageForEnclave @ 0x1402BDFCC (MiGetPageForEnclave.c)
+ *     MiInitializeEnclavePfn @ 0x1402BE030 (MiInitializeEnclavePfn.c)
+ *     MiReturnEnclavePage @ 0x1402BE8E0 (MiReturnEnclavePage.c)
+ *     MiWriteEnclavePte @ 0x1402BEA28 (MiWriteEnclavePte.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

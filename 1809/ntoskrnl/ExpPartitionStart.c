@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpPartitionStart @ 0x14075481C
+ * XREFs of ExpPartitionStart @ 0x1407547FC
  * Callers:
- *     PspAllocatePartition @ 0x14075CA68 (PspAllocatePartition.c)
+ *     PspAllocatePartition @ 0x14075CA48 (PspAllocatePartition.c)
  *     ExpWorkerInitialization @ 0x1409D4C50 (ExpWorkerInitialization.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x1400E3C20 (KeQueryNodeActiveAffinity.c)
- *     ExpWorkQueueManagerStart @ 0x1407548C0 (ExpWorkQueueManagerStart.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
+ *     ExpWorkQueueManagerStart @ 0x1407548A0 (ExpWorkQueueManagerStart.c)
  */
 
 __int64 __fastcall ExpPartitionStart(__int64 a1)

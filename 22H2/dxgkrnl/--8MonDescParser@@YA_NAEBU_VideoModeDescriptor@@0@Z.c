@@ -1,7 +1,7 @@
 /*
- * XREFs of ??8MonDescParser@@YA_NAEBU_VideoModeDescriptor@@0@Z @ 0x1C001E4A0
+ * XREFs of ??8MonDescParser@@YA_NAEBU_VideoModeDescriptor@@0@Z @ 0x1C001F0D4
  * Callers:
- *     ??$IndexOf@PEAU_VideoModeDescriptor@@U1@@MonDescParser@@YA_KPEAU_VideoModeDescriptor@@0AEAU1@@Z @ 0x1C001E468 (--$IndexOf@PEAU_VideoModeDescriptor@@U1@@MonDescParser@@YA_KPEAU_VideoModeDescriptor@@0AEAU1@@Z.c)
+ *     ??$IndexOf@PEAU_VideoModeDescriptor@@U1@@MonDescParser@@YA_KPEAU_VideoModeDescriptor@@0AEAU1@@Z @ 0x1C001F09C (--$IndexOf@PEAU_VideoModeDescriptor@@U1@@MonDescParser@@YA_KPEAU_VideoModeDescriptor@@0AEAU1@@Z.c)
  * Callees:
  *     <none>
  */

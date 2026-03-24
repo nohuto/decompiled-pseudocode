@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetLastError@ThreadLocalData@details_abi@wil@@QEAAXAEBUFailureInfo@3@@Z @ 0x18017893C
+ * XREFs of ?SetLastError@ThreadLocalData@details_abi@wil@@QEAAXAEBUFailureInfo@3@@Z @ 0x18014E97C
  * Callers:
- *     ?GetContextAndNotifyFailure@details@wil@@YAXPEAUFailureInfo@2@PEAD_K@Z @ 0x1800F6E00 (-GetContextAndNotifyFailure@details@wil@@YAXPEAUFailureInfo@2@PEAD_K@Z.c)
+ *     ?GetContextAndNotifyFailure@details@wil@@YAXPEAUFailureInfo@2@PEAD_K@Z @ 0x18014D450 (-GetContextAndNotifyFailure@details@wil@@YAXPEAUFailureInfo@2@PEAD_K@Z.c)
  * Callees:
- *     ?ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z @ 0x1800295B8 (-ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z.c)
- *     ?Set@ThreadLocalFailureInfo@details_abi@wil@@QEAAXAEBUFailureInfo@3@I@Z @ 0x1801787EC (-Set@ThreadLocalFailureInfo@details_abi@wil@@QEAAXAEBUFailureInfo@3@I@Z.c)
+ *     ?ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z @ 0x1800AF6D0 (-ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z.c)
+ *     ?Set@ThreadLocalFailureInfo@details_abi@wil@@QEAAXAEBUFailureInfo@3@I@Z @ 0x18014E830 (-Set@ThreadLocalFailureInfo@details_abi@wil@@QEAAXAEBUFailureInfo@3@I@Z.c)
  */
 
 void __fastcall wil::details_abi::ThreadLocalData::SetLastError(
@@ -23,7 +23,7 @@ void __fastcall wil::details_abi::ThreadLocalData::SetLastError(
   v2 = (_WORD *)*((_QWORD *)this + 3);
   v4 = *((_DWORD *)this + 4);
   if ( v2 )
-    goto LABEL_7;
+    goto LABEL_8;
   if ( v4 )
   {
     v6 = wil::details::ProcessHeapAlloc(8u, 0x190uLL);
@@ -33,22 +33,23 @@ void __fastcall wil::details_abi::ThreadLocalData::SetLastError(
     {
       v7 = v6 + 200;
       *((_DWORD *)this + 8) = 5;
-      if ( v2 == v7 )
-        goto LABEL_7;
-      do
+      if ( v2 != v7 )
       {
-        *v2 = 80;
-        v2 += 40;
+        do
+        {
+          *v2 = 80;
+          v2 += 40;
+        }
+        while ( v2 != v7 );
+        v2 = (_WORD *)*((_QWORD *)this + 3);
       }
-      while ( v2 != v7 );
-      v2 = (_WORD *)*((_QWORD *)this + 3);
       if ( v2 )
       {
-LABEL_7:
+LABEL_8:
         v8 = v2;
         if ( !v4 || (v9 = &v2[40 * *((unsigned __int16 *)this + 16)], v2 == (_WORD *)v9) )
         {
-LABEL_14:
+LABEL_15:
           v11 = ((unsigned int)*((unsigned __int16 *)this + 17) + 1) % *((unsigned __int16 *)this + 16);
           *((_WORD *)this + 17) = v11;
           wil::details_abi::ThreadLocalFailureInfo::Set(
@@ -59,13 +60,13 @@ LABEL_14:
         else
         {
           v10 = v2 + 4;
-          while ( *(v10 - 1) <= *((_DWORD *)this + 4) || *v10 != *((_DWORD *)a2 + 2) )
+          while ( *(v10 - 1) <= *((_DWORD *)this + 4) || *v10 != *((_DWORD *)a2 + 1) )
           {
             v10 += 20;
             if ( v10 - 2 == v9 )
             {
               v8 = (_WORD *)*((_QWORD *)this + 3);
-              goto LABEL_14;
+              goto LABEL_15;
             }
           }
         }

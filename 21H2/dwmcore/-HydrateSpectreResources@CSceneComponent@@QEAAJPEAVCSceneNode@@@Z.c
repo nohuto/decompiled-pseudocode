@@ -1,71 +1,93 @@
 /*
- * XREFs of ?HydrateSpectreResources@CSceneComponent@@QEAAJPEAVCSceneNode@@@Z @ 0x18025BB84
+ * XREFs of ?HydrateSpectreResources@CSceneComponent@@QEAAJPEAVCSceneNode@@@Z @ 0x18020B104
  * Callers:
- *     ?HydrateSpectreResources@CSceneNode@@QEAAJPEAVCSceneWorld@@@Z @ 0x18023E1B8 (-HydrateSpectreResources@CSceneNode@@QEAAJPEAVCSceneWorld@@@Z.c)
- *     ?OnComponentsChanged@CSceneNode@@QEAAXXZ @ 0x18023E414 (-OnComponentsChanged@CSceneNode@@QEAAXXZ.c)
+ *     ?HydrateSpectreResources@CSceneNode@@QEAAJPEAVCSceneWorld@@@Z @ 0x1801EBA0C (-HydrateSpectreResources@CSceneNode@@QEAAJPEAVCSceneWorld@@@Z.c)
+ *     ?OnComponentsChanged@CSceneNode@@QEAAXXZ @ 0x1801EBCC8 (-OnComponentsChanged@CSceneNode@@QEAAXXZ.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_SpatialCompositionLabel@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x18023CAA8 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_SpatialCompositionLabel@@@details@wil@@QE.c)
- *     ??$_Find@PEAVCSceneNode@@@?$_Tree@V?$_Tmap_traits@PEAVCSceneNode@@PEAXU?$less@PEAVCSceneNode@@@std@@V?$allocator@U?$pair@QEAVCSceneNode@@PEAX@std@@@3@$0A@@std@@@std@@AEBAPEAU?$_Tree_node@U?$pair@QEAVCSceneNode@@PEAX@std@@PEAX@1@AEBQEAVCSceneNode@@@Z @ 0x18025B878 (--$_Find@PEAVCSceneNode@@@-$_Tree@V-$_Tmap_traits@PEAVCSceneNode@@PEAXU-$less@PEAVCSceneNode@@@s.c)
- *     ??$_Try_emplace@AEBQEAVCSceneNode@@$$V@?$map@PEAVCSceneNode@@PEAXU?$less@PEAVCSceneNode@@@std@@V?$allocator@U?$pair@QEAVCSceneNode@@PEAX@std@@@3@@std@@AEAA?AU?$pair@PEAU?$_Tree_node@U?$pair@QEAVCSceneNode@@PEAX@std@@PEAX@std@@_N@1@AEBQEAVCSceneNode@@@Z @ 0x18025B904 (--$_Try_emplace@AEBQEAVCSceneNode@@$$V@-$map@PEAVCSceneNode@@PEAXU-$less@PEAVCSceneNode@@@std@@V.c)
- *     ?DehydrateSpectreResources@CSceneComponent@@QEAAXPEAVCSceneNode@@@Z @ 0x18025BAC8 (-DehydrateSpectreResources@CSceneComponent@@QEAAXPEAVCSceneNode@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??$_Lbound@PEAVCSceneNode@@@?$_Tree@V?$_Tmap_traits@PEAVCSceneNode@@PEAXU?$less@PEAVCSceneNode@@@std@@V?$allocator@U?$pair@QEAVCSceneNode@@PEAX@std@@@3@$0A@@std@@@std@@IEBAPEAU?$_Tree_node@U?$pair@QEAVCSceneNode@@PEAX@std@@PEAX@1@AEBQEAVCSceneNode@@@Z @ 0x1801E9578 (--$_Lbound@PEAVCSceneNode@@@-$_Tree@V-$_Tmap_traits@PEAVCSceneNode@@PEAXU-$less@PEAVCSceneNode@@.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_SpatialCompositionLabel@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1801E9D34 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_SpatialCompositionLabel@@@details@wil@@QE.c)
+ *     ??$emplace_hint@AEBUpiecewise_construct_t@std@@V?$tuple@AEBQEAVCSceneNode@@@2@V?$tuple@$$V@2@@?$_Tree@V?$_Tmap_traits@PEAVCSceneNode@@PEAXU?$less@PEAVCSceneNode@@@std@@V?$allocator@U?$pair@QEAVCSceneNode@@PEAX@std@@@3@$0A@@std@@@std@@QEAA?AV?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEAVCSceneNode@@PEAX@std@@@std@@@std@@@1@V?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEAVCSceneNode@@PEAX@std@@@std@@@std@@@1@AEBUpiecewise_construct_t@1@$$QEAV?$tuple@AEBQEAVCSceneNode@@@1@$$QEAV?$tuple@$$V@1@@Z @ 0x18020AF24 (--$emplace_hint@AEBUpiecewise_construct_t@std@@V-$tuple@AEBQEAVCSceneNode@@@2@V-$tuple@$$V@2@@-$.c)
+ *     ?DehydrateSpectreResources@CSceneComponent@@QEAAXPEAVCSceneNode@@@Z @ 0x18020B04C (-DehydrateSpectreResources@CSceneComponent@@QEAAXPEAVCSceneNode@@@Z.c)
  */
 
 __int64 __fastcall CSceneComponent::HydrateSpectreResources(CSceneComponent *this, struct CSceneNode *a2)
 {
-  __int64 *v2; // rbp
-  __int64 v5; // rdi
-  __int64 (__fastcall *v6)(__int64, __int64, struct CSceneNode **); // rbx
-  __int64 v7; // rax
-  int v8; // eax
-  __int64 v9; // rcx
-  unsigned int v10; // ebx
-  struct CSceneNode *v11; // rbx
-  int v12; // eax
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  _BYTE v17[40]; // [rsp+30h] [rbp-28h] BYREF
-  struct CSceneNode *v18; // [rsp+60h] [rbp+8h] BYREF
-  struct CSceneNode *v19; // [rsp+68h] [rbp+10h] BYREF
+  __int64 *v2; // rsi
+  __int64 *v4; // rax
+  struct CSceneNode *v5; // r9
+  __int64 v6; // rdi
+  __int64 (__fastcall *v7)(__int64, __int64, struct CSceneNode **); // rbx
+  __int64 v8; // rax
+  int v9; // eax
+  __int64 v10; // rcx
+  int v11; // ebx
+  struct CSceneNode *v12; // rbx
+  __int64 *v13; // rax
+  __int64 v14; // r9
+  int v15; // eax
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  struct CSceneNode *v19; // [rsp+60h] [rbp+30h] BYREF
+  struct CSceneNode *v20; // [rsp+68h] [rbp+38h] BYREF
+  struct CSceneNode **v21; // [rsp+70h] [rbp+40h] BYREF
+  __int64 v22; // [rsp+78h] [rbp+48h] BYREF
 
+  v20 = a2;
+  v2 = (__int64 *)((char *)this + 56);
   v19 = a2;
-  v2 = (__int64 *)((char *)this + 64);
-  v18 = a2;
-  if ( std::_Tree<std::_Tmap_traits<CSceneNode *,void *,std::less<CSceneNode *>,std::allocator<std::pair<CSceneNode * const,void *>>,0>>::_Find<CSceneNode *>(
-         (__int64)this + 64,
-         (__int64)&v18) != *((_QWORD *)this + 8) )
-    return 0;
-  v5 = *((_QWORD *)a2 + 17);
-  v6 = *(__int64 (__fastcall **)(__int64, __int64, struct CSceneNode **))(*(_QWORD *)v5 + 48LL);
-  v7 = (*(__int64 (__fastcall **)(CSceneComponent *))(*(_QWORD *)this + 192LL))(this);
-  v8 = v6(v5, v7, &v18);
-  v10 = v8;
-  if ( v8 < 0 )
+  v4 = std::_Tree<std::_Tmap_traits<CSceneNode *,void *,std::less<CSceneNode *>,std::allocator<std::pair<CSceneNode * const,void *>>,0>>::_Lbound<CSceneNode *>(
+         (__int64 *)this + 7,
+         &v19);
+  if ( v4 == (__int64 *)*v2 || (unsigned __int64)v5 < v4[4] )
+    v4 = (__int64 *)*v2;
+  if ( v4 != (__int64 *)*v2 )
+    goto LABEL_11;
+  v6 = *((_QWORD *)v5 + 16);
+  v7 = *(__int64 (__fastcall **)(__int64, __int64, struct CSceneNode **))(*(_QWORD *)v6 + 48LL);
+  v8 = (*(__int64 (__fastcall **)(CSceneComponent *))(*(_QWORD *)this + 200LL))(this);
+  v9 = v7(v6, v8, &v19);
+  v11 = v9;
+  if ( v9 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0x28u);
-    goto LABEL_9;
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x28u, 0LL);
   }
-  v11 = v18;
-  *(_QWORD *)(*(_QWORD *)std::map<CSceneNode *,void *>::_Try_emplace<CSceneNode * const &,>(
-                           v2,
-                           (__int64)v17,
-                           (unsigned __int64 *)&v19)
-            + 40LL) = v11;
-  v12 = (*(__int64 (__fastcall **)(CSceneComponent *, struct CSceneNode *))(*(_QWORD *)this + 200LL))(this, v18);
-  v10 = v12;
-  if ( v12 < 0 )
+  else
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0x2Bu);
-LABEL_9:
-    CSceneComponent::DehydrateSpectreResources(this, v19);
-    return v10;
+    v12 = v19;
+    v13 = std::_Tree<std::_Tmap_traits<CSceneNode *,void *,std::less<CSceneNode *>,std::allocator<std::pair<CSceneNode * const,void *>>,0>>::_Lbound<CSceneNode *>(
+            v2,
+            &v20);
+    if ( v13 == (__int64 *)*v2 || (unsigned __int64)v20 < v13[4] )
+    {
+      v21 = &v20;
+      v13 = (__int64 *)*std::_Tree<std::_Tmap_traits<CSceneNode *,void *,std::less<CSceneNode *>,std::allocator<std::pair<CSceneNode * const,void *>>,0>>::emplace_hint<std::piecewise_construct_t const &,std::tuple<CSceneNode * const &>,std::tuple<>>(
+                          v2,
+                          &v22,
+                          v13,
+                          v14,
+                          &v21);
+    }
+    v13[5] = (__int64)v12;
+    v15 = (*(__int64 (__fastcall **)(CSceneComponent *, struct CSceneNode *))(*(_QWORD *)this + 208LL))(this, v19);
+    v11 = v15;
+    if ( v15 >= 0 )
+    {
+      wil::details::FeatureImpl<__WilFeatureTraits_Feature_SpatialCompositionLabel>::ReportUsage(
+        `wil::Feature<__WilFeatureTraits_Feature_SpatialCompositionLabel>::GetImpl'::`2'::impl,
+        0,
+        v17);
+      v5 = v20;
+LABEL_11:
+      v11 = 0;
+      goto LABEL_12;
+    }
+    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x2Bu, 0LL);
   }
-  wil::details::FeatureImpl<__WilFeatureTraits_Feature_SpatialCompositionLabel>::ReportUsage(
-    `wil::Feature<__WilFeatureTraits_Feature_SpatialCompositionLabel>::GetImpl'::`2'::impl,
-    0,
-    v14,
-    v15);
-  return 0;
+  v5 = v20;
+LABEL_12:
+  if ( v11 < 0 )
+    CSceneComponent::DehydrateSpectreResources(this, v5);
+  return (unsigned int)v11;
 }

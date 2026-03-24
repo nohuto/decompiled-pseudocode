@@ -1,17 +1,17 @@
 /*
- * XREFs of HUBDESC_ValidateMsOs20CcgpDevice @ 0x1C003E420
+ * XREFs of HUBDESC_ValidateMsOs20CcgpDevice @ 0x1C003B560
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall HUBDESC_ValidateMsOs20CcgpDevice(__int64 a1, int *a2, _WORD *a3)
 {
   int v3; // eax
-  char v6; // si
+  char v6; // di
   __int64 v7; // rdx
   int v9; // [rsp+28h] [rbp-10h]
 
@@ -20,7 +20,7 @@ char __fastcall HUBDESC_ValidateMsOs20CcgpDevice(__int64 a1, int *a2, _WORD *a3)
   if ( (*a2 & 0x200) != 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*((_QWORD *)a2 + 12), 2u, 5u, 0x15Cu, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids);
+      WPP_RECORDER_SF_(*((_QWORD *)a2 + 12), 2u, 5u, 0x15Au, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
     v7 = 201LL;
   }
   else
@@ -38,8 +38,8 @@ char __fastcall HUBDESC_ValidateMsOs20CcgpDevice(__int64 a1, int *a2, _WORD *a3)
         *((_QWORD *)a2 + 12),
         2u,
         5u,
-        0x15Du,
-        (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids,
+        0x15Bu,
+        (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids,
         v9);
     }
     v7 = 202LL;
@@ -47,6 +47,6 @@ char __fastcall HUBDESC_ValidateMsOs20CcgpDevice(__int64 a1, int *a2, _WORD *a3)
   (*(void (__fastcall **)(_QWORD, __int64))(a1 + 24))(*(_QWORD *)(a1 + 40), v7);
   v6 = 0;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_(*((_QWORD *)a2 + 12), 2u, 5u, 0x15Eu, (__int64)&WPP_f469c93bdbd23e392266c2e57c8e9931_Traceguids);
+    WPP_RECORDER_SF_(*((_QWORD *)a2 + 12), 2u, 5u, 0x15Cu, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
   return v6;
 }

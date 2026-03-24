@@ -1,20 +1,23 @@
 /*
- * XREFs of PopSuspendResumeInvocation @ 0x140998380
+ * XREFs of PopSuspendResumeInvocation @ 0x14077957C
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED5EC (PopPowerInformationInternal.c)
- *     PopDirectedDripsSendSuspendResumeNotification @ 0x140983DA0 (PopDirectedDripsSendSuspendResumeNotification.c)
- *     PopSendSuspendResumeApplicationNotification @ 0x14098A5D8 (PopSendSuspendResumeApplicationNotification.c)
- *     PopSendSuspendResumeServiceNotification @ 0x14098A7D4 (PopSendSuspendResumeServiceNotification.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
+ *     PopDirectedDripsSendSuspendResumeNotification @ 0x1408E39FC (PopDirectedDripsSendSuspendResumeNotification.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 PopSuspendResumeInvocation()
+__int64 __fastcall PopSuspendResumeInvocation(_BYTE *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax
 
   result = 0LL;
-  if ( qword_140C6B038 )
-    return ((__int64 (*)(void))qword_140C6B038)();
+  if ( qword_140C543E8 )
+  {
+    LOBYTE(a2) = a1[4];
+    LOBYTE(a3) = a1[5];
+    LOBYTE(a4) = a1[6];
+    return ((__int64 (__fastcall *)(_QWORD, __int64, __int64, __int64))qword_140C543E8)(*(unsigned int *)a1, a2, a3, a4);
+  }
   return result;
 }

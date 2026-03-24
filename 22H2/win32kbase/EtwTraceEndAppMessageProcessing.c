@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceEndAppMessageProcessing @ 0x1C0096FA0
+ * XREFs of EtwTraceEndAppMessageProcessing @ 0x1C0080B60
  * Callers:
  *     <none>
  * Callees:
- *     ?GetCallbackCount@@YACXZ @ 0x1C00DEF46 (-GetCallbackCount@@YACXZ.c)
- *     McTemplateK0cd_EtwWriteTransfer @ 0x1C00DF2BC (McTemplateK0cd_EtwWriteTransfer.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     McTemplateK0cd_EtwWriteTransfer @ 0x1C0124900 (McTemplateK0cd_EtwWriteTransfer.c)
  */
 
 void __fastcall EtwTraceEndAppMessageProcessing(int a1)
@@ -15,7 +15,7 @@ void __fastcall EtwTraceEndAppMessageProcessing(int a1)
 
   if ( (Microsoft_Windows_Win32kEnableBits & 0x4000) != 0 )
   {
-    LOBYTE(v2) = GetCallbackCount();
+    LOBYTE(v2) = *(_BYTE *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1248);
     McTemplateK0cd_EtwWriteTransfer(v3, &EndAppMessageProcessing, v4, v2, a1);
   }
 }

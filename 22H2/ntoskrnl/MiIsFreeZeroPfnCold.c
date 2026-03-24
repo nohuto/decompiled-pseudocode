@@ -1,29 +1,26 @@
 /*
- * XREFs of MiIsFreeZeroPfnCold @ 0x1402E85D0
+ * XREFs of MiIsFreeZeroPfnCold @ 0x1402837A0
  * Callers:
- *     MiGetPerfectColorHeadPage @ 0x14026DAF0 (MiGetPerfectColorHeadPage.c)
- *     MiConvertEntireLargePageToSmall @ 0x1402D2AD0 (MiConvertEntireLargePageToSmall.c)
- *     MiInsertLargePageChain @ 0x1402D68E0 (MiInsertLargePageChain.c)
- *     MiAllocateLargeZeroPages @ 0x1402E77E0 (MiAllocateLargeZeroPages.c)
- *     MiReplenishPageSlist @ 0x1402E7AD0 (MiReplenishPageSlist.c)
- *     MiReturnFreeZeroPage @ 0x1402E7F74 (MiReturnFreeZeroPage.c)
- *     MiBeginPageAccessor @ 0x1402E8034 (MiBeginPageAccessor.c)
- *     MiDemoteLocalLargePage @ 0x1402E81B0 (MiDemoteLocalLargePage.c)
- *     MiGetLargePageChain @ 0x1402EBA40 (MiGetLargePageChain.c)
- *     MiConvertContiguousPages @ 0x1403BD470 (MiConvertContiguousPages.c)
- *     MiLargeFreePageToMdl @ 0x1403D70E4 (MiLargeFreePageToMdl.c)
- *     MiPruneStandbyPages @ 0x14046C950 (MiPruneStandbyPages.c)
- *     MiPurgePartitionStandby @ 0x1406515B0 (MiPurgePartitionStandby.c)
+ *     MiDemoteLocalLargePage @ 0x140231A80 (MiDemoteLocalLargePage.c)
+ *     MiInsertLargePageChain @ 0x14027EE04 (MiInsertLargePageChain.c)
+ *     MiReturnFreeZeroPage @ 0x1402836D0 (MiReturnFreeZeroPage.c)
+ *     MiGetLargePage @ 0x1402840B4 (MiGetLargePage.c)
+ *     MiReplenishPageSlist @ 0x140298D80 (MiReplenishPageSlist.c)
+ *     MiLargeFreePageToMdl @ 0x1402EEF1C (MiLargeFreePageToMdl.c)
+ *     MiConvertContiguousPages @ 0x140355124 (MiConvertContiguousPages.c)
+ *     MiPurgePartitionStandby @ 0x140384914 (MiPurgePartitionStandby.c)
+ *     MiLargePagePromote @ 0x1403F6418 (MiLargePagePromote.c)
+ *     MiPruneStandbyPages @ 0x140550D14 (MiPruneStandbyPages.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall MiIsFreeZeroPfnCold(__int64 a1)
+bool __fastcall MiIsFreeZeroPfnCold(__int64 a1)
 {
   unsigned __int64 v1; // rcx
 
   v1 = *(_QWORD *)(a1 + 16);
-  if ( qword_140C65C40 && (v1 & 0x10) == 0 )
-    v1 &= ~qword_140C65C40;
+  if ( qword_140C4DF40 && (v1 & 0x10) == 0 )
+    v1 &= ~qword_140C4DF40;
   return HIDWORD(v1) == 4294967293;
 }

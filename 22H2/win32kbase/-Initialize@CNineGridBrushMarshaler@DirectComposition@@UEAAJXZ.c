@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CNineGridBrushMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00B2A30
+ * XREFs of ?Initialize@CNineGridBrushMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00AA5B0
  * Callers:
  *     <none>
  * Callees:

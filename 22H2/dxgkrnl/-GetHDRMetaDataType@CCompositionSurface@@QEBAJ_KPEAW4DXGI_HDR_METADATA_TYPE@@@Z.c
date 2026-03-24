@@ -1,15 +1,15 @@
 /*
- * XREFs of ?GetHDRMetaDataType@CCompositionSurface@@QEBAJ_KPEAW4DXGI_HDR_METADATA_TYPE@@@Z @ 0x1C007C6E0
+ * XREFs of ?GetHDRMetaDataType@CCompositionSurface@@QEBAJ_KPEAW4DXGI_HDR_METADATA_TYPE@@@Z @ 0x1C000F0A8
  * Callers:
- *     NtQueryCompositionSurfaceHDRMetaData @ 0x1C007B3D0 (NtQueryCompositionSurfaceHDRMetaData.c)
+ *     NtQueryCompositionSurfaceHDRMetaData @ 0x1C000EDB0 (NtQueryCompositionSurfaceHDRMetaData.c)
  * Callees:
- *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C00103F0 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C0011B50 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionSurface::GetHDRMetaDataType(
         CCompositionSurface *this,
-        __int64 a2,
+        unsigned __int64 a2,
         enum DXGI_HDR_METADATA_TYPE *a3)
 {
   int Buffer; // ebx
@@ -18,6 +18,6 @@ __int64 __fastcall CCompositionSurface::GetHDRMetaDataType(
   v6 = 0LL;
   Buffer = CCompositionSurface::FindBuffer(this, a2, &v6);
   if ( Buffer >= 0 )
-    *(_DWORD *)a3 = (*(__int64 (__fastcall **)(struct CCompositionBuffer *))(*(_QWORD *)v6 + 136LL))(v6);
+    *(_DWORD *)a3 = (*(__int64 (__fastcall **)(struct CCompositionBuffer *))(*(_QWORD *)v6 + 128LL))(v6);
   return (unsigned int)Buffer;
 }

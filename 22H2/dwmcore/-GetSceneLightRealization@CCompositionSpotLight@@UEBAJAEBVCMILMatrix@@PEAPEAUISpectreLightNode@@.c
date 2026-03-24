@@ -1,14 +1,14 @@
 /*
- * XREFs of ?GetSceneLightRealization@CCompositionSpotLight@@UEBAJAEBVCMILMatrix@@PEAPEAUISpectreLightNode@@@Z @ 0x1802267A0
+ * XREFs of ?GetSceneLightRealization@CCompositionSpotLight@@UEBAJAEBVCMILMatrix@@PEAPEAUISpectreLightNode@@@Z @ 0x1801BC2A0
  * Callers:
  *     <none>
  * Callees:
- *     ?Transform4DVector@CMILMatrix@@QEBA?AUD2D_VECTOR_4F@@AEBU2@@Z @ 0x180006168 (-Transform4DVector@CMILMatrix@@QEBA-AUD2D_VECTOR_4F@@AEBU2@@Z.c)
- *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180071B00 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
- *     ?Transform3DVector@CMILMatrix@@QEBA?AUD2D_VECTOR_3F@@AEBU2@@Z @ 0x1800E05E8 (-Transform3DVector@CMILMatrix@@QEBA-AUD2D_VECTOR_3F@@AEBU2@@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Transform4DVector@CMILMatrix@@QEBA?AUD2D_VECTOR_4F@@AEBU2@@Z @ 0x18000BD20 (-Transform4DVector@CMILMatrix@@QEBA-AUD2D_VECTOR_4F@@AEBU2@@Z.c)
+ *     ?Transform3DVector@CMILMatrix@@QEBA?AUD2D_VECTOR_3F@@AEBU2@@Z @ 0x1800218C8 (-Transform3DVector@CMILMatrix@@QEBA-AUD2D_VECTOR_3F@@AEBU2@@Z.c)
+ *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180041988 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CCompositionSpotLight::GetSceneLightRealization(
@@ -37,82 +37,82 @@ __int64 __fastcall CCompositionSpotLight::GetSceneLightRealization(
   struct D2D_VECTOR_3F v24; // [rsp+B8h] [rbp+17h] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+100h] [rbp+5Fh]
 
-  *a3 = (struct ISpectreLightNode *)*((_QWORD *)this + 22);
-  v5 = *((_QWORD *)this + 22);
+  *a3 = (struct ISpectreLightNode *)*((_QWORD *)this + 21);
+  v5 = *((_QWORD *)this + 21);
   if ( v5 )
   {
-    v6 = (*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)v5 + 80LL))(v5, (char *)this + 312);
+    v6 = (*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)v5 + 80LL))(v5, (char *)this + 304);
     if ( v6 < 0 )
     {
-      v7 = 717LL;
+      v7 = 732LL;
 LABEL_4:
       wil::details::in1diag3::Return_Hr(
         retaddr,
         (void *)v7,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\compositionspotlight.cpp",
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\compositionspotlight.cpp",
         (const char *)(unsigned int)v6);
       return (unsigned int)v6;
     }
-    v6 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 22) + 88LL))(*((_QWORD *)this + 22));
+    v6 = (*(__int64 (__fastcall **)(_QWORD))(**((_QWORD **)this + 21) + 88LL))(*((_QWORD *)this + 21));
     if ( v6 < 0 )
     {
-      v7 = 718LL;
+      v7 = 733LL;
       goto LABEL_4;
     }
-    v9 = *((_QWORD *)this + 22);
-    v10 = *((_DWORD *)this + 96);
-    v19[0] = *((_DWORD *)this + 95);
+    v9 = *((_QWORD *)this + 21);
+    v10 = *((_DWORD *)this + 94);
+    v19[0] = *((_DWORD *)this + 93);
     v19[1] = v10;
     v6 = (*(__int64 (__fastcall **)(__int64, _DWORD *))(*(_QWORD *)v9 + 104LL))(v9, v19);
     if ( v6 < 0 )
     {
-      v7 = 721LL;
+      v7 = 736LL;
       goto LABEL_4;
     }
-    v11 = *(_OWORD *)((char *)this + 184);
-    v12 = *(_OWORD *)((char *)this + 200);
-    v22 = *((_DWORD *)this + 62);
+    v11 = *((_OWORD *)this + 11);
+    v12 = *((_OWORD *)this + 12);
+    v22 = *((_DWORD *)this + 60);
     v21[0] = v11;
-    v13 = *(_OWORD *)((char *)this + 216);
+    v13 = *((_OWORD *)this + 13);
     v21[1] = v12;
-    v14 = *(_OWORD *)((char *)this + 232);
+    v14 = *((_OWORD *)this + 14);
     v21[2] = v13;
     v21[3] = v14;
     CMILMatrix::Multiply((CMILMatrix *)v21, a2);
-    LODWORD(v14) = *((_DWORD *)this + 90);
-    v18.x = *((FLOAT *)this + 89);
-    v18.z = *((FLOAT *)this + 91);
+    LODWORD(v14) = *((_DWORD *)this + 88);
+    v18.x = *((FLOAT *)this + 87);
+    v18.z = *((FLOAT *)this + 89);
     LODWORD(v18.y) = v14;
     v18.w = 1.0;
     v20 = v18;
     CMILMatrix::Transform4DVector((CMILMatrix *)v21, &v18, &v20);
     v15 = (float)(1.0 / v18.w) * v18.z;
     v23[0] = (float)(1.0 / v18.w) * v18.x;
-    v18.x = *((FLOAT *)this + 92);
-    LODWORD(v13) = *((_DWORD *)this + 94);
+    v18.x = *((FLOAT *)this + 90);
+    LODWORD(v13) = *((_DWORD *)this + 92);
     v23[1] = (float)(1.0 / v18.w) * v18.y;
-    LODWORD(v14) = *((_DWORD *)this + 93);
+    LODWORD(v14) = *((_DWORD *)this + 91);
     LODWORD(v18.z) = v13;
     v23[2] = v15;
     LODWORD(v18.y) = v14;
     CMILMatrix::Transform3DVector((CMILMatrix *)v21, &v24, (const struct D2D_VECTOR_3F *)&v18);
-    v16 = (*(__int64 (__fastcall **)(_QWORD, float *, struct D2D_VECTOR_3F *))(**((_QWORD **)this + 22) + 96LL))(
-            *((_QWORD *)this + 22),
+    v16 = (*(__int64 (__fastcall **)(_QWORD, float *, struct D2D_VECTOR_3F *))(**((_QWORD **)this + 21) + 96LL))(
+            *((_QWORD *)this + 21),
             v23,
             &v24);
     if ( v16 >= 0 )
       return 0LL;
-    v17 = 729LL;
+    v17 = 744LL;
   }
   else
   {
     v16 = -2147467259;
-    v17 = 733LL;
+    v17 = 748LL;
   }
   wil::details::in1diag3::Return_Hr(
     retaddr,
     (void *)v17,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\compositionspotlight.cpp",
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\compositionspotlight.cpp",
     (const char *)(unsigned int)v16);
   return (unsigned int)v16;
 }

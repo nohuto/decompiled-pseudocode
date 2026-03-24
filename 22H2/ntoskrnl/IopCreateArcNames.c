@@ -1,23 +1,23 @@
 /*
- * XREFs of IopCreateArcNames @ 0x140B3D704
+ * XREFs of IopCreateArcNames @ 0x140A61BAC
  * Callers:
- *     IopInitializeBootDrivers @ 0x140B405B4 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     RtlStringCchPrintfA @ 0x14037507C (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     IopCreateArcNamesDisk @ 0x140B3D164 (IopCreateArcNamesDisk.c)
- *     IopCreateArcNamesCd @ 0x140B3D2CC (IopCreateArcNamesCd.c)
+ *     IopVerifierExAllocatePool @ 0x14022C350 (IopVerifierExAllocatePool.c)
+ *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
+ *     RtlStringCchPrintfA @ 0x1403B7F0C (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
+ *     IopCreateArcNamesDisk @ 0x140A61CE8 (IopCreateArcNamesDisk.c)
+ *     IopCreateArcNamesCd @ 0x140A61E50 (IopCreateArcNamesCd.c)
  */
 
 __int64 __fastcall IopCreateArcNames(__int64 a1)
 {
   const char *v1; // r9
   __int64 v3; // rbx
-  void *Pool2; // rax
+  PVOID Pool; // rax
   __int64 result; // rax
   STRING DestinationString; // [rsp+20h] [rbp-B8h] BYREF
   STRING v7; // [rsp+30h] [rbp-A8h] BYREF
@@ -36,10 +36,10 @@ __int64 __fastcall IopCreateArcNames(__int64 a1)
   do
     ++v3;
   while ( *(_BYTE *)(*(_QWORD *)(a1 + 184) + v3) );
-  Pool2 = (void *)ExAllocatePool2(256LL, v3 + 1, 0x344E6F49u);
-  IoLoaderArcBootDeviceName = (__int64)Pool2;
-  if ( Pool2 )
-    memmove(Pool2, *(const void **)(a1 + 184), v3 + 1);
+  Pool = IopVerifierExAllocatePool(PagedPool, v3 + 1);
+  IoLoaderArcBootDeviceName = (__int64)Pool;
+  if ( Pool )
+    memmove(Pool, *(const void **)(a1 + 184), v3 + 1);
   RtlInitAnsiString(&v7, *(PCSZ *)(a1 + 192));
   result = IopCreateArcNamesDisk();
   if ( (int)result >= 0 )

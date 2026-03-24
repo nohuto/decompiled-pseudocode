@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmGetParentDeviceContainerId @ 0x140A28D58
+ * XREFs of _CmGetParentDeviceContainerId @ 0x1407D0884
  * Callers:
- *     _CmUpdateDevicePanel @ 0x14076E224 (_CmUpdateDevicePanel.c)
- *     _CmUpdateDevicePanelInterface @ 0x140A297B0 (_CmUpdateDevicePanelInterface.c)
+ *     _CmUpdateDevicePanel @ 0x1407476A8 (_CmUpdateDevicePanel.c)
+ *     _CmUpdateDevicePanelInterface @ 0x140978E20 (_CmUpdateDevicePanelInterface.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
- *     _CmGetDeviceParent @ 0x140788ED4 (_CmGetDeviceParent.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceParent @ 0x1406B09D4 (_CmGetDeviceParent.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetParentDeviceContainerId(__int64 a1, const WCHAR *a2, __int64 a3)
 {
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   wchar_t *v7; // rdi
   int DeviceParent; // ebx
   int v10; // [rsp+60h] [rbp-18h] BYREF
@@ -22,11 +22,11 @@ __int64 __fastcall CmGetParentDeviceContainerId(__int64 a1, const WCHAR *a2, __i
   v12 = 0;
   v10 = 0;
   v11[0] = 200;
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, 400LL, 1380994640LL);
-  v7 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x190uLL, 0x52504E50u);
+  v7 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    DeviceParent = CmGetDeviceParent(a1, a2, Pool2, v11);
+    DeviceParent = CmGetDeviceParent(a1, a2, PoolWithTag, v11);
     if ( DeviceParent >= 0 )
     {
       DeviceParent = PnpGetObjectProperty(

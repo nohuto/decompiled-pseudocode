@@ -1,16 +1,16 @@
 /*
- * XREFs of _RegRtlCreateTreeTransacted @ 0x140772B6C
+ * XREFs of _RegRtlCreateTreeTransacted @ 0x14063E344
  * Callers:
- *     _SysCtxRegCreateTree @ 0x140772AF8 (_SysCtxRegCreateTree.c)
+ *     _SysCtxRegCreateTree @ 0x14063E2D0 (_SysCtxRegCreateTree.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x1402DF9D0 (RtlUnalignedStringCchLengthW.c)
- *     RtlStringCchCopyExW @ 0x1402E0340 (RtlStringCchCopyExW.c)
- *     _wcsnicmp @ 0x1403E15D0 (_wcsnicmp.c)
- *     wcschr @ 0x1403E32C0 (wcschr.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _RegRtlCreateKeyTransacted @ 0x140772D80 (_RegRtlCreateKeyTransacted.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlStringCchCopyExW @ 0x140265430 (RtlStringCchCopyExW.c)
+ *     RtlUnalignedStringCchLengthW @ 0x1402659E4 (RtlUnalignedStringCchLengthW.c)
+ *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
+ *     wcschr @ 0x1403D3F10 (wcschr.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _RegRtlCreateKeyTransacted @ 0x14063E55C (_RegRtlCreateKeyTransacted.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlCreateTreeTransacted(
@@ -27,7 +27,7 @@ __int64 __fastcall RegRtlCreateTreeTransacted(
   unsigned int v10; // r13d
   NTSTATUS KeyTransacted; // edi
   size_t v14; // rbx
-  wchar_t *Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   wchar_t *v16; // rsi
   unsigned __int64 v17; // rbx
   __int64 v18; // rbp
@@ -54,11 +54,11 @@ __int64 __fastcall RegRtlCreateTreeTransacted(
     if ( KeyTransacted >= 0 )
     {
       v14 = pcchLength + 1;
-      Pool2 = (wchar_t *)ExAllocatePool2(256LL, 2 * (pcchLength + 1), 1279739218LL);
-      v16 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2 * (pcchLength + 1), 0x4C474552u);
+      v16 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        KeyTransacted = RtlStringCchCopyExW(Pool2, v14, pszSrc, 0LL, 0LL, 0x100u);
+        KeyTransacted = RtlStringCchCopyExW(PoolWithTag, v14, pszSrc, 0LL, 0LL, 0x100u);
         if ( !KeyTransacted )
         {
           v17 = (unsigned __int64)v16;

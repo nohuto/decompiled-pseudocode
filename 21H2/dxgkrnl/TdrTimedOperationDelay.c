@@ -1,11 +1,11 @@
 /*
- * XREFs of TdrTimedOperationDelay @ 0x1C00528F0
+ * XREFs of TdrTimedOperationDelay @ 0x1C0045400
  * Callers:
  *     <none>
  * Callees:
- *     ?_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z @ 0x1C00526A4 (-_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z.c)
- *     TdrTimedOperationAllowToDebugTimeout @ 0x1C005270C (TdrTimedOperationAllowToDebugTimeout.c)
- *     TdrTimedOperationBugcheckOnTimeout @ 0x1C0052898 (TdrTimedOperationBugcheckOnTimeout.c)
+ *     ?_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z @ 0x1C00451B4 (-_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z.c)
+ *     TdrTimedOperationAllowToDebugTimeout @ 0x1C004521C (TdrTimedOperationAllowToDebugTimeout.c)
+ *     TdrTimedOperationBugcheckOnTimeout @ 0x1C00453A8 (TdrTimedOperationBugcheckOnTimeout.c)
  */
 
 __int64 __fastcall TdrTimedOperationDelay(
@@ -14,11 +14,11 @@ __int64 __fastcall TdrTimedOperationDelay(
         BOOLEAN a3,
         __int64 *a4)
 {
-  unsigned int v5; // ebp
-  union _LARGE_INTEGER v9; // rbx
-  union _LARGE_INTEGER v10; // rax
-  union _LARGE_INTEGER v12; // [rsp+20h] [rbp-28h] BYREF
-  union _LARGE_INTEGER Interval; // [rsp+28h] [rbp-20h] BYREF
+  unsigned int v5; // esi
+  union _LARGE_INTEGER v9; // r10
+  __int64 QuadPart; // rax
+  union _LARGE_INTEGER v12; // [rsp+20h] [rbp-18h] BYREF
+  union _LARGE_INTEGER Interval; // [rsp+28h] [rbp-10h] BYREF
 
   v5 = 0;
   v12.QuadPart = 0LL;
@@ -28,10 +28,10 @@ __int64 __fastcall TdrTimedOperationDelay(
   {
     if ( KeGetCurrentIrql() <= 1u && a4 && *a4 )
     {
-      v10.QuadPart = -(__int64)abs64(*a4);
-      if ( v10.QuadPart < v9.QuadPart )
-        v10 = v9;
-      Interval = v10;
+      QuadPart = -(__int64)abs64(*a4);
+      if ( QuadPart < v12.QuadPart )
+        QuadPart = v12.QuadPart;
+      Interval.QuadPart = QuadPart;
       v5 = KeDelayExecutionThread(a2, a3, &Interval);
       _TdrTimedOperationGetRelativeTimeLeft(a1, &v12);
       v9 = v12;

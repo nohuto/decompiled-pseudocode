@@ -1,18 +1,18 @@
 /*
- * XREFs of SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409CCCF0
+ * XREFs of SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14091FFAC
  * Callers:
- *     SeSecurityDescriptorChangedAuditAlarm @ 0x1407BC7B0 (SeSecurityDescriptorChangedAuditAlarm.c)
- *     SeTokenDefaultDaclChangedAuditAlarm @ 0x1407F1980 (SeTokenDefaultDaclChangedAuditAlarm.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x14067BC20 (SeSecurityDescriptorChangedAuditAlarm.c)
+ *     SeTokenDefaultDaclChangedAuditAlarm @ 0x14069F338 (SeTokenDefaultDaclChangedAuditAlarm.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14020BB20 (PsGetCurrentThreadProcess.c)
- *     ObpIsKernelHandle @ 0x1402BEB24 (ObpIsKernelHandle.c)
- *     SepAdtLogAuditRecord @ 0x14039B490 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SepSecurityDescriptorStrictLength @ 0x14070DA6C (SepSecurityDescriptorStrictLength.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x140742C84 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x1409D1CF0 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObpIsKernelHandle @ 0x1402C8F50 (ObpIsKernelHandle.c)
+ *     PsGetCurrentThreadProcess @ 0x140316F60 (PsGetCurrentThreadProcess.c)
+ *     SepAdtLogAuditRecord @ 0x1403C20B4 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14062F1D8 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepSecurityDescriptorStrictLength @ 0x140924E2C (SepSecurityDescriptorStrictLength.c)
+ *     SepAuditFailed @ 0x140925950 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepAdtSecurityDescriptorChangedAuditAlarm(
@@ -36,17 +36,24 @@ void __fastcall SepAdtSecurityDescriptorChangedAuditAlarm(
   int v20; // eax
   int v21; // eax
   bool IsKernelHandle; // al
-  __int64 v23; // rcx
-  unsigned __int64 v24; // rcx
-  int v25; // eax
-  __int64 v26; // rcx
-  __int64 v27; // rcx
-  struct _LIST_ENTRY *Flink; // [rsp+40h] [rbp-C8h]
+  unsigned __int64 v23; // r8
+  __int64 v24; // rcx
+  unsigned __int64 v25; // rcx
+  int v26; // edx
+  int v27; // esi
+  int v28; // eax
+  __int64 v29; // rcx
+  int v30; // eax
+  PVOID P; // [rsp+28h] [rbp-E0h] BYREF
+  __int64 v32; // [rsp+30h] [rbp-D8h]
+  struct _LIST_ENTRY *Flink; // [rsp+38h] [rbp-D0h]
   _QWORD Src[132]; // [rsp+48h] [rbp-C0h] BYREF
 
+  P = 0LL;
+  v32 = a9;
   CurrentThreadProcess = PsGetCurrentThreadProcess();
   Flink = CurrentThreadProcess[1].Header.WaitListHead.Flink;
-  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess);
+  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, (__int64)&P);
   if ( AllocatedFullProcessImageName >= 0 )
   {
     memset(Src, 0, 0x418uLL);
@@ -103,29 +110,33 @@ void __fastcall SepAdtSecurityDescriptorChangedAuditAlarm(
     }
     Src[27] = 0x80000000BLL;
     IsKernelHandle = ObpIsKernelHandle(a5, 0);
-    v24 = v23 ^ 0xFFFFFFFF80000000uLL;
-    LODWORD(Src[31]) = 24;
+    v25 = v24 ^ 0xFFFFFFFF80000000uLL;
+    v27 = v26 + 24;
+    LODWORD(Src[31]) = v26 + 24;
     if ( !IsKernelHandle )
-      v24 = a5;
-    Src[28] = v24 & 0xFFFFFFFFFFFFFFFCuLL;
-    v25 = SepSecurityDescriptorStrictLength(a7);
-    Src[34] = v26;
+      v25 = v23;
+    Src[28] = v25 & 0xFFFFFFFFFFFFFFFCuLL;
+    v28 = SepSecurityDescriptorStrictLength(a7);
     Src[33] = 4LL;
-    HIDWORD(Src[31]) = v25;
+    HIDWORD(Src[31]) = v28;
+    Src[34] = a7;
     Src[32] = a8;
-    LODWORD(Src[35]) = 24;
-    HIDWORD(Src[35]) = SepSecurityDescriptorStrictLength(a9);
-    Src[38] = v27;
+    LODWORD(Src[35]) = v27;
+    HIDWORD(Src[35]) = SepSecurityDescriptorStrictLength(v32);
+    Src[38] = v29;
     Src[40] = Flink;
-    Src[46] = 0LL;
+    Src[46] = P;
     Src[36] = a8;
+    v30 = *(unsigned __int16 *)P + 16;
     Src[37] = 4LL;
-    HIDWORD(Src[43]) = MEMORY[0] + 16;
+    HIDWORD(Src[43]) = v30;
     Src[39] = 0x80000000BLL;
     LODWORD(Src[43]) = 2;
     LODWORD(Src[1]) = 11;
     SepAdtLogAuditRecord(Src);
   }
+  if ( P )
+    ExFreePoolWithTag(P, 0);
   if ( AllocatedFullProcessImageName < 0 )
     SepAuditFailed((unsigned int)AllocatedFullProcessImageName);
 }

@@ -1,28 +1,28 @@
 /*
- * XREFs of MiReleaseCommitForResetPages @ 0x140580FA4
+ * XREFs of MiReleaseCommitForResetPages @ 0x14052C554
  * Callers:
- *     MmOutSwapProcess @ 0x140211108 (MmOutSwapProcess.c)
+ *     MmOutSwapProcess @ 0x14024A494 (MmOutSwapProcess.c)
  * Callees:
- *     KeForceAttachProcess @ 0x1402393FC (KeForceAttachProcess.c)
- *     KeForceDetachProcess @ 0x140241980 (KeForceDetachProcess.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140281A58 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiUnlockVad @ 0x140281C44 (MiUnlockVad.c)
- *     MiGetSharedVm @ 0x140282AD0 (MiGetSharedVm.c)
- *     MiReturnCommit @ 0x14028CE10 (MiReturnCommit.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     MiUnlockWorkingSetExclusive @ 0x14030FA80 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     MiIsVadEligibleForCommitRelease @ 0x140580028 (MiIsVadEligibleForCommitRelease.c)
- *     MiLogResetPagesCommitRelease @ 0x1405802D8 (MiLogResetPagesCommitRelease.c)
- *     MiWalkResetCommitPages @ 0x14058154C (MiWalkResetCommitPages.c)
+ *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     KeForceAttachProcess @ 0x14025C278 (KeForceAttachProcess.c)
+ *     KeForceDetachProcess @ 0x1402BA388 (KeForceDetachProcess.c)
+ *     MiUnlockVad @ 0x140314658 (MiUnlockVad.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x140314860 (UNLOCK_ADDRESS_SPACE.c)
+ *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x14052B6A8 (MiIsVadEligibleForCommitRelease.c)
+ *     MiLogResetPagesCommitRelease @ 0x14052B9A0 (MiLogResetPagesCommitRelease.c)
+ *     MiWalkResetCommitPages @ 0x14052CAF8 (MiWalkResetCommitPages.c)
  */
 
 LONG __fastcall MiReleaseCommitForResetPages(ULONG_PTR a1)
 {
-  _QWORD *SharedVm; // rax
+  LONG *SharedVm; // rax
   struct _KTHREAD *CurrentThread; // rdi
-  _QWORD *v4; // r15
+  LONG *v4; // r15
   __int64 v5; // r14
   _QWORD *v6; // rax
   _QWORD *i; // rbx
@@ -30,7 +30,7 @@ LONG __fastcall MiReleaseCommitForResetPages(ULONG_PTR a1)
   _QWORD *v9; // rcx
   _QWORD *v10; // rcx
   unsigned __int64 v11; // rdi
-  volatile LONG *v12; // rbx
+  LONG *v12; // rbx
   KIRQL v13; // al
   struct _KEVENT *v14; // rbx
   unsigned __int64 v15; // rcx
@@ -40,7 +40,7 @@ LONG __fastcall MiReleaseCommitForResetPages(ULONG_PTR a1)
   SharedVm = MiGetSharedVm(a1 + 1664);
   CurrentThread = KeGetCurrentThread();
   v4 = SharedVm;
-  v5 = SharedVm[4];
+  v5 = *((_QWORD *)SharedVm + 4);
   if ( (*(_DWORD *)(v5 + 48) & 1) != 0 )
   {
     --CurrentThread->SpecialApcDisable;
@@ -80,14 +80,14 @@ LONG __fastcall MiReleaseCommitForResetPages(ULONG_PTR a1)
         }
       }
     }
-    UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, a1);
+    UNLOCK_ADDRESS_SPACE((__int64)CurrentThread, a1);
   }
   v11 = _InterlockedExchange64((volatile __int64 *)(a1 + 1872), 0LL);
   if ( v11 )
-    MiReturnCommit(*(_QWORD *)(qword_140C51F48 + 8LL * *(unsigned __int16 *)(a1 + 1838)), v11);
-  v12 = (volatile LONG *)MiGetSharedVm(a1 + 1664);
+    MiReturnCommit(*(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a1 + 1838)), v11);
+  v12 = MiGetSharedVm(a1 + 1664);
   v13 = ExAcquireSpinLockExclusive(v12);
-  *((_DWORD *)v12 + 1) = 0;
+  v12[1] = 0;
   v14 = *(struct _KEVENT **)(v5 + 40);
   *(_QWORD *)(v5 + 40) = 0LL;
   v15 = *(_QWORD *)(v5 + 32);
@@ -96,7 +96,7 @@ LONG __fastcall MiReleaseCommitForResetPages(ULONG_PTR a1)
   else
     v16 = v15 - v11;
   *(_QWORD *)(v5 + 32) = v16;
-  v4[1] += v11;
+  *((_QWORD *)v4 + 1) += v11;
   MiUnlockWorkingSetExclusive(a1 + 1664, v13);
   MiLogResetPagesCommitRelease();
   KeForceDetachProcess(0LL, 0);

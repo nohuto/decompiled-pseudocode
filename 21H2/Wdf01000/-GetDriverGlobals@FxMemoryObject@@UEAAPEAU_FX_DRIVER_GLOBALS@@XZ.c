@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDriverGlobals@FxMemoryObject@@UEAAPEAU_FX_DRIVER_GLOBALS@@XZ @ 0x1C000BBD0
+ * XREFs of ?GetDriverGlobals@FxMemoryObject@@UEAAPEAU_FX_DRIVER_GLOBALS@@XZ @ 0x1C000DB10
  * Callers:
  *     <none>
  * Callees:

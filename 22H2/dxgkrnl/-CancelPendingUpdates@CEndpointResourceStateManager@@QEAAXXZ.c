@@ -1,9 +1,10 @@
 /*
- * XREFs of ?CancelPendingUpdates@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C00861EC
+ * XREFs of ?CancelPendingUpdates@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C006C468
  * Callers:
- *     ?ProcessDiscardedProducerPresentUpdate@CFlipManager@@QEAAXPEAVCFlipPresentUpdate@@@Z @ 0x1C0084CDC (-ProcessDiscardedProducerPresentUpdate@CFlipManager@@QEAAXPEAVCFlipPresentUpdate@@@Z.c)
+ *     ?ConsumerDwmApplyUpdates@CFlipManager@@QEAAJ_K0AEBUtagCompositionRate@@AEAU_LIST_ENTRY@@PEAW4FlipPresentProcessResult@@@Z @ 0x1C006AEDC (-ConsumerDwmApplyUpdates@CFlipManager@@QEAAJ_K0AEBUtagCompositionRate@@AEAU_LIST_ENTRY@@PEAW4Fli.c)
+ *     ?ProcessDiscardedProducerPresentUpdate@FlipManagerObject@@QEAAJPEAVCFlipPresentUpdate@@@Z @ 0x1C006EB6C (-ProcessDiscardedProducerPresentUpdate@FlipManagerObject@@QEAAJPEAVCFlipPresentUpdate@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CEndpointResourceStateManager::CancelPendingUpdates(CEndpointResourceStateManager *this)
@@ -11,10 +12,8 @@ void __fastcall CEndpointResourceStateManager::CancelPendingUpdates(CEndpointRes
   char *v1; // rsi
   char *v3; // rcx
   char *v4; // rbx
-  __int64 v5; // rcx
-  CEndpointResourceStateManager **v6; // rcx
-  CEndpointResourceStateManager *v7; // rbx
-  __int64 v8; // rcx
+  CEndpointResourceStateManager **v5; // rcx
+  CEndpointResourceStateManager *v6; // rbx
 
   v1 = (char *)this + 16;
   v3 = (char *)*((_QWORD *)this + 2);
@@ -23,22 +22,20 @@ void __fastcall CEndpointResourceStateManager::CancelPendingUpdates(CEndpointRes
     do
     {
       v4 = *(char **)v3;
-      v5 = (unsigned __int64)(v3 - 8) & -(__int64)(v3 != 0LL);
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 8LL))(v5);
+      (*(void (__fastcall **)(_QWORD *))(*((_QWORD *)v3 - 1) + 8LL))((_QWORD *)v3 - 1);
       v3 = v4;
     }
     while ( v4 != v1 );
   }
-  v6 = *(CEndpointResourceStateManager ***)this;
+  v5 = *(CEndpointResourceStateManager ***)this;
   if ( *(CEndpointResourceStateManager **)this != this )
   {
     do
     {
-      v7 = *v6;
-      v8 = (unsigned __int64)(v6 - 1) & -(__int64)(v6 != 0LL);
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 8LL))(v8);
-      v6 = (CEndpointResourceStateManager **)v7;
+      v6 = *v5;
+      (*((void (__fastcall **)(CEndpointResourceStateManager **))*(v5 - 1) + 1))(v5 - 1);
+      v5 = (CEndpointResourceStateManager **)v6;
     }
-    while ( v7 != this );
+    while ( v6 != this );
   }
 }

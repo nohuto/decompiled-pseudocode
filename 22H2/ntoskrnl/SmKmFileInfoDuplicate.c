@@ -1,25 +1,25 @@
 /*
- * XREFs of SmKmFileInfoDuplicate @ 0x1409D8AD4
+ * XREFs of SmKmFileInfoDuplicate @ 0x14092B36C
  * Callers:
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140342E58 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140353D08 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
  * Callees:
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     SSHSupportAllocateNonPaged @ 0x14032D1C0 (SSHSupportAllocateNonPaged.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwDuplicateObject @ 0x14041AE20 (ZwDuplicateObject.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x1407379D0 (ObOpenObjectByPointer.c)
- *     SmKmFileInfoCleanup @ 0x1409D8A30 (SmKmFileInfoCleanup.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     SSHSupportAllocateNonPaged @ 0x140322FE4 (SSHSupportAllocateNonPaged.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x1403FA1A0 (ZwDuplicateObject.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x140653F10 (ObOpenObjectByPointer.c)
+ *     SmKmFileInfoCleanup @ 0x14092B2C8 (SmKmFileInfoCleanup.c)
  */
 
 __int64 __fastcall SmKmFileInfoDuplicate(_OWORD *a1, __int64 a2)
 {
   NTSTATUS v4; // ebx
   void *v5; // rcx
-  size_t v6; // rbx
-  void *NonPaged; // rax
+  SIZE_T v6; // rbx
+  PVOID NonPaged; // rax
   int v8; // eax
   __int128 v9; // xmm1
   __int128 v10; // xmm0
@@ -49,7 +49,7 @@ __int64 __fastcall SmKmFileInfoDuplicate(_OWORD *a1, __int64 a2)
         TargetHandle[3] = *(HANDLE *)(a2 + 24);
       }
       v6 = (unsigned int)(16 * *(_DWORD *)(a2 + 56));
-      NonPaged = (void *)SSHSupportAllocateNonPaged(v6, 0x74586D73u);
+      NonPaged = SSHSupportAllocateNonPaged(v6, 0x74586D73u);
       TargetHandle[6] = NonPaged;
       if ( NonPaged )
       {

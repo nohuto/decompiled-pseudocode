@@ -1,11 +1,11 @@
 /*
- * XREFs of IopSymlinkSetFoExtension @ 0x140881820
+ * XREFs of IopSymlinkSetFoExtension @ 0x14067FE4C
  * Callers:
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
+ *     IopSymlinkPropagateToExtensionIfNeeded @ 0x140650C60 (IopSymlinkPropagateToExtensionIfNeeded.c)
  * Callees:
- *     IopAllocateFileObjectExtension @ 0x140250C30 (IopAllocateFileObjectExtension.c)
- *     IopGetFileObjectExtension @ 0x14030169C (IopGetFileObjectExtension.c)
- *     IopSetTypeSpecificFoExtension @ 0x140302850 (IopSetTypeSpecificFoExtension.c)
+ *     IopAllocateFileObjectExtension @ 0x14022BB40 (IopAllocateFileObjectExtension.c)
+ *     IopGetFileObjectExtension @ 0x1402D6F90 (IopGetFileObjectExtension.c)
+ *     IopSetTypeSpecificFoExtension @ 0x14030F6A4 (IopSetTypeSpecificFoExtension.c)
  */
 
 __int64 __fastcall IopSymlinkSetFoExtension(__int64 a1, signed __int64 a2)

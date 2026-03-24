@@ -1,15 +1,15 @@
 /*
- * XREFs of McTemplateK0dz @ 0x14028ABE4
+ * XREFs of McTemplateK0dz @ 0x14028ACE4
  * Callers:
- *     PipProcessStartPhase3 @ 0x1406EAB38 (PipProcessStartPhase3.c)
- *     PipProcessStartPhase1 @ 0x1406EBCD0 (PipProcessStartPhase1.c)
- *     PipProcessStartPhase2 @ 0x1406FD644 (PipProcessStartPhase2.c)
- *     PiCMQueryRemove @ 0x140838654 (PiCMQueryRemove.c)
- *     PipProcessRestartPhase1 @ 0x140841780 (PipProcessRestartPhase1.c)
- *     PipProcessRestartPhase2 @ 0x140841840 (PipProcessRestartPhase2.c)
+ *     PipProcessStartPhase3 @ 0x1406EAB18 (PipProcessStartPhase3.c)
+ *     PipProcessStartPhase1 @ 0x1406EBCB0 (PipProcessStartPhase1.c)
+ *     PipProcessStartPhase2 @ 0x1406FD624 (PipProcessStartPhase2.c)
+ *     PiCMQueryRemove @ 0x140838634 (PiCMQueryRemove.c)
+ *     PipProcessRestartPhase1 @ 0x140841760 (PipProcessRestartPhase1.c)
+ *     PipProcessRestartPhase2 @ 0x140841820 (PipProcessRestartPhase2.c)
  * Callees:
- *     McGenEventWrite @ 0x14015D6A0 (McGenEventWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     McGenEventWrite @ 0x14015D6C0 (McGenEventWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateK0dz(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, int a4, const wchar_t *a5)

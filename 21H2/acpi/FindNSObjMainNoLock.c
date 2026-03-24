@@ -1,24 +1,23 @@
 /*
- * XREFs of FindNSObjMainNoLock @ 0x1C001F71C
+ * XREFs of FindNSObjMainNoLock @ 0x1C0014080
  * Callers:
- *     AMLIFindNameSpaceObject @ 0x1C001F5E4 (AMLIFindNameSpaceObject.c)
+ *     AMLIFindNameSpaceObject @ 0x1C0013F48 (AMLIFindNameSpaceObject.c)
  * Callees:
- *     FindNSObj @ 0x1C00175E0 (FindNSObj.c)
- *     HeapFree @ 0x1C0018DD0 (HeapFree.c)
- *     _strupr_0 @ 0x1C002F1FB (_strupr_0.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     FindNSObj @ 0x1C0014150 (FindNSObj.c)
+ *     _strupr_0 @ 0x1C0031D3B (_strupr_0.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall FindNSObjMainNoLock(char *Src, __int64 a2, __int64 a3, int a4)
 {
   __int64 v8; // rbx
-  __int64 v9; // r9
+  int v9; // r9d
   __int64 v10; // r8
   unsigned int NSObj; // eax
   unsigned int v12; // ebx
   __int64 v14; // rcx
-  size_t v15; // [rsp+28h] [rbp-20h]
-  int v16; // [rsp+50h] [rbp+8h] BYREF
+  int v15; // [rsp+50h] [rbp+8h] BYREF
 
   if ( Src )
   {
@@ -33,20 +32,19 @@ __int64 __fastcall FindNSObjMainNoLock(char *Src, __int64 a2, __int64 a3, int a4
     }
     else
     {
-      v16 = 1600085855;
-      memmove(&v16, Src, (unsigned int)v8);
-      LODWORD(v15) = a4;
+      v15 = 1600085855;
+      memmove(&v15, Src, (unsigned int)v8);
       if ( (a4 & 1) != 0 )
       {
         v9 = a2;
-        v10 = a2;
+        LODWORD(v10) = a2;
       }
       else
       {
         v10 = *(_QWORD *)(a2 + 16);
-        v9 = 0LL;
+        v9 = 0;
       }
-      NSObj = FindNSObj(v16, a2, v10, v9, a3, v15);
+      NSObj = FindNSObj(v15, a2, v10, v9, a3, a4);
       v12 = NSObj;
       if ( NSObj == -1073741772 )
       {

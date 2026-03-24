@@ -1,34 +1,37 @@
 /*
- * XREFs of PopDirectedDripsDiagNotifySessionStart @ 0x140885C5C
+ * XREFs of PopDirectedDripsDiagNotifySessionStart @ 0x1408F716C
  * Callers:
- *     PopDirectedDripsNotify @ 0x1408759B4 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsNotify @ 0x14078DA18 (PopDirectedDripsNotify.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
  */
 
-ULONG __fastcall PopDirectedDripsDiagNotifySessionStart(__int64 a1, int a2)
+char __fastcall PopDirectedDripsDiagNotifySessionStart(__int64 a1, int a2)
 {
-  ULONG result; // eax
+  ULONG HandleAttributes; // eax
   ULONG v5; // ett
 
   _m_prefetchw(&PopDirectedDripsState);
-  result = PopDirectedDripsState.HandleAttributes;
+  HandleAttributes = PopDirectedDripsState.HandleAttributes;
   do
   {
-    v5 = result;
-    result = _InterlockedCompareExchange((volatile signed __int32 *)&PopDirectedDripsState, result, result);
+    v5 = HandleAttributes;
+    HandleAttributes = _InterlockedCompareExchange(
+                         (volatile signed __int32 *)&PopDirectedDripsState,
+                         HandleAttributes,
+                         HandleAttributes);
   }
-  while ( v5 != result );
-  if ( (result & 1) != 0 )
+  while ( v5 != HandleAttributes );
+  if ( (HandleAttributes & 1) != 0 )
   {
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopDirectedDripsDiagLock, 0LL);
-    qword_140C38EE0 = a1;
-    dword_140C38EE8 = a2;
+    qword_140C1E9E0 = a1;
+    dword_140C1E9E8 = a2;
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopDirectedDripsDiagLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&PopDirectedDripsDiagLock);
-    return KeAbPostRelease((ULONG_PTR)&PopDirectedDripsDiagLock);
+    LOBYTE(HandleAttributes) = KeAbPostRelease((ULONG_PTR)&PopDirectedDripsDiagLock);
   }
-  return result;
+  return HandleAttributes;
 }

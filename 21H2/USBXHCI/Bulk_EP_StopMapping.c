@@ -1,17 +1,24 @@
 /*
- * XREFs of Bulk_EP_StopMapping @ 0x1C000CBC0
+ * XREFs of Bulk_EP_StopMapping @ 0x1C000EC50
  * Callers:
  *     <none>
  * Callees:
- *     TR_AttemptStateChange @ 0x1C000A724 (TR_AttemptStateChange.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
  */
 
-__int64 __fastcall Bulk_EP_StopMapping(__int64 a1)
+void __fastcall Bulk_EP_StopMapping(__int64 a1)
 {
-  __int64 result; // rax
+  __int64 v1; // rdx
+  __int64 v2; // rcx
 
-  result = (unsigned int)_InterlockedExchange((volatile __int32 *)(a1 + 108), 1);
-  if ( (_DWORD)result == 2 )
-    return TR_AttemptStateChange(a1, 1, 0);
-  return result;
+  if ( _InterlockedExchange((volatile __int32 *)(a1 + 108), 1) == 2
+    && _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 108), 0, 1) == 1 )
+  {
+    v1 = *(_QWORD *)(a1 + 56);
+    if ( !*(_BYTE *)(v1 + 37)
+      || (v2 = *(_QWORD *)(v1 + 136), _InterlockedIncrement((volatile signed __int32 *)(v2 + 20)) == *(_DWORD *)(v2 + 8)) )
+    {
+      ESM_AddEvent((KSPIN_LOCK *)(v1 + 288), 20);
+    }
+  }
 }

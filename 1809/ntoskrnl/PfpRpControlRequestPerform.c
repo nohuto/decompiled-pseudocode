@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpRpControlRequestPerform @ 0x14069DB58
+ * XREFs of PfpRpControlRequestPerform @ 0x14069DB38
  * Callers:
- *     PfpRpControlRequest @ 0x14069DAA0 (PfpRpControlRequest.c)
+ *     PfpRpControlRequest @ 0x14069DA80 (PfpRpControlRequest.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     PfpRpControlRequestUpdate @ 0x14069DDE0 (PfpRpControlRequestUpdate.c)
- *     PfpRpControlRequestReset @ 0x14069E2F4 (PfpRpControlRequestReset.c)
+ *     PfpRpControlRequestUpdate @ 0x14069DDC0 (PfpRpControlRequestUpdate.c)
+ *     PfpRpControlRequestReset @ 0x14069E2D4 (PfpRpControlRequestReset.c)
  */
 
 __int64 __fastcall PfpRpControlRequestPerform(struct _EX_RUNDOWN_REF *a1, __int64 a2)

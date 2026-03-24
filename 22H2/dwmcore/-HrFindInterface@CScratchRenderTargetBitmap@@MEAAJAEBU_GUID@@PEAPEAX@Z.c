@@ -1,9 +1,9 @@
 /*
- * XREFs of ?HrFindInterface@CScratchRenderTargetBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180037970
+ * XREFs of ?HrFindInterface@CScratchRenderTargetBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180024270
  * Callers:
  *     <none>
  * Callees:
- *     ?HrFindInterface@CRenderTargetBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180034970 (-HrFindInterface@CRenderTargetBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CRenderTargetBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800242C0 (-HrFindInterface@CRenderTargetBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
  */
 
 __int64 __fastcall CScratchRenderTargetBitmap::HrFindInterface(

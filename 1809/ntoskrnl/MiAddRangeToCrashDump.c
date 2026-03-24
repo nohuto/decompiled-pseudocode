@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAddRangeToCrashDump @ 0x1402ADBF8
+ * XREFs of MiAddRangeToCrashDump @ 0x1402ADCF8
  * Callers:
- *     MiAddRangeToCrashDump @ 0x1402ADBF8 (MiAddRangeToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x1402AE110 (MmAddRangeToCrashDump.c)
+ *     MiAddRangeToCrashDump @ 0x1402ADCF8 (MiAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x1402AE210 (MmAddRangeToCrashDump.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiIsPageSecured @ 0x1400EA7C0 (MiIsPageSecured.c)
- *     KdCheckForDebugBreak @ 0x140144658 (KdCheckForDebugBreak.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     MiAddRangeToCrashDump @ 0x1402ADBF8 (MiAddRangeToCrashDump.c)
+ *     MiIsPageSecured @ 0x1400EA7E0 (MiIsPageSecured.c)
+ *     KdCheckForDebugBreak @ 0x140144678 (KdCheckForDebugBreak.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MiAddRangeToCrashDump @ 0x1402ADCF8 (MiAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MiAddRangeToCrashDump(

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CParticleAttractorMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C021D930
+ * XREFs of ?SetBufferProperty@CParticleAttractorMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DC830
  * Callers:
  *     <none>
  * Callees:
@@ -14,22 +14,23 @@ __int64 __fastcall DirectComposition::CParticleAttractorMarshaler::SetBufferProp
         unsigned __int64 a5,
         bool *a6)
 {
-  unsigned int v6; // edx
-  int v7; // eax
+  __int64 result; // rax
+  int v8; // ecx
 
-  v6 = 0;
+  result = 0LL;
   *a6 = 0;
-  if ( !a3 && a4 && a5 == 12 )
+  if ( a3 )
+    return 3221225485LL;
+  if ( a4 )
   {
-    *((_QWORD *)this + 7) = *(_QWORD *)a4;
-    v7 = a4[2];
-    *((_DWORD *)this + 4) |= 0x20u;
-    *((_DWORD *)this + 16) = v7;
-    *a6 = 1;
+    if ( a5 == 12 )
+    {
+      *((_QWORD *)this + 7) = *(_QWORD *)a4;
+      v8 = a4[2];
+      *((_DWORD *)this + 4) |= 0x20u;
+      *((_DWORD *)this + 16) = v8;
+      *a6 = 1;
+    }
   }
-  else
-  {
-    return (unsigned int)-1073741811;
-  }
-  return v6;
+  return result;
 }

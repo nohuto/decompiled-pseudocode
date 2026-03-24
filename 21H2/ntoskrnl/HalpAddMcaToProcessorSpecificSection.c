@@ -1,18 +1,17 @@
 /*
- * XREFs of HalpAddMcaToProcessorSpecificSection @ 0x140505DAC
+ * XREFs of HalpAddMcaToProcessorSpecificSection @ 0x1404B94D8
  * Callers:
- *     HalpCreateMcaProcessorErrorRecord @ 0x140506860 (HalpCreateMcaProcessorErrorRecord.c)
+ *     HalpCreateMcaProcessorErrorRecord @ 0x1404B9ECC (HalpCreateMcaProcessorErrorRecord.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall HalpAddMcaToProcessorSpecificSection(__int64 a1, GUID *a2, unsigned int *a3)
 {
-  unsigned int v6; // edi
-  void (__fastcall *v7)(__int64, __int64, __int128 *, char *, char *, char *); // rax
+  unsigned __int16 *p_Data2; // rbx
+  unsigned int v7; // esi
   GUID *v8; // r9
   unsigned __int64 v9; // r10
   _QWORD *Data4; // r8
@@ -28,28 +27,23 @@ __int64 __fastcall HalpAddMcaToProcessorSpecificSection(__int64 a1, GUID *a2, un
   __int64 v20; // rdx
   __int64 v21; // rdx
   __int64 v22; // rax
-  unsigned int v23; // edi
+  unsigned int v23; // esi
   char *v24; // rax
-  __int64 v26; // [rsp+40h] [rbp-58h]
-  __int128 v27; // [rsp+48h] [rbp-50h] BYREF
 
+  p_Data2 = &a2[1].Data2;
   *(_QWORD *)&a2->Data1 |= 2uLL;
-  v6 = 64;
-  v26 = *(unsigned int *)(a1 + 16);
-  ((void (__fastcall *)(__int64, __int64, GUID *, unsigned __int16 *, unsigned __int8 *, unsigned __int8 *))HalpWheaCpuid)(
-    v26,
+  v7 = 64;
+  ((void (__fastcall *)(_QWORD, __int64, GUID *, unsigned __int16 *, unsigned __int8 *, unsigned __int8 *))HalpWheaCpuid)(
+    *(unsigned int *)(a1 + 16),
     1LL,
     &a2[1],
     &a2[1].Data2,
     a2[1].Data4,
     &a2[1].Data4[4]);
-  v7 = (void (__fastcall *)(__int64, __int64, __int128 *, char *, char *, char *))HalpWheaCpuid;
   *(_QWORD *)&a2->Data1 |= 1uLL;
-  v27 = 0LL;
-  v7(v26, 1LL, &v27, (char *)&v27 + 4, (char *)&v27 + 8, (char *)&v27 + 12);
   v8 = a2 + 4;
-  *(_QWORD *)a2->Data4 = (unsigned __int64)DWORD1(v27) >> 24;
-  if ( _bittest64((const signed __int64 *)(a1 + 40), 0x3Au) )
+  *(_QWORD *)a2->Data4 = *((unsigned __int8 *)p_Data2 + 3);
+  if ( (*(_QWORD *)(a1 + 40) & 0x400000000000000LL) != 0 )
   {
     *(_QWORD *)&a2[5].Data1 |= 2uLL;
     *(_QWORD *)&a2[6].Data1 = *(_QWORD *)(a1 + 48);
@@ -113,11 +107,7 @@ LABEL_15:
     v13 = v12 ^ ((unsigned int)v12 ^ (*(_QWORD *)(a1 + 40) >> 35)) & 0x4000000 | 0x80;
     *Data4 = v13;
     v14 = v13 ^ ((unsigned int)v13 ^ (*(_QWORD *)(a1 + 40) >> 33)) & 0x20000000;
-LABEL_31:
-    *Data4 = v14;
-    v6 = 128;
-    *(_QWORD *)&a2->Data1 = *(_QWORD *)&a2->Data1 & 0xFFFFFFFFFFFFFF03uLL | 4;
-    goto LABEL_32;
+    goto LABEL_31;
   }
   if ( (v9 & 0xEFF0) == 0x10 )
   {
@@ -136,35 +126,39 @@ LABEL_31:
                                                                                                 * ((16 * (v9 & 3)) | ((unsigned __int16)v9 >> 4) & 0xF))) << 16) | 0xF;
     goto LABEL_15;
   }
-  if ( (v9 & 0xE800) == 0x800 )
+  if ( (v9 & 0xE800) != 0x800 )
   {
-    *(_QWORD *)&a2[5].Data1 |= 1uLL;
-    Data4 = a2[5].Data4;
-    *v8 = WHEA_BUSCHECK_GUID;
-    v15 = *(_QWORD *)a2[5].Data4 & 0xFFFFFFFFFE03FFFFuLL | (((16 * (v9 & 3)) | ((unsigned __int16)v9 >> 4) & 0xF) << 18) | 0xE;
-    *(_QWORD *)a2[5].Data4 = v15;
-    v16 = v15 ^ ((unsigned int)v15 ^ HIDWORD(*(_QWORD *)(a1 + 40))) & 0x2000000 | 0x10;
-    *(_QWORD *)a2[5].Data4 = v16;
-    v17 = v16 ^ ((unsigned int)v16 ^ (*(_QWORD *)(a1 + 40) >> 35)) & 0x4000000 | 0x80;
-    *(_QWORD *)a2[5].Data4 = v17;
-    v14 = v17 & 0xFFFFFFF81FFFFFFFuLL | (*(_QWORD *)(a1 + 40) >> 33) & 0x20000000LL | (((v9 >> 9) & 3 | (4 * ((v9 >> 8) & 1 | (2 * (((unsigned __int16)v9 >> 2) & 3LL))))) << 30) | 0x700;
-    goto LABEL_31;
+    memset(&a2[4], 0, 0x40uLL);
+    v8 = 0LL;
+    goto LABEL_32;
   }
-  memset(&a2[4], 0, 0x40uLL);
-  v8 = 0LL;
+  *(_QWORD *)&a2[5].Data1 |= 1uLL;
+  Data4 = a2[5].Data4;
+  *v8 = WHEA_BUSCHECK_GUID;
+  v15 = *(_QWORD *)a2[5].Data4 & 0xFFFFFFFFFE03FFFFuLL | (((16 * (v9 & 3)) | ((unsigned __int16)v9 >> 4) & 0xF) << 18) | 0xE;
+  *(_QWORD *)a2[5].Data4 = v15;
+  v16 = v15 ^ ((unsigned int)v15 ^ HIDWORD(*(_QWORD *)(a1 + 40))) & 0x2000000 | 0x10;
+  *(_QWORD *)a2[5].Data4 = v16;
+  v17 = v16 ^ ((unsigned int)v16 ^ (*(_QWORD *)(a1 + 40) >> 35)) & 0x4000000 | 0x80;
+  *(_QWORD *)a2[5].Data4 = v17;
+  v14 = v17 & 0xFFFFFFF81FFFFFFFuLL | (*(_QWORD *)(a1 + 40) >> 33) & 0x20000000LL | (((v9 >> 9) & 3 | (4 * ((v9 >> 8) & 1 | (2 * (((unsigned __int16)v9 >> 2) & 3LL))))) << 30) | 0x700;
+LABEL_31:
+  *Data4 = v14;
+  v7 = 128;
+  *(_QWORD *)&a2->Data1 = *(_QWORD *)&a2->Data1 & 0xFFFFFFFFFFFFFF03uLL | 4;
 LABEL_32:
-  if ( *(_DWORD *)(a1 + 64) && v8 )
+  if ( *(_DWORD *)(a1 + 64) )
   {
     *(_QWORD *)&a2->Data1 = *(_QWORD *)&a2->Data1 & 0xFFFFFFFFFFFFC0FFuLL | 0x100;
-    v22 = v6;
-    v23 = v6 + 16;
+    v22 = v7;
+    v23 = v7 + 16;
     v24 = (char *)v8 + v22;
     *(_DWORD *)v24 = 524289;
     *((_DWORD *)v24 + 1) = 384;
     *((_QWORD *)v24 + 1) = 0LL;
     memmove(&v24[v23], (const void *)(a1 + 72), 8LL * *(unsigned int *)(a1 + 64));
-    v6 = v23 + 8 * *(_DWORD *)(a1 + 64);
+    v7 = v23 + 8 * *(_DWORD *)(a1 + 64);
   }
-  *a3 = v6;
+  *a3 = v7;
   return 0LL;
 }

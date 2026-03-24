@@ -1,12 +1,12 @@
 /*
- * XREFs of ?RevalidationCleanup@CManipulationContext@@CAXHPEAUMCCollections@@PEAV?$CQueue@PEAVCResource@@@@@Z @ 0x180184CB4
+ * XREFs of ?RevalidationCleanup@CManipulationContext@@CAXHPEAUMCCollections@@PEAV?$CQueue@PEAVCResource@@@@@Z @ 0x180236438
  * Callers:
- *     ?Revalidate@CManipulationContext@@SAXPEAUMCCollections@@PEAV?$CQueue@PEAVCResource@@@@@Z @ 0x180183ED4 (-Revalidate@CManipulationContext@@SAXPEAUMCCollections@@PEAV-$CQueue@PEAVCResource@@@@@Z.c)
+ *     ?Revalidate@CManipulationContext@@SAXPEAUMCCollections@@PEAV?$CQueue@PEAVCResource@@@@@Z @ 0x180235710 (-Revalidate@CManipulationContext@@SAXPEAUMCCollections@@PEAV-$CQueue@PEAVCResource@@@@@Z.c)
  * Callees:
- *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800DF980 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
- *     ?Insert@?$CQueue@PEAVCResource@@@@AEAAJ_NPEAVCResource@@@Z @ 0x1800E55C8 (-Insert@-$CQueue@PEAVCResource@@@@AEAAJ_NPEAVCResource@@@Z.c)
- *     ?InternalRelease@?$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EA9A4 (-InternalRelease@-$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ.c)
- *     memmove_0 @ 0x18010518B (memmove_0.c)
+ *     ?Insert@?$CQueue@PEAVCResource@@@@AEAAJ_NPEAVCResource@@@Z @ 0x180062038 (-Insert@-$CQueue@PEAVCResource@@@@AEAAJ_NPEAVCResource@@@Z.c)
+ *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800D3644 (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     memmove_0 @ 0x1800F47E7 (memmove_0.c)
  */
 
 void __fastcall CManipulationContext::RevalidationCleanup(int a1, __int64 a2, __int64 a3)
@@ -54,12 +54,12 @@ void __fastcall CManipulationContext::RevalidationCleanup(int a1, __int64 a2, __
             {
               while ( 1 )
               {
-                v13 = (_QWORD *)(v12 + 200);
-                v12 = *(_QWORD *)(v12 + 200);
+                v13 = (_QWORD *)(v12 + 192);
+                v12 = *(_QWORD *)(v12 + 192);
                 if ( !v12 )
                   break;
                 *v13 = 0LL;
-                CQueue<CResource *>::Insert(a3, v9, v12);
+                CQueue<CResource *>::Insert(a3, v9, v12 + 8);
               }
               v11 = v20;
             }
@@ -79,7 +79,7 @@ void __fastcall CManipulationContext::RevalidationCleanup(int a1, __int64 a2, __
         {
           if ( v3 >= 0 && v7 <= *(_DWORD *)(v4 + 32) )
           {
-            Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)(v14 + 8LL * v3));
+            Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)(v14 + 8LL * v3));
             v15 = *(_DWORD *)(v4 + 32);
             if ( v7 != v15 )
             {
@@ -95,7 +95,7 @@ void __fastcall CManipulationContext::RevalidationCleanup(int a1, __int64 a2, __
           v6 -= 8LL;
         }
       }
-      Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)v17);
+      Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)v17);
       ++v3;
       ++v7;
       v6 += 8LL;

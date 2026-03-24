@@ -1,16 +1,16 @@
 /*
- * XREFs of TtmiSetDisplayPowerRequest @ 0x140880344
+ * XREFs of TtmiSetDisplayPowerRequest @ 0x140880324
  * Callers:
- *     TtmpDispatchSetDisplayPowerRequest @ 0x140882058 (TtmpDispatchSetDisplayPowerRequest.c)
+ *     TtmpDispatchSetDisplayPowerRequest @ 0x140882038 (TtmpDispatchSetDisplayPowerRequest.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     TtmiLogError @ 0x1407616FC (TtmiLogError.c)
- *     TtmiGetTerminalById @ 0x14087EAC0 (TtmiGetTerminalById.c)
- *     TtmiSetPendingOnOffRequest @ 0x14087EDA4 (TtmiSetPendingOnOffRequest.c)
- *     TtmiScheduleSessionWorker @ 0x140880240 (TtmiScheduleSessionWorker.c)
- *     TtmpFindPowerRequestEntryById @ 0x14088099C (TtmpFindPowerRequestEntryById.c)
- *     TtmiLogDisplayPowerRequestSet @ 0x140883D20 (TtmiLogDisplayPowerRequestSet.c)
+ *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
+ *     TtmiGetTerminalById @ 0x14087EAA0 (TtmiGetTerminalById.c)
+ *     TtmiSetPendingOnOffRequest @ 0x14087ED84 (TtmiSetPendingOnOffRequest.c)
+ *     TtmiScheduleSessionWorker @ 0x140880220 (TtmiScheduleSessionWorker.c)
+ *     TtmpFindPowerRequestEntryById @ 0x14088097C (TtmpFindPowerRequestEntryById.c)
+ *     TtmiLogDisplayPowerRequestSet @ 0x140883D00 (TtmiLogDisplayPowerRequestSet.c)
  */
 
 __int64 __fastcall TtmiSetDisplayPowerRequest(__int64 a1, unsigned int *a2, unsigned int a3, unsigned int a4)

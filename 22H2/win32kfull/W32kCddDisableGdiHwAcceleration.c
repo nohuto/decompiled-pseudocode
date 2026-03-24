@@ -1,18 +1,18 @@
 /*
- * XREFs of W32kCddDisableGdiHwAcceleration @ 0x1C00B0100
+ * XREFs of W32kCddDisableGdiHwAcceleration @ 0x1C010FDF0
  * Callers:
  *     <none>
  * Callees:
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     GetAppCompatFlags2QuadWord @ 0x1C010FE30 (GetAppCompatFlags2QuadWord.c)
  */
 
 __int64 W32kCddDisableGdiHwAcceleration()
 {
-  unsigned __int64 v0; // rbx
+  unsigned __int64 AppCompatFlags2QuadWord; // rbx
 
-  v0 = 0LL;
-  if ( W32GetThreadWin32Thread(KeGetCurrentThread()) )
-    v0 = *((_QWORD *)PtiCurrentShared() + 81);
-  return (v0 >> 34) & 1;
+  AppCompatFlags2QuadWord = 0LL;
+  if ( W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) )
+    AppCompatFlags2QuadWord = GetAppCompatFlags2QuadWord(0LL);
+  return (AppCompatFlags2QuadWord >> 34) & 1;
 }

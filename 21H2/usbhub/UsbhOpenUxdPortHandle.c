@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhOpenUxdPortHandle @ 0x1C0059E04
+ * XREFs of UsbhOpenUxdPortHandle @ 0x1C005B4A4
  * Callers:
- *     UsbhDeleteUxdSettings @ 0x1C005932C (UsbhDeleteUxdSettings.c)
- *     UsbhGetUxdPortKey @ 0x1C0059C74 (UsbhGetUxdPortKey.c)
- *     UsbhPropagateUxdState @ 0x1C0059F10 (UsbhPropagateUxdState.c)
- *     UsbhUxdShutdown @ 0x1C005A8E0 (UsbhUxdShutdown.c)
+ *     UsbhDeleteUxdSettings @ 0x1C005AA30 (UsbhDeleteUxdSettings.c)
+ *     UsbhGetUxdPortKey @ 0x1C005B39C (UsbhGetUxdPortKey.c)
+ *     UsbhPropagateUxdState @ 0x1C005B5AC (UsbhPropagateUxdState.c)
+ *     UsbhUxdShutdown @ 0x1C005BFA4 (UsbhUxdShutdown.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 __int64 __fastcall UsbhOpenUxdPortHandle(__int64 a1, void **a2)
@@ -25,8 +25,8 @@ __int64 __fastcall UsbhOpenUxdPortHandle(__int64 a1, void **a2)
   v4 = IoOpenDeviceRegistryKey(v3[149], 1u, 0x1F0000u, &DeviceRegKey);
   if ( v4 >= 0 )
   {
-    *(&ObjectAttributes.Attributes + 1) = 0;
     *(&ObjectAttributes.Length + 1) = 0;
+    *(&ObjectAttributes.Attributes + 1) = 0;
     RtlInitUnicodeString(&DestinationString, L"uxd");
     ObjectAttributes.RootDirectory = DeviceRegKey;
     ObjectAttributes.Length = 48;

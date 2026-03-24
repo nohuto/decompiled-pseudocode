@@ -1,107 +1,103 @@
 /*
- * XREFs of _DxgkCheckAndUpdatePairingForNewAdapter_::_2_::AdapterArray::AddAdapter @ 0x1C02CE580
+ * XREFs of _DxgkCheckAndUpdatePairingForNewAdapter_::_2_::AdapterArray::AddAdapter @ 0x1C0220924
  * Callers:
- *     _lambda_85aa73a68ff66b421643f8c78198376d_::_lambda_invoker_cdecl_ @ 0x1C02CE300 (_lambda_85aa73a68ff66b421643f8c78198376d_--_lambda_invoker_cdecl_.c)
+ *     _lambda_85aa73a68ff66b421643f8c78198376d_::_lambda_invoker_cdecl_ @ 0x1C0220840 (_lambda_85aa73a68ff66b421643f8c78198376d_--_lambda_invoker_cdecl_.c)
  * Callees:
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0002C48 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C000FB94 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ??_EDXGADAPTER_REFERENCE@@QEAAPEAXI@Z @ 0x1C004973C (--_EDXGADAPTER_REFERENCE@@QEAAPEAXI@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0019134 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0019FF4 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ??_EDXGADAPTER_REFERENCE@@QEAAPEAXI@Z @ 0x1C003E640 (--_EDXGADAPTER_REFERENCE@@QEAAPEAXI@Z.c)
  */
 
 __int64 __fastcall DxgkCheckAndUpdatePairingForNewAdapter_::_2_::AdapterArray::AddAdapter(
         unsigned int *a1,
-        struct DXGADAPTER *a2,
-        __int64 a3,
-        __int64 a4)
+        struct DXGADAPTER *a2)
 {
-  __int64 v6; // rcx
-  unsigned int v7; // eax
-  unsigned int v8; // r14d
-  unsigned __int64 v9; // rsi
-  __int64 v10; // rax
-  bool v11; // cf
-  unsigned __int64 v12; // rax
-  __int64 v13; // rax
-  __int64 v14; // rdi
-  DXGADAPTER_REFERENCE *v15; // rcx
-  unsigned int v16; // r8d
-  __int64 v17; // rcx
-  __int64 v18; // rdx
-  unsigned int v19; // eax
-  DXGADAPTER **v20; // rcx
+  __int64 v4; // rcx
+  unsigned int v5; // eax
+  unsigned int v6; // r14d
+  unsigned __int64 v7; // rsi
+  __int64 v8; // rax
+  bool v9; // cf
+  SIZE_T v10; // rax
+  char *v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  char *v16; // rdi
+  __int64 v17; // rax
+  DXGADAPTER_REFERENCE *v19; // rcx
+  unsigned int v20; // r8d
+  __int64 v21; // rcx
+  __int64 v22; // rdx
+  unsigned int v23; // eax
+  DXGADAPTER **v24; // rcx
 
-  v6 = *a1;
-  v7 = a1[1];
-  if ( (unsigned int)v6 < v7 )
+  v4 = *a1;
+  v5 = a1[1];
+  if ( (unsigned int)v4 >= v5 )
   {
-LABEL_14:
-    v19 = v6 + 1;
-    v20 = (DXGADAPTER **)(*((_QWORD *)a1 + 1) + 16 * v6);
-    *a1 = v19;
-    DXGADAPTER_REFERENCE::Assign(v20, a2);
-    return 0LL;
-  }
-  v8 = v7 + 16;
-  v9 = v7 + 16;
-  v10 = 16 * v9;
-  if ( !is_mul_ok(v9, 0x10uLL) )
-    v10 = -1LL;
-  v11 = __CFADD__(v10, 8LL);
-  v12 = v10 + 8;
-  if ( v11 )
-    v12 = -1LL;
-  v13 = operator new[](v12, 0x4B677844u, 256LL, a4);
-  if ( v13 )
-  {
-    v14 = v13 + 8;
-    *(_QWORD *)v13 = v9;
-    `vector constructor iterator'(
-      (char *)(v13 + 8),
-      16LL,
-      (unsigned int)v9,
-      (void (__fastcall *)(char *))wistd::unique_ptr<DxgMonitor::WmiMonitorDescriptor,wistd::default_delete<DxgMonitor::WmiMonitorDescriptor>>::unique_ptr<DxgMonitor::WmiMonitorDescriptor,wistd::default_delete<DxgMonitor::WmiMonitorDescriptor>>);
-    if ( v14 )
+    v6 = v5 + 16;
+    v7 = v5 + 16;
+    v8 = 16 * v7;
+    if ( !is_mul_ok(v7, 0x10uLL) )
+      v8 = -1LL;
+    v9 = __CFADD__(v8, 8LL);
+    v10 = v8 + 8;
+    if ( v9 )
+      v10 = -1LL;
+    v11 = (char *)operator new[](v10, 0x4B677844u, PagedPool);
+    if ( v11 )
     {
-      v15 = (DXGADAPTER_REFERENCE *)*((_QWORD *)a1 + 1);
-      if ( v15 )
+      v16 = v11 + 8;
+      *(_QWORD *)v11 = v7;
+      `vector constructor iterator'(
+        v11 + 8,
+        16LL,
+        (unsigned int)v7,
+        (void (__fastcall *)(char *))CAutoRefCountedBuffer::CAutoRefCountedBuffer);
+    }
+    else
+    {
+      v16 = 0LL;
+    }
+    if ( !v16 )
+    {
+      v17 = WdLogNewEntry5_WdLowResource(v13, v12, v14, v15);
+      *(_QWORD *)(v17 + 24) = 11706LL;
+      WdLogEvent5_WdLowResource(v17);
+      return 3221225495LL;
+    }
+    v19 = (DXGADAPTER_REFERENCE *)*((_QWORD *)a1 + 1);
+    if ( v19 )
+    {
+      v20 = 0;
+      if ( *a1 )
       {
-        v16 = 0;
-        if ( !*a1 )
-          goto LABEL_12;
         do
         {
-          v17 = *((_QWORD *)a1 + 1);
-          v18 = v16++;
-          v18 *= 2LL;
-          *(_QWORD *)(v14 + 8 * v18) = *(_QWORD *)(v17 + 8 * v18);
-          *(_QWORD *)(v14 + 8 * v18 + 8) = *(_QWORD *)(v17 + 8 * v18 + 8);
-          *(_QWORD *)(v17 + 8 * v18) = 0LL;
-          *(_QWORD *)(v17 + 8 * v18 + 8) = 0LL;
+          v21 = *((_QWORD *)a1 + 1);
+          v22 = v20++;
+          v22 *= 2LL;
+          *(_QWORD *)&v16[8 * v22] = *(_QWORD *)(v21 + 8 * v22);
+          *(_QWORD *)&v16[8 * v22 + 8] = *(_QWORD *)(v21 + 8 * v22 + 8);
+          *(_QWORD *)(v21 + 8 * v22) = 0LL;
+          *(_QWORD *)(v21 + 8 * v22 + 8) = 0LL;
         }
-        while ( v16 < *a1 );
-        v15 = (DXGADAPTER_REFERENCE *)*((_QWORD *)a1 + 1);
-        if ( v15 )
-LABEL_12:
-          DXGADAPTER_REFERENCE::`vector deleting destructor'(v15);
+        while ( v20 < *a1 );
+        v19 = (DXGADAPTER_REFERENCE *)*((_QWORD *)a1 + 1);
       }
-      v6 = *a1;
-      a1[1] = v8;
-      *((_QWORD *)a1 + 1) = v14;
-      goto LABEL_14;
+      if ( v19 )
+        DXGADAPTER_REFERENCE::`vector deleting destructor'(v19);
     }
+    v4 = *a1;
+    a1[1] = v6;
+    *((_QWORD *)a1 + 1) = v16;
   }
-  WdLogSingleEntry1(6LL, 11801LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    262145,
-    -1,
-    (__int64)L"Failed to allocate DXGADAPTER_REFERENCE array.",
-    11801LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-  return 3221225495LL;
+  v23 = v4 + 1;
+  v24 = (DXGADAPTER **)(*((_QWORD *)a1 + 1) + 16 * v4);
+  *a1 = v23;
+  DXGADAPTER_REFERENCE::Assign(v24, a2);
+  return 0LL;
 }

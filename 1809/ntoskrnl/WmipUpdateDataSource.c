@@ -1,21 +1,21 @@
 /*
- * XREFs of WmipUpdateDataSource @ 0x1408B4868
+ * XREFs of WmipUpdateDataSource @ 0x1408B4848
  * Callers:
- *     WmipProcessWmiRegInfo @ 0x140707C6C (WmipProcessWmiRegInfo.c)
+ *     WmipProcessWmiRegInfo @ 0x140707C4C (WmipProcessWmiRegInfo.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     WmipUnreferenceEntry @ 0x1405FC204 (WmipUnreferenceEntry.c)
  *     WmipReferenceEntry @ 0x140612C30 (WmipReferenceEntry.c)
- *     WmipCachePtrs @ 0x140707F48 (WmipCachePtrs.c)
- *     WmipEnableCollectionForNewGuid @ 0x140708014 (WmipEnableCollectionForNewGuid.c)
- *     WmipSendGuidUpdateNotifications @ 0x1407080D0 (WmipSendGuidUpdateNotifications.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x140708610 (WmipDisableCollectionForRemovedGuid.c)
- *     WmipUnlinkInstanceSetFromGuidEntry @ 0x14070D6AC (WmipUnlinkInstanceSetFromGuidEntry.c)
- *     WmipGenerateBinaryMofNotification @ 0x140760B88 (WmipGenerateBinaryMofNotification.c)
- *     WmipFindISInDSByGuid @ 0x1408B467C (WmipFindISInDSByGuid.c)
- *     WmipUpdateModifyGuid @ 0x1408B4BB4 (WmipUpdateModifyGuid.c)
+ *     WmipCachePtrs @ 0x140707F28 (WmipCachePtrs.c)
+ *     WmipEnableCollectionForNewGuid @ 0x140707FF4 (WmipEnableCollectionForNewGuid.c)
+ *     WmipSendGuidUpdateNotifications @ 0x1407080B0 (WmipSendGuidUpdateNotifications.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x1407085F0 (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipUnlinkInstanceSetFromGuidEntry @ 0x14070D68C (WmipUnlinkInstanceSetFromGuidEntry.c)
+ *     WmipGenerateBinaryMofNotification @ 0x140760B68 (WmipGenerateBinaryMofNotification.c)
+ *     WmipFindISInDSByGuid @ 0x1408B465C (WmipFindISInDSByGuid.c)
+ *     WmipUpdateModifyGuid @ 0x1408B4B94 (WmipUpdateModifyGuid.c)
  */
 
 __int64 __fastcall WmipUpdateDataSource(__int64 a1, __int64 a2, int a3)

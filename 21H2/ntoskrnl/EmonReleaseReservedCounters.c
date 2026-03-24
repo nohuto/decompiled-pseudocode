@@ -1,44 +1,39 @@
 /*
- * XREFs of EmonReleaseReservedCounters @ 0x1405214A8
+ * XREFs of EmonReleaseReservedCounters @ 0x1404D4298
  * Callers:
- *     EmonReleaseProfileResourcesInternal @ 0x1405213F0 (EmonReleaseProfileResourcesInternal.c)
+ *     EmonReleaseProfileResourcesInternal @ 0x1404D41E0 (EmonReleaseProfileResourcesInternal.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall EmonReleaseReservedCounters(unsigned int a1, unsigned __int64 a2)
+void __fastcall EmonReleaseReservedCounters(int a1, unsigned __int64 a2)
 {
-  __int64 v3; // rdx
-  __int64 v4; // rsi
-  int v5; // ecx
+  __int64 v3; // rsi
+  unsigned int v4; // ecx
+  __int64 v5; // rsi
   unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
-  char v8; // dl
+  char v8; // cl
   __int64 v9; // rax
   bool v10; // zf
   unsigned __int8 v11; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *v13; // r8
   int v14; // eax
-  struct _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
+  struct _GROUP_AFFINITY v15; // [rsp+28h] [rbp-30h] BYREF
+  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-20h] BYREF
 
-  v3 = a1;
-  Affinity = 0LL;
+  v3 = (unsigned int)(a1 * EmonNumberCounters);
+  v15 = 0LL;
+  v4 = KiProcessorIndexToNumberMappingTable[a1];
+  v15.Group = v4 >> 6;
+  v5 = EmonCounterStatus + 16 * v3;
+  v15.Mask = 1LL << (v4 & 0x3F);
   PreviousAffinity = 0LL;
-  if ( HalpProfileInterface == &DefaultProfileInterface )
-    v4 = HalpCounterStatus;
-  else
-    v4 = HalpCounterStatus + 8LL * a1 * HalpNumberOfCounters;
-  v5 = KiProcessorIndexToNumberMappingTable[a1];
-  Affinity.Group = KiProcessorIndexToNumberMappingTable[v3] >> 6;
-  *(_DWORD *)Affinity.Reserved = 0;
-  Affinity.Reserved[2] = 0;
-  Affinity.Mask = 1LL << (v5 & 0x3F);
-  KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
+  KeSetSystemGroupAffinityThread(&v15, &PreviousAffinity);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
@@ -53,12 +48,11 @@ void __fastcall EmonReleaseReservedCounters(unsigned int a1, unsigned __int64 a2
     if ( v10 )
       break;
     v8 = v9;
-    if ( (unsigned int)v9 >= 0x20 )
+    if ( (unsigned int)v9 >= EmonNumberArchCounters )
       v9 = (unsigned int)(v9 + EmonNumberArchCounters - 32);
     a2 ^= 1LL << v8;
-    *(_DWORD *)(*(_QWORD *)(v4 + 8 * v9) + 24LL) = 3;
+    *(_DWORD *)(v5 + 16 * v9) = 3;
   }
-  _InterlockedExchangeAdd((volatile signed __int32 *)&KeGetCurrentPrcb()->HalReserved[2], 0xFFFFFFFE);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

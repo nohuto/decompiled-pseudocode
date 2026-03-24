@@ -1,47 +1,47 @@
 /*
- * XREFs of HvlpGetEncryptedDataFromSecureKernel @ 0x14054B018
+ * XREFs of HvlpGetEncryptedDataFromSecureKernel @ 0x1404F9284
  * Callers:
- *     HvlGetEncryptedData @ 0x14054ABD0 (HvlGetEncryptedData.c)
+ *     HvlGetEncryptedData @ 0x1404F8E50 (HvlGetEncryptedData.c)
  * Callees:
- *     HvlpEndSecurePageListIteration @ 0x14054D214 (HvlpEndSecurePageListIteration.c)
- *     HvlpStartSecurePageListIteration @ 0x14054D4B8 (HvlpStartSecurePageListIteration.c)
- *     VslGetSecurePageList @ 0x14054E34C (VslGetSecurePageList.c)
+ *     HvlpEndSecurePageListIteration @ 0x1404FB5BC (HvlpEndSecurePageListIteration.c)
+ *     HvlpStartSecurePageListIteration @ 0x1404FB874 (HvlpStartSecurePageListIteration.c)
+ *     VslGetSecurePageList @ 0x1404FC6D0 (VslGetSecurePageList.c)
  */
 
 __int64 __fastcall HvlpGetEncryptedDataFromSecureKernel(__int64 a1, __int64 a2, int a3, __int64 a4, _DWORD *a5)
 {
-  unsigned __int8 v9; // bl
-  _DWORD *v10; // rdi
+  _DWORD *v6; // rdi
+  ULONG v10; // ebx
+  unsigned __int8 v11; // bl
   __int64 result; // rax
-  int v12; // [rsp+30h] [rbp-28h] BYREF
-  _QWORD v13[4]; // [rsp+38h] [rbp-20h] BYREF
+  int v13; // [rsp+30h] [rbp-28h] BYREF
+  _QWORD v14[4]; // [rsp+38h] [rbp-20h] BYREF
 
-  v13[0] = 0LL;
-  v12 = 0;
-  v9 = HvlpAllSkPages != 0 ? 1 : 16;
-  if ( (HvlpFlags & 2) != 0 )
-    v9 |= HvlpAllPages != 0 ? 2 : 8;
-  v10 = a5;
+  v6 = a5;
+  v14[0] = 0LL;
+  v13 = 0;
+  v10 = HvlpFlags >> 1;
   *a5 = 0;
-  if ( BYTE3(HvlpCrashdumpIterationState) != v9 )
+  v11 = (2 * (v10 & 1)) | 1;
+  if ( BYTE3(HvlpCrashdumpIterationState) != v11 )
   {
     HvlpEndSecurePageListIteration(1LL, 0LL, 0LL);
     LOBYTE(HvlpCrashdumpIterationState) = 0;
   }
   if ( !(_BYTE)HvlpCrashdumpIterationState )
   {
-    result = HvlpStartSecurePageListIteration(1LL, v9, a2, a4, a3, v13);
+    result = HvlpStartSecurePageListIteration(1LL, v11, a2, a4, a3, v14);
     if ( (int)result < 0 )
       return result;
-    *((_QWORD *)&xmmword_140C48960 + 1) = v13[0];
+    *((_QWORD *)&xmmword_140C47560 + 1) = v14[0];
     LOBYTE(HvlpCrashdumpIterationState) = 1;
-    BYTE3(HvlpCrashdumpIterationState) = v9;
+    BYTE3(HvlpCrashdumpIterationState) = v11;
   }
   LOBYTE(a5) = 0;
-  result = VslGetSecurePageList(0LL, a1, &v12, &a5);
+  result = VslGetSecurePageList(0LL, a1, &v13, &a5);
   if ( (int)result >= 0 )
   {
-    *v10 = v12 << 12;
+    *v6 = v13 << 12;
     return 0LL;
   }
   else if ( (_DWORD)result == -2147483622 )

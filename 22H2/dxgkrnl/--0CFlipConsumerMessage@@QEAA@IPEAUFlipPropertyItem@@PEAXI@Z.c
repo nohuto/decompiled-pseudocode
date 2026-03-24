@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CFlipConsumerMessage@@QEAA@IPEAUFlipPropertyItem@@PEAXI@Z @ 0x1C007FA1C
+ * XREFs of ??0CFlipConsumerMessage@@QEAA@IPEAUFlipPropertyItem@@PEAXI@Z @ 0x1C0068250
  * Callers:
- *     ??$CreateFlipPropertySetWorker@VCFlipConsumerMessage@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipConsumerMessage@@@Z @ 0x1C007F1FC (--$CreateFlipPropertySetWorker@VCFlipConsumerMessage@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlip.c)
+ *     ??$CreateFlipPropertySetWorker@VCFlipConsumerMessage@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipConsumerMessage@@@Z @ 0x1C0067A28 (--$CreateFlipPropertySetWorker@VCFlipConsumerMessage@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlip.c)
  * Callees:
  *     <none>
  */
@@ -13,16 +13,13 @@ CFlipConsumerMessage *__fastcall CFlipConsumerMessage::CFlipConsumerMessage(
         void *a4,
         unsigned int a5)
 {
-  _QWORD *v5; // r8
-
   *((_DWORD *)this + 8) = a5;
-  *((_QWORD *)this + 2) = a3;
-  *((_DWORD *)this + 3) = a2;
   *((_DWORD *)this + 2) = 1;
+  *((_DWORD *)this + 3) = a2;
+  *((_QWORD *)this + 2) = a3;
   *((_QWORD *)this + 3) = a4;
-  v5 = (_QWORD *)(((unsigned __int64)this + 48) & -(__int64)((CFlipConsumerMessage *)((char *)this + 40) != 0LL));
-  v5[1] = v5;
-  *v5 = v5;
+  *((_QWORD *)this + 7) = (char *)this + 48;
+  *((_QWORD *)this + 6) = (char *)this + 48;
   *(_QWORD *)this = &CFlipConsumerMessage::`vftable'{for `CFlipPropertySetBase'};
   *((_QWORD *)this + 5) = &CFlipConsumerMessage::`vftable'{for `CFlipQueuedObject'};
   return this;

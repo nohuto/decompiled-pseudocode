@@ -1,13 +1,13 @@
 /*
- * XREFs of VslCreateSecureSection @ 0x140818110
+ * XREFs of VslCreateSecureSection @ 0x1408180F0
  * Callers:
  *     <none>
  * Callees:
- *     MmSizeOfMdl @ 0x14011A720 (MmSizeOfMdl.c)
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     VslpLockPagesForTransfer @ 0x14027C414 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x14027C5F0 (VslpUnlockPagesForTransfer.c)
+ *     MmSizeOfMdl @ 0x14011A740 (MmSizeOfMdl.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpLockPagesForTransfer @ 0x14027C514 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14027C6F0 (VslpUnlockPagesForTransfer.c)
  */
 
 __int64 __fastcall VslCreateSecureSection(_QWORD *a1, __int64 a2, __int64 a3, int a4, int a5)

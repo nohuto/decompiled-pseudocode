@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpRegisterDmaController @ 0x14051A18C
+ * XREFs of HalpRegisterDmaController @ 0x1404CF4F4
  * Callers:
- *     HalpExtRegisterResourceDescriptor @ 0x140510850 (HalpExtRegisterResourceDescriptor.c)
+ *     HalpExtRegisterResourceDescriptor @ 0x1404C4350 (HalpExtRegisterResourceDescriptor.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     HalpExtBuildResourceIdString @ 0x1403BE424 (HalpExtBuildResourceIdString.c)
- *     HalpMmAllocateMemoryInternal @ 0x1403BF104 (HalpMmAllocateMemoryInternal.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
+ *     HalpExtBuildResourceIdString @ 0x1403ABF68 (HalpExtBuildResourceIdString.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall HalpRegisterDmaController(__int64 a1, UNICODE_STRING *a2)
@@ -51,11 +51,11 @@ __int64 __fastcall HalpRegisterDmaController(__int64 a1, UNICODE_STRING *a2)
   *(_QWORD *)(v6 + 56) = v8;
   v9 = 160LL * *(unsigned int *)(a1 + 12) + v8;
   *(_QWORD *)(v6 + 64) = v9;
-  v10 = *(unsigned int *)(a1 + 64) + 7LL;
+  v10 = *(unsigned int *)(a1 + 64);
   *(_QWORD *)(v6 + 24) = v6 + 16;
   *(_QWORD *)(v6 + 16) = v6 + 16;
   *(_QWORD *)(v6 + 168) = 0LL;
-  *(_QWORD *)(v6 + 200) = (v9 + v10) & 0xFFFFFFFFFFFFFFF8uLL;
+  *(_QWORD *)(v6 + 200) = (v9 + v10 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
   memmove(*(void **)(v6 + 64), *(const void **)(a1 + 56), *(unsigned int *)(a1 + 64));
   *(_WORD *)(v6 + 192) = 0;
   *(_WORD *)(v6 + 194) = p_DestinationString->Length + 2;
@@ -89,13 +89,13 @@ __int64 __fastcall HalpRegisterDmaController(__int64 a1, UNICODE_STRING *a2)
   *(_QWORD *)(v6 + 136) = *(_QWORD *)(*(_QWORD *)(a1 + 72) + 56LL);
   *(_QWORD *)(v6 + 144) = *(_QWORD *)(*(_QWORD *)(a1 + 72) + 64LL);
   *(_QWORD *)(v6 + 152) = *(_QWORD *)(*(_QWORD *)(a1 + 72) + 72LL);
-  v12 = (__int64 *)qword_140C4BC98;
-  if ( *(__int64 **)qword_140C4BC98 != &HalpDmaControllers )
+  v12 = (__int64 *)qword_140C49D78;
+  if ( *(__int64 **)qword_140C49D78 != &HalpDmaControllers )
     __fastfail(3u);
-  *(_QWORD *)(v6 + 8) = qword_140C4BC98;
+  *(_QWORD *)(v6 + 8) = qword_140C49D78;
   *(_QWORD *)v6 = &HalpDmaControllers;
   *v12 = v6;
   result = 0LL;
-  qword_140C4BC98 = v6;
+  qword_140C49D78 = v6;
   return result;
 }

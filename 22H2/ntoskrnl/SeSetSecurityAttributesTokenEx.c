@@ -1,17 +1,17 @@
 /*
- * XREFs of SeSetSecurityAttributesTokenEx @ 0x1403A1680
+ * XREFs of SeSetSecurityAttributesTokenEx @ 0x1405974C0
  * Callers:
  *     <none>
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140224D10 (AuthzBasepSetSecurityAttributesToken.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x14035B7A4 (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
- *     SepInternalSetSecurityAttributesToken @ 0x140370364 (SepInternalSetSecurityAttributesToken.c)
- *     SepSetSingletonEntry @ 0x1403A17E4 (SepSetSingletonEntry.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1402506CC (AuthzBasepSetSecurityAttributesToken.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     SepInternalSetSecurityAttributesToken @ 0x140595B2C (SepInternalSetSecurityAttributesToken.c)
+ *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x140597720 (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
+ *     SepSetSingletonEntry @ 0x1405977FC (SepSetSingletonEntry.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall SeSetSecurityAttributesTokenEx(
@@ -27,17 +27,18 @@ __int64 __fastcall SeSetSecurityAttributesTokenEx(
   struct _KTHREAD *CurrentThread; // rax
   PERESOURCE *v9; // rsi
   _QWORD *v10; // rdi
+  __int64 v11; // rcx
   int ProcUniqueLuidAndIndexFromToken; // eax
-  __int64 v12; // r8
-  int *v13; // rdx
+  __int64 v13; // r8
+  int *v14; // rdx
   int *v15; // r9
-  signed __int32 v16[8]; // [rsp+0h] [rbp-48h] BYREF
+  signed __int32 v17[8]; // [rsp+0h] [rbp-48h] BYREF
   PVOID Object; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v18; // [rsp+38h] [rbp-10h] BYREF
-  unsigned int v19; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v19; // [rsp+38h] [rbp-10h] BYREF
+  unsigned int v20; // [rsp+60h] [rbp+18h] BYREF
 
-  v18 = 0LL;
-  v19 = 0;
+  v19 = 0LL;
+  v20 = 0;
   if ( a3 )
     return (unsigned int)-1073741811;
   if ( !a4 || (SepTokenSingletonAttributesConfig & 3) != 3 )
@@ -53,42 +54,36 @@ __int64 __fastcall SeSetSecurityAttributesTokenEx(
   if ( v7 >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
-    v9 = (PERESOURCE *)Object;
     --CurrentThread->KernelApcDisable;
-    ExAcquireResourceExclusiveLite(v9[6], 1u);
-    _InterlockedOr(v16, 0);
+    v9 = (PERESOURCE *)Object;
+    ExAcquireResourceExclusiveLite(*((PERESOURCE *)Object + 6), 1u);
+    _InterlockedOr(v17, 0);
     v10 = Object;
-    ProcUniqueLuidAndIndexFromToken = SepGetProcUniqueLuidAndIndexFromTokenEx(
-                                        1,
-                                        (__int64)Object,
-                                        (__int64)&v19,
-                                        (__int64)&v18);
-    v12 = a6;
-    v13 = a5;
-    if ( ProcUniqueLuidAndIndexFromToken < 0 )
+    LOBYTE(v11) = 1;
+    ProcUniqueLuidAndIndexFromToken = SepGetProcUniqueLuidAndIndexFromTokenEx(v11, Object, &v20, &v19);
+    v13 = a6;
+    v14 = a5;
+    if ( ProcUniqueLuidAndIndexFromToken >= 0 )
     {
-      *a7 = 0;
-      v7 = AuthzBasepSetSecurityAttributesToken(v10[97], v13, v12);
-      if ( v7 < 0 )
-        goto LABEL_10;
+      v7 = SepSetSingletonEntry(v20, a5, a6);
+      if ( v7 >= 0 )
+      {
+        *a7 = 1;
+LABEL_13:
+        v10[7] = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
+      }
     }
     else
     {
-      v7 = SepSetSingletonEntry(v19, a5, a6);
-      if ( v7 < 0 )
-      {
-LABEL_10:
-        _InterlockedOr(v16, 0);
-        ExReleaseResourceLite(v9[6]);
-        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-        goto LABEL_11;
-      }
-      *a7 = 1;
+      *a7 = 0;
+      v7 = AuthzBasepSetSecurityAttributesToken(v10[97], v14, v13);
+      if ( v7 >= 0 )
+        goto LABEL_13;
     }
-    v10[7] = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
-    goto LABEL_10;
+    _InterlockedOr(v17, 0);
+    ExReleaseResourceLite(v9[6]);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-LABEL_11:
   if ( Object )
     ObfDereferenceObjectWithTag(Object, 0x746C6644u);
   return (unsigned int)v7;

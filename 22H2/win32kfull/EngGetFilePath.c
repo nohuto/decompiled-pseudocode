@@ -1,19 +1,20 @@
 /*
- * XREFs of EngGetFilePath @ 0x1C02797E0
+ * XREFs of EngGetFilePath @ 0x1C027D4C0
  * Callers:
- *     ?UmfdEscEngGetFilePath@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C02A75E8 (-UmfdEscEngGetFilePath@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     ?UmfdEscEngGetFilePath@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C029E47C (-UmfdEscEngGetFilePath@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
  * Callees:
- *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C01150FC (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     StringCchCopyW @ 0x1C027D890 (StringCchCopyW.c)
  */
 
 BOOL __stdcall EngGetFilePath(HANDLE h, WCHAR (*pDest)[261])
 {
-  char *v2; // r8
-  BOOL v4; // r11d
+  const wchar_t *v2; // r8
+  BOOL v3; // ebx
 
-  v2 = (char *)*((_QWORD *)h + 10);
+  v2 = (const wchar_t *)*((_QWORD *)h + 10);
+  v3 = 0;
   if ( !v2 )
     return 0;
-  LOBYTE(v4) = (int)StringCchCopyW((char *)pDest, 261LL, v2) >= 0;
-  return v4;
+  LOBYTE(v3) = StringCchCopyW((STRSAFE_LPWSTR)pDest, 0x105uLL, v2) >= 0;
+  return v3;
 }

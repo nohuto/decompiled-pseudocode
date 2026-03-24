@@ -1,10 +1,10 @@
 /*
- * XREFs of ?TransformTPScreenToHimetric@CPTPProcessor@@CA?AUtagPOINT@@PEAUtagHID_POINTER_DEVICE_INFO@@U2@@Z @ 0x1C01E01CC
+ * XREFs of ?TransformTPScreenToHimetric@CPTPProcessor@@CA?AUtagPOINT@@PEAUtagHID_POINTER_DEVICE_INFO@@U2@@Z @ 0x1C01A7C60
  * Callers:
- *     ?CacheInertia@CPTPProcessor@@AEAAXXZ @ 0x1C01DD958 (-CacheInertia@CPTPProcessor@@AEAAXXZ.c)
- *     ?EndInertiaForContainer@CPTPProcessor@@SAXPEAX_K@Z @ 0x1C01DDFF8 (-EndInertiaForContainer@CPTPProcessor@@SAXPEAX_K@Z.c)
+ *     ?CacheInertia@CPTPProcessor@@AEAAXXZ @ 0x1C01A55D0 (-CacheInertia@CPTPProcessor@@AEAAXXZ.c)
+ *     ?EndInertiaForContainer@CPTPProcessor@@SAXPEAX_K@Z @ 0x1C01A5AE4 (-EndInertiaForContainer@CPTPProcessor@@SAXPEAX_K@Z.c)
  * Callees:
- *     EngMulDiv @ 0x1C006E450 (EngMulDiv.c)
+ *     EngMulDiv @ 0x1C0070E10 (EngMulDiv.c)
  */
 
 struct tagPOINT __fastcall CPTPProcessor::TransformTPScreenToHimetric(__m128i *a1, struct tagPOINT a2)

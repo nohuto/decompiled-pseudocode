@@ -1,12 +1,12 @@
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001FA8C00FE80>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001FA9401FB80>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001FA8C00FC80>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001FA8C00FC80>) 
- 
+[EXCEPTION] ?DxgkCddSignalSynchronizationObject@@YAJPEBU_D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2@@@Z @ 0x1402B1200: Hex-Rays returned no pseudocode for 0x1402B1200
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1402B1200'), <traceback object at 0x0000025B4EC14600>)
+
+[EXCEPTION] DxgkSignalSynchronizationObject @ 0x1402B1240: Hex-Rays returned no pseudocode for 0x1402B1240
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1402B1240'), <traceback object at 0x0000025B4EC155C0>)
+
+[EXCEPTION] DxgkRemoveSessionViewForCurrentSession @ 0x1403ECA64: Hex-Rays returned no pseudocode for 0x1403ECA64
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1403ECA64'), <traceback object at 0x0000025B4EC60940>)
+
+[EXCEPTION] DxgkRegisterDwmProcess @ 0x1403F1890: Hex-Rays returned no pseudocode for 0x1403F1890
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1403F1890'), <traceback object at 0x0000025B4EC33500>)
+

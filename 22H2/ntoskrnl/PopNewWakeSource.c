@@ -1,18 +1,24 @@
 /*
- * XREFs of PopNewWakeSource @ 0x1409875F4
+ * XREFs of PopNewWakeSource @ 0x1408E6B64
  * Callers:
- *     PopHandleWakeSources @ 0x140AA0F1C (PopHandleWakeSources.c)
- *     PopProcessWakeSourceWork @ 0x140AA13F8 (PopProcessWakeSourceWork.c)
+ *     PopProcessWakeSourceWork @ 0x1408E6BB4 (PopProcessWakeSourceWork.c)
+ *     PopHandleWakeSources @ 0x140998400 (PopHandleWakeSources.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PopNewWakeSource(int a1)
+_DWORD *__fastcall PopNewWakeSource(int a1)
 {
-  __int64 result; // rax
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v3; // rbx
 
-  result = ExAllocatePool2(64LL, 112LL, 544040269LL);
-  if ( result )
-    *(_DWORD *)(result + 16) = a1;
-  return result;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x50uLL, 0x206D654Du);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    memset(PoolWithTag, 0, 0x50uLL);
+    v3[4] = a1;
+  }
+  return v3;
 }

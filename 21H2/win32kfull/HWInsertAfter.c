@@ -1,8 +1,8 @@
 /*
- * XREFs of HWInsertAfter @ 0x1C0072C90
+ * XREFs of HWInsertAfter @ 0x1C010FEA8
  * Callers:
- *     LinkWindow @ 0x1C006F9A0 (LinkWindow.c)
- *     ?ValidateZorder@@YAHPEAUtagCVR@@@Z @ 0x1C0082294 (-ValidateZorder@@YAHPEAUtagCVR@@@Z.c)
+ *     ?ValidateZorder@@YAHPEAUtagCVR@@@Z @ 0x1C003739C (-ValidateZorder@@YAHPEAUtagCVR@@@Z.c)
+ *     LinkWindow @ 0x1C006FD00 (LinkWindow.c)
  * Callees:
  *     <none>
  */

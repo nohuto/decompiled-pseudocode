@@ -1,238 +1,132 @@
 /*
- * XREFs of RIMRetrieveLinkCollection @ 0x1C018BDCC
+ * XREFs of RIMRetrieveLinkCollection @ 0x1C015F860
  * Callers:
- *     RIMAssignTouchType @ 0x1C0186894 (RIMAssignTouchType.c)
- *     RIMIDECreatePointerDeviceInfo @ 0x1C0194488 (RIMIDECreatePointerDeviceInfo.c)
+ *     RIMAssignTouchType @ 0x1C015BAF8 (RIMAssignTouchType.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167888 (RIMIDECreatePointerDeviceInfo.c)
  * Callees:
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
- *     rimHidP_GetLinkCollectionNodes @ 0x1C018519C (rimHidP_GetLinkCollectionNodes.c)
- *     rimHidP_GetSpecificValueCaps @ 0x1C01852B0 (rimHidP_GetSpecificValueCaps.c)
- *     RIMCacheAxisChildIndex @ 0x1C0186BCC (RIMCacheAxisChildIndex.c)
- *     RIMGetPropertyCount @ 0x1C018A2D0 (RIMGetPropertyCount.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     RIMCacheAxisChildIndex @ 0x1C015BCAC (RIMCacheAxisChildIndex.c)
+ *     RIMGetPropertyCount @ 0x1C015E824 (RIMGetPropertyCount.c)
+ *     rimHidP_GetSpecificValueCaps @ 0x1C0163548 (rimHidP_GetSpecificValueCaps.c)
  */
 
-__int64 __fastcall RIMRetrieveLinkCollection(__int64 a1, unsigned __int16 *a2, unsigned int a3)
+__int64 __fastcall RIMRetrieveLinkCollection(__int64 a1, struct _HIDP_PREPARSED_DATA *a2, unsigned int a3)
 {
-  __int64 v3; // r15
-  char v4; // si
-  unsigned int v7; // r13d
-  NSInstrumentation::CLeakTrackingAllocator *v8; // rdi
-  int v9; // eax
-  unsigned __int64 v10; // rbx
-  __int64 Pool2; // rbx
-  __int64 v12; // r9
-  char v13; // r10
-  unsigned int v14; // r11d
-  unsigned __int16 v15; // r15
-  int v16; // edx
-  int v17; // r8d
-  unsigned __int16 v18; // di
-  int v19; // esi
-  __int64 v20; // r15
-  __int16 v21; // r15
-  bool v22; // zf
-  int v23; // r9d
-  __int16 v25; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned int v26; // [rsp+48h] [rbp-B8h] BYREF
-  unsigned __int16 v27; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned int v28; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v29; // [rsp+60h] [rbp-A0h]
-  unsigned __int64 v30[2]; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v31; // [rsp+80h] [rbp-80h] BYREF
-  unsigned __int64 v32; // [rsp+88h] [rbp-78h] BYREF
-  PVOID BackTrace[20]; // [rsp+90h] [rbp-70h] BYREF
-  _WORD v34[40]; // [rsp+130h] [rbp+30h] BYREF
+  __int64 v3; // r13
+  unsigned int v6; // r15d
+  int v7; // r12d
+  struct _HIDP_LINK_COLLECTION_NODE *v8; // rax
+  struct _HIDP_LINK_COLLECTION_NODE *v9; // rsi
+  int v10; // eax
+  int v11; // edx
+  USHORT FirstChild; // r14
+  int v13; // r9d
+  _WORD v15[2]; // [rsp+40h] [rbp-59h] BYREF
+  __int16 v16; // [rsp+44h] [rbp-55h]
+  unsigned int v17; // [rsp+48h] [rbp-51h] BYREF
+  unsigned __int16 v18[8]; // [rsp+50h] [rbp-49h] BYREF
+  _WORD v19[40]; // [rsp+60h] [rbp-39h] BYREF
 
-  v3 = *(_QWORD *)(a1 + 760);
-  v4 = 0;
-  v26 = a3;
-  v27 = 0;
-  v7 = 0;
-  v29 = v3;
+  v3 = *(_QWORD *)(a1 + 712);
+  v17 = a3;
+  v18[0] = 0;
+  v6 = 0;
+  v7 = 1;
   *(_WORD *)(v3 + 8) = 0;
-  if ( v26 <= 1 )
-    return v7;
-  v8 = gpLeakTrackingAllocator;
-  v28 = 1701016402;
-  v31 = 260LL;
-  v9 = *(_DWORD *)gpLeakTrackingAllocator;
-  v10 = 24LL * v26;
-  v32 = v10;
-  if ( !v9 )
+  if ( v17 > 1 )
   {
-    Pool2 = ExAllocatePool2(260LL, 24LL * v26, 1701016402LL);
-    if ( Pool2 )
-      _InterlockedAdd64((volatile signed __int64 *)v8 + 14, 1uLL);
-LABEL_22:
-    if ( !Pool2 )
-      return v7;
-LABEL_25:
-    *(_QWORD *)(v3 + 16) = Pool2;
-    if ( (unsigned int)rimHidP_GetLinkCollectionNodes(Pool2, (__int64)&v26, (__int64)a2, v12) != 1114112 )
-      return v7;
-    v15 = 0;
-    memset(v34, 0, 0x48uLL);
-    v18 = *(_WORD *)(Pool2 + 10);
-    v25 = 0;
-    v19 = 1;
-    if ( v26 )
+    v8 = (struct _HIDP_LINK_COLLECTION_NODE *)Win32AllocPool(24LL * v17, 0x65637352u);
+    v9 = v8;
+    if ( v8 )
     {
-      while ( 1 )
+      *(_QWORD *)(v3 + 16) = v8;
+      v10 = gpfnHidP_GetLinkCollectionNodes ? gpfnHidP_GetLinkCollectionNodes(v8, &v17, a2) : -1073741637;
+      if ( v10 == 1114112 )
       {
-        v25 = 1;
-        if ( (unsigned int)rimHidP_GetSpecificValueCaps(0LL, 13LL, v18, 81LL, (__int64)v34, (__int64)&v25, (__int64)a2) == 1114112 )
-          break;
-        ++v15;
-        v18 = *(_WORD *)(Pool2 + 24LL * v18 + 8);
-        if ( v15 >= v26 )
-          goto LABEL_44;
-      }
-      v20 = v29;
-      v25 = 1;
-      *(_WORD *)(v29 + 4) = v18;
-      *(_WORD *)(a1 + 776) = v18;
-      if ( (unsigned int)rimHidP_GetSpecificValueCaps(0LL, 1LL, v18, 48LL, (__int64)v34, (__int64)&v25, (__int64)a2) == 1114112 )
-      {
-        v21 = v34[10];
-        v25 = 1;
-        if ( (unsigned int)rimHidP_GetSpecificValueCaps(0LL, 1LL, v18, 49LL, (__int64)v34, (__int64)&v25, (__int64)a2) == 1114112
-          && (v19 = 0, v21 == v34[10]) )
+        v16 = 0;
+        memset(v19, 0, 0x48uLL);
+        v15[0] = 0;
+        FirstChild = v9->FirstChild;
+        if ( v17 )
         {
-          v22 = v21 == 2;
-          v20 = v29;
-          if ( v22 )
-            *(_DWORD *)(a1 + 360) |= 0x200u;
-        }
-        else
-        {
-          v20 = v29;
-        }
-      }
-      if ( *(_WORD *)(Pool2 + 24LL * v18 + 10) )
-      {
-        if ( v19 )
-        {
-          v23 = 1;
-LABEL_41:
-          v7 = RIMCacheAxisChildIndex(a1, (__int64)a2, v26, v23);
-          if ( v7
-            && (unsigned int)rimHidP_GetSpecificValueCaps(
-                               0LL,
-                               0LL,
-                               *(unsigned __int16 *)(v20 + 4),
-                               0LL,
-                               0LL,
-                               (__int64)&v27,
-                               (__int64)a2) == -1072627705 )
+          while ( 1 )
           {
-            RIMGetPropertyCount(a1, *(_WORD *)(v20 + 4), v27, a2);
+            v15[0] = 1;
+            if ( (unsigned int)rimHidP_GetSpecificValueCaps(
+                                 0,
+                                 13,
+                                 FirstChild,
+                                 81,
+                                 (__int64)v19,
+                                 (__int64)v15,
+                                 (__int64)a2) == 1114112 )
+              break;
+            FirstChild = v9[FirstChild].NextSibling;
+            if ( (unsigned __int16)++v16 >= v17 )
+              goto LABEL_22;
           }
-          return v7;
+          v15[0] = 1;
+          *(_WORD *)(v3 + 4) = FirstChild;
+          *(_WORD *)(a1 + 728) = FirstChild;
+          if ( (unsigned int)rimHidP_GetSpecificValueCaps(0, 1, FirstChild, 48, (__int64)v19, (__int64)v15, (__int64)a2) == 1114112 )
+          {
+            v16 = v19[10];
+            v15[0] = 1;
+            if ( (unsigned int)rimHidP_GetSpecificValueCaps(
+                                 0,
+                                 1,
+                                 FirstChild,
+                                 49,
+                                 (__int64)v19,
+                                 (__int64)v15,
+                                 (__int64)a2) == 1114112 )
+            {
+              v7 = 0;
+              if ( v16 == v19[10] && v16 == 2 )
+                *(_DWORD *)(a1 + 312) |= 0x200u;
+            }
+          }
+          if ( v9[FirstChild].FirstChild )
+          {
+            if ( v7 )
+            {
+              v13 = 1;
+LABEL_21:
+              v6 = RIMCacheAxisChildIndex(a1, (__int64)a2, v17, v13);
+LABEL_24:
+              if ( v6
+                && (unsigned int)rimHidP_GetSpecificValueCaps(
+                                   0,
+                                   0,
+                                   *(unsigned __int16 *)(v3 + 4),
+                                   0,
+                                   0LL,
+                                   (__int64)v18,
+                                   (__int64)a2) == -1072627705 )
+              {
+                RIMGetPropertyCount(a1, *(_WORD *)(v3 + 4), v18[0], (__int64)a2);
+              }
+              return v6;
+            }
+LABEL_20:
+            v13 = 0;
+            goto LABEL_21;
+          }
+          if ( !v7 )
+            goto LABEL_20;
         }
-LABEL_40:
-        v23 = 0;
-        goto LABEL_41;
-      }
-      if ( !v19 )
-        goto LABEL_40;
-    }
-LABEL_44:
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-      || (LOBYTE(v16) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
-    {
-      LOBYTE(v16) = 0;
-    }
-    if ( (_BYTE)v16 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v17) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v16,
-        v17,
-        (_DWORD)gRimLog,
-        3,
-        1,
-        29,
-        (__int64)&WPP_30f9ddf97da63da78d93eb777283153b_Traceguids);
-    }
-    return v7;
-  }
-  if ( v9 == 1 )
-  {
-    if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x65637352u)
-      || v10 + 16 < v10 )
-    {
-      return v7;
-    }
-    Pool2 = ExAllocatePool2(v31 & 0xFFFFFFFFFFFFFFFDuLL, v10 + 16, v28);
-    if ( !Pool2
-      || (_InterlockedAdd64((volatile signed __int64 *)v8 + 14, 1uLL),
-          *(_QWORD *)Pool2 = 1701016402LL,
-          (Pool2 += 16LL) == 0) )
-    {
-      NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-        *((NSInstrumentation::CPointerHashTable **)v8 + 1),
-        0x65637352uLL);
-    }
-    goto LABEL_22;
-  }
-  if ( v9 != 2 )
-    return v7;
-  v30[0] = 0LL;
-  if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 1701016402, v30) )
-  {
-    v30[0] = (unsigned __int64)&v31;
-    v30[1] = (unsigned __int64)&v28;
-    Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-              (__int64)v8,
-              (__int64)v30,
-              &v32);
-    goto LABEL_22;
-  }
-  if ( v10 < 0x1000 || (v10 & 0xFFF) != 0 )
-  {
-    v10 += 16LL;
-    v4 = v13;
-    v32 = v10;
-  }
-  Pool2 = ExAllocatePool2(260LL, v10, v14);
-  if ( Pool2 )
-  {
-    _InterlockedAdd64((volatile signed __int64 *)v8 + 16, 1uLL);
-    NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-    if ( v4 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-    {
-      if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-             (__int64)v8,
-             (const void *)Pool2,
-             v30[0],
-             (struct NSInstrumentation::CBackTrace *)BackTrace) )
-      {
-        Pool2 += 16LL;
-        goto LABEL_22;
+LABEL_22:
+        if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          return v6;
+        LOBYTE(v11) = 3;
+        WPP_RECORDER_SF_((_DWORD)gRimLog, v11, 1, 29, (__int64)&WPP_55b2fa568459373c5b96b2ba3eae63fb_Traceguids);
+        goto LABEL_24;
       }
     }
-    else if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                (__int64)v8,
-                Pool2,
-                v30[0],
-                (struct NSInstrumentation::CBackTrace *)BackTrace) )
-    {
-      goto LABEL_25;
-    }
-    _InterlockedAdd64((volatile signed __int64 *)v8 + 17, 1uLL);
-    _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
   }
-  return v7;
+  return v6;
 }

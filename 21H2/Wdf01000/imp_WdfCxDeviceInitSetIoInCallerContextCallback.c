@@ -1,10 +1,10 @@
 /*
- * XREFs of imp_WdfCxDeviceInitSetIoInCallerContextCallback @ 0x1C0065950
+ * XREFs of imp_WdfCxDeviceInitSetIoInCallerContextCallback @ 0x1C004B6F0
  * Callers:
  *     <none>
  * Callees:
- *     FxValiateCx @ 0x1C0065314 (FxValiateCx.c)
- *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006CAD4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     FxValiateCx @ 0x1C004B104 (FxValiateCx.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C00592C4 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
  */
 
 void __fastcall imp_WdfCxDeviceInitSetIoInCallerContextCallback(
@@ -12,15 +12,15 @@ void __fastcall imp_WdfCxDeviceInitSetIoInCallerContextCallback(
         WDFCXDEVICE_INIT *CxDeviceInit,
         void (__fastcall *EvtIoInCallerContext)(WDFDEVICE__ *, WDFREQUEST__ *))
 {
-  _FX_DRIVER_GLOBALS *v3; // rcx
+  _FX_DRIVER_GLOBALS *DriverName; // rcx
   _FX_DRIVER_GLOBALS *ClientDriverGlobals; // rsi
   void *retaddr; // [rsp+28h] [rbp+0h]
 
-  v3 = (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8];
+  DriverName = (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName;
   if ( !CxDeviceInit )
-    FxVerifierNullBugCheck(v3, retaddr);
+    FxVerifierNullBugCheck(DriverName, retaddr);
   ClientDriverGlobals = CxDeviceInit->ClientDriverGlobals;
-  if ( (int)FxValiateCx(ClientDriverGlobals, v3) >= 0 )
+  if ( (int)FxValiateCx(ClientDriverGlobals, DriverName) >= 0 )
   {
     if ( !EvtIoInCallerContext )
       FxVerifierNullBugCheck(ClientDriverGlobals, retaddr);

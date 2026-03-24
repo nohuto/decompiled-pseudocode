@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpCmMatchCallbackRoutine @ 0x1408FFEB0
+ * XREFs of _PnpCmMatchCallbackRoutine @ 0x1408FFE90
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     _CmMapCmObjectTypeToPnpObjectType @ 0x14059989C (_CmMapCmObjectTypeToPnpObjectType.c)
  */
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of IoWMIOpenBlock @ 0x140784550
+ * XREFs of IoWMIOpenBlock @ 0x14075AC90
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchPrintfW @ 0x1402E0198 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     WmipOpenBlock @ 0x140783428 (WmipOpenBlock.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     WmipOpenBlock @ 0x14063F2B8 (WmipOpenBlock.c)
  */
 
 NTSTATUS __stdcall IoWMIOpenBlock(LPCGUID Guid, ULONG DesiredAccess, PVOID *DataBlockObject)
@@ -37,7 +37,7 @@ NTSTATUS __stdcall IoWMIOpenBlock(LPCGUID Guid, ULONG DesiredAccess, PVOID *Data
   int v29; // [rsp+58h] [rbp-A8h]
   int v30; // [rsp+60h] [rbp-A0h]
   int v31; // [rsp+68h] [rbp-98h]
-  void *v32; // [rsp+70h] [rbp-90h] BYREF
+  PADAPTER_OBJECT v32; // [rsp+70h] [rbp-90h] BYREF
   UNICODE_STRING DestinationString; // [rsp+78h] [rbp-88h] BYREF
   __int128 v34; // [rsp+88h] [rbp-78h] BYREF
   UNICODE_STRING *p_DestinationString; // [rsp+98h] [rbp-68h]

@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIKsrSupportInitialize @ 0x1C00369C8
+ * XREFs of ACPIKsrSupportInitialize @ 0x1C0026C50
  * Callers:
- *     ACPIInitialize @ 0x1C00A8F88 (ACPIInitialize.c)
+ *     ACPIInitialize @ 0x1C00BED6C (ACPIInitialize.c)
  * Callees:
- *     AcpiKsrRestorePersistentContext @ 0x1C008B25C (AcpiKsrRestorePersistentContext.c)
+ *     AcpiKsrRestorePersistentContext @ 0x1C00B166C (AcpiKsrRestorePersistentContext.c)
  */
 
 NTSTATUS ACPIKsrSupportInitialize()
@@ -15,10 +15,10 @@ NTSTATUS ACPIKsrSupportInitialize()
   __int64 v4; // [rsp+78h] [rbp+18h] BYREF
 
   v4 = 0LL;
-  *(&ObjectAttributes.Attributes + 1) = 0;
   *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  HalPrivateDispatchTable[120] = ACPILateRestore;
   DestinationString = 0LL;
-  HalPrivateDispatchTable[120] = (__int64 (__fastcall *)(_QWORD, __int64))ACPILateRestore;
   result = KsrGetFirmwareInformation(&v4);
   if ( result >= 0 )
   {

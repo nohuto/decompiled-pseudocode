@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetSiloContainerId @ 0x1409AC700
+ * XREFs of PsGetSiloContainerId @ 0x140905B70
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall PsGetSiloContainerId(__int64 a1)
 {
-  return (a1 + 1456) & -(__int64)(a1 != 0);
+  return (a1 + 1240) & -(__int64)(a1 != 0);
 }

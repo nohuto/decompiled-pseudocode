@@ -1,8 +1,8 @@
 /*
- * XREFs of NVMeCompletionQueueInit @ 0x1C0008554
+ * XREFs of NVMeCompletionQueueInit @ 0x1C000D36C
  * Callers:
- *     AdminQueueInitialize @ 0x1C0007E00 (AdminQueueInitialize.c)
- *     IoQueuesInitialize @ 0x1C0008168 (IoQueuesInitialize.c)
+ *     AdminQueueInitialize @ 0x1C000B088 (AdminQueueInitialize.c)
+ *     IoQueuesInitialize @ 0x1C000C8F4 (IoQueuesInitialize.c)
  * Callees:
  *     <none>
  */
@@ -20,9 +20,9 @@ __int64 __fastcall NVMeCompletionQueueInit(
   int v8; // ebp
   __int64 v11; // rcx
   __int64 v12; // rax
+  __int64 v13; // r14
+  __int64 v14; // rcx
   __int64 result; // rax
-  __int64 v14; // r14
-  __int64 v15; // rcx
   _QWORD *v16; // rbx
   int v17; // [rsp+60h] [rbp+18h] BYREF
 
@@ -35,41 +35,41 @@ __int64 __fastcall NVMeCompletionQueueInit(
     *(_QWORD *)(a2 + 8) = v6;
   else
     *(_QWORD *)(a2 + 8) = StorPortGetPhysicalAddress(a1, 0LL, a4, &v17);
-  v11 = (unsigned int)(*(_DWORD *)(a1 + 200) * (2 * v8 + 1));
-  v12 = *(_QWORD *)(a1 + 176) + 4096LL;
+  v11 = (unsigned int)(*(_DWORD *)(a1 + 184) * (2 * v8 + 1));
+  v12 = *(_QWORD *)(a1 + 160) + 4096LL;
   *(_WORD *)(a2 + 168) = v8;
   *(_DWORD *)(a2 + 170) = 0;
   *(_QWORD *)(a2 + 176) = 0LL;
   *(_DWORD *)(a2 + 184) = 0;
   *(_QWORD *)(a2 + 192) = a6;
   *(_QWORD *)(a2 + 16) = v12 + v11;
-  if ( (_WORD)v8 && (unsigned __int16)v8 <= *(_WORD *)(a1 + 308) )
+  if ( (_WORD)v8 && (unsigned __int16)v8 <= *(_WORD *)(a1 + 292) )
   {
-    v14 = a2 + 288;
+    v13 = a2 + 288;
     *(_BYTE *)(a2 + 200) = 1;
     *(_QWORD *)(a2 + 288) = a1;
     *(_DWORD *)(a2 + 204) = 0;
     *(_QWORD *)(a2 + 296) = a2;
-    if ( (*(_DWORD *)(a1 + 3844) & 2) != 0 )
-      v15 = 4105LL;
+    if ( (*(_DWORD *)(a1 + 3828) & 2) != 0 )
+      v14 = 4105LL;
     else
-      v15 = 4106LL;
-    result = StorPortNotification(v15, a1, a2 + 216, NVMeIoPollingDpcRoutine);
+      v14 = 4106LL;
+    result = StorPortNotification(v14, a1, a2 + 216);
     if ( *(_DWORD *)(a2 + 204) )
     {
       v16 = (_QWORD *)(a2 + 208);
       if ( !*v16 )
       {
-        result = StorPortExtendedFunction(0LL, a1, 8 * (unsigned int)*(unsigned __int16 *)(a1 + 234), 1701672526LL);
+        result = StorPortExtendedFunction(0LL, a1, 8 * (unsigned int)*(unsigned __int16 *)(a1 + 218), 1701672526LL);
         if ( *v16 )
         {
-          if ( *(_WORD *)(a1 + 234) )
+          if ( *(_WORD *)(a1 + 218) )
           {
             do
             {
               a5 = *(_QWORD *)(*v16 + 8LL * v7);
-              StorPortExtendedFunction(88LL, a1, NVMeIoPollingTimerExCallback, v14);
-              result = *(unsigned __int16 *)(a1 + 234);
+              StorPortExtendedFunction(88LL, a1, NVMeIoPollingTimerExCallback, v13);
+              result = *(unsigned __int16 *)(a1 + 218);
               ++v7;
             }
             while ( v7 < (unsigned int)result );
@@ -81,7 +81,7 @@ __int64 __fastcall NVMeCompletionQueueInit(
   else
   {
     *(_BYTE *)(a2 + 200) = 0;
-    return StorPortNotification(4097LL, a1, a2 + 24, NVMeCompletionDpcRoutine);
+    return StorPortNotification(4097LL, a1, a2 + 24);
   }
   return result;
 }

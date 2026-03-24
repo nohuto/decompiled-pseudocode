@@ -1,12 +1,12 @@
 /*
- * XREFs of SmKmSendDeviceControl @ 0x1409D6368
+ * XREFs of SmKmSendDeviceControl @ 0x14092BE64
  * Callers:
- *     SmKmVolumeQueryUniqueId @ 0x1409D75C0 (SmKmVolumeQueryUniqueId.c)
+ *     SmKmVolumeQueryUniqueId @ 0x14092D09C (SmKmVolumeQueryUniqueId.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     IoBuildDeviceIoControlRequest @ 0x140342880 (IoBuildDeviceIoControlRequest.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14022C130 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
  */
 
 NTSTATUS __fastcall SmKmSendDeviceControl(
@@ -22,7 +22,6 @@ NTSTATUS __fastcall SmKmSendDeviceControl(
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-38h] BYREF
   struct _KEVENT Event; // [rsp+60h] [rbp-28h] BYREF
 
-  memset(&Event, 0, sizeof(Event));
   IoStatusBlock = 0LL;
   KeInitializeEvent(&Event, NotificationEvent, 0);
   v7 = IoBuildDeviceIoControlRequest(0x4D0000u, a2, 0LL, 0, OutputBuffer, OutputBufferLength, 0, &Event, &IoStatusBlock);

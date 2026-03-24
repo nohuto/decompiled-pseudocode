@@ -1,9 +1,10 @@
 /*
- * XREFs of FreeW32Thread @ 0x1C00944F4
+ * XREFs of FreeW32Thread @ 0x1C00E3958
  * Callers:
- *     W32pThreadCallout @ 0x1C00941B0 (W32pThreadCallout.c)
+ *     W32pThreadCallout @ 0x1C00E3CD0 (W32pThreadCallout.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     DereferenceW32Thread @ 0x1C00E39A0 (DereferenceW32Thread.c)
  */
 
 __int64 __fastcall FreeW32Thread(__int64 a1)

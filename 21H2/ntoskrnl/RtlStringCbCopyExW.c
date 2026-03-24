@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlStringCbCopyExW @ 0x1402E04F4
+ * XREFs of RtlStringCbCopyExW @ 0x1402C2960
  * Callers:
- *     _PnpMultiSzAppend @ 0x1406D0858 (_PnpMultiSzAppend.c)
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x14078600C (_CmGetDeviceMappedPropertyFromComposite.c)
- *     PiCMGetRelatedDeviceInstance @ 0x14078A748 (PiCMGetRelatedDeviceInstance.c)
- *     PiDqConvertQueryFlagsToString @ 0x14094A25C (PiDqConvertQueryFlagsToString.c)
- *     RtlFormatMessageEx @ 0x1409B6A58 (RtlFormatMessageEx.c)
- *     ConvertDevpropertyToString @ 0x140A30DE4 (ConvertDevpropertyToString.c)
- *     ExpressionConvertToString @ 0x140A314B0 (ExpressionConvertToString.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x14063C7AC (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1407687E4 (PiCMGetRelatedDeviceInstance.c)
+ *     PiDqConvertQueryFlagsToString @ 0x1408A4708 (PiDqConvertQueryFlagsToString.c)
+ *     RtlFormatMessageEx @ 0x140910E98 (RtlFormatMessageEx.c)
+ *     _PnpMultiSzAppend @ 0x14097C1EC (_PnpMultiSzAppend.c)
+ *     ConvertDevpropertyToString @ 0x14097F144 (ConvertDevpropertyToString.c)
+ *     ExpressionConvertToString @ 0x14097F810 (ExpressionConvertToString.c)
  * Callees:
- *     RtlStringCopyWorkerW_2 @ 0x1402E0620 (RtlStringCopyWorkerW_2.c)
- *     memset @ 0x140435E00 (memset.c)
- *     StringExHandleOtherFlagsW @ 0x14055F3E4 (StringExHandleOtherFlagsW.c)
+ *     RtlStringCopyWorkerW @ 0x14026556C (RtlStringCopyWorkerW.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     StringExHandleOtherFlagsW @ 0x14050C398 (StringExHandleOtherFlagsW.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCopyExW(
@@ -27,9 +27,8 @@ NTSTATUS __stdcall RtlStringCbCopyExW(
   int v11; // ebx
   wchar_t *v12; // rbp
   const wchar_t *v13; // rax
-  size_t v15; // r8
   size_t *pcchRemaining; // [rsp+20h] [rbp-48h]
-  size_t v17[2]; // [rsp+30h] [rbp-38h] BYREF
+  size_t v16[2]; // [rsp+30h] [rbp-38h] BYREF
   size_t pcchNewDestLength; // [rsp+78h] [rbp+10h] BYREF
 
   v6 = dwFlags;
@@ -48,66 +47,69 @@ NTSTATUS __stdcall RtlStringCbCopyExW(
   {
     if ( v8 )
       *pszDest = 0;
+    return v11;
+  }
+  pcchNewDestLength = (size_t)pszDest;
+  v12 = pszDest;
+  v16[0] = cbDest >> 1;
+  if ( (dwFlags & 0x100) != 0 )
+  {
+    v13 = (const wchar_t *)&cchOriginalDestLength;
+    if ( pszSrc )
+      v13 = pszSrc;
+    pszSrc = v13;
+  }
+  v11 = 0;
+  if ( (dwFlags & 0xFFFFE000) != 0 )
+  {
+    v11 = -1073741811;
+    if ( v8 )
+      *pszDest = 0;
   }
   else
   {
-    pcchNewDestLength = (size_t)pszDest;
-    v12 = pszDest;
-    v17[0] = cbDest >> 1;
-    if ( (dwFlags & 0x100) != 0 )
-    {
-      v13 = &cchOriginalDestLength;
-      if ( pszSrc )
-        v13 = pszSrc;
-      pszSrc = v13;
-    }
-    v11 = 0;
-    if ( (dwFlags & 0xFFFFE000) != 0 )
-    {
-      v11 = -1073741811;
-      if ( v8 )
-        *pszDest = 0;
-    }
-    else if ( v8 )
-    {
-      pcchNewDestLength = 0LL;
-      v11 = RtlStringCopyWorkerW_2(pszDest, v8, &pcchNewDestLength, pszSrc, (size_t)pcchRemaining);
-      v8 -= pcchNewDestLength;
-      v17[0] = v8;
-      v12 = &pszDest[pcchNewDestLength];
-      pcchNewDestLength = (size_t)v12;
-      if ( v11 >= 0 )
-      {
-        if ( (v6 & 0x200) != 0 )
-        {
-          v15 = (cbDest & 1) + 2 * v8;
-          if ( v15 > 2 )
-            memset(v12 + 1, (unsigned __int8)v6, v15 - 2);
-        }
-        goto LABEL_13;
-      }
-    }
-    else
+    if ( !v8 )
     {
       if ( !*pszSrc )
-      {
+        goto LABEL_14;
+      v11 = pszDest != 0LL ? -2147483643 : -1073741811;
 LABEL_13:
+      if ( v11 >= 0 )
+      {
+LABEL_14:
         if ( ppszDestEnd )
           *ppszDestEnd = v12;
         if ( pcbRemaining )
           *pcbRemaining = (cbDest & 1) + 2 * v8;
         return v11;
       }
-      v11 = pszDest != 0LL ? -2147483643 : -1073741811;
+      goto LABEL_26;
     }
-    if ( (v6 & 0x1C00) != 0 && cbDest )
+    pcchNewDestLength = 0LL;
+    v11 = RtlStringCopyWorkerW(pszDest, v8, &pcchNewDestLength, pszSrc, (size_t)pcchRemaining);
+    v8 -= pcchNewDestLength;
+    v16[0] = v8;
+    v12 = &pszDest[pcchNewDestLength];
+    pcchNewDestLength = (size_t)v12;
+    if ( v11 >= 0 )
     {
-      StringExHandleOtherFlagsW(pszDest, cbDest, (size_t)pszSrc, (STRSAFE_LPWSTR *)&pcchNewDestLength, v17, v6);
-      v12 = (wchar_t *)pcchNewDestLength;
-      v8 = v17[0];
-    }
-    if ( (int)(v11 + 0x80000000) < 0 || v11 == -2147483643 )
+      if ( (v6 & 0x200) != 0 )
+      {
+        pszSrc = (NTSTRSAFE_PCWSTR)((cbDest & 1) + 2 * v8);
+        if ( (unsigned __int64)pszSrc > 2 )
+          memset(v12 + 1, (unsigned __int8)v6, (size_t)(pszSrc - 1));
+      }
       goto LABEL_13;
+    }
   }
+LABEL_26:
+  if ( (v6 & 0x1C00) != 0 && cbDest )
+  {
+    StringExHandleOtherFlagsW(pszDest, cbDest, (size_t)pszSrc, (STRSAFE_LPWSTR *)&pcchNewDestLength, v16, v6);
+    v12 = (wchar_t *)pcchNewDestLength;
+    v8 = v16[0];
+  }
+  if ( (int)(v11 + 0x80000000) < 0 || v11 == -2147483643 )
+    goto LABEL_14;
   return v11;
 }

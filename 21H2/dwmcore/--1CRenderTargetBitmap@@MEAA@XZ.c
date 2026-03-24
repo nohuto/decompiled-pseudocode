@@ -1,14 +1,13 @@
 /*
- * XREFs of ??1CRenderTargetBitmap@@MEAA@XZ @ 0x180066264
+ * XREFs of ??1CRenderTargetBitmap@@MEAA@XZ @ 0x1800610E8
  * Callers:
- *     ??_GCScratchRenderTargetBitmap@@UEAAPEAXI@Z @ 0x180065890 (--_GCScratchRenderTargetBitmap@@UEAAPEAXI@Z.c)
- *     ??_ECRenderTargetBitmap@@MEAAPEAXI@Z @ 0x1800658D0 (--_ECRenderTargetBitmap@@MEAAPEAXI@Z.c)
- *     ??_GCDecodeBitmap@@UEAAPEAXI@Z @ 0x1801163E0 (--_GCDecodeBitmap@@UEAAPEAXI@Z.c)
- *     ??_ECStereoRenderTargetBitmap@@UEAAPEAXI@Z @ 0x1802A76E0 (--_ECStereoRenderTargetBitmap@@UEAAPEAXI@Z.c)
+ *     ??_ECRenderTargetBitmap@@MEAAPEAXI@Z @ 0x1800D5D90 (--_ECRenderTargetBitmap@@MEAAPEAXI@Z.c)
+ *     ??_GCScratchRenderTargetBitmap@@UEAAPEAXI@Z @ 0x1800DAEE0 (--_GCScratchRenderTargetBitmap@@UEAAPEAXI@Z.c)
+ *     ??_GCDecodeBitmap@@UEAAPEAXI@Z @ 0x180266920 (--_GCDecodeBitmap@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ @ 0x180066388 (-ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ.c)
- *     ??1CDeviceResource@@MEAA@XZ @ 0x180067C88 (--1CDeviceResource@@MEAA@XZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800563A4 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ @ 0x18006107C (-ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ.c)
+ *     ??1CDeviceResource@@MEAA@XZ @ 0x18006143C (--1CDeviceResource@@MEAA@XZ.c)
  */
 
 void __fastcall CRenderTargetBitmap::~CRenderTargetBitmap(CRenderTargetBitmap *this)
@@ -16,12 +15,10 @@ void __fastcall CRenderTargetBitmap::~CRenderTargetBitmap(CRenderTargetBitmap *t
   __int64 v2; // rcx
   __int64 v3; // rcx
   __int64 v4; // rcx
-  __int64 v5; // rcx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rdx
 
-  *(_QWORD *)this = &CRenderTargetBitmap::`vftable'{for `CMILCOMBaseT<IUnknown>'};
+  *(_QWORD *)this = &CRenderTargetBitmap::`vftable'{for `CMILCOMBase'};
   *((_QWORD *)this + 10) = &CRenderTargetBitmap::`vftable';
   *((_QWORD *)this + 15) = &CScratchRenderTargetBitmap::`vftable'{for `IRenderTargetBitmap'};
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 4LL) + 16) = &CRenderTargetBitmap::`vftable'{for `IDeviceResourceNotify'};
@@ -40,12 +37,7 @@ void __fastcall CRenderTargetBitmap::~CRenderTargetBitmap(CRenderTargetBitmap *t
   v6 = *(int *)(*((_QWORD *)this + 2) + 20LL);
   *(_DWORD *)((char *)this + v6 + 12) = v6 - 224;
   CRenderTargetBitmap::ReleaseDeviceTarget(this);
-  v7 = *((_QWORD *)this + 17);
-  if ( v7 )
-  {
-    v8 = *(int *)(*(_QWORD *)(v7 + 8) + 4LL) + v7 + 8;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
-  }
+  wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)this + 136);
   CDeviceResource::~CDeviceResource((CRenderTargetBitmap *)((char *)this + 80));
   CD2DBitmapCache::~CD2DBitmapCache(this);
 }

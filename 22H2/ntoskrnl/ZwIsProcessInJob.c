@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwIsProcessInJob @ 0x14041B080
+ * XREFs of ZwIsProcessInJob @ 0x1403FA400
  * Callers:
  *     <none>
  * Callees:

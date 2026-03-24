@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIsTraceMemoryAccess @ 0x140230C30
+ * XREFs of KiIsTraceMemoryAccess @ 0x1402A2CD0
  * Callers:
- *     KeInvalidAccessAllowed @ 0x140230BA0 (KeInvalidAccessAllowed.c)
+ *     KeInvalidAccessAllowed @ 0x1402A2C40 (KeInvalidAccessAllowed.c)
  * Callees:
  *     <none>
  */
 
 bool __fastcall KiIsTraceMemoryAccess(unsigned __int64 a1)
 {
-  return KiDynamicTraceEnabled && a1 >= qword_140D070E8 && a1 < qword_140D070F0 && KeGetCurrentIrql() == 15;
+  return KiDynamicTraceEnabled && a1 >= qword_140CFCBD8 && a1 < qword_140CFCBE0 && KeGetCurrentIrql() == 15;
 }

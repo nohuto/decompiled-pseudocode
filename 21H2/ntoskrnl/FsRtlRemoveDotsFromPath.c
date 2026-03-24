@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlRemoveDotsFromPath @ 0x1407F96D0
+ * XREFs of FsRtlRemoveDotsFromPath @ 0x1407600B0
  * Callers:
- *     IopReplaceSymlinkPath @ 0x1409379A8 (IopReplaceSymlinkPath.c)
+ *     IopReplaceSymlinkPath @ 0x1408951B0 (IopReplaceSymlinkPath.c)
  * Callees:
  *     <none>
  */
@@ -23,47 +23,44 @@ NTSTATUS __stdcall FsRtlRemoveDotsFromPath(PWSTR OriginalString, USHORT PathLeng
   v6 = 0;
   if ( PathLength >> 1 == 3 )
   {
-    if ( *OriginalString == 92 )
-    {
-      if ( OriginalString[1] != 46 || OriginalString[2] != 46 )
-        goto LABEL_6;
+    if ( *OriginalString == 92 && OriginalString[1] == 46 && OriginalString[2] == 46 )
       return -1073741192;
-    }
+    goto LABEL_4;
+  }
+  if ( v3 == 2 )
+  {
+    if ( *OriginalString != 46 || OriginalString[1] != 46 )
+      goto LABEL_5;
+    return -1073741192;
+  }
+  if ( v3 > 2u )
+  {
 LABEL_4:
     if ( *OriginalString != 46 || OriginalString[1] != 46 || OriginalString[2] != 92 )
       goto LABEL_5;
     return -1073741192;
   }
-  if ( v3 == 2 )
-  {
-    if ( *OriginalString != 46 || OriginalString[1] != 46 )
-      goto LABEL_6;
-    return -1073741192;
-  }
-  if ( v3 > 2u )
-    goto LABEL_4;
 LABEL_5:
+  v7 = 0;
   if ( v3 )
   {
-LABEL_6:
-    v7 = 0;
     while ( v7 )
     {
       v8 = v3 - 1;
       if ( v7 < v8 && OriginalString[v7] == 92 && OriginalString[v7 + 1] == 92 )
-        goto LABEL_13;
+        goto LABEL_12;
       v9 = v7;
       if ( OriginalString[v7] != 46 )
-        goto LABEL_11;
+        goto LABEL_10;
       if ( v7 == v8 )
       {
         if ( OriginalString[v7 - 1] == 92 )
         {
           if ( v6 > 1 )
             --v6;
-          goto LABEL_13;
+          goto LABEL_12;
         }
-        goto LABEL_22;
+        goto LABEL_21;
       }
       v11 = OriginalString[v7 + 1];
       if ( v11 == 92 )
@@ -71,53 +68,49 @@ LABEL_6:
         if ( OriginalString[v7 - 1] == 92 )
         {
           ++v7;
-          goto LABEL_13;
+          goto LABEL_12;
         }
-LABEL_22:
+LABEL_21:
         OriginalString[v6] = 46;
-LABEL_12:
+LABEL_11:
         ++v6;
-        goto LABEL_13;
+        goto LABEL_12;
       }
       if ( v11 != 46 )
-        goto LABEL_22;
+        goto LABEL_21;
       if ( OriginalString[v7 - 1] != 92 )
-        goto LABEL_22;
+        goto LABEL_21;
       v12 = v3 - 2;
       if ( v7 != v12 && OriginalString[v7 + 2] != 92 )
-        goto LABEL_22;
+        goto LABEL_21;
       v6 -= 2;
       v13 = v6 < 0;
-      if ( v6 <= 0 )
+      if ( v6 > 0 )
       {
-LABEL_44:
-        if ( v13 )
-          return -1073741192;
-      }
-      else
-      {
-        while ( OriginalString[(unsigned __int16)v6] != 92 )
+        do
         {
-          v13 = --v6 < 0;
-          if ( v6 <= 0 )
-            goto LABEL_44;
+          if ( OriginalString[v6] == 92 )
+            break;
+          --v6;
         }
+        while ( v6 > 0 );
+        v13 = v6 < 0;
       }
-      if ( OriginalString[v6] != 92 )
+      if ( v13 || OriginalString[v6] != 92 )
         return -1073741192;
       if ( !v6 )
         v6 = v7 == v12;
       ++v7;
-LABEL_13:
+LABEL_12:
       if ( ++v7 >= v3 )
-        goto LABEL_14;
+        goto LABEL_13;
     }
     v9 = 0LL;
-LABEL_11:
+LABEL_10:
     OriginalString[v6] = OriginalString[v9];
-    goto LABEL_12;
+    goto LABEL_11;
   }
-LABEL_14:
+LABEL_13:
   *NewLength = 2 * v6;
   if ( v6 < (int)v3 )
   {

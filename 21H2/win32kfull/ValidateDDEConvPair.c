@@ -1,12 +1,12 @@
 /*
- * XREFs of ValidateDDEConvPair @ 0x1C0217870
+ * XREFs of ValidateDDEConvPair @ 0x1C021CAF0
  * Callers:
- *     xxxSendTransformableMessageTimeout @ 0x1C0050D70 (xxxSendTransformableMessageTimeout.c)
- *     NtUserPostMessage @ 0x1C0054740 (NtUserPostMessage.c)
- *     _PostTransformableMessageIL @ 0x1C00A735C (_PostTransformableMessageIL.c)
- *     _PostMessageCheckIL @ 0x1C01DD244 (_PostMessageCheckIL.c)
+ *     _PostTransformableMessageIL @ 0x1C003F750 (_PostTransformableMessageIL.c)
+ *     NtUserPostMessage @ 0x1C00546A0 (NtUserPostMessage.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C0059990 (xxxSendTransformableMessageTimeout.c)
+ *     _PostMessageCheckIL @ 0x1C01E27B8 (_PostMessageCheckIL.c)
  * Callees:
- *     ?FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z @ 0x1C0214F2C (-FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z.c)
+ *     ?FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z @ 0x1C021AC58 (-FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z.c)
  */
 
 _BOOL8 __fastcall ValidateDDEConvPair(__int64 a1, struct tagWND *a2)

@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlGetElementGenericTableAvl @ 0x1405AE640
+ * XREFs of RtlGetElementGenericTableAvl @ 0x14058BC30
  * Callers:
  *     <none>
  * Callees:
- *     RealPredecessor @ 0x14035FF48 (RealPredecessor.c)
- *     RealSuccessor @ 0x14037126C (RealSuccessor.c)
+ *     RealPredecessor @ 0x1403247C8 (RealPredecessor.c)
+ *     RealSuccessor @ 0x14032D820 (RealSuccessor.c)
  */
 
 PVOID __stdcall RtlGetElementGenericTableAvl(PRTL_AVL_TABLE Table, ULONG I)
 {
-  unsigned int WhichOrderedElement; // r9d
-  ULONG v3; // r10d
-  PRTL_AVL_TABLE v4; // r11
+  unsigned int WhichOrderedElement; // r8d
+  ULONG v3; // r9d
+  PRTL_AVL_TABLE v4; // r10
   unsigned int NumberGenericTableElements; // edx
   _QWORD *OrderedPointer; // rcx
   _QWORD *i; // rax
-  int v9; // r9d
+  int v9; // r8d
   _QWORD *k; // rax
-  int v11; // r9d
+  int v11; // r11d
   unsigned int v12; // edx
-  ULONG v13; // ebx
+  int v13; // r11d
   _QWORD *j; // rax
-  int v15; // r9d
+  int v15; // r8d
 
   WhichOrderedElement = Table->WhichOrderedElement;
   v3 = I;
@@ -46,7 +46,6 @@ PVOID __stdcall RtlGetElementGenericTableAvl(PRTL_AVL_TABLE Table, ULONG I)
     if ( v3 >= WhichOrderedElement )
     {
       v12 = NumberGenericTableElements - v3;
-      v13 = v3 - WhichOrderedElement;
       if ( v3 - WhichOrderedElement > v12 )
       {
         OrderedPointer = &v4->BalancedRoot.RightChild->Parent;
@@ -59,10 +58,11 @@ PVOID __stdcall RtlGetElementGenericTableAvl(PRTL_AVL_TABLE Table, ULONG I)
           while ( v15 != 1 );
         }
       }
-      else
+      else if ( v3 != WhichOrderedElement )
       {
-        for ( ; v13; --v13 )
+        do
           OrderedPointer = RealSuccessor(OrderedPointer);
+        while ( v13 != 1 );
       }
     }
     else if ( v3 < WhichOrderedElement >> 1 )

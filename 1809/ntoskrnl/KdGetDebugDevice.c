@@ -1,5 +1,5 @@
 /*
- * XREFs of KdGetDebugDevice @ 0x140193FD0
+ * XREFs of KdGetDebugDevice @ 0x140193FF0
  * Callers:
  *     <none>
  * Callees:

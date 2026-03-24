@@ -1,30 +1,35 @@
 /*
- * XREFs of ?RevalidateFrameProcessing@CTouchProcessor@@AEAAHPEAUtagTHREADINFO@@HPEBUCPointerInfoNode@@H@Z @ 0x1C01D2AF0
+ * XREFs of ?RevalidateFrameProcessing@CTouchProcessor@@AEAAHPEAUtagTHREADINFO@@HPEBUCPointerInfoNode@@H@Z @ 0x1C019B398
  * Callers:
- *     ?HandlePointerNodeWithTarget@CTouchProcessor@@AEAA?AW4PointerNodeWithTargetHandling@1@PEBUCPointerInfoNode@@IPEAU3@@Z @ 0x1C01CC3D4 (-HandlePointerNodeWithTarget@CTouchProcessor@@AEAA-AW4PointerNodeWithTargetHandling@1@PEBUCPoint.c)
- *     ?SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z @ 0x1C01D4AC0 (-SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z.c)
+ *     ?HandlePointerNodeWithTarget@CTouchProcessor@@AEAA?AW4PointerNodeWithTargetHandling@1@PEBUCPointerInfoNode@@IPEAU3@@Z @ 0x1C0196188 (-HandlePointerNodeWithTarget@CTouchProcessor@@AEAA-AW4PointerNodeWithTargetHandling@1@PEBUCPoint.c)
+ *     ?SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z @ 0x1C019CA50 (-SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z.c)
  * Callees:
- *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C00E4A4E (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
- *     ?IsTargetSetForRetrieval@CPointerInfoNode@@QEBAHPEAUtagTHREADINFO@@@Z @ 0x1C01CD19C (-IsTargetSetForRetrieval@CPointerInfoNode@@QEBAHPEAUtagTHREADINFO@@@Z.c)
+ *     ?IsTargetSetForRetrieval@CPointerInfoNode@@QEBAHPEAUtagTHREADINFO@@@Z @ 0x1C0196FD4 (-IsTargetSetForRetrieval@CPointerInfoNode@@QEBAHPEAUtagTHREADINFO@@@Z.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C01970E4 (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
  */
 
-__int64 __fastcall CTouchProcessor::RevalidateFrameProcessing(
+_BOOL8 __fastcall CTouchProcessor::RevalidateFrameProcessing(
         CTouchProcessor *this,
         struct tagTHREADINFO *a2,
         int a3,
         const struct CPointerInfoNode *a4,
         int a5)
 {
-  unsigned int v5; // ebx
+  int v5; // ebx
   CPointerInfoNode *v6; // rcx
   struct tagTHREADINFO *v7; // r10
+  _BOOL8 result; // rax
 
   v5 = 0;
-  if ( a3 && (*((_DWORD *)a2 + 318) & 0x2000) == 0 && (*((_DWORD *)a2 + 319) & 0x40) == 0
-    || !(unsigned int)CPointerInfoNode::IsValid(a4) )
+  result = 0;
+  if ( !a3 || (*((_DWORD *)a2 + 308) & 0x2000) != 0 )
   {
-    return 0LL;
+    if ( (unsigned int)CPointerInfoNode::IsValid(a4) )
+    {
+      LOBYTE(v5) = a5 != 0;
+      if ( ((unsigned int)CPointerInfoNode::IsTargetSetForRetrieval(v6, v7) != 0) == v5 )
+        return 1;
+    }
   }
-  LOBYTE(v5) = ((unsigned int)CPointerInfoNode::IsTargetSetForRetrieval(v6, v7) != 0) == (a5 != 0);
-  return v5;
+  return result;
 }

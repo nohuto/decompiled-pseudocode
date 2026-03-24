@@ -1,16 +1,15 @@
 /*
- * XREFs of PspJobTimeLimitsWork @ 0x1406A3180
+ * XREFs of PspJobTimeLimitsWork @ 0x140616500
  * Callers:
  *     <none>
  * Callees:
- *     PspEnforceLimits @ 0x1406A3240 (PspEnforceLimits.c)
+ *     PspEnforceLimits @ 0x140617F9C (PspEnforceLimits.c)
  */
 
 __int64 PspJobTimeLimitsWork()
 {
   char v0; // bl
   __int64 v1; // rcx
-  char v2; // al
   __int64 result; // rax
 
   v0 = 0;
@@ -20,14 +19,13 @@ __int64 PspJobTimeLimitsWork()
     v1 = PspJobTimeLimitsWorkItemFlags & 0xFFFFFFFC;
     if ( (_InterlockedAnd(&PspJobTimeLimitsWorkItemFlags, 0xFFFFFFFC) & 1) != 0 )
     {
-      v2 = 0;
       v0 = 1;
+      LOBYTE(v1) = 0;
     }
     else
     {
-      v2 = 1;
+      LOBYTE(v1) = 1;
     }
-    LOBYTE(v1) = v2;
     PspEnforceLimits(v1);
     result = (unsigned int)_InterlockedCompareExchange(&PspJobTimeLimitsWorkItemFlags, 0, 4);
   }

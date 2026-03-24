@@ -1,26 +1,33 @@
 /*
- * XREFs of SepCreateSidValuesBlock @ 0x1409CF5CC
+ * XREFs of SepCreateSidValuesBlock @ 0x140922E80
  * Callers:
- *     SepSetTokenUserAndGroups @ 0x1409CF9AC (SepSetTokenUserAndGroups.c)
+ *     SepSetTokenUserAndGroups @ 0x14092320C (SepSetTokenUserAndGroups.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     RtlCopySid @ 0x140715020 (RtlCopySid.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlCopySid @ 0x140654560 (RtlCopySid.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SepCreateSidValuesBlock(_QWORD *a1, PSID *a2, unsigned int a3, __int64 a4, int a5, unsigned int a6)
+__int64 __fastcall SepCreateSidValuesBlock(
+        _QWORD *a1,
+        unsigned __int8 **a2,
+        unsigned int a3,
+        __int64 a4,
+        int a5,
+        unsigned int a6)
 {
   _QWORD *v9; // rsi
   unsigned int v11; // r14d
   int v12; // edx
   unsigned int v13; // r15d
-  char *Pool2; // rax
+  char *PoolWithTag; // rax
   char *v15; // rbx
-  unsigned __int8 *v16; // r13
-  unsigned int v17; // r15d
-  unsigned int v18; // edi
-  PSID *v19; // r8
-  char *v20; // [rsp+20h] [rbp-38h]
+  unsigned int v16; // r13d
+  unsigned int v17; // edi
+  unsigned __int8 *v18; // r15
+  unsigned __int8 *v19; // r8
+  __int64 v20; // rax
+  char *v21; // [rsp+20h] [rbp-38h]
 
   v9 = a1;
   if ( !a1 )
@@ -34,39 +41,40 @@ __int64 __fastcall SepCreateSidValuesBlock(_QWORD *a1, PSID *a2, unsigned int a3
     v11 = a3 - 1;
     v12 = a5 - 4 * *(unsigned __int8 *)(*(_QWORD *)(a4 + 16LL * a6) + 1LL) - 8;
   }
-  v13 = (((4 * *((unsigned __int8 *)*a2 + 1) + 11) & 0xFFFFFFFC) + 27 + ((v12 + 7) & 0xFFFFFFF8)) & 0xFFFFFFFC;
-  Pool2 = (char *)ExAllocatePool2(256LL, v13, 1985176915LL);
-  v20 = Pool2;
-  v15 = Pool2;
-  if ( !Pool2 )
+  v13 = (((4 * (*a2)[1] + 11) & 0xFFFFFFFC) + 27 + ((v12 + 7) & 0xFFFFFFF8)) & 0xFFFFFFFC;
+  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v13, 0x76536553u);
+  v21 = PoolWithTag;
+  v15 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  memset(Pool2, 0, v13);
+  memset(PoolWithTag, 0, v13);
+  v16 = a3 + 1;
   *(_DWORD *)v15 = v13;
-  v16 = (unsigned __int8 *)(v15 + 24);
-  v17 = a3 + 1;
+  v17 = 0;
   *((_QWORD *)v15 + 1) = 1LL;
-  v18 = 0;
-  if ( !v17 )
+  v18 = (unsigned __int8 *)(v15 + 24);
+  if ( !v16 )
     goto LABEL_15;
   do
   {
-    if ( v18 )
+    if ( v17 )
     {
-      if ( v18 - 1 == a6 )
+      v20 = v17 - 1;
+      if ( (_DWORD)v20 == a6 )
         goto LABEL_13;
-      v19 = (PSID *)(a4 + 16LL * (v18 - 1));
+      v19 = *(unsigned __int8 **)(a4 + 16 * v20);
     }
     else
     {
-      v19 = a2;
+      v19 = *a2;
     }
-    RtlCopySid(4 * *((unsigned __int8 *)*v19 + 1) + 8, v16, *v19);
-    v16 += (4LL * v16[1] + 11) & 0xFFFFFFFCLL;
+    RtlCopySid(4 * v19[1] + 8, v18, v19);
+    v18 += (4LL * v18[1] + 11) & 0xFFFFFFFCLL;
 LABEL_13:
-    ++v18;
+    ++v17;
   }
-  while ( v18 < v17 );
-  v15 = v20;
+  while ( v17 < v16 );
+  v15 = v21;
   v9 = a1;
 LABEL_15:
   *v9 = v15;

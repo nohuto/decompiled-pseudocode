@@ -1,52 +1,50 @@
 /*
- * XREFs of DwmAsyncSendTouchContacts @ 0x1C0159D96
+ * XREFs of DwmAsyncSendTouchContacts @ 0x1C0274E00
  * Callers:
- *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01AD114 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
+ *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01D9D54 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
  * Callees:
- *     <none>
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
  */
 
 __int64 __fastcall DwmAsyncSendTouchContacts(PVOID Object, __int64 a2, __int64 a3, unsigned int a4)
 {
   unsigned int v8; // r14d
-  int v9; // r15d
-  __int64 v10; // rax
-  void *v11; // rbx
-  _OWORD *v12; // rdx
-  __int64 v13; // rdi
-  __int64 v14; // rax
-  __int128 v15; // xmm1
+  char *v9; // rax
+  _WORD *v10; // rbx
+  _OWORD *v11; // rdx
+  __int64 v12; // rdi
+  __int64 v13; // rax
+  __int128 v14; // xmm1
 
   v8 = -1073741823;
   if ( Object && a2 && a4 )
   {
-    v9 = 40 * a4;
-    v10 = Win32AllocPoolZInit(40 * a4 + 60, 1951225668LL);
-    v11 = (void *)v10;
-    if ( v10 )
+    v9 = (char *)PALLOCMEM2(40 * (a4 - 1) + 100, 1951225668LL, 1);
+    v10 = v9;
+    if ( v9 )
     {
-      v12 = (_OWORD *)(v10 + 60);
-      *(_DWORD *)(v10 + 40) = 1073741888;
-      *(_QWORD *)(v10 + 52) = a3;
-      *(_DWORD *)(v10 + 44) = a4;
-      *(_DWORD *)(v10 + 48) = v9;
-      *(_WORD *)v10 = 40 * a4 + 20;
-      v13 = a2 - (v10 + 60);
-      *(_WORD *)(v10 + 2) = 40 * a4 + 100;
-      *(_WORD *)(v10 + 4) = 0x8000;
-      v14 = a4;
+      v11 = v9 + 60;
+      *((_DWORD *)v9 + 10) = 1073741887;
+      *(_QWORD *)(v9 + 52) = a3;
+      *((_DWORD *)v9 + 11) = a4;
+      *(_WORD *)v9 = 40 * a4 + 20;
+      *((_WORD *)v9 + 2) = 0x8000;
+      *((_DWORD *)v9 + 12) = 40 * a4;
+      v12 = a2 - (_QWORD)(v9 + 60);
+      v13 = a4;
+      v10[1] = 40 * a4 + 100;
       do
       {
-        *v12 = *(_OWORD *)((char *)v12 + v13);
-        v15 = *(_OWORD *)((char *)v12 + v13 + 16);
-        v12 = (_OWORD *)((char *)v12 + 40);
-        *(_OWORD *)((char *)v12 - 24) = v15;
-        *((_QWORD *)v12 - 1) = *(_QWORD *)((char *)v12 + v13 - 8);
-        --v14;
+        *v11 = *(_OWORD *)((char *)v11 + v12);
+        v14 = *(_OWORD *)((char *)v11 + v12 + 16);
+        v11 = (_OWORD *)((char *)v11 + 40);
+        *(_OWORD *)((char *)v11 - 24) = v14;
+        *((_QWORD *)v11 - 1) = *(_QWORD *)((char *)v11 + v12 - 8);
+        --v13;
       }
-      while ( v14 );
-      v8 = LpcRequestPort(Object, v11);
-      Win32FreePool(v11);
+      while ( v13 );
+      v8 = LpcRequestPort(Object, v10);
+      Win32FreePool(v10);
     }
     ObfDereferenceObject(Object);
   }

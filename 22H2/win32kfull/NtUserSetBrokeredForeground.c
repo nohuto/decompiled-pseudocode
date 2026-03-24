@@ -1,74 +1,68 @@
 /*
- * XREFs of NtUserSetBrokeredForeground @ 0x1C00BAFA0
+ * XREFs of NtUserSetBrokeredForeground @ 0x1C00D6EB0
  * Callers:
  *     <none>
  * Callees:
- *     IsMessageOnlyWindow @ 0x1C00424C0 (IsMessageOnlyWindow.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     InternalSetProp @ 0x1C00C671C (InternalSetProp.c)
- *     IsWindowBeingDestroyed @ 0x1C00CF084 (IsWindowBeingDestroyed.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     _GetProp @ 0x1C00F21FC (_GetProp.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     _IsTopLevelWindow @ 0x1C0122310 (_IsTopLevelWindow.c)
+ *     InternalSetProp @ 0x1C0038408 (InternalSetProp.c)
+ *     IsWindowBeingDestroyed @ 0x1C003883C (IsWindowBeingDestroyed.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _GetProp @ 0x1C006B8F0 (_GetProp.c)
+ *     _IsTopLevelWindow @ 0x1C006FBE8 (_IsTopLevelWindow.c)
+ *     IsMessageOnlyWindow @ 0x1C00D73E0 (IsMessageOnlyWindow.c)
  */
 
+// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall NtUserSetBrokeredForeground(__int64 a1)
 {
   int v2; // ebx
-  __int64 v3; // rax
-  __int64 v4; // rdi
-  __int64 v5; // rcx
-  __int64 v6; // rcx
-  int v7; // eax
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  __int64 v5; // rax
+  _QWORD *v6; // rdi
+  __int64 v7; // rcx
   int v8; // ecx
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v16; // rcx
-  char v17; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v9; // rcx
+  __int64 v11; // rcx
+  char v12; // [rsp+30h] [rbp+8h] BYREF
 
   EnterCrit(0LL, 1LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v17);
   v2 = 0;
+  gbValidateHandleForIL = 0;
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v12);
   if ( !a1 )
     goto LABEL_17;
-  v3 = ValidateHwnd(a1);
-  v4 = v3;
-  if ( !v3 )
+  v5 = ValidateHwnd(a1);
+  v6 = (_QWORD *)v5;
+  if ( !v5
+    || !(unsigned int)IsTopLevelWindow(v5)
+    || v6[15]
+    || (unsigned int)IsWindowBeingDestroyed((__int64)v6)
+    || (*(_BYTE *)(v6[5] + 31LL) & 0x10) != 0
+    || (unsigned int)IsMessageOnlyWindow(v7)
+    || GetProp((__int64)v6, (unsigned __int16)WPP_MAIN_CB.DeviceQueue.Type, 1LL) )
+  {
     goto LABEL_17;
-  if ( !(unsigned int)IsTopLevelWindow(v3) )
-    goto LABEL_17;
-  if ( *(_QWORD *)(v5 + 120) )
-    goto LABEL_17;
-  if ( (unsigned int)IsWindowBeingDestroyed(v5) )
-    goto LABEL_17;
-  if ( (*(_BYTE *)(*(_QWORD *)(v6 + 40) + 31LL) & 0x10) != 0 )
-    goto LABEL_17;
-  LOBYTE(v7) = IsMessageOnlyWindow(v6);
-  if ( v7 || GetProp(v4, LOWORD(WPP_MAIN_CB.DeviceLock.Header.SignalState), 1LL) )
-    goto LABEL_17;
-  v8 = *(_DWORD *)(*(_QWORD *)(v4 + 40) + 236LL);
+  }
+  v8 = *(_DWORD *)(v6[5] + 236LL);
   if ( v8 != 14 && v8 != 4 )
   {
-    UserSetLastError(5LL);
+    UserSetLastError(5LL, v3, v4);
 LABEL_17:
-    v16 = 87LL;
+    v11 = 87LL;
     goto LABEL_18;
   }
-  if ( !(unsigned int)IsImmersiveBroker(*(_QWORD *)(gptiCurrent + 424LL)) || gptiCurrent != *(_QWORD *)(v4 + 16) )
+  if ( !(unsigned int)IsImmersiveBroker(*(_QWORD *)(gptiCurrent + 424LL)) || gptiCurrent != v6[2] )
   {
-    v16 = 5LL;
+    v11 = 5LL;
 LABEL_18:
-    UserSetLastError(v16);
+    UserSetLastError(v11, v3, v4);
     goto LABEL_13;
   }
-  v2 = InternalSetProp(v4, LOWORD(WPP_MAIN_CB.DeviceLock.Header.SignalState), gptiCurrent, 5LL);
+  v2 = InternalSetProp((__int64)v6, (unsigned __int16)WPP_MAIN_CB.DeviceQueue.Type, gptiCurrent, 5u);
 LABEL_13:
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v17, v9, v10);
-  UserSessionSwitchLeaveCrit(v12, v11, v13, v14);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v12);
+  UserSessionSwitchLeaveCrit(v9);
   return v2;
 }

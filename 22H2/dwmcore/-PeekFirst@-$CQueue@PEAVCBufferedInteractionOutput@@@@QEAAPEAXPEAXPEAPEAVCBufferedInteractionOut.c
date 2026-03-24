@@ -1,8 +1,8 @@
 /*
- * XREFs of ?PeekFirst@?$CQueue@PEAVCBufferedInteractionOutput@@@@QEAAPEAXPEAXPEAPEAVCBufferedInteractionOutput@@@Z @ 0x180284DC4
+ * XREFs of ?PeekFirst@?$CQueue@PEAVCBufferedInteractionOutput@@@@QEAAPEAXPEAXPEAPEAVCBufferedInteractionOutput@@@Z @ 0x180230B9C
  * Callers:
- *     ?BoundBufferedOutput@CInteractionContextWrapper@@AEAAX_K@Z @ 0x180283E84 (-BoundBufferedOutput@CInteractionContextWrapper@@AEAAX_K@Z.c)
- *     ?GetBufferedOutputRaw@CInteractionContextWrapper@@UEAAI_K0PEAUInteractionOutput@@@Z @ 0x180284590 (-GetBufferedOutputRaw@CInteractionContextWrapper@@UEAAI_K0PEAUInteractionOutput@@@Z.c)
+ *     ?BoundBufferedOutput@CInteractionContextWrapper@@AEAAX_K@Z @ 0x18022FCEC (-BoundBufferedOutput@CInteractionContextWrapper@@AEAAX_K@Z.c)
+ *     ?GetBufferedOutputRaw@CInteractionContextWrapper@@UEAAI_K0PEAUInteractionOutput@@@Z @ 0x180230350 (-GetBufferedOutputRaw@CInteractionContextWrapper@@UEAAI_K0PEAUInteractionOutput@@@Z.c)
  * Callees:
  *     <none>
  */

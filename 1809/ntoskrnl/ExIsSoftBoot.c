@@ -1,13 +1,13 @@
 /*
- * XREFs of ExIsSoftBoot @ 0x140186390
+ * XREFs of ExIsSoftBoot @ 0x1401863B0
  * Callers:
- *     EtwInitialize @ 0x140743300 (EtwInitialize.c)
- *     PoClearTransitionMarker @ 0x140744FE0 (PoClearTransitionMarker.c)
+ *     EtwInitialize @ 0x1407432E0 (EtwInitialize.c)
+ *     PoClearTransitionMarker @ 0x140744FC0 (PoClearTransitionMarker.c)
  * Callees:
  *     <none>
  */
 
 bool ExIsSoftBoot()
 {
-  return (qword_140409DD8 & 4) != 0;
+  return (qword_140409D98 & 4) != 0;
 }

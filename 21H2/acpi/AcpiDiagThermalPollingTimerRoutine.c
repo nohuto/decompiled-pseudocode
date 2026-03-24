@@ -1,10 +1,10 @@
 /*
- * XREFs of AcpiDiagThermalPollingTimerRoutine @ 0x1C0047970
+ * XREFs of AcpiDiagThermalPollingTimerRoutine @ 0x1C0049650
  * Callers:
  *     <none>
  * Callees:
- *     AcpiDiagRequeueThermalPollingTimer @ 0x1C00478A0 (AcpiDiagRequeueThermalPollingTimer.c)
- *     ACPIThermalRereadTemperature @ 0x1C0060F34 (ACPIThermalRereadTemperature.c)
+ *     AcpiDiagRequeueThermalPollingTimer @ 0x1C004958C (AcpiDiagRequeueThermalPollingTimer.c)
+ *     ACPIThermalRereadTemperature @ 0x1C0060164 (ACPIThermalRereadTemperature.c)
  */
 
 void AcpiDiagThermalPollingTimerRoutine()

@@ -1,16 +1,16 @@
 /*
- * XREFs of IommuGetLibraryContext @ 0x140523020
+ * XREFs of IommuGetLibraryContext @ 0x1404D8D10
  * Callers:
- *     IommupPasidDeviceCreate @ 0x14050E358 (IommupPasidDeviceCreate.c)
+ *     <none>
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A4F60 (HalpMmAllocCtxFree.c)
- *     IommupGetSystemContext @ 0x1403B0178 (IommupGetSystemContext.c)
+ *     HalpMmAllocCtxFree @ 0x140378ED0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
+ *     IommupGetSystemContext @ 0x1403CB914 (IommupGetSystemContext.c)
  */
 
 __int64 __fastcall IommuGetLibraryContext(int a1, unsigned int a2, _QWORD *a3)
 {
-  PVOID *SystemContext; // rdi
+  PVOID *SystemContext; // r14
   __int64 v7; // rcx
   __int64 v8; // rcx
   __int64 v9; // rbx
@@ -32,15 +32,13 @@ __int64 __fastcall IommuGetLibraryContext(int a1, unsigned int a2, _QWORD *a3)
   *(_QWORD *)(v9 + 8) = 0LL;
   *(_QWORD *)(v9 + 48) = 0LL;
   *(_QWORD *)(v9 + 32) = 0LL;
-  *(_QWORD *)(v9 + 24) = 0LL;
-  *(_DWORD *)(v9 + 16) = a1;
-  *(_DWORD *)(v9 + 20) = a2;
   *(_QWORD *)(v9 + 48) = v9 + 40;
   *(_QWORD *)(v9 + 40) = v9 + 40;
-  if ( !a1 )
-    *((_BYTE *)SystemContext + 64) = 1;
-  *v11 = SystemContext;
+  *(_QWORD *)(v9 + 24) = 0LL;
+  *(_DWORD *)(v9 + 16) = a1;
   result = 0LL;
+  *(_DWORD *)(v9 + 20) = a2;
+  *v11 = SystemContext;
   v11[1] = v9;
   *a3 = v11;
   return result;

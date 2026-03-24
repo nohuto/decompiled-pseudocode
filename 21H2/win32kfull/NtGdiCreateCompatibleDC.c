@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiCreateCompatibleDC @ 0x1C01595B0
+ * XREFs of NtGdiCreateCompatibleDC @ 0x1C0165ED0
  * Callers:
  *     <none>
  * Callees:

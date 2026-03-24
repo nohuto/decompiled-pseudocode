@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSaveSupervisorState @ 0x140294178
+ * XREFs of KeSaveSupervisorState @ 0x140294278
  * Callers:
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
- *     KiFreezeTargetExecution @ 0x1402975DC (KiFreezeTargetExecution.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
+ *     KiFreezeTargetExecution @ 0x1402976DC (KiFreezeTargetExecution.c)
  *     KdEnterDebugger @ 0x140915D40 (KdEnterDebugger.c)
  * Callees:
- *     RtlXSaveS @ 0x140141D00 (RtlXSaveS.c)
- *     KiSaveIptState @ 0x140294828 (KiSaveIptState.c)
+ *     RtlXSaveS @ 0x140141D20 (RtlXSaveS.c)
+ *     KiSaveIptState @ 0x140294928 (KiSaveIptState.c)
  */
 
 __int64 __fastcall KeSaveSupervisorState(__int64 a1, __int64 a2)

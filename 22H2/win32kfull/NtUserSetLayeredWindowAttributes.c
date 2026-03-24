@@ -1,66 +1,63 @@
 /*
- * XREFs of NtUserSetLayeredWindowAttributes @ 0x1C00A3730
+ * XREFs of NtUserSetLayeredWindowAttributes @ 0x1C00BBD10
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastStatus @ 0x1C00132A8 (UserSetLastStatus.c)
- *     WindowHasShadow @ 0x1C00A3870 (WindowHasShadow.c)
- *     _SetLayeredWindowAttributes @ 0x1C00D5980 (_SetLayeredWindowAttributes.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     zzzUpdateShadowAlpha @ 0x1C0221BBC (zzzUpdateShadowAlpha.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     WindowHasShadow @ 0x1C00BBE54 (WindowHasShadow.c)
+ *     _SetLayeredWindowAttributes @ 0x1C00BD1E8 (_SetLayeredWindowAttributes.c)
+ *     UserSetLastStatus @ 0x1C00EC46C (UserSetLastStatus.c)
+ *     zzzUpdateShadowAlpha @ 0x1C013DE6C (zzzUpdateShadowAlpha.c)
  */
 
 __int64 __fastcall NtUserSetLayeredWindowAttributes(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rbx
-  struct tagWND *v12; // rsi
-  NTSTATUS v13; // eax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // rdi
-  __int128 v19; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v20; // [rsp+30h] [rbp-18h]
+  __int64 v7; // rcx
+  __int64 v8; // rbx
+  __int64 v9; // rsi
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  NTSTATUS v12; // eax
+  __int64 v13; // rcx
+  __int64 v14; // rdi
+  __int128 v16; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v17; // [rsp+30h] [rbp-28h]
 
-  v19 = 0LL;
-  v20 = 0LL;
-  EnterCrit(0LL, 0LL);
+  v16 = 0LL;
+  v17 = 0LL;
+  EnterCrit(0LL, 1LL);
   v6 = ValidateHwnd(a1);
-  v11 = 0LL;
-  v12 = (struct tagWND *)v6;
+  v8 = 0LL;
+  v9 = v6;
   if ( v6 )
   {
-    *(_QWORD *)&v19 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v19;
-    *((_QWORD *)&v19 + 1) = v6;
+    *(_QWORD *)&v16 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v16;
+    *((_QWORD *)&v16 + 1) = v6;
     HMLockObject(v6);
     if ( (a4 & 0xFFFFFFFC) != 0
-      || (unsigned int)IsWindowDesktopComposed(v12) && (*(_DWORD *)(*((_QWORD *)v12 + 5) + 232LL) & 2) != 0 )
+      || (unsigned int)IsWindowDesktopComposed(v9) && (*(_DWORD *)(*(_QWORD *)(v9 + 40) + 232LL) & 0x20) != 0 )
     {
-      UserSetLastError(87LL);
+      UserSetLastError(87LL, v10, v11);
     }
     else
     {
-      v13 = SetLayeredWindowAttributes(v12);
-      if ( v13 >= 0 )
+      v12 = SetLayeredWindowAttributes((struct tagWND *)v9);
+      if ( v12 >= 0 )
       {
-        v17 = 1LL;
-        if ( (a4 & 2) != 0 && (unsigned int)WindowHasShadow(v12) )
-          zzzUpdateShadowAlpha(v12);
+        v14 = 1LL;
+        if ( (a4 & 2) != 0 && (unsigned int)WindowHasShadow(v9) )
+          zzzUpdateShadowAlpha(v9);
         goto LABEL_9;
       }
-      UserSetLastStatus(v13, 1);
+      UserSetLastStatus(v12);
     }
-    v17 = 0LL;
+    v14 = 0LL;
 LABEL_9:
-    ThreadUnlock1(v15, v14, v16);
-    v11 = v17;
+    ThreadUnlock1(v13);
+    v8 = v14;
   }
-  UserSessionSwitchLeaveCrit(v8, v7, v9, v10);
-  return v11;
+  UserSessionSwitchLeaveCrit(v7);
+  return v8;
 }

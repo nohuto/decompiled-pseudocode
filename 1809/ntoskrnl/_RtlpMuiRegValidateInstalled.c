@@ -1,22 +1,22 @@
 /*
- * XREFs of _RtlpMuiRegValidateInstalled @ 0x14073E4D0
+ * XREFs of _RtlpMuiRegValidateInstalled @ 0x14073E4B0
  * Callers:
- *     _RtlpMuiRegLoadInstalled @ 0x14073DFA8 (_RtlpMuiRegLoadInstalled.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x14073DF88 (_RtlpMuiRegLoadInstalled.c)
  * Callees:
- *     _MuiRegAllocArray @ 0x14018254C (_MuiRegAllocArray.c)
- *     _RtlpRemovePendingDeleteLanguages @ 0x1401826E0 (_RtlpRemovePendingDeleteLanguages.c)
- *     RtlpGetNameFromLangInfoNode @ 0x1401827A0 (RtlpGetNameFromLangInfoNode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _MuiRegAllocArray @ 0x14018256C (_MuiRegAllocArray.c)
+ *     _RtlpRemovePendingDeleteLanguages @ 0x140182700 (_RtlpRemovePendingDeleteLanguages.c)
+ *     RtlpGetNameFromLangInfoNode @ 0x1401827C0 (RtlpGetNameFromLangInfoNode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     NtQueryInstallUILanguage @ 0x1406C53D0 (NtQueryInstallUILanguage.c)
- *     RtlpIsALicensedRegularLanguage @ 0x14073E770 (RtlpIsALicensedRegularLanguage.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x14073EB20 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
- *     RtlpMuiRegGetOrAddString @ 0x14073ECE4 (RtlpMuiRegGetOrAddString.c)
- *     RtlpMuiRegGetOrAddLangInfo @ 0x14075EE98 (RtlpMuiRegGetOrAddLangInfo.c)
- *     RtlLCIDToCultureName @ 0x140896610 (RtlLCIDToCultureName.c)
- *     _RtlpMuiRegValidateLIPLanguage @ 0x140908248 (_RtlpMuiRegValidateLIPLanguage.c)
- *     _RtlpMuiRegValidatePartialLanguage @ 0x140908498 (_RtlpMuiRegValidatePartialLanguage.c)
+ *     NtQueryInstallUILanguage @ 0x1406C53B0 (NtQueryInstallUILanguage.c)
+ *     RtlpIsALicensedRegularLanguage @ 0x14073E750 (RtlpIsALicensedRegularLanguage.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x14073EB00 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     RtlpMuiRegGetOrAddString @ 0x14073ECC4 (RtlpMuiRegGetOrAddString.c)
+ *     RtlpMuiRegGetOrAddLangInfo @ 0x14075EE78 (RtlpMuiRegGetOrAddLangInfo.c)
+ *     RtlLCIDToCultureName @ 0x1408965F0 (RtlLCIDToCultureName.c)
+ *     _RtlpMuiRegValidateLIPLanguage @ 0x140908228 (_RtlpMuiRegValidateLIPLanguage.c)
+ *     _RtlpMuiRegValidatePartialLanguage @ 0x140908478 (_RtlpMuiRegValidatePartialLanguage.c)
  */
 
 NTSTATUS __fastcall RtlpMuiRegValidateInstalled(__int64 a1)

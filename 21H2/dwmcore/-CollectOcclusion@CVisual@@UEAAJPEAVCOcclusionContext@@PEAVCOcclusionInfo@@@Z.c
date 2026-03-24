@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CollectOcclusion@CVisual@@UEAAJPEAVCOcclusionContext@@PEAVCOcclusionInfo@@@Z @ 0x1800C9850
+ * XREFs of ?CollectOcclusion@CVisual@@UEAAJPEAVCOcclusionContext@@PEAVCOcclusionInfo@@@Z @ 0x1800BA8F0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CVisual::CollectOcclusion(CVisual *this, struct COcclusionContext *a2, struct COcclusionInfo *a3)
@@ -13,20 +13,20 @@ __int64 __fastcall CVisual::CollectOcclusion(CVisual *this, struct COcclusionCon
   __int64 v4; // rcx
   unsigned int v5; // ebx
 
-  result = *((_QWORD *)this + 32);
+  result = *((_QWORD *)this + 31);
   if ( result )
   {
-    result = (*(__int64 (__fastcall **)(__int64, struct COcclusionContext *, char *))(*(_QWORD *)(*(int *)(*(_QWORD *)(result + 64) + 8LL)
+    result = (*(__int64 (__fastcall **)(__int64, struct COcclusionContext *, char *))(*(_QWORD *)(*(int *)(*(_QWORD *)(result + 56) + 8LL)
                                                                                                 + result
-                                                                                                + 64)
+                                                                                                + 56)
                                                                                     + 8LL))(
-               *(int *)(*(_QWORD *)(result + 64) + 8LL) + result + 64,
+               *(int *)(*(_QWORD *)(result + 56) + 8LL) + result + 56,
                a2,
-               (char *)this + 140);
+               (char *)this + 132);
     v5 = result;
     if ( (int)result < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, result, 0xF2Eu);
+      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0, result, 0xF69u, 0LL);
       return v5;
     }
   }

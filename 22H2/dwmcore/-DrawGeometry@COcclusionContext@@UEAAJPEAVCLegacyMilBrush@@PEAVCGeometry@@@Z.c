@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DrawGeometry@COcclusionContext@@UEAAJPEAVCLegacyMilBrush@@PEAVCGeometry@@@Z @ 0x1800E2940
+ * XREFs of ?DrawGeometry@COcclusionContext@@UEAAJPEAVCLegacyMilBrush@@PEAVCGeometry@@@Z @ 0x1800C7FC0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetCachedBrushCVINoRef@CImageLegacyMilBrush@@QEAAPEAVCCachedVisualImage@@XZ @ 0x1800E2AC8 (-GetCachedBrushCVINoRef@CImageLegacyMilBrush@@QEAAPEAVCCachedVisualImage@@XZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetCachedBrushCVINoRef@CImageLegacyMilBrush@@QEAAPEAVCCachedVisualImage@@XZ @ 0x1800C8138 (-GetCachedBrushCVINoRef@CImageLegacyMilBrush@@QEAAPEAVCCachedVisualImage@@XZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall COcclusionContext::DrawGeometry(
@@ -21,18 +21,18 @@ __int64 __fastcall COcclusionContext::DrawGeometry(
 
   if ( (*(unsigned __int8 (__fastcall **)(struct CLegacyMilBrush *, __int64, struct CGeometry *))(*(_QWORD *)a2 + 56LL))(
          a2,
-         84LL,
+         82LL,
          a3) )
   {
     CachedBrushCVINoRef = CImageLegacyMilBrush::GetCachedBrushCVINoRef(a2);
     if ( CachedBrushCVINoRef )
     {
-      v8[0] = *((_QWORD *)this + 149);
+      v8[0] = *((_QWORD *)this + 154);
       v7 = *((_QWORD *)this + 1);
       v8[1] = CachedBrushCVINoRef;
       v9 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
       v10 = 0;
-      (*(void (__fastcall **)(__int64, _QWORD *))(*(_QWORD *)v7 + 208LL))(v7, v8);
+      (*(void (__fastcall **)(__int64, _QWORD *))(*(_QWORD *)v7 + 224LL))(v7, v8);
     }
   }
   return 0LL;

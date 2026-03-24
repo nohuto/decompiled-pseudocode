@@ -7,7 +7,7 @@
  *     PopDecrementPowerSettingPendingUpdates @ 0x140004D6C (PopDecrementPowerSettingPendingUpdates.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     PopUnregisterPowerSettingCallback @ 0x140141E30 (PopUnregisterPowerSettingCallback.c)
+ *     PopUnregisterPowerSettingCallback @ 0x140141E50 (PopUnregisterPowerSettingCallback.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PopCallPowerSettingCallback @ 0x1405B03B8 (PopCallPowerSettingCallback.c)
  */
@@ -29,7 +29,7 @@ __int64 PopDispatchPowerSettingCallbacks()
 
   PopIncrementPowerSettingPendingUpdates(0);
   PopDecrementPowerSettingPendingUpdates(1);
-  v0 = dword_14041810C;
+  v0 = dword_1404180CC;
   ExAcquireFastMutex(&PopSettingLock);
   v1 = (PVOID *)PopPowerSettings;
   if ( PopPowerSettings != &PopPowerSettings )

@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpCtxInternalEnumKeyCallback @ 0x14018BAE0
+ * XREFs of _PnpCtxInternalEnumKeyCallback @ 0x14018BB00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PnpCtxInternalEnumKeyCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

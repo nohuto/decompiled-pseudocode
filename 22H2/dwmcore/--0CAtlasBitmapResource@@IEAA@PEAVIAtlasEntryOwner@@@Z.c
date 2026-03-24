@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0CAtlasBitmapResource@@IEAA@PEAVIAtlasEntryOwner@@@Z @ 0x1800B78D0
+ * XREFs of ??0CAtlasBitmapResource@@IEAA@PEAVIAtlasEntryOwner@@@Z @ 0x18020A11C
  * Callers:
- *     ?Create@CAtlasBitmapResource@@SAJPEAVIAtlasEntryOwner@@PEAVCD3DDevice@@PEAPEAV1@@Z @ 0x1800B77CC (-Create@CAtlasBitmapResource@@SAJPEAVIAtlasEntryOwner@@PEAVCD3DDevice@@PEAPEAV1@@Z.c)
+ *     ?Create@CAtlasBitmapResource@@SAJPEAVIAtlasEntryOwner@@PEAVCD3DDevice@@PEAPEAV1@@Z @ 0x18020A2C4 (-Create@CAtlasBitmapResource@@SAJPEAVIAtlasEntryOwner@@PEAVCD3DDevice@@PEAPEAV1@@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,23 +14,26 @@ CAtlasBitmapResource *__fastcall CAtlasBitmapResource::CAtlasBitmapResource(
   __int64 v4; // rcx
   CAtlasBitmapResource *result; // rax
 
-  *((_QWORD *)this + 1) = &CAtlasBitmapResource::`vbtable';
-  *((_QWORD *)this + 4) = &CClientMemoryBitmap::`vbtable'{for `ID2DBitmapCacheSource'};
-  *((_QWORD *)this + 13) = &CGDIBitmapRealization::`vbtable'{for `IPixelFormat'};
-  *((_QWORD *)this + 10) = &COverlaySwapChainBase::`vftable'{for `IUnknown'};
-  *((_DWORD *)this + 4) = 0;
-  *(_QWORD *)this = &CAtlasBitmapResource::`vftable'{for `IPixelFormat's `CMILCOMBaseT<IBitmapResource>'};
-  *((_QWORD *)this + 3) = &CAtlasBitmapResource::`vftable';
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 4LL) + 8) = &CAtlasBitmapResource::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 8LL) + 8) = &CAtlasBitmapResource::`vftable'{for `IPixelFormat's `IBitmapRealization'};
-  v3 = *(int *)(*((_QWORD *)this + 1) + 4LL);
-  *(_DWORD *)((char *)this + v3 + 4) = v3 - 72;
-  v4 = *(int *)(*((_QWORD *)this + 1) + 8LL);
+  *((_QWORD *)this + 3) = &CAtlasBitmapResource::`vbtable';
+  *((_DWORD *)this + 2) = 0;
+  *((_QWORD *)this + 5) = &CAtlasBitmapResource::`vbtable'{for `IBitmapRealization'};
+  *((_QWORD *)this + 14) = &CInk::`vbtable'{for `IContent'};
+  *(_QWORD *)this = &CMILCOMBase::`vftable';
+  *((_QWORD *)this + 2) = &ISpriteImage::`vftable'{for `IPixelFormat'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 3) + 4LL) + 24) = &ILegacySwapChain::`vftable'{for `IUnknown'};
+  *(_QWORD *)this = &CAtlasBitmapResource::`vftable'{for `CMILCOMBase'};
+  *((_QWORD *)this + 2) = &CAtlasBitmapResource::`vftable'{for `IPixelFormat's `IBitmapResource'};
+  *((_QWORD *)this + 4) = &CAtlasBitmapResource::`vftable'{for `IBitmapRealization'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 3) + 4LL) + 24) = &CAtlasBitmapResource::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 3) + 8LL) + 24) = &CAtlasBitmapResource::`vftable'{for `IPixelFormat's `IBitmapRealization'};
+  v3 = *(int *)(*((_QWORD *)this + 3) + 4LL);
+  *(_DWORD *)((char *)this + v3 + 20) = v3 - 64;
+  v4 = *(int *)(*((_QWORD *)this + 3) + 8LL);
   result = this;
-  *(_DWORD *)((char *)this + v4 + 4) = v4 - 88;
-  *((_DWORD *)this + 14) = -1;
-  *((_QWORD *)this + 5) = 0LL;
-  *((_QWORD *)this + 6) = a2;
-  *((_WORD *)this + 32) = 0;
+  *(_DWORD *)((char *)this + v4 + 20) = v4 - 80;
+  *((_DWORD *)this + 16) = -1;
+  *((_QWORD *)this + 6) = 0LL;
+  *((_QWORD *)this + 7) = a2;
+  *((_WORD *)this + 36) = 0;
   return result;
 }

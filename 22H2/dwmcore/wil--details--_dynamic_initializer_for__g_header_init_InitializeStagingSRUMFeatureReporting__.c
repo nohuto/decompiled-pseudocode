@@ -1,5 +1,5 @@
 /*
- * XREFs of wil::details::_dynamic_initializer_for__g_header_init_InitializeStagingSRUMFeatureReporting__ @ 0x1800011F0
+ * XREFs of wil::details::_dynamic_initializer_for__g_header_init_InitializeStagingSRUMFeatureReporting__ @ 0x1800012C0
  * Callers:
  *     <none>
  * Callees:

@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwWriteStartScenario @ 0x14081C9F0
+ * XREFs of EtwWriteStartScenario @ 0x140788490
  * Callers:
- *     PnpDiagnosticTraceDriverInitPhaseStart @ 0x1403DED94 (PnpDiagnosticTraceDriverInitPhaseStart.c)
- *     PopDiagTracePowerTransitionStart @ 0x1407FD930 (PopDiagTracePowerTransitionStart.c)
- *     PerfDiagInitialize @ 0x140B1A3F4 (PerfDiagInitialize.c)
+ *     PnpDiagnosticTraceDriverInitPhaseStart @ 0x1403CFABC (PnpDiagnosticTraceDriverInitPhaseStart.c)
+ *     PopDiagTracePowerTransitionStart @ 0x140773E84 (PopDiagTracePowerTransitionStart.c)
+ *     PerfDiagInitialize @ 0x140A42BBC (PerfDiagInitialize.c)
  * Callees:
- *     EtwGetProviderIdFromHandle @ 0x14025A19C (EtwGetProviderIdFromHandle.c)
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwTraceControl @ 0x14041F140 (ZwTraceControl.c)
- *     WdipStartEndScenario @ 0x1406E6A98 (WdipStartEndScenario.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     EtwGetProviderIdFromHandle @ 0x14039F028 (EtwGetProviderIdFromHandle.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwTraceControl @ 0x1403FDC40 (ZwTraceControl.c)
+ *     WdipStartEndScenario @ 0x14078956C (WdipStartEndScenario.c)
  */
 
 __int64 __fastcall EtwWriteStartScenario(
-        PVOID *RegHandle,
+        ULONG_PTR *RegHandle,
         PCEVENT_DESCRIPTOR EventDescriptor,
         LPCGUID ActivityId,
         ULONG UserDataCount,
@@ -45,7 +45,7 @@ __int64 __fastcall EtwWriteStartScenario(
           || (ProviderIdFromHandle = ZwTraceControl(12LL, 0LL), ProviderIdFromHandle >= 0) )
         {
           ProviderIdFromHandle = EtwWrite((REGHANDLE)RegHandle, EventDescriptor, ActivityId, UserDataCount, UserData);
-          WdipStartEndScenario((__int64)&v11, (__int64)ActivityId, &EventDescriptor->Id, 10);
+          WdipStartEndScenario(&v11, ActivityId, EventDescriptor, 10LL);
         }
       }
     }

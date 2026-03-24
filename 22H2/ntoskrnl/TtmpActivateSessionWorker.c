@@ -1,16 +1,16 @@
 /*
- * XREFs of TtmpActivateSessionWorker @ 0x1409A50A8
+ * XREFs of TtmpActivateSessionWorker @ 0x1408FF708
  * Callers:
- *     TtmpSessionWorker @ 0x1409A59E0 (TtmpSessionWorker.c)
+ *     TtmpSessionWorker @ 0x140900080 (TtmpSessionWorker.c)
  * Callees:
- *     TtmpInitiateModernStandbyTransition @ 0x1409A5480 (TtmpInitiateModernStandbyTransition.c)
- *     TtmpSessionPowerControl @ 0x1409A5934 (TtmpSessionPowerControl.c)
- *     TtmiLogSessionActivate @ 0x1409A922C (TtmiLogSessionActivate.c)
+ *     TtmpInitiateModernStandbyTransition @ 0x1408FFB00 (TtmpInitiateModernStandbyTransition.c)
+ *     TtmpSessionPowerControl @ 0x1408FFFD4 (TtmpSessionPowerControl.c)
+ *     TtmiLogSessionActivate @ 0x1409037AC (TtmiLogSessionActivate.c)
  */
 
 __int64 __fastcall TtmpActivateSessionWorker(__int64 a1, __int64 a2)
 {
-  unsigned int v2; // eax
+  int v2; // eax
   unsigned int v4; // ebx
   __int64 v5; // r8
   __int64 v6; // r8
@@ -29,8 +29,8 @@ __int64 __fastcall TtmpActivateSessionWorker(__int64 a1, __int64 a2)
       v4 = TtmpInitiateModernStandbyTransition(a1, 0LL, v5);
       if ( v4 )
         return v4;
-      v2 = *(_DWORD *)(a1 + 4) & 0xFFFFFCFF;
-      *(_DWORD *)(a1 + 4) = v2;
+      *(_DWORD *)(a1 + 4) &= 0xFFFFFCFF;
+      v2 = *(_DWORD *)(a1 + 4);
       if ( (v2 & 0x10) == 0 )
         return 0;
     }

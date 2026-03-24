@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserGetUpdateRgn @ 0x1C0149AD0
+ * XREFs of NtUserGetUpdateRgn @ 0x1C010DEE0
  * Callers:
  *     <none>
  * Callees:
- *     xxxGetUpdateRgn @ 0x1C0149BA0 (xxxGetUpdateRgn.c)
+ *     xxxGetUpdateRgn @ 0x1C010DFB4 (xxxGetUpdateRgn.c)
  */
 
 __int64 __fastcall NtUserGetUpdateRgn(__int64 a1, __int64 a2, unsigned int a3)
@@ -12,26 +12,24 @@ __int64 __fastcall NtUserGetUpdateRgn(__int64 a1, __int64 a2, unsigned int a3)
   __int64 v7; // rcx
   unsigned int UpdateRgn; // ebx
   __int64 v9; // rdi
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int128 v14; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v15; // [rsp+30h] [rbp-18h]
+  __int64 v10; // rcx
+  __int128 v12; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v13; // [rsp+30h] [rbp-18h]
 
-  v14 = 0LL;
-  v15 = 0LL;
-  EnterCrit(0LL, 0LL);
+  v12 = 0LL;
+  v13 = 0LL;
+  EnterCrit(0LL, 1LL);
   v6 = ValidateHwnd(a1);
   UpdateRgn = 0;
   v9 = v6;
   if ( v6 )
   {
-    *(_QWORD *)&v14 = *(_QWORD *)(gptiCurrent + 416LL);
-    *(_QWORD *)(gptiCurrent + 416LL) = &v14;
-    *((_QWORD *)&v14 + 1) = v6;
+    *(_QWORD *)&v12 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v12;
+    *((_QWORD *)&v12 + 1) = v6;
     HMLockObject(v6);
     UpdateRgn = xxxGetUpdateRgn(v9, a2, a3);
-    ThreadUnlock1(v11, v10, v12);
+    ThreadUnlock1(v10);
   }
   UserSessionSwitchLeaveCrit(v7);
   return UpdateRgn;

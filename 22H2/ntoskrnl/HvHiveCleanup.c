@@ -1,35 +1,35 @@
 /*
- * XREFs of HvHiveCleanup @ 0x140709780
+ * XREFs of HvHiveCleanup @ 0x1406572B4
  * Callers:
- *     CmShutdownSystem2 @ 0x140615E8C (CmShutdownSystem2.c)
- *     CmpCompleteUnloadKey @ 0x140688D18 (CmpCompleteUnloadKey.c)
- *     CmpDestroyHive @ 0x140A1CD50 (CmpDestroyHive.c)
+ *     CmpCompleteUnloadKey @ 0x14071BF04 (CmpCompleteUnloadKey.c)
+ *     CmpDestroyHive @ 0x140729DF8 (CmpDestroyHive.c)
+ *     CmShutdownSystem @ 0x14086B948 (CmShutdownSystem.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     CmpFreeBootRegistry @ 0x1406177E8 (CmpFreeBootRegistry.c)
- *     CmpReleaseGlobalQuota @ 0x1407099D8 (CmpReleaseGlobalQuota.c)
- *     HvpMapEntryGetFreeBin @ 0x14070A9E0 (HvpMapEntryGetFreeBin.c)
- *     HvpFreeHiveFreeDisplay @ 0x1407CC4E4 (HvpFreeHiveFreeDisplay.c)
- *     HvpViewMapCleanup @ 0x1407DB0F4 (HvpViewMapCleanup.c)
- *     HvpFreeMap @ 0x1407E1348 (HvpFreeMap.c)
- *     HvpFreeBin @ 0x1407E9ED8 (HvpFreeBin.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     HvpGetCellMap @ 0x140AF6280 (HvpGetCellMap.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpFreeBootRegistry @ 0x1404EDE18 (CmpFreeBootRegistry.c)
+ *     HvpMapEntryGetFreeBin @ 0x14065579C (HvpMapEntryGetFreeBin.c)
+ *     HvpGetCellMap @ 0x140655DC0 (HvpGetCellMap.c)
+ *     CmpReleaseGlobalQuota @ 0x1406574DC (CmpReleaseGlobalQuota.c)
+ *     HvpFreeHiveFreeDisplay @ 0x14068A5D8 (HvpFreeHiveFreeDisplay.c)
+ *     HvpViewMapCleanup @ 0x14069887C (HvpViewMapCleanup.c)
+ *     HvpFreeMap @ 0x14069E438 (HvpFreeMap.c)
+ *     HvpFreeBin @ 0x140724FA0 (HvpFreeBin.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HvHiveCleanup(__int64 a1)
 {
   unsigned int v1; // ebp
-  int v3; // r12d
+  int v3; // r13d
   unsigned int v4; // edi
   __int64 v5; // rsi
-  unsigned int v6; // r13d
+  unsigned int v6; // r12d
   unsigned int i; // r14d
   __int64 CellMap; // rax
   __int64 v9; // r15
   _QWORD *FreeBin; // rax
-  _QWORD *v11; // rcx
-  __int64 v12; // r8
+  __int64 v11; // r8
+  _QWORD *v12; // rcx
   __int64 v13; // rcx
   void *v14; // r14
   __int64 v15; // rcx
@@ -45,42 +45,45 @@ __int64 __fastcall HvHiveCleanup(__int64 a1)
   do
   {
     v5 = 632LL * v1;
-    v6 = v4 + *(_DWORD *)(v5 + a1 + 280);
-    if ( *(_QWORD *)(v5 + a1 + 288) && v6 != v4 )
+    if ( *(_QWORD *)(v5 + a1 + 280) )
     {
-      for ( i = v4; i < v6; i += *(_DWORD *)(v9 + 16) )
+      v6 = v4 + *(_DWORD *)(v5 + a1 + 272);
+      if ( v6 != v4 )
       {
-        CellMap = HvpGetCellMap(a1, i);
-        v9 = CellMap;
-        if ( !*(_QWORD *)(CellMap + 8) )
-          break;
-        FreeBin = (_QWORD *)HvpMapEntryGetFreeBin(CellMap);
-        v11 = FreeBin;
-        if ( FreeBin )
+        for ( i = v4; i < v6; i += *(_DWORD *)(v9 + 16) )
         {
-          v19 = *FreeBin;
-          if ( *(_QWORD **)(*FreeBin + 8LL) != FreeBin || (v20 = (_QWORD *)FreeBin[1], (_QWORD *)*v20 != v11) )
-            __fastfail(3u);
-          *v20 = v19;
-          *(_QWORD *)(v19 + 8) = v20;
-          (*(void (__fastcall **)(_QWORD *, __int64))(a1 + 32))(v11, 24LL);
+          CellMap = HvpGetCellMap(a1, i);
+          v9 = CellMap;
+          if ( !*(_QWORD *)(CellMap + 8) )
+            break;
+          FreeBin = (_QWORD *)HvpMapEntryGetFreeBin((_BYTE *)CellMap);
+          v12 = FreeBin;
+          if ( FreeBin )
+          {
+            v19 = *FreeBin;
+            if ( *(_QWORD **)(*FreeBin + 8LL) != FreeBin || (v20 = (_QWORD *)FreeBin[1], (_QWORD *)*v20 != v12) )
+              __fastfail(3u);
+            *v20 = v19;
+            *(_QWORD *)(v19 + 8) = v20;
+            (*(void (__fastcall **)(_QWORD *, __int64))(a1 + 32))(v12, 24LL);
+            v11 = *(_QWORD *)(v9 + 8);
+          }
+          v13 = *(unsigned int *)(v9 + 16);
+          if ( (v11 & 8) != 0 )
+            HvpFreeBin(a1, (unsigned int)v13, v11 & 0xFFFFFFFFFFFFFFF0uLL);
+          else
+            CmpReleaseGlobalQuota(v13);
         }
-        v12 = *(_QWORD *)(v9 + 8);
-        v13 = *(unsigned int *)(v9 + 16);
-        if ( (v12 & 8) != 0 )
-          HvpFreeBin(a1, (unsigned int)v13, v12 & 0xFFFFFFFFFFFFFFF0uLL);
-        else
-          CmpReleaseGlobalQuota(v13);
+        v14 = *(void **)(v5 + a1 + 280);
+        HvpFreeMap(a1, v14, 0LL, (unsigned int)((*(_DWORD *)(v5 + a1 + 272) >> 12) - 1) >> 9);
+        if ( v14 != (void *)(v5 + a1 + 288) )
+        {
+          CmpReleaseGlobalQuota(0x2000LL);
+          ExFreePoolWithTag(v14, 0);
+        }
+        *(_QWORD *)(v5 + a1 + 280) = 0LL;
+        *(_DWORD *)(v5 + a1 + 272) = 0;
       }
-      v14 = *(void **)(v5 + a1 + 288);
-      HvpFreeMap(a1, v14, 0LL, (unsigned int)((*(_DWORD *)(v5 + a1 + 280) >> 12) - 1) >> 9);
-      if ( v14 != (void *)(v5 + a1 + 296) )
-      {
-        CmpReleaseGlobalQuota(0x2000LL);
-        ExFreePoolWithTag(v14, 0);
-      }
-      *(_QWORD *)(v5 + a1 + 288) = 0LL;
-      *(_DWORD *)(v5 + a1 + 280) = 0;
     }
     ++v1;
     v4 += 0x80000000;
@@ -108,6 +111,6 @@ __int64 __fastcall HvHiveCleanup(__int64 a1)
     ExFreePoolWithTag(v17, 0);
     *(_QWORD *)(a1 + 120) = 0LL;
   }
-  HvpViewMapCleanup(a1 + 224);
+  HvpViewMapCleanup(a1 + 216);
   return HvpFreeHiveFreeDisplay(a1);
 }

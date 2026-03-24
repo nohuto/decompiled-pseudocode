@@ -1,15 +1,16 @@
 /*
- * XREFs of _PnpCtxOpenMachine @ 0x140855BA4
+ * XREFs of _PnpCtxOpenMachine @ 0x1407A498C
  * Callers:
- *     PiPnpRtlInit @ 0x140813794 (PiPnpRtlInit.c)
- *     PiDevCfgInitDriverDatabaseCallback @ 0x14095E6F8 (PiDevCfgInitDriverDatabaseCallback.c)
- *     PipMigratePnpState @ 0x140B4324C (PipMigratePnpState.c)
+ *     PiPnpRtlInit @ 0x1407A3780 (PiPnpRtlInit.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x1408A6AE8 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PipMigratePnpState @ 0x140A51084 (PipMigratePnpState.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     _PnpCtxCreateNode @ 0x140855DB8 (_PnpCtxCreateNode.c)
- *     _PnpCtxDestroyNode @ 0x140A608A8 (_PnpCtxDestroyNode.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _PnpCtxCreateNode @ 0x1407A4BD8 (_PnpCtxCreateNode.c)
+ *     _PnpCtxDestroyNode @ 0x140974648 (_PnpCtxDestroyNode.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCtxOpenMachine(
@@ -21,111 +22,93 @@ __int64 __fastcall PnpCtxOpenMachine(
         __int64 a6,
         _QWORD *a7)
 {
-  _QWORD *v7; // r15
-  __int64 Pool2; // rax
-  _QWORD *v11; // rbx
-  _QWORD *v12; // r14
-  __int64 v13; // rcx
-  _QWORD *v14; // rax
-  NTSTATUS v15; // edi
-  _QWORD *v16; // rax
-  _QWORD *v17; // rsi
-  _QWORD *v18; // rcx
-  _QWORD *v19; // rdx
-  struct _ERESOURCE *v20; // rax
-  struct _ERESOURCE *v21; // rbp
-  _QWORD *v23; // [rsp+80h] [rbp+18h] BYREF
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v8; // rbx
+  _QWORD *v9; // rax
+  __int64 v10; // rcx
+  NTSTATUS Node; // edi
+  void **v12; // rax
+  void **v13; // rdx
+  struct _ERESOURCE *v14; // rax
+  struct _ERESOURCE *v15; // rbp
 
-  v7 = a7;
-  v23 = 0LL;
   *a7 = 0LL;
-  Pool2 = ExAllocatePool2(256LL, 528LL, 1380994640LL);
-  v11 = (_QWORD *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x210uLL, 0x52504E50u);
+  v8 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v12 = (_QWORD *)(Pool2 + 8);
-    *(_DWORD *)Pool2 = 167772160;
-    *(_BYTE *)(Pool2 + 4) = 0;
-    v13 = 4LL;
-    *(_QWORD *)(Pool2 + 16) = Pool2 + 8;
-    v14 = (_QWORD *)(Pool2 + 24);
-    *v12 = v12;
+    memset(PoolWithTag, 0, 0x210uLL);
+    *(_DWORD *)v8 = 167772160;
+    v8[2] = v8 + 1;
+    v9 = v8 + 3;
+    v8[1] = v8 + 1;
+    v10 = 4LL;
     do
     {
-      v14[1] = v14;
-      *v14 = v14;
-      v14 += 2;
-      --v13;
+      v9[1] = v9;
+      *v9 = v9;
+      v9 += 2;
+      --v10;
     }
-    while ( v13 );
-    v15 = PnpCtxCreateNode(v11, L"SYSTEM", 1LL, 0LL, a2, -1LL, a4, 0LL, &v23);
-    if ( v15 < 0 )
+    while ( v10 );
+    Node = PnpCtxCreateNode(v8, L"SYSTEM", 1LL);
+    if ( Node >= 0 )
     {
-      v17 = v23;
-    }
-    else
-    {
-      v16 = (_QWORD *)v12[1];
-      if ( (_QWORD *)*v16 != v12
-        || (v17 = v23,
-            v23[1] = v16,
-            v18 = v17 + 2,
-            *v17 = v12,
-            *v16 = v17,
-            v12[1] = v17,
-            v19 = (_QWORD *)v11[6],
-            (_QWORD *)*v19 != v11 + 5) )
+      v12 = (void **)v8[2];
+      if ( *v12 != v8 + 1
+        || (MEMORY[8] = v8[2], MEMORY[0] = v8 + 1, *v12 = 0LL, v8[2] = 0LL, v13 = (void **)v8[6], *v13 != v8 + 5) )
       {
         __fastfail(3u);
       }
-      v17[3] = v19;
-      *v18 = v11 + 5;
-      *v19 = v18;
-      v11[6] = v18;
-      v11[11] = v17;
-      v11[28] = v17[7];
-      v20 = (struct _ERESOURCE *)ExAllocatePool2(64LL, 104LL, 1380994640LL);
-      v21 = v20;
-      if ( v20 )
+      MEMORY[0x18] = v8[6];
+      MEMORY[0x10] = v8 + 5;
+      *v13 = (void *)16;
+      v8[6] = 16LL;
+      v8[11] = 0LL;
+      v8[28] = MEMORY[0x38];
+      v14 = (struct _ERESOURCE *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x68uLL, 0x52504E50u);
+      v15 = v14;
+      if ( v14 )
       {
-        v15 = ExInitializeResourceLite(v20);
-        if ( v15 < 0 )
+        Node = ExInitializeResourceLite(v14);
+        if ( Node >= 0 )
         {
-          ExFreePoolWithTag(v21, 0);
+          v8[30] = v15;
+          v15 = 0LL;
         }
-        else
+        if ( v15 )
+          ExFreePoolWithTag(v15, 0);
+        if ( Node >= 0 )
         {
-          v11[29] = 0LL;
-          v11[61] = 0LL;
-          v11[62] = 0LL;
-          v11[63] = 0LL;
-          v11[64] = 0LL;
-          v11[65] = 0LL;
-          v11[30] = v21;
-          v11[38] = PnpDispatchDevice;
-          v11[39] = PnpDispatchInstallerClass;
-          v11[40] = PnpDispatchDeviceInterface;
-          v11[41] = PnpDispatchInterfaceClass;
-          v11[42] = PnpDispatchDeviceContainer;
-          v11[43] = PnpDispatchDevicePanel;
-          *v7 = v11;
-          v11 = 0LL;
-          v17 = 0LL;
+          v8[29] = 0LL;
+          memset(v8 + 31, 0, 0x90uLL);
+          v8[38] = PnpDispatchDevice;
+          v8[39] = PnpDispatchInstallerClass;
+          v8[40] = PnpDispatchDeviceInterface;
+          v8[41] = PnpDispatchInterfaceClass;
+          v8[42] = PnpDispatchDeviceContainer;
+          v8[43] = PnpDispatchDevicePanel;
+          memset(v8 + 49, 0, 0x60uLL);
+          v8[61] = 0LL;
+          v8[62] = 0LL;
+          v8[63] = 0LL;
+          v8[64] = 0LL;
+          v8[65] = 0LL;
+          *a7 = v8;
+          v8 = 0LL;
         }
       }
       else
       {
-        v15 = -1073741801;
+        Node = -1073741801;
       }
     }
-    if ( v17 )
-      PnpCtxDestroyNode(v17);
-    if ( v11 )
-      ExFreePoolWithTag(v11, 0);
+    if ( v8 )
+      ExFreePoolWithTag(v8, 0);
   }
   else
   {
     return (unsigned int)-1073741801;
   }
-  return (unsigned int)v15;
+  return (unsigned int)Node;
 }

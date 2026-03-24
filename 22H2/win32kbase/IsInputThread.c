@@ -1,25 +1,22 @@
 /*
- * XREFs of IsInputThread @ 0x1C0057E50
+ * XREFs of IsInputThread @ 0x1C0043590
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
- *     NtMITGetCursorUpdateHandle @ 0x1C00AB130 (NtMITGetCursorUpdateHandle.c)
- *     NtMITSetInputDelegationMode @ 0x1C0141F60 (NtMITSetInputDelegationMode.c)
- *     NtMITSetLastInputRecipient @ 0x1C0142180 (NtMITSetLastInputRecipient.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
+ *     ?UnreferenceFrameAndMessageData@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@@Z @ 0x1C019F72C (-UnreferenceFrameAndMessageData@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@@Z.c)
  * Callees:
  *     <none>
  */
 
-char IsInputThread()
+_BOOL8 IsInputThread()
 {
-  PKDPC BufferChainingDpc; // rdi
-  SINGLE_LIST_ENTRY *p_DpcListEntry; // rbx
+  CInputThread *v0; // rdi
+  bool v1; // bl
 
-  BufferChainingDpc = WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc;
-  p_DpcListEntry = &WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc->DpcListEntry;
+  v0 = gpInputThread;
   KeEnterCriticalRegion();
-  ExAcquirePushLockSharedEx(p_DpcListEntry, 0LL);
-  LOBYTE(BufferChainingDpc) = (unsigned int)PsGetCurrentThreadId() == LODWORD(BufferChainingDpc->SystemArgument2);
-  ExReleasePushLockSharedEx(p_DpcListEntry, 0LL);
+  ExAcquirePushLockSharedEx(v0, 0LL);
+  v1 = (unsigned int)PsGetCurrentThreadId() == *((_DWORD *)v0 + 10);
+  ExReleasePushLockSharedEx(v0, 0LL);
   KeLeaveCriticalRegion();
-  return (char)BufferChainingDpc;
+  return v1;
 }

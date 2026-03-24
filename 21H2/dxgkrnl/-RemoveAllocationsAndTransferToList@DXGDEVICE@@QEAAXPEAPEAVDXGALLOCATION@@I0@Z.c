@@ -1,17 +1,16 @@
 /*
- * XREFs of ?RemoveAllocationsAndTransferToList@DXGDEVICE@@QEAAXPEAPEAVDXGALLOCATION@@I0@Z @ 0x1C02E6B50
+ * XREFs of ?RemoveAllocationsAndTransferToList@DXGDEVICE@@QEAAXPEAPEAVDXGALLOCATION@@I0@Z @ 0x1C016F574
  * Callers:
- *     ?DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEAPEBIIU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEBIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C019B990 (-DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEA.c)
- *     ?DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C019EA90 (-DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVIC.c)
+ *     ?DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEAPEBIIU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEBIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0109440 (-DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEA.c)
+ *     ?DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C0119AC8 (-DestroyAllocationInternal@DXGDEVICE@@QEAAXIPEAPEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAVCOREDEVIC.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?Initialize@DXGAUTOMUTEX@@QEAAXQEAVDXGFASTMUTEX@@E@Z @ 0x1C004AB40 (-Initialize@DXGAUTOMUTEX@@QEAAXQEAVDXGFASTMUTEX@@E@Z.c)
- *     ?RemoveAllocationFromList@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z @ 0x1C02E695C (-RemoveAllocationFromList@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0002AF4 (-AcquireExclusive@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C0002BD4 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x1C0004488 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ?Initialize@DXGAUTOMUTEX@@QEAAXQEAVDXGFASTMUTEX@@E@Z @ 0x1C0025EEC (-Initialize@DXGAUTOMUTEX@@QEAAXQEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?RemoveAllocationFromList@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z @ 0x1C016F46C (-RemoveAllocationFromList@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z.c)
  */
 
 void __fastcall DXGDEVICE::RemoveAllocationsAndTransferToList(
@@ -20,53 +19,53 @@ void __fastcall DXGDEVICE::RemoveAllocationsAndTransferToList(
         unsigned int a3,
         struct DXGALLOCATION **a4)
 {
-  __int64 v5; // rdi
+  __int64 v5; // rbx
   __int64 v8; // rdx
-  __int64 v9; // rsi
-  struct DXGALLOCATION *v10; // rdi
-  __int64 v11; // [rsp+50h] [rbp-38h] BYREF
-  char v12; // [rsp+58h] [rbp-30h]
-  _BYTE v13[8]; // [rsp+60h] [rbp-28h] BYREF
-  DXGPUSHLOCK *v14; // [rsp+68h] [rbp-20h]
-  int v15; // [rsp+70h] [rbp-18h]
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rsi
+  struct DXGALLOCATION *v12; // rbx
+  __int64 v13; // rax
+  __int64 v14; // [rsp+20h] [rbp-38h] BYREF
+  char v15; // [rsp+28h] [rbp-30h]
+  DXGPUSHLOCK *v16[5]; // [rsp+30h] [rbp-28h] BYREF
 
   v5 = a3;
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v13, this + 26, 0);
-  v11 = 0LL;
-  v12 = 0;
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v16, this + 26, 0);
+  v14 = 0LL;
+  v15 = 0;
   if ( (_DWORD)v5 && *a2 && (v8 = *((_QWORD *)*a2 + 5)) != 0 )
   {
-    DXGAUTOMUTEX::Initialize((DXGAUTOMUTEX *)&v11, (struct DXGFASTMUTEX *const)(v8 + 80), 1);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v11);
+    DXGAUTOMUTEX::Initialize((DXGAUTOMUTEX *)&v14, (struct DXGFASTMUTEX *const)(v8 + 80), 1);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v14);
   }
   else
   {
-    DXGPUSHLOCK::AcquireExclusive(v14);
-    v15 = 2;
+    DXGAUTOPUSHLOCK::AcquireExclusive(v16);
   }
   if ( (_DWORD)v5 )
   {
-    v9 = v5;
+    v11 = v5;
     do
     {
-      v10 = *a2;
+      v12 = *a2;
       if ( *a2 )
       {
         DXGDEVICE::RemoveAllocationFromList((DXGDEVICE *)this, *a2, 1);
-        *((_QWORD *)v10 + 8) = *a4;
-        *a4 = v10;
+        *((_QWORD *)v12 + 8) = *a4;
+        *a4 = v12;
       }
       else
       {
-        WdLogSingleEntry1(1LL, 8446LL);
-        DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pAllocation != NULL", 8446LL, 0LL, 0LL, 0LL, 0LL);
+        v13 = WdLogNewEntry5_WdAssertion(v10, v9);
+        *(_QWORD *)(v13 + 24) = 8457LL;
+        WdLogEvent5_WdAssertion(v13);
       }
       ++a2;
-      --v9;
+      --v11;
     }
-    while ( v9 );
+    while ( v11 );
   }
-  if ( v12 )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v11);
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v13);
+  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)&v14);
+  DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v16);
 }

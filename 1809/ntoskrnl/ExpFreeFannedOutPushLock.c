@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpFreeFannedOutPushLock @ 0x140167134
+ * XREFs of ExpFreeFannedOutPushLock @ 0x140167154
  * Callers:
  *     ExCleanupAutoExpandPushLock @ 0x140091860 (ExCleanupAutoExpandPushLock.c)
  * Callees:
- *     ExSaFree @ 0x140167150 (ExSaFree.c)
+ *     ExSaFree @ 0x140167170 (ExSaFree.c)
  */
 
 __int64 __fastcall ExpFreeFannedOutPushLock(__int64 a1)

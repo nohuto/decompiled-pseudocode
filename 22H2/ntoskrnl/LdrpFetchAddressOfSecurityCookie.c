@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpFetchAddressOfSecurityCookie @ 0x1407D4AAC
+ * XREFs of LdrpFetchAddressOfSecurityCookie @ 0x14075C630
  * Callers:
- *     LdrInitSecurityCookie @ 0x1407D49F8 (LdrInitSecurityCookie.c)
+ *     LdrInitSecurityCookie @ 0x14075C57C (LdrInitSecurityCookie.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x140214B80 (RtlImageNtHeaderEx.c)
- *     LdrImageDirectoryEntryToLoadConfig @ 0x1407D4B48 (LdrImageDirectoryEntryToLoadConfig.c)
+ *     RtlImageNtHeaderEx @ 0x14029D010 (RtlImageNtHeaderEx.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x14075C6CC (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
 unsigned __int64 __fastcall LdrpFetchAddressOfSecurityCookie(

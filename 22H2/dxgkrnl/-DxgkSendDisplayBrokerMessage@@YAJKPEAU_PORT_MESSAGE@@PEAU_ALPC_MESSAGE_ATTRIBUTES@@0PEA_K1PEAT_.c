@@ -1,17 +1,15 @@
 /*
- * XREFs of ?DxgkSendDisplayBrokerMessage@@YAJKPEAU_PORT_MESSAGE@@PEAU_ALPC_MESSAGE_ATTRIBUTES@@0PEA_K1PEAT_LARGE_INTEGER@@@Z @ 0x1C01E9830
+ * XREFs of ?DxgkSendDisplayBrokerMessage@@YAJKPEAU_PORT_MESSAGE@@PEAU_ALPC_MESSAGE_ATTRIBUTES@@0PEA_K1PEAT_LARGE_INTEGER@@@Z @ 0x1C016D010
  * Callers:
- *     DxgkIddHandleSetDisplayConfig @ 0x1C02F4AB8 (DxgkIddHandleSetDisplayConfig.c)
- *     DxgkIddHandleSetDisplayConfig2 @ 0x1C02F5670 (DxgkIddHandleSetDisplayConfig2.c)
+ *     DxgkIddHandleSetDisplayConfig @ 0x1C025B8CC (DxgkIddHandleSetDisplayConfig.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A8230 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?SendDisplayBrokerMessage@DispBrokerClient@@QEAAJKPEAU_PORT_MESSAGE@@PEAU_ALPC_MESSAGE_ATTRIBUTES@@0PEA_K1PEAT_LARGE_INTEGER@@@Z @ 0x1C01E2850 (-SendDisplayBrokerMessage@DispBrokerClient@@QEAAJKPEAU_PORT_MESSAGE@@PEAU_ALPC_MESSAGE_ATTRIBUTE.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0123B08 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?SendDisplayBrokerMessage@DispBrokerClient@@QEAAJKPEAU_PORT_MESSAGE@@PEAU_ALPC_MESSAGE_ATTRIBUTES@@0PEA_K1PEAT_LARGE_INTEGER@@@Z @ 0x1C01675CC (-SendDisplayBrokerMessage@DispBrokerClient@@QEAAJKPEAU_PORT_MESSAGE@@PEAU_ALPC_MESSAGE_ATTRIBUTE.c)
  */
 
 __int64 __fastcall DxgkSendDisplayBrokerMessage(
-        unsigned int a1,
+        __int64 a1,
         struct _PORT_MESSAGE *a2,
         struct _ALPC_MESSAGE_ATTRIBUTES *a3,
         struct _PORT_MESSAGE *a4,
@@ -19,46 +17,43 @@ __int64 __fastcall DxgkSendDisplayBrokerMessage(
         struct _ALPC_MESSAGE_ATTRIBUTES *a6,
         union _LARGE_INTEGER *a7)
 {
-  __int64 v11; // rcx
-  DXGSESSIONMGR *v12; // rbx
+  unsigned int v10; // r14d
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  DXGSESSIONMGR *v13; // rbx
   unsigned int CurrentProcessSessionId; // eax
   struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
+  __int64 v17; // rbx
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  __int64 v21; // r9
   __int64 CurrentProcess; // rax
-  unsigned int ProcessSessionId; // eax
-  __int64 v18; // rcx
-  __int64 v19; // rax
-  unsigned int v20; // eax
 
-  v12 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 118);
-  if ( v12 )
+  v10 = a1;
+  v13 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal(a1, (__int64)a2) + 102);
+  if ( v13 )
   {
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v11);
-    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v12, CurrentProcessSessionId);
-    if ( SessionDataForSpecifiedSession )
-      return DispBrokerClient::SendDisplayBrokerMessage(
-               (struct DXGSESSIONDATA *)((char *)SessionDataForSpecifiedSession + 18968),
-               a1,
-               a2,
-               a3,
-               a4,
-               a5,
-               a6,
-               a7);
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v12, v11);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v13, CurrentProcessSessionId);
   }
-  CurrentProcess = PsGetCurrentProcess(v11);
-  ProcessSessionId = PsGetProcessSessionId(CurrentProcess);
-  WdLogSingleEntry1(1LL, ProcessSessionId);
-  v19 = PsGetCurrentProcess(v18);
-  v20 = PsGetProcessSessionId(v19);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    262146,
-    -1,
-    (__int64)L"Called DxgkSetKernelDisplayPolicy without session data in session 0x%I64x",
-    v20,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
+  else
+  {
+    SessionDataForSpecifiedSession = 0LL;
+  }
+  if ( SessionDataForSpecifiedSession )
+    return DispBrokerClient::SendDisplayBrokerMessage(
+             (struct DXGSESSIONDATA *)((char *)SessionDataForSpecifiedSession + 18936),
+             v10,
+             a2,
+             a3,
+             a4,
+             a5,
+             a6,
+             a7);
+  v17 = WdLogNewEntry5_WdAssertion(v12, v11);
+  CurrentProcess = PsGetCurrentProcess(v19, v18, v20, v21);
+  *(_QWORD *)(v17 + 24) = (unsigned int)PsGetProcessSessionId(CurrentProcess);
+  WdLogEvent5_WdAssertion(v17);
   return 3221226581LL;
 }

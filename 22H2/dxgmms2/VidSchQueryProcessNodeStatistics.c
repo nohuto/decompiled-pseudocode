@@ -1,54 +1,44 @@
 /*
- * XREFs of VidSchQueryProcessNodeStatistics @ 0x1C01079D0
+ * XREFs of VidSchQueryProcessNodeStatistics @ 0x1C00D0740
  * Callers:
  *     <none>
  * Callees:
- *     VidSchiDriverNodeEngineToSchedulerNode @ 0x1C0004A6C (VidSchiDriverNodeEngineToSchedulerNode.c)
- *     CopyNodeStatistics @ 0x1C00C4578 (CopyNodeStatistics.c)
+ *     CopyNodeStatistics @ 0x1C00CF874 (CopyNodeStatistics.c)
  */
 
-__int64 __fastcall VidSchQueryProcessNodeStatistics(
-        unsigned int *a1,
-        unsigned __int16 a2,
-        int a3,
-        __int64 a4,
-        __int64 a5)
+__int64 __fastcall VidSchQueryProcessNodeStatistics(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
-  unsigned int v6; // ebx
-  __int64 v8; // rsi
-  __int64 v9; // rdx
+  __int64 v7; // rbx
+  __int64 v8; // rdi
+  __int64 v9; // rcx
   unsigned int v10; // r8d
-  __int64 *v11; // rdx
-  __int64 *v12; // rcx
+  _QWORD *v11; // rcx
+  _QWORD *v12; // rdx
+  __int64 *v13; // rdx
 
-  v6 = a3;
-  if ( a2 != 0xFFFF )
-  {
-    if ( a2 >= a1[19] )
-      return 3221225485LL;
-    v6 = VidSchiDriverNodeEngineToSchedulerNode((__int64)a1, a3, a2);
-  }
-  if ( v6 >= a1[20] )
+  v7 = a2;
+  if ( a2 >= *(_DWORD *)(a1 + 72) )
     return 3221225485LL;
-  v8 = a4 + 2664;
-  ExAcquirePushLockSharedEx(a4 + 2664, 0LL);
-  v9 = *(_QWORD *)(*(_QWORD *)(a4 + 32) + 8LL * a1[1]);
+  v8 = a3 + 2656;
+  ExAcquirePushLockSharedEx(a3 + 2656, 0LL);
+  v9 = *(_QWORD *)(*(_QWORD *)(a3 + 24) + 8LL * *(unsigned int *)(a1 + 4));
   if ( !v9 )
-    goto LABEL_12;
+    goto LABEL_9;
   v10 = *(_DWORD *)(v9 + 80);
-  v11 = *(__int64 **)(v9 + 8);
-  v12 = &v11[v6];
-  if ( v6 >= v10 )
+  v11 = *(_QWORD **)(v9 + 8);
+  v12 = &v11[v7];
+  if ( (unsigned int)v7 >= v10 )
     v12 = v11;
   if ( !*v12 )
   {
-LABEL_12:
+LABEL_9:
     ExReleasePushLockSharedEx(v8, 0LL);
     return 3221225485LL;
   }
-  if ( v6 < v10 )
-    v11 += v6;
-  CopyNodeStatistics(a5, *v11);
+  v13 = &v11[v7];
+  if ( (unsigned int)v7 >= v10 )
+    v13 = v11;
+  CopyNodeStatistics(a4, *v13);
   ExReleasePushLockSharedEx(v8, 0LL);
   return 0LL;
 }

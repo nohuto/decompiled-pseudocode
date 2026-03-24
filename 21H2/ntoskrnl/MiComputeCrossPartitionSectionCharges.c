@@ -1,11 +1,11 @@
 /*
- * XREFs of MiComputeCrossPartitionSectionCharges @ 0x1405C48A0
+ * XREFs of MiComputeCrossPartitionSectionCharges @ 0x140554DE8
  * Callers:
- *     MiDecrementSubsectionViewCount @ 0x1402869C0 (MiDecrementSubsectionViewCount.c)
- *     MiReferenceActiveSubsection @ 0x140286DE0 (MiReferenceActiveSubsection.c)
- *     MiReleaseControlAreaCharges @ 0x1402874E8 (MiReleaseControlAreaCharges.c)
+ *     MiReleaseControlAreaCharges @ 0x1403145C8 (MiReleaseControlAreaCharges.c)
+ *     MiDecrementSubsectionViewCount @ 0x140315170 (MiDecrementSubsectionViewCount.c)
+ *     MiReferenceActiveSubsection @ 0x140315D00 (MiReferenceActiveSubsection.c)
  * Callees:
- *     MiGetCommittedPages @ 0x140287C30 (MiGetCommittedPages.c)
+ *     MiGetCommittedPages @ 0x140316CD0 (MiGetCommittedPages.c)
  */
 
 __int64 __fastcall MiComputeCrossPartitionSectionCharges(__int64 *a1)

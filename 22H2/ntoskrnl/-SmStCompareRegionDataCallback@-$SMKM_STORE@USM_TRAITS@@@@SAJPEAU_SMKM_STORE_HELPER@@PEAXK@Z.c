@@ -1,21 +1,21 @@
 /*
- * XREFs of ?SmStCompareRegionDataCallback@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU_SMKM_STORE_HELPER@@PEAXK@Z @ 0x1405C0690
+ * XREFs of ?SmStCompareRegionDataCallback@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU_SMKM_STORE_HELPER@@PEAXK@Z @ 0x14031FEF0
  * Callers:
- *     ?StDmCombineBufferProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAPEAU_SM_PAGE_COMBINE_BUFFER@@@Z @ 0x1405C4B54 (-StDmCombineBufferProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAPEAU_SM_PAGE_COMBINE.c)
+ *     ?StDmCombineBufferProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAPEAU_SM_PAGE_COMBINE_BUFFER@@@Z @ 0x14026CED4 (-StDmCombineBufferProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAPEAU_SM_PAGE_COMBINE.c)
  * Callees:
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
- *     ?SmStCheckResident@?$SMKM_STORE@USM_TRAITS@@@@SA?AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z @ 0x140464EF2 (-SmStCheckResident@-$SMKM_STORE@USM_TRAITS@@@@SA-AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z.c)
- *     SmFpFree @ 0x140465A48 (SmFpFree.c)
- *     ?SmStMapRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z @ 0x1405C1068 (-SmStMapRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z.c)
- *     ?SmStUnhandledExceptionFilter@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAXPEAU_EXCEPTION_POINTERS@@W4_SMST_STORE_EXCEPTION_SOURCE@1@@Z @ 0x1405C23F4 (-SmStUnhandledExceptionFilter@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAXPEAU_EXCEPTION_POINTERS@@W4_SMST.c)
- *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1405C2484 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     SmFpFree @ 0x1402686A4 (SmFpFree.c)
+ *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x14026C418 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
+ *     ?SmStMapRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z @ 0x14026C5B0 (-SmStMapRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z.c)
+ *     ?SmStCheckResident@?$SMKM_STORE@USM_TRAITS@@@@SA?AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z @ 0x140320234 (-SmStCheckResident@-$SMKM_STORE@USM_TRAITS@@@@SA-AW4_SMST_RESIDENT_CHECK_RESULT@1@PEAXK@Z.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
+ *     ?SmStUnhandledExceptionFilter@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAXPEAU_EXCEPTION_POINTERS@@W4_SMST_STORE_EXCEPTION_SOURCE@1@@Z @ 0x140599F70 (-SmStUnhandledExceptionFilter@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAXPEAU_EXCEPTION_POINTERS@@W4_SMST.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStCompareRegionDataCallback(
         __int64 a1,
         unsigned __int16 *a2,
-        int a3,
+        unsigned int *a3,
         struct _MDL *a4)
 {
   unsigned int v5; // edi
@@ -23,147 +23,136 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStCompareRegionDataCallback(
   __int64 v7; // rbx
   unsigned int v8; // r15d
   volatile signed __int32 *v10; // r13
-  _BYTE *v11; // r8
-  __int64 v12; // rcx
-  unsigned __int64 v13; // r12
-  unsigned int *v14; // r13
-  unsigned int *v15; // rax
-  unsigned __int64 v16; // rax
-  _DWORD *v17; // r10
-  __int64 v18; // rax
-  unsigned __int64 v19; // rcx
-  _BYTE *v20; // rcx
-  __int64 v21; // rcx
-  struct _MDL *v22; // r9
-  unsigned __int64 v23; // r8
-  int v24; // [rsp+20h] [rbp-98h]
-  void *Buf2; // [rsp+48h] [rbp-70h]
-  void *Buf1; // [rsp+50h] [rbp-68h]
-  unsigned __int64 v27; // [rsp+60h] [rbp-58h]
-  unsigned int *i; // [rsp+68h] [rbp-50h]
-  _DWORD *v29; // [rsp+C0h] [rbp+8h]
+  __int64 v11; // rcx
+  unsigned __int64 v12; // r12
+  unsigned int *v13; // r13
+  unsigned int *v14; // rax
+  unsigned __int64 v15; // rax
+  __int64 v16; // rax
+  unsigned __int64 v17; // rcx
+  __int64 v18; // rcx
+  struct _MDL *v19; // r9
+  unsigned __int64 v20; // r8
+  int v21; // [rsp+20h] [rbp-88h]
+  void *Buf2; // [rsp+40h] [rbp-68h]
+  void *Buf1; // [rsp+48h] [rbp-60h]
+  unsigned __int64 v24; // [rsp+58h] [rbp-50h]
+  unsigned int *i; // [rsp+60h] [rbp-48h]
+  unsigned int *v26; // [rsp+B0h] [rbp+8h]
 
   v5 = 0;
   v6 = 0LL;
   v7 = a1 - 6232;
   v8 = 0;
-  if ( a3 )
+  if ( (_DWORD)a3 )
   {
     ExFreePoolWithTag(a2, 0);
     return 0LL;
   }
   v10 = (volatile signed __int32 *)(v7 + 6596);
   _InterlockedIncrement((volatile signed __int32 *)(v7 + 6596));
-  v11 = (_BYTE *)(v7 + 6021);
-  v12 = *(unsigned int *)a2;
+  v11 = *(unsigned int *)a2;
   if ( (*(_BYTE *)(v7 + 6021) & 4) == 0 )
   {
-    v13 = *(_QWORD *)((*(_QWORD *)(*(_QWORD *)(v7 + 6216) + 8 * v12) & 0xFFFFFFFFFFFFFFF8uLL) + 24);
-    goto LABEL_8;
+    v12 = *(_QWORD *)((*(_QWORD *)(*(_QWORD *)(v7 + 6216) + 8 * v11) & 0xFFFFFFFFFFFFFFF8uLL) + 24);
+    goto LABEL_7;
   }
-  v13 = SMKM_STORE<SM_TRAITS>::SmStMapRegion(v7, v12, 0, (_DWORD)a4, 64);
-  if ( v13 > 3 )
+  v12 = SMKM_STORE<SM_TRAITS>::SmStMapRegion(v7, v11, 0, (int)a4, 64);
+  if ( v12 > 3 )
   {
-    v11 = (_BYTE *)(v7 + 6021);
-LABEL_8:
-    v14 = (unsigned int *)(a2 + 4);
-    v15 = (unsigned int *)((char *)a2 + a2[3]);
-    for ( i = v15; ; v15 = i )
+LABEL_7:
+    v13 = (unsigned int *)(a2 + 4);
+    v14 = (unsigned int *)((char *)a2 + a2[3]);
+    for ( i = v14; ; v14 = i )
     {
-      if ( v14 >= v15 )
+      if ( v13 >= v14 )
       {
-LABEL_24:
+LABEL_23:
         v10 = (volatile signed __int32 *)(v7 + 6596);
-        goto LABEL_25;
+        goto LABEL_24;
       }
-      Buf1 = (void *)(v13 + *v14);
-      *((_BYTE *)v14 + 7) = 16;
-      v16 = (unsigned __int64)&v14[2 * *((unsigned __int8 *)v14 + 6) + 2];
-      v27 = v16;
-      v17 = v14 + 2;
+      Buf1 = (void *)(v12 + *v13);
+      *((_BYTE *)v13 + 7) = 16;
+      v15 = (unsigned __int64)&v13[2 * *((unsigned __int8 *)v13 + 6) + 2];
+      v24 = v15;
+      a3 = v13 + 2;
       while ( 1 )
       {
-        v29 = v17;
-        if ( (unsigned __int64)v17 >= v16 )
+        v26 = a3;
+        if ( (unsigned __int64)a3 >= v15 )
           break;
         if ( v6 )
         {
-          if ( v8 == *v17 )
-            goto LABEL_33;
-          if ( v6 != v13 )
+          if ( v8 == *a3 )
+            goto LABEL_32;
+          if ( v6 != v12 )
           {
-            if ( (*v11 & 4) != 0 )
+            if ( (*(_BYTE *)(v7 + 6021) & 4) != 0 )
             {
-              SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(v7, v8, (_DWORD)v11, (_DWORD)a4, v24, 8);
+              SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(v7, v8, (__int64)a3, (__int64)a4, v21, 8u);
             }
             else
             {
-              v18 = *(_QWORD *)(v7 + 6216);
-              a4 = (struct _MDL *)(*(_QWORD *)(v18 + 8LL * v8) & 0xFFFFFFFFFFFFFFF8uLL);
-              v19 = *(_QWORD *)(v18 + 8LL * v8) & 0xFFFFFFFFFFFFFFFEuLL;
-              *(_QWORD *)(v18 + 8LL * v8) = v19;
-              if ( (v19 & 3) != 0 )
-                goto LABEL_20;
+              v16 = *(_QWORD *)(v7 + 6216);
+              a4 = (struct _MDL *)(*(_QWORD *)(v16 + 8LL * v8) & 0xFFFFFFFFFFFFFFF8uLL);
+              v17 = *(_QWORD *)(v16 + 8LL * v8) & 0xFFFFFFFFFFFFFFFEuLL;
+              *(_QWORD *)(v16 + 8LL * v8) = v17;
+              if ( (v17 & 3) != 0 )
+                goto LABEL_19;
               SmFpFree(v7 + 6608, 5, (__int64)KeGetCurrentThread(), a4);
             }
-            v17 = v29;
+            a3 = v26;
           }
         }
-LABEL_20:
-        v8 = *v17;
-        if ( *v17 == *(_DWORD *)a2 )
+LABEL_19:
+        v8 = *a3;
+        if ( *a3 == *(_DWORD *)a2 )
         {
-          v6 = v13;
+          v6 = v12;
         }
         else
         {
-          v6 = SMKM_STORE<SM_TRAITS>::SmStMapRegion(v7, v8, 0, (_DWORD)a4, 64);
+          v6 = SMKM_STORE<SM_TRAITS>::SmStMapRegion(v7, v8, 0, (int)a4, 64);
           if ( v6 <= 3 )
           {
             v5 = -1073741670;
-            goto LABEL_24;
+            goto LABEL_23;
           }
-          v17 = v29;
+          a3 = v26;
         }
-LABEL_33:
-        Buf2 = (void *)(v6 + (unsigned int)v17[1]);
-        if ( (unsigned int)SMKM_STORE<SM_TRAITS>::SmStCheckResident((__int64)Buf2, *((unsigned __int16 *)v14 + 2)) == 1 )
+LABEL_32:
+        Buf2 = (void *)(v6 + a3[1]);
+        if ( (unsigned int)SMKM_STORE<SM_TRAITS>::SmStCheckResident(Buf2, *((unsigned __int16 *)v13 + 2)) == 1 )
         {
-          if ( !memcmp(Buf1, Buf2, *((unsigned __int16 *)v14 + 2)) )
-            *((_BYTE *)v14 + 7) = ((char *)v29 - (char *)(v14 + 2)) >> 3;
-          if ( *((_BYTE *)v14 + 7) != 16 )
+          if ( !memcmp(Buf1, Buf2, *((unsigned __int16 *)v13 + 2)) )
+            *((_BYTE *)v13 + 7) = ((char *)v26 - (char *)(v13 + 2)) >> 3;
+          if ( *((_BYTE *)v13 + 7) != 16 )
             break;
         }
-        v17 = v29 + 2;
-        v11 = (_BYTE *)(v7 + 6021);
-        v16 = v27;
+        a3 = v26 + 2;
+        v15 = v24;
       }
-      v14 += 2 * *((unsigned __int8 *)v14 + 6) + 2;
-      v11 = (_BYTE *)(v7 + 6021);
+      v13 += 2 * *((unsigned __int8 *)v13 + 6) + 2;
     }
   }
   v5 = -1073741670;
-LABEL_25:
-  v20 = (_BYTE *)(v7 + 6021);
-  if ( (*(_BYTE *)(v7 + 6021) & 4) != 0 && v13 > 3 )
+LABEL_24:
+  if ( (*(_BYTE *)(v7 + 6021) & 4) != 0 && v12 > 3 )
+    SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(v7, *(_DWORD *)a2, (__int64)a3, (__int64)a4, v21, 8u);
+  if ( v6 > 3 && v6 != v12 )
   {
-    SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(v7, *(_DWORD *)a2, (_DWORD)v11, (_DWORD)a4, v24, 8);
-    v20 = (_BYTE *)(v7 + 6021);
-  }
-  if ( v6 > 3 && v6 != v13 )
-  {
-    if ( (*v20 & 4) != 0 )
+    if ( (*(_BYTE *)(v7 + 6021) & 4) != 0 )
     {
-      SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(v7, v8, (_DWORD)v11, (_DWORD)a4, v24, 8);
+      SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(v7, v8, (__int64)a3, (__int64)a4, v21, 8u);
     }
     else
     {
-      v21 = *(_QWORD *)(v7 + 6216);
-      v22 = (struct _MDL *)(*(_QWORD *)(v21 + 8LL * v8) & 0xFFFFFFFFFFFFFFF8uLL);
-      v23 = *(_QWORD *)(v21 + 8LL * v8) & 0xFFFFFFFFFFFFFFFEuLL;
-      *(_QWORD *)(v21 + 8LL * v8) = v23;
-      if ( (v23 & 3) == 0 )
-        SmFpFree(v7 + 6608, 5, (__int64)KeGetCurrentThread(), v22);
+      v18 = *(_QWORD *)(v7 + 6216);
+      v19 = (struct _MDL *)(*(_QWORD *)(v18 + 8LL * v8) & 0xFFFFFFFFFFFFFFF8uLL);
+      v20 = *(_QWORD *)(v18 + 8LL * v8) & 0xFFFFFFFFFFFFFFFEuLL;
+      *(_QWORD *)(v18 + 8LL * v8) = v20;
+      if ( (v20 & 3) == 0 )
+        SmFpFree(v7 + 6608, 5, (__int64)KeGetCurrentThread(), v19);
     }
   }
   _InterlockedDecrement(v10);

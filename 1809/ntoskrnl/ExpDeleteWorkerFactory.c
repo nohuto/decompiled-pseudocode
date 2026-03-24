@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpDeleteWorkerFactory @ 0x14010AAC0
+ * XREFs of ExpDeleteWorkerFactory @ 0x14010AAE0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     IoFreeMiniCompletionPacket @ 0x14068E870 (IoFreeMiniCompletionPacket.c)
+ *     IoFreeMiniCompletionPacket @ 0x14068E850 (IoFreeMiniCompletionPacket.c)
  */
 
 void __fastcall ExpDeleteWorkerFactory(__int64 a1)

@@ -1,41 +1,45 @@
 /*
- * XREFs of ?ReclaimBlock@VIDMM_LINEAR_POOL@@QEAAXPEAX@Z @ 0x1C01028B4
+ * XREFs of ?ReclaimBlock@VIDMM_LINEAR_POOL@@QEAAXPEAX@Z @ 0x1C008829C
  * Callers:
- *     ?ReclaimResource@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0085974 (-ReclaimResource@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?ReclaimResource@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0064740 (-ReclaimResource@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-void __fastcall VIDMM_LINEAR_POOL::ReclaimBlock(VIDMM_LINEAR_POOL *this, _QWORD *a2)
+void __fastcall VIDMM_LINEAR_POOL::ReclaimBlock(VIDMM_LINEAR_POOL *this, _QWORD *a2, __int64 a3)
 {
-  __int64 v4; // rcx
-  _QWORD *v5; // rax
-  __int64 v6; // rdx
-  _QWORD *v7; // rcx
-  char *v8; // rbx
-  __int64 v9; // rcx
+  int v3; // eax
+  _QWORD *v6; // rax
+  __int64 v7; // rdx
+  _QWORD *v8; // rcx
+  char *v9; // rbx
+  __int64 v10; // rcx
+  __int64 v11; // rax
 
-  if ( !*((_DWORD *)this + 4) )
+  v3 = *((_DWORD *)this + 4);
+  if ( !v3 )
   {
-    WdLogSingleEntry1(1LL, 2320LL);
-    DxgkLogInternalTriageEvent(v4, 0x40000LL);
+    v11 = WdLogNewEntry5_WdAssertion(this, a2, a3);
+    *(_QWORD *)(v11 + 24) = 2320LL;
+    WdLogEvent5_WdAssertion(v11);
+    v3 = *((_DWORD *)this + 4);
   }
-  --*((_DWORD *)this + 4);
-  v5 = a2 + 3;
-  v6 = a2[3];
-  if ( *(_QWORD **)(v6 + 8) != a2 + 3
-    || (v7 = (_QWORD *)a2[4], (_QWORD *)*v7 != v5)
-    || (*v7 = v6,
-        v8 = (char *)this + 56,
-        *(_QWORD *)(v6 + 8) = v7,
-        v9 = *(_QWORD *)v8,
-        *(char **)(*(_QWORD *)v8 + 8LL) != v8) )
+  *((_DWORD *)this + 4) = v3 - 1;
+  v6 = a2 + 3;
+  v7 = a2[3];
+  if ( *(_QWORD **)(v7 + 8) != a2 + 3
+    || (v8 = (_QWORD *)a2[4], (_QWORD *)*v8 != v6)
+    || (*v8 = v7,
+        v9 = (char *)this + 56,
+        *(_QWORD *)(v7 + 8) = v8,
+        v10 = *(_QWORD *)v9,
+        *(char **)(*(_QWORD *)v9 + 8LL) != v9) )
   {
     __fastfail(3u);
   }
-  a2[4] = v8;
-  *v5 = v9;
-  *(_QWORD *)(v9 + 8) = v5;
-  *(_QWORD *)v8 = v5;
+  a2[4] = v9;
+  *v6 = v10;
+  *(_QWORD *)(v10 + 8) = v6;
+  *(_QWORD *)v9 = v6;
   *((_BYTE *)a2 + 56) = 3;
 }

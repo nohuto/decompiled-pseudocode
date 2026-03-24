@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CRenderingTechnique@@QEAA@PEAVCBrushRenderingGraph@@$$QEAV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@@Z @ 0x18002A398
+ * XREFs of ??0CRenderingTechnique@@QEAA@PEAVCBrushRenderingGraph@@$$QEAV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@@Z @ 0x18004B484
  * Callers:
- *     ?CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@PEAI@Z @ 0x18002A2D8 (-CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV-$unique_ptr@VCRenderingTech.c)
+ *     ?CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@PEAI@Z @ 0x18004B3B8 (-CreateTechniqueForFragment@CBrushRenderingGraphBuilder@@IEAAJ$$QEAV-$unique_ptr@VCRenderingTech.c)
  * Callees:
- *     ?CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ @ 0x18002AEB8 (-CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ.c)
+ *     ?CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ @ 0x18004DCD8 (-CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ.c)
  */
 
 CRenderingTechnique *__fastcall CRenderingTechnique::CRenderingTechnique(
@@ -18,15 +18,14 @@ CRenderingTechnique *__fastcall CRenderingTechnique::CRenderingTechnique(
   *a3 = 0LL;
   *((_QWORD *)this + 1) = v4;
   *((_QWORD *)this + 2) = &CDeviceResourceTable<CD3DConstantBuffer,CRenderingTechnique>::`vftable';
+  *((_QWORD *)this + 4) = 0LL;
+  *((_QWORD *)this + 5) = 0LL;
+  *((_QWORD *)this + 6) = 0LL;
   *((_QWORD *)this + 3) = this;
-  *((_QWORD *)this + 4) = (char *)this + 56;
-  *((_QWORD *)this + 5) = (char *)this + 56;
-  *((_QWORD *)this + 6) = (char *)this + 72;
-  *((_QWORD *)this + 9) = 0LL;
-  *((_DWORD *)this + 20) = 0;
-  *(_QWORD *)((char *)this + 260) = 0LL;
-  *((_QWORD *)this + 34) = 0LL;
-  *((_BYTE *)this + 280) = 0;
+  *((_QWORD *)this + 7) = 0LL;
+  *((_DWORD *)this + 16) = 0;
+  *(_QWORD *)((char *)this + 244) = 0LL;
+  *((_BYTE *)this + 252) = 0;
   CRenderingTechnique::CollectStateFromAllFragments(this);
   return this;
 }

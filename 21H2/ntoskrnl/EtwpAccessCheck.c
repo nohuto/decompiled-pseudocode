@@ -1,43 +1,40 @@
 /*
- * XREFs of EtwpAccessCheck @ 0x140794404
+ * XREFs of EtwpAccessCheck @ 0x140643B58
  * Callers:
- *     NtTraceEvent @ 0x1402FE320 (NtTraceEvent.c)
- *     EtwpStartLogger @ 0x1406EE2AC (EtwpStartLogger.c)
- *     EtwpNotifyGuid @ 0x1406EF64C (EtwpNotifyGuid.c)
- *     EtwpCheckGuidAccess @ 0x140790CA8 (EtwpCheckGuidAccess.c)
- *     EtwpCheckLoggerControlAccess @ 0x14079435C (EtwpCheckLoggerControlAccess.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x1409EB814 (EtwpCheckCurrentUserProcessAccess.c)
+ *     NtTraceEvent @ 0x14025CC60 (NtTraceEvent.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140642DDC (EtwpCheckLoggerControlAccess.c)
+ *     EtwpAddRegEntryToGroup @ 0x140643580 (EtwpAddRegEntryToGroup.c)
+ *     EtwpStartLogger @ 0x1406DE1A0 (EtwpStartLogger.c)
+ *     EtwpNotifyGuid @ 0x1406E1804 (EtwpNotifyGuid.c)
+ *     EtwpCheckGuidAccess @ 0x1406E3280 (EtwpCheckGuidAccess.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x1409414D8 (EtwpCheckCurrentUserProcessAccess.c)
  * Callees:
- *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
+ *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
  */
 
 __int64 __fastcall EtwpAccessCheck(
         PSECURITY_DESCRIPTOR SecurityDescriptor,
         ACCESS_MASK DesiredAccess,
-        struct _SECURITY_SUBJECT_CONTEXT *a3)
+        PSECURITY_SUBJECT_CONTEXT SubjectSecurityContext)
 {
-  struct _SECURITY_SUBJECT_CONTEXT *p_SubjectSecurityContext; // rdx
-  struct _SECURITY_SUBJECT_CONTEXT SubjectSecurityContext; // [rsp+50h] [rbp-28h] BYREF
+  PSECURITY_SUBJECT_CONTEXT p_SubjectContext; // rdx
+  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+50h] [rbp-28h] BYREF
   NTSTATUS AccessStatus; // [rsp+90h] [rbp+18h] BYREF
   ACCESS_MASK GrantedAccess; // [rsp+98h] [rbp+20h] BYREF
 
   AccessStatus = 0;
   GrantedAccess = 0;
-  memset(&SubjectSecurityContext, 0, sizeof(SubjectSecurityContext));
-  if ( a3 )
-  {
-    p_SubjectSecurityContext = a3;
-  }
-  else
-  {
-    SeCaptureSubjectContext(&SubjectSecurityContext);
-    p_SubjectSecurityContext = &SubjectSecurityContext;
-  }
+  memset(&SubjectContext, 0, sizeof(SubjectContext));
+  if ( !SubjectSecurityContext )
+    SeCaptureSubjectContext(&SubjectContext);
+  p_SubjectContext = &SubjectContext;
+  if ( SubjectSecurityContext )
+    p_SubjectContext = SubjectSecurityContext;
   SeAccessCheck(
     SecurityDescriptor,
-    p_SubjectSecurityContext,
+    p_SubjectContext,
     0,
     DesiredAccess,
     0,
@@ -46,7 +43,7 @@ __int64 __fastcall EtwpAccessCheck(
     1,
     &GrantedAccess,
     &AccessStatus);
-  if ( !a3 )
-    SeReleaseSubjectContext(&SubjectSecurityContext);
+  if ( !SubjectSecurityContext )
+    SeReleaseSubjectContext(&SubjectContext);
   return (unsigned int)AccessStatus;
 }

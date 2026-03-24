@@ -1,22 +1,22 @@
 /*
- * XREFs of CmRmFinalizeRecovery @ 0x1406E7AC4
+ * XREFs of CmRmFinalizeRecovery @ 0x1406BF8BC
  * Callers:
- *     CmpLoadKeyCommon @ 0x14020AABC (CmpLoadKeyCommon.c)
- *     CmpMountPreloadedHives @ 0x14083200C (CmpMountPreloadedHives.c)
- *     CmpFinishSystemHivesLoad @ 0x140833B80 (CmpFinishSystemHivesLoad.c)
+ *     CmpLoadKeyCommon @ 0x14036195C (CmpLoadKeyCommon.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A72B0 (CmpFinishSystemHivesLoad.c)
+ *     CmpMountPreloadedHives @ 0x1407AABF4 (CmpMountPreloadedHives.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     CmpTransDereferenceTransaction @ 0x14067F788 (CmpTransDereferenceTransaction.c)
- *     CmpTransMgrRollback @ 0x1406E2798 (CmpTransMgrRollback.c)
- *     CmpTransMgrFreeVolatileData @ 0x14071BC94 (CmpTransMgrFreeVolatileData.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     CmpAttachToRegistryProcess @ 0x140AB4550 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140AB4580 (CmpDetachFromRegistryProcess.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpTransDereferenceTransaction @ 0x1406A32E0 (CmpTransDereferenceTransaction.c)
+ *     CmpTransMgrFreeVolatileData @ 0x14071D4D0 (CmpTransMgrFreeVolatileData.c)
+ *     CmpTransMgrRollback @ 0x140771090 (CmpTransMgrRollback.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmRmFinalizeRecovery(__int64 a1)
@@ -25,14 +25,17 @@ __int64 __fastcall CmRmFinalizeRecovery(__int64 a1)
   _QWORD **v3; // rdi
   _QWORD *v4; // rbx
   _QWORD *v6; // rax
-  void *v7; // rcx
-  void *v8; // rcx
-  struct _KTHREAD *v9; // rax
-  int v10; // [rsp+20h] [rbp-48h] BYREF
-  _OWORD v11[3]; // [rsp+28h] [rbp-40h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  _DWORD *v9; // r9
+  struct _DMA_ADAPTER *v10; // rcx
+  void *v11; // rcx
+  struct _KTHREAD *v12; // rax
+  int v13; // [rsp+20h] [rbp-48h] BYREF
+  _OWORD v14[3]; // [rsp+28h] [rbp-40h] BYREF
 
-  v10 = 0;
-  memset(v11, 0, sizeof(v11));
+  v13 = 0;
+  memset(v14, 0, sizeof(v14));
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
@@ -47,25 +50,25 @@ __int64 __fastcall CmRmFinalizeRecovery(__int64 a1)
     *v3 = v6;
     v6[1] = v3;
     ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-    KeLeaveCriticalRegion();
-    CmpTransMgrRollback((__int64)v4, &v10);
-    CmpAttachToRegistryProcess(v11);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    CmpTransMgrRollback(v4, &v13);
+    CmpAttachToRegistryProcess((__int64)v14, v7, v8, v9);
     CmpTransMgrFreeVolatileData((ULONG_PTR)v4);
-    CmpDetachFromRegistryProcess(v11);
+    KiUnstackDetachProcess((__int64)v14, 0);
     if ( v4[7] )
       CmpTransDereferenceTransaction(v4[7]);
-    v7 = (void *)v4[9];
-    if ( v7 )
-      ObfDereferenceObject(v7);
-    v8 = (void *)v4[10];
-    if ( v8 )
-      ZwClose(v8);
+    v10 = (struct _DMA_ADAPTER *)v4[9];
+    if ( v10 )
+      HalPutDmaAdapter(v10);
+    v11 = (void *)v4[10];
+    if ( v11 )
+      ZwClose(v11);
     ExFreePoolWithTag(v4, 0x72544D43u);
-    v9 = KeGetCurrentThread();
-    --v9->KernelApcDisable;
+    v12 = KeGetCurrentThread();
+    --v12->KernelApcDisable;
     ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
   }
   ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return 0LL;
 }

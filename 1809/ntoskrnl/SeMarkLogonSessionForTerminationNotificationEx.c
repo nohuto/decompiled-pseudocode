@@ -1,11 +1,11 @@
 /*
- * XREFs of SeMarkLogonSessionForTerminationNotificationEx @ 0x1406D0130
+ * XREFs of SeMarkLogonSessionForTerminationNotificationEx @ 0x1406D0110
  * Callers:
- *     SeMarkLogonSessionForTerminationNotification @ 0x1406D0110 (SeMarkLogonSessionForTerminationNotification.c)
+ *     SeMarkLogonSessionForTerminationNotification @ 0x1406D00F0 (SeMarkLogonSessionForTerminationNotification.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 __int64 __fastcall SeMarkLogonSessionForTerminationNotificationEx(_DWORD *a1, __int64 a2)

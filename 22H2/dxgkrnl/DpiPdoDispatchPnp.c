@@ -1,19 +1,21 @@
 /*
- * XREFs of DpiPdoDispatchPnp @ 0x1C01E2E90
+ * XREFs of DpiPdoDispatchPnp @ 0x1C0165A20
  * Callers:
  *     <none>
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0005C0C (DpiCheckForOutstandingD3Requests.c)
- *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C0013C40 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C0198444 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiEnableD3Requests @ 0x1C01987EC (DpiEnableD3Requests.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01988F0 (DpiAcquireCoreSyncAccessSafe.c)
- *     DxgkReleaseAdapterDdiSync @ 0x1C01F59A8 (DxgkReleaseAdapterDdiSync.c)
- *     DxgkAcquireAdapterDdiSync @ 0x1C01F59C8 (DxgkAcquireAdapterDdiSync.c)
- *     DpiDxgkDdiQueryInterface @ 0x1C0204F34 (DpiDxgkDdiQueryInterface.c)
- *     MonitorNotifyDeviceNodeReady @ 0x1C020A2F0 (MonitorNotifyDeviceNodeReady.c)
- *     DpiPdoHandleStopDevice @ 0x1C03A9760 (DpiPdoHandleStopDevice.c)
+ *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C000D994 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001FC54 (DpiCheckForOutstandingD3Requests.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     DpiEnableD3Requests @ 0x1C00ECD4C (DpiEnableD3Requests.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C012E130 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C012E3AC (DpiAcquireCoreSyncAccessSafe.c)
+ *     DxgkAcquireAdapterDdiSync @ 0x1C0174BD0 (DxgkAcquireAdapterDdiSync.c)
+ *     DxgkReleaseAdapterDdiSync @ 0x1C0174C50 (DxgkReleaseAdapterDdiSync.c)
+ *     MonitorNotifyDeviceNodeReady @ 0x1C01838B8 (MonitorNotifyDeviceNodeReady.c)
+ *     DpiDxgkDdiQueryInterface @ 0x1C018E5CC (DpiDxgkDdiQueryInterface.c)
+ *     DpiTestQueryInterface @ 0x1C019C334 (DpiTestQueryInterface.c)
+ *     ?DpiBrightnessQueryInterface@@YAJPEAU_DEVICE_OBJECT@@PEAU_QUERY_INTERFACE@@@Z @ 0x1C019C398 (-DpiBrightnessQueryInterface@@YAJPEAU_DEVICE_OBJECT@@PEAU_QUERY_INTERFACE@@@Z.c)
+ *     DpiPdoHandleStopDevice @ 0x1C02D9630 (DpiPdoHandleStopDevice.c)
  */
 
 __int64 __fastcall DpiPdoDispatchPnp(PDEVICE_OBJECT Pdo, IRP *Tag)
@@ -24,7 +26,7 @@ __int64 __fastcall DpiPdoDispatchPnp(PDEVICE_OBJECT Pdo, IRP *Tag)
   __int64 v7; // r13
   __int64 (__fastcall *v8)(PDEVICE_OBJECT); // rax
   int Status; // edi
-  __int64 v11; // rdi
+  __int64 v11; // r12
   int v12; // ecx
   int v13; // ecx
   int v14; // ecx
@@ -39,17 +41,16 @@ __int64 __fastcall DpiPdoDispatchPnp(PDEVICE_OBJECT Pdo, IRP *Tag)
   bool v23; // zf
   int v24; // eax
   int v25; // eax
-  int v26; // eax
-  struct _IO_REMOVE_LOCK *v27; // rcx
-  int v28; // eax
-  PIO_SECURITY_CONTEXT SecurityContext; // [rsp+40h] [rbp-30h] BYREF
-  USHORT Size; // [rsp+48h] [rbp-28h]
-  USHORT Version; // [rsp+4Ah] [rbp-26h]
-  int v32; // [rsp+4Ch] [rbp-24h]
-  LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-20h]
-  struct _NAMED_PIPE_CREATE_PARAMETERS *Parameters; // [rsp+58h] [rbp-18h]
-  int v35; // [rsp+60h] [rbp-10h]
-  int v36; // [rsp+64h] [rbp-Ch]
+  __int64 v26; // rcx
+  int v27; // eax
+  __int64 v28; // rdx
+  __int64 v29; // rax
+  struct _IO_REMOVE_LOCK *v30; // rcx
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  int v33; // eax
+  __int64 v34; // rax
+  _QUERY_INTERFACE v35; // [rsp+40h] [rbp-30h] BYREF
   unsigned int Data; // [rsp+A0h] [rbp+30h] BYREF
 
   DeviceExtension = (char *)Pdo->DeviceExtension;
@@ -65,45 +66,158 @@ __int64 __fastcall DpiPdoDispatchPnp(PDEVICE_OBJECT Pdo, IRP *Tag)
       goto LABEL_4;
     }
   }
-  if ( (unsigned int)MinorFunction <= 8 )
+  if ( (unsigned int)MinorFunction > 8 )
   {
-    if ( (_DWORD)MinorFunction == 8 )
+    v12 = MinorFunction - 10;
+    if ( !v12 )
+      goto LABEL_24;
+    v13 = v12 - 1;
+    if ( v13 )
     {
-      v11 = *((_QWORD *)DeviceExtension + 5);
-      if ( Tag->IoStatus.Status != -1073741637 )
-        goto LABEL_13;
-      SecurityContext = CurrentStackLocation->Parameters.Create.SecurityContext;
-      Size = CurrentStackLocation->Parameters.QueryInterface.Size;
-      Version = CurrentStackLocation->Parameters.QueryInterface.Version;
-      ByteOffset = CurrentStackLocation->Parameters.Read.ByteOffset;
-      Parameters = CurrentStackLocation->Parameters.CreatePipe.Parameters;
-      v35 = *((_DWORD *)DeviceExtension + 126);
-      v32 = 0;
-      v36 = 0;
-      if ( !*(_QWORD *)(v11 + 256) || (int)DpiAcquireCoreSyncAccessSafe((__int64)Pdo, 1) < 0 )
-        goto LABEL_13;
-      DxgkAcquireAdapterDdiSync(*(_QWORD *)(v7 + 3912), 1LL);
-      Status = DpiDxgkDdiQueryInterface(v11, *((_QWORD *)DeviceExtension + 6), &SecurityContext);
-      DxgkReleaseAdapterDdiSync(*(_QWORD *)(v7 + 3912));
-      DpiReleaseCoreSyncAccessSafe((__int64)Pdo, 1);
-      if ( Status >= 0 )
+      v14 = v13 - 11;
+      if ( !v14 )
       {
-        CurrentStackLocation->Parameters.WMI.ProviderId = (ULONG_PTR)SecurityContext;
-        CurrentStackLocation->Parameters.QueryInterface.Size = Size;
-        CurrentStackLocation->Parameters.QueryInterface.Version = Version;
-        CurrentStackLocation->Parameters.Read.ByteOffset = ByteOffset;
-        CurrentStackLocation->Parameters.CreatePipe.Parameters = Parameters;
+        Status = -1073741823;
         goto LABEL_5;
       }
-LABEL_4:
-      if ( Status != -1073741637 )
-        goto LABEL_5;
-LABEL_13:
-      Status = Tag->IoStatus.Status;
-      goto LABEL_5;
+      v15 = v14 - 1;
+      if ( !v15 )
+      {
+        KeEnterCriticalRegion();
+        if ( DeviceExtension[484] )
+          DpiCheckForOutstandingD3Requests((__int64)DeviceExtension);
+        ExAcquireResourceExclusiveLite(*((PERESOURCE *)DeviceExtension + 21), 1u);
+        Status = 0;
+        v26 = *((_DWORD *)DeviceExtension + 69) & 7;
+        *(_DWORD *)&DeviceExtension[4 * v26 + 244] = *((_DWORD *)DeviceExtension + 60);
+        v27 = *((_DWORD *)DeviceExtension + 59);
+        ++*((_DWORD *)DeviceExtension + 69);
+        *((_DWORD *)DeviceExtension + 60) = v27;
+        *((_DWORD *)DeviceExtension + 59) = 6;
+        v29 = WdLogNewEntry5_WdEvent(v26, v28);
+        *(_QWORD *)(v29 + 24) = Pdo;
+        WdLogEvent5_WdEvent(v29);
+        goto LABEL_50;
+      }
+      if ( v15 == 2 )
+      {
+        if ( !DeviceExtension[510] && *(_DWORD *)(v7 + 2736) >= 2u )
+          IoInvalidateDeviceRelations(Pdo, PowerRelations);
+        v23 = *((_DWORD *)DeviceExtension + 124) == 1;
+        DeviceExtension[510] = 1;
+        if ( !v23 || DeviceExtension[944] )
+          goto LABEL_18;
+        Status = DpiAcquireCoreSyncAccessSafe((__int64)Pdo, 1);
+        if ( Status >= 0 )
+        {
+          v17 = *(DXGADAPTER **)(v7 + 3896);
+          Data = 0;
+          if ( DXGADAPTER::IsAdapterSessionized(v17, v16, &Data, 0LL) )
+            IoSetDevicePropertyData(Pdo, &DEVPKEY_Device_SessionId, 0, v18, 7u, 4u, &Data);
+          MonitorNotifyDeviceNodeReady(*(DXGADAPTER **)(v7 + 3896), *((_DWORD *)DeviceExtension + 126));
+          DeviceExtension[944] = 1;
+          DpiReleaseCoreSyncAccessSafe((__int64)Pdo, 1);
+        }
+        goto LABEL_4;
+      }
+      goto LABEL_24;
     }
-    v19 = MinorFunction - 1;
-    if ( !v19 )
+LABEL_25:
+    Status = 0;
+    goto LABEL_5;
+  }
+  if ( (_DWORD)MinorFunction == 8 )
+  {
+    v11 = *((_QWORD *)DeviceExtension + 5);
+    if ( Tag->IoStatus.Status != -1073741637 )
+      goto LABEL_18;
+    v35.InterfaceType = CurrentStackLocation->Parameters.QueryInterface.InterfaceType;
+    v35.Size = CurrentStackLocation->Parameters.QueryInterface.Size;
+    v35.Version = CurrentStackLocation->Parameters.QueryInterface.Version;
+    v35.Interface = CurrentStackLocation->Parameters.QueryInterface.Interface;
+    v35.InterfaceSpecificData = CurrentStackLocation->Parameters.CreatePipe.Parameters;
+    v35.DeviceUid = *((_DWORD *)DeviceExtension + 126);
+    *(_DWORD *)(&v35.Version + 1) = 0;
+    *(&v35.DeviceUid + 1) = 0;
+    if ( !*(_QWORD *)(v11 + 256) )
+      goto LABEL_15;
+    if ( (int)DpiAcquireCoreSyncAccessSafe((__int64)Pdo, 1) < 0 )
+    {
+      Status = -1073741637;
+    }
+    else
+    {
+      Status = DpiBrightnessQueryInterface(*((PVOID *)DeviceExtension + 4), &v35);
+      if ( Status == -1073741198 )
+      {
+        DxgkAcquireAdapterDdiSync(*(_QWORD *)(v7 + 3896), 1LL);
+        Status = DpiDxgkDdiQueryInterface(v11, *((_QWORD *)DeviceExtension + 6), &v35);
+        DxgkReleaseAdapterDdiSync(*(_QWORD *)(v7 + 3896));
+      }
+      DpiReleaseCoreSyncAccessSafe((__int64)Pdo, 1);
+    }
+    if ( Status == -1073741637 )
+LABEL_15:
+      Status = DpiTestQueryInterface(Pdo, &v35);
+    if ( Status >= 0 )
+    {
+      CurrentStackLocation->Parameters.WMI.ProviderId = (ULONG_PTR)v35.InterfaceType;
+      CurrentStackLocation->Parameters.QueryInterface.Size = v35.Size;
+      CurrentStackLocation->Parameters.QueryInterface.Version = v35.Version;
+      CurrentStackLocation->Parameters.Read.ByteOffset.QuadPart = (LONGLONG)v35.Interface;
+      CurrentStackLocation->Parameters.CreatePipe.Parameters = (PNAMED_PIPE_CREATE_PARAMETERS)v35.InterfaceSpecificData;
+    }
+LABEL_4:
+    if ( Status != -1073741637 )
+      goto LABEL_5;
+LABEL_18:
+    Status = Tag->IoStatus.Status;
+    goto LABEL_5;
+  }
+  v19 = MinorFunction - 1;
+  if ( !v19 )
+  {
+    KeEnterCriticalRegion();
+    if ( DeviceExtension[484] )
+      DpiCheckForOutstandingD3Requests((__int64)DeviceExtension);
+    ExAcquireResourceExclusiveLite(*((PERESOURCE *)DeviceExtension + 21), 1u);
+    *(_DWORD *)&DeviceExtension[4 * (*((_DWORD *)DeviceExtension + 69) & 7) + 244] = *((_DWORD *)DeviceExtension + 60);
+    v25 = *((_DWORD *)DeviceExtension + 59);
+    ++*((_DWORD *)DeviceExtension + 69);
+    *((_DWORD *)DeviceExtension + 59) = 5;
+    goto LABEL_47;
+  }
+  v20 = v19 - 1;
+  if ( !v20 )
+  {
+    if ( *((_DWORD *)DeviceExtension + 60) == 2 )
+      DpiPdoHandleStopDevice(Pdo);
+    v30 = (struct _IO_REMOVE_LOCK *)(DeviceExtension + 64);
+    if ( DeviceExtension[509] )
+    {
+      IoReleaseRemoveLockEx(v30, Tag, 0x20u);
+    }
+    else
+    {
+      IoReleaseRemoveLockAndWaitEx(v30, Tag, 0x20u);
+      IoQueueWorkItem(*((PIO_WORKITEM *)DeviceExtension + 119), DpiPdoDestroyPdo, DelayedWorkQueue, 0LL);
+    }
+    v32 = *((_DWORD *)DeviceExtension + 69) & 7;
+    *(_DWORD *)&DeviceExtension[4 * v32 + 244] = *((_DWORD *)DeviceExtension + 60);
+    v33 = *((_DWORD *)DeviceExtension + 59);
+    ++*((_DWORD *)DeviceExtension + 69);
+    *((_DWORD *)DeviceExtension + 60) = v33;
+    *((_DWORD *)DeviceExtension + 59) = 7;
+    v34 = WdLogNewEntry5_WdEvent(v32, v31);
+    *(_QWORD *)(v34 + 24) = Pdo;
+    WdLogEvent5_WdEvent(v34);
+    goto LABEL_25;
+  }
+  v21 = v20 - 1;
+  if ( v21 )
+  {
+    v22 = v21 - 2;
+    if ( !v22 )
     {
       KeEnterCriticalRegion();
       if ( DeviceExtension[484] )
@@ -112,134 +226,43 @@ LABEL_13:
       *(_DWORD *)&DeviceExtension[4 * (*((_DWORD *)DeviceExtension + 69) & 7) + 244] = *((_DWORD *)DeviceExtension + 60);
       v25 = *((_DWORD *)DeviceExtension + 59);
       ++*((_DWORD *)DeviceExtension + 69);
-      *((_DWORD *)DeviceExtension + 59) = 5;
-      goto LABEL_42;
+      *((_DWORD *)DeviceExtension + 59) = 3;
+      goto LABEL_47;
     }
-    v20 = v19 - 1;
-    if ( v20 )
+    if ( v22 == 1 )
     {
-      v21 = v20 - 1;
-      if ( !v21 )
-      {
-        KeEnterCriticalRegion();
-        if ( DeviceExtension[484] )
-          DpiCheckForOutstandingD3Requests((__int64)DeviceExtension);
-        ExAcquireResourceExclusiveLite(*((PERESOURCE *)DeviceExtension + 21), 1u);
-        v23 = *((_DWORD *)DeviceExtension + 59) == 5;
-        goto LABEL_39;
-      }
-      v22 = v21 - 2;
-      if ( !v22 )
-      {
-        KeEnterCriticalRegion();
-        if ( DeviceExtension[484] )
-          DpiCheckForOutstandingD3Requests((__int64)DeviceExtension);
-        ExAcquireResourceExclusiveLite(*((PERESOURCE *)DeviceExtension + 21), 1u);
-        *(_DWORD *)&DeviceExtension[4 * (*((_DWORD *)DeviceExtension + 69) & 7) + 244] = *((_DWORD *)DeviceExtension + 60);
-        v25 = *((_DWORD *)DeviceExtension + 59);
-        ++*((_DWORD *)DeviceExtension + 69);
-        *((_DWORD *)DeviceExtension + 59) = 3;
-        goto LABEL_42;
-      }
-      if ( v22 == 1 )
-      {
-        KeEnterCriticalRegion();
-        if ( DeviceExtension[484] )
-          DpiCheckForOutstandingD3Requests((__int64)DeviceExtension);
-        ExAcquireResourceExclusiveLite(*((PERESOURCE *)DeviceExtension + 21), 1u);
-        v23 = *((_DWORD *)DeviceExtension + 59) == 3;
-LABEL_39:
-        if ( !v23 )
-        {
-LABEL_43:
-          Status = 0;
-LABEL_45:
-          if ( DeviceExtension[484] )
-            DpiEnableD3Requests(*((_QWORD *)DeviceExtension + 3));
-          ExReleaseResourceLite(*((PERESOURCE *)DeviceExtension + 21));
-          KeLeaveCriticalRegion();
-          goto LABEL_5;
-        }
-        v24 = *((_DWORD *)DeviceExtension + 60);
-        --*((_DWORD *)DeviceExtension + 69);
-        *((_DWORD *)DeviceExtension + 59) = v24;
-        v25 = *(_DWORD *)&DeviceExtension[4 * (*((_DWORD *)DeviceExtension + 69) & 7) + 244];
-LABEL_42:
-        *((_DWORD *)DeviceExtension + 60) = v25;
-        goto LABEL_43;
-      }
-LABEL_19:
-      Status = Tag->IoStatus.Status;
-      goto LABEL_4;
+      KeEnterCriticalRegion();
+      if ( DeviceExtension[484] )
+        DpiCheckForOutstandingD3Requests((__int64)DeviceExtension);
+      ExAcquireResourceExclusiveLite(*((PERESOURCE *)DeviceExtension + 21), 1u);
+      v23 = *((_DWORD *)DeviceExtension + 59) == 3;
+      goto LABEL_44;
     }
-    if ( *((_DWORD *)DeviceExtension + 60) == 2 )
-      DpiPdoHandleStopDevice(Pdo);
-    v27 = (struct _IO_REMOVE_LOCK *)(DeviceExtension + 64);
-    if ( DeviceExtension[509] )
-    {
-      IoReleaseRemoveLockEx(v27, Tag, 0x20u);
-    }
-    else
-    {
-      IoReleaseRemoveLockAndWaitEx(v27, Tag, 0x20u);
-      IoQueueWorkItem(*((PIO_WORKITEM *)DeviceExtension + 119), DpiPdoDestroyPdo, DelayedWorkQueue, 0LL);
-    }
-    *(_DWORD *)&DeviceExtension[4 * (*((_DWORD *)DeviceExtension + 69) & 7) + 244] = *((_DWORD *)DeviceExtension + 60);
-    v28 = *((_DWORD *)DeviceExtension + 59);
-    ++*((_DWORD *)DeviceExtension + 69);
-    *((_DWORD *)DeviceExtension + 60) = v28;
-    *((_DWORD *)DeviceExtension + 59) = 7;
-    WdLogSingleEntry1(4LL, Pdo);
-LABEL_20:
-    Status = 0;
-    goto LABEL_5;
-  }
-  v12 = MinorFunction - 10;
-  if ( !v12 )
-    goto LABEL_19;
-  v13 = v12 - 1;
-  if ( !v13 )
-    goto LABEL_20;
-  v14 = v13 - 11;
-  if ( !v14 )
-  {
-    Status = -1073741823;
-    goto LABEL_5;
-  }
-  v15 = v14 - 1;
-  if ( !v15 )
-  {
-    KeEnterCriticalRegion();
-    if ( DeviceExtension[484] )
-      DpiCheckForOutstandingD3Requests((__int64)DeviceExtension);
-    ExAcquireResourceExclusiveLite(*((PERESOURCE *)DeviceExtension + 21), 1u);
-    Status = 0;
-    *(_DWORD *)&DeviceExtension[4 * (*((_DWORD *)DeviceExtension + 69) & 7) + 244] = *((_DWORD *)DeviceExtension + 60);
-    v26 = *((_DWORD *)DeviceExtension + 59);
-    ++*((_DWORD *)DeviceExtension + 69);
-    *((_DWORD *)DeviceExtension + 60) = v26;
-    *((_DWORD *)DeviceExtension + 59) = 6;
-    WdLogSingleEntry1(4LL, Pdo);
-    goto LABEL_45;
-  }
-  if ( v15 != 2 )
-    goto LABEL_19;
-  if ( !DeviceExtension[510] && *(_DWORD *)(v7 + 2736) >= 2u )
-    IoInvalidateDeviceRelations(Pdo, PowerRelations);
-  v23 = *((_DWORD *)DeviceExtension + 124) == 1;
-  DeviceExtension[510] = 1;
-  if ( !v23 || DeviceExtension[944] )
-    goto LABEL_13;
-  Status = DpiAcquireCoreSyncAccessSafe((__int64)Pdo, 1);
-  if ( Status < 0 )
+LABEL_24:
+    Status = Tag->IoStatus.Status;
     goto LABEL_4;
-  v17 = *(DXGADAPTER **)(v7 + 3912);
-  Data = 0;
-  if ( DXGADAPTER::IsAdapterSessionized(v17, v16, &Data, 0LL) )
-    IoSetDevicePropertyData(Pdo, &DEVPKEY_Device_SessionId, 0, v18, 7u, 4u, &Data);
-  MonitorNotifyDeviceNodeReady(*(DXGADAPTER **)(v7 + 3912), *((_DWORD *)DeviceExtension + 126));
-  DeviceExtension[944] = 1;
-  DpiReleaseCoreSyncAccessSafe((__int64)Pdo, 1);
+  }
+  KeEnterCriticalRegion();
+  if ( DeviceExtension[484] )
+    DpiCheckForOutstandingD3Requests((__int64)DeviceExtension);
+  ExAcquireResourceExclusiveLite(*((PERESOURCE *)DeviceExtension + 21), 1u);
+  v23 = *((_DWORD *)DeviceExtension + 59) == 5;
+LABEL_44:
+  if ( v23 )
+  {
+    v24 = *((_DWORD *)DeviceExtension + 60);
+    --*((_DWORD *)DeviceExtension + 69);
+    *((_DWORD *)DeviceExtension + 59) = v24;
+    v25 = *(_DWORD *)&DeviceExtension[4 * (*((_DWORD *)DeviceExtension + 69) & 7) + 244];
+LABEL_47:
+    *((_DWORD *)DeviceExtension + 60) = v25;
+  }
+  Status = 0;
+LABEL_50:
+  if ( DeviceExtension[484] )
+    DpiEnableD3Requests(*((_QWORD *)DeviceExtension + 3));
+  ExReleaseResourceLite(*((PERESOURCE *)DeviceExtension + 21));
+  KeLeaveCriticalRegion();
 LABEL_5:
   Tag->IoStatus.Status = Status;
   IofCompleteRequest(Tag, 0);

@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmLogInformationToMinidump @ 0x1C002D140
+ * XREFs of VidMmLogInformationToMinidump @ 0x1C0022DE0
  * Callers:
  *     <none>
  * Callees:
- *     ?LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z @ 0x1C00E4838 (-LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z.c)
+ *     ?LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z @ 0x1C00AFC1C (-LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z.c)
  */
 
 unsigned __int64 __fastcall VidMmLogInformationToMinidump(

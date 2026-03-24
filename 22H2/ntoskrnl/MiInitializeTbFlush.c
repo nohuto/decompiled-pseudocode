@@ -1,193 +1,192 @@
 /*
- * XREFs of MiInitializeTbFlush @ 0x140B5F1FC
+ * XREFs of MiInitializeTbFlush @ 0x140A55380
  * Callers:
- *     MiInitializeTbFlushing @ 0x140B5F078 (MiInitializeTbFlushing.c)
+ *     MiInitializeTbFlushing @ 0x140A55330 (MiInitializeTbFlushing.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiFlushTbList @ 0x140279760 (MiFlushTbList.c)
- *     KeFlushTb @ 0x140279850 (KeFlushTb.c)
- *     MiReservePtes @ 0x14027D070 (MiReservePtes.c)
- *     MiInsertTbFlushEntry @ 0x14027F450 (MiInsertTbFlushEntry.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MiReservePtes @ 0x140226570 (MiReservePtes.c)
+ *     KeFlushTb @ 0x14022FA90 (KeFlushTb.c)
+ *     MiReleasePtes @ 0x140245170 (MiReleasePtes.c)
+ *     MiMakeValidPte @ 0x1402AEDC0 (MiMakeValidPte.c)
+ *     MiInsertTbFlushEntry @ 0x1402B6400 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 *__fastcall MiInitializeTbFlush(unsigned __int64 a1)
+_QWORD *__fastcall MiInitializeTbFlush(unsigned __int64 a1)
 {
-  unsigned __int64 v1; // r12
-  __int64 *result; // rax
-  __int64 *v3; // rbx
+  unsigned __int64 v1; // rbp
+  __int64 v2; // r8
+  unsigned __int64 v3; // r9
+  _QWORD *result; // rax
+  __int64 v5; // r9
+  unsigned __int64 *v6; // rbx
   unsigned __int64 ValidPte; // rdi
-  unsigned __int64 v5; // rbp
-  unsigned __int64 v6; // r14
-  unsigned __int64 v7; // r13
-  unsigned __int64 *v8; // rsi
-  unsigned __int64 v9; // rbx
-  int v10; // r15d
-  __int64 v11; // r8
-  int v12; // edi
-  __int64 v13; // rbx
-  unsigned __int64 v14; // r13
-  unsigned __int64 v15; // r14
-  unsigned __int64 v16; // rsi
-  unsigned __int64 v17; // r12
-  unsigned __int64 v18; // r10
-  unsigned __int64 v19; // r8
-  __int64 v20; // rdx
-  unsigned __int64 v21; // r9
-  unsigned __int64 v22; // rax
-  unsigned __int64 v23; // r14
-  unsigned __int64 v24; // rsi
-  __int64 v25; // rax
-  bool v26; // zf
-  signed __int32 v27[8]; // [rsp+0h] [rbp-158h] BYREF
-  __int64 v28; // [rsp+20h] [rbp-138h]
-  unsigned __int64 v29; // [rsp+28h] [rbp-130h]
-  unsigned __int64 v30; // [rsp+30h] [rbp-128h]
-  unsigned __int64 v31; // [rsp+38h] [rbp-120h]
-  __int64 v32; // [rsp+40h] [rbp-118h]
-  unsigned __int64 v33; // [rsp+48h] [rbp-110h]
-  __int64 *v34; // [rsp+50h] [rbp-108h]
-  _QWORD v35[24]; // [rsp+60h] [rbp-F8h] BYREF
+  unsigned __int64 v8; // r12
+  unsigned __int64 v9; // r14
+  unsigned __int64 *v10; // rsi
+  unsigned __int64 v11; // r15
+  unsigned __int64 v12; // rbx
+  int v13; // edi
+  __int64 v14; // rbx
+  unsigned __int64 v15; // r13
+  unsigned __int64 v16; // r14
+  unsigned __int64 v17; // rsi
+  unsigned __int64 v18; // rbp
+  _KPROCESS *v19; // rdx
+  unsigned __int64 v20; // r10
+  unsigned __int64 v21; // r8
+  __int64 v22; // rdx
+  unsigned __int64 v23; // r9
+  unsigned __int64 v24; // rax
+  unsigned __int64 v25; // r14
+  unsigned __int64 v26; // rsi
+  __int64 v27; // rax
+  __int64 v28; // r8
+  signed __int32 v29[8]; // [rsp+0h] [rbp-158h] BYREF
+  __int64 v30; // [rsp+20h] [rbp-138h]
+  unsigned __int64 v31; // [rsp+28h] [rbp-130h]
+  unsigned __int64 v32; // [rsp+30h] [rbp-128h]
+  __int64 v33; // [rsp+38h] [rbp-120h]
+  unsigned __int64 v34; // [rsp+40h] [rbp-118h]
+  unsigned __int64 v35; // [rsp+48h] [rbp-110h]
+  _QWORD *v36; // [rsp+50h] [rbp-108h]
+  _QWORD v37[24]; // [rsp+60h] [rbp-F8h] BYREF
 
-  v1 = a1;
-  v29 = a1;
-  v30 = 0LL;
   v31 = 0LL;
-  memset(v35, 0, 0xB8uLL);
-  result = (__int64 *)MiReservePtes((__int64)&qword_140C69A40, v1);
-  v34 = result;
-  v3 = result;
+  v1 = a1;
+  v32 = 0LL;
+  v35 = a1;
+  memset(v37, 0, 0xB8uLL);
+  result = (_QWORD *)MiReservePtes((__int64)&qword_140C4EF40, v1, v2, v3);
+  v36 = result;
+  v6 = result;
   if ( result )
   {
-    LODWORD(v35[1]) = 20;
-    v35[3] = 0LL;
-    ValidPte = MiMakeValidPte((unsigned __int64)result, qword_140C697F8, 1LL);
-    v5 = (__int64)((_QWORD)v3 << 25) >> 16;
-    v6 = v5;
-    if ( v1 )
+    v37[3] = 0LL;
+    LODWORD(v37[1]) = 20;
+    ValidPte = MiMakeValidPte((unsigned __int64)result, qword_140C4ED68, 1LL, v5);
+    v8 = (__int64)((_QWORD)v6 << 25) >> 16;
+    v9 = v8;
+    if ( !v1 )
     {
-      v7 = v1;
-      v8 = (unsigned __int64 *)v3;
+LABEL_7:
+      v13 = 0;
+      v14 = 0LL;
+      v33 = 0LL;
+      if ( !v1 )
+        goto LABEL_29;
       while ( 1 )
       {
-        v9 = ValidPte;
-        v10 = 0;
-        if ( MiPteInShadowRange((unsigned __int64)v8) )
+        v30 = 4LL;
+        v15 = v1 - v14;
+        v16 = 0LL;
+        v17 = 0LL;
+        v18 = (v1 - v14) >> 1;
+        do
         {
-          if ( MiPteHasShadow() )
+          v34 = __rdtsc();
+          _InterlockedOr(v29, 0);
+          if ( v14 )
           {
-            v10 = 1;
-            if ( !HIBYTE(word_140C66DFC) )
-            {
-              v26 = (ValidPte & 1) == 0;
-              goto LABEL_34;
-            }
+            MiInsertTbFlushEntry((__int64)v37, v8, v14, 0);
+            MiFlushTbList((__int64)v37, v19);
           }
-          else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
+          else
           {
-            v26 = (ValidPte & 1) == 0;
-LABEL_34:
-            if ( !v26 )
-              v9 = ValidPte | 0x8000000000000000uLL;
+            KeFlushTb(0, 2u);
           }
-        }
-        *v8 = v9;
-        if ( v10 )
-          MiWritePteShadow((__int64)v8, v9, v11);
-        ++v8;
-        v6 += 4096LL;
-        if ( !--v7 )
-        {
-          v1 = v29;
-          v12 = 0;
-          v32 = 0LL;
-          v13 = 0LL;
-          while ( 1 )
+          _InterlockedOr(v29, 0);
+          v16 += __rdtsc() - v34;
+          v20 = __rdtsc();
+          _InterlockedOr(v29, 0);
+          if ( v18 )
           {
-            v28 = 4LL;
-            v14 = v1 - v13;
-            v15 = 0LL;
-            v16 = 0LL;
-            v17 = (v1 - v13) >> 1;
+            v21 = v8 + (v14 << 12);
+            v22 = (v15 << 12) + v21 - 4096;
+            v23 = v18;
             do
             {
-              v33 = __rdtsc();
-              _InterlockedOr(v27, 0);
-              if ( v13 )
-              {
-                MiInsertTbFlushEntry((__int64)v35, v5, v13, 0);
-                MiFlushTbList((int *)v35);
-              }
-              else
-              {
-                KeFlushTb(0, 2u);
-              }
-              _InterlockedOr(v27, 0);
-              v15 += __rdtsc() - v33;
-              v18 = __rdtsc();
-              _InterlockedOr(v27, 0);
-              if ( v17 )
-              {
-                v19 = v5 + (v13 << 12);
-                v20 = (v14 << 12) + v19 - 4096;
-                v21 = v17;
-                do
-                {
-                  v19 += 4096LL;
-                  v20 -= 4096LL;
-                  --v21;
-                }
-                while ( v21 );
-              }
-              _InterlockedOr(v27, 0);
-              v22 = __rdtsc();
-              v16 += (((unsigned __int64)HIDWORD(v22) << 32) | (unsigned int)v22) - v18;
-              --v28;
+              v21 += 4096LL;
+              v22 -= 4096LL;
+              --v23;
             }
-            while ( v28 );
-            v1 = v29;
-            v23 = v15 >> 2;
-            v24 = v16 >> 2;
+            while ( v23 );
+          }
+          _InterlockedOr(v29, 0);
+          v24 = __rdtsc();
+          v17 += (((unsigned __int64)HIDWORD(v24) << 32) | (unsigned int)v24) - v20;
+          --v30;
+        }
+        while ( v30 );
+        v1 = v35;
+        v25 = v16 >> 2;
+        v26 = v17 >> 2;
+        if ( v14 )
+        {
+          if ( v26 + v25 >= v31 + v32 )
+          {
+            v27 = v14 - 1;
             if ( v13 )
+              v27 = v33;
+            ++v13;
+            v33 = v27;
+            if ( v13 == 3 )
             {
-              if ( v24 + v23 < v30 + v31 )
-              {
-                v12 = 0;
-              }
-              else
-              {
-                v25 = v13 - 1;
-                if ( v12 )
-                  v25 = v32;
-                ++v12;
-                v32 = v25;
-                if ( v12 == 3 )
-                {
-                  qword_140C65C90 = v25;
-                  return (__int64 *)MiReleasePtes((__int64)&qword_140C69A40, v34, v1);
-                }
-              }
+              qword_140C4DF90 = v27;
+LABEL_25:
+              if ( v13 == 3 )
+                return (_QWORD *)MiReleasePtes((__int64)&qword_140C4EF40, v36, v1);
+LABEL_29:
+              qword_140C4DF90 = v14;
+              return (_QWORD *)MiReleasePtes((__int64)&qword_140C4EF40, v36, v1);
             }
-            else
-            {
-              v30 = v23;
-              v31 = v24;
-            }
-            if ( ++v13 >= v29 )
-              goto LABEL_28;
+          }
+          else
+          {
+            v13 = 0;
           }
         }
+        else
+        {
+          v31 = v25;
+          v32 = v26;
+        }
+        if ( ++v14 >= v35 )
+          goto LABEL_25;
       }
     }
-    v13 = 0LL;
-LABEL_28:
-    qword_140C65C90 = v13;
-    return (__int64 *)MiReleasePtes((__int64)&qword_140C69A40, v34, v1);
+    v10 = v6;
+    v11 = v1;
+    while ( 1 )
+    {
+      v12 = ValidPte;
+      if ( MiPteInShadowRange((unsigned __int64)v10) )
+      {
+        if ( (unsigned int)MiPteHasShadow() )
+        {
+          if ( !HIBYTE(word_140C4E008) && (ValidPte & 1) != 0 )
+            v12 = ValidPte | 0x8000000000000000uLL;
+          *v10 = v12;
+          MiWritePteShadow((__int64)v10, v12, v28);
+          goto LABEL_6;
+        }
+        if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
+          && (ValidPte & 1) != 0 )
+        {
+          v12 = ValidPte | 0x8000000000000000uLL;
+        }
+      }
+      *v10 = v12;
+LABEL_6:
+      ++v10;
+      v9 += 4096LL;
+      if ( !--v11 )
+        goto LABEL_7;
+    }
   }
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TransformTime@CAnimationInterpolator@@IEAA_JAEBUDwmAnimationPrimitive@@_J@Z @ 0x180134EEE
+ * XREFs of ?TransformTime@CAnimationInterpolator@@IEAA_JAEBUDwmAnimationPrimitive@@_J@Z @ 0x1802200B4
  * Callers:
- *     ?GetInterpolatedValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z @ 0x180281014 (-GetInterpolatedValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z.c)
+ *     ?GetInterpolatedValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z @ 0x18021FDA0 (-GetInterpolatedValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z.c)
  * Callees:
- *     ?GetPrimitiveAtIndex@CAnimationInterpolator@@IEBAPEBUDwmAnimationPrimitive@@I@Z @ 0x18028118C (-GetPrimitiveAtIndex@CAnimationInterpolator@@IEBAPEBUDwmAnimationPrimitive@@I@Z.c)
+ *     ?GetPrimitiveAtIndex@CAnimationInterpolator@@IEBAPEBUDwmAnimationPrimitive@@I@Z @ 0x18021FF1C (-GetPrimitiveAtIndex@CAnimationInterpolator@@IEBAPEBUDwmAnimationPrimitive@@I@Z.c)
  */
 
 __int64 __fastcall CAnimationInterpolator::TransformTime(
@@ -14,9 +14,10 @@ __int64 __fastcall CAnimationInterpolator::TransformTime(
   signed __int64 v5; // rbx
   const struct DwmAnimationPrimitive *PrimitiveAtIndex; // rax
   __int64 v7; // rbx
-  __int64 v8; // rdi
+  __int64 v8; // rsi
   __int64 v9; // rax
-  unsigned __int64 v10; // rcx
+  unsigned __int64 v10; // r8
+  __int64 v11; // rcx
 
   v5 = 0LL;
   PrimitiveAtIndex = CAnimationInterpolator::GetPrimitiveAtIndex(this, 0);
@@ -24,9 +25,10 @@ __int64 __fastcall CAnimationInterpolator::TransformTime(
   {
     case 3:
       v10 = *((_QWORD *)a2 + 2);
+      v11 = *((_QWORD *)a2 + 1);
       if ( v10 )
-        v5 = (a3 - *((_QWORD *)a2 + 1)) % v10;
-      v5 += *((_QWORD *)a2 + 1) - v10;
+        v5 = (a3 - v11) % v10;
+      v5 += v11 - v10;
       if ( v5 < *((_QWORD *)PrimitiveAtIndex + 1) )
         return *((_QWORD *)a2 + 1);
       break;

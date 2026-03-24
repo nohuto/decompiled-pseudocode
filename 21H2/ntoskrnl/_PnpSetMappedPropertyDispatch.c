@@ -1,16 +1,16 @@
 /*
- * XREFs of _PnpSetMappedPropertyDispatch @ 0x140771F34
+ * XREFs of _PnpSetMappedPropertyDispatch @ 0x140745F78
  * Callers:
- *     _PnpSetObjectPropertyWorker @ 0x140771B04 (_PnpSetObjectPropertyWorker.c)
+ *     _PnpSetObjectPropertyWorker @ 0x140745D9C (_PnpSetObjectPropertyWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     _PnpCtxGetObjectDispatchCallback @ 0x14077DE44 (_PnpCtxGetObjectDispatchCallback.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _PnpCtxGetObjectDispatchCallback @ 0x140637F68 (_PnpCtxGetObjectDispatchCallback.c)
  */
 
 __int64 __fastcall PnpSetMappedPropertyDispatch(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        int a3,
         __int64 a4,
         __int64 a5,
         __int64 a6,
@@ -21,7 +21,7 @@ __int64 __fastcall PnpSetMappedPropertyDispatch(
 {
   __int64 result; // rax
   unsigned int v14; // r11d
-  __int64 (__fastcall *v15[2])(_QWORD, _QWORD, _QWORD, __int64, _QWORD *); // [rsp+30h] [rbp-50h] BYREF
+  __int64 (__fastcall *v15)(__int64, __int64, _QWORD, __int64, _QWORD *); // [rsp+30h] [rbp-50h] BYREF
   _QWORD v16[3]; // [rsp+40h] [rbp-40h] BYREF
   int v17; // [rsp+58h] [rbp-28h]
   int v18; // [rsp+5Ch] [rbp-24h]
@@ -30,13 +30,13 @@ __int64 __fastcall PnpSetMappedPropertyDispatch(
   int v21; // [rsp+6Ch] [rbp-14h]
   __int128 v22; // [rsp+70h] [rbp-10h]
 
-  v15[0] = 0LL;
+  v15 = 0LL;
   v18 = 0;
   v22 = 0LL;
-  result = PnpCtxGetObjectDispatchCallback(a1, a3, v15);
+  result = PnpCtxGetObjectDispatchCallback(a1, a3, &v15);
   if ( (int)result >= 0 )
   {
-    if ( v15[0] )
+    if ( v15 )
     {
       v16[1] = a5;
       v16[2] = a6;
@@ -45,7 +45,7 @@ __int64 __fastcall PnpSetMappedPropertyDispatch(
       v20 = a9;
       v21 = a10;
       v16[0] = a4;
-      return v15[0](a1, a2, v14, 9LL, v16);
+      return v15(a1, a2, v14, 9LL, v16);
     }
     else
     {

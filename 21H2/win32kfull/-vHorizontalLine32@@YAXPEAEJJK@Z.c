@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vHorizontalLine32@@YAXPEAEJJK@Z @ 0x1C013F100
+ * XREFs of ?vHorizontalLine32@@YAXPEAEJJK@Z @ 0x1C0150A90
  * Callers:
  *     <none>
  * Callees:
@@ -14,7 +14,7 @@ void __fastcall vHorizontalLine32(unsigned __int8 *a1, int a2, int a3, unsigned 
   if ( a3 != a2 )
   {
     v4 = &a1[4 * a2];
-    v5 = (unsigned __int64)(4LL * a3 - 4LL * a2) >> 2;
+    v5 = (unsigned __int64)(4 * (a3 - a2)) >> 2;
     if ( v5 )
     {
       if ( ((unsigned __int8)v4 & 4) != 0 )

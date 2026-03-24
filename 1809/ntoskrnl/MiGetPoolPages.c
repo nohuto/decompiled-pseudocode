@@ -1,5 +1,5 @@
 /*
- * XREFs of MiGetPoolPages @ 0x1400CB1A0
+ * XREFs of MiGetPoolPages @ 0x1400CB1C0
  * Callers:
  *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
  * Callees:
@@ -9,12 +9,12 @@
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiSufficientAvailablePages @ 0x140055A50 (MiSufficientAvailablePages.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiRetryNonPagedAllocation @ 0x1400CB3EC (MiRetryNonPagedAllocation.c)
- *     MiObtainPoolCharges @ 0x1401097C4 (MiObtainPoolCharges.c)
- *     MiFillPhysicalPages @ 0x14012AF60 (MiFillPhysicalPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiRetryNonPagedAllocation @ 0x1400CB40C (MiRetryNonPagedAllocation.c)
+ *     MiObtainPoolCharges @ 0x1401097E4 (MiObtainPoolCharges.c)
+ *     MiFillPhysicalPages @ 0x14012AF80 (MiFillPhysicalPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 unsigned __int64 __fastcall MiGetPoolPages(int a1, unsigned int a2, unsigned __int64 a3)

@@ -1,18 +1,18 @@
 /*
- * XREFs of CcPerfLogFlushSection @ 0x1403AE0B0
+ * XREFs of CcPerfLogFlushSection @ 0x1403BD19C
  * Callers:
- *     CcFlushCachePriv @ 0x140283030 (CcFlushCachePriv.c)
- *     CcUnpinRepinnedBcb @ 0x14053A6C0 (CcUnpinRepinnedBcb.c)
+ *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
+ *     CcUnpinRepinnedBcb @ 0x1404EA760 (CcUnpinRepinnedBcb.c)
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140230680 (ObFastDereferenceObjectDeferDelete.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x14027A1B4 (CcReferenceSharedCacheMapFileObject.c)
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     CcDereferenceSharedCacheMapFileObject @ 0x1402F5784 (CcDereferenceSharedCacheMapFileObject.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1402F57D0 (CcReferenceSharedCacheMapFileObject.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall CcPerfLogFlushSection(__int64 a1, __int64 a2, __int64 *a3, int a4, int a5)
 {
-  unsigned __int64 v9; // rax
+  ULONG_PTR v9; // rax
   _QWORD *v10; // [rsp+30h] [rbp-48h] BYREF
   int v11; // [rsp+38h] [rbp-40h]
   int v12; // [rsp+3Ch] [rbp-3Ch]
@@ -25,7 +25,7 @@ void __fastcall CcPerfLogFlushSection(__int64 a1, __int64 a2, __int64 *a3, int a
   {
     v9 = CcReferenceSharedCacheMapFileObject(a2);
     v13[1] = *(_QWORD *)(v9 + 24);
-    ObFastDereferenceObjectDeferDelete((signed __int64 *)(a2 + 96), v9, 0x63536343u);
+    CcDereferenceSharedCacheMapFileObject(a2, v9);
     if ( a3 )
       v14 = *a3;
     else
@@ -36,6 +36,6 @@ void __fastcall CcPerfLogFlushSection(__int64 a1, __int64 a2, __int64 *a3, int a
     v10 = v13;
     v15 = a4;
     v11 = 32;
-    EtwTraceKernelEvent((__int64)&v10, 1u, 0x80020000, 0x160Au, 0x401902u);
+    EtwTraceKernelEvent((int)&v10, 1, 0x80020000, 5642, 4200706);
   }
 }

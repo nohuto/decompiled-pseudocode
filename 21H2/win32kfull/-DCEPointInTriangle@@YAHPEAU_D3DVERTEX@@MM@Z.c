@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DCEPointInTriangle@@YAHPEAU_D3DVERTEX@@MM@Z @ 0x1C01DE798
+ * XREFs of ?DCEPointInTriangle@@YAHPEAU_D3DVERTEX@@MM@Z @ 0x1C01E3EE8
  * Callers:
- *     ?DCEHitTestWindow@@YA_NPEBUtagRECT@@PEBU_D3DMATRIX@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C016B5D8 (-DCEHitTestWindow@@YA_NPEBUtagRECT@@PEBU_D3DMATRIX@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z.c)
+ *     DCEHitTestWindow @ 0x1C01E4C34 (DCEHitTestWindow.c)
  * Callees:
  *     <none>
  */

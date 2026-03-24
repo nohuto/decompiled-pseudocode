@@ -1,38 +1,31 @@
 /*
- * XREFs of CmFcpManagerSoftwareHiveReady @ 0x140810140
+ * XREFs of CmFcpManagerSoftwareHiveReady @ 0x1407CAA80
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     CmFcpSubscribeScmWnfStateChange @ 0x14041976C (CmFcpSubscribeScmWnfStateChange.c)
- *     CmFcpManagerDrainUsageNotifications @ 0x140810588 (CmFcpManagerDrainUsageNotifications.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x1407CAB10 (CmFcpManagerDrainUsageNotifications.c)
  */
 
 _QWORD *__fastcall CmFcpManagerSoftwareHiveReady(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v3; // rax
-  __int64 v4; // rbp
+  volatile signed __int64 *v3; // rdi
+  char v4; // si
 
   *(_BYTE *)(a1 + 336) = 1;
-  if ( *(_BYTE *)(a1 + 1736) )
-    CmFcpSubscribeScmWnfStateChange(a1);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v3 = KeAbPreAcquire(a1 + 328, 0LL);
-  v4 = v3;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 328), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 328), v3, a1 + 328);
-  if ( v4 )
-    *(_BYTE *)(v4 + 18) = 1;
+  v3 = (volatile signed __int64 *)(a1 + 328);
+  ExAcquirePushLockExclusiveEx(a1 + 328, 0LL);
   CmFcpManagerDrainUsageNotifications(a1, 0LL);
   CmFcpManagerDrainUsageNotifications(a1, 0LL);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 328), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 328));
-  KeAbPostRelease(a1 + 328);
+  v4 = _InterlockedExchangeAdd64(v3, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v4 & 2) != 0 && (v4 & 4) == 0 )
+    ExfTryToWakePushLock(v3);
+  KeAbPostRelease((ULONG_PTR)v3);
   return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

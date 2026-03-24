@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiFdoRemoveChildDescriptors @ 0x1C038B16C
+ * XREFs of DpiFdoRemoveChildDescriptors @ 0x1C02CBBAC
  * Callers:
- *     DpiFdoStartAdapter @ 0x1C01FB06C (DpiFdoStartAdapter.c)
- *     DpiFdoEnumChildDevices @ 0x1C020E59C (DpiFdoEnumChildDevices.c)
- *     DpiFdoHandleRemoveDevice @ 0x1C0389720 (DpiFdoHandleRemoveDevice.c)
+ *     DpiFdoStartAdapter @ 0x1C018071C (DpiFdoStartAdapter.c)
+ *     DpiFdoEnumChildDevices @ 0x1C01971D4 (DpiFdoEnumChildDevices.c)
+ *     DpiFdoHandleRemoveDevice @ 0x1C02CA1F0 (DpiFdoHandleRemoveDevice.c)
  * Callees:
- *     DpiFdoRemoveChildDescriptor @ 0x1C038B124 (DpiFdoRemoveChildDescriptor.c)
+ *     DpiFdoRemoveChildDescriptor @ 0x1C02CBB64 (DpiFdoRemoveChildDescriptor.c)
  */
 
 void __fastcall DpiFdoRemoveChildDescriptors(__int64 a1)

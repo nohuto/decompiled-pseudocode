@@ -1,28 +1,28 @@
 /*
- * XREFs of EtwTraceAppStateChange @ 0x140712868
+ * XREFs of EtwTraceAppStateChange @ 0x1406CDBB8
  * Callers:
- *     PsSetProcessTelemetryAppState @ 0x14071147C (PsSetProcessTelemetryAppState.c)
+ *     PsSetProcessTelemetryAppState @ 0x1406CDED4 (PsSetProcessTelemetryAppState.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     ObFastDereferenceObject @ 0x1402F89B0 (ObFastDereferenceObject.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObGetProcessHandleCount @ 0x14066C174 (ObGetProcessHandleCount.c)
- *     EtwpWriteAppStateChangeWithStats @ 0x14068A3DC (EtwpWriteAppStateChangeWithStats.c)
- *     EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x1406C6268 (EtwpAppStateChangeSummaryShouldLogCommandLine.c)
- *     EtwpQueryTokenPackageInfo @ 0x14070B934 (EtwpQueryTokenPackageInfo.c)
- *     EtwpQueryProcessOtherInfo @ 0x14070BACC (EtwpQueryProcessOtherInfo.c)
- *     EtwpQueryProcessCommandLine @ 0x14070BB0C (EtwpQueryProcessCommandLine.c)
- *     EtwpWriteAppStateChange @ 0x140711DA8 (EtwpWriteAppStateChange.c)
- *     EtwpInitStateChangeInfo @ 0x140711E3C (EtwpInitStateChangeInfo.c)
- *     EtwpWriteAppStateChangeSummary @ 0x140712BA0 (EtwpWriteAppStateChangeSummary.c)
- *     PsQueryStatisticsProcess @ 0x1407B81B0 (PsQueryStatisticsProcess.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     EtwpQueryTokenPackageInfo @ 0x1406023FC (EtwpQueryTokenPackageInfo.c)
+ *     EtwpQueryProcessOtherInfo @ 0x140602928 (EtwpQueryProcessOtherInfo.c)
+ *     EtwpQueryProcessCommandLine @ 0x140602968 (EtwpQueryProcessCommandLine.c)
+ *     EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x140604E5C (EtwpAppStateChangeSummaryShouldLogCommandLine.c)
+ *     EtwpWriteAppStateChange @ 0x140604EFC (EtwpWriteAppStateChange.c)
+ *     EtwpInitStateChangeInfo @ 0x1406134BC (EtwpInitStateChangeInfo.c)
+ *     PsQueryStatisticsProcess @ 0x140618CC0 (PsQueryStatisticsProcess.c)
+ *     EtwpWriteAppStateChangeSummary @ 0x14062A95C (EtwpWriteAppStateChangeSummary.c)
+ *     ObGetProcessHandleCount @ 0x1406B471C (ObGetProcessHandleCount.c)
+ *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     EtwpWriteAppStateChangeWithStats @ 0x14077B150 (EtwpWriteAppStateChangeWithStats.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *BugCheckParameter1, __int64 a2)
@@ -37,10 +37,10 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *BugCheckParameter
   int v11; // ecx
   int v12; // eax
   int v13; // eax
-  _OWORD *v14; // r15
+  unsigned int *v14; // r15
   char v15; // r14
   char v16; // si
-  unsigned __int64 v17; // rbx
+  struct _DMA_ADAPTER *v17; // rbx
   _DWORD *v18; // r9
   int v19; // [rsp+30h] [rbp-D0h] BYREF
   __int64 v20; // [rsp+38h] [rbp-C8h] BYREF
@@ -49,7 +49,7 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *BugCheckParameter
   _OWORD v23[2]; // [rsp+C0h] [rbp-40h] BYREF
   __int64 v24; // [rsp+E0h] [rbp-20h]
   int v25; // [rsp+E8h] [rbp-18h]
-  _BYTE v26[100]; // [rsp+ECh] [rbp-14h] BYREF
+  char v26[100]; // [rsp+ECh] [rbp-14h] BYREF
   _OWORD v27[3]; // [rsp+150h] [rbp+50h] BYREF
   _BYTE v28[416]; // [rsp+180h] [rbp+80h] BYREF
 
@@ -57,7 +57,7 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *BugCheckParameter
   memset(v23, 0, sizeof(v23));
   v24 = 0LL;
   v25 = 0;
-  if ( dword_140C043A8 && tlgKeywordOn((__int64)&dword_140C043A8, 0x600000000001LL) )
+  if ( dword_140C02BB8 && tlgKeywordOn((__int64)&dword_140C02BB8, 0x600000000001LL) )
   {
     EtwpInitStateChangeInfo((__int64)BugCheckParameter1, (__int64)v26);
     v4 = *(_QWORD *)a2 - *(_QWORD *)(a2 + 16);
@@ -76,7 +76,7 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *BugCheckParameter
     if ( v7 == 3 )
     {
       memset(v22, 0, 0x68uLL);
-      PsQueryStatisticsProcess(BugCheckParameter1, v22);
+      PsQueryStatisticsProcess((__int64)BugCheckParameter1, v22);
       LODWORD(v23[0]) = ObGetProcessHandleCount(BugCheckParameter1, 0LL);
       v10 = -1;
       v11 = -1;
@@ -97,15 +97,15 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *BugCheckParameter
         v10 = v22[9] / 1024LL;
       v25 = v10;
       *(_QWORD *)((char *)&v23[1] + 4) = v22[3];
-      EtwpWriteAppStateChangeWithStats();
-      v14 = v23;
+      EtwpWriteAppStateChangeWithStats(BugCheckParameter1, v26, v23, 1024LL);
+      v14 = (unsigned int *)v23;
     }
     else
     {
       EtwpWriteAppStateChange();
-      LODWORD(v14) = 0;
+      v14 = 0LL;
     }
-    if ( dword_140C043A8 && tlgKeywordOn((__int64)&dword_140C043A8, 0x400000000000LL) )
+    if ( dword_140C02BB8 && tlgKeywordOn((__int64)&dword_140C02BB8, 0x400000000000LL) )
     {
       memset(v28, 0, 0x198uLL);
       v20 = 0LL;
@@ -116,7 +116,7 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *BugCheckParameter
       memset(v27, 0, sizeof(v27));
       if ( (struct _EX_RUNDOWN_REF *)KeGetCurrentThread()->ApcState.Process != BugCheckParameter1 )
       {
-        if ( ExAcquireRundownProtection(BugCheckParameter1 + 139) )
+        if ( ExAcquireRundownProtection_0(BugCheckParameter1 + 139) )
         {
           KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v27, v18);
           v15 = 1;
@@ -126,9 +126,9 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *BugCheckParameter
           v16 = 0;
         }
       }
-      v17 = PsReferencePrimaryTokenWithTag((__int64)BugCheckParameter1, 0x746C6644u);
-      EtwpQueryTokenPackageInfo(v17, (__int64)v28, &v19);
-      ObFastDereferenceObject((signed __int64 *)&BugCheckParameter1[151], v17, 0x746C6644u);
+      v17 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken((PEPROCESS)BugCheckParameter1);
+      EtwpQueryTokenPackageInfo((__int64)v17, (__int64)v28, &v19);
+      ObFastDereferenceObject((signed __int64 *)&BugCheckParameter1[151], v17);
       if ( v16 )
       {
         if ( BugCheckParameter1[170].Count && EtwpAppStateChangeSummaryShouldLogCommandLine((__int64)BugCheckParameter1) )
@@ -137,16 +137,16 @@ void __fastcall EtwTraceAppStateChange(struct _EX_RUNDOWN_REF *BugCheckParameter
       }
       if ( v15 )
       {
-        KiUnstackDetachProcess((__int64)v27, 0LL);
-        ExReleaseRundownProtection(BugCheckParameter1 + 139);
+        KiUnstackDetachProcess((__int64)v27, 0);
+        ExReleaseRundownProtection_0(BugCheckParameter1 + 139);
       }
       EtwpWriteAppStateChangeSummary(
-        (_DWORD)BugCheckParameter1,
-        (unsigned int)v26,
-        (_DWORD)v14,
-        (unsigned int)v28,
-        (__int64)&v20,
-        (__int64)P);
+        (__int64)BugCheckParameter1,
+        v26,
+        v14,
+        (__int64)v28,
+        (int *)&v20,
+        (unsigned __int16 *)P);
       if ( P[1] )
         ExFreePoolWithTag(P[1], 0);
     }

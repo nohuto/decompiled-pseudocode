@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiDdDDISharedPrimaryUnLockNotification @ 0x1C02758D0
+ * XREFs of NtGdiDdDDISharedPrimaryUnLockNotification @ 0x1C0278150
  * Callers:
  *     <none>
  * Callees:
- *     ?DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z @ 0x1C0273A8C (-DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z.c)
+ *     ?DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z @ 0x1C0276178 (-DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z.c)
  */
 
 __int64 __fastcall NtGdiDdDDISharedPrimaryUnLockNotification(ULONG64 a1)

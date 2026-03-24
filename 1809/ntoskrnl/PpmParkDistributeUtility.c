@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmParkDistributeUtility @ 0x140103700
+ * XREFs of PpmParkDistributeUtility @ 0x140103720
  * Callers:
- *     PpmParkDistributeAllUtility @ 0x140103670 (PpmParkDistributeAllUtility.c)
- *     PpmHeteroDistributeUtility @ 0x1402E3EB0 (PpmHeteroDistributeUtility.c)
+ *     PpmParkDistributeAllUtility @ 0x140103690 (PpmParkDistributeAllUtility.c)
+ *     PpmHeteroDistributeUtility @ 0x1402E3FB0 (PpmHeteroDistributeUtility.c)
  * Callees:
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     PpmHeteroNormalizedUtilityToUtility @ 0x1402E422C (PpmHeteroNormalizedUtilityToUtility.c)
- *     PpmHeteroUtilityToNormalizedUtility @ 0x1402E4370 (PpmHeteroUtilityToNormalizedUtility.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     PpmHeteroNormalizedUtilityToUtility @ 0x1402E432C (PpmHeteroNormalizedUtilityToUtility.c)
+ *     PpmHeteroUtilityToNormalizedUtility @ 0x1402E4470 (PpmHeteroUtilityToNormalizedUtility.c)
  */
 
 __int16 __fastcall PpmParkDistributeUtility(

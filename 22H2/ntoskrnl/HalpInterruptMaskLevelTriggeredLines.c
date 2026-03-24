@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInterruptMaskLevelTriggeredLines @ 0x140520E30
+ * XREFs of HalpInterruptMaskLevelTriggeredLines @ 0x1404D6FD0
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptSetLineStateInternal @ 0x14037D080 (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptRestoreAllControllerState @ 0x140A95770 (HalpInterruptRestoreAllControllerState.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14037861C (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptRestoreAllControllerState @ 0x140997C90 (HalpInterruptRestoreAllControllerState.c)
  */
 
 __int64 HalpInterruptMaskLevelTriggeredLines()
@@ -37,9 +37,9 @@ __int64 HalpInterruptMaskLevelTriggeredLines()
     v1 = (__int64)v0;
     v16 = v0;
     v0 = (ULONG_PTR *)*v0;
-    v2 = v1 + 264;
-    v3 = *(__int64 **)(v1 + 264);
-    if ( v3 != (__int64 *)(v1 + 264) )
+    v2 = v1 + 240;
+    v3 = *(__int64 **)(v1 + 240);
+    if ( v3 != (__int64 *)(v1 + 240) )
     {
       do
       {
@@ -60,7 +60,7 @@ __int64 HalpInterruptMaskLevelTriggeredLines()
               v13 = *(_OWORD *)(v7 + v8 + 32);
               v14 = *(_QWORD *)(v7 + v8 + 48);
               v11.m128i_i32[3] = _mm_srli_si128(v11, 8).m128i_i32[1] & 0xFFFFFFEF;
-              LODWORD(v15) = *(_DWORD *)(v1 + 256);
+              LODWORD(v15) = *(_DWORD *)(v1 + 232);
               HIDWORD(v15) = v5 + *((_DWORD *)v4 + 5);
               v9 = HalpInterruptSetLineStateInternal(v1, (__int64)&v15, (__int64)&v11);
               if ( v9 < 0 )

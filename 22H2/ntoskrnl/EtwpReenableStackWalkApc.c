@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpReenableStackWalkApc @ 0x14036D120
+ * XREFs of EtwpReenableStackWalkApc @ 0x14032C050
  * Callers:
  *     <none>
  * Callees:
@@ -14,7 +14,7 @@ __int64 __fastcall EtwpReenableStackWalkApc(int a1)
   signed __int32 v4; // ett
 
   CurrentThread = KeGetCurrentThread();
-  v2 = (a1 << 23) | 0x7FFFFF;
+  v2 = (a1 << 24) | 0xFFFFFF;
   _m_prefetchw((char *)&CurrentThread->116 + 4);
   do
   {

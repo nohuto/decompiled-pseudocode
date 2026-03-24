@@ -1,13 +1,13 @@
 /*
- * XREFs of KiStartProfileTarget @ 0x140295FB0
+ * XREFs of KiStartProfileTarget @ 0x1402960B0
  * Callers:
- *     KeStartProfile @ 0x140295B2C (KeStartProfile.c)
+ *     KeStartProfile @ 0x140295C2C (KeStartProfile.c)
  * Callees:
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeOrAffinityEx @ 0x1400DC8D0 (KeOrAffinityEx.c)
- *     KeSubtractAffinityEx @ 0x1400ED820 (KeSubtractAffinityEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeOrAffinityEx @ 0x1400DC8F0 (KeOrAffinityEx.c)
+ *     KeSubtractAffinityEx @ 0x1400ED840 (KeSubtractAffinityEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 ULONG_PTR __fastcall KiStartProfileTarget(__int64 *Argument)

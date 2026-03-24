@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpFreeUserBufferSpace @ 0x1409EDDB0
+ * XREFs of EtwpFreeUserBufferSpace @ 0x140941BDC
  * Callers:
- *     EtwpRealtimeInjectEtwBuffer @ 0x140798F44 (EtwpRealtimeInjectEtwBuffer.c)
+ *     EtwpRealtimeInjectEtwBuffer @ 0x140645E50 (EtwpRealtimeInjectEtwBuffer.c)
  * Callees:
- *     RtlInterlockedClearBitRun @ 0x1402A2030 (RtlInterlockedClearBitRun.c)
- *     ZwFreeVirtualMemory @ 0x14041BB20 (ZwFreeVirtualMemory.c)
+ *     RtlInterlockedClearBitRun @ 0x1403BE2D0 (RtlInterlockedClearBitRun.c)
+ *     ZwFreeVirtualMemory @ 0x1403FA760 (ZwFreeVirtualMemory.c)
  */
 
 NTSTATUS __fastcall EtwpFreeUserBufferSpace(__int64 a1, ULONG_PTR a2, void *a3)

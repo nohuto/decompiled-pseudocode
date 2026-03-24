@@ -1,32 +1,33 @@
 /*
- * XREFs of KiAbThreadInsertList @ 0x14024E928
+ * XREFs of KiAbThreadInsertList @ 0x1402C7CCC
  * Callers:
- *     ExpBoostIoAfterAcquire @ 0x14021CA70 (ExpBoostIoAfterAcquire.c)
- *     KeAbProcessEffectiveIoPriorityChange @ 0x140229B04 (KeAbProcessEffectiveIoPriorityChange.c)
- *     KiAbThreadBoostIoPriority @ 0x140229BD8 (KiAbThreadBoostIoPriority.c)
- *     KeAbProcessBaseIoPriorityChangeInternal @ 0x14028F748 (KeAbProcessBaseIoPriorityChangeInternal.c)
- *     PsBoostThreadIoEx @ 0x1402ACD80 (PsBoostThreadIoEx.c)
- *     ExpApplyPriorityBoost @ 0x140343010 (ExpApplyPriorityBoost.c)
- *     KiAbSetMinimumThreadPriority @ 0x14035A424 (KiAbSetMinimumThreadPriority.c)
+ *     ExpApplyPriorityBoost @ 0x14022F000 (ExpApplyPriorityBoost.c)
+ *     KeAbProcessEffectiveIoPriorityChange @ 0x14028748C (KeAbProcessEffectiveIoPriorityChange.c)
+ *     KiAbThreadBoostIoPriority @ 0x140288934 (KiAbThreadBoostIoPriority.c)
+ *     KiAbSetMinimumThreadPriority @ 0x1402F1D84 (KiAbSetMinimumThreadPriority.c)
+ *     KeAbProcessBaseIoPriorityChangeInternal @ 0x1402F73AC (KeAbProcessBaseIoPriorityChangeInternal.c)
+ *     ExpAcquireResourceSharedLite @ 0x14034C060 (ExpAcquireResourceSharedLite.c)
+ *     ExpAcquireResourceExclusiveLite @ 0x14034C9B0 (ExpAcquireResourceExclusiveLite.c)
+ *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
  * Callees:
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KiAbThreadInsertList(__int64 a1, _QWORD *a2, _QWORD *a3)
+__int64 __fastcall KiAbThreadInsertList(__int64 a1, _QWORD *a2, _QWORD *a3, __int64 a4)
 {
   struct _KPRCB *CurrentPrcb; // rbx
-  unsigned int v4; // esi
+  unsigned int v5; // esi
   _DWORD *SchedulerAssist; // rcx
-  _DWORD *v10; // rcx
-  int v11; // eax
+  _DWORD *v11; // rcx
   int v12; // eax
-  int v13; // [rsp+40h] [rbp+8h] BYREF
+  int v13; // eax
+  int v14; // [rsp+40h] [rbp+8h] BYREF
 
   CurrentPrcb = KeGetCurrentPrcb();
-  v4 = 0;
-  v13 = 0;
+  v5 = 0;
+  v14 = 0;
   while ( 1 )
   {
     SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -34,37 +35,37 @@ __int64 __fastcall KiAbThreadInsertList(__int64 a1, _QWORD *a2, _QWORD *a3)
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v11 = SchedulerAssist[6];
-        SchedulerAssist[6] = v11 + 1;
-        if ( v11 == -1 )
+        v12 = SchedulerAssist[6];
+        SchedulerAssist[6] = v12 + 1;
+        if ( v12 == -1 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
       break;
-    v10 = CurrentPrcb->SchedulerAssist;
-    if ( v10 )
+    v11 = CurrentPrcb->SchedulerAssist;
+    if ( v11 )
     {
       if ( CurrentPrcb->NestingLevel <= 1u )
       {
-        v12 = v10[6] - 1;
-        v10[6] = v12;
-        if ( !v12 )
+        v13 = v11[6] - 1;
+        v11[6] = v13;
+        if ( !v13 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     do
-      KeYieldProcessorEx(&v13);
+      KeYieldProcessorEx(&v14, (__int64)a2, (__int64)a3, a4);
     while ( *(_QWORD *)(a1 + 64) );
   }
   if ( *a3 == 1LL )
   {
-    v4 = 1;
+    v5 = 1;
     *a3 = *a2;
     *a2 = a3;
   }
   KiReleaseThreadLockSafe(a1);
-  if ( v4 )
+  if ( v5 )
     _InterlockedAdd16((volatile signed __int16 *)(a1 + 868), 1u);
-  return v4;
+  return v5;
 }

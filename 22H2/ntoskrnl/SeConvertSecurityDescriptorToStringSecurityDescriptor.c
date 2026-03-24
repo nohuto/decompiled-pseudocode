@@ -1,13 +1,12 @@
 /*
- * XREFs of SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x14020BC90
+ * XREFs of SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x1403487A0
  * Callers:
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14067033C (AdtpBuildAccessReasonAuditStringInternal.c)
- *     CmpLogHiveFileInaccessible @ 0x14068F4C0 (CmpLogHiveFileInaccessible.c)
- *     AstLogDeviceSDDLUpdated @ 0x14069C6E8 (AstLogDeviceSDDLUpdated.c)
- *     AdtpBuildSecurityDescriptorUnicodeString @ 0x140A5AFD4 (AdtpBuildSecurityDescriptorUnicodeString.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C2834 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     CmpLogHiveFileInaccessible @ 0x1406F00E4 (CmpLogHiveFileInaccessible.c)
+ *     AdtpBuildSecurityDescriptorUnicodeString @ 0x14096D99C (AdtpBuildSecurityDescriptorUnicodeString.c)
  * Callees:
- *     LocalConvertSDToStringSD_Rev1 @ 0x14069CE68 (LocalConvertSDToStringSD_Rev1.c)
- *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
+ *     SddlpAlloc @ 0x1406ED338 (SddlpAlloc.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x1406EFC20 (LocalConvertSDToStringSD_Rev1.c)
  */
 
 __int64 __fastcall SeConvertSecurityDescriptorToStringSecurityDescriptor(
@@ -22,32 +21,24 @@ __int64 __fastcall SeConvertSecurityDescriptorToStringSecurityDescriptor(
   _WORD *v8; // rax
 
   v6 = 0;
-  if ( a1 && (_DWORD)a3 )
+  if ( a1 && (_DWORD)a3 || !a4 )
   {
-LABEL_3:
-    if ( a4 && (_DWORD)a3 )
+    if ( a1 && a4 && (_DWORD)a3 )
     {
-      if ( (_DWORD)a2 == 1 )
-      {
-        result = LocalConvertSDToStringSD_Rev1(a1, a2, a3, a1, a3, a4, a5);
-        if ( (int)result <= 0 )
-          return result;
-      }
-      else
+      if ( (_DWORD)a2 != 1 )
       {
         LOWORD(result) = 1305;
+        return (unsigned __int16)result | 0xC0070000;
       }
-      return (unsigned __int16)result | 0xC0070000;
+      result = LocalConvertSDToStringSD_Rev1(a1, a2, a3, a1, a3, a4, a5);
     }
-LABEL_9:
-    LOWORD(result) = 87;
+    else
+    {
+      result = 87LL;
+    }
+    if ( (int)result <= 0 )
+      return result;
     return (unsigned __int16)result | 0xC0070000;
-  }
-  if ( !a4 )
-  {
-    if ( !a1 )
-      goto LABEL_9;
-    goto LABEL_3;
   }
   v8 = (_WORD *)SddlpAlloc(2uLL);
   *a4 = v8;

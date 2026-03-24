@@ -1,13 +1,13 @@
 /*
- * XREFs of SepSecureBootCheckForUpdates @ 0x140B53550
+ * XREFs of SepSecureBootCheckForUpdates @ 0x140A937A0
  * Callers:
- *     SeSecureBootRegisterPolicy @ 0x140B2BF58 (SeSecureBootRegisterPolicy.c)
+ *     SeSecureBootRegisterPolicy @ 0x140A7084C (SeSecureBootRegisterPolicy.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     NtUpdateWnfStateData @ 0x1407934D0 (NtUpdateWnfStateData.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     NtUpdateWnfStateData @ 0x14060E5A0 (NtUpdateWnfStateData.c)
  */
 
 NTSTATUS SepSecureBootCheckForUpdates()
@@ -21,7 +21,8 @@ NTSTATUS SepSecureBootCheckForUpdates()
 
   KeyHandle = 0LL;
   ResultLength = 0;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.Length = 48;
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   ObjectAttributes.RootDirectory = 0LL;
   v5 = 0;
@@ -33,7 +34,7 @@ NTSTATUS SepSecureBootCheckForUpdates()
   {
     result = ZwQueryValueKey(
                KeyHandle,
-               (PUNICODE_STRING)&stru_14000A900,
+               (PUNICODE_STRING)&stru_140009B90,
                KeyValuePartialInformation,
                &KeyValueInformation,
                0x14u,

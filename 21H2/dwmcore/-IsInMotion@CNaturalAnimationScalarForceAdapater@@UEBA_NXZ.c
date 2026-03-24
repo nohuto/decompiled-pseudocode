@@ -1,11 +1,11 @@
 /*
- * XREFs of ?IsInMotion@CNaturalAnimationScalarForceAdapater@@UEBA_NXZ @ 0x180267310
+ * XREFs of ?IsInMotion@CNaturalAnimationScalarForceAdapater@@UEBA_NXZ @ 0x180216270
  * Callers:
  *     <none>
  * Callees:
- *     ?InternalRelease@?$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EA9A4 (-InternalRelease@-$ComPtr@VCVector3Force@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?IsInMotion@CScalarForceEvaluator@@QEBA_NXZ @ 0x180266AE0 (-IsInMotion@CScalarForceEvaluator@@QEBA_NXZ.c)
- *     ?GetVector3Force@CNaturalAnimation@@QEBAXPEAPEAVCVector3Force@@@Z @ 0x1802672BC (-GetVector3Force@CNaturalAnimation@@QEBAXPEAPEAVCVector3Force@@@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D44F4 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?IsInMotion@CScalarForceEvaluator@@QEBA_NXZ @ 0x180215A48 (-IsInMotion@CScalarForceEvaluator@@QEBA_NXZ.c)
+ *     ?GetVector3Force@CNaturalAnimation@@QEBAXPEAPEAVCVector3Force@@@Z @ 0x18021621C (-GetVector3Force@CNaturalAnimation@@QEBAXPEAPEAVCVector3Force@@@Z.c)
  */
 
 char __fastcall CNaturalAnimationScalarForceAdapater::IsInMotion(CNaturalAnimationScalarForceAdapater *this)
@@ -17,14 +17,14 @@ char __fastcall CNaturalAnimationScalarForceAdapater::IsInMotion(CNaturalAnimati
   __int64 v5; // rdx
   struct CVector3Force *v7; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = *((_QWORD *)this + 4);
+  v1 = *((_QWORD *)this + 5);
   v2 = 0;
   v7 = 0LL;
   if ( v1 )
     v3 = *(CNaturalAnimation **)(v1 + 16);
   else
     v3 = 0LL;
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v7);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v7);
   CNaturalAnimation::GetVector3Force(v3, &v7);
   if ( CScalarForceEvaluator::IsInMotion((struct CVector3Force *)((char *)v7 + 16))
     || CScalarForceEvaluator::IsInMotion((CScalarForceEvaluator *)(v4 + 84))
@@ -32,6 +32,6 @@ char __fastcall CNaturalAnimationScalarForceAdapater::IsInMotion(CNaturalAnimati
   {
     v2 = 1;
   }
-  Microsoft::WRL::ComPtr<CVector3Force>::InternalRelease((__int64 *)&v7);
+  Microsoft::WRL::ComPtr<CD3DSurface>::InternalRelease((__int64 *)&v7);
   return v2;
 }

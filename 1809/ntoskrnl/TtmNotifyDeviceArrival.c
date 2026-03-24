@@ -1,5 +1,5 @@
 /*
- * XREFs of TtmNotifyDeviceArrival @ 0x14087CFE0
+ * XREFs of TtmNotifyDeviceArrival @ 0x14087CFC0
  * Callers:
  *     <none>
  * Callees:
@@ -7,14 +7,14 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     RtlStringCchCopyW @ 0x140092420 (RtlStringCchCopyW.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     TtmiLogError @ 0x1407616FC (TtmiLogError.c)
- *     TtmpFindDeviceByToken @ 0x14087E070 (TtmpFindDeviceByToken.c)
- *     TtmiAcquireCurrentSession @ 0x1408801E4 (TtmiAcquireCurrentSession.c)
- *     TtmiScheduleSessionWorker @ 0x140880240 (TtmiScheduleSessionWorker.c)
- *     TtmiLogDeviceArrivalNotified @ 0x14088300C (TtmiLogDeviceArrivalNotified.c)
+ *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
+ *     TtmpFindDeviceByToken @ 0x14087E050 (TtmpFindDeviceByToken.c)
+ *     TtmiAcquireCurrentSession @ 0x1408801C4 (TtmiAcquireCurrentSession.c)
+ *     TtmiScheduleSessionWorker @ 0x140880220 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogDeviceArrivalNotified @ 0x140882FEC (TtmiLogDeviceArrivalNotified.c)
  */
 
 __int64 __fastcall TtmNotifyDeviceArrival(unsigned int a1, __int64 a2, _QWORD *a3, int a4, __int64 a5)

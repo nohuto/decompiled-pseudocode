@@ -1,87 +1,94 @@
 /*
- * XREFs of MmUpdateOldWorkingSetPages @ 0x14063574C
+ * XREFs of MmUpdateOldWorkingSetPages @ 0x14053C92C
  * Callers:
- *     PfpDeprioritizeOldPagesInWs @ 0x14097DD2C (PfpDeprioritizeOldPagesInWs.c)
+ *     PfpDeprioritizeOldPagesInWs @ 0x1408DF730 (PfpDeprioritizeOldPagesInWs.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     MiTbFlushType @ 0x14025B98C (MiTbFlushType.c)
- *     MiWalkPageTables @ 0x14025BBE0 (MiWalkPageTables.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     MiWalkPageTables @ 0x140209280 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     MiTbFlushType @ 0x1402B7898 (MiTbFlushType.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall MmUpdateOldWorkingSetPages(ULONG_PTR BugCheckParameter1, int a2, char a3)
 {
-  int v6; // r14d
-  int v7; // eax
-  unsigned int v8; // edi
+  _DWORD *v6; // r9
+  unsigned int v7; // ebx
+  int v8; // r14d
   int v9; // eax
-  __int64 v10; // rcx
-  bool v11; // zf
-  _QWORD v13[28]; // [rsp+20h] [rbp-E0h] BYREF
-  __m128i v14[11]; // [rsp+100h] [rbp+0h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v15; // [rsp+1B0h] [rbp+B0h] BYREF
-  _DWORD v16[68]; // [rsp+1E0h] [rbp+E0h] BYREF
+  int v10; // eax
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  _DWORD *v13; // r9
+  bool v14; // zf
+  unsigned __int8 v15; // dl
+  _QWORD v17[28]; // [rsp+20h] [rbp-E0h] BYREF
+  _QWORD v18[22]; // [rsp+100h] [rbp+0h] BYREF
+  _OWORD v19[3]; // [rsp+1B0h] [rbp+B0h] BYREF
+  _DWORD v20[68]; // [rsp+1E0h] [rbp+E0h] BYREF
 
-  memset(&v15, 0, sizeof(v15));
-  memset(v13, 0, 0xD8uLL);
-  memset(v14, 0, sizeof(v14));
-  memset(v16, 0, 0x108uLL);
+  memset(v19, 0, sizeof(v19));
+  memset(v17, 0, 0xD8uLL);
+  memset(v18, 0, sizeof(v18));
+  memset(v20, 0, 0x108uLL);
+  v7 = 0;
   if ( KeGetCurrentThread()->ApcState.Process == (_KPROCESS *)BugCheckParameter1 )
   {
-    v6 = 0;
+    v8 = 0;
   }
   else
   {
-    v6 = 1;
-    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)&v15);
+    v8 = 1;
+    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v19, v6);
   }
-  v7 = v13[0];
-  v8 = 0;
+  v9 = v17[0];
   if ( (a3 & 2) != 0 )
   {
-    v7 = LODWORD(v13[0]) | 1;
-    LODWORD(v13[0]) |= 1u;
+    v9 = LODWORD(v17[0]) | 1;
+    LODWORD(v17[0]) |= 1u;
   }
   if ( (a3 & 1) != 0 )
-    LODWORD(v13[0]) = v7 | 2;
-  HIDWORD(v13[4]) = 0;
-  HIDWORD(v13[0]) = a2;
-  v9 = MiTbFlushType(BugCheckParameter1 + 1664);
-  v13[5] = 0LL;
-  v13[6] = 0LL;
-  v11 = (*(_BYTE *)(BugCheckParameter1 + 1848) & 7) == 0;
-  LODWORD(v13[3]) = v9;
-  WORD2(v13[3]) = 4;
-  LODWORD(v13[4]) = 20;
-  if ( v11 && *(_QWORD *)(BugCheckParameter1 + 2288) )
+    LODWORD(v17[0]) = v9 | 2;
+  HIDWORD(v17[0]) = a2;
+  v17[4] = 20LL;
+  v10 = MiTbFlushType(BugCheckParameter1 + 1664);
+  v14 = (*(_BYTE *)(BugCheckParameter1 + 1848) & 7) == 0;
+  LODWORD(v17[3]) = v10;
+  WORD2(v17[3]) = 4;
+  v17[5] = 0LL;
+  v17[6] = 0LL;
+  if ( v14 && *(_QWORD *)(BugCheckParameter1 + 2288) )
   {
-    v16[1] = 32;
-    v13[26] = v16;
+    v20[1] = 32;
+    v17[26] = v20;
   }
-  v14[2].m128i_i64[1] = -1LL;
-  v14[10].m128i_i64[1] = (__int64)v13;
-  v14[9].m128i_i64[1] = (__int64)MiUpdateOldPte;
-  v14[10].m128i_i64[0] = (__int64)MiUpdateOldWorkingSetPagesTail;
-  v14[0].m128i_i32[0] = 6;
-  v14[1].m128i_i64[1] = BugCheckParameter1 + 1664;
-  v14[0].m128i_i8[5] = 6;
-  v14[0].m128i_i8[7] = MiLockWorkingSetShared(v10);
+  v18[5] = -1LL;
+  v18[21] = v17;
+  LOWORD(v18[0]) = 6;
+  v18[19] = MiUpdateOldPte;
+  BYTE4(v18[0]) = 6;
+  v18[20] = MiUpdateOldWorkingSetPagesTail;
+  v18[3] = BugCheckParameter1 + 1664;
+  v15 = MiLockWorkingSetShared(BugCheckParameter1 + 1664, v11, v12, v13);
+  BYTE6(v18[0]) = v15;
   if ( (*(_DWORD *)(BugCheckParameter1 + 1124) & 0x20) != 0 )
   {
-    v8 = -1073741558;
+    v7 = -1073741558;
   }
   else
   {
-    v13[1] = *(_QWORD *)(BugCheckParameter1 + 1752);
-    if ( v13[1] )
-      MiWalkPageTables(v14);
+    v17[1] = *(_QWORD *)(BugCheckParameter1 + 1752);
+    if ( v17[1] )
+    {
+      MiWalkPageTables((__int64)v18);
+      v15 = BYTE6(v18[0]);
+    }
   }
-  MiUnlockWorkingSetShared(BugCheckParameter1 + 1664, v14[0].m128i_u8[7]);
-  if ( v6 )
-    KiUnstackDetachProcess(&v15);
-  return v8;
+  MiUnlockWorkingSetShared(BugCheckParameter1 + 1664, v15);
+  if ( v8 == 1 )
+    KiUnstackDetachProcess((__int64)v19, 0);
+  return v7;
 }

@@ -1,90 +1,92 @@
 /*
- * XREFs of IoSaveBugCheckRecoveryStatus @ 0x140550B5C
+ * XREFs of IoSaveBugCheckRecoveryStatus @ 0x1405024E0
  * Callers:
- *     KiSaveBugCheckRecoveryStatusMultipleBugChecks @ 0x14057B398 (KiSaveBugCheckRecoveryStatusMultipleBugChecks.c)
- *     KiSaveBugCheckRecoveryStatusPhase0 @ 0x14057B3F4 (KiSaveBugCheckRecoveryStatusPhase0.c)
- *     KiSaveBugCheckRecoveryStatusPhase1 @ 0x14057B478 (KiSaveBugCheckRecoveryStatusPhase1.c)
- *     KiSaveBugCheckRecoveryStatusPhase2 @ 0x14057B4CC (KiSaveBugCheckRecoveryStatusPhase2.c)
+ *     KiAttemptBugcheckRecovery @ 0x140524CC4 (KiAttemptBugcheckRecovery.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x1403810A0 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     WheaLogInternalEvent @ 0x1403BA6F0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     IopWriteBugCheckSelEntries @ 0x14050481C (IopWriteBugCheckSelEntries.c)
  */
 
 LONG __fastcall IoSaveBugCheckRecoveryStatus(int *a1)
 {
   int v2; // ecx
-  int v3; // r9d
-  int v4; // ecx
-  int v5; // r8d
-  _DWORD *v6; // rcx
-  _OWORD v8[2]; // [rsp+20h] [rbp-59h] BYREF
-  __int64 v9; // [rsp+40h] [rbp-39h]
-  _OWORD v10[2]; // [rsp+48h] [rbp-31h] BYREF
-  __int16 v11; // [rsp+68h] [rbp-11h]
-  char v12; // [rsp+6Ah] [rbp-Fh]
-  _OWORD v13[2]; // [rsp+70h] [rbp-9h] BYREF
-  int v14; // [rsp+90h] [rbp+17h]
-  char v15; // [rsp+94h] [rbp+1Bh]
-  _OWORD Src[2]; // [rsp+98h] [rbp+1Fh] BYREF
-  char v17; // [rsp+B8h] [rbp+3Fh]
+  char v3; // bl
+  int v4; // r9d
+  int v5; // edx
+  __int128 *v6; // rcx
+  LONG result; // eax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int128 v12; // [rsp+20h] [rbp-29h] BYREF
+  __int128 v13; // [rsp+30h] [rbp-19h]
+  __int64 v14; // [rsp+40h] [rbp-9h]
+  __int128 v15; // [rsp+48h] [rbp-1h] BYREF
+  __int128 v16; // [rsp+58h] [rbp+Fh]
+  int v17; // [rsp+68h] [rbp+1Fh]
+  _OWORD Src[2]; // [rsp+70h] [rbp+27h] BYREF
+  char v19; // [rsp+90h] [rbp+47h]
 
-  v11 = 0;
-  v12 = 0;
+  v19 = 0;
+  LOBYTE(v17) = 0;
   v2 = *a1;
-  v3 = v2 | 0x2A00;
-  v9 = 0LL;
-  v14 = 0;
-  v15 = 0;
-  v17 = 0;
-  memset(v10, 0, sizeof(v10));
-  memset(v8, 0, sizeof(v8));
-  memset(v13, 0, sizeof(v13));
+  v3 = 0;
+  LODWORD(v14) = 0;
+  v4 = v2 | 0x2A00;
+  BYTE4(v14) = 0;
   memset(Src, 0, sizeof(Src));
+  v15 = 0LL;
+  v16 = 0LL;
+  v12 = 0LL;
+  v13 = 0LL;
   if ( v2 )
   {
-    v4 = v2 - 1;
-    if ( v4 )
+    if ( v2 != 1 )
     {
-      if ( v4 == 1 )
-      {
-        v6 = v13;
-        v14 = MEMORY[0xFFFFF780000002C4];
-        v5 = 5;
-        v15 = *((_BYTE *)a1 + 4);
-      }
-      else
-      {
-        v5 = 3;
-        v11 = *((_WORD *)a1 + 2);
-        v6 = v10;
-        v12 = *((_BYTE *)a1 + 6);
-      }
+      v3 = *((_BYTE *)a1 + 8);
+      v5 = 5;
+      v6 = &v12;
+      LODWORD(v14) = MEMORY[0xFFFFF780000002C4];
+      BYTE4(v14) = v3;
+      goto LABEL_7;
     }
-    else
-    {
-      v6 = v8;
-      LOBYTE(v9) = *((_BYTE *)a1 + 4);
-      v5 = 8;
-      BYTE4(v9) = *((_BYTE *)a1 + 8);
-      *(_WORD *)((char *)&v9 + 5) = 0;
-      HIBYTE(v9) = 0;
-      BYTE1(v9) = 1;
-      WORD1(v9) = 1;
-    }
+    v6 = &v15;
+    LOBYTE(v17) = *((_BYTE *)a1 + 8);
   }
   else
   {
     v6 = Src;
-    v17 = *((_BYTE *)a1 + 4);
-    v5 = 1;
+    v19 = *((_BYTE *)a1 + 8);
   }
-  v6[3] = 0;
-  v6[2] = v5 + 32;
-  *v6 = 1733060695;
-  v6[1] = 1;
-  v6[5] = -2147483606;
-  v6[4] = v3;
-  v6[6] = 8;
-  v6[7] = v5;
-  return WheaLogInternalEvent(v6);
+  v5 = 1;
+LABEL_7:
+  *((_DWORD *)v6 + 3) = 0;
+  *((_DWORD *)v6 + 2) = v5 + 32;
+  *(_DWORD *)v6 = 1733060695;
+  *((_DWORD *)v6 + 1) = 1;
+  *((_DWORD *)v6 + 5) = -2147483606;
+  *((_DWORD *)v6 + 4) = v4;
+  *((_DWORD *)v6 + 6) = 8;
+  *((_DWORD *)v6 + 7) = v5;
+  result = WheaLogInternalEvent(v6);
+  if ( v3 )
+    return IopWriteBugCheckSelEntries(
+             v9,
+             v8,
+             v10,
+             v11,
+             v12,
+             *((_QWORD *)&v12 + 1),
+             v13,
+             *((_QWORD *)&v13 + 1),
+             v14,
+             v15,
+             *((_QWORD *)&v15 + 1),
+             v16,
+             *((_QWORD *)&v16 + 1),
+             v17,
+             *(_QWORD *)&Src[0]);
+  return result;
 }

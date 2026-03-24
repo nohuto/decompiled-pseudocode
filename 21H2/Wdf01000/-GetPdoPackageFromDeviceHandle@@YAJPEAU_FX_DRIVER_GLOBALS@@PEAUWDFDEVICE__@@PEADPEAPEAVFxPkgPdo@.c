@@ -1,18 +1,19 @@
 /*
- * XREFs of ?GetPdoPackageFromDeviceHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEADPEAPEAVFxPkgPdo@@PEAPEAU1@PEAPEAVFxDevice@@@Z @ 0x1C001C314
+ * XREFs of ?GetPdoPackageFromDeviceHandle@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEADPEAPEAVFxPkgPdo@@PEAPEAU1@PEAPEAVFxDevice@@@Z @ 0x1C0001928
  * Callers:
- *     imp_WdfPdoGetParent @ 0x1C001C2B0 (imp_WdfPdoGetParent.c)
- *     imp_WdfPdoAddEjectionRelationsPhysicalDevice @ 0x1C005AF90 (imp_WdfPdoAddEjectionRelationsPhysicalDevice.c)
- *     imp_WdfPdoClearEjectionRelationsDevices @ 0x1C005B000 (imp_WdfPdoClearEjectionRelationsDevices.c)
- *     imp_WdfPdoMarkMissing @ 0x1C005B050 (imp_WdfPdoMarkMissing.c)
- *     imp_WdfPdoRemoveEjectionRelationsPhysicalDevice @ 0x1C005B0C0 (imp_WdfPdoRemoveEjectionRelationsPhysicalDevice.c)
- *     imp_WdfPdoRequestEject @ 0x1C005B140 (imp_WdfPdoRequestEject.c)
- *     imp_WdfPdoRetrieveAddressDescription @ 0x1C005B210 (imp_WdfPdoRetrieveAddressDescription.c)
- *     imp_WdfPdoUpdateAddressDescription @ 0x1C005B2B0 (imp_WdfPdoUpdateAddressDescription.c)
+ *     imp_WdfPdoRetrieveIdentificationDescription @ 0x1C0001860 (imp_WdfPdoRetrieveIdentificationDescription.c)
+ *     imp_WdfPdoAddEjectionRelationsPhysicalDevice @ 0x1C0038DE0 (imp_WdfPdoAddEjectionRelationsPhysicalDevice.c)
+ *     imp_WdfPdoClearEjectionRelationsDevices @ 0x1C0038E50 (imp_WdfPdoClearEjectionRelationsDevices.c)
+ *     imp_WdfPdoGetParent @ 0x1C0038EA0 (imp_WdfPdoGetParent.c)
+ *     imp_WdfPdoMarkMissing @ 0x1C0038F30 (imp_WdfPdoMarkMissing.c)
+ *     imp_WdfPdoRemoveEjectionRelationsPhysicalDevice @ 0x1C0038FA0 (imp_WdfPdoRemoveEjectionRelationsPhysicalDevice.c)
+ *     imp_WdfPdoRequestEject @ 0x1C0039020 (imp_WdfPdoRequestEject.c)
+ *     imp_WdfPdoRetrieveAddressDescription @ 0x1C00390F0 (imp_WdfPdoRetrieveAddressDescription.c)
+ *     imp_WdfPdoUpdateAddressDescription @ 0x1C0039190 (imp_WdfPdoUpdateAddressDescription.c)
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     WPP_IFR_SF_sq @ 0x1C0013EA8 (WPP_IFR_SF_sq.c)
- *     ?IsPdo@FxDevice@@QEAAEXZ @ 0x1C001C758 (-IsPdo@FxDevice@@QEAAEXZ.c)
+ *     ?IsPdo@FxDevice@@QEAAEXZ @ 0x1C00019B8 (-IsPdo@FxDevice@@QEAAEXZ.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     WPP_IFR_SF_sq @ 0x1C0038C64 (WPP_IFR_SF_sq.c)
  */
 
 __int64 __fastcall GetPdoPackageFromDeviceHandle(
@@ -31,7 +32,7 @@ __int64 __fastcall GetPdoPackageFromDeviceHandle(
 
   v8 = 0;
   pDevice = 0LL;
-  FxObjectHandleGetPtr(CallersGlobals, (unsigned __int64)Device, 0x1002u, (void **)&pDevice);
+  FxObjectHandleGetPtr(CallersGlobals, Device, 0x1002u, (void **)&pDevice);
   v10 = pDevice;
   *ObjectGlobals = pDevice->m_Globals;
   if ( OutDevice )

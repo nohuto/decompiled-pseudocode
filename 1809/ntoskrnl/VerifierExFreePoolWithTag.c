@@ -3,7 +3,7 @@
  * Callers:
  *     VerifierExFreePool @ 0x140925780 (VerifierExFreePool.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     VfFreePoolNotification @ 0x140937E9C (VfFreePoolNotification.c)
  *     VfIrpDatabaseCheckExFreePool @ 0x14093E18C (VfIrpDatabaseCheckExFreePool.c)

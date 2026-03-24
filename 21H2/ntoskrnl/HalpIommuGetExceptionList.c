@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpIommuGetExceptionList @ 0x1405180B8
+ * XREFs of HalpIommuGetExceptionList @ 0x1404CBF6C
  * Callers:
- *     IvtProcessDeviceExceptions @ 0x140A64544 (IvtProcessDeviceExceptions.c)
+ *     IvtProcessDeviceExceptions @ 0x1409AA188 (IvtProcessDeviceExceptions.c)
  * Callees:
  *     <none>
  */

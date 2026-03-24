@@ -1,111 +1,74 @@
 /*
- * XREFs of WPP_RECORDER_SF_qssdddd @ 0x1C0043644
+ * XREFs of WPP_RECORDER_SF_qssdddd @ 0x1C0060648
  * Callers:
- *     ACPIThermalRereadTemperature @ 0x1C0041E54 (ACPIThermalRereadTemperature.c)
+ *     ACPIThermalRereadTemperature @ 0x1C0060164 (ACPIThermalRereadTemperature.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 WPP_RECORDER_SF_qssdddd(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __int64 a5, ...)
+__int64 __fastcall WPP_RECORDER_SF_qssdddd(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        char a6,
+        const char *a7,
+        __int64 a8)
 {
-  const char *v5; // rsi
-  const char *v6; // rdi
-  __int64 v7; // rbx
-  __int64 v9; // r8
-  __int64 v10; // rdx
-  const char *v11; // rcx
-  __int64 v12; // rax
-  __int64 v13; // rax
-  __int64 v14; // rbx
-  int v16; // [rsp+20h] [rbp-98h]
-  __int64 v17; // [rsp+E8h] [rbp+30h] BYREF
-  va_list va; // [rsp+E8h] [rbp+30h]
-  const char *v19; // [rsp+F0h] [rbp+38h]
-  const char *v20; // [rsp+F8h] [rbp+40h]
-  __int64 v21; // [rsp+100h] [rbp+48h] BYREF
-  va_list va1; // [rsp+100h] [rbp+48h]
-  va_list va2; // [rsp+108h] [rbp+50h] BYREF
+  __int64 v8; // rdi
+  const char *v9; // rsi
+  __int64 v10; // rbx
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  const char *v14; // rcx
+  __int64 v15; // rax
+  int v17; // [rsp+20h] [rbp-98h]
 
-  va_start(va2, a5);
-  va_start(va1, a5);
-  va_start(va, a5);
-  v17 = va_arg(va1, _QWORD);
-  v19 = va_arg(va1, const char *);
-  v20 = va_arg(va1, const char *);
-  va_copy(va2, va1);
-  v21 = va_arg(va2, _QWORD);
-  v5 = v19;
-  v6 = v20;
-  v7 = -1LL;
+  v8 = a8;
+  v9 = a7;
+  v10 = -1LL;
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x8000) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
   {
-    if ( v20 )
+    if ( a8 )
     {
-      v9 = -1LL;
+      v12 = -1LL;
       do
-        ++v9;
-      while ( v20[v9] );
+        ++v12;
+      while ( *(_BYTE *)(a8 + v12) );
     }
-    if ( v19 )
+    if ( a7 )
     {
-      v10 = -1LL;
+      v13 = -1LL;
       do
-        ++v10;
-      while ( v19[v10] );
+        ++v13;
+      while ( a7[v13] );
     }
-    v11 = v19;
-    if ( !v19 )
-      v11 = "NULL";
+    v14 = a7;
+    if ( !a7 )
+      v14 = "NULL";
     pfnWppTraceMessage(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_93ea93d83ec03a4680542420a9c7ec01_Traceguids,
+      &WPP_18eab87a8b67317afec152b8fbe84dda_Traceguids,
       18LL,
-      (__int64 *)va,
+      &a6,
       8LL,
-      v11);
+      v14);
   }
-  if ( v6 )
+  if ( v8 )
   {
-    v12 = -1LL;
+    v15 = -1LL;
     do
-      ++v12;
-    while ( v6[v12] );
-    v13 = v12 + 1;
+      ++v15;
+    while ( *(_BYTE *)(v8 + v15) );
   }
-  else
-  {
-    v13 = 5LL;
-  }
-  if ( !v6 )
-    v6 = "NULL";
-  if ( v5 )
+  if ( v9 )
   {
     do
-      ++v7;
-    while ( v5[v7] );
-    v14 = v7 + 1;
+      ++v10;
+    while ( v9[v10] );
   }
-  else
-  {
-    v14 = 5LL;
-  }
-  if ( !v5 )
-    v5 = "NULL";
-  LOWORD(v16) = 18;
-  return WppAutoLogTrace(
-           a1,
-           4LL,
-           16LL,
-           &WPP_93ea93d83ec03a4680542420a9c7ec01_Traceguids,
-           v16,
-           (__int64 *)va,
-           8LL,
-           v5,
-           v14,
-           v6,
-           v13,
-           (__int64 *)va1,
-           4LL,
-           va2);
+  LOWORD(v17) = 18;
+  return WppAutoLogTrace(a1, 4LL, 16LL, &WPP_18eab87a8b67317afec152b8fbe84dda_Traceguids, v17, &a6);
 }

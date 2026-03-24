@@ -1,11 +1,11 @@
 /*
- * XREFs of KiDetermineRetpolineEnablement @ 0x1403DC4D0
+ * XREFs of KiDetermineRetpolineEnablement @ 0x1403CD1B0
  * Callers:
- *     KiInitializeBootStructures @ 0x140A57680 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
  * Callees:
- *     KiDetectHardwareSpecControlFeatures @ 0x1403BFE70 (KiDetectHardwareSpecControlFeatures.c)
- *     KiIsPgiKernel @ 0x1403DC578 (KiIsPgiKernel.c)
- *     strstr @ 0x1403E0C40 (strstr.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1403ADD1C (KiDetectHardwareSpecControlFeatures.c)
+ *     KiIsPgiKernel @ 0x1403CD258 (KiIsPgiKernel.c)
+ *     strstr @ 0x1403D1880 (strstr.c)
  */
 
 char __fastcall KiDetermineRetpolineEnablement(__int64 a1)
@@ -31,21 +31,17 @@ char __fastcall KiDetermineRetpolineEnablement(__int64 a1)
       LOBYTE(v3) = KiIsPgiKernel();
       if ( !(_BYTE)v3 )
       {
-        LOBYTE(v3) = (unsigned __int8)KiDetectHardwareSpecControlFeatures(
-                                        (__int64)KeGetCurrentPrcb(),
-                                        0,
-                                        (__int64)&v6,
-                                        0LL);
-        if ( (KiFeatureSettings & 5) == 0 )
+        KiDetectHardwareSpecControlFeatures((__int64)KeGetCurrentPrcb(), 0, (__int64)&v6, 0LL);
+        LOBYTE(v3) = (v6 & 4) != 0;
+        if ( (((KiFeatureSettings & 5) == 0) & (unsigned __int8)v3) != 0 )
         {
           v3 = *(char **)(a1 + 240);
-          if ( *((_DWORD *)v3 + 875) )
+          if ( *((_DWORD *)v3 + 867) )
           {
-            LOBYTE(v3) = v6;
-            if ( (v6 & 1) == 0 && !(_BYTE)KiKernelCetEnabled )
+            if ( !*((_DWORD *)v3 + 866) && (v6 & 1) == 0 )
             {
               if ( (KiFeatureSettings & 0x200) != 0
-                || (LOBYTE(v3) = (KiFeatureSettings & 0x100) == 0, (((v6 & 0x204) == 4) & (unsigned __int8)v3) != 0) )
+                || (LOBYTE(v3) = (v6 & 0x200) == 0, (((KiFeatureSettings & 0x100) == 0) & (unsigned __int8)v3) != 0) )
               {
                 LOBYTE(v3) = 0;
                 _InterlockedOr64((volatile signed __int64 *)&KiSpeculationFeatures, 0x20000000000uLL);

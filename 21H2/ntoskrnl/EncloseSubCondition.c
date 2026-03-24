@@ -1,56 +1,56 @@
 /*
- * XREFs of EncloseSubCondition @ 0x1409D0360
+ * XREFs of EncloseSubCondition @ 0x140673220
  * Callers:
- *     LocalpGetStringForCondition @ 0x1409D3874 (LocalpGetStringForCondition.c)
+ *     LocalpGetStringForCondition @ 0x140672DF8 (LocalpGetStringForCondition.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x1402E0198 (RtlStringCchPrintfW.c)
- *     SddlpAlloc @ 0x14067757C (SddlpAlloc.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
+ *     SddlpAlloc @ 0x140674548 (SddlpAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EncloseSubCondition(PVOID *a1)
 {
   unsigned int v2; // ebx
   _WORD *v3; // rcx
-  __int64 v4; // rax
-  unsigned __int64 v5; // rax
-  size_t v6; // rcx
-  unsigned __int64 v7; // rbp
-  wchar_t *v8; // rax
-  wchar_t *v9; // rsi
+  __int64 v5; // rax
+  unsigned __int64 v6; // rax
+  size_t v7; // rcx
+  unsigned __int64 v8; // rbp
+  wchar_t *v9; // rax
+  wchar_t *v10; // rsi
 
   v2 = 0;
   v3 = *a1;
   if ( *v3 != 40 )
   {
-    v4 = -1LL;
+    v5 = -1LL;
     do
-      ++v4;
-    while ( v3[v4] );
-    v5 = 2LL * (unsigned int)v4;
-    if ( v5 > 0xFFFFFFFF )
+      ++v5;
+    while ( v3[v5] );
+    v6 = 2LL * (unsigned int)v5;
+    if ( v6 > 0xFFFFFFFF )
       return 534;
-    v6 = (unsigned int)(v5 + 6);
-    if ( (unsigned int)v6 < (unsigned int)v5 )
+    v7 = (unsigned int)(v6 + 6);
+    if ( (unsigned int)v7 < (unsigned int)v6 )
     {
       return 534;
     }
     else
     {
-      v7 = (unsigned int)v6;
-      v8 = (wchar_t *)SddlpAlloc(v6);
-      v9 = v8;
-      if ( v8 )
+      v8 = (unsigned int)v7;
+      v9 = (wchar_t *)SddlpAlloc(v7);
+      v10 = v9;
+      if ( v9 )
       {
-        if ( RtlStringCchPrintfW(v8, v7 >> 1, L"(%ls)", *a1) >= 0 )
+        if ( RtlStringCchPrintfW(v9, v8 >> 1, L"(%ls)", *a1) >= 0 )
         {
           if ( *a1 )
             ExFreePoolWithTag(*a1, 0);
-          *a1 = v9;
+          *a1 = v10;
         }
         else
         {
-          ExFreePoolWithTag(v9, 0);
+          ExFreePoolWithTag(v10, 0);
           return 50;
         }
       }

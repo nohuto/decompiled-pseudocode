@@ -1,8 +1,8 @@
 /*
- * XREFs of SeQueryMandatoryPolicyToken @ 0x1403706A4
+ * XREFs of SeQueryMandatoryPolicyToken @ 0x140202A4C
  * Callers:
- *     NtQueryInformationToken @ 0x140730A90 (NtQueryInformationToken.c)
- *     SepCopyTokenAccessInformation @ 0x1407F4034 (SepCopyTokenAccessInformation.c)
+ *     SepCopyTokenAccessInformation @ 0x1405DBD68 (SepCopyTokenAccessInformation.c)
+ *     NtQueryInformationToken @ 0x1406D0BB0 (NtQueryInformationToken.c)
  * Callees:
  *     <none>
  */

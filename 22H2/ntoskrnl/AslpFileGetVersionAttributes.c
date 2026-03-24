@@ -1,12 +1,12 @@
 /*
- * XREFs of AslpFileGetVersionAttributes @ 0x140759728
+ * XREFs of AslpFileGetVersionAttributes @ 0x1407B2D98
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x1407592F8 (AslFileAllocAndGetAttributes.c)
+ *     AslFileAllocAndGetAttributes @ 0x1407B2904 (AslFileAllocAndGetAttributes.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslpFileMakeStringVersionAttributes @ 0x14075978C (AslpFileMakeStringVersionAttributes.c)
- *     AslpFileGetVersionBlock @ 0x140759B0C (AslpFileGetVersionBlock.c)
- *     AslpFileMakeBinVersionAttributes @ 0x14075A04C (AslpFileMakeBinVersionAttributes.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslpFileMakeStringVersionAttributes @ 0x1407B2DFC (AslpFileMakeStringVersionAttributes.c)
+ *     AslpFileMakeBinVersionAttributes @ 0x1407B3568 (AslpFileMakeBinVersionAttributes.c)
+ *     AslpFileGetVersionBlock @ 0x1407B3664 (AslpFileGetVersionBlock.c)
  */
 
 __int64 __fastcall AslpFileGetVersionAttributes(__int64 a1, __int64 a2)

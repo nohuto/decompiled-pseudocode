@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReplaceSourceWorker@CVirtualSurfaceDrawListBrush@@IEAAX$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@PEAV23@@Z @ 0x1802B8AA0
+ * XREFs of ?ReplaceSourceWorker@CVirtualSurfaceDrawListBrush@@IEAAX$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@PEAV23@@Z @ 0x180268DC0
  * Callers:
- *     ?ReplaceSource@CNineGridDrawListBrush@@UEAAX$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@@Z @ 0x1802B8A90 (-ReplaceSource@CNineGridDrawListBrush@@UEAAX$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delet.c)
+ *     ?ReplaceSource@CNineGridDrawListBrush@@UEAAX$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@@Z @ 0x180268DB0 (-ReplaceSource@CNineGridDrawListBrush@@UEAAX$$QEAV-$unique_ptr@VCDrawListBrush@@U-$default_delet.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CVirtualSurfaceDrawListBrush::ReplaceSourceWorker(__int64 a1, __int64 *a2, __int64 *a3)

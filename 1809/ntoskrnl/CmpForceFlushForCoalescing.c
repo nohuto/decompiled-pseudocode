@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpForceFlushForCoalescing @ 0x1407FB13C
+ * XREFs of CmpForceFlushForCoalescing @ 0x1407FB11C
  * Callers:
- *     CmpCoalescingCallback @ 0x14026C810 (CmpCoalescingCallback.c)
+ *     CmpCoalescingCallback @ 0x14026C910 (CmpCoalescingCallback.c)
  *     HvpMarkDirty @ 0x1405FAD2C (HvpMarkDirty.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
  */
 
 void CmpForceFlushForCoalescing()

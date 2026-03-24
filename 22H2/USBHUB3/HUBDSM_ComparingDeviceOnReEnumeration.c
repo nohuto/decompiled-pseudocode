@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_ComparingDeviceOnReEnumeration @ 0x1C0023610
+ * XREFs of HUBDSM_ComparingDeviceOnReEnumeration @ 0x1C0020FC0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
  */
 
 __int64 __fastcall HUBDSM_ComparingDeviceOnReEnumeration(__int64 a1)
@@ -29,7 +29,7 @@ LABEL_8:
           4u,
           5u,
           v4,
-          (__int64)&WPP_f96a94952a6932bc87af489d3d93d325_Traceguids);
+          (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
         return 4061;
       }
       return 4061;

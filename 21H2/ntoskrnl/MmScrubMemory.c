@@ -1,16 +1,16 @@
 /*
- * XREFs of MmScrubMemory @ 0x140983C8C
+ * XREFs of MmScrubMemory @ 0x1408DC11C
  * Callers:
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
  * Callees:
- *     KeWaitForGate @ 0x140217454 (KeWaitForGate.c)
- *     KeInitializeGate @ 0x14025E6B4 (KeInitializeGate.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ExQueueWorkItemToPartition @ 0x1402EF060 (ExQueueWorkItemToPartition.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     MiScrubProcesses @ 0x140983B80 (MiScrubProcesses.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeInitializeGate @ 0x1402D2C10 (KeInitializeGate.c)
+ *     ExQueueWorkItemToPartition @ 0x1402F78AC (ExQueueWorkItemToPartition.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     MiScrubProcesses @ 0x1408DC010 (MiScrubProcesses.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall MmScrubMemory(__int64 a1, void *a2, _QWORD *a3)
@@ -25,17 +25,17 @@ NTSTATUS __fastcall MmScrubMemory(__int64 a1, void *a2, _QWORD *a3)
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v12; // r15
   int *v13; // rax
-  PVOID Object; // [rsp+60h] [rbp+8h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+60h] [rbp+8h] BYREF
   __int64 v15; // [rsp+70h] [rbp+18h] BYREF
 
   *a3 = 0LL;
-  Object = 0LL;
+  DmaAdapter = 0LL;
   result = ObReferenceObjectByHandle(
              a2,
              1u,
              (POBJECT_TYPE)ExEventObjectType,
              KeGetCurrentThread()->PreviousMode,
-             &Object,
+             (PVOID *)&DmaAdapter,
              0LL);
   if ( result >= 0 )
   {
@@ -46,7 +46,7 @@ NTSTATUS __fastcall MmScrubMemory(__int64 a1, void *a2, _QWORD *a3)
     {
       *Pool = v5;
       KeInitializeGate((__int64)(Pool + 2));
-      v7[4] = Object;
+      v7[4] = DmaAdapter;
       v9 = v7 + 8;
       v7[6] = &MiSystemPartition;
       v10 = 0;
@@ -63,7 +63,7 @@ NTSTATUS __fastcall MmScrubMemory(__int64 a1, void *a2, _QWORD *a3)
           *(v12 - 3) = 0LL;
           *(v12 - 1) = MiScrubMemoryWorker;
           *v12 = v9;
-          ExQueueWorkItemToPartition((ULONG_PTR)(v12 - 3), 4, v10++, qword_140C55030);
+          ExQueueWorkItemToPartition(v12 - 3, 4, v10++, qword_140C50E30);
           v9 += 28;
           v12 += 28;
         }
@@ -88,16 +88,16 @@ NTSTATUS __fastcall MmScrubMemory(__int64 a1, void *a2, _QWORD *a3)
 LABEL_13:
       *a3 = v15 + v7[5];
       ExFreePoolWithTag(v7, 0);
-      if ( *((_DWORD *)Object + 1) || (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 1) != 0 )
+      if ( *(_DWORD *)(&DmaAdapter->Size + 1) || (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 1) != 0 )
         v8 = -1073741248;
       else
-        _InterlockedIncrement(&dword_140C52B10);
+        _InterlockedIncrement(&dword_140C4E7D8);
     }
     else
     {
       v8 = -1073741670;
     }
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter(DmaAdapter);
     return v8;
   }
   return result;

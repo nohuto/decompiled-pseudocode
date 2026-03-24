@@ -1,15 +1,15 @@
 /*
- * XREFs of CiDispatchFastIoDeviceControl @ 0x1C000AA20
+ * XREFs of CiDispatchFastIoDeviceControl @ 0x1C000A6C0
  * Callers:
  *     <none>
  * Callees:
- *     CiSchedulerTaskIndexYield @ 0x1C00021C0 (CiSchedulerTaskIndexYield.c)
- *     CiSchedulerSetBufferingMode @ 0x1C0002640 (CiSchedulerSetBufferingMode.c)
- *     CiSchedulerCancelTaskIndexYield @ 0x1C0002D80 (CiSchedulerCancelTaskIndexYield.c)
- *     memmove @ 0x1C0003400 (memmove.c)
- *     WPP_SF_dd @ 0x1C000493C (WPP_SF_dd.c)
- *     CiCreateTaskIndexClientFromThread @ 0x1C000A380 (CiCreateTaskIndexClientFromThread.c)
- *     CiThreadSetRelativePriority @ 0x1C000AC80 (CiThreadSetRelativePriority.c)
+ *     CiSchedulerTaskIndexYield @ 0x1C0001170 (CiSchedulerTaskIndexYield.c)
+ *     CiSchedulerSetBufferingMode @ 0x1C00015B0 (CiSchedulerSetBufferingMode.c)
+ *     CiSchedulerCancelTaskIndexYield @ 0x1C0002B50 (CiSchedulerCancelTaskIndexYield.c)
+ *     memmove @ 0x1C00031C0 (memmove.c)
+ *     WPP_SF_dd @ 0x1C000468C (WPP_SF_dd.c)
+ *     CiThreadSetRelativePriority @ 0x1C000A920 (CiThreadSetRelativePriority.c)
+ *     CiCreateTaskIndexClientFromThread @ 0x1C000B600 (CiCreateTaskIndexClientFromThread.c)
  */
 
 char __fastcall CiDispatchFastIoDeviceControl(
@@ -43,7 +43,7 @@ char __fastcall CiDispatchFastIoDeviceControl(
     v19 = *(_QWORD *)(a1 + 24);
     if ( *(_DWORD *)v19 == CiApiTypeTable[v13]
       && (_DWORD)v8 == CiApiBufferSizeTable[2 * v13]
-      && Length == dword_1C0006954[2 * v13] )
+      && Length == dword_1C0006A74[2 * v13] )
     {
       if ( ExGetPreviousMode() )
       {
@@ -86,7 +86,7 @@ char __fastcall CiDispatchFastIoDeviceControl(
           }
           else
           {
-            v17 = 3;
+            v17 = 0;
           }
           TaskIndexClientFromThread = 0;
           CiSchedulerSetBufferingMode(v19, v17);

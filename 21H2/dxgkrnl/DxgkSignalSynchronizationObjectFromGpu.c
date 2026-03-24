@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkSignalSynchronizationObjectFromGpu @ 0x1C0183070
+ * XREFs of DxgkSignalSynchronizationObjectFromGpu @ 0x1C0294950
  * Callers:
  *     <none>
  * Callees:
- *     ?DxgkSignalSynchronizationObjectFromGpuInternal@@YAJPEBU_D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU@@H_N@Z @ 0x1C0182B30 (-DxgkSignalSynchronizationObjectFromGpuInternal@@YAJPEBU_D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMG.c)
+ *     ?DxgkSignalSynchronizationObjectFromGpuInternal@@YAJPEBU_D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU@@H@Z @ 0x1C0159A20 (-DxgkSignalSynchronizationObjectFromGpuInternal@@YAJPEBU_D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMG.c)
  */
 
 __int64 __fastcall DxgkSignalSynchronizationObjectFromGpu(

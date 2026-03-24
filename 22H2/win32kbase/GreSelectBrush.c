@@ -1,16 +1,16 @@
 /*
- * XREFs of GreSelectBrush @ 0x1C0089360
+ * XREFs of GreSelectBrush @ 0x1C013C0F0
  * Callers:
  *     <none>
  * Callees:
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C003BD24 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003BD68 (--1DCOBJ@@QEAA@XZ.c)
- *     ?GreSelectBrushInternal@@YAPEAUHBRUSH__@@AEAVXDCOBJ@@PEAU1@H@Z @ 0x1C00893C0 (-GreSelectBrushInternal@@YAPEAUHBRUSH__@@AEAVXDCOBJ@@PEAU1@H@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C003C8E8 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C003C948 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?GreSelectBrushInternal@@YAPEAUHBRUSH__@@AEAVXDCOBJ@@PEAU1@H@Z @ 0x1C00C8020 (-GreSelectBrushInternal@@YAPEAUHBRUSH__@@AEAVXDCOBJ@@PEAU1@H@Z.c)
  */
 
-HBRUSH __fastcall GreSelectBrush(HDC a1, HBRUSH a2)
+__int64 __fastcall GreSelectBrush(HDC a1, __int64 a2)
 {
-  HBRUSH v3; // rbx
+  __int64 v3; // rbx
   _QWORD v5[7]; // [rsp+20h] [rbp-38h] BYREF
 
   v3 = 0LL;

@@ -2,9 +2,9 @@
  * XREFs of MmCreateSection @ 0x14061B2D0
  * Callers:
  *     AlpcpCreateSection @ 0x14061AF74 (AlpcpCreateSection.c)
- *     EtwpCoverageEnsureContext @ 0x14075B064 (EtwpCoverageEnsureContext.c)
- *     PspApiSetCopyToSystemSpace @ 0x140886AB8 (PspApiSetCopyToSystemSpace.c)
- *     PspSiloInitializeUserSharedData @ 0x140887B58 (PspSiloInitializeUserSharedData.c)
+ *     EtwpCoverageEnsureContext @ 0x14075B044 (EtwpCoverageEnsureContext.c)
+ *     PspApiSetCopyToSystemSpace @ 0x140886A98 (PspApiSetCopyToSystemSpace.c)
+ *     PspSiloInitializeUserSharedData @ 0x140887B38 (PspSiloInitializeUserSharedData.c)
  *     MiInitializeCfg @ 0x1409BA28C (MiInitializeCfg.c)
  *     MiInitializeApiSets @ 0x1409BCEBC (MiInitializeApiSets.c)
  * Callees:

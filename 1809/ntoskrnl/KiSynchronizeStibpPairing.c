@@ -1,13 +1,13 @@
 /*
- * XREFs of KiSynchronizeStibpPairing @ 0x140295694
+ * XREFs of KiSynchronizeStibpPairing @ 0x140295794
  * Callers:
- *     KiUpdateSpeculationControl @ 0x1400F8310 (KiUpdateSpeculationControl.c)
+ *     KiUpdateSpeculationControl @ 0x1400F8330 (KiUpdateSpeculationControl.c)
  * Callees:
  *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     KiIpiSendPacket @ 0x1400ED0E4 (KiIpiSendPacket.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiIpiSendPacket @ 0x1400ED104 (KiIpiSendPacket.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall KiSynchronizeStibpPairing(__int64 a1)

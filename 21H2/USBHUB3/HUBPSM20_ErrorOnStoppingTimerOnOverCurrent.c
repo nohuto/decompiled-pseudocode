@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM20_ErrorOnStoppingTimerOnOverCurrent @ 0x1C0010CF0
+ * XREFs of HUBPSM20_ErrorOnStoppingTimerOnOverCurrent @ 0x1C00108E0
  * Callers:
  *     <none>
  * Callees:

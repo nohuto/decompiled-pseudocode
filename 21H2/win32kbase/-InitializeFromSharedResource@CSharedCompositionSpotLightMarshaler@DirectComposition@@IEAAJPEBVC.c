@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InitializeFromSharedResource@CSharedCompositionSpotLightMarshaler@DirectComposition@@IEAAJPEBVCSharedSystemResource@2@@Z @ 0x1C00B3538
+ * XREFs of ?InitializeFromSharedResource@CSharedCompositionSpotLightMarshaler@DirectComposition@@IEAAJPEBVCSharedSystemResource@2@@Z @ 0x1C00A4A58
  * Callers:
- *     ?Create@CSharedCompositionSpotLightMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C00B3470 (-Create@CSharedCompositionSpotLightMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@P.c)
+ *     ?Create@CSharedCompositionSpotLightMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C00A49C0 (-Create@CSharedCompositionSpotLightMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@P.c)
  * Callees:
- *     ?Initialize@CCompositionSpotLightMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00B3590 (-Initialize@CCompositionSpotLightMarshaler@DirectComposition@@UEAAJXZ.c)
+ *     ?Initialize@CCompositionSpotLightMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00A4AB0 (-Initialize@CCompositionSpotLightMarshaler@DirectComposition@@UEAAJXZ.c)
  */
 
 NTSTATUS __fastcall DirectComposition::CSharedCompositionSpotLightMarshaler::InitializeFromSharedResource(
@@ -17,7 +17,7 @@ NTSTATUS __fastcall DirectComposition::CSharedCompositionSpotLightMarshaler::Ini
   {
     result = ObReferenceObjectByPointer((char *)a2 - 24, 3u, ExCompositionObjectType, 0);
     if ( result >= 0 )
-      *((_QWORD *)this + 26) = a2;
+      *((_QWORD *)this + 25) = a2;
   }
   return result;
 }

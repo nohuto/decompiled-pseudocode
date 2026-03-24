@@ -1,25 +1,26 @@
 /*
- * XREFs of ?DestroyVirtualGpu@DXGK_VIRTUAL_GPU_GPUP@@UEAAXXZ @ 0x1C03714B0
+ * XREFs of ?DestroyVirtualGpu@DXGK_VIRTUAL_GPU_GPUP@@UEAAXXZ @ 0x1C0237980
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C00085C0 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
- *     ?RemoveVirtualGpu@DXGVIRTUALMACHINE@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C005B688 (-RemoveVirtualGpu@DXGVIRTUALMACHINE@@QEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C0008594 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
+ *     ?RemoveVirtualGpu@DXGVIRTUALMACHINE@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0040518 (-RemoveVirtualGpu@DXGVIRTUALMACHINE@@QEAAXPEAU_LIST_ENTRY@@@Z.c)
  */
 
-void __fastcall DXGK_VIRTUAL_GPU_GPUP::DestroyVirtualGpu(DXGK_VIRTUAL_GPU_GPUP *this)
+void __fastcall DXGK_VIRTUAL_GPU_GPUP::DestroyVirtualGpu(DXGK_VIRTUAL_GPU_GPUP *this, __int64 a2)
 {
-  struct _KTHREAD **v2; // rcx
+  DXGPROCESS *v3; // rcx
 
-  if ( *((_QWORD *)this + 12) )
+  v3 = (DXGPROCESS *)*((_QWORD *)this + 12);
+  if ( v3 )
   {
-    v2 = (struct _KTHREAD **)*((_QWORD *)this + 13);
-    if ( v2 )
+    if ( *((_QWORD *)this + 13) )
     {
-      DXGVIRTUALMACHINE::RemoveVirtualGpu(v2, (struct _LIST_ENTRY *)((char *)this + 136));
+      DXGVIRTUALMACHINE::RemoveVirtualGpu(*((struct _KTHREAD ***)this + 13), (struct _LIST_ENTRY *)((char *)this + 136));
       *((_QWORD *)this + 13) = 0LL;
+      v3 = (DXGPROCESS *)*((_QWORD *)this + 12);
     }
-    DXGPROCESS::ReleaseReference(*((DXGPROCESS **)this + 12));
+    DXGPROCESS::ReleaseReference(v3, a2);
     *((_QWORD *)this + 12) = 0LL;
   }
 }

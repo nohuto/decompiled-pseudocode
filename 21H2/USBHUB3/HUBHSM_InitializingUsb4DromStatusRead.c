@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHSM_InitializingUsb4DromStatusRead @ 0x1C0009E30
+ * XREFs of HUBHSM_InitializingUsb4DromStatusRead @ 0x1C0009B30
  * Callers:
  *     <none>
  * Callees:

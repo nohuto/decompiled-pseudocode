@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetBindingBroken@CBaseExpressionMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000FE44
+ * XREFs of ?EmitSetBindingBroken@CBaseExpressionMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0060490
  * Callers:
- *     ?EmitUpdateCommands@CBaseExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000FD40 (-EmitUpdateCommands@CBaseExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CBaseExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0060380 (-EmitUpdateCommands@CBaseExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CBaseExpressionMarshaler::EmitSetBindingBroken(
@@ -15,7 +15,7 @@ char __fastcall DirectComposition::CBaseExpressionMarshaler::EmitSetBindingBroke
   void *v6; // [rsp+30h] [rbp+8h] BYREF
 
   v3 = 1;
-  if ( (*((_DWORD *)this + 4) & 0x100) == 0 && (*((_BYTE *)this + 128) & 4) != 0 )
+  if ( (*((_DWORD *)this + 4) & 0x100) == 0 && (*((_BYTE *)this + 120) & 4) != 0 )
   {
     v6 = 0LL;
     if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x10uLL, &v6) )
@@ -25,8 +25,8 @@ char __fastcall DirectComposition::CBaseExpressionMarshaler::EmitSetBindingBroke
       *(_QWORD *)(v5 + 4) = 0LL;
       *((_DWORD *)v5 + 3) = 0;
       *((_DWORD *)v5 + 1) = 24;
-      *((_DWORD *)v5 + 2) = *((_DWORD *)this + 8);
-      v5[12] = (*((_BYTE *)this + 128) & 8) != 0;
+      *((_DWORD *)v5 + 2) = *((_DWORD *)this + 6);
+      v5[12] = (*((_BYTE *)this + 120) & 8) != 0;
       *((_DWORD *)this + 4) |= 0x100u;
     }
     else

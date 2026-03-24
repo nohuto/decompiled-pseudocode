@@ -1,23 +1,23 @@
 /*
- * XREFs of PopDirectedDripsNotify @ 0x14071E768
+ * XREFs of PopDirectedDripsNotify @ 0x14071E748
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1402DEFEC (PopCaptureSleepStudyStatistics.c)
- *     PopAcquireTransitionLock @ 0x14071E6C8 (PopAcquireTransitionLock.c)
- *     PopReleaseTransitionLock @ 0x14071E724 (PopReleaseTransitionLock.c)
- *     PopDripsWatchdogDfxCallback @ 0x14086E2E0 (PopDripsWatchdogDfxCallback.c)
- *     PopDripsWatchdogPs4Callback @ 0x14086E650 (PopDripsWatchdogPs4Callback.c)
- *     PopDripsCallbackTakeAction @ 0x140879568 (PopDripsCallbackTakeAction.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
+ *     PopAcquireTransitionLock @ 0x14071E6A8 (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x14071E704 (PopReleaseTransitionLock.c)
+ *     PopDripsWatchdogDfxCallback @ 0x14086E2C0 (PopDripsWatchdogDfxCallback.c)
+ *     PopDripsWatchdogPs4Callback @ 0x14086E630 (PopDripsWatchdogPs4Callback.c)
+ *     PopDripsCallbackTakeAction @ 0x140879548 (PopDripsCallbackTakeAction.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PopQueueDirectedDripsWork @ 0x1402D6A68 (PopQueueDirectedDripsWork.c)
- *     PopDirectedDripsClearDisengageReason @ 0x140867AE8 (PopDirectedDripsClearDisengageReason.c)
- *     PopDirectedDripsEngagePs4 @ 0x140867BB0 (PopDirectedDripsEngagePs4.c)
- *     PopDirectedDripsSetDisengageReason @ 0x1408686D8 (PopDirectedDripsSetDisengageReason.c)
- *     PopDirectedDripsTriggerTransition @ 0x1408687A0 (PopDirectedDripsTriggerTransition.c)
- *     PopDisengageDirectedDrips @ 0x140868894 (PopDisengageDirectedDrips.c)
- *     PopDirectedDripsDiagRundown @ 0x14087B970 (PopDirectedDripsDiagRundown.c)
+ *     PopQueueDirectedDripsWork @ 0x1402D6B68 (PopQueueDirectedDripsWork.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x140867AC8 (PopDirectedDripsClearDisengageReason.c)
+ *     PopDirectedDripsEngagePs4 @ 0x140867B90 (PopDirectedDripsEngagePs4.c)
+ *     PopDirectedDripsSetDisengageReason @ 0x1408686B8 (PopDirectedDripsSetDisengageReason.c)
+ *     PopDirectedDripsTriggerTransition @ 0x140868780 (PopDirectedDripsTriggerTransition.c)
+ *     PopDisengageDirectedDrips @ 0x140868874 (PopDisengageDirectedDrips.c)
+ *     PopDirectedDripsDiagRundown @ 0x14087B950 (PopDirectedDripsDiagRundown.c)
  */
 
 char __fastcall PopDirectedDripsNotify(int a1, _BYTE *a2)
@@ -53,7 +53,7 @@ char __fastcall PopDirectedDripsNotify(int a1, _BYTE *a2)
       goto LABEL_50;
     if ( a1 == 8 )
     {
-      if ( !dword_140419188 )
+      if ( !dword_140419168 )
         return v3;
       _m_prefetchw(&PopDirectedDripsState);
       if ( (_InterlockedOr(&PopDirectedDripsState, 0) & 0x400) == 0 )
@@ -67,12 +67,12 @@ char __fastcall PopDirectedDripsNotify(int a1, _BYTE *a2)
     if ( a1 == 9 )
     {
 LABEL_50:
-      dword_140419188 = 0;
+      dword_140419168 = 0;
       return v3;
     }
     if ( a1 == 10 )
     {
-      if ( !dword_140419188 )
+      if ( !dword_140419168 )
         return v3;
       _m_prefetchw(&PopDirectedDripsState);
       v8 = (_InterlockedOr(&PopDirectedDripsState, 0) & 0x800) == 0;
@@ -84,30 +84,30 @@ LABEL_50:
     switch ( a1 )
     {
       case 0:
-        LOBYTE(v3) = _InterlockedDecrement(&dword_140419184) <= 0;
+        LOBYTE(v3) = _InterlockedDecrement(&dword_140419164) <= 0;
         *a2 = v3;
         return v3;
       case 1:
         goto LABEL_11;
       case 2:
-        LOBYTE(v3) = _InterlockedExchange(&dword_140419184, dword_140419180);
+        LOBYTE(v3) = _InterlockedExchange(&dword_140419164, dword_140419160);
         return v3;
     }
     v6 = (unsigned int)(a1 - 5);
     if ( a1 == 5 )
     {
-      _InterlockedExchange(&dword_140419184, 0);
+      _InterlockedExchange(&dword_140419164, 0);
       *a2 = 1;
       return v3;
     }
     if ( a1 == 6 )
     {
 LABEL_11:
-      v3 = _InterlockedExchangeAdd(&dword_140419184, 0);
+      v3 = _InterlockedExchangeAdd(&dword_140419164, 0);
       if ( v3 > 0 )
         return v3;
-      v7 = _InterlockedExchangeAdd(&dword_140419190, 0);
-      v3 = _InterlockedExchangeAdd(&dword_14041918C, 0);
+      v7 = _InterlockedExchangeAdd(&dword_140419170, 0);
+      v3 = _InterlockedExchangeAdd(&dword_14041916C, 0);
       if ( !v7 || v7 == v3 )
         return v3;
       v8 = v3 == 0;
@@ -141,19 +141,19 @@ LABEL_20:
           {
             if ( v14 != 1 )
               return v3;
-            ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_1404191F8, 0LL);
-            if ( !--dword_140419238 )
+            ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_1404191D8, 0LL);
+            if ( !--dword_140419218 )
               PopDirectedDripsClearDisengageReason(1LL);
           }
           else
           {
-            ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_1404191F8, 0LL);
-            if ( ++dword_140419238 == 1 )
+            ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_1404191D8, 0LL);
+            if ( ++dword_140419218 == 1 )
               PopDirectedDripsSetDisengageReason(1LL);
           }
-          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_1404191F8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock((volatile signed __int64 *)&qword_1404191F8);
-          LOBYTE(v3) = KeAbPostRelease((ULONG_PTR)&qword_1404191F8);
+          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_1404191D8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+            ExfTryToWakePushLock((volatile signed __int64 *)&qword_1404191D8);
+          LOBYTE(v3) = KeAbPostRelease((ULONG_PTR)&qword_1404191D8);
         }
         else
         {
@@ -176,13 +176,13 @@ LABEL_20:
     else
     {
       v15 = *(_QWORD *)a2;
-      *(_DWORD *)(v15 + 200) = dword_1404191EC;
+      *(_DWORD *)(v15 + 200) = dword_1404191CC;
       LOBYTE(v3) = PopDirectedDripsDiagRundown(v15, v6, v5, 0LL);
     }
   }
   else
   {
-    dword_1404191EC = 0;
+    dword_1404191CC = 0;
   }
   return v3;
 }

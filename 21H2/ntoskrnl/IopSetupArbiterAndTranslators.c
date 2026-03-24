@@ -1,14 +1,14 @@
 /*
- * XREFs of IopSetupArbiterAndTranslators @ 0x140821364
+ * XREFs of IopSetupArbiterAndTranslators @ 0x140751E1C
  * Callers:
- *     IopResourceRequirementsListToReqList @ 0x140820DCC (IopResourceRequirementsListToReqList.c)
+ *     IopResourceRequirementsListToReqList @ 0x140751854 (IopResourceRequirementsListToReqList.c)
  * Callees:
- *     IopTranslateAndAdjustReqDesc @ 0x14081F9F4 (IopTranslateAndAdjustReqDesc.c)
- *     IopFindResourceHandlerInfo @ 0x140821748 (IopFindResourceHandlerInfo.c)
- *     IopFindLegacyBusDeviceNode @ 0x1408217D8 (IopFindLegacyBusDeviceNode.c)
- *     IopCallArbiter @ 0x140821830 (IopCallArbiter.c)
- *     IopQueryResourceHandlerInterface @ 0x140821918 (IopQueryResourceHandlerInterface.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     IopFindResourceHandlerInfo @ 0x1407521FC (IopFindResourceHandlerInfo.c)
+ *     IopFindLegacyBusDeviceNode @ 0x14075228C (IopFindLegacyBusDeviceNode.c)
+ *     IopCallArbiter @ 0x1407522E4 (IopCallArbiter.c)
+ *     IopQueryResourceHandlerInterface @ 0x1407523CC (IopQueryResourceHandlerInterface.c)
+ *     IopTranslateAndAdjustReqDesc @ 0x1407C2904 (IopTranslateAndAdjustReqDesc.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopSetupArbiterAndTranslators(unsigned int *a1, __int64 a2, __int64 a3)
@@ -31,16 +31,16 @@ __int64 __fastcall IopSetupArbiterAndTranslators(unsigned int *a1, __int64 a2, _
   int v19; // eax
   __int16 v20; // di
   int v21; // eax
-  char v22; // dl
-  char v23; // cl
-  __int64 v24; // rax
-  __int64 v25; // rdx
-  _QWORD *v26; // rcx
-  _QWORD *v27; // rax
-  PVOID *v28; // rcx
+  char *v22; // rax
+  unsigned __int64 v23; // rdx
+  _QWORD *v24; // rcx
+  _QWORD *v25; // rax
+  PVOID *v26; // rcx
+  char v27; // dl
+  char v28; // cl
   __int64 v29; // rdi
-  __int64 Pool2; // rax
-  __int64 *v31; // rdx
+  unsigned __int64 PoolWithTag; // rax
+  PVOID *v31; // rdx
   __int64 v32; // rdi
   __int64 v33; // [rsp+30h] [rbp-28h] BYREF
   __int64 v34; // [rsp+38h] [rbp-20h] BYREF
@@ -154,73 +154,73 @@ LABEL_20:
                 if ( (int)result < 0 )
                   return result;
                 a3 = v34;
-                v22 = *(_BYTE *)(*(_QWORD *)(v34 + 64) + 1LL);
+                v27 = *(_BYTE *)(*(_QWORD *)(v34 + 64) + 1LL);
                 *(_QWORD *)(v34 + 32) = *((_QWORD *)a1 + 4);
-                v9 = v22;
-                if ( v22 == 7 )
+                v9 = v27;
+                if ( v27 == 7 )
                   v9 = 3;
-                v23 = v37;
+                v28 = v37;
                 *((_QWORD *)a1 + 4) = a3;
                 if ( (_DWORD)result == 288 )
-                  v23 = 0;
-                v37 = v23;
+                  v28 = 0;
+                v37 = v28;
               }
               goto LABEL_24;
             }
             v29 = 0LL;
             v38 = 0LL;
           }
-          Pool2 = ExAllocatePool2(256LL, 40LL, 538996816LL);
-          if ( !Pool2 )
+          PoolWithTag = (unsigned __int64)ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x20207050u);
+          if ( !PoolWithTag )
             return 3221225626LL;
-          *(_BYTE *)(Pool2 + 16) = v9;
-          *(_QWORD *)(Pool2 + 8) = Pool2;
-          *(_QWORD *)Pool2 = Pool2;
-          *(_QWORD *)(Pool2 + 24) = v29;
-          *(_QWORD *)(Pool2 + 32) = LegacyBusDeviceNode;
-          v31 = (__int64 *)LegacyBusDeviceNode[64];
-          if ( (_QWORD *)*v31 != LegacyBusDeviceNode + 63 )
+          *(_BYTE *)(PoolWithTag + 16) = v9;
+          *(_QWORD *)(PoolWithTag + 8) = PoolWithTag;
+          *(_QWORD *)PoolWithTag = PoolWithTag;
+          *(_QWORD *)(PoolWithTag + 24) = v29;
+          *(_QWORD *)(PoolWithTag + 32) = LegacyBusDeviceNode;
+          v31 = (PVOID *)LegacyBusDeviceNode[64];
+          if ( *v31 != LegacyBusDeviceNode + 63 )
             goto LABEL_68;
-          *(_QWORD *)(Pool2 + 8) = v31;
-          *(_QWORD *)Pool2 = LegacyBusDeviceNode + 63;
-          *v31 = Pool2;
-          v15 = Pool2 & -(__int64)(v29 != 0);
-          LegacyBusDeviceNode[64] = Pool2;
+          *(_QWORD *)(PoolWithTag + 8) = v31;
+          *(_QWORD *)PoolWithTag = LegacyBusDeviceNode + 63;
+          *v31 = (PVOID)PoolWithTag;
+          v15 = PoolWithTag & -(__int64)(v29 != 0);
+          LegacyBusDeviceNode[64] = PoolWithTag;
           v33 = v15;
           goto LABEL_20;
         }
         v32 = 0LL;
         v38 = 0LL;
       }
-      v24 = ExAllocatePool2(256LL, 112LL, 538996816LL);
-      v25 = v24;
-      if ( !v24 )
+      v22 = (char *)ExAllocatePoolWithTag(PagedPool, 0x70uLL, 0x20207050u);
+      v23 = (unsigned __int64)v22;
+      if ( !v22 )
         return 3221225626LL;
-      *(_WORD *)(v24 + 104) = 0;
-      *(_QWORD *)(v24 + 96) = v24 + 88;
-      *(_QWORD *)(v24 + 88) = v24 + 88;
-      *(_QWORD *)(v24 + 80) = v24 + 72;
-      *(_QWORD *)(v24 + 72) = v24 + 72;
-      v26 = (_QWORD *)(v24 + 40);
-      *(_QWORD *)(v24 + 48) = v24 + 40;
-      v27 = (_QWORD *)(v24 + 56);
-      *v26 = v26;
-      v27[1] = v27;
-      *v27 = v27;
-      *(_QWORD *)(v25 + 8) = v25;
-      *(_QWORD *)v25 = v25;
-      *(_BYTE *)(v25 + 16) = v9;
-      *(_QWORD *)(v25 + 32) = LegacyBusDeviceNode;
-      v28 = (PVOID *)LegacyBusDeviceNode[62];
-      if ( *v28 != LegacyBusDeviceNode + 61 )
+      *((_WORD *)v22 + 52) = 0;
+      *((_QWORD *)v22 + 12) = v22 + 88;
+      *((_QWORD *)v22 + 11) = v22 + 88;
+      *((_QWORD *)v22 + 10) = v22 + 72;
+      *((_QWORD *)v22 + 9) = v22 + 72;
+      v24 = v22 + 40;
+      *((_QWORD *)v22 + 6) = v22 + 40;
+      v25 = v22 + 56;
+      *v24 = v24;
+      v25[1] = v25;
+      *v25 = v25;
+      *(_QWORD *)(v23 + 8) = v23;
+      *(_QWORD *)v23 = v23;
+      *(_BYTE *)(v23 + 16) = v9;
+      *(_QWORD *)(v23 + 32) = LegacyBusDeviceNode;
+      v26 = (PVOID *)LegacyBusDeviceNode[62];
+      if ( *v26 != LegacyBusDeviceNode + 61 )
 LABEL_68:
         __fastfail(3u);
-      *(_QWORD *)v25 = LegacyBusDeviceNode + 61;
-      *(_QWORD *)(v25 + 8) = v28;
-      *v28 = (PVOID)v25;
-      LegacyBusDeviceNode[62] = v25;
-      *(_QWORD *)(v25 + 24) = v32;
-      v14 = v25 & -(__int64)(v32 != 0);
+      *(_QWORD *)v23 = LegacyBusDeviceNode + 61;
+      *(_QWORD *)(v23 + 8) = v26;
+      *v26 = (PVOID)v23;
+      LegacyBusDeviceNode[62] = v23;
+      *(_QWORD *)(v23 + 24) = v32;
+      v14 = v23 & -(__int64)(v32 != 0);
       v39 = v14;
       goto LABEL_14;
     }

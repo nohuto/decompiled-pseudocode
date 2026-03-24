@@ -1,24 +1,46 @@
 /*
- * XREFs of HalpIommuFreeDomain @ 0x140515444
+ * XREFs of HalpIommuFreeDomain @ 0x1404CBDDC
  * Callers:
- *     HalpIommuDereferenceHardwareDomain @ 0x140517BAC (HalpIommuDereferenceHardwareDomain.c)
+ *     HalpIommuDereferenceHardwareDomain @ 0x1404C904C (HalpIommuDereferenceHardwareDomain.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpIommuFlushDomainTB @ 0x14045CA4A (HalpIommuFlushDomainTB.c)
- *     HalpIommuFreeDomainId @ 0x1405154A8 (HalpIommuFreeDomainId.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpIommuFlushDomainTB @ 0x1404CBD9C (HalpIommuFlushDomainTB.c)
  */
 
 void __fastcall HalpIommuFreeDomain(__int64 a1, __int64 a2)
 {
-  void (__fastcall *v4)(_QWORD, __int64, _QWORD); // rax
+  unsigned __int64 v4; // rdi
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v8; // eax
+  bool v9; // zf
 
   if ( !HalpHvIommu )
   {
     HalpIommuFlushDomainTB(a1, a2, 0, 0LL);
-    v4 = *(void (__fastcall **)(_QWORD, __int64, _QWORD))(a1 + 80);
-    if ( v4 )
-      v4(*(_QWORD *)(a1 + 16), a2, 0LL);
-    if ( *(_DWORD *)a2 != 3 || (*(_BYTE *)(a2 + 16) & 4) == 0 )
-      HalpIommuFreeDomainId(a1, *(unsigned int *)(a2 + 48));
+    v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 432));
+    _bittestandreset(*(signed __int32 **)(a1 + 448), *(_DWORD *)(a2 + 24));
+    KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 432));
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+          v9 = (v8 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v8;
+          if ( v9 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
+      }
+    }
+    __writecr8(v4);
   }
 }

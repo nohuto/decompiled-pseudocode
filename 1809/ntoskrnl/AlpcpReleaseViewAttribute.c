@@ -4,7 +4,7 @@
  *     AlpcpReleaseMessageAttributesOnCancel @ 0x140616314 (AlpcpReleaseMessageAttributesOnCancel.c)
  *     AlpcpReleaseAttributes @ 0x14061A818 (AlpcpReleaseAttributes.c)
  *     AlpcpSendMessage @ 0x1406348F0 (AlpcpSendMessage.c)
- *     AlpcMessageCleanupProcedure @ 0x140696E60 (AlpcMessageCleanupProcedure.c)
+ *     AlpcMessageCleanupProcedure @ 0x140696E40 (AlpcMessageCleanupProcedure.c)
  * Callees:
  *     AlpcpLockForCachedReferenceBlob @ 0x140616E4C (AlpcpLockForCachedReferenceBlob.c)
  *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)

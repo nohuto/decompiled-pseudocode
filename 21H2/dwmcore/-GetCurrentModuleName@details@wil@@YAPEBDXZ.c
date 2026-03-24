@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetCurrentModuleName@details@wil@@YAPEBDXZ @ 0x1800F2BB0
+ * XREFs of ?GetCurrentModuleName@details@wil@@YAPEBDXZ @ 0x18014D4D0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetModuleInformation@details@wil@@YA_NPEAXPEAIPEAD_K@Z @ 0x1800F2BF4 (-GetModuleInformation@details@wil@@YA_NPEAXPEAIPEAD_K@Z.c)
+ *     ?GetModuleInformation@details@wil@@YA_NPEAXPEAIPEAD_K@Z @ 0x18014D8F0 (-GetModuleInformation@details@wil@@YA_NPEAXPEAIPEAD_K@Z.c)
  */
 
 const char *__fastcall wil::details::GetCurrentModuleName(wil::details *this)

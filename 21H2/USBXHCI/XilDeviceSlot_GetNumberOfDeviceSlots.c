@@ -1,7 +1,7 @@
 /*
- * XREFs of XilDeviceSlot_GetNumberOfDeviceSlots @ 0x1C0036884
+ * XREFs of XilDeviceSlot_GetNumberOfDeviceSlots @ 0x1C0036644
  * Callers:
- *     Controller_TelemetryAddControllerData @ 0x1C00767AC (Controller_TelemetryAddControllerData.c)
+ *     Controller_TelemetryAddControllerData @ 0x1C0075284 (Controller_TelemetryAddControllerData.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwQueryDefaultUILanguage @ 0x14041BFE0
+ * XREFs of ZwQueryDefaultUILanguage @ 0x1403FAC20
  * Callers:
- *     DifZwQueryDefaultUILanguageWrapper @ 0x140623C90 (DifZwQueryDefaultUILanguageWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

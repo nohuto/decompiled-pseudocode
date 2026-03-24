@@ -1,41 +1,32 @@
 /*
- * XREFs of ??0EngModeState@@QEAA@XZ @ 0x1C008A354
+ * XREFs of ??0EngModeState@@QEAA@XZ @ 0x1C00CB83C
  * Callers:
- *     EngGetRgnData @ 0x1C000EEB0 (EngGetRgnData.c)
- *     EngDeleteRgn @ 0x1C008A130 (EngDeleteRgn.c)
- *     EngCombineRgn @ 0x1C008A1B0 (EngCombineRgn.c)
- *     EngCreateRectRgn @ 0x1C008A250 (EngCreateRectRgn.c)
- *     EngSetRectRgn @ 0x1C008A2D0 (EngSetRectRgn.c)
- *     EngCopyRgn @ 0x1C016A8B0 (EngCopyRgn.c)
- *     EngEqualRgn @ 0x1C016A930 (EngEqualRgn.c)
- *     EngGetRgnBox @ 0x1C016A9F0 (EngGetRgnBox.c)
- *     EngIntersectRgn @ 0x1C016AA50 (EngIntersectRgn.c)
- *     EngOffsetRgn @ 0x1C016AAF0 (EngOffsetRgn.c)
- *     EngRectInRgn @ 0x1C016AB60 (EngRectInRgn.c)
- *     EngSubtractRgn @ 0x1C016ABC0 (EngSubtractRgn.c)
- *     EngUnionRgn @ 0x1C016AC60 (EngUnionRgn.c)
- *     EngXorRgn @ 0x1C016AD00 (EngXorRgn.c)
+ *     EngCombineRgn @ 0x1C014B900 (EngCombineRgn.c)
+ *     EngCopyRgn @ 0x1C014B9A0 (EngCopyRgn.c)
+ *     EngCreateRectRgn @ 0x1C014BA20 (EngCreateRectRgn.c)
+ *     EngDeleteRgn @ 0x1C014BAA0 (EngDeleteRgn.c)
+ *     EngEqualRgn @ 0x1C014BB20 (EngEqualRgn.c)
+ *     EngGetRgnBox @ 0x1C014BBE0 (EngGetRgnBox.c)
+ *     EngGetRgnData @ 0x1C014BC40 (EngGetRgnData.c)
+ *     EngIntersectRgn @ 0x1C014BCB0 (EngIntersectRgn.c)
+ *     EngOffsetRgn @ 0x1C014BD50 (EngOffsetRgn.c)
+ *     EngRectInRgn @ 0x1C014BDC0 (EngRectInRgn.c)
+ *     EngSetRectRgn @ 0x1C014BE20 (EngSetRectRgn.c)
+ *     EngSubtractRgn @ 0x1C014BEB0 (EngSubtractRgn.c)
+ *     EngUnionRgn @ 0x1C014BF50 (EngUnionRgn.c)
+ *     EngXorRgn @ 0x1C014BFF0 (EngXorRgn.c)
  * Callees:
- *     IsThreadCrossSessionAttached @ 0x1C0044340 (IsThreadCrossSessionAttached.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
  */
 
 EngModeState *__fastcall EngModeState::EngModeState(EngModeState *this)
 {
-  struct _KTHREAD *CurrentThread; // rsi
-  __int64 v3; // rbx
-  __int64 *ThreadWin32Thread; // rax
+  __int64 ThreadWin32Thread; // rax
 
   *(_QWORD *)this = 0LL;
-  CurrentThread = KeGetCurrentThread();
-  v3 = 0LL;
-  if ( !IsThreadCrossSessionAttached() )
-  {
-    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
-    if ( ThreadWin32Thread )
-      v3 = *ThreadWin32Thread;
-  }
-  *(_QWORD *)this = v3;
-  if ( v3 )
-    *(_DWORD *)(v3 + 328) |= 0x10u;
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  *(_QWORD *)this = ThreadWin32Thread;
+  if ( ThreadWin32Thread )
+    *(_DWORD *)(ThreadWin32Thread + 328) |= 0x20u;
   return this;
 }

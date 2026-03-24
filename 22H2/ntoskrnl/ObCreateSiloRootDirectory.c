@@ -1,33 +1,32 @@
 /*
- * XREFs of ObCreateSiloRootDirectory @ 0x140A73B70
+ * XREFs of ObCreateSiloRootDirectory @ 0x140980520
  * Callers:
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293330 (PdcCreateWatchdogAroundClientCall.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     PsDetachSiloFromCurrentThread @ 0x14031CAB0 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CAD0 (PsAttachSiloToCurrentThread.c)
- *     PsDereferenceSiloContext @ 0x140369C20 (PsDereferenceSiloContext.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x14041B1A0 (ZwOpenDirectoryObject.c)
- *     ZwCreateDirectoryObjectEx @ 0x14041BC00 (ZwCreateDirectoryObjectEx.c)
- *     PsGetParentSilo @ 0x1406831E0 (PsGetParentSilo.c)
- *     PsIsJobParentImmutable @ 0x14069EDA4 (PsIsJobParentImmutable.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     PsInsertSiloContext @ 0x14077CEF0 (PsInsertSiloContext.c)
- *     PsInsertPermanentSiloContextEx @ 0x14077CF6C (PsInsertPermanentSiloContextEx.c)
- *     PsCreateSiloContext @ 0x14077D1F0 (PsCreateSiloContext.c)
- *     RtlIntegerToUnicodeString @ 0x1407CF660 (RtlIntegerToUnicodeString.c)
- *     ObpInitializeRootNamespace @ 0x14081E004 (ObpInitializeRootNamespace.c)
- *     ObpGetSilosRootDirectory @ 0x140A74040 (ObpGetSilosRootDirectory.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     HalSystemVectorDispatchEntry @ 0x1402526A0 (HalSystemVectorDispatchEntry.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14034C200 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14034C220 (PsAttachSiloToCurrentThread.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x1403FA520 (ZwOpenDirectoryObject.c)
+ *     ZwCreateDirectoryObjectEx @ 0x1403FAF20 (ZwCreateDirectoryObjectEx.c)
+ *     PsInsertSiloContext @ 0x1405D25C0 (PsInsertSiloContext.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     PsInsertPermanentSiloContextEx @ 0x140660CE4 (PsInsertPermanentSiloContextEx.c)
+ *     PsCreateSiloContext @ 0x140660F90 (PsCreateSiloContext.c)
+ *     RtlIntegerToUnicodeString @ 0x1406F6350 (RtlIntegerToUnicodeString.c)
+ *     PsIsJobParentImmutable @ 0x14071C620 (PsIsJobParentImmutable.c)
+ *     ObpInitializeRootNamespace @ 0x1407A0DC0 (ObpInitializeRootNamespace.c)
+ *     PsGetParentSilo @ 0x140905B40 (PsGetParentSilo.c)
+ *     ObpGetSilosRootDirectory @ 0x1409809DC (ObpGetSilosRootDirectory.c)
  */
 
 __int64 __fastcall ObCreateSiloRootDirectory(__int64 a1, int a2)
 {
-  void *v2; // rsi
-  PVOID v3; // r15
+  struct _DMA_ADAPTER *v2; // r15
+  struct _DMA_ADAPTER *v3; // rsi
   char v4; // r14
   __int64 v6; // rcx
   __int64 ParentSilo; // rbx
@@ -38,7 +37,7 @@ __int64 __fastcall ObCreateSiloRootDirectory(__int64 a1, int a2)
   NTSTATUS v13; // eax
   __int64 v14; // r8
   HANDLE Handle; // [rsp+30h] [rbp-59h] BYREF
-  _QWORD *v16; // [rsp+38h] [rbp-51h] BYREF
+  struct _DMA_ADAPTER **v16; // [rsp+38h] [rbp-51h] BYREF
   HANDLE v17; // [rsp+40h] [rbp-49h] BYREF
   HANDLE v18; // [rsp+48h] [rbp-41h] BYREF
   HANDLE DirectoryHandle; // [rsp+50h] [rbp-39h] BYREF
@@ -47,26 +46,26 @@ __int64 __fastcall ObCreateSiloRootDirectory(__int64 a1, int a2)
   UNICODE_STRING String; // [rsp+90h] [rbp+7h] BYREF
   char v23; // [rsp+A0h] [rbp+17h] BYREF
 
-  v2 = 0LL;
   v17 = 0LL;
   v18 = 0LL;
+  v2 = 0LL;
+  DirectoryHandle = 0LL;
   v3 = 0LL;
   Handle = 0LL;
   v4 = a2;
-  DirectoryHandle = 0LL;
   v16 = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   if ( (a2 & 0xFFFFFFF8) != 0 || (a2 & 6) == 4 || !PsIsJobParentImmutable(a1) )
     return 3221225485LL;
   ParentSilo = PsGetParentSilo(v6);
-  if ( ParentSilo != PdcCreateWatchdogAroundClientCall() )
+  if ( ParentSilo != HalSystemVectorDispatchEntry() )
     return 3221227289LL;
   v9 = (struct _LIST_ENTRY *)PsGetParentSilo(a1);
   v10 = PsAttachSiloToCurrentThread(v9);
   *(_QWORD *)&String.Length = 1441792LL;
   String.Buffer = (wchar_t *)&v23;
   if ( a1 )
-    v11 = *(_DWORD *)(a1 + 1452);
+    v11 = *(_DWORD *)(a1 + 1236);
   else
     v11 = 0;
   SilosRootDirectory = RtlIntegerToUnicodeString(v11, 0xAu, &String);
@@ -95,28 +94,28 @@ __int64 __fastcall ObCreateSiloRootDirectory(__int64 a1, int a2)
         {
           Object = 0LL;
           v13 = ObReferenceObjectByHandle(Handle, 0xF000Fu, ObpDirectoryObjectType, 0, &Object, 0LL);
-          v3 = Object;
+          v2 = (struct _DMA_ADAPTER *)Object;
           SilosRootDirectory = v13;
           if ( v13 >= 0 )
           {
-            SilosRootDirectory = PsCreateSiloContext(a1, 16, 1, (__int64)ObpDirectoryTeardownCallback, &v16);
+            SilosRootDirectory = PsCreateSiloContext(a1, 8, 1, (__int64)ObpDirectoryTeardownCallback, &v16);
             if ( SilosRootDirectory < 0 )
             {
-              v2 = v16;
+              v3 = (struct _DMA_ADAPTER *)v16;
             }
             else
             {
-              ObfReferenceObjectWithTag(v3, 0x7254624Fu);
-              v2 = v16;
+              ObfReferenceObjectWithTag(v2, 0x7254624Fu);
+              v3 = (struct _DMA_ADAPTER *)v16;
               v14 = (__int64)v16;
-              *v16 = v3;
+              *v16 = v2;
               SilosRootDirectory = PsInsertSiloContext(a1, PsObjectDirectoryTeardownSlot, v14);
               if ( SilosRootDirectory >= 0 )
               {
                 SilosRootDirectory = PsInsertPermanentSiloContextEx(
                                        a1,
                                        PsObjectDirectorySiloContextSlot,
-                                       (__int64)v3,
+                                       (__int64)v2,
                                        1);
                 if ( SilosRootDirectory >= 0 && (v4 & 2) != 0 )
                 {
@@ -129,7 +128,7 @@ __int64 __fastcall ObCreateSiloRootDirectory(__int64 a1, int a2)
                         SilosRootDirectory = ZwOpenDirectoryObject(&v17, 3u, &ObjectAttributes),
                         SilosRootDirectory >= 0) )
                   {
-                    SilosRootDirectory = ObpInitializeRootNamespace(a1, Handle, (__int64)v17, (__int64)v2 + 8);
+                    SilosRootDirectory = ObpInitializeRootNamespace(a1, Handle, (__int64)v17);
                   }
                 }
               }
@@ -145,12 +144,12 @@ __int64 __fastcall ObCreateSiloRootDirectory(__int64 a1, int a2)
     ZwClose(v18);
   if ( Handle )
     ZwClose(Handle);
-  if ( v3 )
-    ObfDereferenceObject(v3);
+  if ( v2 )
+    HalPutDmaAdapter(v2);
   if ( DirectoryHandle )
     ZwClose(DirectoryHandle);
-  if ( v2 )
-    PsDereferenceSiloContext(v2);
+  if ( v3 )
+    HalPutDmaAdapter(v3);
   PsDetachSiloFromCurrentThread(v10);
   return (unsigned int)SilosRootDirectory;
 }

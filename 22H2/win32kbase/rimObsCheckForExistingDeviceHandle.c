@@ -1,9 +1,9 @@
 /*
- * XREFs of rimObsCheckForExistingDeviceHandle @ 0x1C01AD5CC
+ * XREFs of rimObsCheckForExistingDeviceHandle @ 0x1C017DD18
  * Callers:
- *     rimObsDeliverInputToObserver @ 0x1C01ADB14 (rimObsDeliverInputToObserver.c)
+ *     rimObsDeliverInputToObserver @ 0x1C017E118 (rimObsDeliverInputToObserver.c)
  * Callees:
- *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0072E20 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0058C60 (RawInputManagerDeviceObjectResolveHandle.c)
  */
 
 char *__fastcall rimObsCheckForExistingDeviceHandle(__int64 a1, PVOID a2)

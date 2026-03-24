@@ -1,10 +1,10 @@
 /*
- * XREFs of AcpiArblibEjectInterface @ 0x1C007CFFC
+ * XREFs of AcpiArblibEjectInterface @ 0x1C00AD1AC
  * Callers:
- *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
+ *     ACPIBusIrpQueryInterface @ 0x1C0010C50 (ACPIBusIrpQueryInterface.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     AcpiArblibReferenceArbiter @ 0x1C0001950 (AcpiArblibReferenceArbiter.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     AcpiArblibReferenceArbiter @ 0x1C000CA00 (AcpiArblibReferenceArbiter.c)
  */
 
 __int64 __fastcall AcpiArblibEjectInterface(ULONG_PTR a1, __int64 a2)

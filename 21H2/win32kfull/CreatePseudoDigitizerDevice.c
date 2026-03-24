@@ -1,11 +1,11 @@
 /*
- * XREFs of CreatePseudoDigitizerDevice @ 0x1C01D8C74
+ * XREFs of CreatePseudoDigitizerDevice @ 0x1C01DDF24
  * Callers:
- *     _InitializeTouchInjectionWorker @ 0x1C01D71F8 (_InitializeTouchInjectionWorker.c)
+ *     _InitializeTouchInjectionWorker @ 0x1C01DCB90 (_InitializeTouchInjectionWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?_UpdateReportDescriptor@@YAXUtagRECT@@KK@Z @ 0x1C01D8B6C (-_UpdateReportDescriptor@@YAXUtagRECT@@KK@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?_UpdateReportDescriptor@@YAXUtagRECT@@KK@Z @ 0x1C01DDE1C (-_UpdateReportDescriptor@@YAXUtagRECT@@KK@Z.c)
  */
 
 struct DEVICEINFO *__fastcall CreatePseudoDigitizerDevice(int a1, int a2, __int64 a3)
@@ -33,7 +33,7 @@ struct DEVICEINFO *__fastcall CreatePseudoDigitizerDevice(int a1, int a2, __int6
     _UpdateReportDescriptor(&v14, 3937 * ((int)v8 / 1000) / 0x64u, 3937 * (SHIDWORD(v8) / 1000) / 0x64u);
     memset(v15, 0, sizeof(v15));
     LODWORD(v15[1]) = 498;
-    v15[0] = &unk_1C032F540;
+    v15[0] = &unk_1C03341F0;
     v15[10] = 0LL;
     *(struct tagRECT *)((char *)&v15[11] + 4) = v9;
     LODWORD(v15[11]) = a1;

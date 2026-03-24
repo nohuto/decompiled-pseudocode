@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDripsWatchdogCallbackHandler @ 0x14099C0A0
+ * XREFs of PopDripsWatchdogCallbackHandler @ 0x1408EEE28
  * Callers:
- *     PopDripsWatchdogCallbackWorker @ 0x14099C240 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x1408EEFD0 (PopDripsWatchdogCallbackWorker.c)
  * Callees:
- *     PopFxBuildDripsBlockingDeviceList @ 0x140588D84 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopFxIsDirectedPowerTransitionSupported @ 0x14058AA28 (PopFxIsDirectedPowerTransitionSupported.c)
- *     PopDripsWatchdogGetDeviceActiveTime @ 0x14059E468 (PopDripsWatchdogGetDeviceActiveTime.c)
- *     PopDeviceConstraintsEnforced @ 0x1405A2BB0 (PopDeviceConstraintsEnforced.c)
- *     PopDirectedDripsNotify @ 0x1408759B4 (PopDirectedDripsNotify.c)
- *     PopDirectedDripsMarkCandidateDevice @ 0x140983A5C (PopDirectedDripsMarkCandidateDevice.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x140984C44 (PopFxDestroyDripsBlockingDeviceList.c)
- *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x1409A11AC (PopDripsWatchdogInvokeDeviceCallbacks.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1405695C4 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxIsDirectedPowerTransitionSupported @ 0x14056B070 (PopFxIsDirectedPowerTransitionSupported.c)
+ *     PopDripsWatchdogGetDeviceActiveTime @ 0x1405761F0 (PopDripsWatchdogGetDeviceActiveTime.c)
+ *     PopDeviceConstraintsEnforced @ 0x14057F224 (PopDeviceConstraintsEnforced.c)
+ *     PopDirectedDripsNotify @ 0x14078DA18 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsMarkCandidateDevice @ 0x1408E3610 (PopDirectedDripsMarkCandidateDevice.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x1408E46D4 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x1408FA640 (PopDripsWatchdogInvokeDeviceCallbacks.c)
  */
 
 void __fastcall PopDripsWatchdogCallbackHandler(
@@ -34,7 +34,7 @@ void __fastcall PopDripsWatchdogCallbackHandler(
   v7 = a1 & 0x100;
   v8 = 0;
   if ( PopDirectedDripsTimeout && a4 / 0x989680 >= (unsigned int)PopDirectedDripsTimeout || a6 )
-    v8 = (byte_140CF7D88 & 1) == 0 || (a1 & 1) != 0;
+    v8 = (byte_140C4FFC0 & 1) == 0 || (a1 & 1) != 0;
   if ( ((a1 & 0x80) != 0 || (a1 & 0x100) != 0 || v8)
     && PopDeviceConstraintsEnforced()
     && (int)PopFxBuildDripsBlockingDeviceList(a3, v15) >= 0 )

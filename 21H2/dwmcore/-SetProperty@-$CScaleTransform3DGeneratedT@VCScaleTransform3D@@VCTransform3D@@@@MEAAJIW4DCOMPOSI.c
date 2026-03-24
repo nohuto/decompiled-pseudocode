@@ -1,92 +1,87 @@
 /*
- * XREFs of ?SetProperty@?$CScaleTransform3DGeneratedT@VCScaleTransform3D@@VCTransform3D@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801A4DC0
+ * XREFs of ?SetProperty@?$CScaleTransform3DGeneratedT@VCScaleTransform3D@@VCTransform3D@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180172B10
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CScaleTransform3DGeneratedT<CScaleTransform3D,CTransform3D>::SetProperty(
-        __int64 a1,
+        float *a1,
         int a2,
         int a3,
-        _DWORD *a4)
+        float *a4)
 {
   int v4; // edx
   int v5; // edx
   int v6; // edx
   int v7; // edx
   unsigned int v8; // ebx
-  __int64 v9; // rax
-  unsigned int v11; // [rsp+20h] [rbp-18h]
+  unsigned int v10; // [rsp+20h] [rbp-18h]
 
   if ( a3 == 18 )
   {
-    if ( !a2 )
+    if ( a2 )
     {
-      if ( *(float *)a4 != *(float *)(a1 + 160) )
+      v4 = a2 - 1;
+      if ( v4 )
       {
-        v9 = *(_QWORD *)a1;
-        *(_DWORD *)(a1 + 160) = *a4;
-        (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(v9 + 72))(a1, 0LL, 0LL);
-      }
-      return 0;
-    }
-    v4 = a2 - 1;
-    if ( v4 )
-    {
-      v5 = v4 - 1;
-      if ( v5 )
-      {
-        v6 = v5 - 1;
-        if ( v6 )
+        v5 = v4 - 1;
+        if ( v5 )
         {
-          v7 = v6 - 1;
-          if ( v7 )
+          v6 = v5 - 1;
+          if ( v6 )
           {
-            if ( v7 != 1 )
+            v7 = v6 - 1;
+            if ( v7 )
             {
-              v11 = 5690;
-              goto LABEL_10;
+              if ( v7 != 1 )
+              {
+                v10 = 5528;
+                goto LABEL_10;
+              }
+              if ( *a4 != a1[43] )
+              {
+                a1[43] = *a4;
+LABEL_23:
+                (*(void (__fastcall **)(float *, _QWORD, _QWORD))(*(_QWORD *)a1 + 72LL))(a1, 0LL, 0LL);
+              }
             }
-            if ( *(float *)a4 == *(float *)(a1 + 180) )
-              return 0;
-            *(_DWORD *)(a1 + 180) = *a4;
+            else if ( *a4 != a1[42] )
+            {
+              a1[42] = *a4;
+              goto LABEL_23;
+            }
           }
-          else
+          else if ( *a4 != a1[41] )
           {
-            if ( *(float *)a4 == *(float *)(a1 + 176) )
-              return 0;
-            *(_DWORD *)(a1 + 176) = *a4;
+            a1[41] = *a4;
+            goto LABEL_23;
           }
         }
-        else
+        else if ( *a4 != a1[40] )
         {
-          if ( *(float *)a4 == *(float *)(a1 + 172) )
-            return 0;
-          *(_DWORD *)(a1 + 172) = *a4;
+          a1[40] = *a4;
+          goto LABEL_23;
         }
       }
-      else
+      else if ( *a4 != a1[39] )
       {
-        if ( *(float *)a4 == *(float *)(a1 + 168) )
-          return 0;
-        *(_DWORD *)(a1 + 168) = *a4;
+        a1[39] = *a4;
+        goto LABEL_23;
       }
     }
-    else
+    else if ( *a4 != a1[38] )
     {
-      if ( *(float *)a4 == *(float *)(a1 + 164) )
-        return 0;
-      *(_DWORD *)(a1 + 164) = *a4;
+      a1[38] = *a4;
+      goto LABEL_23;
     }
-    (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)a1 + 72LL))(a1, 0LL, 0LL);
     return 0;
   }
-  v11 = 5695;
+  v10 = 5533;
 LABEL_10:
   v8 = -2147024809;
-  MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0LL, -2147024809, v11);
+  MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, v10, 0LL);
   return v8;
 }

@@ -1,7 +1,7 @@
 /*
  * XREFs of VfDriverLock @ 0x1409216E0
  * Callers:
- *     VfIsVerificationEnabledForImage @ 0x140309910 (VfIsVerificationEnabledForImage.c)
+ *     VfIsVerificationEnabledForImage @ 0x140309A10 (VfIsVerificationEnabledForImage.c)
  *     VfIsDriverSuspect @ 0x140920ED4 (VfIsDriverSuspect.c)
  *     MmIsDriverSuspectForVerifier @ 0x140921650 (MmIsDriverSuspectForVerifier.c)
  *     VfDriverEnableVerifier @ 0x140927E78 (VfDriverEnableVerifier.c)
@@ -16,9 +16,9 @@
  *     VfAddVerifierEntry @ 0x14094A814 (VfAddVerifierEntry.c)
  *     VfSetVerifierInformation @ 0x14094AA20 (VfSetVerifierInformation.c)
  *     VfSetVerifierInformationEx @ 0x14094AB28 (VfSetVerifierInformationEx.c)
- *     VfTriageAddDrivers @ 0x1409F84DC (VfTriageAddDrivers.c)
- *     VfSuspectDriversParseRegistryString @ 0x1409F8938 (VfSuspectDriversParseRegistryString.c)
- *     VfXdvExcludeParseRegistryString @ 0x1409F8AF4 (VfXdvExcludeParseRegistryString.c)
+ *     VfTriageAddDrivers @ 0x1409F84EC (VfTriageAddDrivers.c)
+ *     VfSuspectDriversParseRegistryString @ 0x1409F8948 (VfSuspectDriversParseRegistryString.c)
+ *     VfXdvExcludeParseRegistryString @ 0x1409F8B04 (VfXdvExcludeParseRegistryString.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  */

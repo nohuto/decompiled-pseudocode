@@ -1,29 +1,27 @@
 /*
- * XREFs of CheckDwmProcessSecurityIdentifier @ 0x1C0086270
+ * XREFs of CheckDwmProcessSecurityIdentifier @ 0x1C0076920
  * Callers:
- *     RIMIsCurrentProcessTrusted @ 0x1C006F020 (RIMIsCurrentProcessTrusted.c)
- *     ?xxxDwmProcessStartup@@YAJPEAX@Z @ 0x1C0086004 (-xxxDwmProcessStartup@@YAJPEAX@Z.c)
+ *     ?xxxDwmProcessStartup@@YAJPEAX@Z @ 0x1C007671C (-xxxDwmProcessStartup@@YAJPEAX@Z.c)
  * Callees:
- *     AllocateWindowManagerSid @ 0x1C00309C0 (AllocateWindowManagerSid.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     AllocateWindowManagerSid @ 0x1C0076990 (AllocateWindowManagerSid.c)
  */
 
 __int64 CheckDwmProcessSecurityIdentifier()
 {
-  int WindowManagerSid; // ebx
+  int v0; // ebx
   char v2; // [rsp+30h] [rbp+8h] BYREF
-  void *v3; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v3; // [rsp+38h] [rbp+10h] BYREF
 
   v3 = 0LL;
   v2 = 0;
-  WindowManagerSid = AllocateWindowManagerSid((__int64 *)&v3);
-  if ( WindowManagerSid >= 0 )
+  v0 = AllocateWindowManagerSid(&v3);
+  if ( v0 >= 0 )
   {
-    WindowManagerSid = RtlCheckTokenMembership(0LL, v3, &v2);
-    if ( WindowManagerSid >= 0 && !v2 )
-      WindowManagerSid = -1073741720;
-    if ( v3 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v3);
+    v0 = RtlCheckTokenMembership(0LL, v3, &v2);
+    if ( v0 >= 0 && !v2 )
+      v0 = -1073741720;
+    Win32FreePool(v3);
   }
-  return (unsigned int)WindowManagerSid;
+  return (unsigned int)v0;
 }

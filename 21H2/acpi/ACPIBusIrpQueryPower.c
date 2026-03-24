@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIBusIrpQueryPower @ 0x1C004C270
+ * XREFs of ACPIBusIrpQueryPower @ 0x1C004D4F0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     AMLIIsNamedChildPresent @ 0x1C000A410 (AMLIIsNamedChildPresent.c)
- *     ACPIDockIsDockDevice @ 0x1C000A480 (ACPIDockIsDockDevice.c)
- *     ACPIDispatchPowerIrpSuccess @ 0x1C0052450 (ACPIDispatchPowerIrpSuccess.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     AMLIIsNamedChildPresent @ 0x1C001F220 (AMLIIsNamedChildPresent.c)
+ *     ACPIDockIsDockDevice @ 0x1C0020C40 (ACPIDockIsDockDevice.c)
+ *     ACPIDispatchPowerIrpSuccess @ 0x1C0052EA0 (ACPIDispatchPowerIrpSuccess.c)
  */
 
 __int64 __fastcall ACPIBusIrpQueryPower(ULONG_PTR a1, IRP *a2)
@@ -22,10 +22,10 @@ __int64 __fastcall ACPIBusIrpQueryPower(ULONG_PTR a1, IRP *a2)
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   if ( CurrentStackLocation->Parameters.Create.Options || CurrentStackLocation->Parameters.Create.EaLength != 7 )
     goto LABEL_15;
-  if ( _bittest64((const signed __int64 *)(DeviceExtension + 8), 0x33u) )
+  if ( (*(_QWORD *)(DeviceExtension + 8) & 0x8000000000000LL) != 0 )
     goto LABEL_14;
-  v7 = *(__int64 **)(DeviceExtension + 760);
-  if ( ACPIDockIsDockDevice() )
+  v7 = *(__int64 **)(DeviceExtension + 720);
+  if ( ACPIDockIsDockDevice(v7) )
     goto LABEL_15;
   switch ( CurrentStackLocation->Parameters.Read.ByteOffset.LowPart )
   {

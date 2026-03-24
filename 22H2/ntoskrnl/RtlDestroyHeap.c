@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlDestroyHeap @ 0x1407E97B0
+ * XREFs of RtlDestroyHeap @ 0x1407727F0
  * Callers:
  *     <none>
  * Callees:
- *     ExDeleteResourceLite @ 0x1402A8CA0 (ExDeleteResourceLite.c)
- *     DbgPrint @ 0x14032A510 (DbgPrint.c)
- *     ZwFreeVirtualMemory @ 0x14041AA60 (ZwFreeVirtualMemory.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     RtlpHeapHandleError @ 0x1405B50BC (RtlpHeapHandleError.c)
- *     RtlpDestroyHeapSegment @ 0x1409BE410 (RtlpDestroyHeapSegment.c)
+ *     ExDeleteResourceLite @ 0x140275720 (ExDeleteResourceLite.c)
+ *     DbgPrint @ 0x140364360 (DbgPrint.c)
+ *     ZwFreeVirtualMemory @ 0x1403F9DE0 (ZwFreeVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     RtlpHeapHandleError @ 0x140593824 (RtlpHeapHandleError.c)
+ *     RtlpDestroyHeapSegment @ 0x140915E54 (RtlpDestroyHeapSegment.c)
  */
 
 PVOID __stdcall RtlDestroyHeap(PVOID HeapHandle)
@@ -29,7 +29,7 @@ PVOID __stdcall RtlDestroyHeap(PVOID HeapHandle)
     {
       v3 = *((_DWORD *)HeapHandle + 36);
       if ( v3 && (_WORD)v3 == 1 )
-        ((void (__fastcall *)(PVOID, _QWORD, __int64))CLFS_LSN_NULL_EXT)(HeapHandle, 0LL, 8LL);
+        ((void (__fastcall *)(PVOID, _QWORD, __int64))RtlpInterceptorRoutines)(HeapHandle, 0LL, 8LL);
       v4 = (_QWORD *)*((_QWORD *)HeapHandle + 34);
       while ( (char *)HeapHandle + 272 != (char *)v4 )
       {

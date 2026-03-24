@@ -1,21 +1,20 @@
 /*
- * XREFs of ?vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@KKW4PRECOMPUTETYPE@@@Z @ 0x1C014D744
+ * XREFs of ?vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@KKW4PRECOMPUTETYPE@@@Z @ 0x1C015AA94
  * Callers:
- *     EngLineTo @ 0x1C01338B0 (EngLineTo.c)
- *     ?bSimpleStroke@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C0133FC4 (-bSimpleStroke@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSH.c)
- *     ?bSimpleFill@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C0134AA8 (-bSimpleFill@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@.c)
- *     ?SpStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C0136110 (-SpStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_P.c)
- *     ?SpFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C027CDC0 (-SpFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
- *     ?SpStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@4PEAU_POINTL@@KK@Z @ 0x1C027D860 (-SpStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@.c)
- *     ?bSimpleStrokeAndFill@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@4PEAU_POINTL@@KK@Z @ 0x1C0282DD0 (-bSimpleStrokeAndFill@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEA.c)
+ *     ?SpStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@4PEAU_POINTL@@KK@Z @ 0x1C0142310 (-SpStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@.c)
+ *     ?SpStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C0143880 (-SpStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_P.c)
+ *     ?bSimpleStroke@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C014633C (-bSimpleStroke@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSH.c)
+ *     ?bSimpleFill@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C01476C0 (-bSimpleFill@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@.c)
+ *     EngLineTo @ 0x1C01497F0 (EngLineTo.c)
+ *     ?bSimpleStrokeAndFill@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@4PEAU_POINTL@@KK@Z @ 0x1C015DF4C (-bSimpleStrokeAndFill@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEA.c)
+ *     ?SpFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C027F5E0 (-SpFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
  * Callees:
- *     ?bRedirectionBitmap@SURFACE@@QEAAHXZ @ 0x1C0086C6C (-bRedirectionBitmap@SURFACE@@QEAAHXZ.c)
- *     ?bWiden@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C012FEB0 (-bWiden@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@@Z.c)
- *     ?bComputeWidenedBounds@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C0131254 (-bComputeWidenedBounds@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@@Z.c)
- *     ??0PATHSTACKOBJ@@QEAA@XZ @ 0x1C0136350 (--0PATHSTACKOBJ@@QEAA@XZ.c)
- *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C0137840 (--1XEPATHOBJ@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?bPreComputeFast@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@0PEAU_RECTL@@K@Z @ 0x1C02CE918 (-bPreComputeFast@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@0PEAU_RECTL@@K@Z.c)
+ *     ?bRedirectionBitmap@SURFACE@@QEAAHXZ @ 0x1C00F01D8 (-bRedirectionBitmap@SURFACE@@QEAAHXZ.c)
+ *     ?bWiden@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C013F6DC (-bWiden@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@@Z.c)
+ *     ?bComputeWidenedBounds@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C01412F0 (-bComputeWidenedBounds@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@@Z.c)
+ *     ??0PATHSTACKOBJ@@QEAA@XZ @ 0x1C0143AD8 (--0PATHSTACKOBJ@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?bPreComputeFast@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@0PEAU_RECTL@@K@Z @ 0x1C02D0414 (-bPreComputeFast@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@0PEAU_RECTL@@K@Z.c)
  */
 
 void __fastcall PRECOMPUTE::vInit(
@@ -39,18 +38,18 @@ void __fastcall PRECOMPUTE::vInit(
   int v19; // eax
   PRECOMPUTE *v20; // rcx
   PRECOMPUTE *v21; // rcx
-  __int64 v22; // rcx
-  __int64 v23; // rcx
-  __int64 v24; // rcx
-  __int64 v25; // rcx
-  __int64 v26; // rcx
-  RGNOBJ *v27; // rcx
-  struct _RECTL *v28; // r12
-  __int64 v29; // rdx
-  int v30; // eax
-  PRECOMPUTE *v31; // rcx
+  RGNOBJ *v22; // rcx
+  void *v23; // rcx
+  void *v24; // rcx
+  void *v25; // rcx
+  void *v26; // rcx
+  void *v27; // rcx
+  RGNOBJ *v28; // rcx
+  __int64 v29; // rax
+  struct _RECTL *v30; // r12
+  __int64 v31; // rdx
   int v32; // eax
-  RGNOBJ *v33; // rcx
+  PRECOMPUTE *v33; // rcx
   struct _RECTL *v34; // r14
   __int64 v35; // rcx
   __int64 v36; // [rsp+30h] [rbp-D0h] BYREF
@@ -63,6 +62,8 @@ void __fastcall PRECOMPUTE::vInit(
   struct _RECTL v43; // [rsp+E0h] [rbp-20h] BYREF
   _BYTE v44[8]; // [rsp+F0h] [rbp-10h] BYREF
   __int64 v45; // [rsp+F8h] [rbp-8h]
+  _BYTE v46[32]; // [rsp+140h] [rbp+40h] BYREF
+  int v47; // [rsp+160h] [rbp+60h]
 
   *(_QWORD *)a1 = 0LL;
   *(_QWORD *)(a1 + 8) = 0LL;
@@ -86,98 +87,126 @@ void __fastcall PRECOMPUTE::vInit(
     *(_QWORD *)(a1 + 32) = a4;
     return;
   }
-  if ( a10 )
+  if ( !a10 )
   {
-    if ( a10 == 1 )
+    if ( (a7->fl & 1) == 0 )
     {
-      if ( *(_BYTE *)(a5 + 20) != 3 && (*(_DWORD *)a4 & 0x4000) == 0 )
+LABEL_141:
+      *(_QWORD *)(a1 + 32) = a4;
+LABEL_142:
+      v35 = *(_QWORD *)(a1 + 32);
+      if ( v35 )
       {
-        v28 = 0LL;
-        v29 = *(_QWORD *)(*((_QWORD *)a4 + 1) + 48LL);
-        v30 = (int)*(_OWORD *)(*((_QWORD *)a4 + 1) + 48LL) >> 4;
-        v38 = *(_OWORD *)(*((_QWORD *)a4 + 1) + 48LL);
-        if ( *(_DWORD *)(a5 + 4) > v30
-          || *(_DWORD *)(a5 + 12) < (DWORD2(v38) + 15) >> 4
-          || *(_DWORD *)(a5 + 8) > SHIDWORD(v29) >> 4
-          || *(_DWORD *)(a5 + 16) < (HIDWORD(v38) + 15) >> 4 )
-        {
-          v28 = (struct _RECTL *)(a5 + 4);
-        }
-        PATHSTACKOBJ::PATHSTACKOBJ((PATHSTACKOBJ *)v44);
-        if ( v45
-          && EPATHOBJ::bClone((EPATHOBJ *)v44, a4)
-          && ((v44[0] & 1) == 0 || EPATHOBJ::bFlatten((EPATHOBJ *)v44))
-          && (!a7 || (unsigned int)EPATHOBJ::bWiden((EPATHOBJ *)v44, (struct EPATHOBJ *)v44, a6, a7))
-          && (unsigned int)PRECOMPUTE::bPreComputeFast(v31, (struct EPATHOBJ *)v44, a4, v28, 1u) )
-        {
-          goto LABEL_135;
-        }
-        goto LABEL_129;
+        *(_QWORD *)(v35 + 16) = *(_QWORD *)a1;
+        *(_QWORD *)(*(_QWORD *)(a1 + 32) + 24LL) = *(_QWORD *)(a1 + 8);
+        *(_QWORD *)(*(_QWORD *)(a1 + 32) + 32LL) = *(_QWORD *)(a1 + 16);
+        *(_QWORD *)(*(_QWORD *)(a1 + 32) + 40LL) = *(_QWORD *)(a1 + 24);
       }
-      PATHSTACKOBJ::PATHSTACKOBJ((PATHSTACKOBJ *)v44);
-      if ( !v45
-        || !EPATHOBJ::bClone((EPATHOBJ *)v44, a4)
-        || (v44[0] & 1) != 0 && !EPATHOBJ::bFlatten((EPATHOBJ *)v44)
-        || a7 && !(unsigned int)EPATHOBJ::bWiden((EPATHOBJ *)v44, (struct EPATHOBJ *)v44, a6, a7) )
-      {
-        goto LABEL_129;
-      }
-      v32 = *(_DWORD *)(a5 + 8);
-      DWORD2(v38) = 0;
-      v43.top = 16 * v32;
-      v43.bottom = 16 * *(_DWORD *)(a5 + 16);
-      RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v38, (struct EPATHOBJ *)v44, a9, &v43);
-      if ( !(_QWORD)v38 )
-        goto LABEL_73;
-      *(_QWORD *)a1 = v38;
-      goto LABEL_109;
-    }
-    if ( a10 != 2 )
-      goto LABEL_137;
-    v14 = *(_DWORD *)(a5 + 8);
-    v15 = *(_DWORD *)(a5 + 16);
-    v43.top = 16 * v14;
-    v43.bottom = 16 * v15;
-    if ( (a7->fl & 1) != 0 && a8 != 13 )
-    {
-      PATHSTACKOBJ::PATHSTACKOBJ((PATHSTACKOBJ *)v44);
-      if ( v45 && EPATHOBJ::bClone((EPATHOBJ *)v44, a4) )
-      {
-        PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v41);
-        if ( v42
-          && (unsigned int)EPATHOBJ::bComputeWidenedBounds((EPATHOBJ *)v41, (struct EPATHOBJ *)v44, a6, a7)
-          && (unsigned int)EPATHOBJ::bWiden((EPATHOBJ *)v41, (struct EPATHOBJ *)v44, a6, a7)
-          && ((v44[0] & 1) == 0 || EPATHOBJ::bFlatten((EPATHOBJ *)v44)) )
-        {
-          v37 = 0;
-          RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v36, (struct EPATHOBJ *)v41, 2u, 0LL);
-          v40 = 0;
-          RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v39, (struct EPATHOBJ *)v44, a9, 0LL);
-          v16 = v36;
-          if ( v36 && v39 )
-          {
-            *(_QWORD *)a1 = v39;
-            *(_QWORD *)(a1 + 24) = v16;
-            if ( v40 == 1 )
-              RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v39);
-            if ( v37 == 1 )
-              RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v36);
-            PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v41);
-            goto LABEL_135;
-          }
-          RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v36);
-          RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v39);
-          if ( v40 == 1 )
-            RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v39);
-          if ( v37 == 1 )
-            RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v36);
-        }
-        PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v41);
-      }
-LABEL_129:
-      XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)v44);
       return;
     }
+    PATHSTACKOBJ::PATHSTACKOBJ((PATHSTACKOBJ *)v44);
+    if ( !v45
+      || !EPATHOBJ::bClone((EPATHOBJ *)v44, a4)
+      || (v44[0] & 1) != 0 && !EPATHOBJ::bFlatten((EPATHOBJ *)v44)
+      || !(unsigned int)EPATHOBJ::bWiden((EPATHOBJ *)v44, (struct EPATHOBJ *)v44, a6, a7) )
+    {
+      goto LABEL_132;
+    }
+    if ( *(_BYTE *)(a5 + 20) )
+    {
+      v43.top = 16 * *(_DWORD *)(a5 + 8);
+      v34 = &v43;
+      v43.bottom = 16 * *(_DWORD *)(a5 + 16);
+    }
+    else
+    {
+      v34 = 0LL;
+    }
+    v36 = 0LL;
+    v37 = 0;
+    RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v36, (struct EPATHOBJ *)v44, a9, v34);
+    if ( v36 )
+    {
+      *(_QWORD *)(a1 + 8) = v36;
+      if ( a9 == 2 )
+        goto LABEL_136;
+      *(_QWORD *)&v38 = 0LL;
+      DWORD2(v38) = 0;
+      RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v38, (struct EPATHOBJ *)v44, 2u, v34);
+      v29 = v38;
+      if ( (_QWORD)v38 )
+      {
+LABEL_134:
+        *(_QWORD *)(a1 + 16) = v29;
+        if ( DWORD2(v38) == 1 )
+          RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v38);
+        goto LABEL_136;
+      }
+      REGION::vDeleteREGION(*(REGION **)(a1 + 8));
+      *(_QWORD *)(a1 + 8) = 0LL;
+      if ( DWORD2(v38) == 1 )
+        RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v38);
+    }
+    if ( v37 == 1 )
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v36);
+    goto LABEL_132;
+  }
+  if ( a10 == 1 )
+  {
+    if ( *(_BYTE *)(a5 + 20) != 3 && (*(_DWORD *)a4 & 0x4000) == 0 )
+    {
+      v30 = 0LL;
+      v31 = *(_QWORD *)(*((_QWORD *)a4 + 1) + 48LL);
+      v32 = (int)*(_OWORD *)(*((_QWORD *)a4 + 1) + 48LL) >> 4;
+      v38 = *(_OWORD *)(*((_QWORD *)a4 + 1) + 48LL);
+      if ( *(_DWORD *)(a5 + 4) > v32
+        || *(_DWORD *)(a5 + 12) < (DWORD2(v38) + 15) >> 4
+        || *(_DWORD *)(a5 + 8) > SHIDWORD(v31) >> 4
+        || *(_DWORD *)(a5 + 16) < (HIDWORD(v38) + 15) >> 4 )
+      {
+        v30 = (struct _RECTL *)(a5 + 4);
+      }
+      PATHSTACKOBJ::PATHSTACKOBJ((PATHSTACKOBJ *)v44);
+      if ( v45
+        && EPATHOBJ::bClone((EPATHOBJ *)v44, a4)
+        && ((v44[0] & 1) == 0 || EPATHOBJ::bFlatten((EPATHOBJ *)v44))
+        && (!a7 || (unsigned int)EPATHOBJ::bWiden((EPATHOBJ *)v44, (struct EPATHOBJ *)v44, a6, a7))
+        && (unsigned int)PRECOMPUTE::bPreComputeFast(v33, (struct EPATHOBJ *)v44, a4, v30, 1u) )
+      {
+        goto LABEL_139;
+      }
+      goto LABEL_132;
+    }
+    PATHSTACKOBJ::PATHSTACKOBJ((PATHSTACKOBJ *)v44);
+    if ( !v45
+      || !EPATHOBJ::bClone((EPATHOBJ *)v44, a4)
+      || (v44[0] & 1) != 0 && !EPATHOBJ::bFlatten((EPATHOBJ *)v44)
+      || a7 && !(unsigned int)EPATHOBJ::bWiden((EPATHOBJ *)v44, (struct EPATHOBJ *)v44, a6, a7) )
+    {
+      goto LABEL_132;
+    }
+    v43.top = 16 * *(_DWORD *)(a5 + 8);
+    v43.bottom = 16 * *(_DWORD *)(a5 + 16);
+    *(_QWORD *)&v38 = 0LL;
+    DWORD2(v38) = 0;
+    RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v38, (struct EPATHOBJ *)v44, a9, &v43);
+    if ( !(_QWORD)v38 )
+      goto LABEL_60;
+    *(_QWORD *)a1 = v38;
+LABEL_80:
+    if ( DWORD2(v38) != 1 )
+      goto LABEL_139;
+    v28 = (RGNOBJ *)&v38;
+    goto LABEL_138;
+  }
+  if ( a10 != 2 )
+    goto LABEL_142;
+  v14 = *(_DWORD *)(a5 + 8);
+  v15 = *(_DWORD *)(a5 + 16);
+  v43.top = 16 * v14;
+  v43.bottom = 16 * v15;
+  if ( (a7->fl & 1) == 0 || a8 == 13 )
+  {
     if ( *(_BYTE *)(a5 + 20) != 3 && (*(_DWORD *)a4 & 0x4000) == 0 )
     {
       v17 = 0LL;
@@ -193,11 +222,12 @@ LABEL_129:
       }
       PATHSTACKOBJ::PATHSTACKOBJ((PATHSTACKOBJ *)v44);
       if ( !v45 || !EPATHOBJ::bClone((EPATHOBJ *)v44, a4) )
-        goto LABEL_129;
+        goto LABEL_132;
       if ( (v44[0] & 1) == 0 )
         goto LABEL_44;
       if ( !EPATHOBJ::bFlatten((EPATHOBJ *)v44) )
-        goto LABEL_129;
+        goto LABEL_132;
+      v36 = 0LL;
       v37 = 0;
       RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v36, (struct EPATHOBJ *)v44, a9, &v43);
       if ( v36 )
@@ -213,12 +243,32 @@ LABEL_44:
             REGION::vDeleteREGION(*(REGION **)a1);
             *(_QWORD *)a1 = 0LL;
           }
-          goto LABEL_129;
+          goto LABEL_132;
         }
         if ( (a7->fl & 1) != 0 && !(unsigned int)EPATHOBJ::bWiden((EPATHOBJ *)v44, (struct EPATHOBJ *)v44, v39, a7)
           || !(unsigned int)PRECOMPUTE::bPreComputeFast(v21, (struct EPATHOBJ *)v44, a4, v17, 2u) )
         {
-          v24 = *((_QWORD *)a4 + 6);
+          v25 = (void *)*((_QWORD *)a4 + 6);
+          if ( v25 )
+            Win32FreePool(v25);
+          if ( *(_QWORD *)a1 )
+          {
+            REGION::vDeleteREGION(*(REGION **)a1);
+            *(_QWORD *)a1 = 0LL;
+          }
+          *((_QWORD *)a4 + 6) = 0LL;
+          *((_DWORD *)a4 + 14) = 0;
+          goto LABEL_132;
+        }
+        *(_QWORD *)&v38 = 0LL;
+        DWORD2(v38) = 0;
+        RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v38, (struct EPATHOBJ *)v44, a9, &v43);
+        if ( !(_QWORD)v38 )
+        {
+          v23 = (void *)*((_QWORD *)a4 + 6);
+          if ( v23 )
+            Win32FreePool(v23);
+          v24 = (void *)*((_QWORD *)a4 + 8);
           if ( v24 )
             Win32FreePool(v24);
           if ( *(_QWORD *)a1 )
@@ -227,48 +277,30 @@ LABEL_44:
             *(_QWORD *)a1 = 0LL;
           }
           *((_QWORD *)a4 + 6) = 0LL;
-          *((_DWORD *)a4 + 14) = 0;
-          goto LABEL_129;
-        }
-        DWORD2(v38) = 0;
-        RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v38, (struct EPATHOBJ *)v44, a9, &v43);
-        if ( !(_QWORD)v38 )
-        {
-          v22 = *((_QWORD *)a4 + 6);
-          if ( v22 )
-            Win32FreePool(v22);
-          v23 = *((_QWORD *)a4 + 8);
-          if ( v23 )
-            Win32FreePool(v23);
-          if ( *(_QWORD *)a1 )
-          {
-            REGION::vDeleteREGION(*(REGION **)a1);
-            *(_QWORD *)a1 = 0LL;
-          }
-          *((_QWORD *)a4 + 6) = 0LL;
           *((_QWORD *)a4 + 7) = 0LL;
           *((_QWORD *)a4 + 8) = 0LL;
-LABEL_73:
+LABEL_60:
           if ( DWORD2(v38) != 1 )
-            goto LABEL_129;
-          v27 = (RGNOBJ *)&v38;
-LABEL_128:
-          RGNOBJ::vDeleteRGNOBJ(v27);
-          goto LABEL_129;
+            goto LABEL_132;
+          v22 = (RGNOBJ *)&v38;
+LABEL_62:
+          RGNOBJ::vDeleteRGNOBJ(v22);
+          goto LABEL_132;
         }
         *(_QWORD *)(a1 + 8) = v38;
         if ( a9 != 2 )
         {
+          v36 = 0LL;
           v37 = 0;
           RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v36, (struct EPATHOBJ *)v44, 2u, &v43);
           if ( !v36 )
           {
-            v25 = *((_QWORD *)a4 + 6);
-            if ( v25 )
-              Win32FreePool(v25);
-            v26 = *((_QWORD *)a4 + 8);
+            v26 = (void *)*((_QWORD *)a4 + 6);
             if ( v26 )
               Win32FreePool(v26);
+            v27 = (void *)*((_QWORD *)a4 + 8);
+            if ( v27 )
+              Win32FreePool(v27);
             if ( *(_QWORD *)a1 )
             {
               REGION::vDeleteREGION(*(REGION **)a1);
@@ -281,27 +313,19 @@ LABEL_128:
             *((_QWORD *)a4 + 8) = 0LL;
             if ( v37 == 1 )
               RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v36);
-            goto LABEL_73;
+            goto LABEL_60;
           }
           *(_QWORD *)(a1 + 16) = v36;
           if ( v37 == 1 )
             RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v36);
         }
-LABEL_109:
-        if ( DWORD2(v38) == 1 )
-        {
-          v33 = (RGNOBJ *)&v38;
-LABEL_134:
-          RGNOBJ::vDeleteRGNOBJ(v33);
-          goto LABEL_135;
-        }
-        goto LABEL_135;
+        goto LABEL_80;
       }
-LABEL_126:
+LABEL_47:
       if ( v37 != 1 )
-        goto LABEL_129;
-      v27 = (RGNOBJ *)&v36;
-      goto LABEL_128;
+        goto LABEL_132;
+      v22 = (RGNOBJ *)&v36;
+      goto LABEL_62;
     }
     PATHSTACKOBJ::PATHSTACKOBJ((PATHSTACKOBJ *)v44);
     if ( !v45
@@ -309,81 +333,80 @@ LABEL_126:
       || (v44[0] & 1) != 0 && !EPATHOBJ::bFlatten((EPATHOBJ *)v44)
       || (a7->fl & 1) != 0 && !(unsigned int)EPATHOBJ::bWiden((EPATHOBJ *)v44, (struct EPATHOBJ *)v44, a6, a7) )
     {
-      goto LABEL_129;
+      goto LABEL_132;
     }
+    v36 = 0LL;
     v37 = 0;
     RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v36, (struct EPATHOBJ *)v44, a9, &v43);
     if ( !v36 )
-      goto LABEL_126;
+      goto LABEL_47;
     *(_QWORD *)(a1 + 8) = v36;
-    if ( a9 == 2 )
+    if ( a9 != 2 )
     {
-LABEL_132:
-      if ( v37 == 1 )
+      *(_QWORD *)&v38 = 0LL;
+      DWORD2(v38) = 0;
+      RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v38, (struct EPATHOBJ *)v44, 2u, &v43);
+      v29 = v38;
+      if ( !(_QWORD)v38 )
       {
-        v33 = (RGNOBJ *)&v36;
-        goto LABEL_134;
+        REGION::vDeleteREGION(*(REGION **)(a1 + 8));
+        *(_QWORD *)(a1 + 8) = 0LL;
+        if ( DWORD2(v38) == 1 )
+          RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v38);
+        goto LABEL_47;
       }
-LABEL_135:
-      XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)v44);
-      goto LABEL_136;
+      goto LABEL_134;
     }
-    DWORD2(v38) = 0;
-    RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v38, (struct EPATHOBJ *)v44, 2u, &v43);
-LABEL_123:
-    if ( !(_QWORD)v38 )
-    {
-      REGION::vDeleteREGION(*(REGION **)(a1 + 8));
-      *(_QWORD *)(a1 + 8) = 0LL;
-      if ( DWORD2(v38) == 1 )
-        RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v38);
-      goto LABEL_126;
-    }
-    *(_QWORD *)(a1 + 16) = v38;
-    if ( DWORD2(v38) == 1 )
-      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v38);
-    goto LABEL_132;
-  }
-  if ( (a7->fl & 1) != 0 )
-  {
-    PATHSTACKOBJ::PATHSTACKOBJ((PATHSTACKOBJ *)v44);
-    if ( !v45
-      || !EPATHOBJ::bClone((EPATHOBJ *)v44, a4)
-      || (v44[0] & 1) != 0 && !EPATHOBJ::bFlatten((EPATHOBJ *)v44)
-      || !(unsigned int)EPATHOBJ::bWiden((EPATHOBJ *)v44, (struct EPATHOBJ *)v44, a6, a7) )
-    {
-      goto LABEL_129;
-    }
-    if ( *(_BYTE *)(a5 + 20) )
-    {
-      v43.top = 16 * *(_DWORD *)(a5 + 8);
-      v34 = &v43;
-      v43.bottom = 16 * *(_DWORD *)(a5 + 16);
-    }
-    else
-    {
-      v34 = 0LL;
-    }
-    v37 = 0;
-    RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v36, (struct EPATHOBJ *)v44, a9, v34);
-    if ( !v36 )
-      goto LABEL_126;
-    *(_QWORD *)(a1 + 8) = v36;
-    if ( a9 == 2 )
-      goto LABEL_132;
-    DWORD2(v38) = 0;
-    RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v38, (struct EPATHOBJ *)v44, 2u, v34);
-    goto LABEL_123;
-  }
 LABEL_136:
-  *(_QWORD *)(a1 + 32) = a4;
-LABEL_137:
-  v35 = *(_QWORD *)(a1 + 32);
-  if ( v35 )
-  {
-    *(_QWORD *)(v35 + 16) = *(_QWORD *)a1;
-    *(_QWORD *)(*(_QWORD *)(a1 + 32) + 24LL) = *(_QWORD *)(a1 + 8);
-    *(_QWORD *)(*(_QWORD *)(a1 + 32) + 32LL) = *(_QWORD *)(a1 + 16);
-    *(_QWORD *)(*(_QWORD *)(a1 + 32) + 40LL) = *(_QWORD *)(a1 + 24);
+    if ( v37 != 1 )
+      goto LABEL_139;
+    v28 = (RGNOBJ *)&v36;
+LABEL_138:
+    RGNOBJ::vDeleteRGNOBJ(v28);
+LABEL_139:
+    EPATHOBJ::vUnlock((EPATHOBJ *)v44);
+    if ( v47 )
+      PopThreadGuardedObject(v46);
+    goto LABEL_141;
   }
+  PATHSTACKOBJ::PATHSTACKOBJ((PATHSTACKOBJ *)v44);
+  if ( v45 && EPATHOBJ::bClone((EPATHOBJ *)v44, a4) )
+  {
+    PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v41);
+    if ( v42
+      && (unsigned int)EPATHOBJ::bComputeWidenedBounds((EPATHOBJ *)v41, (struct EPATHOBJ *)v44, a6, a7)
+      && (unsigned int)EPATHOBJ::bWiden((EPATHOBJ *)v41, (struct EPATHOBJ *)v44, a6, a7)
+      && ((v44[0] & 1) == 0 || EPATHOBJ::bFlatten((EPATHOBJ *)v44)) )
+    {
+      v36 = 0LL;
+      v37 = 0;
+      RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v36, (struct EPATHOBJ *)v41, 2u, 0LL);
+      v39 = 0LL;
+      v40 = 0;
+      RGNMEMOBJ::vCreate((RGNMEMOBJ *)&v39, (struct EPATHOBJ *)v44, a9, 0LL);
+      v16 = v36;
+      if ( v36 && v39 )
+      {
+        *(_QWORD *)a1 = v39;
+        *(_QWORD *)(a1 + 24) = v16;
+        if ( v40 == 1 )
+          RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v39);
+        if ( v37 == 1 )
+          RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v36);
+        PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v41);
+        goto LABEL_139;
+      }
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v36);
+      RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v39);
+      if ( v40 == 1 )
+        RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v39);
+      if ( v37 == 1 )
+        RGNOBJ::vDeleteRGNOBJ((RGNOBJ *)&v36);
+    }
+    PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v41);
+  }
+LABEL_132:
+  EPATHOBJ::vUnlock((EPATHOBJ *)v44);
+  if ( v47 )
+    PopThreadGuardedObject(v46);
 }

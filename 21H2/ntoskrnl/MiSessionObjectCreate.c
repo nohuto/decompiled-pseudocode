@@ -1,24 +1,24 @@
 /*
- * XREFs of MiSessionObjectCreate @ 0x1407F385C
+ * XREFs of MiSessionObjectCreate @ 0x140786484
  * Callers:
- *     MiSessionCreate @ 0x1407F3718 (MiSessionCreate.c)
+ *     MiSessionCreate @ 0x14078620C (MiSessionCreate.c)
  * Callees:
- *     KeGetSchedulingGroupSize @ 0x14020758C (KeGetSchedulingGroupSize.c)
- *     KeInsertSchedulingGroup @ 0x140208434 (KeInsertSchedulingGroup.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     RtlLengthSid @ 0x1402A4730 (RtlLengthSid.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     RtlStringCchPrintfW @ 0x1402E0198 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlCreateAcl @ 0x1407244A0 (RtlCreateAcl.c)
- *     RtlCreateSecurityDescriptor @ 0x140724520 (RtlCreateSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14072B3B0 (ObCreateObjectEx.c)
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
+ *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
+ *     KeInsertSchedulingGroup @ 0x140285278 (KeInsertSchedulingGroup.c)
+ *     KeGetSchedulingGroupSize @ 0x140287B4C (KeGetSchedulingGroupSize.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 int MiSessionObjectCreate()
@@ -37,28 +37,26 @@ int MiSessionObjectCreate()
   int v11; // ebx
   unsigned int SchedulingGroupSize; // eax
   struct _LIST_ENTRY *v13; // rax
-  void *Src; // [rsp+28h] [rbp-E0h]
+  char *Src; // [rsp+28h] [rbp-E0h]
   PRKEVENT Event; // [rsp+60h] [rbp-A8h] BYREF
-  __int64 v16; // [rsp+68h] [rbp-A0h] BYREF
-  _DWORD v17[2]; // [rsp+70h] [rbp-98h] BYREF
-  __int64 v18; // [rsp+78h] [rbp-90h]
-  UNICODE_STRING *p_DestinationString; // [rsp+80h] [rbp-88h]
-  int v20; // [rsp+88h] [rbp-80h]
-  int v21; // [rsp+8Ch] [rbp-7Ch]
-  _OWORD *v22; // [rsp+90h] [rbp-78h]
-  __int64 v23; // [rsp+98h] [rbp-70h]
-  UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-68h] BYREF
+  unsigned __int64 DestinationString[3]; // [rsp+68h] [rbp-A0h] BYREF
+  _DWORD v17[2]; // [rsp+80h] [rbp-88h] BYREF
+  __int64 v18; // [rsp+88h] [rbp-80h]
+  unsigned __int64 *v19; // [rsp+90h] [rbp-78h]
+  int v20; // [rsp+98h] [rbp-70h]
+  int v21; // [rsp+9Ch] [rbp-6Ch]
+  _OWORD *v22; // [rsp+A0h] [rbp-68h]
+  __int64 v23; // [rsp+A8h] [rbp-60h]
   _OWORD SecurityDescriptor[2]; // [rsp+B0h] [rbp-58h] BYREF
-  __int64 v26; // [rsp+D0h] [rbp-38h]
+  __int64 v25; // [rsp+D0h] [rbp-38h]
   wchar_t pszDest[128]; // [rsp+D8h] [rbp-30h] BYREF
 
-  v16 = 0LL;
+  memset(DestinationString, 0, sizeof(DestinationString));
   v17[1] = 0;
   v21 = 0;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  v26 = 0LL;
+  v25 = 0LL;
   Event = 0LL;
-  DestinationString = 0LL;
   result = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
   if ( result >= 0 )
   {
@@ -82,7 +80,7 @@ int MiSessionObjectCreate()
           Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v4, 0);
           if ( Acl >= 0 )
           {
-            v7 = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[25];
+            v7 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5];
             v8 = RtlStringCchPrintfW(pszDest, 0x80uLL, L"\\KernelObjects\\Session%d", *(unsigned int *)(v7 + 8));
             if ( v8 < 0 )
             {
@@ -90,14 +88,14 @@ int MiSessionObjectCreate()
             }
             else
             {
-              RtlInitUnicodeString(&DestinationString, pszDest);
-              p_DestinationString = &DestinationString;
+              RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], pszDest);
+              v19 = &DestinationString[1];
               v17[0] = 48;
               v22 = SecurityDescriptor;
               v18 = 0LL;
               v20 = 512;
               v23 = 0LL;
-              v8 = ObCreateObjectEx(0, MmSessionObjectType, (int)v17, 0, (__int64)Src, 40, 0, 0, &Event, 0LL);
+              v8 = ObCreateObjectEx(0, MmSessionObjectType, (__int64)v17, 0, Src, 40, 0, 0, &Event, 0LL);
               ExFreePoolWithTag(v4, 0);
               if ( v8 >= 0 )
               {
@@ -115,22 +113,22 @@ int MiSessionObjectCreate()
                 {
                   KeInsertSchedulingGroup((__int64)v13, 5LL, 0LL);
 LABEL_10:
-                  result = ObInsertObjectEx((char *)v9, 0LL, 1u, 0, 0, 0LL, &v16);
+                  result = ObInsertObjectEx((char *)v9, 0LL, 1u, 0, 0, 0LL, DestinationString);
                   v11 = result;
                   if ( result >= 0 )
                   {
                     *(_DWORD *)(v7 + 4) |= 0x40u;
                     _InterlockedIncrement((volatile signed __int32 *)(v7 + 12));
-                    *(_QWORD *)(v7 + 72) = v16;
-                    *(_QWORD *)(v7 + 64) = Event;
-                    *(_DWORD *)(v7 + 848) = 2;
-                    *(_DWORD *)(v7 + 852) = 1;
-                    KeInitializeEvent((PRKEVENT)(v7 + 856), SynchronizationEvent, 1u);
+                    *(_QWORD *)(v7 + 80) = DestinationString[0];
+                    *(_QWORD *)(v7 + 72) = Event;
+                    *(_DWORD *)(v7 + 1016) = 2;
+                    *(_DWORD *)(v7 + 1020) = 1;
+                    KeInitializeEvent((PRKEVENT)(v7 + 1024), SynchronizationEvent, 1u);
                     return v11;
                   }
                   return result;
                 }
-                ObfDereferenceObject(v9);
+                HalPutDmaAdapter((PADAPTER_OBJECT)v9);
                 return -1073741670;
               }
             }

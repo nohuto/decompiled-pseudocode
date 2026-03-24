@@ -1,161 +1,170 @@
 /*
- * XREFs of ?bLockHobj@HANDLELOCK@@QEAAHPEAUHOBJ__@@E@Z @ 0x1C0022F70
+ * XREFs of ?bLockHobj@HANDLELOCK@@QEAAHPEAUHOBJ__@@E@Z @ 0x1C00303A0
  * Callers:
- *     ?DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT@@YAXPEAVLFONT@@@Z @ 0x1C0020AE0 (-DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT@@YAXPEAVLFONT@@@Z.c)
- *     ?DEC_SHARE_REF_CNT_LAZY0@@YAXPEAVBRUSH@@@Z @ 0x1C0021290 (-DEC_SHARE_REF_CNT_LAZY0@@YAXPEAVBRUSH@@@Z.c)
- *     ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C00636C0 (--0BRUSHMEMOBJ@@QEAA@KKHH@Z.c)
- *     ?bDeleteRGNOBJAPI@RGNOBJAPI@@QEAAHXZ @ 0x1C008E200 (-bDeleteRGNOBJAPI@RGNOBJAPI@@QEAAHXZ.c)
- *     bDeleteBrush @ 0x1C00C82E0 (bDeleteBrush.c)
+ *     ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C001BC50 (--0BRUSHMEMOBJ@@QEAA@KKHH@Z.c)
+ *     bDeleteBrush @ 0x1C001C340 (bDeleteBrush.c)
+ *     ?DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT@@YAXPEAVLFONT@@@Z @ 0x1C002D2A0 (-DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT@@YAXPEAVLFONT@@@Z.c)
+ *     ?DEC_SHARE_REF_CNT_LAZY0@@YAXPEAVBRUSH@@@Z @ 0x1C002D890 (-DEC_SHARE_REF_CNT_LAZY0@@YAXPEAVBRUSH@@@Z.c)
+ *     HmgMarkLazyDelete @ 0x1C00335E0 (HmgMarkLazyDelete.c)
  * Callees:
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0021FC0 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0022610 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
- *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C0022C40 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C002F290 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C002FDB0 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C002FF80 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
  */
 
-__int64 __fastcall HANDLELOCK::bLockHobj(HANDLELOCK *this, struct HOBJ__ *a2, __int64 a3)
+__int64 __fastcall HANDLELOCK::bLockHobj(HANDLELOCK *this, struct HOBJ__ *a2, char a3)
 {
-  unsigned int v3; // ebp
-  __int64 v5; // r12
+  char v3; // r12
+  unsigned int v4; // ebp
+  __int64 v6; // r15
   __int64 CurrentThreadWin32ThreadAndEnterCriticalRegion; // rsi
-  GdiHandleManager *v7; // r14
-  unsigned int v8; // ebx
-  __int64 v9; // r14
-  unsigned int v10; // edx
-  __int64 v11; // r14
-  __int64 v12; // rsi
-  __int64 v13; // r13
-  int v14; // ecx
-  int v15; // eax
-  unsigned int v16; // ecx
-  char v17; // al
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  GdiHandleManager *v10; // r14
+  unsigned int v11; // ebx
+  __int64 v12; // r14
+  unsigned int v13; // edx
+  __int64 v14; // rcx
+  __int64 v15; // r14
+  __int64 v16; // rsi
+  __int64 v17; // r13
+  int v18; // ecx
+  int v19; // eax
+  unsigned int v20; // ecx
+  char v21; // al
   __int64 result; // rax
-  int v19; // ebx
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
   __int64 CurrentThreadProcess; // rax
-  GdiHandleManager *v21; // rbx
-  unsigned int v22; // eax
-  __int64 v23; // r8
-  unsigned __int64 v24; // rdx
-  unsigned int v25; // r9d
-  __int64 v26; // r8
-  __int64 v27; // [rsp+20h] [rbp-48h]
-  unsigned __int64 v28; // [rsp+28h] [rbp-40h]
-  __int64 v29; // [rsp+70h] [rbp+8h]
-  char v30; // [rsp+80h] [rbp+18h]
-  __int64 v31; // [rsp+88h] [rbp+20h] BYREF
+  GdiHandleManager *v26; // rbx
+  unsigned int v27; // eax
+  __int64 v28; // r9
+  unsigned __int64 v29; // rdx
+  unsigned int v30; // r8d
+  __int64 v31; // rcx
+  __int64 v32; // rax
+  __int64 v33; // [rsp+20h] [rbp-48h]
+  unsigned __int64 v34; // [rsp+28h] [rbp-40h]
+  __int64 v35; // [rsp+70h] [rbp+8h]
+  __int64 v37; // [rsp+88h] [rbp+20h] BYREF
 
-  v30 = a3;
-  v3 = (unsigned int)a2;
+  v3 = a3;
+  v4 = (unsigned int)a2;
   if ( *((_DWORD *)this + 2) )
     return 0LL;
-  v5 = 0LL;
-  v31 = 0LL;
-  CurrentThreadWin32ThreadAndEnterCriticalRegion = PsGetCurrentThreadWin32ThreadAndEnterCriticalRegion(&v31, a2, a3);
+  v6 = 0LL;
+  v37 = 0LL;
+  CurrentThreadWin32ThreadAndEnterCriticalRegion = PsGetCurrentThreadWin32ThreadAndEnterCriticalRegion(&v37);
   if ( (!(unsigned __int8)KeIsAttachedProcess()
-     || (v19 = gSessionId,
+     || (CurrentProcess = PsGetCurrentProcess(v9, v8),
+         ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
          CurrentThreadProcess = PsGetCurrentThreadProcess(),
-         v19 == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)))
+         ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)))
     && CurrentThreadWin32ThreadAndEnterCriticalRegion
     && *(_QWORD *)CurrentThreadWin32ThreadAndEnterCriticalRegion )
   {
-    v27 = *(_QWORD *)(*(_QWORD *)CurrentThreadWin32ThreadAndEnterCriticalRegion + 72LL);
+    v33 = *(_QWORD *)(*(_QWORD *)CurrentThreadWin32ThreadAndEnterCriticalRegion + 72LL);
   }
   else
   {
-    v27 = 0LL;
+    v33 = 0LL;
   }
   *((_DWORD *)this + 2) = 1;
-  v7 = gpHandleManager;
-  v8 = (unsigned __int16)v3 | (v3 >> 8) & 0xFF0000;
-  if ( v8 >= 0x10000 )
+  v10 = gpHandleManager;
+  v11 = (unsigned __int16)v4 | (v4 >> 8) & 0xFF0000;
+  if ( v11 >= 0x10000 )
   {
     if ( *(_DWORD *)gpHandleManager > 0x10000u )
     {
       if ( *((unsigned __int8 *)GdiHandleEntryDirectory::GetEntry(
                                   *((GdiHandleEntryDirectory **)gpHandleManager + 2),
-                                  (unsigned __int16)v3,
+                                  (unsigned __int16)v4,
                                   1)
-           + 13) == ((unsigned __int16)v3 | (v3 >> 8) & 0xFF0000) >> 16 )
-        v8 = (unsigned __int16)v3;
+           + 13) == ((unsigned __int16)v4 | (v4 >> 8) & 0xFF0000) >> 16 )
+        v11 = (unsigned __int16)v4;
     }
     else
     {
-      v8 = (unsigned __int16)v3;
+      v11 = (unsigned __int16)v4;
     }
   }
-  v9 = *((_QWORD *)v7 + 2);
-  v10 = *(_DWORD *)(v9 + 2056);
-  if ( v8 >= v10 + ((*(unsigned __int16 *)(v9 + 2) + 0xFFFF) << 16)
-    || (v8 >= v10
-      ? (v11 = *(_QWORD *)(v9 + 8LL * (((v8 - v10) >> 16) + 1) + 8), v8 += -65536 * ((v8 - v10) >> 16) - v10)
-      : (v11 = *(_QWORD *)(v9 + 8)),
-        v12 = 0LL,
-        v8 >= *(_DWORD *)(v11 + 20)) )
+  v12 = *((_QWORD *)v10 + 2);
+  v13 = *(_DWORD *)(v12 + 2056);
+  if ( v11 >= v13 + ((*(unsigned __int16 *)(v12 + 2) + 0xFFFF) << 16) )
   {
     *(_QWORD *)this = 0LL;
   }
   else
   {
-    v13 = 16LL * (unsigned __int8)v8;
-    v28 = 8 * ((unsigned __int64)v8 >> 8);
-    v29 = v13 + *(_QWORD *)(**(_QWORD **)(v11 + 24) + v28);
-    KeEnterCriticalRegion();
-    ExAcquirePushLockExclusiveEx(v29, 0LL);
-    if ( v8 < *(_DWORD *)(v11 + 20) && *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v11 + 24) + v28) + v13 + 8) )
+    v14 = ((v11 - v13) >> 16) + 1;
+    if ( v11 < v13 )
+      v14 = 0LL;
+    v15 = *(_QWORD *)(v12 + 8 * v14 + 8);
+    if ( (_DWORD)v14 )
+      v11 += ((1 - (_DWORD)v14) << 16) - v13;
+    v16 = 0LL;
+    if ( v11 < *(_DWORD *)(v15 + 20) )
     {
-      *(_DWORD *)(*(_QWORD *)v11 + 24LL * v8 + 8) |= 1u;
-      v12 = 24LL * v8 + *(_QWORD *)v11;
-    }
-    else
-    {
-      ExReleasePushLockExclusiveEx(v29, 0LL);
-      KeLeaveCriticalRegion();
-    }
-    *(_QWORD *)this = v12;
-    if ( v12 )
-    {
-      _m_prefetchw((const void *)(v12 + 8));
-      v14 = *(_DWORD *)(v12 + 8);
-      v15 = v31;
-      *((_DWORD *)this + 3) = v14;
-      v16 = v14 & 0xFFFFFFFE;
-      if ( v16 != (v15 & 0xFFFFFFFC) && v16 && (!v27 || v16 != *(_DWORD *)(v27 + 8)) )
-        goto LABEL_46;
-      v17 = *(_BYTE *)(v12 + 15);
-      if ( (v17 & 0x20) != 0 )
-        goto LABEL_46;
-      if ( (v17 & 0x40) != 0 )
+      v17 = 16LL * (unsigned __int8)v11;
+      v34 = 8 * ((unsigned __int64)v11 >> 8);
+      v35 = v17 + *(_QWORD *)(**(_QWORD **)(v15 + 24) + v34);
+      KeEnterCriticalRegion();
+      ExAcquirePushLockExclusiveEx(v35, 0LL);
+      if ( v11 < *(_DWORD *)(v15 + 20) && *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v15 + 24) + v34) + v17 + 8) )
       {
-        v21 = gpHandleManager;
-        v22 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)gpHandleManager, *(_DWORD *)v12 & 0xFFFFFF);
-        v23 = *((_QWORD *)v21 + 2);
-        v24 = v22;
-        v25 = *(_DWORD *)(v23 + 2056);
-        if ( v22 < v25 + ((*(unsigned __int16 *)(v23 + 2) + 0xFFFF) << 16) )
+        *(_DWORD *)(*(_QWORD *)v15 + 24LL * v11 + 8) |= 1u;
+        v16 = 24LL * v11 + *(_QWORD *)v15;
+      }
+      else
+      {
+        ExReleasePushLockExclusiveEx(v35, 0LL);
+        KeLeaveCriticalRegion();
+      }
+      v3 = a3;
+    }
+    *(_QWORD *)this = v16;
+    if ( v16 )
+    {
+      _m_prefetchw((const void *)(v16 + 8));
+      v18 = *(_DWORD *)(v16 + 8);
+      v19 = v37;
+      *((_DWORD *)this + 3) = v18;
+      v20 = v18 & 0xFFFFFFFE;
+      if ( v20 != (v19 & 0xFFFFFFFC) && v20 && (!v33 || v20 != *(_DWORD *)(v33 + 8)) )
+        goto LABEL_51;
+      v21 = *(_BYTE *)(v16 + 15);
+      if ( (v21 & 0x20) != 0 )
+        goto LABEL_51;
+      if ( (v21 & 0x40) != 0 )
+      {
+        v26 = gpHandleManager;
+        v27 = GdiHandleManager::DecodeIndex((GdiHandleEntryDirectory **)gpHandleManager, *(_DWORD *)v16 & 0xFFFFFF);
+        v28 = *((_QWORD *)v26 + 2);
+        v29 = v27;
+        v30 = *(_DWORD *)(v28 + 2056);
+        if ( v27 < v30 + ((*(unsigned __int16 *)(v28 + 2) + 0xFFFF) << 16) )
         {
-          if ( v22 >= v25 )
-          {
-            v26 = *(_QWORD *)(v23 + 8LL * (((v22 - v25) >> 16) + 1) + 8);
-            v24 = -65536 * ((v22 - v25) >> 16) - v25 + v22;
-          }
-          else
-          {
-            v26 = *(_QWORD *)(v23 + 8);
-          }
-          if ( (unsigned int)v24 < *(_DWORD *)(v26 + 20) )
-            v5 = *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v26 + 24) + 8 * (v24 >> 8)) + 16LL * (unsigned __int8)v24 + 8);
+          v31 = ((v27 - v30) >> 16) + 1;
+          if ( v27 < v30 )
+            v31 = 0LL;
+          v32 = *(_QWORD *)(v28 + 8 * v31 + 8);
+          if ( (_DWORD)v31 )
+            v29 = ((1 - (_DWORD)v31) << 16) - v30 + (unsigned int)v29;
+          if ( (unsigned int)v29 < *(_DWORD *)(v32 + 20) )
+            v6 = *(_QWORD *)(*(_QWORD *)(**(_QWORD **)(v32 + 24) + 8 * (v29 >> 8)) + 16LL * (unsigned __int8)v29 + 8);
         }
-        if ( !*(_WORD *)(v5 + 12) || *(struct _KTHREAD **)(v5 + 16) != KeGetCurrentThread() )
-LABEL_46:
+        if ( !*(_WORD *)(v6 + 12) || *(struct _KTHREAD **)(v6 + 16) != KeGetCurrentThread() )
+LABEL_51:
           HANDLELOCK::vUnlock(this);
       }
-      goto LABEL_19;
+      goto LABEL_24;
     }
   }
   *((_DWORD *)this + 2) = 0;
   KeLeaveCriticalRegion();
-LABEL_19:
+LABEL_24:
   result = *((unsigned int *)this + 2);
-  if ( (_DWORD)result && (*(_BYTE *)(*(_QWORD *)this + 14LL) != v30 || *(_WORD *)(*(_QWORD *)this + 12LL) != HIWORD(v3)) )
+  if ( (_DWORD)result && (*(_BYTE *)(*(_QWORD *)this + 14LL) != v3 || *(_WORD *)(*(_QWORD *)this + 12LL) != HIWORD(v4)) )
   {
     HANDLELOCK::vUnlock(this);
     return *((unsigned int *)this + 2);

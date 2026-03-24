@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetFloatProperty@CScalarMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0223700
+ * XREFs of ?SetFloatProperty@CScalarMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01E96D0
  * Callers:
  *     <none>
  * Callees:

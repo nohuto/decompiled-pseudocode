@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpCapabilityCheckSystemCapability @ 0x140894238
+ * XREFs of RtlpCapabilityCheckSystemCapability @ 0x140894218
  * Callers:
- *     RtlCapabilityCheck @ 0x1408938E0 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x1408938C0 (RtlCapabilityCheck.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x1400DCAD0 (RtlSubAuthoritySid.c)
- *     RtlCheckTokenMembershipEx @ 0x1400DCB10 (RtlCheckTokenMembershipEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
+ *     RtlCheckTokenMembershipEx @ 0x1400DCB30 (RtlCheckTokenMembershipEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     RtlCompareUnicodeString @ 0x1405BFF20 (RtlCompareUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlInitializeSid @ 0x140655690 (RtlInitializeSid.c)
- *     RtlpGetPolicyValueForSystemCapability @ 0x140894BB0 (RtlpGetPolicyValueForSystemCapability.c)
- *     RtlpIsAppContainer @ 0x140895484 (RtlpIsAppContainer.c)
+ *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
+ *     RtlpGetPolicyValueForSystemCapability @ 0x140894B90 (RtlpGetPolicyValueForSystemCapability.c)
+ *     RtlpIsAppContainer @ 0x140895464 (RtlpIsAppContainer.c)
  */
 
 __int64 __fastcall RtlpCapabilityCheckSystemCapability(HANDLE ExistingTokenHandle, PCUNICODE_STRING Source, _BYTE *a3)

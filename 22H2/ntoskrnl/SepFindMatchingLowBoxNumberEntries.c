@@ -1,11 +1,11 @@
 /*
- * XREFs of SepFindMatchingLowBoxNumberEntries @ 0x1409D170C
+ * XREFs of SepFindMatchingLowBoxNumberEntries @ 0x14092533C
  * Callers:
- *     SepIsParentOfChildAppContainer @ 0x1409D1A94 (SepIsParentOfChildAppContainer.c)
+ *     SepIsParentOfChildAppContainer @ 0x1409256CC (SepIsParentOfChildAppContainer.c)
  * Callees:
- *     RtlEnumerateEntryHashTable @ 0x14036F510 (RtlEnumerateEntryHashTable.c)
- *     RtlEndEnumerationHashTable @ 0x14036F690 (RtlEndEnumerationHashTable.c)
- *     RtlInitEnumerationHashTable @ 0x14036F6E0 (RtlInitEnumerationHashTable.c)
+ *     RtlEnumerateEntryHashTable @ 0x140251400 (RtlEnumerateEntryHashTable.c)
+ *     RtlInitEnumerationHashTable @ 0x14031EB70 (RtlInitEnumerationHashTable.c)
+ *     RtlEndEnumerationHashTable @ 0x14031F180 (RtlEndEnumerationHashTable.c)
  */
 
 __int64 __fastcall SepFindMatchingLowBoxNumberEntries(
@@ -15,12 +15,12 @@ __int64 __fastcall SepFindMatchingLowBoxNumberEntries(
         PRTL_DYNAMIC_HASH_TABLE_ENTRY *a4,
         PRTL_DYNAMIC_HASH_TABLE_ENTRY *a5)
 {
-  char v9; // si
-  char v10; // di
+  char v9; // di
+  char v10; // bl
   int Signature; // ecx
-  bool v12; // zf
-  PRTL_DYNAMIC_HASH_TABLE_ENTRY v13; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-58h] BYREF
+  bool v13; // zf
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY v14; // rax
+  struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-48h] BYREF
 
   *a4 = 0LL;
   Enumerator.HashEntry.Linkage = 0LL;
@@ -32,29 +32,29 @@ __int64 __fastcall SepFindMatchingLowBoxNumberEntries(
     return 3221226021LL;
   while ( 1 )
   {
-    v13 = RtlEnumerateEntryHashTable(HashTable, &Enumerator);
-    if ( !v13 )
+    v14 = RtlEnumerateEntryHashTable(HashTable, &Enumerator);
+    if ( !v14 )
       break;
-    Signature = v13[1].Signature;
+    Signature = v14[1].Signature;
     if ( Signature == a2 )
     {
-      *a4 = v13;
       v9 = 1;
-      v12 = v10 == 1;
+      *a4 = v14;
+      v13 = v10 == 1;
 LABEL_7:
-      if ( v12 )
+      if ( v13 )
         break;
     }
     else if ( Signature == a3 )
     {
-      *a5 = v13;
       v10 = 1;
-      v12 = v9 == 1;
+      *a5 = v14;
+      v13 = v9 == 1;
       goto LABEL_7;
     }
   }
   RtlEndEnumerationHashTable(HashTable, &Enumerator);
-  if ( v9 == 1 )
-    return v10 != 1 ? 0xC0000225 : 0;
-  return 3221226021LL;
+  if ( v9 != 1 || v10 != 1 )
+    return 3221226021LL;
+  return 0LL;
 }

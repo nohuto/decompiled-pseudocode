@@ -1,5 +1,5 @@
 /*
- * XREFs of PspSetProcessPpmPolicy @ 0x1406C1FF0
+ * XREFs of PspSetProcessPpmPolicy @ 0x1406C1FD0
  * Callers:
  *     <none>
  * Callees:

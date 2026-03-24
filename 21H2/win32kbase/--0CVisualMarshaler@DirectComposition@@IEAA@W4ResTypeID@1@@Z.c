@@ -1,7 +1,10 @@
 /*
- * XREFs of ??0CVisualMarshaler@DirectComposition@@IEAA@W4ResTypeID@1@@Z @ 0x1C0014FEC
+ * XREFs of ??0CVisualMarshaler@DirectComposition@@IEAA@W4ResTypeID@1@@Z @ 0x1C0021BF0
  * Callers:
- *     ?GeneratedCreateResource@DirectComposition@@YAJIPEAPEAVCResourceMarshaler@1@@Z @ 0x1C00A6550 (-GeneratedCreateResource@DirectComposition@@YAJIPEAPEAVCResourceMarshaler@1@@Z.c)
+ *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00285B4 (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
+ *     ??0CCursorVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C01D3DFC (--0CCursorVisualMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CParticleEmitterVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C01D3ED8 (--0CParticleEmitterVisualMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CTextVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C01D3F58 (--0CTextVisualMarshaler@DirectComposition@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */
@@ -10,18 +13,19 @@ __int64 __fastcall DirectComposition::CVisualMarshaler::CVisualMarshaler(__int64
 {
   __int64 result; // rax
 
-  *(_QWORD *)(a1 + 24) = 1LL;
-  *(_DWORD *)(a1 + 32) = 0;
+  *(_QWORD *)(a1 + 20) = 1LL;
+  *(_QWORD *)(a1 + 48) = 0LL;
   *(_QWORD *)a1 = &DirectComposition::CVisualMarshaler::`vftable';
   result = a1;
-  *(_QWORD *)(a1 + 56) = 0LL;
-  *(_DWORD *)(a1 + 48) = a2;
+  *(_DWORD *)(a1 + 40) = a2;
+  *(_QWORD *)(a1 + 296) = 0LL;
+  *(_QWORD *)(a1 + 304) = 0LL;
+  *(_DWORD *)(a1 + 312) = 0;
+  *(_QWORD *)(a1 + 320) = 0LL;
   *(_QWORD *)(a1 + 328) = 0LL;
-  *(_QWORD *)(a1 + 336) = 0LL;
+  *(_DWORD *)(a1 + 336) = 0;
   *(_QWORD *)(a1 + 344) = 0LL;
   *(_QWORD *)(a1 + 352) = 0LL;
-  *(_QWORD *)(a1 + 360) = 0LL;
-  *(_QWORD *)(a1 + 368) = 0LL;
-  *(_DWORD *)(a1 + 376) = 0;
+  *(_DWORD *)(a1 + 360) = 0;
   return result;
 }

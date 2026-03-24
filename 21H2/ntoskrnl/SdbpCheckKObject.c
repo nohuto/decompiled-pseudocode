@@ -1,71 +1,70 @@
 /*
- * XREFs of SdbpCheckKObject @ 0x140843160
+ * XREFs of SdbpCheckKObject @ 0x140754D5C
  * Callers:
- *     SdbGetDatabaseMatchEx @ 0x14075B6A4 (SdbGetDatabaseMatchEx.c)
+ *     SdbGetDatabaseMatchEx @ 0x140759A08 (SdbGetDatabaseMatchEx.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     SdbpCreateSearchDBContext @ 0x14075B270 (SdbpCreateSearchDBContext.c)
- *     AslFileMappingCreate @ 0x14075E160 (AslFileMappingCreate.c)
- *     AslFileMappingDelete @ 0x14075E448 (AslFileMappingDelete.c)
- *     SdbpReleaseSearchDBContext @ 0x14075E4A8 (SdbpReleaseSearchDBContext.c)
- *     SdbpMatchCpu @ 0x14084328C (SdbpMatchCpu.c)
- *     SdbpMatchBios @ 0x1408432E0 (SdbpMatchBios.c)
- *     SdbpMatchOem @ 0x140843334 (SdbpMatchOem.c)
- *     SdbpMatchAcpi @ 0x140843388 (SdbpMatchAcpi.c)
- *     SdbpCheckForMatch @ 0x1408433DC (SdbpCheckForMatch.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SdbpCheckForMatch @ 0x1407547A4 (SdbpCheckForMatch.c)
+ *     SdbpReleaseSearchDBContext @ 0x140754BFC (SdbpReleaseSearchDBContext.c)
+ *     AslFileMappingDelete @ 0x140756368 (AslFileMappingDelete.c)
+ *     AslFileMappingCreate @ 0x1407589F8 (AslFileMappingCreate.c)
+ *     SdbpCreateSearchDBContext @ 0x14075AE40 (SdbpCreateSearchDBContext.c)
+ *     SdbpMatchAcpi @ 0x1407D3118 (SdbpMatchAcpi.c)
+ *     SdbpMatchOem @ 0x1407D316C (SdbpMatchOem.c)
+ *     SdbpMatchBios @ 0x1407D31C0 (SdbpMatchBios.c)
+ *     SdbpMatchCpu @ 0x1407D3214 (SdbpMatchCpu.c)
  */
 
 __int64 __fastcall SdbpCheckKObject(
         __int64 a1,
         unsigned int a2,
-        const WCHAR *a3,
+        __int64 a3,
         __int64 a4,
-        wchar_t *a5,
-        wchar_t *a6,
+        __int64 a5,
+        __int64 a6,
         _QWORD *a7)
 {
   unsigned int SearchDBContext; // ebx
-  const wchar_t **v11; // rsi
+  void *v11; // rsi
   __int64 v12; // r15
-  _QWORD *v13; // rdi
+  _QWORD *v14; // rdi
   int v15; // eax
-  _QWORD v16[18]; // [rsp+30h] [rbp-51h] BYREF
-  int v17; // [rsp+D0h] [rbp+4Fh] BYREF
-  const wchar_t **v18; // [rsp+E0h] [rbp+5Fh] BYREF
-  int v19; // [rsp+E8h] [rbp+67h] BYREF
-  int v20; // [rsp+ECh] [rbp+6Bh]
+  _QWORD v16[20]; // [rsp+30h] [rbp-61h] BYREF
+  int v17; // [rsp+E0h] [rbp+4Fh] BYREF
+  void *v18; // [rsp+F0h] [rbp+5Fh] BYREF
+  int v19; // [rsp+F8h] [rbp+67h] BYREF
+  int v20; // [rsp+FCh] [rbp+6Bh]
 
   v20 = HIDWORD(a4);
-  memset(v16, 0, 0x60uLL);
+  memset(v16, 0, 0x68uLL);
   v19 = 0;
   SearchDBContext = 0;
   v17 = 0;
   v11 = 0LL;
   v12 = *(_QWORD *)(a1 + 8);
   v18 = 0LL;
-  if ( !a3
-    || (v15 = AslFileMappingCreate((wchar_t ***)&v18, a3, (void *)0xFFFFFFFFFFFFFFFFLL, a5, a6), v11 = v18, v15 >= 0) )
+  if ( !a3 || (v15 = AslFileMappingCreate((unsigned int)&v18, a3, -1, a5, a6), v11 = v18, v15 >= 0) )
   {
-    memset((char *)v16 + 4, 0, 0x5CuLL);
+    memset((char *)v16 + 4, 0, 0x64uLL);
     LODWORD(v16[0]) = 26;
     SearchDBContext = SdbpCreateSearchDBContext(v16, v11);
     if ( SearchDBContext )
     {
-      SearchDBContext = SdbpCheckForMatch(a1, v12, a2, (unsigned int)v16, (__int64)&v17, (__int64)&v19);
+      SearchDBContext = SdbpCheckForMatch(a1, v12, a2, (__int64)v16, &v17, (__int64)&v19);
       if ( SearchDBContext )
       {
-        v13 = a7;
+        v14 = a7;
         if ( a7 )
         {
           SearchDBContext = SdbpMatchAcpi(v12, a2, *a7);
           if ( SearchDBContext )
           {
-            SearchDBContext = SdbpMatchOem(v12, a2, v13[1]);
+            SearchDBContext = SdbpMatchOem(v12, a2, v14[1]);
             if ( SearchDBContext )
             {
-              SearchDBContext = SdbpMatchBios(v12, a2, v13[2]);
+              SearchDBContext = SdbpMatchBios(v12, a2, v14[2]);
               if ( SearchDBContext )
-                SearchDBContext = SdbpMatchCpu(v12, a2, v13[3]);
+                SearchDBContext = SdbpMatchCpu(v12, a2, v14[3]);
             }
           }
         }
@@ -73,6 +72,6 @@ __int64 __fastcall SdbpCheckKObject(
     }
   }
   SdbpReleaseSearchDBContext(v16);
-  AslFileMappingDelete((PVOID *)v11);
+  AslFileMappingDelete(v11);
   return SearchDBContext;
 }

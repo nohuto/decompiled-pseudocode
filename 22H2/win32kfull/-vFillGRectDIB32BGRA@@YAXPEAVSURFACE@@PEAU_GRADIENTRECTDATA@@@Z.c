@@ -1,162 +1,176 @@
 /*
- * XREFs of ?vFillGRectDIB32BGRA@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C0001150
+ * XREFs of ?vFillGRectDIB32BGRA@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C00F9E00
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 void __fastcall vFillGRectDIB32BGRA(struct SURFACE *a1, struct _GRADIENTRECTDATA *a2)
 {
-  int v3; // ebp
-  int v4; // ebx
-  __int64 v5; // rax
-  int v6; // ecx
-  int *v7; // r12
-  __int64 v8; // rax
-  unsigned __int64 v9; // rcx
+  int v2; // r14d
+  __int64 v3; // rsi
+  int v5; // r15d
+  __int64 v6; // rax
+  __int64 v7; // r11
+  __int64 v8; // rbp
+  __int64 v9; // r12
   __int64 v10; // rdx
-  __int64 v11; // rdi
-  __int64 v12; // r8
-  __int64 v13; // rsi
-  __int64 v14; // rbp
-  __int64 v15; // r14
-  __int64 v16; // r15
-  int *v17; // rax
-  int *v18; // rbx
-  unsigned __int8 v19; // r9^6
-  int v20; // r11d
-  unsigned __int64 v21; // r9
-  int v22; // r10d
-  char *v23; // rdi
-  char *i; // rbx
-  struct _GRADIENTRECTDATA *v25; // rsi
-  __int64 v26; // r8
-  __int64 v27; // r9
-  __int64 v28; // r10
-  __int64 v29; // rax
-  __int64 v30; // r14
+  __int64 v11; // r8
+  __int64 v12; // r9
+  __int64 v13; // r10
+  __int64 v14; // r13
+  __int64 v15; // r11
+  void *v16; // r12
+  unsigned int v17; // ebp
+  unsigned __int64 v18; // r14
+  __int64 v19; // r12
+  int v20; // ecx
+  const void *v21; // rbp
+  unsigned __int64 v22; // rcx
+  __int64 v23; // rdx
+  __int64 v24; // rdi
+  unsigned __int64 v25; // r8
+  __int64 v26; // rax
+  int *v27; // r13
+  unsigned __int64 v28; // r11
+  unsigned __int64 v29; // rax
+  unsigned __int64 v30; // r11
   __int64 v31; // r15
-  __int64 v32; // r12
-  __int64 v33; // rdx
-  __int64 v34; // r13
-  __int64 v35; // r11
-  void *v36; // rbp
-  unsigned int v37; // ebx
-  unsigned __int64 v38; // rsi
-  int v39; // [rsp+60h] [rbp+8h]
-  int v40; // [rsp+60h] [rbp+8h]
-  __int64 v42; // [rsp+68h] [rbp+10h]
-  int v43; // [rsp+70h] [rbp+18h]
+  unsigned __int64 v32; // rax
+  int v33; // r10d
+  unsigned __int64 v34; // rax
+  int v35; // r9d
+  char *v36; // rdi
+  char *i; // rsi
+  __int64 v38; // [rsp+20h] [rbp-68h]
+  __int64 v39; // [rsp+28h] [rbp-60h]
+  unsigned __int64 v40; // [rsp+30h] [rbp-58h]
+  __int64 v41; // [rsp+90h] [rbp+8h]
+  int v42; // [rsp+98h] [rbp+10h]
+  __int64 v43; // [rsp+98h] [rbp+10h]
+  __int64 v44; // [rsp+A0h] [rbp+18h]
+  __int64 v45; // [rsp+A0h] [rbp+18h]
+  __int64 v46; // [rsp+A8h] [rbp+20h]
 
-  v3 = *((_DWORD *)a1 + 22);
-  v4 = *((_DWORD *)a2 + 11);
-  v43 = v3;
-  v39 = v4;
-  if ( !*((_DWORD *)a2 + 38) )
+  v2 = *((_DWORD *)a1 + 22);
+  v3 = 0LL;
+  v5 = *((_DWORD *)a2 + 11);
+  v42 = v5;
+  if ( *((_DWORD *)a2 + 38) )
   {
-    v5 = *((_QWORD *)a1 + 10) + *((_DWORD *)a2 + 9) * v3;
-    v6 = *((_DWORD *)a2 + 10);
-    v42 = v5;
-    if ( (unsigned int)(v6 - 1) <= 0x9C3FFF )
+    v6 = *((int *)a2 + 45);
+    v7 = *((_QWORD *)a2 + 11);
+    v8 = *((_QWORD *)a2 + 12);
+    v9 = *((_QWORD *)a2 + 13);
+    v10 = *((_QWORD *)a2 + 6);
+    v11 = *((_QWORD *)a2 + 7);
+    v12 = *((_QWORD *)a2 + 8);
+    v13 = *((_QWORD *)a2 + 9);
+    v14 = *((_QWORD *)a2 + 10);
+    v41 = *((_QWORD *)a2 + 11);
+    v43 = v8;
+    v44 = v9;
+    if ( (int)v6 > 0 )
     {
-      v7 = (int *)AllocFreeTmpBuffer((unsigned int)(4 * v6));
-      if ( v7 )
+      v10 += v14 * v6;
+      v11 += v7 * v6;
+      v12 += v8 * v6;
+      v13 += v9 * v6;
+    }
+    v15 = *((_QWORD *)a1 + 10) + 4 * *((_DWORD *)a2 + 8) + (__int64)(v2 * *((_DWORD *)a2 + 9));
+    if ( v5 )
+    {
+      v46 = *((int *)a1 + 22);
+      while ( 1 )
       {
-        v8 = *((int *)a2 + 44);
-        v9 = *((_QWORD *)a2 + 6);
-        v10 = *((_QWORD *)a2 + 7);
-        v11 = *((_QWORD *)a2 + 8);
-        v12 = *((_QWORD *)a2 + 9);
-        v13 = *((_QWORD *)a2 + 14);
-        v14 = *((_QWORD *)a2 + 15);
-        v15 = *((_QWORD *)a2 + 16);
-        v16 = *((_QWORD *)a2 + 17);
-        if ( (int)v8 > 0 )
+        --v5;
+        v16 = (void *)v15;
+        v17 = BYTE6(v12) | ((BYTE6(v11) | ((BYTE6(v10) | (BYTE6(v13) << 8)) << 8)) << 8);
+        v18 = (unsigned __int64)(4 * *((_DWORD *)a2 + 10)) >> 2;
+        if ( v18 )
         {
-          v9 += v13 * v8;
-          v10 += v14 * v8;
-          v11 += v15 * v8;
-          v12 += v16 * *((int *)a2 + 44);
+          if ( (v15 & 4) == 0 )
+            goto LABEL_8;
+          *(_DWORD *)v15 = v17;
+          if ( --v18 )
+            break;
         }
-        v17 = v7;
-        v18 = &v7[*((int *)a2 + 10)];
-        if ( v7 != v18 )
+LABEL_10:
+        v11 += v41;
+        v10 += v14;
+        v12 += v43;
+        v13 += v44;
+        v15 += v46;
+        if ( !v5 )
+          return;
+      }
+      v16 = (void *)(v15 + 4);
+LABEL_8:
+      memset64(v16, v17 | ((unsigned __int64)v17 << 32), v18 >> 1);
+      if ( (v18 & 1) != 0 )
+        *((_DWORD *)v16 + v18 - 1) = v17;
+      goto LABEL_10;
+    }
+  }
+  else
+  {
+    v19 = *((_QWORD *)a1 + 10) + v2 * *((_DWORD *)a2 + 9);
+    v20 = *((_DWORD *)a2 + 10);
+    if ( (unsigned int)(v20 - 1) <= 0x9C3FFF )
+    {
+      v40 = AllocFreeTmpBuffer((unsigned int)(4 * v20));
+      v21 = (const void *)v40;
+      if ( v40 )
+      {
+        v22 = *((_QWORD *)a2 + 6);
+        v23 = *((_QWORD *)a2 + 7);
+        v24 = *((_QWORD *)a2 + 8);
+        v25 = *((_QWORD *)a2 + 9);
+        v45 = *((_QWORD *)a2 + 17);
+        v26 = *((int *)a2 + 44);
+        v39 = *((_QWORD *)a2 + 16);
+        if ( (int)v26 > 0 )
         {
+          v22 += *((_QWORD *)a2 + 14) * v26;
+          v23 += *((_QWORD *)a2 + 15) * v26;
+          v24 += *((_QWORD *)a2 + 16) * v26;
+          v25 += v45 * v26;
+        }
+        v27 = (int *)v40;
+        v28 = 4LL * *((int *)a2 + 10);
+        v29 = v28 + v40;
+        v30 = v28 >> 2;
+        if ( v40 > v29 )
+          v30 = 0LL;
+        if ( v30 )
+        {
+          v38 = *((_QWORD *)a2 + 15);
+          v31 = *((_QWORD *)a2 + 14);
           do
           {
-            v19 = BYTE6(v12);
-            v12 += v16;
-            v20 = v19;
-            v21 = HIWORD(v9);
-            v9 += v13;
-            BYTE6(v21) = BYTE6(v10);
-            v10 += v14;
-            v22 = BYTE6(v21);
-            BYTE6(v21) = BYTE6(v11);
-            v11 += v15;
-            *v17++ = BYTE6(v21) | ((v22 | (((unsigned __int8)v21 | (v20 << 8)) << 8)) << 8);
+            ++v3;
+            v32 = HIWORD(v25);
+            v25 += v45;
+            v33 = (unsigned __int8)v32;
+            v34 = HIWORD(v22);
+            v22 += v31;
+            BYTE6(v34) = BYTE6(v23);
+            v23 += v38;
+            v35 = BYTE6(v34);
+            BYTE6(v34) = BYTE6(v24);
+            v24 += v39;
+            *v27++ = BYTE6(v34) | ((v35 | (((unsigned __int8)v34 | (v33 << 8)) << 8)) << 8);
           }
-          while ( v17 != v18 );
+          while ( v3 != v30 );
+          v21 = (const void *)v40;
+          v5 = v42;
         }
-        v23 = (char *)(v42 + 4LL * *((int *)a2 + 8));
-        for ( i = &v23[v43 * v39]; v23 != i; v23 += v43 )
-          memmove(v23, v7, 4 * *((_DWORD *)a2 + 10));
-        FreeTmpBuffer(v7, v10, v12);
+        v36 = (char *)(v19 + 4LL * *((int *)a2 + 8));
+        for ( i = &v36[v2 * v5]; v36 != i; v36 += v2 )
+          memmove(v36, v21, 4 * *((_DWORD *)a2 + 10));
+        FreeTmpBuffer(v21);
       }
     }
-    return;
-  }
-  v25 = a2;
-  v26 = *((_QWORD *)a2 + 7);
-  v27 = *((_QWORD *)a2 + 8);
-  v28 = *((_QWORD *)a2 + 9);
-  v29 = *((int *)a2 + 45);
-  v30 = *((_QWORD *)a2 + 10);
-  v31 = *((_QWORD *)a2 + 11);
-  v32 = *((_QWORD *)a2 + 12);
-  v33 = *((_QWORD *)a2 + 6);
-  v34 = *((_QWORD *)a2 + 13);
-  if ( (int)v29 > 0 )
-  {
-    v33 += v30 * v29;
-    v26 += v31 * v29;
-    v27 += v32 * v29;
-    v28 += v34 * *((int *)a2 + 45);
-  }
-  v35 = *((_QWORD *)a1 + 10) + 4 * *((_DWORD *)a2 + 8) + (__int64)(*((_DWORD *)a2 + 9) * v3);
-  if ( v4 )
-  {
-    while ( 1 )
-    {
-      v36 = (void *)v35;
-      v40 = v4 - 1;
-      v37 = BYTE6(v27) | ((BYTE6(v26) | ((BYTE6(v33) | (BYTE6(v28) << 8)) << 8)) << 8);
-      v38 = (unsigned __int64)(4 * *((_DWORD *)v25 + 10)) >> 2;
-      if ( v38 )
-      {
-        if ( (v35 & 4) == 0 )
-          goto LABEL_19;
-        *(_DWORD *)v35 = v37;
-        if ( --v38 )
-          break;
-      }
-LABEL_21:
-      v33 += v30;
-      v4 = v40;
-      v35 += v43;
-      v25 = a2;
-      v26 += v31;
-      v27 += v32;
-      v28 += v34;
-      if ( !v40 )
-        return;
-    }
-    v36 = (void *)(v35 + 4);
-LABEL_19:
-    memset64(v36, v37 | ((unsigned __int64)v37 << 32), v38 >> 1);
-    if ( (v38 & 1) != 0 )
-      *((_DWORD *)v36 + v38 - 1) = v37;
-    goto LABEL_21;
   }
 }

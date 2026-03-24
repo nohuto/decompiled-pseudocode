@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpMuiRegCreateStringPool @ 0x14082FFE4
+ * XREFs of RtlpMuiRegCreateStringPool @ 0x1407943E8
  * Callers:
- *     _RtlpMuiRegLoadInstalled @ 0x14083008C (_RtlpMuiRegLoadInstalled.c)
- *     RtlpMuiRegResizeStringPool @ 0x140A35AE0 (RtlpMuiRegResizeStringPool.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x1407940E4 (_RtlpMuiRegLoadInstalled.c)
+ *     RtlpMuiRegResizeStringPool @ 0x140981A80 (RtlpMuiRegResizeStringPool.c)
  * Callees:
- *     _SafeAllocBlob @ 0x1403C5E48 (_SafeAllocBlob.c)
+ *     _SafeAllocBlob @ 0x1403AD3E0 (_SafeAllocBlob.c)
  */
 
 _QWORD *__fastcall RtlpMuiRegCreateStringPool(int a1, int a2)

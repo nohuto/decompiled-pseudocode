@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpAllocateHeapInternal @ 0x1403718A8
+ * XREFs of RtlpAllocateHeapInternal @ 0x1402A6388
  * Callers:
- *     RtlAllocateHeap @ 0x140371850 (RtlAllocateHeap.c)
- *     RtlpHpAllocWithExceptionProtection @ 0x1405E511C (RtlpHpAllocWithExceptionProtection.c)
+ *     RtlAllocateHeap @ 0x1402A6330 (RtlAllocateHeap.c)
+ *     RtlpHpAllocWithExceptionProtection @ 0x14058664C (RtlpHpAllocWithExceptionProtection.c)
  * Callees:
- *     RtlpHpCheckAllocationSizeLimit @ 0x140371588 (RtlpHpCheckAllocationSizeLimit.c)
- *     RtlFreeHeap @ 0x140371770 (RtlFreeHeap.c)
- *     RtlpHpConvertFlagsToSegmentFlags @ 0x140371924 (RtlpHpConvertFlagsToSegmentFlags.c)
- *     RtlpHpVsContextAllocate @ 0x14037193C (RtlpHpVsContextAllocate.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     RtlpAllocateHeap @ 0x1405E80B0 (RtlpAllocateHeap.c)
- *     RtlpAllocateHeapRaiseException @ 0x1405E8980 (RtlpAllocateHeapRaiseException.c)
- *     RtlpSetupExtendedBlock @ 0x1405EAF08 (RtlpSetupExtendedBlock.c)
+ *     RtlpHpCheckAllocationSizeLimit @ 0x1402A6048 (RtlpHpCheckAllocationSizeLimit.c)
+ *     RtlFreeHeap @ 0x1402A6240 (RtlFreeHeap.c)
+ *     RtlpHpVsContextAllocate @ 0x1402A6404 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpConvertFlagsToSegmentFlags @ 0x1402A647C (RtlpHpConvertFlagsToSegmentFlags.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlpAllocateHeap @ 0x140588B30 (RtlpAllocateHeap.c)
+ *     RtlpAllocateHeapRaiseException @ 0x140589408 (RtlpAllocateHeapRaiseException.c)
+ *     RtlpSetupExtendedBlock @ 0x14058B8D8 (RtlpSetupExtendedBlock.c)
  */
 
 void *__fastcall RtlpAllocateHeapInternal(_DWORD *HeapHandle, unsigned __int64 a2, unsigned int a3, __int16 a4)
@@ -22,16 +22,17 @@ void *__fastcall RtlpAllocateHeapInternal(_DWORD *HeapHandle, unsigned __int64 a
   int v9; // r14d
   unsigned __int64 v10; // r15
   int v11; // ebp
-  unsigned __int64 v12; // rcx
-  __int64 v13; // r15
+  int v12; // r12d
+  int v13; // eax
+  unsigned __int64 v14; // rcx
+  __int64 v15; // r15
   __int64 Heap; // rax
-  int v15; // r9d
-  __int64 v16; // r12
-  __int64 v17; // rax
-  unsigned __int64 v18; // [rsp+70h] [rbp+8h] BYREF
-  int v19; // [rsp+88h] [rbp+20h]
+  int v17; // r9d
+  __int64 v18; // r13
+  unsigned __int64 v19; // [rsp+70h] [rbp+8h] BYREF
+  int v20; // [rsp+88h] [rbp+20h]
 
-  LOWORD(v19) = a4;
+  LOWORD(v20) = a4;
   v4 = a2;
   if ( HeapHandle[4] == -857879331 )
   {
@@ -42,14 +43,15 @@ void *__fastcall RtlpAllocateHeapInternal(_DWORD *HeapHandle, unsigned __int64 a
   }
   v9 = HeapHandle[29] | a3;
   v10 = 0LL;
-  v19 = 0;
-  v18 = 0LL;
+  v20 = 0;
+  v19 = 0LL;
   if ( a2 > 0x7FFFFFFFFFFFFFFFLL
     || !(unsigned int)RtlpHpCheckAllocationSizeLimit(a2, (int)HeapHandle, (__int64)(HeapHandle + 94)) )
   {
-    goto LABEL_21;
+    goto LABEL_24;
   }
   v11 = HeapHandle[36];
+  v12 = -1073741823;
   if ( v11 )
   {
     if ( (v9 & 0x3C000102) != 0 )
@@ -58,48 +60,53 @@ void *__fastcall RtlpAllocateHeapInternal(_DWORD *HeapHandle, unsigned __int64 a
     }
     else
     {
-      if ( (_WORD)v11 != 1
-        || (int)((__int64 (__fastcall *)(_DWORD *, _QWORD, __int64, unsigned __int64 *))CLFS_LSN_NULL_EXT)(
-                  HeapHandle,
-                  0LL,
-                  1LL,
-                  &v18) < 0 )
-      {
-        goto LABEL_21;
-      }
-      v12 = (v18 + 15) & 0xFFFFFFFFFFFFFFF0uLL;
-      v4 += v12 + 16;
-      v18 = v12 + 16;
+      if ( (_WORD)v11 == 1 )
+        v13 = ((__int64 (__fastcall *)(_DWORD *, _QWORD, __int64, unsigned __int64 *))RtlpInterceptorRoutines)(
+                HeapHandle,
+                0LL,
+                1LL,
+                &v19);
+      else
+        v13 = -1073741823;
+      if ( v13 < 0 )
+        goto LABEL_24;
+      v14 = (v19 + 15) & 0xFFFFFFFFFFFFFFF0uLL;
+      v4 += v14 + 16;
+      v19 = v14 + 16;
     }
   }
-  v13 = 1LL;
+  v15 = 1LL;
   if ( v4 )
-    v13 = v4;
-  v10 = (v13 + 23) & 0xFFFFFFFFFFFFFFF0uLL;
+    v15 = v4;
+  v10 = (v15 + 23) & 0xFFFFFFFFFFFFFFF0uLL;
   Heap = RtlpAllocateHeap((_DWORD)HeapHandle);
   v7 = (void *)Heap;
   if ( !Heap )
-    goto LABEL_22;
-  if ( !v11 )
-    return v7;
-  v16 = Heap;
-  v4 -= v18;
-  v17 = RtlpSetupExtendedBlock((_DWORD)HeapHandle, v9, Heap, v15, v18, v11);
-  v7 = (void *)v17;
-  if ( (_WORD)v11 == 1
-    && (int)((__int64 (__fastcall *)(_DWORD *, __int64, __int64, __int64))CLFS_LSN_NULL_EXT)(HeapHandle, v17, 2LL, v16) >= 0 )
+    goto LABEL_25;
+  if ( v11 )
   {
-    return v7;
-  }
-  RtlFreeHeap(HeapHandle, 0, v7);
-LABEL_21:
-  v7 = 0LL;
-LABEL_22:
-  if ( (v9 & 4) != 0 )
-  {
-    if ( v10 )
-      v4 = v10;
-    RtlpAllocateHeapRaiseException(v4);
+    v18 = Heap;
+    v4 -= v19;
+    v7 = (void *)RtlpSetupExtendedBlock((_DWORD)HeapHandle, v9, Heap, v17, v19, v11);
+    if ( (_WORD)v11 == 1 )
+      v12 = ((__int64 (__fastcall *)(_DWORD *, void *, __int64, __int64))RtlpInterceptorRoutines)(
+              HeapHandle,
+              v7,
+              2LL,
+              v18);
+    if ( v12 < 0 )
+    {
+      RtlFreeHeap(HeapHandle, 0, v7);
+LABEL_24:
+      v7 = 0LL;
+LABEL_25:
+      if ( (v9 & 4) != 0 )
+      {
+        if ( v10 )
+          v4 = v10;
+        RtlpAllocateHeapRaiseException(v4);
+      }
+    }
   }
   return v7;
 }

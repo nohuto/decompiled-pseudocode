@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_GettingRootHub30PortsInfo @ 0x1C0009C80
+ * XREFs of HUBHSM_GettingRootHub30PortsInfo @ 0x1C00094C0
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_GetRootHub30PortsInfoUsingUCXIoctl @ 0x1C0028044 (HUBUCX_GetRootHub30PortsInfoUsingUCXIoctl.c)
+ *     HUBUCX_GetRootHub30PortsInfoUsingUCXIoctl @ 0x1C0025484 (HUBUCX_GetRootHub30PortsInfoUsingUCXIoctl.c)
  */
 
 __int64 __fastcall HUBHSM_GettingRootHub30PortsInfo(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PrepareMessageWorker@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@GGPEBEPEADHIII@Z @ 0x1C00A1558
+ * XREFs of ?PrepareMessageWorker@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@GGPEBEPEADHIII@Z @ 0x1C00996F4
  * Callers:
- *     ?PrepareMessage@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@IGGPEBEPEADPEAI@Z @ 0x1C00A13D8 (-PrepareMessage@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@IGGPEBEPEADP.c)
- *     ?ComputeMaximumMessageSize@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@PEAPEBEIIIIPEAI@Z @ 0x1C00A1498 (-ComputeMaximumMessageSize@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@P.c)
+ *     ?PrepareMessage@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@IGGPEBEPEADPEAI@Z @ 0x1C0099574 (-PrepareMessage@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@IGGPEBEPEADP.c)
+ *     ?ComputeMaximumMessageSize@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@PEAPEBEIIIIPEAI@Z @ 0x1C0099634 (-ComputeMaximumMessageSize@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@P.c)
  * Callees:
- *     ?ReadParameterSize@SendProcessor@Calling@CoreMessaging@@AEAAJPEAPEADHIIIPEAI@Z @ 0x1C00A16B0 (-ReadParameterSize@SendProcessor@Calling@CoreMessaging@@AEAAJPEAPEADHIIIPEAI@Z.c)
- *     ?NotifyInvalidHelper@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@PEAUMsgCallState@@@Z @ 0x1C02369D4 (-NotifyInvalidHelper@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@PEAUMsg.c)
+ *     ?ReadParameterSize@SendProcessor@Calling@CoreMessaging@@AEAAJPEAPEADHIIIPEAI@Z @ 0x1C009984C (-ReadParameterSize@SendProcessor@Calling@CoreMessaging@@AEAAJPEAPEADHIIIPEAI@Z.c)
+ *     ?NotifyInvalidHelper@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@PEAUMsgCallState@@@Z @ 0x1C0200D98 (-NotifyInvalidHelper@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@PEAUMsg.c)
  */
 
 __int64 __fastcall CoreMessaging::Calling::SendProcessor::PrepareMessageWorker(
@@ -21,9 +21,9 @@ __int64 __fastcall CoreMessaging::Calling::SendProcessor::PrepareMessageWorker(
   struct MsgCallState *v8; // rdi
   int v9; // r10d
   unsigned __int64 v11; // rcx
-  unsigned int v12; // esi
-  _DWORD *v13; // r14
-  _BYTE *v14; // rax
+  const unsigned __int8 *v12; // rax
+  unsigned int v13; // esi
+  _DWORD *v14; // r14
 
   v8 = (CoreMessaging::Calling::SendProcessor *)((char *)this + 120);
   *((_DWORD *)this + 31) = -1;
@@ -35,16 +35,17 @@ __int64 __fastcall CoreMessaging::Calling::SendProcessor::PrepareMessageWorker(
   *((_WORD *)this + 74) = a3;
   *((_WORD *)this + 75) = a4;
   v11 = *a5;
-  *(_QWORD *)this = a5 + 1;
+  v12 = a5 + 1;
   *((_DWORD *)this + 20) = v11;
+  *(_QWORD *)this = a5 + 1;
   if ( (unsigned int)v11 <= 0x10 && (a7 || !(_DWORD)v11 || a6) )
   {
     *((_DWORD *)this + 31) = 0;
-    v12 = 8;
-    *((_QWORD *)this + 1) = a5 + 1;
+    v13 = 8;
+    *((_QWORD *)this + 1) = v12;
     if ( (_DWORD)v11 )
     {
-      v13 = (_DWORD *)((char *)this + 84);
+      v14 = (_DWORD *)((char *)this + 84);
       while ( 1 )
       {
         v9 = CoreMessaging::Calling::SendProcessor::ReadParameterSize(
@@ -57,34 +58,36 @@ __int64 __fastcall CoreMessaging::Calling::SendProcessor::PrepareMessageWorker(
                (unsigned int *)this + 21);
         if ( v9 < 0 )
           break;
-        *((_DWORD *)this + *((unsigned int *)this + 31) + 4) = *v13;
-        v11 = (unsigned int)*v13;
+        *((_DWORD *)this + *((unsigned int *)this + 31) + 4) = *v14;
+        v11 = (unsigned int)*v14;
         if ( (unsigned int)v11 > 0xFFFFFFFC
           || (v11 = ((_DWORD)v11 + 3) & 0xFFFFFFFC, (int)v11 + 4 < (unsigned int)v11)
-          || v12 + (_DWORD)v11 + 4 < v12 )
+          || v13 + (_DWORD)v11 + 4 < v13 )
         {
-          *(_DWORD *)v8 = 7;
+          *(_DWORD *)v8 = 107;
           break;
         }
         ++*((_DWORD *)this + 31);
-        v12 += v11 + 4;
+        v13 += v11 + 4;
         if ( *((_DWORD *)this + 31) >= *((_DWORD *)this + 20) )
-          goto LABEL_10;
+        {
+          v12 = (const unsigned __int8 *)*((_QWORD *)this + 1);
+          goto LABEL_11;
+        }
       }
     }
     else
     {
-LABEL_10:
-      v14 = (_BYTE *)*((_QWORD *)this + 1);
-      LOBYTE(v11) = *v14;
-      *((_QWORD *)this + 1) = v14 + 1;
+LABEL_11:
+      LOBYTE(v11) = *v12;
+      *((_QWORD *)this + 1) = v12 + 1;
       if ( (_BYTE)v11 )
       {
         *(_DWORD *)v8 = 203;
       }
       else
       {
-        *((_DWORD *)this + 36) = v12;
+        *((_DWORD *)this + 36) = v13;
         v9 = 0;
       }
     }

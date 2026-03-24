@@ -1,10 +1,10 @@
 /*
- * XREFs of KdReleaseDebuggerLock @ 0x1403DE370
+ * XREFs of KdReleaseDebuggerLock @ 0x1405111C0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KdReleaseDebuggerLock(unsigned __int8 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall KdReleaseDebuggerLock(unsigned __int8 a1)
         v5 = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
         if ( v5 )
-          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
   }

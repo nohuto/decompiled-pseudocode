@@ -1,10 +1,10 @@
 /*
- * XREFs of SepAuditFailedRaisedIrql @ 0x1405F5B3C
+ * XREFs of SepAuditFailedRaisedIrql @ 0x140597C78
  * Callers:
- *     SepAdtLogAuditRecord @ 0x1403CD84C (SepAdtLogAuditRecord.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     SepAuditFailed @ 0x1409CF1A0 (SepAuditFailed.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
  */
 
 void __fastcall SepAuditFailedRaisedIrql(__int64 a1)

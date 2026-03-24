@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GrepCreateDefaultBitmap@@YAPEAUHBITMAP__@@XZ @ 0x1C00D2930
+ * XREFs of ?GrepCreateDefaultBitmap@@YAPEAUHBITMAP__@@XZ @ 0x1C00CA270
  * Callers:
  *     <none>
  * Callees:
- *     ??1SURFREF@@QEAA@XZ @ 0x1C003F8A0 (--1SURFREF@@QEAA@XZ.c)
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C005E508 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     GreCreateBitmap @ 0x1C005EAE0 (GreCreateBitmap.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C001DA78 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     GreCreateBitmap @ 0x1C0028610 (GreCreateBitmap.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002CB94 (--1SURFREF@@QEAA@XZ.c)
  */
 
 HSURF GrepCreateDefaultBitmap(void)
@@ -17,7 +17,7 @@ HSURF GrepCreateDefaultBitmap(void)
   __int64 v4; // [rsp+50h] [rbp-18h]
 
   v0 = 0LL;
-  result = (HSURF)GreCreateBitmap(1, 1, 1, 1, 0LL);
+  result = (HSURF)GreCreateBitmap(1, 1, 1u, 1u, 0LL);
   v2 = result;
   if ( result )
   {

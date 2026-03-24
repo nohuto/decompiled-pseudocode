@@ -1,11 +1,11 @@
 /*
  * XREFs of ViGetContextPointer @ 0x140927D34
  * Callers:
- *     VfInsertContext @ 0x140309A90 (VfInsertContext.c)
- *     VfRemoveContext @ 0x140309C60 (VfRemoveContext.c)
+ *     VfInsertContext @ 0x140309B90 (VfInsertContext.c)
+ *     VfRemoveContext @ 0x140309D60 (VfRemoveContext.c)
  *     ViQueryObjectContext @ 0x140927E00 (ViQueryObjectContext.c)
  * Callees:
- *     IopAllocateIrpExtension @ 0x1400DF998 (IopAllocateIrpExtension.c)
+ *     IopAllocateIrpExtension @ 0x1400DF9B8 (IopAllocateIrpExtension.c)
  */
 
 __int64 __fastcall ViGetContextPointer(__int64 a1, int a2)

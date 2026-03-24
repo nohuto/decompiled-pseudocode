@@ -1,77 +1,76 @@
 /*
- * XREFs of NtUserAttachThreadInput @ 0x1C009B9B0
+ * XREFs of NtUserAttachThreadInput @ 0x1C00114F0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     zzzAttachThreadInput @ 0x1C009D530 (zzzAttachThreadInput.c)
- *     DisassociateShellFrameAppThreads2 @ 0x1C01D98B4 (DisassociateShellFrameAppThreads2.c)
+ *     zzzAttachThreadInput @ 0x1C00115F8 (zzzAttachThreadInput.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     DisassociateShellFrameAppThreads2 @ 0x1C01D2D94 (DisassociateShellFrameAppThreads2.c)
  */
 
 __int64 __fastcall NtUserAttachThreadInput(unsigned int a1, unsigned int a2, int a3)
 {
   __int64 v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rbx
-  __int64 v9; // rsi
-  __int64 v10; // rax
-  __int64 v11; // rdi
-  int v12; // eax
-  NTSTATUS v13; // eax
-  __int64 v14; // rcx
-  __int64 v16; // rcx
-  __int64 v17; // rdx
-  __int64 v18; // rcx
+  __int64 v7; // rbx
+  __int64 v8; // rsi
+  __int64 v9; // rax
+  __int64 v10; // rdi
+  int v11; // ecx
+  NTSTATUS v12; // eax
+  __int64 v13; // rcx
+  __int64 v15; // rcx
+  __int64 v16; // rdx
+  __int64 v17; // rcx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v6 = PtiFromThreadId(a1);
-  v8 = 0LL;
-  v9 = v6;
+  v7 = 0LL;
+  v8 = v6;
   if ( !v6 )
     goto LABEL_19;
-  v10 = PtiFromThreadId(a2);
-  v11 = v10;
-  if ( !v10 || !*(_QWORD *)(v9 + 456) || !*(_QWORD *)(v10 + 456) )
+  v9 = PtiFromThreadId(a2);
+  v10 = v9;
+  if ( !v9 || !*(_QWORD *)(v8 + 456) || !*(_QWORD *)(v9 + 456) )
     goto LABEL_19;
-  v12 = *(_DWORD *)(v9 + 1256) & 0x40000;
+  v11 = *(_DWORD *)(v8 + 1232) & 0x40000;
   if ( !a3 )
   {
-    if ( !v12 )
+    if ( !v11 )
     {
-      if ( (*(_DWORD *)(v11 + 1256) & 0x40000) == 0 )
+      if ( (*(_DWORD *)(v9 + 1232) & 0x40000) == 0 )
         goto LABEL_8;
+      v16 = v8;
       v17 = v9;
-      v18 = v11;
       goto LABEL_17;
     }
-    if ( (*(_DWORD *)(v11 + 1256) & 0x40000) == 0 )
+    if ( (*(_DWORD *)(v9 + 1232) & 0x40000) == 0 )
     {
-      v17 = v11;
-      v18 = v9;
+      v16 = v9;
+      v17 = v8;
 LABEL_17:
-      DisassociateShellFrameAppThreads2(v18, v17);
+      DisassociateShellFrameAppThreads2(v17, v16);
       goto LABEL_8;
     }
 LABEL_19:
-    v16 = 87LL;
+    v15 = 87LL;
     goto LABEL_20;
   }
-  if ( v12 || (*(_DWORD *)(v11 + 1256) & 0x40000) != 0 )
+  if ( v11 || (*(_DWORD *)(v9 + 1232) & 0x40000) != 0 )
   {
-    v16 = 5LL;
+    v15 = 5LL;
 LABEL_20:
-    UserSetLastError(v16, v7);
+    UserSetLastError(v15);
     goto LABEL_10;
   }
 LABEL_8:
-  v13 = zzzAttachThreadInput(v9, v11, a3 != 0);
-  if ( v13 < 0 )
+  v12 = zzzAttachThreadInput(v8, v10, a3 != 0);
+  if ( v12 < 0 )
   {
-    v16 = RtlNtStatusToDosError(v13);
+    v15 = RtlNtStatusToDosError(v12);
     goto LABEL_20;
   }
-  v8 = 1LL;
+  v7 = 1LL;
 LABEL_10:
-  UserSessionSwitchLeaveCrit(v14);
-  return v8;
+  UserSessionSwitchLeaveCrit(v13);
+  return v7;
 }

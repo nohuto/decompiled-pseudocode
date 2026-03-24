@@ -1,10 +1,10 @@
 /*
- * XREFs of ?MulUpdateColors@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@@Z @ 0x1C02A378C
+ * XREFs of ?MulUpdateColors@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@@Z @ 0x1C02A59F8
  * Callers:
- *     NtGdiUpdateColors @ 0x1C02B6B20 (NtGdiUpdateColors.c)
+ *     NtGdiUpdateColors @ 0x1C02B89F0 (NtGdiUpdateColors.c)
  * Callees:
- *     OffCopyBits @ 0x1C01568A8 (OffCopyBits.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     OffCopyBits @ 0x1C02C9118 (OffCopyBits.c)
  */
 
 __int64 __fastcall MulUpdateColors(struct _SURFOBJ *a1, struct _CLIPOBJ *a2, struct _XLATEOBJ *a3)
@@ -34,28 +34,19 @@ __int64 __fastcall MulUpdateColors(struct _SURFOBJ *a1, struct _CLIPOBJ *a2, str
     do
     {
       v9 = v8[6];
-      if ( (*(_DWORD *)(v9 + 2140) & 0x100) != 0
+      if ( (*(_DWORD *)(v9 + 2172) & 0x100) != 0
         && bIntersect(&v17, (const struct _RECTL *)((char *)v8 + 28), (struct _RECTL *)v16) )
       {
         v10 = *(__m128i *)v16;
         a2->rclBounds = *(RECTL *)v16;
-        v11 = *(_QWORD *)(v9 + 2528);
+        v11 = *(_QWORD *)(v9 + 2552);
         v12 = v8[8];
         v15 = __PAIR64__(_mm_cvtsi128_si32(_mm_srli_si128(v10, 4)), _mm_cvtsi128_si32(v10));
         if ( (*(_DWORD *)(v11 + 112) & 0x400) != 0 )
-          v13 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))(v9 + 2816);
+          v13 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))(v9 + 2840);
         else
           v13 = EngCopyBits;
-        v6 &= OffCopyBits(
-                (__int64 (__fastcall *)(__int64, __int64, struct _CLIPOBJ *, __int64, _DWORD *, _DWORD *))v13,
-                (LONG *)v8 + 18,
-                v12,
-                (int *)v8 + 18,
-                v12,
-                a2,
-                (__int64)a3,
-                v16,
-                &v15);
+        v6 &= OffCopyBits((int)v13, (int)v8 + 72, v12, (int)v8 + 72, v12, a2, (__int64)a3, (__int64)v16, (__int64)&v15);
       }
       v8 = (__int64 *)*v8;
     }

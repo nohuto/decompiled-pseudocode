@@ -1,42 +1,24 @@
 /*
- * XREFs of ?DisableVmBusChannel@DXGVAILOBJECT@@QEAAXXZ @ 0x1C0057A18
+ * XREFs of ?DisableVmBusChannel@DXGVAILOBJECT@@QEAAXXZ @ 0x1C0048AB4
  * Callers:
- *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C018910C (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
- *     NtDxgkVailDisconnect @ 0x1C0354450 (NtDxgkVailDisconnect.c)
+ *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C0117814 (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
+ *     NtDxgkVailDisconnect @ 0x1C02B8D50 (NtDxgkVailDisconnect.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?DisableVmBusChannel@@YAXPEAVDXGVMBUSCHANNEL@@@Z @ 0x1C03510D8 (-DisableVmBusChannel@@YAXPEAVDXGVMBUSCHANNEL@@@Z.c)
+ *     ?DisableVmBusChannel@@YAXPEAVDXGVMBUSCHANNEL@@@Z @ 0x1C02B5358 (-DisableVmBusChannel@@YAXPEAVDXGVMBUSCHANNEL@@@Z.c)
  */
 
-void __fastcall DXGVAILOBJECT::DisableVmBusChannel(struct _KTHREAD **this)
+void __fastcall DXGVAILOBJECT::DisableVmBusChannel(struct _KTHREAD **this, __int64 a2)
 {
-  int v2; // edx
-  int v3; // ecx
-  int v4; // r8d
-  struct DXGVMBUSCHANNEL *v5; // rcx
+  __int64 v3; // rax
+  struct DXGVMBUSCHANNEL *v4; // rcx
 
-  if ( this[8] != KeGetCurrentThread() )
+  if ( this[7] != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 353LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v3,
-          v2,
-          v4,
-          0LL,
-          2,
-          -1,
-          L"m_VailMutex.IsOwner()",
-          353LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
+    v3 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v3 + 24) = 358LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  v5 = this[14];
-  if ( v5 )
-    DisableVmBusChannel(v5);
+  v4 = this[13];
+  if ( v4 )
+    DisableVmBusChannel(v4);
 }

@@ -1,40 +1,41 @@
 /*
- * XREFs of SmStoreSetProcessVaRanges @ 0x1406EC47C
+ * XREFs of SmStoreSetProcessVaRanges @ 0x140710A9C
  * Callers:
- *     MmInSwapWorkingSet @ 0x14025F4D4 (MmInSwapWorkingSet.c)
- *     MmOutSwapWorkingSet @ 0x140260144 (MmOutSwapWorkingSet.c)
+ *     MmInSwapWorkingSet @ 0x14035C504 (MmInSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x14035C7D0 (MmOutSwapWorkingSet.c)
  * Callees:
- *     SmpKeyedStoreSetVaRanges @ 0x140260A44 (SmpKeyedStoreSetVaRanges.c)
- *     SmAlloc @ 0x140260C2C (SmAlloc.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
+ *     SmpKeyedStoreSetVaRanges @ 0x14035D218 (SmpKeyedStoreSetVaRanges.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmStoreSetProcessVaRanges(void *Src, __int64 a2)
 {
-  void *v2; // rdi
-  size_t v4; // rbx
-  PVOID v5; // rax
-  int v6; // ebx
+  void *v2; // rbx
+  _KPROCESS *Process; // rbp
+  size_t v5; // rdi
+  PVOID NonPaged; // rax
+  int v7; // edi
 
   v2 = 0LL;
+  Process = KeGetCurrentThread()->ApcState.Process;
   if ( a2 )
   {
-    v4 = 16 * a2;
-    v5 = SmAlloc(16 * a2, 0x52566D73u);
-    v2 = v5;
-    if ( !v5 )
+    v5 = 16 * a2;
+    NonPaged = SSHSupportAllocateNonPaged(16 * a2, 0x52566D73u);
+    v2 = NonPaged;
+    if ( !NonPaged )
       return (unsigned int)-1073741670;
-    memmove(v5, Src, v4);
+    memmove(NonPaged, Src, v5);
   }
-  v6 = SmpKeyedStoreSetVaRanges((ULONG_PTR)&qword_140D321C8);
-  if ( v6 >= 0 )
+  v7 = SmpKeyedStoreSetVaRanges((ULONG_PTR)qword_140D24188, Process);
+  if ( v7 >= 0 )
   {
-    return 0;
+    v2 = 0LL;
+    v7 = 0;
   }
-  else if ( v2 )
-  {
+  if ( v2 )
     ExFreePoolWithTag(v2, 0);
-  }
-  return (unsigned int)v6;
+  return (unsigned int)v7;
 }

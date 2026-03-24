@@ -1,13 +1,13 @@
 /*
- * XREFs of IoMapTransferInternal @ 0x140390C08
+ * XREFs of IoMapTransferInternal @ 0x140388CEC
  * Callers:
- *     IoMapTransfer @ 0x140390AC0 (IoMapTransfer.c)
- *     HalMapTransferEx @ 0x140517000 (HalMapTransferEx.c)
+ *     IoMapTransfer @ 0x140388C70 (IoMapTransfer.c)
+ *     HalMapTransferEx @ 0x14039F6E0 (HalMapTransferEx.c)
  * Callees:
- *     HalpDmaGetAdapterVersion @ 0x14023A8D0 (HalpDmaGetAdapterVersion.c)
- *     HalpMapTransferV2 @ 0x140458184 (HalpMapTransferV2.c)
- *     HalpDmaFlushBuffer @ 0x140513310 (HalpDmaFlushBuffer.c)
- *     HalpMapTransferV3 @ 0x140517AD4 (HalpMapTransferV3.c)
+ *     HalpDmaGetAdapterVersion @ 0x1402B62B0 (HalpDmaGetAdapterVersion.c)
+ *     HalpDmaFlushBuffer @ 0x1404C755C (HalpDmaFlushBuffer.c)
+ *     HalpMapTransferV3 @ 0x1404CA838 (HalpMapTransferV3.c)
+ *     HalpMapTransferV2 @ 0x1404CC994 (HalpMapTransferV2.c)
  */
 
 __int64 __fastcall IoMapTransferInternal(

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpGetPmcCpuHierarchyRegistry @ 0x1408BB558
+ * XREFs of EtwpGetPmcCpuHierarchyRegistry @ 0x1408BB538
  * Callers:
- *     EtwpFindMatchingPmcRegistryGroup @ 0x1408BB274 (EtwpFindMatchingPmcRegistryGroup.c)
- *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1408BB680 (EtwpLoadMicroarchitecturalProfileGroup.c)
+ *     EtwpFindMatchingPmcRegistryGroup @ 0x1408BB254 (EtwpFindMatchingPmcRegistryGroup.c)
+ *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1408BB660 (EtwpLoadMicroarchitecturalProfileGroup.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     RtlpQueryRegistryValues @ 0x1405C58AC (RtlpQueryRegistryValues.c)
  */
 

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiCheckForMaxOverQuotaScb @ 0x1400D2F34
+ * XREFs of KiCheckForMaxOverQuotaScb @ 0x1400D2F54
  * Callers:
  *     KiSearchForNewThreadOnProcessor @ 0x1400570B0 (KiSearchForNewThreadOnProcessor.c)
- *     KiGroupSchedulingQuantumEnd @ 0x1400D0F24 (KiGroupSchedulingQuantumEnd.c)
- *     KiQueueReadyThread @ 0x1400D2350 (KiQueueReadyThread.c)
- *     KiSchedulerApc @ 0x1400F17B0 (KiSchedulerApc.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1400D0F44 (KiGroupSchedulingQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
+ *     KiSchedulerApc @ 0x1400F17D0 (KiSchedulerApc.c)
  * Callees:
  *     <none>
  */

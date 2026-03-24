@@ -1,12 +1,12 @@
 /*
- * XREFs of PspReserveAndCommitUserShadowStack @ 0x1409B1800
+ * XREFs of PspReserveAndCommitUserShadowStack @ 0x14090A368
  * Callers:
- *     PspSetupUserFiberShadowStack @ 0x1409B1AE0 (PspSetupUserFiberShadowStack.c)
- *     PspSetupUserShadowStack @ 0x1409B1BBC (PspSetupUserShadowStack.c)
+ *     PspSetupUserFiberShadowStack @ 0x14090A550 (PspSetupUserFiberShadowStack.c)
+ *     PspSetupUserShadowStack @ 0x14090A62C (PspSetupUserShadowStack.c)
  * Callees:
- *     ZwAllocateVirtualMemory @ 0x14041A9A0 (ZwAllocateVirtualMemory.c)
- *     MmFreeVirtualMemory @ 0x1407455D0 (MmFreeVirtualMemory.c)
- *     MmAllocateUserStack @ 0x1407748A4 (MmAllocateUserStack.c)
+ *     ZwAllocateVirtualMemory @ 0x1403F9D20 (ZwAllocateVirtualMemory.c)
+ *     MmFreeVirtualMemory @ 0x14063AD20 (MmFreeVirtualMemory.c)
+ *     MmAllocateUserStack @ 0x140678840 (MmAllocateUserStack.c)
  */
 
 __int64 __fastcall PspReserveAndCommitUserShadowStack(
@@ -16,10 +16,10 @@ __int64 __fastcall PspReserveAndCommitUserShadowStack(
         __int64 *a4,
         _QWORD *a5)
 {
-  int v7; // eax
+  int UserStack; // eax
   __int64 v8; // rbx
   NTSTATUS v9; // esi
-  __int64 v10; // r14
+  unsigned __int64 v10; // r14
   PVOID BaseAddress; // [rsp+30h] [rbp-20h] BYREF
   ULONG_PTR RegionSize; // [rsp+38h] [rbp-18h] BYREF
   __int64 v14; // [rsp+40h] [rbp-10h] BYREF
@@ -32,10 +32,10 @@ __int64 __fastcall PspReserveAndCommitUserShadowStack(
   if ( a3 > 0x40 || a1 < 0x3000 || (a1 & 0xFFF) != 0 || a2 < 0x1000 || (a2 & 0xFFF) != 0 || a2 > a1 - 0x2000 )
     return 3221225485LL;
   v14 = 0LL;
-  v7 = MmAllocateUserStack(&v14, 0, (__int64 *)&v16, a3, 1);
+  UserStack = MmAllocateUserStack((int)&v14, 0, (int)&v16, a3, 1);
   v8 = v14;
-  v9 = v7;
-  if ( v7 >= 0 )
+  v9 = UserStack;
+  if ( UserStack >= 0 )
   {
     v10 = v16;
     RegionSize = a2;

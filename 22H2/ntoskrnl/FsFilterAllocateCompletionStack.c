@@ -1,24 +1,25 @@
 /*
- * XREFs of FsFilterAllocateCompletionStack @ 0x14045EB7C
+ * XREFs of FsFilterAllocateCompletionStack @ 0x1404F0D3C
  * Callers:
- *     FsFilterCtrlInit @ 0x1402A1D70 (FsFilterCtrlInit.c)
+ *     FsFilterCtrlInit @ 0x1402D77E0 (FsFilterCtrlInit.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall FsFilterAllocateCompletionStack(__int64 a1, char a2)
+__int64 __fastcall FsFilterAllocateCompletionStack(__int64 a1, char a2, _DWORD *a3)
 {
-  _QWORD *v4; // rdi
-  __int16 *v5; // rsi
-  __int64 Pool2; // rbp
-  __int64 result; // rax
+  _QWORD *v5; // rdi
+  SIZE_T v6; // rdx
+  __int16 *v7; // rsi
+  PVOID PoolWithTag; // rax
 
-  v4 = 0LL;
   v5 = 0LL;
-  Pool2 = ExAllocatePool2(64LL, 32LL * *(unsigned __int16 *)(a1 + 72), 1735217990LL);
-  if ( Pool2 )
+  v6 = 32 * (unsigned int)*(unsigned __int16 *)(a1 + 72);
+  *a3 = v6;
+  v7 = 0LL;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v6, 0x676D5346u);
+  if ( PoolWithTag )
     goto LABEL_13;
   if ( a2 )
     return 3221225626LL;
@@ -30,27 +31,25 @@ __int64 __fastcall FsFilterAllocateCompletionStack(__int64 a1, char a2)
       goto LABEL_10;
     case 0xFCu:
 LABEL_11:
-      v4 = (_QWORD *)ReleaseOpsReservePool;
-      v5 = &ReleaseOpsEvent;
+      v5 = (_QWORD *)ReleaseOpsReservePool;
+      v7 = &ReleaseOpsEvent;
       break;
     case 0xFDu:
 LABEL_10:
-      v4 = AcquireOpsReservePool;
-      v5 = &AcquireOpsEvent;
+      v5 = AcquireOpsReservePool;
+      v7 = &AcquireOpsEvent;
       break;
     case 0xFEu:
       goto LABEL_11;
     case 0xFFu:
       goto LABEL_10;
   }
-  KeWaitForSingleObject(v5, Executive, 0, 0, 0LL);
-  Pool2 = (__int64)(v4 + 1);
-  *v4 = KeGetCurrentThread();
-  memset(v4 + 1, 0, 0x3C8uLL);
+  KeWaitForSingleObject(v7, Executive, 0, 0, 0LL);
+  *v5 = KeGetCurrentThread();
+  PoolWithTag = v5 + 1;
   *(_DWORD *)(a1 + 64) |= 2u;
 LABEL_13:
   *(_DWORD *)(a1 + 64) |= 1u;
-  result = 0LL;
-  *(_QWORD *)(a1 + 80) = Pool2;
-  return result;
+  *(_QWORD *)(a1 + 80) = PoolWithTag;
+  return 0LL;
 }

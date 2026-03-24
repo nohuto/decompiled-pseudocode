@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwEnumerateDriverEntries @ 0x1401B9C90
+ * XREFs of ZwEnumerateDriverEntries @ 0x1401B9CB0
  * Callers:
  *     <none>
  * Callees:

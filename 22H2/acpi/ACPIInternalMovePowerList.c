@@ -1,53 +1,69 @@
 /*
- * XREFs of ACPIInternalMovePowerList @ 0x1C002EC54
+ * XREFs of ACPIInternalMovePowerList @ 0x1C001E594
  * Callers:
- *     ACPIDevicePowerDpc @ 0x1C001E5E0 (ACPIDevicePowerDpc.c)
- *     ACPIMovePowerListUnblockedItems @ 0x1C002236C (ACPIMovePowerListUnblockedItems.c)
+ *     ACPIDevicePowerDpc @ 0x1C0020030 (ACPIDevicePowerDpc.c)
+ *     ACPIMovePowerListUnblockedItems @ 0x1C0052110 (ACPIMovePowerListUnblockedItems.c)
  * Callees:
- *     ACPIInternalMoveList @ 0x1C002EC24 (ACPIInternalMoveList.c)
+ *     <none>
  */
 
-_QWORD *__fastcall ACPIInternalMovePowerList(_QWORD *a1, __int64 a2)
+void __fastcall ACPIInternalMovePowerList(_QWORD *a1, __int64 a2)
 {
   _QWORD *v2; // r9
-  _QWORD *v4; // r8
-  int v5; // edx
-  bool v6; // zf
-  int v7; // eax
+  _QWORD *v5; // rcx
+  int v6; // edx
+  bool v7; // zf
   int v8; // eax
+  _QWORD *v9; // rcx
+  _QWORD *v10; // rax
+  int v11; // eax
 
   v2 = (_QWORD *)*a1;
-  while ( v2 != a1 )
+  if ( (_QWORD *)*a1 == a1 )
+    goto LABEL_9;
+  do
   {
-    v4 = v2;
+    v5 = v2;
     v2 = (_QWORD *)*v2;
-    if ( !*((_DWORD *)v4 + 12) )
+    if ( *((_DWORD *)v5 + 12) )
+      goto LABEL_7;
+    v6 = *(_DWORD *)(v5[5] + 700LL);
+    v7 = v6 == 0;
+    if ( v6 > 0 )
     {
-      v5 = *(_DWORD *)(v4[5] + 740LL);
-      v6 = v5 == 0;
-      if ( v5 <= 0 )
-        goto LABEL_7;
-      v7 = *((_DWORD *)v4 + 14);
-      if ( (v7 & 0x2000000) != 0 )
+      v11 = *((_DWORD *)v5 + 14);
+      if ( (v11 & 0x2000000) == 0 )
       {
-        v6 = v5 == 0;
-LABEL_7:
-        if ( v6 )
-        {
-          v8 = *((_DWORD *)v4 + 14);
-          if ( (v8 & 0x2000000) != 0 )
-          {
-            *((_DWORD *)v4 + 14) = v8 & 0xFDFFFFFF;
-            _InterlockedDecrement(&AcpiPowerCurrentPagingPathTransitions);
-          }
-        }
-        goto LABEL_10;
+        *((_DWORD *)v5 + 14) = v11 | 0x2000000;
+        _InterlockedIncrement(&AcpiPowerCurrentPagingPathTransitions);
+        goto LABEL_7;
       }
-      *((_DWORD *)v4 + 14) = v7 | 0x2000000;
-      _InterlockedIncrement(&AcpiPowerCurrentPagingPathTransitions);
+      v7 = v6 == 0;
     }
-LABEL_10:
-    _InterlockedExchange((volatile __int32 *)v4 + 52, 3);
+    if ( v7 )
+    {
+      v8 = *((_DWORD *)v5 + 14);
+      if ( (v8 & 0x2000000) != 0 )
+      {
+        *((_DWORD *)v5 + 14) = v8 & 0xFDFFFFFF;
+        _InterlockedDecrement(&AcpiPowerCurrentPagingPathTransitions);
+      }
+    }
+LABEL_7:
+    _InterlockedExchange((volatile __int32 *)v5 + 52, 3);
   }
-  return ACPIInternalMoveList(a1, a2);
+  while ( v2 != a1 );
+  v2 = (_QWORD *)*a1;
+LABEL_9:
+  if ( v2 != a1 )
+  {
+    v9 = *(_QWORD **)(a2 + 8);
+    v10 = (_QWORD *)a1[1];
+    *v10 = a2;
+    *(_QWORD *)(a2 + 8) = v10;
+    v2[1] = v9;
+    *v9 = v2;
+    a1[1] = a1;
+    *a1 = a1;
+  }
 }

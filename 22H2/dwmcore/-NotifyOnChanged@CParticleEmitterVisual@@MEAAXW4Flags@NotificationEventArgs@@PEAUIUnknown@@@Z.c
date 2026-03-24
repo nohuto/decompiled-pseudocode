@@ -1,10 +1,10 @@
 /*
- * XREFs of ?NotifyOnChanged@CParticleEmitterVisual@@MEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180245FD0
+ * XREFs of ?NotifyOnChanged@CParticleEmitterVisual@@MEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1801E0A20
  * Callers:
  *     <none>
  * Callees:
- *     ??R?$default_delete@VCSpawner@EmitterShapes@@@std@@QEBAXPEAVCSpawner@EmitterShapes@@@Z @ 0x1801C288C (--R-$default_delete@VCSpawner@EmitterShapes@@@std@@QEBAXPEAVCSpawner@EmitterShapes@@@Z.c)
- *     ?AnimateRemainingParticles@CParticleEmitterVisual@@IEAAJXZ @ 0x180244058 (-AnimateRemainingParticles@CParticleEmitterVisual@@IEAAJXZ.c)
+ *     ??R?$default_delete@VCSpawner@EmitterShapes@@@std@@QEBAXPEAVCSpawner@EmitterShapes@@@Z @ 0x18016C51C (--R-$default_delete@VCSpawner@EmitterShapes@@@std@@QEBAXPEAVCSpawner@EmitterShapes@@@Z.c)
+ *     ?AnimateRemainingParticles@CParticleEmitterVisual@@IEAAJXZ @ 0x1801DE928 (-AnimateRemainingParticles@CParticleEmitterVisual@@IEAAJXZ.c)
  */
 
 __int64 __fastcall CParticleEmitterVisual::NotifyOnChanged(__int64 a1, unsigned int a2, __int64 a3)
@@ -21,26 +21,26 @@ __int64 __fastcall CParticleEmitterVisual::NotifyOnChanged(__int64 a1, unsigned 
   }
   else
   {
-    v6 = *(_QWORD *)(a1 + 808);
+    v6 = *(_QWORD *)(a1 + 720);
     if ( v6 && a3 == v6 )
     {
-      *(_BYTE *)(a1 + 6446) = 0;
+      *(_BYTE *)(a1 + 6358) = 0;
     }
     else if ( a2 == 4 )
     {
-      v7 = *(_QWORD *)(a1 + 6400);
-      *(_QWORD *)(a1 + 6400) = 0LL;
+      v7 = *(_QWORD *)(a1 + 6312);
+      *(_QWORD *)(a1 + 6312) = 0LL;
       if ( v7 )
         std::default_delete<EmitterShapes::CSpawner>::operator()(0LL, v7);
     }
     else if ( a2 - 8 <= 1 )
     {
-      v8 = *(_QWORD *)(a1 + 800);
+      v8 = *(_QWORD *)(a1 + 712);
       if ( v8 )
       {
         if ( v8 == a3 )
         {
-          *(_BYTE *)(a1 + 6444) = 0;
+          *(_BYTE *)(a1 + 6356) = 0;
           CParticleEmitterVisual::AnimateRemainingParticles((CParticleEmitterVisual *)a1);
         }
       }

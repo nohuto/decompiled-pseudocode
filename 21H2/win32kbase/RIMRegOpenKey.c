@@ -1,9 +1,10 @@
 /*
- * XREFs of RIMRegOpenKey @ 0x1C00D50AC
+ * XREFs of RIMRegOpenKey @ 0x1C006C610
  * Callers:
- *     RIMRegQueryDWord @ 0x1C00D5034 (RIMRegQueryDWord.c)
- *     RIMPopulateExtendedMouseDeviceProperties @ 0x1C01A05FC (RIMPopulateExtendedMouseDeviceProperties.c)
- *     RIMPopulateExtendedPointerDeviceProperties @ 0x1C01A0784 (RIMPopulateExtendedPointerDeviceProperties.c)
+ *     RIMRegQueryDWord @ 0x1C006C598 (RIMRegQueryDWord.c)
+ *     ShouldEnableInputVirtualization @ 0x1C008A018 (ShouldEnableInputVirtualization.c)
+ *     RIMPopulateExtendedMouseDeviceProperties @ 0x1C00CC828 (RIMPopulateExtendedMouseDeviceProperties.c)
+ *     RIMPopulateExtendedPointerDeviceProperties @ 0x1C016BE68 (RIMPopulateExtendedPointerDeviceProperties.c)
  * Callees:
  *     <none>
  */

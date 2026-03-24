@@ -1,14 +1,14 @@
 /*
- * XREFs of SeMaximumAuditMaskFromGlobalSacl @ 0x1409CE4F8
+ * XREFs of SeMaximumAuditMaskFromGlobalSacl @ 0x140924B38
  * Callers:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x140669A90 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeSecurityDescriptorChangedAuditAlarm @ 0x1406B5B9C (SeSecurityDescriptorChangedAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1405ECE20 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x140697800 (SeSecurityDescriptorChangedAuditAlarm.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     SeMaximumAuditMask @ 0x1405F4040 (SeMaximumAuditMask.c)
- *     SepRmGlobalSaclFind @ 0x140882B96 (SepRmGlobalSaclFind.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     SeMaximumAuditMask @ 0x140595E74 (SeMaximumAuditMask.c)
+ *     SepRmGlobalSaclFind @ 0x140924BF0 (SepRmGlobalSaclFind.c)
  */
 
 void __stdcall SeMaximumAuditMaskFromGlobalSacl(
@@ -18,7 +18,7 @@ void __stdcall SeMaximumAuditMaskFromGlobalSacl(
         PACCESS_MASK AuditMask)
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v9[3]; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD v9[3]; // [rsp+20h] [rbp-18h] BYREF
   int v10; // [rsp+40h] [rbp+8h] BYREF
 
   if ( ObjectTypeName && ObjectTypeName->Buffer )
@@ -27,10 +27,10 @@ void __stdcall SeMaximumAuditMaskFromGlobalSacl(
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquireResourceSharedLite(&SepRmGlobalSaclLock, 1u);
-    if ( (int)SepRmGlobalSaclFind(v9, 0LL, ObjectTypeName, 0) >= 0 )
+    if ( (int)SepRmGlobalSaclFind(v9, 0LL, ObjectTypeName, 0LL) >= 0 )
     {
       v10 = 0;
-      SeMaximumAuditMask(*(_QWORD *)(v9[0] + 24), GrantedAccess, (__int64)Token, &v10);
+      SeMaximumAuditMask(*(_QWORD *)(v9[0] + 24LL), GrantedAccess, (__int64)Token, &v10);
       *AuditMask |= v10;
     }
     ExReleaseResourceLite(&SepRmGlobalSaclLock);

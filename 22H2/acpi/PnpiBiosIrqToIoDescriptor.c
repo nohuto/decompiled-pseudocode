@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpiBiosIrqToIoDescriptor @ 0x1C009198C
+ * XREFs of PnpiBiosIrqToIoDescriptor @ 0x1C009BA54
  * Callers:
- *     PnpBiosResourcesToNtResources @ 0x1C008EFEC (PnpBiosResourcesToNtResources.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
  * Callees:
- *     PnpiUpdateResourceList @ 0x1C0092338 (PnpiUpdateResourceList.c)
+ *     PnpiUpdateResourceList @ 0x1C009D638 (PnpiUpdateResourceList.c)
  */
 
 __int64 __fastcall PnpiBiosIrqToIoDescriptor(_BYTE *a1, unsigned __int16 a2, __int64 a3, unsigned int a4, __int16 a5)

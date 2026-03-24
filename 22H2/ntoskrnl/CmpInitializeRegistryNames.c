@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpInitializeRegistryNames @ 0x140B6A14C
+ * XREFs of CmpInitializeRegistryNames @ 0x140A6C314
  * Callers:
- *     CmInitSystem1 @ 0x140B39964 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
  */
 
 void CmpInitializeRegistryNames()

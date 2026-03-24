@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Release@DXGCHANNELENDPOINTPROXY@@UEAAJXZ @ 0x1C03566C0
+ * XREFs of ?Release@DXGCHANNELENDPOINTPROXY@@UEAAJXZ @ 0x1C02B3BE0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DXGCHANNELENDPOINTPROXY::Release(DXGCHANNELENDPOINTPROXY *this)

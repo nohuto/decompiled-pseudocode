@@ -1,66 +1,66 @@
 /*
- * XREFs of ?AdvancedColorPowerSettingsCallback@DXGGLOBAL@@SAJPEBU_GUID@@PEAXK1@Z @ 0x1C0216750
+ * XREFs of ?AdvancedColorPowerSettingsCallback@DXGGLOBAL@@SAJPEBU_GUID@@PEAXK1@Z @ 0x1C019E7E0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C017F1B0 (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
- *     ?HdrPowerPolicyChangeCallout@DXGGLOBAL@@QEAAXXZ @ 0x1C031361C (-HdrPowerPolicyChangeCallout@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C013C28C (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
+ *     ?HdrPowerPolicyChangeCallout@DXGGLOBAL@@QEAAXXZ @ 0x1C026A5A8 (-HdrPowerPolicyChangeCallout@DXGGLOBAL@@QEAAXXZ.c)
  */
 
 __int64 __fastcall DXGGLOBAL::AdvancedColorPowerSettingsCallback(
-        LPCGUID SettingGuid,
+        __int64 SettingGuid,
         _DWORD *Value,
         ULONG ValueLength,
         PVOID Context)
 {
   __int64 v6; // rax
   char v7; // bl
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
   struct DXGGLOBAL *Global; // rax
-  DXGGLOBAL *v10; // rcx
-  char v11; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  DXGGLOBAL *v18; // rcx
+  char v19; // [rsp+40h] [rbp+18h] BYREF
 
   if ( ValueLength < 4 )
   {
-    WdLogSingleEntry1(1LL, 7183LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"ValueLength >= sizeof(DWORD)", 7183LL, 0LL, 0LL, 0LL, 0LL);
+    v11 = WdLogNewEntry5_WdAssertion(SettingGuid, Value);
+    *(_QWORD *)(v11 + 24) = 6193LL;
+    WdLogEvent5_WdAssertion(v11);
   }
   if ( *Value >= 2u )
   {
-    WdLogSingleEntry1(1LL, 7184LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"(*(DWORD*)pValue == 0) || (*(DWORD*)pValue == 1)",
-      7184LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v12 = WdLogNewEntry5_WdAssertion(SettingGuid, Value);
+    *(_QWORD *)(v12 + 24) = 6194LL;
+    WdLogEvent5_WdAssertion(v12);
   }
-  v6 = *(_QWORD *)&SettingGuid->Data1 - *(_QWORD *)&GUID_ADVANCED_COLOR_QUALITY_BIAS.Data1;
-  if ( *(_QWORD *)&SettingGuid->Data1 == *(_QWORD *)&GUID_ADVANCED_COLOR_QUALITY_BIAS.Data1 )
-    v6 = *(_QWORD *)SettingGuid->Data4 - *(_QWORD *)GUID_ADVANCED_COLOR_QUALITY_BIAS.Data4;
+  v6 = *(_QWORD *)SettingGuid - *(_QWORD *)&GUID_ADVANCED_COLOR_QUALITY_BIAS.Data1;
+  if ( *(_QWORD *)SettingGuid == *(_QWORD *)&GUID_ADVANCED_COLOR_QUALITY_BIAS.Data1 )
+    v6 = *(_QWORD *)(SettingGuid + 8) - *(_QWORD *)GUID_ADVANCED_COLOR_QUALITY_BIAS.Data4;
   if ( !v6 )
   {
     v7 = *Value != 0;
-    if ( v7 != *((_BYTE *)DXGGLOBAL::GetGlobal() + 304780) )
+    if ( v7 != *((_BYTE *)DXGGLOBAL::GetGlobal(SettingGuid, (__int64)Value) + 304564) )
     {
-      *((_BYTE *)DXGGLOBAL::GetGlobal() + 304780) = v7;
-      v11 = 0;
-      Global = DXGGLOBAL::GetGlobal();
+      *((_BYTE *)DXGGLOBAL::GetGlobal(v9, v8) + 304564) = v7;
+      v19 = 0;
+      Global = DXGGLOBAL::GetGlobal(v14, v13);
       if ( (unsigned int)DXGGLOBAL::IterateAdaptersWithCallback(
                            (__int64)Global,
                            (__int64 (__fastcall *)(_QWORD *, __int64))FindDisplayModeResetNeededDueToHdrPowerPolicy,
-                           (__int64)&v11,
+                           (__int64)&v19,
                            1) == -2147483622 )
       {
-        if ( v11 )
+        if ( v19 )
         {
-          DXGGLOBAL::GetGlobal();
-          DXGGLOBAL::HdrPowerPolicyChangeCallout(v10);
+          DXGGLOBAL::GetGlobal(v17, v16);
+          DXGGLOBAL::HdrPowerPolicyChangeCallout(v18);
         }
       }
     }

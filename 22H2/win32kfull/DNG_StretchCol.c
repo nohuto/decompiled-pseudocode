@@ -1,16 +1,16 @@
 /*
- * XREFs of DNG_StretchCol @ 0x1C00039FC
+ * XREFs of DNG_StretchCol @ 0x1C00C8B10
  * Callers:
- *     RenderNineGridInternal @ 0x1C0052990 (RenderNineGridInternal.c)
+ *     RenderNineGridInternal @ 0x1C00C94E0 (RenderNineGridInternal.c)
  * Callees:
- *     DNG_DrawRow @ 0x1C00534B0 (DNG_DrawRow.c)
- *     ?DNG_CopyMemory@@YAHPEAU_DNGINTERNALDATA@@PEAX1J@Z @ 0x1C015A836 (-DNG_CopyMemory@@YAHPEAU_DNGINTERNALDATA@@PEAX1J@Z.c)
+ *     DNG_DrawRow @ 0x1C00CA200 (DNG_DrawRow.c)
+ *     ?DNG_CopyMemory@@YAHPEAU_DNGINTERNALDATA@@PEAX1J@Z @ 0x1C00CA580 (-DNG_CopyMemory@@YAHPEAU_DNGINTERNALDATA@@PEAX1J@Z.c)
  */
 
 int __fastcall DNG_StretchCol(struct _DNGINTERNALDATA *a1, _DWORD *a2)
 {
   __int64 v2; // r15
-  int v4; // r8d
+  int v4; // r10d
   __int64 v5; // r12
   unsigned int v6; // r14d
   unsigned int v7; // ebp
@@ -29,9 +29,9 @@ int __fastcall DNG_StretchCol(struct _DNGINTERNALDATA *a1, _DWORD *a2)
   v7 = 0;
   v16 = *((_QWORD *)a1 + 1);
   v2 = v16;
-  v8 = v16 - 4LL * a2[6] * v4;
+  v8 = v16 - 4LL * v4 * a2[6];
   v14 = a2[3];
-  v9 = v16 - 4LL * a2[7] * v4;
+  v9 = v16 - 4LL * v4 * a2[7];
   v15 = a2[2];
   LODWORD(v10) = *a2 * *((_DWORD *)a1 + 10);
   v11 = 1;
@@ -59,7 +59,7 @@ int __fastcall DNG_StretchCol(struct _DNGINTERNALDATA *a1, _DWORD *a2)
       v11 = (v6 + v15 < v6) + v14;
       v7 += v11;
       if ( v7 < *((_DWORD *)a1 + 12) )
-        v12 -= 4LL * *((_DWORD *)a1 + 10) * v11;
+        v12 -= 4LL * v11 * *((_DWORD *)a1 + 10);
       v4 = *((_DWORD *)a1 + 4);
       v6 += v15;
       v10 = -(__int64)v4;

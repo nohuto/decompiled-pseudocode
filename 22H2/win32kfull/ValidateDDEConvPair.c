@@ -1,27 +1,18 @@
 /*
- * XREFs of ValidateDDEConvPair @ 0x1C01FB050
+ * XREFs of ValidateDDEConvPair @ 0x1C021C530
  * Callers:
- *     _PostTransformableMessageIL @ 0x1C004F3FC (_PostTransformableMessageIL.c)
- *     NtUserPostMessage @ 0x1C011E4B0 (NtUserPostMessage.c)
- *     xxxSendTransformableMessageTimeout @ 0x1C01271B0 (xxxSendTransformableMessageTimeout.c)
- *     _PostMessageCheckIL @ 0x1C01B704C (_PostMessageCheckIL.c)
+ *     _PostTransformableMessageIL @ 0x1C003F6B0 (_PostTransformableMessageIL.c)
+ *     NtUserPostMessage @ 0x1C0054600 (NtUserPostMessage.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C00598F0 (xxxSendTransformableMessageTimeout.c)
+ *     _PostMessageCheckIL @ 0x1C01E21F8 (_PostMessageCheckIL.c)
  * Callees:
- *     ?FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z @ 0x1C01F997C (-FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z.c)
+ *     ?FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z @ 0x1C021A698 (-FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z.c)
  */
 
-struct tagWND *__fastcall ValidateDDEConvPair(__int64 a1, struct tagWND *a2)
+_BOOL8 __fastcall ValidateDDEConvPair(__int64 a1, struct tagWND *a2)
 {
-  struct tagWND *result; // rax
-  __int64 v4; // r8
-  __int64 v5; // r9
-  unsigned int v6; // ebx
+  struct tagWND *v3; // rax
 
-  result = (struct tagWND *)ValidateHwnd(a1);
-  v6 = 0;
-  if ( result )
-  {
-    LOBYTE(v6) = FindDdeConv(result, a2, v4, v5) != 0LL;
-    return (struct tagWND *)v6;
-  }
-  return result;
+  v3 = (struct tagWND *)ValidateHwnd(a1);
+  return v3 && FindDdeConv(v3, a2);
 }

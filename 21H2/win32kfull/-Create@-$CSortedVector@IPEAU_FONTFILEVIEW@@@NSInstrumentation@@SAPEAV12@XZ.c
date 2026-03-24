@@ -1,34 +1,34 @@
 /*
- * XREFs of ?Create@?$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C00F76FC
+ * XREFs of ?Create@?$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C00F4534
  * Callers:
- *     ?InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z @ 0x1C00F75FC (-InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z.c)
+ *     ?InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z @ 0x1C00F4434 (-InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z.c)
  * Callees:
  *     <none>
  */
 
 _QWORD *NSInstrumentation::CSortedVector<unsigned int,_FONTFILEVIEW *>::Create()
 {
-  _QWORD *Pool2; // rbx
-  __int64 v1; // rax
+  _QWORD *PoolWithTag; // rbx
+  PVOID v1; // rax
   _QWORD *result; // rax
 
-  Pool2 = (_QWORD *)ExAllocatePool2(262LL, 56LL, 1665758037LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPoolSession, 0x38uLL, 0x63497355u);
+  if ( PoolWithTag )
   {
-    v1 = ExAllocatePool2(262LL, 0x2000LL, 1665758037LL);
+    v1 = ExAllocatePoolWithTag(PagedPoolSession, 0x2000uLL, 0x63497355u);
     if ( v1 )
     {
-      Pool2[5] = 0LL;
-      Pool2[6] = v1;
-      result = Pool2;
-      Pool2[4] = 512LL;
-      *((_DWORD *)Pool2 + 6) = 0;
-      *((_DWORD *)Pool2 + 7) = 0;
-      *Pool2 = 0LL;
-      *((_DWORD *)Pool2 + 4) = 0;
+      PoolWithTag[5] = 0LL;
+      PoolWithTag[6] = v1;
+      result = PoolWithTag;
+      PoolWithTag[4] = 512LL;
+      *((_DWORD *)PoolWithTag + 6) = 0;
+      *((_DWORD *)PoolWithTag + 7) = 0;
+      *PoolWithTag = 0LL;
+      *((_DWORD *)PoolWithTag + 4) = 0;
       return result;
     }
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(PoolWithTag, 0);
   }
   return 0LL;
 }

@@ -1,21 +1,22 @@
 /*
- * XREFs of IopGetSetSpecificExtension @ 0x140301568
+ * XREFs of IopGetSetSpecificExtension @ 0x1402D7298
  * Callers:
- *     IopCheckInitiatorHint @ 0x1402118D0 (IopCheckInitiatorHint.c)
- *     IopSetLockOperationProcess @ 0x14030176C (IopSetLockOperationProcess.c)
- *     IopGetSetStreamIdentifier @ 0x14055777C (IopGetSetStreamIdentifier.c)
- *     IopAdjustFileObjectKeepAliveCount @ 0x14055850C (IopAdjustFileObjectKeepAliveCount.c)
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
- *     IopRetrieveTransactionParameters @ 0x1407306C0 (IopRetrieveTransactionParameters.c)
- *     IopAllocateFoExtensionsOnCreate @ 0x140767E50 (IopAllocateFoExtensionsOnCreate.c)
- *     IoCreateStreamFileObjectEx2 @ 0x1407681F0 (IoCreateStreamFileObjectEx2.c)
- *     IoCopyDeviceObjectHint @ 0x1409471B0 (IoCopyDeviceObjectHint.c)
+ *     IopCheckInitiatorHint @ 0x14025FB40 (IopCheckInitiatorHint.c)
+ *     IopSetLockOperationProcess @ 0x1402D7EBC (IopSetLockOperationProcess.c)
+ *     IopGetSetStreamIdentifier @ 0x1405064A4 (IopGetSetStreamIdentifier.c)
+ *     IopAdjustFileObjectKeepAliveCount @ 0x140506FD8 (IopAdjustFileObjectKeepAliveCount.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
+ *     IopRetrieveTransactionParameters @ 0x1406511B0 (IopRetrieveTransactionParameters.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x140719B60 (IoCreateStreamFileObjectEx2.c)
+ *     IopAllocateFoExtensionsOnCreate @ 0x14071F81C (IopAllocateFoExtensionsOnCreate.c)
+ *     IoCopyDeviceObjectHint @ 0x1408938C0 (IoCopyDeviceObjectHint.c)
  * Callees:
- *     IopAllocateFileObjectExtension @ 0x140250C30 (IopAllocateFileObjectExtension.c)
- *     IopGetFileObjectExtension @ 0x14030169C (IopGetFileObjectExtension.c)
- *     IopSetTypeSpecificFoExtension @ 0x140302850 (IopSetTypeSpecificFoExtension.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IopAllocateFileObjectExtension @ 0x14022BB40 (IopAllocateFileObjectExtension.c)
+ *     IopGetFileObjectExtension @ 0x1402D6F90 (IopGetFileObjectExtension.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1402D8B04 (IopVerifierExAllocatePool_0.c)
+ *     IopSetTypeSpecificFoExtension @ 0x14030F6A4 (IopSetTypeSpecificFoExtension.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetSetSpecificExtension(
@@ -26,30 +27,39 @@ __int64 __fastcall IopGetSetSpecificExtension(
         _QWORD *a5,
         _QWORD *a6)
 {
-  __int64 v7; // r14
+  size_t v7; // r15
   __int64 result; // rax
-  void *FileObjectExtension; // r8
-  __int64 Pool2; // r8
+  __int64 FileObjectExtension; // rax
+  __int64 v12; // rcx
+  __int64 v13; // r14
+  void *v14; // rbx
+  void *Pool_0; // rax
+  _QWORD v16[5]; // [rsp+20h] [rbp-28h] BYREF
 
+  v16[0] = 0LL;
   v7 = a3;
   if ( !a4 || (result = IopAllocateFileObjectExtension(a1, 0LL), (int)result >= 0) )
   {
-    FileObjectExtension = (void *)IopGetFileObjectExtension(a1, a2);
+    FileObjectExtension = IopGetFileObjectExtension(a1, a2, v16);
+    v13 = v16[0];
+    v14 = (void *)FileObjectExtension;
     if ( !FileObjectExtension && a4 )
     {
-      Pool2 = ExAllocatePool2(64LL, v7, 1162243913LL);
-      if ( !Pool2 )
+      Pool_0 = (void *)IopVerifierExAllocatePool_0(v12, v7);
+      v14 = Pool_0;
+      if ( !Pool_0 )
         return 3221225626LL;
-      if ( (int)IopSetTypeSpecificFoExtension(0LL, a2, Pool2) < 0 )
+      memset(Pool_0, 0, v7);
+      if ( (int)IopSetTypeSpecificFoExtension(v13, a2) < 0 )
       {
-        ExFreePoolWithTag(FileObjectExtension, 0);
-        FileObjectExtension = (void *)IopGetFileObjectExtension(a1, a2);
+        ExFreePoolWithTag(v14, 0);
+        v14 = (void *)IopGetFileObjectExtension(a1, a2, 0LL);
       }
     }
     if ( a5 )
-      *a5 = FileObjectExtension;
+      *a5 = v14;
     if ( a6 )
-      *a6 = 0LL;
+      *a6 = v13;
     return 0LL;
   }
   return result;

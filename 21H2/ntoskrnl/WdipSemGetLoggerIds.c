@@ -1,12 +1,12 @@
 /*
- * XREFs of WdipSemGetLoggerIds @ 0x1406E6CB0
+ * XREFs of WdipSemGetLoggerIds @ 0x14078978C
  * Callers:
- *     WdipSemEnableScenario @ 0x1406E6B08 (WdipSemEnableScenario.c)
- *     WdipSemDisableScenario @ 0x140815DC8 (WdipSemDisableScenario.c)
- *     WdipSemCleanStart @ 0x14083F570 (WdipSemCleanStart.c)
+ *     WdipSemDisableScenario @ 0x140789350 (WdipSemDisableScenario.c)
+ *     WdipSemEnableScenario @ 0x1407895DC (WdipSemEnableScenario.c)
+ *     WdipSemCleanStart @ 0x14079905C (WdipSemCleanStart.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     EtwQueryTraceHandleByLoggerName @ 0x1406E6D40 (EtwQueryTraceHandleByLoggerName.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     EtwQueryTraceHandleByLoggerName @ 0x14078981C (EtwQueryTraceHandleByLoggerName.c)
  */
 
 __int64 WdipSemGetLoggerIds()

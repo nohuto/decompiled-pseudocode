@@ -1,12 +1,10 @@
 /*
- * XREFs of ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C008357C
+ * XREFs of ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C008BE58
  * Callers:
- *     ??0CConnection@DirectComposition@@AEAA@XZ @ 0x1C0080FAC (--0CConnection@DirectComposition@@AEAA@XZ.c)
- *     ??0CMouseProcessor@@IEAA@XZ @ 0x1C00818F0 (--0CMouseProcessor@@IEAA@XZ.c)
- *     ??0IOCPDispatcher@@IEAA@XZ @ 0x1C008333C (--0IOCPDispatcher@@IEAA@XZ.c)
- *     ??0CRIMBase@@IEAA@K@Z @ 0x1C00834E0 (--0CRIMBase@@IEAA@K@Z.c)
+ *     ??0CMouseProcessor@@IEAA@XZ @ 0x1C008B5FC (--0CMouseProcessor@@IEAA@XZ.c)
+ *     ??0CRIMBase@@IEAA@K@Z @ 0x1C008BDCC (--0CRIMBase@@IEAA@K@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall `vector constructor iterator'(char *a1, __int64 a2, __int64 a3, void (__fastcall *a4)(char *))

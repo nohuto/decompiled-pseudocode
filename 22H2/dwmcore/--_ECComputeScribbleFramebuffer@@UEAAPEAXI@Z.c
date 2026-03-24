@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_ECComputeScribbleFramebuffer@@UEAAPEAXI@Z @ 0x180204980
+ * XREFs of ??_ECComputeScribbleFramebuffer@@UEAAPEAXI@Z @ 0x1801A5D00
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     ??1CComputeScribbleFramebuffer@@UEAA@XZ @ 0x1802048B8 (--1CComputeScribbleFramebuffer@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ??1CComputeScribbleFramebuffer@@UEAA@XZ @ 0x1801A5C34 (--1CComputeScribbleFramebuffer@@UEAA@XZ.c)
  */
 
 CComputeScribbleFramebuffer *__fastcall CComputeScribbleFramebuffer::`vector deleting destructor'(

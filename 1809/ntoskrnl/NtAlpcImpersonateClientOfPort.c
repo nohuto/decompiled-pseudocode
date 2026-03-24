@@ -1,16 +1,16 @@
 /*
  * XREFs of NtAlpcImpersonateClientOfPort @ 0x140637740
  * Callers:
- *     NtImpersonateClientOfPort @ 0x140849B30 (NtImpersonateClientOfPort.c)
+ *     NtImpersonateClientOfPort @ 0x140849B10 (NtImpersonateClientOfPort.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     AlpcpLookupMessage @ 0x140636970 (AlpcpLookupMessage.c)
  *     AlpcpUnlockBlob @ 0x140637040 (AlpcpUnlockBlob.c)
  *     AlpcpImpersonateMessage @ 0x1406378A0 (AlpcpImpersonateMessage.c)
  *     AlpcpCaptureIdMessage @ 0x140637AE0 (AlpcpCaptureIdMessage.c)
- *     AlpcpEnterStateChangeEventMessageLog @ 0x14084A5B8 (AlpcpEnterStateChangeEventMessageLog.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x14084A598 (AlpcpEnterStateChangeEventMessageLog.c)
  */
 
 __int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsigned __int64 a3)

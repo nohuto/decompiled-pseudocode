@@ -4,8 +4,8 @@
  *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
  *     HvLoadHive @ 0x1405A4C9C (HvLoadHive.c)
  *     HvFreeHivePartial @ 0x1405A8240 (HvFreeHivePartial.c)
- *     HvHiveStartMemoryBacked @ 0x14073CB2C (HvHiveStartMemoryBacked.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B80 (HvpPerformLogFileRecovery.c)
+ *     HvHiveStartMemoryBacked @ 0x14073CB0C (HvHiveStartMemoryBacked.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
  * Callees:
  *     HvpAdjustBitmap @ 0x1405A5024 (HvpAdjustBitmap.c)
  */

@@ -1,28 +1,28 @@
 /*
- * XREFs of CmpLockDeletedHashEntryExclusiveByKcb @ 0x14067ED34
+ * XREFs of CmpLockDeletedHashEntryExclusiveByKcb @ 0x14066CAF4
  * Callers:
- *     CmpDiscardKcb @ 0x14067EB68 (CmpDiscardKcb.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1407C09E0 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1405EE874 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpDiscardKcb @ 0x14066C928 (CmpDiscardKcb.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     CmpReferenceHive @ 0x14071BBD8 (CmpReferenceHive.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     CmpReferenceHive @ 0x1405EC2A8 (CmpReferenceHive.c)
  */
 
-__int64 __fastcall CmpLockDeletedHashEntryExclusiveByKcb(ULONG_PTR BugCheckParameter4)
+char __fastcall CmpLockDeletedHashEntryExclusiveByKcb(ULONG_PTR BugCheckParameter4)
 {
   ULONG_PTR v2; // rdi
   unsigned __int64 v3; // r8
   ULONG_PTR v4; // rbx
-  __int64 result; // rax
+  char result; // al
 
   v2 = *(_QWORD *)(BugCheckParameter4 + 32);
   v3 = (unsigned int)(101027 * (*(_DWORD *)(BugCheckParameter4 + 16) ^ (*(_DWORD *)(BugCheckParameter4 + 16) >> 9)));
-  v4 = *(_QWORD *)(v2 + 1664) + 24 * ((unsigned int)(*(_DWORD *)(v2 + 1672) - 1) & (v3 ^ (v3 >> 9)));
+  v4 = *(_QWORD *)(v2 + 1656) + 24 * ((unsigned int)(*(_DWORD *)(v2 + 1664) - 1) & (v3 ^ (v3 >> 9)));
   ExAcquirePushLockExclusiveEx(v4, 0LL);
   *(_QWORD *)(v4 + 8) = KeGetCurrentThread();
   result = CmpReferenceHive(v2);
-  if ( !(_BYTE)result )
+  if ( !result )
     KeBugCheckEx(0x51u, 0x17uLL, v2, 8uLL, BugCheckParameter4);
   return result;
 }

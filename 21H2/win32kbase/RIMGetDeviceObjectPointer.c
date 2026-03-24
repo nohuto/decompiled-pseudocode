@@ -1,21 +1,18 @@
 /*
- * XREFs of RIMGetDeviceObjectPointer @ 0x1C00A1D50
+ * XREFs of RIMGetDeviceObjectPointer @ 0x1C00571B0
  * Callers:
- *     rimOnPnpArrived @ 0x1C004A09C (rimOnPnpArrived.c)
- *     RIMGetMouseDeviceHardwareId @ 0x1C00A0FE0 (RIMGetMouseDeviceHardwareId.c)
- *     RIMGetDeviceParent @ 0x1C00A13E0 (RIMGetDeviceParent.c)
- *     RIMLoadDeviceLegacyInfo @ 0x1C00A1600 (RIMLoadDeviceLegacyInfo.c)
- *     RIMRegOpenDeviceInstanceKey @ 0x1C00A196C (RIMRegOpenDeviceInstanceKey.c)
- *     RIMConfigureDeviceFeedback @ 0x1C00DBFA0 (RIMConfigureDeviceFeedback.c)
- *     RIMEnableMonitorMappingForDevice @ 0x1C0182990 (RIMEnableMonitorMappingForDevice.c)
- *     RIMDeliverConfigRequest @ 0x1C018AB6C (RIMDeliverConfigRequest.c)
- *     RIMHidGetPreparsedData @ 0x1C018BA5C (RIMHidGetPreparsedData.c)
- *     RIMSendLatencyMgtDeviceRequest @ 0x1C018C954 (RIMSendLatencyMgtDeviceRequest.c)
- *     RIMSetDeviceIdleTimeout @ 0x1C018CEB8 (RIMSetDeviceIdleTimeout.c)
- *     RIMIDECreatePointerDeviceInfo @ 0x1C019B9FC (RIMIDECreatePointerDeviceInfo.c)
+ *     rimOnPnpArrived @ 0x1C0055904 (rimOnPnpArrived.c)
+ *     RIMCreateHidDesc @ 0x1C00572E8 (RIMCreateHidDesc.c)
+ *     RIMRegOpenDeviceInstanceKey @ 0x1C006CD68 (RIMRegOpenDeviceInstanceKey.c)
+ *     RIMGetDeviceParent @ 0x1C006CE50 (RIMGetDeviceParent.c)
+ *     RIMEnableMonitorMappingForDevice @ 0x1C0155860 (RIMEnableMonitorMappingForDevice.c)
+ *     RIMDeliverConfigRequest @ 0x1C0161484 (RIMDeliverConfigRequest.c)
+ *     RIMSendLatencyMgtDeviceRequest @ 0x1C0162284 (RIMSendLatencyMgtDeviceRequest.c)
+ *     RIMSetDeviceIdleTimeout @ 0x1C01625E0 (RIMSetDeviceIdleTimeout.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167958 (RIMIDECreatePointerDeviceInfo.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ddd @ 0x1C0034D74 (WPP_RECORDER_AND_TRACE_SF_ddd.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0043D04 (WPP_RECORDER_SF_ddd.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RIMGetDeviceObjectPointer(
@@ -28,61 +25,56 @@ __int64 __fastcall RIMGetDeviceObjectPointer(
 {
   int v7; // edx
   NTSTATUS v8; // ebx
-  int v9; // r8d
-  struct _FILE_OBJECT *v10; // rcx
-  void *FileHandle; // [rsp+60h] [rbp-49h] BYREF
-  PVOID Object; // [rsp+68h] [rbp-41h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-39h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+A0h] [rbp-9h] BYREF
-  _DWORD v16[4]; // [rsp+B0h] [rbp+7h] BYREF
+  struct _FILE_OBJECT *v9; // rcx
+  void *FileHandle; // [rsp+40h] [rbp-49h] BYREF
+  PVOID Object; // [rsp+48h] [rbp-41h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-39h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+80h] [rbp-9h] BYREF
+  _DWORD v15[4]; // [rsp+90h] [rbp+7h] BYREF
 
   ObjectAttributes.ObjectName = a1;
   FileHandle = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.SecurityDescriptor = 0LL;
-  ObjectAttributes.SecurityQualityOfService = v16;
+  ObjectAttributes.SecurityQualityOfService = v15;
   IoStatusBlock = 0LL;
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   *(_QWORD *)&ObjectAttributes.Attributes = 512LL;
-  v16[2] = 257;
-  v16[0] = 12;
-  v16[1] = 2;
+  v15[2] = 257;
+  v15[0] = 12;
+  v15[1] = 2;
   v8 = ZwOpenFile(&FileHandle, 0, &ObjectAttributes, &IoStatusBlock, 3u, 0x40u);
-  if ( v8 >= 0 )
+  if ( v8 < 0 )
+    goto LABEL_7;
+  Object = 0LL;
+  v8 = ObReferenceObjectByHandle(FileHandle, 0, (POBJECT_TYPE)IoFileObjectType, 0, &Object, 0LL);
+  if ( v8 < 0 )
   {
-    Object = 0LL;
-    v8 = ObReferenceObjectByHandle(FileHandle, 0, (POBJECT_TYPE)IoFileObjectType, 0, &Object, 0LL);
-    if ( v8 >= 0 )
-    {
-      v10 = (struct _FILE_OBJECT *)Object;
-      *a5 = Object;
-      *a6 = IoGetRelatedDeviceObject(v10);
-      *a4 = FileHandle;
-      return (unsigned int)v8;
-    }
     ZwClose(FileHandle);
   }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (LOBYTE(v7) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+  else
   {
-    LOBYTE(v7) = 0;
+    v9 = (struct _FILE_OBJECT *)Object;
+    *a5 = Object;
+    *a6 = IoGetRelatedDeviceObject(v9);
+    *a4 = FileHandle;
   }
-  if ( (_BYTE)v7 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( v8 < 0 )
   {
-    LOBYTE(v9) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_ddd(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v7,
-      v9,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      29,
-      (__int64)&WPP_94a7da3dd1213881fc59263cd75cae92_Traceguids,
-      0,
-      3,
-      v8);
+LABEL_7:
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v7) = 4;
+      WPP_RECORDER_SF_ddd(
+        (_DWORD)gRimLog,
+        v7,
+        1,
+        34,
+        (__int64)&WPP_6b998a37b7133a4d231c601f1b883849_Traceguids,
+        0,
+        3,
+        v8);
+    }
   }
   return (unsigned int)v8;
 }

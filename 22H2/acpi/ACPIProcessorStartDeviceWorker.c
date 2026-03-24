@@ -1,19 +1,18 @@
 /*
- * XREFs of ACPIProcessorStartDeviceWorker @ 0x1C003A1E0
+ * XREFs of ACPIProcessorStartDeviceWorker @ 0x1C000D040
  * Callers:
- *     ACPIProcessorStartDevice @ 0x1C003A160 (ACPIProcessorStartDevice.c)
+ *     ACPIProcessorStartDevice @ 0x1C000CFF0 (ACPIProcessorStartDevice.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
- *     WPP_RECORDER_SF_ddqss @ 0x1C0014AC8 (WPP_RECORDER_SF_ddqss.c)
- *     ACPIInternalEvaluateOST @ 0x1C002E580 (ACPIInternalEvaluateOST.c)
- *     ACPIInternalSetDeviceInterface @ 0x1C002EF2C (ACPIInternalSetDeviceInterface.c)
- *     ACPICheckModuleStarted @ 0x1C00324F8 (ACPICheckModuleStarted.c)
- *     ACPIProcessorContainerLinkChildProcessor @ 0x1C003AB10 (ACPIProcessorContainerLinkChildProcessor.c)
- *     ACPIThermalAcquireCoolingInterfaces @ 0x1C003FAF8 (ACPIThermalAcquireCoolingInterfaces.c)
- *     ACPIProcessorBuildBootApicIds @ 0x1C008C390 (ACPIProcessorBuildBootApicIds.c)
- *     ACPIProcessorBuildHiddenApicIds @ 0x1C008C470 (ACPIProcessorBuildHiddenApicIds.c)
- *     ACPIProcessorGetInitialApicId @ 0x1C008C758 (ACPIProcessorGetInitialApicId.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInternalSetDeviceInterface @ 0x1C000D230 (ACPIInternalSetDeviceInterface.c)
+ *     ACPIThermalAcquireCoolingInterfaces @ 0x1C000DE20 (ACPIThermalAcquireCoolingInterfaces.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
+ *     ACPIInternalEvaluateOST @ 0x1C0056CB4 (ACPIInternalEvaluateOST.c)
+ *     ACPICheckModuleStarted @ 0x1C0058954 (ACPICheckModuleStarted.c)
+ *     WPP_RECORDER_SF_ddqss @ 0x1C005CEE0 (WPP_RECORDER_SF_ddqss.c)
+ *     ACPIProcessorBuildBootApicIds @ 0x1C0090D94 (ACPIProcessorBuildBootApicIds.c)
+ *     ACPIProcessorGetInitialApicId @ 0x1C00910B8 (ACPIProcessorGetInitialApicId.c)
+ *     ACPIProcessorBuildHiddenApicIds @ 0x1C00912B4 (ACPIProcessorBuildHiddenApicIds.c)
  */
 
 void __fastcall ACPIProcessorStartDeviceWorker(__int64 a1)
@@ -23,28 +22,30 @@ void __fastcall ACPIProcessorStartDeviceWorker(__int64 a1)
   __int64 v4; // rdi
   IRP *v5; // r14
   NTSTATUS InitialApicId; // ebx
-  unsigned int v7; // eax
-  int v8; // r8d
-  unsigned int v9; // eax
-  int v10; // r8d
-  __int64 v11; // rax
-  const char *v12; // rbx
-  const char *v13; // rdx
-  const char *v14; // rcx
+  unsigned int v7; // edx
+  __int64 v8; // rcx
+  KIRQL v9; // r8
+  __int64 i; // rdx
+  unsigned int v11; // edx
+  __int64 v12; // rax
+  void *v13; // rbx
+  void *v14; // rdx
   USHORT v15; // ax
   int started; // eax
   __int64 v17; // rdx
-  const char *v18; // rcx
-  int v19; // r8d
-  __int64 v20; // rcx
-  USHORT NodeNumber; // [rsp+A0h] [rbp+48h] BYREF
-  unsigned int Data; // [rsp+A8h] [rbp+50h] BYREF
-  unsigned int v23; // [rsp+B0h] [rbp+58h] BYREF
+  void *v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // rdx
+  _QWORD *v21; // rdi
+  _QWORD *v22; // rax
+  USHORT NodeNumber; // [rsp+90h] [rbp+40h] BYREF
+  unsigned int Data; // [rsp+98h] [rbp+48h] BYREF
+  unsigned int v25; // [rsp+A0h] [rbp+50h] BYREF
 
   v1 = *(struct _DEVICE_OBJECT **)(a1 + 32);
   Data = 0;
   NodeNumber = 0;
-  v23 = 0;
+  v25 = 0;
   DeviceExtension = ACPIInternalGetDeviceExtension((ULONG_PTR)v1);
   v4 = DeviceExtension;
   v5 = *(IRP **)(a1 + 40);
@@ -52,73 +53,52 @@ void __fastcall ACPIProcessorStartDeviceWorker(__int64 a1)
   {
     InitialApicId = ACPIProcessorGetInitialApicId(DeviceExtension, &Data);
     if ( InitialApicId < 0 )
-      goto LABEL_43;
+      goto LABEL_23;
     *(_DWORD *)(v4 + 192) = Data;
     ExAcquireFastMutex(&AcpiProcessorStartupLock);
     if ( !AcpiBootProcessorApicIds && (InitialApicId = ACPIProcessorBuildBootApicIds(), InitialApicId < 0)
       || !AcpiHiddenProcessorApicIds && (InitialApicId = ACPIProcessorBuildHiddenApicIds(), InitialApicId < 0) )
     {
       ExReleaseFastMutex(&AcpiProcessorStartupLock);
-      goto LABEL_43;
+      goto LABEL_23;
     }
     ExReleaseFastMutex(&AcpiProcessorStartupLock);
     if ( AcpiBootProcessorCount )
     {
       v7 = 0;
-      v8 = 0;
       while ( *(_DWORD *)(AcpiBootProcessorApicIds + 4LL * v7) != Data )
       {
-        v7 = v8 + 1;
-        v23 = v7;
-        ++v8;
+        v25 = ++v7;
         if ( v7 >= AcpiBootProcessorCount )
-          goto LABEL_13;
+          goto LABEL_28;
       }
     }
     else
     {
-LABEL_13:
-      v23 = 0;
+LABEL_28:
+      v25 = 0;
       if ( AcpiHiddenProcessorCount )
       {
-        v9 = 0;
-        v10 = 0;
-        while ( *(_DWORD *)(AcpiHiddenProcessorApicIds + 4LL * v9) != Data )
+        v11 = 0;
+        while ( *(_DWORD *)(AcpiHiddenProcessorApicIds + 4LL * v11) != Data )
         {
-          v9 = v10 + 1;
-          v23 = v9;
-          ++v10;
-          if ( v9 >= AcpiHiddenProcessorCount )
-            goto LABEL_17;
+          v25 = ++v11;
+          if ( v11 >= AcpiHiddenProcessorCount )
+            goto LABEL_32;
         }
       }
       else
       {
-LABEL_17:
-        v11 = *(_QWORD *)(v4 + 8);
-        if ( (v11 & 0x4000) == 0 )
+LABEL_32:
+        v12 = *(_QWORD *)(v4 + 8);
+        if ( (v12 & 0x4000) == 0 )
         {
-          v12 = (const char *)&unk_1C00622D0;
-          v13 = (const char *)&unk_1C00622D0;
-          v14 = (const char *)&unk_1C00622D0;
-          if ( (v11 & 0x200000000000LL) != 0 )
-          {
-            v13 = *(const char **)(v4 + 608);
-            if ( (v11 & 0x400000000000LL) != 0 )
-              v14 = *(const char **)(v4 + 616);
-          }
+          v13 = &unk_1C00701BA;
+          v14 = &unk_1C00701BA;
+          if ( (v12 & 0x200000000000LL) != 0 )
+            v14 = *(void **)(v4 + 568);
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_SF_ddqss(
-              (__int64)WPP_GLOBAL_Control->DeviceExtension,
-              4u,
-              1u,
-              0xDu,
-              (__int64)&WPP_dae7fe894c7e323433b1d18b69ca790c_Traceguids,
-              *(_DWORD *)(v4 + 196),
-              Data,
-              v4,
-              v13,
-              v14);
+            WPP_RECORDER_SF_ddqss(WPP_GLOBAL_Control->DeviceExtension, (_DWORD)v14, 0, Data);
           if ( IoGetDeviceNumaNode(v1, &NodeNumber) )
           {
             v15 = -1;
@@ -128,35 +108,38 @@ LABEL_17:
           {
             v15 = NodeNumber;
           }
-          started = KeStartDynamicProcessor(*(unsigned int *)(v4 + 196), Data, v15, &v23);
+          started = KeStartDynamicProcessor(*(unsigned int *)(v4 + 196), Data, v15, &v25);
           if ( started >= 0 )
           {
-            v19 = 0;
+            v19 = 0LL;
           }
           else
           {
             v17 = *(_QWORD *)(v4 + 8);
-            v18 = (const char *)&unk_1C00622D0;
+            v18 = &unk_1C00701BA;
             if ( (v17 & 0x200000000000LL) != 0 )
             {
-              v12 = *(const char **)(v4 + 608);
+              v13 = *(void **)(v4 + 568);
               if ( (v17 & 0x400000000000LL) != 0 )
-                v18 = *(const char **)(v4 + 616);
+                v18 = *(void **)(v4 + 576);
             }
             if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              WPP_RECORDER_SF_dqss(
-                (__int64)WPP_GLOBAL_Control->DeviceExtension,
-                2u,
-                1u,
-                0xEu,
+            {
+              LOBYTE(v17) = 2;
+              WPP_RECORDER_SF_Dqss(
+                WPP_GLOBAL_Control->DeviceExtension,
+                v17,
+                1,
+                14,
                 (__int64)&WPP_dae7fe894c7e323433b1d18b69ca790c_Traceguids,
                 started,
                 v4,
-                v12,
-                v18);
-            v19 = 163;
+                (__int64)v13,
+                (__int64)v18);
+            }
+            v19 = 163LL;
           }
-          ACPIInternalEvaluateOST((_QWORD *)v4, 0, v19);
+          ACPIInternalEvaluateOST(v4, 0LL, v19);
         }
       }
     }
@@ -166,22 +149,43 @@ LABEL_17:
     Data = -1;
   }
   ACPIThermalAcquireCoolingInterfaces(v4);
-  if ( (*(_DWORD *)(v4 + 8) & 0x4000LL) == 0 )
+  if ( (*(_DWORD *)(v4 + 8) & 0x4000LL) != 0 )
+  {
+    InitialApicId = IoSetDevicePropertyData(v1, &DEVPKEY_Spare_Processor_Apic_Id, 0, 0, 7u, 4u, &Data);
+  }
+  else
   {
     InitialApicId = ACPIInternalSetDeviceInterface(v1, &GUID_DEVICE_PROCESSOR);
     if ( InitialApicId < 0 )
-      goto LABEL_43;
-    goto LABEL_39;
+      goto LABEL_23;
   }
-  InitialApicId = IoSetDevicePropertyData(v1, &DEVPKEY_Spare_Processor_Apic_Id, 0, 0, 7u, 4u, &Data);
   if ( InitialApicId >= 0 )
-LABEL_39:
-    *(_DWORD *)(v4 + 368) = 2;
-  v20 = *(_QWORD *)(v4 + 792);
-  if ( _bittest64((const signed __int64 *)(v20 + 8), 0x25u) )
-    ACPICheckModuleStarted(v20, InitialApicId);
-  ACPIProcessorContainerLinkChildProcessor(v4);
-LABEL_43:
+    *(_DWORD *)(v4 + 328) = 2;
+  v8 = *(_QWORD *)(v4 + 752);
+  if ( (*(_QWORD *)(v8 + 8) & 0x2000000000LL) != 0 )
+    ACPICheckModuleStarted(v8, (unsigned int)InitialApicId);
+  v9 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
+  if ( !AcpiProcessorContainerHierarchyLocked )
+  {
+    for ( i = *(_QWORD *)(v4 + 752); i; i = *(_QWORD *)(i + 752) )
+    {
+      if ( (*(_QWORD *)(i + 960) & 0x8000000000LL) != 0 )
+      {
+        v20 = i + 216;
+        v21 = (_QWORD *)(v4 + 200);
+        v22 = *(_QWORD **)(v20 + 8);
+        if ( *v22 != v20 )
+          __fastfail(3u);
+        *v21 = v20;
+        v21[1] = v22;
+        *v22 = v21;
+        *(_QWORD *)(v20 + 8) = v21;
+        break;
+      }
+    }
+  }
+  KeReleaseSpinLock(&AcpiDeviceTreeLock, v9);
+LABEL_23:
   v5->IoStatus.Status = InitialApicId;
   IofCompleteRequest(v5, 0);
 }

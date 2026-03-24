@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDpPreReplace @ 0x140A625DC
+ * XREFs of HalpDpPreReplace @ 0x1409A865C
  * Callers:
- *     HalpDpReplaceControl @ 0x140A62700 (HalpDpReplaceControl.c)
+ *     HalpDpReplaceControl @ 0x1409A8780 (HalpDpReplaceControl.c)
  * Callees:
- *     HalpSetClockBeforeSleep @ 0x14039188C (HalpSetClockBeforeSleep.c)
- *     HalpAcpiPmRegisterWrite @ 0x1403B2B00 (HalpAcpiPmRegisterWrite.c)
- *     HalpAcpiPmRegisterAvailable @ 0x1403B2F00 (HalpAcpiPmRegisterAvailable.c)
- *     HalpAcpiPmRegisterRead @ 0x1403B41A0 (HalpAcpiPmRegisterRead.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     HalpAcpiPmRegisterWrite @ 0x14037C760 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterAvailable @ 0x14037CA20 (HalpAcpiPmRegisterAvailable.c)
+ *     HalpSetClockBeforeSleep @ 0x140386B74 (HalpSetClockBeforeSleep.c)
+ *     HalpAcpiPmRegisterRead @ 0x140399640 (HalpAcpiPmRegisterRead.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall HalpDpPreReplace(__int64 a1)
@@ -26,18 +26,18 @@ void __fastcall HalpDpPreReplace(__int64 a1)
     (*(void (__fastcall **)(_QWORD))(PmAcpiDispatchTable + 8))(0LL);
     if ( (int)HalpAcpiPmRegisterAvailable(0) >= 0 )
     {
-      HalpAcpiPmRegisterRead(0, (unsigned __int8)byte_140C4C078 >> 1, (__int64)&v6, 2u, 0LL);
+      HalpAcpiPmRegisterRead(0, (unsigned __int8)byte_140C4A038 >> 1, (__int64)&v6, 2u, 0LL);
       v4 = v6;
       v5 = v6;
       if ( (int)HalpAcpiPmRegisterAvailable(3) >= 0 )
       {
-        HalpAcpiPmRegisterRead(3, (unsigned __int8)byte_140C4C078 >> 1, (__int64)&v6, 2u, 0LL);
+        HalpAcpiPmRegisterRead(3, (unsigned __int8)byte_140C4A038 >> 1, (__int64)&v6, 2u, 0LL);
         v4 = v6 | v5;
       }
       v5 = v4 & 0x20;
-      HalpAcpiPmRegisterWrite(0, (unsigned __int8)byte_140C4C078 >> 1, (__int64)&v5, 2u, 0LL);
+      HalpAcpiPmRegisterWrite(0, (unsigned __int8)byte_140C4A038 >> 1, (__int64)&v5, 2u, 0LL);
       if ( (int)HalpAcpiPmRegisterAvailable(3) >= 0 )
-        HalpAcpiPmRegisterWrite(3, (unsigned __int8)byte_140C4C078 >> 1, (__int64)&v5, 2u, 0LL);
+        HalpAcpiPmRegisterWrite(3, (unsigned __int8)byte_140C4A038 >> 1, (__int64)&v5, 2u, 0LL);
     }
     if ( (HalpPlatformFlags & 4) != 0 )
       HalpSetClockBeforeSleep(v2, v1, v3);

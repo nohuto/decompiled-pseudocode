@@ -1,29 +1,45 @@
 /*
- * XREFs of ApiSetEditionGetExecutionEvironment @ 0x1C0081F54
+ * XREFs of ApiSetEditionGetExecutionEvironment @ 0x1C00B3BDC
  * Callers:
- *     ?MoveMouseWindowManagement@CMouseProcessor@@QEAAXW4_GenerateMoveOptions@@@Z @ 0x1C0053088 (-MoveMouseWindowManagement@CMouseProcessor@@QEAAXW4_GenerateMoveOptions@@@Z.c)
- *     ?InitializeKeyboardGlobals@@YAJXZ @ 0x1C0081E70 (-InitializeKeyboardGlobals@@YAJXZ.c)
- *     ?GetExecutionEnvironment@CBaseProcessor@@KA?AW4_ProcessorExecutionEnvironment@@XZ @ 0x1C01F2AC0 (-GetExecutionEnvironment@CBaseProcessor@@KA-AW4_ProcessorExecutionEnvironment@@XZ.c)
+ *     ??0CKeyboardProcessor@@IEAA@XZ @ 0x1C008C0FC (--0CKeyboardProcessor@@IEAA@XZ.c)
+ *     ??0CSpatialProcessor@@QEAA@XZ @ 0x1C008C18C (--0CSpatialProcessor@@QEAA@XZ.c)
+ *     xxxProcessKeyEvent @ 0x1C01B1150 (xxxProcessKeyEvent.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 ApiSetEditionGetExecutionEvironment()
 {
-  unsigned int v0; // ebx
+  int v0; // eax
+  unsigned int v1; // ebx
 
-  if ( !qword_1C02965D0 || (int)qword_1C02965D0() < 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1367LL);
-  if ( !qword_1C02965D8 )
-  {
-    v0 = 0;
-LABEL_8:
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1369LL);
-    return v0;
-  }
-  v0 = qword_1C02965D8();
-  if ( !v0 )
-    goto LABEL_8;
-  return v0;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      196,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  if ( qword_1C0257348 )
+    v0 = qword_1C0257348();
+  else
+    v0 = -1073741637;
+  if ( v0 < 0 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1607LL);
+  if ( qword_1C0257350 )
+    v1 = qword_1C0257350();
+  else
+    v1 = 0;
+  if ( !v1 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1609LL);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      197,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  return v1;
 }

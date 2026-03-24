@@ -1,5 +1,5 @@
 /*
- * XREFs of EnterHandleFlagsCrit @ 0x1C00A9080
+ * XREFs of EnterHandleFlagsCrit @ 0x1C0095C50
  * Callers:
  *     <none>
  * Callees:

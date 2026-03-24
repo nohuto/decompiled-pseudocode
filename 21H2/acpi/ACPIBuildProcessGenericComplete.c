@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPIBuildProcessGenericComplete @ 0x1C0004900
+ * XREFs of ACPIBuildProcessGenericComplete @ 0x1C001D510
  * Callers:
- *     ACPIBuildProcessSpecialSynchronizationList @ 0x1C0004570 (ACPIBuildProcessSpecialSynchronizationList.c)
- *     ACPIBuildProcessSynchronizationList @ 0x1C0004808 (ACPIBuildProcessSynchronizationList.c)
- *     ACPIBuildProcessDeviceFailure @ 0x1C004A780 (ACPIBuildProcessDeviceFailure.c)
- *     ACPIBuildProcessPowerResourceFailure @ 0x1C004A9D0 (ACPIBuildProcessPowerResourceFailure.c)
- *     ACPIBuildProcessThermalZoneFailure @ 0x1C004AB30 (ACPIBuildProcessThermalZoneFailure.c)
+ *     ACPIBuildProcessSynchronizationList @ 0x1C0019B44 (ACPIBuildProcessSynchronizationList.c)
+ *     ACPIBuildProcessSpecialSynchronizationList @ 0x1C001D2F4 (ACPIBuildProcessSpecialSynchronizationList.c)
+ *     ACPIBuildProcessDeviceFailure @ 0x1C004BDF0 (ACPIBuildProcessDeviceFailure.c)
+ *     ACPIBuildProcessPowerResourceFailure @ 0x1C004BEC0 (ACPIBuildProcessPowerResourceFailure.c)
+ *     ACPIBuildProcessThermalZoneFailure @ 0x1C004C030 (ACPIBuildProcessThermalZoneFailure.c)
  * Callees:
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ACPIBuildProcessGenericComplete(PSLIST_ENTRY ListEntry)
@@ -29,7 +29,7 @@ __int64 __fastcall ACPIBuildProcessGenericComplete(PSLIST_ENTRY ListEntry)
   {
     v3 = *((_QWORD *)&ListEntry[2].Next + 1);
     KeAcquireSpinLockAtDpcLevel(&AcpiDeviceTreeLock);
-    _InterlockedDecrement((volatile signed __int32 *)(v3 + 732));
+    _InterlockedDecrement((volatile signed __int32 *)(v3 + 692));
     KeReleaseSpinLockFromDpcLevel(&AcpiDeviceTreeLock);
   }
   KeAcquireSpinLockAtDpcLevel(&AcpiBuildQueueLock);
@@ -46,15 +46,15 @@ __int64 __fastcall ACPIBuildProcessGenericComplete(PSLIST_ENTRY ListEntry)
     AMLIDereferenceHandleEx(v6);
     *((_QWORD *)&ListEntry[3].Next + 1) = 0LL;
   }
-  ++dword_1C0081E5C;
-  if ( ExQueryDepthSList(&BuildRequestLookAsideList) >= (unsigned __int16)word_1C0081E50 )
+  ++BuildRequestLookAsideList.L.TotalFrees;
+  if ( ExQueryDepthSList(&BuildRequestLookAsideList.L.ListHead) >= BuildRequestLookAsideList.L.Depth )
   {
-    ++dword_1C0081E60;
-    ((void (__fastcall *)(PSLIST_ENTRY))qword_1C0081E78)(ListEntry);
+    ++BuildRequestLookAsideList.L.FreeMisses;
+    ((void (__fastcall *)(PSLIST_ENTRY))BuildRequestLookAsideList.L.FreeEx)(ListEntry);
   }
   else
   {
-    ExpInterlockedPushEntrySList(&BuildRequestLookAsideList, ListEntry);
+    ExpInterlockedPushEntrySList(&BuildRequestLookAsideList.L.ListHead, ListEntry);
   }
   return 0LL;
 }

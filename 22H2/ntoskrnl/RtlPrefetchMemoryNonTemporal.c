@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlPrefetchMemoryNonTemporal @ 0x140429330
+ * XREFs of RtlPrefetchMemoryNonTemporal @ 0x140407A00
  * Callers:
- *     RtlPrefetchMemoryNonTemporal @ 0x140429330 (RtlPrefetchMemoryNonTemporal.c)
+ *     RtlPrefetchMemoryNonTemporal @ 0x140407A00 (RtlPrefetchMemoryNonTemporal.c)
  * Callees:
  *     <none>
  */

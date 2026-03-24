@@ -1,18 +1,18 @@
 /*
- * XREFs of IopInitializeOfflineCrashDump @ 0x140180C60
+ * XREFs of IopInitializeOfflineCrashDump @ 0x140180C80
  * Callers:
  *     IopInitCrashDumpDuringSysInit @ 0x1409C1174 (IopInitCrashDumpDuringSysInit.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     IopConstructInMemoryDumpHeader @ 0x140280FDC (IopConstructInMemoryDumpHeader.c)
- *     IopInitializeInMemoryDumpData @ 0x140281648 (IopInitializeInMemoryDumpData.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     IopConstructInMemoryDumpHeader @ 0x1402810DC (IopConstructInMemoryDumpHeader.c)
+ *     IopInitializeInMemoryDumpData @ 0x140281748 (IopInitializeInMemoryDumpData.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
- *     IopOpenRegistryKey @ 0x1406C68D0 (IopOpenRegistryKey.c)
- *     IoGetEnvironmentVariableEx @ 0x14082131C (IoGetEnvironmentVariableEx.c)
- *     IoSetEnvironmentVariableEx @ 0x140821608 (IoSetEnvironmentVariableEx.c)
- *     IopCachePreviousBootData @ 0x1409F49D8 (IopCachePreviousBootData.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKey @ 0x1406C68B0 (IopOpenRegistryKey.c)
+ *     IoGetEnvironmentVariableEx @ 0x1408212FC (IoGetEnvironmentVariableEx.c)
+ *     IoSetEnvironmentVariableEx @ 0x1408215E8 (IoSetEnvironmentVariableEx.c)
+ *     IopCachePreviousBootData @ 0x1409F49E8 (IopCachePreviousBootData.c)
  */
 
 void __fastcall IopInitializeOfflineCrashDump(__int64 a1)
@@ -47,7 +47,7 @@ void __fastcall IopInitializeOfflineCrashDump(__int64 a1)
     if ( (unsigned int)(*(_DWORD *)(a1 + 2736) - 1) <= 1 )
     {
       PoOffCrashConfigTable = *(_OWORD *)(a1 + 2736);
-      xmmword_1404195B0 = *(_OWORD *)(a1 + 2752);
+      xmmword_140419570 = *(_OWORD *)(a1 + 2752);
       v2 = IopOpenRegistryKey(&Handle, 0LL, &v8, 131097LL, 0);
       if ( v2 >= 0 )
       {

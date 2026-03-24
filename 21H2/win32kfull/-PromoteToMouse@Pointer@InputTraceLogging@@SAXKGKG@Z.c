@@ -1,56 +1,43 @@
 /*
- * XREFs of ?PromoteToMouse@Pointer@InputTraceLogging@@SAXKGKG@Z @ 0x1C016D94A
+ * XREFs of ?PromoteToMouse@Pointer@InputTraceLogging@@SAXKGKG@Z @ 0x1C0218FCC
  * Callers:
- *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C021424C (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
- *     ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C0214458 (-xxxPromotePointer@PointerPromotion@@YAHGKK@Z.c)
+ *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C0219628 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
+ *     ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C0219834 (-xxxPromotePointer@PointerPromotion@@YAHGKK@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C00CD6B0 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F027C (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D21E4 (_tlgWriteTransfer_EtwWriteTransfer.c)
  */
 
-void __fastcall InputTraceLogging::Pointer::PromoteToMouse(int a1)
+void __fastcall InputTraceLogging::Pointer::PromoteToMouse(int a1, __int16 a2, int a3, unsigned __int16 a4)
 {
-  unsigned __int16 v2; // r9
-  int v3; // r10d
-  __int16 v4; // r11
-  __int16 v5; // [rsp+30h] [rbp-29h] BYREF
-  int v6; // [rsp+34h] [rbp-25h] BYREF
-  int v7; // [rsp+38h] [rbp-21h] BYREF
-  int v8; // [rsp+3Ch] [rbp-1Dh] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v9; // [rsp+40h] [rbp-19h] BYREF
-  int *v10; // [rsp+60h] [rbp+7h]
-  __int64 v11; // [rsp+68h] [rbp+Fh]
-  __int16 *v12; // [rsp+70h] [rbp+17h]
-  __int64 v13; // [rsp+78h] [rbp+1Fh]
-  int *v14; // [rsp+80h] [rbp+27h]
-  __int64 v15; // [rsp+88h] [rbp+2Fh]
-  int *v16; // [rsp+90h] [rbp+37h]
-  __int64 v17; // [rsp+98h] [rbp+3Fh]
+  __int16 v4; // [rsp+30h] [rbp-29h] BYREF
+  int v5; // [rsp+34h] [rbp-25h] BYREF
+  int v6; // [rsp+38h] [rbp-21h] BYREF
+  int v7; // [rsp+3Ch] [rbp-1Dh] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v8; // [rsp+40h] [rbp-19h] BYREF
+  int *v9; // [rsp+60h] [rbp+7h]
+  __int64 v10; // [rsp+68h] [rbp+Fh]
+  __int16 *v11; // [rsp+70h] [rbp+17h]
+  __int64 v12; // [rsp+78h] [rbp+1Fh]
+  int *v13; // [rsp+80h] [rbp+27h]
+  __int64 v14; // [rsp+88h] [rbp+2Fh]
+  int *v15; // [rsp+90h] [rbp+37h]
+  __int64 v16; // [rsp+98h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_1C032BE20 > 4 )
+  if ( (unsigned int)dword_1C0330B20 > 4 && (qword_1C0330B30 & 0x20) != 0 && (qword_1C0330B38 & 0x20) == qword_1C0330B38 )
   {
-    if ( tlgKeywordOn((__int64)&dword_1C032BE20, 32LL) )
-    {
-      v6 = v2;
-      v7 = v3;
-      v16 = &v6;
-      v5 = v4;
-      v14 = &v7;
-      v8 = a1;
-      v12 = &v5;
-      v10 = &v8;
-      v17 = 4LL;
-      v15 = 4LL;
-      v13 = 2LL;
-      v11 = 4LL;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_1C032BE20,
-        (unsigned __int8 *)dword_1C02EFD6C,
-        0LL,
-        0LL,
-        6u,
-        &v9);
-    }
+    v6 = a3;
+    v15 = &v5;
+    v4 = a2;
+    v13 = &v6;
+    v7 = a1;
+    v11 = &v4;
+    v5 = a4;
+    v9 = &v7;
+    v16 = 4LL;
+    v14 = 4LL;
+    v12 = 2LL;
+    v10 = 4LL;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C0330B20, (unsigned __int8 *)dword_1C02F2EF6, 0LL, 0LL, 6u, &v8);
   }
 }

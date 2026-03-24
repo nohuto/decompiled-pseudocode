@@ -1,9 +1,9 @@
 /*
- * XREFs of ValidateStd3Range @ 0x1405B02F8
+ * XREFs of ValidateStd3Range @ 0x14058D740
  * Callers:
- *     RtlpValidateAsciiStd3AndLength @ 0x1409BF5C8 (RtlpValidateAsciiStd3AndLength.c)
- *     punycode_decode @ 0x1409BF750 (punycode_decode.c)
- *     punycode_encode @ 0x1409BFDB8 (punycode_encode.c)
+ *     RtlpValidateAsciiStd3AndLength @ 0x1409167A8 (RtlpValidateAsciiStd3AndLength.c)
+ *     punycode_decode @ 0x14091692C (punycode_decode.c)
+ *     punycode_encode @ 0x140916F74 (punycode_encode.c)
  * Callees:
  *     <none>
  */
@@ -11,13 +11,10 @@
 bool __fastcall ValidateStd3Range(int a1)
 {
   __int64 v1; // rdx
+  bool result; // al
 
-  if ( (unsigned __int16)(a1 - 45) > 0x2Du || (v1 = 0x3FFFFFF01FFBLL, !_bittest64(&v1, (unsigned int)(a1 - 45))) )
-  {
-    if ( (unsigned __int16)a1 < 0x61u )
-      return 0;
-  }
-  if ( (unsigned __int16)a1 < 0x7Bu )
-    return 1;
-  return (unsigned __int16)a1 > 0x7Fu;
+  result = (unsigned __int16)(a1 - 97) <= 0x19u
+        || (unsigned __int16)(a1 - 45) <= 0x2Du && (v1 = 0x3FFFFFF01FFBLL, _bittest64(&v1, (unsigned int)(a1 - 45)))
+        || (unsigned __int16)a1 >= 0x80u;
+  return result;
 }

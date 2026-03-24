@@ -1,5 +1,5 @@
 /*
- * XREFs of SetDpiScalingSetting @ 0x1C025D590
+ * XREFs of SetDpiScalingSetting @ 0x1C0260920
  * Callers:
  *     <none>
  * Callees:

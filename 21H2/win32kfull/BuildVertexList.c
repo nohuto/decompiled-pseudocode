@@ -1,9 +1,9 @@
 /*
- * XREFs of BuildVertexList @ 0x1C01DF28C
+ * XREFs of BuildVertexList @ 0x1C01E4A14
  * Callers:
- *     ?DCEHitTestWindow@@YA_NPEBUtagRECT@@PEBU_D3DMATRIX@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C016B5D8 (-DCEHitTestWindow@@YA_NPEBUtagRECT@@PEBU_D3DMATRIX@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z.c)
+ *     DCEHitTestWindow @ 0x1C01E4C34 (DCEHitTestWindow.c)
  * Callees:
- *     D3DXVec4Transform @ 0x1C01DF398 (D3DXVec4Transform.c)
+ *     D3DXVec4Transform @ 0x1C01E4B20 (D3DXVec4Transform.c)
  */
 
 __int64 __fastcall BuildVertexList(__int64 a1, int *a2)

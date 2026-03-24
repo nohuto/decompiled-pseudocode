@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x140316F4C
+ * XREFs of EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x14031704C
  * Callers:
- *     EtwpCovSampCaptureCleanupLookasides @ 0x140316598 (EtwpCovSampCaptureCleanupLookasides.c)
- *     EtwpCovSampCaptureFreeLookasides @ 0x1408C4364 (EtwpCovSampCaptureFreeLookasides.c)
+ *     EtwpCovSampCaptureCleanupLookasides @ 0x140316698 (EtwpCovSampCaptureCleanupLookasides.c)
+ *     EtwpCovSampCaptureFreeLookasides @ 0x1408C4344 (EtwpCovSampCaptureFreeLookasides.c)
  * Callees:
- *     RtlpInterlockedFlushSList @ 0x1401C5430 (RtlpInterlockedFlushSList.c)
- *     EtwpCovSampPushListSList @ 0x140317350 (EtwpCovSampPushListSList.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
+ *     EtwpCovSampPushListSList @ 0x140317450 (EtwpCovSampPushListSList.c)
  */
 
 __int64 __fastcall EtwpCovSampLookasideFlushFreeListToCleanupList(union _SLIST_HEADER *a1)

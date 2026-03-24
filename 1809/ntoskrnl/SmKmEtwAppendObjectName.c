@@ -1,15 +1,15 @@
 /*
- * XREFs of SmKmEtwAppendObjectName @ 0x1403070BC
+ * XREFs of SmKmEtwAppendObjectName @ 0x1403071BC
  * Callers:
- *     SmKmStoreTerminateWorker @ 0x140307650 (SmKmStoreTerminateWorker.c)
+ *     SmKmStoreTerminateWorker @ 0x140307750 (SmKmStoreTerminateWorker.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     IoSetThreadHardErrorMode @ 0x1400EED30 (IoSetThreadHardErrorMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     ObQueryNameString @ 0x14065F680 (ObQueryNameString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     IoSetThreadHardErrorMode @ 0x1400EED50 (IoSetThreadHardErrorMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     ObQueryNameString @ 0x14065F660 (ObQueryNameString.c)
  */
 
 __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 DeviceAttachmentBaseRefWithTag)

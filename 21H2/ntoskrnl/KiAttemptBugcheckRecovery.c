@@ -1,120 +1,158 @@
 /*
- * XREFs of KiAttemptBugcheckRecovery @ 0x1405788B0
+ * XREFs of KiAttemptBugcheckRecovery @ 0x140524D84
  * Callers:
- *     KeBugCheck2 @ 0x1405660A0 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
  * Callees:
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     IoRevertFromDemotedDumpType @ 0x140552B10 (IoRevertFromDemotedDumpType.c)
- *     KiBugCheckDebugBreak @ 0x1405672C0 (KiBugCheckDebugBreak.c)
- *     KiBugCheckShouldEnterPostBugCheckDebugger @ 0x1405674E0 (KiBugCheckShouldEnterPostBugCheckDebugger.c)
- *     KiInvokeBugCheckEntryCallbacks @ 0x140567F5C (KiInvokeBugCheckEntryCallbacks.c)
- *     KiCaptureDumpPreRecovery @ 0x140579060 (KiCaptureDumpPreRecovery.c)
- *     KiGetRecoveryInformation @ 0x1405792C0 (KiGetRecoveryInformation.c)
- *     KiIsRecoveryPossibleOnCurrentStack @ 0x140579444 (KiIsRecoveryPossibleOnCurrentStack.c)
- *     KiRecordRecoveryFailure @ 0x14057958C (KiRecordRecoveryFailure.c)
- *     KiSaveBugCheckRecoveryStatusPhase0 @ 0x140579620 (KiSaveBugCheckRecoveryStatusPhase0.c)
- *     KiSaveBugCheckRecoveryStatusPhase1 @ 0x1405796A4 (KiSaveBugCheckRecoveryStatusPhase1.c)
- *     KiSaveBugcheckRecoveryProgress @ 0x140579750 (KiSaveBugcheckRecoveryProgress.c)
- *     KiScheduleBugcheckRecovery @ 0x140579780 (KiScheduleBugcheckRecovery.c)
- *     KiSetBugCheckRecoveryProgressFlag @ 0x140579878 (KiSetBugCheckRecoveryProgressFlag.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     KeAreInterruptsEnabled @ 0x1403506D0 (KeAreInterruptsEnabled.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     IoSaveBugCheckRecoveryStatus @ 0x140502860 (IoSaveBugCheckRecoveryStatus.c)
+ *     KiBugcheckUnloadDebugSymbols @ 0x140518084 (KiBugcheckUnloadDebugSymbols.c)
+ *     KiInvokeBugCheckEntryCallbacks @ 0x1405187A8 (KiInvokeBugCheckEntryCallbacks.c)
+ *     KiGetRecoveryInformation @ 0x1405250E0 (KiGetRecoveryInformation.c)
+ *     KiRecordRecoveryFailure @ 0x14052515C (KiRecordRecoveryFailure.c)
+ *     ExRebootSystemForRecovery @ 0x1405B2614 (ExRebootSystemForRecovery.c)
  */
 
 void KiAttemptBugcheckRecovery()
 {
-  __int64 v0; // rcx
+  unsigned __int8 CurrentIrql; // si
   __int64 v1; // rcx
-  char *v2; // rdx
-  __int64 v3; // rcx
-  char v4; // [rsp+50h] [rbp+8h] BYREF
-  char v5; // [rsp+58h] [rbp+10h] BYREF
+  bool v2; // r14
+  struct _KPRCB *CurrentPrcb; // rdx
+  _DWORD *SchedulerAssist; // rcx
+  bool v5; // zf
+  struct _KPRCB *v6; // rax
+  char v7; // cl
+  struct _KPRCB *v8; // r9
+  _DWORD *v9; // rcx
+  __int64 v10; // rcx
+  unsigned __int8 v11; // cl
+  _DWORD *v12; // r9
+  unsigned __int8 v13; // cl
+  struct _KPRCB *v14; // rax
+  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-60h] BYREF
+  __int128 v16; // [rsp+30h] [rbp-50h] BYREF
+  __int128 v17; // [rsp+40h] [rbp-40h]
+  __int128 v18; // [rsp+50h] [rbp-30h]
+  __int64 v19; // [rsp+60h] [rbp-20h]
+  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+68h] [rbp-18h] BYREF
 
-  v5 = 0;
-  v4 = 0;
-  if ( !KiBugcheckRecoveryActive && KiRecoveryCallbackCount > 0 )
+  Affinity = 0LL;
+  PreviousAffinity = 0LL;
+  if ( KiRecoveryCallbackCount > 0 )
   {
-    if ( KiBugcheckOwnerKeepsOthersFrozen )
-      __fastfail(5u);
-    if ( !(unsigned __int8)KiIsRecoveryPossibleOnCurrentStack() )
+    if ( (_DWORD)KiBugCheckData == 127
+      || (_DWORD)KiBugCheckData == 251
+      || (_DWORD)KiBugCheckData == 265
+      || (_DWORD)KiBugCheckData == 273
+      || (_DWORD)KiBugCheckData == 313
+      || (_DWORD)KiBugCheckData == 395
+      || (_DWORD)KiBugCheckData == 131073 )
     {
-      v0 = 1LL;
-LABEL_26:
-      KiRecordRecoveryFailure(v0);
-      goto LABEL_27;
+      v1 = 1LL;
+      goto LABEL_39;
     }
-    if ( (int)KiSetBugCheckRecoveryProgressFlag(0x8000LL) < 0
-      || (KiGetRecoveryInformation(&KiBugcheckRecoveryInformation),
-          (int)KiSaveBugCheckRecoveryStatusPhase0(KeGetCurrentIrql(), (unsigned int)dword_140C2AA24, qword_140C2AA28) < 0)
-      || (KiInvokeBugCheckEntryCallbacks(0x3FFu, (__int64)&KiBugcheckRecoveryInformation, 0x4Cu),
-          LOBYTE(v1) = byte_140C2AA07,
-          (int)KiSaveBugCheckRecoveryStatusPhase1(v1, (unsigned int)dword_140C2AA48) < 0) )
+    CurrentIrql = KeGetCurrentIrql();
+    KiGetRecoveryInformation(&KiBugcheckRecoveryInformation);
+    v16 = 0LL;
+    BYTE8(v16) = CurrentIrql;
+    v17 = 0LL;
+    v19 = 0LL;
+    v18 = 0LL;
+    IoSaveBugCheckRecoveryStatus((int *)&v16);
+    KiInvokeBugCheckEntryCallbacks(0x3FFu, (__int64)&KiBugcheckRecoveryInformation, 0x20u);
+    BYTE8(v16) = byte_140C2AFE7;
+    LODWORD(v16) = 1;
+    IoSaveBugCheckRecoveryStatus((int *)&v16);
+    if ( !byte_140C2AFE7 )
     {
-      v0 = 5LL;
-      goto LABEL_26;
+      v1 = 2LL;
+LABEL_39:
+      KiRecordRecoveryFailure(v1);
+      return;
     }
-    if ( !byte_140C2AA07 )
+    v2 = KeAreInterruptsEnabled();
+    _enable();
+    if ( CurrentIrql > 2u )
     {
-      v0 = 2LL;
-      goto LABEL_26;
-    }
-    v2 = &v5;
-    KiBugcheckRecoveryActive = 1;
-    word_140C021C6 |= 2u;
-    if ( !byte_140C2AA15 )
-      v2 = 0LL;
-    KiBugcheckRecoveryActiveEvaluated = 1;
-    KiBugcheckRecoveryDumpPolicy = dword_140C2AA48;
-    if ( KiBugCheckShouldEnterPostBugCheckDebugger(dword_140C2AA24, (__int64)v2) )
-    {
-      DbgPrintEx(
-        0x65u,
-        0,
-        "\n"
-        "*******************************************************************************\n"
-        "                           Bugcheck Recovery\n"
-        "*******************************************************************************\n");
-      DbgPrintEx(
-        0x65u,
-        0,
-        " You are seeing this message because the system has bugchecked and\n is attempting a bugcheck recovery.\n");
-      DbgPrintEx(
-        0x65u,
-        0,
-        "\n"
-        " System Error Info:\n"
-        "     Bugcheck Code: 0x%08lx\n"
-        "     Parameter 1: 0x%p\n"
-        "     Parameter 2: 0x%p\n"
-        "     Parameter 3: 0x%p\n"
-        "     Parameter 4: 0x%p\n",
-        dword_140C2AA24,
-        (const void *)qword_140C2AA28,
-        (const void *)qword_140C2AA30,
-        (const void *)qword_140C2AA38,
-        (const void *)qword_140C2AA40);
-      DbgPrintEx(
-        0x65u,
-        0,
-        "\n"
-        " Bugcheck Recovery Info Location: 0x%p\n"
-        "*******************************************************************************\n"
-        "\n",
-        &KiBugcheckRecoveryInformation);
-      if ( (_BYTE)KdDebuggerEnabled )
+      if ( KiIrqlFlags )
       {
-        if ( !(_BYTE)KdDebuggerNotPresent )
-          KiBugCheckDebugBreak(3u);
+        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v5 = (SchedulerAssist[5] & 0xFFFF0007) == 0;
+          SchedulerAssist[5] &= 0xFFFF0007;
+          if ( v5 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
+      }
+      __writecr8(2uLL);
+    }
+    v6 = KeGetCurrentPrcb();
+    *(_DWORD *)Affinity.Reserved = 0;
+    Affinity.Reserved[2] = 0;
+    v7 = KiProcessorIndexToNumberMappingTable[v6->Number] & 0x3F;
+    Affinity.Group = (unsigned int)KiProcessorIndexToNumberMappingTable[v6->Number] >> 6;
+    Affinity.Mask = 1LL << v7;
+    KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
+      {
+        v8 = KeGetCurrentPrcb();
+        v9 = v8->SchedulerAssist;
+        v5 = (v9[5] & 0xFFFF0001) == 0;
+        v9[5] &= 0xFFFF0001;
+        if ( v5 )
+          KiRemoveSystemWorkPriorityKick((__int64)v8);
       }
     }
-    if ( (int)KiCaptureDumpPreRecovery(v3, &v4) < 0 )
-      KiBugcheckRecoveryDumpPolicy = 0;
-    if ( (int)KiSaveBugcheckRecoveryProgress(194LL) < 0
-      || (KiScheduleBugcheckRecovery(), (int)KiSaveBugcheckRecoveryProgress(195LL) < 0) )
+    __writecr8(0LL);
+    KiRecoveryInProgress = 1;
+    KiInvokeBugCheckEntryCallbacks(0x400u, (__int64)&KiBugcheckRecoveryInformation, 0x20u);
+    KiRecoveryInProgress = 0;
+    v17 = KiBugCheckData;
+    LODWORD(v16) = 2;
+    v19 = qword_140C31560;
+    BYTE8(v16) = byte_140C2AFE4;
+    v18 = xmmword_140C31550;
+    IoSaveBugCheckRecoveryStatus((int *)&v16);
+    if ( byte_140C2AFE4 )
     {
-      KiRecordRecoveryFailure(5LL);
+      KiBugcheckUnloadDebugSymbols();
+      LOBYTE(v10) = CurrentIrql;
+      ExRebootSystemForRecovery(v10);
     }
-    if ( v4 )
-      IoRevertFromDemotedDumpType();
+    else
+    {
+      KiRecordRecoveryFailure(3LL);
+    }
+    v11 = KeGetCurrentIrql();
+    __writecr8(2uLL);
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
+    {
+      v12 = KeGetCurrentPrcb()->SchedulerAssist;
+      v12[5] |= (-1 << (v11 + 1)) & 4;
+    }
+    KeRevertToUserGroupAffinityThread(&PreviousAffinity);
+    if ( CurrentIrql > 2u )
+    {
+      v13 = KeGetCurrentIrql();
+      __writecr8(CurrentIrql);
+      if ( KiIrqlFlags )
+      {
+        if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu )
+        {
+          v14 = KeGetCurrentPrcb();
+          *((_DWORD *)v14->SchedulerAssist + 5) |= ((1LL << (CurrentIrql + 1)) - 1) & ~((1LL << (v13 + 1)) - 1) & 0xFFFFFFFC;
+        }
+      }
+    }
+    if ( !v2 )
+      _disable();
   }
-LABEL_27:
-  KiBugcheckRecoveryActiveEvaluated = 1;
 }

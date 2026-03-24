@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_9CBaseInput@@$BMI@AA @ 0x1C00DFEB0
+ * XREFs of ??_9CBaseInput@@$BMI@AA @ 0x1C00D18C0
  * Callers:
  *     <none>
  * Callees:

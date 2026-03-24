@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkQueryStatistics @ 0x1C0222F00
+ * XREFs of DxgkQueryStatistics @ 0x1C02255F0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkQueryStatisticsInternal @ 0x1C02D3654 (DxgkQueryStatisticsInternal.c)
+ *     DxgkQueryStatisticsInternal @ 0x1C0225608 (DxgkQueryStatisticsInternal.c)
  */
 
 __int64 __fastcall DxgkQueryStatistics(__int64 a1, __int64 a2)

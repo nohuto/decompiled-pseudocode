@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCommitRegistryTransaction @ 0x14041B9E0
+ * XREFs of ZwCommitRegistryTransaction @ 0x1403FAD20
  * Callers:
  *     <none>
  * Callees:

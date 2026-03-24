@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmpDeactivateSessionWorker @ 0x1409A54C0
+ * XREFs of TtmpDeactivateSessionWorker @ 0x1408FF8C0
  * Callers:
- *     TtmpSessionWorker @ 0x1409A5C10 (TtmpSessionWorker.c)
+ *     TtmpSessionWorker @ 0x140900030 (TtmpSessionWorker.c)
  * Callees:
- *     TtmpInitiateModernStandbyTransition @ 0x1409A56A4 (TtmpInitiateModernStandbyTransition.c)
- *     TtmpSessionPowerControl @ 0x1409A5B64 (TtmpSessionPowerControl.c)
- *     TtmiLogSessionDeactivate @ 0x1409A959C (TtmiLogSessionDeactivate.c)
+ *     TtmpInitiateModernStandbyTransition @ 0x1408FFAB0 (TtmpInitiateModernStandbyTransition.c)
+ *     TtmpSessionPowerControl @ 0x1408FFF84 (TtmpSessionPowerControl.c)
+ *     TtmiLogSessionDeactivate @ 0x140903898 (TtmiLogSessionDeactivate.c)
  */
 
 __int64 __fastcall TtmpDeactivateSessionWorker(__int64 a1, __int64 a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PoStartPowerStateTasks @ 0x1407FE79C
+ * XREFs of PoStartPowerStateTasks @ 0x1407741A4
  * Callers:
- *     PoPowerOffMonitor @ 0x14038B628 (PoPowerOffMonitor.c)
- *     PopIssueActionRequest @ 0x1407FF888 (PopIssueActionRequest.c)
- *     PnprQuiesceDevices @ 0x140A68674 (PnprQuiesceDevices.c)
+ *     PoPowerOffMonitor @ 0x140382864 (PoPowerOffMonitor.c)
+ *     PopIssueActionRequest @ 0x140775A08 (PopIssueActionRequest.c)
+ *     PnprQuiesceDevices @ 0x1409AE210 (PnprQuiesceDevices.c)
  * Callees:
- *     PopDispatchStateCallout @ 0x1407FE82C (PopDispatchStateCallout.c)
+ *     PopDispatchStateCallout @ 0x14067E9C8 (PopDispatchStateCallout.c)
  */
 
-__int64 __fastcall PoStartPowerStateTasks(__int64 a1)
+__int64 __fastcall PoStartPowerStateTasks(_DWORD *a1)
 {
-  *(_DWORD *)(a1 + 16) = 1;
+  a1[4] = 1;
   return PopDispatchStateCallout(a1, 0LL);
 }

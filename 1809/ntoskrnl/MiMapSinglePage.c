@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMapSinglePage @ 0x14012185C
+ * XREFs of MiMapSinglePage @ 0x14012187C
  * Callers:
- *     MiFillCombinePage @ 0x140121764 (MiFillCombinePage.c)
- *     MiInitializeForkMaps @ 0x1402CA778 (MiInitializeForkMaps.c)
- *     MiUpdateForkMaps @ 0x1402CAB08 (MiUpdateForkMaps.c)
- *     MiMapRetpolineStubs @ 0x140853C9C (MiMapRetpolineStubs.c)
+ *     MiFillCombinePage @ 0x140121784 (MiFillCombinePage.c)
+ *     MiInitializeForkMaps @ 0x1402CA878 (MiInitializeForkMaps.c)
+ *     MiUpdateForkMaps @ 0x1402CAC08 (MiUpdateForkMaps.c)
+ *     MiMapRetpolineStubs @ 0x140853C7C (MiMapRetpolineStubs.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     KeFlushSingleTb @ 0x1400ECDD4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  */
 
 ULONG_PTR __fastcall MiMapSinglePage(unsigned __int64 a1, __int64 a2, int a3, char a4)

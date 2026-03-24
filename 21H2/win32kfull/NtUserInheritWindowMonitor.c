@@ -1,55 +1,54 @@
 /*
- * XREFs of NtUserInheritWindowMonitor @ 0x1C014A870
+ * XREFs of NtUserInheritWindowMonitor @ 0x1C0159D80
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     xxxInheritWindowMonitor @ 0x1C0075834 (xxxInheritWindowMonitor.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     xxxInheritWindowMonitor @ 0x1C006C878 (xxxInheritWindowMonitor.c)
  */
 
 __int64 __fastcall NtUserInheritWindowMonitor(__int64 a1, __int64 a2)
 {
-  int v4; // edi
-  ShellWindowManagement *v5; // rsi
+  int v2; // edi
+  __int64 *v5; // rsi
   __int64 v6; // rax
   __int64 v7; // rcx
-  ShellWindowManagement *v8; // rbx
+  __int64 v8; // rbx
   __int64 v9; // rcx
   __int64 v10; // rdx
-  __int64 v11; // rdx
+  __int64 v11; // r8
   __int64 v12; // rcx
-  __int64 v13; // r8
-  __int128 v15; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v16; // [rsp+30h] [rbp-18h]
+  __int128 v14; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v15; // [rsp+30h] [rbp-18h]
 
+  v2 = 0;
+  v14 = 0LL;
   v15 = 0LL;
-  v4 = 0;
-  v16 = 0LL;
   v5 = 0LL;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v6 = ValidateHwnd(a1);
-  v8 = (ShellWindowManagement *)v6;
+  v8 = v6;
   if ( v6 )
   {
     v7 = (*(_WORD *)(*(_QWORD *)(v6 + 40) + 42LL) & 0x2FFFu) - 669;
     if ( (v7 & 0xFFFFFFFD) != 0 )
     {
-      *(_QWORD *)&v15 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v15;
-      *((_QWORD *)&v15 + 1) = v6;
+      *(_QWORD *)&v14 = *(_QWORD *)(gptiCurrent + 416LL);
+      *(_QWORD *)(gptiCurrent + 416LL) = &v14;
+      *((_QWORD *)&v14 + 1) = v6;
       HMLockObject(v6);
-      if ( PsGetCurrentProcessWin32Process(v9) == *(_QWORD *)(*((_QWORD *)v8 + 2) + 424LL) )
+      if ( PsGetCurrentProcessWin32Process(v9) == *(_QWORD *)(*(_QWORD *)(v8 + 16) + 424LL) )
       {
-        if ( !a2 || (v5 = (ShellWindowManagement *)ValidateHwnd(a2)) != 0LL )
-          v4 = xxxInheritWindowMonitor(v8, v5, 1);
+        if ( !a2 || (v5 = (__int64 *)ValidateHwnd(a2)) != 0LL )
+          v2 = xxxInheritWindowMonitor((struct tagWND *)v8, v5, 1);
       }
       else
       {
-        UserSetLastError(5LL, v10);
+        UserSetLastError(5LL, v10, v11);
       }
-      ThreadUnlock1(v12, v11, v13);
+      ThreadUnlock1(v12);
     }
   }
   UserSessionSwitchLeaveCrit(v7);
-  return v4;
+  return v2;
 }

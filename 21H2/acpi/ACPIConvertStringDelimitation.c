@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIConvertStringDelimitation @ 0x1C0025CF4
+ * XREFs of ACPIConvertStringDelimitation @ 0x1C00164D4
  * Callers:
- *     IsPciDeviceWorker @ 0x1C0007A10 (IsPciDeviceWorker.c)
- *     IsPciBusAsyncWorker @ 0x1C000B380 (IsPciBusAsyncWorker.c)
- *     ACPIBuildProcessDevicePhaseCid @ 0x1C0025920 (ACPIBuildProcessDevicePhaseCid.c)
+ *     ACPIBuildProcessDevicePhaseCid @ 0x1C0014DE0 (ACPIBuildProcessDevicePhaseCid.c)
+ *     IsPciDeviceWorker @ 0x1C00166E0 (IsPciDeviceWorker.c)
+ *     IsPciBusAsyncWorker @ 0x1C0017710 (IsPciBusAsyncWorker.c)
  * Callees:
  *     <none>
  */

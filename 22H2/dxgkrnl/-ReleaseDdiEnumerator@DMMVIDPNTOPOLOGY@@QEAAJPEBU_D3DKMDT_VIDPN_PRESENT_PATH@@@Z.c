@@ -1,45 +1,74 @@
 /*
- * XREFs of ?ReleaseDdiEnumerator@DMMVIDPNTOPOLOGY@@QEAAJPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C03B6B24
+ * XREFs of ?ReleaseDdiEnumerator@DMMVIDPNTOPOLOGY@@QEAAJPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C015B188
  * Callers:
- *     ?AddPath@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEAU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C03B80B0 (-AddPath@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEAU_D3DKMDT_VID.c)
+ *     ?ReleasePathInfo@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C015B0F0 (-ReleasePathInfo@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEBU_D.c)
+ *     ?AddPath@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEAU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C02E8190 (-AddPath@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEAU_D3DKMDT_VID.c)
  * Callees:
- *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDPNPRESENTPATH@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNPRESENTPATH@@@@@@QEAAEQEBVDMMVIDPNPRESENTPATH@@@Z @ 0x1C0006F10 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDPNPRESENTPATH@@U-$DoubleLinkedListElementDeleter@.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
  */
 
 __int64 __fastcall DMMVIDPNTOPOLOGY::ReleaseDdiEnumerator(
         DMMVIDPNTOPOLOGY *this,
         const struct _D3DKMDT_VIDPN_PRESENT_PATH *a2)
 {
-  const struct _D3DKMDT_VIDPN_PRESENT_PATH *v2; // r11
   SIZE_T *p_DataSize; // rbx
-  D3DDDI_GAMMA_RAMP_RGB256x3x16 *pRgb256x3x16; // rdx
+  SIZE_T v4; // r8
+  char *v5; // rdx
+  char *v6; // rcx
+  __int64 v8; // rax
+  char *v9; // rax
+  __int64 v10; // rax
 
-  v2 = a2;
   if ( !a2 )
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v8 = WdLogNewEntry5_WdError(this, 0LL);
+    *(_QWORD *)(v8 + 24) = 0LL;
+LABEL_11:
+    WdLogEvent5_WdError(v8);
     return 3223192345LL;
   }
   p_DataSize = &a2[-1].GammaRamp.DataSize;
   if ( LODWORD(a2[-1].GammaRamp.DataSize) != 305419896 )
   {
-    WdLogSingleEntry1(2LL, &a2[-1].GammaRamp.DataSize);
-    return 3223192345LL;
+    v8 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v8 + 24) = p_DataSize;
+    goto LABEL_11;
   }
-  pRgb256x3x16 = a2[-1].GammaRamp.Data.pRgb256x3x16;
-  if ( !pRgb256x3x16
-    || DoublyLinkedList<DMMVIDPNPRESENTPATH,DoubleLinkedListElementDeleter<DMMVIDPNPRESENTPATH>>::ContainsByReference(
-         (__int64)this + 8,
-         (__int64)pRgb256x3x16) )
+  v4 = p_DataSize[1];
+  if ( !v4 )
+    goto LABEL_8;
+  v5 = (char *)this + 24;
+  v6 = (char *)*((_QWORD *)this + 3);
+  if ( v6 == v5 )
+    goto LABEL_16;
+  v6 -= 8;
+  if ( !v6 )
+    goto LABEL_16;
+  do
   {
-    operator delete(v2->GammaRamp.Data.pRgb256x3x16);
-    operator delete(p_DataSize);
-    return 0LL;
+    if ( v6 == (char *)v4 )
+      break;
+    v9 = (char *)*((_QWORD *)v6 + 1);
+    v6 = v9 - 8;
+    if ( v9 == v5 )
+      v6 = 0LL;
+  }
+  while ( v6 );
+  if ( !v6 )
+  {
+LABEL_16:
+    v10 = WdLogNewEntry5_WdError(v6, v5);
+    *(_QWORD *)(v10 + 24) = p_DataSize;
+    *(_QWORD *)(v10 + 32) = this;
+    WdLogEvent5_WdError(v10);
+    return 3223192368LL;
   }
   else
   {
-    WdLogSingleEntry2(2LL, p_DataSize, this);
-    return 3223192368LL;
+LABEL_8:
+    operator delete[]((void *)p_DataSize[46]);
+    operator delete(p_DataSize);
+    return 0LL;
   }
 }

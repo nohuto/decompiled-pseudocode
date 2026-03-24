@@ -1,227 +1,220 @@
 /*
- * XREFs of ?xxxMNPositionHierarchy@@YAIAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUtagMONITOR@@@Z @ 0x1C02160D4
+ * XREFs of ?xxxMNPositionHierarchy@@YAIAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUtagMONITOR@@@Z @ 0x1C0235D70
  * Callers:
- *     xxxMNOpenHierarchy @ 0x1C0218BF0 (xxxMNOpenHierarchy.c)
- *     xxxMenuWindowProc @ 0x1C021A810 (xxxMenuWindowProc.c)
+ *     xxxMNOpenHierarchy @ 0x1C02394F8 (xxxMNOpenHierarchy.c)
+ *     xxxMenuWindowProc @ 0x1C023B5E0 (xxxMenuWindowProc.c)
  * Callees:
- *     xxxSendMinRectMessages @ 0x1C000E188 (xxxSendMinRectMessages.c)
- *     GetDPIMetrics @ 0x1C0041140 (GetDPIMetrics.c)
- *     MNGetpItemFromIndex @ 0x1C00652C8 (MNGetpItemFromIndex.c)
- *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C00AE308 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
- *     ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C00D003C (-_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z.c)
- *     _MonitorFromRect @ 0x1C00D0160 (_MonitorFromRect.c)
- *     ?IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z @ 0x1C00EB4B8 (-IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?MNGetPopupBoundsRect@@YAXV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagMONITOR@@PEAUtagRECT@@H@Z @ 0x1C0215550 (-MNGetPopupBoundsRect@@YAXV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagMONITOR@@PEAUtagRECT@@H@Z.c)
- *     ?GetMenuRightAlignHint@MenuHelpers@@YA_NXZ @ 0x1C0227CAC (-GetMenuRightAlignHint@MenuHelpers@@YA_NXZ.c)
+ *     ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C0042160 (-_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z.c)
+ *     _MonitorFromRect @ 0x1C0042270 (_MonitorFromRect.c)
+ *     MNGetpItemFromIndex @ 0x1C00480C4 (MNGetpItemFromIndex.c)
+ *     IsTrayWindow @ 0x1C005EA90 (IsTrayWindow.c)
+ *     GetDpiDependentMetric @ 0x1C0061430 (GetDpiDependentMetric.c)
+ *     GetDpiForSystem @ 0x1C0063C1C (GetDpiForSystem.c)
+ *     GetDPIMetrics @ 0x1C00E0A9C (GetDPIMetrics.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C0104778 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
+ *     xxxSendMinRectMessages @ 0x1C0124928 (xxxSendMinRectMessages.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?MNGetPopupBoundsRect@@YAXV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagMONITOR@@PEAUtagRECT@@H@Z @ 0x1C02351A8 (-MNGetPopupBoundsRect@@YAXV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagMONITOR@@PEAUtagRECT@@H@Z.c)
+ *     ?GetMenuRightAlignHint@MenuHelpers@@YA_NXZ @ 0x1C02431F0 (-GetMenuRightAlignHint@MenuHelpers@@YA_NXZ.c)
  */
 
-__int64 __fastcall xxxMNPositionHierarchy(__int64 **a1, __int64 a2, int a3, int a4, LONG *a5, int *a6, __int64 a7)
+__int64 __fastcall xxxMNPositionHierarchy(__int64 **a1, __int64 *a2, int a3, int a4, int *a5, LONG *a6, __int64 a7)
 {
   __int64 *v10; // rax
   bool v11; // zf
   __int64 *v12; // rax
-  unsigned int v13; // r12d
+  unsigned int v13; // r15d
   __int64 v14; // rcx
-  _DWORD *v15; // rax
-  char v16; // bl
-  char v17; // bl
-  int v18; // esi
-  __int64 *v19; // rax
-  __int64 v20; // rcx
-  __int64 *v21; // rax
-  MenuHelpers *v22; // rcx
-  bool v23; // di
-  int v24; // eax
-  LONG left; // edi
-  int v26; // edx
-  __int64 v27; // rax
-  __int64 *v28; // rdx
-  __int64 v29; // rsi
-  int v30; // esi
-  __int64 *v31; // rax
-  int v32; // ebx
-  struct tagMONITOR *v33; // rax
-  __int64 *v34; // rdx
-  __int64 v35; // rbx
-  int v36; // esi
-  LONG top; // ebx
-  _DWORD *v38; // rcx
-  int DpiForSystem; // eax
-  _QWORD *v40; // rcx
-  struct tagRECT v42; // [rsp+20h] [rbp-61h] BYREF
-  int v43; // [rsp+30h] [rbp-51h]
-  int v44; // [rsp+34h] [rbp-4Dh]
-  int v45; // [rsp+38h] [rbp-49h]
-  __int64 v46; // [rsp+40h] [rbp-41h]
-  __int64 v47; // [rsp+48h] [rbp-39h]
-  LONG *v48; // [rsp+50h] [rbp-31h]
-  int *v49; // [rsp+58h] [rbp-29h]
-  __int64 v50; // [rsp+60h] [rbp-21h]
-  int **v51[2]; // [rsp+68h] [rbp-19h] BYREF
-  __int128 v52; // [rsp+78h] [rbp-9h] BYREF
+  __int64 v15; // rax
+  char v16; // di
+  int v17; // esi
+  __int64 *v18; // rax
+  MenuHelpers *v19; // rcx
+  bool v20; // bl
+  LONG left; // eax
+  int v22; // edx
+  LONG v23; // ebx
+  __int64 v24; // rax
+  __int64 *v25; // rdx
+  __int64 v26; // rsi
+  LONG bottom; // edi
+  int v28; // esi
+  __int64 *v29; // rax
+  int v30; // ebx
+  struct tagMONITOR *v31; // rax
+  __int64 *v32; // rdx
+  __int64 v33; // rbx
+  int v34; // edi
+  LONG v35; // ebx
+  _DWORD *v36; // rcx
+  unsigned int DpiForSystem; // eax
+  _QWORD *v38; // rcx
+  int v40; // [rsp+20h] [rbp-71h]
+  __int128 v41; // [rsp+28h] [rbp-69h] BYREF
+  __int64 v42; // [rsp+38h] [rbp-59h]
+  int v43; // [rsp+40h] [rbp-51h]
+  __int64 *v44; // [rsp+48h] [rbp-49h]
+  int *v45; // [rsp+50h] [rbp-41h]
+  LONG *v46; // [rsp+58h] [rbp-39h]
+  __int64 v47; // [rsp+60h] [rbp-31h]
+  int **v48[2]; // [rsp+68h] [rbp-29h] BYREF
+  int **v49[2]; // [rsp+78h] [rbp-19h] BYREF
+  struct tagRECT v50; // [rsp+88h] [rbp-9h] BYREF
 
-  v48 = a5;
-  v49 = a6;
-  v50 = a7;
+  v45 = a5;
+  v46 = a6;
+  v47 = a7;
   v10 = *a1;
-  v47 = a2;
-  v42 = 0LL;
+  v44 = a2;
+  v41 = 0LL;
   v11 = (*(_DWORD *)*v10 & 1) == 0;
   v12 = *a1;
-  if ( !v11 )
+  if ( v11 )
   {
-    v13 = 4;
-    v14 = *(_QWORD *)(*(_QWORD *)(*v12 + 16) + 40LL);
-    v15 = *(_DWORD **)a2;
-    v16 = *(_BYTE *)(v14 + 31);
-    v52 = 0LL;
-    v17 = v16 & 0x20;
-    v18 = v15[16];
-    v44 = v15[17];
-    LODWORD(v14) = v15[18];
-    v45 = v15[19];
-    v19 = *a1;
-    v43 = v14;
-    v20 = *(_QWORD *)(*(_QWORD *)(*v19 + 16) + 40LL);
-    v21 = *a1;
-    v52 = *(_OWORD *)(v20 + 88);
-    v22 = (MenuHelpers *)*v21;
-    v23 = 1;
-    if ( *(_QWORD *)(*v21 + 40) )
+    v13 = 1;
+    v28 = *(_DWORD *)(*a2 + 64) + *(_DWORD *)(*a2 + 72) + *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*v12 + 16) + 40LL) + 88LL);
+    bottom = *(_DWORD *)(*a2 + 68) + *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 92LL);
+    if ( (*(_DWORD *)(*(_QWORD *)(**a1 + 40) + 124LL) & 3) != 0 )
     {
-      v22 = *(MenuHelpers **)(*(_QWORD *)(**a1 + 40) + 40LL);
-      if ( (*((_DWORD *)v22 + 10) & 0x20) != 0 )
-        v23 = 0;
+      v29 = (__int64 *)MNGetpItemFromIndex(*(_QWORD *)(**a1 + 40), *(_DWORD *)(*(_QWORD *)(**a1 + 40) + 116LL));
+      v30 = *(_DWORD *)(*v29 + 68);
+      bottom += *(_DWORD *)(GetDPIMetrics(*v29) + 28) - v30;
     }
-    if ( v17 && IsTrayWindow(*(struct tagWND **)(**a1 + 16), 1) )
-      xxxSendMinRectMessages(*(unsigned __int64 **)(**a1 + 16), (__int64)&v52);
-    if ( MenuHelpers::GetMenuRightAlignHint(v22) || !v23 )
+    v31 = _MonitorFromWindowInternal(*(struct tagWND **)(**a1 + 16), 1, 0);
+    v32 = *a1;
+    v33 = (__int64)v31;
+    v42 = (__int64)v31;
+    SmartObjStackRefBase<tagPOPUPMENU>::Init(v49, *v32);
+    MNGetPopupBoundsRect(v49, v33, &v41, 0);
+    if ( ((*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 26LL) & 0x40) != 0) != ((*(_DWORD *)**a1 & 0x10) != 0)
+      && *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 88LL) - a3 + 3 >= (int)v41 )
     {
-      *(_DWORD *)**a1 |= 0x10u;
-      if ( !v17 )
-      {
-        v26 = v43;
-        v24 = v52;
-        left = v52 + v43 + v18 - a3;
-        goto LABEL_16;
-      }
-      left = DWORD2(v52) - a3;
+      v28 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 88LL) - a3 + 3;
+      v13 = 2;
     }
-    else
+    if ( v28 + a3 > SDWORD2(v41) )
     {
-      v24 = v52;
-      left = v52;
-      if ( !v17 )
-      {
-        v26 = v43;
-        left = v18 + v52;
-LABEL_16:
-        LODWORD(v52) = v18 + v24;
-        DWORD2(v52) = v26 + v18 + v24;
-        DWORD1(v52) += v44;
-        HIDWORD(v52) = DWORD1(v52) + v45;
-      }
+      v13 = 2;
+      v28 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 88LL) - a3 + 3;
     }
-    v27 = MonitorFromRect((__int64)&v52, 1u, 0);
-    v28 = *a1;
-    v29 = v27;
-    v46 = v27;
-    SmartObjStackRefBase<tagPOPUPMENU>::Init(v51, *v28);
-    MNGetPopupBoundsRect(v51, v29, &v42, 0);
-    if ( v17 )
-    {
-      v30 = DWORD1(v52) - a4;
-      if ( DWORD1(v52) - a4 < v42.top )
-        v30 = HIDWORD(v52);
-    }
-    else
-    {
-      v30 = HIDWORD(v52);
-    }
-    if ( left >= v42.right - a3 )
-      left = v42.right - a3;
     if ( (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 26LL) & 0x40) != 0 )
-    {
-      left = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 88LL)
-           - left
-           - a3
-           + *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 96LL);
-      if ( left >= v42.right - a3 )
-        left = v42.right - a3;
-    }
-    goto LABEL_36;
-  }
-  v13 = 1;
-  left = *(_DWORD *)(*(_QWORD *)a2 + 64LL)
-       + *(_DWORD *)(*(_QWORD *)a2 + 72LL)
-       + *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*v12 + 16) + 40LL) + 88LL);
-  v30 = *(_DWORD *)(*(_QWORD *)a2 + 68LL) + *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 92LL);
-  if ( (*(_DWORD *)(*(_QWORD *)(**a1 + 40) + 124LL) & 3) != 0 )
-  {
-    v31 = (__int64 *)MNGetpItemFromIndex(*(_QWORD *)(**a1 + 40), *(_DWORD *)(*(_QWORD *)(**a1 + 40) + 116LL));
-    v32 = *(_DWORD *)(*v31 + 68);
-    v30 += *(_DWORD *)(GetDPIMetrics(*v31) + 28) - v32;
-  }
-  v33 = _MonitorFromWindowInternal(*(struct tagWND **)(**a1 + 16), 1u, 0);
-  v34 = *a1;
-  v35 = (__int64)v33;
-  v46 = (__int64)v33;
-  SmartObjStackRefBase<tagPOPUPMENU>::Init(v51, *v34);
-  MNGetPopupBoundsRect(v51, v35, &v42, 0);
-  if ( ((*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 26LL) & 0x40) != 0) != ((*(_DWORD *)**a1 & 0x10) != 0)
-    && *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 88LL) - a3 + 3 >= v42.left )
-  {
-    left = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 88LL) - a3 + 3;
-    v13 = 2;
-  }
-  if ( left + a3 > v42.right )
-  {
-    v13 = 2;
-    left = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 88LL) - a3 + 3;
-  }
-  if ( (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 26LL) & 0x40) != 0 )
-    v13 ^= 3u;
-LABEL_36:
-  if ( v30 + a4 <= v42.bottom )
-  {
-    top = v42.top;
+      v13 ^= 3u;
   }
   else
   {
-    v36 = v30 - a4;
-    top = v42.top;
-    v38 = (_DWORD *)**a1;
-    if ( (*v38 & 1) != 0 )
+    v13 = 4;
+    v14 = *(_QWORD *)(*(_QWORD *)(*v12 + 16) + 40LL);
+    v15 = *a2;
+    v16 = *(_BYTE *)(v14 + 31) & 0x20;
+    v17 = *(_DWORD *)(*a2 + 64);
+    v43 = *(_DWORD *)(*a2 + 68);
+    LODWORD(v14) = *(_DWORD *)(v15 + 72);
+    LODWORD(v42) = *(_DWORD *)(v15 + 76);
+    v40 = v14;
+    v18 = *a1;
+    v50 = *(struct tagRECT *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 88LL);
+    v19 = (MenuHelpers *)*v18;
+    v20 = 1;
+    if ( *(_QWORD *)(*v18 + 40) )
     {
-      DpiForSystem = GetDpiForSystem((__int64)v38);
-      v30 = v36 - GetDpiDependentMetric(26, DpiForSystem);
-      if ( v30 < top )
+      v19 = *(MenuHelpers **)(*(_QWORD *)(**a1 + 40) + 40LL);
+      if ( (*((_DWORD *)v19 + 10) & 0x20) != 0 )
+        v20 = 0;
+    }
+    if ( v16 && (unsigned int)IsTrayWindow(*(_QWORD **)(**a1 + 16)) )
+      xxxSendMinRectMessages(*(unsigned __int64 **)(**a1 + 16), (struct _LARGE_STRING *)&v50);
+    if ( MenuHelpers::GetMenuRightAlignHint(v19) || !v20 )
+    {
+      v22 = v40;
+      *(_DWORD *)**a1 |= 0x10u;
+      left = v50.left;
+      if ( v16 )
+        v23 = v50.right - a3;
+      else
+        v23 = v50.left + v40 + v17 - a3;
+    }
+    else
+    {
+      left = v50.left;
+      v22 = v40;
+      if ( v16 )
+        v23 = v50.left;
+      else
+        v23 = v17 + v50.left;
+    }
+    if ( !v16 )
+    {
+      v50.left = v17 + left;
+      v50.right = v22 + v17 + left;
+      v50.top += v43;
+      v50.bottom = v50.top + v42;
+    }
+    v24 = MonitorFromRect(&v50, 1u, 0);
+    v25 = *a1;
+    v26 = v24;
+    v42 = v24;
+    SmartObjStackRefBase<tagPOPUPMENU>::Init(v48, *v25);
+    MNGetPopupBoundsRect(v48, v26, &v41, 0);
+    if ( v16 )
+    {
+      bottom = v50.top - a4;
+      if ( v50.top - a4 < SDWORD1(v41) )
+        bottom = v50.bottom;
+    }
+    else
+    {
+      bottom = v50.bottom;
+    }
+    v28 = DWORD2(v41) - a3;
+    if ( v23 < DWORD2(v41) - a3 )
+      v28 = v23;
+    if ( (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 26LL) & 0x40) != 0 )
+    {
+      v28 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 96LL)
+          + *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(**a1 + 16) + 40LL) + 88LL)
+          - v28
+          - a3;
+      if ( v28 >= DWORD2(v41) - a3 )
+        v28 = DWORD2(v41) - a3;
+    }
+  }
+  if ( bottom + a4 <= SHIDWORD(v41) )
+  {
+    v35 = DWORD1(v41);
+  }
+  else
+  {
+    v34 = bottom - a4;
+    v35 = DWORD1(v41);
+    v36 = (_DWORD *)**a1;
+    if ( (*v36 & 1) != 0 )
+    {
+      DpiForSystem = GetDpiForSystem((__int64)v36);
+      bottom = v34 - GetDpiDependentMetric(26LL, DpiForSystem);
+      if ( bottom < v35 )
       {
-LABEL_43:
-        v30 = v42.bottom - a4;
-        goto LABEL_45;
+LABEL_44:
+        bottom = HIDWORD(v41) - a4;
+        goto LABEL_46;
       }
       v13 = 8;
     }
     else
     {
-      v30 = *(_DWORD *)(*(_QWORD *)v47 + 76LL) + 6 + v36;
+      bottom = *(_DWORD *)(*v44 + 76) + 6 + v34;
     }
-    if ( v30 < top || v30 + a4 > v42.bottom )
-      goto LABEL_43;
+    if ( bottom < v35 || bottom + a4 > SHIDWORD(v41) )
+      goto LABEL_44;
   }
-LABEL_45:
-  if ( left <= v42.left )
-    left = v42.left;
-  v40 = (_QWORD *)v50;
-  if ( v30 <= top )
-    v30 = top;
-  *v48 = left;
-  *v49 = v30;
-  if ( v40 )
-    *v40 = v46;
+LABEL_46:
+  if ( v28 <= (int)v41 )
+    v28 = v41;
+  v38 = (_QWORD *)v47;
+  if ( bottom <= v35 )
+    bottom = v35;
+  *v45 = v28;
+  *v46 = bottom;
+  if ( v38 )
+    *v38 = v42;
   return v13;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of imp_WdfRequestForwardToIoQueue @ 0x1C000A410
+ * XREFs of imp_WdfRequestForwardToIoQueue @ 0x1C000BAF0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0005DAC (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
- *     ?ForwardRequestWorker@FxIoQueue@@QEAAJPEAVFxRequest@@PEAV1@@Z @ 0x1C000A250 (-ForwardRequestWorker@FxIoQueue@@QEAAJPEAVFxRequest@@PEAV1@@Z.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
- *     ?QueueDriverCreatedRequest@FxIoQueue@@QEAAJPEAVFxRequest@@E@Z @ 0x1C0081F40 (-QueueDriverCreatedRequest@FxIoQueue@@QEAAJPEAVFxRequest@@E@Z.c)
- *     Vf_VerifyWdfRequestForwardToIoQueue @ 0x1C00C70E4 (Vf_VerifyWdfRequestForwardToIoQueue.c)
- *     ?Vf_VerifyForwardRequest@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAV1@PEAVFxRequest@@@Z @ 0x1C00C82C8 (-Vf_VerifyForwardRequest@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAV1@PEAVFxRequest@@@Z.c)
+ *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0003F34 (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
+ *     ?ForwardRequestWorker@FxIoQueue@@QEAAJPEAVFxRequest@@PEAV1@@Z @ 0x1C000B944 (-ForwardRequestWorker@FxIoQueue@@QEAAJPEAVFxRequest@@PEAV1@@Z.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?QueueDriverCreatedRequest@FxIoQueue@@QEAAJPEAVFxRequest@@E@Z @ 0x1C0076BFC (-QueueDriverCreatedRequest@FxIoQueue@@QEAAJPEAVFxRequest@@E@Z.c)
+ *     Vf_VerifyWdfRequestForwardToIoQueue @ 0x1C00C5FE4 (Vf_VerifyWdfRequestForwardToIoQueue.c)
+ *     ?Vf_VerifyForwardRequest@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAV1@PEAVFxRequest@@@Z @ 0x1C00C71EC (-Vf_VerifyForwardRequest@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAV1@PEAVFxRequest@@@Z.c)
  */
 
 int __fastcall imp_WdfRequestForwardToIoQueue(
@@ -30,7 +30,7 @@ int __fastcall imp_WdfRequestForwardToIoQueue(
   PPObject = 0LL;
   queue = 0LL;
   if ( !DestinationQueue )
-    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], WDF_INVALID_HANDLE, 0LL, 0x1003uLL);
+    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, WDF_INVALID_HANDLE, 0LL, 0x1003uLL);
   LOWORD(Offset) = 0;
   v5 = (FxIoQueue *)(~DestinationQueue & 0xFFFFFFFFFFFFFFF8uLL);
   if ( (DestinationQueue & 1) != 0 )
@@ -72,18 +72,25 @@ int __fastcall imp_WdfRequestForwardToIoQueue(
     if ( m_Globals->FxVerifierOn )
     {
       result = Vf_VerifyWdfRequestForwardToIoQueue(m_Globals, v8);
-      if ( result < 0 )
-        return result;
       v8 = (FxRequest *)PPObject;
       v5 = queue;
     }
-    return FxIoQueue::QueueDriverCreatedRequest(v5, v8, 0);
+    else
+    {
+      result = 0;
+    }
+    if ( result >= 0 )
+      return FxIoQueue::QueueDriverCreatedRequest(v5, v8, 0);
   }
-  v10 = m_IoQueue->m_Globals;
-  if ( !v10->FxVerifierOn )
-    return FxIoQueue::ForwardRequestWorker(m_IoQueue, v8, v5);
-  result = FxIoQueue::Vf_VerifyForwardRequest(v8->m_IoQueue, v10, v5, v8);
-  if ( result >= 0 )
-    return FxIoQueue::ForwardRequestWorker(m_IoQueue, v8, v5);
+  else
+  {
+    v10 = m_IoQueue->m_Globals;
+    if ( v10->FxVerifierOn )
+      result = FxIoQueue::Vf_VerifyForwardRequest(v8->m_IoQueue, v10, v5, v8);
+    else
+      result = 0;
+    if ( result >= 0 )
+      return FxIoQueue::ForwardRequestWorker(m_IoQueue, v8, v5);
+  }
   return result;
 }

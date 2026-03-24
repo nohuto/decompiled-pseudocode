@@ -1,22 +1,21 @@
 /*
- * XREFs of VerifierExReleaseFastMutex @ 0x140A9C2E0
+ * XREFs of VerifierExReleaseFastMutex @ 0x1409E4900
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfKeIrqlTransitionReserveLogEntry @ 0x140A7F710 (VfKeIrqlTransitionReserveLogEntry.c)
- *     ViKeIrqlLogCommon @ 0x140A7F7DA (ViKeIrqlLogCommon.c)
- *     VfDeadlockReleaseResource @ 0x140A985B4 (VfDeadlockReleaseResource.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ViKeIrqlLogCommon @ 0x1409DC0CC (ViKeIrqlLogCommon.c)
+ *     VfDeadlockReleaseResource @ 0x1409DE338 (VfDeadlockReleaseResource.c)
+ *     ViExReleaseFastMutexCommon @ 0x1409E4E30 (ViExReleaseFastMutexCommon.c)
  */
 
-void __fastcall VerifierExReleaseFastMutex(__int64 a1)
+void __fastcall VerifierExReleaseFastMutex(const void *a1)
 {
-  char *v2; // rdi
+  __int64 v2; // rdi
   void *retaddr; // [rsp+28h] [rbp+0h]
 
-  v2 = VfKeIrqlTransitionReserveLogEntry(KeGetCurrentIrql(), *(_BYTE *)(a1 + 48));
-  VfDeadlockReleaseResource((LONG *)a1, 3, (__int64)KeGetCurrentThread(), retaddr);
-  ((void (__fastcall *)(__int64))pXdvExReleaseFastMutex)(a1);
-  if ( (VfRuleClasses & 0x400000) == 0 )
-    ViKeIrqlLogCommon((__int64)v2, 1u);
+  v2 = ViExReleaseFastMutexCommon((ULONG_PTR)a1);
+  VfDeadlockReleaseResource(a1, 3, (__int64)KeGetCurrentThread(), retaddr);
+  ((void (__fastcall *)(const void *))pXdvExReleaseFastMutex)(a1);
+  ViKeIrqlLogCommon(v2, 1u);
 }

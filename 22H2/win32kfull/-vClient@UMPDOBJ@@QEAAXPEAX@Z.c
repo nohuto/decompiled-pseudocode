@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vClient@UMPDOBJ@@QEAAXPEAX@Z @ 0x1C029A1A4
+ * XREFs of ?vClient@UMPDOBJ@@QEAAXPEAX@Z @ 0x1C00A3064
  * Callers:
- *     ?bCleanupWorker@UMPDOBJ@@QEAAHXZ @ 0x1C02997BC (-bCleanupWorker@UMPDOBJ@@QEAAHXZ.c)
- *     ?UMPDDrvEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C02B9F50 (-UMPDDrvEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
+ *     ?bCleanupWorker@UMPDOBJ@@QEAAHXZ @ 0x1C00A1548 (-bCleanupWorker@UMPDOBJ@@QEAAHXZ.c)
+ *     ?UMPDDrvEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C015E840 (-UMPDDrvEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
  * Callees:
  *     <none>
  */

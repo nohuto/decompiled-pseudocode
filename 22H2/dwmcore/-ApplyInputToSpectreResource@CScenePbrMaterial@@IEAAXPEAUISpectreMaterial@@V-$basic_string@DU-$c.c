@@ -1,74 +1,61 @@
 /*
- * XREFs of ?ApplyInputToSpectreResource@CScenePbrMaterial@@IEAAXPEAUISpectreMaterial@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEAVCSceneSurfaceMaterialInput@@@Z @ 0x180250644
+ * XREFs of ?ApplyInputToSpectreResource@CScenePbrMaterial@@IEAAXPEAUISpectreMaterial@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEAVCSceneSurfaceMaterialInput@@@Z @ 0x1801EAE50
  * Callers:
- *     ?PreDrawSceneOnSpectreResource@CSceneMetallicRoughnessMaterial@@MEAAXPEAUISpectreMaterial@@@Z @ 0x180250560 (-PreDrawSceneOnSpectreResource@CSceneMetallicRoughnessMaterial@@MEAAXPEAUISpectreMaterial@@@Z.c)
- *     ?PreDrawSceneOnSpectreResource@CScenePbrMaterial@@MEAAXPEAUISpectreMaterial@@@Z @ 0x180250B90 (-PreDrawSceneOnSpectreResource@CScenePbrMaterial@@MEAAXPEAUISpectreMaterial@@@Z.c)
+ *     ?ApplyBaseColorInputToSpectreResource@CSceneMetallicRoughnessMaterial@@AEAAXPEAUISpectreMaterial@@@Z @ 0x1801EAA4C (-ApplyBaseColorInputToSpectreResource@CSceneMetallicRoughnessMaterial@@AEAAXPEAUISpectreMaterial.c)
+ *     ?ApplyMetallicRoughnessInputToSpectreResource@CSceneMetallicRoughnessMaterial@@AEAAXPEAUISpectreMaterial@@@Z @ 0x1801EAA94 (-ApplyMetallicRoughnessInputToSpectreResource@CSceneMetallicRoughnessMaterial@@AEAAXPEAUISpectre.c)
+ *     ?ApplyEmissiveInputToSpectreResource@CScenePbrMaterial@@AEAAXPEAUISpectreMaterial@@@Z @ 0x1801EAE0C (-ApplyEmissiveInputToSpectreResource@CScenePbrMaterial@@AEAAXPEAUISpectreMaterial@@@Z.c)
+ *     ?ApplyNormalInputToSpectreResource@CScenePbrMaterial@@AEAAXPEAUISpectreMaterial@@@Z @ 0x1801EAF38 (-ApplyNormalInputToSpectreResource@CScenePbrMaterial@@AEAAXPEAUISpectreMaterial@@@Z.c)
+ *     ?ApplyOcclusionInputToSpectreResource@CScenePbrMaterial@@AEAAXPEAUISpectreMaterial@@@Z @ 0x1801EAF7C (-ApplyOcclusionInputToSpectreResource@CScenePbrMaterial@@AEAAXPEAUISpectreMaterial@@@Z.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800861C0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetSpectreTexture@CSceneResourceManager@@QEAAJPEAVCResource@@PEAPEAUISpectreTexture@@@Z @ 0x1801BD0BC (-GetSpectreTexture@CSceneResourceManager@@QEAAJPEAVCResource@@PEAPEAUISpectreTexture@@@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050D58 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall CScenePbrMaterial::ApplyInputToSpectreResource(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
+void __fastcall CScenePbrMaterial::ApplyInputToSpectreResource(__int64 a1, __int64 a2, __int128 *a3, __int64 a4)
 {
-  struct ISpectreTexture *v4; // r14
-  __int64 v5; // r15
-  struct CResource *v9; // rdx
-  __int64 v10; // rax
-  __int128 *v11; // rbp
-  unsigned __int64 v12; // rsi
-  void (__fastcall *v13)(__int64 *, __int128 *, struct ISpectreTexture *, __int64); // r13
-  __int128 v14; // xmm0
-  __int64 v15; // rbx
-  unsigned __int64 v16; // rdx
-  struct ISpectreTexture *v17; // [rsp+30h] [rbp-78h] BYREF
-  __int128 v18; // [rsp+38h] [rbp-70h] BYREF
-  unsigned __int64 v19; // [rsp+48h] [rbp-60h]
-  __int64 v20; // [rsp+50h] [rbp-58h]
+  __int64 v4; // rsi
+  __int64 v7; // r15
+  __int64 v8; // rax
+  __int128 *v9; // r14
+  unsigned __int64 v10; // rbp
+  void (__fastcall *v11)(__int64, __int128 *, __int64, __int64); // r13
+  __int128 v12; // xmm0
+  __int64 v13; // rbx
+  __int128 v14; // [rsp+30h] [rbp-58h] BYREF
+  unsigned __int64 v15; // [rsp+40h] [rbp-48h]
+  __int64 v16; // [rsp+48h] [rbp-40h]
 
   v4 = 0LL;
-  v5 = 0LL;
-  v17 = 0LL;
+  v7 = 0LL;
   if ( a4 )
   {
-    v9 = *(struct CResource **)(a4 + 80);
-    if ( v9 )
-    {
-      CSceneResourceManager::GetSpectreTexture(*(CSceneResourceManager **)(*(_QWORD *)(a1 + 16) + 288LL), v9, &v17);
-      v4 = v17;
-    }
-    v5 = *(_QWORD *)(a4 + 72);
+    v8 = *(_QWORD *)(a4 + 72);
+    if ( v8 )
+      v4 = *(_QWORD *)(v8 + 144);
+    v7 = *(_QWORD *)(a4 + 64);
   }
-  v10 = *a2;
-  v11 = (__int128 *)a3;
-  *(_QWORD *)&v18 = 0LL;
-  v12 = *(_QWORD *)(a3 + 16);
-  v13 = *(void (__fastcall **)(__int64 *, __int128 *, struct ISpectreTexture *, __int64))(v10 + 96);
-  if ( *(_QWORD *)(a3 + 24) >= 0x10uLL )
-    v11 = *(__int128 **)a3;
-  if ( v12 >= 0x10 )
+  v9 = a3;
+  v10 = *((_QWORD *)a3 + 2);
+  v11 = *(void (__fastcall **)(__int64, __int128 *, __int64, __int64))(*(_QWORD *)a2 + 96LL);
+  if ( *((_QWORD *)a3 + 3) >= 0x10uLL )
+    v9 = *(__int128 **)a3;
+  if ( v10 >= 0x10 )
   {
-    v15 = v12 | 0xF;
-    if ( (v12 | 0xF) > 0x7FFFFFFFFFFFFFFFLL )
-      v15 = 0x7FFFFFFFFFFFFFFFLL;
-    *(_QWORD *)&v18 = std::_Allocate<16,std::_Default_allocate_traits,0>(v15 + 1);
-    memcpy_0((void *)v18, v11, v12 + 1);
-    v20 = v15;
+    v13 = v10 | 0xF;
+    if ( (v10 | 0xF) > 0x7FFFFFFFFFFFFFFFLL )
+      v13 = 0x7FFFFFFFFFFFFFFFLL;
+    *(_QWORD *)&v14 = std::_Allocate<16,std::_Default_allocate_traits,0>(v13 + 1);
+    memcpy_0((void *)v14, v9, v10 + 1);
+    v16 = v13;
   }
   else
   {
-    v14 = *v11;
-    v20 = 15LL;
-    v18 = v14;
+    v12 = *v9;
+    v16 = 15LL;
+    v14 = v12;
   }
-  v19 = v12;
-  v13(a2, &v18, v4, v5);
-  v16 = *(_QWORD *)(a3 + 24);
-  if ( v16 >= 0x10 )
-    std::_Deallocate<16,0>(*(void **)a3, v16 + 1);
-  *(_QWORD *)(a3 + 16) = 0LL;
-  *(_QWORD *)(a3 + 24) = 15LL;
-  *(_BYTE *)a3 = 0;
+  v15 = v10;
+  v11(a2, &v14, v4, v7);
+  std::string::_Tidy_deallocate((__int64)a3);
 }

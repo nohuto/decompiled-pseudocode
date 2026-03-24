@@ -1,28 +1,29 @@
 /*
- * XREFs of MiVadHasSharedCommit @ 0x140A43E08
+ * XREFs of MiVadHasSharedCommit @ 0x1408D9A80
  * Callers:
- *     MiAllocateChildVads @ 0x140A483EC (MiAllocateChildVads.c)
- *     MiDeletePartialCloneVads @ 0x140A48E9C (MiDeletePartialCloneVads.c)
+ *     MiAllocateChildVads @ 0x1408D8AE0 (MiAllocateChildVads.c)
+ *     MiDeletePartialCloneVads @ 0x1408D9578 (MiDeletePartialCloneVads.c)
  * Callees:
- *     MiIncludeSharedCommit @ 0x1402A0DB0 (MiIncludeSharedCommit.c)
+ *     MiIncludeSharedCommit @ 0x1402955B0 (MiIncludeSharedCommit.c)
  */
 
-__int64 __fastcall MiVadHasSharedCommit(__int64 a1)
+_BOOL8 __fastcall MiVadHasSharedCommit(__int64 a1)
 {
   int v1; // edx
   __int64 *v2; // rcx
-  unsigned int v3; // r8d
+  _BOOL8 result; // rax
 
   v1 = *(_DWORD *)(a1 + 48);
-  if ( (v1 & 0x70) == 0x20 )
-    return 1LL;
-  if ( (v1 & 0x200000) != 0 )
-    return 0LL;
-  if ( *(__int64 *)(a1 + 120) < 0 )
-    return 0LL;
-  v2 = *(__int64 **)(a1 + 72);
-  if ( !v2 )
-    return 0LL;
-  LOBYTE(v3) = (unsigned int)MiIncludeSharedCommit(*v2) != 0;
-  return v3;
+  result = 1;
+  if ( (v1 & 0x70) != 0x20 )
+  {
+    if ( (v1 & 0x100000) != 0 )
+      return 0;
+    if ( *(__int64 *)(a1 + 120) < 0 )
+      return 0;
+    v2 = *(__int64 **)(a1 + 72);
+    if ( !v2 || !(unsigned int)MiIncludeSharedCommit(*v2) )
+      return 0;
+  }
+  return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpDummyThreadRoutine @ 0x140865B50
+ * XREFs of CmpDummyThreadRoutine @ 0x1407D4C70
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 void __noreturn CmpDummyThreadRoutine()

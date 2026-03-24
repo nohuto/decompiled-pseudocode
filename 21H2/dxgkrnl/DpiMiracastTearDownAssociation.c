@@ -1,26 +1,26 @@
 /*
- * XREFs of DpiMiracastTearDownAssociation @ 0x1C0062950
+ * XREFs of DpiMiracastTearDownAssociation @ 0x1C0054D58
  * Callers:
- *     DpiMiracastStopMiracastSessionSync @ 0x1C0061EE0 (DpiMiracastStopMiracastSessionSync.c)
- *     DpiMiracastTargetDeviceChange @ 0x1C0062480 (DpiMiracastTargetDeviceChange.c)
- *     DpiMiracastHandleStartSessionDone @ 0x1C038D50C (DpiMiracastHandleStartSessionDone.c)
- *     DpiMiracastHandleStopSessionDone @ 0x1C038D988 (DpiMiracastHandleStopSessionDone.c)
- *     DpiMiracastStartSessionRequestCallback @ 0x1C038E080 (DpiMiracastStartSessionRequestCallback.c)
- *     DpiMiracastStopSessionRequestCallback @ 0x1C038E1C0 (DpiMiracastStopSessionRequestCallback.c)
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C00542A0 (DpiMiracastStopMiracastSessionSync.c)
+ *     DpiMiracastTargetDeviceChange @ 0x1C0054870 (DpiMiracastTargetDeviceChange.c)
+ *     DpiMiracastHandleStartSessionDone @ 0x1C02CE44C (DpiMiracastHandleStartSessionDone.c)
+ *     DpiMiracastHandleStopSessionDone @ 0x1C02CE8D4 (DpiMiracastHandleStopSessionDone.c)
+ *     DpiMiracastStartSessionRequestCallback @ 0x1C02CF060 (DpiMiracastStartSessionRequestCallback.c)
+ *     DpiMiracastStopSessionRequestCallback @ 0x1C02CF1A0 (DpiMiracastStopSessionRequestCallback.c)
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C001C320 (-AcquireMiniportListMutex@@YAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     DpIndicateChildStatus @ 0x1C005EEC0 (DpIndicateChildStatus.c)
- *     ??_GMIRACAST_CHUNK_LIST@@QEAAPEAXI@Z @ 0x1C0060B04 (--_GMIRACAST_CHUNK_LIST@@QEAAPEAXI@Z.c)
- *     DpiMiracastEtwLogStopMiracastSessionStage @ 0x1C00610EC (DpiMiracastEtwLogStopMiracastSessionStage.c)
- *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C0061CB0 (DpiMiracastReleaseMiracastDeviceContext.c)
- *     McTemplateK0qqz_EtwWriteTransfer @ 0x1C0064594 (McTemplateK0qqz_EtwWriteTransfer.c)
- *     TraceLoggingWriteMiracastSessionStop @ 0x1C00675E4 (TraceLoggingWriteMiracastSessionStop.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01B32DC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
- *     DpiMiracastBroadcastDeviceStateChange @ 0x1C038C97C (DpiMiracastBroadcastDeviceStateChange.c)
- *     DpiMiracastDdiMiracastDestroyContext @ 0x1C038CDF4 (DpiMiracastDdiMiracastDestroyContext.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0018FF0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4B0 (DpiCheckForOutstandingD3Requests.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     DpIndicateChildStatus @ 0x1C0050BC0 (DpIndicateChildStatus.c)
+ *     ??_GMIRACAST_CHUNK_LIST@@QEAAPEAXI@Z @ 0x1C0052E58 (--_GMIRACAST_CHUNK_LIST@@QEAAPEAXI@Z.c)
+ *     DpiMiracastEtwLogStopMiracastSessionStage @ 0x1C005344C (DpiMiracastEtwLogStopMiracastSessionStage.c)
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C0054050 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     McTemplateK0qqz_EtwWriteTransfer @ 0x1C0056A1C (McTemplateK0qqz_EtwWriteTransfer.c)
+ *     TraceLoggingWriteMiracastSessionStop @ 0x1C005A944 (TraceLoggingWriteMiracastSessionStop.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C013AB0C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DpiMiracastBroadcastDeviceStateChange @ 0x1C02CD878 (DpiMiracastBroadcastDeviceStateChange.c)
+ *     DpiMiracastDdiMiracastDestroyContext @ 0x1C02CDD24 (DpiMiracastDdiMiracastDestroyContext.c)
  */
 
 void __fastcall DpiMiracastTearDownAssociation(char *P, int a2, int a3, unsigned int a4, char a5)
@@ -61,7 +61,6 @@ void __fastcall DpiMiracastTearDownAssociation(char *P, int a2, int a3, unsigned
   v9 = *((_QWORD *)P + 54);
   if ( v9 )
   {
-    memset(&LockHandle, 0, sizeof(LockHandle));
     v11 = *(_QWORD *)(v9 + 64);
     v26 = 0LL;
     if ( !a5 )
@@ -82,7 +81,7 @@ void __fastcall DpiMiracastTearDownAssociation(char *P, int a2, int a3, unsigned
     }
     DpiMiracastDdiMiracastDestroyContext(v11, *((_QWORD *)P + 56));
     DpiMiracastEtwLogStopMiracastSessionStage((__int64)P, 1, v12);
-    if ( !P[590] && (Microsoft_Windows_DxgKrnlEnableBits & 0x400000000LL) != 0 )
+    if ( !P[590] && (Microsoft_Windows_DxgKrnlEnableBits & 0x40000000) != 0 )
       McTemplateK0qqz_EtwWriteTransfer(
         v13,
         (unsigned int)&EventMiracastPerfTrackStartMiracastSessionNoSend,
@@ -140,8 +139,8 @@ void __fastcall DpiMiracastTearDownAssociation(char *P, int a2, int a3, unsigned
     if ( v23 )
       KeSetEvent(v23, 0, 0);
     KeSetEvent(*((PRKEVENT *)P + 58), 0, 0);
-    --dword_1C01308C0;
-    DpiMiracastReleaseMiracastDeviceContext((int *)P, (unsigned int)P);
+    --dword_1C00B2F38;
+    DpiMiracastReleaseMiracastDeviceContext((int *)P, (__int64)P);
     v24 = MEMORY[0xFFFFF78000000014];
     *((_QWORD *)P + 80) = MEMORY[0xFFFFF78000000014];
     TraceLoggingWriteMiracastSessionStop(P, a4, (v24 - *((_QWORD *)P + 79)) / 10000000);
@@ -176,7 +175,7 @@ void __fastcall DpiMiracastTearDownAssociation(char *P, int a2, int a3, unsigned
 LABEL_43:
     if ( !a5 )
     {
-      _InterlockedExchange64(&qword_1C01304D8, 0LL);
+      _InterlockedExchange64(&qword_1C00B2B50, 0LL);
       KeReleaseMutex(Mutex, 0);
     }
     return;

@@ -1,36 +1,36 @@
 /*
- * XREFs of PiDmListAddObject @ 0x1407BEAB0
+ * XREFs of PiDmListAddObject @ 0x1407353A4
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140789030 (PiPnpRtlCmActionCallback.c)
- *     PiDmListInitEnumCallback @ 0x140830DD0 (PiDmListInitEnumCallback.c)
- *     IopRegisterDeviceInterface @ 0x140866CCC (IopRegisterDeviceInterface.c)
+ *     PiPnpRtlCmActionCallback @ 0x1406AE700 (PiPnpRtlCmActionCallback.c)
+ *     IopRegisterDeviceInterface @ 0x140744910 (IopRegisterDeviceInterface.c)
+ *     PiDmListInitEnumCallback @ 0x140790380 (PiDmListInitEnumCallback.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     PiDmGetObjectManagerForObjectType @ 0x1406D82BC (PiDmGetObjectManagerForObjectType.c)
- *     PiDmListAddObjectWorker @ 0x1407BEB6C (PiDmListAddObjectWorker.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x1406AFB70 (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmListAddObjectWorker @ 0x1407352C0 (PiDmListAddObjectWorker.c)
  */
 
-void __fastcall PiDmListAddObject(unsigned int a1, ULONG_PTR a2, __int64 *a3, __int64 a4)
+_QWORD *__fastcall PiDmListAddObject(int a1, ULONG_PTR a2, ULONG_PTR a3, char *a4)
 {
-  void *ObjectManagerForObjectType; // rax
+  struct _ERESOURCE *ObjectManagerForObjectType; // rax
   struct _KTHREAD *CurrentThread; // r10
-  void *v10; // rbx
+  struct _ERESOURCE *v10; // rbx
   struct _KTHREAD *v11; // r8
 
-  ObjectManagerForObjectType = PiDmGetObjectManagerForObjectType(*(_DWORD *)(a2 + 28));
+  ObjectManagerForObjectType = (struct _ERESOURCE *)PiDmGetObjectManagerForObjectType(*(_DWORD *)(a2 + 28));
   CurrentThread = KeGetCurrentThread();
   v10 = ObjectManagerForObjectType;
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx(a2, 0LL);
   v11 = KeGetCurrentThread();
   --v11->KernelApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)a3, 0LL);
+  ExAcquirePushLockSharedEx(a3, 0LL);
   PiDmListAddObjectWorker(a1, v10, a2, a3, a4);
   ExReleasePushLockEx(a3, 0LL);
-  KeLeaveCriticalRegion();
-  ExReleasePushLockEx((__int64 *)a2, 0LL);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  ExReleasePushLockEx(a2, 0LL);
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

@@ -1,18 +1,19 @@
 /*
- * XREFs of ?Reset@?$CDynamicArray@PEAUInjectManipulationArgs@@$0HHHAHDFF@@@QEAAX_N@Z @ 0x1C0214C78
+ * XREFs of ?Reset@?$CDynamicArray@PEAUInjectManipulationArgs@@$0HHHAHDFF@@@QEAAX_N@Z @ 0x1C01D5138
  * Callers:
- *     ??1?$CStructDynamicArray@UInjectManipulationArgs@@@@QEAA@XZ @ 0x1C0213F24 (--1-$CStructDynamicArray@UInjectManipulationArgs@@@@QEAA@XZ.c)
+ *     ??_ECManipulationMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C01D44F0 (--_ECManipulationMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
  */
 
 void __fastcall CDynamicArray<InjectManipulationArgs *,2003858261>::Reset(__int64 a1)
 {
-  if ( *(_QWORD *)a1 )
+  __int64 v2; // rcx
+
+  v2 = *(_QWORD *)a1;
+  if ( v2 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      *(char **)a1);
+    Win32FreePool(v2);
     *(_QWORD *)a1 = 0LL;
   }
   *(_DWORD *)(a1 + 12) = 0;

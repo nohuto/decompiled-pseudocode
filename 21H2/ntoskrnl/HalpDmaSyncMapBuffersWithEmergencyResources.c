@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpDmaSyncMapBuffersWithEmergencyResources @ 0x140513C1C
+ * XREFs of HalpDmaSyncMapBuffersWithEmergencyResources @ 0x1404C856C
  * Callers:
- *     HalpDmaSyncMapBuffers @ 0x140457A42 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaSyncMapBuffers @ 0x1404C81F4 (HalpDmaSyncMapBuffers.c)
  * Callees:
- *     KeFlushIoBuffers @ 0x140232370 (KeFlushIoBuffers.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x1403D7610 (MmMapLockedPagesWithReservedMapping.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x14045693C (HalpDmaGetAdapterCacheAlignment.c)
- *     MmUnmapReservedMapping @ 0x1405858A0 (MmUnmapReservedMapping.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeFlushIoBuffers @ 0x1402A7EB0 (KeFlushIoBuffers.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403C8A70 (MmMapLockedPagesWithReservedMapping.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1404B8C50 (HalpDmaGetAdapterCacheAlignment.c)
+ *     MmUnmapReservedMapping @ 0x140531C90 (MmUnmapReservedMapping.c)
  */
 
 __int64 __fastcall HalpDmaSyncMapBuffersWithEmergencyResources(
@@ -59,12 +59,12 @@ __int64 __fastcall HalpDmaSyncMapBuffersWithEmergencyResources(
   v8 = a4;
   memset(&LockHandle, 0, sizeof(LockHandle));
   AdapterCacheAlignment = HalpDmaGetAdapterCacheAlignment(a1);
-  KeAcquireInStackQueuedSpinLock(&qword_140CFCED8, &LockHandle);
-  v11 = qword_140C5A848;
-  v12 = qword_140C5A838;
+  KeAcquireInStackQueuedSpinLock(&qword_140CF2798, &LockHandle);
+  v11 = MemoryDescriptorList;
+  v12 = qword_140C53EF8;
   v13 = a3 & 0xFFF;
   v15 = (unsigned __int64)(a3 - *(_QWORD *)(a2 + 32)) >> 12;
-  qword_140C5A848->ByteOffset = v13;
+  MemoryDescriptorList->ByteOffset = v13;
   v11->ByteCount = 4096 - v13;
   v11->StartVa = (PVOID)(a3 & 0xFFFFFFFFFFFFF000uLL);
   v12->StartVa = (PVOID)(a3 & 0xFFFFFFFFFFFFF000uLL);
@@ -82,9 +82,9 @@ __int64 __fastcall HalpDmaSyncMapBuffersWithEmergencyResources(
     }
     else
     {
-      v17 = qword_140C5A850;
+      v17 = qword_140C53F10;
       v12[1].Next = (struct _MDL *)(*v8 >> 12);
-      v18 = (unsigned __int64)MmMapLockedPagesWithReservedMapping(v17, 0x446C6148u, v12, MmCached);
+      v18 = (unsigned __int64)MmMapLockedPagesWithReservedMapping(v17, 0x206C6148u, v12, MmCached);
       if ( !v18 )
         KeBugCheckEx(0xACu, 0x1000uLL, 0xEF00uLL, 0LL, 0LL);
       v16 = v34;
@@ -94,7 +94,7 @@ __int64 __fastcall HalpDmaSyncMapBuffersWithEmergencyResources(
     v11[1].Next = *v16;
     while ( 1 )
     {
-      v21 = MmMapLockedPagesWithReservedMapping(MappingAddress, 0x446C6148u, v11, v20);
+      v21 = MmMapLockedPagesWithReservedMapping(MappingAddress, 0x206C6148u, v11, v20);
       if ( v21 )
         break;
       if ( ++v20 >= MmMaximumCacheType )
@@ -107,7 +107,7 @@ __int64 __fastcall HalpDmaSyncMapBuffersWithEmergencyResources(
     if ( a6 )
     {
       if ( !a7 )
-        ((void (__fastcall *)(unsigned __int64, PVOID, _QWORD))HalpMoveMemory[0])(v18, v21, v22);
+        ((void (__fastcall *)(unsigned __int64, PVOID, _QWORD))HalpMoveMemory)(v18, v21, v22);
     }
     else
     {
@@ -123,9 +123,9 @@ __int64 __fastcall HalpDmaSyncMapBuffersWithEmergencyResources(
       if ( !a7 )
         memmove(v21, (const void *)v18, v22);
     }
-    MmUnmapReservedMapping(v21, 0x446C6148u, v11);
+    MmUnmapReservedMapping(v21, 0x206C6148u, v11);
     if ( v19 )
-      MmUnmapReservedMapping((PVOID)v18, 0x446C6148u, v12);
+      MmUnmapReservedMapping((PVOID)v18, 0x206C6148u, v12);
     a5 -= v22;
     v24 = a5;
     v16 = v34 + 1;

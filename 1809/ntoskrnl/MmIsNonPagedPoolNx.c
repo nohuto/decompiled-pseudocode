@@ -2,7 +2,7 @@
  * XREFs of MmIsNonPagedPoolNx @ 0x14009B448
  * Callers:
  *     ExFreeLargePool @ 0x14009ADD0 (ExFreeLargePool.c)
- *     EtwTracePool @ 0x1401B71C8 (EtwTracePool.c)
+ *     EtwTracePool @ 0x1401B71E8 (EtwTracePool.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  */

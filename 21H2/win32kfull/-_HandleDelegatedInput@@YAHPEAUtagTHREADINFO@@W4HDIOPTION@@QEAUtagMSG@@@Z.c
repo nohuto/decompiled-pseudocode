@@ -1,46 +1,45 @@
 /*
- * XREFs of ?_HandleDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z @ 0x1C0004798
+ * XREFs of ?_HandleDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z @ 0x1C01E177C
  * Callers:
- *     NtUserUndelegateInput @ 0x1C01174E0 (NtUserUndelegateInput.c)
- *     NtUserHandleDelegatedInput @ 0x1C01F77A0 (NtUserHandleDelegatedInput.c)
+ *     NtUserUndelegateInput @ 0x1C012E890 (NtUserUndelegateInput.c)
+ *     NtUserHandleDelegatedInput @ 0x1C01FCDC0 (NtUserHandleDelegatedInput.c)
  * Callees:
- *     ??0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C0004870 (--0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0147E84 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
- *     ?_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C016B120 (-_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z.c)
- *     ?_FindQMsgFromMsg@@YAHQEAUtagTHREADINFO@@QEAUtagMSG@@PEAPEAUtagQMSG@@@Z @ 0x1C01DC90C (-_FindQMsgFromMsg@@YAHQEAUtagTHREADINFO@@QEAUtagMSG@@PEAPEAUtagQMSG@@@Z.c)
+ *     ??0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C0167740 (--0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ?_FindQMsgFromMsg@@YAHQEAUtagTHREADINFO@@QEAUtagMSG@@PEAPEAUtagQMSG@@@Z @ 0x1C01E16DC (-_FindQMsgFromMsg@@YAHQEAUtagTHREADINFO@@QEAUtagMSG@@PEAPEAUtagQMSG@@@Z.c)
+ *     ?_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C01E1860 (-_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z.c)
  */
 
 __int64 __fastcall _HandleDelegatedInput(__int64 a1, unsigned int a2, struct tagMSG *a3)
 {
   struct tagQMSG *v3; // rbx
-  __int64 result; // rax
+  unsigned int DLT; // eax
   struct CInpLockGuard *TouchProcessorLock; // rax
-  void *v8; // r8
+  void *v9; // r8
   struct tagQMSG *i; // rax
-  _BYTE v10[40]; // [rsp+20h] [rbp-38h] BYREF
-  struct _KTHREAD **v11; // [rsp+48h] [rbp-10h]
-  struct tagQMSG *v12; // [rsp+70h] [rbp+18h] BYREF
+  _BYTE v12[40]; // [rsp+20h] [rbp-38h] BYREF
+  CInpLockGuard *v13; // [rsp+48h] [rbp-10h]
+  struct tagQMSG *v14; // [rsp+70h] [rbp+18h] BYREF
 
   v3 = 0LL;
-  v12 = 0LL;
+  v14 = 0LL;
+  DLT = DLT_QUEUE::getDLT(a1);
+  GetDomainLockRef(DLT);
   if ( a3 )
   {
-    result = _FindQMsgFromMsg((struct tagTHREADINFO *const)a1, a3, &v12);
-    if ( !(_DWORD)result )
-      return result;
-    v3 = v12;
+    if ( !(unsigned int)_FindQMsgFromMsg((struct tagTHREADINFO *const)a1, a3, &v14) )
+      return (unsigned int)v3;
+    v3 = v14;
   }
   TouchProcessorLock = CTouchProcessor::GetTouchProcessorLock(gpTouchProcessor);
-  CInpLockGuardExclusive::CInpLockGuardExclusive((CInpLockGuardExclusive *)v10, TouchProcessorLock, v8);
+  CInpLockGuardExclusive::CInpLockGuardExclusive((CInpLockGuardExclusive *)v12, TouchProcessorLock, v9);
   for ( i = *(struct tagQMSG **)(*(_QWORD *)(a1 + 432) + 24LL);
         i != v3;
         i = _HandleDelegatedInputWorker((struct tagTHREADINFO *)a1, a2, i) )
   {
     ;
   }
-  if ( v11[1] != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM();
-  CRefUnRefPointerMsgId::ThreadUnlockAndUnReference((CRefUnRefPointerMsgId *)v10);
-  CInpLockGuard::UnLock((CInpLockGuard *)v11);
-  return 1LL;
+  CRefUnRefPointerMsgId::ThreadUnlockAndUnReference((CRefUnRefPointerMsgId *)v12);
+  CInpLockGuard::UnLock(v13);
+  LODWORD(v3) = 1;
+  return (unsigned int)v3;
 }

@@ -5,7 +5,7 @@
  *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
  * Callees:
  *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     KiGetCurrentGroupCount @ 0x14013BB74 (KiGetCurrentGroupCount.c)
+ *     KiGetCurrentGroupCount @ 0x14013BB94 (KiGetCurrentGroupCount.c)
  */
 
 char __fastcall KiUpdateProcessorCount(__int64 a1, int a2)

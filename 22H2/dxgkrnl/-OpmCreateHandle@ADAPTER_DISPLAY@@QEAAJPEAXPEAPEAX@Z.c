@@ -1,42 +1,47 @@
 /*
- * XREFs of ?OpmCreateHandle@ADAPTER_DISPLAY@@QEAAJPEAXPEAPEAX@Z @ 0x1C02BE1EC
+ * XREFs of ?OpmCreateHandle@ADAPTER_DISPLAY@@QEAAJPEAXPEAPEAX@Z @ 0x1C0172E08
  * Callers:
- *     DxgkOpmCreateHandle @ 0x1C02C2904 (DxgkOpmCreateHandle.c)
+ *     DxgkOpmCreateHandle @ 0x1C0172D60 (DxgkOpmCreateHandle.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
 __int64 __fastcall ADAPTER_DISPLAY::OpmCreateHandle(DXGADAPTER **this, void *a2, void **a3)
 {
-  _BYTE *v6; // rax
-  _QWORD *v8; // rcx
-  DXGADAPTER *v9; // rdx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  _BYTE *v9; // rax
+  _QWORD *v10; // rcx
+  DXGADAPTER *v11; // rdx
+  __int64 v13; // rax
 
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 6663LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceSharedOwner()", 6663LL, 0LL, 0LL, 0LL, 0LL);
+    v13 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v13 + 24) = 6336LL;
+    WdLogEvent5_WdAssertion(v13);
   }
-  if ( this[49] != KeGetCurrentThread() )
+  if ( this[42] != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 6664LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_OpmI2CMutex.IsOwner()", 6664LL, 0LL, 0LL, 0LL, 0LL);
+    v8 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v8 + 24) = 6337LL;
+    WdLogEvent5_WdAssertion(v8);
   }
-  v6 = (_BYTE *)operator new[](0x20uLL, 0x4B677844u, 256LL);
-  if ( !v6 )
+  v9 = operator new[](0x20uLL, 0x4B677844u, PagedPool);
+  if ( !v9 )
     return 3221225495LL;
-  v8 = this + 44;
-  v6[24] = 0;
-  *((_QWORD *)v6 + 2) = a2;
-  v9 = this[44];
-  if ( *((DXGADAPTER ***)v9 + 1) != this + 44 )
+  v10 = this + 38;
+  v9[24] = 0;
+  *((_QWORD *)v9 + 2) = a2;
+  v11 = this[38];
+  if ( *((DXGADAPTER ***)v11 + 1) != this + 38 )
     __fastfail(3u);
-  *(_QWORD *)v6 = v9;
-  *((_QWORD *)v6 + 1) = v8;
-  *((_QWORD *)v9 + 1) = v6;
-  *v8 = v6;
-  *a3 = v6;
+  *(_QWORD *)v9 = v11;
+  *((_QWORD *)v9 + 1) = v10;
+  *((_QWORD *)v11 + 1) = v9;
+  *v10 = v9;
+  *a3 = v9;
   return 0LL;
 }

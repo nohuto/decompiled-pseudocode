@@ -1,47 +1,30 @@
 /*
- * XREFs of HdlspPutMore @ 0x140AEC0B8
+ * XREFs of HdlspPutMore @ 0x1409F0020
  * Callers:
- *     HdlspProcessDumpCommand @ 0x140AEBCAC (HdlspProcessDumpCommand.c)
+ *     HdlspProcessDumpCommand @ 0x1409EFC18 (HdlspProcessDumpCommand.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HdlspGetLine @ 0x140AEB690 (HdlspGetLine.c)
- *     HdlspPutString @ 0x140AEC194 (HdlspPutString.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HdlspGetLine @ 0x1409EF5F8 (HdlspGetLine.c)
+ *     HdlspPutString @ 0x1409F00C0 (HdlspPutString.c)
  */
 
 char __fastcall HdlspPutMore(bool *a1)
 {
-  int v2; // ebx
   char result; // al
   LARGE_INTEGER Interval; // [rsp+20h] [rbp-28h] BYREF
-  _BYTE v5[16]; // [rsp+28h] [rbp-20h] BYREF
+  _BYTE v4[16]; // [rsp+28h] [rbp-20h] BYREF
 
   Interval.QuadPart = -100000LL;
-  v2 = 0;
   HdlspPutString("----Press <Enter> for more----");
-  if ( HdlspGetLine(v5, 0xAuLL) )
+  while ( !HdlspGetLine(v4, 0xAuLL) )
   {
-LABEL_7:
-    *a1 = v5[0] == 3;
-    do
-      result = HdlspGetLine(v5, 0xAuLL);
-    while ( result );
+    if ( (HeadlessGlobals[6] & 2) == 0 )
+      KeDelayExecutionThread(0, 0, &Interval);
   }
-  else
-  {
-    while ( 1 )
-    {
-      if ( (HeadlessGlobals[6] & 2) == 0 )
-      {
-        KeDelayExecutionThread(0, 0, &Interval);
-        if ( (unsigned int)++v2 > 0x1770 )
-          break;
-      }
-      if ( HdlspGetLine(v5, 0xAuLL) )
-        goto LABEL_7;
-    }
-    result = HdlspPutString("\r\n No input was detected: auto-scrolling was engaged...\r\n");
-    *a1 = 0;
-  }
+  *a1 = v4[0] == 3;
+  do
+    result = HdlspGetLine(v4, 0xAuLL);
+  while ( result );
   return result;
 }

@@ -1,10 +1,11 @@
 /*
- * XREFs of SetProcessTimerDelay @ 0x1C01C08C0
+ * XREFs of SetProcessTimerDelay @ 0x1C01EAB30
  * Callers:
  *     <none>
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ??1CAutoPushLockSh@@QEAA@XZ @ 0x1C014F272 (--1CAutoPushLockSh@@QEAA@XZ.c)
+ *     ??0CAutoPushLockSh@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C0111AA4 (--0CAutoPushLockSh@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??1CAutoPushLockSh@@QEAA@XZ @ 0x1C01D8094 (--1CAutoPushLockSh@@QEAA@XZ.c)
  */
 
 __int64 __fastcall SetProcessTimerDelay(__int64 a1, unsigned int a2, unsigned int a3)
@@ -13,13 +14,10 @@ __int64 __fastcall SetProcessTimerDelay(__int64 a1, unsigned int a2, unsigned in
   int v5; // eax
   _QWORD *v6; // r9
   _QWORD *v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  _QWORD *v11; // r9
-  __int64 v12; // rcx
-  _QWORD *v13; // rax
-  void *v14; // [rsp+48h] [rbp+20h] BYREF
+  _QWORD *v8; // r9
+  __int64 v9; // rcx
+  _QWORD *v10; // rax
+  __int64 v11; // [rsp+48h] [rbp+20h] BYREF
 
   if ( a2 > 0x1B7740 )
     return 3221225712LL;
@@ -27,23 +25,23 @@ __int64 __fastcall SetProcessTimerDelay(__int64 a1, unsigned int a2, unsigned in
     return 3221225713LL;
   if ( *(_QWORD *)a1 == gpepCSRSS )
     return 3221225659LL;
-  v4 = a2 - *(_DWORD *)(a1 + 1044);
-  v5 = *(_DWORD *)(a1 + 1052);
-  *(_DWORD *)(a1 + 1052) = v4;
-  *(_DWORD *)(a1 + 1048) = a3;
+  v4 = a2 - *(_DWORD *)(a1 + 1036);
+  v5 = *(_DWORD *)(a1 + 1044);
+  *(_DWORD *)(a1 + 1044) = v4;
+  *(_DWORD *)(a1 + 1040) = a3;
   if ( v5 )
   {
     if ( v4 )
       goto LABEL_11;
-    v11 = (_QWORD *)(a1 + 1064);
-    v12 = *(_QWORD *)(a1 + 1064);
-    if ( *(_QWORD **)(*v11 + 8LL) == v11 )
+    v8 = (_QWORD *)(a1 + 1056);
+    v9 = *(_QWORD *)(a1 + 1056);
+    if ( *(_QWORD **)(*v8 + 8LL) == v8 )
     {
-      v13 = (_QWORD *)v11[1];
-      if ( (_QWORD *)*v13 == v11 )
+      v10 = (_QWORD *)v8[1];
+      if ( (_QWORD *)*v10 == v8 )
       {
-        *v13 = v12;
-        *(_QWORD *)(v12 + 8) = v13;
+        *v10 = v9;
+        *(_QWORD *)(v9 + 8) = v10;
         goto LABEL_11;
       }
     }
@@ -51,7 +49,7 @@ __int64 __fastcall SetProcessTimerDelay(__int64 a1, unsigned int a2, unsigned in
   }
   if ( v4 )
   {
-    v6 = (_QWORD *)(a1 + 1064);
+    v6 = (_QWORD *)(a1 + 1056);
     v7 = (_QWORD *)gtmrAdjustmentListHead[1];
     if ( *v7 == gtmrAdjustmentListHead[0] )
     {
@@ -67,21 +65,21 @@ LABEL_18:
 LABEL_11:
   if ( !gbTimersProcActive )
   {
-    v14 = &CRitTimerScanWakeSystem::ritTimerScanWakeSystemLock;
-    KeEnterCriticalRegion();
-    ExAcquirePushLockSharedEx(&CRitTimerScanWakeSystem::ritTimerScanWakeSystemLock, 0LL);
+    CAutoPushLockSh::CAutoPushLockSh(
+      (CAutoPushLockSh *)&v11,
+      (struct _EX_PUSH_LOCK *)&CRitTimerScanWakeSystem::ritTimerScanWakeSystemLock);
     if ( CRitTimerScanWakeSystem::ritTimerScanWakeEvent )
     {
       KeSetEvent(CRitTimerScanWakeSystem::ritTimerScanWakeEvent, 1, 0);
-      CAutoPushLockSh::~CAutoPushLockSh((CAutoPushLockSh *)&v14, v9, v10);
+      CAutoPushLockSh::~CAutoPushLockSh((CAutoPushLockSh *)&v11);
       gbRITAlerted = 1;
     }
     else
     {
-      ExReleasePushLockSharedEx(&CRitTimerScanWakeSystem::ritTimerScanWakeSystemLock, 0LL, v8);
+      ExReleasePushLockSharedEx(v11, 0LL);
       KeLeaveCriticalRegion();
       gbRITAlerted = 0;
-      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2216);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2138);
     }
   }
   return 0LL;

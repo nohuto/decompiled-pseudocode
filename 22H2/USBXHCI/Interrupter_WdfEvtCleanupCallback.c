@@ -1,10 +1,10 @@
 /*
- * XREFs of Interrupter_WdfEvtCleanupCallback @ 0x1C003E160
+ * XREFs of Interrupter_WdfEvtCleanupCallback @ 0x1C003BEC0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_qq @ 0x1C001A34C (WPP_RECORDER_SF_qq.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0016398 (WPP_RECORDER_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall Interrupter_WdfEvtCleanupCallback(__int64 a1)
@@ -16,7 +16,7 @@ void __fastcall Interrupter_WdfEvtCleanupCallback(__int64 a1)
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0063310);
+         off_1C0060310);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
     LOBYTE(v2) = 5;
@@ -24,8 +24,8 @@ void __fastcall Interrupter_WdfEvtCleanupCallback(__int64 a1)
       *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
       v2,
       9,
-      38,
-      (__int64)&WPP_89e87cee83d7332425398286600bed19_Traceguids,
+      37,
+      (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
       a1,
       v3);
   }
@@ -36,5 +36,5 @@ void __fastcall Interrupter_WdfEvtCleanupCallback(__int64 a1)
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
       WdfDriverGlobals,
       a1,
-      off_1C0063180);
+      off_1C0060180);
 }

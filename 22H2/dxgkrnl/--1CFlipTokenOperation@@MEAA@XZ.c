@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CFlipTokenOperation@@MEAA@XZ @ 0x1C00855D8
+ * XREFs of ??1CFlipTokenOperation@@MEAA@XZ @ 0x1C006BEEC
  * Callers:
- *     ??_GCFlipTokenOperation@@MEAAPEAXI@Z @ 0x1C0082700 (--_GCFlipTokenOperation@@MEAAPEAXI@Z.c)
- *     ??_ECFlipWaitedConsumerReturn@@UEAAPEAXI@Z @ 0x1C0082750 (--_ECFlipWaitedConsumerReturn@@UEAAPEAXI@Z.c)
- *     ??1CFlipPresentUpdate@@UEAA@XZ @ 0x1C00889F8 (--1CFlipPresentUpdate@@UEAA@XZ.c)
+ *     ??_GCFlipTokenOperation@@MEAAPEAXI@Z @ 0x1C006AA40 (--_GCFlipTokenOperation@@MEAAPEAXI@Z.c)
+ *     ??_ECFlipWaitedConsumerReturn@@UEAAPEAXI@Z @ 0x1C006AA90 (--_ECFlipWaitedConsumerReturn@@UEAAPEAXI@Z.c)
+ *     ??1CFlipPresentUpdate@@UEAA@XZ @ 0x1C006E9BC (--1CFlipPresentUpdate@@UEAA@XZ.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?WriteAbsolute8@@YAHPEBEPEAEH0@Z @ 0x1C02CAA7C
+ * XREFs of ?WriteAbsolute8@@YAHPEBEPEAEH0@Z @ 0x1C02CC37C
  * Callers:
- *     EncodeRLE8 @ 0x1C02CBB8C (EncodeRLE8.c)
+ *     EncodeRLE8 @ 0x1C02CD46C (EncodeRLE8.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall WriteAbsolute8(unsigned __int8 *Src, unsigned __int8 *a2, int a3, unsigned __int8 *a4)

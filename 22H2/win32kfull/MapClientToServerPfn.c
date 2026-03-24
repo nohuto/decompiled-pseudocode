@@ -1,9 +1,9 @@
 /*
- * XREFs of MapClientToServerPfn @ 0x1C00CC3D0
+ * XREFs of MapClientToServerPfn @ 0x1C00FC538
  * Callers:
- *     xxxSetClassData @ 0x1C00ADD68 (xxxSetClassData.c)
- *     xxxSetWindowData @ 0x1C00CA930 (xxxSetWindowData.c)
- *     InternalRegisterClassEx @ 0x1C00CB7A0 (InternalRegisterClassEx.c)
+ *     InternalRegisterClassEx @ 0x1C0079D30 (InternalRegisterClassEx.c)
+ *     xxxSetWindowData @ 0x1C008A1A8 (xxxSetWindowData.c)
+ *     xxxSetClassData @ 0x1C00FBF4C (xxxSetClassData.c)
  * Callees:
  *     <none>
  */

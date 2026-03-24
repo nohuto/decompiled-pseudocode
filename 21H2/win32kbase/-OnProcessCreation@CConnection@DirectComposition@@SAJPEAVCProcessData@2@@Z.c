@@ -1,40 +1,38 @@
 /*
- * XREFs of ?OnProcessCreation@CConnection@DirectComposition@@SAJPEAVCProcessData@2@@Z @ 0x1C00950E4
+ * XREFs of ?OnProcessCreation@CConnection@DirectComposition@@SAJPEAVCProcessData@2@@Z @ 0x1C005B100
  * Callers:
- *     ?OnProcessCreation@CProcessData@DirectComposition@@SAJPEAU_W32PROCESS@@@Z @ 0x1C0094F38 (-OnProcessCreation@CProcessData@DirectComposition@@SAJPEAU_W32PROCESS@@@Z.c)
+ *     ?OnProcessCreation@CProcessData@DirectComposition@@SAJPEAU_W32PROCESS@@@Z @ 0x1C005B078 (-OnProcessCreation@CProcessData@DirectComposition@@SAJPEAU_W32PROCESS@@@Z.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FC74 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     Win32AllocPoolNonPaged @ 0x1C005B490 (Win32AllocPoolNonPaged.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 __int64 __fastcall DirectComposition::CConnection::OnProcessCreation(struct DirectComposition::CProcessData *a1)
 {
   struct _ERESOURCE *v2; // rax
   struct _ERESOURCE *v3; // rbx
-  NTSTATUS v4; // esi
+  NTSTATUS v4; // edi
   __int64 result; // rax
 
-  v2 = (struct _ERESOURCE *)NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                              (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-                              68LL,
-                              0x68uLL,
-                              1935885124);
+  v2 = (struct _ERESOURCE *)Win32AllocPoolNonPaged(104LL, 1935885124LL);
   v3 = v2;
-  if ( !v2 )
+  if ( v2 )
+    memset(v2, 0, sizeof(struct _ERESOURCE));
+  else
+    v3 = 0LL;
+  if ( v3 )
+  {
+    v4 = ExInitializeResourceLite(v3);
+    if ( v4 < 0 )
+    {
+      Win32FreePool((__int64)v3);
+      v3 = 0LL;
+    }
+  }
+  else
   {
     v4 = -1073741801;
-    goto LABEL_6;
-  }
-  memset(v2, 0, sizeof(struct _ERESOURCE));
-  v4 = ExInitializeResourceLite(v3);
-  if ( v4 < 0 )
-  {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (char *)v3);
-LABEL_6:
-    v3 = 0LL;
   }
   *((_QWORD *)a1 + 3) = 0LL;
   result = (unsigned int)v4;

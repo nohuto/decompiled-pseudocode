@@ -1,53 +1,55 @@
 /*
- * XREFs of MiCaptureAndResetWorkingSetAccessBits @ 0x1403D2280
+ * XREFs of MiCaptureAndResetWorkingSetAccessBits @ 0x1403A0948
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x14030C260 (MiTrimOrAgeWorkingSet.c)
+ *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
  * Callees:
- *     MiDrainSystemAccessLog @ 0x1402829D0 (MiDrainSystemAccessLog.c)
- *     MiWalkPageTables @ 0x14030CF90 (MiWalkPageTables.c)
- *     MiTbFlushType @ 0x140333AA0 (MiTbFlushType.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
+ *     MiDrainSystemAccessLog @ 0x14025BB80 (MiDrainSystemAccessLog.c)
+ *     MiTbFlushType @ 0x140337208 (MiTbFlushType.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-char __fastcall MiCaptureAndResetWorkingSetAccessBits(__int64 a1, __int8 a2, char a3)
+__int64 __fastcall MiCaptureAndResetWorkingSetAccessBits(__int64 a1, char a2, char a3)
 {
   bool v6; // zf
   __int64 v7; // rdx
-  __int128 v9; // [rsp+20h] [rbp-E0h] BYREF
-  _DWORD *v10; // [rsp+30h] [rbp-D0h]
-  __m128i v11[11]; // [rsp+40h] [rbp-C0h] BYREF
-  _QWORD v12[24]; // [rsp+F0h] [rbp-10h] BYREF
-  _DWORD v13[68]; // [rsp+1B0h] [rbp+B0h] BYREF
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int128 v11; // [rsp+20h] [rbp-E0h] BYREF
+  _DWORD *v12; // [rsp+30h] [rbp-D0h]
+  _QWORD v13[22]; // [rsp+40h] [rbp-C0h] BYREF
+  _QWORD v14[24]; // [rsp+F0h] [rbp-10h] BYREF
+  _DWORD v15[68]; // [rsp+1B0h] [rbp+B0h] BYREF
 
-  memset(v12, 0, 0xB8uLL);
-  v10 = 0LL;
-  v9 = 0LL;
-  memset(v11, 0, sizeof(v11));
-  memset(v13, 0, 0x108uLL);
-  v11[2].m128i_i64[1] = -1LL;
-  v11[9].m128i_i64[1] = (__int64)MiResetAccessBitPte;
+  memset(v14, 0, 0xB8uLL);
+  v12 = 0LL;
+  v11 = 0LL;
+  memset(v13, 0, sizeof(v13));
+  memset(v15, 0, 0x108uLL);
+  v13[5] = -1LL;
+  LOWORD(v13[0]) = 6;
   v6 = (*(_BYTE *)(a1 + 184) & 7) == 0;
-  v11[10].m128i_i64[0] = (__int64)MiResetAccessBitsTail;
-  v11[0].m128i_i32[0] = 6;
-  v11[1].m128i_i64[1] = a1;
-  v11[0].m128i_i8[7] = a2;
+  v13[19] = MiResetAccessBitPte;
+  v13[20] = MiResetAccessBitsTail;
+  v13[3] = a1;
+  BYTE6(v13[0]) = a2;
   if ( v6 && *(_QWORD *)(a1 + 624) )
   {
-    v13[1] = 32;
-    v10 = v13;
+    v15[1] = 32;
+    v12 = v15;
   }
   if ( (a3 & 0x10) != 0 )
   {
-    *((_QWORD *)&v9 + 1) = v12;
-    LODWORD(v12[0]) = MiTbFlushType(a1);
-    WORD2(v12[0]) = v7;
-    v12[2] = v7;
-    LODWORD(v12[1]) = 20;
-    v12[3] = v7;
+    *((_QWORD *)&v11 + 1) = v14;
+    LODWORD(v14[0]) = MiTbFlushType(a1);
+    WORD2(v14[0]) = v7;
+    v14[2] = v7;
+    LODWORD(v14[1]) = 20;
+    v14[3] = v7;
   }
-  LODWORD(v9) = dword_140C52B68;
-  v11[10].m128i_i64[1] = (__int64)&v9;
-  MiWalkPageTables(v11);
-  return MiDrainSystemAccessLog(a1);
+  LODWORD(v11) = dword_140C4E828;
+  v13[21] = &v11;
+  MiWalkPageTables((__int64)v13);
+  return MiDrainSystemAccessLog(a1, v8, v9);
 }

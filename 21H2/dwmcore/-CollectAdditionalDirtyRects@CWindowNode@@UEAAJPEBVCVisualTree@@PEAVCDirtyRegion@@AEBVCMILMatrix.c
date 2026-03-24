@@ -1,58 +1,62 @@
 /*
- * XREFs of ?CollectAdditionalDirtyRects@CWindowNode@@UEAAJPEBVCVisualTree@@PEAVCDirtyRegion@@AEBVCMILMatrix@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800B8310
+ * XREFs of ?CollectAdditionalDirtyRects@CWindowNode@@UEAAJPEBVCVisualTree@@PEAVCDirtyRegion@@AEBVCMILMatrix@@W4Enum@MilBitmapInterpolationMode@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18009FFF0
  * Callers:
  *     <none>
  * Callees:
- *     ?AddNewComposeTopContent@CDesktopTree@@QEAAJPEAVIBitmapResource@@AEBVCShape@@AEBVCMILMatrix@@@Z @ 0x180016F54 (-AddNewComposeTopContent@CDesktopTree@@QEAAJPEAVIBitmapResource@@AEBVCShape@@AEBVCMILMatrix@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?CollectAdditionalDirtyRects@CVisual@@MEAAJPEBVCVisualTree@@PEAVCDirtyRegion@@AEBVCMILMatrix@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800B5C00 (-CollectAdditionalDirtyRects@CVisual@@MEAAJPEBVCVisualTree@@PEAVCDirtyRegion@@AEBVCMILMatrix@@PE.c)
- *     ??ACPtrArrayBase@@IEBA_K_K@Z @ 0x1800D18A0 (--ACPtrArrayBase@@IEBA_K_K@Z.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800D36F8 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ?GetAccumShape@CGdiSpriteBitmap@@QEAA?AVCShapePtr@@_N@Z @ 0x1800E2C04 (-GetAccumShape@CGdiSpriteBitmap@@QEAA-AVCShapePtr@@_N@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CollectAdditionalDirtyRects@CVisual@@MEAAJPEBVCVisualTree@@PEAVCDirtyRegion@@AEBVCMILMatrix@@W4Enum@MilBitmapInterpolationMode@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800A0060 (-CollectAdditionalDirtyRects@CVisual@@MEAAJPEBVCVisualTree@@PEAVCDirtyRegion@@AEBVCMILMatrix@@W4.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C891C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?AddNewComposeTopContent@CDesktopTree@@QEAAJPEAVIBitmapResource@@AEBVCShape@@AEBVCMILMatrix@@@Z @ 0x1801B2214 (-AddNewComposeTopContent@CDesktopTree@@QEAAJPEAVIBitmapResource@@AEBVCShape@@AEBVCMILMatrix@@@Z.c)
  */
 
 __int64 __fastcall CWindowNode::CollectAdditionalDirtyRects(
-        CVisual *a1,
+        __int64 a1,
         CDesktopTree *a2,
         __int64 a3,
-        const struct CMILMatrix *a4,
-        float *a5)
+        const struct CMILMatrix *a4)
 {
-  int v8; // eax
-  __int64 v9; // rcx
-  unsigned int v10; // edi
-  __int64 v12; // rax
-  __int64 v13; // r8
-  __int64 v14; // rax
-  const struct CShape *v15; // r10
-  _QWORD v16[3]; // [rsp+30h] [rbp-18h] BYREF
+  int v7; // eax
+  __int64 v8; // rcx
+  unsigned int v9; // edi
+  __int64 v11; // r8
+  __int64 v12; // rcx
+  int v13; // eax
+  __int64 v14; // rcx
+  __int64 v15; // rdx
+  struct CShape *v16; // [rsp+30h] [rbp-18h] BYREF
+  char v17; // [rsp+38h] [rbp-10h]
 
-  v8 = CVisual::CollectAdditionalDirtyRects(a1, (__int64)a2, a3, (__int64)a4, a5);
-  v10 = v8;
-  if ( v8 < 0 )
+  v7 = CVisual::CollectAdditionalDirtyRects(a1, a2);
+  v9 = v7;
+  if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0x14Au);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x163u, 0LL);
   }
-  else if ( *((_BYTE *)a1 + 914)
-         && !*((_BYTE *)a1 + 915)
-         && *((_BYTE *)a1 + 919)
-         && (*(unsigned __int8 (__fastcall **)(CDesktopTree *))(*(_QWORD *)a2 + 184LL))(a2) )
+  else if ( *(_BYTE *)(a1 + 914)
+         && !*(_BYTE *)(a1 + 915)
+         && *(_QWORD *)(a1 + 720)
+         && (*(unsigned __int8 (__fastcall **)(CDesktopTree *))(*(_QWORD *)a2 + 200LL))(a2) )
   {
-    v12 = CPtrArrayBase::operator[]((char *)a1 + 800, 0LL);
-    LOBYTE(v13) = 1;
-    CGdiSpriteBitmap::GetAccumShape(v12, v16, v13);
-    if ( v16[0] )
+    v12 = *(_QWORD *)(a1 + 720);
+    v16 = 0LL;
+    LOBYTE(v11) = 1;
+    v17 = 0;
+    v13 = (*(__int64 (__fastcall **)(__int64, struct CShape **, __int64))(*(_QWORD *)v12 + 32LL))(v12, &v16, v11);
+    v9 = v13;
+    if ( v13 < 0 )
     {
-      v14 = CPtrArrayBase::operator[]((char *)a1 + 800, 0LL);
-      if ( (int)CDesktopTree::AddNewComposeTopContent(
-                  a2,
-                  (struct IBitmapResource *)((v14 + 96) & ((unsigned __int128)-(__int128)(unsigned __int64)v14 >> 64)),
-                  v15,
-                  a4) >= 0 )
-        *((_BYTE *)a1 + 915) = 1;
+      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x16Fu, 0LL);
     }
-    CShapePtr::Release((CShapePtr *)v16);
+    else if ( v16 )
+    {
+      v15 = *(_QWORD *)(a1 + 720);
+      if ( v15 )
+        v15 += *(int *)(*(_QWORD *)(v15 + 8) + 8LL) + 8LL;
+      if ( CDesktopTree::AddNewComposeTopContent(a2, (struct IBitmapResource *)v15, v16, a4) >= 0 )
+        *(_BYTE *)(a1 + 915) = 1;
+    }
+    CShapePtr::Release((CShapePtr *)&v16);
   }
-  return v10;
+  return v9;
 }

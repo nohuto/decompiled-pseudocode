@@ -1,5 +1,5 @@
 /*
- * XREFs of GetgbFinishDefGUIFontInit @ 0x1C0121C00
+ * XREFs of GetgbFinishDefGUIFontInit @ 0x1C01362D0
  * Callers:
  *     <none>
  * Callees:

@@ -1,18 +1,18 @@
 /*
- * XREFs of SepDuplicateClaimAttributes @ 0x1408A3F40
+ * XREFs of SepDuplicateClaimAttributes @ 0x1408A3F20
  * Callers:
  *     SepConvertToOwnTokenClaims @ 0x1400140D8 (SepConvertToOwnTokenClaims.c)
- *     SepDuplicateTokenClaims @ 0x1408A414C (SepDuplicateTokenClaims.c)
+ *     SepDuplicateTokenClaims @ 0x1408A412C (SepDuplicateTokenClaims.c)
  * Callees:
  *     AuthzBasepFreeSecurityAttributesList @ 0x140021130 (AuthzBasepFreeSecurityAttributesList.c)
- *     RtlSidHashInitialize @ 0x1400CC420 (RtlSidHashInitialize.c)
- *     AuthzBasepDuplicateSecurityAttributes @ 0x1400CC5F0 (AuthzBasepDuplicateSecurityAttributes.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x140181860 (AuthzBasepAllocateSecurityAttributesList.c)
+ *     RtlSidHashInitialize @ 0x1400CC440 (RtlSidHashInitialize.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1400CC610 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x140181880 (AuthzBasepAllocateSecurityAttributesList.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SepLengthSidAndAttributesArray @ 0x1405BD014 (SepLengthSidAndAttributesArray.c)
  *     SeCaptureSidAndAttributesArray @ 0x1405BD0D0 (SeCaptureSidAndAttributesArray.c)
- *     AuthzBasepAllocateClaimCollectionNoLists @ 0x1408EE384 (AuthzBasepAllocateClaimCollectionNoLists.c)
+ *     AuthzBasepAllocateClaimCollectionNoLists @ 0x1408EE364 (AuthzBasepAllocateClaimCollectionNoLists.c)
  */
 
 __int64 __fastcall SepDuplicateClaimAttributes(unsigned int *a1, _QWORD *a2)

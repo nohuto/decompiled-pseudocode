@@ -1,9 +1,9 @@
 /*
- * XREFs of NtSetCachedSigningLevel @ 0x1407FFC50
+ * XREFs of NtSetCachedSigningLevel @ 0x14072B4C0
  * Callers:
  *     <none>
  * Callees:
- *     NtSetCachedSigningLevel2 @ 0x1407FFC80 (NtSetCachedSigningLevel2.c)
+ *     NtSetCachedSigningLevel2 @ 0x14072B4F0 (NtSetCachedSigningLevel2.c)
  */
 
 __int64 __fastcall NtSetCachedSigningLevel(int a1, int a2, int a3, int a4, __int64 a5)

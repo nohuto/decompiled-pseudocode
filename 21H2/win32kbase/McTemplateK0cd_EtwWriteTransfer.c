@@ -1,16 +1,16 @@
 /*
- * XREFs of McTemplateK0cd_EtwWriteTransfer @ 0x1C014F320
+ * XREFs of McTemplateK0cd_EtwWriteTransfer @ 0x1C0124630
  * Callers:
- *     EtwTraceEndAppMessageProcessing @ 0x1C008F310 (EtwTraceEndAppMessageProcessing.c)
- *     EtwTraceEndDispatchMessage @ 0x1C00AD6B0 (EtwTraceEndDispatchMessage.c)
- *     EtwTraceBeginDispatchMessage @ 0x1C00AD6D0 (EtwTraceBeginDispatchMessage.c)
- *     EtwTraceWakeMIT @ 0x1C00AE640 (EtwTraceWakeMIT.c)
- *     EtwTraceEndTranslateMessage @ 0x1C00BC7A0 (EtwTraceEndTranslateMessage.c)
- *     EtwTraceBeginTranslateMessage @ 0x1C00BC7C0 (EtwTraceBeginTranslateMessage.c)
- *     EtwTraceWakeRIT @ 0x1C00C1100 (EtwTraceWakeRIT.c)
+ *     EtwTraceEndAppMessageProcessing @ 0x1C007F8D0 (EtwTraceEndAppMessageProcessing.c)
+ *     EtwTraceBeginDispatchMessage @ 0x1C0096930 (EtwTraceBeginDispatchMessage.c)
+ *     EtwTraceEndDispatchMessage @ 0x1C0096950 (EtwTraceEndDispatchMessage.c)
+ *     EtwTraceWakeDIT @ 0x1C009C120 (EtwTraceWakeDIT.c)
+ *     EtwTraceEndTranslateMessage @ 0x1C00A9680 (EtwTraceEndTranslateMessage.c)
+ *     EtwTraceBeginTranslateMessage @ 0x1C00A96A0 (EtwTraceBeginTranslateMessage.c)
+ *     EtwTraceWakeRIT @ 0x1C00B0C40 (EtwTraceWakeRIT.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0047300 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00554F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0cd_EtwWriteTransfer(

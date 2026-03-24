@@ -1,30 +1,27 @@
 /*
- * XREFs of ExReleaseAutoExpandPushLockShared @ 0x140230AB0
+ * XREFs of ExReleaseAutoExpandPushLockShared @ 0x1402E70E0
  * Callers:
- *     FsRtlLookupPerFileContext @ 0x1403686F0 (FsRtlLookupPerFileContext.c)
- *     MiUnlockAweVadsShared @ 0x14064BEB8 (MiUnlockAweVadsShared.c)
+ *     MiUnlockAweVadsShared @ 0x14054DF0C (MiUnlockAweVadsShared.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfReleasePushLockSharedEx @ 0x1403266F8 (ExfReleasePushLockSharedEx.c)
- *     ExpTryExpandAutoExpandPushLock @ 0x1403D4838 (ExpTryExpandAutoExpandPushLock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExfReleasePushLockSharedEx @ 0x1402E7260 (ExfReleasePushLockSharedEx.c)
+ *     ExpTryExpandAutoExpandPushLock @ 0x140390A04 (ExpTryExpandAutoExpandPushLock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-unsigned __int64 __fastcall ExReleaseAutoExpandPushLockShared(
-        ULONG_PTR BugCheckParameter2,
-        ULONG_PTR BugCheckParameter1)
+char __fastcall ExReleaseAutoExpandPushLockShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
 {
-  char v2; // di
-  ULONG_PTR v3; // rbx
+  char v2; // bl
+  ULONG_PTR v3; // rdi
   unsigned int v4; // esi
-  unsigned __int64 result; // rax
+  signed __int64 v5; // rax
   unsigned int v6; // esi
-  unsigned __int64 v7; // [rsp+60h] [rbp+18h] BYREF
+  unsigned __int64 v8; // [rsp+60h] [rbp+18h] BYREF
 
   v2 = BugCheckParameter1;
-  v7 = 0LL;
-  if ( (BugCheckParameter1 & 0xFFFFFFF8) != 0 || (BugCheckParameter2 & 2) != 0 && (BugCheckParameter1 & 2) != 0 )
+  v8 = 0LL;
+  if ( (BugCheckParameter1 & 0xFFFFFFFC) != 0 || (BugCheckParameter2 & 2) != 0 && (BugCheckParameter1 & 2) != 0 )
     KeBugCheckEx(0x152u, (unsigned int)BugCheckParameter1, BugCheckParameter2, 0LL, 0LL);
   v3 = BugCheckParameter2 & 0xFFFFFFFFFFFFFFFCuLL;
   if ( (BugCheckParameter2 & 1) != 0 )
@@ -45,8 +42,8 @@ unsigned __int64 __fastcall ExReleaseAutoExpandPushLockShared(
         ExpTryExpandAutoExpandPushLock(BugCheckParameter2 & 0xFFFFFFFFFFFFFFFCuLL);
       }
     }
-    result = _InterlockedCompareExchange64((volatile signed __int64 *)v3, 0LL, 17LL);
-    if ( result == 17 )
+    v5 = _InterlockedCompareExchange64((volatile signed __int64 *)v3, 0LL, 17LL);
+    if ( v5 == 17 )
     {
 LABEL_6:
       if ( v4 < 0x80000000 )
@@ -55,35 +52,35 @@ LABEL_6:
     }
     if ( (v4 & ExpAeSamplingPeriodMask) == 0 )
     {
-      result = ExfReleasePushLockSharedEx(v3, &v7);
-      if ( !v7 )
+      LOBYTE(v5) = ExfReleasePushLockSharedEx(v3, &v8);
+      if ( !v8 )
         goto LABEL_8;
       v6 = *(_DWORD *)(v3 + 12);
       if ( v6 >= 0x80000000 )
         goto LABEL_8;
-      result = v7 >> ExpAeCycleCountScaler;
-      if ( v7 >> ExpAeCycleCountScaler > 0x1FF )
-        result = 511LL;
-      v4 = result + v6;
+      v5 = v8 >> ExpAeCycleCountScaler;
+      if ( v8 >> ExpAeCycleCountScaler > 0x1FF )
+        LODWORD(v5) = 511;
+      v4 = v5 + v6;
       goto LABEL_6;
     }
     ExfReleasePushLockSharedEx(v3, 0LL);
-    result = *(unsigned int *)(v3 + 12);
-    if ( (unsigned int)result < 0x80000000 )
+    LODWORD(v5) = *(_DWORD *)(v3 + 12);
+    if ( (unsigned int)v5 < 0x80000000 )
     {
-      result = (unsigned int)(result + 0x100000);
-      *(_DWORD *)(v3 + 12) = result;
+      LODWORD(v5) = v5 + 0x100000;
+      *(_DWORD *)(v3 + 12) = v5;
     }
   }
   else
   {
-    result = _InterlockedCompareExchange64((volatile signed __int64 *)v3, 0LL, 17LL);
-    if ( result != 17 )
-      result = ExfReleasePushLockShared(BugCheckParameter2 & 0xFFFFFFFFFFFFFFFCuLL);
+    v5 = _InterlockedCompareExchange64((volatile signed __int64 *)v3, 0LL, 17LL);
+    if ( v5 != 17 )
+      LOBYTE(v5) = ExfReleasePushLockShared((signed __int64 *)(BugCheckParameter2 & 0xFFFFFFFFFFFFFFFCuLL));
     v3 = *(_QWORD *)(v3 + 8);
   }
 LABEL_8:
   if ( (v2 & 2) == 0 )
-    return KeAbPostRelease(v3);
-  return result;
+    LOBYTE(v5) = KeAbPostRelease(v3);
+  return v5;
 }

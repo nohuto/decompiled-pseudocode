@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpStartTrace @ 0x1406EDF6C
+ * XREFs of EtwpStartTrace @ 0x1406C1AB4
  * Callers:
- *     NtTraceControl @ 0x1407954F0 (NtTraceControl.c)
- *     EtwWmitraceWorker @ 0x1409E8E6C (EtwWmitraceWorker.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
+ *     EtwWmitraceWorker @ 0x14093C8C4 (EtwWmitraceWorker.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwpStartLogger @ 0x1406EE2AC (EtwpStartLogger.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     EtwpStartLogger @ 0x1406DE1A0 (EtwpStartLogger.c)
  */
 
 __int64 __fastcall EtwpStartTrace(__int64 a1, __int64 a2)
@@ -17,10 +17,10 @@ __int64 __fastcall EtwpStartTrace(__int64 a1, __int64 a2)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = (struct _KMUTANT *)(a1 + 4608);
-  KeWaitForSingleObject((PVOID)(a1 + 4608), Executive, 0, 0, 0LL);
+  v5 = (struct _KMUTANT *)(a1 + 4584);
+  KeWaitForSingleObject((PVOID)(a1 + 4584), Executive, 0, 0, 0LL);
   LODWORD(a2) = EtwpStartLogger(a1, a2);
   KeReleaseMutex(v5, 0);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)a2;
 }

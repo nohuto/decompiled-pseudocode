@@ -1,16 +1,16 @@
 /*
- * XREFs of ?MagnifierRenderTargetCreate@CChannel@@UEAAJI_KAEBUMAGN_ADAPTERTEXTURES@@@Z @ 0x1801AB050
+ * XREFs of ?MagnifierRenderTargetCreate@CChannel@@UEAAJI_KAEBUMAGN_ADAPTERTEXTURES@@@Z @ 0x1801503A0
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
  */
 
 __int64 __fastcall CChannel::MagnifierRenderTargetCreate(
-        CDataStreamWriter **this,
+        CChannel *this,
         unsigned int a2,
         __int64 a3,
         const struct MAGN_ADAPTERTEXTURES *a4)
@@ -46,10 +46,10 @@ __int64 __fastcall CChannel::MagnifierRenderTargetCreate(
   __int128 v37; // [rsp+F0h] [rbp-18h]
   struct _RTL_CRITICAL_SECTION *v38; // [rsp+110h] [rbp+8h] BYREF
 
-  v38 = (struct _RTL_CRITICAL_SECTION *)(this + 21);
-  EnterCriticalSection((LPCRITICAL_SECTION)(this + 21));
+  v38 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
   CChannel::CheckHandle((__int64)this, a2, 102);
-  v22 = 243;
+  v22 = 252;
   memset_0(&v23, 0, 0xDCuLL);
   v8 = *(_OWORD *)a4;
   v23 = a2;

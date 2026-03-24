@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhPdoPnp_QueryResourceRequirements @ 0x1C0055970
+ * XREFs of UsbhPdoPnp_QueryResourceRequirements @ 0x1C0057010
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhInstallMsOs20RegistryProperties @ 0x1C0032D88 (UsbhInstallMsOs20RegistryProperties.c)
- *     UsbhInstallMsOsExtendedProperties @ 0x1C0032E68 (UsbhInstallMsOsExtendedProperties.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhInstallMsOs20RegistryProperties @ 0x1C00340C8 (UsbhInstallMsOs20RegistryProperties.c)
+ *     UsbhInstallMsOsExtendedProperties @ 0x1C00341A8 (UsbhInstallMsOsExtendedProperties.c)
  */
 
 __int64 __fastcall UsbhPdoPnp_QueryResourceRequirements(PDEVICE_OBJECT Pdo, PIRP Irp)

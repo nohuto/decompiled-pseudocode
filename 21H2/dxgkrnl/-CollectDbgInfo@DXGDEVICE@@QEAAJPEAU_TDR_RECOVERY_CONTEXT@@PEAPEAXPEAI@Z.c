@@ -1,10 +1,9 @@
 /*
- * XREFs of ?CollectDbgInfo@DXGDEVICE@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@PEAPEAXPEAI@Z @ 0x1C02E41B4
+ * XREFs of ?CollectDbgInfo@DXGDEVICE@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@PEAPEAXPEAI@Z @ 0x1C0253DEC
  * Callers:
- *     ?DxgkCollectCoreDbgInfo@@YAJPEAU_TDR_RECOVERY_CONTEXT@@PEAXI@Z @ 0x1C02CED4C (-DxgkCollectCoreDbgInfo@@YAJPEAU_TDR_RECOVERY_CONTEXT@@PEAXI@Z.c)
+ *     ?DxgkCollectCoreDbgInfo@@YAJPEAU_TDR_RECOVERY_CONTEXT@@PEAXI@Z @ 0x1C0220FE8 (-DxgkCollectCoreDbgInfo@@YAJPEAU_TDR_RECOVERY_CONTEXT@@PEAXI@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
  */
 
 __int64 __fastcall DXGDEVICE::CollectDbgInfo(
@@ -13,37 +12,32 @@ __int64 __fastcall DXGDEVICE::CollectDbgInfo(
         void **a3,
         unsigned int *a4)
 {
-  char *v8; // rcx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  char *v11; // rcx
 
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(*((_QWORD *)this + 2) + 16LL)) )
   {
-    WdLogSingleEntry1(1LL, 1414LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetRenderCore()->IsCoreResourceExclusiveOwner()",
-      1414LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v9 = WdLogNewEntry5_WdAssertion(v8, v7);
+    *(_QWORD *)(v9 + 24) = 1412LL;
+    WdLogEvent5_WdAssertion(v9);
   }
   if ( *a4 < 0xA0 )
     return 2147483653LL;
-  v8 = (char *)*a3;
-  *(_DWORD *)v8 = 1769366852;
-  *((_DWORD *)v8 + 1) = *((_DWORD *)this + 108);
-  *(_OWORD *)(v8 + 8) = *((_OWORD *)this + 37);
-  *((_QWORD *)v8 + 3) = *((_QWORD *)this + 76);
-  *((_OWORD *)v8 + 2) = *(_OWORD *)((char *)this + 1208);
-  *((_OWORD *)v8 + 3) = *(_OWORD *)((char *)this + 1224);
-  *((_OWORD *)v8 + 4) = *(_OWORD *)((char *)this + 1240);
-  *((_OWORD *)v8 + 5) = *(_OWORD *)((char *)this + 1256);
-  *((_OWORD *)v8 + 6) = *(_OWORD *)((char *)this + 1784);
-  *((_OWORD *)v8 + 7) = *(_OWORD *)((char *)this + 1800);
-  *((_OWORD *)v8 + 8) = *(_OWORD *)((char *)this + 1816);
-  *((_OWORD *)v8 + 9) = *(_OWORD *)((char *)this + 1832);
+  v11 = (char *)*a3;
+  *(_DWORD *)v11 = 1769366852;
+  *((_DWORD *)v11 + 1) = *((_DWORD *)this + 108);
+  *(_OWORD *)(v11 + 8) = *((_OWORD *)this + 37);
+  *((_QWORD *)v11 + 3) = *((_QWORD *)this + 76);
+  *((_OWORD *)v11 + 2) = *(_OWORD *)((char *)this + 1208);
+  *((_OWORD *)v11 + 3) = *(_OWORD *)((char *)this + 1224);
+  *((_OWORD *)v11 + 4) = *(_OWORD *)((char *)this + 1240);
+  *((_OWORD *)v11 + 5) = *(_OWORD *)((char *)this + 1256);
+  *((_OWORD *)v11 + 6) = *(_OWORD *)((char *)this + 1784);
+  *((_OWORD *)v11 + 7) = *(_OWORD *)((char *)this + 1800);
+  *((_OWORD *)v11 + 8) = *(_OWORD *)((char *)this + 1816);
+  *((_OWORD *)v11 + 9) = *(_OWORD *)((char *)this + 1832);
   *a3 = (char *)*a3 + 160;
   *a4 -= 160;
   return 0LL;

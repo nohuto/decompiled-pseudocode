@@ -1,99 +1,156 @@
 /*
- * XREFs of NtUserInvalidateRect @ 0x1C00313D0
+ * XREFs of NtUserInvalidateRect @ 0x1C0072000
  * Callers:
  *     <none>
  * Callees:
- *     xxxRedrawWindow @ 0x1C0031604 (xxxRedrawWindow.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??B?$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ @ 0x1C0138C00 (--B-$SGDCRITTYPEgpresUser@PEAU_ERESOURCE@@@@QEAAAEAPEAU_ERESOURCE@@XZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005B960 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     xxxRedrawWindow @ 0x1C00722B4 (xxxRedrawWindow.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall NtUserInvalidateRect(__int64 a1, ULONG64 a2)
+// write access to const memory has been detected, the output may be wrong!
+__int64 __fastcall NtUserInvalidateRect(__int64 a1, __int128 *a2)
 {
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  PERESOURCE *v7; // rax
-  __int64 v8; // rdi
-  __int64 *ThreadWin32Thread; // rax
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  char v13; // r15
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
   __int64 CurrentProcess; // rax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  struct tagWND *v19; // r14
-  int v20; // esi
-  __int128 *v21; // rsi
-  unsigned int CurrentThreadDpiAwarenessContext; // eax
-  __int64 v23; // rdx
+  ULONG64 v8; // rcx
+  int v9; // edi
+  __int64 v10; // rsi
+  struct _KTHREAD *CurrentThread; // r15
+  __int64 v12; // r14
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 *ThreadWin32Thread; // rax
+  struct _KTHREAD *v17; // r15
+  __int64 v18; // r14
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 *v22; // rax
+  unsigned int v23; // ebx
   __int64 v24; // rcx
-  __int64 v25; // r8
-  unsigned int v27; // [rsp+24h] [rbp-84h]
-  __int128 v29; // [rsp+50h] [rbp-58h] BYREF
-  __int64 v30; // [rsp+60h] [rbp-48h]
-  __int128 v31; // [rsp+68h] [rbp-40h] BYREF
+  int v25; // ebx
+  bool v26; // cf
+  int v27; // eax
+  struct _KTHREAD *v28; // r15
+  __int64 v29; // r14
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // r8
+  __int64 *v33; // rax
+  __int64 v34; // rcx
+  __int64 v36; // rax
+  int ProcessSessionId; // ebx
+  __int64 v38; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v40; // rax
+  int v41; // ebx
+  __int64 v42; // rcx
+  __int64 v43; // rax
+  __int64 v44; // rax
+  int v45; // ebx
+  __int64 v46; // rcx
+  __int64 v47; // rax
+  __int128 v48; // [rsp+38h] [rbp-60h] BYREF
+  __int64 v49; // [rsp+48h] [rbp-50h]
+  __int128 v50; // [rsp+58h] [rbp-40h] BYREF
 
-  v29 = 0LL;
-  v30 = 0LL;
-  v31 = 0LL;
-  EnterCrit(0LL, 0LL);
-  v7 = (PERESOURCE *)SGDCRITTYPEgpresUser<_ERESOURCE *>::operator _ERESOURCE * &(v4, v3, v5, v6);
-  if ( !ExIsResourceAcquiredSharedLite(*v7) )
-  {
-    v27 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 151LL);
-  }
-  v8 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v8 = *ThreadWin32Thread;
-  v13 = 0;
-  CurrentProcess = PsGetCurrentProcess(v11, v10, v12);
+  v48 = 0LL;
+  v49 = 0LL;
+  v50 = 0LL;
+  EnterCrit(0LL, 1LL);
+  CurrentProcess = PsGetCurrentProcess(v5, v4, v6);
+  v9 = 0;
   if ( (unsigned int)IsProcessDwm(CurrentProcess) )
-  {
-    v27 = *(_DWORD *)(v8 + 1548);
-    *(_DWORD *)(v8 + 1548) = 0;
-    v13 = 1;
-  }
+    gbValidateHandleForIL = 0;
   if ( a1 )
   {
-    v19 = (struct tagWND *)ValidateHwnd(a1);
-    if ( !v19 )
-    {
-      v20 = 0;
-      goto LABEL_17;
-    }
+    v10 = ValidateHwnd(a1);
+    if ( !v10 )
+      goto LABEL_31;
   }
   else
   {
-    v19 = 0LL;
+    v10 = 0LL;
   }
-  v21 = (__int128 *)a2;
   if ( a2 )
   {
-    if ( a2 >= MmUserProbeAddress )
-      v21 = (__int128 *)MmUserProbeAddress;
-    v31 = *v21;
-    CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(MmUserProbeAddress);
-    if ( (unsigned __int8)ShouldVirtualizeWindowRect(v19, CurrentThreadDpiAwarenessContext) )
-      TransformRectBetweenCoordinateSpaces(&v31, &v31, 0LL, v19);
+    v8 = MmUserProbeAddress;
+    if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+      a2 = (__int128 *)MmUserProbeAddress;
+    v50 = *a2;
+    if ( v10 )
+    {
+      CurrentThread = KeGetCurrentThread();
+      v12 = 0LL;
+      if ( !(unsigned __int8)KeIsAttachedProcess(MmUserProbeAddress)
+        || (v36 = PsGetCurrentProcess(v14, v13, v15),
+            ProcessSessionId = PsGetProcessSessionIdEx(v36),
+            CurrentThreadProcess = PsGetCurrentThreadProcess(v38),
+            ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+      {
+        ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+        if ( ThreadWin32Thread )
+          v12 = *ThreadWin32Thread;
+      }
+      if ( (*(_BYTE *)(*(_QWORD *)(v12 + 480) + 224LL) & 1) == 0 )
+      {
+        v17 = KeGetCurrentThread();
+        v18 = 0LL;
+        if ( !(unsigned __int8)KeIsAttachedProcess(v8)
+          || (v40 = PsGetCurrentProcess(v20, v19, v21),
+              v41 = PsGetProcessSessionIdEx(v40),
+              v43 = PsGetCurrentThreadProcess(v42),
+              v41 == (unsigned int)PsGetProcessSessionIdEx(v43)) )
+        {
+          v22 = (__int64 *)PsGetThreadWin32Thread(v17);
+          if ( v22 )
+            v18 = *v22;
+        }
+        if ( (*(_BYTE *)(*(_QWORD *)(v18 + 480) + 224LL) & 0x20) == 0 )
+        {
+          v23 = *(_DWORD *)(*(_QWORD *)(v10 + 40) + 288LL);
+          if ( (((unsigned __int16)(v23 >> 8) ^ (unsigned __int16)((unsigned int)W32GetCurrentThreadDpiAwarenessContext(v8) >> 8)) & 0x1FF) != 0 )
+            goto LABEL_38;
+          v24 = *(unsigned int *)(*(_QWORD *)(v10 + 40) + 288LL);
+          if ( (*(_DWORD *)(*(_QWORD *)(v10 + 40) + 288LL) & 0xF) != 2 || (v25 = 1, (v24 & 0x20000000) == 0) )
+            v25 = 0;
+          if ( (W32GetCurrentThreadDpiAwarenessContext(v24) & 0xF) != 2
+            || (v26 = (W32GetCurrentThreadDpiAwarenessContext(v8) & 0x20000000) != 0, v27 = 1, !v26) )
+          {
+            v27 = 0;
+          }
+          if ( v25 != v27 )
+LABEL_38:
+            TransformRectBetweenCoordinateSpaces(&v50, &v50, 0LL, v10);
+        }
+      }
+    }
   }
-  ThreadLock(v19, &v29);
-  v20 = xxxRedrawWindow(v19);
-  ThreadUnlock1(v24, v23, v25);
-LABEL_17:
-  if ( v13 )
+  v28 = KeGetCurrentThread();
+  v29 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(v8)
+    || (v44 = PsGetCurrentProcess(v31, v30, v32),
+        v45 = PsGetProcessSessionIdEx(v44),
+        v47 = PsGetCurrentThreadProcess(v46),
+        v45 == (unsigned int)PsGetProcessSessionIdEx(v47)) )
   {
-    v16 = v27;
-    *(_DWORD *)(v8 + 1548) = v27;
+    v33 = (__int64 *)PsGetThreadWin32Thread(v28);
+    if ( v33 )
+      v29 = *v33;
   }
-  UserSessionSwitchLeaveCrit(v16, v15, v17, v18);
-  return v20;
+  *(_QWORD *)&v48 = *(_QWORD *)(v29 + 416);
+  *(_QWORD *)(v29 + 416) = &v48;
+  *((_QWORD *)&v48 + 1) = v10;
+  if ( v10 )
+    HMLockObject(v10);
+  v9 = xxxRedrawWindow((struct tagWND *)v10);
+  ThreadUnlock1(v34);
+LABEL_31:
+  UserSessionSwitchLeaveCrit(v8);
+  return v9;
 }

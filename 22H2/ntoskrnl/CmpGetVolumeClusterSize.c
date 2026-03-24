@@ -1,43 +1,43 @@
 /*
- * XREFs of CmpGetVolumeClusterSize @ 0x14068936C
+ * XREFs of CmpGetVolumeClusterSize @ 0x14071D1A8
  * Callers:
- *     CmpOpenHiveFile @ 0x14068BA80 (CmpOpenHiveFile.c)
- *     CmpCreateHive @ 0x14070247C (CmpCreateHive.c)
+ *     CmpOpenHiveFile @ 0x1406EA6B8 (CmpOpenHiveFile.c)
+ *     CmpCreateHive @ 0x14071D9E8 (CmpCreateHive.c)
  * Callees:
- *     IoAllocateIrp @ 0x14022E630 (IoAllocateIrp.c)
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     IoGetAttachedDeviceReference @ 0x140259FE0 (IoGetAttachedDeviceReference.c)
- *     IoFreeIrp @ 0x1402AF1E0 (IoFreeIrp.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwQueryVolumeInformationFile @ 0x14041AFC0 (ZwQueryVolumeInformationFile.c)
- *     CmpCreateEvent @ 0x1406898C8 (CmpCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
+ *     IoGetAttachedDeviceReference @ 0x14022C380 (IoGetAttachedDeviceReference.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     IoFreeIrp @ 0x1402D3CF0 (IoFreeIrp.c)
+ *     IoAllocateIrp @ 0x1403616C0 (IoAllocateIrp.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwQueryVolumeInformationFile @ 0x1403FA340 (ZwQueryVolumeInformationFile.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     CmpCreateEvent @ 0x1406EAC60 (CmpCreateEvent.c)
  */
 
 NTSTATUS __fastcall CmpGetVolumeClusterSize(HANDLE FileHandle, int *a2)
 {
   struct _OBJECT_TYPE *v4; // r8
   NTSTATUS result; // eax
-  int Event; // eax
-  PVOID v7; // r15
+  int v6; // eax
+  struct _DMA_ADAPTER *v7; // r15
   NTSTATUS v8; // ebx
   PDEVICE_OBJECT AttachedDeviceReference; // rax
-  PVOID v10; // rdi
-  struct _DEVICE_OBJECT *v11; // rsi
+  PADAPTER_OBJECT v10; // rsi
+  struct _DMA_ADAPTER *v11; // r14
   PIRP Irp; // rax
-  IRP *v13; // rbx
+  IRP *v13; // rdi
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
   IRP *v15; // rdx
   struct _IO_STACK_LOCATION *v16; // rax
-  NTSTATUS Status; // r14d
-  unsigned int v18; // edx
-  int v19; // edx
+  NTSTATUS Status; // ebx
+  unsigned int v18; // ecx
+  int v19; // ecx
   PVOID Object; // [rsp+30h] [rbp-49h] BYREF
-  PVOID v21; // [rsp+38h] [rbp-41h]
-  HANDLE Handle; // [rsp+40h] [rbp-39h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+38h] [rbp-41h] BYREF
+  HANDLE Handle; // [rsp+40h] [rbp-39h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+48h] [rbp-31h] BYREF
   int v24; // [rsp+58h] [rbp-21h] BYREF
   unsigned int v25; // [rsp+5Ch] [rbp-1Dh]
@@ -46,7 +46,7 @@ NTSTATUS __fastcall CmpGetVolumeClusterSize(HANDLE FileHandle, int *a2)
   __int128 FsInformation; // [rsp+78h] [rbp-1h] BYREF
   __int64 v29; // [rsp+88h] [rbp+Fh]
 
-  v21 = 0LL;
+  DmaAdapter = 0LL;
   Handle = 0LL;
   v27 = 0;
   v25 = 0;
@@ -60,89 +60,90 @@ NTSTATUS __fastcall CmpGetVolumeClusterSize(HANDLE FileHandle, int *a2)
   result = ObReferenceObjectByHandle(FileHandle, 0, v4, 0, &Object, 0LL);
   if ( result < 0 )
     return result;
-  Event = CmpCreateEvent(NotificationEvent);
-  v7 = Object;
-  v8 = Event;
-  if ( Event >= 0 )
+  v6 = CmpCreateEvent(NotificationEvent, &Handle, (PVOID *)&DmaAdapter);
+  v7 = (struct _DMA_ADAPTER *)Object;
+  v8 = v6;
+  if ( v6 >= 0 )
   {
     AttachedDeviceReference = IoGetAttachedDeviceReference(*((PDEVICE_OBJECT *)Object + 1));
-    v10 = v21;
-    v11 = AttachedDeviceReference;
-    if ( !AttachedDeviceReference )
-      goto LABEL_26;
-    Irp = IoAllocateIrp(AttachedDeviceReference->StackSize, 0);
-    v13 = Irp;
-    if ( !Irp )
-      goto LABEL_26;
-    CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
-    v15 = Irp;
-    CurrentStackLocation[-1].MajorFunction = 14;
-    CurrentStackLocation[-1].DeviceObject = v11;
-    CurrentStackLocation[-1].Parameters.Read.ByteOffset.LowPart = 2954240;
-    CurrentStackLocation[-1].Parameters.Read.Length = 28;
-    CurrentStackLocation[-1].Parameters.Create.Options = 12;
-    Irp->AssociatedIrp.MasterIrp = (struct _IRP *)&v24;
-    Irp->UserBuffer = &v24;
-    v16 = Irp->Tail.Overlay.CurrentStackLocation;
-    v13->Flags = 80;
-    v13->IoStatus.Status = -1073741637;
-    v16[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)&CmpGetVolumeClusterSizeCompletion;
-    v16[-1].Context = v10;
-    v16[-1].Control = -32;
-    Status = IofCallDriver(v11, v15);
-    if ( Status == 259 )
+    v10 = DmaAdapter;
+    v11 = (struct _DMA_ADAPTER *)AttachedDeviceReference;
+    if ( AttachedDeviceReference )
     {
-      KeWaitForSingleObject(v10, Executive, 0, 0, 0LL);
-      Status = v13->IoStatus.Status;
-    }
-    IoFreeIrp(v13);
-    if ( Status < 0 )
-      goto LABEL_26;
-    if ( v25 < 0x18 )
-      goto LABEL_26;
-    v18 = HIDWORD(v26);
-    if ( !HIDWORD(v26) )
-      goto LABEL_26;
-    if ( ((HIDWORD(v26) - 1) & HIDWORD(v26)) != 0 )
-      Status = -1073741288;
-    if ( Status < 0 )
-    {
-LABEL_26:
-      v8 = ZwQueryVolumeInformationFile(FileHandle, &IoStatusBlock, &FsInformation, 0x18u, FileFsSizeInformation);
-      if ( v8 < 0 )
-        goto LABEL_17;
-      v18 = HIDWORD(v29);
-    }
-    v8 = 0;
-    if ( v18 > 0x1000 )
-    {
-      v19 = 8;
-      goto LABEL_16;
-    }
-    if ( v18 < 0x200 )
-    {
-      v19 = 1;
-      goto LABEL_16;
-    }
-    v19 = v18 >> 9;
-    if ( ((v19 - 1) & v19) == 0 )
-    {
-LABEL_16:
-      *a2 = v19;
-      goto LABEL_17;
-    }
-    v8 = -1073741288;
+      Irp = IoAllocateIrp(AttachedDeviceReference->StackSize, 0);
+      v13 = Irp;
+      if ( !Irp )
+      {
+LABEL_29:
+        v8 = ZwQueryVolumeInformationFile(FileHandle, &IoStatusBlock, &FsInformation, 0x18u, FileFsSizeInformation);
+        if ( v8 < 0 )
+          goto LABEL_18;
+        v18 = HIDWORD(v29);
+LABEL_13:
+        if ( v18 > 0x1000 )
+          v18 = 4096;
+        v8 = 0;
+        if ( v18 < 0x200 )
+        {
+          v19 = 1;
+          goto LABEL_17;
+        }
+        v19 = v18 >> 9;
+        if ( ((v19 - 1) & v19) == 0 )
+        {
 LABEL_17:
-    if ( v11 )
-      ObfDereferenceObject(v11);
-    goto LABEL_19;
+          *a2 = v19;
+          goto LABEL_18;
+        }
+        v8 = -1073741288;
+LABEL_18:
+        if ( v11 )
+          HalPutDmaAdapter(v11);
+        goto LABEL_20;
+      }
+      CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
+      v15 = Irp;
+      CurrentStackLocation[-1].MajorFunction = 14;
+      CurrentStackLocation[-1].DeviceObject = (PDEVICE_OBJECT)v11;
+      CurrentStackLocation[-1].Parameters.Read.ByteOffset.LowPart = 2954240;
+      CurrentStackLocation[-1].Parameters.Read.Length = 28;
+      CurrentStackLocation[-1].Parameters.Create.Options = 12;
+      Irp->AssociatedIrp.MasterIrp = (struct _IRP *)&v24;
+      Irp->UserBuffer = &v24;
+      v16 = Irp->Tail.Overlay.CurrentStackLocation;
+      v13->Flags = 80;
+      v13->IoStatus.Status = -1073741637;
+      v16[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)CmpGetVolumeClusterSizeCompletion;
+      v16[-1].Context = v10;
+      v16[-1].Control = -32;
+      Status = IofCallDriver((PDEVICE_OBJECT)v11, v15);
+      if ( Status == 259 )
+      {
+        KeWaitForSingleObject(v10, Executive, 0, 0, 0LL);
+        Status = v13->IoStatus.Status;
+      }
+      IoFreeIrp(v13);
+    }
+    else
+    {
+      Status = -1073741811;
+    }
+    v18 = 0;
+    if ( Status >= 0 )
+    {
+      if ( v25 < 0x18 || !HIDWORD(v26) || (v18 = HIDWORD(v26), ((HIDWORD(v26) - 1) & HIDWORD(v26)) != 0) )
+        Status = -1073741288;
+      if ( Status >= 0 )
+        goto LABEL_13;
+    }
+    goto LABEL_29;
   }
   v10 = 0LL;
-LABEL_19:
-  ObfDereferenceObject(v7);
+LABEL_20:
+  HalPutDmaAdapter(v7);
   if ( v10 )
   {
-    ObfDereferenceObject(v10);
+    HalPutDmaAdapter(v10);
     ZwClose(Handle);
   }
   return v8;

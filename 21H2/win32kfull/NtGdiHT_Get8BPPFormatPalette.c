@@ -1,10 +1,11 @@
 /*
- * XREFs of NtGdiHT_Get8BPPFormatPalette @ 0x1C02B35C0
+ * XREFs of NtGdiHT_Get8BPPFormatPalette @ 0x1C02B51D0
  * Callers:
  *     <none>
  * Callees:
- *     ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C0143064 (-bSafeCopyBits@@YAHPEAX0K@Z.c)
- *     HT_Get8BPPFormatPalette @ 0x1C025E120 (HT_Get8BPPFormatPalette.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C01552E4 (-bSafeCopyBits@@YAHPEAX0K@Z.c)
+ *     HT_Get8BPPFormatPalette @ 0x1C02614B0 (HT_Get8BPPFormatPalette.c)
  */
 
 __int64 __fastcall NtGdiHT_Get8BPPFormatPalette(char *a1, USHORT a2, USHORT a3, USHORT a4)
@@ -17,7 +18,7 @@ __int64 __fastcall NtGdiHT_Get8BPPFormatPalette(char *a1, USHORT a2, USHORT a3, 
   v4 = 0;
   if ( !a1 )
     return 216LL;
-  v9 = (struct tagPALETTEENTRY *)Win32AllocPool(864LL, 1886221639LL);
+  v9 = (struct tagPALETTEENTRY *)PALLOCMEM2(0x360uLL, 1886221639LL, 0);
   v10 = v9;
   if ( v9 )
   {

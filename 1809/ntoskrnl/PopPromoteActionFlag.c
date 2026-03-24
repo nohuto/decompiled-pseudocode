@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPromoteActionFlag @ 0x1406DE474
+ * XREFs of PopPromoteActionFlag @ 0x1406DE454
  * Callers:
- *     PopExecutePowerAction @ 0x1406DE110 (PopExecutePowerAction.c)
+ *     PopExecutePowerAction @ 0x1406DE0F0 (PopExecutePowerAction.c)
  * Callees:
  *     <none>
  */

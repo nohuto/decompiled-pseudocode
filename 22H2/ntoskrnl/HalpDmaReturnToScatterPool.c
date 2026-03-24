@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaReturnToScatterPool @ 0x14045C3A8
+ * XREFs of HalpDmaReturnToScatterPool @ 0x1404C804C
  * Callers:
- *     HalpDmaReturnPageToOwner @ 0x14045C236 (HalpDmaReturnPageToOwner.c)
- *     HalpDmaReturnPageToSource @ 0x140511594 (HalpDmaReturnPageToSource.c)
+ *     HalpDmaReturnPageToOwner @ 0x1404C7E8C (HalpDmaReturnPageToOwner.c)
+ *     HalpDmaReturnPageToSource @ 0x1404C7F04 (HalpDmaReturnPageToSource.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpDmaReturnToScatterPool(__int64 a1, __int64 a2, char a3)
@@ -17,37 +17,38 @@ __int64 __fastcall HalpDmaReturnToScatterPool(__int64 a1, __int64 a2, char a3)
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v11; // zf
-  struct _KLOCK_QUEUE_HANDLE v12; // [rsp+20h] [rbp-28h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&v12, 0, sizeof(v12));
+  memset(&LockHandle, 0, sizeof(LockHandle));
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql != 15 )
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 128), &v12);
-  result = *(_QWORD *)(a1 + 32);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 120), &LockHandle);
+  result = *(_QWORD *)(a1 + 24);
   *(_QWORD *)(a2 + 8) = result;
-  ++*(_DWORD *)(a1 + 40);
-  *(_QWORD *)(a1 + 32) = a2;
+  ++*(_DWORD *)(a1 + 32);
+  *(_QWORD *)(a1 + 24) = a2;
   if ( a3 )
-    ++*(_DWORD *)(a1 + 216);
+    ++*(_DWORD *)(a1 + 208);
   if ( CurrentIrql != 15 )
   {
-    result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v12);
-    OldIrql = v12.OldIrql;
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    result = (unsigned int)KiIrqlFlags;
+    OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
-        && (unsigned __int8)result <= 0xFu
-        && v12.OldIrql <= 0xFu
-        && (unsigned __int8)result >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << (v12.OldIrql + 1));
-        v11 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= result;
-        if ( v11 )
-          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KeGetCurrentIrql();
+        if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v11 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= result;
+          if ( v11 )
+            result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(OldIrql);

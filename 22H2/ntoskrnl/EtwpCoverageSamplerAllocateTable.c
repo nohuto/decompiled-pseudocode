@@ -1,27 +1,27 @@
 /*
- * XREFs of EtwpCoverageSamplerAllocateTable @ 0x1409F2F6C
+ * XREFs of EtwpCoverageSamplerAllocateTable @ 0x140946150
  * Callers:
- *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x1408A99FA (EtwpCovSampHashMakeRoomAndAcquireLock.c)
- *     EtwpCoverageSamplerStart @ 0x1409F3488 (EtwpCoverageSamplerStart.c)
+ *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x140944D90 (EtwpCovSampHashMakeRoomAndAcquireLock.c)
+ *     EtwpCoverageSamplerStart @ 0x1409471DC (EtwpCoverageSamplerStart.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _OWORD *__fastcall EtwpCoverageSamplerAllocateTable(int a1)
 {
-  _OWORD *Pool2; // rax
+  _OWORD *PoolWithTag; // rax
   _OWORD *v3; // rbx
-  void *v4; // rax
+  PVOID v4; // rax
 
-  Pool2 = (_OWORD *)ExAllocatePool2(256LL, 32LL, 1450669125LL);
-  v3 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x56777445u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *Pool2 = 0LL;
-    Pool2[1] = 0LL;
-    v4 = (void *)ExAllocatePool2(256LL, (unsigned int)(8 * a1), 1450669125LL);
+    *PoolWithTag = 0LL;
+    PoolWithTag[1] = 0LL;
+    v4 = ExAllocatePoolWithTag(PagedPool, (unsigned int)(8 * a1), 0x56777445u);
     *((_QWORD *)v3 + 3) = v4;
     if ( !v4 )
     {

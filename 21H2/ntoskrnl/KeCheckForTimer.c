@@ -1,14 +1,14 @@
 /*
- * XREFs of KeCheckForTimer @ 0x14056DBFC
+ * XREFs of KeCheckForTimer @ 0x140515AFC
  * Callers:
- *     ExpFreePoolChecks @ 0x140216974 (ExpFreePoolChecks.c)
- *     ExFreeHeapPool @ 0x140348B40 (ExFreeHeapPool.c)
- *     VfMiscKeInitializeTimerEx_Entry @ 0x140AA4120 (VfMiscKeInitializeTimerEx_Entry.c)
+ *     ExpFreePoolChecks @ 0x140297F0C (ExpFreePoolChecks.c)
+ *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
+ *     VerifierKeInitializeTimerEx @ 0x1409DAD10 (VerifierKeInitializeTimerEx.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 int __fastcall KeCheckForTimer(ULONG_PTR BugCheckParameter3, __int64 a2)
@@ -63,8 +63,8 @@ int __fastcall KeCheckForTimer(ULONG_PTR BugCheckParameter3, __int64 a2)
         do
         {
           v32 = 0;
-          v10 = (void **)(((unsigned __int64)v8 << 13) + *v2 + 15880);
-          v11 = (volatile signed __int32 *)(v9 + *v2 + 15872);
+          v10 = (void **)(((unsigned __int64)v8 << 13) + *v2 + 15176);
+          v11 = (volatile signed __int32 *)(v9 + *v2 + 15168);
           do
           {
             CurrentIrql = KeGetCurrentIrql();

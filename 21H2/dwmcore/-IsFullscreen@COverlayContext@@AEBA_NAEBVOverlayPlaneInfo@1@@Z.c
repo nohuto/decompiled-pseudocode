@@ -1,57 +1,53 @@
 /*
- * XREFs of ?IsFullscreen@COverlayContext@@AEBA_NAEBVOverlayPlaneInfo@1@@Z @ 0x18000CE8C
+ * XREFs of ?IsFullscreen@COverlayContext@@AEBA_NAEBVOverlayPlaneInfo@1@@Z @ 0x18017C66C
  * Callers:
- *     ?IsRevokable@COverlayContext@@AEBA_NAEBVOverlayPlaneInfo@1@@Z @ 0x18000CE28 (-IsRevokable@COverlayContext@@AEBA_NAEBVOverlayPlaneInfo@1@@Z.c)
- *     ?EnsureIndependentFlipState@COverlayContext@@AEAAJPEAVOverlayPlaneInfo@1@_N@Z @ 0x18000EC4C (-EnsureIndependentFlipState@COverlayContext@@AEAAJPEAVOverlayPlaneInfo@1@_N@Z.c)
- *     ?FindFullScreenContent@COverlayContext@@QEBAPEAVCCompositionSurfaceInfo@@W4BufferContentType@@@Z @ 0x1800BBD94 (-FindFullScreenContent@COverlayContext@@QEBAPEAVCCompositionSurfaceInfo@@W4BufferContentType@@@Z.c)
+ *     ?CheckForFullScreenVideoNotifications@CLegacyRenderTarget@@AEAAXXZ @ 0x180024730 (-CheckForFullScreenVideoNotifications@CLegacyRenderTarget@@AEAAXXZ.c)
+ *     ?IsRevokable@COverlayContext@@AEBA_NAEBVOverlayPlaneInfo@1@@Z @ 0x1800EC0DC (-IsRevokable@COverlayContext@@AEBA_NAEBVOverlayPlaneInfo@1@@Z.c)
+ *     ?EnsureIndependentFlipState@COverlayContext@@AEAAJPEAVOverlayPlaneInfo@1@_N@Z @ 0x18017BE00 (-EnsureIndependentFlipState@COverlayContext@@AEAAJPEAVOverlayPlaneInfo@1@_N@Z.c)
  * Callees:
- *     ?IsEquivalentTo@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18000CF50 (-IsEquivalentTo@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?IsEquivalentTo@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x1800D19A8 (-IsEquivalentTo@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-char __fastcall COverlayContext::IsFullscreen(__int64 **this, const struct COverlayContext::OverlayPlaneInfo *a2)
+char __fastcall COverlayContext::IsFullscreen(
+        COverlayContext *this,
+        const struct COverlayContext::OverlayPlaneInfo *a2)
 {
-  __int64 *v2; // rcx
+  __int64 v2; // rcx
   unsigned int v3; // ebx
-  unsigned int v4; // esi
-  unsigned int v5; // edi
-  unsigned int v6; // ebp
-  __int64 v7; // rax
-  char IsEquivalentTo; // r10
-  _DWORD v10[4]; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v11; // [rsp+30h] [rbp-38h] BYREF
+  unsigned int v4; // edi
+  unsigned int v5; // ebp
+  unsigned int v6; // esi
+  _DWORD *v7; // rax
+  unsigned int *v8; // r10
+  char IsEquivalentTo; // r11
+  bool v10; // zf
+  _DWORD v12[6]; // [rsp+20h] [rbp-18h] BYREF
 
-  v2 = *this;
+  v2 = *(_QWORD *)this;
   v3 = *((_DWORD *)a2 + 17);
   v4 = *((_DWORD *)a2 + 18);
   v5 = *((_DWORD *)a2 + 19);
   v6 = *((_DWORD *)a2 + 20);
-  v7 = *v2;
-  v10[0] = v3;
-  v10[1] = v4;
-  v10[2] = v5;
-  v10[3] = v6;
-  v11 = *(_OWORD *)((*(__int64 (__fastcall **)(__int64 *))(v7 + 168))(v2) + 20);
-  IsEquivalentTo = TMilRect<unsigned int,MilRectU,Mil3DRectU,RectUniqueness::NotNeeded>::IsEquivalentTo(v10, &v11);
-  if ( !IsEquivalentTo )
+  v12[0] = v3;
+  v12[1] = v4;
+  v12[2] = v5;
+  v12[3] = v6;
+  v7 = (_DWORD *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v2 + 152LL))(v2);
+  IsEquivalentTo = TMilRect<unsigned int,MilRectU,Mil3DRectU,RectUniqueness::NotNeeded>::IsEquivalentTo(v12, v7);
+  if ( IsEquivalentTo )
+    return IsEquivalentTo;
+  if ( v3 != *v8 || v5 != v8[2] )
+    goto LABEL_8;
+  v10 = v4 == v8[1];
+  if ( v4 > v8[1] )
   {
-    if ( v3 == (_DWORD)v11
-      && v5 == DWORD2(v11)
-      && v4 > DWORD1(v11)
-      && v6 < HIDWORD(v11)
-      && (int)abs32(v4 + v6 - HIDWORD(v11) - DWORD1(v11)) <= 1 )
-    {
+    if ( v6 < v8[3] && (int)abs32(v4 + v6 - v8[3] - v8[1]) <= 1 )
       return 1;
-    }
-    else if ( v4 == DWORD1(v11)
-           && v6 == HIDWORD(v11)
-           && v3 > (unsigned int)v11
-           && v5 < DWORD2(v11)
-           && (int)abs32(v5 + v3 - DWORD2(v11) - v11) <= 1 )
-    {
-      return 1;
-    }
+LABEL_8:
+    v10 = v4 == v8[1];
   }
+  if ( v10 && v6 == v8[3] && v3 > *v8 && v5 < v8[2] && (int)abs32(v3 - v8[2] - *v8 + v5) <= 1 )
+    return 1;
   return IsEquivalentTo;
 }

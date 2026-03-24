@@ -1,13 +1,13 @@
 /*
- * XREFs of Isoch_FindTrbMatch @ 0x1C00424C0
+ * XREFs of Isoch_FindTrbMatch @ 0x1C00415C0
  * Callers:
- *     Isoch_ProcessTransferEventWithED0 @ 0x1C000AB84 (Isoch_ProcessTransferEventWithED0.c)
+ *     Isoch_ProcessTransferEventWithED0 @ 0x1C0041F88 (Isoch_ProcessTransferEventWithED0.c)
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     WPP_RECORDER_SF_DDqq @ 0x1C00084E0 (WPP_RECORDER_SF_DDqq.c)
- *     TR_DoesSegmentContainDequeuePointer @ 0x1C000B6E4 (TR_DoesSegmentContainDequeuePointer.c)
- *     StageQueue_ForwardScanGetNextStage @ 0x1C000FA58 (StageQueue_ForwardScanGetNextStage.c)
- *     Isoch_CalculateBytesTransferred @ 0x1C0041BD0 (Isoch_CalculateBytesTransferred.c)
+ *     WPP_RECORDER_SF_DDqq @ 0x1C0004F80 (WPP_RECORDER_SF_DDqq.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     TR_DoesSegmentContainDequeuePointer @ 0x1C000BE44 (TR_DoesSegmentContainDequeuePointer.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C000C530 (StageQueue_ForwardScanGetNextStage.c)
+ *     Isoch_CalculateBytesTransferred @ 0x1C0040C80 (Isoch_CalculateBytesTransferred.c)
  */
 
 char __fastcall Isoch_FindTrbMatch(__int64 a1, signed __int64 *a2, __int64 *a3, _DWORD *a4, _DWORD *a5)
@@ -24,18 +24,19 @@ char __fastcall Isoch_FindTrbMatch(__int64 a1, signed __int64 *a2, __int64 *a3, 
   int v15; // edx
   unsigned __int8 *v16; // r12
   unsigned __int8 *v17; // r14
-  __int64 v18; // r8
+  int v18; // r8d
+  int v19; // edx
   char result; // al
-  signed __int64 v20; // [rsp+50h] [rbp-58h]
-  int v21; // [rsp+B0h] [rbp+8h]
-  int v22; // [rsp+B8h] [rbp+10h]
+  signed __int64 v21; // [rsp+50h] [rbp-58h]
+  int v22; // [rsp+B0h] [rbp+8h]
+  int v23; // [rsp+B8h] [rbp+10h]
 
-  v22 = (int)a2;
+  v23 = (int)a2;
   v6 = 0;
   v7 = 0;
-  v21 = 0;
+  v22 = 0;
   v8 = 0LL;
-  v20 = *a2;
+  v21 = *a2;
   v9 = *(_QWORD *)(*(_QWORD *)(a1 + 176) + 24LL) + 16LL * *(unsigned int *)(a1 + 192);
   if ( *a2 )
   {
@@ -45,7 +46,7 @@ char __fastcall Isoch_FindTrbMatch(__int64 a1, signed __int64 *a2, __int64 *a3, 
       {
         v11 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
         LOBYTE(v11) = 4;
-        WPP_RECORDER_SF_DD(
+        WPP_RECORDER_SF_dd(
           *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
           v11,
           14,
@@ -79,31 +80,33 @@ LABEL_24:
                 goto LABEL_20;
               v17 = *(unsigned __int8 **)v17;
               v15 = 0;
-              v14 = v20;
+              v14 = v21;
             }
             if ( !TR_DoesSegmentContainDequeuePointer(*(_QWORD *)(v8 + 96), v15, *(_DWORD *)(v8 + 104), v14) )
             {
               ++v7;
               NextStage = StageQueue_ForwardScanGetNextStage((unsigned __int8 *)i + 128);
-              v14 = v20;
+              v14 = v21;
               continue;
             }
 LABEL_20:
             if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
               && LOWORD(WPP_GLOBAL_Control->DeviceType) )
             {
+              v19 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
+              LOBYTE(v19) = 5;
               WPP_RECORDER_SF_DDqq(
                 *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
-                5u,
+                v19,
                 v18,
-                0x25u,
+                37,
                 (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
-                *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL),
+                *(_BYTE *)(*(_QWORD *)(a1 + 48) + 135LL),
                 *(_DWORD *)(*(_QWORD *)(a1 + 56) + 144LL),
                 i[3],
                 v8);
             }
-            v21 = Isoch_CalculateBytesTransferred(a1, v8, v22);
+            v22 = Isoch_CalculateBytesTransferred(a1, v8, v23);
             goto LABEL_24;
           }
           break;
@@ -115,7 +118,7 @@ LABEL_20:
   {
     v10 = *(unsigned __int8 *)(*(_QWORD *)(a1 + 48) + 135LL);
     LOBYTE(v10) = 2;
-    WPP_RECORDER_SF_DD(
+    WPP_RECORDER_SF_dd(
       *(_QWORD *)(*(_QWORD *)(a1 + 56) + 80LL),
       v10,
       14,
@@ -127,6 +130,6 @@ LABEL_20:
   *a3 = v8 & -(__int64)(v6 != 0);
   *a4 = v6 != 0 ? v7 : 0;
   result = v6;
-  *a5 = v6 != 0 ? v21 : 0;
+  *a5 = v6 != 0 ? v22 : 0;
   return result;
 }

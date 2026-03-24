@@ -1,11 +1,11 @@
 /*
- * XREFs of ?vResetSurfacePalette@@YAXPEAUHDEV__@@@Z @ 0x1C00C40A4
+ * XREFs of ?vResetSurfacePalette@@YAXPEAUHDEV__@@@Z @ 0x1C00B4B1C
  * Callers:
- *     ??0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@PEAUtagDEVINFO@@HKK@Z @ 0x1C00C8640 (--0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@.c)
- *     bDynamicModeChange @ 0x1C00C9250 (bDynamicModeChange.c)
- *     ?UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z @ 0x1C016AB74 (-UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z.c)
+ *     ??0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@PEAUtagDEVINFO@@HKK@Z @ 0x1C00B8D20 (--0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@.c)
+ *     bDynamicModeChange @ 0x1C00BA730 (bDynamicModeChange.c)
+ *     ?UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z @ 0x1C013DBB4 (-UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall vResetSurfacePalette(_QWORD *a1)
@@ -20,9 +20,9 @@ void __fastcall vResetSurfacePalette(_QWORD *a1)
   int v9; // [rsp+40h] [rbp+8h]
   __int64 v10; // [rsp+48h] [rbp+10h] BYREF
 
-  if ( (*((_DWORD *)a1 + 535) & 0x100) != 0 )
+  if ( (*((_DWORD *)a1 + 543) & 0x100) != 0 )
   {
-    v2 = a1[222];
+    v2 = a1[226];
     v10 = v2;
     if ( *(_DWORD *)(v2 + 60) == 20 )
     {
@@ -52,9 +52,9 @@ void __fastcall vResetSurfacePalette(_QWORD *a1)
     }
     if ( (a1[5] & 0x400) == 0 )
     {
-      v7 = (void (__fastcall *)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD))a1[355];
+      v7 = (void (__fastcall *)(_QWORD, __int64 *, _QWORD, _QWORD, _DWORD))a1[358];
       if ( v7 )
-        v7(a1[221], &v10, 0LL, 0LL, *(_DWORD *)(v2 + 28));
+        v7(a1[225], &v10, 0LL, 0LL, *(_DWORD *)(v2 + 28));
     }
   }
 }

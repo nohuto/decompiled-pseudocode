@@ -1,7 +1,7 @@
 /*
- * XREFs of wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x1C0019C1C
+ * XREFs of wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x1C0017A74
  * Callers:
- *     wil_details_FeatureReporting_RecordUsageInCache @ 0x1C0019E04 (wil_details_FeatureReporting_RecordUsageInCache.c)
+ *     wil_details_FeatureReporting_RecordUsageInCache @ 0x1C0017C48 (wil_details_FeatureReporting_RecordUsageInCache.c)
  * Callees:
  *     <none>
  */
@@ -13,53 +13,50 @@ __int64 __fastcall wil_details_FeatureReporting_IncrementOpportunityInCache(
         _DWORD *a4)
 {
   signed __int32 v4; // r8d
-  BOOL v7; // edi
+  BOOL v7; // ebx
   unsigned int v8; // eax
-  char v9; // r10
-  int v10; // ecx
-  int v11; // edx
-  int v12; // r11d
-  unsigned __int64 v13; // rdx
-  bool v14; // zf
+  int v9; // ecx
+  int v10; // edx
+  int v11; // r10d
+  unsigned __int64 v12; // rdx
   __int64 result; // rax
 
   v4 = *a1;
   v7 = a2 == 5;
-  do
+  while ( 1 )
   {
     a4[1] = 0;
     v8 = v4 | 1;
-    v9 = v4;
     if ( (((v4 | 1u) >> 22) & 1) != v7 )
     {
       if ( ((v8 >> 15) & 0x7F) != 0 )
       {
         a4[1] = (v8 >> 15) & 0x7F;
-        v10 = 5;
+        v9 = 5;
         if ( a2 != 1 )
-          v10 = 1;
+          v9 = 1;
         v8 = v4 & 0xFFC07FFE | 1;
-        a4[2] = v10;
+        a4[2] = v9;
       }
-      v11 = 0;
+      v10 = 0;
       if ( a2 == 5 )
-        v11 = 0x400000;
-      v8 = v8 & 0xFFBFFFFF | v11;
+        v10 = 0x400000;
+      v8 = v8 & 0xFFBFFFFF | v10;
     }
-    v12 = (v8 >> 15) & 0x7F;
-    v13 = (unsigned int)(v12 + 1);
-    if ( v13 > 0x7F || v13 < ((v8 >> 15) & 0x7F) )
+    v11 = (v8 >> 15) & 0x7F;
+    v12 = (unsigned int)(v11 + 1);
+    if ( v12 > 0x7F || v12 < ((v8 >> 15) & 0x7F) )
     {
-      LODWORD(v13) = 1;
+      LODWORD(v12) = 1;
       a4[2] = a2;
-      a4[1] = v12;
+      a4[1] = v11;
     }
-    result = (unsigned int)_InterlockedCompareExchange(a1, v8 ^ (v8 ^ ((_DWORD)v13 << 15)) & 0x3F8000, v4);
-    v14 = v4 == (_DWORD)result;
+    result = (unsigned int)_InterlockedCompareExchange(a1, v8 ^ (v8 ^ ((_DWORD)v12 << 15)) & 0x3F8000, v4);
+    if ( v4 == (_DWORD)result )
+      break;
     v4 = result;
   }
-  while ( !v14 );
   a4[4] = 0;
-  *a4 = (v9 & 1) == 0;
+  *a4 = (v4 & 1) == 0;
   return result;
 }

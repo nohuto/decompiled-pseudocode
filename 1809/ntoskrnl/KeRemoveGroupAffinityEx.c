@@ -1,5 +1,5 @@
 /*
- * XREFs of KeRemoveGroupAffinityEx @ 0x14028E350
+ * XREFs of KeRemoveGroupAffinityEx @ 0x14028E450
  * Callers:
  *     <none>
  * Callees:

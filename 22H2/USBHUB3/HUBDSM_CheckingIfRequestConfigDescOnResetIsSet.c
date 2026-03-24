@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfRequestConfigDescOnResetIsSet @ 0x1C0023570
+ * XREFs of HUBDSM_CheckingIfRequestConfigDescOnResetIsSet @ 0x1C0020F30
  * Callers:
  *     <none>
  * Callees:

@@ -1,53 +1,31 @@
 /*
- * XREFs of InkProcessorOnThreadExit @ 0x1C0098C90
+ * XREFs of InkProcessorOnThreadExit @ 0x1C0101640
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0040C00 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@@Z @ 0x1C0226010 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ?OnThreadExit@InkProcessor@@QEAAXPEBUtagTHREADINFO@@@Z @ 0x1C0101690 (-OnThreadExit@InkProcessor@@QEAAXPEBUtagTHREADINFO@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D1C24 (_tlgWriteTransfer_EtwWriteTransfer.c)
  */
 
-void __fastcall InkProcessorOnThreadExit(_QWORD *a1)
+void __fastcall InkProcessorOnThreadExit(struct tagTHREADINFO *a1)
 {
-  __int64 v2; // rbx
-  _QWORD *i; // rdi
-  __int64 v4; // [rsp+30h] [rbp-58h] BYREF
-  __int64 v5; // [rsp+38h] [rbp-50h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+40h] [rbp-48h] BYREF
-  __int64 *v7; // [rsp+60h] [rbp-28h]
-  int v8; // [rsp+68h] [rbp-20h]
-  int v9; // [rsp+6Ch] [rbp-1Ch]
+  int v1; // [rsp+30h] [rbp-48h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v2; // [rsp+38h] [rbp-40h] BYREF
+  int *v3; // [rsp+58h] [rbp-20h]
+  int v4; // [rsp+60h] [rbp-18h]
+  int v5; // [rsp+64h] [rbp-14h]
 
-  v2 = *(_QWORD *)(SGDGetUserSessionState(a1) + 3440);
-  if ( v2 )
+  if ( InkProcessor::s_pInstance )
   {
-    KeEnterCriticalRegion();
-    ExAcquirePushLockExclusiveEx(v2, 0LL);
-    if ( *(_BYTE *)(v2 + 8) )
-    {
-      for ( i = *(_QWORD **)(v2 + 96); i != (_QWORD *)(v2 + 96); i = (_QWORD *)*i )
-        (*(void (__fastcall **)(_QWORD *, _QWORD))(*(i - 1) + 24LL))(i - 1, *a1);
-    }
-    else if ( (unsigned int)dword_1C03540E0 > 2 )
-    {
-      LODWORD(v4) = -1073741823;
-      v5 = (__int64)"Ink processor not enabled";
-      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapSz<char>>(
-        (int)&dword_1C03540E0,
-        (__int64)&v4,
-        (__int64)&v5);
-    }
-    ExReleasePushLockExclusiveEx(v2, 0LL);
-    KeLeaveCriticalRegion();
+    InkProcessor::OnThreadExit(InkProcessor::s_pInstance, a1);
   }
-  else if ( (unsigned int)dword_1C03540E0 > 2 )
+  else if ( (unsigned int)dword_1C032A288 > 2 )
   {
-    v9 = 0;
-    v7 = &v4;
-    LODWORD(v4) = -1073741823;
-    v8 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C03540E0, (unsigned __int8 *)dword_1C031C186, 0LL, 0LL, 3u, &v6);
+    v5 = 0;
+    v3 = &v1;
+    v1 = -1073741823;
+    v4 = 4;
+    tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C032A288, (int)&dword_1C02F1ECC, 0, 0, 3u, &v2);
   }
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of NtMakeTemporaryObject @ 0x1406E1680
+ * XREFs of NtMakeTemporaryObject @ 0x14062D0A0
  * Callers:
- *     IopReassignSystemRoot @ 0x140B2BC5C (IopReassignSystemRoot.c)
+ *     IopReassignSystemRoot @ 0x140A700D8 (IopReassignSystemRoot.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObMakeTemporaryObject @ 0x1406E1700 (ObMakeTemporaryObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     SeDeleteObjectAuditAlarmWithTransaction @ 0x1409CADE0 (SeDeleteObjectAuditAlarmWithTransaction.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObMakeTemporaryObject @ 0x14062C010 (ObMakeTemporaryObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     SeDeleteObjectAuditAlarmWithTransaction @ 0x1409213B0 (SeDeleteObjectAuditAlarmWithTransaction.c)
  */
 
 NTSTATUS __fastcall NtMakeTemporaryObject(HANDLE Handle)
@@ -25,7 +25,7 @@ NTSTATUS __fastcall NtMakeTemporaryObject(HANDLE Handle)
     ObMakeTemporaryObject(Object);
     if ( (v5.HandleAttributes & 4) != 0 )
       SeDeleteObjectAuditAlarmWithTransaction(Object, Handle, 0LL);
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     return v3;
   }
   return result;

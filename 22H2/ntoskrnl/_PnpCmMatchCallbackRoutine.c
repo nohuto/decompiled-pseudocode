@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpCmMatchCallbackRoutine @ 0x140A6A390
+ * XREFs of _PnpCmMatchCallbackRoutine @ 0x14097C110
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     _CmMapCmObjectTypeToPnpObjectType @ 0x140789824 (_CmMapCmObjectTypeToPnpObjectType.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     _CmMapCmObjectTypeToPnpObjectType @ 0x1406AF1A8 (_CmMapCmObjectTypeToPnpObjectType.c)
  */
 
 __int64 __fastcall PnpCmMatchCallbackRoutine(__int64 a1, __int64 a2, int a3)

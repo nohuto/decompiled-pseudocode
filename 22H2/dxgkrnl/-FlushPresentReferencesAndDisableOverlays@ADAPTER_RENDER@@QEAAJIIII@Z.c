@@ -1,64 +1,75 @@
 /*
- * XREFs of ?FlushPresentReferencesAndDisableOverlays@ADAPTER_RENDER@@QEAAJIIII@Z @ 0x1C01727C4
+ * XREFs of ?FlushPresentReferencesAndDisableOverlays@ADAPTER_RENDER@@QEAAJIIII@Z @ 0x1C0216AD8
  * Callers:
- *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C0173F88 (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
- *     ?DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z @ 0x1C0186B84 (-DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z.c)
- *     ?DxgkCddDisable@@YAJIII@Z @ 0x1C0187F00 (-DxgkCddDisable@@YAJIII@Z.c)
- *     ?SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z @ 0x1C0194C28 (-SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z.c)
- *     ?RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C01E944C (-RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z.c)
- *     ?DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z @ 0x1C02BC360 (-DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z.c)
+ *     ?RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C00E0528 (-RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z.c)
+ *     ?DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z @ 0x1C00E0664 (-DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z.c)
+ *     ?DxgkCddDisable@@YAJIII@Z @ 0x1C00E68A0 (-DxgkCddDisable@@YAJIII@Z.c)
+ *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C00E767C (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
+ *     ?SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z @ 0x1C00EA8F4 (-SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z.c)
+ *     ?DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z @ 0x1C0212318 (-DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pqtqq_EtwWriteTransfer @ 0x1C00410F4 (McTemplateK0pqtqq_EtwWriteTransfer.c)
- *     ?DisableAllPlanesOnVidPnSourcesImmediate@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C0172880 (-DisableAllPlanesOnVidPnSourcesImmediate@ADAPTER_DISPLAY@@QEAAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqtqq_EtwWriteTransfer @ 0x1C003A510 (McTemplateK0pqtqq_EtwWriteTransfer.c)
+ *     ?DisableAllPlanesOnVidPnSourcesImmediate@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C016A8F0 (-DisableAllPlanesOnVidPnSourcesImmediate@ADAPTER_DISPLAY@@QEAAXI@Z.c)
  */
 
 __int64 __fastcall ADAPTER_RENDER::FlushPresentReferencesAndDisableOverlays(
         ADAPTER_RENDER *this,
-        unsigned int a2,
+        __int64 a2,
         __int64 a3,
         unsigned int a4,
         unsigned int a5)
 {
-  _QWORD *v5; // rbx
-  int v6; // eax
-  unsigned int v8; // r14d
-  ADAPTER_DISPLAY *v12; // rcx
-  __int64 v13; // [rsp+20h] [rbp-38h]
-  __int64 v14; // [rsp+28h] [rbp-30h]
+  unsigned int v6; // ebp
+  unsigned int v7; // r14d
+  _QWORD *v9; // rax
+  int v10; // ecx
+  ADAPTER_DISPLAY *v11; // rcx
+  int v13; // [rsp+20h] [rbp-28h]
+  int v14; // [rsp+28h] [rbp-20h]
+  unsigned int v15; // [rsp+30h] [rbp-18h]
 
-  v5 = (_QWORD *)((char *)this + 16);
-  v6 = *((_DWORD *)this + 189);
-  v8 = a3;
-  if ( (v6 & a5) != 0 )
-    WdLogSingleEntry5(0LL, 275LL, 39LL, *v5, a5 & v6, 0LL);
-  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  v6 = a3;
+  v7 = a2;
+  if ( (a5 & *((_DWORD *)this + 159)) != 0 )
   {
-    LODWORD(v14) = v8;
-    LODWORD(v13) = a2;
+    v9 = (_QWORD *)WdLogNewEntry5_WdCriticalError(this, a2);
+    v9[3] = 275LL;
+    v9[4] = 39LL;
+    v9[5] = *((_QWORD *)this + 2);
+    v10 = *((_DWORD *)this + 159);
+    v9[7] = 0LL;
+    v9[6] = v10 & a5;
+    WdLogEvent5_WdCriticalError(v9);
+  }
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+  {
+    v15 = a4;
+    v14 = v6;
+    v13 = v7;
     McTemplateK0pqtqq_EtwWriteTransfer(
       (__int64)this,
       &FlushPresentReferencesAndDisableOverlays,
       a3,
-      *v5,
+      *((_QWORD *)this + 2),
       v13,
       v14,
-      a4,
+      v15,
       a5);
   }
-  (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, unsigned int))(*(_QWORD *)(*((_QWORD *)this + 92) + 8LL)
+  (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, unsigned int))(*(_QWORD *)(*((_QWORD *)this + 77) + 8LL)
                                                                        + 992LL))(
-    *((_QWORD *)this + 93),
-    a2,
-    v8,
+    *((_QWORD *)this + 78),
+    v7,
+    v6,
     a4,
     a5);
-  *((_DWORD *)this + 189) |= a5;
+  *((_DWORD *)this + 159) |= a5;
   if ( a4 )
   {
-    v12 = *(ADAPTER_DISPLAY **)(*v5 + 2920LL);
-    if ( v12 )
-      ADAPTER_DISPLAY::DisableAllPlanesOnVidPnSourcesImmediate(v12, a4);
+    v11 = *(ADAPTER_DISPLAY **)(*((_QWORD *)this + 2) + 2696LL);
+    if ( v11 )
+      ADAPTER_DISPLAY::DisableAllPlanesOnVidPnSourcesImmediate(v11, a4);
   }
   return 0LL;
 }

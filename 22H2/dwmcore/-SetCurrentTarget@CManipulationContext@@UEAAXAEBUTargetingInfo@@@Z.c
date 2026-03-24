@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetCurrentTarget@CManipulationContext@@UEAAXAEBUTargetingInfo@@@Z @ 0x18012D960
+ * XREFs of ?SetCurrentTarget@CManipulationContext@@UEAAXAEBUTargetingInfo@@@Z @ 0x1802363A0
  * Callers:
  *     <none>
  * Callees:

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlIpv6StringToAddressExA @ 0x1405AF3C0
+ * XREFs of RtlIpv6StringToAddressExA @ 0x14058C750
  * Callers:
  *     <none>
  * Callees:
- *     __isascii @ 0x1403D99D0 (__isascii.c)
- *     isdigit @ 0x1403D99F0 (isdigit.c)
- *     islower @ 0x1403D9A20 (islower.c)
- *     isxdigit @ 0x1403D9AE0 (isxdigit.c)
- *     RtlIpv6StringToAddressA @ 0x1405AEF60 (RtlIpv6StringToAddressA.c)
+ *     __isascii @ 0x1403D1FB0 (__isascii.c)
+ *     isdigit @ 0x1403D1FD0 (isdigit.c)
+ *     islower @ 0x1403D2000 (islower.c)
+ *     isxdigit @ 0x1403D20C0 (isxdigit.c)
+ *     RtlIpv6StringToAddressA @ 0x14058C330 (RtlIpv6StringToAddressA.c)
  */
 
 NTSTATUS __stdcall RtlIpv6StringToAddressExA(
@@ -16,132 +16,123 @@ NTSTATUS __stdcall RtlIpv6StringToAddressExA(
         PULONG ScopeId,
         PUSHORT Port)
 {
-  CHAR v6; // r14
-  bool v7; // zf
-  const CHAR *v8; // rcx
-  unsigned __int16 v9; // si
-  unsigned int v10; // r12d
-  bool v11; // r15
+  CHAR v7; // r14
+  bool v8; // zf
+  const CHAR *v9; // rcx
+  unsigned __int16 v10; // si
+  ULONG v11; // r15d
   PCSTR v12; // rbx
   int v13; // edi
-  CHAR v14; // di
-  unsigned __int16 v15; // bp
-  CHAR *v16; // r14
-  __int16 v17; // ax
-  __int16 v18; // si
-  int v19; // eax
-  int v20; // ecx
+  bool v14; // dl
+  unsigned __int16 v15; // r14
+  PCSTR v16; // rcx
+  char v17; // al
+  CHAR v18; // bp
+  __int16 v19; // ax
+  __int16 v20; // si
   int v21; // eax
-  __int16 v22; // cx
-  PULONG v23; // rax
-  PCSTR v25; // [rsp+60h] [rbp+8h] BYREF
-  PULONG v26; // [rsp+70h] [rbp+18h]
+  int v22; // ecx
+  int v23; // eax
+  __int16 v24; // cx
+  NTSTATUS result; // eax
+  PCSTR v26; // [rsp+20h] [rbp-38h] BYREF
+  bool v27; // [rsp+60h] [rbp+8h]
 
-  v26 = ScopeId;
-  v25 = 0LL;
+  v26 = 0LL;
   if ( !AddressString || !Address || !ScopeId || !Port )
     return -1073741811;
-  v6 = *AddressString;
-  v7 = *AddressString == 91;
-  v8 = AddressString + 1;
-  v9 = 0;
-  if ( !v7 )
-    v8 = AddressString;
+  v7 = *AddressString;
+  v8 = *AddressString == 91;
+  v9 = AddressString + 1;
   v10 = 0;
-  v11 = v7;
-  if ( RtlIpv6StringToAddressA(v8, &v25, Address) < 0 )
+  if ( !v8 )
+    v9 = AddressString;
+  v11 = 0;
+  v27 = v8;
+  if ( RtlIpv6StringToAddressA(v9, &v26, Address) < 0 )
     return -1073741811;
-  v12 = v25;
-  if ( *v25 == 37 )
+  v12 = v26;
+  if ( *v26 == 37 )
   {
-    v12 = v25 + 1;
-    v13 = v25[1];
+    v12 = v26 + 1;
+    v13 = v26[1];
     if ( !_isascii(v13) || !isdigit(v13) )
       return -1073741811;
-    if ( (_BYTE)v13 )
+    while ( (_BYTE)v13 && (_BYTE)v13 != 93 )
     {
-      while ( (_BYTE)v13 != 93 )
-      {
-        if ( !_isascii((char)v13)
-          || !isdigit((char)v13)
-          || (char)v13 + 2 * (5 * (unsigned __int64)v10 - 24) > 0xFFFFFFFF )
-        {
-          return -1073741811;
-        }
-        ++v12;
-        v10 = (char)v13 - 48 + 10 * v10;
-        LOBYTE(v13) = *v12;
-        if ( !*v12 )
-          goto LABEL_44;
-      }
+      if ( !_isascii((char)v13) || !isdigit((char)v13) || (char)v13 + 2 * (5 * (unsigned __int64)v11 - 24) > 0xFFFFFFFF )
+        return -1073741811;
+      v11 = (char)v13 + 10 * v11 - 48;
+      LOBYTE(v13) = *++v12;
     }
   }
-  v14 = *v12;
   if ( *v12 == 93 )
   {
-    if ( v6 != 91 )
+    if ( v7 != 91 )
       return -1073741811;
-    v14 = v12[1];
-    v11 = 0;
-    if ( v14 == 58 )
+    ++v12;
+    v14 = 0;
+    v27 = 0;
+    if ( *v12 == 58 )
     {
+      ++v12;
       v15 = 10;
-      v16 = (CHAR *)(v12 + 2);
-      if ( v12[2] == 48 )
+      if ( *v12 == 48 )
       {
+        v16 = v12 + 1;
         v15 = 8;
-        v16 = (CHAR *)(v12 + 3);
-        if ( ((v12[3] - 88) & 0xDF) == 0 )
+        v17 = *++v12 - 88;
+        if ( (v17 & 0xDF) == 0 )
         {
           v15 = 16;
-          v16 = (CHAR *)(v12 + 4);
+          v12 = v16 + 1;
         }
       }
-      v14 = *v16;
-      if ( *v16 )
+      v18 = *v12;
+      if ( *v12 )
       {
         while ( 1 )
         {
-          if ( _isascii(v14) && isdigit(v14) && v14 - 48 < v15 )
+          if ( _isascii(v18) && isdigit(v18) && v18 - 48 < v15 )
           {
-            if ( v14 + v15 * (unsigned int)v9 - 48 > 0xFFFF )
+            if ( v18 + v15 * (unsigned int)v10 - 48 > 0xFFFF )
               return -1073741811;
-            v17 = v14;
-            v18 = v9 * v15 - 48;
+            v19 = v18;
+            v20 = v10 * v15 - 48;
           }
           else
           {
-            if ( v15 != 16 || !_isascii(v14) || !isxdigit(v14) )
+            if ( v15 != 16 || !_isascii(v18) || !isxdigit(v18) )
               return -1073741811;
-            if ( !_isascii(v14) || (v19 = islower(v14), v20 = 97, !v19) )
-              v20 = 65;
-            if ( v14 + 16 * (unsigned int)v9 - v20 + 10 > 0xFFFF )
-              return -1073741811;
-            v18 = 16 * v9;
-            if ( !_isascii(v14) || (v21 = islower(v14), v22 = 97, !v21) )
+            if ( !_isascii(v18) || (v21 = islower(v18), v22 = 97, !v21) )
               v22 = 65;
-            v17 = v14 - v22 + 10;
+            if ( v18 + 16 * (unsigned int)v10 - v22 + 10 > 0xFFFF )
+              return -1073741811;
+            v20 = 16 * v10;
+            if ( !_isascii(v18) || (v23 = islower(v18), v24 = 97, !v23) )
+              v24 = 65;
+            v19 = v18 - v24 + 10;
           }
-          ++v16;
-          v9 = v17 + v18;
-          v14 = *v16;
-          if ( !*v16 )
-            goto LABEL_45;
+          ++v12;
+          v10 = v19 + v20;
+          v18 = *v12;
+          if ( !*v12 )
+            goto LABEL_41;
         }
       }
     }
   }
-  if ( !v14 )
+  else
   {
-LABEL_44:
-    if ( !v11 )
-    {
-LABEL_45:
-      v23 = v26;
-      *Port = __ROR2__(v9, 8);
-      *v23 = v10;
-      return 0;
-    }
+LABEL_41:
+    v14 = v27;
+  }
+  if ( !*v12 && !v14 )
+  {
+    *Port = __ROR2__(v10, 8);
+    result = 0;
+    *ScopeId = v11;
+    return result;
   }
   return -1073741811;
 }

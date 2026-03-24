@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0ppqqq_EtwWriteTransfer @ 0x1C00E5922
+ * XREFs of McTemplateK0ppqqq_EtwWriteTransfer @ 0x1C0125BF4
  * Callers:
- *     ?bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BASEOBJECT@@@Z @ 0x1C001E010 (-bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BA.c)
- *     EtwTraceGdiTransformHandle @ 0x1C006476C (EtwTraceGdiTransformHandle.c)
+ *     EtwTraceGdiTransformHandle @ 0x1C001616C (EtwTraceGdiTransformHandle.c)
+ *     ?bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BASEOBJECT@@@Z @ 0x1C0034CB0 (-bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BA.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0047300 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00554F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0ppqqq_EtwWriteTransfer(__int64 a1, _DWORD a2, _DWORD a3, __int64 a4, char a5, ...)

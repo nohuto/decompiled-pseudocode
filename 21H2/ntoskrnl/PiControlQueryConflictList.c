@@ -1,16 +1,16 @@
 /*
- * XREFs of PiControlQueryConflictList @ 0x140959490
+ * XREFs of PiControlQueryConflictList @ 0x1408B3850
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     PiControlAllocateBufferForUserModeCaller @ 0x1402DE7E4 (PiControlAllocateBufferForUserModeCaller.c)
- *     PiControlFreeUserModeCallersBuffer @ 0x1402DF554 (PiControlFreeUserModeCallersBuffer.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x14077572C (PpDevNodeLockTree.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140779C10 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiControlMakeUserModeCallersCopy @ 0x14077C610 (PiControlMakeUserModeCallersCopy.c)
- *     IopQueryConflictList @ 0x14095F204 (IopQueryConflictList.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x1402647E0 (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlAllocateBufferForUserModeCaller @ 0x1402C27E0 (PiControlAllocateBufferForUserModeCaller.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406356D0 (PiControlMakeUserModeCallersCopy.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406386D0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
+ *     IopQueryConflictList @ 0x1408B9854 (IopQueryConflictList.c)
  */
 
 __int64 __fastcall PiControlQueryConflictList(__int64 a1, unsigned __int16 *a2, __int64 a3, char a4)
@@ -57,7 +57,7 @@ __int64 __fastcall PiControlQueryConflictList(__int64 a1, unsigned __int16 *a2, 
   UserModeCallersCopy = PiControlMakeUserModeCallersCopy(&v18, v8, v9, 1u, a4, 1);
   if ( UserModeCallersCopy >= 0 )
   {
-    UserModeCallersCopy = PiControlAllocateBufferForUserModeCaller((__int64 *)&v20, *((_DWORD *)a2 + 10), a4, *v4);
+    UserModeCallersCopy = PiControlAllocateBufferForUserModeCaller(&v20, *((_DWORD *)a2 + 10), a4, *v4);
     if ( UserModeCallersCopy < 0
       || (UserModeCallersCopy = PiControlMakeUserModeCallersCopy((void **)&v19 + 1, *((void **)a2 + 1), *a2, 2u, a4, 1),
           UserModeCallersCopy < 0) )
@@ -76,7 +76,7 @@ __int64 __fastcall PiControlQueryConflictList(__int64 a1, unsigned __int16 *a2, 
         v15 = *(_DWORD **)(v13[39] + 40LL);
         if ( v15 )
         {
-          if ( v15 != IopRootDeviceNode && (unsigned int)(v15[75] - 789) > 1 )
+          if ( v15 != IopRootDeviceNode && (unsigned int)(v15[75] - 787) > 1 )
           {
             UserModeCallersCopy = IopQueryConflictList((_DWORD)v11, (_DWORD)v18, v14, (_DWORD)v20, *((_DWORD *)a2 + 10));
             v16 = PiControlMakeUserModeCallersCopy((void **)v4, v10, *((_DWORD *)a2 + 10), 1u, a4, 0);

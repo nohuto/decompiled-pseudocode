@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsLastTopMostWindow@@YAHPEBUtagWND@@@Z @ 0x1C0120E4C
+ * XREFs of ?IsLastTopMostWindow@@YAHPEBUtagWND@@@Z @ 0x1C0132538
  * Callers:
- *     ?TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z @ 0x1C008176C (-TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z.c)
+ *     ?TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z @ 0x1C00365F4 (-TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z.c)
  * Callees:
  *     <none>
  */

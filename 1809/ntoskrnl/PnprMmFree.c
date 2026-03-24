@@ -1,8 +1,8 @@
 /*
- * XREFs of PnprMmFree @ 0x140835B90
+ * XREFs of PnprMmFree @ 0x140835B70
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1408337A0 (PnpReplacePartitionUnit.c)
- *     PnprMmConstruct @ 0x140835A84 (PnprMmConstruct.c)
+ *     PnpReplacePartitionUnit @ 0x140833780 (PnpReplacePartitionUnit.c)
+ *     PnprMmConstruct @ 0x140835A64 (PnprMmConstruct.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

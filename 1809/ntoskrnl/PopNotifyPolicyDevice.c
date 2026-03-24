@@ -1,5 +1,5 @@
 /*
- * XREFs of PopNotifyPolicyDevice @ 0x140740E30
+ * XREFs of PopNotifyPolicyDevice @ 0x140740E10
  * Callers:
  *     <none>
  * Callees:
@@ -7,11 +7,11 @@
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopAcquireTransitionLock @ 0x14071E6C8 (PopAcquireTransitionLock.c)
- *     PopReleaseTransitionLock @ 0x14071E724 (PopReleaseTransitionLock.c)
- *     PopConnectToPolicyDevice @ 0x140740EB4 (PopConnectToPolicyDevice.c)
- *     PopEnableHiberFile @ 0x140745F9C (PopEnableHiberFile.c)
- *     PopResetCurrentPolicies @ 0x14074760C (PopResetCurrentPolicies.c)
+ *     PopAcquireTransitionLock @ 0x14071E6A8 (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x14071E704 (PopReleaseTransitionLock.c)
+ *     PopConnectToPolicyDevice @ 0x140740E94 (PopConnectToPolicyDevice.c)
+ *     PopEnableHiberFile @ 0x140745F7C (PopEnableHiberFile.c)
+ *     PopResetCurrentPolicies @ 0x1407475EC (PopResetCurrentPolicies.c)
  */
 
 __int64 __fastcall PopNotifyPolicyDevice(_QWORD *NotificationStructure, PVOID Context)
@@ -34,16 +34,16 @@ __int64 __fastcall PopNotifyPolicyDevice(_QWORD *NotificationStructure, PVOID Co
     PopAcquirePolicyLock();
     if ( v5 )
     {
-      if ( byte_140418253 )
+      if ( byte_140418233 )
       {
-        byte_140418253 = 0;
+        byte_140418233 = 0;
 LABEL_13:
         PopResetCurrentPolicies(v8, v7);
       }
     }
-    else if ( byte_140418253 != 1 )
+    else if ( byte_140418233 != 1 )
     {
-      byte_140418253 = 1;
+      byte_140418233 = 1;
       goto LABEL_13;
     }
     PopReleasePolicyLock();

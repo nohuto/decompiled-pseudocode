@@ -1,7 +1,7 @@
 /*
- * XREFs of MiReturnNonPagedPoolPde @ 0x140161680
+ * XREFs of MiReturnNonPagedPoolPde @ 0x1401616A0
  * Callers:
- *     MiReturnNonPagedPoolVa @ 0x140161614 (MiReturnNonPagedPoolVa.c)
+ *     MiReturnNonPagedPoolVa @ 0x140161634 (MiReturnNonPagedPoolVa.c)
  * Callees:
  *     MiNonPagedPoolToNode @ 0x1400261A4 (MiNonPagedPoolToNode.c)
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
@@ -10,12 +10,12 @@
  *     MiLockLowestValidPageTable @ 0x14006C5A0 (MiLockLowestValidPageTable.c)
  *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
  *     MmFreePoolMemory @ 0x14007BD58 (MmFreePoolMemory.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiCountSystemPool @ 0x1401B4E00 (MiCountSystemPool.c)
- *     MiJoinBitmapPages @ 0x1402B4DC0 (MiJoinBitmapPages.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCountSystemPool @ 0x1401B4E20 (MiCountSystemPool.c)
+ *     MiJoinBitmapPages @ 0x1402B4EC0 (MiJoinBitmapPages.c)
  */
 
 __int64 __fastcall MiReturnNonPagedPoolPde(ULONG_PTR a1, unsigned __int64 a2, int a3)

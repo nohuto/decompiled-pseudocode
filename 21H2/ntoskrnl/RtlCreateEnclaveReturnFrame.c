@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCreateEnclaveReturnFrame @ 0x14045F202
+ * XREFs of RtlCreateEnclaveReturnFrame @ 0x140593220
  * Callers:
- *     PsCallEnclave @ 0x1409B35D0 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x14090D1D0 (PsCallEnclave.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlCreateEnclaveReturnFrame(
@@ -18,43 +18,53 @@ __int64 __fastcall RtlCreateEnclaveReturnFrame(
         __int64 a9,
         char a10)
 {
-  unsigned __int64 v11; // rcx
-  __int64 v14; // rcx
-  _QWORD *v16; // [rsp+30h] [rbp+8h]
+  __int64 v11; // rbx
+  unsigned __int64 v12; // rcx
+  unsigned __int64 v15; // rcx
+  _QWORD *v17; // [rsp+40h] [rbp+18h]
+  unsigned __int64 v18; // [rsp+40h] [rbp+18h]
 
-  if ( *(_WORD *)(a1 + 368) != 51 || *(_QWORD *)(a1 + 360) != a3 )
+  v11 = PspEnclaveDispatch;
+  if ( *(_WORD *)(a1 + 368) != 51 || *(_QWORD *)(a1 + 360) != PspEnclaveDispatchReturn )
   {
-    v11 = *(_QWORD *)(a1 + 384) - 80LL;
-    v16 = (_QWORD *)v11;
-    if ( (v11 & 3) != 0 )
+    v12 = *(_QWORD *)(a1 + 384) - 80LL;
+    v17 = (_QWORD *)v12;
+    if ( (v12 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( v11 >= 0x7FFFFFFF0000LL )
-      v11 = 0x7FFFFFFF0000LL;
-    *(_BYTE *)v11 = *(_BYTE *)v11;
-    *(_BYTE *)(v11 + 7) = *(_BYTE *)(v11 + 7);
-    v16[5] = *(_QWORD *)(a1 + 80);
-    v16[7] = *(_QWORD *)(a1 + 360);
-    v16[8] = *(_QWORD *)(a1 + 344);
-    *(_QWORD *)(a1 + 384) = v16;
-    _R8 = *(_QWORD *)(a1 + 360);
+    if ( v12 >= 0x7FFFFFFF0000LL )
+      v12 = 0x7FFFFFFF0000LL;
+    *(_BYTE *)v12 = *(_BYTE *)v12;
+    *(_BYTE *)(v12 + 79) = *(_BYTE *)(v12 + 79);
+    v17[5] = *(_QWORD *)(a1 + 80);
+    v17[7] = *(_QWORD *)(a1 + 360);
+    v17[8] = *(_QWORD *)(a1 + 344);
+    *(_QWORD *)(a1 + 384) = v17;
+    _R10 = *(_QWORD *)(a1 + 360);
     if ( a10 )
     {
       _RAX = __readmsr(0x6A7u) - 8;
-      __asm { wrussq  qword ptr [rax], r8 }
+      __asm { wrussq  qword ptr [rax], r10 }
       __writemsr(0x6A7u, _RAX);
     }
   }
   if ( a7 )
   {
-    v14 = *(_QWORD *)(a1 + 384);
-    *(_QWORD *)(v14 + 64) = a8;
-    *(_QWORD *)(v14 + 72) = a7;
+    v15 = *(_QWORD *)(a1 + 384);
+    v18 = v15;
+    if ( (v15 & 3) != 0 )
+      ExRaiseDatatypeMisalignment();
+    if ( v15 >= 0x7FFFFFFF0000LL )
+      v15 = 0x7FFFFFFF0000LL;
+    *(_BYTE *)v15 = *(_BYTE *)v15;
+    *(_BYTE *)(v15 + 79) = *(_BYTE *)(v15 + 79);
+    *(_QWORD *)(v18 + 64) = a8;
+    *(_QWORD *)(v18 + 72) = a7;
   }
   *(_QWORD *)(a1 + 56) = a4;
   *(_QWORD *)(a1 + 64) = a5;
   *(_QWORD *)(a1 + 72) = a6;
   *(_QWORD *)(a1 + 80) = a9;
-  *(_QWORD *)(a1 + 360) = a2;
+  *(_QWORD *)(a1 + 360) = v11;
   *(_WORD *)(a1 + 368) = 51;
   return 0LL;
 }

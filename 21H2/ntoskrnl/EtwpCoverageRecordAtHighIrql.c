@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCoverageRecordAtHighIrql @ 0x1406310E4
+ * XREFs of EtwpCoverageRecordAtHighIrql @ 0x1405A69F4
  * Callers:
- *     EtwSetProcessTelemetryCoverage @ 0x1406D435C (EtwSetProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x140771BB8 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
- *     EtwTelemetryCoverageReport @ 0x14024F470 (EtwTelemetryCoverageReport.c)
- *     EtwpCoverageValidateCP @ 0x14024F59C (EtwpCoverageValidateCP.c)
- *     RtlStringCchCopyA @ 0x14024F6E4 (RtlStringCchCopyA.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTelemetryCoverageReport @ 0x1402C84B0 (EtwTelemetryCoverageReport.c)
+ *     EtwpCoverageValidateCP @ 0x1402C85E0 (EtwpCoverageValidateCP.c)
+ *     RtlStringCchCopyA @ 0x1402C8734 (RtlStringCchCopyA.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall EtwpCoverageRecordAtHighIrql(__int64 *a1)
@@ -43,7 +43,7 @@ __int64 __fastcall EtwpCoverageRecordAtHighIrql(__int64 *a1)
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
-    EtwTelemetryCoverageReport((__int64 *)&v12);
+    EtwTelemetryCoverageReport(&v12);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )

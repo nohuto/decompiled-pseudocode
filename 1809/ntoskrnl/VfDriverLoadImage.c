@@ -1,13 +1,13 @@
 /*
  * XREFs of VfDriverLoadImage @ 0x140921264
  * Callers:
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
  *     VfDriverEnableVerifier @ 0x140927E78 (VfDriverEnableVerifier.c)
  *     VfInitBootDriversLoaded @ 0x1409B7610 (VfInitBootDriversLoaded.c)
  *     VfDriverLoadBootDrivers @ 0x1409B76F8 (VfDriverLoadBootDrivers.c)
  * Callees:
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     VfTargetDriversAdd @ 0x1400F5584 (VfTargetDriversAdd.c)
+ *     VfTargetDriversAdd @ 0x1400F55A4 (VfTargetDriversAdd.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
  *     VfNotifyVerifierExtensions @ 0x14092820C (VfNotifyVerifierExtensions.c)
  *     ViXdvDriverLoadImage @ 0x140928510 (ViXdvDriverLoadImage.c)

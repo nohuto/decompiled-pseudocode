@@ -1,172 +1,179 @@
 /*
- * XREFs of NtFlushKey @ 0x1407ACA70
+ * XREFs of NtFlushKey @ 0x140696C00
  * Callers:
- *     ExpWatchProductTypeWork @ 0x1407AC5E0 (ExpWatchProductTypeWork.c)
+ *     ExpWatchProductTypeWork @ 0x140696830 (ExpWatchProductTypeWork.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     CmpIsRegistryLockAcquired @ 0x14022FB70 (CmpIsRegistryLockAcquired.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     EtwGetKernelTraceTimestamp @ 0x1402A2E70 (EtwGetKernelTraceTimestamp.c)
- *     CmpDoFlushAll @ 0x1402F694C (CmpDoFlushAll.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     CmPostCallbackNotificationEx @ 0x140691E30 (CmPostCallbackNotificationEx.c)
- *     CmpCallCallBacksEx @ 0x1406E86A0 (CmpCallCallBacksEx.c)
- *     CmpFlushHive @ 0x140753398 (CmpFlushHive.c)
- *     CmpLockRegistryFreezeAware @ 0x140753CF8 (CmpLockRegistryFreezeAware.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140AF6160 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpDetachFromRegistryProcess @ 0x140AF6230 (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x140AF6250 (CmpAttachToRegistryProcess.c)
- *     CmpAcquireShutdownRundown @ 0x140AF6380 (CmpAcquireShutdownRundown.c)
- *     CmObReferenceObjectByHandle @ 0x140AF63D0 (CmObReferenceObjectByHandle.c)
- *     CmpReleaseShutdownRundown @ 0x140AF6470 (CmpReleaseShutdownRundown.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
- *     CmpLockKcbShared @ 0x140AF6530 (CmpLockKcbShared.c)
- *     CmpUnlockKcb @ 0x140AF65A0 (CmpUnlockKcb.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x1402D0610 (ExIsResourceAcquiredSharedLite.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402F1D90 (EtwGetKernelTraceTimestamp.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     CmpDoFlushAll @ 0x14037D80C (CmpDoFlushAll.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
+ *     CmpUnlockKcb @ 0x140640260 (CmpUnlockKcb.c)
+ *     CmpCallCallBacksEx @ 0x140640B60 (CmpCallCallBacksEx.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmPostCallbackNotificationEx @ 0x140645BA0 (CmPostCallbackNotificationEx.c)
+ *     CmObReferenceObjectByHandle @ 0x1406DD40C (CmObReferenceObjectByHandle.c)
+ *     CmpLockRegistryFreezeAware @ 0x1406EB4E0 (CmpLockRegistryFreezeAware.c)
  */
 
-__int64 __fastcall NtFlushKey(int a1)
+__int64 __fastcall NtFlushKey(int a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  void *v2; // rdi
-  char v3; // r15
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // rdx
-  __int64 v8; // rcx
+  _DMA_OPERATIONS *DmaOperations; // r15
+  char v6; // r14
+  struct _KTHREAD *CurrentThread; // rax
+  BOOLEAN v8; // al
   int v9; // r8d
   int v10; // r9d
-  char v11; // r13
-  signed int v12; // ebx
-  char PreviousMode; // r14
-  struct _KTHREAD *CurrentThread; // rax
-  __int64 v15; // rdi
-  int v16; // eax
-  __int64 v17; // rcx
-  struct _EX_RUNDOWN_REF *v18; // r14
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  __int64 v21; // r8
-  __int64 v22; // r9
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  __int64 v30; // r8
-  __int64 v31; // r9
-  void *v32; // [rsp+48h] [rbp-79h] BYREF
-  __int64 v33; // [rsp+50h] [rbp-71h] BYREF
-  _QWORD v34[2]; // [rsp+58h] [rbp-69h] BYREF
-  __int128 v35; // [rsp+68h] [rbp-59h] BYREF
-  __int128 v36[2]; // [rsp+78h] [rbp-49h] BYREF
-  _OWORD v37[3]; // [rsp+98h] [rbp-29h] BYREF
-  _OWORD v38[2]; // [rsp+C8h] [rbp+7h] BYREF
+  struct _KTHREAD *v11; // rcx
+  BOOLEAN v12; // r12
+  PADAPTER_OBJECT v13; // rcx
+  signed int v14; // ebx
+  char PreviousMode; // si
+  struct _KTHREAD *v16; // rax
+  PADAPTER_OBJECT v17; // rdi
+  int v18; // eax
+  _DMA_OPERATIONS *v19; // rbx
+  ULONG_PTR v20; // rcx
+  struct _EX_RUNDOWN_REF *v21; // rbx
+  __int64 v22; // rdx
+  __int64 v23; // r8
+  _DWORD *v24; // r9
+  struct _EX_RUNDOWN_REF *v25; // rsi
+  __int64 v27; // rdx
+  __int64 v28; // r8
+  _DWORD *v29; // r9
+  PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp-69h] BYREF
+  __int64 v31; // [rsp+48h] [rbp-61h] BYREF
+  _QWORD v32[2]; // [rsp+50h] [rbp-59h] BYREF
+  _OWORD v33[2]; // [rsp+60h] [rbp-49h] BYREF
+  _OWORD v34[3]; // [rsp+80h] [rbp-29h] BYREF
+  _OWORD v35[2]; // [rsp+B0h] [rbp+7h] BYREF
 
-  v33 = 0LL;
-  v35 = 0LL;
-  memset(v36, 0, sizeof(v36));
-  memset(v37, 0, sizeof(v37));
-  memset(v38, 0, sizeof(v38));
-  if ( CmpTraceRoutine )
-    EtwGetKernelTraceTimestamp((__int64)v38, 0x20000LL);
-  v2 = 0LL;
-  v34[1] = v34;
-  v32 = 0LL;
-  v34[0] = v34;
-  v3 = 0;
-  CmpInitializeThreadInfo((__int64)&v35);
-  v11 = CmpAcquireShutdownRundown(v5, v4, v6);
-  if ( !v11 )
+  v31 = 0LL;
+  DmaOperations = 0LL;
+  memset(v33, 0, sizeof(v33));
+  memset(v34, 0, sizeof(v34));
+  memset(v35, 0, sizeof(v35));
+  if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v35, 0x20000LL, a3, a4);
+  DmaAdapter = 0LL;
+  v32[1] = v32;
+  v6 = 0;
+  v32[0] = v32;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v8 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+  v11 = KeGetCurrentThread();
+  v12 = v8;
+  if ( !v8 )
   {
-    v12 = -1073741431;
-    goto LABEL_26;
+    KeLeaveCriticalRegionThread((__int64)v11);
+    v14 = -1073741431;
+    goto LABEL_30;
   }
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  PreviousMode = v11->PreviousMode;
   LOBYTE(v10) = PreviousMode;
-  v12 = CmObReferenceObjectByHandle(a1, 0, v9, v10, (__int64)&v32, (__int64)&v33);
-  if ( v12 >= 0 )
+  v14 = CmObReferenceObjectByHandle(a1, 0, v9, v10, (__int64)&DmaAdapter, (__int64)&v31);
+  if ( v14 >= 0 )
   {
-    CurrentThread = KeGetCurrentThread();
-    v15 = (__int64)v32;
-    --CurrentThread->KernelApcDisable;
-    if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v15 + 8) + 32LL) + 160LL) & 2) != 0
+    if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) && DmaAdapter )
+      DmaOperations = DmaAdapter->DmaOperations;
+    v16 = KeGetCurrentThread();
+    --v16->KernelApcDisable;
+    v17 = DmaAdapter;
+    if ( (*((_DWORD *)DmaAdapter->DmaOperations->AllocateAdapterChannel + 40) & 2) != 0
       && PreviousMode
-      && (~HIDWORD(v33) & 0x20006) != 0 )
+      && (~HIDWORD(v31) & 0x20006) != 0 )
     {
-      v12 = -1073741790;
-LABEL_24:
+      v14 = -1073741790;
+LABEL_27:
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      goto LABEL_25;
+      goto LABEL_28;
     }
-    if ( CmpCallBackCount && !CmpIsRegistryLockAcquired() )
+    if ( CmpCallBackCount && !ExIsResourceAcquiredSharedLite((PERESOURCE)&CmpRegistryLock) )
     {
-      *(_QWORD *)&v36[0] = v15;
-      v16 = CmpCallCallBacksEx(0x1Eu, v36, 0LL, 1, 0x1Fu, v15, (__int64)v34);
-      v12 = v16;
-      if ( v16 < 0 )
+      *(_QWORD *)&v33[0] = v17;
+      v18 = CmpCallCallBacksEx(0x1Eu, (__int64)v33, 0LL, 1, 0x1Fu, (__int64)v17, (__int64)v32);
+      v14 = v18;
+      if ( v18 < 0 )
       {
-        if ( v16 == -1073740541 )
-          v12 = 0;
-        goto LABEL_24;
+        if ( v18 == -1073740541 )
+          v14 = 0;
+        goto LABEL_27;
       }
-      v3 = 1;
+      v6 = 1;
     }
-    CmpLockRegistryFreezeAware(0);
-    CmpLockKcbShared(*(_QWORD *)(v15 + 8));
-    v12 = CmpPerformKeyBodyDeletionCheck(v15, 0LL);
-    if ( v12 >= 0 )
+    CmpLockRegistryFreezeAware(0LL);
+    v19 = v17->DmaOperations;
+    ExAcquirePushLockSharedEx((ULONG_PTR)&v19->FreeAdapterChannel, 0LL);
+    _InterlockedIncrement((volatile signed __int32 *)&v19->FreeMapRegisters);
+    v14 = CmpPerformKeyBodyDeletionCheck((__int64)DmaAdapter, 0LL);
+    if ( v14 >= 0 )
     {
-      v17 = *(_QWORD *)(v15 + 8);
-      v18 = *(struct _EX_RUNDOWN_REF **)(v17 + 32);
-      if ( v18 == (struct _EX_RUNDOWN_REF *)CmpMasterHive )
+      v20 = (ULONG_PTR)v17->DmaOperations;
+      v21 = *(struct _EX_RUNDOWN_REF **)(v20 + 32);
+      if ( v21 == (struct _EX_RUNDOWN_REF *)CmpMasterHive )
       {
-        CmpUnlockKcb(v17);
-        CmpUnlockRegistry(v20, v19, v21, v22);
-        CmpAttachToRegistryProcess(v37);
+        CmpUnlockKcb(v20);
+        CmpUnlockRegistry();
+        CmpAttachToRegistryProcess((__int64)v34, v22, v23, v24);
         CmpDoFlushAll();
-        CmpDetachFromRegistryProcess(v37);
-        v12 = 0;
-        goto LABEL_22;
+        KiUnstackDetachProcess((__int64)v34, 0);
+        v14 = 0;
+        goto LABEL_25;
       }
-      if ( ExAcquireRundownProtection_0(v18 + 205) )
+      v25 = v21 + 204;
+      if ( ExAcquireRundownProtection(v21 + 204) )
       {
-        CmpUnlockKcb(*(_QWORD *)(v15 + 8));
-        CmpUnlockRegistry(v29, v28, v30, v31);
-        CmpAttachToRegistryProcess(v37);
-        v12 = CmpFlushHive((ULONG_PTR)v18, 0);
-        if ( v12 < 0 )
-          v12 = -1073741491;
-        CmpDetachFromRegistryProcess(v37);
-        ExReleaseRundownProtection_0(v18 + 205);
-        goto LABEL_22;
+        CmpUnlockKcb((ULONG_PTR)v17->DmaOperations);
+        CmpUnlockRegistry();
+        CmpAttachToRegistryProcess((__int64)v34, v27, v28, v29);
+        v14 = CmpFlushHive((ULONG_PTR)v21, 0);
+        if ( v14 < 0 )
+          v14 = -1073741491;
+        KiUnstackDetachProcess((__int64)v34, 0);
+        ExReleaseRundownProtection(v25);
+        goto LABEL_25;
       }
-      v12 = -1073740763;
+      v14 = -1073740763;
     }
-    CmpUnlockKcb(*(_QWORD *)(v15 + 8));
-    CmpUnlockRegistry(v24, v23, v25, v26);
-LABEL_22:
-    if ( v3 )
-      v12 = CmPostCallbackNotificationEx(31, v15, v12, (__int64)v36, 0LL, v34);
-    goto LABEL_24;
-  }
+    CmpUnlockKcb((ULONG_PTR)v17->DmaOperations);
+    CmpUnlockRegistry();
 LABEL_25:
-  v2 = v32;
-LABEL_26:
-  if ( v2 )
-    ObfDereferenceObject(v2);
-  if ( CmpTraceRoutine )
-  {
-    LOBYTE(v8) = 21;
-    CmpTraceRoutine(v8, v38, (unsigned int)v12, 0LL);
+    if ( v6 )
+      v14 = CmPostCallbackNotificationEx(0x1Fu, (__int64)DmaAdapter, v14, (__int64)v33, 0LL, v32);
+    goto LABEL_27;
   }
-  if ( v11 )
-    CmpReleaseShutdownRundown(v8, v7);
-  CmCleanupThreadInfo((__int64 *)&v35);
-  return (unsigned int)v12;
+LABEL_28:
+  v13 = DmaAdapter;
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
+LABEL_30:
+  if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
+  {
+    LOBYTE(v13) = 21;
+    (*(void (__fastcall **)(PADAPTER_OBJECT, _OWORD *, _QWORD, _QWORD, _DMA_OPERATIONS *, _QWORD))((char *)&NlsMbCodePageTag
+                                                                                                 + 7))(
+      v13,
+      v35,
+      (unsigned int)v14,
+      0LL,
+      DmaOperations,
+      0LL);
+  }
+  if ( v12 )
+  {
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  }
+  return (unsigned int)v14;
 }

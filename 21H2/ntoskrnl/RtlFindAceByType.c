@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlFindAceByType @ 0x140349610
+ * XREFs of RtlFindAceByType @ 0x140352210
  * Callers:
- *     SepMandatorySubProcessToken @ 0x140205B1C (SepMandatorySubProcessToken.c)
- *     RtlIsUntrustedObject @ 0x140206A00 (RtlIsUntrustedObject.c)
- *     SeComputeAutoInheritByObjectTypeEx @ 0x1402A4A60 (SeComputeAutoInheritByObjectTypeEx.c)
- *     SepVerifyDesktopAppxPackageName @ 0x1403763A8 (SepVerifyDesktopAppxPackageName.c)
- *     SepSetProcessTrustLabelAceForToken @ 0x14041A13C (SepSetProcessTrustLabelAceForToken.c)
- *     SepGetScopedPolicySid @ 0x1405F4288 (SepGetScopedPolicySid.c)
- *     AdtpBuildContextFromSecurityDescriptor @ 0x14064C418 (AdtpBuildContextFromSecurityDescriptor.c)
- *     SeQueryMandatoryLabel @ 0x1406C9990 (SeQueryMandatoryLabel.c)
- *     RtlpSetSecurityObject @ 0x140726700 (RtlpSetSecurityObject.c)
- *     RtlpCopyAces @ 0x140728450 (RtlpCopyAces.c)
- *     RtlpGenerateInheritAcl @ 0x140728DA0 (RtlpGenerateInheritAcl.c)
- *     RtlpNewSecurityObject @ 0x1407CE760 (RtlpNewSecurityObject.c)
- *     RtlpValidFilterAclSubjectContext @ 0x1409BA380 (RtlpValidFilterAclSubjectContext.c)
- *     SepSDContainsAttributeACE @ 0x1409CE660 (SepSDContainsAttributeACE.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x140201574 (SepVerifyDesktopAppxPackageName.c)
+ *     SepMandatorySubProcessToken @ 0x1402517DC (SepMandatorySubProcessToken.c)
+ *     SeComputeAutoInheritByObjectTypeEx @ 0x140355F20 (SeComputeAutoInheritByObjectTypeEx.c)
+ *     RtlIsUntrustedObject @ 0x14035F3B0 (RtlIsUntrustedObject.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1403F8C44 (SepSetProcessTrustLabelAceForToken.c)
+ *     SepGetScopedPolicySid @ 0x1405960C8 (SepGetScopedPolicySid.c)
+ *     AdtpBuildContextFromSecurityDescriptor @ 0x1405C32C0 (AdtpBuildContextFromSecurityDescriptor.c)
+ *     RtlpGenerateInheritAcl @ 0x14065C860 (RtlpGenerateInheritAcl.c)
+ *     RtlpCopyAces @ 0x14065D3D0 (RtlpCopyAces.c)
+ *     RtlpSetSecurityObject @ 0x14065E3C0 (RtlpSetSecurityObject.c)
+ *     SeQueryMandatoryLabel @ 0x140674294 (SeQueryMandatoryLabel.c)
+ *     RtlpNewSecurityObject @ 0x1406FF5F0 (RtlpNewSecurityObject.c)
+ *     RtlpValidFilterAclSubjectContext @ 0x140914D94 (RtlpValidFilterAclSubjectContext.c)
+ *     SepSDContainsAttributeACE @ 0x140924D84 (SepSDContainsAttributeACE.c)
  * Callees:
  *     <none>
  */

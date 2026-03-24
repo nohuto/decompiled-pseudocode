@@ -1,35 +1,45 @@
 /*
- * XREFs of EtwTraceBeginSendMessage @ 0x1C0093190
+ * XREFs of EtwTraceBeginSendMessage @ 0x1C007F7C0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetCallbackCount@@YACXZ @ 0x1C014C390 (-GetCallbackCount@@YACXZ.c)
- *     McTemplateK0cppppqqqqq_EtwWriteTransfer @ 0x1C014F55C (McTemplateK0cppppqqqqq_EtwWriteTransfer.c)
+ *     W32GetThreadWin32Thread @ 0x1C002E580 (W32GetThreadWin32Thread.c)
+ *     McTemplateK0cppppqqqqq_EtwWriteTransfer @ 0x1C0124A88 (McTemplateK0cppppqqqqq_EtwWriteTransfer.c)
  */
 
-void __fastcall EtwTraceBeginSendMessage(__int64 a1)
+char __fastcall EtwTraceBeginSendMessage(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v2; // rdi
-  __int64 *v3; // rcx
-  int v4; // r9d
-  int v5; // edx
-  int v6; // ecx
-  int v7; // r8d
+  _UNKNOWN **v3; // rax
+  __int64 v5; // rbp
+  __int64 *v6; // rax
+  int v7; // r9d
+  int v8; // edx
+  int v9; // r8d
+  _UNKNOWN *retaddr; // [rsp+78h] [rbp+0h] BYREF
 
-  if ( (W32kEtwEnabledKeyword & 0x400000000400000LL) != 0
-    && (unsigned __int8)(byte_1C028DB38 - 1) > 2u
-    && (qword_1C028DB20 & 0x400000000400000LL) != 0
-    && (qword_1C028DB28 & 0x400000000400000LL) == qword_1C028DB28 )
+  v3 = &retaddr;
+  if ( (W32kEtwEnabledKeyword & 0x400000000400000LL) != 0 )
   {
-    LOBYTE(v2) = 0;
-    if ( (Microsoft_Windows_Win32kEnableBits & 0x800) != 0 )
+    LOBYTE(v3) = byte_1C024A738 - 1;
+    if ( (unsigned __int8)(byte_1C024A738 - 1) > 2u && (qword_1C024A720 & 0x400000000400000LL) != 0 )
     {
-      PsGetThreadId(**(PETHREAD **)(a1 + 40));
-      v3 = *(__int64 **)(a1 + 112);
-      if ( v3 )
-        v2 = *v3;
-      LOBYTE(v4) = GetCallbackCount();
-      McTemplateK0cppppqqqqq_EtwWriteTransfer(v6, v5, v7, v4, a1, v2);
+      LOBYTE(v3) = 0;
+      if ( (qword_1C024A728 & 0x400000000400000LL) == qword_1C024A728 )
+      {
+        LOBYTE(v5) = 0;
+        if ( a2 && a3 )
+          LOBYTE(v3) = 3;
+        if ( (Microsoft_Windows_Win32kEnableBits & 0x800) != 0 )
+        {
+          v6 = *(__int64 **)(a1 + 112);
+          if ( v6 )
+            v5 = *v6;
+          PsGetThreadId(**(PETHREAD **)(a1 + 40));
+          LOBYTE(v7) = *(_BYTE *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1248);
+          LOBYTE(v3) = McTemplateK0cppppqqqqq_EtwWriteTransfer(*(_DWORD *)(a1 + 80), v8, v9, v7, a1, v5);
+        }
+      }
     }
   }
+  return (char)v3;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhPdoPnp_QueryPnpDeviceState @ 0x1C00558A0
+ * XREFs of UsbhPdoPnp_QueryPnpDeviceState @ 0x1C0056F40
  * Callers:
  *     <none>
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhPdo_ReportPnPFailureProblem @ 0x1C00566C0 (UsbhPdo_ReportPnPFailureProblem.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhPdo_ReportPnPFailureProblem @ 0x1C0057D80 (UsbhPdo_ReportPnPFailureProblem.c)
  */
 
 __int64 __fastcall UsbhPdoPnp_QueryPnpDeviceState(PDEVICE_OBJECT DeviceObject, PIRP Irp)

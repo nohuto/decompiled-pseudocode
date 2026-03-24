@@ -1,23 +1,19 @@
 /*
- * XREFs of MouseMove @ 0x1C01E8770
+ * XREFs of MouseMove @ 0x1C01AEB60
  * Callers:
- *     ?xxxMKMouseMove@@YAHG@Z @ 0x1C01B69F0 (-xxxMKMouseMove@@YAHG@Z.c)
- *     ?xxxMKMoveAccelCursorTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01B6B80 (-xxxMKMoveAccelCursorTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
- *     ?xxxMKMoveConstCursorTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01B6D00 (-xxxMKMoveConstCursorTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxMKMouseMove@@YAHG@Z @ 0x1C0183E30 (-xxxMKMouseMove@@YAHG@Z.c)
+ *     ?xxxMKMoveAccelCursorTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0184420 (-xxxMKMoveAccelCursorTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxMKMoveConstCursorTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0184A10 (-xxxMKMoveConstCursorTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
  * Callees:
- *     _anonymous_namespace_::GetMouseProcessor @ 0x1C005304C (_anonymous_namespace_--GetMouseProcessor.c)
- *     ?AccessibilityMouseMove@CMouseProcessor@@QEAAXJJ@Z @ 0x1C01F4F98 (-AccessibilityMouseMove@CMouseProcessor@@QEAAXJJ@Z.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0043E8C (_anonymous_namespace_--GetMouseProcessor.c)
+ *     ?AccessibilityMouseMove@CMouseProcessor@@QEAAXJJ@Z @ 0x1C01BE910 (-AccessibilityMouseMove@CMouseProcessor@@QEAAXJJ@Z.c)
  */
 
-void __fastcall MouseMove(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall MouseMove(int a1, int a2)
 {
-  int v4; // ebx
-  int v5; // edi
   CMouseProcessor *MouseProcessor; // rax
 
-  v4 = a2;
-  v5 = a1;
-  MouseProcessor = (CMouseProcessor *)anonymous_namespace_::GetMouseProcessor(a1, a2, a3, a4);
+  MouseProcessor = (CMouseProcessor *)anonymous_namespace_::GetMouseProcessor();
   if ( MouseProcessor )
-    CMouseProcessor::AccessibilityMouseMove(MouseProcessor, v5, v4);
+    CMouseProcessor::AccessibilityMouseMove(MouseProcessor, a1, a2);
 }

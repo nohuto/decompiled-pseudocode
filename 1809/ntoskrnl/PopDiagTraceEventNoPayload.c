@@ -1,8 +1,8 @@
 /*
- * XREFs of PopDiagTraceEventNoPayload @ 0x140135A40
+ * XREFs of PopDiagTraceEventNoPayload @ 0x140135A60
  * Callers:
  *     PopScanIdleList @ 0x140010050 (PopScanIdleList.c)
- *     PopThermalStandbyNotify @ 0x1402DC2D8 (PopThermalStandbyNotify.c)
+ *     PopThermalStandbyNotify @ 0x1402DC3D8 (PopThermalStandbyNotify.c)
  *     PoBroadcastSystemState @ 0x1405681E0 (PoBroadcastSystemState.c)
  *     PopTransitionToSleep @ 0x14056C0F0 (PopTransitionToSleep.c)
  *     PopBuildDeviceNotifyList @ 0x14056CD44 (PopBuildDeviceNotifyList.c)
@@ -13,19 +13,19 @@
  *     PopDiagTraceZeroHiberFile @ 0x14057DF7C (PopDiagTraceZeroHiberFile.c)
  *     PopDiagTraceZeroHiberFileEnd @ 0x14057DF98 (PopDiagTraceZeroHiberFileEnd.c)
  *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
- *     PopDiagTraceDevicesWakeEnd @ 0x1406DDDC0 (PopDiagTraceDevicesWakeEnd.c)
- *     PopSuspendApps @ 0x1406DEBF0 (PopSuspendApps.c)
- *     PopSuspendServices @ 0x1406DEC58 (PopSuspendServices.c)
- *     PopResumeApps @ 0x1406DECC8 (PopResumeApps.c)
- *     PopResumeServices @ 0x1406DED60 (PopResumeServices.c)
- *     PopDispatchSuperfetchNotification @ 0x1406DEDF8 (PopDispatchSuperfetchNotification.c)
- *     PopNotifyCallbacksPreSleep @ 0x1406DEFAC (PopNotifyCallbacksPreSleep.c)
- *     PopCoalescingNotify @ 0x14086B5D0 (PopCoalescingNotify.c)
- *     PopSetSystemAwayMode @ 0x14086C100 (PopSetSystemAwayMode.c)
- *     PopDiagTraceIoCoalescingOff @ 0x1408731D4 (PopDiagTraceIoCoalescingOff.c)
+ *     PopDiagTraceDevicesWakeEnd @ 0x1406DDDA0 (PopDiagTraceDevicesWakeEnd.c)
+ *     PopSuspendApps @ 0x1406DEBD0 (PopSuspendApps.c)
+ *     PopSuspendServices @ 0x1406DEC38 (PopSuspendServices.c)
+ *     PopResumeApps @ 0x1406DECA8 (PopResumeApps.c)
+ *     PopResumeServices @ 0x1406DED40 (PopResumeServices.c)
+ *     PopDispatchSuperfetchNotification @ 0x1406DEDD8 (PopDispatchSuperfetchNotification.c)
+ *     PopNotifyCallbacksPreSleep @ 0x1406DEF8C (PopNotifyCallbacksPreSleep.c)
+ *     PopCoalescingNotify @ 0x14086B5B0 (PopCoalescingNotify.c)
+ *     PopSetSystemAwayMode @ 0x14086C0E0 (PopSetSystemAwayMode.c)
+ *     PopDiagTraceIoCoalescingOff @ 0x1408731B4 (PopDiagTraceIoCoalescingOff.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
  */
 
 void __fastcall PopDiagTraceEventNoPayload(PCEVENT_DESCRIPTOR EventDescriptor)

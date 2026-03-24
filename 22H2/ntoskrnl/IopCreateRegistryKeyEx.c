@@ -1,26 +1,26 @@
 /*
- * XREFs of IopCreateRegistryKeyEx @ 0x1407DAA18
+ * XREFs of IopCreateRegistryKeyEx @ 0x14073C1E4
  * Callers:
- *     PipOpenServiceEnumKeys @ 0x14068E904 (PipOpenServiceEnumKeys.c)
- *     PnpBuildCmResourceList @ 0x14081993C (PnpBuildCmResourceList.c)
- *     IopWriteResourceList @ 0x14081AEF8 (IopWriteResourceList.c)
- *     IopUpdateSecureDeviceClassState @ 0x14083C688 (IopUpdateSecureDeviceClassState.c)
- *     IopCreateSecureDeviceClassSettings @ 0x14083C924 (IopCreateSecureDeviceClassSettings.c)
- *     PiDevCfgConfigureSoftwareDevices @ 0x14087D1C4 (PiDevCfgConfigureSoftwareDevices.c)
- *     NtDisableLastKnownGood @ 0x140885380 (NtDisableLastKnownGood.c)
- *     IoSetSystemPartition @ 0x1409474F0 (IoSetSystemPartition.c)
- *     PipHardwareConfigTriggerRespecialize @ 0x140952090 (PipHardwareConfigTriggerRespecialize.c)
- *     PipInitComputerIds @ 0x140B3D92C (PipInitComputerIds.c)
- *     IopStoreSystemPartitionInformation @ 0x140B3F574 (IopStoreSystemPartitionInformation.c)
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
- *     IopInitializeResourceMap @ 0x140B44840 (IopInitializeResourceMap.c)
- *     IoReportHalResourceUsage @ 0x140B44DB0 (IoReportHalResourceUsage.c)
- *     PnpOpenCCSPnpRegKey @ 0x140B64C8C (PnpOpenCCSPnpRegKey.c)
- *     PipHardwareConfigInit @ 0x140B6D528 (PipHardwareConfigInit.c)
- *     PiInitFirmwareResources @ 0x140B6FC80 (PiInitFirmwareResources.c)
+ *     IopCreateSecureDeviceClassSettings @ 0x140735DF8 (IopCreateSecureDeviceClassSettings.c)
+ *     PipOpenServiceEnumKeys @ 0x14073F08C (PipOpenServiceEnumKeys.c)
+ *     PnpBuildCmResourceList @ 0x140750970 (PnpBuildCmResourceList.c)
+ *     IopWriteResourceList @ 0x140751D5C (IopWriteResourceList.c)
+ *     PiDevCfgConfigureSoftwareDevices @ 0x140766F18 (PiDevCfgConfigureSoftwareDevices.c)
+ *     NtDisableLastKnownGood @ 0x14077CF00 (NtDisableLastKnownGood.c)
+ *     IopUpdateSecureDeviceClassState @ 0x1407BDFF4 (IopUpdateSecureDeviceClassState.c)
+ *     IoSetSystemPartition @ 0x140893CC0 (IoSetSystemPartition.c)
+ *     PipHardwareConfigTriggerRespecialize @ 0x14089B7C0 (PipHardwareConfigTriggerRespecialize.c)
+ *     IopInitializeResourceMap @ 0x140A39780 (IopInitializeResourceMap.c)
+ *     IoReportHalResourceUsage @ 0x140A39C40 (IoReportHalResourceUsage.c)
+ *     PiInitFirmwareResources @ 0x140A50E48 (PiInitFirmwareResources.c)
+ *     PipHardwareConfigInit @ 0x140A512F4 (PipHardwareConfigInit.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     PnpOpenCCSPnpRegKey @ 0x140A53958 (PnpOpenCCSPnpRegKey.c)
+ *     PipInitComputerIds @ 0x140A5B730 (PipInitComputerIds.c)
+ *     IopStoreSystemPartitionInformation @ 0x140A615B8 (IopStoreSystemPartitionInformation.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
  */
 
 __int64 __fastcall IopCreateRegistryKeyEx(
@@ -32,97 +32,103 @@ __int64 __fastcall IopCreateRegistryKeyEx(
         ULONG *a6)
 {
   _QWORD *v6; // rdi
-  __int64 v7; // r15
-  __int64 v8; // r13
-  NTSTATUS v11; // esi
+  __int64 v7; // r13
+  __int64 v8; // r15
+  NTSTATUS v11; // r14d
   wchar_t *Buffer; // rdi
-  __int64 Length; // r12
-  unsigned int v15; // ebx
-  wchar_t *v16; // r12
-  __int64 v17; // rcx
-  wchar_t *v18; // r14
-  char v19; // al
+  unsigned int v14; // r12d
+  __int64 Length; // rsi
+  wchar_t *v16; // rsi
+  wchar_t *v17; // rbx
+  char v18; // al
   HANDLE Handle[2]; // [rsp+48h] [rbp-51h] BYREF
-  __int128 v21; // [rsp+58h] [rbp-41h] BYREF
+  __int128 v20; // [rsp+58h] [rbp-41h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-31h] BYREF
-  char v24; // [rsp+F8h] [rbp+5Fh]
+  char v23; // [rsp+F8h] [rbp+5Fh]
   ULONG Disposition; // [rsp+100h] [rbp+67h] BYREF
   ACCESS_MASK DesiredAccess; // [rsp+108h] [rbp+6Fh]
 
   DesiredAccess = a4;
-  *(&ObjectAttributes.Attributes + 1) = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
   v6 = a1;
-  Disposition = 0;
-  LODWORD(v7) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  v7 = 0LL;
   *a1 = 0LL;
-  ObjectAttributes.RootDirectory = a2;
+  Disposition = 0;
   LODWORD(v8) = 1;
+  ObjectAttributes.RootDirectory = a2;
   ObjectAttributes.ObjectName = a3;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)Handle = 0LL;
-  v21 = 0LL;
+  v20 = 0LL;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v11 = ZwCreateKey(&Handle[1], a4, &ObjectAttributes, 0, 0LL, CreateOptions, &Disposition);
-  if ( v11 == -1073741772 )
+  if ( v11 != -1073741772 )
+    goto LABEL_2;
+  if ( a2 )
   {
-    if ( !a2 )
-      return (unsigned int)v11;
-    Handle[0] = 0LL;
     Buffer = a3->Buffer;
+    v14 = 0;
     Length = a3->Length;
-    Handle[1] = a2;
-    v15 = 0;
+    Handle[0] = 0LL;
     v16 = (wchar_t *)((char *)Buffer + Length);
-    v24 = 1;
+    Handle[1] = a2;
+    v23 = 1;
     while ( 1 )
     {
-      if ( v15 > 1 )
-        ZwClose(Handle[(unsigned int)v7]);
-      v17 = (unsigned int)v8;
-      v18 = Buffer;
+      if ( v14 > 1 )
+        ZwClose(Handle[v7]);
+      v7 = (unsigned int)v8;
+      v17 = Buffer;
       v8 = ((_BYTE)v8 - 1) & 1;
-      for ( Handle[v8] = 0LL; v18 < v16; ++v18 )
+      for ( Handle[v8] = 0LL; v17 < v16; ++v17 )
       {
-        if ( *v18 == 92 )
+        if ( *v17 == 92 )
           break;
       }
-      v7 = v17;
-      if ( (_DWORD)v18 == (_DWORD)Buffer )
+      if ( (_DWORD)v17 == (_DWORD)Buffer )
         break;
-      WORD1(v21) = (_WORD)v18 - (_WORD)Buffer;
-      LOWORD(v21) = (_WORD)v18 - (_WORD)Buffer;
-      ObjectAttributes.RootDirectory = Handle[v17];
-      ObjectAttributes.ObjectName = (PUNICODE_STRING)&v21;
-      *((_QWORD *)&v21 + 1) = Buffer;
+      WORD1(v20) = (_WORD)v17 - (_WORD)Buffer;
+      LOWORD(v20) = (_WORD)v17 - (_WORD)Buffer;
+      ObjectAttributes.RootDirectory = Handle[v7];
+      ObjectAttributes.ObjectName = (PUNICODE_STRING)&v20;
+      *((_QWORD *)&v20 + 1) = Buffer;
       ObjectAttributes.Length = 48;
       ObjectAttributes.Attributes = 576;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
       v11 = ZwCreateKey(&Handle[v8], DesiredAccess, &ObjectAttributes, 0, 0LL, CreateOptions, &Disposition);
-      if ( v11 >= 0 )
+      if ( v11 < 0 )
+        goto LABEL_21;
+      ++v14;
+      if ( v17 == v16 )
+        goto LABEL_19;
+      Buffer = v17 + 1;
+      if ( v17 + 1 == v16 )
+        goto LABEL_19;
+      v18 = v23;
+LABEL_20:
+      if ( !v18 )
       {
-        ++v15;
-        if ( v18 == v16 || (Buffer = v18 + 1, v18 + 1 == v16) )
-          v19 = 0;
-        else
-          v19 = v24;
-        v24 = v19;
-        if ( v19 )
-          continue;
+LABEL_21:
+        if ( v14 > 1 )
+          ZwClose(Handle[v7]);
+        v6 = a1;
+LABEL_2:
+        if ( v11 >= 0 )
+        {
+          *v6 = Handle[(unsigned int)v8];
+          if ( a6 )
+            *a6 = Disposition;
+        }
+        return (unsigned int)v11;
       }
-      goto LABEL_22;
     }
     v11 = -1073741811;
-LABEL_22:
-    if ( v15 > 1 )
-      ZwClose(Handle[v7]);
-    v6 = a1;
-  }
-  if ( v11 >= 0 )
-  {
-    *v6 = Handle[(unsigned int)v8];
-    if ( a6 )
-      *a6 = Disposition;
+LABEL_19:
+    v18 = 0;
+    v23 = 0;
+    goto LABEL_20;
   }
   return (unsigned int)v11;
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of ?_Tidy@?$vector@UDepthGraphNode@@V?$allocator@UDepthGraphNode@@@std@@@std@@AEAAXXZ @ 0x18025D7B0
+ * XREFs of ?_Tidy@?$vector@UDepthGraphNode@@V?$allocator@UDepthGraphNode@@@std@@@std@@AEAAXXZ @ 0x18020DC18
  * Callers:
- *     ?SortVisuals@CDepthSortingLayer@@QEAA_NPEAV?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@AEBV?$vector@VCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@3@@Z @ 0x18025D340 (-SortVisuals@CDepthSortingLayer@@QEAA_NPEAV-$vector@PEAVCVisual@@V-$allocator@PEAVCVisual@@@std@.c)
+ *     ?SortVisuals@CDepthSortingLayer@@QEAA_NPEAV?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@AEBV?$vector@VCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@3@@Z @ 0x18020D8CC (-SortVisuals@CDepthSortingLayer@@QEAA_NPEAV-$vector@PEAVCVisual@@V-$allocator@PEAVCVisual@@@std@.c)
  * Callees:
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ??$_Destroy_range@V?$allocator@UDepthGraphNode@@@std@@@std@@YAXPEAUDepthGraphNode@@QEAU1@AEAV?$allocator@UDepthGraphNode@@@0@@Z @ 0x18025CDC4 (--$_Destroy_range@V-$allocator@UDepthGraphNode@@@std@@@std@@YAXPEAUDepthGraphNode@@QEAU1@AEAV-$a.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8E4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Destroy_range@V?$allocator@UDepthGraphNode@@@std@@@std@@YAXPEAUDepthGraphNode@@0AEAV?$allocator@UDepthGraphNode@@@0@@Z @ 0x18020D730 (--$_Destroy_range@V-$allocator@UDepthGraphNode@@@std@@@std@@YAXPEAUDepthGraphNode@@0AEAV-$alloca.c)
  */
 
 void __fastcall std::vector<DepthGraphNode>::_Tidy(__int64 a1)
 {
-  _QWORD *v2; // rcx
+  void *v1; // rdi
 
-  v2 = *(_QWORD **)a1;
-  if ( v2 )
+  v1 = *(void **)a1;
+  if ( *(_QWORD *)a1 )
   {
-    std::_Destroy_range<std::allocator<DepthGraphNode>>(v2, *(_QWORD **)(a1 + 8));
-    std::_Deallocate<16,0>(*(void **)a1, 8 * ((__int64)(*(_QWORD *)(a1 + 16) - *(_QWORD *)a1) >> 3));
+    std::_Destroy_range<std::allocator<DepthGraphNode>>(*(_QWORD **)a1, *(_QWORD **)(a1 + 8));
+    std::_Deallocate<16,0>(v1, 56 * ((*(_QWORD *)(a1 + 16) - (_QWORD)v1) / 56LL));
     *(_QWORD *)a1 = 0LL;
     *(_QWORD *)(a1 + 8) = 0LL;
     *(_QWORD *)(a1 + 16) = 0LL;

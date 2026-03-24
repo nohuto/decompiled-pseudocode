@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDripsWatchdogTakeAction @ 0x1409A0958
+ * XREFs of PopDripsWatchdogTakeAction @ 0x1408FA6A0
  * Callers:
- *     PopDripsWatchdogDiagnosticWorker @ 0x1409965B0 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x1408EF230 (PopDripsWatchdogDiagnosticWorker.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x1402DA4B0 (VfIsVerifierEnabled.c)
- *     PpmIdlePrevetoWatchdog @ 0x1405C81FC (PpmIdlePrevetoWatchdog.c)
- *     PopFxBugCheck @ 0x1405CAE6C (PopFxBugCheck.c)
- *     PopFxBuildDripsBlockingDeviceList @ 0x1405CB06C (PopFxBuildDripsBlockingDeviceList.c)
- *     PopDiagTraceCsDripsWatchdog @ 0x1405D0FDC (PopDiagTraceCsDripsWatchdog.c)
- *     PopDiagTraceCsDripsWatchdogPerfTrack @ 0x1405D11D8 (PopDiagTraceCsDripsWatchdogPerfTrack.c)
- *     PopDeviceConstraintsEnforced @ 0x1405DF244 (PopDeviceConstraintsEnforced.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x14080B5F0 (DbgkWerCaptureLiveKernelDump.c)
- *     PopCheckTestsigningEnabled @ 0x140989608 (PopCheckTestsigningEnabled.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x14098D024 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     VfIsVerifierEnabled @ 0x1402D3DF0 (VfIsVerifierEnabled.c)
+ *     PpmIdlePrevetoWatchdog @ 0x140566AF0 (PpmIdlePrevetoWatchdog.c)
+ *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x140569684 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopDiagTraceCsDripsWatchdog @ 0x140570D80 (PopDiagTraceCsDripsWatchdog.c)
+ *     PopDiagTraceCsDripsWatchdogPerfTrack @ 0x140570F7C (PopDiagTraceCsDripsWatchdogPerfTrack.c)
+ *     PopDeviceConstraintsEnforced @ 0x14057F2E4 (PopDeviceConstraintsEnforced.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140888B30 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopCheckTestsigningEnabled @ 0x1408E109C (PopCheckTestsigningEnabled.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x1408E4684 (PopFxDestroyDripsBlockingDeviceList.c)
  */
 
 void __fastcall PopDripsWatchdogTakeAction(__int64 a1, __int16 a2, int a3)

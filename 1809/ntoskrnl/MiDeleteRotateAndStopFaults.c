@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteRotateAndStopFaults @ 0x14013A0D0
+ * XREFs of MiDeleteRotateAndStopFaults @ 0x14013A0F0
  * Callers:
- *     MmRotatePhysicalView @ 0x14066B930 (MmRotatePhysicalView.c)
+ *     MmRotatePhysicalView @ 0x14066B910 (MmRotatePhysicalView.c)
  * Callees:
  *     MiDeleteVirtualAddresses @ 0x140026134 (MiDeleteVirtualAddresses.c)
  *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
  *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 signed __int64 __fastcall MiDeleteRotateAndStopFaults(int a1, int a2, _QWORD *a3)

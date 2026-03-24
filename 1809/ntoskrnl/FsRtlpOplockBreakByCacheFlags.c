@@ -1,25 +1,25 @@
 /*
  * XREFs of FsRtlpOplockBreakByCacheFlags @ 0x140018CB0
  * Callers:
- *     FsRtlCheckOplockEx @ 0x1400B7C60 (FsRtlCheckOplockEx.c)
- *     FsRtlOplockBreakToNoneEx @ 0x14026F6F0 (FsRtlOplockBreakToNoneEx.c)
+ *     FsRtlCheckOplockEx @ 0x1400B7C80 (FsRtlCheckOplockEx.c)
+ *     FsRtlOplockBreakToNoneEx @ 0x14026F7F0 (FsRtlOplockBreakToNoneEx.c)
  *     FsRtlCheckUpperOplock @ 0x1405854A0 (FsRtlCheckUpperOplock.c)
- *     FsRtlOplockBreakH @ 0x1406C4CB0 (FsRtlOplockBreakH.c)
+ *     FsRtlOplockBreakH @ 0x1406C4C90 (FsRtlOplockBreakH.c)
  * Callees:
  *     IoReleaseCancelSpinLock @ 0x140017DC0 (IoReleaseCancelSpinLock.c)
  *     FsRtlpComputeShareableOplockState @ 0x140018750 (FsRtlpComputeShareableOplockState.c)
  *     FsRtlpOplockKeysEqual @ 0x1400199A0 (FsRtlpOplockKeysEqual.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     FsRtlpModifyThreadPriorities @ 0x140107D80 (FsRtlpModifyThreadPriorities.c)
- *     IoAcquireCancelSpinLock @ 0x140111D50 (IoAcquireCancelSpinLock.c)
- *     FsRtlpClearOwner @ 0x14012171C (FsRtlpClearOwner.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x140133270 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpOplockSendModernAppTermination @ 0x140134CE0 (FsRtlpOplockSendModernAppTermination.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3914 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x14026FECC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x14026FFD0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     FsRtlpWaitOnIrp @ 0x140270070 (FsRtlpWaitOnIrp.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     FsRtlpModifyThreadPriorities @ 0x140107DA0 (FsRtlpModifyThreadPriorities.c)
+ *     IoAcquireCancelSpinLock @ 0x140111D70 (IoAcquireCancelSpinLock.c)
+ *     FsRtlpClearOwner @ 0x14012173C (FsRtlpClearOwner.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x140133290 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpOplockSendModernAppTermination @ 0x140134D00 (FsRtlpOplockSendModernAppTermination.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3934 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x14026FFCC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1402700D0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpWaitOnIrp @ 0x140270170 (FsRtlpWaitOnIrp.c)
  */
 
 __int64 __fastcall FsRtlpOplockBreakByCacheFlags(

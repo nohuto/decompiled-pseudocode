@@ -1,37 +1,37 @@
 /*
- * XREFs of CmGetKeyFlags @ 0x1407EAFB0
+ * XREFs of CmGetKeyFlags @ 0x1406A50B0
  * Callers:
- *     CmQueryLayeredKey @ 0x14035D634 (CmQueryLayeredKey.c)
- *     CmQueryKey @ 0x1406D7280 (CmQueryKey.c)
+ *     CmQueryLayeredKey @ 0x140200A78 (CmQueryLayeredKey.c)
+ *     CmQueryKey @ 0x1405F5810 (CmQueryKey.c)
  * Callees:
- *     CmEqualTrans @ 0x1407696D0 (CmEqualTrans.c)
- *     CmListGetPrevElement @ 0x1407C5590 (CmListGetPrevElement.c)
+ *     CmEqualTrans @ 0x14071CD40 (CmEqualTrans.c)
+ *     CmListGetPrevElement @ 0x1407680A8 (CmListGetPrevElement.c)
  */
 
-__int64 __fastcall CmGetKeyFlags(__int64 a1, __int64 a2)
+__int64 __fastcall CmGetKeyFlags(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  int v2; // ebx
-  unsigned int v4; // ebx
-  __int64 v6; // rbp
+  int v4; // ebx
+  unsigned int v6; // ebx
+  __int64 v8; // rbp
   __int64 PrevElement; // rax
-  __int64 v8; // rdi
-  __int64 v9; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v10; // rdi
+  __int64 v11; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = *(_DWORD *)(a1 + 184);
-  v9 = 0LL;
-  v4 = v2 & 0xF;
+  v4 = *(_DWORD *)(a1 + 184);
+  v11 = 0LL;
+  v6 = v4 & 0xF;
   if ( a2 )
   {
-    v6 = a1 + 208;
+    v8 = a1 + 208;
     while ( 1 )
     {
-      PrevElement = CmListGetPrevElement(v6, &v9);
-      v8 = PrevElement;
+      PrevElement = CmListGetPrevElement(v8, &v11, a3, a4);
+      v10 = PrevElement;
       if ( !PrevElement )
         break;
-      if ( CmEqualTrans(*(_QWORD *)(PrevElement + 56), a2) && *(_DWORD *)(v8 + 68) == 7 )
-        return *(unsigned int *)(v8 + 88);
+      if ( (unsigned __int8)CmEqualTrans(*(_QWORD *)(PrevElement + 56), a2) && *(_DWORD *)(v10 + 68) == 7 )
+        return *(unsigned int *)(v10 + 88);
     }
   }
-  return v4;
+  return v6;
 }

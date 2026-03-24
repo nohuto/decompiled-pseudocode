@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0DMMVIDPNSOURCEMODESET@@IEAA@PEAVDMMVIDPNSOURCE@@@Z @ 0x1C000FDC8
+ * XREFs of ??0DMMVIDPNSOURCEMODESET@@IEAA@PEAVDMMVIDPNSOURCE@@@Z @ 0x1C00084F4
  * Callers:
- *     ?_SetEmptyCofuncModeSet@DMMVIDPNSOURCE@@IEAAXXZ @ 0x1C000FD30 (-_SetEmptyCofuncModeSet@DMMVIDPNSOURCE@@IEAAXXZ.c)
- *     ?CreateNewCofuncModeSet@DMMVIDPNSOURCE@@QEAAJPEAPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C001D494 (-CreateNewCofuncModeSet@DMMVIDPNSOURCE@@QEAAJPEAPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
+ *     ?_SetEmptyCofuncModeSet@DMMVIDPNSOURCE@@IEAAXXZ @ 0x1C0008464 (-_SetEmptyCofuncModeSet@DMMVIDPNSOURCE@@IEAAXXZ.c)
+ *     ?CreateNewCofuncModeSet@DMMVIDPNSOURCE@@QEAAJPEAPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C00194A8 (-CreateNewCofuncModeSet@DMMVIDPNSOURCE@@QEAAJPEAPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 DMMVIDPNSOURCEMODESET *__fastcall DMMVIDPNSOURCEMODESET::DMMVIDPNSOURCEMODESET(
@@ -12,6 +12,9 @@ DMMVIDPNSOURCEMODESET *__fastcall DMMVIDPNSOURCEMODESET::DMMVIDPNSOURCEMODESET(
         struct DMMVIDPNSOURCE *a2)
 {
   char *v4; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v8; // rax
 
   *((_QWORD *)this + 1) = 0LL;
   *((_QWORD *)this + 2) = 0LL;
@@ -26,20 +29,23 @@ DMMVIDPNSOURCEMODESET *__fastcall DMMVIDPNSOURCEMODESET::DMMVIDPNSOURCEMODESET(
   *((_DWORD *)this + 20) = 0;
   *((_QWORD *)this + 3) = &IndexedSet<DMMVIDPNSOURCEMODE>::`vftable';
   *((_QWORD *)this + 14) = 0LL;
-  *((_QWORD *)this + 11) = &ReferenceCounted::`vftable';
-  *((_DWORD *)this + 24) = 1;
-  *((_BYTE *)this + 136) = 1;
-  *((_DWORD *)this + 32) = 1833173004;
   *((_QWORD *)this + 18) = 0LL;
+  *((_QWORD *)this + 11) = &ReferenceCounted::`vftable';
   *(_QWORD *)this = &DMMVIDPNSOURCEMODESET::`vftable'{for `SetElement'};
   *((_QWORD *)this + 3) = &DMMVIDPNSOURCEMODESET::`vftable'{for `IndexedSet<DMMVIDPNSOURCEMODE>'};
   *((_QWORD *)this + 11) = &DMMVIDPNSOURCEMODESET::`vftable'{for `ReferenceCounted'};
   *((_QWORD *)this + 13) = &DMMVIDPNSOURCEMODESET::`vftable'{for `AggregatedBy<DMMVIDPNSOURCE>'};
   *((_QWORD *)this + 15) = &DMMVIDPNSOURCEMODESET::`vftable'{for `SignedWithClassSignature<DMMVIDPNSOURCEMODESET>'};
+  *((_DWORD *)this + 24) = 1;
+  *((_BYTE *)this + 136) = 1;
+  *((_DWORD *)this + 32) = 1833173004;
   if ( (**((unsigned __int8 (***)(void))this + 4))() )
   {
     if ( a2 && *((_QWORD *)this + 14) )
-      WdLogSingleEntry0(1LL);
+    {
+      v8 = WdLogNewEntry5_WdAssertion(v6, v5);
+      WdLogEvent5_WdAssertion(v8);
+    }
     *((_QWORD *)this + 14) = a2;
   }
   else

@@ -1,1 +1,31 @@
-/*\n * XREFs of __security_check_cookie @ 0x1C0002D60\n * Callers:\n *     sub_1C0002AB0 @ 0x1C0002AB0 (sub_1C0002AB0.c)\n *     sub_1C0002DEC @ 0x1C0002DEC (sub_1C0002DEC.c)\n *     sub_1C0004A04 @ 0x1C0004A04 (sub_1C0004A04.c)\n *     DriverReinitializationRoutine @ 0x1C000C3B0 (DriverReinitializationRoutine.c)\n *     sub_1C000CA40 @ 0x1C000CA40 (sub_1C000CA40.c)\n *     sub_1C000CF10 @ 0x1C000CF10 (sub_1C000CF10.c)\n *     sub_1C000F080 @ 0x1C000F080 (sub_1C000F080.c)\n *     sub_1C000F2D0 @ 0x1C000F2D0 (sub_1C000F2D0.c)\n * Callees:\n *     <none>\n */\n\nvoid __cdecl _security_check_cookie(uintptr_t StackCookie)\n{\n  if ( StackCookie != _security_cookie || (unsigned __int16)__ROL8__(StackCookie, 16) )\n    __fastfail(2u);\n}\n
+/*
+ * XREFs of __security_check_cookie @ 0x1C0002950
+ * Callers:
+ *     MouseStart @ 0x1C0002730 (MouseStart.c)
+ *     __GSHandlerCheckCommon @ 0x1C00029CC (__GSHandlerCheckCommon.c)
+ *     MouClassTraceLoggingDeniedCreateForReadWithSFAC @ 0x1C00041C8 (MouClassTraceLoggingDeniedCreateForReadWithSFAC.c)
+ *     MouClassTraceLoggingPrivilegeNotFoundForCreate @ 0x1C0004240 (MouClassTraceLoggingPrivilegeNotFoundForCreate.c)
+ *     MouseClassFindMorePorts @ 0x1C000C3F0 (MouseClassFindMorePorts.c)
+ *     MouCreateClassObject @ 0x1C000CBA0 (MouCreateClassObject.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C000D100 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     MouseClassGetWaitWakeEnableState @ 0x1C000E100 (MouseClassGetWaitWakeEnableState.c)
+ *     MouConfiguration @ 0x1C000F080 (MouConfiguration.c)
+ *     DriverEntry @ 0x1C000F500 (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
+void __cdecl _security_check_cookie(uintptr_t StackCookie)
+{
+  __int64 v1; // rcx
+
+  if ( StackCookie != _security_cookie )
+ReportFailure:
+    _report_gsfailure(StackCookie);
+  v1 = __ROL8__(StackCookie, 16);
+  if ( (_WORD)v1 )
+  {
+    StackCookie = __ROR8__(v1, 16);
+    goto ReportFailure;
+  }
+}

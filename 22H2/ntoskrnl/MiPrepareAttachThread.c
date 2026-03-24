@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPrepareAttachThread @ 0x1402178D0
+ * XREFs of MiPrepareAttachThread @ 0x14026FA54
  * Callers:
- *     MiSharePages @ 0x1402161D0 (MiSharePages.c)
- *     MiTrimSharedPageFromViews @ 0x1402EFC5C (MiTrimSharedPageFromViews.c)
- *     MmQueryCommitReleaseState @ 0x1403662D8 (MmQueryCommitReleaseState.c)
- *     MiLockStealUserVm @ 0x1403BD8B8 (MiLockStealUserVm.c)
- *     MmReleaseCommitForMemResetPages @ 0x1406198B8 (MmReleaseCommitForMemResetPages.c)
+ *     MiTrimSharedPageFromViews @ 0x1402702C4 (MiTrimSharedPageFromViews.c)
+ *     MmQueryCommitReleaseState @ 0x14031D238 (MmQueryCommitReleaseState.c)
+ *     MiLockStealUserVm @ 0x140333FE4 (MiLockStealUserVm.c)
+ *     MiSharePages @ 0x140367CB0 (MiSharePages.c)
+ *     MmReleaseCommitForMemResetPages @ 0x14052CC34 (MmReleaseCommitForMemResetPages.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ __int64 __fastcall MiPrepareAttachThread(__int64 a1, __int64 a2)
   if ( *(_QWORD *)(a2 + 104) )
     return 0LL;
   v2 = *(_DWORD *)(a2 + 184) >> 8;
-  if ( (v2 & 0xF0) == 0xF0 || *(_QWORD *)(a2 + 144) <= 1uLL )
+  if ( (v2 & 0xF0) == 0xF0 || *(_QWORD *)(a2 + 136) <= 1uLL )
     return 0LL;
   result = 1LL;
   BYTE1(v4) = v2 & 0xF | ((v2 & 0xF0) + 16);

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CitpSetOtherInputInfo@@YAJPEAT_CIT_SI_INFOFLAGS@@PEAT_CIT_SI_INFO@@@Z @ 0x1C02406E4
+ * XREFs of ?CitpSetOtherInputInfo@@YAJPEAT_CIT_SI_INFOFLAGS@@PEAT_CIT_SI_INFO@@@Z @ 0x1C01FEA90
  * Callers:
- *     CitSetInfo @ 0x1C009D150 (CitSetInfo.c)
+ *     CitSetInfo @ 0x1C0046F70 (CitSetInfo.c)
  * Callees:
- *     ?CitpLastInputUpdate@@YAXGI@Z @ 0x1C0016698 (-CitpLastInputUpdate@@YAXGI@Z.c)
+ *     ?CitpLastInputUpdate@@YAXGI@Z @ 0x1C00485E4 (-CitpLastInputUpdate@@YAXGI@Z.c)
  */
 
 __int64 __fastcall CitpSetOtherInputInfo(union _CIT_SI_INFOFLAGS *a1, union _CIT_SI_INFO *a2)
@@ -11,10 +11,10 @@ __int64 __fastcall CitpSetOtherInputInfo(union _CIT_SI_INFOFLAGS *a1, union _CIT
   struct _CIT_IMPACT_CONTEXT *v3; // rbx
   __int64 CurrentProcessWin32Process; // rax
 
-  v3 = xmmword_1C029A230;
+  v3 = xmmword_1C0255560;
   if ( (*(_DWORD *)a2 & 0x10000) != 0 )
   {
-    CurrentProcessWin32Process = *((_QWORD *)xmmword_1C029A230 + 15);
+    CurrentProcessWin32Process = *((_QWORD *)xmmword_1C0255560 + 15);
   }
   else
   {

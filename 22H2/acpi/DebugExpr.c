@@ -1,21 +1,21 @@
 /*
- * XREFs of DebugExpr @ 0x1C004D850
+ * XREFs of DebugExpr @ 0x1C0065E5C
  * Callers:
- *     DebugRunMethod @ 0x1C004DE30 (DebugRunMethod.c)
+ *     DebugRunMethod @ 0x1C0066440 (DebugRunMethod.c)
  * Callees:
- *     _strtoui64_0 @ 0x1C0001A79 (_strtoui64_0.c)
- *     _strupr_0 @ 0x1C0001A8B (_strupr_0.c)
- *     FindObjSymbol @ 0x1C004E130 (FindObjSymbol.c)
- *     IsNumber @ 0x1C004E1F4 (IsNumber.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     GetNameSpaceObject @ 0x1C004F748 (GetNameSpaceObject.c)
+ *     GetNameSpaceObject @ 0x1C002183C (GetNameSpaceObject.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     _strtoui64_0 @ 0x1C0031D29 (_strtoui64_0.c)
+ *     _strupr_0 @ 0x1C0031D3B (_strupr_0.c)
+ *     FindObjSymbol @ 0x1C0066760 (FindObjSymbol.c)
+ *     IsNumber @ 0x1C0066824 (IsNumber.c)
  */
 
-__int64 DebugExpr(char *Src, unsigned __int64 *a2, _QWORD *a3, ...)
+__int64 DebugExpr(char *Src, unsigned __int64 *a2, __int64 *a3, ...)
 {
   unsigned int v3; // ebx
   bool v5; // zf
-  int v8; // edx
+  char *v8; // rdx
   int v9; // ecx
   __int64 v10; // rcx
   unsigned __int64 v11; // rax
@@ -34,10 +34,10 @@ __int64 DebugExpr(char *Src, unsigned __int64 *a2, _QWORD *a3, ...)
   LODWORD(v15) = 0;
   if ( v5 && Src[1] == 37 )
   {
-    v8 = 0;
+    v8 = 0LL;
     v9 = 233;
 LABEL_4:
-    PrintDebugMessage(v9, v8, 0, 0, 0LL);
+    PrintDebugMessage(v9, v8, 0LL, 0LL, 0LL);
     return (unsigned int)-2;
   }
   if ( (unsigned __int8)IsNumber(Src, 16LL) )
@@ -52,9 +52,9 @@ LABEL_4:
   else
   {
     strupr_0(Src);
-    if ( (unsigned int)GetNameSpaceObject(Src) || (v10 = v14, *(_WORD *)(v14 + 66) != 8) )
+    if ( (unsigned int)GetNameSpaceObject(Src, 0LL, &v14, 1) || (v10 = v14, *(_WORD *)(v14 + 66) != 8) )
     {
-      v8 = (int)Src;
+      v8 = Src;
       v9 = 232;
       goto LABEL_4;
     }

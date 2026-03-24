@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpRaiseHardError @ 0x1408D6900
+ * XREFs of ExpRaiseHardError @ 0x1408D68E0
  * Callers:
- *     ExRaiseHardError @ 0x1408D6600 (ExRaiseHardError.c)
- *     NtRaiseHardError @ 0x1408D6C80 (NtRaiseHardError.c)
+ *     ExRaiseHardError @ 0x1408D65E0 (ExRaiseHardError.c)
+ *     NtRaiseHardError @ 0x1408D6C60 (NtRaiseHardError.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C00 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ExpSystemErrorHandler @ 0x1401C7000 (ExpSystemErrorHandler.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ExpSystemErrorHandler @ 0x1401C7020 (ExpSystemErrorHandler.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     PsCaptureExceptionPort @ 0x1405F7D1C (PsCaptureExceptionPort.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     LpcRequestWaitReplyPortEx @ 0x1406A43F0 (LpcRequestWaitReplyPortEx.c)
+ *     LpcRequestWaitReplyPortEx @ 0x1406A43D0 (LpcRequestWaitReplyPortEx.c)
  */
 
 __int64 __fastcall ExpRaiseHardError(

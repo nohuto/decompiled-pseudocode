@@ -1,27 +1,28 @@
 /*
- * XREFs of ??1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C005DCC4
+ * XREFs of ??1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C008386C
  * Callers:
- *     ?vDelete@XDCOBJ@@QEAAXK@Z @ 0x1C0044560 (-vDelete@XDCOBJ@@QEAAXK@Z.c)
- *     GreGetDeviceCaps @ 0x1C005D880 (GreGetDeviceCaps.c)
- *     NtGdiGetDeviceCapsAll @ 0x1C015F630 (NtGdiGetDeviceCapsAll.c)
+ *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C000DEF0 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     ?bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z @ 0x1C003C98C (-bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z.c)
+ *     GreGetDeviceCaps @ 0x1C0092320 (GreGetDeviceCaps.c)
+ *     NtGdiGetDeviceCapsAll @ 0x1C01426E0 (NtGdiGetDeviceCapsAll.c)
  * Callees:
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
  */
 
-void __fastcall NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK(NEEDDYNAMICMODECHANGESHARELOCK *this)
+void __fastcall NEEDDYNAMICMODECHANGESHARELOCK::~NEEDDYNAMICMODECHANGESHARELOCK(
+        NEEDDYNAMICMODECHANGESHARELOCK *this,
+        __int64 a2,
+        int a3)
 {
-  __int64 v1; // rbx
-  struct _ERESOURCE *v2; // rcx
+  __int64 v3; // rcx
 
-  if ( *(_BYTE *)this )
+  if ( *(_DWORD *)this )
   {
-    v1 = *(_QWORD *)(SGDGetSessionState(this) + 24);
-    EtwTraceGreLockReleaseSemaphore((__int64)L"GreBaseGlobals.hsemDynamicModeChange", *(_QWORD *)(v1 + 80));
-    v2 = *(struct _ERESOURCE **)(v1 + 80);
-    if ( v2 )
+    EtwTraceGreLockReleaseSemaphore((__int64)L"ghsemDynamicModeChange", (int)ghsemDynamicModeChange, a3);
+    if ( ghsemDynamicModeChange )
     {
-      ExReleaseResourceAndLeaveCriticalRegion(v2);
-      PsLeavePriorityRegion();
+      ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDynamicModeChange);
+      PsLeavePriorityRegion(v3);
     }
   }
 }

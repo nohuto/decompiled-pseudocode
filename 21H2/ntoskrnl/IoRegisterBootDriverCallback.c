@@ -1,29 +1,29 @@
 /*
- * XREFs of IoRegisterBootDriverCallback @ 0x140863630
+ * XREFs of IoRegisterBootDriverCallback @ 0x1407D3940
  * Callers:
  *     <none>
  * Callees:
- *     ExRegisterCallback @ 0x14025A0B0 (ExRegisterCallback.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ExCreateCallback @ 0x1406E0E40 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x14037F1A0 (ExRegisterCallback.c)
+ *     ExCreateCallback @ 0x1406BD240 (ExCreateCallback.c)
  */
 
 PVOID __fastcall IoRegisterBootDriverCallback(PCALLBACK_FUNCTION CallbackFunction, PVOID CallbackContext)
 {
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
+  UNICODE_STRING v5; // [rsp+20h] [rbp-48h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-38h] BYREF
 
-  *(&ObjectAttributes.Attributes + 1) = 0;
   *(&ObjectAttributes.Length + 1) = 0;
-  DestinationString = 0LL;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  v5 = 0LL;
   if ( PnpBootDriverCallbackRegistrationClosed )
     return 0LL;
   if ( !PnpBootDriverCallbackObject
-    && (RtlInitUnicodeString(&DestinationString, L"\\Callback\\BootDriver"),
+    && (RtlInitUnicodeString(&v5, L"\\Callback\\BootDriver"),
         ObjectAttributes.RootDirectory = 0LL,
         ObjectAttributes.Length = 48,
         ObjectAttributes.Attributes = 576,
-        ObjectAttributes.ObjectName = &DestinationString,
+        ObjectAttributes.ObjectName = &v5,
         *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL,
         ExCreateCallback(&PnpBootDriverCallbackObject, &ObjectAttributes, 1u, 1u) < 0) )
   {

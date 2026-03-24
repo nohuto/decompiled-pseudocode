@@ -1,19 +1,18 @@
 /*
- * XREFs of PnpBootDeviceWait @ 0x14037519C
+ * XREFs of PnpBootDeviceWait @ 0x1403B7D54
  * Callers:
- *     VhdInitialize @ 0x140B3F4DC (VhdInitialize.c)
- *     IopInitializeBootDrivers @ 0x140B405B4 (IopInitializeBootDrivers.c)
- *     CimfsInitialize @ 0x140B75330 (CimfsInitialize.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
+ *     VhdInitialize @ 0x140A73778 (VhdInitialize.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     HeadlessKernelAddLogEntry @ 0x14032240C (HeadlessKernelAddLogEntry.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     IopOpenRegistryKeyEx @ 0x1408135F0 (IopOpenRegistryKeyEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     HeadlessKernelAddLogEntry @ 0x14036EAD0 (HeadlessKernelAddLogEntry.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKeyEx @ 0x1407ACA90 (IopOpenRegistryKeyEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpBootDeviceWait(
@@ -23,26 +22,23 @@ __int64 __fastcall PnpBootDeviceWait(
         __int64 a4)
 {
   int v4; // edi
-  ULONG_PTR BugCheckParameter4; // r14
-  unsigned int v9; // ebx
-  int RegistryValue; // esi
-  int v11; // eax
-  ULONG_PTR v12; // rbx
+  unsigned int v8; // ebx
+  int RegistryValue; // r14d
+  int v10; // esi
   PVOID P; // [rsp+30h] [rbp-30h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+38h] [rbp-28h] BYREF
-  _QWORD v16[3]; // [rsp+48h] [rbp-18h] BYREF
-  HANDLE Handle; // [rsp+A0h] [rbp+40h] BYREF
+  _QWORD v14[3]; // [rsp+48h] [rbp-18h] BYREF
+  HANDLE Handle; // [rsp+B0h] [rbp+50h] BYREF
 
   v4 = 0;
-  BugCheckParameter4 = a2;
+  v14[0] = 7209068LL;
   P = 0LL;
   Handle = 0LL;
   *(_QWORD *)&UnicodeString.Length = 0LL;
   UnicodeString.Buffer = 0LL;
-  v16[1] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\PnP";
-  v16[0] = 7209068LL;
-  v9 = 0;
-  RegistryValue = IopOpenRegistryKeyEx(&Handle, 0LL, v16, 131097LL);
+  v14[1] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\PnP";
+  v8 = 0;
+  RegistryValue = IopOpenRegistryKeyEx(&Handle, 0LL, v14, 131097LL);
   if ( RegistryValue >= 0 )
   {
     RegistryValue = IopGetRegistryValue(Handle);
@@ -50,14 +46,15 @@ __int64 __fastcall PnpBootDeviceWait(
     {
       if ( *((_DWORD *)P + 3) == 4 )
       {
-        v9 = *(_DWORD *)((char *)P + *((unsigned int *)P + 2));
-        if ( v9 < 0xC8 )
+        v8 = *(_DWORD *)((char *)P + *((unsigned int *)P + 2));
+        if ( v8 >= 0xC8 )
         {
-          v9 = 0;
+          if ( v8 > 0x2BF20 )
+            v8 = 180000;
         }
-        else if ( v9 > 0x2BF20 )
+        else
         {
-          v9 = 180000;
+          v8 = 0;
         }
       }
       else
@@ -69,23 +66,28 @@ __int64 __fastcall PnpBootDeviceWait(
     ZwClose(Handle);
   }
   P = (PVOID)-2000000LL;
-  if ( RegistryValue >= 0 )
-    v4 = v9;
-  while ( 1 )
+  RtlFreeAnsiString(&UnicodeString);
+  v10 = a3(a1, a4, &UnicodeString);
+  if ( v10 < 0 )
   {
-    RtlFreeUnicodeString(&UnicodeString);
-    v11 = a3(a1, a4, &UnicodeString);
-    v12 = v11;
-    if ( v11 >= 0 )
-      break;
-    if ( v4 <= 0 )
+    if ( RegistryValue >= 0 )
+      v4 = v8;
+    do
+    {
+      if ( v4 <= 0 )
+        break;
+      KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&P);
+      v4 -= 200;
+      RtlFreeAnsiString(&UnicodeString);
+      v10 = a3(a1, a4, &UnicodeString);
+    }
+    while ( v10 < 0 );
+    if ( v10 < 0 )
     {
       HeadlessKernelAddLogEntry();
-      KeBugCheckEx(0x7Bu, (ULONG_PTR)&UnicodeString, v12, 0LL, BugCheckParameter4);
+      KeBugCheckEx(0x7Bu, (ULONG_PTR)&UnicodeString, v10, 0LL, a2);
     }
-    KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&P);
-    v4 -= 200;
   }
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString(&UnicodeString);
   return 0LL;
 }

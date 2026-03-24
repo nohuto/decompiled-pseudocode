@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlGetProcessorIndexFromVpIndex @ 0x1405496E0
+ * XREFs of HvlGetProcessorIndexFromVpIndex @ 0x1404FA740
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
  */
 
 __int64 __fastcall HvlGetProcessorIndexFromVpIndex(unsigned int a1)
@@ -12,7 +12,7 @@ __int64 __fastcall HvlGetProcessorIndexFromVpIndex(unsigned int a1)
   unsigned int v3; // esi
   char v4; // di
   ULONG ActiveProcessorCount; // eax
-  unsigned __int8 *i; // rcx
+  char *i; // rcx
 
   v1 = 0;
   if ( HvlpVirtualProcessorsIdentityMapped )

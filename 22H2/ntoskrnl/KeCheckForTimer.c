@@ -1,138 +1,185 @@
 /*
- * XREFs of KeCheckForTimer @ 0x140570B8C
+ * XREFs of KeCheckForTimer @ 0x140515A3C
  * Callers:
- *     ExpFreePoolChecks @ 0x1402AC370 (ExpFreePoolChecks.c)
- *     ExFreeHeapPool @ 0x140322ED0 (ExFreeHeapPool.c)
- *     VfMiscKeInitializeTimerEx_Entry @ 0x140AE0EA0 (VfMiscKeInitializeTimerEx_Entry.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     ExpFreePoolChecks @ 0x1402EB05C (ExpFreePoolChecks.c)
+ *     VerifierKeInitializeTimerEx @ 0x1409DAD20 (VerifierKeInitializeTimerEx.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-ULONG __fastcall KeCheckForTimer(ULONG_PTR BugCheckParameter3, __int64 a2)
+int __fastcall KeCheckForTimer(ULONG_PTR BugCheckParameter3, __int64 a2)
 {
-  ULONG result; // eax
-  ULONG_PTR BugCheckParameter4; // rdi
-  ULONG v5; // r12d
-  __int64 *v6; // r13
-  unsigned int v7; // r15d
-  __int64 v8; // rdx
-  _QWORD **v9; // r14
-  volatile signed __int32 *v10; // rsi
-  unsigned __int8 CurrentIrql; // bp
-  _DWORD *SchedulerAssist; // r9
-  __int64 v13; // rdx
-  _QWORD *v14; // r9
-  ULONG_PTR v15; // r10
-  ULONG_PTR v16; // rdx
-  ULONG_PTR v17; // r8
-  ULONG_PTR v18; // r8
-  unsigned __int8 v19; // cl
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v21; // r9
-  int v22; // eax
-  bool v23; // zf
-  ULONG v24; // [rsp+30h] [rbp-48h]
-  __int64 v25; // [rsp+38h] [rbp-40h]
-  unsigned int v26; // [rsp+90h] [rbp+18h]
-  int v27; // [rsp+98h] [rbp+20h] BYREF
+  __int64 *v2; // rax
+  ULONG_PTR BugCheckParameter4; // rsi
+  __int64 v5; // r8
+  void **SchedulerAssist; // r9
+  unsigned int v7; // r13d
+  unsigned int v8; // ebp
+  __int64 v9; // rdx
+  void **v10; // r15
+  volatile signed __int32 *v11; // r14
+  unsigned __int8 CurrentIrql; // r12
+  struct _KPRCB *CurrentPrcb; // rbx
+  _DWORD *v14; // rcx
+  int v15; // eax
+  _DWORD *v16; // rcx
+  int v17; // eax
+  ULONG_PTR v18; // r10
+  ULONG_PTR v19; // rdx
+  ULONG_PTR v20; // r8
+  ULONG_PTR v21; // r8
+  struct _KPRCB *v22; // rcx
+  int v23; // eax
+  unsigned __int8 v24; // al
+  struct _KPRCB *v25; // r10
+  int v26; // eax
+  bool v27; // zf
+  unsigned int v29; // [rsp+30h] [rbp-58h]
+  __int64 *v30; // [rsp+38h] [rbp-50h]
+  __int64 v31; // [rsp+40h] [rbp-48h]
+  int v32; // [rsp+A0h] [rbp+18h]
+  int v33; // [rsp+A8h] [rbp+20h] BYREF
 
-  result = KeTimerCheckFlags;
+  LODWORD(v2) = KeTimerCheckFlags;
   if ( (KeTimerCheckFlags & 1) != 0 )
   {
     BugCheckParameter4 = BugCheckParameter3 + a2;
-    result = KeQueryActiveProcessorCountEx(0xFFFFu);
-    v5 = 0;
-    v24 = result;
-    if ( result )
+    LODWORD(v2) = KeQueryActiveProcessorCountEx(0xFFFFu);
+    v7 = 0;
+    v29 = (unsigned int)v2;
+    if ( (_DWORD)v2 )
     {
-      v6 = KiProcessorBlock;
+      v2 = KiProcessorBlock;
+      v30 = KiProcessorBlock;
       do
       {
-        v7 = 0;
-        v8 = 0LL;
-        v25 = 0LL;
+        v8 = 0;
+        v9 = 0LL;
+        v31 = 0LL;
         do
         {
-          v26 = 0;
-          v9 = (_QWORD **)(((unsigned __int64)v7 << 13) + *v6 + 15880);
-          v10 = (volatile signed __int32 *)(v8 + *v6 + 15872);
+          v32 = 0;
+          v10 = (void **)(((unsigned __int64)v8 << 13) + *v2 + 15176);
+          v11 = (volatile signed __int32 *)(v9 + *v2 + 15168);
           do
           {
             CurrentIrql = KeGetCurrentIrql();
             __writecr8(2uLL);
             if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
-              SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-              if ( CurrentIrql == 2 )
-                LODWORD(v13) = 4;
-              else
-                v13 = (-1LL << (CurrentIrql + 1)) & 4;
-              SchedulerAssist[5] |= v13;
+              SchedulerAssist = (void **)KeGetCurrentPrcb()->SchedulerAssist;
+              v9 = (-1LL << (CurrentIrql + 1)) & 4;
+              v5 = (unsigned int)v9 | *((_DWORD *)SchedulerAssist + 5);
+              *((_DWORD *)SchedulerAssist + 5) = v5;
             }
-            v27 = 0;
-            while ( _interlockedbittestandset64(v10, 0LL) )
+            CurrentPrcb = KeGetCurrentPrcb();
+            v33 = 0;
+            while ( 1 )
             {
-              do
-                KeYieldProcessorEx(&v27);
-              while ( *(_QWORD *)v10 );
-            }
-            v14 = *v9;
-            if ( *v9 != v9 )
-            {
-              v15 = BugCheckParameter3 - 64;
-              do
+              v14 = CurrentPrcb->SchedulerAssist;
+              if ( v14 )
               {
-                v16 = (ULONG_PTR)(v14 - 4);
-                v14 = (_QWORD *)*v14;
-                if ( v16 > v15 && v16 < BugCheckParameter4 )
-                  KeBugCheckEx(0xC7u, 0LL, v16, BugCheckParameter3, BugCheckParameter4);
-                v17 = KiWaitAlways ^ _byteswap_uint64(v16 ^ __ROL8__(KiWaitNever ^ *(_QWORD *)(v16 + 48), KiWaitNever));
-                if ( v17 )
+                if ( CurrentPrcb->NestingLevel <= 1u )
                 {
-                  if ( v17 > v15 && v17 < BugCheckParameter4 )
-                    KeBugCheckEx(0xC7u, 1uLL, v17, BugCheckParameter3, BugCheckParameter4);
-                  v18 = *(_QWORD *)(v17 + 24);
-                  if ( v18 >= BugCheckParameter3 && v18 < BugCheckParameter4 )
-                    KeBugCheckEx(0xC7u, 2uLL, v18, BugCheckParameter3, BugCheckParameter4);
+                  v15 = v14[6];
+                  v14[6] = v15 + 1;
+                  if ( v15 == -1 )
+                    KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
                 }
               }
-              while ( v14 != v9 );
-            }
-            _InterlockedAnd64((volatile signed __int64 *)v10, 0LL);
-            if ( KiIrqlFlags )
-            {
-              v19 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+              if ( !_interlockedbittestandset64(v11, 0LL) )
+                break;
+              v16 = CurrentPrcb->SchedulerAssist;
+              if ( v16 )
               {
-                CurrentPrcb = KeGetCurrentPrcb();
-                v21 = CurrentPrcb->SchedulerAssist;
-                v22 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                v23 = (v22 & v21[5]) == 0;
-                v21[5] &= v22;
-                if ( v23 )
-                  KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+                if ( CurrentPrcb->NestingLevel <= 1u )
+                {
+                  v17 = v16[6] - 1;
+                  v16[6] = v17;
+                  if ( !v17 )
+                    KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+                }
+              }
+              do
+                KeYieldProcessorEx(&v33, v9, v5, (__int64)SchedulerAssist);
+              while ( *(_QWORD *)v11 );
+            }
+            SchedulerAssist = (void **)*v10;
+            if ( *v10 != v10 )
+            {
+              v18 = BugCheckParameter3 - 64;
+              do
+              {
+                v19 = (ULONG_PTR)(SchedulerAssist - 4);
+                SchedulerAssist = (void **)*SchedulerAssist;
+                if ( v19 > v18 && v19 < BugCheckParameter4 )
+                  KeBugCheckEx(0xC7u, 0LL, v19, BugCheckParameter3, BugCheckParameter4);
+                v20 = KiWaitAlways ^ _byteswap_uint64(v19 ^ __ROL8__(*(_QWORD *)(v19 + 48) ^ KiWaitNever, KiWaitNever));
+                if ( v20 )
+                {
+                  if ( v20 > v18 && v20 < BugCheckParameter4 )
+                    KeBugCheckEx(0xC7u, 1uLL, v20, BugCheckParameter3, BugCheckParameter4);
+                  v21 = *(_QWORD *)(v20 + 24);
+                  if ( v21 >= BugCheckParameter3 && v21 < BugCheckParameter4 )
+                    KeBugCheckEx(0xC7u, 2uLL, v21, BugCheckParameter3, BugCheckParameter4);
+                }
+              }
+              while ( SchedulerAssist != v10 );
+            }
+            _InterlockedAnd64((volatile signed __int64 *)v11, 0LL);
+            v22 = KeGetCurrentPrcb();
+            v9 = (__int64)v22->SchedulerAssist;
+            if ( v9 )
+            {
+              if ( v22->NestingLevel <= 1u )
+              {
+                v23 = *(_DWORD *)(v9 + 24) - 1;
+                *(_DWORD *)(v9 + 24) = v23;
+                if ( !v23 )
+                  KiRemoveSystemWorkPriorityKick((__int64)v22);
               }
             }
-            result = CurrentIrql;
+            if ( KiIrqlFlags )
+            {
+              if ( (KiIrqlFlags & 1) != 0 )
+              {
+                v24 = KeGetCurrentIrql();
+                if ( v24 <= 0xFu && CurrentIrql <= 0xFu && v24 >= 2u )
+                {
+                  v25 = KeGetCurrentPrcb();
+                  v9 = -1LL << (CurrentIrql + 1);
+                  SchedulerAssist = (void **)v25->SchedulerAssist;
+                  v26 = ~(unsigned __int16)v9;
+                  v27 = (v26 & *((_DWORD *)SchedulerAssist + 5)) == 0;
+                  *((_DWORD *)SchedulerAssist + 5) &= v26;
+                  if ( v27 )
+                    KiRemoveSystemWorkPriorityKick((__int64)v25);
+                }
+              }
+            }
             __writecr8(CurrentIrql);
-            v9 += 4;
-            v10 += 8;
-            ++v26;
+            v10 += 4;
+            v5 = (unsigned int)(v32 + 1);
+            v11 += 8;
+            v32 = v5;
           }
-          while ( v26 < 0x100 );
-          ++v7;
-          v8 = v25 + 0x2000;
-          v25 += 0x2000LL;
+          while ( (unsigned int)v5 < 0x100 );
+          ++v8;
+          v2 = v30;
+          v9 = v31 + 0x2000;
+          v31 += 0x2000LL;
         }
-        while ( v7 < 2 );
-        ++v5;
-        ++v6;
+        while ( v8 < 2 );
+        v2 = v30 + 1;
+        ++v7;
+        ++v30;
       }
-      while ( v5 < v24 );
+      while ( v7 < v29 );
     }
   }
-  return result;
+  return (int)v2;
 }

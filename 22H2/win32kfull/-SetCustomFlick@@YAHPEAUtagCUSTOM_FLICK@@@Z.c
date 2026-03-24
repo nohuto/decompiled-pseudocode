@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C01F3510
+ * XREFs of ?SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C0209118
  * Callers:
- *     WritePointerDeviceSettingsFull @ 0x1C01F3ABC (WritePointerDeviceSettingsFull.c)
+ *     WritePointerDeviceSettingsFull @ 0x1C020967C (WritePointerDeviceSettingsFull.c)
  * Callees:
- *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C0049BF0 (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
- *     ?GetCustomFlickPath@@YAHAEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C01F3454 (-GetCustomFlickPath@@YAHAEBU_GUID@@PEAU_UNICODE_STRING@@@Z.c)
+ *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C00E1190 (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
+ *     ?GetCustomFlickPath@@YAHAEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C0209050 (-GetCustomFlickPath@@YAHAEBU_GUID@@PEAU_UNICODE_STRING@@@Z.c)
  */
 
 _BOOL8 __fastcall SetCustomFlick(struct tagCUSTOM_FLICK *a1)

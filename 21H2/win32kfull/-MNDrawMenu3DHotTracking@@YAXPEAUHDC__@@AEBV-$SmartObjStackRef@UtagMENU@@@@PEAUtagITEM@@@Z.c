@@ -1,9 +1,9 @@
 /*
- * XREFs of ?MNDrawMenu3DHotTracking@@YAXPEAUHDC__@@AEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0247194
+ * XREFs of ?MNDrawMenu3DHotTracking@@YAXPEAUHDC__@@AEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C024BD68
  * Callers:
- *     xxxDrawMenuItem @ 0x1C00BE508 (xxxDrawMenuItem.c)
+ *     xxxDrawMenuItem @ 0x1C00447AC (xxxDrawMenuItem.c)
  * Callees:
- *     NtGdiPatBlt @ 0x1C0042E10 (NtGdiPatBlt.c)
+ *     NtGdiPatBlt @ 0x1C00B42B0 (NtGdiPatBlt.c)
  */
 
 __int64 __fastcall MNDrawMenu3DHotTracking(HDC a1, __int64 a2, __int64 a3)

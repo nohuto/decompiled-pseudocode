@@ -1,35 +1,35 @@
 /*
- * XREFs of ?_TTAdjustContactSide@@YAXJPEAJ0J@Z @ 0x1C024D6BC
+ * XREFs of ?_TTAdjustContactSide@@YAXJPEAJ0J@Z @ 0x1C025EA8C
  * Callers:
- *     TouchTargetingCreateContact @ 0x1C024DF88 (TouchTargetingCreateContact.c)
+ *     TouchTargetingCreateContact @ 0x1C025F244 (TouchTargetingCreateContact.c)
  * Callees:
- *     _TTHmToPixels @ 0x1C0157B3A (_TTHmToPixels.c)
- *     _TTPixelsToHm @ 0x1C0157B80 (_TTPixelsToHm.c)
+ *     _TTHmToPixels @ 0x1C0260088 (_TTHmToPixels.c)
+ *     _TTPixelsToHm @ 0x1C02600D0 (_TTPixelsToHm.c)
  */
 
-void __fastcall _TTAdjustContactSide(int a1, int *a2, int *a3, int a4)
+void __fastcall _TTAdjustContactSide(int a1, int *a2, int *a3, unsigned int a4)
 {
   int v5; // ebp
   int v7; // esi
   int v10; // eax
   int v11; // r10d
   int v12; // r11d
-  int v13; // ecx
+  __int64 v13; // rcx
 
   v5 = *a3;
   v7 = *a3 - *a2;
-  v10 = TTPixelsToHm(v7, a4);
+  v10 = TTPixelsToHm((unsigned int)v7, a4);
   if ( !v10 )
   {
-    v13 = 700;
+    v13 = 700LL;
 LABEL_5:
     v12 = TTHmToPixels(v13, a4);
     goto LABEL_6;
   }
-  v13 = 400;
+  v13 = 400LL;
   if ( v10 < 400 )
     goto LABEL_5;
-  v13 = 1100;
+  v13 = 1100LL;
   if ( v10 > 1100 )
     goto LABEL_5;
 LABEL_6:

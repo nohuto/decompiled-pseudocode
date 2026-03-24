@@ -1,11 +1,11 @@
 /*
- * XREFs of KiInsertTimer2WithCollectionLockHeld @ 0x1400FC4A0
+ * XREFs of KiInsertTimer2WithCollectionLockHeld @ 0x1400FC4C0
  * Callers:
- *     KeSetTimer2 @ 0x1400FC150 (KeSetTimer2.c)
- *     KiInsertTimer2 @ 0x1400FC7E0 (KiInsertTimer2.c)
+ *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
+ *     KiInsertTimer2 @ 0x1400FC800 (KiInsertTimer2.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
- *     KiRemoveTimer2 @ 0x1400FB710 (KiRemoveTimer2.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
+ *     KiRemoveTimer2 @ 0x1400FB730 (KiRemoveTimer2.c)
  */
 
 __int64 __fastcall KiInsertTimer2WithCollectionLockHeld(__int64 a1, char a2, _BYTE *a3, bool *a4)

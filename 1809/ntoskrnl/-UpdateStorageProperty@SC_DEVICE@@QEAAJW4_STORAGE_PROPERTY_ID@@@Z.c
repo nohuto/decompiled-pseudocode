@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z @ 0x140168954
+ * XREFs of ?UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z @ 0x140168974
  * Callers:
- *     ?Initialize@SC_DISK@@UEAAJXZ @ 0x140168770 (-Initialize@SC_DISK@@UEAAJXZ.c)
+ *     ?Initialize@SC_DISK@@UEAAJXZ @ 0x140168790 (-Initialize@SC_DISK@@UEAAJXZ.c)
  * Callees:
- *     ?GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x1401689A8 (-GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     ?GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x1401689C8 (-GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall SC_DEVICE::UpdateStorageProperty(SC_DEVICE *this, enum _STORAGE_PROPERTY_ID a2)

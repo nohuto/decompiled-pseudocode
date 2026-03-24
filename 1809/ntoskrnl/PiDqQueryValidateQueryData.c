@@ -4,9 +4,9 @@
  *     PiDqIrpQueryCreate @ 0x140590B08 (PiDqIrpQueryCreate.c)
  * Callees:
  *     PiDqGetPnpObjectType @ 0x140595A78 (PiDqGetPnpObjectType.c)
- *     PnpValidateMultiSz @ 0x14068B4B8 (PnpValidateMultiSz.c)
- *     ValidFilter @ 0x1406A310C (ValidFilter.c)
- *     _PnpValidatePropertyData @ 0x1406A31E4 (_PnpValidatePropertyData.c)
+ *     PnpValidateMultiSz @ 0x14068B498 (PnpValidateMultiSz.c)
+ *     ValidFilter @ 0x1406A30EC (ValidFilter.c)
+ *     _PnpValidatePropertyData @ 0x1406A31C4 (_PnpValidatePropertyData.c)
  */
 
 __int64 __fastcall PiDqQueryValidateQueryData(__int64 a1)

@@ -1,30 +1,31 @@
 /*
- * XREFs of CmpValueEnumStackStartFromKcbStack @ 0x140A2590C
+ * XREFs of CmpValueEnumStackStartFromKcbStack @ 0x14087BBFC
  * Callers:
- *     CmEnumerateValueFromLayeredKey @ 0x140A13C14 (CmEnumerateValueFromLayeredKey.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x14086C2B0 (CmEnumerateValueFromLayeredKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     CmpValueEnumStackStartFromKeyNodeStack @ 0x140616830 (CmpValueEnumStackStartFromKeyNodeStack.c)
- *     CmpInitializeKeyNodeStack @ 0x1407D21DC (CmpInitializeKeyNodeStack.c)
- *     CmpCleanupKeyNodeStack @ 0x1407D2230 (CmpCleanupKeyNodeStack.c)
- *     CmpStartKeyNodeStackFromKcbStack @ 0x140A203FC (CmpStartKeyNodeStackFromKcbStack.c)
+ *     CmpValueEnumStackStartFromKeyNodeStack @ 0x14036B6A8 (CmpValueEnumStackStartFromKeyNodeStack.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpCleanupKeyNodeStack @ 0x14067E048 (CmpCleanupKeyNodeStack.c)
+ *     CmpInitializeKeyNodeStack @ 0x14067E190 (CmpInitializeKeyNodeStack.c)
+ *     CmpStartKeyNodeStackFromKcbStack @ 0x1408766FC (CmpStartKeyNodeStackFromKcbStack.c)
  */
 
 __int64 __fastcall CmpValueEnumStackStartFromKcbStack(__int64 a1, __int64 a2, __int64 a3)
 {
+  struct _LOOKASIDE_LIST_EX *v6; // r9
   int started; // ebx
-  __int16 v8[40]; // [rsp+20h] [rbp-68h] BYREF
+  __int16 v9[40]; // [rsp+20h] [rbp-68h] BYREF
 
-  memset(v8, 0, 0x4AuLL);
-  CmpInitializeKeyNodeStack(v8);
-  started = CmpStartKeyNodeStackFromKcbStack((__int64)v8, a2, a3);
+  memset(v9, 0, sizeof(v9));
+  CmpInitializeKeyNodeStack((char *)v9);
+  started = CmpStartKeyNodeStackFromKcbStack((__int64)v9, a2, a3, v6);
   if ( started >= 0 )
   {
-    started = CmpValueEnumStackStartFromKeyNodeStack(a1, v8);
+    started = CmpValueEnumStackStartFromKeyNodeStack(a1, v9);
     if ( started >= 0 )
       started = 0;
   }
-  CmpCleanupKeyNodeStack((__int64)v8);
+  CmpCleanupKeyNodeStack((__int64)v9);
   return (unsigned int)started;
 }

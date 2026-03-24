@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_Raise@exception@stdext@@QEBAXXZ @ 0x1801A6F08
+ * XREFs of ?_Raise@exception@stdext@@QEBAXXZ @ 0x1801980C4
  * Callers:
- *     ?_Throw_bad_array_new_length@std@@YAXXZ @ 0x1801A6F70 (-_Throw_bad_array_new_length@std@@YAXXZ.c)
+ *     ?to_bytes@?$wstring_convert@V?$codecvt_utf8_utf16@G$0BAPPPP@$0A@@std@@GV?$allocator@G@2@V?$allocator@D@2@@std@@QEAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@PEBG0@Z @ 0x180198A20 (-to_bytes@-$wstring_convert@V-$codecvt_utf8_utf16@G$0BAPPPP@$0A@@std@@GV-$allocator@G@2@V-$alloc.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall __noreturn stdext::exception::_Raise(stdext::exception *this)

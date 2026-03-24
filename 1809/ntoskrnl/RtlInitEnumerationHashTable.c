@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlInitEnumerationHashTable @ 0x1400DA260
+ * XREFs of RtlInitEnumerationHashTable @ 0x1400DA280
  * Callers:
- *     SepCleanupMarkedForDeletionEntries @ 0x1400D99A0 (SepCleanupMarkedForDeletionEntries.c)
- *     RtlInitWeakEnumerationHashTable @ 0x1402EFBD0 (RtlInitWeakEnumerationHashTable.c)
- *     SepFindMatchingLowBoxNumberEntries @ 0x1408A41BC (SepFindMatchingLowBoxNumberEntries.c)
- *     SepRmDestroyCapTable @ 0x1408A4ECC (SepRmDestroyCapTable.c)
+ *     SepCleanupMarkedForDeletionEntries @ 0x1400D99C0 (SepCleanupMarkedForDeletionEntries.c)
+ *     RtlInitWeakEnumerationHashTable @ 0x1402EFCD0 (RtlInitWeakEnumerationHashTable.c)
+ *     SepFindMatchingLowBoxNumberEntries @ 0x1408A419C (SepFindMatchingLowBoxNumberEntries.c)
+ *     SepRmDestroyCapTable @ 0x1408A4EAC (SepRmDestroyCapTable.c)
  * Callees:
- *     RtlpPopulateContext @ 0x1400D9D20 (RtlpPopulateContext.c)
+ *     RtlpPopulateContext @ 0x1400D9D40 (RtlpPopulateContext.c)
  */
 
 BOOLEAN __stdcall RtlInitEnumerationHashTable(

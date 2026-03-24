@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessRemoveDeviceOverload@FxPkgFdo@@EEAAJPEAVFxIrp@@@Z @ 0x1C0089A90
+ * XREFs of ?ProcessRemoveDeviceOverload@FxPkgFdo@@EEAAJPEAVFxIrp@@@Z @ 0x1C0084700
  * Callers:
  *     <none>
  * Callees:
- *     ?CleanupStateMachines@FxPkgPnp@@QEAAXE@Z @ 0x1C0030434 (-CleanupStateMachines@FxPkgPnp@@QEAAXE@Z.c)
- *     ?DeleteDevice@FxPkgPnp@@IEAAXXZ @ 0x1C0088068 (-DeleteDevice@FxPkgPnp@@IEAAXXZ.c)
+ *     ?CleanupStateMachines@FxPkgPnp@@QEAAXE@Z @ 0x1C007FBA8 (-CleanupStateMachines@FxPkgPnp@@QEAAXE@Z.c)
+ *     ?DeleteDevice@FxPkgPnp@@IEAAXXZ @ 0x1C0080004 (-DeleteDevice@FxPkgPnp@@IEAAXXZ.c)
  */
 
 __int64 __fastcall FxPkgFdo::ProcessRemoveDeviceOverload(FxPkgFdo *this, FxIrp *Irp)

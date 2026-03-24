@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlMultiByteToUnicodeN @ 0x1407742A0
+ * XREFs of RtlMultiByteToUnicodeN @ 0x1406F6A10
  * Callers:
- *     mbstowcs @ 0x1403D9B90 (mbstowcs.c)
- *     RtlAnsiStringToUnicodeString @ 0x140774110 (RtlAnsiStringToUnicodeString.c)
+ *     mbstowcs @ 0x1403D2170 (mbstowcs.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406F6920 (RtlAnsiStringToUnicodeString.c)
  * Callees:
- *     RtlpGetCodePageData @ 0x140774304 (RtlpGetCodePageData.c)
- *     RtlCustomCPToUnicodeN @ 0x140774370 (RtlCustomCPToUnicodeN.c)
+ *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
+ *     RtlUTF8ToUnicodeN @ 0x140699310 (RtlUTF8ToUnicodeN.c)
  */
 
 NTSTATUS __stdcall RtlMultiByteToUnicodeN(
@@ -15,15 +15,91 @@ NTSTATUS __stdcall RtlMultiByteToUnicodeN(
         const CHAR *MultiByteString,
         ULONG BytesInMultiByteString)
 {
-  struct _CPTABLEINFO *CodePageData; // rax
+  ULONG v9; // edi
+  ULONG v10; // ecx
+  __int64 v11; // r8
+  __int64 v12; // rdx
+  __int64 v13; // rax
+  ULONG *v15; // r8
+  __int64 v16; // r10
+  int v17; // r8d
+  ULONG v18; // edx
+  int v19; // eax
+  __int64 v20; // rcx
+  __int64 v21; // r9
+  char v22; // [rsp+30h] [rbp-18h] BYREF
 
-  CodePageData = (struct _CPTABLEINFO *)RtlpGetCodePageData(0LL);
-  RtlCustomCPToUnicodeN(
-    CodePageData,
-    UnicodeString,
-    MaxBytesInUnicodeString,
-    BytesInUnicodeString,
-    (PCH)MultiByteString,
-    BytesInMultiByteString);
+  if ( RtlpIsUtf8Process(0) )
+  {
+    v15 = (ULONG *)&v22;
+    if ( BytesInUnicodeString )
+      v15 = BytesInUnicodeString;
+    if ( BytesInMultiByteString )
+      RtlUTF8ToUnicodeN(UnicodeString, MaxBytesInUnicodeString, v15, MultiByteString, BytesInMultiByteString);
+    else
+      *v15 = 0;
+  }
+  else
+  {
+    v9 = MaxBytesInUnicodeString >> 1;
+    if ( (_BYTE)NlsMbCodePageTag )
+    {
+      v16 = NlsMbAnsiCodePageTables;
+      v17 = (int)UnicodeString;
+      if ( v9 )
+      {
+        v18 = BytesInMultiByteString;
+        v19 = (int)UnicodeString;
+        while ( v18 )
+        {
+          v20 = *(unsigned __int8 *)MultiByteString;
+          --v9;
+          --v18;
+          v21 = NlsLeadByteInfoTable[v20];
+          if ( (_WORD)v21 )
+          {
+            if ( !v18 )
+            {
+              *UnicodeString = 0;
+              LODWORD(UnicodeString) = v19 + 2;
+              break;
+            }
+            *UnicodeString++ = *(_WORD *)(v16 + 2 * (v21 + *(unsigned __int8 *)++MultiByteString));
+            --v18;
+          }
+          else
+          {
+            *UnicodeString++ = *(_WORD *)(NlsAnsiToUnicodeData + 2 * v20);
+          }
+          ++MultiByteString;
+          v19 = (int)UnicodeString;
+          if ( !v9 )
+            break;
+        }
+      }
+      if ( BytesInUnicodeString )
+        *BytesInUnicodeString = (_DWORD)UnicodeString - v17;
+    }
+    else
+    {
+      v10 = BytesInMultiByteString;
+      if ( v9 < BytesInMultiByteString )
+        v10 = v9;
+      if ( BytesInUnicodeString )
+        *BytesInUnicodeString = 2 * v10;
+      v11 = NlsAnsiToUnicodeData;
+      if ( v10 )
+      {
+        v12 = v10;
+        do
+        {
+          v13 = *(unsigned __int8 *)MultiByteString++;
+          *UnicodeString++ = *(_WORD *)(v11 + 2 * v13);
+          --v12;
+        }
+        while ( v12 );
+      }
+    }
+  }
   return 0;
 }

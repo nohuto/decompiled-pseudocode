@@ -1,20 +1,17 @@
 /*
- * XREFs of ??_GIOCPDispatcher@@QEAAPEAXI@Z @ 0x1C005C93C
+ * XREFs of ??_GIOCPDispatcher@@QEAAPEAXI@Z @ 0x1C00B3654
  * Callers:
- *     IOCPDispatcher_Destroy @ 0x1C005A7F0 (IOCPDispatcher_Destroy.c)
- *     KSTIOCPDispatcher_Destroy @ 0x1C005A820 (KSTIOCPDispatcher_Destroy.c)
- *     ?CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z @ 0x1C005CC08 (-CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z.c)
+ *     IOCPDispatcher_Destroy @ 0x1C00B3560 (IOCPDispatcher_Destroy.c)
+ *     ?CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z @ 0x1C00B358C (-CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z.c)
  * Callees:
- *     ?Close@IOCPDispatcher@@QEAAX_N@Z @ 0x1C0059DF0 (-Close@IOCPDispatcher@@QEAAX_N@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?Close@IOCPDispatcher@@QEAAX_N@Z @ 0x1C00A8A60 (-Close@IOCPDispatcher@@QEAAX_N@Z.c)
  */
 
-HANDLE *__fastcall IOCPDispatcher::`scalar deleting destructor'(HANDLE *this)
+IOCPDispatcher *__fastcall IOCPDispatcher::`scalar deleting destructor'(IOCPDispatcher *this)
 {
-  *this = &IOCPDispatcher::`vftable';
+  *(_QWORD *)this = &IOCPDispatcher::`vftable';
   IOCPDispatcher::Close(this, 0);
-  NSInstrumentation::CLeakTrackingAllocator::Free(
-    (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-    this);
+  Win32FreePool((__int64)this);
   return this;
 }

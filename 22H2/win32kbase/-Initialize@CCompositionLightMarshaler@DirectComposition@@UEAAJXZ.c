@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CCompositionLightMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00C9F90
+ * XREFs of ?Initialize@CCompositionLightMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00BC570
  * Callers:
  *     <none>
  * Callees:

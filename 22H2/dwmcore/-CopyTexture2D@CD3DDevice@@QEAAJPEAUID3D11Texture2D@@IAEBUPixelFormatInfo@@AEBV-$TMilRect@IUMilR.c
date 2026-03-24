@@ -1,314 +1,315 @@
 /*
- * XREFs of ?CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVIBitmapDest@@HH@Z @ 0x1800A5970
+ * XREFs of ?CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVIBitmapDest@@HH@Z @ 0x180044A20
  * Callers:
- *     ?GetBits@CRenderTargetBitmap@@UEAAJAEBUtagRECT@@PEAVIBitmapDest@@HH@Z @ 0x1800A5740 (-GetBits@CRenderTargetBitmap@@UEAAJAEBUtagRECT@@PEAVIBitmapDest@@HH@Z.c)
- *     ?LockForRead@CD2DBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x1800A8320 (-LockForRead@CD2DBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@.c)
- *     ?CopyPixels@CD2DBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x18029F2A0 (-CopyPixels@CD2DBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@.c)
+ *     ?LockForRead@CD2DBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAPEAVIBitmapLock@@@Z @ 0x18003B4A0 (-LockForRead@CD2DBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@.c)
+ *     ?GetBits@CRenderTargetBitmap@@UEAAJAEBUtagRECT@@PEAVIBitmapDest@@HH@Z @ 0x180044840 (-GetBits@CRenderTargetBitmap@@UEAAJAEBUtagRECT@@PEAVIBitmapDest@@HH@Z.c)
+ *     ?CopyPixels@CD2DBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x1802489C0 (-CopyPixels@CD2DBitmap@@UEBAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003E7E0 (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
- *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180074FA0 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F334 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ?IsEqualPixelFormatInfo@@YA_NAEBUPixelFormatInfo@@0@Z @ 0x1800A5DA0 (-IsEqualPixelFormatInfo@@YA_NAEBUPixelFormatInfo@@0@Z.c)
- *     ?HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@@@Z @ 0x1800A7DA4 (-HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@.c)
- *     ?Create@CWarpLockSubresource@@SAJPEAVCD3DDevice@@PEAUID3D11Texture2D@@IPEAPEAV1@@Z @ 0x1800A8B2C (-Create@CWarpLockSubresource@@SAJPEAVCD3DDevice@@PEAUID3D11Texture2D@@IPEAPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?HrConvertBitmap@CFormatConverter@@SAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@PEAPEAV2@@Z @ 0x1802BC2E8 (-HrConvertBitmap@CFormatConverter@@SAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@PEAPEAV2@@Z.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@@@Z @ 0x1800320F8 (-HrCreateBitmapFromMemoryEx@@YAJIIAEBUPixelFormatInfo@@IIPEAEPEAUIUnknown@@PEAPEAVIBitmapSource@.c)
+ *     ?Create@CWarpLockSubresource@@SAJPEAVCD3DDevice@@PEAUID3D11Texture2D@@IPEAPEAV1@@Z @ 0x18003B8A0 (-Create@CWarpLockSubresource@@SAJPEAVCD3DDevice@@PEAUID3D11Texture2D@@IPEAPEAV1@@Z.c)
+ *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003C06C (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ *     ?IsEqualPixelFormatInfo@@YA_NAEBUPixelFormatInfo@@0@Z @ 0x180044FDC (-IsEqualPixelFormatInfo@@YA_NAEBUPixelFormatInfo@@0@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180078718 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D0818 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?HrConvertBitmap@CFormatConverter@@SAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@PEAPEAV2@@Z @ 0x180219508 (-HrConvertBitmap@CFormatConverter@@SAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@PEAPEAV2@@Z.c)
  */
 
 __int64 __fastcall CD3DDevice::CopyTexture2D(
         struct CD3DDevice *a1,
         struct ID3D11Texture2D *a2,
-        int a3,
-        const struct PixelFormatInfo *a4,
+        unsigned int a3,
+        struct PixelFormatInfo *a4,
         int *a5,
         __int64 a6,
         int a7,
         int a8)
 {
-  int v11; // edx
-  enum DXGI_FORMAT v12; // ecx
-  int v13; // edi
-  int v14; // r15d
-  __int64 v15; // rdi
-  int v16; // eax
-  int v17; // eax
-  __int64 *v18; // rcx
-  __int64 v19; // rax
-  __int64 v20; // rcx
-  int v21; // eax
-  unsigned int v22; // ecx
-  __int64 (__fastcall *v23)(__int64, _DWORD *, __int64, _QWORD **); // rbx
+  int v12; // edx
+  unsigned int v13; // ecx
+  int v14; // edi
+  int v15; // r15d
+  __int64 v16; // rdi
+  __int64 (__fastcall *v17)(__int64, _DWORD *, _QWORD, __int64 *); // rbx
+  int v18; // eax
+  unsigned int v19; // ecx
+  int v20; // eax
+  __int64 *v21; // rcx
+  __int64 v22; // rax
+  __int64 v23; // rcx
   int v24; // eax
   unsigned int v25; // ecx
-  struct IBitmapSource *v26; // rbx
-  int v27; // eax
-  unsigned int v28; // ecx
-  int v29; // eax
-  unsigned int v30; // ecx
-  int v31; // eax
-  unsigned int v32; // ecx
-  unsigned int v33; // ebx
-  int v35; // r9d
+  __int64 v26; // rdi
+  __int64 (__fastcall *v27)(__int64, _DWORD *, __int64, _QWORD **); // rbx
+  int v28; // eax
+  void *v29; // rbx
+  unsigned int v30; // ebx
+  int v32; // eax
+  unsigned int v33; // ecx
+  struct IUnknown *v34; // rbx
+  unsigned int v35; // r9d
   int v36; // eax
   unsigned int v37; // ecx
-  struct IUnknown *v38; // rbx
-  unsigned int v39; // r9d
+  __int64 v38; // rcx
+  struct IBitmapSource *v39; // rsi
   int v40; // eax
   unsigned int v41; // ecx
-  __int64 v42; // rcx
-  struct IBitmapSource *v43; // rsi
-  int v44; // eax
-  unsigned int v45; // ecx
-  char *v46; // rcx
-  struct IUnknown *v47; // rcx
-  unsigned int v48; // [rsp+20h] [rbp-E0h]
-  struct IBitmapSource *v49; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v50; // [rsp+58h] [rbp-A8h] BYREF
-  _QWORD *v51; // [rsp+60h] [rbp-A0h] BYREF
-  struct IBitmapSource *v52; // [rsp+68h] [rbp-98h] BYREF
-  int v53; // [rsp+70h] [rbp-90h]
-  struct IUnknown *v54; // [rsp+78h] [rbp-88h] BYREF
-  unsigned int v55; // [rsp+80h] [rbp-80h] BYREF
-  unsigned int v56; // [rsp+84h] [rbp-7Ch] BYREF
-  unsigned __int8 *v57[2]; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v58; // [rsp+98h] [rbp-68h] BYREF
-  _DWORD v59[4]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v60; // [rsp+B0h] [rbp-50h] BYREF
-  int v61; // [rsp+B8h] [rbp-48h]
-  enum DXGI_FORMAT v62; // [rsp+BCh] [rbp-44h]
-  _DWORD v63[6]; // [rsp+C0h] [rbp-40h] BYREF
-  _BYTE v64[24]; // [rsp+D8h] [rbp-28h] BYREF
-  _DWORD v65[4]; // [rsp+F0h] [rbp-10h] BYREF
-  enum DXGI_FORMAT v66; // [rsp+100h] [rbp+0h]
-  __int64 v67; // [rsp+10Ch] [rbp+Ch]
-  __int64 v68; // [rsp+114h] [rbp+14h]
-  __int128 v69; // [rsp+120h] [rbp+20h]
+  char *v42; // rcx
+  int v43; // r9d
+  struct IUnknown *v44; // rcx
+  unsigned int v45; // [rsp+20h] [rbp-E0h]
+  unsigned int v46; // [rsp+20h] [rbp-E0h]
+  struct IUnknown *v47; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v48; // [rsp+58h] [rbp-A8h] BYREF
+  _QWORD *v49; // [rsp+60h] [rbp-A0h] BYREF
+  struct IBitmapSource *v50; // [rsp+68h] [rbp-98h] BYREF
+  int v51; // [rsp+70h] [rbp-90h]
+  unsigned int v52; // [rsp+74h] [rbp-8Ch] BYREF
+  unsigned int v53; // [rsp+78h] [rbp-88h] BYREF
+  unsigned __int8 *v54[2]; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v55; // [rsp+90h] [rbp-70h]
+  __int64 v56; // [rsp+98h] [rbp-68h] BYREF
+  _DWORD v57[4]; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 v58; // [rsp+B0h] [rbp-50h] BYREF
+  int v59; // [rsp+B8h] [rbp-48h]
+  unsigned int v60; // [rsp+BCh] [rbp-44h]
+  _DWORD v61[6]; // [rsp+C0h] [rbp-40h] BYREF
+  _BYTE v62[24]; // [rsp+D8h] [rbp-28h] BYREF
+  _DWORD v63[4]; // [rsp+F0h] [rbp-10h] BYREF
+  enum DXGI_FORMAT v64; // [rsp+100h] [rbp+0h]
+  __int64 v65; // [rsp+10Ch] [rbp+Ch]
+  __int64 v66; // [rsp+114h] [rbp+14h]
+  __int128 v67; // [rsp+120h] [rbp+20h]
 
-  v59[0] = a7;
-  v11 = a5[2] - *a5;
-  v12 = a5[3] - a5[1];
-  v13 = *((_DWORD *)a1 + 272);
-  v59[1] = a8;
-  v57[0] = "DWM Temp Readback (bitmap1)";
-  LODWORD(v57[1]) = 27;
-  LODWORD(v49) = a3;
-  v52 = 0LL;
+  v55 = a6;
+  v12 = a5[2] - *a5;
+  v13 = a5[3] - a5[1];
+  v14 = *((_DWORD *)a1 + 282);
+  v57[0] = a7;
+  v57[1] = a8;
+  v54[0] = "DWM Temp Readback (bitmap1)";
+  LODWORD(v54[1]) = 27;
+  LODWORD(v47) = a3;
   v50 = 0LL;
-  v51 = 0LL;
-  v60 = 0LL;
-  v61 = v11;
-  v62 = v12;
-  v59[2] = v11;
-  v59[3] = v12;
-  LOBYTE(v53) = 0;
-  v69 = *(_OWORD *)v57;
-  if ( v13 < 0 )
+  v48 = 0LL;
+  v49 = 0LL;
+  v58 = 0LL;
+  v59 = v12;
+  v60 = v13;
+  v57[2] = v12;
+  v57[3] = v13;
+  LOBYTE(v51) = 0;
+  v67 = *(_OWORD *)v54;
+  if ( v14 < 0 )
   {
-    v48 = 2646;
-    goto LABEL_40;
-  }
-  ((void (__fastcall *)(struct ID3D11Texture2D *, _DWORD *))a2->lpVtbl->GetDesc)(a2, v65);
-  v12 = v66;
-  if ( *(_DWORD *)a4 != v66 )
-  {
-    v13 = -2147024809;
-    v48 = 2651;
-LABEL_40:
-    v35 = v13;
+    v43 = v14;
+    v46 = 3241;
     goto LABEL_41;
   }
-  v14 = GetPixelFormatSize(v66) >> 3;
-  if ( *((_QWORD *)a1 + 71) )
+  ((void (__fastcall *)(struct ID3D11Texture2D *, _DWORD *))a2->lpVtbl->GetDesc)(a2, v63);
+  if ( *(_DWORD *)a4 != v64 )
   {
-    v54 = 0LL;
-    v36 = CWarpLockSubresource::Create(a1, a2, (unsigned int)v49, (struct CWarpLockSubresource **)&v54);
-    v13 = v36;
-    if ( v36 < 0 )
+    v14 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(v64, &dword_1802DD028, 0xAu, -2147024809, 0xCAEu, 0LL);
+    goto LABEL_17;
+  }
+  v15 = GetPixelFormatSize(v64) >> 3;
+  if ( !*((_QWORD *)a1 + 76) )
+  {
+    v16 = *((_QWORD *)a1 + 74);
+    v63[0] = a5[2] - *a5;
+    v63[1] = a5[3] - a5[1];
+    v65 = 3LL;
+    v66 = 0x20000LL;
+    v17 = *(__int64 (__fastcall **)(__int64, _DWORD *, _QWORD, __int64 *))(*(_QWORD *)v16 + 40LL);
+    wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset(&v48);
+    v18 = v17(v16, v63, 0LL, &v48);
+    v14 = v18;
+    if ( v18 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v37, &dword_1803589F8, 0xAu, v36, 0xAAEu, 0LL);
-      v47 = v54;
-      if ( !v54 )
-        goto LABEL_18;
+      v45 = 3280;
     }
     else
     {
-      v38 = v54;
-      v39 = _mm_cvtsi128_si32(_mm_srli_si128(*(__m128i *)&v54[5].lpVtbl, 8));
-      v40 = HrCreateBitmapFromMemoryEx(
-              a5[2] - *a5,
-              a5[3] - a5[1],
-              a4,
-              v39,
-              v39 * (a5[3] - a5[1]) + v14 * (a5[2] - *a5),
-              (unsigned __int8 *)v54[5].lpVtbl + v39 * a5[1] + v14 * *a5,
-              v54,
-              &v52);
-      v13 = v40;
-      if ( v40 >= 0 )
+      (*(void (__fastcall **)(__int64, const GUID *, _QWORD, _QWORD))(*(_QWORD *)v48 + 40LL))(
+        v48,
+        &WKPDID_D3DDebugObjectName,
+        DWORD2(v67),
+        v67);
+      v20 = *a5;
+      v21 = (__int64 *)*((_QWORD *)a1 + 75);
+      v61[2] = 0;
+      v61[0] = v20;
+      v61[1] = a5[1];
+      v61[3] = a5[2];
+      v61[4] = a5[3];
+      v61[5] = 1;
+      v22 = *v21;
+      v51 = 1;
+      (*(void (__fastcall **)(__int64 *, __int64, _QWORD, _QWORD, _DWORD, _DWORD, struct ID3D11Texture2D *, _DWORD, _DWORD *))(v22 + 368))(
+        v21,
+        v48,
+        0LL,
+        0LL,
+        0,
+        0,
+        a2,
+        (_DWORD)v47,
+        v61);
+      v23 = *((_QWORD *)a1 + 75);
+      *(_OWORD *)v54 = 0LL;
+      v18 = (*(__int64 (__fastcall **)(__int64, __int64, _QWORD, __int64, _DWORD, unsigned __int8 **))(*(_QWORD *)v23 + 112LL))(
+              v23,
+              v48,
+              0LL,
+              1LL,
+              0,
+              v54);
+      v14 = v18;
+      if ( v18 >= 0 )
       {
-        CMILRefCountBaseT<IUnknown>::InternalRelease((volatile signed __int32 *)v38);
+        v24 = HrCreateBitmapFromMemoryEx(
+                a5[2] - *a5,
+                a5[3] - a5[1],
+                a4,
+                (unsigned int)v54[1],
+                v15 * (a5[2] - *a5) + LODWORD(v54[1]) * (a5[3] - a5[1]),
+                v54[0],
+                0LL,
+                &v50);
+        v14 = v24;
+        if ( v24 < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(v25, &dword_1802DD028, 0xAu, v24, 0xCF9u, 0LL);
+          goto LABEL_16;
+        }
         goto LABEL_7;
       }
-      MilInstrumentationCheckHR_MaybeFailFast(v41, &dword_1803589F8, 0xAu, v40, 0xAC0u, 0LL);
-      v47 = v38;
+      v45 = 3307;
     }
-    CMILRefCountBaseT<IUnknown>::InternalRelease((volatile signed __int32 *)v47);
-    goto LABEL_18;
+    MilInstrumentationCheckHR_MaybeFailFast(v19, &dword_1802DD028, 0xAu, v18, v45, 0LL);
+    goto LABEL_17;
   }
-  v15 = *((_QWORD *)a1 + 69);
-  v65[0] = a5[2] - *a5;
-  v65[1] = a5[3] - a5[1];
-  v67 = 3LL;
-  v68 = 0x20000LL;
-  v54 = *(struct IUnknown **)(*(_QWORD *)v15 + 40LL);
-  v16 = ((__int64 (__fastcall *)(__int64, _DWORD *, _QWORD, __int64 *))v54)(v15, v65, 0LL, &v50);
-  v13 = v16;
-  if ( v16 < 0 )
+  v47 = 0LL;
+  v32 = CWarpLockSubresource::Create(a1, a2, a3, (struct CWarpLockSubresource **)&v47);
+  v14 = v32;
+  if ( v32 < 0 )
   {
-    v48 = 2685;
-    goto LABEL_23;
+    MilInstrumentationCheckHR_MaybeFailFast(v33, &dword_1802DD028, 0xAu, v32, 0xD01u, 0LL);
+    v44 = v47;
+    if ( !v47 )
+      goto LABEL_17;
+    goto LABEL_37;
   }
-  (*(void (__fastcall **)(__int64, const GUID *, _QWORD, _QWORD))(*(_QWORD *)v50 + 40LL))(
-    v50,
-    &WKPDID_D3DDebugObjectName,
-    DWORD2(v69),
-    v69);
-  v17 = *a5;
-  v18 = (__int64 *)*((_QWORD *)a1 + 70);
-  v63[2] = 0;
-  v63[0] = v17;
-  v63[1] = a5[1];
-  v63[3] = a5[2];
-  v63[4] = a5[3];
-  v63[5] = 1;
-  v19 = *v18;
-  v53 = 1;
-  (*(void (__fastcall **)(__int64 *, __int64, _QWORD, _QWORD, _DWORD, _DWORD, struct ID3D11Texture2D *, _DWORD, _DWORD *))(v19 + 368))(
-    v18,
-    v50,
-    0LL,
-    0LL,
-    0,
-    0,
-    a2,
-    (_DWORD)v49,
-    v63);
-  v20 = *((_QWORD *)a1 + 70);
-  *(_OWORD *)v57 = 0LL;
-  v16 = (*(__int64 (__fastcall **)(__int64, __int64, _QWORD, __int64, _DWORD, unsigned __int8 **))(*(_QWORD *)v20 + 112LL))(
-          v20,
-          v50,
-          0LL,
-          1LL,
-          0,
-          v57);
-  v13 = v16;
-  if ( v16 < 0 )
-  {
-    v48 = 2712;
-LABEL_23:
-    v35 = v16;
-LABEL_41:
-    MilInstrumentationCheckHR_MaybeFailFast(v12, &dword_1803589F8, 0xAu, v35, v48, 0LL);
-    goto LABEL_18;
-  }
-  v21 = HrCreateBitmapFromMemoryEx(
+  v34 = v47;
+  v35 = _mm_cvtsi128_si32(_mm_srli_si128(*(__m128i *)&v47[5].lpVtbl, 8));
+  v36 = HrCreateBitmapFromMemoryEx(
           a5[2] - *a5,
           a5[3] - a5[1],
           a4,
-          (unsigned int)v57[1],
-          v14 * (a5[2] - *a5) + LODWORD(v57[1]) * (a5[3] - a5[1]),
-          v57[0],
-          0LL,
-          &v52);
-  v13 = v21;
-  if ( v21 < 0 )
+          v35,
+          v35 * (a5[3] - a5[1]) + v15 * (a5[2] - *a5),
+          (unsigned __int8 *)v47[5].lpVtbl + v35 * a5[1] + v15 * *a5,
+          v47,
+          &v50);
+  v14 = v36;
+  if ( v36 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v22, &dword_1803589F8, 0xAu, v21, 0xAA6u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v37, &dword_1802DD028, 0xAu, v36, 0xD13u, 0LL);
+    v44 = v34;
+LABEL_37:
+    CRenderTargetBitmap::Release((CRenderTargetBitmap *)v44);
     goto LABEL_17;
   }
+  CRenderTargetBitmap::Release((CRenderTargetBitmap *)v34);
 LABEL_7:
-  v23 = *(__int64 (__fastcall **)(__int64, _DWORD *, __int64, _QWORD **))(*(_QWORD *)a6 + 24LL);
-  if ( v51 )
+  v26 = v55;
+  v27 = *(__int64 (__fastcall **)(__int64, _DWORD *, __int64, _QWORD **))(*(_QWORD *)v55 + 24LL);
+  if ( v49 )
   {
-    v42 = (__int64)v51 + *(int *)(v51[1] + 4LL) + 8;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v42 + 16LL))(v42);
+    v38 = *(int *)(v49[1] + 4LL);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)((char *)v49 + v38 + 8) + 16LL))((__int64)v49 + v38 + 8);
   }
-  v24 = v23(a6, v59, 2LL, &v51);
-  v13 = v24;
-  if ( v24 < 0 )
+  v28 = v27(v26, v57, 2LL, &v49);
+  v14 = v28;
+  if ( v28 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v25, &dword_1803589F8, 0xAu, v24, 0xAC6u, 0LL);
+    v46 = 3353;
   }
   else
   {
-    (*(void (__fastcall **)(_QWORD *, _BYTE *))*v51)(v51, v64);
-    if ( IsEqualPixelFormatInfo(a4, (const struct PixelFormatInfo *)v64) )
+    (*(void (__fastcall **)(_QWORD *, _BYTE *))*v49)(v49, v62);
+    if ( IsEqualPixelFormatInfo(a4, (const struct PixelFormatInfo *)v62) )
     {
-      v26 = v52;
+      v29 = v50;
     }
     else
     {
-      v43 = v52;
-      v49 = 0LL;
-      v44 = CFormatConverter::HrConvertBitmap(v52, (const struct PixelFormatInfo *)v64, &v49);
-      v13 = v44;
-      if ( v44 < 0 )
+      v39 = v50;
+      v47 = 0LL;
+      v40 = CFormatConverter::HrConvertBitmap(v50, (const struct PixelFormatInfo *)v62, (struct IBitmapSource **)&v47);
+      v14 = v40;
+      if ( v40 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v45, &dword_1803589F8, 0xAu, v44, 0xAD1u, 0LL);
-        wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v49);
-        goto LABEL_16;
+        MilInstrumentationCheckHR_MaybeFailFast(v41, &dword_1802DD028, 0xAu, v40, 0xD24u, 0LL);
+        wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v47);
+        goto LABEL_15;
       }
-      v26 = v49;
-      v52 = v49;
-      v49 = 0LL;
-      if ( v43 )
+      v29 = v47;
+      v50 = (struct IBitmapSource *)v47;
+      v47 = 0LL;
+      if ( v39 )
       {
-        v46 = (char *)v43 + *(int *)(*((_QWORD *)v43 + 1) + 4LL) + 8;
-        (*(void (__fastcall **)(char *))(*(_QWORD *)v46 + 16LL))(v46);
+        v42 = (char *)v39 + *(int *)(*((_QWORD *)v39 + 1) + 4LL) + 8;
+        (*(void (__fastcall **)(char *))(*(_QWORD *)v42 + 16LL))(v42);
       }
-      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v49);
+      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v47);
     }
-    v27 = (*(__int64 (__fastcall **)(_QWORD *, unsigned int *, __int64 *))(*v51 + 24LL))(v51, &v55, &v58);
-    v13 = v27;
-    if ( v27 < 0 )
+    v28 = (*(__int64 (__fastcall **)(_QWORD *, unsigned int *, __int64 *))(*v49 + 24LL))(v49, &v52, &v56);
+    v14 = v28;
+    if ( v28 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v28, &dword_1803589F8, 0xAu, v27, 0xAD8u, 0LL);
+      v46 = 3371;
     }
     else
     {
-      v29 = (*(__int64 (__fastcall **)(_QWORD *, unsigned int *))(*v51 + 16LL))(v51, &v56);
-      v13 = v29;
-      if ( v29 < 0 )
+      v28 = (*(__int64 (__fastcall **)(_QWORD *, unsigned int *))(*v49 + 16LL))(v49, &v53);
+      v14 = v28;
+      if ( v28 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v30, &dword_1803589F8, 0xAu, v29, 0xADBu, 0LL);
+        v46 = 3374;
       }
       else
       {
-        v31 = (*(__int64 (__fastcall **)(struct IBitmapSource *, __int64 *, _QWORD, _QWORD, __int64))(*(_QWORD *)v26 + 24LL))(
-                v26,
-                &v60,
-                v56,
-                v55,
-                v58);
-        v13 = v31;
-        if ( v31 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v32, &dword_1803589F8, 0xAu, v31, 0xAEAu, 0LL);
+        v28 = (*(__int64 (__fastcall **)(void *, __int64 *, _QWORD, _QWORD, __int64))(*(_QWORD *)v29 + 24LL))(
+                v29,
+                &v58,
+                v53,
+                v52,
+                v56);
+        v14 = v28;
+        if ( v28 >= 0 )
+          goto LABEL_15;
+        v46 = 3389;
       }
     }
   }
+  v43 = v28;
+LABEL_41:
+  MilInstrumentationCheckHR_MaybeFailFast(v13, &dword_1802DD028, 0xAu, v43, v46, 0LL);
+LABEL_15:
+  if ( (_BYTE)v51 )
 LABEL_16:
-  if ( (_BYTE)v53 )
+    (*(void (__fastcall **)(_QWORD, __int64, _QWORD))(**((_QWORD **)a1 + 75) + 120LL))(*((_QWORD *)a1 + 75), v48, 0LL);
 LABEL_17:
-    (*(void (__fastcall **)(_QWORD, __int64, _QWORD))(**((_QWORD **)a1 + 70) + 120LL))(*((_QWORD *)a1 + 70), v50, 0LL);
-LABEL_18:
-  v33 = CD3DDevice::TranslateDXGIorD3DErrorInContext((__int64)a1, v13, 0);
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v51);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v50);
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v52);
-  return v33;
+  v30 = CD3DDevice::TranslateDXGIorD3DErrorInContext(a1, (unsigned int)v14, 0LL);
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v49);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v48);
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v50);
+  return v30;
 }

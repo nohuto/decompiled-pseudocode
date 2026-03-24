@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentSizeBlockInternal @ 0x1405B6F48
+ * XREFs of RtlpHpLfhSubsegmentSizeBlockInternal @ 0x140595154
  * Callers:
- *     RtlpHpLfhSubsegmentSizeBlock @ 0x1405B6E88 (RtlpHpLfhSubsegmentSizeBlock.c)
+ *     RtlpHpLfhSubsegmentSizeBlock @ 0x140595098 (RtlpHpLfhSubsegmentSizeBlock.c)
  * Callees:
  *     <none>
  */
@@ -15,10 +15,10 @@ __int64 __fastcall RtlpHpLfhSubsegmentSizeBlockInternal(__int64 a1, __int64 a2, 
   int v8; // ecx
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF
 
-  v4 = (unsigned __int16)qword_140C6B388 ^ (unsigned __int16)(*(_WORD *)(a1 + 40) ^ ((unsigned int)a1 >> 12));
+  v4 = WORD4(RtlpHpHeapGlobals) ^ (unsigned __int16)(*(_WORD *)(a1 + 40) ^ ((unsigned int)a1 >> 12));
   if ( ((*(_QWORD *)(a1 + 8 * ((unsigned __int64)(unsigned int)(2 * a3) >> 6) + 48) >> ((2 * a3) & 0x3F)) & 2) != 0 )
   {
-    v5 = (unsigned __int16)qword_140C6B388 ^ (unsigned __int64)(unsigned __int16)(*(_WORD *)(a1 + 40) ^ ((unsigned int)a1 >> 12));
+    v5 = WORD4(RtlpHpHeapGlobals) ^ (unsigned __int64)(unsigned __int16)(*(_WORD *)(a1 + 40) ^ ((unsigned int)a1 >> 12));
     v6 = *(unsigned __int16 *)(v5 + a2 - 2);
     v7 = *(_WORD *)(v5 + a2 - 2);
     if ( (v6 & 0x4000) != 0 )

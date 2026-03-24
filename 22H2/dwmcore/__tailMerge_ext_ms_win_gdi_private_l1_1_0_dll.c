@@ -1,14 +1,16 @@
 /*
- * XREFs of __tailMerge_ext_ms_win_gdi_private_l1_1_0_dll @ 0x180110A90
+ * XREFs of __tailMerge_ext_ms_win_gdi_private_l1_1_0_dll @ 0x1800E8718
  * Callers:
- *     __imp_load_DwmQueryCompositionId @ 0x180110A84 (__imp_load_DwmQueryCompositionId.c)
- *     __imp_load_DwmHLSurfCloseCompositorRef @ 0x180111088 (__imp_load_DwmHLSurfCloseCompositorRef.c)
- *     __imp_load_DwmHLSurfOpenCompositorRef @ 0x18011109A (__imp_load_DwmHLSurfOpenCompositorRef.c)
- *     __imp_load_DwmGetSurfaceData @ 0x1801110AC (__imp_load_DwmGetSurfaceData.c)
- *     __imp_load_DwmHLSurfGetDirtyRgn @ 0x1801110BE (__imp_load_DwmHLSurfGetDirtyRgn.c)
- *     __imp_load_DwmHLSurfSetSignalOnDirty @ 0x1801110D0 (__imp_load_DwmHLSurfSetSignalOnDirty.c)
+ *     __imp_load_DwmHLsurfSetUpdatedId @ 0x1800E870C (__imp_load_DwmHLsurfSetUpdatedId.c)
+ *     __imp_load_DwmQueryCompositionId @ 0x1800E8797 (__imp_load_DwmQueryCompositionId.c)
+ *     __imp_load_DwmHLSurfCloseCompositorRef @ 0x1800E8CB0 (__imp_load_DwmHLSurfCloseCompositorRef.c)
+ *     __imp_load_DwmHLSurfOpenCompositorRef @ 0x1800E8CC2 (__imp_load_DwmHLSurfOpenCompositorRef.c)
+ *     __imp_load_DwmGetSurfaceData @ 0x1800E8CD4 (__imp_load_DwmGetSurfaceData.c)
+ *     __imp_load_DwmHLSurfGetDirtyRgn @ 0x1800E8CE6 (__imp_load_DwmHLSurfGetDirtyRgn.c)
+ *     __imp_load_DwmGetRedirectionStyle @ 0x1800E8CF8 (__imp_load_DwmGetRedirectionStyle.c)
+ *     __imp_load_DwmHLSurfSetSignalOnDirty @ 0x1800E8D0A (__imp_load_DwmHLSurfSetSignalOnDirty.c)
  * Callees:
- *     __delayLoadHelper2 @ 0x180101AF0 (__delayLoadHelper2.c)
+ *     __delayLoadHelper2 @ 0x1800DE820 (__delayLoadHelper2.c)
  */
 
 __int64 __fastcall _tailMerge_ext_ms_win_gdi_private_l1_1_0_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

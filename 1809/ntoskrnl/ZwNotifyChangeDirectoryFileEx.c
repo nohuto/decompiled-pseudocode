@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwNotifyChangeDirectoryFileEx @ 0x1401BA3B0
+ * XREFs of ZwNotifyChangeDirectoryFileEx @ 0x1401BA3D0
  * Callers:
  *     <none>
  * Callees:

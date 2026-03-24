@@ -1,33 +1,33 @@
 /*
- * XREFs of ?DrainClientAllocations@DXGDEVICE@@QEAAXXZ @ 0x1C02E99D4
+ * XREFs of ?DrainClientAllocations@DXGDEVICE@@QEAAXXZ @ 0x1C0254F28
  * Callers:
- *     ?DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C018B128 (-DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C00EFA08 (-DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
  * Callees:
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?DestroyClientAllocations@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z @ 0x1C02D739C (-DestroyClientAllocations@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?DestroyClientAllocations@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z @ 0x1C022800C (-DestroyClientAllocations@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z.c)
  */
 
 void __fastcall DXGDEVICE::DrainClientAllocations(struct _KTHREAD **this)
 {
-  struct DXGALLOCATION *v2; // rdx
-  _BYTE v3[8]; // [rsp+20h] [rbp-28h] BYREF
-  DXGPUSHLOCK *v4; // [rsp+28h] [rbp-20h]
-  int v5; // [rsp+30h] [rbp-18h]
+  __int64 v2; // r8
+  __int64 v3; // r9
+  struct DXGALLOCATION *v4; // rdx
+  _BYTE v5[8]; // [rsp+20h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v6; // [rsp+28h] [rbp-20h]
+  int v7; // [rsp+30h] [rbp-18h]
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v3, this + 26, 0);
-  DXGPUSHLOCK::AcquireExclusive(v4);
-  v5 = 2;
-  while ( 1 )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v5, this + 26, 0);
+  DXGPUSHLOCK::AcquireExclusive(v6);
+  v7 = 2;
+  while ( this[6] )
   {
-    v2 = this[6];
-    if ( !v2 )
-      break;
-    this[6] = (struct _KTHREAD *)*((_QWORD *)v2 + 8);
-    *((_QWORD *)v2 + 7) = 0LL;
-    *((_QWORD *)v2 + 8) = 0LL;
-    DXGDEVICE::DestroyClientAllocations((DXGDEVICE *)this, v2);
+    v4 = this[6];
+    this[6] = (struct _KTHREAD *)*((_QWORD *)v4 + 8);
+    *((_QWORD *)v4 + 7) = 0LL;
+    *((_QWORD *)v4 + 8) = 0LL;
+    DXGDEVICE::DestroyClientAllocations((DXGDEVICE *)this, v4, v2, v3);
   }
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v3);
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v5);
 }

@@ -1,140 +1,130 @@
 /*
- * XREFs of RtlpxLookupFunctionTable @ 0x1402A3B60
+ * XREFs of RtlpxLookupFunctionTable @ 0x14021EB70
  * Callers:
- *     RtlLookupFunctionEntry @ 0x1402A5370 (RtlLookupFunctionEntry.c)
- *     RtlpLookupFunctionEntryForStackWalks @ 0x1402A56D0 (RtlpLookupFunctionEntryForStackWalks.c)
- *     RtlPcToFileHeader @ 0x1403C39E0 (RtlPcToFileHeader.c)
- *     RtlLookupFunctionTableEx @ 0x1403D6090 (RtlLookupFunctionTableEx.c)
- *     RtlLookupFunctionTable @ 0x140411468 (RtlLookupFunctionTable.c)
- *     KiTpBuildExcludedKernelTracepointBitmap @ 0x1409763D0 (KiTpBuildExcludedKernelTracepointBitmap.c)
- *     KiVerifyPdata @ 0x140B5FC4C (KiVerifyPdata.c)
- *     MiInitializeLoadedModuleList @ 0x140B5FD1C (MiInitializeLoadedModuleList.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x14021DF20 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlPcToFileHeader @ 0x14031AE00 (RtlPcToFileHeader.c)
+ *     RtlLookupFunctionEntry @ 0x14033F110 (RtlLookupFunctionEntry.c)
+ *     RtlLookupFunctionTableEx @ 0x14037F120 (RtlLookupFunctionTableEx.c)
+ *     RtlLookupFunctionTable @ 0x1403C572C (RtlLookupFunctionTable.c)
+ *     RtlCreateInvertedFunctionTableCacheEntry @ 0x140A56360 (RtlCreateInvertedFunctionTableCacheEntry.c)
+ *     KiVerifyPdata @ 0x140A66914 (KiVerifyPdata.c)
  * Callees:
- *     MmUnlockLoadedModuleListShared @ 0x1402A7C6C (MmUnlockLoadedModuleListShared.c)
- *     MmLockLoadedModuleListShared @ 0x140339800 (MmLockLoadedModuleListShared.c)
+ *     MmUnlockLoadedModuleListShared @ 0x14029CDE4 (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x14029CF18 (MmLockLoadedModuleListShared.c)
  */
 
-PVOID __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
+PVOID __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
-  PVOID v2; // r15
-  int *v5; // rdi
-  int v6; // r12d
-  unsigned int v7; // esi
-  int v8; // r13d
-  int v9; // r8d
-  int v10; // r9d
-  int v11; // eax
-  unsigned __int64 v12; // r11
-  int *v13; // r10
-  unsigned __int64 v14; // rdx
+  PVOID v4; // r12
+  unsigned __int64 v5; // r15
+  int *v7; // rsi
+  int v8; // ebp
+  int v9; // r14d
+  int v10; // eax
+  unsigned __int64 v11; // rbx
+  int *v12; // r11
+  unsigned __int64 v13; // r10
+  int v14; // r14d
   PVOID result; // rax
-  char v16; // si
-  unsigned int v17; // edx
-  int v18; // r8d
-  int v19; // r9d
-  unsigned __int64 v20; // rdi
-  int *v21; // r10
-  unsigned __int64 v22; // rcx
-  int v23; // r9d
-  unsigned int v24; // r8d
+  int v16; // ebp
+  unsigned int v17; // ebx
+  int v18; // r11d
+  int v19; // r8d
+  int v20; // r9d
+  unsigned __int64 v21; // rbp
+  int *v22; // r10
+  unsigned __int64 v23; // rdx
+  unsigned int v24; // r9d
   PVOID *v25; // rdx
   unsigned __int64 v26; // rax
-  unsigned __int64 v27; // rcx
-  unsigned __int8 v28; // [rsp+58h] [rbp+10h] BYREF
+  unsigned __int64 v27; // r8
+  unsigned __int8 v28; // [rsp+68h] [rbp+10h] BYREF
+  int v29; // [rsp+70h] [rbp+18h]
+  unsigned int v30; // [rsp+78h] [rbp+20h]
 
-  v2 = 0LL;
-  *(_QWORD *)(a2 + 8) = 0LL;
-  *(_DWORD *)(a2 + 16) = 0;
-  v5 = RtlpInvertedFunctionTable;
-  v6 = RtlpInvertedFunctionTable[2];
-  if ( (v6 & 1) != 0 )
-  {
-    v8 = 1;
-    goto LABEL_29;
-  }
-  if ( *RtlpInvertedFunctionTable == 1 )
-  {
-    v8 = 1;
-  }
-  else
-  {
-    if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
-      v7 = dword_140C65980 << 12;
-    else
-      v7 = 0;
-    v8 = 1;
-    v9 = *RtlpInvertedFunctionTable - 1;
-    v10 = 1;
-    while ( v9 >= v10 )
-    {
-      v11 = (v10 + v9) >> 1;
-      v12 = *(_QWORD *)&RtlpInvertedFunctionTable[6 * v11 + 6];
-      v13 = &RtlpInvertedFunctionTable[6 * v11];
-      v14 = v12 + (unsigned int)v13[8];
-      if ( a1 < v12 )
-      {
-        if ( !v11 )
-          break;
-        v9 = v11 - 1;
-        continue;
-      }
-      if ( a1 > 0x7FFFFFFEFFFFLL && v7 )
-      {
-        if ( a1 < v14 )
-        {
-LABEL_15:
-          *(_OWORD *)a2 = *((_OWORD *)v13 + 1);
-          *(_QWORD *)(a2 + 16) = *((_QWORD *)v13 + 4);
-          goto LABEL_16;
-        }
-        if ( a1 >= v14 + v7 || v12 == PsNtosImageBase )
-          goto LABEL_14;
-        if ( v12 != PsHalImageBase )
-        {
-          *(_QWORD *)(a2 + 8) = v14;
-          *(_QWORD *)a2 = &RtlRetpolineStubsFunctionTable;
-          *(_DWORD *)(a2 + 20) = RtlRetpolineStubsFunctionTableSize;
-          *(_DWORD *)(a2 + 16) = v7;
-LABEL_16:
-          result = *(PVOID *)a2;
-LABEL_17:
-          if ( v5[2] == v6 )
-            return result;
-          goto LABEL_29;
-        }
-      }
-      if ( a1 < v14 )
-        goto LABEL_15;
-LABEL_14:
-      v10 = v11 + 1;
-    }
-  }
-  if ( !*((_BYTE *)RtlpInvertedFunctionTable + 12) )
-  {
-    result = 0LL;
-    goto LABEL_17;
-  }
-LABEL_29:
+  v4 = 0LL;
   v28 = 0;
-  if ( (KiBugCheckActive & 3) != 0 )
+  *(_QWORD *)(a2 + 8) = 0LL;
+  v5 = a2;
+  *(_DWORD *)(a2 + 16) = 0;
+  v7 = RtlpInvertedFunctionTable[0];
+  v8 = RtlpInvertedFunctionTable[0][2];
+  if ( (v8 & 1) != 0 )
   {
     v16 = 1;
-  }
-  else
-  {
-    v16 = 0;
-    MmLockLoadedModuleListShared(&v28);
-  }
-  if ( *RtlpInvertedFunctionTable == 1
-    || ((KiSpeculationFeatures & 0x20000000000LL) == 0 ? (v17 = 0) : (v17 = dword_140C65980 << 12),
-        v18 = *RtlpInvertedFunctionTable - 1,
-        v18 < 1) )
-  {
-LABEL_50:
-    if ( *((_BYTE *)RtlpInvertedFunctionTable + 12) )
+    v14 = 4096;
+    v29 = 1;
+LABEL_29:
+    MmLockLoadedModuleListShared(&v28, a2, a3, a4);
+    if ( *RtlpInvertedFunctionTable[0] != 1 )
     {
-      v23 = dword_140C6997C;
-      v24 = (KiSpeculationFeatures & 0x20000000000LL) != 0 ? dword_140C65980 << 12 : 0;
+      if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
+      {
+        v17 = dword_140C4CCB0;
+        v18 = 4096;
+      }
+      else
+      {
+        v17 = 0;
+        v18 = 0;
+      }
+      v19 = *RtlpInvertedFunctionTable[0] - 1;
+      if ( v19 >= 1 )
+      {
+        do
+        {
+          v20 = (v19 + v16) >> 1;
+          v21 = *(_QWORD *)&RtlpInvertedFunctionTable[0][6 * v20 + 6];
+          v22 = &RtlpInvertedFunctionTable[0][6 * v20];
+          v23 = v21 + (unsigned int)v22[8];
+          if ( a1 >= v21 )
+          {
+            if ( a1 > 0x7FFFFFFEFFFFLL
+              && v18
+              && a1 >= v23 + v17
+              && a1 < v23 + v18 + v17
+              && v21 != PsNtosImageBase
+              && v21 != PsHalImageBase )
+            {
+              *(_QWORD *)v5 = &RtlRetpolineStubsFunctionTable;
+              *(_QWORD *)(v5 + 8) = v23 + v17;
+              v4 = &RtlRetpolineStubsFunctionTable;
+              *(_DWORD *)(v5 + 20) = RtlRetpolineStubsFunctionTableSize;
+              *(_DWORD *)(v5 + 16) = v18;
+              goto LABEL_62;
+            }
+            if ( a1 < v23 )
+            {
+              *(_OWORD *)v5 = *((_OWORD *)v22 + 1);
+              *(_QWORD *)(v5 + 16) = *((_QWORD *)v22 + 4);
+              v4 = *(PVOID *)v5;
+              goto LABEL_62;
+            }
+            v16 = v20 + 1;
+            v29 = v20 + 1;
+          }
+          else
+          {
+            if ( !v20 )
+              break;
+            v16 = v29;
+            v19 = v20 - 1;
+          }
+        }
+        while ( v19 >= v16 );
+      }
+    }
+    if ( *((_BYTE *)RtlpInvertedFunctionTable[0] + 12) )
+    {
+      if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
+      {
+        v24 = dword_140C4CCB0;
+      }
+      else
+      {
+        v24 = 0;
+        v14 = 0;
+      }
       v25 = (PVOID *)PsLoadedModuleList;
       if ( PsLoadedModuleList )
       {
@@ -143,74 +133,113 @@ LABEL_50:
           while ( 1 )
           {
             v26 = (unsigned __int64)v25[6];
-            v27 = v26 + (unsigned int)dword_140C6997C + (unsigned __int64)*((unsigned int *)v25 + 16);
+            v27 = v26 + *((unsigned int *)v25 + 16);
             if ( a1 >= v26 && a1 < v27 )
             {
-              v2 = v25[2];
-              *(_QWORD *)a2 = v2;
-              *(_QWORD *)(a2 + 8) = v26;
-              *(_DWORD *)(a2 + 16) = v23 + *((_DWORD *)v25 + 16);
-              *(_DWORD *)(a2 + 20) = *((_DWORD *)v25 + 6);
-              goto LABEL_66;
+              v4 = v25[2];
+              *(_QWORD *)v5 = v4;
+              *(_QWORD *)(v5 + 8) = v26;
+              *(_DWORD *)(v5 + 16) = *((_DWORD *)v25 + 16);
+              *(_DWORD *)(v5 + 20) = *((_DWORD *)v25 + 6);
+              goto LABEL_62;
             }
-            if ( v24 && a1 >= v27 && a1 < v27 + v24 )
+            if ( v14 && a1 >= v27 + v24 && a1 < v27 + v14 + v24 )
               break;
             v25 = (PVOID *)*v25;
             if ( v25 == &PsLoadedModuleList )
-              goto LABEL_66;
+              goto LABEL_62;
           }
-          *(_QWORD *)(a2 + 8) = v27;
-          v2 = &RtlRetpolineStubsFunctionTable;
-          *(_DWORD *)(a2 + 20) = RtlRetpolineStubsFunctionTableSize;
-          *(_QWORD *)a2 = &RtlRetpolineStubsFunctionTable;
-          *(_DWORD *)(a2 + 16) = v24;
+          *(_QWORD *)v5 = &RtlRetpolineStubsFunctionTable;
+          *(_QWORD *)(v5 + 8) = v27 + v24;
+          v4 = &RtlRetpolineStubsFunctionTable;
+          *(_DWORD *)(v5 + 20) = RtlRetpolineStubsFunctionTableSize;
+          *(_DWORD *)(v5 + 16) = v14;
         }
       }
     }
-    goto LABEL_66;
+LABEL_62:
+    MmUnlockLoadedModuleListShared(v28);
+    return v4;
+  }
+  if ( *RtlpInvertedFunctionTable[0] == 1 )
+  {
+    v29 = 1;
+    goto LABEL_10;
+  }
+  if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
+  {
+    v9 = 4096;
+    v30 = dword_140C4CCB0;
+  }
+  else
+  {
+    v30 = 0;
+    v9 = 0;
+  }
+  a3 = (unsigned int)(*RtlpInvertedFunctionTable[0] - 1);
+  v29 = 1;
+  a4 = 1LL;
+  if ( (int)a3 < 1 )
+  {
+LABEL_10:
+    v14 = 4096;
+    if ( !*((_BYTE *)RtlpInvertedFunctionTable[0] + 12) )
+    {
+      result = 0LL;
+      goto LABEL_18;
+    }
+LABEL_21:
+    v16 = 1;
+    goto LABEL_29;
   }
   while ( 1 )
   {
-    v19 = (v18 + v8) >> 1;
-    v20 = *(_QWORD *)&RtlpInvertedFunctionTable[6 * v19 + 6];
-    v21 = &RtlpInvertedFunctionTable[6 * v19];
-    v22 = v20 + (unsigned int)v21[8];
-    if ( a1 < v20 )
+    v10 = ((int)a4 + (int)a3) >> 1;
+    a2 = 3LL * v10;
+    v11 = *(_QWORD *)&RtlpInvertedFunctionTable[0][6 * v10 + 6];
+    v12 = &RtlpInvertedFunctionTable[0][6 * v10];
+    v13 = v11 + (unsigned int)v12[8];
+    if ( a1 < v11 )
     {
-      if ( !v19 )
-        goto LABEL_50;
-      v18 = v19 - 1;
-      goto LABEL_49;
+      if ( !v10 )
+        goto LABEL_10;
+      a3 = (unsigned int)(v10 - 1);
+      goto LABEL_9;
     }
-    if ( a1 > 0x7FFFFFFEFFFFLL && v17 )
+    if ( a1 > 0x7FFFFFFEFFFFLL )
     {
-      if ( a1 < v22 )
-        break;
-      if ( a1 >= v22 + v17 || v20 == PsNtosImageBase )
-        goto LABEL_48;
-      if ( v20 != PsHalImageBase )
+      if ( v9 )
       {
-        *(_DWORD *)(a2 + 20) = RtlRetpolineStubsFunctionTableSize;
-        *(_QWORD *)a2 = &RtlRetpolineStubsFunctionTable;
-        *(_QWORD *)(a2 + 8) = v22;
-        *(_DWORD *)(a2 + 16) = v17;
-        goto LABEL_54;
+        a4 = v30;
+        if ( a1 >= v13 + v30 )
+        {
+          a2 = v13 + v9 + v30;
+          if ( a1 < a2 && v11 != PsNtosImageBase && v11 != PsHalImageBase )
+            break;
+        }
       }
     }
-    if ( a1 < v22 )
-      break;
-LABEL_48:
-    v8 = v19 + 1;
-LABEL_49:
-    if ( v18 < v8 )
-      goto LABEL_50;
+    if ( a1 < v13 )
+    {
+      *(_OWORD *)v5 = *((_OWORD *)v12 + 1);
+      *(_QWORD *)(v5 + 16) = *((_QWORD *)v12 + 4);
+      result = *(PVOID *)v5;
+      goto LABEL_17;
+    }
+    a4 = (unsigned int)(v10 + 1);
+LABEL_9:
+    if ( (int)a3 < (int)a4 )
+      goto LABEL_10;
   }
-  *(_OWORD *)a2 = *((_OWORD *)v21 + 1);
-  *(_QWORD *)(a2 + 16) = *((_QWORD *)v21 + 4);
-LABEL_54:
-  v2 = *(PVOID *)a2;
-LABEL_66:
-  if ( !v16 )
-    MmUnlockLoadedModuleListShared(v28);
-  return v2;
+  *(_DWORD *)(v5 + 16) = v9;
+  *(_QWORD *)(v5 + 8) = v13 + a4;
+  *(_DWORD *)(v5 + 20) = RtlRetpolineStubsFunctionTableSize;
+  result = &RtlRetpolineStubsFunctionTable;
+  *(_QWORD *)v5 = &RtlRetpolineStubsFunctionTable;
+LABEL_17:
+  v14 = 4096;
+LABEL_18:
+  if ( v7[2] != v8 )
+    goto LABEL_21;
+  return result;
 }

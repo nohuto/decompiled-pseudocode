@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpApicInitializeIoUnit @ 0x1403A49C0
+ * XREFs of HalpApicInitializeIoUnit @ 0x1403A5090
  * Callers:
  *     <none>
  * Callees:
- *     HalpApicDescribeLines @ 0x14037972C (HalpApicDescribeLines.c)
- *     HalMapIoSpace @ 0x14037E780 (HalMapIoSpace.c)
- *     HalFixInterruptLine @ 0x140521850 (HalFixInterruptLine.c)
- *     HalpApicConvertFromRte @ 0x14052799C (HalpApicConvertFromRte.c)
+ *     HalpApicDescribeLines @ 0x1403B1FA8 (HalpApicDescribeLines.c)
+ *     HalMapIoSpace @ 0x1403B3460 (HalMapIoSpace.c)
+ *     HalFixInterruptLine @ 0x1404D76C4 (HalFixInterruptLine.c)
+ *     HalpApicConvertFromRte @ 0x1404DCA5C (HalpApicConvertFromRte.c)
  */
 
 __int64 __fastcall HalpApicInitializeIoUnit(__int64 a1)
@@ -15,10 +15,10 @@ __int64 __fastcall HalpApicInitializeIoUnit(__int64 a1)
   int *v3; // rax
   int v4; // ecx
   int v5; // eax
+  unsigned int v6; // ebp
+  int v7; // esi
+  __int64 v8; // rcx
   __int64 result; // rax
-  unsigned int v7; // ebp
-  int v8; // esi
-  __int64 v9; // rcx
   __int64 v10; // rdx
   __int128 v11; // [rsp+20h] [rbp-48h] BYREF
   __int128 v12; // [rsp+30h] [rbp-38h]
@@ -59,26 +59,26 @@ __int64 __fastcall HalpApicInitializeIoUnit(__int64 a1)
   v1[4] |= *(_DWORD *)(a1 + 8) << 24;
   if ( *(_BYTE *)(a1 + 26) || (result = HalpApicDescribeLines(a1), (int)result >= 0) )
   {
-    v7 = 0;
+    v6 = 0;
     if ( *(_BYTE *)(a1 + 25) )
     {
-      v8 = 17;
+      v7 = 17;
       do
       {
-        *v1 = v8 - 1;
-        v9 = (unsigned int)v1[4];
+        *v1 = v7 - 1;
+        v8 = (unsigned int)v1[4];
         if ( *(_BYTE *)(a1 + 26)
           || (v1[4] & 0x700) != 0x200
-          || (v9 & 0x10000) != 0
-          || (*v1 = v8,
+          || (v8 & 0x10000) != 0
+          || (*v1 = v7,
               v10 = (unsigned int)v1[4],
               LODWORD(v15) = *(_DWORD *)(a1 + 8),
-              HIDWORD(v15) = v7,
-              HalpApicConvertFromRte(v9, v10, &v11),
+              HIDWORD(v15) = v6,
+              HalpApicConvertFromRte(v8, v10, &v11),
               DWORD2(v12) == 7) )
         {
           v1[4] = 65791;
-          *v1 = v8;
+          *v1 = v7;
           v1[4] = 0;
         }
         else
@@ -87,10 +87,10 @@ __int64 __fastcall HalpApicInitializeIoUnit(__int64 a1)
           if ( (int)result < 0 )
             return result;
         }
-        ++v7;
-        v8 += 2;
+        ++v6;
+        v7 += 2;
       }
-      while ( v7 < *(unsigned __int8 *)(a1 + 25) );
+      while ( v6 < *(unsigned __int8 *)(a1 + 25) );
     }
     *(_BYTE *)(a1 + 26) = 1;
     return 0LL;

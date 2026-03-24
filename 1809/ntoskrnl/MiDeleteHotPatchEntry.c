@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDeleteHotPatchEntry @ 0x140854B58
+ * XREFs of MiDeleteHotPatchEntry @ 0x140854B38
  * Callers:
- *     MiDeleteImageHotPatchState @ 0x140854CFC (MiDeleteImageHotPatchState.c)
- *     MiHotPatchImage @ 0x140855350 (MiHotPatchImage.c)
+ *     MiDeleteImageHotPatchState @ 0x140854CDC (MiDeleteImageHotPatchState.c)
+ *     MiHotPatchImage @ 0x140855330 (MiHotPatchImage.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MmUnsecureVirtualMemory @ 0x1405F3430 (MmUnsecureVirtualMemory.c)

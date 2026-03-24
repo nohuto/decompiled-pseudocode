@@ -1,36 +1,34 @@
 /*
- * XREFs of MiCreateLargePageVad @ 0x140A49658
+ * XREFs of MiCreateLargePageVad @ 0x1408D9FB4
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiReserveUserMemory @ 0x14071F450 (MiReserveUserMemory.c)
- *     MiAllocateChildVads @ 0x140A483EC (MiAllocateChildVads.c)
+ *     MiMapViewOfImageSection @ 0x14061D2D0 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x140637BF0 (MiReserveUserMemory.c)
+ *     MiAllocateChildVads @ 0x1408D8AE0 (MiAllocateChildVads.c)
  * Callees:
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140275130 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x1402751A0 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiInsertVadEvent @ 0x1402E326C (MiInsertVadEvent.c)
- *     MiChargeFullProcessCommitment @ 0x1406F78B0 (MiChargeFullProcessCommitment.c)
- *     MiChargeProcessPhysicalPages @ 0x140A43914 (MiChargeProcessPhysicalPages.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14025AA70 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiInsertVadEvent @ 0x14025B21C (MiInsertVadEvent.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1402C8E20 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiChargeFullProcessCommitment @ 0x1405F90D0 (MiChargeFullProcessCommitment.c)
+ *     MiChargeProcessPhysicalPages @ 0x1408D7384 (MiChargeProcessPhysicalPages.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiCreateLargePageVad(__int64 a1, __int64 a2, void *a3, __int64 a4)
+__int64 __fastcall MiCreateLargePageVad(__int64 a1, __int64 a2, void *a3)
 {
-  int v4; // r12d
+  int v3; // r12d
   __int64 Pool; // rbx
   struct _KTHREAD *CurrentThread; // r14
   _KPROCESS *Process; // r13
-  __int64 v12; // rax
-  unsigned __int64 v13; // rdi
-  int v14; // r9d
-  int v15; // ebp
-  unsigned int v16; // [rsp+68h] [rbp+20h]
+  __int64 v11; // rax
+  unsigned __int64 v12; // rdi
+  int v13; // r9d
+  int v14; // ebp
 
-  v16 = a4;
-  v4 = 1;
+  v3 = 1;
   Pool = 1LL;
-  if ( (*(_DWORD *)(a2 + 48) & 0x200000) != 0 )
+  if ( (*(_DWORD *)(a2 + 48) & 0x100000) != 0 )
     Pool = -(__int64)(a3 != 0LL) & 1;
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
@@ -39,47 +37,46 @@ __int64 __fastcall MiCreateLargePageVad(__int64 a1, __int64 a2, void *a3, __int6
     Pool = (__int64)MiAllocatePool(64, 0x48uLL, 0x624C6D4Du);
     if ( !Pool )
       return 3221225626LL;
-    a4 = v16;
   }
-  v12 = *(unsigned int *)(a2 + 52);
-  LODWORD(v12) = v12 & 0x7FFFFFFF;
-  v13 = v12 | ((unsigned __int64)*(unsigned __int8 *)(a2 + 34) << 31);
-  if ( !v13 )
+  v11 = *(unsigned int *)(a2 + 52);
+  LODWORD(v11) = v11 & 0x7FFFFFFF;
+  v12 = v11 | ((unsigned __int64)*(unsigned __int8 *)(a2 + 34) << 31);
+  if ( !v12 )
   {
     if ( !a3 )
-      goto LABEL_25;
-LABEL_24:
+      goto LABEL_24;
+LABEL_23:
     ObfReferenceObjectWithTag(a3, 0x746C6644u);
     *(_QWORD *)(Pool + 24) = a3;
-    goto LABEL_25;
+    goto LABEL_24;
   }
-  if ( !(unsigned int)MiChargeProcessPhysicalPages(a1, v12 | ((unsigned __int64)*(unsigned __int8 *)(a2 + 34) << 31)) )
+  if ( !(unsigned int)MiChargeProcessPhysicalPages(a1, v11 | ((unsigned __int64)*(unsigned __int8 *)(a2 + 34) << 31)) )
   {
     if ( Pool )
       ExFreePoolWithTag((PVOID)Pool, 0);
     return 3221225773LL;
   }
   if ( a3 )
-    goto LABEL_24;
-  if ( v14 || Process != (_KPROCESS *)a1 )
-    v4 = 0;
+    goto LABEL_23;
+  if ( v13 || Process != (_KPROCESS *)a1 )
+    v3 = 0;
   else
     LOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, a1);
-  v15 = MiChargeFullProcessCommitment(a1, v13);
-  if ( v4 )
+  v14 = MiChargeFullProcessCommitment(a1, v12);
+  if ( v3 )
     UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, a1);
-  if ( v15 < 0 )
+  if ( v14 < 0 )
   {
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 2032), -(__int64)v13);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 2032), -(__int64)v12);
     if ( Pool )
       ExFreePoolWithTag((PVOID)Pool, 0);
-    return (unsigned int)v15;
+    return (unsigned int)v14;
   }
-LABEL_25:
+LABEL_24:
   if ( Pool )
   {
     *(_DWORD *)(Pool + 64) = 16;
-    MiInsertVadEvent(a2, (unsigned __int64 *)Pool, 0LL, a4);
+    MiInsertVadEvent(a2, (_QWORD *)Pool, 0);
   }
   return 0LL;
 }

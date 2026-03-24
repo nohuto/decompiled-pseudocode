@@ -1,12 +1,12 @@
 /*
- * XREFs of PspInitializeQuotaBlock @ 0x14085D68C
+ * XREFs of PspInitializeQuotaBlock @ 0x1407CE6F4
  * Callers:
- *     PspAssignProcessQuotaBlock @ 0x1407F8B1C (PspAssignProcessQuotaBlock.c)
+ *     PspAssignProcessQuotaBlock @ 0x140690864 (PspAssignProcessQuotaBlock.c)
  * Callees:
- *     PspInsertExpansionEntry @ 0x1403AE244 (PspInsertExpansionEntry.c)
- *     memset @ 0x140435400 (memset.c)
- *     PspExpandLimit @ 0x1405A3C48 (PspExpandLimit.c)
- *     IoEnableIrpCredits @ 0x14094404C (IoEnableIrpCredits.c)
+ *     PspInsertExpansionEntry @ 0x1403CB554 (PspInsertExpansionEntry.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PspExpandLimit @ 0x14058117C (PspExpandLimit.c)
+ *     IoEnableIrpCredits @ 0x140890DB8 (IoEnableIrpCredits.c)
  */
 
 __int64 __fastcall PspInitializeQuotaBlock(__int64 a1, int *a2, __int64 *a3)
@@ -36,10 +36,10 @@ __int64 __fastcall PspInitializeQuotaBlock(__int64 a1, int *a2, __int64 *a3)
   v9 = 0LL;
   for ( i = a2; ; ++i )
   {
-    v11 = PspResourceFlags[v9 * 8];
+    v11 = PspResourceFlags[v9 * 2];
     if ( (v11 & 2) != 0 )
       goto LABEL_9;
-    v12 = a2 ? *i : *(_QWORD *)(a1 + PspQuotaLimitOffsets[v9]);
+    v12 = a2 ? *i : *(_QWORD *)(a1 + *(_QWORD *)&PspQuotaLimitOffsets[v9]);
     *v8 = v12;
     if ( (v11 & 1) == 0 )
       goto LABEL_9;
@@ -50,7 +50,7 @@ __int64 __fastcall PspInitializeQuotaBlock(__int64 a1, int *a2, __int64 *a3)
 LABEL_9:
     ++v7;
     v8 += 16;
-    ++v9;
+    v9 += 4LL;
     if ( v7 >= 4 )
       return 0LL;
   }

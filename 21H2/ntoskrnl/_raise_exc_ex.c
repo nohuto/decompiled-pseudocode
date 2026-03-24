@@ -1,12 +1,12 @@
 /*
- * XREFs of _raise_exc_ex @ 0x1403E5930
+ * XREFs of _raise_exc_ex @ 0x1403D64D0
  * Callers:
- *     _raise_exc @ 0x1403E5900 (_raise_exc.c)
- *     _raise_excf @ 0x1403E5BC0 (_raise_excf.c)
+ *     _raise_exc @ 0x1403D64A0 (_raise_exc.c)
+ *     _raise_excf @ 0x1403D6760 (_raise_excf.c)
  * Callees:
- *     RaiseException @ 0x1403E5840 (RaiseException.c)
- *     _clrfp @ 0x1403E5BF4 (_clrfp.c)
- *     _statfp @ 0x1403E5CC4 (_statfp.c)
+ *     RaiseException @ 0x1403D63E0 (RaiseException.c)
+ *     _clrfp @ 0x1403D67C0 (_clrfp.c)
+ *     _statfp @ 0x1403D6890 (_statfp.c)
  */
 
 __int64 __fastcall raise_exc_ex(

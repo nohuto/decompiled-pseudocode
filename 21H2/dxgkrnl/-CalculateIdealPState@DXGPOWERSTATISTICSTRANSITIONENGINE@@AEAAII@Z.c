@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CalculateIdealPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAII@Z @ 0x1C00568EC
+ * XREFs of ?CalculateIdealPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAII@Z @ 0x1C00477B0
  * Callers:
- *     ?CalculatePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C0056978 (-CalculatePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z.c)
+ *     ?CalculatePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C004783C (-CalculatePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +23,7 @@ __int64 __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::CalculateIdealPState(
   v3 = -1LL;
   v4 = *v2;
   LODWORD(v5) = *v2;
-  v6 = a2 * (unsigned __int64)v2[*((unsigned int *)this + 14) + 1] / *(unsigned int *)(*(_QWORD *)this + 4332LL);
+  v6 = a2 * (unsigned __int64)v2[*((unsigned int *)this + 14) + 1] / *(unsigned int *)(*(_QWORD *)this + 4228LL);
   if ( !*v2 )
     return 0LL;
   while ( 1 )

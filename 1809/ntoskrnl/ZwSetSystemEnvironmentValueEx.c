@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwSetSystemEnvironmentValueEx @ 0x1401BB5B0
+ * XREFs of ZwSetSystemEnvironmentValueEx @ 0x1401BB5D0
  * Callers:
- *     BiDeleteEfiVariable @ 0x1408F337C (BiDeleteEfiVariable.c)
+ *     BiDeleteEfiVariable @ 0x1408F335C (BiDeleteEfiVariable.c)
  * Callees:
  *     <none>
  */

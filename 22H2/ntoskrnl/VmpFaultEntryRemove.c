@@ -1,26 +1,25 @@
 /*
- * XREFs of VmpFaultEntryRemove @ 0x140466396
+ * XREFs of VmpFaultEntryRemove @ 0x1405A31B0
  * Callers:
- *     VmpAccessFaultBatch @ 0x140465EE6 (VmpAccessFaultBatch.c)
+ *     VmpAccessFaultBatch @ 0x1405A2AAC (VmpAccessFaultBatch.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x14024B910 (RtlRbRemoveNode.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140295410 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbRemoveNode @ 0x1402C1170 (RtlRbRemoveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall VmpFaultEntryRemove(__int64 a1, unsigned __int64 a2, unsigned int a3)
 {
-  unsigned __int64 v3; // rdi
-  unsigned __int64 v5; // rbp
-  unsigned __int8 CurrentIrql; // bl
+  unsigned __int64 v3; // rbx
+  unsigned __int64 v5; // rsi
+  unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
-  __int64 v8; // rdx
-  unsigned __int8 v9; // al
+  unsigned __int8 v8; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v11; // r8
-  int v12; // eax
-  bool v13; // zf
+  _DWORD *v10; // r8
+  int v11; // eax
+  bool v12; // zf
   __int64 result; // rax
 
   v3 = a2;
@@ -30,11 +29,7 @@ __int64 __fastcall VmpFaultEntryRemove(__int64 a1, unsigned __int64 a2, unsigned
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 15 )
-      LODWORD(v8) = 0x8000;
-    else
-      v8 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-    SchedulerAssist[5] |= v8;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
   }
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
   while ( v3 < v5 )
@@ -45,16 +40,19 @@ __int64 __fastcall VmpFaultEntryRemove(__int64 a1, unsigned __int64 a2, unsigned
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
   if ( KiIrqlFlags )
   {
-    v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v11 = CurrentPrcb->SchedulerAssist;
-      v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v13 = (v12 & v11[5]) == 0;
-      v11[5] &= v12;
-      if ( v13 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v8 = KeGetCurrentIrql();
+      if ( v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v10 = CurrentPrcb->SchedulerAssist;
+        v11 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v12 = (v11 & v10[5]) == 0;
+        v10[5] &= v11;
+        if ( v12 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   result = CurrentIrql;

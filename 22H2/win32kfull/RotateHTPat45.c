@@ -1,7 +1,7 @@
 /*
- * XREFs of RotateHTPat45 @ 0x1C0252698
+ * XREFs of RotateHTPat45 @ 0x1C015DDD4
  * Callers:
- *     Generate_HTSC_WORD @ 0x1C0252400 (Generate_HTSC_WORD.c)
+ *     Generate_HTSC_WORD @ 0x1C0129E08 (Generate_HTSC_WORD.c)
  * Callees:
  *     <none>
  */

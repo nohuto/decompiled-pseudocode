@@ -1,16 +1,16 @@
 /*
- * XREFs of InitContext @ 0x1C0053858
+ * XREFs of InitContext @ 0x1C00240E4
  * Callers:
- *     NewContext @ 0x1C0053A0C (NewContext.c)
+ *     NewContext @ 0x1C0023FE8 (NewContext.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-_QWORD *__fastcall InitContext(char *DeferredContext)
+PVOID __fastcall InitContext(char *DeferredContext)
 {
   char *v2; // rax
   size_t v3; // rbx
-  _QWORD *result; // rax
+  PVOID result; // rax
 
   memset(DeferredContext, 0, 0x1E0uLL);
   v2 = &DeferredContext[(unsigned int)gdwCtxtBlkSize];
@@ -36,13 +36,14 @@ _QWORD *__fastcall InitContext(char *DeferredContext)
   *((_QWORD *)DeferredContext + 4) = DeferredContext + 32;
   *((_QWORD *)DeferredContext + 48) = DeferredContext;
   *((_QWORD *)DeferredContext + 62) = DeferredContext + 480;
-  result = (_QWORD *)ExAllocatePool2(64LL, 168LL, 1684827489LL);
+  result = ExAllocatePoolWithTag(NonPagedPoolNx, 0xA8uLL, 0x646C6D61u);
   *((_QWORD *)DeferredContext + 58) = result;
   if ( result )
   {
-    *result = DeferredContext;
+    memset(result, 0, 0xA8uLL);
+    **((_QWORD **)DeferredContext + 58) = DeferredContext;
     *(_DWORD *)(*((_QWORD *)DeferredContext + 58) + 16LL) = AmliWatchdogAction;
-    result = (_QWORD *)MEMORY[0xFFFFF78000000008];
+    result = (PVOID)MEMORY[0xFFFFF78000000008];
     *((_QWORD *)DeferredContext + 57) = MEMORY[0xFFFFF78000000008];
     DeferredContext[472] = 0;
   }

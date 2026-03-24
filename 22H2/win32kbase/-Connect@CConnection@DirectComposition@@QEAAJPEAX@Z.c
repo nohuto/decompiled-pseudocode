@@ -1,38 +1,32 @@
 /*
- * XREFs of ?Connect@CConnection@DirectComposition@@QEAAJPEAX@Z @ 0x1C0086654
+ * XREFs of ?Connect@CConnection@DirectComposition@@QEAAJPEAX@Z @ 0x1C00AAC9C
  * Callers:
- *     ?Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z @ 0x1C00864C8 (-Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z.c)
+ *     ?Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z @ 0x1C00AABBC (-Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z.c)
  * Callees:
- *     ?SetRetrievingProcess@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C00232AC (-SetRetrievingProcess@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAXPEAU_EPROCESS@@@Z.c)
- *     ?Create@CEvent@DirectComposition@@SAJPEAXHPEAPEAV12@@Z @ 0x1C00235FC (-Create@CEvent@DirectComposition@@SAJPEAXHPEAPEAV12@@Z.c)
- *     ?ReservePools@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAJ_K@Z @ 0x1C0025818 (-ReservePools@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAJ_K@Z.c)
- *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C0065C58 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
- *     ?Disconnect@CConnection@DirectComposition@@QEAAXXZ @ 0x1C0083A3C (-Disconnect@CConnection@DirectComposition@@QEAAXXZ.c)
- *     ?Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ @ 0x1C0087334 (-Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ.c)
- *     ?OnConnectionReconnected@CChannelGroup@DirectComposition@@QEAAXXZ @ 0x1C0087368 (-OnConnectionReconnected@CChannelGroup@DirectComposition@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?BoostCompositorClock@CSystemChannel@DirectComposition@@QEAAJ_N@Z @ 0x1C020D0D0 (-BoostCompositorClock@CSystemChannel@DirectComposition@@QEAAJ_N@Z.c)
- *     ?EnableMMCSS@CSystemChannel@DirectComposition@@QEAAJ_N@Z @ 0x1C020D23C (-EnableMMCSS@CSystemChannel@DirectComposition@@QEAAJ_N@Z.c)
+ *     ?Disconnect@CConnection@DirectComposition@@QEAAXXZ @ 0x1C0057700 (-Disconnect@CConnection@DirectComposition@@QEAAXXZ.c)
+ *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C005AA80 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
+ *     ?Create@CEvent@DirectComposition@@SAJPEAXHPEAPEAV12@@Z @ 0x1C005B29C (-Create@CEvent@DirectComposition@@SAJPEAXHPEAPEAV12@@Z.c)
+ *     ?SetRetrievingProcess@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C005BF08 (-SetRetrievingProcess@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAXPEAU_EPROCESS@@@Z.c)
+ *     ?ReservePools@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAJ_K@Z @ 0x1C005C744 (-ReservePools@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAJ_K@Z.c)
+ *     ?OnConnectionReconnected@CChannelGroup@DirectComposition@@QEAAXXZ @ 0x1C00AAE38 (-OnConnectionReconnected@CChannelGroup@DirectComposition@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?EnableMMCSS@CSystemChannel@DirectComposition@@QEAAJH@Z @ 0x1C01D59D8 (-EnableMMCSS@CSystemChannel@DirectComposition@@QEAAJH@Z.c)
  */
 
-__int64 __fastcall DirectComposition::CConnection::Connect(
-        DirectComposition::CConnection *this,
-        NSInstrumentation::CLeakTrackingAllocator *a2)
+__int64 __fastcall DirectComposition::CConnection::Connect(DirectComposition::CConnection *this, void *a2)
 {
   struct _ERESOURCE *v4; // rbx
   struct _ERESOURCE *v5; // rbx
   __int64 v6; // rdx
   __int64 v7; // rcx
-  __int64 v8; // r8
   struct _EPROCESS *CurrentProcess; // rax
-  unsigned __int64 v10; // rdx
-  int v11; // esi
-  bool v12; // al
-  __int64 v13; // rdi
+  __int64 v9; // rdx
+  int v10; // esi
+  __int64 v11; // rdi
+  struct _ERESOURCE *v13; // rbx
+  struct _ERESOURCE *v14; // rbx
   struct _ERESOURCE *v15; // rbx
   struct _ERESOURCE *v16; // rbx
-  struct _ERESOURCE *v17; // rbx
-  struct _ERESOURCE *v18; // rbx
 
   v4 = *(struct _ERESOURCE **)(*((_QWORD *)this + 19) + 32LL);
   KeEnterCriticalRegion();
@@ -42,80 +36,70 @@ __int64 __fastcall DirectComposition::CConnection::Connect(
   ExAcquireResourceExclusiveLite(v5, 1u);
   if ( *((_DWORD *)this + 37) )
   {
-    v11 = -1073741258;
-LABEL_15:
+    v10 = -1073741258;
+LABEL_12:
     DirectComposition::CConnection::Disconnect(this);
-    goto LABEL_9;
+    goto LABEL_6;
   }
-  CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(v7, v6, v8);
+  CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(v7, v6);
   DirectComposition::CBatchSharedMemoryPoolSet::SetRetrievingProcess(
     (DirectComposition::CConnection *)((char *)this + 192),
     CurrentProcess);
-  v11 = DirectComposition::CBatchSharedMemoryPoolSet::ReservePools(
+  v10 = DirectComposition::CBatchSharedMemoryPoolSet::ReservePools(
           (DirectComposition::CConnection *)((char *)this + 192),
           1uLL);
-  if ( v11 < 0 )
-    goto LABEL_15;
-  v11 = DirectComposition::CEvent::Create(a2, v10, (struct DirectComposition::CEvent **)this + 10);
-  if ( v11 < 0 )
-    goto LABEL_15;
+  if ( v10 < 0 )
+    goto LABEL_12;
+  v10 = DirectComposition::CEvent::Create(a2, v9, (struct DirectComposition::CEvent **)this + 10);
+  if ( v10 < 0 )
+    goto LABEL_12;
   *((_DWORD *)this + 37) = 1;
   *((_DWORD *)this + 36) = 0;
   DirectComposition::CChannelGroup::OnConnectionReconnected((DirectComposition::CConnection *)((char *)this + 16));
   KeSetEvent(*(PRKEVENT *)(*((_QWORD *)this + 10) + 8LL), 1, 0);
-  ExAcquirePushLockSharedEx((char *)this + 224, 0LL);
-  *((_BYTE *)this + 232) = 0;
-  if ( *((_DWORD *)this + 60) )
+  if ( *((_DWORD *)this + 56) )
     DirectComposition::CSystemChannel::EnableMMCSS(*((DirectComposition::CSystemChannel **)this + 19), 1);
-  if ( *((_DWORD *)this + 61) )
-    v12 = (int)DirectComposition::CSystemChannel::BoostCompositorClock(
-                 *((DirectComposition::CSystemChannel **)this + 19),
-                 1) >= 0;
-  else
-    v12 = 0;
-  *((_BYTE *)this + 248) = v12;
-  DirectComposition::CPushLockCriticalSection::Release((DirectComposition::CConnection *)((char *)this + 224));
-LABEL_9:
+LABEL_6:
   ExReleaseResourceLite(*((PERESOURCE *)this + 1));
   KeLeaveCriticalRegion();
-  v13 = *((_QWORD *)this + 19);
-  ExReleaseResourceLite(*(PERESOURCE *)(v13 + 32));
+  v11 = *((_QWORD *)this + 19);
+  ExReleaseResourceLite(*(PERESOURCE *)(v11 + 32));
   KeLeaveCriticalRegion();
   do
   {
-    if ( _InterlockedCompareExchange((volatile signed __int32 *)(v13 + 24), 2, 1) == 1 )
+    if ( _InterlockedCompareExchange((volatile signed __int32 *)(v11 + 24), 2, 1) == 1 )
     {
-      v15 = *(struct _ERESOURCE **)(v13 + 32);
+      v13 = *(struct _ERESOURCE **)(v11 + 32);
       KeEnterCriticalRegion();
-      ExAcquireResourceExclusiveLite(v15, 1u);
-      (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v13 + 48LL))(v13, 0LL);
-      v16 = *(struct _ERESOURCE **)(*(_QWORD *)(v13 + 40) + 8LL);
+      ExAcquireResourceExclusiveLite(v13, 1u);
+      (*(void (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v11 + 48LL))(v11, 0LL);
+      v14 = *(struct _ERESOURCE **)(*(_QWORD *)(v11 + 40) + 8LL);
       KeEnterCriticalRegion();
-      ExAcquireResourceSharedLite(v16, 1u);
-      if ( DirectComposition::CConnection::IsConnected(*(DirectComposition::CConnection **)(v13 + 40)) )
-        *(_DWORD *)(v13 + 24) = 4;
-      ExReleaseResourceLite(*(PERESOURCE *)(v13 + 32));
+      ExAcquireResourceSharedLite(v14, 1u);
+      if ( DirectComposition::CConnection::IsConnected(*(DirectComposition::CConnection **)(v11 + 40)) )
+        *(_DWORD *)(v11 + 24) = 4;
+      ExReleaseResourceLite(*(PERESOURCE *)(v11 + 32));
       KeLeaveCriticalRegion();
-      ExReleaseResourceLite(*(PERESOURCE *)(*(_QWORD *)(v13 + 40) + 8LL));
+      ExReleaseResourceLite(*(PERESOURCE *)(*(_QWORD *)(v11 + 40) + 8LL));
       KeLeaveCriticalRegion();
     }
-    if ( _InterlockedCompareExchange((volatile signed __int32 *)(v13 + 24), 5, 4) == 4 )
+    if ( _InterlockedCompareExchange((volatile signed __int32 *)(v11 + 24), 5, 4) == 4 )
     {
-      v17 = *(struct _ERESOURCE **)(v13 + 32);
+      v15 = *(struct _ERESOURCE **)(v11 + 32);
       KeEnterCriticalRegion();
-      ExAcquireResourceExclusiveLite(v17, 1u);
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v13 + 56LL))(v13);
-      v18 = *(struct _ERESOURCE **)(*(_QWORD *)(v13 + 40) + 8LL);
+      ExAcquireResourceExclusiveLite(v15, 1u);
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 56LL))(v11);
+      v16 = *(struct _ERESOURCE **)(*(_QWORD *)(v11 + 40) + 8LL);
       KeEnterCriticalRegion();
-      ExAcquireResourceSharedLite(v18, 1u);
-      if ( !DirectComposition::CConnection::IsConnected(*(DirectComposition::CConnection **)(v13 + 40)) )
-        *(_DWORD *)(v13 + 24) = 1;
-      ExReleaseResourceLite(*(PERESOURCE *)(v13 + 32));
+      ExAcquireResourceSharedLite(v16, 1u);
+      if ( !DirectComposition::CConnection::IsConnected(*(DirectComposition::CConnection **)(v11 + 40)) )
+        *(_DWORD *)(v11 + 24) = 1;
+      ExReleaseResourceLite(*(PERESOURCE *)(v11 + 32));
       KeLeaveCriticalRegion();
-      ExReleaseResourceLite(*(PERESOURCE *)(*(_QWORD *)(v13 + 40) + 8LL));
+      ExReleaseResourceLite(*(PERESOURCE *)(*(_QWORD *)(v11 + 40) + 8LL));
       KeLeaveCriticalRegion();
     }
   }
-  while ( *(_DWORD *)(v13 + 24) == 1 );
-  return (unsigned int)v11;
+  while ( *(_DWORD *)(v11 + 24) == 1 );
+  return (unsigned int)v10;
 }

@@ -1,38 +1,37 @@
 /*
- * XREFs of PspAddSchedulingGroupToJobChain @ 0x140683BA8
+ * XREFs of PspAddSchedulingGroupToJobChain @ 0x14065C6DC
  * Callers:
- *     PspEstablishJobHierarchy @ 0x14069F8F4 (PspEstablishJobHierarchy.c)
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
+ *     PspEstablishJobHierarchy @ 0x14071EDDC (PspEstablishJobHierarchy.c)
  * Callees:
- *     KeInsertSchedulingGroup @ 0x1402050DC (KeInsertSchedulingGroup.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     PspFreeRateControl @ 0x140684EAC (PspFreeRateControl.c)
- *     PspAllocateRateControl @ 0x140684EF8 (PspAllocateRateControl.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406A3448 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KeInsertSchedulingGroup @ 0x1402DB0E8 (KeInsertSchedulingGroup.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140618450 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspFreeRateControl @ 0x14065CB8C (PspFreeRateControl.c)
+ *     PspAllocateRateControl @ 0x14065CBDC (PspAllocateRateControl.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PspAddSchedulingGroupToJobChain(__int64 a1, __int64 a2)
 {
   _QWORD *v3; // rbx
-  __int64 Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   __int64 v6; // rax
   __int64 v7; // rdi
-  __int64 v8; // r14
-  __int64 *v9; // rsi
-  __int64 v10; // r15
-  __int64 v11; // r14
-  __int64 v12; // rcx
-  _QWORD *v13; // rax
+  __int64 v8; // rsi
+  __int64 v9; // r14
+  __int64 v10; // rsi
+  __int64 v11; // rcx
+  _QWORD *v12; // rax
   __int64 RateControl; // rax
+  _QWORD *v15; // rax
   __int64 v16; // rax
-  __int64 v17; // rax
-  _QWORD *v18; // rbx
-  __int64 v19; // rdi
-  void *v20; // rcx
-  __int64 v21; // rcx
-  _QWORD *v22; // rax
+  _QWORD *v17; // rbx
+  __int64 v18; // rdi
+  void *v19; // rcx
+  __int64 v20; // rax
+  _QWORD *v21; // rcx
   _QWORD P[2]; // [rsp+30h] [rbp-10h] BYREF
 
   P[1] = P;
@@ -40,14 +39,14 @@ __int64 __fastcall PspAddSchedulingGroupToJobChain(__int64 a1, __int64 a2)
   P[0] = P;
   if ( a2 )
   {
-    Pool2 = ExAllocatePool2(256LL, 24LL, 1649046352LL);
-    v3 = (_QWORD *)Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x624A7350u);
+    v3 = PoolWithTag;
+    if ( !PoolWithTag )
       return 3221225626LL;
-    *(_QWORD *)(Pool2 + 16) = a2;
+    PoolWithTag[2] = a2;
     v6 = P[0];
     if ( *(_QWORD **)(P[0] + 8LL) != P )
-LABEL_32:
+LABEL_15:
       __fastfail(3u);
     *v3 = P[0];
     v3[1] = P;
@@ -58,65 +57,76 @@ LABEL_32:
     goto LABEL_6;
   while ( 1 )
   {
-    if ( (*(_DWORD *)(a1 + 1536) & 0x20) != 0 )
+    if ( (*(_DWORD *)(a1 + 1320) & 0x20) != 0 )
       goto LABEL_6;
     RateControl = PspAllocateRateControl(2LL);
-    *(_QWORD *)(a1 + 1224) = RateControl;
+    *(_QWORD *)(a1 + 1008) = RateControl;
     if ( !RateControl )
       break;
     *(_DWORD *)(RateControl + 132) |= 3u;
     *(_DWORD *)(RateControl + 128) = 655370000;
-    *(_DWORD *)(*(_QWORD *)(a1 + 1224) + 44LL) = *(_DWORD *)(RateControl + 128);
-    *(_DWORD *)(*(_QWORD *)(a1 + 1224) + 40LL) |= 0x40u;
-    v16 = ExAllocatePool2(256LL, 24LL, 1649046352LL);
-    v3 = (_QWORD *)v16;
-    if ( !v16 )
+    *(_DWORD *)(*(_QWORD *)(a1 + 1008) + 44LL) = *(_DWORD *)(RateControl + 128);
+    *(_DWORD *)(*(_QWORD *)(a1 + 1008) + 40LL) |= 0x40u;
+    v15 = ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x624A7350u);
+    v3 = v15;
+    if ( !v15 )
     {
-      PspFreeRateControl(*(PVOID *)(a1 + 1224));
-      *(_QWORD *)(a1 + 1224) = 0LL;
+      PspFreeRateControl(*(PVOID *)(a1 + 1008));
+      *(_QWORD *)(a1 + 1008) = 0LL;
       break;
     }
-    _InterlockedOr((volatile signed __int32 *)(a1 + 1536), 0x20u);
-    *(_QWORD *)(v16 + 16) = a1;
-    v17 = P[0];
+    _InterlockedOr((volatile signed __int32 *)(a1 + 1320), 0x20u);
+    v15[2] = a1;
+    v16 = P[0];
     if ( *(_QWORD **)(P[0] + 8LL) != P )
-      goto LABEL_32;
+      goto LABEL_15;
     *v3 = P[0];
     v3[1] = P;
-    *(_QWORD *)(v17 + 8) = v3;
+    *(_QWORD *)(v16 + 8) = v3;
     P[0] = v3;
-    a1 = *(_QWORD *)(a1 + 1288);
+    a1 = *(_QWORD *)(a1 + 1072);
     if ( !a1 )
     {
 LABEL_6:
       while ( v3 != P )
       {
         v7 = v3[2];
-        v8 = *(_QWORD *)(v7 + 1288);
-        v9 = (__int64 *)(v7 + 1232);
-        v10 = *(_QWORD *)(v7 + 1224);
+        v8 = *(_QWORD *)(v7 + 1072);
+        v9 = *(_QWORD *)(v7 + 1008);
         if ( v8 )
         {
-          v11 = *(_QWORD *)(v8 + 1224) + 128LL;
+          v10 = *(_QWORD *)(v8 + 1008) + 128LL;
         }
         else
         {
-          v11 = *v9;
-          if ( PsCpuFairShareEnabled && v11 )
-            ObfReferenceObjectWithTag(*(PVOID *)(v7 + 1328), 0x624A7350u);
+          v10 = *(_QWORD *)(v7 + 1016);
+          if ( PsCpuFairShareEnabled && v10 )
+            ObfReferenceObjectWithTag(*(PVOID *)(v7 + 1112), 0x624A7350u);
         }
-        KeInsertSchedulingGroup(v10 + 128, *(_QWORD *)(v10 + 128), v11);
-        if ( *v9 )
-          PspEnumJobsAndProcessesInJobHierarchy((PVOID)v7, 0LL, 8);
-        PspEnumJobsAndProcessesInJobHierarchy((PVOID)v7, *(_QWORD *)(v7 + 1224), 8);
-        v12 = *v3;
+        KeInsertSchedulingGroup(v9 + 128, *(_QWORD *)(v9 + 128), v10);
+        if ( *(_QWORD *)(v7 + 1016) )
+          PspEnumJobsAndProcessesInJobHierarchy(
+            (_QWORD *)v7,
+            (int)PspSetCpuRateControlJobPreCallback,
+            (int)PspSetCpuRateControlJobPostCallback,
+            0,
+            0LL,
+            8);
+        PspEnumJobsAndProcessesInJobHierarchy(
+          (_QWORD *)v7,
+          (int)PspSetCpuRateControlJobPreCallback,
+          (int)PspSetCpuRateControlJobPostCallback,
+          0,
+          *(_QWORD *)(v7 + 1008),
+          8);
+        v11 = *v3;
         if ( *(_QWORD **)(*v3 + 8LL) != v3 )
-          goto LABEL_32;
-        v13 = (_QWORD *)v3[1];
-        if ( (_QWORD *)*v13 != v3 )
-          goto LABEL_32;
-        *v13 = v12;
-        *(_QWORD *)(v12 + 8) = v13;
+          goto LABEL_15;
+        v12 = (_QWORD *)v3[1];
+        if ( (_QWORD *)*v12 != v3 )
+          goto LABEL_15;
+        *v12 = v11;
+        *(_QWORD *)(v11 + 8) = v12;
         ExFreePoolWithTag(v3, 0x624A7350u);
         v3 = (_QWORD *)P[0];
       }
@@ -125,25 +135,25 @@ LABEL_6:
   }
   while ( 1 )
   {
-    v18 = (_QWORD *)P[0];
+    v17 = (_QWORD *)P[0];
     if ( (_QWORD *)P[0] == P )
       return 3221225626LL;
-    v19 = *(_QWORD *)(P[0] + 16LL);
-    v20 = *(void **)(v19 + 1224);
-    if ( v20 )
+    v18 = *(_QWORD *)(P[0] + 16LL);
+    v19 = *(void **)(v18 + 1008);
+    if ( v19 )
     {
-      PspFreeRateControl(v20);
-      *(_QWORD *)(v19 + 1224) = 0LL;
-      _InterlockedAnd((volatile signed __int32 *)(v19 + 1536), 0xFFFFFFDF);
+      PspFreeRateControl(v19);
+      *(_QWORD *)(v18 + 1008) = 0LL;
+      _InterlockedAnd((volatile signed __int32 *)(v18 + 1320), 0xFFFFFFDF);
     }
-    v21 = *v18;
-    if ( *(_QWORD **)(*v18 + 8LL) != v18 )
-      goto LABEL_32;
-    v22 = (_QWORD *)v18[1];
-    if ( (_QWORD *)*v22 != v18 )
-      goto LABEL_32;
-    *v22 = v21;
-    *(_QWORD *)(v21 + 8) = v22;
-    ExFreePoolWithTag(v18, 0x624A7350u);
+    v20 = *v17;
+    if ( *(_QWORD **)(*v17 + 8LL) != v17 )
+      goto LABEL_15;
+    v21 = (_QWORD *)v17[1];
+    if ( (_QWORD *)*v21 != v17 )
+      goto LABEL_15;
+    *v21 = v20;
+    *(_QWORD *)(v20 + 8) = v21;
+    ExFreePoolWithTag(v17, 0x624A7350u);
   }
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlpAcknowledgeOplockBreak @ 0x140542458
+ * XREFs of FsRtlpAcknowledgeOplockBreak @ 0x1404F04C4
  * Callers:
- *     FsRtlpOplockFsctrlInternal @ 0x14071C610 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1405EA170 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     FsRtlpClearOwner @ 0x140240DB4 (FsRtlpClearOwner.c)
- *     FsRtlpModifyThreadPriorities @ 0x14024A390 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x14024E884 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     FsRtlpCancelReadOnlyOplockIrp @ 0x14054268C (FsRtlpCancelReadOnlyOplockIrp.c)
- *     FsRtlpOplockUpperLowerCompatible @ 0x14071CAB0 (FsRtlpOplockUpperLowerCompatible.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     FsRtlpClearOwner @ 0x140375278 (FsRtlpClearOwner.c)
+ *     FsRtlpModifyThreadPriorities @ 0x140379E74 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpCancelReadOnlyOplockIrp @ 0x1404F06F8 (FsRtlpCancelReadOnlyOplockIrp.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1404F0C4C (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpOplockUpperLowerCompatible @ 0x1405EA118 (FsRtlpOplockUpperLowerCompatible.c)
  */
 
 __int64 __fastcall FsRtlpAcknowledgeOplockBreak(__int64 a1, __int64 a2, __int64 a3, char a4, unsigned int a5)
@@ -28,7 +28,7 @@ __int64 __fastcall FsRtlpAcknowledgeOplockBreak(__int64 a1, __int64 a2, __int64 
   __int64 v17; // rdx
   unsigned int v18; // r14d
   int v19; // eax
-  _QWORD *v20; // rcx
+  void *v20; // rcx
 
   if ( !a1 )
   {
@@ -92,15 +92,15 @@ LABEL_18:
 LABEL_19:
       while ( 1 )
       {
-        v20 = *(_QWORD **)(a1 + 88);
-        if ( v20 == (_QWORD *)(a1 + 88) )
+        v20 = *(void **)(a1 + 88);
+        if ( v20 == (void *)(a1 + 88) )
           break;
         FsRtlpRemoveAndCompleteWaitingIrp(v20);
       }
       if ( v10 )
         ObfDereferenceObjectWithTag(*(PVOID *)(a1 + 8), 0x746C6644u);
       *(_QWORD *)(a1 + 8) = 0LL;
-      FsRtlpModifyThreadPriorities(a1, 0LL, 0LL);
+      FsRtlpModifyThreadPriorities(a1, 0LL, 0);
       FsRtlpClearOwner(a1, 0LL);
       *(_BYTE *)(a1 + 32) = 0;
       *(_DWORD *)(a1 + 144) = v11 | *(_DWORD *)(a1 + 144) & 0x20;

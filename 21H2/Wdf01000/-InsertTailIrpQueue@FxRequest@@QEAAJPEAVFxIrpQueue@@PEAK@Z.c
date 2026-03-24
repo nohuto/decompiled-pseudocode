@@ -1,26 +1,33 @@
 /*
- * XREFs of ?InsertTailIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@PEAK@Z @ 0x1C000A934
+ * XREFs of ?InsertTailIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@PEAK@Z @ 0x1C00053B0
  * Callers:
- *     ?InsertNewRequestLocked@FxIoQueue@@AEAAJPEAPEAVFxRequest@@E@Z @ 0x1C000A8B0 (-InsertNewRequestLocked@FxIoQueue@@AEAAJPEAPEAVFxRequest@@E@Z.c)
- *     ?RequestCancelable@FxIoQueue@@QEAAJPEAVFxRequest@@EP6AXPEAUWDFREQUEST__@@@ZE@Z @ 0x1C00172E8 (-RequestCancelable@FxIoQueue@@QEAAJPEAVFxRequest@@EP6AXPEAUWDFREQUEST__@@@ZE@Z.c)
+ *     ?QueueRequestFromForward@FxIoQueue@@QEAAJPEAVFxRequest@@@Z @ 0x1C0005488 (-QueueRequestFromForward@FxIoQueue@@QEAAJPEAVFxRequest@@@Z.c)
+ *     ?InsertNewRequestLocked@FxIoQueue@@AEAAJPEAPEAVFxRequest@@E@Z @ 0x1C001540C (-InsertNewRequestLocked@FxIoQueue@@AEAAJPEAPEAVFxRequest@@E@Z.c)
+ *     ?RequestCancelable@FxIoQueue@@QEAAJPEAVFxRequest@@EP6AXPEAUWDFREQUEST__@@@ZE@Z @ 0x1C0016A74 (-RequestCancelable@FxIoQueue@@QEAAJPEAVFxRequest@@EP6AXPEAUWDFREQUEST__@@@ZE@Z.c)
  * Callees:
- *     ?InsertIrpInQueue@FxIrpQueue@@AEAAJPEAU_IRP@@PEAU_IO_CSQ_IRP_CONTEXT@@EPEAK@Z @ 0x1C0002B90 (-InsertIrpInQueue@FxIrpQueue@@AEAAJPEAU_IRP@@PEAU_IO_CSQ_IRP_CONTEXT@@EPEAK@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z @ 0x1C006E6F0 (-UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z.c)
- *     ?Vf_VerifyInsertIrpQueue@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxIrpQueue@@@Z @ 0x1C00C74F8 (-Vf_VerifyInsertIrpQueue@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxIrpQueue@@@Z.c)
+ *     ?RemoveIrpFromListEntry@FxIrpQueue@@AEAAXPEAVFxIrp@@@Z @ 0x1C0018624 (-RemoveIrpFromListEntry@FxIrpQueue@@AEAAXPEAVFxIrp@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z @ 0x1C005B788 (-UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z.c)
+ *     ?Vf_VerifyInsertIrpQueue@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxIrpQueue@@@Z @ 0x1C00C6400 (-Vf_VerifyInsertIrpQueue@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxIrpQueue@@@Z.c)
  */
 
-int __fastcall FxRequest::InsertTailIrpQueue(FxRequest *this, FxIrpQueue *IrpQueue, unsigned int *a3)
+int __fastcall FxRequest::InsertTailIrpQueue(FxRequest *this, FxIrpQueue *IrpQueue, _IRP *a3)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rdx
   unsigned int RefCount; // edx
-  _IRP *m_Irp; // rdx
-  int inserted; // edi
-  __int64 v9; // r9
+  _IRP *m_Irp; // r9
+  $55631384234A24007A0779E5E472941C *v8; // r10
+  _LIST_ENTRY *v9; // rax
+  _LIST_ENTRY *p_ListEntry; // rcx
+  int v11; // edi
   int result; // eax
   _LIST_ENTRY *Blink; // rcx
-  FxRequest_vtbl *v12; // rcx
+  __int64 v14; // r9
+  __int64 v15; // r10
+  FxRequest_vtbl *v16; // rax
+  FxIrp Irp; // [rsp+50h] [rbp+18h] BYREF
 
+  Irp.m_Irp = a3;
   m_Globals = this->m_Globals;
   if ( !m_Globals->FxVerifierOn || (result = FxRequest::Vf_VerifyInsertIrpQueue(this, m_Globals, IrpQueue), result >= 0) )
   {
@@ -38,15 +45,42 @@ int __fastcall FxRequest::InsertTailIrpQueue(FxRequest *this, FxIrpQueue *IrpQue
           RefCount);
     }
     m_Irp = this->m_Irp.m_Irp;
+    v8 = &this->120;
     this->m_IrpQueue = IrpQueue;
-    inserted = FxIrpQueue::InsertIrpInQueue(IrpQueue, m_Irp, &this->m_CsqContext, 0);
-    if ( inserted < 0 )
+    Irp.m_Irp = m_Irp;
+    if ( this == (FxRequest *)-120LL )
     {
-      v12 = this->__vftable;
-      this->m_IrpQueue = (FxIrpQueue *)((__int64)this->m_IrpQueue & v9);
-      v12->Release(this, (void *)1969583441, 1916, "minkernel\\wdf\\framework\\shared\\core\\fxrequest.cpp");
+      m_Irp->Tail.Overlay.DriverContext[3] = IrpQueue;
     }
-    return inserted;
+    else
+    {
+      m_Irp->Tail.Overlay.DriverContext[3] = v8;
+      this->m_CsqContext.Irp = m_Irp;
+      this->m_CsqContext.Csq = (_IO_CSQ *)IrpQueue;
+      v8->m_CsqContext.Type = 1;
+    }
+    v9 = IrpQueue->m_Queue.Blink;
+    p_ListEntry = &m_Irp->Tail.Overlay.ListEntry;
+    if ( (FxIrpQueue *)v9->Flink != IrpQueue )
+      __fastfail(3u);
+    m_Irp->Tail.Overlay.ListEntry.Blink = v9;
+    p_ListEntry->Flink = &IrpQueue->m_Queue;
+    v9->Flink = p_ListEntry;
+    IrpQueue->m_Queue.Blink = p_ListEntry;
+    ++IrpQueue->m_RequestCount;
+    m_Irp->Tail.Overlay.CurrentStackLocation->Control |= 1u;
+    _InterlockedExchange64((volatile __int64 *)&m_Irp->CancelRoutine, (__int64)FxIrpQueue::_WdmCancelRoutineInternal);
+    if ( !m_Irp->Cancel || !_InterlockedExchange64((volatile __int64 *)&m_Irp->CancelRoutine, 0LL) )
+      return 0;
+    FxIrpQueue::RemoveIrpFromListEntry(IrpQueue, &Irp);
+    if ( v15 )
+      *(_QWORD *)(v15 + 8) = 0LL;
+    *(_QWORD *)(v14 + 144) = 0LL;
+    v16 = this->__vftable;
+    this->m_IrpQueue = 0LL;
+    v11 = -1073741536;
+    v16->Release(this, (void *)1969583441, 1916, "minkernel\\wdf\\framework\\shared\\core\\fxrequest.cpp");
+    return v11;
   }
   return result;
 }

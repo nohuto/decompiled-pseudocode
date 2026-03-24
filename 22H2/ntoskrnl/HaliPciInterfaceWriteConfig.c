@@ -1,19 +1,19 @@
 /*
- * XREFs of HaliPciInterfaceWriteConfig @ 0x14033F0F0
+ * XREFs of HaliPciInterfaceWriteConfig @ 0x14037CC80
  * Callers:
  *     <none>
  * Callees:
- *     HalpPCIConfig @ 0x14033F1A0 (HalpPCIConfig.c)
+ *     HalpPCIConfig @ 0x140309270 (HalpPCIConfig.c)
  */
 
 __int64 __fastcall HaliPciInterfaceWriteConfig(
         __int64 a1,
         unsigned int a2,
-        __int64 a3,
-        __int64 a4,
-        int a5,
+        unsigned int a3,
+        void *a4,
+        unsigned int a5,
         unsigned int a6)
 {
-  HalpPCIConfig(a2 >> 8);
+  HalpPCIConfig((unsigned int *)(a2 >> 8), a2, a3, a4, a5, a6, 1);
   return a6;
 }

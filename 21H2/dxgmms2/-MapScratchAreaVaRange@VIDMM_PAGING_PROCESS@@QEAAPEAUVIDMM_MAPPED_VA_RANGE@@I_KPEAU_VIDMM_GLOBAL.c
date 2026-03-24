@@ -1,12 +1,12 @@
 /*
- * XREFs of ?MapScratchAreaVaRange@VIDMM_PAGING_PROCESS@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@I_KPEAU_VIDMM_GLOBAL_ALLOC@@0I0PEAU_MDL@@PEAE0@Z @ 0x1C00839CC
+ * XREFs of ?MapScratchAreaVaRange@VIDMM_PAGING_PROCESS@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@I_KPEAU_VIDMM_GLOBAL_ALLOC@@0I0PEAU_MDL@@PEAE0@Z @ 0x1C0075848
  * Callers:
- *     ?FillAllocationUsingGpuVa@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEAT_LARGE_INTEGER@@@Z @ 0x1C0083B84 (-FillAllocationUsingGpuVa@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEA.c)
- *     ?GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPEAX@Z @ 0x1C008CDE0 (-GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPE.c)
- *     ?MemoryTransferUsingGpuVaWorker@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMENT@@1PEAU_MDL@@2131U_DXGK_TRANSFERFLAGS@@1@Z @ 0x1C00A7C8C (-MemoryTransferUsingGpuVaWorker@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMEN.c)
+ *     ?GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPEAX@Z @ 0x1C0072B4C (-GetDriverUpdateAddress@VIDMM_PAGE_TABLE_BASE@@QEAAJPEAVCVirtualAddressAllocator@@PEAIPEA_KPEAPE.c)
+ *     ?FillAllocationUsingGpuVa@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEAT_LARGE_INTEGER@@@Z @ 0x1C00752F0 (-FillAllocationUsingGpuVa@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEA.c)
+ *     ?MemoryTransferUsingGpuVaWorker@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMENT@@1PEAU_MDL@@2131U_DXGK_TRANSFERFLAGS@@1@Z @ 0x1C008C090 (-MemoryTransferUsingGpuVaWorker@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMEN.c)
  * Callees:
- *     ?MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@_K333IU_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE@@1IPEAPEAUVIDMM_VAD_PENDING_OPERATION@@_N@Z @ 0x1C007B4E8 (-MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_V.c)
- *     ?CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MDL@@W4VIDMM_FLUSH_TLB_MODE@@PEAPEAUVIDMM_ALLOC@@PEA_N@Z @ 0x1C008A360 (-CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MD.c)
+ *     ?MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@_K333IU_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE@@1IPEAPEAUVIDMM_VAD_PENDING_OPERATION@@_N6@Z @ 0x1C005FFD8 (-MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_V.c)
+ *     ?CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MDL@@W4VIDMM_FLUSH_TLB_MODE@@PEAPEAUVIDMM_ALLOC@@PEA_N@Z @ 0x1C006FD28 (-CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MD.c)
  */
 
 struct VIDMM_MAPPED_VA_RANGE *__fastcall VIDMM_PAGING_PROCESS::MapScratchAreaVaRange(
@@ -29,12 +29,18 @@ struct VIDMM_MAPPED_VA_RANGE *__fastcall VIDMM_PAGING_PROCESS::MapScratchAreaVaR
   unsigned __int64 v18; // r8
   _QWORD *v19; // r14
   __int64 v20; // rax
-  __int64 v21; // rbx
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // rbx
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v27; // rax
+  __int64 v28; // rax
 
   v11 = a2;
   if ( a6
     && (v14 = (_QWORD *)*((_QWORD *)this + 2),
-        *(_DWORD *)(*(_QWORD *)(v14[464] + 8LL * (a6 + *(_DWORD *)(1584LL * a2 + v14[5028] + 20) - 1)) + 376LL) == 0x10000)
+        *(_DWORD *)(*(_QWORD *)(v14[464] + 8LL * (a6 + *(_DWORD *)(1584LL * a2 + v14[5027] + 20) - 1)) + 376LL) == 0x10000)
     && !(_WORD)a3
     && (v15 = *((_DWORD *)a4 + 8)) != 0
     && !(_WORD)v15 )
@@ -63,7 +69,7 @@ struct VIDMM_MAPPED_VA_RANGE *__fastcall VIDMM_PAGING_PROCESS::MapScratchAreaVaR
           v19,
           (__int64)a4,
           a5,
-          3u,
+          3,
           a3,
           0LL,
           v17,
@@ -73,20 +79,38 @@ struct VIDMM_MAPPED_VA_RANGE *__fastcall VIDMM_PAGING_PROCESS::MapScratchAreaVaR
           a10,
           v11,
           0LL,
+          0,
           0);
-  v21 = v20;
+  v23 = v20;
   if ( v20 )
   {
     *(_DWORD *)(v20 + 64) |= 0x1000u;
     *(_QWORD *)(v20 + 40) = 0LL;
     a9 = 0LL;
-    if ( (int)CVirtualAddressAllocator::CommitVirtualAddressRange(v19, v20, (unsigned int)v11, a6, a7, a8, 0, &a9, 0LL) < 0 )
-      WdLogSingleEntry5(0LL, 270LL, 48LL, this, 0LL, 0LL);
-    return (struct VIDMM_MAPPED_VA_RANGE *)v21;
+    if ( (int)CVirtualAddressAllocator::CommitVirtualAddressRange(
+                (__int64)v19,
+                v20,
+                (unsigned int)v11,
+                a6,
+                a7,
+                (__int64)a8,
+                0,
+                (struct VIDMM_ALLOC **)&a9,
+                0LL) < 0 )
+    {
+      v28 = WdLogNewEntry5_WdCriticalError(v25, v24);
+      *(_QWORD *)(v28 + 24) = 270LL;
+      *(_QWORD *)(v28 + 32) = 48LL;
+      *(_QWORD *)(v28 + 40) = this;
+      *(_OWORD *)(v28 + 48) = 0LL;
+      WdLogEvent5_WdCriticalError(v28);
+    }
+    return (struct VIDMM_MAPPED_VA_RANGE *)v23;
   }
   else
   {
-    WdLogSingleEntry0(4LL);
+    v27 = WdLogNewEntry5_WdEvent(v22, v21);
+    WdLogEvent5_WdEvent(v27);
     return 0LL;
   }
 }

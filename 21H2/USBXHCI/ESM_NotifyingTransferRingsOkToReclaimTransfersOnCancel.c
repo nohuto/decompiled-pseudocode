@@ -1,9 +1,9 @@
 /*
- * XREFs of ESM_NotifyingTransferRingsOkToReclaimTransfersOnCancel @ 0x1C004F610
+ * XREFs of ESM_NotifyingTransferRingsOkToReclaimTransfersOnCancel @ 0x1C004EAF0
  * Callers:
  *     <none>
  * Callees:
- *     TR_OkToReclaimTransfersOnCancel @ 0x1C003FD60 (TR_OkToReclaimTransfersOnCancel.c)
+ *     TR_OkToReclaimTransfersOnCancel @ 0x1C003F54C (TR_OkToReclaimTransfersOnCancel.c)
  */
 
 __int64 __fastcall ESM_NotifyingTransferRingsOkToReclaimTransfersOnCancel(__int64 a1)

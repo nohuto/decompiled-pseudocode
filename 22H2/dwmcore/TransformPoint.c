@@ -1,8 +1,8 @@
 /*
- * XREFs of TransformPoint @ 0x1801B074C
+ * XREFs of TransformPoint @ 0x18022F3E0
  * Callers:
- *     _anonymous_namespace_::DecomposeMatrix @ 0x1801AE1B4 (_anonymous_namespace_--DecomposeMatrix.c)
- *     ?TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_UPDATE@@1@Z @ 0x1802BAB30 (-TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_U.c)
+ *     _anonymous_namespace_::DecomposeMatrix @ 0x18022D17C (_anonymous_namespace_--DecomposeMatrix.c)
+ *     ?TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_UPDATE@@1@Z @ 0x18026AFDC (-TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_U.c)
  * Callees:
  *     <none>
  */

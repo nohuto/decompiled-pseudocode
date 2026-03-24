@@ -1,7 +1,7 @@
 /*
- * XREFs of XilUsbDevice_IsSecureUsbDevice @ 0x1C0045BF8
+ * XREFs of XilUsbDevice_IsSecureUsbDevice @ 0x1C004573C
  * Callers:
- *     TR_Create @ 0x1C006BCD8 (TR_Create.c)
+ *     TR_Create @ 0x1C006AD7C (TR_Create.c)
  * Callees:
  *     <none>
  */

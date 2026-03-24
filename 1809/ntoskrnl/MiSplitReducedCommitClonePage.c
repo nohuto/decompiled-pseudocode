@@ -1,5 +1,5 @@
 /*
- * XREFs of MiSplitReducedCommitClonePage @ 0x1402A8390
+ * XREFs of MiSplitReducedCommitClonePage @ 0x1402A8490
  * Callers:
  *     MiProbeLeafPteAccess @ 0x1400420D0 (MiProbeLeafPteAccess.c)
  * Callees:
@@ -17,9 +17,9 @@
  *     MiLockProbePacketWorkingSet @ 0x14009380C (MiLockProbePacketWorkingSet.c)
  *     MiUnlockProbePacketWorkingSet @ 0x140093854 (MiUnlockProbePacketWorkingSet.c)
  *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
- *     MiCopyOnWrite @ 0x1400B45C0 (MiCopyOnWrite.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiCopyOnWriteCheckConditions @ 0x1402CB11C (MiCopyOnWriteCheckConditions.c)
+ *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1402CB21C (MiCopyOnWriteCheckConditions.c)
  *     MiChargeFullProcessCommitment @ 0x1405E0510 (MiChargeFullProcessCommitment.c)
  *     MiReturnFullProcessCommitment @ 0x1405F2998 (MiReturnFullProcessCommitment.c)
  */

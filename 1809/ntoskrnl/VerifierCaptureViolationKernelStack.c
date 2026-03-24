@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryCurrentStackInformation @ 0x1400CAB30 (KeQueryCurrentStackInformation.c)
- *     KeGetCurrentStackPointer @ 0x1401BC280 (KeGetCurrentStackPointer.c)
- *     RtlCaptureContext @ 0x1401C54D0 (RtlCaptureContext.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeQueryCurrentStackInformation @ 0x1400CAB50 (KeQueryCurrentStackInformation.c)
+ *     KeGetCurrentStackPointer @ 0x1401BC2A0 (KeGetCurrentStackPointer.c)
+ *     RtlCaptureContext @ 0x1401C54F0 (RtlCaptureContext.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 bool __fastcall VerifierCaptureViolationKernelStack(PCONTEXT ContextRecord, _QWORD *a2)

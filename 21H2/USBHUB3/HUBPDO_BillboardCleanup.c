@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBPDO_BillboardCleanup @ 0x1C007A0D8
+ * XREFs of HUBPDO_BillboardCleanup @ 0x1C0078BC4
  * Callers:
- *     HUBPDO_EvtDeviceCleanup @ 0x1C0018CF0 (HUBPDO_EvtDeviceCleanup.c)
- *     HUBPDO_EvtDeviceSurpriseRemoval @ 0x1C007A670 (HUBPDO_EvtDeviceSurpriseRemoval.c)
+ *     HUBPDO_EvtDeviceCleanup @ 0x1C00187A0 (HUBPDO_EvtDeviceCleanup.c)
+ *     HUBPDO_EvtDeviceSurpriseRemoval @ 0x1C0079170 (HUBPDO_EvtDeviceSurpriseRemoval.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBFDO_CleanupDeviceInterfaceForBillboard @ 0x1C000E8E4 (HUBFDO_CleanupDeviceInterfaceForBillboard.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBFDO_CleanupDeviceInterfaceForBillboard @ 0x1C000E4E4 (HUBFDO_CleanupDeviceInterfaceForBillboard.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall HUBPDO_BillboardCleanup(__int64 a1)
@@ -47,7 +47,7 @@ void __fastcall HUBPDO_BillboardCleanup(__int64 a1)
         2u,
         2u,
         0x56u,
-        (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
         v9);
     }
     v5 = HUBFDO_CleanupDeviceInterfaceForBillboard(
@@ -63,7 +63,7 @@ void __fastcall HUBPDO_BillboardCleanup(__int64 a1)
         2u,
         2u,
         0x57u,
-        (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
         v9);
     }
     updated = ZwUpdateWnfStateData(&WNF_USB_BILLBOARD_CHANGE, 0LL, 0LL, 0LL, 0LL, 0, 0);
@@ -75,7 +75,7 @@ void __fastcall HUBPDO_BillboardCleanup(__int64 a1)
         2u,
         2u,
         0x58u,
-        (__int64)&WPP_22940240c7fa3e5c402eafd6483cb7b0_Traceguids,
+        (__int64)&WPP_9f8e321b0e16315429714d1dd54efe91_Traceguids,
         v10);
     }
     v7 = *(PVOID **)(a1 + 2640);

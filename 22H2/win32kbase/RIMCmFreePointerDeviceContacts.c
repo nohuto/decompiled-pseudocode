@@ -1,35 +1,35 @@
 /*
- * XREFs of RIMCmFreePointerDeviceContacts @ 0x1C01B0840
+ * XREFs of RIMCmFreePointerDeviceContacts @ 0x1C018026C
  * Callers:
- *     RIMFreePointerDevice @ 0x1C0188858 (RIMFreePointerDevice.c)
- *     RIMIDECreatePointerDeviceInfo @ 0x1C0194488 (RIMIDECreatePointerDeviceInfo.c)
- *     RIMIDEResetPointerDeviceMaxCount @ 0x1C019709C (RIMIDEResetPointerDeviceMaxCount.c)
- *     RIMCmAllocPointerDeviceContacts @ 0x1C01B00D0 (RIMCmAllocPointerDeviceContacts.c)
+ *     RIMFreePointerDevice @ 0x1C015D624 (RIMFreePointerDevice.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167888 (RIMIDECreatePointerDeviceInfo.c)
+ *     RIMIDEResetPointerDeviceMaxCount @ 0x1C0169B4C (RIMIDEResetPointerDeviceMaxCount.c)
+ *     RIMCmAllocPointerDeviceContacts @ 0x1C017FF10 (RIMCmAllocPointerDeviceContacts.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 __int64 __fastcall RIMCmFreePointerDeviceContacts(__int64 a1)
 {
-  char *v1; // rdx
-  char *v3; // rdx
+  __int64 v2; // rcx
+  __int64 v3; // rcx
   __int64 result; // rax
 
-  v1 = *(char **)(a1 + 992);
-  if ( v1 )
+  v2 = *(_QWORD *)(a1 + 936);
+  if ( v2 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v1);
-    *(_QWORD *)(a1 + 992) = 0LL;
-    *(_DWORD *)(a1 + 1000) = 0;
+    Win32FreePool(v2);
+    *(_QWORD *)(a1 + 936) = 0LL;
+    *(_DWORD *)(a1 + 944) = 0;
   }
-  v3 = *(char **)(a1 + 968);
+  v3 = *(_QWORD *)(a1 + 912);
   if ( v3 )
   {
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v3);
-    *(_QWORD *)(a1 + 968) = 0LL;
+    Win32FreePool(v3);
+    *(_QWORD *)(a1 + 912) = 0LL;
   }
-  result = a1 + 976;
-  *(_QWORD *)(a1 + 984) = a1 + 976;
-  *(_QWORD *)(a1 + 976) = a1 + 976;
+  result = a1 + 920;
+  *(_QWORD *)(a1 + 928) = a1 + 920;
+  *(_QWORD *)(a1 + 920) = a1 + 920;
   return result;
 }

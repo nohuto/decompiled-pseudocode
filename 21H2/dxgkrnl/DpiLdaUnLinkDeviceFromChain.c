@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiLdaUnLinkDeviceFromChain @ 0x1C0396B64
+ * XREFs of DpiLdaUnLinkDeviceFromChain @ 0x1C02D84C0
  * Callers:
- *     DpiAddDevice @ 0x1C01F84B0 (DpiAddDevice.c)
- *     DpiFdoHandleRemoveDevice @ 0x1C0389720 (DpiFdoHandleRemoveDevice.c)
+ *     DpiAddDevice @ 0x1C017CFC0 (DpiAddDevice.c)
+ *     DpiFdoHandleRemoveDevice @ 0x1C02CA1F0 (DpiFdoHandleRemoveDevice.c)
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
- *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4B0 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiEnableD3Requests @ 0x1C00E28DC (DpiEnableD3Requests.c)
  */
 
 __int64 __fastcall DpiLdaUnLinkDeviceFromChain(__int64 a1)

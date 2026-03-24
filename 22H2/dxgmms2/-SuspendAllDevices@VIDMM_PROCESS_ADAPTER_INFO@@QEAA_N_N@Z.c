@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SuspendAllDevices@VIDMM_PROCESS_ADAPTER_INFO@@QEAA_N_N@Z @ 0x1C00EDA38
+ * XREFs of ?SuspendAllDevices@VIDMM_PROCESS_ADAPTER_INFO@@QEAA_N_N@Z @ 0x1C00B8644
  * Callers:
- *     ?ProcessFrozenProcesses@VIDMM_WORKER_THREAD@@AEAA_NPEAVVIDMM_DEVICE@@@Z @ 0x1C00ED660 (-ProcessFrozenProcesses@VIDMM_WORKER_THREAD@@AEAA_NPEAVVIDMM_DEVICE@@@Z.c)
- *     ?SuspendDevices@VIDMM_WORKER_THREAD@@AEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_PAGE_IN_POLICY_PER_COMBINATION@@W4VIDMM_BUDGET_PRIORITY_BAND@@W4_VIDMM_PLACEMENT_RESTRICTION@@PEAPEAV3@@Z @ 0x1C00EDB1C (-SuspendDevices@VIDMM_WORKER_THREAD@@AEAA_NPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_.c)
+ *     ?ProcessFrozenProcesses@VIDMM_WORKER_THREAD@@AEAAXPEAVVIDMM_DEVICE@@PEA_N@Z @ 0x1C00B824C (-ProcessFrozenProcesses@VIDMM_WORKER_THREAD@@AEAAXPEAVVIDMM_DEVICE@@PEA_N@Z.c)
+ *     ?SuspendDevices@VIDMM_WORKER_THREAD@@AEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_PAGE_IN_POLICY_PER_COMBINATION@@W4VIDMM_BUDGET_PRIORITY_BAND@@W4_VIDMM_PLACEMENT_RESTRICTION@@PEA_NPEAPEAV3@@Z @ 0x1C00B8728 (-SuspendDevices@VIDMM_WORKER_THREAD@@AEAAXPEAU_VIDMM_GLOBAL_ALLOC@@PEAVVIDMM_DEVICE@@AEBUVIDMM_P.c)
  * Callees:
- *     ?IndefinitelySuspend@VIDMM_DEVICE@@QEAAX_N@Z @ 0x1C0089554 (-IndefinitelySuspend@VIDMM_DEVICE@@QEAAX_N@Z.c)
- *     ?FaultAllAllocations@VIDMM_DEVICE@@QEAAXXZ @ 0x1C009B968 (-FaultAllAllocations@VIDMM_DEVICE@@QEAAXXZ.c)
- *     ?FullySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00B4D1C (-FullySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
- *     ?IsResumedRecently@VIDMM_DEVICE@@QEBA_NXZ @ 0x1C00ED54C (-IsResumedRecently@VIDMM_DEVICE@@QEBA_NXZ.c)
+ *     ?FaultAllAllocations@VIDMM_DEVICE@@QEAAXXZ @ 0x1C0064888 (-FaultAllAllocations@VIDMM_DEVICE@@QEAAXXZ.c)
+ *     ?IndefinitelySuspend@VIDMM_DEVICE@@QEAAX_N@Z @ 0x1C0082E38 (-IndefinitelySuspend@VIDMM_DEVICE@@QEAAX_N@Z.c)
+ *     ?FullySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00B6820 (-FullySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
+ *     ?IsResumedRecently@VIDMM_DEVICE@@QEBA_NXZ @ 0x1C00B8138 (-IsResumedRecently@VIDMM_DEVICE@@QEBA_NXZ.c)
  */
 
 char __fastcall VIDMM_PROCESS_ADAPTER_INFO::SuspendAllDevices(VIDMM_PROCESS_ADAPTER_INFO *this, char a2)
@@ -17,7 +17,7 @@ char __fastcall VIDMM_PROCESS_ADAPTER_INFO::SuspendAllDevices(VIDMM_PROCESS_ADAP
   __int64 v6; // rbp
   _QWORD *v7; // rcx
   _QWORD *v8; // r14
-  __int64 v9; // rdi
+  __int64 v9; // rbx
   VIDMM_GLOBAL **v10; // rcx
 
   if ( g_IsInternalReleaseOrDbg )
@@ -54,7 +54,7 @@ LABEL_13:
       if ( v8 == (_QWORD *)(v6 + *((_QWORD *)this + 2) + 40LL) )
         goto LABEL_14;
     }
-    if ( !*(_QWORD *)(v9 + 24) || (*(_DWORD *)(v9 + 60) & 7) != 0 || VIDMM_DEVICE::IsResumedRecently((VIDMM_DEVICE *)v9) )
+    if ( !*(_QWORD *)(v9 + 24) || (*(_DWORD *)(v9 + 52) & 7) != 0 || VIDMM_DEVICE::IsResumedRecently((VIDMM_DEVICE *)v9) )
       goto LABEL_13;
     VIDMM_DEVICE::FullySuspend(v10);
     goto LABEL_12;

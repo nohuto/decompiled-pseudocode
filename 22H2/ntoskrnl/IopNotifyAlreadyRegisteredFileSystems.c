@@ -1,9 +1,9 @@
 /*
- * XREFs of IopNotifyAlreadyRegisteredFileSystems @ 0x14085798C
+ * XREFs of IopNotifyAlreadyRegisteredFileSystems @ 0x1407C9D08
  * Callers:
- *     IoRegisterFsRegistrationChangeMountAware @ 0x1408577F0 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x1407C9B60 (IoRegisterFsRegistrationChangeMountAware.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IopNotifyAlreadyRegisteredFileSystems(

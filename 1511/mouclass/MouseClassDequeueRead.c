@@ -1,1 +1,38 @@
-/*\n * XREFs of MouseClassDequeueRead @ 0x1C0001940\n * Callers:\n *     MouseClassServiceCallback @ 0x1C0001670 (MouseClassServiceCallback.c)\n * Callees:\n *     <none>\n */\n\n__int64 *__fastcall MouseClassDequeueRead(__int64 a1)\n{\n  __int64 **v1; // rax\n  __int64 *v2; // rdx\n  __int64 *v3; // rdx\n  __int64 v4; // rcx\n\n  v1 = (__int64 **)(a1 + 152);\nLABEL_2:\n  v2 = 0LL;\n  while ( *v1 != (__int64 *)v1 )\n  {\n    v3 = *v1;\n    v4 = **v1;\n    if ( (__int64 **)(*v1)[1] != v1 || *(__int64 **)(v4 + 8) != v3 )\n      __fastfail(3u);\n    *v1 = (__int64 *)v4;\n    v2 = v3 - 21;\n    *(_QWORD *)(v4 + 8) = v1;\n    if ( !_InterlockedExchange64(v2 + 13, 0LL) )\n    {\n      v2[22] = (__int64)(v2 + 21);\n      v2[21] = (__int64)(v2 + 21);\n      goto LABEL_2;\n    }\n    if ( v2 )\n      return v2;\n  }\n  return v2;\n}\n
+/*
+ * XREFs of MouseClassDequeueRead @ 0x1C0001940
+ * Callers:
+ *     MouseClassServiceCallback @ 0x1C0001670 (MouseClassServiceCallback.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 *__fastcall MouseClassDequeueRead(__int64 a1)
+{
+  __int64 **v1; // rax
+  __int64 *v2; // rdx
+  __int64 *v3; // rdx
+  __int64 v4; // rcx
+
+  v1 = (__int64 **)(a1 + 152);
+LABEL_2:
+  v2 = 0LL;
+  while ( *v1 != (__int64 *)v1 )
+  {
+    v3 = *v1;
+    v4 = **v1;
+    if ( (__int64 **)(*v1)[1] != v1 || *(__int64 **)(v4 + 8) != v3 )
+      __fastfail(3u);
+    *v1 = (__int64 *)v4;
+    v2 = v3 - 21;
+    *(_QWORD *)(v4 + 8) = v1;
+    if ( !_InterlockedExchange64(v2 + 13, 0LL) )
+    {
+      v2[22] = (__int64)(v2 + 21);
+      v2[21] = (__int64)(v2 + 21);
+      goto LABEL_2;
+    }
+    if ( v2 )
+      return v2;
+  }
+  return v2;
+}

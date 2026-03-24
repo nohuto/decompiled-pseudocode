@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpSystemBootStatusRequest @ 0x14071C4F4
+ * XREFs of RtlpSystemBootStatusRequest @ 0x14071C4D4
  * Callers:
- *     PopRecordSleepCheckpoint @ 0x1406DEFFC (PopRecordSleepCheckpoint.c)
- *     PopWriteBsdPowerTransition @ 0x14071C488 (PopWriteBsdPowerTransition.c)
- *     PoClearTransitionMarker @ 0x140744FE0 (PoClearTransitionMarker.c)
- *     PopRecordLongPowerButtonPressDetected @ 0x140745168 (PopRecordLongPowerButtonPressDetected.c)
- *     RtlGetSystemBootStatusEx @ 0x140760D20 (RtlGetSystemBootStatusEx.c)
- *     RtlGetSystemBootStatus @ 0x1407630A0 (RtlGetSystemBootStatus.c)
- *     PopRecordPhysicalPowerButton @ 0x140866008 (PopRecordPhysicalPowerButton.c)
- *     PopRecordSleepCheckpointSource @ 0x1408661A0 (PopRecordSleepCheckpointSource.c)
- *     RtlSetSystemBootStatus @ 0x140895EF0 (RtlSetSystemBootStatus.c)
- *     RtlSetSystemBootStatusEx @ 0x140895F20 (RtlSetSystemBootStatusEx.c)
+ *     PopRecordSleepCheckpoint @ 0x1406DEFDC (PopRecordSleepCheckpoint.c)
+ *     PopWriteBsdPowerTransition @ 0x14071C468 (PopWriteBsdPowerTransition.c)
+ *     PoClearTransitionMarker @ 0x140744FC0 (PoClearTransitionMarker.c)
+ *     PopRecordLongPowerButtonPressDetected @ 0x140745148 (PopRecordLongPowerButtonPressDetected.c)
+ *     RtlGetSystemBootStatusEx @ 0x140760D00 (RtlGetSystemBootStatusEx.c)
+ *     RtlGetSystemBootStatus @ 0x140763080 (RtlGetSystemBootStatus.c)
+ *     PopRecordPhysicalPowerButton @ 0x140865FE8 (PopRecordPhysicalPowerButton.c)
+ *     PopRecordSleepCheckpointSource @ 0x140866180 (PopRecordSleepCheckpointSource.c)
+ *     RtlSetSystemBootStatus @ 0x140895ED0 (RtlSetSystemBootStatus.c)
+ *     RtlSetSystemBootStatusEx @ 0x140895F00 (RtlSetSystemBootStatusEx.c)
  * Callees:
- *     ZwPowerInformation @ 0x1401B8D50 (ZwPowerInformation.c)
+ *     ZwPowerInformation @ 0x1401B8D70 (ZwPowerInformation.c)
  */
 
 __int64 __fastcall RtlpSystemBootStatusRequest(unsigned int a1, __int64 a2, unsigned int a3, void *a4)

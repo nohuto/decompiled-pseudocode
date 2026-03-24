@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpIsDuplicateAce @ 0x14062CBE0 (RtlpIsDuplicateAce.c)
  * Callees:
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
  */
 
 bool __fastcall RtlpCompareKnownAces(unsigned __int8 *a1, unsigned __int8 *a2)

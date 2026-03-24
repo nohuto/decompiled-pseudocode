@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SetBoundPropertySet@CContentResourceState@@QEAAXPEAVCFlipPropertySet@@@Z @ 0x1C0081710
+ * XREFs of ?SetBoundPropertySet@CContentResourceState@@QEAAXPEAVCFlipPropertySet@@@Z @ 0x1C006E924
  * Callers:
- *     ?SetContent@CFlipManager@@QEAAJ_K0PEAVCFlipPropertySet@@@Z @ 0x1C007EB00 (-SetContent@CFlipManager@@QEAAJ_K0PEAVCFlipPropertySet@@@Z.c)
- *     ?ApplyIncrementalUpdate@CEndpointResourceStateManager@@QEAAJPEBVCFlipPresentUpdate@@@Z @ 0x1C007F5C4 (-ApplyIncrementalUpdate@CEndpointResourceStateManager@@QEAAJPEBVCFlipPresentUpdate@@@Z.c)
- *     ?ClearAllContentBindings@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C007F828 (-ClearAllContentBindings@CEndpointResourceStateManager@@QEAAXXZ.c)
- *     ?Remove@CContentResourceState@@UEAAXXZ @ 0x1C0080B30 (-Remove@CContentResourceState@@UEAAXXZ.c)
- *     ??1CContentResourceState@@UEAA@XZ @ 0x1C0081418 (--1CContentResourceState@@UEAA@XZ.c)
+ *     ?SetContent@CFlipManager@@QEAAJ_K0PEAVCFlipPropertySet@@@Z @ 0x1C006BDC0 (-SetContent@CFlipManager@@QEAAJ_K0PEAVCFlipPropertySet@@@Z.c)
+ *     ?ApplyIncrementalUpdate@CEndpointResourceStateManager@@QEAAJPEBVCFlipPresentUpdate@@@Z @ 0x1C006C0EC (-ApplyIncrementalUpdate@CEndpointResourceStateManager@@QEAAJPEBVCFlipPresentUpdate@@@Z.c)
+ *     ?ClearAllContentBindings@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C006C490 (-ClearAllContentBindings@CEndpointResourceStateManager@@QEAAXXZ.c)
+ *     ?Remove@CContentResourceState@@UEAAXXZ @ 0x1C006D4B0 (-Remove@CContentResourceState@@UEAAXXZ.c)
+ *     ??1CContentResourceState@@UEAA@XZ @ 0x1C006E364 (--1CContentResourceState@@UEAA@XZ.c)
  * Callees:
- *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C007A178 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
+ *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C0068A40 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
  */
 
 void __fastcall CContentResourceState::SetBoundPropertySet(CContentResourceState *this, struct CFlipPropertySet *a2)
@@ -22,6 +22,6 @@ void __fastcall CContentResourceState::SetBoundPropertySet(CContentResourceState
     *((_QWORD *)this + 5) = a2;
     if ( a2 )
       ++*((_DWORD *)a2 + 2);
-    *((_BYTE *)this + 64) |= 1u;
+    *((_BYTE *)this + 56) |= 1u;
   }
 }

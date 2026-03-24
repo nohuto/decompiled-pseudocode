@@ -1,15 +1,16 @@
 /*
- * XREFs of PnpDeleteLockedDeviceNodes @ 0x1408685F8
+ * XREFs of PnpDeleteLockedDeviceNodes @ 0x14074B084
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867948 (PnpProcessQueryRemoveAndEject.c)
- *     PipRemoveDevicesInRelationList @ 0x140881CBC (PipRemoveDevicesInRelationList.c)
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140971D4C (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x1407329B0 (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140749CC4 (PnpProcessQueryRemoveAndEject.c)
+ *     PipRemoveDevicesInRelationList @ 0x14074CDB8 (PipRemoveDevicesInRelationList.c)
  * Callees:
- *     PoFxIdleDevice @ 0x140322D9C (PoFxIdleDevice.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     PiUpdateGuestAssignedState @ 0x140792AD8 (PiUpdateGuestAssignedState.c)
- *     IopEnumerateRelations @ 0x140868860 (IopEnumerateRelations.c)
- *     PnpDeleteLockedDeviceNode @ 0x1408688F8 (PnpDeleteLockedDeviceNode.c)
+ *     PoFxIdleDevice @ 0x14036EFF4 (PoFxIdleDevice.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     PiUpdateGuestAssignedState @ 0x14074614C (PiUpdateGuestAssignedState.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x14074995C (PipIsDeviceInDeviceObjectList.c)
+ *     IopEnumerateRelations @ 0x14074B374 (IopEnumerateRelations.c)
+ *     PnpDeleteLockedDeviceNode @ 0x14074B3F8 (PnpDeleteLockedDeviceNode.c)
  */
 
 __int64 __fastcall PnpDeleteLockedDeviceNodes(
@@ -19,68 +20,82 @@ __int64 __fastcall PnpDeleteLockedDeviceNodes(
         char a4,
         int a5,
         int a6,
-        ULONG_PTR a7,
+        __int64 a7,
         __int64 a8)
 {
-  int v8; // edi
-  __int64 v12; // rsi
+  char v8; // bl
+  unsigned int v11; // edi
+  __int64 v12; // r13
   ULONG_PTR v13; // rbx
-  _DWORD *v15; // rax
-  ULONG_PTR v16; // rcx
-  int v17; // [rsp+30h] [rbp-10h] BYREF
-  int v18; // [rsp+34h] [rbp-Ch]
-  __int64 v19; // [rsp+38h] [rbp-8h] BYREF
-  int v20; // [rsp+88h] [rbp+48h] BYREF
+  int v14; // eax
+  __int64 v16; // r11
+  unsigned int *v17; // rax
+  ULONG_PTR v18; // rcx
+  __int64 v19; // [rsp+30h] [rbp-10h] BYREF
+  __int64 v20; // [rsp+38h] [rbp-8h] BYREF
+  int v21; // [rsp+88h] [rbp+48h] BYREF
+  char v22; // [rsp+98h] [rbp+58h]
 
-  v8 = 0;
-  v19 = 0LL;
-  v20 = 0;
+  v22 = a4;
+  v8 = a4;
+  v11 = 0;
+  v20 = 0LL;
+  v21 = 0;
   if ( *(_BYTE *)(a2 + 8) )
   {
-    v18 = 0;
-    v17 = (a3 == 1) + 1;
-    while ( (unsigned __int8)IopEnumerateRelations(a2, (unsigned int)&v17, (unsigned int)&v19, (unsigned int)&v20, 0LL) )
+    v19 = 1LL;
+    while ( (unsigned __int8)IopEnumerateRelations(a2, (unsigned int)&v19, (unsigned int)&v20, (unsigned int)&v21, 0LL) )
     {
-      if ( v20 || a4 )
+      if ( v21 || v8 )
       {
-        v12 = v19;
-        if ( v19 )
-          v13 = *(_QWORD *)(*(_QWORD *)(v19 + 312) + 40LL);
+        v12 = v20;
+        if ( v20 )
+          v13 = *(_QWORD *)(*(_QWORD *)(v20 + 312) + 40LL);
         else
           v13 = 0LL;
-        if ( (unsigned int)(a3 - 2) <= 1 )
-          PiUpdateGuestAssignedState(v13, 0LL);
-        v8 = PnpDeleteLockedDeviceNode(v13, a7, a8);
-        if ( v8 < 0 )
+        if ( (unsigned int)(a3 - 2) > 1
+          || (PiUpdateGuestAssignedState(v13, 0), a3 != 2)
+          || (*(_DWORD *)(v13 + 704) & 2) == 0 )
         {
-          if ( (*(_DWORD *)(v13 + 704) & 4) == 0 )
-            KeBugCheckEx(0xCAu, 0xDuLL, v13, 4uLL, 0LL);
-          PoFxIdleDevice(*(_QWORD *)(v13 + 32));
-          *(_DWORD *)(v13 + 704) &= ~4u;
-          if ( v17 == 1 && v18 )
+          v14 = PnpDeleteLockedDeviceNode(v13, a7, a8);
+          v11 = v14;
+          if ( !a3 && a5 == 54 && v14 == -1073740537 )
           {
-            v15 = *(_DWORD **)a2;
-            v17 = 2;
-            v18 = *v15 - v18;
+            if ( PipIsDeviceInDeviceObjectList(*(unsigned int **)a2, *(_QWORD *)(*(_QWORD *)(v13 + 16) + 32LL), 0LL) )
+              *(_DWORD *)(v16 + 704) |= 2u;
+            v11 = 0;
           }
-          else
+          else if ( v14 < 0 )
           {
-            v18 = 0;
-            v17 = 3;
-          }
-          while ( (unsigned __int8)IopEnumerateRelations(a2, (unsigned int)&v17, (unsigned int)&v19, 0, 0LL) )
-          {
-            if ( v12 != v19 )
+            if ( (*(_DWORD *)(v13 + 704) & 4) == 0 )
+              KeBugCheckEx(0xCAu, 0xDuLL, v13, 4uLL, 0LL);
+            PoFxIdleDevice(*(_QWORD *)(v13 + 32));
+            *(_DWORD *)(v13 + 704) &= ~4u;
+            if ( (_DWORD)v19 == 1 && HIDWORD(v19) )
             {
-              if ( v19 )
-                v16 = *(_QWORD *)(*(_QWORD *)(v19 + 312) + 40LL);
-              else
-                v16 = 0LL;
-              PnpDeleteLockedDeviceNode(v16, a7, a8);
+              v17 = *(unsigned int **)a2;
+              LODWORD(v19) = 2;
+              HIDWORD(v19) = *v17 - HIDWORD(v19);
             }
+            else
+            {
+              v19 = 3LL;
+            }
+            while ( (unsigned __int8)IopEnumerateRelations(a2, (unsigned int)&v19, (unsigned int)&v20, 0, 0LL) )
+            {
+              if ( v12 != v20 )
+              {
+                if ( v20 )
+                  v18 = *(_QWORD *)(*(_QWORD *)(v20 + 312) + 40LL);
+                else
+                  v18 = 0LL;
+                PnpDeleteLockedDeviceNode(v18, a7, a8);
+              }
+            }
+            return (unsigned int)-2147483608;
           }
-          return (unsigned int)-2147483608;
         }
+        v8 = v22;
       }
     }
   }
@@ -88,5 +103,5 @@ __int64 __fastcall PnpDeleteLockedDeviceNodes(
   {
     return (unsigned int)-1073741823;
   }
-  return (unsigned int)v8;
+  return v11;
 }

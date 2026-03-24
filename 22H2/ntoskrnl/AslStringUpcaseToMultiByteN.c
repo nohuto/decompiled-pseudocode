@@ -1,87 +1,57 @@
 /*
- * XREFs of AslStringUpcaseToMultiByteN @ 0x1407585EC
+ * XREFs of AslStringUpcaseToMultiByteN @ 0x140759FC0
  * Callers:
- *     SdbpFindNextIndexedWildCardTag @ 0x1407575F8 (SdbpFindNextIndexedWildCardTag.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x140758F00 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x140752DDC (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140758F78 (SdbpFindFirstIndexedWildCardTag.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslAlloc @ 0x1407589A8 (AslAlloc.c)
- *     RtlUpcaseUnicodeString @ 0x140774000 (RtlUpcaseUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
+ *     RtlUpcaseUnicodeString @ 0x14062F0C0 (RtlUpcaseUnicodeString.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075A888 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall AslStringUpcaseToMultiByteN(__int64 a1, __int64 a2, const WCHAR *a3)
+__int64 __fastcall AslStringUpcaseToMultiByteN(char *a1, __int64 a2, const WCHAR *a3)
 {
   unsigned __int16 MaximumLength; // bx
   __int64 v5; // rcx
-  wchar_t *Buffer; // rdi
-  NTSTATUS v7; // ebx
-  __int64 v8; // rax
-  unsigned __int64 v9; // r8
-  __int64 v10; // rdx
-  wchar_t v11; // cx
-  __int16 v12; // cx
-  UNICODE_STRING v14; // [rsp+30h] [rbp-20h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
+  NTSTATUS v6; // ebx
+  UNICODE_STRING SourceString; // [rsp+30h] [rbp-30h] BYREF
+  STRING v9; // [rsp+40h] [rbp-20h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-10h] BYREF
 
+  *(_DWORD *)(&v9.MaximumLength + 1) = 0;
   DestinationString = 0LL;
-  *(_QWORD *)&v14.Length = 0LL;
+  *(_QWORD *)&SourceString.Length = 0LL;
   RtlInitUnicodeString(&DestinationString, a3);
   MaximumLength = DestinationString.MaximumLength;
-  v14.Buffer = (wchar_t *)AslAlloc(v5, DestinationString.MaximumLength);
-  Buffer = v14.Buffer;
-  if ( v14.Buffer )
+  SourceString.Buffer = (wchar_t *)AslAlloc(v5, DestinationString.MaximumLength);
+  if ( SourceString.Buffer )
   {
-    v14.MaximumLength = MaximumLength;
-    v14.Length = 0;
-    v7 = RtlUpcaseUnicodeString(&v14, &DestinationString, 0);
-    if ( v7 >= 0 )
+    SourceString.MaximumLength = MaximumLength;
+    SourceString.Length = 0;
+    v6 = RtlUpcaseUnicodeString(&SourceString, &DestinationString, 0);
+    if ( v6 < 0
+      || (v9.Buffer = a1,
+          *(_DWORD *)&v9.Length = 0x1000000,
+          v6 = RtlUnicodeStringToAnsiString(&v9, &SourceString, 0),
+          v6 < 0) )
     {
-      v8 = 0LL;
-      v9 = (unsigned __int64)v14.Length >> 1;
-      v10 = 0LL;
-      Buffer = v14.Buffer;
-      if ( v9 )
-      {
-        while ( 1 )
-        {
-          v11 = Buffer[v10];
-          *(_BYTE *)(v8 + a1) = v11;
-          if ( (unsigned __int64)++v8 >= 0x104 )
-            break;
-          v12 = HIBYTE(v11);
-          if ( (_BYTE)v12 )
-          {
-            *(_BYTE *)(v8 + a1) = v12;
-            if ( (unsigned __int64)++v8 >= 0x104 )
-              break;
-          }
-          if ( ++v10 >= v9 )
-            goto LABEL_10;
-        }
-        v7 = -1073741789;
-        AslLogCallPrintf(1LL);
-      }
-      else
-      {
-LABEL_10:
-        *(_BYTE *)(v8 + a1) = 0;
-        v7 = 0;
-      }
+      AslLogCallPrintf(1LL);
     }
     else
     {
-      AslLogCallPrintf(1LL);
-      Buffer = v14.Buffer;
+      v6 = 0;
+      a1[v9.Length] = 0;
     }
+    if ( SourceString.Buffer )
+      ExFreePoolWithTag(SourceString.Buffer, 0x74705041u);
   }
   else
   {
-    v7 = -1073741801;
+    v6 = -1073741801;
     AslLogCallPrintf(1LL);
   }
-  if ( Buffer )
-    ExFreePoolWithTag(Buffer, 0x74705041u);
-  return (unsigned int)v7;
+  return (unsigned int)v6;
 }

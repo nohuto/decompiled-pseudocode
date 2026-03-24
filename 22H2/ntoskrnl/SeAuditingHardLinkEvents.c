@@ -1,5 +1,5 @@
 /*
- * XREFs of SeAuditingHardLinkEvents @ 0x1409CD6B0
+ * XREFs of SeAuditingHardLinkEvents @ 0x140920960
  * Callers:
  *     <none>
  * Callees:
@@ -26,12 +26,5 @@ BOOLEAN __stdcall SeAuditingHardLinkEvents(BOOLEAN AccessGranted, PSECURITY_DESC
       return 0;
     v4 = (char *)SecurityDescriptor + v3;
   }
-  if ( v4 && *((_WORD *)v4 + 2) )
-  {
-    if ( byte_140C37424 && AccessGranted )
-      return 1;
-    if ( byte_140C37425 )
-      return AccessGranted == 0;
-  }
-  return 0;
+  return v4 && *((_WORD *)v4 + 2) && (byte_140C1D5C4 && AccessGranted || byte_140C1D5C5 && !AccessGranted);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDereferenceImports @ 0x14070DF0C
+ * XREFs of MiDereferenceImports @ 0x14070DEEC
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
- *     MiResolveImageReferences @ 0x140678FD0 (MiResolveImageReferences.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
+ *     MiResolveImageReferences @ 0x140678FB0 (MiResolveImageReferences.c)
  * Callees:
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
- *     MiUnloadApproved @ 0x14070DF94 (MiUnloadApproved.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
+ *     MiUnloadApproved @ 0x14070DF74 (MiUnloadApproved.c)
  */
 
 void __fastcall MiDereferenceImports(unsigned __int64 a1)

@@ -2,18 +2,18 @@
  * XREFs of FsRtlFastUnlockSingleExclusive @ 0x14008C4D0
  * Callers:
  *     FsRtlFastUnlockSingle @ 0x14008C3F0 (FsRtlFastUnlockSingle.c)
- *     FsRtlPrivateRemoveLock @ 0x14026F514 (FsRtlPrivateRemoveLock.c)
+ *     FsRtlPrivateRemoveLock @ 0x14026F614 (FsRtlPrivateRemoveLock.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
  *     RtlDelete @ 0x14008D4C0 (RtlDelete.c)
  *     FsRtlPrivateResetLowestLockOffset @ 0x14008D55C (FsRtlPrivateResetLowestLockOffset.c)
  *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     FsRtlFindFirstOverlappingExclusiveNode @ 0x140122570 (FsRtlFindFirstOverlappingExclusiveNode.c)
- *     RtlRealSuccessor @ 0x14012EF40 (RtlRealSuccessor.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x14012EF80 (FsRtlPrivateCheckWaitingLocks.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x140122590 (FsRtlFindFirstOverlappingExclusiveNode.c)
+ *     RtlRealSuccessor @ 0x14012EF60 (RtlRealSuccessor.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x14012EFA0 (FsRtlPrivateCheckWaitingLocks.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall FsRtlFastUnlockSingleExclusive(

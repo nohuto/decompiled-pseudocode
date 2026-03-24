@@ -1,51 +1,59 @@
 /*
- * XREFs of VerifierExInitializeLookasideListEx @ 0x140A9ED10
+ * XREFs of VerifierExInitializeLookasideListEx @ 0x1409E11A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfCheckPoolType @ 0x140A82F58 (VfCheckPoolType.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VfUtilSynchronizationObjectSanityChecks @ 0x1409C6B0C (VfUtilSynchronizationObjectSanityChecks.c)
+ *     VfCheckPoolType @ 0x1409C7D64 (VfCheckPoolType.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     VfTargetDriversIsEnabled @ 0x1409D6F30 (VfTargetDriversIsEnabled.c)
+ *     ViLookasideAdd @ 0x1409E15B4 (ViLookasideAdd.c)
  */
 
 __int64 __fastcall VerifierExInitializeLookasideListEx(
-        __int64 a1,
+        _QWORD *BugCheckParameter2,
         __int64 a2,
         __int64 a3,
         int a4,
         int a5,
-        __int64 a6,
-        unsigned int a7,
+        ULONG_PTR BugCheckParameter3,
+        int a7,
         __int16 a8)
 {
-  __int16 v8; // bp
-  __int64 result; // rax
-  __int16 v14; // [rsp+38h] [rbp-40h]
-  ULONG_PTR retaddr; // [rsp+78h] [rbp+0h]
+  int IsEnabled; // edi
+  int v13; // esi
+  unsigned __int64 retaddr; // [rsp+78h] [rbp+0h]
 
-  v8 = 0;
-  if ( (VfRuleClasses & 1) == 0 )
-    v8 = a8;
-  if ( (VfRuleClasses & 0x2000000) != 0 )
-    VfCheckPoolType(a4, retaddr, a7);
-  v14 = v8;
-  result = pXdvExInitializeLookasideListEx(
-             a1,
-             a2,
-             a3,
-             a4,
-             a5,
-             a6,
-             a7,
-             v14,
-             1,
-             (__int64)ExInitializeLookasideListExInternal);
-  if ( (int)result >= 0
-    && (VfRuleClasses & 1) != 0
-    && *(PVOID (__fastcall **)(POOL_TYPE, SIZE_T, ULONG, PLOOKASIDE_LIST_EX))(a1 + 48) == CmpAllocateTransientPoolWithTag
-    && *(__int64 (__fastcall **)(ULONG_PTR))(a1 + 56) == ExFreePoolEx )
+  IsEnabled = VfTargetDriversIsEnabled(retaddr);
+  if ( IsEnabled )
   {
-    *(_QWORD *)(a1 + 48) = VerifierExAllocatePoolEx;
-    *(_QWORD *)(a1 + 56) = VerifierExFreePoolEx;
+    VfCheckPoolType(a4, retaddr, a7);
+    if ( BugCheckParameter3 < 8 && (MmVerifierData & 1) != 0 )
+      VerifierBugCheckIfAppropriate(0xC4u, 0xCDuLL, (ULONG_PTR)BugCheckParameter2, BugCheckParameter3, 8LL);
+    VfUtilSynchronizationObjectSanityChecks(BugCheckParameter2, 0x60uLL);
   }
-  return result;
+  v13 = pXdvExInitializeLookasideListEx(
+          (int)BugCheckParameter2,
+          a2,
+          a3,
+          a4,
+          a5,
+          BugCheckParameter3,
+          a7,
+          a8,
+          IsEnabled,
+          (__int64)ExInitializeLookasideListExInternal);
+  if ( v13 >= 0 )
+  {
+    if ( (IsEnabled || KernelVerifier)
+      && (PVOID (__fastcall *)(POOL_TYPE, SIZE_T, ULONG, PLOOKASIDE_LIST_EX))BugCheckParameter2[6] == CmpAllocateTransientPoolWithTag
+      && (__int64 (__fastcall *)(ULONG_PTR))BugCheckParameter2[7] == ExFreePoolEx )
+    {
+      BugCheckParameter2[6] = VerifierExAllocatePoolEx;
+      BugCheckParameter2[7] = VerifierExFreePoolEx;
+    }
+    ViLookasideAdd((ULONG_PTR)BugCheckParameter2);
+  }
+  return (unsigned int)v13;
 }

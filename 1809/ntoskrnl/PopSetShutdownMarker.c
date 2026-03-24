@@ -1,5 +1,5 @@
 /*
- * XREFs of PopSetShutdownMarker @ 0x140866340
+ * XREFs of PopSetShutdownMarker @ 0x140866320
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:

@@ -1,18 +1,18 @@
 /*
- * XREFs of IopSymlinkAllocateAndAddECP @ 0x1406AC164
+ * XREFs of IopSymlinkAllocateAndAddECP @ 0x1406AC144
  * Callers:
- *     IopSymlinkUpdateECP @ 0x1406ABCD0 (IopSymlinkUpdateECP.c)
- *     IopSymlinkCreateECP @ 0x1406ABF78 (IopSymlinkCreateECP.c)
- *     IopGraftName @ 0x1406AC28C (IopGraftName.c)
+ *     IopSymlinkUpdateECP @ 0x1406ABCB0 (IopSymlinkUpdateECP.c)
+ *     IopSymlinkCreateECP @ 0x1406ABF58 (IopSymlinkCreateECP.c)
+ *     IopGraftName @ 0x1406AC26C (IopGraftName.c)
  * Callees:
- *     IoClearIrpExtraCreateParameter @ 0x140282ED0 (IoClearIrpExtraCreateParameter.c)
+ *     IoClearIrpExtraCreateParameter @ 0x140282FD0 (IoClearIrpExtraCreateParameter.c)
  *     FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x1405DC500 (FsRtlAllocateExtraCreateParameterFromLookasideList.c)
  *     FsRtlFreeExtraCreateParameterList @ 0x14060CEF0 (FsRtlFreeExtraCreateParameterList.c)
  *     FsRtlFreeExtraCreateParameter @ 0x14060CFB0 (FsRtlFreeExtraCreateParameter.c)
  *     FsRtlInsertExtraCreateParameter @ 0x14060D460 (FsRtlInsertExtraCreateParameter.c)
  *     FsRtlAllocateExtraCreateParameterList @ 0x14060D4D0 (FsRtlAllocateExtraCreateParameterList.c)
- *     IoGetIrpExtraCreateParameter @ 0x14063EDB0 (IoGetIrpExtraCreateParameter.c)
- *     IoSetIrpExtraCreateParameter @ 0x14069B2B0 (IoSetIrpExtraCreateParameter.c)
+ *     IoGetIrpExtraCreateParameter @ 0x14063ED90 (IoGetIrpExtraCreateParameter.c)
+ *     IoSetIrpExtraCreateParameter @ 0x14069B290 (IoSetIrpExtraCreateParameter.c)
  */
 
 __int64 __fastcall IopSymlinkAllocateAndAddECP(PIRP Irp, PVOID *EcpContext, unsigned __int16 a3)

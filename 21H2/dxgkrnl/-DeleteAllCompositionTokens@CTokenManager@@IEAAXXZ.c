@@ -1,8 +1,8 @@
 /*
- * XREFs of ?DeleteAllCompositionTokens@CTokenManager@@IEAAXXZ @ 0x1C00028C8
+ * XREFs of ?DeleteAllCompositionTokens@CTokenManager@@IEAAXXZ @ 0x1C00125EC
  * Callers:
- *     ?DeleteAllTokens@CTokenManager@@UEAAXXZ @ 0x1C0002800 (-DeleteAllTokens@CTokenManager@@UEAAXXZ.c)
- *     ??1CTokenManager@@AEAA@XZ @ 0x1C0002B3C (--1CTokenManager@@AEAA@XZ.c)
+ *     ?DeleteAllTokens@CTokenManager@@UEAAXXZ @ 0x1C0012530 (-DeleteAllTokens@CTokenManager@@UEAAXXZ.c)
+ *     ??1CTokenManager@@AEAA@XZ @ 0x1C0012C1C (--1CTokenManager@@AEAA@XZ.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ void __fastcall CTokenManager::DeleteAllCompositionTokens(CTokenManager *this)
   char *v2; // rax
   __int64 v3; // rcx
 
-  v1 = (char *)this + 272;
+  v1 = (char *)this + 264;
   while ( 1 )
   {
     v2 = *(char **)v1;

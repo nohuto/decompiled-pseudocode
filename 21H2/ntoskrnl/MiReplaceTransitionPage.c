@@ -1,337 +1,321 @@
 /*
- * XREFs of MiReplaceTransitionPage @ 0x1402E7704
+ * XREFs of MiReplaceTransitionPage @ 0x14026D370
  * Callers:
- *     MiTradeTransitionPage @ 0x1402E8240 (MiTradeTransitionPage.c)
- *     MiFinalizeImageHeaderPage @ 0x1402EB1A0 (MiFinalizeImageHeaderPage.c)
- *     MiWalkEntireImage @ 0x140336B30 (MiWalkEntireImage.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140599EBC (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiRepointPteAtExtendedStandby @ 0x1405B3EB4 (MiRepointPteAtExtendedStandby.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x1405B4BA8 (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
+ *     MiTradeTransitionPage @ 0x14026B6E8 (MiTradeTransitionPage.c)
+ *     MiFinalizeImageHeaderPage @ 0x1402E7BEC (MiFinalizeImageHeaderPage.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x140551F74 (MiMakeVaRangePhysicallyContiguous.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402294F0 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140229550 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140239060 (MiLockNestedPageAtDpcInline.c)
- *     MiUpdatePfnOnSlabStandbyList @ 0x14024253C (MiUpdatePfnOnSlabStandbyList.c)
- *     MiDetermineModifiedPageListHead @ 0x14024E640 (MiDetermineModifiedPageListHead.c)
- *     MiDecreaseAvailablePages @ 0x140264D88 (MiDecreaseAvailablePages.c)
- *     MiGetPfnPriority @ 0x140273234 (MiGetPfnPriority.c)
- *     MiIsPfnFromSlabAllocation @ 0x140277C50 (MiIsPfnFromSlabAllocation.c)
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x1402BEDD0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiInsertPageInList @ 0x1402BF9C0 (MiInsertPageInList.c)
- *     MiIsDecayPfn @ 0x1402C1520 (MiIsDecayPfn.c)
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
- *     MiMapPageInHyperSpaceWorker @ 0x1402CC7C0 (MiMapPageInHyperSpaceWorker.c)
- *     MiFinalizePageAttribute @ 0x1402E5708 (MiFinalizePageAttribute.c)
- *     MiUpdateTransitionPteFrame @ 0x1402E7D14 (MiUpdateTransitionPteFrame.c)
- *     MiCopyPage @ 0x1402E7D60 (MiCopyPage.c)
- *     MiCopyPfnEntryEx @ 0x1402E8154 (MiCopyPfnEntryEx.c)
- *     MiReplaceNumaStandbyPage @ 0x1402E851C (MiReplaceNumaStandbyPage.c)
- *     MiReplaceStandbyLookaside @ 0x1402E8AA0 (MiReplaceStandbyLookaside.c)
- *     MiSetStandbyLookasideState @ 0x1402E94F0 (MiSetStandbyLookasideState.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiSetPfnBlink @ 0x140313CA0 (MiSetPfnBlink.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140317A80 (MiPteInShadowRange.c)
- *     MiUnlinkPageFromListEx @ 0x140326870 (MiUnlinkPageFromListEx.c)
- *     MiAcquirePageListLock @ 0x1403277D0 (MiAcquirePageListLock.c)
- *     MiReleasePageListLock @ 0x140338D00 (MiReleasePageListLock.c)
- *     MiSetPfnIdentity @ 0x14033C300 (MiSetPfnIdentity.c)
- *     MiSetPfnPteFrame @ 0x14033C3E0 (MiSetPfnPteFrame.c)
- *     KeMakeKernelDirectoryTableBase @ 0x14036C428 (KeMakeKernelDirectoryTableBase.c)
- *     MiUnlinkNumaStandbyPage @ 0x1403AC4E0 (MiUnlinkNumaStandbyPage.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
+ *     MiGetPfnPriority @ 0x1402185D0 (MiGetPfnPriority.c)
+ *     MiCopyPage @ 0x140240220 (MiCopyPage.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14026AF90 (MiLockNestedPageAtDpcInline.c)
+ *     MiReplaceNumaStandbyPage @ 0x14026B4EC (MiReplaceNumaStandbyPage.c)
+ *     MiUpdateTransitionPteFrame @ 0x14026D9E0 (MiUpdateTransitionPteFrame.c)
+ *     MiCopyPfnEntryEx @ 0x14026DA30 (MiCopyPfnEntryEx.c)
+ *     MiFinalizePageAttribute @ 0x14026E434 (MiFinalizePageAttribute.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
+ *     MiUpdatePfnOnSlabStandbyList @ 0x1402B7E80 (MiUpdatePfnOnSlabStandbyList.c)
+ *     MiIsDecayPfn @ 0x1402B8C2C (MiIsDecayPfn.c)
+ *     MiDetermineModifiedPageListHead @ 0x1402D10F4 (MiDetermineModifiedPageListHead.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x1402E4380 (KeMakeKernelDirectoryTableBase.c)
+ *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
+ *     MiSetPfnBlink @ 0x140318130 (MiSetPfnBlink.c)
+ *     MiDecreaseAvailablePages @ 0x140319380 (MiDecreaseAvailablePages.c)
+ *     MiInsertPageInList @ 0x140326800 (MiInsertPageInList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140331AB0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140348910 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     MiUnlinkNumaStandbyPage @ 0x14039CA44 (MiUnlinkNumaStandbyPage.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
-char __fastcall MiReplaceTransitionPage(ULONG_PTR BugCheckParameter2, __int64 a2, int a3, __int64 a4)
+char __fastcall MiReplaceTransitionPage(ULONG_PTR BugCheckParameter2, __int64 a2, int a3, __int128 *a4)
 {
-  char v5; // r12
-  unsigned int v7; // edi
-  unsigned __int64 v8; // r13
-  unsigned __int64 v9; // rbp
-  char v10; // cl
-  __int64 v11; // r14
-  char v12; // cl
-  unsigned int v13; // ebx
-  unsigned int v14; // r12d
-  int v15; // eax
+  int v4; // r13d
+  unsigned __int64 v7; // rcx
+  ULONG_PTR v8; // r12
+  __int64 v9; // rdx
+  __int64 v10; // r14
+  char v11; // cl
+  unsigned int v12; // ebx
+  unsigned int v13; // edi
+  ULONG_PTR v14; // rcx
+  __int64 v15; // r8
+  int v16; // eax
   unsigned int PfnPriority; // eax
-  char v17; // cl
-  int v18; // ebx
-  BOOL IsPfnFromSlabAllocation; // eax
-  __int64 v20; // r8
-  unsigned __int64 v21; // rcx
-  ULONG_PTR v22; // rbx
-  ULONG_PTR v23; // r12
-  __int64 v24; // r9
-  _QWORD *v25; // r8
-  __int64 v26; // rcx
-  _QWORD *v27; // r14
-  __int64 v28; // rax
-  int v29; // r12d
-  __int64 v30; // rbx
-  char v31; // al
-  char result; // al
+  char v18; // bl
+  _KSPIN_LOCK_QUEUE *v19; // r9
+  int v20; // ecx
+  __int64 v21; // rbx
+  _BOOL8 v22; // r8
+  __int64 v23; // r13
+  __int64 v24; // r8
+  __int64 v25; // r9
+  __int64 v26; // rdx
+  unsigned __int64 v27; // r11
+  int v28; // r10d
+  _QWORD *v29; // r8
   __int64 updated; // rax
-  __int64 v34; // r8
-  __int64 v35; // rax
-  __int64 v36; // rcx
-  unsigned __int64 v37; // r9
-  unsigned __int64 v38; // rdx
-  volatile signed __int32 *v39; // r8
-  unsigned int v40; // eax
-  unsigned __int64 v41; // rcx
-  bool v42; // zf
-  signed __int32 v43[8]; // [rsp+0h] [rbp-F8h] BYREF
-  int v44; // [rsp+20h] [rbp-D8h]
-  __int64 v45; // [rsp+28h] [rbp-D0h]
-  int v46; // [rsp+30h] [rbp-C8h]
-  int v47; // [rsp+34h] [rbp-C4h]
-  __int64 v48; // [rsp+38h] [rbp-C0h]
-  _BYTE v49[112]; // [rsp+40h] [rbp-B8h] BYREF
+  __int64 v31; // r8
+  char v32; // r10
+  unsigned __int64 v33; // rdx
+  ULONG_PTR v34; // r9
+  volatile signed __int32 *v35; // r8
+  unsigned int v36; // eax
+  unsigned __int64 v37; // rcx
+  __int64 v38; // r9
+  __int64 v39; // rcx
+  _QWORD *v40; // r14
+  __int64 v41; // rax
+  __int64 v42; // rbx
+  int v43; // r13d
+  __int64 v44; // rdx
+  __int64 v45; // rdx
+  __int64 v46; // rcx
+  __int64 v47; // r8
+  __int64 v48; // r9
+  bool v49; // zf
+  char result; // al
+  signed __int32 v51[8]; // [rsp+0h] [rbp-48h] BYREF
+  ULONG_PTR v52; // [rsp+20h] [rbp-28h]
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+28h] [rbp-20h] BYREF
+  int v54; // [rsp+90h] [rbp+48h]
+  __int64 v55; // [rsp+98h] [rbp+50h]
 
-  v46 = a3;
-  v48 = a4;
-  v5 = a3;
-  v7 = 4 * (a3 & 1);
-  memset(v49, 0, 0x68uLL);
-  v44 = 0xFFFFFF;
-  v8 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(BugCheckParameter2 + 0x220000000000LL) >> 4);
-  v9 = 0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4);
-  v10 = *(_BYTE *)(BugCheckParameter2 + 34);
-  v45 = *(_QWORD *)(qword_140C51F48 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 43) & 0x3FFLL));
-  v11 = *(_QWORD *)(v45 + 8LL * (v10 & 7) + 6632);
-  if ( (v10 & 7) == 3 && (*(_DWORD *)(BugCheckParameter2 + 16) & 0x400LL) != 0 )
+  v4 = 0xFFFFFF;
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  v54 = 0xFFFFFF;
+  v7 = (__int64)((unsigned __int128)((__int64)(BugCheckParameter2 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3;
+  v52 = (v7 >> 63) + v7;
+  v8 = (a2 + 0x58000000000LL) / 48;
+  v9 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 39) & 0x3FFLL));
+  v55 = v9;
+  v10 = *(_QWORD *)(v9 + 8LL * (*(_BYTE *)(BugCheckParameter2 + 34) & 7) + 4216);
+  if ( (*(_BYTE *)(BugCheckParameter2 + 34) & 7) == 3 && (*(_DWORD *)(BugCheckParameter2 + 16) & 0x400LL) != 0 )
   {
-    v12 = *(_BYTE *)(BugCheckParameter2 + 36);
-    *(_BYTE *)(BugCheckParameter2 + 36) = v12 & 0xF0;
+    v11 = *(_BYTE *)(BugCheckParameter2 + 39);
+    *(_BYTE *)(BugCheckParameter2 + 39) = v11 & 0xF0;
   }
   else
   {
-    v12 = *(_BYTE *)(a2 + 36);
+    v11 = *(_BYTE *)(a2 + 39);
   }
-  v13 = v12 & 0xF;
-  v47 = v5 & 4;
-  if ( (v5 & 4) == 0 )
-    MiLockNestedPageAtDpcInline(a2);
-  if ( MiIsPfnFromSlabAllocation(a2) )
-    v7 |= 8u;
-  v14 = v7;
-  MiFinalizePageAttribute(a2, *(unsigned __int8 *)(BugCheckParameter2 + 34) >> 6, 1u);
+  v12 = v11 & 0xF;
+  MiLockNestedPageAtDpcInline(a2, v9, 0x2AAAAAAAAAAAAAABLL, 0xFFFFFA8000000000uLL);
+  v13 = 0;
+  if ( (unsigned int)MiIsPfnFromSlabAllocation(a2) )
+    v13 = 4;
+  MiFinalizePageAttribute(a2, *(unsigned __int8 *)(BugCheckParameter2 + 34) >> 6, 1LL);
   MiCopyPfnEntryEx(a2, BugCheckParameter2);
-  *(_BYTE *)(a2 + 36) = v13 | *(_BYTE *)(a2 + 36) & 0xF0;
-  if ( (*(_QWORD *)(BugCheckParameter2 + 40) & 0xFFFFFFFFFFLL) == v8 )
-    MiSetPfnPteFrame(a2, 0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4));
-  MiCopyPage(
-    0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4),
-    0xAAAAAAAAAAAAAAABuLL * ((__int64)(BugCheckParameter2 + 0x220000000000LL) >> 4),
-    v48,
-    6LL);
-  _InterlockedOr(v43, 0);
-  *(_QWORD *)(a2 + 24) ^= (*(_QWORD *)(a2 + 24) ^ ((unsigned __int64)(unsigned int)KiTbFlushTimeStamp << 59)) & 0x3800000000000000LL;
-  if ( (v46 & 2) == 0 )
+  v14 = v52;
+  *(_BYTE *)(a2 + 39) = v12 | *(_BYTE *)(a2 + 39) & 0xF0;
+  if ( (*(_QWORD *)(BugCheckParameter2 + 40) & 0xFFFFFFFFFLL) == v14 )
+    *(_QWORD *)(a2 + 40) ^= (v8 ^ *(_QWORD *)(a2 + 40)) & 0xFFFFFFFFFLL;
+  MiCopyPage(v8, v14, a4, 6);
+  _InterlockedOr(v51, 0);
+  *(_QWORD *)(a2 + 24) ^= (*(_QWORD *)(a2 + 24) ^ ((unsigned __int64)(unsigned int)KiTbFlushTimeStamp << 56)) & 0xF00000000000000LL;
+  v16 = *(_DWORD *)(v10 + 8);
+  if ( v16 == 2 )
   {
-    v15 = *(_DWORD *)(v11 + 8);
-    if ( v15 == 2 )
+    if ( a3 && (*(_QWORD *)BugCheckParameter2 & 0x8000000000000000uLL) != 0 )
     {
-      if ( (v7 & 4) != 0 && _bittest64((const signed __int64 *)(BugCheckParameter2 + 40), 0x3Bu) )
-      {
-        MiUnlinkPageFromListEx(BugCheckParameter2);
-        v7 |= 0x10u;
-        goto LABEL_30;
-      }
-      PfnPriority = MiGetPfnPriority(BugCheckParameter2);
-      v7 |= 2u;
-      v17 = *(_BYTE *)(BugCheckParameter2 + 35);
-      v11 = 88LL * PfnPriority + v45 + 2880;
-      v44 = PfnPriority;
-      if ( (v17 & 8) == 0 )
-        v7 = v14;
-      v18 = *((_DWORD *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((__int64)(BugCheckParameter2 + 0x220000000000LL) >> 4))
-            + 2);
-      if ( v18 == *((_DWORD *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4)) + 2) )
-      {
-        MiAcquirePageListLock(v11, BugCheckParameter2, 1LL, v49, v44);
-        IsPfnFromSlabAllocation = MiIsPfnFromSlabAllocation(a2);
-        v20 = v49[0];
-        v21 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(BugCheckParameter2 + 0x220000000000LL) >> 4);
-        if ( !IsPfnFromSlabAllocation )
-        {
-          MiReplaceStandbyLookaside(v21, 0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4), v49[0]);
-          goto LABEL_17;
-        }
-      }
-      else
-      {
-        ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v11 + 32));
-        v20 = 0LL;
-        v21 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(BugCheckParameter2 + 0x220000000000LL) >> 4);
-      }
-      MiReplaceStandbyLookaside(v21, -1LL, v20);
-      MiSetStandbyLookasideState(0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4), 0LL);
+      MiUnlinkPageFromList(BugCheckParameter2, 0);
+      v13 |= 8u;
+      goto LABEL_53;
     }
-    else
-    {
-      if ( v15 == 3 )
-      {
-        if ( (*(_DWORD *)(a2 + 16) & 0x400LL) != 0 )
-          v11 = 88LL * v13 + v45 + 5120;
-        else
-          v11 = MiDetermineModifiedPageListHead(a2, v45);
-      }
-      MiAcquirePageListLock(v11, BugCheckParameter2, 1LL, v49, v44);
-    }
-LABEL_17:
-    v22 = *(_QWORD *)BugCheckParameter2 & 0xFFFFFFFFFFLL;
-    v23 = *(_QWORD *)(BugCheckParameter2 + 24) & 0xFFFFFFFFFFLL;
-    *(_QWORD *)a2 = v22 | *(_QWORD *)a2 & 0xFFFFFF0000000000uLL;
-    MiSetPfnBlink(a2, v23, 1LL);
-    if ( v22 == 0x3FFFFFFFFFLL )
-    {
-      *(_QWORD *)(v11 + 24) = v9;
-    }
-    else
-    {
-      v24 = 48 * v22 - 0x220000000000LL;
-      if ( v44 != 0xFFFFFF && (v7 & 2) != 0 && MiIsDecayPfn(v22) )
-        MiSetPfnPteFrame(v24, 0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4));
-      else
-        MiSetPfnBlink(v24, 0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4), 0LL);
-    }
-    if ( v23 == 0x3FFFFFFFFFLL )
-    {
-      *(_QWORD *)(v11 + 16) = v9;
-    }
-    else
-    {
-      v25 = (_QWORD *)(48 * v23 - 0x220000000000LL);
-      if ( v44 != 0xFFFFFF && (v7 & 2) != 0 && MiIsDecayPfn(v23) )
-      {
-        updated = MiUpdateTransitionPteFrame(v25[2], 0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4));
-        *(_QWORD *)(v34 + 16) = updated;
-LABEL_26:
-        if ( (v7 & 0xC) != 0 )
-        {
-          MiUpdatePfnOnSlabStandbyList(a2, 0);
-          if ( (v7 & 4) == 0 )
-          {
-            MiUnlinkNumaStandbyPage(BugCheckParameter2);
-            _InterlockedDecrement64((volatile signed __int64 *)v11);
-            v35 = 15808LL;
-            if ( *(__int64 *)(BugCheckParameter2 + 40) < 0 )
-              v35 = 6784LL;
-            v36 = v45;
-            _InterlockedDecrement64((volatile signed __int64 *)(v45 + v35));
-            MiDecreaseAvailablePages(v36, 1LL, 0xFFFFFFFFFFFFFFFFuLL, 0);
-          }
-        }
-        else
-        {
-          MiReplaceNumaStandbyPage(BugCheckParameter2, a2, v49);
-        }
-LABEL_28:
-        if ( dword_140C529CC == 1 )
-        {
-          v37 = v8 & 0x1F;
-          LOBYTE(v38) = 1;
-          v39 = (volatile signed __int32 *)(qword_140C52A28 + 4 * (v8 >> 5));
-          if ( v37 + 1 > 0x20 )
-          {
-            if ( (v8 & 0x1F) != 0 )
-            {
-              _InterlockedOr(v39++, ((1 << (32 - (v8 & 0x1F))) - 1) << v37);
-              v38 = 1LL - (32 - (unsigned int)(v8 & 0x1F));
-              if ( v38 >= 0x20 )
-              {
-                v41 = v38 >> 5;
-                v38 += -32LL * (v38 >> 5);
-                do
-                {
-                  *v39++ = -1;
-                  --v41;
-                }
-                while ( v41 );
-              }
-              if ( !v38 )
-                goto LABEL_29;
-            }
-            v40 = (1 << v38) - 1;
-          }
-          else
-          {
-            v40 = 1 << v37;
-          }
-          _InterlockedOr(v39, v40);
-        }
-LABEL_29:
-        MiReleasePageListLock(v11, v49);
-        goto LABEL_30;
-      }
-      *v25 ^= (v9 ^ *v25) & 0xFFFFFFFFFFLL;
-    }
-    if ( v44 == 0xFFFFFF )
-      goto LABEL_28;
-    goto LABEL_26;
+    PfnPriority = MiGetPfnPriority(BugCheckParameter2);
+    v18 = *(_BYTE *)(BugCheckParameter2 + 35);
+    v4 = PfnPriority;
+    v54 = PfnPriority;
+    LockHandle.LockQueue.Next = v19;
+    v10 = v55 + 8 * (PfnPriority + 4LL * PfnPriority + 304);
+    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v10 + 32);
+    KxAcquireQueuedSpinLock(&LockHandle, v10 + 32, v55);
+    v20 = v13 | 2;
+    if ( (v18 & 8) == 0 )
+      v20 = v13;
+    v13 = v20;
   }
-LABEL_30:
+  else
+  {
+    LockHandle.LockQueue.Next = 0LL;
+    if ( v16 == 3 )
+    {
+      if ( (*(_DWORD *)(a2 + 16) & 0x400LL) == 0 )
+      {
+        LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v10 + 32);
+        KxAcquireQueuedSpinLock(&LockHandle, v10 + 32, v15);
+        v10 = MiDetermineModifiedPageListHead(a2, v55);
+        goto LABEL_21;
+      }
+      v15 = v55;
+      v10 = v55 + 8 * (v12 + 4 * (v12 + 108LL));
+    }
+    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v10 + 32);
+    KxAcquireQueuedSpinLock(&LockHandle, v10 + 32, v15);
+  }
+LABEL_21:
+  v21 = *(_QWORD *)BugCheckParameter2 & 0xFFFFFFFFFLL;
+  v22 = v4 != 0xFFFFFF;
+  v23 = *(_QWORD *)(BugCheckParameter2 + 24) & 0xFFFFFFFFFLL;
+  *(_QWORD *)a2 = v21 | *(_QWORD *)a2 & 0xFFFFFFF000000000uLL;
+  MiSetPfnBlink(a2, v23, v22);
+  v26 = 0xFFFFFFFFFLL;
+  v27 = 0xFFFFFA8000000000uLL;
+  if ( v21 == 0xFFFFFFFFFLL )
+  {
+    *(_QWORD *)(v10 + 24) = v8;
+  }
+  else
+  {
+    v25 = 48 * v21 - 0x58000000000LL;
+    if ( v54 != 0xFFFFFF && (v13 & 2) != 0 && (unsigned int)MiIsDecayPfn(v21, 0xFFFFFFFFFLL, v24, v25) == 1 )
+    {
+      *(_QWORD *)(v25 + 40) ^= v26 & (v8 ^ *(_QWORD *)(v25 + 40));
+      goto LABEL_29;
+    }
+    MiSetPfnBlink(v25, v8, 0LL);
+    v26 = 0xFFFFFFFFFLL;
+    v27 = 0xFFFFFA8000000000uLL;
+  }
+  v28 = v54;
+LABEL_29:
+  if ( v23 == v26 )
+  {
+    *(_QWORD *)(v10 + 16) = v8;
+  }
+  else
+  {
+    v29 = (_QWORD *)(v27 + 48 * v23);
+    if ( v28 != 0xFFFFFF && (v13 & 2) != 0 && (unsigned int)MiIsDecayPfn(v23, v26, v29, v25) == 1 )
+    {
+      updated = MiUpdateTransitionPteFrame(v29[2], v8);
+      *(_QWORD *)(v31 + 16) = updated;
+    }
+    else
+    {
+      *v29 ^= v26 & (v8 ^ *v29);
+    }
+  }
+  if ( v28 != 0xFFFFFF )
+  {
+    if ( v13 >= 4 || a3 )
+    {
+      MiUpdatePfnOnSlabStandbyList(a2, 0LL);
+      if ( !a3 )
+      {
+        MiUnlinkNumaStandbyPage(BugCheckParameter2);
+        --*(_QWORD *)v10;
+        _InterlockedAdd64(
+          (volatile signed __int64 *)((-(__int64)((unsigned int)MI_PFN_IS_PROTO(BugCheckParameter2) != 0) & 0xFFFFFFFFFFFFFD40uLL)
+                                    + v55
+                                    + 5056),
+          0xFFFFFFFFFFFFFFFFuLL);
+        MiDecreaseAvailablePages(v55, 1LL, -1LL);
+      }
+    }
+    else
+    {
+      MiReplaceNumaStandbyPage(BugCheckParameter2, a2);
+    }
+  }
+  if ( dword_140C4E6CC != 1 )
+    goto LABEL_52;
+  v32 = v52;
+  LOBYTE(v33) = 1;
+  v34 = v52 & 0x1F;
+  v35 = (volatile signed __int32 *)(qword_140C4E728 + 4 * (v52 >> 5));
+  if ( v34 + 1 > 0x20 )
+  {
+    if ( (v52 & 0x1F) != 0 )
+    {
+      _InterlockedOr(v35++, ((1 << (32 - (v52 & 0x1F))) - 1) << v34);
+      v33 = 1LL - (32 - (v32 & 0x1Fu));
+      if ( v33 >= 0x20 )
+      {
+        v37 = v33 >> 5;
+        v33 += -32LL * (v33 >> 5);
+        do
+        {
+          *v35++ = -1;
+          --v37;
+        }
+        while ( v37 );
+      }
+      if ( !v33 )
+        goto LABEL_52;
+    }
+    v36 = (1 << v33) - 1;
+  }
+  else
+  {
+    v36 = 1 << v34;
+  }
+  _InterlockedOr(v35, v36);
+LABEL_52:
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+LABEL_53:
   *(_BYTE *)(BugCheckParameter2 + 34) = *(_BYTE *)(BugCheckParameter2 + 34) & 0xF8 | 5;
   MiSetPfnBlink(BugCheckParameter2, 0LL, 1LL);
-  _InterlockedOr(v43, 0);
-  *(_QWORD *)(BugCheckParameter2 + 24) ^= (*(_QWORD *)(BugCheckParameter2 + 24) ^ ((unsigned __int64)(unsigned int)KiTbFlushTimeStamp << 59)) & 0x3800000000000000LL;
-  v26 = *(_QWORD *)(BugCheckParameter2 + 40) & 0xFFFFFFFFFFLL;
-  if ( v26 == v8 )
+  _InterlockedOr(v51, 0);
+  *(_QWORD *)(BugCheckParameter2 + 24) ^= (*(_QWORD *)(BugCheckParameter2 + 24) ^ ((unsigned __int64)(unsigned int)KiTbFlushTimeStamp << 56)) & 0xF00000000000000LL;
+  v39 = *(_QWORD *)(BugCheckParameter2 + 40) & 0xFFFFFFFFFLL;
+  if ( v39 == v52 )
   {
-    v27 = (_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 8) | 0x8000000000000000uLL);
+    v40 = (_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 8) | 0x8000000000000000uLL);
   }
   else
   {
-    v7 |= 1u;
-    v27 = (_QWORD *)(MiMapPageInHyperSpaceWorker(v26, 0LL, 0x80000000)
+    v13 |= 1u;
+    v40 = (_QWORD *)(MiMapPageInHyperSpaceWorker(v39, 0LL, 0x80000000LL, v38)
                    + 8LL * ((*(_DWORD *)(BugCheckParameter2 + 8) >> 3) & 0x1FF));
   }
-  v28 = MI_READ_PTE_LOCK_FREE(v27);
-  v29 = 0;
-  v30 = MiUpdateTransitionPteFrame(v28, 0xAAAAAAAAAAAAAAABuLL * ((a2 + 0x220000000000LL) >> 4));
-  if ( (unsigned int)MiPteInShadowRange(v27) )
+  v41 = MI_READ_PTE_LOCK_FREE(v40);
+  v42 = MiUpdateTransitionPteFrame(v41, v8);
+  v43 = 0;
+  if ( (unsigned int)MiPteInShadowRange(v40, v44) )
   {
-    if ( (unsigned int)MiPteHasShadow() )
+    if ( (unsigned int)MiPteHasShadow(v46, v45, v47, v48) )
     {
-      v29 = 1;
-      if ( HIBYTE(word_140C51864) )
-        goto LABEL_33;
-      v42 = (v30 & 1) == 0;
+      v43 = 1;
+      if ( HIBYTE(word_140C4E008) )
+        goto LABEL_64;
+      v49 = (v42 & 1) == 0;
     }
     else
     {
       if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
-        goto LABEL_33;
-      v42 = (v30 & 1) == 0;
+        goto LABEL_64;
+      v49 = (v42 & 1) == 0;
     }
-    if ( !v42 )
-      v30 |= 0x8000000000000000uLL;
+    if ( !v49 )
+      v42 |= 0x8000000000000000uLL;
   }
-LABEL_33:
-  *v27 = v30;
-  if ( v29 )
-    MiWritePteShadow((__int64)v27, v30);
-  if ( (v7 & 1) != 0 )
+LABEL_64:
+  *v40 = v42;
+  if ( v43 )
+    MiWritePteShadow(v40, v42);
+  if ( (v13 & 1) != 0 )
   {
-    MiUnmapPageInHyperSpaceWorker((unsigned __int64)v27, 0x11u);
-    v27 = (_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 8) | 0x8000000000000000uLL);
+    LOBYTE(v45) = 17;
+    MiUnmapPageInHyperSpaceWorker(v40, v45, 0x80000000LL);
+    v40 = (_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 8) | 0x8000000000000000uLL);
   }
-  if ( *(__int64 *)(BugCheckParameter2 + 40) >= 0 && (unsigned int)MiGetSystemRegionType((unsigned __int64)v27) == 5 )
-    *(v27 - 174) = KeMakeKernelDirectoryTableBase(0xAAAAAAAAAAAAB000uLL * ((a2 + 0x220000000000LL) >> 4));
-  if ( v7 >= 0x10 )
-    MiInsertPageInList(a2, 0x800u);
-  if ( !v47 )
-    _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( (v7 & 2) != 0 )
+  if ( !(unsigned int)MI_PFN_IS_PROTO(BugCheckParameter2) && (unsigned int)MiGetSystemRegionType(v40) == 5 )
+    *(v40 - 174) = KeMakeKernelDirectoryTableBase(v8 << 12);
+  if ( v13 >= 8 )
+    MiInsertPageInList(a2, 2048LL);
+  _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  if ( (v13 & 2) != 0 )
     *(_BYTE *)(BugCheckParameter2 + 35) &= ~8u;
-  MiSetPfnIdentity(BugCheckParameter2, 0LL);
-  v31 = *(_BYTE *)(BugCheckParameter2 + 34);
-  *(_QWORD *)(BugCheckParameter2 + 40) &= ~0x8000000000000000uLL;
-  *(_BYTE *)(BugCheckParameter2 + 34) = v31 & 0xC7;
+  *(_QWORD *)(BugCheckParameter2 + 40) &= 0xFFFFFFFFFFFFFFFuLL;
+  *(_BYTE *)(BugCheckParameter2 + 34) &= 0xC7u;
   result = *(_BYTE *)(BugCheckParameter2 + 35) & 0xDF;
   *(_BYTE *)(BugCheckParameter2 + 35) = result;
   return result;

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCheckPortableOperatingSystem @ 0x140135E10
+ * XREFs of RtlCheckPortableOperatingSystem @ 0x140135E30
  * Callers:
- *     ExpCheckPortableOperatingSystem @ 0x1406C75CC (ExpCheckPortableOperatingSystem.c)
+ *     ExpCheckPortableOperatingSystem @ 0x1406C75AC (ExpCheckPortableOperatingSystem.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlQueryRegistryValuesEx @ 0x1406C7660 (RtlQueryRegistryValuesEx.c)
- *     RtlCheckRegistryKey @ 0x1406C7680 (RtlCheckRegistryKey.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406C7640 (RtlQueryRegistryValuesEx.c)
+ *     RtlCheckRegistryKey @ 0x1406C7660 (RtlCheckRegistryKey.c)
  */
 
 __int64 __fastcall RtlCheckPortableOperatingSystem(bool *a1)

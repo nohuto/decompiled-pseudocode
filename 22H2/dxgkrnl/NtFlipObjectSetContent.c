@@ -1,12 +1,12 @@
 /*
- * XREFs of NtFlipObjectSetContent @ 0x1C0081990
+ * XREFs of NtFlipObjectSetContent @ 0x1C0069FF0
  * Callers:
  *     <none>
  * Callees:
- *     ??$CreateFlipPropertySetWorker@VCFlipPropertySet@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipPropertySet@@@Z @ 0x1C007F5AC (--$CreateFlipPropertySetWorker@VCFlipPropertySet@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipProp.c)
- *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C0080304 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
- *     ?SetContent@FlipManagerObject@@QEAAJ_K0PEAVCFlipPropertySet@@@Z @ 0x1C0080404 (-SetContent@FlipManagerObject@@QEAAJ_K0PEAVCFlipPropertySet@@@Z.c)
- *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C0082498 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     ??$CreateFlipPropertySetWorker@VCFlipPropertySet@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipPropertySet@@@Z @ 0x1C0067DE4 (--$CreateFlipPropertySetWorker@VCFlipPropertySet@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipProp.c)
+ *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C0068A90 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
+ *     ?SetContent@FlipManagerObject@@QEAAJ_K0PEAVCFlipPropertySet@@@Z @ 0x1C0068B98 (-SetContent@FlipManagerObject@@QEAAJ_K0PEAVCFlipPropertySet@@@Z.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C006A8D8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
  */
 
 __int64 __fastcall NtFlipObjectSetContent(
@@ -14,7 +14,7 @@ __int64 __fastcall NtFlipObjectSetContent(
         unsigned __int64 *a2,
         unsigned __int64 *a3,
         unsigned int a4,
-        char *Src)
+        char *a5)
 {
   int v7; // ebx
   struct CFlipPropertySet *v8; // rdi
@@ -51,7 +51,7 @@ __int64 __fastcall NtFlipObjectSetContent(
     KeEnterCriticalRegion();
     if ( a4 )
     {
-      v7 = CreateFlipPropertySetWorker<CFlipPropertySet>(a4, Src, v12, &v14);
+      v7 = CreateFlipPropertySetWorker<CFlipPropertySet>(a4, a5, v12, &v14);
       v8 = v14;
     }
     if ( v7 >= 0 )

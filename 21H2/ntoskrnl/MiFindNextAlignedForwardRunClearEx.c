@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFindNextAlignedForwardRunClearEx @ 0x140598BFC
+ * XREFs of MiFindNextAlignedForwardRunClearEx @ 0x1403C5A24
  * Callers:
- *     MiObtainDynamicVa @ 0x14026B354 (MiObtainDynamicVa.c)
+ *     MiObtainDynamicVa @ 0x1402B3808 (MiObtainDynamicVa.c)
  * Callees:
  *     <none>
  */
@@ -33,20 +33,17 @@ __int64 __fastcall MiFindNextAlignedForwardRunClearEx(_QWORD *a1, __int64 a2, __
         if ( v9 )
         {
           v11 = (_QWORD *)(v3 + 8 * (v8 >> 6));
-          while ( !*v11 )
+          do
           {
+            if ( *v11 )
+              break;
             ++v10;
             ++v11;
-            if ( v10 >= v9 )
-              goto LABEL_9;
           }
+          while ( v10 < v9 );
         }
-        else
-        {
-LABEL_9:
-          if ( v10 == v9 )
-            return v8;
-        }
+        if ( v10 == v9 )
+          return v8;
         v8 += v4 & ((v10 << 6) + a3 + 63);
         if ( v8 >= v6 )
           return -1LL;

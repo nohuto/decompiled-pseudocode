@@ -1,61 +1,40 @@
 /*
- * XREFs of ?erase@?$vector@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@V?$allocator@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@2@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@std@@@std@@@2@@Z @ 0x18028CCF4
+ * XREFs of ?erase@?$vector@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@V?$allocator@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@2@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@std@@@std@@@2@@Z @ 0x18024C23C
  * Callers:
- *     ?MergeAtlases@CAtlasManager@@AEAAXPEA_N@Z @ 0x18028CBFC (-MergeAtlases@CAtlasManager@@AEAAXPEA_N@Z.c)
+ *     ?MergeAtlases@CAtlasManager@@AEAAXPEA_N@Z @ 0x18024C0AC (-MergeAtlases@CAtlasManager@@AEAAXPEA_N@Z.c)
  * Callees:
- *     ??1CAtlasTexture@@QEAA@XZ @ 0x1800FEAD4 (--1CAtlasTexture@@QEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ?InternalRelease@?$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ @ 0x18001B590 (-InternalRelease@-$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ??$_Move_unchecked@PEAV?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@PEAV12@@std@@YAPEAV?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@0@PEAV10@00@Z @ 0x18024BBF0 (--$_Move_unchecked@PEAV-$unique_ptr@VCAtlasTexture@@U-$default_delete@VCAtlasTexture@@@std@@@std.c)
+ *     ?DestroyResources@CAtlasTexture@@AEAAXXZ @ 0x18024C5B4 (-DestroyResources@CAtlasTexture@@AEAAXXZ.c)
  */
 
-CAtlasTexture ***__fastcall std::vector<std::unique_ptr<CAtlasTexture>>::erase(
-        __int64 a1,
-        CAtlasTexture ***a2,
-        CAtlasTexture **a3)
+__int64 ***__fastcall std::vector<std::unique_ptr<CAtlasTexture>>::erase(__int64 a1, __int64 ***a2, __int64 **a3)
 {
-  CAtlasTexture **v3; // rbp
-  CAtlasTexture **v4; // rdi
-  CAtlasTexture **v8; // rax
-  CAtlasTexture **v9; // rsi
-  CAtlasTexture *v10; // rax
-  CAtlasTexture *v11; // r15
-  void *v12; // rdi
-  CAtlasTexture ***result; // rax
+  __int64 v6; // rax
+  __int64 *v7; // rdi
+  void *v8; // rcx
+  __int64 ***result; // rax
 
-  v3 = *(CAtlasTexture ***)(a1 + 8);
-  v4 = a3 + 1;
-  v8 = v3;
-  if ( a3 + 1 != v3 )
+  std::_Move_unchecked<std::unique_ptr<CAtlasTexture> *,std::unique_ptr<CAtlasTexture> *>(
+    a3 + 1,
+    *(__int64 ***)(a1 + 8),
+    a3);
+  v6 = *(_QWORD *)(a1 + 8);
+  v7 = *(__int64 **)(v6 - 8);
+  if ( v7 )
   {
-    v9 = a3;
-    do
-    {
-      if ( v9 != v4 )
-      {
-        v10 = *v4;
-        *v4 = 0LL;
-        v11 = *v9;
-        *v9 = v10;
-        if ( v11 )
-        {
-          CAtlasTexture::~CAtlasTexture(v11);
-          operator delete(v11);
-        }
-      }
-      ++v4;
-      ++v9;
-    }
-    while ( v4 != v3 );
-    v3 = *(CAtlasTexture ***)(a1 + 8);
-    v8 = v3;
+    *v7 = (__int64)&CAtlasTexture::`vftable';
+    CAtlasTexture::DestroyResources((CAtlasTexture *)v7);
+    v8 = (void *)v7[2];
+    if ( v8 )
+      operator delete(v8);
+    Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease(v7 + 1);
+    operator delete(v7);
+    v6 = *(_QWORD *)(a1 + 8);
   }
-  v12 = *(v3 - 1);
-  if ( v12 )
-  {
-    CAtlasTexture::~CAtlasTexture(*(v3 - 1));
-    operator delete(v12);
-    v8 = *(CAtlasTexture ***)(a1 + 8);
-  }
-  *(_QWORD *)(a1 + 8) = v8 - 1;
+  *(_QWORD *)(a1 + 8) = v6 - 8;
   result = a2;
   *a2 = a3;
   return result;

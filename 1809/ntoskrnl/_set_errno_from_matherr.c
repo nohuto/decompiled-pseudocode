@@ -1,9 +1,9 @@
 /*
- * XREFs of _set_errno_from_matherr @ 0x14019A1E4
+ * XREFs of _set_errno_from_matherr @ 0x14019A204
  * Callers:
- *     _call_matherr @ 0x1401998AC (_call_matherr.c)
- *     _handle_error @ 0x1401999D8 (_handle_error.c)
- *     _handle_errorf @ 0x140199B08 (_handle_errorf.c)
+ *     _call_matherr @ 0x1401998CC (_call_matherr.c)
+ *     _handle_error @ 0x1401999F8 (_handle_error.c)
+ *     _handle_errorf @ 0x140199B28 (_handle_errorf.c)
  * Callees:
  *     <none>
  */

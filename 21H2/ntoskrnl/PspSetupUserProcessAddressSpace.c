@@ -1,24 +1,23 @@
 /*
- * XREFs of PspSetupUserProcessAddressSpace @ 0x14067259C
+ * XREFs of PspSetupUserProcessAddressSpace @ 0x14061177C
  * Callers:
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140204738 (PsGetServerSiloGlobals.c)
- *     KeCopyXfdMaskToPeb @ 0x140205DD4 (KeCopyXfdMaskToPeb.c)
- *     PspWow64SetupUserProcessAddressSpace @ 0x140205DEC (PspWow64SetupUserProcessAddressSpace.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     PsGetProcessServerSilo @ 0x140347680 (PsGetProcessServerSilo.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwAllocateVirtualMemory @ 0x14041BA60 (ZwAllocateVirtualMemory.c)
- *     PspPrepareSystemDllInitBlock @ 0x1406727EC (PspPrepareSystemDllInitBlock.c)
- *     PsWow64GetProcessNtdllType @ 0x140672A7C (PsWow64GetProcessNtdllType.c)
- *     PspMapSiloSharedDataView @ 0x140672A98 (PspMapSiloSharedDataView.c)
- *     MmMapApiSetView @ 0x140672AD0 (MmMapApiSetView.c)
- *     PspWritePebAffinityInfo @ 0x140672BD8 (PspWritePebAffinityInfo.c)
- *     PspCopyAndFixupParameters @ 0x140672D48 (PspCopyAndFixupParameters.c)
- *     PspLocateInPEManifest @ 0x140673010 (PspLocateInPEManifest.c)
- *     PspGetStandardHandleList @ 0x1406E7994 (PspGetStandardHandleList.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
+ *     PspWow64SetupUserProcessAddressSpace @ 0x1402534F0 (PspWow64SetupUserProcessAddressSpace.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     PsGetProcessServerSilo @ 0x14025CA80 (PsGetProcessServerSilo.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwAllocateVirtualMemory @ 0x1403FA6A0 (ZwAllocateVirtualMemory.c)
+ *     PspPrepareSystemDllInitBlock @ 0x1406119C8 (PspPrepareSystemDllInitBlock.c)
+ *     PsWow64GetProcessNtdllType @ 0x140611C4C (PsWow64GetProcessNtdllType.c)
+ *     PspMapSiloSharedDataView @ 0x140611C68 (PspMapSiloSharedDataView.c)
+ *     MmMapApiSetView @ 0x140611CA0 (MmMapApiSetView.c)
+ *     PspWritePebAffinityInfo @ 0x140612654 (PspWritePebAffinityInfo.c)
+ *     PspCopyAndFixupParameters @ 0x1406127B4 (PspCopyAndFixupParameters.c)
+ *     PspLocateInPEManifest @ 0x14068C03C (PspLocateInPEManifest.c)
+ *     PspGetStandardHandleList @ 0x1406C0E74 (PspGetStandardHandleList.c)
  */
 
 __int64 __fastcall PspSetupUserProcessAddressSpace(__int64 a1, _KPROCESS *a2, __int64 a3, __int64 a4)
@@ -33,8 +32,8 @@ __int64 __fastcall PspSetupUserProcessAddressSpace(__int64 a1, _KPROCESS *a2, __
   _DWORD *v15; // r9
   int inited; // ebx
   ULONG_PTR v17; // rdx
-  unsigned int ProcessNtdllType; // eax
   __int64 result; // rax
+  unsigned int ProcessNtdllType; // eax
   ULONG_PTR RegionSize; // [rsp+30h] [rbp-78h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+38h] [rbp-70h]
   __int128 v22; // [rsp+40h] [rbp-68h] BYREF
@@ -90,18 +89,20 @@ __int64 __fastcall PspSetupUserProcessAddressSpace(__int64 a1, _KPROCESS *a2, __
       inited = PspCopyAndFixupParameters(a1, v5, a4);
       if ( inited >= 0 )
       {
-        if ( (KeGetCurrentThread()->ApcState.Process->SecureState.SecureHandle & 1) != 0
-          || (inited = PspPrepareSystemDllInitBlock(0LL, a4), inited >= 0) )
+        if ( (KeGetCurrentThread()->ApcState.Process->SecureState.SecureHandle & 1) == 0 )
+          inited = PspPrepareSystemDllInitBlock(0LL, a4);
+        if ( inited >= 0 )
         {
           inited = PspWow64SetupUserProcessAddressSpace((__int64)a2, a4);
           if ( inited >= 0 )
           {
-            if ( !a2[1].Affinity.StaticBitmap[30]
-              || (ProcessNtdllType = PsWow64GetProcessNtdllType(a2),
-                  inited = PspPrepareSystemDllInitBlock(ProcessNtdllType, a4),
-                  inited >= 0) )
+            if ( a2[1].AffinityPadding[10] )
             {
-              KeCopyXfdMaskToPeb(a2);
+              ProcessNtdllType = PsWow64GetProcessNtdllType(a2);
+              inited = PspPrepareSystemDllInitBlock(ProcessNtdllType, a4);
+            }
+            if ( inited >= 0 )
+            {
               PspWritePebAffinityInfo(CurrentThread, a2);
               inited = MmMapApiSetView(a2);
               if ( inited >= 0 )
@@ -112,6 +113,6 @@ __int64 __fastcall PspSetupUserProcessAddressSpace(__int64 a1, _KPROCESS *a2, __
       }
     }
   }
-  KiUnstackDetachProcess(a3, 0LL);
+  KiUnstackDetachProcess(a3, 0);
   return (unsigned int)inited;
 }

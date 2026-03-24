@@ -1,12 +1,12 @@
 /*
- * XREFs of DrvGetWDDMAdapterInfo @ 0x1C0071FB0
+ * XREFs of DrvGetWDDMAdapterInfo @ 0x1C0010C20
  * Callers:
- *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C009F724 (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
- *     RIMGetDisplayMonitor @ 0x1C0198218 (RIMGetDisplayMonitor.c)
- *     RIMIDECreatePointerDeviceInfo @ 0x1C019B9FC (RIMIDECreatePointerDeviceInfo.c)
+ *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C006DA90 (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
+ *     RIMGetDisplayMonitor @ 0x1C0164748 (RIMGetDisplayMonitor.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167958 (RIMIDECreatePointerDeviceInfo.c)
  * Callees:
- *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C0072044 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
- *     ?pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ @ 0x1C0072080 (-pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ.c)
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C0010CB4 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     ?pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ @ 0x1C0010CF0 (-pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ.c)
  */
 
 __int64 __fastcall DrvGetWDDMAdapterInfo(__int64 a1, int a2, struct _LUID *a3, _DWORD *a4)
@@ -21,12 +21,12 @@ __int64 __fastcall DrvGetWDDMAdapterInfo(__int64 a1, int a2, struct _LUID *a3, _
     && (a2 || (*(_DWORD *)(a1 + 40) & 0x400) == 0)
     && (*(_DWORD *)(a1 + 40) & 0x20000) == 0
     && (unsigned int)PDEVOBJ::bLddmDriver((PDEVOBJ *)&v10)
-    && *(_QWORD *)(a1 + 2552) != v4 )
+    && *(_QWORD *)(a1 + 2576) != v4 )
   {
     v8 = PDEVOBJ::pAdapterLuid((PDEVOBJ *)&v10);
     LODWORD(v4) = 1;
     *a3 = *v8;
-    *a4 = *(_DWORD *)(*(_QWORD *)(a1 + 2552) + 256LL);
+    *a4 = *(_DWORD *)(*(_QWORD *)(a1 + 2576) + 256LL);
   }
   return (unsigned int)v4;
 }

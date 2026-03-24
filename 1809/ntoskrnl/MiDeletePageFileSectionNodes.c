@@ -5,7 +5,7 @@
  * Callees:
  *     MiAweControlArea @ 0x140077E6C (MiAweControlArea.c)
  *     MiUpdateSystemProtoPtesTree @ 0x140096060 (MiUpdateSystemProtoPtesTree.c)
- *     MiDeleteSectionAwe @ 0x1402B03D4 (MiDeleteSectionAwe.c)
+ *     MiDeleteSectionAwe @ 0x1402B04D4 (MiDeleteSectionAwe.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

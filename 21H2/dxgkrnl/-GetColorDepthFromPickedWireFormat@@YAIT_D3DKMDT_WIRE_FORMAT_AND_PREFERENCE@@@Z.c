@@ -1,18 +1,20 @@
 /*
- * XREFs of ?GetColorDepthFromPickedWireFormat@@YAIT_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@@Z @ 0x1C01A0570
+ * XREFs of ?GetColorDepthFromPickedWireFormat@@YAIT_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@@Z @ 0x1C013ACA8
  * Callers:
- *     DxgkDisplayConfigDeviceInfo @ 0x1C01A0EB0 (DxgkDisplayConfigDeviceInfo.c)
- *     DxgkGetAdapterDeviceDesc @ 0x1C01A3640 (DxgkGetAdapterDeviceDesc.c)
- *     ?ConvertPathModalityToDisplayConfig@@YAJPEAUD3DKMT_GETPATHSMODALITY@@_N1AEAUQDC_CONTEXT@@@Z @ 0x1C01B0F2C (-ConvertPathModalityToDisplayConfig@@YAJPEAUD3DKMT_GETPATHSMODALITY@@_N1AEAUQDC_CONTEXT@@@Z.c)
+ *     DxgkGetAdapterDeviceDesc @ 0x1C0112950 (DxgkGetAdapterDeviceDesc.c)
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C012C020 (DxgkDisplayConfigDeviceInfo.c)
+ *     ?ConvertPathModalityToDisplayConfig@@YAJPEAUD3DKMT_GETPATHSMODALITY@@_N1PEAU_QDC_CONTEXT@@@Z @ 0x1C0138078 (-ConvertPathModalityToDisplayConfig@@YAJPEAUD3DKMT_GETPATHSMODALITY@@_N1PEAU_QDC_CONTEXT@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-__int64 __fastcall GetColorDepthFromPickedWireFormat(union _D3DKMDT_WIRE_FORMAT_AND_PREFERENCE a1)
+__int64 __fastcall GetColorDepthFromPickedWireFormat(__int64 a1, __int64 a2)
 {
-  __int64 Value; // rbx
+  __int64 v2; // rbx
+  __int64 v4; // rax
 
-  switch ( ((a1.Value | ((a1.Value | ((a1.Value | (a1.Value >> 6)) >> 6)) >> 6)) >> 2) & 0x3F )
+  v2 = (unsigned int)a1;
+  switch ( (((unsigned int)a1 | (((unsigned int)a1 | (((unsigned int)a1 | ((unsigned int)a1 >> 6)) >> 6)) >> 6)) >> 2) & 0x3F )
   {
     case 1u:
       return 6LL;
@@ -27,17 +29,8 @@ __int64 __fastcall GetColorDepthFromPickedWireFormat(union _D3DKMDT_WIRE_FORMAT_
     case 0x20u:
       return 16LL;
   }
-  Value = a1.Value;
-  WdLogSingleEntry1(2LL, a1.Value);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Wrong value set in PickedWireFormat: 0x%I64x, returning 0 bits per pixel",
-    Value,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
+  v4 = WdLogNewEntry5_WdError(a1, a2);
+  *(_QWORD *)(v4 + 24) = v2;
+  WdLogEvent5_WdError(v4);
   return 0LL;
 }

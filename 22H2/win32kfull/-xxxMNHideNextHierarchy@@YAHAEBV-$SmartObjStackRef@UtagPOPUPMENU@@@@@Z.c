@@ -1,32 +1,34 @@
 /*
- * XREFs of ?xxxMNHideNextHierarchy@@YAHAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@@Z @ 0x1C0216030
+ * XREFs of ?xxxMNHideNextHierarchy@@YAHAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@@Z @ 0x1C0235CAC
  * Callers:
- *     xxxMNButtonDown @ 0x1C0216BE8 (xxxMNButtonDown.c)
- *     xxxMNMouseMove @ 0x1C0218950 (xxxMNMouseMove.c)
+ *     xxxMNButtonDown @ 0x1C0236CBC (xxxMNButtonDown.c)
+ *     xxxMNMouseMove @ 0x1C023913C (xxxMNMouseMove.c)
  * Callees:
- *     xxxSendMessage @ 0x1C0127178 (xxxSendMessage.c)
+ *     xxxSendMessage @ 0x1C005D594 (xxxSendMessage.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
  */
 
 __int64 __fastcall xxxMNHideNextHierarchy(__int64 *a1)
 {
   __int64 v2; // rax
-  ULONG_PTR v3; // rbx
-  __int64 v4; // rdx
+  unsigned __int64 v3; // rbx
+  __int64 ThreadWin32Thread; // rax
   __int64 v5; // rcx
-  __int64 v6; // r8
-  __int128 v8; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v9; // [rsp+30h] [rbp-18h]
+  _QWORD v7[5]; // [rsp+20h] [rbp-28h] BYREF
 
   if ( !*(_QWORD *)(*(_QWORD *)*a1 + 24LL) )
     return 0LL;
-  v9 = 0LL;
   v2 = *a1;
-  v8 = 0LL;
+  v7[2] = 0LL;
   v3 = *(_QWORD *)(*(_QWORD *)v2 + 24LL);
-  ThreadLockAlways(v3, &v8);
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  v7[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+  *(_QWORD *)(ThreadWin32Thread + 416) = v7;
+  v7[1] = v3;
+  HMLockObject(v3);
   if ( v3 != *(_QWORD *)(*(_QWORD *)*a1 + 56LL) )
-    xxxSendMessage(v3);
-  xxxSendMessage(v3);
-  ThreadUnlock1(v5, v4, v6);
+    xxxSendMessage(v3, 0x1E4u, 0LL, 0LL);
+  xxxSendMessage(v3, 0x1E5u, 0xFFFFFFFFFFFFFFFFuLL, 0LL);
+  ThreadUnlock1(v5);
   return 1LL;
 }

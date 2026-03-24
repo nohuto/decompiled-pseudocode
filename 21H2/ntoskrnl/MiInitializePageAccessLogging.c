@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInitializePageAccessLogging @ 0x140282874
+ * XREFs of MiInitializePageAccessLogging @ 0x140274E20
  * Callers:
- *     MiAllocateAccessLog @ 0x140282764 (MiAllocateAccessLog.c)
- *     MiGetCcAccessLog @ 0x1406AC9A4 (MiGetCcAccessLog.c)
+ *     MiAllocateAccessLog @ 0x140274CE0 (MiAllocateAccessLog.c)
+ *     MiGetCcAccessLog @ 0x1406AD20C (MiGetCcAccessLog.c)
  * Callees:
  *     <none>
  */
@@ -29,7 +29,7 @@ __int64 __fastcall MiInitializePageAccessLogging(__int64 a1, __int64 a2, __int64
   else if ( v4 )
   {
     *(_QWORD *)(a2 + 56) = 1LL;
-    *(_DWORD *)(a2 + 64) = *(_DWORD *)(a1 - 184);
+    *(_DWORD *)(a2 + 64) = *(_DWORD *)(a1 - 248);
   }
   else
   {

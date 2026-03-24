@@ -1,11 +1,11 @@
 /*
- * XREFs of MenuRecalc @ 0x1C01585A4
+ * XREFs of MenuRecalc @ 0x1C024331C
  * Callers:
- *     ?xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C01580A8 (-xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z.c)
+ *     ?xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C01D7528 (-xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z.c)
  * Callees:
- *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C0066A74 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00685A0 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00E7BF4 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A9DC (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE4E0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C010139C (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
  */
 
 _QWORD *MenuRecalc()
@@ -13,10 +13,10 @@ _QWORD *MenuRecalc()
   unsigned int v0; // edi
   __int64 *v1; // rsi
   _BYTE *v2; // rbx
-  __int64 v4; // rdx
-  unsigned int v5; // r8d
-  __int64 v6; // rax
-  __int64 v7; // rdx
+  __int64 v3; // rdx
+  unsigned int v4; // r8d
+  __int64 v5; // rax
+  __int64 v6; // rdx
   _QWORD v8[2]; // [rsp+20h] [rbp-20h] BYREF
   __int64 v9; // [rsp+30h] [rbp-10h]
 
@@ -29,19 +29,19 @@ _QWORD *MenuRecalc()
   {
     if ( *v2 == 2 )
     {
-      v4 = *v1;
+      v3 = *v1;
       v9 = 0LL;
-      SmartObjStackRefBase<tagMENU>::operator=((__int64)v8, v4);
-      v5 = 0;
+      SmartObjStackRefBase<tagMENU>::operator=(v8, v3);
+      v4 = 0;
       *(_DWORD *)(*(_QWORD *)v8[0] + 64LL) = 0;
       for ( *(_DWORD *)(*(_QWORD *)v8[0] + 68LL) = 0;
-            v5 < *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v8[0] + 40LL) + 44LL);
-            *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)v8[0] + 88LL) + v7) + 104LL) = -1 )
+            v4 < *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v8[0] + 40LL) + 44LL);
+            *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)v8[0] + 88LL) + v6) + 104LL) = -1 )
       {
-        v6 = (int)v5++;
-        v7 = 96 * v6;
-        *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)v8[0] + 88LL) + v7) + 84LL) = 0x7FFFFFFF;
-        *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)v8[0] + 88LL) + v7) + 88LL) = 0;
+        v5 = (int)v4++;
+        v6 = 96 * v5;
+        *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)v8[0] + 88LL) + v6) + 84LL) = 0x7FFFFFFF;
+        *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)v8[0] + 88LL) + v6) + 88LL) = 0;
       }
     }
     ++v0;

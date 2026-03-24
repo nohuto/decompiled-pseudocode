@@ -1,18 +1,18 @@
 /*
- * XREFs of ?GrePatBltLockedDC@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVERECTL@@KPEAVSURFACE@@KKKK@Z @ 0x1C0043168
+ * XREFs of ?GrePatBltLockedDC@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVERECTL@@KPEAVSURFACE@@KKKK@Z @ 0x1C00B3804
  * Callers:
- *     ?NtGdiFlushUserBatchInternal@@YAXPEAX@Z @ 0x1C0034690 (-NtGdiFlushUserBatchInternal@@YAXPEAX@Z.c)
- *     ?GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z @ 0x1C0042444 (-GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z.c)
- *     NtGdiPatBlt @ 0x1C0042E10 (NtGdiPatBlt.c)
+ *     ?NtGdiFlushUserBatchInternal@@YAXPEAX@Z @ 0x1C008EFE0 (-NtGdiFlushUserBatchInternal@@YAXPEAX@Z.c)
+ *     ?GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z @ 0x1C00B3410 (-GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z.c)
+ *     NtGdiPatBlt @ 0x1C00B42B0 (NtGdiPatBlt.c)
  * Callees:
- *     ?vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C002CF6C (-vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
- *     ?prgnRao@DC@@QEBAPEAVREGION@@XZ @ 0x1C002F598 (-prgnRao@DC@@QEBAPEAVREGION@@XZ.c)
- *     ?prgnVisSnap@DC@@QEBAPEAVREGION@@XZ @ 0x1C0043D24 (-prgnVisSnap@DC@@QEBAPEAVREGION@@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ?prgnRao@DC@@QEBAPEAVREGION@@XZ @ 0x1C00B3108 (-prgnRao@DC@@QEBAPEAVREGION@@XZ.c)
+ *     ?prgnVisSnap@DC@@QEBAPEAVREGION@@XZ @ 0x1C00B3134 (-prgnVisSnap@DC@@QEBAPEAVREGION@@XZ.c)
+ *     ?vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C00B61E0 (-vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall GrePatBltLockedDC(
-        DC **a1,
+        __int64 a1,
         struct EXFORMOBJ *a2,
         struct ERECTL *a3,
         __int64 a4,
@@ -46,47 +46,52 @@ __int64 __fastcall GrePatBltLockedDC(
   unsigned int v31; // esi
   unsigned int v32; // ebp
   __int64 v33; // r9
-  int v36; // eax
-  char *v37; // rdi
-  DC *v38; // r10
-  struct REGION *v39; // rax
-  int v40; // eax
-  ULONG v41; // ecx
-  __int64 v42; // [rsp+20h] [rbp-88h]
-  __m128i v43[4]; // [rsp+60h] [rbp-48h] BYREF
-  char *v45; // [rsp+B8h] [rbp+10h]
-  int v46; // [rsp+C8h] [rbp+20h]
+  __int64 v34; // rcx
+  int v37; // eax
+  char *v38; // rdi
+  DC *v39; // r10
+  struct REGION *v40; // rax
+  int v41; // eax
+  ULONG v42; // ecx
+  __int64 v43; // [rsp+20h] [rbp-88h]
+  __int128 v44[4]; // [rsp+60h] [rbp-48h] BYREF
+  XDCOBJ *v45; // [rsp+B0h] [rbp+8h]
+  char *v46; // [rsp+B8h] [rbp+10h]
+  int v47; // [rsp+C8h] [rbp+20h]
 
-  v46 = a4;
+  v47 = a4;
+  v45 = (XDCOBJ *)a1;
   v9 = a4;
-  v45 = 0LL;
-  v11 = a1;
+  v46 = 0LL;
+  v11 = (DC **)a1;
   v12 = 1;
-  if ( ((*((_DWORD *)a5 + 29) & 8) != 0 || *((_QWORD *)a5 + 28)) && _bittest16((const signed __int16 *)a5 + 51, 9u) )
-    goto LABEL_43;
+  if ( (*((_DWORD *)a5 + 29) & 8) != 0 || *((_QWORD *)a5 + 28) )
+  {
+    a1 = 512LL;
+    if ( (*((_WORD *)a5 + 51) & 0x200) != 0 )
+      goto LABEL_44;
+  }
   v13 = *((_DWORD *)a5 + 28);
   if ( (v13 & 0x800) != 0 )
   {
-    v36 = UserSurfaceAccessCheck(*((_QWORD *)a5 + 81));
-    goto LABEL_25;
+    v37 = UserSurfaceAccessCheck(*((_QWORD *)a5 + 81), a2, a3, a4);
   }
-  if ( (v13 & 0x10000000) != 0 )
+  else
   {
-    v36 = UserScreenAccessCheck(a1, a2, a3, a4);
-LABEL_25:
-    if ( v36 )
-    {
-      v11 = a1;
+    if ( (v13 & 0x10000000) == 0 )
       goto LABEL_5;
-    }
-LABEL_43:
-    v41 = 5;
-    goto LABEL_44;
+    v37 = UserScreenAccessCheck(a1, a2, a3, a4);
   }
-LABEL_5:
-  v14 = *v11;
-  if ( (*((_DWORD *)*v11 + 9) & 0x10000) == 0 )
+  if ( v37 )
   {
+    v11 = (DC **)v45;
+LABEL_5:
+    v14 = *v11;
+    if ( (*((_DWORD *)*v11 + 9) & 0x10000) != 0 )
+    {
+      v42 = 87;
+      goto LABEL_45;
+    }
     v15 = *(int *)a3;
     v16 = *((_DWORD *)v14 + 10) & 1LL;
     v17 = *((int *)v14 + 2 * v16 + 254);
@@ -120,28 +125,28 @@ LABEL_5:
               {
                 goto LABEL_16;
               }
-              v37 = (char *)v26 + 1768;
-              v45 = (char *)v26 + 1768;
+              v38 = (char *)v26 + 1776;
+              v46 = (char *)v26 + 1776;
               if ( DC::prgnRao(*v11) )
-                v39 = DC::prgnRao(v38);
+                v40 = DC::prgnRao(v39);
               else
-                v39 = DC::prgnVisSnap(v38);
-              XCLIPOBJ::vSetup((XCLIPOBJ *)v37, v39, a3, 2);
-              *(_OWORD *)a3 = *(_OWORD *)(v37 + 4);
+                v40 = DC::prgnVisSnap(v39);
+              XCLIPOBJ::vSetup((XCLIPOBJ *)v38, v40, a3, 2);
+              *(_OWORD *)a3 = *(_OWORD *)(v38 + 4);
               if ( *(_DWORD *)a3 != *((_DWORD *)a3 + 2) && *((_DWORD *)a3 + 1) != *((_DWORD *)a3 + 3) )
               {
-                v11 = a1;
-                v26 = *a1;
+                v11 = (DC **)v45;
+                v26 = *(DC **)v45;
 LABEL_16:
                 if ( (((unsigned __int8)v9 ^ (unsigned __int8)(16 * v9)) & 0xF0) != 0 )
                 {
                   v27 = (unsigned int *)*((_QWORD *)v26 + 122);
-                  v28 = (char *)v26 + 1200;
+                  v28 = (char *)v26 + 1208;
                   v16 = v27[38];
                   if ( (v16 & 1) != 0
                     || (*((_DWORD *)v26 + 79) & 1) != 0
-                    || (v40 = *((_DWORD *)v26 + 330), (v40 & 1) != 0) && *((_DWORD *)v26 + 312) != a6
-                    || (v40 & 2) != 0 && *((_DWORD *)v26 + 313) != a7 )
+                    || (v41 = *((_DWORD *)v26 + 332), (v41 & 1) != 0) && *((_DWORD *)v26 + 314) != a6
+                    || (v41 & 2) != 0 && *((_DWORD *)v26 + 315) != a7 )
                   {
                     v29 = v27[46];
                     v30 = v27[44];
@@ -149,20 +154,20 @@ LABEL_16:
                     v32 = v27[45];
                     v27[38] = v16 & 0xFFFFFFFE;
                     *((_DWORD *)*v11 + 79) &= ~1u;
-                    v42 = *((_QWORD *)a5 + 16);
+                    v43 = *((_QWORD *)a5 + 16);
                     v33 = *((_QWORD *)*v11 + 11);
                     *(_DWORD *)(*((_QWORD *)*v11 + 122) + 184LL) = a6;
                     *(_DWORD *)(*((_QWORD *)*v11 + 122) + 176LL) = a7;
                     *(_DWORD *)(*((_QWORD *)*v11 + 122) + 188LL) = a8;
                     *(_DWORD *)(*((_QWORD *)*v11 + 122) + 180LL) = a9;
-                    EBRUSHOBJ::vInitBrush((char *)v26 + 1200, *v11, *((_QWORD *)*v11 + 17), v33, v42, a5, 1);
-                    v11 = a1;
-                    *(_DWORD *)(*((_QWORD *)*a1 + 122) + 184LL) = v29;
-                    *(_DWORD *)(*((_QWORD *)*a1 + 122) + 176LL) = v30;
-                    *(_DWORD *)(*((_QWORD *)*a1 + 122) + 188LL) = v31;
-                    *(_DWORD *)(*((_QWORD *)*a1 + 122) + 180LL) = v32;
-                    v26 = *a1;
-                    v9 = v46;
+                    EBRUSHOBJ::vInitBrush((char *)v26 + 1208, *v11, *((_QWORD *)*v11 + 17), v33, v43, a5, 1);
+                    v11 = (DC **)v45;
+                    *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v45 + 976LL) + 184LL) = v29;
+                    *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v45 + 976LL) + 176LL) = v30;
+                    *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v45 + 976LL) + 188LL) = v31;
+                    *(_DWORD *)(*(_QWORD *)(*(_QWORD *)v45 + 976LL) + 180LL) = v32;
+                    v26 = *(DC **)v45;
+                    v9 = v47;
                   }
                 }
                 else
@@ -171,35 +176,36 @@ LABEL_16:
                 }
                 if ( (*((_DWORD *)v26 + 9) & 0xE0) != 0 && (!v28 || (*((_DWORD *)v28 + 30) & 0x100) == 0) )
                 {
-                  v43[0] = *(__m128i *)a3;
-                  XDCOBJ::vAccumulateTight((XDCOBJ *)v11, (struct ECLIPOBJ *)v16, v43);
+                  v44[0] = *(_OWORD *)a3;
+                  XDCOBJ::vAccumulateTight((XDCOBJ *)v11, (struct ECLIPOBJ *)v16, (struct ERECTL *)v44);
                 }
                 ++*((_DWORD *)a5 + 23);
+                v34 = *(_QWORD *)v45 + 1200LL;
                 if ( (*((_DWORD *)a5 + 28) & 1) != 0 )
-                  return (unsigned int)(*(__int64 (__fastcall **)(char *, _QWORD, _QWORD, char *, _QWORD, struct ERECTL *, _QWORD, _QWORD, char *, __int64, int))(*((_QWORD *)a5 + 6) + 2808LL))(
+                  return (unsigned int)(*(__int64 (__fastcall **)(char *, _QWORD, _QWORD, char *, _QWORD, struct ERECTL *, _QWORD, _QWORD, char *, __int64, int))(*((_QWORD *)a5 + 6) + 2832LL))(
                                          (char *)a5 + 24,
                                          0LL,
                                          0LL,
-                                         v45,
+                                         v46,
                                          0LL,
                                          a3,
                                          0LL,
                                          0LL,
                                          v28,
-                                         (__int64)*a1 + 1192,
+                                         v34,
                                          v9);
                 else
-                  return (unsigned int)((__int64 (__fastcall *)(char *, _QWORD, _QWORD, char *, _QWORD, struct ERECTL *, _QWORD, _QWORD, char *, char *, int))EngBitBlt)(
+                  return (unsigned int)((__int64 (__fastcall *)(char *, _QWORD, _QWORD, char *, _QWORD, struct ERECTL *, _QWORD, _QWORD, char *, __int64, int))EngBitBlt)(
                                          (char *)a5 + 24,
                                          0LL,
                                          0LL,
-                                         v45,
+                                         v46,
                                          0LL,
                                          a3,
                                          0LL,
                                          0LL,
                                          v28,
-                                         (char *)*a1 + 1192,
+                                         v34,
                                          v9);
               }
             }
@@ -209,8 +215,9 @@ LABEL_16:
     }
     return v12;
   }
-  v41 = 87;
 LABEL_44:
-  EngSetLastError(v41);
+  v42 = 5;
+LABEL_45:
+  EngSetLastError(v42);
   return 0LL;
 }

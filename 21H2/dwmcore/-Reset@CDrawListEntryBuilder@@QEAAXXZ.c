@@ -1,18 +1,20 @@
 /*
- * XREFs of ?Reset@CDrawListEntryBuilder@@QEAAXXZ @ 0x1800B0158
+ * XREFs of ?Reset@CDrawListEntryBuilder@@QEAAXXZ @ 0x180094130
  * Callers:
- *     ?FillRectanglesWithDrawListBrush@CDrawingContext@@AEAAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBV?$span@$$CBUMilRectF@@$0?0@gsl@@AEBU_D3DCOLORVALUE@@@Z @ 0x180004A9C (-FillRectanglesWithDrawListBrush@CDrawingContext@@AEAAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$de.c)
- *     ?FlushDrawListCache@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntryBuilder@@@Z @ 0x18005BA94 (-FlushDrawListCache@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntr.c)
- *     ?Render@CShapeDrawingContext@@QEAAJXZ @ 0x1800936E0 (-Render@CShapeDrawingContext@@QEAAJXZ.c)
+ *     ??1CDrawListEntryBuilder@@QEAA@XZ @ 0x1800575F0 (--1CDrawListEntryBuilder@@QEAA@XZ.c)
+ *     ?FlushDrawListCache@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntryBuilder@@@Z @ 0x180068ADC (-FlushDrawListCache@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntr.c)
+ *     ?FillRectanglesWithDrawListBrush@CDrawingContext@@AEAAJ$$QEAV?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@AEBV?$span@$$CBUMilRectF@@$0?0@gsl@@AEBU_D3DCOLORVALUE@@@Z @ 0x1800944A0 (-FillRectanglesWithDrawListBrush@CDrawingContext@@AEAAJ$$QEAV-$unique_ptr@VCDrawListBrush@@U-$de.c)
+ *     ?Render@CShapeDrawingContext@@QEAAJXZ @ 0x1802619FC (-Render@CShapeDrawingContext@@QEAAJXZ.c)
  * Callees:
- *     ?clear@?$vector_facade@PEAVCVisual@@V?$buffer_impl@PEAVCVisual@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x18008E754 (-clear@-$vector_facade@PEAVCVisual@@V-$buffer_impl@PEAVCVisual@@$0BA@$00Vliberal_expansion_polic.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CDrawListEntryBuilder::Reset(CDrawListEntryBuilder *this)
 {
   _QWORD *v1; // rbx
-  _QWORD *v3; // rbp
+  _QWORD *v3; // rsi
+  __int64 v4; // rax
+  __int64 v5; // rcx
 
   v1 = (_QWORD *)*((_QWORD *)this + 5);
   v3 = (_QWORD *)*((_QWORD *)this + 6);
@@ -25,7 +27,14 @@ void __fastcall CDrawListEntryBuilder::Reset(CDrawListEntryBuilder *this)
     }
     ++v1;
   }
-  detail::vector_facade<CVisual *,detail::buffer_impl<CVisual *,16,1,detail::liberal_expansion_policy>>::clear((_QWORD *)this + 5);
-  *((_BYTE *)this + 4424) = 0;
-  Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease((char *)this + 32);
+  v4 = (__int64)(*((_QWORD *)this + 6) - *((_QWORD *)this + 5)) >> 3;
+  if ( v4 )
+    *((_QWORD *)this + 6) -= 8 * v4;
+  *((_DWORD *)this + 24) = 0;
+  v5 = *((_QWORD *)this + 4);
+  if ( v5 )
+  {
+    *((_QWORD *)this + 4) = 0LL;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 8LL))(v5);
+  }
 }

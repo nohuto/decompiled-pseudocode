@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceTouchHWTimeStamp @ 0x1C013B230
+ * XREFs of EtwTraceTouchHWTimeStamp @ 0x1C0123E40
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0ddxdddd_EtwWriteTransfer @ 0x1C013C520 (McTemplateK0ddxdddd_EtwWriteTransfer.c)
+ *     McTemplateK0ddxdddd_EtwWriteTransfer @ 0x1C01255F0 (McTemplateK0ddxdddd_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceTouchHWTimeStamp(int a1, int a2, int a3, char a4, char a5, char a6, char a7)

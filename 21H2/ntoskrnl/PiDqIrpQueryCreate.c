@@ -1,29 +1,29 @@
 /*
- * XREFs of PiDqIrpQueryCreate @ 0x1407768EC
+ * XREFs of PiDqIrpQueryCreate @ 0x14062F0BC
  * Callers:
- *     PiDqDispatch @ 0x140776650 (PiDqDispatch.c)
+ *     PiDqDispatch @ 0x14062EBF0 (PiDqDispatch.c)
  * Callees:
- *     PsGetCurrentThreadProcessId @ 0x1402A7BC0 (PsGetCurrentThreadProcessId.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     IoClearActivityIdThread @ 0x1402DE990 (IoClearActivityIdThread.c)
- *     IoSetActivityIdThread @ 0x1402DE9B0 (IoSetActivityIdThread.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     McTemplateK0pqzzzzzzz_EtwWriteTransfer @ 0x140561484 (McTemplateK0pqzzzzzzz_EtwWriteTransfer.c)
- *     PiDqQueryGetNextIoctlInfo @ 0x1407758D0 (PiDqQueryGetNextIoctlInfo.c)
- *     PnpIsNullGuid @ 0x140776274 (PnpIsNullGuid.c)
- *     PiDqIrpComplete @ 0x140776880 (PiDqIrpComplete.c)
- *     PiDqQueryValidateQueryData @ 0x140776CFC (PiDqQueryValidateQueryData.c)
- *     PiDqQueryFreeActiveData @ 0x140776E5C (PiDqQueryFreeActiveData.c)
- *     PiDqQuerySerializeActionQueue @ 0x140777D40 (PiDqQuerySerializeActionQueue.c)
- *     PnpConvertDevpropcompkeyArrayToString @ 0x140946E0C (PnpConvertDevpropcompkeyArrayToString.c)
- *     PiDqConvertObjectTypeToString @ 0x14094A194 (PiDqConvertObjectTypeToString.c)
- *     PiDqConvertQueryFlagsToString @ 0x14094A25C (PiDqConvertQueryFlagsToString.c)
- *     FilterConvertToString @ 0x140A318B0 (FilterConvertToString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     IoClearActivityIdThread @ 0x1402643D0 (IoClearActivityIdThread.c)
+ *     PsGetCurrentThreadProcessId @ 0x1402ED5E0 (PsGetCurrentThreadProcessId.c)
+ *     IoSetActivityIdThread @ 0x1402EE4E0 (IoSetActivityIdThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     McTemplateK0pqzzzzzzz_EtwWriteTransfer @ 0x14050DC9C (McTemplateK0pqzzzzzzz_EtwWriteTransfer.c)
+ *     PiDqQueryFreeActiveData @ 0x14062E710 (PiDqQueryFreeActiveData.c)
+ *     PiDqQueryGetNextIoctlInfo @ 0x14062E77C (PiDqQueryGetNextIoctlInfo.c)
+ *     PiDqQueryValidateQueryData @ 0x14062EEF0 (PiDqQueryValidateQueryData.c)
+ *     PiDqIrpComplete @ 0x14062F050 (PiDqIrpComplete.c)
+ *     PiDqQuerySerializeActionQueue @ 0x14062F5EC (PiDqQuerySerializeActionQueue.c)
+ *     PnpIsNullGuid @ 0x1406E76C0 (PnpIsNullGuid.c)
+ *     PnpConvertDevpropcompkeyArrayToString @ 0x1408A1CA0 (PnpConvertDevpropcompkeyArrayToString.c)
+ *     PiDqConvertObjectTypeToString @ 0x1408A4640 (PiDqConvertObjectTypeToString.c)
+ *     PiDqConvertQueryFlagsToString @ 0x1408A4708 (PiDqConvertQueryFlagsToString.c)
+ *     FilterConvertToString @ 0x14097FC10 (FilterConvertToString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqIrpQueryCreate(IRP *a1)
@@ -41,65 +41,68 @@ __int64 __fastcall PiDqIrpQueryCreate(IRP *a1)
   unsigned int Length; // r8d
   struct _KTHREAD *v12; // rax
   PVOID v14; // r13
-  PVOID v15; // r12
+  void *v15; // r12
   unsigned int *v16; // r14
   int v17; // edx
   unsigned int v18; // r8d
   const wchar_t *v19; // rax
-  void *v20; // rax
-  int FlagsToString; // eax
-  unsigned int v22; // eax
-  void *v23; // rax
-  unsigned int v24; // ecx
-  _WORD *v25; // rdx
-  void *v26; // rax
-  int v27; // eax
-  void *v28; // rax
-  void *v29; // rax
-  int v30; // eax
+  PVOID v20; // rax
+  int v21; // eax
+  PVOID v22; // rax
+  unsigned int v23; // eax
+  PVOID v24; // rax
+  unsigned int v25; // ecx
+  _WORD *v26; // rdx
+  PVOID v27; // rax
+  int v28; // eax
+  PVOID v29; // rax
+  PVOID v30; // rax
+  int v31; // eax
   int CurrentThreadProcessId; // eax
-  __int64 v32; // rdx
-  unsigned int v33; // eax
-  void *Pool2; // rax
-  unsigned int v35; // ecx
-  struct _IO_STACK_LOCATION *v36; // r8
-  _WORD *v37; // rdx
-  __int64 v38; // [rsp+20h] [rbp-118h]
-  char v39; // [rsp+61h] [rbp-D7h]
-  _DWORD v40[3]; // [rsp+64h] [rbp-D4h] BYREF
-  PVOID P; // [rsp+70h] [rbp-C8h]
-  PVOID v42; // [rsp+78h] [rbp-C0h]
-  unsigned int v43; // [rsp+80h] [rbp-B8h] BYREF
-  PVOID v44; // [rsp+88h] [rbp-B0h]
-  PVOID v45; // [rsp+90h] [rbp-A8h]
-  unsigned int v46; // [rsp+98h] [rbp-A0h] BYREF
-  PVOID v47; // [rsp+A0h] [rbp-98h]
-  struct _IO_STACK_LOCATION *v48; // [rsp+A8h] [rbp-90h]
-  const wchar_t *v49; // [rsp+B0h] [rbp-88h]
-  struct _LIST_ENTRY *v50; // [rsp+B8h] [rbp-80h]
-  IRP *v51; // [rsp+C0h] [rbp-78h]
-  PVOID FsContext2; // [rsp+C8h] [rbp-70h] BYREF
-  struct _IO_STACK_LOCATION *v53; // [rsp+D0h] [rbp-68h]
-  ULONG_PTR BugCheckParameter2; // [rsp+D8h] [rbp-60h]
-  __int128 v55; // [rsp+E0h] [rbp-58h] BYREF
-  struct _LIST_ENTRY v56; // [rsp+F0h] [rbp-48h] BYREF
+  __int64 v33; // rdx
+  unsigned int v34; // eax
+  PVOID PoolWithTag; // rax
+  unsigned int v36; // ecx
+  PVOID v37; // r8
+  _WORD *v38; // rdx
+  __int64 v39; // [rsp+20h] [rbp-118h]
+  char v40; // [rsp+61h] [rbp-D7h]
+  PVOID P; // [rsp+68h] [rbp-D0h]
+  unsigned int NumberOfBytes; // [rsp+70h] [rbp-C8h] BYREF
+  unsigned int NumberOfBytes_4; // [rsp+74h] [rbp-C4h] BYREF
+  SIZE_T v44; // [rsp+78h] [rbp-C0h] BYREF
+  PVOID v45; // [rsp+80h] [rbp-B8h]
+  unsigned int v46; // [rsp+88h] [rbp-B0h] BYREF
+  const wchar_t *v47; // [rsp+90h] [rbp-A8h]
+  PVOID v48; // [rsp+98h] [rbp-A0h]
+  PVOID v49; // [rsp+A0h] [rbp-98h]
+  unsigned int v50; // [rsp+A8h] [rbp-90h] BYREF
+  PVOID v51; // [rsp+B0h] [rbp-88h]
+  PVOID FsContext2; // [rsp+B8h] [rbp-80h]
+  struct _LIST_ENTRY *v53; // [rsp+C0h] [rbp-78h]
+  IRP *v54; // [rsp+C8h] [rbp-70h]
+  struct _IO_STACK_LOCATION *v55; // [rsp+D0h] [rbp-68h]
+  __int64 v56; // [rsp+D8h] [rbp-60h] BYREF
+  ULONG_PTR BugCheckParameter2; // [rsp+E0h] [rbp-58h]
+  __int128 v58; // [rsp+E8h] [rbp-50h] BYREF
+  struct _LIST_ENTRY v59; // [rsp+F8h] [rbp-40h] BYREF
 
   v1 = a1;
-  v51 = a1;
-  v44 = a1;
+  v54 = a1;
+  v47 = (const wchar_t *)a1;
   CurrentStackLocation = a1->Tail.Overlay.CurrentStackLocation;
-  v53 = CurrentStackLocation;
-  v48 = CurrentStackLocation;
+  v55 = CurrentStackLocation;
+  v49 = CurrentStackLocation;
   FsContext2 = CurrentStackLocation->FileObject->FsContext2;
   v3 = (__int64)FsContext2;
   v4 = 0;
   v5 = 0LL;
-  v50 = 0LL;
-  v56 = 0LL;
-  v39 = 0;
-  v43 = 0;
+  v53 = 0LL;
+  v59 = 0LL;
+  v40 = 0;
   v46 = 0;
-  v55 = 0LL;
+  v50 = 0;
+  v58 = 0LL;
   if ( !FsContext2 )
   {
     ValidateQueryData = -1073741637;
@@ -134,18 +137,18 @@ __int64 __fastcall PiDqIrpQueryCreate(IRP *a1)
       if ( ValidateQueryData < 0 )
         goto LABEL_14;
       v10 = (void **)(v3 + 24);
-      NdrMesTypeDecode3(*(_QWORD *)(v3 + 16), "TP 3\a", &off_1400023D8, &off_140C02FB0, 0, v3 + 24);
+      NdrMesTypeDecode3(*(_QWORD *)(v3 + 16), "TP 3\a", &off_140001580, &off_140C01A50, 0, v3 + 24);
       ValidateQueryData = PiDqQueryValidateQueryData(*(_QWORD *)(v3 + 24));
       if ( ValidateQueryData < 0 )
         goto LABEL_13;
-      if ( !PnpIsNullGuid(*v10) )
+      if ( !(unsigned __int8)PnpIsNullGuid(*v10) )
       {
-        v56 = *(struct _LIST_ENTRY *)*v10;
-        v5 = IoSetActivityIdThread(&v56);
-        v50 = v5;
-        v39 = 1;
+        v59 = *(struct _LIST_ENTRY *)*v10;
+        v5 = IoSetActivityIdThread(&v59);
+        v53 = v5;
+        v40 = 1;
       }
-      if ( (byte_140C0DD4A & 0x40) == 0 )
+      if ( (byte_140C1327A & 0x40) == 0 )
       {
 LABEL_12:
         *(_DWORD *)(v3 + 216) |= 4u;
@@ -154,32 +157,32 @@ LABEL_13:
         goto LABEL_14;
       }
       v14 = 0LL;
-      v42 = 0LL;
-      v48 = 0LL;
-      FsContext2 = 0LL;
       v45 = 0LL;
+      FsContext2 = 0LL;
+      v56 = 0LL;
+      v49 = 0LL;
       v15 = 0LL;
-      v47 = 0LL;
-      v44 = 0LL;
+      v51 = 0LL;
+      v48 = 0LL;
       v16 = (unsigned int *)*v10;
-      if ( (int)PiDqConvertObjectTypeToString(v16[4], &FsContext2) < 0 )
+      if ( (int)PiDqConvertObjectTypeToString(v16[4], &v56) < 0 )
       {
 LABEL_86:
-        if ( v44 )
-          ExFreePoolWithTag(v44, 0x58706E50u);
+        if ( v48 )
+          ExFreePoolWithTag(v48, 0x58706E50u);
         if ( v15 )
           ExFreePoolWithTag(v15, 0x58706E50u);
-        if ( v45 )
-          ExFreePoolWithTag(v45, 0x58706E50u);
-        if ( v47 )
-          ExFreePoolWithTag(v47, 0x58706E50u);
+        if ( v49 )
+          ExFreePoolWithTag(v49, 0x58706E50u);
+        if ( v51 )
+          ExFreePoolWithTag(v51, 0x58706E50u);
         if ( v14 )
           ExFreePoolWithTag(v14, 0x58706E50u);
-        v5 = v50;
+        v5 = v53;
         goto LABEL_12;
       }
       v17 = 0;
-      v49 = 0LL;
+      v47 = 0LL;
       v18 = v16[5];
       if ( v18 )
       {
@@ -201,190 +204,195 @@ LABEL_86:
       {
         v19 = L"Type";
       }
-      v49 = v19;
+      v47 = v19;
 LABEL_40:
       if ( v17 < 0 )
         goto LABEL_86;
       if ( v18 == 1 )
       {
-        v48 = (struct _IO_STACK_LOCATION *)*((_QWORD *)v16 + 3);
+        FsContext2 = (PVOID)*((_QWORD *)v16 + 3);
       }
       else if ( v18 == 2 )
       {
-        v33 = v16[6];
-        if ( v33 <= 2 )
+        v34 = v16[6];
+        if ( v34 <= 2 )
           goto LABEL_86;
-        Pool2 = (void *)ExAllocatePool2(256LL, 2LL * v33, 1483763280LL);
-        v44 = Pool2;
-        if ( !Pool2 )
-          goto LABEL_85;
-        memmove(Pool2, *((const void **)v16 + 4), 2LL * v16[6]);
-        v35 = v16[6] - 2;
-        v36 = (struct _IO_STACK_LOCATION *)v44;
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, 2LL * v34, 0x58706E50u);
+        v48 = PoolWithTag;
+        if ( !PoolWithTag )
+          goto LABEL_86;
+        memmove(PoolWithTag, *((const void **)v16 + 4), 2LL * v16[6]);
+        v36 = v16[6] - 2;
+        v37 = v48;
         if ( v16[6] != 2 )
         {
-          v37 = (char *)v44 + 2 * v35;
+          v38 = (char *)v48 + 2 * v36;
           do
           {
-            if ( !*v37 )
-              *v37 = 32;
-            --v37;
-            --v35;
+            if ( !*v38 )
+              *v38 = 32;
+            --v38;
+            --v36;
           }
-          while ( v35 );
+          while ( v36 );
         }
-        v48 = v36;
+        FsContext2 = v37;
       }
-      v40[0] = 512;
-      v20 = (void *)ExAllocatePool2(256LL, 512LL, 1483763280LL);
+      NumberOfBytes = 512;
+      v20 = ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x58706E50u);
       P = v20;
-      if ( v20 )
+      if ( !v20 )
       {
-        FlagsToString = PiDqConvertQueryFlagsToString(v16[10], v20, 512LL, v40);
-        if ( FlagsToString != -1073741789 )
-          goto LABEL_47;
+        v15 = 0LL;
+        goto LABEL_86;
+      }
+      v21 = PiDqConvertQueryFlagsToString(v16[10], v20, 512LL, &NumberOfBytes);
+      if ( v21 == -1073741789 )
+      {
         ExFreePoolWithTag(P, 0x58706E50u);
-        v20 = (void *)ExAllocatePool2(256LL, v40[0], 1483763280LL);
-        P = v20;
-        if ( v20 )
+        v22 = ExAllocatePoolWithTag(PagedPool, NumberOfBytes, 0x58706E50u);
+        P = v22;
+        if ( !v22 )
         {
-          FlagsToString = PiDqConvertQueryFlagsToString(v16[10], v20, v40[0], v40);
-LABEL_47:
-          if ( FlagsToString >= 0 )
+          v15 = 0LL;
+          v14 = 0LL;
+          goto LABEL_86;
+        }
+        v21 = PiDqConvertQueryFlagsToString(v16[10], v22, NumberOfBytes, &NumberOfBytes);
+      }
+      if ( v21 < 0 )
+        goto LABEL_84;
+      if ( (v16[10] & 4) != 0 )
+      {
+        v23 = v16[12];
+        if ( v23 <= 2 )
+          goto LABEL_84;
+        v24 = ExAllocatePoolWithTag(PagedPool, 2LL * v23, 0x58706E50u);
+        v49 = v24;
+        if ( !v24 )
+          goto LABEL_84;
+        memmove(v24, *((const void **)v16 + 7), 2LL * v16[12]);
+        v25 = v16[12] - 2;
+        if ( v16[12] != 2 )
+        {
+          v26 = (char *)v49 + 2 * v25;
+          do
           {
-            if ( (v16[10] & 4) != 0 )
-            {
-              v22 = v16[12];
-              if ( v22 <= 2 )
-                goto LABEL_84;
-              v23 = (void *)ExAllocatePool2(256LL, 2LL * v22, 1483763280LL);
-              v45 = v23;
-              if ( !v23 )
-                goto LABEL_84;
-              memmove(v23, *((const void **)v16 + 7), 2LL * v16[12]);
-              v24 = v16[12] - 2;
-              if ( v16[12] != 2 )
-              {
-                v25 = (char *)v45 + 2 * v24;
-                do
-                {
-                  if ( !*v25 )
-                    *v25 = 32;
-                  --v25;
-                  --v24;
-                }
-                while ( v24 );
-              }
-            }
-            if ( !v16[16] )
-              goto LABEL_62;
-            v40[0] = 512;
-            v26 = (void *)ExAllocatePool2(256LL, 512LL, 1483763280LL);
-            v47 = v26;
-            if ( !v26 )
-              goto LABEL_84;
-            v27 = PnpConvertDevpropcompkeyArrayToString(*((_QWORD *)v16 + 9), v16[16], (_DWORD)v26, 512, (__int64)v40);
-            if ( v27 != -1073741789 )
-              goto LABEL_61;
-            ExFreePoolWithTag(v47, 0x58706E50u);
-            v28 = (void *)ExAllocatePool2(256LL, v40[0], 1483763280LL);
-            v47 = v28;
-            if ( v28 )
-            {
-              v27 = PnpConvertDevpropcompkeyArrayToString(
-                      *((_QWORD *)v16 + 9),
-                      v16[16],
-                      (_DWORD)v28,
-                      v40[0],
-                      (__int64)v40);
-LABEL_61:
-              if ( v27 >= 0 )
-              {
+            if ( !*v26 )
+              *v26 = 32;
+            --v26;
+            --v25;
+          }
+          while ( v25 );
+        }
+      }
+      if ( !v16[16] )
+        goto LABEL_62;
+      NumberOfBytes_4 = 512;
+      v27 = ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x58706E50u);
+      v51 = v27;
+      if ( v27 )
+      {
+        v28 = PnpConvertDevpropcompkeyArrayToString(
+                *((_QWORD *)v16 + 9),
+                v16[16],
+                (_DWORD)v27,
+                512,
+                (__int64)&NumberOfBytes_4);
+        if ( v28 == -1073741789 )
+        {
+          ExFreePoolWithTag(v51, 0x58706E50u);
+          v29 = ExAllocatePoolWithTag(PagedPool, NumberOfBytes_4, 0x58706E50u);
+          v51 = v29;
+          if ( !v29 )
+            goto LABEL_84;
+          v28 = PnpConvertDevpropcompkeyArrayToString(
+                  *((_QWORD *)v16 + 9),
+                  v16[16],
+                  (_DWORD)v29,
+                  NumberOfBytes_4,
+                  (__int64)&NumberOfBytes_4);
+        }
+        if ( v28 >= 0 )
+        {
 LABEL_62:
-                if ( !v16[20] )
-                  goto LABEL_68;
-                v40[0] = 512;
-                v29 = (void *)ExAllocatePool2(256LL, 512LL, 1483763280LL);
-                v42 = v29;
-                if ( v29 )
-                {
-                  v30 = FilterConvertToString(v16[20], *((_QWORD *)v16 + 11), 512, (_DWORD)v29, (__int64)v40);
-                  if ( v30 != -1073741789 )
-                    goto LABEL_67;
-                  ExFreePoolWithTag(v42, 0x58706E50u);
-                  v29 = (void *)ExAllocatePool2(256LL, v40[0], 1483763280LL);
-                  v42 = v29;
-                  if ( v29 )
-                  {
-                    v30 = FilterConvertToString(v16[20], *((_QWORD *)v16 + 11), v40[0], (_DWORD)v29, (__int64)v40);
+          if ( !v16[20] )
+            goto LABEL_68;
+          LODWORD(v44) = 512;
+          v30 = ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x58706E50u);
+          v45 = v30;
+          if ( v30 )
+          {
+            v31 = FilterConvertToString(v16[20], *((_QWORD *)v16 + 11), 512, (_DWORD)v30, (__int64)&v44);
+            if ( v31 != -1073741789 )
+              goto LABEL_67;
+            ExFreePoolWithTag(v45, 0x58706E50u);
+            v30 = ExAllocatePoolWithTag(PagedPool, (unsigned int)v44, 0x58706E50u);
+            v45 = v30;
+            if ( v30 )
+            {
+              v31 = FilterConvertToString(v16[20], *((_QWORD *)v16 + 11), v44, (_DWORD)v30, (__int64)&v44);
 LABEL_67:
-                    if ( v30 < 0 )
-                    {
-LABEL_82:
-                      v14 = v42;
-                      goto LABEL_83;
-                    }
-LABEL_68:
-                    if ( (byte_140C0DD4A & 0x40) != 0 )
-                    {
-                      CurrentThreadProcessId = PsGetCurrentThreadProcessId();
-                      v14 = v42;
-                      v15 = P;
-                      LODWORD(v38) = CurrentThreadProcessId;
-                      McTemplateK0pqzzzzzzz_EtwWriteTransfer(
-                        (__int64)FsContext2,
-                        v32,
-                        (const GUID *)v16,
-                        v3,
-                        v38,
-                        FsContext2,
-                        v49,
-                        v48,
-                        P,
-                        v45,
-                        v47,
-                        v42);
-                      goto LABEL_86;
-                    }
-                    goto LABEL_82;
-                  }
-                }
-                v14 = v29;
+              if ( v31 < 0 )
+              {
 LABEL_83:
+                v14 = v45;
+                goto LABEL_85;
+              }
+LABEL_68:
+              if ( (byte_140C1327A & 0x40) != 0 )
+              {
+                CurrentThreadProcessId = PsGetCurrentThreadProcessId();
+                v14 = v45;
                 v15 = P;
+                LODWORD(v39) = CurrentThreadProcessId;
+                McTemplateK0pqzzzzzzz_EtwWriteTransfer(
+                  v56,
+                  v33,
+                  (const GUID *)v16,
+                  v3,
+                  v39,
+                  v56,
+                  v47,
+                  FsContext2,
+                  P,
+                  v49,
+                  v51,
+                  v45);
                 goto LABEL_86;
               }
+              goto LABEL_83;
             }
           }
-LABEL_84:
+          v14 = v30;
+LABEL_85:
           v15 = P;
-          goto LABEL_85;
+          goto LABEL_86;
         }
       }
-      v15 = v20;
-LABEL_85:
+LABEL_84:
       v14 = 0LL;
-      goto LABEL_86;
+      goto LABEL_85;
     }
     ValidateQueryData = -1073741789;
   }
 LABEL_14:
   ExReleasePushLockEx(BugCheckParameter2, 0LL);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  CurrentStackLocation = v53;
-  v1 = v51;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  CurrentStackLocation = v55;
+  v1 = v54;
   if ( ValidateQueryData >= 0 )
   {
-    Length = v53->Parameters.Read.Length;
+    Length = v55->Parameters.Read.Length;
     if ( Length <= 0x10 )
-      v43 = 16;
+      v46 = 16;
     else
       ValidateQueryData = PiDqQuerySerializeActionQueue(
                             v3,
-                            v51->AssociatedIrp.MasterIrp,
+                            v54->AssociatedIrp.MasterIrp,
                             Length,
-                            (unsigned int)&v43,
-                            (__int64)&v46);
+                            (unsigned int)&v46,
+                            (__int64)&v50);
   }
 LABEL_17:
   if ( v4 )
@@ -399,14 +407,14 @@ LABEL_17:
     }
     else
     {
-      PiDqQueryGetNextIoctlInfo(v3, CurrentStackLocation->Parameters.Read.Length, v46, &v55);
+      PiDqQueryGetNextIoctlInfo(v3, CurrentStackLocation->Parameters.Read.Length, v50, &v58);
     }
     *(_DWORD *)(v3 + 216) &= ~0x10u;
     ExReleasePushLockEx(v3 + 64, 0LL);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  PiDqIrpComplete(v1, ValidateQueryData, v43, &v55);
-  if ( v39 )
+  PiDqIrpComplete(v1, ValidateQueryData, v46, &v58);
+  if ( v40 )
     IoClearActivityIdThread(v5);
   return (unsigned int)ValidateQueryData;
 }

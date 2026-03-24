@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Initialize@FxDpc@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_DPC_CONFIG@@PEAVFxObject@@PEAPEAUWDFDPC__@@@Z @ 0x1C002F334
+ * XREFs of ?Initialize@FxDpc@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_DPC_CONFIG@@PEAVFxObject@@PEAPEAUWDFDPC__@@@Z @ 0x1C003A46C
  * Callers:
- *     ?_Create@FxDpc@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_DPC_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxObject@@PEAPEAUWDFDPC__@@@Z @ 0x1C002F264 (-_Create@FxDpc@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_DPC_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAV.c)
+ *     ?_Create@FxDpc@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_DPC_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxObject@@PEAPEAUWDFDPC__@@@Z @ 0x1C003A5B4 (-_Create@FxDpc@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_DPC_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAV.c)
  * Callees:
- *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C0005B30 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z @ 0x1C00193BC (-_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z.c)
- *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C00196F8 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
- *     ?_GetEffectiveLock@FxObject@@SAJPEAV1@PEAVIFxHasCallbacks@@EEPEAPEAVFxCallbackLock@@PEAPEAV1@@Z @ 0x1C0019730 (-_GetEffectiveLock@FxObject@@SAJPEAV1@PEAVIFxHasCallbacks@@EEPEAPEAVFxCallbackLock@@PEAPEAV1@@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z @ 0x1C000B520 (-Commit@FxObject@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAXPEAV1@E@Z.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C000CA80 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     ?_GetEffectiveLock@FxObject@@SAJPEAV1@PEAVIFxHasCallbacks@@EEPEAPEAVFxCallbackLock@@PEAPEAV1@@Z @ 0x1C0013ED8 (-_GetEffectiveLock@FxObject@@SAJPEAV1@PEAVIFxHasCallbacks@@EEPEAPEAVFxCallbackLock@@PEAPEAV1@@Z.c)
+ *     ?_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z @ 0x1C0013F60 (-_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z.c)
  */
 
 __int64 __fastcall FxDpc::Initialize(
@@ -21,7 +21,7 @@ __int64 __fastcall FxDpc::Initialize(
   _FX_DRIVER_GLOBALS *m_Globals; // r14
   FxDeviceBase *v11; // rax
   int EffectiveLock; // edi
-  void **v13; // r8
+  void **v14; // r8
   IFxHasCallbacks *pCallbacks; // [rsp+60h] [rbp+8h] BYREF
 
   EvtDpcFunc = Config->EvtDpcFunc;
@@ -41,7 +41,14 @@ __int64 __fastcall FxDpc::Initialize(
                     0,
                     &this->m_CallbackLock,
                     &this->m_CallbackLockObject);
-  if ( EffectiveLock < 0 )
+  if ( EffectiveLock >= 0 )
+  {
+    FxObject::AddRef(ParentObject, this, 242, "minkernel\\wdf\\framework\\kmdf\\src\\core\\fxdpc.cpp");
+    v14 = (void **)Dpc;
+    this->m_Object = ParentObject;
+    return FxObject::Commit(this, Attributes, v14, ParentObject, 1u);
+  }
+  else
   {
     if ( EffectiveLock == -1071644148 )
       WPP_IFR_SF_qL(
@@ -53,12 +60,5 @@ __int64 __fastcall FxDpc::Initialize(
         Attributes->DestroyEvent.m_Event.Header.WaitListHead.Flink,
         0xC020020C);
     return (unsigned int)EffectiveLock;
-  }
-  else
-  {
-    FxObject::AddRef(ParentObject, this, 242, "minkernel\\wdf\\framework\\kmdf\\src\\core\\fxdpc.cpp");
-    v13 = (void **)Dpc;
-    this->m_Object = ParentObject;
-    return FxObject::Commit(this, Attributes, v13, ParentObject, 1u);
   }
 }

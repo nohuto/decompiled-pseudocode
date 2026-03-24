@@ -1,14 +1,14 @@
 /*
  * XREFs of MiPfCompletePrefetchIos @ 0x14001A020
  * Callers:
- *     MmWaitForCacheManagerPrefetch @ 0x1400DECD8 (MmWaitForCacheManagerPrefetch.c)
- *     MiPrefetchVirtualMemory @ 0x1400EA120 (MiPrefetchVirtualMemory.c)
- *     MmPrefetchPagesEx @ 0x140662458 (MmPrefetchPagesEx.c)
- *     MiPrefetchControlArea @ 0x1406C7264 (MiPrefetchControlArea.c)
+ *     MmWaitForCacheManagerPrefetch @ 0x1400DECF8 (MmWaitForCacheManagerPrefetch.c)
+ *     MiPrefetchVirtualMemory @ 0x1400EA140 (MiPrefetchVirtualMemory.c)
+ *     MmPrefetchPagesEx @ 0x140662438 (MmPrefetchPagesEx.c)
+ *     MiPrefetchControlArea @ 0x1406C7244 (MiPrefetchControlArea.c)
  * Callees:
  *     MiPfCompleteInPageSupport @ 0x14001A0B8 (MiPfCompleteInPageSupport.c)
- *     MiPfCoalesceAndIssueIOs @ 0x14012E258 (MiPfCoalesceAndIssueIOs.c)
- *     MiPfCompleteCoalescedIo @ 0x1402AEC8C (MiPfCompleteCoalescedIo.c)
+ *     MiPfCoalesceAndIssueIOs @ 0x14012E278 (MiPfCoalesceAndIssueIOs.c)
+ *     MiPfCompleteCoalescedIo @ 0x1402AED8C (MiPfCompleteCoalescedIo.c)
  */
 
 __int64 __fastcall MiPfCompletePrefetchIos(_QWORD **a1, __int64 a2, __int64 a3)

@@ -1,48 +1,48 @@
 /*
- * XREFs of NtUserProcessInkFeedbackCommand @ 0x1C01FB2C0
+ * XREFs of NtUserProcessInkFeedbackCommand @ 0x1C0200580
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     ?InkProcessorProcessInkFeedbackCommand@@YAJIPEAXI@Z @ 0x1C021AB34 (-InkProcessorProcessInkFeedbackCommand@@YAJIPEAXI@Z.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     ?InkProcessorProcessInkFeedbackCommand@@YAJIPEAXI@Z @ 0x1C0220748 (-InkProcessorProcessInkFeedbackCommand@@YAJIPEAXI@Z.c)
  */
 
-__int64 __fastcall NtUserProcessInkFeedbackCommand(__int64 a1, void *Src, __int64 a3)
+__int64 __fastcall NtUserProcessInkFeedbackCommand(unsigned int a1, void *Src, unsigned int a3)
 {
-  SIZE_T v3; // rsi
-  unsigned int v5; // r12d
+  SIZE_T v3; // r14
   int v6; // ebx
   __int64 v7; // rdx
-  __int64 v8; // rcx
-  void *v9; // rax
-  __int64 v10; // rdx
-  void *v11; // rdi
+  __int64 v8; // r8
+  __int64 v9; // rcx
+  void *v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  void *v13; // rdi
 
-  v3 = (unsigned int)a3;
-  v5 = a1;
+  v3 = a3;
   v6 = 0;
-  EnterSharedCrit(a1, Src, a3);
+  EnterSharedCrit(0LL, 1LL);
   if ( (_DWORD)v3 )
   {
     ProbeForRead(Src, v3, 1u);
-    v9 = (void *)Win32AllocPoolWithQuotaZInit(v3, 1768452949LL);
-    v11 = v9;
-    if ( v9 )
+    v10 = (void *)Win32AllocPoolWithQuota(v3, 1768452949LL);
+    v13 = v10;
+    if ( v10 )
     {
-      memmove(v9, Src, v3);
-      LOBYTE(v6) = (int)InkProcessorProcessInkFeedbackCommand(v5, v11, v3) >= 0;
-      Win32FreePool(v11);
+      memmove(v10, Src, v3);
+      LOBYTE(v6) = (int)InkProcessorProcessInkFeedbackCommand(a1, v13, v3) >= 0;
+      Win32FreePool(v13);
     }
     else
     {
-      UserSetLastError(8LL, v10);
+      UserSetLastError(8LL, v11, v12);
     }
   }
   else
   {
-    UserSetLastError(87LL, v7);
+    UserSetLastError(87LL, v7, v8);
   }
-  UserSessionSwitchLeaveCrit(v8);
+  UserSessionSwitchLeaveCrit(v9);
   return v6;
 }

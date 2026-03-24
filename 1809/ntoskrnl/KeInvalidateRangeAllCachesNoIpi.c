@@ -2,11 +2,11 @@
  * XREFs of KeInvalidateRangeAllCachesNoIpi @ 0x140082710
  * Callers:
  *     MiChangePageAttributeBatch @ 0x1400823F0 (MiChangePageAttributeBatch.c)
- *     MiFlushCacheForAttributeChange @ 0x140138EA8 (MiFlushCacheForAttributeChange.c)
- *     KeInvalidateRangeAllCaches @ 0x1402952D0 (KeInvalidateRangeAllCaches.c)
+ *     MiFlushCacheForAttributeChange @ 0x140138EC8 (MiFlushCacheForAttributeChange.c)
+ *     KeInvalidateRangeAllCaches @ 0x1402953D0 (KeInvalidateRangeAllCaches.c)
  * Callees:
- *     KeInvalidateAllCaches @ 0x140177030 (KeInvalidateAllCaches.c)
- *     KiFlushCacheLines @ 0x1401C0960 (KiFlushCacheLines.c)
+ *     KeInvalidateAllCaches @ 0x140177050 (KeInvalidateAllCaches.c)
+ *     KiFlushCacheLines @ 0x1401C0980 (KiFlushCacheLines.c)
  */
 
 char __fastcall KeInvalidateRangeAllCachesNoIpi(__int64 a1, unsigned int a2)

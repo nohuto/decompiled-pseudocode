@@ -2,7 +2,7 @@
  * XREFs of ObQuerySecurityDescriptorInfo @ 0x1405C833C
  * Callers:
  *     SeDefaultObjectMethod @ 0x1405C9C30 (SeDefaultObjectMethod.c)
- *     WmipSecurityMethod @ 0x1406AAAA0 (WmipSecurityMethod.c)
+ *     WmipSecurityMethod @ 0x1406AAA80 (WmipSecurityMethod.c)
  * Callees:
  *     ObDereferenceSecurityDescriptor @ 0x1405C9410 (ObDereferenceSecurityDescriptor.c)
  *     ObpReferenceSecurityDescriptor @ 0x1405C9750 (ObpReferenceSecurityDescriptor.c)

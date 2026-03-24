@@ -16,7 +16,7 @@ __int64 __fastcall PopRecordHibernateDiagnosticInfo(__int64 a1)
   __int64 v6; // rcx
 
   v1 = 0;
-  PopHibernateDiagnosticInfo = byte_140418256;
+  PopHibernateDiagnosticInfo = byte_140418236;
   v3 = 0;
   qword_1404184C8 = qword_140417D30;
   v4 = 0;
@@ -28,8 +28,8 @@ __int64 __fastcall PopRecordHibernateDiagnosticInfo(__int64 a1)
   qword_1404184F8 = qword_140417D50;
   qword_140418500 = qword_140417D68;
   dword_140418508 = dword_140417D70;
-  result = (unsigned int)dword_140417A64;
-  dword_140418514 = dword_140417A64;
+  result = (unsigned int)dword_140417864;
+  dword_140418514 = dword_140417864;
   for ( qword_14041850C = 0LL; v4 < *(_DWORD *)(a1 + 256); HIDWORD(qword_14041850C) = v3 )
   {
     v6 = v4++;

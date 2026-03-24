@@ -1,57 +1,44 @@
 /*
- * XREFs of CmpAddValueKeyTombstone @ 0x140914214
+ * XREFs of CmpAddValueKeyTombstone @ 0x14086E4EC
  * Callers:
- *     CmpSetValueKeyTombstone @ 0x140914BEC (CmpSetValueKeyTombstone.c)
+ *     CmpSetValueKeyTombstone @ 0x14086E9FC (CmpSetValueKeyTombstone.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     CmpNameSize @ 0x1406AD650 (CmpNameSize.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpCopyName @ 0x14079B8C0 (CmpCopyName.c)
- *     HvAllocateCell @ 0x14079C8A4 (HvAllocateCell.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1407C97FC (HvpGetCellContextReinitialize.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmpNameSize @ 0x14069306C (CmpNameSize.c)
+ *     HvAllocateCell @ 0x140709404 (HvAllocateCell.c)
+ *     CmpCopyName @ 0x14070A0E0 (CmpCopyName.c)
  */
 
-__int64 __fastcall CmpAddValueKeyTombstone(ULONG_PTR a1, unsigned __int16 *a2, unsigned int a3, int *a4)
+__int64 __fastcall CmpAddValueKeyTombstone(ULONG_PTR a1, unsigned __int16 *a2)
 {
-  unsigned int v8; // r14d
-  int v9; // eax
-  _WORD *v10; // rbx
-  unsigned int v11; // esi
-  unsigned __int16 v12; // ax
-  int v14; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v15; // [rsp+38h] [rbp-30h] BYREF
-  void *v16; // [rsp+40h] [rbp-28h] BYREF
+  unsigned int v4; // ebx
+  int v5; // r11d
+  unsigned int v6; // esi
+  size_t v8; // r8
+  _WORD *v9; // rbx
+  unsigned __int16 v10; // ax
+  void *v11; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v12; // [rsp+68h] [rbp+20h] BYREF
 
-  v15 = 0LL;
-  v14 = -1;
-  v16 = 0LL;
-  HvpGetCellContextReinitialize(&v15);
-  v8 = (unsigned __int16)CmpNameSize(a2) + 20;
-  v9 = HvAllocateCell(a1, v8, a3, &v14, (__int64)&v16, (__int64)&v15);
-  v10 = v16;
-  v11 = v9;
-  if ( v9 >= 0 )
-  {
-    memset(v16, 0, v8);
-    *v10 = 27510;
-    v10[8] = 2;
-    *((_DWORD *)v10 + 1) = 0;
-    *((_DWORD *)v10 + 2) = -1;
-    *((_DWORD *)v10 + 3) = 0;
-    v12 = CmpCopyName((_BYTE *)v10 + 20, a2);
-    v10[1] = v12;
-    if ( v12 < *a2 )
-      v10[8] |= 1u;
-    v11 = 0;
-    *a4 = v14;
-  }
-  if ( v10 )
-  {
-    if ( (*(_BYTE *)(a1 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(a1, &v15);
-    else
-      HvpReleaseCellPaged(a1, (unsigned int *)&v15);
-  }
-  return v11;
+  v12 = 0xFFFFFFFFLL;
+  v11 = 0LL;
+  v4 = (unsigned __int16)CmpNameSize(a2) + 20;
+  v6 = HvAllocateCell(a1, v4, v5, &v11, &v12);
+  if ( v6 == -1 )
+    return 0xFFFFFFFFLL;
+  v8 = v4;
+  v9 = v11;
+  memset(v11, 0, v8);
+  *v9 = 27510;
+  v9[8] = 2;
+  *((_DWORD *)v9 + 1) = 0;
+  *((_DWORD *)v9 + 2) = -1;
+  *((_DWORD *)v9 + 3) = 0;
+  v10 = CmpCopyName((_BYTE *)v9 + 20, a2);
+  v9[1] = v10;
+  if ( v10 < *a2 )
+    v9[8] |= 1u;
+  (*(void (__fastcall **)(ULONG_PTR, __int64 *))(a1 + 16))(a1, &v12);
+  return v6;
 }

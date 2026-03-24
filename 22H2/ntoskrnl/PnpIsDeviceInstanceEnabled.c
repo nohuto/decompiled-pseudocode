@@ -1,123 +1,122 @@
 /*
- * XREFs of PnpIsDeviceInstanceEnabled @ 0x1407D8E64
+ * XREFs of PnpIsDeviceInstanceEnabled @ 0x14075240C
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
- *     IopInitializeDeviceInstanceKey @ 0x140814744 (IopInitializeDeviceInstanceKey.c)
- *     PiProfileUpdateDeviceTreeCallback @ 0x140963800 (PiProfileUpdateDeviceTreeCallback.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14074E544 (IopInitializeDeviceInstanceKey.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x1408AB0D0 (PiProfileUpdateDeviceTreeCallback.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBF54 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     _CmGetDeviceRegProp @ 0x1406CD50C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     PnpUnicodeStringToWstrFree @ 0x1406D3FF4 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x1406D4364 (PnpUnicodeStringToWstr.c)
- *     PnpGetDeviceInstanceCsConfigFlags @ 0x1407D8FDC (PnpGetDeviceInstanceCsConfigFlags.c)
- *     PnpDisableDevice @ 0x1409589C8 (PnpDisableDevice.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406AE574 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x1406B033C (PnpUnicodeStringToWstr.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406B14B0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     _CmGetDeviceRegProp @ 0x1406BA24C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     PnpGetDeviceInstanceCsConfigFlags @ 0x14075256C (PnpGetDeviceInstanceCsConfigFlags.c)
+ *     PnpDisableDevice @ 0x1408A1DDC (PnpDisableDevice.c)
  */
 
 __int64 __fastcall PnpIsDeviceInstanceEnabled(void *a1, unsigned __int16 *a2, int a3)
 {
-  __int64 v3; // rbx
-  unsigned int v6; // edi
+  _DWORD *v3; // rdi
+  unsigned int v6; // ebx
   int v7; // r12d
-  void *v8; // rsi
+  __int16 *v8; // rsi
   _QWORD *v9; // rax
   void *v10; // r14
-  __int64 v11; // rcx
-  int v12; // eax
-  HANDLE v13; // r8
-  __int64 v14; // rdx
+  int v11; // eax
+  HANDLE v12; // r8
+  __int64 v13; // rdx
+  char v14; // al
   char v15; // al
-  char v16; // al
-  int v18; // eax
-  int v19; // [rsp+40h] [rbp-10h] BYREF
-  int v20; // [rsp+44h] [rbp-Ch] BYREF
-  void *v21; // [rsp+48h] [rbp-8h] BYREF
+  int v17; // eax
+  int v18; // [rsp+40h] [rbp-10h] BYREF
+  int v19; // [rsp+44h] [rbp-Ch] BYREF
+  __int16 *v20; // [rsp+48h] [rbp-8h] BYREF
   HANDLE Handle; // [rsp+90h] [rbp+40h] BYREF
-  int v23; // [rsp+A8h] [rbp+58h] BYREF
+  int v22; // [rsp+A8h] [rbp+58h] BYREF
 
   Handle = a1;
   v3 = 0LL;
-  v23 = 0;
+  v22 = 0;
+  v18 = 0;
   v19 = 0;
-  v20 = 0;
   v6 = 1;
-  v21 = 0LL;
+  v20 = 0LL;
   v7 = 0;
   v8 = 0LL;
   v9 = PnpDeviceObjectFromDeviceInstanceWithTag((__int64)a2, 0x55706E50u);
   v10 = v9;
-  if ( !v9
-    || (v11 = *(_QWORD *)(v9[39] + 40LL), (v3 = v11) == 0)
-    || (*(_DWORD *)(v11 + 396) & 0x2000) == 0
-    || (v18 = *(_DWORD *)(v11 + 404), v18 != 22) && v18 != 29 )
+  if ( v9 )
+    v3 = *(_DWORD **)(v9[39] + 40LL);
+  if ( v3 )
   {
-    v12 = PnpUnicodeStringToWstr(&v21, 0LL, a2);
-    v8 = v21;
-    if ( v12 >= 0 )
+    if ( (v3[99] & 0x2000) != 0 )
     {
-      v13 = Handle;
-      if ( Handle )
-      {
-LABEL_6:
-        v19 = 4;
-        if ( (int)CmGetDeviceRegProp(
-                    *(__int64 *)&PiPnpRtlCtx,
-                    (__int64)v8,
-                    (__int64)v13,
-                    11,
-                    (__int64)&v20,
-                    (__int64)&v23,
-                    (__int64)&v19,
-                    0) < 0
-          || v20 == 4 && v19 == 4 )
-        {
-          v15 = v23;
-        }
-        else
-        {
-          v15 = 0;
-          v23 = 0;
-        }
-        if ( (v15 & 1) != 0 )
-        {
-          v16 = 1;
-          v23 = 1;
-        }
-        else
-        {
-          PnpGetDeviceInstanceCsConfigFlags(a2, v14, &v23);
-          v16 = v23;
-        }
-        if ( (v16 & 7) != 0 )
-        {
-          v6 = 0;
-          if ( a3 )
-          {
-            if ( v3 && (unsigned int)(*(_DWORD *)(v3 + 300) - 769) > 1 )
-              PnpDisableDevice(v3, 22LL);
-          }
-        }
-LABEL_13:
-        if ( !v10 )
-          goto LABEL_15;
-        goto LABEL_14;
-      }
-      if ( (int)CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)v21, 16, 0, 131097, 0, (__int64)&Handle, 0LL) >= 0 )
-      {
-        v13 = Handle;
-        v7 = 1;
-        goto LABEL_6;
-      }
+      v17 = v3[101];
+      if ( v17 == 22 || v17 == 29 )
+        goto LABEL_21;
     }
-    v6 = 0;
-    goto LABEL_13;
   }
-  v6 = 0;
+  v11 = PnpUnicodeStringToWstr(&v20, 0LL, a2);
+  v8 = v20;
+  if ( v11 < 0 )
+    goto LABEL_21;
+  v12 = Handle;
+  if ( !Handle )
+  {
+    if ( (int)CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)v20, 16, 0, 131097, 0, (__int64)&Handle, 0LL) >= 0 )
+    {
+      v12 = Handle;
+      v7 = 1;
+      goto LABEL_7;
+    }
+LABEL_21:
+    v6 = 0;
+    goto LABEL_14;
+  }
+LABEL_7:
+  v18 = 4;
+  if ( (int)CmGetDeviceRegProp(
+              *(__int64 *)&PiPnpRtlCtx,
+              (__int64)v8,
+              (__int64)v12,
+              11,
+              (__int64)&v19,
+              (__int64)&v22,
+              (__int64)&v18,
+              0) < 0
+    || v19 == 4 && v18 == 4 )
+  {
+    v14 = v22;
+  }
+  else
+  {
+    v14 = 0;
+    v22 = 0;
+  }
+  if ( (v14 & 1) != 0 )
+  {
+    v15 = 1;
+    v22 = 1;
+  }
+  else
+  {
+    PnpGetDeviceInstanceCsConfigFlags(a2, v13, &v22);
+    v15 = v22;
+  }
+  if ( (v15 & 7) != 0 )
+  {
+    v6 = 0;
+    if ( a3 )
+    {
+      if ( v3 && v3[75] != 769 )
+        PnpDisableDevice(v3, 22LL);
+    }
+  }
 LABEL_14:
-  ObfDereferenceObjectWithTag(v10, 0x55706E50u);
-LABEL_15:
+  if ( v10 )
+    ObfDereferenceObjectWithTag(v10, 0x55706E50u);
   if ( v7 )
     ZwClose(Handle);
   if ( v8 )

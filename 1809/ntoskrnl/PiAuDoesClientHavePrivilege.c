@@ -1,11 +1,11 @@
 /*
- * XREFs of PiAuDoesClientHavePrivilege @ 0x14082A0D8
+ * XREFs of PiAuDoesClientHavePrivilege @ 0x14082A0B8
  * Callers:
- *     PiCMDeviceAction @ 0x140837998 (PiCMDeviceAction.c)
- *     PiCMQueryRemove @ 0x140838654 (PiCMQueryRemove.c)
- *     PiCMSetDeviceProblem @ 0x140838CF4 (PiCMSetDeviceProblem.c)
+ *     PiCMDeviceAction @ 0x140837978 (PiCMDeviceAction.c)
+ *     PiCMQueryRemove @ 0x140838634 (PiCMQueryRemove.c)
+ *     PiCMSetDeviceProblem @ 0x140838CD4 (PiCMSetDeviceProblem.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
  *     SePrivilegeCheck @ 0x14062A1D0 (SePrivilegeCheck.c)
  *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)

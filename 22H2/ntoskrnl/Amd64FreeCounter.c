@@ -1,41 +1,19 @@
 /*
- * XREFs of Amd64FreeCounter @ 0x140529400
+ * XREFs of Amd64FreeCounter @ 0x1404DD99C
  * Callers:
- *     Amd64DisableMonitoring @ 0x140529120 (Amd64DisableMonitoring.c)
- *     Amd64InitializeCacheStatus @ 0x140529664 (Amd64InitializeCacheStatus.c)
- *     Amd64InitializeDataFabricStatus @ 0x140529838 (Amd64InitializeDataFabricStatus.c)
- *     Amd64InitializeProfiling @ 0x140A98840 (Amd64InitializeProfiling.c)
+ *     Amd64InitializeProfiling @ 0x1409A9860 (Amd64InitializeProfiling.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall Amd64FreeCounter(unsigned int a1)
 {
-  __int64 v2; // rdx
-  bool v3; // cf
+  unsigned __int64 v1; // rdx
   __int64 result; // rax
-  __int64 v5; // rcx
 
-  if ( HalpProfileInterface == &DefaultProfileInterface )
-    v2 = HalpCounterStatus;
-  else
-    v2 = HalpCounterStatus + 8LL * HalpNumberOfCounters * KeGetPcr()->Prcb.Number;
-  v3 = a1 < Amd64NumberCoreCounters;
-  *(_DWORD *)(*(_QWORD *)(v2 + 8LL * a1) + 32LL) = 0;
-  result = *(_QWORD *)(v2 + 8LL * a1);
-  *(_DWORD *)(result + 24) = 3;
-  if ( v3 )
-  {
-    _mm_lfence();
-    result = *(_QWORD *)(v2 + 8LL * a1);
-    v5 = *(_QWORD *)(result + 16);
-    if ( *(_BYTE *)(v5 + 8) )
-    {
-      *(_BYTE *)(v5 + 8) = 0;
-      *(_DWORD *)(*(_QWORD *)(v2 + 8LL * (a1 + 1)) + 32LL) = 0;
-      result = *(_QWORD *)(v2 + 8LL * (a1 + 1));
-      *(_DWORD *)(result + 24) = 3;
-    }
-  }
+  v1 = Amd64CounterStatus + ((unsigned __int64)KeGetPcr()->Prcb.Number << 6);
+  result = 2LL * a1;
+  *(_DWORD *)(v1 + 8 * result + 4) = 0;
+  *(_DWORD *)(v1 + 8 * result) = 3;
   return result;
 }

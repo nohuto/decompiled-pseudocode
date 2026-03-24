@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDevCfgResolveVariableConstant @ 0x14082EE80
+ * XREFs of PiDevCfgResolveVariableConstant @ 0x14082EE60
  * Callers:
- *     PiDevCfgResolveVariable @ 0x1406F341C (PiDevCfgResolveVariable.c)
+ *     PiDevCfgResolveVariable @ 0x1406F33FC (PiDevCfgResolveVariable.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     PnpValidateRegistryValue @ 0x140289638 (PnpValidateRegistryValue.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     PnpValidateRegistryValue @ 0x140289738 (PnpValidateRegistryValue.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableConstant(__int64 a1, void *a2, __int64 a3)

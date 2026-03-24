@@ -1,11 +1,11 @@
 /*
- * XREFs of PopVerifySystemPowerPolicy @ 0x140825404
+ * XREFs of PopVerifySystemPowerPolicy @ 0x14079CEF4
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     PopApplyPolicy @ 0x14082513C (PopApplyPolicy.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
+ *     PopApplyPolicy @ 0x14079CC2C (PopApplyPolicy.c)
  * Callees:
- *     PopVerifyPowerActionPolicy @ 0x1408256D8 (PopVerifyPowerActionPolicy.c)
- *     PopVerifySystemPowerState @ 0x14082580C (PopVerifySystemPowerState.c)
+ *     PopVerifyPowerActionPolicy @ 0x14078B6CC (PopVerifyPowerActionPolicy.c)
+ *     PopVerifySystemPowerState @ 0x14078B828 (PopVerifySystemPowerState.c)
  */
 
 __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
@@ -20,17 +20,16 @@ __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
   unsigned int v10; // eax
   unsigned int v11; // eax
   int *v12; // r13
-  __int64 v13; // rbp
+  int *v13; // rbp
   int *v14; // rsi
   int v15; // ebx
-  int v16; // ecx
-  int v17; // eax
-  unsigned int v18; // eax
-  int v19; // eax
-  unsigned int v20; // ecx
-  int v21; // edx
-  char v22; // al
-  int v23; // eax
+  int v16; // eax
+  unsigned int v17; // eax
+  int v18; // eax
+  unsigned int v19; // ecx
+  int v20; // edx
+  char v21; // al
+  int v22; // eax
 
   *(_OWORD *)a2 = *a1;
   *(_OWORD *)(a2 + 16) = a1[1];
@@ -71,7 +70,7 @@ __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
     *v6 = 2;
     v7 = 2;
   }
-  else if ( v7 > 4 )
+  if ( v7 > 4 )
   {
     *v6 = 4;
     v7 = 4;
@@ -83,7 +82,7 @@ __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
     *v8 = 2;
     v9 = 2;
   }
-  else if ( v9 > 4 )
+  if ( v9 > 4 )
   {
     *v8 = 4;
     v9 = 4;
@@ -106,91 +105,85 @@ __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
   if ( v10 > HIDWORD(PopAdminPolicy) )
     *(_DWORD *)(a2 + 192) = HIDWORD(PopAdminPolicy);
   v11 = *(_DWORD *)(a2 + 212);
-  if ( v11 < (unsigned int)qword_140C3D990 )
+  if ( v11 < (unsigned int)qword_140C233D0 )
   {
-    *(_DWORD *)(a2 + 212) = qword_140C3D990;
-    v11 = qword_140C3D990;
+    *(_DWORD *)(a2 + 212) = qword_140C233D0;
+    v11 = qword_140C233D0;
   }
-  if ( v11 > HIDWORD(qword_140C3D990) )
-    *(_DWORD *)(a2 + 212) = HIDWORD(qword_140C3D990);
-  PopVerifyPowerActionPolicy(a2 + 4);
-  PopVerifyPowerActionPolicy(a2 + 16);
-  PopVerifyPowerActionPolicy(a2 + 28);
-  PopVerifyPowerActionPolicy(a2 + 48);
-  PopVerifySystemPowerState(a2 + 40, 1LL);
-  PopVerifySystemPowerState(a2 + 68, 1LL);
-  PopVerifySystemPowerState(a2 + 72, 1LL);
+  if ( v11 > HIDWORD(qword_140C233D0) )
+    *(_DWORD *)(a2 + 212) = HIDWORD(qword_140C233D0);
+  PopVerifyPowerActionPolicy((int *)(a2 + 4));
+  PopVerifyPowerActionPolicy((int *)(a2 + 16));
+  PopVerifyPowerActionPolicy((int *)(a2 + 28));
+  PopVerifyPowerActionPolicy((int *)(a2 + 48));
+  PopVerifySystemPowerState((int *)(a2 + 40), 1);
+  PopVerifySystemPowerState((int *)(a2 + 68), 1);
+  PopVerifySystemPowerState((int *)(a2 + 72), 1);
   v12 = (int *)(a2 + 76);
-  PopVerifySystemPowerState(a2 + 76, 1LL);
-  v13 = a2 + 116;
+  PopVerifySystemPowerState((int *)(a2 + 76), 1);
+  v13 = (int *)(a2 + 116);
   v14 = (int *)(a2 + 104);
   do
   {
     v15 = *v14;
-    PopVerifyPowerActionPolicy(v13 - 12);
+    PopVerifyPowerActionPolicy(v13 - 3);
     if ( v15 == 3 && *v14 < 3 )
     {
       *v14 = 6;
       PopVerifyPowerActionPolicy(v14);
     }
-    PopVerifySystemPowerState(v13, 1LL);
-    v16 = *v14;
-    if ( *v14 == 2 )
+    PopVerifySystemPowerState(v13, 1);
+    if ( *v14 == 2 && v14[3] > 4 )
     {
-      v16 = 2;
-      if ( v14[3] > 4 )
-      {
-        v14[3] = 4;
-        PopVerifySystemPowerState(v13, 1LL);
-        v16 = *v14;
-      }
+      v14[3] = 4;
+      PopVerifySystemPowerState(v13, 1);
     }
     if ( v5 )
     {
-      v17 = v14[1];
-      if ( v16 == 6 )
-        v18 = v17 | 0x10;
+      v16 = v14[1];
+      if ( *v14 == 6 )
+        v17 = v16 | 0x10;
       else
-        v18 = v17 & 0xFFFFFFEF;
-      v14[1] = v18;
+        v17 = v16 & 0xFFFFFFEF;
+      v14[1] = v17;
     }
     if ( (unsigned int)*(v14 - 1) > 0x64 )
       *(v14 - 1) = 100;
     ++v5;
-    v13 += 24LL;
+    v13 += 6;
     v14 += 6;
   }
   while ( v5 < 4 );
-  PopVerifyPowerActionPolicy(a2 + 220);
+  PopVerifyPowerActionPolicy((int *)(a2 + 220));
   if ( !*(_DWORD *)(a2 + 92) )
     *(_DWORD *)(a2 + 92) = 1;
-  v19 = *(_DWORD *)(a2 + 88);
-  if ( v19 && !BYTE7(PopCapabilities) )
+  v18 = *(_DWORD *)(a2 + 88);
+  if ( v18 && !BYTE7(PopCapabilities) )
   {
     *(_DWORD *)(a2 + 88) = 0;
-    v19 = 0;
+    v18 = 0;
   }
-  v20 = *(_DWORD *)(a2 + 60);
-  v21 = v20;
-  if ( v20 && v20 < 0x3C )
+  v19 = *(_DWORD *)(a2 + 60);
+  v20 = v19;
+  if ( v19 && v19 < 0x3C )
   {
     *(_DWORD *)(a2 + 60) = 60;
-    v21 = 60;
+    v20 = 60;
   }
-  if ( (unsigned int)(v19 - 1) <= 0x3A )
+  if ( (unsigned int)(v18 - 1) <= 0x3A )
     *(_DWORD *)(a2 + 88) = 60;
-  v22 = *(_BYTE *)(a2 + 64);
-  if ( (unsigned __int8)v22 > 0x5Au )
+  v21 = *(_BYTE *)(a2 + 64);
+  if ( (unsigned __int8)v21 > 0x5Au )
   {
     *(_BYTE *)(a2 + 64) = 90;
-    v22 = 90;
+    v21 = 90;
   }
-  if ( v21 && !v22 )
+  if ( v20 && !v21 )
     *(_BYTE *)(a2 + 64) = 90;
-  v23 = *v6;
+  v22 = *v6;
   if ( *v8 < *v6 )
-    *v8 = v23;
-  if ( *v12 > v23 )
-    *v12 = v23;
+    *v8 = v22;
+  if ( *v12 > v22 )
+    *v12 = v22;
   return 0LL;
 }

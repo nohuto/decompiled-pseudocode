@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryActiveGroupCount @ 0x140361E20
+ * XREFs of KeQueryActiveGroupCount @ 0x1403544B0
  * Callers:
- *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
- *     PsCreateSystemThreadEx @ 0x140772B10 (PsCreateSystemThreadEx.c)
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     EtwpProcessorRundown @ 0x1409EF810 (EtwpProcessorRundown.c)
+ *     NtSetInformationJobObject @ 0x140614660 (NtSetInformationJobObject.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
+ *     PsCreateSystemThreadEx @ 0x1406FDA60 (PsCreateSystemThreadEx.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
+ *     EtwpProcessorRundown @ 0x14093E8DC (EtwpProcessorRundown.c)
  * Callees:
  *     <none>
  */

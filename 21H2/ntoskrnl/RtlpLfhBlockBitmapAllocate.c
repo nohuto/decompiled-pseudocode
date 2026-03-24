@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpLfhBlockBitmapAllocate @ 0x14034B970
+ * XREFs of RtlpLfhBlockBitmapAllocate @ 0x14033E4F0
  * Callers:
- *     RtlpHpLfhSlotAllocate @ 0x14034A490 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLfhSlotAllocate @ 0x14033CE40 (RtlpHpLfhSlotAllocate.c)
  * Callees:
  *     <none>
  */
@@ -14,11 +14,11 @@ __int64 __fastcall RtlpLfhBlockBitmapAllocate(
         __int64 a5)
 {
   volatile signed __int64 *v5; // rbx
-  unsigned __int64 v7; // rsi
+  unsigned __int64 v7; // rbp
   volatile signed __int64 *v9; // rdx
-  volatile signed __int64 *v10; // rbp
-  signed __int64 v11; // r11
-  signed __int64 v12; // r9
+  volatile signed __int64 *v10; // rsi
+  signed __int64 v11; // r9
+  signed __int64 v12; // r11
   __int64 v13; // rax
   unsigned __int64 v14; // rcx
   int v15; // ecx

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DmmSetTargetForceableState@@YAJQEAXIE@Z @ 0x1C039D12C
+ * XREFs of ?DmmSetTargetForceableState@@YAJQEAXIE@Z @ 0x1C02DEE8C
  * Callers:
- *     DpiFdoHandleDisplayDetectControl @ 0x1C0024A9C (DpiFdoHandleDisplayDetectControl.c)
+ *     DpiFdoHandleDisplayDetectControl @ 0x1C0020478 (DpiFdoHandleDisplayDetectControl.c)
  * Callees:
- *     DmmDoForSpecifiedTarget__lambda_e0e259c51a0d5b694a557ab2d652315a___ @ 0x1C0398834 (DmmDoForSpecifiedTarget__lambda_e0e259c51a0d5b694a557ab2d652315a___.c)
+ *     DmmDoForSpecifiedTarget__lambda_e0e259c51a0d5b694a557ab2d652315a___ @ 0x1C02DA490 (DmmDoForSpecifiedTarget__lambda_e0e259c51a0d5b694a557ab2d652315a___.c)
  */
 
-__int64 __fastcall DmmSetTargetForceableState(DXGADAPTER *a1, unsigned int a2, char a3)
+__int64 __fastcall DmmSetTargetForceableState(DXGADAPTER *a1, __int64 a2, char a3)
 {
   char v4; // [rsp+40h] [rbp+18h] BYREF
 

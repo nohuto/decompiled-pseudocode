@@ -1,5 +1,5 @@
 /*
- * XREFs of EngAllocPrivateUserMem @ 0x1C0275560
+ * XREFs of EngAllocPrivateUserMem @ 0x1C0277DF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,9 @@
 
 PVOID __stdcall EngAllocPrivateUserMem(PDD_SURFACE_LOCAL psl, SIZE_T cjMemSize, ULONG ulTag)
 {
-  WdLogSingleEntry0(3LL);
+  __int64 v3; // rax
+
+  v3 = WdLogNewEntry5_WdWarning(psl, cjMemSize, ulTag);
+  WdLogEvent5_WdWarning(v3);
   return 0LL;
 }

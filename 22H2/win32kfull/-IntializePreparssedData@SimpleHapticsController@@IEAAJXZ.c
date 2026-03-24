@@ -1,11 +1,11 @@
 /*
- * XREFs of ?IntializePreparssedData@SimpleHapticsController@@IEAAJXZ @ 0x1C024908C
+ * XREFs of ?IntializePreparssedData@SimpleHapticsController@@IEAAJXZ @ 0x1C025A248
  * Callers:
- *     ?Initialize@SimpleHapticsController@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0248870 (-Initialize@SimpleHapticsController@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?Initialize@SimpleHapticsController@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0259A1C (-Initialize@SimpleHapticsController@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C0240074 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
- *     ?SendDeviceIOControl@SimpleHapticsController@@QEAAJKPEAXK0KPEAK@Z @ 0x1C02494A0 (-SendDeviceIOControl@SimpleHapticsController@@QEAAJKPEAXK0KPEAK@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C02510F4 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ?SendDeviceIOControl@SimpleHapticsController@@QEAAJKPEAXK0KPEAK@Z @ 0x1C025A65C (-SendDeviceIOControl@SimpleHapticsController@@QEAAJKPEAXK0KPEAK@Z.c)
  */
 
 __int64 __fastcall SimpleHapticsController::IntializePreparssedData(SimpleHapticsController *this)
@@ -29,7 +29,7 @@ __int64 __fastcall SimpleHapticsController::IntializePreparssedData(SimpleHaptic
   v5 = v2;
   if ( v2 >= 0 )
   {
-    v6 = (void *)Win32AllocPoolNonPagedZInit(v13[0], 1147695957LL);
+    v6 = (void *)Win32AllocPoolNonPaged(v13[0], 1147695957LL);
     *((_QWORD *)this + 2) = v6;
     if ( v6 )
     {
@@ -37,13 +37,13 @@ __int64 __fastcall SimpleHapticsController::IntializePreparssedData(SimpleHaptic
       v5 = v7;
       if ( v7 < 0 )
       {
-        if ( (unsigned int)dword_1C0354118 > 2 )
+        if ( (unsigned int)dword_1C032A2C0 > 2 )
         {
           LODWORD(v11) = v7;
           v12 = (__int64)"Function failed.";
           _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-            (__int64)&dword_1C0354118,
-            byte_1C031E23E,
+            (__int64)&dword_1C032A2C0,
+            byte_1C02F3A55,
             v8,
             v9,
             (void **)&v12,
@@ -55,7 +55,7 @@ __int64 __fastcall SimpleHapticsController::IntializePreparssedData(SimpleHaptic
           "HapticsCtrl: (%s, %s:%d) ERROR: 0x%x, %s\n",
           "SimpleHapticsController::IntializePreparssedData",
           "clientcore\\windows\\core\\ntuser\\kernel\\windows\\simplehapticsctrl.cxx",
-          525,
+          524,
           v5,
           "Function failed.");
       }
@@ -67,13 +67,13 @@ __int64 __fastcall SimpleHapticsController::IntializePreparssedData(SimpleHaptic
   }
   else
   {
-    if ( (unsigned int)dword_1C0354118 > 2 )
+    if ( (unsigned int)dword_1C032A2C0 > 2 )
     {
       LODWORD(v11) = v2;
       v12 = (__int64)"Function failed.";
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
-        (__int64)&dword_1C0354118,
-        byte_1C031E23E,
+        (__int64)&dword_1C032A2C0,
+        byte_1C02F3A55,
         v3,
         v4,
         (void **)&v12,
@@ -85,7 +85,7 @@ __int64 __fastcall SimpleHapticsController::IntializePreparssedData(SimpleHaptic
       "HapticsCtrl: (%s, %s:%d) ERROR: 0x%x, %s\n",
       "SimpleHapticsController::IntializePreparssedData",
       "clientcore\\windows\\core\\ntuser\\kernel\\windows\\simplehapticsctrl.cxx",
-      511,
+      510,
       v5,
       "Function failed.");
   }

@@ -1,107 +1,89 @@
 /*
- * XREFs of EmonReserveProfileResources @ 0x140521800
+ * XREFs of EmonReserveProfileResources @ 0x1404D45B0
  * Callers:
  *     <none>
  * Callees:
- *     EmonAllocateResources @ 0x14051FFF8 (EmonAllocateResources.c)
+ *     EmonAllocateResources @ 0x1404D31B8 (EmonAllocateResources.c)
  */
 
 __int64 __fastcall EmonReserveProfileResources(__int64 a1, unsigned int *a2, _QWORD *a3)
 {
-  int v3; // edi
-  __int64 v5; // rbx
-  __int64 v6; // rbp
-  unsigned int v7; // r14d
-  __int64 v8; // rax
-  unsigned int v9; // esi
-  __int64 v10; // r10
-  unsigned int v11; // r11d
-  unsigned int *v12; // rdx
+  __int64 v3; // rbx
+  __int64 v5; // rsi
+  __int64 v6; // rax
+  unsigned int v7; // edi
+  __int64 v8; // r10
+  unsigned int v9; // r11d
+  unsigned int *v10; // rdx
+  int v11; // ecx
+  int v12; // ecx
   int v13; // ecx
-  int v14; // ecx
-  int v15; // ecx
-  int v16; // ecx
-  unsigned int v17; // ecx
+  unsigned int v14; // ecx
 
   *a3 = -1LL;
-  v3 = 0;
+  v3 = 0LL;
   v5 = 0LL;
-  v6 = 0LL;
-  v7 = 1701736270;
-  v8 = (1LL << EmonNumberArchCounters) - 1;
+  v6 = (1LL << EmonNumberArchCounters) - 1;
   if ( a2 )
   {
-    v9 = *a2;
-    v10 = 0LL;
-    v11 = 0;
+    v7 = *a2;
+    v8 = 0LL;
+    v9 = 0;
     if ( *a2 )
     {
-      v12 = a2 + 4;
+      v10 = a2 + 4;
       do
       {
-        v13 = *(v12 - 2);
-        if ( v13 )
+        v11 = *(v10 - 2);
+        if ( v11 )
         {
-          v14 = v13 - 1;
-          if ( v14 )
+          v12 = v11 - 1;
+          if ( v12 )
           {
-            v15 = v14 - 2;
-            if ( v15 )
+            v13 = v12 - 2;
+            if ( v13 )
             {
-              v16 = v15 - 1;
-              if ( v16 )
-              {
-                if ( v16 != 1 )
-                  return 3221225659LL;
-                if ( v3 )
-                  return 3221225485LL;
-                v7 = *v12;
-                v3 = 1;
-              }
-              else
-              {
-                if ( !EmonPebsAvailable )
-                  return 3221225659LL;
-                if ( !EmonPebsEntrySize && !v12[2] || !v12[3] )
-                  return 3221225485LL;
-                v6 = (__int64)v12;
-              }
+              if ( v13 != 1 || !EmonPebsAvailable )
+                return 3221225659LL;
+              if ( !EmonPebsEntrySize && !v10[2] || !v10[3] )
+                return 3221225485LL;
+              v5 = (__int64)v10;
             }
             else
             {
               if ( (unsigned int)EmonVersion < 2 )
                 return 3221225659LL;
-              if ( v5 )
+              if ( v3 )
                 return 3221225485LL;
-              v5 = *(_QWORD *)v12;
+              v3 = *(_QWORD *)v10;
             }
           }
           else
           {
-            v17 = v12[1];
-            if ( v17 > 0x3F || v17 < *v12 )
+            v14 = v10[1];
+            if ( v14 > 0x40 || v14 < *v10 )
               return 3221225485LL;
-            v10 |= ((1LL << ((unsigned __int8)v17 - (unsigned __int8)*v12 + 1)) - 1) << *v12;
+            v8 |= ((1LL << ((unsigned __int8)v14 - (unsigned __int8)*v10 + 1)) - 1) << *v10;
           }
         }
         else
         {
-          if ( *v12 > 0x3F )
+          if ( *v10 > 0x40 )
             return 3221225485LL;
-          v10 |= 1LL << *v12;
+          v8 |= 1LL << *v10;
         }
-        ++v11;
-        v12 += 6;
+        ++v9;
+        v10 += 6;
       }
-      while ( v11 < v9 );
+      while ( v9 < v7 );
     }
   }
   else
   {
-    v10 = v8 | (((1LL << EmonNumberFixedCounters) - 1) << 32);
+    v8 = v6 | (((1LL << EmonNumberFixedCounters) - 1) << 32);
   }
-  if ( (v10 & (v8 | (((1LL << EmonNumberFixedCounters) - 1) << 32))) == v10 )
-    return EmonAllocateResources(v10, v5, a1, v6, v7, a3);
+  if ( (v8 & (v6 | (((1LL << EmonNumberFixedCounters) - 1) << 32))) == v8 )
+    return EmonAllocateResources(v8, v3, a1, v5, a3);
   else
     return 3221225485LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ViDdiDriverEntry @ 0x140AC4E40
+ * XREFs of ViDdiDriverEntry @ 0x1409C82C0
  * Callers:
  *     <none>
  * Callees:
- *     IoDeleteDevice @ 0x140304E10 (IoDeleteDevice.c)
- *     IoCreateDevice @ 0x14076B4E0 (IoCreateDevice.c)
- *     IoWMIRegistrationControl @ 0x14086C380 (IoWMIRegistrationControl.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IoDeleteDevice @ 0x140360200 (IoDeleteDevice.c)
+ *     IoCreateDevice @ 0x140719130 (IoCreateDevice.c)
+ *     IoWMIRegistrationControl @ 0x140754720 (IoWMIRegistrationControl.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ViDdiDriverEntry(PDRIVER_OBJECT DriverObject)
@@ -23,7 +23,7 @@ __int64 __fastcall ViDdiDriverEntry(PDRIVER_OBJECT DriverObject)
 
   DeviceObject = 0LL;
   DriverObject->MajorFunction[23] = (PDRIVER_DISPATCH)ViDdiDispatchWmi;
-  ViDdiDeviceObjectArray = ExAllocatePool2(64LL, 8uLL, 0x61446656u);
+  ViDdiDeviceObjectArray = (__int64)ExAllocatePoolWithTag(NonPagedPoolNx, 8uLL, 0x61446656u);
   if ( !ViDdiDeviceObjectArray )
     return 3221225626LL;
   v3 = 0;

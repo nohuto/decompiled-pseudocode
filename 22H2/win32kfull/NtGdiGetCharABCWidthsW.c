@@ -1,30 +1,25 @@
 /*
- * XREFs of NtGdiGetCharABCWidthsW @ 0x1C007B770
+ * XREFs of NtGdiGetCharABCWidthsW @ 0x1C00FD0D0
  * Callers:
  *     <none>
  * Callees:
- *     ?GreGetCharABCWidthsW@@YAHPEAUHDC__@@IKPEAGKPEAXW4EntryPoint@RFONTOBJ@@@Z @ 0x1C007D848 (-GreGetCharABCWidthsW@@YAHPEAUHDC__@@IKPEAGKPEAXW4EntryPoint@RFONTOBJ@@@Z.c)
- *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C00F8AA8 (--1EUDCCountRegion@@QEAA@XZ.c)
- *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C00FA9A0 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     GreGetCharABCWidthsW @ 0x1C00FD238 (GreGetCharABCWidthsW.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
-__int64 __fastcall NtGdiGetCharABCWidthsW(__int64 a1, unsigned int a2, __int64 a3, const void *a4, int a5, char *a6)
+__int64 __fastcall NtGdiGetCharABCWidthsW(HDC a1, __int64 a2, unsigned int a3, const void *a4, int a5, char *a6)
 {
   __int64 v6; // r14
-  unsigned int CharABCWidthsW; // r13d
+  unsigned int CharABCWidthsW; // r12d
   const void *v8; // rdi
   void *v9; // rbx
-  int v10; // r15d
-  unsigned int v11; // esi
-  __int64 v12; // rax
-  char *v13; // rdx
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  ULONG64 v17; // rcx
-  _BYTE v18[104]; // [rsp+60h] [rbp-68h] BYREF
+  int v10; // esi
+  unsigned int v11; // r15d
+  char *v12; // r9
+  ULONG64 v14; // rcx
 
-  v6 = (unsigned int)a3;
+  v6 = a3;
   CharABCWidthsW = 0;
   v8 = 0LL;
   v9 = 0LL;
@@ -35,11 +30,8 @@ __int64 __fastcall NtGdiGetCharABCWidthsW(__int64 a1, unsigned int a2, __int64 a
   if ( a4 )
   {
     v10 = 1;
-    if ( (unsigned int)(a3 - 1) <= 0x1387FFF )
-    {
-      if ( 2 * (_DWORD)a3 )
-        v9 = (void *)Win32AllocPool((unsigned int)(2 * a3), 1886221383LL, a3, a4);
-    }
+    if ( a3 - 1 <= 0x1387FFF )
+      v9 = PALLOCMEM2(2 * a3, 1886221383LL, 0);
   }
   if ( !v10 || v9 )
   {
@@ -52,23 +44,20 @@ __int64 __fastcall NtGdiGetCharABCWidthsW(__int64 a1, unsigned int a2, __int64 a
     {
       if ( v10 )
       {
-        v17 = (ULONG64)a4 + 2 * v6;
-        if ( v17 < (unsigned __int64)a4 || v17 > MmUserProbeAddress )
+        v14 = (ULONG64)a4 + 2 * v6;
+        if ( v14 < (unsigned __int64)a4 || v14 > MmUserProbeAddress )
           *(_BYTE *)MmUserProbeAddress = 0;
         memmove(v9, a4, 2 * v6);
       }
-      v12 = SGDGetSessionState(a1);
-      EUDCCountRegion::EUDCCountRegion((EUDCCountRegion *)v18, *(struct Gre::Full::SESSION_GLOBALS **)(v12 + 32));
-      CharABCWidthsW = GreGetCharABCWidthsW(a1, a2, (unsigned int)v6, v9, a5, v8);
+      CharABCWidthsW = GreGetCharABCWidthsW(a1, a5, (__int64)v8);
       if ( CharABCWidthsW )
       {
-        v13 = &a6[v11];
-        if ( (unsigned __int64)v13 > MmUserProbeAddress || v13 <= a6 )
+        v12 = &a6[v11];
+        if ( (unsigned __int64)v12 > MmUserProbeAddress || v12 <= a6 )
           *(_BYTE *)MmUserProbeAddress = 0;
         memmove(a6, v8, v11);
       }
-      EUDCCountRegion::~EUDCCountRegion((EUDCCountRegion *)v18);
-      FreeTmpBuffer(v8, v14, v15);
+      FreeTmpBuffer(v8);
     }
     if ( v10 )
     {

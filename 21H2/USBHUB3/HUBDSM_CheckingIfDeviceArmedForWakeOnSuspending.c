@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfDeviceArmedForWakeOnSuspending @ 0x1C0021EE0
+ * XREFs of HUBDSM_CheckingIfDeviceArmedForWakeOnSuspending @ 0x1C0021A90
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CheckTransformAllowsOcclusion@COcclusionContext@@AEBAJAEBVCMILMatrix@@PEA_N@Z @ 0x180045B14
+ * XREFs of ?CheckTransformAllowsOcclusion@COcclusionContext@@AEBAJAEBVCMILMatrix@@PEA_N@Z @ 0x18004241C
  * Callers:
- *     ?PushTransform@COcclusionContext@@UEAAJPEAVCTransform@@@Z @ 0x180045A20 (-PushTransform@COcclusionContext@@UEAAJPEAVCTransform@@@Z.c)
+ *     ?PushTransform@COcclusionContext@@UEAAJPEAVCTransform@@@Z @ 0x18003F470 (-PushTransform@COcclusionContext@@UEAAJPEAVCTransform@@@Z.c)
  * Callees:
- *     ?Is2DAxisAlignedPreserving@CMILMatrix@@QEBA_NXZ @ 0x1800AE2B4 (-Is2DAxisAlignedPreserving@CMILMatrix@@QEBA_NXZ.c)
+ *     ??$Is2DAxisAlignedPreserving@$00@CMILMatrix@@AEBA_N_N@Z @ 0x1800C208C (--$Is2DAxisAlignedPreserving@$00@CMILMatrix@@AEBA_N_N@Z.c)
  */
 
 __int64 __fastcall COcclusionContext::CheckTransformAllowsOcclusion(
@@ -11,6 +11,10 @@ __int64 __fastcall COcclusionContext::CheckTransformAllowsOcclusion(
         const struct CMILMatrix *a2,
         bool *a3)
 {
-  *a3 = CMILMatrix::Is2DAxisAlignedPreserving(a2);
+  char v3; // al
+  bool *v4; // r11
+
+  v3 = CMILMatrix::Is2DAxisAlignedPreserving<1>(a2);
+  *v4 = v3 != 0;
   return 0LL;
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of IrqArbpPrepareForTestOrConflict @ 0x1C009C700
+ * XREFs of IrqArbpPrepareForTestOrConflict @ 0x1C0092350
  * Callers:
- *     IrqArbTestAllocation @ 0x1C009C8F0 (IrqArbTestAllocation.c)
- *     IrqArbRetestAllocation @ 0x1C00B69B0 (IrqArbRetestAllocation.c)
- *     IrqArbpQueryConflictIsa @ 0x1C00B6FF8 (IrqArbpQueryConflictIsa.c)
+ *     IrqArbTestAllocation @ 0x1C0095B20 (IrqArbTestAllocation.c)
+ *     IrqArbRetestAllocation @ 0x1C00B7150 (IrqArbRetestAllocation.c)
+ *     IrqArbpQueryConflictIsa @ 0x1C00B752C (IrqArbpQueryConflictIsa.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     IrqArbpUnreferenceArbitrationList @ 0x1C009A974 (IrqArbpUnreferenceArbitrationList.c)
- *     LinkNodeClearPossibleData @ 0x1C009B288 (LinkNodeClearPossibleData.c)
- *     ProcessorCopyData @ 0x1C009B4BC (ProcessorCopyData.c)
- *     ProcessorpClearData @ 0x1C009B828 (ProcessorpClearData.c)
- *     IcClearPossibleData @ 0x1C009B940 (IcClearPossibleData.c)
- *     LinkNodeCopyData @ 0x1C009C894 (LinkNodeCopyData.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     LinkNodeCopyData @ 0x1C00922F4 (LinkNodeCopyData.c)
+ *     IrqArbpUnreferenceArbitrationList @ 0x1C0093FBC (IrqArbpUnreferenceArbitrationList.c)
+ *     LinkNodeClearPossibleData @ 0x1C009429C (LinkNodeClearPossibleData.c)
+ *     ProcessorCopyData @ 0x1C00944E0 (ProcessorCopyData.c)
+ *     ProcessorpClearData @ 0x1C0094850 (ProcessorpClearData.c)
+ *     IcClearPossibleData @ 0x1C0094980 (IcClearPossibleData.c)
  */
 
-__int64 __fastcall IrqArbpPrepareForTestOrConflict(__int64 a1, __int64 ***a2)
+__int64 __fastcall IrqArbpPrepareForTestOrConflict(__int64 a1, __int64 a2)
 {
   __int64 i; // rbx
   int v5; // eax
@@ -31,7 +31,7 @@ __int64 __fastcall IrqArbpPrepareForTestOrConflict(__int64 a1, __int64 ***a2)
   __int128 v15; // xmm0
   unsigned int v16; // edx
 
-  ProcessorpClearData(1);
+  ProcessorpClearData(1LL);
   IcClearPossibleData();
   if ( IrqLibRealInterruptModel == 1 )
   {
@@ -99,7 +99,7 @@ __int64 __fastcall IrqArbpPrepareForTestOrConflict(__int64 a1, __int64 ***a2)
         }
       }
     }
-    result = LinkNodeCopyData(1LL);
+    result = LinkNodeCopyData(1);
     if ( (int)result >= 0 )
       return IrqArbpUnreferenceArbitrationList(a1, a2);
   }

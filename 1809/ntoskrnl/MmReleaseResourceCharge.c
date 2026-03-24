@@ -1,8 +1,8 @@
 /*
- * XREFs of MmReleaseResourceCharge @ 0x1400E3DB8
+ * XREFs of MmReleaseResourceCharge @ 0x1400E3DD8
  * Callers:
- *     SmAcquireReleaseCharges @ 0x1400E3CE4 (SmAcquireReleaseCharges.c)
- *     MmChargeResources @ 0x1400E3D2C (MmChargeResources.c)
+ *     SmAcquireReleaseCharges @ 0x1400E3D04 (SmAcquireReleaseCharges.c)
+ *     MmChargeResources @ 0x1400E3D4C (MmChargeResources.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)

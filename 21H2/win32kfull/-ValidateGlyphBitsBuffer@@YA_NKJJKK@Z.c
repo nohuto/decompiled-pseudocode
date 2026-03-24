@@ -1,8 +1,8 @@
 /*
- * XREFs of ?ValidateGlyphBitsBuffer@@YA_NKJJKK@Z @ 0x1C001B6A4
+ * XREFs of ?ValidateGlyphBitsBuffer@@YA_NKJJKK@Z @ 0x1C009B134
  * Callers:
- *     ?CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z @ 0x1C0019230 (-CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z.c)
- *     ?CaptureUsermodeParameters@QueryFontDataRequest@@UEAAXPEAX@Z @ 0x1C001B7B0 (-CaptureUsermodeParameters@QueryFontDataRequest@@UEAAXPEAX@Z.c)
+ *     ?CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z @ 0x1C009AD40 (-CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z.c)
+ *     ?CaptureUsermodeParameters@QueryFontDataRequest@@UEAAXPEAX@Z @ 0x1C009B230 (-CaptureUsermodeParameters@QueryFontDataRequest@@UEAAXPEAX@Z.c)
  * Callees:
  *     <none>
  */

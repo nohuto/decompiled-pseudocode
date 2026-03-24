@@ -3,9 +3,9 @@
  * Callers:
  *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
  * Callees:
- *     MiSystemVaToDynamicBitmap @ 0x1400F71E0 (MiSystemVaToDynamicBitmap.c)
- *     MiBuildDynamicRegion @ 0x14017E8C0 (MiBuildDynamicRegion.c)
- *     MiMarkBootGuardPage @ 0x140729A8C (MiMarkBootGuardPage.c)
+ *     MiSystemVaToDynamicBitmap @ 0x1400F7200 (MiSystemVaToDynamicBitmap.c)
+ *     MiBuildDynamicRegion @ 0x14017E8E0 (MiBuildDynamicRegion.c)
+ *     MiMarkBootGuardPage @ 0x140729A6C (MiMarkBootGuardPage.c)
  *     MiMarkBootKernelStack @ 0x1409B6464 (MiMarkBootKernelStack.c)
  *     MiInitializePteInfo @ 0x1409B74C8 (MiInitializePteInfo.c)
  */

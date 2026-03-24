@@ -1,40 +1,40 @@
 /*
- * XREFs of MiSelectUserAddress @ 0x1407B83C0
+ * XREFs of MiSelectUserAddress @ 0x1405FA9A0
  * Callers:
- *     MiMapLockedPagesInUserSpace @ 0x140693498 (MiMapLockedPagesInUserSpace.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1406BF9AC (MiAllocateNewSubAllocatedRegion.c)
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     MiMapViewOfDataSection @ 0x1406FB4D0 (MiMapViewOfDataSection.c)
- *     MiReserveUserMemory @ 0x1407B8B60 (MiReserveUserMemory.c)
- *     MiMapViewOfPhysicalSection @ 0x140852834 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateEnclaveVad @ 0x140978F40 (MiAllocateEnclaveVad.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x14069F198 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
+ *     MiMapLockedPagesInUserSpace @ 0x14076B6A0 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407C2C08 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x1408D1E58 (MiAllocateEnclaveVad.c)
  * Callees:
- *     MiFindEmptyAddressRangeDown @ 0x1406AC670 (MiFindEmptyAddressRangeDown.c)
- *     MiFindEmptyAddressRange @ 0x1407B8560 (MiFindEmptyAddressRange.c)
+ *     MiFindEmptyAddressRange @ 0x1405FAB40 (MiFindEmptyAddressRange.c)
+ *     MiFindEmptyAddressRangeDown @ 0x14068B294 (MiFindEmptyAddressRangeDown.c)
  */
 
 __int64 __fastcall MiSelectUserAddress(
         int a1,
-        unsigned __int64 a2,
+        __int64 a2,
         unsigned __int64 a3,
         unsigned __int64 a4,
         __int64 a5,
         __int64 a6,
-        char a7,
+        int a7,
         unsigned int a8,
         __int64 *a9,
         _QWORD *a10)
 {
   __int64 *v11; // r14
-  unsigned __int64 v13; // r8
-  unsigned __int64 v14; // r10
+  __int64 v13; // r8
+  int v14; // r10d
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v16; // ecx
   _KPROCESS *Process; // rsi
   unsigned __int64 v18; // rdx
   __int64 v19; // rdi
   __int64 v20; // rbp
-  char v21; // r15
+  int v21; // r15d
   int v22; // ebx
   int v23; // r12d
   __int64 v24; // r14
@@ -54,10 +54,10 @@ __int64 __fastcall MiSelectUserAddress(
   *v11 = 0LL;
   v16 = a8 >> 31;
   Process = CurrentThread->ApcState.Process;
-  v18 = Process[1].ActiveProcessors.StaticBitmap[5];
+  v18 = Process[1].ActiveProcessors.Bitmap[5];
   if ( a3 > v18 - 1 && v18 <= 0x100000000LL )
     v16 = 2;
-  v19 = Process[1].ActiveProcessors.StaticBitmap[28] + 8 * (9LL * v16 + 6);
+  v19 = Process[1].ActiveProcessorsPadding[8] + 8 * (9LL * v16 + 6);
   if ( (a1 & 0x20400000) != 541065216 && (a1 & 0x20000000) != 0 && a4 >= 0x40000000 )
   {
     v20 = a5;
@@ -80,17 +80,14 @@ __int64 __fastcall MiSelectUserAddress(
     result = v22 || (Process[1].DirectoryTableBase & 0x20000000000000LL) != 0
            ? MiFindEmptyAddressRangeDown(v19, v14, v20, v23, v13, a3, v21, v24)
            : MiFindEmptyAddressRange(v19, v14, v20, v23, v13, a3, v21, v24, (__int64)&v28);
-    if ( (int)result >= 0 || !v26 )
+    if ( (int)result >= 0 || v26 != 1 )
       break;
     v14 = v29;
     v20 = 0x200000LL;
     v13 = a2;
     v26 = 0;
   }
-  if ( v20 == 0x10000 )
-  {
-    if ( v28 )
-      *a9 = v19;
-  }
+  if ( v20 == 0x10000 && v28 == 1 )
+    *a9 = v19;
   return result;
 }

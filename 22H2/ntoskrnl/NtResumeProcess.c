@@ -1,26 +1,31 @@
 /*
- * XREFs of NtResumeProcess @ 0x1409B6030
+ * XREFs of NtResumeProcess @ 0x14090C770
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     PsMultiResumeProcess @ 0x14036A208 (PsMultiResumeProcess.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     PsResumeProcess @ 0x1406A2050 (PsResumeProcess.c)
  */
 
-__int64 __fastcall NtResumeProcess(ULONG_PTR a1)
+__int64 __fastcall NtResumeProcess(void *a1)
 {
-  char PreviousMode; // r9
-  int v2; // ebx
+  int v1; // ebx
   PVOID Object; // [rsp+58h] [rbp+10h] BYREF
 
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  v2 = ObpReferenceObjectByHandleWithTag(a1, 2048, (__int64)PsProcessType, PreviousMode, 0x75537350u, &Object, 0LL, 0LL);
-  if ( v2 >= 0 )
+  v1 = ObReferenceObjectByHandleWithTag(
+         a1,
+         0x800u,
+         (POBJECT_TYPE)PsProcessType,
+         KeGetCurrentThread()->PreviousMode,
+         0x75537350u,
+         &Object,
+         0LL);
+  if ( v1 >= 0 )
   {
-    v2 = PsMultiResumeProcess((__int64)Object);
+    v1 = PsResumeProcess((__int64)Object);
     ObfDereferenceObjectWithTag(Object, 0x75537350u);
   }
-  return (unsigned int)v2;
+  return (unsigned int)v1;
 }

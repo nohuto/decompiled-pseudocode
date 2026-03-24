@@ -1,41 +1,43 @@
 /*
- * XREFs of SmpSystemStoreCreate @ 0x14085C174
+ * XREFs of SmpSystemStoreCreate @ 0x1407CE9E0
  * Callers:
- *     SmProcessConfigRequest @ 0x14085C000 (SmProcessConfigRequest.c)
- *     SmInitSystem @ 0x140B54430 (SmInitSystem.c)
+ *     MiCreatePagingFile @ 0x1407B6DDC (MiCreatePagingFile.c)
+ *     SmProcessConfigRequest @ 0x1407CE8CC (SmProcessConfigRequest.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     SmpDirtyStoreCreate @ 0x1407B7B24 (SmpDirtyStoreCreate.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     SmpDirtyStoreCreate @ 0x1406FB7C8 (SmpDirtyStoreCreate.c)
  */
 
-__int64 __fastcall SmpSystemStoreCreate(__int64 a1)
+__int64 SmpSystemStoreCreate()
 {
-  volatile signed __int64 *v1; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  int v4; // ebp
-  int v6; // [rsp+30h] [rbp+8h] BYREF
+  int v1; // edi
+  int v3; // [rsp+30h] [rbp+8h] BYREF
 
-  v6 = 0;
-  v1 = (volatile signed __int64 *)(a1 + 2120);
   CurrentThread = KeGetCurrentThread();
+  v3 = 0;
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx(a1 + 2120, 0LL);
-  if ( *(_DWORD *)(a1 + 2112) == -1 )
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140D241B8, 0LL);
+  if ( dword_140D241B0 == -1 )
   {
-    v4 = SmpDirtyStoreCreate(a1, (unsigned int)(*(_QWORD *)(*(_QWORD *)qword_140C674C8 + 17040LL) >> 8) >> 1, 0, &v6);
-    if ( v4 >= 0 )
-      *(_DWORD *)(a1 + 2112) = v6;
+    v1 = SmpDirtyStoreCreate(
+           (__int64)&SmGlobals,
+           (unsigned int)(*(_QWORD *)(*(_QWORD *)qword_140C4E648 + 6928LL) >> 8) >> 1,
+           0,
+           &v3);
+    if ( v1 >= 0 )
+      dword_140D241B0 = v3;
   }
   else
   {
-    v4 = -1073740008;
+    v1 = -1073740008;
   }
-  if ( (_InterlockedExchangeAdd64(v1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v1);
-  KeAbPostRelease((ULONG_PTR)v1);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140D241B8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140D241B8);
+  KeAbPostRelease((ULONG_PTR)&qword_140D241B8);
   KeLeaveCriticalRegion();
-  return (unsigned int)v4;
+  return (unsigned int)v1;
 }

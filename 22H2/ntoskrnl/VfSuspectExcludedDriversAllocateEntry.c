@@ -1,30 +1,30 @@
 /*
- * XREFs of VfSuspectExcludedDriversAllocateEntry @ 0x140ADBC10
+ * XREFs of VfSuspectExcludedDriversAllocateEntry @ 0x1409DA130
  * Callers:
- *     VfSuspectDriversParseRegistryString @ 0x140B97D8C (VfSuspectDriversParseRegistryString.c)
- *     VfXdvExcludeParseRegistryString @ 0x140B97F3C (VfXdvExcludeParseRegistryString.c)
+ *     VfSuspectDriversParseRegistryString @ 0x140A93DD8 (VfSuspectDriversParseRegistryString.c)
+ *     VfXdvExcludeParseRegistryString @ 0x140A93F94 (VfXdvExcludeParseRegistryString.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall VfSuspectExcludedDriversAllocateEntry(unsigned __int16 *a1, ULONG a2)
+_WORD *__fastcall VfSuspectExcludedDriversAllocateEntry(unsigned __int16 *a1, ULONG a2)
 {
-  __int64 Pool2; // rax
-  __int64 v4; // rbx
+  _WORD *PoolWithTag; // rax
+  _WORD *v4; // rbx
   size_t v5; // r8
   const void *v6; // rdx
 
-  Pool2 = ExAllocatePool2(64LL, a1[1] + 32LL, a2);
-  v4 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, a1[1] + 32LL, a2);
+  v4 = PoolWithTag;
+  if ( PoolWithTag )
   {
     v5 = *a1;
-    *(_WORD *)(Pool2 + 18) = a1[1];
+    PoolWithTag[9] = a1[1];
     v6 = (const void *)*((_QWORD *)a1 + 1);
-    *(_QWORD *)(Pool2 + 24) = Pool2 + 32;
-    *(_WORD *)(Pool2 + 16) = v5;
-    memmove((void *)(Pool2 + 32), v6, v5);
+    *((_QWORD *)PoolWithTag + 3) = PoolWithTag + 16;
+    PoolWithTag[8] = v5;
+    memmove(PoolWithTag + 16, v6, v5);
   }
   return v4;
 }

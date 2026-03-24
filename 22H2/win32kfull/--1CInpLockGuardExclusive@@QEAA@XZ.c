@@ -1,18 +1,14 @@
 /*
- * XREFs of ??1CInpLockGuardExclusive@@QEAA@XZ @ 0x1C0015734
+ * XREFs of ??1CInpLockGuardExclusive@@QEAA@XZ @ 0x1C0166FB4
  * Callers:
- *     ?_HandleDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z @ 0x1C0015660 (-_HandleDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z.c)
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
- *     ?_HandleShellHandwritingDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z @ 0x1C01B62A4 (-_HandleShellHandwritingDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z.c)
- *     ?DelegateCapturePointersMitOn@@YAHIPEAI0@Z @ 0x1C01CBE48 (-DelegateCapturePointersMitOn@@YAHIPEAI0@Z.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
+ *     ?DelegateCapturePointersMitOn@@YAHIPEAI0@Z @ 0x1C01F59E4 (-DelegateCapturePointersMitOn@@YAHIPEAI0@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     <none>
  */
 
-void __fastcall CInpLockGuardExclusive::~CInpLockGuardExclusive(CInpLockGuardExclusive *this)
+void __fastcall CInpLockGuardExclusive::~CInpLockGuardExclusive(CInpLockGuard **this)
 {
-  if ( *(struct _KTHREAD **)(*((_QWORD *)this + 5) + 8LL) != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 324LL);
-  CRefUnRefPointerMsgId::ThreadUnlockAndUnReference(this);
-  CInpLockGuard::UnLock(*((CInpLockGuard **)this + 5));
+  CRefUnRefPointerMsgId::ThreadUnlockAndUnReference((CRefUnRefPointerMsgId *)this);
+  CInpLockGuard::UnLock(this[5]);
 }

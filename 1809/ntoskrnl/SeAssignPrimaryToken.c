@@ -1,13 +1,13 @@
 /*
- * XREFs of SeAssignPrimaryToken @ 0x140748B44
+ * XREFs of SeAssignPrimaryToken @ 0x140748B24
  * Callers:
- *     PspInitializeProcessSecurity @ 0x14064E834 (PspInitializeProcessSecurity.c)
+ *     PspInitializeProcessSecurity @ 0x14064E814 (PspInitializeProcessSecurity.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     SeDeassignPrimaryToken @ 0x14060895C (SeDeassignPrimaryToken.c)
  *     SeAuditingWithTokenForSubcategory @ 0x14060A3C0 (SeAuditingWithTokenForSubcategory.c)
- *     ObInitializeFastReference @ 0x14064EA04 (ObInitializeFastReference.c)
- *     SepAuditAssignPrimaryToken @ 0x140748E34 (SepAuditAssignPrimaryToken.c)
+ *     ObInitializeFastReference @ 0x14064E9E4 (ObInitializeFastReference.c)
+ *     SepAuditAssignPrimaryToken @ 0x140748E14 (SepAuditAssignPrimaryToken.c)
  */
 
 ULONG_PTR __fastcall SeAssignPrimaryToken(__int64 a1, _BYTE *a2)

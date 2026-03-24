@@ -1,129 +1,129 @@
 /*
- * XREFs of PiPnpRtlGatherInterfaceDeleteInfo @ 0x140948814
+ * XREFs of PiPnpRtlGatherInterfaceDeleteInfo @ 0x140732EE4
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140779F10 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _PnpStringFromGuid @ 0x140773030 (_PnpStringFromGuid.c)
- *     PiDmGetObject @ 0x14077B0A4 (PiDmGetObject.c)
- *     PnpGetObjectProperty @ 0x14077D91C (PnpGetObjectProperty.c)
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
- *     PiPnpRtlFreeInterfaceDeleteInfo @ 0x1409485D8 (PiPnpRtlFreeInterfaceDeleteInfo.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PiDmGetObject @ 0x140636A6C (PiDmGetObject.c)
+ *     PnpGetObjectProperty @ 0x140637A3C (PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
+ *     _PnpStringFromGuid @ 0x140638420 (_PnpStringFromGuid.c)
+ *     PiPnpRtlFreeInterfaceDeleteInfo @ 0x140734990 (PiPnpRtlFreeInterfaceDeleteInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiPnpRtlGatherInterfaceDeleteInfo(__int64 a1, unsigned int ***a2)
+__int64 __fastcall PiPnpRtlGatherInterfaceDeleteInfo(__int64 a1, __int64 **a2)
 {
   void *v2; // rsi
-  __int64 *Pool2; // rax
-  int v6; // ebx
-  int Object; // eax
+  __int64 *PoolWithTag; // rax
+  int Object; // ebx
   int ObjectProperty; // eax
+  int v8; // eax
   int v9; // eax
-  int v10; // eax
-  int v11; // eax
-  __int64 v13; // [rsp+60h] [rbp-49h] BYREF
-  __int64 v14; // [rsp+68h] [rbp-41h] BYREF
-  __int128 v15; // [rsp+70h] [rbp-39h] BYREF
-  wchar_t v16[40]; // [rsp+80h] [rbp-29h] BYREF
+  __int64 v11; // [rsp+60h] [rbp-49h] BYREF
+  __int64 v12; // [rsp+68h] [rbp-41h] BYREF
+  __int128 v13; // [rsp+70h] [rbp-39h] BYREF
+  wchar_t v14[40]; // [rsp+80h] [rbp-29h] BYREF
 
   v2 = 0LL;
+  v11 = 0LL;
+  v12 = 0LL;
   v13 = 0LL;
-  v14 = 0LL;
-  v15 = 0LL;
-  Pool2 = (__int64 *)ExAllocatePool2(256LL, 32LL, 1198550608LL);
-  *a2 = (unsigned int **)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (__int64 *)ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x47706E50u);
+  *a2 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v6 = -1073741670;
-LABEL_22:
-    PiPnpRtlFreeInterfaceDeleteInfo(*a2);
-    *a2 = 0LL;
-    goto LABEL_24;
-  }
-  Object = PiDmGetObject(3LL, a1, Pool2);
-  v6 = Object;
-  if ( (int)(Object + 0x80000000) >= 0 && Object != -1073741772 )
-    goto LABEL_22;
-  ObjectProperty = PnpGetObjectProperty(
-                     *(__int64 *)&PiPnpRtlCtx,
-                     a1,
-                     3LL,
-                     0LL,
-                     0LL,
-                     (__int64)&DEVPKEY_DeviceInterface_ClassGuid,
-                     (__int64)&v13 + 4,
-                     (__int64)&v15,
-                     16,
-                     (__int64)&v13,
-                     0);
-  v6 = ObjectProperty;
-  if ( ObjectProperty != -1073741772 && ObjectProperty != -1073741275 )
-  {
-    if ( ObjectProperty < 0 )
-      goto LABEL_22;
-    if ( PnpStringFromGuid((int *)&v15, v16) >= 0 )
+    *(_OWORD *)PoolWithTag = 0LL;
+    *((_OWORD *)PoolWithTag + 1) = 0LL;
+    Object = PiDmGetObject(3LL, a1, *a2);
+    if ( (int)(Object + 0x80000000) < 0 || Object == -1073741772 )
     {
-      v6 = PiDmGetObject(4LL, (__int64)v16, (__int64 *)*a2 + 1);
-      if ( ((v6 + 0x80000000) & 0x80000000) == 0 && v6 != -1073741772 )
-        goto LABEL_22;
+      ObjectProperty = PnpGetObjectProperty(
+                         *(__int64 *)&PiPnpRtlCtx,
+                         a1,
+                         3LL,
+                         0LL,
+                         0LL,
+                         (__int64)&DEVPKEY_DeviceInterface_ClassGuid,
+                         (__int64)&v11 + 4,
+                         (__int64)&v13,
+                         16,
+                         (__int64)&v11,
+                         0);
+      Object = ObjectProperty;
+      if ( ObjectProperty == -1073741772
+        || ObjectProperty == -1073741275
+        || ObjectProperty >= 0
+        && (PnpStringFromGuid((int *)&v13, v14) < 0
+         || (Object = PiDmGetObject(4LL, (__int64)v14, *a2 + 1), (int)(Object + 0x80000000) < 0)
+         || Object == -1073741772) )
+      {
+        v8 = PnpGetObjectProperty(
+               0x47706E50u,
+               0xC8uLL,
+               a1,
+               3,
+               0LL,
+               0LL,
+               (__int64)&DEVPKEY_Device_InstanceId,
+               (__int64)&v11 + 4,
+               (PVOID *)&v12,
+               &v11,
+               0);
+        v2 = (void *)v12;
+        Object = v8;
+        if ( v8 == -1073741772
+          || v8 == -1073741275
+          || v8 >= 0
+          && ((Object = PiDmGetObject(1LL, v12, *a2 + 2), (int)(Object + 0x80000000) < 0) || Object == -1073741772) )
+        {
+          v9 = PnpGetObjectProperty(
+                 *(__int64 *)&PiPnpRtlCtx,
+                 a1,
+                 3LL,
+                 0LL,
+                 0LL,
+                 (__int64)&DEVPKEY_Device_ContainerId,
+                 (__int64)&v11 + 4,
+                 (__int64)&v13,
+                 16,
+                 (__int64)&v11,
+                 0);
+          Object = v9;
+          if ( v9 == -1073741772 || v9 == -1073741275 )
+          {
+            Object = 0;
+            goto LABEL_21;
+          }
+          if ( v9 >= 0 )
+          {
+            Object = PnpStringFromGuid((int *)&v13, v14);
+            if ( Object >= 0 )
+            {
+              Object = PiDmGetObject(5LL, (__int64)v14, *a2 + 3);
+              if ( Object == -1073741772 )
+              {
+                Object = 0;
+                goto LABEL_18;
+              }
+LABEL_21:
+              if ( Object >= 0 )
+                goto LABEL_18;
+            }
+          }
+        }
+      }
     }
   }
-  v9 = PnpGetObjectProperty(
-         0x47706E50u,
-         0xC8u,
-         a1,
-         3,
-         0LL,
-         0LL,
-         (__int64)&DEVPKEY_Device_InstanceId,
-         (__int64)&v13 + 4,
-         (PVOID *)&v14,
-         (unsigned int *)&v13,
-         0);
-  v2 = (void *)v14;
-  v6 = v9;
-  if ( v9 != -1073741772 && v9 != -1073741275 )
+  else
   {
-    if ( v9 < 0 )
-      goto LABEL_22;
-    v6 = PiDmGetObject(1LL, v14, (__int64 *)*a2 + 2);
-    if ( ((v6 + 0x80000000) & 0x80000000) == 0 && v6 != -1073741772 )
-      goto LABEL_22;
+    Object = -1073741670;
   }
-  v10 = PnpGetObjectProperty(
-          *(__int64 *)&PiPnpRtlCtx,
-          a1,
-          3LL,
-          0LL,
-          0LL,
-          (__int64)&DEVPKEY_Device_ContainerId,
-          (__int64)&v13 + 4,
-          (__int64)&v15,
-          16,
-          (__int64)&v13,
-          0);
-  v6 = v10;
-  if ( v10 != -1073741772 && v10 != -1073741275 )
-  {
-    if ( v10 < 0 )
-      goto LABEL_22;
-    v6 = PnpStringFromGuid((int *)&v15, v16);
-    if ( v6 < 0 )
-      goto LABEL_22;
-    v11 = PiDmGetObject(5LL, (__int64)v16, (__int64 *)*a2 + 3);
-    v6 = v11;
-    if ( v11 != -1073741772 )
-    {
-      if ( v11 >= 0 )
-        goto LABEL_24;
-      goto LABEL_22;
-    }
-  }
-  v6 = 0;
-LABEL_24:
+  PiPnpRtlFreeInterfaceDeleteInfo(*a2);
+  *a2 = 0LL;
+LABEL_18:
   if ( v2 )
     ExFreePoolWithTag(v2, 0x47706E50u);
-  return (unsigned int)v6;
+  return (unsigned int)Object;
 }

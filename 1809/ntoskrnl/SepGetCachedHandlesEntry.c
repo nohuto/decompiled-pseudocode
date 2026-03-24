@@ -1,13 +1,13 @@
 /*
- * XREFs of SepGetCachedHandlesEntry @ 0x14065BF78
+ * XREFs of SepGetCachedHandlesEntry @ 0x14065BF58
  * Callers:
- *     SepSetTokenCachedHandles @ 0x14065BDBC (SepSetTokenCachedHandles.c)
+ *     SepSetTokenCachedHandles @ 0x14065BD9C (SepSetTokenCachedHandles.c)
  * Callees:
- *     RtlInsertEntryHashTable @ 0x1400D9CA0 (RtlInsertEntryHashTable.c)
+ *     RtlInsertEntryHashTable @ 0x1400D9CC0 (RtlInsertEntryHashTable.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlHashUnicodeString @ 0x140598BE0 (RtlHashUnicodeString.c)
- *     SepFindMatchingCachedHandlesEntry @ 0x14065C054 (SepFindMatchingCachedHandlesEntry.c)
- *     SepAllocateAndInitializeCachedHandleEntry @ 0x1406CE738 (SepAllocateAndInitializeCachedHandleEntry.c)
+ *     SepFindMatchingCachedHandlesEntry @ 0x14065C034 (SepFindMatchingCachedHandlesEntry.c)
+ *     SepAllocateAndInitializeCachedHandleEntry @ 0x1406CE718 (SepAllocateAndInitializeCachedHandleEntry.c)
  */
 
 __int64 __fastcall SepGetCachedHandlesEntry(__int64 a1, int *a2, _BYTE *a3, PRTL_DYNAMIC_HASH_TABLE_ENTRY *a4)

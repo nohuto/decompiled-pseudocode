@@ -1,11 +1,11 @@
 /*
- * XREFs of ?prunPlgRead24@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C0300610
+ * XREFs of ?prunPlgRead24@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02D7A00
  * Callers:
  *     <none>
  * Callees:
- *     XLATEOBJ_iXlate @ 0x1C008CAC0 (XLATEOBJ_iXlate.c)
- *     ?prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z @ 0x1C015EEA0 (-prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z.c)
- *     ?vAdvXDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C0300B5C (-vAdvXDDA@@YAXPEAU_PLGDDA@@@Z.c)
+ *     XLATEOBJ_iXlate @ 0x1C00C77F0 (XLATEOBJ_iXlate.c)
+ *     ?prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z @ 0x1C02D8114 (-prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z.c)
+ *     ?vAdvXDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C02D82E8 (-vAdvXDDA@@YAXPEAU_PLGDDA@@@Z.c)
  */
 
 struct _PLGRUN *__fastcall prunPlgRead24(
@@ -19,63 +19,74 @@ struct _PLGRUN *__fastcall prunPlgRead24(
         int a8)
 {
   __int64 v9; // rdx
-  unsigned __int8 *v11; // rdi
-  __int64 v12; // rsi
-  unsigned __int8 *v13; // rsi
-  int v14; // r13d
-  __int64 v15; // r8
-  __int64 v16; // r12
-  unsigned __int8 *v17; // rax
-  __int64 v18; // r15
-  ULONG v19; // eax
+  unsigned __int8 *v11; // rbx
+  unsigned int v12; // r10d
+  __int64 v13; // rbp
+  __int64 v14; // r14
+  int v15; // ecx
+  unsigned __int8 *v16; // r14
+  int v17; // r13d
+  __int64 v18; // r8
+  __int64 v19; // r12
+  __int64 v20; // r15
+  int v21; // eax
+  unsigned __int8 *v22; // rax
+  ULONG v23; // eax
+  int v25; // [rsp+60h] [rbp+18h]
 
   v9 = iColor;
   HIBYTE(iColor) = 0;
   v11 = &a3[2 * v9 + v9];
   if ( a4 )
   {
-    v13 = &a4[4 * ((__int64)a8 >> 5)];
-    v14 = *(_DWORD *)v13;
+    v15 = a8 & 0x1F;
+    v16 = &a4[4 * ((__int64)a8 >> 5)];
+    v17 = *(_DWORD *)v16;
     if ( (_DWORD)v9 != a7 )
     {
-      v15 = a8 & 0x1F;
-      v16 = (unsigned int)(a7 - v9);
+      v18 = a8 & 0x1F;
+      v19 = (unsigned int)(a7 - v9);
       do
       {
-        v17 = v13 + 4;
-        if ( v15 >= 32 )
-          v14 = *(_DWORD *)v17;
-        v18 = 0LL;
-        if ( v15 < 32 )
-        {
-          v17 = v13;
-          v18 = v15;
-        }
-        v13 = v17;
-        if ( (v14 & dword_1C0329F30[v18]) != 0 )
+        if ( v18 >= 32 )
+          v17 = *((_DWORD *)v16 + 1);
+        v20 = 0LL;
+        if ( v18 < 32 )
+          v20 = v18;
+        v21 = 0;
+        if ( v18 < 32 )
+          v21 = v15;
+        v25 = v21;
+        v22 = v16 + 4;
+        if ( v18 < 32 )
+          v22 = v16;
+        v16 = v22;
+        if ( (dword_1C02FB720[v20] & v17) != 0 )
         {
           LOWORD(iColor) = *(_WORD *)v11;
           BYTE2(iColor) = v11[2];
           if ( pxlo )
-            v19 = XLATEOBJ_iXlate(pxlo, iColor);
+            v23 = XLATEOBJ_iXlate(pxlo, iColor);
           else
-            v19 = iColor;
-          *(_DWORD *)a2 = v19;
+            v23 = iColor;
+          *(_DWORD *)a2 = v23;
           a2 = prunPumpDDA(a1, a2);
         }
         vAdvXDDA(a1);
+        v18 = v20 + 1;
         v11 += 3;
-        v15 = v18 + 1;
-        --v16;
+        v15 = v25 + 1;
+        --v19;
       }
-      while ( v16 );
+      while ( v19 );
     }
   }
   else if ( (_DWORD)v9 != a7 )
   {
-    v12 = (unsigned int)(a7 - v9);
+    v12 = a7 - v9;
     if ( pxlo )
     {
+      v14 = v12;
       do
       {
         LOWORD(iColor) = *(_WORD *)v11;
@@ -84,12 +95,13 @@ struct _PLGRUN *__fastcall prunPlgRead24(
         a2 = prunPumpDDA(a1, a2);
         vAdvXDDA(a1);
         v11 += 3;
-        --v12;
+        --v14;
       }
-      while ( v12 );
+      while ( v14 );
     }
     else
     {
+      v13 = v12;
       do
       {
         LOWORD(iColor) = *(_WORD *)v11;
@@ -98,9 +110,9 @@ struct _PLGRUN *__fastcall prunPlgRead24(
         a2 = prunPumpDDA(a1, a2);
         vAdvXDDA(a1);
         v11 += 3;
-        --v12;
+        --v13;
       }
-      while ( v12 );
+      while ( v13 );
     }
   }
   return a2;

@@ -1,18 +1,18 @@
 /*
- * XREFs of ?RemoveChildTarget@DMMVIDEOPRESENTTARGET@@QEAAXAEAV1@@Z @ 0x1C006A1BC
+ * XREFs of ?RemoveChildTarget@DMMVIDEOPRESENTTARGET@@QEAAXAEAV1@@Z @ 0x1C005D09C
  * Callers:
- *     ??1DMMVIDEOPRESENTTARGET@@UEAA@XZ @ 0x1C03B2850 (--1DMMVIDEOPRESENTTARGET@@UEAA@XZ.c)
- *     ?DestroyDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C03B3158 (-DestroyDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAW4_CONNECTION_CHANGE_FAILUR.c)
+ *     ??1DMMVIDEOPRESENTTARGET@@UEAA@XZ @ 0x1C02E5880 (--1DMMVIDEOPRESENTTARGET@@UEAA@XZ.c)
+ *     ?DestroyDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C02E63A4 (-DestroyDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAW4_CONNECTION_CHANGE_FAILUR.c)
  * Callees:
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000A4DC (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     ?RemoveJoinedTarget@DMMVIDEOPRESENTTARGET@@QEAAXAEAV1@@Z @ 0x1C006A240 (-RemoveJoinedTarget@DMMVIDEOPRESENTTARGET@@QEAAXAEAV1@@Z.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C0006454 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ?RemoveJoinedTarget@DMMVIDEOPRESENTTARGET@@QEAAXAEAV1@@Z @ 0x1C005D120 (-RemoveJoinedTarget@DMMVIDEOPRESENTTARGET@@QEAAXAEAV1@@Z.c)
  */
 
 void __fastcall DMMVIDEOPRESENTTARGET::RemoveChildTarget(DMMVIDEOPRESENTTARGET *this, struct DMMVIDEOPRESENTTARGET *a2)
 {
   struct DMMVIDEOPRESENTTARGET **v3; // r8
   struct DMMVIDEOPRESENTTARGET **v4; // rcx
-  _QWORD *i; // rdi
+  struct DMMVIDEOPRESENTTARGET **v5; // rdi
 
   v3 = (struct DMMVIDEOPRESENTTARGET **)*((_QWORD *)a2 + 57);
   if ( v3[1] != (struct DMMVIDEOPRESENTTARGET *)((char *)a2 + 456)
@@ -26,12 +26,14 @@ void __fastcall DMMVIDEOPRESENTTARGET::RemoveChildTarget(DMMVIDEOPRESENTTARGET *
   *((_QWORD *)a2 + 59) = 0LL;
   if ( *((DMMVIDEOPRESENTTARGET **)this + 55) == (DMMVIDEOPRESENTTARGET *)((char *)this + 440) )
   {
-    for ( i = (_QWORD *)((char *)this + 480);
-          (_QWORD *)*i != i;
-          DMMVIDEOPRESENTTARGET::RemoveJoinedTarget(this, (struct DMMVIDEOPRESENTTARGET *)(*i - 496LL)) )
+    v5 = (struct DMMVIDEOPRESENTTARGET **)((char *)this + 480);
+    while ( 1 )
     {
-      ;
+      a2 = *v5;
+      if ( *v5 == (struct DMMVIDEOPRESENTTARGET *)v5 )
+        break;
+      DMMVIDEOPRESENTTARGET::RemoveJoinedTarget(this, (struct DMMVIDEOPRESENTTARGET *)((char *)a2 - 496));
     }
   }
-  ReferenceCounted::Release((DMMVIDEOPRESENTTARGET *)((char *)this + 64));
+  ReferenceCounted::Release((DMMVIDEOPRESENTTARGET *)((char *)this + 64), (__int64)a2);
 }

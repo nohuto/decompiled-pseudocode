@@ -1,135 +1,129 @@
 /*
- * XREFs of UserGetHipDeviceInfo @ 0x1C01C3500
+ * XREFs of UserGetHipDeviceInfo @ 0x1C01EE830
  * Callers:
  *     <none>
  * Callees:
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0048AB8 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     GetMonitorRect @ 0x1C00C46EC (GetMonitorRect.c)
- *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C0152C5C (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
+ *     GetMonitorRect @ 0x1C0041D58 (GetMonitorRect.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C00499CC (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C01ECC90 (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
  */
 
-__int64 __fastcall UserGetHipDeviceInfo(_DWORD *a1)
+__int64 __fastcall UserGetHipDeviceInfo(_DWORD *a1, __int64 a2, __int64 a3)
 {
-  unsigned int v1; // edi
-  int v2; // ebp
-  unsigned int v4; // r13d
-  unsigned int v5; // r12d
-  __int64 v6; // rcx
-  __int64 v7; // rax
+  unsigned int v3; // edi
+  int v4; // ebp
+  unsigned int v6; // r13d
+  unsigned int v7; // r12d
   CInpPushLock *Lock; // rbx
-  __int64 v9; // rcx
-  __int64 v10; // rax
   struct DEVICEINFO *i; // r14
-  __int64 v12; // r15
-  __int64 v13; // r11
-  __int64 v14; // rbp
+  __int64 v10; // r15
+  __int64 v11; // rdx
+  __int64 v12; // rbp
+  unsigned int v13; // ecx
+  int v14; // eax
   unsigned int v15; // ecx
   int v16; // eax
-  unsigned int v17; // ecx
+  int v17; // ecx
   int v18; // eax
   int v19; // ecx
   int v20; // eax
   int v21; // ecx
-  int v22; // eax
-  int v23; // ecx
-  __int64 v24; // r11
-  __int64 v25; // r11
-  __int64 v26; // rcx
-  __int64 v27; // rdx
-  int v28; // eax
-  char *v29; // rax
-  char *v30; // rax
-  char v32[56]; // [rsp+20h] [rbp-38h] BYREF
-  int v33; // [rsp+60h] [rbp+8h]
+  __int64 v22; // rcx
+  __int64 v23; // rdx
+  int v24; // eax
+  char *v25; // rax
+  char *v26; // rax
+  __int128 v28[4]; // [rsp+20h] [rbp-48h] BYREF
+  int v29; // [rsp+70h] [rbp+8h]
+  __int64 v30; // [rsp+78h] [rbp+10h]
 
-  v1 = 0;
-  v2 = *a1 - 4;
-  v33 = v2;
-  v4 = v2;
-  v5 = 0;
-  UserEnterUserCritSec();
-  v7 = SGDGetUserSessionState(v6);
-  Lock = CBaseInput::TmpGetLock(*(CBaseInput **)(v7 + 16840));
+  v3 = 0;
+  v4 = *a1 - 4;
+  v29 = v4;
+  v6 = v4;
+  v7 = 0;
+  UserEnterUserCritSec(a1, a2, a3);
+  Lock = CBaseInput::TmpGetLock(gpHidInput);
   CInpPushLock::LockShared(Lock);
-  v10 = SGDGetUserSessionState(v9);
-  for ( i = CBaseInput::TmpGetDeviceList(*(CBaseInput **)(v10 + 16840)); i; i = (struct DEVICEINFO *)*((_QWORD *)i + 7) )
+  for ( i = CBaseInput::TmpGetDeviceList(gpHidInput); i; i = (struct DEVICEINFO *)*((_QWORD *)i + 7) )
   {
     if ( (*((_DWORD *)i + 50) & 0x80u) != 0 )
     {
-      v12 = *((_QWORD *)i + 59);
-      v13 = *(_QWORD *)(v12 + 16);
-      if ( v2 )
+      v10 = *((_QWORD *)i + 60);
+      v11 = *(_QWORD *)(v10 + 16);
+      v30 = v11;
+      if ( v4 )
       {
-        if ( v4 < 0x450 )
+        if ( v6 < 0x450 )
         {
-          v1 = -1073741789;
+          v3 = -1073741789;
           break;
         }
-        v14 = 276LL * v5;
-        a1[v14 + 1] = *(_DWORD *)(v12 + 24);
-        a1[v14 + 2] = *(_DWORD *)(v13 + 1352);
-        v15 = a1[v14 + 3] & 0xFFFFFFFD | (*(_QWORD *)(v12 + 392) != 0LL ? 2 : 0);
-        a1[v14 + 3] = v15;
-        v16 = v15 ^ ((unsigned __int8)v15 ^ (unsigned __int8)(4 * BYTE1(*(_DWORD *)(v12 + 360)))) & 4;
-        a1[v14 + 3] = v16;
-        v17 = v16 & 0xFFFC03FF | (*(unsigned __int8 *)(v12 + 768) << 10);
-        a1[v14 + 3] = v17;
-        v18 = v17 ^ ((unsigned __int8)v17 ^ (unsigned __int8)(8 * (*(int *)(v12 + 360) >> 2))) & 8;
-        a1[v14 + 3] = v18;
-        v19 = v18 ^ ((unsigned __int8)v18 ^ (unsigned __int8)(16 * (*(int *)(v12 + 360) >> 3))) & 0x10;
-        a1[v14 + 3] = v19;
-        v20 = v19 ^ ((unsigned __int8)v19 ^ (unsigned __int8)(32 * (*(int *)(v12 + 360) >> 4))) & 0x20;
-        a1[v14 + 3] = v20;
-        v21 = v20 ^ ((unsigned __int8)v20 ^ (unsigned __int8)((unsigned __int8)(*(int *)(v12 + 360) >> 5) << 6)) & 0x40;
-        a1[v14 + 3] = v21;
-        v22 = v21 ^ ((unsigned __int8)v21 ^ *(_DWORD *)(v12 + 360) & 0x80) & 0x80;
-        a1[v14 + 3] = v22;
-        v23 = v22 ^ ((unsigned __int16)v22 ^ (unsigned __int16)((unsigned __int16)(*(int *)(v12 + 360) >> 9) << 8)) & 0x100;
-        a1[v14 + 3] = v23;
-        a1[v14 + 3] = v23 ^ ((unsigned __int16)v23 ^ (unsigned __int16)((unsigned __int16)(*(int *)(v12 + 360) >> 10) << 9)) & 0x200;
-        a1[v14 + 4] = *(_DWORD *)(v13 + 2136);
-        *(_OWORD *)&a1[v14 + 5] = *(_OWORD *)(v13 + 2120);
-        *(_QWORD *)&a1[v14 + 9] = *(_QWORD *)(v13 + 1904);
-        a1[v14 + 11] = *(_DWORD *)(v13 + 1916);
-        a1[v14 + 16] = *(_DWORD *)(v13 + 1996);
-        *(_QWORD *)&a1[v14 + 19] = *(_QWORD *)(v13 + 2112);
-        *(_QWORD *)&a1[v14 + 17] = *(_QWORD *)(v13 + 2104);
-        RtlStringCchCopyW((unsigned __int16 *)&a1[v14 + 85], 0x80uLL, (size_t *)(v13 + 1612));
-        RtlStringCchCopyW((unsigned __int16 *)&a1[v14 + 149], 0x80uLL, (size_t *)(v24 + 1356));
-        v26 = *(_QWORD *)(v25 + 1344);
-        if ( v26 )
-          v27 = ValidateHmonitorNoRip(v26);
+        v12 = 276LL * v7;
+        a1[v12 + 1] = *(_DWORD *)(v10 + 24);
+        a1[v12 + 2] = *(_DWORD *)(v11 + 1360);
+        v13 = a1[v12 + 3] & 0xFFFFFFFD | (*(_QWORD *)(v10 + 344) != 0LL ? 2 : 0);
+        a1[v12 + 3] = v13;
+        v14 = v13 ^ ((unsigned __int8)v13 ^ (unsigned __int8)(4 * BYTE1(*(_DWORD *)(v10 + 312)))) & 4;
+        a1[v12 + 3] = v14;
+        v15 = v14 & 0xFFFC03FF | (*(unsigned __int8 *)(v10 + 720) << 10);
+        a1[v12 + 3] = v15;
+        v16 = v15 ^ ((unsigned __int8)v15 ^ (unsigned __int8)(8 * (*(int *)(v10 + 312) >> 2))) & 8;
+        a1[v12 + 3] = v16;
+        v17 = v16 ^ ((unsigned __int8)v16 ^ (unsigned __int8)(16 * (*(int *)(v10 + 312) >> 3))) & 0x10;
+        a1[v12 + 3] = v17;
+        v18 = v17 ^ ((unsigned __int8)v17 ^ (unsigned __int8)(32 * (*(int *)(v10 + 312) >> 4))) & 0x20;
+        a1[v12 + 3] = v18;
+        v19 = v18 ^ ((unsigned __int8)v18 ^ (unsigned __int8)((unsigned __int8)(*(int *)(v10 + 312) >> 5) << 6)) & 0x40;
+        a1[v12 + 3] = v19;
+        v20 = v19 ^ ((unsigned __int8)v19 ^ *(_DWORD *)(v10 + 312) & 0x80) & 0x80;
+        a1[v12 + 3] = v20;
+        v21 = v20 ^ ((unsigned __int16)v20 ^ (unsigned __int16)((unsigned __int16)(*(int *)(v10 + 312) >> 9) << 8)) & 0x100;
+        a1[v12 + 3] = v21;
+        a1[v12 + 3] = v21 ^ ((unsigned __int16)v21 ^ (unsigned __int16)((unsigned __int16)(*(int *)(v10 + 312) >> 10) << 9)) & 0x200;
+        a1[v12 + 4] = *(_DWORD *)(v11 + 2128);
+        *(_OWORD *)&a1[v12 + 5] = *(_OWORD *)(v11 + 2112);
+        *(_QWORD *)&a1[v12 + 9] = *(_QWORD *)(v11 + 1912);
+        a1[v12 + 11] = *(_DWORD *)(v11 + 1924);
+        a1[v12 + 16] = *(_DWORD *)(v11 + 2004);
+        *(_QWORD *)&a1[v12 + 19] = *(_QWORD *)(v11 + 2104);
+        *(_QWORD *)&a1[v12 + 17] = *(_QWORD *)(v11 + 2096);
+        RtlStringCchCopyW((char *)&a1[v12 + 85], 128LL, (char *)(v11 + 1620));
+        RtlStringCchCopyW((char *)&a1[v12 + 149], 128LL, (char *)(v30 + 1364));
+        v22 = *(_QWORD *)(v30 + 1352);
+        if ( v22 )
+          v23 = ValidateHmonitorNoRip(v22);
         else
-          v27 = 0LL;
-        v28 = a1[v14 + 3];
-        if ( v27 )
+          v23 = 0LL;
+        v24 = a1[v12 + 3];
+        if ( v23 )
         {
-          a1[v14 + 3] = v28 | 1;
-          *(_OWORD *)&a1[v14 + 12] = *(_OWORD *)GetMonitorRect((__int64)v32, v27);
+          a1[v12 + 3] = v24 | 1;
+          *(_OWORD *)&a1[v12 + 12] = *GetMonitorRect(v28, v23);
         }
         else
         {
-          a1[v14 + 3] = v28 & 0xFFFFFFFE;
-          *(_OWORD *)&a1[v14 + 12] = 0LL;
+          a1[v12 + 3] = v24 & 0xFFFFFFFE;
+          *(_OWORD *)&a1[v12 + 12] = 0LL;
         }
-        v29 = (char *)&a1[v14];
-        if ( *(_QWORD *)(v12 + 376) )
-          RtlStringCbCopyUnicodeString(v29 + 84, 0x100uLL, (const struct _UNICODE_STRING *)(v12 + 368));
+        v25 = (char *)&a1[v12];
+        if ( *(_QWORD *)(v10 + 328) )
+          RtlStringCbCopyUnicodeString(v25 + 84, 0x100uLL, (const struct _UNICODE_STRING *)(v10 + 320));
         else
-          *((_WORD *)v29 + 42) = 0;
-        v30 = (char *)&a1[v14];
-        if ( *(_QWORD *)(v12 + 376) )
-          RtlStringCbCopyUnicodeString(v30 + 852, 0x100uLL, (const struct _UNICODE_STRING *)(v12 + 896));
+          *((_WORD *)v25 + 42) = 0;
+        v26 = (char *)&a1[v12];
+        if ( *(_QWORD *)(v10 + 328) )
+          RtlStringCbCopyUnicodeString(v26 + 852, 0x100uLL, (const struct _UNICODE_STRING *)(v10 + 848));
         else
-          *((_WORD *)v30 + 426) = 0;
-        v2 = v33;
-        v4 -= 1104;
+          *((_WORD *)v26 + 426) = 0;
+        v4 = v29;
+        v6 -= 1104;
       }
-      ++v5;
+      ++v7;
     }
   }
   CInpPushLock::UnLockShared(Lock);
-  *a1 = 1104 * v5 + 4;
+  *a1 = 1104 * v7 + 4;
   UserLeaveUserCritSec();
-  return v1;
+  return v3;
 }

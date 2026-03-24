@@ -1,12 +1,12 @@
 /*
- * XREFs of DxgkEngGetWindowRect @ 0x1C0122DF0
+ * XREFs of DxgkEngGetWindowRect @ 0x1C011F6F0
  * Callers:
  *     <none>
  * Callees:
- *     UserGetWindowRect @ 0x1C0084E98 (UserGetWindowRect.c)
+ *     UserGetWindowRect @ 0x1C011F708 (UserGetWindowRect.c)
  */
 
-__int64 __fastcall DxgkEngGetWindowRect(int a1, _OWORD *a2)
+__int64 __fastcall DxgkEngGetWindowRect(__int64 a1, __int64 a2)
 {
   return UserGetWindowRect(a1, a2);
 }

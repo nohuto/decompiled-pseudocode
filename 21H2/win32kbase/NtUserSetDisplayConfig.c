@@ -1,24 +1,21 @@
 /*
- * XREFs of NtUserSetDisplayConfig @ 0x1C0160660
+ * XREFs of NtUserSetDisplayConfig @ 0x1C0133430
  * Callers:
  *     <none>
  * Callees:
- *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C00293AC (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C0029D70 (UserSessionSwitchLeaveCrit.c)
- *     CheckAccessEx @ 0x1C002FB20 (CheckAccessEx.c)
- *     HMUnlockObject @ 0x1C0038FB0 (HMUnlockObject.c)
- *     UserSetLastError @ 0x1C003CCC0 (UserSetLastError.c)
- *     xxxUserSetDisplayConfig @ 0x1C005C190 (xxxUserSetDisplayConfig.c)
- *     LogDiagSDC @ 0x1C005C5BC (LogDiagSDC.c)
- *     _QdcSdcTranslateStatusDefault @ 0x1C00705D8 (_QdcSdcTranslateStatusDefault.c)
- *     UserIsWddmConnectedSession @ 0x1C0071CE0 (UserIsWddmConnectedSession.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     DrvIsDisplayStateCurrent @ 0x1C0174768 (DrvIsDisplayStateCurrent.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     DrvSampleDisplayState @ 0x1C001B860 (DrvSampleDisplayState.c)
+ *     _QdcSdcTranslateStatusDefault @ 0x1C001DD24 (_QdcSdcTranslateStatusDefault.c)
+ *     UserIsWddmConnectedSession @ 0x1C001DEB0 (UserIsWddmConnectedSession.c)
+ *     Win32AllocPoolWithQuota @ 0x1C00295D0 (Win32AllocPoolWithQuota.c)
+ *     EnterCrit @ 0x1C002EB00 (EnterCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0036190 (UserSessionSwitchLeaveCrit.c)
+ *     UserSetLastError @ 0x1C00388BC (UserSetLastError.c)
+ *     CheckAccessEx @ 0x1C0042FA8 (CheckAccessEx.c)
+ *     xxxUserSetDisplayConfig @ 0x1C0075A10 (xxxUserSetDisplayConfig.c)
+ *     LogDiagSDC @ 0x1C0075E24 (LogDiagSDC.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
 __int64 __fastcall NtUserSetDisplayConfig(
@@ -28,375 +25,243 @@ __int64 __fastcall NtUserSetDisplayConfig(
         unsigned __int64 a4,
         __int64 a5)
 {
-  unsigned int v6; // r14d
-  unsigned __int64 v7; // r12
+  __int64 v7; // r12
   __int64 v8; // r15
-  signed int v9; // edi
-  struct tagTHREADINFO *v10; // rax
-  struct tagTHREADINFO *v11; // rcx
+  signed int v9; // ebx
+  char *v10; // rcx
+  struct DISPLAYCONFIG_PATH_INFO_INTERNAL *v11; // r8
   __int64 v12; // r9
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  char v16; // al
-  __int64 v17; // rcx
-  struct tagKERNELHANDLETABLEENTRY *v18; // rsi
-  unsigned int v19; // esi
-  __int64 v20; // r8
-  __int64 v21; // rax
-  __int64 v22; // rdx
+  int v13; // esi
+  unsigned int v14; // r14d
+  __int64 v15; // rax
+  unsigned __int64 v16; // rdx
+  int v17; // eax
+  unsigned int v18; // r15d
+  __int64 v19; // rsi
+  unsigned int v20; // esi
+  unsigned int v21; // eax
+  __int64 v22; // rax
   int v23; // eax
-  struct DISPLAYCONFIG_PATH_INFO_INTERNAL *v24; // r8
-  unsigned int v25; // r15d
-  __int64 v26; // rsi
-  unsigned int v27; // r14d
-  unsigned int v28; // eax
-  PVOID v29; // r12
-  unsigned __int64 v30; // rdx
-  unsigned __int64 v31; // rcx
-  __int64 Pool2; // rsi
-  int v33; // eax
-  int v34; // eax
-  char v37; // [rsp+64h] [rbp-224h]
-  __int64 v38; // [rsp+68h] [rbp-220h]
-  unsigned int v40; // [rsp+84h] [rbp-204h]
-  struct DISPLAYCONFIG_PATH_INFO_INTERNAL *v41; // [rsp+88h] [rbp-200h]
-  int v42; // [rsp+A0h] [rbp-1E8h] BYREF
-  unsigned int v43; // [rsp+A8h] [rbp-1E0h]
-  int v44; // [rsp+B8h] [rbp-1D0h]
-  unsigned int v45; // [rsp+C0h] [rbp-1C8h]
-  __int64 v46; // [rsp+C8h] [rbp-1C0h] BYREF
-  int v47; // [rsp+D0h] [rbp-1B8h]
-  int v48[2]; // [rsp+D8h] [rbp-1B0h] BYREF
-  unsigned __int64 v49; // [rsp+E0h] [rbp-1A8h]
-  struct DISPLAYCONFIG_PATH_INFO_INTERNAL *v50; // [rsp+E8h] [rbp-1A0h]
-  __int128 v51; // [rsp+F0h] [rbp-198h]
-  __int64 v52; // [rsp+108h] [rbp-180h]
-  __int64 v53; // [rsp+110h] [rbp-178h] BYREF
-  unsigned __int64 v54; // [rsp+118h] [rbp-170h]
-  unsigned __int64 i; // [rsp+120h] [rbp-168h]
-  __int64 v56; // [rsp+128h] [rbp-160h]
-  __int128 v57; // [rsp+130h] [rbp-158h]
-  __int128 v58; // [rsp+140h] [rbp-148h] BYREF
-  __int64 v59; // [rsp+150h] [rbp-138h]
-  PVOID BackTrace[20]; // [rsp+160h] [rbp-128h] BYREF
-  _QWORD v61[10]; // [rsp+200h] [rbp-88h] BYREF
+  int v24; // eax
+  __int64 v27; // [rsp+58h] [rbp-140h]
+  unsigned int v28; // [rsp+70h] [rbp-128h]
+  struct DISPLAYCONFIG_PATH_INFO_INTERNAL *v29; // [rsp+78h] [rbp-120h]
+  __int64 v30; // [rsp+88h] [rbp-110h]
+  int v31; // [rsp+90h] [rbp-108h]
+  __int64 v32; // [rsp+B8h] [rbp-E0h] BYREF
+  int v33; // [rsp+C0h] [rbp-D8h]
+  int v34[2]; // [rsp+C8h] [rbp-D0h] BYREF
+  struct DISPLAYCONFIG_PATH_INFO_INTERNAL *v35; // [rsp+D0h] [rbp-C8h]
+  __int64 v36; // [rsp+E0h] [rbp-B8h]
+  __int64 v37; // [rsp+E8h] [rbp-B0h]
+  __int128 v38; // [rsp+F0h] [rbp-A8h] BYREF
+  __int64 v39; // [rsp+100h] [rbp-98h]
+  _QWORD v40[10]; // [rsp+110h] [rbp-88h] BYREF
 
-  v6 = a3;
-  v7 = a2;
-  v49 = a2;
-  v45 = a3;
-  v56 = a5;
-  memset(v61, 0, 0x48uLL);
-  EtwActivityIdControl(3u, (LPGUID)&v61[1]);
-  v61[8] = MEMORY[0xFFFFF78000000014];
-  LODWORD(v61[3]) = 29;
-  LOBYTE(v61[6]) = -1;
-  v48[0] = 0x2000;
-  v48[1] = -1;
-  v41 = 0LL;
-  v58 = 0LL;
-  v59 = 0LL;
-  v40 = 0;
-  v46 = 0LL;
-  v47 = 0;
-  v52 = MEMORY[0xFFFFF78000000320];
-  v8 = v52 * KeQueryTimeIncrement();
-  v38 = v8;
+  v7 = a1;
+  v37 = a5;
+  memset(v40, 0, 0x48uLL);
+  EtwActivityIdControl(3u, (LPGUID)&v40[1]);
+  v40[8] = MEMORY[0xFFFFF78000000014];
+  LODWORD(v40[3]) = 29;
+  LOBYTE(v40[6]) = -1;
+  v34[0] = 0x2000;
+  v34[1] = -1;
+  v29 = 0LL;
+  v38 = 0LL;
+  v39 = 0LL;
+  v28 = 0;
+  v30 = 0LL;
+  v31 = 0;
+  v36 = MEMORY[0xFFFFF78000000320];
+  v8 = v36 * KeQueryTimeIncrement();
+  v27 = v8;
   v9 = -1073741811;
-  v44 = -1073741811;
-  v10 = (struct tagTHREADINFO *)PrivateAPI::_anonymous_namespace_::EnterCritInternal(1);
-  gptiCurrent = v10;
-  if ( v10 )
+  EnterCrit(0, 1);
+  if ( !gbVideoInitialized )
   {
-    *((_DWORD *)v10 + 377) = 1;
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v11);
-    if ( CurrentProcessWin32Process )
-    {
-      if ( (*(_DWORD *)(CurrentProcessWin32Process + 12) & 0x8000) != 0 )
-      {
-        v11 = gptiCurrent;
-        if ( (*((_DWORD *)gptiCurrent + 122) & 0x1000000) == 0
-          || (v16 = 1, (*((_DWORD *)gptiCurrent + 314) & 0x80u) != 0) )
-        {
-          v16 = 0;
-        }
-        if ( v16 )
-        {
-          while ( 1 )
-          {
-            v18 = gpSharedUserCritDeferredUnlockListHead;
-            if ( !gpSharedUserCritDeferredUnlockListHead )
-              break;
-            gpSharedUserCritDeferredUnlockListHead = (struct tagKERNELHANDLETABLEENTRY *)*((_QWORD *)gpSharedUserCritDeferredUnlockListHead
-                                                                                         + 2);
-            *((_QWORD *)v18 + 2) = 0LL;
-            v17 = *(_QWORD *)v18;
-            if ( !*(_DWORD *)(*(_QWORD *)v18 + 8LL) )
-            {
-              MicrosoftTelemetryAssertTriggeredNoArgsKM(v17, v14, v15);
-              v17 = *(_QWORD *)v18;
-            }
-            HMUnlockObject(v17);
-          }
-        }
-      }
-    }
+    v9 = -1073741823;
+    v13 = 0x80000000;
+LABEL_3:
+    v14 = a3;
+    v15 = v8;
+LABEL_62:
+    LogDiagSDC(v28, (__int64)v29, v14, v9, 0, v13, v15, 0);
+    goto LABEL_63;
   }
-  if ( gbVideoInitialized )
+  v16 = (unsigned __int64)gptiCurrent;
+  if ( (*((_DWORD *)gptiCurrent + 122) & 0x20000000) != 0 )
   {
-    v22 = (__int64)gptiCurrent;
-    if ( (*((_DWORD *)gptiCurrent + 122) & 0x20000000) != 0 )
-    {
-      v11 = *(struct tagTHREADINFO **)(*((_QWORD *)gptiCurrent + 53) + 768LL);
-      v23 = *((_DWORD *)v11 + 6) & 0x10;
-    }
-    else
-    {
-      v23 = 0;
-    }
-    if ( v23 || !CheckAccessEx((int *)(*((_QWORD *)gptiCurrent + 53) + 880LL), v48, 0) )
-    {
-      v9 = -1073741790;
-      v19 = -2147483647;
-      v20 = v6;
-      v21 = v8;
-      goto LABEL_93;
-    }
-    v12 = a1;
-    if ( a1 > 0x400 )
-    {
-      v19 = -2147483646;
-      goto LABEL_15;
-    }
-    v50 = 0LL;
-    v25 = 0;
-    v43 = 0;
-    if ( !a1 )
-    {
-LABEL_72:
-      v40 = v25;
-      if ( a4 )
-      {
-        if ( ((PsGetCurrentProcessWow64Process(v11, v22, v24) == 0 ? 3 : 0) & (unsigned __int8)a4) != 0 )
-          ExRaiseDatatypeMisalignment();
-        if ( a4 + 12 > MmUserProbeAddress || a4 + 12 < a4 )
-          *(_BYTE *)MmUserProbeAddress = 0;
-        v46 = *(_QWORD *)a4;
-        v47 = *(_DWORD *)(a4 + 8);
-      }
-      if ( gfSwitchInProgress )
-      {
-        v9 = -1073741823;
-        v19 = -2147483643;
-LABEL_81:
-        LODWORD(v20) = a3;
-        v21 = v38;
-        goto LABEL_94;
-      }
-      if ( !(unsigned int)UserIsWddmConnectedSession() )
-      {
-        v9 = -1073741790;
-        v19 = -2147483642;
-        goto LABEL_81;
-      }
-      if ( a4 && !(unsigned int)DrvIsDisplayStateCurrent(1LL, &v46) )
-      {
-        v9 = -1071774921;
-        v19 = -2147483641;
-        LODWORD(v20) = a3;
-        v21 = v38;
-        goto LABEL_94;
-      }
-      v19 = 18;
-      v33 = xxxUserSetDisplayConfig(v25, v41, v6, 0, 0LL, 1, v56, 0LL, 0LL, (__int64)v61, 0LL);
-      v9 = v33;
-      if ( v33 == -2147483643 )
-      {
-        v9 = -1073741789;
-      }
-      else if ( v33 != -1073741789 && (v6 & 0x10000) == 0 )
-      {
-        if ( v33 == -1071774970 )
-          v9 = -2147023286;
-        else
-          v9 = QdcSdcTranslateStatusDefault(v33);
-      }
-      v20 = a3;
-      v21 = v38;
-LABEL_93:
-      if ( v19 == 18 )
-        goto LABEL_98;
-      goto LABEL_94;
-    }
-    v26 = 216LL * a1;
-    if ( v26 )
-    {
-      if ( ((PsGetCurrentProcessWow64Process(v11, v22, v24) == 0 ? 3 : 0) & (unsigned __int8)v7) != 0 )
-        ExRaiseDatatypeMisalignment();
-      if ( v26 + v7 > MmUserProbeAddress || v26 + v7 < v7 )
-        *(_BYTE *)MmUserProbeAddress = 0;
-      v12 = a1;
-    }
-    v27 = 0;
-    v28 = 0;
-    v11 = (struct tagTHREADINFO *)v7;
-    while ( v28 < (unsigned int)v12 )
-    {
-      if ( *(__int64 *)v11 < 0 )
-        ++v27;
-      ++v28;
-      v11 = (struct tagTHREADINFO *)((char *)v11 + 216);
-    }
-    if ( !v27 )
-    {
-LABEL_59:
-      v24 = v41;
-      v50 = v41;
-      v22 = 0LL;
-      while ( (unsigned int)v22 < (unsigned int)v12 )
-      {
-        if ( *(__int64 *)v7 < 0 )
-        {
-          if ( v25 >= v27 )
-          {
-            v19 = -2147483645;
-            v20 = a3;
-            v21 = v38;
-            goto LABEL_93;
-          }
-          *(_OWORD *)v24 = *(_OWORD *)v7;
-          *((_OWORD *)v24 + 1) = *(_OWORD *)(v7 + 16);
-          *((_OWORD *)v24 + 2) = *(_OWORD *)(v7 + 32);
-          *((_OWORD *)v24 + 3) = *(_OWORD *)(v7 + 48);
-          *((_OWORD *)v24 + 4) = *(_OWORD *)(v7 + 64);
-          *((_OWORD *)v24 + 5) = *(_OWORD *)(v7 + 80);
-          *((_OWORD *)v24 + 6) = *(_OWORD *)(v7 + 96);
-          v11 = (struct DISPLAYCONFIG_PATH_INFO_INTERNAL *)((char *)v24 + 128);
-          *((_OWORD *)v24 + 7) = *(_OWORD *)(v7 + 112);
-          *((_OWORD *)v24 + 8) = *(_OWORD *)(v7 + 128);
-          *((_OWORD *)v24 + 9) = *(_OWORD *)(v7 + 144);
-          *((_OWORD *)v24 + 10) = *(_OWORD *)(v7 + 160);
-          *((_OWORD *)v24 + 11) = *(_OWORD *)(v7 + 176);
-          *((_OWORD *)v24 + 12) = *(_OWORD *)(v7 + 192);
-          *((_QWORD *)v24 + 26) = *(_QWORD *)(v7 + 208);
-          if ( *(__int64 *)v24 >= 0 )
-          {
-            v9 = -1073741790;
-            v19 = -2147483644;
-            v20 = a3;
-            v21 = v38;
-            goto LABEL_93;
-          }
-          v43 = ++v25;
-          v24 = (struct DISPLAYCONFIG_PATH_INFO_INTERNAL *)((char *)v24 + 216);
-          v50 = v24;
-        }
-        v22 = (unsigned int)(v22 + 1);
-        v7 += 216LL;
-      }
-      if ( v25 != v27 )
-      {
-        v19 = -2147483645;
-        v20 = a3;
-        v21 = v38;
-        goto LABEL_93;
-      }
-      v6 = a3;
-      goto LABEL_72;
-    }
-    v42 = 1665430357;
-    v53 = 260LL;
-    v29 = gpLeakTrackingAllocator;
-    *(_QWORD *)&v57 = &v53;
-    *((_QWORD *)&v57 + 1) = &v42;
-    v51 = v57;
-    v30 = 216LL * v27;
-    v54 = v30;
-    if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x63447355) == 0x63447355 )
-    {
-      v31 = 0LL;
-      for ( i = 0LL; ; i = v31 )
-      {
-        if ( v31 >= *((unsigned int *)gpLeakTrackingAllocator + 11) )
-          goto LABEL_54;
-        if ( *((_DWORD *)gpLeakTrackingAllocator + v31) == 1665430357 )
-          break;
-        ++v31;
-      }
-      v37 = 0;
-      if ( v30 < 0x1000 || (v30 & 0xFFF) != 0 )
-      {
-        v37 = 1;
-        v30 += 16LL;
-        v54 = v30;
-      }
-      Pool2 = ExAllocatePool2(*(_QWORD *)v51 & 0xFFFFFFFFFFFFFFFCuLL | 1, v30);
-      if ( !Pool2 )
-      {
-LABEL_45:
-        Pool2 = 0LL;
-        goto LABEL_55;
-      }
-      memset(BackTrace, 0, sizeof(BackTrace));
-      RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-      if ( v37 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-      {
-        if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                v29,
-                                Pool2,
-                                BackTrace) )
-        {
-          Pool2 += 16LL;
-          goto LABEL_55;
-        }
-      }
-      else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                   v29,
-                                   Pool2,
-                                   BackTrace) )
-      {
-        goto LABEL_55;
-      }
-      ExFreePoolWithTag((PVOID)Pool2, 0);
-      goto LABEL_45;
-    }
-LABEL_54:
-    Pool2 = ExAllocatePool2(*(_QWORD *)v51 & 0xFFFFFFFFFFFFFFFCuLL | 1, v30);
-LABEL_55:
-    v41 = (struct DISPLAYCONFIG_PATH_INFO_INTERNAL *)Pool2;
-    if ( !Pool2 )
-      ExRaiseStatus(-1073741801);
-    if ( qword_1C029BD10 )
-      qword_1C029BD10(Pool2, &v58, Win32FreePool);
-    v12 = a1;
-    v7 = v49;
-    goto LABEL_59;
-  }
-  v9 = -1073741823;
-  v19 = 0x80000000;
-LABEL_15:
-  LODWORD(v20) = a3;
-  v21 = v8;
-LABEL_94:
-  LogDiagSDC(v40, (__int64)v41, v20, v9, 0, v19, v21, 0, 0LL);
-LABEL_98:
-  if ( v9 < 0 )
-  {
-    if ( a4 && !(unsigned int)DrvIsDisplayStateCurrent(0LL, &v46) )
-      v9 = -1071774921;
+    v10 = *(char **)(*((_QWORD *)gptiCurrent + 53) + 768LL);
+    v17 = *((_DWORD *)v10 + 6) & 0x10;
   }
   else
   {
-    if ( qword_1C029C9A0 )
-      v34 = qword_1C029C9A0();
-    else
-      v34 = -1073741637;
-    if ( v34 >= 0 && qword_1C029C9A8 )
-      qword_1C029C9A8();
+    v17 = 0;
   }
-  if ( v41 && qword_1C029BE28 )
-    qword_1C029BE28(&v58);
-  UserSessionSwitchLeaveCrit((__int64)v11, v22, v20, v12);
+  if ( v17 || !CheckAccessEx((int *)(*((_QWORD *)gptiCurrent + 53) + 880LL), v34, 0) )
+  {
+    v9 = -1073741790;
+    v13 = -2147483647;
+    v14 = a3;
+    v15 = v8;
+  }
+  else
+  {
+    if ( (unsigned int)v7 > 0x400 )
+    {
+      v13 = -2147483646;
+      goto LABEL_3;
+    }
+    v35 = 0LL;
+    v18 = 0;
+    if ( (_DWORD)v7 )
+    {
+      v19 = 200 * v7;
+      if ( 200 * v7 )
+      {
+        if ( ((PsGetCurrentProcessWow64Process(v10) == 0 ? 3 : 0) & (unsigned __int8)a2) != 0 )
+          ExRaiseDatatypeMisalignment();
+        if ( v19 + a2 > MmUserProbeAddress || v19 + a2 < a2 )
+          *(_BYTE *)MmUserProbeAddress = 0;
+      }
+      v20 = 0;
+      v21 = 0;
+      v10 = (char *)a2;
+      while ( v21 < (unsigned int)v7 )
+      {
+        if ( *(__int64 *)v10 < 0 )
+          ++v20;
+        ++v21;
+        v10 += 200;
+      }
+      if ( v20 )
+      {
+        v22 = Win32AllocPoolWithQuota(200LL * v20, 0x63447355u);
+        v29 = (struct DISPLAYCONFIG_PATH_INFO_INTERNAL *)v22;
+        if ( !v22 )
+          ExRaiseStatus(-1073741801);
+        if ( qword_1C0256FC0 )
+          qword_1C0256FC0(v22, &v38, Win32FreePool);
+      }
+      v11 = v29;
+      v35 = v29;
+      v16 = 0LL;
+      v12 = 128LL;
+      while ( (unsigned int)v16 < (unsigned int)v7 )
+      {
+        if ( *(__int64 *)a2 < 0 )
+        {
+          if ( v18 >= v20 )
+          {
+            v13 = -2147483645;
+            v14 = a3;
+            v15 = v27;
+            goto LABEL_61;
+          }
+          *(_OWORD *)v11 = *(_OWORD *)a2;
+          *((_OWORD *)v11 + 1) = *(_OWORD *)(a2 + 16);
+          *((_OWORD *)v11 + 2) = *(_OWORD *)(a2 + 32);
+          *((_OWORD *)v11 + 3) = *(_OWORD *)(a2 + 48);
+          *((_OWORD *)v11 + 4) = *(_OWORD *)(a2 + 64);
+          *((_OWORD *)v11 + 5) = *(_OWORD *)(a2 + 80);
+          *((_OWORD *)v11 + 6) = *(_OWORD *)(a2 + 96);
+          v10 = (char *)v11 + 128;
+          *((_OWORD *)v11 + 7) = *(_OWORD *)(a2 + 112);
+          *((_OWORD *)v11 + 8) = *(_OWORD *)(a2 + 128);
+          *((_OWORD *)v11 + 9) = *(_OWORD *)(a2 + 144);
+          *((_OWORD *)v11 + 10) = *(_OWORD *)(a2 + 160);
+          *((_OWORD *)v11 + 11) = *(_OWORD *)(a2 + 176);
+          *((_QWORD *)v11 + 24) = *(_QWORD *)(a2 + 192);
+          if ( *(__int64 *)v11 >= 0 )
+          {
+            v9 = -1073741790;
+            v13 = -2147483644;
+            v14 = a3;
+            v15 = v27;
+            goto LABEL_61;
+          }
+          ++v18;
+          v11 = (struct DISPLAYCONFIG_PATH_INFO_INTERNAL *)((char *)v11 + 200);
+          v35 = v11;
+        }
+        v16 = (unsigned int)(v16 + 1);
+        a2 += 200LL;
+      }
+      if ( v18 != v20 )
+      {
+        v13 = -2147483645;
+        v14 = a3;
+        v15 = v27;
+        goto LABEL_61;
+      }
+    }
+    v28 = v18;
+    if ( a4 )
+    {
+      if ( ((PsGetCurrentProcessWow64Process(v10) == 0 ? 3 : 0) & (unsigned __int8)a4) != 0 )
+        ExRaiseDatatypeMisalignment();
+      if ( a4 + 12 > MmUserProbeAddress || a4 + 12 < a4 )
+        *(_BYTE *)MmUserProbeAddress = 0;
+      v30 = *(_QWORD *)a4;
+      v31 = *(_DWORD *)(a4 + 8);
+    }
+    if ( gfSwitchInProgress )
+    {
+      v9 = -1073741823;
+      v13 = -2147483643;
+LABEL_48:
+      v14 = a3;
+      v15 = v27;
+      goto LABEL_62;
+    }
+    if ( !(unsigned int)UserIsWddmConnectedSession() )
+    {
+      v9 = -1073741790;
+      v13 = -2147483642;
+      goto LABEL_48;
+    }
+    if ( a4 )
+    {
+      v32 = 0LL;
+      v33 = 0;
+      DrvSampleDisplayState(&v32);
+      if ( v33 != v31 || v32 != v30 )
+      {
+        v9 = -1071774921;
+        v13 = -2147483641;
+        goto LABEL_48;
+      }
+    }
+    v13 = 18;
+    v14 = a3;
+    v23 = xxxUserSetDisplayConfig(v18, v29, a3, 0, 0LL, 1, v37, 0LL, 0LL, (__int64)v40);
+    v9 = v23;
+    if ( v23 == -2147483643 )
+    {
+      v9 = -1073741789;
+    }
+    else if ( v23 != -1073741789 && (a3 & 0x10000) == 0 )
+    {
+      if ( v23 == -1071774970 )
+        v9 = -2147023286;
+      else
+        v9 = QdcSdcTranslateStatusDefault(v23);
+    }
+    v15 = v27;
+  }
+LABEL_61:
+  if ( v13 != 18 )
+    goto LABEL_62;
+LABEL_63:
+  if ( v9 >= 0 )
+  {
+    v24 = qword_1C0257C60 ? qword_1C0257C60(v10, v16, v11, v12) : -1073741637;
+    if ( v24 >= 0 && qword_1C0257C68 )
+      qword_1C0257C68();
+  }
+  if ( v29 && qword_1C02570E8 )
+    qword_1C02570E8(&v38);
+  UserSessionSwitchLeaveCrit();
   return (unsigned int)v9;
 }

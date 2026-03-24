@@ -1,8 +1,8 @@
 /*
- * XREFs of Endpoint_GetMaxPrimaryStreams @ 0x1C000CF6C
+ * XREFs of Endpoint_GetMaxPrimaryStreams @ 0x1C0008394
  * Callers:
- *     UsbDevice_InitializeEndpointContext @ 0x1C000CD58 (UsbDevice_InitializeEndpointContext.c)
- *     Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C0050060 (Crashdump_UsbDevice_ConfigureEndpointsForSaveState.c)
+ *     UsbDevice_InitializeEndpointContext @ 0x1C0007FF4 (UsbDevice_InitializeEndpointContext.c)
+ *     Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C004D588 (Crashdump_UsbDevice_ConfigureEndpointsForSaveState.c)
  * Callees:
  *     <none>
  */

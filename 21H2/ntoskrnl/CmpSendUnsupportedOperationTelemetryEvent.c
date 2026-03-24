@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpSendUnsupportedOperationTelemetryEvent @ 0x14091D12C
+ * XREFs of CmpSendUnsupportedOperationTelemetryEvent @ 0x1408765DC
  * Callers:
- *     CmpFlushUnsupportedOperationTelemetry @ 0x1406D6FD0 (CmpFlushUnsupportedOperationTelemetry.c)
- *     CmpLogUnsupportedOperation @ 0x14091CEA0 (CmpLogUnsupportedOperation.c)
+ *     CmpFlushUnsupportedOperationTelemetry @ 0x140725A44 (CmpFlushUnsupportedOperationTelemetry.c)
+ *     CmpLogUnsupportedOperation @ 0x14087634C (CmpLogUnsupportedOperation.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void CmpSendUnsupportedOperationTelemetryEvent()
@@ -24,9 +24,9 @@ void CmpSendUnsupportedOperationTelemetryEvent()
   __int64 *v10; // [rsp+80h] [rbp+37h]
   __int64 v11; // [rsp+88h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140C03868 > 5 )
+  if ( (unsigned int)dword_140C02130 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03868, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02130, 0x400000000000LL) )
     {
       v3 = v0;
       v6 = &v2;
@@ -37,7 +37,13 @@ void CmpSendUnsupportedOperationTelemetryEvent()
       v9 = 4LL;
       v4 = 0x1000000LL;
       v11 = 8LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03868, (unsigned __int8 *)byte_140029FBD, 0LL, 0LL, 5u, &v5);
+      tlgWriteTransfer_EtwWriteTransfer(
+        (__int64)&dword_140C02130,
+        (unsigned __int8 *)&dword_140023A34,
+        0LL,
+        0LL,
+        5u,
+        &v5);
     }
   }
 }

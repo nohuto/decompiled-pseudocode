@@ -1,11 +1,11 @@
 /*
- * XREFs of SeGetImageRequiredSigningLevel @ 0x1406BEA60
+ * XREFs of SeGetImageRequiredSigningLevel @ 0x1406BEA40
  * Callers:
  *     MiCreateNewSection @ 0x14061B7E0 (MiCreateNewSection.c)
- *     MiValidateExistingImage @ 0x14064F1A4 (MiValidateExistingImage.c)
+ *     MiValidateExistingImage @ 0x14064F184 (MiValidateExistingImage.c)
  * Callees:
- *     RtlIsUntrustedObject @ 0x140131B80 (RtlIsUntrustedObject.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlIsUntrustedObject @ 0x140131BA0 (RtlIsUntrustedObject.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, __int64 a2, char a3, char a4, char *a5)
@@ -21,8 +21,8 @@ __int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, __int64 a2, char a
 
   IsUntrustedObject = 0;
   v7 = a1;
-  if ( qword_14040DDF0 )
-    return (unsigned int)((__int64 (__fastcall *)(__int64))qword_14040DDF0)(a1);
+  if ( qword_14040DDD0 )
+    return (unsigned int)((__int64 (__fastcall *)(__int64))qword_14040DDD0)(a1);
   v8 = SeILSigningPolicy;
   if ( !SeILSigningPolicy )
     v8 = SeILSigningPolicyRuntime;
@@ -47,11 +47,11 @@ LABEL_31:
   }
   if ( (a2 & 0x10) != 0 )
     goto LABEL_31;
-  if ( qword_14040DDC0 )
+  if ( qword_14040DDA0 )
   {
     LOBYTE(a2) = a3;
     LOBYTE(a1) = a4;
-    if ( (unsigned int)qword_14040DDC0(a1, a2) )
+    if ( (unsigned int)qword_14040DDA0(a1, a2) )
       goto LABEL_31;
   }
   Process = KeGetCurrentThread()->ApcState.Process;
@@ -59,9 +59,9 @@ LABEL_31:
     goto LABEL_31;
   if ( (Process[2].UserTime & 0x800000) != 0 )
     goto LABEL_18;
-  if ( !qword_14040DDB8 )
+  if ( !qword_14040DD98 )
     return (unsigned int)-1073741823;
-  IsUntrustedObject = qword_14040DDB8(v7, &v12, &v13);
+  IsUntrustedObject = qword_14040DD98(v7, &v12, &v13);
   if ( (IsUntrustedObject & 0x80000000) != 0 )
     return IsUntrustedObject;
   if ( v12 || v13 )

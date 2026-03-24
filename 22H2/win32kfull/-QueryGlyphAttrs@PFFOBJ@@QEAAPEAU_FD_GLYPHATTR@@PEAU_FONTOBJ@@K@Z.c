@@ -1,22 +1,24 @@
 /*
- * XREFs of ?QueryGlyphAttrs@PFFOBJ@@QEAAPEAU_FD_GLYPHATTR@@PEAU_FONTOBJ@@K@Z @ 0x1C02E142C
+ * XREFs of ?QueryGlyphAttrs@PFFOBJ@@QEAAPEAU_FD_GLYPHATTR@@PEAU_FONTOBJ@@K@Z @ 0x1C02C1ED8
  * Callers:
- *     FONTOBJ_pQueryGlyphAttrs @ 0x1C02987F0 (FONTOBJ_pQueryGlyphAttrs.c)
+ *     FONTOBJ_pQueryGlyphAttrs @ 0x1C0293020 (FONTOBJ_pQueryGlyphAttrs.c)
  * Callees:
- *     ??0ATTACHOBJ@@QEAA@PEAVPFFOBJ@@@Z @ 0x1C007FA70 (--0ATTACHOBJ@@QEAA@PEAVPFFOBJ@@@Z.c)
- *     ??1ATTACHOBJ@@QEAA@XZ @ 0x1C00804F4 (--1ATTACHOBJ@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     ??1ATTACHOBJ@@QEAA@XZ @ 0x1C0098F04 (--1ATTACHOBJ@@QEAA@XZ.c)
+ *     ??0ATTACHOBJ@@QEAA@PEAVPFFOBJ@@@Z @ 0x1C0099684 (--0ATTACHOBJ@@QEAA@PEAVPFFOBJ@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 struct _FD_GLYPHATTR *__fastcall PFFOBJ::QueryGlyphAttrs(PFFOBJ *this, struct _FONTOBJ *a2, unsigned int a3)
 {
   __int64 (__fastcall *v5)(struct _FONTOBJ *, _QWORD); // rbx
-  _BYTE v7[24]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v6; // rdi
+  _BYTE v8[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  v5 = *(__int64 (__fastcall **)(struct _FONTOBJ *, _QWORD))(*(_QWORD *)(*(_QWORD *)this + 88LL) + 3352LL);
-  ATTACHOBJ::ATTACHOBJ((ATTACHOBJ *)v7, this);
+  v5 = *(__int64 (__fastcall **)(struct _FONTOBJ *, _QWORD))(*(_QWORD *)(*(_QWORD *)this + 88LL) + 3376LL);
+  ATTACHOBJ::ATTACHOBJ((ATTACHOBJ *)v8, this);
+  v6 = 0LL;
   if ( v5 )
-    v5 = (__int64 (__fastcall *)(struct _FONTOBJ *, _QWORD))v5(a2, a3);
-  ATTACHOBJ::~ATTACHOBJ((ATTACHOBJ *)v7);
-  return (struct _FD_GLYPHATTR *)v5;
+    v6 = v5(a2, a3);
+  ATTACHOBJ::~ATTACHOBJ((ATTACHOBJ *)v8);
+  return (struct _FD_GLYPHATTR *)v6;
 }

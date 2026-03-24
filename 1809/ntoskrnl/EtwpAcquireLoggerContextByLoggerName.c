@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpAcquireLoggerContextByLoggerName @ 0x140659F84
+ * XREFs of EtwpAcquireLoggerContextByLoggerName @ 0x140659F64
  * Callers:
- *     EtwpAcquireLoggerContext @ 0x140659E70 (EtwpAcquireLoggerContext.c)
- *     EtwQueryTraceHandleByLoggerName @ 0x14071799C (EtwQueryTraceHandleByLoggerName.c)
+ *     EtwpAcquireLoggerContext @ 0x140659E50 (EtwpAcquireLoggerContext.c)
+ *     EtwQueryTraceHandleByLoggerName @ 0x14071797C (EtwQueryTraceHandleByLoggerName.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)

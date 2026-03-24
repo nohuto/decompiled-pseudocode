@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessSetRoot@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICINTEROPTEXTURE_SETROOT@@@Z @ 0x1802AB638
+ * XREFs of ?ProcessSetRoot@CHolographicInteropTexture@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICINTEROPTEXTURE_SETROOT@@@Z @ 0x1802595E0
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x18009EFC0 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetRootVisual@CHolographicInteropTexture@@AEAAJPEAVCVisual@@@Z @ 0x1802AB8A8 (-SetRootVisual@CHolographicInteropTexture@@AEAAJPEAVCVisual@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3484 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?SetRootVisual@CHolographicInteropTexture@@AEAAJPEAVCVisual@@@Z @ 0x180259840 (-SetRootVisual@CHolographicInteropTexture@@AEAAJPEAVCVisual@@@Z.c)
  */
 
 __int64 __fastcall CHolographicInteropTexture::ProcessSetRoot(
@@ -24,18 +24,18 @@ __int64 __fastcall CHolographicInteropTexture::ProcessSetRoot(
   v5 = *((_DWORD *)a3 + 2);
   if ( v5 )
   {
-    Resource = (struct CVisual *)CResourceTable::GetResource((__int64)a2, v5, 0xC4u);
+    Resource = (struct CVisual *)CResourceTable::GetResource((__int64)a2, v5, 0xC3u);
     if ( Resource )
     {
       v9 = CHolographicInteropTexture::SetRootVisual(this, Resource);
       v4 = v9;
       if ( v9 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xE4u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xD4u, 0LL);
     }
     else
     {
       v4 = -2003303421;
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2003303421, 0xE1u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2003303421, 0xD1u, 0LL);
     }
   }
   return v4;

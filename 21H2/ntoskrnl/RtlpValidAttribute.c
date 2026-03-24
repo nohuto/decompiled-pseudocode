@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpValidAttribute @ 0x1409B8A0C
+ * XREFs of RtlpValidAttribute @ 0x140912E00
  * Callers:
- *     RtlpValidAttributeInfo @ 0x1409B8B20 (RtlpValidAttributeInfo.c)
+ *     RtlpValidAttributeInfo @ 0x140912F18 (RtlpValidAttributeInfo.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x1402E0AC4 (RtlStringCchLengthW.c)
+ *     RtlStringCchLengthW @ 0x140264E74 (RtlStringCchLengthW.c)
  */
 
 char __fastcall RtlpValidAttribute(__int64 a1)
@@ -11,11 +11,12 @@ char __fastcall RtlpValidAttribute(__int64 a1)
   const wchar_t *v2; // rcx
   __int64 v3; // r11
   unsigned int v4; // edx
-  __int64 v5; // r8
+  __int64 v5; // r9
   unsigned __int16 v6; // ax
-  unsigned int v7; // eax
-  unsigned int v9; // eax
-  unsigned int v10; // r9d
+  unsigned int v7; // ecx
+  int v8; // r8d
+  unsigned int v10; // eax
+  unsigned int v11; // r8d
   size_t pcchLength; // [rsp+30h] [rbp+8h] BYREF
 
   pcchLength = 0LL;
@@ -46,18 +47,18 @@ char __fastcall RtlpValidAttribute(__int64 a1)
     switch ( v6 )
     {
       case 3u:
-        v10 = v3;
-        while ( *(_QWORD *)(v5 + 8LL * v10) != v3 )
+        v11 = v3;
+        while ( *(_QWORD *)(v5 + 8LL * v11) != v3 )
         {
-          if ( ++v10 >= v4 )
+          if ( ++v11 >= v4 )
             return 1;
         }
         break;
       case 5u:
-        v9 = v3;
-        while ( *(_QWORD *)(v5 + 16LL * v9) != v3 && *(_DWORD *)(v5 + 16LL * v9 + 8) != (_DWORD)v3 )
+        v10 = v3;
+        while ( *(_QWORD *)(v5 + 16LL * v10) != v3 && *(_DWORD *)(v5 + 16LL * v10 + 8) != (_DWORD)v3 )
         {
-          if ( ++v9 >= v4 )
+          if ( ++v10 >= v4 )
             return 1;
         }
         break;
@@ -73,12 +74,13 @@ char __fastcall RtlpValidAttribute(__int64 a1)
         v7 = v3;
         do
         {
+          v8 = *(_DWORD *)(v5 + 16LL * v7 + 8);
           if ( *(_QWORD *)(v5 + 16LL * v7) == v3 )
           {
-            if ( *(_DWORD *)(v5 + 16LL * v7 + 8) != (_DWORD)v3 )
+            if ( v8 )
               return 0;
           }
-          else if ( *(_DWORD *)(v5 + 16LL * v7 + 8) == (_DWORD)v3 )
+          else if ( !v8 )
           {
             return 0;
           }

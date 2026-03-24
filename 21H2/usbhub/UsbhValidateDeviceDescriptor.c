@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhValidateDeviceDescriptor @ 0x1C0051D98
+ * XREFs of UsbhValidateDeviceDescriptor @ 0x1C00533E8
  * Callers:
- *     UsbhGetHubDeviceInformation @ 0x1C002BAD8 (UsbhGetHubDeviceInformation.c)
- *     UsbhGetAlternateUsbDescriptors @ 0x1C00372AC (UsbhGetAlternateUsbDescriptors.c)
- *     UsbhGetUsbDeviceFlags @ 0x1C0037EA8 (UsbhGetUsbDeviceFlags.c)
- *     UsbhSetupDevice @ 0x1C0038CE8 (UsbhSetupDevice.c)
- *     UsbhGetDeviceDescriptor @ 0x1C0053DEC (UsbhGetDeviceDescriptor.c)
+ *     UsbhGetHubDeviceInformation @ 0x1C002CEE0 (UsbhGetHubDeviceInformation.c)
+ *     UsbhGetAlternateUsbDescriptors @ 0x1C0038560 (UsbhGetAlternateUsbDescriptors.c)
+ *     UsbhGetUsbDeviceFlags @ 0x1C0039180 (UsbhGetUsbDeviceFlags.c)
+ *     UsbhSetupDevice @ 0x1C0039FD8 (UsbhSetupDevice.c)
+ *     UsbhGetDeviceDescriptor @ 0x1C0055478 (UsbhGetDeviceDescriptor.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
  */
 
 char __fastcall UsbhValidateDeviceDescriptor(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _BYTE *a5)

@@ -1,20 +1,20 @@
 /*
- * XREFs of KeMaskInterrupt @ 0x14031F3D4
+ * XREFs of KeMaskInterrupt @ 0x1403769B0
  * Callers:
- *     KeDisconnectInterrupt @ 0x14031F1B8 (KeDisconnectInterrupt.c)
- *     IopMaskInterrupt @ 0x1403B355C (IopMaskInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x1403767A4 (KeDisconnectInterrupt.c)
+ *     IopMaskInterrupt @ 0x14038C7C4 (IopMaskInterrupt.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305CD0 (KeRevertToUserGroupAffinityThread.c)
- *     KeGetProcessorNumberFromIndex @ 0x14030CCE0 (KeGetProcessorNumberFromIndex.c)
- *     KeRemoveQueueDpcEx @ 0x14031EEF0 (KeRemoveQueueDpcEx.c)
- *     KiAcquireInterruptConnectLock @ 0x140320CC0 (KiAcquireInterruptConnectLock.c)
- *     KiIsInterruptTypeSecondary @ 0x140321160 (KiIsInterruptTypeSecondary.c)
- *     KeSetTargetProcessorDpcEx @ 0x14036B680 (KeSetTargetProcessorDpcEx.c)
- *     KiMaskInterruptInternal @ 0x1403B37BC (KiMaskInterruptInternal.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     KiMaskSecondaryInterruptInternal @ 0x140571CA8 (KiMaskSecondaryInterruptInternal.c)
+ *     KiInsertQueueDpc @ 0x14021FD20 (KiInsertQueueDpc.c)
+ *     KeRemoveQueueDpcEx @ 0x1403214A0 (KeRemoveQueueDpcEx.c)
+ *     KeSetTargetProcessorDpcEx @ 0x14032A950 (KeSetTargetProcessorDpcEx.c)
+ *     KeGetProcessorNumberFromIndex @ 0x14033E500 (KeGetProcessorNumberFromIndex.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035C8F0 (KeRevertToUserGroupAffinityThread.c)
+ *     KiAcquireInterruptConnectLock @ 0x140377530 (KiAcquireInterruptConnectLock.c)
+ *     KiIsInterruptTypeSecondary @ 0x140377C04 (KiIsInterruptTypeSecondary.c)
+ *     KiMaskInterruptInternal @ 0x1403A6C1C (KiMaskInterruptInternal.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiMaskSecondaryInterruptInternal @ 0x140519448 (KiMaskSecondaryInterruptInternal.c)
  */
 
 __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, struct _KDPC *a4)
@@ -28,26 +28,25 @@ __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, 
   unsigned int Number; // edx
   unsigned __int8 v15; // cl
   __int64 v16; // r8
-  char v17; // r12
+  char v17; // r15
   _DWORD *SchedulerAssist; // r9
-  __int64 v20; // rdx
-  unsigned __int8 v21; // cl
+  unsigned __int8 v20; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v23; // r9
-  int v24; // eax
-  bool v25; // zf
-  __int64 v26; // rsi
-  unsigned __int8 v27; // al
-  unsigned __int8 v28; // di
-  struct _KPRCB *v29; // r9
-  _DWORD *v30; // r8
-  int v31; // eax
-  unsigned __int8 v32[4]; // [rsp+30h] [rbp-20h] BYREF
+  _DWORD *v22; // r9
+  int v23; // eax
+  bool v24; // zf
+  __int64 v25; // rsi
+  unsigned __int8 v26; // al
+  unsigned __int8 v27; // di
+  struct _KPRCB *v28; // r9
+  _DWORD *v29; // r8
+  int v30; // eax
+  unsigned __int8 v31[4]; // [rsp+30h] [rbp-20h] BYREF
   struct _PROCESSOR_NUMBER ProcNumber; // [rsp+34h] [rbp-1Ch] BYREF
   struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
 
   PreviousAffinity = 0LL;
-  v32[0] = 0;
+  v31[0] = 0;
   ProcNumber = 0;
   IsInterruptTypeSecondary = KiIsInterruptTypeSecondary(a3);
   ProcessorNumberFromIndex = 0;
@@ -83,15 +82,11 @@ LABEL_15:
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 15 )
-      LODWORD(v20) = 0x8000;
-    else
-      v20 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-    SchedulerAssist[5] |= v20;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
   }
   Number = KeGetPcr()->Prcb.Number;
   v15 = 0;
-  v32[0] = CurrentIrql;
+  v31[0] = CurrentIrql;
   if ( a2 )
   {
     while ( 1 )
@@ -115,52 +110,55 @@ LABEL_15:
 LABEL_13:
   if ( KiIrqlFlags )
   {
-    v21 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v23 = CurrentPrcb->SchedulerAssist;
-      v24 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v25 = (v24 & v23[5]) == 0;
-      v23[5] &= v24;
-      if ( v25 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v20 = KeGetCurrentIrql();
+      if ( v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v22 = CurrentPrcb->SchedulerAssist;
+        v23 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v24 = (v23 & v22[5]) == 0;
+        v22[5] &= v23;
+        if ( v24 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);
   if ( v17 )
     goto LABEL_15;
-  v26 = *a1;
+  v25 = *a1;
   if ( KeGetCurrentIrql() < 2u )
   {
-    KiAcquireInterruptConnectLock(*(unsigned int *)(v26 + 96), v32, &PreviousAffinity);
-    ProcessorNumberFromIndex = KiMaskInterruptInternal(*(unsigned int *)(v26 + 88), (unsigned int)v12);
-    if ( KiIrqlFlags && (v27 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v27 <= 0xFu )
+    KiAcquireInterruptConnectLock(*(unsigned int *)(v25 + 96), v31, &PreviousAffinity);
+    ProcessorNumberFromIndex = KiMaskInterruptInternal(*(unsigned int *)(v25 + 88), (unsigned int)v12);
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (v26 = KeGetCurrentIrql(), v26 <= 0xFu) )
     {
-      v28 = v32[0];
-      if ( v32[0] <= 0xFu && v27 >= 2u )
+      v27 = v31[0];
+      if ( v31[0] <= 0xFu && v26 >= 2u )
       {
-        v29 = KeGetCurrentPrcb();
-        v30 = v29->SchedulerAssist;
-        v28 = v32[0];
-        v31 = ~(unsigned __int16)(-1LL << (v32[0] + 1));
-        v25 = (v31 & v30[5]) == 0;
-        v30[5] &= v31;
-        if ( v25 )
-          KiRemoveSystemWorkPriorityKick(v29);
+        v28 = KeGetCurrentPrcb();
+        v29 = v28->SchedulerAssist;
+        v27 = v31[0];
+        v30 = ~(unsigned __int16)(-1LL << (v31[0] + 1));
+        v24 = (v30 & v29[5]) == 0;
+        v29[5] &= v30;
+        if ( v24 )
+          KiRemoveSystemWorkPriorityKick(v28);
       }
     }
     else
     {
-      v28 = v32[0];
+      v27 = v31[0];
     }
-    __writecr8(v28);
+    __writecr8(v27);
     KeRevertToUserGroupAffinityThread(&PreviousAffinity);
     goto LABEL_15;
   }
   if ( a4 )
   {
-    ProcessorNumberFromIndex = KeGetProcessorNumberFromIndex(*(_DWORD *)(v26 + 96), &ProcNumber);
+    ProcessorNumberFromIndex = KeGetProcessorNumberFromIndex(*(_DWORD *)(v25 + 96), &ProcNumber);
     if ( ProcessorNumberFromIndex >= 0 )
     {
       KeRemoveQueueDpcEx((__int64)a4, 0);
@@ -171,7 +169,7 @@ LABEL_13:
       a4->ProcessorHistory = 0LL;
       ProcessorNumberFromIndex = KeSetTargetProcessorDpcEx(a4, &ProcNumber);
       if ( ProcessorNumberFromIndex >= 0 )
-        KiInsertQueueDpc((ULONG_PTR)a4, *(unsigned int *)(v26 + 88), v12, 0LL, 0);
+        KiInsertQueueDpc((ULONG_PTR)a4, *(unsigned int *)(v25 + 88), v12, 0LL, 0);
     }
     goto LABEL_15;
   }

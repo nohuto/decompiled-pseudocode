@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAlpcDeleteResourceReserve @ 0x14041B6C0
+ * XREFs of ZwAlpcDeleteResourceReserve @ 0x1403FAA40
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,14 @@
 /*
- * XREFs of ?LogAnimationStarted@CAnimationLoggingManager@@QEAAX_KPEAVCResource@@II@Z @ 0x1801FC5EC
+ * XREFs of ?LogAnimationStarted@CAnimationLoggingManager@@QEAAX_KPEAVCResource@@II@Z @ 0x1801B0764
  * Callers:
- *     ?NotifyAnimationStarted@CBaseExpression@@IEAAXXZ @ 0x180052BA0 (-NotifyAnimationStarted@CBaseExpression@@IEAAXXZ.c)
+ *     ?NotifyAnimationStarted@CBaseExpression@@IEAAXXZ @ 0x1800D5288 (-NotifyAnimationStarted@CBaseExpression@@IEAAXXZ.c)
  * Callees:
- *     ?TryGetDebugInfoForResource@CAnimationLoggingManager@@AEAAPEAUResourceDebugInfo@1@PEAVCResource@@@Z @ 0x180052AB8 (-TryGetDebugInfoForResource@CAnimationLoggingManager@@AEAAPEAUResourceDebugInfo@1@PEAVCResource@.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800D2E54 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180195110 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?SendAnimationStarted@DiagnosticCallbacksManager@@QEAAJII_KIGAEBVCExpressionValue@@@Z @ 0x180197C00 (-SendAnimationStarted@DiagnosticCallbacksManager@@QEAAJII_KIGAEBVCExpressionValue@@@Z.c)
+ *     ?TryGetDebugInfoForResource@CAnimationLoggingManager@@AEAAPEAUResourceDebugInfo@1@PEAVCResource@@@Z @ 0x1800353CC (-TryGetDebugInfoForResource@CAnimationLoggingManager@@AEAAPEAUResourceDebugInfo@1@PEAVCResource@.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18016479C (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?SendAnimationStarted@DiagnosticCallbacksManager@@QEAAJII_KIGAEBVCExpressionValue@@@Z @ 0x180166CB8 (-SendAnimationStarted@DiagnosticCallbacksManager@@QEAAJII_KIGAEBVCExpressionValue@@@Z.c)
  */
 
 void __fastcall CAnimationLoggingManager::LogAnimationStarted(
@@ -23,13 +22,13 @@ void __fastcall CAnimationLoggingManager::LogAnimationStarted(
   struct CAnimationLoggingManager::ResourceDebugInfo *v9; // rbx
   DiagnosticCallbacksManager *v10; // r14
   __int64 v11; // rax
-  int v12; // eax
+  __int64 (__fastcall *v12)(struct CResource *, _QWORD, _BYTE *); // rax
   int v13; // eax
-  unsigned int v14; // [rsp+20h] [rbp-A8h]
-  unsigned int v15; // [rsp+20h] [rbp-A8h]
+  int v14; // eax
+  __int64 v15; // rcx
   unsigned __int16 v16; // [rsp+28h] [rbp-A0h]
   _BYTE v17[64]; // [rsp+40h] [rbp-88h] BYREF
-  __int64 v18; // [rsp+80h] [rbp-48h] BYREF
+  __int64 v18; // [rsp+80h] [rbp-48h]
   int v19; // [rsp+88h] [rbp-40h]
   char v20; // [rsp+8Ch] [rbp-3Ch]
   wil::details::in1diag3 *retaddr; // [rsp+C8h] [rbp+0h]
@@ -42,21 +41,24 @@ void __fastcall CAnimationLoggingManager::LogAnimationStarted(
     {
       if ( *((_DWORD *)DebugInfoForResource + 10) )
       {
-        v10 = *(DiagnosticCallbacksManager **)(*((_QWORD *)this + 2) + 1248LL);
+        v10 = *(DiagnosticCallbacksManager **)(*((_QWORD *)this + 2) + 1088LL);
         memset_0(v17, 0, sizeof(v17));
         v11 = *(_QWORD *)a3;
         v18 = 0LL;
         v19 = 18;
+        v12 = *(__int64 (__fastcall **)(struct CResource *, _QWORD, _BYTE *))(v11 + 144);
         v20 = 0;
-        v12 = (*(__int64 (__fastcall **)(struct CResource *, _QWORD, _BYTE *))(v11 + 136))(a3, a5, v17);
-        if ( v12 < 0 )
+        v13 = v12(a3, a5, v17);
+        if ( v13 < 0 )
+        {
           wil::details::in1diag3::FailFast_Hr(
             retaddr,
-            575LL,
+            (void *)0x253,
             (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\animationloggingmanager.cpp",
-            (const char *)(unsigned int)v12,
-            v14);
-        v13 = DiagnosticCallbacksManager::SendAnimationStarted(
+            (const char *)(unsigned int)v13);
+          __debugbreak();
+        }
+        v14 = DiagnosticCallbacksManager::SendAnimationStarted(
                 v10,
                 *((_DWORD *)v9 + 10),
                 *((_DWORD *)v9 + 11),
@@ -64,14 +66,21 @@ void __fastcall CAnimationLoggingManager::LogAnimationStarted(
                 a5,
                 v16,
                 (const struct CExpressionValue *)v17);
-        if ( v13 < 0 )
+        if ( v14 < 0 )
+        {
           wil::details::in1diag3::FailFast_Hr(
             retaddr,
-            584LL,
+            (void *)0x25C,
             (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\animationloggingmanager.cpp",
-            (const char *)(unsigned int)v13,
-            v15);
-        Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v18);
+            (const char *)(unsigned int)v14);
+          __debugbreak();
+        }
+        v15 = v18;
+        if ( v18 )
+        {
+          v18 = 0LL;
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v15 + 16LL))(v15);
+        }
       }
     }
   }

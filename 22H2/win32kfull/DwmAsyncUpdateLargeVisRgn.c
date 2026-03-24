@@ -1,32 +1,27 @@
 /*
- * XREFs of DwmAsyncUpdateLargeVisRgn @ 0x1C026DD9C
+ * XREFs of DwmAsyncUpdateLargeVisRgn @ 0x1C0275310
  * Callers:
- *     ?UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z @ 0x1C00EC974 (-UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z.c)
+ *     ?UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z @ 0x1C0039448 (-UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall DwmAsyncUpdateLargeVisRgn(PVOID Object, __int64 a2, int a3, __int64 a4)
 {
   unsigned int v8; // ebx
-  int v10; // [rsp+20h] [rbp-48h] BYREF
-  __int16 v11; // [rsp+24h] [rbp-44h]
-  int v12; // [rsp+48h] [rbp-20h]
-  __int64 v13; // [rsp+4Ch] [rbp-1Ch]
-  __int64 v14; // [rsp+54h] [rbp-14h]
-  int v15; // [rsp+5Ch] [rbp-Ch]
+  _DWORD v10[16]; // [rsp+20h] [rbp-48h] BYREF
 
   v8 = -1073741823;
   if ( Object )
   {
-    memset_0(&v10, 0, 0x40uLL);
-    v10 = 4194328;
-    v11 = 0x8000;
-    v12 = 1073741960;
-    v13 = a2;
-    v14 = a4;
-    v15 = a3;
-    v8 = LpcRequestPort(Object, &v10);
+    memset(v10, 0, sizeof(v10));
+    v10[0] = 4194328;
+    LOWORD(v10[1]) = 0x8000;
+    v10[10] = 1073741954;
+    *(_QWORD *)&v10[11] = a2;
+    *(_QWORD *)&v10[13] = a4;
+    v10[15] = a3;
+    v8 = LpcRequestPort(Object, v10);
     ObfDereferenceObject(Object);
   }
   return v8;

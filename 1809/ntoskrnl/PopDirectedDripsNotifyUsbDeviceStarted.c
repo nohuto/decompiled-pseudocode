@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDirectedDripsNotifyUsbDeviceStarted @ 0x14087CD10
+ * XREFs of PopDirectedDripsNotifyUsbDeviceStarted @ 0x14087CCF0
  * Callers:
- *     PopDirectedDripsNotifyDeviceStarted @ 0x1406ED0F0 (PopDirectedDripsNotifyDeviceStarted.c)
+ *     PopDirectedDripsNotifyDeviceStarted @ 0x1406ED0D0 (PopDirectedDripsNotifyDeviceStarted.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PoDirectedDripsSetDeviceFlags @ 0x1402D6910 (PoDirectedDripsSetDeviceFlags.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PoDirectedDripsSetDeviceFlags @ 0x1402D6A10 (PoDirectedDripsSetDeviceFlags.c)
  *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     PopDirectedDripsIsUsbHubDevice @ 0x14087CCC0 (PopDirectedDripsIsUsbHubDevice.c)
+ *     PopDirectedDripsIsUsbHubDevice @ 0x14087CCA0 (PopDirectedDripsIsUsbHubDevice.c)
  */
 
 __int64 __fastcall PopDirectedDripsNotifyUsbDeviceStarted(__int64 a1)

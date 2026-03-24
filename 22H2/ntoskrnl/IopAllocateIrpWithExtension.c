@@ -1,32 +1,32 @@
 /*
- * XREFs of IopAllocateIrpWithExtension @ 0x14028FCA0
+ * XREFs of IopAllocateIrpWithExtension @ 0x1402E5F20
  * Callers:
- *     IoAllocateIrp @ 0x14022E630 (IoAllocateIrp.c)
- *     IopAllocateIrpExReturn @ 0x14022EF90 (IopAllocateIrpExReturn.c)
- *     IoAllocateIrpEx @ 0x140310DD0 (IoAllocateIrpEx.c)
- *     IopMountVolume @ 0x140701598 (IopMountVolume.c)
- *     IopInitializeReserveIrps @ 0x140B6F224 (IopInitializeReserveIrps.c)
+ *     IopAllocateIrpExReturn @ 0x1402D21F0 (IopAllocateIrpExReturn.c)
+ *     IoAllocateIrpEx @ 0x1402F9A50 (IoAllocateIrpEx.c)
+ *     IoAllocateIrp @ 0x1403616C0 (IoAllocateIrp.c)
+ *     IopMountVolume @ 0x14065E0D0 (IopMountVolume.c)
+ *     IopInitializeReserveIrps @ 0x140A6EBD4 (IopInitializeReserveIrps.c)
  * Callees:
- *     IopAllocateIrpPrivate @ 0x14022EFC0 (IopAllocateIrpPrivate.c)
- *     IopIsActivityTracingEnabled @ 0x140290190 (IopIsActivityTracingEnabled.c)
- *     IopInitActivityIdIrp @ 0x1405557C4 (IopInitActivityIdIrp.c)
+ *     IopAllocateIrpPrivate @ 0x1402D2220 (IopAllocateIrpPrivate.c)
+ *     IopIsActivityTracingEnabled @ 0x1402E66C0 (IopIsActivityTracingEnabled.c)
+ *     IopInitActivityIdIrp @ 0x14050091C (IopInitActivityIdIrp.c)
  */
 
-PSLIST_ENTRY __fastcall IopAllocateIrpWithExtension(__int64 a1, char a2, char a3)
+_QWORD *__fastcall IopAllocateIrpWithExtension(__int64 a1, char a2, char a3)
 {
-  PSLIST_ENTRY IrpPrivate; // rax
-  PSLIST_ENTRY v4; // rbx
+  _QWORD *IrpPrivate; // rax
+  _QWORD *v4; // rbx
   __int64 v5; // rcx
 
   IrpPrivate = IopAllocateIrpPrivate(0LL, a2 + 2, a3);
   v4 = IrpPrivate;
   if ( IrpPrivate )
   {
-    *((_QWORD *)&IrpPrivate[11].Next + 1) -= 144LL;
-    v5 = *((_QWORD *)&IrpPrivate[11].Next + 1);
-    BYTE3(IrpPrivate[4].Next) -= 2;
-    BYTE2(IrpPrivate[4].Next) -= 2;
-    *((_QWORD *)&IrpPrivate[12].Next + 1) = v5;
+    IrpPrivate[23] -= 144LL;
+    v5 = IrpPrivate[23];
+    *((_BYTE *)IrpPrivate + 67) -= 2;
+    *((_BYTE *)IrpPrivate + 66) -= 2;
+    IrpPrivate[25] = v5;
     if ( (unsigned __int8)IopIsActivityTracingEnabled() )
       IopInitActivityIdIrp(v4);
   }

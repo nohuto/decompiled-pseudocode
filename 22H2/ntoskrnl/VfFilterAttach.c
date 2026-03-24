@@ -1,31 +1,29 @@
 /*
- * XREFs of VfFilterAttach @ 0x140AE020C
+ * XREFs of VfFilterAttach @ 0x1409E4F04
  * Callers:
- *     VfDevObjPostAddDevice @ 0x140AD3174 (VfDevObjPostAddDevice.c)
- *     VfDevObjPreAddDevice @ 0x140AD31C8 (VfDevObjPreAddDevice.c)
+ *     VfDevObjPostAddDevice @ 0x1409D60B4 (VfDevObjPostAddDevice.c)
+ *     VfDevObjPreAddDevice @ 0x1409D6108 (VfDevObjPreAddDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     IoGetAttachedDevice @ 0x1402AF3E0 (IoGetAttachedDevice.c)
- *     IoDeleteDevice @ 0x140304E10 (IoDeleteDevice.c)
- *     IoAttachDeviceToDeviceStack @ 0x14035F280 (IoAttachDeviceToDeviceStack.c)
- *     HviIsAnyHypervisorPresent @ 0x140382EA0 (HviIsAnyHypervisorPresent.c)
- *     IoInitializeRemoveLockEx @ 0x1403C4A40 (IoInitializeRemoveLockEx.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     IoCreateDevice @ 0x14076B4E0 (IoCreateDevice.c)
- *     IoCreateDriver @ 0x140812780 (IoCreateDriver.c)
+ *     IoGetAttachedDevice @ 0x1402D3EF0 (IoGetAttachedDevice.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     IoDeleteDevice @ 0x140360200 (IoDeleteDevice.c)
+ *     IoInitializeRemoveLockEx @ 0x14037EB50 (IoInitializeRemoveLockEx.c)
+ *     IoAttachDeviceToDeviceStack @ 0x140380A40 (IoAttachDeviceToDeviceStack.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403A5310 (HviIsAnyHypervisorPresent.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     IoCreateDevice @ 0x140719130 (IoCreateDevice.c)
+ *     IoCreateDriver @ 0x1407A5330 (IoCreateDriver.c)
  */
 
 void __fastcall VfFilterAttach(PDEVICE_OBJECT TargetDevice, int a2)
 {
   PDRIVER_OBJECT v4; // rdi
-  int v5; // ebx
-  int v6; // ebx
   PDEVICE_OBJECT AttachedDevice; // rbx
   char *DriverSection; // rbx
-  const UNICODE_STRING *v9; // rbx
-  PDEVICE_OBJECT v10; // rbx
+  const UNICODE_STRING *v7; // rbx
+  PDEVICE_OBJECT v8; // rbx
   struct _IO_REMOVE_LOCK *DeviceExtension; // rdi
-  PDEVICE_OBJECT v12; // rax
+  PDEVICE_OBJECT v10; // rax
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-18h] BYREF
   PDEVICE_OBJECT SourceDevice; // [rsp+70h] [rbp+18h] BYREF
 
@@ -34,46 +32,42 @@ void __fastcall VfFilterAttach(PDEVICE_OBJECT TargetDevice, int a2)
   if ( !VfFilterCreated )
   {
     RtlInitUnicodeString(&DestinationString, L"\\DRIVER\\VERIFIER_FILTER");
-    IoCreateDriver(&DestinationString, (__int64 (__fastcall *)(void **, _QWORD))ViFilterDriverEntry);
+    IoCreateDriver(&DestinationString, (_DMA_OPERATIONS *)ViFilterDriverEntry);
     VfFilterCreated = 1;
   }
   v4 = VfFilterDriverObject;
-  if ( VfFilterDriverObject )
+  if ( VfFilterDriverObject && a2 >= 2 && (a2 <= 3 || (unsigned int)(a2 - 5) <= 1) )
   {
-    v5 = a2 - 2;
-    if ( !v5 || (v6 = v5 - 1) == 0 || (unsigned int)(v6 - 2) <= 1 )
+    AttachedDevice = IoGetAttachedDevice(TargetDevice);
+    if ( AttachedDevice->DriverObject != v4 )
     {
-      AttachedDevice = IoGetAttachedDevice(TargetDevice);
-      if ( AttachedDevice->DriverObject != v4 )
+      if ( !HviIsAnyHypervisorPresent()
+        || (DriverSection = (char *)AttachedDevice->DriverObject->DriverSection) == 0LL
+        || (v7 = (const UNICODE_STRING *)(DriverSection + 88), !RtlEqualUnicodeString(&VfVidName, v7, 1u))
+        && !RtlEqualUnicodeString(&VfSynth3DvscName, v7, 1u)
+        && !RtlEqualUnicodeString(&VfSynth3DvspName, v7, 1u) )
       {
-        if ( !HviIsAnyHypervisorPresent()
-          || (DriverSection = (char *)AttachedDevice->DriverObject->DriverSection) == 0LL
-          || (v9 = (const UNICODE_STRING *)(DriverSection + 88), !RtlEqualUnicodeString(&VfVidName, v9, 1u))
-          && !RtlEqualUnicodeString(&VfSynth3DvscName, v9, 1u)
-          && !RtlEqualUnicodeString(&VfSynth3DvspName, v9, 1u) )
+        if ( IoCreateDevice(VfFilterDriverObject, 0x68u, 0LL, 0x22u, 0x100u, 0, &SourceDevice) >= 0 )
         {
-          if ( IoCreateDevice(VfFilterDriverObject, 0x68u, 0LL, 0x22u, 0x100u, 0, &SourceDevice) >= 0 )
+          v8 = SourceDevice;
+          DeviceExtension = (struct _IO_REMOVE_LOCK *)SourceDevice->DeviceExtension;
+          IoInitializeRemoveLockEx(DeviceExtension + 1, 0x4C526656u, 0, 0, 0x20u);
+          DeviceExtension[2].Common.RemoveEvent.Header.WaitListHead.Blink = 0LL;
+          v10 = IoAttachDeviceToDeviceStack(v8, TargetDevice);
+          *(_QWORD *)&DeviceExtension->Common.RemoveEvent.Header.Lock = v10;
+          if ( v10 )
           {
-            v10 = SourceDevice;
-            DeviceExtension = (struct _IO_REMOVE_LOCK *)SourceDevice->DeviceExtension;
-            IoInitializeRemoveLockEx(DeviceExtension + 1, 0x4C526656u, 0, 0, 0x20u);
-            DeviceExtension[2].Common.RemoveEvent.Header.WaitListHead.Blink = 0LL;
-            v12 = IoAttachDeviceToDeviceStack(v10, TargetDevice);
-            *(_QWORD *)&DeviceExtension->Common.RemoveEvent.Header.Lock = v12;
-            if ( v12 )
-            {
-              v10->Flags |= v12->Flags & 0x86014;
-              v10->DeviceType = *(_DWORD *)(*(_QWORD *)&DeviceExtension->Common.RemoveEvent.Header.Lock + 72LL);
-              v10->Characteristics = *(_DWORD *)(*(_QWORD *)&DeviceExtension->Common.RemoveEvent.Header.Lock + 52LL);
-              v10->Flags &= ~0x80u;
-              DeviceExtension->Common.RemoveEvent.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)v10;
-              *(_QWORD *)&DeviceExtension->Common.Removed = TargetDevice;
-              _InterlockedOr(&DeviceExtension[3].Common.IoCount, 1u);
-            }
-            else
-            {
-              IoDeleteDevice(v10);
-            }
+            v8->Flags |= v10->Flags & 0x86014;
+            v8->DeviceType = *(_DWORD *)(*(_QWORD *)&DeviceExtension->Common.RemoveEvent.Header.Lock + 72LL);
+            v8->Characteristics = *(_DWORD *)(*(_QWORD *)&DeviceExtension->Common.RemoveEvent.Header.Lock + 52LL);
+            v8->Flags &= ~0x80u;
+            DeviceExtension->Common.RemoveEvent.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)v8;
+            *(_QWORD *)&DeviceExtension->Common.Removed = TargetDevice;
+            _InterlockedOr(&DeviceExtension[3].Common.IoCount, 1u);
+          }
+          else
+          {
+            IoDeleteDevice(v8);
           }
         }
       }

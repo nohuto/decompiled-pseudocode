@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmIdleSnapConcurrencyIdleTime @ 0x1405C850C
+ * XREFs of PpmIdleSnapConcurrencyIdleTime @ 0x140566E00
  * Callers:
- *     PpmParkSnapNodeIdleTime @ 0x1405DD4C0 (PpmParkSnapNodeIdleTime.c)
+ *     PpmParkSnapNodeIdleTime @ 0x14057DB78 (PpmParkSnapNodeIdleTime.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
  */
 
 void __fastcall PpmIdleSnapConcurrencyIdleTime(PKSPIN_LOCK SpinLock, _QWORD *a2, _QWORD *a3)
@@ -26,10 +26,10 @@ void __fastcall PpmIdleSnapConcurrencyIdleTime(PKSPIN_LOCK SpinLock, _QWORD *a2,
     v8 = PerformanceCounter.QuadPart - v7;
     v9 = *((unsigned int *)SpinLock + 3);
     SpinLock[3] += v8;
-    SpinLock[v9 + 41] += v8;
+    SpinLock[v9 + 4] += v8;
   }
   *a2 = SpinLock[3];
-  *a3 = SpinLock[41];
+  *a3 = SpinLock[4];
   KxReleaseSpinLock(SpinLock);
   if ( (v10 & 0x200) != 0 )
     _enable();

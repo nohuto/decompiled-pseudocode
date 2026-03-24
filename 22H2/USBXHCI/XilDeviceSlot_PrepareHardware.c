@@ -1,12 +1,13 @@
 /*
- * XREFs of XilDeviceSlot_PrepareHardware @ 0x1C001CA00
+ * XREFs of XilDeviceSlot_PrepareHardware @ 0x1C0015BCC
  * Callers:
- *     Controller_WdfEvtDevicePrepareHardware @ 0x1C0072A70 (Controller_WdfEvtDevicePrepareHardware.c)
+ *     Controller_WdfEvtDevicePrepareHardware @ 0x1C006D0A0 (Controller_WdfEvtDevicePrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     XilCoreDeviceSlot_AllocateResources @ 0x1C001CA4C (XilCoreDeviceSlot_AllocateResources.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     XilDeviceSlot_AllocateSecureResources @ 0x1C0037CA4 (XilDeviceSlot_AllocateSecureResources.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     XilCoreDeviceSlot_AllocateResources @ 0x1C00161E8 (XilCoreDeviceSlot_AllocateResources.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     XilDeviceSlot_AllocateSecureResources @ 0x1C00361E4 (XilDeviceSlot_AllocateSecureResources.c)
  */
 
 __int64 __fastcall XilDeviceSlot_PrepareHardware(__int64 a1)
@@ -21,7 +22,7 @@ __int64 __fastcall XilDeviceSlot_PrepareHardware(__int64 a1)
   int v9; // edx
   int v10; // r8d
   int v11; // r9d
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   int v13; // edx
 
   v1 = *(_QWORD *)(a1 + 8);
@@ -38,10 +39,16 @@ __int64 __fastcall XilDeviceSlot_PrepareHardware(__int64 a1)
   Resources = SecureResources;
   if ( SecureResources >= 0 )
   {
-    Pool2 = ExAllocatePool2(64LL, 8LL * (unsigned int)(*(_DWORD *)(v2 + 80) + 1), 1229146200LL);
-    *(_QWORD *)(v2 + 8) = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(
+                    (POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState,
+                    8LL * (unsigned int)(*(_DWORD *)(v2 + 80) + 1),
+                    0x49434858u);
+    *(_QWORD *)(v2 + 8) = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      memset(PoolWithTag, 0, 8LL * (unsigned int)(*(_DWORD *)(v2 + 80) + 1));
       return Resources;
+    }
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_8;
     LOBYTE(v13) = 2;
@@ -50,7 +57,7 @@ __int64 __fastcall XilDeviceSlot_PrepareHardware(__int64 a1)
       v13,
       10,
       16,
-      (__int64)&WPP_d32df481b5d7314fe4e9c81d9c040203_Traceguids,
+      (__int64)&WPP_0ef60bba37223f5f44eaee70871e7dcd_Traceguids,
       Resources);
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_8;
@@ -64,7 +71,7 @@ __int64 __fastcall XilDeviceSlot_PrepareHardware(__int64 a1)
       v8,
       10,
       15,
-      (__int64)&WPP_d32df481b5d7314fe4e9c81d9c040203_Traceguids,
+      (__int64)&WPP_0ef60bba37223f5f44eaee70871e7dcd_Traceguids,
       SecureResources);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
 LABEL_7:

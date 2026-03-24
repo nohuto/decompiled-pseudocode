@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpGetStackLimits @ 0x14022E980
+ * XREFs of RtlpGetStackLimits @ 0x1402D0BE0
  * Callers:
- *     RtlEnoughStackSpaceForStackCapture @ 0x140227820 (RtlEnoughStackSpaceForStackCapture.c)
- *     IoGetStackLimits @ 0x14022E950 (IoGetStackLimits.c)
- *     RtlpWalkFrameChain @ 0x1402A4180 (RtlpWalkFrameChain.c)
- *     RtlUnwindEx @ 0x1402A4C20 (RtlUnwindEx.c)
- *     MiDoStackCopy @ 0x14062CE10 (MiDoStackCopy.c)
- *     PspGetSetContextInternal @ 0x140724A70 (PspGetSetContextInternal.c)
- *     ViMiscValidateKeWaitUsage @ 0x140AE25E0 (ViMiscValidateKeWaitUsage.c)
- *     MmVerifierTrimMemory @ 0x140AE90D0 (MmVerifierTrimMemory.c)
+ *     RtlWalkFrameChain @ 0x14021CE70 (RtlWalkFrameChain.c)
+ *     RtlpWalkFrameChain @ 0x14021D210 (RtlpWalkFrameChain.c)
+ *     IoGetStackLimits @ 0x1402D0BB0 (IoGetStackLimits.c)
+ *     RtlUnwindEx @ 0x14033EA40 (RtlUnwindEx.c)
+ *     RtlEnoughStackSpaceForStackCapture @ 0x140585C04 (RtlEnoughStackSpaceForStackCapture.c)
+ *     PspGetSetContextInternal @ 0x1406C2670 (PspGetSetContextInternal.c)
+ *     MmVerifierTrimMemory @ 0x1409C5C14 (MmVerifierTrimMemory.c)
+ *     ViKeWaitSanityChecks @ 0x1409DC61C (ViKeWaitSanityChecks.c)
  * Callees:
- *     KeQueryCurrentStackInformationEx @ 0x14022E9D0 (KeQueryCurrentStackInformationEx.c)
- *     KeGetCurrentStackPointer @ 0x14041EA70 (KeGetCurrentStackPointer.c)
+ *     KeQueryCurrentStackInformationEx @ 0x1402D0C30 (KeQueryCurrentStackInformationEx.c)
+ *     KeGetCurrentStackPointer @ 0x1403FDC50 (KeGetCurrentStackPointer.c)
  */
 
 __int64 __fastcall RtlpGetStackLimits(__int64 a1, __int64 a2)

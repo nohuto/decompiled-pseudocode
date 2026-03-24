@@ -1,8 +1,8 @@
 /*
- * XREFs of HvpValidateLoadedBin @ 0x14074FF40
+ * XREFs of HvpValidateLoadedBin @ 0x140657274
  * Callers:
- *     HvpRemapAndEnlistHiveBins @ 0x14074FCA4 (HvpRemapAndEnlistHiveBins.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x1408272D8 (HvpBuildMapForMemoryBackedHive.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x14065702C (HvpRemapAndEnlistHiveBins.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x1407B233C (HvpBuildMapForMemoryBackedHive.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@
 bool __fastcall HvpValidateLoadedBin(_DWORD *a1, int a2, unsigned int a3)
 {
   unsigned int v3; // eax
-  int v4; // r10d
+  int v4; // r9d
 
   v3 = a1[2];
   v4 = a1[1];

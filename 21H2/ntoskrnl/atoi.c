@@ -1,12 +1,10 @@
 /*
- * XREFs of atoi @ 0x1403E0CC0
+ * XREFs of atoi @ 0x1403D1900
  * Callers:
- *     MinAsn1DecodeGeneralizedTime @ 0x140A33600 (MinAsn1DecodeGeneralizedTime.c)
- *     MinAsn1DecodeUtcTime @ 0x140A33AD0 (MinAsn1DecodeUtcTime.c)
- *     KiInitializeBootStructures @ 0x140A57680 (KiInitializeBootStructures.c)
- *     HalpMiscGetParameters @ 0x140B27364 (HalpMiscGetParameters.c)
+ *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
+ *     HalpMiscGetParameters @ 0x140A6CF88 (HalpMiscGetParameters.c)
  * Callees:
- *     atol @ 0x1403E0CE0 (atol.c)
+ *     atol @ 0x1403D1920 (atol.c)
  */
 
 int __cdecl atoi(const char *Str)

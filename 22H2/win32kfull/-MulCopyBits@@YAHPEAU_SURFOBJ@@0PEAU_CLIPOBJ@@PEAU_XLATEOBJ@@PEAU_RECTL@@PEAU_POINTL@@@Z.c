@@ -1,18 +1,18 @@
 /*
- * XREFs of ?MulCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z @ 0x1C015B840
+ * XREFs of ?MulCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z @ 0x1C02A1D10
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C015AD8E (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
- *     ??0MULTISURF@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C015B086 (--0MULTISURF@@QEAA@PEAU_SURFOBJ@@@Z.c)
- *     ?IsMetaDevBitmapForMirroring@@YAHPEAU_SURFOBJ@@@Z @ 0x1C015B158 (-IsMetaDevBitmapForMirroring@@YAHPEAU_SURFOBJ@@@Z.c)
- *     ?IsMetaRedirectionBitmap@@YAHPEAU_SURFOBJ@@@Z @ 0x1C015B178 (-IsMetaRedirectionBitmap@@YAHPEAU_SURFOBJ@@@Z.c)
- *     ?MulBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C015B220 (-MulBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSH.c)
- *     ?bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C015BE3E (-bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
- *     ?bNextSurface@MSURF@@QEAAHXZ @ 0x1C015C1C0 (-bNextSurface@MSURF@@QEAAHXZ.c)
- *     ??1MULTISURF@@QEAA@XZ @ 0x1C0279AE0 (--1MULTISURF@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     ??1MULTISURF@@QEAA@XZ @ 0x1C027D9F0 (--1MULTISURF@@QEAA@XZ.c)
+ *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C0298C80 (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
+ *     ??0MULTISURF@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C02A0CF0 (--0MULTISURF@@QEAA@PEAU_SURFOBJ@@@Z.c)
+ *     ?IsMetaDevBitmapForMirroring@@YAHPEAU_SURFOBJ@@@Z @ 0x1C02A0EA0 (-IsMetaDevBitmapForMirroring@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     ?IsMetaRedirectionBitmap@@YAHPEAU_SURFOBJ@@@Z @ 0x1C02A0EC0 (-IsMetaRedirectionBitmap@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     ?MulBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C02A1710 (-MulBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSH.c)
+ *     ?bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C02A61C0 (-bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?bNextSurface@MSURF@@QEAAHXZ @ 0x1C02A6614 (-bNextSurface@MSURF@@QEAAHXZ.c)
  */
 
 int __fastcall MulCopyBits(
@@ -25,15 +25,15 @@ int __fastcall MulCopyBits(
 {
   struct _SURFOBJ *v9; // rdx
   struct _CLIPOBJ *v10; // r8
-  int v11; // edi
+  int v11; // esi
   int i; // eax
-  HDEV hdev; // rsi
+  HDEV hdev; // rbx
   int v14; // eax
   struct _SURFOBJ *v15; // rcx
-  __int64 v16; // r10
+  __int64 v16; // r11
   __int64 v17; // rcx
   int v18; // eax
-  __int64 v19; // r10
+  __int64 v19; // r11
   int v20; // eax
   int v21; // eax
   _QWORD v23[2]; // [rsp+60h] [rbp-A0h] BYREF
@@ -54,7 +54,7 @@ int __fastcall MulCopyBits(
     v23[0] = 0LL;
     hdev = v28->hdev;
     v24 = hdev;
-    if ( ((_DWORD)hdev[524] & 0x8000) == 0 )
+    if ( ((_DWORD)hdev[532] & 0x8000) == 0 )
     {
       if ( (HIDWORD(a2[1].hsurf) & 0x10) != 0 )
         SURFREFVIEW::bMap((SURFREFVIEW *)v23, v28);
@@ -62,7 +62,7 @@ int __fastcall MulCopyBits(
       {
         MULTISURF::MULTISURF((MULTISURF *)v30, a1);
         if ( ((__int64)v28[1].hsurf & 0x400) != 0 )
-          v14 = (*(__int64 (__fastcall **)(__int64, struct _SURFOBJ *, __int64, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *))(*(_QWORD *)(v27 + 56) + 2816LL))(
+          v14 = (*(__int64 (__fastcall **)(__int64, struct _SURFOBJ *, __int64, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *))(*(_QWORD *)(v27 + 56) + 2840LL))(
                   v31,
                   v28,
                   v29,
@@ -87,7 +87,7 @@ int __fastcall MulCopyBits(
       if ( v17 )
       {
         if ( (*(_DWORD *)(v16 + 88) & 0x400) != 0 )
-          v18 = (*(__int64 (__fastcall **)(__int64, __int64, __int64, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *))(*(_QWORD *)(v27 + 56) + 2816LL))(
+          v18 = (*(__int64 (__fastcall **)(__int64, __int64, __int64, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *))(*(_QWORD *)(v27 + 56) + 2840LL))(
                   v17,
                   v16,
                   v29,
@@ -108,7 +108,7 @@ int __fastcall MulCopyBits(
     else if ( IsMetaRedirectionBitmap(v15) )
     {
       if ( (*(_DWORD *)(v19 + 88) & 0x400) != 0 )
-        v20 = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *))(*(_QWORD *)(v27 + 56) + 2816LL))(
+        v20 = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *))(*(_QWORD *)(v27 + 56) + 2840LL))(
                 *(_QWORD *)(*((_QWORD *)a1->dhsurf + 1) + 8LL * *(unsigned int *)(v27 + 16)),
                 v19,
                 v29,
@@ -125,11 +125,11 @@ int __fastcall MulCopyBits(
                 a6);
       v11 &= v20;
     }
-    else if ( ((_DWORD)hdev[524] & 0x8000) == 0 || *(_WORD *)(v19 + 76) )
+    else if ( ((_DWORD)hdev[532] & 0x8000) == 0 || *(_WORD *)(v19 + 76) )
     {
       MARK_ACCDRV_NOTIFICATION::MARK_ACCDRV_NOTIFICATION((MARK_ACCDRV_NOTIFICATION *)&v25, (struct PDEVOBJ *)&v24, a1);
       v21 = ((__int64)v28[1].hsurf & 0x400) != 0
-          ? (*(__int64 (__fastcall **)(struct _SURFOBJ *, struct _SURFOBJ *, __int64, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *))(*(_QWORD *)(v27 + 56) + 2816LL))(
+          ? (*(__int64 (__fastcall **)(struct _SURFOBJ *, struct _SURFOBJ *, __int64, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *))(*(_QWORD *)(v27 + 56) + 2840LL))(
               a1,
               v28,
               v29,

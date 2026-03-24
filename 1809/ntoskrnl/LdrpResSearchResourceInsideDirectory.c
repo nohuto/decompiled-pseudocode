@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpResSearchResourceInsideDirectory @ 0x1406894CC
+ * XREFs of LdrpResSearchResourceInsideDirectory @ 0x1406894AC
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1400FD9EC (LdrpResSearchResourceMappedFile.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1400FDA0C (LdrpResSearchResourceMappedFile.c)
  * Callees:
- *     RtlULongLongSub @ 0x1400FE044 (RtlULongLongSub.c)
- *     LdrpResCompareResourceNames @ 0x14068A040 (LdrpResCompareResourceNames.c)
- *     LdrpSectionTableFromVirtualAddress @ 0x14068B54C (LdrpSectionTableFromVirtualAddress.c)
+ *     RtlULongLongSub @ 0x1400FE064 (RtlULongLongSub.c)
+ *     LdrpResCompareResourceNames @ 0x14068A020 (LdrpResCompareResourceNames.c)
+ *     LdrpSectionTableFromVirtualAddress @ 0x14068B52C (LdrpSectionTableFromVirtualAddress.c)
  */
 
 __int64 __fastcall LdrpResSearchResourceInsideDirectory(

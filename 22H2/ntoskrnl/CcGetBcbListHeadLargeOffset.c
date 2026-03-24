@@ -1,11 +1,11 @@
 /*
- * XREFs of CcGetBcbListHeadLargeOffset @ 0x140260ED0
+ * XREFs of CcGetBcbListHeadLargeOffset @ 0x14029EC70
  * Callers:
- *     CcPinFileData @ 0x140263770 (CcPinFileData.c)
- *     CcFindBcb @ 0x14029EB70 (CcFindBcb.c)
- *     CcSetVacbLargeOffset @ 0x1402F2EB0 (CcSetVacbLargeOffset.c)
+ *     CcSetVacbLargeOffset @ 0x140275A2C (CcSetVacbLargeOffset.c)
+ *     CcFindBcb @ 0x14028F7AC (CcFindBcb.c)
+ *     CcPinFileData @ 0x14029FCC0 (CcPinFileData.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CcGetBcbListHeadLargeOffset(__int64 a1, __int64 a2, char a3)

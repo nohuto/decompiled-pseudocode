@@ -1,62 +1,46 @@
 /*
- * XREFs of EtwpFreeFilterInfo @ 0x140780CA8
+ * XREFs of EtwpFreeFilterInfo @ 0x1407164EC
  * Callers:
- *     EtwpNotifyGuid @ 0x14077FEF8 (EtwpNotifyGuid.c)
- *     EtwpEnableGuid @ 0x140780210 (EtwpEnableGuid.c)
+ *     EtwpNotifyGuid @ 0x1407150A4 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x140715CA4 (EtwpEnableGuid.c)
  * Callees:
- *     EtwpFreeEventNameFilter @ 0x1409F5318 (EtwpFreeEventNameFilter.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     EtwpFreeEventNameFilter @ 0x140940B90 (EtwpFreeEventNameFilter.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall EtwpFreeFilterInfo(_QWORD *a1)
+void __fastcall EtwpFreeFilterInfo(__int64 a1)
 {
-  void *v2; // rcx
-  void *v3; // rcx
-  void *v4; // rcx
-  void *v5; // rcx
+  PVOID *v2; // rdi
+  __int64 v3; // rsi
+  PVOID *v4; // rdi
+  __int64 v5; // rsi
   void *v6; // rcx
   void *v7; // rcx
-  void *v8; // rcx
-  void *v9; // rcx
-  void *v10; // rcx
-  void *v11; // rcx
-  void *v12; // rcx
-  void *v13; // rcx
 
-  v2 = (void *)a1[1];
-  if ( v2 )
-    ExFreePoolWithTag(v2, 0);
-  v3 = (void *)a1[2];
-  if ( v3 )
-    ExFreePoolWithTag(v3, 0);
-  v4 = (void *)a1[3];
-  if ( v4 )
-    ExFreePoolWithTag(v4, 0);
-  v5 = (void *)a1[4];
-  if ( v5 )
-    ExFreePoolWithTag(v5, 0);
-  v6 = (void *)a1[5];
+  v2 = (PVOID *)a1;
+  v3 = 4LL;
+  do
+  {
+    if ( *v2 )
+      ExFreePoolWithTag(*v2, 0);
+    ++v2;
+    --v3;
+  }
+  while ( v3 );
+  v4 = (PVOID *)(a1 + 32);
+  v5 = 2LL;
+  do
+  {
+    if ( *v4 )
+      ExFreePoolWithTag(*v4, 0);
+    ++v4;
+    --v5;
+  }
+  while ( v5 );
+  v6 = *(void **)(a1 + 48);
   if ( v6 )
-    ExFreePoolWithTag(v6, 0);
-  v7 = (void *)a1[6];
+    EtwpFreeEventNameFilter(v6);
+  v7 = *(void **)(a1 + 72);
   if ( v7 )
     ExFreePoolWithTag(v7, 0);
-  v8 = (void *)a1[7];
-  if ( v8 )
-    ExFreePoolWithTag(v8, 0);
-  v9 = (void *)a1[8];
-  if ( v9 )
-    ExFreePoolWithTag(v9, 0);
-  v10 = (void *)a1[9];
-  if ( v10 )
-    ExFreePoolWithTag(v10, 0);
-  v11 = (void *)a1[10];
-  if ( v11 )
-    ExFreePoolWithTag(v11, 0);
-  v12 = (void *)a1[11];
-  if ( v12 )
-    ExFreePoolWithTag(v12, 0);
-  v13 = (void *)a1[12];
-  if ( v13 )
-    EtwpFreeEventNameFilter(v13);
 }

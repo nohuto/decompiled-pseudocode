@@ -1,24 +1,24 @@
 /*
- * XREFs of ?Restore@CExcludeVisualReference@@UEAAXXZ @ 0x1801CD580
+ * XREFs of ?Restore@CExcludeVisualReference@@UEAAXXZ @ 0x180173F70
  * Callers:
- *     ??1CExcludeVisualReference@@QEAA@XZ @ 0x1801B42B8 (--1CExcludeVisualReference@@QEAA@XZ.c)
+ *     ??1CExcludeVisualReference@@QEAA@XZ @ 0x1800E4E34 (--1CExcludeVisualReference@@QEAA@XZ.c)
+ *     ?Restore@CCursorVisualReference@@UEAAXXZ @ 0x180174030 (-Restore@CCursorVisualReference@@UEAAXXZ.c)
  * Callees:
- *     ?GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ @ 0x18012E604 (-GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ.c)
+ *     ?GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ @ 0x1800E5388 (-GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ.c)
  */
 
 void __fastcall CExcludeVisualReference::Restore(CExcludeVisualReference *this)
 {
   struct CVisual *Visual; // rax
   __int64 v2; // rcx
-  __int64 v3; // r8
 
   Visual = CExcludeVisualReference::GetVisual(this);
   if ( Visual )
   {
     if ( *(_DWORD *)(v2 + 16) )
     {
-      *((_BYTE *)Visual + 102) ^= (*((_BYTE *)Visual + 102) ^ (2 * *(_BYTE *)(v2 + 20))) & 2;
-      *(_DWORD *)(v3 + 16) = 0;
+      *((_BYTE *)Visual + 94) ^= (*((_BYTE *)Visual + 94) ^ (4 * *(_BYTE *)(v2 + 20))) & 4;
+      *(_DWORD *)(v2 + 16) = 0;
     }
   }
 }

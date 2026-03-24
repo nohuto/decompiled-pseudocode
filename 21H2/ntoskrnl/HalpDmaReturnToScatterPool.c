@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaReturnToScatterPool @ 0x14045795A
+ * XREFs of HalpDmaReturnToScatterPool @ 0x1404C810C
  * Callers:
- *     HalpDmaReturnPageToOwner @ 0x140457800 (HalpDmaReturnPageToOwner.c)
- *     HalpDmaReturnPageToSource @ 0x140513BCC (HalpDmaReturnPageToSource.c)
+ *     HalpDmaReturnPageToOwner @ 0x1404C7F4C (HalpDmaReturnPageToOwner.c)
+ *     HalpDmaReturnPageToSource @ 0x1404C7FC4 (HalpDmaReturnPageToSource.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpDmaReturnToScatterPool(__int64 a1, __int64 a2, char a3)

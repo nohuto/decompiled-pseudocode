@@ -1,78 +1,92 @@
 /*
- * XREFs of SdbpCreateSearchPathPartsFromPath @ 0x140A4E86C
+ * XREFs of SdbpCreateSearchPathPartsFromPath @ 0x1407530E4
  * Callers:
- *     SdbpInitializeSearchDBContext @ 0x140A51430 (SdbpInitializeSearchDBContext.c)
+ *     SdbpInitializeSearchDBContext @ 0x140752FF8 (SdbpInitializeSearchDBContext.c)
  * Callees:
- *     wcschr @ 0x1403DB2B0 (wcschr.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslAlloc @ 0x1407589A8 (AslAlloc.c)
+ *     wcschr @ 0x1403D3810 (wcschr.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075A888 (AslAlloc.c)
  */
 
 __int64 __fastcall SdbpCreateSearchPathPartsFromPath(const wchar_t *a1, _QWORD *a2)
 {
-  const wchar_t *v3; // rdi
+  const wchar_t *v3; // rbx
   unsigned int v4; // r15d
-  const wchar_t *v5; // rbx
-  int i; // esi
-  wchar_t *v8; // rax
-  __int64 v9; // rcx
-  _DWORD *v10; // rax
-  _DWORD *v11; // r8
-  __int64 v12; // rax
+  const wchar_t *v5; // rbp
+  int i; // edi
+  wchar_t *v7; // rax
+  __int64 v8; // rcx
+  _DWORD *v9; // rax
+  _DWORD *v10; // r8
+  __int64 v11; // rax
   const wchar_t *j; // rdx
-  wchar_t v14; // ax
-  __int64 v15; // rcx
+  wchar_t v13; // ax
+  const char *v15; // r9
+  int v16; // r8d
+  __int64 v17; // rcx
 
   v3 = a1;
   v4 = 0;
   v5 = 0LL;
-  if ( !a1 )
-    goto LABEL_2;
-  for ( i = *a1 != 0; ; ++i )
+  if ( a1 )
   {
-    v8 = wcschr(a1, 0x3Bu);
-    if ( !v8 )
-      break;
-    a1 = v8 + 1;
-  }
-  v10 = AslAlloc(v9, 48LL * (unsigned int)(i - 1) + 56);
-  v11 = v10;
-  if ( !v10 )
-  {
-LABEL_2:
-    AslLogCallPrintf(1LL);
-    return 0LL;
-  }
-  *v10 = i;
-  v12 = -1LL;
-  do
-    ++v12;
-  while ( v3[v12] );
-  for ( j = &v3[v12]; j >= v3; --j )
-  {
-    v14 = *j;
-    if ( *j == 92 )
+    for ( i = *a1 != 0; ; ++i )
     {
-      if ( !v5 )
-        v5 = j;
-LABEL_14:
-      if ( v3 != j )
-        continue;
-      goto LABEL_15;
+      v7 = wcschr(a1, 0x3Bu);
+      if ( !v7 )
+        break;
+      a1 = v7 + 1;
     }
-    if ( v14 != 59 )
-      goto LABEL_14;
-LABEL_15:
-    if ( v5 )
+    v9 = (_DWORD *)AslAlloc(v8, 48LL * (unsigned int)(i - 1) + 56);
+    v10 = v9;
+    if ( v9 )
     {
-      if ( v14 == 59 )
-        ++j;
-      v15 = 6LL * v4++;
-      v11[2 * v15 + 4] = v5 - j + 1;
-      v5 = 0LL;
-      *(_QWORD *)&v11[2 * v15 + 2] = j;
+      *v9 = i;
+      v11 = -1LL;
+      do
+        ++v11;
+      while ( v3[v11] );
+      for ( j = &v3[v11]; ; --j )
+      {
+        if ( j < v3 )
+        {
+          *a2 = v10;
+          return 1LL;
+        }
+        v13 = *j;
+        if ( *j == 92 )
+        {
+          if ( v5 )
+          {
+LABEL_13:
+            if ( v3 != j )
+              continue;
+            goto LABEL_8;
+          }
+          v5 = j;
+        }
+        if ( v13 != 59 )
+          goto LABEL_13;
+LABEL_8:
+        if ( v5 )
+        {
+          if ( v13 == 59 )
+            ++j;
+          v17 = 6LL * v4++;
+          v10[2 * v17 + 4] = v5 - j + 1;
+          v5 = 0LL;
+          *(_QWORD *)&v10[2 * v17 + 2] = j;
+        }
+      }
     }
+    v15 = "Failed to allocate search path parts";
+    v16 = 1417;
   }
-  *a2 = v11;
-  return 1LL;
+  else
+  {
+    v15 = "Invalid argument";
+    v16 = 1388;
+  }
+  AslLogCallPrintf(1, (unsigned int)"SdbpCreateSearchPathPartsFromPath", v16, (_DWORD)v15);
+  return 0LL;
 }

@@ -1,39 +1,39 @@
 /*
- * XREFs of ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C00EF2F4
+ * XREFs of ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C00E6588
  * Callers:
- *     InitFNTCache @ 0x1C00E2390 (InitFNTCache.c)
- *     GdiMultiUserFontCleanup @ 0x1C00EE660 (GdiMultiUserFontCleanup.c)
- *     EngCloseFNTCache @ 0x1C00EF2AC (EngCloseFNTCache.c)
+ *     InitFNTCache @ 0x1C00E56F0 (InitFNTCache.c)
+ *     GdiMultiUserFontCleanup @ 0x1C00E63D0 (GdiMultiUserFontCleanup.c)
+ *     EngCloseFNTCache @ 0x1C00E6540 (EngCloseFNTCache.c)
  * Callees:
- *     vUnmapFontCacheFile @ 0x1C00EF388 (vUnmapFontCacheFile.c)
+ *     vUnmapFontCacheFile @ 0x1C00E661C (vUnmapFontCacheFile.c)
  */
 
 void vCleanUpFntCacheInternal(void)
 {
-  __int64 v0; // rcx
+  HANDLE *v0; // rcx
 
   if ( ghkeyGreInitialize )
   {
     ZwClose(ghkeyGreInitialize);
     ghkeyGreInitialize = 0LL;
   }
-  v0 = qword_1C0335DA8;
-  if ( qword_1C0335DA8 )
+  v0 = (HANDLE *)qword_1C033ABE8;
+  if ( qword_1C033ABE8 )
   {
-    if ( *(_QWORD *)qword_1C0335DA8 )
+    if ( *(_QWORD *)qword_1C033ABE8 )
     {
       vUnmapFontCacheFile();
-      v0 = qword_1C0335DA8;
+      v0 = (HANDLE *)qword_1C033ABE8;
     }
-    if ( *(_QWORD *)(v0 + 96) )
+    if ( v0[12] )
     {
-      ZwClose(*(HANDLE *)(v0 + 96));
-      v0 = qword_1C0335DA8;
-      *(_QWORD *)(qword_1C0335DA8 + 96) = 0LL;
+      ZwClose(v0[12]);
+      v0 = (HANDLE *)qword_1C033ABE8;
+      *(_QWORD *)(qword_1C033ABE8 + 96) = 0LL;
     }
     Win32FreePool(v0);
-    qword_1C0335DA8 = 0LL;
+    qword_1C033ABE8 = 0LL;
   }
-  dword_1C0335DA0 = 0;
+  dword_1C033ABE0 = 0;
   gbFntCacheClosed = 1;
 }

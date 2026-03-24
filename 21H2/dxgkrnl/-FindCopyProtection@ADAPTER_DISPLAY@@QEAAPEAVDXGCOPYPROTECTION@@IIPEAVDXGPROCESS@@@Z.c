@@ -1,8 +1,8 @@
 /*
- * XREFs of ?FindCopyProtection@ADAPTER_DISPLAY@@QEAAPEAVDXGCOPYPROTECTION@@IIPEAVDXGPROCESS@@@Z @ 0x1C02C0C90
+ * XREFs of ?FindCopyProtection@ADAPTER_DISPLAY@@QEAAPEAVDXGCOPYPROTECTION@@IIPEAVDXGPROCESS@@@Z @ 0x1C02126C8
  * Callers:
- *     ?DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z @ 0x1C02BFD18 (-DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z.c)
- *     ?UpdateCopyProtection@ADAPTER_DISPLAY@@QEAAJIII@Z @ 0x1C02C2DD0 (-UpdateCopyProtection@ADAPTER_DISPLAY@@QEAAJIII@Z.c)
+ *     ?DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z @ 0x1C02114C0 (-DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z.c)
+ *     ?UpdateCopyProtection@ADAPTER_DISPLAY@@QEAAJIII@Z @ 0x1C0214FE0 (-UpdateCopyProtection@ADAPTER_DISPLAY@@QEAAJIII@Z.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ struct DXGCOPYPROTECTION *__fastcall ADAPTER_DISPLAY::FindCopyProtection(
   struct DXGCOPYPROTECTION *v4; // rcx
   struct DXGCOPYPROTECTION *result; // rax
 
-  v4 = (ADAPTER_DISPLAY *)((char *)this + 80);
+  v4 = (ADAPTER_DISPLAY *)((char *)this + 64);
   for ( result = *(struct DXGCOPYPROTECTION **)v4; result != v4 && result; result = *(struct DXGCOPYPROTECTION **)result )
   {
     if ( *((_DWORD *)result + 12) == a3 && *((_DWORD *)result + 13) == a2 && *((struct DXGPROCESS **)result + 5) == a4 )

@@ -1,16 +1,16 @@
 /*
- * XREFs of MmIsThisAnNtAsSystem @ 0x14020C520
+ * XREFs of MmIsThisAnNtAsSystem @ 0x1402EE2B0
  * Callers:
- *     IopMountVolume @ 0x14068E624 (IopMountVolume.c)
- *     PsChangeQuantumTable @ 0x14068F5DC (PsChangeQuantumTable.c)
- *     CcInitializeProcessor @ 0x140825358 (CcInitializeProcessor.c)
- *     ObInitializeProcessor @ 0x140825414 (ObInitializeProcessor.c)
- *     IopQueryProcessorInitValues @ 0x140863C68 (IopQueryProcessorInitValues.c)
+ *     IopMountVolume @ 0x1406E5720 (IopMountVolume.c)
+ *     PsChangeQuantumTable @ 0x14078C7B8 (PsChangeQuantumTable.c)
+ *     CcInitializeProcessor @ 0x140796120 (CcInitializeProcessor.c)
+ *     ObInitializeProcessor @ 0x1407961DC (ObInitializeProcessor.c)
+ *     IopQueryProcessorInitValues @ 0x1407D3AAC (IopQueryProcessorInitValues.c)
  * Callees:
  *     <none>
  */
 
 BOOLEAN MmIsThisAnNtAsSystem(void)
 {
-  return dword_140D051DC;
+  return dword_140CFB19C;
 }

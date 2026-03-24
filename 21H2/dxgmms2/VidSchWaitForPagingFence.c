@@ -1,12 +1,12 @@
 /*
- * XREFs of VidSchWaitForPagingFence @ 0x1C00F5BEC
+ * XREFs of VidSchWaitForPagingFence @ 0x1C00D31D0
  * Callers:
- *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C00880D0 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
- *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0093DF0 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
- *     ?EndPreparation@VIDMM_GLOBAL@@IEAAXIPEAU_KEVENT@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C009F9F0 (-EndPreparation@VIDMM_GLOBAL@@IEAAXIPEAU_KEVENT@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z.c)
+ *     ?EndPreparation@VIDMM_GLOBAL@@IEAAXIPEAU_KEVENT@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C0063FD0 (-EndPreparation@VIDMM_GLOBAL@@IEAAXIPEAU_KEVENT@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z.c)
+ *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C0065C20 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
+ *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C006BD00 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
  * Callees:
- *     VidSchWaitForSingleSyncObject @ 0x1C0004DF0 (VidSchWaitForSingleSyncObject.c)
- *     VidSchSubmitWaitToHwQueue @ 0x1C00426F0 (VidSchSubmitWaitToHwQueue.c)
+ *     VidSchWaitForSingleSyncObject @ 0x1C0006500 (VidSchWaitForSingleSyncObject.c)
+ *     VidSchSubmitWaitToHwQueue @ 0x1C003A970 (VidSchSubmitWaitToHwQueue.c)
  */
 
 __int64 __fastcall VidSchWaitForPagingFence(
@@ -28,20 +28,20 @@ __int64 __fastcall VidSchWaitForPagingFence(
     v9 = 0LL;
     do
     {
-      if ( (unsigned int)v9 >= *(_DWORD *)(a1 + 76) )
+      if ( (unsigned int)v9 >= *(_DWORD *)(a1 + 68) )
         break;
       if ( (v5 & 1) != 0 )
       {
         if ( v4 )
         {
-          result = *(_QWORD *)(a1 + 280);
+          result = *(_QWORD *)(a1 + 272);
           v11 = *(struct VIDSCH_HW_QUEUE **)(result + 8 * v9);
           if ( v11 )
             result = VidSchSubmitWaitToHwQueue(v11, a2, a3);
         }
         else
         {
-          result = VidSchWaitForSingleSyncObject(*(_QWORD *)(*(_QWORD *)(a1 + 264) + 8 * v9), (__int64)a2, a3);
+          result = VidSchWaitForSingleSyncObject(*(_QWORD *)(*(_QWORD *)(a1 + 256) + 8 * v9), (__int64)a2, a3);
         }
       }
       v9 = (unsigned int)(v9 + 1);

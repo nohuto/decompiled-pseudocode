@@ -1,25 +1,24 @@
 /*
- * XREFs of VslCompleteSecureDriverLoad @ 0x140885E04
+ * XREFs of VslCompleteSecureDriverLoad @ 0x14077D304
  * Callers:
- *     MiCompleteSecureDriverLoad @ 0x140885D58 (MiCompleteSecureDriverLoad.c)
+ *     MiFinalizeDriverCfgState @ 0x14075C0A8 (MiFinalizeDriverCfgState.c)
+ *     MiMarkKernelImageCfgBits @ 0x140772E64 (MiMarkKernelImageCfgBits.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslCompleteSecureDriverLoad(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
+NTSTATUS __fastcall VslCompleteSecureDriverLoad(__int64 a1, __int64 a2, unsigned int a3)
 {
-  __int64 v5; // rsi
-  __int64 v6; // rbp
-  _QWORD v9[14]; // [rsp+20h] [rbp-88h] BYREF
+  __int64 v4; // rsi
+  _QWORD v7[14]; // [rsp+20h] [rbp-88h] BYREF
 
-  v5 = a3;
-  v6 = a4;
-  memset(v9, 0, 0x68uLL);
-  v9[1] = a1;
-  v9[2] = a2;
-  v9[3] = v5;
-  v9[4] = v6;
-  return VslpEnterIumSecureMode(2u, 216, 0, (__int64)v9);
+  v4 = a3;
+  memset(v7, 0, 0x68uLL);
+  v7[4] = 0LL;
+  v7[1] = a1;
+  v7[2] = a2;
+  v7[3] = v4;
+  return VslpEnterIumSecureMode(2u, 216, 0, (__int64)v7);
 }

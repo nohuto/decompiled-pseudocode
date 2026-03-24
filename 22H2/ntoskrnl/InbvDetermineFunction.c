@@ -1,10 +1,10 @@
 /*
- * XREFs of InbvDetermineFunction @ 0x1403871F8
+ * XREFs of InbvDetermineFunction @ 0x1403C8308
  * Callers:
- *     InbvDriverInitialize @ 0x140B52524 (InbvDriverInitialize.c)
+ *     InbvDriverInitialize @ 0x140A6B590 (InbvDriverInitialize.c)
  * Callees:
- *     _strupr @ 0x1403D8300 (_strupr.c)
- *     strstr @ 0x1403D8B70 (strstr.c)
+ *     _strupr @ 0x1403D0920 (_strupr.c)
+ *     strstr @ 0x1403D1180 (strstr.c)
  */
 
 __int64 __fastcall InbvDetermineFunction(__int64 a1)
@@ -16,8 +16,8 @@ __int64 __fastcall InbvDetermineFunction(__int64 a1)
   char *v7; // rax
   __int64 (__fastcall **v8)(); // rax
 
-  v1 = dword_140C6AC48;
-  if ( !dword_140C6AC48 )
+  v1 = dword_140C50B64;
+  if ( !dword_140C50B64 )
   {
     v4 = *(char **)(a1 + 216);
     v5 = 1;
@@ -25,15 +25,15 @@ __int64 __fastcall InbvDetermineFunction(__int64 a1)
     {
       v6 = strupr(v4);
       v7 = strstr(v6, "NOVGA");
-      v1 = dword_140C6AC48;
+      v1 = dword_140C50B64;
       v5 = v7 == 0LL;
     }
     if ( *(_QWORD *)(*(_QWORD *)(a1 + 240) + 288LL) )
     {
-      v8 = off_140C04600;
+      v8 = off_140C03020;
       if ( !v5 )
-        v8 = off_140C04540;
-      qword_140C6AC58 = (__int64)v8;
+        v8 = off_140C02F60;
+      qword_140C50B78 = (__int64)v8;
       v1 = 2 * v5 + 1;
     }
     else
@@ -41,9 +41,9 @@ __int64 __fastcall InbvDetermineFunction(__int64 a1)
       if ( !v5 )
         return v1;
       v1 = 2;
-      qword_140C6AC58 = (__int64)off_140C04600;
+      qword_140C50B78 = (__int64)off_140C03020;
     }
-    dword_140C6AC48 = v1;
+    dword_140C50B64 = v1;
   }
   return v1;
 }

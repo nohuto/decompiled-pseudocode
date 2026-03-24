@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpWatchdogGetElapsedTime @ 0x140562834
+ * XREFs of PnpWatchdogGetElapsedTime @ 0x14050F028
  * Callers:
- *     PnpWatchdogEtwWrite @ 0x140950084 (PnpWatchdogEtwWrite.c)
+ *     PnpWatchdogEtwWrite @ 0x1408AB894 (PnpWatchdogEtwWrite.c)
  * Callees:
  *     <none>
  */

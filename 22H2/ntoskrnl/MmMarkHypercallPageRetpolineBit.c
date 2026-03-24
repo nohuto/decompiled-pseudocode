@@ -1,11 +1,11 @@
 /*
- * XREFs of MmMarkHypercallPageRetpolineBit @ 0x140B9AA6C
+ * XREFs of MmMarkHypercallPageRetpolineBit @ 0x140A925BC
  * Callers:
- *     HvlPhase1Initialize @ 0x1403872A4 (HvlPhase1Initialize.c)
+ *     HvlPhase1Initialize @ 0x1403CF458 (HvlPhase1Initialize.c)
  * Callees:
- *     MmAcquireLoadLock @ 0x140704660 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x1407049E0 (MmReleaseLoadLock.c)
- *     MiMarkRetpolineBits @ 0x140A344F0 (MiMarkRetpolineBits.c)
+ *     MmReleaseLoadLock @ 0x1406FE9E0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406FEA40 (MmAcquireLoadLock.c)
+ *     MiMarkRetpolineBits @ 0x1408D0D04 (MiMarkRetpolineBits.c)
  */
 
 __int64 MmMarkHypercallPageRetpolineBit()

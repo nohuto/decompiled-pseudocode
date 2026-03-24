@@ -1,10 +1,9 @@
 /*
- * XREFs of ?MarkMemoryBlocks@VIDMM_LINEAR_POOL@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@IPEAU_DXGK_MEMORYRANGE@@@Z @ 0x1C01024B0
+ * XREFs of ?MarkMemoryBlocks@VIDMM_LINEAR_POOL@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@IPEAU_DXGK_MEMORYRANGE@@@Z @ 0x1C00CDCF8
  * Callers:
- *     ?BlockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@W4_DXGK_QUERYADAPTERINFOTYPE@@IAEA_K@Z @ 0x1C00FC3E8 (-BlockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@W4_DXGK_QUERYADAPTERINFOTYPE@@.c)
+ *     ?BlockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@W4_DXGK_QUERYADAPTERINFOTYPE@@IAEA_K@Z @ 0x1C00C4E90 (-BlockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@W4_DXGK_QUERYADAPTERINFOTYPE@@.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     ?AllocateAt@VIDMM_LINEAR_POOL@@QEAAJT_LARGE_INTEGER@@_KPEAXPEAPEAX@Z @ 0x1C01014F8 (-AllocateAt@VIDMM_LINEAR_POOL@@QEAAJT_LARGE_INTEGER@@_KPEAXPEAPEAX@Z.c)
+ *     ?AllocateAt@VIDMM_LINEAR_POOL@@QEAAJT_LARGE_INTEGER@@_KPEAXPEAPEAX@Z @ 0x1C00CCDB4 (-AllocateAt@VIDMM_LINEAR_POOL@@QEAAJT_LARGE_INTEGER@@_KPEAXPEAPEAX@Z.c)
  */
 
 __int64 __fastcall VIDMM_LINEAR_POOL::MarkMemoryBlocks(
@@ -13,21 +12,24 @@ __int64 __fastcall VIDMM_LINEAR_POOL::MarkMemoryBlocks(
         unsigned int a3,
         __int64 a4)
 {
-  unsigned int v4; // ebx
-  __int64 v5; // rdi
+  unsigned int v4; // edi
+  __int64 v5; // rbp
   union _LARGE_INTEGER v9; // rdx
   int v10; // eax
-  unsigned int v11; // r14d
-  _BYTE *v12; // rdx
-  _QWORD *v13; // rax
-  __int64 v14; // rcx
-  _QWORD *v15; // r8
-  _QWORD *v16; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // rsi
+  _BYTE *v15; // rdx
+  _QWORD *v16; // rax
   __int64 v17; // rcx
   _QWORD *v18; // r8
-  _QWORD *v19; // r8
-  __int64 v21; // rcx
-  void *v22; // [rsp+50h] [rbp-28h] BYREF
+  _QWORD *v19; // rcx
+  __int64 v20; // rcx
+  _QWORD *v21; // r8
+  _QWORD *v22; // r8
+  _QWORD *v24; // rax
+  void *v25; // [rsp+30h] [rbp-28h] BYREF
 
   v4 = 0;
   v5 = a2;
@@ -35,7 +37,7 @@ __int64 __fastcall VIDMM_LINEAR_POOL::MarkMemoryBlocks(
     return 0LL;
   while ( 1 )
   {
-    v22 = 0LL;
+    v25 = 0LL;
     v9 = *(union _LARGE_INTEGER *)(a4 + 16LL * v4);
     if ( v9.QuadPart < *((_QWORD *)a1 + 1) )
       break;
@@ -43,51 +45,55 @@ LABEL_15:
     if ( ++v4 >= a3 )
       return 0LL;
   }
-  v10 = VIDMM_LINEAR_POOL::AllocateAt(a1, v9, *(_QWORD *)(a4 + 16LL * v4 + 8), 0LL, &v22);
-  v11 = v10;
+  v10 = VIDMM_LINEAR_POOL::AllocateAt(a1, v9, *(_QWORD *)(a4 + 16LL * v4 + 8), 0LL, &v25);
+  v14 = v10;
   if ( v10 >= 0 )
   {
-    v12 = v22;
+    v15 = v25;
     if ( (_DWORD)v5 == 6 )
     {
-      v13 = (char *)v22 + 24;
-      v17 = *((_QWORD *)v22 + 3);
-      if ( *(void **)(v17 + 8) != (char *)v22 + 24 || (v18 = (_QWORD *)*((_QWORD *)v22 + 4), (_QWORD *)*v18 != v13) )
+      v16 = (char *)v25 + 24;
+      v20 = *((_QWORD *)v25 + 3);
+      if ( *(void **)(v20 + 8) != (char *)v25 + 24 || (v21 = (_QWORD *)*((_QWORD *)v25 + 4), (_QWORD *)*v21 != v16) )
 LABEL_17:
         __fastfail(3u);
-      *v18 = v17;
-      *(_QWORD *)(v17 + 8) = v18;
-      v16 = (_QWORD *)((char *)a1 + 120);
+      *v21 = v20;
+      *(_QWORD *)(v20 + 8) = v21;
+      v19 = (_QWORD *)((char *)a1 + 120);
     }
     else
     {
       if ( (_DWORD)v5 != 7 )
       {
 LABEL_14:
-        v12[56] = v5;
+        v15[56] = v5;
         goto LABEL_15;
       }
-      v13 = (char *)v22 + 24;
-      v14 = *((_QWORD *)v22 + 3);
-      if ( *(void **)(v14 + 8) != (char *)v22 + 24 )
+      v16 = (char *)v25 + 24;
+      v17 = *((_QWORD *)v25 + 3);
+      if ( *(void **)(v17 + 8) != (char *)v25 + 24 )
         goto LABEL_17;
-      v15 = (_QWORD *)*((_QWORD *)v22 + 4);
-      if ( (_QWORD *)*v15 != v13 )
+      v18 = (_QWORD *)*((_QWORD *)v25 + 4);
+      if ( (_QWORD *)*v18 != v16 )
         goto LABEL_17;
-      *v15 = v14;
-      *(_QWORD *)(v14 + 8) = v15;
-      v16 = (_QWORD *)((char *)a1 + 136);
+      *v18 = v17;
+      *(_QWORD *)(v17 + 8) = v18;
+      v19 = (_QWORD *)((char *)a1 + 136);
     }
-    v19 = (_QWORD *)v16[1];
-    if ( (_QWORD *)*v19 != v16 )
+    v22 = (_QWORD *)v19[1];
+    if ( (_QWORD *)*v22 != v19 )
       goto LABEL_17;
-    *v13 = v16;
-    v13[1] = v19;
-    *v19 = v13;
-    v16[1] = v13;
+    *v16 = v19;
+    v16[1] = v22;
+    *v22 = v16;
+    v19[1] = v16;
     goto LABEL_14;
   }
-  WdLogSingleEntry4(1LL, v5, *(_QWORD *)(a4 + 16LL * v4), *(_QWORD *)(a4 + 16LL * v4 + 8), v10);
-  DxgkLogInternalTriageEvent(v21, 0x40000LL);
-  return v11;
+  v24 = (_QWORD *)WdLogNewEntry5_WdAssertion(v12, v11, v13);
+  v24[3] = v5;
+  v24[4] = *(_QWORD *)(a4 + 16LL * v4);
+  v24[5] = *(_QWORD *)(a4 + 16LL * v4 + 8);
+  v24[6] = v14;
+  WdLogEvent5_WdAssertion(v24);
+  return (unsigned int)v14;
 }

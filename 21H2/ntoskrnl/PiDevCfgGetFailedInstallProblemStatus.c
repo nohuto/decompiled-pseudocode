@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDevCfgGetFailedInstallProblemStatus @ 0x14086358C
+ * XREFs of PiDevCfgGetFailedInstallProblemStatus @ 0x1408A6868
  * Callers:
- *     IopInitializeDeviceInstanceKey @ 0x1406CF970 (IopInitializeDeviceInstanceKey.c)
- *     PiProcessNewDeviceNode @ 0x14076E9B8 (PiProcessNewDeviceNode.c)
- *     PiInitializeDevice @ 0x14095975C (PiInitializeDevice.c)
+ *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14074ED50 (IopInitializeDeviceInstanceKey.c)
+ *     PiInitializeDevice @ 0x1408B3C6C (PiInitializeDevice.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall PiDevCfgGetFailedInstallProblemStatus(__int64 a1, __int64 a2)
@@ -36,10 +36,10 @@ __int64 __fastcall PiDevCfgGetFailedInstallProblemStatus(__int64 a1, __int64 a2)
   {
     switch ( v4[0] )
     {
-      case 0xE0000228:
-        return (unsigned int)-1073740656;
       case 0xE0000219:
         return (unsigned int)-1073740652;
+      case 0xE0000228:
+        return (unsigned int)-1073740656;
       case 0xE0000250:
         return (unsigned int)-1073740655;
       case 0xE0000251:

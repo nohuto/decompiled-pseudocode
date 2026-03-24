@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UnlockUnaligned@CBitmapLockUnaligned@@IEAAXXZ @ 0x180272100
+ * XREFs of ?UnlockUnaligned@CBitmapLockUnaligned@@IEAAXXZ @ 0x180218C50
  * Callers:
- *     ??1CBitmapLockUnaligned@@UEAA@XZ @ 0x180271D68 (--1CBitmapLockUnaligned@@UEAA@XZ.c)
+ *     ??1CBitmapLockUnaligned@@UEAA@XZ @ 0x1802188AC (--1CBitmapLockUnaligned@@UEAA@XZ.c)
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?WriteUnalignedScanline@@YAXPEAEPEBEII@Z @ 0x180272194 (-WriteUnalignedScanline@@YAXPEAEPEBEII@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?WriteUnalignedScanline@@YAXPEAEPEBEII@Z @ 0x180218CE4 (-WriteUnalignedScanline@@YAXPEAEPEBEII@Z.c)
  */
 
 void __fastcall CBitmapLockUnaligned::UnlockUnaligned(CBitmapLockUnaligned *this)
@@ -14,28 +14,28 @@ void __fastcall CBitmapLockUnaligned::UnlockUnaligned(CBitmapLockUnaligned *this
   unsigned __int8 *v4; // rsi
   unsigned int v5; // ebp
 
-  v1 = (const unsigned __int8 *)*((_QWORD *)this + 14);
+  v1 = (const unsigned __int8 *)*((_QWORD *)this + 15);
   v3 = (unsigned __int8 *)v1;
   if ( v1 )
   {
-    if ( (*((_BYTE *)this + 128) & 2) != 0 )
+    if ( (*((_BYTE *)this + 136) & 2) != 0 )
     {
-      v4 = (unsigned __int8 *)*((_QWORD *)this + 18);
+      v4 = (unsigned __int8 *)*((_QWORD *)this + 19);
       v5 = 0;
-      if ( *((_DWORD *)this + 23) )
+      if ( *((_DWORD *)this + 25) )
       {
         do
         {
-          WriteUnalignedScanline(v4, v1, *((_DWORD *)this + 40), *((_DWORD *)this + 41));
+          WriteUnalignedScanline(v4, v1, *((_DWORD *)this + 42), *((_DWORD *)this + 43));
           ++v5;
-          v4 += *((unsigned int *)this + 38);
-          v1 += *((unsigned int *)this + 24);
+          v4 += *((unsigned int *)this + 40);
+          v1 += *((unsigned int *)this + 26);
         }
-        while ( v5 < *((_DWORD *)this + 23) );
-        v3 = (unsigned __int8 *)*((_QWORD *)this + 14);
+        while ( v5 < *((_DWORD *)this + 25) );
+        v3 = (unsigned __int8 *)*((_QWORD *)this + 15);
       }
     }
   }
-  DefaultHeap::Free(v3);
-  *((_QWORD *)this + 14) = 0LL;
+  operator delete(v3);
+  *((_QWORD *)this + 15) = 0LL;
 }

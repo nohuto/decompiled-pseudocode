@@ -5,9 +5,9 @@
  *     VfSetVerifierInformation @ 0x14094AA20 (VfSetVerifierInformation.c)
  *     ViInitSystemPhase0 @ 0x1409DAF34 (ViInitSystemPhase0.c)
  * Callees:
- *     ExSetPoolFlags @ 0x14031A85C (ExSetPoolFlags.c)
- *     ExDisableAllLookasideLists @ 0x14031C9E4 (ExDisableAllLookasideLists.c)
- *     MmLockPagableDataSection @ 0x140651680 (MmLockPagableDataSection.c)
+ *     ExSetPoolFlags @ 0x14031A95C (ExSetPoolFlags.c)
+ *     ExDisableAllLookasideLists @ 0x14031CAE4 (ExDisableAllLookasideLists.c)
+ *     MmLockPagableDataSection @ 0x140651660 (MmLockPagableDataSection.c)
  *     IoVerifierInit @ 0x1409237D8 (IoVerifierInit.c)
  *     VfInitVerifierComponents @ 0x1409266D0 (VfInitVerifierComponents.c)
  *     VfPendingInitPhase1 @ 0x140933774 (VfPendingInitPhase1.c)
@@ -44,9 +44,9 @@ void __fastcall VfInitSystemNoRebootNeeded(__int64 a1, int a2)
       MmVerifierData = v4 & 0xFFFFFFDF;
       ExSetPoolFlags(8u);
     }
-    qword_14040D7D8 = (__int64)&ViVerifierDriverAddedThunkListHead;
+    qword_14040D7A8 = (__int64)&ViVerifierDriverAddedThunkListHead;
     ViVerifierDriverAddedThunkListHead = (__int64)&ViVerifierDriverAddedThunkListHead;
-    qword_14040D4B8 = (__int64)&ViVerifierDriverAddedSpecialThunkListHead;
+    qword_14040D498 = (__int64)&ViVerifierDriverAddedSpecialThunkListHead;
     ViVerifierDriverAddedSpecialThunkListHead = &ViVerifierDriverAddedSpecialThunkListHead;
     if ( !a2 )
     {

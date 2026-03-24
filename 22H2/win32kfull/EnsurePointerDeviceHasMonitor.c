@@ -1,31 +1,28 @@
 /*
- * XREFs of EnsurePointerDeviceHasMonitor @ 0x1C0152DC0
+ * XREFs of EnsurePointerDeviceHasMonitor @ 0x1C01EE0F0
  * Callers:
- *     _GetPointerDeviceRects @ 0x1C00AC894 (_GetPointerDeviceRects.c)
+ *     _GetPointerDeviceRects @ 0x1C012282C (_GetPointerDeviceRects.c)
  * Callees:
- *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C0122344 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
+ *     <none>
  */
 
-__int64 __fastcall EnsurePointerDeviceHasMonitor(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall EnsurePointerDeviceHasMonitor(__int64 a1)
 {
-  __int64 v4; // rdi
-  unsigned int v5; // ebx
+  __int64 v1; // rdi
+  unsigned int v2; // ebx
+  int v3; // eax
 
-  v4 = *(_QWORD *)(a1 + 16);
-  v5 = 0;
-  if ( !*(_DWORD *)(v4 + 1336) )
+  v1 = *(_QWORD *)(a1 + 16);
+  v2 = 0;
+  v3 = *(_DWORD *)(v1 + 1344);
+  if ( !v3 )
     return 1;
-  if ( *(_QWORD *)(v4 + 1344) )
+  if ( !*(_QWORD *)(v1 + 1352) )
   {
-LABEL_5:
-    if ( *(_DWORD *)(v4 + 1336) && !*(_QWORD *)(v4 + 1344) )
-      return v5;
+    RIMFindMonitorForDigitizer(*(_QWORD *)(a1 + 16), a1, 1LL, 0LL);
+    v3 = *(_DWORD *)(v1 + 1344);
+  }
+  if ( !v3 || *(_QWORD *)(v1 + 1352) )
     return 1;
-  }
-  if ( IS_USERCRIT_OWNED_EXCLUSIVE(a1, a2, a3, a4) )
-  {
-    RIMFindMonitorForDigitizer(v4, a1, 1LL, 0LL);
-    goto LABEL_5;
-  }
-  return 0LL;
+  return v2;
 }

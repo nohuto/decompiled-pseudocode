@@ -1,44 +1,49 @@
 /*
- * XREFs of MiReturnPartitionPagesToParent @ 0x1405BF56C
+ * XREFs of MiReturnPartitionPagesToParent @ 0x140562CC4
  * Callers:
- *     MiFreePartitionPhysicalPages @ 0x140981A04 (MiFreePartitionPhysicalPages.c)
+ *     MiFreePartitionPhysicalPages @ 0x1408DB0F0 (MiFreePartitionPhysicalPages.c)
  * Callees:
- *     MiDrainZeroLookasides @ 0x1402416A4 (MiDrainZeroLookasides.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiReleasePartitionHugeIoSpace @ 0x140588C48 (MiReleasePartitionHugeIoSpace.c)
- *     MiActOnPartitionNodePages @ 0x1405BCBC4 (MiActOnPartitionNodePages.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiDrainZeroLookasides @ 0x1402B93C0 (MiDrainZeroLookasides.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleasePartitionHugeIoSpace @ 0x140533888 (MiReleasePartitionHugeIoSpace.c)
+ *     MiActOnPartitionNodePages @ 0x1405608A0 (MiActOnPartitionNodePages.c)
  */
 
-__int64 __fastcall MiReturnPartitionPagesToParent(__int64 BugCheckParameter2)
+void __fastcall MiReturnPartitionPagesToParent(__int64 BugCheckParameter2)
 {
-  __int16 *v2; // rbx
+  __int64 v2; // rbx
   KIRQL v3; // al
   _QWORD *v4; // rcx
   _QWORD *v5; // rbx
   unsigned __int64 v6; // rdi
   _QWORD *v7; // rax
-  __int64 v8; // r10
+  __int64 v8; // r9
   _QWORD *v9; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v13; // eax
   bool v14; // zf
-  __int16 *v16[8]; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v15; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v16; // [rsp+30h] [rbp-38h]
+  __int128 v17; // [rsp+40h] [rbp-28h]
+  __int64 v18; // [rsp+50h] [rbp-18h]
 
-  memset(v16, 0, sizeof(v16));
-  v2 = **(__int16 ***)(*(_QWORD *)(BugCheckParameter2 + 176) + 56LL);
+  v15 = 0LL;
+  v16 = 0LL;
+  v17 = 0LL;
+  v18 = 0LL;
+  v2 = **(_QWORD **)(*(_QWORD *)(BugCheckParameter2 + 176) + 56LL);
   MiDrainZeroLookasides(BugCheckParameter2, 0LL, 0LL, 0);
-  v16[0] = v2;
-  v16[1] = (__int16 *)BugCheckParameter2;
+  *(_QWORD *)&v15 = v2;
+  *((_QWORD *)&v15 + 1) = BugCheckParameter2;
   v3 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(BugCheckParameter2 + 200));
   v4 = *(_QWORD **)(BugCheckParameter2 + 24);
   v5 = 0LL;
   v6 = v3;
-  LOBYTE(v16[2]) = v3;
+  LOBYTE(v16) = v3;
   while ( v4 )
   {
     v5 = v4;
@@ -68,7 +73,7 @@ __int64 __fastcall MiReturnPartitionPagesToParent(__int64 BugCheckParameter2)
         v9 = v5;
       }
     }
-    MiActOnPartitionNodePages(v8, 6uLL, 0LL, v16);
+    MiActOnPartitionNodePages(v8, 4u, (__int16 **)&v15);
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(BugCheckParameter2 + 200));
   if ( KiIrqlFlags )
@@ -89,5 +94,5 @@ __int64 __fastcall MiReturnPartitionPagesToParent(__int64 BugCheckParameter2)
     }
   }
   __writecr8(v6);
-  return MiReleasePartitionHugeIoSpace((_QWORD *)BugCheckParameter2);
+  MiReleasePartitionHugeIoSpace((_QWORD *)BugCheckParameter2);
 }

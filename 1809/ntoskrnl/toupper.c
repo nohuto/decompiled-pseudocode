@@ -1,10 +1,10 @@
 /*
- * XREFs of toupper @ 0x1401974F0
+ * XREFs of toupper @ 0x140197510
  * Callers:
- *     AslStringPatternMatchA @ 0x1407212BC (AslStringPatternMatchA.c)
+ *     AslStringPatternMatchA @ 0x14072129C (AslStringPatternMatchA.c)
  * Callees:
- *     RtlUpcaseUnicodeToMultiByteN @ 0x14067C2E0 (RtlUpcaseUnicodeToMultiByteN.c)
- *     RtlAnsiCharToUnicodeChar @ 0x14068D610 (RtlAnsiCharToUnicodeChar.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x14067C2C0 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     RtlAnsiCharToUnicodeChar @ 0x14068D5F0 (RtlAnsiCharToUnicodeChar.c)
  */
 
 int __cdecl toupper(int C)

@@ -1,15 +1,15 @@
 /*
- * XREFs of ?AddIrpReference@FxRequest@@QEAAXXZ @ 0x1C006858C
+ * XREFs of ?AddIrpReference@FxRequest@@QEAAXXZ @ 0x1C004ECBC
  * Callers:
- *     ?Execute@FxDmaTransactionBase@@QEAAJPEAX@Z @ 0x1C0059478 (-Execute@FxDmaTransactionBase@@QEAAJPEAX@Z.c)
- *     ?AddRefOverride@FxRequest@@UEAAKGPEAXJPEBD@Z @ 0x1C00685F0 (-AddRefOverride@FxRequest@@UEAAKGPEAXJPEBD@Z.c)
- *     ?SetMdl@FxRequestMemory@@QEAAXPEAVFxRequest@@PEAU_MDL@@PEAX_KE@Z @ 0x1C006AEDC (-SetMdl@FxRequestMemory@@QEAAXPEAVFxRequest@@PEAU_MDL@@PEAX_KE@Z.c)
- *     ?AddRef@FxRequestOutputBuffer@@UEAAKPEAXJPEBD@Z @ 0x1C006AF30 (-AddRef@FxRequestOutputBuffer@@UEAAKPEAXJPEBD@Z.c)
- *     ?AddRef@FxRequestSystemBuffer@@UEAAKPEAXJPEBD@Z @ 0x1C006AFC0 (-AddRef@FxRequestSystemBuffer@@UEAAKPEAXJPEBD@Z.c)
+ *     ?Execute@FxDmaTransactionBase@@QEAAJPEAX@Z @ 0x1C00367FC (-Execute@FxDmaTransactionBase@@QEAAJPEAX@Z.c)
+ *     ?AddRefOverride@FxRequest@@UEAAKGPEAXJPEBD@Z @ 0x1C004ED20 (-AddRefOverride@FxRequest@@UEAAKGPEAXJPEBD@Z.c)
+ *     ?SetMdl@FxRequestMemory@@QEAAXPEAVFxRequest@@PEAU_MDL@@PEAX_KE@Z @ 0x1C00558BC (-SetMdl@FxRequestMemory@@QEAAXPEAVFxRequest@@PEAU_MDL@@PEAX_KE@Z.c)
+ *     ?AddRef@FxRequestOutputBuffer@@UEAAKPEAXJPEBD@Z @ 0x1C0055950 (-AddRef@FxRequestOutputBuffer@@UEAAKPEAXJPEBD@Z.c)
+ *     ?AddRef@FxRequestSystemBuffer@@UEAAKPEAXJPEBD@Z @ 0x1C0055A90 (-AddRef@FxRequestSystemBuffer@@UEAAKPEAXJPEBD@Z.c)
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?Vf_VerifyRequestIsNotCompleted@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C7B00 (-Vf_VerifyRequestIsNotCompleted@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Vf_VerifyRequestIsNotCompleted@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C6A10 (-Vf_VerifyRequestIsNotCompleted@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
 void __fastcall FxRequest::AddIrpReference(FxRequest *this, __int64 a2, unsigned __int8 a3)

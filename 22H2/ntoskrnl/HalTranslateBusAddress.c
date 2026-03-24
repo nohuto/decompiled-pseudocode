@@ -1,11 +1,11 @@
 /*
- * XREFs of HalTranslateBusAddress @ 0x140375AA0
+ * XREFs of HalTranslateBusAddress @ 0x1403A5360
  * Callers:
- *     IopTranslateBusAddress @ 0x14081DA28 (IopTranslateBusAddress.c)
- *     HeadlessTerminalAddResources @ 0x14081DBA8 (HeadlessTerminalAddResources.c)
- *     HalpReportResourceUsage @ 0x140B4423C (HalpReportResourceUsage.c)
+ *     HeadlessTerminalAddResources @ 0x140790520 (HeadlessTerminalAddResources.c)
+ *     IopTranslateBusAddress @ 0x1407BE878 (IopTranslateBusAddress.c)
+ *     HalpReportResourceUsage @ 0x140A391C0 (HalpReportResourceUsage.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 BOOLEAN __stdcall HalTranslateBusAddress(
@@ -16,7 +16,7 @@ BOOLEAN __stdcall HalTranslateBusAddress(
         PPHYSICAL_ADDRESS TranslatedAddress)
 {
   if ( InterfaceType == PCIBus )
-    return ((__int64 (__fastcall *)(_QWORD, _DWORD, _QWORD, _QWORD, _QWORD))off_140C019D8[0])(
+    return ((__int64 (__fastcall *)(_QWORD, _DWORD, _QWORD, _QWORD, _QWORD))off_140C005C8[0])(
              5LL,
              BusNumber,
              (PHYSICAL_ADDRESS)BusAddress.QuadPart,

@@ -1,9 +1,9 @@
 /*
- * XREFs of SendOrientationChanged @ 0x1C01E8350
+ * XREFs of SendOrientationChanged @ 0x1C01AEEB0
  * Callers:
- *     SetContentOrientation @ 0x1C01E85D8 (SetContentOrientation.c)
+ *     SetContentOrientation @ 0x1C01AF000 (SetContentOrientation.c)
  * Callees:
- *     ?CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z @ 0x1C003B6C4 (-CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z.c)
+ *     ?CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z @ 0x1C004CFF4 (-CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z.c)
  */
 
 __int64 __fastcall SendOrientationChanged(__int64 a1)

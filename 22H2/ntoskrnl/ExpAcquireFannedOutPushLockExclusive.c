@@ -1,62 +1,57 @@
 /*
- * XREFs of ExpAcquireFannedOutPushLockExclusive @ 0x1403CF96C
+ * XREFs of ExpAcquireFannedOutPushLockExclusive @ 0x140390BD0
  * Callers:
- *     ExAcquireAutoExpandPushLockExclusive @ 0x14022F760 (ExAcquireAutoExpandPushLockExclusive.c)
- *     FsRtlInsertPerStreamContext @ 0x140333C20 (FsRtlInsertPerStreamContext.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x1402FAF60 (ExAcquireAutoExpandPushLockExclusive.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033ADA0 (KeQueryMaximumProcessorCountEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x140273310 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140344740 (KeQueryMaximumProcessorCountEx.c)
  */
 
-unsigned int __fastcall ExpAcquireFannedOutPushLockExclusive(unsigned int a1, __int64 a2, __int64 a3)
+int __fastcall ExpAcquireFannedOutPushLockExclusive(unsigned int a1, __int64 a2, ULONG_PTR a3)
 {
   unsigned int v3; // esi
   unsigned __int64 v4; // rbp
   unsigned int v5; // ecx
-  unsigned __int64 v8; // rbp
+  unsigned __int64 v7; // rbp
   unsigned __int64 *v9; // rcx
   unsigned int v10; // ebx
-  unsigned int result; // eax
+  __int64 v11; // rax
   __int64 v12; // rdi
-  unsigned int v13; // ecx
-  unsigned int v14; // ecx
-  unsigned __int64 *v15; // rcx
+  unsigned int v13; // eax
+  __int64 v14; // r8
+  unsigned int v15; // eax
+  __int64 v16; // r8
+  unsigned __int64 *v17; // rcx
 
   v3 = (a1 >> 13) & 0x3FFFF;
   v4 = (unsigned __int64)a1 >> 4;
   _BitScanReverse(&v5, v3);
-  v8 = v4 & 0x1FF;
+  v7 = v4 & 0x1FF;
   v9 = (unsigned __int64 *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)ExSaPageArrays + 8LL * (v5 - 2))
                                       + 8LL * (v3 ^ (1 << v5))
                                       + 8)
-                          + 8 * v8);
+                          + 8 * v7);
   if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
     ExfAcquirePushLockExclusiveEx(v9, a2, a3);
   v10 = 1;
-  result = KeQueryMaximumProcessorCountEx(0xFFFFu);
-  LODWORD(v12) = result;
-  if ( result > 1 )
+  LODWORD(v11) = KeQueryMaximumProcessorCountEx(0xFFFFu);
+  LODWORD(v12) = v11;
+  if ( (unsigned int)v11 > 1 )
   {
     do
     {
       _BitScanReverse(&v13, v3);
-      if ( _interlockedbittestandset64(
-             (volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(ExSaPageArrays + 8LL * v10)
-                                                               + 8LL * (v13 - 2))
-                                                   + 8LL * (v3 ^ (1 << v13))
-                                                   + 8)
-                                       + 8 * v8),
-             0LL) )
+      v14 = v3 ^ (1 << v13);
+      v11 = *(_QWORD *)(*(_QWORD *)(ExSaPageArrays + 8LL * v10) + 8LL * (v13 - 2));
+      if ( _interlockedbittestandset64((volatile signed __int32 *)(*(_QWORD *)(v11 + 8 * v14 + 8) + 8 * v7), 0LL) )
       {
-        result = ExSaPageArrays;
+        _BitScanReverse(&v15, v3);
         v12 = (unsigned int)(v12 - 1);
-        _BitScanReverse(&v14, v3);
-        v15 = (unsigned __int64 *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(ExSaPageArrays + 8 * v12) + 8LL * (v14 - 2))
-                                             + 8LL * (v3 ^ (1 << v14))
-                                             + 8)
-                                 + 8 * v8);
-        if ( _interlockedbittestandset64((volatile signed __int32 *)v15, 0LL) )
-          result = ExfAcquirePushLockExclusiveEx(v15, a2, a3);
+        v16 = v3 ^ (1 << v15);
+        v11 = *(_QWORD *)(*(_QWORD *)(ExSaPageArrays + 8 * v12) + 8LL * (v15 - 2));
+        v17 = (unsigned __int64 *)(*(_QWORD *)(v11 + 8 * v16 + 8) + 8 * v7);
+        if ( _interlockedbittestandset64((volatile signed __int32 *)v17, 0LL) )
+          LODWORD(v11) = ExfAcquirePushLockExclusiveEx(v17, a2, a3);
       }
       else
       {
@@ -65,5 +60,5 @@ unsigned int __fastcall ExpAcquireFannedOutPushLockExclusive(unsigned int a1, __
     }
     while ( v10 < (unsigned int)v12 );
   }
-  return result;
+  return v11;
 }

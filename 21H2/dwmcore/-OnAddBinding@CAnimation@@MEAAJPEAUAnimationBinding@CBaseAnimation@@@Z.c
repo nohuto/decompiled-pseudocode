@@ -1,11 +1,11 @@
 /*
- * XREFs of ?OnAddBinding@CAnimation@@MEAAJPEAUAnimationBinding@CBaseAnimation@@@Z @ 0x1800EF100
+ * XREFs of ?OnAddBinding@CAnimation@@MEAAJPEAUAnimationBinding@CBaseAnimation@@@Z @ 0x1800D6520
  * Callers:
  *     <none>
  * Callees:
- *     ?GetInterpolatedValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z @ 0x1800CD75C (-GetInterpolatedValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0xxqf_EventWriteTransfer @ 0x180209AFC (McTemplateU0xxqf_EventWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0xxqf_EventWriteTransfer @ 0x1801B6858 (McTemplateU0xxqf_EventWriteTransfer.c)
+ *     ?GetInterpolatedValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z @ 0x180220090 (-GetInterpolatedValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z.c)
  */
 
 __int64 __fastcall CAnimation::OnAddBinding(CAnimation *this, struct CBaseAnimation::AnimationBinding *a2)
@@ -18,10 +18,10 @@ __int64 __fastcall CAnimation::OnAddBinding(CAnimation *this, struct CBaseAnimat
   int v9; // xmm0_4
   float v11; // [rsp+40h] [rbp+8h] BYREF
 
-  v4 = *((_QWORD *)this + 16);
+  v4 = *((_QWORD *)this + 15);
   if ( v4 )
   {
-    v5 = (*(__int64 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v4 + 32LL))(v4, 0LL);
+    v5 = (*(__int64 (__fastcall **)(__int64, _QWORD))(*(_QWORD *)v4 + 24LL))(v4, 0LL);
     if ( v5 )
     {
       v8 = *(_DWORD *)v5 == 1;
@@ -37,10 +37,10 @@ __int64 __fastcall CAnimation::OnAddBinding(CAnimation *this, struct CBaseAnimat
       }
       else if ( *(_DWORD *)v5 == 2 )
       {
-        CAnimationInterpolator::GetInterpolatedValue((CAnimation *)((char *)this + 272), *(_QWORD *)(v5 + 8), &v11, 0LL);
+        CAnimationInterpolator::GetInterpolatedValue((CAnimation *)((char *)this + 264), *(_QWORD *)(v5 + 8), &v11, 0LL);
         LOBYTE(v9) = LOBYTE(v11);
       }
-      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x100) != 0 )
+      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
         McTemplateU0xxqf_EventWriteTransfer(v7, v6, (_DWORD)this, *(_QWORD *)a2, *((_DWORD *)a2 + 2), v9);
     }
   }

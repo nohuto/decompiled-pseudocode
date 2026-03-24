@@ -1,100 +1,109 @@
 /*
- * XREFs of _PnpCtxCreateNode @ 0x140855DB8
+ * XREFs of _PnpCtxCreateNode @ 0x1407A4BD8
  * Callers:
- *     PiPnpRtlInit @ 0x140813794 (PiPnpRtlInit.c)
- *     _PnpCtxOpenMachine @ 0x140855BA4 (_PnpCtxOpenMachine.c)
- *     _PnpCtxRegisterMachineNode @ 0x140A60C28 (_PnpCtxRegisterMachineNode.c)
+ *     _PnpCtxOpenMachine @ 0x1407A498C (_PnpCtxOpenMachine.c)
+ *     _PnpCtxRegisterMachineNode @ 0x1409749C8 (_PnpCtxRegisterMachineNode.c)
  * Callees:
- *     RtlCreateUnicodeString @ 0x1407FB710 (RtlCreateUnicodeString.c)
- *     _SysCtxOpenMachine @ 0x140855F00 (_SysCtxOpenMachine.c)
- *     _SysCtxCloseMachine @ 0x140A6A3C4 (_SysCtxCloseMachine.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlCreateUnicodeString @ 0x1406ED6B0 (RtlCreateUnicodeString.c)
+ *     _SysCtxOpenMachine @ 0x1407A4D24 (_SysCtxOpenMachine.c)
+ *     _SysCtxCloseMachine @ 0x14097C144 (_SysCtxCloseMachine.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCtxCreateNode(
         int *a1,
         const WCHAR *a2,
         int a3,
-        int a4,
+        __int64 a4,
         int a5,
-        int a6,
+        PVOID P,
         int a7,
         HANDLE SourceHandle,
-        UNICODE_STRING **a9)
+        _QWORD *a9)
 {
-  wchar_t *v12; // rsi
-  UNICODE_STRING *Pool2; // rax
-  UNICODE_STRING *v15; // rbx
-  int v16; // eax
-  unsigned int v17; // edi
-  int v18; // ebp
-  int v20; // ebp
-  __int64 v21; // [rsp+40h] [rbp-28h] BYREF
+  _QWORD *v9; // r14
+  PVOID v10; // rsi
+  PVOID PoolWithTag; // rax
+  PVOID v15; // rbx
+  int v16; // ecx
+  int v17; // r8d
+  int v18; // r9d
+  int v19; // eax
+  unsigned int v20; // edi
+  int v21; // ebp
+  int v23; // ebp
 
-  v12 = 0LL;
-  v21 = 0LL;
+  v9 = a9;
+  v10 = 0LL;
+  P = 0LL;
   *a9 = 0LL;
-  Pool2 = (UNICODE_STRING *)ExAllocatePool2(256LL, 152LL, 1380994640LL);
-  v15 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x98uLL, 0x52504E50u);
+  v15 = PoolWithTag;
+  if ( !PoolWithTag )
     return (unsigned int)-1073741801;
-  if ( RtlCreateUnicodeString(Pool2 + 2, a2) )
+  memset(PoolWithTag, 0, 0x98uLL);
+  if ( RtlCreateUnicodeString((PUNICODE_STRING)v15 + 2, a2) )
   {
-    *(_DWORD *)&v15[3].Length = a3;
-    v16 = SysCtxOpenMachine(a4, a5, a6, a7, SourceHandle, *a1, (__int64)&v21);
-    v12 = (wchar_t *)v21;
-    v17 = v16;
-    if ( v16 >= 0 )
+    v18 = a7;
+    *((_DWORD *)v15 + 12) = a3;
+    v19 = SysCtxOpenMachine(v16, a5, v17, v18, SourceHandle, *a1, (__int64)&P);
+    v10 = P;
+    v20 = v19;
+    if ( v19 >= 0 )
     {
-      if ( *(_DWORD *)v21 >= 0xA000000u )
+      if ( *(_DWORD *)P < 0xA000000u )
       {
-        *(_QWORD *)&v15[4].Length = 0LL;
-        v15[4].Buffer = 0LL;
-        *(_QWORD *)&v15[5].Length = 0LL;
-        v15[5].Buffer = 0LL;
-        *(_QWORD *)&v15[6].Length = 0LL;
-        v15[6].Buffer = 0LL;
-        *(_QWORD *)&v15[7].Length = 0LL;
-        *(_QWORD *)&v15[8].Length = 0LL;
-        v15[8].Buffer = 0LL;
-        *(_QWORD *)&v15[9].Length = 0LL;
-        v18 = a3 - 1;
-        if ( v18 )
+        v20 = -1073741637;
+      }
+      else
+      {
+        *((_QWORD *)v15 + 8) = 0LL;
+        *((_QWORD *)v15 + 9) = 0LL;
+        *((_QWORD *)v15 + 10) = 0LL;
+        *((_QWORD *)v15 + 11) = 0LL;
+        *((_QWORD *)v15 + 12) = 0LL;
+        *((_QWORD *)v15 + 13) = 0LL;
+        *((_QWORD *)v15 + 14) = 0LL;
+        *((_QWORD *)v15 + 16) = 0LL;
+        *((_QWORD *)v15 + 17) = 0LL;
+        *((_QWORD *)v15 + 18) = 0LL;
+        v21 = a3 - 1;
+        if ( v21 )
         {
-          v20 = v18 - 1;
-          if ( v20 )
+          v23 = v21 - 1;
+          if ( v23 )
           {
-            if ( v20 != 1 )
+            if ( v23 != 1 )
             {
-              v17 = -1073741811;
-              goto LABEL_12;
+              v20 = -1073741811;
+              goto LABEL_7;
             }
-            *(_QWORD *)&v15[4].Length = -1LL;
-            *(_QWORD *)&v15[6].Length = -1LL;
-            v15[6].Buffer = (wchar_t *)-1LL;
-            *(_QWORD *)&v15[7].Length = -1LL;
-            *(_QWORD *)&v15[8].Length = -1LL;
-            v15[8].Buffer = (wchar_t *)-1LL;
-            *(_QWORD *)&v15[9].Length = -1LL;
+            *((_QWORD *)v15 + 8) = -1LL;
+            *((_QWORD *)v15 + 12) = -1LL;
+            *((_QWORD *)v15 + 13) = -1LL;
+            *((_QWORD *)v15 + 14) = -1LL;
+            *((_QWORD *)v15 + 16) = -1LL;
+            *((_QWORD *)v15 + 17) = -1LL;
+            *((_QWORD *)v15 + 18) = -1LL;
           }
         }
-        v15[3].Buffer = v12;
-        v12 = 0LL;
-        *a9 = v15;
-        goto LABEL_7;
+        *((_QWORD *)v15 + 7) = v10;
+        v10 = 0LL;
+        *v9 = v15;
+        v15 = 0LL;
       }
-      v17 = -1073741637;
     }
   }
   else
   {
-    v17 = -1073741801;
+    v20 = -1073741801;
   }
-LABEL_12:
-  ExFreePoolWithTag(v15, 0);
 LABEL_7:
-  if ( v12 )
-    SysCtxCloseMachine(v12);
-  return v17;
+  if ( v15 )
+    ExFreePoolWithTag(v15, 0);
+  if ( v10 )
+    SysCtxCloseMachine(v10);
+  return v20;
 }

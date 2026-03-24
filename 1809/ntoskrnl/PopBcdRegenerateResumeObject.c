@@ -1,17 +1,17 @@
 /*
- * XREFs of PopBcdRegenerateResumeObject @ 0x14087A280
+ * XREFs of PopBcdRegenerateResumeObject @ 0x14087A260
  * Callers:
- *     PopBcdEstablishResumeObject @ 0x1407118A8 (PopBcdEstablishResumeObject.c)
+ *     PopBcdEstablishResumeObject @ 0x140711888 (PopBcdEstablishResumeObject.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PopBcdSetDefaultResumeObjectElements @ 0x140712330 (PopBcdSetDefaultResumeObjectElements.c)
- *     BcdQueryObject @ 0x140712724 (BcdQueryObject.c)
- *     PopBcdReadElement @ 0x140712888 (PopBcdReadElement.c)
- *     BcdCloseObject @ 0x140712FC0 (BcdCloseObject.c)
- *     BcdSetElementDataWithFlags @ 0x140713390 (BcdSetElementDataWithFlags.c)
- *     BcdCreateObject @ 0x1408F0808 (BcdCreateObject.c)
- *     BcdDeleteObject @ 0x1408F08A0 (BcdDeleteObject.c)
+ *     PopBcdSetDefaultResumeObjectElements @ 0x140712310 (PopBcdSetDefaultResumeObjectElements.c)
+ *     BcdQueryObject @ 0x140712704 (BcdQueryObject.c)
+ *     PopBcdReadElement @ 0x140712868 (PopBcdReadElement.c)
+ *     BcdCloseObject @ 0x140712FA0 (BcdCloseObject.c)
+ *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
+ *     BcdCreateObject @ 0x1408F07E8 (BcdCreateObject.c)
+ *     BcdDeleteObject @ 0x1408F0880 (BcdDeleteObject.c)
  */
 
 __int64 __fastcall PopBcdRegenerateResumeObject(__int64 a1, void *a2, _QWORD *a3)

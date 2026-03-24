@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpVolumeContextDecrementRefCount @ 0x14067BD84
+ * XREFs of CmpVolumeContextDecrementRefCount @ 0x14071CA40
  * Callers:
- *     CmShutdownSystem2 @ 0x14053EE38 (CmShutdownSystem2.c)
- *     CmpDestroyHive @ 0x14065A7E0 (CmpDestroyHive.c)
- *     CmpCompleteUnloadKey @ 0x14067BE48 (CmpCompleteUnloadKey.c)
+ *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
+ *     CmpDestroyHive @ 0x140728F38 (CmpDestroyHive.c)
+ *     CmShutdownSystem @ 0x14086B8F8 (CmShutdownSystem.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     CmpVolumeContextCleanup @ 0x140863DA8 (CmpVolumeContextCleanup.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     CmpVolumeContextCleanup @ 0x140872DD0 (CmpVolumeContextCleanup.c)
  */
 
 void __fastcall CmpVolumeContextDecrementRefCount(PPRIVILEGE_SET Privileges)
@@ -18,7 +18,7 @@ void __fastcall CmpVolumeContextDecrementRefCount(PPRIVILEGE_SET Privileges)
   signed __int64 v3; // rax
   signed __int64 i; // rcx
   signed __int64 v5; // rtt
-  __int64 v6; // rcx
+  __int64 v6; // rdx
   __int64 v7; // rcx
   PPRIVILEGE_SET *Luid; // rdx
 

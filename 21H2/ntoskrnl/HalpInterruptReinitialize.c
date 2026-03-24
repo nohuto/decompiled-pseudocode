@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpInterruptReinitialize @ 0x140A505D4
+ * XREFs of HalpInterruptReinitialize @ 0x140995D78
  * Callers:
- *     HalpAcpiPostSleep @ 0x140A50388 (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140995B2C (HalpAcpiPostSleep.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x140293580 (KeGetProcessorIndexFromNumber.c)
- *     HalpInterruptInitializeController @ 0x1403AE924 (HalpInterruptInitializeController.c)
- *     HalStartNextProcessor @ 0x1403B2F30 (HalStartNextProcessor.c)
- *     HalGetProcessorIdByNtNumber @ 0x1403B4DA0 (HalGetProcessorIdByNtNumber.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     HalStartDynamicProcessor @ 0x140508D60 (HalStartDynamicProcessor.c)
- *     HalpInterruptControllerInUse @ 0x14051DE5C (HalpInterruptControllerInUse.c)
- *     HalpInterruptStartBlockedProcessors @ 0x14051E084 (HalpInterruptStartBlockedProcessors.c)
- *     HalpIommuInitializeAll @ 0x140A543D8 (HalpIommuInitializeAll.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
+ *     HalGetProcessorIdByNtNumber @ 0x140377550 (HalGetProcessorIdByNtNumber.c)
+ *     HalStartNextProcessor @ 0x1403A14A0 (HalStartNextProcessor.c)
+ *     HalpInterruptInitializeController @ 0x1403A3658 (HalpInterruptInitializeController.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     HalStartDynamicProcessor @ 0x1404BC2E0 (HalStartDynamicProcessor.c)
+ *     HalpInterruptControllerInUse @ 0x1404D18AC (HalpInterruptControllerInUse.c)
+ *     HalpInterruptStartBlockedProcessors @ 0x1404D1ABC (HalpInterruptStartBlockedProcessors.c)
+ *     HalpIommuInitializeAll @ 0x14099B3D4 (HalpIommuInitializeAll.c)
  */
 
 int __fastcall HalpInterruptReinitialize(__int64 a1)
 {
   ULONG_PTR *v1; // rbx
-  int v2; // r15d
+  int v2; // r12d
   int v3; // ebp
   ULONG_PTR v4; // rdi
   int v5; // eax
@@ -27,19 +27,21 @@ int __fastcall HalpInterruptReinitialize(__int64 a1)
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // rax
   unsigned int v11; // esi
-  ULONG i; // ebx
-  __int64 v13; // r14
-  ULONG_PTR v14; // rbp
-  unsigned int v15; // ebp
-  unsigned int v16; // ebx
-  __int64 v17; // rsi
-  ULONG_PTR v19; // r14
+  ULONG v12; // ebx
+  __int64 v13; // rbp
+  __int64 v14; // r15
+  ULONG_PTR v15; // r14
+  unsigned int v16; // ebp
+  unsigned int v17; // ebx
+  __int64 v18; // rsi
+  ULONG_PTR v20; // r14
   ULONG ProcessorIndexFromNumber; // eax
-  ULONG_PTR v21; // r15
-  __int16 v23; // [rsp+50h] [rbp-8h]
-  unsigned int v24; // [rsp+60h] [rbp+8h] BYREF
+  unsigned int v22; // r8d
+  ULONG_PTR v23; // r15
+  __int16 v25; // [rsp+50h] [rbp-8h]
+  unsigned int v26; // [rsp+60h] [rbp+8h] BYREF
 
-  v24 = 0;
+  v26 = 0;
   v1 = (ULONG_PTR *)HalpRegisteredInterruptControllers;
   v2 = 0;
   v3 = a1;
@@ -47,10 +49,10 @@ int __fastcall HalpInterruptReinitialize(__int64 a1)
   {
     v4 = (ULONG_PTR)v1;
     v1 = (ULONG_PTR *)*v1;
-    v5 = *(_DWORD *)(v4 + 232);
+    v5 = *(_DWORD *)(v4 + 224);
     if ( (v5 & 1) != 0 )
     {
-      *(_DWORD *)(v4 + 232) = v5 & 0xFFFFFFFE;
+      *(_DWORD *)(v4 + 224) = v5 & 0xFFFFFFFE;
       v6 = HalpInterruptInitializeController(v4);
       BugCheckParameter4 = v6;
       if ( v6 < 0 )
@@ -78,45 +80,56 @@ int __fastcall HalpInterruptReinitialize(__int64 a1)
     v11 = HalpInterruptProcessorsStarted - HalpInterruptDynamicProcessorCount;
     if ( HalpInterruptBlockedProcessors )
       LODWORD(CurrentPrcb) = HalpInterruptStartBlockedProcessors(0);
-    for ( i = 1; i < v11; ++i )
+    v12 = 1;
+    if ( v11 > 1 )
     {
-      v13 = HalpHiberProcState + 1472LL * i;
-      v14 = HalpInterruptProcessorState + ((unsigned __int64)i << 6);
-      LODWORD(CurrentPrcb) = HalGetProcessorIdByNtNumber(i, &v24);
-      if ( (int)CurrentPrcb >= 0 )
-      {
-        LODWORD(CurrentPrcb) = HalStartNextProcessor(v13, i, v24);
-        v2 = (int)CurrentPrcb;
-      }
-      if ( v2 != 4 )
-        KeBugCheckEx(0x5Cu, 0x2001uLL, i, (unsigned int)HalpInterruptProcessorCount, v14);
-    }
-    v15 = HalpInterruptDynamicProcessorCount;
-    v16 = 0;
-    if ( HalpInterruptDynamicProcessorCount )
-    {
-      v17 = 0LL;
+      v13 = 8LL;
       do
       {
-        v19 = HalpInterruptDynamicProcessorState + (v17 << 6);
-        ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber((PPROCESSOR_NUMBER)(v19 + 16));
-        v21 = ProcessorIndexFromNumber;
+        v14 = HalpHiberProcState + 1472LL * v12;
+        CurTiledCr3LowPart = *(_DWORD *)(HalpTiledCr3Addresses + v13 + 4);
+        v15 = HalpInterruptProcessorState + ((unsigned __int64)v12 << 6);
+        LODWORD(CurrentPrcb) = HalGetProcessorIdByNtNumber(v12, &v26);
+        if ( (int)CurrentPrcb >= 0 )
+        {
+          LODWORD(CurrentPrcb) = HalStartNextProcessor(v14, v12, v26);
+          v2 = (int)CurrentPrcb;
+        }
+        if ( v2 != 4 )
+          KeBugCheckEx(0x5Cu, 0x2001uLL, v12, (unsigned int)HalpInterruptProcessorCount, v15);
+        ++v12;
+        v13 += 8LL;
+      }
+      while ( v12 < v11 );
+    }
+    v16 = HalpInterruptDynamicProcessorCount;
+    v17 = 0;
+    if ( HalpInterruptDynamicProcessorCount )
+    {
+      v18 = 0LL;
+      do
+      {
+        v20 = HalpInterruptDynamicProcessorState + (v18 << 6);
+        ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber((PPROCESSOR_NUMBER)(v20 + 16));
+        v22 = *(_DWORD *)v20;
+        v23 = ProcessorIndexFromNumber;
+        CurTiledCr3LowPart = *(_DWORD *)(HalpTiledCr3Addresses + 8LL * ProcessorIndexFromNumber + 4);
         LODWORD(CurrentPrcb) = HalStartDynamicProcessor(
                                  HalpHiberProcState + 1472LL * ProcessorIndexFromNumber,
                                  ProcessorIndexFromNumber,
-                                 *(_DWORD *)v19,
+                                 v22,
                                  0xFFFFu);
         if ( (_DWORD)CurrentPrcb != 4 )
-          KeBugCheckEx(0x5Cu, 0x2001uLL, v21, (unsigned int)HalpInterruptProcessorCount, v19);
-        ++v16;
+          KeBugCheckEx(0x5Cu, 0x2001uLL, v23, (unsigned int)HalpInterruptProcessorCount, v20);
         ++v17;
+        ++v18;
       }
-      while ( v16 < v15 );
+      while ( v17 < v16 );
     }
     HalpInterruptProcessorRestarting = 0;
   }
   HalpInterruptPicStateIntact = 0;
-  if ( (v23 & 0x200) != 0 )
+  if ( (v25 & 0x200) != 0 )
     _enable();
   return (int)CurrentPrcb;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of NormalizationListEntry_Alloc @ 0x1405B5AF0
+ * XREFs of NormalizationListEntry_Alloc @ 0x14059425C
  * Callers:
- *     RtlpGetNormalization @ 0x1409C896C (RtlpGetNormalization.c)
+ *     RtlpGetNormalization @ 0x14091B870 (RtlpGetNormalization.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 NormalizationListEntry_Alloc()
+PVOID NormalizationListEntry_Alloc()
 {
-  return ExAllocatePool2(256LL, 144LL, 1164734286LL);
+  return ExAllocatePoolWithTag(PagedPool, 0x90uLL, 0x456C6F4Eu);
 }

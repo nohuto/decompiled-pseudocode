@@ -1,87 +1,79 @@
 /*
- * XREFs of HsaUpdateRemappingTableInDeviceTableEntry @ 0x1405314FC
+ * XREFs of HsaUpdateRemappingTableInDeviceTableEntry @ 0x1404E49D4
  * Callers:
- *     HsaAllocateRemappingTableEntry @ 0x14052ED60 (HsaAllocateRemappingTableEntry.c)
- *     HsaFreeRemappingTableEntry @ 0x14052FEC0 (HsaFreeRemappingTableEntry.c)
+ *     HsaAllocateRemappingTableEntry @ 0x1404E2000 (HsaAllocateRemappingTableEntry.c)
+ *     HsaFreeRemappingTableEntry @ 0x1404E34D0 (HsaFreeRemappingTableEntry.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CAB0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     HsaBuildInterruptRemappingEntry @ 0x14052F4D4 (HsaBuildInterruptRemappingEntry.c)
- *     HsaInvalidateRemappingTableEntries @ 0x1405305E4 (HsaInvalidateRemappingTableEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     HsaBuildInterruptRemappingEntry @ 0x1404E2774 (HsaBuildInterruptRemappingEntry.c)
+ *     HsaInvalidateRemappingTableEntries @ 0x1404E3BBC (HsaInvalidateRemappingTableEntries.c)
  */
 
 __int64 __fastcall HsaUpdateRemappingTableInDeviceTableEntry(__int64 a1, unsigned int *a2, __int64 a3)
 {
   unsigned __int8 CurrentIrql; // bl
   _DWORD *SchedulerAssist; // r9
-  __int64 v8; // rdx
-  _OWORD *v9; // rdi
-  __int128 v10; // xmm1
-  unsigned int v11; // ecx
-  __int64 v12; // rdx
-  __int64 v13; // rsi
-  __int64 v14; // r14
-  unsigned __int8 v15; // al
+  _OWORD *v8; // rdi
+  __int128 v9; // xmm1
+  __int64 v10; // rdx
+  unsigned int v11; // r15d
+  unsigned int v12; // ecx
+  unsigned __int8 v13; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v17; // r8
-  int v18; // eax
-  bool v19; // zf
+  _DWORD *v15; // r8
+  int v16; // eax
+  bool v17; // zf
   __int64 result; // rax
-  signed __int32 v21[8]; // [rsp+0h] [rbp-78h] BYREF
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-58h] BYREF
-  __int128 v23; // [rsp+38h] [rbp-40h] BYREF
-  __int128 v24; // [rsp+48h] [rbp-30h]
+  signed __int32 v19[8]; // [rsp+0h] [rbp-60h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-40h] BYREF
+  __int128 v21; // [rsp+38h] [rbp-28h] BYREF
+  __int128 v22; // [rsp+48h] [rbp-18h]
+  int i; // [rsp+A8h] [rbp+48h]
 
-  v23 = 0LL;
-  v24 = 0LL;
-  memset(&LockHandle, 0, sizeof(LockHandle));
+  *(_QWORD *)&LockHandle.OldIrql = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 15 )
-      LODWORD(v8) = 0x8000;
-    else
-      v8 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-    SchedulerAssist[5] |= v8;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
   }
-  KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(a1 + 152), &LockHandle);
-  v9 = (_OWORD *)(*(_QWORD *)(a1 + 24) + 32LL * *a2);
-  v10 = v9[1];
-  v23 = *v9;
-  v24 = v10;
-  HsaBuildInterruptRemappingEntry(a1, a3, (__int64)&v23);
-  v11 = a2[1];
-  v12 = (unsigned int)(1 << v11);
-  if ( (_DWORD)v12 )
+  LockHandle.LockQueue.Next = 0LL;
+  LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 152);
+  KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(a1 + 152));
+  v8 = (_OWORD *)(*(_QWORD *)(a1 + 24) + 32LL * *a2);
+  v9 = v8[1];
+  v21 = *v8;
+  v22 = v9;
+  HsaBuildInterruptRemappingEntry(a1, a3, (__int64)&v21);
+  v11 = 0;
+  for ( i = *a2; v11 < a2[1]; v8 += 2 * v12 )
   {
-    v13 = 32LL * (unsigned int)(1 << (3 - v11));
-    v14 = (unsigned int)v12;
-    do
-    {
-      *((_QWORD *)v9 + 2) = v24;
-      _InterlockedOr(v21, 0);
-      HsaInvalidateRemappingTableEntries(a1, v12, 1LL);
-      v9 = (_OWORD *)((char *)v9 + v13);
-      --v14;
-    }
-    while ( v14 );
+    *((_QWORD *)v8 + 2) = v22;
+    _InterlockedOr(v19, 0);
+    HsaInvalidateRemappingTableEntries(a1, v10, 1LL);
+    v12 = a2[2];
+    ++v11;
+    i += v12;
   }
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   if ( KiIrqlFlags )
   {
-    v15 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v17 = CurrentPrcb->SchedulerAssist;
-      v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v19 = (v18 & v17[5]) == 0;
-      v17[5] &= v18;
-      if ( v19 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v13 = KeGetCurrentIrql();
+      if ( v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v15 = CurrentPrcb->SchedulerAssist;
+        v16 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v17 = (v16 & v15[5]) == 0;
+        v15[5] &= v16;
+        if ( v17 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   result = CurrentIrql;

@@ -1,27 +1,27 @@
 /*
- * XREFs of GreAnimatePalette @ 0x1C02D1460
+ * XREFs of GreAnimatePalette @ 0x1C02B70E0
  * Callers:
  *     <none>
  * Callees:
- *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C005848C (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
- *     ?ulAnimatePalette@XEPALOBJ@@QEAAKKKPEBUtagPALETTEENTRY@@@Z @ 0x1C02D8B7C (-ulAnimatePalette@XEPALOBJ@@QEAAKKKPEBUtagPALETTEENTRY@@@Z.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C0019BA8 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ?ulAnimatePalette@XEPALOBJ@@QEAAKKKPEBUtagPALETTEENTRY@@@Z @ 0x1C02BC960 (-ulAnimatePalette@XEPALOBJ@@QEAAKKKPEBUtagPALETTEENTRY@@@Z.c)
  */
 
 __int64 __fastcall GreAnimatePalette(HPALETTE a1, unsigned int a2, unsigned int a3, struct tagPALETTEENTRY *a4)
 {
   unsigned int v7; // edi
-  __int64 v8; // rbx
-  _QWORD v10[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v8; // rdx
+  __int64 v9; // rbx
+  _QWORD v11[3]; // [rsp+20h] [rbp-18h] BYREF
 
   v7 = 0;
-  EPALOBJ::EPALOBJ((EPALOBJ *)v10, a1);
-  v8 = v10[0];
-  if ( v10[0] )
+  EPALOBJ::EPALOBJ((EPALOBJ *)v11, a1);
+  v9 = v11[0];
+  if ( v11[0] )
   {
-    if ( (*(_DWORD *)(v10[0] + 24LL) & 0x100) != 0 )
-      v7 = XEPALOBJ::ulAnimatePalette((XEPALOBJ *)v10, a2, a3, a4);
-    if ( v8 )
-      DEC_SHARE_REF_CNT(v8);
+    if ( (*(_DWORD *)(v11[0] + 24LL) & 0x100) != 0 )
+      v7 = XEPALOBJ::ulAnimatePalette((XEPALOBJ *)v11, a2, a3, a4);
+    DEC_SHARE_REF_CNT(v9, v8);
   }
   return v7;
 }

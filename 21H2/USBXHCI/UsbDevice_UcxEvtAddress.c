@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbDevice_UcxEvtAddress @ 0x1C0010AE0
+ * XREFs of UsbDevice_UcxEvtAddress @ 0x1C000EB00
  * Callers:
  *     <none>
  * Callees:
- *     Controller_IsControllerAccessible @ 0x1C0004288 (Controller_IsControllerAccessible.c)
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     WPP_RECORDER_SF_dq @ 0x1C0010E7C (WPP_RECORDER_SF_dq.c)
- *     UsbDevice_SetAddress @ 0x1C00111BC (UsbDevice_SetAddress.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     Controller_IsControllerAccessible @ 0x1C0007380 (Controller_IsControllerAccessible.c)
+ *     UsbDevice_SetAddress @ 0x1C001086C (UsbDevice_SetAddress.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0010CB0 (WPP_RECORDER_SF_dq.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall UsbDevice_UcxEvtAddress(__int64 a1, __int64 a2)
@@ -33,7 +33,7 @@ __int64 __fastcall UsbDevice_UcxEvtAddress(__int64 a1, __int64 a2)
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          *(_QWORD *)(*((_QWORD *)&v10[0] + 1) + 16LL),
-         off_1C00612C0);
+         off_1C00602C0);
   v4 = v3;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
@@ -44,7 +44,7 @@ __int64 __fastcall UsbDevice_UcxEvtAddress(__int64 a1, __int64 a2)
       v5,
       12,
       26,
-      (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids,
+      (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
       *(_BYTE *)(v3 + 135),
       *(_QWORD *)v3);
   }
@@ -59,7 +59,7 @@ __int64 __fastcall UsbDevice_UcxEvtAddress(__int64 a1, __int64 a2)
         v8,
         12,
         27,
-        (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids,
+        (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
         *(_BYTE *)(v4 + 135),
         *(_QWORD *)v4);
     }
@@ -86,12 +86,12 @@ LABEL_13:
     {
       v9 = *(unsigned __int8 *)(v4 + 135);
       LOBYTE(v9) = 3;
-      WPP_RECORDER_SF_DD(
+      WPP_RECORDER_SF_dd(
         *(_QWORD *)(*(_QWORD *)(v4 + 8) + 72LL),
         v9,
         12,
         28,
-        (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids,
+        (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
         *(_BYTE *)(v4 + 135),
         result);
     }

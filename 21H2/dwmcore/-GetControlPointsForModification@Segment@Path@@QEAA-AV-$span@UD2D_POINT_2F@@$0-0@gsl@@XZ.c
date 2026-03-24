@@ -1,30 +1,26 @@
 /*
- * XREFs of ?GetControlPointsForModification@Segment@Path@@QEAA?AV?$span@UD2D_POINT_2F@@$0?0@gsl@@XZ @ 0x1802702B8
+ * XREFs of ?GetControlPointsForModification@Segment@Path@@QEAA?AV?$span@UD2D_POINT_2F@@$0?0@gsl@@XZ @ 0x18021FC40
  * Callers:
- *     ?Interpolate@CInterpolatePathsOperation@@QEAAJPEBVCPathData@@0MPEAPEAV2@@Z @ 0x1802A038C (-Interpolate@CInterpolatePathsOperation@@QEAAJPEBVCPathData@@0MPEAPEAV2@@Z.c)
+ *     ?Interpolate@CInterpolatePathsOperation@@QEAAJPEBVCPathData@@0MPEAPEAV2@@Z @ 0x18025E910 (-Interpolate@CInterpolatePathsOperation@@QEAAJPEBVCPathData@@0MPEAPEAV2@@Z.c)
  * Callees:
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x18003C050 (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ?GetControlPoints@Segment@Path@@QEBA?AV?$span@$$CBUD2D_POINT_2F@@$0?0@gsl@@XZ @ 0x1800CA834 (-GetControlPoints@Segment@Path@@QEBA-AV-$span@$$CBUD2D_POINT_2F@@$0-0@gsl@@XZ.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x180190BB4 (-terminate@details@gsl@@YAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetControlPoints@Segment@Path@@QEBA?AV?$span@$$CBUD2D_POINT_2F@@$0?0@gsl@@XZ @ 0x18021FBB8 (-GetControlPoints@Segment@Path@@QEBA-AV-$span@$$CBUD2D_POINT_2F@@$0-0@gsl@@XZ.c)
  */
 
-gsl::details *__fastcall Path::Segment::GetControlPointsForModification(_BYTE *a1, gsl::details *a2)
+__int64 *__fastcall Path::Segment::GetControlPointsForModification(_BYTE *a1, __int64 *a2)
 {
-  gsl::details *v3; // rcx
-  bool v4; // zf
-  __int64 v5; // rax
-  __int64 v7; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v8; // [rsp+28h] [rbp-10h]
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v6; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v7; // [rsp+28h] [rbp-10h]
 
-  Path::Segment::GetControlPoints(a1, &v7);
-  gsl::details::extent_type<-1>::extent_type<-1>(a2, v7);
-  v4 = *(_QWORD *)a2 == -1LL;
-  v5 = v8;
-  *((_QWORD *)a2 + 1) = v8;
-  if ( v4 || !v5 && *(_QWORD *)a2 )
+  Path::Segment::GetControlPoints(a1, &v6);
+  v3 = v6;
+  *a2 = v6;
+  if ( v3 < 0 || (v4 = v7, a2[1] = v7, !v4) && v3 )
   {
-    gsl::details::terminate(v3);
-    JUMPOUT(0x180270300LL);
+    ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
+    __debugbreak();
   }
   return a2;
 }

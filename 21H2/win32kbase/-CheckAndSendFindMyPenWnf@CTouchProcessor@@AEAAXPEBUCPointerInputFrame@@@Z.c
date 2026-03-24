@@ -1,36 +1,29 @@
 /*
- * XREFs of ?CheckAndSendFindMyPenWnf@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@@Z @ 0x1C01BFC68
+ * XREFs of ?CheckAndSendFindMyPenWnf@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@@Z @ 0x1C018960C
  * Callers:
- *     ?ProcessInput@CTouchProcessor@@QEAAXPEAX0KHH@Z @ 0x1C01D1824 (-ProcessInput@CTouchProcessor@@QEAAXPEAX0KHH@Z.c)
+ *     ?ProcessInput@CTouchProcessor@@QEAAXPEAX0HHH@Z @ 0x1C0199ACC (-ProcessInput@CTouchProcessor@@QEAAXPEAX0HHH@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CTouchProcessor::CheckAndSendFindMyPenWnf(LARGE_INTEGER *this, const struct CPointerInputFrame *a2)
 {
-  __int64 v2; // r8
-  bool v4; // r8
-  __int64 v5; // rax
+  __int64 v3; // rax
   LARGE_INTEGER PerformanceCounter; // r8
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
 
-  v2 = *((_QWORD *)a2 + 32);
-  v4 = (*(_DWORD *)(v2 + 360) & 8) == 0 || (*(_DWORD *)(*(_QWORD *)(v2 + 16) + 184LL) & 0x8000) != 0;
   if ( *((_DWORD *)a2 + 12) )
   {
-    v5 = *((_QWORD *)a2 + 30);
-    if ( v5 )
+    v3 = *((_QWORD *)a2 + 17);
+    if ( v3 )
     {
-      if ( *(_DWORD *)(v5 + 168) == 3 && v4 )
+      if ( *(_DWORD *)(v3 + 168) == 3 && (*(_DWORD *)(*((_QWORD *)a2 + 19) + 312LL) & 8) == 0 )
       {
         PerformanceCounter = KeQueryPerformanceCounter(0LL);
-        if ( this[15].QuadPart + 5000 * gliQpcFreq.QuadPart / 0x3E8uLL < PerformanceCounter.QuadPart )
+        if ( this[16].QuadPart + 5000 * gliQpcFreq.QuadPart / 0x3E8uLL < PerformanceCounter.QuadPart )
         {
-          this[15] = PerformanceCounter;
-          if ( (int)ZwUpdateWnfStateData(&WNF_ISM_INPUT_UPDATE_AFTER_TRACK_INTERVAL, 0LL, 0LL, 0LL, &gSessionId) < 0 )
-            MicrosoftTelemetryAssertTriggeredNoArgsKM(v8, v7, v9);
+          this[16] = PerformanceCounter;
+          if ( (int)ZwUpdateWnfStateData(&WNF_ISM_INPUT_UPDATE_AFTER_TRACK_INTERVAL, 0LL, 0LL, 0LL, &gSessionId, 0, 0) < 0 )
+            MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 16462);
         }
       }
     }

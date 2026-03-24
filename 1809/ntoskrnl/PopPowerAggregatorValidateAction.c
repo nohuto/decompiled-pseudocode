@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerAggregatorValidateAction @ 0x140875E88
+ * XREFs of PopPowerAggregatorValidateAction @ 0x140875E68
  * Callers:
- *     PopPowerAggregatorWorker @ 0x140875F30 (PopPowerAggregatorWorker.c)
+ *     PopPowerAggregatorWorker @ 0x140875F10 (PopPowerAggregatorWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PopDiagTracePowerAggregatorValidationEvent @ 0x140873B44 (PopDiagTracePowerAggregatorValidationEvent.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PopDiagTracePowerAggregatorValidationEvent @ 0x140873B24 (PopDiagTracePowerAggregatorValidationEvent.c)
  */
 
 __int64 __fastcall PopPowerAggregatorValidateAction(int *a1, int *a2)

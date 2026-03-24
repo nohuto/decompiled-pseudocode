@@ -1,17 +1,17 @@
 /*
- * XREFs of HUBDSM_ValidatingMSOSExtendedConfigDescriptorHeader @ 0x1C0021F00
+ * XREFs of HUBDSM_ValidatingMSOSExtendedConfigDescriptorHeader @ 0x1C001F900
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBDESC_ValidateMSOSExtendedConfigDescriptorHeader @ 0x1C003CB64 (HUBDESC_ValidateMSOSExtendedConfigDescriptorHeader.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBDESC_ValidateMSOSExtendedConfigDescriptorHeader @ 0x1C0039C5C (HUBDESC_ValidateMSOSExtendedConfigDescriptorHeader.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_ValidatingMSOSExtendedConfigDescriptorHeader(__int64 a1)
 {
-  __int64 v1; // rdi
-  unsigned int v2; // ebx
+  __int64 v1; // rbx
+  unsigned int v2; // edi
   __int64 v3; // rax
   __int64 v4; // r9
   int v5; // edx
@@ -29,7 +29,7 @@ __int64 __fastcall HUBDSM_ValidatingMSOSExtendedConfigDescriptorHeader(__int64 a
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00691E8);
+         off_1C00661C0);
   v4 = *(_QWORD *)(v1 + 8);
   v13 = v1;
   v12 = 0LL;
@@ -58,7 +58,7 @@ __int64 __fastcall HUBDSM_ValidatingMSOSExtendedConfigDescriptorHeader(__int64 a
   {
     *(_DWORD *)(v1 + 2432) = 1073807382;
     v2 = 4065;
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x100) != 0 )
+    if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 1) != 0 )
       McTemplateK0p_EtwWriteTransfer(
         v9,
         &USBHUB3_ETW_EVENT_INVALID_MSOS_EXTENDED_CONFIGURATION_DESCRIPTOR_HEADER,

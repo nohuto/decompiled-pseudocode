@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpApicHvUpdateCallback @ 0x14051E100
+ * XREFs of HalpApicHvUpdateCallback @ 0x1404D1B40
  * Callers:
  *     <none>
  * Callees:
- *     HalpApicSetupRegisterAccess @ 0x1403B3594 (HalpApicSetupRegisterAccess.c)
+ *     HalpApicSetupRegisterAccess @ 0x1403A1D54 (HalpApicSetupRegisterAccess.c)
  */
 
 __int64 HalpApicHvUpdateCallback()

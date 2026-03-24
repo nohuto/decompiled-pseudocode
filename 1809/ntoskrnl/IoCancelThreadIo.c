@@ -1,12 +1,12 @@
 /*
- * XREFs of IoCancelThreadIo @ 0x1406A67D8
+ * XREFs of IoCancelThreadIo @ 0x1406A67B8
  * Callers:
  *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     IoCancelIrp @ 0x140121E10 (IoCancelIrp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     IopDisassociateThreadIrp @ 0x14027E9F8 (IopDisassociateThreadIrp.c)
+ *     IoCancelIrp @ 0x140121E30 (IoCancelIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopDisassociateThreadIrp @ 0x14027EAF8 (IopDisassociateThreadIrp.c)
  */
 
 struct _KTHREAD *__fastcall IoCancelThreadIo(LARGE_INTEGER a1)

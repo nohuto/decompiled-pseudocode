@@ -1,19 +1,19 @@
 /*
- * XREFs of Usbh_HRS_Queued @ 0x1C003D128
+ * XREFs of Usbh_HRS_Queued @ 0x1C003E308
  * Callers:
- *     UsbhDispatch_HardResetEvent @ 0x1C001C920 (UsbhDispatch_HardResetEvent.c)
+ *     UsbhDispatch_HardResetEvent @ 0x1C001A550 (UsbhDispatch_HardResetEvent.c)
  * Callees:
- *     UsbhQueueWorkItemEx @ 0x1C0002868 (UsbhQueueWorkItemEx.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhEtwLogHubIrpEvent @ 0x1C000C920 (UsbhEtwLogHubIrpEvent.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhSyncBusDisconnect @ 0x1C0030E28 (UsbhSyncBusDisconnect.c)
- *     UsbhSyncBusPause @ 0x1C0030E9C (UsbhSyncBusPause.c)
- *     UsbhReleaseResetLock @ 0x1C0031400 (UsbhReleaseResetLock.c)
- *     UsbhHardReset_Action @ 0x1C003C838 (UsbhHardReset_Action.c)
- *     UsbhIncrementConcurrentResetCounter @ 0x1C003CAC8 (UsbhIncrementConcurrentResetCounter.c)
- *     UsbhResetNotifyDownstreamHub @ 0x1C0043854 (UsbhResetNotifyDownstreamHub.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C0012400 (UsbhEtwLogHubIrpEvent.c)
+ *     UsbhQueueWorkItemEx @ 0x1C0017B0C (UsbhQueueWorkItemEx.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhSyncBusDisconnect @ 0x1C00321D0 (UsbhSyncBusDisconnect.c)
+ *     UsbhSyncBusPause @ 0x1C0032244 (UsbhSyncBusPause.c)
+ *     UsbhReleaseResetLock @ 0x1C0032678 (UsbhReleaseResetLock.c)
+ *     UsbhHardReset_Action @ 0x1C003DA18 (UsbhHardReset_Action.c)
+ *     UsbhIncrementConcurrentResetCounter @ 0x1C003DCA8 (UsbhIncrementConcurrentResetCounter.c)
+ *     UsbhResetNotifyDownstreamHub @ 0x1C0044B0C (UsbhResetNotifyDownstreamHub.c)
  */
 
 __int64 __fastcall Usbh_HRS_Queued(__int64 a1, int a2)
@@ -99,13 +99,13 @@ LABEL_13:
     goto LABEL_14;
   }
   UsbhEtwLogHubIrpEvent(*(_QWORD *)(a1 + 8), 0LL, 0LL, &USBHUB_ETW_EVENT_HUB_HARD_RESET_START);
-  v17 = UsbhHardReset_Action(*(PDEVICE_OBJECT *)(a1 + 8), a1);
+  v17 = UsbhHardReset_Action(*(struct _DEVICE_OBJECT **)(a1 + 8), a1);
   if ( *((_BYTE *)v4 + 5268) && _InterlockedExchange(v4 + 1315, 0) )
   {
     do
     {
       UsbhResetNotifyDownstreamHub(*(_QWORD *)(a1 + 8));
-      v17 = UsbhHardReset_Action(*(PDEVICE_OBJECT *)(a1 + 8), a1);
+      v17 = UsbhHardReset_Action(*(struct _DEVICE_OBJECT **)(a1 + 8), a1);
       UsbhIncrementConcurrentResetCounter(*(_QWORD *)(a1 + 8));
     }
     while ( _InterlockedExchange(v4 + 1315, 0) );
@@ -113,7 +113,7 @@ LABEL_13:
   UsbhEtwLogHubIrpEvent(*(_QWORD *)(a1 + 8), 0LL, 0LL, (const EVENT_DESCRIPTOR *)"1");
   if ( v17 < 0 && !*((_BYTE *)v4 + 5268) )
     goto LABEL_13;
-  v18 = UsbhQueueWorkItemEx(*(_QWORD *)(a1 + 8), 1u, (int)UsbhUpdateRegHubHardResetCount, 0LL, 0, 1230467954, 0LL);
+  v18 = UsbhQueueWorkItemEx(*(_QWORD *)(a1 + 8), 1u, (int)UsbhUpdateRegHubHardResetCount, 0LL, 0, 0x49577372u, 0LL);
   if ( (v18 & 0xC0000000) == 0xC0000000
     && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
     && LOWORD(WPP_GLOBAL_Control->DeviceType) )
@@ -131,7 +131,7 @@ LABEL_13:
   if ( *((_BYTE *)v4 + 5268) && v4[1315] )
   {
     UsbhResetNotifyDownstreamHub(*(_QWORD *)(a1 + 8));
-    UsbhHardReset_Action(*(PDEVICE_OBJECT *)(a1 + 8), a1);
+    UsbhHardReset_Action(*(struct _DEVICE_OBJECT **)(a1 + 8), a1);
     UsbhIncrementConcurrentResetCounter(*(_QWORD *)(a1 + 8));
   }
   return v16;

@@ -1,29 +1,29 @@
 /*
- * XREFs of KeQueryActiveProcessorCount @ 0x1403DF670
+ * XREFs of KeQueryActiveProcessorCount @ 0x1405154C0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
  */
 
 ULONG __stdcall KeQueryActiveProcessorCount(PKAFFINITY ActiveProcessors)
 {
-  __int64 v1; // rcx
-  unsigned __int64 v3; // rdx
+  unsigned __int64 v1; // rdx
+  __int64 v2; // rcx
 
   if ( ActiveProcessors )
   {
-    v3 = qword_140D06E48[0];
-    *ActiveProcessors = qword_140D06E48[0];
+    v1 = qword_140CFC848[0];
+    *ActiveProcessors = qword_140CFC848[0];
     return (0x101010101010101LL
-          * ((((v3 - ((v3 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-            + (((v3 - ((v3 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
-            + ((((v3 - ((v3 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-              + (((v3 - ((v3 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
+          * ((((v1 - ((v1 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+            + (((v1 - ((v1 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
+            + ((((v1 - ((v1 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+              + (((v1 - ((v1 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
   }
   else
   {
-    LODWORD(v1) = KeQueryActiveProcessorCountEx(0);
+    LODWORD(v2) = KeQueryActiveProcessorCountEx(0);
   }
-  return v1;
+  return v2;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of PiCMEnumerateSubKeys @ 0x140837C9C
+ * XREFs of PiCMEnumerateSubKeys @ 0x140837C7C
  * Callers:
  *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
  * Callees:
@@ -7,8 +7,8 @@
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PiCMReturnBufferResultData @ 0x140599DD4 (PiCMReturnBufferResultData.c)
  *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
- *     _RegRtlEnumKey @ 0x1406F97E8 (_RegRtlEnumKey.c)
- *     PiCMCaptureEnumerateInputData @ 0x140836334 (PiCMCaptureEnumerateInputData.c)
+ *     _RegRtlEnumKey @ 0x1406F97C8 (_RegRtlEnumKey.c)
+ *     PiCMCaptureEnumerateInputData @ 0x140836314 (PiCMCaptureEnumerateInputData.c)
  */
 
 __int64 __fastcall PiCMEnumerateSubKeys(

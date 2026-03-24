@@ -1,11 +1,11 @@
 /*
- * XREFs of ?StoreAndReferenceMemory@FxUsbPipeTransferContext@@UEAAXPEAUFxRequestBuffer@@@Z @ 0x1C0080D90
+ * XREFs of ?StoreAndReferenceMemory@FxUsbPipeTransferContext@@UEAAXPEAUFxRequestBuffer@@@Z @ 0x1C006C3E0
  * Callers:
  *     <none>
  * Callees:
- *     ?_StoreAndReferenceMemoryWorker@FxRequestContext@@KAXPEAXPEAPEAVIFxMemory@@PEAUFxRequestBuffer@@@Z @ 0x1C00033AC (-_StoreAndReferenceMemoryWorker@FxRequestContext@@KAXPEAXPEAPEAVIFxMemory@@PEAUFxRequestBuffer@@.c)
- *     memset @ 0x1C0036C00 (memset.c)
- *     ?AssignValues@FxRequestBuffer@@QEAAXPEAPEAXPEAPEAU_MDL@@PEAK@Z @ 0x1C0039C50 (-AssignValues@FxRequestBuffer@@QEAAXPEAPEAXPEAPEAU_MDL@@PEAK@Z.c)
+ *     ?_StoreAndReferenceMemoryWorker@FxRequestContext@@KAXPEAXPEAPEAVIFxMemory@@PEAUFxRequestBuffer@@@Z @ 0x1C00027EC (-_StoreAndReferenceMemoryWorker@FxRequestContext@@KAXPEAXPEAPEAVIFxMemory@@PEAUFxRequestBuffer@@.c)
+ *     memset @ 0x1C001D540 (memset.c)
+ *     ?AssignValues@FxRequestBuffer@@QEAAXPEAPEAXPEAPEAU_MDL@@PEAK@Z @ 0x1C0091C7C (-AssignValues@FxRequestBuffer@@QEAAXPEAPEAXPEAPEAU_MDL@@PEAK@Z.c)
  */
 
 void __fastcall FxUsbPipeTransferContext::StoreAndReferenceMemory(
@@ -20,7 +20,7 @@ void __fastcall FxUsbPipeTransferContext::StoreAndReferenceMemory(
   FxRequestContext::_StoreAndReferenceMemoryWorker(this, &this->m_RequestMemory, Buffer);
   FxRequestBuffer::AssignValues(
     Buffer,
-    (_MDL **)&this->m_Urb->TransferBuffer,
+    &this->m_Urb->TransferBuffer,
     &this->m_Urb->TransferBufferMDL,
     &this->m_Urb->TransferBufferLength);
   m_PartialMdl = this->m_PartialMdl;

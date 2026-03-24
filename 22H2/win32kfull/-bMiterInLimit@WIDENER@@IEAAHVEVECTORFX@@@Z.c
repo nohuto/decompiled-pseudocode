@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bMiterInLimit@WIDENER@@IEAAHVEVECTORFX@@@Z @ 0x1C015DA78
+ * XREFs of ?bMiterInLimit@WIDENER@@IEAAHVEVECTORFX@@@Z @ 0x1C0140BC0
  * Callers:
- *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C02F21F8 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
+ *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C01409F0 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
  * Callees:
  *     <none>
  */

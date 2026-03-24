@@ -1,19 +1,20 @@
 /*
- * XREFs of PiDevCfgGetDriverPackageId @ 0x14087E3E0
+ * XREFs of PiDevCfgGetDriverPackageId @ 0x140738690
  * Callers:
- *     PiDevCfgQueryDriverNode @ 0x14087DDB0 (PiDevCfgQueryDriverNode.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14095C980 (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x14095DB3C (PiDevCfgFindDeviceMigrationNode.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x14095F2B8 (PiDevCfgQueryIncludedDriverNode.c)
+ *     PiDevCfgQueryDriverNode @ 0x140738C94 (PiDevCfgQueryDriverNode.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x1408A4F6C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x1408A5E54 (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x1408A7698 (PiDevCfgQueryIncludedDriverNode.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _PnpOpenObjectRegKey @ 0x1406CFA10 (_PnpOpenObjectRegKey.c)
- *     PiDevCfgQueryObjectProperties @ 0x14086D134 (PiDevCfgQueryObjectProperties.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _PnpOpenObjectRegKey @ 0x1406B0644 (_PnpOpenObjectRegKey.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1407392E4 (PiDevCfgQueryObjectProperties.c)
  */
 
 __int64 __fastcall PiDevCfgGetDriverPackageId(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rcx
+  int v3; // edi
+  int v4; // ecx
   int ObjectProperties; // ebx
   __int64 *v7; // [rsp+40h] [rbp-30h] BYREF
   int v8; // [rsp+48h] [rbp-28h]
@@ -25,6 +26,7 @@ __int64 __fastcall PiDevCfgGetDriverPackageId(__int64 a1, __int64 a2)
   HANDLE Handle; // [rsp+90h] [rbp+20h] BYREF
 
   Handle = 0LL;
+  v3 = a1;
   ObjectProperties = PnpOpenObjectRegKey(*(__int64 *)&PiPnpRtlCtx, a1, 9u, 131097, 0, (__int64)&Handle);
   if ( ObjectProperties >= 0 )
   {
@@ -35,7 +37,7 @@ __int64 __fastcall PiDevCfgGetDriverPackageId(__int64 a1, __int64 a2)
     v8 = 18;
     v10 = a2;
     v12 = 6;
-    ObjectProperties = PiDevCfgQueryObjectProperties(v4, a1, 9u, Handle, (__int64)&v7, 1u);
+    ObjectProperties = PiDevCfgQueryObjectProperties(v4, v3, 9, (_DWORD)Handle, (__int64)&v7, 1);
     if ( ObjectProperties >= 0 && (int)v13 < 0 )
       ObjectProperties = v13;
   }

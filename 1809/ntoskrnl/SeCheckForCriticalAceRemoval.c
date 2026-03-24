@@ -7,8 +7,8 @@
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     SepCheckForCriticalAceRemoval @ 0x140013054 (SepCheckForCriticalAceRemoval.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     SeLocateProcessImageName @ 0x1406671D0 (SeLocateProcessImageName.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     SeLocateProcessImageName @ 0x1406671B0 (SeLocateProcessImageName.c)
  */
 
 char __fastcall SeCheckForCriticalAceRemoval(void *a1, void *a2, __int64 *a3, _BYTE *a4)
@@ -47,7 +47,7 @@ char __fastcall SeCheckForCriticalAceRemoval(void *a1, void *a2, __int64 *a3, _B
           v14 = 2;
           v16 = v8;
           v17[0] = v7;
-          LOBYTE(ProcessImageName) = TlgWrite(&stru_140400278, &unk_140372B61, 0LL, 0LL, 4u, &pData);
+          LOBYTE(ProcessImageName) = TlgWrite(&stru_140400278, &unk_140372C71, 0LL, 0LL, 4u, &pData);
         }
       }
     }

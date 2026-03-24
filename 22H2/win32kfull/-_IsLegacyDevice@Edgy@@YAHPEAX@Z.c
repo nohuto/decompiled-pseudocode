@@ -1,43 +1,38 @@
 /*
- * XREFs of ?_IsLegacyDevice@Edgy@@YAHPEAX@Z @ 0x1C0155C46
+ * XREFs of ?_IsLegacyDevice@Edgy@@YAHPEAX@Z @ 0x1C0208060
  * Callers:
- *     ?_GetArcData@Edgy@@YA?AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z @ 0x1C01E7C08 (-_GetArcData@Edgy@@YA-AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z.c)
- *     ?_StoreLastUpDataAndPost@Edgy@@YAXAEAUtagEDGY_DATA@@QEAX@Z @ 0x1C01E8960 (-_StoreLastUpDataAndPost@Edgy@@YAXAEAUtagEDGY_DATA@@QEAX@Z.c)
+ *     ?_GetArcData@Edgy@@YA?AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z @ 0x1C0207628 (-_GetArcData@Edgy@@YA-AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z.c)
+ *     ?_StoreLastUpDataAndPost@Edgy@@YAXAEAUtagEDGY_DATA@@QEAX@Z @ 0x1C02084C4 (-_StoreLastUpDataAndPost@Edgy@@YAXAEAUtagEDGY_DATA@@QEAX@Z.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     _GetTouchValidationStatus @ 0x1C01B2914 (_GetTouchValidationStatus.c)
- *     ?_GetDWordFromRegistry@Edgy@@YAHPEBG0PEAK@Z @ 0x1C01E8038 (-_GetDWordFromRegistry@Edgy@@YAHPEBG0PEAK@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     _GetTouchValidationStatus @ 0x1C01DDFF8 (_GetTouchValidationStatus.c)
+ *     ?_GetDWordFromRegistry@Edgy@@YAHPEBG0PEAK@Z @ 0x1C0207A4C (-_GetDWordFromRegistry@Edgy@@YAHPEBG0PEAK@Z.c)
  */
 
-__int64 __fastcall Edgy::_IsLegacyDevice(Edgy *this, void *a2)
+_BOOL8 __fastcall Edgy::_IsLegacyDevice(Edgy *this, const unsigned __int16 *a2, __int64 a3, unsigned int *a4)
 {
-  int v2; // esi
-  const unsigned __int16 *v3; // rdx
-  Edgy *v4; // rcx
-  unsigned int *v5; // r9
-  unsigned int v6; // edi
-  BOOL v7; // ebx
-  __int64 v8; // rcx
-  __int64 result; // rax
-  int v10; // [rsp+38h] [rbp+10h] BYREF
+  int v4; // eax
+  BOOL v6; // ebx
+  __int64 v7; // rax
+  _BOOL8 result; // rax
+  int v9; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = (int)this;
-  v6 = 0;
-  if ( !*(_DWORD *)(SGDGetUserSessionState(this) + 17368) )
+  v4 = gForceLegacyMode;
+  if ( !gForceLegacyMode )
   {
-    v10 = 0;
-    v7 = 1;
-    if ( (unsigned int)Edgy::_GetDWordFromRegistry(v4, v3, (const unsigned __int16 *)&v10, v5) )
-      v7 = v10 != 1;
-    *(_DWORD *)(SGDGetUserSessionState(v8) + 17368) = v7 + 1;
+    v9 = 0;
+    v6 = 1;
+    if ( (unsigned int)Edgy::_GetDWordFromRegistry(this, a2, (unsigned __int16 *)&v9, a4) )
+      v6 = v9 != 1;
+    v4 = v6 + 1;
+    gForceLegacyMode = v6 + 1;
   }
-  if ( *(_DWORD *)(SGDGetUserSessionState(v4) + 17368) == 1 )
-    return 1LL;
-  result = HMValidateHandleNoSecure(v2, 19);
-  if ( result )
+  result = 1;
+  if ( v4 != 1 )
   {
-    LOBYTE(v6) = (unsigned int)GetTouchValidationStatus(result) != 1;
-    return v6;
+    v7 = HMValidateHandleNoSecure((unsigned __int64)this, 19);
+    if ( !v7 || (unsigned int)GetTouchValidationStatus(v7) == 1 )
+      return 0;
   }
   return result;
 }

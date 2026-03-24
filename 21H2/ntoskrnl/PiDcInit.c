@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDcInit @ 0x140B010DC
+ * XREFs of PiDcInit @ 0x140A53024
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     RtlInitializeGenericTableAvl @ 0x1402DF2C0 (RtlInitializeGenericTableAvl.c)
- *     PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x1406E9E7C (PiDcGenerateConfigNotificationIfContainerRequiresConfiguration.c)
- *     PiDcInitUpdateProperties @ 0x140826EF0 (PiDcInitUpdateProperties.c)
+ *     RtlInitializeGenericTableAvl @ 0x140264400 (RtlInitializeGenericTableAvl.c)
+ *     PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x1407729A0 (PiDcGenerateConfigNotificationIfContainerRequiresConfiguration.c)
+ *     PiDcInitUpdateProperties @ 0x1407A3C28 (PiDcInitUpdateProperties.c)
  */
 
 __int64 __fastcall PiDcInit(int a1)
@@ -19,7 +19,7 @@ __int64 __fastcall PiDcInit(int a1)
     {
       inited = PiDcInitUpdateProperties();
       if ( inited >= 0 )
-        return (unsigned int)PiDcGenerateConfigNotificationIfContainerRequiresConfiguration((int)L"{00000000-0000-0000-FFFF-FFFFFFFFFFFF}");
+        return (unsigned int)PiDcGenerateConfigNotificationIfContainerRequiresConfiguration((__int64)L"{00000000-0000-0000-FFFF-FFFFFFFFFFFF}");
     }
   }
   else

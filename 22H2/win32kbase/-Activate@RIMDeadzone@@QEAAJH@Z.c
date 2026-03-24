@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Activate@RIMDeadzone@@QEAAJH@Z @ 0x1C019B074
+ * XREFs of ?Activate@RIMDeadzone@@QEAAJH@Z @ 0x1C016DE98
  * Callers:
- *     RIMActivatePointerDeviceDeadzone @ 0x1C017D610 (RIMActivatePointerDeviceDeadzone.c)
+ *     RIMActivatePointerDeviceDeadzone @ 0x1C015A250 (RIMActivatePointerDeviceDeadzone.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall RIMDeadzone::Activate(RIMDeadzone *this, int a2)
@@ -12,7 +12,7 @@ __int64 __fastcall RIMDeadzone::Activate(RIMDeadzone *this, int a2)
 
   v2 = 0;
   if ( *((_DWORD *)this + 2) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 506);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 510);
   if ( *((_DWORD *)this + 4) )
     *((_DWORD *)this + 10) = a2;
   else

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EmitUpdateCommands@CSceneSurfaceMaterialInputMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0230140
+ * XREFs of ?EmitUpdateCommands@CSceneSurfaceMaterialInputMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F7AB0
  * Callers:
  *     <none>
  * Callees:
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_051c710266044387c222c6fc3629749a___ @ 0x1C022FF48 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_051c710266044387c222c6fc3629749.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_3317ac129dbc5a941e863092f5dff627___ @ 0x1C022FFBC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_3317ac129dbc5a941e863092f5dff62.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_6bff7d52a0b4b3cfb6712747bfac2c76___ @ 0x1C0230054 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_6bff7d52a0b4b3cfb6712747bfac2c7.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a279e4ede8d97bea8e92bf1575da65ef___ @ 0x1C02300C8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_a279e4ede8d97bea8e92bf1575da65e.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_051c710266044387c222c6fc3629749a___ @ 0x1C01F78B4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_051c710266044387c222c6fc3629749.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_6bff7d52a0b4b3cfb6712747bfac2c76___ @ 0x1C01F7928 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_6bff7d52a0b4b3cfb6712747bfac2c7.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a279e4ede8d97bea8e92bf1575da65ef___ @ 0x1C01F799C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_a279e4ede8d97bea8e92bf1575da65e.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_dcfa47e6553a7ce532314f3f80a4f65b___ @ 0x1C01F7A10 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_dcfa47e6553a7ce532314f3f80a4f65.c)
  */
 
 char __fastcall DirectComposition::CSceneSurfaceMaterialInputMarshaler::EmitUpdateCommands(
@@ -33,7 +33,7 @@ char __fastcall DirectComposition::CSceneSurfaceMaterialInputMarshaler::EmitUpda
   v7 = this;
   if ( (v2 & 0x40) != 0 )
   {
-    if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_3317ac129dbc5a941e863092f5dff627___(
+    if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_dcfa47e6553a7ce532314f3f80a4f65b___(
             (__int64)this,
             a2,
             (__int64)&v7) )

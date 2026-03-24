@@ -1,60 +1,61 @@
 /*
- * XREFs of RtlpHpSegSegmentAllocate @ 0x1403633A0
+ * XREFs of RtlpHpSegSegmentAllocate @ 0x1402A3D3C
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x140350070 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegContextReserve @ 0x14036FAB0 (RtlpHpSegContextReserve.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x1403099F0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegContextReserve @ 0x14037B380 (RtlpHpSegContextReserve.c)
  * Callees:
- *     RtlpHpSegMgrAllocate @ 0x140362540 (RtlpHpSegMgrAllocate.c)
- *     RtlpHpEnvGetHeapManager @ 0x140362B58 (RtlpHpEnvGetHeapManager.c)
- *     RtlCSparseBitmapBitmaskWrite @ 0x140363490 (RtlCSparseBitmapBitmaskWrite.c)
- *     RtlpHpSegSegmentFree @ 0x14036808C (RtlpHpSegSegmentFree.c)
+ *     RtlCSparseBitmapBitmaskWrite @ 0x1402A3E48 (RtlCSparseBitmapBitmaskWrite.c)
+ *     RtlpHpSegMgrAllocate @ 0x1402A4D14 (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpEnvGetHeapManager @ 0x140309414 (RtlpHpEnvGetHeapManager.c)
+ *     RtlpHpSegSegmentFree @ 0x140389ACC (RtlpHpSegSegmentFree.c)
  */
 
 __int64 __fastcall RtlpHpSegSegmentAllocate(__int64 a1, int a2, int a3)
 {
-  unsigned int v3; // esi
-  __int64 v5; // rbx
-  __int64 v6; // rbp
-  _QWORD *HeapManager; // rax
-  int v8; // edx
-  _BOOL8 v9; // r12
-  unsigned __int64 v10; // r8
-  unsigned __int64 v11; // r8
-  unsigned __int64 v12; // rdi
-  unsigned __int64 v13; // r13
-  char *v14; // r15
-  _OWORD v16[3]; // [rsp+20h] [rbp-38h] BYREF
+  unsigned int v3; // ebp
+  __int64 v5; // rdi
+  __int64 v6; // rdx
+  __int64 HeapManager; // r8
+  unsigned int v8; // edx
+  unsigned __int64 v9; // r14
+  _BOOL8 v10; // r13
+  unsigned __int64 v11; // rsi
+  __int64 v12; // r12
+  __int64 v13; // rsi
+  __int128 v15[3]; // [rsp+20h] [rbp-38h] BYREF
+  unsigned __int64 v16; // [rsp+78h] [rbp+20h]
 
   v3 = a2 + 2;
-  v5 = 0LL;
-  v6 = RtlpHpSegMgrAllocate(a1, a2 + 2, a3);
-  if ( v6 )
+  v5 = RtlpHpSegMgrAllocate(a1, a2 + 2, a3);
+  if ( !v5 )
+    return 0LL;
+  v6 = (unsigned int)-*(_DWORD *)a1;
+  v15[0] = *(_OWORD *)(a1 + 40);
+  HeapManager = RtlpHpEnvGetHeapManager(v15, v6);
+  v9 = v8;
+  v10 = v8 != 0x100000;
+  v11 = 2 * ((unsigned __int64)(v5 - *(_QWORD *)(HeapManager + 8)) >> 20);
+  v16 = v11 + 2 * ((unsigned __int64)v8 >> 20);
+  if ( v11 >= v16 )
   {
-    _InterlockedExchangeAdd64(
-      (volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1),
-      (unsigned __int64)(unsigned int)-*(_DWORD *)a1 >> 12);
+LABEL_6:
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1), v9 >> 12);
     _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 8), v3);
-    v16[0] = *(_OWORD *)(a1 + 40);
-    HeapManager = RtlpHpEnvGetHeapManager(v16);
-    v9 = v8 != 0x100000;
-    v11 = v10 >> 20;
-    v12 = 2 * ((unsigned __int64)(v6 - HeapManager[1]) >> 20);
-    v13 = v12 + 2 * v11;
-    if ( v12 >= v13 )
-    {
-      return v6;
-    }
-    else
-    {
-      v14 = (char *)(HeapManager + 2);
-      while ( (int)RtlCSparseBitmapBitmaskWrite(v14, v12, v11, v9 + 1) >= 0 )
-      {
-        v12 += 2LL;
-        if ( v12 >= v13 )
-          return v6;
-      }
-      RtlpHpSegSegmentFree(a1);
-    }
+    v13 = v5;
+    v5 = 0LL;
   }
-  return v5;
+  else
+  {
+    v12 = HeapManager + 16;
+    while ( (int)RtlCSparseBitmapBitmaskWrite(v12, v11, HeapManager, v10 + 1) >= 0 )
+    {
+      v11 += 2LL;
+      if ( v11 >= v16 )
+        goto LABEL_6;
+    }
+    v13 = 0LL;
+  }
+  if ( v5 )
+    RtlpHpSegSegmentFree(a1);
+  return v13;
 }

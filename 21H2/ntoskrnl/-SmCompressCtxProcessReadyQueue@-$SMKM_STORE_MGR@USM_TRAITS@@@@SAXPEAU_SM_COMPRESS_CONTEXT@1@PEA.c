@@ -1,31 +1,31 @@
 /*
- * XREFs of ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@EK@Z @ 0x14037C6BC
+ * XREFs of ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@EK@Z @ 0x1402D8524
  * Callers:
- *     ?SmCompressCtxWorkerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x14037A5F0 (-SmCompressCtxWorkerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x14037A8BC (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
+ *     ?SmCompressCtxWorkerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x1402D74F0 (-SmCompressCtxWorkerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x1402D77C0 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     MmUnmapLockedPages @ 0x1402BB4E0 (MmUnmapLockedPages.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     SmKmStoreRefFromStoreIndex @ 0x14035F5E8 (SmKmStoreRefFromStoreIndex.c)
- *     SmIoRequestComplete @ 0x14037ADB8 (SmIoRequestComplete.c)
- *     ?SmFeAddInitiate@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@KKPEAU_SM_WORK_ITEM@1@PEAU_SM_IO_CONTEXT@1@K@Z @ 0x14037C880 (-SmFeAddInitiate@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@KKPEAU_SM_WORK_ITEM@1.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ?SmFeAddInitiate@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@KKPEAU_SM_WORK_ITEM@1@PEAU_SM_IO_CONTEXT@1@K@Z @ 0x1402D86E8 (-SmFeAddInitiate@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@KKPEAU_SM_WORK_ITEM@1.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
+ *     SmIoRequestComplete @ 0x1402DA7B4 (SmIoRequestComplete.c)
+ *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessReadyQueue(__int64 a1, __int64 a2, KIRQL a3, int a4)
 {
   __int64 **v4; // rbx
-  volatile LONG *v6; // rbp
-  KIRQL v7; // si
+  volatile LONG *v6; // rsi
+  KIRQL v7; // bp
   int v9; // r14d
   __int64 *v10; // rdx
   __int64 *v11; // rdi
   __int64 result; // rax
-  int v13; // esi
-  unsigned __int64 v14; // rsi
+  int v13; // ebp
+  unsigned __int64 v14; // rbp
   __int64 v15; // rdx
   unsigned __int64 *v16; // rcx
   unsigned __int8 CurrentIrql; // al
@@ -35,9 +35,11 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessReadyQueue(__i
   bool v21; // zf
   __int64 *v22; // rcx
   __int64 v23; // r8
-  struct _EX_RUNDOWN_REF *v24; // rax
-  struct _KPRCB *v25; // r9
-  _DWORD *v26; // r8
+  __int64 v24; // r8
+  __int64 v25; // r9
+  struct _EX_RUNDOWN_REF *v26; // rax
+  struct _KPRCB *v27; // r9
+  _DWORD *v28; // r8
 
   v4 = (__int64 **)(a1 + 96);
   v6 = (volatile LONG *)(a1 + 112);
@@ -122,13 +124,13 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessReadyQueue(__i
             result = KeGetCurrentIrql();
             if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v14 <= 0xFu && (unsigned __int8)result >= 2u )
             {
-              v25 = KeGetCurrentPrcb();
+              v27 = KeGetCurrentPrcb();
               result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
-              v26 = v25->SchedulerAssist;
-              v21 = ((unsigned int)result & v26[5]) == 0;
-              v26[5] &= result;
+              v28 = v27->SchedulerAssist;
+              v21 = ((unsigned int)result & v28[5]) == 0;
+              v28[5] &= result;
               if ( v21 )
-                result = KiRemoveSystemWorkPriorityKick(v25);
+                result = KiRemoveSystemWorkPriorityKick(v27);
             }
           }
         }
@@ -140,9 +142,9 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCompressCtxProcessReadyQueue(__i
       v23 = *v22;
       *(_DWORD *)v22 = v13;
       *(_QWORD *)(v11[4] + 8) = 0LL;
-      SmIoRequestComplete((__int64)v22, v11, v23, v11[4]);
-      v24 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(a2, *(_DWORD *)(v11[13] + 6016) & 0x3FF);
-      ExReleaseRundownProtection(v24 + 1);
+      SmIoRequestComplete(v22, v11, v23, v11[4]);
+      v26 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(a2, *(_DWORD *)(v11[13] + 6016) & 0x3FF, v24, v25);
+      ExReleaseRundownProtection_0(v26 + 1);
       ExFreePoolWithTag(v11, 0);
     }
     v7 = ExAcquireSpinLockExclusive(v6);

@@ -1,45 +1,28 @@
 /*
- * XREFs of ?ToggleTopologyTransition@DXGGLOBAL@@QEAAEE@Z @ 0x1C0015B4C
+ * XREFs of ?ToggleTopologyTransition@DXGGLOBAL@@QEAAEE@Z @ 0x1C000C914
  * Callers:
- *     DxgkCompleteTopologyTransition @ 0x1C01E4810 (DxgkCompleteTopologyTransition.c)
+ *     DxgkCompleteTopologyTransition @ 0x1C0149760 (DxgkCompleteTopologyTransition.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     <none>
  */
 
-bool __fastcall DXGGLOBAL::ToggleTopologyTransition(DXGGLOBAL *this, char a2)
+bool __fastcall DXGGLOBAL::ToggleTopologyTransition(DXGGLOBAL *this, __int64 a2)
 {
   int v2; // ebx
-  int v4; // edx
-  int v5; // ecx
-  int v6; // r8d
+  __int64 v4; // rax
 
-  if ( a2 )
+  if ( (_BYTE)a2 )
   {
-    v2 = _InterlockedIncrement((volatile signed __int32 *)this + 218);
+    v2 = _InterlockedIncrement((volatile signed __int32 *)this + 187);
   }
   else
   {
-    v2 = _InterlockedDecrement((volatile signed __int32 *)this + 218);
+    v2 = _InterlockedDecrement((volatile signed __int32 *)this + 187);
     if ( v2 < 0 )
     {
-      WdLogSingleEntry1(1LL, 1586LL);
-      if ( bTracingEnabled )
-      {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-          McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-            v5,
-            v4,
-            v6,
-            0,
-            2,
-            -1,
-            (__int64)L"Result >= 0",
-            1586LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-      }
+      v4 = WdLogNewEntry5_WdAssertion(this, a2);
+      *(_QWORD *)(v4 + 24) = 1245LL;
+      WdLogEvent5_WdAssertion(v4);
     }
   }
   return v2 != 0;

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExActivateVMWithSubscription @ 0x1408CE6A8
+ * XREFs of ExActivateVMWithSubscription @ 0x1408CE688
  * Callers:
- *     ExpGetVMActivationStatus @ 0x140704088 (ExpGetVMActivationStatus.c)
+ *     ExpGetVMActivationStatus @ 0x140704068 (ExpGetVMActivationStatus.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     sub_1407045E8 @ 0x1407045E8 (sub_1407045E8.c)
- *     ExpGetSubscriptionPfn @ 0x1408CF0A4 (ExpGetSubscriptionPfn.c)
+ *     sub_1407045C8 @ 0x1407045C8 (sub_1407045C8.c)
+ *     ExpGetSubscriptionPfn @ 0x1408CF084 (ExpGetSubscriptionPfn.c)
  */
 
 __int64 __fastcall ExActivateVMWithSubscription(_DWORD *a1, _DWORD *a2, unsigned int a3, _DWORD *a4, _BYTE *a5)
@@ -42,7 +42,7 @@ __int64 __fastcall ExActivateVMWithSubscription(_DWORD *a1, _DWORD *a2, unsigned
     {
       if ( a3 && v12 != -1073741789 )
       {
-        v13 = sub_1407045E8(a1, a2, a3, a4, 1);
+        v13 = sub_1407045C8(a1, a2, a3, a4, 1);
         *a5 = 1;
       }
       v12 = v13;

@@ -1,31 +1,27 @@
 /*
- * XREFs of KiSetHardwareSpeculationControlFeatures @ 0x1403818AC
+ * XREFs of KiSetHardwareSpeculationControlFeatures @ 0x1403A89F0
  * Callers:
- *     KiInitializeKernel @ 0x140A8C770 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x14099CCF0 (KiInitializeKernel.c)
  * Callees:
- *     KiDetectHardwareSpecControlFeatures @ 0x14038294C (KiDetectHardwareSpecControlFeatures.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1403A8B3C (KiDetectHardwareSpecControlFeatures.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 char __fastcall KiSetHardwareSpeculationControlFeatures(__int64 a1, __int64 a2)
 {
   unsigned int v3; // r8d
-  _BYTE *v4; // rdx
   char result; // al
   ULONG_PTR BugCheckParameter3[2]; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v7; // [rsp+40h] [rbp-18h]
-  char v8; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v6; // [rsp+40h] [rbp-18h]
+  char v7; // [rsp+60h] [rbp+8h] BYREF
 
-  v8 = 0;
-  v7 = 0LL;
+  v7 = 0;
+  v6 = 0LL;
   *(_OWORD *)BugCheckParameter3 = 0LL;
-  KiDetectHardwareSpecControlFeatures(a1, a2, BugCheckParameter3, &v8);
+  KiDetectHardwareSpecControlFeatures(a1, a2, BugCheckParameter3, &v7);
   v3 = BugCheckParameter3[0];
-  v4 = (_BYTE *)(a1 + 1762);
   if ( (BugCheckParameter3[0] & 0x20) != 0 )
-    *v4 |= 4u;
-  if ( (_BYTE)KiKernelCetEnabled )
-    *v4 |= 8u;
+    *(_BYTE *)(a1 + 1762) |= 4u;
   if ( *(_DWORD *)(a1 + 36) )
   {
     result = KiCpu0HardwareFlags;
@@ -37,13 +33,13 @@ char __fastcall KiSetHardwareSpeculationControlFeatures(__int64 a1, __int64 a2)
     LODWORD(KiCpu0HardwareFlags) = v3;
     result = BYTE4(BugCheckParameter3[1]);
     *(_QWORD *)&KiSpeculationFeatures = v3 | KiSpeculationFeatures & 0xFFFFFFFF00000000uLL;
-    qword_140D1EAF0 = v7;
-    KiSsbdBit = v7;
+    qword_140CFC4B0 = v6;
+    KiSsbdBit = v6;
     DWORD2(KiSpeculationFeatures) = BugCheckParameter3[1];
     BYTE12(KiSpeculationFeatures) = BYTE4(BugCheckParameter3[1]);
     KiSsbdMsr = BugCheckParameter3[1];
   }
-  if ( v8 )
+  if ( v7 )
     KiMicrocodeTrackerEnabled = 1;
   if ( (*(_QWORD *)&v3 & 0x400000LL) != 0 )
   {

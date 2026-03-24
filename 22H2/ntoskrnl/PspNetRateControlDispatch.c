@@ -1,13 +1,13 @@
 /*
- * XREFs of PspNetRateControlDispatch @ 0x1409B2694
+ * XREFs of PspNetRateControlDispatch @ 0x140909054
  * Callers:
- *     PspJobDelete @ 0x140207000 (PspJobDelete.c)
- *     PspQueryRateControlHistory @ 0x140706EFC (PspQueryRateControlHistory.c)
- *     PspSetNetRateControl @ 0x1409B30A4 (PspSetNetRateControl.c)
+ *     PspJobDelete @ 0x1402DD320 (PspJobDelete.c)
+ *     PspQueryRateControlHistory @ 0x14061623C (PspQueryRateControlHistory.c)
+ *     PspSetNetRateControl @ 0x140909914 (PspSetNetRateControl.c)
  * Callees:
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x1402FA470 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExReleaseExtensionTable @ 0x1402F75FC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x1402F7618 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PspNetRateControlDispatch(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CreatePowerThreadIfNeeded@FxPkgPnp@@AEAAJXZ @ 0x1C0021D04
+ * XREFs of ?CreatePowerThreadIfNeeded@FxPkgPnp@@AEAAJXZ @ 0x1C008B0B0
  * Callers:
- *     ?PnpEventHardwareAvailable@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C0021720 (-PnpEventHardwareAvailable@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
+ *     ?PnpEventHardwareAvailable@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007A730 (-PnpEventHardwareAvailable@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall FxPkgPnp::CreatePowerThreadIfNeeded(FxPkgPnp *this)

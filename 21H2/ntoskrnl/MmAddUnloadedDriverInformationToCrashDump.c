@@ -1,22 +1,22 @@
 /*
- * XREFs of MmAddUnloadedDriverInformationToCrashDump @ 0x1405932F8
+ * XREFs of MmAddUnloadedDriverInformationToCrashDump @ 0x1405386E0
  * Callers:
- *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14055D2EC (IopAddMiniDumpPagesToPartialKernelDump.c)
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14050BAB0 (IopAddMiniDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MmAddRangeToCrashDump @ 0x140593218 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x1405385D8 (MmAddRangeToCrashDump.c)
  */
 
-__int64 __fastcall MmAddUnloadedDriverInformationToCrashDump(__int64 a1)
+__int64 __fastcall MmAddUnloadedDriverInformationToCrashDump(__int64 (__fastcall **a1)(_QWORD, __int64, __int64))
 {
   __int64 result; // rax
   int v3; // ecx
   unsigned int v4; // edi
   unsigned int i; // ebx
-  __int64 v6; // rdx
+  unsigned __int64 v6; // rdx
 
   if ( !MmUnloadedDrivers )
     return 0LL;
-  result = MmAddRangeToCrashDump(a1, (__int64)MmUnloadedDrivers, 2000LL);
+  result = MmAddRangeToCrashDump(a1, (unsigned __int64)MmUnloadedDrivers, 2000LL);
   v3 = result;
   if ( (int)result >= 0 )
   {

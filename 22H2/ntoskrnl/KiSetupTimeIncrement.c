@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSetupTimeIncrement @ 0x1403AB394
+ * XREFs of KiSetupTimeIncrement @ 0x1403B42E4
  * Callers:
- *     KeInitializeClock @ 0x140B6BA78 (KeInitializeClock.c)
+ *     KeInitializeClock @ 0x140A4B7CC (KeInitializeClock.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     RtlGenerateQpcToIncrementConstants @ 0x1403C23AC (RtlGenerateQpcToIncrementConstants.c)
- *     RtlpComputeFraction @ 0x1403C23E8 (RtlpComputeFraction.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     RtlGenerateQpcToIncrementConstants @ 0x1403978CC (RtlGenerateQpcToIncrementConstants.c)
+ *     RtlpComputeFraction @ 0x140397908 (RtlpComputeFraction.c)
  */
 
 __int64 __fastcall KiSetupTimeIncrement(unsigned __int64 a1, unsigned int a2)
@@ -17,16 +17,14 @@ __int64 __fastcall KiSetupTimeIncrement(unsigned __int64 a1, unsigned int a2)
   LARGE_INTEGER v7; // rax
   LARGE_INTEGER v8; // rbx
   LARGE_INTEGER v9; // rdi
-  __int64 v10; // rax
-  __int64 v11; // rdx
-  char v12; // cl
+  unsigned __int64 v10; // rax
   __int64 result; // rax
-  char v14; // [rsp+30h] [rbp+8h] BYREF
-  char v15; // [rsp+38h] [rbp+10h] BYREF
+  char v12; // [rsp+30h] [rbp+8h] BYREF
+  char v13; // [rsp+38h] [rbp+10h] BYREF
   LARGE_INTEGER PerformanceFrequency; // [rsp+40h] [rbp+18h] BYREF
 
   PerformanceFrequency.QuadPart = 0LL;
-  v14 = 0;
+  v12 = 0;
   v3 = 156250;
   v4 = a2;
   if ( a2 <= 0x1388 )
@@ -50,23 +48,21 @@ __int64 __fastcall KiSetupTimeIncrement(unsigned __int64 a1, unsigned int a2)
   if ( v6 < v5 )
     KiMaxDynamicTickDuration = v5;
   KiTickOffset = v3;
-  v15 = 0;
-  KiMaximumIncrementReciprocal = RtlpComputeFraction(1LL, v3, &v15);
-  KeNumberProcessorsGroup0[1] = -v15;
+  v13 = 0;
+  KiMaximumIncrementReciprocal = RtlpComputeFraction(1u, v3, &v13);
+  KeNumberProcessorsGroup0[2] = -v13;
   v7 = KeQueryPerformanceCounter(&PerformanceFrequency);
   v8 = PerformanceFrequency;
   KeTimeAdjustmentFrequency = PerformanceFrequency.QuadPart;
   v9 = v7;
-  v10 = RtlGenerateQpcToIncrementConstants(PerformanceFrequency.LowPart, &v14);
-  v11 = MmWriteableSharedUserData;
-  v12 = v14;
-  *(LARGE_INTEGER *)(MmWriteableSharedUserData + 768) = v8;
-  *(_QWORD *)(v11 + 864) = v10;
-  *(_BYTE *)(v11 + 873) = v12;
-  *(_QWORD *)(v11 + 856) = MEMORY[0xFFFFF78000000360];
-  *(_BYTE *)(v11 + 872) = MEMORY[0xFFFFF78000000369];
-  *(LARGE_INTEGER *)(v11 + 840) = v9;
-  *(LARGE_INTEGER *)(v11 + 848) = v9;
+  v10 = RtlGenerateQpcToIncrementConstants(PerformanceFrequency.LowPart, &v12);
+  MEMORY[0xFFFFF78000000300] = v8.QuadPart;
+  MEMORY[0xFFFFF78000000360] = v10;
+  MEMORY[0xFFFFF78000000369] = v12;
+  MEMORY[0xFFFFF78000000358] = v10;
+  MEMORY[0xFFFFF78000000368] = v12;
+  MEMORY[0xFFFFF78000000348] = v9.QuadPart;
+  MEMORY[0xFFFFF78000000350] = v9.QuadPart;
   result = 0x989680u / KeMaximumIncrement;
   KiBalanceSetManagerPeriod = 0x989680u / KeMaximumIncrement;
   KiBalanceSetManagerCount = 0x989680u / KeMaximumIncrement;

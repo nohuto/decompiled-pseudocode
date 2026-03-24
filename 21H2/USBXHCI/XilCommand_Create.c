@@ -1,10 +1,10 @@
 /*
- * XREFs of XilCommand_Create @ 0x1C0015238
+ * XREFs of XilCommand_Create @ 0x1C0017CD8
  * Callers:
- *     Command_Create @ 0x1C006D3CC (Command_Create.c)
+ *     Command_Create @ 0x1C0070AFC (Command_Create.c)
  * Callees:
- *     XilCommand_CreateSecureObject @ 0x1C002FB9C (XilCommand_CreateSecureObject.c)
- *     WPP_RECORDER_SF_sds @ 0x1C003609C (WPP_RECORDER_SF_sds.c)
+ *     XilCommand_CreateSecureObject @ 0x1C002F8B4 (XilCommand_CreateSecureObject.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
  */
 
 __int64 __fastcall XilCommand_Create(__int64 a1)

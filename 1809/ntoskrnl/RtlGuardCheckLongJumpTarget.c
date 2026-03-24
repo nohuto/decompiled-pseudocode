@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlGuardCheckLongJumpTarget @ 0x1402F6618
+ * XREFs of RtlGuardCheckLongJumpTarget @ 0x1402F6718
  * Callers:
  *     RtlUnwindEx @ 0x14009DF30 (RtlUnwindEx.c)
  * Callees:
  *     RtlpxLookupFunctionTable @ 0x1400A18B0 (RtlpxLookupFunctionTable.c)
- *     VslGetNestedPageProtectionFlags @ 0x14018DD30 (VslGetNestedPageProtectionFlags.c)
- *     bsearch_s @ 0x140195DC0 (bsearch_s.c)
- *     RtlFailFast2 @ 0x1401C6420 (RtlFailFast2.c)
- *     LdrImageDirectoryEntryToLoadConfig @ 0x140682014 (LdrImageDirectoryEntryToLoadConfig.c)
+ *     VslGetNestedPageProtectionFlags @ 0x14018DD50 (VslGetNestedPageProtectionFlags.c)
+ *     bsearch_s @ 0x140195DE0 (bsearch_s.c)
+ *     RtlFailFast2 @ 0x1401C6440 (RtlFailFast2.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x140681FF4 (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
 __int64 __fastcall RtlGuardCheckLongJumpTarget(unsigned __int64 a1, char a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of IoFlushAdapterBuffersV2 @ 0x140393E40
+ * XREFs of IoFlushAdapterBuffersV2 @ 0x140389E60
  * Callers:
- *     IoFlushAdapterBuffers @ 0x140393E00 (IoFlushAdapterBuffers.c)
+ *     IoFlushAdapterBuffers @ 0x140389E20 (IoFlushAdapterBuffers.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpDmaFlushContiguousTransferV2 @ 0x140458C22 (HalpDmaFlushContiguousTransferV2.c)
- *     HalpDmaFlushScatterTransferV2 @ 0x140458D38 (HalpDmaFlushScatterTransferV2.c)
- *     HalpDmaFlushBuffer @ 0x140513310 (HalpDmaFlushBuffer.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpDmaFlushBuffer @ 0x1404C755C (HalpDmaFlushBuffer.c)
+ *     HalpDmaFlushContiguousTransferV2 @ 0x1404CD82C (HalpDmaFlushContiguousTransferV2.c)
+ *     HalpDmaFlushScatterTransferV2 @ 0x1404CD948 (HalpDmaFlushScatterTransferV2.c)
  */
 
 char __fastcall IoFlushAdapterBuffersV2(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, char a6)

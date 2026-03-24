@@ -1,10 +1,10 @@
 /*
- * XREFs of NVMeIsLunActive @ 0x1C000655C
+ * XREFs of NVMeIsLunActive @ 0x1C0015204
  * Callers:
- *     ScsiReportLunsCommand @ 0x1C0006474 (ScsiReportLunsCommand.c)
- *     NVMeReenumerateNameSpaceCompare @ 0x1C000EABC (NVMeReenumerateNameSpaceCompare.c)
- *     NVMeReenumerateNameSpaceMerge @ 0x1C000F05C (NVMeReenumerateNameSpaceMerge.c)
- *     NVMeReenumerateNameSpaceRescan @ 0x1C000F320 (NVMeReenumerateNameSpaceRescan.c)
+ *     NVMeReenumerateNameSpaceCompare @ 0x1C0006AFC (NVMeReenumerateNameSpaceCompare.c)
+ *     NVMeReenumerateNameSpaceMerge @ 0x1C0007138 (NVMeReenumerateNameSpaceMerge.c)
+ *     NVMeReenumerateNameSpaceRescan @ 0x1C0007388 (NVMeReenumerateNameSpaceRescan.c)
+ *     ScsiReportLunsCommand @ 0x1C0016D78 (ScsiReportLunsCommand.c)
  * Callees:
  *     <none>
  */

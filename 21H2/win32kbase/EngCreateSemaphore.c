@@ -1,9 +1,9 @@
 /*
- * XREFs of EngCreateSemaphore @ 0x1C0044EF0
+ * XREFs of EngCreateSemaphore @ 0x1C005B010
  * Callers:
  *     <none>
  * Callees:
- *     GreCreateSemaphoreInternal @ 0x1C0045014 (GreCreateSemaphoreInternal.c)
+ *     GreCreateSemaphoreInternal @ 0x1C005B364 (GreCreateSemaphoreInternal.c)
  */
 
 HSEMAPHORE EngCreateSemaphore(void)

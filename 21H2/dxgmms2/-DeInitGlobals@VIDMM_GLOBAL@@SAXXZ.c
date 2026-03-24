@@ -1,19 +1,18 @@
 /*
- * XREFs of ?DeInitGlobals@VIDMM_GLOBAL@@SAXXZ @ 0x1C00D5A40
+ * XREFs of ?DeInitGlobals@VIDMM_GLOBAL@@SAXXZ @ 0x1C00AE80C
  * Callers:
- *     VidMmDeInitGlobals @ 0x1C002D2C0 (VidMmDeInitGlobals.c)
+ *     VidMmDeInitGlobals @ 0x1C0022D60 (VidMmDeInitGlobals.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0001904 (--3@YAXPEAX@Z.c)
- *     McGenEventUnregister_EtwUnregister @ 0x1C002E32C (McGenEventUnregister_EtwUnregister.c)
- *     ??_GVIDMM_PROCESS_FENCE_STORAGE@@QEAAPEAXI@Z @ 0x1C002FD10 (--_GVIDMM_PROCESS_FENCE_STORAGE@@QEAAPEAXI@Z.c)
- *     ?wil_UninitializeFeatureStaging@@YAXXZ @ 0x1C007B0D4 (-wil_UninitializeFeatureStaging@@YAXXZ.c)
- *     ?DeInitPhysicalHeap@VIDMM_GLOBAL@@CAXXZ @ 0x1C00D5B7C (-DeInitPhysicalHeap@VIDMM_GLOBAL@@CAXXZ.c)
- *     TlgUnregisterAggregateProvider @ 0x1C00F7338 (TlgUnregisterAggregateProvider.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001618 (--3@YAXPEAX@Z.c)
+ *     Feature_3895685435__private_IsEnabledDeviceUsage @ 0x1C00179EC (Feature_3895685435__private_IsEnabledDeviceUsage.c)
+ *     McGenEventUnregister_EtwUnregister @ 0x1C0023F38 (McGenEventUnregister_EtwUnregister.c)
+ *     ??_GVIDMM_PROCESS_FENCE_STORAGE@@QEAAPEAXI@Z @ 0x1C0025BEC (--_GVIDMM_PROCESS_FENCE_STORAGE@@QEAAPEAXI@Z.c)
+ *     wil_UninitializeFeatureStaging @ 0x1C005ECA4 (wil_UninitializeFeatureStaging.c)
+ *     TlgUnregisterAggregateProvider @ 0x1C00D4B30 (TlgUnregisterAggregateProvider.c)
  */
 
 void VIDMM_GLOBAL::DeInitGlobals(void)
 {
-  VIDMM_GLOBAL::DeInitPhysicalHeap();
   if ( VIDMM_GLOBAL::PerfCounterSetEngineRegistered )
     PcwUnregister(GpuPerformanceCounterSetEngine);
   if ( VIDMM_GLOBAL::PerfCounterSetProcessMemoryRegistered )
@@ -42,6 +41,8 @@ void VIDMM_GLOBAL::DeInitGlobals(void)
   TlgUnregisterAggregateProvider();
   McGenEventUnregister_EtwUnregister(&DxgkControlGuid_Context);
   DxgkControlGuid_Context = 0LL;
+  if ( (unsigned int)Feature_3895685435__private_IsEnabledDeviceUsage() )
+    ExDeleteLookasideListEx((PLOOKASIDE_LIST_EX)&g_VaRangeLookasideList);
   if ( VIDMM_GLOBAL::KirEnabled )
   {
     wil_UninitializeFeatureStaging();

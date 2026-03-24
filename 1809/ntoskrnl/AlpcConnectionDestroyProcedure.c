@@ -1,5 +1,5 @@
 /*
- * XREFs of AlpcConnectionDestroyProcedure @ 0x1406962B0
+ * XREFs of AlpcConnectionDestroyProcedure @ 0x140696290
  * Callers:
  *     <none>
  * Callees:

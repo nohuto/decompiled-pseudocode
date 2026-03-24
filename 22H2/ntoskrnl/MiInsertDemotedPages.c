@@ -1,39 +1,29 @@
 /*
- * XREFs of MiInsertDemotedPages @ 0x1402EA178
+ * XREFs of MiInsertDemotedPages @ 0x1402EF170
  * Callers:
- *     MiGetLargePage @ 0x1402D7A80 (MiGetLargePage.c)
- *     MiDemoteLocalLargePage @ 0x1402E81B0 (MiDemoteLocalLargePage.c)
- *     MiDemoteLargeFreePage @ 0x1403A0778 (MiDemoteLargeFreePage.c)
+ *     MiDemoteLocalLargePage @ 0x140231A80 (MiDemoteLocalLargePage.c)
+ *     MiGetLargePage @ 0x1402840B4 (MiGetLargePage.c)
+ *     MiDemoteLargeFreePage @ 0x1402EF04C (MiDemoteLargeFreePage.c)
  * Callees:
- *     MiInsertLargePageChain @ 0x1402D68E0 (MiInsertLargePageChain.c)
+ *     MiInsertLargePageChain @ 0x14027EE04 (MiInsertLargePageChain.c)
  */
 
-void __fastcall MiInsertDemotedPages(__int64 a1, __int64 a2, int a3, int a4, __int64 a5)
+void __fastcall MiInsertDemotedPages(__int64 a1, __int64 a2, unsigned int a3, int a4, __int64 a5)
 {
-  __int64 v5; // rbp
-  __int64 v7; // rbx
-  unsigned int v8; // r12d
-  int v10; // edi
-  __int64 v11; // r15
+  int v8; // ebx
+  unsigned int v9; // edi
 
-  v5 = a5;
-  v7 = a2;
-  v8 = (*(_DWORD *)(a2 + 16) & 0x3E0LL) != 0;
-  v10 = 0;
   if ( a3 != a4 )
   {
+    v8 = 0;
     do
     {
-      v11 = (unsigned int)(a3 + 1);
-      if ( (_DWORD)v11 == a4 )
-        v10 = 1;
-      if ( a5 )
-        v5 = v7 + 48 * MiLargePageSizes[v11] * (0xAAAAAAAAAAAAAAABuLL * ((a5 - v7) >> 4) / MiLargePageSizes[v11]);
-      MiInsertLargePageChain(a1, v7, v8, v5, a3, v10);
-      a3 = v11;
-      if ( a5 )
-        v7 = v5;
+      v9 = a3 + 1;
+      if ( a3 + 1 == a4 )
+        v8 = 1;
+      MiInsertLargePageChain(a1, a2, a5, a3, v8);
+      a3 = v9;
     }
-    while ( (_DWORD)v11 != a4 );
+    while ( v9 != a4 );
   }
 }

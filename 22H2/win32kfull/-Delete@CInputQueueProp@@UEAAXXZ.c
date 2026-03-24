@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Delete@CInputQueueProp@@UEAAXXZ @ 0x1C00AC9F0
+ * XREFs of ?Delete@CInputQueueProp@@UEAAXXZ @ 0x1C01255C0
  * Callers:
  *     <none>
  * Callees:
- *     ?InvalidateInputQueues@CInputQueueProp@@IEAAXXZ @ 0x1C00ACA1C (-InvalidateInputQueues@CInputQueueProp@@IEAAXXZ.c)
+ *     ?InvalidateInputQueues@CInputQueueProp@@IEAAXXZ @ 0x1C01255EC (-InvalidateInputQueues@CInputQueueProp@@IEAAXXZ.c)
  */
 
 void __fastcall CInputQueueProp::Delete(CInputQueueProp *this)

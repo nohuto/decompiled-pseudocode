@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDevCfgResetDeviceKeys @ 0x14094DD74
+ * XREFs of PiDevCfgResetDeviceKeys @ 0x140730714
  * Callers:
- *     PiDevCfgResetDeviceDriverSettings @ 0x14094D930 (PiDevCfgResetDeviceDriverSettings.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x140730420 (PiDevCfgResetDeviceDriverSettings.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     PiDevCfgEnumDeviceKeys @ 0x140697EF0 (PiDevCfgEnumDeviceKeys.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     PiDevCfgEnumDeviceKeys @ 0x140767AB8 (PiDevCfgEnumDeviceKeys.c)
  */
 
-__int64 __fastcall PiDevCfgResetDeviceKeys(__int64 a1, __int64 a2, void *a3)
+__int64 __fastcall PiDevCfgResetDeviceKeys(int a1, int a2, void *a3)
 {
   NTSTATUS v5; // eax
   unsigned int v6; // ebx
@@ -18,13 +18,14 @@ __int64 __fastcall PiDevCfgResetDeviceKeys(__int64 a1, __int64 a2, void *a3)
   HANDLE KeyHandle; // [rsp+A0h] [rbp+20h] BYREF
 
   v8[1] = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   KeyHandle = 0LL;
   v9 = L"Configuration\\Reset";
   ObjectAttributes.RootDirectory = a3;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ObjectAttributes.ObjectName = (PUNICODE_STRING)v8;
   v8[0] = 2621478;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   v5 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   v6 = v5;
@@ -34,14 +35,7 @@ __int64 __fastcall PiDevCfgResetDeviceKeys(__int64 a1, __int64 a2, void *a3)
   }
   else if ( v5 >= 0 )
   {
-    v6 = PiDevCfgEnumDeviceKeys(
-           a1,
-           a2,
-           KeyHandle,
-           -1,
-           0,
-           (__int64 (__fastcall *)(__int64, __int64, int *, HANDLE))PiDevCfgResetDeviceKeyCallback,
-           0LL);
+    v6 = PiDevCfgEnumDeviceKeys(a1, a2, (_DWORD)KeyHandle, -1, 0, (__int64)&PiDevCfgResetDeviceKeyCallback, 0LL);
   }
   if ( KeyHandle )
     ZwClose(KeyHandle);

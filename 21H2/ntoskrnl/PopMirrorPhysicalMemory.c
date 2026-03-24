@@ -1,9 +1,9 @@
 /*
- * XREFs of PopMirrorPhysicalMemory @ 0x140A509B0
+ * XREFs of PopMirrorPhysicalMemory @ 0x140996180
  * Callers:
  *     <none>
  * Callees:
- *     RtlClearBits @ 0x140347580 (RtlClearBits.c)
+ *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
  */
 
 __int64 __fastcall PopMirrorPhysicalMemory(unsigned __int64 a1, __int64 a2)
@@ -12,12 +12,12 @@ __int64 __fastcall PopMirrorPhysicalMemory(unsigned __int64 a1, __int64 a2)
   unsigned __int64 v3; // rdx
 
   v2 = 0;
-  if ( qword_140C22800 )
+  if ( qword_140C23480 )
   {
     v3 = (unsigned __int64)(a2 + 4095) >> 12;
     if ( !v3 )
       LODWORD(v3) = 1;
-    RtlClearBits((PRTL_BITMAP)(qword_140C22800 + 48), a1 >> 12, v3);
+    RtlClearBits((PRTL_BITMAP)(qword_140C23480 + 48), a1 >> 12, v3);
   }
   else
   {

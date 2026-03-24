@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SetPartition@SC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x1406764A4
+ * XREFs of ?SetPartition@SC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x1405C7808
  * Callers:
- *     ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x140675DA0 (-SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x1405C711C (-SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
  * Callees:
- *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x140675C40 (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
- *     ?ReadPartitionTable@SC_MBR@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x1406761A8 (-ReadPartitionTable@SC_MBR@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1406765EC (-WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DEFD0 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x1405C6FBC (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
+ *     ?ReadPartitionTable@SC_MBR@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C7518 (-ReadPartitionTable@SC_MBR@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C7950 (-WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x14069ABC0 (-Free@SC_ENV@@SAXPEAX@Z.c)
  */
 
 __int64 __fastcall SC_MBR::SetPartition(SC_DISK **this, int a2, struct _SET_PARTITION_INFORMATION_EX *a3)
@@ -14,30 +14,30 @@ __int64 __fastcall SC_MBR::SetPartition(SC_DISK **this, int a2, struct _SET_PART
   int v3; // r14d
   char *v4; // rbp
   int v8; // ebx
-  int v9; // eax
+  int PartitionTable; // eax
   struct SC_DISK_LAYOUT *v10; // rdi
   unsigned int v11; // r8d
   unsigned int v12; // ecx
   char *v13; // rdx
   unsigned int v14; // eax
   int v15; // r9d
-  struct SC_DISK_LAYOUT *v17; // [rsp+68h] [rbp+20h] BYREF
+  PVOID Buffer; // [rsp+68h] [rbp+20h] BYREF
 
-  v17 = 0LL;
+  Buffer = 0LL;
   v3 = 0;
   v4 = 0LL;
   if ( a2 )
   {
-    v9 = SC_MBR::ReadPartitionTable(this, &v17, (unsigned __int8)a3);
-    v10 = v17;
-    v8 = v9;
-    if ( v9 >= 0 )
+    PartitionTable = SC_MBR::ReadPartitionTable(this, (struct SC_DISK_LAYOUT **)&Buffer);
+    v10 = (struct SC_DISK_LAYOUT *)Buffer;
+    v8 = PartitionTable;
+    if ( PartitionTable >= 0 )
     {
-      v11 = *((_DWORD *)v17 + 1);
+      v11 = *((_DWORD *)Buffer + 1);
       v12 = 0;
       if ( v11 )
       {
-        v13 = (char *)v17 + 48;
+        v13 = (char *)Buffer + 48;
         do
         {
           v14 = (unsigned __int8)v13[32];

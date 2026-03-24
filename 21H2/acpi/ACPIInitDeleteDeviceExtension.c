@@ -1,20 +1,20 @@
 /*
- * XREFs of ACPIInitDeleteDeviceExtension @ 0x1C00569B4
+ * XREFs of ACPIInitDeleteDeviceExtension @ 0x1C0056438
  * Callers:
- *     ACPIInitDereferenceDeviceExtensionLocked @ 0x1C0007270 (ACPIInitDereferenceDeviceExtensionLocked.c)
- *     ACPIExtListEnumNext @ 0x1C000C1AC (ACPIExtListEnumNext.c)
- *     ACPIInitRemoveDeviceExtension @ 0x1C0056D10 (ACPIInitRemoveDeviceExtension.c)
+ *     ACPIInitRemoveDeviceExtension @ 0x1C00105E8 (ACPIInitRemoveDeviceExtension.c)
+ *     ACPIInitDereferenceDeviceExtensionLocked @ 0x1C00198D8 (ACPIInitDereferenceDeviceExtensionLocked.c)
+ *     ACPIExtListEnumNext @ 0x1C001B0F0 (ACPIExtListEnumNext.c)
  * Callees:
- *     ACPIInternalMoveList @ 0x1C0002C10 (ACPIInternalMoveList.c)
- *     WPP_RECORDER_SF_Dqss @ 0x1C0004A40 (WPP_RECORDER_SF_Dqss.c)
- *     ACPIInitReferenceDeviceExtension @ 0x1C00056D8 (ACPIInitReferenceDeviceExtension.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     ExFreeToNPagedLookasideList @ 0x1C00309D4 (ExFreeToNPagedLookasideList.c)
- *     ACPICleanDeviceDependenciesWithTreeLock @ 0x1C004B558 (ACPICleanDeviceDependenciesWithTreeLock.c)
- *     ACPIInitRemovePowerNodes @ 0x1C0056E28 (ACPIInitRemovePowerNodes.c)
- *     ACPIInternalInterruptPolarityCacheCleanup @ 0x1C00575A8 (ACPIInternalInterruptPolarityCacheCleanup.c)
- *     PnpiCleanupForceActiveBothInterrupts @ 0x1C005F510 (PnpiCleanupForceActiveBothInterrupts.c)
- *     AMLIFinalizeObject @ 0x1C00646F8 (AMLIFinalizeObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPICleanDeviceDependenciesWithTreeLock @ 0x1C00106D0 (ACPICleanDeviceDependenciesWithTreeLock.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C0017F20 (ACPIInitReferenceDeviceExtension.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
+ *     ACPIInternalInterruptPolarityCacheCleanup @ 0x1C002D168 (ACPIInternalInterruptPolarityCacheCleanup.c)
+ *     PnpiCleanupForceActiveBothInterrupts @ 0x1C002D1A0 (PnpiCleanupForceActiveBothInterrupts.c)
+ *     ACPIInternalMoveList @ 0x1C00318C8 (ACPIInternalMoveList.c)
+ *     ExFreeToNPagedLookasideList @ 0x1C004C9C8 (ExFreeToNPagedLookasideList.c)
+ *     ACPIInitRemovePowerNodes @ 0x1C00567A8 (ACPIInitRemovePowerNodes.c)
+ *     AMLIFinalizeObject @ 0x1C006344C (AMLIFinalizeObject.c)
  */
 
 void __fastcall ACPIInitDeleteDeviceExtension(volatile signed __int32 *Entry)
@@ -48,7 +48,7 @@ void __fastcall ACPIInitDeleteDeviceExtension(volatile signed __int32 *Entry)
   _QWORD *v28; // rcx
 
   v2 = 0;
-  v3 = Entry + 102;
+  v3 = Entry + 92;
   while ( !*v3 )
   {
     ++v2;
@@ -56,52 +56,52 @@ void __fastcall ACPIInitDeleteDeviceExtension(volatile signed __int32 *Entry)
     if ( v2 > 4 )
       goto LABEL_4;
   }
-  if ( (Entry[250] & 0x20000) != 0 || (Entry[2] & 0x800LL) == 0 )
+  if ( (Entry[240] & 0x20000) != 0 || (Entry[2] & 0x800LL) == 0 )
   {
 LABEL_4:
     ACPIInitRemovePowerNodes(Entry);
-    PnpiCleanupForceActiveBothInterrupts(Entry);
-    ACPIInternalInterruptPolarityCacheCleanup(Entry);
+    PnpiCleanupForceActiveBothInterrupts((__int64)Entry);
+    ACPIInternalInterruptPolarityCacheCleanup((__int64)Entry);
     if ( !Entry )
       return;
     while ( 1 )
     {
-      v4 = Entry + 204;
-      v5 = *((_QWORD *)Entry + 102);
-      if ( *(volatile signed __int32 **)(v5 + 8) != Entry + 204 )
+      v4 = Entry + 194;
+      v5 = *((_QWORD *)Entry + 97);
+      if ( *(volatile signed __int32 **)(v5 + 8) != Entry + 194 )
         break;
-      v6 = (_QWORD *)*((_QWORD *)Entry + 103);
+      v6 = (_QWORD *)*((_QWORD *)Entry + 98);
       if ( (_QWORD *)*v6 != v4 )
         break;
       *v6 = v5;
       *(_QWORD *)(v5 + 8) = v6;
-      *((_QWORD *)Entry + 103) = Entry + 204;
+      *((_QWORD *)Entry + 98) = Entry + 194;
       *v4 = v4;
       ACPICleanDeviceDependenciesWithTreeLock((__int64)Entry);
-      v7 = Entry + 212;
-      v8 = *((_QWORD *)Entry + 106);
-      if ( *(volatile signed __int32 **)(v8 + 8) != Entry + 212 )
+      v7 = Entry + 202;
+      v8 = *((_QWORD *)Entry + 101);
+      if ( *(volatile signed __int32 **)(v8 + 8) != Entry + 202 )
         break;
-      v9 = (_QWORD *)*((_QWORD *)Entry + 107);
+      v9 = (_QWORD *)*((_QWORD *)Entry + 102);
       if ( (_QWORD *)*v9 != v7 )
         break;
       *v9 = v8;
       *(_QWORD *)(v8 + 8) = v9;
-      v10 = Entry + 208;
-      *((_QWORD *)Entry + 107) = Entry + 212;
+      v10 = Entry + 198;
+      *((_QWORD *)Entry + 102) = Entry + 202;
       *v7 = v7;
       if ( (_QWORD *)*v10 != v10 )
         ACPIInternalMoveList(v10, (__int64)&AcpiUnresolvedEjectList);
       v11 = *((_QWORD *)Entry + 1);
       if ( (v11 & 0x80000000000LL) != 0 )
       {
-        v12 = (const char *)&unk_1C006FB8B;
-        v13 = (const char *)&unk_1C006FB8B;
+        v12 = (const char *)&unk_1C00701BA;
+        v13 = (const char *)&unk_1C00701BA;
         if ( (v11 & 0x200000000000LL) != 0 )
         {
-          v12 = (const char *)*((_QWORD *)Entry + 76);
+          v12 = (const char *)*((_QWORD *)Entry + 71);
           if ( (v11 & 0x400000000000LL) != 0 )
-            v13 = (const char *)*((_QWORD *)Entry + 77);
+            v13 = (const char *)*((_QWORD *)Entry + 72);
         }
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           WPP_RECORDER_SF_Dqss(
@@ -109,23 +109,23 @@ LABEL_4:
             2u,
             0x16u,
             0xAu,
-            (__int64)&WPP_786589887d18386d1941a386bf041506_Traceguids,
-            *((_DWORD *)Entry + 190),
+            (__int64)&WPP_067b6e12806a352c39fbc5798cfde2dc_Traceguids,
+            *((_DWORD *)Entry + 180),
             (char)Entry,
             v12,
             v13);
-        v14 = *((_QWORD *)Entry + 95);
+        v14 = *((_QWORD *)Entry + 90);
         if ( v14 )
         {
           AMLIFinalizeObject(v14, 0LL);
-          AMLIDereferenceHandleEx(*((volatile signed __int32 **)Entry + 95));
-          *((_QWORD *)Entry + 95) = 0LL;
+          AMLIDereferenceHandleEx(*((_QWORD *)Entry + 90));
+          *((_QWORD *)Entry + 90) = 0LL;
         }
       }
       v15 = *((_QWORD *)Entry + 1);
       if ( (v15 & 0x200000000000LL) != 0 )
       {
-        v16 = (void *)*((_QWORD *)Entry + 76);
+        v16 = (void *)*((_QWORD *)Entry + 71);
         if ( v16 )
         {
           ExFreePoolWithTag(v16, 0);
@@ -134,17 +134,17 @@ LABEL_4:
       }
       if ( (v15 & 0x400000000000LL) != 0 )
       {
-        v17 = (void *)*((_QWORD *)Entry + 77);
+        v17 = (void *)*((_QWORD *)Entry + 72);
         if ( v17 )
           ExFreePoolWithTag(v17, 0);
       }
-      v18 = (void *)*((_QWORD *)Entry + 84);
+      v18 = (void *)*((_QWORD *)Entry + 79);
       if ( v18 )
         ExFreePoolWithTag(v18, 0);
-      v19 = (void *)*((_QWORD *)Entry + 85);
+      v19 = (void *)*((_QWORD *)Entry + 80);
       if ( v19 )
         ExFreePoolWithTag(v19, 0);
-      v20 = (void *)*((_QWORD *)Entry + 86);
+      v20 = (void *)*((_QWORD *)Entry + 81);
       if ( v20 )
         ExFreePoolWithTag(v20, 0);
       v21 = *((_QWORD *)Entry + 1);
@@ -166,12 +166,12 @@ LABEL_4:
           *((_QWORD *)Entry + 25) = 0LL;
         }
       }
-      v24 = (void *)*((_QWORD *)Entry + 116);
+      v24 = (void *)*((_QWORD *)Entry + 111);
       if ( v24 )
         ExFreePoolWithTag(v24, 0x4D706341u);
-      v25 = (volatile signed __int32 *)*((_QWORD *)Entry + 99);
+      v25 = (volatile signed __int32 *)*((_QWORD *)Entry + 94);
       ExFreeToNPagedLookasideList(&DeviceExtensionLookAsideList, (PVOID)Entry);
-      if ( !v25 || _InterlockedExchangeAdd(v25 + 183, 0xFFFFFFFF) != 1 )
+      if ( !v25 || _InterlockedExchangeAdd(v25 + 173, 0xFFFFFFFF) != 1 )
         return;
       Entry = v25;
     }
@@ -179,14 +179,14 @@ LABEL_47:
     __fastfail(3u);
   }
   ACPIInitReferenceDeviceExtension((__int64)Entry);
-  v27 = Entry + 220;
-  *((_DWORD *)Entry + 224) = *(_DWORD *)(**((_QWORD **)Entry + 95) + 40LL);
-  v28 = (_QWORD *)qword_1C00813E8;
-  if ( *(__int64 **)qword_1C00813E8 != &AcpiDevicesWhichMightNeedEnumerationList )
+  v27 = Entry + 210;
+  *((_DWORD *)Entry + 214) = *(_DWORD *)(**((_QWORD **)Entry + 90) + 40LL);
+  v28 = (_QWORD *)qword_1C00821C8;
+  if ( *(__int64 **)qword_1C00821C8 != &AcpiDevicesWhichMightNeedEnumerationList )
     goto LABEL_47;
   *v27 = &AcpiDevicesWhichMightNeedEnumerationList;
-  *((_QWORD *)Entry + 111) = v28;
+  *((_QWORD *)Entry + 106) = v28;
   *v28 = v27;
-  qword_1C00813E8 = (__int64)(Entry + 220);
-  _InterlockedOr64((volatile signed __int64 *)Entry + 125, v26);
+  qword_1C00821C8 = (__int64)(Entry + 210);
+  _InterlockedOr64((volatile signed __int64 *)Entry + 120, v26);
 }

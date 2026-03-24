@@ -1,76 +1,93 @@
 /*
- * XREFs of RtlUnicodeStringCat @ 0x140208C9C
+ * XREFs of RtlUnicodeStringCat @ 0x140206B20
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x14068FC80 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoWritethroughReparse @ 0x140693570 (CmpDoWritethroughReparse.c)
- *     PopPowerRequestStatsIdConcat @ 0x1407A9080 (PopPowerRequestStatsIdConcat.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x1407EA278 (CmpLogTransactionAbortedWithChildName.c)
- *     SshpGenerateDeviceFriendlyName @ 0x140845C24 (SshpGenerateDeviceFriendlyName.c)
- *     PopGenerateDeviceFriendlyName @ 0x14084A464 (PopGenerateDeviceFriendlyName.c)
- *     PopIdleWakeGenerateInterruptDescriptionString @ 0x14099A668 (PopIdleWakeGenerateInterruptDescriptionString.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A1A4B4 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405EEA70 (CmpGetSymbolicLinkTarget.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1406A4E54 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpDoWritethroughReparse @ 0x1406CDE40 (CmpDoWritethroughReparse.c)
+ *     PopGenerateDeviceFriendlyName @ 0x1407BE618 (PopGenerateDeviceFriendlyName.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140870C78 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     PopIdleWakeGenerateDescriptionString @ 0x1408F41F0 (PopIdleWakeGenerateDescriptionString.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x1408FB170 (SshpGenerateDeviceFriendlyName.c)
  * Callees:
- *     RtlUnicodeStringValidateDestWorker @ 0x140208D74 (RtlUnicodeStringValidateDestWorker.c)
- *     RtlUnicodeStringValidateSrcWorker @ 0x140208DE4 (RtlUnicodeStringValidateSrcWorker.c)
+ *     RtlUnicodeStringValidateWorker @ 0x140206C40 (RtlUnicodeStringValidateWorker.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringCat(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)
 {
-  int v4; // r8d
-  size_t v5; // r9
-  __int16 v6; // dx
-  __int16 v7; // bx
-  size_t v8; // r9
-  wchar_t *v9; // r11
-  size_t v10; // r10
-  char *v11; // rcx
-  size_t v13; // [rsp+20h] [rbp-30h]
-  ULONG v14; // [rsp+20h] [rbp-30h]
-  ULONG v15; // [rsp+28h] [rbp-28h]
-  size_t pcchDest; // [rsp+30h] [rbp-20h] BYREF
-  size_t pcchDestLength; // [rsp+38h] [rbp-18h] BYREF
-  wchar_t *ppszDest; // [rsp+40h] [rbp-10h] BYREF
-  size_t pcchSrcLength; // [rsp+70h] [rbp+20h] BYREF
-  wchar_t *ppszSrc; // [rsp+78h] [rbp+28h] BYREF
+  ULONG v2; // r8d
+  NTSTATUS v3; // edi
+  __int64 v5; // r14
+  NTSTATUS result; // eax
+  unsigned __int16 *v8; // rcx
+  unsigned __int64 v9; // r10
+  unsigned __int64 v10; // r11
+  unsigned __int64 Length; // rcx
+  wchar_t *Buffer; // rax
+  unsigned __int64 v13; // rdx
+  NTSTATUS v14; // ebp
+  unsigned __int16 MaximumLength; // r8
+  __int16 v16; // r8
+  unsigned __int64 v17; // r10
+  __int64 v18; // r9
 
-  ppszDest = 0LL;
-  pcchDest = 0LL;
-  pcchDestLength = 0LL;
-  v4 = RtlUnicodeStringValidateDestWorker(DestinationString, &ppszDest, &pcchDest, &pcchDestLength, v13, v15);
-  if ( v4 >= 0 )
+  v3 = 0;
+  v5 = 0LL;
+  result = RtlUnicodeStringValidateWorker(DestinationString, (const size_t)SourceString, v2);
+  if ( result >= 0 )
   {
-    ppszSrc = 0LL;
-    pcchSrcLength = 0LL;
-    v4 = RtlUnicodeStringValidateSrcWorker(SourceString, &ppszSrc, &pcchSrcLength, v5, v14);
-    if ( v4 >= 0 )
+    if ( v8 )
     {
-      v6 = 0;
-      v7 = pcchDestLength;
-      v4 = 0;
-      v8 = pcchSrcLength;
-      v9 = ppszSrc;
-      v10 = pcchDest - pcchDestLength;
-      if ( pcchDest == pcchDestLength )
+      v5 = *((_QWORD *)v8 + 1);
+      v9 = (unsigned __int64)v8[1] >> 1;
+      v10 = (unsigned __int64)*v8 >> 1;
+    }
+    Length = SourceString->Length;
+    Buffer = 0LL;
+    v13 = 0LL;
+    v14 = 0;
+    if ( (Length & 1) != 0
+      || (MaximumLength = SourceString->MaximumLength, (MaximumLength & 1) != 0)
+      || (unsigned __int16)Length > MaximumLength
+      || MaximumLength == 0xFFFF
+      || !SourceString->Buffer && ((_WORD)Length || MaximumLength) )
+    {
+      v14 = -1073741811;
+    }
+    else
+    {
+      Buffer = SourceString->Buffer;
+      v13 = Length >> 1;
+    }
+    if ( v14 < 0 )
+    {
+      return v14;
+    }
+    else
+    {
+      v16 = 0;
+      v17 = v9 - v10;
+      if ( v17 )
       {
-LABEL_7:
-        if ( v8 )
-          v4 = -2147483643;
+        v18 = v5 + 2 * v10 - (_QWORD)Buffer;
+        while ( v13 )
+        {
+          --v13;
+          *(wchar_t *)((char *)Buffer + v18) = *Buffer;
+          ++v16;
+          ++Buffer;
+          if ( !--v17 )
+            goto LABEL_15;
+        }
       }
       else
       {
-        v11 = (char *)ppszDest + 2 * pcchDestLength - (_QWORD)ppszSrc;
-        while ( v8 )
-        {
-          --v8;
-          *(wchar_t *)((char *)v9 + (_QWORD)v11) = *v9;
-          ++v6;
-          ++v9;
-          if ( !--v10 )
-            goto LABEL_7;
-        }
+LABEL_15:
+        if ( v13 )
+          v3 = -2147483643;
       }
-      DestinationString->Length = 2 * (v7 + v6);
+      result = v3;
+      DestinationString->Length = 2 * (v16 + v10);
     }
   }
-  return v4;
+  return result;
 }

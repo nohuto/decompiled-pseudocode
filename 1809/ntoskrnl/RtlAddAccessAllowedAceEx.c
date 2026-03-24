@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlAddAccessAllowedAceEx @ 0x14070ED40
+ * XREFs of RtlAddAccessAllowedAceEx @ 0x14070ED20
  * Callers:
  *     PiAuCreateLocalSystemSecurityObject @ 0x1409C68D4 (PiAuCreateLocalSystemSecurityObject.c)
  *     PiAuCreateStandardSecurityObject @ 0x1409C6C8C (PiAuCreateStandardSecurityObject.c)

@@ -1,19 +1,19 @@
 /*
- * XREFs of HUBHSM_GettingHubConfigurationDescriptorWithReturnedLength @ 0x1C0009220
+ * XREFs of HUBHSM_GettingHubConfigurationDescriptorWithReturnedLength @ 0x1C0008F10
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     HUBHTX_GetDescriptor @ 0x1C0003060 (HUBHTX_GetDescriptor.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBHTX_GetDescriptor @ 0x1C0002E90 (HUBHTX_GetDescriptor.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
  */
 
 __int64 __fastcall HUBHSM_GettingHubConfigurationDescriptorWithReturnedLength(__int64 a1)
 {
   __int64 v1; // rbx
   unsigned __int16 *v2; // rsi
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   __int64 v4; // r9
   int Descriptor; // edi
   void *v6; // rcx
@@ -22,17 +22,17 @@ __int64 __fastcall HUBHSM_GettingHubConfigurationDescriptorWithReturnedLength(__
 
   v1 = *(_QWORD *)(a1 + 960);
   v2 = *(unsigned __int16 **)(v1 + 1256);
-  Pool2 = ExAllocatePool2(64LL, v2[1], 1748191317LL);
-  *(_QWORD *)(v1 + 1256) = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, v2[1], 0x68334855u);
+  *(_QWORD *)(v1 + 1256) = PoolWithTag;
+  if ( PoolWithTag )
   {
     LOBYTE(v4) = 2;
-    Descriptor = HUBHTX_GetDescriptor(v1, Pool2, v2[1], v4, v8, 0);
+    Descriptor = HUBHTX_GetDescriptor(v1, (__int64)PoolWithTag, v2[1], v4, v8, 0);
   }
   else
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*(_QWORD *)(v1 + 2520), 2u, 3u, 0x13u, (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(v1 + 2520), 2u, 3u, 0x13u, (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids);
     Descriptor = -1073741670;
   }
   ExFreePoolWithTag(v2, 0x68334855u);
@@ -46,7 +46,7 @@ __int64 __fastcall HUBHSM_GettingHubConfigurationDescriptorWithReturnedLength(__
         2u,
         3u,
         0x14u,
-        (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+        (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
         v9);
     }
     v6 = *(void **)(v1 + 1256);

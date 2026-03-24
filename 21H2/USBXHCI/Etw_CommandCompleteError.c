@@ -1,13 +1,13 @@
 /*
- * XREFs of Etw_CommandCompleteError @ 0x1C004807C
+ * XREFs of Etw_CommandCompleteError @ 0x1C0047DE8
  * Callers:
- *     Command_HandleCommandCompletionEvent @ 0x1C0003A40 (Command_HandleCommandCompletionEvent.c)
- *     Command_ControllerResetPostReset @ 0x1C002DF9C (Command_ControllerResetPostReset.c)
- *     Command_FailAllCommands @ 0x1C002E230 (Command_FailAllCommands.c)
- *     Command_HandleCommandRingStoppedEvent @ 0x1C002E454 (Command_HandleCommandRingStoppedEvent.c)
- *     Command_WdfEvtWatchdogTimerFunction @ 0x1C002E930 (Command_WdfEvtWatchdogTimerFunction.c)
+ *     Command_HandleCommandCompletionEvent @ 0x1C0006928 (Command_HandleCommandCompletionEvent.c)
+ *     Command_ControllerResetPostReset @ 0x1C002DDEC (Command_ControllerResetPostReset.c)
+ *     Command_FailAllCommands @ 0x1C002E080 (Command_FailAllCommands.c)
+ *     Command_HandleCommandRingStoppedEvent @ 0x1C002E2A4 (Command_HandleCommandRingStoppedEvent.c)
+ *     Command_WdfEvtWatchdogTimerFunction @ 0x1C002E790 (Command_WdfEvtWatchdogTimerFunction.c)
  * Callees:
- *     McTemplateK0ppb16qu_EtwWriteTransfer @ 0x1C0048A4C (McTemplateK0ppb16qu_EtwWriteTransfer.c)
+ *     McTemplateK0ppb16qu_EtwWriteTransfer @ 0x1C0048814 (McTemplateK0ppb16qu_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Etw_CommandCompleteError(__int64 a1, __int64 a2, __int64 a3, char a4)

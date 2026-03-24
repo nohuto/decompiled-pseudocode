@@ -1,8 +1,8 @@
 /*
- * XREFs of ??1ProtectableFromChange@@UEAA@XZ @ 0x1C00106E8
+ * XREFs of ??1ProtectableFromChange@@UEAA@XZ @ 0x1C0009064
  * Callers:
- *     ??1DMMVIDPNTOPOLOGY@@UEAA@XZ @ 0x1C0010660 (--1DMMVIDPNTOPOLOGY@@UEAA@XZ.c)
- *     ??_EProtectableFromChange@@UEAAPEAXI@Z @ 0x1C006AA10 (--_EProtectableFromChange@@UEAAPEAXI@Z.c)
+ *     ??1DMMVIDPNTOPOLOGY@@UEAA@XZ @ 0x1C0008FDC (--1DMMVIDPNTOPOLOGY@@UEAA@XZ.c)
+ *     ??_EProtectableFromChange@@UEAAPEAXI@Z @ 0x1C005D810 (--_EProtectableFromChange@@UEAAPEAXI@Z.c)
  * Callees:
  *     <none>
  */

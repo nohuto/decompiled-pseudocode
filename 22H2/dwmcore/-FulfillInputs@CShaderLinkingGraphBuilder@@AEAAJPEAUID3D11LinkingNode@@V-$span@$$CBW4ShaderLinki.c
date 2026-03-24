@@ -1,88 +1,103 @@
 /*
- * XREFs of ?FulfillInputs@CShaderLinkingGraphBuilder@@AEAAJPEAUID3D11LinkingNode@@V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@@Z @ 0x18002A504
+ * XREFs of ?FulfillInputs@CShaderLinkingGraphBuilder@@AEAAJPEAUID3D11LinkingNode@@V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@@Z @ 0x18004AA4C
  * Callers:
- *     ?Link@CShaderLinkingGraphBuilder@@QEAAJAEBUSignatureParameter@1@PEAPEAUID3D10Blob@@@Z @ 0x18002799C (-Link@CShaderLinkingGraphBuilder@@QEAAJAEBUSignatureParameter@1@PEAPEAUID3D10Blob@@@Z.c)
- *     ?AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@@Z @ 0x18002A408 (-AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V-$.c)
+ *     ?Link@CShaderLinkingGraphBuilder@@QEAAJAEBUSignatureParameter@1@PEAPEAUID3D10Blob@@@Z @ 0x1800468C4 (-Link@CShaderLinkingGraphBuilder@@QEAAJAEBUSignatureParameter@1@PEAPEAUID3D10Blob@@@Z.c)
+ *     ?AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@@Z @ 0x180048DA0 (-AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V-$.c)
  * Callees:
- *     ??$_Find@W4ShaderLinkingArgument@@@?$_Hash@V?$_Umap_traits@W4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@V?$_Uhash_compare@W4ShaderLinkingArgument@@U?$hash@W4ShaderLinkingArgument@@@std@@U?$equal_to@W4ShaderLinkingArgument@@@3@@std@@V?$allocator@U?$pair@$$CBW4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@@std@@@5@$0A@@std@@@std@@AEBAPEAU?$_List_node@U?$pair@$$CBW4ShaderLinkingArgument@@UNode@CShaderLinkingGraphBuilder@@@std@@PEAX@1@AEBW4ShaderLinkingArgument@@_K@Z @ 0x18002A988 (--$_Find@W4ShaderLinkingArgument@@@-$_Hash@V-$_Umap_traits@W4ShaderLinkingArgument@@UNode@CShade.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800D9B98 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?_End@?$_Hash@V?$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V?$_Uhash_compare@PEBVCResource@@U?$hash@PEBVCResource@@@std@@U?$equal_to@PEBVCResource@@@3@@std@@V?$allocator@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@4@$0A@@std@@@std@@IEAA?AV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@std@@@std@@@2@_K@Z @ 0x180048CC8 (-_End@-$_Hash@V-$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V-$_Uhash_compare@PEBVC.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800C3864 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CShaderLinkingGraphBuilder::FulfillInputs(unsigned __int64 a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall CShaderLinkingGraphBuilder::FulfillInputs(_QWORD *a1, __int64 a2, __int64 *a3)
 {
   unsigned int v3; // ebx
-  __int64 v4; // rdi
-  unsigned __int64 appended; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rax
-  bool v11; // zf
-  __int64 v12; // r8
+  unsigned int v4; // esi
+  unsigned __int64 i; // rdi
+  const unsigned __int8 *v9; // rbx
+  unsigned __int64 v10; // r11
+  _QWORD *v11; // rax
+  __int64 v12; // r10
   __int64 *v13; // rcx
-  __int64 v14; // rax
-  __int64 v15; // r11
-  int v16; // eax
-  int v18; // r9d
-  unsigned int v19[2]; // [rsp+20h] [rbp-28h]
-  unsigned int v20; // [rsp+20h] [rbp-28h]
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // rax
+  int v17; // eax
+  int v19; // r9d
+  unsigned int v20[2]; // [rsp+20h] [rbp-48h]
+  unsigned int v21; // [rsp+20h] [rbp-48h]
+  __int64 v22; // [rsp+80h] [rbp+18h] BYREF
 
   v3 = 0;
-  v4 = 0LL;
-  if ( *a3 )
+  v4 = 0;
+  if ( *a3 > 0 )
   {
-    while ( 1 )
+    for ( i = 0LL; ; ++i )
     {
-      appended = std::_Fnv1a_append_bytes(a1, (const unsigned __int8 *const)(a3[1] + 2 * v4), 2uLL);
-      v10 = std::_Hash<std::_Umap_traits<enum ShaderLinkingArgument,CShaderLinkingGraphBuilder::Node,std::_Uhash_compare<enum ShaderLinkingArgument,std::hash<enum ShaderLinkingArgument>,std::equal_to<enum ShaderLinkingArgument>>,std::allocator<std::pair<enum ShaderLinkingArgument const,CShaderLinkingGraphBuilder::Node>>,0>>::_Find<enum ShaderLinkingArgument>(
-              a1 + 16,
-              v9,
-              appended);
-      if ( v10 == *(_QWORD *)(a1 + 24) )
-        break;
-      v11 = *(_BYTE *)(v10 + 33) == 0;
-      v12 = (unsigned int)*(char *)(v10 + 32);
-      v13 = *(__int64 **)(a1 + 8);
-      v14 = *(_QWORD *)(v10 + 24);
-      v15 = *v13;
-      if ( v11 )
+      if ( i >= *a3 )
       {
-        v19[0] = v4;
-        v16 = (*(__int64 (__fastcall **)(__int64 *, __int64, __int64, __int64, unsigned int *))(v15 + 56))(
-                v13,
-                v14,
-                v12,
-                a2,
-                *(unsigned int **)v19);
-        v3 = v16;
-        if ( v16 < 0 )
+        ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
+        __debugbreak();
+      }
+      v9 = (const unsigned __int8 *)(a3[1] + 2 * i);
+      v10 = a1[8] & std::_Fnv1a_append_bytes((unsigned __int64)a1, v9, 2uLL);
+      while ( 1 )
+      {
+        v11 = std::_Hash<std::_Umap_traits<CResource const *,CWeakResourceReference *,std::_Uhash_compare<CResource const *,std::hash<CResource const *>,std::equal_to<CResource const *>>,std::allocator<std::pair<CResource const * const,CWeakResourceReference *>>,0>>::_End(
+                (__int64)(a1 + 2),
+                &v22,
+                v10);
+        if ( v12 == *v11 )
+          break;
+        if ( *(_WORD *)(v12 + 16) == *(_WORD *)v9 )
+          goto LABEL_7;
+      }
+      v12 = a1[3];
+LABEL_7:
+      if ( v12 == a1[3] )
+        break;
+      v13 = (__int64 *)a1[1];
+      v14 = *(_QWORD *)(v12 + 24);
+      v15 = (unsigned int)*(char *)(v12 + 32);
+      v16 = *v13;
+      if ( *(_BYTE *)(v12 + 33) )
+      {
+        v20[1] = HIDWORD(a2);
+        v17 = (*(__int64 (__fastcall **)(__int64 *, __int64, __int64))(v16 + 64))(v13, v14, v15);
+        v3 = v17;
+        if ( v17 < 0 )
         {
-          v20 = 354;
-          goto LABEL_10;
+          v21 = 347;
+LABEL_17:
+          v19 = v17;
+          goto LABEL_19;
         }
       }
       else
       {
-        v19[1] = HIDWORD(a2);
-        v16 = (*(__int64 (__fastcall **)(__int64 *, __int64, __int64))(v15 + 64))(v13, v14, v12);
-        v3 = v16;
-        if ( v16 < 0 )
+        v20[0] = v4;
+        v17 = (*(__int64 (__fastcall **)(__int64 *, __int64, __int64, __int64, unsigned int *))(v16 + 56))(
+                v13,
+                v14,
+                v15,
+                a2,
+                *(unsigned int **)v20);
+        v3 = v17;
+        if ( v17 < 0 )
         {
-          v20 = 361;
-LABEL_10:
-          v18 = v16;
-          goto LABEL_12;
+          v21 = 340;
+          goto LABEL_17;
         }
       }
-      if ( (unsigned __int64)++v4 >= *a3 )
+      if ( (int)++v4 >= *a3 )
         return v3;
     }
     v3 = -2147024809;
-    v18 = -2147024809;
-    v20 = 346;
-LABEL_12:
-    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, v18, v20, 0LL);
+    v19 = -2147024809;
+    v21 = 332;
+LABEL_19:
+    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)a1, 0LL, 0, v19, v21, 0LL);
   }
   return v3;
 }

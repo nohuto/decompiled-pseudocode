@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bCheckSurfaceRectSize@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@PEAU_CLIPOBJ@@PEAK3H@Z @ 0x1C02C7B44
+ * XREFs of ?bCheckSurfaceRectSize@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@PEAU_CLIPOBJ@@PEAK3H@Z @ 0x1C013D78C
  * Callers:
- *     NtGdiEngBitBlt @ 0x1C02C8940 (NtGdiEngBitBlt.c)
- *     NtGdiEngCopyBits @ 0x1C02C8FB0 (NtGdiEngCopyBits.c)
- *     NtGdiEngPlgBlt @ 0x1C02CA710 (NtGdiEngPlgBlt.c)
- *     NtGdiEngStretchBlt @ 0x1C02CAB20 (NtGdiEngStretchBlt.c)
- *     NtGdiEngStretchBltROP @ 0x1C02CB070 (NtGdiEngStretchBltROP.c)
+ *     NtGdiEngCopyBits @ 0x1C013AC00 (NtGdiEngCopyBits.c)
+ *     NtGdiEngStretchBltROP @ 0x1C013AF80 (NtGdiEngStretchBltROP.c)
+ *     NtGdiEngBitBlt @ 0x1C013B6A0 (NtGdiEngBitBlt.c)
+ *     NtGdiEngStretchBlt @ 0x1C013CDD0 (NtGdiEngStretchBlt.c)
+ *     NtGdiEngPlgBlt @ 0x1C02B30F0 (NtGdiEngPlgBlt.c)
  * Callees:
  *     <none>
  */
@@ -17,56 +17,64 @@ __int64 __fastcall bCheckSurfaceRectSize(
         unsigned int *a4,
         unsigned int *a5)
 {
-  int left; // ebx
+  unsigned int v5; // edi
+  int left; // esi
   LONG top; // edx
   LONG right; // r11d
   LONG bottom; // r9d
-  RECTL *p_rclBounds; // r10
-  RECTL *v13; // rax
-  HDEV hdev; // rax
-  int v15; // ecx
-  int v16; // ecx
-  LONG v17; // edx
-  LONG v18; // r8d
-  LONG v19; // r11d
-  LONG v20; // ebx
+  RECTL *p_rclBounds; // rbx
+  BOOL v14; // eax
+  RECTL *v15; // rax
+  LONG v16; // edx
+  LONG v17; // r8d
+  LONG v18; // r11d
+  LONG v19; // ebx
+  LONG v20; // ecx
   LONG v21; // r9d
   LONG v22; // r10d
   int v23; // r8d
   int v24; // ebx
   int v26; // ecx
   int v27; // ecx
-  int v28; // ecx
+  HDEV hdev; // rax
+  int v29; // ecx
+  int v30; // ecx
+  int v31; // ecx
 
+  v5 = 0;
   left = 0;
   top = 0;
   right = 0;
   bottom = 0;
   p_rclBounds = 0LL;
   if ( !a1 )
-    return 1LL;
-  if ( a3 && a3->iDComplexity )
+    return 1;
+  if ( a3 )
+    v14 = a3->iDComplexity == 0;
+  else
+    v14 = 1;
+  if ( !v14 )
   {
     p_rclBounds = &a3->rclBounds;
     top = a3->rclBounds.top;
-    v13 = &a3->rclBounds;
+    v15 = &a3->rclBounds;
     right = a3->rclBounds.right;
     bottom = a3->rclBounds.bottom;
-LABEL_7:
-    left = v13->left;
-    if ( v13->left > right || top > bottom )
-      return 0LL;
-    goto LABEL_9;
+LABEL_6:
+    left = v15->left;
+    if ( v15->left > right || top > bottom )
+      return v5;
+    goto LABEL_8;
   }
   if ( a2 )
   {
     top = a2->top;
-    v13 = a2;
+    v15 = a2;
     right = a2->right;
     bottom = a2->bottom;
-    goto LABEL_7;
+    goto LABEL_6;
   }
-LABEL_9:
+LABEL_8:
   if ( SLODWORD(a1[1].hsurf) < 0 )
   {
     hdev = a1->hdev;
@@ -74,12 +82,12 @@ LABEL_9:
     {
       if ( ((_DWORD)hdev[10] & 0x20000) != 0 )
       {
-        v15 = *((_DWORD *)hdev + 640);
-        left -= v15;
-        right -= v15;
-        v16 = *((_DWORD *)hdev + 641);
-        top -= v16;
-        bottom -= v16;
+        v29 = *((_DWORD *)hdev + 646);
+        left -= v29;
+        right -= v29;
+        v30 = *((_DWORD *)hdev + 647);
+        top -= v30;
+        bottom -= v30;
       }
     }
   }
@@ -89,51 +97,52 @@ LABEL_9:
     {
       if ( a2 )
       {
-        v17 = p_rclBounds->left;
-        v18 = p_rclBounds->right;
-        v19 = p_rclBounds->top;
-        v20 = p_rclBounds->bottom;
-        if ( v18 >= a2->right )
-          v18 = a2->right;
+        v16 = p_rclBounds->left;
+        v17 = p_rclBounds->right;
+        v18 = p_rclBounds->top;
+        v19 = p_rclBounds->bottom;
+        v20 = a2->right;
         v21 = a2->top;
+        if ( v16 <= a2->left )
+          v16 = a2->left;
         v22 = a2->bottom;
-        if ( v17 <= a2->left )
-          v17 = a2->left;
-        v23 = v18 - v17;
+        if ( v17 >= v20 )
+          v17 = v20;
+        v23 = v17 - v16;
         if ( v23 <= 0 )
           v23 = 0;
         *a4 = v23;
-        if ( v19 <= v21 )
-          v19 = v21;
-        if ( v20 >= v22 )
-          v20 = v22;
-        v24 = v20 - v19;
+        if ( v18 <= v21 )
+          v18 = v21;
+        if ( v19 >= v22 )
+          v19 = v22;
+        v24 = v19 - v18;
         if ( v24 <= 0 )
           v24 = 0;
         *a5 = v24;
-        return 1LL;
+        return 1;
       }
-      v26 = p_rclBounds->right - p_rclBounds->left;
-      if ( v26 <= 0 )
-        v26 = 0;
-      *a4 = v26;
+      v31 = p_rclBounds->right - p_rclBounds->left;
+      if ( v31 <= 0 )
+        v31 = 0;
+      *a4 = v31;
       v27 = p_rclBounds->bottom - p_rclBounds->top;
-LABEL_40:
+LABEL_36:
       if ( v27 <= 0 )
         v27 = 0;
       *a5 = v27;
-      return 1LL;
+      return 1;
     }
     if ( a2 )
     {
-      v28 = a2->right - a2->left;
-      if ( v28 <= 0 )
-        v28 = 0;
-      *a4 = v28;
+      v26 = a2->right - a2->left;
+      if ( v26 <= 0 )
+        v26 = 0;
+      *a4 = v26;
       v27 = a2->bottom - a2->top;
-      goto LABEL_40;
+      goto LABEL_36;
     }
-    return 1LL;
+    return 1;
   }
-  return 0LL;
+  return v5;
 }

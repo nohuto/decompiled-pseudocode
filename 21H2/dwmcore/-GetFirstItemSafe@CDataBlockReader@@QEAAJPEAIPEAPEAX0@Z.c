@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetFirstItemSafe@CDataBlockReader@@QEAAJPEAIPEAPEAX0@Z @ 0x180042C3C
+ * XREFs of ?GetFirstItemSafe@CDataBlockReader@@QEAAJPEAIPEAPEAX0@Z @ 0x180038124
  * Callers:
- *     ?CheckPrimitives@CRenderData@@AEAAJXZ @ 0x1800447FC (-CheckPrimitives@CRenderData@@AEAAJXZ.c)
- *     ?GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z @ 0x180044A1C (-GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z.c)
+ *     ?CheckPrimitiveCount@CRenderData@@AEAAJXZ @ 0x180037B60 (-CheckPrimitiveCount@CRenderData@@AEAAJXZ.c)
+ *     ?GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z @ 0x180037C58 (-GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetNextItemSafe@CDataStreamReader@@QEAAJPEAIPEAPEAX0@Z @ 0x180044998 (-GetNextItemSafe@CDataStreamReader@@QEAAJPEAIPEAPEAX0@Z.c)
+ *     ?GetNextItemSafe@CDataStreamReader@@QEAAJPEAIPEAPEAX0@Z @ 0x180037FD8 (-GetNextItemSafe@CDataStreamReader@@QEAAJPEAIPEAPEAX0@Z.c)
  */
 
 __int64 __fastcall CDataBlockReader::GetFirstItemSafe(__int64 **this, unsigned int *a2, void **a3, unsigned int *a4)

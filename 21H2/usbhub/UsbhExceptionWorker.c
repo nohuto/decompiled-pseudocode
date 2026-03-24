@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhExceptionWorker @ 0x1C004A720
+ * XREFs of UsbhExceptionWorker @ 0x1C004BB00
  * Callers:
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhReferenceListRemove @ 0x1C001DCEC (UsbhReferenceListRemove.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     UsbhGetExceptionDispatch @ 0x1C004A814 (UsbhGetExceptionDispatch.c)
- *     UsbhLogException @ 0x1C004A92C (UsbhLogException.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhReferenceListRemove @ 0x1C001B88C (UsbhReferenceListRemove.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     UsbhGetExceptionDispatch @ 0x1C004BBF4 (UsbhGetExceptionDispatch.c)
+ *     UsbhLogException @ 0x1C004BD0C (UsbhLogException.c)
  */
 
 void __fastcall UsbhExceptionWorker(__int64 a1, __int64 a2, __int64 a3)
@@ -33,7 +33,7 @@ void __fastcall UsbhExceptionWorker(__int64 a1, __int64 a2, __int64 a3)
   }
   ExceptionDispatch = (char *)&HubExceptionTable + 24 * v6;
 LABEL_6:
-  if ( HIDWORD(WPP_MAIN_CB.DeviceQueue.DeviceListHead.Blink) )
+  if ( dword_1C006C4D4 )
     Log(a1, 128, 1768908081, a3, 0LL);
   if ( ExceptionDispatch )
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPILateRestore @ 0x1C005B700
+ * XREFs of ACPILateRestore @ 0x1C005A7F0
  * Callers:
  *     <none>
  * Callees:
- *     READ_PM1_CONTROL @ 0x1C0024548 (READ_PM1_CONTROL.c)
+ *     READ_PM1_CONTROL @ 0x1C00100C8 (READ_PM1_CONTROL.c)
  */
 
 __int64 ACPILateRestore()

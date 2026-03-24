@@ -1,7 +1,7 @@
 /*
- * XREFs of ?CheckAllocationStatus@?$CSectionBitmapAllocator@$0BFAAA@$0BFA@@NSInstrumentation@@QEAA?AW4AllocationStatus@2@PEBX@Z @ 0x1C0093A1C
+ * XREFs of ?CheckAllocationStatus@?$CSectionBitmapAllocator@$0BFAAA@$0BFA@@NSInstrumentation@@QEAA?AW4AllocationStatus@2@PEBX@Z @ 0x1C0080FD0
  * Callers:
- *     ?Free@?$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C0093950 (-Free@-$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAXPEAX@Z.c)
+ *     ?Free@?$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C0113654 (-Free@-$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAXPEAX@Z.c)
  * Callees:
  *     <none>
  */

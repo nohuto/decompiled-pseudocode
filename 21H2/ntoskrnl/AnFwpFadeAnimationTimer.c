@@ -1,15 +1,15 @@
 /*
- * XREFs of AnFwpFadeAnimationTimer @ 0x140AACB80
+ * XREFs of AnFwpFadeAnimationTimer @ 0x1409F24C0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeCancelTimer @ 0x140356EB0 (KeCancelTimer.c)
- *     BgpFwReleaseLock @ 0x1403A7BF0 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403A7C40 (BgpFwAcquireLock.c)
- *     BgpGxDrawRectangle @ 0x1403A7F70 (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x1403A8368 (BgpGetBitsPerPixel.c)
- *     LogFwStat @ 0x140AACFEC (LogFwStat.c)
+ *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     BgpGxDrawRectangle @ 0x14039BE98 (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x14039C280 (BgpGetBitsPerPixel.c)
+ *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
+ *     LogFwStat @ 0x1409F27D8 (LogFwStat.c)
  */
 
 void __fastcall AnFwpFadeAnimationTimer(
@@ -75,30 +75,30 @@ void __fastcall AnFwpFadeAnimationTimer(
 
   v56 = 0LL;
   BgpFwAcquireLock();
-  if ( byte_140CE1AE1 )
+  if ( byte_140CDB161 )
   {
     LogFwStat(1LL, 6LL, 0LL);
     LogFwStat(1LL, 4LL, 0LL);
-    v4 = dword_140C0B244;
-    v5 = qword_140C0B288;
-    v6 = qword_140C0B298;
-    v7 = byte_140C0B250;
-    v8 = byte_140C0B251;
-    v9 = byte_140C0B252;
-    v56 = qword_140C0B248;
-    v55 = qword_140C0B2D0;
-    v54 = (_BYTE *)qword_140C0B288;
-    v57 = (_BYTE *)qword_140C0B298;
-    v10 = 10 * (dword_140C0B240 - dword_140C0B240 / (unsigned int)(dword_140C0DF94 - dword_140C0B244));
+    v4 = dword_140C10E84;
+    v5 = qword_140C10EC0;
+    v6 = qword_140C10ED0;
+    v7 = byte_140C10E90;
+    v8 = byte_140C10E91;
+    v9 = byte_140C10E92;
+    v56 = qword_140C10E88;
+    v55 = qword_140C10F00;
+    v54 = (_BYTE *)qword_140C10EC0;
+    v57 = (_BYTE *)qword_140C10ED0;
+    v10 = 10 * (dword_140C10E80 - dword_140C10E80 / (unsigned int)(dword_140C134F4 - dword_140C10E84));
     v13 = 0;
     if ( (unsigned int)BgpGetBitsPerPixel() == 24 )
     {
       if ( !v9 )
       {
-        v31 = qword_140C0B290;
+        v31 = qword_140C10EC8;
         v32 = 0LL;
         v33 = *(_QWORD *)(v6 + 24);
-        for ( i = *(_QWORD *)(qword_140C0B290 + 24);
+        for ( i = *(_QWORD *)(qword_140C10EC8 + 24);
               (unsigned int)v32 < *(_DWORD *)(v31 + 12);
               v32 = (unsigned int)(v32 + 1) )
         {
@@ -152,10 +152,10 @@ void __fastcall AnFwpFadeAnimationTimer(
     {
       if ( !v9 )
       {
-        v14 = qword_140C0B290;
+        v14 = qword_140C10EC8;
         v15 = 0LL;
         v16 = *(_QWORD *)(v6 + 24);
-        for ( m = *(_QWORD *)(qword_140C0B290 + 24);
+        for ( m = *(_QWORD *)(qword_140C10EC8 + 24);
               (unsigned int)v15 < *(_DWORD *)(v14 + 12);
               v15 = (unsigned int)(v15 + 4) )
         {
@@ -241,29 +241,29 @@ void __fastcall AnFwpFadeAnimationTimer(
     }
     if ( !v7 )
     {
-      if ( !v4 && !v22 || (BgpGxDrawRectangle(v54, (__int64)&xmmword_140C0B260), !v22) )
+      if ( !v4 && !v22 || (BgpGxDrawRectangle(v54, (__int64)&xmmword_140C10EA0), !v22) )
         v7 = 1;
     }
     if ( !v8 )
     {
-      if ( !v4 && !v30 || (BgpGxDrawRectangle((_BYTE *)v55, (__int64)&xmmword_140C0B2A0), !v30) )
+      if ( !v4 && !v30 || (BgpGxDrawRectangle((_BYTE *)v55, (__int64)&xmmword_140C10ED8), !v30) )
         v8 = 1;
     }
     LogFwStat(0LL, 3LL, 0LL);
     LogFwStat(0LL, 6LL, &v57);
     if ( v13 || v30 || v22 )
     {
-      byte_140C0B250 = v7;
-      byte_140C0B251 = v8;
-      dword_140C0B240 = v10 / 0xA;
-      dword_140C0B244 = v4 + 1;
-      byte_140C0B252 = v9;
+      byte_140C10E90 = v7;
+      byte_140C10E91 = v8;
+      dword_140C10E80 = v10 / 0xA;
+      dword_140C10E84 = v4 + 1;
+      byte_140C10E92 = v9;
     }
     else
     {
-      byte_140CE1AE1 = 0;
-      KeCancelTimer(&stru_140D00980);
-      KeSetEvent(&stru_140D009C0, 0, 0);
+      byte_140CDB161 = 0;
+      KeCancelTimer(&stru_140CF32C0);
+      KeSetEvent(&stru_140CF3300, 0, 0);
     }
   }
   BgpFwReleaseLock();

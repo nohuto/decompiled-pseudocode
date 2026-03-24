@@ -1,54 +1,45 @@
 /*
- * XREFs of CcAsyncReadWorkerThread @ 0x14053ABC0
+ * XREFs of CcAsyncReadWorkerThread @ 0x1404EC500
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     CcDereferencePartition @ 0x14029C310 (CcDereferencePartition.c)
- *     CcAsyncReadWorker @ 0x1403BE4A0 (CcAsyncReadWorker.c)
+ *     CcDereferencePartition @ 0x1402773AC (CcDereferencePartition.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     CcAsyncReadWorker @ 0x1403B72F0 (CcAsyncReadWorker.c)
  */
 
-void __fastcall CcAsyncReadWorkerThread(__int64 a1)
+char __fastcall CcAsyncReadWorkerThread(__int64 a1)
 {
-  __int64 v1; // rbp
-  _QWORD *v3; // r13
-  __int64 v4; // rsi
-  __int64 v5; // r12
-  __int64 *v6; // r14
-  __int64 v7; // r15
-  __int64 v8; // rdi
-  _QWORD *v9; // rax
+  _UNKNOWN **v1; // rax
+  __int64 v2; // r14
+  _QWORD *v4; // rbp
+  __int64 v5; // rsi
+  __int64 v6; // rbx
+  _QWORD *v7; // rax
+  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
-  v1 = *(unsigned int *)(a1 + 36);
-  v3 = *(_QWORD **)(a1 + 72);
-  v4 = *(_QWORD *)(a1 + 64);
-  v5 = *(_QWORD *)(a1 + 56);
-  v6 = (__int64 *)(v4 + 1160);
-  v7 = v3[35] + 404 * v1;
-  v8 = v3[29] + 16 * v1;
-  if ( !CcEnablePerVolumeLazyWriter )
-    v6 = (__int64 *)(v5 + 1224);
+  v1 = &retaddr;
+  v2 = *(unsigned int *)(a1 + 36);
+  v4 = *(_QWORD **)(a1 + 56);
+  v5 = v4[105] + 16 * v2;
   if ( *(_DWORD *)(a1 + 32) == 3 )
   {
-    *(_DWORD *)(v7 + 4LL * *(unsigned int *)(a1 + 40)) = 0;
+    v6 = v4[111] + 404 * v2;
+    *(_DWORD *)(v6 + 4LL * *(unsigned int *)(a1 + 40)) = 0;
     CcAsyncReadWorker((_DWORD *)a1);
-    *(_DWORD *)(v7 + 4LL * *(unsigned int *)(a1 + 40)) = -1;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)v6, 0LL);
-    v9 = *(_QWORD **)(v8 + 8);
-    if ( *v9 != v8 )
+    *(_DWORD *)(v6 + 4LL * *(unsigned int *)(a1 + 40)) = -1;
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)(v4 + 112), 0LL);
+    v7 = *(_QWORD **)(v5 + 8);
+    if ( *v7 != v5 )
       __fastfail(3u);
-    *(_QWORD *)a1 = v8;
-    *(_QWORD *)(a1 + 8) = v9;
-    *v9 = a1;
-    *(_QWORD *)(v8 + 8) = a1;
-    --*(_DWORD *)(v3[30] + 4 * v1);
-    ExReleasePushLockEx(v6, 0LL);
-    CcDereferencePartition(v5);
-    if ( v4 )
-    {
-      if ( _InterlockedDecrement64((volatile signed __int64 *)(v4 + 8)) <= -1 )
-        __fastfail(0xEu);
-    }
+    *(_QWORD *)a1 = v5;
+    *(_QWORD *)(a1 + 8) = v7;
+    *v7 = a1;
+    *(_QWORD *)(v5 + 8) = a1;
+    --*(_DWORD *)(v4[106] + 4 * v2);
+    ExReleasePushLockEx((ULONG_PTR)(v4 + 112), 0LL);
+    LOBYTE(v1) = CcDereferencePartition((__int64)v4);
   }
+  return (char)v1;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_CalculateRequiredMapRegisters@FxDmaTransactionBase@@SAJPEAU_MDL@@_KKKPEAK2@Z @ 0x1C00380C4
+ * XREFs of ?_CalculateRequiredMapRegisters@FxDmaTransactionBase@@SAJPEAU_MDL@@_KKKPEAK2@Z @ 0x1C00371F0
  * Callers:
- *     ?ReserveAdapter@FxDmaPacketTransaction@@QEAAJKW4_WDF_DMA_DIRECTION@@P6AXPEAUWDFDMATRANSACTION__@@PEAX@Z2@Z @ 0x1C00561E4 (-ReserveAdapter@FxDmaPacketTransaction@@QEAAJKW4_WDF_DMA_DIRECTION@@P6AXPEAUWDFDMATRANSACTION__@.c)
- *     ?InitializeResources@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C0058060 (-InitializeResources@FxDmaScatterGatherTransaction@@UEAAJXZ.c)
- *     ?StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C0058240 (-StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ.c)
+ *     ?ReserveAdapter@FxDmaPacketTransaction@@QEAAJKW4_WDF_DMA_DIRECTION@@P6AXPEAUWDFDMATRANSACTION__@@PEAX@Z2@Z @ 0x1C0033364 (-ReserveAdapter@FxDmaPacketTransaction@@QEAAJKW4_WDF_DMA_DIRECTION@@P6AXPEAUWDFDMATRANSACTION__@.c)
+ *     ?InitializeResources@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C00351B0 (-InitializeResources@FxDmaScatterGatherTransaction@@UEAAJXZ.c)
+ *     ?StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C0035430 (-StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ.c)
  * Callees:
  *     <none>
  */

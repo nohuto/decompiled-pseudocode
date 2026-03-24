@@ -1,16 +1,14 @@
 /*
- * XREFs of ?InternalGetAdapter@CDisplayManager@@AEAAJU_LUID@@PEAPEAUIDXGIAdapter1@@@Z @ 0x1800CDB70
+ * XREFs of ?InternalGetAdapter@CDisplayManager@@AEAAJU_LUID@@PEAPEAUIDXGIAdapter1@@@Z @ 0x18002EA74
  * Callers:
- *     ?CreateNewDevice@CDeviceManager@@AEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x1800CDD10 (-CreateNewDevice@CDeviceManager@@AEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
- *     ?GetDXGIOutput@CDisplayManager@@QEAAJU_LUID@@IPEAPEAUIDXGIOutputDWM@@@Z @ 0x18028F27C (-GetDXGIOutput@CDisplayManager@@QEAAJU_LUID@@IPEAPEAUIDXGIOutputDWM@@@Z.c)
- *     ?ValidateLuidAndMonitor@CDisplayManager@@QEAAJU_LUID@@PEAUHMONITOR__@@@Z @ 0x18028F6F4 (-ValidateLuidAndMonitor@CDisplayManager@@QEAAJU_LUID@@PEAUHMONITOR__@@@Z.c)
+ *     ?CreateNewDevice@CDeviceManager@@AEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18002E5EC (-CreateNewDevice@CDeviceManager@@AEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?InternalGetDXGIFactory@CDisplayManager@@AEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x1800CEC6C (-InternalGetDXGIFactory@CDisplayManager@@AEAAJPEAPEAUIDXGIFactory5@@@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?InternalGetDXGIFactory@CDisplayManager@@AEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x18003103C (-InternalGetDXGIFactory@CDisplayManager@@AEAAJPEAPEAUIDXGIFactory5@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CDisplayManager::InternalGetAdapter(
@@ -20,89 +18,85 @@ __int64 __fastcall CDisplayManager::InternalGetAdapter(
 {
   DWORD LowPart; // ebx
   int DXGIFactory; // eax
-  unsigned int v6; // edi
+  int v6; // esi
   struct IDXGIFactory5 *v7; // rdi
-  unsigned int v8; // esi
+  unsigned int v8; // r14d
   LONG HighPart; // r12d
   struct IDXGIFactory5Vtbl *lpVtbl; // rax
-  int v11; // r14d
-  __int64 v12; // rcx
-  int v13; // eax
-  int v15[2]; // [rsp+20h] [rbp-E0h] BYREF
-  struct IDXGIFactory5 *v16; // [rsp+28h] [rbp-D8h] BYREF
-  int *v17; // [rsp+30h] [rbp-D0h]
-  __int64 v18; // [rsp+38h] [rbp-C8h] BYREF
-  char v19; // [rsp+40h] [rbp-C0h]
-  struct _LUID v20; // [rsp+48h] [rbp-B8h]
-  _BYTE v21[296]; // [rsp+50h] [rbp-B0h] BYREF
-  int v22; // [rsp+178h] [rbp+78h]
-  int v23; // [rsp+17Ch] [rbp+7Ch]
+  __int64 v11; // rcx
+  int v12; // eax
+  int v14[2]; // [rsp+20h] [rbp-E0h] BYREF
+  struct IDXGIFactory5 *v15; // [rsp+28h] [rbp-D8h] BYREF
+  int *v16; // [rsp+30h] [rbp-D0h]
+  __int64 v17; // [rsp+38h] [rbp-C8h] BYREF
+  char v18; // [rsp+40h] [rbp-C0h]
+  struct _LUID v19; // [rsp+48h] [rbp-B8h]
+  _BYTE v20[296]; // [rsp+50h] [rbp-B0h] BYREF
+  int v21; // [rsp+178h] [rbp+78h]
+  int v22; // [rsp+17Ch] [rbp+7Ch]
   wil::details::in1diag3 *retaddr; // [rsp+1D8h] [rbp+D8h]
 
   LowPart = a2.LowPart;
-  v20 = a2;
+  v19 = a2;
   *a3 = 0LL;
-  v16 = 0LL;
-  DXGIFactory = CDisplayManager::InternalGetDXGIFactory(this, &v16);
+  v15 = 0LL;
+  DXGIFactory = CDisplayManager::InternalGetDXGIFactory(this, &v15);
   v6 = DXGIFactory;
   if ( DXGIFactory < 0 )
   {
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0x134,
+      (void *)0x1B5,
       (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\displaymanager.cpp",
       (const char *)(unsigned int)DXGIFactory,
-      v15[0]);
+      v14[0]);
   }
   else
   {
-    v7 = v16;
+    v7 = v15;
     v8 = 0;
-    HighPart = v20.HighPart;
-    *(_QWORD *)v15 = 0LL;
+    HighPart = v19.HighPart;
+    *(_QWORD *)v14 = 0LL;
     while ( 1 )
     {
       lpVtbl = v7->lpVtbl;
-      v17 = v15;
-      v18 = 0LL;
-      v19 = 1;
-      v11 = ((__int64 (__fastcall *)(struct IDXGIFactory5 *, _QWORD, __int64 *))lpVtbl->EnumAdapters1)(v7, v8, &v18);
-      if ( v19 )
+      v16 = v14;
+      v17 = 0LL;
+      v18 = 1;
+      v6 = ((__int64 (__fastcall *)(struct IDXGIFactory5 *, _QWORD, __int64 *))lpVtbl->EnumAdapters1)(v7, v8, &v17);
+      if ( v18 )
       {
-        v12 = *(_QWORD *)v17;
-        *(_QWORD *)v17 = v18;
-        if ( v12 )
-          (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
+        v11 = *(_QWORD *)v16;
+        *(_QWORD *)v16 = v17;
+        if ( v11 )
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 16LL))(v11);
       }
-      if ( v11 < 0 )
+      if ( v6 < 0 )
         break;
-      memset_0(v21, 0, 0x138uLL);
-      v13 = (*(__int64 (__fastcall **)(_QWORD, _BYTE *))(**(_QWORD **)v15 + 80LL))(*(_QWORD *)v15, v21);
-      v11 = v13;
-      if ( v13 < 0 )
+      memset_0(v20, 0, 0x138uLL);
+      v12 = (*(__int64 (__fastcall **)(_QWORD, _BYTE *))(**(_QWORD **)v14 + 80LL))(*(_QWORD *)v14, v20);
+      v6 = v12;
+      if ( v12 < 0 )
       {
         wil::details::in1diag3::Return_Hr(
           retaddr,
-          (void *)0x13D,
+          (void *)0x1BE,
           (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\hw\\displaymanager.cpp",
-          (const char *)(unsigned int)v13,
-          v15[0]);
+          (const char *)(unsigned int)v12,
+          v14[0]);
         break;
       }
-      if ( LowPart == v22 && HighPart == v23 )
+      if ( LowPart == v21 && HighPart == v22 )
       {
-        *a3 = *(struct IDXGIAdapter1 **)v15;
-        *(_QWORD *)v15 = 0LL;
-        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)v15);
         v6 = 0;
-        goto LABEL_11;
+        *a3 = *(struct IDXGIAdapter1 **)v14;
+        *(_QWORD *)v14 = 0LL;
+        break;
       }
       ++v8;
     }
-    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)v15);
-    v6 = v11;
+    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)v14);
   }
-LABEL_11:
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v16);
-  return v6;
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v15);
+  return (unsigned int)v6;
 }

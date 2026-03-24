@@ -1,43 +1,31 @@
 /*
- * XREFs of MiPageAttributeBatchChangeNeeded @ 0x140266074
+ * XREFs of MiPageAttributeBatchChangeNeeded @ 0x1402E3FE0
  * Callers:
- *     MiConvertContiguousPages @ 0x140265BE4 (MiConvertContiguousPages.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x140265D40 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiSwitchToTransition @ 0x1405954F4 (MiSwitchToTransition.c)
+ *     MiConvertContiguousPages @ 0x1402E3BC4 (MiConvertContiguousPages.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1402E3D24 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiSwitchToTransition @ 0x140539F14 (MiSwitchToTransition.c)
  * Callees:
- *     MiChangePageAttribute @ 0x140267E78 (MiChangePageAttribute.c)
+ *     MiChangePageAttribute @ 0x1403041E4 (MiChangePageAttribute.c)
  */
 
 __int64 __fastcall MiPageAttributeBatchChangeNeeded(__int64 a1, __int64 a2)
 {
-  unsigned int v2; // r9d
-  int v3; // eax
-  __int64 v5; // rax
-  unsigned int v6; // edx
-  signed __int32 v7[10]; // [rsp+0h] [rbp-28h] BYREF
+  int v2; // eax
+  char v4; // r8
+  unsigned int v5; // eax
+  signed __int32 v6[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  v2 = a2;
-  v3 = *(unsigned __int8 *)(a1 + 34) >> 6;
-  if ( v3 == (_DWORD)a2 )
+  v2 = *(unsigned __int8 *)(a1 + 34) >> 6;
+  if ( v2 == (_DWORD)a2 )
     return 0LL;
-  if ( v3 != 1 )
+  if ( v2 != 1 )
   {
-    if ( v3 == 3 )
+    if ( v2 == 3
+      || (v4 = *(_BYTE *)(a1 + 31) & 0xF, _InterlockedOr(v6, 0), v5 = ((_BYTE)KiTbFlushTimeStamp - v4) & 0xF, v5 > 2)
+      || (v4 & 1) == 0 && v5 >= 2 )
     {
-LABEL_5:
       MiChangePageAttribute(a1, a2, 4LL);
       return 0LL;
-    }
-    v5 = (*(_QWORD *)(a1 + 24) >> 59) & 7LL;
-    if ( ((*(_QWORD *)(a1 + 24) >> 59) & 7) != 0 )
-    {
-      _InterlockedOr(v7, 0);
-      v6 = ((_BYTE)KiTbFlushTimeStamp - (_BYTE)v5) & 7;
-      if ( v6 > 2 || (v5 & 1) == 0 && v6 >= 2 )
-      {
-        a2 = v2;
-        goto LABEL_5;
-      }
     }
   }
   return 1LL;

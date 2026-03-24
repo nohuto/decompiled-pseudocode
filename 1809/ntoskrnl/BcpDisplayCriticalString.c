@@ -1,15 +1,15 @@
 /*
- * XREFs of BcpDisplayCriticalString @ 0x140327C54
+ * XREFs of BcpDisplayCriticalString @ 0x140327D54
  * Callers:
- *     BcpDisplayErrorInformation @ 0x140327FB0 (BcpDisplayErrorInformation.c)
- *     BcpDisplayProgress @ 0x140328230 (BcpDisplayProgress.c)
- *     BgpDisplaySafeToPowerOffScreen @ 0x140328754 (BgpDisplaySafeToPowerOffScreen.c)
- *     BgpFwDisplayBugCheckScreen @ 0x140328A0C (BgpFwDisplayBugCheckScreen.c)
+ *     BcpDisplayErrorInformation @ 0x1403280B0 (BcpDisplayErrorInformation.c)
+ *     BcpDisplayProgress @ 0x140328330 (BcpDisplayProgress.c)
+ *     BgpDisplaySafeToPowerOffScreen @ 0x140328854 (BgpDisplaySafeToPowerOffScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140328B0C (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140327774 (BgpDisplayCharacterEx.c)
- *     BgpFoGetStringAdvanceWidth @ 0x1403278E4 (BgpFoGetStringAdvanceWidth.c)
- *     BcpPrintSpaces @ 0x1403285F4 (BcpPrintSpaces.c)
- *     BgpRasGetGlyphAdvanceWidth @ 0x140328DA4 (BgpRasGetGlyphAdvanceWidth.c)
+ *     BgpDisplayCharacterEx @ 0x140327874 (BgpDisplayCharacterEx.c)
+ *     BgpFoGetStringAdvanceWidth @ 0x1403279E4 (BgpFoGetStringAdvanceWidth.c)
+ *     BcpPrintSpaces @ 0x1403286F4 (BcpPrintSpaces.c)
+ *     BgpRasGetGlyphAdvanceWidth @ 0x140328EA4 (BgpRasGetGlyphAdvanceWidth.c)
  */
 
 __int64 __fastcall BcpDisplayCriticalString(__int16 *a1, int a2, unsigned int a3, int a4)

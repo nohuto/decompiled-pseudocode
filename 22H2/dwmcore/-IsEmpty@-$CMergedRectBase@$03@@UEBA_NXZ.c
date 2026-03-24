@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsEmpty@?$CMergedRectBase@$03@@UEBA_NXZ @ 0x180211220
+ * XREFs of ?IsEmpty@?$CMergedRectBase@$03@@UEBA_NXZ @ 0x1801ADD70
  * Callers:
  *     <none>
  * Callees:

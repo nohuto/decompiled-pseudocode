@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiLdaPowerUpAdapterInChain @ 0x1C03966BC
+ * XREFs of DpiLdaPowerUpAdapterInChain @ 0x1C02D8058
  * Callers:
- *     DpiFdoHandleDevicePower @ 0x1C01F0950 (DpiFdoHandleDevicePower.c)
+ *     DpiFdoHandleDevicePower @ 0x1C01771F0 (DpiFdoHandleDevicePower.c)
  * Callees:
- *     DpiSetDevicePowerTransitionStateAtPassiveLevel @ 0x1C0024370 (DpiSetDevicePowerTransitionStateAtPassiveLevel.c)
- *     DpiFdoSetAdapterPowerState @ 0x1C01EFEE0 (DpiFdoSetAdapterPowerState.c)
+ *     DpiSetDevicePowerTransitionStateAtPassiveLevel @ 0x1C0051C9C (DpiSetDevicePowerTransitionStateAtPassiveLevel.c)
+ *     DpiFdoSetAdapterPowerState @ 0x1C0176470 (DpiFdoSetAdapterPowerState.c)
  */
 
 __int64 __fastcall DpiLdaPowerUpAdapterInChain(__int64 a1, __int64 a2)
@@ -14,10 +14,16 @@ __int64 __fastcall DpiLdaPowerUpAdapterInChain(__int64 a1, __int64 a2)
   __int64 v4; // rdi
   __int64 v5; // rsi
   unsigned int v6; // ebx
-  int v7; // r14d
-  __int64 v8; // rdi
-  unsigned int v9; // r8d
-  unsigned int v10; // edx
+  unsigned int v7; // r14d
+  __int64 v8; // r8
+  __int64 v9; // rax
+  __int64 v10; // rdi
+  __int64 v11; // rax
+  unsigned int v12; // r8d
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // rax
 
   v2 = *(_DWORD **)(a2 + 184);
   v3 = 0;
@@ -29,49 +35,60 @@ __int64 __fastcall DpiLdaPowerUpAdapterInChain(__int64 a1, __int64 a2)
   {
     v3 = DpiFdoSetAdapterPowerState(
            *(PDEVICE_OBJECT *)(v4 + 24),
-           (unsigned int)v5,
+           (POWER_STATE)v5,
            (unsigned __int16)v6 >> 12,
            HIWORD(v6) & 0xF,
            v2[8]);
     if ( v3 < 0 )
     {
-      WdLogSingleEntry1(3LL, v5);
+      v9 = WdLogNewEntry5_WdWarning(a1, a2, v8);
+      *(_QWORD *)(v9 + 24) = v5;
+LABEL_6:
+      WdLogEvent5_WdWarning(v9);
       return (unsigned int)v3;
     }
-    v8 = *(_QWORD *)(v4 + 2728);
-    if ( !v8 )
+    v10 = *(_QWORD *)(v4 + 2728);
+    if ( !v10 )
     {
-      WdLogSingleEntry1(3LL, 0LL);
-      return (unsigned int)v3;
+      v9 = WdLogNewEntry5_WdWarning(a1, a2, v8);
+      *(_QWORD *)(v9 + 24) = 0LL;
+      goto LABEL_6;
     }
-    v4 = *(_QWORD *)(v8 + 64);
+    v4 = *(_QWORD *)(v10 + 64);
   }
   if ( *(_BYTE *)(v4 + 496) == 1 )
   {
-LABEL_10:
-    WdLogSingleEntry1(4LL, 0LL);
+LABEL_11:
+    v11 = WdLogNewEntry5_WdEvent(a1, a2);
+    *(_QWORD *)(v11 + 24) = 0LL;
+    WdLogEvent5_WdEvent(v11);
     return (unsigned int)v3;
   }
-  v9 = *(_DWORD *)(v4 + 2736);
-  v10 = 1;
-  if ( v9 > 1 )
+  v12 = *(_DWORD *)(v4 + 2736);
+  a2 = 1LL;
+  if ( v12 > 1 )
   {
-    while ( *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v4 + 2728) + 8LL * v10) + 64LL) + 284LL) == 1 )
+    do
     {
-      if ( ++v10 >= v9 )
-        goto LABEL_14;
+      a1 = *(_QWORD *)(*(_QWORD *)(v4 + 2728) + 8LL * (unsigned int)a2);
+      if ( *(_DWORD *)(*(_QWORD *)(a1 + 64) + 284LL) != 1 )
+        goto LABEL_11;
+      a2 = (unsigned int)(a2 + 1);
     }
-    goto LABEL_10;
+    while ( (unsigned int)a2 < v12 );
   }
-LABEL_14:
   v3 = DpiFdoSetAdapterPowerState(
          *(PDEVICE_OBJECT *)(v4 + 24),
-         (unsigned int)v5,
+         (POWER_STATE)v5,
          (unsigned __int16)v6 >> 12,
          HIWORD(v6) & 0xF,
          v7);
   if ( v3 < 0 )
-    WdLogSingleEntry1(3LL, v5);
+  {
+    v16 = WdLogNewEntry5_WdWarning(v14, v13, v15);
+    *(_QWORD *)(v16 + 24) = v5;
+    WdLogEvent5_WdWarning(v16);
+  }
   if ( *(_BYTE *)(v4 + 484) )
     DpiSetDevicePowerTransitionStateAtPassiveLevel(v4, 0, 1);
   return (unsigned int)v3;

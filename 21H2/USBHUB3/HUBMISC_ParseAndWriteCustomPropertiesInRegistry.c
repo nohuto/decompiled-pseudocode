@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBMISC_ParseAndWriteCustomPropertiesInRegistry @ 0x1C007DEDC
+ * XREFs of HUBMISC_ParseAndWriteCustomPropertiesInRegistry @ 0x1C007C900
  * Callers:
- *     HUBDSM_WritingCustomPropertiesInRegistry @ 0x1C0022750 (HUBDSM_WritingCustomPropertiesInRegistry.c)
+ *     HUBDSM_WritingCustomPropertiesInRegistry @ 0x1C0022300 (HUBDSM_WritingCustomPropertiesInRegistry.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBREG_WriteValueToDeviceHardwareKey @ 0x1C00812DC (HUBREG_WriteValueToDeviceHardwareKey.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBREG_WriteValueToDeviceHardwareKey @ 0x1C007FD70 (HUBREG_WriteValueToDeviceHardwareKey.c)
  */
 
 __int64 __fastcall HUBMISC_ParseAndWriteCustomPropertiesInRegistry(__int64 a1)
@@ -49,7 +49,7 @@ __int64 __fastcall HUBMISC_ParseAndWriteCustomPropertiesInRegistry(__int64 a1)
         2u,
         5u,
         0x40u,
-        (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids,
+        (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
         v8);
     }
   }

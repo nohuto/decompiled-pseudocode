@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIFanPowerCallback @ 0x1C0003020
+ * XREFs of ACPIFanPowerCallback @ 0x1C000D2C0
  * Callers:
  *     <none>
  * Callees:
- *     AcpiDiagTraceFanEvent @ 0x1C00030C0 (AcpiDiagTraceFanEvent.c)
- *     ACPIFanLoop @ 0x1C0003664 (ACPIFanLoop.c)
- *     WPP_RECORDER_SF_Dqss @ 0x1C0004A40 (WPP_RECORDER_SF_Dqss.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     AcpiDiagTraceFanEvent @ 0x1C000D360 (AcpiDiagTraceFanEvent.c)
+ *     ACPIFanLoop @ 0x1C000D58C (ACPIFanLoop.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ACPIFanPowerCallback(__int64 a1, __int64 a2, int a3)
@@ -26,17 +26,17 @@ __int64 __fastcall ACPIFanPowerCallback(__int64 a1, __int64 a2, int a3)
   if ( a3 < 0 )
   {
     v6 = 0;
-    v7 = &unk_1C006FB8B;
-    v8 = &unk_1C006FB8B;
+    v7 = &unk_1C00701BA;
+    v8 = &unk_1C00701BA;
     if ( a1 )
     {
       v9 = *(_QWORD *)(a1 + 8);
       v6 = a1;
       if ( (v9 & 0x200000000000LL) != 0 )
       {
-        v7 = *(void **)(a1 + 608);
+        v7 = *(void **)(a1 + 568);
         if ( (v9 & 0x400000000000LL) != 0 )
-          v8 = *(void **)(a1 + 616);
+          v8 = *(void **)(a1 + 576);
       }
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -48,7 +48,7 @@ __int64 __fastcall ACPIFanPowerCallback(__int64 a1, __int64 a2, int a3)
         (_DWORD)v8,
         16,
         13,
-        (__int64)&WPP_91517f0b10833e548608c253cc4d22bc_Traceguids,
+        (__int64)&WPP_3f41a75ade0b3c322354d339e206c4ba_Traceguids,
         a3,
         v6,
         (__int64)v7,
@@ -56,7 +56,7 @@ __int64 __fastcall ACPIFanPowerCallback(__int64 a1, __int64 a2, int a3)
     }
   }
   v14 = 2;
-  v4 = *(_DWORD *)(a1 + 384) == 1;
+  v4 = *(_DWORD *)(a1 + 344) == 1;
   v15 = 0;
   v11 = v4;
   v13 = &v11;

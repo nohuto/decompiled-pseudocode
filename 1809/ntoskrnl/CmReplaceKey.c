@@ -1,25 +1,25 @@
 /*
- * XREFs of CmReplaceKey @ 0x1407EF15C
+ * XREFs of CmReplaceKey @ 0x1407EF13C
  * Callers:
- *     NtReplaceKey @ 0x1407EA090 (NtReplaceKey.c)
+ *     NtReplaceKey @ 0x1407EA070 (NtReplaceKey.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwFlushBuffersFile @ 0x1401B8AD0 (ZwFlushBuffersFile.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwFlushBuffersFile @ 0x1401B8AF0 (ZwFlushBuffersFile.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
  *     CmpCmdHiveOpen @ 0x1405B494C (CmpCmdHiveOpen.c)
  *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140736470 (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x1407368A0 (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpDestroyHive @ 0x1407F6798 (CmpDestroyHive.c)
- *     CmpCmdRenameHive @ 0x1407FAFC0 (CmpCmdRenameHive.c)
- *     CmpPreserveSystemHiveData @ 0x1407FDCE4 (CmpPreserveSystemHiveData.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140736450 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x140736880 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpDestroyHive @ 0x1407F6778 (CmpDestroyHive.c)
+ *     CmpCmdRenameHive @ 0x1407FAFA0 (CmpCmdRenameHive.c)
+ *     CmpPreserveSystemHiveData @ 0x1407FDCC4 (CmpPreserveSystemHiveData.c)
  */
 
 __int64 __fastcall CmReplaceKey(__int64 a1, __int64 a2, const UNICODE_STRING *a3, ULONG_PTR a4)

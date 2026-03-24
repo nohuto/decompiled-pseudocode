@@ -1,10 +1,10 @@
 /*
- * XREFs of ExConvertFastResourceExclusiveToShared @ 0x14031AF00
+ * XREFs of ExConvertFastResourceExclusiveToShared @ 0x14031B000
  * Callers:
  *     <none>
  * Callees:
- *     ExpConvertFastResourceExclusiveToShared @ 0x1401649F8 (ExpConvertFastResourceExclusiveToShared.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ExpConvertFastResourceExclusiveToShared @ 0x140164A18 (ExpConvertFastResourceExclusiveToShared.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExConvertFastResourceExclusiveToShared(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)

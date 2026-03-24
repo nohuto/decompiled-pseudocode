@@ -1,12 +1,11 @@
 /*
- * XREFs of ?GetMultiScreenDefaultShellTopology@@YAJPEAW4MultiScreenDefaultShellTopology@@@Z @ 0x1C004AC4C
+ * XREFs of ?GetMultiScreenDefaultShellTopology@@YAJPEAW4MultiScreenDefaultShellTopology@@@Z @ 0x1C0049B24
  * Callers:
- *     ?DetermineDefaultTopology@@YA?AW4MultiScreenDefaultShellTopology@@IE@Z @ 0x1C02F99FC (-DetermineDefaultTopology@@YA-AW4MultiScreenDefaultShellTopology@@IE@Z.c)
- *     ?_DetermineDefaultTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAA?AW4MultiScreenDefaultShellTopology@@XZ @ 0x1C03C236C (-_DetermineDefaultTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAA-AW4MultiScreenDefaultShellTopology@@XZ.c)
+ *     ?DetermineDefaultTopology@@YA?AW4MultiScreenDefaultShellTopology@@IE@Z @ 0x1C0295CB8 (-DetermineDefaultTopology@@YA-AW4MultiScreenDefaultShellTopology@@IE@Z.c)
+ *     ?_DetermineDefaultTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAA?AW4MultiScreenDefaultShellTopology@@XZ @ 0x1C02EFE5C (-_DetermineDefaultTopology@BTL_TOPOLOGY_CONSTRUCTOR@@AEAA-AW4MultiScreenDefaultShellTopology@@XZ.c)
  * Callees:
- *     ?DetermineMultiScreenCapabilities@DefaultMultiScreenConfig@@YAJPEAW4MultiScreenShellCapabilities@@@Z @ 0x1C004AAFC (-DetermineMultiScreenCapabilities@DefaultMultiScreenConfig@@YAJPEAW4MultiScreenShellCapabilities.c)
- *     ?IsMultiScreenClonedByDefault@@YA_NXZ @ 0x1C004ADA0 (-IsMultiScreenClonedByDefault@@YA_NXZ.c)
- *     ?IsXbox@@YA_NXZ @ 0x1C004AECC (-IsXbox@@YA_NXZ.c)
+ *     ?DetermineMultiScreenCapabilities@DefaultMultiScreenConfig@@YAJPEAW4MultiScreenShellCapabilities@@@Z @ 0x1C0049A28 (-DetermineMultiScreenCapabilities@DefaultMultiScreenConfig@@YAJPEAW4MultiScreenShellCapabilities.c)
+ *     ?IsXbox@@YA_NXZ @ 0x1C0049C70 (-IsXbox@@YA_NXZ.c)
  */
 
 __int64 __fastcall GetMultiScreenDefaultShellTopology(enum MultiScreenDefaultShellTopology *a1)
@@ -23,19 +22,16 @@ __int64 __fastcall GetMultiScreenDefaultShellTopology(enum MultiScreenDefaultShe
     `IsWindowsTeamEdition'::`2'::s_dwProductType = 0;
   }
   if ( `IsWindowsTeamEdition'::`2'::s_dwProductType == 119 )
-    goto LABEL_8;
-  if ( IsXbox() )
   {
-    v3 = 1;
-LABEL_9:
+    v3 = 3;
+LABEL_8:
     *(_WORD *)a1 = v3;
     return (unsigned int)v2;
   }
-  if ( IsMultiScreenClonedByDefault() )
+  if ( IsXbox() )
   {
-LABEL_8:
-    v3 = 3;
-    goto LABEL_9;
+    v3 = 1;
+    goto LABEL_8;
   }
   *(_WORD *)a1 = 0;
   v6 = 0;

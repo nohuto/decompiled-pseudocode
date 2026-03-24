@@ -1,12 +1,12 @@
 /*
- * XREFs of WMI_AcquireBusInfo @ 0x1C008A8D0
+ * XREFs of WMI_AcquireBusInfo @ 0x1C008434C
  * Callers:
- *     WMI_ExecuteMethodUsbWmiStdData @ 0x1C008AE90 (WMI_ExecuteMethodUsbWmiStdData.c)
+ *     WMI_ExecuteMethodUsbWmiStdData @ 0x1C0084920 (WMI_ExecuteMethodUsbWmiStdData.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
- *     HUBUCX_GetControllerName @ 0x1C0028C2C (HUBUCX_GetControllerName.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBUCX_GetControllerName @ 0x1C0026018 (HUBUCX_GetControllerName.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall WMI_AcquireBusInfo(__int64 a1, unsigned int a2, _DWORD *a3, _DWORD *a4)
@@ -39,14 +39,14 @@ __int64 __fastcall WMI_AcquireBusInfo(__int64 a1, unsigned int a2, _DWORD *a3, _
         2u,
         3u,
         0xCu,
-        (__int64)&WPP_354a0f7c514c308e6a0f4d9506e11eea_Traceguids,
+        (__int64)&WPP_03caf6220c95364129c2af37afef0046_Traceguids,
         v10);
     }
   }
   else
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0xBu, (__int64)&WPP_354a0f7c514c308e6a0f4d9506e11eea_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0xBu, (__int64)&WPP_03caf6220c95364129c2af37afef0046_Traceguids);
     return (unsigned int)-1073741789;
   }
   return (unsigned int)ControllerName;

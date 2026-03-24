@@ -1,18 +1,19 @@
 /*
- * XREFs of CmpRemoveKeyHash @ 0x14067EAE0
+ * XREFs of CmpRemoveKeyHash @ 0x14066C8A0
  * Callers:
- *     CmpDiscardKcb @ 0x14067EB68 (CmpDiscardKcb.c)
- *     CmpRehashKcbSubtree @ 0x140915410 (CmpRehashKcbSubtree.c)
- *     CmpRemoveKeyControlBlock @ 0x1409154C4 (CmpRemoveKeyControlBlock.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1405EE874 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpDiscardKcb @ 0x14066C928 (CmpDiscardKcb.c)
+ *     CmpRehashKcbSubtree @ 0x14086F084 (CmpRehashKcbSubtree.c)
+ *     CmpRemoveKeyControlBlock @ 0x14086F138 (CmpRemoveKeyControlBlock.c)
  * Callees:
- *     CmpRemoveKeyHashFromTableEntry @ 0x14067EB38 (CmpRemoveKeyHashFromTableEntry.c)
+ *     CmpRemoveKeyHashFromTableEntry @ 0x14066C8F8 (CmpRemoveKeyHashFromTableEntry.c)
  */
 
 __int64 __fastcall CmpRemoveKeyHash(__int64 a1, _DWORD *a2)
 {
   return CmpRemoveKeyHashFromTableEntry(
            a2,
-           *(_QWORD *)(a1 + 1648)
+           *(_QWORD *)(a1 + 1640)
          + 24
-         * ((unsigned int)(*(_DWORD *)(a1 + 1656) - 1) & ((unsigned int)(101027 * (*a2 ^ (*a2 >> 9))) ^ ((unsigned __int64)(unsigned int)(101027 * (*a2 ^ (*a2 >> 9))) >> 9))));
+         * ((unsigned int)(*(_DWORD *)(a1 + 1648) - 1) & ((unsigned int)(101027 * (*a2 ^ (*a2 >> 9))) ^ ((unsigned __int64)(unsigned int)(101027 * (*a2 ^ (*a2 >> 9))) >> 9))));
 }

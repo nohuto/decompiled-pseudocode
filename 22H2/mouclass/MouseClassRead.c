@@ -1,1 +1,70 @@
-/*\n * XREFs of MouseClassRead @ 0x1C0001850\n * Callers:\n *     <none>\n * Callees:\n *     MouseClassReadCopyData @ 0x1C0004D78 (MouseClassReadCopyData.c)\n *     WPP_RECORDER_SF_ @ 0x1C0005CCC (WPP_RECORDER_SF_.c)\n *     WPP_RECORDER_SF_qq @ 0x1C00063F4 (WPP_RECORDER_SF_qq.c)\n */\n\n__int64 __fastcall MouseClassRead(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rbx\n  __int64 v4; // r8\n  __int64 v5; // r14\n  unsigned int v6; // eax\n  NTSTATUS v7; // esi\n  unsigned int v8; // edi\n  char v9; // r15\n  KIRQL v10; // r12\n  __int64 **v11; // rdx\n  __int64 *v12; // rcx\n  __int64 *v14; // rdx\n  __int64 **v15; // rax\n  unsigned int CopyData; // eax\n  __int64 v17; // rdx\n  ULONG RemlockSize; // [rsp+20h] [rbp-48h]\n\n  v2 = a2;\n  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )\n  {\n    LOBYTE(a2) = 5;\n    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, a2, 3LL);\n  }\n  v4 = *(_QWORD *)(v2 + 184);\n  v5 = *(_QWORD *)(a1 + 64);\n  v6 = *(_DWORD *)(v4 + 8);\n  if ( !v6 )\n  {\n    v7 = 0;\n    *(_DWORD *)(v2 + 48) = 0;\nLABEL_33:\n    *(_QWORD *)(v2 + 56) = 0LL;\n    goto LABEL_34;\n  }\n  if ( v6 != 24 * (v6 / 0x18uLL) )\n  {\n    v7 = -1073741789;\nLABEL_32:\n    *(_DWORD *)(v2 + 48) = v7;\n    goto LABEL_33;\n  }\n  if ( *(_BYTE *)(v5 + 346) )\n  {\n    v7 = -1073741667;\n    goto LABEL_32;\n  }\n  if ( DriverEntry != *(NTSTATUS (__stdcall **)(_DRIVER_OBJECT *, PUNICODE_STRING))(*(_QWORD *)(v4 + 48) + 32LL) )\n  {\n    v7 = -1073741727;\n    goto LABEL_32;\n  }\n  v7 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v5 + 32), (PVOID)v2, File, 1u, 0x20u);\n  v8 = 259;\n  if ( v7 >= 0 )\n    v7 = 259;\n  *(_DWORD *)(v2 + 48) = v7;\n  *(_QWORD *)(v2 + 56) = 0LL;\n  if ( v7 == 259 )\n  {\n    v9 = 0;\n    v10 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v5 + 144));\n    if ( *(_DWORD *)(v5 + 84) )\n    {\n      CopyData = MouseClassReadCopyData(v5, v2);\n      *(_DWORD *)(v2 + 48) = CopyData;\n      v8 = CopyData;\n      KeReleaseSpinLock((PKSPIN_LOCK)(v5 + 144), v10);\n      goto LABEL_30;\n    }\n    v11 = *(__int64 ***)(v5 + 160);\n    v12 = (__int64 *)(v2 + 168);\n    if ( *v11 == (__int64 *)(v5 + 152) )\n    {\n      *v12 = v5 + 152;\n      *(_QWORD *)(v2 + 176) = v11;\n      *v11 = v12;\n      *(_QWORD *)(v5 + 160) = v12;\n      _InterlockedExchange64((volatile __int64 *)(v2 + 104), (__int64)MouseClassCancel);\n      if ( !*(_BYTE *)(v2 + 68) )\n      {\nLABEL_14:\n        *(_BYTE *)(*(_QWORD *)(v2 + 184) + 3LL) |= 1u;\n        goto LABEL_15;\n      }\n      if ( !_InterlockedExchange64((volatile __int64 *)(v2 + 104), 0LL) )\n      {\n        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n          WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 3, 3, 47, RemlockSize, *(_QWORD *)v5, v2);\n        goto LABEL_14;\n      }\n      v14 = (__int64 *)*v12;\n      if ( *(__int64 **)(*v12 + 8) == v12 )\n      {\n        v15 = *(__int64 ***)(v2 + 176);\n        if ( *v15 == v12 )\n        {\n          *v15 = v14;\n          v8 = -1073741536;\n          v14[1] = (__int64)v15;\n          *(_DWORD *)(v2 + 48) = -1073741536;\n          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n            WPP_RECORDER_SF_qq(WPP_GLOBAL_Control->DeviceExtension, 3, 3, 46, RemlockSize, *(_QWORD *)v5, v2);\n          v9 = 1;\nLABEL_15:\n          KeReleaseSpinLock((PKSPIN_LOCK)(v5 + 144), v10);\n          if ( !v9 )\n            return v8;\nLABEL_30:\n          IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v5 + 32), (PVOID)v2, 0x20u);\n          IofCompleteRequest((PIRP)v2, 0);\n          return v8;\n        }\n      }\n    }\n    __fastfail(3u);\n  }\nLABEL_34:\n  IofCompleteRequest((PIRP)v2, 0);\n  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )\n  {\n    LOBYTE(v17) = 5;\n    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v17, 3LL);\n  }\n  return (unsigned int)v7;\n}\n
+/*
+ * XREFs of MouseClassRead @ 0x1C0001AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MouseClassHandleRead @ 0x1C0002230 (MouseClassHandleRead.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000572C (WPP_RECORDER_SF_.c)
+ */
+
+__int64 __fastcall MouseClassRead(__int64 a1, IRP *a2)
+{
+  IRP *v2; // rbx
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // r8
+  __int64 v5; // rsi
+  ULONG Length; // eax
+  NTSTATUS v7; // edi
+  __int64 v9; // rdx
+
+  v2 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, a2, 3LL);
+  }
+  CurrentStackLocation = v2->Tail.Overlay.CurrentStackLocation;
+  v5 = *(_QWORD *)(a1 + 64);
+  Length = CurrentStackLocation->Parameters.Read.Length;
+  if ( Length )
+  {
+    if ( Length == 24 * (Length / 0x18uLL) )
+    {
+      if ( *(_BYTE *)(v5 + 346) )
+      {
+        v7 = -1073741667;
+      }
+      else if ( DriverEntry == CurrentStackLocation->FileObject->FsContext2 )
+      {
+        v7 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v5 + 32), v2, File, 1u, 0x20u);
+        if ( v7 >= 0 )
+          v7 = 259;
+      }
+      else
+      {
+        v7 = -1073741727;
+      }
+    }
+    else
+    {
+      v7 = -1073741789;
+    }
+  }
+  else
+  {
+    v7 = 0;
+  }
+  v2->IoStatus.Status = v7;
+  v2->IoStatus.Information = 0LL;
+  if ( v7 == 259 )
+    return MouseClassHandleRead(v5, v2);
+  IofCompleteRequest(v2, 0);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(v9) = 5;
+      WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v9, 3LL);
+    }
+  }
+  return (unsigned int)v7;
+}

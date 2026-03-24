@@ -1,10 +1,9 @@
 /*
- * XREFs of DpiKsrSetBootGraphicsInformation @ 0x1C03A65F0
+ * XREFs of DpiKsrSetBootGraphicsInformation @ 0x1C02D3594
  * Callers:
- *     DpiFdoHandleSystemPower @ 0x1C01F0DA4 (DpiFdoHandleSystemPower.c)
- *     DxgkStopAdapters @ 0x1C0316460 (DxgkStopAdapters.c)
+ *     DpiFdoHandleSystemPower @ 0x1C017572C (DpiFdoHandleSystemPower.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS DpiKsrSetBootGraphicsInformation()
@@ -17,27 +16,30 @@ NTSTATUS DpiKsrSetBootGraphicsInformation()
 
   v4 = 0LL;
   v5 = 0;
-  v2 = xmmword_1C0140750;
-  v3 = DWORD1(xmmword_1C0140750);
-  SystemInformation = xmmword_1C0140760;
-  if ( HIDWORD(xmmword_1C0140750) == 20 )
+  v2 = xmmword_1C00B2DC8;
+  v3 = DWORD1(xmmword_1C00B2DC8);
+  SystemInformation = xmmword_1C00B2DD8;
+  if ( HIDWORD(xmmword_1C00B2DC8) == 20 )
   {
     HIDWORD(v4) = 3;
-    HIDWORD(v3) = DWORD2(xmmword_1C0140750) / 3;
+    HIDWORD(v3) = DWORD2(xmmword_1C00B2DC8) / 3;
     return ZwSetSystemInformation(MaxSystemInfoClass|SystemTimeAdjustmentInformation, &SystemInformation, 0x20uLL);
   }
-  if ( HIDWORD(xmmword_1C0140750) == 21 || HIDWORD(xmmword_1C0140750) == 22 )
+  if ( SHIDWORD(xmmword_1C00B2DC8) <= 20 )
+    goto LABEL_8;
+  if ( SHIDWORD(xmmword_1C00B2DC8) <= 22 )
   {
     HIDWORD(v4) = 4;
-    goto LABEL_8;
+    goto LABEL_7;
   }
-  if ( (unsigned int)(HIDWORD(xmmword_1C0140750) - 32) < 2 )
+  if ( (unsigned int)(HIDWORD(xmmword_1C00B2DC8) - 32) > 1 )
   {
-    HIDWORD(v4) = 2;
 LABEL_8:
-    HIDWORD(v3) = DWORD2(xmmword_1C0140750) >> 2;
+    HIDWORD(v4) = 0;
     return ZwSetSystemInformation(MaxSystemInfoClass|SystemTimeAdjustmentInformation, &SystemInformation, 0x20uLL);
   }
-  HIDWORD(v4) = 0;
+  HIDWORD(v4) = 2;
+LABEL_7:
+  HIDWORD(v3) = DWORD2(xmmword_1C00B2DC8) >> 2;
   return ZwSetSystemInformation(MaxSystemInfoClass|SystemTimeAdjustmentInformation, &SystemInformation, 0x20uLL);
 }

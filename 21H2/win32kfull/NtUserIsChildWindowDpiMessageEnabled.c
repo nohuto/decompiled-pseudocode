@@ -1,68 +1,75 @@
 /*
- * XREFs of NtUserIsChildWindowDpiMessageEnabled @ 0x1C00E6430
+ * XREFs of NtUserIsChildWindowDpiMessageEnabled @ 0x1C00F8540
  * Callers:
  *     <none>
  * Callees:
- *     _GetTopLevelWindow @ 0x1C0075BF0 (_GetTopLevelWindow.c)
+ *     <none>
  */
 
-__int64 __fastcall NtUserIsChildWindowDpiMessageEnabled(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserIsChildWindowDpiMessageEnabled(__int64 a1)
 {
-  __int64 v4; // rdi
-  __int64 v5; // rcx
-  __int64 v6; // rsi
-  __int64 v7; // rbx
-  __int64 *ThreadWin32Thread; // rax
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // rcx
-  __int64 v12; // rbx
-  __int64 TopLevelWindow; // rax
-  __int128 v15; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v16; // [rsp+30h] [rbp-18h]
+  __int64 v2; // rax
+  __int64 v3; // rcx
+  __int64 v4; // rbx
+  _QWORD *v5; // rsi
+  __int64 v6; // rdi
+  __int64 v7; // rcx
+  _QWORD *v8; // rax
+  __int64 v9; // r8
+  __int64 v10; // rdx
+  __int64 v11; // r9
+  __int128 v13; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v14; // [rsp+30h] [rbp-18h]
 
-  v15 = 0LL;
-  v16 = 0LL;
-  EnterSharedCrit(a1, a2, a3);
+  v13 = 0LL;
+  v14 = 0LL;
+  EnterCrit(0LL, 1LL);
+  v2 = ValidateHwnd(a1);
   v4 = 0LL;
-  v6 = ValidateHwnd(a1);
-  if ( v6 )
+  v5 = (_QWORD *)v2;
+  if ( v2 )
   {
-    v7 = 0LL;
-    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( ThreadWin32Thread )
-      v7 = *ThreadWin32Thread;
-    *(_QWORD *)&v15 = *(_QWORD *)(v7 + 416);
-    *(_QWORD *)(v7 + 416) = &v15;
-    *((_QWORD *)&v15 + 1) = v6;
-    HMLockObject(v6);
-    v11 = *(_DWORD *)(*(_QWORD *)(v6 + 40) + 288LL) & 0xF;
-    if ( (_DWORD)v11 != 3 )
+    *(_QWORD *)&v13 = *(_QWORD *)(gptiCurrent + 416LL);
+    *(_QWORD *)(gptiCurrent + 416LL) = &v13;
+    *((_QWORD *)&v13 + 1) = v2;
+    HMLockObject(v2);
+    v6 = 0LL;
+    v7 = *(unsigned int *)(v5[5] + 288LL);
+    LOBYTE(v7) = v7 & 0xF;
+    if ( (_BYTE)v7 == 2 )
     {
-      v12 = 0LL;
-      if ( (_DWORD)v11 != 2 )
+      v8 = v5;
+      do
       {
-LABEL_6:
-        ThreadUnlock1(v11, v9, v10);
-        v4 = v12;
-        goto LABEL_7;
-      }
-      TopLevelWindow = GetTopLevelWindow(v6);
-      if ( v6 != TopLevelWindow )
-      {
-        if ( TopLevelWindow )
+        v7 = v8[13];
+        if ( v7 )
         {
-          if ( (*(_DWORD *)(TopLevelWindow + 320) & 0x100000) != 0 )
-            v4 = 1LL;
-          v12 = v4;
+          v9 = v8[3];
+          v10 = 0LL;
+          if ( v9 )
+          {
+            v11 = *(_QWORD *)(v9 + 8);
+            if ( v11 )
+              v10 = *(_QWORD *)(v11 + 24);
+          }
+          if ( v7 == v10 )
+            break;
         }
-        goto LABEL_6;
+        v8 = (_QWORD *)v8[13];
+      }
+      while ( v7 );
+      if ( v5 == v8 )
+      {
+        v6 = 1LL;
+      }
+      else if ( v8 && (*(_DWORD *)(v8[5] + 232LL) & 0x20000000) != 0 )
+      {
+        v6 = 1LL;
       }
     }
-    v12 = 1LL;
-    goto LABEL_6;
+    ThreadUnlock1(v7);
+    v4 = v6;
   }
-LABEL_7:
-  UserSessionSwitchLeaveCrit(v5);
+  UserSessionSwitchLeaveCrit(v3);
   return v4;
 }

@@ -1,61 +1,65 @@
 /*
- * XREFs of ExpKdPullRemoteFileForUser @ 0x1408536D4
+ * XREFs of ExpKdPullRemoteFileForUser @ 0x14095B9CC
  * Callers:
- *     NtSystemDebugControl @ 0x1406DC120 (NtSystemDebugControl.c)
+ *     NtSystemDebugControl @ 0x1407CFC00 (NtSystemDebugControl.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x14029F350 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
- *     KeComputeSha256 @ 0x1403A55A0 (KeComputeSha256.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memcmp @ 0x1403E1D90 (memcmp.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlDowncaseUnicodeString @ 0x1406B4AE0 (RtlDowncaseUnicodeString.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
- *     KdPullRemoteFile @ 0x140A6F300 (KdPullRemoteFile.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
+ *     KeComputeSha256 @ 0x140399790 (KeComputeSha256.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlDowncaseUnicodeString @ 0x1406970E0 (RtlDowncaseUnicodeString.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KdPullRemoteFile @ 0x1409B6724 (KdPullRemoteFile.c)
  */
 
 __int64 __fastcall ExpKdPullRemoteFileForUser(_OWORD *a1)
 {
   char PreviousMode; // dl
   int v2; // r14d
-  PVOID PoolWithTag; // rax
+  wchar_t *PoolWithTag; // rax
+  int v5; // edi
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v6; // rbx
-  int v7; // r12d
-  char *v8; // rsi
-  int v9; // ebx
-  int v10; // edi
-  int v11; // eax
-  struct _KTHREAD *v12; // rax
-  __int64 v13; // rax
-  __int64 v14; // rbx
+  __int64 v7; // rdi
+  int v8; // r13d
+  char *v9; // r14
+  int v10; // r12d
+  int v11; // edi
+  int v12; // esi
+  int v13; // eax
+  struct _KTHREAD *v14; // rax
+  __int64 v15; // rax
   __int64 v16; // rdi
-  __int64 v17; // rdx
-  int v18; // r12d
-  int v19; // ebx
-  int v20; // esi
-  int v21; // eax
-  int v22; // esi
-  int v23; // r14d
-  int v24; // ebx
-  __int64 v25; // rbx
-  char v26; // r13
-  SIZE_T v27; // rdx
-  _DWORD *v28; // rbx
-  PVOID P[2]; // [rsp+28h] [rbp-A0h] BYREF
-  void *Src[2]; // [rsp+38h] [rbp-90h]
-  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-80h] BYREF
+  __int64 v18; // rsi
+  SIZE_T v19; // rdx
+  __int64 v20; // rdx
+  _DWORD *v21; // rdi
+  int v22; // r12d
+  int v23; // eax
+  int v24; // ecx
+  int v25; // edi
+  int v26; // r13d
+  int v27; // r14d
+  int v28; // eax
+  int v29; // edi
+  __int64 v30; // rdi
+  int v31; // [rsp+24h] [rbp-A4h]
+  UNICODE_STRING SourceString; // [rsp+28h] [rbp-A0h] BYREF
+  int v33; // [rsp+38h] [rbp-90h]
+  void *Src[2]; // [rsp+40h] [rbp-88h]
+  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-78h] BYREF
   _QWORD Buf1[4]; // [rsp+70h] [rbp-58h] BYREF
 
-  *(_OWORD *)P = 0LL;
+  SourceString = 0LL;
   DestinationString = 0LL;
   *(_OWORD *)Src = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
@@ -70,200 +74,193 @@ __int64 __fastcall ExpKdPullRemoteFileForUser(_OWORD *a1)
   v2 = 0;
   if ( !LOWORD(Src[0]) || ((__int64)Src[0] & 1) != 0 || (BYTE2(Src[0]) & 1) != 0 || WORD1(Src[0]) < LOWORD(Src[0]) )
     return 3221225485LL;
-  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, LOWORD(Src[0]), 0x46644B55u);
-  P[1] = PoolWithTag;
-  if ( PoolWithTag )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, LOWORD(Src[0]), 0x46644B55u);
+  SourceString.Buffer = PoolWithTag;
+  if ( !PoolWithTag )
+    return 3221225626LL;
+  SourceString.Length = (unsigned __int16)Src[0];
+  SourceString.MaximumLength = (unsigned __int16)Src[0];
+  memmove(PoolWithTag, Src[1], LOWORD(Src[0]));
+  DestinationString.Buffer = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, LOWORD(Src[0]), 0x46644B55u);
+  if ( !DestinationString.Buffer )
   {
-    LOWORD(P[0]) = Src[0];
-    WORD1(P[0]) = Src[0];
-    memmove(PoolWithTag, Src[1], LOWORD(Src[0]));
-    DestinationString.Buffer = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, LOWORD(Src[0]), 0x46644B55u);
-    if ( DestinationString.Buffer )
-    {
-      *(_DWORD *)&DestinationString.Length = P[0];
-      RtlDowncaseUnicodeString(&DestinationString, (PCUNICODE_STRING)P, 0);
-      KeComputeSha256((__int64)DestinationString.Buffer, DestinationString.Length, (__int64)Buf1);
-      ExFreePoolWithTag(DestinationString.Buffer, 0);
-      if ( !ExpSysDbgPulledFileTable )
-        goto LABEL_28;
-      CurrentThread = KeGetCurrentThread();
-      --CurrentThread->KernelApcDisable;
-      v6 = KeAbPreAcquire((__int64)&ExpSysDbgLock, 0LL);
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpSysDbgLock, 17LL, 0LL) )
-        ExfAcquirePushLockSharedEx((signed __int64 *)&ExpSysDbgLock, 0, v6, (__int64)&ExpSysDbgLock);
-      if ( v6 )
-        *(_BYTE *)(v6 + 18) = 1;
-      v7 = 0;
-      v8 = (char *)ExpSysDbgPulledFileTable;
-      if ( ExpSysDbgPulledFileTable )
-      {
-        v9 = *(_DWORD *)ExpSysDbgPulledFileTable - 1;
-        if ( v9 < 0 )
-        {
-LABEL_24:
-          v2 = 0;
-          goto LABEL_25;
-        }
-        while ( 1 )
-        {
-          v10 = (v2 + v9) >> 1;
-          v11 = memcmp(Buf1, &v8[8 * v10 + 8], 8uLL);
-          if ( v11 >= 0 )
-          {
-            v2 = 0;
-            if ( v11 <= 0 )
-            {
-              v7 = 1;
-              break;
-            }
-            v2 = v10 + 1;
-          }
-          else
-          {
-            if ( !v10 )
-              goto LABEL_24;
-            v9 = v10 - 1;
-          }
-          if ( v9 < v2 )
-            goto LABEL_24;
-        }
-      }
-LABEL_25:
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpSysDbgLock, 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared((signed __int64 *)&ExpSysDbgLock);
-      KeAbPostRelease((ULONG_PTR)&ExpSysDbgLock);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-      if ( !v7 )
-      {
-LABEL_28:
-        v12 = KeGetCurrentThread();
-        --v12->KernelApcDisable;
-        v13 = KeAbPreAcquire((__int64)&ExpSysDbgLock, 0LL);
-        v14 = v13;
-        if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpSysDbgLock, 0LL) )
-          ExfAcquirePushLockExclusiveEx(&ExpSysDbgLock, v13, (__int64)&ExpSysDbgLock);
-        if ( v14 )
-          *(_BYTE *)(v14 + 18) = 1;
-        v16 = -1LL;
-        if ( ExpSysDbgPulledFileTable )
-        {
-          if ( *(int *)ExpSysDbgPulledFileTable >= 0x1FFFFFFF )
-            goto LABEL_81;
-          v17 = *((int *)ExpSysDbgPulledFileTable + 1);
-          if ( *(_DWORD *)ExpSysDbgPulledFileTable != (_DWORD)v17 )
-          {
-LABEL_35:
-            if ( v16 )
-            {
-              if ( v16 == -1 )
-              {
-                v16 = (__int64)ExpSysDbgPulledFileTable;
-              }
-              else
-              {
-                *(_DWORD *)v16 = 0;
-                *(_DWORD *)(v16 + 4) = 2048;
-                v28 = ExpSysDbgPulledFileTable;
-                if ( ExpSysDbgPulledFileTable )
-                {
-                  memmove((void *)v16, ExpSysDbgPulledFileTable, 8LL * *(int *)ExpSysDbgPulledFileTable + 16);
-                  *(_DWORD *)(v16 + 4) = 2 * v28[1];
-                  ExFreePoolWithTag(v28, 0);
-                }
-                ExpSysDbgPulledFileTable = (PVOID)v16;
-              }
-              v18 = 0;
-              v19 = *(_DWORD *)v16 - 1;
-              if ( v19 >= 0 )
-              {
-                do
-                {
-                  v20 = (v18 + v19) >> 1;
-                  v21 = memcmp(Buf1, (const void *)(v16 + 8 * (v20 + 1LL)), 8uLL);
-                  if ( v21 >= 0 )
-                  {
-                    if ( v21 <= 0 )
-                    {
-                      v2 = 1;
-                      break;
-                    }
-                    v18 = v20 + 1;
-                  }
-                  else
-                  {
-                    if ( !v20 )
-                      break;
-                    v19 = v20 - 1;
-                  }
-                }
-                while ( v19 >= v18 );
-              }
-              if ( v2 )
-              {
-                v22 = 255;
-              }
-              else
-              {
-                v22 = KdPullRemoteFile(P);
-                if ( v22 < 0
-                  || (DbgPrintEx(0x66u, 2u, "ExpKdPullRemoteFileForUser: Pulled %wZ from kd\n", P), ExpSysDbgPullOnce) )
-                {
-                  if ( v19 < v18 )
-                  {
-                    v18 = 0;
-                    v19 = *(_DWORD *)v16 - 1;
-                    if ( !*(_DWORD *)v16 )
-                    {
-                      *(_QWORD *)(v16 + 8) = Buf1[0];
-                      *(_DWORD *)v16 = 1;
-                      v16 = 0LL;
-                    }
-                  }
-                  if ( v16 )
-                  {
-                    v23 = 0;
-                    if ( v18 >= 0 )
-                      v23 = v18;
-                    v24 = v19 + 1;
-                    while ( v23 < v24 && memcmp(Buf1, (const void *)(v16 + 8 * (v23 + 1LL)), 8uLL) >= 0 )
-                      ++v23;
-                    v25 = v16 + 8LL * v23;
-                    memmove((void *)(v16 + 8 * (v23 + 1 + 1LL)), (const void *)(v25 + 8), 8LL * (*(_DWORD *)v16 - v23));
-                    ++*(_DWORD *)v16;
-                    *(_QWORD *)(v25 + 8) = Buf1[0];
-                  }
-                }
-              }
-              goto LABEL_51;
-            }
-LABEL_81:
-            v22 = -1073741670;
-LABEL_51:
-            v26 = _InterlockedExchangeAdd64((volatile signed __int64 *)&ExpSysDbgLock, 0xFFFFFFFFFFFFFFFFuLL);
-            if ( (v26 & 2) != 0 && (v26 & 4) == 0 )
-              ExfTryToWakePushLock(&ExpSysDbgLock);
-            KeAbPostRelease((ULONG_PTR)&ExpSysDbgLock);
-            KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-            goto LABEL_53;
-          }
-          v27 = 16 * (v17 + 1);
-        }
-        else
-        {
-          v27 = 16400LL;
-        }
-        v16 = (__int64)ExAllocatePoolWithTag(PagedPool, v27, 0x66644B55u);
-        goto LABEL_35;
-      }
-      v22 = 255;
-    }
-    else
-    {
-      v22 = -1073741670;
-    }
-LABEL_53:
-    ExFreePoolWithTag(P[1], 0);
-    return (unsigned int)v22;
+    v5 = -1073741670;
+    goto LABEL_34;
   }
-  return 3221225626LL;
+  DestinationString.Length = SourceString.Length;
+  DestinationString.MaximumLength = SourceString.MaximumLength;
+  RtlDowncaseUnicodeString(&DestinationString, &SourceString, 0);
+  KeComputeSha256((__int64)DestinationString.Buffer, DestinationString.Length, (__int64)Buf1);
+  ExFreePoolWithTag(DestinationString.Buffer, 0);
+  if ( !ExpSysDbgPulledFileTable )
+    goto LABEL_35;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v7 = KeAbPreAcquire((ULONG_PTR)&ExpSysDbgLock, 0LL, 0);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpSysDbgLock, 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx(&ExpSysDbgLock, v7, (ULONG_PTR)&ExpSysDbgLock);
+  if ( v7 )
+    *(_BYTE *)(v7 + 26) |= 1u;
+  v8 = 0;
+  v9 = (char *)ExpSysDbgPulledFileTable;
+  if ( !ExpSysDbgPulledFileTable )
+    goto LABEL_30;
+  v10 = 0;
+  v11 = *(_DWORD *)ExpSysDbgPulledFileTable - 1;
+  if ( v11 < 0 )
+    goto LABEL_30;
+  while ( 1 )
+  {
+    v12 = (v10 + v11) >> 1;
+    v13 = memcmp(Buf1, &v9[8 * v12 + 8], 8uLL);
+    if ( v13 < 0 )
+    {
+      if ( !v12 )
+        goto LABEL_30;
+      v11 = v12 - 1;
+      goto LABEL_27;
+    }
+    if ( v13 <= 0 )
+      break;
+    v10 = v12 + 1;
+LABEL_27:
+    if ( v11 < v10 )
+      goto LABEL_30;
+  }
+  v8 = 1;
+LABEL_30:
+  v2 = 0;
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpSysDbgLock, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&ExpSysDbgLock);
+  KeAbPostRelease((ULONG_PTR)&ExpSysDbgLock);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  if ( v8 )
+  {
+    v5 = 255;
+    goto LABEL_34;
+  }
+LABEL_35:
+  v14 = KeGetCurrentThread();
+  --v14->KernelApcDisable;
+  v15 = KeAbPreAcquire((ULONG_PTR)&ExpSysDbgLock, 0LL, 0);
+  v16 = v15;
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpSysDbgLock, 0LL) )
+    ExfAcquirePushLockExclusiveEx(&ExpSysDbgLock, v15, (ULONG_PTR)&ExpSysDbgLock);
+  if ( v16 )
+    *(_BYTE *)(v16 + 26) |= 1u;
+  v18 = -1LL;
+  if ( !ExpSysDbgPulledFileTable )
+  {
+    v19 = 16400LL;
+    goto LABEL_44;
+  }
+  if ( *(int *)ExpSysDbgPulledFileTable >= 0x1FFFFFFF )
+    goto LABEL_76;
+  v20 = *((int *)ExpSysDbgPulledFileTable + 1);
+  if ( *(_DWORD *)ExpSysDbgPulledFileTable == (_DWORD)v20 )
+  {
+    v19 = 16 * (v20 + 1);
+LABEL_44:
+    v18 = (__int64)ExAllocatePoolWithTag(PagedPool, v19, 0x66644B55u);
+  }
+  if ( !v18 )
+  {
+LABEL_76:
+    v5 = -1073741670;
+    goto LABEL_77;
+  }
+  if ( v18 == -1 )
+  {
+    v18 = (__int64)ExpSysDbgPulledFileTable;
+  }
+  else
+  {
+    *(_DWORD *)v18 = 0;
+    *(_DWORD *)(v18 + 4) = 2048;
+    v21 = ExpSysDbgPulledFileTable;
+    if ( ExpSysDbgPulledFileTable )
+    {
+      memmove((void *)v18, ExpSysDbgPulledFileTable, 8LL * *(int *)ExpSysDbgPulledFileTable + 16);
+      *(_DWORD *)(v18 + 4) = 2 * v21[1];
+      ExFreePoolWithTag(v21, 0);
+    }
+    ExpSysDbgPulledFileTable = (PVOID)v18;
+  }
+  v22 = 0;
+  v23 = *(_DWORD *)v18;
+  v31 = v23;
+  v24 = *(_DWORD *)v18 - 1;
+  v33 = v24;
+  v25 = v23 - 1;
+  v26 = 0;
+  if ( v23 - 1 < 0 )
+    goto LABEL_61;
+  while ( 2 )
+  {
+    v27 = (v22 + v25) >> 1;
+    v28 = memcmp(Buf1, (const void *)(v18 + 8 * (v27 + 1LL)), 8uLL);
+    if ( v28 < 0 )
+    {
+      if ( !v27 )
+        goto LABEL_60;
+      v25 = v27 - 1;
+LABEL_57:
+      if ( v25 < v22 )
+        goto LABEL_60;
+      continue;
+    }
+    break;
+  }
+  if ( v28 > 0 )
+  {
+    v22 = v27 + 1;
+    goto LABEL_57;
+  }
+  v26 = 1;
+LABEL_60:
+  v23 = v31;
+  v24 = v33;
+  v2 = 0;
+LABEL_61:
+  if ( v26 )
+  {
+    v5 = 255;
+  }
+  else
+  {
+    if ( v25 < v22 )
+    {
+      v22 = 0;
+      v25 = v24;
+      if ( !v23 )
+      {
+        *(_QWORD *)(v18 + 8) = Buf1[0];
+        ++*(_DWORD *)v18;
+        v18 = 0LL;
+      }
+    }
+    if ( v18 )
+    {
+      if ( v22 >= 0 )
+        v2 = v22;
+      v29 = v25 + 1;
+      while ( v2 < v29 && memcmp(Buf1, (const void *)(v18 + 8 * (v2 + 1LL)), 8uLL) >= 0 )
+        ++v2;
+      v30 = v18 + 8LL * v2;
+      memmove((void *)(v18 + 8 * (v2 + 1 + 1LL)), (const void *)(v30 + 8), 8LL * (*(_DWORD *)v18 - v2));
+      ++*(_DWORD *)v18;
+      *(_QWORD *)(v30 + 8) = Buf1[0];
+    }
+    v5 = KdPullRemoteFile(&SourceString);
+    if ( v5 >= 0 )
+      DbgPrintEx(0x66u, 2u, "ExpKdPullRemoteFileForUser: Pulled %wZ from kd\n", &SourceString);
+  }
+LABEL_77:
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpSysDbgLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&ExpSysDbgLock);
+  KeAbPostRelease((ULONG_PTR)&ExpSysDbgLock);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+LABEL_34:
+  ExFreePoolWithTag(SourceString.Buffer, 0);
+  return (unsigned int)v5;
 }

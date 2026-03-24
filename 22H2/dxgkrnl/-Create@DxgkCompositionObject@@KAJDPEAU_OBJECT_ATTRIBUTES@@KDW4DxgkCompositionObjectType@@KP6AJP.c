@@ -1,14 +1,14 @@
 /*
- * XREFs of ?Create@DxgkCompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4DxgkCompositionObjectType@@KP6AJPEAV1@PEAXPEAPEAVIDxgkCompositionObject@@@Z3PEAPEAX@Z @ 0x1C001416C
+ * XREFs of ?Create@DxgkCompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4DxgkCompositionObjectType@@KP6AJPEAV1@PEAXPEAPEAVIDxgkCompositionObject@@@Z3PEAPEAX@Z @ 0x1C0018EDC
  * Callers:
- *     NtCreateCompositionSurfaceHandle @ 0x1C00143B0 (NtCreateCompositionSurfaceHandle.c)
- *     NtTokenManagerCreateFlipObjectReturnTokenHandle @ 0x1C0076350 (NtTokenManagerCreateFlipObjectReturnTokenHandle.c)
- *     NtTokenManagerCreateFlipObjectTokenHandle @ 0x1C0076590 (NtTokenManagerCreateFlipObjectTokenHandle.c)
- *     ?Create@CompositionSurfaceObject@@SAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAPEAX@Z @ 0x1C007C164 (-Create@CompositionSurfaceObject@@SAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAPEAX@Z.c)
- *     NtFlipObjectCreate @ 0x1C0080E10 (NtFlipObjectCreate.c)
- *     ?Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z @ 0x1C03612B0 (-Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z.c)
+ *     NtCreateCompositionSurfaceHandle @ 0x1C0019220 (NtCreateCompositionSurfaceHandle.c)
+ *     NtTokenManagerCreateFlipObjectReturnTokenHandle @ 0x1C0063050 (NtTokenManagerCreateFlipObjectReturnTokenHandle.c)
+ *     NtTokenManagerCreateFlipObjectTokenHandle @ 0x1C0063290 (NtTokenManagerCreateFlipObjectTokenHandle.c)
+ *     ?Create@CompositionSurfaceObject@@SAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAPEAX@Z @ 0x1C0065E44 (-Create@CompositionSurfaceObject@@SAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAPEAX@Z.c)
+ *     NtFlipObjectCreate @ 0x1C00695A0 (NtFlipObjectCreate.c)
+ *     ?Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z @ 0x1C02B5058 (-Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DxgkCompositionObject::Create(

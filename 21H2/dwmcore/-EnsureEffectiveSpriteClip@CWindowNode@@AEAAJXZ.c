@@ -1,116 +1,149 @@
 /*
- * XREFs of ?EnsureEffectiveSpriteClip@CWindowNode@@AEAAJXZ @ 0x18008CE74
+ * XREFs of ?EnsureEffectiveSpriteClip@CWindowNode@@AEAAJXZ @ 0x180075F90
  * Callers:
- *     ?GetContentBounds@CWindowNode@@UEAAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180062FA0 (-GetContentBounds@CWindowNode@@UEAAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@.c)
- *     ?RenderContent@CWindowNode@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x18008C7B0 (-RenderContent@CWindowNode@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
- *     ?CollectOcclusion@CWindowNode@@UEAAJPEAVCOcclusionContext@@PEAVCOcclusionInfo@@@Z @ 0x180099A20 (-CollectOcclusion@CWindowNode@@UEAAJPEAVCOcclusionContext@@PEAVCOcclusionInfo@@@Z.c)
+ *     ?GetContentBounds@CWindowNode@@UEAAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800675D0 (-GetContentBounds@CWindowNode@@UEAAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@.c)
+ *     ?CollectOcclusion@CWindowNode@@UEAAJPEAVCOcclusionContext@@PEAVCOcclusionInfo@@@Z @ 0x1800757B0 (-CollectOcclusion@CWindowNode@@UEAAJPEAVCOcclusionContext@@PEAVCOcclusionInfo@@@Z.c)
+ *     ?RenderContent@CWindowNode@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x1800B7B60 (-RenderContent@CWindowNode@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
+ *     ?IsClipSimpleRect@CWindowNode@@QEAA_NXZ @ 0x1801F3A08 (-IsClipSimpleRect@CWindowNode@@QEAA_NXZ.c)
  * Callees:
- *     ?GetWindowClipShape@CWindowNode@@AEBAJPEAVCShapePtr@@@Z @ 0x1800633F8 (-GetWindowClipShape@CWindowNode@@AEBAJPEAVCShapePtr@@@Z.c)
- *     ??1CRegionShape@@UEAA@XZ @ 0x18006356C (--1CRegionShape@@UEAA@XZ.c)
- *     ?BuildFromRects@CRegionShape@@QEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@I@Z @ 0x180063748 (-BuildFromRects@CRegionShape@@QEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x1800AD884 (-Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
- *     ??ACPtrArrayBase@@IEBA_K_K@Z @ 0x1800D18A0 (--ACPtrArrayBase@@IEBA_K_K@Z.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800D36F8 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ?GetAccumShape@CGdiSpriteBitmap@@QEAA?AVCShapePtr@@_N@Z @ 0x1800E2C04 (-GetAccumShape@CGdiSpriteBitmap@@QEAA-AVCShapePtr@@_N@Z.c)
- *     ?CopyShape@CShapePtr@@QEBAJPEBVCMILMatrix@@PEAPEAVCShape@@@Z @ 0x1800EF328 (-CopyShape@CShapePtr@@QEBAJPEBVCMILMatrix@@PEAPEAVCShape@@@Z.c)
- *     ??$SAFE_DELETE@VCShape@@@@YAXAEAPEAVCShape@@@Z @ 0x1800F18AC (--$SAFE_DELETE@VCShape@@@@YAXAEAPEAVCShape@@@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetWindowClipShape@CWindowNode@@AEBAJPEAVCShapePtr@@@Z @ 0x1800679C0 (-GetWindowClipShape@CWindowNode@@AEBAJPEAVCShapePtr@@@Z.c)
+ *     ?Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x180067BCC (-Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
+ *     ?CopyShape@CShapePtr@@QEBAJPEBVCMILMatrix@@PEAPEAVCShape@@@Z @ 0x180069F00 (-CopyShape@CShapePtr@@QEBAJPEBVCMILMatrix@@PEAPEAVCShape@@@Z.c)
+ *     ?BuildFromRects@CRegionShape@@QEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@I@Z @ 0x18009B14C (-BuildFromRects@CRegionShape@@QEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_.c)
+ *     ??1CRegionShape@@UEAA@XZ @ 0x18009B610 (--1CRegionShape@@UEAA@XZ.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C891C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??1CShapePtr@@QEAA@XZ @ 0x18016BD24 (--1CShapePtr@@QEAA@XZ.c)
  */
 
 __int64 __fastcall CWindowNode::EnsureEffectiveSpriteClip(CWindowNode *this)
 {
-  int v2; // edi
+  unsigned int v2; // ebx
+  void (__fastcall ***v3)(_QWORD, __int64); // rcx
   int WindowClipShape; // eax
   __int64 v5; // rcx
-  struct CShape *v6; // rax
-  __int64 v7; // rax
-  _QWORD *AccumShape; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  unsigned int v11; // [rsp+28h] [rbp-69h]
-  struct CShape *v12; // [rsp+38h] [rbp-59h] BYREF
-  _QWORD *v13; // [rsp+40h] [rbp-51h] BYREF
-  char v14; // [rsp+48h] [rbp-49h]
-  _BYTE v15[16]; // [rsp+50h] [rbp-41h] BYREF
-  struct tagRECT v16; // [rsp+60h] [rbp-31h] BYREF
-  _QWORD v17[3]; // [rsp+78h] [rbp-19h] BYREF
-  int v18; // [rsp+90h] [rbp-1h] BYREF
-  __int64 v19; // [rsp+D0h] [rbp+3Fh]
+  int v6; // eax
+  int v7; // edx
+  int v8; // ecx
+  int v9; // eax
+  int v10; // eax
+  __int64 v11; // rcx
+  struct CShape *v12; // rsi
+  __int64 v13; // rcx
+  int v14; // eax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  int v17; // eax
+  __int64 v18; // rcx
+  struct CShape *v20; // [rsp+38h] [rbp-59h] BYREF
+  CShape *v21; // [rsp+40h] [rbp-51h] BYREF
+  char v22; // [rsp+48h] [rbp-49h]
+  __int64 v23; // [rsp+50h] [rbp-41h] BYREF
+  int v24; // [rsp+58h] [rbp-39h]
+  int v25; // [rsp+5Ch] [rbp-35h]
+  _QWORD v26[3]; // [rsp+68h] [rbp-29h] BYREF
+  int v27; // [rsp+80h] [rbp-11h] BYREF
+  __int64 v28; // [rsp+C0h] [rbp+2Fh]
 
   v2 = 0;
-  v12 = 0LL;
+  v20 = 0LL;
   if ( !*((_BYTE *)this + 912) )
-    SAFE_DELETE<CShape>((char *)this + 904);
+  {
+    v3 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 113);
+    if ( v3 )
+    {
+      (**v3)(v3, 1LL);
+      *((_QWORD *)this + 113) = 0LL;
+    }
+  }
   if ( !*((_QWORD *)this + 113) )
   {
-    v13 = 0LL;
-    v17[0] = &CRegionShape::`vftable';
-    v17[2] = &v18;
-    v14 = 0;
-    v17[1] = 0LL;
-    v18 = 0;
-    v19 = 0LL;
-    if ( *((_QWORD *)this + 102) )
+    v21 = 0LL;
+    v26[0] = &CRegionShape::`vftable';
+    v26[2] = &v27;
+    v22 = 0;
+    v26[1] = 0LL;
+    v27 = 0;
+    v28 = 0LL;
+    if ( *((_QWORD *)this + 97) )
     {
-      WindowClipShape = CWindowNode::GetWindowClipShape(this, (struct CShapePtr *)&v13);
+      WindowClipShape = CWindowNode::GetWindowClipShape(this, (struct CShapePtr *)&v21);
       v2 = WindowClipShape;
       if ( WindowClipShape < 0 )
       {
-        v11 = 1732;
-        goto LABEL_22;
+        MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, WindowClipShape, 0x7B6u, 0LL);
+LABEL_8:
+        CRegionShape::~CRegionShape((CRegionShape *)v26);
+        CShapePtr::~CShapePtr((CShapePtr *)&v21);
+        return v2;
       }
     }
     else
     {
-      v16.right = *((_DWORD *)this + 198) - *((_DWORD *)this + 196);
-      v16.bottom = *((_DWORD *)this + 199) - *((_DWORD *)this + 197);
-      *(_QWORD *)&v16.left = 0LL;
-      CRegionShape::BuildFromRects((__int64)v17, &v16, 1u);
-      CShapePtr::Release((CShapePtr *)&v13);
-      v14 = 0;
-      v13 = v17;
+      v6 = 0;
+      v7 = *((_DWORD *)this + 175) - *((_DWORD *)this + 173);
+      v8 = *((_DWORD *)this + 174) - *((_DWORD *)this + 172);
+      v23 = 0LL;
+      if ( v8 >= 0 )
+        v6 = v8;
+      v24 = v6;
+      v9 = 0;
+      if ( v7 >= 0 )
+        v9 = v7;
+      v25 = v9;
+      CRegionShape::BuildFromRects(v26, &v23);
+      CShapePtr::Release((CShapePtr *)&v21);
+      v22 = 0;
+      v21 = (CShape *)v26;
     }
-    WindowClipShape = CShapePtr::CopyShape((CShapePtr *)&v13, 0LL, &v12);
-    v2 = WindowClipShape;
-    if ( WindowClipShape >= 0 )
+    v10 = CShapePtr::CopyShape(&v21, 0LL, &v20);
+    v12 = v20;
+    v2 = v10;
+    if ( v10 < 0 )
     {
-      if ( *((_BYTE *)this + 913) )
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x7C6u, 0LL);
+    }
+    else
+    {
+      if ( !*((_BYTE *)this + 913) )
       {
-        *(_QWORD *)&v16.left = 0LL;
-        v7 = CPtrArrayBase::operator[]((char *)this + 800, 0LL);
-        AccumShape = (_QWORD *)CGdiSpriteBitmap::GetAccumShape(v7, v15, 0LL);
-        v2 = CShape::Combine(v12, v9, *AccumShape, 0LL, 1, &v16);
-        CShapePtr::Release((CShapePtr *)v15);
-        if ( v2 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v2, 0x6DEu);
-          goto LABEL_13;
-        }
-        if ( v12 )
-          (**(void (__fastcall ***)(struct CShape *, __int64))v12)(v12, 1LL);
-        v6 = *(struct CShape **)&v16.left;
+LABEL_21:
+        *((_QWORD *)this + 113) = v12;
+        *((_BYTE *)this + 912) = 1;
+        goto LABEL_8;
+      }
+      v13 = *((_QWORD *)this + 90);
+      v23 = 0LL;
+      LOBYTE(v24) = 0;
+      v20 = 0LL;
+      v14 = (*(__int64 (__fastcall **)(__int64, __int64 *, _QWORD))(*(_QWORD *)v13 + 32LL))(v13, &v23, 0LL);
+      v2 = v14;
+      if ( v14 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v14, 0x7CFu, 0LL);
       }
       else
       {
-        v6 = v12;
+        v17 = CShape::Combine((__int64)v12, v15, v23, 0LL, 1, &v20);
+        v2 = v17;
+        if ( v17 >= 0 )
+        {
+          if ( v12 )
+            (**(void (__fastcall ***)(struct CShape *, __int64))v12)(v12, 1LL);
+          v12 = v20;
+          CShapePtr::~CShapePtr((CShapePtr *)&v23);
+          goto LABEL_21;
+        }
+        MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x7D4u, 0LL);
       }
-      *((_QWORD *)this + 113) = v6;
-      v12 = 0LL;
-      *((_BYTE *)this + 912) = 1;
-LABEL_13:
-      CRegionShape::~CRegionShape((CRegionShape *)v17);
-      CShapePtr::Release((CShapePtr *)&v13);
-      goto LABEL_4;
+      CShapePtr::~CShapePtr((CShapePtr *)&v23);
     }
-    v11 = 1747;
-LABEL_22:
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, WindowClipShape, v11);
-    goto LABEL_13;
+    CRegionShape::~CRegionShape((CRegionShape *)v26);
+    CShapePtr::~CShapePtr((CShapePtr *)&v21);
+    if ( v12 )
+      (**(void (__fastcall ***)(struct CShape *, __int64))v12)(v12, 1LL);
   }
-LABEL_4:
-  if ( v12 )
-    (**(void (__fastcall ***)(struct CShape *, __int64))v12)(v12, 1LL);
-  return (unsigned int)v2;
+  return v2;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of __imp_load_CoTaskMemAlloc @ 0x180102E1C
+ * XREFs of __imp_load_CoTaskMemAlloc @ 0x1800E8E79
  * Callers:
  *     <none>
  * Callees:

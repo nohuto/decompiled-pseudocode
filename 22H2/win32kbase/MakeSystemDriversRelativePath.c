@@ -1,10 +1,10 @@
 /*
- * XREFs of MakeSystemDriversRelativePath @ 0x1C016D0A4
+ * XREFs of MakeSystemDriversRelativePath @ 0x1C014D634
  * Callers:
- *     ?ldevLoadImageInternal@@YAPEAU_LDEV@@PEBGHPEAHHH@Z @ 0x1C00A5F20 (-ldevLoadImageInternal@@YAPEAU_LDEV@@PEBGHPEAHHH@Z.c)
+ *     ?ldevLoadImageInternal@@YAPEAU_LDEV@@PEBGHPEAHHH@Z @ 0x1C0016CD0 (-ldevLoadImageInternal@@YAPEAU_LDEV@@PEBGHPEAHHH@Z.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     _wcsnicmp @ 0x1C00CE408 (_wcsnicmp.c)
+ *     PALLOCMEM2 @ 0x1C002C278 (PALLOCMEM2.c)
+ *     _wcsnicmp @ 0x1C00C584C (_wcsnicmp.c)
  */
 
 __int64 __fastcall MakeSystemDriversRelativePath(PCWSTR Source, PUNICODE_STRING Destination, int a3)
@@ -32,10 +32,7 @@ __int64 __fastcall MakeSystemDriversRelativePath(PCWSTR Source, PUNICODE_STRING 
   }
   Destination->Length = 0;
   Destination->MaximumLength = v7;
-  if ( v7 )
-    result = NSInstrumentation::CLeakTrackingAllocator::Allocate(gpLeakTrackingAllocator, 260LL, v7, 0x6C694647u);
-  else
-    result = 0LL;
+  result = (__int64)PALLOCMEM2(v7, 1818838599LL, 0);
   Destination->Buffer = (PWSTR)result;
   if ( result )
   {

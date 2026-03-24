@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPdcInvocation @ 0x1406DC0A0
+ * XREFs of PopPdcInvocation @ 0x1406DC080
  * Callers:
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PopPdcRegister @ 0x140760924 (PopPdcRegister.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PopPdcRegister @ 0x140760904 (PopPdcRegister.c)
  */
 
 __int64 __fastcall PopPdcInvocation(unsigned int *a1, __int64 a2)

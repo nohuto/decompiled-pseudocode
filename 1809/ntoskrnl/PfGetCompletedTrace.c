@@ -1,14 +1,14 @@
 /*
- * XREFs of PfGetCompletedTrace @ 0x14064B654
+ * XREFs of PfGetCompletedTrace @ 0x14064B634
  * Callers:
  *     PfQuerySuperfetchInformation @ 0x140629AD0 (PfQuerySuperfetchInformation.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     PfTFreeTraceDump @ 0x1400D89C0 (PfTFreeTraceDump.c)
- *     PfFbBufferListFlushStandby @ 0x1400E2708 (PfFbBufferListFlushStandby.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     PfTFreeTraceDump @ 0x1400D89E0 (PfTFreeTraceDump.c)
+ *     PfFbBufferListFlushStandby @ 0x1400E2728 (PfFbBufferListFlushStandby.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     PfTAccessTracingStart @ 0x140565FF4 (PfTAccessTracingStart.c)
  *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
  */

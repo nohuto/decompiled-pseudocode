@@ -1,82 +1,79 @@
 /*
- * XREFs of MiLockOwnedProtoPage @ 0x1402DD410
+ * XREFs of MiLockOwnedProtoPage @ 0x14029A9B0
  * Callers:
- *     MmCheckCachedPageStates @ 0x140265200 (MmCheckCachedPageStates.c)
- *     MiMakePageAvoidRead @ 0x1402CE000 (MiMakePageAvoidRead.c)
- *     MiFinishHardFault @ 0x1402D9300 (MiFinishHardFault.c)
- *     MiLockProtoPoolPage @ 0x1402DD200 (MiLockProtoPoolPage.c)
- *     MiRelockProtoPoolPage @ 0x1402EF244 (MiRelockProtoPoolPage.c)
+ *     MiRelockProtoPoolPage @ 0x14029A708 (MiRelockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x14029A790 (MiLockProtoPoolPage.c)
+ *     MmCheckCachedPageStates @ 0x1402A1C20 (MmCheckCachedPageStates.c)
+ *     MiMakePageAvoidRead @ 0x1402A4700 (MiMakePageAvoidRead.c)
  * Callees:
- *     MiWriteValidPteVolatile @ 0x140217040 (MiWriteValidPteVolatile.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CCC60 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CCC90 (HvlNotifyLongSpinWait.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWriteValidPteVolatile @ 0x140240CE0 (MiWriteValidPteVolatile.c)
+ *     MiLockPageInline @ 0x1402804B0 (MiLockPageInline.c)
+ *     HvlNotifyLongSpinWait @ 0x14038FA40 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140390820 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-unsigned __int64 __fastcall MiLockOwnedProtoPage(__int64 CurrentIrql, unsigned __int8 a2)
+__int64 __fastcall MiLockOwnedProtoPage(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  volatile signed __int64 *v2; // rdi
-  volatile signed __int64 *v3; // r14
-  char v4; // al
-  __int64 v5; // rsi
+  volatile signed __int64 *v4; // rsi
+  char v5; // al
+  __int64 v6; // rbx
   unsigned __int64 i; // rbp
-  unsigned __int64 result; // rax
-  unsigned int v8; // ebx
+  __int64 result; // rax
+  unsigned int v9; // edi
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v11; // edx
   bool v12; // zf
 
-  v2 = (volatile signed __int64 *)(CurrentIrql + 24);
-  v3 = (volatile signed __int64 *)(*(_QWORD *)(CurrentIrql + 8) | 0x8000000000000000uLL);
-  v4 = *(_BYTE *)(CurrentIrql + 34);
-  v5 = CurrentIrql;
-  for ( i = a2; (v4 & 0x20) != 0; v4 = *(_BYTE *)(v5 + 34) )
+  v4 = (volatile signed __int64 *)(*(_QWORD *)(a1 + 8) | 0x8000000000000000uLL);
+  v5 = *(_BYTE *)(a1 + 34);
+  v6 = a1;
+  for ( i = (unsigned __int8)a2; (v5 & 0x20) != 0; v5 = *(_BYTE *)(v6 + 34) )
   {
-    _InterlockedAnd64(v2, 0x7FFFFFFFFFFFFFFFuLL);
+    _InterlockedAnd64((volatile signed __int64 *)(v6 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( (_BYTE)i != 17 )
     {
       if ( KiIrqlFlags )
       {
-        CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
-          && (unsigned __int8)CurrentIrql <= 0xFu
-          && (unsigned __int8)i <= 0xFu
-          && (unsigned __int8)CurrentIrql >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          CurrentIrql = (unsigned int)(i + 1);
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)i + 1));
-          v12 = (v11 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v11;
-          if ( v12 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          CurrentIrql = KeGetCurrentIrql();
+          if ( CurrentIrql <= 0xFu && (unsigned __int8)i <= 0xFu && CurrentIrql >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            a1 = (unsigned int)(i + 1);
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            a2 = ~(unsigned __int16)(-1LL << ((unsigned __int8)i + 1));
+            v12 = ((unsigned int)a2 & SchedulerAssist[5]) == 0;
+            a3 = (unsigned int)a2 & SchedulerAssist[5];
+            SchedulerAssist[5] = a3;
+            if ( v12 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
       __writecr8(i);
     }
-    v8 = 0;
-    while ( (*(_BYTE *)(v5 + 34) & 0x20) != 0 )
+    v9 = 0;
+    while ( (*(_BYTE *)(v6 + 34) & 0x20) != 0 )
     {
-      if ( (++v8 & HvlLongSpinCountMask) == 0
+      if ( (++v9 & HvlLongSpinCountMask) == 0
         && (HvlEnlightenments & 0x40) != 0
-        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(CurrentIrql) )
+        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(a1, a2, a3, SchedulerAssist) )
       {
-        HvlNotifyLongSpinWait(v8);
+        HvlNotifyLongSpinWait(v9);
       }
       else
       {
         _mm_pause();
       }
     }
-    MiLockPageInline(v5);
+    MiLockPageInline(v6, a2, a3, SchedulerAssist);
   }
-  *(_BYTE *)(v5 + 34) = v4 | 0x20;
-  result = (unsigned __int64)*v2 >> 62;
-  if ( (*v2 & 0x4000000000000000LL) == 0 && (*(_BYTE *)v3 & 0x20) == 0 )
-    result = MiWriteValidPteVolatile(v3, 1, 0);
-  _InterlockedAnd64(v2, 0x7FFFFFFFFFFFFFFFuLL);
+  *(_BYTE *)(v6 + 34) = v5 | 0x20;
+  result = *(_QWORD *)(v6 + 24) >> 62;
+  if ( (*(_QWORD *)(v6 + 24) & 0x4000000000000000LL) == 0 && (*(_BYTE *)v4 & 0x20) == 0 )
+    result = MiWriteValidPteVolatile(v4, 1, 0);
+  _InterlockedAnd64((volatile signed __int64 *)(v6 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   return result;
 }

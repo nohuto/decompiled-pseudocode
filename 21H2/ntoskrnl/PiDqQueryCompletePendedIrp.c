@@ -1,51 +1,44 @@
 /*
- * XREFs of PiDqQueryCompletePendedIrp @ 0x1406E5854
+ * XREFs of PiDqQueryCompletePendedIrp @ 0x140763A44
  * Callers:
- *     PiDqObjectManagerServiceActionQueue @ 0x140775990 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x140763120 (PiDqObjectManagerServiceActionQueue.c)
  * Callees:
- *     PiDqQueryGetNextIoctlInfo @ 0x1407758D0 (PiDqQueryGetNextIoctlInfo.c)
- *     PiDqIrpComplete @ 0x140776880 (PiDqIrpComplete.c)
+ *     PiDqQueryGetNextIoctlInfo @ 0x14062E77C (PiDqQueryGetNextIoctlInfo.c)
+ *     PiDqIrpComplete @ 0x14062F050 (PiDqIrpComplete.c)
  */
 
-__int64 __fastcall PiDqQueryCompletePendedIrp(__int64 a1)
+void __fastcall PiDqQueryCompletePendedIrp(__int64 a1)
 {
   __int64 v2; // rcx
   __int64 v3; // rdx
-  __int64 result; // rax
-  __int64 v5; // r8
-  __int64 v6; // rdx
-  __int128 *v7; // r9
-  __int128 v8; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v4; // r8d
+  int v5; // edx
+  __int128 *v6; // r9
+  __int128 v7; // [rsp+20h] [rbp-18h] BYREF
 
   v2 = *(_QWORD *)(a1 + 176);
-  v8 = 0LL;
+  v7 = 0LL;
   if ( v2 )
   {
     v3 = *(_QWORD *)(v2 + 184);
-    result = _InterlockedExchange64((volatile __int64 *)(v2 + 104), 0LL);
-    if ( result )
+    if ( _InterlockedExchange64((volatile __int64 *)(v2 + 104), 0LL) )
     {
-      v5 = 0LL;
+      v4 = 0;
       if ( (*(_DWORD *)(a1 + 216) & 1) != 0 )
       {
-        v7 = 0LL;
-        v6 = 3221225626LL;
+        v6 = 0LL;
+        v5 = -1073741670;
       }
       else
       {
-        ((void (__fastcall *)(__int64, _QWORD, _QWORD, __int128 *))PiDqQueryGetNextIoctlInfo)(
-          a1,
-          *(unsigned int *)(v3 + 8),
-          0LL,
-          &v8);
-        v6 = 0LL;
-        v7 = &v8;
-        v5 = 16LL;
+        PiDqQueryGetNextIoctlInfo(a1, *(_DWORD *)(v3 + 8), 0, &v7);
+        v5 = 0;
+        v6 = &v7;
+        v4 = 16;
       }
-      result = PiDqIrpComplete(*(_QWORD *)(a1 + 176), v6, v5, v7, v8, *((_QWORD *)&v8 + 1));
+      PiDqIrpComplete(*(IRP **)(a1 + 176), v5, v4, v6);
       *(_DWORD *)(a1 + 216) &= ~0x10u;
       *(_QWORD *)(a1 + 176) = 0LL;
     }
   }
-  return result;
 }

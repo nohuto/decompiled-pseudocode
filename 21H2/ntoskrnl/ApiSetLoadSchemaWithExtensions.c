@@ -1,69 +1,58 @@
 /*
- * XREFs of ApiSetLoadSchemaWithExtensions @ 0x140A0A644
+ * XREFs of ApiSetLoadSchemaWithExtensions @ 0x14095E984
  * Callers:
- *     PspSiloLoadApiSets @ 0x1409ACAD0 (PspSiloLoadApiSets.c)
+ *     PspSiloLoadApiSets @ 0x140906D14 (PspSiloLoadApiSets.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ApiSetReleaseSchema @ 0x140647164 (ApiSetReleaseSchema.c)
- *     ApiSetIsSchemaSealed @ 0x140647850 (ApiSetIsSchemaSealed.c)
- *     ApiSetLoadSchemaEx @ 0x140A0A574 (ApiSetLoadSchemaEx.c)
- *     ApiSetpLoadSchemaExtensions @ 0x140A0A95C (ApiSetpLoadSchemaExtensions.c)
- *     ApiSetpOpenSchemaExtensionsRootNode @ 0x140A0AC10 (ApiSetpOpenSchemaExtensionsRootNode.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ApiSetReleaseSchema @ 0x1405BE588 (ApiSetReleaseSchema.c)
+ *     ApiSetIsSchemaSealed @ 0x1405BEC74 (ApiSetIsSchemaSealed.c)
+ *     ApiSetLoadSchemaEx @ 0x14095E8B4 (ApiSetLoadSchemaEx.c)
+ *     ApiSetpLoadSchemaExtensions @ 0x14095EC94 (ApiSetpLoadSchemaExtensions.c)
+ *     ApiSetpOpenSchemaExtensionsRootNode @ 0x14095EF44 (ApiSetpOpenSchemaExtensionsRootNode.c)
  */
 
-__int64 __fastcall ApiSetLoadSchemaWithExtensions(__int64 a1, __int64 *a2, size_t *a3)
+__int64 __fastcall ApiSetLoadSchemaWithExtensions(__int64 a1, ULONG_PTR *a2, _QWORD *a3)
 {
+  __int64 v5; // rdx
   int SchemaExtensions; // ebx
-  __int64 v6; // rcx
-  int v7; // eax
-  size_t v8; // rax
-  ULONG_PTR v9; // rcx
-  HANDLE Handle; // [rsp+20h] [rbp-10h] BYREF
-  size_t v12; // [rsp+28h] [rbp-8h] BYREF
-  ULONG_PTR v13; // [rsp+58h] [rbp+28h] BYREF
+  __int64 v7; // r8
+  _DWORD *v8; // r9
+  int v9; // eax
+  ULONG_PTR v10; // rax
+  SIZE_T v12; // [rsp+20h] [rbp-10h] BYREF
+  HANDLE Handle; // [rsp+28h] [rbp-8h] BYREF
+  ULONG_PTR v14; // [rsp+58h] [rbp+28h] BYREF
 
   v12 = 0LL;
   Handle = (HANDLE)-1LL;
-  v13 = 0LL;
-  SchemaExtensions = ApiSetLoadSchemaEx(a1, &v13, &v12);
-  if ( SchemaExtensions < 0 )
-    goto LABEL_10;
-  if ( ApiSetIsSchemaSealed(v13) )
-  {
-LABEL_9:
-    v8 = v12;
-    *a2 = v6;
-    v9 = 0LL;
-    v13 = 0LL;
-    *a3 = v8;
-    goto LABEL_11;
-  }
-  v7 = ApiSetpOpenSchemaExtensionsRootNode(&Handle);
-  SchemaExtensions = v7;
-  if ( v7 >= 0 )
-  {
-    SchemaExtensions = ApiSetpLoadSchemaExtensions(Handle);
-  }
-  else
-  {
-    if ( v7 != -1073741772 )
-      goto LABEL_10;
-    SchemaExtensions = 0;
-  }
+  v14 = 0LL;
+  SchemaExtensions = ApiSetLoadSchemaEx(a1, &v14, &v12);
   if ( SchemaExtensions >= 0 )
   {
-    v6 = v13;
-    goto LABEL_9;
+    if ( !ApiSetIsSchemaSealed(v14) )
+    {
+      v9 = ApiSetpOpenSchemaExtensionsRootNode(&Handle);
+      SchemaExtensions = v9;
+      if ( v9 >= 0 )
+      {
+        SchemaExtensions = ApiSetpLoadSchemaExtensions(Handle);
+      }
+      else if ( v9 == -1073741772 )
+      {
+        SchemaExtensions = 0;
+      }
+    }
+    if ( SchemaExtensions >= 0 )
+    {
+      v10 = v14;
+      v14 = 0LL;
+      *a2 = v10;
+      *a3 = v12;
+    }
   }
-LABEL_10:
-  v9 = v13;
-LABEL_11:
   if ( Handle != (HANDLE)-1LL )
-  {
     ZwClose(Handle);
-    v9 = v13;
-  }
-  if ( v9 )
-    ApiSetReleaseSchema(v9);
+  if ( v14 )
+    ApiSetReleaseSchema(v14, v5, v7, v8);
   return (unsigned int)SchemaExtensions;
 }

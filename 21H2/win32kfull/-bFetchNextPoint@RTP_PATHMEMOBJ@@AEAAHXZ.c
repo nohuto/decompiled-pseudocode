@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bFetchNextPoint@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02C012C
+ * XREFs of ?bFetchNextPoint@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02C178C
  * Callers:
- *     ?bDiagonalizeSubPath@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02BFECC (-bDiagonalizeSubPath@RTP_PATHMEMOBJ@@AEAAHXZ.c)
+ *     ?bDiagonalizeSubPath@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02C152C (-bDiagonalizeSubPath@RTP_PATHMEMOBJ@@AEAAHXZ.c)
  * Callees:
  *     <none>
  */
@@ -10,11 +10,9 @@ __int64 __fastcall RTP_PATHMEMOBJ::bFetchNextPoint(struct _PATHDATA *this)
 {
   __int64 pptfx_high; // rbp
   char v3; // di
-  signed int count; // ecx
+  int count; // ecx
   int v5; // esi
-  bool v6; // cc
-  int v7; // eax
-  signed int v8; // ecx
+  int v6; // eax
 
   pptfx_high = SHIDWORD(this[11].pptfx);
   v3 = 1;
@@ -23,7 +21,6 @@ __int64 __fastcall RTP_PATHMEMOBJ::bFetchNextPoint(struct _PATHDATA *this)
     HIDWORD(this[11].pptfx) = pptfx_high - 2;
   count = this[8].count;
   v5 = 0;
-  v6 = count <= 0;
   if ( !count )
   {
     if ( (this[8].flags & 2) != 0 )
@@ -31,28 +28,25 @@ __int64 __fastcall RTP_PATHMEMOBJ::bFetchNextPoint(struct _PATHDATA *this)
       *(&this[12].flags + pptfx_high) = 0;
       v3 = 3;
       *(POINTFIX **)((char *)&(&this[12].pptfx)[pptfx_high] + 4) = *(POINTFIX **)&this[9].flags;
-LABEL_16:
-      --this[8].count;
-      return v3 & 1;
+      count = --this[8].count;
     }
-    v7 = EPATHOBJ::bEnum((EPATHOBJ *)this, this + 8);
-    v8 = this[8].count;
-    LODWORD(this[7].pptfx) = v7;
-    if ( !v8 || (this[8].flags & 1) != 0 || !this[8].pptfx )
+    else
     {
-      v3 = 2;
-      return v3 & 1;
+      v6 = EPATHOBJ::bEnum((EPATHOBJ *)this, this + 8);
+      count = this[8].count;
+      LODWORD(this[7].pptfx) = v6;
+      if ( !count || (this[8].flags & 1) != 0 || !this[8].pptfx )
+        v3 = 2;
     }
-    v6 = v8 <= 0;
   }
-  if ( !v6 )
+  if ( (v3 & 2) == 0 && count > 0 )
   {
     *(POINTFIX **)((char *)&(&this[12].pptfx)[pptfx_high] + 4) = (POINTFIX *)*this[8].pptfx;
     if ( this[8].count == 1 && (this[8].flags & 2) != 0 )
       v5 = 1;
     *(&this[12].flags + pptfx_high) = v5;
     ++this[8].pptfx;
-    goto LABEL_16;
+    --this[8].count;
   }
   return v3 & 1;
 }

@@ -1,12 +1,11 @@
 /*
- * XREFs of ApiSetpSearchForApiSet @ 0x14035EF30
+ * XREFs of ApiSetpSearchForApiSet @ 0x1403A2C30
  * Callers:
- *     ApiSetQuerySchemaInfo @ 0x14035EB84 (ApiSetQuerySchemaInfo.c)
- *     ApiSetResolveToHost @ 0x14035EDE8 (ApiSetResolveToHost.c)
- *     ApiSetValidateSchemaFormat @ 0x14061473C (ApiSetValidateSchemaFormat.c)
- *     ApiSetComposeSchema @ 0x140614A14 (ApiSetComposeSchema.c)
+ *     ApiSetResolveToHost @ 0x14037263C (ApiSetResolveToHost.c)
+ *     ApiSetValidateSchemaFormat @ 0x1405BE224 (ApiSetValidateSchemaFormat.c)
+ *     ApiSetComposeSchema @ 0x1405BE4E0 (ApiSetComposeSchema.c)
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x1406DA090 (RtlCompareUnicodeStrings.c)
+ *     RtlCompareUnicodeStrings @ 0x14065F910 (RtlCompareUnicodeStrings.c)
  */
 
 __int64 __fastcall ApiSetpSearchForApiSet(_DWORD *a1, const WCHAR *a2, unsigned __int16 a3)
@@ -15,14 +14,14 @@ __int64 __fastcall ApiSetpSearchForApiSet(_DWORD *a1, const WCHAR *a2, unsigned 
   unsigned int v6; // edi
   const WCHAR *v7; // r8
   int v8; // ebx
-  __int64 v9; // r10
+  __int64 v9; // r9
   unsigned __int16 v10; // dx
   unsigned __int16 v11; // cx
   __int64 v12; // rbx
   int v13; // ecx
   int v14; // r8d
   int v15; // edx
-  __int64 v16; // r10
+  __int64 v16; // r9
 
   v3 = a3;
   v6 = 0;
@@ -69,7 +68,7 @@ LABEL_10:
           a2,
           v3,
           (PCWCH)((char *)a1 + *(unsigned int *)(v12 + 4)),
-          *(_DWORD *)(v12 + 12) >> 1,
+          (unsigned __int64)*(unsigned int *)(v12 + 12) >> 1,
           1u) )
   {
     return v12;

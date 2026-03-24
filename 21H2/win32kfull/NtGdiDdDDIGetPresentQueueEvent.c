@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiDdDDIGetPresentQueueEvent @ 0x1C0275790
+ * XREFs of NtGdiDdDDIGetPresentQueueEvent @ 0x1C0278010
  * Callers:
  *     <none>
  * Callees:

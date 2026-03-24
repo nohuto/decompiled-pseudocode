@@ -1,24 +1,13 @@
 /*
- * XREFs of CmLockHive @ 0x1407484C4
+ * XREFs of CmLockHive @ 0x1406DCB88
  * Callers:
- *     CmpWaitForLateUnloadWorker @ 0x1402EC614 (CmpWaitForLateUnloadWorker.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1406DC020 (NtNotifyChangeMultipleKeys.c)
+ *     CmpFlushNotify @ 0x1406E3C7C (CmpFlushNotify.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
  */
 
-__int64 __fastcall CmLockHive(__int64 a1)
+void __fastcall CmLockHive(__int64 a1)
 {
-  unsigned __int64 *v1; // rdi
-  __int64 result; // rax
-  __int64 v3; // rbx
-
-  v1 = (unsigned __int64 *)(a1 + 1680);
-  result = KeAbPreAcquire(a1 + 1680, 0LL);
-  v3 = result;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
-    result = ExfAcquirePushLockExclusiveEx(v1, result, (__int64)v1);
-  if ( v3 )
-    *(_BYTE *)(v3 + 18) = 1;
-  return result;
+  ExAcquirePushLockExclusiveEx(a1 + 1672, 0LL);
 }

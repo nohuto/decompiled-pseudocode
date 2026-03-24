@@ -1,27 +1,22 @@
 /*
- * XREFs of NtUserRegisterErrorReportingDialog @ 0x1C01D9340
+ * XREFs of NtUserRegisterErrorReportingDialog @ 0x1C02006C0
  * Callers:
  *     <none>
  * Callees:
- *     ?_RegisterErrorReportingDialog@@YAHPEAUtagWND@@K@Z @ 0x1C01F4150 (-_RegisterErrorReportingDialog@@YAHPEAUtagWND@@K@Z.c)
+ *     _RegisterErrorReportingDialog @ 0x1C0209BA0 (_RegisterErrorReportingDialog.c)
  */
 
-__int64 __fastcall NtUserRegisterErrorReportingDialog(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtUserRegisterErrorReportingDialog(__int64 a1, unsigned int a2)
 {
-  unsigned int v3; // edi
-  struct tagWND *v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  int v10; // ebx
+  __int64 v4; // rax
+  __int64 v5; // rcx
+  int v6; // ebx
 
-  v3 = a2;
-  EnterSharedCrit(a1, a2, a3);
-  v5 = (struct tagWND *)ValidateHwnd(a1);
-  v10 = 0;
-  if ( v5 )
-    v10 = _RegisterErrorReportingDialog(v5, v3);
-  UserSessionSwitchLeaveCrit(v7, v6, v8, v9);
-  return v10;
+  EnterSharedCrit(0LL, 1LL);
+  v4 = ValidateHwnd(a1);
+  v6 = 0;
+  if ( v4 )
+    v6 = RegisterErrorReportingDialog(v4, a2);
+  UserSessionSwitchLeaveCrit(v5);
+  return v6;
 }

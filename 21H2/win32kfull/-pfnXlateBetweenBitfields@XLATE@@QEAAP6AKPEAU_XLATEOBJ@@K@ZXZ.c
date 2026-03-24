@@ -1,28 +1,28 @@
 /*
- * XREFs of ?pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ @ 0x1C013C7F4
+ * XREFs of ?pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ @ 0x1C0150314
  * Callers:
- *     ?vSrcCopyS24D32@@YAXPEAUBLTINFO@@@Z @ 0x1C00DEFC0 (-vSrcCopyS24D32@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vSrcCopyS32D24@@YAXPEAUBLTINFO@@@Z @ 0x1C013A4C0 (-vSrcCopyS32D24@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vTransparentCopyS24D32@@YAXPEAUBLTINFO@@@Z @ 0x1C013C700 (-vTransparentCopyS24D32@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vTransparentCopyS16D16@@YAXPEAUBLTINFO@@@Z @ 0x1C028FC90 (-vTransparentCopyS16D16@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vTransparentCopyS16D24@@YAXPEAUBLTINFO@@@Z @ 0x1C028FE60 (-vTransparentCopyS16D24@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vTransparentCopyS16D32@@YAXPEAUBLTINFO@@@Z @ 0x1C028FFA0 (-vTransparentCopyS16D32@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vTransparentCopyS24D16@@YAXPEAUBLTINFO@@@Z @ 0x1C02901A0 (-vTransparentCopyS24D16@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vTransparentCopyS24D24@@YAXPEAUBLTINFO@@@Z @ 0x1C0290290 (-vTransparentCopyS24D24@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vTransparentCopyS32D16@@YAXPEAUBLTINFO@@@Z @ 0x1C0290470 (-vTransparentCopyS32D16@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vTransparentCopyS32D24@@YAXPEAUBLTINFO@@@Z @ 0x1C02905A0 (-vTransparentCopyS32D24@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vTransparentCopyS32D32@@YAXPEAUBLTINFO@@@Z @ 0x1C02906E0 (-vTransparentCopyS32D32@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vSrcCopyS16D16@@YAXPEAUBLTINFO@@@Z @ 0x1C02C93C0 (-vSrcCopyS16D16@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vSrcCopyS24D16@@YAXPEAUBLTINFO@@@Z @ 0x1C02C9BF0 (-vSrcCopyS24D16@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vSrcCopyS32D16@@YAXPEAUBLTINFO@@@Z @ 0x1C02C9EE0 (-vSrcCopyS32D16@@YAXPEAUBLTINFO@@@Z.c)
- *     ?vSrcCopyS16D24@@YAXPEAUBLTINFO@@@Z @ 0x1C02CA390 (-vSrcCopyS16D24@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS24D32@@YAXPEAUBLTINFO@@@Z @ 0x1C00D2720 (-vSrcCopyS24D32@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS32D24@@YAXPEAUBLTINFO@@@Z @ 0x1C00F5020 (-vSrcCopyS32D24@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vTransparentCopyS24D32@@YAXPEAUBLTINFO@@@Z @ 0x1C0150220 (-vTransparentCopyS24D32@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vTransparentCopyS16D16@@YAXPEAUBLTINFO@@@Z @ 0x1C0291FC0 (-vTransparentCopyS16D16@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vTransparentCopyS16D24@@YAXPEAUBLTINFO@@@Z @ 0x1C0292190 (-vTransparentCopyS16D24@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vTransparentCopyS16D32@@YAXPEAUBLTINFO@@@Z @ 0x1C02922D0 (-vTransparentCopyS16D32@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vTransparentCopyS24D16@@YAXPEAUBLTINFO@@@Z @ 0x1C02924D0 (-vTransparentCopyS24D16@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vTransparentCopyS24D24@@YAXPEAUBLTINFO@@@Z @ 0x1C02925C0 (-vTransparentCopyS24D24@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vTransparentCopyS32D16@@YAXPEAUBLTINFO@@@Z @ 0x1C0292850 (-vTransparentCopyS32D16@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vTransparentCopyS32D24@@YAXPEAUBLTINFO@@@Z @ 0x1C0292980 (-vTransparentCopyS32D24@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vTransparentCopyS32D32@@YAXPEAUBLTINFO@@@Z @ 0x1C0292AC0 (-vTransparentCopyS32D32@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS16D16@@YAXPEAUBLTINFO@@@Z @ 0x1C02CAB50 (-vSrcCopyS16D16@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS24D16@@YAXPEAUBLTINFO@@@Z @ 0x1C02CB450 (-vSrcCopyS24D16@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS32D16@@YAXPEAUBLTINFO@@@Z @ 0x1C02CB740 (-vSrcCopyS32D16@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS16D24@@YAXPEAUBLTINFO@@@Z @ 0x1C02CBBE0 (-vSrcCopyS16D24@@YAXPEAUBLTINFO@@@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 (__fastcall *__fastcall XLATE::pfnXlateBetweenBitfields(XLATE *this))(struct _XLATEOBJ *a1, unsigned int a2)
 {
-  unsigned int (__fastcall *v1)(struct _XLATEOBJ *, unsigned int); // rdx
+  __int64 (__fastcall *v1)(struct _XLATEOBJ *, unsigned int); // rdx
   int v2; // r8d
   int v3; // ecx
 
@@ -51,5 +51,5 @@ __int64 (__fastcall *__fastcall XLATE::pfnXlateBetweenBitfields(XLATE *this))(st
       return iXlateBGRTo555;
     }
   }
-  return (__int64 (__fastcall *)(struct _XLATEOBJ *, unsigned int))v1;
+  return v1;
 }

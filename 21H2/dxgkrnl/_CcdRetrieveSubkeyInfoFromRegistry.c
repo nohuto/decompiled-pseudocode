@@ -1,45 +1,46 @@
 /*
- * XREFs of _CcdRetrieveSubkeyInfoFromRegistry @ 0x1C01AE888
+ * XREFs of _CcdRetrieveSubkeyInfoFromRegistry @ 0x1C0136400
  * Callers:
- *     ??$_ForEachSetSubkey@VTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGP6AJPEAVTOPOLOGY_SET_DESCRIPTOR@0@PEAX@Z2@Z @ 0x1C01AE6D4 (--$_ForEachSetSubkey@VTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGP6AJPEAVTOPOLOGY_SET.c)
+ *     ??$_ForEachSetSubkey@VTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGP6AJPEAVTOPOLOGY_SET_DESCRIPTOR@0@PEAX@Z2@Z @ 0x1C0136278 (--$_ForEachSetSubkey@VTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGP6AJPEAVTOPOLOGY_SET.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CcdRetrieveSubkeyInfoFromRegistry(HANDLE KeyHandle, ULONG Index, _QWORD *a3)
 {
   void *v3; // rdi
-  __int64 v7; // r9
-  void *v8; // rax
-  NTSTATUS v9; // eax
-  unsigned int v10; // ebx
+  PVOID v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  NTSTATUS v10; // eax
+  int v11; // ebx
+  __int64 v13; // rax
   ULONG Length; // [rsp+60h] [rbp+18h] BYREF
 
   v3 = 0LL;
   Length = 1024;
   *a3 = 0LL;
-  do
+  while ( 1 )
   {
     operator delete[](v3);
-    v8 = (void *)operator new[](Length, 0x63644356u, 256LL, v7);
-    v3 = v8;
-    if ( !v8 )
-    {
-      WdLogSingleEntry1(2LL, Length);
-      v10 = -1073741801;
-      goto LABEL_8;
-    }
-    v9 = ZwEnumerateKey(KeyHandle, Index, KeyBasicInformation, v8, Length, &Length);
-    v10 = v9;
+    v7 = operator new[](Length, 0x63644356u, PagedPool);
+    v3 = v7;
+    if ( !v7 )
+      break;
+    v10 = ZwEnumerateKey(KeyHandle, Index, KeyBasicInformation, v7, Length, &Length);
+    v11 = v10;
+    if ( v10 != -2147483643 && v10 != -1073741789 )
+      goto LABEL_5;
   }
-  while ( v9 == -2147483643 || v9 == -1073741789 );
-  if ( v9 >= 0 )
-  {
+  v13 = WdLogNewEntry5_WdError(v9, v8);
+  *(_QWORD *)(v13 + 24) = Length;
+  WdLogEvent5_WdError(v13);
+  v11 = -1073741801;
+LABEL_5:
+  if ( v11 < 0 )
+    operator delete[](v3);
+  else
     *a3 = v3;
-    return v10;
-  }
-LABEL_8:
-  operator delete[](v3);
-  return v10;
+  return (unsigned int)v11;
 }

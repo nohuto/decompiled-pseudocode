@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Stop@CMit@@QEAAXXZ @ 0x18018F53C
+ * XREFs of ?Stop@CMit@@QEAAXXZ @ 0x1802333AC
  * Callers:
- *     ??1CInputManager@@MEAA@XZ @ 0x180180E6C (--1CInputManager@@MEAA@XZ.c)
- *     ??1CMit@@UEAA@XZ @ 0x18018F4B4 (--1CMit@@UEAA@XZ.c)
- *     ??1CGlobalMit@@UEAA@XZ @ 0x1801900BC (--1CGlobalMit@@UEAA@XZ.c)
+ *     ??1CInputManager@@MEAA@XZ @ 0x180221ECC (--1CInputManager@@MEAA@XZ.c)
+ *     ??1CMit@@UEAA@XZ @ 0x180233324 (--1CMit@@UEAA@XZ.c)
+ *     ??1CGlobalMit@@UEAA@XZ @ 0x180233408 (--1CGlobalMit@@UEAA@XZ.c)
  * Callees:
  *     <none>
  */

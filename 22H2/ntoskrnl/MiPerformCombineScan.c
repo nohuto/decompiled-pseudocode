@@ -1,20 +1,27 @@
 /*
- * XREFs of MiPerformCombineScan @ 0x140282DA0
+ * XREFs of MiPerformCombineScan @ 0x1403695D0
  * Callers:
- *     MiComputeCombineHash @ 0x140281B30 (MiComputeCombineHash.c)
+ *     MiSharePages @ 0x140367CB0 (MiSharePages.c)
+ *     MiCombinePte @ 0x14055C840 (MiCombinePte.c)
+ *     MiCombineAllPhysicalMemory @ 0x140727470 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     MiComputeHash64 @ 0x140282E20 (MiComputeHash64.c)
+ *     MiHashIsCommon @ 0x14036967C (MiHashIsCommon.c)
+ *     MiComputeHash64 @ 0x140371420 (MiComputeHash64.c)
  */
 
-__int64 __fastcall MiPerformCombineScan(__int64 a1, __int64 a2)
+_BOOL8 __fastcall MiPerformCombineScan(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
 {
-  unsigned int v2; // r8d
-  __int64 v3; // r11
-  __int64 v5; // [rsp+28h] [rbp-10h]
+  BOOL v6; // esi
+  __int64 v7; // rax
+  __int64 v8; // r8
+  __int64 v9; // rbx
+  int v10; // r11d
 
-  v5 = MiComputeHash64((__int64)(*(_QWORD *)(a2 + 56) << 25) >> 16, a2, 1LL);
-  *(_QWORD *)(v3 + 8) = v5;
-  if ( !v5 )
-    return 0;
-  return v2;
+  v6 = 1;
+  v7 = MiComputeHash64((__int64)(*(_QWORD *)(a2 + 56) << 25) >> 16, a2, (__int64)(*(_QWORD *)(a2 + 56) << 25) >> 16);
+  v9 = v7;
+  if ( v10 )
+    v6 = MiHashIsCommon(a1, v7, v8) != 0;
+  *a4 = v9;
+  return v6;
 }

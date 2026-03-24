@@ -1,38 +1,32 @@
 /*
- * XREFs of ?GetThreadLocalDataCache@details_abi@wil@@YAPEAUThreadLocalData@12@_N@Z @ 0x1800F5150
+ * XREFs of ?GetThreadLocalDataCache@details_abi@wil@@YAPEAUThreadLocalData@12@_N@Z @ 0x18014DB3C
  * Callers:
- *     ?GetContextAndNotifyFailure@details@wil@@YAXPEAUFailureInfo@2@PEAD_K@Z @ 0x1800F6E00 (-GetContextAndNotifyFailure@details@wil@@YAXPEAUFailureInfo@2@PEAD_K@Z.c)
+ *     ?GetContextAndNotifyFailure@details@wil@@YAXPEAUFailureInfo@2@PEAD_K@Z @ 0x18014D450 (-GetContextAndNotifyFailure@details@wil@@YAXPEAUFailureInfo@2@PEAD_K@Z.c)
  * Callees:
- *     ?GetShared@?$ProcessLocalStorage@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAAPEAUProcessLocalData@23@XZ @ 0x1800F51D0 (-GetShared@-$ProcessLocalStorage@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAAPEAUPr.c)
+ *     ?GetLocal@?$ThreadLocalStorage@UThreadLocalData@details_abi@wil@@@details_abi@wil@@QEAAPEAUThreadLocalData@23@_N@Z @ 0x18014D894 (-GetLocal@-$ThreadLocalStorage@UThreadLocalData@details_abi@wil@@@details_abi@wil@@QEAAPEAUThrea.c)
+ *     ?GetShared@?$ProcessLocalStorage@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAAPEAUProcessLocalData@23@XZ @ 0x18014D9E4 (-GetShared@-$ProcessLocalStorage@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAAPEAUPr.c)
  */
 
 struct wil::details_abi::ThreadLocalData *__fastcall wil::details_abi::GetThreadLocalDataCache(wil::details_abi *this)
 {
   __int64 v1; // rbx
-  __int64 Shared; // rdi
-  DWORD CurrentThreadId; // r8d
-  __int64 i; // rcx
-  bool v6; // zf
-  __int64 v7; // rcx
+  __int64 Shared; // rax
+  __int64 v3; // rdi
+  __int64 Local; // rax
 
   v1 = 0LL;
   if ( wil::details_abi::g_pProcessLocalData )
   {
     Shared = wil::details_abi::ProcessLocalStorage<wil::details_abi::ProcessLocalData>::GetShared(this);
+    v3 = Shared;
     if ( Shared )
     {
-      CurrentThreadId = GetCurrentThreadId();
-      for ( i = *(_QWORD *)(Shared + 8 * (CurrentThreadId % 0xAuLL) + 8); i; i = *(_QWORD *)(i + 8) )
+      Local = wil::details_abi::ThreadLocalStorage<wil::details_abi::ThreadLocalData>::GetLocal(Shared + 8);
+      v1 = Local;
+      if ( Local )
       {
-        if ( *(_DWORD *)i == CurrentThreadId )
-        {
-          v6 = i == -16;
-          v7 = i + 16;
-          v1 = v7;
-          if ( !v6 && !*(_QWORD *)(v7 + 8) )
-            *(_QWORD *)(v7 + 8) = Shared + 4;
-          return (struct wil::details_abi::ThreadLocalData *)v1;
-        }
+        if ( !*(_QWORD *)(Local + 8) )
+          *(_QWORD *)(Local + 8) = v3 + 4;
       }
     }
   }

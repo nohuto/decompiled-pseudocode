@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ChangeBasis@CVector3ForceEvaluator@@QEAAXAEBUD2DMatrix@@@Z @ 0x180277144
+ * XREFs of ?ChangeBasis@CVector3ForceEvaluator@@QEAAXAEBUD2DMatrix@@@Z @ 0x180215ABC
  * Callers:
- *     ?CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18023C17C (-CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1801D717C (-CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     _lambda_c2661e01401ae061a9dc9ee442c48f39_::operator() @ 0x180277044 (_lambda_c2661e01401ae061a9dc9ee442c48f39_--operator().c)
- *     ?D2DMatrixInverse@@YAPEAUD2DMatrix@@PEAU1@PEAMPEBU1@@Z @ 0x18027D1C0 (-D2DMatrixInverse@@YAPEAUD2DMatrix@@PEAU1@PEAMPEBU1@@Z.c)
+ *     _lambda_c2661e01401ae061a9dc9ee442c48f39_::operator() @ 0x1802159BC (_lambda_c2661e01401ae061a9dc9ee442c48f39_--operator().c)
+ *     ?D2DMatrixInverse@@YAPEAUD2DMatrix@@PEAU1@PEAMPEBU1@@Z @ 0x18021C470 (-D2DMatrixInverse@@YAPEAUD2DMatrix@@PEAU1@PEAMPEBU1@@Z.c)
  */
 
 void __fastcall CVector3ForceEvaluator::ChangeBasis(CVector3ForceEvaluator *this, const struct D2DMatrix *a2)

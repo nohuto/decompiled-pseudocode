@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitUpdateCommands@CYCbCrSurfaceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0223AB0
+ * XREFs of ?EmitUpdateCommands@CYCbCrSurfaceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E9A60
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CYCbCrSurfaceMarshaler::EmitUpdateCommands(
@@ -25,17 +25,17 @@ char __fastcall DirectComposition::CYCbCrSurfaceMarshaler::EmitUpdateCommands(
   *(_DWORD *)v9 = 24;
   *(_OWORD *)(v4 + 4) = 0LL;
   *((_DWORD *)v4 + 5) = 0;
-  *((_DWORD *)v4 + 1) = 442;
-  *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
+  *((_DWORD *)v4 + 1) = 459;
+  *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
   v5 = *((_QWORD *)this + 7);
   if ( v5 )
-    v6 = *(_DWORD *)(v5 + 32);
+    v6 = *(_DWORD *)(v5 + 24);
   else
     v6 = 0;
   *((_DWORD *)v4 + 3) = v6;
   v7 = *((_QWORD *)this + 8);
   if ( v7 )
-    v2 = *(_DWORD *)(v7 + 32);
+    v2 = *(_DWORD *)(v7 + 24);
   *((_DWORD *)v4 + 4) = v2;
   *((_DWORD *)v4 + 5) = *((_DWORD *)this + 18);
   return 1;

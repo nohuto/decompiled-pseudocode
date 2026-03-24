@@ -1,49 +1,49 @@
 /*
- * XREFs of ?Allocate@?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C02288DC
+ * XREFs of ?Allocate@?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C0243A1C
  * Callers:
- *     xxxSBTrackInit @ 0x1C022A46C (xxxSBTrackInit.c)
+ *     ??$UserAllocateIsolatedType@V?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@@@YAPEAXXZ @ 0x1C0169764 (--$UserAllocateIsolatedType@V-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@@@YAPEAXXZ.c)
  * Callees:
- *     ??1?$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ @ 0x1C01BDFD0 (--1-$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ.c)
- *     ?Allocate@?$CSectionBitmapAllocator@$0HAAA@$0HA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C02287B0 (-Allocate@-$CSectionBitmapAllocator@$0HAAA@$0HA@@NSInstrumentation@@QEAAPEAXXZ.c)
- *     ?Create@?$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C0228C4C (-Create@-$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@SAPEAV12@XZ.c)
+ *     ??1?$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ @ 0x1C01E8768 (--1-$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ.c)
+ *     ?Allocate@?$CSectionBitmapAllocator@$0HAAA@$0HA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C0243904 (-Allocate@-$CSectionBitmapAllocator@$0HAAA@$0HA@@NSInstrumentation@@QEAAPEAXXZ.c)
+ *     ?Create@?$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C0243D60 (-Create@-$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@SAPEAV12@XZ.c)
+ *     ?PlatformAllocateFromPagedLookasideList@NSInstrumentation@@YAPEAXPEAX@Z @ 0x1C02DCAF8 (-PlatformAllocateFromPagedLookasideList@NSInstrumentation@@YAPEAXPEAX@Z.c)
  */
 
-PVOID __fastcall NSInstrumentation::CTypeIsolation<28672,112>::Allocate(__int64 **a1)
+void *__fastcall NSInstrumentation::CTypeIsolation<28672,112>::Allocate(__int64 **a1, void *a2)
 {
-  __int64 *v2; // rbx
-  __int64 v3; // rbp
-  __int64 v4; // r8
+  __int64 *v3; // rbx
+  __int64 v4; // rbp
   __int64 **i; // rsi
   __int64 v6; // r14
   __int64 v7; // rax
   __int64 *v8; // rsi
   __int64 *v9; // rbx
-  __int64 ***v10; // rax
+  __int64 ***v10; // rcx
 
   if ( *((_BYTE *)a1 + 36) )
-    return ExAllocateFromPagedLookasideList((PPAGED_LOOKASIDE_LIST)a1[3]);
-  v2 = a1[2];
-  v3 = 0LL;
+    return NSInstrumentation::PlatformAllocateFromPagedLookasideList((NSInstrumentation *)a1[3], a2);
+  v3 = a1[2];
+  v4 = 0LL;
   KeEnterCriticalRegion();
-  ExAcquirePushLockSharedEx(v2, 0LL);
+  ExAcquirePushLockSharedEx(v3, 0LL);
   for ( i = (__int64 **)*a1; i != a1; i = (__int64 **)*i )
   {
     v6 = NSInstrumentation::CSectionBitmapAllocator<28672,112>::Allocate(i[4]);
     if ( v6 )
     {
-      ExReleasePushLockSharedEx(v2, 0LL, v4);
+      ExReleasePushLockSharedEx(v3, 0LL);
       KeLeaveCriticalRegion();
-      return (PVOID)v6;
+      return (void *)v6;
     }
   }
-  ExReleasePushLockSharedEx(v2, 0LL, v4);
+  ExReleasePushLockSharedEx(v3, 0LL);
   KeLeaveCriticalRegion();
   v7 = NSInstrumentation::CSectionEntry<28672,112>::Create();
   v8 = (__int64 *)v7;
   if ( v7 )
   {
-    v3 = NSInstrumentation::CSectionBitmapAllocator<28672,112>::Allocate(*(__int64 **)(v7 + 32));
-    if ( v3 )
+    v4 = NSInstrumentation::CSectionBitmapAllocator<28672,112>::Allocate(*(__int64 **)(v7 + 32));
+    if ( v4 )
     {
       v9 = a1[2];
       KeEnterCriticalRegion();
@@ -51,8 +51,8 @@ PVOID __fastcall NSInstrumentation::CTypeIsolation<28672,112>::Allocate(__int64 
       v10 = (__int64 ***)a1[1];
       if ( *v10 != a1 )
         __fastfail(3u);
-      *v8 = (__int64)a1;
       v8[1] = (__int64)v10;
+      *v8 = (__int64)a1;
       *v10 = (__int64 **)v8;
       *((_DWORD *)a1 + 8) += 252;
       a1[1] = v8;
@@ -65,5 +65,5 @@ PVOID __fastcall NSInstrumentation::CTypeIsolation<28672,112>::Allocate(__int64 
       ExFreePoolWithTag(v8, 0);
     }
   }
-  return (PVOID)v3;
+  return (void *)v4;
 }

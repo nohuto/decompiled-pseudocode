@@ -1,7 +1,7 @@
 /*
- * XREFs of CmSiProcessTupleInitialize @ 0x14025E928
+ * XREFs of CmSiProcessTupleInitialize @ 0x1402D4024
  * Callers:
- *     CmpInitializeRegistryProcess @ 0x140831BF4 (CmpInitializeRegistryProcess.c)
+ *     CmpInitializeRegistryProcess @ 0x1407C606C (CmpInitializeRegistryProcess.c)
  * Callees:
  *     <none>
  */

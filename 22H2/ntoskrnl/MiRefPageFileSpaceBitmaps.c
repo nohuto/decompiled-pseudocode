@@ -1,28 +1,27 @@
 /*
- * XREFs of MiRefPageFileSpaceBitmaps @ 0x14063B504
+ * XREFs of MiRefPageFileSpaceBitmaps @ 0x14031D0A0
  * Callers:
- *     MiStoreEvictThread @ 0x1403A7F20 (MiStoreEvictThread.c)
- *     MiStoreWriteModifiedPages @ 0x14046D44A (MiStoreWriteModifiedPages.c)
- *     MiBuildReservationCluster @ 0x140638354 (MiBuildReservationCluster.c)
- *     MiFindPageFileWriteCluster @ 0x140639960 (MiFindPageFileWriteCluster.c)
+ *     MiStoreEvictPageFile @ 0x14031CD88 (MiStoreEvictPageFile.c)
+ *     MiFindPageFileWriteCluster @ 0x14032AEFC (MiFindPageFileWriteCluster.c)
+ *     MiStoreWriteModifiedPages @ 0x14032F960 (MiStoreWriteModifiedPages.c)
+ *     MiBuildReservationCluster @ 0x1403866F0 (MiBuildReservationCluster.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall MiRefPageFileSpaceBitmaps(int *a1, __int64 a2)
+__int64 __fastcall MiRefPageFileSpaceBitmaps(int *a1, __int64 a2)
 {
   volatile LONG *v2; // rbx
   KIRQL v5; // al
   __int64 v6; // r14
   unsigned __int64 v7; // rbp
   int v8; // edi
-  unsigned __int8 CurrentIrql; // al
+  __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v12; // eax
-  bool v13; // zf
+  bool v12; // zf
 
   v2 = a1 + 58;
   v5 = ExAcquireSpinLockExclusive(a1 + 58);
@@ -34,22 +33,27 @@ void __fastcall MiRefPageFileSpaceBitmaps(int *a1, __int64 a2)
   *(_QWORD *)(a2 + 32) = *(_QWORD *)(v6 + 32);
   v8 = *a1;
   ExReleaseSpinLockExclusiveFromDpcLevel(v2);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v13 = (v12 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v12;
-      if ( v13 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v7 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+        v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v12 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v7);
   *(_DWORD *)(a2 + 8) = v8;
   *(_DWORD *)(a2 + 24) = v8;
   *(_QWORD *)a2 = v6;
+  return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInsertSecondarySignalList @ 0x14051D4F4
+ * XREFs of HalpInsertSecondarySignalList @ 0x1404D0F00
  * Callers:
- *     HalpReleaseSecondaryIcEntryShared @ 0x1404593D2 (HalpReleaseSecondaryIcEntryShared.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x1404D14C4 (HalpReleaseSecondaryIcEntryShared.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     KiInsertQueueDpc @ 0x140345190 (KiInsertQueueDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpInsertSecondarySignalList(__int64 a1)
@@ -20,15 +20,15 @@ __int64 __fastcall HalpInsertSecondarySignalList(__int64 a1)
   _DWORD *SchedulerAssist; // r9
 
   v2 = HalpAcquireHighLevelLock(&SecondarySignalListLock);
-  v3 = (_QWORD *)qword_140C4B0E8;
+  v3 = (_QWORD *)qword_140C49BE8;
   v4 = (_QWORD *)(a1 + 144);
-  if ( *(__int64 **)qword_140C4B0E8 != &SecondarySignalList )
+  if ( *(__int64 **)qword_140C49BE8 != &SecondarySignalList )
     __fastfail(3u);
   v5 = SecondarySignalDpcRunning == 0;
   *v4 = &SecondarySignalList;
   v4[1] = v3;
   *v3 = v4;
-  qword_140C4B0E8 = (__int64)v4;
+  qword_140C49BE8 = (__int64)v4;
   if ( v5 )
   {
     SecondarySignalDpcRunning = 1;

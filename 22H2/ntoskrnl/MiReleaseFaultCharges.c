@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReleaseFaultCharges @ 0x140363060
+ * XREFs of MiReleaseFaultCharges @ 0x14032243C
  * Callers:
- *     MmAccessFault @ 0x140235350 (MmAccessFault.c)
- *     MiFaultGetFileExtents @ 0x140645EF4 (MiFaultGetFileExtents.c)
+ *     MmAccessFault @ 0x14020D050 (MmAccessFault.c)
+ *     MiFaultGetFileExtents @ 0x140548330 (MiFaultGetFileExtents.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     MiDecrementSubsections @ 0x14029F910 (MiDecrementSubsections.c)
- *     MiCheckControlArea @ 0x14029FAA0 (MiCheckControlArea.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B424 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     MiCheckControlArea @ 0x140295130 (MiCheckControlArea.c)
+ *     MiDecrementSubsections @ 0x140295740 (MiDecrementSubsections.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14055502C (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiReleaseFaultCharges(__int64 *BugCheckParameter2)
@@ -16,22 +16,26 @@ __int64 __fastcall MiReleaseFaultCharges(__int64 *BugCheckParameter2)
   __int64 v3; // rdi
   __int64 v4; // rsi
   BOOL v5; // ebp
-  KIRQL v6; // r15
-  int v7; // eax
+  _DWORD *v6; // r8
+  KIRQL v7; // r15
+  int v8; // eax
   __int64 result; // rax
 
   v1 = *BugCheckParameter2;
   v3 = 0LL;
   v4 = 0LL;
   v5 = *(_QWORD *)(*BugCheckParameter2 + 64) != 0LL;
-  v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(*BugCheckParameter2 + 72));
-  v7 = *(_DWORD *)(v1 + 56);
-  if ( (v7 & 0x20) == 0 && *(_QWORD *)(v1 + 64) && (v7 & 0x400) == 0 )
-    v3 = MiDecrementSubsections((ULONG_PTR)BugCheckParameter2, (__int64)BugCheckParameter2, 4);
+  v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(*BugCheckParameter2 + 72));
+  v8 = *(_DWORD *)(v1 + 56);
+  if ( (v8 & 0x20) == 0 && *(_QWORD *)(v1 + 64) && (v8 & 0x400) == 0 )
+    v3 = MiDecrementSubsections((ULONG_PTR)BugCheckParameter2, (__int64)BugCheckParameter2, 4u);
   --*(_QWORD *)(v1 + 40);
   if ( v3 )
-    v4 = *(_QWORD *)(qword_140C674C8 + 8LL * (*(_WORD *)(v1 + 60) & 0x3FF));
-  result = MiCheckControlArea(v1, v6);
+  {
+    v6 = (_DWORD *)qword_140C4E648;
+    v4 = *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(v1 + 60) & 0x3FF));
+  }
+  result = MiCheckControlArea(v1, v7, v6);
   if ( v3 )
     return MiReturnCrossPartitionSectionCharges(v4, v5, v3);
   return result;

@@ -1,24 +1,23 @@
 /*
- * XREFs of SeLockSubjectContext @ 0x140722AE0
+ * XREFs of SeLockSubjectContext @ 0x1406F5E30
  * Callers:
- *     IopCreateSecurityCheck @ 0x14024B8BC (IopCreateSecurityCheck.c)
- *     SepTrustLevelCheck @ 0x1402F9614 (SepTrustLevelCheck.c)
- *     SeAccessCheckWithHint @ 0x1402F9CF0 (SeAccessCheckWithHint.c)
- *     SepCommonAccessCheckEx @ 0x140383ABC (SepCommonAccessCheckEx.c)
- *     CmpCheckCreateAccess @ 0x140668AEC (CmpCheckCreateAccess.c)
- *     ObCheckObjectAccess @ 0x1406698A0 (ObCheckObjectAccess.c)
- *     PspIsContextAdmin @ 0x1406950FC (PspIsContextAdmin.c)
- *     ObCheckCreateObjectAccess @ 0x1406B6C50 (ObCheckCreateObjectAccess.c)
- *     ObpVerifyCreatorAccessCheck @ 0x1406C0B60 (ObpVerifyCreatorAccessCheck.c)
- *     ObpCheckTraverseAccess @ 0x1406CDC5C (ObpCheckTraverseAccess.c)
- *     ObpCheckObjectReference @ 0x14072266C (ObpCheckObjectReference.c)
- *     SepAccessCheckAndAuditAlarm @ 0x140722B40 (SepAccessCheckAndAuditAlarm.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     CmpCheckKeyBodyAccess @ 0x1407F7AD0 (CmpCheckKeyBodyAccess.c)
- *     EtwpCoverageUserIsAdmin @ 0x1409E57B8 (EtwpCoverageUserIsAdmin.c)
- *     CMFCheckAccess @ 0x140A03FB4 (CMFCheckAccess.c)
+ *     IopCreateSecurityCheck @ 0x140201880 (IopCreateSecurityCheck.c)
+ *     SepTrustLevelCheck @ 0x14027E310 (SepTrustLevelCheck.c)
+ *     SeAccessCheckWithHintWithAdminlessChecks @ 0x14034DCE0 (SeAccessCheckWithHintWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     CmpCheckKeyBodyAccess @ 0x1405D961C (CmpCheckKeyBodyAccess.c)
+ *     ObCheckObjectAccess @ 0x1405D9860 (ObCheckObjectAccess.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     ObpCheckObjectReference @ 0x140660F3C (ObpCheckObjectReference.c)
+ *     ObCheckCreateObjectAccess @ 0x140662E90 (ObCheckCreateObjectAccess.c)
+ *     ObpVerifyCreatorAccessCheck @ 0x1406E50F0 (ObpVerifyCreatorAccessCheck.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     PspIsContextAdmin @ 0x140715EE0 (PspIsContextAdmin.c)
+ *     ObpCheckTraverseAccess @ 0x1408DD130 (ObpCheckTraverseAccess.c)
+ *     EtwpCoverageUserIsAdmin @ 0x140935758 (EtwpCoverageUserIsAdmin.c)
+ *     CMFCheckAccess @ 0x140958274 (CMFCheckAccess.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
  */
 
 void __stdcall SeLockSubjectContext(PSECURITY_SUBJECT_CONTEXT SubjectContext)

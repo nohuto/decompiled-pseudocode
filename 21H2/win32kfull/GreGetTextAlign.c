@@ -1,19 +1,19 @@
 /*
- * XREFs of GreGetTextAlign @ 0x1C00BCFE4
+ * XREFs of GreGetTextAlign @ 0x1C01257C8
  * Callers:
- *     xxxDrawCaptionTemp @ 0x1C00B97AC (xxxDrawCaptionTemp.c)
- *     CreateCompatiblePublicDC @ 0x1C00BA240 (CreateCompatiblePublicDC.c)
- *     xxxMenuDraw @ 0x1C00BD4E0 (xxxMenuDraw.c)
- *     DrawFrameControl @ 0x1C00BF6FC (DrawFrameControl.c)
- *     ?FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z @ 0x1C00C28B8 (-FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z.c)
- *     _ServerFixupMenuDC @ 0x1C00F4650 (_ServerFixupMenuDC.c)
- *     ?xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z @ 0x1C023E474 (-xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z.c)
- *     xxxMNInvertItem @ 0x1C0248188 (xxxMNInvertItem.c)
- *     xxxDrawState @ 0x1C024DD1C (xxxDrawState.c)
- *     DrawTextExWorker @ 0x1C025B810 (DrawTextExWorker.c)
+ *     xxxMenuDraw @ 0x1C0043708 (xxxMenuDraw.c)
+ *     DrawFrameControl @ 0x1C0045C38 (DrawFrameControl.c)
+ *     _ServerFixupMenuDC @ 0x1C0106B80 (_ServerFixupMenuDC.c)
+ *     ?FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z @ 0x1C011BB0C (-FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z.c)
+ *     xxxDrawCaptionTemp @ 0x1C01590D4 (xxxDrawCaptionTemp.c)
+ *     CreateCompatiblePublicDC @ 0x1C0159B50 (CreateCompatiblePublicDC.c)
+ *     ?xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z @ 0x1C0242948 (-xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z.c)
+ *     xxxMNInvertItem @ 0x1C024CD80 (xxxMNInvertItem.c)
+ *     xxxDrawState @ 0x1C0250D44 (xxxDrawState.c)
+ *     DrawTextExWorker @ 0x1C025EBF0 (DrawTextExWorker.c)
  * Callees:
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
  */
 
 __int64 __fastcall GreGetTextAlign(HDC a1)

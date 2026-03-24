@@ -1,15 +1,14 @@
 /*
- * XREFs of ?UnloadRuntime@CMmcssTask@@AEAAXXZ @ 0x1801939A4
+ * XREFs of ?UnloadRuntime@CMmcssTask@@AEAAXXZ @ 0x1801638F4
  * Callers:
- *     ?LoadRuntime@CMmcssTask@@AEAAJXZ @ 0x18003DE68 (-LoadRuntime@CMmcssTask@@AEAAJXZ.c)
- *     ??1CGlobalMit@@UEAA@XZ @ 0x1801900BC (--1CGlobalMit@@UEAA@XZ.c)
- *     ??1CComposition@@MEAA@XZ @ 0x18019233C (--1CComposition@@MEAA@XZ.c)
- *     ??1CGlobalSurfaceManager@@MEAA@XZ @ 0x180194B78 (--1CGlobalSurfaceManager@@MEAA@XZ.c)
- *     ??1CGlobalManipulationManager@@EEAA@XZ @ 0x180272368 (--1CGlobalManipulationManager@@EEAA@XZ.c)
- *     ??_GCMmcssTask@@QEAAPEAXI@Z @ 0x180276EF0 (--_GCMmcssTask@@QEAAPEAXI@Z.c)
+ *     ?LoadRuntime@CMmcssTask@@AEAAJXZ @ 0x18002ED24 (-LoadRuntime@CMmcssTask@@AEAAJXZ.c)
+ *     ??1CComposition@@MEAA@XZ @ 0x180154FA0 (--1CComposition@@MEAA@XZ.c)
+ *     ??1CGlobalSurfaceManager@@MEAA@XZ @ 0x18016414C (--1CGlobalSurfaceManager@@MEAA@XZ.c)
+ *     ??1CGlobalManipulationManager@@EEAA@XZ @ 0x180221510 (--1CGlobalManipulationManager@@EEAA@XZ.c)
+ *     ??1CGlobalMit@@UEAA@XZ @ 0x180233408 (--1CGlobalMit@@UEAA@XZ.c)
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CMmcssTask::UnloadRuntime(CMmcssTask *this)

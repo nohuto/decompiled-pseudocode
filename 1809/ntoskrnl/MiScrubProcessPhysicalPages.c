@@ -1,16 +1,16 @@
 /*
- * XREFs of MiScrubProcessPhysicalPages @ 0x140850370
+ * XREFs of MiScrubProcessPhysicalPages @ 0x140850350
  * Callers:
- *     MiScrubProcesses @ 0x14085FBE0 (MiScrubProcesses.c)
+ *     MiScrubProcesses @ 0x14085FBC0 (MiScrubProcesses.c)
  * Callees:
  *     RtlFindSetBitsEx @ 0x140061C10 (RtlFindSetBitsEx.c)
  *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
- *     MiLockAwePagesExclusive @ 0x1402B1194 (MiLockAwePagesExclusive.c)
- *     MiLockAweVadsExclusive @ 0x1402B11DC (MiLockAweVadsExclusive.c)
- *     MiScrubAwePage @ 0x1402B1B5C (MiScrubAwePage.c)
- *     MiUnlockAwePagesExclusive @ 0x1402B1FB8 (MiUnlockAwePagesExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x1402B200C (MiUnlockAweVadsExclusive.c)
- *     MiMakePageBad @ 0x1402CF028 (MiMakePageBad.c)
+ *     MiLockAwePagesExclusive @ 0x1402B1294 (MiLockAwePagesExclusive.c)
+ *     MiLockAweVadsExclusive @ 0x1402B12DC (MiLockAweVadsExclusive.c)
+ *     MiScrubAwePage @ 0x1402B1C5C (MiScrubAwePage.c)
+ *     MiUnlockAwePagesExclusive @ 0x1402B20B8 (MiUnlockAwePagesExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x1402B210C (MiUnlockAweVadsExclusive.c)
+ *     MiMakePageBad @ 0x1402CF128 (MiMakePageBad.c)
  */
 
 __int64 __fastcall MiScrubProcessPhysicalPages(__int64 a1, __int64 a2)

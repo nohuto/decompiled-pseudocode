@@ -1,158 +1,141 @@
 /*
- * XREFs of ?VmBusSendUnlock2@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAU_D3DKMT_UNLOCK2@@E@Z @ 0x1C0390084
+ * XREFs of ?VmBusSendUnlock2@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAU_D3DKMT_UNLOCK2@@E@Z @ 0x1C024DD9C
  * Callers:
- *     ?Unlock@DXGDEVICE@@QEAAJPEBU_D3DKMT_UNLOCK@@E@Z @ 0x1C018763C (-Unlock@DXGDEVICE@@QEAAJPEBU_D3DKMT_UNLOCK@@E@Z.c)
- *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C01BF8F0 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
- *     DxgkLock2 @ 0x1C01D2650 (DxgkLock2.c)
- *     DxgkUnlock2Internal @ 0x1C0322918 (DxgkUnlock2Internal.c)
+ *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C0107DA0 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ *     DxgkLock2 @ 0x1C010BD70 (DxgkLock2.c)
+ *     DxgkUnlock2 @ 0x1C010C350 (DxgkUnlock2.c)
+ *     ?Unlock@DXGDEVICE@@QEAAJPEBU_D3DKMT_UNLOCK@@E@Z @ 0x1C0152CF0 (-Unlock@DXGDEVICE@@QEAAJPEBU_D3DKMT_UNLOCK@@E@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007BB0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ??0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z @ 0x1C01C5980 (--0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z.c)
- *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C01CB650 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
- *     ?UnlockParavirtualizedAllocationOnGuest@@YAXPEAVDXGALLOCATION@@E@Z @ 0x1C02D8E98 (-UnlockParavirtualizedAllocationOnGuest@@YAXPEAVDXGALLOCATION@@E@Z.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C038FFC4 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPE.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024AA0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C0107C00 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ *     ??0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z @ 0x1C0109380 (--0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z.c)
+ *     ?UnlockParavirtualizedAllocationOnGuest@@YAXPEAVDXGALLOCATION@@E@Z @ 0x1C022976C (-UnlockParavirtualizedAllocationOnGuest@@YAXPEAVDXGALLOCATION@@E@Z.c)
+ *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C024DD40 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_M.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendUnlock2(
-        DXG_GUEST_VIRTUALGPU_VMBUS *this,
+        struct _KTHREAD **this,
         struct DXGPROCESS *a2,
         struct DXGDEVICE *a3,
         struct _D3DKMT_UNLOCK2 *a4,
         unsigned __int8 a5)
 {
-  D3DKMT_HANDLE hAllocation; // ebx
-  __int64 v6; // rdi
-  unsigned int v11; // eax
+  D3DKMT_HANDLE hAllocation; // edi
+  char *v6; // rbx
+  __int64 v11; // rcx
   __int64 v12; // r8
-  int v13; // ecx
-  struct _EX_RUNDOWN_REF *v14; // rdx
-  struct DXGALLOCATION *v15; // rbx
-  struct DXGKVMB_COMMAND_BASE *v16; // rcx
-  int v17; // eax
-  struct DXGALLOCATION *v19[2]; // [rsp+50h] [rbp-B0h] BYREF
-  struct DXGKVMB_COMMAND_BASE *v20[2]; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v21; // [rsp+70h] [rbp-90h]
+  int v13; // r9d
+  __int64 v14; // rax
+  __int64 v15; // r8
+  int v16; // ecx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  struct _EX_RUNDOWN_REF *v19; // rdx
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  struct DXGALLOCATION *v22; // rdi
+  _QWORD *v23; // rax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  int v26; // eax
+  struct _MDL *v27; // r9
+  int v28; // eax
+  __int64 v29; // rcx
+  __int64 v31; // [rsp+20h] [rbp-30h] BYREF
+  int v32; // [rsp+28h] [rbp-28h]
+  int v33; // [rsp+2Ch] [rbp-24h]
+  int v34; // [rsp+30h] [rbp-20h]
+  int v35; // [rsp+38h] [rbp-18h]
+  int v36; // [rsp+3Ch] [rbp-14h]
+  unsigned __int8 v37; // [rsp+40h] [rbp-10h]
+  struct DXGALLOCATION *v38; // [rsp+98h] [rbp+48h] BYREF
 
   hAllocation = a4->hAllocation;
-  v6 = (__int64)a2 + 248;
-  DXGPUSHLOCK::AcquireShared((struct DXGPROCESS *)((char *)a2 + 248));
-  v11 = (hAllocation >> 6) & 0xFFFFFF;
-  if ( v11 >= *((_DWORD *)a2 + 74) )
-    goto LABEL_7;
-  v12 = *((_QWORD *)a2 + 35);
-  if ( ((hAllocation >> 25) & 0x60) != (*(_BYTE *)(v12 + 16LL * v11 + 8) & 0x60) )
-    goto LABEL_7;
-  if ( (*(_DWORD *)(v12 + 16LL * v11 + 8) & 0x2000) != 0 )
-    goto LABEL_7;
-  v13 = *(_DWORD *)(v12 + 16LL * v11 + 8) & 0x1F;
-  if ( !v13 )
-    goto LABEL_7;
-  if ( v13 != 5 )
+  v6 = (char *)a2 + 208;
+  KeEnterCriticalRegion();
+  if ( !(unsigned __int8)ExTryAcquirePushLockSharedEx(v6, 0LL) )
   {
-    WdLogSingleEntry1(2LL, 316LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 316LL, 0LL, 0LL, 0LL, 0LL);
-LABEL_7:
-    v14 = 0LL;
-    goto LABEL_8;
+    if ( bTracingEnabled )
+    {
+      v13 = *((_DWORD *)v6 + 6);
+      if ( v13 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v11, &EventBlockThread, v12, v13);
+    }
+    ExAcquirePushLockSharedEx(v6, 0LL);
   }
-  v14 = *(struct _EX_RUNDOWN_REF **)(v12 + 16LL * v11);
-LABEL_8:
-  DXGALLOCATIONREFERENCE::DXGALLOCATIONREFERENCE((DXGALLOCATIONREFERENCE *)v19, v14);
-  _InterlockedDecrement((volatile signed __int32 *)(v6 + 16));
+  v14 = (hAllocation >> 6) & 0xFFFFFF;
+  if ( (unsigned int)v14 >= *((_DWORD *)a2 + 64) )
+    goto LABEL_13;
+  v15 = *((_QWORD *)a2 + 30);
+  v16 = *(_DWORD *)(v15 + 16 * v14 + 8);
+  if ( ((hAllocation >> 25) & 0x60) != (*(_BYTE *)(v15 + 16 * v14 + 8) & 0x60)
+    || (v16 & 0x2000) != 0
+    || (v16 & 0x1F) == 0 )
+  {
+    goto LABEL_13;
+  }
+  v17 = v16 & 0x1F;
+  if ( (_BYTE)v17 != 5 )
+  {
+    v18 = WdLogNewEntry5_WdError(v17, 2LL * (unsigned int)v14);
+    *(_QWORD *)(v18 + 24) = 316LL;
+    WdLogEvent5_WdError(v18);
+LABEL_13:
+    v19 = 0LL;
+    goto LABEL_14;
+  }
+  v19 = *(struct _EX_RUNDOWN_REF **)(v15 + 16LL * (unsigned int)v14);
+LABEL_14:
+  DXGALLOCATIONREFERENCE::DXGALLOCATIONREFERENCE((DXGALLOCATIONREFERENCE *)&v38, v19);
   ExReleasePushLockSharedEx(v6, 0LL);
   KeLeaveCriticalRegion();
-  v15 = v19[0];
+  v22 = v38;
   LODWORD(v6) = -1073741811;
-  if ( v19[0] )
+  if ( !v38 )
   {
-    if ( *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v19[0] + 1) + 16LL) + 16LL) == *(_QWORD *)(*((_QWORD *)a3 + 2) + 16LL) )
-    {
-      if ( *((_DWORD *)v19[0] + 24)
-        && _InterlockedExchangeAdd((volatile signed __int32 *)v19[0] + 24, 0xFFFFFFFF) == 1
-        && (*((_BYTE *)v15 + 128) & 3) == 0 )
-      {
-        _InterlockedDecrement(&g_VgpuNumAllocationsUnderCpuAccess);
-        if ( !*((_BYTE *)this + 80) )
-          UnlockParavirtualizedAllocationOnGuest(v19[0], 1);
-        v21 = 0;
-        *(_OWORD *)v20 = 0LL;
-        DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)v20, this, 0x28u, 0LL, 0LL, 0LL);
-        v16 = v20[0];
-        if ( v20[0] )
-        {
-          *((_DWORD *)v20[0] + 2) = *((_DWORD *)a2 + 126);
-          *((_BYTE *)v16 + 12) = 0;
-          *((_DWORD *)v16 + 3) &= 0x1FFu;
-          *((_BYTE *)v16 + 32) = a5;
-          *(_QWORD *)v16 = 0LL;
-          *((_QWORD *)v16 + 2) = 24LL;
-          *((_DWORD *)v16 + 7) = *((_DWORD *)v15 + 5);
-          *((_DWORD *)v16 + 6) = *((_DWORD *)a3 + 118);
-          v17 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(
-                  (struct _KTHREAD **)this,
-                  (unsigned __int8 *)v20[1],
-                  v20[0],
-                  v21);
-          v6 = v17;
-          if ( v17 < 0 )
-          {
-            WdLogSingleEntry1(2LL, v17);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              0x40000,
-              -1,
-              (__int64)L"VmBusSendUnlock2 failed: 0x%I64x",
-              v6,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-          }
-        }
-        else
-        {
-          LODWORD(v6) = -1073741801;
-        }
-        DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)v20);
-      }
-      else
-      {
-        LODWORD(v6) = 0;
-      }
-    }
-    else
-    {
-      WdLogSingleEntry3(2LL, a3, v19[0], -1073741811LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Device 0x%p does not match allocation 0x%p owner, returning 0x%I64x",
-        (__int64)a3,
-        (__int64)v19[0],
-        -1073741811LL,
-        0LL,
-        0LL);
-    }
+    v23 = (_QWORD *)WdLogNewEntry5_WdError(v21, v20);
+    v23[3] = a4->hAllocation;
+LABEL_24:
+    WdLogEvent5_WdError(v23);
+    goto LABEL_26;
   }
-  else
+  v24 = *(_QWORD *)(*((_QWORD *)v38 + 1) + 16LL);
+  v25 = *(_QWORD *)(*((_QWORD *)a3 + 2) + 16LL);
+  if ( *(_QWORD *)(v24 + 16) != v25 )
   {
-    WdLogSingleEntry1(2LL, a4->hAllocation);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid allocation handle: 0x%I64x",
-      a4->hAllocation,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v23 = (_QWORD *)WdLogNewEntry5_WdError(v25, v24);
+    v23[3] = a3;
+    v23[4] = v38;
+    v23[5] = -1073741811LL;
+    goto LABEL_24;
   }
-  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((struct _EX_RUNDOWN_REF **)v19);
+  if ( !*((_DWORD *)v38 + 26)
+    || _InterlockedExchangeAdd((volatile signed __int32 *)v38 + 26, 0xFFFFFFFF) != 1
+    || (*((_BYTE *)v22 + 132) & 3) != 0 )
+  {
+    LODWORD(v6) = 0;
+    goto LABEL_26;
+  }
+  _InterlockedDecrement(&g_VgpuNumAllocationsUnderCpuAccess);
+  LOBYTE(v24) = 1;
+  UnlockParavirtualizedAllocationOnGuest(v38, v24);
+  v26 = *((_DWORD *)a2 + 106);
+  v31 = 0LL;
+  v33 = 0;
+  v32 = v26;
+  v37 = a5;
+  v34 = 24;
+  v36 = *((_DWORD *)v22 + 24);
+  v35 = *((_DWORD *)a3 + 110);
+  v28 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(this, (struct DXGKVMB_COMMAND_BASE *)&v31, 40LL, v27);
+  v6 = (char *)v28;
+  if ( v28 < 0 )
+  {
+    v23 = (_QWORD *)WdLogNewEntry5_WdError(v29, v24);
+    v23[3] = v6;
+    goto LABEL_24;
+  }
+LABEL_26:
+  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((struct _EX_RUNDOWN_REF **)&v38, v24);
   return (unsigned int)v6;
 }

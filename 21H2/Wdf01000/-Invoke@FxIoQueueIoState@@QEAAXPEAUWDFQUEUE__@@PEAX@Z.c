@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Invoke@FxIoQueueIoState@@QEAAXPEAUWDFQUEUE__@@PEAX@Z @ 0x1C00129D4
+ * XREFs of ?Invoke@FxIoQueueIoState@@QEAAXPEAUWDFQUEUE__@@PEAX@Z @ 0x1C0017830
  * Callers:
- *     ?ProcessIdleComplete@FxIoQueue@@AEAAXPEAE@Z @ 0x1C0012800 (-ProcessIdleComplete@FxIoQueue@@AEAAXPEAE@Z.c)
- *     ?ProcessPurgeComplete@FxIoQueue@@AEAAXPEAE@Z @ 0x1C001289C (-ProcessPurgeComplete@FxIoQueue@@AEAAXPEAE@Z.c)
- *     ?ProcessReadyNotify@FxIoQueue@@AEAAXPEAE@Z @ 0x1C0012938 (-ProcessReadyNotify@FxIoQueue@@AEAAXPEAE@Z.c)
+ *     ?ProcessPurgeComplete@FxIoQueue@@AEAAXPEAE@Z @ 0x1C00176F8 (-ProcessPurgeComplete@FxIoQueue@@AEAAXPEAE@Z.c)
+ *     ?ProcessReadyNotify@FxIoQueue@@AEAAXPEAE@Z @ 0x1C0017794 (-ProcessReadyNotify@FxIoQueue@@AEAAXPEAE@Z.c)
+ *     ?ProcessIdleComplete@FxIoQueue@@AEAAXPEAE@Z @ 0x1C00769A8 (-ProcessIdleComplete@FxIoQueue@@AEAAXPEAE@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall FxIoQueueIoState::Invoke(FxIoQueueIoState *this, WDFQUEUE__ *Queue, void *Context)

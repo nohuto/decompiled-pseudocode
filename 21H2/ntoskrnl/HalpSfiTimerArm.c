@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpSfiTimerArm @ 0x140522AA0
+ * XREFs of HalpSfiTimerArm @ 0x1404D5770
  * Callers:
  *     <none>
  * Callees:
- *     KeStallExecutionProcessor @ 0x140303560 (KeStallExecutionProcessor.c)
- *     HalSetTimerProblem @ 0x140522930 (HalSetTimerProblem.c)
+ *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
+ *     HalSetTimerProblem @ 0x1404D5600 (HalSetTimerProblem.c)
  */
 
 __int64 __fastcall HalpSfiTimerArm(__int64 a1, int a2, unsigned __int64 a3)
 {
   int v3; // r14d
   _DWORD *v5; // rdi
-  int v6; // ebx
-  int v7; // ebp
-  unsigned int v8; // ebp
+  unsigned int v6; // ebx
+  unsigned int i; // esi
+  unsigned int v8; // esi
   signed __int32 v10[10]; // [rsp+0h] [rbp-28h] BYREF
 
   v3 = a3;
@@ -26,21 +26,14 @@ __int64 __fastcall HalpSfiTimerArm(__int64 a1, int a2, unsigned __int64 a3)
   {
     v5 = *(_DWORD **)(a1 + 8);
     v6 = 0;
-    v7 = 0;
-    while ( (v5[4] & 1) != 0 )
+    for ( i = 0; i < 0x64; ++i )
     {
-      KeStallExecutionProcessor(0x32u);
-      if ( (unsigned int)++v7 >= 0x64 )
-      {
-        if ( v7 == 100 )
-        {
-LABEL_11:
-          HalSetTimerProblem(a1, 2, 0);
-          return 3221225473LL;
-        }
+      if ( (v5[4] & 1) == 0 )
         break;
-      }
+      KeStallExecutionProcessor(0x32u);
     }
+    if ( i == 100 )
+      goto LABEL_12;
     v5[2] = v5[2] & 0xFFFFFFFA | 4;
     _InterlockedOr(v10, 0);
     v5[2] |= 2u;
@@ -50,16 +43,23 @@ LABEL_11:
     v5[2] = v5[2] & 0xFFFFFFFA | 1;
     _InterlockedOr(v10, 0);
     v8 = v5[1];
-    while ( v8 <= v5[1] )
+    do
     {
+      if ( v8 > v5[1] )
+        break;
       KeStallExecutionProcessor(0x32u);
-      if ( (unsigned int)++v6 >= 0x64 )
-      {
-        if ( v6 == 100 )
-          goto LABEL_11;
-        return 0LL;
-      }
+      ++v6;
     }
-    return 0LL;
+    while ( v6 < 0x64 );
+    if ( v6 == 100 )
+    {
+LABEL_12:
+      HalSetTimerProblem(a1, 2, 0);
+      return 3221225473LL;
+    }
+    else
+    {
+      return 0LL;
+    }
   }
 }

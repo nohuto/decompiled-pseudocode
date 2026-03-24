@@ -1,14 +1,13 @@
 /*
- * XREFs of PopInitializeTimer @ 0x1408534E0
+ * XREFs of PopInitializeTimer @ 0x1407C870C
  * Callers:
- *     PopCheckPowerSourceAfterRtcWakeInitialize @ 0x1403D6AC8 (PopCheckPowerSourceAfterRtcWakeInitialize.c)
- *     PopThermalInit @ 0x140B246C0 (PopThermalInit.c)
- *     PpmPerfInitialize @ 0x140B247B0 (PpmPerfInitialize.c)
- *     PopPowerRequestInitialize @ 0x140B248EC (PopPowerRequestInitialize.c)
- *     PopDripsWatchdogInitializeCallbackTimer @ 0x140B53164 (PopDripsWatchdogInitializeCallbackTimer.c)
- *     PopDripsWatchdogInitializeDiagnosticTimer @ 0x140B531EC (PopDripsWatchdogInitializeDiagnosticTimer.c)
+ *     PopCheckPowerSourceAfterRtcWakeInitialize @ 0x1403C9D70 (PopCheckPowerSourceAfterRtcWakeInitialize.c)
+ *     PopThermalInit @ 0x140A6CC60 (PopThermalInit.c)
+ *     PpmPerfInitialize @ 0x140A6CCFC (PpmPerfInitialize.c)
+ *     PopDripsWatchdogInitializeCallbackTimer @ 0x140A934CC (PopDripsWatchdogInitializeCallbackTimer.c)
+ *     PopDripsWatchdogInitializeDiagnosticTimer @ 0x140A93554 (PopDripsWatchdogInitializeDiagnosticTimer.c)
  * Callees:
- *     KeInitializeTimer2 @ 0x1403588D0 (KeInitializeTimer2.c)
+ *     KeInitializeTimer2 @ 0x1402E9260 (KeInitializeTimer2.c)
  */
 
 __int64 __fastcall PopInitializeTimer(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

@@ -1,10 +1,10 @@
 /*
- * XREFs of VidSchiSubmitSoftwareCommand @ 0x1C0016F08
+ * XREFs of VidSchiSubmitSoftwareCommand @ 0x1C0014900
  * Callers:
- *     VidSchiRun_PriorityTable @ 0x1C00AE010 (VidSchiRun_PriorityTable.c)
- *     VidSchiSubmitQueueCommand @ 0x1C00F379C (VidSchiSubmitQueueCommand.c)
+ *     VidSchiRun_PriorityTable @ 0x1C0090830 (VidSchiRun_PriorityTable.c)
+ *     VidSchiSubmitQueueCommand @ 0x1C00D04F0 (VidSchiSubmitQueueCommand.c)
  * Callees:
- *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C00087D0 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
+ *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C000A060 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
  */
 
 void __fastcall VidSchiSubmitSoftwareCommand(struct _VIDSCH_QUEUE_PACKET *a1)
@@ -19,8 +19,7 @@ void __fastcall VidSchiSubmitSoftwareCommand(struct _VIDSCH_QUEUE_PACKET *a1)
   v1 = *((_QWORD *)a1 + 11);
   v2 = a1;
   v3 = 0;
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(*(_QWORD *)(*(_QWORD *)(v1 + 96) + 24LL) + 1728LL), &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(*(_QWORD *)(*(_QWORD *)(v1 + 96) + 24LL) + 1712LL), &LockHandle);
   if ( *((_QWORD *)v2 + 5) == v1 + 664 )
     v3 = 1;
   else

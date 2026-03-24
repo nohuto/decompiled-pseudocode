@@ -1,8 +1,8 @@
 /*
- * XREFs of ??0InteractiveControlInput@@QEAA@PEAVInteractiveControlDevice@@@Z @ 0x1C02552A4
+ * XREFs of ??0InteractiveControlInput@@QEAA@PEAVInteractiveControlDevice@@@Z @ 0x1C025856C
  * Callers:
- *     ?QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z @ 0x1C02547C0 (-QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z.c)
- *     ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C0254F34 (-SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z.c)
+ *     ?QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z @ 0x1C0257A90 (-QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z.c)
+ *     ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C02581F8 (-SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z.c)
  * Callees:
  *     <none>
  */
@@ -19,12 +19,12 @@ InteractiveControlInput *__fastcall InteractiveControlInput::InteractiveControlI
   *(_OWORD *)((char *)this + 52) = 0LL;
   *((_QWORD *)this + 5) = a2;
   *((_DWORD *)this + 7) = v2 >> 24;
-  LOWORD(v2) = word_1C032F760;
-  *((_DWORD *)this + 8) = (unsigned __int16)word_1C032F760;
+  LOWORD(v2) = word_1C0334410;
+  *((_DWORD *)this + 8) = (unsigned __int16)word_1C0334410;
   *((_DWORD *)this + 12) = 0;
   *((_QWORD *)this + 10) = 0LL;
   *((_DWORD *)this + 22) = 0;
-  word_1C032F760 = v2 + 1;
+  word_1C0334410 = v2 + 1;
   *(_QWORD *)((char *)this + 68) = 0LL;
   *((_DWORD *)this + 19) = 0;
   return this;

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1CMit@@UEAA@XZ @ 0x1801B0A58
+ * XREFs of ??1CMit@@UEAA@XZ @ 0x180233034
  * Callers:
- *     ??_GCMit@@UEAAPEAXI@Z @ 0x1801B0AA0 (--_GCMit@@UEAAPEAXI@Z.c)
- *     ??1CGlobalMit@@UEAA@XZ @ 0x1801B1494 (--1CGlobalMit@@UEAA@XZ.c)
+ *     ??_GCMit@@UEAAPEAXI@Z @ 0x180233080 (--_GCMit@@UEAAPEAXI@Z.c)
+ *     ??1CGlobalMit@@UEAA@XZ @ 0x180233118 (--1CGlobalMit@@UEAA@XZ.c)
  * Callees:
- *     ?Stop@CMit@@QEAAXXZ @ 0x1801B0ADC (-Stop@CMit@@QEAAXXZ.c)
+ *     ?Stop@CMit@@QEAAXXZ @ 0x1802330BC (-Stop@CMit@@QEAAXXZ.c)
  */
 
 void __fastcall CMit::~CMit(CMit *this)

@@ -1,25 +1,25 @@
 /*
- * XREFs of LoadFieldUnitDDB @ 0x1C00683E8
+ * XREFs of LoadFieldUnitDDB @ 0x1C0066D9C
  * Callers:
- *     Load @ 0x1C0022220 (Load.c)
+ *     Load @ 0x1C0024DC0 (Load.c)
  * Callees:
- *     ReadObject @ 0x1C000A950 (ReadObject.c)
- *     HeapAlloc @ 0x1C0014FF0 (HeapAlloc.c)
- *     HeapFree @ 0x1C0018DD0 (HeapFree.c)
- *     LoadDDB @ 0x1C00225B8 (LoadDDB.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     ReadObject @ 0x1C000B4C0 (ReadObject.c)
+ *     LoadDDB @ 0x1C002372C (LoadDDB.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall LoadFieldUnitDDB(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int Object; // eax
   unsigned int DDB; // ebx
-  _SLIST_ENTRY *v8; // rax
-  _SLIST_ENTRY *v9; // rdi
+  __int64 v8; // rax
+  _QWORD *v9; // rdi
   int v10; // ecx
   unsigned int v11; // eax
   int v12; // eax
@@ -28,9 +28,9 @@ __int64 __fastcall LoadFieldUnitDDB(__int64 a1, __int64 a2, __int64 a3)
   int v15; // ecx
   __int128 v17; // [rsp+30h] [rbp-29h] BYREF
   __int128 v18; // [rsp+40h] [rbp-19h]
-  _SLIST_ENTRY *v19; // [rsp+50h] [rbp-9h]
-  _SLIST_ENTRY v20; // [rsp+58h] [rbp-1h] BYREF
-  _SLIST_ENTRY v21; // [rsp+68h] [rbp+Fh]
+  __int128 *v19; // [rsp+50h] [rbp-9h]
+  __int128 v20; // [rsp+58h] [rbp-1h] BYREF
+  __int128 v21; // [rsp+68h] [rbp+Fh]
   int v22; // [rsp+78h] [rbp+1Fh]
 
   v22 = 0;
@@ -45,8 +45,8 @@ __int64 __fastcall LoadFieldUnitDDB(__int64 a1, __int64 a2, __int64 a3)
   DDB = Object;
   if ( !Object )
   {
-    v8 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1179992648, HIDWORD(v20.Next));
-    v9 = v8;
+    v8 = HeapAlloc((struct _SLIST_ENTRY *)gpheapGlobal, 1179992648, DWORD1(v20));
+    v9 = (_QWORD *)v8;
     if ( !v8 )
     {
       DDB = -1073741670;
@@ -57,11 +57,11 @@ LABEL_15:
       PrintDebugMessage(v10, 0LL, 0LL, 0LL, 0LL);
       return DDB;
     }
-    *v8 = v20;
-    v8[1] = v21;
-    LODWORD(v8[2].Next) = v22;
-    DWORD2(v18) = HIDWORD(v20.Next) - 36;
-    v19 = (_SLIST_ENTRY *)((char *)v8 + 36);
+    *(_OWORD *)v8 = v20;
+    *(_OWORD *)(v8 + 16) = v21;
+    *(_DWORD *)(v8 + 32) = v22;
+    DWORD2(v18) = DWORD1(v20) - 36;
+    v19 = (__int128 *)(v8 + 36);
     v11 = ReadObject(a1, a2, (__int64)&v17);
     DDB = v11;
     if ( v11 )
@@ -80,7 +80,7 @@ LABEL_15:
     {
       if ( ghValidateTable )
       {
-        v12 = ghValidateTable(v9, qword_1C0082968);
+        v12 = ghValidateTable(v9, qword_1C0083300);
         v13 = (const void *)v12;
         if ( v12 )
         {

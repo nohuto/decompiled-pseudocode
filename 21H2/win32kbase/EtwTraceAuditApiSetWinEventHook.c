@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceAuditApiSetWinEventHook @ 0x1C0046B90
+ * XREFs of EtwTraceAuditApiSetWinEventHook @ 0x1C0055300
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0qqqqqp_EtwWriteTransfer @ 0x1C0046BD8 (McTemplateK0qqqqqp_EtwWriteTransfer.c)
+ *     McTemplateK0qqqqqp_EtwWriteTransfer @ 0x1C0055348 (McTemplateK0qqqqqp_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceAuditApiSetWinEventHook(int a1, int a2, int a3, char a4, char a5, __int64 a6)

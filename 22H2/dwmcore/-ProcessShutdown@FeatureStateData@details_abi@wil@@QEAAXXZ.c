@@ -1,22 +1,30 @@
 /*
- * XREFs of ?ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x180199488
+ * XREFs of ?ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x18014DE14
  * Callers:
- *     ??1FeatureStateData@details_abi@wil@@QEAA@XZ @ 0x180197FAC (--1FeatureStateData@details_abi@wil@@QEAA@XZ.c)
- *     ?Release@?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAXXZ @ 0x18019A0B0 (-Release@-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAXXZ.c)
+ *     ??1FeatureStateManager@details@wil@@QEAA@XZ @ 0x1800E5F10 (--1FeatureStateManager@details@wil@@QEAA@XZ.c)
+ *     ??_G?$ProcessLocalStorage@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAPEAXI@Z @ 0x1800E69CC (--_G-$ProcessLocalStorage@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAPEAXI@Z.c)
+ *     ??_G?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAPEAXI@Z @ 0x18014CBC0 (--_G-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAPEAXI@Z.c)
  * Callees:
- *     ??0UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x180197CE4 (--0UsageIndexes@details_abi@wil@@QEAA@XZ.c)
- *     ??1UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x180198190 (--1UsageIndexes@details_abi@wil@@QEAA@XZ.c)
- *     ?Record@UsageIndexes@details_abi@wil@@QEAAXXZ @ 0x1801996C0 (-Record@UsageIndexes@details_abi@wil@@QEAAXXZ.c)
- *     ?RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z @ 0x18019A1A8 (-RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z.c)
+ *     ??1UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x1800AF0FC (--1UsageIndexes@details_abi@wil@@QEAA@XZ.c)
+ *     ?Record@UsageIndexes@details_abi@wil@@QEAAXXZ @ 0x1800AF158 (-Record@UsageIndexes@details_abi@wil@@QEAAXXZ.c)
+ *     ?RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z @ 0x1800AF1E8 (-RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z.c)
+ *     ??0UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x1800AF238 (--0UsageIndexes@details_abi@wil@@QEAA@XZ.c)
  */
 
-void __fastcall wil::details_abi::FeatureStateData::ProcessShutdown(wil::details_abi::FeatureStateData *this)
+void __fastcall wil::details_abi::FeatureStateData::ProcessShutdown(
+        wil::details_abi::FeatureStateData *this,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4)
 {
-  void *v2; // rdx
-  _BYTE v3[200]; // [rsp+20h] [rbp-C8h] BYREF
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  const struct wil::details_abi::RawUsageIndex *v7; // r9
+  void *v8; // rdx
+  _BYTE v9[200]; // [rsp+20h] [rbp-C8h] BYREF
 
-  wil::details_abi::UsageIndexes::UsageIndexes((wil::details_abi::UsageIndexes *)v3);
-  wil::details_abi::FeatureStateData::RetrieveUsageUnderLock(this, (struct wil::details_abi::UsageIndexes *)v3);
-  wil::details_abi::UsageIndexes::Record((wil::details_abi::UsageIndexes *)v3);
-  wil::details_abi::UsageIndexes::~UsageIndexes((wil::details_abi::UsageIndexes *)v3, v2);
+  wil::details_abi::UsageIndexes::UsageIndexes((wil::details_abi::UsageIndexes *)v9, a2, a3, a4);
+  wil::details_abi::FeatureStateData::RetrieveUsageUnderLock(this, (struct wil::details_abi::UsageIndexes *)v9);
+  wil::details_abi::UsageIndexes::Record((wil::details_abi::UsageIndexes *)v9, v5, v6, v7);
+  wil::details_abi::UsageIndexes::~UsageIndexes((wil::details_abi::UsageIndexes *)v9, v8);
 }

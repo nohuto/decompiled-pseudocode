@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z @ 0x1C001B4D8
+ * XREFs of ?bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z @ 0x1C009AF78
  * Callers:
- *     FONTOBJ_bEnsureGlyphCacheBuffer @ 0x1C00193FC (FONTOBJ_bEnsureGlyphCacheBuffer.c)
+ *     FONTOBJ_bEnsureGlyphCacheBuffer @ 0x1C016D498 (FONTOBJ_bEnsureGlyphCacheBuffer.c)
  * Callees:
- *     ?bCheckMetricsCache@RFONTOBJ@@QEAAHXZ @ 0x1C001AFA4 (-bCheckMetricsCache@RFONTOBJ@@QEAAHXZ.c)
- *     ?pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z @ 0x1C001B588 (-pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z.c)
- *     ?bEnsureAuxCacheBuffer@RFONTOBJ@@QEAAHK@Z @ 0x1C02D45AC (-bEnsureAuxCacheBuffer@RFONTOBJ@@QEAAHK@Z.c)
- *     ?vFlushCache@RFONTOBJ@@QEAAXXZ @ 0x1C02D4A70 (-vFlushCache@RFONTOBJ@@QEAAXXZ.c)
+ *     ?pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z @ 0x1C009B028 (-pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z.c)
+ *     ?bCheckMetricsCache@RFONTOBJ@@QEAAHXZ @ 0x1C009CB9C (-bCheckMetricsCache@RFONTOBJ@@QEAAHXZ.c)
+ *     ?bEnsureAuxCacheBuffer@RFONTOBJ@@QEAAHK@Z @ 0x1C02D5ADC (-bEnsureAuxCacheBuffer@RFONTOBJ@@QEAAHK@Z.c)
+ *     ?vFlushCache@RFONTOBJ@@QEAAXXZ @ 0x1C02D5FA8 (-vFlushCache@RFONTOBJ@@QEAAXXZ.c)
  */
 
 __int64 __fastcall RFONTOBJ::bEnsureGlyphCacheBuffer(
@@ -55,7 +55,7 @@ LABEL_5:
   else if ( a3 )
   {
     v13 = *(_DWORD *)(v5 + 632);
-    if ( v13 >= 0x10 && v13 < 0xFFFFFFC0 && (unsigned int)RFONTOBJ::bEnsureAuxCacheBuffer(this, v13 + 64) )
+    if ( v13 >= 0x10 && v13 < 0xFFFFFFC0 && RFONTOBJ::bEnsureAuxCacheBuffer(this, v13 + 64) )
     {
       v14 = *(struct _GLYPHDATA **)(*(_QWORD *)this + 616LL);
       *a3 = v14;

@@ -1,16 +1,16 @@
 /*
- * XREFs of PsCallImageNotifyRoutines @ 0x1406F84B0
+ * XREFs of PsCallImageNotifyRoutines @ 0x14061B230
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     DbgkCreateThread @ 0x140702604 (DbgkCreateThread.c)
- *     MiDriverLoadSucceeded @ 0x140761234 (MiDriverLoadSucceeded.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     DbgkCreateThread @ 0x140647420 (DbgkCreateThread.c)
+ *     MiDriverLoadSucceeded @ 0x14075C644 (MiDriverLoadSucceeded.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140281870 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x140281930 (ExDereferenceCallBackBlock.c)
- *     KeAreAllApcsDisabled @ 0x140281980 (KeAreAllApcsDisabled.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PerfLogImageLoad @ 0x1406F7A68 (PerfLogImageLoad.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReferenceCallBackBlock @ 0x14025A950 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14025AA10 (ExDereferenceCallBackBlock.c)
+ *     KeAreAllApcsDisabled @ 0x14025AC80 (KeAreAllApcsDisabled.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PerfLogImageLoad @ 0x14061A978 (PerfLogImageLoad.c)
  */
 
 _QWORD *__fastcall PsCallImageNotifyRoutines(unsigned __int16 *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -40,7 +40,7 @@ _QWORD *__fastcall PsCallImageNotifyRoutines(unsigned __int16 *a1, __int64 a2, _
   }
   if ( a2 )
     v9 = *(_QWORD *)(a2 + 1088);
-  if ( (PerfGlobalGroupMask[0] & 4) != 0 )
+  if ( (PerfGlobalGroupMask & 4) != 0 )
     PerfLogImageLoad(a1, a2, (int *)(a3 + 8));
   if ( (PspNotifyEnableMask & 1) != 0 )
   {

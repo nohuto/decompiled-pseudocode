@@ -1,7 +1,7 @@
 /*
- * XREFs of _RegisterPointerDeviceNotifications @ 0x1C011F3E0
+ * XREFs of _RegisterPointerDeviceNotifications @ 0x1C0134074
  * Callers:
- *     NtUserRegisterPointerDeviceNotifications @ 0x1C011F310 (NtUserRegisterPointerDeviceNotifications.c)
+ *     NtUserRegisterPointerDeviceNotifications @ 0x1C0133FA0 (NtUserRegisterPointerDeviceNotifications.c)
  * Callees:
  *     <none>
  */
@@ -26,24 +26,24 @@ __int64 __fastcall RegisterPointerDeviceNotifications(struct _LIST_ENTRY *a1, in
     if ( v11->Flink == a1 )
       return v5;
   }
-  v6 = (_QWORD *)Win32AllocPoolZInit(32LL, 2020635477LL);
+  v6 = (_QWORD *)Win32AllocPool(32LL, 2020635477LL);
   v7 = v6;
   if ( v6 )
   {
     *v6 = 0LL;
     v12[0] = v6;
     v12[1] = a1;
-    HMAssignmentLock(v12, 0LL);
+    HMAssignmentLock(v12);
     *((_DWORD *)v7 + 2) = a2;
     v8 = v7 + 2;
-    v9 = (_QWORD *)qword_1C0336998;
-    if ( *(struct _LIST_ENTRY **)qword_1C0336998 != &gPointerDeviceClients )
+    v9 = (_QWORD *)qword_1C033B758;
+    if ( *(struct _LIST_ENTRY **)qword_1C033B758 != &gPointerDeviceClients )
       __fastfail(3u);
     *v8 = &gPointerDeviceClients;
     v5 = 1;
     v7[3] = v9;
     *v9 = v8;
-    qword_1C0336998 = (__int64)(v7 + 2);
+    qword_1C033B758 = (__int64)(v7 + 2);
   }
   return v5;
 }

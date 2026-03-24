@@ -3,8 +3,8 @@
  * Callers:
  *     RtlpHashStringToAtom @ 0x1405F54C0 (RtlpHashStringToAtom.c)
  * Callees:
- *     RtlpQueryLowBoxId @ 0x1400CCD10 (RtlpQueryLowBoxId.c)
- *     RtlpAllocateAtom @ 0x14068A184 (RtlpAllocateAtom.c)
+ *     RtlpQueryLowBoxId @ 0x1400CCD30 (RtlpQueryLowBoxId.c)
+ *     RtlpAllocateAtom @ 0x14068A164 (RtlpAllocateAtom.c)
  */
 
 __int64 __fastcall RtlpLookupOrCreateLowBox(__int64 a1, __int64 a2, char a3)

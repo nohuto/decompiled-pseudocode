@@ -1,67 +1,70 @@
 /*
- * XREFs of HalpAllocateAdapterChannel @ 0x140514D80
+ * XREFs of HalpAllocateAdapterChannel @ 0x1404CA310
  * Callers:
- *     HalAllocateAdapterChannel @ 0x14045ACA0 (HalAllocateAdapterChannel.c)
- *     HalpBuildScatterGatherList @ 0x14050F9C0 (HalpBuildScatterGatherList.c)
- *     HalAllocateAdapterChannelEx @ 0x140514380 (HalAllocateAdapterChannelEx.c)
- *     HalRealAllocateAdapterChannelV3 @ 0x140514D30 (HalRealAllocateAdapterChannelV3.c)
+ *     HalpBuildScatterGatherList @ 0x14039ED34 (HalpBuildScatterGatherList.c)
+ *     HalAllocateAdapterChannel @ 0x1404B89F0 (HalAllocateAdapterChannel.c)
+ *     HalAllocateAdapterChannelEx @ 0x1404CA180 (HalAllocateAdapterChannelEx.c)
+ *     HalRealAllocateAdapterChannelV3 @ 0x1404CA2C0 (HalRealAllocateAdapterChannelV3.c)
  * Callees:
- *     HalpDmaStartWcb @ 0x140500AD0 (HalpDmaStartWcb.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140514F7C (HalpAllocateDmaResourcesInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaStartWcb @ 0x1404B8400 (HalpDmaStartWcb.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x1404CA51C (HalpAllocateDmaResourcesInternal.c)
  */
 
-__int64 __fastcall HalpAllocateAdapterChannel(__int64 a1, __int64 a2, unsigned int a3, int a4, char a5, __int64 a6)
+__int64 __fastcall HalpAllocateAdapterChannel(
+        PDMA_ADAPTER DmaAdapter,
+        __int64 a2,
+        unsigned int a3,
+        int a4,
+        char a5,
+        __int64 a6)
 {
-  int v6; // esi
-  int v11; // ecx
-  __int16 v12; // cx
-  int v13; // eax
-  int v14; // ecx
-  unsigned int v15; // eax
-  unsigned int v16; // ebp
-  __int64 v17; // rdx
-  char v18; // r15
+  int v10; // eax
+  unsigned int v11; // eax
+  int v12; // eax
+  unsigned int v13; // eax
+  unsigned int v14; // esi
+  char v15; // r14
   unsigned __int8 CurrentIrql; // bl
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v21; // al
+  unsigned __int8 v18; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v23; // r9
-  int v24; // edx
-  bool v25; // zf
+  _DWORD *v20; // r9
+  int v21; // edx
+  bool v22; // zf
 
-  v6 = 4;
   if ( (*(_DWORD *)(a2 + 20) & 2) != 0 )
   {
     _m_prefetchw((const void *)(a2 - 8));
     if ( (_InterlockedOr((volatile signed __int32 *)(a2 - 8), 4u) & 2) != 0 )
       return 3221225760LL;
   }
-  if ( *(_BYTE *)(a1 + 440) && a3 > *(_DWORD *)(a1 + 232) )
+  if ( LOBYTE(DmaAdapter[27].Version) && a3 > *(_DWORD *)&DmaAdapter[14].Version )
     return 3221225626LL;
-  v11 = *(_DWORD *)(a2 + 20);
+  v10 = *(_DWORD *)(a2 + 20);
   if ( (a5 & 2) != 0 )
-    v12 = v11 | 4;
+    v11 = v10 | 4;
   else
-    v12 = v11 & 0xFFFB;
+    v11 = v10 & 0xFFFFFFFB;
+  *(_DWORD *)(a2 + 20) = v11;
   *(_QWORD *)(a2 + 24) = a6;
+  v12 = (a4 << 12) | *(_DWORD *)(a2 + 20) & 0xFFF;
   *(_DWORD *)(a2 + 40) = a3;
   *(_DWORD *)(a2 + 16) = 1;
-  v13 = (a4 << 12) | v12 & 0xFFF;
-  v14 = v13 | 1;
-  v15 = v13 & 0xFFFFFFFE;
-  v16 = (a5 & 1) != 0 ? 0xC000009A : 0;
-  if ( (a5 & 1) == 0 )
-    v14 = v15;
-  *(_DWORD *)(a2 + 20) = v14;
-  if ( HalpDmaStartWcb(a1, (_QWORD *)a2, v14 & 1) )
+  if ( (a5 & 1) != 0 )
+    v13 = v12 | 1;
+  else
+    v13 = v12 & 0xFFFFFFFE;
+  *(_DWORD *)(a2 + 20) = v13;
+  v14 = (a5 & 1) != 0 ? 0xC000009A : 0;
+  if ( HalpDmaStartWcb((__int64)DmaAdapter, (_QWORD *)a2, v13 & 1) )
   {
-    *(_QWORD *)(a1 + 352) = a2;
-    v18 = 0;
+    DmaAdapter[21].DmaOperations = (_DMA_OPERATIONS *)a2;
+    v15 = 0;
     CurrentIrql = 0;
-    *(_DWORD *)(a1 + 248) = a3;
-    *(_DWORD *)(a1 + 388) = 1;
-    *(_DWORD *)(a1 + 624) = 0;
+    *(_DWORD *)&DmaAdapter[15].Version = a3;
+    HIDWORD(DmaAdapter[23].DmaOperations) = 1;
+    LODWORD(DmaAdapter[38].DmaOperations) = 0;
     if ( KeGetCurrentIrql() < 2u )
     {
       CurrentIrql = KeGetCurrentIrql();
@@ -69,36 +72,33 @@ __int64 __fastcall HalpAllocateAdapterChannel(__int64 a1, __int64 a2, unsigned i
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-        if ( CurrentIrql != 2 )
-        {
-          v17 = -1LL << (CurrentIrql + 1);
-          v6 = v17 & 4;
-        }
-        SchedulerAssist[5] |= v6;
+        SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
       }
-      v18 = 1;
+      v15 = 1;
     }
-    LOBYTE(v17) = 1;
-    if ( (unsigned __int8)HalpAllocateDmaResourcesInternal(a1, v17, 0LL) )
-      v16 = 0;
-    if ( v18 )
+    if ( (unsigned __int8)HalpAllocateDmaResourcesInternal(DmaAdapter) )
+      v14 = 0;
+    if ( v15 )
     {
       if ( KiIrqlFlags )
       {
-        v21 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v23 = CurrentPrcb->SchedulerAssist;
-          v24 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v25 = (v24 & v23[5]) == 0;
-          v23[5] &= v24;
-          if ( v25 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          v18 = KeGetCurrentIrql();
+          if ( v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v20 = CurrentPrcb->SchedulerAssist;
+            v21 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v22 = (v21 & v20[5]) == 0;
+            v20[5] &= v21;
+            if ( v22 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
       __writecr8(CurrentIrql);
     }
   }
-  return v16;
+  return v14;
 }

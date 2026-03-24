@@ -1,30 +1,26 @@
 /*
- * XREFs of PopGetMonitorReasonFromPowerEventId @ 0x1403C733C
+ * XREFs of PopGetMonitorReasonFromPowerEventId @ 0x140382B80
  * Callers:
- *     PopPowerAggregatorStartNextSession @ 0x140878154 (PopPowerAggregatorStartNextSession.c)
- *     PopPowerAggregatorEnterScreenOff @ 0x1408781A4 (PopPowerAggregatorEnterScreenOff.c)
- *     PopPowerAggregatorDisengageModernStandby @ 0x14099362C (PopPowerAggregatorDisengageModernStandby.c)
- *     PopPowerAggregatorEngageModernStandby @ 0x1409937E4 (PopPowerAggregatorEngageModernStandby.c)
- *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140994090 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
+ *     PopSleepstudyStartNextSession @ 0x140775738 (PopSleepstudyStartNextSession.c)
+ *     PopPowerAggregatorActiveToScreenOffStateHandler @ 0x1408EDF50 (PopPowerAggregatorActiveToScreenOffStateHandler.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall PopGetMonitorReasonFromPowerEventId(int a1)
 {
-  unsigned int v1; // r8d
-  _DWORD *v2; // rdx
-  __int64 v3; // rax
+  __int64 result; // rax
+  unsigned int v3; // ecx
+  _DWORD *i; // rdx
 
-  v1 = 0;
-  v2 = &unk_140D1DAE4;
-  v3 = 0LL;
-  while ( *v2 != a1 )
+  result = 0LL;
+  if ( a1 == 45 )
+    return 20LL;
+  v3 = 0;
+  for ( i = &unk_140CFB864; *i != a1; i += 2 )
   {
-    v3 = (unsigned int)(v3 + 1);
-    v2 += 2;
-    if ( (unsigned int)v3 >= 0x37 )
-      return v1;
+    if ( ++v3 >= 0x33 )
+      return result;
   }
   return *((unsigned int *)&PopMonitorEventMapping + 2 * v3);
 }

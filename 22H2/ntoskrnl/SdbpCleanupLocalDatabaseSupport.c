@@ -1,29 +1,26 @@
 /*
- * XREFs of SdbpCleanupLocalDatabaseSupport @ 0x1406956BC
+ * XREFs of SdbpCleanupLocalDatabaseSupport @ 0x14075577C
  * Callers:
- *     SdbReleaseDatabase @ 0x140695574 (SdbReleaseDatabase.c)
+ *     SdbReleaseDatabase @ 0x1407557B8 (SdbReleaseDatabase.c)
  * Callees:
- *     SdbpCloseLocalDatabaseEx @ 0x140A524A4 (SdbpCloseLocalDatabaseEx.c)
+ *     SdbpCloseLocalDatabaseEx @ 0x1409667C8 (SdbpCloseLocalDatabaseEx.c)
  */
 
 __int64 __fastcall SdbpCleanupLocalDatabaseSupport(__int64 a1, __int64 a2)
 {
-  int v2; // eax
-  unsigned int i; // edi
+  unsigned int i; // ebx
+  int v5; // eax
 
-  v2 = *(_DWORD *)(a1 + 36);
-  if ( (v2 & 0xFFF8) != 0 )
+  if ( (*(_DWORD *)(a1 + 28) & 0xFFF8) != 0 )
   {
     for ( i = 3; i < 0x10; ++i )
     {
-      if ( _bittest(&v2, i) )
-      {
+      v5 = *(_DWORD *)(a1 + 28);
+      if ( _bittest(&v5, i) )
         SdbpCloseLocalDatabaseEx(a1, a2, i);
-        v2 = *(_DWORD *)(a1 + 36);
-      }
     }
   }
-  if ( *(_QWORD *)(a1 + 24) )
+  if ( *(_QWORD *)(a1 + 16) )
     SdbpCloseLocalDatabaseEx(a1, a2, 1LL);
   return 1LL;
 }

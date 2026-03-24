@@ -1,7 +1,7 @@
 /*
- * XREFs of ObAssignObjectSecurityDescriptor @ 0x1406AAC68
+ * XREFs of ObAssignObjectSecurityDescriptor @ 0x1406AAC48
  * Callers:
- *     WmipSecurityMethod @ 0x1406AAAA0 (WmipSecurityMethod.c)
+ *     WmipSecurityMethod @ 0x1406AAA80 (WmipSecurityMethod.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ObLogSecurityDescriptor @ 0x1405C9E70 (ObLogSecurityDescriptor.c)

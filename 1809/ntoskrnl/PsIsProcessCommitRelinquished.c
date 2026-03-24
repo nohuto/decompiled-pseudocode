@@ -1,5 +1,5 @@
 /*
- * XREFs of PsIsProcessCommitRelinquished @ 0x1406CE2E0
+ * XREFs of PsIsProcessCommitRelinquished @ 0x1406CE2C0
  * Callers:
  *     <none>
  * Callees:

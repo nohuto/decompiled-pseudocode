@@ -1,233 +1,213 @@
 /*
- * XREFs of DxgkHandleIndirectEscape @ 0x1C0392C44
+ * XREFs of DxgkHandleIndirectEscape @ 0x1C02D5A00
  * Callers:
- *     DxgkEscape @ 0x1C0179FA0 (DxgkEscape.c)
+ *     DxgkEscape @ 0x1C00F9100 (DxgkEscape.c)
  * Callees:
- *     ??0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z @ 0x1C0021D08 (--0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z.c)
- *     ?Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ @ 0x1C0021DA4 (-Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ.c)
- *     ?Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ @ 0x1C0023598 (-Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ.c)
- *     ?Release@AUTO_REMOVE_LOCK@@QEAAXXZ @ 0x1C00235F0 (-Release@AUTO_REMOVE_LOCK@@QEAAXXZ.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?Free@?$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ @ 0x1C00604C4 (-Free@-$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ.c)
- *     DxgkGetDeviceObjectFromAdapter @ 0x1C02C4F20 (DxgkGetDeviceObjectFromAdapter.c)
- *     DxgkSetIndirectDisplayHostProcess @ 0x1C02C5558 (DxgkSetIndirectDisplayHostProcess.c)
- *     DxgkGetIndirectDisplayRenderAdapterByHandle @ 0x1C02D1350 (DxgkGetIndirectDisplayRenderAdapterByHandle.c)
- *     DxgkSetIndirectDisplayRenderAdapterByHandle @ 0x1C02D48F4 (DxgkSetIndirectDisplayRenderAdapterByHandle.c)
- *     DxgkIddGetAdapterSessionDiagnostics @ 0x1C02EC078 (DxgkIddGetAdapterSessionDiagnostics.c)
- *     DxgkIddHandleSetDisplayConfig @ 0x1C02EC214 (DxgkIddHandleSetDisplayConfig.c)
- *     ?DpiIndirectEscapeAccessCheck@@YAJXZ @ 0x1C0391B9C (-DpiIndirectEscapeAccessCheck@@YAJXZ.c)
- *     ?DpiIndirectStartAdapter@@YAJPEAU_UNICODE_STRING@@PEBXK@Z @ 0x1C0392574 (-DpiIndirectStartAdapter@@YAJPEAU_UNICODE_STRING@@PEBXK@Z.c)
- *     DpiIndirectDdiIoControl @ 0x1C0392A98 (DpiIndirectDdiIoControl.c)
+ *     ??0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z @ 0x1C001E414 (--0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z.c)
+ *     ?Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ @ 0x1C001E530 (-Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ.c)
+ *     ?Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ @ 0x1C001EAEC (-Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ.c)
+ *     ?Release@AUTO_REMOVE_LOCK@@QEAAXXZ @ 0x1C001EB44 (-Release@AUTO_REMOVE_LOCK@@QEAAXXZ.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     ?Free@?$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ @ 0x1C0052B08 (-Free@-$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ.c)
+ *     DxgkGetDeviceObjectFromAdapter @ 0x1C02173C4 (DxgkGetDeviceObjectFromAdapter.c)
+ *     DxgkSetIndirectDisplayRenderAdapterByHandle @ 0x1C02267C8 (DxgkSetIndirectDisplayRenderAdapterByHandle.c)
+ *     DxgkIddGetAdapterSessionDiagnostics @ 0x1C025AFFC (DxgkIddGetAdapterSessionDiagnostics.c)
+ *     DxgkIddHandleSetDisplayConfig @ 0x1C025B14C (DxgkIddHandleSetDisplayConfig.c)
+ *     ?DpiIndirectEscapeAccessCheck@@YAJXZ @ 0x1C02D486C (-DpiIndirectEscapeAccessCheck@@YAJXZ.c)
+ *     ?DpiIndirectStartAdapter@@YAJPEAU_UNICODE_STRING@@PEBXK@Z @ 0x1C02D52D0 (-DpiIndirectStartAdapter@@YAJPEAU_UNICODE_STRING@@PEBXK@Z.c)
+ *     DpiIndirectDdiIoControl @ 0x1C02D5848 (DpiIndirectDdiIoControl.c)
  */
 
-__int64 __fastcall DxgkHandleIndirectEscape(unsigned int a1, unsigned int *a2, __int64 a3, __int64 a4)
+__int64 __fastcall DxgkHandleIndirectEscape(__int64 a1, unsigned int *a2)
 {
-  __int64 v5; // rdx
-  int v7; // eax
-  _DWORD *v8; // r12
-  struct _LUID *v9; // rbx
-  _QWORD *PoolWithQuotaTag; // rdi
-  unsigned int v11; // eax
+  __int64 v3; // rax
+  _DWORD *v5; // r12
+  struct _LUID *v6; // rbx
+  PVOID PoolWithQuotaTag; // rdi
+  unsigned int v8; // eax
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r9
   unsigned int v12; // eax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  unsigned int v15; // ebx
-  __int64 v16; // rcx
-  char *v17; // rdx
-  unsigned int v18; // eax
-  unsigned int v19; // ecx
-  unsigned int v20; // ecx
-  unsigned int v21; // ecx
-  unsigned int v22; // ecx
-  unsigned int v23; // ecx
-  __int64 v24; // rax
+  __int64 v13; // rax
+  unsigned int v14; // ebx
+  __int64 v15; // rcx
+  char *v16; // rdx
+  unsigned int v17; // eax
+  __int64 v18; // rcx
+  int v19; // ecx
+  int v20; // ecx
+  __int64 v21; // rax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
   int AdapterSessionDiagnostics; // eax
-  PVOID v26; // r15
-  __int64 v27; // r14
-  PVOID Object; // [rsp+30h] [rbp-68h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-60h] BYREF
-  _BYTE v30[80]; // [rsp+48h] [rbp-50h] BYREF
-  int DeviceObjectFromAdapter; // [rsp+A0h] [rbp+8h] BYREF
-  void *v32; // [rsp+B0h] [rbp+18h] BYREF
-  struct _LUID *v33; // [rsp+B8h] [rbp+20h] BYREF
+  PVOID v25; // r15
+  __int64 v26; // r14
+  __int64 v27; // rax
+  __int64 v28; // rcx
+  PVOID Object; // [rsp+30h] [rbp-88h] BYREF
+  void *v30; // [rsp+38h] [rbp-80h] BYREF
+  void *v31; // [rsp+40h] [rbp-78h] BYREF
+  struct _IO_REMOVE_LOCK *v32; // [rsp+48h] [rbp-70h] BYREF
+  char v33; // [rsp+50h] [rbp-68h]
+  struct _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-60h] BYREF
+  _BYTE v35[80]; // [rsp+68h] [rbp-50h] BYREF
+  int DeviceObjectFromAdapter; // [rsp+C0h] [rbp+8h] BYREF
+  void *v37; // [rsp+D0h] [rbp+18h] BYREF
+  struct _LUID *v38; // [rsp+D8h] [rbp+20h] BYREF
 
-  DeviceObjectFromAdapter = 0;
-  if ( a1 < 0x30 )
+  if ( (unsigned int)a1 < 0x30 )
   {
-    v5 = -1073741789LL;
     DeviceObjectFromAdapter = -1073741789;
 LABEL_3:
-    WdLogSingleEntry1(2LL, v5);
+    v3 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v3 + 24) = DeviceObjectFromAdapter;
+    WdLogEvent5_WdError(v3);
     return (unsigned int)DeviceObjectFromAdapter;
   }
-  if ( a2[1] != 5 )
-  {
-    v7 = DpiIndirectEscapeAccessCheck();
-    DeviceObjectFromAdapter = v7;
-    if ( v7 < 0 )
-    {
-      v5 = v7;
-      goto LABEL_3;
-    }
-  }
-  v8 = a2 + 10;
+  DeviceObjectFromAdapter = DpiIndirectEscapeAccessCheck();
+  if ( DeviceObjectFromAdapter < 0 )
+    goto LABEL_3;
+  v5 = a2 + 10;
   a2[10] = 0;
-  v9 = 0LL;
-  v33 = 0LL;
+  v6 = 0LL;
+  v38 = 0LL;
   PoolWithQuotaTag = 0LL;
-  v32 = 0LL;
-  v11 = a2[3];
-  if ( !v11
-    || (v9 = (struct _LUID *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v11, 0x74727044u),
-        AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free((void **)&v33),
-        v33 = v9,
-        Object = 0LL,
-        AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free(&Object),
-        v9) )
+  v37 = 0LL;
+  v8 = a2[3];
+  if ( !v8
+    || (v6 = (struct _LUID *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v8, 0x74727044u),
+        AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free((void **)&v38),
+        v38 = v6,
+        v30 = 0LL,
+        AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free(&v30),
+        v6) )
   {
     v12 = a2[6];
     if ( !v12
       || (PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v12, 0x74727044u),
-          AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free(&v32),
-          v32 = PoolWithQuotaTag,
-          *(_QWORD *)&DestinationString.Length = 0LL,
-          AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free((void **)&DestinationString),
+          AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free(&v37),
+          v37 = PoolWithQuotaTag,
+          v31 = 0LL,
+          AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free(&v31),
           PoolWithQuotaTag) )
     {
-      v16 = a2[3];
-      if ( (_DWORD)v16 )
+      v15 = a2[3];
+      if ( (_DWORD)v15 )
       {
-        v17 = (char *)*((_QWORD *)a2 + 2);
-        if ( (unsigned __int64)&v17[v16] > MmUserProbeAddress || &v17[v16] < v17 )
+        v16 = (char *)*((_QWORD *)a2 + 2);
+        if ( (unsigned __int64)&v16[v15] > MmUserProbeAddress || &v16[v15] < v16 )
         {
           *(_BYTE *)MmUserProbeAddress = 0;
-          LODWORD(v16) = a2[3];
-          v17 = (char *)*((_QWORD *)a2 + 2);
+          LODWORD(v15) = a2[3];
+          v16 = (char *)*((_QWORD *)a2 + 2);
         }
-        memmove(v9, v17, (unsigned int)v16);
+        memmove(v6, v16, (unsigned int)v15);
       }
-      v18 = a2[6];
-      if ( v18 )
-        ProbeForWrite(*((volatile void **)a2 + 4), v18, 1u);
-      v19 = a2[1];
-      if ( v19 )
+      v17 = a2[6];
+      if ( v17 )
+        ProbeForWrite(*((volatile void **)a2 + 4), v17, 1u);
+      v18 = a2[1];
+      if ( (_DWORD)v18 )
       {
-        v20 = v19 - 1;
-        if ( !v20 )
+        v19 = v18 - 1;
+        if ( !v19 )
         {
           Object = 0LL;
-          DeviceObjectFromAdapter = DxgkGetDeviceObjectFromAdapter(*a2, (__int64)a2, &Object, a4);
+          DeviceObjectFromAdapter = DxgkGetDeviceObjectFromAdapter(*a2, (__int64)a2, &Object);
           if ( DeviceObjectFromAdapter >= 0 )
           {
-            v26 = Object;
-            v27 = *((_QWORD *)Object + 8);
-            if ( *(_BYTE *)(v27 + 1159) )
+            v25 = Object;
+            v26 = *((_QWORD *)Object + 8);
+            if ( *(_BYTE *)(v26 + 1158) )
             {
-              *(_QWORD *)&DestinationString.Length = *((_QWORD *)Object + 8);
-              LOBYTE(DestinationString.Buffer) = 0;
-              DeviceObjectFromAdapter = AUTO_REMOVE_LOCK::Acquire((struct _IO_REMOVE_LOCK **)&DestinationString);
+              v32 = (struct _IO_REMOVE_LOCK *)*((_QWORD *)Object + 8);
+              v33 = 0;
+              DeviceObjectFromAdapter = AUTO_REMOVE_LOCK::Acquire(&v32);
               if ( DeviceObjectFromAdapter >= 0 )
               {
-                AUTO_PNPPOWER_LOCK::AUTO_PNPPOWER_LOCK((AUTO_PNPPOWER_LOCK *)v30, (struct _COMMON_PNP_CONTEXT *)v27);
-                DeviceObjectFromAdapter = DpiIndirectDdiIoControl(v27);
-                AUTO_PNPPOWER_LOCK::Release((AUTO_PNPPOWER_LOCK *)v30);
+                AUTO_PNPPOWER_LOCK::AUTO_PNPPOWER_LOCK((AUTO_PNPPOWER_LOCK *)v35, (struct _COMMON_PNP_CONTEXT *)v26);
+                DeviceObjectFromAdapter = DpiIndirectDdiIoControl(v26);
+                AUTO_PNPPOWER_LOCK::Release((AUTO_PNPPOWER_LOCK *)v35);
               }
-              AUTO_REMOVE_LOCK::Release((PVOID *)&DestinationString);
+              AUTO_REMOVE_LOCK::Release((PVOID *)&v32);
             }
             else
             {
               DeviceObjectFromAdapter = -1073741275;
             }
-            ObfDereferenceObject(v26);
+            ObfDereferenceObject(v25);
           }
-          goto LABEL_48;
+          goto LABEL_40;
         }
-        v21 = v20 - 1;
-        if ( !v21 )
+        v20 = v19 - 1;
+        if ( !v20 )
         {
-          DxgkIddHandleSetDisplayConfig(*a2, a2[3], (unsigned int *)v9, &DeviceObjectFromAdapter);
-          goto LABEL_48;
+          DxgkIddHandleSetDisplayConfig(*a2, a2[3], (DWORD *)v6, &DeviceObjectFromAdapter);
+          goto LABEL_40;
         }
-        v22 = v21 - 1;
-        if ( v22 )
+        v18 = (unsigned int)(v20 - 1);
+        if ( (_DWORD)v18 )
         {
-          v23 = v22 - 1;
-          if ( v23 )
+          if ( (_DWORD)v18 != 1 )
           {
-            if ( v23 != 1 )
+            DeviceObjectFromAdapter = -1073741637;
+            v21 = WdLogNewEntry5_WdError(v18, a2);
+            *(_QWORD *)(v21 + 24) = DeviceObjectFromAdapter;
+            WdLogEvent5_WdError(v21);
+LABEL_40:
+            if ( DeviceObjectFromAdapter < 0 )
+              goto LABEL_10;
+            if ( a2[6] >= *v5 )
             {
-              DeviceObjectFromAdapter = -1073741637;
-              WdLogSingleEntry1(2LL, -1073741637LL);
-LABEL_48:
-              if ( DeviceObjectFromAdapter < 0 )
-                goto LABEL_13;
-              if ( a2[6] >= *v8 )
-              {
-                if ( *v8 )
-                  memmove(*((void **)a2 + 4), PoolWithQuotaTag, (unsigned int)*v8);
-                goto LABEL_13;
-              }
-              DeviceObjectFromAdapter = -1073741811;
-              v13 = -1073741811LL;
-              goto LABEL_45;
+              if ( *v5 )
+                memmove(*((void **)a2 + 4), PoolWithQuotaTag, (unsigned int)*v5);
+              goto LABEL_10;
             }
-            v24 = a2[6];
-            if ( (unsigned int)v24 >= 0x10 )
-            {
-              DeviceObjectFromAdapter = DxgkGetIndirectDisplayRenderAdapterByHandle(
-                                          *a2,
-                                          PoolWithQuotaTag,
-                                          PoolWithQuotaTag + 1,
-                                          a4);
-              if ( DeviceObjectFromAdapter >= 0 )
-                *v8 = 16;
-              goto LABEL_48;
-            }
-LABEL_44:
             DeviceObjectFromAdapter = -1073741811;
-            v13 = v24;
-LABEL_45:
-            v14 = 2LL;
-            goto LABEL_12;
+            v27 = WdLogNewEntry5_WdError(v23, v22);
+            v28 = DeviceObjectFromAdapter;
+            goto LABEL_37;
           }
           AdapterSessionDiagnostics = DxgkIddGetAdapterSessionDiagnostics(
                                         *a2,
                                         a2[6],
                                         (unsigned __int8 *)PoolWithQuotaTag,
                                         a2 + 10);
+LABEL_39:
+          DeviceObjectFromAdapter = AdapterSessionDiagnostics;
+          goto LABEL_40;
         }
-        else
+        if ( a2[3] >= 8 )
         {
-          v24 = a2[3];
-          if ( (unsigned int)v24 < 8 )
-            goto LABEL_44;
-          AdapterSessionDiagnostics = DxgkSetIndirectDisplayRenderAdapterByHandle(*a2, v9, a3, a4);
+          AdapterSessionDiagnostics = DxgkSetIndirectDisplayRenderAdapterByHandle(*a2, v6);
+          goto LABEL_39;
         }
-        DeviceObjectFromAdapter = AdapterSessionDiagnostics;
-        goto LABEL_48;
       }
-      v24 = a2[3];
-      if ( (unsigned int)v24 >= 0x250 )
+      else if ( a2[3] >= 0x248 )
       {
         DestinationString = 0LL;
-        HIWORD(v9[64].HighPart) = 0;
-        RtlInitUnicodeString(&DestinationString, (PCWSTR)v9);
-        DeviceObjectFromAdapter = DpiIndirectStartAdapter(&DestinationString, v9, a2[3]);
-        if ( DeviceObjectFromAdapter >= 0 )
-          DxgkSetIndirectDisplayHostProcess();
-        goto LABEL_48;
+        HIWORD(v6[64].HighPart) = 0;
+        RtlInitUnicodeString(&DestinationString, (PCWSTR)v6);
+        AdapterSessionDiagnostics = DpiIndirectStartAdapter(&DestinationString, v6, a2[3]);
+        goto LABEL_39;
       }
-      goto LABEL_44;
+      DeviceObjectFromAdapter = -1073741811;
+      v27 = WdLogNewEntry5_WdError(v18, a2);
+      v28 = a2[3];
+LABEL_37:
+      *(_QWORD *)(v27 + 24) = v28;
+      WdLogEvent5_WdError(v27);
+      goto LABEL_10;
     }
   }
-  v13 = -1073741801LL;
   DeviceObjectFromAdapter = -1073741801;
-  v14 = 6LL;
-LABEL_12:
-  WdLogSingleEntry1(v14, v13);
-LABEL_13:
-  v15 = DeviceObjectFromAdapter;
-  AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free(&v32);
-  AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free((void **)&v33);
-  return v15;
+  v13 = WdLogNewEntry5_WdLowResource(v9, a2, v10, v11);
+  *(_QWORD *)(v13 + 24) = DeviceObjectFromAdapter;
+  WdLogEvent5_WdLowResource(v13);
+LABEL_10:
+  v14 = DeviceObjectFromAdapter;
+  AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free(&v37);
+  AUTO_FREE_POOL<IDD_COMPLETION_CONTEXT *>::Free((void **)&v38);
+  return v14;
 }

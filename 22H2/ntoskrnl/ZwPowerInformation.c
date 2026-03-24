@@ -1,20 +1,19 @@
 /*
- * XREFs of ZwPowerInformation @ 0x14041B280
+ * XREFs of ZwPowerInformation @ 0x1403FA600
  * Callers:
- *     HalpSetShutdownResetHandler @ 0x140506CF0 (HalpSetShutdownResetHandler.c)
- *     DifZwPowerInformationWrapper @ 0x1405F3010 (DifZwPowerInformationWrapper.c)
- *     RtlpSystemBootStatusRequest @ 0x1407A6A9C (RtlpSystemBootStatusRequest.c)
- *     PopDisarmIdlePhaseWatchdog @ 0x1407AA5CC (PopDisarmIdlePhaseWatchdog.c)
- *     PopInvokeWin32Callout @ 0x1407D3E3C (PopInvokeWin32Callout.c)
- *     RtlpRecordBootStatusData @ 0x1407ED100 (RtlpRecordBootStatusData.c)
- *     RtlCheckSystemBootStatusIntegrity @ 0x140803070 (RtlCheckSystemBootStatusIntegrity.c)
- *     PdcPortOpenCommon @ 0x140857028 (PdcPortOpenCommon.c)
- *     HaliAcpiMachineStateInit @ 0x14085E4B0 (HaliAcpiMachineStateInit.c)
- *     PopArmIdlePhaseWatchdog @ 0x140883D44 (PopArmIdlePhaseWatchdog.c)
- *     PoGetLightestSystemStateForEject @ 0x140980520 (PoGetLightestSystemStateForEject.c)
- *     PspRecordCrashedProcessIntoBlackbox @ 0x1409AF894 (PspRecordCrashedProcessIntoBlackbox.c)
- *     RtlRestoreSystemBootStatusDefaults @ 0x1409BDD20 (RtlRestoreSystemBootStatusDefaults.c)
- *     PopCreateIdlePhaseWatchdog @ 0x140B762C4 (PopCreateIdlePhaseWatchdog.c)
+ *     HalpSetShutdownResetHandler @ 0x1404BE378 (HalpSetShutdownResetHandler.c)
+ *     PopInvokeWin32Callout @ 0x1406F45B8 (PopInvokeWin32Callout.c)
+ *     RtlpRecordBootStatusData @ 0x14078A454 (RtlpRecordBootStatusData.c)
+ *     RtlpSystemBootStatusRequest @ 0x14079A92C (RtlpSystemBootStatusRequest.c)
+ *     HaliAcpiMachineStateInit @ 0x1407CEA70 (HaliAcpiMachineStateInit.c)
+ *     PdcPortOpenCommon @ 0x1407CF858 (PdcPortOpenCommon.c)
+ *     PoGetLightestSystemStateForEject @ 0x1408E0F3C (PoGetLightestSystemStateForEject.c)
+ *     PopArmIdlePhaseWatchdog @ 0x1408EFC58 (PopArmIdlePhaseWatchdog.c)
+ *     PopDisarmIdlePhaseWatchdog @ 0x1408EFD7C (PopDisarmIdlePhaseWatchdog.c)
+ *     PspRecordCrashedProcessIntoBlackbox @ 0x140908528 (PspRecordCrashedProcessIntoBlackbox.c)
+ *     RtlCheckSystemBootStatusIntegrity @ 0x140915590 (RtlCheckSystemBootStatusIntegrity.c)
+ *     RtlRestoreSystemBootStatusDefaults @ 0x1409157C0 (RtlRestoreSystemBootStatusDefaults.c)
+ *     PopCreateIdlePhaseWatchdog @ 0x140A73F7C (PopCreateIdlePhaseWatchdog.c)
  * Callees:
  *     <none>
  */

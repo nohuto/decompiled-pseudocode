@@ -1,20 +1,19 @@
 /*
- * XREFs of ExpUpdateDebugInfo @ 0x1409F9308
+ * XREFs of ExpUpdateDebugInfo @ 0x14094CE54
  * Callers:
- *     ExHandleLogBadReference @ 0x140606A98 (ExHandleLogBadReference.c)
- *     ObpCreateHandle @ 0x1406E45C0 (ObpCreateHandle.c)
- *     ObpCloseHandle @ 0x1406E7730 (ObpCloseHandle.c)
- *     ObDuplicateObject @ 0x1406FB9A0 (ObDuplicateObject.c)
- *     ExDestroyHandle @ 0x14073FFAC (ExDestroyHandle.c)
- *     ExCreateHandleEx @ 0x140740974 (ExCreateHandleEx.c)
- *     ExDupHandleTable @ 0x1407B068C (ExDupHandleTable.c)
+ *     ExHandleLogBadReference @ 0x1402011C8 (ExHandleLogBadReference.c)
+ *     ExDupHandleTable @ 0x1406065C0 (ExDupHandleTable.c)
+ *     ExDestroyHandle @ 0x14061A1D8 (ExDestroyHandle.c)
+ *     ObCloseHandleTableEntry @ 0x140642D80 (ObCloseHandleTableEntry.c)
+ *     ObpCreateHandle @ 0x140643C70 (ObpCreateHandle.c)
+ *     ExCreateHandleEx @ 0x140664860 (ExCreateHandleEx.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x140227780 (RtlWalkFrameChain.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExDereferenceHandleDebugInfo @ 0x1409F8D50 (ExDereferenceHandleDebugInfo.c)
- *     ExReferenceHandleDebugInfo @ 0x1409F9188 (ExReferenceHandleDebugInfo.c)
+ *     RtlWalkFrameChain @ 0x14021CE70 (RtlWalkFrameChain.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExDereferenceHandleDebugInfo @ 0x14094C6A4 (ExDereferenceHandleDebugInfo.c)
+ *     ExReferenceHandleDebugInfo @ 0x14094CAF4 (ExReferenceHandleDebugInfo.c)
  */
 
 void __fastcall ExpUpdateDebugInfo(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -23,106 +22,104 @@ void __fastcall ExpUpdateDebugInfo(__int64 a1, __int64 a2, __int64 a3, int a4)
   volatile signed __int32 *v9; // rbx
   char v10; // si
   int v11; // eax
-  int v12; // eax
-  unsigned int v13; // edi
-  unsigned int v14; // r10d
-  unsigned int v15; // r8d
-  unsigned int v16; // r11d
+  unsigned int v12; // r11d
+  unsigned int v13; // r8d
+  unsigned int v14; // ecx
+  unsigned int v15; // r10d
+  __int64 v16; // rdx
   __int64 v17; // rdx
-  __int64 v18; // r9
-  __int64 v19; // rdx
-  __int64 v20; // rax
-  volatile signed __int32 *v21; // rdx
-  volatile signed __int32 *v22; // rax
-  unsigned int v23; // edx
-  int v24; // eax
-  volatile signed __int32 *v25; // r14
-  ULONG v26; // edi
-  ULONG v27; // edi
-  ULONG v28; // eax
+  __int64 v18; // rax
+  volatile signed __int32 *v19; // rdx
+  volatile signed __int32 *v20; // rax
+  unsigned int v21; // edx
+  int v22; // eax
+  volatile signed __int32 *v23; // r14
+  ULONG v24; // edi
+  ULONG v25; // edi
+  ULONG v26; // eax
 
   v8 = ExReferenceHandleDebugInfo(a1);
   v9 = v8;
   if ( v8 )
   {
     v10 = 0;
-    if ( (v8[2] & 3) != 0 )
+    v11 = *((_DWORD *)v8 + 2);
+    if ( (v11 & 3) != 0 )
     {
-      ExAcquireFastMutex((PFAST_MUTEX)(v8 + 4));
+      ExAcquireFastMutex((PFAST_MUTEX)(v9 + 4));
       v10 = 1;
+      v11 = *((_DWORD *)v9 + 2);
     }
-    v11 = *((_DWORD *)v9 + 2);
     if ( (v11 & 1) != 0 )
     {
       *((_DWORD *)v9 + 2) = v11 & 0x3FFFFFFE | 0x80000000;
       *((_DWORD *)v9 + 18) = 0;
       memset((void *)(v9 + 20), 0, 160LL * *((unsigned int *)v9 + 1) + 80);
+      v11 = *((_DWORD *)v9 + 2);
     }
-    v12 = *((_DWORD *)v9 + 2);
-    if ( (v12 & 2) != 0 && a4 == 2 )
+    if ( (v11 & 2) != 0 && a4 == 2 )
     {
-      v13 = *((_DWORD *)v9 + 18);
-      v14 = v13;
-      if ( (v12 & 0x40000000) != 0 )
-        v14 = *((_DWORD *)v9 + 1);
-      v15 = 1;
-      if ( v14 )
+      v12 = *((_DWORD *)v9 + 18);
+      v13 = v12;
+      if ( (v11 & 0x40000000) != 0 )
+        v13 = *((_DWORD *)v9 + 1);
+      v14 = 1;
+      if ( v13 )
       {
-        v16 = *((_DWORD *)v9 + 1);
+        v15 = *((_DWORD *)v9 + 1);
         while ( 1 )
         {
-          v17 = v15 % v16;
-          v18 = 40 * v17;
-          if ( v9[40 * (unsigned int)v17 + 26] == 1 && *(_QWORD *)&v9[v18 + 24] == a3 )
+          v16 = v14 % v15;
+          if ( v9[40 * (unsigned int)v16 + 26] == 1 && *(_QWORD *)&v9[40 * v16 + 24] == a3 )
             break;
-          if ( ++v15 > v14 )
+          if ( ++v14 > v13 )
             goto LABEL_25;
         }
-        *((_DWORD *)v9 + 18) = v13 - 1;
-        v19 = (v13 - 1) % v16;
-        if ( (_DWORD)v19 )
+        *((_DWORD *)v9 + 18) = v12 - 1;
+        v17 = (v12 - 1) % v15;
+        if ( (_DWORD)v17 )
         {
-          v20 = 40 * v19;
-          v21 = &v9[v18];
-          v22 = &v9[v20];
-          *((_OWORD *)v21 + 5) = *((_OWORD *)v22 + 5);
-          *((_OWORD *)v21 + 6) = *((_OWORD *)v22 + 6);
-          *((_OWORD *)v21 + 7) = *((_OWORD *)v22 + 7);
-          *((_OWORD *)v21 + 8) = *((_OWORD *)v22 + 8);
-          *((_OWORD *)v21 + 9) = *((_OWORD *)v22 + 9);
-          *((_OWORD *)v21 + 10) = *((_OWORD *)v22 + 10);
-          *((_OWORD *)v21 + 11) = *((_OWORD *)v22 + 11);
-          *((_OWORD *)v21 + 12) = *((_OWORD *)v22 + 12);
-          *((_OWORD *)v21 + 13) = *((_OWORD *)v22 + 13);
-          *((_OWORD *)v21 + 14) = *((_OWORD *)v22 + 14);
+          v18 = 40 * v17;
+          v19 = &v9[40 * (v14 % v15)];
+          v20 = &v9[v18];
+          *((_OWORD *)v19 + 5) = *((_OWORD *)v20 + 5);
+          *((_OWORD *)v19 + 6) = *((_OWORD *)v20 + 6);
+          *((_OWORD *)v19 + 7) = *((_OWORD *)v20 + 7);
+          *((_OWORD *)v19 + 8) = *((_OWORD *)v20 + 8);
+          *((_OWORD *)v19 + 9) = *((_OWORD *)v20 + 9);
+          *((_OWORD *)v19 + 10) = *((_OWORD *)v20 + 10);
+          *((_OWORD *)v19 + 11) = *((_OWORD *)v20 + 11);
+          *((_OWORD *)v19 + 12) = *((_OWORD *)v20 + 12);
+          *((_OWORD *)v19 + 13) = *((_OWORD *)v20 + 13);
+          *((_OWORD *)v19 + 14) = *((_OWORD *)v20 + 14);
         }
       }
     }
     else
     {
-      v23 = (unsigned int)_InterlockedIncrement(v9 + 18) % *((_DWORD *)v9 + 1);
-      if ( !v23 )
+      v21 = (unsigned int)_InterlockedIncrement(v9 + 18) % *((_DWORD *)v9 + 1);
+      if ( !v21 )
       {
-        v24 = *((_DWORD *)v9 + 2) | 0x40000000;
-        *((_DWORD *)v9 + 2) = v24;
-        if ( (v24 & 4) != 0 )
+        v22 = *((_DWORD *)v9 + 2) | 0x40000000;
+        *((_DWORD *)v9 + 2) = v22;
+        if ( (v22 & 4) != 0 )
           __debugbreak();
       }
-      v25 = &v9[40 * v23 + 20];
-      *(_OWORD *)v25 = *(_OWORD *)(a2 + 1224);
-      *((_QWORD *)v25 + 2) = a3;
-      *((_DWORD *)v25 + 6) = a4;
-      v26 = RtlWalkFrameChain((PVOID *)v25 + 4, 0x10u, 0x300u);
-      if ( v26 <= 3 )
-        v27 = 0;
+      v23 = &v9[40 * v21 + 20];
+      *(_OWORD *)v23 = *(_OWORD *)(a2 + 1144);
+      *((_QWORD *)v23 + 2) = a3;
+      *((_DWORD *)v23 + 6) = a4;
+      v24 = RtlWalkFrameChain((PVOID *)v23 + 4, 0x10u, 0x300u);
+      if ( v24 <= 3 )
+        v25 = 0;
       else
-        v27 = v26 - 3;
-      v28 = RtlWalkFrameChain((PVOID *)&v25[2 * v27 + 8], 16 - v27, 1u);
-      memset((void *)&v25[2 * v28 + 8 + 2 * v27], 0, 8LL * (16 - (v28 + v27)));
+        v25 = v24 - 3;
+      v26 = RtlWalkFrameChain((PVOID *)&v23[2 * v25 + 8], 16 - v25, 1u);
+      memset((void *)&v23[2 * v26 + 8 + 2 * v25], 0, 8LL * (16 - (v26 + v25)));
     }
 LABEL_25:
     if ( v10 )
-      ExReleaseFastMutex((PFAST_MUTEX)(v9 + 4));
+      KeReleaseGuardedMutex((PKGUARDED_MUTEX)(v9 + 4));
     ExDereferenceHandleDebugInfo(a1, v9);
   }
 }

@@ -1,12 +1,10 @@
 /*
- * XREFs of ?CitpProcessInfoIsValid@@YA_NPEAU_CIT_PROCESS@@@Z @ 0x1C0017550
+ * XREFs of ?CitpProcessInfoIsValid@@YA_NPEAU_CIT_PROCESS@@@Z @ 0x1C00464C4
  * Callers:
- *     ?CitpLastInputUpdate@@YAXGI@Z @ 0x1C0016698 (-CitpLastInputUpdate@@YAXGI@Z.c)
- *     CitProcessCallout @ 0x1C0016FF0 (CitProcessCallout.c)
- *     ?CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z @ 0x1C0017428 (-CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z.c)
- *     ?CitpClearDelegation@@YAXPEAU_CIT_PROCESS@@@Z @ 0x1C009DF84 (-CitpClearDelegation@@YAXPEAU_CIT_PROCESS@@@Z.c)
- *     ?CitpInvalidateAllWeakReferences@@YAXXZ @ 0x1C023FCCC (-CitpInvalidateAllWeakReferences@@YAXXZ.c)
- *     ?CitpProcessGetProgData@@YAPEAU_CIT_PROG_DATA@@PEAUtagPROCESSINFO@@@Z @ 0x1C023FE54 (-CitpProcessGetProgData@@YAPEAU_CIT_PROG_DATA@@PEAUtagPROCESSINFO@@@Z.c)
+ *     CitProcessCallout @ 0x1C0045FB0 (CitProcessCallout.c)
+ *     ?CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z @ 0x1C00463E0 (-CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z.c)
+ *     ?CitpInvalidateAllWeakReferences@@YAXXZ @ 0x1C01FE038 (-CitpInvalidateAllWeakReferences@@YAXXZ.c)
+ *     ?CitpProcessGetProgData@@YAPEAU_CIT_PROG_DATA@@PEAUtagPROCESSINFO@@@Z @ 0x1C01FE1CC (-CitpProcessGetProgData@@YAPEAU_CIT_PROG_DATA@@PEAUtagPROCESSINFO@@@Z.c)
  * Callees:
  *     <none>
  */

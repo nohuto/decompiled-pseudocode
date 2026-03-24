@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bDwmDeviceBitmapsEnabled@@YAHXZ @ 0x1C00B1358
+ * XREFs of ?bDwmDeviceBitmapsEnabled@@YAHXZ @ 0x1C000D6B4
  * Callers:
- *     GreDwmStartup @ 0x1C00B10F8 (GreDwmStartup.c)
+ *     GreDwmStartup @ 0x1C000CD48 (GreDwmStartup.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 _BOOL8 bDwmDeviceBitmapsEnabled(void)

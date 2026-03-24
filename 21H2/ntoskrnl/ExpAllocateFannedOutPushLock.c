@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpAllocateFannedOutPushLock @ 0x140259EC4
+ * XREFs of ExpAllocateFannedOutPushLock @ 0x140391228
  * Callers:
- *     ExpTryExpandAutoExpandPushLock @ 0x140259E60 (ExpTryExpandAutoExpandPushLock.c)
+ *     ExpTryExpandAutoExpandPushLock @ 0x140391104 (ExpTryExpandAutoExpandPushLock.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1402631C0 (KeQueryMaximumProcessorCountEx.c)
- *     ExSaAllocate @ 0x1402A012C (ExSaAllocate.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14027B730 (KeQueryMaximumProcessorCountEx.c)
+ *     ExSaAllocate @ 0x140391554 (ExSaAllocate.c)
  */
 
 __int64 __fastcall ExpAllocateFannedOutPushLock(__int64 a1, char a2)

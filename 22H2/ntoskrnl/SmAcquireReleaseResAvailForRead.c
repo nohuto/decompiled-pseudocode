@@ -1,76 +1,76 @@
 /*
- * XREFs of SmAcquireReleaseResAvailForRead @ 0x140465CD4
+ * XREFs of SmAcquireReleaseResAvailForRead @ 0x140312B20
  * Callers:
- *     ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x140464946 (-SmPageRead@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STAT.c)
- *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x1405CCA20 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
+ *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x140266F10 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
+ *     ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1403128F0 (-SmPageRead@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STAT.c)
  * Callees:
- *     MmStoreChargeResidentAvailableForRead @ 0x1403B5A60 (MmStoreChargeResidentAvailableForRead.c)
+ *     MmStoreChargeResidentAvailableForRead @ 0x140312C04 (MmStoreChargeResidentAvailableForRead.c)
  */
 
-_BOOL8 __fastcall SmAcquireReleaseResAvailForRead(__int64 a1, signed __int64 a2, __int64 a3, int a4)
+__int64 __fastcall SmAcquireReleaseResAvailForRead(signed __int64 a1, __int64 a2, int a3)
 {
-  unsigned __int64 v7; // r8
-  __int64 v8; // r9
-  struct _KPRCB *CurrentPrcb; // r10
-  __int64 CachedResidentAvailable; // rdx
-  bool v11; // zf
-  signed __int32 v12; // eax
-  BOOL v13; // ecx
+  struct _KPRCB *CurrentPrcb; // r9
+  unsigned __int64 v6; // rdx
+  __int64 CachedResidentAvailable; // r8
+  bool v8; // zf
+  signed __int32 v9; // eax
+  unsigned int v10; // ecx
 
-  if ( a4 )
+  if ( a3 )
   {
-    if ( *(_QWORD *)(a1 + 2056) == a2 )
+    if ( qword_140D24178 == a1 )
     {
-      _InterlockedExchange64((volatile __int64 *)(a1 + 2056), 0LL);
+      _InterlockedExchange64(&qword_140D24178, 0LL);
     }
     else
     {
-      v7 = a3 + 48;
-      v8 = **(_QWORD **)(a1 + 1936);
-      if ( (_UNKNOWN *)v8 == &MiSystemPartition )
+      CurrentPrcb = KeGetCurrentPrcb();
+      v6 = a2 + 48;
+      CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
+      if ( (_DWORD)CachedResidentAvailable != -1 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
-        if ( (_DWORD)CachedResidentAvailable != -1 )
+        if ( v6 + CachedResidentAvailable <= 0x100 )
         {
-          if ( v7 + CachedResidentAvailable <= 0x100 && v7 < 0x80000 )
+          do
           {
-            do
-            {
-              v12 = _InterlockedCompareExchange(
-                      (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                      CachedResidentAvailable + v7,
-                      CachedResidentAvailable);
-              v11 = (_DWORD)CachedResidentAvailable == v12;
-              LODWORD(CachedResidentAvailable) = v12;
-              if ( v11 )
-                return 1;
-            }
-            while ( v12 != -1 && v7 + v12 <= 0x100 );
+            if ( v6 >= 0x80000 )
+              break;
+            v9 = _InterlockedCompareExchange(
+                   (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                   CachedResidentAvailable + v6,
+                   CachedResidentAvailable);
+            v8 = (_DWORD)CachedResidentAvailable == v9;
+            LODWORD(CachedResidentAvailable) = v9;
+            if ( v8 )
+              return 1;
           }
-          if ( (int)CachedResidentAvailable > 192
-            && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
-                                                    (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                                                    192,
-                                                    CachedResidentAvailable) )
-          {
-            v7 += (int)CachedResidentAvailable - 192;
-          }
+          while ( v9 != -1 && v6 + v9 <= 0x100 );
+        }
+        if ( (int)CachedResidentAvailable > 192
+          && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
+                                                  (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                                                  192,
+                                                  CachedResidentAvailable) )
+        {
+          v6 += (int)CachedResidentAvailable - 192;
         }
       }
-      if ( v7 )
-        _InterlockedExchangeAdd64((volatile signed __int64 *)(v8 + 17280), v7);
+      if ( v6 )
+        _InterlockedExchangeAdd64(&qword_140C52980, v6);
     }
     return 1;
   }
-  v13 = MmStoreChargeResidentAvailableForRead(*(void ***)(a1 + 1936), a3);
-  if ( !v13 )
+  else
   {
-    if ( *(_QWORD *)(a1 + 2056) )
-      return 0;
-    v13 = 1;
-    if ( a3 != 1 || _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 2056), a2, 0LL) )
-      return 0;
+    v10 = MmStoreChargeResidentAvailableForRead(a2);
+    if ( !v10 )
+    {
+      if ( qword_140D24178 )
+        return 0;
+      v10 = 1;
+      if ( a2 != 1 || _InterlockedCompareExchange64(&qword_140D24178, a1, 0LL) )
+        return 0;
+    }
   }
-  return v13;
+  return v10;
 }

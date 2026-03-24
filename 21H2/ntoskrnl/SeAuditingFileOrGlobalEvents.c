@@ -1,11 +1,11 @@
 /*
- * XREFs of SeAuditingFileOrGlobalEvents @ 0x1409CA280
+ * XREFs of SeAuditingFileOrGlobalEvents @ 0x140920820
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     SepAdtAuditThisEventWithContext @ 0x140724320 (SepAdtAuditThisEventWithContext.c)
- *     SepRmGlobalSaclFind @ 0x140882B96 (SepRmGlobalSaclFind.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140627AC0 (SepAdtAuditThisEventWithContext.c)
+ *     SepRmGlobalSaclFind @ 0x140924BF0 (SepRmGlobalSaclFind.c)
  */
 
 BOOLEAN __stdcall SeAuditingFileOrGlobalEvents(
@@ -14,39 +14,49 @@ BOOLEAN __stdcall SeAuditingFileOrGlobalEvents(
         PSECURITY_SUBJECT_CONTEXT SubjectSecurityContext)
 {
   BOOLEAN v5; // bl
-  __int16 v7; // ax
-  __int64 v8; // rax
-  char *v9; // rax
-  UNICODE_STRING v11; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v12; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v7; // r9
+  __int16 v8; // ax
+  __int64 v9; // rax
+  char *v10; // rax
+  UNICODE_STRING v12; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v13; // [rsp+48h] [rbp+10h] BYREF
 
   v5 = 0;
+  v13 = 0LL;
   v12 = 0LL;
-  v11 = 0LL;
-  RtlInitUnicodeString(&v11, L"File");
-  if ( (unsigned int)SepRmGlobalSaclFind(&v12, 0LL, &v11, 1) != -1073741772 )
+  RtlInitUnicodeString(&v12, L"File");
+  LOBYTE(v7) = 1;
+  if ( (unsigned int)SepRmGlobalSaclFind(&v13, 0LL, &v12, v7) != -1073741772 )
     goto LABEL_9;
-  v7 = *((_WORD *)SecurityDescriptor + 1);
-  if ( (v7 & 0x10) == 0 )
+  v8 = *((_WORD *)SecurityDescriptor + 1);
+  if ( (v8 & 0x10) == 0 )
     return 0;
-  if ( v7 < 0 )
+  if ( v8 < 0 )
   {
-    v8 = *((unsigned int *)SecurityDescriptor + 3);
-    if ( (_DWORD)v8 )
+    v9 = *((unsigned int *)SecurityDescriptor + 3);
+    if ( (_DWORD)v9 )
     {
-      v9 = (char *)SecurityDescriptor + v8;
+      v10 = (char *)SecurityDescriptor + v9;
       goto LABEL_7;
     }
     return 0;
   }
-  v9 = (char *)*((_QWORD *)SecurityDescriptor + 3);
+  v10 = (char *)*((_QWORD *)SecurityDescriptor + 3);
 LABEL_7:
-  if ( !v9 )
+  if ( !v10 )
     return 0;
 LABEL_9:
-  if ( SepAdtAuditThisEventWithContext(116LL, AccessGranted, AccessGranted == 0, SubjectSecurityContext)
-    || SepAdtAuditThisEventWithContext(129LL, AccessGranted, AccessGranted == 0, SubjectSecurityContext)
-    || SepAdtAuditThisEventWithContext(3LL, AccessGranted, AccessGranted == 0, SubjectSecurityContext) )
+  if ( (unsigned __int8)SepAdtAuditThisEventWithContext(
+                          117LL,
+                          AccessGranted,
+                          AccessGranted == 0,
+                          SubjectSecurityContext)
+    || (unsigned __int8)SepAdtAuditThisEventWithContext(
+                          130LL,
+                          AccessGranted,
+                          AccessGranted == 0,
+                          SubjectSecurityContext)
+    || (unsigned __int8)SepAdtAuditThisEventWithContext(3LL, AccessGranted, AccessGranted == 0, SubjectSecurityContext) )
   {
     return 1;
   }

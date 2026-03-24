@@ -1,11 +1,11 @@
 /*
- * XREFs of DNG_DrawRow @ 0x1C00D8FF0
+ * XREFs of DNG_DrawRow @ 0x1C00CA560
  * Callers:
- *     DNG_StretchCol @ 0x1C00D7834 (DNG_StretchCol.c)
- *     RenderNineGridInternal @ 0x1C00D8290 (RenderNineGridInternal.c)
+ *     DNG_StretchCol @ 0x1C00C8E70 (DNG_StretchCol.c)
+ *     RenderNineGridInternal @ 0x1C00C9840 (RenderNineGridInternal.c)
  * Callees:
- *     DNG_StretchRow @ 0x1C00D946C (DNG_StretchRow.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     DNG_StretchRow @ 0x1C00CA9E0 (DNG_StretchRow.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 unsigned __int64 __fastcall DNG_DrawRow(__int64 a1)
@@ -33,9 +33,9 @@ unsigned __int64 __fastcall DNG_DrawRow(__int64 a1)
   unsigned int v22; // r10d
   int v23; // esi
   _DWORD *v24; // r9
-  unsigned __int64 v25; // rbx
-  _DWORD *v26; // rax
-  unsigned __int64 v27; // r11
+  _DWORD *v25; // rax
+  unsigned __int64 v26; // r11
+  unsigned __int64 v27; // rbx
   bool v28; // cf
   __int64 v29; // rcx
   __int64 v30; // r8
@@ -167,26 +167,28 @@ unsigned __int64 __fastcall DNG_DrawRow(__int64 a1)
           v22 = *(_DWORD *)(a1 + 184);
           v23 = *(_DWORD *)(a1 + 188);
           v24 = (_DWORD *)(v18 + 4LL * *(int *)(a1 + 204));
-          v25 = v18 + 4LL * *(int *)(a1 + 208);
-          v26 = (_DWORD *)(v4 + 4 * (v14 + *(unsigned int *)(a1 + 180)));
-          v27 = v4 + 4 * (v14 + *(_DWORD *)(a1 + 52) - v17);
-          if ( *(_QWORD *)(a1 + 216) <= (unsigned __int64)v24
-            && v25 <= *(_QWORD *)(a1 + 224)
-            && *(_QWORD *)(a1 + 232) <= (unsigned __int64)v26
-            && v27 <= *(_QWORD *)(a1 + 240)
-            && (unsigned __int64)v24 < v25 )
+          v25 = (_DWORD *)(v4 + 4 * (v14 + *(unsigned int *)(a1 + 180)));
+          v26 = v4 + 4 * (v14 + *(_DWORD *)(a1 + 52) - v17);
+          if ( *(_QWORD *)(a1 + 216) <= (unsigned __int64)v24 )
           {
-            do
+            v27 = v18 + 4LL * *(int *)(a1 + 208);
+            if ( v27 <= *(_QWORD *)(a1 + 224)
+              && *(_QWORD *)(a1 + 232) <= (unsigned __int64)v25
+              && v26 <= *(_QWORD *)(a1 + 240)
+              && (unsigned __int64)v24 < v27 )
             {
-              if ( (unsigned __int64)v26 >= v27 )
-                break;
-              v28 = v22 + v23 < v22;
-              *v24 = *v26;
-              v22 += v23;
-              ++v24;
-              v26 += v28 + v21;
+              do
+              {
+                if ( (unsigned __int64)v25 >= v26 )
+                  break;
+                v28 = v22 + v23 < v22;
+                *v24 = *v25;
+                v22 += v23;
+                ++v24;
+                v25 += v28 + v21;
+              }
+              while ( (unsigned __int64)v24 < v27 );
             }
-            while ( (unsigned __int64)v24 < v25 );
           }
         }
       }

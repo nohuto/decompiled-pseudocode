@@ -1,25 +1,25 @@
 /*
- * XREFs of MiLockPagableSections @ 0x140B0872C
+ * XREFs of MiLockPagableSections @ 0x140A545BC
  * Callers:
- *     MiCancelPhase0Locking @ 0x1407610B4 (MiCancelPhase0Locking.c)
- *     MiUnlockBootPageSections @ 0x140B0856C (MiUnlockBootPageSections.c)
- *     MiEnablePagingTheExecutive @ 0x140B085F8 (MiEnablePagingTheExecutive.c)
+ *     MiCancelPhase0Locking @ 0x1406D0BAC (MiCancelPhase0Locking.c)
+ *     MiUnlockBootPageSections @ 0x140A544E0 (MiUnlockBootPageSections.c)
+ *     MiEnablePagingTheExecutive @ 0x140A5456C (MiEnablePagingTheExecutive.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     MiLockPagableImageSection @ 0x1402FD820 (MiLockPagableImageSection.c)
- *     MmLockPagableDataSection @ 0x1406F5E50 (MmLockPagableDataSection.c)
- *     MmImageSectionPagable @ 0x140760F98 (MmImageSectionPagable.c)
- *     MiImagePagable @ 0x140761128 (MiImagePagable.c)
+ *     MiLockPagableImageSection @ 0x14031C4F0 (MiLockPagableImageSection.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     MmImageSectionPagable @ 0x1406D0AEC (MmImageSectionPagable.c)
+ *     MiImagePagable @ 0x1406D0B4C (MiImagePagable.c)
+ *     MmLockPagableDataSection @ 0x1406D0CD0 (MmLockPagableDataSection.c)
  */
 
-void __fastcall MiLockPagableSections(_QWORD *a1, int a2)
+void __fastcall MiLockPagableSections(__int64 a1, int a2)
 {
   unsigned __int64 v2; // rsi
   __int64 v4; // rax
   int v5; // edi
   __int64 v6; // rbx
 
-  v2 = a1[6];
+  v2 = *(_QWORD *)(a1 + 48);
   if ( MiImagePagable(a1, v2) )
   {
     v4 = RtlImageNtHeader(v2);
@@ -31,7 +31,7 @@ void __fastcall MiLockPagableSections(_QWORD *a1, int a2)
       {
         if ( (unsigned int)MmImageSectionPagable(v6) )
         {
-          if ( a2 )
+          if ( a2 == 1 )
             MmLockPagableDataSection((PVOID)(v2 + *(unsigned int *)(v6 + 12)));
           else
             MiLockPagableImageSection(v6, 0LL);

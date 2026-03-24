@@ -1,16 +1,16 @@
 /*
- * XREFs of VrpPostQueryKey @ 0x14080B260
+ * XREFs of VrpPostQueryKey @ 0x14080B240
  * Callers:
- *     VrpRegistryCallback @ 0x140808010 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x140807FF0 (VrpRegistryCallback.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     EtwActivityIdControl @ 0x1400A3B50 (EtwActivityIdControl.c)
- *     ExGetPreviousMode @ 0x1400DDC50 (ExGetPreviousMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     VrpCleanupBufferParameter @ 0x1408083E4 (VrpCleanupBufferParameter.c)
- *     VrpOutputBufferParameter @ 0x1408084E8 (VrpOutputBufferParameter.c)
- *     VrpProcessBufferParameter @ 0x140808518 (VrpProcessBufferParameter.c)
- *     VrpUpdateKeyInformation @ 0x14080CF94 (VrpUpdateKeyInformation.c)
+ *     ExGetPreviousMode @ 0x1400DDC70 (ExGetPreviousMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VrpCleanupBufferParameter @ 0x1408083C4 (VrpCleanupBufferParameter.c)
+ *     VrpOutputBufferParameter @ 0x1408084C8 (VrpOutputBufferParameter.c)
+ *     VrpProcessBufferParameter @ 0x1408084F8 (VrpProcessBufferParameter.c)
+ *     VrpUpdateKeyInformation @ 0x14080CF74 (VrpUpdateKeyInformation.c)
  */
 
 __int64 __fastcall VrpPostQueryKey(__int64 a1)
@@ -75,7 +75,7 @@ __int64 __fastcall VrpPostQueryKey(__int64 a1)
     v28 = (__int64 *)*((_QWORD *)v10 + 1);
     v29[0] = *v10;
     v27 = 2LL;
-    TlgWrite(&stru_1403FFAD8, &unk_14036C967, &ActivityId, 0LL, 5u, &pData);
+    TlgWrite(&stru_1403FFAD8, &unk_14036CA77, &ActivityId, 0LL, 5u, &pData);
   }
   if ( (*(_DWORD *)(v2 + 36) & 0x20000000) == 0 )
   {
@@ -130,7 +130,7 @@ __int64 __fastcall VrpPostQueryKey(__int64 a1)
                 v29[1] = &v18;
                 v29[0] = 4LL;
                 v29[2] = 4LL;
-                TlgWrite(&stru_1403FFAD8, &unk_14036CAC9, &ActivityId, 0LL, 6u, &pData);
+                TlgWrite(&stru_1403FFAD8, &unk_14036CBD9, &ActivityId, 0LL, 6u, &pData);
               }
               else
               {
@@ -160,7 +160,7 @@ LABEL_22:
     v28 = &v19;
     v25 = 2LL;
     v29[0] = 4LL;
-    TlgWrite(&stru_1403FFAD8, &unk_14036C92C, &ActivityId, 0LL, 5u, &pData);
+    TlgWrite(&stru_1403FFAD8, &unk_14036CA3C, &ActivityId, 0LL, 5u, &pData);
   }
 LABEL_28:
   VrpCleanupBufferParameter(v7, &v20);

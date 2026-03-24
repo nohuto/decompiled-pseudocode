@@ -1,5 +1,5 @@
 /*
- * XREFs of FontAssocCharsetRoutine @ 0x1C029E520
+ * XREFs of FontAssocCharsetRoutine @ 0x1C02974C0
  * Callers:
  *     <none>
  * Callees:
@@ -8,10 +8,8 @@
 
 __int64 __fastcall FontAssocCharsetRoutine(wchar_t *Str1, __int64 a2, const wchar_t *a3)
 {
-  char v5; // di
-  __int64 v6; // rcx
-  int v7; // ebx
-  __int64 v8; // rcx
+  char v5; // bl
+  int v6; // ecx
 
   if ( _wcsicmp(a3, L"YES") )
   {
@@ -26,18 +24,17 @@ __int64 __fastcall FontAssocCharsetRoutine(wchar_t *Str1, __int64 a2, const wcha
   if ( _wcsicmp(Str1, L"ANSI(00)") )
   {
     if ( _wcsicmp(Str1, L"SYMBOL(02)") )
-      v7 = _wcsicmp(Str1, L"OEM(FF)") == 0;
+      v6 = _wcsicmp(Str1, L"OEM(FF)") == 0;
     else
-      v7 = 4;
+      v6 = 4;
   }
   else
   {
-    v7 = 2;
+    v6 = 2;
   }
-  v8 = *(_QWORD *)(SGDGetSessionState(v6) + 32);
   if ( v5 )
-    *(_DWORD *)(v8 + 18736) |= v7;
+    fFontAssocStatus |= v6;
   else
-    *(_DWORD *)(v8 + 18740) &= ~v7;
+    gForceFontAssocCodePage &= ~v6;
   return 0LL;
 }

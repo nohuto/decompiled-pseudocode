@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlScrubMemory @ 0x14067B008
+ * XREFs of RtlScrubMemory @ 0x1405904A8
  * Callers:
- *     MiScrubPage @ 0x14065F160 (MiScrubPage.c)
+ *     MiScrubPage @ 0x140564234 (MiScrubPage.c)
  * Callees:
- *     RtlCompareMemoryUlong @ 0x1404291E0 (RtlCompareMemoryUlong.c)
- *     RtlpGenericInverseCouplingWorker @ 0x14067B2B8 (RtlpGenericInverseCouplingWorker.c)
- *     RtlpGenericMATSPlusWorker @ 0x14067B594 (RtlpGenericMATSPlusWorker.c)
- *     RtlpGenericRandomPatternWorker @ 0x14067B698 (RtlpGenericRandomPatternWorker.c)
- *     RtlpGenericStrideWorker @ 0x14067B98C (RtlpGenericStrideWorker.c)
+ *     RtlCompareMemoryUlong @ 0x1404078B0 (RtlCompareMemoryUlong.c)
+ *     RtlpGenericInverseCouplingWorker @ 0x140590770 (RtlpGenericInverseCouplingWorker.c)
+ *     RtlpGenericMATSPlusWorker @ 0x140590A48 (RtlpGenericMATSPlusWorker.c)
+ *     RtlpGenericRandomPatternWorker @ 0x140590B4C (RtlpGenericRandomPatternWorker.c)
+ *     RtlpGenericStrideWorker @ 0x140590E6C (RtlpGenericStrideWorker.c)
  */
 
 __int64 __fastcall RtlScrubMemory(unsigned __int64 Source)
@@ -48,9 +48,10 @@ __int64 __fastcall RtlScrubMemory(unsigned __int64 Source)
     && (unsigned __int8)RtlpGenericInverseCouplingWorker(0LL, 0xFFFFFFFFLL, Source)
     && (unsigned __int8)RtlpGenericInverseCouplingWorker(0xFFFFFFFFLL, 0LL, Source)
     && (unsigned __int8)RtlpGenericStrideWorker(0LL, 0xFFFFFFFFLL, v8, Source)
-    && (unsigned __int8)RtlpGenericStrideWorker(0xFFFFFFFFLL, 0LL, v9, Source) )
+    && (unsigned __int8)RtlpGenericStrideWorker(0xFFFFFFFFLL, 0LL, v9, Source)
+    && (unsigned __int8)RtlpGenericRandomPatternWorker(Source) )
   {
-    return (unsigned __int8)RtlpGenericRandomPatternWorker(Source) == 0 ? 0xC0000709 : 0;
+    return 0LL;
   }
   else
   {

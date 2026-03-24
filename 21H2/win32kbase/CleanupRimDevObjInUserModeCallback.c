@@ -1,10 +1,9 @@
 /*
- * XREFs of CleanupRimDevObjInUserModeCallback @ 0x1C0141CB4
+ * XREFs of CleanupRimDevObjInUserModeCallback @ 0x1C011C774
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C00C64AC (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C003EFB0 (xxxDestroyThreadInfo.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     RIMSignalAllDispositionWaiters @ 0x1C0048900 (RIMSignalAllDispositionWaiters.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
  */
 
 LONG_PTR __fastcall CleanupRimDevObjInUserModeCallback(_QWORD *Object)
@@ -14,16 +13,15 @@ LONG_PTR __fastcall CleanupRimDevObjInUserModeCallback(_QWORD *Object)
   v1 = Object[53];
   RIMLockExclusive(v1 + 104);
   if ( *(_BYTE *)(v1 + 80) && !*(_BYTE *)(v1 + 81) )
-    RIMLockExclusive(v1 + 792);
+    RIMLockExclusive(v1 + 568);
   *(_BYTE *)(v1 + 82) = 0;
-  RIMSignalAllDispositionWaiters(v1);
   *(_QWORD *)(v1 + 112) = 0LL;
   ExReleasePushLockExclusiveEx(v1 + 104, 0LL);
   KeLeaveCriticalRegion();
   if ( *(_BYTE *)(v1 + 80) && !*(_BYTE *)(v1 + 81) )
   {
-    *(_QWORD *)(v1 + 800) = 0LL;
-    ExReleasePushLockExclusiveEx(v1 + 792, 0LL);
+    *(_QWORD *)(v1 + 576) = 0LL;
+    ExReleasePushLockExclusiveEx(v1 + 568, 0LL);
     KeLeaveCriticalRegion();
   }
   return ObfDereferenceObject(Object);

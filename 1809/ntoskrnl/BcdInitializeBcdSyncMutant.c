@@ -3,8 +3,8 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateMutant @ 0x1401B9730 (ZwCreateMutant.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateMutant @ 0x1401B9750 (ZwCreateMutant.c)
  */
 
 int BcdInitializeBcdSyncMutant()

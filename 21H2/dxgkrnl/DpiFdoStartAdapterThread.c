@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiFdoStartAdapterThread @ 0x1C01F4EF0
+ * XREFs of DpiFdoStartAdapterThread @ 0x1C0199BE0
  * Callers:
- *     DpiSessionCreateCallback @ 0x1C0160D20 (DpiSessionCreateCallback.c)
+ *     DpiSessionCreateCallback @ 0x1C01554F0 (DpiSessionCreateCallback.c)
  * Callees:
- *     memset @ 0x1C002CFC0 (memset.c)
- *     DpiFdoStartAdapterThreadImpl @ 0x1C01F5298 (DpiFdoStartAdapterThreadImpl.c)
- *     DxgkEnsureVmBusInterface @ 0x1C030D2CC (DxgkEnsureVmBusInterface.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     DpiFdoStartAdapterThreadImpl @ 0x1C0199C54 (DpiFdoStartAdapterThreadImpl.c)
+ *     DxgkEnsureVmBusInterface @ 0x1C026C0D0 (DxgkEnsureVmBusInterface.c)
  */
 
 void __fastcall DpiFdoStartAdapterThread(_BYTE *StartContext, __int64 a2)
@@ -13,31 +13,38 @@ void __fastcall DpiFdoStartAdapterThread(_BYTE *StartContext, __int64 a2)
   char v3; // di
   NTSTATUS started; // esi
   PVOID PoolWithTag; // rax
-  void *v6; // rbp
-  char v7; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  void *v10; // rbp
+  __int64 v11; // rax
+  char v12; // [rsp+30h] [rbp+8h] BYREF
 
-  v7 = 0;
+  v12 = 0;
   if ( StartContext )
     v3 = *StartContext & 1;
   else
     v3 = 1;
   LOBYTE(a2) = v3;
-  started = DpiFdoStartAdapterThreadImpl(StartContext, a2, &v7);
-  if ( v7 )
+  started = DpiFdoStartAdapterThreadImpl(StartContext, a2, &v12);
+  if ( v12 )
   {
     DxgkEnsureVmBusInterface();
     PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x610uLL, 0x74727044u);
-    v6 = PoolWithTag;
+    v10 = PoolWithTag;
     if ( PoolWithTag )
     {
       memset(PoolWithTag, 0, 0x610uLL);
-      started = DpiFdoStartAdapterThreadImpl(v6, 0LL, &v7);
-      ExFreePoolWithTag(v6, 0x74727044u);
+      started = DpiFdoStartAdapterThreadImpl(v10, 0LL, &v12);
+      ExFreePoolWithTag(v10, 0x74727044u);
     }
     else
     {
       started = -1073741801;
-      WdLogSingleEntry1(6LL, -1073741801LL);
+      v11 = WdLogNewEntry5_WdLowResource(v7, v6, v8, v9);
+      *(_QWORD *)(v11 + 24) = -1073741801LL;
+      WdLogEvent5_WdLowResource(v11);
     }
   }
   if ( StartContext )

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseAllReferences@CVisualSurfaceMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C022A200
+ * XREFs of ?ReleaseAllReferences@CVisualSurfaceMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01EA4C0
  * Callers:
- *     ?ReleaseAllReferences@CSharedVisualSurfaceMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C023BCE0 (-ReleaseAllReferences@CSharedVisualSurfaceMarshaler@DirectComposition@@MEAAXPEAVCApplicationChan.c)
+ *     <none>
  * Callees:
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CVisualSurfaceMarshaler::ReleaseAllReferences(
@@ -12,8 +12,8 @@ void __fastcall DirectComposition::CVisualSurfaceMarshaler::ReleaseAllReferences
 {
   struct DirectComposition::CResourceMarshaler *v4; // rdx
 
-  v4 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 8);
+  v4 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 7);
   if ( v4 )
     DirectComposition::CApplicationChannel::ReleaseResource(a2, v4);
-  *((_QWORD *)this + 8) = 0LL;
+  *((_QWORD *)this + 7) = 0LL;
 }

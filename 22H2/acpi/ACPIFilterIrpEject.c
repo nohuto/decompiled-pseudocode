@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIFilterIrpEject @ 0x1C0085A70
+ * XREFs of ACPIFilterIrpEject @ 0x1C00AF8A0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIIrpSetPagableCompletionRoutineAndForward @ 0x1C007BFA8 (ACPIIrpSetPagableCompletionRoutineAndForward.c)
+ *     ACPIIrpSetPagableCompletionRoutineAndForward @ 0x1C009872C (ACPIIrpSetPagableCompletionRoutineAndForward.c)
  */
 
 __int64 __fastcall ACPIFilterIrpEject(struct _DEVICE_OBJECT *a1, IRP *a2, __int64 a3, __int64 a4)

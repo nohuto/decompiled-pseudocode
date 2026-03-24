@@ -1,45 +1,43 @@
 /*
- * XREFs of KeForceResumeThread @ 0x1402EF5FC
+ * XREFs of KeForceResumeThread @ 0x14027980C
  * Callers:
- *     KeRequestTerminationThread @ 0x1402ECD10 (KeRequestTerminationThread.c)
- *     PspInsertThread @ 0x140701218 (PspInsertThread.c)
- *     KeRundownApcQueues @ 0x14079FBD4 (KeRundownApcQueues.c)
- *     NtTerminateProcess @ 0x1407D7CA0 (NtTerminateProcess.c)
+ *     KeRequestTerminationThread @ 0x1402EA7C8 (KeRequestTerminationThread.c)
+ *     PspInsertThread @ 0x140649028 (PspInsertThread.c)
+ *     KeRundownApcQueues @ 0x14064AFA4 (KeRundownApcQueues.c)
+ *     NtTerminateProcess @ 0x1406D9B60 (NtTerminateProcess.c)
  * Callees:
- *     KiExitDispatcher @ 0x1402B0820 (KiExitDispatcher.c)
- *     KiResumeThread @ 0x1402EF710 (KiResumeThread.c)
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KiResumeThread @ 0x1402798D0 (KiResumeThread.c)
+ *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
  */
 
-__int64 __fastcall KeForceResumeThread(__int64 a1)
+__int64 __fastcall KeForceResumeThread(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  unsigned __int8 CurrentIrql; // di
-  struct _KPRCB *CurrentPrcb; // r15
-  __int64 v4; // r8
-  int v5; // r14d
-  int v6; // esi
-  _DWORD *SchedulerAssist; // r9
+  char CurrentIrql; // si
+  struct _KPRCB *CurrentPrcb; // r14
+  __int64 v7; // r8
+  unsigned int v8; // edi
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+    a2 = (-1LL << (CurrentIrql + 1)) & 4;
+    a3 = (unsigned int)a2 | SchedulerAssist[5];
+    SchedulerAssist[5] = a3;
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  KiAcquireKobjectLockSafe(a1 + 736);
-  v5 = *(char *)(a1 + 644);
-  v6 = (*(_DWORD *)(a1 + 120) >> 14) & 1;
-  if ( v5 | v6 )
+  KiAcquireKobjectLockSafe((volatile signed __int32 *)(a1 + 736), a2, a3, (__int64)SchedulerAssist);
+  v8 = *(char *)(a1 + 644) + ((*(_DWORD *)(a1 + 120) >> 14) & 1);
+  if ( v8 )
   {
-    *(_BYTE *)(a1 + 794) &= 0xF9u;
-    *(_BYTE *)(a1 + 644) = 0;
     _interlockedbittestandreset((volatile signed __int32 *)(a1 + 120), 0xEu);
+    *(_BYTE *)(a1 + 644) = 0;
   }
-  LOBYTE(v4) = 1;
-  KiResumeThread(a1, CurrentPrcb, v4);
+  LOBYTE(v7) = 1;
+  KiResumeThread(a1, CurrentPrcb, v7);
   _InterlockedAnd((volatile signed __int32 *)(a1 + 736), 0xFFFFFF7F);
-  KiExitDispatcher((__int64)CurrentPrcb, 0, 1, 0, CurrentIrql);
-  return (unsigned int)(v6 + v5);
+  KiExitDispatcher((_DWORD)CurrentPrcb, 0, 1, 0, CurrentIrql);
+  return v8;
 }

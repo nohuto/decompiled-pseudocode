@@ -1,47 +1,46 @@
 /*
- * XREFs of MiSlistGetFreePage @ 0x14022FFB8
+ * XREFs of MiSlistGetFreePage @ 0x1402993D0
  * Callers:
- *     MiRemovePageAnyColor @ 0x14022FDA0 (MiRemovePageAnyColor.c)
+ *     MiRemovePageAnyColor @ 0x14029914C (MiRemovePageAnyColor.c)
+ *     MiGetPageSlist @ 0x14029932C (MiGetPageSlist.c)
  * Callees:
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402E89B0 (MiSetOriginalPtePfnFromFreeList.c)
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
- *     MiArePageContentsZero @ 0x1405AD468 (MiArePageContentsZero.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140329F30 (MiSetOriginalPtePfnFromFreeList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
+ *     MiArePageContentsZero @ 0x14054EBC8 (MiArePageContentsZero.c)
  */
 
 _QWORD *__fastcall MiSlistGetFreePage(__int64 a1, int *a2, unsigned int a3)
 {
   int v3; // edi
-  __int64 v6; // rsi
+  __int64 v6; // rbx
   union _SLIST_HEADER *v7; // rcx
-  PSLIST_ENTRY v8; // rax
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  _QWORD *p_Next; // rbx
+  PSLIST_ENTRY v9; // rax
+  _QWORD *p_Next; // r14
 
   v3 = *a2;
   v6 = 16LL * a3;
   while ( 1 )
   {
-    v7 = (union _SLIST_HEADER *)(v6 + *(_QWORD *)(a1 + 8LL * v3 + 6616));
+    v7 = (union _SLIST_HEADER *)(v6 + *(_QWORD *)(a1 + 8LL * v3 + 4200));
     if ( LOWORD(v7->Alignment) )
     {
-      v8 = RtlpInterlockedPopEntrySList(v7);
-      p_Next = &v8->Next;
-      if ( v8 )
+      v9 = RtlpInterlockedPopEntrySList(v7);
+      p_Next = &v9->Next;
+      if ( v9 )
         break;
     }
     if ( v3 == a2[1] )
       return 0LL;
     v3 = a2[1];
   }
-  v8[1].Next = (_SLIST_ENTRY *)ZeroPte;
+  v9[1].Next = (_SLIST_ENTRY *)ZeroPte;
   if ( v3 )
   {
-    MiSetOriginalPtePfnFromFreeList(&v8[1], v9, v10);
+    MiSetOriginalPtePfnFromFreeList(&v9[1]);
   }
-  else if ( (MiFlags & 0x80u) != 0 && (++dword_140C52AE0 & MmPageValidationFrequency) == 0 )
+  else if ( (MiFlags & 0x80u) != 0 && (++dword_140C4E7CC & MmPageValidationFrequency) == 0 )
   {
-    MiArePageContentsZero(0xAAAAAAAAAAAAAAABuLL * ((__int64)&v8[0x22000000000LL] >> 4));
+    MiArePageContentsZero((__int64)&v9[0x5800000000LL] / 48);
   }
   *p_Next = 0LL;
   return p_Next;

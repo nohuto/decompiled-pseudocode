@@ -1,8 +1,8 @@
 /*
- * XREFs of CleanUpDHI @ 0x1C010BDA0
+ * XREFs of CleanUpDHI @ 0x1C0120C90
  * Callers:
- *     HT_CreateDeviceHalftoneInfo @ 0x1C0096118 (HT_CreateDeviceHalftoneInfo.c)
- *     HT_DestroyDeviceHalftoneInfo @ 0x1C010BD78 (HT_DestroyDeviceHalftoneInfo.c)
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C01126A8 (HT_CreateDeviceHalftoneInfo.c)
+ *     HT_DestroyDeviceHalftoneInfo @ 0x1C0120C68 (HT_DestroyDeviceHalftoneInfo.c)
  * Callees:
  *     <none>
  */

@@ -1,42 +1,39 @@
 /*
- * XREFs of NtUserUpdateInputContext @ 0x1C00A7070
+ * XREFs of NtUserUpdateInputContext @ 0x1C01165E0
  * Callers:
  *     <none>
  * Callees:
- *     HMValidateHandle @ 0x1C002D0F8 (HMValidateHandle.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ?UpdateInputContext@@YAHPEAUtagIMC@@W4_UPDATEINPUTCONTEXTCLASS@@_K@Z @ 0x1C00A7108 (-UpdateInputContext@@YAHPEAUtagIMC@@W4_UPDATEINPUTCONTEXTCLASS@@_K@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     HMValidateHandle @ 0x1C0067040 (HMValidateHandle.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     UpdateInputContext @ 0x1C011667C (UpdateInputContext.c)
  */
 
-__int64 __fastcall NtUserUpdateInputContext(__int64 a1, unsigned int a2, __int64 a3)
+__int64 __fastcall NtUserUpdateInputContext(unsigned __int64 a1, unsigned int a2, __int64 a3)
 {
-  __int64 v6; // rax
-  __int64 v7; // rdx
-  __int64 v8; // r8
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // rax
   int updated; // ebx
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  char v15; // [rsp+48h] [rbp+20h] BYREF
+  __int64 v10; // rcx
+  char v12; // [rsp+48h] [rbp+20h] BYREF
 
-  EnterCrit(0LL, 0LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v15);
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v12);
   if ( (*gpsi & 4) != 0 )
   {
-    v6 = HMValidateHandle(a1, 0x11u);
+    v8 = HMValidateHandle(a1, 0x11u);
     updated = 0;
-    if ( v6 )
-      updated = UpdateInputContext(v6, a2, a3);
+    if ( v8 )
+      updated = UpdateInputContext(v8, a2, a3);
   }
   else
   {
-    UserSetLastError(120LL);
+    UserSetLastError(120LL, v6, v7);
     updated = 0;
   }
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v15, v7, v8);
-  UserSessionSwitchLeaveCrit(v11, v10, v12, v13);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v12);
+  UserSessionSwitchLeaveCrit(v10);
   return updated;
 }

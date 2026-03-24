@@ -1,23 +1,23 @@
 /*
- * XREFs of PiLookupInDDB @ 0x14075E908
+ * XREFs of PiLookupInDDB @ 0x14077E1FC
  * Callers:
- *     PpCheckInDriverDatabase @ 0x14075EA10 (PpCheckInDriverDatabase.c)
+ *     PpCheckInDriverDatabase @ 0x14073DAC0 (PpCheckInDriverDatabase.c)
  * Callees:
- *     PiReleaseDDB @ 0x1406E09A4 (PiReleaseDDB.c)
- *     PiIsDriverBlocked @ 0x14075E568 (PiIsDriverBlocked.c)
- *     PiInitializeDDB @ 0x1407EC34C (PiInitializeDDB.c)
+ *     PiIsDriverBlocked @ 0x14077E304 (PiIsDriverBlocked.c)
+ *     PiInitializeDDB @ 0x14077E964 (PiInitializeDDB.c)
+ *     PiReleaseDDB @ 0x14077EB38 (PiReleaseDDB.c)
  */
 
-__int64 __fastcall PiLookupInDDB(__int64 a1, __int64 a2, unsigned int a3, _OWORD *a4)
+__int64 __fastcall PiLookupInDDB(int a1, int a2, int a3, __int64 a4)
 {
   PVOID v4; // rdi
-  PVOID v6; // rcx
+  int v6; // ecx
   int IsDriverBlocked; // ebx
   _OWORD v12[2]; // [rsp+30h] [rbp-40h] BYREF
   _OWORD v13[2]; // [rsp+50h] [rbp-20h] BYREF
 
   v4 = PpDDBPatchHandle;
-  v6 = PpDDBHandle;
+  v6 = (int)PpDDBHandle;
   memset(v12, 0, sizeof(v12));
   memset(v13, 0, sizeof(v13));
   if ( !PpDDBHandle )
@@ -25,9 +25,9 @@ __int64 __fastcall PiLookupInDDB(__int64 a1, __int64 a2, unsigned int a3, _OWORD
     IsDriverBlocked = PiInitializeDDB(L"\\SystemRoot\\AppPatch\\drvmain.sdb");
     if ( IsDriverBlocked < 0 )
       goto LABEL_6;
-    v6 = *(PVOID *)&v12[0];
+    v6 = v12[0];
   }
-  IsDriverBlocked = PiIsDriverBlocked((__int64)v6, a1, a2, a3, a4);
+  IsDriverBlocked = PiIsDriverBlocked(v6, a1, a2, a3, a4);
   if ( IsDriverBlocked < 0 )
     goto LABEL_6;
   if ( !PpDDBHandle )
@@ -41,11 +41,11 @@ __int64 __fastcall PiLookupInDDB(__int64 a1, __int64 a2, unsigned int a3, _OWORD
     v4 = *(PVOID *)&v13[0];
   }
   if ( v4 )
-    IsDriverBlocked = PiIsDriverBlocked((__int64)v4, a1, a2, a3, a4);
+    IsDriverBlocked = PiIsDriverBlocked((_DWORD)v4, a1, a2, a3, a4);
 LABEL_6:
   if ( *(_QWORD *)&v12[0] )
-    PiReleaseDDB((__int64)v12);
+    PiReleaseDDB(v12);
   if ( *(_QWORD *)&v13[0] )
-    PiReleaseDDB((__int64)v13);
+    PiReleaseDDB(v13);
   return (unsigned int)IsDriverBlocked;
 }

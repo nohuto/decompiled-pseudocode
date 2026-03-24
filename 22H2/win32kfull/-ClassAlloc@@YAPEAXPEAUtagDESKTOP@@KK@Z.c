@@ -1,10 +1,11 @@
 /*
- * XREFs of ?ClassAlloc@@YAPEAXPEAUtagDESKTOP@@KK@Z @ 0x1C001FF28
+ * XREFs of ?ClassAlloc@@YAPEAXPEAUtagDESKTOP@@KK@Z @ 0x1C007A678
  * Callers:
- *     ReferenceClass @ 0x1C0020000 (ReferenceClass.c)
+ *     ReferenceClass @ 0x1C00254E0 (ReferenceClass.c)
+ *     InternalRegisterClassEx @ 0x1C0079D30 (InternalRegisterClassEx.c)
  * Callees:
- *     ??$UserAllocateIsolatedType@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ @ 0x1C001FFA0 (--$UserAllocateIsolatedType@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ.c)
- *     ??$UserFreeIsolatedType@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C01BDFA0 (--$UserFreeIsolatedType@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     ??$UserAllocateIsolatedType@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ @ 0x1C0167A00 (--$UserAllocateIsolatedType@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ.c)
+ *     ??$UserFreeIsolatedType@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C0167A2C (--$UserFreeIsolatedType@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAXPEAX@Z.c)
  */
 
 __int64 __fastcall ClassAlloc(PVOID *a1, unsigned int a2)
@@ -27,16 +28,16 @@ __int64 __fastcall ClassAlloc(PVOID *a1, unsigned int a2)
       *(_QWORD *)(v4 + 16) = 0LL;
       return v4;
     }
-    goto LABEL_10;
+    goto LABEL_9;
   }
   v4 = UserAllocateIsolatedType<NSInstrumentation::CTypeIsolation<36864,144>>();
   if ( !v4 )
     return 0LL;
-  Heap = RtlAllocateHeap(a1[17], 0, (unsigned int)v2);
+  Heap = RtlAllocateHeap(a1[16], 0, (unsigned int)v2);
   *(_QWORD *)(v4 + 8) = Heap;
   if ( !Heap )
   {
-LABEL_10:
+LABEL_9:
     UserFreeIsolatedType<NSInstrumentation::CTypeIsolation<36864,144>>(v4);
     return 0LL;
   }

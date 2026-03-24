@@ -1,23 +1,23 @@
 /*
- * XREFs of VrpUnloadDifferencingHive @ 0x1407F6200
+ * XREFs of VrpUnloadDifferencingHive @ 0x1405D6264
  * Callers:
- *     VrpHandleIoctlLoadDifferencingHive @ 0x140690CFC (VrpHandleIoctlLoadDifferencingHive.c)
- *     VrpCleanupNamespace @ 0x1407F612C (VrpCleanupNamespace.c)
- *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x1409269C4 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
+ *     VrpHandleIoctlLoadDifferencingHive @ 0x1405D29EC (VrpHandleIoctlLoadDifferencingHive.c)
+ *     VrpCleanupNamespace @ 0x1405D61B0 (VrpCleanupNamespace.c)
+ *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x140883050 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ZwUnloadKey @ 0x14041F1C0 (ZwUnloadKey.c)
- *     ZwUnloadKey2 @ 0x14041F1E0 (ZwUnloadKey2.c)
- *     VrpDereferenceDiffHiveEntry @ 0x140691330 (VrpDereferenceDiffHiveEntry.c)
- *     VrpRelinquishDiffHiveEntryTransitionOwner @ 0x1406913B4 (VrpRelinquishDiffHiveEntryTransitionOwner.c)
- *     VrpBecomeDiffHiveEntryTransitionOwner @ 0x1406913F4 (VrpBecomeDiffHiveEntryTransitionOwner.c)
- *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x1406915F0 (VrpFindDiffHiveEntryForMountPointWithLock.c)
- *     VrpDecrementDiffHiveEntryHardRefCount @ 0x1407F63D0 (VrpDecrementDiffHiveEntryHardRefCount.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     ZwUnloadKey @ 0x1403FDCC0 (ZwUnloadKey.c)
+ *     ZwUnloadKey2 @ 0x1403FDCE0 (ZwUnloadKey2.c)
+ *     VrpDereferenceDiffHiveEntry @ 0x1405D642C (VrpDereferenceDiffHiveEntry.c)
+ *     VrpRelinquishDiffHiveEntryTransitionOwner @ 0x1405D65C0 (VrpRelinquishDiffHiveEntryTransitionOwner.c)
+ *     VrpBecomeDiffHiveEntryTransitionOwner @ 0x1405D6600 (VrpBecomeDiffHiveEntryTransitionOwner.c)
+ *     VrpDecrementDiffHiveEntryHardRefCount @ 0x1405D6650 (VrpDecrementDiffHiveEntryHardRefCount.c)
+ *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x1405D683C (VrpFindDiffHiveEntryForMountPointWithLock.c)
  */
 
 __int64 __fastcall VrpUnloadDifferencingHive(PCUNICODE_STRING String1)
@@ -33,21 +33,17 @@ __int64 __fastcall VrpUnloadDifferencingHive(PCUNICODE_STRING String1)
   __int64 v10; // rdx
   int v11; // esi
   struct _KTHREAD *v12; // rax
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  _DWORD *v15; // r9
-  char v16; // bp
-  signed __int64 v18; // rax
+  char v13; // bp
+  signed __int64 v15; // rax
   unsigned __int64 i; // rdx
-  signed __int64 v20; // rtt
-  __int128 v21; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v22; // [rsp+30h] [rbp-38h]
-  __int128 v23; // [rsp+40h] [rbp-28h]
+  signed __int64 v17; // rtt
+  __int128 v18; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v19; // [rsp+30h] [rbp-38h]
+  __int128 v20; // [rsp+40h] [rbp-28h]
 
-  v21 = 0LL;
-  v22 = 0LL;
-  *(_QWORD *)&v23 = 0LL;
-  DWORD2(v23) = 0;
+  v18 = 0LL;
+  v19 = 0LL;
+  v20 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockSharedEx((ULONG_PTR)&gLoadedDiffHivesLock, 0LL);
@@ -59,7 +55,7 @@ __int64 __fastcall VrpUnloadDifferencingHive(PCUNICODE_STRING String1)
     __fastfail(0xEu);
   }
   ExReleasePushLockEx((ULONG_PTR)&gLoadedDiffHivesLock, 0LL);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v4 )
   {
     v5 = KeGetCurrentThread();
@@ -75,15 +71,15 @@ __int64 __fastcall VrpUnloadDifferencingHive(PCUNICODE_STRING String1)
       if ( (v9 & 2) != 0 && (v9 & 4) == 0 )
         ExfTryToWakePushLock(v4 + 24);
       KeAbPostRelease(v4 + 24);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-      *((_QWORD *)&v21 + 1) = 0LL;
-      LODWORD(v21) = 48;
-      v23 = 0LL;
-      DWORD2(v22) = 576;
-      *(_QWORD *)&v22 = String1;
-      v11 = ZwUnloadKey((__int64)&v21, v10);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      *((_QWORD *)&v18 + 1) = 0LL;
+      LODWORD(v18) = 48;
+      v20 = 0LL;
+      DWORD2(v19) = 576;
+      *(_QWORD *)&v19 = String1;
+      v11 = ZwUnloadKey((__int64)&v18, v10);
       if ( v11 < 0 )
-        v11 = ZwUnloadKey2((__int64)&v21, 1LL);
+        v11 = ZwUnloadKey2((__int64)&v18, 1LL);
       v12 = KeGetCurrentThread();
       --v12->KernelApcDisable;
       ExAcquirePushLockExclusiveEx(v4 + 24, 0LL);
@@ -93,8 +89,8 @@ __int64 __fastcall VrpUnloadDifferencingHive(PCUNICODE_STRING String1)
         if ( ++*(_QWORD *)(v4 + 32) <= 1uLL )
         {
           _m_prefetchw((const void *)(v4 + 16));
-          v18 = *(_QWORD *)(v4 + 16);
-          for ( i = v18 + 1; ; i = v18 + 1 )
+          v15 = *(_QWORD *)(v4 + 16);
+          for ( i = v15 + 1; ; i = v15 + 1 )
           {
             if ( i <= 1 )
             {
@@ -102,27 +98,26 @@ __int64 __fastcall VrpUnloadDifferencingHive(PCUNICODE_STRING String1)
                 __fastfail(0xEu);
               __fastfail(0xEu);
             }
-            v20 = v18;
-            v18 = _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 16), i, v18);
-            v13 = v18;
-            if ( v20 == v18 )
+            v17 = v15;
+            v15 = _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 16), i, v15);
+            if ( v17 == v15 )
               break;
           }
         }
       }
       if ( v8 )
-        VrpRelinquishDiffHiveEntryTransitionOwner(v4, v13, v14, v15);
+        VrpRelinquishDiffHiveEntryTransitionOwner(v4);
     }
     else
     {
       v11 = 0;
     }
-    v16 = _InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL);
-    if ( (v16 & 2) != 0 && (v16 & 4) == 0 )
+    v13 = _InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL);
+    if ( (v13 & 2) != 0 && (v13 & 4) == 0 )
       ExfTryToWakePushLock(v4 + 24);
     KeAbPostRelease(v4 + 24);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-    VrpDereferenceDiffHiveEntry((_QWORD *)v4);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    VrpDereferenceDiffHiveEntry((PVOID)v4);
   }
   else
   {

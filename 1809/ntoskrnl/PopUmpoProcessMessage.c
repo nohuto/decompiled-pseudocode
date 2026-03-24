@@ -6,11 +6,11 @@
  * Callees:
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwAlpcAcceptConnectPort @ 0x1401B9010 (ZwAlpcAcceptConnectPort.c)
- *     ZwAlpcCancelMessage @ 0x1401B9030 (ZwAlpcCancelMessage.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwAlpcAcceptConnectPort @ 0x1401B9030 (ZwAlpcAcceptConnectPort.c)
+ *     ZwAlpcCancelMessage @ 0x1401B9050 (ZwAlpcCancelMessage.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PopAcquireUmpoPushLock @ 0x140589AF4 (PopAcquireUmpoPushLock.c)
  *     PopUmpoProcessPowerMessage @ 0x14058B0C0 (PopUmpoProcessPowerMessage.c)
  */

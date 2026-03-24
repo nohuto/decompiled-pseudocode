@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBitmap@CWARPDrawListEntry@@UEBAAEBVCDrawListBitmap@@I@Z @ 0x1801E82F0
+ * XREFs of ?GetBitmap@CWARPDrawListEntry@@UEBAAEBVCDrawListBitmap@@I@Z @ 0x1801A2550
  * Callers:
  *     <none>
  * Callees:
@@ -10,8 +10,8 @@ const struct CDrawListBitmap *__fastcall CWARPDrawListEntry::GetBitmap(CWARPDraw
 {
   const struct CDrawListBitmap *result; // rax
 
-  result = (CWARPDrawListEntry *)((char *)this + 128);
+  result = (CWARPDrawListEntry *)((char *)this + 344);
   if ( a2 != 1 )
-    return (CWARPDrawListEntry *)((char *)this + 48);
+    return (CWARPDrawListEntry *)((char *)this + 240);
   return result;
 }

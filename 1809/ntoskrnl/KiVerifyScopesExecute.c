@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     KiVerifyPdata @ 0x1409CFFD0 (KiVerifyPdata.c)
  */
 

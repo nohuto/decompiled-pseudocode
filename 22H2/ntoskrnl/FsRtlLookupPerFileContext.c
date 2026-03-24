@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlLookupPerFileContext @ 0x1403686F0
+ * XREFs of FsRtlLookupPerFileContext @ 0x14031D9F0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireAutoExpandPushLockShared @ 0x1402308C0 (ExAcquireAutoExpandPushLockShared.c)
- *     ExReleaseAutoExpandPushLockShared @ 0x140230AB0 (ExReleaseAutoExpandPushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
  */
 
 PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlLookupPerFileContext(
@@ -13,30 +13,29 @@ PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlLookupPerFileContext(
         PVOID OwnerId,
         PVOID InstanceId)
 {
-  char *v3; // rcx
+  char *v3; // rbp
   struct _FSRTL_PER_FILE_CONTEXT *v4; // rdi
   struct _FSRTL_PER_FILE_CONTEXT **v8; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  ULONG_PTR v10; // r8
-  struct _FSRTL_PER_FILE_CONTEXT *j; // rax
-  struct _FSRTL_PER_FILE_CONTEXT *i; // rcx
+  struct _FSRTL_PER_FILE_CONTEXT *i; // rax
 
   v3 = (char *)*PerFileContextPointer;
   v4 = 0LL;
-  if ( !v3 )
+  if ( !*PerFileContextPointer )
     return 0LL;
-  v8 = (struct _FSRTL_PER_FILE_CONTEXT **)(v3 + 16);
+  v8 = (struct _FSRTL_PER_FILE_CONTEXT **)(v3 + 8);
   if ( *v8 == (struct _FSRTL_PER_FILE_CONTEXT *)v8 )
     return 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v10 = ExAcquireAutoExpandPushLockShared((ULONG_PTR)v3, 0LL);
+  ExAcquirePushLockSharedEx((ULONG_PTR)v3, 0LL);
   if ( InstanceId )
   {
     for ( i = *v8; i != (struct _FSRTL_PER_FILE_CONTEXT *)v8; i = (struct _FSRTL_PER_FILE_CONTEXT *)i->Links.Flink )
     {
       if ( i->OwnerId == OwnerId && i->InstanceId == InstanceId )
       {
+LABEL_9:
         v4 = i;
         break;
       }
@@ -44,20 +43,17 @@ PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlLookupPerFileContext(
   }
   else if ( OwnerId )
   {
-    for ( j = *v8; j != (struct _FSRTL_PER_FILE_CONTEXT *)v8; j = (struct _FSRTL_PER_FILE_CONTEXT *)j->Links.Flink )
+    for ( i = *v8; i != (struct _FSRTL_PER_FILE_CONTEXT *)v8; i = (struct _FSRTL_PER_FILE_CONTEXT *)i->Links.Flink )
     {
-      if ( j->OwnerId == OwnerId )
-      {
-        v4 = j;
-        break;
-      }
+      if ( i->OwnerId == OwnerId )
+        goto LABEL_9;
     }
   }
   else if ( *v8 != (struct _FSRTL_PER_FILE_CONTEXT *)v8 )
   {
     v4 = *v8;
   }
-  ExReleaseAutoExpandPushLockShared(v10, 0LL);
+  ExReleasePushLockEx((ULONG_PTR)v3, 0LL);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v4;
 }

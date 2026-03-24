@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserSignalRedirectionStartComplete @ 0x1C00BCD90
+ * XREFs of NtUserSignalRedirectionStartComplete @ 0x1C0135A50
  * Callers:
  *     <none>
  * Callees:
- *     GreGetRedirectionEvent @ 0x1C00BCE08 (GreGetRedirectionEvent.c)
+ *     GreGetRedirectionEvent @ 0x1C0135AC8 (GreGetRedirectionEvent.c)
  */
 
 unsigned __int64 NtUserSignalRedirectionStartComplete()

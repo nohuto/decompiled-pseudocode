@@ -1,34 +1,35 @@
 /*
- * XREFs of PfpParametersInitialize @ 0x140B655B0
+ * XREFs of PfpParametersInitialize @ 0x140A6A864
  * Callers:
- *     PfInitializeSuperfetch @ 0x140B65330 (PfInitializeSuperfetch.c)
+ *     PfInitializeSuperfetch @ 0x140A6A76C (PfInitializeSuperfetch.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     memset @ 0x140435400 (memset.c)
- *     PfpSetBaseTime @ 0x140848030 (PfpSetBaseTime.c)
- *     PfpSetParameter @ 0x1408480C4 (PfpSetParameter.c)
- *     PfpParametersRead @ 0x140848128 (PfpParametersRead.c)
- *     PfSnParametersRead @ 0x1408482F8 (PfSnParametersRead.c)
- *     PfpGetParameter @ 0x140848844 (PfpGetParameter.c)
- *     PfpCreateEvent @ 0x140848A44 (PfpCreateEvent.c)
- *     PfSnParametersSetDefaults @ 0x140B657E4 (PfSnParametersSetDefaults.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PfpSetBaseTime @ 0x1407BF7E4 (PfpSetBaseTime.c)
+ *     PfpSetParameter @ 0x1407BF878 (PfpSetParameter.c)
+ *     PfpParametersRead @ 0x1407BF8DC (PfpParametersRead.c)
+ *     PfSnParametersRead @ 0x1407BFAB4 (PfSnParametersRead.c)
+ *     PfpGetParameter @ 0x1407C0000 (PfpGetParameter.c)
+ *     PfpCreateEvent @ 0x1407C0610 (PfpCreateEvent.c)
+ *     PfSnParametersSetDefaults @ 0x140A6AB60 (PfSnParametersSetDefaults.c)
  */
 
 NTSTATUS __fastcall PfpParametersInitialize(__int64 a1)
 {
-  HANDLE *v2; // rsi
+  int v1; // edi
+  HANDLE *v3; // r14
   NTSTATUS result; // eax
-  HANDLE v4; // rcx
-  _DWORD *v5; // rdi
-  __int64 v6; // r8
-  ULONG v7; // eax
+  HANDLE v5; // rcx
+  int *v6; // rsi
+  __int64 v7; // r8
   HANDLE v8; // rcx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-9h] BYREF
   UNICODE_STRING v10; // [rsp+50h] [rbp+7h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+17h] BYREF
   ULONG v12; // [rsp+B0h] [rbp+67h] BYREF
 
+  v1 = 0;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   v10 = 0LL;
@@ -52,7 +53,7 @@ NTSTATUS __fastcall PfpParametersInitialize(__int64 a1)
   RtlInitUnicodeString(
     &v10,
     L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\PrefetchParameters");
-  v2 = (HANDLE *)(a1 + 8);
+  v3 = (HANDLE *)(a1 + 8);
   ObjectAttributes.ObjectName = &v10;
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
@@ -61,22 +62,21 @@ NTSTATUS __fastcall PfpParametersInitialize(__int64 a1)
   result = ZwCreateKey((PHANDLE)(a1 + 8), 0xF003Fu, &ObjectAttributes, 0, 0LL, 0, 0LL);
   if ( result < 0 )
   {
-    *v2 = 0LL;
+    *v3 = 0LL;
   }
   else
   {
     PfpParametersRead(a1);
     PfSnParametersRead(a1);
-    v4 = *v2;
+    v5 = *v3;
     v12 = 4;
-    v5 = (_DWORD *)(a1 + 72);
-    if ( PfpGetParameter(v4, L"BootId", 4, (void *)(a1 + 72), &v12) < 0 )
-      *v5 = 0;
-    v7 = v12;
-    v8 = *v2;
-    ++*v5;
-    PfpSetParameter(v8, L"BootId", v6, (void *)(a1 + 72), v7);
-    return PfpSetBaseTime(*v2, (_DWORD *)(a1 + 540));
+    v6 = (int *)(a1 + 72);
+    if ( PfpGetParameter(v5, L"BootId", 4, (void *)(a1 + 72), &v12) >= 0 )
+      v1 = *v6;
+    v8 = *v3;
+    *v6 = v1 + 1;
+    PfpSetParameter(v8, L"BootId", v7, (void *)(a1 + 72), v12);
+    return PfpSetBaseTime(*v3, (_DWORD *)(a1 + 540));
   }
   return result;
 }

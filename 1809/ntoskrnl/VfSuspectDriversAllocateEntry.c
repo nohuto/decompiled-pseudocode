@@ -4,10 +4,10 @@
  *     VfDriverEnableVerifierForAll @ 0x140928018 (VfDriverEnableVerifierForAll.c)
  *     VfSuspectDriversLoadCallback @ 0x1409377A4 (VfSuspectDriversLoadCallback.c)
  *     VfAddVerifierEntry @ 0x14094A814 (VfAddVerifierEntry.c)
- *     VfTriageAddDrivers @ 0x1409F84DC (VfTriageAddDrivers.c)
- *     VfSuspectDriversParseRegistryString @ 0x1409F8938 (VfSuspectDriversParseRegistryString.c)
+ *     VfTriageAddDrivers @ 0x1409F84EC (VfTriageAddDrivers.c)
+ *     VfSuspectDriversParseRegistryString @ 0x1409F8948 (VfSuspectDriversParseRegistryString.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

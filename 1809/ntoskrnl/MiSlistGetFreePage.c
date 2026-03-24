@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSlistGetFreePage @ 0x1400EB344
+ * XREFs of MiSlistGetFreePage @ 0x1400EB364
  * Callers:
- *     MiRemovePageAnyColor @ 0x1400EB15C (MiRemovePageAnyColor.c)
+ *     MiRemovePageAnyColor @ 0x1400EB17C (MiRemovePageAnyColor.c)
  * Callees:
  *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
- *     MiArePageContentsZero @ 0x1402BF668 (MiArePageContentsZero.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     MiArePageContentsZero @ 0x1402BF768 (MiArePageContentsZero.c)
  */
 
 _QWORD *__fastcall MiSlistGetFreePage(__int64 a1, int *a2, unsigned int a3)

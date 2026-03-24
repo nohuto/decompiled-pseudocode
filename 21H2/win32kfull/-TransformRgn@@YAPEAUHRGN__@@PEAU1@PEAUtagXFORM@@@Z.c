@@ -1,8 +1,8 @@
 /*
- * XREFs of ?TransformRgn@@YAPEAUHRGN__@@PEAU1@PEAUtagXFORM@@@Z @ 0x1C016B8D2
+ * XREFs of ?TransformRgn@@YAPEAUHRGN__@@PEAU1@PEAUtagXFORM@@@Z @ 0x1C01E43D4
  * Callers:
- *     PhysicalToLogicalInPlaceRgnWorker @ 0x1C004A618 (PhysicalToLogicalInPlaceRgnWorker.c)
- *     LogicalToPhysicalInPlaceRgnWorker @ 0x1C0100464 (LogicalToPhysicalInPlaceRgnWorker.c)
+ *     PhysicalToLogicalInPlaceRgnWorker @ 0x1C00730A0 (PhysicalToLogicalInPlaceRgnWorker.c)
+ *     LogicalToPhysicalInPlaceRgnWorker @ 0x1C0115D84 (LogicalToPhysicalInPlaceRgnWorker.c)
  * Callees:
  *     <none>
  */
@@ -13,15 +13,15 @@ __int64 __fastcall TransformRgn(HRGN a1, struct tagXFORM *a2)
   int RegionData; // eax
   unsigned int v6; // esi
   __int64 v7; // rax
-  __int64 v8; // rdi
+  void *v8; // rdi
 
   Region = 0LL;
   RegionData = GreGetRegionData(a1, 0LL, 0LL);
   v6 = RegionData;
   if ( RegionData > 0 )
   {
-    v7 = Win32AllocPoolZInit(RegionData, 1919775573LL);
-    v8 = v7;
+    v7 = Win32AllocPool(RegionData, 1919775573LL);
+    v8 = (void *)v7;
     if ( v7 )
     {
       if ( (unsigned int)GreGetRegionData(a1, v6, v7) )

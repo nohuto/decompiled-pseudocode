@@ -1,152 +1,208 @@
 /*
- * XREFs of HalSendNMI @ 0x14020CF00
+ * XREFs of HalSendNMI @ 0x1404BDCC0
  * Callers:
- *     KiSendFreeze @ 0x14020D170 (KiSendFreeze.c)
- *     HalpNmiReboot @ 0x14051BE10 (HalpNmiReboot.c)
+ *     HalpNmiReboot @ 0x1404D2BC8 (HalpNmiReboot.c)
+ *     KiSendFreeze @ 0x14051E0C0 (KiSendFreeze.c)
  * Callees:
- *     KiAndAffinityEx @ 0x140252320 (KiAndAffinityEx.c)
- *     KeAndGroupAffinityEx @ 0x140254360 (KeAndGroupAffinityEx.c)
- *     KeGetProcessorIndexFromNumber @ 0x140255090 (KeGetProcessorIndexFromNumber.c)
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140344E90 (KeGetProcessorIndexFromNumber.c)
+ *     KeAndGroupAffinityEx @ 0x140374E80 (KeAndGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall HalSendNMI(__int64 a1)
 {
   __int16 v2; // r13
-  unsigned __int8 v3; // bp
-  int v4; // r12d
-  __int64 v5; // rbx
-  unsigned int *v6; // rdi
+  int v3; // r12d
+  unsigned __int16 v4; // ax
+  unsigned __int8 v5; // bp
+  unsigned __int16 i; // dx
+  __int64 v7; // rcx
   __int64 result; // rax
-  unsigned __int64 v8; // rsi
-  int v9; // r14d
-  bool v10; // zf
-  __int64 (__fastcall *v11)(_QWORD, __int64 *, __int128 *, _QWORD, __int64 *); // rax
-  __int64 (__fastcall *v12)(_QWORD, _DWORD *, __int128 *, _QWORD, __int64 *); // rax
-  __int64 (__fastcall *v13)(_QWORD, _DWORD *, __int128 *, _QWORD, __int128 *); // rax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-1C8h] BYREF
-  __int64 v15; // [rsp+38h] [rbp-1C0h] BYREF
-  __int128 v16; // [rsp+40h] [rbp-1B8h] BYREF
-  int v17; // [rsp+50h] [rbp-1A8h]
-  _DWORD v18[2]; // [rsp+58h] [rbp-1A0h] BYREF
-  _DWORD v19[2]; // [rsp+60h] [rbp-198h] BYREF
-  __int128 v20; // [rsp+68h] [rbp-190h] BYREF
-  __int64 v21; // [rsp+78h] [rbp-180h]
-  __int64 v22; // [rsp+80h] [rbp-178h] BYREF
-  __int64 v23; // [rsp+88h] [rbp-170h] BYREF
-  __int128 v24; // [rsp+90h] [rbp-168h] BYREF
-  _QWORD v25[34]; // [rsp+A0h] [rbp-158h] BYREF
-  int v26; // [rsp+1F0h] [rbp-8h]
+  unsigned int *v9; // rdi
+  __int64 v10; // rbx
+  unsigned __int64 v11; // rsi
+  int v12; // r15d
+  bool v13; // zf
+  __int64 (__fastcall *v14)(_QWORD, _DWORD *, __int128 *, _QWORD, __int64 *); // rax
+  unsigned __int64 v15; // r9
+  unsigned __int16 v16; // r8
+  __int64 v17; // rdx
+  __int64 (__fastcall *v18)(_QWORD, _DWORD *, __int128 *, _QWORD, __int64 *); // rax
+  unsigned __int64 v19; // rdi
+  __int64 v20; // rbx
+  unsigned __int64 v21; // rdx
+  __int64 (__fastcall *v22)(_QWORD, _DWORD *, __int128 *, _QWORD, __int64 *); // rax
+  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-168h] BYREF
+  __int128 v24; // [rsp+38h] [rbp-160h] BYREF
+  __int64 v25; // [rsp+48h] [rbp-150h]
+  __int64 v26; // [rsp+50h] [rbp-148h]
+  _DWORD v27[2]; // [rsp+58h] [rbp-140h] BYREF
+  _DWORD v28[2]; // [rsp+60h] [rbp-138h] BYREF
+  _DWORD v29[4]; // [rsp+68h] [rbp-130h] BYREF
+  __int64 v30; // [rsp+78h] [rbp-120h] BYREF
+  __int64 v31; // [rsp+80h] [rbp-118h] BYREF
+  __int64 v32; // [rsp+88h] [rbp-110h] BYREF
+  __int128 v33; // [rsp+90h] [rbp-108h] BYREF
+  unsigned __int16 v34; // [rsp+A0h] [rbp-F8h]
+  _WORD v35[87]; // [rsp+A2h] [rbp-F6h] BYREF
+  int v36; // [rsp+190h] [rbp-8h]
 
-  v15 = 0x2FFFFFFFFLL;
+  v26 = 0x2FFFFFFFFLL;
   _disable();
-  v2 = v26;
-  v21 = 0LL;
-  v3 = 0;
-  ProcNumber = 0;
-  v4 = v26 & 0x200;
+  v2 = v36;
+  v3 = v36 & 0x200;
+  v33 = 0LL;
+  memset(v35, 0, 0xA6uLL);
+  v25 = 0LL;
+  v4 = *(_WORD *)a1;
   v24 = 0LL;
-  v20 = 0LL;
-  LODWORD(v25[0]) = 2097153;
-  v17 = 0;
-  v16 = 0LL;
-  memset((char *)v25 + 4, 0, 0x104uLL);
-  KiAndAffinityEx(&HalpInterruptPhysicalTargets, a1, v25, 32LL);
-  v5 = v15;
-  if ( HalpInterruptClusterModeEnabled )
+  if ( (unsigned __int16)HalpInterruptPhysicalTargets < v4 )
+    v4 = HalpInterruptPhysicalTargets;
+  v5 = 0;
+  v34 = v4;
+  for ( i = 0; i < v34; *(_QWORD *)&v35[4 * v7 + 3] = qword_140C4BA68[v7] & *(_QWORD *)(a1 + 8 * v7 + 8) )
+    v7 = i++;
+  result = 20LL;
+  *(_DWORD *)&v35[1] = 0;
+  v35[0] = 20;
+  if ( i < 0x14u )
   {
-    v6 = (unsigned int *)HalpInterruptClusterData;
-    ProcNumber = 0;
-    while ( (unsigned __int64)v6 < HalpInterruptClusterDataEnd )
-    {
-      if ( (unsigned int)KeAndGroupAffinityEx(a1, v6 + 2, &v24) )
-      {
-        v8 = v24;
-        v9 = 0;
-        LODWORD(v16) = 6;
-        v10 = (_QWORD)v24 == 0LL;
-        *((_QWORD *)&v16 + 1) = *v6;
-        ProcNumber.Group = WORD4(v24);
-        while ( 1 )
-        {
-          ProcNumber.Number = v3;
-          if ( v10 )
-            break;
-          if ( (v8 & 1) != 0 )
-          {
-            v9 |= *(_DWORD *)(HalpInterruptTargets + 24LL * KeGetProcessorIndexFromNumber(&ProcNumber) + 12);
-            HIDWORD(v16) = v9;
-          }
-          ++v3;
-          v8 >>= 1;
-          v10 = v8 == 0;
-        }
-        v22 = v5;
-        v15 = *(_QWORD *)(HalpInterruptIpiLines + 16);
-        v11 = *(__int64 (__fastcall **)(_QWORD, __int64 *, __int128 *, _QWORD, __int64 *))(HalpInterruptController + 120);
-        _disable();
-        result = v11(*(_QWORD *)(HalpInterruptController + 16), &v15, &v16, 0LL, &v22);
-        if ( (v2 & 0x200) != 0 )
-          _enable();
-        v3 = 0;
-        if ( (int)result < 0 )
-          goto LABEL_6;
-      }
-      v6 += 6;
-    }
-    goto LABEL_4;
-  }
-  if ( HalpInterruptPhysicalModeOnly )
-    goto LABEL_4;
-  *((_QWORD *)&v20 + 1) = *(_QWORD *)(a1 + 8);
-  LODWORD(v16) = 5;
-  DWORD2(v16) = 0;
-  *(_QWORD *)&v20 = a1;
-  while ( !(unsigned int)KeEnumerateNextProcessor(&ProcNumber, &v20) )
-  {
-    if ( *(_DWORD *)(HalpInterruptTargets + 24LL * *(unsigned int *)&ProcNumber) == 5 )
-      DWORD2(v16) |= *(_DWORD *)(HalpInterruptTargets + 24LL * *(unsigned int *)&ProcNumber + 8);
-  }
-  if ( !DWORD2(v16) )
-    goto LABEL_4;
-  v23 = v5;
-  v18[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
-  v18[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-  v12 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, __int128 *, _QWORD, __int64 *))(HalpInterruptController + 120);
-  _disable();
-  result = v12(*(_QWORD *)(HalpInterruptController + 16), v18, &v16, 0LL, &v23);
-  if ( (v2 & 0x200) != 0 )
-    _enable();
-  if ( (int)result >= 0 )
-  {
-LABEL_4:
-    *((_QWORD *)&v20 + 1) = v25[1];
-    *(_QWORD *)&v20 = v25;
-    ProcNumber = 0;
-    LOWORD(v21) = 0;
     do
     {
-      result = KeEnumerateNextProcessor(&ProcNumber, &v20);
-      if ( (_DWORD)result )
-        break;
-      LODWORD(v16) = 4;
-      *(_QWORD *)&v24 = v5;
-      DWORD2(v16) = *(_DWORD *)(HalpInterruptTargets + 24LL * *(unsigned int *)&ProcNumber + 8);
-      v19[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
-      v19[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-      v13 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, __int128 *, _QWORD, __int128 *))(HalpInterruptController + 120);
+      result = i++;
+      *(_QWORD *)&v35[4 * result + 3] = 0LL;
+    }
+    while ( i < v35[0] );
+  }
+  if ( !HalpInterruptClusterModeEnabled )
+  {
+    if ( !HalpInterruptPhysicalModeOnly )
+    {
+      v15 = *(_QWORD *)(a1 + 8);
+      v16 = 0;
+      LODWORD(v24) = 5;
+      DWORD2(v24) = 0;
+      while ( 1 )
+      {
+        while ( v15 )
+        {
+          _BitScanForward64((unsigned __int64 *)&v17, v15);
+          v15 &= ~(1LL << v17);
+          result = 3LL * (unsigned int)KiProcessorNumberToIndexMappingTable[64 * v16 + (unsigned __int8)v17];
+          if ( *(_DWORD *)(HalpInterruptTargets
+                         + 24LL * (unsigned int)KiProcessorNumberToIndexMappingTable[64 * v16 + (unsigned __int8)v17]) == 5 )
+          {
+            result = *(unsigned int *)(HalpInterruptTargets
+                                     + 24LL
+                                     * (unsigned int)KiProcessorNumberToIndexMappingTable[64 * v16
+                                                                                        + (unsigned __int8)v17]
+                                     + 8);
+            DWORD2(v24) |= result;
+          }
+        }
+        if ( ++v16 >= *(_WORD *)a1 )
+          break;
+        result = v16;
+        v15 = *(_QWORD *)(a1 + 8LL * v16 + 8);
+      }
+      if ( DWORD2(v24) )
+      {
+        v28[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
+        v28[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
+        v31 = v26;
+        v18 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, __int128 *, _QWORD, __int64 *))(HalpInterruptController + 120);
+        _disable();
+        result = v18(*(_QWORD *)(HalpInterruptController + 16), v28, &v24, 0LL, &v31);
+        if ( (v2 & 0x200) != 0 )
+          _enable();
+        if ( (int)result < 0 )
+          goto LABEL_41;
+      }
+    }
+    goto LABEL_33;
+  }
+  v9 = (unsigned int *)HalpInterruptClusterData;
+  ProcNumber = 0;
+  if ( HalpInterruptClusterData >= (unsigned __int64)HalpInterruptClusterDataEnd )
+  {
+LABEL_33:
+    v19 = *(_QWORD *)&v35[3];
+    LOWORD(v20) = 0;
+    do
+    {
+      while ( !v19 )
+      {
+        v20 = (unsigned __int16)(v20 + 1);
+        if ( (unsigned int)v20 >= v34 )
+          goto LABEL_41;
+        v19 = *(_QWORD *)&v35[4 * v20 + 3];
+      }
+      _BitScanForward64(&v21, v19);
+      LODWORD(v24) = 4;
+      v19 &= ~(1LL << v21);
+      DWORD2(v24) = *(_DWORD *)(HalpInterruptTargets
+                              + 24LL
+                              * (unsigned int)KiProcessorNumberToIndexMappingTable[64 * (unsigned __int16)v20
+                                                                                 + (unsigned __int8)v21]
+                              + 8);
+      v29[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
+      v29[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
+      v22 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, __int128 *, _QWORD, __int64 *))(HalpInterruptController + 120);
+      v32 = v26;
       _disable();
-      result = v13(*(_QWORD *)(HalpInterruptController + 16), v19, &v16, 0LL, &v24);
+      result = v22(*(_QWORD *)(HalpInterruptController + 16), v29, &v24, 0LL, &v32);
       if ( (v2 & 0x200) != 0 )
         _enable();
     }
     while ( (int)result >= 0 );
+    goto LABEL_41;
   }
-LABEL_6:
-  if ( v4 )
+  v10 = v26;
+  while ( 1 )
+  {
+    result = KeAndGroupAffinityEx((_WORD *)a1, (__int64)(v9 + 2), (char *)&v33);
+    if ( (_DWORD)result )
+    {
+      v11 = v33;
+      v12 = 0;
+      LODWORD(v24) = 6;
+      v13 = (_QWORD)v33 == 0LL;
+      *((_QWORD *)&v24 + 1) = *v9;
+      ProcNumber.Group = WORD4(v33);
+      while ( 1 )
+      {
+        ProcNumber.Number = v5;
+        if ( v13 )
+          break;
+        if ( (v11 & 1) != 0 )
+        {
+          v12 |= *(_DWORD *)(HalpInterruptTargets + 24LL * KeGetProcessorIndexFromNumber(&ProcNumber) + 12);
+          HIDWORD(v24) = v12;
+        }
+        ++v5;
+        v11 >>= 1;
+        v13 = v11 == 0;
+      }
+      v30 = v10;
+      v27[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
+      v27[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
+      v14 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, __int128 *, _QWORD, __int64 *))(HalpInterruptController + 120);
+      _disable();
+      result = v14(*(_QWORD *)(HalpInterruptController + 16), v27, &v24, 0LL, &v30);
+      if ( (v2 & 0x200) != 0 )
+        _enable();
+      v5 = 0;
+      if ( (int)result < 0 )
+        break;
+    }
+    v9 += 6;
+    if ( (unsigned __int64)v9 >= HalpInterruptClusterDataEnd )
+      goto LABEL_33;
+  }
+LABEL_41:
+  if ( v3 )
     _enable();
   return result;
 }

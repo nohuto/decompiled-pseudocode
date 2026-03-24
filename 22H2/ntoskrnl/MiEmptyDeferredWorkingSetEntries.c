@@ -1,28 +1,27 @@
 /*
- * XREFs of MiEmptyDeferredWorkingSetEntries @ 0x140339B30
+ * XREFs of MiEmptyDeferredWorkingSetEntries @ 0x14029C084
  * Callers:
- *     MmAccessFault @ 0x140235350 (MmAccessFault.c)
- *     MiUserFault @ 0x140235870 (MiUserFault.c)
- *     MiSystemFault @ 0x140261080 (MiSystemFault.c)
- *     MiMakeSystemCacheRangeValid @ 0x140267740 (MiMakeSystemCacheRangeValid.c)
- *     MiCompleteProtoPteFault @ 0x140268AC0 (MiCompleteProtoPteFault.c)
- *     MiCompletePrivateZeroFault @ 0x14026A860 (MiCompletePrivateZeroFault.c)
- *     MiUnlockFaultPageTable @ 0x1402A1628 (MiUnlockFaultPageTable.c)
- *     MiCompleteRestrictedImageFault @ 0x1402E2E50 (MiCompleteRestrictedImageFault.c)
- *     MiQueueCoreWorkingSetEntries @ 0x1402E3190 (MiQueueCoreWorkingSetEntries.c)
+ *     MmAccessFault @ 0x14020D050 (MmAccessFault.c)
+ *     MiUserFault @ 0x14020D730 (MiUserFault.c)
+ *     MiCompletePrivateZeroFault @ 0x140210810 (MiCompletePrivateZeroFault.c)
+ *     MiCompleteProtoPteFault @ 0x140213D50 (MiCompleteProtoPteFault.c)
+ *     MiResolveTransitionFault @ 0x140216750 (MiResolveTransitionFault.c)
+ *     MiUnlockFaultPageTable @ 0x1402927C8 (MiUnlockFaultPageTable.c)
+ *     MiCompleteRestrictedImageFault @ 0x14029D730 (MiCompleteRestrictedImageFault.c)
+ *     MiMakeSystemCacheRangeValid @ 0x14029F220 (MiMakeSystemCacheRangeValid.c)
  * Callees:
- *     MiAddWorkingSetEntries @ 0x14026BC00 (MiAddWorkingSetEntries.c)
+ *     MiAddWorkingSetEntries @ 0x140212380 (MiAddWorkingSetEntries.c)
  */
 
-__int64 __fastcall MiEmptyDeferredWorkingSetEntries(__int64 a1)
+unsigned __int64 __fastcall MiEmptyDeferredWorkingSetEntries(__int64 a1)
 {
   __int64 v2; // r10
   __int64 v3; // rdx
   __int64 v4; // rax
   int v5; // ecx
   unsigned __int64 v6; // rdx
-  int v7; // r9d
-  __int64 result; // rax
+  char v7; // r9
+  unsigned __int64 result; // rax
 
   v2 = *(_QWORD *)a1;
   v3 = (__int64)(*(_QWORD *)(a1 + 16) << 25) >> 16 << 25;
@@ -39,8 +38,7 @@ __int64 __fastcall MiEmptyDeferredWorkingSetEntries(__int64 a1)
     if ( (*(_BYTE *)(v2 + 184) & 7) != 0 )
       v7 = v5;
   }
-  MiAddWorkingSetEntries(v2, v6, *(unsigned __int16 *)(a1 + 10), v7);
-  result = 0LL;
+  result = MiAddWorkingSetEntries(v2, v6, *(unsigned __int16 *)(a1 + 10), v7);
   *(_WORD *)(a1 + 10) = 0;
   return result;
 }

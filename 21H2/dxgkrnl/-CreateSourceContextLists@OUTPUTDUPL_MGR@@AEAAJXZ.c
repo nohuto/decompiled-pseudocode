@@ -1,151 +1,138 @@
 /*
- * XREFs of ?CreateSourceContextLists@OUTPUTDUPL_MGR@@AEAAJXZ @ 0x1C0210A20
+ * XREFs of ?CreateSourceContextLists@OUTPUTDUPL_MGR@@AEAAJXZ @ 0x1C019BE7C
  * Callers:
- *     ?Initialize@OUTPUTDUPL_MGR@@QEAAJXZ @ 0x1C0210998 (-Initialize@OUTPUTDUPL_MGR@@QEAAJXZ.c)
- *     ?ReconfigureNumSources@OUTPUTDUPL_MGR@@QEAAJI@Z @ 0x1C03237D0 (-ReconfigureNumSources@OUTPUTDUPL_MGR@@QEAAJI@Z.c)
+ *     ?Initialize@OUTPUTDUPL_MGR@@QEAAJXZ @ 0x1C019BDB0 (-Initialize@OUTPUTDUPL_MGR@@QEAAJXZ.c)
+ *     ?ReconfigureNumSources@OUTPUTDUPL_MGR@@QEAAJI@Z @ 0x1C029C3D4 (-ReconfigureNumSources@OUTPUTDUPL_MGR@@QEAAJI@Z.c)
  * Callees:
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0002C48 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C01E8B48 (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C016E9EC (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
  */
 
-__int64 __fastcall OUTPUTDUPL_MGR::CreateSourceContextLists(OUTPUTDUPL_MGR *this, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall OUTPUTDUPL_MGR::CreateSourceContextLists(OUTPUTDUPL_MGR *this, __int64 a2)
 {
-  unsigned int v5; // eax
-  __int64 v6; // rsi
-  __int64 v7; // rax
-  unsigned __int64 v8; // kr00_8
-  bool v9; // cf
-  unsigned __int64 v10; // rax
-  __int64 v11; // rax
-  __int64 v12; // rbx
-  __int64 v13; // r9
-  unsigned int v14; // esi
-  __int64 v15; // rax
-  __int64 v16; // r9
-  __int64 v17; // rbx
-  __int64 v18; // rbp
-  _QWORD *v19; // rcx
-  unsigned __int64 v20; // rax
-  __int64 v21; // rax
-  __int64 v23; // rbx
-  const wchar_t *v24; // r9
+  unsigned int v3; // eax
+  SIZE_T v4; // rax
+  unsigned __int64 v5; // kr00_8
+  PVOID v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  unsigned int v11; // r14d
+  AUTOEXPANDALLOCATION *v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  AUTOEXPANDALLOCATION *v16; // rdi
+  __int64 v17; // rsi
+  _QWORD *v18; // rcx
+  _QWORD *v19; // rax
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  void *v23; // rcx
+  SIZE_T v24; // rax
+  __int64 v26; // rax
+  __int64 v27; // rax
+  __int64 v28; // rax
 
   if ( *((_QWORD *)this + 2) )
   {
-    WdLogSingleEntry1(2LL, 956LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"New source context lists cannot be create while we have existing ones",
-      956LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v26 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v26 + 24) = 999LL;
+    WdLogEvent5_WdError(v26);
     return 3221227272LL;
-  }
-  v5 = *((_DWORD *)this + 19);
-  if ( !v5 )
-  {
-    WdLogSingleEntry1(2LL, 961LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Cannot create new context lists with zero elements",
-      961LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225485LL;
-  }
-  v6 = v5;
-  v8 = v5;
-  v7 = 72LL * v5;
-  if ( !is_mul_ok(v8, 0x48uLL) )
-    v7 = -1LL;
-  v9 = __CFADD__(v7, 8LL);
-  v10 = v7 + 8;
-  if ( v9 )
-    v10 = -1LL;
-  v11 = operator new[](v10, 0x674D444Fu, 256LL, a4);
-  if ( v11 )
-  {
-    v12 = v11 + 8;
-    *(_QWORD *)v11 = v6;
-    `vector constructor iterator'(
-      (char *)(v11 + 8),
-      72LL,
-      (unsigned int)v6,
-      (void (__fastcall *)(char *))_OUTPUTDUPL_CONTEXTLIST::_OUTPUTDUPL_CONTEXTLIST);
-    *((_QWORD *)this + 2) = v12;
-    if ( v12 )
-    {
-      v14 = 0;
-      if ( !*((_DWORD *)this + 19) )
-        return 0LL;
-      while ( 1 )
-      {
-        v15 = operator new[](0x10uLL, 0x674D444Fu, 256LL, v13);
-        v17 = v15;
-        if ( v15 )
-        {
-          *(_QWORD *)v15 = 0LL;
-          *(_QWORD *)(v15 + 8) = 0LL;
-          AUTOEXPANDALLOCATION::GetBuffer((const void **)v15, 0x100u, 0, v16);
-        }
-        else
-        {
-          v17 = 0LL;
-        }
-        v18 = 9LL * v14;
-        *(_QWORD *)(*((_QWORD *)this + 2) + 72LL * v14 + 56) = v17;
-        v19 = *(_QWORD **)(*((_QWORD *)this + 2) + 72LL * v14 + 56);
-        if ( !v19 || !*v19 )
-          break;
-        v20 = 8LL * *((unsigned int *)this + 2);
-        if ( !is_mul_ok(*((unsigned int *)this + 2), 8uLL) )
-          v20 = -1LL;
-        *(_QWORD *)(*((_QWORD *)this + 2) + 72LL * v14 + 48) = operator new[](v20, 0x674D444Fu, 256LL, v16);
-        v21 = *((_QWORD *)this + 2);
-        if ( !*(_QWORD *)(v21 + 72LL * v14 + 48) )
-        {
-          WdLogSingleEntry1(6LL, v14);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262145,
-            -1,
-            (__int64)L"Failed to create context list for VidPn source 0x%I64x.",
-            v14,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-          return 3221225495LL;
-        }
-        ++v14;
-        *(_DWORD *)(v21 + 8 * v18 + 64) = 0;
-        if ( v14 >= *((_DWORD *)this + 19) )
-          return 0LL;
-      }
-      v23 = 981LL;
-      WdLogSingleEntry1(6LL, 981LL);
-      v24 = L"Failed to create temp present processing buffer";
-      goto LABEL_26;
-    }
   }
   else
   {
-    *((_QWORD *)this + 2) = 0LL;
+    v3 = *((_DWORD *)this + 13);
+    if ( v3 )
+    {
+      v5 = v3;
+      v4 = 32LL * v3;
+      if ( !is_mul_ok(v5, 0x20uLL) )
+        v4 = -1LL;
+      v6 = operator new[](v4, 0x674D444Fu, PagedPool);
+      *((_QWORD *)this + 2) = v6;
+      if ( v6 )
+      {
+        v11 = 0;
+        if ( !*((_DWORD *)this + 13) )
+          return 0LL;
+        while ( 1 )
+        {
+          v12 = (AUTOEXPANDALLOCATION *)operator new[](0x10uLL, 0x674D444Fu, PagedPool);
+          v16 = v12;
+          if ( v12 )
+          {
+            *(_QWORD *)v12 = 0LL;
+            *((_QWORD *)v12 + 1) = 0LL;
+            AUTOEXPANDALLOCATION::GetBuffer(v12, 0x100u, 0);
+          }
+          else
+          {
+            v16 = 0LL;
+          }
+          v17 = 32LL * v11;
+          *(_QWORD *)(v17 + *((_QWORD *)this + 2) + 16) = v16;
+          v18 = *(_QWORD **)(v17 + *((_QWORD *)this + 2) + 16);
+          if ( !v18 || !*v18 )
+            break;
+          v19 = operator new[](0x28uLL, 0x674D444Fu, (POOL_TYPE)512);
+          v23 = v19;
+          if ( v19 )
+          {
+            *v19 = 0LL;
+            v19[1] = 0LL;
+            v19[2] = 0LL;
+            *((_DWORD *)v19 + 6) = 0;
+            *((_DWORD *)v19 + 7) = 42;
+            *((_DWORD *)v19 + 8) = 18;
+          }
+          else
+          {
+            v23 = 0LL;
+          }
+          *(_QWORD *)(v17 + *((_QWORD *)this + 2)) = v23;
+          if ( !*(_QWORD *)(v17 + *((_QWORD *)this + 2)) )
+            goto LABEL_22;
+          v24 = 8LL * *((unsigned int *)this + 2);
+          if ( !is_mul_ok(*((unsigned int *)this + 2), 8uLL) )
+            v24 = -1LL;
+          *(_QWORD *)(v17 + *((_QWORD *)this + 2) + 8) = operator new[](v24, 0x674D444Fu, PagedPool);
+          v23 = *(void **)(v17 + *((_QWORD *)this + 2) + 8);
+          if ( !v23 )
+          {
+LABEL_22:
+            v28 = WdLogNewEntry5_WdLowResource(v23, v20, v21, v22);
+            *(_QWORD *)(v28 + 24) = v11;
+            goto LABEL_23;
+          }
+          memset(v23, 0, 8LL * *((unsigned int *)this + 2));
+          ++v11;
+          *(_DWORD *)(v17 + *((_QWORD *)this + 2) + 24) = 0;
+          if ( v11 >= *((_DWORD *)this + 13) )
+            return 0LL;
+        }
+        v28 = WdLogNewEntry5_WdLowResource(v18, v13, v14, v15);
+        *(_QWORD *)(v28 + 24) = 1024LL;
+      }
+      else
+      {
+        v28 = WdLogNewEntry5_WdLowResource(v8, v7, v9, v10);
+        *(_QWORD *)(v28 + 24) = 1012LL;
+      }
+LABEL_23:
+      WdLogEvent5_WdLowResource(v28);
+      return 3221225495LL;
+    }
+    else
+    {
+      v27 = WdLogNewEntry5_WdError(this, a2);
+      *(_QWORD *)(v27 + 24) = 1004LL;
+      WdLogEvent5_WdError(v27);
+      return 3221225485LL;
+    }
   }
-  v23 = 969LL;
-  WdLogSingleEntry1(6LL, 969LL);
-  v24 = L"Failed to allocated new source context lists";
-LABEL_26:
-  DxgkLogInternalTriageEvent(0LL, 262145, -1, (__int64)v24, v23, 0LL, 0LL, 0LL, 0LL);
-  return 3221225495LL;
 }

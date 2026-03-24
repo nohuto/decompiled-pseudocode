@@ -1,9 +1,9 @@
 /*
- * XREFs of GetDWORDSettingValues @ 0x1C0083900
+ * XREFs of GetDWORDSettingValues @ 0x1C000B000
  * Callers:
  *     <none>
  * Callees:
- *     GetDWORDSettingValuesEx @ 0x1C0083920 (GetDWORDSettingValuesEx.c)
+ *     GetDWORDSettingValuesEx @ 0x1C000B020 (GetDWORDSettingValuesEx.c)
  */
 
 __int64 __fastcall GetDWORDSettingValues(__int64 a1, __int64 a2, __int64 a3)

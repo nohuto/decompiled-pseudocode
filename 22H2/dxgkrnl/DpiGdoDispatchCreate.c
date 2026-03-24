@@ -1,5 +1,5 @@
 /*
- * XREFs of DpiGdoDispatchCreate @ 0x1C01DF940
+ * XREFs of DpiGdoDispatchCreate @ 0x1C015C1D0
  * Callers:
  *     <none>
  * Callees:
@@ -20,17 +20,17 @@ __int64 __fastcall DpiGdoDispatchCreate(__int64 a1, IRP *a2)
   }
   else if ( *(_BYTE *)(v3 + 1154) && *(_BYTE *)(v3 + 480) )
   {
-    v6 = dword_1C01407F0 != 4 ? 0xC0000001 : 0;
+    v6 = dword_1C00B2E68 != 4 ? 0xC0000001 : 0;
   }
-  else if ( *(_BYTE *)(v3 + 5469) )
+  else if ( *(_BYTE *)(v3 + 5525) )
   {
     v6 = -1073741823;
   }
   else
   {
     KeEnterCriticalRegion();
-    v4 = (struct _ERESOURCE *)(v3 + 3808);
-    ExAcquireResourceExclusiveLite((PERESOURCE)(v3 + 3808), 1u);
+    v4 = (struct _ERESOURCE *)(v3 + 3792);
+    ExAcquireResourceExclusiveLite((PERESOURCE)(v3 + 3792), 1u);
     v5 = *(_DWORD *)(v3 + 236);
     if ( v5 == 2 || *(_DWORD *)(v3 + 240) == 2 && ((v5 - 3) & 0xFFFFFFFC) == 0 && v5 != 4 )
       v6 = 0;

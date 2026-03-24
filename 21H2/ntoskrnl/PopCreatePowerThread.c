@@ -1,14 +1,14 @@
 /*
- * XREFs of PopCreatePowerThread @ 0x1403B5088
+ * XREFs of PopCreatePowerThread @ 0x1403A5238
  * Callers:
- *     PopCreateDynamicIrpWorker @ 0x14039653C (PopCreateDynamicIrpWorker.c)
- *     PopInitializeIrpWorkers @ 0x140B2D120 (PopInitializeIrpWorkers.c)
+ *     PopCreateDynamicIrpWorker @ 0x1403A51D0 (PopCreateDynamicIrpWorker.c)
+ *     PopInitializeIrpWorkers @ 0x140A70C40 (PopInitializeIrpWorkers.c)
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x14028FD20 (KeSetActualBasePriorityThread.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     PsCreateSystemThread @ 0x1406F0310 (PsCreateSystemThread.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140732CC0 (ObReferenceObjectByHandleWithTag.c)
+ *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     PsCreateSystemThread @ 0x1406D0140 (PsCreateSystemThread.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __fastcall PopCreatePowerThread(KSTART_ROUTINE *a1, void *a2)
@@ -19,12 +19,11 @@ NTSTATUS __fastcall PopCreatePowerThread(KSTART_ROUTINE *a1, void *a2)
   HANDLE ThreadHandle; // [rsp+90h] [rbp+20h] BYREF
   PVOID Object; // [rsp+98h] [rbp+28h] BYREF
 
+  memset(&ObjectAttributes.Length + 1, 0, 20);
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   Object = 0LL;
   ThreadHandle = 0LL;
-  ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.ObjectName = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 512;
   result = PsCreateSystemThread(&ThreadHandle, 0x1FFFFFu, &ObjectAttributes, 0LL, 0LL, a1, a2);
   if ( result >= 0 )
@@ -40,7 +39,7 @@ NTSTATUS __fastcall PopCreatePowerThread(KSTART_ROUTINE *a1, void *a2)
     ZwClose(ThreadHandle);
     if ( v3 >= 0 )
     {
-      KeSetActualBasePriorityThread((ULONG_PTR)Object, 0xDu);
+      KeSetActualBasePriorityThread((__int64)Object, 13);
       ObfDereferenceObjectWithTag(Object, 0x72496F50u);
     }
     return 0;

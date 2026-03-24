@@ -1,10 +1,10 @@
 /*
- * XREFs of FONTOBJ_SetCachedGlyphAttrs @ 0x1C02B7608
+ * XREFs of FONTOBJ_SetCachedGlyphAttrs @ 0x1C02A8618
  * Callers:
- *     UmfdDestroyFont @ 0x1C00B38B0 (UmfdDestroyFont.c)
- *     UmfdQueryGlyphAttrs @ 0x1C03062B0 (UmfdQueryGlyphAttrs.c)
+ *     UmfdDestroyFont @ 0x1C009CE90 (UmfdDestroyFont.c)
+ *     UmfdQueryGlyphAttrs @ 0x1C02DE450 (UmfdQueryGlyphAttrs.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AE74 (--1RFONTOBJ@@QEAA@XZ.c)
  */
 
 void __fastcall FONTOBJ_SetCachedGlyphAttrs(__int64 a1, unsigned int a2, __int64 a3)

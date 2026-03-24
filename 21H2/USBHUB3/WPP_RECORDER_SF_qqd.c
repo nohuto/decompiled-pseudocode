@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_RECORDER_SF_qqd @ 0x1C000EC30
+ * XREFs of WPP_RECORDER_SF_qqd @ 0x1C000E808
  * Callers:
- *     HUBMUX_CreatePSM @ 0x1C000EDD4 (HUBMUX_CreatePSM.c)
- *     HUBMISC_GenerateUserNotificationForPersistentOverCurrent @ 0x1C007E0A8 (HUBMISC_GenerateUserNotificationForPersistentOverCurrent.c)
+ *     HUBMUX_CreatePSM @ 0x1C000E9AC (HUBMUX_CreatePSM.c)
+ *     HUBMISC_GenerateUserNotificationForPersistentOverCurrent @ 0x1C007CACC (HUBMISC_GenerateUserNotificationForPersistentOverCurrent.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_qqd(__int64 a1, unsigned __int8 a2, unsigned int a3, unsigned __int16 a4, __int64 a5, ...)

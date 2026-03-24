@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AskParentToRemoveAndReenumerate@FxPkgPdo@@EEAAJXZ @ 0x1C0083470
+ * XREFs of ?AskParentToRemoveAndReenumerate@FxPkgPdo@@EEAAJXZ @ 0x1C0078F30
  * Callers:
  *     <none>
  * Callees:
- *     ?ReenumerateEntry@FxChildList@@QEAAXPEAUFxDeviceDescriptionEntry@@@Z @ 0x1C005C718 (-ReenumerateEntry@FxChildList@@QEAAXPEAUFxDeviceDescriptionEntry@@@Z.c)
+ *     ?ReenumerateEntry@FxChildList@@QEAAXPEAUFxDeviceDescriptionEntry@@@Z @ 0x1C003C094 (-ReenumerateEntry@FxChildList@@QEAAXPEAUFxDeviceDescriptionEntry@@@Z.c)
  */
 
 __int64 __fastcall FxPkgPdo::AskParentToRemoveAndReenumerate(FxPkgPdo *this)

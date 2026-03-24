@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAA@$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@2@$$QEAVSemaphoreValue@12@@Z @ 0x180197BF0
+ * XREFs of ??0?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAA@$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@Z$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@2@$$QEAVSemaphoreValue@12@@Z @ 0x1800AE3CC
  * Callers:
- *     ?MakeAndInitialize@?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@CAJPEBG$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@3@PEAPEAV123@@Z @ 0x180199158 (-MakeAndInitialize@-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil.c)
+ *     ?MakeAndInitialize@?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@CAJPEBG$$QEAV?$unique_any_t@V?$mutex_t@V?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@Z$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@Uerr_returncode_policy@3@@wil@@@3@PEAPEAV123@@Z @ 0x1800AE2FC (-MakeAndInitialize@-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil.c)
  * Callees:
- *     ??0SubscriptionList@details_abi@wil@@QEAA@XZ @ 0x1800FFE28 (--0SubscriptionList@details_abi@wil@@QEAA@XZ.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     ??0UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x180197CE4 (--0UsageIndexes@details_abi@wil@@QEAA@XZ.c)
+ *     ??0SubscriptionList@details_abi@wil@@QEAA@XZ @ 0x1800AED54 (--0SubscriptionList@details_abi@wil@@QEAA@XZ.c)
+ *     ??0UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x1800AF238 (--0UsageIndexes@details_abi@wil@@QEAA@XZ.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
  */
 
 __int64 __fastcall wil::details_abi::ProcessLocalStorageData<wil::details_abi::FeatureStateData>::ProcessLocalStorageData<wil::details_abi::FeatureStateData>(
@@ -23,6 +23,6 @@ __int64 __fastcall wil::details_abi::ProcessLocalStorageData<wil::details_abi::F
   memset_0((void *)(a1 + 40), 0, 0x108uLL);
   *(_QWORD *)(a1 + 32) = 0LL;
   wil::details_abi::UsageIndexes::UsageIndexes((wil::details_abi::UsageIndexes *)(a1 + 40));
-  wil::details_abi::SubscriptionList::SubscriptionList((struct _RTL_CRITICAL_SECTION *)(a1 + 232));
+  wil::details_abi::SubscriptionList::SubscriptionList((wil::details_abi::SubscriptionList *)(a1 + 232));
   return a1;
 }

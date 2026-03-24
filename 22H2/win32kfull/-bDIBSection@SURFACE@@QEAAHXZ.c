@@ -1,18 +1,23 @@
 /*
- * XREFs of ?bDIBSection@SURFACE@@QEAAHXZ @ 0x1C02A79CC
+ * XREFs of ?bDIBSection@SURFACE@@QEAAHXZ @ 0x1C00A9A0C
  * Callers:
- *     GreSetDIBColorTable @ 0x1C02D1F00 (GreSetDIBColorTable.c)
- *     NtGdiGetColorSpaceforBitmap @ 0x1C02D5620 (NtGdiGetColorSpaceforBitmap.c)
+ *     GreMakeBitmapStock @ 0x1C00A9790 (GreMakeBitmapStock.c)
+ *     GreGetDIBColorTable @ 0x1C00A98A0 (GreGetDIBColorTable.c)
+ *     GreSetDIBColorTable @ 0x1C02B73B0 (GreSetDIBColorTable.c)
+ *     NtGdiGetColorSpaceforBitmap @ 0x1C02BA520 (NtGdiGetColorSpaceforBitmap.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall SURFACE::bDIBSection(SURFACE *this)
+__int64 __fastcall SURFACE::bDIBSection(SURFACE *this)
 {
-  _BOOL8 result; // rax
+  __int64 result; // rax
 
   result = 0LL;
   if ( !*((_WORD *)this + 50) )
-    return *((_QWORD *)this + 24) != 0LL;
+  {
+    if ( *((_QWORD *)this + 24) )
+      return 1LL;
+  }
   return result;
 }

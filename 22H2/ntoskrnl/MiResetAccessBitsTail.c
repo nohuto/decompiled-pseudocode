@@ -1,29 +1,26 @@
 /*
- * XREFs of MiResetAccessBitsTail @ 0x140348160
+ * XREFs of MiResetAccessBitsTail @ 0x14039CE80
  * Callers:
- *     MiResetAccessBitPte @ 0x14027B900 (MiResetAccessBitPte.c)
+ *     MiResetAccessBitPte @ 0x14039B0F0 (MiResetAccessBitPte.c)
  * Callees:
- *     MiFlushTbList @ 0x140279760 (MiFlushTbList.c)
- *     MiProcessVmAccessedInfo @ 0x14046B95E (MiProcessVmAccessedInfo.c)
- *     MiQueryEPTAccessedState @ 0x14046BA2C (MiQueryEPTAccessedState.c)
+ *     MiFlushTbList @ 0x1402BBBB0 (MiFlushTbList.c)
+ *     MiProcessVmAccessedInfo @ 0x14053B870 (MiProcessVmAccessedInfo.c)
+ *     MiQueryEPTAccessedState @ 0x14053B940 (MiQueryEPTAccessedState.c)
  */
 
-__int64 __fastcall MiResetAccessBitsTail(__int64 a1)
+__int64 __fastcall MiResetAccessBitsTail(__int64 a1, _KPROCESS *a2)
 {
   __int64 i; // rbx
-  __int64 v3; // rax
-  _DWORD *v4; // rdx
+  __int64 v4; // rcx
+  _DWORD *v5; // rdx
 
   for ( i = *(_QWORD *)(a1 + 168); ; MiProcessVmAccessedInfo(a1, *(_QWORD *)(i + 16), MiResetAccessBitsEPTCallback, i) )
   {
-    v3 = *(_QWORD *)(i + 8);
-    if ( v3 )
-    {
-      MiFlushTbList(*(int **)(i + 8));
-      v3 = *(_QWORD *)(i + 8);
-    }
-    v4 = *(_DWORD **)(i + 16);
-    if ( !v4 || !*v4 || !(unsigned int)MiQueryEPTAccessedState(a1, v4, v3 != 0) )
+    v4 = *(_QWORD *)(i + 8);
+    if ( v4 )
+      MiFlushTbList(v4, a2);
+    v5 = *(_DWORD **)(i + 16);
+    if ( !v5 || !*v5 || !(unsigned int)MiQueryEPTAccessedState(a1, v5, *(_QWORD *)(i + 8) != 0LL) )
       break;
   }
   return 0LL;

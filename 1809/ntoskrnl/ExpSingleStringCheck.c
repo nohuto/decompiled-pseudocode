@@ -3,8 +3,8 @@
  * Callers:
  *     ExpStringCheck @ 0x1409D5318 (ExpStringCheck.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlComputeCrc32 @ 0x14015B4F0 (RtlComputeCrc32.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlComputeCrc32 @ 0x14015B510 (RtlComputeCrc32.c)
  */
 
 ULONG __fastcall ExpSingleStringCheck(PCWSTR SourceString)

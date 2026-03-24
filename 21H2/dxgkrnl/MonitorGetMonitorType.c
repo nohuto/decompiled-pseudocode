@@ -1,34 +1,39 @@
 /*
- * XREFs of MonitorGetMonitorType @ 0x1C01B0AC4
+ * XREFs of MonitorGetMonitorType @ 0x1C012BB78
  * Callers:
- *     _lambda_b5f01eb3f4b149c357ab2eab84592b3f_::operator() @ 0x1C01A267C (_lambda_b5f01eb3f4b149c357ab2eab84592b3f_--operator().c)
- *     ?_FindAnchorAdaptersCallback@_ANCHOR_INFO@BTL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C01B06A0 (-_FindAnchorAdaptersCallback@_ANCHOR_INFO@BTL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVDXGADAPTER@@PEAX@Z.c)
- *     ?DisplayConfigCountMonitorsCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C01B3570 (-DisplayConfigCountMonitorsCallback@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
- *     DxgkQueryMonitorTypeLockHeld @ 0x1C01D2410 (DxgkQueryMonitorTypeLockHeld.c)
- *     ?IsTargetEmergencySimulatedMonitor@@YAJPEAXIPEAE@Z @ 0x1C01D5A2C (-IsTargetEmergencySimulatedMonitor@@YAJPEAXIPEAE@Z.c)
- *     DxgkHandleForceProjectionMonitor @ 0x1C02F2F10 (DxgkHandleForceProjectionMonitor.c)
- *     ?IsMonitorConnected@DMMVIDEOPRESENTTARGET@@QEBAEPEAW4_DMM_VIDPN_MONITOR_TYPE@@@Z @ 0x1C039FFB4 (-IsMonitorConnected@DMMVIDEOPRESENTTARGET@@QEBAEPEAW4_DMM_VIDPN_MONITOR_TYPE@@@Z.c)
+ *     _lambda_3a429c02e21bb855f1ec386a1cface2b_::operator() @ 0x1C012D9A4 (_lambda_3a429c02e21bb855f1ec386a1cface2b_--operator().c)
+ *     ?DisplayConfigCountMonitorsCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C01384E0 (-DisplayConfigCountMonitorsCallback@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
+ *     ?IsMonitorConnected@DMMVIDEOPRESENTTARGET@@QEBAEPEAW4_DMM_VIDPN_MONITOR_TYPE@@@Z @ 0x1C013BC0C (-IsMonitorConnected@DMMVIDEOPRESENTTARGET@@QEBAEPEAW4_DMM_VIDPN_MONITOR_TYPE@@@Z.c)
+ *     ?IsTargetEmergencySimulatedMonitor@@YAJPEAXIPEAE@Z @ 0x1C01468C8 (-IsTargetEmergencySimulatedMonitor@@YAJPEAXIPEAE@Z.c)
+ *     DxgkQueryMonitorTypeLockHeld @ 0x1C015E400 (DxgkQueryMonitorTypeLockHeld.c)
+ *     DxgkHandleForceProjectionMonitor @ 0x1C0297D00 (DxgkHandleForceProjectionMonitor.c)
  * Callees:
- *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0011D60 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009A04 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
  */
 
-__int64 __fastcall MonitorGetMonitorType(struct HDXGMONITOR__ *a1, _DWORD *a2)
+__int64 __fastcall MonitorGetMonitorType(struct HDXGMONITOR__ *a1, _DWORD *a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax
-  struct DXGMONITOR *v5; // rbx
-  struct DXGMONITOR *v6; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  struct DXGMONITOR *v9; // rbx
+  __int64 v10; // rax
+  struct DXGMONITOR *v11; // [rsp+30h] [rbp+8h] BYREF
 
-  *(_QWORD *)(WdLogNewEntry5_WdTrace(a1, a2) + 24) = a1;
+  *(_QWORD *)(WdLogNewEntry5_WdTrace(a1, a2, a3, a4) + 24) = a1;
   if ( !a1 || !a2 )
     return 3221225485LL;
-  v6 = 0LL;
-  result = MONITOR_MGR::_GetMonitorFromHandle(a1, &v6);
+  v11 = 0LL;
+  result = MONITOR_MGR::_GetMonitorFromHandle(a1, &v11);
   if ( (int)result >= 0 )
   {
-    v5 = v6;
-    if ( !v6 )
-      WdLogSingleEntry0(1LL);
-    *a2 = *((_DWORD *)v5 + 78);
+    v9 = v11;
+    if ( !v11 )
+    {
+      v10 = WdLogNewEntry5_WdAssertion(v8, v7);
+      WdLogEvent5_WdAssertion(v10);
+    }
+    *a2 = *((_DWORD *)v9 + 108);
     return 0LL;
   }
   return result;

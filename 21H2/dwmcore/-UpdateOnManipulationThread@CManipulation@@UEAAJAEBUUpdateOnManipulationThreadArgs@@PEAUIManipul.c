@@ -1,22 +1,22 @@
 /*
- * XREFs of ?UpdateOnManipulationThread@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadArgs@@PEAUIManipulationTelemetryData@InteractionLatencyTelemetry@@@Z @ 0x1801F4CB0
+ * XREFs of ?UpdateOnManipulationThread@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadArgs@@PEAUIManipulationTelemetryData@@@Z @ 0x1801D51E0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     _anonymous_namespace_::StoreIfChanged_float_ @ 0x1801F32C8 (_anonymous_namespace_--StoreIfChanged_float_.c)
- *     _anonymous_namespace_::StoreIfChanged_D2DVector3_ @ 0x1801F32E4 (_anonymous_namespace_--StoreIfChanged_D2DVector3_.c)
- *     ?_ResetManipulationThreadDataIfNecessary@CManipulation@@AEAAXW4InteractionState@@@Z @ 0x1801F5390 (-_ResetManipulationThreadDataIfNecessary@CManipulation@@AEAAXW4InteractionState@@@Z.c)
- *     ?_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z @ 0x1801F5400 (-_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z.c)
- *     ?_UpdateCaptureState@CManipulation@@AEAAX_N@Z @ 0x1801F59AC (-_UpdateCaptureState@CManipulation@@AEAAX_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     _anonymous_namespace_::StoreIfChanged_float_ @ 0x1801D38C8 (_anonymous_namespace_--StoreIfChanged_float_.c)
+ *     _anonymous_namespace_::StoreIfChanged_D2DVector3_ @ 0x1801D38E4 (_anonymous_namespace_--StoreIfChanged_D2DVector3_.c)
+ *     ?_ResetManipulationThreadDataIfNecessary@CManipulation@@AEAAXW4InteractionState@@@Z @ 0x1801D5898 (-_ResetManipulationThreadDataIfNecessary@CManipulation@@AEAAXW4InteractionState@@@Z.c)
+ *     ?_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z @ 0x1801D5908 (-_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z.c)
+ *     ?_UpdateCaptureState@CManipulation@@AEAAX_N@Z @ 0x1801D5EA4 (-_UpdateCaptureState@CManipulation@@AEAAX_N@Z.c)
  */
 
 __int64 __fastcall CManipulation::UpdateOnManipulationThread(
         CManipulation *this,
         const struct UpdateOnManipulationThreadArgs *a2,
-        struct InteractionLatencyTelemetry::IManipulationTelemetryData *a3)
+        struct IManipulationTelemetryData *a3)
 {
   unsigned int v5; // r12d
   char v6; // si
@@ -42,10 +42,10 @@ __int64 __fastcall CManipulation::UpdateOnManipulationThread(
   int v26; // eax
   __int64 v27; // rcx
   __int64 v28; // rcx
-  __int64 v29; // rcx
+  __int64 v29; // rdx
 
   v5 = 0;
-  CManipulation::_UpdateCaptureState((CManipulation *)((char *)this - 72), (*((_BYTE *)a2 + 16) & 4) != 0);
+  CManipulation::_UpdateCaptureState((CManipulation *)((char *)this - 64), (*((_BYTE *)a2 + 16) & 4) != 0);
   v6 = 0;
   CManipulation::_ResetManipulationThreadDataIfNecessary(v7, *(unsigned int *)a2);
   v10 = (float *)((char *)a2 + 32);
@@ -97,14 +97,14 @@ __int64 __fastcall CManipulation::UpdateOnManipulationThread(
     *(_BYTE *)(v24 + 188) ^= (*((_BYTE *)a2 + 16) ^ *(_BYTE *)(v24 + 188)) & 2;
     *(_DWORD *)(v24 + 172) = *((_DWORD *)a2 + 23);
     v26 = CManipulation::_SendUpdateToRenderThread(
-            (CManipulation *)(v24 - 72),
+            (CManipulation *)(v24 - 64),
             v22,
             (const struct UpdateOnManipulationThreadArgs *)((char *)a2 + 20),
             (const struct UpdateOnManipulationThreadArgs *)((char *)a2 + 32));
     v5 = v26;
     if ( v26 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0LL, v26, 0x68u);
+      MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0x6Au, 0LL);
     }
     else if ( a3 )
     {
@@ -118,7 +118,7 @@ __int64 __fastcall CManipulation::UpdateOnManipulationThread(
         v29 = *((unsigned int *)a2 + 17);
       if ( v29 )
 LABEL_25:
-        (*(void (__fastcall **)(struct InteractionLatencyTelemetry::IManipulationTelemetryData *))(*(_QWORD *)a3 + 56LL))(a3);
+        (*(void (__fastcall **)(struct IManipulationTelemetryData *))(*(_QWORD *)a3 + 56LL))(a3);
     }
   }
   return v5;

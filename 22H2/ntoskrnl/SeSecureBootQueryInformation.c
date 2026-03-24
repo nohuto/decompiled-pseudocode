@@ -1,9 +1,9 @@
 /*
- * XREFs of SeSecureBootQueryInformation @ 0x1407E0F60
+ * XREFs of SeSecureBootQueryInformation @ 0x14069F214
  * Callers:
- *     ExpQuerySystemInformation @ 0x1407268C0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406C9E30 (ExpQuerySystemInformation.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
+ *     memmove @ 0x140413540 (memmove.c)
  */
 
 __int64 __fastcall SeSecureBootQueryInformation(int a1, __int64 a2, unsigned int a3, unsigned int *a4)
@@ -25,8 +25,8 @@ __int64 __fastcall SeSecureBootQueryInformation(int a1, __int64 a2, unsigned int
       *a4 = 2;
       if ( a3 >= 2 )
       {
-        *(_BYTE *)a2 = dword_140C7104C & 1;
-        *(_BYTE *)(a2 + 1) = (dword_140C7104C & 8) != 0;
+        *(_BYTE *)a2 = dword_140C5463C & 1;
+        *(_BYTE *)(a2 + 1) = (dword_140C5463C & 8) != 0;
         return v5;
       }
       return (unsigned int)-1073741820;
@@ -49,8 +49,8 @@ __int64 __fastcall SeSecureBootQueryInformation(int a1, __int64 a2, unsigned int
       return (unsigned int)-1073741820;
     }
   }
-  v6 = (char *)qword_140D17F28;
-  if ( !qword_140D17F28 )
+  v6 = (char *)qword_140CF5110;
+  if ( !qword_140CF5110 )
     return (unsigned int)-2143092730;
   if ( a1 == 171 )
   {

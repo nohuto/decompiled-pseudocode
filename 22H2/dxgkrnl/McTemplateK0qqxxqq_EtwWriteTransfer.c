@@ -1,12 +1,12 @@
 /*
- * XREFs of McTemplateK0qqxxqq_EtwWriteTransfer @ 0x1C0026184
+ * XREFs of McTemplateK0qqxxqq_EtwWriteTransfer @ 0x1C00473E4
  * Callers:
- *     DxgkPresent @ 0x1C01BED90 (DxgkPresent.c)
- *     DxgkSubmitPresentToHwQueue @ 0x1C031E8D0 (DxgkSubmitPresentToHwQueue.c)
- *     DxgkPresentRedirected @ 0x1C0341B90 (DxgkPresentRedirected.c)
+ *     DxgkPresent @ 0x1C010B130 (DxgkPresent.c)
+ *     DxgkSubmitPresentToHwQueue @ 0x1C0272670 (DxgkSubmitPresentToHwQueue.c)
+ *     DxgkPresentRedirected @ 0x1C0283740 (DxgkPresentRedirected.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002568 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001FD8 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qqxxqq_EtwWriteTransfer(

@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_CheckingIfMSOSDescriptorShouldBeQueried @ 0x1C001F2F0
+ * XREFs of HUBDSM_CheckingIfMSOSDescriptorShouldBeQueried @ 0x1C001EDB0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_CheckingIfMSOSDescriptorShouldBeQueried(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall HUBDSM_CheckingIfMSOSDescriptorShouldBeQueried(__int64 a1)
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00671E8);
+         off_1C00661C0);
   if ( (*(_DWORD *)(v1 + 2464) & 1) != 0 )
     return 4061LL;
   if ( *(_DWORD *)(v2 + 8) == 1 )

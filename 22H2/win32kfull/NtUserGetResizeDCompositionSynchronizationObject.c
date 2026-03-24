@@ -1,36 +1,33 @@
 /*
- * XREFs of NtUserGetResizeDCompositionSynchronizationObject @ 0x1C00C7E60
+ * XREFs of NtUserGetResizeDCompositionSynchronizationObject @ 0x1C01175C0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastStatus @ 0x1C00132A8 (UserSetLastStatus.c)
- *     ?GetResizeDCompositionSynchronizationObject@@YAHPEAUHWND__@@PEAPEAUCompositionObject@@@Z @ 0x1C00C7F30 (-GetResizeDCompositionSynchronizationObject@@YAHPEAUHWND__@@PEAPEAUCompositionObject@@@Z.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     UserSetLastStatus @ 0x1C00EC46C (UserSetLastStatus.c)
+ *     ?GetResizeDCompositionSynchronizationObject@@YAHPEAUHWND__@@PEAPEAUCompositionObject@@@Z @ 0x1C011767C (-GetResizeDCompositionSynchronizationObject@@YAHPEAUHWND__@@PEAPEAUCompositionObject@@@Z.c)
  */
 
 __int64 __fastcall NtUserGetResizeDCompositionSynchronizationObject(HWND a1, _QWORD *a2)
 {
-  __int64 v4; // rbx
-  NTSTATUS v5; // edi
-  CompositionObject *v6; // rsi
+  __int64 v4; // rdi
+  NTSTATUS v5; // esi
+  CompositionObject *v7; // rbx
   HANDLE Handle; // [rsp+78h] [rbp+10h] BYREF
   struct CompositionObject *v9; // [rsp+80h] [rbp+18h] BYREF
 
   v4 = 0LL;
   Handle = 0LL;
   KeEnterCriticalRegion();
-  v5 = a2 == 0LL ? 0xC000000D : 0;
-  if ( a2 )
+  v5 = a2 == 0LL ? 0x57 : 0;
+  v9 = 0LL;
+  if ( (unsigned int)GetResizeDCompositionSynchronizationObject(a1, &v9) )
   {
-    v9 = 0LL;
-    if ( (unsigned int)GetResizeDCompositionSynchronizationObject(a1, &v9) )
+    v7 = v9;
+    if ( v9 )
     {
-      v6 = v9;
-      if ( v9 )
-      {
-        v5 = CompositionObject::CreateHandle(v9, 1u, 0, 0, &Handle);
-        CompositionObject::Release(v6);
-      }
+      v5 = CompositionObject::CreateHandle(v9, 1u, 0, 0, &Handle);
+      CompositionObject::Release(v7);
     }
   }
   if ( v5 < 0 )

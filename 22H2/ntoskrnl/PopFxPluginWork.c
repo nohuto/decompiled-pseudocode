@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxPluginWork @ 0x140773A30
+ * XREFs of PopFxPluginWork @ 0x14062B380
  * Callers:
  *     <none>
  * Callees:
- *     PopFxProcessWorkPool @ 0x140310E14 (PopFxProcessWorkPool.c)
+ *     PopFxProcessWorkPool @ 0x140262E94 (PopFxProcessWorkPool.c)
  */
 
 NTSTATUS __fastcall PopFxPluginWork(__int64 *a1)
 {
-  __int64 v1; // r8
+  __int64 v1; // rdx
 
   v1 = 0LL;
   do
@@ -18,5 +18,5 @@ NTSTATUS __fastcall PopFxPluginWork(__int64 *a1)
     v1 = (unsigned int)(v1 + 1);
   }
   while ( (unsigned int)v1 < 4 );
-  return PopFxProcessWorkPool(*a1, v1 + 1);
+  return PopFxProcessWorkPool(*a1, v1);
 }

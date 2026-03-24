@@ -1,5 +1,5 @@
 /*
- * XREFs of GetgpniFontsDirectoryAndScratch @ 0x1C0122B70
+ * XREFs of GetgpniFontsDirectoryAndScratch @ 0x1C0137430
  * Callers:
  *     <none>
  * Callees:

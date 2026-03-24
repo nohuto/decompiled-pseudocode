@@ -4,8 +4,8 @@
  *     IoBuildPoDeviceNotifyList @ 0x14056CE10 (IoBuildPoDeviceNotifyList.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     IoGetLowerDeviceObjectWithTag @ 0x14013668C (IoGetLowerDeviceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     IoGetLowerDeviceObjectWithTag @ 0x1401366AC (IoGetLowerDeviceObjectWithTag.c)
  */
 
 char __fastcall IopCheckDeviceFlags(__int64 a1, int a2)

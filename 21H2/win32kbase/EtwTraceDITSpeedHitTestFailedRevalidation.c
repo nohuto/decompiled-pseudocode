@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceDITSpeedHitTestFailedRevalidation @ 0x1C014CA70
+ * XREFs of EtwTraceDITSpeedHitTestFailedRevalidation @ 0x1C0121CA0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C01501A8 (McTemplateK0p_EtwWriteTransfer.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C01259C0 (McTemplateK0p_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceDITSpeedHitTestFailedRevalidation(__int64 a1)

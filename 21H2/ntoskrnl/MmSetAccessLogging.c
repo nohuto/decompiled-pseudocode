@@ -1,15 +1,15 @@
 /*
- * XREFs of MmSetAccessLogging @ 0x140376830
+ * XREFs of MmSetAccessLogging @ 0x140380B54
  * Callers:
- *     PfTAccessTracingCleanup @ 0x140A483FC (PfTAccessTracingCleanup.c)
- *     PfTAccessTracingStart @ 0x140A484F0 (PfTAccessTracingStart.c)
- *     PfTSetTracingPriority @ 0x140A6AD80 (PfTSetTracingPriority.c)
+ *     PfTAccessTracingStart @ 0x140990448 (PfTAccessTracingStart.c)
+ *     PfTAccessTracingCleanup @ 0x14099A9FC (PfTAccessTracingCleanup.c)
+ *     PfTSetTracingPriority @ 0x1409B0E2C (PfTSetTracingPriority.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KeInsertQueueDpc @ 0x140345170 (KeInsertQueueDpc.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MmSetAccessLogging(int a1, int a2)
@@ -25,9 +25,9 @@ char __fastcall MmSetAccessLogging(int a1, int a2)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&qword_140C52B80, &LockHandle);
-  dword_140C52B68 = a1;
-  dword_140C52B6C = a2;
+  KeAcquireInStackQueuedSpinLock(&qword_140C4E840, &LockHandle);
+  dword_140C4E828 = a1;
+  dword_140C4E82C = a2;
   if ( a1 )
   {
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -51,22 +51,22 @@ char __fastcall MmSetAccessLogging(int a1, int a2)
       }
     }
     __writecr8(OldIrql);
-    if ( !ListEntry )
-      LOBYTE(v4) = KeInsertQueueDpc(&stru_140C52E20, 0LL, 0LL);
+    if ( !P )
+      LOBYTE(v4) = KeInsertQueueDpc(&Dpc, 0LL, 0LL);
   }
   else
   {
-    if ( stru_140C52B48.Parameter )
+    if ( stru_140C4E808.Parameter )
     {
-      if ( stru_140C52B48.Parameter == (void *)2 )
-        stru_140C52B48.Parameter = (void *)3;
+      if ( stru_140C4E808.Parameter == (void *)2 )
+        stru_140C4E808.Parameter = (void *)3;
     }
     else
     {
-      stru_140C52B48.List.Flink = 0LL;
-      stru_140C52B48.WorkerRoutine = (void (__fastcall *)(void *))MiEmptyAccessLogs;
-      stru_140C52B48.Parameter = (void *)1;
-      ExQueueWorkItem(&stru_140C52B48, DelayedWorkQueue);
+      stru_140C4E808.List.Flink = 0LL;
+      stru_140C4E808.WorkerRoutine = (void (__fastcall *)(void *))MiEmptyAccessLogs;
+      stru_140C4E808.Parameter = (void *)1;
+      ExQueueWorkItem(&stru_140C4E808, DelayedWorkQueue);
     }
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     LOBYTE(v4) = KiIrqlFlags;

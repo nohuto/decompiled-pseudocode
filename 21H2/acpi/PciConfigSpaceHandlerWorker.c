@@ -1,194 +1,196 @@
 /*
- * XREFs of PciConfigSpaceHandlerWorker @ 0x1C000C920
+ * XREFs of PciConfigSpaceHandlerWorker @ 0x1C00184A0
  * Callers:
- *     PciConfigSpaceHandler @ 0x1C000C800 (PciConfigSpaceHandler.c)
- *     PciConfigInternal @ 0x1C001CAAC (PciConfigInternal.c)
+ *     PciConfigInternal @ 0x1C001815C (PciConfigInternal.c)
+ *     PciConfigSpaceHandler @ 0x1C0018390 (PciConfigSpaceHandler.c)
  * Callees:
- *     WPP_RECORDER_SF_Dqss @ 0x1C0004A40 (WPP_RECORDER_SF_Dqss.c)
- *     AMLIGetParent @ 0x1C000A040 (AMLIGetParent.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     GetPciAddressWorker @ 0x1C000CDE0 (GetPciAddressWorker.c)
- *     DereferenceObjectEx @ 0x1C00189F4 (DereferenceObjectEx.c)
- *     HeapFree @ 0x1C0018DD0 (HeapFree.c)
- *     GetOpRegionScope @ 0x1C001CE9C (GetOpRegionScope.c)
- *     RtlStringCchPrintfW @ 0x1C001DBA0 (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     ACPIWriteEventLogEntry @ 0x1C00543C8 (ACPIWriteEventLogEntry.c)
- *     WPP_RECORDER_SF_ss @ 0x1C005B568 (WPP_RECORDER_SF_ss.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     GetOpRegionScope @ 0x1C0017C54 (GetOpRegionScope.c)
+ *     GetPciAddressWorker @ 0x1C0018A70 (GetPciAddressWorker.c)
+ *     AMLIGetParent @ 0x1C001B348 (AMLIGetParent.c)
+ *     WPP_RECORDER_SF_Dqss @ 0x1C001DBF4 (WPP_RECORDER_SF_Dqss.c)
+ *     RtlStringCchPrintfW @ 0x1C00287E0 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIWriteEventLogEntry @ 0x1C0054C98 (ACPIWriteEventLogEntry.c)
+ *     WPP_RECORDER_SF_ss @ 0x1C005A65C (WPP_RECORDER_SF_ss.c)
  */
 
-__int64 __fastcall PciConfigSpaceHandlerWorker(__int64 a1, __int64 a2, const char *a3, unsigned int *a4)
+__int64 __fastcall PciConfigSpaceHandlerWorker(__int64 a1, void *a2, unsigned int a3, __int64 a4)
 {
-  int v4; // r13d
   ULONG BusDataByOffset; // ebp
-  unsigned int *v6; // rbx
-  __int64 v7; // rsi
-  bool v8; // cl
-  volatile signed __int32 *v9; // rax
-  __int64 v10; // r14
-  unsigned int v11; // eax
-  __int64 v12; // rdi
-  __int64 Pool2; // rax
+  unsigned int *v5; // rbx
+  __int64 v6; // rsi
+  bool v7; // cl
+  unsigned int v8; // eax
+  __int64 v9; // rdi
+  _QWORD *PoolWithTag; // rax
   int PciAddressWorker; // eax
-  int v16; // edi
-  KIRQL CurrentIrql; // al
-  KIRQL v18; // r12
-  void (__fastcall *v19)(_QWORD); // rax
-  volatile signed __int32 *v20; // rsi
-  volatile signed __int32 *v21; // rsi
-  ULONG v22; // r14d
-  __int64 v23; // r10
-  __int64 v24; // rax
-  unsigned int v25; // ecx
-  ULONG v26; // r15d
-  ULONG Length; // r15d
-  unsigned int v28; // eax
-  __int64 v29; // rcx
+  int v13; // r14d
+  unsigned __int8 CurrentIrql; // di
+  __int64 v15; // rdi
+  __int64 v16; // rdi
+  __int64 v17; // rax
+  __int64 v18; // r14
+  __int64 v19; // rcx
+  void *v20; // rax
+  void (__fastcall *v21)(_QWORD); // rax
+  ULONG v22; // r12d
+  const char *v23; // rcx
+  __int64 v24; // r10
+  ULONG v25; // r11d
+  __int64 v26; // rax
+  ULONG v27; // r13d
+  ULONG Length; // r13d
+  int v29; // eax
+  __int64 v30; // rcx
   int OpRegionScope; // eax
-  __int64 v31; // rcx
   __int64 v32; // rcx
   __int64 v33; // rcx
-  const char *v34; // rax
-  const char *v35; // rdx
-  KIRQL v36; // al
-  __int64 v37; // rax
-  __int64 v38; // rax
-  __int64 v39; // rcx
-  __int64 v40; // rcx
+  KIRQL v34; // al
+  __int64 v35; // rax
+  __int64 v36; // rax
+  unsigned __int64 v37; // rcx
+  unsigned __int64 v38; // rcx
   ULONG Offset; // [rsp+20h] [rbp-D8h]
-  int v42; // [rsp+50h] [rbp-A8h]
-  const char *v43; // [rsp+58h] [rbp-A0h]
-  _QWORD v44[2]; // [rsp+60h] [rbp-98h] BYREF
-  int v45; // [rsp+70h] [rbp-88h] BYREF
-  char v46; // [rsp+74h] [rbp-84h]
-  int v47; // [rsp+78h] [rbp-80h] BYREF
-  char v48; // [rsp+7Ch] [rbp-7Ch]
-  __int64 v49; // [rsp+80h] [rbp-78h] BYREF
-  wchar_t v50; // [rsp+88h] [rbp-70h]
-  wchar_t pszDest[16]; // [rsp+90h] [rbp-68h] BYREF
+  __int64 v40; // [rsp+40h] [rbp-B8h]
+  int v41; // [rsp+54h] [rbp-A4h]
+  int v42; // [rsp+58h] [rbp-A0h]
+  const char *v43; // [rsp+60h] [rbp-98h]
+  _QWORD v44[2]; // [rsp+68h] [rbp-90h] BYREF
+  int v45; // [rsp+78h] [rbp-80h] BYREF
+  char v46; // [rsp+7Ch] [rbp-7Ch]
+  int v47; // [rsp+80h] [rbp-78h] BYREF
+  char v48; // [rsp+84h] [rbp-74h]
+  __int64 v49; // [rsp+88h] [rbp-70h] BYREF
+  wchar_t v50; // [rsp+90h] [rbp-68h]
+  wchar_t pszDest[16]; // [rsp+98h] [rbp-60h] BYREF
 
-  v4 = 0;
   BusDataByOffset = 0;
   v49 = *(_QWORD *)L"ACPI";
-  v6 = a4;
+  v5 = (unsigned int *)a4;
   v50 = aAcpi_1[4];
-  _InterlockedIncrement((volatile signed __int32 *)a4 + 20);
+  _InterlockedIncrement((volatile signed __int32 *)(a4 + 80));
   if ( (int)a2 < 0 )
   {
-    v16 = 0;
+    v13 = 0;
     goto LABEL_19;
   }
-  if ( !*((_QWORD *)a4 + 7) )
+  if ( !*(_QWORD *)(a4 + 56) )
   {
-    v28 = a4[19];
-    if ( (v28 & 0x1000) != 0 )
-      goto LABEL_62;
-    v29 = *((_QWORD *)a4 + 1);
-    a4[19] = v28 | 0x1000;
-    OpRegionScope = GetOpRegionScope(v29, a2, a4, a4 + 14);
+    v29 = *(_DWORD *)(a4 + 76);
+    if ( (v29 & 0x1000) != 0 )
+      goto LABEL_69;
+    v30 = *(_QWORD *)(a4 + 8);
+    *(_DWORD *)(a4 + 76) = v29 | 0x1000;
+    OpRegionScope = GetOpRegionScope(v30, (__int64)a2, a4, a4 + 56);
     if ( OpRegionScope == 259 )
       return 259LL;
     if ( OpRegionScope < 0 )
     {
-      v16 = 0;
+      v13 = 0;
       goto LABEL_19;
     }
-    v31 = *((_QWORD *)v6 + 1);
-    if ( v31 )
+    v32 = *((_QWORD *)v5 + 1);
+    if ( v32 )
     {
-      *(_QWORD *)(*(_QWORD *)v31 + 104LL) = *((_QWORD *)v6 + 7);
-      v32 = *((_QWORD *)v6 + 7);
-      dword_1C0081AC8 = 0;
-      byte_1C0081ACC = 0;
+      *(_QWORD *)(*(_QWORD *)v32 + 104LL) = *((_QWORD *)v5 + 7);
+      v33 = *((_QWORD *)v5 + 7);
+      dword_1C0082908 = 0;
+      ::pszDest = 0;
       if ( (gdwfAMLI & 4) != 0 )
-        _InterlockedIncrement((volatile signed __int32 *)(v32 + 8));
+        _InterlockedIncrement((volatile signed __int32 *)(v33 + 8));
     }
   }
-  a2 = *(_QWORD *)(**((_QWORD **)v6 + 7) + 104LL);
+  a2 = *(void **)(**((_QWORD **)v5 + 7) + 104LL);
   if ( !a2 )
   {
-    v16 = 0;
+    v13 = 0;
     goto LABEL_19;
   }
-  v7 = *(_QWORD *)(a2 + 80);
-  if ( v7 )
+  v6 = *((_QWORD *)a2 + 10);
+  if ( v6 )
   {
-LABEL_16:
-    v16 = 0;
+LABEL_13:
+    v13 = 0;
     CurrentIrql = KeGetCurrentIrql();
-    v18 = CurrentIrql;
-    if ( *v6 )
+    if ( *v5 )
     {
-      if ( *v6 == 1 )
+      if ( *v5 == 1 )
       {
-        v22 = v6[4];
-        a3 = "+";
-        LODWORD(a2) = v6[5];
+        v22 = v5[4];
+        v23 = "+";
+        LODWORD(a2) = v5[5];
         v43 = "+";
-        LODWORD(v23) = 0;
+        LODWORD(v24) = 0;
         v42 = 0;
+        v25 = 0;
+        v41 = 0;
         LODWORD(a4) = v22;
-        v24 = 0LL;
-        v25 = v22;
+        v26 = 0LL;
+        a3 = v22;
         do
         {
-          v26 = *(unsigned __int16 *)((char *)&PciConfigDisallowedRanges + v24);
-          if ( v22 < v26 )
+          v27 = *(unsigned __int16 *)((char *)&PciConfigDisallowedRanges + v26);
+          if ( v22 < v27 )
           {
-            Length = v26 - v22;
+            Length = v27 - v22;
             if ( (unsigned int)a2 + (_DWORD)a4 - v22 <= Length )
-              Length = a2 + (_DWORD)a4 - v22;
-            if ( v7 )
+              Length = (_DWORD)a2 + a4 - v22;
+            if ( v6 )
             {
-              if ( v18 < 2u )
+              if ( CurrentIrql < 2u )
               {
-                v36 = KfRaiseIrql(2u);
-                LODWORD(a4) = v6[4];
-                v18 = v36;
+                v34 = KfRaiseIrql(2u);
+                LODWORD(a4) = v5[4];
+                CurrentIrql = v34;
               }
               Offset = Length;
-              BusDataByOffset += (*(__int64 (__fastcall **)(_QWORD, _QWORD, unsigned __int64, _QWORD))(v7 + 48))(
-                                   *(_QWORD *)(v7 + 8),
+              BusDataByOffset += (*(__int64 (__fastcall **)(_QWORD, _QWORD, unsigned __int64, _QWORD))(v6 + 48))(
+                                   *(_QWORD *)(v6 + 8),
                                    0LL,
-                                   *((_QWORD *)v6 + 3) + 4 * (v22 - (unsigned __int64)(unsigned int)a4),
+                                   *((_QWORD *)v5 + 3) + 4 * (v22 - (unsigned __int64)(unsigned int)a4),
                                    v22);
-              if ( v18 < 2u )
-                KeLowerIrql(v18);
+              if ( CurrentIrql < 2u )
+                KeLowerIrql(CurrentIrql);
             }
             else
             {
               BusDataByOffset += HalSetBusDataByOffset(
                                    PCIConfiguration,
-                                   v6[22],
-                                   v6[21],
-                                   (PVOID)(*((_QWORD *)v6 + 3) + 4 * (v22 - (unsigned __int64)(unsigned int)a4)),
+                                   v5[22],
+                                   v5[21],
+                                   (PVOID)(*((_QWORD *)v5 + 3) + 4 * (v22 - (unsigned __int64)(unsigned int)a4)),
                                    v22,
                                    Length);
             }
-            v25 = v6[4];
-            a3 = v43;
-            v4 += Length;
-            LODWORD(v23) = v42;
+            a3 = v5[4];
+            v25 = Length + v41;
+            v23 = v43;
+            LODWORD(v24) = v42;
+            v41 += Length;
           }
-          v22 = v25;
-          LODWORD(a2) = v6[5];
-          LODWORD(a4) = v25;
-          if ( v25 <= (unsigned int)*(unsigned __int16 *)a3 + 1 )
-            v22 = *(unsigned __int16 *)a3 + 1;
-          if ( v22 >= (unsigned int)a2 + v25 )
+          v22 = a3;
+          LODWORD(a2) = v5[5];
+          LODWORD(a4) = a3;
+          if ( a3 <= (unsigned int)*(unsigned __int16 *)v23 + 1 )
+            v22 = *(unsigned __int16 *)v23 + 1;
+          if ( v22 >= (unsigned int)a2 + a3 )
             break;
-          v23 = (unsigned int)(v23 + 1);
-          v42 = v23;
-          v24 = 4 * v23;
-          a3 = (char *)&PciConfigDisallowedRanges + 4 * v23 + 2;
-          v43 = a3;
+          v24 = (unsigned int)(v24 + 1);
+          v42 = v24;
+          v26 = 4 * v24;
+          v23 = (char *)&PciConfigDisallowedRanges + 4 * v24 + 2;
+          v43 = v23;
         }
-        while ( *(_WORD *)a3 );
-        if ( !v4 )
+        while ( *(_WORD *)v23 );
+        v13 = 0;
+        if ( !v25 )
         {
-          RtlStringCchPrintfW(pszDest, 0xDuLL, L"0x%x", v25);
+          RtlStringCchPrintfW(pszDest, 0xDuLL, L"0x%x", a3);
           v44[0] = &v49;
           v44[1] = pszDest;
           ACPIWriteEventLogEntry(3221553162LL, v44, 2LL);
@@ -196,180 +198,187 @@ LABEL_16:
       }
       else
       {
-        v16 = -1073741822;
+        v13 = -1073741822;
       }
     }
-    else if ( v7 )
+    else if ( v6 )
     {
       if ( CurrentIrql < 2u )
-        v18 = KfRaiseIrql(2u);
-      Offset = v6[5];
-      BusDataByOffset = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD))(v7 + 56))(
-                          *(_QWORD *)(v7 + 8),
+        CurrentIrql = KfRaiseIrql(2u);
+      Offset = v5[5];
+      BusDataByOffset = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD))(v6 + 56))(
+                          *(_QWORD *)(v6 + 8),
                           0LL,
-                          *((_QWORD *)v6 + 3),
-                          v6[4]);
-      if ( v18 < 2u )
-        KeLowerIrql(v18);
+                          *((_QWORD *)v5 + 3),
+                          v5[4]);
+      if ( CurrentIrql < 2u )
+        KeLowerIrql(CurrentIrql);
     }
     else
     {
-      BusDataByOffset = HalGetBusDataByOffset(PCIConfiguration, v6[22], v6[21], *((PVOID *)v6 + 3), v6[4], v6[5]);
+      BusDataByOffset = HalGetBusDataByOffset(PCIConfiguration, v5[22], v5[21], *((PVOID *)v5 + 3), v5[4], v5[5]);
     }
     goto LABEL_19;
   }
-  v8 = (_InterlockedCompareExchange((volatile signed __int32 *)(a2 + 184), 0, 0) & 1) == 0;
-  if ( (v8 & ((_InterlockedCompareExchange((volatile signed __int32 *)(a2 + 88), 0, 0) & 2) == 0)) == 0 )
-    goto LABEL_9;
-  v9 = (volatile signed __int32 *)AMLIGetParent(*((_QWORD *)v6 + 7));
-  if ( !v9 )
+  v7 = (_InterlockedCompareExchange((volatile signed __int32 *)a2 + 46, 0, 0) & 1) == 0;
+  if ( (v7 & ((_InterlockedCompareExchange((volatile signed __int32 *)a2 + 22, 0, 0) & 2) == 0)) == 0 )
+    goto LABEL_6;
+  v17 = AMLIGetParent(*((_QWORD *)v5 + 7));
+  if ( !v17 )
   {
-LABEL_62:
-    v16 = -1073741772;
+LABEL_69:
+    v13 = -1073741772;
     goto LABEL_19;
   }
-  v10 = *(_QWORD *)(*(_QWORD *)v9 + 104LL);
-  AMLIDereferenceHandleEx(v9);
-  if ( !v10 )
+  v18 = *(_QWORD *)(*(_QWORD *)v17 + 104LL);
+  AMLIDereferenceHandleEx(v17);
+  if ( !v18 )
   {
-    v16 = -1073741772;
+    v13 = -1073741772;
     goto LABEL_19;
   }
-  if ( (_InterlockedCompareExchange((volatile signed __int32 *)(v10 + 184), 0, 0) & 1) == 0 )
+  if ( (_InterlockedCompareExchange((volatile signed __int32 *)(v18 + 184), 0, 0) & 1) == 0 )
   {
-    v33 = *(_QWORD *)(v10 + 8);
-    v34 = (const char *)&unk_1C006FB8B;
-    v35 = (const char *)&unk_1C006FB8B;
-    if ( (v33 & 0x200000000000LL) != 0 )
+    v19 = *(_QWORD *)(v18 + 8);
+    v20 = &unk_1C00701BA;
+    a3 = 0;
+    a2 = &unk_1C00701BA;
+    if ( (v19 & 0x200000000000LL) != 0 )
     {
-      v34 = *(const char **)(v10 + 608);
-      if ( (v33 & 0x400000000000LL) != 0 )
-        v35 = *(const char **)(v10 + 616);
+      v20 = *(void **)(v18 + 568);
+      a3 = 0;
+      if ( (v19 & 0x400000000000LL) != 0 )
+        a2 = *(void **)(v18 + 576);
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v40 = (__int64)a2;
+      LOBYTE(a2) = 2;
       WPP_RECORDER_SF_Dqss(
-        (__int64)WPP_GLOBAL_Control->DeviceExtension,
-        2u,
-        0x15u,
-        0xAu,
-        (__int64)&WPP_94f6cc7e4eb03ed98099c561227e81da_Traceguids,
+        WPP_GLOBAL_Control->DeviceExtension,
+        (_DWORD)a2,
+        21,
+        10,
+        (__int64)&WPP_ae57f2233dfb3a91da68ac54a8788e80_Traceguids,
         1,
-        v10,
-        v34,
-        v35);
+        v18,
+        (__int64)v20,
+        v40);
+    }
   }
-LABEL_9:
-  v11 = v6[19];
-  if ( (v11 & 0x100) != 0 )
-    goto LABEL_16;
-  v12 = *((_QWORD *)v6 + 7);
-  v6[19] = v11 | 0x100;
-  Pool2 = ExAllocatePool2(64LL, 72LL, 1181770561LL);
-  LODWORD(a4) = Pool2;
-  if ( Pool2 )
+LABEL_6:
+  v8 = v5[19];
+  if ( (v8 & 0x100) != 0 )
+    goto LABEL_13;
+  v9 = *((_QWORD *)v5 + 7);
+  v5[19] = v8 | 0x100;
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x48uLL, 0x46706341u);
+  LODWORD(a4) = (_DWORD)PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_QWORD *)Pool2 = v12;
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
+    PoolWithTag[1] = 0LL;
+    PoolWithTag[2] = 0LL;
+    PoolWithTag[3] = 0LL;
+    PoolWithTag[4] = 0LL;
+    PoolWithTag[5] = 0LL;
+    PoolWithTag[6] = 0LL;
+    PoolWithTag[7] = 0LL;
+    PoolWithTag[8] = 0LL;
+    *PoolWithTag = v9;
+    dword_1C0082908 = 0;
+    ::pszDest = 0;
     if ( (gdwfAMLI & 4) != 0 )
-      _InterlockedIncrement((volatile signed __int32 *)(v12 + 8));
-    *(_QWORD *)(Pool2 + 64) = v6;
-    *(_QWORD *)(Pool2 + 56) = PciConfigSpaceHandlerWorker;
-    *(_DWORD *)(Pool2 + 48) = -1;
-    *(_QWORD *)(Pool2 + 8) = v6 + 22;
-    *(_QWORD *)(Pool2 + 16) = v6 + 21;
-    PciAddressWorker = GetPciAddressWorker(v12, 0LL, 0LL);
+      _InterlockedIncrement((volatile signed __int32 *)(v9 + 8));
+    PoolWithTag[8] = v5;
+    PoolWithTag[7] = PciConfigSpaceHandlerWorker;
+    *((_DWORD *)PoolWithTag + 12) = -1;
+    PoolWithTag[1] = v5 + 22;
+    PoolWithTag[2] = v5 + 21;
+    PciAddressWorker = GetPciAddressWorker(v9, 0LL, 0LL);
     if ( PciAddressWorker == 259 )
       return 259LL;
     if ( PciAddressWorker >= 0 )
-      goto LABEL_16;
+      goto LABEL_13;
   }
-  v16 = 0;
+  v13 = 0;
 LABEL_19:
-  if ( !*v6 && !BusDataByOffset )
-    memset(*((void **)v6 + 3), 255, v6[5]);
-  if ( v6[20] )
+  if ( !*v5 && !BusDataByOffset )
+    memset(*((void **)v5 + 3), 255, v5[5]);
+  if ( v5[20] )
   {
-    v19 = (void (__fastcall *)(_QWORD))*((_QWORD *)v6 + 5);
-    if ( v6[18] )
-      ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))v19)(
-        *((_QWORD *)v6 + 7),
-        (unsigned int)v16,
+    v21 = (void (__fastcall *)(_QWORD))*((_QWORD *)v5 + 5);
+    if ( v5[18] )
+      ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))v21)(
+        *((_QWORD *)v5 + 7),
+        (unsigned int)v13,
         0LL,
-        *((_QWORD *)v6 + 6));
+        *((_QWORD *)v5 + 6));
     else
-      v19(*((_QWORD *)v6 + 6));
+      v21(*((_QWORD *)v5 + 6));
   }
-  if ( v16 < 0 )
+  if ( v13 < 0 )
   {
     v47 = 0;
     v48 = 0;
     v45 = 0;
     v46 = 0;
-    v37 = *((_QWORD *)v6 + 1);
-    if ( v37 )
+    v35 = *((_QWORD *)v5 + 1);
+    if ( v35 )
     {
-      dword_1C00819A0 = *(_DWORD *)(*(_QWORD *)v37 + 40LL);
-      byte_1C00819A4 = 0;
-      v47 = dword_1C00819A0;
+      dword_1C0082780 = *(_DWORD *)(*(_QWORD *)v35 + 40LL);
+      byte_1C0082784 = 0;
+      v47 = dword_1C0082780;
     }
-    v38 = *((_QWORD *)v6 + 7);
-    if ( v38 )
+    v36 = *((_QWORD *)v5 + 7);
+    if ( v36 )
     {
-      dword_1C00819A0 = *(_DWORD *)(*(_QWORD *)v38 + 40LL);
-      byte_1C00819A4 = 0;
-      v45 = dword_1C00819A0;
+      dword_1C0082780 = *(_DWORD *)(*(_QWORD *)v36 + 40LL);
+      byte_1C0082784 = 0;
+      v45 = dword_1C0082780;
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_ss(
-        WPP_GLOBAL_Control->DeviceExtension,
-        a2,
-        (_DWORD)a3,
-        (_DWORD)a4,
-        Offset,
-        (__int64)&v47,
-        (__int64)&v45);
+      WPP_RECORDER_SF_ss(WPP_GLOBAL_Control->DeviceExtension, (_DWORD)a2, a3, a4, Offset, (__int64)&v47, (__int64)&v45);
   }
-  v20 = (volatile signed __int32 *)*((_QWORD *)v6 + 1);
-  if ( v20 )
+  v15 = *((_QWORD *)v5 + 1);
+  if ( v15 )
   {
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
-    if ( (gdwfAMLI & 4) != 0 && _InterlockedExchangeAdd(v20 + 2, 0xFFFFFFFF) == 1 )
+    dword_1C0082908 = 0;
+    ::pszDest = 0;
+    if ( (gdwfAMLI & 4) != 0 && _InterlockedExchangeAdd((volatile signed __int32 *)(v15 + 8), 0xFFFFFFFF) == 1 )
     {
-      v39 = *(_QWORD *)v20;
-      if ( v20 == (volatile signed __int32 *)(*(_QWORD *)v20 + 120LL) )
+      v37 = *(_QWORD *)v15;
+      if ( v15 == *(_QWORD *)v15 + 120LL )
       {
-        DereferenceObjectEx(v39);
+        DereferenceObjectEx(v37);
       }
       else
       {
-        DereferenceObjectEx(v39);
-        HeapFree(v20);
+        DereferenceObjectEx(v37);
+        HeapFree((_QWORD *)v15);
       }
     }
-    *((_QWORD *)v6 + 1) = 0LL;
+    *((_QWORD *)v5 + 1) = 0LL;
   }
-  v21 = (volatile signed __int32 *)*((_QWORD *)v6 + 7);
-  if ( v21 )
+  v16 = *((_QWORD *)v5 + 7);
+  if ( v16 )
   {
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
-    if ( (gdwfAMLI & 4) != 0 && _InterlockedExchangeAdd(v21 + 2, 0xFFFFFFFF) == 1 )
+    dword_1C0082908 = 0;
+    ::pszDest = 0;
+    if ( (gdwfAMLI & 4) != 0 && _InterlockedExchangeAdd((volatile signed __int32 *)(v16 + 8), 0xFFFFFFFF) == 1 )
     {
-      v40 = *(_QWORD *)v21;
-      if ( v21 == (volatile signed __int32 *)(*(_QWORD *)v21 + 120LL) )
+      v38 = *(_QWORD *)v16;
+      if ( v16 == *(_QWORD *)v16 + 120LL )
       {
-        DereferenceObjectEx(v40);
+        DereferenceObjectEx(v38);
       }
       else
       {
-        DereferenceObjectEx(v40);
-        HeapFree(v21);
+        DereferenceObjectEx(v38);
+        HeapFree((_QWORD *)v16);
       }
     }
-    *((_QWORD *)v6 + 7) = 0LL;
+    *((_QWORD *)v5 + 7) = 0LL;
   }
-  ExFreePoolWithTag(v6, 0x46706341u);
-  return (unsigned int)v16;
+  ExFreePoolWithTag(v5, 0x46706341u);
+  return (unsigned int)v13;
 }

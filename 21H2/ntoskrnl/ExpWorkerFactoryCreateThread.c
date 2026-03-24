@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpWorkerFactoryCreateThread @ 0x1402D5484
+ * XREFs of ExpWorkerFactoryCreateThread @ 0x140286A28
  * Callers:
- *     NtSetInformationWorkerFactory @ 0x1402D4530 (NtSetInformationWorkerFactory.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1402F8420 (ExpWorkerFactoryCheckCreate.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x140242EF0 (ExpWorkerFactoryCheckCreate.c)
+ *     NtSetInformationWorkerFactory @ 0x140285C70 (NtSetInformationWorkerFactory.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ZwSetInformationThread @ 0x14041B900 (ZwSetInformationThread.c)
- *     ZwResumeThread @ 0x14041C1A0 (ZwResumeThread.c)
- *     RtlpCreateUserThreadEx @ 0x14074F4F0 (RtlpCreateUserThreadEx.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwSetInformationThread @ 0x1403FA540 (ZwSetInformationThread.c)
+ *     ZwResumeThread @ 0x1403FADE0 (ZwResumeThread.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     RtlpCreateUserThreadEx @ 0x14067F1E0 (RtlpCreateUserThreadEx.c)
  */
 
 __int64 __fastcall ExpWorkerFactoryCreateThread(__int64 a1)
@@ -43,20 +43,20 @@ __int64 __fastcall ExpWorkerFactoryCreateThread(__int64 a1)
   int v25; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+70h] [rbp+17h] BYREF
 
-  v1 = *(_DWORD *)(a1 + 408);
+  v1 = *(_DWORD *)(a1 + 312);
   memset(&LockHandle, 0, sizeof(LockHandle));
   CurrentThread = KeGetCurrentThread();
   v3 = 128;
   v4 = (v1 & 0x800 | 0x80u) >> 7;
   --CurrentThread->KernelApcDisable;
   v6 = (struct _EX_RUNDOWN_REF *)(a1 + 104);
-  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 104)) )
+  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 104)) )
   {
     KeAcquireInStackQueuedSpinLock(*(PKSPIN_LOCK *)(a1 + 16), &LockHandle);
     if ( !*(_BYTE *)(*(_QWORD *)(a1 + 16) + 33LL) )
     {
-      ++*(_DWORD *)(a1 + 392);
-      v7 = *(_DWORD *)(a1 + 408);
+      ++*(_DWORD *)(a1 + 296);
+      v7 = *(_DWORD *)(a1 + 312);
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       OldIrql = LockHandle.OldIrql;
       if ( KiIrqlFlags )
@@ -78,14 +78,14 @@ __int64 __fastcall ExpWorkerFactoryCreateThread(__int64 a1)
       }
       __writecr8(OldIrql);
       UserThread = RtlpCreateUserThreadEx(*(_QWORD *)(a1 + 40), 0, v4, 0, *(_QWORD *)(a1 + 56), *(_QWORD *)(a1 + 64));
-      *(_DWORD *)(a1 + 416) = UserThread;
+      *(_DWORD *)(a1 + 320) = UserThread;
       v3 = UserThread;
       if ( UserThread >= 0 )
       {
         if ( (v7 & 0x8000) == 0 )
         {
           KeAcquireInStackQueuedSpinLock(*(PKSPIN_LOCK *)(a1 + 16), &LockHandle);
-          *(_DWORD *)(a1 + 408) |= 0x8000u;
+          *(_DWORD *)(a1 + 312) |= 0x8000u;
           KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
           v11 = LockHandle.OldIrql;
           if ( KiIrqlFlags )
@@ -107,9 +107,9 @@ __int64 __fastcall ExpWorkerFactoryCreateThread(__int64 a1)
           }
           __writecr8(v11);
         }
-        if ( *(_DWORD *)(a1 + 412) )
-          ZwSetInformationThread(0LL, ThreadBasePriority, (PVOID)(a1 + 412), 4u);
-        if ( (*(_DWORD *)(a1 + 408) & 0x4000) != 0 )
+        if ( *(_DWORD *)(a1 + 316) )
+          ZwSetInformationThread(0LL, ThreadBasePriority, (PVOID)(a1 + 316), 4u);
+        if ( (*(_DWORD *)(a1 + 312) & 0x4000) != 0 )
           ZwSetInformationThread(
             0LL,
             ThreadSuspendCount|ThreadAffinityMask,
@@ -118,11 +118,11 @@ __int64 __fastcall ExpWorkerFactoryCreateThread(__int64 a1)
         v3 = ZwResumeThread(0LL, 0LL);
         ObCloseHandle(0LL, 0);
 LABEL_11:
-        ExReleaseRundownProtection(v6);
+        ExReleaseRundownProtection_0(v6);
         goto LABEL_12;
       }
       KeAcquireInStackQueuedSpinLock(*(PKSPIN_LOCK *)(a1 + 16), &LockHandle);
-      --*(_DWORD *)(a1 + 392);
+      --*(_DWORD *)(a1 + 296);
     }
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     v12 = LockHandle.OldIrql;
@@ -147,6 +147,6 @@ LABEL_11:
     goto LABEL_11;
   }
 LABEL_12:
-  KiLeaveCriticalRegionUnsafe(KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v3;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpCompareUnicodeString @ 0x1406B65B8
+ * XREFs of CmpCompareUnicodeString @ 0x1406B6598
  * Callers:
  *     CmpFindKcbInHashEntryByName @ 0x1405D639C (CmpFindKcbInHashEntryByName.c)
  *     CmpGetSymbolicLinkTarget @ 0x1405D7CC0 (CmpGetSymbolicLinkTarget.c)
  *     CmpCheckValueList @ 0x1405D9450 (CmpCheckValueList.c)
  *     CmpPerformCompleteKcbCacheLookup @ 0x1405E5320 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpGetMappingHiveForString @ 0x1407F3394 (CmpGetMappingHiveForString.c)
- *     CmpCompareKeysByName @ 0x1407F9704 (CmpCompareKeysByName.c)
+ *     CmpGetMappingHiveForString @ 0x1407F3374 (CmpGetMappingHiveForString.c)
+ *     CmpCompareKeysByName @ 0x1407F96E4 (CmpCompareKeysByName.c)
  * Callees:
  *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
  */

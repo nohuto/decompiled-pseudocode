@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_ECPoolBufferResource@@UEAAPEAXI@Z @ 0x1C007EF10
+ * XREFs of ??_ECPoolBufferResource@@UEAAPEAXI@Z @ 0x1C006DB20
  * Callers:
  *     <none>
  * Callees:
- *     ??1CPoolBufferResource@@UEAA@XZ @ 0x1C007EDFC (--1CPoolBufferResource@@UEAA@XZ.c)
+ *     ??1CPoolBufferResource@@UEAA@XZ @ 0x1C006DA84 (--1CPoolBufferResource@@UEAA@XZ.c)
  */
 
 PVOID *__fastcall CPoolBufferResource::`vector deleting destructor'(PVOID *P, char a2)

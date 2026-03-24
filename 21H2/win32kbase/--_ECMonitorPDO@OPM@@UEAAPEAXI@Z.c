@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_ECMonitorPDO@OPM@@UEAAPEAXI@Z @ 0x1C0169380
+ * XREFs of ??_ECMonitorPDO@OPM@@UEAAPEAXI@Z @ 0x1C013BF30
  * Callers:
  *     <none>
  * Callees:
- *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C005CF6C (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
- *     ??1CMonitorPDO@OPM@@UEAA@XZ @ 0x1C0169330 (--1CMonitorPDO@OPM@@UEAA@XZ.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C008B00C (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ??1CMonitorPDO@OPM@@UEAA@XZ @ 0x1C013BEE0 (--1CMonitorPDO@OPM@@UEAA@XZ.c)
  */
 
 char *__fastcall OPM::CMonitorPDO::`vector deleting destructor'(char *P, char a2)

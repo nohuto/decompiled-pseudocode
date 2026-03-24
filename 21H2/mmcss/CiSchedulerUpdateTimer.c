@@ -1,11 +1,11 @@
 /*
- * XREFs of CiSchedulerUpdateTimer @ 0x1C0001F80
+ * XREFs of CiSchedulerUpdateTimer @ 0x1C0002990
  * Callers:
- *     CiSchedulerSleep @ 0x1C0001220 (CiSchedulerSleep.c)
- *     CiSchedulerProcessDeadlines @ 0x1C00013B0 (CiSchedulerProcessDeadlines.c)
- *     CiSchedulerWait @ 0x1C0001630 (CiSchedulerWait.c)
- *     CiSchedulerRemoveTaskIndex @ 0x1C0002CB0 (CiSchedulerRemoveTaskIndex.c)
- *     CiSchedulerPostSuspend @ 0x1C0004E0C (CiSchedulerPostSuspend.c)
+ *     CiSchedulerSleep @ 0x1C0001DB0 (CiSchedulerSleep.c)
+ *     CiSchedulerProcessDeadlines @ 0x1C0001F40 (CiSchedulerProcessDeadlines.c)
+ *     CiSchedulerWait @ 0x1C00021A0 (CiSchedulerWait.c)
+ *     CiSchedulerRemoveTaskIndex @ 0x1C0002A80 (CiSchedulerRemoveTaskIndex.c)
+ *     CiSchedulerPostSuspend @ 0x1C0004B5C (CiSchedulerPostSuspend.c)
  * Callees:
  *     <none>
  */

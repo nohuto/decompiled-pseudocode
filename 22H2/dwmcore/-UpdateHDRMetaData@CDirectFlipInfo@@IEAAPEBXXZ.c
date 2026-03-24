@@ -1,52 +1,39 @@
 /*
- * XREFs of ?UpdateHDRMetaData@CDirectFlipInfo@@IEAAPEBXXZ @ 0x1801F7794
+ * XREFs of ?UpdateHDRMetaData@CDirectFlipInfo@@IEAAPEBXXZ @ 0x1801842C8
  * Callers:
- *     ?Present@CDirectFlipInfo@@IEAAJPEAVIOverlaySwapChain@@IAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@1@Z @ 0x1801F73E8 (-Present@CDirectFlipInfo@@IEAAJPEAVIOverlaySwapChain@@IAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@U.c)
+ *     ?Present@CDirectFlipInfo@@IEAAJPEAVIOverlaySwapChain@@IAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@1@Z @ 0x1800EC604 (-Present@CDirectFlipInfo@@IEAAJPEAVIOverlaySwapChain@@IAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@U.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memcmp_0 @ 0x18011B98C (memcmp_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memcmp_0 @ 0x1800F3FFF (memcmp_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 const void *__fastcall CDirectFlipInfo::UpdateHDRMetaData(CDirectFlipInfo *this)
 {
   __int64 v2; // rcx
-  const void *v3; // rdi
-  int v4; // esi
-  char *v5; // rbx
+  int v3; // ebx
+  __int64 v4; // xmm1_8
   const void *result; // rax
-  int v7; // ecx
-  __int64 v8; // xmm1_8
-  __int128 Buf2; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v10; // [rsp+30h] [rbp-38h]
-  int v11; // [rsp+38h] [rbp-30h]
+  int v6; // ecx
+  __int128 Buf2; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v8; // [rsp+30h] [rbp-28h]
+  int v9; // [rsp+38h] [rbp-20h]
 
   v2 = *((_QWORD *)this + 2);
   Buf2 = 0LL;
-  v10 = 0LL;
-  v3 = 0LL;
-  v11 = 0;
-  v4 = (*(unsigned __int8 (__fastcall **)(__int64, __int128 *))(*(_QWORD *)v2 + 392LL))(v2, &Buf2) != 0;
-  if ( *((_DWORD *)this + 18) == v4 )
-  {
-    if ( v4 != 1 )
-      return 0LL;
-    v5 = (char *)this + 76;
-    if ( !memcmp_0((char *)this + 76, &Buf2, 0x1CuLL) )
-      return 0LL;
-  }
-  else
-  {
-    v5 = (char *)this + 76;
-  }
-  v7 = v11;
-  v8 = v10;
-  *(_OWORD *)v5 = Buf2;
-  if ( v4 == 1 )
-    v3 = v5;
-  *((_DWORD *)this + 18) = v4;
-  *((_QWORD *)v5 + 2) = v8;
-  result = v3;
-  *((_DWORD *)v5 + 6) = v7;
+  v8 = 0LL;
+  v9 = 0;
+  v3 = (*(unsigned __int8 (__fastcall **)(__int64, __int128 *))(*(_QWORD *)v2 + 288LL))(v2, &Buf2) != 0;
+  if ( *((_DWORD *)this + 16) == v3 && (v3 != 1 || !memcmp_0((char *)this + 68, &Buf2, 0x1CuLL)) )
+    return 0LL;
+  v4 = v8;
+  result = (char *)this + 68;
+  v6 = v9;
+  *((_DWORD *)this + 16) = v3;
+  *(_OWORD *)((char *)this + 68) = Buf2;
+  *(_QWORD *)((char *)this + 84) = v4;
+  *((_DWORD *)this + 23) = v6;
+  if ( v3 != 1 )
+    return 0LL;
   return result;
 }

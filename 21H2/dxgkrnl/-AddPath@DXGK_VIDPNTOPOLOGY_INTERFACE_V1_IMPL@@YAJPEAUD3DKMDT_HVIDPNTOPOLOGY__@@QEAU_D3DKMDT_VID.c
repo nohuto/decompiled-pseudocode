@@ -1,18 +1,18 @@
 /*
- * XREFs of ?AddPath@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEAU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C03A6910
+ * XREFs of ?AddPath@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@QEAU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C02E7C00
  * Callers:
  *     <none>
  * Callees:
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDPNTOPOLOGY@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@@@SAPEAVDMMVIDPNTOPOLOGY@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@@Z @ 0x1C0010C88 (-GetFromHandle@-$ExposedViaHandle@VDMMVIDPNTOPOLOGY@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@@@SAPEAVDMMVI.c)
- *     ??1?$auto_ptr@VDMMVIDPNPRESENTPATH@@@@QEAA@XZ @ 0x1C00114FC (--1-$auto_ptr@VDMMVIDPNPRESENTPATH@@@@QEAA@XZ.c)
- *     ?reset@?$auto_ptr@VDMMVIDPNPRESENTPATH@@@@QEAAXPEAVDMMVIDPNPRESENTPATH@@@Z @ 0x1C0011528 (-reset@-$auto_ptr@VDMMVIDPNPRESENTPATH@@@@QEAAXPEAVDMMVIDPNPRESENTPATH@@@Z.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?ReleaseDdiEnumerator@DMMVIDPNTOPOLOGY@@QEAAJPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C0189954 (-ReleaseDdiEnumerator@DMMVIDPNTOPOLOGY@@QEAAJPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z.c)
- *     ?AddPath@DMMVIDPNTOPOLOGY@@QEAAJPEAVDMMVIDPNPRESENTPATH@@W4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@@Z @ 0x1C01A85C4 (-AddPath@DMMVIDPNTOPOLOGY@@QEAAJPEAVDMMVIDPNPRESENTPATH@@W4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@.c)
- *     ?CreateNewPath@DMMVIDPNTOPOLOGY@@QEBAJAEBU_D3DKMDT_VIDPN_PRESENT_PATH@@PEAPEAVDMMVIDPNPRESENTPATH@@@Z @ 0x1C03A53AC (-CreateNewPath@DMMVIDPNTOPOLOGY@@QEBAJAEBU_D3DKMDT_VIDPN_PRESENT_PATH@@PEAPEAVDMMVIDPNPRESENTPAT.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ??1?$auto_ptr@VDMMVIDPNPRESENTPATH@@@@QEAA@XZ @ 0x1C0007DF8 (--1-$auto_ptr@VDMMVIDPNPRESENTPATH@@@@QEAA@XZ.c)
+ *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDPNTOPOLOGY@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@@@SAPEAVDMMVIDPNTOPOLOGY@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@@Z @ 0x1C0007F38 (-GetFromHandle@-$ExposedViaHandle@VDMMVIDPNTOPOLOGY@@PEAUD3DKMDT_HVIDPNTOPOLOGY__@@@@SAPEAVDMMVI.c)
+ *     ?reset@?$auto_ptr@VDMMVIDPNPRESENTPATH@@@@QEAAXPEAVDMMVIDPNPRESENTPATH@@@Z @ 0x1C00081F0 (-reset@-$auto_ptr@VDMMVIDPNPRESENTPATH@@@@QEAAXPEAVDMMVIDPNPRESENTPATH@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?AddPath@DMMVIDPNTOPOLOGY@@QEAAJPEAVDMMVIDPNPRESENTPATH@@W4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@@Z @ 0x1C0124768 (-AddPath@DMMVIDPNTOPOLOGY@@QEAAJPEAVDMMVIDPNPRESENTPATH@@W4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@.c)
+ *     ?CreateNewPath@DMMVIDPNTOPOLOGY@@QEBAJAEBU_D3DKMDT_VIDPN_PRESENT_PATH@@PEAPEAVDMMVIDPNPRESENTPATH@@@Z @ 0x1C014B590 (-CreateNewPath@DMMVIDPNTOPOLOGY@@QEBAJAEBU_D3DKMDT_VIDPN_PRESENT_PATH@@PEAPEAVDMMVIDPNPRESENTPAT.c)
+ *     ?ReleaseDdiEnumerator@DMMVIDPNTOPOLOGY@@QEAAJPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C015AFF8 (-ReleaseDdiEnumerator@DMMVIDPNTOPOLOGY@@QEAAJPEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z.c)
  */
 
 __int64 __fastcall DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL::AddPath(
@@ -20,57 +20,82 @@ __int64 __fastcall DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL::AddPath(
         struct D3DKMDT_HVIDPNTOPOLOGY__ *a2,
         struct _D3DKMDT_VIDPN_PRESENT_PATH *const a3)
 {
+  __int64 v4; // rdi
   __int64 v5; // rdx
   __int64 v6; // rcx
-  unsigned int v7; // edi
-  _QWORD *v8; // rax
-  DMMVIDPNTOPOLOGY *v9; // r14
-  int v10; // eax
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // rsi
-  _QWORD *v14; // rax
-  int v15; // eax
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  int v19; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v20; // [rsp+38h] [rbp-18h]
-  char v21; // [rsp+40h] [rbp-10h]
-  struct DMMVIDPNPRESENTPATH *v22; // [rsp+88h] [rbp+38h] BYREF
-  struct DMMVIDPNPRESENTPATH *v23; // [rsp+90h] [rbp+40h] BYREF
+  __int64 v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  _QWORD *v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  DMMVIDPNTOPOLOGY *v15; // r14
+  __int64 v16; // rax
+  __int64 v17; // rax
+  _QWORD *v18; // rax
+  _QWORD *v19; // rax
+  int v20; // eax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  __int64 v24; // r9
+  __int64 v25; // rsi
+  _QWORD *v26; // rax
+  _QWORD *v27; // rax
+  __int64 v28; // r9
+  int v29; // eax
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  _QWORD *v32; // rax
+  __int64 v33; // rcx
+  __int64 v34; // r8
+  int v36; // [rsp+20h] [rbp-20h] BYREF
+  __int64 v37; // [rsp+28h] [rbp-18h]
+  char v38; // [rsp+30h] [rbp-10h]
+  struct DMMVIDPNPRESENTPATH *v39; // [rsp+78h] [rbp+38h] BYREF
+  struct DMMVIDPNPRESENTPATH *v40; // [rsp+80h] [rbp+40h] BYREF
 
-  v19 = -1;
-  v20 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v36 = -1;
+  v4 = (__int64)this;
+  v37 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v21 = 1;
-    v19 = 7041;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v38 = 1;
+    v36 = 7041;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, (__int64)a3, 7041);
   }
   else
   {
-    v21 = 0;
+    v38 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v19, 7041);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v36, 7041LL);
   if ( a2 )
   {
-    v8 = (_QWORD *)WdLogNewEntry5_WdTrace(v6, v5);
-    v8[3] = *(_DWORD *)a2;
-    v8[4] = *((unsigned int *)a2 + 1);
-    v8[5] = a2;
-    v8[6] = this;
-    v9 = (DMMVIDPNTOPOLOGY *)ExposedViaHandle<DMMVIDPNTOPOLOGY,D3DKMDT_HVIDPNTOPOLOGY__ *>::GetFromHandle((__int64)this);
-    if ( v9 )
+    v11 = (_QWORD *)WdLogNewEntry5_WdTrace(v6, v5, v7, v8);
+    v11[3] = *(_DWORD *)a2;
+    v11[4] = *((unsigned int *)a2 + 1);
+    v11[5] = a2;
+    v11[6] = v4;
+    v15 = (DMMVIDPNTOPOLOGY *)ExposedViaHandle<DMMVIDPNTOPOLOGY,D3DKMDT_HVIDPNTOPOLOGY__ *>::GetFromHandle(v4);
+    if ( v15 )
     {
       if ( !*((_DWORD *)a2 + 16) )
       {
-        WdLogSingleEntry1(3LL, a2);
+        v17 = WdLogNewEntry5_WdWarning(v13, v12, v14);
+        *(_QWORD *)(v17 + 24) = a2;
+        WdLogEvent5_WdWarning(v17);
         *((_DWORD *)a2 + 16) = 255;
       }
       if ( !*((_DWORD *)a2 + 17) )
       {
-        WdLogSingleEntry3(3LL, *(_DWORD *)a2, *((unsigned int *)a2 + 1), this);
+        v18 = (_QWORD *)WdLogNewEntry5_WdWarning(v13, v12, v14);
+        v18[3] = *(_DWORD *)a2;
+        v18[4] = *((unsigned int *)a2 + 1);
+        v18[5] = v4;
+        WdLogEvent5_WdWarning(v18);
         memset(a2 + 19, 0, 0x100uLL);
         *((_DWORD *)a2 + 83) = 0;
         *((_DWORD *)a2 + 83) |= 1u;
@@ -78,64 +103,79 @@ __int64 __fastcall DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL::AddPath(
       }
       if ( *((_DWORD *)a2 + 84) != 1 || *((_QWORD *)a2 + 43) || *((_QWORD *)a2 + 44) )
       {
-        WdLogSingleEntry4(3LL, *((int *)a2 + 84), *(_DWORD *)a2, *((unsigned int *)a2 + 1), this);
+        v19 = (_QWORD *)WdLogNewEntry5_WdWarning(v13, v12, v14);
+        v19[3] = *((int *)a2 + 84);
+        v19[4] = *(_DWORD *)a2;
+        v19[5] = *((unsigned int *)a2 + 1);
+        v19[6] = v4;
+        WdLogEvent5_WdWarning(v19);
         *((_DWORD *)a2 + 84) = 1;
         *((_QWORD *)a2 + 43) = 0LL;
         *((_QWORD *)a2 + 44) = 0LL;
       }
-      v22 = 0LL;
-      v23 = 0LL;
-      v10 = DMMVIDPNTOPOLOGY::CreateNewPath(v9, (const struct _D3DKMDT_VIDPN_PRESENT_PATH *)a2, &v23);
-      v13 = v10;
-      v7 = -1071774970;
-      if ( v10 == -1071774970 )
+      v39 = 0LL;
+      v40 = 0LL;
+      v20 = DMMVIDPNTOPOLOGY::CreateNewPath(v15, (const struct _D3DKMDT_VIDPN_PRESENT_PATH *)a2, &v40);
+      v25 = v20;
+      LODWORD(v4) = -1071774970;
+      if ( v20 == -1071774970 )
       {
-        WdLogSingleEntry3(2LL, *(_DWORD *)a2, *((unsigned int *)a2 + 1), -1071774970LL);
+        v26 = (_QWORD *)WdLogNewEntry5_WdError(v22, v21);
+        v26[3] = *(_DWORD *)a2;
+        v26[4] = *((unsigned int *)a2 + 1);
+        v26[5] = -1071774970LL;
+        WdLogEvent5_WdError(v26);
       }
-      else if ( v10 >= 0 )
+      else if ( v20 >= 0 )
       {
         auto_ptr<DMMVIDPNPRESENTPATH>::reset(
-          (__int64 (__fastcall ****)(_QWORD, __int64))&v22,
-          (__int64 (__fastcall ***)(_QWORD, __int64))v23);
-        v15 = DMMVIDPNTOPOLOGY::AddPath((DMMVIDPNTOPOLOGY **)v9, v22, D3DKMDT_MCC_ENFORCE);
-        v7 = v15;
-        if ( v15 >= 0 )
+          (__int64 (__fastcall ****)(_QWORD, __int64))&v39,
+          (__int64 (__fastcall ***)(_QWORD, __int64))v40);
+        v29 = DMMVIDPNTOPOLOGY::AddPath((DMMVIDPNTOPOLOGY **)v15, v39, 2LL, v28);
+        v4 = v29;
+        if ( v29 >= 0 )
         {
-          v22 = 0LL;
-          v7 = DMMVIDPNTOPOLOGY::ReleaseDdiEnumerator(v9, (const struct _D3DKMDT_VIDPN_PRESENT_PATH *)a2);
+          v39 = 0LL;
+          LODWORD(v4) = DMMVIDPNTOPOLOGY::ReleaseDdiEnumerator(v15, (const struct _D3DKMDT_VIDPN_PRESENT_PATH *)a2);
         }
         else
         {
-          WdLogSingleEntry4(7LL, *(_DWORD *)a2, *((unsigned int *)a2 + 1), v9, v15);
+          v32 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v31, v30);
+          v32[3] = *(_DWORD *)a2;
+          v32[4] = *((unsigned int *)a2 + 1);
+          v32[5] = v15;
+          v32[6] = v4;
+          WdLogEvent5_WdDmmEvent(v32);
         }
       }
       else
       {
-        v14 = (_QWORD *)WdLogNewEntry5_WdTrace(v12, v11);
-        v7 = v13;
-        v14[3] = *(_DWORD *)a2;
-        v14[4] = *((unsigned int *)a2 + 1);
-        v14[5] = v13;
+        v27 = (_QWORD *)WdLogNewEntry5_WdTrace(v22, v21, v23, v24);
+        LODWORD(v4) = v25;
+        v27[3] = *(_DWORD *)a2;
+        v27[4] = *((unsigned int *)a2 + 1);
+        v27[5] = v25;
       }
-      auto_ptr<DMMVIDPNPRESENTPATH>::~auto_ptr<DMMVIDPNPRESENTPATH>((__int64 (__fastcall ****)(_QWORD, __int64))&v22);
+      auto_ptr<DMMVIDPNPRESENTPATH>::~auto_ptr<DMMVIDPNPRESENTPATH>((__int64 (__fastcall ****)(_QWORD, __int64))&v39);
     }
     else
     {
-      WdLogSingleEntry1(2LL, this);
-      v7 = -1071774976;
+      v16 = WdLogNewEntry5_WdError(v13, v12);
+      *(_QWORD *)(v16 + 24) = v4;
+      WdLogEvent5_WdError(v16);
+      LODWORD(v4) = -1071774976;
     }
   }
   else
   {
-    WdLogSingleEntry2(2LL, 0LL, this);
-    v7 = -1071774951;
+    v9 = WdLogNewEntry5_WdError(v6, v5);
+    *(_QWORD *)(v9 + 24) = 0LL;
+    *(_QWORD *)(v9 + 32) = v4;
+    WdLogEvent5_WdError(v9);
+    LODWORD(v4) = -1071774951;
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v19);
-  if ( v21 )
-  {
-    LOBYTE(v16) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v16, &EventProfilerExit, v17, v19);
-  }
-  return v7;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v36, v10);
+  if ( v38 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v33, &EventProfilerExit, v34, v36);
+  return (unsigned int)v4;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z @ 0x18002BCB4
+ * XREFs of ??0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z @ 0x1800B5D58
  * Callers:
- *     ?Initialize@CComposition@@MEAAJXZ @ 0x18002E810 (-Initialize@CComposition@@MEAAJXZ.c)
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800B48A0 (-Initialize@CComposition@@MEAAJXZ.c)
  * Callees:
- *     ??0CMmcssTask@@QEAA@XZ @ 0x18002BBE0 (--0CMmcssTask@@QEAA@XZ.c)
- *     ??0CManipulationManager@@IEAA@PEAVCComposition@@@Z @ 0x18002BD14 (--0CManipulationManager@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CMmcssTask@@QEAA@XZ @ 0x1800B5DB8 (--0CMmcssTask@@QEAA@XZ.c)
+ *     ??0CManipulationManager@@IEAA@PEAVCComposition@@@Z @ 0x1800B5DF8 (--0CManipulationManager@@IEAA@PEAVCComposition@@@Z.c)
  */
 
 CGlobalManipulationManager *__fastcall CGlobalManipulationManager::CGlobalManipulationManager(

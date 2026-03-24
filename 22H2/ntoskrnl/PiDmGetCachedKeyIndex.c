@@ -1,41 +1,41 @@
 /*
- * XREFs of PiDmGetCachedKeyIndex @ 0x1406D62A0
+ * XREFs of PiDmGetCachedKeyIndex @ 0x1406AFDCC
  * Callers:
- *     PiDmObjectGetCachedObjectPropertyData @ 0x1406D6444 (PiDmObjectGetCachedObjectPropertyData.c)
- *     PiDmObjectProcessPropertyChange @ 0x140789C4C (PiDmObjectProcessPropertyChange.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x14078D7DC (PiDmObjectUpdateCachedObjectProperty.c)
- *     PiDmObjectGetCachedObjectReference @ 0x1407CC6C4 (PiDmObjectGetCachedObjectReference.c)
- *     PiDmObjectCreate @ 0x14086BC2C (PiDmObjectCreate.c)
- *     PiDmListUpdateAggregationCountWorker @ 0x14086C158 (PiDmListUpdateAggregationCountWorker.c)
+ *     PiDmObjectGetCachedObjectReference @ 0x140695E80 (PiDmObjectGetCachedObjectReference.c)
+ *     PiDmObjectGetCachedObjectPropertyData @ 0x1406AFC64 (PiDmObjectGetCachedObjectPropertyData.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x1406AFE2C (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiDmListUpdateAggregationCountWorker @ 0x140735470 (PiDmListUpdateAggregationCountWorker.c)
+ *     PiDmObjectCreate @ 0x1407461B0 (PiDmObjectCreate.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1407468F4 (PiDmObjectProcessPropertyChange.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall PiDmGetCachedKeyIndex(__int64 a1, unsigned int a2, __int64 a3)
 {
-  __int64 result; // rax
-  int v5; // r11d
-  __int64 v6; // r9
+  __int64 v3; // r10
+  int v6; // ebx
   __int64 v7; // r8
+  __int64 v9; // rcx
 
-  result = 0LL;
+  v3 = 0LL;
   if ( !a2 )
     return 0xFFFFFFFFLL;
-  v5 = *(_DWORD *)(a3 + 16);
+  v6 = *(_DWORD *)(a3 + 16);
   while ( 1 )
   {
-    v6 = *(_QWORD *)(a1 + 24 * result);
-    if ( v5 == *(_DWORD *)(v6 + 16) )
+    v7 = *(_QWORD *)(a1 + 24 * v3);
+    if ( v6 == *(_DWORD *)(v7 + 16) )
     {
-      v7 = *(_QWORD *)a3 - *(_QWORD *)v6;
-      if ( *(_QWORD *)a3 == *(_QWORD *)v6 )
-        v7 = *(_QWORD *)(a3 + 8) - *(_QWORD *)(v6 + 8);
-      if ( !v7 )
+      v9 = *(_QWORD *)a3 - *(_QWORD *)v7;
+      if ( *(_QWORD *)a3 == *(_QWORD *)v7 )
+        v9 = *(_QWORD *)(a3 + 8) - *(_QWORD *)(v7 + 8);
+      if ( !v9 )
         break;
     }
-    result = (unsigned int)(result + 1);
-    if ( (unsigned int)result >= a2 )
+    v3 = (unsigned int)(v3 + 1);
+    if ( (unsigned int)v3 >= a2 )
       return 0xFFFFFFFFLL;
   }
-  return result;
+  return (unsigned int)v3;
 }

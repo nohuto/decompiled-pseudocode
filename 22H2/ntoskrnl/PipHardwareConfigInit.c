@@ -1,22 +1,22 @@
 /*
- * XREFs of PipHardwareConfigInit @ 0x140B6D528
+ * XREFs of PipHardwareConfigInit @ 0x140A512F4
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     KeQueryBootTimeValues @ 0x1403509EC (KeQueryBootTimeValues.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     RtlStringFromGUID @ 0x140685290 (RtlStringFromGUID.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEF60 (_PnpCtxGetCachedContextBaseKey.c)
- *     IopCreateRegistryKeyEx @ 0x1407DAA18 (IopCreateRegistryKeyEx.c)
- *     _PnpCtxRegQueryKeyPathName @ 0x14085A468 (_PnpCtxRegQueryKeyPathName.c)
- *     PipHardwareConfigClearStartOverrides @ 0x140951EEC (PipHardwareConfigClearStartOverrides.c)
- *     PipHardwareConfigTriggerRespecialize @ 0x140952090 (PipHardwareConfigTriggerRespecialize.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     PipHardwareConfigExists @ 0x140B95274 (PipHardwareConfigExists.c)
+ *     KeQueryBootTimeValues @ 0x140317088 (KeQueryBootTimeValues.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406BB5E8 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlStringFromGUID @ 0x1406F35B0 (RtlStringFromGUID.c)
+ *     IopCreateRegistryKeyEx @ 0x14073C1E4 (IopCreateRegistryKeyEx.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     _PnpCtxRegQueryKeyPathName @ 0x1407A34D0 (_PnpCtxRegQueryKeyPathName.c)
+ *     PipHardwareConfigClearStartOverrides @ 0x14089B61C (PipHardwareConfigClearStartOverrides.c)
+ *     PipHardwareConfigTriggerRespecialize @ 0x14089B7C0 (PipHardwareConfigTriggerRespecialize.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     PipHardwareConfigExists @ 0x140A9023C (PipHardwareConfigExists.c)
  */
 
 __int64 __fastcall PipHardwareConfigInit(GUID *Guid)
@@ -30,11 +30,11 @@ __int64 __fastcall PipHardwareConfigInit(GUID *Guid)
   HANDLE v8; // rdi
   NTSTATUS RegistryValue; // r14d
   __int64 v10; // rcx
-  bool v11; // r14
-  unsigned int v13; // eax
-  int v14; // r14d
-  bool v15; // zf
-  int v16; // r14d
+  int v11; // r14d
+  bool v12; // r14
+  unsigned int v14; // eax
+  int v15; // r14d
+  bool v16; // zf
   __int64 v17; // [rsp+38h] [rbp-D0h] BYREF
   _DWORD *v18; // [rsp+40h] [rbp-C8h] BYREF
   UNICODE_STRING v19; // [rsp+48h] [rbp-C0h] BYREF
@@ -113,21 +113,21 @@ __int64 __fastcall PipHardwareConfigInit(GUID *Guid)
               LODWORD(v17) = *(_DWORD *)((char *)v18 + (unsigned int)v18[2]) + 1;
             ExFreePoolWithTag(v18, 0);
           }
-          v13 = v17;
-          v14 = v17 - 1;
+          v14 = v17;
+          v15 = v17 - 1;
           if ( (_DWORD)v17 != (_DWORD)v17 - 1 )
           {
             do
             {
-              v15 = (unsigned __int8)PipHardwareConfigExists(v6, v13) == 0;
-              v13 = v17;
-              if ( v15 )
+              v16 = (unsigned __int8)PipHardwareConfigExists(v6, v14) == 0;
+              v14 = v17;
+              if ( v16 )
                 break;
-              v13 = v17 + 1;
-              LODWORD(v17) = v13;
+              v14 = v17 + 1;
+              LODWORD(v17) = v14;
             }
-            while ( v13 != v14 );
-            if ( v13 != v14 )
+            while ( v14 != v15 );
+            if ( v14 != v15 )
             {
               *(_DWORD *)&v19.Length = 917516;
               v19.Buffer = L"LastId";
@@ -160,14 +160,20 @@ LABEL_14:
                   CachedContextBaseKey = ZwSetValueKey(v24, &CmSymbolicLinkValueName, 0, 6u, v28, 2 * (_DWORD)v21 - 2);
                   if ( CachedContextBaseKey >= 0 )
                   {
-                    if ( (_DWORD)InitSafeBootMode
-                      || IopGetRegistryValue(v8, L"Reset", 0, &v18) >= 0
-                      && (v18[1] != 4 || v18[3] != 4
-                        ? (v16 = 0)
-                        : (v16 = *(_DWORD *)((char *)v18 + (unsigned int)v18[2])),
-                          ExFreePoolWithTag(v18, 0),
-                          v16) )
+                    if ( (_DWORD)InitSafeBootMode )
+                      goto LABEL_49;
+                    if ( IopGetRegistryValue(v8, L"Reset", 0, &v18) >= 0 )
                     {
+                      v11 = v18[1] == 4 && v18[3] == 4 ? *(_DWORD *)((char *)v18 + (unsigned int)v18[2]) : 0;
+                      ExFreePoolWithTag(v18, 0);
+                    }
+                    else
+                    {
+                      v11 = 0;
+                    }
+                    if ( v11 )
+                    {
+LABEL_49:
                       if ( (int)PipHardwareConfigClearStartOverrides((unsigned int)v17) >= 0 )
                       {
                         *(_DWORD *)&ValueName.Length = 786442;
@@ -178,24 +184,24 @@ LABEL_14:
                     if ( v4 )
                     {
                       if ( (_DWORD)v22 == 1 )
-                        goto LABEL_59;
-                      v11 = 0;
+                        goto LABEL_60;
+                      v12 = 0;
                       if ( IopGetRegistryValue(v4, L"RespecializeStarted", 0, &v18) >= 0 )
                       {
                         if ( v18[1] == 4 && v18[3] == 4 )
-                          v11 = *(_DWORD *)((char *)v18 + (unsigned int)v18[2]) == 1;
+                          v12 = *(_DWORD *)((char *)v18 + (unsigned int)v18[2]) == 1;
                         ExFreePoolWithTag(v18, 0);
-                        if ( v11 )
-                          goto LABEL_59;
+                        if ( v12 )
+                          goto LABEL_60;
                       }
                       if ( IopGetRegistryValue(v8, L"Respecialize", 0, &v18) >= 0 )
                       {
                         if ( v18[1] == 4 && v18[3] == 4 )
-                          v11 = *(_DWORD *)((char *)v18 + (unsigned int)v18[2]) == 1;
+                          v12 = *(_DWORD *)((char *)v18 + (unsigned int)v18[2]) == 1;
                         ExFreePoolWithTag(v18, 0);
-                        if ( v11 )
+                        if ( v12 )
                         {
-LABEL_59:
+LABEL_60:
                           if ( (int)PipHardwareConfigTriggerRespecialize(v4) >= 0 )
                           {
                             *(_DWORD *)&ValueName.Length = 1703960;

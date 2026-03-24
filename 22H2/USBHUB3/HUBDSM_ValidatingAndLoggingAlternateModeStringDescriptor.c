@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor @ 0x1C0022A20
+ * XREFs of HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor @ 0x1C0020420
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBDTX_LogAlternateMode @ 0x1C002D024 (HUBDTX_LogAlternateMode.c)
- *     HUBDESC_InternalValidateStringDescriptor @ 0x1C003C250 (HUBDESC_InternalValidateStringDescriptor.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBDTX_LogAlternateMode @ 0x1C0029F8C (HUBDTX_LogAlternateMode.c)
+ *     HUBDESC_InternalValidateStringDescriptor @ 0x1C003917C (HUBDESC_InternalValidateStringDescriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor(__int64 a1)
@@ -37,7 +37,7 @@ __int64 __fastcall HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor(__in
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00691E8);
+         off_1C00661C0);
   v5 = *(_QWORD *)(v1 + 8);
   v18 = v1;
   v13 = 0LL;
@@ -70,13 +70,13 @@ __int64 __fastcall HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor(__in
   {
     *(_DWORD *)(v1 + 2432) = 1073807392;
     v2 = 4065;
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 0x200) != 0 )
+    if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 2) != 0 )
       McTemplateK0p_EtwWriteTransfer(
         v9,
         &USBHUB3_ETW_EVENT_INVALID_ALTERNATE_MODE_STRING_DESCRIPTOR,
         (const GUID *)(v1 + 1516),
         *(_QWORD *)(v1 + 24));
   }
-  ++*(_BYTE *)(*(_QWORD *)(v1 + 2648) + 8LL);
+  ++*(_BYTE *)(*(_QWORD *)(v1 + 2640) + 8LL);
   return v2;
 }

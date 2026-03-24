@@ -1,20 +1,20 @@
 /*
- * XREFs of XpressBuildHuffmanEncodings @ 0x140373140
+ * XREFs of XpressBuildHuffmanEncodings @ 0x140365F70
  * Callers:
- *     RtlCompressBufferXpressHuffStandard @ 0x140372640 (RtlCompressBufferXpressHuffStandard.c)
- *     RtlCompressBufferXpressHuffMax @ 0x1405B2874 (RtlCompressBufferXpressHuffMax.c)
+ *     RtlCompressBufferXpressHuffStandard @ 0x140365750 (RtlCompressBufferXpressHuffStandard.c)
+ *     RtlCompressBufferXpressHuffMax @ 0x140591084 (RtlCompressBufferXpressHuffMax.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall XpressBuildHuffmanEncodings(_QWORD *a1)
 {
-  char *v2; // r14
-  char *v3; // rbx
+  char *v2; // r15
+  char *v3; // rdi
   _DWORD *v4; // rdx
   unsigned __int64 i; // rcx
   unsigned __int64 v6; // r8
-  _QWORD *v7; // rbp
+  _QWORD *v7; // r14
   _WORD *v8; // rcx
   __int64 v9; // rdx
   char *v10; // r8
@@ -33,21 +33,20 @@ __int64 __fastcall XpressBuildHuffmanEncodings(_QWORD *a1)
   __int64 v23; // r8
   __int64 v24; // rax
   __int64 v25; // rax
-  unsigned __int64 v26; // r15
-  unsigned __int64 v27; // r10
-  __int64 v28; // r11
-  __int64 j; // rsi
-  __int64 v30; // rbx
+  unsigned __int64 v26; // r12
+  unsigned __int64 v27; // r8
+  __int64 v28; // r10
+  __int64 j; // rbp
+  __int64 v30; // r11
   _BYTE *v31; // r9
-  unsigned __int64 v32; // rdx
-  unsigned __int8 *v33; // rcx
-  unsigned int *v34; // r8
-  unsigned __int64 v35; // rbx
-  __int64 v37; // rax
-  __int64 v38; // r8
-  char v39; // dl
-  unsigned __int64 *v40; // rcx
-  unsigned __int64 v41; // rax
+  unsigned __int64 v32; // rcx
+  unsigned int *v33; // rdx
+  unsigned __int64 v34; // r11
+  __int64 v36; // rax
+  __int64 v37; // r8
+  char v38; // dl
+  unsigned __int64 *v39; // rcx
+  unsigned __int64 v40; // rax
 
   memset(a1 + 3331, 0, 0x404uLL);
   v2 = (char *)(a1 + 256);
@@ -74,12 +73,12 @@ __int64 __fastcall XpressBuildHuffmanEncodings(_QWORD *a1)
   {
     if ( v3 == v2 )
       return 0LL;
-    v38 = a1[258];
-    v39 = 16;
-    if ( (v38 & 1) == 0 )
-      v39 = 1;
-    *((_BYTE *)a1 + (a1[258] >> 1) + 31264) = v39;
-    *((_DWORD *)a1 + v38) = 1;
+    v37 = a1[258];
+    v38 = 16;
+    if ( (v37 & 1) == 0 )
+      v38 = 1;
+    *((_BYTE *)a1 + (a1[258] >> 1) + 31264) = v38;
+    *((_DWORD *)a1 + v37) = 1;
     return *(_QWORD *)v2;
   }
   v8 = (_WORD *)a1 + 13325;
@@ -128,7 +127,7 @@ __int64 __fastcall XpressBuildHuffmanEncodings(_QWORD *a1)
     *((_QWORD *)v3 + 2) = v7;
     v19 = v3;
     v20 = v3;
-    *(_QWORD *)v3 = *v7 + *(_QWORD *)v2;
+    *(_QWORD *)v3 = *(_QWORD *)v2 + *v7;
     while ( v18 != v3 || v20 != v19 )
     {
       v19 += 24;
@@ -182,17 +181,17 @@ LABEL_30:
     v26 = a1[257];
     if ( v26 > 0xF )
     {
-      v40 = a1 + 256;
+      v39 = a1 + 256;
       if ( v2 < v3 )
       {
         do
         {
-          v41 = *v40 + 1;
-          v40[1] = 0LL;
-          *v40 = v41 >> 1;
-          v40 += 3;
+          v40 = *v39 + 1;
+          v39[1] = 0LL;
+          *v39 = v40 >> 1;
+          v39 += 3;
         }
-        while ( v40 < (unsigned __int64 *)v3 );
+        while ( v39 < (unsigned __int64 *)v3 );
       }
       continue;
     }
@@ -200,26 +199,25 @@ LABEL_30:
   }
   v27 = *((_QWORD *)v3 - 2);
   v28 = 0LL;
-  for ( j = 0LL; v27 <= v26; j += v35 )
+  for ( j = 0LL; v27 <= v26; j += v34 )
   {
     v30 = 0LL;
     v31 = a1 + 3908;
     v32 = 0LL;
-    v33 = (unsigned __int8 *)(a1 + 3588);
-    v34 = (unsigned int *)(a1 + 3652);
+    v33 = (unsigned int *)(a1 + 3652);
     do
     {
-      if ( *v33 == v27 )
+      if ( *((unsigned __int8 *)a1 + v32 * 2 + 28704) == v27 )
       {
-        v37 = *v34;
+        v36 = *v33;
         *v31 |= v27;
-        v30 += v37;
+        v30 += v36;
         WORD1(a1[v32]) = v28++;
         LOWORD(a1[v32]) = v27;
       }
-      if ( v33[1] == v27 )
+      if ( *((unsigned __int8 *)a1 + v32 * 2 + 28705) == v27 )
       {
-        v30 += v34[1];
+        v30 += v33[1];
         *v31 |= 16 * (_BYTE)v27;
         HIWORD(a1[v32]) = v28++;
         WORD2(a1[v32]) = v27;
@@ -227,10 +225,9 @@ LABEL_30:
       ++v31;
       ++v32;
       v33 += 2;
-      v34 += 2;
     }
     while ( v32 < 256 );
-    v35 = v27 * v30;
+    v34 = v27 * v30;
     v28 *= 2LL;
     ++v27;
   }

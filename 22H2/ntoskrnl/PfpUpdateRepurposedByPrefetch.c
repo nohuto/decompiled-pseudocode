@@ -1,68 +1,69 @@
 /*
- * XREFs of PfpUpdateRepurposedByPrefetch @ 0x14075DCF0
+ * XREFs of PfpUpdateRepurposedByPrefetch @ 0x140633FAC
  * Callers:
- *     PfpVolumePrefetchMetadata @ 0x140684C04 (PfpVolumePrefetchMetadata.c)
- *     PfpPrefetchFilesTrickle @ 0x14075D9A0 (PfpPrefetchFilesTrickle.c)
- *     PfpPrefetchDirectoryStream @ 0x1407D808C (PfpPrefetchDirectoryStream.c)
- *     PfpPrefetchPrivatePages @ 0x14097E318 (PfpPrefetchPrivatePages.c)
+ *     PfpPrefetchFilesTrickle @ 0x140633C60 (PfpPrefetchFilesTrickle.c)
+ *     PfpVolumePrefetchMetadata @ 0x14070B688 (PfpVolumePrefetchMetadata.c)
+ *     PfpPrefetchDirectoryStream @ 0x14070BA34 (PfpPrefetchDirectoryStream.c)
+ *     PfpPrefetchPrivatePages @ 0x14070C958 (PfpPrefetchPrivatePages.c)
  * Callees:
- *     MmQueryMemoryListInformation @ 0x1402F8958 (MmQueryMemoryListInformation.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     PfpGetPageListCount @ 0x14075DE0C (PfpGetPageListCount.c)
+ *     MmQueryMemoryListInformation @ 0x14026EA10 (MmQueryMemoryListInformation.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PfpGetPageListCount @ 0x1406340C8 (PfpGetPageListCount.c)
  */
 
 _OWORD *__fastcall PfpUpdateRepurposedByPrefetch(_OWORD *a1, unsigned __int64 a2)
 {
   __int64 v4; // r9
+  __int64 v5; // r8
   __int64 PageListCount; // rax
-  __int64 v6; // r10
-  unsigned __int64 v7; // rax
+  __int64 v7; // r10
+  unsigned __int64 v8; // rax
   _OWORD *result; // rax
-  __int128 v9; // xmm1
-  __int128 v10; // xmm0
-  __int128 v11; // xmm1
-  __int128 v12; // xmm0
-  __int128 v13; // xmm1
-  __int128 v14; // xmm0
-  __int128 v15; // xmm1
-  _OWORD *v16; // rdi
-  __int128 v17; // xmm0
-  __int128 v18; // xmm1
-  __int64 v19; // [rsp+30h] [rbp-D8h] BYREF
-  _OWORD v20[11]; // [rsp+40h] [rbp-C8h] BYREF
+  __int128 v10; // xmm1
+  __int128 v11; // xmm0
+  __int128 v12; // xmm1
+  __int128 v13; // xmm0
+  __int128 v14; // xmm1
+  __int128 v15; // xmm0
+  __int128 v16; // xmm1
+  _OWORD *v17; // rbx
+  __int128 v18; // xmm0
+  __int128 v19; // xmm1
+  __int64 v20; // [rsp+30h] [rbp-D8h] BYREF
+  _OWORD v21[11]; // [rsp+40h] [rbp-C8h] BYREF
 
-  memset(v20, 0, sizeof(v20));
-  LODWORD(v19) = 0;
-  MmQueryMemoryListInformation(0xFFFFFFFFFFFFFFFFuLL, v20, 0xB0u, v4, &v19);
-  PfpGetPageListCount((char *)a1 + 104, 0LL);
-  PageListCount = PfpGetPageListCount((char *)&v20[6] + 8, 0LL);
-  v7 = PageListCount - v6;
-  if ( v7 > a2 )
-    v7 = a2;
-  if ( v7 )
-    _InterlockedExchangeAdd64(&qword_140C65200, v7);
-  result = v20;
-  v9 = v20[1];
-  *a1 = v20[0];
-  v10 = v20[2];
-  a1[1] = v9;
-  v11 = v20[3];
-  a1[2] = v10;
-  v12 = v20[4];
-  a1[3] = v11;
-  v13 = v20[5];
-  a1[4] = v12;
-  v14 = v20[6];
-  a1[5] = v13;
-  v15 = v20[8];
-  a1[6] = v14;
-  v16 = a1 + 8;
-  *(v16 - 1) = v20[7];
-  v17 = v20[9];
-  *v16 = v15;
-  v18 = v20[10];
-  v16[1] = v17;
-  v16[2] = v18;
+  memset(v21, 0, sizeof(v21));
+  LODWORD(v20) = 0;
+  MmQueryMemoryListInformation((ULONG_PTR **)0xFFFFFFFFFFFFFFFFLL, v21, 0xB0u, v4, &v20);
+  PfpGetPageListCount((char *)a1 + 104, 0LL, 7LL);
+  PageListCount = PfpGetPageListCount((char *)&v21[6] + 8, 0LL, v5);
+  v8 = PageListCount - v7;
+  if ( v8 <= a2 )
+    a2 = v8;
+  if ( a2 )
+    _InterlockedExchangeAdd64(&qword_140C50430, a2);
+  result = v21;
+  v10 = v21[1];
+  *a1 = v21[0];
+  v11 = v21[2];
+  a1[1] = v10;
+  v12 = v21[3];
+  a1[2] = v11;
+  v13 = v21[4];
+  a1[3] = v12;
+  v14 = v21[5];
+  a1[4] = v13;
+  v15 = v21[6];
+  a1[5] = v14;
+  v16 = v21[8];
+  a1[6] = v15;
+  v17 = a1 + 8;
+  *(v17 - 1) = v21[7];
+  v18 = v21[9];
+  *v17 = v16;
+  v19 = v21[10];
+  v17[1] = v18;
+  v17[2] = v19;
   return result;
 }

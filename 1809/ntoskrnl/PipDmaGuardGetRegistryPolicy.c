@@ -1,11 +1,11 @@
 /*
- * XREFs of PipDmaGuardGetRegistryPolicy @ 0x14016AB9C
+ * XREFs of PipDmaGuardGetRegistryPolicy @ 0x14016ABBC
  * Callers:
- *     PipDmgGetDriverDmarCompatLevel @ 0x140709024 (PipDmgGetDriverDmarCompatLevel.c)
+ *     PipDmgGetDriverDmarCompatLevel @ 0x140709004 (PipDmgGetDriverDmarCompatLevel.c)
  *     PiDmaGuardProcessRegistry @ 0x1409C6344 (PiDmaGuardProcessRegistry.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
  */
 
 __int64 __fastcall PipDmaGuardGetRegistryPolicy(void *a1, __int64 a2, _DWORD *a3)

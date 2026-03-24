@@ -1,12 +1,12 @@
 /*
- * XREFs of NtTerminateJobObject @ 0x1406C6F30
+ * XREFs of NtTerminateJobObject @ 0x1406C6F10
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     PspTerminateAllProcessesInJobHierarchy @ 0x1406C6FA4 (PspTerminateAllProcessesInJobHierarchy.c)
- *     EtwTraceJob @ 0x1408B74BC (EtwTraceJob.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x1406C6F84 (PspTerminateAllProcessesInJobHierarchy.c)
+ *     EtwTraceJob @ 0x1408B749C (EtwTraceJob.c)
  */
 
 NTSTATUS __stdcall NtTerminateJobObject(HANDLE JobHandle, NTSTATUS ExitStatus)

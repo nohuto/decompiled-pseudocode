@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DeliverKeyboardInputToRim@@YAXPEAU_IVKeyboardInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z @ 0x1C01EC4A8
+ * XREFs of ?DeliverKeyboardInputToRim@@YAXPEAU_IVKeyboardInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z @ 0x1C01B3E74
  * Callers:
- *     ?ivHandleKeyboardInputPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01EDA20 (-ivHandleKeyboardInputPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@.c)
+ *     ?ivHandleKeyboardInputPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01B80A0 (-ivHandleKeyboardInputPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@.c)
  * Callees:
- *     RIMQueueKeyboardInput @ 0x1C0003AA8 (RIMQueueKeyboardInput.c)
- *     RIMLockExclusive @ 0x1C00378D0 (RIMLockExclusive.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     RIMLockExclusive @ 0x1C0040EF0 (RIMLockExclusive.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     RIMQueueKeyboardInput @ 0x1C016A3DC (RIMQueueKeyboardInput.c)
  */
 
 void __fastcall DeliverKeyboardInputToRim(
@@ -17,8 +17,8 @@ void __fastcall DeliverKeyboardInputToRim(
   __int64 v7; // [rsp+20h] [rbp-38h] BYREF
   int v8; // [rsp+28h] [rbp-30h]
 
-  v3 = (char *)a2 + 792;
-  RIMLockExclusive((__int64)a2 + 792);
+  v3 = (char *)a2 + 568;
+  RIMLockExclusive((__int64)a2 + 568);
   LOWORD(v7) = *((_WORD *)a1 + 8);
   WORD1(v7) = *((_WORD *)a1 + 10);
   WORD2(v7) = *((_WORD *)a1 + 12);

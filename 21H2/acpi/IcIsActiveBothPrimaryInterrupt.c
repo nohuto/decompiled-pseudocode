@@ -1,7 +1,7 @@
 /*
- * XREFs of IcIsActiveBothPrimaryInterrupt @ 0x1C00B7124
+ * XREFs of IcIsActiveBothPrimaryInterrupt @ 0x1C00B7674
  * Callers:
- *     IcCheckIrqConflict @ 0x1C00976B0 (IcCheckIrqConflict.c)
+ *     IcCheckIrqConflict @ 0x1C0096050 (IcCheckIrqConflict.c)
  * Callees:
  *     <none>
  */

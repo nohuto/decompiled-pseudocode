@@ -1,24 +1,23 @@
 /*
- * XREFs of MmFreePagesFromMdl @ 0x140221A10
+ * XREFs of MmFreePagesFromMdl @ 0x1402D0000
  * Callers:
- *     PpmHeteroInitializeHgsSupport @ 0x1403DCA14 (PpmHeteroInitializeHgsSupport.c)
- *     sub_1403F94E0 @ 0x1403F94E0 (sub_1403F94E0.c)
- *     HvlpWithdrawPages @ 0x14054599C (HvlpWithdrawPages.c)
- *     MmFreeSecureKernelPages @ 0x1405B1D98 (MmFreeSecureKernelPages.c)
- *     PopFreeHiberContext @ 0x140800338 (PopFreeHiberContext.c)
- *     HalpDmaAllocateLocalContiguousPool @ 0x140908F2C (HalpDmaAllocateLocalContiguousPool.c)
- *     HalpDmaAllocateLocalScatterPool @ 0x140909214 (HalpDmaAllocateLocalScatterPool.c)
- *     HalpDmaGrowContiguousMapBuffers @ 0x1409094F8 (HalpDmaGrowContiguousMapBuffers.c)
- *     HalpDmaGrowScatterMapBuffers @ 0x1409095FC (HalpDmaGrowScatterMapBuffers.c)
- *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x14093BBD8 (IopLiveDumpAllocateFromVMMemoryPartition.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x14093C2FC (IopLiveDumpFreeDumpBuffers.c)
- *     IopLiveDumpWriteDumpFile @ 0x14093D590 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14093DA18 (IopLiveDumpWriteDumpFileWithExtraPages.c)
- *     MmAllocateNonCachedMemory @ 0x14096A490 (MmAllocateNonCachedMemory.c)
- *     MmFreeNonCachedMemory @ 0x14096A680 (MmFreeNonCachedMemory.c)
- *     ResFwFreeContext @ 0x140AAB07C (ResFwFreeContext.c)
+ *     sub_1403EA300 @ 0x1403EA300 (sub_1403EA300.c)
+ *     MmFreeSecureKernelPages @ 0x140553704 (MmFreeSecureKernelPages.c)
+ *     PopFreeHiberContext @ 0x140776FBC (PopFreeHiberContext.c)
+ *     HalpDmaAllocateLocalContiguousPool @ 0x140864D90 (HalpDmaAllocateLocalContiguousPool.c)
+ *     HalpDmaAllocateLocalScatterPool @ 0x140865078 (HalpDmaAllocateLocalScatterPool.c)
+ *     HalpDmaGrowContiguousMapBuffers @ 0x140865364 (HalpDmaGrowContiguousMapBuffers.c)
+ *     HalpDmaGrowScatterMapBuffers @ 0x140865468 (HalpDmaGrowScatterMapBuffers.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x140897254 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x140897910 (IopLiveDumpAllocateFromVMMemoryPartition.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x140898020 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpWriteDumpFile @ 0x140898B80 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x140898EA0 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     MmAllocateNonCachedMemory @ 0x1408C66F0 (MmAllocateNonCachedMemory.c)
+ *     MmFreeNonCachedMemory @ 0x1408C68E0 (MmFreeNonCachedMemory.c)
+ *     ResFwFreeContext @ 0x1409F107C (ResFwFreeContext.c)
  * Callees:
- *     MiFreePagesFromMdl @ 0x140221A30 (MiFreePagesFromMdl.c)
+ *     MiFreePagesFromMdl @ 0x1402FF4EC (MiFreePagesFromMdl.c)
  */
 
 void __stdcall MmFreePagesFromMdl(PMDL MemoryDescriptorList)

@@ -1,18 +1,18 @@
 /*
- * XREFs of NtDCompositionGetMaterialProperty @ 0x1C000D6F0
+ * XREFs of NtDCompositionGetMaterialProperty @ 0x1C009E300
  * Callers:
  *     <none>
  * Callees:
- *     UserGetDesktopIdForCurrentThread @ 0x1C000D804 (UserGetDesktopIdForCurrentThread.c)
- *     ?CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C00AA6F0 (-CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
- *     FindMaterialProperty @ 0x1C00AF4C0 (FindMaterialProperty.c)
+ *     ?CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C004C270 (-CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
+ *     FindMaterialProperty @ 0x1C009E414 (FindMaterialProperty.c)
+ *     UserGetDesktopIdForCurrentThread @ 0x1C009E490 (UserGetDesktopIdForCurrentThread.c)
  */
 
 __int64 __fastcall NtDCompositionGetMaterialProperty(__int64 a1, _QWORD *a2)
 {
   struct _ERESOURCE *v4; // rbx
   __int64 DesktopIdForCurrentThread; // rax
-  int MaterialProperty; // ebx
+  NTSTATUS MaterialProperty; // ebx
   void *v7; // r8
   CompositionObject *v8; // rcx
   void *v10; // [rsp+50h] [rbp+18h] BYREF

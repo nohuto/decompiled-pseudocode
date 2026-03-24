@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpQueryMaximumGsiv @ 0x1408374B0
+ * XREFs of HalpQueryMaximumGsiv @ 0x1407AEC24
  * Callers:
- *     HalpInitializeSecondaryInterruptServices @ 0x140B608B8 (HalpInitializeSecondaryInterruptServices.c)
+ *     HalpInitializeSecondaryInterruptServices @ 0x140A628CC (HalpInitializeSecondaryInterruptServices.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ __int64 __fastcall HalpQueryMaximumGsiv(unsigned int *a1)
   {
     v5 = v1;
     v1 = (ULONG_PTR *)*v1;
-    v6 = (_QWORD **)(v5 + 33);
+    v6 = (_QWORD **)(v5 + 30);
     v7 = *v6;
     while ( v7 != v6 )
     {

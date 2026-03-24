@@ -1,48 +1,57 @@
 /*
- * XREFs of PiDmaGuardProcessPreStart @ 0x1407491AC
+ * XREFs of PiDmaGuardProcessPreStart @ 0x14073E2E4
  * Callers:
- *     PipProcessStartPhase1 @ 0x1407491FC (PipProcessStartPhase1.c)
+ *     PipProcessStartPhase1 @ 0x14073DE6C (PipProcessStartPhase1.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     PiIommuUnblockDevice @ 0x140859234 (PiIommuUnblockDevice.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall PiDmaGuardProcessPreStart(ULONG_PTR MaxDataSize)
 {
-  int v2; // eax
-  ULONG_PTR v3; // rsi
-  __int64 v4; // rax
+  __int64 v2; // rbx
+  int v3; // eax
+  ULONG_PTR v4; // rsi
+  __int64 v5; // rax
 
-  if ( *(_QWORD *)(MaxDataSize + 720) )
+  if ( PipHalIommuSecurityEnabled )
   {
-    v2 = PiIommuUnblockDevice();
-    v3 = v2;
-    if ( v2 < 0 )
+    v2 = *(_QWORD *)(MaxDataSize + 720);
+    if ( v2 )
     {
-      IoAddTriageDumpDataBlock(MaxDataSize, (PVOID)0x310);
-      if ( *(_WORD *)(MaxDataSize + 40) )
+      if ( (*(_BYTE *)(v2 + 16) & 1) == 0 || (*(_BYTE *)(*(_QWORD *)v2 + 4LL) & 1) != 0 )
       {
-        IoAddTriageDumpDataBlock(MaxDataSize + 40, (PVOID)2);
-        IoAddTriageDumpDataBlock(*(_QWORD *)(MaxDataSize + 48), (PVOID)*(unsigned __int16 *)(MaxDataSize + 40));
-      }
-      if ( *(_WORD *)(MaxDataSize + 56) )
-      {
-        IoAddTriageDumpDataBlock(MaxDataSize + 56, (PVOID)2);
-        IoAddTriageDumpDataBlock(*(_QWORD *)(MaxDataSize + 64), (PVOID)*(unsigned __int16 *)(MaxDataSize + 56));
-      }
-      v4 = *(_QWORD *)(MaxDataSize + 16);
-      if ( v4 )
-      {
-        if ( *(_WORD *)(v4 + 56) )
+        v3 = ((__int64 (__fastcall *)(_QWORD, __int64))off_140C009C8[0])(*(_QWORD *)v2, v2 + 8);
+        v4 = v3;
+        if ( v3 < 0 )
         {
-          IoAddTriageDumpDataBlock(v4 + 56, (PVOID)2);
-          IoAddTriageDumpDataBlock(
-            *(_QWORD *)(*(_QWORD *)(MaxDataSize + 16) + 64LL),
-            (PVOID)*(unsigned __int16 *)(*(_QWORD *)(MaxDataSize + 16) + 56LL));
+          IoAddTriageDumpDataBlock(MaxDataSize, (PVOID)0x310);
+          if ( *(_WORD *)(MaxDataSize + 40) )
+          {
+            IoAddTriageDumpDataBlock(MaxDataSize + 40, (PVOID)2);
+            IoAddTriageDumpDataBlock(*(_QWORD *)(MaxDataSize + 48), (PVOID)*(unsigned __int16 *)(MaxDataSize + 40));
+          }
+          if ( *(_WORD *)(MaxDataSize + 56) )
+          {
+            IoAddTriageDumpDataBlock(MaxDataSize + 56, (PVOID)2);
+            IoAddTriageDumpDataBlock(*(_QWORD *)(MaxDataSize + 64), (PVOID)*(unsigned __int16 *)(MaxDataSize + 56));
+          }
+          v5 = *(_QWORD *)(MaxDataSize + 16);
+          if ( v5 )
+          {
+            if ( *(_WORD *)(v5 + 56) )
+            {
+              IoAddTriageDumpDataBlock(v5 + 56, (PVOID)2);
+              IoAddTriageDumpDataBlock(
+                *(_QWORD *)(*(_QWORD *)(MaxDataSize + 16) + 64LL),
+                (PVOID)*(unsigned __int16 *)(*(_QWORD *)(MaxDataSize + 16) + 56LL));
+            }
+          }
+          KeBugCheckEx(0xCAu, 0x13uLL, 0x1000uLL, v4, MaxDataSize);
         }
+        *(_BYTE *)(v2 + 16) |= 2u;
       }
-      KeBugCheckEx(0xCAu, 0x13uLL, 0x1000uLL, v3, MaxDataSize);
     }
   }
 }

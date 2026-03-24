@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CSTPop@@YAHPEAIPEAPEAX@Z @ 0x1C00B2914
+ * XREFs of ?CSTPop@@YAHPEAIPEAPEAX@Z @ 0x1C007DF70
  * Callers:
- *     CSTCleanupStack @ 0x1C00B2694 (CSTCleanupStack.c)
- *     xxxCreateSystemThreads @ 0x1C00B27C0 (xxxCreateSystemThreads.c)
- *     HandleSystemThreadCreationFailure @ 0x1C01350E0 (HandleSystemThreadCreationFailure.c)
+ *     ?Win32kNtUserCleanupInternal@@YAXXZ @ 0x1C007CD3C (-Win32kNtUserCleanupInternal@@YAXXZ.c)
+ *     xxxCreateSystemThreads @ 0x1C007DC20 (xxxCreateSystemThreads.c)
+ *     HandleSystemThreadCreationFailure @ 0x1C011DB00 (HandleSystemThreadCreationFailure.c)
  * Callees:
  *     <none>
  */

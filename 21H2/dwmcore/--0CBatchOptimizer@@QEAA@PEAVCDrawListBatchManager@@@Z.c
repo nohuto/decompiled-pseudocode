@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CBatchOptimizer@@QEAA@PEAVCDrawListBatchManager@@@Z @ 0x18002400C
+ * XREFs of ??0CBatchOptimizer@@QEAA@PEAVCDrawListBatchManager@@@Z @ 0x18002A14C
  * Callers:
- *     ?CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ @ 0x180021FEC (-CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ.c)
+ *     ?CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ @ 0x18002B070 (-CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ.c)
  * Callees:
- *     ?Reset@CBatchOptimizer@@AEAAXXZ @ 0x18007E754 (-Reset@CBatchOptimizer@@AEAAXXZ.c)
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x18008ED70 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ?Reset@CBatchOptimizer@@AEAAXXZ @ 0x180093670 (-Reset@CBatchOptimizer@@AEAAXXZ.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1800949F0 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
  */
 
 CBatchOptimizer *__fastcall CBatchOptimizer::CBatchOptimizer(CBatchOptimizer *this, struct CDrawListBatchManager *a2)

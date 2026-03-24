@@ -1,12 +1,12 @@
 /*
- * XREFs of NtUserOpenWindowStation @ 0x1C00CEC80
+ * XREFs of NtUserOpenWindowStation @ 0x1C000EF10
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     _OpenWindowStation @ 0x1C00CFD84 (_OpenWindowStation.c)
- *     UserSetLastStatus @ 0x1C011A880 (UserSetLastStatus.c)
- *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C01F1050 (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     _OpenWindowStation @ 0x1C0010164 (_OpenWindowStation.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     UserSetLastStatus @ 0x1C00EC7BC (UserSetLastStatus.c)
+ *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C01F68EC (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
  */
 
 __int64 __fastcall NtUserOpenWindowStation(unsigned __int64 a1, unsigned int a2)
@@ -28,7 +28,7 @@ __int64 __fastcall NtUserOpenWindowStation(unsigned __int64 a1, unsigned int a2)
   v4 = 0LL;
   v16 = 0LL;
   v12 = 1;
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v5 = (__int128 *)a1;
   v6 = a1 + 48;
   if ( a1 + 48 < a1 || v6 > MmUserProbeAddress )
@@ -71,7 +71,7 @@ __int64 __fastcall NtUserOpenWindowStation(unsigned __int64 a1, unsigned int a2)
           }
           else
           {
-            RtlStringCbPrintfW((unsigned __int16 *)Address[1], 0x3AuLL, L"Service-0x%x-%x$", HIDWORD(v16), v16);
+            RtlStringCbPrintfW((wchar_t *)Address[1], 0x3AuLL, L"Service-0x%x-%x$", HIDWORD(v16), v16);
             RtlInitUnicodeString(DestinationString[0], (PCWSTR)Address[1]);
           }
         }

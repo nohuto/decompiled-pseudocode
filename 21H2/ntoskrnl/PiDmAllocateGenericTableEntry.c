@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDmAllocateGenericTableEntry @ 0x1406E5730
+ * XREFs of PiDmAllocateGenericTableEntry @ 0x14076ED10
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiDmAllocateGenericTableEntry(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
+PVOID __fastcall PiDmAllocateGenericTableEntry(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
 {
-  return ExAllocatePool2(256LL, ByteSize, 1517317712LL);
+  return ExAllocatePoolWithTag(PagedPool, ByteSize, 0x5A706E50u);
 }

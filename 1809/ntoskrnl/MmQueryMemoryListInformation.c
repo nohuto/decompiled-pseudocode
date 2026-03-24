@@ -1,21 +1,21 @@
 /*
- * XREFs of MmQueryMemoryListInformation @ 0x1400A89B0
+ * XREFs of MmQueryMemoryListInformation @ 0x1400A89D0
  * Callers:
- *     PfpMemoryListQuery @ 0x140160AC0 (PfpMemoryListQuery.c)
- *     EtwpLogMemInfo @ 0x140310E20 (EtwpLogMemInfo.c)
+ *     PfpMemoryListQuery @ 0x140160AE0 (PfpMemoryListQuery.c)
+ *     EtwpLogMemInfo @ 0x140310F20 (EtwpLogMemInfo.c)
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  *     PfpPfnPrioRequest @ 0x14062A220 (PfpPfnPrioRequest.c)
- *     PfpVolumePrefetchMetadata @ 0x14065D024 (PfpVolumePrefetchMetadata.c)
- *     PfpPrefetchDirectoryStream @ 0x14065D3EC (PfpPrefetchDirectoryStream.c)
- *     PfpPrefetchFilesTrickle @ 0x140661FA4 (PfpPrefetchFilesTrickle.c)
- *     PfpUpdateRepurposedByPrefetch @ 0x14066231C (PfpUpdateRepurposedByPrefetch.c)
- *     PfSnCheckActionsNeeded @ 0x140667E5C (PfSnCheckActionsNeeded.c)
- *     PfpPrefetchPrivatePages @ 0x1408643AC (PfpPrefetchPrivatePages.c)
+ *     PfpVolumePrefetchMetadata @ 0x14065D004 (PfpVolumePrefetchMetadata.c)
+ *     PfpPrefetchDirectoryStream @ 0x14065D3CC (PfpPrefetchDirectoryStream.c)
+ *     PfpPrefetchFilesTrickle @ 0x140661F84 (PfpPrefetchFilesTrickle.c)
+ *     PfpUpdateRepurposedByPrefetch @ 0x1406622FC (PfpUpdateRepurposedByPrefetch.c)
+ *     PfSnCheckActionsNeeded @ 0x140667E3C (PfSnCheckActionsNeeded.c)
+ *     PfpPrefetchPrivatePages @ 0x14086438C (PfpPrefetchPrivatePages.c)
  * Callees:
  *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
  *     PsReferencePartitionSafe @ 0x140090CE8 (PsReferencePartitionSafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MmQueryMemoryListInformation(

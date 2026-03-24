@@ -1,21 +1,22 @@
 /*
- * XREFs of ?RenderComposeTop@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVCComposeTop@@_N@Z @ 0x1801E8DE4
+ * XREFs of ?RenderComposeTop@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEAVCComposeTop@@_N@Z @ 0x18018C710
  * Callers:
- *     ?Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801E8994 (-Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EE094 (-Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
  * Callees:
- *     ?PopGpuClipRectInternal@CDrawingContext@@AEAAX_N@Z @ 0x18001C358 (-PopGpuClipRectInternal@CDrawingContext@@AEAAX_N@Z.c)
- *     ?HasNewContent@CComposeTop@@QEBA_NXZ @ 0x1800220D0 (-HasNewContent@CComposeTop@@QEBA_NXZ.c)
- *     ?FullRender@CComposeTop@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18002210C (-FullRender@CComposeTop@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV-$TMilRect_@MUMilRectF@@U.c)
- *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x18004B124 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
- *     ?PushGpuClipRectInternal@CDrawingContext@@AEAAJPEBVCVisual@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4D2D1_ANTIALIAS_MODE@@_N@Z @ 0x180073A24 (-PushGpuClipRectInternal@CDrawingContext@@AEAAJPEBVCVisual@@AEBV-$TMilRect_@MUMilRectF@@UMil3DRe.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800C2F90 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     ?Invert@CMILMatrix@@QEAA_NXZ @ 0x1800E8FC4 (-Invert@CMILMatrix@@QEAA_NXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?ReadTexture@CDrawingContext@@QEBAXXZ @ 0x1801E7BFC (-ReadTexture@CDrawingContext@@QEBAXXZ.c)
- *     ?NotifyRenderedRect@CDDisplayRenderTarget@@IEAAXPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_N@Z @ 0x1801E8508 (-NotifyRenderedRect@CDDisplayRenderTarget@@IEAAXPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoi.c)
- *     ?NewContentRendered@CComposeTop@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18025A5F8 (-NewContentRendered@CComposeTop@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF.c)
- *     ?Render@CComposeTop@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18025A7B0 (-Render@CComposeTop@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@PEAV-$TMilRect_@MUMilRectF@@UMil3.c)
+ *     ?PopGpuClipRectInternal@CDrawingContext@@AEAAX_N@Z @ 0x18003EF68 (-PopGpuClipRectInternal@CDrawingContext@@AEAAX_N@Z.c)
+ *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x180058560 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PixelAlign@@YAHMW4Enum@PixelAlignMode@@@Z @ 0x180077744 (-PixelAlign@@YAHMW4Enum@PixelAlignMode@@@Z.c)
+ *     ?PushGpuClipRectInternal@CDrawingContext@@AEAAJPEBVCVisual@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4D2D1_ANTIALIAS_MODE@@_N@Z @ 0x18007ABEC (-PushGpuClipRectInternal@CDrawingContext@@AEAAJPEBVCVisual@@AEBV-$TMilRect_@MUMilRectF@@UMil3DRe.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?GetDeviceClipBox@CDDisplayRenderTarget@@UEBA?AV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@XZ @ 0x18016E4E0 (-GetDeviceClipBox@CDDisplayRenderTarget@@UEBA-AV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@R.c)
+ *     ?HasNewContent@CComposeTop@@QEBA_NXZ @ 0x1801846F0 (-HasNewContent@CComposeTop@@QEBA_NXZ.c)
+ *     ?ReadTexture@CDrawingContext@@QEBAXXZ @ 0x18018486C (-ReadTexture@CDrawingContext@@QEBAXXZ.c)
+ *     ?NotifyRenderedRect@CDDisplayRenderTarget@@IEAAXPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_N@Z @ 0x18018C274 (-NotifyRenderedRect@CDDisplayRenderTarget@@IEAAXPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoi.c)
+ *     ?RenderTargetRectToDesktopRect@CDDisplayRenderTarget@@IEAAX_NAEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18018D0B4 (-RenderTargetRectToDesktopRect@CDDisplayRenderTarget@@IEAAX_NAEBV-$TMilRect_@HUtagRECT@@UMilPoin.c)
+ *     ?FullRender@CComposeTop@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801F96D0 (-FullRender@CComposeTop@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV-$TMilRect_@MUMilRectF@@U.c)
+ *     ?NewContentRendered@CComposeTop@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801F9774 (-NewContentRendered@CComposeTop@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF.c)
+ *     ?Render@CComposeTop@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801F992C (-Render@CComposeTop@@QEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@PEAV-$TMilRect_@MUMilRectF@@UMil3.c)
  */
 
 __int64 __fastcall CDDisplayRenderTarget::RenderComposeTop(
@@ -24,147 +25,135 @@ __int64 __fastcall CDDisplayRenderTarget::RenderComposeTop(
         struct CComposeTop *a3,
         char a4)
 {
-  unsigned int v4; // edi
+  unsigned int v4; // ebx
   char v5; // r15
-  int v9; // eax
-  __int64 v10; // rcx
-  int v11; // edx
-  int v12; // ecx
-  unsigned int v13; // eax
-  float v14; // xmm0_4
-  int v15; // eax
-  __int64 v16; // rcx
-  char *v17; // r8
-  int v18; // eax
-  __int64 v19; // rcx
-  float v20; // xmm0_4
-  float v21; // xmm2_4
-  float v22; // xmm4_4
-  float v23; // xmm1_4
-  __int64 v24; // rdx
-  struct Windows::Foundation::Numerics::float4x4 *v25; // r8
-  CDDisplayRenderTarget *v26; // rbx
-  __int128 v27; // xmm0
-  __int128 v28; // xmm1
-  __int128 v29; // xmm0
-  __int128 v30; // xmm1
-  int v31; // eax
-  __int64 v32; // rcx
-  _OWORD v34[4]; // [rsp+30h] [rbp-49h] BYREF
-  int v35; // [rsp+70h] [rbp-9h]
-  __int128 v36; // [rsp+80h] [rbp+7h] BYREF
-  __int128 v37; // [rsp+90h] [rbp+17h] BYREF
+  float v9; // xmm1_4
+  char *v10; // r8
+  __m128i v11; // xmm0
+  __m128i v12; // xmm1
+  int v13; // eax
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  float v16; // xmm1_4
+  int v17; // eax
+  __int64 v18; // rcx
+  int v19; // eax
+  __int64 v20; // rcx
+  float v21; // xmm1_4
+  float v22; // xmm2_4
+  float v23; // xmm3_4
+  float v24; // xmm6_4
+  int v25; // edx
+  float v26; // xmm4_4
+  float v27; // xmm5_4
+  int v28; // edx
+  __int64 v29; // rdx
+  int v30; // eax
+  __int64 v31; // rcx
+  __int128 v33; // [rsp+30h] [rbp-50h] BYREF
+  float v34; // [rsp+40h] [rbp-40h] BYREF
+  float v35; // [rsp+44h] [rbp-3Ch]
+  float v36; // [rsp+48h] [rbp-38h]
+  float v37; // [rsp+4Ch] [rbp-34h]
+  __int128 v38; // [rsp+50h] [rbp-30h] BYREF
 
   v4 = 0;
   v5 = 0;
   if ( !a4 )
   {
     if ( !CComposeTop::HasNewContent(a3) )
-      goto LABEL_33;
-    if ( *((_BYTE *)this + 11217) )
-    {
-      v11 = *((_DWORD *)this + 4549);
-      v12 = 0;
-      v13 = *((_DWORD *)this + 4550);
-      *(_QWORD *)&v36 = 0LL;
-      *((_QWORD *)&v36 + 1) = __PAIR64__(v13, v11);
-    }
-    else
-    {
-      v36 = *(_OWORD *)((char *)this + 18180);
-      v11 = DWORD2(v36);
-      v12 = v36;
-    }
+      goto LABEL_25;
+    CDDisplayRenderTarget::GetDeviceClipBox((__int64)this + 136, (__int64)&v33);
     v5 = 1;
-    *(float *)&v37 = (float)v12;
-    *((float *)&v37 + 1) = (float)SDWORD1(v36);
-    v14 = (float)SHIDWORD(v36);
-    *((float *)&v37 + 2) = (float)v11;
-    v36 = 0LL;
-    *((float *)&v37 + 3) = v14;
-    v15 = CDrawingContext::PushGpuClipRectInternal((__int64)a2, 0LL, (__int64)&v37, D2D1_ANTIALIAS_MODE_ALIASED, 0);
-    v4 = v15;
-    if ( v15 < 0 )
+    v34 = (float)(int)v33;
+    v35 = (float)SDWORD1(v33);
+    v16 = (float)SHIDWORD(v33);
+    v36 = (float)SDWORD2(v33);
+    v33 = 0LL;
+    v37 = v16;
+    v17 = CDrawingContext::PushGpuClipRectInternal((__int64)a2, 0LL, &v34, 1, 0);
+    v4 = v17;
+    if ( v17 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x382u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x3D1u, 0LL);
       return v4;
     }
-    v17 = (char *)this + 18208;
-    if ( *((_BYTE *)this + 11217) )
-      v17 = (char *)this + 18344;
-    v18 = CComposeTop::Render(a3, a2, v17, &v36);
-    v4 = v18;
-    if ( v18 < 0 )
+    v19 = CComposeTop::Render(a3, a2, (char *)this + (*((_BYTE *)this + 11209) != 0 ? 18380LL : 18312LL), &v33);
+    v4 = v19;
+    if ( v19 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x38Du, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x3DCu, 0LL);
     }
     else
     {
-      v20 = *(float *)&v36;
-      if ( *(float *)&v37 > *(float *)&v36 )
+      v21 = *(float *)&v33;
+      if ( v34 > *(float *)&v33 )
       {
-        LODWORD(v36) = v37;
-        v20 = *(float *)&v37;
+        *(float *)&v33 = v34;
+        v21 = v34;
       }
-      v21 = *((float *)&v36 + 1);
-      if ( *((float *)&v37 + 1) > *((float *)&v36 + 1) )
+      v22 = *((float *)&v33 + 1);
+      if ( v35 > *((float *)&v33 + 1) )
       {
-        DWORD1(v36) = DWORD1(v37);
-        v21 = *((float *)&v37 + 1);
+        *((float *)&v33 + 1) = v35;
+        v22 = v35;
       }
-      v22 = *((float *)&v36 + 2);
-      if ( *((float *)&v36 + 2) > *((float *)&v37 + 2) )
+      v23 = *((float *)&v33 + 2);
+      if ( *((float *)&v33 + 2) > v36 )
       {
-        DWORD2(v36) = DWORD2(v37);
-        v22 = *((float *)&v37 + 2);
+        *((float *)&v33 + 2) = v36;
+        v23 = v36;
       }
-      v23 = *((float *)&v36 + 3);
-      if ( *((float *)&v36 + 3) > *((float *)&v37 + 3) )
+      v24 = *((float *)&v33 + 3);
+      if ( *((float *)&v33 + 3) > v37 )
       {
-        HIDWORD(v36) = HIDWORD(v37);
-        v23 = *((float *)&v37 + 3);
+        *((float *)&v33 + 3) = v37;
+        v24 = v37;
       }
-      if ( v22 <= v20 || v23 <= v21 )
-        v36 = 0uLL;
-      if ( TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty((float *)&v36) )
-        goto LABEL_33;
-      CDDisplayRenderTarget::NotifyRenderedRect((__int64)this, (struct MilRectF *)&v36, 1);
-      v26 = *((_BYTE *)this + 11217)
-          ? (CDDisplayRenderTarget *)((char *)this + 18344)
-          : (CDDisplayRenderTarget *)((char *)this + 18208);
-      v27 = *(_OWORD *)v26;
-      v28 = *((_OWORD *)v26 + 1);
-      v35 = *((_DWORD *)v26 + 16);
-      v34[0] = v27;
-      v29 = *((_OWORD *)v26 + 2);
-      v34[1] = v28;
-      v30 = *((_OWORD *)v26 + 3);
-      v34[2] = v29;
-      v34[3] = v30;
-      CMILMatrix::Invert((CMILMatrix *)v34, v24, v25);
-      v37 = 0LL;
-      CMILMatrix::Transform2DBoundsHelper<0>((CMILMatrix *)v34, (struct MilRectF *)&v36, (float *)&v37);
-      v31 = CComposeTop::NewContentRendered(a3);
-      v4 = v31;
-      if ( v31 >= 0 )
-        goto LABEL_33;
-      MilInstrumentationCheckHR_MaybeFailFast(v32, 0LL, 0, v31, 0x3A1u, 0LL);
+      if ( v23 <= v21 || v24 <= v22 )
+      {
+        v21 = 0.0;
+        v33 = 0uLL;
+        v24 = 0.0;
+      }
+      if ( TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty((float *)&v33) )
+        goto LABEL_25;
+      LODWORD(v34) = PixelAlign(v21, 0);
+      LODWORD(v35) = PixelAlign(v26, v25);
+      LODWORD(v36) = PixelAlign(v27, 1);
+      LODWORD(v37) = PixelAlign(v24, v28);
+      v38 = 0LL;
+      CDDisplayRenderTarget::NotifyRenderedRect((__int64)this, (float *)&v33, 0);
+      CDDisplayRenderTarget::RenderTargetRectToDesktopRect(this, v29, &v34, &v38);
+      v30 = CComposeTop::NewContentRendered(a3);
+      v4 = v30;
+      if ( v30 >= 0 )
+        goto LABEL_25;
+      MilInstrumentationCheckHR_MaybeFailFast(v31, 0LL, 0, v30, 0x3F0u, 0LL);
     }
-LABEL_36:
-    CDrawingContext::PopGpuClipRectInternal(a2, 0);
+LABEL_28:
+    CDrawingContext::PopGpuClipRectInternal(a2, 0, v15);
     return v4;
   }
-  v9 = CComposeTop::FullRender(a3, (__int64)a2, (__int64)this + (*((_BYTE *)this + 11217) != 0 ? 18344LL : 18208LL));
-  v4 = v9;
-  if ( v9 < 0 )
+  v9 = (float)*((int *)this + 4567);
+  v10 = (char *)this + (*((_BYTE *)this + 11209) != 0 ? 18380LL : 18312LL);
+  v34 = (float)*((int *)this + 4566);
+  v11 = _mm_cvtsi32_si128(*((_DWORD *)this + 4568));
+  v35 = v9;
+  v12 = _mm_cvtsi32_si128(*((_DWORD *)this + 4569));
+  LODWORD(v36) = _mm_cvtepi32_ps(v11).m128_u32[0];
+  LODWORD(v37) = _mm_cvtepi32_ps(v12).m128_u32[0];
+  v13 = CComposeTop::FullRender(a3, a2, v10, &v34);
+  v4 = v13;
+  if ( v13 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x370u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x3C1u, 0LL);
     return v4;
   }
-LABEL_33:
+LABEL_25:
   if ( g_LockAndReadTarget )
     CDrawingContext::ReadTexture(a2);
   if ( v5 )
-    goto LABEL_36;
+    goto LABEL_28;
   return v4;
 }

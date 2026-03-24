@@ -1,7 +1,7 @@
 /*
- * XREFs of Crashdump_Register_PrepareForHibernate @ 0x1C004B8D8
+ * XREFs of Crashdump_Register_PrepareForHibernate @ 0x1C004AE60
  * Callers:
- *     Crashdump_InitializeWithoutControllerReset @ 0x1C004A948 (Crashdump_InitializeWithoutControllerReset.c)
+ *     Crashdump_InitializeWithoutControllerReset @ 0x1C0049EB4 (Crashdump_InitializeWithoutControllerReset.c)
  * Callees:
  *     <none>
  */

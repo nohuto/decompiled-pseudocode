@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FxIFRGetDriverMultiString@@YAJKPEAGPEAK@Z @ 0x1C005D084
+ * XREFs of ?FxIFRGetDriverMultiString@@YAJKPEAGPEAK@Z @ 0x1C003CD50
  * Callers:
- *     ?FxIFRReplay@@YAX_K@Z @ 0x1C005D25C (-FxIFRReplay@@YAX_K@Z.c)
+ *     ?FxIFRReplay@@YAX_K@Z @ 0x1C003CF28 (-FxIFRReplay@@YAX_K@Z.c)
  * Callees:
- *     ?_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z @ 0x1C0015510 (-_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     ?_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z @ 0x1C005F7C4 (-_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z.c)
  */
 
 __int64 __fastcall FxIFRGetDriverMultiString(
@@ -12,7 +12,7 @@ __int64 __fastcall FxIFRGetDriverMultiString(
         wchar_t *Value,
         unsigned int *ValueLengthQueried)
 {
-  int v6; // ebx
+  NTSTATUS v6; // ebx
   unsigned int v7; // edx
   unsigned int type; // [rsp+40h] [rbp-C0h] BYREF
   FxAutoRegKey hWdf; // [rsp+48h] [rbp-B8h] BYREF

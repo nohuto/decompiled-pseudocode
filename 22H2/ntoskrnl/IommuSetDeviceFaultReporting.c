@@ -1,26 +1,25 @@
 /*
- * XREFs of IommuSetDeviceFaultReporting @ 0x1405266F0
+ * XREFs of IommuSetDeviceFaultReporting @ 0x1404DAA00
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IommuSetDeviceFaultReporting(__int64 a1, int a2, char a3, _QWORD *a4)
 {
-  char v4; // si
+  char v4; // bp
   __int64 v9; // rbx
   unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
-  __int64 v12; // rdx
   __int64 i; // rax
-  unsigned __int8 v14; // al
+  unsigned __int8 v13; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v16; // r8
-  int v17; // eax
-  bool v18; // zf
+  _DWORD *v15; // r8
+  int v16; // eax
+  bool v17; // zf
   __int64 result; // rax
 
   v4 = 0;
@@ -32,11 +31,7 @@ __int64 __fastcall IommuSetDeviceFaultReporting(__int64 a1, int a2, char a3, _QW
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 12 )
-      LODWORD(v12) = 4096;
-    else
-      v12 = (-1LL << (CurrentIrql + 1)) & 0x1FFC;
-    SchedulerAssist[5] |= v12;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0x1FFC;
   }
   KxAcquireSpinLock(&HalpIommuParaVirtDeviceCacheLock);
   for ( i = HalpIommuParaVirtDeviceCache; (__int64 *)i != &HalpIommuParaVirtDeviceCache; i = *(_QWORD *)i )
@@ -48,28 +43,31 @@ __int64 __fastcall IommuSetDeviceFaultReporting(__int64 a1, int a2, char a3, _QW
       break;
     }
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&HalpIommuParaVirtDeviceCacheLock);
+  KxReleaseSpinLock(&HalpIommuParaVirtDeviceCacheLock);
   if ( KiIrqlFlags )
   {
-    v14 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v16 = CurrentPrcb->SchedulerAssist;
-      v17 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v18 = (v17 & v16[5]) == 0;
-      v16[5] &= v17;
-      if ( v18 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v13 = KeGetCurrentIrql();
+      if ( v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v15 = CurrentPrcb->SchedulerAssist;
+        v16 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v17 = (v16 & v15[5]) == 0;
+        v15[5] &= v16;
+        if ( v17 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);
   if ( !v4 )
     return 3221225485LL;
   if ( a3 )
-    *(_QWORD *)(v9 + 96) = *a4;
-  *(_QWORD *)(v9 + 96) = 0LL;
+    *(_QWORD *)(v9 + 40) = *a4;
+  *(_QWORD *)(v9 + 40) = 0LL;
   result = 3221225474LL;
-  *(_QWORD *)(v9 + 104) = 0LL;
+  *(_QWORD *)(v9 + 48) = 0LL;
   return result;
 }

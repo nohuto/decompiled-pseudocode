@@ -1,14 +1,14 @@
 /*
- * XREFs of KiFinalizeTimer2Disablement @ 0x1402D43F4
+ * XREFs of KiFinalizeTimer2Disablement @ 0x14027FF5C
  * Callers:
- *     KiUpdateTimer2Flags @ 0x1402D4358 (KiUpdateTimer2Flags.c)
- *     KiExpireTimer2 @ 0x1402F2CA0 (KiExpireTimer2.c)
+ *     KiExpireTimer2 @ 0x14024B5C0 (KiExpireTimer2.c)
+ *     KiUpdateTimer2Flags @ 0x14027FE44 (KiUpdateTimer2Flags.c)
  * Callees:
- *     EtwGetKernelTraceTimestamp @ 0x140223A20 (EtwGetKernelTraceTimestamp.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     EtwTraceTimedEvent @ 0x14045FBE2 (EtwTraceTimedEvent.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14029B060 (EtwGetKernelTraceTimestamp.c)
+ *     EtwTraceTimedEvent @ 0x1402AEDFC (EtwTraceTimedEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall KiFinalizeTimer2Disablement(unsigned __int64 a1)
@@ -53,7 +53,7 @@ void __fastcall KiFinalizeTimer2Disablement(unsigned __int64 a1)
       SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
     }
     if ( v3 )
-      EtwGetKernelTraceTimestamp((unsigned __int64)v14, 0x40020000uLL);
+      EtwGetKernelTraceTimestamp(v14, 1073872896LL);
     v5(v4);
     if ( KiIrqlFlags )
     {
@@ -83,7 +83,7 @@ void __fastcall KiFinalizeTimer2Disablement(unsigned __int64 a1)
                               KiWaitAlways ^ _byteswap_uint64(a1 ^ KiWaitAlways) ^ _byteswap_uint64(a1 ^ __ROL8__(v1 ^ KiWaitNever, KiWaitNever)),
                               KiWaitNever));
     if ( !v5 )
-      EtwGetKernelTraceTimestamp((unsigned __int64)v14, 0x40020000uLL);
+      EtwGetKernelTraceTimestamp(v14, 1073872896LL);
     EtwTraceTimedEvent(3948, 1073872896, (unsigned int)v13, 24, 4197890, (__int64)v14);
   }
 }

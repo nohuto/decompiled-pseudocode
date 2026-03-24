@@ -1,27 +1,26 @@
 /*
- * XREFs of PsGetPreviousProcess @ 0x1409B7C90
+ * XREFs of PsGetPreviousProcess @ 0x14090E7B4
  * Callers:
- *     NtGetNextProcess @ 0x1407D4BE0 (NtGetNextProcess.c)
+ *     NtGetNextProcess @ 0x14078A7B0 (NtGetNextProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3620 (ObReferenceObjectSafeWithTag.c)
- *     PspUnlockProcessListShared @ 0x1403506E4 (PspUnlockProcessListShared.c)
+ *     PspUnlockProcessListShared @ 0x140264068 (PspUnlockProcessListShared.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C9130 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PspLockProcessListShared @ 0x140580CD0 (PspLockProcessListShared.c)
  */
 
 unsigned __int64 __fastcall PsGetPreviousProcess(_QWORD *Object)
 {
-  struct _KTHREAD *CurrentThread; // rbp
-  __int64 *v3; // r14
+  struct _KTHREAD *CurrentThread; // r14
+  __int64 *v3; // rbp
   int v4; // esi
   __int64 *v5; // rbx
 
   CurrentThread = KeGetCurrentThread();
   v3 = 0LL;
   v4 = 0;
-  --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&PspActiveProcessLock, 0LL);
-  v5 = (__int64 *)qword_140C382E8;
+  PspLockProcessListShared((__int64)CurrentThread);
+  v5 = (__int64 *)qword_140C1E218;
   if ( Object )
     v5 = (__int64 *)Object[138];
   while ( v5 != &PsActiveProcessHead )

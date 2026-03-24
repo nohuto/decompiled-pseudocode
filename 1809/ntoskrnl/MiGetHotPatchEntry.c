@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetHotPatchEntry @ 0x140854FF8
+ * XREFs of MiGetHotPatchEntry @ 0x140854FD8
  * Callers:
- *     MiHotPatchImage @ 0x140855350 (MiHotPatchImage.c)
+ *     MiHotPatchImage @ 0x140855330 (MiHotPatchImage.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     MiHotPatchImageTreeCompare @ 0x140855608 (MiHotPatchImageTreeCompare.c)
+ *     MiHotPatchImageTreeCompare @ 0x1408555E8 (MiHotPatchImageTreeCompare.c)
  */
 
 unsigned __int64 __fastcall MiGetHotPatchEntry(unsigned __int64 a1, __int64 a2, int a3, int *a4)

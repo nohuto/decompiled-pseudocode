@@ -1,9 +1,9 @@
 /*
- * XREFs of MiWriteAwePtes @ 0x1402B2178
+ * XREFs of MiWriteAwePtes @ 0x1402B2278
  * Callers:
- *     MiDeleteVadAwePtes @ 0x1402B0418 (MiDeleteVadAwePtes.c)
- *     NtMapUserPhysicalPages @ 0x1408513E0 (NtMapUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x1408516D0 (NtMapUserPhysicalPagesScatter.c)
+ *     MiDeleteVadAwePtes @ 0x1402B0518 (MiDeleteVadAwePtes.c)
+ *     NtMapUserPhysicalPages @ 0x1408513C0 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x1408516B0 (NtMapUserPhysicalPagesScatter.c)
  * Callees:
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
@@ -16,17 +16,17 @@
  *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
  *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
  *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiWriteValidPteNewPage @ 0x1400EEB0C (MiWriteValidPteNewPage.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiInsertLargeTbFlushEntry @ 0x140121464 (MiInsertLargeTbFlushEntry.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     MiDecrementAweMapCount @ 0x1402B002C (MiDecrementAweMapCount.c)
- *     MiDeleteAwePageTable @ 0x1402B0134 (MiDeleteAwePageTable.c)
- *     MiGetAweNode @ 0x1402B0C18 (MiGetAweNode.c)
- *     MiUpdateAwePageTable @ 0x1402B2048 (MiUpdateAwePageTable.c)
- *     MiRewritePteWithLockBit @ 0x1402BF57C (MiRewritePteWithLockBit.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiWriteValidPteNewPage @ 0x1400EEB2C (MiWriteValidPteNewPage.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiInsertLargeTbFlushEntry @ 0x140121484 (MiInsertLargeTbFlushEntry.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiDecrementAweMapCount @ 0x1402B012C (MiDecrementAweMapCount.c)
+ *     MiDeleteAwePageTable @ 0x1402B0234 (MiDeleteAwePageTable.c)
+ *     MiGetAweNode @ 0x1402B0D18 (MiGetAweNode.c)
+ *     MiUpdateAwePageTable @ 0x1402B2148 (MiUpdateAwePageTable.c)
+ *     MiRewritePteWithLockBit @ 0x1402BF67C (MiRewritePteWithLockBit.c)
  */
 
 __int64 __fastcall MiWriteAwePtes(

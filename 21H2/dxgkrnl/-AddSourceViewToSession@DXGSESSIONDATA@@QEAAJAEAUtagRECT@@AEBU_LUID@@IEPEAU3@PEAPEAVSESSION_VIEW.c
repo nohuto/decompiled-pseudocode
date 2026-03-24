@@ -1,137 +1,133 @@
 /*
- * XREFs of ?AddSourceViewToSession@DXGSESSIONDATA@@QEAAJAEAUtagRECT@@AEBU_LUID@@IEPEAU3@PEAPEAVSESSION_VIEW@@@Z @ 0x1C01C04C4
+ * XREFs of ?AddSourceViewToSession@DXGSESSIONDATA@@QEAAJAEAUtagRECT@@AEBU_LUID@@IEPEAU3@PEAPEAVSESSION_VIEW@@@Z @ 0x1C00E0388
  * Callers:
- *     DxgkCreateSessionViewForCurrentSession @ 0x1C01C040C (DxgkCreateSessionViewForCurrentSession.c)
+ *     DxgkCreateSessionViewForCurrentSession @ 0x1C00E02D4 (DxgkCreateSessionViewForCurrentSession.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?IsEqualRect@@YAEAEBUtagRECT@@0@Z @ 0x1C005AB40 (-IsEqualRect@@YAEAEBUtagRECT@@0@Z.c)
- *     ?GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z @ 0x1C01A5328 (-GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z.c)
- *     ?GetDisplaySource@SESSION_ADAPTER@@QEBAPEAVDISPLAY_SOURCE@@I@Z @ 0x1C01A5360 (-GetDisplaySource@SESSION_ADAPTER@@QEBAPEAVDISPLAY_SOURCE@@I@Z.c)
- *     ?AddDisplaySource@SESSION_VIEW@@QEAAJPEAVDISPLAY_SOURCE@@E@Z @ 0x1C01C05FC (-AddDisplaySource@SESSION_VIEW@@QEAAJPEAVDISPLAY_SOURCE@@E@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?IsEqualRect@@YAEAEBUtagRECT@@0@Z @ 0x1C004AFB0 (-IsEqualRect@@YAEAEBUtagRECT@@0@Z.c)
+ *     ?AddDisplaySource@SESSION_VIEW@@QEAAJPEAVDISPLAY_SOURCE@@E@Z @ 0x1C00E04B0 (-AddDisplaySource@SESSION_VIEW@@QEAAJPEAVDISPLAY_SOURCE@@E@Z.c)
+ *     ?GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z @ 0x1C01216D0 (-GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z.c)
+ *     ?GetDisplaySource@SESSION_ADAPTER@@QEBAPEAVDISPLAY_SOURCE@@I@Z @ 0x1C0121708 (-GetDisplaySource@SESSION_ADAPTER@@QEBAPEAVDISPLAY_SOURCE@@I@Z.c)
  */
 
 __int64 __fastcall DXGSESSIONDATA::AddSourceViewToSession(
         DXGSESSIONDATA *this,
         struct tagRECT *a2,
         const struct _LUID *a3,
-        __int64 a4,
+        unsigned int a4,
         unsigned __int8 a5,
         struct _LUID *a6)
 {
+  __int64 v7; // r14
   SESSION_ADAPTER *SessionAdapterFromLuid; // rax
-  __int64 v10; // r11
-  struct DISPLAY_SOURCE *DisplaySource; // rax
-  __int64 v12; // r9
-  struct DISPLAY_SOURCE *v13; // rdi
-  __int64 v14; // rcx
-  char *v15; // rbx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rbx
+  struct DISPLAY_SOURCE *DisplaySource; // rbp
+  __int64 v15; // rcx
+  char *v16; // rdi
   char *i; // r8
-  __int64 v17; // rax
-  struct tagRECT v18; // xmm0
-  _QWORD *v19; // rax
-  char *v20; // rax
-  char **v21; // rcx
-  __int64 v23; // rbx
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  _QWORD *v26; // rax
-  char **v27; // r8
-  __int64 v28; // rbx
+  char *v18; // r9
+  char *v19; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // r8
+  struct tagRECT v23; // xmm0
+  _QWORD *v24; // rax
+  char **v25; // rcx
+  char *v26; // rax
+  _QWORD *v28; // rax
+  __int64 v29; // r8
+  __int64 v30; // r9
+  _QWORD *v31; // rax
+  char **v32; // r8
+  __int64 v33; // rax
+  _QWORD *v34; // rdx
+  __int64 v35; // rcx
 
+  v7 = a4;
   SessionAdapterFromLuid = DXGSESSIONDATA::GetSessionAdapterFromLuid(this, a3);
-  if ( !SessionAdapterFromLuid
-    || (DisplaySource = SESSION_ADAPTER::GetDisplaySource(SessionAdapterFromLuid, v10), (v13 = DisplaySource) == 0LL) )
+  v13 = 0LL;
+  if ( SessionAdapterFromLuid )
+    DisplaySource = SESSION_ADAPTER::GetDisplaySource(SessionAdapterFromLuid, v7);
+  else
+    DisplaySource = 0LL;
+  if ( !DisplaySource )
+    goto LABEL_17;
+  v15 = *((_QWORD *)DisplaySource + 6);
+  if ( v15 )
   {
-    v28 = v10;
-    WdLogSingleEntry5(2LL, v10, a3->HighPart, a3->LowPart, this, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"VidPn source 0x%I64x from adapter 0x%I64x%08I64x is not owned by session 0x%I64x (returning 0x%I64x).",
-      v28,
-      a3->HighPart,
-      a3->LowPart,
-      (__int64)this,
-      -1073741811LL);
-    return 3221225485LL;
-  }
-  v14 = *((_QWORD *)DisplaySource + 6);
-  if ( v14 )
-  {
-    v23 = v10;
-    if ( IsEqualRect((const struct tagRECT *)(v14 + 24), a2) )
+    if ( IsEqualRect((const struct tagRECT *)(v15 + 24), a2) )
     {
-      v26 = (_QWORD *)WdLogNewEntry5_WdTrace(v25, v24);
-      v26[3] = v23;
-      v26[4] = a3->HighPart;
-      v26[5] = a3->LowPart;
-      v26[7] = -1071774953LL;
-      v26[6] = this;
+      v31 = (_QWORD *)WdLogNewEntry5_WdTrace(v12, v11, v29, v30);
+      v31[3] = v7;
+      v31[4] = a3->HighPart;
+      v31[5] = a3->LowPart;
+      v31[7] = -1071774953LL;
+      v31[6] = this;
       return 3223192343LL;
     }
-    WdLogSingleEntry5(2LL, v23, a3->HighPart, a3->LowPart, this, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"VidPn source 0x%I64x from adapter 0x%I64x%08I64x is owned by other session view in session 0x%I64x, returning 0x%I64x.",
-      v23,
-      a3->HighPart,
-      a3->LowPart,
-      (__int64)this,
-      -1073741811LL);
+LABEL_17:
+    v28 = (_QWORD *)WdLogNewEntry5_WdError(v12, v11);
+    v28[3] = v7;
+    v28[4] = a3->HighPart;
+    v28[5] = a3->LowPart;
+    v28[6] = this;
+    v28[7] = -1073741811LL;
+    WdLogEvent5_WdError(v28);
     return 3221225485LL;
   }
-  v15 = (char *)this + 18592;
-  for ( i = (char *)*((_QWORD *)this + 2324); ; i = *v27 )
+  v16 = (char *)this + 18576;
+  for ( i = (char *)*((_QWORD *)this + 2322); i != v16; i = *v32 )
   {
-    if ( i == v15 )
-      goto LABEL_6;
     if ( IsEqualRect(a2, (const struct tagRECT *)i + 1) )
-      break;
+      goto LABEL_8;
   }
-  if ( v12 )
+  v18 = 0LL;
+LABEL_8:
+  if ( v18 )
+    goto LABEL_14;
+  v19 = (char *)operator new[](0x48uLL, 0x4B677844u, PagedPool);
+  v18 = v19;
+  if ( v19 )
   {
-LABEL_9:
-    *(struct _LUID *)(v12 + 64) = *a6;
-    SESSION_VIEW::AddDisplaySource((SESSION_VIEW *)v12, v13, a5);
+    *(_QWORD *)v19 = this;
+    v23 = *a2;
+    *((_DWORD *)v19 + 10) = 0;
+    *(struct tagRECT *)(v19 + 24) = v23;
+    v24 = v19 + 48;
+    v24[1] = v24;
+    *v24 = v24;
+    *((_QWORD *)v18 + 8) = 0LL;
+  }
+  else
+  {
+    v18 = 0LL;
+  }
+  if ( v18 )
+  {
+    v25 = (char **)*((_QWORD *)this + 2323);
+    v26 = v18 + 8;
+    if ( *v25 != v16 )
+      __fastfail(3u);
+    *(_QWORD *)v26 = v16;
+    *((_QWORD *)v18 + 2) = v25;
+    *v25 = v26;
+    *((_QWORD *)this + 2323) = v26;
+LABEL_14:
+    *((struct _LUID *)v18 + 8) = *a6;
+    SESSION_VIEW::AddDisplaySource((SESSION_VIEW *)v18, DisplaySource, a5);
     return 0LL;
   }
-LABEL_6:
-  v17 = operator new[](0x48uLL, 0x4B677844u, 256LL, v12);
-  v12 = v17;
-  if ( v17 )
+  v33 = WdLogNewEntry5_WdLowResource(v21, v20, v22, 0LL);
+  v34 = (_QWORD *)(v33 + 24);
+  do
   {
-    *(_QWORD *)v17 = this;
-    v18 = *a2;
-    *(_DWORD *)(v17 + 40) = 0;
-    *(struct tagRECT *)(v17 + 24) = v18;
-    v19 = (_QWORD *)(v17 + 48);
-    v19[1] = v19;
-    *v19 = v19;
-    *(_QWORD *)(v12 + 64) = 0LL;
-    v20 = (char *)(v12 + 8);
-    v21 = (char **)*((_QWORD *)this + 2325);
-    if ( *v21 != v15 )
-      __fastfail(3u);
-    *(_QWORD *)v20 = v15;
-    *(_QWORD *)(v12 + 16) = v21;
-    *v21 = v20;
-    *((_QWORD *)this + 2325) = v20;
-    goto LABEL_9;
+    v35 = *(&a2->left + v13++);
+    *v34++ = v35;
   }
-  WdLogSingleEntry5(6LL, a2->left, a2->top, a2->right, a2->bottom, this);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    262145,
-    -1,
-    (__int64)L"Failed to allocate session view for rect (%d, %d, %d, %d) in session 0x%I64x.",
-    a2->left,
-    a2->top,
-    a2->right,
-    a2->bottom,
-    (__int64)this);
+  while ( v13 < 4 );
+  *(_QWORD *)(v33 + 56) = this;
+  WdLogEvent5_WdLowResource(v33);
   return 3221225495LL;
 }

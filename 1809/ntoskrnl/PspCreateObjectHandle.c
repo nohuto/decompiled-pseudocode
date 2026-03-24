@@ -3,11 +3,11 @@
  * Callers:
  *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
  *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
- *     PsCreateMinimalProcess @ 0x14075754C (PsCreateMinimalProcess.c)
- *     PspCreateProcess @ 0x14075DE30 (PspCreateProcess.c)
+ *     PsCreateMinimalProcess @ 0x14075752C (PsCreateMinimalProcess.c)
+ *     PspCreateProcess @ 0x14075DE10 (PspCreateProcess.c)
  * Callees:
- *     ObOpenObjectByPointer @ 0x1406470E0 (ObOpenObjectByPointer.c)
- *     SePrivilegeObjectAuditAlarm @ 0x1407038A0 (SePrivilegeObjectAuditAlarm.c)
+ *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
+ *     SePrivilegeObjectAuditAlarm @ 0x140703880 (SePrivilegeObjectAuditAlarm.c)
  */
 
 __int64 __fastcall PspCreateObjectHandle(void *a1, __int64 a2, struct _OBJECT_TYPE *a3)

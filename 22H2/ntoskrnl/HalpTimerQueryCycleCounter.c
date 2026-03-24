@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpTimerQueryCycleCounter @ 0x14037A450
+ * XREFs of HalpTimerQueryCycleCounter @ 0x1403CE740
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     HalpFindTimer @ 0x14037B658 (HalpFindTimer.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     HalpFindTimer @ 0x14039CD58 (HalpFindTimer.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall HalpTimerQueryCycleCounter(_QWORD *a1)
+ULONG_PTR *__fastcall HalpTimerQueryCycleCounter(_QWORD *a1)
 {
-  __int64 result; // rax
+  ULONG_PTR *result; // rax
   __int64 InternalData; // rax
   __int64 v4; // rdx
 
@@ -18,9 +18,9 @@ __int64 __fastcall HalpTimerQueryCycleCounter(_QWORD *a1)
   if ( result )
   {
     if ( a1 )
-      *a1 = *(_QWORD *)(result + 192);
-    InternalData = HalpTimerGetInternalData(result);
-    return (*(__int64 (__fastcall **)(__int64))(v4 + 112))(InternalData);
+      *a1 = result[24];
+    InternalData = HalpTimerGetInternalData((__int64)result);
+    return (ULONG_PTR *)(*(__int64 (__fastcall **)(__int64))(v4 + 112))(InternalData);
   }
   return result;
 }

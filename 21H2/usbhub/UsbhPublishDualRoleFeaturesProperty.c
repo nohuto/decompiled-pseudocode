@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhPublishDualRoleFeaturesProperty @ 0x1C0056AC4
+ * XREFs of UsbhPublishDualRoleFeaturesProperty @ 0x1C005819C
  * Callers:
- *     UsbhPdoPnp_DeviceEnumerated @ 0x1C00544B0 (UsbhPdoPnp_DeviceEnumerated.c)
+ *     UsbhPdoPnp_DeviceEnumerated @ 0x1C0055B40 (UsbhPdoPnp_DeviceEnumerated.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
  */
 
 void __fastcall UsbhPublishDualRoleFeaturesProperty(PDEVICE_OBJECT Pdo)

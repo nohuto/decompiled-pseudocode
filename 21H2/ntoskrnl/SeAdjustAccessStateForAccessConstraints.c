@@ -1,12 +1,12 @@
 /*
- * XREFs of SeAdjustAccessStateForAccessConstraints @ 0x1407B4BA0
+ * XREFs of SeAdjustAccessStateForAccessConstraints @ 0x14065EFE0
  * Callers:
  *     <none>
  * Callees:
- *     SepLocateTokenTrustLevel @ 0x140232910 (SepLocateTokenTrustLevel.c)
- *     RtlSidDominatesForTrust @ 0x1402F8A20 (RtlSidDominatesForTrust.c)
- *     SepFilterCheck @ 0x1402FBC90 (SepFilterCheck.c)
- *     SeGetTrustLabelAce @ 0x1402FBE30 (SeGetTrustLabelAce.c)
+ *     RtlSidDominatesForTrust @ 0x14027DDE0 (RtlSidDominatesForTrust.c)
+ *     SeGetTrustLabelAce @ 0x14027E380 (SeGetTrustLabelAce.c)
+ *     SepLocateTokenTrustLevel @ 0x1402AAB88 (SepLocateTokenTrustLevel.c)
+ *     SepFilterCheck @ 0x14034ECD0 (SepFilterCheck.c)
  */
 
 __int64 __fastcall SeAdjustAccessStateForAccessConstraints(__int64 a1, __int64 a2, __int64 a3)
@@ -17,7 +17,7 @@ __int64 __fastcall SeAdjustAccessStateForAccessConstraints(__int64 a1, __int64 a
   int v8; // ebp
   int v9; // eax
   int v10; // r15d
-  _DWORD *v11; // r8
+  __int64 v11; // r8
   __int64 TrustLabelAce; // rax
   __int64 v13; // r14
   int v14; // ebx
@@ -51,9 +51,9 @@ __int64 __fastcall SeAdjustAccessStateForAccessConstraints(__int64 a1, __int64 a
     {
       v10 = 0;
     }
-    v11 = *(_DWORD **)(a3 + 32);
+    v11 = *(_QWORD *)(a3 + 32);
     if ( !v11 )
-      v11 = *(_DWORD **)(a3 + 48);
+      v11 = *(_QWORD *)(a3 + 48);
     SepFilterCheck(a2, 0LL, v11, 1, (int *)&v20);
     if ( BYTE4(v20) )
       v4 = v20;

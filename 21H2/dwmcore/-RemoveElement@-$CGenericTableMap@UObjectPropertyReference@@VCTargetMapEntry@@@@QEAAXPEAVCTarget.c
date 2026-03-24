@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RemoveElement@?$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@QEAAXPEAVCTargetMapEntry@@@Z @ 0x180046B9C
+ * XREFs of ?RemoveElement@?$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@QEAAXPEAVCTargetMapEntry@@@Z @ 0x18006346C
  * Callers:
- *     ?UnregisterExpressionWorker@CExpressionManager@@AEAAXPEAVCBaseExpression@@PEAV?$CWeakReference@VCResource@@@@IPEAVSubchannelMaskInfo@@_N@Z @ 0x1800496D8 (-UnregisterExpressionWorker@CExpressionManager@@AEAAXPEAVCBaseExpression@@PEAV-$CWeakReference@V.c)
- *     ??1CExpressionManager@@EEAA@XZ @ 0x1801FD948 (--1CExpressionManager@@EEAA@XZ.c)
+ *     ?UnregisterExpressionWorker@CExpressionManager@@AEAAXPEAVCBaseExpression@@PEAV?$CWeakReference@VCResource@@@@IPEAVSubchannelMaskInfo@@_N@Z @ 0x18006452C (-UnregisterExpressionWorker@CExpressionManager@@AEAAXPEAVCBaseExpression@@PEAV-$CWeakReference@V.c)
+ *     ??1CExpressionManager@@UEAA@XZ @ 0x1801AB1BC (--1CExpressionManager@@UEAA@XZ.c)
  * Callees:
- *     ??1CTargetMapEntry@@QEAA@XZ @ 0x18004A4F8 (--1CTargetMapEntry@@QEAA@XZ.c)
+ *     ??1CTargetMapEntry@@QEAA@XZ @ 0x180064B78 (--1CTargetMapEntry@@QEAA@XZ.c)
  */
 
 void __fastcall CGenericTableMap<ObjectPropertyReference,CTargetMapEntry>::RemoveElement(

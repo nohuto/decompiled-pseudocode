@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlWriteApicCommandRegister @ 0x140371F30
+ * XREFs of HvlWriteApicCommandRegister @ 0x140364EB0
  * Callers:
  *     <none>
  * Callees:

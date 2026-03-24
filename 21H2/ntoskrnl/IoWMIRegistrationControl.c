@@ -1,20 +1,19 @@
 /*
- * XREFs of IoWMIRegistrationControl @ 0x1406C8220
+ * XREFs of IoWMIRegistrationControl @ 0x140754F30
  * Callers:
- *     DifIoWMIRegistrationControlWrapper @ 0x140611730 (DifIoWMIRegistrationControlWrapper.c)
- *     PpmEnableWmiInterface @ 0x1408565CC (PpmEnableWmiInterface.c)
- *     ViDdiDriverEntry @ 0x140A834A0 (ViDdiDriverEntry.c)
- *     WheaInitialize @ 0x140AFF910 (WheaInitialize.c)
- *     WmipDriverEntry @ 0x140B22C40 (WmipDriverEntry.c)
+ *     WheaWmiInit @ 0x1405BD87C (WheaWmiInit.c)
+ *     PpmEnableWmiInterface @ 0x1407C76AC (PpmEnableWmiInterface.c)
+ *     ViDdiDriverEntry @ 0x1409C82B0 (ViDdiDriverEntry.c)
+ *     WmipDriverEntry @ 0x140A69AA0 (WmipDriverEntry.c)
  * Callees:
- *     WmipFindRegEntryByDevice @ 0x140248854 (WmipFindRegEntryByDevice.c)
- *     WmipUnreferenceRegEntry @ 0x1402E0164 (WmipUnreferenceRegEntry.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     WmipEnterSMCritSection @ 0x14045F87C (WmipEnterSMCritSection.c)
- *     WmipUpdateRegistration @ 0x1406C81D4 (WmipUpdateRegistration.c)
- *     WmipRegisterDevice @ 0x1406C82F8 (WmipRegisterDevice.c)
- *     WmipDeregisterDevice @ 0x140810420 (WmipDeregisterDevice.c)
- *     WmipSetTraceNotify @ 0x140810B00 (WmipSetTraceNotify.c)
+ *     WmipUnreferenceRegEntry @ 0x1402650E4 (WmipUnreferenceRegEntry.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     WmipFindRegEntryByDevice @ 0x140370FE4 (WmipFindRegEntryByDevice.c)
+ *     WmipUpdateRegistration @ 0x1407537BC (WmipUpdateRegistration.c)
+ *     WmipDeregisterDevice @ 0x140754E84 (WmipDeregisterDevice.c)
+ *     WmipRegisterDevice @ 0x140755008 (WmipRegisterDevice.c)
+ *     WmipSetTraceNotify @ 0x140780D58 (WmipSetTraceNotify.c)
  */
 
 NTSTATUS __stdcall IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject, ULONG Action)
@@ -49,7 +48,7 @@ NTSTATUS __stdcall IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject, ULONG A
     }
     v8 = v5 - 1;
     if ( !v8 )
-      return WmipDeregisterDevice(DeviceObject);
+      return WmipDeregisterDevice((__int64)DeviceObject);
     v10 = v8 - 1;
     if ( v10 )
     {
@@ -61,7 +60,7 @@ NTSTATUS __stdcall IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject, ULONG A
         RegEntryByDevice = WmipFindRegEntryByDevice((__int64)DeviceObject);
         if ( !RegEntryByDevice )
           return -1073741811;
-        WmipEnterSMCritSection();
+        KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
         _InterlockedOr((volatile signed __int32 *)(RegEntryByDevice + 48), 0x20000000u);
         KeReleaseMutex(&WmipSMMutex, 0);
         WmipUnreferenceRegEntry(RegEntryByDevice);
@@ -71,7 +70,7 @@ NTSTATUS __stdcall IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject, ULONG A
     }
     else
     {
-      v6 = WmipDeregisterDevice(DeviceObject);
+      v6 = WmipDeregisterDevice((__int64)DeviceObject);
       if ( v6 < 0 )
         return v6;
       return WmipRegisterDevice(DeviceObject);

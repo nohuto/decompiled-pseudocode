@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pqhh_EtwWriteTransfer @ 0x1C0002398
+ * XREFs of McTemplateK0pqhh_EtwWriteTransfer @ 0x1C0001D58
  * Callers:
- *     HUBHTX_PortControlTransferComplete @ 0x1C0003E90 (HUBHTX_PortControlTransferComplete.c)
+ *     HUBHTX_PortControlTransferComplete @ 0x1C0003860 (HUBHTX_PortControlTransferComplete.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001680 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001250 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqhh_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

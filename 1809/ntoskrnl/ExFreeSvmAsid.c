@@ -1,11 +1,11 @@
 /*
- * XREFs of ExFreeSvmAsid @ 0x140132B88
+ * XREFs of ExFreeSvmAsid @ 0x140132BA8
  * Callers:
  *     MmCleanProcessAddressSpace @ 0x1405F1BC8 (MmCleanProcessAddressSpace.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     ExpFreeAsid @ 0x14031DD18 (ExpFreeAsid.c)
- *     ExpSvmDereferenceDevice @ 0x14031E0F0 (ExpSvmDereferenceDevice.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExpFreeAsid @ 0x14031DE18 (ExpFreeAsid.c)
+ *     ExpSvmDereferenceDevice @ 0x14031E1F0 (ExpSvmDereferenceDevice.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

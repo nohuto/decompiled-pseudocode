@@ -1,81 +1,76 @@
 /*
- * XREFs of ?FBitsTouch@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagSPB@@K@Z @ 0x1C000C07C
+ * XREFs of ?FBitsTouch@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagSPB@@K@Z @ 0x1C02198B4
  * Callers:
- *     ?SpbCheckRect2@@YAHPEAUtagSPB@@PEAUtagWND@@PEAUtagRECT@@K@Z @ 0x1C000BF9C (-SpbCheckRect2@@YAHPEAUtagSPB@@PEAUtagWND@@PEAUtagRECT@@K@Z.c)
+ *     ?SpbCheckRect2@@YAHPEAUtagSPB@@PEAUtagWND@@PEAUtagRECT@@K@Z @ 0x1C0219AE0 (-SpbCheckRect2@@YAHPEAUtagSPB@@PEAUtagWND@@PEAUtagRECT@@K@Z.c)
  * Callees:
- *     IsVisible @ 0x1C00C719C (IsVisible.c)
- *     IntersectRect @ 0x1C00D0330 (IntersectRect.c)
- *     SubtractRect @ 0x1C024B870 (SubtractRect.c)
+ *     IsVisible @ 0x1C00680C4 (IsVisible.c)
+ *     IntersectRect @ 0x1C00750C0 (IntersectRect.c)
+ *     SubtractRect @ 0x1C010AD68 (SubtractRect.c)
  */
 
 __int64 __fastcall FBitsTouch(struct tagWND *a1, struct tagRECT *a2, struct tagSPB *a3)
 {
   _QWORD *v5; // rcx
   __int16 v6; // r9
-  _QWORD *i; // rbx
-  _QWORD *v8; // rdx
-  _QWORD *v9; // rax
+  _QWORD *k; // rbx
+  _QWORD *v8; // rax
+  _QWORD *v9; // r9
   _QWORD *v10; // rdi
-  __int64 v12; // r8
+  _QWORD *i; // rdx
+  _QWORD *j; // rax
+  __int64 v13; // r8
 
   if ( !a1 )
-    return IntersectRect(a2, a2, (char *)a3 + 24);
-  if ( !(unsigned int)IsVisible(a1) )
+    return IntersectRect(a2, &a2->left, (int *)a3 + 6);
+  if ( !(unsigned int)IsVisible((__int64)a1) )
     return 0LL;
-  i = (_QWORD *)*((_QWORD *)a3 + 1);
+  k = (_QWORD *)*((_QWORD *)a3 + 1);
   if ( (*((_DWORD *)a3 + 12) & 2) != 0 && (v6 & 0x400) != 0 )
     return 0LL;
-  v8 = (_QWORD *)i[13];
+  v8 = (_QWORD *)k[13];
   if ( v5 == v8 )
-    return IntersectRect(a2, a2, (char *)a3 + 24);
-  v9 = (_QWORD *)v5[13];
+    return IntersectRect(a2, &a2->left, (int *)a3 + 6);
+  v9 = v5 + 13;
   v10 = v5;
-  if ( v8 != v9 )
+  for ( i = (_QWORD *)v5[13]; v8 != i; i = (_QWORD *)i[13] )
   {
-    do
-    {
-      v5 = (_QWORD *)v5[13];
-      if ( !v5 )
-        return 0LL;
-    }
-    while ( v8 != (_QWORD *)v5[13] );
+    v5 = i;
+    if ( !i )
+      return 0LL;
   }
-  if ( v5 == i )
+  if ( v5 == k )
   {
     if ( (*((_DWORD *)a3 + 12) & 2) != 0 )
     {
-      if ( v10 != i )
+      if ( v10 != k )
       {
-        while ( i != v9 )
+        for ( j = (_QWORD *)*v9; k != j; j = (_QWORD *)j[13] )
+          v10 = j;
+        for ( k = (_QWORD *)k[14]; k && k != v10; k = (_QWORD *)k[11] )
         {
-          v10 = v9;
-          v9 = (_QWORD *)v9[13];
-        }
-        for ( i = (_QWORD *)i[14]; i && i != v10; i = (_QWORD *)i[11] )
-        {
-          v12 = i[5];
-          if ( (*(_BYTE *)(v12 + 31) & 0x10) != 0
-            && !*(_QWORD *)(v12 + 168)
-            && (*(_BYTE *)(v12 + 26) & 8) == 0
-            && !(unsigned int)SubtractRect(a2, a2, v12 + 88) )
+          v13 = k[5];
+          if ( (*(_BYTE *)(v13 + 31) & 0x10) != 0
+            && !*(_QWORD *)(v13 + 168)
+            && (*(_BYTE *)(v13 + 26) & 8) == 0
+            && !SubtractRect((__int64)a2, &a2->left, (int *)(v13 + 88)) )
           {
             return 0LL;
           }
-LABEL_20:
+LABEL_26:
           ;
         }
       }
-      return IntersectRect(a2, a2, (char *)a3 + 24);
+      return IntersectRect(a2, &a2->left, (int *)a3 + 6);
     }
   }
   else
   {
     v10 = v5;
-    while ( v5 != i )
+    while ( v5 != k )
     {
       v5 = (_QWORD *)v5[11];
       if ( !v5 )
-        goto LABEL_20;
+        goto LABEL_26;
     }
   }
   return 0LL;

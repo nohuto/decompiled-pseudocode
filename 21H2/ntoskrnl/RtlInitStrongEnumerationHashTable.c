@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInitStrongEnumerationHashTable @ 0x1403A09C0
+ * XREFs of RtlInitStrongEnumerationHashTable @ 0x1403948E0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpPopulateContext @ 0x140206BC4 (RtlpPopulateContext.c)
+ *     RtlpPopulateContext @ 0x140251680 (RtlpPopulateContext.c)
  */
 
 char __fastcall RtlInitStrongEnumerationHashTable(_DWORD *a1, _QWORD *a2)

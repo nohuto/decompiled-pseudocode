@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vConvertAndSaveBGRATo1@@YAXPEAEPEBKJJPEAU_XLATEOBJ@@VXEPALOBJ@@3@Z @ 0x1C02C39D0
+ * XREFs of ?vConvertAndSaveBGRATo1@@YAXPEAEPEBKJJPEAU_XLATEOBJ@@VXEPALOBJ@@3@Z @ 0x1C02C5070
  * Callers:
  *     <none>
  * Callees:

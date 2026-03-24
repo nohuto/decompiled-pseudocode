@@ -1,36 +1,34 @@
 /*
- * XREFs of FreeClientOnWindowDestruction @ 0x1C013B810
+ * XREFs of FreeClientOnWindowDestruction @ 0x1C01EE160
  * Callers:
- *     xxxFreeWindow @ 0x1C00E8F70 (xxxFreeWindow.c)
+ *     <none>
  * Callees:
  *     <none>
  */
 
-void __fastcall FreeClientOnWindowDestruction(__int64 a1)
+void __fastcall FreeClientOnWindowDestruction(struct _LIST_ENTRY *a1)
 {
-  _QWORD **v2; // rdi
-  _QWORD *v3; // rbx
-  _QWORD *v4; // rbp
-  _QWORD *v5; // rsi
-  __int64 v6; // rcx
-  _QWORD *v7; // rax
+  struct _LIST_ENTRY *Flink; // rbx
+  struct _LIST_ENTRY *v3; // rsi
+  struct _LIST_ENTRY *v4; // rdi
+  struct _LIST_ENTRY *v5; // rcx
+  struct _LIST_ENTRY *Blink; // rax
 
-  v2 = (_QWORD **)(SGDGetUserSessionState(a1) + 16352);
-  v3 = *v2;
-  while ( v3 != v2 )
+  Flink = gPointerDeviceClients.Flink;
+  while ( Flink != &gPointerDeviceClients )
   {
-    v4 = v3 - 2;
-    v5 = v3;
-    v3 = (_QWORD *)*v3;
-    if ( a1 == *v4 )
+    v3 = Flink - 1;
+    v4 = Flink;
+    Flink = Flink->Flink;
+    if ( a1 == v3->Flink )
     {
-      HMAssignmentUnlock(v4);
-      v6 = *v5;
-      if ( *(_QWORD **)(*v5 + 8LL) != v5 || (v7 = (_QWORD *)v5[1], (_QWORD *)*v7 != v5) )
+      HMAssignmentUnlock(v3);
+      v5 = v4->Flink;
+      if ( v4->Flink->Blink != v4 || (Blink = v4->Blink, Blink->Flink != v4) )
         __fastfail(3u);
-      *v7 = v6;
-      *(_QWORD *)(v6 + 8) = v7;
-      Win32FreePool(v4);
+      Blink->Flink = v5;
+      v5->Blink = Blink;
+      Win32FreePool(v3);
     }
   }
 }

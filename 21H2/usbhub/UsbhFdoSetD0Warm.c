@@ -1,27 +1,27 @@
 /*
- * XREFs of UsbhFdoSetD0Warm @ 0x1C003B8A0
+ * XREFs of UsbhFdoSetD0Warm @ 0x1C003CBD0
  * Callers:
- *     UsbhFdoD0Worker_Action @ 0x1C00070B0 (UsbhFdoD0Worker_Action.c)
+ *     UsbhFdoD0Worker_Action @ 0x1C000DC30 (UsbhFdoD0Worker_Action.c)
  * Callees:
- *     UsbhUnlatchPdo @ 0x1C0002650 (UsbhUnlatchPdo.c)
- *     UsbhFdoCheckUpstreamConnectionState @ 0x1C0002F00 (UsbhFdoCheckUpstreamConnectionState.c)
- *     UsbhSyncResetDeviceInternal @ 0x1C0003078 (UsbhSyncResetDeviceInternal.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhEtwLogHubIrpEvent @ 0x1C000C920 (UsbhEtwLogHubIrpEvent.c)
- *     UsbhLatchPdo @ 0x1C000F240 (UsbhLatchPdo.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhQueryPortState @ 0x1C0018E60 (UsbhQueryPortState.c)
- *     UsbhSendSynchronousUsbIoctlRequest @ 0x1C001E2AC (UsbhSendSynchronousUsbIoctlRequest.c)
- *     UsbhFlushPortChange @ 0x1C002A85C (UsbhFlushPortChange.c)
- *     UsbhWait @ 0x1C002D834 (UsbhWait.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhSyncBusResume @ 0x1C0030F24 (UsbhSyncBusResume.c)
- *     UsbhQueueSoftConnectChange @ 0x1C00345D4 (UsbhQueueSoftConnectChange.c)
- *     UsbhWaitForPortResume @ 0x1C0039CEC (UsbhWaitForPortResume.c)
- *     UsbhResumeHardReset @ 0x1C003CE38 (UsbhResumeHardReset.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     UsbhSyncBusResume @ 0x1C0002978 (UsbhSyncBusResume.c)
+ *     UsbhQueryPortState @ 0x1C000A080 (UsbhQueryPortState.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C0012400 (UsbhEtwLogHubIrpEvent.c)
+ *     UsbhFdoCheckUpstreamConnectionState @ 0x1C0015EB4 (UsbhFdoCheckUpstreamConnectionState.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C00162A8 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhLatchPdo @ 0x1C0016B5C (UsbhLatchPdo.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     UsbhUnlatchPdo @ 0x1C00171A0 (UsbhUnlatchPdo.c)
+ *     UsbhWait @ 0x1C001853C (UsbhWait.c)
+ *     UsbhSendSynchronousUsbIoctlRequest @ 0x1C001BCC4 (UsbhSendSynchronousUsbIoctlRequest.c)
+ *     UsbhFlushPortChange @ 0x1C002BBD0 (UsbhFlushPortChange.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0035938 (UsbhQueueSoftConnectChange.c)
+ *     UsbhWaitForPortResume @ 0x1C003AFFC (UsbhWaitForPortResume.c)
+ *     UsbhResumeHardReset @ 0x1C003E018 (UsbhResumeHardReset.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 __int64 __fastcall UsbhFdoSetD0Warm(PDEVICE_OBJECT DeviceObject, __int64 a2)
@@ -50,14 +50,15 @@ __int64 __fastcall UsbhFdoSetD0Warm(PDEVICE_OBJECT DeviceObject, __int64 a2)
   _DWORD *v25; // rax
   __int16 v26; // r9
   int v27; // eax
-  int v29; // [rsp+50h] [rbp-48h] BYREF
-  _DWORD *v30; // [rsp+58h] [rbp-40h]
-  int v31; // [rsp+B0h] [rbp+18h] BYREF
-  int v32; // [rsp+B8h] [rbp+20h] BYREF
+  int v29; // [rsp+48h] [rbp-50h]
+  unsigned int v30; // [rsp+50h] [rbp-48h] BYREF
+  _DWORD *v31; // [rsp+58h] [rbp-40h]
+  int v32; // [rsp+B0h] [rbp+18h] BYREF
+  int v33; // [rsp+B8h] [rbp+20h] BYREF
 
-  v29 = 0;
-  v31 = 0;
-  v30 = FdoExt((__int64)DeviceObject);
+  v30 = 0;
+  v32 = 0;
+  v31 = FdoExt((__int64)DeviceObject);
   v4 = 0;
   Log((__int64)DeviceObject, 16, 2002874989, 0LL, 0LL);
   v5 = 1;
@@ -74,7 +75,7 @@ __int64 __fastcall UsbhFdoSetD0Warm(PDEVICE_OBJECT DeviceObject, __int64 a2)
     PortData = UsbhGetPortData((__int64)DeviceObject, i);
     if ( PortData )
     {
-      v4 = UsbhQueryPortState((__int64)DeviceObject, i, (__int64)&v31, &v32);
+      v4 = UsbhQueryPortState((__int64)DeviceObject, i, (__int64)&v32, &v33);
       if ( v4 >= 0 )
       {
         v8 = UsbhLatchPdo((__int64)DeviceObject, i, 0LL, 0x574D5253u);
@@ -83,10 +84,10 @@ __int64 __fastcall UsbhFdoSetD0Warm(PDEVICE_OBJECT DeviceObject, __int64 a2)
         {
           v10 = PdoExt(v8);
           v11 = v10;
-          if ( (v31 & 1) != 0 && (v31 & 0x10000) != 0 )
+          if ( (v32 & 1) != 0 && (v32 & 0x10000) != 0 )
           {
             Log((__int64)DeviceObject, 16, 2003986028, i, 0LL);
-            v4 = UsbhFlushPortChange((__int64)DeviceObject, i, &v32);
+            v4 = UsbhFlushPortChange((__int64)DeviceObject, i, &v33);
             if ( v4 >= 0 )
             {
               v12 = v11[355];
@@ -95,7 +96,7 @@ __int64 __fastcall UsbhFdoSetD0Warm(PDEVICE_OBJECT DeviceObject, __int64 a2)
             }
             goto LABEL_14;
           }
-          if ( (v31 & 3) == 1 )
+          if ( (v32 & 3) == 1 )
           {
             v13 = v10[355];
             if ( (v13 & 0x8000000) == 0 )
@@ -105,7 +106,7 @@ __int64 __fastcall UsbhFdoSetD0Warm(PDEVICE_OBJECT DeviceObject, __int64 a2)
               goto LABEL_18;
             }
           }
-          if ( (v31 & 0x10000) == 0 && (v31 & 1) == 0 )
+          if ( (v32 & 0x10000) == 0 && (v32 & 1) == 0 )
           {
             *(_DWORD *)(PortData + 2408) |= 4u;
             v14 = 2003985971;
@@ -116,7 +117,7 @@ LABEL_14:
           UsbhUnlatchPdo((__int64)DeviceObject, v9, 0LL, 0x574D5253u);
           goto LABEL_25;
         }
-        if ( (v31 & 0x10000) == 0 && (v31 & 1) != 0 )
+        if ( (v32 & 0x10000) == 0 && (v32 & 1) != 0 )
         {
           *(_DWORD *)(PortData + 2408) |= 4u;
           Log((__int64)DeviceObject, 16, 2003985972, i, 0LL);
@@ -127,7 +128,7 @@ LABEL_25:
     v5 = 1;
   }
   Log((__int64)DeviceObject, 16, 1651724877, 0LL, 0LL);
-  UsbhSyncBusResume(DeviceObject, a2);
+  UsbhSyncBusResume((__int64)DeviceObject, a2);
   for ( j = 1; j <= *((unsigned __int8 *)FdoExt((__int64)DeviceObject) + 2938); ++j )
   {
     v16 = UsbhGetPortData((__int64)DeviceObject, j);
@@ -150,7 +151,7 @@ LABEL_25:
   if ( (v4 & 0xC0000000) != 0xC0000000 )
   {
     UsbhWait((__int64)DeviceObject, 0xAu);
-    v4 = UsbhFdoCheckUpstreamConnectionState((__int64)DeviceObject, &v29);
+    v4 = UsbhFdoCheckUpstreamConnectionState((__int64)DeviceObject, &v30);
     if ( (v4 & 0xC0000000) != 0xC0000000 )
     {
       for ( k = 1; k <= *((unsigned __int8 *)FdoExt((__int64)DeviceObject) + 2938); k += v5 )
@@ -193,7 +194,8 @@ LABEL_25:
               Log((__int64)DeviceObject, 16, 1466782291, 0LL, v19);
               v5 = v26 + 1;
               UsbhQueueSoftConnectChange((__int64)DeviceObject, k, a2, v26 + 1);
-              UsbhException((int)DeviceObject, 0, 138, 0, 0, v19, 0, usbfile_fdopwr_c, 3687, 0);
+              LOBYTE(v29) = 0;
+              UsbhException((int)DeviceObject, 0, 138, 0, 0, v19, 0, usbfile_fdopwr_c, 3687, v29);
             }
             else
             {
@@ -203,11 +205,12 @@ LABEL_46:
           }
         }
       }
-      v27 = v30[640];
+      v27 = v31[640];
       if ( (v27 & 0x10) != 0 )
       {
-        v30[640] = v27 & 0xFFFFFFEF;
-        UsbhException((int)DeviceObject, 0, 113, 0, 0, 0, 0, usbfile_fdopwr_c, 3702, 0);
+        LOBYTE(v29) = 0;
+        v31[640] = v27 & 0xFFFFFFEF;
+        UsbhException((int)DeviceObject, 0, 113, 0, 0, 0, 0, usbfile_fdopwr_c, 3702, v29);
         v4 = -1073741823;
       }
     }

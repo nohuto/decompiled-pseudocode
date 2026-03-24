@@ -7,12 +7,12 @@
  *     CmpGetNextHive @ 0x1405D00F0 (CmpGetNextHive.c)
  *     CmpLockHashEntryExclusive @ 0x1405D1608 (CmpLockHashEntryExclusive.c)
  *     CmpLockHashEntrySharedByKcb @ 0x1405D168C (CmpLockHashEntrySharedByKcb.c)
- *     CmpGetLastHive @ 0x1406C2314 (CmpGetLastHive.c)
- *     CmpTryToLockHashEntryExclusive @ 0x1406C4A6C (CmpTryToLockHashEntryExclusive.c)
- *     CmpLockHashEntryShared @ 0x1406F8390 (CmpLockHashEntryShared.c)
- *     CmpBlockHiveWrites @ 0x1407F06C0 (CmpBlockHiveWrites.c)
- *     CmpBlockTwoHiveWrites @ 0x1407F0774 (CmpBlockTwoHiveWrites.c)
- *     CmpLockHashEntryByIndexExclusive @ 0x1407F954C (CmpLockHashEntryByIndexExclusive.c)
+ *     CmpGetLastHive @ 0x1406C22F4 (CmpGetLastHive.c)
+ *     CmpTryToLockHashEntryExclusive @ 0x1406C4A4C (CmpTryToLockHashEntryExclusive.c)
+ *     CmpLockHashEntryShared @ 0x1406F8370 (CmpLockHashEntryShared.c)
+ *     CmpBlockHiveWrites @ 0x1407F06A0 (CmpBlockHiveWrites.c)
+ *     CmpBlockTwoHiveWrites @ 0x1407F0754 (CmpBlockTwoHiveWrites.c)
+ *     CmpLockHashEntryByIndexExclusive @ 0x1407F952C (CmpLockHashEntryByIndexExclusive.c)
  * Callees:
  *     <none>
  */

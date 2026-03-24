@@ -1,7 +1,7 @@
 /*
- * XREFs of ?MsgSQMUpdateMsgRecord@@YAHPEAUtagMSGSQM_MSGRECORD@@KK@Z @ 0x1C02190A4
+ * XREFs of ?MsgSQMUpdateMsgRecord@@YAHPEAUtagMSGSQM_MSGRECORD@@KK@Z @ 0x1C021E070
  * Callers:
- *     MSGSQMAddMessage @ 0x1C00A770C (MSGSQMAddMessage.c)
+ *     MSGSQMAddMessage @ 0x1C003FB08 (MSGSQMAddMessage.c)
  * Callees:
  *     <none>
  */

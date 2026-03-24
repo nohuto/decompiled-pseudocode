@@ -1,18 +1,18 @@
 /*
- * XREFs of PopCurrentPowerState @ 0x140750EC4
+ * XREFs of PopCurrentPowerState @ 0x140678D9C
  * Callers:
- *     PopEsUpdateState @ 0x14024E2C8 (PopEsUpdateState.c)
- *     PopUpdateAcDcState @ 0x1403699FC (PopUpdateAcDcState.c)
- *     PopCalculateCsSummary @ 0x140397424 (PopCalculateCsSummary.c)
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
- *     PopCurrentPowerStatePrecise @ 0x1407ED930 (PopCurrentPowerStatePrecise.c)
- *     PopEsEnterSleepShutdown @ 0x1408071C4 (PopEsEnterSleepShutdown.c)
- *     PopTransitionTelemetryOsState @ 0x14081B500 (PopTransitionTelemetryOsState.c)
- *     PopEsStartTelemetry @ 0x14081CC60 (PopEsStartTelemetry.c)
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PopUpdateAcDcState @ 0x1403999CC (PopUpdateAcDcState.c)
+ *     PopEsUpdateState @ 0x14039A908 (PopEsUpdateState.c)
+ *     PopCalculateCsSummary @ 0x14056FEA0 (PopCalculateCsSummary.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     PopDiagTraceControlCallback @ 0x14067D270 (PopDiagTraceControlCallback.c)
+ *     PopEsEnterSleepShutdown @ 0x1407791DC (PopEsEnterSleepShutdown.c)
+ *     PopCurrentPowerStatePrecise @ 0x14078E444 (PopCurrentPowerStatePrecise.c)
+ *     PopEsStartTelemetry @ 0x14078E774 (PopEsStartTelemetry.c)
+ *     PopTransitionTelemetryOsState @ 0x140798A44 (PopTransitionTelemetryOsState.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
  */
 
 void __fastcall PopCurrentPowerState(_OWORD *a1)
@@ -21,8 +21,8 @@ void __fastcall PopCurrentPowerState(_OWORD *a1)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&xmmword_140C22B70, 0LL);
-  *a1 = xmmword_140C22B80;
-  a1[1] = xmmword_140C22B90;
-  PopReleaseRwLock((ULONG_PTR)&xmmword_140C22B70);
+  ExAcquirePushLockSharedEx((ULONG_PTR)&xmmword_140C237F0, 0LL);
+  *a1 = xmmword_140C23800;
+  a1[1] = xmmword_140C23810;
+  PopReleaseRwLock((ULONG_PTR)&xmmword_140C237F0);
 }

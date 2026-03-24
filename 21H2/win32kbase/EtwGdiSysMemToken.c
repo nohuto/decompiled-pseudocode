@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwGdiSysMemToken @ 0x1C00B78F0
+ * XREFs of EtwGdiSysMemToken @ 0x1C00A6D20
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0qqxx_EtwWriteTransfer @ 0x1C01515AC (McTemplateK0qqxx_EtwWriteTransfer.c)
+ *     McTemplateK0qqxx_EtwWriteTransfer @ 0x1C0126FA4 (McTemplateK0qqxx_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwGdiSysMemToken(int a1, char a2, int a3, char a4)

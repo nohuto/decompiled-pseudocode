@@ -1,42 +1,44 @@
 /*
- * XREFs of RegisterModernAppThreadForRawKeyboard @ 0x1C01AA00C
+ * XREFs of RegisterModernAppThreadForRawKeyboard @ 0x1C01D51B0
  * Callers:
- *     _EnableModernAppWindowKeyboardIntercept @ 0x1C01E3698 (_EnableModernAppWindowKeyboardIntercept.c)
+ *     _EnableModernAppWindowKeyboardIntercept @ 0x1C0206A00 (_EnableModernAppWindowKeyboardIntercept.c)
  * Callees:
- *     _RegisterRawInputDevices @ 0x1C009F368 (_RegisterRawInputDevices.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     HasHidTable @ 0x1C01184A0 (HasHidTable.c)
+ *     HasHidTable @ 0x1C0052590 (HasHidTable.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _RegisterRawInputDevices @ 0x1C0107FD0 (_RegisterRawInputDevices.c)
  */
 
 __int64 __fastcall RegisterModernAppThreadForRawKeyboard(__int64 a1)
 {
   int v1; // ebx
-  int v4; // eax
-  _DWORD v5[2]; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v6; // [rsp+28h] [rbp-10h]
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  int v6; // eax
+  _DWORD v7[2]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v8; // [rsp+28h] [rbp-10h]
 
-  v1 = *(_DWORD *)(a1 + 1272);
+  v1 = *(_DWORD *)(a1 + 1232);
   if ( (v1 & 0x200000) != 0 )
     return 1LL;
   if ( (unsigned int)HasHidTable(a1) )
   {
-    v4 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 424) + 848LL) + 100LL);
-    if ( (v4 & 0x1000) != 0 )
+    v6 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 424) + 832LL) + 100LL);
+    if ( (v6 & 0x800) != 0 )
     {
-      *(_DWORD *)(a1 + 1272) = v1 | 0x200000;
+      *(_DWORD *)(a1 + 1232) = v1 | 0x200000;
       return 1LL;
     }
-    if ( (v4 & 0x10) != 0 )
+    if ( (v6 & 0x10) != 0 )
     {
-      UserSetLastError(85);
+      UserSetLastError(85LL, v4, v5);
       return 0LL;
     }
   }
-  v6 = 0LL;
-  v5[0] = 393217;
-  v5[1] = 16944;
-  if ( !(unsigned int)RegisterRawInputDevices((__int64)v5, 1u, 2u) )
+  v8 = 0LL;
+  v7[0] = 393217;
+  v7[1] = 16944;
+  if ( !(unsigned int)RegisterRawInputDevices((__int64)v7, 1u, 2u) )
     return 0LL;
-  *(_DWORD *)(a1 + 1272) |= 0x200000u;
+  *(_DWORD *)(a1 + 1232) |= 0x200000u;
   return 1LL;
 }

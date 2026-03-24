@@ -1,15 +1,17 @@
 /*
- * XREFs of MiMakeDemandZeroPte @ 0x140284858
+ * XREFs of MiMakeDemandZeroPte @ 0x1402AA600
  * Callers:
- *     MiBuildImageControlArea @ 0x1406A9D30 (MiBuildImageControlArea.c)
- *     MiAddMappedPtes @ 0x1406AD7A0 (MiAddMappedPtes.c)
- *     MiParseImageSectionHeaders @ 0x1406B0AD0 (MiParseImageSectionHeaders.c)
- *     MiInitializePrototypePtes @ 0x1406B0EE4 (MiInitializePrototypePtes.c)
- *     MiPrefetchDriverPages @ 0x1406FA230 (MiPrefetchDriverPages.c)
- *     MiChargeSegmentCommit @ 0x140748518 (MiChargeSegmentCommit.c)
- *     MmFreeNonCachedMemory @ 0x140A2DB70 (MmFreeNonCachedMemory.c)
+ *     MiMakeLargePageTable @ 0x14053D954 (MiMakeLargePageTable.c)
+ *     MiChargeSegmentCommit @ 0x1406202F0 (MiChargeSegmentCommit.c)
+ *     MiInitializePrototypePtes @ 0x140635A1C (MiInitializePrototypePtes.c)
+ *     MiParseImageSectionHeaders @ 0x140635B30 (MiParseImageSectionHeaders.c)
+ *     MiAddMappedPtes @ 0x140636970 (MiAddMappedPtes.c)
+ *     MiPrefetchDriverPages @ 0x140668420 (MiPrefetchDriverPages.c)
+ *     MiBuildImageControlArea @ 0x140702908 (MiBuildImageControlArea.c)
+ *     MiSessionCreate @ 0x14078610C (MiSessionCreate.c)
+ *     MmFreeNonCachedMemory @ 0x1408C6930 (MmFreeNonCachedMemory.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x140285680 (MiSwizzleInvalidPte.c)
+ *     MiSwizzleInvalidPte @ 0x1402AA620 (MiSwizzleInvalidPte.c)
  */
 
 __int64 __fastcall MiMakeDemandZeroPte(char a1)

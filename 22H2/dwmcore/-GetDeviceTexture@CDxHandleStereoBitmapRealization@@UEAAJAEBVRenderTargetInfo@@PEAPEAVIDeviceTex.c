@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetDeviceTexture@CDxHandleStereoBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x1802B3494
+ * XREFs of ?GetDeviceTexture@CDxHandleStereoBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180264D78
  * Callers:
- *     ?GetDeviceTexture@CDxHandleStereoBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180122D00 (-GetDeviceTexture@CDxHandleStereoBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTargetInfo@@PEAPE.c)
+ *     ?GetDeviceTexture@CDxHandleStereoBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x1800F87D0 (-GetDeviceTexture@CDxHandleStereoBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTargetInfo@@PEAPE.c)
  * Callees:
- *     ?GetCachedTexture@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180033B30 (-GetCachedTexture@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?EnsureD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAJXZ @ 0x1802B3310 (-EnsureD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAJXZ.c)
- *     ?UseLeftBitmap@CDxHandleStereoBitmapRealization@@AEBA_NW4StereoContext@@@Z @ 0x1802B375C (-UseLeftBitmap@CDxHandleStereoBitmapRealization@@AEBA_NW4StereoContext@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetCachedTexture@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180063E10 (-GetCachedTexture@CD2DBitmapCache@@QEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z.c)
+ *     ?EnsureD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAJXZ @ 0x180264BF0 (-EnsureD2DBitmap@CDxHandleStereoBitmapRealization@@MEAAJXZ.c)
+ *     ?UseLeftBitmap@CDxHandleStereoBitmapRealization@@AEBA_NW4StereoContext@@@Z @ 0x18026500C (-UseLeftBitmap@CDxHandleStereoBitmapRealization@@AEBA_NW4StereoContext@@@Z.c)
  */
 
 __int64 __fastcall CDxHandleStereoBitmapRealization::GetDeviceTexture(
@@ -18,15 +18,14 @@ __int64 __fastcall CDxHandleStereoBitmapRealization::GetDeviceTexture(
   int v7; // eax
   __int64 v8; // rcx
   unsigned int v9; // ebx
-  __int64 v10; // r9
   int CachedTexture; // eax
-  __int64 v12; // rcx
-  int v13; // eax
-  __int64 v14; // rcx
+  __int64 v11; // rcx
+  int v12; // eax
+  __int64 v13; // rcx
 
   *a3 = 0LL;
-  v3 = (CD2DBitmapCache *)(this - 71);
-  v7 = CDxHandleStereoBitmapRealization::EnsureD2DBitmap(this - 71);
+  v3 = (CD2DBitmapCache *)(this - 67);
+  v7 = CDxHandleStereoBitmapRealization::EnsureD2DBitmap(this - 67);
   v9 = v7;
   if ( v7 < 0 )
   {
@@ -34,17 +33,17 @@ __int64 __fastcall CDxHandleStereoBitmapRealization::GetDeviceTexture(
   }
   else if ( (unsigned __int8)CDxHandleStereoBitmapRealization::UseLeftBitmap(v3, *((unsigned int *)a2 + 3)) )
   {
-    CachedTexture = CD2DBitmapCache::GetCachedTexture(v3, a2, a3, v10);
+    CachedTexture = CD2DBitmapCache::GetCachedTexture(v3, a2, a3);
     v9 = CachedTexture;
     if ( CachedTexture < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, CachedTexture, 0x54u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, CachedTexture, 0x54u, 0LL);
   }
   else
   {
-    v13 = CD2DBitmapCache::GetCachedTexture((CD2DBitmapCache *)(this - 20), a2, a3, v10);
-    v9 = v13;
-    if ( v13 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x59u, 0LL);
+    v12 = CD2DBitmapCache::GetCachedTexture((CD2DBitmapCache *)(this - 20), a2, a3);
+    v9 = v12;
+    if ( v12 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x59u, 0LL);
   }
   return v9;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of EditionUserBeep @ 0x1C01F9240
+ * XREFs of EditionUserBeep @ 0x1C02196A0
  * Callers:
  *     <none>
  * Callees:
- *     ?xxxUserBeep@@YAHKK_N@Z @ 0x1C01F902C (-xxxUserBeep@@YAHKK_N@Z.c)
+ *     UserBeep @ 0x1C02196B8 (UserBeep.c)
  */
 
-__int64 __fastcall EditionUserBeep(unsigned int a1, int a2)
+__int64 __fastcall EditionUserBeep(__int64 a1, __int64 a2)
 {
-  return xxxUserBeep(a1, a2, 1);
+  return UserBeep(a1, a2);
 }

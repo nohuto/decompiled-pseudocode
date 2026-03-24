@@ -1,14 +1,16 @@
 /*
- * XREFs of ?DdiSetupPriorityBands@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETUPPRIORITYBANDS@@@Z @ 0x1C002C880
+ * XREFs of ?DdiSetupPriorityBands@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETUPPRIORITYBANDS@@@Z @ 0x1C00225F8
  * Callers:
- *     VidSchiInitializeNode @ 0x1C00B9AF0 (VidSchiInitializeNode.c)
+ *     VidSchiInitializeNode @ 0x1C008F028 (VidSchiInitializeNode.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001A820 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ADAPTER_RENDER::DdiSetupPriorityBands(
         ADAPTER_RENDER *this,
-        struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3 *a2)
+        const struct _DXGKARG_SETUPPRIORITYBANDS *a2)
 {
-  return DxgCoreInterface[22](this, a2);
+  return ((__int64 (__fastcall *)(ADAPTER_RENDER *, const struct _DXGKARG_SETUPPRIORITYBANDS *))DxgCoreInterface[21])(
+           this,
+           a2);
 }

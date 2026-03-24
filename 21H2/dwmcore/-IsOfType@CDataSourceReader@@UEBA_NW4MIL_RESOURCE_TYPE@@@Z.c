@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CDataSourceReader@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180212280
+ * XREFs of ?IsOfType@CDataSourceReader@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801BEDC0
  * Callers:
  *     <none>
  * Callees:

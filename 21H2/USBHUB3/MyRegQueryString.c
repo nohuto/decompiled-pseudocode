@@ -1,21 +1,21 @@
 /*
- * XREFs of MyRegQueryString @ 0x1C0042088
+ * XREFs of MyRegQueryString @ 0x1C004147C
  * Callers:
- *     CheckUSBFnConfiguration @ 0x1C0041868 (CheckUSBFnConfiguration.c)
- *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C0041B08 (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ *     CheckUSBFnConfiguration @ 0x1C0040C60 (CheckUSBFnConfiguration.c)
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C0040F00 (ReadUSBFnFeaturesFromCurrentConfiguration.c)
  * Callees:
- *     memmove @ 0x1C0043840 (memmove.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
  */
 
 __int64 __fastcall MyRegQueryString(HANDLE KeyHandle, const WCHAR *a2, PVOID *a3)
 {
-  _DWORD *Pool2; // rdi
+  _DWORD *PoolWithTag; // rdi
   NTSTATUS v6; // ebx
   NTSTATUS v7; // eax
   _DWORD *v8; // rax
   PVOID v9; // rcx
   unsigned int v10; // ebp
-  __int64 v11; // rax
+  PVOID v11; // rax
   struct _UNICODE_STRING ValueName; // [rsp+30h] [rbp-28h] BYREF
   ULONG ResultLength; // [rsp+70h] [rbp+18h] BYREF
 
@@ -23,8 +23,8 @@ __int64 __fastcall MyRegQueryString(HANDLE KeyHandle, const WCHAR *a2, PVOID *a3
   *a3 = 0LL;
   ValueName = 0LL;
   RtlInitUnicodeString(&ValueName, a2);
-  Pool2 = (_DWORD *)ExAllocatePool2(64LL, 16LL, 1430540870LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x10uLL, 0x55445246u);
+  if ( !PoolWithTag )
   {
 LABEL_2:
     v6 = -1073741670;
@@ -36,38 +36,38 @@ LABEL_13:
     }
     return (unsigned int)v6;
   }
-  v7 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, Pool2, 0x10u, &ResultLength);
+  v7 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, PoolWithTag, 0x10u, &ResultLength);
   v6 = v7;
   if ( v7 == -2147483643 || v7 == -1073741789 )
   {
     while ( 1 )
     {
-      v10 = Pool2[2];
-      v11 = ExAllocatePool2(64LL, v10, 1430540870LL);
-      *a3 = (PVOID)v11;
+      v10 = PoolWithTag[2];
+      v11 = ExAllocatePoolWithTag(NonPagedPoolNx, v10, 0x55445246u);
+      *a3 = v11;
       if ( !v11 )
       {
         v6 = -1073741670;
         goto LABEL_12;
       }
-      ExFreePoolWithTag(Pool2, 0);
-      v8 = (_DWORD *)ExAllocatePool2(64LL, ResultLength, 1430540870LL);
-      Pool2 = v8;
+      ExFreePoolWithTag(PoolWithTag, 0);
+      v8 = ExAllocatePoolWithTag(NonPagedPoolNx, ResultLength, 0x55445246u);
+      PoolWithTag = v8;
       if ( !v8 )
         goto LABEL_2;
       v6 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, v8, ResultLength, &ResultLength);
       if ( v6 < 0 )
         goto LABEL_12;
       v9 = *a3;
-      if ( v10 == Pool2[2] )
+      if ( v10 == PoolWithTag[2] )
         break;
       ExFreePoolWithTag(v9, 0);
       *a3 = 0LL;
     }
-    memmove(v9, Pool2 + 3, v10);
+    memmove(v9, PoolWithTag + 3, v10);
   }
 LABEL_12:
-  ExFreePoolWithTag(Pool2, 0);
+  ExFreePoolWithTag(PoolWithTag, 0);
   if ( v6 < 0 )
     goto LABEL_13;
   return (unsigned int)v6;

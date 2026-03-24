@@ -17,13 +17,13 @@
  *     MiSetReadOnlyOnSectionView @ 0x140085B00 (MiSetReadOnlyOnSectionView.c)
  *     MiWalkVaRange @ 0x140093C90 (MiWalkVaRange.c)
  *     MiGetWorkingSetInfoList @ 0x1400965F0 (MiGetWorkingSetInfoList.c)
- *     MiSystemFault @ 0x1400E88E0 (MiSystemFault.c)
- *     MiTranslatePageForCopy @ 0x1400E9C10 (MiTranslatePageForCopy.c)
- *     MiSharedVaToPartition @ 0x14010978C (MiSharedVaToPartition.c)
- *     MiCountSharedPages @ 0x14010AC50 (MiCountSharedPages.c)
- *     MiIsPteEvaluated @ 0x14010F9B4 (MiIsPteEvaluated.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x140128C70 (MI_PROTO_FORMAT_COMBINED.c)
- *     MiCheckCommitReleaseFromVad @ 0x1402A38CC (MiCheckCommitReleaseFromVad.c)
+ *     MiSystemFault @ 0x1400E8900 (MiSystemFault.c)
+ *     MiTranslatePageForCopy @ 0x1400E9C30 (MiTranslatePageForCopy.c)
+ *     MiSharedVaToPartition @ 0x1401097AC (MiSharedVaToPartition.c)
+ *     MiCountSharedPages @ 0x14010AC70 (MiCountSharedPages.c)
+ *     MiIsPteEvaluated @ 0x14010F9D4 (MiIsPteEvaluated.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x140128C90 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiCheckCommitReleaseFromVad @ 0x1402A39CC (MiCheckCommitReleaseFromVad.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0VIDMM_RECYCLE_HEAP_MGR@@QEAA@XZ @ 0x1C009CD08
+ * XREFs of ??0VIDMM_RECYCLE_HEAP_MGR@@QEAA@XZ @ 0x1C0078478
  * Callers:
- *     ?Init@VIDMM_PROCESS@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C009C1D0 (-Init@VIDMM_PROCESS@@QEAAJPEAVDXGPROCESS@@@Z.c)
+ *     ?Init@VIDMM_PROCESS@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C0075E00 (-Init@VIDMM_PROCESS@@QEAAJPEAVDXGPROCESS@@@Z.c)
  * Callees:
- *     memset @ 0x1C001ABC0 (memset.c)
+ *     memset @ 0x1C0018D80 (memset.c)
  */
 
 VIDMM_RECYCLE_HEAP_MGR *__fastcall VIDMM_RECYCLE_HEAP_MGR::VIDMM_RECYCLE_HEAP_MGR(char *DeferredContext)
@@ -174,28 +174,28 @@ VIDMM_RECYCLE_HEAP_MGR *__fastcall VIDMM_RECYCLE_HEAP_MGR::VIDMM_RECYCLE_HEAP_MG
   *((_QWORD *)DeferredContext + 163) = 0LL;
   *((_QWORD *)DeferredContext + 164) = 0LL;
   *((_QWORD *)DeferredContext + 165) = 0LL;
+  *((_DWORD *)DeferredContext + 339) = -1;
+  *((_QWORD *)DeferredContext + 166) = 0LL;
   *((_QWORD *)DeferredContext + 167) = 0LL;
-  *((_DWORD *)DeferredContext + 341) = -1;
   *((_QWORD *)DeferredContext + 168) = 0LL;
-  *((_QWORD *)DeferredContext + 169) = 0LL;
-  *((_DWORD *)DeferredContext + 340) = 0;
-  *((_DWORD *)DeferredContext + 342) = 66;
-  *((_DWORD *)DeferredContext + 384) = 0;
-  *((_DWORD *)DeferredContext + 385) = 0;
-  *((_QWORD *)DeferredContext + 197) = 1LL;
-  *((_DWORD *)DeferredContext + 396) = 0;
-  *((_QWORD *)DeferredContext + 202) = 0LL;
-  KeInitializeTimer((PKTIMER)(DeferredContext + 1376));
-  KeInitializeDpc((PRKDPC)(DeferredContext + 1440), (PKDEFERRED_ROUTINE)VidMmRangeCurationDpc, DeferredContext);
-  *((_QWORD *)DeferredContext + 191) = DeferredContext;
-  *((_QWORD *)DeferredContext + 190) = VidMmRangeCurationThread;
-  *((_QWORD *)DeferredContext + 188) = 0LL;
-  *((_QWORD *)DeferredContext + 194) = DeferredContext + 1544;
-  *((_QWORD *)DeferredContext + 193) = DeferredContext + 1544;
-  *((_QWORD *)DeferredContext + 200) = 0LL;
-  *((_QWORD *)DeferredContext + 196) = DeferredContext + 1560;
-  *((_QWORD *)DeferredContext + 195) = DeferredContext + 1560;
+  *((_DWORD *)DeferredContext + 338) = 0;
+  *((_DWORD *)DeferredContext + 340) = 53;
+  *((_DWORD *)DeferredContext + 382) = 0;
+  *((_DWORD *)DeferredContext + 383) = 0;
+  *((_QWORD *)DeferredContext + 196) = 1LL;
+  *((_DWORD *)DeferredContext + 394) = 0;
   *((_QWORD *)DeferredContext + 201) = 0LL;
-  memset(DeferredContext + 1624, 0, 0x40uLL);
+  KeInitializeTimer((PKTIMER)(DeferredContext + 1368));
+  KeInitializeDpc((PRKDPC)(DeferredContext + 1432), (PKDEFERRED_ROUTINE)VidMmRangeCurationDpc, DeferredContext);
+  *((_QWORD *)DeferredContext + 190) = DeferredContext;
+  *((_QWORD *)DeferredContext + 189) = VidMmRangeCurationThread;
+  *((_QWORD *)DeferredContext + 187) = 0LL;
+  *((_QWORD *)DeferredContext + 193) = DeferredContext + 1536;
+  *((_QWORD *)DeferredContext + 192) = DeferredContext + 1536;
+  *((_QWORD *)DeferredContext + 199) = 0LL;
+  *((_QWORD *)DeferredContext + 195) = DeferredContext + 1552;
+  *((_QWORD *)DeferredContext + 194) = DeferredContext + 1552;
+  *((_QWORD *)DeferredContext + 200) = 0LL;
+  memset(DeferredContext + 1616, 0, 0x40uLL);
   return (VIDMM_RECYCLE_HEAP_MGR *)DeferredContext;
 }

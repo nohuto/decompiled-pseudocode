@@ -1,5 +1,5 @@
 /*
- * XREFs of ?TryGetBrushSourceNoRef@CEffectBrushMarshaler@DirectComposition@@MEBA_NIPEAPEAVCBrushMarshaler@2@@Z @ 0x1C00BB150
+ * XREFs of ?TryGetBrushSourceNoRef@CEffectBrushMarshaler@DirectComposition@@MEBA_NIPEAPEAVCBrushMarshaler@2@@Z @ 0x1C00A8900
  * Callers:
  *     <none>
  * Callees:
@@ -14,8 +14,8 @@ bool __fastcall DirectComposition::CEffectBrushMarshaler::TryGetBrushSourceNoRef
   __int64 v3; // r9
   bool result; // al
 
-  v3 = *((_QWORD *)this + 12);
-  if ( v3 && a2 < *((_DWORD *)this + 26) )
+  v3 = *((_QWORD *)this + 11);
+  if ( v3 && a2 < *((_DWORD *)this + 24) )
   {
     result = 1;
     *a3 = *(struct DirectComposition::CBrushMarshaler **)(v3 + 8LL * a2);

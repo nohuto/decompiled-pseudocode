@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpAddMicroarchitecturalPmcToRegistry @ 0x1409E3074
+ * XREFs of EtwpAddMicroarchitecturalPmcToRegistry @ 0x1409394D0
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1409E1F34 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1409385B0 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x1409E2D44 (EtwpAddMicroarchitecturalPmcToPmcGroup.c)
- *     EtwpFindMatchingPmcRegistryGroup @ 0x1409E3F88 (EtwpFindMatchingPmcRegistryGroup.c)
- *     KiGetCpuVendor @ 0x140A888A0 (KiGetCpuVendor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x1409391B0 (EtwpAddMicroarchitecturalPmcToPmcGroup.c)
+ *     EtwpFindMatchingPmcRegistryGroup @ 0x14093A1A0 (EtwpFindMatchingPmcRegistryGroup.c)
+ *     KiGetCpuVendor @ 0x14099B828 (KiGetCpuVendor.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpAddMicroarchitecturalPmcToRegistry(unsigned __int8 *a1, _DWORD *a2)
@@ -21,7 +21,7 @@ __int64 __fastcall EtwpAddMicroarchitecturalPmcToRegistry(unsigned __int8 *a1, _
   __int64 v4; // rax
   unsigned int v5; // ebx
   size_t v6; // r14
-  __int64 Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   __int64 v8; // rcx
   wchar_t *v9; // rdi
   NTSTATUS MatchingPmcRegistryGroup; // ebx
@@ -38,24 +38,24 @@ __int64 __fastcall EtwpAddMicroarchitecturalPmcToRegistry(unsigned __int8 *a1, _
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-29h] BYREF
   _QWORD v23[3]; // [rsp+90h] [rbp+7h] BYREF
 
-  KeyHandle = 0LL;
   v23[0] = L"Family";
+  KeyHandle = 0LL;
   v23[1] = L"Model";
   v23[2] = L"Stepping";
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
-  Data = KiGetCpuVendor();
+  Data = KiGetCpuVendor(a1, a2);
   v4 = -1LL;
   do
     ++v4;
-  while ( aRegistryMachin_27[v4] );
+  while ( aRegistryMachin_24[v4] );
   v5 = 2 * v4 + 514;
   v6 = v5;
-  Pool2 = ExAllocatePool2(256LL, v5, 1350005829LL);
-  v9 = (wchar_t *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v5, 0x50777445u);
+  v9 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225495LL;
-  MatchingPmcRegistryGroup = EtwpFindMatchingPmcRegistryGroup(v8, Data, a2, v5, Pool2);
+  MatchingPmcRegistryGroup = EtwpFindMatchingPmcRegistryGroup(v8, Data, a2, v5, PoolWithTag);
   if ( MatchingPmcRegistryGroup >= 0 )
     goto LABEL_16;
   RtlStringCbPrintfW(

@@ -1,20 +1,20 @@
 /*
- * XREFs of MmManagePartitionCombineMemory @ 0x140A455D8
+ * XREFs of MmManagePartitionCombineMemory @ 0x1408DB8B8
  * Callers:
- *     NtManagePartition @ 0x140760280 (NtManagePartition.c)
+ *     NtManagePartition @ 0x1406762C0 (NtManagePartition.c)
  * Callees:
- *     MiCombineIdenticalPages @ 0x1407EBA94 (MiCombineIdenticalPages.c)
+ *     MiCombineIdenticalPages @ 0x140726870 (MiCombineIdenticalPages.c)
  */
 
-__int64 __fastcall MmManagePartitionCombineMemory(unsigned __int16 **a1, __int64 a2, __int64 a3, KPROCESSOR_MODE a4)
+__int64 __fastcall MmManagePartitionCombineMemory(ULONG_PTR **a1, __int64 a2, __int64 a3, KPROCESSOR_MODE a4)
 {
-  unsigned __int16 *v5; // rcx
+  ULONG_PTR *v5; // rcx
   __int64 result; // rax
   __int64 v7; // [rsp+40h] [rbp+8h] BYREF
 
   v7 = 0LL;
   v5 = *a1;
-  if ( (*(_DWORD *)(a2 + 8) & 1) != 0 && v5 != MiSystemPartition )
+  if ( (*(_DWORD *)(a2 + 8) & 1) != 0 && v5 != &MiSystemPartition )
     return 3221225711LL;
   result = MiCombineIdenticalPages(v5, *(void **)a3, *(_DWORD *)(a3 + 8), 0LL, a4, &v7);
   if ( (int)result >= 0 )

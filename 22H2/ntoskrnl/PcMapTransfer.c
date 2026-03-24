@@ -1,5 +1,5 @@
 /*
- * XREFs of PcMapTransfer @ 0x14051C0A0
+ * XREFs of PcMapTransfer @ 0x1404D2320
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ char __fastcall PcMapTransfer(__int64 *a1, __int64 a2, char a3, __int64 a4, unsi
   unsigned __int64 v8; // r11
   __int64 v9; // rdx
   unsigned __int8 v10; // cl
-  __int16 v11; // r8
+  unsigned __int8 v11; // bl
   __int64 v12; // rdx
   char result; // al
 
@@ -52,7 +52,7 @@ char __fastcall PcMapTransfer(__int64 *a1, __int64 a2, char a3, __int64 a4, unsi
     __outbyte(*a1 + 1 + 2 * v11, (unsigned __int16)(v7 - 1) >> 8);
     v12 = *a1 + 10;
   }
-  __outbyte(v12, a1[2] & 3);
+  __outbyte(v12, v11);
   result = *((_BYTE *)a1 + 16);
   *((_BYTE *)a1 + 19) = result;
   return result;

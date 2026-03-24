@@ -1,11 +1,11 @@
 /*
- * XREFs of PspValidateJobAffinityState @ 0x1406DAEBC
+ * XREFs of PspValidateJobAffinityState @ 0x1406B693C
  * Callers:
- *     PspInsertProcess @ 0x14066D0AC (PspInsertProcess.c)
+ *     PspInsertProcess @ 0x140607710 (PspInsertProcess.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     PspCheckJobAccessState @ 0x1409B0030 (PspCheckJobAccessState.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     PspCheckJobAccessState @ 0x140908BEC (PspCheckJobAccessState.c)
  */
 
 __int64 __fastcall PspValidateJobAffinityState(__int64 a1, __int64 a2)
@@ -15,7 +15,7 @@ __int64 __fastcall PspValidateJobAffinityState(__int64 a1, __int64 a2)
 
   v4 = 0;
   ExAcquireResourceSharedLite((PERESOURCE)(a1 + 56), 1u);
-  v5 = *(_QWORD *)(a1 + 528);
+  v5 = *(_QWORD *)(a1 + 432);
   if ( !v5 || (v4 = PspCheckJobAccessState(v5, a2), v4 >= 0) )
     _InterlockedOr((volatile signed __int32 *)(a2 + 1124), 0x4000000u);
   ExReleaseResourceLite((PERESOURCE)(a1 + 56));

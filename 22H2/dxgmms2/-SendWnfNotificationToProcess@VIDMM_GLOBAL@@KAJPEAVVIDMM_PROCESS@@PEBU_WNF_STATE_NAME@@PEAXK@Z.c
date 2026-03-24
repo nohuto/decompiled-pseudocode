@@ -1,10 +1,9 @@
 /*
- * XREFs of ?SendWnfNotificationToProcess@VIDMM_GLOBAL@@KAJPEAVVIDMM_PROCESS@@PEBU_WNF_STATE_NAME@@PEAXK@Z @ 0x1C008EB5C
+ * XREFs of ?SendWnfNotificationToProcess@VIDMM_GLOBAL@@KAJPEAVVIDMM_PROCESS@@PEBU_WNF_STATE_NAME@@PEAXK@Z @ 0x1C00620A4
  * Callers:
- *     ?HandleTrimWnf@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1C008D640 (-HandleTrimWnf@VIDMM_GLOBAL@@QEAAX_N@Z.c)
+ *     ?HandleTrimWnf@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1C0061910 (-HandleTrimWnf@VIDMM_GLOBAL@@QEAAX_N@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
- *     SendWnfNotificationToVmProcess @ 0x1C002CF68 (SendWnfNotificationToVmProcess.c)
+ *     SendWnfNotificationToVmProcess @ 0x1C0022BB8 (SendWnfNotificationToVmProcess.c)
  */
 
 __int64 __fastcall VIDMM_GLOBAL::SendWnfNotificationToProcess(
@@ -13,18 +12,22 @@ __int64 __fastcall VIDMM_GLOBAL::SendWnfNotificationToProcess(
         void *a3)
 {
   __int64 v4; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
   NTSTATUS updated; // ebx
-  struct _CLIENT_ID ClientId; // [rsp+58h] [rbp+17h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp+27h] BYREF
-  void *ProcessHandle; // [rsp+B0h] [rbp+6Fh] BYREF
+  __int64 v9; // r8
+  __int64 v11; // rax
+  struct _CLIENT_ID ClientId; // [rsp+40h] [rbp-40h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
+  void *ProcessHandle; // [rsp+98h] [rbp+18h] BYREF
 
   ProcessHandle = a2;
   v4 = *((_QWORD *)a1 + 4);
   ProcessHandle = 0LL;
-  if ( (*(_DWORD *)(v4 + 424) & 0x100) != 0 )
+  if ( (*(_BYTE *)(v4 + 347) & 0x20) != 0 )
     return SendWnfNotificationToVmProcess(v4);
   ClientId.UniqueThread = 0LL;
-  if ( (*(_BYTE *)(v4 + 424) & 1) != 0 )
+  if ( *(_BYTE *)(v4 + 344) )
     ClientId.UniqueProcess = (HANDLE)*((_QWORD *)g_pVidMmSystemProcess + 1);
   else
     ClientId.UniqueProcess = (HANDLE)*((_QWORD *)a1 + 1);
@@ -36,8 +39,9 @@ __int64 __fastcall VIDMM_GLOBAL::SendWnfNotificationToProcess(
   updated = ZwOpenProcess(&ProcessHandle, 0x2000000u, &ObjectAttributes, &ClientId);
   if ( updated < 0 )
   {
-    WdLogSingleEntry1(1LL, ClientId.UniqueProcess);
-    DxgkLogInternalTriageEvent((__int64)ClientId.UniqueProcess, 0x40000LL);
+    v11 = WdLogNewEntry5_WdAssertion(v7, v6, v9);
+    *(_QWORD *)(v11 + 24) = ClientId.UniqueProcess;
+    WdLogEvent5_WdAssertion(v11);
   }
   else
   {

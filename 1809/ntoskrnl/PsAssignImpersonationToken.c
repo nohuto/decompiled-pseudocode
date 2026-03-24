@@ -1,5 +1,5 @@
 /*
- * XREFs of PsAssignImpersonationToken @ 0x1406F6FF0
+ * XREFs of PsAssignImpersonationToken @ 0x1406F6FD0
  * Callers:
  *     <none>
  * Callees:

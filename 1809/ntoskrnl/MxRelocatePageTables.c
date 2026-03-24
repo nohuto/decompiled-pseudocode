@@ -5,7 +5,7 @@
  * Callees:
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiIncrementPfn @ 0x140177FD8 (MiIncrementPfn.c)
+ *     MiIncrementPfn @ 0x140177FF8 (MiIncrementPfn.c)
  *     MxMovePageTables @ 0x1409BFEB0 (MxMovePageTables.c)
  *     MxSwapPages @ 0x1409C04C8 (MxSwapPages.c)
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceUiAuditWriteClipboard @ 0x1C00CB620
+ * XREFs of EtwTraceUiAuditWriteClipboard @ 0x1C00B2B20
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0qm_EtwWriteTransfer @ 0x1C00CB650 (McTemplateK0qm_EtwWriteTransfer.c)
+ *     McTemplateK0qm_EtwWriteTransfer @ 0x1C00C7A28 (McTemplateK0qm_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceUiAuditWriteClipboard(int a1, __int64 a2, int a3)

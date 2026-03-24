@@ -1,29 +1,36 @@
 /*
- * XREFs of CreateTokenManagerSessionGlobal @ 0x1C0002D64
+ * XREFs of CreateTokenManagerSessionGlobal @ 0x1C0012E58
  * Callers:
- *     ??0DXGSESSIONDATA@@QEAA@K@Z @ 0x1C0160F74 (--0DXGSESSIONDATA@@QEAA@K@Z.c)
+ *     ??0DXGSESSIONDATA@@QEAA@K@Z @ 0x1C0155834 (--0DXGSESSIONDATA@@QEAA@K@Z.c)
  * Callees:
- *     ??_GCTokenManager@@AEAAPEAXI@Z @ 0x1C0002790 (--_GCTokenManager@@AEAAPEAXI@Z.c)
- *     ?Initialize@CTokenManager@@AEAAJXZ @ 0x1C0002DD4 (-Initialize@CTokenManager@@AEAAJXZ.c)
- *     ??0CTokenManager@@AEAA@XZ @ 0x1C0002F30 (--0CTokenManager@@AEAA@XZ.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C00046F8 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ?Initialize@CTokenManager@@AEAAJXZ @ 0x1C0012ED8 (-Initialize@CTokenManager@@AEAAJXZ.c)
+ *     ??0CTokenManager@@AEAA@XZ @ 0x1C0013034 (--0CTokenManager@@AEAA@XZ.c)
+ *     ??_GCTokenManager@@AEAAPEAXI@Z @ 0x1C00176C0 (--_GCTokenManager@@AEAAPEAXI@Z.c)
  */
 
 __int64 __fastcall CreateTokenManagerSessionGlobal(CTokenManager **a1)
 {
   CTokenManager *v2; // rax
-  CTokenManager *v3; // rax
-  CTokenManager *v4; // rbx
+  CTokenManager *v3; // rbx
+  unsigned int v4; // edx
   int v5; // edi
 
-  v2 = (CTokenManager *)operator new[](376LL, 1735609684LL, 256LL);
-  if ( v2 && (v3 = CTokenManager::CTokenManager(v2), (v4 = v3) != 0LL) )
+  v2 = (CTokenManager *)operator new(0x160uLL, 0x67734D54u, 1, PagedPool);
+  if ( v2 )
+    v3 = CTokenManager::CTokenManager(v2);
+  else
+    v3 = 0LL;
+  if ( v3 )
   {
     v5 = CTokenManager::Initialize(v3);
-    if ( v5 < 0 )
-      CTokenManager::`scalar deleting destructor'(v4);
-    else
-      *a1 = v4;
+    if ( v5 >= 0 )
+    {
+      *a1 = v3;
+      v3 = 0LL;
+    }
+    if ( v3 )
+      CTokenManager::`scalar deleting destructor'(v3, v4);
   }
   else
   {

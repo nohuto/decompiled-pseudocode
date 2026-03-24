@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlHpHeapManagerStart @ 0x140170248
+ * XREFs of RtlHpHeapManagerStart @ 0x140170268
  * Callers:
- *     ExInitializeSessionHeapManager @ 0x140170098 (ExInitializeSessionHeapManager.c)
- *     RtlHpKInitializeHeapManager @ 0x14018D528 (RtlHpKInitializeHeapManager.c)
+ *     ExInitializeSessionHeapManager @ 0x1401700B8 (ExInitializeSessionHeapManager.c)
+ *     RtlHpKInitializeHeapManager @ 0x14018D548 (RtlHpKInitializeHeapManager.c)
  * Callees:
  *     RtlpHpMetadataHeapStart @ 0x140009ACC (RtlpHpMetadataHeapStart.c)
- *     RtlpHpMetadataHeapCreate @ 0x140140A80 (RtlpHpMetadataHeapCreate.c)
- *     RtlpHpVaMgrCtxStart @ 0x140170318 (RtlpHpVaMgrCtxStart.c)
- *     RtlCSparseBitmapStart @ 0x1401703E8 (RtlCSparseBitmapStart.c)
+ *     RtlpHpMetadataHeapCreate @ 0x140140AA0 (RtlpHpMetadataHeapCreate.c)
+ *     RtlpHpVaMgrCtxStart @ 0x140170338 (RtlpHpVaMgrCtxStart.c)
+ *     RtlCSparseBitmapStart @ 0x140170408 (RtlCSparseBitmapStart.c)
  */
 
 NTSTATUS __fastcall RtlHpHeapManagerStart(

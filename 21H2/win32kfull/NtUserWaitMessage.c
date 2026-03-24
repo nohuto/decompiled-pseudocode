@@ -1,10 +1,10 @@
 /*
- * XREFs of NtUserWaitMessage @ 0x1C00A4B90
+ * XREFs of NtUserWaitMessage @ 0x1C00F7450
  * Callers:
  *     <none>
  * Callees:
- *     xxxSleepThread2 @ 0x1C0052D3C (xxxSleepThread2.c)
- *     ClientWaitMessageExMPH @ 0x1C00A4BFC (ClientWaitMessageExMPH.c)
+ *     xxxSleepThread2 @ 0x1C0058750 (xxxSleepThread2.c)
+ *     ClientWaitMessageExMPH @ 0x1C00F74C0 (ClientWaitMessageExMPH.c)
  */
 
 __int64 NtUserWaitMessage()
@@ -13,8 +13,8 @@ __int64 NtUserWaitMessage()
   __int64 v1; // rcx
   int v2; // ebx
 
-  EnterCrit(0LL, 0LL);
-  if ( *(int *)(*(_QWORD *)(gptiCurrent + 448LL) + 28LL) > 0 )
+  EnterCrit(0LL, 1LL);
+  if ( *(int *)(*(_QWORD *)(gptiCurrent + 448LL) + 20LL) > 0 )
     v0 = ClientWaitMessageExMPH(15615LL);
   else
     v0 = xxxSleepThread2(0x3CFFu, 0, 1, 0, 0LL);

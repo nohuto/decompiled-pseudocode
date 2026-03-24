@@ -1,14 +1,14 @@
 /*
- * XREFs of NtSubscribeWnfStateChange @ 0x14079AD30
+ * XREFs of NtSubscribeWnfStateChange @ 0x14060EA20
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     ExpWnfSubscribeWnfStateChange @ 0x14079982C (ExpWnfSubscribeWnfStateChange.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x14060EAF4 (ExpWnfSubscribeWnfStateChange.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
  */
 
-__int64 __fastcall NtSubscribeWnfStateChange(__int64 *a1, int a2, int a3, _QWORD *a4)
+__int64 __fastcall NtSubscribeWnfStateChange(int a1, int a2, int a3, _QWORD *a4)
 {
   struct _KTHREAD *CurrentThread; // rax
   int v9; // edi
@@ -22,9 +22,9 @@ __int64 __fastcall NtSubscribeWnfStateChange(__int64 *a1, int a2, int a3, _QWORD
     ProbeForWrite(a4, 8uLL, 1u);
     *a4 = 0LL;
   }
-  v9 = ExpWnfSubscribeWnfStateChange((unsigned __int64)&v11 & -(__int64)(a4 != 0LL), 0LL, a1, a2, 0LL, 0LL, a3, 1);
+  v9 = ExpWnfSubscribeWnfStateChange((unsigned __int64)&v11 & -(__int64)(a4 != 0LL), 0, a1, a2, 0LL, 0LL, a3, 1);
   if ( v9 >= 0 && a4 )
     *a4 = v11;
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)v9;
 }

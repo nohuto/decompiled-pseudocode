@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcpReleaseViewAttribute @ 0x1406D7014
+ * XREFs of AlpcpReleaseViewAttribute @ 0x1406B4784
  * Callers:
- *     AlpcpReleaseMessageAttributesOnCancel @ 0x1406633A8 (AlpcpReleaseMessageAttributesOnCancel.c)
- *     AlpcMessageCleanupProcedure @ 0x1406A1CC0 (AlpcMessageCleanupProcedure.c)
- *     AlpcpReleaseAttributes @ 0x1407A6660 (AlpcpReleaseAttributes.c)
- *     AlpcpSendMessage @ 0x1407A9ED0 (AlpcpSendMessage.c)
+ *     AlpcMessageCleanupProcedure @ 0x1405DE260 (AlpcMessageCleanupProcedure.c)
+ *     AlpcpReleaseMessageAttributesOnCancel @ 0x1405E2F90 (AlpcpReleaseMessageAttributesOnCancel.c)
+ *     AlpcpReleaseAttributes @ 0x1405E39F0 (AlpcpReleaseAttributes.c)
+ *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
  * Callees:
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1407A6A34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x1407B0F40 (AlpcpUnlockBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
  */
 
-__int64 __fastcall AlpcpReleaseViewAttribute(ULONG_PTR BugCheckParameter2)
+void __fastcall AlpcpReleaseViewAttribute(ULONG_PTR BugCheckParameter2)
 {
   ULONG_PTR v2; // rcx
 
@@ -19,5 +19,5 @@ __int64 __fastcall AlpcpReleaseViewAttribute(ULONG_PTR BugCheckParameter2)
   v2 = *(_QWORD *)(BugCheckParameter2 + 16);
   --*(_DWORD *)(BugCheckParameter2 + 76);
   AlpcpUnlockBlob(v2);
-  return AlpcpDereferenceBlobEx(BugCheckParameter2);
+  AlpcpDereferenceBlobEx(BugCheckParameter2, 1);
 }

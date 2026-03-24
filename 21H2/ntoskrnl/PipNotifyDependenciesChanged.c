@@ -1,12 +1,12 @@
 /*
- * XREFs of PipNotifyDependenciesChanged @ 0x140942D5C
+ * XREFs of PipNotifyDependenciesChanged @ 0x14089DF6C
  * Callers:
- *     PipCreateNewDependencyEdge @ 0x14055F904 (PipCreateNewDependencyEdge.c)
- *     PipFreeDependencyEdge @ 0x14055FBE4 (PipFreeDependencyEdge.c)
- *     PipNotifyDeviceDependencyList @ 0x14076BB84 (PipNotifyDeviceDependencyList.c)
- *     PipMergeDependencyEdgeList @ 0x140942B68 (PipMergeDependencyEdgeList.c)
+ *     PipCreateNewDependencyEdge @ 0x14050C5B0 (PipCreateNewDependencyEdge.c)
+ *     PipFreeDependencyEdge @ 0x14050C720 (PipFreeDependencyEdge.c)
+ *     PipNotifyDeviceDependencyList @ 0x14074B4FC (PipNotifyDeviceDependencyList.c)
+ *     PipMergeDependencyEdgeList @ 0x14089DD70 (PipMergeDependencyEdgeList.c)
  * Callees:
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140772044 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140746040 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
  */
 
 void __fastcall PipNotifyDependenciesChanged(__int64 a1, __int64 a2)

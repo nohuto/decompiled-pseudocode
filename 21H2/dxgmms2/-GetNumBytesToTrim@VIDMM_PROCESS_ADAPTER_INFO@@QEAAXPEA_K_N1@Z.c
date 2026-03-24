@@ -1,18 +1,18 @@
 /*
- * XREFs of ?GetNumBytesToTrim@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXPEA_K_N1@Z @ 0x1C00A4780
+ * XREFs of ?GetNumBytesToTrim@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXPEA_K_N1@Z @ 0x1C0063E00
  * Callers:
- *     ?HandleTrimWnf@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1C009F000 (-HandleTrimWnf@VIDMM_GLOBAL@@QEAAX_N@Z.c)
- *     ?UnreferenceAllocationList@VIDMM_DEVICE@@QEAAXPEAPEAUVIDMM_ALLOC@@_KPEA_K@Z @ 0x1C00A4670 (-UnreferenceAllocationList@VIDMM_DEVICE@@QEAAXPEAPEAUVIDMM_ALLOC@@_KPEA_K@Z.c)
- *     ?GetNumBytesToTrim@VIDMM_PROCESS@@QEAAXKPEA_K@Z @ 0x1C00DFBFC (-GetNumBytesToTrim@VIDMM_PROCESS@@QEAAXKPEA_K@Z.c)
+ *     ?HandleTrimWnf@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1C00623E0 (-HandleTrimWnf@VIDMM_GLOBAL@@QEAAX_N@Z.c)
+ *     ?UnreferenceAllocationList@VIDMM_DEVICE@@QEAAXPEAPEAUVIDMM_ALLOC@@_KPEA_K@Z @ 0x1C0063C5C (-UnreferenceAllocationList@VIDMM_DEVICE@@QEAAXPEAPEAUVIDMM_ALLOC@@_KPEA_K@Z.c)
+ *     ?GetNumBytesToTrim@VIDMM_PROCESS@@QEAAXKPEA_K@Z @ 0x1C00BA210 (-GetNumBytesToTrim@VIDMM_PROCESS@@QEAAXKPEA_K@Z.c)
  * Callees:
- *     ?GetNumBytesToTrim@VIDMM_PROCESS_BUDGET_STATE@@QEAAXPEA_K_N1PEAVVIDMM_GLOBAL@@K@Z @ 0x1C00871F4 (-GetNumBytesToTrim@VIDMM_PROCESS_BUDGET_STATE@@QEAAXPEA_K_N1PEAVVIDMM_GLOBAL@@K@Z.c)
+ *     ?GetNumBytesToTrim@VIDMM_PROCESS_BUDGET_STATE@@QEAAXPEA_K_N1PEAVVIDMM_GLOBAL@@K@Z @ 0x1C0063E98 (-GetNumBytesToTrim@VIDMM_PROCESS_BUDGET_STATE@@QEAAXPEA_K_N1PEAVVIDMM_GLOBAL@@K@Z.c)
  */
 
 void __fastcall VIDMM_PROCESS_ADAPTER_INFO::GetNumBytesToTrim(
         struct VIDMM_GLOBAL **this,
         unsigned __int64 *a2,
-        char a3,
-        unsigned __int8 a4)
+        bool a3,
+        bool a4)
 {
   unsigned int v4; // esi
   struct VIDMM_GLOBAL *i; // r10
@@ -21,7 +21,7 @@ void __fastcall VIDMM_PROCESS_ADAPTER_INFO::GetNumBytesToTrim(
 
   *a2 = 0LL;
   v4 = 0;
-  for ( i = *this; v4 < *((_DWORD *)*this + 1754); i = *this )
+  for ( i = *this; v4 < *((_DWORD *)*this + 1750); i = *this )
   {
     v11 = 0LL;
     VIDMM_PROCESS_BUDGET_STATE::GetNumBytesToTrim(

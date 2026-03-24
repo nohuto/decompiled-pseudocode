@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetBlendMode@CD3DBatchExecutionContext@@EEAAXW4Enum@BlendMode@@@Z @ 0x1800CDEF0
+ * XREFs of ?SetBlendMode@CD3DBatchExecutionContext@@EEAAXW4Enum@BlendMode@@@Z @ 0x1800C25F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?EndAppend@CD3DDynamicAppendBuffer@@QEAAXXZ @ 0x1801F1630 (-EndAppend@CD3DDynamicAppendBuffer@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?EndAppend@CD3DDynamicAppendBuffer@@QEAAXXZ @ 0x1801AA77C (-EndAppend@CD3DDynamicAppendBuffer@@QEAAXXZ.c)
  */
 
 void __fastcall CD3DBatchExecutionContext::SetBlendMode(__int64 a1, int a2)
@@ -24,8 +24,8 @@ void __fastcall CD3DBatchExecutionContext::SetBlendMode(__int64 a1, int a2)
     v5 = *(_QWORD *)(a1 + 32);
     if ( *(_QWORD *)(v5 + 40) )
     {
-      (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(v5 + 16) + 560LL) + 120LL))(
-        *(_QWORD *)(*(_QWORD *)(v5 + 16) + 560LL),
+      (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(v5 + 16) + 600LL) + 120LL))(
+        *(_QWORD *)(*(_QWORD *)(v5 + 16) + 600LL),
         *(_QWORD *)(v5 + 24),
         0LL);
       *(_QWORD *)(v5 + 40) = 0LL;
@@ -55,8 +55,8 @@ void __fastcall CD3DBatchExecutionContext::SetBlendMode(__int64 a1, int a2)
       }
       else
       {
-        (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(v5 + 64) + 560LL) + 120LL))(
-          *(_QWORD *)(*(_QWORD *)(v5 + 64) + 560LL),
+        (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(**(_QWORD **)(*(_QWORD *)(v5 + 64) + 600LL) + 120LL))(
+          *(_QWORD *)(*(_QWORD *)(v5 + 64) + 600LL),
           *(_QWORD *)(v5 + 72),
           0LL);
         *(_QWORD *)(v5 + 88) = 0LL;
@@ -67,14 +67,14 @@ void __fastcall CD3DBatchExecutionContext::SetBlendMode(__int64 a1, int a2)
           *(unsigned int *)(a1 + 88),
           0LL);
       }
-      ++*(_DWORD *)(a1 + 124);
+      ++*(_DWORD *)(a1 + 112);
       *(_DWORD *)(a1 + 96) = 0;
       *(_DWORD *)(a1 + 100) = 0;
       *(_DWORD *)(a1 + 104) = 0;
     }
     (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(**(_QWORD **)(a1 + 16) + 280LL))(
       *(_QWORD *)(a1 + 16),
-      *(_QWORD *)(*(_QWORD *)(a1 + 8) + 8 * v2 + 1688),
+      *(_QWORD *)(*(_QWORD *)(a1 + 8) + 8 * v2 + 1616),
       0LL,
       0xFFFFFFFFLL);
     *(_DWORD *)(a1 + 64) = v2;

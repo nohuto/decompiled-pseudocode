@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdatePageThresholdsDpc @ 0x1403C3DF0
+ * XREFs of MiUpdatePageThresholdsDpc @ 0x1403B69D0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     MiUpdateAvailableEvents @ 0x1403C3E64 (MiUpdateAvailableEvents.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiUpdateAvailableEvents @ 0x1403B6A44 (MiUpdateAvailableEvents.c)
  */
 
 __int64 __fastcall MiUpdatePageThresholdsDpc(__int64 a1, _QWORD *a2, volatile signed __int32 *a3, __int64 a4)
@@ -18,11 +18,11 @@ __int64 __fastcall MiUpdatePageThresholdsDpc(__int64 a1, _QWORD *a2, volatile si
   int v12; // [rsp+48h] [rbp+10h] BYREF
   int i; // [rsp+58h] [rbp+20h] BYREF
 
+  v12 = 0;
   v6 = _InterlockedDecrement((volatile signed __int32 *)a4);
   v7 = ~v6 & 0x80000000;
   if ( (v6 & 0x7FFFFFFF) != 0 )
   {
-    v12 = 0;
     while ( (*(_DWORD *)a4 & 0x80000000) != v7 )
       KeYieldProcessorEx(&v12, (__int64)a2, (__int64)a3, a4);
   }
@@ -30,8 +30,8 @@ __int64 __fastcall MiUpdatePageThresholdsDpc(__int64 a1, _QWORD *a2, volatile si
   {
     *(_DWORD *)a4 = v7 | *(_DWORD *)(a4 + 4);
     v9 = a2[2];
-    *(_QWORD *)(v9 + 15944) = *a2;
-    *(_QWORD *)(v9 + 15952) = a2[1];
+    *(_QWORD *)(v9 + 5168) = *a2;
+    *(_QWORD *)(v9 + 5176) = a2[1];
     MiUpdateAvailableEvents(v9);
   }
   v10 = _InterlockedDecrement((volatile signed __int32 *)a4);

@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpTimerWatchdogPreResetInterrupt @ 0x14051EC00
+ * XREFs of HalpTimerWatchdogPreResetInterrupt @ 0x1404D4910
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     HalpTimerWatchdogResetCountdown @ 0x1403D3E10 (HalpTimerWatchdogResetCountdown.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     KeQueryInterruptTimePrecise @ 0x140318820 (KeQueryInterruptTimePrecise.c)
+ *     HalpTimerWatchdogResetCountdown @ 0x140393360 (HalpTimerWatchdogResetCountdown.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 char HalpTimerWatchdogPreResetInterrupt()
@@ -16,7 +16,7 @@ char HalpTimerWatchdogPreResetInterrupt()
   __int64 v1; // rdx
   ULONG_PTR v2; // rdi
   ULONG_PTR BugCheckParameter4; // rbx
-  ULONG_PTR InterruptTimePrecise; // rax
+  ULONG_PTR v4; // rax
   LARGE_INTEGER v6; // [rsp+50h] [rbp+18h] BYREF
 
   InternalData = HalpTimerGetInternalData(HalpWatchdogTimer);
@@ -27,13 +27,8 @@ char HalpTimerWatchdogPreResetInterrupt()
     if ( MEMORY[0xFFFFF78000000008] - HalpTimerWatchdogLastReset < (unsigned __int64)HalpTimerWatchdogResetCount >> 1 )
     {
       BugCheckParameter4 = (unsigned int)KiClockTimerOwner;
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&v6);
-      KeBugCheckEx(
-        0x101u,
-        v2,
-        (unsigned __int64)HalpTimerWatchdogResetCount >> 1,
-        InterruptTimePrecise,
-        BugCheckParameter4);
+      v4 = KeQueryInterruptTimePrecise(&v6);
+      KeBugCheckEx(0x101u, v2, (unsigned __int64)HalpTimerWatchdogResetCount >> 1, v4, BugCheckParameter4);
     }
     HalpTimerWatchdogResetCountdown();
   }

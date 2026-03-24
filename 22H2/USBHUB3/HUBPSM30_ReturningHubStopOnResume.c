@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBPSM30_ReturningHubStopOnResume @ 0x1C0012AC0
+ * XREFs of HUBPSM30_ReturningHubStopOnResume @ 0x1C0011630
  * Callers:
  *     <none>
  * Callees:

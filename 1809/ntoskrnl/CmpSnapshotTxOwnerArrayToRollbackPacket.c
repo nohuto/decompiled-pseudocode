@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x1407F8BD0
+ * XREFs of CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x1407F8BB0
  * Callers:
- *     CmpTryAcquireIXLockWithRollbackPacket @ 0x14071C168 (CmpTryAcquireIXLockWithRollbackPacket.c)
+ *     CmpTryAcquireIXLockWithRollbackPacket @ 0x14071C148 (CmpTryAcquireIXLockWithRollbackPacket.c)
  * Callees:
- *     CmpAddUoWToRollbackPacket @ 0x1407F8690 (CmpAddUoWToRollbackPacket.c)
- *     CmpReserveRollbackPacketSpace @ 0x1407F8A10 (CmpReserveRollbackPacketSpace.c)
+ *     CmpAddUoWToRollbackPacket @ 0x1407F8670 (CmpAddUoWToRollbackPacket.c)
+ *     CmpReserveRollbackPacketSpace @ 0x1407F89F0 (CmpReserveRollbackPacketSpace.c)
  */
 
 __int64 __fastcall CmpSnapshotTxOwnerArrayToRollbackPacket(unsigned int *a1, unsigned int *a2)

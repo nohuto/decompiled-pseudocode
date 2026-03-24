@@ -1,61 +1,64 @@
 /*
- * XREFs of MmAttachSession @ 0x1402312E0
+ * XREFs of MmAttachSession @ 0x140298FE0
  * Callers:
- *     MiLockStealSystemVm @ 0x140230F28 (MiLockStealSystemVm.c)
- *     MiTrimSharedPageFromViews @ 0x14027B820 (MiTrimSharedPageFromViews.c)
- *     ExpHpCompactSessionPools @ 0x1402A0EF8 (ExpHpCompactSessionPools.c)
- *     MiEmptyAccessLogs @ 0x140375ED0 (MiEmptyAccessLogs.c)
- *     PopWatchdogWorker @ 0x1403A0B60 (PopWatchdogWorker.c)
- *     PopPowerButtonWorkCallback @ 0x1405D89F0 (PopPowerButtonWorkCallback.c)
- *     PspChangeProcessExecutionState @ 0x140687754 (PspChangeProcessExecutionState.c)
- *     ObpProcessRemoveObjectQueue @ 0x1406A1000 (ObpProcessRemoveObjectQueue.c)
- *     ExGetSessionPoolTagInformation @ 0x1406A8B68 (ExGetSessionPoolTagInformation.c)
- *     PspAttachSession @ 0x1406A8EEC (PspAttachSession.c)
- *     ExCallSessionCallBack @ 0x1406A8F48 (ExCallSessionCallBack.c)
- *     MmPrefetchVirtualMemory @ 0x1406EC048 (MmPrefetchVirtualMemory.c)
- *     PnpNotifyDriverCallback @ 0x14078D3DC (PnpNotifyDriverCallback.c)
- *     EtwpEnableGuid @ 0x14079028C (EtwpEnableGuid.c)
- *     EtwpSendDataBlock @ 0x140790CF8 (EtwpSendDataBlock.c)
- *     MmEnumerateSystemImages @ 0x140814DC0 (MmEnumerateSystemImages.c)
- *     CmFcpChangeSubscriptionWrapper @ 0x1409234E0 (CmFcpChangeSubscriptionWrapper.c)
- *     TtmpSessionWorker @ 0x1409A5C10 (TtmpSessionWorker.c)
- *     EtwpPoolRunDown @ 0x1409EAB74 (EtwpPoolRunDown.c)
- *     ExGetSessionBigPoolInformation @ 0x1409F5D80 (ExGetSessionBigPoolInformation.c)
- *     VfThunkApplyPristineToAllSession @ 0x140A93644 (VfThunkApplyPristineToAllSession.c)
- *     VfThunkApplyWdmThunkToAllSession @ 0x140A937C4 (VfThunkApplyWdmThunkToAllSession.c)
+ *     MiLockStealSystemVm @ 0x140298704 (MiLockStealSystemVm.c)
+ *     ExpHpCompactSessionPools @ 0x1402D5848 (ExpHpCompactSessionPools.c)
+ *     MiTrimSharedPageFromViews @ 0x1402EFC44 (MiTrimSharedPageFromViews.c)
+ *     MiEmptyAccessLogs @ 0x1403A3430 (MiEmptyAccessLogs.c)
+ *     PopPowerButtonWorkCallback @ 0x140578850 (PopPowerButtonWorkCallback.c)
+ *     PopWatchdogWorker @ 0x140578E70 (PopWatchdogWorker.c)
+ *     PspChangeProcessExecutionState @ 0x140605D50 (PspChangeProcessExecutionState.c)
+ *     ExGetSessionPoolTagInformation @ 0x1406832BC (ExGetSessionPoolTagInformation.c)
+ *     PspAttachSession @ 0x1406835F8 (PspAttachSession.c)
+ *     ExCallSessionCallBack @ 0x140683678 (ExCallSessionCallBack.c)
+ *     ObpProcessRemoveObjectQueue @ 0x140684B90 (ObpProcessRemoveObjectQueue.c)
+ *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
+ *     EtwpSendDataBlock @ 0x1406E4054 (EtwpSendDataBlock.c)
+ *     PnpNotifyDriverCallback @ 0x1406E5CC4 (PnpNotifyDriverCallback.c)
+ *     MmPrefetchVirtualMemory @ 0x1407108F8 (MmPrefetchVirtualMemory.c)
+ *     MmEnumerateSystemImages @ 0x140797DE0 (MmEnumerateSystemImages.c)
+ *     CmFcpChangeSubscriptionWrapper @ 0x14087E3C0 (CmFcpChangeSubscriptionWrapper.c)
+ *     MmGetSessionMappedViewInformation @ 0x1408C48D0 (MmGetSessionMappedViewInformation.c)
+ *     PopLazySensorActiveInput @ 0x1408F51B4 (PopLazySensorActiveInput.c)
+ *     TtmpSessionWorker @ 0x140900030 (TtmpSessionWorker.c)
+ *     EtwpPoolRunDown @ 0x14093E300 (EtwpPoolRunDown.c)
+ *     ExGetSessionBigPoolInformation @ 0x140949F60 (ExGetSessionBigPoolInformation.c)
+ *     VfThunkApplyMandatoryThunks @ 0x1409D8B6C (VfThunkApplyMandatoryThunks.c)
+ *     VfThunkApplyThunks @ 0x1409D8C54 (VfThunkApplyThunks.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MmAttachSession(ULONG_PTR BugCheckParameter1)
+__int64 __fastcall MmAttachSession(_KPROCESS *BugCheckParameter1, __int64 a2)
 {
-  __int64 v1; // rdi
-  ULONG_PTR v2; // rbx
+  unsigned __int64 v2; // rdi
+  _KPROCESS *v4; // rbx
   _KPROCESS *Process; // rsi
-  unsigned __int64 v4; // r14
-  unsigned __int64 v5; // rbp
+  unsigned __int64 v6; // r14
+  _DWORD *v7; // r9
+  unsigned __int64 v8; // rbp
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r8
-  int v11; // eax
-  bool v12; // zf
-  unsigned __int8 v13; // al
-  struct _KPRCB *v14; // r10
-  _DWORD *v15; // r8
-  int v16; // eax
+  int v14; // eax
+  bool v15; // zf
+  unsigned __int8 v16; // al
+  struct _KPRCB *v17; // r10
+  _DWORD *v18; // r8
+  int v19; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
-  v1 = *(_QWORD *)(BugCheckParameter1 + 1368);
+  v2 = BugCheckParameter1[1].AffinityPadding[5];
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v2 = BugCheckParameter1;
+  v4 = BugCheckParameter1;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v4 = Process[1].Affinity.StaticBitmap[25];
+  v6 = Process[1].AffinityPadding[5];
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  if ( (*(_DWORD *)(v1 + 4) & 2) != 0 )
+  if ( (*(_DWORD *)(v2 + 4) & 2) != 0 )
   {
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
@@ -68,10 +71,10 @@ __int64 __fastcall MmAttachSession(ULONG_PTR BugCheckParameter1)
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v11 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v12 = (v11 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v11;
-          if ( v12 )
+          v14 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v15 = (v14 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v14;
+          if ( v15 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
@@ -81,30 +84,31 @@ __int64 __fastcall MmAttachSession(ULONG_PTR BugCheckParameter1)
   }
   else
   {
-    ++*(_DWORD *)(v1 + 92);
+    ++*(_DWORD *)(v2 + 100);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-    v5 = LockHandle.OldIrql;
+    v8 = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v13 = KeGetCurrentIrql();
-        if ( v13 <= 0xFu && LockHandle.OldIrql <= 0xFu && v13 >= 2u )
+        v16 = KeGetCurrentIrql();
+        if ( v16 <= 0xFu && LockHandle.OldIrql <= 0xFu && v16 >= 2u )
         {
-          v14 = KeGetCurrentPrcb();
-          v15 = v14->SchedulerAssist;
-          v16 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v12 = (v16 & v15[5]) == 0;
-          v15[5] &= v16;
-          if ( v12 )
-            KiRemoveSystemWorkPriorityKick(v14);
+          v17 = KeGetCurrentPrcb();
+          v18 = v17->SchedulerAssist;
+          v7 = (_DWORD *)(-1LL << (LockHandle.OldIrql + 1));
+          v19 = ~(unsigned __int16)v7;
+          v15 = (v19 & v18[5]) == 0;
+          v18[5] &= v19;
+          if ( v15 )
+            KiRemoveSystemWorkPriorityKick(v17);
         }
       }
     }
-    __writecr8(v5);
-    if ( v4 && (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 && v4 == v1 )
-      v2 = (ULONG_PTR)Process;
-    KiStackAttachProcess(v2);
+    __writecr8(v8);
+    if ( v6 && (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 && v6 == v2 )
+      v4 = Process;
+    KiStackAttachProcess(v4, 0LL, a2, v7);
     return 0LL;
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitAppendSurfaceResources@CPrimitiveGroupMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0011F9C
+ * XREFs of ?EmitAppendSurfaceResources@CPrimitiveGroupMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0062DB0
  * Callers:
- *     ?EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0010620 (-EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0060DD0 (-EmitUpdateCommands@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C000B6D8 (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C005B9DC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 bool __fastcall DirectComposition::CPrimitiveGroupMarshaler::EmitAppendSurfaceResources(
@@ -19,17 +19,17 @@ bool __fastcall DirectComposition::CPrimitiveGroupMarshaler::EmitAppendSurfaceRe
   __int64 v9; // rcx
   void *v11; // [rsp+30h] [rbp+8h] BYREF
 
-  for ( ; *((_DWORD *)this + 25) < *((_DWORD *)this + 24); *((_DWORD *)this + 25) += v5 )
+  for ( ; *((_DWORD *)this + 23) < *((_DWORD *)this + 22); *((_DWORD *)this + 23) += v5 )
   {
     v4 = (void *)(4096LL - *((_QWORD *)(*a2)[17] + 5));
     v11 = v4;
     if ( (unsigned __int64)v4 < 0x14 )
     {
       if ( !DirectComposition::CBatch::AllocateNewFragment(a2, (unsigned __int64 *)&v11) )
-        return *((_DWORD *)this + 25) == *((_DWORD *)this + 24);
+        return *((_DWORD *)this + 23) == *((_DWORD *)this + 22);
       v4 = v11;
     }
-    v5 = (unsigned int)(*((_DWORD *)this + 24) - *((_DWORD *)this + 25));
+    v5 = (unsigned int)(*((_DWORD *)this + 22) - *((_DWORD *)this + 23));
     if ( v5 >= ((unsigned __int64)v4 - 16) >> 2 )
       LODWORD(v5) = ((unsigned __int64)v4 - 16) >> 2;
     v11 = 0LL;
@@ -40,14 +40,14 @@ bool __fastcall DirectComposition::CPrimitiveGroupMarshaler::EmitAppendSurfaceRe
     v8 = v6 + 16;
     *(_QWORD *)(v6 + 4) = 0LL;
     *((_DWORD *)v6 + 3) = 0;
-    *((_DWORD *)v6 + 1) = 295;
-    *((_DWORD *)v6 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v6 + 1) = 302;
+    *((_DWORD *)v6 + 2) = *((_DWORD *)this + 6);
     for ( *((_DWORD *)v6 + 3) = v5; v7 < (unsigned int)v5; ++v8 )
     {
-      v9 = v7 + *((_DWORD *)this + 25);
+      v9 = v7 + *((_DWORD *)this + 23);
       ++v7;
-      *v8 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 11) + 8 * v9) + 32LL);
+      *v8 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 10) + 8 * v9) + 24LL);
     }
   }
-  return *((_DWORD *)this + 25) == *((_DWORD *)this + 24);
+  return *((_DWORD *)this + 23) == *((_DWORD *)this + 22);
 }

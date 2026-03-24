@@ -3,10 +3,10 @@
  * Callers:
  *     CmpInitHiveFromFile @ 0x1405B3D68 (CmpInitHiveFromFile.c)
  *     CmpOpenHiveFile @ 0x1405B4330 (CmpOpenHiveFile.c)
- *     CmpInitCmRM @ 0x14067F308 (CmpInitCmRM.c)
- *     CmpStartRMLog @ 0x14070E334 (CmpStartRMLog.c)
+ *     CmpInitCmRM @ 0x14067F2E8 (CmpInitCmRM.c)
+ *     CmpStartRMLog @ 0x14070E314 (CmpStartRMLog.c)
  * Callees:
- *     ZwQuerySecurityObject @ 0x1401BABF0 (ZwQuerySecurityObject.c)
+ *     ZwQuerySecurityObject @ 0x1401BAC10 (ZwQuerySecurityObject.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

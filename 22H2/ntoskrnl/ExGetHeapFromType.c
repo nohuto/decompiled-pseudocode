@@ -1,36 +1,46 @@
 /*
- * XREFs of ExGetHeapFromType @ 0x1403B9D5C
+ * XREFs of ExGetHeapFromType @ 0x1402E869C
  * Callers:
- *     ExAllocateHeapPages @ 0x1403B955C (ExAllocateHeapPages.c)
- *     ExAllocateContiguousHeapPool @ 0x1403B9AB4 (ExAllocateContiguousHeapPool.c)
- *     ExAllocateHeapSpecialPool @ 0x14060EDA0 (ExAllocateHeapSpecialPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x1402E8470 (ExAllocateContiguousHeapPool.c)
+ *     ExAllocateHeapPages @ 0x140375EA8 (ExAllocateHeapPages.c)
+ *     ExAllocateHeapSpecialPool @ 0x1405B9CBC (ExAllocateHeapSpecialPool.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall ExGetHeapFromType(int a1, unsigned int a2, int a3)
 {
-  __int64 *v4; // rcx
-  __int64 v5; // rax
+  __int64 *v3; // rdx
+  __int64 v4; // rax
+  __int64 v6; // rax
 
   if ( a2 == 0x80000000 )
-    a2 = KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0];
-  v4 = &qword_140C74AC0[1048 * (a2 < dword_140C74AA0 ? a2 : 0)];
+    a2 = KeGetCurrentPrcb()->ParentNode->Affinity.Reserved[0];
+  v3 = &qword_140C580C0[1048 * (a2 < dword_140C58090 ? a2 : 0)];
   if ( a1 < 0 )
   {
     if ( a3 )
-      return qword_140CF7AD8;
+      return qword_140CDB0D8;
     else
-      return v4[3];
+      return v3[3];
+  }
+  else if ( (a1 & 0x21) == 0x21 )
+  {
+    v6 = *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5] + 672);
+    if ( a3 )
+      return *(_QWORD *)(v6 + 14568);
+    else
+      return *(_QWORD *)(v6 + 14560);
   }
   else
   {
     if ( (a1 & 1) != 0 )
-      v5 = 2LL;
+      v4 = 2LL;
     else
-      v5 = (a1 & 0x200) != 0;
+      v4 = (a1 & 0x200) != 0;
     if ( a3 )
-      v4 = qword_140CF7AC0;
-    return v4[v5];
+      return qword_140CDB0C0[v4];
+    else
+      return v3[v4];
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiScanRelocationPage @ 0x140707CF0
+ * XREFs of MiScanRelocationPage @ 0x1406D5CB0
  * Callers:
- *     MiRelocateImage @ 0x1407074F0 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x1406D54B0 (MiRelocateImage.c)
  * Callees:
- *     MiOffsetToProtos @ 0x140286F90 (MiOffsetToProtos.c)
- *     MiCreateFixupRecord @ 0x1406DEE10 (MiCreateFixupRecord.c)
+ *     MiOffsetToProtos @ 0x140320B50 (MiOffsetToProtos.c)
+ *     MiCreateFixupRecord @ 0x1406BBA3C (MiCreateFixupRecord.c)
  */
 
 __int64 __fastcall MiScanRelocationPage(__int64 a1, unsigned int a2, int a3, _WORD *a4, __int64 a5, _QWORD *a6)
@@ -17,13 +17,12 @@ __int64 __fastcall MiScanRelocationPage(__int64 a1, unsigned int a2, int a3, _WO
   int v12; // r9d
   int v13; // esi
   __int64 v14; // r11
-  unsigned int v15; // ebp
+  unsigned int i; // ebp
   __int16 v16; // ax
   unsigned __int16 v17; // bx
-  int v18; // ecx
-  unsigned int v19; // r8d
+  unsigned int v18; // r8d
   __int64 result; // rax
-  int v21; // eax
+  int v20; // ecx
 
   v6 = a5;
   v8 = a2;
@@ -33,62 +32,57 @@ __int64 __fastcall MiScanRelocationPage(__int64 a1, unsigned int a2, int a3, _WO
   v12 = 0;
   v13 = a3;
   v14 = a1;
-  v15 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a5 + 56LL) + 64LL);
-  while ( v13 )
+  for ( i = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a5 + 56LL) + 64LL); v13; ++a4 )
   {
     --v13;
     v16 = *a4 >> 12;
     v17 = *a4 & 0xFFF;
-    if ( !v16 )
-      goto LABEL_5;
-    if ( v16 != 3 )
+    if ( v16 )
     {
-      if ( v16 != 10 )
-        return 3221226089LL;
-      if ( v17 > 0xFF8u )
+      if ( v16 == 3 )
       {
-        v11 = 1;
-        v10 = 8;
+        if ( v17 > 0xFFCu )
+        {
+          v11 = 1;
+          v9 = 2;
+          v10 = 4;
+        }
       }
-      v21 = 0;
-      v18 = v17;
-      if ( v17 <= 0xFF8u )
-        v21 = v9;
-      v9 = v21;
-      goto LABEL_6;
+      else
+      {
+        if ( v16 != 10 )
+          return 3221226089LL;
+        if ( v17 > 0xFF8u )
+        {
+          v11 = 1;
+          v10 = 8;
+        }
+        v20 = 0;
+        if ( v17 <= 0xFF8u )
+          v20 = v9;
+        v9 = v20;
+      }
     }
-    if ( v17 > 0xFFCu )
+    if ( v16 )
     {
-      v11 = 1;
-      v18 = v17;
-      v9 = 2;
-      v10 = 4;
+      if ( (v8 & 0xFFF) != 0 && v17 + (unsigned int)(v8 & 0xFFF) > 0xFFE )
+        return 3221226089LL;
+      v18 = v17 + (_DWORD)v8;
+      if ( v18 < i )
+        return 3221226089LL;
     }
     else
     {
-LABEL_5:
-      v18 = v17;
-      if ( !v16 )
-      {
-        v19 = v8 + v17;
-        goto LABEL_8;
-      }
+      v18 = v8 + v17;
     }
-LABEL_6:
-    if ( (v8 & 0xFFF) != 0 && v18 + (unsigned int)(v8 & 0xFFF) > 0xFFE )
-      return 3221226089LL;
-    v19 = v18 + v8;
-    if ( v18 + (int)v8 < v15 )
-      return 3221226089LL;
-LABEL_8:
-    if ( v11 )
+    if ( v11 == 1 )
     {
-      if ( v12 )
+      if ( v12 == 1 )
         return 3221225595LL;
-      result = MiCreateFixupRecord(v6, v14, v19, v9, v10, a4, a6);
+      result = MiCreateFixupRecord(v6, v14, v18, v9, v10, a4, a6);
       if ( (int)result < 0 )
         return result;
-      if ( (MiFlags & 0x20000) != 0 && (*(_DWORD *)(v6 + 92) & 0xC0000) != 0 )
+      if ( (MiFlags & 0x40000) != 0 && (*(_DWORD *)(v6 + 92) & 0xC0000) != 0 )
       {
         a5 = 0LL;
         if ( (MiOffsetToProtos(v6, v8 + v17 + (unsigned __int64)v10, (unsigned __int64 *)&a5)[8] & 4) != 0 )
@@ -98,7 +92,6 @@ LABEL_8:
       v11 = 0;
       v12 = 1;
     }
-    ++a4;
   }
   return 0LL;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpShrinkMap @ 0x140A25BA4
+ * XREFs of HvpShrinkMap @ 0x140880BB0
  * Callers:
- *     HvpAddBin @ 0x14074F684 (HvpAddBin.c)
+ *     HvpAddBin @ 0x140721E28 (HvpAddBin.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HvpFreeMap @ 0x1407E1348 (HvpFreeMap.c)
- *     HvpGetCellMap @ 0x140AF6280 (HvpGetCellMap.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HvpGetCellMap @ 0x140655DC0 (HvpGetCellMap.c)
+ *     HvpFreeMap @ 0x14069E438 (HvpFreeMap.c)
  */
 
 __int64 __fastcall HvpShrinkMap(__int64 a1, int a2, unsigned int a3, unsigned int a4)
@@ -26,8 +26,8 @@ __int64 __fastcall HvpShrinkMap(__int64 a1, int a2, unsigned int a3, unsigned in
   v7 = a1;
   if ( !a4 )
   {
-    v8 = *(_QWORD *)(632LL * a2 + a1 + 296);
-    if ( v8 == *(_QWORD *)(632LL * a2 + v7 + 288) )
+    v8 = *(_QWORD *)(632LL * a2 + a1 + 288);
+    if ( v8 == *(_QWORD *)(632LL * a2 + v7 + 280) )
       return (*(__int64 (__fastcall **)(__int64, __int64))(v7 + 32))(v8, 12288LL);
   }
   v10 = (a2 << 31) + a4;
@@ -42,6 +42,6 @@ __int64 __fastcall HvpShrinkMap(__int64 a1, int a2, unsigned int a3, unsigned in
   v13 = ((v5 >> 12) + 511) >> 9;
   v14 = ((a3 >> 12) + 511) >> 9;
   if ( v13 < v14 )
-    return (__int64)HvpFreeMap(v7, *(_QWORD *)(632 * v4 + v7 + 288), v13, v14 - 1);
+    return (__int64)HvpFreeMap(v7, *(_QWORD *)(632 * v4 + v7 + 280), v13, v14 - 1);
   return result;
 }

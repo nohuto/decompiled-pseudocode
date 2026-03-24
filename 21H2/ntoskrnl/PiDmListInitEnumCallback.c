@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDmListInitEnumCallback @ 0x14083F090
+ * XREFs of PiDmListInitEnumCallback @ 0x14078F090
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x14076A0A8 (PiDmRemoveCacheReferenceForObject.c)
- *     PiDmListAddObject @ 0x14076A134 (PiDmListAddObject.c)
- *     PiDmAddCacheReferenceForObject @ 0x14076A3C4 (PiDmAddCacheReferenceForObject.c)
- *     _PnpStringFromGuid @ 0x140773030 (_PnpStringFromGuid.c)
- *     PiDmObjectRelease @ 0x14077B394 (PiDmObjectRelease.c)
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
+ *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
+ *     _PnpStringFromGuid @ 0x140638420 (_PnpStringFromGuid.c)
+ *     PiDmListAddObject @ 0x1407354D4 (PiDmListAddObject.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x1407488F8 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1407489A8 (PiDmAddCacheReferenceForObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDmListInitEnumCallback(ULONG_PTR a1, __int64 a2, _BYTE *a3)
@@ -20,13 +20,13 @@ __int64 __fastcall PiDmListInitEnumCallback(ULONG_PTR a1, __int64 a2, _BYTE *a3)
   __int64 v6; // rax
   __int64 v7; // r8
   __int64 v8; // rdx
-  int ObjectProperty; // eax
-  unsigned int v10; // ebx
-  wchar_t *v11; // rdx
-  int v12; // eax
-  unsigned int *v13; // rsi
+  int ObjectProperty; // edi
+  wchar_t *v10; // rdx
+  int v11; // eax
+  unsigned int *v12; // r8
+  PVOID v13; // rsi
   void *v15; // rcx
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   int v17; // [rsp+60h] [rbp-39h] BYREF
   int v18; // [rsp+64h] [rbp-35h] BYREF
   PVOID P; // [rsp+68h] [rbp-31h] BYREF
@@ -45,10 +45,10 @@ __int64 __fastcall PiDmListInitEnumCallback(ULONG_PTR a1, __int64 a2, _BYTE *a3)
       *(_DWORD *)(a2 + 8) = v3;
       if ( v15 )
         ExFreePoolWithTag(v15, 0x5A706E50u);
-      Pool2 = ExAllocatePool2(256LL, *(unsigned int *)(a2 + 8), 1517317712LL);
-      *(_QWORD *)a2 = Pool2;
-      if ( !Pool2 )
-        return (unsigned int)-1073741670;
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, *(unsigned int *)(a2 + 8), 0x5A706E50u);
+      *(_QWORD *)a2 = PoolWithTag;
+      if ( !PoolWithTag )
+        break;
     }
     v6 = *(int *)(a2 + 12);
     v7 = *(unsigned int *)(a1 + 28);
@@ -66,38 +66,39 @@ __int64 __fastcall PiDmListInitEnumCallback(ULONG_PTR a1, __int64 a2, _BYTE *a3)
                        *(_DWORD *)(a2 + 8),
                        (__int64)&v17,
                        0);
-    v10 = ObjectProperty;
     if ( ObjectProperty != -1073741789 )
-      break;
+      goto LABEL_4;
     v3 = v17;
   }
+  ObjectProperty = -1073741670;
+LABEL_4:
   if ( ObjectProperty == -1073741275 )
+  {
     return 0;
-  if ( ObjectProperty < 0 )
-    return v10;
-  if ( v18 == 13 )
-  {
-    PnpStringFromGuid(*(int **)a2, v20);
-    v11 = v20;
   }
-  else
+  else if ( ObjectProperty >= 0 )
   {
-    if ( v18 != 18 )
-      return v10;
-    v11 = *(wchar_t **)a2;
+    if ( v18 == 13 )
+    {
+      PnpStringFromGuid(*(int **)a2, v20);
+      v10 = v20;
+    }
+    else
+    {
+      if ( v18 != 18 )
+        return (unsigned int)ObjectProperty;
+      v10 = *(wchar_t **)a2;
+    }
+    v11 = PiDmAddCacheReferenceForObject(PiDmListDefs[5 * *(int *)(a2 + 12)], v10, (volatile signed __int32 **)&P);
+    v13 = P;
+    ObjectProperty = v11;
+    if ( v11 >= 0 )
+      PiDmListAddObject(*(_DWORD *)(a2 + 12), (ULONG_PTR)P, a1, 0LL);
+    if ( v13 )
+    {
+      PiDmRemoveCacheReferenceForObject(*((_DWORD *)v13 + 7), *((_QWORD *)v13 + 2), v12);
+      PiDmObjectRelease((unsigned int *)v13);
+    }
   }
-  v12 = PiDmAddCacheReferenceForObject(
-          PiDmListDefs[5 * *(int *)(a2 + 12)],
-          (__int64)v11,
-          (volatile signed __int32 **)&P);
-  v13 = (unsigned int *)P;
-  v10 = v12;
-  if ( v12 >= 0 )
-    PiDmListAddObject(*(_DWORD *)(a2 + 12), (ULONG_PTR)P, a1, 0LL);
-  if ( v13 )
-  {
-    PiDmRemoveCacheReferenceForObject(v13[7], *((_QWORD *)v13 + 2));
-    PiDmObjectRelease(v13);
-  }
-  return v10;
+  return (unsigned int)ObjectProperty;
 }

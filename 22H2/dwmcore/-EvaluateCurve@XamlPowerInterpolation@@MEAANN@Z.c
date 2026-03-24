@@ -1,5 +1,5 @@
 /*
- * XREFs of ?EvaluateCurve@XamlPowerInterpolation@@MEAANN@Z @ 0x180107C40
+ * XREFs of ?EvaluateCurve@XamlPowerInterpolation@@MEAANN@Z @ 0x1800E2E90
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 double __fastcall XamlPowerInterpolation::EvaluateCurve(XamlPowerInterpolation *this, double a2)
 {
-  return pow_0(a2, *((float *)this + 8));
+  return pow(a2, *((float *)this + 8));
 }

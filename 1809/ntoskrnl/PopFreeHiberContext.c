@@ -1,24 +1,24 @@
 /*
- * XREFs of PopFreeHiberContext @ 0x1406DFFC0
+ * XREFs of PopFreeHiberContext @ 0x1406DFFA0
  * Callers:
  *     PopUnlockAfterSleepWorker @ 0x14056C5F0 (PopUnlockAfterSleepWorker.c)
- *     PopAllocateHiberContext @ 0x1406DF554 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x1406DF534 (PopAllocateHiberContext.c)
  * Callees:
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
- *     MmFreePagesFromMdl @ 0x1401373B0 (MmFreePagesFromMdl.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PopInternalAddToDumpFile @ 0x1402D3224 (PopInternalAddToDumpFile.c)
+ *     MmFreePagesFromMdl @ 0x1401373D0 (MmFreePagesFromMdl.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     BgkResumeFinished @ 0x14056C684 (BgkResumeFinished.c)
- *     MmReleaseDumpHibernateResources @ 0x1406E019C (MmReleaseDumpHibernateResources.c)
- *     MmUnlockPreChargedPagedPool @ 0x1406E01E0 (MmUnlockPreChargedPagedPool.c)
- *     PopBcdClearPendingResume @ 0x140710FC8 (PopBcdClearPendingResume.c)
- *     BcdCloseStore @ 0x140711A28 (BcdCloseStore.c)
- *     BcdOpenStore @ 0x140712288 (BcdOpenStore.c)
- *     PopClearHiberFileSignature @ 0x14071EC54 (PopClearHiberFileSignature.c)
- *     VslFreeSecureHibernateResources @ 0x1408186B4 (VslFreeSecureHibernateResources.c)
+ *     MmReleaseDumpHibernateResources @ 0x1406E017C (MmReleaseDumpHibernateResources.c)
+ *     MmUnlockPreChargedPagedPool @ 0x1406E01C0 (MmUnlockPreChargedPagedPool.c)
+ *     PopBcdClearPendingResume @ 0x140710FA8 (PopBcdClearPendingResume.c)
+ *     BcdCloseStore @ 0x140711A08 (BcdCloseStore.c)
+ *     BcdOpenStore @ 0x140712268 (BcdOpenStore.c)
+ *     PopClearHiberFileSignature @ 0x14071EC34 (PopClearHiberFileSignature.c)
+ *     VslFreeSecureHibernateResources @ 0x140818694 (VslFreeSecureHibernateResources.c)
  */
 
 void __fastcall PopFreeHiberContext(__int64 a1)
@@ -86,7 +86,7 @@ void __fastcall PopFreeHiberContext(__int64 a1)
     if ( *(_DWORD *)(v1 + 188) == 1073742484 )
       PopClearHiberFileSignature();
     *(_BYTE *)(v1 + 28) = 0;
-    MmUnlockPreChargedPagedPool(qword_140417A70, Length);
+    MmUnlockPreChargedPagedPool(qword_140417870, Length);
     v8 = *(void **)(v1 + 288);
     if ( v8 )
       ExFreePoolWithTag(v8, 0x72626968u);

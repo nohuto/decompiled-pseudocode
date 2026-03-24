@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CHolographicInteropTextureMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C022D090
+ * XREFs of ?SetIntegerProperty@CHolographicInteropTextureMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01ED790
  * Callers:
  *     <none>
  * Callees:
@@ -23,40 +23,40 @@ __int64 __fastcall DirectComposition::CHolographicInteropTextureMarshaler::SetIn
   if ( !a3 )
   {
     *((_DWORD *)this + 4) |= 0x100u;
-    *((_DWORD *)this + 16) = a4;
+    *((_DWORD *)this + 14) = a4;
     *a5 = 1;
     return v5;
   }
   v6 = a3 - 1;
   if ( !v6 )
   {
-    *((_DWORD *)this + 17) = a4;
+    *((_DWORD *)this + 15) = a4;
     goto LABEL_13;
   }
   v7 = v6 - 1;
   if ( !v7 )
   {
-    *((_DWORD *)this + 18) = a4;
+    *((_DWORD *)this + 16) = a4;
     goto LABEL_13;
   }
   v8 = v7 - 1;
   if ( !v8 )
   {
-    *((_DWORD *)this + 19) = a4;
+    *((_DWORD *)this + 17) = a4;
     goto LABEL_13;
   }
   v9 = v8 - 1;
   if ( !v9 )
   {
-    *((_DWORD *)this + 20) = a4;
+    *((_DWORD *)this + 18) = a4;
 LABEL_13:
     *((_DWORD *)this + 4) |= 0x40u;
     goto LABEL_14;
   }
   if ( v9 == 1 )
   {
-    *((_DWORD *)this + 21) = a4;
-    *((_DWORD *)this + 22) = (unsigned int)PsGetCurrentProcessId();
+    *((_DWORD *)this + 19) = a4;
+    *((_DWORD *)this + 20) = (unsigned int)PsGetCurrentProcessId();
 LABEL_14:
     *a5 = 1;
     return v5;

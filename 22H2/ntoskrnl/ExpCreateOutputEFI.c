@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpCreateOutputEFI @ 0x1409FC048
+ * XREFs of ExpCreateOutputEFI @ 0x14094FAEC
  * Callers:
- *     ExpConvertSignatureName @ 0x1409FBD0C (ExpConvertSignatureName.c)
- *     ExpTranslateNtPath @ 0x1409FE50C (ExpTranslateNtPath.c)
+ *     ExpConvertSignatureName @ 0x14094F7B0 (ExpConvertSignatureName.c)
+ *     ExpTranslateNtPath @ 0x140952904 (ExpTranslateNtPath.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExpFindDiskSignature @ 0x1409FC6CC (ExpFindDiskSignature.c)
- *     ExpGetDriveGeometry @ 0x1409FCAF0 (ExpGetDriveGeometry.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExpFindDiskSignature @ 0x140950250 (ExpFindDiskSignature.c)
+ *     ExpGetDriveGeometry @ 0x1409506AC (ExpGetDriveGeometry.c)
  */
 
 __int64 __fastcall ExpCreateOutputEFI(
@@ -98,7 +98,7 @@ LABEL_15:
       v22[41] = v21;
       if ( Src )
       {
-        v22 += 42;
+        v22 += *((unsigned __int16 *)v22 + 1);
         *(_WORD *)v22 = 1028;
         *((_WORD *)v22 + 1) = v9 + 4;
         memmove(v22 + 4, Src, v9 - 2);

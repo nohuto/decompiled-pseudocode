@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpCmciSetProcessorConfigAMD @ 0x140505BA8
+ * XREFs of HalpCmciSetProcessorConfigAMD @ 0x1404BCD50
  * Callers:
- *     HalpCmciSetProcessorConfig @ 0x1403806E8 (HalpCmciSetProcessorConfig.c)
- *     HalpCmciPollProcessor @ 0x1403808E8 (HalpCmciPollProcessor.c)
- *     HalpCmciResetStateAMD @ 0x140505ABC (HalpCmciResetStateAMD.c)
+ *     HalpCmciPollProcessor @ 0x1403A03AC (HalpCmciPollProcessor.c)
+ *     HalpCmciSetProcessorConfig @ 0x1403A04F8 (HalpCmciSetProcessorConfig.c)
+ *     HalpCmciResetStateAMD @ 0x1404BCC70 (HalpCmciResetStateAMD.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpCmciSetProcessorMiscConfigAMD @ 0x140505E14 (HalpCmciSetProcessorMiscConfigAMD.c)
- *     HalpWheaReadMsrMisc @ 0x140518AC8 (HalpWheaReadMsrMisc.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpCmciSetProcessorMiscConfigAMD @ 0x1404BCFAC (HalpCmciSetProcessorMiscConfigAMD.c)
+ *     HalpWheaReadMsrMisc @ 0x1404CF758 (HalpWheaReadMsrMisc.c)
  */
 
 char __fastcall HalpCmciSetProcessorConfigAMD(int a1, char a2, __int64 a3)
@@ -32,8 +32,7 @@ char __fastcall HalpCmciSetProcessorConfigAMD(int a1, char a2, __int64 a3)
   int v22; // eax
   int v23; // r9d
   int v25; // [rsp+30h] [rbp-48h]
-  unsigned int v26; // [rsp+30h] [rbp-48h]
-  unsigned int v28; // [rsp+98h] [rbp+20h]
+  unsigned int v27; // [rsp+98h] [rbp+20h]
 
   v5 = a1;
   if ( HalpMcaScalableRasSupported )
@@ -49,7 +48,7 @@ char __fastcall HalpCmciSetProcessorConfigAMD(int a1, char a2, __int64 a3)
   }
   v8 = (unsigned __int8)HalpMcaNumberOfBanks;
   v9 = 0;
-  v28 = (unsigned __int8)HalpMcaNumberOfBanks;
+  v27 = (unsigned __int8)HalpMcaNumberOfBanks;
   if ( HalpMcaNumberOfBanks )
   {
     v10 = -1073733622;
@@ -77,19 +76,18 @@ char __fastcall HalpCmciSetProcessorConfigAMD(int a1, char a2, __int64 a3)
           }
           while ( v15 );
           v13 = v25;
-          v8 = v28;
+          v8 = v27;
           v5 = a1;
         }
         v18 = v10 - 7;
         if ( !HalpMcaScalableRasSupported )
           v18 = v11;
-        v26 = v10 - 6;
         LOBYTE(v12) = a2;
         LOBYTE(MsrMisc) = HalpCmciSetProcessorMiscConfigAMD(v5, v18, v13, v12, a3);
         if ( HalpMcaScalableRasSupported )
         {
-          v19 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD))HalpWheaReadMsr)(a3, v26, 0LL);
-          HalpWheaWriteMsr(a3, v26, v19 & 0xFFFFFF9FFFFFFFFFuLL | -(__int64)(a2 != 0) & 0x2000000000LL);
+          v19 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD))HalpWheaReadMsr)(a3, v10 - 6, 0LL);
+          HalpWheaWriteMsr(a3, v10 - 6, v19 & 0xFFFFFF9FFFFFFFFFuLL | -(__int64)(a2 != 0) & 0x2000000000LL);
           v20 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD))HalpWheaReadMsr)(a3, v10, 0LL);
           LOBYTE(v21) = a2;
           HalpCmciSetProcessorMiscConfigAMD(v5, v10, v20, v21, a3);

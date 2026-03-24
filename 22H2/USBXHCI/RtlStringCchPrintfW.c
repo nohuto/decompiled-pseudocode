@@ -1,24 +1,26 @@
 /*
- * XREFs of RtlStringCchPrintfW @ 0x1C000CF80
+ * XREFs of RtlStringCchPrintfW @ 0x1C0009784
  * Callers:
- *     Controller_PopulateDeviceFlagsFromKse @ 0x1C001ABB8 (Controller_PopulateDeviceFlagsFromKse.c)
- *     Counter_CreateTransferRingInstance @ 0x1C006E2B4 (Counter_CreateTransferRingInstance.c)
- *     Counter_CreateInterrupterInstance @ 0x1C006EA2C (Counter_CreateInterrupterInstance.c)
- *     Counter_CreateCommonBufferInstance @ 0x1C0073804 (Counter_CreateCommonBufferInstance.c)
+ *     Controller_PopulateDeviceFlagsFromKse @ 0x1C00170F0 (Controller_PopulateDeviceFlagsFromKse.c)
+ *     Counter_CreateTransferRingInstance @ 0x1C006B1A0 (Counter_CreateTransferRingInstance.c)
+ *     Counter_CreateCommonBufferInstance @ 0x1C006E570 (Counter_CreateCommonBufferInstance.c)
+ *     Counter_CreateInterrupterInstance @ 0x1C007102C (Counter_CreateInterrupterInstance.c)
  * Callees:
- *     RtlStringVPrintfWorkerW @ 0x1C000CFBC (RtlStringVPrintfWorkerW.c)
+ *     RtlStringVPrintfWorkerW @ 0x1C00097DC (RtlStringVPrintfWorkerW.c)
  */
 
 NTSTATUS RtlStringCchPrintfW(NTSTRSAFE_PWSTR pszDest, size_t cchDest, NTSTRSAFE_PCWSTR pszFormat, ...)
 {
-  NTSTATUS result; // eax
+  NTSTATUS v3; // r9d
   va_list va; // [rsp+68h] [rbp+20h] BYREF
 
   va_start(va, pszFormat);
-  if ( cchDest - 1 <= 0x7FFFFFFE )
+  v3 = 0;
+  if ( cchDest - 1 > 0x7FFFFFFE )
+    v3 = -1073741811;
+  if ( v3 >= 0 )
     return RtlStringVPrintfWorkerW(pszDest, cchDest, (size_t *)pszFormat, pszFormat, va);
-  result = -1073741811;
   if ( cchDest )
     *pszDest = 0;
-  return result;
+  return v3;
 }

@@ -4,11 +4,11 @@
  *     WbDecryptWarbirdEncryptionSegment @ 0x1405844AC (WbDecryptWarbirdEncryptionSegment.c)
  * Callees:
  *     ApplyRelocations @ 0x1400014FC (ApplyRelocations.c)
- *     ZwFlushInstructionCache @ 0x1401B9DB0 (ZwFlushInstructionCache.c)
+ *     ZwFlushInstructionCache @ 0x1401B9DD0 (ZwFlushInstructionCache.c)
  *     sub_140584974 @ 0x140584974 (sub_140584974.c)
- *     WbVerifyVirtualAddressSignature @ 0x1406909A4 (WbVerifyVirtualAddressSignature.c)
- *     sub_140690AA4 @ 0x140690AA4 (sub_140690AA4.c)
- *     sub_140691564 @ 0x140691564 (sub_140691564.c)
+ *     WbVerifyVirtualAddressSignature @ 0x140690984 (WbVerifyVirtualAddressSignature.c)
+ *     sub_140690A84 @ 0x140690A84 (sub_140690A84.c)
+ *     sub_140691544 @ 0x140691544 (sub_140691544.c)
  */
 
 __int64 __fastcall WbDecryptWarbirdEncryptionSegmentBlockV0(__int64 *a1, int a2, _DWORD *a3)
@@ -46,7 +46,7 @@ __int64 __fastcall WbDecryptWarbirdEncryptionSegmentBlockV0(__int64 *a1, int a2,
                      a3[2] & 0xFFFFFFF),
               v7 >= 0) )
         {
-          v7 = sub_140690AA4(0, (_DWORD)v6, v8, a3[2] & 0xFFFFFFF, a1[7] + 72, a3[1] & 0xFFFFFFF, a1[7] + 80);
+          v7 = sub_140690A84(0, (_DWORD)v6, v8, a3[2] & 0xFFFFFFF, a1[7] + 72, a3[1] & 0xFFFFFFF, a1[7] + 80);
           if ( v7 >= 0 )
           {
             if ( !a2
@@ -67,6 +67,6 @@ __int64 __fastcall WbDecryptWarbirdEncryptionSegmentBlockV0(__int64 *a1, int a2,
       }
     }
   }
-  sub_140691564(Mdl);
+  sub_140691544(Mdl);
   return (unsigned int)v7;
 }

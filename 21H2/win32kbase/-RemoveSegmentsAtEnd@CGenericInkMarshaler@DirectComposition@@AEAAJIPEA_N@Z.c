@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RemoveSegmentsAtEnd@CGenericInkMarshaler@DirectComposition@@AEAAJIPEA_N@Z @ 0x1C02192E0
+ * XREFs of ?RemoveSegmentsAtEnd@CGenericInkMarshaler@DirectComposition@@AEAAJIPEA_N@Z @ 0x1C01E301C
  * Callers:
- *     ?SetIntegerProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0219410 (-SetIntegerProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPE.c)
+ *     ?SetIntegerProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E3150 (-SetIntegerProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPE.c)
  * Callees:
- *     ?Shrink@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_K@Z @ 0x1C000B678 (-Shrink@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_K@Z.c)
- *     ?GetSegmentCount@CGenericInkMarshaler@DirectComposition@@AEBAIXZ @ 0x1C0219200 (-GetSegmentCount@CGenericInkMarshaler@DirectComposition@@AEBAIXZ.c)
+ *     ?Shrink@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_K@Z @ 0x1C00665D0 (-Shrink@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_K@Z.c)
+ *     ?GetSegmentCount@CGenericInkMarshaler@DirectComposition@@AEBAIXZ @ 0x1C01E2F70 (-GetSegmentCount@CGenericInkMarshaler@DirectComposition@@AEBAIXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CGenericInkMarshaler::RemoveSegmentsAtEnd(
@@ -19,23 +19,23 @@ __int64 __fastcall DirectComposition::CGenericInkMarshaler::RemoveSegmentsAtEnd(
   int v9; // r9d
   unsigned int SegmentCount; // eax
 
-  if ( *((_QWORD *)this + 18) && (v5 = DirectComposition::CGenericInkMarshaler::GetSegmentCount(this), v7 <= v5) )
+  if ( *((_QWORD *)this + 17) && (v5 = DirectComposition::CGenericInkMarshaler::GetSegmentCount(this), v7 <= v5) )
   {
     v9 = DirectComposition::CDCompDynamicArrayBase::Shrink(
-           (DirectComposition::CDCompDynamicArrayBase *)(v6 + 104),
+           (DirectComposition::CDCompDynamicArrayBase *)(v6 + 96),
            v8 * v7);
     if ( v9 >= 0 )
     {
       SegmentCount = DirectComposition::CGenericInkMarshaler::GetSegmentCount(this);
-      if ( SegmentCount < *((_DWORD *)this + 39) )
+      if ( SegmentCount < *((_DWORD *)this + 37) )
       {
-        *((_DWORD *)this + 39) = SegmentCount;
-        *((_BYTE *)this + 160) = 1;
+        *((_DWORD *)this + 37) = SegmentCount;
+        *((_BYTE *)this + 152) = 1;
       }
-      if ( SegmentCount < *((_DWORD *)this + 38) )
+      if ( SegmentCount < *((_DWORD *)this + 36) )
       {
         *((_DWORD *)this + 4) &= ~0x40u;
-        *((_DWORD *)this + 38) = SegmentCount;
+        *((_DWORD *)this + 36) = SegmentCount;
       }
       *a3 = 1;
     }

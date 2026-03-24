@@ -1,5 +1,5 @@
 /*
- * XREFs of ?pxrlStrRead04AND@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02E18A0
+ * XREFs of ?pxrlStrRead04AND@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02C21C0
  * Callers:
  *     <none>
  * Callees:
@@ -15,131 +15,132 @@ struct _XRUNLEN *__fastcall pxrlStrRead04AND(
         int a6,
         int a7)
 {
-  int v7; // r11d
-  int v10; // ecx
-  int v11; // edi
-  int v12; // ebp
-  unsigned __int8 *v13; // r9
-  __int64 v14; // r8
-  __int64 v15; // rbx
-  int v16; // r14d
-  unsigned int *v17; // r15
-  unsigned int v18; // esi
-  __int64 v19; // rcx
-  _DWORD *v20; // rdx
-  char v21; // dl
-  __int64 v22; // rsi
-  unsigned __int8 *v23; // rax
-  int v24; // eax
-  int v25; // r15d
-  unsigned int *v26; // r13
-  __int64 v27; // rcx
-  ULONG v28; // esi
+  int v7; // r10d
+  int v11; // ecx
+  int v12; // esi
+  int v13; // ebp
+  unsigned __int8 *v14; // r11
+  int v15; // r14d
+  __int64 v16; // r8
+  __int64 v17; // rdi
+  unsigned int *v18; // r15
+  unsigned int v19; // ebx
+  __int64 v20; // rcx
+  _DWORD *v21; // rdx
+  char v22; // dl
+  __int64 v23; // rbx
+  unsigned __int8 *v24; // rax
+  int v25; // eax
+  __int64 v26; // rbx
+  ULONG v27; // edi
+  __int64 iUniq; // rcx
   _DWORD *v29; // rdx
   char v30; // dl
-  __int64 v31; // rsi
+  __int64 v31; // rdi
   unsigned __int8 *v32; // rax
   int v33; // eax
+  struct _XLATEOBJ *v35; // [rsp+40h] [rbp+28h]
 
   v7 = a6;
-  v10 = *(_DWORD *)a1;
-  *((_DWORD *)a2 + 2) = v10;
-  v11 = a6 & 7;
-  v12 = 0;
-  v13 = &a3[4 * ((__int64)a6 >> 3)];
-  *((_DWORD *)a2 + 3) = *((_DWORD *)a1 + 2) - v10;
+  v11 = *(_DWORD *)a1;
+  *((_DWORD *)a2 + 2) = v11;
+  v12 = a6 & 7;
+  v13 = 0;
+  v14 = &a3[4 * ((__int64)a6 >> 3)];
+  *((_DWORD *)a2 + 3) = *((_DWORD *)a1 + 2) - v11;
   if ( a6 < a7 )
   {
-    v14 = 0LL;
-    v15 = a6 & 7;
+    v15 = *(_DWORD *)v14;
+    v16 = 0LL;
     if ( a5 )
     {
-      v25 = *(_DWORD *)v13;
-      v26 = (unsigned int *)((char *)a1 + 32);
+      v26 = a6 & 7;
+      v35 = (struct _XLATEOBJ *)((char *)a1 + 32);
       while ( 1 )
       {
-        v27 = *v26++;
-        v28 = a5->pulXlate[(unsigned __int64)(v25 & (unsigned int)dword_1C0319768[v15]) >> dword_1C0319748[v15]];
-        if ( (_DWORD)v27 )
+        v27 = a5->pulXlate[(unsigned __int64)(v15 & (unsigned int)dword_1C02EEEA8[v26]) >> LOBYTE(dword_1C02EEE88[v26])];
+        iUniq = v35->iUniq;
+        v35 = (struct _XLATEOBJ *)((char *)v35 + 4);
+        if ( (_DWORD)iUniq )
         {
-          v12 += v27;
-          v29 = (_DWORD *)((char *)a2 + 4 * v14 + 16);
-          v14 += v27;
+          v13 += iUniq;
+          v29 = (_DWORD *)((char *)a2 + 4 * v16 + 16);
+          v16 += iUniq;
           do
           {
-            *v29++ &= v28;
-            LODWORD(v27) = v27 - 1;
+            *v29++ &= v27;
+            LODWORD(iUniq) = iUniq - 1;
           }
-          while ( (_DWORD)v27 );
+          while ( (_DWORD)iUniq );
         }
         else
         {
-          *((_DWORD *)a2 + v14 + 4) &= v28;
+          *((_DWORD *)a2 + v16 + 4) &= v27;
         }
         ++v7;
-        v30 = v11 + 1;
-        v31 = v15 + 1;
+        v30 = v12 + 1;
+        v31 = v26 + 1;
         if ( v7 >= a7 )
           break;
-        v32 = v13 + 4;
         if ( (v30 & 8) != 0 )
-          v25 = *(_DWORD *)v32;
-        else
-          v32 = v13;
-        v13 = v32;
+          v15 = *((_DWORD *)v14 + 1);
+        v32 = v14 + 4;
+        if ( (v30 & 8) == 0 )
+          v32 = v14;
+        v14 = v32;
         v33 = 0;
         if ( (v30 & 8) == 0 )
-          v33 = v11 + 1;
-        v15 = 0LL;
-        v11 = v33;
+          v33 = v12 + 1;
+        v26 = 0LL;
+        v12 = v33;
         if ( (v30 & 8) == 0 )
-          v15 = v31;
+          v26 = v31;
       }
     }
     else
     {
-      v16 = *(_DWORD *)v13;
-      v17 = (unsigned int *)((char *)a1 + 32);
+      v17 = a6 & 7;
+      v18 = (unsigned int *)((char *)a1 + 32);
       while ( 1 )
       {
-        v18 = (v16 & (unsigned int)dword_1C0319768[v15]) >> dword_1C0319748[v15];
-        v19 = *v17++;
-        if ( (_DWORD)v19 )
+        v19 = (v15 & (unsigned int)dword_1C02EEEA8[v17]) >> dword_1C02EEE88[v17];
+        v20 = *v18++;
+        if ( (_DWORD)v20 )
         {
-          v12 += v19;
-          v20 = (_DWORD *)((char *)a2 + 4 * v14 + 16);
-          v14 += v19;
+          v13 += v20;
+          v21 = (_DWORD *)((char *)a2 + 4 * v16 + 16);
+          v16 += v20;
           do
           {
-            *v20++ &= v18;
-            LODWORD(v19) = v19 - 1;
+            *v21++ &= v19;
+            LODWORD(v20) = v20 - 1;
           }
-          while ( (_DWORD)v19 );
+          while ( (_DWORD)v20 );
         }
         else
         {
-          *((_DWORD *)a2 + v14 + 4) &= v18;
+          *((_DWORD *)a2 + v16 + 4) &= v19;
         }
         ++v7;
-        v21 = v11 + 1;
-        v22 = v15 + 1;
+        v22 = v12 + 1;
+        v23 = v17 + 1;
         if ( v7 >= a7 )
           break;
-        v23 = v13 + 4;
-        if ( (v21 & 8) != 0 )
-          v16 = *(_DWORD *)v23;
-        else
-          v23 = v13;
-        v13 = v23;
-        v24 = 0;
-        if ( (v21 & 8) == 0 )
-          v24 = v11 + 1;
-        v15 = 0LL;
-        v11 = v24;
-        if ( (v21 & 8) == 0 )
-          v15 = v22;
+        if ( (v22 & 8) != 0 )
+          v15 = *((_DWORD *)v14 + 1);
+        v24 = v14 + 4;
+        if ( (v22 & 8) == 0 )
+          v24 = v14;
+        v14 = v24;
+        v25 = 0;
+        if ( (v22 & 8) == 0 )
+          v25 = v12 + 1;
+        v17 = 0LL;
+        v12 = v25;
+        if ( (v22 & 8) == 0 )
+          v17 = v23;
       }
     }
   }
-  return (struct _STRRUN *)((char *)a2 + 4 * v12 + 16);
+  return (struct _STRRUN *)((char *)a2 + 4 * v13 + 16);
 }

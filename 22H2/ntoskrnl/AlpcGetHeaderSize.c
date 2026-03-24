@@ -1,33 +1,33 @@
 /*
- * XREFs of AlpcGetHeaderSize @ 0x14032B8D0
+ * XREFs of AlpcGetHeaderSize @ 0x14034A3E0
  * Callers:
- *     AlpcGetMessageAttribute @ 0x14032B830 (AlpcGetMessageAttribute.c)
- *     AlpcInitializeMessageAttribute @ 0x14032B870 (AlpcInitializeMessageAttribute.c)
- *     AlpcpInitializeCompletionList @ 0x1409797D0 (AlpcpInitializeCompletionList.c)
+ *     AlpcGetMessageAttribute @ 0x14034A340 (AlpcGetMessageAttribute.c)
+ *     AlpcInitializeMessageAttribute @ 0x14034A380 (AlpcInitializeMessageAttribute.c)
+ *     AlpcpInitializeCompletionList @ 0x14065C270 (AlpcpInitializeCompletionList.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall AlpcGetHeaderSize(int a1)
 {
-  int v2; // eax
-  bool v3; // cf
-  int v4; // ecx
-  int v5; // eax
-  int v6; // ecx
-  unsigned int v7; // edx
+  int v2; // edx
+  int v3; // eax
+  bool v4; // cf
+  int v5; // ecx
+  int v6; // eax
+  unsigned int v7; // ecx
   __int64 result; // rax
 
   v2 = ((a1 >> 31) & 0x18) + 40;
   if ( (a1 & 0x40000000) == 0 )
     v2 = ((a1 >> 31) & 0x18) + 8;
-  v3 = (a1 & 0x20000000) != 0;
-  v4 = v2 + 32;
-  if ( !v3 )
-    v4 = v2;
-  v5 = v4 + 24;
-  if ( (a1 & 0x10000000) == 0 )
-    v5 = v4;
+  v3 = v2 + 32;
+  if ( (a1 & 0x20000000) == 0 )
+    v3 = v2;
+  v4 = (a1 & 0x10000000) != 0;
+  v5 = v3 + 24;
+  if ( !v4 )
+    v5 = v3;
   v6 = v5 + 24;
   if ( (a1 & 0x8000000) == 0 )
     v6 = v5;

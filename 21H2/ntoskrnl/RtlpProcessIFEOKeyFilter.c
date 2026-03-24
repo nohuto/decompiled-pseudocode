@@ -1,32 +1,33 @@
 /*
- * XREFs of RtlpProcessIFEOKeyFilter @ 0x1406C2EE8
+ * XREFs of RtlpProcessIFEOKeyFilter @ 0x1406A67B4
  * Callers:
- *     RtlpOpenImageFileOptionsKeyEx @ 0x1406C2D34 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x1406A6604 (RtlpOpenImageFileOptionsKeyEx.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140367B10 (ExAllocatePoolWithQuotaTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ZwEnumerateKey @ 0x14041BDA0 (ZwEnumerateKey.c)
- *     RtlPrefixUnicodeString @ 0x14077F870 (RtlPrefixUnicodeString.c)
- *     RtlCompareUnicodeString @ 0x1407CAA80 (RtlCompareUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall RtlpProcessIFEOKeyFilter(HANDLE *a1, __int64 a2, UNICODE_STRING *a3)
 {
   int v3; // ebx
-  wchar_t *v4; // r13
-  void *v6; // rsi
+  HANDLE *v4; // r12
+  void *v5; // rsi
+  wchar_t *v7; // r13
   NTSTATUS result; // eax
   int v9; // ecx
   bool v10; // zf
   _BYTE *v11; // rcx
   ULONG v12; // eax
   NTSTATUS inited; // edi
-  ULONG v14; // ecx
+  ULONG v14; // r12d
   NTSTATUS v15; // eax
   PVOID PoolWithQuotaTag; // rax
   NTSTATUS v17; // eax
@@ -39,26 +40,29 @@ NTSTATUS __fastcall RtlpProcessIFEOKeyFilter(HANDLE *a1, __int64 a2, UNICODE_STR
   ULONG v24; // [rsp+68h] [rbp-98h]
   _BYTE *v25; // [rsp+70h] [rbp-90h]
   UNICODE_STRING v26; // [rsp+78h] [rbp-88h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-78h] BYREF
+  HANDLE *v27; // [rsp+88h] [rbp-78h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-70h] BYREF
   _BYTE KeyValueInformation[4]; // [rsp+C0h] [rbp-40h] BYREF
-  int v29; // [rsp+C4h] [rbp-3Ch]
-  int v30; // [rsp+C8h] [rbp-38h]
-  int v31; // [rsp+CCh] [rbp-34h]
+  int v30; // [rsp+C4h] [rbp-3Ch]
+  int v31; // [rsp+C8h] [rbp-38h]
+  int v32; // [rsp+CCh] [rbp-34h]
 
+  v27 = a1;
   v3 = 0;
-  v4 = (wchar_t *)KeyValueInformation;
+  v4 = a1;
   ResultLength = 0;
   KeyHandle = 0LL;
-  DestinationString = 0LL;
-  v6 = 0LL;
   Length = 544;
-  memset(&ObjectAttributes, 0, 44);
+  DestinationString = 0LL;
+  v5 = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  v7 = (wchar_t *)KeyValueInformation;
   v26 = 0LL;
   result = RtlInitUnicodeStringEx(&DestinationString, L"UseFilter");
   if ( result < 0 )
     return result;
   result = ZwQueryValueKey(
-             *a1,
+             *v4,
              &DestinationString,
              KeyValuePartialInformation,
              KeyValueInformation,
@@ -70,7 +74,7 @@ NTSTATUS __fastcall RtlpProcessIFEOKeyFilter(HANDLE *a1, __int64 a2, UNICODE_STR
       return v3;
     return result;
   }
-  if ( v29 != 4 || v30 != 4 || !v31 )
+  if ( v30 != 4 || v31 != 4 || !v32 )
     return 0;
   v9 = 1600;
   v10 = KeGetCurrentThread()->PreviousMode == 1;
@@ -91,95 +95,90 @@ NTSTATUS __fastcall RtlpProcessIFEOKeyFilter(HANDLE *a1, __int64 a2, UNICODE_STR
     v21 = 0;
     v25 = KeyValueInformation;
     v12 = 0;
-LABEL_18:
-    inited = ZwEnumerateKey(*a1, v12, KeyBasicInformation, v11, Length, &ResultLength);
-    if ( inited < 0 )
-      goto LABEL_40;
-    DestinationString.Length = *((_WORD *)v25 + 6);
-    DestinationString.MaximumLength = *((_WORD *)v25 + 6);
-    DestinationString.Buffer = (wchar_t *)(v25 + 16);
-    ObjectAttributes.RootDirectory = *a1;
-    ObjectAttributes.Attributes = v24;
-    ObjectAttributes.ObjectName = &DestinationString;
-    ObjectAttributes.Length = 48;
-    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    inited = ZwOpenKey(&KeyHandle, 9u, &ObjectAttributes);
-    if ( inited < 0 )
-      goto LABEL_40;
-    inited = RtlInitUnicodeStringEx(&DestinationString, L"FilterFullPath");
-    if ( inited < 0 )
-    {
-      ZwClose(KeyHandle);
-      goto LABEL_43;
-    }
-    v14 = Length;
     while ( 1 )
     {
-      v15 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, v4, v14, &ResultLength);
-      inited = v15;
-      if ( v15 != -2147483643 && v15 != -1073741789 )
-        break;
-      if ( v6 )
-        ExFreePoolWithTag(v6, 0);
-      PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)520, ResultLength, 0x6B497452u);
-      v6 = PoolWithQuotaTag;
-      if ( !PoolWithQuotaTag )
+      inited = ZwEnumerateKey(*v4, v12, KeyBasicInformation, v11, Length, &ResultLength);
+      if ( inited >= 0 )
       {
-        inited = -1073741801;
-LABEL_32:
+        DestinationString.Length = *((_WORD *)v25 + 6);
+        DestinationString.MaximumLength = *((_WORD *)v25 + 6);
+        DestinationString.Buffer = (wchar_t *)(v25 + 16);
+        ObjectAttributes.RootDirectory = *v4;
+        ObjectAttributes.Attributes = v24;
+        ObjectAttributes.ObjectName = &DestinationString;
+        ObjectAttributes.Length = 48;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        inited = ZwOpenKey(&KeyHandle, 9u, &ObjectAttributes);
         if ( inited >= 0 )
         {
-          if ( *((_DWORD *)v4 + 1) != 1
-            || *((_DWORD *)v4 + 2) > 0xFFFEu
-            || (v26.Length = v4[4] - 2,
-                v26.MaximumLength = v26.Length,
-                v26.Buffer = v4 + 6,
-                RtlCompareUnicodeString(&String2, &v26, 1u)) )
-          {
-            ZwClose(KeyHandle);
-            goto LABEL_40;
-          }
-        }
-        else
-        {
-          ZwClose(KeyHandle);
-          v17 = 0;
-          if ( inited != -1073741772 )
-            v17 = inited;
-          inited = v17;
-LABEL_40:
-          v12 = ++v21;
+          inited = RtlInitUnicodeStringEx(&DestinationString, L"FilterFullPath");
           if ( inited >= 0 )
           {
-            v11 = v25;
-            goto LABEL_18;
+            v14 = Length;
+            do
+            {
+              v15 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, v7, v14, &ResultLength);
+              inited = v15;
+              if ( v15 == -2147483643 || v15 == -1073741789 )
+              {
+                if ( v5 )
+                  ExFreePoolWithTag(v5, 0);
+                PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)520, ResultLength, 0x6B497452u);
+                v5 = PoolWithQuotaTag;
+                if ( PoolWithQuotaTag )
+                {
+                  v14 = ResultLength;
+                  v7 = (wchar_t *)PoolWithQuotaTag;
+                  v25 = PoolWithQuotaTag;
+                }
+                else
+                {
+                  inited = -1073741801;
+                }
+              }
+            }
+            while ( inited == -2147483643 || inited == -1073741789 );
+            Length = v14;
+            v4 = v27;
+            if ( inited < 0 )
+            {
+              ZwClose(KeyHandle);
+              v17 = 0;
+              if ( inited != -1073741772 )
+                v17 = inited;
+              inited = v17;
+              goto LABEL_39;
+            }
+            if ( *((_DWORD *)v7 + 1) == 1 && *((_DWORD *)v7 + 2) <= 0xFFFEu )
+            {
+              v26.Length = v7[4] - 2;
+              v26.MaximumLength = v26.Length;
+              v26.Buffer = v7 + 6;
+              if ( !RtlCompareUnicodeString(&String2, &v26, 1u) )
+              {
+LABEL_40:
+                if ( v5 )
+                  ExFreePoolWithTag(v5, 0);
+                if ( inited >= 0 )
+                {
+                  ZwClose(*v4);
+                  *v4 = KeyHandle;
+                }
+                if ( inited != -2147483622 )
+                  return inited;
+                return v3;
+              }
+            }
           }
+          ZwClose(KeyHandle);
         }
-LABEL_43:
-        if ( v6 )
-          ExFreePoolWithTag(v6, 0);
-        if ( inited >= 0 )
-        {
-          ZwClose(*a1);
-          *a1 = KeyHandle;
-        }
-        if ( inited != -2147483622 )
-          return inited;
-        return v3;
       }
-      v14 = ResultLength;
-      v25 = PoolWithQuotaTag;
-      v4 = (wchar_t *)PoolWithQuotaTag;
-      Length = ResultLength;
-      if ( inited != -2147483643 )
-      {
-LABEL_29:
-        if ( inited != -1073741789 )
-          goto LABEL_32;
-      }
+LABEL_39:
+      v11 = v25;
+      v12 = ++v21;
+      if ( inited < 0 )
+        goto LABEL_40;
     }
-    v14 = Length;
-    goto LABEL_29;
   }
   return result;
 }

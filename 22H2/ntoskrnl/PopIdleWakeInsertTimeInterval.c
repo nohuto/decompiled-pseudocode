@@ -1,8 +1,8 @@
 /*
- * XREFs of PopIdleWakeInsertTimeInterval @ 0x14059D8D0
+ * XREFs of PopIdleWakeInsertTimeInterval @ 0x14057B560
  * Callers:
- *     PopIdleWakeNotifyIdleResiliencyState @ 0x14059DA24 (PopIdleWakeNotifyIdleResiliencyState.c)
- *     PopIdleWakeStopActiveIntervalAccounting @ 0x14059DD2C (PopIdleWakeStopActiveIntervalAccounting.c)
+ *     PopIdleWakeNotifyIdleResiliencyState @ 0x14057B6B4 (PopIdleWakeNotifyIdleResiliencyState.c)
+ *     PopIdleWakeStopActiveIntervalAccounting @ 0x14057BD54 (PopIdleWakeStopActiveIntervalAccounting.c)
  * Callees:
  *     <none>
  */
@@ -14,27 +14,28 @@ __int64 __fastcall PopIdleWakeInsertTimeInterval(
         __int64 a4,
         unsigned __int64 *a5)
 {
-  unsigned __int64 *v6; // rbx
-  unsigned int i; // r10d
-  __int64 v8; // r9
+  __int64 v5; // r10
+  unsigned __int64 *i; // rbx
   __int64 result; // rax
 
   if ( a2 )
   {
-    v6 = a5;
-    for ( i = 0; ; ++i )
+    v5 = 0LL;
+    for ( i = a5; ; ++i )
     {
-      v8 = i + 1;
-      if ( a1 >= *v6 && a1 < a5[v8] )
-        break;
-      ++v6;
-      if ( (unsigned int)v8 >= a2 )
+      if ( a1 >= *i )
+      {
+        result = (unsigned int)(v5 + 1);
+        if ( a1 < a5[result] )
+          break;
+      }
+      v5 = (unsigned int)(v5 + 1);
+      if ( (unsigned int)v5 >= a2 )
         return result;
     }
-    result = i;
-    ++*(_DWORD *)(a3 + 4LL * i);
+    ++*(_DWORD *)(a3 + 4 * v5);
     if ( a4 )
-      *(_QWORD *)(a4 + 8LL * i) += a1;
+      *(_QWORD *)(a4 + 8 * v5) += a1;
   }
   return result;
 }

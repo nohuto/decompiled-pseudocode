@@ -1,89 +1,71 @@
 /*
- * XREFs of ?DxgkpGetIndirectDisplayPairedAdapter@@YAJPEAVDXGADAPTER@@EAEAVDXGADAPTER_REFERENCE@@@Z @ 0x1C0222D62
+ * XREFs of ?DxgkpGetIndirectDisplayPairedAdapter@@YAJPEAVDXGADAPTER@@EAEAVDXGADAPTER_REFERENCE@@@Z @ 0x1C0221720
  * Callers:
- *     ?DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z @ 0x1C01798C0 (-DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z.c)
- *     DxgkGetAdapterDeviceDesc @ 0x1C01A3640 (DxgkGetAdapterDeviceDesc.c)
- *     ?AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01FC7F0 (-AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CO.c)
- *     DxgkSetIndirectDisplayRenderAdapter @ 0x1C02D4418 (DxgkSetIndirectDisplayRenderAdapter.c)
+ *     ?DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z @ 0x1C00F7CD0 (-DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z.c)
+ *     DxgkGetAdapterDeviceDesc @ 0x1C0112950 (DxgkGetAdapterDeviceDesc.c)
+ *     ?AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01827BC (-AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CO.c)
+ *     DxgkSetIndirectDisplayRenderAdapter @ 0x1C0226338 (DxgkSetIndirectDisplayRenderAdapter.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C000FB94 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ?GetPairedRenderAdapter@ADAPTER_DISPLAY@@QEBAXAEAVDXGADAPTER_REFERENCE@@PEAU_GUID@@@Z @ 0x1C0043C3C (-GetPairedRenderAdapter@ADAPTER_DISPLAY@@QEBAXAEAVDXGADAPTER_REFERENCE@@PEAU_GUID@@@Z.c)
- *     ?SetPairedRenderAdapter@ADAPTER_DISPLAY@@QEAAXPEAVDXGADAPTER@@PEBU_GUID@@@Z @ 0x1C00446AC (-SetPairedRenderAdapter@ADAPTER_DISPLAY@@QEAAXPEAVDXGADAPTER@@PEBU_GUID@@@Z.c)
- *     ?DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@EAEAE@Z @ 0x1C01F2964 (-DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@EAEAE@Z.c)
+ *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0019134 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?GetPairedRenderAdapter@ADAPTER_DISPLAY@@QEBAXAEAVDXGADAPTER_REFERENCE@@PEAU_GUID@@@Z @ 0x1C00377B0 (-GetPairedRenderAdapter@ADAPTER_DISPLAY@@QEBAXAEAVDXGADAPTER_REFERENCE@@PEAU_GUID@@@Z.c)
+ *     ?SetPairedRenderAdapter@ADAPTER_DISPLAY@@QEAAXPEAVDXGADAPTER@@PEBU_GUID@@@Z @ 0x1C003908C (-SetPairedRenderAdapter@ADAPTER_DISPLAY@@QEAAXPEAVDXGADAPTER@@PEBU_GUID@@@Z.c)
+ *     ?DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@EAEAE@Z @ 0x1C0178B68 (-DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@EAEAE@Z.c)
  */
 
 __int64 __fastcall DxgkpGetIndirectDisplayPairedAdapter(ADAPTER_DISPLAY **a1, char a2, DXGADAPTER **a3)
 {
-  const struct _GUID *v6; // rdi
-  __int64 v7; // r8
-  DXGADAPTER *v8; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  const struct _GUID *v8; // rbx
   bool v9; // zf
   int DefaultRenderAdapterForSession; // eax
-  __int64 v11; // rbp
-  struct DXGADAPTER *v13; // rdx
-  unsigned __int8 v14; // [rsp+70h] [rbp+8h] BYREF
-  struct _LUID v15; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rbp
+  __int64 v14; // rax
+  struct DXGADAPTER *v16; // rdx
+  __int64 v17; // rax
+  unsigned __int8 v18; // [rsp+40h] [rbp+8h] BYREF
+  struct _LUID v19; // [rsp+58h] [rbp+20h] BYREF
 
   DXGADAPTER_REFERENCE::Assign(a3, 0LL);
-  v6 = 0LL;
-  if ( a1 && (*((_DWORD *)a1 + 109) & 0x100) != 0 )
+  v8 = 0LL;
+  if ( a1 && (*((_DWORD *)a1 + 87) & 0x100) != 0 )
   {
-    ADAPTER_DISPLAY::GetPairedRenderAdapter(a1[349], a3, 0LL);
+    ADAPTER_DISPLAY::GetPairedRenderAdapter(a1[337], a3, 0LL);
     if ( !*a3 )
       goto LABEL_9;
-    if ( a2 )
+    if ( a2 && (*((_DWORD *)*a3 + 50) != 1 || *((_BYTE *)*a3 + 2609)) )
+      DXGADAPTER_REFERENCE::Assign(a3, 0LL);
+    if ( !*a3 )
     {
-      if ( *((_DWORD *)*a3 + 50) != 1 || (v8 = *a3, *((_BYTE *)*a3 + 2705)) )
-      {
-        DXGADAPTER_REFERENCE::Assign(a3, 0LL);
-        v8 = *a3;
-      }
-      if ( !v8 )
-      {
 LABEL_9:
-        v9 = a1[568] == 0LL;
-        v15 = 0LL;
-        LOBYTE(v7) = !v9;
-        v14 = 0;
-        DefaultRenderAdapterForSession = DxgkpFindDefaultRenderAdapterForSession(&v15, a3, v7, (bool *)&v14);
-        v11 = DefaultRenderAdapterForSession;
-        if ( DefaultRenderAdapterForSession < 0 )
-        {
-          WdLogSingleEntry2(2LL, a1, DefaultRenderAdapterForSession);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed to find the render adapter for display only adapter 0x%I64x (Status = 0x%I64x).",
-            (__int64)a1,
-            v11,
-            0LL,
-            0LL,
-            0LL);
-          return (unsigned int)v11;
-        }
-        v13 = *a3;
-        if ( v14 )
-          v6 = (const struct _GUID *)((char *)v13 + 308);
-        ADAPTER_DISPLAY::SetPairedRenderAdapter(a1[349], v13, v6);
+      v9 = a1[550] == 0LL;
+      v19 = 0LL;
+      v18 = 0;
+      DefaultRenderAdapterForSession = DxgkpFindDefaultRenderAdapterForSession(&v19, a3, !v9, (bool *)&v18);
+      v13 = DefaultRenderAdapterForSession;
+      if ( DefaultRenderAdapterForSession < 0 )
+      {
+        v14 = WdLogNewEntry5_WdError(v12, v11);
+        *(_QWORD *)(v14 + 24) = a1;
+        *(_QWORD *)(v14 + 32) = v13;
+        WdLogEvent5_WdError(v14);
+        return (unsigned int)v13;
       }
+      v16 = *a3;
+      if ( v18 )
+        v8 = (const struct _GUID *)((char *)v16 + 300);
+      ADAPTER_DISPLAY::SetPairedRenderAdapter(a1[337], v16, v8);
     }
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry2(2LL, a1, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified adapter 0x%I64x is not an Indirect Display Adapter, returning 0x%I64x.",
-      (__int64)a1,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
+    v17 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v17 + 24) = a1;
+    *(_QWORD *)(v17 + 32) = -1073741811LL;
+    WdLogEvent5_WdError(v17);
     return 3221225485LL;
   }
 }

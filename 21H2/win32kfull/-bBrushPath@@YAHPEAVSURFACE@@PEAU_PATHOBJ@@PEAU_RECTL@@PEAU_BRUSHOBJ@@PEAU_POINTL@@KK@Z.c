@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bBrushPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02CE6D8
+ * XREFs of ?bBrushPath@@YAHPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02D01C4
  * Callers:
- *     ?EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C0135014 (-EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
+ *     ?EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C0147C50 (-EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
  * Callees:
- *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C0009AF4 (-bUMPDSecurityGateEx@@YAHXZ.c)
- *     ?bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z @ 0x1C01353A8 (-bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z.c)
+ *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C00CFBA8 (-bUMPDSecurityGateEx@@YAHXZ.c)
+ *     ?bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z @ 0x1C0148110 (-bEngFastFillEnum@@YAHAEAVEPATHOBJ@@PEAU_RECTL@@KP6AX1KPEAX@ZP6AXJPEAU_ROW@@K2@Z2@Z.c)
  */
 
 __int64 __fastcall bBrushPath(
@@ -17,11 +17,11 @@ __int64 __fastcall bBrushPath(
         unsigned int a7)
 {
   _QWORD *pvRbrush; // rcx
-  __int64 v13; // r11
+  __int64 v13; // rdi
   unsigned int v14; // r9d
   unsigned int v15; // r8d
+  int v16; // r11d
   LONG y; // r10d
-  int v17; // eax
   __int64 v18; // rcx
   _QWORD v19[4]; // [rsp+30h] [rbp-50h] BYREF
   int v20; // [rsp+50h] [rbp-30h]
@@ -57,14 +57,14 @@ __int64 __fastcall bBrushPath(
     v25 = v14;
     v15 = *((_DWORD *)pvRbrush + 6);
     v26 = v15;
+    v16 = a5->x * v27;
     y = a5->y;
-    v17 = v27 * a5->x;
     v24 = y;
-    v23 = v17;
-    if ( v17 < 0 )
-      v23 = v14 - ~v17 % v14 - 1;
+    v23 = v16;
+    if ( v16 < 0 )
+      v23 = v14 - ~v16 % v14 - 1;
     if ( y < 0 )
-      v24 = v15 - (-1 - y) % v15 - 1;
+      v24 = v15 - ~y % v15 - 1;
     v18 = a6 + 3 * v13;
     v19[0] = *(&apfnPatRect + v18);
     v19[1] = *(&apfnPatRow + v18);

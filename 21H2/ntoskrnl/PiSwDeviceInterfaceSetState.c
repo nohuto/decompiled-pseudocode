@@ -1,61 +1,46 @@
 /*
- * XREFs of PiSwDeviceInterfaceSetState @ 0x14076341C
+ * XREFs of PiSwDeviceInterfaceSetState @ 0x14074D430
  * Callers:
- *     PiSwIrpInterfaceRegister @ 0x14076308C (PiSwIrpInterfaceRegister.c)
- *     PiSwIrpInterfaceSetState @ 0x140860758 (PiSwIrpInterfaceSetState.c)
+ *     PiSwIrpInterfaceRegister @ 0x14074D118 (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpInterfaceSetState @ 0x1407CEDBC (PiSwIrpInterfaceSetState.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     McTemplateK0zzzt_EtwWriteTransfer @ 0x140563F5C (McTemplateK0zzzt_EtwWriteTransfer.c)
- *     IoSetDeviceInterfaceState @ 0x140769100 (IoSetDeviceInterfaceState.c)
- *     PnpAllocatePWSTR @ 0x14077DE70 (PnpAllocatePWSTR.c)
- *     _CmSetDeviceInterfacePathFormat @ 0x140788E8C (_CmSetDeviceInterfacePathFormat.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     PnpAllocatePWSTR @ 0x140638128 (PnpAllocatePWSTR.c)
+ *     _CmSetDeviceInterfacePathFormat @ 0x14063A94C (_CmSetDeviceInterfacePathFormat.c)
+ *     IoSetDeviceInterfaceState @ 0x140749060 (IoSetDeviceInterfaceState.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiSwDeviceInterfaceSetState(__int64 a1, __int64 a2, char a3)
+__int64 __fastcall PiSwDeviceInterfaceSetState(__int64 a1, __int64 a2, BOOLEAN a3)
 {
-  __int64 v4; // rax
-  NTSTATUS PWSTR; // edi
+  WCHAR *v3; // rbx
+  int v4; // edi
+  __int64 v5; // rax
   __int64 v8; // rax
-  __int64 v9; // rcx
-  __int64 v10; // r8
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-28h] BYREF
+  int PWSTR; // eax
+  __int64 v10; // rcx
+  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  PCWSTR SourceString; // [rsp+40h] [rbp+8h] BYREF
 
+  v3 = 0LL;
+  SourceString = 0LL;
+  v4 = 0;
   DestinationString = 0LL;
-  v4 = *(_QWORD *)(a1 + 120);
-  PWSTR = 0;
-  if ( !v4 || (v8 = *(_QWORD *)(v4 + 64)) == 0 || (*(_DWORD *)(v8 + 8) & 1) == 0 || *(_BYTE *)(a2 + 36) == a3 )
+  v5 = *(_QWORD *)(a1 + 120);
+  if ( !v5
+    || (v8 = *(_QWORD *)(v5 + 64)) == 0
+    || (*(_DWORD *)(v8 + 8) & 1) == 0
+    || *(_BYTE *)(a2 + 36) == a3
+    || (PWSTR = PnpAllocatePWSTR(*(NTSTRSAFE_PCWSTR *)(a2 + 16), 0x7FFFFFFFuLL, 0x57706E50u, (PVOID *)&SourceString),
+        v3 = (WCHAR *)SourceString,
+        v4 = PWSTR,
+        PWSTR >= 0)
+    && (v4 = CmSetDeviceInterfacePathFormat(v10, (__int64 *)SourceString, 1), v4 >= 0)
+    && (RtlInitUnicodeString(&DestinationString, v3), v4 = IoSetDeviceInterfaceState(&DestinationString, a3), v4 >= 0) )
   {
-LABEL_10:
     *(_BYTE *)(a2 + 36) = a3;
-    return (unsigned int)PWSTR;
   }
-  PWSTR = PnpAllocatePWSTR(*(NTSTRSAFE_PCWSTR *)(a2 + 16));
-  if ( PWSTR >= 0 )
-  {
-    LOBYTE(v10) = 1;
-    PWSTR = CmSetDeviceInterfacePathFormat(v9, 0LL, v10);
-    if ( PWSTR >= 0 )
-    {
-      RtlInitUnicodeString(&DestinationString, 0LL);
-      PWSTR = IoSetDeviceInterfaceState(&DestinationString, a3);
-      if ( PWSTR >= 0 )
-      {
-        if ( (byte_140C0DD4C & 2) != 0 )
-          McTemplateK0zzzt_EtwWriteTransfer(
-            v12,
-            v11,
-            v13,
-            *(const wchar_t **)(a1 + 8),
-            *(const wchar_t **)(a1 + 16),
-            0LL,
-            a3);
-        goto LABEL_10;
-      }
-    }
-  }
-  return (unsigned int)PWSTR;
+  if ( v3 )
+    ExFreePoolWithTag(v3, 0x57706E50u);
+  return (unsigned int)v4;
 }

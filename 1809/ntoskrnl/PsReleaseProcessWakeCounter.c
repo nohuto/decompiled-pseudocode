@@ -7,10 +7,10 @@
  *     AlpcpCancelMessagesByRequestor @ 0x140619A3C (AlpcpCancelMessagesByRequestor.c)
  *     AlpcpAcceptConnectPort @ 0x140619CD8 (AlpcpAcceptConnectPort.c)
  *     AlpcpSendMessage @ 0x1406348F0 (AlpcpSendMessage.c)
- *     AlpcMessageCleanupProcedure @ 0x140696E60 (AlpcMessageCleanupProcedure.c)
- *     PspCloseActivityReference @ 0x1406D6D90 (PspCloseActivityReference.c)
- *     PopClearSpecialRequest @ 0x14086638C (PopClearSpecialRequest.c)
- *     PopSetSpecialRequest @ 0x140866620 (PopSetSpecialRequest.c)
+ *     AlpcMessageCleanupProcedure @ 0x140696E40 (AlpcMessageCleanupProcedure.c)
+ *     PspCloseActivityReference @ 0x1406D6D70 (PspCloseActivityReference.c)
+ *     PopClearSpecialRequest @ 0x14086636C (PopClearSpecialRequest.c)
+ *     PopSetSpecialRequest @ 0x140866600 (PopSetSpecialRequest.c)
  * Callees:
  *     PspChargeProcessWakeCounter @ 0x140636C70 (PspChargeProcessWakeCounter.c)
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z @ 0x1C016C78A
+ * XREFs of ?GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z @ 0x1C01F562C
  * Callers:
- *     GetMiPInputTransform @ 0x1C01DCC90 (GetMiPInputTransform.c)
- *     GetInputTransformList @ 0x1C01F0020 (GetInputTransformList.c)
+ *     GetMiPInputTransform @ 0x1C01E1D20 (GetMiPInputTransform.c)
+ *     GetInputTransformList @ 0x1C01F5870 (GetInputTransformList.c)
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     ??0CAutoPushLockSh@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00FEB18 (--0CAutoPushLockSh@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ?FindEntryByTime@@YAPEAUtagINPUTTRANSFORMENTRY@@PEAUtagINPUTTRANSFORMLIST@@PEAU1@_K@Z @ 0x1C01EFC5C (-FindEntryByTime@@YAPEAUtagINPUTTRANSFORMENTRY@@PEAUtagINPUTTRANSFORMLIST@@PEAU1@_K@Z.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     ??0CAutoPushLockSh@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C0111E24 (--0CAutoPushLockSh@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ?FindEntryByTime@@YAPEAUtagINPUTTRANSFORMENTRY@@PEAUtagINPUTTRANSFORMLIST@@PEAU1@_K@Z @ 0x1C01F5560 (-FindEntryByTime@@YAPEAUtagINPUTTRANSFORMENTRY@@PEAUtagINPUTTRANSFORMLIST@@PEAU1@_K@Z.c)
  */
 
 __int64 __fastcall InputTransform::GetTransformList(
@@ -18,9 +18,9 @@ __int64 __fastcall InputTransform::GetTransformList(
 {
   unsigned int v7; // r12d
   __int64 v8; // rsi
-  struct tagINPUTTRANSFORMENTRY *v10; // rdx
+  struct tagINPUTTRANSFORMLIST **v10; // rdx
   __int64 i; // rdi
-  struct tagINPUTTRANSFORMENTRY *EntryByTime; // rax
+  struct tagINPUTTRANSFORMLIST **EntryByTime; // rax
   unsigned __int64 *v13; // rbx
   unsigned __int64 v14; // rbx
   _QWORD v15[11]; // [rsp+30h] [rbp-58h] BYREF
@@ -31,8 +31,8 @@ __int64 __fastcall InputTransform::GetTransformList(
   if ( !v8 )
     return 0LL;
   CAutoPushLockSh::CAutoPushLockSh((CAutoPushLockSh *)v15, (struct _EX_PUSH_LOCK *)v8);
-  v10 = *(struct tagINPUTTRANSFORMENTRY **)(v8 + 8);
-  if ( v10 == (struct tagINPUTTRANSFORMENTRY *)(v8 + 8) )
+  v10 = *(struct tagINPUTTRANSFORMLIST ***)(v8 + 8);
+  if ( v10 == (struct tagINPUTTRANSFORMLIST **)(v8 + 8) )
   {
     ExReleasePushLockSharedEx(v15[0], 0LL);
     KeLeaveCriticalRegion();
@@ -48,18 +48,18 @@ __int64 __fastcall InputTransform::GetTransformList(
       v13 = &a4[8 * (unsigned __int64)(unsigned int)i];
       if ( (unsigned __int64)v13 >= MmUserProbeAddress )
         v13 = (unsigned __int64 *)MmUserProbeAddress;
-      *(_OWORD *)v13 = *(_OWORD *)((char *)EntryByTime + 24);
-      *((_OWORD *)v13 + 1) = *(_OWORD *)((char *)EntryByTime + 40);
-      *((_OWORD *)v13 + 2) = *(_OWORD *)((char *)EntryByTime + 56);
-      *((_OWORD *)v13 + 3) = *(_OWORD *)((char *)EntryByTime + 72);
+      *(_OWORD *)v13 = *(_OWORD *)(EntryByTime + 3);
+      *((_OWORD *)v13 + 1) = *(_OWORD *)(EntryByTime + 5);
+      *((_OWORD *)v13 + 2) = *(_OWORD *)(EntryByTime + 7);
+      *((_OWORD *)v13 + 3) = *(_OWORD *)(EntryByTime + 9);
     }
     else
     {
       v14 = (unsigned __int64)(unsigned int)i << 6;
-      *(_OWORD *)((char *)a4 + v14) = *(_OWORD *)((char *)EntryByTime + 24);
-      *(_OWORD *)((char *)a4 + v14 + 16) = *(_OWORD *)((char *)EntryByTime + 40);
-      *(_OWORD *)((char *)a4 + v14 + 32) = *(_OWORD *)((char *)EntryByTime + 56);
-      *(_OWORD *)((char *)a4 + v14 + 48) = *(_OWORD *)((char *)EntryByTime + 72);
+      *(_OWORD *)((char *)a4 + v14) = *(_OWORD *)(EntryByTime + 3);
+      *(_OWORD *)((char *)a4 + v14 + 16) = *(_OWORD *)(EntryByTime + 5);
+      *(_OWORD *)((char *)a4 + v14 + 32) = *(_OWORD *)(EntryByTime + 7);
+      *(_OWORD *)((char *)a4 + v14 + 48) = *(_OWORD *)(EntryByTime + 9);
     }
   }
   ExReleasePushLockSharedEx(v15[0], 0LL);

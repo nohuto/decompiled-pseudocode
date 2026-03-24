@@ -1,47 +1,43 @@
 /*
- * XREFs of CmpRebuildKcbCache @ 0x14071B3F0
+ * XREFs of CmpRebuildKcbCache @ 0x14071D99C
  * Callers:
- *     CmpTransMgrFreeVolatileData @ 0x14071BC94 (CmpTransMgrFreeVolatileData.c)
- *     CmpSaveBootControlSet @ 0x14090BC6C (CmpSaveBootControlSet.c)
- *     CmpRefreshHive @ 0x14090D9E8 (CmpRefreshHive.c)
- *     CmpSyncKcbCacheForHive @ 0x1409176B0 (CmpSyncKcbCacheForHive.c)
- *     CmpCommitDiscardReplacePost @ 0x14091CBB0 (CmpCommitDiscardReplacePost.c)
- *     CmpCloneHwProfile @ 0x14091DBC4 (CmpCloneHwProfile.c)
+ *     CmpTransMgrFreeVolatileData @ 0x14071D4D0 (CmpTransMgrFreeVolatileData.c)
+ *     CmpSaveBootControlSet @ 0x140867A80 (CmpSaveBootControlSet.c)
+ *     CmpSyncKcbCacheForHive @ 0x140870BD0 (CmpSyncKcbCacheForHive.c)
+ *     CmpCommitDiscardReplacePost @ 0x140876020 (CmpCommitDiscardReplacePost.c)
+ *     CmpCloneHwProfile @ 0x140877184 (CmpCloneHwProfile.c)
+ *     CmpRefreshHive @ 0x14087D3F8 (CmpRefreshHive.c)
  * Callees:
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpRebuildKcbCacheFromNode @ 0x14071B4A0 (CmpRebuildKcbCacheFromNode.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x140669FA4 (CmpRebuildKcbCacheFromNode.c)
  */
 
-char __fastcall CmpRebuildKcbCache(ULONG_PTR a1)
+char __fastcall CmpRebuildKcbCache(ULONG_PTR a1, __int64 a2)
 {
-  int v1; // eax
-  ULONG_PTR v3; // rcx
-  ULONG_PTR v4; // rdx
-  __int64 v6; // rcx
-  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+  int v3; // eax
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rax
+  int v9; // [rsp+30h] [rbp+8h] BYREF
+  int v10; // [rsp+34h] [rbp+Ch]
 
-  v1 = *(_DWORD *)(a1 + 8);
-  v8 = 0xFFFFFFFFLL;
-  if ( (v1 & 0x10) != 0 || (*(_DWORD *)(a1 + 184) & 0x400000) != 0 )
+  v10 = 0;
+  v3 = *(_DWORD *)(a1 + 8);
+  v9 = -1;
+  if ( (v3 & 0x10) != 0 || (*(_DWORD *)(a1 + 184) & 0x400000) != 0 )
     return 1;
-  v3 = *(_QWORD *)(a1 + 32);
-  if ( v3 )
+  v5 = *(_QWORD *)(a1 + 32);
+  if ( v5 )
   {
-    v4 = *(unsigned int *)(a1 + 40);
-    if ( (_DWORD)v4 != -1 )
+    v6 = *(unsigned int *)(a1 + 40);
+    if ( (_DWORD)v6 != -1 )
     {
-      if ( (*(_BYTE *)(v3 + 140) & 1) != 0 ? HvpGetCellFlat(v3, v4, &v8) : HvpGetCellPaged(v3) )
+      v7 = (*(__int64 (__fastcall **)(__int64, __int64, int *))(v5 + 8))(v5, v6, &v9);
+      if ( v7 )
       {
         ++*(_QWORD *)(a1 + 304);
-        CmpRebuildKcbCacheFromNode(a1);
-        v6 = *(_QWORD *)(a1 + 32);
-        if ( (*(_BYTE *)(v6 + 140) & 1) != 0 )
-          HvpReleaseCellFlat(v6, &v8);
-        else
-          HvpReleaseCellPaged(v6, &v8);
+        CmpRebuildKcbCacheFromNode(a1, v7, a2, 1);
+        (*(void (__fastcall **)(_QWORD, int *))(*(_QWORD *)(a1 + 32) + 16LL))(*(_QWORD *)(a1 + 32), &v9);
         return 1;
       }
     }

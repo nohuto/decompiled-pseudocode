@@ -1,10 +1,10 @@
 /*
- * XREFs of Interrupter_QueryBusEdgeInformation @ 0x1C003E084
+ * XREFs of Interrupter_QueryBusEdgeInformation @ 0x1C003BDF0
  * Callers:
- *     Controller_TranslateFrameNumberToQpcValue @ 0x1C003529C (Controller_TranslateFrameNumberToQpcValue.c)
- *     Controller_UcxEvtStartTrackingForTimeSync @ 0x1C0035A60 (Controller_UcxEvtStartTrackingForTimeSync.c)
+ *     Controller_TranslateFrameNumberToQpcValue @ 0x1C003395C (Controller_TranslateFrameNumberToQpcValue.c)
+ *     Controller_UcxEvtStartTrackingForTimeSync @ 0x1C0034050 (Controller_UcxEvtStartTrackingForTimeSync.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Interrupter_QueryBusEdgeInformation(

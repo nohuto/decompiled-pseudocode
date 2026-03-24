@@ -1,5 +1,5 @@
 /*
- * XREFs of PATHOBJ_vEnumStart @ 0x1C01542B0
+ * XREFs of PATHOBJ_vEnumStart @ 0x1C00C07B0
  * Callers:
  *     <none>
  * Callees:

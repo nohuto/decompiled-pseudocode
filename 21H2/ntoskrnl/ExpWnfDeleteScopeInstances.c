@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWnfDeleteScopeInstances @ 0x140A083CC
+ * XREFs of ExpWnfDeleteScopeInstances @ 0x14095CBFC
  * Callers:
- *     ExWnfCleanupServerSiloState @ 0x140A08260 (ExWnfCleanupServerSiloState.c)
+ *     ExWnfCleanupServerSiloState @ 0x14095CA90 (ExWnfCleanupServerSiloState.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ExpWnfFreeScopeInstance @ 0x1406E1C68 (ExpWnfFreeScopeInstance.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     ExpWnfFreeScopeInstance @ 0x1406BF6E0 (ExpWnfFreeScopeInstance.c)
  */
 
-__int64 __fastcall ExpWnfDeleteScopeInstances(__int64 a1, unsigned int a2)
+char __fastcall ExpWnfDeleteScopeInstances(__int64 a1, unsigned int a2)
 {
   unsigned __int64 *v4; // rdi
   __int64 v5; // rbx
@@ -21,12 +21,12 @@ __int64 __fastcall ExpWnfDeleteScopeInstances(__int64 a1, unsigned int a2)
 
   v4 = (unsigned __int64 *)(a1 + 32 + 24LL * a2);
   v5 = a1 + 40 + 24LL * a2;
-  v6 = KeAbPreAcquire((__int64)v4, 0LL);
+  v6 = KeAbPreAcquire((ULONG_PTR)v4, 0LL, 0);
   v7 = v6;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v4, v6, (__int64)v4);
+    ExfAcquirePushLockExclusiveEx(v4, v6, (ULONG_PTR)v4);
   if ( v7 )
-    *(_BYTE *)(v7 + 18) = 1;
+    *(_BYTE *)(v7 + 26) |= 1u;
   while ( 1 )
   {
     v8 = *(struct _EX_RUNDOWN_REF **)v5;

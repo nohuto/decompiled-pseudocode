@@ -1,12 +1,12 @@
 /*
- * XREFs of DXGADAPTER_DdiControlInterrupt2 @ 0x1C0049000
+ * XREFs of DXGADAPTER_DdiControlInterrupt2 @ 0x1C0042710
  * Callers:
  *     <none>
  * Callees:
- *     ?DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z @ 0x1C0005520 (-DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z.c)
+ *     ?DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z @ 0x1C0007EC8 (-DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z.c)
  */
 
 __int64 __fastcall DXGADAPTER_DdiControlInterrupt2(DXGADAPTER *a1, struct _DXGKARG_CONTROLINTERRUPT2 a2)
 {
-  return DXGADAPTER::DdiControlInterrupt2(a1, a2, 0LL, 0xFFFFFFFD);
+  return DXGADAPTER::DdiControlInterrupt2(a1, a2, 0, 0xFFFFFFFD);
 }

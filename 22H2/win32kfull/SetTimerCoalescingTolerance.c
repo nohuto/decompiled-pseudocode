@@ -1,64 +1,52 @@
 /*
- * XREFs of SetTimerCoalescingTolerance @ 0x1C003CD20
+ * XREFs of SetTimerCoalescingTolerance @ 0x1C0111E00
  * Callers:
- *     ?KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C003CC18 (-KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
- *     xxxSwitchDesktop @ 0x1C006BB2C (xxxSwitchDesktop.c)
- *     InitTimerCoalescing @ 0x1C00BBBB0 (InitTimerCoalescing.c)
- *     ?StartScreenSaver@@YAXH@Z @ 0x1C020087C (-StartScreenSaver@@YAXH@Z.c)
+ *     xxxSwitchDesktop @ 0x1C0029864 (xxxSwitchDesktop.c)
+ *     ?KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C0111CA0 (-KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
+ *     InitTimerCoalescing @ 0x1C0135270 (InitTimerCoalescing.c)
+ *     StartScreenSaver @ 0x1C0223650 (StartScreenSaver.c)
  * Callees:
- *     ?ConfigureRITDelayableTimers@@YAXW4RitTimerRate@@@Z @ 0x1C003CDCC (-ConfigureRITDelayableTimers@@YAXW4RitTimerRate@@@Z.c)
+ *     ?AdjustRITDelayableTimers@@YAXH@Z @ 0x1C0111EA4 (-AdjustRITDelayableTimers@@YAXH@Z.c)
  */
 
-__int64 __fastcall SetTimerCoalescingTolerance(__int64 a1)
+void __fastcall SetTimerCoalescingTolerance(int a1)
 {
-  __int64 v1; // rbx
-  int *v2; // rax
-  int v3; // r9d
-  __int64 v4; // rdx
-  __int64 result; // rax
-  __int64 v6; // rcx
-  unsigned int v7; // edx
-  int v8; // ebx
+  int v1; // edx
+  int v2; // ecx
+  int v3; // ecx
 
-  v1 = (int)a1;
-  v2 = (int *)SGDGetUserSessionState(a1);
-  gTimerCoalCurrentState = v1;
-  v3 = *v2;
-  v4 = v1 + (gServiceSessionId != *v2 ? 4 : 0);
-  result = *((unsigned int *)&gTimerCoalescingSpec + v4);
-  gCurrentTimerCoalescingTolerance = *((_DWORD *)&gTimerCoalescingSpec + v4);
-  if ( v3 != gServiceSessionId )
+  gTimerCoalCurrentState = a1;
+  gCurrentTimerCoalescingTolerance = *((_DWORD *)&gTimerCoalescingSpec
+                                     + a1
+                                     + (unsigned __int64)(gServiceSessionId != gSessionId ? 4 : 0));
+  if ( gSessionId != gServiceSessionId )
   {
-    if ( !(_DWORD)v1 )
+    v1 = 0;
+    if ( !a1 )
     {
-      gdwRITdaemonLockState = 0;
-      v6 = 1LL;
-      return ConfigureRITDelayableTimers(v6);
+      gdwRITdemonLockState = 0;
+      v2 = 1;
+LABEL_4:
+      AdjustRITDelayableTimers(v2);
+      return;
     }
-    v7 = 2;
-    v8 = v1 - 2;
-    if ( !v8 )
+    v3 = a1 - 2;
+    if ( !v3 )
     {
-      gdwRITdaemonLockState |= 1u;
-      if ( (gdwRITdaemonLockState & 2) == 0
-        && giScreenSaveTimeOutMs > 0
-        && (gbLockConsoleActive || (*gpsi & 0x200) != 0) )
-      {
-        v7 = 1;
-      }
-      goto LABEL_11;
+      gdwRITdemonLockState |= 1u;
+      if ( (gdwRITdemonLockState & 2) == 0 && giScreenSaveTimeOutMs > 0 && (gbLockConsoleActive || (*gpsi & 0x200) != 0) )
+        v1 = 1;
+      v2 = v1;
+      goto LABEL_4;
     }
-    if ( v8 == 1 )
+    if ( v3 == 1 )
     {
-      result = gdwRITdaemonLockState | 2u;
-      gdwRITdaemonLockState = result;
-      if ( (result & 1) != 0 )
+      gdwRITdemonLockState |= 2u;
+      if ( (gdwRITdemonLockState & 1) != 0 )
       {
-LABEL_11:
-        v6 = v7;
-        return ConfigureRITDelayableTimers(v6);
+        v2 = 0;
+        goto LABEL_4;
       }
     }
   }
-  return result;
 }

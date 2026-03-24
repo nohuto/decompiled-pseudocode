@@ -1,137 +1,124 @@
 /*
- * XREFs of ?bSetDefaultRegion@DC@@QEAAHXZ @ 0x1C00E0090
+ * XREFs of ?bSetDefaultRegion@DC@@QEAAHXZ @ 0x1C013C750
  * Callers:
- *     ?GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0038DD8 (-GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z.c)
- *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C003B100 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
- *     GreCreateDisplayDC @ 0x1C003BFE0 (GreCreateDisplayDC.c)
- *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C004B888 (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
- *     ?bMakeInfoDC@DC@@QEAAHH@Z @ 0x1C0152020 (-bMakeInfoDC@DC@@QEAAHH@Z.c)
+ *     ?bMakeInfoDC@DC@@QEAAHH@Z @ 0x1C0021840 (-bMakeInfoDC@DC@@QEAAHH@Z.c)
+ *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C003950C (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
+ *     GreCreateDisplayDC @ 0x1C003CAC0 (GreCreateDisplayDC.c)
+ *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C00CA320 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
+ *     GreRestoreDCInternal @ 0x1C00CC1F0 (GreRestoreDCInternal.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00329E8 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ??0RGNMEMOBJ@@QEAA@XZ @ 0x1C003E000 (--0RGNMEMOBJ@@QEAA@XZ.c)
- *     ?vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z @ 0x1C003ED80 (-vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z.c)
- *     ?vReleaseRao@DC@@QEAAXXZ @ 0x1C00402A0 (-vReleaseRao@DC@@QEAAXXZ.c)
- *     ?vStamp@REGION@@QEAAXXZ @ 0x1C00403FC (-vStamp@REGION@@QEAAXXZ.c)
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0040814 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C004086C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ?vGet_sizlWindow@DC@@QEBAXPEAUtagSIZE@@@Z @ 0x1C005FDB0 (-vGet_sizlWindow@DC@@QEBAXPEAUtagSIZE@@@Z.c)
- *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C008F794 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?AcquireDcVisRgnExclusive@DC@@QEAA@XZ @ 0x1C00D1650 (-AcquireDcVisRgnExclusive@DC@@QEAA@XZ.c)
+ *     ?vGet_sizlWindow@DC@@QEBAXPEAUtagSIZE@@@Z @ 0x1C00219EC (-vGet_sizlWindow@DC@@QEBAXPEAUtagSIZE@@@Z.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C0029548 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     ??0RGNMEMOBJ@@QEAA@XZ @ 0x1C002C0E0 (--0RGNMEMOBJ@@QEAA@XZ.c)
+ *     ??1RGNMEMOBJ@@QEAA@XZ @ 0x1C002CD6C (--1RGNMEMOBJ@@QEAA@XZ.c)
+ *     ?vReleaseRao@DC@@QEAAXXZ @ 0x1C002D550 (-vReleaseRao@DC@@QEAAXXZ.c)
+ *     ?vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z @ 0x1C0035D50 (-vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C003A014 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C003A048 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C005DD98 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ?AcquireDcVisRgnExclusive@DC@@QEAA@XZ @ 0x1C00C85B8 (-AcquireDcVisRgnExclusive@DC@@QEAA@XZ.c)
  */
 
-__int64 __fastcall DC::bSetDefaultRegion(REGION **this)
+__int64 __fastcall DC::bSetDefaultRegion(DC *this)
 {
   unsigned int v2; // r14d
-  __int64 v3; // rcx
-  LONG left; // r12d
   LONG cx; // edi
-  LONG right; // r15d
-  LONG top; // r13d
-  REGION *v8; // rbx
-  int v9; // ecx
-  REGION *v10; // rax
-  LONG v11; // edx
-  int v12; // eax
-  int v13; // eax
-  LONG v14; // r15d
-  int v15; // eax
-  __int64 v16; // r15
-  REGION *v17; // rax
-  REGION *v18; // rbx
-  int v19; // eax
-  char v21[8]; // [rsp+20h] [rbp-40h] BYREF
-  REGION *v22; // [rsp+28h] [rbp-38h] BYREF
-  struct tagSIZE v23; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v24; // [rsp+38h] [rbp-28h] BYREF
-  LONG v25; // [rsp+40h] [rbp-20h]
-  int v26; // [rsp+44h] [rbp-1Ch]
-  struct _RECTL v27; // [rsp+48h] [rbp-18h] BYREF
+  LONG cy; // r12d
+  _DWORD *v5; // rbx
+  DYNAMICMODECHANGESHARELOCK *v6; // rcx
+  int v7; // r15d
+  __int64 v8; // rax
+  int v9; // eax
+  int v10; // eax
+  int v11; // eax
+  struct REGION *v12; // rax
+  struct _RECTL *v13; // rbx
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  int v16; // ecx
+  _BYTE v18[8]; // [rsp+20h] [rbp-39h] BYREF
+  struct tagSIZE v19; // [rsp+28h] [rbp-31h] BYREF
+  __int64 v20; // [rsp+30h] [rbp-29h] BYREF
+  int v21; // [rsp+38h] [rbp-21h]
+  int v22; // [rsp+3Ch] [rbp-1Dh]
+  struct _RECTL *v23[2]; // [rsp+40h] [rbp-19h] BYREF
+  __int64 v24; // [rsp+50h] [rbp-9h] BYREF
+  char v25; // [rsp+58h] [rbp-1h]
+  struct _RECTL *v26; // [rsp+60h] [rbp+7h] BYREF
+  struct _RECTL v27; // [rsp+70h] [rbp+17h] BYREF
 
-  DC::vReleaseRao((DC *)this);
+  DC::vReleaseRao(this);
   v2 = 0;
-  v23 = 0LL;
-  DC::vGet_sizlWindow((DC *)this, &v23);
-  left = 0;
-  cx = v23.cx;
-  right = v23.cx;
-  top = 0;
-  v8 = this[6];
-  *(struct tagSIZE *)&v27.right = v23;
+  v19 = 0LL;
+  DC::vGet_sizlWindow(this, &v19);
+  cx = v19.cx;
+  cy = v19.cy;
+  v5 = (_DWORD *)*((_QWORD *)this + 6);
+  *(struct tagSIZE *)&v27.right = v19;
   *(_QWORD *)&v27.left = 0LL;
-  if ( this[62] )
+  if ( *((_QWORD *)this + 62) )
   {
-    DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)v21);
-    LODWORD(v22) = *((_DWORD *)v8 + 10);
-    v9 = (int)v22;
-    if ( ((unsigned __int16)v22 & 0x8000) != 0 )
+    DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)v18);
+    v7 = v5[10];
+    if ( (v7 & 0x8000) != 0 )
     {
-      v10 = this[62];
-      v11 = *((_DWORD *)v10 + 14);
-      if ( v11 < cx || *((_DWORD *)v10 + 15) < v23.cy )
+      v8 = *((_QWORD *)this + 62);
+      v6 = (DYNAMICMODECHANGESHARELOCK *)*(unsigned int *)(v8 + 56);
+      if ( (int)v6 < cx || *(_DWORD *)(v8 + 60) < cy )
       {
-        v12 = *((_DWORD *)v10 + 15);
-        v25 = v11;
-        v24 = 0LL;
-        v26 = v12;
-        ERECTL::operator*=(&v27.left, (int *)&v24);
-        top = v27.top;
-        left = v27.left;
-        right = v27.right;
-        v9 = (int)v22;
+        v9 = *(_DWORD *)(v8 + 60);
+        v21 = (int)v6;
+        v20 = 0LL;
+        v22 = v9;
+        ERECTL::operator*=(&v27.left, (int *)&v20);
       }
     }
-    if ( (v9 & 0x20000) != 0 && *((int *)this[62] + 28) < 0 )
+    if ( (v7 & 0x20000) != 0 && *(int *)(*((_QWORD *)this + 62) + 112LL) < 0 )
     {
-      v13 = *((_DWORD *)v8 + 640);
-      left += v13;
-      v14 = v13 + right;
-      v27.left = left;
-      v15 = *((_DWORD *)v8 + 641);
-      top += v15;
-      v27.bottom += v15;
-      v27.top = top;
-      v27.right = v14;
+      v10 = v5[646];
+      v27.left += v10;
+      v27.right += v10;
+      v11 = v5[647];
+      v27.top += v11;
+      v27.bottom += v11;
     }
-    DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)v21);
+    DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v6);
   }
-  v16 = *(_QWORD *)(SGDGetSessionState(v3) + 24);
-  DC::AcquireDcVisRgnExclusive((DC *)this, (__int64)&v24);
-  v17 = this[142];
-  if ( v17 && v17 != *(REGION **)(v16 + 6400) )
+  DC::AcquireDcVisRgnExclusive(this, (__int64)&v24);
+  v12 = (struct REGION *)*((_QWORD *)this + 143);
+  if ( v12 && v12 != prgnDefault )
   {
-    v22 = this[142];
-    RGNOBJ::vSet((RGNOBJ *)&v22, &v27);
+    v26 = (struct _RECTL *)*((_QWORD *)this + 143);
+    RGNOBJ::vSet(&v26, &v27);
 LABEL_17:
-    REGION::vStamp(this[142]);
-    if ( (_BYTE)v25 )
+    v14 = *((_QWORD *)this + 143);
+    *(_DWORD *)(v14 + 28) = _InterlockedIncrement((volatile signed __int32 *)&REGION::ulUniqueREGION);
+    if ( v25 )
       CPushLock::ReleaseLock((CPushLock *)(v24 + 1112));
-    *((_DWORD *)this + 261) = v23.cy;
-    *((_DWORD *)this + 252) = v27.right;
-    *((_DWORD *)this + 253) = v27.bottom;
-    this[127] = 0LL;
-    this[129] = 0LL;
-    *((_DWORD *)this + 260) = cx;
-    *((_DWORD *)this + 250) = left;
-    *((_DWORD *)this + 251) = top;
-    v19 = HIDWORD(this[((_DWORD)this[5] & 1) + 127]);
-    if ( ((_DWORD)this[5] & 1) != 0 )
-      v2 = *((_DWORD *)this + 256);
-    *((_DWORD *)this + 298) = v2;
+    *((struct tagSIZE *)this + 130) = v19;
+    *(struct _RECTL *)((char *)this + 1000) = v27;
+    *((_QWORD *)this + 127) = 0LL;
+    *((_QWORD *)this + 129) = 0LL;
     v2 = 1;
-    *((_DWORD *)this + 299) = v19;
+    v15 = *((_DWORD *)this + 10) & 1;
+    v16 = *((_DWORD *)this + 2 * v15 + 255);
+    *((_DWORD *)this + 300) = *((_DWORD *)this + 2 * v15 + 254);
+    *((_DWORD *)this + 301) = v16;
     return v2;
   }
-  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)&v22);
-  v18 = v22;
-  if ( v22 )
+  RGNMEMOBJ::RGNMEMOBJ((RGNMEMOBJ *)v23);
+  v13 = v23[0];
+  if ( v23[0] )
   {
-    RGNOBJ::vSet((RGNOBJ *)&v22, &v27);
-    this[142] = v18;
+    RGNOBJ::vSet(v23, &v27);
+    *((_QWORD *)this + 143) = v13;
+    RGNMEMOBJ::~RGNMEMOBJ((REGION **)v23);
     goto LABEL_17;
   }
-  this[142] = *(REGION **)(v16 + 6400);
-  if ( (_BYTE)v25 )
+  *((_QWORD *)this + 143) = prgnDefault;
+  RGNMEMOBJ::~RGNMEMOBJ((REGION **)v23);
+  if ( v25 )
     CPushLock::ReleaseLock((CPushLock *)(v24 + 1112));
   return v2;
 }

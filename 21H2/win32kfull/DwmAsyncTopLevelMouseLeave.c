@@ -1,9 +1,9 @@
 /*
- * XREFs of DwmAsyncTopLevelMouseLeave @ 0x1C0121C10
+ * XREFs of DwmAsyncTopLevelMouseLeave @ 0x1C0136470
  * Callers:
- *     EditionUpdateCursorOnMouseMove @ 0x1C0077740 (EditionUpdateCursorOnMouseMove.c)
+ *     EditionUpdateCursorOnMouseMove @ 0x1C004DCC0 (EditionUpdateCursorOnMouseMove.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall DwmAsyncTopLevelMouseLeave(PVOID Object, __int64 a2)

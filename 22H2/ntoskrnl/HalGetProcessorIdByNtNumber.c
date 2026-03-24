@@ -1,27 +1,52 @@
 /*
- * XREFs of HalGetProcessorIdByNtNumber @ 0x140383D00
+ * XREFs of HalGetProcessorIdByNtNumber @ 0x140376FC0
  * Callers:
- *     HalGetMessageRoutingInfo @ 0x140320040 (HalGetMessageRoutingInfo.c)
- *     HalpInterruptGenerateMessage @ 0x14037D374 (HalpInterruptGenerateMessage.c)
- *     KeRegisterProcessorChangeCallback @ 0x140822950 (KeRegisterProcessorChangeCallback.c)
- *     PnprIsProcessorDevice @ 0x1409664A8 (PnprIsProcessorDevice.c)
- *     HalpInterruptReinitialize @ 0x140A9550C (HalpInterruptReinitialize.c)
- *     HalpDpStartProcessor @ 0x140A97C34 (HalpDpStartProcessor.c)
- *     PnprQuiesceProcessorDpc @ 0x140A9D540 (PnprQuiesceProcessorDpc.c)
+ *     HalGetMessageRoutingInfo @ 0x140376DF0 (HalGetMessageRoutingInfo.c)
+ *     HalpInterruptGenerateMessage @ 0x140377EB8 (HalpInterruptGenerateMessage.c)
+ *     KeRegisterProcessorChangeCallback @ 0x1407C8720 (KeRegisterProcessorChangeCallback.c)
+ *     PnprIsProcessorDevice @ 0x1408ADD28 (PnprIsProcessorDevice.c)
+ *     HalpInterruptReinitialize @ 0x140995D68 (HalpInterruptReinitialize.c)
+ *     HalpDpStartProcessor @ 0x1409A8B94 (HalpDpStartProcessor.c)
+ *     PnprQuiesceProcessorDpc @ 0x1409AE4D0 (PnprQuiesceProcessorDpc.c)
  * Callees:
- *     HalpGetProcessorStateByNtIndex @ 0x140383D38 (HalpGetProcessorStateByNtIndex.c)
+ *     KeGetProcessorNumberFromIndex @ 0x14033E500 (KeGetProcessorNumberFromIndex.c)
  */
 
-__int64 __fastcall HalGetProcessorIdByNtNumber(__int64 a1)
+NTSTATUS __fastcall HalGetProcessorIdByNtNumber(ULONG a1, _DWORD *a2)
 {
-  _DWORD *ProcessorStateByNtIndex; // rax
-  _DWORD *v2; // rdx
+  unsigned int v3; // ebx
+  NTSTATUS result; // eax
+  int v5; // edx
+  ULONG_PTR i; // rcx
+  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( (unsigned int)a1 >= (unsigned int)HalpInterruptProcessorCount )
-    return 3221225485LL;
-  ProcessorStateByNtIndex = (_DWORD *)HalpGetProcessorStateByNtIndex(a1);
-  if ( !ProcessorStateByNtIndex )
-    return 3221226021LL;
-  *v2 = *ProcessorStateByNtIndex;
-  return 0LL;
+  ProcNumber = 0;
+  v3 = HalpInterruptProcessorCount;
+  if ( a1 >= (unsigned int)HalpInterruptProcessorCount )
+    return -1073741811;
+  result = KeGetProcessorNumberFromIndex(a1, &ProcNumber);
+  if ( result >= 0 )
+  {
+    v5 = 0;
+    if ( v3 )
+    {
+      for ( i = HalpInterruptProcessorState + 13;
+            !*(_BYTE *)(i - 1)
+         || !*(_BYTE *)i
+         || *(_WORD *)(i + 3) != ProcNumber.Group
+         || *(_BYTE *)(i + 5) != ProcNumber.Number;
+            i += 64LL )
+      {
+        if ( ++v5 >= v3 )
+          return -1073741275;
+      }
+      *a2 = *(_DWORD *)(i - 13);
+      return 0;
+    }
+    else
+    {
+      return -1073741275;
+    }
+  }
+  return result;
 }

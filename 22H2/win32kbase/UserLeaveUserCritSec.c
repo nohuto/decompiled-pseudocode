@@ -1,12 +1,12 @@
 /*
- * XREFs of UserLeaveUserCritSec @ 0x1C004FF30
+ * XREFs of UserLeaveUserCritSec @ 0x1C003AC90
  * Callers:
  *     <none>
  * Callees:
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
  */
 
-void __fastcall UserLeaveUserCritSec(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void UserLeaveUserCritSec()
 {
-  UserSessionSwitchLeaveCrit(a1, a2, a3, a4);
+  UserSessionSwitchLeaveCrit();
 }

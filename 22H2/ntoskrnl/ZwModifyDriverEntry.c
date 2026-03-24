@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwModifyDriverEntry @ 0x14041CA60
+ * XREFs of ZwModifyDriverEntry @ 0x1403FBD00
  * Callers:
- *     DifZwModifyDriverEntryWrapper @ 0x1405F12D0 (DifZwModifyDriverEntryWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopCoalescingSetTimer @ 0x14058DA10
+ * XREFs of PopCoalescingSetTimer @ 0x14056EBA4
  * Callers:
- *     PopCoalescingSetActiveState @ 0x14058D97C (PopCoalescingSetActiveState.c)
- *     PopCoalescingNotify @ 0x140987090 (PopCoalescingNotify.c)
+ *     PopCoalescingSetActiveState @ 0x14056EB04 (PopCoalescingSetActiveState.c)
+ *     PopCoalescingNotify @ 0x1408E6900 (PopCoalescingNotify.c)
  * Callees:
- *     KiSetTimerEx @ 0x140252700 (KiSetTimerEx.c)
- *     PopPrintEx @ 0x14032A4CC (PopPrintEx.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
+ *     PopPrintEx @ 0x140364318 (PopPrintEx.c)
  */
 
 __int64 PopCoalescingSetTimer()

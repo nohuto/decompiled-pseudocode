@@ -1,34 +1,33 @@
 /*
- * XREFs of EtwQueryTraceHandleByLoggerName @ 0x1406E6D40
+ * XREFs of EtwQueryTraceHandleByLoggerName @ 0x14078981C
  * Callers:
- *     WdipSemGetLoggerIds @ 0x1406E6CB0 (WdipSemGetLoggerIds.c)
- *     IopErrorLogThread @ 0x14080FDC0 (IopErrorLogThread.c)
- *     WmiQueryTraceInformation @ 0x140815520 (WmiQueryTraceInformation.c)
+ *     IopErrorLogThread @ 0x140755770 (IopErrorLogThread.c)
+ *     WmiQueryTraceInformation @ 0x140788A80 (WmiQueryTraceInformation.c)
+ *     WdipSemGetLoggerIds @ 0x14078978C (WdipSemGetLoggerIds.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpAcquireLoggerContextByLoggerName @ 0x1407940E4 (EtwpAcquireLoggerContextByLoggerName.c)
- *     EtwpReleaseLoggerContext @ 0x1407981E8 (EtwpReleaseLoggerContext.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpAcquireLoggerContextByLoggerName @ 0x1406024C8 (EtwpAcquireLoggerContextByLoggerName.c)
+ *     EtwpReleaseLoggerContext @ 0x140643A38 (EtwpReleaseLoggerContext.c)
  */
 
-__int64 __fastcall EtwQueryTraceHandleByLoggerName(__int64 a1, _QWORD *a2)
+__int64 __fastcall EtwQueryTraceHandleByLoggerName(const UNICODE_STRING *a1, _QWORD *a2)
 {
   _QWORD *CurrentServerSiloGlobals; // rax
-  __int64 v4; // rdx
-  __int16 *v5; // rax
+  unsigned int *v5; // rax
   __int16 v6; // cx
 
-  if ( !a1 || !*(_QWORD *)(a1 + 8) || !*(_WORD *)a1 || !a2 )
+  if ( !a1 || !a1->Buffer || !a1->Length || !a2 )
     return 3221225485LL;
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  v5 = (__int16 *)EtwpAcquireLoggerContextByLoggerName(CurrentServerSiloGlobals[108], v4, 0LL);
+  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals((__int64)a1, (__int64)a2);
+  v5 = (unsigned int *)EtwpAcquireLoggerContextByLoggerName(CurrentServerSiloGlobals[108], a1, 0);
   if ( !v5 )
     return 3221226134LL;
   *a2 = 0LL;
-  if ( *(_DWORD *)v5 )
-    v6 = *v5;
+  if ( *v5 )
+    v6 = *(_WORD *)v5;
   else
     v6 = -1;
   *(_WORD *)a2 = v6;
-  EtwpReleaseLoggerContext(v5, 0LL);
+  EtwpReleaseLoggerContext(v5, 0);
   return 0LL;
 }

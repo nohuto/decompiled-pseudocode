@@ -1,8 +1,8 @@
 /*
- * XREFs of ?AreEqualMmTask@CMmcssTask@@CA_NPEBUDWM_MMTASK@@0@Z @ 0x1800CEDEC
+ * XREFs of ?AreEqualMmTask@CMmcssTask@@CA_NPEBUDWM_MMTASK@@0@Z @ 0x180030BD0
  * Callers:
- *     ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x1800CE480 (-Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z.c)
- *     ?ProcessKernelTokens@CGlobalSurfaceManager@@AEAAJXZ @ 0x1800CE720 (-ProcessKernelTokens@CGlobalSurfaceManager@@AEAAJXZ.c)
+ *     ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x180030920 (-Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z.c)
+ *     ?ProcessKernelTokens@CGlobalSurfaceManager@@AEAAJXZ @ 0x180030A70 (-ProcessKernelTokens@CGlobalSurfaceManager@@AEAAJXZ.c)
  * Callees:
  *     <none>
  */

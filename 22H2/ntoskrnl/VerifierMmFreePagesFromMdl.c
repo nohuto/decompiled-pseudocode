@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierMmFreePagesFromMdl @ 0x140AE3F50
+ * XREFs of VerifierMmFreePagesFromMdl @ 0x1409E6910
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ViTargetAddToCounter @ 0x140ACC994 (ViTargetAddToCounter.c)
- *     ViMmValidateIrql @ 0x140AE4B50 (ViMmValidateIrql.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ViTargetAddToCounter @ 0x1409D72C0 (ViTargetAddToCounter.c)
+ *     ViMmValidateIrql @ 0x1409E7690 (ViMmValidateIrql.c)
  */
 
 __int64 __fastcall VerifierMmFreePagesFromMdl(__int64 a1)
@@ -21,6 +21,6 @@ __int64 __fastcall VerifierMmFreePagesFromMdl(__int64 a1)
   ViMmValidateIrql(v2);
   v5 = -(__int64)*(unsigned int *)(a1 + 40);
   if ( (MmVerifierData & 0x1000) != 0 )
-    ViTargetAddToCounter(retaddr, 232LL, 0xF0u, v5);
+    ViTargetAddToCounter(retaddr, 224LL, 0xE8u, v5);
   return ((__int64 (__fastcall *)(__int64, __int64, __int64, unsigned __int64))pXdvMmFreePagesFromMdl)(a1, v3, v4, v5);
 }

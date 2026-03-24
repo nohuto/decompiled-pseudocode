@@ -1,159 +1,144 @@
 /*
- * XREFs of ?UpdateBitmaps@CCommonRenderingEffect@@UEAAJPEAVCDrawingContext@@@Z @ 0x1800825E0
+ * XREFs of ?UpdateBitmaps@CCommonRenderingEffect@@UEAAJPEAVCDrawingContext@@@Z @ 0x1800542A0
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?IsDXGIColorSpaceRec2020@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x180082964 (-IsDXGIColorSpaceRec2020@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?EnsureDeviceResource@CDrawListBitmap@@QEBAJPEBVCDrawingContext@@@Z @ 0x180054500 (-EnsureDeviceResource@CDrawListBitmap@@QEBAJPEBVCDrawingContext@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCommonRenderingEffect::UpdateBitmaps(CCommonRenderingEffect *this, struct CDrawingContext *a2)
 {
-  __int64 **v2; // rdi
-  __int64 result; // rax
-  unsigned int v4; // ebp
-  __int64 v6; // rbx
-  bool v7; // si
-  char *v8; // r9
-  void (__fastcall *v9)(__int64, bool, void *, __int64); // r15
-  __int64 (__fastcall ***v10)(_QWORD, _BYTE *); // rcx
-  __int64 v11; // r9
-  int v12; // eax
-  void *v13; // r8
-  __int64 *v14; // rbx
-  __int64 *v15; // r8
-  __int64 v16; // rax
-  __int64 (__fastcall *v17)(__int64 *, __int64 **); // rsi
-  __int64 v18; // rcx
-  int v19; // eax
-  unsigned int v20; // ebx
-  __int64 *v21; // rsi
-  int v22; // ebx
-  __int64 *v23; // rcx
-  enum DXGI_COLOR_SPACE_TYPE v24; // ecx
-  __int64 *v25; // rsi
-  __int64 v26; // rax
-  __int64 (__fastcall *v27)(__int64 *, __int64, __int64 *); // rbx
-  __int64 v28; // rax
-  int v29; // eax
-  __int64 v30; // rcx
-  __int64 v31; // rcx
-  int v32; // eax
-  unsigned int v33; // ecx
-  unsigned int v34; // [rsp+20h] [rbp-78h]
-  int v35; // [rsp+30h] [rbp-68h] BYREF
-  __int64 v36; // [rsp+38h] [rbp-60h] BYREF
-  _BYTE v37[8]; // [rsp+40h] [rbp-58h] BYREF
-  _BYTE v38[16]; // [rsp+48h] [rbp-50h] BYREF
-  _BYTE v39[16]; // [rsp+58h] [rbp-40h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+98h] [rbp+0h]
+  unsigned int v2; // ebx
+  __int64 v3; // rsi
+  char *i; // rdi
+  __int64 v8; // rbx
+  bool v9; // r14
+  void (__fastcall *v10)(__int64, void *, __int64); // r14
+  __int64 (__fastcall ***v11)(_QWORD, _BYTE *); // rcx
+  __int64 v12; // r8
+  int v13; // eax
+  void *v14; // rdx
+  __int64 v15; // rcx
+  _QWORD *v16; // r14
+  int v17; // ebx
+  __int64 (__fastcall ***v18)(_QWORD, _BYTE *); // rcx
+  int v19; // ecx
+  __int64 v20; // rcx
+  int v21; // eax
+  unsigned int v22; // ecx
+  __int64 v23; // rcx
+  __int64 v24; // rcx
+  int v25; // eax
+  _QWORD *v26; // [rsp+30h] [rbp-68h] BYREF
+  int v27; // [rsp+38h] [rbp-60h] BYREF
+  _BYTE v28[4]; // [rsp+3Ch] [rbp-5Ch] BYREF
+  _BYTE v29[16]; // [rsp+40h] [rbp-58h] BYREF
+  _BYTE v30[16]; // [rsp+50h] [rbp-48h] BYREF
 
-  v2 = (__int64 **)((char *)this + 24);
-  result = 0LL;
-  v4 = 0;
-  while ( 1 )
+  v2 = 0;
+  v3 = 0LL;
+  for ( i = (char *)this + 16; !*(_QWORD *)i && !*((_QWORD *)i + 1); i += 48 )
   {
-    if ( !*v2 )
-      goto LABEL_3;
-    v6 = (__int64)*(v2 - 1);
-    if ( v6 )
+LABEL_4:
+    v3 = (unsigned int)(v3 + 1);
+    if ( (unsigned int)v3 >= 2 )
+      return v2;
+  }
+  v8 = *(_QWORD *)i;
+  *((_OWORD *)i + 1) = *(_OWORD *)((char *)a2 + 56);
+  *((_QWORD *)i + 4) = *((_QWORD *)a2 + 9);
+  if ( v8 )
+  {
+    v9 = *((_QWORD *)a2 + 6) && !*((_BYTE *)g_pComposition + 1129);
+    (*(void (__fastcall **)(__int64, bool, _QWORD, _QWORD))(*(_QWORD *)v8 + 32LL))(v8, v9, *((_QWORD *)a2 + 7), 0LL);
+    if ( v9 )
     {
-      v7 = *((_QWORD *)a2 + 6) && !*((_BYTE *)g_pComposition + 1274);
-      if ( *((_BYTE *)a2 + 192) )
-        v8 = (char *)a2 + 164;
-      else
-        v8 = 0LL;
-      (*(void (__fastcall **)(_QWORD, bool, _QWORD, char *))(*(_QWORD *)v6 + 40LL))(*(v2 - 1), v7, 0LL, v8);
-      v9 = *(void (__fastcall **)(__int64, bool, void *, __int64))(*(_QWORD *)v6 + 48LL);
-      v10 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(*((_QWORD *)a2 + 4)
+      v10 = *(void (__fastcall **)(__int64, void *, __int64))(*(_QWORD *)v8 + 40LL);
+      v11 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(*((_QWORD *)a2 + 4)
                                                       + 8LL
                                                       + *(int *)(*(_QWORD *)(*((_QWORD *)a2 + 4) + 8LL) + 12LL));
-      v11 = *(unsigned int *)((**v10)(v10, v38) + 8);
-      v12 = *((_DWORD *)a2 + 100);
-      if ( v12 )
-        v13 = (void *)(*((_QWORD *)a2 + 52) + 68LL * (unsigned int)(v12 - 1));
+      v12 = *(unsigned int *)((**v11)(v11, v29) + 8);
+      v13 = *((_DWORD *)a2 + 102);
+      if ( v13 )
+        v14 = (void *)(*((_QWORD *)a2 + 53) + 68LL * (unsigned int)(v13 - 1));
       else
-        v13 = &CMILMatrix::Identity;
-      v9(v6, v7, v13, v11);
-      v14 = *(v2 - 1);
-      v15 = *v2;
-      v16 = *v14;
-      *v2 = 0LL;
-      v17 = *(__int64 (__fastcall **)(__int64 *, __int64 **))(v16 + 64);
-      if ( v15 )
-      {
-        v18 = (__int64)v15 + *(int *)(v15[1] + 4) + 8;
-        (*(void (__fastcall **)(__int64))(*(_QWORD *)v18 + 16LL))(v18);
-      }
-      v19 = v17(v14, v2);
-      v20 = v19;
-      if ( v19 < 0 )
+        v14 = &CMILMatrix::Identity;
+      v10(v8, v14, v12);
+    }
+  }
+  v15 = *(_QWORD *)i;
+  v26 = 0LL;
+  if ( v15 )
+  {
+    if ( (*(int (__fastcall **)(__int64, _QWORD **))(*(_QWORD *)v15 + 48LL))(v15, &v26) < 0 )
+      goto LABEL_20;
+  }
+  else
+  {
+    v26 = (_QWORD *)*((_QWORD *)i + 1);
+    v23 = (__int64)v26 + *(int *)(v26[1] + 4LL) + 8;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v23 + 8LL))(v23);
+  }
+  v16 = v26;
+  (*(void (__fastcall **)(_QWORD *, int *))(*v26 + 16LL))(v26, &v27);
+  v17 = v27;
+  if ( v27 != DisplayId::None && v27 != DisplayId::All )
+  {
+    v24 = *((_QWORD *)a2 + 4) + 8LL + *(int *)(*(_QWORD *)(*((_QWORD *)a2 + 4) + 8LL) + 16LL);
+    v25 = *(_DWORD *)(*(__int64 (__fastcall **)(__int64, _BYTE *))(*(_QWORD *)v24 + 8LL))(v24, v28);
+    if ( v17 == DisplayId::None || v17 == v25 || v25 == DisplayId::All )
+      *((_BYTE *)a2 + 5949) = 1;
+    else
+      *((_BYTE *)a2 + 5951) = 1;
+  }
+  if ( (*(unsigned __int8 (__fastcall **)(_QWORD *))(*v16 + 24LL))(v16) )
+  {
+    if ( *((_BYTE *)g_pComposition + 1129) )
+      *((_BYTE *)a2 + 5951) = 1;
+    else
+      *((_BYTE *)a2 + 5948) = 1;
+  }
+  v18 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))((char *)v16 + *(int *)(v16[1] + 8LL) + 8);
+  v19 = *(_DWORD *)((**v18)(v18, v30) + 8);
+  if ( v19 == 1 )
+  {
+LABEL_37:
+    *((_BYTE *)a2 + 5950) = 1;
+  }
+  else if ( v19 >= 3 )
+  {
+    switch ( v19 )
+    {
+      case 3:
+      case 10:
+      case 11:
+      case 12:
+      case 13:
+      case 14:
+      case 15:
+      case 16:
+      case 17:
+      case 21:
+      case 23:
+      case 24:
+        goto LABEL_37;
+      default:
         break;
     }
-    v21 = *v2;
-    (*(void (__fastcall **)(__int64 *, int *))(**v2 + 16))(*v2, &v35);
-    v22 = v35;
-    if ( v35 != DisplayId::None && v35 != DisplayId::All )
-    {
-      v31 = *((_QWORD *)a2 + 4) + 8LL + *(int *)(*(_QWORD *)(*((_QWORD *)a2 + 4) + 8LL) + 16LL);
-      v32 = *(_DWORD *)(*(__int64 (__fastcall **)(__int64, _BYTE *))(*(_QWORD *)v31 + 8LL))(v31, v37);
-      if ( v22 == DisplayId::None || v22 == v32 || v32 == DisplayId::All )
-        *((_BYTE *)a2 + 8093) = 1;
-      else
-        *((_BYTE *)a2 + 8095) = 1;
-    }
-    if ( (*(unsigned __int8 (__fastcall **)(__int64 *))(*v21 + 24))(v21) )
-    {
-      if ( *((_BYTE *)g_pComposition + 1274) )
-        *((_BYTE *)a2 + 8095) = 1;
-      else
-        *((_BYTE *)a2 + 8092) = 1;
-    }
-    v23 = (__int64 *)((char *)v21 + *(int *)(v21[1] + 8) + 8);
-    v24 = *(_DWORD *)((*(__int64 (__fastcall **)(__int64 *, _BYTE *))*v23)(v23, v39) + 8);
-    if ( v24 == DXGI_COLOR_SPACE_RGB_FULL_G10_NONE_P709 || IsDXGIColorSpaceRec2020(v24) )
-      *((_BYTE *)a2 + 8094) = 1;
-    v25 = *v2;
-    v26 = **v2;
-    v36 = 0LL;
-    v27 = *(__int64 (__fastcall **)(__int64 *, __int64, __int64 *))(v26 + 48);
-    v28 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)a2 + 3) + 40LL))((char *)a2 + 24);
-    v29 = v27(v25, v28, &v36);
-    v20 = v29;
-    if ( v29 < 0 )
-    {
-      wil::details::in1diag3::Return_Hr(
-        retaddr,
-        (void *)0xA6,
-        (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\drawlistbitmap.cpp",
-        (const char *)(unsigned int)v29,
-        v34);
-      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v36);
-      goto LABEL_32;
-    }
-    if ( v36 )
-    {
-      v30 = *(int *)(*(_QWORD *)(v36 + 8) + 4LL) + v36 + 8;
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v30 + 16LL))(v30);
-    }
-    result = 0LL;
-LABEL_3:
-    ++v4;
-    v2 += 3;
-    if ( v4 >= 2 )
-      return result;
   }
-  wil::details::in1diag3::Return_Hr(
-    retaddr,
-    (void *)0x9A,
-    (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\drawlistbitmap.cpp",
-    (const char *)(unsigned int)v19,
-    v34);
-LABEL_32:
-  MilInstrumentationCheckHR_MaybeFailFast(v33, 0LL, 0, v20, 0x71u, 0LL);
-  return v20;
+LABEL_20:
+  if ( v26 )
+  {
+    v20 = (__int64)v26 + *(int *)(v26[1] + 4LL) + 8;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v20 + 16LL))(v20);
+  }
+  v21 = CDrawListBitmap::EnsureDeviceResource((CCommonRenderingEffect *)((char *)this + 48 * v3 + 16), a2);
+  v2 = v21;
+  if ( v21 >= 0 )
+    goto LABEL_4;
+  MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x54u, 0LL);
+  return v2;
 }

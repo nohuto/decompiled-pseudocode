@@ -1,322 +1,389 @@
 /*
- * XREFs of ?VidSchiAddPendingCommandToSyncPointList@@YAJPEAU_VIDSCH_DEVICE@@PEAUVIDMM_ALLOC@@_JIIW4_VIDSCH_DEVICE_COMMAND_TYPE@@@Z @ 0x1C0015AC0
+ * XREFs of ?VidSchiAddPendingCommandToSyncPointList@@YAJPEAU_VIDSCH_DEVICE@@PEAUVIDMM_ALLOC@@_JIIW4_VIDSCH_DEVICE_COMMAND_TYPE@@@Z @ 0x1C0014438
  * Callers:
- *     VidSchSubmitDeviceCommand @ 0x1C0015480 (VidSchSubmitDeviceCommand.c)
+ *     VidSchSubmitDeviceCommand @ 0x1C00061A0 (VidSchSubmitDeviceCommand.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     ??_G_VIDSCH_SYNC_POINT@@QEAAPEAXI@Z @ 0x1C0034484 (--_G_VIDSCH_SYNC_POINT@@QEAAPEAXI@Z.c)
- *     McTemplateK0pxqPR2XR2_EtwWriteTransfer @ 0x1C003DF24 (McTemplateK0pxqPR2XR2_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ??_G_VIDSCH_SYNC_POINT@@QEAAPEAXI@Z @ 0x1C0029E80 (--_G_VIDSCH_SYNC_POINT@@QEAAPEAXI@Z.c)
+ *     McTemplateK0pxqPR2XR2_EtwWriteTransfer @ 0x1C0033800 (McTemplateK0pxqPR2XR2_EtwWriteTransfer.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VidSchiAddPendingCommandToSyncPointList(
-        _QWORD *a1,
-        _QWORD *a2,
+        __int64 a1,
+        __int64 a2,
         __int64 a3,
         unsigned int a4,
         unsigned int a5,
         int a6)
 {
-  unsigned __int64 v7; // r12
-  _QWORD *v9; // rbx
-  _QWORD *v10; // rbp
-  __int64 Pool2; // rax
-  unsigned __int64 v12; // rdx
-  _QWORD *v13; // r8
-  _QWORD *v14; // rax
-  _QWORD *v15; // rax
-  _QWORD *v16; // r14
-  _QWORD *v17; // rdi
-  _QWORD *v18; // rcx
-  unsigned int i; // r9d
-  unsigned __int64 v20; // r10
-  unsigned __int64 v21; // r11
-  _QWORD *v22; // r15
-  _QWORD *v23; // rax
-  __int64 v24; // r11
-  _QWORD *v25; // r9
-  unsigned __int64 v26; // rbx
-  __int64 v27; // rcx
-  unsigned __int64 v28; // rbx
-  __int64 v29; // rdi
-  PVOID v30; // r10
-  __int64 v31; // rax
-  __int64 v32; // r9
-  _QWORD *v33; // rax
-  _QWORD *v34; // rdx
-  _QWORD *v36; // rax
-  _QWORD *v37; // r8
-  void *v38; // rcx
-  _QWORD *v39; // [rsp+40h] [rbp-A8h]
-  _BYTE *v40; // [rsp+48h] [rbp-A0h]
-  _BYTE v41[16]; // [rsp+50h] [rbp-98h] BYREF
-  int v42; // [rsp+60h] [rbp-88h]
-  _QWORD *j; // [rsp+68h] [rbp-80h]
-  _QWORD *v44; // [rsp+70h] [rbp-78h]
-  PVOID P; // [rsp+78h] [rbp-70h]
-  _BYTE v46[16]; // [rsp+80h] [rbp-68h] BYREF
-  int v47; // [rsp+90h] [rbp-58h]
+  __int64 v6; // rdi
+  POOL_TYPE v7; // r12d
+  __int64 v9; // r13
+  unsigned __int64 v10; // r14
+  _QWORD *v11; // rbx
+  _QWORD *v12; // rax
+  _QWORD *v13; // rbx
+  _QWORD *v14; // rcx
+  _QWORD *PoolWithTag; // rax
+  unsigned __int64 v17; // rdx
+  _QWORD *v18; // rax
+  _QWORD *v19; // rax
+  _QWORD *v20; // r12
+  char *v21; // rax
+  char *v22; // rsi
+  _QWORD *v23; // rdx
+  unsigned int v24; // r8d
+  _QWORD *i; // rcx
+  _QWORD *v26; // rdi
+  unsigned __int64 v27; // r9
+  _QWORD *v28; // r15
+  __int64 v29; // r15
+  _QWORD *v30; // rcx
+  _BYTE *v31; // rcx
+  _BYTE *v32; // r9
+  unsigned __int64 v33; // rdi
+  __int64 v34; // r15
+  size_t v35; // rsi
+  __int64 v36; // r8
+  _QWORD *v37; // rcx
+  __int64 v38; // r9
+  __int64 v39; // rax
+  __int64 v40; // rdx
+  _QWORD *v41; // rax
+  _QWORD *v42; // rax
+  _QWORD *j; // rdx
+  _QWORD *v44; // r8
+  __int64 *v45; // r9
+  __int64 v46; // rdi
+  char *v47; // r10
+  __int64 v48; // rax
+  __int64 v49; // rax
+  _BYTE *v50; // rax
+  _BYTE *v51; // rax
+  __int64 v52; // [rsp+40h] [rbp-59h]
+  _BYTE *v53; // [rsp+50h] [rbp-49h]
+  _BYTE v54[16]; // [rsp+58h] [rbp-41h] BYREF
+  int v55; // [rsp+68h] [rbp-31h]
+  __int64 v56; // [rsp+70h] [rbp-29h]
+  __int64 v57; // [rsp+78h] [rbp-21h]
+  _BYTE *v58; // [rsp+80h] [rbp-19h]
+  _BYTE P[16]; // [rsp+88h] [rbp-11h] BYREF
+  int v60; // [rsp+98h] [rbp-1h]
 
-  v7 = a4;
-  v39 = a2;
-  v44 = a1;
-  if ( !a4 && !a5 )
+  v9 = a1;
+  v10 = a4;
+  v52 = a2;
+  v56 = a1;
+  if ( a4 || a5 )
   {
-    g_DxgMmsBugcheckExportIndex = 1;
-    WdLogSingleEntry5(0LL, 281LL, 3328LL, a1, a3, a6);
+    v11 = *(_QWORD **)(a1 + 1616);
+    v6 = a1 + 1608;
+    if ( v11 != (_QWORD *)(a1 + 1608) && v11[2] == a3 )
+      goto LABEL_4;
+    v7 = 512;
+    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0xA8uLL, 0x66616956u);
+    v11 = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      PoolWithTag[3] = 0LL;
+      *((_DWORD *)PoolWithTag + 16) = 0;
+      PoolWithTag[9] = 0LL;
+      *((_DWORD *)PoolWithTag + 32) = 0;
+      goto LABEL_13;
+    }
+  }
+  else
+  {
+    v41 = (_QWORD *)WdLogNewEntry5_WdCriticalError(a1, a2);
+    v41[7] = a6;
+    v41[3] = 281LL;
+    v41[4] = 3328LL;
+    v41[5] = v9;
+    v41[6] = a3;
+    WdLogEvent5_WdCriticalError(v41);
     __debugbreak();
   }
-  v9 = a1 + 201;
-  v10 = (_QWORD *)a1[202];
-  if ( v10 == a1 + 201 || v10[2] != a3 )
+  v11 = 0LL;
+LABEL_13:
+  if ( !v11 )
+    return 3221225495LL;
+  v11[2] = a3;
+  v11[18] = v11 + 17;
+  v11[17] = v11 + 17;
+  v11[20] = v11 + 19;
+  v11[19] = v11 + 19;
+  v18 = *(_QWORD **)(v6 + 8);
+  if ( *v18 != v6 )
+    goto LABEL_100;
+  *v11 = v6;
+  v11[1] = v18;
+  *v18 = v11;
+  *(_QWORD *)(v6 + 8) = v11;
+  if ( (unsigned int)v10 > 2 )
   {
-    Pool2 = ExAllocatePool2(64LL, 168LL, 1717659990LL);
-    v10 = (_QWORD *)Pool2;
-    if ( !Pool2 )
+    v17 = 0xFFFFFFFFFFFFFFFFuLL % v10;
+    if ( 0xFFFFFFFFFFFFFFFFuLL / v10 < 0x10 )
     {
-      WdLogSingleEntry0(3LL);
-      return 3221225495LL;
+      v20 = 0LL;
+      goto LABEL_20;
     }
-    *(_QWORD *)(Pool2 + 24) = 0LL;
-    *(_DWORD *)(Pool2 + 64) = 0;
-    *(_QWORD *)(Pool2 + 72) = 0LL;
-    *(_DWORD *)(Pool2 + 128) = 0;
-    *(_QWORD *)(Pool2 + 16) = a3;
-    v14 = (_QWORD *)(Pool2 + 136);
-    v14[1] = v14;
-    *v14 = v14;
-    v10[20] = v10 + 19;
-    v10[19] = v10 + 19;
-    v15 = (_QWORD *)v9[1];
-    if ( (_QWORD *)*v15 != v9 )
-      __fastfail(3u);
-    *v10 = v9;
-    v10[1] = v15;
-    *v15 = v10;
-    v9[1] = v10;
-    if ( (unsigned int)v7 <= 2 )
-    {
-      v10[3] = v10 + 4;
-      if ( (_DWORD)v7 )
-        memset(v10 + 4, 0, 16 * v7);
-    }
-    else
-    {
-      v12 = 0xFFFFFFFFFFFFFFFFuLL % v7;
-      if ( 0xFFFFFFFFFFFFFFFFuLL / v7 < 0x10 )
-      {
-        v16 = 0LL;
-        goto LABEL_16;
-      }
-      v10[3] = ExAllocatePool2(64LL, 16 * v7, 895576406LL);
-    }
-    v16 = (_QWORD *)v10[3];
-    *((_DWORD *)v10 + 16) = v7;
-LABEL_16:
-    if ( a5 <= 2 )
-    {
-      v10[9] = v10 + 10;
-      if ( a5 )
-        memset(v10 + 10, 0, 24LL * a5);
-    }
-    else
-    {
-      v12 = 0xFFFFFFFFFFFFFFFFuLL % a5;
-      if ( 0xFFFFFFFFFFFFFFFFuLL / a5 < 0x18 )
-      {
-        v17 = 0LL;
-        goto LABEL_23;
-      }
-      v10[9] = ExAllocatePool2(64LL, 24LL * a5, 895576406LL);
-    }
-    v17 = (_QWORD *)v10[9];
-    *((_DWORD *)v10 + 32) = a5;
-LABEL_23:
-    if ( v16 )
-    {
-      if ( v17 )
-      {
-        v18 = (_QWORD *)a1[9];
-        for ( i = 0; v18 != a1 + 9; v18 = (_QWORD *)*v18 )
-        {
-          v13 = v18 - 3;
-          v20 = v18[19];
-          v21 = v18[17];
-          if ( v20 > v21 )
-          {
-            if ( i > (int)v7 - 1 )
-            {
-              g_DxgMmsBugcheckExportIndex = 1;
-              WdLogSingleEntry5(0LL, 281LL, 3328LL, v20, v21, i);
-              __debugbreak();
-LABEL_45:
-              g_DxgMmsBugcheckExportIndex = 1;
-              WdLogSingleEntry5(0LL, 281LL, 3328LL, 0LL, 0LL, (unsigned int)v24);
-              __debugbreak();
-LABEL_46:
-              v40 = (_BYTE *)ExAllocatePool2(64LL, 8 * v7, 1717659990LL);
-LABEL_49:
-              LODWORD(v13) = v7;
-              v42 = v7;
-              v29 = (__int64)v40;
-              v28 = v7;
-              if ( (unsigned int)v7 <= 2 )
-              {
-                P = v46;
-                if ( (_DWORD)v7 )
-                  memset(v46, 0, 8 * v7);
-              }
-              else
-              {
-                v12 = 0xFFFFFFFFFFFFFFFFuLL % v7;
-                if ( 0xFFFFFFFFFFFFFFFFuLL / v7 < 8 )
-                {
-                  v30 = 0LL;
-                  goto LABEL_56;
-                }
-                P = (PVOID)ExAllocatePool2(64LL, 8 * v7, 1717659990LL);
-              }
-              v30 = P;
-              v47 = v7;
-              goto LABEL_56;
-            }
-            v12 = 2LL * i++;
-            v16[v12 + 1] = v20;
-            v16[v12] = v13;
-          }
-        }
-        v22 = (_QWORD *)a1[11];
-        v23 = a1 + 11;
-        v24 = 0LL;
-        for ( j = a1 + 11; v22 != v23; v22 = (_QWORD *)*v22 )
-        {
-          v25 = (_QWORD *)v22[4];
-          if ( v25 != v22 + 4 )
-          {
-            do
-            {
-              v13 = v25 - 1;
-              if ( *((_DWORD *)v25 + 35) )
-              {
-                v26 = v13[9];
-                if ( v26 > v13[8] || v13[12] > v13[11] )
-                {
-                  if ( (unsigned int)v24 > a5 - 1 )
-                    goto LABEL_45;
-                  v27 = 3 * v24;
-                  v17[v27 + 1] = v26;
-                  v17[v27 + 2] = v13[12];
-                  v17[3 * v24] = v13;
-                  v24 = (unsigned int)(v24 + 1);
-                }
-              }
-              v25 = (_QWORD *)*v25;
-            }
-            while ( v25 != v22 + 4 );
-            v23 = j;
-          }
-        }
-        if ( bTracingEnabled )
-        {
-          v40 = 0LL;
-          v42 = 0;
-          P = 0LL;
-          v47 = 0;
-          if ( (unsigned int)v7 <= 2 )
-          {
-            v40 = v41;
-            if ( (_DWORD)v7 )
-              memset(v41, 0, 8 * v7);
-            goto LABEL_49;
-          }
-          v12 = 0xFFFFFFFFFFFFFFFFuLL % v7;
-          v28 = v7;
-          if ( 0xFFFFFFFFFFFFFFFFuLL / v7 >= 8 )
-            goto LABEL_46;
-          v29 = 0LL;
-          v30 = 0LL;
-LABEL_56:
-          if ( v29 && v30 )
-          {
-            if ( (_DWORD)v7 )
-            {
-              v12 = (unsigned __int64)v30;
-              do
-              {
-                v13 = *(_QWORD **)(*v16 + 56LL);
-                if ( !v13 || (*(_DWORD *)(*v16 + 112LL) & 0x40) != 0 )
-                  v13 = (_QWORD *)*v16;
-                *(_QWORD *)(v29 - (_QWORD)v30 + v12) = v13;
-                v31 = v16[1];
-                v16 += 2;
-                *(_QWORD *)v12 = v31;
-                v12 += 8LL;
-                --v28;
-              }
-              while ( v28 );
-            }
-            v32 = v44[1];
-            if ( !v32 )
-              LODWORD(v32) = (_DWORD)v44;
-            if ( (byte_1C0076981 & 1) != 0 )
-              McTemplateK0pxqPR2XR2_EtwWriteTransfer(v10[2], v12, (_DWORD)v13, v32, v10[2], v7, v29, (__int64)v30);
-          }
-          if ( P != v46 && P )
-            ExFreePoolWithTag(P, 0);
-          P = 0LL;
-          v47 = 0;
-          if ( v40 != v41 )
-          {
-            if ( v40 )
-              ExFreePoolWithTag(v40, 0);
-          }
-        }
-        a2 = v39;
-        goto LABEL_75;
-      }
-      v38 = v16;
-    }
-    else
-    {
-      if ( !v17 )
-      {
-LABEL_87:
-        _VIDSCH_SYNC_POINT::`scalar deleting destructor'(v10, v12);
-        WdLogSingleEntry0(3LL);
-        return 3221225495LL;
-      }
-      v38 = v17;
-    }
-    ExFreePoolWithTag(v38, 0);
-    goto LABEL_87;
+    v19 = ExAllocatePoolWithTag(v7, 16 * v10, 0x35616956u);
   }
-LABEL_75:
+  else
+  {
+    v19 = v11 + 4;
+  }
+  v11[3] = v19;
+  *((_DWORD *)v11 + 16) = v10;
+  v20 = v19;
+  if ( v19 && (_DWORD)v10 )
+  {
+    memset(v19, 0, 16 * v10);
+    v20 = (_QWORD *)v11[3];
+  }
+LABEL_20:
+  if ( a5 > 2 )
+  {
+    v17 = 0xFFFFFFFFFFFFFFFFuLL % a5;
+    if ( 0xFFFFFFFFFFFFFFFFuLL / a5 < 0x18 )
+    {
+      v22 = 0LL;
+      goto LABEL_25;
+    }
+    v21 = (char *)ExAllocatePoolWithTag((POOL_TYPE)512, 24LL * a5, 0x35616956u);
+  }
+  else
+  {
+    v21 = (char *)(v11 + 10);
+  }
+  v11[9] = v21;
+  *((_DWORD *)v11 + 32) = a5;
+  v22 = v21;
+  if ( v21 && a5 )
+  {
+    memset(v21, 0, 24LL * a5);
+    v22 = (char *)v11[9];
+  }
+LABEL_25:
+  if ( !v20 )
+  {
+LABEL_98:
+    if ( v22 )
+      ExFreePoolWithTag(v22, 0);
+    _VIDSCH_SYNC_POINT::`scalar deleting destructor'(v11, v17);
+    return 3221225495LL;
+  }
+  if ( !v22 )
+  {
+    ExFreePoolWithTag(v20, 0);
+    goto LABEL_98;
+  }
+  v23 = (_QWORD *)(v9 + 72);
+  v24 = 0;
+  for ( i = *(_QWORD **)(v9 + 72); i != v23; i = (_QWORD *)*i )
+  {
+    v26 = i - 3;
+    v27 = i[19];
+    if ( v27 > i[17] )
+    {
+      v28 = (_QWORD *)v24;
+      if ( v24 > (int)v10 - 1 )
+      {
+        v42 = (_QWORD *)WdLogNewEntry5_WdCriticalError(i, v23);
+        v42[3] = 281LL;
+        v42[4] = 3328LL;
+        v42[5] = v26[22];
+        v42[6] = v26[20];
+        v42[7] = v28;
+        WdLogEvent5_WdCriticalError(v42);
+        __debugbreak();
+        goto LABEL_76;
+      }
+      v29 = 2LL * v24++;
+      v20[v29 + 1] = v27;
+      v20[v29] = v26;
+    }
+  }
+  v9 = 0LL;
+  v28 = (_QWORD *)(v56 + 88);
+  v30 = *(_QWORD **)(v56 + 88);
+LABEL_34:
+  if ( v30 == v28 )
+  {
+    if ( bTracingEnabled )
+    {
+      v31 = 0LL;
+      v32 = 0LL;
+      v55 = 0;
+      v33 = v10;
+      v60 = 0;
+      v53 = 0LL;
+      v58 = 0LL;
+      if ( (unsigned int)v10 > 2 )
+        goto LABEL_87;
+      v31 = v54;
+      v53 = v54;
+      goto LABEL_38;
+    }
+    goto LABEL_62;
+  }
+LABEL_76:
+  for ( j = (_QWORD *)v30[4]; ; j = (_QWORD *)*j )
+  {
+    if ( j == v30 + 4 )
+    {
+      v30 = (_QWORD *)*v30;
+      goto LABEL_34;
+    }
+    v44 = j - 1;
+    v45 = j + 8;
+    if ( (unsigned __int64)*v45 > j[7] || v44[12] > v44[11] )
+      break;
+LABEL_83:
+    ;
+  }
+  v33 = (unsigned int)v9;
+  if ( (unsigned int)v9 <= a5 - 1 )
+  {
+    v46 = 2LL;
+    v57 = 3 * v9;
+    v47 = &v22[24 * v9 + 8];
+    do
+    {
+      v48 = *v45;
+      v45 += 3;
+      *(_QWORD *)v47 = v48;
+      v47 += 8;
+      --v46;
+    }
+    while ( v46 );
+    v9 = (unsigned int)(v9 + 1);
+    *(_QWORD *)&v22[8 * v57] = v44;
+    goto LABEL_83;
+  }
+  v49 = WdLogNewEntry5_WdCriticalError(v30, j);
+  *(_QWORD *)(v49 + 24) = 281LL;
+  *(_QWORD *)(v49 + 32) = 3328LL;
+  *(_OWORD *)(v49 + 40) = 0LL;
+  *(_QWORD *)(v49 + 56) = (unsigned int)v9;
+  WdLogEvent5_WdCriticalError(v49);
+  __debugbreak();
+LABEL_87:
+  if ( 0xFFFFFFFFFFFFFFFFuLL / v33 < 8 )
+  {
+    v34 = 0LL;
+    goto LABEL_42;
+  }
+  v50 = ExAllocatePoolWithTag((POOL_TYPE)512, 8 * v33, 0x66616956u);
+  v32 = v58;
+  v31 = v50;
+  v53 = v50;
+LABEL_38:
+  v55 = v10;
+  if ( v31 && (_DWORD)v10 )
+  {
+    memset(v31, 0, 8 * v33);
+    v31 = v53;
+    v32 = v58;
+  }
+  v34 = (__int64)v31;
+LABEL_42:
+  if ( (unsigned int)v10 > 2 )
+  {
+    if ( 0xFFFFFFFFFFFFFFFFuLL / v33 >= 8 )
+    {
+      v35 = 8 * v33;
+      v51 = ExAllocatePoolWithTag((POOL_TYPE)512, 8 * v33, 0x66616956u);
+      v31 = v53;
+      v32 = v51;
+      v58 = v51;
+      goto LABEL_44;
+    }
+    v36 = 0LL;
+  }
+  else
+  {
+    v32 = P;
+    v58 = P;
+    v35 = 8 * v33;
+LABEL_44:
+    v60 = v10;
+    if ( v32 && (_DWORD)v10 )
+    {
+      memset(v32, 0, v35);
+      v31 = v53;
+      v32 = v58;
+    }
+    v36 = (__int64)v32;
+  }
+  if ( v34 && v36 )
+  {
+    if ( (_DWORD)v10 )
+    {
+      v37 = (_QWORD *)v36;
+      do
+      {
+        v38 = *(_QWORD *)(*v20 + 56LL);
+        if ( !v38 || (*(_DWORD *)(*v20 + 112LL) & 0x40) != 0 )
+          v38 = *v20;
+        *(_QWORD *)((char *)v37 + v34 - v36) = v38;
+        v39 = v20[1];
+        v20 += 2;
+        *v37++ = v39;
+        --v33;
+      }
+      while ( v33 );
+      v31 = v53;
+      v32 = v58;
+    }
+    v40 = *(_QWORD *)(v56 + 8);
+    if ( !v40 )
+      LODWORD(v40) = v56;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+    {
+      McTemplateK0pxqPR2XR2_EtwWriteTransfer((_DWORD)v31, v40, v36, v40, v11[2], v10, v34, v36);
+      v31 = v53;
+      v32 = v58;
+    }
+  }
+  if ( v32 != P && v32 )
+  {
+    ExFreePoolWithTag(v32, 0);
+    v31 = v53;
+  }
+  v58 = 0LL;
+  v60 = 0;
+  if ( v31 != v54 )
+  {
+    if ( v31 )
+      ExFreePoolWithTag(v31, 0);
+  }
+LABEL_62:
+  a2 = v52;
+LABEL_4:
   if ( !a6 )
   {
-    v33 = a2 + 25;
-    v34 = (_QWORD *)v10[18];
-    if ( (_QWORD *)*v34 == v10 + 17 )
-    {
-      *v33 = v10 + 17;
-      v33[1] = v34;
-      *v34 = v33;
-      v10[18] = v33;
-      return 0LL;
-    }
-LABEL_80:
-    __fastfail(3u);
+    v12 = (_QWORD *)(a2 + 200);
+    v13 = v11 + 17;
+    goto LABEL_6;
   }
   if ( a6 == 3 )
   {
-    v36 = a2 + 27;
-    v37 = (_QWORD *)v10[20];
-    if ( (_QWORD *)*v37 != v10 + 19 )
-      goto LABEL_80;
-    *v36 = v10 + 19;
-    a2[28] = v37;
-    *v37 = v36;
-    v10[20] = v36;
+    v12 = (_QWORD *)(a2 + 216);
+    v13 = v11 + 19;
+LABEL_6:
+    v14 = (_QWORD *)v13[1];
+    if ( (_QWORD *)*v14 == v13 )
+    {
+      *v12 = v13;
+      v12[1] = v14;
+      *v14 = v12;
+      v13[1] = v12;
+      return 0LL;
+    }
+LABEL_100:
+    __fastfail(3u);
   }
   return 0LL;
 }

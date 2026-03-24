@@ -1,32 +1,32 @@
 /*
- * XREFs of _CmGetDevicesInBaseContainerList @ 0x140A64334
+ * XREFs of _CmGetDevicesInBaseContainerList @ 0x140976298
  * Callers:
- *     _CmMoveBaseContainer @ 0x140A645C8 (_CmMoveBaseContainer.c)
+ *     _CmMoveBaseContainer @ 0x140976504 (_CmMoveBaseContainer.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEF60 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegEnumValue @ 0x140877E74 (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x140877FDC (_PnpCtxRegQueryInfoKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406BB5E8 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegEnumValue @ 0x1406F9CD4 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406F9E0C (_PnpCtxRegQueryInfoKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmGetDevicesInBaseContainerList(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
+__int64 __fastcall CmGetDevicesInBaseContainerList(__int64 a1, __int64 a2, __int64 a3, void **a4)
 {
-  _WORD *v8; // rdi
+  _WORD *v8; // r15
   int CachedContextBaseKey; // ebx
   __int64 v10; // rcx
-  __int64 v11; // r15
+  __int64 v11; // rcx
   __int64 v12; // rcx
-  ULONG v13; // r15d
-  __int64 v14; // rcx
-  __int64 v15; // rcx
-  unsigned int v16; // r14d
-  _WORD *Pool2; // rax
-  __int64 v18; // rcx
-  int v19; // eax
-  __int64 v20; // rax
+  __int64 v13; // rcx
+  unsigned int v14; // edi
+  _WORD *PoolWithTag; // rax
+  __int64 v16; // rcx
+  ULONG i; // r14d
+  int v18; // eax
+  void *v19; // rcx
+  PVOID v20; // rax
   int v22; // [rsp+40h] [rbp-30h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-28h] BYREF
   HANDLE v24; // [rsp+50h] [rbp-20h] BYREF
@@ -48,90 +48,80 @@ __int64 __fastcall CmGetDevicesInBaseContainerList(__int64 a1, __int64 a2, __int
     v10 = 0LL;
     if ( a1 )
       v10 = *(_QWORD *)(a1 + 224);
-    v11 = 224LL;
-    if ( a1 )
-      v11 = a1 + 224;
     CachedContextBaseKey = SysCtxRegOpenKey(v10, v26, a2, 0, 1u, (__int64)&v25);
     if ( CachedContextBaseKey >= 0 )
     {
-      v12 = a1 ? *(_QWORD *)v11 : 0LL;
-      CachedContextBaseKey = SysCtxRegOpenKey(v12, (__int64)v25, (__int64)L"BaseContainers", 0, 1u, (__int64)&v24);
+      v11 = 0LL;
+      if ( a1 )
+        v11 = *(_QWORD *)(a1 + 224);
+      CachedContextBaseKey = SysCtxRegOpenKey(v11, (__int64)v25, (__int64)L"BaseContainers", 0, 1u, (__int64)&v24);
       if ( CachedContextBaseKey >= 0 )
       {
+        v12 = 0LL;
         if ( a1 )
-        {
-          v14 = *(_QWORD *)v11;
-          v13 = 0;
-        }
-        else
-        {
-          v13 = 0;
-          v14 = 0LL;
-        }
-        CachedContextBaseKey = SysCtxRegOpenKey(v14, (__int64)v24, a3, 0, 3u, (__int64)&Handle);
+          v12 = *(_QWORD *)(a1 + 224);
+        CachedContextBaseKey = SysCtxRegOpenKey(v12, (__int64)v24, a3, 0, 3u, (__int64)&Handle);
         if ( CachedContextBaseKey >= 0 )
         {
-          CachedContextBaseKey = PnpCtxRegQueryInfoKey(v15, Handle, 0LL, 0LL, &v22, &v27, 0LL);
+          CachedContextBaseKey = PnpCtxRegQueryInfoKey(v13, Handle, 0LL, 0LL, &v22, &v27, 0LL);
           if ( CachedContextBaseKey >= 0 )
           {
-            v16 = v22 * (v27 + 1) + 1;
-            Pool2 = (_WORD *)ExAllocatePool2(256LL, 2LL * v16, 1380994640LL);
-            *a4 = (__int64)Pool2;
-            v8 = Pool2;
-            if ( !Pool2 )
+            v14 = v22 * (v27 + 1) + 1;
+            PoolWithTag = ExAllocatePoolWithTag(PagedPool, 2LL * v14, 0x52504E50u);
+            *a4 = PoolWithTag;
+            if ( !PoolWithTag )
             {
               CachedContextBaseKey = -1073741801;
-LABEL_27:
-              if ( !Pool2 )
-                goto LABEL_32;
-              ExFreePoolWithTag(Pool2, 0);
-              goto LABEL_30;
+              goto LABEL_22;
             }
-            while ( 1 )
+            v8 = PoolWithTag;
+            for ( i = 0; ; ++i )
             {
-              v27 = v16 - 1;
-              v19 = PnpCtxRegEnumValue(v18, Handle, v13, v8, &v27, 0LL, 0LL, 0LL);
-              CachedContextBaseKey = v19;
-              if ( v19 == -2147483622 )
-                goto LABEL_21;
-              if ( v19 < 0 )
+              v27 = v14 - 1;
+              v18 = PnpCtxRegEnumValue(v16, Handle, i, v8, &v27, 0LL, 0LL, 0LL);
+              CachedContextBaseKey = v18;
+              if ( v18 == -2147483622 )
                 break;
-              v18 = v27 + 1;
-              v16 -= v18;
-              ++v13;
-              v8 += v18;
+              if ( v18 < 0 )
+                goto LABEL_19;
+              v16 = v27 + 1;
+              v14 -= v16;
+              v8 += v16;
             }
+            CachedContextBaseKey = 0;
           }
         }
       }
     }
   }
+LABEL_19:
   if ( CachedContextBaseKey == -1073741772 || CachedContextBaseKey == -1073741444 )
-  {
-LABEL_21:
-    Pool2 = (_WORD *)*a4;
     CachedContextBaseKey = 0;
-    goto LABEL_22;
-  }
-  Pool2 = (_WORD *)*a4;
-  if ( CachedContextBaseKey < 0 )
-    goto LABEL_27;
 LABEL_22:
-  if ( Pool2 )
+  v19 = *a4;
+  if ( CachedContextBaseKey < 0 )
   {
-    *v8 = 0;
-    goto LABEL_32;
+    if ( !v19 )
+      goto LABEL_30;
+    ExFreePoolWithTag(v19, 0);
   }
-  v20 = ExAllocatePool2(256LL, 2LL, 1380994640LL);
-  *a4 = v20;
-  if ( v20 )
+  else
   {
+    if ( v19 )
+    {
+      *v8 = 0;
+      goto LABEL_30;
+    }
+    v20 = ExAllocatePoolWithTag(PagedPool, 2uLL, 0x52504E50u);
+    *a4 = v20;
+    if ( !v20 )
+    {
+      CachedContextBaseKey = -1073741801;
+      goto LABEL_30;
+    }
+  }
+  *a4 = 0LL;
 LABEL_30:
-    *a4 = 0LL;
-    goto LABEL_32;
-  }
-  CachedContextBaseKey = -1073741801;
-LABEL_32:
   if ( Handle )
     ZwClose(Handle);
   if ( v24 )

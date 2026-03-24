@@ -1,13 +1,11 @@
 /*
- * XREFs of ExGetNextProcess @ 0x140742E88
+ * XREFs of ExGetNextProcess @ 0x14062BF4C
  * Callers:
- *     PfpPrivSourceEnum @ 0x140741CC0 (PfpPrivSourceEnum.c)
- *     ExpGetProcessInformation @ 0x1407432D0 (ExpGetProcessInformation.c)
- *     ExProcessCounterSetCallback @ 0x1409F5E80 (ExProcessCounterSetCallback.c)
+ *     PfpPrivSourceEnum @ 0x14062B8D4 (PfpPrivSourceEnum.c)
  * Callees:
- *     ObOpenObjectByPointer @ 0x1407379D0 (ObOpenObjectByPointer.c)
- *     PsGetNextProcess @ 0x1407446C0 (PsGetNextProcess.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     PsGetNextProcess @ 0x14062BFA0 (PsGetNextProcess.c)
+ *     ObOpenObjectByPointer @ 0x140653F10 (ObOpenObjectByPointer.c)
  */
 
 _DWORD *__fastcall ExGetNextProcess(PVOID Object, char a2)

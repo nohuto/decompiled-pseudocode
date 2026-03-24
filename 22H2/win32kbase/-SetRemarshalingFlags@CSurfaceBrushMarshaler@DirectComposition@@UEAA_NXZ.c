@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CSurfaceBrushMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C0214CD0
+ * XREFs of ?SetRemarshalingFlags@CSurfaceBrushMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C01E60F0
  * Callers:
  *     <none>
  * Callees:
@@ -9,16 +9,15 @@
 char __fastcall DirectComposition::CSurfaceBrushMarshaler::SetRemarshalingFlags(
         DirectComposition::CSurfaceBrushMarshaler *this)
 {
-  _DWORD *v1; // rdx
+  int v1; // eax
 
-  v1 = (_DWORD *)((char *)this + 16);
   if ( *((_QWORD *)this + 9) )
-    *v1 |= 0x20u;
+    *((_DWORD *)this + 4) |= 0x20u;
   if ( *((_QWORD *)this + 10) )
-    *v1 |= 0x40u;
+    *((_DWORD *)this + 4) |= 0x40u;
+  v1 = *((_DWORD *)this + 4);
   if ( *((_BYTE *)this + 120) )
-    *v1 |= 0x800u;
-  *v1 |= 0x80u;
-  *v1 |= 0x700u;
+    v1 |= 0x800u;
+  *((_DWORD *)this + 4) = v1 | 0x780;
   return 1;
 }

@@ -4,7 +4,7 @@
  *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 TLG_STATUS __fastcall CmpLogFlushPhaseStart(__int64 a1, char a2)
@@ -22,7 +22,7 @@ TLG_STATUS __fastcall CmpLogFlushPhaseStart(__int64 a1, char a2)
     v5 = &v3;
     v7 = 0;
     v6 = 1;
-    return TlgWrite(&stru_1403FFAA0, &unk_14036BF0B, 0LL, 0LL, 3u, &v4);
+    return TlgWrite(&stru_1403FFAA0, &unk_14036C01B, 0LL, 0LL, 3u, &v4);
   }
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetTextureMemoryLayoutData@CDropShadow@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x18022A530
+ * XREFs of ?GetTextureMemoryLayoutData@CDropShadow@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x1801BEFF0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CDropShadow::GetTextureMemoryLayoutData(__int64 a1, __int64 a2, _QWORD *a3)
@@ -16,15 +16,15 @@ __int64 __fastcall CDropShadow::GetTextureMemoryLayoutData(__int64 a1, __int64 a
 
   v3 = 0;
   a3[1] = *a3;
-  if ( !*(_DWORD *)(a1 + 124) )
+  if ( !*(_DWORD *)(a1 + 132) )
   {
-    v4 = *(_QWORD *)(a1 + 176);
+    v4 = *(_QWORD *)(a1 + 144);
     if ( v4 )
     {
-      v5 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v4 + 272LL))(v4);
+      v5 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v4 + 280LL))(v4);
       v3 = v5;
       if ( v5 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x1D8u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x179u, 0LL);
     }
   }
   return v3;

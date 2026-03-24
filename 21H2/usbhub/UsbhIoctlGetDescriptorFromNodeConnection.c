@@ -1,25 +1,25 @@
 /*
- * XREFs of UsbhIoctlGetDescriptorFromNodeConnection @ 0x1C003E348
+ * XREFs of UsbhIoctlGetDescriptorFromNodeConnection @ 0x1C003F534
  * Callers:
- *     UsbhFdoDeviceControl @ 0x1C0029C60 (UsbhFdoDeviceControl.c)
+ *     UsbhFdoDeviceControl @ 0x1C002AFB0 (UsbhFdoDeviceControl.c)
  * Callees:
- *     UsbhAcquireFdoPwrLock @ 0x1C00019E0 (UsbhAcquireFdoPwrLock.c)
- *     UsbhUnlatchPdo @ 0x1C0002650 (UsbhUnlatchPdo.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhLatchPdo @ 0x1C000F240 (UsbhLatchPdo.c)
- *     UsbhDecHubBusy @ 0x1C0010740 (UsbhDecHubBusy.c)
- *     UsbhIncHubBusy @ 0x1C0011BC0 (UsbhIncHubBusy.c)
- *     Usb_Disconnected @ 0x1C0028F5C (Usb_Disconnected.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhReleaseFdoPwrLock @ 0x1C00313A8 (UsbhReleaseFdoPwrLock.c)
- *     UsbhAcquireApiLock @ 0x1C003D610 (UsbhAcquireApiLock.c)
- *     UsbhIoctlGetDescriptorForPDO @ 0x1C003DE80 (UsbhIoctlGetDescriptorForPDO.c)
- *     UsbhIoctlTraceOutput @ 0x1C0040730 (UsbhIoctlTraceOutput.c)
- *     UsbhIoctlValidateParameters @ 0x1C0040958 (UsbhIoctlValidateParameters.c)
- *     UsbhReleaseApiLock @ 0x1C0040CE8 (UsbhReleaseApiLock.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     UsbhDecHubBusy @ 0x1C0003610 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0004060 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhLatchPdo @ 0x1C0016B5C (UsbhLatchPdo.c)
+ *     UsbhUnlatchPdo @ 0x1C00171A0 (UsbhUnlatchPdo.c)
+ *     UsbhAcquireFdoPwrLock @ 0x1C00176F8 (UsbhAcquireFdoPwrLock.c)
+ *     UsbhReleaseFdoPwrLock @ 0x1C0018364 (UsbhReleaseFdoPwrLock.c)
+ *     Usb_Disconnected @ 0x1C001CEB4 (Usb_Disconnected.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhAcquireApiLock @ 0x1C003E7F0 (UsbhAcquireApiLock.c)
+ *     UsbhIoctlGetDescriptorForPDO @ 0x1C003F070 (UsbhIoctlGetDescriptorForPDO.c)
+ *     UsbhIoctlTraceOutput @ 0x1C004193C (UsbhIoctlTraceOutput.c)
+ *     UsbhIoctlValidateParameters @ 0x1C0041B64 (UsbhIoctlValidateParameters.c)
+ *     UsbhReleaseApiLock @ 0x1C0041F04 (UsbhReleaseApiLock.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 __int64 __fastcall UsbhIoctlGetDescriptorFromNodeConnection(__int64 a1, IRP *a2, __int64 a3)
@@ -34,11 +34,12 @@ __int64 __fastcall UsbhIoctlGetDescriptorFromNodeConnection(__int64 a1, IRP *a2,
   int v13; // ebx
   __int64 v14; // r10
   __int64 v15; // rdx
-  char v17; // [rsp+98h] [rbp+10h] BYREF
-  __int64 v18; // [rsp+A0h] [rbp+18h] BYREF
-  int v19; // [rsp+A8h] [rbp+20h] BYREF
+  int v17; // [rsp+48h] [rbp-40h]
+  char v18; // [rsp+98h] [rbp+10h] BYREF
+  __int64 v19; // [rsp+A0h] [rbp+18h] BYREF
+  int v20; // [rsp+A8h] [rbp+20h] BYREF
 
-  v17 = 0;
+  v18 = 0;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     WPP_RECORDER_SF_(
       (__int64)WPP_GLOBAL_Control->DeviceExtension,
@@ -47,14 +48,14 @@ __int64 __fastcall UsbhIoctlGetDescriptorFromNodeConnection(__int64 a1, IRP *a2,
       0x23u,
       (__int64)&WPP_1cc12751aa963e921be10b52612de601_Traceguids);
   MasterIrp = (__int64)a2->AssociatedIrp.MasterIrp;
-  LOWORD(v18) = *(_WORD *)(a3 + 8);
-  v19 = 260;
+  LOWORD(v19) = *(_WORD *)(a3 + 8);
+  v20 = 260;
   Log(a1, 32, 1768898146, (__int64)a2, MasterIrp);
   v7 = FdoExt(a1);
   v8 = (_QWORD *)UsbhIncHubBusy(a1, (__int64)(v7 + 434), (__int64)a2, 1430414185, 1);
   if ( v8 )
   {
-    DescriptorForPDO = UsbhAcquireApiLock(a1, 0xF00D000B, &v17);
+    DescriptorForPDO = UsbhAcquireApiLock(a1, 0xF00D000B, &v18);
     if ( (DescriptorForPDO & 0xC0000000) != 0xC0000000 )
     {
       v10 = UsbhIoctlValidateParameters(a1, 4, 13);
@@ -74,17 +75,17 @@ __int64 __fastcall UsbhIoctlGetDescriptorFromNodeConnection(__int64 a1, IRP *a2,
           UsbhAcquireFdoPwrLock(a1, (__int64)(v12 + 346), 126, 1903322197);
           v13 = PdoExt(v11)[282];
           UsbhReleaseFdoPwrLock(a1, (__int64)(v12 + 346));
-          LOWORD(v18) = v18 - 12;
+          LOWORD(v19) = v19 - 12;
           DescriptorForPDO = UsbhIoctlGetDescriptorForPDO(
                                a1,
                                v11,
                                (__int64)a2,
                                MasterIrp + 4,
-                               (unsigned __int16 *)&v18,
+                               (unsigned __int16 *)&v19,
                                (char *)(MasterIrp + 12),
-                               v17,
+                               v18,
                                v13 != 1);
-          Log(a1, 32, 1764834402, DescriptorForPDO, (unsigned __int16)v18);
+          Log(a1, 32, 1764834402, DescriptorForPDO, (unsigned __int16)v19);
           if ( DescriptorForPDO >= 0 )
             a2->IoStatus.Information = v14 + 12;
           UsbhUnlatchPdo(a1, v11, (__int64)a2, 0x496F3062u);
@@ -98,8 +99,11 @@ __int64 __fastcall UsbhIoctlGetDescriptorFromNodeConnection(__int64 a1, IRP *a2,
   }
   Log(a1, 32, 1768897634, (__int64)a2, DescriptorForPDO);
   if ( (DescriptorForPDO & 0xC0000000) == 0xC0000000 && !Usb_Disconnected(DescriptorForPDO) )
-    UsbhException(a1, 0, 91, (int)&v19, 4, DescriptorForPDO, 0, usbfile_ioctl_c, 1562, 0);
-  if ( v17 )
+  {
+    LOBYTE(v17) = 0;
+    UsbhException(a1, 0, 91, (int)&v20, 4, DescriptorForPDO, 0, usbfile_ioctl_c, 1562, v17);
+  }
+  if ( v18 )
     UsbhReleaseApiLock(a1, 4027383819LL);
   UsbhIoctlTraceOutput(a1, a2);
   FdoExt(a1);

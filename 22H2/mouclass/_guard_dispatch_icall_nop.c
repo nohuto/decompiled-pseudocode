@@ -1,1 +1,46 @@
-/*\n * XREFs of _guard_dispatch_icall_nop @ 0x1C0002B60\n * Callers:\n *     WPP_RECORDER_SF_qqsd @ 0x1C00012A0 (WPP_RECORDER_SF_qqsd.c)\n *     WPP_RECORDER_SF_qqL @ 0x1C0001A10 (WPP_RECORDER_SF_qqL.c)\n *     WPP_RECORDER_SF_qqc @ 0x1C0002100 (WPP_RECORDER_SF_qqc.c)\n *     WPP_RECORDER_SF_Dd @ 0x1C00021B0 (WPP_RECORDER_SF_Dd.c)\n *     WPP_RECORDER_SF_S @ 0x1C00023A0 (WPP_RECORDER_SF_S.c)\n *     WPP_RECORDER_SF_d @ 0x1C00024A0 (WPP_RECORDER_SF_d.c)\n *     WPP_RECORDER_SF_qqdDdd @ 0x1C0002530 (WPP_RECORDER_SF_qqdDdd.c)\n *     _guard_xfg_dispatch_icall_nop @ 0x1C0002B80 (_guard_xfg_dispatch_icall_nop.c)\n *     WPP_RECORDER_SF_ @ 0x1C0005CCC (WPP_RECORDER_SF_.c)\n *     WPP_RECORDER_SF_D @ 0x1C0005DA4 (WPP_RECORDER_SF_D.c)\n *     WPP_RECORDER_SF_q @ 0x1C0005E50 (WPP_RECORDER_SF_q.c)\n *     WPP_RECORDER_SF_qL @ 0x1C0005EFC (WPP_RECORDER_SF_qL.c)\n *     WPP_RECORDER_SF_qLL @ 0x1C0005FD0 (WPP_RECORDER_SF_qLL.c)\n *     WPP_RECORDER_SF_qLqq @ 0x1C00060C8 (WPP_RECORDER_SF_qLqq.c)\n *     WPP_RECORDER_SF_qd @ 0x1C00061E0 (WPP_RECORDER_SF_qd.c)\n *     WPP_RECORDER_SF_qlqqd @ 0x1C00062B4 (WPP_RECORDER_SF_qlqqd.c)\n *     WPP_RECORDER_SF_qq @ 0x1C00063F4 (WPP_RECORDER_SF_qq.c)\n *     WPP_RECORDER_SF_qqDdd @ 0x1C0006518 (WPP_RECORDER_SF_qqDdd.c)\n *     WPP_RECORDER_SF_qqLL @ 0x1C0006654 (WPP_RECORDER_SF_qqLL.c)\n *     WPP_RECORDER_SF_qqLLqq @ 0x1C0006770 (WPP_RECORDER_SF_qqLLqq.c)\n *     WPP_RECORDER_SF_qqLd @ 0x1C00068C8 (WPP_RECORDER_SF_qqLd.c)\n *     WPP_RECORDER_SF_qqLqq @ 0x1C00069F0 (WPP_RECORDER_SF_qqLqq.c)\n *     WPP_RECORDER_SF_qqd @ 0x1C0006B2C (WPP_RECORDER_SF_qqd.c)\n *     WPP_RECORDER_SF_qqdq @ 0x1C0006C30 (WPP_RECORDER_SF_qqdq.c)\n *     WPP_RECORDER_SF_qqiL @ 0x1C0006D48 (WPP_RECORDER_SF_qqiL.c)\n *     WPP_RECORDER_SF_qqq @ 0x1C0006E60 (WPP_RECORDER_SF_qqq.c)\n *     WPP_RECORDER_SF_qqqql @ 0x1C0006F50 (WPP_RECORDER_SF_qqqql.c)\n *     MouDeterminePortsServiced @ 0x1C000DAE0 (MouDeterminePortsServiced.c)\n *     WppInitKm @ 0x1C000DFB0 (WppInitKm.c)\n *     WppLoadTracingSupport @ 0x1C000E070 (WppLoadTracingSupport.c)\n *     _tlgEnableCallback @ 0x1C000E1C0 (_tlgEnableCallback.c)\n *     WppCleanupKm @ 0x1C000F570 (WppCleanupKm.c)\n *     WppTraceCallback @ 0x1C000F630 (WppTraceCallback.c)\n *     MouConfiguration @ 0x1C0011080 (MouConfiguration.c)\n * Callees:\n *     <none>\n */\n\n__int64 __fastcall guard_dispatch_icall_nop()\n{\n  __int64 (*v0)(void); // rax\n\n  return v0();\n}\n
+/*
+ * XREFs of _guard_dispatch_icall_nop @ 0x1C0002A40
+ * Callers:
+ *     WPP_RECORDER_SF_qqc @ 0x1C00017A0 (WPP_RECORDER_SF_qqc.c)
+ *     WPP_RECORDER_SF_qqdDdd @ 0x1C0001BF0 (WPP_RECORDER_SF_qqdDdd.c)
+ *     WPP_RECORDER_SF_qqL @ 0x1C0002040 (WPP_RECORDER_SF_qqL.c)
+ *     WPP_RECORDER_SF_qqsd @ 0x1C0002130 (WPP_RECORDER_SF_qqsd.c)
+ *     WPP_RECORDER_SF_S @ 0x1C0002310 (WPP_RECORDER_SF_S.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002410 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_Dd @ 0x1C0002610 (WPP_RECORDER_SF_Dd.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000572C (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0005804 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00058B0 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_qL @ 0x1C000595C (WPP_RECORDER_SF_qL.c)
+ *     WPP_RECORDER_SF_qLL @ 0x1C0005A30 (WPP_RECORDER_SF_qLL.c)
+ *     WPP_RECORDER_SF_qLqq @ 0x1C0005B28 (WPP_RECORDER_SF_qLqq.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C0005C40 (WPP_RECORDER_SF_qd.c)
+ *     WPP_RECORDER_SF_qlqqd @ 0x1C0005D14 (WPP_RECORDER_SF_qlqqd.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0005E54 (WPP_RECORDER_SF_qq.c)
+ *     WPP_RECORDER_SF_qqDdd @ 0x1C0005F78 (WPP_RECORDER_SF_qqDdd.c)
+ *     WPP_RECORDER_SF_qqLL @ 0x1C00060B8 (WPP_RECORDER_SF_qqLL.c)
+ *     WPP_RECORDER_SF_qqLLqq @ 0x1C00061D4 (WPP_RECORDER_SF_qqLLqq.c)
+ *     WPP_RECORDER_SF_qqLd @ 0x1C000632C (WPP_RECORDER_SF_qqLd.c)
+ *     WPP_RECORDER_SF_qqLqq @ 0x1C0006458 (WPP_RECORDER_SF_qqLqq.c)
+ *     WPP_RECORDER_SF_qqd @ 0x1C0006594 (WPP_RECORDER_SF_qqd.c)
+ *     WPP_RECORDER_SF_qqdq @ 0x1C0006698 (WPP_RECORDER_SF_qqdq.c)
+ *     WPP_RECORDER_SF_qqiL @ 0x1C00067B4 (WPP_RECORDER_SF_qqiL.c)
+ *     WPP_RECORDER_SF_qqq @ 0x1C00068D0 (WPP_RECORDER_SF_qqq.c)
+ *     WPP_RECORDER_SF_qqqql @ 0x1C00069C0 (WPP_RECORDER_SF_qqqql.c)
+ *     MouDeterminePortsServiced @ 0x1C000C830 (MouDeterminePortsServiced.c)
+ *     WppInitKm @ 0x1C000CEF0 (WppInitKm.c)
+ *     WppLoadTracingSupport @ 0x1C000CFB0 (WppLoadTracingSupport.c)
+ *     _tlgEnableCallback @ 0x1C000D260 (_tlgEnableCallback.c)
+ *     WppCleanupKm @ 0x1C000E5B4 (WppCleanupKm.c)
+ *     WppTraceCallback @ 0x1C000E670 (WppTraceCallback.c)
+ *     MouConfiguration @ 0x1C000F080 (MouConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall guard_dispatch_icall_nop()
+{
+  __int64 (*v0)(void); // rax
+
+  return v0();
+}

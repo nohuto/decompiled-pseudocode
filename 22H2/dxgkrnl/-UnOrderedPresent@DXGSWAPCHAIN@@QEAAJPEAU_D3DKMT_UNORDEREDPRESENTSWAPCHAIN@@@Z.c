@@ -1,161 +1,140 @@
 /*
- * XREFs of ?UnOrderedPresent@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_UNORDEREDPRESENTSWAPCHAIN@@@Z @ 0x1C035A6B0
+ * XREFs of ?UnOrderedPresent@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_UNORDEREDPRESENTSWAPCHAIN@@@Z @ 0x1C02AD1F4
  * Callers:
- *     DxgkUnOrderedPresentSwapChain @ 0x1C035D290 (DxgkUnOrderedPresentSwapChain.c)
+ *     DxgkUnOrderedPresentSwapChain @ 0x1C02AF840 (DxgkUnOrderedPresentSwapChain.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?AcquireBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_ACQUIRESWAPCHAIN@@PEAI@Z @ 0x1C0232D54 (-AcquireBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_ACQUIRESWAPCHAIN@@PEAI@Z.c)
- *     ?MarkAbandoned@DXGSWAPCHAIN@@QEAAX_N@Z @ 0x1C03589E4 (-MarkAbandoned@DXGSWAPCHAIN@@QEAAX_N@Z.c)
- *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDH@Z @ 0x1C03596D4 (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDH@Z.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?AcquireBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_ACQUIRESWAPCHAIN@@PEAI@Z @ 0x1C02AA584 (-AcquireBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_ACQUIRESWAPCHAIN@@PEAI@Z.c)
+ *     ?MarkAbandoned@DXGSWAPCHAIN@@QEAAX_N@Z @ 0x1C02AB9C8 (-MarkAbandoned@DXGSWAPCHAIN@@QEAAX_N@Z.c)
+ *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z @ 0x1C02AC574 (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z.c)
  */
 
 __int64 __fastcall DXGSWAPCHAIN::UnOrderedPresent(struct _KTHREAD **this, struct _D3DKMT_UNORDEREDPRESENTSWAPCHAIN *a2)
 {
+  __int64 v4; // rax
+  __int64 v5; // rax
   __int64 result; // rax
-  unsigned int v5; // eax
-  struct _D3DKMT_UNORDEREDPRESENTSWAPCHAIN *v6; // rbx
-  __int64 hNtSwapChain_low; // r9
-  __int64 v8; // rax
-  const wchar_t *v9; // r9
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  struct _KTHREAD *v12; // r8
-  char *v13; // r14
-  PVOID pMetaData; // rdx
+  struct _D3DKMT_UNORDEREDPRESENTSWAPCHAIN *v7; // rbx
+  __int64 hNtSwapChain_low; // rax
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // rbp
+  _QWORD *v14; // rax
   __int64 v15; // rdx
   __int64 v16; // r8
-  __int64 v17; // rdi
-  int v18; // eax
+  int v17; // eax
+  __int64 v18; // rdx
   __int64 v19; // rcx
-  const wchar_t *v20; // r9
-  __int64 CurrentProcess; // rax
-  HANDLE hNtPresentSurfaceHandle; // rdi
-  __int64 v23; // rbx
-  __int64 v24; // rcx
-  __int64 v25; // rax
-  int v26; // eax
-  void *v27; // r8
-  int v28; // eax
-  int v29; // [rsp+38h] [rbp-F0h]
-  _BYTE v30[64]; // [rsp+50h] [rbp-D8h] BYREF
-  struct _D3DKMT_ACQUIRESWAPCHAIN v31; // [rsp+90h] [rbp-98h] BYREF
-  __int64 v32; // [rsp+130h] [rbp+8h] BYREF
+  __int64 v20; // r8
+  __int64 v21; // r9
+  BOOL bProducer; // ebx
+  __int64 CurrentProcess; // rbx
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // r9
+  __int64 v28; // rax
+  int v29; // eax
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // rax
+  void *v33; // r8
+  int v34; // eax
+  __int64 v35; // rax
+  char v36; // [rsp+38h] [rbp-C0h]
+  _BYTE v37[64]; // [rsp+40h] [rbp-B8h] BYREF
+  struct _D3DKMT_ACQUIRESWAPCHAIN v38; // [rsp+80h] [rbp-78h] BYREF
+  __int64 v39; // [rsp+100h] [rbp+8h] BYREF
 
-  if ( this[3] != KeGetCurrentThread() )
+  if ( this[2] != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 2562LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_SwapChainLock.IsOwner()", 2562LL, 0LL, 0LL, 0LL, 0LL);
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v4 + 24) = 2497LL;
+    WdLogEvent5_WdAssertion(v4);
   }
-  if ( !*((_DWORD *)this + 58) )
+  if ( !*((_DWORD *)this + 56) )
   {
-    WdLogSingleEntry1(2LL, 2567LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"UnOrderedPresent is not allowed for sequential swapchains",
-      2567LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v5 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v5 + 24) = 2502LL;
+    WdLogEvent5_WdError(v5);
     return 3221225659LL;
   }
-  v5 = *((_DWORD *)this + 14);
-  v6 = a2 + 1;
+  v7 = a2 + 1;
   hNtSwapChain_low = LODWORD(a2[1].hNtSwapChain);
-  if ( (unsigned int)hNtSwapChain_low >= v5 )
+  if ( (unsigned int)hNtSwapChain_low >= *((_DWORD *)this + 12) )
   {
-    WdLogSingleEntry2(2LL, (unsigned int)hNtSwapChain_low, v5);
-    v8 = *((unsigned int *)this + 14);
-    v9 = L"Surface index (0x%I64x) is outside of the range of the table size (0x%I64x)";
+    v9 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v9 + 24) = LODWORD(v7->hNtSwapChain);
+    v10 = *((unsigned int *)this + 12);
 LABEL_7:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v9, LODWORD(v6->hNtSwapChain), v8, 0LL, 0LL, 0LL);
-    DXGSWAPCHAIN::MarkAbandoned(this, v10, v11);
+    *(_QWORD *)(v9 + 32) = v10;
+    WdLogEvent5_WdError(v9);
+    DXGSWAPCHAIN::MarkAbandoned(this, v11, v12);
     return 3221225485LL;
   }
-  v12 = this[8];
-  v13 = (char *)v12 + 112 * hNtSwapChain_low;
-  if ( !*((_DWORD *)v13 + 2) )
+  v13 = (__int64)this[7] + 112 * hNtSwapChain_low;
+  if ( !*(_DWORD *)(v13 + 8) )
   {
-    WdLogSingleEntry2(2LL, LODWORD(a2[1].hNtSwapChain), 0LL);
-    v8 = *((int *)v13 + 2);
-    v9 = L"Surface index (0x%I64x) is not in use by producer, current status (0x%I64x)";
+    v9 = WdLogNewEntry5_WdError(this, a2);
+    *(_QWORD *)(v9 + 24) = LODWORD(v7->hNtSwapChain);
+    v10 = *(int *)(v13 + 8);
     goto LABEL_7;
   }
-  pMetaData = a2->pMetaData;
-  if ( *((PVOID *)v13 + 8) == pMetaData )
+  if ( *(PVOID *)(v13 + 64) == a2->pMetaData )
   {
-    memset(&v31, 0, 0x68uLL);
-    v31.bProducer = a2->bProducer;
-    v18 = DXGSWAPCHAIN::AcquireBuffer(this, &v31, (unsigned int *)&a2[1]);
-    v17 = v18;
-    if ( v18 >= 0 )
+    memset(&v38, 0, 0x68uLL);
+    v38.bProducer = a2->bProducer;
+    v17 = DXGSWAPCHAIN::AcquireBuffer(this, &v38, (unsigned int *)&a2[1]);
+    v7 = (struct _D3DKMT_UNORDEREDPRESENTSWAPCHAIN *)v17;
+    if ( v17 >= 0 )
     {
       result = 259LL;
-      if ( (_DWORD)v17 == 259 )
+      if ( (_DWORD)v7 == 259 )
         return result;
-      if ( a2->bProducer && a2->hNtPresentSurfaceHandle )
+      bProducer = a2->bProducer;
+      if ( bProducer && a2->hNtPresentSurfaceHandle )
       {
-        v32 = 0LL;
-        CurrentProcess = PsGetCurrentProcess(v19);
-        hNtPresentSurfaceHandle = a2->hNtPresentSurfaceHandle;
-        v23 = CurrentProcess;
-        v25 = PsGetCurrentProcess(v24);
-        LOBYTE(v29) = 1;
-        v26 = ObDuplicateObject(v25, hNtPresentSurfaceHandle, v23, &v32, 0, 0, 6, v29);
-        v17 = v26;
-        if ( v26 < 0 )
+        v39 = 0LL;
+        CurrentProcess = PsGetCurrentProcess(v19, v18, v20, v21);
+        v28 = PsGetCurrentProcess(v25, v24, v26, v27);
+        v36 = 1;
+        v29 = ObDuplicateObject(v28, a2->hNtPresentSurfaceHandle, CurrentProcess, &v39, 0, 0, 6, v36);
+        v7 = (struct _D3DKMT_UNORDEREDPRESENTSWAPCHAIN *)v29;
+        if ( v29 < 0 )
         {
-          WdLogSingleEntry2(2LL, a2->hNtPresentSurfaceHandle, v26);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed to duplicate Fence Nt handle 0x%I64x, error 0x%I64x",
-            (__int64)a2->hNtPresentSurfaceHandle,
-            v17,
-            0LL,
-            0LL,
-            0LL);
-          goto LABEL_19;
+          v32 = WdLogNewEntry5_WdError(v31, v30);
+          *(_QWORD *)(v32 + 24) = a2->hNtPresentSurfaceHandle;
+          *(_QWORD *)(v32 + 32) = v7;
+          WdLogEvent5_WdError(v32);
+          goto LABEL_18;
         }
-        *((_QWORD *)v13 + 4) = v32;
-        *((_QWORD *)v13 + 5) = *(_QWORD *)&a2->PresentBufferIdx;
+        *(_QWORD *)(v13 + 32) = v39;
+        *(_QWORD *)(v13 + 40) = *(_QWORD *)&a2->PresentBufferIdx;
+        bProducer = a2->bProducer;
       }
-      memset(v30, 0, sizeof(v30));
-      v27 = *(void **)&a2[1].bProducer;
-      *(_DWORD *)&v30[8] = a2->bProducer;
-      *(_DWORD *)&v30[32] = HIDWORD(a2[1].hNtSwapChain);
-      v28 = DXGSWAPCHAIN::ReleaseBuffer((DXGSWAPCHAIN *)this, (struct _D3DKMT_RELEASESWAPCHAIN *)v30, v27, 1, 0);
-      v17 = v28;
-      if ( v28 >= 0 )
-        return (unsigned int)v17;
-      WdLogSingleEntry1(2LL, v28);
-      v20 = L"ReleaseBuffer() failed with 0x%I64x for un-ordered present";
+      memset(v37, 0, sizeof(v37));
+      v33 = *(void **)&a2[1].bProducer;
+      *(_DWORD *)&v37[32] = HIDWORD(a2[1].hNtSwapChain);
+      *(_DWORD *)&v37[8] = bProducer;
+      v34 = DXGSWAPCHAIN::ReleaseBuffer((DXGSWAPCHAIN *)this, (struct _D3DKMT_RELEASESWAPCHAIN *)v37, v33, 1);
+      v7 = (struct _D3DKMT_UNORDEREDPRESENTSWAPCHAIN *)v34;
+      if ( v34 >= 0 )
+        return (unsigned int)v7;
     }
-    else
-    {
-      WdLogSingleEntry1(2LL, v18);
-      v20 = L"AcquireBuffer() failed with 0x%I64x for un-ordered present";
-    }
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v20, v17, 0LL, 0LL, 0LL, 0LL);
-    return (unsigned int)v17;
+    v35 = WdLogNewEntry5_WdError(v19, v18);
+    *(_QWORD *)(v35 + 24) = v7;
+    WdLogEvent5_WdError(v35);
+    return (unsigned int)v7;
   }
-  WdLogSingleEntry3(2LL, pMetaData, *((_QWORD *)v12 + 8), hNtSwapChain_low);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Surface handle (0x%I64x) provided by caller does not match the handle (0x%I64x) for that index (0x%I64x)",
-    (__int64)a2->pMetaData,
-    *((_QWORD *)this[8] + 8),
-    LODWORD(v6->hNtSwapChain),
-    0LL,
-    0LL);
-  LODWORD(v17) = -1073741811;
-LABEL_19:
+  v14 = (_QWORD *)WdLogNewEntry5_WdError(this, a2);
+  v14[3] = a2->pMetaData;
+  v14[4] = *((_QWORD *)this[7] + 8);
+  v14[5] = LODWORD(v7->hNtSwapChain);
+  WdLogEvent5_WdError(v14);
+  LODWORD(v7) = -1073741811;
+LABEL_18:
   DXGSWAPCHAIN::MarkAbandoned(this, v15, v16);
-  return (unsigned int)v17;
+  return (unsigned int)v7;
 }

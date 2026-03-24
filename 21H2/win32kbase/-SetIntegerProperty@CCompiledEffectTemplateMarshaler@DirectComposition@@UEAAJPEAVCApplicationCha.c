@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00B6D60
+ * XREFs of ?SetIntegerProperty@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00A2160
  * Callers:
  *     <none>
  * Callees:
@@ -22,18 +22,18 @@ __int64 __fastcall DirectComposition::CCompiledEffectTemplateMarshaler::SetInteg
   v6 = a3 - 1;
   if ( !v6 )
   {
-    *((_DWORD *)this + 20) = a4;
+    *((_DWORD *)this + 18) = a4;
     goto LABEL_5;
   }
   v7 = v6 - 1;
   if ( !v7 )
   {
-    *((_DWORD *)this + 21) = a4;
+    *((_DWORD *)this + 19) = a4;
     goto LABEL_5;
   }
   if ( v7 == 1 )
   {
-    *((_DWORD *)this + 22) = a4;
+    *((_DWORD *)this + 20) = a4;
 LABEL_5:
     *((_DWORD *)this + 4) &= ~0x40u;
     *a5 = 1;

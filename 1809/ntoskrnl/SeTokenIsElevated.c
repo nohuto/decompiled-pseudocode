@@ -1,10 +1,10 @@
 /*
- * XREFs of SeTokenIsElevated @ 0x1406B091C
+ * XREFs of SeTokenIsElevated @ 0x1406B08FC
  * Callers:
  *     SeTokenCanImpersonate @ 0x1406380E0 (SeTokenCanImpersonate.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeQueryInformationToken @ 0x14063C370 (SeQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
  */
 
 __int64 __fastcall SeTokenIsElevated(_DWORD *a1, _BYTE *a2)

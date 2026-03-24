@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSystemServiceHandler @ 0x1401CEE80
+ * XREFs of KiSystemServiceHandler @ 0x1401CEF80
  * Callers:
  *     <none>
  * Callees:
  *     RtlUnwindEx @ 0x14009DF30 (RtlUnwindEx.c)
- *     KiBugCheckDispatch @ 0x1401CFD00 (KiBugCheckDispatch.c)
+ *     KiBugCheckDispatch @ 0x1401CFE00 (KiBugCheckDispatch.c)
  */
 
 __int64 __fastcall KiSystemServiceHandler(

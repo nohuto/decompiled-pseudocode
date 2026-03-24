@@ -1,7 +1,7 @@
 /*
- * XREFs of MiDeleteColorAnchors @ 0x14085D174
+ * XREFs of MiDeleteColorAnchors @ 0x14085D154
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x14085C900 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

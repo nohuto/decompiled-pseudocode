@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpRealtimeSaveState @ 0x1406EA4C0
+ * XREFs of EtwpRealtimeSaveState @ 0x1406C340C
  * Callers:
- *     EtwpLogger @ 0x140799440 (EtwpLogger.c)
+ *     EtwpLogger @ 0x1406456F0 (EtwpLogger.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x1402E1C80 (EtwpQueryUsedProcessorCount.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x14041B860 (ZwWriteFile.c)
- *     ZwSetInformationFile @ 0x14041BC40 (ZwSetInformationFile.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140265E58 (EtwpQueryUsedProcessorCount.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
+ *     ZwSetInformationFile @ 0x1403FA880 (ZwSetInformationFile.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall EtwpRealtimeSaveState(__int64 a1)
@@ -28,37 +28,37 @@ __int64 __fastcall EtwpRealtimeSaveState(__int64 a1)
   IoStatusBlock = 0LL;
   memset(Buffer, 0, 0x48uLL);
   ByteOffset.QuadPart = 0LL;
-  if ( (*(_DWORD *)(a1 + 816) & 1) == 0 )
+  if ( (*(_DWORD *)(a1 + 832) & 1) == 0 )
     goto LABEL_2;
-  if ( !*(_QWORD *)(a1 + 360) )
+  if ( !*(_QWORD *)(a1 + 376) )
     goto LABEL_7;
-  v5 = *(_DWORD *)(a1 + 424);
+  v5 = *(_DWORD *)(a1 + 440);
   if ( !v5 )
     goto LABEL_7;
-  v6 = *(_OWORD *)(a1 + 432);
-  *((_QWORD *)&Buffer[2] + 1) = *(_QWORD *)(a1 + 392);
-  *(_QWORD *)&Buffer[3] = *(_QWORD *)(a1 + 384);
+  v6 = *(_OWORD *)(a1 + 448);
+  *((_QWORD *)&Buffer[2] + 1) = *(_QWORD *)(a1 + 408);
+  *(_QWORD *)&Buffer[3] = *(_QWORD *)(a1 + 400);
   DWORD1(Buffer[2]) = *(_DWORD *)(a1 + 4);
-  *((_QWORD *)&Buffer[3] + 1) = *(_QWORD *)(a1 + 400);
-  v7 = *(_QWORD *)(a1 + 408);
+  *((_QWORD *)&Buffer[3] + 1) = *(_QWORD *)(a1 + 416);
+  v7 = *(_QWORD *)(a1 + 424);
   LODWORD(Buffer[2]) = v5;
   *(_QWORD *)&Buffer[4] = v7;
   Buffer[1] = v6;
   LODWORD(Buffer[0]) = 1933995090;
   DWORD2(Buffer[0]) = 1;
   UsedProcessorCount = EtwpQueryUsedProcessorCount(a1);
-  v9 = *(void **)(a1 + 360);
+  v9 = *(void **)(a1 + 376);
   DWORD1(Buffer[0]) = 0;
   HIDWORD(Buffer[0]) = UsedProcessorCount;
   v2 = ZwWriteFile(v9, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0x48u, &ByteOffset, 0LL);
   if ( v2 < 0 )
   {
 LABEL_7:
-    *(_DWORD *)(a1 + 260) += *(_DWORD *)(a1 + 424);
-    *(_DWORD *)(a1 + 424) = 0;
-    *(_QWORD *)(a1 + 408) = 0LL;
+    *(_DWORD *)(a1 + 276) += *(_DWORD *)(a1 + 440);
+    *(_DWORD *)(a1 + 440) = 0;
+    *(_QWORD *)(a1 + 424) = 0LL;
 LABEL_2:
-    v3 = *(void **)(a1 + 360);
+    v3 = *(void **)(a1 + 376);
     FileInformation[0] = 1;
     ZwSetInformationFile(v3, &IoStatusBlock, FileInformation, 1u, FileDispositionInformation);
   }

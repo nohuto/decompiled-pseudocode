@@ -1,16 +1,11 @@
 /*
- * XREFs of ExpandMonitorSpaceVertex @ 0x1C00D0BA8
+ * XREFs of ExpandMonitorSpaceVertex @ 0x1C00429AC
  * Callers:
- *     GetMonitorWorkRectForDpi @ 0x1C00AAE34 (GetMonitorWorkRectForDpi.c)
- *     ?GetMonitorMaxArea@@YA?AUtagRECT@@PEBUtagWND@@PEAUtagMONITOR@@@Z @ 0x1C00CFAA0 (-GetMonitorMaxArea@@YA-AUtagRECT@@PEBUtagWND@@PEAUtagMONITOR@@@Z.c)
- *     GetMonitorRectForDpi @ 0x1C00CFCCC (GetMonitorRectForDpi.c)
- *     _MonitorFromRect @ 0x1C00D0160 (_MonitorFromRect.c)
- *     CalculateLogicalMonitorRect @ 0x1C00D0B34 (CalculateLogicalMonitorRect.c)
- *     InitializeMonitorInfo @ 0x1C00D516C (InitializeMonitorInfo.c)
- *     xxxInitSendValidateMinMaxInfoEx @ 0x1C00ED180 (xxxInitSendValidateMinMaxInfoEx.c)
- *     InternalGetRealClientRect @ 0x1C00EF568 (InternalGetRealClientRect.c)
- *     ExpandedMonitorSpace @ 0x1C01B9090 (ExpandedMonitorSpace.c)
- *     ?GetMonitorMenuRectForDpi@@YA?AUtagRECT@@PEBUtagMONITOR@@G@Z @ 0x1C024BBAC (-GetMonitorMenuRectForDpi@@YA-AUtagRECT@@PEBUtagMONITOR@@G@Z.c)
+ *     GetMonitorRectForDpi @ 0x1C0041F48 (GetMonitorRectForDpi.c)
+ *     GetMonitorRectForDpiContext @ 0x1C0042810 (GetMonitorRectForDpiContext.c)
+ *     GetMonitorWorkRectForDpi @ 0x1C007C8AC (GetMonitorWorkRectForDpi.c)
+ *     ExpandedMonitorSpace @ 0x1C01E3A5C (ExpandedMonitorSpace.c)
+ *     ?GetMonitorMenuRectForDpi@@YA?AUtagRECT@@PEBUtagMONITOR@@G@Z @ 0x1C025D1D4 (-GetMonitorMenuRectForDpi@@YA-AUtagRECT@@PEBUtagMONITOR@@G@Z.c)
  * Callees:
  *     <none>
  */

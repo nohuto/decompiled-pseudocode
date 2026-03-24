@@ -1,11 +1,11 @@
 /*
- * XREFs of NtCancelSynchronousIoFile @ 0x140937010
+ * XREFs of NtCancelSynchronousIoFile @ 0x140894710
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     IopCancelSynchronousIrpsForThread @ 0x140933DDC (IopCancelSynchronousIrpsForThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     IopCancelSynchronousIrpsForThread @ 0x1408911E0 (IopCancelSynchronousIrpsForThread.c)
  */
 
 NTSTATUS __fastcall NtCancelSynchronousIoFile(void *a1, __int64 a2, unsigned __int64 a3)
@@ -14,7 +14,7 @@ NTSTATUS __fastcall NtCancelSynchronousIoFile(void *a1, __int64 a2, unsigned __i
   __int64 v6; // r8
   NTSTATUS result; // eax
   struct _KTHREAD *CurrentThread; // rax
-  PVOID v9; // rsi
+  struct _DMA_ADAPTER *v9; // rsi
   PVOID Object; // [rsp+30h] [rbp-18h] BYREF
   unsigned int v11; // [rsp+68h] [rbp+20h]
 
@@ -33,11 +33,11 @@ NTSTATUS __fastcall NtCancelSynchronousIoFile(void *a1, __int64 a2, unsigned __i
     CurrentThread = KeGetCurrentThread();
     ++CurrentThread->OtherOperationCount;
     __incgsdword(0x2EE4u);
-    v9 = Object;
+    v9 = (struct _DMA_ADAPTER *)Object;
     v11 = (unsigned int)IopCancelSynchronousIrpsForThread((__int64)Object, a2) == 0 ? 0xC0000225 : 0;
     *(_DWORD *)a3 = v11;
     *(_QWORD *)(a3 + 8) = 0LL;
-    ObfDereferenceObject(v9);
+    HalPutDmaAdapter(v9);
     return v11;
   }
   return result;

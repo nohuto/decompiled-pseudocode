@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreateRetpolineBitmap @ 0x1409F7050
+ * XREFs of MiCreateRetpolineBitmap @ 0x1409F7060
  * Callers:
  *     MiInitializeRetpoline @ 0x1409DEFC8 (MiInitializeRetpoline.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiInitializeDynamicBitmap @ 0x140715740 (MiInitializeDynamicBitmap.c)
+ *     MiInitializeDynamicBitmap @ 0x140715720 (MiInitializeDynamicBitmap.c)
  */
 
 __int64 __fastcall MiCreateRetpolineBitmap(__int64 *a1)

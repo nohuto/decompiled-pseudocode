@@ -1,38 +1,43 @@
 /*
- * XREFs of ExpSetTimeZoneInformation @ 0x1409F76FC
+ * XREFs of ExpSetTimeZoneInformation @ 0x14094B37C
  * Callers:
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlWriteRegistryValue @ 0x1406D76C0 (RtlWriteRegistryValue.c)
- *     ExAcquireTimeRefreshLock @ 0x1407D6F54 (ExAcquireTimeRefreshLock.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x1409BA71C (RtlpSetTimeZoneInformationWorker.c)
- *     ExpReadSiloTimeZoneMarker @ 0x1409F8018 (ExpReadSiloTimeZoneMarker.c)
- *     NtSetSystemTime @ 0x1409F8350 (NtSetSystemTime.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExpReadSiloTimeZoneMarker @ 0x1405D1A14 (ExpReadSiloTimeZoneMarker.c)
+ *     ExpWriteSiloTimeZoneMarker @ 0x1405D1C84 (ExpWriteSiloTimeZoneMarker.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406DBD14 (ExAcquireTimeRefreshLock.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x14091510C (RtlpSetTimeZoneInformationWorker.c)
+ *     NtSetSystemTime @ 0x14094BD10 (NtSetSystemTime.c)
  */
 
 NTSTATUS __fastcall ExpSetTimeZoneInformation(unsigned __int64 a1, int a2)
 {
-  char SiloTimeZoneMarker; // r14
+  bool SiloTimeZoneMarker; // r14
   __int64 v5; // rdi
   unsigned __int64 v6; // rbx
   _OWORD *v7; // rax
   __int64 v8; // rcx
-  _OWORD *v9; // rcx
-  wchar_t *v10; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  _OWORD *v11; // rcx
+  wchar_t *v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
   NTSTATUS result; // eax
-  int v12; // ebx
-  _DWORD ValueData[4]; // [rsp+30h] [rbp-388h] BYREF
-  _OWORD v14[27]; // [rsp+40h] [rbp-378h] BYREF
-  wchar_t v15[216]; // [rsp+1F0h] [rbp-1C8h] BYREF
+  int v16; // ebx
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  _OWORD ValueData[27]; // [rsp+20h] [rbp-378h] BYREF
+  wchar_t v20[216]; // [rsp+1D0h] [rbp-1C8h] BYREF
 
-  memset(v14, 0, sizeof(v14));
+  memset(ValueData, 0, sizeof(ValueData));
   SiloTimeZoneMarker = 0;
   if ( a2 == 172 )
   {
@@ -41,21 +46,21 @@ NTSTATUS __fastcall ExpSetTimeZoneInformation(unsigned __int64 a1, int a2)
       ExRaiseDatatypeMisalignment();
     if ( a1 + 172 > 0x7FFFFFFF0000LL || a1 + 172 < a1 )
       MEMORY[0x7FFFFFFF0000] = 0;
-    v14[0] = *(_OWORD *)a1;
-    v14[1] = *(_OWORD *)(a1 + 16);
-    v14[2] = *(_OWORD *)(a1 + 32);
-    v14[3] = *(_OWORD *)(a1 + 48);
-    v14[4] = *(_OWORD *)(a1 + 64);
-    v14[5] = *(_OWORD *)(a1 + 80);
-    v14[6] = *(_OWORD *)(a1 + 96);
-    v14[7] = *(_OWORD *)(a1 + 112);
+    ValueData[0] = *(_OWORD *)a1;
+    ValueData[1] = *(_OWORD *)(a1 + 16);
+    ValueData[2] = *(_OWORD *)(a1 + 32);
+    ValueData[3] = *(_OWORD *)(a1 + 48);
+    ValueData[4] = *(_OWORD *)(a1 + 64);
+    ValueData[5] = *(_OWORD *)(a1 + 80);
+    ValueData[6] = *(_OWORD *)(a1 + 96);
+    ValueData[7] = *(_OWORD *)(a1 + 112);
     v6 = a1 + 128;
-    v14[8] = *(_OWORD *)v6;
-    v14[9] = *(_OWORD *)(v6 + 16);
-    *(_QWORD *)&v14[10] = *(_QWORD *)(v6 + 32);
-    DWORD2(v14[10]) = *(_DWORD *)(v6 + 40);
-    memset((char *)&v14[10] + 12, 0, 0x100uLL);
-    BYTE12(v14[26]) = 1;
+    ValueData[8] = *(_OWORD *)v6;
+    ValueData[9] = *(_OWORD *)(v6 + 16);
+    *(_QWORD *)&ValueData[10] = *(_QWORD *)(v6 + 32);
+    DWORD2(ValueData[10]) = *(_DWORD *)(v6 + 40);
+    memset((char *)&ValueData[10] + 12, 0, 0x100uLL);
+    BYTE12(ValueData[26]) = 1;
   }
   else
   {
@@ -66,7 +71,7 @@ NTSTATUS __fastcall ExpSetTimeZoneInformation(unsigned __int64 a1, int a2)
       ExRaiseDatatypeMisalignment();
     if ( a1 + 432 > 0x7FFFFFFF0000LL || a1 + 432 < a1 )
       MEMORY[0x7FFFFFFF0000] = 0;
-    v7 = v14;
+    v7 = ValueData;
     v8 = 3LL;
     do
     {
@@ -88,47 +93,42 @@ NTSTATUS __fastcall ExpSetTimeZoneInformation(unsigned __int64 a1, int a2)
     v7[2] = *(_OWORD *)(a1 + 32);
   }
   ExAcquireTimeRefreshLock(1u);
-  v9 = (_OWORD *)*((_QWORD *)PsGetCurrentServerSiloGlobals() + 157);
-  v10 = v15;
+  v11 = (_OWORD *)*((_QWORD *)PsGetCurrentServerSiloGlobals(v10, v9) + 133);
+  v12 = v20;
   do
   {
-    *(_OWORD *)v10 = *v9;
-    *((_OWORD *)v10 + 1) = v9[1];
-    *((_OWORD *)v10 + 2) = v9[2];
-    *((_OWORD *)v10 + 3) = v9[3];
-    *((_OWORD *)v10 + 4) = v9[4];
-    *((_OWORD *)v10 + 5) = v9[5];
-    *((_OWORD *)v10 + 6) = v9[6];
-    v10 += 64;
-    *((_OWORD *)v10 - 1) = v9[7];
-    v9 += 8;
+    *(_OWORD *)v12 = *v11;
+    *((_OWORD *)v12 + 1) = v11[1];
+    *((_OWORD *)v12 + 2) = v11[2];
+    *((_OWORD *)v12 + 3) = v11[3];
+    *((_OWORD *)v12 + 4) = v11[4];
+    *((_OWORD *)v12 + 5) = v11[5];
+    *((_OWORD *)v12 + 6) = v11[6];
+    v12 += 64;
+    *((_OWORD *)v12 - 1) = v11[7];
+    v11 += 8;
     --v5;
   }
   while ( v5 );
-  *(_OWORD *)v10 = *v9;
-  *((_OWORD *)v10 + 1) = v9[1];
-  *((_OWORD *)v10 + 2) = v9[2];
+  *(_OWORD *)v12 = *v11;
+  *((_OWORD *)v12 + 1) = v11[1];
+  *((_OWORD *)v12 + 2) = v11[2];
   ExReleaseResourceLite(&ExpTimeRefreshLock);
   KeLeaveCriticalRegion();
-  if ( !PsIsCurrentThreadInServerSilo()
-    || (SiloTimeZoneMarker = ExpReadSiloTimeZoneMarker()) != 0
-    || (ValueData[0] = 1,
-        result = RtlWriteRegistryValue(2u, L"TimeZoneInformation", L"SiloTimeZoneMarker", 4u, ValueData, 4u),
-        result >= 0) )
+  if ( !PsIsCurrentThreadInServerSilo(v14, v13)
+    || (SiloTimeZoneMarker = ExpReadSiloTimeZoneMarker())
+    || (result = ExpWriteSiloTimeZoneMarker(1u), result >= 0) )
   {
-    v12 = RtlpSetTimeZoneInformationWorker((wchar_t *)v14, 0x1B0u);
-    if ( v12 >= 0 )
-      v12 = NtSetSystemTime(0LL, 0LL);
-    if ( v12 < 0 )
+    v16 = RtlpSetTimeZoneInformationWorker((wchar_t *)ValueData, 0x1B0u);
+    if ( v16 >= 0 )
+      v16 = NtSetSystemTime(0LL, 0LL);
+    if ( v16 < 0 )
     {
-      RtlpSetTimeZoneInformationWorker(v15, 0x1B0u);
-      if ( PsIsCurrentThreadInServerSilo() && !SiloTimeZoneMarker )
-      {
-        ValueData[0] = 0;
-        RtlWriteRegistryValue(2u, L"TimeZoneInformation", L"SiloTimeZoneMarker", 4u, ValueData, 4u);
-      }
+      RtlpSetTimeZoneInformationWorker(v20, 0x1B0u);
+      if ( PsIsCurrentThreadInServerSilo(v18, v17) && !SiloTimeZoneMarker )
+        ExpWriteSiloTimeZoneMarker(0);
     }
-    return v12;
+    return v16;
   }
   return result;
 }

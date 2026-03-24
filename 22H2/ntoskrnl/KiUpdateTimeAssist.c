@@ -1,102 +1,76 @@
 /*
- * XREFs of KiUpdateTimeAssist @ 0x1403CF158
+ * XREFs of KiUpdateTimeAssist @ 0x14035EFD8
  * Callers:
- *     KeClockInterruptNotify @ 0x1402C4670 (KeClockInterruptNotify.c)
- *     KeResumeClockTimerFromIdle @ 0x1402C7030 (KeResumeClockTimerFromIdle.c)
- *     KeSynchronizeTimeToQpc @ 0x14056B020 (KeSynchronizeTimeToQpc.c)
+ *     KeResumeClockTimerFromIdle @ 0x140224BA0 (KeResumeClockTimerFromIdle.c)
+ *     KeSynchronizeTimeToQpc @ 0x1403863B0 (KeSynchronizeTimeToQpc.c)
  * Callees:
- *     RtlBeginReadTickLock @ 0x1402BFD64 (RtlBeginReadTickLock.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     KiComputeNewSystemTime @ 0x1403C100C (KiComputeNewSystemTime.c)
- *     RtlWriteAcquireTickLock @ 0x1403C1080 (RtlWriteAcquireTickLock.c)
- *     KiComputeNewInterruptTime @ 0x1403CF2B4 (KiComputeNewInterruptTime.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     KiComputeNewSystemTime @ 0x14035F1A0 (KiComputeNewSystemTime.c)
+ *     RtlWriteAcquireTickLock @ 0x14035F214 (RtlWriteAcquireTickLock.c)
  */
 
-__int64 __fastcall KiUpdateTimeAssist(LARGE_INTEGER *a1, char a2, __int64 a3, __int64 a4)
+__int64 __fastcall KiUpdateTimeAssist(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v5; // rdi
-  LARGE_INTEGER v8; // rbp
-  __int64 v9; // rbx
-  __int64 v10; // rax
-  __int64 v11; // rdx
-  int v12; // ecx
-  __int64 v13; // r11
-  __int64 v14; // r8
-  unsigned __int64 v15; // r10
-  volatile CCHAR v16; // cl
-  __int64 v17; // rcx
+  LARGE_INTEGER *v5; // r11
+  LARGE_INTEGER PerformanceCounter; // r11
+  unsigned __int128 v7; // rax
+  unsigned __int64 v8; // r11
+  __int64 v9; // r9
+  unsigned __int64 v10; // r10
+  unsigned __int64 v11; // rdx
+  __int64 v12; // r11
+  __int64 v13; // r8
   __int64 result; // rax
-  __int64 TickLock; // rbx
-  LARGE_INTEGER PerformanceCounter; // rax
-  unsigned __int64 v21; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v22; // [rsp+28h] [rbp-10h]
+  volatile CCHAR v15; // cl
 
-  v21 = 0LL;
-  v5 = MmWriteableSharedUserData;
-  if ( a2 )
-    goto LABEL_2;
-  do
-  {
-    TickLock = RtlBeginReadTickLock((__int64 *)(v5 + 832));
-    PerformanceCounter = KeQueryPerformanceCounter(0LL);
-    *(_QWORD *)a3 = ((__int64 (__fastcall *)(_QWORD, _QWORD))KiComputeNewInterruptTime)(
-                      (LARGE_INTEGER)PerformanceCounter.QuadPart,
-                      &v21);
-  }
-  while ( *(_QWORD *)(v5 + 832) != TickLock );
-  if ( v21 > 0x1F4 )
-  {
-LABEL_2:
-    RtlWriteAcquireTickLock((signed __int64 *)(v5 + 832));
-    if ( a1 )
-      v8 = *a1;
-    else
-      v8 = KeQueryPerformanceCounter(0LL);
-    v22 = KiComputeNewSystemTime(v8.QuadPart);
-    v9 = v22;
-    v10 = ((__int64 (__fastcall *)(_QWORD, _QWORD))KiComputeNewInterruptTime)((LARGE_INTEGER)v8.QuadPart, &v21);
-    v11 = MmWriteableSharedUserData;
-    v12 = HIDWORD(v22);
-    *(_QWORD *)a3 = v10;
-    *(_DWORD *)(v11 + 28) = v12;
-    *(_QWORD *)(v11 + 20) = v9;
-    *(_DWORD *)(v11 + 16) = *(_DWORD *)(a3 + 4);
-    *(_QWORD *)(v11 + 8) = *(_QWORD *)a3;
-    *(LARGE_INTEGER *)(v11 + 840) = v8;
-    *(LARGE_INTEGER *)(v11 + 848) = v8;
-    v13 = MEMORY[0xFFFFF78000000320];
-    v14 = (unsigned int)KiTickOffset - v21;
-    *(_QWORD *)a4 = MEMORY[0xFFFFF78000000320];
-    if ( v14 <= 0 )
-    {
-      v15 = 1LL;
-      v14 += (unsigned int)KeMaximumIncrement;
-      if ( v14 <= 0 )
-      {
-        v16 = KeNumberProcessorsGroup0[1];
-        v15 = ((unsigned __int64)(((unsigned __int64)-v14
-                                 * (unsigned __int128)(unsigned __int64)KiMaximumIncrementReciprocal) >> 64) >> v16)
-            + 2;
-        LODWORD(v14) = (((unsigned __int64)(((unsigned __int64)-v14
-                                           * (unsigned __int128)(unsigned __int64)KiMaximumIncrementReciprocal) >> 64) >> v16)
-                      + 1)
-                     * KeMaximumIncrement
-                     + v14;
-      }
-      v17 = MmWriteableSharedUserData;
-      *(_QWORD *)a4 = v13 + v15;
-      *(_DWORD *)(v17 + 808) = *(_DWORD *)(a4 + 4);
-      *(_QWORD *)(v17 + 800) = *(_QWORD *)a4;
-    }
-    result = *(_QWORD *)(v5 + 832) + 1LL;
-    KiTickOffset = v14;
-    *(_QWORD *)(v5 + 832) = result;
-  }
+  RtlWriteAcquireTickLock(0xFFFFF78000000340uLL, a2);
+  if ( v5 )
+    PerformanceCounter = *v5;
   else
+    PerformanceCounter = KeQueryPerformanceCounter(0LL);
+  v7 = (unsigned __int64)((__int64 (__fastcall *)(_QWORD))KiComputeNewSystemTime)((LARGE_INTEGER)PerformanceCounter.QuadPart);
+  v9 = v7;
+  v10 = 1LL;
+  if ( v8 > MEMORY[0xFFFFF78000000350] )
   {
-    *(_QWORD *)a3 = MEMORY[0xFFFFF78000000008];
-    result = MEMORY[0xFFFFF78000000320];
-    *(_QWORD *)a4 = MEMORY[0xFFFFF78000000320];
+    v11 = v8 - MEMORY[0xFFFFF78000000350];
+    if ( MEMORY[0xFFFFF78000000369] )
+      v11 <<= MEMORY[0xFFFFF78000000369];
+    v7 = v11 * (unsigned __int128)MEMORY[0xFFFFF78000000360];
+    KiInterruptTimeErrorAccumulator += v7;
+    if ( KiInterruptTimeErrorAccumulator < (unsigned __int64)v7 )
+      ++*((_QWORD *)&v7 + 1);
   }
+  *(_QWORD *)a2 = MEMORY[0xFFFFF78000000008] + *((_QWORD *)&v7 + 1);
+  MEMORY[0xFFFFF7800000001C] = HIDWORD(v9);
+  MEMORY[0xFFFFF78000000014] = v9;
+  MEMORY[0xFFFFF78000000010] = *(_DWORD *)(a2 + 4);
+  MEMORY[0xFFFFF78000000008] = *(_QWORD *)a2;
+  MEMORY[0xFFFFF78000000348] = v8;
+  MEMORY[0xFFFFF78000000350] = v8;
+  v12 = MEMORY[0xFFFFF78000000320];
+  v13 = (unsigned int)KiTickOffset - *((_QWORD *)&v7 + 1);
+  *(_QWORD *)a3 = MEMORY[0xFFFFF78000000320];
+  if ( v13 <= 0 )
+  {
+    v13 += (unsigned int)KeMaximumIncrement;
+    if ( v13 <= 0 )
+    {
+      v15 = KeNumberProcessorsGroup0[2];
+      v10 = ((unsigned __int64)(((unsigned __int64)-v13
+                               * (unsigned __int128)(unsigned __int64)KiMaximumIncrementReciprocal) >> 64) >> v15)
+          + 2;
+      LODWORD(v13) = (((unsigned __int64)(((unsigned __int64)-v13
+                                         * (unsigned __int128)(unsigned __int64)KiMaximumIncrementReciprocal) >> 64) >> v15)
+                    + 1)
+                   * KeMaximumIncrement
+                   + v13;
+    }
+    *(_QWORD *)a3 = v12 + v10;
+    MEMORY[0xFFFFF78000000328] = *(_DWORD *)(a3 + 4);
+    MEMORY[0xFFFFF78000000320] = *(_QWORD *)a3;
+  }
+  result = ++MEMORY[0xFFFFF78000000340];
+  KiTickOffset = v13;
   return result;
 }

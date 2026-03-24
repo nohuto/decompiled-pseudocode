@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDDisplayResource@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAAJPEAUIDisplayDeviceInterop@@PEAPEAUIDisplaySurface@Core@Display@Devices@Windows@@PEAI@Z @ 0x180122FA0
+ * XREFs of ?GetDDisplayResource@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAAJPEAUIDisplayDeviceInterop@@PEAPEAUIDisplaySurface@Core@Display@Devices@Windows@@PEAI@Z @ 0x1800F8990
  * Callers:
  *     <none>
  * Callees:

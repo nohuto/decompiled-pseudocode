@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer @ 0x18012ED86
+ * XREFs of McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer @ 0x180152D64
  * Callers:
- *     ?Report@CProcessAttributionReporter@@QEAAXXZ @ 0x1800509B0 (-Report@CProcessAttributionReporter@@QEAAXXZ.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x180070200 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer(
+ULONG __fastcall McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -21,7 +21,7 @@ __int64 __fastcall McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer(
         int a11,
         __int64 a12)
 {
-  _BYTE v13[16]; // [rsp+30h] [rbp-A9h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v13; // [rsp+30h] [rbp-A9h] BYREF
   int *v14; // [rsp+40h] [rbp-99h]
   __int64 v15; // [rsp+48h] [rbp-91h]
   __int64 v16; // [rsp+50h] [rbp-89h]
@@ -55,7 +55,6 @@ __int64 __fastcall McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer(
   v14 = &v39;
   v23 = 0;
   v17 = 4 * a3;
-  v28 = 0;
   v19 = &a5;
   v21 = a6;
   v22 = 4 * a5;
@@ -68,6 +67,7 @@ __int64 __fastcall McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer(
   v34 = &a11;
   v36 = a12;
   v37 = 4 * a11;
+  v28 = 0;
   v33 = 0;
   v38 = 0;
   v15 = 4LL;
@@ -76,9 +76,9 @@ __int64 __fastcall McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer(
   v30 = 4LL;
   v35 = 4LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_PROCESS_ATTRIBUTION,
            a3,
-           11LL,
-           v13);
+           0xBu,
+           &v13);
 }

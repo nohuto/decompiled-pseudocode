@@ -1,73 +1,76 @@
 /*
- * XREFs of HMCreateHandleForObject @ 0x1C004DE50
+ * XREFs of HMCreateHandleForObject @ 0x1C006A5E0
  * Callers:
- *     ?RIMDeviceCallback_Created@CBaseInput@@AEAAKPEAURawInputManagerDeviceObject@@@Z @ 0x1C004DD80 (-RIMDeviceCallback_Created@CBaseInput@@AEAAKPEAURawInputManagerDeviceObject@@@Z.c)
- *     ?OnRIMDeviceCreated@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z @ 0x1C01E26B0 (-OnRIMDeviceCreated@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z.c)
+ *     ?RIMDeviceCallback_Created@CBaseInput@@AEAAKPEAURawInputManagerDeviceObject@@@Z @ 0x1C006A500 (-RIMDeviceCallback_Created@CBaseInput@@AEAAKPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?OnRIMDeviceCreated@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z @ 0x1C00B7E90 (-OnRIMDeviceCreated@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z.c)
  * Callees:
- *     ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C002DB2C (-GetEtwUserHandleType@@YA-AW4EtwUserHandleType@@E@Z.c)
- *     RawInputManagerDeviceObjectReference @ 0x1C004DFA0 (RawInputManagerDeviceObjectReference.c)
- *     EtwTraceUserCreateHandle @ 0x1C004DFE0 (EtwTraceUserCreateHandle.c)
- *     ?HMGrowHandleTable@@YAHXZ @ 0x1C0057420 (-HMGrowHandleTable@@YAHXZ.c)
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0031C90 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
+ *     ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C00334BC (-GetEtwUserHandleType@@YA-AW4EtwUserHandleType@@E@Z.c)
+ *     ?HMGrowHandleTable@@YAHXZ @ 0x1C0069844 (-HMGrowHandleTable@@YAHXZ.c)
+ *     RawInputManagerDeviceObjectReference @ 0x1C006A730 (RawInputManagerDeviceObjectReference.c)
+ *     EtwTraceUserCreateHandle @ 0x1C006A76C (EtwTraceUserCreateHandle.c)
  */
 
-__int64 __fastcall HMCreateHandleForObject(_QWORD *a1, unsigned __int8 a2)
+__int64 __fastcall HMCreateHandleForObject(unsigned __int64 *a1, unsigned __int8 a2)
 {
-  __int64 *v4; // rdx
-  __int64 v5; // rcx
-  _QWORD *v6; // r14
-  char *v7; // r8
-  bool v8; // cc
-  __int64 v9; // rsi
-  char *v10; // rax
-  signed int v11; // edx
-  signed int v12; // ecx
+  __int64 v4; // rdi
+  __int64 *v5; // rcx
+  __int64 v6; // r8
+  _QWORD *v7; // r14
+  char *v8; // rdx
+  bool v9; // cc
+  __int64 v10; // rbp
   unsigned int EtwUserHandleType; // eax
-  __int64 v15; // rbx
+  unsigned __int64 v13; // rbx
+  __int64 v14; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( a2 != 19 && a2 != 22 || !a1 )
-    return 0LL;
-  while ( !qword_1C0294A90 || a2 == 1 )
+  CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>((__int64)&v14);
+  v4 = 0LL;
+  if ( (a2 == 19 || a2 == 22) && a1 )
   {
-    if ( qword_1C0294A88 )
+    while ( 1 )
     {
-      v4 = &qword_1C0294A88;
-      goto LABEL_6;
+      if ( qword_1C024FCE0 )
+      {
+        v5 = &qword_1C024FCE0;
+        goto LABEL_5;
+      }
+      if ( qword_1C024FCD8 )
+        break;
+      if ( !(unsigned int)HMGrowHandleTable() )
+        return v4;
     }
-    if ( !(unsigned int)HMGrowHandleTable() )
-      return 0LL;
+    v5 = &qword_1C024FCD8;
+LABEL_5:
+    v6 = *v5;
+    v7 = gpKernelHandleTable;
+    v8 = (char *)qword_1C024FD58 + 32 * *v5;
+    v9 = (unsigned int)*v5 <= giheLast;
+    v10 = 3 * *v5;
+    *v5 = *((_QWORD *)gpKernelHandleTable + 3 * *v5);
+    if ( !v9 )
+      giheLast = v6;
+    v8[24] = a2;
+    v7[v10] = a1;
+    *a1 = (int)v6 | (unsigned __int64)(*(unsigned __int16 *)((char *)qword_1C024FD58
+                                                           + v6 * (unsigned int)dword_1C024FD60
+                                                           + 26) << 16);
+    if ( ++giheCount > (unsigned int)giheCountPeak )
+      giheCountPeak = giheCount;
+    EtwUserHandleType = GetEtwUserHandleType(a2);
+    EtwTraceUserCreateHandle(*a1, EtwUserHandleType, 0LL);
+    if ( a2 == 19 )
+    {
+      RawInputManagerDeviceObjectReference(a1[4]);
+    }
+    else
+    {
+      v13 = a1[2];
+      RawInputManagerDeviceObjectReference(*(_QWORD *)(v13 + 32));
+      _InterlockedIncrement((volatile signed __int32 *)(v13 + 8));
+    }
+    v7[v10 + 2] = 0LL;
+    return v7[v10];
   }
-  v4 = &qword_1C0294A90;
-LABEL_6:
-  v5 = *v4;
-  v6 = gpKernelHandleTable;
-  v7 = (char *)qword_1C0294B68 + 32 * *v4;
-  v8 = (unsigned int)*v4 <= giheLast;
-  v9 = 3 * *v4;
-  *v4 = *((_QWORD *)gpKernelHandleTable + 3 * *v4);
-  if ( !v8 )
-    giheLast = v5;
-  v7[24] = a2;
-  v6[v9] = a1;
-  v10 = (char *)qword_1C0294B68 + v5 * (unsigned int)dword_1C0294B70;
-  v11 = v5 | (*((unsigned __int16 *)v10 + 13) << 16);
-  v12 = v11 | 0x80000000;
-  if ( v10[25] >= 0 )
-    v12 = v11;
-  *a1 = v12;
-  if ( ++giheCount > (unsigned int)giheCountPeak )
-    giheCountPeak = giheCount;
-  EtwUserHandleType = GetEtwUserHandleType(a2);
-  EtwTraceUserCreateHandle(*a1, EtwUserHandleType, 0LL);
-  if ( a2 == 19 )
-  {
-    RawInputManagerDeviceObjectReference(a1[4]);
-  }
-  else
-  {
-    v15 = a1[2];
-    RawInputManagerDeviceObjectReference(*(_QWORD *)(v15 + 32));
-    _InterlockedIncrement((volatile signed __int32 *)(v15 + 8));
-  }
-  v6[v9 + 2] = 0LL;
-  return v6[v9];
+  return v4;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?MapInputRectsToOutputRect@CMesh2DEffect@@UEAAJPEBUtagRECT@@0IPEAU2@1@Z @ 0x1802BF2A0
+ * XREFs of ?MapInputRectsToOutputRect@CMesh2DEffect@@UEAAJPEBUtagRECT@@0IPEAU2@1@Z @ 0x18026CC60
  * Callers:
  *     <none>
  * Callees:

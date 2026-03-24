@@ -1,172 +1,178 @@
 /*
- * XREFs of KePrepareClockTimerForIdle @ 0x140353FB0
+ * XREFs of KePrepareClockTimerForIdle @ 0x140293310
  * Callers:
- *     PpmIdleExecuteTransition @ 0x140306100 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x1402224B0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     KiSetPendingTick @ 0x14022F96C (KiSetPendingTick.c)
- *     KiLogClockIncrementUpdate @ 0x14022F99C (KiLogClockIncrementUpdate.c)
- *     KiEventClockStateChange @ 0x14022FA04 (KiEventClockStateChange.c)
- *     RtlGetInterruptTimePrecise @ 0x140303490 (RtlGetInterruptTimePrecise.c)
- *     KiGetNextTimerExpirationDueTime @ 0x14030A3C0 (KiGetNextTimerExpirationDueTime.c)
- *     KeIsForceIdleEngaged @ 0x1403542B8 (KeIsForceIdleEngaged.c)
- *     PoAllProcessorsDeepIdle @ 0x1403545B0 (PoAllProcessorsDeepIdle.c)
- *     KiClockTimerOneShotReady @ 0x1403546D4 (KiClockTimerOneShotReady.c)
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x1402255A0 (KiGetNextTimerExpirationDueTime.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
+ *     KeIsForceIdleEngaged @ 0x1402935F4 (KeIsForceIdleEngaged.c)
+ *     PoAllProcessorsDeepIdle @ 0x140293618 (PoAllProcessorsDeepIdle.c)
+ *     KiClockTimerOneShotReady @ 0x140293704 (KiClockTimerOneShotReady.c)
+ *     KiEventClockStateChange @ 0x140293778 (KiEventClockStateChange.c)
+ *     KiSetPendingTick @ 0x1402937FC (KiSetPendingTick.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-void __fastcall KePrepareClockTimerForIdle(char a1, unsigned __int8 a2, unsigned __int64 a3, char a4)
+void __fastcall KePrepareClockTimerForIdle(char a1, __int64 a2, unsigned __int64 a3, char a4)
 {
-  unsigned __int64 v6; // rsi
-  struct _KPRCB *CurrentPrcb; // r13
-  int v9; // ebx
-  __int32 v10; // r15d
-  __int64 v11; // r12
-  unsigned __int64 v12; // rdi
+  unsigned __int64 v6; // rdi
+  struct _KPRCB *CurrentPrcb; // r14
+  int v8; // ebx
+  volatile CCHAR v9; // t0
+  unsigned __int32 v10; // r13d
+  unsigned __int8 v11; // r11
+  __int64 v12; // r12
+  unsigned __int64 v13; // r15
   __int64 InterruptTimePrecise; // r12
-  unsigned __int64 v14; // rdi
-  bool v15; // cf
-  bool v16; // r9
-  __int64 *v17; // rax
-  __int64 v18; // rdx
-  volatile signed __int32 *v19; // r8
-  __int64 v20; // [rsp+40h] [rbp-78h] BYREF
-  int v21; // [rsp+48h] [rbp-70h] BYREF
-  unsigned __int64 v22; // [rsp+50h] [rbp-68h] BYREF
-  unsigned __int64 v23; // [rsp+58h] [rbp-60h] BYREF
-  int v24; // [rsp+60h] [rbp-58h] BYREF
-  LARGE_INTEGER v25; // [rsp+68h] [rbp-50h] BYREF
-  _QWORD v26[2]; // [rsp+70h] [rbp-48h] BYREF
+  unsigned __int64 v15; // r15
+  __int64 v16; // rcx
+  bool v17; // cf
+  bool v18; // r9
+  __int64 *v19; // rcx
+  __int64 v20; // rdx
+  volatile signed __int32 *v21; // r8
+  int v22; // [rsp+40h] [rbp-78h] BYREF
+  unsigned __int64 v23; // [rsp+48h] [rbp-70h] BYREF
+  __int64 v24; // [rsp+50h] [rbp-68h] BYREF
+  unsigned __int64 v25; // [rsp+58h] [rbp-60h] BYREF
+  int v26; // [rsp+60h] [rbp-58h] BYREF
+  LARGE_INTEGER v27; // [rsp+68h] [rbp-50h] BYREF
+  _QWORD v28[2]; // [rsp+70h] [rbp-48h] BYREF
 
   v6 = a3;
-  v20 = 0LL;
+  v24 = 0LL;
   CurrentPrcb = KeGetCurrentPrcb();
-  v9 = 0;
-  v23 = 0LL;
-  if ( KiDynamicTickInitialized && !(_BYTE)KiDynamicTickDisableReason )
+  v8 = 0;
+  v9 = KeNumberProcessorsGroup0[1];
+  v25 = 0LL;
+  if ( v9 && !(_BYTE)KiDynamicTickDisableReason )
   {
     if ( a3 <= (unsigned int)KiLastRequestedTimeIncrement )
     {
-      v9 = 2;
+      v8 = 2;
 LABEL_5:
-      v21 = v9;
+      v22 = v8;
       if ( (DWORD2(PerfGlobalGroupMask) & 0x100000) != 0 )
       {
-        v26[1] = 1LL;
-        v26[0] = &v21;
-        EtwTraceKernelEvent((unsigned int)v26, 1, 1074790400, 3929, 1538);
+        v28[1] = 1LL;
+        v28[0] = &v22;
+        EtwTraceKernelEvent((unsigned int)v28, 1, 1074790400, 3929, 1538);
       }
       return;
     }
     if ( a3 > KiMaxDynamicTickDuration )
     {
-      ++dword_140C2B14C;
+      ++dword_140C31B8C;
       v6 = KiMaxDynamicTickDuration;
     }
     v10 = _InterlockedExchange(&KiClockState, 3);
     if ( !(unsigned __int8)PoAllProcessorsDeepIdle() )
     {
-      v9 = 1;
+      v8 = 1;
       goto LABEL_40;
     }
     if ( !a1 && (unsigned __int8)KeIsForceIdleEngaged() )
     {
-      v9 = 6;
+      v8 = 6;
     }
     else
     {
-      v11 = MEMORY[0xFFFFF78000000008];
-      KiGetNextTimerExpirationDueTime((__int64)CurrentPrcb, 1u, MEMORY[0xFFFFF78000000008], a1, a2, &v23, &v24);
-      v12 = v23;
+      v12 = MEMORY[0xFFFFF78000000008];
+      KiGetNextTimerExpirationDueTime((__int64)CurrentPrcb, 1u, MEMORY[0xFFFFF78000000008], a1, v11, &v25, &v26);
+      v13 = v25;
       if ( a4 )
       {
-        InterruptTimePrecise = RtlGetInterruptTimePrecise(&v25);
-LABEL_17:
-        if ( v12 > InterruptTimePrecise + (unsigned __int64)(unsigned int)KiMinDynamicTickDuration )
-        {
-          v14 = v12 - InterruptTimePrecise;
-          if ( v14 > v6 )
-            v14 = v6;
-          v22 = v14;
-          if ( a4 )
-          {
-            if ( !a1 )
-            {
-              v14 = v22;
-              if ( v22 > (unsigned int)KiClockLatencyMaxDynamicTickDuration )
-              {
-                v14 = (unsigned int)KiClockLatencyMaxDynamicTickDuration;
-                v22 = (unsigned int)KiClockLatencyMaxDynamicTickDuration;
-              }
-            }
-          }
-          ((void (__fastcall *)(__int64, unsigned __int64, __int64 *))off_140C01EE0[0])(1LL, v14, &v20);
-          KiLogClockIncrementUpdate((__int64)CurrentPrcb, InterruptTimePrecise, v14, v20, 1);
-          KiSetPendingTick(1);
-          KiClockTimerOneShotStartTime = InterruptTimePrecise;
-          KiEventClockStateChange(1, v10, &v20, (__int64 *)&v22);
-          if ( a4 )
-            KiClockLatencyMeasurementEnabled = 1;
-          if ( (unsigned __int8)KeIsForceIdleEngaged() )
-            KiForceIdleReset = 1;
-          ++qword_140C2B150;
-          v10 = 1;
-          v15 = v14 < qword_140C2B188;
-          CurrentPrcb->ClockOwner = 0;
-          if ( v15 )
-            qword_140C2B188 = v14;
-          if ( v14 > qword_140C2B180 )
-            qword_140C2B180 = v14;
-          if ( a1 )
-            KiConsiderTimerRebasing = 1;
-          v16 = KiHrTimerActiveCount > 0;
-          if ( (_DWORD)KeNumberProcessors_0 )
-          {
-            v17 = KiProcessorBlock;
-            v18 = (unsigned int)KeNumberProcessors_0;
-            do
-            {
-              v19 = *(volatile signed __int32 **)(*v17 + 35000);
-              if ( v19 && (KiVelocityFlags & 0x40) != 0 )
-              {
-                if ( v16 )
-                  _InterlockedOr(v19, 0x80000u);
-                else
-                  _InterlockedAnd(v19, 0xFFF7FFFF);
-              }
-              ++v17;
-              --v18;
-            }
-            while ( v18 );
-          }
-          KiClockTimerNextTickTime = InterruptTimePrecise + v20;
-          CurrentPrcb->ClockTimerState.NextTickDueTime = InterruptTimePrecise + v20;
-          goto LABEL_36;
-        }
-LABEL_43:
-        v9 = 4;
-        goto LABEL_40;
-      }
-      if ( v23 > v11 + (unsigned __int64)(unsigned int)KiLastRequestedTimeIncrement )
-      {
-        if ( !a1 && !(unsigned __int8)KiClockTimerOneShotReady(v11) )
-        {
-          v9 = 3;
-          goto LABEL_40;
-        }
-        InterruptTimePrecise = RtlGetInterruptTimePrecise(&v25);
-        if ( v12 <= InterruptTimePrecise + (unsigned __int64)(unsigned int)KiLastRequestedTimeIncrement )
-          goto LABEL_43;
+        InterruptTimePrecise = RtlGetInterruptTimePrecise(&v27);
         goto LABEL_17;
       }
-      v9 = 2;
+      if ( v25 <= v12 + (unsigned __int64)(unsigned int)KiLastRequestedTimeIncrement )
+      {
+        v8 = 2;
+      }
+      else
+      {
+        if ( a1 || (unsigned __int8)KiClockTimerOneShotReady(v12) )
+        {
+          InterruptTimePrecise = RtlGetInterruptTimePrecise(&v27);
+          if ( v13 <= InterruptTimePrecise + (unsigned __int64)(unsigned int)KiLastRequestedTimeIncrement )
+          {
+LABEL_42:
+            v8 = 4;
+            goto LABEL_40;
+          }
+LABEL_17:
+          if ( v13 > InterruptTimePrecise + (unsigned __int64)(unsigned int)KiMinDynamicTickDuration )
+          {
+            v15 = v13 - InterruptTimePrecise;
+            if ( v15 > v6 )
+              v15 = v6;
+            v23 = v15;
+            if ( a4 )
+            {
+              if ( !a1 )
+              {
+                v15 = v23;
+                if ( v23 > (unsigned int)KiClockLatencyMaxDynamicTickDuration )
+                {
+                  v15 = (unsigned int)KiClockLatencyMaxDynamicTickDuration;
+                  v23 = (unsigned int)KiClockLatencyMaxDynamicTickDuration;
+                }
+              }
+            }
+            ((void (__fastcall *)(__int64, unsigned __int64, __int64 *))off_140C00890[0])(1LL, v15, &v24);
+            LOBYTE(v16) = 1;
+            KiSetPendingTick(v16);
+            KiClockTimerOneShotStartTime = InterruptTimePrecise;
+            KiEventClockStateChange(1LL, v10, &v24, &v23);
+            if ( a4 )
+              KiClockLatencyMeasurementEnabled = 1;
+            if ( (unsigned __int8)KeIsForceIdleEngaged() )
+              KiForceIdleReset = 1;
+            ++qword_140C31B90;
+            v10 = 1;
+            v17 = v15 < qword_140C31BC8;
+            CurrentPrcb->ClockOwner = 0;
+            if ( v17 )
+              qword_140C31BC8 = v15;
+            if ( v15 > qword_140C31BC0 )
+              qword_140C31BC0 = v15;
+            if ( a1 )
+              KiConsiderTimerRebasing = 1;
+            v18 = KiHrTimerActiveCount > 0;
+            if ( (_DWORD)KeNumberProcessors_0 )
+            {
+              v19 = KiProcessorBlock;
+              v20 = (unsigned int)KeNumberProcessors_0;
+              do
+              {
+                v21 = *(volatile signed __int32 **)(*v19 + 33976);
+                if ( v21 && (KiVelocityFlags & 0x40) != 0 )
+                {
+                  if ( v18 )
+                    _InterlockedOr(v21, 0x80000u);
+                  else
+                    _InterlockedAnd(v21, 0xFFF7FFFF);
+                }
+                ++v19;
+                --v20;
+              }
+              while ( v20 );
+            }
+            KiClockTimerNextTickTime = InterruptTimePrecise + v24;
+            goto LABEL_36;
+          }
+          goto LABEL_42;
+        }
+        v8 = 3;
+      }
     }
 LABEL_40:
     if ( v10 == 4 )
     {
 LABEL_37:
-      if ( !v9 )
+      if ( !v8 )
         return;
       goto LABEL_5;
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspDeleteKernelStack @ 0x14012F170
+ * XREFs of PspDeleteKernelStack @ 0x14012F190
  * Callers:
  *     <none>
  * Callees:
- *     MmDeleteKernelStack @ 0x1400CA480 (MmDeleteKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1400CA4A0 (MmDeleteKernelStack.c)
  */
 
 signed __int64 __fastcall PspDeleteKernelStack(__int64 a1, unsigned __int64 *a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of BiHandleFirmwareDefaultEntry @ 0x1408F401C
+ * XREFs of BiHandleFirmwareDefaultEntry @ 0x1408F3FFC
  * Callers:
- *     BiExportEfiBootManager @ 0x1408F36A8 (BiExportEfiBootManager.c)
+ *     BiExportEfiBootManager @ 0x1408F3688 (BiExportEfiBootManager.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiDeleteElement @ 0x1407125BC (BiDeleteElement.c)
- *     BiGetElement @ 0x1408F1118 (BiGetElement.c)
- *     BiTranslateObjectIdentifier @ 0x1408F487C (BiTranslateObjectIdentifier.c)
+ *     BiDeleteElement @ 0x14071259C (BiDeleteElement.c)
+ *     BiGetElement @ 0x1408F10F8 (BiGetElement.c)
+ *     BiTranslateObjectIdentifier @ 0x1408F485C (BiTranslateObjectIdentifier.c)
  */
 
 __int64 __fastcall BiHandleFirmwareDefaultEntry(__int64 a1, void *a2, PVOID *a3, unsigned int *a4)

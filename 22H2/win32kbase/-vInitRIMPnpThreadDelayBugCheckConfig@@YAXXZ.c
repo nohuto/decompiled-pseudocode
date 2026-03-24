@@ -1,24 +1,20 @@
 /*
- * XREFs of ?vInitRIMPnpThreadDelayBugCheckConfig@@YAXXZ @ 0x1C007C2C4
+ * XREFs of ?vInitRIMPnpThreadDelayBugCheckConfig@@YAXXZ @ 0x1C006D6F4
  * Callers:
- *     RIMInitialize @ 0x1C00A7FE0 (RIMInitialize.c)
+ *     RIMInitialize @ 0x1C006CD60 (RIMInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 void vInitRIMPnpThreadDelayBugCheckConfig(void)
 {
-  __int64 v0; // rdx
-  __int64 v1; // rcx
-  __int64 v2; // r8
-  __int64 v3; // r9
   ULONG ResultLength; // [rsp+30h] [rbp-D0h] BYREF
   void *KeyHandle; // [rsp+38h] [rbp-C8h] BYREF
   struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-B0h] BYREF
   _BYTE KeyValueInformation[4]; // [rsp+80h] [rbp-80h] BYREF
-  int v9; // [rsp+84h] [rbp-7Ch]
-  int v10; // [rsp+8Ch] [rbp-74h]
+  int v5; // [rsp+84h] [rbp-7Ch]
+  int v6; // [rsp+8Ch] [rbp-74h]
 
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
@@ -43,10 +39,10 @@ void vInitRIMPnpThreadDelayBugCheckConfig(void)
            KeyValueInformation,
            0x400u,
            &ResultLength) >= 0
-      && v9 == 4 )
+      && v5 == 4 )
     {
-      if ( v10 )
-        *(_BYTE *)(SGDGetUserSessionState(v1, v0, v2, v3) + 357) = 1;
+      if ( v6 )
+        gbBugCheckOnPnpThreadDelay = 1;
     }
     ZwClose(KeyHandle);
   }

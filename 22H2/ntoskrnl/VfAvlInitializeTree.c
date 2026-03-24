@@ -1,10 +1,9 @@
 /*
- * XREFs of VfAvlInitializeTree @ 0x1405D1CA0
+ * XREFs of VfAvlInitializeTree @ 0x1405A252C
  * Callers:
- *     ViIovInitialization @ 0x140ADD358 (ViIovInitialization.c)
- *     VfMiscPluginEntry @ 0x140AE1684 (VfMiscPluginEntry.c)
+ *     VfInitVerifierComponents @ 0x1409C6E80 (VfInitVerifierComponents.c)
  * Callees:
- *     VfAvlInitializeTreeEx @ 0x140ABE450 (VfAvlInitializeTreeEx.c)
+ *     VfAvlInitializeTreeEx @ 0x1409C2644 (VfAvlInitializeTreeEx.c)
  */
 
 __int64 __fastcall VfAvlInitializeTree(void *a1, __int64 a2, __int64 a3, RTL_AVL_FREE_ROUTINE *FreeRoutine)

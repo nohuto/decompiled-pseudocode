@@ -1,11 +1,11 @@
 /*
- * XREFs of ?HandleDirectStartStopDeviceReadRequest@CHidInput@@QEAAXXZ @ 0x1C0049760
+ * XREFs of ?HandleDirectStartStopDeviceReadRequest@CHidInput@@QEAAXXZ @ 0x1C00564A0
  * Callers:
- *     rimObsStartStopDeviceRead @ 0x1C01B5628 (rimObsStartStopDeviceRead.c)
+ *     rimObsStartStopDeviceRead @ 0x1C017F394 (rimObsStartStopDeviceRead.c)
  * Callees:
- *     ?OnDirectStartStopReadNotification@CHidInput@@EEAAJXZ @ 0x1C00475F0 (-OnDirectStartStopReadNotification@CHidInput@@EEAAJXZ.c)
- *     ?GetDispatcherObjectByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@@Z @ 0x1C00497AC (-GetDispatcherObjectByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@@Z.c)
- *     ?ExecutingInSensorHostingProcess@CBaseInput@@IEBA_NXZ @ 0x1C00497F8 (-ExecutingInSensorHostingProcess@CBaseInput@@IEBA_NXZ.c)
+ *     ?OnDirectStartStopReadNotification@CHidInput@@EEAAJXZ @ 0x1C0053D10 (-OnDirectStartStopReadNotification@CHidInput@@EEAAJXZ.c)
+ *     ?GetDispatcherObjectByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@@Z @ 0x1C00564EC (-GetDispatcherObjectByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@@Z.c)
+ *     ?ExecutingInSensorHostingProcess@CBaseInput@@IEBA_NXZ @ 0x1C0056538 (-ExecutingInSensorHostingProcess@CBaseInput@@IEBA_NXZ.c)
  */
 
 void __fastcall CHidInput::HandleDirectStartStopDeviceReadRequest(CHidInput *this)

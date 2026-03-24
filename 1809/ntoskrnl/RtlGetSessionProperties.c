@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlGetSessionProperties @ 0x140893E50
+ * XREFs of RtlGetSessionProperties @ 0x140893E30
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140109D20 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
  */
 
 __int64 __fastcall RtlGetSessionProperties(int a1, _DWORD *a2)

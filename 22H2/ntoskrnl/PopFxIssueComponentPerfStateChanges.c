@@ -1,21 +1,21 @@
 /*
- * XREFs of PopFxIssueComponentPerfStateChanges @ 0x14058AC48
+ * XREFs of PopFxIssueComponentPerfStateChanges @ 0x14056B298
  * Callers:
- *     PoFxIssueComponentPerfStateChangeMultiple @ 0x140587F90 (PoFxIssueComponentPerfStateChangeMultiple.c)
+ *     PoFxIssueComponentPerfStateChangeMultiple @ 0x140568FB0 (PoFxIssueComponentPerfStateChangeMultiple.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     PopFxQueueWorkOrder @ 0x14028C0AC (PopFxQueueWorkOrder.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     PopFxAddLogEntry @ 0x140312914 (PopFxAddLogEntry.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PopFxBugCheck @ 0x140588C70 (PopFxBugCheck.c)
- *     PopFxCompleteComponentPerfState @ 0x140589628 (PopFxCompleteComponentPerfState.c)
- *     PopPluginRequestComponentPerfState @ 0x14058CA78 (PopPluginRequestComponentPerfState.c)
- *     PopDiagTraceFxPerfRequest @ 0x140593A78 (PopDiagTraceFxPerfRequest.c)
- *     PopDiagTraceFxPerfRequestProgress @ 0x140593C60 (PopDiagTraceFxPerfRequestProgress.c)
+ *     PopFxAddLogEntry @ 0x140260514 (PopFxAddLogEntry.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     PopFxQueueWorkOrder @ 0x140380F98 (PopFxQueueWorkOrder.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     PopFxBugCheck @ 0x14056932C (PopFxBugCheck.c)
+ *     PopFxCompleteComponentPerfState @ 0x14056A398 (PopFxCompleteComponentPerfState.c)
+ *     PopPluginRequestComponentPerfState @ 0x14056DEA8 (PopPluginRequestComponentPerfState.c)
+ *     PopDiagTraceFxPerfRequest @ 0x1405726BC (PopDiagTraceFxPerfRequest.c)
+ *     PopDiagTraceFxPerfRequestProgress @ 0x1405728C0 (PopDiagTraceFxPerfRequestProgress.c)
  */
 
-NTSTATUS __fastcall PopFxIssueComponentPerfStateChanges(
+void __fastcall PopFxIssueComponentPerfStateChanges(
         ULONG_PTR BugCheckParameter2,
         __int64 a2,
         char a3,
@@ -25,19 +25,15 @@ NTSTATUS __fastcall PopFxIssueComponentPerfStateChanges(
 {
   __int64 v10; // rbx
   int v11; // r15d
-  __int64 v12; // r8
-  __int64 v13; // r9
-  char v14; // r13
-  int v15; // r14d
-  char v16; // r12
-  int v17; // r13d
-  unsigned int *v18; // rsi
-  unsigned int v19; // edx
-  char v20; // cl
-  __int64 v21; // r9
-  __int64 v23; // r9
-  signed __int32 v24[8]; // [rsp+0h] [rbp-68h] BYREF
-  char v25; // [rsp+78h] [rbp+10h] BYREF
+  void *v12; // r12
+  char v13; // r14
+  int v14; // edx
+  char v15; // al
+  char v16; // cl
+  __int64 v17; // rcx
+  signed __int32 v18[8]; // [rsp+0h] [rbp-68h] BYREF
+  int v19; // [rsp+30h] [rbp-38h]
+  char v20; // [rsp+78h] [rbp+10h] BYREF
 
   KeGetCurrentIrql();
   v10 = *(_QWORD *)(a2 + 424);
@@ -48,6 +44,7 @@ NTSTATUS __fastcall PopFxIssueComponentPerfStateChanges(
     PopFxBugCheck(0x61CuLL, BugCheckParameter2, *(unsigned int *)(a2 + 16), 0LL);
   if ( (_InterlockedExchange((volatile __int32 *)(v10 + 40), 0) & 7) != 0 )
     PopFxBugCheck(0x61DuLL, BugCheckParameter2, *(unsigned int *)(a2 + 16), *(_QWORD *)(v10 + 80));
+  v12 = Src;
   if ( *(_BYTE *)(v10 + 74) )
   {
     memmove(*(void **)(v10 + 48), Src, 16LL * a4);
@@ -57,65 +54,60 @@ NTSTATUS __fastcall PopFxIssueComponentPerfStateChanges(
   }
   *(_QWORD *)(v10 + 80) = a6;
   KeResetEvent((PRKEVENT)(v10 + 8));
-  PopDiagTraceFxPerfRequest(v10, a4, Src);
-  v14 = a3;
-  v15 = a3 & 2;
-  v16 = 1;
-  v17 = v14 & 1;
-  if ( v17 )
+  PopDiagTraceFxPerfRequest(v10, a4, v12);
+  v13 = 1;
+  v19 = a3 & 1;
+  if ( (a3 & 1) != 0 )
   {
     _InterlockedOr((volatile signed __int32 *)(v10 + 40), 0x88000000);
   }
-  else if ( v15 )
+  else if ( (a3 & 2) != 0 )
   {
     _InterlockedOr((volatile signed __int32 *)(v10 + 40), 0x10000000u);
   }
   _InterlockedExchangeAdd((volatile signed __int32 *)(v10 + 40), 4u);
-  _InterlockedOr(v24, 0);
-  v18 = (unsigned int *)(a2 + 16);
+  _InterlockedOr(v18, 0);
   if ( *(_BYTE *)(v10 + 73) )
   {
-    v19 = *v18;
-    v25 = 0;
-    v16 = PopPluginRequestComponentPerfState(BugCheckParameter2, v19, a4, (_DWORD)Src, (__int64)&v25);
-    if ( !v16 )
-      goto LABEL_18;
-    v20 = v25;
+    v14 = *(_DWORD *)(a2 + 16);
+    v20 = 0;
+    v15 = PopPluginRequestComponentPerfState(BugCheckParameter2, v14, a4, (_DWORD)v12, (__int64)&v20);
+    v16 = v20;
+    v13 = v15;
   }
   else
   {
+    v16 = 1;
     v20 = 1;
-    v25 = 1;
   }
-  _InterlockedOr((volatile signed __int32 *)(v10 + 40), v20 != 0 ? 1610612736 : 0x20000000);
-  _InterlockedDecrement((volatile signed __int32 *)(v10 + 40));
-LABEL_18:
+  if ( v13 )
+  {
+    _InterlockedOr((volatile signed __int32 *)(v10 + 40), v16 != 0 ? 1610612736 : 0x20000000);
+    _InterlockedDecrement((volatile signed __int32 *)(v10 + 40));
+  }
   PopDiagTraceFxPerfRequestProgress(
     v10,
-    ((unsigned __int8)_InterlockedExchangeAdd((volatile signed __int32 *)(v10 + 40), 0xFFFFFFFF) - 1) & 7,
-    v12,
-    v13);
-  if ( v16 )
+    ((unsigned __int8)_InterlockedExchangeAdd((volatile signed __int32 *)(v10 + 40), 0xFFFFFFFF) - 1) & 7);
+  if ( v13 )
   {
-    if ( v15 )
+    if ( (a3 & 2) != 0 )
     {
       PopFxAddLogEntry(*(_QWORD *)(BugCheckParameter2 + 48), v11, 15, 0LL);
-      return PopFxQueueWorkOrder(v10 + 88, BugCheckParameter2);
+      PopFxQueueWorkOrder(v17, v10 + 88, BugCheckParameter2);
     }
     else
     {
       _InterlockedOr((volatile signed __int32 *)(v10 + 40), 0x80000000);
-      LOBYTE(v21) = v25;
-      return PopFxCompleteComponentPerfState(BugCheckParameter2, *v18, v10, v21);
+      PopFxCompleteComponentPerfState(BugCheckParameter2, *(_DWORD *)(a2 + 16), v10, v20);
     }
   }
-  else if ( v17 )
+  else if ( v19 )
   {
-    return KeWaitForSingleObject((PVOID)(v10 + 8), Executive, 0, 0, 0LL);
+    KeWaitForSingleObject((PVOID)(v10 + 8), Executive, 0, 0, 0LL);
   }
   else
   {
     PopFxAddLogEntry(*(_QWORD *)(BugCheckParameter2 + 48), v11, 15, 0LL);
-    return (unsigned int)PopFxAddLogEntry(*(_QWORD *)(BugCheckParameter2 + 48), v11, (unsigned __int8)v23 + 20, v23);
+    PopFxAddLogEntry(*(_QWORD *)(BugCheckParameter2 + 48), v11, 20, 0LL);
   }
 }

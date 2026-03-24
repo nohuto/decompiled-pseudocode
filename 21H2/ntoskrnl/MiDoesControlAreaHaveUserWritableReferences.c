@@ -1,26 +1,28 @@
 /*
- * XREFs of MiDoesControlAreaHaveUserWritableReferences @ 0x140239CF8
+ * XREFs of MiDoesControlAreaHaveUserWritableReferences @ 0x14029F9C4
  * Callers:
- *     MiComputeFlushRange @ 0x140283E8C (MiComputeFlushRange.c)
- *     MmDoesFileHaveUserWritableReferences @ 0x14030F1E0 (MmDoesFileHaveUserWritableReferences.c)
+ *     MiComputeFlushRange @ 0x140274890 (MiComputeFlushRange.c)
+ *     MmDoesFileHaveUserWritableReferences @ 0x14029F8B0 (MmDoesFileHaveUserWritableReferences.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MiDoesControlAreaHaveUserWritableReferences(__int64 a1)
 {
-  unsigned int v1; // r8d
-  unsigned __int64 v2; // rdx
+  __int64 result; // rax
+  unsigned __int64 v2; // r8
 
-  v1 = *(_DWORD *)(a1 + 92);
-  if ( !v1 )
+  result = *(unsigned int *)(a1 + 92);
+  if ( !(_DWORD)result )
   {
     v2 = *(_QWORD *)(a1 + 112);
-    if ( v2 > 1
-      && (*(_QWORD *)(*(_QWORD *)(qword_140C51F48 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF)) + 1688LL) != a1 || v2 - 1 > 1) )
+    if ( v2 > 1 )
     {
-      return 1;
+      if ( *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF)) + 1688LL) == a1 )
+        --v2;
+      if ( v2 > 1 )
+        return 1LL;
     }
   }
-  return v1;
+  return result;
 }

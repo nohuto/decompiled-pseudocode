@@ -1,8 +1,8 @@
 /*
- * XREFs of DesktopWindowFromDesktop @ 0x1C00C0A58
+ * XREFs of DesktopWindowFromDesktop @ 0x1C00FFD10
  * Callers:
- *     ?StartRecalcForDesktop@DesktopRecalc@@YAXPEAUtagDESKTOP@@PEAVCMonitorTopology@@W4StartRecalcOption@@@Z @ 0x1C00C21FC (-StartRecalcForDesktop@DesktopRecalc@@YAXPEAUtagDESKTOP@@PEAVCMonitorTopology@@W4StartRecalcOpti.c)
- *     ?xxxProcessRecalcForThread@DesktopRecalc@@YAXXZ @ 0x1C00C2734 (-xxxProcessRecalcForThread@DesktopRecalc@@YAXXZ.c)
+ *     xxxDesktopRecalc @ 0x1C00FFA1C (xxxDesktopRecalc.c)
+ *     SnapshotWindowRects @ 0x1C01D73C8 (SnapshotWindowRects.c)
  * Callees:
  *     <none>
  */

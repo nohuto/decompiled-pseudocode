@@ -1,20 +1,20 @@
 /*
- * XREFs of PiProcessDriverInstance @ 0x140708DC0
+ * XREFs of PiProcessDriverInstance @ 0x140708DA0
  * Callers:
  *     <none>
  * Callees:
  *     RtlStringCchPrintfExW @ 0x140015EF4 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1401B9B90 (ZwDeleteValueKey.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     PiRearrangeDeviceInstances @ 0x140706130 (PiRearrangeDeviceInstances.c)
- *     PipOpenServiceEnumKeys @ 0x140709554 (PipOpenServiceEnumKeys.c)
- *     PiFindDevInstMatch @ 0x1407097AC (PiFindDevInstMatch.c)
+ *     PiRearrangeDeviceInstances @ 0x140706110 (PiRearrangeDeviceInstances.c)
+ *     PipOpenServiceEnumKeys @ 0x140709534 (PipOpenServiceEnumKeys.c)
+ *     PiFindDevInstMatch @ 0x14070978C (PiFindDevInstMatch.c)
  */
 
 __int64 __fastcall PiProcessDriverInstance(unsigned __int16 *a1, __int64 a2, char *a3)

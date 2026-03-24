@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpGetEffectiveCellType @ 0x1406804C4
+ * XREFs of CmpGetEffectiveCellType @ 0x1405CD2B4
  * Callers:
- *     CmpCreateChild @ 0x1406D1020 (CmpCreateChild.c)
+ *     CmpCreateChild @ 0x1406E08C4 (CmpCreateChild.c)
  * Callees:
- *     CmListGetPrevElement @ 0x1407C5590 (CmListGetPrevElement.c)
+ *     CmListGetPrevElement @ 0x1407680A8 (CmListGetPrevElement.c)
  */
 
 __int64 __fastcall CmpGetEffectiveCellType(__int64 a1, __int64 a2, __int64 a3)

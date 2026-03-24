@@ -1,25 +1,25 @@
 /*
- * XREFs of MNDrawArrow @ 0x1C0234654
+ * XREFs of MNDrawArrow @ 0x1C024C08C
  * Callers:
- *     xxxMNSetTop @ 0x1C021A1D4 (xxxMNSetTop.c)
- *     xxxMNDrawFullNC @ 0x1C023534C (xxxMNDrawFullNC.c)
- *     xxxMNInvertItem @ 0x1C0235660 (xxxMNInvertItem.c)
+ *     xxxMNSetTop @ 0x1C023AFB8 (xxxMNSetTop.c)
+ *     xxxMNDrawFullNC @ 0x1C024C484 (xxxMNDrawFullNC.c)
+ *     xxxMNInvertItem @ 0x1C024C7C0 (xxxMNInvertItem.c)
  * Callees:
- *     BitBltSysBmp @ 0x1C009A400 (BitBltSysBmp.c)
- *     GetOemBitmapInfoForDpi @ 0x1C009A53C (GetOemBitmapInfoForDpi.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
- *     DrawFrameControl @ 0x1C01197C0 (DrawFrameControl.c)
- *     ?GetDPIMETRICS@@YAPEBUtagDPIMETRICS@@PEBUtagWND@@@Z @ 0x1C02337C0 (-GetDPIMETRICS@@YAPEBUtagDPIMETRICS@@PEBUtagWND@@@Z.c)
+ *     DrawFrameControl @ 0x1C0045B98 (DrawFrameControl.c)
+ *     GetDpiForSystem @ 0x1C0063C1C (GetDpiForSystem.c)
+ *     BitBltSysBmp @ 0x1C0106EBC (BitBltSysBmp.c)
+ *     GetOemBitmapInfoForDpi @ 0x1C010710C (GetOemBitmapInfoForDpi.c)
+ *     ?GetDPIMETRICS@@YAPEBUtagDPIMETRICS@@PEAUtagWND@@@Z @ 0x1C0124AE8 (-GetDPIMETRICS@@YAPEBUtagDPIMETRICS@@PEAUtagWND@@@Z.c)
  */
 
 __int64 __fastcall MNDrawArrow(HDC a1, __int64 **a2, int a3)
 {
-  const struct tagWND *v6; // r13
+  __int64 v6; // r13
   __int64 result; // rax
   HDC DCEx; // rbp
   __int64 v9; // rcx
   unsigned int DpiForSystem; // eax
-  unsigned int v11; // esi
+  LONG v11; // esi
   int v12; // r8d
   LONG v13; // edi
   int v14; // r9d
@@ -36,7 +36,7 @@ __int64 __fastcall MNDrawArrow(HDC a1, __int64 **a2, int a3)
   int v25; // ecx
   struct tagRECT v26; // [rsp+30h] [rbp-38h] BYREF
 
-  v6 = *(const struct tagWND **)(**a2 + 16);
+  v6 = *(_QWORD *)(**a2 + 16);
   result = *(_QWORD *)(**a2 + 40);
   if ( (*(_DWORD *)(result + 124) & 3) != 0 )
   {
@@ -63,10 +63,10 @@ __int64 __fastcall MNDrawArrow(HDC a1, __int64 **a2, int a3)
     }
     else
     {
-      v16 = *((_QWORD *)v6 + 5);
+      v16 = *(_QWORD *)(v6 + 40);
       v17 = *(_DWORD *)(v16 + 100);
       v18 = *(_DWORD *)(v16 + 92);
-      DPIMETRICS = GetDPIMETRICS(v6);
+      DPIMETRICS = GetDPIMETRICS((struct tagWND *)v6);
       v12 = 68;
       v14 = 3;
       v15 = 16;
@@ -90,12 +90,12 @@ __int64 __fastcall MNDrawArrow(HDC a1, __int64 **a2, int a3)
       LODWORD(OemBitmapInfoForDpi) = *((__int16 *)OemBitmapInfoForDpi + 3);
       v26.right = v11 + v25;
       v26.bottom = v13 + (_DWORD)OemBitmapInfoForDpi;
-      result = DrawFrameControl(DCEx, &v26, 2, v20 | 0x800u);
+      result = DrawFrameControl(DCEx, &v26, 2u, v20 | 0x800u);
     }
     else
     {
-      BitBltSysBmp(DCEx, v11, v13, v22, 1);
-      result = BitBltSysBmp(DCEx, v11, v13, v22, 1);
+      BitBltSysBmp((__int64)DCEx, v11, v13, v22, 1);
+      result = BitBltSysBmp((__int64)DCEx, v11, v13, v22, 1);
     }
     if ( !a1 )
       return _ReleaseDC(DCEx);

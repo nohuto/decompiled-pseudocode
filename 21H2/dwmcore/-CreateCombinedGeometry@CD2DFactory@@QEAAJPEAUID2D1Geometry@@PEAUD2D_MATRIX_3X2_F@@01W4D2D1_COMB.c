@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CreateCombinedGeometry@CD2DFactory@@QEAAJPEAUID2D1Geometry@@PEAUD2D_MATRIX_3X2_F@@01W4D2D1_COMBINE_MODE@@PEAPEAU2@@Z @ 0x1800D3514
+ * XREFs of ?CreateCombinedGeometry@CD2DFactory@@QEAAJPEAUID2D1Geometry@@PEAUD2D_MATRIX_3X2_F@@01W4D2D1_COMBINE_MODE@@PEAPEAU2@@Z @ 0x18024AFAC
  * Callers:
- *     ?D2DCombine@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x1800D2F7C (-D2DCombine@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
+ *     ?D2DCombine@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x18025D7A0 (-D2DCombine@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD2DFactory::CreateCombinedGeometry(
@@ -15,7 +15,7 @@ __int64 __fastcall CD2DFactory::CreateCombinedGeometry(
         enum D2D1_COMBINE_MODE a6,
         struct ID2D1Geometry **a7)
 {
-  return (*(__int64 (__fastcall **)(_QWORD, _QWORD, struct ID2D1Geometry *, struct D2D_MATRIX_3X2_F *, struct ID2D1Geometry *, struct D2D_MATRIX_3X2_F *, _DWORD, struct ID2D1Geometry **))(**(&g_DeviceManager + 1) + 32LL))(
+  return (*(__int64 (__fastcall **)(_QWORD, _QWORD, struct ID2D1Geometry *, struct D2D_MATRIX_3X2_F *, struct ID2D1Geometry *, struct D2D_MATRIX_3X2_F *, _DWORD, struct ID2D1Geometry **))(*(_QWORD *)*(&g_DeviceManager + 1) + 32LL))(
            *(&g_DeviceManager + 1),
            (unsigned int)a6,
            a2,

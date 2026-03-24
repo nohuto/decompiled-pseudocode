@@ -1,16 +1,18 @@
 /*
- * XREFs of DxgSetPowerComponentActiveNoWaitCB @ 0x1C004BB90
+ * XREFs of DxgSetPowerComponentActiveNoWaitCB @ 0x1C0042800
  * Callers:
  *     <none>
  * Callees:
- *     ?SetPowerComponentActiveCBInternal@DXGADAPTER@@QEAAXIEK@Z @ 0x1C0014C64 (-SetPowerComponentActiveCBInternal@DXGADAPTER@@QEAAXIEK@Z.c)
- *     DpiGetDxgAdapter @ 0x1C00151D0 (DpiGetDxgAdapter.c)
+ *     DpiGetDxgAdapter @ 0x1C0013140 (DpiGetDxgAdapter.c)
+ *     ?SetPowerComponentActiveCBInternal@DXGADAPTER@@QEAAXIEK@Z @ 0x1C00391E8 (-SetPowerComponentActiveCBInternal@DXGADAPTER@@QEAAXIEK@Z.c)
  */
 
-void __fastcall DxgSetPowerComponentActiveNoWaitCB(__int64 a1, unsigned int a2)
+void __fastcall DxgSetPowerComponentActiveNoWaitCB(__int64 a1, __int64 a2)
 {
+  unsigned int v2; // ebx
   DXGADAPTER *DxgAdapter; // rax
 
-  DxgAdapter = (DXGADAPTER *)DpiGetDxgAdapter(a1);
-  DXGADAPTER::SetPowerComponentActiveCBInternal(DxgAdapter, a2, 0, 0);
+  v2 = a2;
+  DxgAdapter = (DXGADAPTER *)DpiGetDxgAdapter(a1, a2);
+  DXGADAPTER::SetPowerComponentActiveCBInternal(DxgAdapter, v2, 0, 0);
 }

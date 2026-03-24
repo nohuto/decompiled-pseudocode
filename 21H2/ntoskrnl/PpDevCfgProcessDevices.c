@@ -1,22 +1,22 @@
 /*
- * XREFs of PpDevCfgProcessDevices @ 0x140827F54
+ * XREFs of PpDevCfgProcessDevices @ 0x1407A32BC
  * Callers:
- *     PnpBootPhaseComplete @ 0x140827E8C (PnpBootPhaseComplete.c)
+ *     PnpBootPhaseComplete @ 0x1407A31F4 (PnpBootPhaseComplete.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PnpRequestDeviceAction @ 0x1402DCF44 (PnpRequestDeviceAction.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     PipForDeviceNodeSubtree @ 0x140764CE4 (PipForDeviceNodeSubtree.c)
- *     PpDeviceRegistration @ 0x14076B554 (PpDeviceRegistration.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x14077572C (PpDevNodeLockTree.c)
- *     PiPnpRtlEndOperation @ 0x140779A50 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140779DC4 (PiPnpRtlBeginOperation.c)
- *     _CmGetDeviceStatus @ 0x14078A470 (_CmGetDeviceStatus.c)
- *     _CmDeleteDevice @ 0x140A236A4 (_CmDeleteDevice.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     PnpRequestDeviceAction @ 0x140370854 (PnpRequestDeviceAction.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
+ *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
+ *     _CmGetDeviceStatus @ 0x1406A0340 (_CmGetDeviceStatus.c)
+ *     PipForDeviceNodeSubtree @ 0x1406B8550 (PipForDeviceNodeSubtree.c)
+ *     _CmDeleteDevice @ 0x14072B89C (_CmDeleteDevice.c)
+ *     PpDeviceRegistration @ 0x14074BD60 (PpDeviceRegistration.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 PpDevCfgProcessDevices()
@@ -24,7 +24,7 @@ __int64 PpDevCfgProcessDevices()
   PVOID *v0; // rbx
   char v1; // si
   int v2; // edi
-  const WCHAR *i; // rbx
+  PVOID *i; // rbx
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v6; // rax
   unsigned int v7; // [rsp+30h] [rbp-20h]
@@ -50,23 +50,23 @@ __int64 PpDevCfgProcessDevices()
     v0 = (PVOID *)P[0];
     if ( P[0] != P )
     {
-      v2 = PiPnpRtlBeginOperation((__int64 **)&v12);
+      v2 = PiPnpRtlBeginOperation(&v12);
       if ( v2 >= 0 )
       {
-        for ( i = (const WCHAR *)P[0]; i != (const WCHAR *)P; i = *(const WCHAR **)i )
+        for ( i = (PVOID *)P[0]; i != P; i = (PVOID *)*i )
         {
-          if ( (int)CmGetDeviceStatus(*(__int64 *)&PiPnpRtlCtx, *((const WCHAR **)i + 3), 0LL, &v9, &v11, &v10, v7) < 0
+          if ( (int)CmGetDeviceStatus(*(__int64 *)&PiPnpRtlCtx, (const WCHAR *)i[3], 0LL, &v9, &v11, &v10, v7) < 0
             || (v9 & 2) == 0 )
           {
             PpDevNodeLockTree(3);
             CurrentThread = KeGetCurrentThread();
             --CurrentThread->KernelApcDisable;
             ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
-            PpDeviceRegistration((__int64)(i + 8), 0LL, 0LL, 1);
-            if ( (int)CmDeleteDevice(PiPnpRtlCtx) >= 0 )
+            PpDeviceRegistration((__int64)(i + 2), 0LL, 0LL, 1);
+            if ( (int)CmDeleteDevice(*(__int64 *)&PiPnpRtlCtx, (__int64)i[3], 0) >= 0 )
               v1 = 1;
             ExReleaseResourceLite(&PnpRegistryDeviceResource);
-            KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
             PpDevNodeUnlockTree(3);
           }
         }
@@ -87,7 +87,7 @@ __int64 PpDevCfgProcessDevices()
       __fastfail(3u);
     P[0] = *v0;
     v6[1] = P;
-    RtlFreeUnicodeString((PUNICODE_STRING)v0 + 1);
+    RtlFreeAnsiString((PUNICODE_STRING)v0 + 1);
     ExFreePoolWithTag(v0, 0);
 LABEL_18:
     v0 = (PVOID *)P[0];

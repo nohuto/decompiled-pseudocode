@@ -1,10 +1,11 @@
 /*
- * XREFs of IovBuildAsynchronousFsdRequest @ 0x140AC2020
+ * XREFs of IovBuildAsynchronousFsdRequest @ 0x1409C4AE0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     XdvIopBuildAsynchronousFsdRequest @ 0x1405CFBB0 (XdvIopBuildAsynchronousFsdRequest.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     XdvIopBuildAsynchronousFsdRequest @ 0x1405A1BA0 (XdvIopBuildAsynchronousFsdRequest.c)
+ *     VfSetIoBuildRequest @ 0x1409D16E8 (VfSetIoBuildRequest.c)
  */
 
 __int64 __fastcall IovBuildAsynchronousFsdRequest(
@@ -15,15 +16,21 @@ __int64 __fastcall IovBuildAsynchronousFsdRequest(
         __int64 a5,
         __int64 a6)
 {
+  __int64 v6; // rax
+  __int64 v7; // rbx
   __int64 retaddr; // [rsp+58h] [rbp+0h]
 
-  return XdvIopBuildAsynchronousFsdRequest(
-           a1,
-           a2,
-           a3,
-           a4,
-           a5,
-           a6,
-           retaddr,
-           (__int64 (__fastcall *)(__int64, __int64, __int64))IopBuildAsynchronousFsdRequest);
+  v6 = XdvIopBuildAsynchronousFsdRequest(
+         a1,
+         a2,
+         a3,
+         a4,
+         a5,
+         a6,
+         retaddr,
+         (__int64 (__fastcall *)(__int64, __int64, __int64))IopBuildAsynchronousFsdRequest);
+  v7 = v6;
+  if ( v6 )
+    VfSetIoBuildRequest(v6);
+  return v7;
 }

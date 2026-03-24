@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InsertTail@?$DoublyLinkedList@UDISPMODECHANGEREQUEST@VIDPN_MGR@@U?$DoubleLinkedListElementDeleter@UDISPMODECHANGEREQUEST@VIDPN_MGR@@@@@@QEAAEQEAUDISPMODECHANGEREQUEST@VIDPN_MGR@@@Z @ 0x1C0013F58
+ * XREFs of ?InsertTail@?$DoublyLinkedList@UDISPMODECHANGEREQUEST@VIDPN_MGR@@U?$DoubleLinkedListElementDeleter@UDISPMODECHANGEREQUEST@VIDPN_MGR@@@@@@QEAAEQEAUDISPMODECHANGEREQUEST@VIDPN_MGR@@@Z @ 0x1C000CAF8
  * Callers:
- *     ?Enqueue@?$Queue@UDISPMODECHANGEREQUEST@VIDPN_MGR@@@@QEAAEQEAUDISPMODECHANGEREQUEST@VIDPN_MGR@@@Z @ 0x1C0013ED8 (-Enqueue@-$Queue@UDISPMODECHANGEREQUEST@VIDPN_MGR@@@@QEAAEQEAUDISPMODECHANGEREQUEST@VIDPN_MGR@@@.c)
+ *     ?Enqueue@?$Queue@UDISPMODECHANGEREQUEST@VIDPN_MGR@@@@QEAAEQEAUDISPMODECHANGEREQUEST@VIDPN_MGR@@@Z @ 0x1C000CA70 (-Enqueue@-$Queue@UDISPMODECHANGEREQUEST@VIDPN_MGR@@@@QEAAEQEAUDISPMODECHANGEREQUEST@VIDPN_MGR@@@.c)
  * Callees:
  *     <none>
  */
@@ -23,15 +23,15 @@ char __fastcall DoublyLinkedList<VIDPN_MGR::DISPMODECHANGEREQUEST,DoubleLinkedLi
     v4 = 0LL;
     if ( (_QWORD *)*v3 != v3 )
       v4 = *v3 - 8LL;
-    while ( v4 )
+    while ( v4 && v4 != a2 )
     {
-      if ( v4 == a2 )
-        return 0;
       v5 = *(_QWORD **)(v4 + 8);
       v4 = (__int64)(v5 - 1);
       if ( v5 == v3 )
         v4 = 0LL;
     }
+    if ( v4 )
+      return 0;
   }
   v6 = (_QWORD *)(a2 + 8);
   v7 = (_QWORD *)a1[3];

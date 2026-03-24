@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_DisablingOnEnumAfterFailureInReEnumWithAddress0Ownership @ 0x1C001F6D0
+ * XREFs of HUBDSM_DisablingOnEnumAfterFailureInReEnumWithAddress0Ownership @ 0x1C001CCC0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_DisablingOnEnumAfterFailureInReEnumWithAddress0Ownership(__int64 a1)

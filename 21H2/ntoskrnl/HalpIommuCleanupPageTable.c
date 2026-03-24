@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpIommuCleanupPageTable @ 0x1405294E0
+ * XREFs of HalpIommuCleanupPageTable @ 0x1404DB850
  * Callers:
- *     HalpIommuDestroyDmarPageTable @ 0x140529724 (HalpIommuDestroyDmarPageTable.c)
+ *     HalpIommuFreeDmaDomain @ 0x1404C956C (HalpIommuFreeDmaDomain.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-void __fastcall HalpIommuCleanupPageTable(__int64 a1)
+__int64 __fastcall HalpIommuCleanupPageTable(__int64 a1)
 {
   char *v1; // rdi
   int v3; // ebp
@@ -19,7 +19,7 @@ void __fastcall HalpIommuCleanupPageTable(__int64 a1)
   int v8; // r9d
   unsigned int v9; // edx
   int v10; // eax
-  __int64 v11; // rcx
+  __int64 result; // rax
   __int64 v12; // rcx
   char *v13; // r13
   int v14; // ebx
@@ -48,8 +48,7 @@ void __fastcall HalpIommuCleanupPageTable(__int64 a1)
       v17 = &v1[v9 << v8];
       if ( v3 == v10 )
       {
-        memset(v1, 0, (unsigned __int64)v9 << v8);
-        HalpMmAllocCtxFree(v11, (__int64)v1);
+        result = (__int64)memset(v1, 0, (unsigned __int64)v9 << v8);
       }
       else
       {
@@ -70,7 +69,7 @@ void __fastcall HalpIommuCleanupPageTable(__int64 a1)
         if ( v13 )
         {
           v16 = (unsigned int)(v14 - 1);
-          memset(&v1[(_DWORD)v16 << v8], 0, 1LL << v8);
+          result = (__int64)memset(&v1[(_DWORD)v16 << v8], 0, 1LL << v8);
           ++v3;
           ++v7;
           ++v6;
@@ -79,7 +78,7 @@ void __fastcall HalpIommuCleanupPageTable(__int64 a1)
           *++v5 = v13;
           continue;
         }
-        HalpMmAllocCtxFree(v12, (__int64)v1);
+        result = HalpMmAllocCtxFree(v12, (__int64)v1);
         *v6 = 0;
       }
       --v3;
@@ -89,4 +88,5 @@ void __fastcall HalpIommuCleanupPageTable(__int64 a1)
     }
     while ( v3 >= 0 );
   }
+  return result;
 }

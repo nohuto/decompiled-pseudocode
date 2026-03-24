@@ -1,13 +1,13 @@
 /*
- * XREFs of IommuSetAddressSpace @ 0x140526F10
+ * XREFs of IommuSetAddressSpace @ 0x1404D9940
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IommuSetAddressSpace(__int64 a1, __int64 a2)
@@ -61,7 +61,7 @@ __int64 __fastcall IommuSetAddressSpace(__int64 a1, __int64 a2)
             v11 = *(_QWORD *)(v10 + 24);
             (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(v11 + 224))(
               *(_QWORD *)(v11 + 16),
-              *(_QWORD *)(v10 + 88),
+              *(_QWORD *)(v10 + 64),
               *(unsigned int *)(v2 + 16),
               a2);
             (*(void (__fastcall **)(_QWORD, _QWORD, __int64, _QWORD, _DWORD, _QWORD))(v11 + 232))(

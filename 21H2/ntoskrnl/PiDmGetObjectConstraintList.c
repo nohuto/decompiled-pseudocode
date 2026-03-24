@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDmGetObjectConstraintList @ 0x14077747C
+ * XREFs of PiDmGetObjectConstraintList @ 0x140639EEC
  * Callers:
- *     PiDmGetCmObjectConstraintListFromCache @ 0x1407773E8 (PiDmGetCmObjectConstraintListFromCache.c)
+ *     PiDmGetCmObjectConstraintListFromCache @ 0x140639FE8 (PiDmGetCmObjectConstraintListFromCache.c)
  * Callees:
- *     PiDmListEnumObjectsWithCallback @ 0x14077A8E0 (PiDmListEnumObjectsWithCallback.c)
- *     PiDmGetObject @ 0x14077B0A4 (PiDmGetObject.c)
- *     PiDmObjectRelease @ 0x14077B394 (PiDmObjectRelease.c)
+ *     PiDmListEnumObjectsWithCallback @ 0x1406357D0 (PiDmListEnumObjectsWithCallback.c)
+ *     PiDmGetObject @ 0x140636A6C (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
  */
 
 __int64 __fastcall PiDmGetObjectConstraintList(
-        unsigned int a1,
+        int a1,
         __int64 a2,
         __int64 a3,
         __int64 a4,
@@ -36,7 +36,7 @@ __int64 __fastcall PiDmGetObjectConstraintList(
   v17 = 0LL;
   if ( v8 )
     *v9 = 0;
-  Object = PiDmGetObject(LODWORD(PiDmListDefs[5 * (int)a1]), a2, &P);
+  Object = PiDmGetObject(LODWORD(PiDmListDefs[5 * a1]), a2, (__int64 *)&P);
   v13 = Object;
   if ( Object < 0 )
   {
@@ -46,10 +46,15 @@ __int64 __fastcall PiDmGetObjectConstraintList(
   }
   else
   {
+    *(_QWORD *)&v16 = PiDmCmObjectMatchCallback;
     *((_QWORD *)&v16 + 1) = a4;
     *(_QWORD *)&v17 = v9;
     *((_QWORD *)&v17 + 1) = v8;
-    v13 = PiDmListEnumObjectsWithCallback(a1, P, PiDmGetObjectListCallback, &v16, PiDmCmObjectMatchCallback);
+    v13 = PiDmListEnumObjectsWithCallback(
+            a1,
+            (ULONG_PTR)P,
+            (__int64 (__fastcall *)(_QWORD, __int64, char *))PiDmGetObjectListCallback,
+            (__int64)&v16);
     if ( v13 < 0 )
       goto LABEL_10;
     *v7 = HIDWORD(v17);
@@ -65,6 +70,6 @@ __int64 __fastcall PiDmGetObjectConstraintList(
   }
 LABEL_10:
   if ( P )
-    PiDmObjectRelease(P);
+    PiDmObjectRelease((unsigned int *)P);
   return (unsigned int)v13;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmAddDeviceToContainer @ 0x14076C91C
+ * XREFs of _CmAddDeviceToContainer @ 0x140759124
  * Callers:
- *     PiDcUpdateDeviceContainerMembership @ 0x14076C764 (PiDcUpdateDeviceContainerMembership.c)
- *     _CmMoveBaseContainer @ 0x140A26770 (_CmMoveBaseContainer.c)
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x140758F6C (PiDcUpdateDeviceContainerMembership.c)
+ *     _CmMoveBaseContainer @ 0x1409764B4 (_CmMoveBaseContainer.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     _PnpObjectRaiseDevicesChangeEvent @ 0x1406E3C60 (_PnpObjectRaiseDevicesChangeEvent.c)
- *     _CmAddDeviceToContainerWorker @ 0x14076CA78 (_CmAddDeviceToContainerWorker.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _PnpObjectRaiseDevicesChangeEvent @ 0x140755C80 (_PnpObjectRaiseDevicesChangeEvent.c)
+ *     _CmAddDeviceToContainerWorker @ 0x140759280 (_CmAddDeviceToContainerWorker.c)
  */
 
 __int64 __fastcall CmAddDeviceToContainer(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5)

@@ -1,11 +1,11 @@
 /*
- * XREFs of HdlspSendBlueScreenInfo @ 0x140AEC3D0
+ * XREFs of HdlspSendBlueScreenInfo @ 0x1409F02AC
  * Callers:
- *     HdlspDispatch @ 0x140AEAEB0 (HdlspDispatch.c)
+ *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     sprintf_s @ 0x1403DF0C0 (sprintf_s.c)
- *     HdlspSendStringAtBaud @ 0x140AEC474 (HdlspSendStringAtBaud.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     sprintf_s @ 0x1403D74F0 (sprintf_s.c)
+ *     HdlspSendStringAtBaud @ 0x1409F0350 (HdlspSendStringAtBaud.c)
  */
 
 __int64 __fastcall HdlspSendBlueScreenInfo(int a1)

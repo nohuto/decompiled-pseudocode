@@ -1,17 +1,17 @@
 /*
- * XREFs of PspAssignProcessToJobList @ 0x1409B0F60
+ * XREFs of PspAssignProcessToJobList @ 0x140909F3C
  * Callers:
- *     PspInsertThread @ 0x14073F3AC (PspInsertThread.c)
+ *     PspInsertThread @ 0x1406C1DE8 (PspInsertThread.c)
  * Callees:
- *     PsAssignProcessToJobObject @ 0x14069FF70 (PsAssignProcessToJobObject.c)
- *     EtwTraceJobAssignProcess @ 0x1409E5498 (EtwTraceJobAssignProcess.c)
+ *     PsAssignProcessToJobObject @ 0x14071E780 (PsAssignProcessToJobObject.c)
+ *     EtwTraceJobAssignProcess @ 0x140935E78 (EtwTraceJobAssignProcess.c)
  */
 
-__int64 __fastcall PspAssignProcessToJobList(void *a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall PspAssignProcessToJobList(struct _KPROCESS *a1, __int64 a2, unsigned __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // r15
   __int64 v4; // rbx
-  void *v8; // rbp
+  __int64 v8; // rbp
   unsigned int v9; // eax
   int v10; // edi
 
@@ -21,7 +21,7 @@ __int64 __fastcall PspAssignProcessToJobList(void *a1, __int64 a2, unsigned __in
     return 0LL;
   while ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) == 0 )
   {
-    v8 = *(void **)(a2 + 8 * v4);
+    v8 = *(_QWORD *)(a2 + 8 * v4);
     v9 = PsAssignProcessToJobObject(v8, a1, 0LL);
     v10 = v9;
     if ( (PerfGlobalGroupMask[0] & 0x80000) != 0 )

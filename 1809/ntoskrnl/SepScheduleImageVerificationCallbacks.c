@@ -1,9 +1,9 @@
 /*
- * XREFs of SepScheduleImageVerificationCallbacks @ 0x1406CD9E8
+ * XREFs of SepScheduleImageVerificationCallbacks @ 0x1406CD9C8
  * Callers:
- *     SeValidateImageHeader @ 0x140653734 (SeValidateImageHeader.c)
+ *     SeValidateImageHeader @ 0x140653714 (SeValidateImageHeader.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

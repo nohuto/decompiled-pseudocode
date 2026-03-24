@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vTransparentCopyS4D8@@YAXPEAUBLTINFO@@@Z @ 0x1C0290B90
+ * XREFs of ?vTransparentCopyS4D8@@YAXPEAUBLTINFO@@@Z @ 0x1C0293030
  * Callers:
  *     <none>
  * Callees:

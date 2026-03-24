@@ -1,14 +1,14 @@
 /*
- * XREFs of VmpMergeMemoryRanges @ 0x14030CB10
+ * XREFs of VmpMergeMemoryRanges @ 0x14030CC10
  * Callers:
- *     VmMergeMemoryRanges @ 0x1408B03C0 (VmMergeMemoryRanges.c)
+ *     VmMergeMemoryRanges @ 0x1408B03A0 (VmMergeMemoryRanges.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpProcessContextLockExclusive @ 0x14030D0AC (VmpProcessContextLockExclusive.c)
- *     VmpVaRangeNumberOfGpaRanges @ 0x14030DC14 (VmpVaRangeNumberOfGpaRanges.c)
- *     VmpFreeMemoryRanges @ 0x1408B073C (VmpFreeMemoryRanges.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpProcessContextLockExclusive @ 0x14030D1AC (VmpProcessContextLockExclusive.c)
+ *     VmpVaRangeNumberOfGpaRanges @ 0x14030DD14 (VmpVaRangeNumberOfGpaRanges.c)
+ *     VmpFreeMemoryRanges @ 0x1408B071C (VmpFreeMemoryRanges.c)
  */
 
 __int64 __fastcall VmpMergeMemoryRanges(PEX_SPIN_LOCK SpinLock, unsigned __int64 a2, __int64 a3)

@@ -1,18 +1,16 @@
 /*
- * XREFs of ?ProcessSetEffect@CLayerVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LAYERVISUAL_SETEFFECT@@@Z @ 0x1802239BC
+ * XREFs of ?ProcessSetEffect@CLayerVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LAYERVISUAL_SETEFFECT@@@Z @ 0x18001EA30
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180046EF0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x180048C04 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18004F61C (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C07E8 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800D7C40 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?UpdateBackdropBlurFlagForTreeEffect@CLayerVisual@@AEAAXXZ @ 0x1800F1960 (-UpdateBackdropBlurFlagForTreeEffect@CLayerVisual@@AEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ClearTreeEffect@CLayerVisual@@AEAAXXZ @ 0x18022355C (-ClearTreeEffect@CLayerVisual@@AEAAXXZ.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?ClearTreeEffect@CLayerVisual@@AEAAXXZ @ 0x18001F614 (-ClearTreeEffect@CLayerVisual@@AEAAXXZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F358 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x18009F678 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3004 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CLayerVisual::ProcessSetEffect(
@@ -21,66 +19,71 @@ __int64 __fastcall CLayerVisual::ProcessSetEffect(
         const struct tagMILCMD_LAYERVISUAL_SETEFFECT *a3)
 {
   unsigned int v4; // edi
-  unsigned int v5; // edx
-  __int64 v7; // rcx
+  __int64 v5; // rdx
+  unsigned int v7; // ecx
   struct CResource *Resource; // rsi
-  struct CResource **v9; // rax
-  struct CResource **v10; // rdi
-  struct CResource *v11; // rcx
-  int v12; // eax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  void *retaddr; // [rsp+38h] [rbp+0h]
+  _QWORD *v9; // rax
+  struct CResource **v10; // r14
+  int v11; // eax
+  struct CResource *v12; // rcx
+  int v14; // r9d
+  unsigned int v15; // [rsp+20h] [rbp-18h]
 
   v4 = 0;
-  v5 = *((_DWORD *)a3 + 2);
-  if ( v5 )
+  v5 = *((unsigned int *)a3 + 2);
+  if ( !(_DWORD)v5 )
   {
-    Resource = (struct CResource *)CResourceTable::GetResource((__int64)a2, v5, 0x37u);
-    if ( !Resource )
-    {
-      v4 = -2003303421;
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, -2003303421, 0x31u);
+    if ( !(*(unsigned __int8 (__fastcall **)(CLayerVisual *))(*(_QWORD *)this + 232LL))(this) )
       return v4;
-    }
-    v9 = (struct CResource **)*((_QWORD *)this + 92);
-    if ( !v9 )
+    CLayerVisual::ClearTreeEffect(this);
+    goto LABEL_11;
+  }
+  Resource = (struct CResource *)CResourceTable::GetResource(a2, v5, 55LL);
+  if ( !Resource )
+  {
+    v4 = -2003303421;
+    v15 = 42;
+LABEL_15:
+    v14 = v4;
+    goto LABEL_17;
+  }
+  if ( (*(unsigned __int8 (__fastcall **)(CLayerVisual *))(*(_QWORD *)this + 232LL))(this) )
+    goto LABEL_6;
+  v9 = DefaultHeap::AllocClear(0x10uLL);
+  if ( !v9 )
+  {
+    v4 = -2147024882;
+    v15 = 48;
+    goto LABEL_15;
+  }
+  v9[1] = 0LL;
+  *v9 = 0LL;
+  *((_QWORD *)this + 78) = v9;
+LABEL_6:
+  v10 = (struct CResource **)(*(__int64 (__fastcall **)(CLayerVisual *))(*(_QWORD *)this + 240LL))(this);
+  if ( *v10 != Resource )
+  {
+    v11 = CResource::RegisterNotifier(this, Resource);
+    v4 = v11;
+    if ( v11 >= 0 )
     {
-      v9 = (struct CResource **)DefaultHeap::AllocClear(0x10uLL);
-      if ( !v9 )
-        ModuleFailFastForHRESULT(2147942414LL, retaddr);
-      v9[1] = 0LL;
-      *v9 = 0LL;
-      *((_QWORD *)this + 92) = v9;
-    }
-    if ( *v9 != Resource )
-    {
-      CResource::UnRegisterNotifierInternal(this, *v9);
-      v10 = (struct CResource **)*((_QWORD *)this + 92);
+      CResource::UnRegisterNotifierInternal(this, *v10);
       if ( *v10 != Resource )
       {
         (*(void (__fastcall **)(struct CResource *))(*(_QWORD *)Resource + 8LL))(Resource);
-        v11 = *v10;
+        v12 = *v10;
         *v10 = Resource;
-        if ( v11 )
-          (*(void (__fastcall **)(struct CResource *))(*(_QWORD *)v11 + 16LL))(v11);
+        if ( v12 )
+          (*(void (__fastcall **)(struct CResource *))(*(_QWORD *)v12 + 16LL))(v12);
       }
-      v12 = CResource::RegisterNotifier(this, Resource);
-      v4 = v12;
-      if ( v12 >= 0 )
-      {
-        CLayerVisual::UpdateBackdropBlurFlagForTreeEffect(this, v13);
-LABEL_18:
-        CVisual::PropagateFlags((__int64)this, 5u);
-        return v4;
-      }
-      MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v12, 0x3Fu);
+LABEL_11:
+      CVisual::PropagateFlags(this, 5LL);
+      return v4;
     }
-  }
-  else if ( *((_QWORD *)this + 92) )
-  {
-    CLayerVisual::ClearTreeEffect((struct CResource ***)this);
-    goto LABEL_18;
+    v14 = v11;
+    v15 = 58;
+LABEL_17:
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v14, v15, 0LL);
   }
   return v4;
 }

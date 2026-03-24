@@ -3,7 +3,7 @@
  * Callers:
  *     PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x1405FCC08 (PopEtProcessSnapshotUpdateFromSnapshotContext.c)
  *     PopEtEnergyContextSetState @ 0x14060464C (PopEtEnergyContextSetState.c)
- *     PopEtProcessSnapshotCreate @ 0x14069F81C (PopEtProcessSnapshotCreate.c)
+ *     PopEtProcessSnapshotCreate @ 0x14069F7FC (PopEtProcessSnapshotCreate.c)
  * Callees:
  *     RtlInternEntryDereference @ 0x1406002A4 (RtlInternEntryDereference.c)
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDqIrpCancel @ 0x140288DB0
+ * XREFs of PiDqIrpCancel @ 0x140288EB0
  * Callers:
  *     <none>
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     PiDqQueryLock @ 0x14082B1F8 (PiDqQueryLock.c)
- *     PiDqQueryUnlock @ 0x14082B224 (PiDqQueryUnlock.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     PiDqQueryLock @ 0x14082B1D8 (PiDqQueryLock.c)
+ *     PiDqQueryUnlock @ 0x14082B204 (PiDqQueryUnlock.c)
  */
 
 void __fastcall PiDqIrpCancel(__int64 a1, IRP *a2)

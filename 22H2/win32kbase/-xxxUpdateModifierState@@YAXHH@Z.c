@@ -1,17 +1,17 @@
 /*
- * XREFs of ?xxxUpdateModifierState@@YAXHH@Z @ 0x1C01B7650
+ * XREFs of ?xxxUpdateModifierState@@YAXHH@Z @ 0x1C01856D0
  * Callers:
- *     ?xxxStickyKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01B6F90 (-xxxStickyKeys@@YAHPEAUtagKE@@KH@Z.c)
- *     ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C01B74F0 (-xxxTurnOffStickyKeys@@YAXXZ.c)
- *     ?xxxTwoKeysDown@@YAHH@Z @ 0x1C01B7550 (-xxxTwoKeysDown@@YAHH@Z.c)
- *     ?xxxUnlatchStickyKeys@@YAXXZ @ 0x1C01B75E0 (-xxxUnlatchStickyKeys@@YAXXZ.c)
+ *     ?xxxStickyKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01850C0 (-xxxStickyKeys@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C0185580 (-xxxTurnOffStickyKeys@@YAXXZ.c)
+ *     ?xxxTwoKeysDown@@YAHH@Z @ 0x1C01855E0 (-xxxTwoKeysDown@@YAHH@Z.c)
+ *     ?xxxUnlatchStickyKeys@@YAXXZ @ 0x1C0185660 (-xxxUnlatchStickyKeys@@YAXXZ.c)
  * Callees:
- *     xxxProcessKeyEvent @ 0x1C00C90C0 (xxxProcessKeyEvent.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?AccessProceduresStream@@YAHPEAUtagKE@@KH@Z @ 0x1C00E3A10 (-AccessProceduresStream@@YAHPEAUtagKE@@KH@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ?AccessProceduresStream@@YAHPEAUtagKE@@KH@Z @ 0x1C01830F0 (-AccessProceduresStream@@YAHPEAUtagKE@@KH@Z.c)
+ *     xxxProcessKeyEvent @ 0x1C01B1150 (xxxProcessKeyEvent.c)
  */
 
-void __fastcall xxxUpdateModifierState(int a1, signed int a2)
+void __fastcall xxxUpdateModifierState(int a1, unsigned int a2)
 {
   _DWORD *v2; // rbx
   int v3; // esi
@@ -20,7 +20,7 @@ void __fastcall xxxUpdateModifierState(int a1, signed int a2)
   __int16 v8; // ax
   _OWORD v9[2]; // [rsp+30h] [rbp-48h] BYREF
 
-  v2 = &unk_1C0265ED4;
+  v2 = &unk_1C0226174;
   v3 = (unsigned __int8)gLockBits | (unsigned __int8)gLatchBits;
   v5 = 0;
   memset(v9, 0, sizeof(v9));
@@ -35,7 +35,7 @@ void __fastcall xxxUpdateModifierState(int a1, signed int a2)
       if ( v7 )
         WORD1(v9[0]) = v8 | 0x8000;
       if ( (unsigned int)AccessProceduresStream((struct tagKE *)v9, 0, a2) )
-        xxxProcessKeyEvent((unsigned __int16 *)v9, 0LL, 0, 0, 0LL, 0LL);
+        xxxProcessKeyEvent(v9, 0LL, 0LL, 0LL, 0LL, 0LL);
     }
     ++v5;
     v2 += 2;

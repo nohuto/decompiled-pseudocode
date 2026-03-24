@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDecreaseUsedPtesCount @ 0x14012F18C
+ * XREFs of MiDecreaseUsedPtesCount @ 0x14012F1AC
  * Callers:
  *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiDeleteAwePageTable @ 0x1402B0134 (MiDeleteAwePageTable.c)
- *     MiUpdateAwePageTable @ 0x1402B2048 (MiUpdateAwePageTable.c)
- *     MiDeleteLargeUserPde @ 0x1402C73C0 (MiDeleteLargeUserPde.c)
+ *     MiDeleteAwePageTable @ 0x1402B0234 (MiDeleteAwePageTable.c)
+ *     MiUpdateAwePageTable @ 0x1402B2148 (MiUpdateAwePageTable.c)
+ *     MiDeleteLargeUserPde @ 0x1402C74C0 (MiDeleteLargeUserPde.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDecreaseUsedPtesCount(ULONG_PTR BugCheckParameter2, __int64 BugCheckParameter4, __int64 a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ReleaseRenderTargets@CIndirectSwapchainRenderTarget@@EEAAXXZ @ 0x1801C6010
+ * XREFs of ?ReleaseRenderTargets@CIndirectSwapchainRenderTarget@@EEAAXXZ @ 0x18016FD80
  * Callers:
  *     <none>
  * Callees:

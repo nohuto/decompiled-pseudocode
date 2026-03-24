@@ -1,5 +1,5 @@
 /*
- * XREFs of EditionIsWinEventsDeferred @ 0x1C01BFFE0
+ * XREFs of EditionIsWinEventsDeferred @ 0x1C01EA3F0
  * Callers:
  *     <none>
  * Callees:

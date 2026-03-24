@@ -1,17 +1,19 @@
 /*
- * XREFs of KiMoveApcState @ 0x14034A02C
+ * XREFs of KiMoveApcState @ 0x1402079C0
  * Callers:
- *     KiDetachProcess @ 0x14022DD20 (KiDetachProcess.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiDetachProcess @ 0x1402075C0 (KiDetachProcess.c)
  * Callees:
  *     <none>
  */
 
-_QWORD *__fastcall KiMoveApcState(__int64 *a1, __int64 a2)
+__int64 ***__fastcall KiMoveApcState(__int64 *a1, __int64 a2)
 {
   __int64 *v3; // rcx
   __int64 *v4; // r9
-  _QWORD *result; // rax
-  _QWORD *v6; // rax
+  __int64 ***result; // rax
+  __int64 **v6; // rcx
+  _QWORD *v7; // rax
 
   *(_QWORD *)(a2 + 32) = a1[4];
   *(_BYTE *)(a2 + 40) = *((_BYTE *)a1 + 40);
@@ -26,27 +28,28 @@ _QWORD *__fastcall KiMoveApcState(__int64 *a1, __int64 a2)
   }
   else
   {
-    v6 = (_QWORD *)a1[1];
+    v7 = (_QWORD *)a1[1];
     *(_QWORD *)a2 = v3;
-    *(_QWORD *)(a2 + 8) = v6;
+    *(_QWORD *)(a2 + 8) = v7;
     v3[1] = a2;
-    *v6 = a2;
+    *v7 = a2;
   }
   v4 = (__int64 *)a1[2];
+  result = (__int64 ***)(a1 + 2);
+  v6 = (__int64 **)(a2 + 16);
   if ( v4 == a1 + 2 )
   {
-    result = (_QWORD *)(a2 + 16);
-    *(_BYTE *)(a2 + 42) = 0;
     *(_QWORD *)(a2 + 24) = a2 + 16;
-    *(_QWORD *)(a2 + 16) = a2 + 16;
+    *v6 = (__int64 *)v6;
+    *(_BYTE *)(a2 + 42) = 0;
   }
   else
   {
-    result = (_QWORD *)a1[3];
-    *(_QWORD *)(a2 + 16) = v4;
+    result = (__int64 ***)a1[3];
+    *v6 = v4;
     *(_QWORD *)(a2 + 24) = result;
-    v4[1] = a2 + 16;
-    *result = a2 + 16;
+    v4[1] = (__int64)v6;
+    *result = v6;
   }
   return result;
 }

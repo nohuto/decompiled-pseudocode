@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLfhOwnerMoveSubsegment @ 0x1403169C4
+ * XREFs of RtlpHpLfhOwnerMoveSubsegment @ 0x140308BC8
  * Callers:
- *     RtlpHpLfhBucketGetSubsegment @ 0x14031597C (RtlpHpLfhBucketGetSubsegment.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x1403167C0 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpLfhSlotAddSubsegment @ 0x14031694C (RtlpHpLfhSlotAddSubsegment.c)
+ *     RtlpHpLfhBucketGetSubsegment @ 0x1403085A0 (RtlpHpLfhBucketGetSubsegment.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x140308854 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhSlotAddSubsegment @ 0x140308B50 (RtlpHpLfhSlotAddSubsegment.c)
  * Callees:
  *     <none>
  */
@@ -16,8 +16,8 @@ __int64 *__fastcall RtlpHpLfhOwnerMoveSubsegment(__int64 a1, __int64 *a2, int a3
   __int64 **v7; // rcx
   _QWORD *v8; // r8
   __int64 **v9; // rax
-  __int64 *v11; // r11
-  __int64 **v12; // rax
+  __int64 *v11; // rax
+  __int64 **v12; // r11
   __int64 *v13; // rax
 
   v3 = a3;
@@ -63,10 +63,10 @@ __int64 *__fastcall RtlpHpLfhOwnerMoveSubsegment(__int64 a1, __int64 *a2, int a3
   {
     v11 = (__int64 *)*a2;
     if ( *(__int64 **)(*a2 + 8) != a2 )
-      goto LABEL_31;
+      goto LABEL_30;
     v12 = (__int64 **)a2[1];
     if ( *v12 != a2 )
-      goto LABEL_31;
+      goto LABEL_30;
     *v12 = v11;
     v11[1] = (__int64)v12;
     if ( v6 )
@@ -77,7 +77,7 @@ __int64 *__fastcall RtlpHpLfhOwnerMoveSubsegment(__int64 a1, __int64 *a2, int a3
   {
     v9 = (__int64 **)v7[1];
     if ( *v9 != (__int64 *)v7 )
-      goto LABEL_31;
+      goto LABEL_30;
     *a2 = (__int64)v7;
     a2[1] = (__int64)v9;
     *v9 = a2;
@@ -98,13 +98,13 @@ __int64 *__fastcall RtlpHpLfhOwnerMoveSubsegment(__int64 a1, __int64 *a2, int a3
         v13[1] = (__int64)v7;
         --*v8;
         *((_BYTE *)a2 + 38) = 2;
-        goto LABEL_15;
+        goto LABEL_16;
       }
     }
-LABEL_31:
+LABEL_30:
     __fastfail(3u);
   }
-LABEL_15:
+LABEL_16:
   if ( a2 && *((_BYTE *)a2 + 38) == 2 )
     a2[2] = 0LL;
   return a2;

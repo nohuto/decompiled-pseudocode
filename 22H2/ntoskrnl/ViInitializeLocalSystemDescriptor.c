@@ -1,20 +1,20 @@
 /*
- * XREFs of ViInitializeLocalSystemDescriptor @ 0x140AC3A28
+ * XREFs of ViInitializeLocalSystemDescriptor @ 0x1409C6BC8
  * Callers:
- *     VfUtilIsLocalSystem @ 0x140AC3724 (VfUtilIsLocalSystem.c)
+ *     VfUtilIsLocalSystem @ 0x1409C67F4 (VfUtilIsLocalSystem.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A60 (RtlLengthSid.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140736A80 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736B20 (RtlCreateAcl.c)
- *     RtlAddAccessAllowedAce @ 0x1407EF9B0 (RtlAddAccessAllowedAce.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlLengthSid @ 0x140347A80 (RtlLengthSid.c)
+ *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D92C0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x1406EF9D0 (RtlAddAccessAllowedAce.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 PSECURITY_DESCRIPTOR ViInitializeLocalSystemDescriptor()
 {
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v1; // rdi
   ULONG v2; // ebx
   ACL *v3; // rax
@@ -25,39 +25,36 @@ PSECURITY_DESCRIPTOR ViInitializeLocalSystemDescriptor()
   {
     if ( SeLocalSystemSid )
     {
-      Pool2 = (void *)ExAllocatePool2(256LL, 0x28uLL, 0x55667256u);
-      v1 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x55667256u);
+      v1 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        if ( RtlCreateSecurityDescriptor(Pool2, 1u) < 0 )
-          goto LABEL_12;
+        if ( RtlCreateSecurityDescriptor(PoolWithTag, 1u) < 0 )
+          goto LABEL_13;
         v2 = RtlLengthSid(SeLocalSystemSid) + 20;
-        v3 = (ACL *)ExAllocatePool2(256LL, v2, 0x55667256u);
+        v3 = (ACL *)ExAllocatePoolWithTag(PagedPool, v2, 0x55667256u);
         v4 = v3;
         if ( !v3 )
-          goto LABEL_12;
+          goto LABEL_13;
         Acl = RtlCreateAcl(v3, v2, 2u);
-        if ( Acl >= 0 )
-        {
-          Acl = RtlAddAccessAllowedAce(v4, 2u, 1u, SeLocalSystemSid);
-          if ( Acl >= 0 )
-          {
-            Acl = RtlSetDaclSecurityDescriptor(v1, 1u, v4, 0);
-            if ( Acl >= 0 )
-            {
-              if ( !_InterlockedCompareExchange64(
-                      (volatile signed __int64 *)&ViLocalSystemDescriptor,
-                      (signed __int64)v1,
-                      0LL) )
-                return ViLocalSystemDescriptor;
-              Acl = -1073741595;
-            }
-          }
-        }
-        ExFreePoolWithTag(v4, 0x55667256u);
         if ( Acl < 0 )
-LABEL_12:
-          ExFreePoolWithTag(v1, 0x55667256u);
+          goto LABEL_17;
+        Acl = RtlAddAccessAllowedAce(v4, 2u, 1u, SeLocalSystemSid);
+        if ( Acl < 0 )
+          goto LABEL_17;
+        Acl = RtlSetDaclSecurityDescriptor(v1, 1u, v4, 0);
+        if ( Acl < 0 )
+          goto LABEL_17;
+        if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ViLocalSystemDescriptor, (signed __int64)v1, 0LL) )
+          Acl = -1073741595;
+        if ( Acl < 0 )
+        {
+LABEL_17:
+          ExFreePoolWithTag(v4, 0x55667256u);
+          if ( Acl < 0 )
+LABEL_13:
+            ExFreePoolWithTag(v1, 0x55667256u);
+        }
       }
     }
   }

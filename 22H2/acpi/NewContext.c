@@ -1,25 +1,25 @@
 /*
- * XREFs of NewContext @ 0x1C0053A0C
+ * XREFs of NewContext @ 0x1C0023FE8
  * Callers:
- *     AsyncEvalObject @ 0x1C00544F0 (AsyncEvalObject.c)
- *     AMLILoadDDB @ 0x1C00AB134 (AMLILoadDDB.c)
+ *     AMLILoadDDB @ 0x1C00BE388 (AMLILoadDDB.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
- *     InitContext @ 0x1C0053858 (InitContext.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1C001C8A4 (ExAllocateFromNPagedLookasideList.c)
+ *     InitContext @ 0x1C00240E4 (InitContext.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-__int64 __fastcall NewContext(char **a1)
+__int64 __fastcall NewContext(PVOID *a1)
 {
   unsigned int v2; // ebx
-  char *v3; // rax
+  PVOID v3; // rax
   KIRQL v4; // dl
   int v5; // eax
   KIRQL v6; // al
   _QWORD *v7; // rcx
-  _UNKNOWN **v8; // rax
+  void *v8; // rax
 
   v2 = 0;
-  v3 = (char *)ExAllocateFromNPagedLookasideList(&AMLIContextLookAsideList);
+  v3 = ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&AMLIContextLookAsideList);
   *a1 = v3;
   if ( v3 )
   {
@@ -32,16 +32,16 @@ __int64 __fastcall NewContext(char **a1)
     KeReleaseSpinLock(&gdwGContextSpinLock, v4);
     InitContext(*a1);
     v6 = KeAcquireSpinLockRaiseToDpc(&gmutCtxtList);
-    v7 = off_1C006C460;
-    byte_1C00701C8 = v6;
-    v8 = (_UNKNOWN **)(*a1 + 16);
-    if ( *off_1C006C460 != (_UNKNOWN *)&glistCtxtHead )
+    v7 = off_1C007F388[0];
+    byte_1C0082FC8 = v6;
+    v8 = (char *)*a1 + 16;
+    if ( *(_UNKNOWN ***)off_1C007F388[0] != &glistCtxtHead )
       __fastfail(3u);
-    *((_QWORD *)*a1 + 3) = off_1C006C460;
-    *v8 = &glistCtxtHead;
+    *((_QWORD *)*a1 + 3) = off_1C007F388[0];
+    *(_QWORD *)v8 = &glistCtxtHead;
     *v7 = v8;
-    off_1C006C460 = v8;
-    KeReleaseSpinLock(&gmutCtxtList, byte_1C00701C8);
+    off_1C007F388[0] = v8;
+    KeReleaseSpinLock(&gmutCtxtList, byte_1C0082FC8);
   }
   else
   {

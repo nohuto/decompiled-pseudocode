@@ -1,16 +1,16 @@
 /*
- * XREFs of CiProcessSuspend @ 0x1C0004B64
+ * XREFs of CiProcessSuspend @ 0x1C00048B4
  * Callers:
- *     CiProcessNotification @ 0x1C0002BE0 (CiProcessNotification.c)
+ *     CiProcessNotification @ 0x1C0001AB0 (CiProcessNotification.c)
  * Callees:
- *     CiSchedulerPoke @ 0x1C0002890 (CiSchedulerPoke.c)
- *     CiSchedulerSetPriority @ 0x1C0002A60 (CiSchedulerSetPriority.c)
- *     WPP_SF_qqd @ 0x1C0004D24 (WPP_SF_qqd.c)
- *     CiSchedulerPostSuspend @ 0x1C0004E0C (CiSchedulerPostSuspend.c)
- *     CiThreadDecrementScheduledCount @ 0x1C000A920 (CiThreadDecrementScheduledCount.c)
- *     CiThreadIncrementScheduledCount @ 0x1C000B140 (CiThreadIncrementScheduledCount.c)
- *     CiReleaseProcessLock @ 0x1C000BA10 (CiReleaseProcessLock.c)
- *     CiAcquireProcessLock @ 0x1C000BA40 (CiAcquireProcessLock.c)
+ *     CiSchedulerPoke @ 0x1C0001800 (CiSchedulerPoke.c)
+ *     CiSchedulerSetPriority @ 0x1C0001940 (CiSchedulerSetPriority.c)
+ *     WPP_SF_qqd @ 0x1C0004A74 (WPP_SF_qqd.c)
+ *     CiSchedulerPostSuspend @ 0x1C0004B5C (CiSchedulerPostSuspend.c)
+ *     CiThreadIncrementScheduledCount @ 0x1C000ADD0 (CiThreadIncrementScheduledCount.c)
+ *     CiThreadDecrementScheduledCount @ 0x1C000BB90 (CiThreadDecrementScheduledCount.c)
+ *     CiReleaseProcessLock @ 0x1C000BC90 (CiReleaseProcessLock.c)
+ *     CiAcquireProcessLock @ 0x1C000BCC0 (CiAcquireProcessLock.c)
  */
 
 __int64 __fastcall CiProcessSuspend(__int64 a1, __int64 a2, __int64 a3)

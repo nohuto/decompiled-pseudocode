@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CCompositionPointLight::sc_Color__ @ 0x180001F20
+ * XREFs of _dynamic_initializer_for__CCompositionPointLight::sc_Color__ @ 0x180001B50
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CCompositionPointLight::sc_Color__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E45F0 = (unsigned __int64)CCompositionLight::SetAnimatedProperty;
-  qword_1803E4600 = v1;
+  xmmword_180345E20 = (unsigned __int64)CCompositionLight::SetAnimatedProperty;
+  qword_180345E30 = v1;
   return result;
 }

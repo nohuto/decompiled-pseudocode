@@ -1,9 +1,9 @@
 /*
- * XREFs of DestroyEventEntry @ 0x1403CFFDC
+ * XREFs of DestroyEventEntry @ 0x14036D4D4
  * Callers:
- *     FlushEventEntryList @ 0x1408802E8 (FlushEventEntryList.c)
+ *     FlushEventEntryList @ 0x140735B18 (FlushEventEntryList.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall DestroyEventEntry(__int64 a1)

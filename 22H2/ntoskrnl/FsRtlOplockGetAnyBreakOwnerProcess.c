@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlOplockGetAnyBreakOwnerProcess @ 0x14053DF80
+ * XREFs of FsRtlOplockGetAnyBreakOwnerProcess @ 0x1404F00D0
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
  */
 
 void *__fastcall FsRtlOplockGetAnyBreakOwnerProcess(__int64 *a1)

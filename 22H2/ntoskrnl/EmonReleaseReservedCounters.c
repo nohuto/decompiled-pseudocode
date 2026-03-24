@@ -1,92 +1,75 @@
 /*
- * XREFs of EmonReleaseReservedCounters @ 0x14051E2F0
+ * XREFs of EmonReleaseReservedCounters @ 0x1404D41D8
  * Callers:
- *     <none>
+ *     EmonReleaseProfileResourcesInternal @ 0x1404D4120 (EmonReleaseProfileResourcesInternal.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035C8F0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14035CA50 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall EmonReleaseReservedCounters(__int64 a1, __int64 a2)
+void __fastcall EmonReleaseReservedCounters(int a1, unsigned __int64 a2)
 {
-  __int64 v2; // rdi
-  __int64 v3; // r10
-  unsigned __int64 v4; // r9
-  unsigned __int8 CurrentIrql; // bl
-  _DWORD *SchedulerAssist; // rsi
-  __int64 v7; // rdx
-  char v8; // dl
+  __int64 v3; // rsi
+  unsigned int v4; // ecx
+  __int64 v5; // rsi
+  unsigned __int8 CurrentIrql; // di
+  _DWORD *SchedulerAssist; // r9
+  char v8; // cl
   __int64 v9; // rax
   bool v10; // zf
-  __int64 v11; // rcx
-  __int64 v12; // rax
-  int v13; // eax
-  unsigned __int8 v14; // al
+  unsigned __int8 v11; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v16; // r8
-  int v17; // eax
+  _DWORD *v13; // r8
+  int v14; // eax
+  struct _GROUP_AFFINITY v15; // [rsp+28h] [rbp-30h] BYREF
+  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-20h] BYREF
 
-  LODWORD(a2) = KeGetPcr()->Prcb.Number;
-  if ( HalpProfileInterface == &DefaultProfileInterface )
-    v2 = HalpCounterStatus;
-  else
-    v2 = HalpCounterStatus + 8LL * (unsigned int)(HalpNumberOfCounters * a2);
-  v3 = (unsigned int)a2;
-  v4 = *(_QWORD *)(a1 + 80 * a2 + 32);
+  v3 = (unsigned int)(a1 * EmonNumberCounters);
+  v15 = 0LL;
+  v4 = KiProcessorIndexToNumberMappingTable[a1];
+  v15.Group = v4 >> 6;
+  v5 = EmonCounterStatus + 16 * v3;
+  v15.Mask = 1LL << (v4 & 0x3F);
+  PreviousAffinity = 0LL;
+  KeSetSystemGroupAffinityThread(&v15, &PreviousAffinity);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 15 )
-      LODWORD(v7) = 0x8000;
-    else
-      v7 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-    SchedulerAssist[5] |= v7;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
   }
-  __writemsr(0x390u, v4);
+  __writemsr(0x390u, a2);
   while ( 1 )
   {
-    v10 = !_BitScanForward64((unsigned __int64 *)&v9, v4);
+    v10 = !_BitScanForward64((unsigned __int64 *)&v9, a2);
     if ( v10 )
       break;
     v8 = v9;
-    if ( (unsigned int)v9 >= 0x20 )
+    if ( (unsigned int)v9 >= EmonNumberArchCounters )
       v9 = (unsigned int)(v9 + EmonNumberArchCounters - 32);
-    v4 ^= 1LL << v8;
-    *(_DWORD *)(*(_QWORD *)(v2 + 8 * v9) + 24LL) = 3;
+    a2 ^= 1LL << v8;
+    *(_DWORD *)(v5 + 16 * v9) = 3;
   }
-  if ( *(_QWORD *)(a1 + 24) )
-  {
-    v11 = EmonDsManagementAreas + 160 * v3;
-    if ( EmonPebs64Bit )
-    {
-      v12 = *(_QWORD *)(v11 + 32);
-      *(_QWORD *)(v11 + 40) = v12;
-      *(_QWORD *)(v11 + 56) = v12;
-    }
-    else
-    {
-      v13 = *(_DWORD *)(v11 + 16);
-      *(_DWORD *)(v11 + 20) = v13;
-      *(_DWORD *)(v11 + 28) = v13;
-    }
-    EmonPebsInUse = 0;
-  }
-  _InterlockedExchangeAdd((volatile signed __int32 *)&KeGetCurrentPrcb()->HalReserved[2], 0xFFFFFFFE);
   if ( KiIrqlFlags )
   {
-    v14 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v16 = CurrentPrcb->SchedulerAssist;
-      v17 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v10 = (v17 & v16[5]) == 0;
-      v16[5] &= v17;
-      if ( v10 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v11 = KeGetCurrentIrql();
+      if ( v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v13 = CurrentPrcb->SchedulerAssist;
+        v14 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v10 = (v14 & v13[5]) == 0;
+        v13[5] &= v14;
+        if ( v10 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);
-  return 0LL;
+  KeRevertToUserGroupAffinityThread(&PreviousAffinity);
 }

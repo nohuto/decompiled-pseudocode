@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bClone@EPATHOBJ@@QEAAHAEAV1@@Z @ 0x1C00CD130
+ * XREFs of ?bClone@EPATHOBJ@@QEAAHAEAV1@@Z @ 0x1C00BE1A0
  * Callers:
  *     <none>
  * Callees:
- *     ?newpathrec@EPATHOBJ@@IEAAHPEAPEAU_PATHRECORD@@PEAKK@Z @ 0x1C0092A08 (-newpathrec@EPATHOBJ@@IEAAHPEAPEAU_PATHRECORD@@PEAKK@Z.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ?newpathrec@EPATHOBJ@@IEAAHPEAPEAU_PATHRECORD@@PEAKK@Z @ 0x1C00822B4 (-newpathrec@EPATHOBJ@@IEAAHPEAPEAU_PATHRECORD@@PEAKK@Z.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall EPATHOBJ::bClone(EPATHOBJ *this, struct EPATHOBJ *a2)
@@ -18,7 +18,7 @@ __int64 __fastcall EPATHOBJ::bClone(EPATHOBJ *this, struct EPATHOBJ *a2)
   int v10; // ebp
   struct _PATHRECORD *v11; // rbx
   unsigned int v12; // r8d
-  __int64 v13; // rcx
+  __int64 v13; // rax
   unsigned int v15; // [rsp+50h] [rbp+8h] BYREF
   struct _PATHRECORD *v16; // [rsp+58h] [rbp+10h] BYREF
 
@@ -77,11 +77,11 @@ LABEL_10:
     else
       *(_QWORD *)(*((_QWORD *)this + 1) + 32LL) = v11;
     memmove((char *)v11 + 24, v8, 8LL * *((unsigned int *)v11 + 5));
-    v13 = *((unsigned int *)v11 + 5);
     v4 = v11;
-    v8 += 8 * v13;
-    v9 -= v13;
-    *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 1) + 24LL) + 8LL) = (char *)v11 + 8 * v13 + 24;
+    v13 = 8LL * *((unsigned int *)v11 + 5);
+    v8 += v13;
+    v9 -= *((_DWORD *)v11 + 5);
+    *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 1) + 24LL) + 8LL) = (char *)v11 + v13 + 24;
     if ( !v9 )
       goto LABEL_10;
   }

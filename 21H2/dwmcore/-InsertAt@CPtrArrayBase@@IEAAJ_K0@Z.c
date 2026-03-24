@@ -1,158 +1,146 @@
 /*
- * XREFs of ?InsertAt@CPtrArrayBase@@IEAAJ_K0@Z @ 0x180046F60
+ * XREFs of ?InsertAt@CPtrArrayBase@@IEAAJ_K0@Z @ 0x18009D594
  * Callers:
- *     ?AddLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@_N@Z @ 0x180015218 (-AddLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@_N@Z.c)
- *     ?RemoveLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@@Z @ 0x1800171F4 (-RemoveLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@@Z.c)
- *     ?RegisterGraphWalkRoot@CThreadContext@@SAJPEBX@Z @ 0x180045D18 (-RegisterGraphWalkRoot@CThreadContext@@SAJPEBX@Z.c)
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180046EF0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?InsertChildAt@CVisual@@IEAAJPEAV1@I_N@Z @ 0x1800487B4 (-InsertChildAt@CVisual@@IEAAJPEAV1@I_N@Z.c)
- *     ?SetSpriteBitmap@CWindowNode@@AEAAJPEAVCGdiSpriteBitmap@@@Z @ 0x180062144 (-SetSpriteBitmap@CWindowNode@@AEAAJPEAVCGdiSpriteBitmap@@@Z.c)
- *     ?RemoveAllSharedLights@CVisual@@AEAAJW4LightBehavior@@@Z @ 0x1801F8054 (-RemoveAllSharedLights@CVisual@@AEAAJW4LightBehavior@@@Z.c)
- *     ?Draw@CLinearGradientLegacyMilBrush@@QEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@AEBUMilRectF@@@Z @ 0x18020827C (-Draw@CLinearGradientLegacyMilBrush@@QEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@AEBUMi.c)
- *     ?Initialize@CProjectedShadow@@QEAAJPEAVCProjectedShadowScene@@PEAVCProjectedShadowCaster@@PEAVCProjectedShadowReceiver@@@Z @ 0x180234C3C (-Initialize@CProjectedShadow@@QEAAJPEAVCProjectedShadowScene@@PEAVCProjectedShadowCaster@@PEAVCP.c)
- *     ?SetFlipExSurface@CWindowNode@@AEAAJPEAVCCompositionSurfaceBitmap@@@Z @ 0x1802446E8 (-SetFlipExSurface@CWindowNode@@AEAAJPEAVCCompositionSurfaceBitmap@@@Z.c)
+ *     ?Initialize@CProjectedShadow@@QEAAJPEAVCProjectedShadowScene@@PEAVCProjectedShadowCaster@@PEAVCProjectedShadowReceiver@@@Z @ 0x18001F060 (-Initialize@CProjectedShadow@@QEAAJPEAVCProjectedShadowScene@@PEAVCProjectedShadowCaster@@PEAVCP.c)
+ *     ?RemoveLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@@Z @ 0x180029ACC (-RemoveLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@@Z.c)
+ *     ?RegisterGraphWalkRoot@CThreadContext@@SAJPEAX@Z @ 0x180058D44 (-RegisterGraphWalkRoot@CThreadContext@@SAJPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?InsertChildAt@CVisual@@IEAAJPEAV1@I_N@Z @ 0x1800A15F0 (-InsertChildAt@CVisual@@IEAAJPEAV1@I_N@Z.c)
+ *     ??0CWindowBackgroundTreatment@@AEAA@PEAVCComposition@@PEAVCBrush@@@Z @ 0x1800C0F7C (--0CWindowBackgroundTreatment@@AEAA@PEAVCComposition@@PEAVCBrush@@@Z.c)
+ *     ?AddLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@_N@Z @ 0x1800C1418 (-AddLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@_N@Z.c)
+ *     ?RemoveAllSharedLights@CVisual@@AEAAJW4LightBehavior@@@Z @ 0x1800CD6B4 (-RemoveAllSharedLights@CVisual@@AEAAJW4LightBehavior@@@Z.c)
+ *     ?AddHwndBitmap@CWindowManager@@QEAAJPEAVCHwndBitmap@@@Z @ 0x1801792D0 (-AddHwndBitmap@CWindowManager@@QEAAJPEAVCHwndBitmap@@@Z.c)
  * Callees:
- *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x1800438FC (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
- *     memmove_0 @ 0x18010518B (memmove_0.c)
+ *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x180042320 (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
+ *     memmove_0 @ 0x1800F47E7 (memmove_0.c)
  */
 
-__int64 __fastcall CPtrArrayBase::InsertAt(CPtrArrayBase *this, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall CPtrArrayBase::InsertAt(CPtrArrayBase *this, unsigned __int64 a2, unsigned __int64 a3)
 {
-  __int64 v3; // r14
-  CPtrArrayBase *v4; // r13
-  unsigned __int64 v7; // rdi
-  __int64 v8; // rbp
-  _QWORD *v9; // rbp
-  unsigned int v10; // ebx
-  unsigned __int64 v12; // r14
-  HANDLE ProcessHeap; // rax
+  unsigned __int64 *v5; // r14
+  unsigned __int64 v6; // rbx
+  unsigned int v7; // ebp
+  __int64 v9; // rdx
+  unsigned __int64 v10; // r12
+  unsigned __int64 v11; // rax
+  double v12; // xmm0_8
+  double v13; // xmm0_8
   unsigned __int64 v14; // rax
-  __int64 v15; // rdx
-  double v16; // xmm0_8
-  double v17; // xmm0_8
-  unsigned __int64 v18; // rax
-  unsigned __int64 v19; // r13
-  int v20; // eax
-  unsigned __int64 v21; // r14
-  unsigned __int64 v22; // rbp
-  int v23; // r9d
-  unsigned int v24; // [rsp+20h] [rbp-48h]
-  CPtrArrayBase *v25; // [rsp+70h] [rbp+8h]
-  void *v26; // [rsp+80h] [rbp+18h] BYREF
+  unsigned __int64 v15; // r13
+  int v16; // eax
+  unsigned __int64 v17; // r14
+  unsigned __int64 v18; // r12
+  int v19; // r9d
+  unsigned int v20; // [rsp+20h] [rbp-48h]
+  CPtrArrayBase *v21; // [rsp+70h] [rbp+8h]
+  void *v22; // [rsp+80h] [rbp+18h] BYREF
 
-  v25 = this;
-  v3 = *(_QWORD *)this;
-  v4 = this;
-  LODWORD(this) = *(_QWORD *)this & 2;
-  if ( (_DWORD)this )
-    v7 = *(_QWORD *)(v3 & 0xFFFFFFFFFFFFFFFCuLL);
+  v21 = this;
+  v5 = (unsigned __int64 *)(*(_QWORD *)this & 0xFFFFFFFFFFFFFFFCuLL);
+  if ( (*(_QWORD *)this & 2) != 0 )
+    v6 = *v5;
   else
-    v7 = v3 & 1;
-  v8 = v3;
-  if ( !(_DWORD)this )
-    v8 = v3;
-  v9 = (_QWORD *)(v8 & 0xFFFFFFFFFFFFFFFCuLL);
-  if ( a3 > v7 )
+    v6 = *(_QWORD *)this & 1LL;
+  if ( a3 > v6 )
   {
-    v24 = 67;
+    v20 = 42;
+LABEL_31:
+    v19 = -2147024809;
+    v7 = -2147024809;
 LABEL_33:
-    v23 = -2147024809;
-    v10 = -2147024809;
-    goto LABEL_35;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, v19, v20, 0LL);
+    return v7;
   }
-  v10 = 0;
+  v7 = 0;
   if ( (a2 & 3) != 0 )
   {
-    v24 = 75;
-    goto LABEL_33;
+    v20 = 52;
+    goto LABEL_31;
   }
-  if ( !v7 )
+  if ( !v6 )
   {
-    *(_QWORD *)v4 = a2 | 1;
-    return v10;
+    *(_QWORD *)this = a2 | 1;
+    return v7;
   }
-  if ( v7 == 1 )
+  if ( v6 == 1 )
   {
-    v12 = v3 & 0xFFFFFFFFFFFFFFFCuLL;
-    ProcessHeap = GetProcessHeap();
-    v14 = (unsigned __int64)HeapAlloc(ProcessHeap, 0, 0x30uLL);
-    if ( v14 )
+    v10 = *(_QWORD *)this & 0xFFFFFFFFFFFFFFFCuLL;
+    v11 = (unsigned __int64)DefaultHeap::Alloc(0x30uLL);
+    v7 = -2147024882;
+    if ( v11 )
     {
-      *(_QWORD *)v14 = 2LL;
-      *(_QWORD *)(v14 + 8) = 4LL;
-      *(_QWORD *)(v14 + 8 * (3 - a3)) = v12;
-      *(_QWORD *)(v14 + 8 * a3 + 16) = a2;
-      *(_QWORD *)v4 = v14 | 2;
-      return v10;
+      v7 = 0;
+      *(_QWORD *)v11 = 2LL;
+      *(_QWORD *)(v11 + 8) = 4LL;
+      *(_QWORD *)(v11 + 8 * (3 - a3)) = v10;
+      *(_QWORD *)(v11 + 8 * a3 + 16) = a2;
+      *(_QWORD *)v21 = v11 | 2;
+      return v7;
     }
-    v10 = -2147024882;
-    v23 = -2147024882;
-    v24 = 97;
-LABEL_35:
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, v23, v24, 0LL);
-    return v10;
+    v20 = 86;
+    goto LABEL_36;
   }
-  v15 = v9[1];
-  if ( v7 == v15 )
+  v9 = v5[1];
+  if ( v6 != v9 )
   {
-    v26 = 0LL;
-    if ( v15 < 0 )
-    {
-      this = (CPtrArrayBase *)(v15 & 1 | ((unsigned __int64)v15 >> 1));
-      v16 = (double)(int)this + (double)(int)this;
-    }
-    else
-    {
-      v16 = (double)(int)v15;
-    }
-    v17 = v16 * 1.5;
-    v18 = 0LL;
-    if ( v17 >= 9.223372036854776e18 )
-    {
-      v17 = v17 - 9.223372036854776e18;
-      if ( v17 < 9.223372036854776e18 )
-      {
-        LODWORD(this) = 0;
-        v18 = 0x8000000000000000uLL;
-      }
-    }
-    v19 = v18 + (unsigned int)(int)v17;
-    if ( v19 + 2 <= v15 )
-    {
-      v10 = -2147024882;
-      v23 = -2147024882;
-      v24 = 124;
-      goto LABEL_35;
-    }
-    v20 = HrMalloc(8uLL, v19 + 2, &v26);
-    v10 = v20;
-    if ( v20 < 0 )
-    {
-      v23 = v20;
-      v24 = 129;
-      goto LABEL_35;
-    }
-    v21 = (unsigned __int64)v26;
-    v22 = *(_QWORD *)v25 & 0xFFFFFFFFFFFFFFFCuLL;
-    if ( a3 )
-      memcpy_0((char *)v26 + 16, (const void *)(v22 + 16), 8 * a3);
-    *(_QWORD *)(v21 + 8 * a3 + 16) = a2;
-    if ( a3 < v7 )
-      memcpy_0((void *)(v21 + 24 + 8 * a3), (const void *)(v22 + 8 * a3 + 16), 8 * (v7 - a3));
-    DefaultHeap::Free((void *)v22);
-    *(_QWORD *)v21 = v7 + 1;
-    *(_QWORD *)(v21 + 8) = v19;
-    *(_QWORD *)v25 = v21 | 2;
+    if ( a3 < v6 )
+      memmove_0(&v5[a3 + 3], &v5[a3 + 2], 8 * (v6 - a3));
+    v5[a3 + 2] = a2;
+    ++*v5;
+    return v7;
+  }
+  v22 = 0LL;
+  if ( v9 < 0 )
+  {
+    this = (CPtrArrayBase *)(v9 & 1 | ((unsigned __int64)v9 >> 1));
+    v12 = (double)(int)this + (double)(int)this;
   }
   else
   {
-    if ( a3 < v7 )
-      memmove_0(&v9[a3 + 3], &v9[a3 + 2], 8 * (v7 - a3));
-    v9[a3 + 2] = a2;
-    ++*v9;
+    v12 = (double)(int)v9;
   }
-  return v10;
+  v13 = v12 * 1.5;
+  v14 = 0LL;
+  if ( v13 >= 9.223372036854776e18 )
+  {
+    v13 = v13 - 9.223372036854776e18;
+    if ( v13 < 9.223372036854776e18 )
+    {
+      this = (CPtrArrayBase *)0x8000000000000000LL;
+      v14 = 0x8000000000000000uLL;
+    }
+  }
+  v15 = v14 + (unsigned int)(int)v13 + 2LL;
+  if ( v15 <= v9 )
+  {
+    v7 = -2147024882;
+    v20 = 121;
+LABEL_36:
+    v19 = -2147024882;
+    goto LABEL_33;
+  }
+  v16 = HrMalloc(8uLL, v14 + (unsigned int)(int)v13 + 2LL, &v22);
+  v7 = v16;
+  if ( v16 < 0 )
+  {
+    v19 = v16;
+    v20 = 128;
+    goto LABEL_33;
+  }
+  v17 = (unsigned __int64)v22;
+  v18 = *(_QWORD *)v21 & 0xFFFFFFFFFFFFFFFCuLL;
+  if ( a3 )
+    memcpy_0((char *)v22 + 16, (const void *)(v18 + 16), 8 * a3);
+  *(_QWORD *)(v17 + 8 * a3 + 16) = a2;
+  if ( a3 < v6 )
+    memcpy_0((void *)(v17 + 24 + 8 * a3), (const void *)(v18 + 8 * (a3 + 2)), 8 * (v6 - a3));
+  operator delete((void *)v18);
+  *(_QWORD *)v17 = v6 + 1;
+  *(_QWORD *)(v17 + 8) = v15 - 2;
+  *(_QWORD *)v21 = v17 | 2;
+  return v7;
 }

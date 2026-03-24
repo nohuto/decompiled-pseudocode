@@ -1,9 +1,9 @@
 /*
- * XREFs of Lanczos::Sinc @ 0x1801E7218
+ * XREFs of Lanczos::Sinc @ 0x18019F814
  * Callers:
- *     Lanczos::Lanczos @ 0x1801E71B0 (Lanczos--Lanczos.c)
+ *     Lanczos::Lanczos @ 0x18019F7A8 (Lanczos--Lanczos.c)
  * Callees:
- *     _o_sin_0 @ 0x180101958 (_o_sin_0.c)
+ *     _o_sin_0 @ 0x1800E81D4 (_o_sin_0.c)
  */
 
 double __fastcall Lanczos::Sinc(double a1)

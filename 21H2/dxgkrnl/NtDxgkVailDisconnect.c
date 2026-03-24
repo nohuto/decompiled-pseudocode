@@ -1,203 +1,177 @@
 /*
- * XREFs of NtDxgkVailDisconnect @ 0x1C0354450
+ * XREFs of NtDxgkVailDisconnect @ 0x1C02B8D50
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C00138D4 (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
- *     ?Release@DxgkCompositionObject@@QEBA_JXZ @ 0x1C001EF50 (-Release@DxgkCompositionObject@@QEBA_JXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     ?ReferenceDwmProcess@DXGSESSIONDATA@@QEAAJPEAPEAU_EPROCESS@@@Z @ 0x1C004B314 (-ReferenceDwmProcess@DXGSESSIONDATA@@QEAAJPEAPEAU_EPROCESS@@@Z.c)
- *     ?DisableVmBusChannel@DXGVAILOBJECT@@QEAAXXZ @ 0x1C0057A18 (-DisableVmBusChannel@DXGVAILOBJECT@@QEAAXXZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?ReferenceVailObject@DXGPROCESS@@QEAAPEAVDXGVAILOBJECT@@XZ @ 0x1C0336D84 (-ReferenceVailObject@DXGPROCESS@@QEAAPEAVDXGVAILOBJECT@@XZ.c)
- *     ?DestroyVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C0350FD8 (-DestroyVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ.c)
- *     ?VailGuestDisconnect@DXGSESSIONDATA@@QEAAJXZ @ 0x1C0351E48 (-VailGuestDisconnect@DXGSESSIONDATA@@QEAAJXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C000D12C (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
+ *     ?Release@DxgkCompositionObject@@QEBA_JXZ @ 0x1C001AAD0 (-Release@DxgkCompositionObject@@QEBA_JXZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?ReferenceDwmProcess@DXGSESSIONDATA@@QEAAJPEAPEAU_EPROCESS@@@Z @ 0x1C0040E48 (-ReferenceDwmProcess@DXGSESSIONDATA@@QEAAJPEAPEAU_EPROCESS@@@Z.c)
+ *     ?DisableVmBusChannel@DXGVAILOBJECT@@QEAAXXZ @ 0x1C0048AB4 (-DisableVmBusChannel@DXGVAILOBJECT@@QEAAXXZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?ReferenceVailObject@DXGPROCESS@@QEAAPEAVDXGVAILOBJECT@@XZ @ 0x1C0285B6C (-ReferenceVailObject@DXGPROCESS@@QEAAPEAVDXGVAILOBJECT@@XZ.c)
+ *     ?DestroyVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C02B52CC (-DestroyVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ.c)
+ *     ?VailGuestDisconnect@DXGSESSIONDATA@@QEAAJXZ @ 0x1C02B6BEC (-VailGuestDisconnect@DXGSESSIONDATA@@QEAAJXZ.c)
  */
 
-__int64 __fastcall NtDxgkVailDisconnect(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall NtDxgkVailDisconnect(__int64 a1, __int64 a2)
 {
-  char v3; // si
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
+  __int64 v2; // rdx
+  __int64 v3; // rcx
   struct DXGPROCESS *Current; // rbx
-  __int64 v9; // rdi
-  struct DXGVAILOBJECT *v10; // rbx
-  __int64 v11; // rcx
-  DXGSESSIONMGR *v12; // rbx
-  unsigned int v13; // eax
-  DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  DXGSESSIONDATA *v15; // rbx
-  int v16; // eax
-  __int64 v17; // rcx
+  __int64 v5; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  struct DXGVAILOBJECT *v9; // rbx
+  __int64 v10; // rdx
+  __int64 v11; // rdx
+  __int64 v12; // rdx
+  __int64 v13; // rdi
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rbx
   unsigned int CurrentProcessSessionId; // eax
-  __int64 v19; // rcx
-  unsigned int v20; // eax
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // r9
-  struct DXGPROCESS *v25; // r15
-  int v26; // eax
-  unsigned int v27; // eax
-  __int64 v28; // rcx
-  unsigned int v29; // eax
-  __int64 v30; // rcx
-  __int64 v31; // r8
-  PVOID Object; // [rsp+58h] [rbp-39h] BYREF
-  char v34; // [rsp+60h] [rbp-31h]
-  int v35; // [rsp+68h] [rbp-29h] BYREF
-  __int64 v36; // [rsp+70h] [rbp-21h]
-  char v37; // [rsp+78h] [rbp-19h]
-  _BYTE v38[16]; // [rsp+80h] [rbp-11h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+90h] [rbp-1h] BYREF
-  char v40; // [rsp+C0h] [rbp+2Fh]
+  __int64 v21; // rbx
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  int v24; // eax
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // rbx
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  __int64 v34; // r8
+  struct DXGPROCESS *v35; // r14
+  __int64 v36; // rax
+  int v37; // eax
+  __int64 v38; // rdx
+  __int64 v39; // rcx
+  __int64 v40; // r8
+  __int64 v41; // rax
+  char v42; // al
+  __int64 v43; // rax
+  __int64 v44; // rdx
+  PVOID Object; // [rsp+20h] [rbp-60h] BYREF
+  char v46; // [rsp+28h] [rbp-58h]
+  _BYTE v47[16]; // [rsp+30h] [rbp-50h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+40h] [rbp-40h] BYREF
+  char v49; // [rsp+70h] [rbp-10h]
 
-  v35 = -1;
-  v36 = 0LL;
-  v3 = 1;
-  if ( (qword_1C012F870 & 2) != 0 )
-  {
-    v37 = 1;
-    v35 = 2217;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2217);
-  }
-  else
-  {
-    v37 = 0;
-  }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v35, 2217);
-  Current = DXGPROCESS::GetCurrent(v5, v4, v6, v7);
+  Current = DXGPROCESS::GetCurrent(a1, a2);
   if ( Current )
   {
     KeEnterCriticalRegion();
-    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v38, (struct DXGPROCESS *)((char *)Current + 104), 0);
-    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v38);
-    if ( *((_QWORD *)Current + 74) )
+    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v47, *((struct DXGFASTMUTEX *const *)Current + 13), 0);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v47);
+    if ( *((_QWORD *)Current + 60) )
     {
-      v10 = DXGPROCESS::ReferenceVailObject((struct _KTHREAD **)Current);
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v38);
-      ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)v10 + 11);
-      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)&Object, (struct DXGVAILOBJECT *)((char *)v10 + 40), 0);
+      v9 = DXGPROCESS::ReferenceVailObject((DxgkCompositionObject **)Current);
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v47, v10);
+      ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)v9 + 10);
+      DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)&Object, (struct DXGVAILOBJECT *)((char *)v9 + 40), 0);
       DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&Object);
-      DXGVAILOBJECT::DisableVmBusChannel((struct _KTHREAD **)v10);
-      LODWORD(v9) = DXGVAILOBJECT::DestroyVmBusHostSubscribers(v10);
-      if ( v34 )
-        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&Object);
-      DxgkCompositionObject::Release(v10);
+      DXGVAILOBJECT::DisableVmBusChannel((struct _KTHREAD **)v9, v11);
+      LODWORD(v13) = DXGVAILOBJECT::DestroyVmBusHostSubscribers(v9);
+      if ( v46 )
+        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&Object, v12);
+      DxgkCompositionObject::Release(v9);
     }
-    else if ( *((_QWORD *)DXGGLOBAL_GetGlobal() + 124) && (*((_DWORD *)Current + 106) & 4) != 0 )
+    else if ( *((_QWORD *)DXGGLOBAL::GetGlobal(v8, v7) + 104)
+           && (*((_BYTE *)Current + 346) || g_OSTestSigningEnabled && (_BYTE)KdDebuggerEnabled) )
     {
       Object = 0LL;
-      v12 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-      if ( v12
-        && (v13 = PsGetCurrentProcessSessionId(v11),
-            SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v12, v13),
-            (v15 = SessionDataForSpecifiedSession) != 0LL) )
+      SessionDataForSpecifiedSession = (struct DXGSESSIONDATA *)*((_QWORD *)DXGGLOBAL::GetGlobal(v15, v14) + 102);
+      if ( SessionDataForSpecifiedSession )
       {
-        v16 = DXGSESSIONDATA::ReferenceDwmProcess(SessionDataForSpecifiedSession, (struct _EPROCESS **)&Object);
-        v9 = v16;
-        if ( v16 >= 0 )
+        CurrentProcessSessionId = PsGetCurrentProcessSessionId(v18, v17);
+        SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
+                                           SessionDataForSpecifiedSession,
+                                           CurrentProcessSessionId);
+      }
+      if ( SessionDataForSpecifiedSession )
+      {
+        v24 = DXGSESSIONDATA::ReferenceDwmProcess(SessionDataForSpecifiedSession, (struct _EPROCESS **)&Object);
+        v13 = v24;
+        if ( v24 >= 0 )
         {
-          v40 = 0;
+          v49 = 0;
           CPROCESSATTACHHELPER::Attach(&ApcState, (PRKPROCESS)Object);
-          v25 = DXGPROCESS::GetCurrent(v22, v21, v23, v24);
-          if ( *((_BYTE *)v25 + 600) )
+          v35 = DXGPROCESS::GetCurrent(v31, v30);
+          if ( !*((_BYTE *)v35 + 488) )
           {
-            v26 = DXGSESSIONDATA::VailGuestDisconnect(v15);
-            LODWORD(v9) = v26;
-            if ( v26 >= 0 )
-              v3 = 0;
+            v36 = WdLogNewEntry5_WdWarning(v33, v32, v34);
+            LODWORD(v13) = -2147483611;
+            *(_QWORD *)(v36 + 24) = -2147483611LL;
+            WdLogEvent5_WdWarning(v36);
+          }
+          if ( (int)v13 >= 0 )
+          {
+            v37 = DXGSESSIONDATA::VailGuestDisconnect(SessionDataForSpecifiedSession);
+            v13 = v37;
+            if ( v37 >= 0 )
+            {
+              v42 = 0;
+            }
             else
-              WdLogSingleEntry1(3LL, v26);
-            *((_BYTE *)v25 + 600) = v3;
+            {
+              v41 = WdLogNewEntry5_WdWarning(v39, v38, v40);
+              *(_QWORD *)(v41 + 24) = v13;
+              WdLogEvent5_WdWarning(v41);
+              v42 = 1;
+            }
+            *((_BYTE *)v35 + 488) = v42;
           }
-          else
-          {
-            LODWORD(v9) = -2147483611;
-            WdLogSingleEntry1(3LL, -2147483611LL);
-          }
-          if ( v40 )
+          if ( v49 )
             KeUnstackDetachProcess(&ApcState);
         }
         else
         {
-          CurrentProcessSessionId = PsGetCurrentProcessSessionId(v17);
-          WdLogSingleEntry2(2LL, CurrentProcessSessionId, v9);
-          v20 = PsGetCurrentProcessSessionId(v19);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed ReferenceDwmProcess for session 0x%I64x, returning 0x%I64x.",
-            v20,
-            v9,
-            0LL,
-            0LL,
-            0LL);
+          v27 = WdLogNewEntry5_WdError(v26, v25);
+          *(_QWORD *)(v27 + 24) = (unsigned int)PsGetCurrentProcessSessionId(v29, v28);
+          *(_QWORD *)(v27 + 32) = v13;
+          WdLogEvent5_WdError(v27);
         }
         if ( Object )
           ObfDereferenceObject(Object);
       }
       else
       {
-        v27 = PsGetCurrentProcessSessionId(v11);
-        WdLogSingleEntry2(2LL, v27, -1073741790LL);
-        v29 = PsGetCurrentProcessSessionId(v28);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Cannot find the session data for session 0x%I64x, returning 0x%I64x.",
-          v29,
-          -1073741790LL,
-          0LL,
-          0LL,
-          0LL);
-        LODWORD(v9) = -1073741790;
+        v21 = WdLogNewEntry5_WdError(v18, v17);
+        *(_QWORD *)(v21 + 24) = (unsigned int)PsGetCurrentProcessSessionId(v23, v22);
+        *(_QWORD *)(v21 + 32) = -1073741790LL;
+        WdLogEvent5_WdError(v21);
+        LODWORD(v13) = -1073741790;
       }
     }
     else
     {
-      LODWORD(v9) = -1073741790;
-      WdLogSingleEntry1(3LL, -1073741790LL);
+      LODWORD(v13) = -1073741790;
+      v43 = WdLogNewEntry5_WdWarning(v15, v14, v16);
+      *(_QWORD *)(v43 + 24) = -1073741790LL;
+      WdLogEvent5_WdWarning(v43);
     }
     KeLeaveCriticalRegion();
-    if ( v38[8] )
-      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v38);
+    if ( v47[8] )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v47, v44);
+    return (unsigned int)v13;
   }
   else
   {
-    LODWORD(v9) = -1073741811;
-    WdLogSingleEntry1(2LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process context. Returning 0x%I64x",
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v5 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v5 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v5);
+    return 3221225485LL;
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v35);
-  if ( v37 )
-  {
-    LOBYTE(v30) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v30, &EventProfilerExit, v31, v35);
-  }
-  return (unsigned int)v9;
 }

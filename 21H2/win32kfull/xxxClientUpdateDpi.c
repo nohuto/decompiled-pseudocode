@@ -1,33 +1,43 @@
 /*
- * XREFs of xxxClientUpdateDpi @ 0x1C022D060
+ * XREFs of xxxClientUpdateDpi @ 0x1C0233794
  * Callers:
- *     xxxProcessEventMessage @ 0x1C005C220 (xxxProcessEventMessage.c)
+ *     xxxProcessEventMessage @ 0x1C00C1918 (xxxProcessEventMessage.c)
  * Callees:
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A08 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0074A3C (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C0052354 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005240C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00524D0 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052508 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
  */
 
 __int64 __fastcall xxxClientUpdateDpi(int a1)
 {
   int v1; // ebx
-  ULONG64 v2; // rcx
-  char v4; // [rsp+50h] [rbp+8h] BYREF
-  int v5; // [rsp+58h] [rbp+10h] BYREF
-  int v6; // [rsp+60h] [rbp+18h] BYREF
-  unsigned __int64 v7; // [rsp+68h] [rbp+20h] BYREF
+  __int64 *v2; // rcx
+  __int64 result; // rax
+  unsigned __int64 v4[3]; // [rsp+30h] [rbp-18h] BYREF
+  char v5; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v6; // [rsp+58h] [rbp+10h] BYREF
+  int v7; // [rsp+60h] [rbp+18h] BYREF
+  int v8; // [rsp+68h] [rbp+20h] BYREF
 
-  v7 = 0LL;
-  v5 = 0;
-  v6 = a1;
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v4);
+  v4[0] = 0LL;
+  v7 = 0;
+  v8 = a1;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v6);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v5);
   EtwTraceBeginCallback(58LL);
-  v1 = KeUserModeCallback(58LL, &v6, 4LL, &v7, &v5);
+  v1 = KeUserModeCallback(58LL, &v8, 4LL, v4, &v7);
   EtwTraceEndCallback(58LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v4);
-  if ( v1 < 0 || v5 != 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v5);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v6);
+  if ( v1 < 0 || v7 != 24 )
     return 0LL;
-  v2 = v7;
-  if ( v7 + 8 < v7 || v7 + 8 > MmUserProbeAddress )
-    v2 = MmUserProbeAddress;
-  return *(_QWORD *)v2;
+  v2 = (__int64 *)v4[0];
+  if ( v4[0] + 8 < v4[0] || v4[0] + 8 > MmUserProbeAddress )
+    v2 = (__int64 *)MmUserProbeAddress;
+  result = *v2;
+  v6 = *v2;
+  return result;
 }

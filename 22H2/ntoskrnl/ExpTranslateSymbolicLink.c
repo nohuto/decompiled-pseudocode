@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpTranslateSymbolicLink @ 0x140840638
+ * XREFs of ExpTranslateSymbolicLink @ 0x140952C0C
  * Callers:
- *     ExpTranslateEfiPath @ 0x1408402B0 (ExpTranslateEfiPath.c)
- *     ExpConvertArcName @ 0x1409FBB48 (ExpConvertArcName.c)
- *     ExpConvertSignatureName @ 0x1409FBD0C (ExpConvertSignatureName.c)
- *     ExpFindArcName @ 0x1409FC3E0 (ExpFindArcName.c)
- *     ExpTranslateNtPath @ 0x1409FE50C (ExpTranslateNtPath.c)
+ *     ExpConvertArcName @ 0x14094F5EC (ExpConvertArcName.c)
+ *     ExpConvertSignatureName @ 0x14094F7B0 (ExpConvertSignatureName.c)
+ *     ExpFindArcName @ 0x14094FF64 (ExpFindArcName.c)
+ *     ExpTranslateEfiPath @ 0x14095228C (ExpTranslateEfiPath.c)
+ *     ExpTranslateNtPath @ 0x140952904 (ExpTranslateNtPath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenSymbolicLinkObject @ 0x14041CD60 (ZwOpenSymbolicLinkObject.c)
- *     ZwQuerySymbolicLinkObject @ 0x14041D3C0 (ZwQuerySymbolicLinkObject.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1403FBFE0 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQuerySymbolicLinkObject @ 0x1403FC600 (ZwQuerySymbolicLinkObject.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall ExpTranslateSymbolicLink(PCWSTR SourceString, UNICODE_STRING *a2)
 {
   unsigned __int16 v3; // si
-  wchar_t *Pool2; // rbx
+  wchar_t *PoolWithTag; // rbx
   NTSTATUS result; // eax
   NTSTATUS v6; // edi
   UNICODE_STRING LinkTarget; // [rsp+20h] [rbp-50h] BYREF
@@ -34,7 +34,7 @@ NTSTATUS __fastcall ExpTranslateSymbolicLink(PCWSTR SourceString, UNICODE_STRING
   LinkHandle = 0LL;
   v3 = 2;
   DestinationString = 0LL;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
@@ -47,16 +47,16 @@ NTSTATUS __fastcall ExpTranslateSymbolicLink(PCWSTR SourceString, UNICODE_STRING
       while ( 1 )
       {
         LinkTarget.Length = 0;
-        LinkTarget.Buffer = Pool2;
+        LinkTarget.Buffer = PoolWithTag;
         LinkTarget.MaximumLength = v3 - 2;
         v6 = ZwQuerySymbolicLinkObject(LinkHandle, &LinkTarget, &ReturnedLength);
         if ( v6 != -1073741789 )
           break;
-        if ( Pool2 )
-          ExFreePoolWithTag(Pool2, 0);
+        if ( PoolWithTag )
+          ExFreePoolWithTag(PoolWithTag, 0);
         v3 = ReturnedLength + 2;
-        Pool2 = (wchar_t *)ExAllocatePool2(64LL, ReturnedLength + 2, 1920364101LL);
-        if ( !Pool2 )
+        PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, ReturnedLength + 2, 0x72766E45u);
+        if ( !PoolWithTag )
         {
           ZwClose(LinkHandle);
           return -1073741670;
@@ -65,9 +65,9 @@ NTSTATUS __fastcall ExpTranslateSymbolicLink(PCWSTR SourceString, UNICODE_STRING
       ZwClose(LinkHandle);
       if ( v6 < 0 )
         break;
-      Pool2[(unsigned __int64)LinkTarget.Length >> 1] = 0;
+      PoolWithTag[(unsigned __int64)LinkTarget.Length >> 1] = 0;
       LinkTarget.MaximumLength = v3;
-      RtlInitUnicodeString(&DestinationString, Pool2);
+      RtlInitUnicodeString(&DestinationString, PoolWithTag);
       ObjectAttributes.Length = 48;
       ObjectAttributes.ObjectName = &DestinationString;
       ObjectAttributes.RootDirectory = 0LL;
@@ -80,8 +80,8 @@ NTSTATUS __fastcall ExpTranslateSymbolicLink(PCWSTR SourceString, UNICODE_STRING
         return result;
       }
     }
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
     return v6;
   }
   return result;

@@ -1,5 +1,5 @@
 /*
- * XREFs of PspSetJobBackgroundCountCallback @ 0x1406E66D0
+ * XREFs of PspSetJobBackgroundCountCallback @ 0x1406C0730
  * Callers:
  *     <none>
  * Callees:
@@ -12,11 +12,11 @@ __int64 __fastcall PspSetJobBackgroundCountCallback(__int64 a1, _BYTE *a2)
   int v3; // r8d
   int v4; // eax
 
-  v2 = *(_DWORD *)(a1 + 1052);
+  v2 = *(_DWORD *)(a1 + 860);
   v3 = v2 - 1;
   v4 = v2 + 1;
   if ( !*a2 )
     v4 = v3;
-  *(_DWORD *)(a1 + 1052) = v4;
+  *(_DWORD *)(a1 + 860) = v4;
   return 0LL;
 }

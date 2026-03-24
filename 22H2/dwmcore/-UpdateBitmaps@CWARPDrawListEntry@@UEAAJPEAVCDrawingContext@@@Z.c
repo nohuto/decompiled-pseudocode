@@ -1,31 +1,39 @@
 /*
- * XREFs of ?UpdateBitmaps@CWARPDrawListEntry@@UEAAJPEAVCDrawingContext@@@Z @ 0x1802007C0
+ * XREFs of ?UpdateBitmaps@CWARPDrawListEntry@@UEAAJPEAVCDrawingContext@@@Z @ 0x1801A23D0
  * Callers:
- *     ?Render@CWARPDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z @ 0x1802005B0 (-Render@CWARPDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z.c)
+ *     ?Render@CWARPDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@MilCompositingMode@@@Z @ 0x1801A2200 (-Render@CWARPDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@MilCompositingMode.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?PrepareOutputTarget@CDrawListBitmap@@QEBAJPEAVCDrawingContext@@@Z @ 0x1801FC394 (-PrepareOutputTarget@CDrawListBitmap@@QEBAJPEAVCDrawingContext@@@Z.c)
+ *     ?RecordContentInfo@CDrawListBitmap@@QEBAXPEAVCDrawingContext@@@Z @ 0x180040D9C (-RecordContentInfo@CDrawListBitmap@@QEBAXPEAVCDrawingContext@@@Z.c)
+ *     ?EnsureDeviceResource@CDrawListBitmap@@QEBAJPEBVCDrawingContext@@@Z @ 0x180054500 (-EnsureDeviceResource@CDrawListBitmap@@QEBAJPEBVCDrawingContext@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
-__int64 __fastcall CWARPDrawListEntry::UpdateBitmaps(struct IBitmapResource **this, struct CDrawingContext *a2)
+__int64 __fastcall CWARPDrawListEntry::UpdateBitmaps(CWARPDrawListEntry *this, struct CDrawingContext *a2)
 {
   unsigned int v2; // ebx
-  int v5; // eax
-  __int64 v6; // rcx
-  int v7; // eax
-  __int64 v8; // rcx
+  CDrawListBitmap *v3; // rdi
+  int v6; // eax
+  __int64 v7; // rcx
+  int v8; // eax
+  __int64 v9; // rcx
 
   v2 = 0;
-  if ( this[7] && (v5 = CDrawListBitmap::PrepareOutputTarget(this + 6, a2), v2 = v5, v5 < 0) )
+  v3 = (CWARPDrawListEntry *)((char *)this + 240);
+  if ( *((_OWORD *)this + 15) == 0LL
+    || (CDrawListBitmap::RecordContentInfo(v3, a2), v6 = CDrawListBitmap::EnsureDeviceResource(v3, a2), v2 = v6, v6 >= 0) )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x198u, 0LL);
+    if ( *((_QWORD *)this + 43) || *((_QWORD *)this + 44) )
+    {
+      CDrawListBitmap::RecordContentInfo((CWARPDrawListEntry *)((char *)this + 344), a2);
+      v8 = CDrawListBitmap::EnsureDeviceResource((CWARPDrawListEntry *)((char *)this + 344), a2);
+      v2 = v8;
+      if ( v8 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x1A1u, 0LL);
+    }
   }
-  else if ( this[17] )
+  else
   {
-    v7 = CDrawListBitmap::PrepareOutputTarget(this + 16, a2);
-    v2 = v7;
-    if ( v7 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x19Du, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x19Bu, 0LL);
   }
   return v2;
 }

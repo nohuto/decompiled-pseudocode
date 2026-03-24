@@ -1,9 +1,9 @@
 /*
- * XREFs of IoRemoveShareAccess @ 0x14074B990
+ * XREFs of IoRemoveShareAccess @ 0x14071A890
  * Callers:
- *     DifIoRemoveShareAccessWrapper @ 0x140610B30 (DifIoRemoveShareAccessWrapper.c)
+ *     <none>
  * Callees:
- *     IoRemoveLinkShareAccessEx @ 0x14074BF60 (IoRemoveLinkShareAccessEx.c)
+ *     IoRemoveLinkShareAccessEx @ 0x14071B0E0 (IoRemoveLinkShareAccessEx.c)
  */
 
 void __stdcall IoRemoveShareAccess(PFILE_OBJECT FileObject, PSHARE_ACCESS ShareAccess)

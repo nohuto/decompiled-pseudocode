@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpTryToLockHashEntryExclusive @ 0x1406C4A6C
+ * XREFs of CmpTryToLockHashEntryExclusive @ 0x1406C4A4C
  * Callers:
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     CmpReferenceHive @ 0x1405D16FC (CmpReferenceHive.c)
  */
 

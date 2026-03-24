@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpConsumeLowMemory @ 0x140AF9A34
+ * XREFs of HalpConsumeLowMemory @ 0x140A64484
  * Callers:
- *     HalpMmInitSystem @ 0x140A556B0 (HalpMmInitSystem.c)
+ *     HalpMmInitSystem @ 0x1409A05D0 (HalpMmInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -9,12 +9,12 @@
 void __fastcall HalpConsumeLowMemory(__int64 a1)
 {
   __int64 *v1; // r9
-  __int64 *v2; // rdx
+  __int64 *v2; // r8
   unsigned __int64 v3; // rax
   __int64 v4; // rcx
   unsigned __int64 v5; // rcx
-  unsigned __int64 v6; // r10
-  char *v7; // r8
+  unsigned __int64 v6; // r11
+  char *v7; // r10
   __int64 **v8; // rax
 
   v1 = (__int64 *)(a1 + 32);
@@ -23,19 +23,19 @@ void __fastcall HalpConsumeLowMemory(__int64 a1)
   {
     do
     {
-      v3 = *((int *)v2 + 6);
+      v3 = *((int *)v2 + 4);
       if ( (unsigned int)v3 > 0x23 || (v4 = 0xBC4400048LL, !_bittest64(&v4, v3)) )
       {
-        v5 = v2[4];
+        v5 = v2[3];
         if ( v5 < 0x100 )
         {
-          v6 = v5 + v2[5];
+          v6 = v5 + v2[4];
           if ( v6 > 0x100 )
           {
-            v7 = (char *)HalpAllocationDescriptorArray + 48 * (unsigned int)HalpUsedAllocDescriptors++;
-            *((_QWORD *)v7 + 5) = v6 - 256;
-            *((_QWORD *)v7 + 4) = 256LL;
-            *((_DWORD *)v7 + 6) = *((_DWORD *)v2 + 6);
+            v7 = (char *)HalpAllocationDescriptorArray + 40 * (unsigned int)HalpUsedAllocDescriptors++;
+            *((_QWORD *)v7 + 3) = 256LL;
+            *((_QWORD *)v7 + 4) = v6 - 256;
+            *((_DWORD *)v7 + 4) = *((_DWORD *)v2 + 4);
             v8 = (__int64 **)v2[1];
             if ( *v8 != v2 )
               __fastfail(3u);
@@ -43,9 +43,9 @@ void __fastcall HalpConsumeLowMemory(__int64 a1)
             *(_QWORD *)v7 = v2;
             *v8 = (__int64 *)v7;
             v2[1] = (__int64)v7;
-            v2[5] = 256 - v2[4];
+            v2[4] = 256 - v2[3];
           }
-          *((_DWORD *)v2 + 6) = 26;
+          *((_DWORD *)v2 + 4) = 26;
         }
       }
       v2 = (__int64 *)*v2;

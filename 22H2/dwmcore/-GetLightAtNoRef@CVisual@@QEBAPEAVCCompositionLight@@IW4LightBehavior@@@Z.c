@@ -1,29 +1,26 @@
 /*
- * XREFs of ?GetLightAtNoRef@CVisual@@QEBAPEAVCCompositionLight@@IW4LightBehavior@@@Z @ 0x18000DF18
+ * XREFs of ?GetLightAtNoRef@CVisual@@QEBAPEAVCCompositionLight@@IW4LightBehavior@@@Z @ 0x180004990
  * Callers:
- *     ?PostSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180063690 (-PostSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?PreSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180064A30 (-PreSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180067A20 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006B570 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006E9F0 (-PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PostSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180084280 (-PostSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PreSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180085300 (-PreSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
  * Callees:
- *     <none>
+ *     ?GetLightsCount@CVisual@@QEBAIW4LightBehavior@@@Z @ 0x1800049D8 (-GetLightsCount@CVisual@@QEBAIW4LightBehavior@@@Z.c)
  */
 
-__int64 __fastcall CVisual::GetLightAtNoRef(_QWORD *a1, unsigned int a2, int a3)
+__int64 __fastcall CVisual::GetLightAtNoRef(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v4; // rcx
-  __int64 v5; // rax
+  unsigned int LightsCount; // eax
+  int v4; // r8d
+  __int64 v5; // r9
+  unsigned int v6; // r10d
+  __int64 v7; // rax
 
-  if ( a3 )
-    v4 = a1[39] - a1[38];
-  else
-    v4 = a1[36] - a1[35];
-  if ( a2 >= (unsigned int)(v4 >> 4) )
+  LightsCount = CVisual::GetLightsCount(a1, (unsigned int)a3, a3, a1);
+  if ( v6 >= LightsCount )
     return 0LL;
-  if ( a3 )
-    v5 = a1[38];
+  if ( v4 )
+    v7 = *(_QWORD *)(v5 + 296);
   else
-    v5 = a1[35];
-  return *(_QWORD *)(v5 + 16LL * a2);
+    v7 = *(_QWORD *)(v5 + 272);
+  return *(_QWORD *)(v7 + 16LL * v6);
 }

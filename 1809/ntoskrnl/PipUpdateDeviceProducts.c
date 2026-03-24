@@ -1,25 +1,25 @@
 /*
- * XREFs of PipUpdateDeviceProducts @ 0x140181D80
+ * XREFs of PipUpdateDeviceProducts @ 0x140181DA0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryBootTimeValues @ 0x140129290 (KeQueryBootTimeValues.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
+ *     KeQueryBootTimeValues @ 0x1401292B0 (KeQueryBootTimeValues.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
  *     RtlGetPersistedStateLocation @ 0x140612450 (RtlGetPersistedStateLocation.c)
- *     _PnpCtxRegCreateTree @ 0x1406D3510 (_PnpCtxRegCreateTree.c)
- *     _PnpCtxRegCreateKey @ 0x1406E6484 (_PnpCtxRegCreateKey.c)
- *     _PnpCtxRegEnumValue @ 0x1406F5604 (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1406F5654 (_PnpCtxRegQueryInfoKey.c)
- *     _PnpCtxRegQueryValue @ 0x14073C324 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegCloseKey @ 0x14073C35C (_PnpCtxRegCloseKey.c)
- *     _PnpCtxRegOpenKey @ 0x14073C374 (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegEnumKey @ 0x14073C3B0 (_PnpCtxRegEnumKey.c)
- *     _PnpCtxRegDeleteValue @ 0x1408F5ED4 (_PnpCtxRegDeleteValue.c)
- *     _PnpCtxRegSetValue @ 0x1408F5F08 (_PnpCtxRegSetValue.c)
+ *     _PnpCtxRegCreateTree @ 0x1406D34F0 (_PnpCtxRegCreateTree.c)
+ *     _PnpCtxRegCreateKey @ 0x1406E6464 (_PnpCtxRegCreateKey.c)
+ *     _PnpCtxRegEnumValue @ 0x1406F55E4 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406F5634 (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpCtxRegQueryValue @ 0x14073C304 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegCloseKey @ 0x14073C33C (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14073C354 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKey @ 0x14073C390 (_PnpCtxRegEnumKey.c)
+ *     _PnpCtxRegDeleteValue @ 0x1408F5EB4 (_PnpCtxRegDeleteValue.c)
+ *     _PnpCtxRegSetValue @ 0x1408F5EE8 (_PnpCtxRegSetValue.c)
  */
 
 void __fastcall PipUpdateDeviceProducts(void *a1)

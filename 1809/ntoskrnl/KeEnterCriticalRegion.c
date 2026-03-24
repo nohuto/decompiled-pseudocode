@@ -1,18 +1,18 @@
 /*
- * XREFs of KeEnterCriticalRegion @ 0x1400B9BE0
+ * XREFs of KeEnterCriticalRegion @ 0x1400B9C00
  * Callers:
- *     NtTraceEvent @ 0x1400CB490 (NtTraceEvent.c)
+ *     NtTraceEvent @ 0x1400CB4B0 (NtTraceEvent.c)
  *     EtwpFreeGuidEntry @ 0x1405C0920 (EtwpFreeGuidEntry.c)
  *     EtwpAddGuidEntry @ 0x1405C0A0C (EtwpAddGuidEntry.c)
  *     EtwpRegisterUMGuid @ 0x1405C3970 (EtwpRegisterUMGuid.c)
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
  *     NtQueryInformationToken @ 0x14062A760 (NtQueryInformationToken.c)
- *     CmpParseKey @ 0x140641370 (CmpParseKey.c)
- *     EtwpEnableGuid @ 0x140655F58 (EtwpEnableGuid.c)
- *     EtwpRegisterProvider @ 0x1406BE5CC (EtwpRegisterProvider.c)
- *     EtwpTrackProviderBinary @ 0x14071D4AC (EtwpTrackProviderBinary.c)
- *     EtwpDisallowedGuidAddition @ 0x1408B50C4 (EtwpDisallowedGuidAddition.c)
- *     EtwpDisallowedGuidRemoval @ 0x1408B5378 (EtwpDisallowedGuidRemoval.c)
+ *     CmpParseKey @ 0x140641350 (CmpParseKey.c)
+ *     EtwpEnableGuid @ 0x140655F38 (EtwpEnableGuid.c)
+ *     EtwpRegisterProvider @ 0x1406BE5AC (EtwpRegisterProvider.c)
+ *     EtwpTrackProviderBinary @ 0x14071D48C (EtwpTrackProviderBinary.c)
+ *     EtwpDisallowedGuidAddition @ 0x1408B50A4 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x1408B5358 (EtwpDisallowedGuidRemoval.c)
  * Callees:
  *     <none>
  */

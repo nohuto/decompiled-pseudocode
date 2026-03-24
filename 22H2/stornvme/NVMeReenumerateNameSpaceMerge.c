@@ -1,169 +1,139 @@
 /*
- * XREFs of NVMeReenumerateNameSpaceMerge @ 0x1C0022134
+ * XREFs of NVMeReenumerateNameSpaceMerge @ 0x1C0007138
  * Callers:
- *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0021D10 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
+ *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0006C40 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
  * Callees:
- *     memset @ 0x1C0004B80 (memset.c)
- *     NVMeIsLunActive @ 0x1C00169CC (NVMeIsLunActive.c)
+ *     memset @ 0x1C0008040 (memset.c)
+ *     NVMeIsLunActive @ 0x1C0015204 (NVMeIsLunActive.c)
  */
 
-char __fastcall NVMeReenumerateNameSpaceMerge(__int64 a1, __int64 a2, unsigned int a3)
+__int64 __fastcall NVMeReenumerateNameSpaceMerge(__int64 a1, __int64 a2, unsigned int a3)
 {
-  char v3; // r11
-  __int64 v4; // r12
-  __int64 v7; // rsi
+  __int64 v3; // r15
+  __int64 v4; // r14
+  __int64 v6; // rsi
+  __int64 v7; // r9
   unsigned int v8; // edi
-  __int64 v9; // r15
+  __int64 v9; // r12
   __int64 v10; // r8
-  _OWORD *v11; // rcx
-  _DWORD *v12; // rdx
-  _OWORD *v13; // rax
-  __int64 v14; // rdx
-  __int128 v15; // xmm1
-  int v16; // eax
-  _OWORD *v17; // rax
-  __int64 v18; // rdx
-  __int128 v19; // xmm1
-  int v20; // eax
-  int v21; // r8d
-  __int64 *v22; // r9
-  int v23; // r8d
-  __int64 v24; // r10
-  int v25; // ecx
-  __int64 v26; // r9
-  __int64 *v27; // rdi
-  __int64 v28; // rsi
-  __int64 v29; // r8
+  __int64 v11; // rcx
+  int v12; // eax
+  int v13; // eax
+  __int64 result; // rax
+  __int64 v15; // r8
+  unsigned int v16; // r8d
+  __int64 v17; // r10
+  unsigned int v18; // ecx
+  __int64 v19; // r9
+  __int64 *v20; // rdi
+  __int64 v21; // rsi
+  __int64 v22; // r8
 
-  v3 = 0x80;
-  v4 = a3;
-  v7 = 0LL;
+  v3 = a3;
+  v4 = a2;
+  v6 = 0LL;
+  v7 = 255LL;
   do
   {
-    v8 = *(_DWORD *)(a2 + 4 * v7 + 2048);
+    v8 = *(_DWORD *)(v4 + 4 * v6 + 2048);
     if ( !v8 )
       break;
-    if ( v8 <= (unsigned int)v4 )
+    if ( v8 <= (unsigned int)v3 )
     {
       v9 = v8 - 1;
-      v10 = *(_QWORD *)(a2 + 8 * v9 + 8);
-      v11 = *(_OWORD **)(a1 + 8 * v9 + 1952);
-      v12 = (_DWORD *)(v10 + 20);
-      if ( v10 && (*v12 & 8) != 0 )
+      v10 = *(_QWORD *)(v4 + 8 * v9 + 8);
+      v11 = *(_QWORD *)(a1 + 8 * v9 + 1736);
+      if ( v10 && (a2 = *(unsigned int *)(v10 + 20), (a2 & 8) != 0) )
       {
-        *v12 |= 0x80u;
-        *v12 &= ~8u;
+        a2 = (unsigned int)a2 & 0xFFFFFFF7;
+        LODWORD(a2) = a2 | 0x80;
         *(_BYTE *)(v10 + 10) = v8 - 1;
+        *(_DWORD *)(v10 + 20) = a2;
         if ( v11 )
         {
-          v13 = (_OWORD *)v10;
-          v14 = 3LL;
-          do
-          {
-            *v11 = *v13;
-            v11[1] = v13[1];
-            v11[2] = v13[2];
-            v11[3] = v13[3];
-            v11[4] = v13[4];
-            v11[5] = v13[5];
-            v11[6] = v13[6];
-            v11 += 8;
-            v15 = v13[7];
-            v13 += 8;
-            *(v11 - 1) = v15;
-            --v14;
-          }
-          while ( v14 );
-          *v11 = *v13;
-          v11[1] = v13[1];
-          *((_QWORD *)v11 + 4) = *((_QWORD *)v13 + 4);
-          StorPortExtendedFunction(1LL, a1, v10);
-          *(_QWORD *)(a2 + 8 * v9 + 8) = 0LL;
+          *(_OWORD *)v11 = *(_OWORD *)v10;
+          *(_OWORD *)(v11 + 16) = *(_OWORD *)(v10 + 16);
+          *(_OWORD *)(v11 + 32) = *(_OWORD *)(v10 + 32);
+          *(_OWORD *)(v11 + 48) = *(_OWORD *)(v10 + 48);
+          *(_OWORD *)(v11 + 64) = *(_OWORD *)(v10 + 64);
+          *(_OWORD *)(v11 + 80) = *(_OWORD *)(v10 + 80);
+          *(_QWORD *)(v11 + 96) = *(_QWORD *)(v10 + 96);
+          StorPortExtendedFunction(1LL, a1, v10, 255LL);
+          *(_QWORD *)(v4 + 8 * v9 + 8) = 0LL;
         }
         else
         {
-          *(_QWORD *)(a1 + 8 * v9 + 1952) = v10;
+          *(_QWORD *)(a1 + 8 * v9 + 1736) = v10;
         }
-        if ( (unsigned int)v9 >= *(_DWORD *)(a1 + 232) )
+        if ( (unsigned int)v9 >= *(_DWORD *)(a1 + 208) )
         {
-          v16 = (unsigned __int16)v8;
+          v12 = (unsigned __int16)v8;
           if ( (unsigned __int16)v8 >= 0xFFu )
-            v16 = 255;
-          *(_DWORD *)(a1 + 232) = v16;
+            v12 = 255;
+          *(_DWORD *)(a1 + 208) = v12;
         }
       }
-      else if ( v11 && (*((_DWORD *)v11 + 5) & 0x20) != 0 )
+      else if ( v11 && (*(_DWORD *)(v11 + 20) & 0x20) != 0 )
       {
-        memset(v11, 0, 0x1A8uLL);
+        memset((void *)v11, 0, 0x68uLL);
       }
-      else if ( v10 && (*v12 & 0x10) != 0 )
+      else if ( v10 )
       {
-        *v12 &= ~0x10u;
-        v17 = (_OWORD *)v10;
-        v18 = 3LL;
-        *(_BYTE *)(v10 + 10) = v8 - 1;
-        do
+        v13 = *(_DWORD *)(v10 + 20);
+        if ( (v13 & 0x10) != 0 )
         {
-          *v11 = *v17;
-          v11[1] = v17[1];
-          v11[2] = v17[2];
-          v11[3] = v17[3];
-          v11[4] = v17[4];
-          v11[5] = v17[5];
-          v11[6] = v17[6];
-          v11 += 8;
-          v19 = v17[7];
-          v17 += 8;
-          *(v11 - 1) = v19;
-          --v18;
+          *(_DWORD *)(v10 + 20) = v13 & 0xFFFFFFEF;
+          *(_BYTE *)(v10 + 10) = v8 - 1;
+          *(_OWORD *)v11 = *(_OWORD *)v10;
+          *(_OWORD *)(v11 + 16) = *(_OWORD *)(v10 + 16);
+          *(_OWORD *)(v11 + 32) = *(_OWORD *)(v10 + 32);
+          *(_OWORD *)(v11 + 48) = *(_OWORD *)(v10 + 48);
+          *(_OWORD *)(v11 + 64) = *(_OWORD *)(v10 + 64);
+          *(_OWORD *)(v11 + 80) = *(_OWORD *)(v10 + 80);
+          *(_QWORD *)(v11 + 96) = *(_QWORD *)(v10 + 96);
+          StorPortExtendedFunction(1LL, a1, v10, 255LL);
+          *(_QWORD *)(v4 + 8 * v9 + 8) = 0LL;
         }
-        while ( v18 );
-        *v11 = *v17;
-        v11[1] = v17[1];
-        *((_QWORD *)v11 + 4) = *((_QWORD *)v17 + 4);
-        StorPortExtendedFunction(1LL, a1, v10);
-        *(_QWORD *)(a2 + 8 * v9 + 8) = 0LL;
       }
     }
-    v3 = 0x80;
-    v7 = (unsigned int)(v7 + 1);
+    v6 = (unsigned int)(v6 + 1);
+    v7 = 255LL;
   }
-  while ( (unsigned int)v7 < 0x400 );
-  v20 = *(_DWORD *)(a1 + 232);
-  v21 = 0;
-  if ( v20 )
+  while ( (unsigned int)v6 < 0x400 );
+  result = *(unsigned int *)(a1 + 208);
+  v15 = 0LL;
+  if ( (_DWORD)result )
   {
-    v22 = (__int64 *)(a1 + 1952);
+    v7 = a1 + 1736;
     do
     {
-      LOBYTE(v20) = NVMeIsLunActive(*v22);
-      v25 = v23 + 1;
-      v22 = (__int64 *)(v26 + 8);
-      if ( !(_BYTE)v20 )
-        v25 = v23;
-      v21 = v25;
+      result = NVMeIsLunActive(*(_QWORD *)v7, a2, v15);
+      v18 = v16 + 1;
+      v7 = v19 + 8;
+      if ( !(_BYTE)result )
+        v18 = v16;
+      v15 = v18;
     }
-    while ( v24 != 1 );
+    while ( v17 != 1 );
   }
-  *(_DWORD *)(a1 + 220) = v21;
-  if ( (_DWORD)v4 )
+  *(_DWORD *)(a1 + 196) = v15;
+  if ( (_DWORD)v3 )
   {
-    v27 = (__int64 *)(a2 + 8);
-    v28 = v4;
+    v20 = (__int64 *)(v4 + 8);
+    v21 = v3;
     do
     {
-      v29 = *v27;
-      if ( *v27 )
+      v22 = *v20;
+      if ( *v20 )
       {
-        v20 = *(_DWORD *)(v29 + 20);
-        if ( ((unsigned __int8)v20 & (unsigned __int8)v3) == 0 )
-          LOBYTE(v20) = StorPortExtendedFunction(1LL, a1, v29);
+        result = *(unsigned int *)(v22 + 20);
+        if ( (result & 0x80u) == 0LL )
+          result = StorPortExtendedFunction(1LL, a1, v22, v7);
       }
-      ++v27;
-      v3 = 0x80;
-      --v28;
+      ++v20;
+      --v21;
     }
-    while ( v28 );
+    while ( v21 );
   }
-  return v20;
+  return result;
 }

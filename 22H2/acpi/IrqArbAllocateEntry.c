@@ -1,9 +1,9 @@
 /*
- * XREFs of IrqArbAllocateEntry @ 0x1C009CDC0
+ * XREFs of IrqArbAllocateEntry @ 0x1C00A1230
  * Callers:
  *     <none>
  * Callees:
- *     ArbAllocateEntry @ 0x1C00A0CC0 (ArbAllocateEntry.c)
+ *     ArbAllocateEntry @ 0x1C00A12A0 (ArbAllocateEntry.c)
  */
 
 __int64 __fastcall IrqArbAllocateEntry(__int64 a1, __int64 a2)
@@ -30,8 +30,8 @@ __int64 __fastcall IrqArbAllocateEntry(__int64 a1, __int64 a2)
     }
     v3 += 80LL;
   }
-  if ( v2 <= (unsigned __int16)IrqArbInterruptLimit )
-    return ArbAllocateEntry(a1);
-  else
+  if ( v2 > (unsigned __int16)IrqArbInterruptLimit )
     return 3221225626LL;
+  else
+    return ArbAllocateEntry(a1);
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of IoDuplicateDependency @ 0x140942470
+ * XREFs of IoDuplicateDependency @ 0x14089D670
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PiListEntryToDependencyEdge @ 0x14055F84C (PiListEntryToDependencyEdge.c)
- *     PiGetDependentList @ 0x14076BBF4 (PiGetDependentList.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x14076BC20 (PipProcessRebuildPowerRelationsQueue.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1407756F4 (PnpAcquireDependencyRelationsLock.c)
- *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x1408442B0 (PipAddDependentsToRebuildPowerRelationsQueue.c)
- *     PipQueryBindingResolution @ 0x14084436C (PipQueryBindingResolution.c)
- *     PipCreateDependencyNode @ 0x14084442C (PipCreateDependencyNode.c)
- *     PipDeleteDependencyNode @ 0x14085CA14 (PipDeleteDependencyNode.c)
- *     PipDependencyCopyEdge @ 0x140942A64 (PipDependencyCopyEdge.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     PiListEntryToDependencyEdge @ 0x14050C4F8 (PiListEntryToDependencyEdge.c)
+ *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x140639C1C (PnpAcquireDependencyRelationsLock.c)
+ *     PiGetDependentList @ 0x14074B374 (PiGetDependentList.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x14074B56C (PipProcessRebuildPowerRelationsQueue.c)
+ *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x1407B4B40 (PipAddDependentsToRebuildPowerRelationsQueue.c)
+ *     PipQueryBindingResolution @ 0x1407B4BF8 (PipQueryBindingResolution.c)
+ *     PipCreateDependencyNode @ 0x1407B4C9C (PipCreateDependencyNode.c)
+ *     PipDeleteDependencyNode @ 0x1407CD6B0 (PipDeleteDependencyNode.c)
+ *     PipDependencyCopyEdge @ 0x14089DC6C (PipDependencyCopyEdge.c)
  */
 
 __int64 __fastcall IoDuplicateDependency(__int64 a1, __int64 a2)
@@ -21,12 +21,12 @@ __int64 __fastcall IoDuplicateDependency(__int64 a1, __int64 a2)
   unsigned int v2; // ebx
   __int64 *BindingResolution; // rax
   __int64 DependencyNode; // rdi
-  __int64 *DependentList; // r15
-  __int64 *v8; // r14
+  __int64 *DependentList; // r14
+  __int64 *v8; // rsi
   __int64 v9; // rax
   int v10; // eax
-  _DWORD v13[2]; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v14; // [rsp+28h] [rbp-20h]
+  _DWORD v13[2]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v14; // [rsp+28h] [rbp-10h]
 
   v2 = 0;
   v13[1] = 0;

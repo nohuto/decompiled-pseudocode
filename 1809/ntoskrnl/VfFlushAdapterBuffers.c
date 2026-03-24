@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     VF_ASSERT_MAX_IRQL @ 0x140929720 (VF_ASSERT_MAX_IRQL.c)
  *     ViFlushDoubleBuffer @ 0x14092D374 (ViFlushDoubleBuffer.c)
  *     ViGetAdapterInformationInternal @ 0x14092D868 (ViGetAdapterInformationInternal.c)
@@ -63,12 +63,12 @@ LABEL_4:
     if ( a5 )
     {
       ViHalPreprocessOptions(
-        byte_1404054D4,
+        byte_1404054C8,
         "Cannot flush map register that isn't mapped! (Map register base %p, flushing address %p, MDL %p)",
         (const void *)0x20,
         a3,
         a4);
-      VfReportIssueWithOptions(0xE6u, 0x20uLL, (ULONG_PTR)a3, (ULONG_PTR)a4, a2, byte_1404054D4);
+      VfReportIssueWithOptions(0xE6u, 0x20uLL, (ULONG_PTR)a3, (ULONG_PTR)a4, a2, byte_1404054C8);
     }
     return 0;
   }

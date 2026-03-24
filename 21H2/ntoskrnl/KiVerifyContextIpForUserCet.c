@@ -1,10 +1,10 @@
 /*
- * XREFs of KiVerifyContextIpForUserCet @ 0x14056E110
+ * XREFs of KiVerifyContextIpForUserCet @ 0x1403F2DF8
  * Callers:
- *     KeVerifyContextIpForUserCet @ 0x1402989A8 (KeVerifyContextIpForUserCet.c)
+ *     KeVerifyContextIpForUserCet @ 0x1403F2D3C (KeVerifyContextIpForUserCet.c)
  * Callees:
- *     RtlGetImageBaseAndLoadConfig @ 0x1405EEB40 (RtlGetImageBaseAndLoadConfig.c)
- *     RtlVerifyUserUnwindTarget @ 0x1409BFF78 (RtlVerifyUserUnwindTarget.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x1403F88A8 (RtlGetImageBaseAndLoadConfig.c)
+ *     RtlVerifyUserUnwindTarget @ 0x14091A994 (RtlVerifyUserUnwindTarget.c)
  */
 
 __int64 __fastcall KiVerifyContextIpForUserCet(__int64 a1, __int64 a2, int *a3, char a4, unsigned __int64 *a5)
@@ -43,7 +43,7 @@ __int64 __fastcall KiVerifyContextIpForUserCet(__int64 a1, __int64 a2, int *a3, 
     if ( !v10 )
       return 0LL;
   }
-  if ( !v11 && v8 == qword_140D07170 )
+  if ( !v11 && v8 == PspUserThreadStart )
   {
     *a3 = 1;
     v11 = 1;
@@ -96,6 +96,6 @@ LABEL_33:
     }
     v10 += 8LL;
   }
-  while ( (v10 & 0xFFF) != 0 || (*(_DWORD *)(a1 + 1376) & 1) == 0 );
+  while ( (v10 & 0xFFF) != 0 || (*(_DWORD *)(a1 + 1296) & 1) == 0 );
   return 3221225547LL;
 }

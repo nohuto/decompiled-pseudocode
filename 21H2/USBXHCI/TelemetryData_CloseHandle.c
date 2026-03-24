@@ -1,7 +1,7 @@
 /*
- * XREFs of TelemetryData_CloseHandle @ 0x1C0050E04
+ * XREFs of TelemetryData_CloseHandle @ 0x1C0050200
  * Callers:
- *     Controller_TelemetryReport @ 0x1C0033110 (Controller_TelemetryReport.c)
+ *     Controller_TelemetryReport @ 0x1C00330D0 (Controller_TelemetryReport.c)
  * Callees:
  *     <none>
  */

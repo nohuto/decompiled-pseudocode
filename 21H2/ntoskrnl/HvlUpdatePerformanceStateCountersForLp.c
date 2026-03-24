@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlUpdatePerformanceStateCountersForLp @ 0x14039DAE0
+ * XREFs of HvlUpdatePerformanceStateCountersForLp @ 0x140390170
  * Callers:
- *     PpmCheckSnapAllDeliveredPerformance @ 0x140304A20 (PpmCheckSnapAllDeliveredPerformance.c)
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x140220BD0 (PpmCheckSnapAllDeliveredPerformance.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x14039DF00 (HvcallInitiateHypercall.c)
- *     HvlpHvToNtStatus @ 0x14054CA70 (HvlpHvToNtStatus.c)
+ *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
+ *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlUpdatePerformanceStateCountersForLp(unsigned int a1)

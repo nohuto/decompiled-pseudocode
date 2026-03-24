@@ -4,10 +4,10 @@
  *     _PnpDispatchInterfaceClass @ 0x14059DFC0 (_PnpDispatchInterfaceClass.c)
  *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x14059E1B8 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
  *     IopGetDeviceInterfaces @ 0x14059E6C4 (IopGetDeviceInterfaces.c)
- *     PiCMOpenClassKey @ 0x1406A6D40 (PiCMOpenClassKey.c)
- *     _CmCreateInterfaceClassWorker @ 0x140704A48 (_CmCreateInterfaceClassWorker.c)
- *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x1408FD2EC (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x1408FFD0C (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
+ *     PiCMOpenClassKey @ 0x1406A6D20 (PiCMOpenClassKey.c)
+ *     _CmCreateInterfaceClassWorker @ 0x140704A28 (_CmCreateInterfaceClassWorker.c)
+ *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x1408FD2CC (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x1408FFCEC (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
  * Callees:
  *     _CmOpenCommonClassRegKey @ 0x14059EBD4 (_CmOpenCommonClassRegKey.c)
  */

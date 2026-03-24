@@ -1,95 +1,46 @@
 /*
- * XREFs of AllocateWindowManagerSid @ 0x1C0058EC0
+ * XREFs of AllocateWindowManagerSid @ 0x1C00752B0
  * Callers:
- *     CheckDwmProcessSecurityIdentifier @ 0x1C0057840 (CheckDwmProcessSecurityIdentifier.c)
- *     UserAllocDefaultCompositionSecurityDescriptor @ 0x1C0058980 (UserAllocDefaultCompositionSecurityDescriptor.c)
+ *     UserAllocDefaultCompositionSecurityDescriptor @ 0x1C002A140 (UserAllocDefaultCompositionSecurityDescriptor.c)
+ *     CheckDwmProcessSecurityIdentifier @ 0x1C0075240 (CheckDwmProcessSecurityIdentifier.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
+ *     Win32AllocPoolWithQuota @ 0x1C00295D0 (Win32AllocPoolWithQuota.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
-__int64 __fastcall AllocateWindowManagerSid(__int64 *a1)
+__int64 __fastcall AllocateWindowManagerSid(_QWORD *a1)
 {
   ULONG v2; // eax
-  PVOID v3; // rbx
-  unsigned __int64 v4; // rdx
-  __int64 Pool2; // rdi
-  NTSTATUS v6; // esi
-  ULONG v7; // ebx
-  __int64 v9; // rax
-  char v10; // si
-  PVOID BackTrace[20]; // [rsp+20h] [rbp-B8h] BYREF
-  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+C0h] [rbp-18h] BYREF
+  void *v3; // rax
+  void *v4; // rbx
+  NTSTATUS v5; // edi
+  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+20h] [rbp-18h] BYREF
 
   *a1 = 0LL;
   v2 = RtlLengthRequiredSid(3u);
-  v3 = gpLeakTrackingAllocator;
-  v4 = v2;
-  if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x65737355) != 0x65737355
-    || (v9 = 0LL, !*((_DWORD *)gpLeakTrackingAllocator + 11)) )
+  v3 = (void *)Win32AllocPoolWithQuota(v2, 0x65737355u);
+  v4 = v3;
+  if ( v3 )
   {
-LABEL_2:
-    Pool2 = ExAllocatePool2(261LL, v4);
-    goto LABEL_3;
-  }
-  while ( *((_DWORD *)gpLeakTrackingAllocator + v9) != 1702064981 )
-  {
-    if ( ++v9 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-      goto LABEL_2;
-  }
-  v10 = 0;
-  if ( v4 < 0x1000 || (v4 & 0xFFF) != 0 )
-  {
-    v10 = 1;
-    v4 += 16LL;
-  }
-  Pool2 = ExAllocatePool2(261LL, v4);
-  if ( !Pool2 )
-    return (unsigned int)-1073741801;
-  memset(BackTrace, 0, sizeof(BackTrace));
-  RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-  if ( v10 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-  {
-    if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                            v3,
-                            Pool2,
-                            BackTrace) )
+    *(_DWORD *)IdentifierAuthority.Value = 0;
+    *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
+    v5 = RtlInitializeSid(v3, &IdentifierAuthority, 3u);
+    if ( v5 < 0 )
     {
-      Pool2 += 16LL;
-LABEL_3:
-      if ( Pool2 )
-        goto LABEL_4;
-      return (unsigned int)-1073741801;
+      Win32FreePool((__int64)v4);
     }
-LABEL_20:
-    ExFreePoolWithTag((PVOID)Pool2, 0);
-    return (unsigned int)-1073741801;
-  }
-  if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                           v3,
-                           Pool2,
-                           BackTrace) )
-    goto LABEL_20;
-LABEL_4:
-  *(_DWORD *)IdentifierAuthority.Value = 0;
-  *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
-  v6 = RtlInitializeSid((PSID)Pool2, &IdentifierAuthority, 3u);
-  if ( v6 < 0 )
-  {
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      (void *)Pool2);
+    else
+    {
+      *RtlSubAuthoritySid(v4, 0) = 90;
+      *RtlSubAuthoritySid(v4, 1u) = 0;
+      *RtlSubAuthoritySid(v4, 2u) = gSessionId;
+      *a1 = v4;
+    }
   }
   else
   {
-    *RtlSubAuthoritySid((PSID)Pool2, 0) = 90;
-    *RtlSubAuthoritySid((PSID)Pool2, 1u) = 0;
-    v7 = gSessionId;
-    *RtlSubAuthoritySid((PSID)Pool2, 2u) = v7;
-    *a1 = Pool2;
+    return (unsigned int)-1073741801;
   }
-  return (unsigned int)v6;
+  return (unsigned int)v5;
 }

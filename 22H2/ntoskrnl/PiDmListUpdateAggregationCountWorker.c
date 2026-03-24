@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDmListUpdateAggregationCountWorker @ 0x14086C158
+ * XREFs of PiDmListUpdateAggregationCountWorker @ 0x140735470
  * Callers:
- *     PiDmListAddObjectWorker @ 0x1407BEB6C (PiDmListAddObjectWorker.c)
- *     PiDmListRemoveObjectWorker @ 0x14095B028 (PiDmListRemoveObjectWorker.c)
+ *     PiDmListRemoveObjectWorker @ 0x140730E70 (PiDmListRemoveObjectWorker.c)
+ *     PiDmListAddObjectWorker @ 0x1407352C0 (PiDmListAddObjectWorker.c)
  * Callees:
- *     PiDmCacheDataDecode @ 0x1406CC174 (PiDmCacheDataDecode.c)
- *     PiDmGetCachedKeyIndex @ 0x1406D62A0 (PiDmGetCachedKeyIndex.c)
- *     PiDmGetCacheKeys @ 0x1406D63F4 (PiDmGetCacheKeys.c)
+ *     PiDmGetCacheKeys @ 0x1406AFD7C (PiDmGetCacheKeys.c)
+ *     PiDmGetCachedKeyIndex @ 0x1406AFDCC (PiDmGetCachedKeyIndex.c)
+ *     PiDmCacheDataDecode @ 0x1406B020C (PiDmCacheDataDecode.c)
  */
 
 void __fastcall PiDmListUpdateAggregationCountWorker(__int64 a1, __int64 a2, int a3)
@@ -26,7 +26,7 @@ void __fastcall PiDmListUpdateAggregationCountWorker(__int64 a1, __int64 a2, int
   char v18; // [rsp+98h] [rbp+48h] BYREF
 
   v17 = 0LL;
-  v3 = byte_140001798;
+  v3 = byte_140004208;
   v14 = 0;
   v16 = 0;
   v15 = 0;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CColorGradientStopMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C021CBA0
+ * XREFs of ?SetBufferProperty@CColorGradientStopMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E6440
  * Callers:
  *     <none>
  * Callees:
@@ -23,7 +23,7 @@ __int64 __fastcall DirectComposition::CColorGradientStopMarshaler::SetBufferProp
     return 3221225485LL;
   v7 = *a4;
   *((_DWORD *)this + 4) |= 0x20u;
-  *(_OWORD *)((char *)this + 68) = v7;
+  *(_OWORD *)((char *)this + 60) = v7;
   *a6 = 1;
   return result;
 }

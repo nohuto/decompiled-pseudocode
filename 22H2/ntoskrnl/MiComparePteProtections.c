@@ -1,64 +1,70 @@
 /*
- * XREFs of MiComparePteProtections @ 0x140348A0C
+ * XREFs of MiComparePteProtections @ 0x14025B2B8
  * Callers:
- *     MiCheckSecuredVad @ 0x14071A124 (MiCheckSecuredVad.c)
- *     MiSecureVad @ 0x1407BAFAC (MiSecureVad.c)
+ *     MiSecureVad @ 0x14061FAD0 (MiSecureVad.c)
+ *     MiCheckSecuredVad @ 0x1406DB1E8 (MiCheckSecuredVad.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     MiQueryAddressState @ 0x140271AE0 (MiQueryAddressState.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     MiQueryAddressState @ 0x1402AFDC0 (MiQueryAddressState.c)
  */
 
-__int64 __fastcall MiComparePteProtections(ULONG_PTR a1, unsigned __int64 a2, unsigned __int64 a3, int a4, int a5)
+__int64 __fastcall MiComparePteProtections(__int64 a1, __int64 a2, unsigned __int64 a3, _DWORD *a4, int a5)
 {
   unsigned int v5; // ebx
+  int v7; // r14d
+  unsigned __int64 v9; // rdi
   _KPROCESS *Process; // rsi
-  unsigned __int8 v11; // r12
-  int v12; // ecx
-  bool v13; // zf
-  int v15; // [rsp+50h] [rbp-10h] BYREF
-  unsigned int v16; // [rsp+54h] [rbp-Ch] BYREF
-  unsigned __int64 v17; // [rsp+58h] [rbp-8h] BYREF
-  __int16 v18; // [rsp+A8h] [rbp+48h] BYREF
-  int v19; // [rsp+B0h] [rbp+50h] BYREF
+  int v11; // r8d
+  unsigned __int8 v12; // r12
+  int v13; // ecx
+  bool v14; // zf
+  int v16; // [rsp+50h] [rbp-10h] BYREF
+  int v17; // [rsp+54h] [rbp-Ch] BYREF
+  unsigned __int64 v18; // [rsp+58h] [rbp-8h] BYREF
+  __int16 v19; // [rsp+A8h] [rbp+48h] BYREF
+  int v20; // [rsp+B0h] [rbp+50h] BYREF
 
   v5 = 0;
-  v17 = 0LL;
-  v15 = 0;
-  v19 = 0;
+  v18 = 0LL;
+  v7 = (int)a4;
   v16 = 0;
-  v18 = 0;
+  v20 = 0;
+  v9 = a2;
+  v17 = 0;
+  v19 = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v11 = MiLockWorkingSetShared((__int64)&Process[1].ActiveProcessors.StaticBitmap[26]);
-  while ( a2 <= a3 )
+  v12 = MiLockWorkingSetShared((__int64)&Process[1].ActiveProcessorsPadding[6], a2, a3, a4);
+  while ( v9 <= a3 )
   {
-    MiQueryAddressState(a2, a3, v11, a1, 0LL, &v19, &v16, &v18, (__int64 *)&v17, &v15);
-    v12 = v19;
-    if ( !v19 )
+    LOBYTE(v11) = v12;
+    MiQueryAddressState(v9, a3, v11, a1, 0LL, (__int64)&v20, (__int64)&v17, (__int64)&v19, (__int64)&v18, (__int64)&v16);
+    v13 = v20;
+    if ( !v20 )
     {
-      if ( v15 )
-        goto LABEL_14;
-      v13 = ((*(_DWORD *)(a1 + 48) >> 7) & 0x1F) == 0;
-      v12 = (*(_DWORD *)(a1 + 48) >> 7) & 0x1F;
-      v19 = v12;
-      if ( v13 )
-        goto LABEL_14;
+      if ( v16 )
+        goto LABEL_13;
+      v14 = ((*(_DWORD *)(a1 + 48) >> 7) & 0x1F) == 0;
+      v13 = (*(_DWORD *)(a1 + 48) >> 7) & 0x1F;
+      v20 = v13;
+      if ( v14 )
+        goto LABEL_13;
     }
-    if ( a5 )
+    if ( a5 == 1 )
     {
-      if ( v12 != a4 )
-        goto LABEL_14;
+      if ( v13 != v7 )
+        goto LABEL_13;
     }
-    else if ( v12 == -1
-           || (v12 & 0xFFFFFFF8) == 0x10
-           || (a4 != 1 ? (v13 = (v12 & 4) == 0) : (v13 = (v12 & 7) == 0), v13) )
+    else if ( v13 == -1
+           || (v13 & 0xFFFFFFF8) == 0x10
+           || (v7 != 1 ? (v14 = (v13 & 4) == 0) : (v14 = (v13 & 7) == 0), v14) )
     {
-LABEL_14:
+LABEL_13:
       v5 = -1073741755;
       break;
     }
-    a2 = v17;
+    v9 = v18;
   }
-  MiUnlockWorkingSetShared((__int64)&Process[1].ActiveProcessors.StaticBitmap[26], v11);
+  MiUnlockWorkingSetShared((__int64)&Process[1].ActiveProcessorsPadding[6], v12);
   return v5;
 }

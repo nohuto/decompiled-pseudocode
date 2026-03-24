@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbGetDatabaseEdition @ 0x140695518
+ * XREFs of SdbGetDatabaseEdition @ 0x140755CA0
  * Callers:
- *     KsepSdbMapToMemory @ 0x140694E7C (KsepSdbMapToMemory.c)
- *     KsepSdbBootInitialize @ 0x140861F18 (KsepSdbBootInitialize.c)
+ *     KsepSdbMapToMemory @ 0x140755244 (KsepSdbMapToMemory.c)
+ *     KsepSdbBootInitialize @ 0x1407D1DF8 (KsepSdbBootInitialize.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbReadDWORDTag @ 0x140755968 (SdbReadDWORDTag.c)
- *     SdbFindFirstTag @ 0x140757EB4 (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbReadDWORDTag @ 0x140759584 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x140759974 (SdbFindFirstTag.c)
  */
 
 __int64 __fastcall SdbGetDatabaseEdition(__int64 a1)
@@ -25,11 +25,7 @@ __int64 __fastcall SdbGetDatabaseEdition(__int64 a1)
   }
   else
   {
-    AslLogCallPrintf(
-      1,
-      (unsigned int)"SdbGetDatabaseEdition",
-      691,
-      (unsigned int)"Failed to get database tag, db is corrupt");
+    AslLogCallPrintf(1LL);
   }
   return v2;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of rimHidP_SetUsages @ 0x1C018E9B8
+ * XREFs of rimHidP_SetUsages @ 0x1C0163810
  * Callers:
- *     RIMDeliverConfigRequest @ 0x1C018AB6C (RIMDeliverConfigRequest.c)
- *     RIMSendLatencyMgtDeviceRequest @ 0x1C018C954 (RIMSendLatencyMgtDeviceRequest.c)
- *     RIMIDESetLinkCollectionUsageValues @ 0x1C019E460 (RIMIDESetLinkCollectionUsageValues.c)
+ *     RIMDeliverConfigRequest @ 0x1C0161484 (RIMDeliverConfigRequest.c)
+ *     RIMSendLatencyMgtDeviceRequest @ 0x1C0162284 (RIMSendLatencyMgtDeviceRequest.c)
+ *     RIMIDESetLinkCollectionUsageValues @ 0x1C0169D0C (RIMIDESetLinkCollectionUsageValues.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 int __fastcall rimHidP_SetUsages(

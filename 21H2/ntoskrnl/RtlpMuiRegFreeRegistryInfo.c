@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpMuiRegFreeRegistryInfo @ 0x14082FC44
+ * XREFs of RtlpMuiRegFreeRegistryInfo @ 0x140794490
  * Callers:
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403C62EC (RtlpMuiRegCreateKernelRegistryInfo.c)
- *     RtlpMuiRegLoadRegistryInfo @ 0x14082FBD4 (RtlpMuiRegLoadRegistryInfo.c)
- *     RtlpMuiRegFreeRegistryInfo @ 0x14082FC44 (RtlpMuiRegFreeRegistryInfo.c)
- *     _RtlpMuiRegLoadInstalled @ 0x14083008C (_RtlpMuiRegLoadInstalled.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403AD204 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x1407940E4 (_RtlpMuiRegLoadInstalled.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x140794490 (RtlpMuiRegFreeRegistryInfo.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x140794628 (RtlpMuiRegLoadRegistryInfo.c)
  * Callees:
- *     RtlpMuiRegFreeRegistryInfo @ 0x14082FC44 (RtlpMuiRegFreeRegistryInfo.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x140794490 (RtlpMuiRegFreeRegistryInfo.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpMuiRegFreeRegistryInfo(__int64 a1, unsigned int a2)
@@ -163,7 +163,7 @@ __int64 __fastcall RtlpMuiRegFreeRegistryInfo(__int64 a1, unsigned int a2)
       v13 = *(_QWORD *)(a1 + 96);
       if ( v13 )
       {
-        if ( _bittest((const signed __int32 *)a1, 9u) )
+        if ( (*(_DWORD *)a1 & 0x200) != 0 )
         {
           *(_DWORD *)(v13 + 40) &= ~0x40u;
           v21 = *(_DWORD **)(a1 + 96);
@@ -182,7 +182,7 @@ __int64 __fastcall RtlpMuiRegFreeRegistryInfo(__int64 a1, unsigned int a2)
       v16 = *(void **)(a1 + 136);
       if ( v16 )
       {
-        if ( _bittest((const signed __int32 *)a1, 0xBu) )
+        if ( (*(_DWORD *)a1 & 0x800) != 0 )
           ExFreePoolWithTag(v16, 0);
         *(_QWORD *)(a1 + 136) = 0LL;
       }

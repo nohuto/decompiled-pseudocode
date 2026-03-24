@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDaFastIoDispatch @ 0x1406B8920
+ * XREFs of PiDaFastIoDispatch @ 0x14069D8F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall PiDaFastIoDispatch(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -16,7 +16,7 @@ char __fastcall PiDaFastIoDispatch(__int64 a1, __int64 a2, __int64 a3, __int64 a
   v6 = 0;
   if ( v5 < 5 )
   {
-    v7 = (__int64 (__fastcall *)(__int64, __int64, __int64, __int64, __int64))qword_140007150[3 * v5];
+    v7 = (__int64 (__fastcall *)(__int64, __int64, __int64, __int64, __int64))qword_140006540[3 * v5];
     if ( v7 )
       return v7(a1, a2, a3, a4, a5);
   }

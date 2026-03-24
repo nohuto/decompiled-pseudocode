@@ -1,9 +1,9 @@
 /*
- * XREFs of TraitsCompare @ 0x1407BD0EC
+ * XREFs of TraitsCompare @ 0x1406799E0
  * Callers:
- *     EtwpSetProviderTraitsCommon @ 0x1406BE544 (EtwpSetProviderTraitsCommon.c)
+ *     EtwpSetProviderTraitsCommon @ 0x1406BC01C (EtwpSetProviderTraitsCommon.c)
  * Callees:
- *     memcmp @ 0x1403D9CF0 (memcmp.c)
+ *     memcmp @ 0x1403D22E0 (memcmp.c)
  */
 
 int __fastcall TraitsCompare(__int64 a1, __int64 a2)
@@ -13,9 +13,9 @@ int __fastcall TraitsCompare(__int64 a1, __int64 a2)
 
   v2 = *(_WORD *)(a1 + 28);
   v3 = (unsigned __int16 *)(a2 + 28);
-  if ( v2 > *v3 )
-    return 1;
   if ( v2 < *v3 )
     return -1;
+  if ( v2 > *v3 )
+    return 1;
   return memcmp((const void *)(a1 + 28), v3, *(unsigned __int16 *)(a1 + 28));
 }

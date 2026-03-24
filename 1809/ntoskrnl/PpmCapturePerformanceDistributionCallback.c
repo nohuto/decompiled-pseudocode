@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmCapturePerformanceDistributionCallback @ 0x1402E2F50
+ * XREFs of PpmCapturePerformanceDistributionCallback @ 0x1402E3050
  * Callers:
- *     PpmCapturePerformanceDistribution @ 0x1402E2D8C (PpmCapturePerformanceDistribution.c)
+ *     PpmCapturePerformanceDistribution @ 0x1402E2E8C (PpmCapturePerformanceDistribution.c)
  * Callees:
  *     PpmSnapPerformanceAccumulation @ 0x14005BDC0 (PpmSnapPerformanceAccumulation.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall PpmCapturePerformanceDistributionCallback(LARGE_INTEGER *a1, __int64 *a2)

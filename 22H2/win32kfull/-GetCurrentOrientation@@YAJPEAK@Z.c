@@ -1,26 +1,28 @@
 /*
- * XREFs of ?GetCurrentOrientation@@YAJPEAK@Z @ 0x1C003E284
+ * XREFs of ?GetCurrentOrientation@@YAJPEAK@Z @ 0x1C0126AA0
  * Callers:
- *     ?CacheRotationInfo@CLegacyRotationMgr@@UEAAXXZ @ 0x1C003DF70 (-CacheRotationInfo@CLegacyRotationMgr@@UEAAXXZ.c)
- *     ?xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ @ 0x1C0041DC4 (-xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ.c)
- *     ?IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z @ 0x1C01A7000 (-IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z.c)
- *     ?RotationRequired@CLegacyRotationMgr@@AEAAHW4ORIENTATION_PREFERENCE@@PEAK@Z @ 0x1C01A7248 (-RotationRequired@CLegacyRotationMgr@@AEAAHW4ORIENTATION_PREFERENCE@@PEAK@Z.c)
+ *     ?xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ @ 0x1C002EBE4 (-xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ.c)
+ *     ?CacheRotationInfo@CLegacyRotationMgr@@UEAAXXZ @ 0x1C01266B0 (-CacheRotationInfo@CLegacyRotationMgr@@UEAAXXZ.c)
+ *     ?IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z @ 0x1C01D0D48 (-IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z.c)
+ *     ?RotationRequired@CLegacyRotationMgr@@AEAAHW4ORIENTATION_PREFERENCE@@PEAK@Z @ 0x1C01D0F88 (-RotationRequired@CLegacyRotationMgr@@AEAAHW4ORIENTATION_PREFERENCE@@PEAK@Z.c)
  * Callees:
- *     ?ConvertDisplayConfigRotationToDMDO@@YAKW4DISPLAYCONFIG_ROTATION@@@Z @ 0x1C003E448 (-ConvertDisplayConfigRotationToDMDO@@YAKW4DISPLAYCONFIG_ROTATION@@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?ConvertDisplayConfigRotationToDMDO@@YAKW4DISPLAYCONFIG_ROTATION@@@Z @ 0x1C0126B4C (-ConvertDisplayConfigRotationToDMDO@@YAKW4DISPLAYCONFIG_ROTATION@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall GetCurrentOrientation(unsigned int *a1)
 {
   __int64 result; // rax
-  int v3; // [rsp+20h] [rbp-108h] BYREF
-  _DWORD v4[3]; // [rsp+24h] [rbp-104h] BYREF
-  _BYTE v5[16]; // [rsp+30h] [rbp-F8h] BYREF
-  _BYTE v6[8]; // [rsp+40h] [rbp-E8h] BYREF
-  unsigned int v7; // [rsp+48h] [rbp-E0h]
-  unsigned int v8; // [rsp+98h] [rbp-90h]
+  int v3; // [rsp+20h] [rbp-F8h] BYREF
+  int v4[3]; // [rsp+24h] [rbp-F4h] BYREF
+  _BYTE v5[16]; // [rsp+30h] [rbp-E8h] BYREF
+  _BYTE v6[8]; // [rsp+40h] [rbp-D8h] BYREF
+  unsigned int v7; // [rsp+48h] [rbp-D0h]
+  unsigned int v8; // [rsp+98h] [rbp-80h]
 
-  result = DrvQueryDisplayConfig(3221225474LL, v4, v5, 0LL, 0);
+  v3 = 0;
+  v4[0] = 1;
+  result = DrvQueryDisplayConfig(3221225474LL, v4, v5, 0LL);
   if ( (int)result >= 0 )
   {
     result = DrvIsSourceInHardwareClone(v6, v7, &v3);

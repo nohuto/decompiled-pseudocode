@@ -1,15 +1,16 @@
 /*
- * XREFs of ?bExpand@RGNOBJ@@QEAAHK@Z @ 0x1C00A8FE0
+ * XREFs of ?bExpand@RGNOBJ@@QEAAHK@Z @ 0x1C002A750
  * Callers:
- *     ?bAddScans@RGNMEMOBJ@@AEAAHJPEAVEDGE@@K@Z @ 0x1C00CBE64 (-bAddScans@RGNMEMOBJ@@AEAAHJPEAVEDGE@@K@Z.c)
- *     ?bAddNullScan@RGNMEMOBJ@@AEAAHJJ@Z @ 0x1C00CD3E8 (-bAddNullScan@RGNMEMOBJ@@AEAAHJJ@Z.c)
+ *     ?bAddScans@RGNMEMOBJ@@AEAAHJPEAVEDGE@@K@Z @ 0x1C0025138 (-bAddScans@RGNMEMOBJ@@AEAAHJPEAVEDGE@@K@Z.c)
+ *     ?bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z @ 0x1C0034020 (-bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z.c)
+ *     ?bAddNullScan@RGNMEMOBJ@@AEAAHJJ@Z @ 0x1C00B9D74 (-bAddNullScan@RGNMEMOBJ@@AEAAHJJ@Z.c)
  * Callees:
- *     ?vSwap@RGNOBJ@@QEAAXPEAV1@@Z @ 0x1C00233C0 (-vSwap@RGNOBJ@@QEAAXPEAV1@@Z.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C0023C00 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C0024160 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
- *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C0025A8C (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
- *     ?vCopy@RGNOBJ@@QEAAXAEAV1@@Z @ 0x1C00267E0 (-vCopy@RGNOBJ@@QEAAXAEAV1@@Z.c)
- *     EngSetLastError @ 0x1C008B610 (EngSetLastError.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C002B038 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C002B750 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C002B874 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vSwap@RGNOBJ@@QEAAXPEAV1@@Z @ 0x1C002BDC0 (-vSwap@RGNOBJ@@QEAAXPEAV1@@Z.c)
+ *     ?vCopy@RGNOBJ@@QEAAXAEAV1@@Z @ 0x1C00339F0 (-vCopy@RGNOBJ@@QEAAXAEAV1@@Z.c)
+ *     EngSetLastError @ 0x1C009E670 (EngSetLastError.c)
  */
 
 __int64 __fastcall RGNOBJ::bExpand(RGNOBJ *this, unsigned int a2)
@@ -19,6 +20,7 @@ __int64 __fastcall RGNOBJ::bExpand(RGNOBJ *this, unsigned int a2)
   int v6; // [rsp+28h] [rbp-10h]
 
   v3 = 0;
+  v5 = 0LL;
   v6 = 0;
   RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v5, a2);
   RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v5);

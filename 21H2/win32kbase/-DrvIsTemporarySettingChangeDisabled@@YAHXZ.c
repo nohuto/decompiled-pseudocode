@@ -1,8 +1,8 @@
 /*
- * XREFs of ?DrvIsTemporarySettingChangeDisabled@@YAHXZ @ 0x1C0067688
+ * XREFs of ?DrvIsTemporarySettingChangeDisabled@@YAHXZ @ 0x1C001A66C
  * Callers:
- *     DrvChangeDisplaySettingsPreValidate @ 0x1C0067580 (DrvChangeDisplaySettingsPreValidate.c)
- *     DrvSetDisplayConfigValidateParams @ 0x1C00DEB70 (DrvSetDisplayConfigValidateParams.c)
+ *     DrvChangeDisplaySettingsPreValidate @ 0x1C001A714 (DrvChangeDisplaySettingsPreValidate.c)
+ *     DrvSetDisplayConfigValidateParams @ 0x1C00CFB30 (DrvSetDisplayConfigValidateParams.c)
  * Callees:
  *     <none>
  */

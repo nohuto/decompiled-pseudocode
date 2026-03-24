@@ -1,17 +1,17 @@
 /*
- * XREFs of ?GetSourceState@CFormatConverter@@UEAA?AW4BitmapSourceState@IBitmapSource@@XZ @ 0x1802BC280
+ * XREFs of ?GetSourceState@CFormatConverter@@UEAA?AW4BitmapSourceState@IBitmapSource@@XZ @ 0x1802194A0
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034CA4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall CFormatConverter::GetSourceState(__int64 a1)
 {
   struct _RTL_CRITICAL_SECTION *v2; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = (struct _RTL_CRITICAL_SECTION *)(a1 + 24);
-  EnterCriticalSection((LPCRITICAL_SECTION)(a1 + 24));
+  v2 = (struct _RTL_CRITICAL_SECTION *)(a1 + 16);
+  EnterCriticalSection((LPCRITICAL_SECTION)(a1 + 16));
   CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v2);
   return 0LL;
 }

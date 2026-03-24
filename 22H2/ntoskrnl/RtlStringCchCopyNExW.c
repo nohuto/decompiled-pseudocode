@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlStringCchCopyNExW @ 0x14022B880
+ * XREFs of RtlStringCchCopyNExW @ 0x14032E654
  * Callers:
- *     _CmValidateDeviceInterfaceName @ 0x1406CEA70 (_CmValidateDeviceInterfaceName.c)
- *     _CmGetDeviceInterfaceSubkeyPath @ 0x1406CF54C (_CmGetDeviceInterfaceSubkeyPath.c)
- *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x14079446C (_CmGetDeviceInterfaceSymbolicLinkName.c)
- *     _CmSplitDevicePanelId @ 0x14082D10C (_CmSplitDevicePanelId.c)
- *     DrvDbSplitDeviceIdDriverInfMatch @ 0x14087DCB4 (DrvDbSplitDeviceIdDriverInfMatch.c)
- *     punycode_encode @ 0x1409BFDB8 (punycode_encode.c)
+ *     _CmGetDeviceInterfaceSubkeyPath @ 0x1406B9634 (_CmGetDeviceInterfaceSubkeyPath.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1406BA7AC (_CmValidateDeviceInterfaceName.c)
+ *     DrvDbSplitDeviceIdDriverInfMatch @ 0x14073803C (DrvDbSplitDeviceIdDriverInfMatch.c)
+ *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x140745BC0 (_CmGetDeviceInterfaceSymbolicLinkName.c)
+ *     _CmSplitDevicePanelId @ 0x1407B0118 (_CmSplitDevicePanelId.c)
+ *     punycode_encode @ 0x140916F74 (punycode_encode.c)
  * Callees:
- *     RtlStringCopyWorkerW_0 @ 0x14022B9C0 (RtlStringCopyWorkerW_0.c)
- *     memset @ 0x140435400 (memset.c)
- *     StringExHandleOtherFlagsW @ 0x14055F878 (StringExHandleOtherFlagsW.c)
+ *     RtlStringCopyWorkerW_1 @ 0x14032E7C0 (RtlStringCopyWorkerW_1.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     StringExHandleOtherFlagsW @ 0x14050C2D8 (StringExHandleOtherFlagsW.c)
  */
 
 NTSTATUS __stdcall RtlStringCchCopyNExW(
@@ -51,7 +51,22 @@ NTSTATUS __stdcall RtlStringCchCopyNExW(
   pcchNewDestLength[0] = cchDest;
   v11 = cchDest;
   if ( cchToCopy >= 0x7FFFFFFF )
-    goto LABEL_23;
+  {
+    v9 = -1073741811;
+    if ( cchDest )
+      *pszDest = 0;
+LABEL_11:
+    if ( v9 >= 0 )
+    {
+LABEL_12:
+      if ( ppszDestEnd )
+        *ppszDestEnd = v10;
+      if ( pcchRemaining )
+        *pcchRemaining = v11;
+      return v9;
+    }
+    goto LABEL_28;
+  }
   if ( (dwFlags & 0x100) != 0 && !pszSrc )
   {
     pszSrc = (STRSAFE_PCNZWCH)&cchOriginalDestLength;
@@ -60,7 +75,6 @@ NTSTATUS __stdcall RtlStringCchCopyNExW(
   v9 = 0;
   if ( (dwFlags & 0xFFFFE000) != 0 )
   {
-LABEL_23:
     v9 = -1073741811;
     if ( cchDest )
       *pszDest = 0;
@@ -68,7 +82,7 @@ LABEL_23:
   else if ( cchDest )
   {
     pcchNewDestLength[0] = 0LL;
-    v12 = RtlStringCopyWorkerW_0(pszDest, cchDest, pcchNewDestLength, pszSrc, cchToCopy);
+    v12 = RtlStringCopyWorkerW_1(pszDest, cchDest, pcchNewDestLength, pszSrc, cchToCopy);
     v13 = pcchNewDestLength[0];
     v9 = v12;
     v11 = cchDest - pcchNewDestLength[0];
@@ -83,29 +97,16 @@ LABEL_23:
         if ( 2 * v11 > 2 )
           memset(v10 + 1, (unsigned __int8)dwFlags, (size_t)(pszSrc - 1));
       }
-LABEL_11:
-      if ( v9 >= 0 )
-      {
-LABEL_12:
-        if ( ppszDestEnd )
-          *ppszDestEnd = v10;
-        if ( pcchRemaining )
-          *pcchRemaining = v11;
-        return v9;
-      }
+      goto LABEL_11;
     }
   }
   else
   {
     if ( !cchToCopy || !*pszSrc )
-      goto LABEL_11;
-    if ( pszDest )
-    {
-      v9 = -2147483643;
-      goto LABEL_11;
-    }
-    v9 = -1073741811;
+      goto LABEL_12;
+    v9 = pszDest != 0LL ? -2147483643 : -1073741811;
   }
+LABEL_28:
   if ( (dwFlags & 0x1C00) != 0 && cchDest )
   {
     StringExHandleOtherFlagsW(pszDest, 2 * cchDest, (size_t)pszSrc, &v15, pcchNewDestLength, dwFlags);

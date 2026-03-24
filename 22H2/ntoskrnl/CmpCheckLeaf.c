@@ -1,221 +1,210 @@
 /*
- * XREFs of CmpCheckLeaf @ 0x1406DCB70
+ * XREFs of CmpCheckLeaf @ 0x1405EBF20
  * Callers:
- *     CmpCheckKey @ 0x1406E07C0 (CmpCheckKey.c)
+ *     CmpCheckKey @ 0x1405F11F0 (CmpCheckKey.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D330 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E034C (HvpGetCellContextReinitialize.c)
- *     CmpGenerateFastLeafHintForUnicodeString @ 0x1407074A4 (CmpGenerateFastLeafHintForUnicodeString.c)
- *     CmpHashUnicodeComponent @ 0x140708D90 (CmpHashUnicodeComponent.c)
- *     HvpMarkCellDirty @ 0x1407474B0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     HvpGetBinContextInitialize @ 0x140AF6200 (HvpGetBinContextInitialize.c)
- *     HvpMapEntryGetBinAddress @ 0x140AF6210 (HvpMapEntryGetBinAddress.c)
- *     HvpGetCellMap @ 0x140AF6280 (HvpGetCellMap.c)
+ *     NLS_UPCASE @ 0x140206AB0 (NLS_UPCASE.c)
+ *     SetFailureLocation @ 0x14031DB78 (SetFailureLocation.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     HvpMarkCellDirty @ 0x140655AB0 (HvpMarkCellDirty.c)
+ *     CmpGenerateFastLeafHintForUnicodeString @ 0x140692DD4 (CmpGenerateFastLeafHintForUnicodeString.c)
+ *     CmpHashUnicodeComponent @ 0x1406E3014 (CmpHashUnicodeComponent.c)
  */
 
-__int64 __fastcall CmpCheckLeaf(ULONG_PTR BugCheckParameter3, int a2, _WORD *a3, unsigned int a4, __int64 a5)
+__int64 __fastcall CmpCheckLeaf(ULONG_PTR BugCheckParameter2, int a2, _WORD *a3, int a4, __int64 a5)
 {
-  unsigned int v7; // r15d
-  unsigned int v8; // ebx
-  _WORD *v9; // r13
-  __int64 CellMap; // rax
-  __int64 v11; // rdi
-  __int64 CellPaged; // rax
-  __int64 BinAddress; // rax
-  int *v14; // rcx
-  int v15; // r9d
-  int v16; // ecx
-  unsigned int v17; // r9d
-  unsigned int v18; // edx
-  __int64 v19; // r8
-  bool v20; // bl
-  __int64 CellFlat; // rax
-  __int64 v22; // rcx
-  unsigned int v23; // eax
-  unsigned int v24; // r10d
-  unsigned __int8 *v25; // r9
-  __int16 v26; // ax
-  int i; // ebx
-  unsigned __int16 v28; // dx
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned __int16 v31; // dx
-  int v32; // eax
-  int v33; // edi
+  int v6; // ebx
+  __int16 v8; // dx
+  char v9; // r15
+  int v11; // esi
+  unsigned int v12; // r12d
+  __int64 v13; // r9
+  _WORD *v14; // rbp
+  bool v15; // zf
+  __int64 v16; // rax
+  unsigned __int64 v17; // rbx
+  __int64 v18; // rax
+  int *v19; // rax
+  int v20; // r8d
+  int v21; // eax
+  unsigned int v22; // r8d
+  unsigned int v23; // edx
+  __int64 v24; // r9
+  bool v25; // bl
+  __int64 v26; // rax
+  unsigned int v27; // ecx
+  unsigned int v28; // r10d
+  unsigned __int8 *v29; // r9
+  __int16 v30; // cx
+  unsigned __int16 v31; // ax
+  int v33; // eax
   int v34; // eax
-  int v35; // [rsp+30h] [rbp-48h] BYREF
-  int v36; // [rsp+34h] [rbp-44h]
-  __int64 v37; // [rsp+38h] [rbp-40h] BYREF
-  __int64 v38; // [rsp+40h] [rbp-38h] BYREF
-  __int128 v39; // [rsp+48h] [rbp-30h] BYREF
-  char v41; // [rsp+B0h] [rbp+38h]
+  __int64 v35; // [rsp+30h] [rbp-58h] BYREF
+  __int128 v36; // [rsp+38h] [rbp-50h] BYREF
+  __int64 v37; // [rsp+A0h] [rbp+18h] BYREF
+  ULONG_PTR BugCheckParameter3; // [rsp+A8h] [rbp+20h]
 
-  v37 = 0LL;
-  v41 = 0;
-  v39 = 0LL;
-  HvpGetCellContextReinitialize(&v37);
-  if ( ((*a3 - 26220) & 0xFDFF) != 0 )
+  LODWORD(BugCheckParameter3) = a4;
+  v6 = 0;
+  v35 = 0LL;
+  v8 = *a3 - 26220;
+  LODWORD(v35) = -1;
+  v9 = 0;
+  v36 = 0LL;
+  if ( (v8 & 0xFDFF) != 0 )
     return 0LL;
-  v7 = 0;
+  v11 = 0;
   if ( !a3[1] )
     return 0LL;
-  v36 = 23;
-  do
+  v12 = -1073741492;
+  while ( 1 )
   {
-    v8 = *(_DWORD *)&a3[4 * v7 + 2];
-    v9 = &a3[4 * v7];
-    v38 = 0LL;
-    LOWORD(v35) = 0;
-    HvpGetCellContextReinitialize(&v38);
-    HvpGetBinContextInitialize(&v35);
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
+    v13 = *(unsigned int *)&a3[4 * v11 + 2];
+    v14 = &a3[4 * v11];
+    v37 = 0LL;
+    v15 = (*(_BYTE *)(BugCheckParameter2 + 140) & 1) == 0;
+    LODWORD(v37) = -1;
+    if ( !v15 )
       goto LABEL_20;
-    if ( (v8 & 0x7FFFFFFF) < *(_DWORD *)(632 * ((unsigned __int64)v8 >> 31) + BugCheckParameter3 + 280) && (v8 & 7) == 0 )
+    if ( ((unsigned int)v13 & 0x7FFFFFFF) < *(_DWORD *)(632 * ((unsigned __int64)(unsigned int)v13 >> 31)
+                                                      + BugCheckParameter2
+                                                      + 272)
+      && (v13 & 7) == 0 )
     {
-      CellMap = HvpGetCellMap(BugCheckParameter3, v8);
-      v11 = CellMap;
-      if ( CellMap )
+      v16 = (unsigned int)v13 >> 31;
+      if ( (unsigned int)(v13 + ((_DWORD)v16 << 31)) < *(_DWORD *)(632 * v16 + BugCheckParameter2 + 272) )
       {
-        if ( (*(_BYTE *)(CellMap + 8) & 2) == 0 )
+        v17 = *(_QWORD *)(*(_QWORD *)(632 * v16 + BugCheckParameter2 + 280) + 8LL * (((unsigned int)v13 >> 21) & 0x3FF))
+            + 24 * (((unsigned __int64)(unsigned int)v13 >> 12) & 0x1FF);
+        if ( v17 )
         {
-          CellPaged = HvpGetCellPaged(BugCheckParameter3);
-          if ( !CellPaged || CellPaged == 4 )
-            goto LABEL_20;
-          BinAddress = HvpMapEntryGetBinAddress(CellPaged - 4, v11, &v35);
-          v15 = (int)v14;
-          v16 = *v14;
-          v17 = v15 - BinAddress;
-          v18 = -v16;
-          v20 = 0;
-          if ( v16 < 0 && v18 - 8 <= 0xFFFF8 )
+          if ( (*(_BYTE *)(v17 + 8) & 2) == 0 )
           {
-            v19 = *(unsigned int *)(BinAddress + 8);
-            if ( v18 <= (unsigned __int64)(v19 - 32) && v17 - v16 <= (unsigned int)v19 && v17 >= 0x20 )
-              v20 = 1;
-          }
-          if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-            HvpReleaseCellFlat(BugCheckParameter3, &v38);
-          else
-            HvpReleaseCellPaged(BugCheckParameter3, &v38);
-          if ( v20 )
-          {
+            v18 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, __int64 *))(BugCheckParameter2 + 8))(
+                    BugCheckParameter2,
+                    (unsigned int)v13,
+                    &v37);
+            if ( !v18 )
+              goto LABEL_19;
+            v19 = (int *)(v18 - 4);
+            if ( !v19 )
+              goto LABEL_19;
+            v20 = (int)v19;
+            v21 = *v19;
+            v22 = v20 - (*(_DWORD *)(v17 + 8) & 0xFFFFFFF0);
+            v23 = -v21;
+            v25 = 0;
+            if ( v21 < 0 && v23 - 8 <= 0xFFFF8 )
+            {
+              v24 = *(unsigned int *)((*(_QWORD *)(v17 + 8) & 0xFFFFFFFFFFFFFFF0uLL) + 8);
+              if ( v23 <= (unsigned __int64)(v24 - 32) && v22 - v21 <= (unsigned int)v24 && v22 >= 0x20 )
+                v25 = 1;
+            }
+            (*(void (__fastcall **)(ULONG_PTR, __int64 *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v37);
+            if ( v25 )
+            {
+LABEL_19:
+              v6 = 0;
 LABEL_20:
-            if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-              CellFlat = HvpGetCellFlat(BugCheckParameter3, *((unsigned int *)v9 + 1));
-            else
-              CellFlat = HvpGetCellPaged(BugCheckParameter3);
-            v22 = CellFlat;
-            if ( !CellFlat )
-            {
-              SetFailureLocation(a5, 0, 23, -1073741670, 0);
-              return 3221225626LL;
-            }
-            v23 = -4 - *(_DWORD *)(CellFlat - 4);
-            if ( v23 < 0x4C || (v24 = *(unsigned __int16 *)(v22 + 72), v24 > v23 - 76) )
-            {
-LABEL_31:
-              if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-                HvpReleaseCellFlat(BugCheckParameter3, &v37);
-              else
-                HvpReleaseCellPaged(BugCheckParameter3, &v37);
-              goto LABEL_33;
-            }
-            v25 = (unsigned __int8 *)(v22 + 76);
-            v26 = *(_WORD *)(v22 + 2) & 0x20;
-            WORD1(v39) = *(_WORD *)(v22 + 72);
-            LOWORD(v39) = v24;
-            *((_QWORD *)&v39 + 1) = v22 + 76;
-            if ( *a3 == 26732 )
-            {
-              if ( v26 )
+              v26 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, __int64 *, __int64))(BugCheckParameter2 + 8))(
+                      BugCheckParameter2,
+                      *((unsigned int *)v14 + 1),
+                      &v35,
+                      v13);
+              if ( !v26 )
               {
-                for ( i = 0; v24; --v24 )
-                {
-                  v28 = *v25;
-                  if ( (unsigned __int8)v28 >= 0x61u )
-                  {
-                    if ( (unsigned __int8)v28 > 0x7Au )
-                    {
-                      CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-                      v28 = NLS_UPCASE(CurrentServerSiloGlobals[154], v31);
-                    }
-                    else
-                    {
-                      v28 -= 32;
-                    }
-                  }
-                  ++v25;
-                  i = v28 + 37 * i;
-                }
+                SetFailureLocation(a5, 0, 23, -1073741670, 0);
+                return 3221225626LL;
+              }
+              v27 = -4 - *(_DWORD *)(v26 - 4);
+              if ( v27 < 0x4C || (v28 = *(unsigned __int16 *)(v26 + 72), v28 > v27 - 76) )
+              {
+LABEL_29:
+                (*(void (__fastcall **)(ULONG_PTR, __int64 *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v35);
                 goto LABEL_30;
               }
-              v32 = CmpHashUnicodeComponent(&v39);
-            }
-            else
-            {
-              if ( v26 )
+              v29 = (unsigned __int8 *)(v26 + 76);
+              v30 = *(_WORD *)(v26 + 2) & 0x20;
+              WORD1(v36) = *(_WORD *)(v26 + 72);
+              LOWORD(v36) = v28;
+              *((_QWORD *)&v36 + 1) = v26 + 76;
+              if ( *a3 == 26732 )
               {
-                i = 0;
-                v35 = 0;
-                if ( v24 < 4 )
+                if ( v30 )
                 {
-                  if ( !v24 )
-                    goto LABEL_30;
-                }
-                else
-                {
-                  v24 = 4;
-                }
-                memmove(&v35, v25, v24);
-                i = v35;
-LABEL_30:
-                if ( *((_DWORD *)v9 + 2) != i )
-                {
-                  v33 = -1073741492;
-                  v41 = 1;
-                  if ( (a2 & 0x20000) != 0 || !BYTE2(NlsMbOemCodePageTag) && (CmpBootType & 6) == 0 )
+                  for ( ; v28; --v28 )
                   {
-                    v34 = 16;
-                    v36 = 23;
-                    goto LABEL_59;
+                    v31 = *v29;
+                    if ( (unsigned __int8)v31 >= 0x61u )
+                    {
+                      if ( (unsigned __int8)v31 > 0x7Au )
+                        v31 = NLS_UPCASE(*v29);
+                      else
+                        v31 -= 32;
+                    }
+                    ++v29;
+                    v6 = v31 + 37 * v6;
                   }
-                  SetFailureLocation(a5, 1, 23, -1073741492, 32);
-                  v33 = HvpMarkCellDirty(BugCheckParameter3, a4);
-                  if ( v33 < 0 )
+LABEL_28:
+                  if ( *((_DWORD *)v14 + 2) != v6 )
                   {
-                    v34 = 48;
-LABEL_59:
-                    SetFailureLocation(a5, 0, v36, v33, v34);
-                    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-                      HvpReleaseCellFlat(BugCheckParameter3, &v37);
-                    else
-                      HvpReleaseCellPaged(BugCheckParameter3, &v37);
-                    return (unsigned int)v33;
+                    v9 = 1;
+                    if ( (a2 & 0x20000) != 0 || !BYTE3(NlsMbCodePageTag) && (CmpBootType & 6) == 0 )
+                    {
+                      v34 = 16;
+                      goto LABEL_56;
+                    }
+                    SetFailureLocation(a5, 1, 23, -1073741492, 32);
+                    if ( !(unsigned __int8)HvpMarkCellDirty(BugCheckParameter2, (unsigned int)BugCheckParameter3) )
+                    {
+                      v34 = 48;
+                      v12 = -1073741443;
+LABEL_56:
+                      SetFailureLocation(a5, 0, 23, v12, v34);
+                      (*(void (__fastcall **)(ULONG_PTR, __int64 *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v35);
+                      return v12;
+                    }
+                    *((_DWORD *)v14 + 2) = v6;
+                    *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 4088LL) |= 4u;
                   }
-                  *((_DWORD *)v9 + 2) = i;
-                  *(_DWORD *)(*(_QWORD *)(BugCheckParameter3 + 64) + 4088LL) |= 4u;
+                  goto LABEL_29;
                 }
-                goto LABEL_31;
+                v33 = CmpHashUnicodeComponent(&v36);
               }
-              v32 = CmpGenerateFastLeafHintForUnicodeString(&v39);
+              else
+              {
+                if ( v30 )
+                {
+                  LODWORD(v37) = 0;
+                  if ( v28 < 4 )
+                  {
+                    if ( !v28 )
+                      goto LABEL_28;
+                  }
+                  else
+                  {
+                    v28 = 4;
+                  }
+                  memmove(&v37, v29, v28);
+                  v6 = v37;
+                  goto LABEL_28;
+                }
+                v33 = CmpGenerateFastLeafHintForUnicodeString(&v36);
+              }
+              v6 = v33;
+              goto LABEL_28;
             }
-            i = v32;
-            goto LABEL_30;
           }
         }
       }
     }
-LABEL_33:
-    ++v7;
+LABEL_30:
+    if ( ++v11 >= (unsigned int)(unsigned __int16)a3[1] )
+      break;
+    v6 = 0;
   }
-  while ( v7 < (unsigned __int16)a3[1] );
-  if ( !v41 )
+  if ( !v9 )
     return 0LL;
   return 2147483690LL;
 }

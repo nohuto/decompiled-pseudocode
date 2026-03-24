@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x140652118
+ * XREFs of ?GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x1405C8DD8
  * Callers:
- *     ?UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z @ 0x14065241C (-UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z.c)
+ *     ?UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z @ 0x1405C90B4 (-UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406D9550 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     ?Allocate@SC_ENV@@SAPEAX_KKE@Z @ 0x140930250 (-Allocate@SC_ENV@@SAPEAX_KKE@Z.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406B7B50 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_K@Z @ 0x14088D7D0 (-Allocate@SC_ENV@@SAPEAX_K@Z.c)
  */
 
 __int64 __fastcall SC_DEVICE::GetStorageProperty(
@@ -15,66 +15,64 @@ __int64 __fastcall SC_DEVICE::GetStorageProperty(
         struct _STORAGE_DESCRIPTOR_HEADER **a3)
 {
   __int64 v4; // rax
-  unsigned int v6; // edx
-  int v7; // edi
-  unsigned __int8 v8; // r8
+  int v6; // edi
   ULONG Size; // esi
-  struct _STORAGE_DESCRIPTOR_HEADER *v10; // rbx
-  unsigned int v11; // edx
-  unsigned __int8 v12; // r8
+  struct _STORAGE_DESCRIPTOR_HEADER *v8; // rbx
   SIZE_T NumberOfBytes; // [rsp+40h] [rbp-48h] BYREF
-  _DWORD v15[4]; // [rsp+48h] [rbp-40h] BYREF
+  _DWORD v11[4]; // [rsp+48h] [rbp-40h] BYREF
 
   *a3 = 0LL;
   v4 = *(_QWORD *)this;
   LODWORD(NumberOfBytes) = 0;
-  v15[2] = 0;
-  v7 = (*(__int64 (__fastcall **)(SC_DEVICE *, __int64, SIZE_T *))(v4 + 32))(this, 6LL, &NumberOfBytes);
-  if ( v7 >= 0 )
+  v11[2] = 0;
+  v6 = (*(__int64 (__fastcall **)(SC_DEVICE *, __int64, SIZE_T *))(v4 + 32))(this, 6LL, &NumberOfBytes);
+  if ( v6 >= 0 )
   {
     Size = NumberOfBytes;
-    v15[1] = 0;
-    v15[0] = 6;
-    v10 = (struct _STORAGE_DESCRIPTOR_HEADER *)SC_ENV::Allocate((unsigned int)NumberOfBytes, v6, v8);
-    if ( v10 )
+    v11[1] = 0;
+    v11[0] = 6;
+    v8 = (struct _STORAGE_DESCRIPTOR_HEADER *)SC_ENV::Allocate((unsigned int)NumberOfBytes);
+    if ( v8 )
     {
       while ( 1 )
       {
-        v7 = (*(__int64 (__fastcall **)(SC_DEVICE *, __int64, _DWORD *, __int64, struct _STORAGE_DESCRIPTOR_HEADER *, ULONG))(*(_QWORD *)this + 16LL))(
+        v6 = (*(__int64 (__fastcall **)(SC_DEVICE *, __int64, _DWORD *, __int64, struct _STORAGE_DESCRIPTOR_HEADER *, ULONG))(*(_QWORD *)this + 16LL))(
                this,
                2954240LL,
-               v15,
+               v11,
                12LL,
-               v10,
+               v8,
                Size);
-        if ( ((v7 + 0x80000000) & 0x80000000) == 0 && v7 != -2147483643 )
+        if ( ((v6 + 0x80000000) & 0x80000000) == 0 && v6 != -2147483643 )
           break;
-        if ( v10->Size <= Size )
+        if ( v8->Size <= Size )
         {
-          v10->Size = Size;
-          v7 = (*(__int64 (__fastcall **)(SC_DEVICE *, __int64, struct _STORAGE_DESCRIPTOR_HEADER *))(*(_QWORD *)this + 40LL))(
+          v8->Size = Size;
+          v6 = (*(__int64 (__fastcall **)(SC_DEVICE *, __int64, struct _STORAGE_DESCRIPTOR_HEADER *))(*(_QWORD *)this + 40LL))(
                  this,
                  6LL,
-                 v10);
-          if ( v7 >= 0 )
+                 v8);
+          if ( v6 >= 0 )
           {
-            *a3 = v10;
-            return (unsigned int)v7;
+            *a3 = v8;
+            v8 = 0LL;
           }
           break;
         }
-        Size = v10->Size;
-        SC_ENV::Free(v10);
-        v10 = (struct _STORAGE_DESCRIPTOR_HEADER *)SC_ENV::Allocate(Size, v11, v12);
-        if ( !v10 )
-          return (unsigned int)-1073741670;
+        Size = v8->Size;
+        SC_ENV::Free(v8);
+        v8 = (struct _STORAGE_DESCRIPTOR_HEADER *)SC_ENV::Allocate(Size);
+        if ( !v8 )
+          goto LABEL_7;
       }
-      SC_ENV::Free(v10);
     }
     else
     {
-      return (unsigned int)-1073741670;
+LABEL_7:
+      v6 = -1073741670;
     }
+    if ( v8 )
+      SC_ENV::Free(v8);
   }
-  return (unsigned int)v7;
+  return (unsigned int)v6;
 }

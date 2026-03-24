@@ -1,7 +1,7 @@
 /*
- * XREFs of VrpDereferenceDiffHiveEntryWithLock @ 0x14080D448
+ * XREFs of VrpDereferenceDiffHiveEntryWithLock @ 0x14080D428
  * Callers:
- *     VrpDereferenceDiffHiveEntry @ 0x14080D3C4 (VrpDereferenceDiffHiveEntry.c)
+ *     VrpDereferenceDiffHiveEntry @ 0x14080D3A4 (VrpDereferenceDiffHiveEntry.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

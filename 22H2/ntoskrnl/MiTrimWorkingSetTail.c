@@ -1,58 +1,40 @@
 /*
- * XREFs of MiTrimWorkingSetTail @ 0x14034F710
+ * XREFs of MiTrimWorkingSetTail @ 0x140330260
  * Callers:
- *     MiTrimPte @ 0x1402E3630 (MiTrimPte.c)
+ *     MiTrimPte @ 0x140288F80 (MiTrimPte.c)
  * Callees:
- *     MiGetAvailablePagesBelowPriority @ 0x14025B9B0 (MiGetAvailablePagesBelowPriority.c)
- *     MiTrimmedEnough @ 0x1402E3814 (MiTrimmedEnough.c)
- *     MiTrimWorkingSetBuildup @ 0x14034F7C0 (MiTrimWorkingSetBuildup.c)
- *     MiProcessVmAccessedInfo @ 0x14046B95E (MiProcessVmAccessedInfo.c)
- *     MiQueryEPTAccessedState @ 0x14046BA2C (MiQueryEPTAccessedState.c)
+ *     MiTrimWorkingSetBuildup @ 0x1403302C8 (MiTrimWorkingSetBuildup.c)
+ *     MiProcessVmAccessedInfo @ 0x14053B870 (MiProcessVmAccessedInfo.c)
+ *     MiQueryEPTAccessedState @ 0x14053B940 (MiQueryEPTAccessedState.c)
+ *     MiTrimmedEnough @ 0x14053C374 (MiTrimmedEnough.c)
  */
 
 __int64 __fastcall MiTrimWorkingSetTail(__int64 a1)
 {
   __int64 v1; // rsi
-  __int64 v3; // rbx
-  _QWORD *v4; // rbp
-  _DWORD *v5; // rdx
+  __int64 i; // rbx
+  _DWORD *v4; // rdx
+  __int64 v6; // r8
   __int64 v7; // rdx
-  unsigned __int64 v8; // rdx
 
   v1 = *(_QWORD *)(a1 + 24);
-  v3 = *(_QWORD *)(a1 + 168);
-  v4 = *(_QWORD **)(qword_140C674C8 + 8LL * *(unsigned __int16 *)(v1 + 174));
-  while ( 1 )
+  for ( i = *(_QWORD *)(a1 + 168); ; MiProcessVmAccessedInfo(a1, *(_QWORD *)(i + 240), MiTrimWorkingSetEPTCallback, i) )
   {
-    MiTrimWorkingSetBuildup(a1, v3);
-    if ( (*(_DWORD *)v3 & 0x800) != 0 )
+    MiTrimWorkingSetBuildup(a1, i);
+    if ( (*(_DWORD *)i & 0x80u) != 0 )
     {
-      v7 = *(_QWORD *)(v3 + 16) - *(_QWORD *)(v3 + 32);
-      *(_QWORD *)(v1 + 8) += v7;
-      *(_QWORD *)(v3 + 32) = *(_QWORD *)(v3 + 16);
-      *(_QWORD *)(v4[2115] + 8LL * (*(_DWORD *)v3 & 0xF) + 2584) += v7;
+      v6 = *(_QWORD *)(i + 16) - *(_QWORD *)(i + 24);
+      *(_QWORD *)(v1 + 8) += v6;
+      *(_QWORD *)(i + 24) = *(_QWORD *)(i + 16);
+      v7 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(v1 + 174)) + 6848LL);
+      *(_QWORD *)(v7 + 8LL * (*(_DWORD *)i & 0xF) + 2584) += v6;
     }
-    v5 = *(_DWORD **)(v3 + 248);
-    if ( !v5 || !*v5 || !(unsigned int)MiQueryEPTAccessedState(a1, v5, 0LL) )
+    v4 = *(_DWORD **)(i + 240);
+    if ( !v4 || !*v4 || !(unsigned int)MiQueryEPTAccessedState(a1, v4, 0LL) )
       break;
-    MiProcessVmAccessedInfo(a1, *(_QWORD *)(v3 + 248), MiTrimWorkingSetEPTCallback, v3);
   }
-  if ( (*(_DWORD *)v3 & 0x8000) != 0 && MiTrimmedEnough(v1, v3) )
-    return 5LL;
-  if ( (*(_DWORD *)v3 & 0xF) != 0
-    && *(_QWORD *)(v3 + 16) < *(_QWORD *)(v3 + 8)
-    && *(_QWORD *)(v3 + 40) >= 0x20000uLL
-    && *(_QWORD *)(v1 + 144) >> 3 >= *(_QWORD *)(v3 + 40)
-    && (unsigned __int64)MiGetAvailablePagesBelowPriority(v4, 6u) <= 0x120 )
-  {
-    *(_DWORD *)v3 = *(_DWORD *)v3 & 0xFFFFFF00 | (16 * (*(_DWORD *)v3 & 0xF | 0x1000));
-    *(_QWORD *)(v3 + 24) = *(_QWORD *)(v3 + 16);
-  }
-  else if ( (*(_DWORD *)v3 & 0x10000) != 0 )
-  {
-    v8 = *(_QWORD *)(v3 + 16);
-    if ( v8 >= *(_QWORD *)(v3 + 8) || v8 >= *(_QWORD *)(v3 + 24) + 576LL )
-      *(_DWORD *)v3 = *(_DWORD *)v3 & 0xFFFEFFF0 | ((unsigned __int8)*(_DWORD *)v3 >> 4);
-  }
-  return 0LL;
+  if ( (*(_DWORD *)i & 0x800) != 0 && (unsigned int)MiTrimmedEnough(v1, i) )
+    return 4LL;
+  else
+    return 0LL;
 }

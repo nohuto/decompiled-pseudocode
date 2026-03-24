@@ -1,190 +1,226 @@
 /*
- * XREFs of DpEvalAcpiMethod @ 0x1C01E2B10
+ * XREFs of DpEvalAcpiMethod @ 0x1C0167EE0
  * Callers:
- *     DpiAddDevice @ 0x1C01F84B0 (DpiAddDevice.c)
+ *     DpiAddDevice @ 0x1C017CFC0 (DpiAddDevice.c)
  * Callees:
- *     DpiFdoGetChildDescriptor @ 0x1C001E234 (DpiFdoGetChildDescriptor.c)
- *     DpiAcpiGetAcpiChildName @ 0x1C020EA98 (DpiAcpiGetAcpiChildName.c)
- *     DpiAcpiEvalAcpiMethodEx @ 0x1C020EE94 (DpiAcpiEvalAcpiMethodEx.c)
+ *     DpiFdoGetChildDescriptor @ 0x1C001A270 (DpiFdoGetChildDescriptor.c)
+ *     DpiAcpiEvalAcpiMethodEx @ 0x1C016816C (DpiAcpiEvalAcpiMethodEx.c)
+ *     DpiAcpiGetAcpiChildName @ 0x1C01976B4 (DpiAcpiGetAcpiChildName.c)
  */
 
 __int64 __fastcall DpEvalAcpiMethod(
         __int64 a1,
-        unsigned int a2,
+        __int64 a2,
         int *a3,
         ULONG a4,
         _DWORD *OutputBuffer,
         ULONG OutputBufferLength)
 {
-  NTSTATUS Status; // ebx
-  __int64 v10; // r14
-  int v11; // r9d
-  int v12; // eax
-  struct _DEVICE_OBJECT *v13; // rcx
-  struct _DEVICE_OBJECT *AttachedDeviceReference; // r14
+  __int64 v7; // rcx
+  int *v8; // rdi
+  int v9; // r12d
+  __int64 v10; // rbx
+  struct _DEVICE_OBJECT *AttachedDeviceReference; // r15
+  __int64 v12; // rsi
+  int v13; // eax
+  struct _DEVICE_OBJECT *v14; // rcx
   IRP *v15; // rax
+  __int64 v16; // rdx
   __int64 v17; // rcx
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // rdx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  __int64 v20; // r8
+  __int64 v21; // rdi
+  __int64 v22; // rax
+  struct _KMUTANT *v24; // r15
+  _QWORD *ChildDescriptor; // rax
+  char v26; // si
+  int v27; // r9d
+  __int64 v28; // rdi
+  _QWORD *v29; // rax
+  __int64 v30; // rax
+  __int64 v31; // rax
+  __int64 v32; // rcx
   const char *AcpiChildName; // rax
   struct _STRING *p_DestinationString; // rdx
-  NTSTATUS v23; // eax
-  _QWORD *ChildDescriptor; // rax
-  int v25; // r9d
-  char v26; // [rsp+58h] [rbp-29h]
-  struct _STRING DestinationString; // [rsp+60h] [rbp-21h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+70h] [rbp-11h] BYREF
-  struct _KEVENT Event; // [rsp+80h] [rbp-1h] BYREF
-  char v30; // [rsp+D8h] [rbp+57h]
+  __int64 v35; // rax
+  NTSTATUS v36; // eax
+  __int64 v37; // rax
+  struct _STRING DestinationString; // [rsp+58h] [rbp-70h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-60h] BYREF
+  struct _KEVENT Event; // [rsp+78h] [rbp-50h] BYREF
+  char v41; // [rsp+D0h] [rbp+8h]
 
-  v26 = 0;
-  v30 = 0;
-  Status = 0;
+  v7 = 0LL;
+  v8 = a3;
+  v41 = 0;
+  v9 = a2;
+  LODWORD(v10) = 0;
+  AttachedDeviceReference = 0LL;
   DestinationString = 0LL;
   if ( !a1 )
+    goto LABEL_31;
+  v12 = *(_QWORD *)(a1 + 64);
+  if ( !v12 || *(_DWORD *)(v12 + 16) != 1953656900 || *(_DWORD *)(v12 + 20) != 2 )
   {
-    v17 = 2LL;
-    goto LABEL_27;
+    v21 = -1073741811LL;
+    goto LABEL_49;
   }
-  v10 = *(_QWORD *)(a1 + 64);
-  if ( !v10 || *(_QWORD *)(v10 + 16) != 0x274727044LL )
-    goto LABEL_23;
   if ( KeGetCurrentIrql() )
   {
-    Status = -1073741811;
-    if ( *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 64) + 40LL) + 28LL) >= 0x2003u )
-      WdLogSingleEntry3(0LL, 275LL, 21LL, -1073741811LL);
-    v17 = 2LL;
-    goto LABEL_28;
+    v28 = -1073741811LL;
+    LODWORD(v10) = -1073741811;
+    if ( *(_DWORD *)(*(_QWORD *)(v12 + 40) + 28LL) >= 0x2003u )
+    {
+      v29 = (_QWORD *)WdLogNewEntry5_WdCriticalError(0LL, a2);
+      v29[3] = 275LL;
+      v29[4] = 21LL;
+      v29[5] = -1073741811LL;
+      WdLogEvent5_WdCriticalError(v29);
+    }
+    goto LABEL_34;
   }
-  if ( !*(_BYTE *)(v10 + 1157) )
+  if ( !*(_BYTE *)(v12 + 1156) )
   {
-    Status = -1073741637;
-    v20 = -1073741637LL;
-    v17 = 3LL;
-    goto LABEL_29;
+    LODWORD(v10) = -1073741637;
+    v31 = WdLogNewEntry5_WdWarning(0LL, a2, a3);
+    *(_QWORD *)(v31 + 24) = -1073741637LL;
+    WdLogEvent5_WdWarning(v31);
+    return (unsigned int)v10;
   }
   if ( !a3 || !a4 || !OutputBuffer && OutputBufferLength )
-  {
-LABEL_23:
-    v17 = 2LL;
-LABEL_27:
-    Status = -1073741811;
-LABEL_28:
-    v20 = -1073741811LL;
-LABEL_29:
-    WdLogSingleEntry1(v17, v20);
-    return (unsigned int)Status;
-  }
-  v12 = *a3;
+    goto LABEL_31;
+  v13 = *a3;
   if ( *a3 != 1634885968 )
   {
-    if ( v12 == 543451477 )
+    if ( v13 == 543451477 )
     {
+      v32 = *(_QWORD *)(a1 + 64);
       *a3 = 1130980673;
-      AcpiChildName = (const char *)DpiAcpiGetAcpiChildName(v10, a2);
+      AcpiChildName = (const char *)DpiAcpiGetAcpiChildName(v32);
       if ( !AcpiChildName )
-        goto LABEL_49;
+      {
+LABEL_32:
+        v28 = -1073741810LL;
+        goto LABEL_33;
+      }
       RtlInitAnsiString(&DestinationString, AcpiChildName);
+      LODWORD(a3) = (_DWORD)v8;
       p_DestinationString = &DestinationString;
+LABEL_41:
+      LODWORD(v10) = DpiAcpiEvalAcpiMethodEx(
+                       a1,
+                       (int)p_DestinationString,
+                       (int)a3,
+                       a4,
+                       OutputBuffer,
+                       OutputBufferLength,
+                       1);
+      return (unsigned int)v10;
     }
-    else
+    if ( v13 != 2017818181 )
+      goto LABEL_14;
+    if ( (_DWORD)a2 == -1 )
     {
-      if ( v12 != 2017818181 )
-        goto LABEL_12;
-      if ( a2 != -1 )
-        goto LABEL_23;
       *a3 = 1130980673;
       LODWORD(p_DestinationString) = 0;
+      goto LABEL_41;
     }
-    return (unsigned int)DpiAcpiEvalAcpiMethodEx(
-                           a1,
-                           (int)p_DestinationString,
-                           (int)a3,
-                           v11,
-                           OutputBuffer,
-                           OutputBufferLength,
-                           1);
+LABEL_31:
+    v28 = -1073741811LL;
+LABEL_33:
+    LODWORD(v10) = v28;
+LABEL_34:
+    v30 = WdLogNewEntry5_WdError(v7, a2);
+    *(_QWORD *)(v30 + 24) = v28;
+    WdLogEvent5_WdError(v30);
+    return (unsigned int)v10;
   }
-  v30 = 1;
+  v41 = 1;
   *a3 = 1130980673;
-LABEL_12:
-  if ( a2 == -1 )
+LABEL_14:
+  if ( (_DWORD)a2 == -1 )
   {
-    v13 = *(struct _DEVICE_OBJECT **)(v10 + 24);
-    memset(&Event, 0, sizeof(Event));
+    v14 = *(struct _DEVICE_OBJECT **)(v12 + 24);
     IoStatusBlock = 0LL;
-    AttachedDeviceReference = IoGetAttachedDeviceReference(v13);
+    AttachedDeviceReference = IoGetAttachedDeviceReference(v14);
     KeInitializeEvent(&Event, SynchronizationEvent, 0);
     v15 = IoBuildDeviceIoControlRequest(
             0x32C004u,
             AttachedDeviceReference,
-            a3,
+            v8,
             a4,
             OutputBuffer,
             OutputBufferLength,
             0,
             &Event,
             &IoStatusBlock);
-    if ( v15 )
+    if ( !v15 )
     {
-      Status = IofCallDriver(AttachedDeviceReference, v15);
-      if ( Status == 259 )
-      {
-        v23 = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-        Status = v23;
-        if ( v23 )
-        {
-          v18 = v23;
-LABEL_45:
-          v19 = 2LL;
-          goto LABEL_25;
-        }
-        Status = IoStatusBlock.Status;
-      }
-      if ( Status >= 0 )
-      {
-        if ( !OutputBufferLength || *OutputBuffer == 1114596673 && OutputBuffer[2] )
-        {
-LABEL_19:
-          if ( AttachedDeviceReference )
-            ObfDereferenceObject(AttachedDeviceReference);
-          return (unsigned int)Status;
-        }
-        v18 = -1072431089LL;
-        Status = -1072431089;
-        goto LABEL_45;
-      }
-      v18 = Status;
-      v19 = 3LL;
+      LODWORD(v10) = -1073741670;
+      v35 = WdLogNewEntry5_WdLowResource(v17, v16, v18, v19);
+      *(_QWORD *)(v35 + 24) = -1073741670LL;
+      WdLogEvent5_WdLowResource(v35);
+      goto LABEL_23;
     }
-    else
+    LODWORD(v10) = IofCallDriver(AttachedDeviceReference, v15);
+    if ( (_DWORD)v10 == 259 )
     {
-      v18 = -1073741670LL;
-      Status = -1073741670;
-      v19 = 6LL;
+      v36 = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+      v10 = v36;
+      if ( v36 )
+      {
+        v37 = WdLogNewEntry5_WdError(v7, a2);
+        *(_QWORD *)(v37 + 24) = v10;
+LABEL_50:
+        WdLogEvent5_WdError(v37);
+        goto LABEL_23;
+      }
+      LODWORD(v10) = IoStatusBlock.Status;
     }
-LABEL_25:
-    WdLogSingleEntry1(v19, v18);
-    goto LABEL_19;
+    if ( (int)v10 < 0 )
+    {
+      v22 = WdLogNewEntry5_WdWarning(v7, a2, v20);
+      *(_QWORD *)(v22 + 24) = (int)v10;
+      WdLogEvent5_WdWarning(v22);
+      goto LABEL_23;
+    }
+    if ( !OutputBufferLength || *OutputBuffer == 1114596673 && OutputBuffer[2] )
+    {
+LABEL_23:
+      if ( AttachedDeviceReference )
+        ObfDereferenceObject(AttachedDeviceReference);
+      return (unsigned int)v10;
+    }
+    v21 = -1072431089LL;
+LABEL_49:
+    LODWORD(v10) = v21;
+    v37 = WdLogNewEntry5_WdError(v7, a2);
+    *(_QWORD *)(v37 + 24) = v21;
+    goto LABEL_50;
   }
-  KeWaitForSingleObject((PVOID)(v10 + 3408), Executive, 0, 0, 0LL);
-  ChildDescriptor = DpiFdoGetChildDescriptor(v10, a2);
+  v24 = (struct _KMUTANT *)(v12 + 3408);
+  KeWaitForSingleObject((PVOID)(v12 + 3408), Executive, 0, 0, 0LL);
+  ChildDescriptor = DpiFdoGetChildDescriptor(v12, v9);
   if ( ChildDescriptor )
   {
     v26 = 1;
     RtlInitAnsiString(&DestinationString, (PCSZ)ChildDescriptor[10]);
-    Status = DpiAcpiEvalAcpiMethodEx(a1, (int)&DestinationString, (int)a3, v25, OutputBuffer, OutputBufferLength, v30);
+    LODWORD(v10) = DpiAcpiEvalAcpiMethodEx(
+                     a1,
+                     (int)&DestinationString,
+                     (int)v8,
+                     v27,
+                     OutputBuffer,
+                     OutputBufferLength,
+                     v41);
   }
-  KeReleaseMutex((PRKMUTEX)(v10 + 3408), 0);
-  if ( !v26 )
+  else
   {
-LABEL_49:
-    v20 = -1073741810LL;
-    Status = -1073741810;
-    v17 = 2LL;
-    goto LABEL_29;
+    v26 = 0;
   }
-  return (unsigned int)Status;
+  KeReleaseMutex(v24, 0);
+  if ( !v26 )
+    goto LABEL_32;
+  return (unsigned int)v10;
 }

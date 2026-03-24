@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_SS @ 0x1C0042A20
+ * XREFs of WPP_RECORDER_SF_SS @ 0x1C0040510
  * Callers:
- *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C004342C (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C0040F00 (ReadUSBFnFeaturesFromCurrentConfiguration.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_SS(
@@ -60,7 +60,7 @@ __int64 __fastcall WPP_RECORDER_SF_SS(
     v15 = L"NULL";
     if ( a6 )
       v15 = a6;
-    pfnWppTraceMessage(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, const wchar_t *, __int64, const wchar_t *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
       &WPP_5169c4c8089132207a438b4341aed5b6_Traceguids,

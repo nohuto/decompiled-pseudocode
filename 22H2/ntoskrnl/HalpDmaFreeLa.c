@@ -1,33 +1,32 @@
 /*
- * XREFs of HalpDmaFreeLa @ 0x1404FFE44
+ * XREFs of HalpDmaFreeLa @ 0x1404B7848
  * Callers:
- *     HalFlushAdapterBuffersEx @ 0x1405144A0 (HalFlushAdapterBuffersEx.c)
- *     IoFlushAdapterBuffersV3 @ 0x1405152E0 (IoFlushAdapterBuffersV3.c)
+ *     HalFlushAdapterBuffersEx @ 0x1403A2630 (HalFlushAdapterBuffersEx.c)
+ *     IoFlushAdapterBuffersV3 @ 0x1404CA850 (IoFlushAdapterBuffersV3.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x14050098C (HalpDmaReturnEmergencyLogicalAddressResources.c)
+ *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x1404B82B8 (HalpDmaReturnEmergencyLogicalAddressResources.c)
+ *     HalpDomainLaDelete @ 0x1404C4D34 (HalpDomainLaDelete.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9274 (HalpIommuDomainUnmapLogicalRange.c)
  */
 
-__int64 __fastcall HalpDmaFreeLa(__int64 a1, __int64 *a2)
+__int64 __fastcall HalpDmaFreeLa(__int64 a1, ULONG_PTR a2)
 {
-  __int64 v3; // rbx
+  __int64 v2; // rsi
   __int64 result; // rax
-  __int128 *v5; // rdx
-  __int128 v6; // [rsp+20h] [rbp-18h] BYREF
+  __int128 *i; // rdx
+  __int128 v7; // [rsp+20h] [rbp-18h] BYREF
 
-  v3 = *a2;
-  v6 = *(_OWORD *)(a1 + 256);
-  (*(void (__fastcall **)(__int64 *))(HalpDmaIommuInterfaceFcnTable + 152))(a2);
-  if ( v3 == *(_QWORD *)(a1 + 560) )
-    return HalpDmaReturnEmergencyLogicalAddressResources(a1);
+  v2 = *(_QWORD *)(a1 + 504);
+  v7 = *(_OWORD *)(a1 + 248);
+  HalpIommuDomainUnmapLogicalRange(*(_QWORD *)(v2 + 40), a2);
+  if ( a2 == *(_QWORD *)(a1 + 552) )
+    return HalpDmaReturnEmergencyLogicalAddressResources((PDMA_ADAPTER)a1);
   result = 0LL;
-  v5 = &v6;
-  while ( !*(_QWORD *)v5 || v3 != *(_QWORD *)(*(_QWORD *)v5 + 24LL) )
+  for ( i = &v7; !*(_QWORD *)i || a2 != *(_QWORD *)(*(_QWORD *)i + 24LL); i = (__int128 *)((char *)i + 8) )
   {
     result = (unsigned int)(result + 1);
-    v5 = (__int128 *)((char *)v5 + 8);
     if ( (unsigned int)result >= 2 )
-      return (*(__int64 (__fastcall **)(__int64, __int128 *))(HalpDmaIommuInterfaceFcnTable + 136))(v3, v5);
+      return HalpDomainLaDelete(v2, a2);
   }
   return result;
 }

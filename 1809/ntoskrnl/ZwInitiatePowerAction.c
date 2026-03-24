@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwInitiatePowerAction @ 0x1401BA0D0
+ * XREFs of ZwInitiatePowerAction @ 0x1401BA0F0
  * Callers:
- *     PoShutdownBugCheck @ 0x14086BEE0 (PoShutdownBugCheck.c)
+ *     PoShutdownBugCheck @ 0x14086BEC0 (PoShutdownBugCheck.c)
  * Callees:
  *     <none>
  */

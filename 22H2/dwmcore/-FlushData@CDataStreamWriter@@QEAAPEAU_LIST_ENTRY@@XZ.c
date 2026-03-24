@@ -1,9 +1,8 @@
 /*
- * XREFs of ?FlushData@CDataStreamWriter@@QEAAPEAU_LIST_ENTRY@@XZ @ 0x1800BBB24
+ * XREFs of ?FlushData@CDataStreamWriter@@QEAAPEAU_LIST_ENTRY@@XZ @ 0x180038034
  * Callers:
- *     ?CheckPrimitives@CRenderData@@AEAAJXZ @ 0x1800BB528 (-CheckPrimitives@CRenderData@@AEAAJXZ.c)
- *     ?GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z @ 0x1800BB664 (-GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z.c)
- *     ?GetCommandBatch@CChannel@@UEAAXPEAPEAXPEA_N@Z @ 0x1801CF5F0 (-GetCommandBatch@CChannel@@UEAAXPEAPEAXPEA_N@Z.c)
+ *     ?CheckPrimitiveCount@CRenderData@@AEAAJXZ @ 0x180037A20 (-CheckPrimitiveCount@CRenderData@@AEAAJXZ.c)
+ *     ?GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z @ 0x180037B18 (-GetHandles@CRenderData@@AEAAJPEAVCResourceTable@@@Z.c)
  * Callees:
  *     <none>
  */

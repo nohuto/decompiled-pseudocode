@@ -1,23 +1,23 @@
 /*
- * XREFs of AlpcpInvokeLogCallbacks @ 0x14097A28C
+ * XREFs of AlpcpInvokeLogCallbacks @ 0x1408C3B9C
  * Callers:
- *     AlpcpLogClosePort @ 0x14097A320 (AlpcpLogClosePort.c)
- *     AlpcpLogConnectFail @ 0x14097A390 (AlpcpLogConnectFail.c)
- *     AlpcpLogConnectRequest @ 0x14097A404 (AlpcpLogConnectRequest.c)
- *     AlpcpLogConnectSuccess @ 0x14097A474 (AlpcpLogConnectSuccess.c)
- *     AlpcpLogReceiveMessage @ 0x14097A4E0 (AlpcpLogReceiveMessage.c)
- *     AlpcpLogSendMessage @ 0x14097A550 (AlpcpLogSendMessage.c)
- *     AlpcpLogUnwait @ 0x14097A5C0 (AlpcpLogUnwait.c)
- *     AlpcpLogWaitForNewMessage @ 0x14097A62C (AlpcpLogWaitForNewMessage.c)
- *     AlpcpLogWaitForReply @ 0x14097A728 (AlpcpLogWaitForReply.c)
+ *     AlpcpLogClosePort @ 0x1408C3C30 (AlpcpLogClosePort.c)
+ *     AlpcpLogConnectFail @ 0x1408C3CA0 (AlpcpLogConnectFail.c)
+ *     AlpcpLogConnectRequest @ 0x1408C3D08 (AlpcpLogConnectRequest.c)
+ *     AlpcpLogConnectSuccess @ 0x1408C3D78 (AlpcpLogConnectSuccess.c)
+ *     AlpcpLogReceiveMessage @ 0x1408C3DE0 (AlpcpLogReceiveMessage.c)
+ *     AlpcpLogSendMessage @ 0x1408C3E50 (AlpcpLogSendMessage.c)
+ *     AlpcpLogUnwait @ 0x1408C3EC0 (AlpcpLogUnwait.c)
+ *     AlpcpLogWaitForNewMessage @ 0x1408C3F28 (AlpcpLogWaitForNewMessage.c)
+ *     AlpcpLogWaitForReply @ 0x1408C4024 (AlpcpLogWaitForReply.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-signed __int32 __fastcall AlpcpInvokeLogCallbacks(__int64 a1, unsigned int a2)
+char __fastcall AlpcpInvokeLogCallbacks(__int64 a1, unsigned int a2)
 {
   PVOID *i; // rbx
 

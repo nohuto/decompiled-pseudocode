@@ -1,11 +1,11 @@
 /*
- * XREFs of KeWaitPhysicalFaultCompletion @ 0x14057AEEC
+ * XREFs of KeWaitPhysicalFaultCompletion @ 0x140523F5C
  * Callers:
- *     HvlNotifyPageHeat @ 0x14065416C (HvlNotifyPageHeat.c)
+ *     HvlNotifyPageHeat @ 0x1405C9680 (HvlNotifyPageHeat.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KiEpfDrainCompletionQueue @ 0x14057B0EC (KiEpfDrainCompletionQueue.c)
- *     KiEpfStart @ 0x14057B194 (KiEpfStart.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiEpfDrainCompletionQueue @ 0x1405241A8 (KiEpfDrainCompletionQueue.c)
+ *     KiEpfStart @ 0x140524254 (KiEpfStart.c)
  */
 
 __int64 __fastcall KeWaitPhysicalFaultCompletion(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall KeWaitPhysicalFaultCompletion(__int64 a1)
   bool v8; // zf
   __int64 result; // rax
 
-  ++dword_140C2A8BC;
+  ++dword_140C2B09C;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )

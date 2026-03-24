@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CLinearGradientLegacyMilBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A14F0
+ * XREFs of ?IsOfType@CLinearGradientLegacyMilBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F980
  * Callers:
  *     <none>
  * Callees:
@@ -12,11 +12,11 @@ bool __fastcall CLinearGradientLegacyMilBrush::IsOfType(__int64 a1, int a2)
   int v3; // eax
   bool result; // al
 
-  v2 = a2 - 72;
+  v2 = a2 - 70;
   result = 0;
-  if ( v2 <= 0x1A )
+  if ( v2 <= 0x1C )
   {
-    v3 = 69206017;
+    v3 = 276824065;
     if ( _bittest(&v3, v2) )
       return 1;
   }

@@ -1,16 +1,16 @@
 /*
- * XREFs of AdtpBuildSecurityDescriptorUnicodeString @ 0x140A5AFD4
+ * XREFs of AdtpBuildSecurityDescriptorUnicodeString @ 0x14096D99C
  * Callers:
- *     AdtpPackageParameters @ 0x140399314 (AdtpPackageParameters.c)
- *     AdtpBuildSecurityDescriptorChangeString @ 0x140A5AF08 (AdtpBuildSecurityDescriptorChangeString.c)
+ *     AdtpPackageParameters @ 0x1403C0314 (AdtpPackageParameters.c)
+ *     AdtpBuildSecurityDescriptorChangeString @ 0x14096D8D0 (AdtpBuildSecurityDescriptorChangeString.c)
  * Callees:
- *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x14020BC90 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     StringCchPrintfW @ 0x140365C98 (StringCchPrintfW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     StringCchPrintfW @ 0x140323CD8 (StringCchPrintfW.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x1403487A0 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildSecurityDescriptorUnicodeString(
@@ -31,7 +31,7 @@ __int64 __fastcall AdtpBuildSecurityDescriptorUnicodeString(
   unsigned int v16; // ebx
   __int64 v17; // rax
   __int64 v18; // rdx
-  void *Pool2; // rdi
+  PVOID PoolWithTag; // rdi
   char v20; // al
   __int16 v21; // bx
   void *Src; // [rsp+30h] [rbp-98h] BYREF
@@ -40,8 +40,8 @@ __int64 __fastcall AdtpBuildSecurityDescriptorUnicodeString(
   char *v25; // [rsp+48h] [rbp-80h]
   wchar_t pszDest[16]; // [rsp+50h] [rbp-78h] BYREF
 
-  v24 = a5;
   v25 = a7;
+  v24 = a5;
   Src = 0LL;
   if ( !a4 && !a3 )
     return 3221225485LL;
@@ -81,8 +81,8 @@ __int64 __fastcall AdtpBuildSecurityDescriptorUnicodeString(
   v17 = (unsigned int)*a6;
   if ( (unsigned int)v17 + v16 >= 0x400 )
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, 2LL * v16, 1799447891LL);
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 2LL * v16, 0x6B416553u);
+    if ( !PoolWithTag )
     {
       v12 = -1073741801;
       goto LABEL_24;
@@ -93,19 +93,19 @@ __int64 __fastcall AdtpBuildSecurityDescriptorUnicodeString(
   {
     v18 = v24;
     *a6 = v17 + v16;
-    Pool2 = (void *)(v18 + 2 * v17);
+    PoolWithTag = (PVOID)(v18 + 2 * v17);
     v20 = 0;
   }
   *v25 = v20;
-  memmove(Pool2, v13, 2LL * v16);
+  memmove(PoolWithTag, v13, 2LL * v16);
   if ( a4 )
   {
-    *a4 = Pool2;
+    *a4 = PoolWithTag;
     a4[1] = 2 * v16;
   }
   else
   {
-    *(_QWORD *)(a3 + 8) = Pool2;
+    *(_QWORD *)(a3 + 8) = PoolWithTag;
     v21 = 2 * (v16 - 1);
     *(_WORD *)a3 = v21;
     *(_WORD *)(a3 + 2) = v21 + 2;

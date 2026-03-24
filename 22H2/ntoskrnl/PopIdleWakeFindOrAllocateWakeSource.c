@@ -1,44 +1,42 @@
 /*
- * XREFs of PopIdleWakeFindOrAllocateWakeSource @ 0x14059D79C
+ * XREFs of PopIdleWakeFindOrAllocateWakeSource @ 0x14057B42C
  * Callers:
- *     PopIdleWakeNotifyWakeSource @ 0x14059DC7C (PopIdleWakeNotifyWakeSource.c)
+ *     PopIdleWakeStopActiveIntervalAccounting @ 0x14057BD54 (PopIdleWakeStopActiveIntervalAccounting.c)
  * Callees:
- *     PopIdleWakeAreIdenticalWakeSources @ 0x14059D550 (PopIdleWakeAreIdenticalWakeSources.c)
- *     PopIdleWakeAssignAccountingToSource @ 0x14059D5EC (PopIdleWakeAssignAccountingToSource.c)
+ *     PopIdleWakeAreIdenticalWakeSources @ 0x14057B324 (PopIdleWakeAreIdenticalWakeSources.c)
  */
 
-__int64 __fastcall PopIdleWakeFindOrAllocateWakeSource(__int64 a1, int a2, __int64 a3)
+__int64 __fastcall PopIdleWakeFindOrAllocateWakeSource(__int64 a1, int a2, __int64 a3, unsigned __int8 a4)
 {
-  __int64 i; // rbx
-  int v7; // ebp
-  signed __int32 v8; // ecx
+  int v6; // r12d
+  _BYTE *v8; // rbx
+  int v9; // r15d
+  _BYTE *i; // rdi
 
-  if ( (unsigned int)a2 <= 0xB )
-    return 1184LL * a2 + a1 + 144;
-  v7 = 12;
-  for ( i = a1 + 14352; *(_DWORD *)i != 130; i += 1184LL )
+  v6 = a4;
+  if ( (unsigned int)a2 <= 4 )
+    return 696LL * a2 + a1 + 280;
+  v9 = 5;
+  for ( i = (_BYTE *)(a1 + 4076); ; i += 696 )
   {
-    if ( a2 == *(_DWORD *)i && PopIdleWakeAreIdenticalWakeSources(a2, (_BYTE *)(i + 8), (_QWORD *)a3) )
-      return i;
-    if ( (unsigned int)++v7 >= 0x20 )
-      return a1 + 4880;
+    v8 = i - 316;
+    if ( !*((_DWORD *)i - 1) )
+      break;
+    if ( a2 == *(_DWORD *)v8 && (_BYTE)v6 == (*i & 1) && PopIdleWakeAreIdenticalWakeSources(a2, i - 308, (_QWORD *)a3) )
+      return (__int64)v8;
+    if ( (unsigned int)++v9 >= 0x19 )
+      return a1 + 3064;
   }
-  PopIdleWakeAssignAccountingToSource(a1, i, a2, a3);
-  *(_DWORD *)i = a2;
-  *(_OWORD *)(i + 8) = *(_OWORD *)a3;
-  *(_OWORD *)(i + 24) = *(_OWORD *)(a3 + 16);
-  *(_OWORD *)(i + 40) = *(_OWORD *)(a3 + 32);
-  *(_OWORD *)(i + 56) = *(_OWORD *)(a3 + 48);
-  *(_OWORD *)(i + 72) = *(_OWORD *)(a3 + 64);
-  *(_OWORD *)(i + 88) = *(_OWORD *)(a3 + 80);
-  *(_OWORD *)(i + 104) = *(_OWORD *)(a3 + 96);
-  *(_OWORD *)(i + 120) = *(_OWORD *)(a3 + 112);
-  *(_QWORD *)(i + 136) = *(_QWORD *)(a3 + 128);
-  do
-  {
-    v8 = _InterlockedIncrement(&PopIdleWakeNextToken);
-    *(_DWORD *)(i + 408) = v8;
-  }
-  while ( v8 == -1 );
-  return i;
+  *(_DWORD *)v8 = a2;
+  *(_OWORD *)(v8 + 8) = *(_OWORD *)a3;
+  *(_OWORD *)(v8 + 24) = *(_OWORD *)(a3 + 16);
+  *(_OWORD *)(v8 + 40) = *(_OWORD *)(a3 + 32);
+  *(_OWORD *)(v8 + 56) = *(_OWORD *)(a3 + 48);
+  *(_OWORD *)(v8 + 72) = *(_OWORD *)(a3 + 64);
+  *(_OWORD *)(v8 + 88) = *(_OWORD *)(a3 + 80);
+  *(_OWORD *)(v8 + 104) = *(_OWORD *)(a3 + 96);
+  *(_OWORD *)(v8 + 120) = *(_OWORD *)(a3 + 112);
+  *((_QWORD *)v8 + 17) = *(_QWORD *)(a3 + 128);
+  *(_DWORD *)i ^= (*(_DWORD *)i ^ v6) & 1;
+  return (__int64)v8;
 }

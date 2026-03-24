@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RecordLeavingIdleFState@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C0056DD4
+ * XREFs of ?RecordLeavingIdleFState@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C0047BDC
  * Callers:
- *     ?PowerRuntimeComponentIdleStateCallback_Worker@DXGADAPTER@@QEAAXKKE@Z @ 0x1C001A984 (-PowerRuntimeComponentIdleStateCallback_Worker@DXGADAPTER@@QEAAXKKE@Z.c)
- *     ?CompleteFStateTransitionCB@DXGADAPTER@@QEAAXI@Z @ 0x1C00434B8 (-CompleteFStateTransitionCB@DXGADAPTER@@QEAAXI@Z.c)
+ *     ?CompleteFStateTransitionCB@DXGADAPTER@@QEAAXI@Z @ 0x1C0037078 (-CompleteFStateTransitionCB@DXGADAPTER@@QEAAXI@Z.c)
+ *     ?PowerRuntimeComponentIdleStateCallback_Worker@DXGADAPTER@@QEAAXKKE@Z @ 0x1C003864C (-PowerRuntimeComponentIdleStateCallback_Worker@DXGADAPTER@@QEAAXKKE@Z.c)
  * Callees:
- *     ?RequestPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C0056FD4 (-RequestPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z.c)
+ *     ?RequestPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C0047DB0 (-RequestPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z.c)
  */
 
 void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::RecordLeavingIdleFState(KSPIN_LOCK *this)
@@ -13,7 +13,6 @@ void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::RecordLeavingIdleFState(KSPI
   unsigned int v3; // edx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(this + 3, &LockHandle);
   v2 = *((_DWORD *)this + 23);
   *((_BYTE *)this + 88) = 0;

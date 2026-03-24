@@ -1,25 +1,25 @@
 /*
- * XREFs of IncPaintCount @ 0x1C0222DD0
+ * XREFs of IncPaintCount @ 0x1C023DEB0
  * Callers:
- *     InternalInvalidate3 @ 0x1C0034D50 (InternalInvalidate3.c)
+ *     InternalInvalidate3 @ 0x1C00746C4 (InternalInvalidate3.c)
  * Callees:
- *     SetWakeBit @ 0x1C0118350 (SetWakeBit.c)
+ *     SetWakeBit @ 0x1C0051880 (SetWakeBit.c)
  */
 
-int __fastcall IncPaintCount(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+int __fastcall IncPaintCount(__int64 a1)
 {
-  __int64 v4; // rbx
-  int v5; // edx
+  __int64 v1; // rbx
+  int v2; // edx
   int result; // eax
 
-  v4 = *(_QWORD *)(a1 + 16);
-  v5 = *(_DWORD *)(v4 + 600);
-  result = v5 + 1;
-  *(_DWORD *)(v4 + 600) = v5 + 1;
-  if ( !v5 )
+  v1 = *(_QWORD *)(a1 + 16);
+  v2 = *(_DWORD *)(v1 + 600);
+  result = v2 + 1;
+  *(_DWORD *)(v1 + 600) = v2 + 1;
+  if ( !v2 )
   {
-    EtwTraceWakePump(v4, a1, 15LL, a4);
-    return SetWakeBit(v4, 0x20u);
+    EtwTraceWakePump(v1, a1, 15LL);
+    return SetWakeBit(v1, 0x20u);
   }
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vLockBmpAndPrepareForPunt@PANSURFLOCK@@QEAAXXZ @ 0x1C029D854
+ * XREFs of ?vLockBmpAndPrepareForPunt@PANSURFLOCK@@QEAAXXZ @ 0x1C02967C4
  * Callers:
- *     ??0PANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@PEAU_RECTL@@PEAHPEAU_CLIPOBJ@@@Z @ 0x1C029B4E4 (--0PANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@PEAU_RECTL@@PEAHPEAU_CLIPOBJ@@@Z.c)
+ *     ??0PANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@PEAU_RECTL@@PEAHPEAU_CLIPOBJ@@@Z @ 0x1C02943CC (--0PANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@PEAU_RECTL@@PEAHPEAU_CLIPOBJ@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -16,6 +16,7 @@ void __fastcall PANSURFLOCK::vLockBmpAndPrepareForPunt(__int64 **this)
   EngAcquireSemaphore(*(HSEMAPHORE *)(v2[4] + 776));
   dhsurf = (DHSURF)this[1];
   if ( !*((_DWORD *)dhsurf + 5) )
+  {
     EngModifySurface(
       (HSURF)(*this)[1],
       *(HDEV *)(*((_QWORD *)dhsurf + 4) + 48LL),
@@ -25,7 +26,9 @@ void __fastcall PANSURFLOCK::vLockBmpAndPrepareForPunt(__int64 **this)
       *((PVOID *)dhsurf + 1),
       *((_DWORD *)dhsurf + 4),
       0LL);
-  ++*((_DWORD *)this[1] + 5);
+    dhsurf = (DHSURF)this[1];
+  }
+  ++*((_DWORD *)dhsurf + 5);
   EngReleaseSemaphore(*(HSEMAPHORE *)(this[1][4] + 776));
   EngAcquireSemaphore((HSEMAPHORE)this[1][3]);
 }

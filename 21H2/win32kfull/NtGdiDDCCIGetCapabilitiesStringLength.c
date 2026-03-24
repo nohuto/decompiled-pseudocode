@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiDDCCIGetCapabilitiesStringLength @ 0x1C026FD80
+ * XREFs of NtGdiDDCCIGetCapabilitiesStringLength @ 0x1C0272180
  * Callers:
  *     <none>
  * Callees:
- *     ?DdcciGetCapabilitiesStringLength@CMonitorAPI@@QEAAJPEAXPEAK@Z @ 0x1C026F078 (-DdcciGetCapabilitiesStringLength@CMonitorAPI@@QEAAJPEAXPEAK@Z.c)
+ *     ?DdcciGetCapabilitiesStringLength@CMonitorAPI@@QEAAJPEAXPEAK@Z @ 0x1C027145C (-DdcciGetCapabilitiesStringLength@CMonitorAPI@@QEAAJPEAXPEAK@Z.c)
  */
 
 __int64 __fastcall NtGdiDDCCIGetCapabilitiesStringLength(CMonitorAPI *a1, unsigned int *Address)

@@ -1,28 +1,24 @@
 /*
- * XREFs of HalpDmaDereferenceDomainObject @ 0x140512868
+ * XREFs of HalpDmaDereferenceDomainObject @ 0x1404C4A38
  * Callers:
- *     HalJoinDmaDomain @ 0x14038EA90 (HalJoinDmaDomain.c)
- *     HalpDmaAllocateDomain @ 0x14038EB20 (HalpDmaAllocateDomain.c)
- *     HalpDmaIsAutomaticDomain @ 0x14038F240 (HalpDmaIsAutomaticDomain.c)
- *     HalpAllocateCommonBufferDmaThin @ 0x14038F344 (HalpAllocateCommonBufferDmaThin.c)
- *     HalFreeCommonBufferVector @ 0x14050F0C0 (HalFreeCommonBufferVector.c)
- *     HalpAllocateCommonBufferVectorInternal @ 0x14050F530 (HalpAllocateCommonBufferVectorInternal.c)
- *     HalCreateCommonBufferFromMdl @ 0x140511F50 (HalCreateCommonBufferFromMdl.c)
- *     HalFreeCommonBufferV3 @ 0x140512340 (HalFreeCommonBufferV3.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x140512490 (HalpAllocateDomainCommonBufferInternal.c)
- *     HalpLeaveDmaDomain @ 0x140512E14 (HalpLeaveDmaDomain.c)
- *     HalCreateCommonBufferFromMdlDmaThin @ 0x1405130A0 (HalCreateCommonBufferFromMdlDmaThin.c)
- *     HalFreeCommonBufferDmaThin @ 0x140513390 (HalFreeCommonBufferDmaThin.c)
- *     HalCreateCommonBufferFromMdlDmarThin @ 0x1405138B0 (HalCreateCommonBufferFromMdlDmarThin.c)
- *     HalFreeCommonBufferDmarThin @ 0x140513AB0 (HalFreeCommonBufferDmarThin.c)
- *     HalpAllocateCommonBufferDmarThin @ 0x140513C18 (HalpAllocateCommonBufferDmarThin.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x1403A0AF4 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalJoinDmaDomain @ 0x1403C6AE0 (HalJoinDmaDomain.c)
+ *     HalpDmaAllocateDomain @ 0x1403C6BB8 (HalpDmaAllocateDomain.c)
+ *     HalFreeCommonBufferV3 @ 0x1404C4530 (HalFreeCommonBufferV3.c)
+ *     HalpDmaIsAutomaticDomain @ 0x1404C4B90 (HalpDmaIsAutomaticDomain.c)
+ *     HalpLeaveDmaDomain @ 0x1404C4DEC (HalpLeaveDmaDomain.c)
+ *     HalAllocateCommonBufferVector @ 0x1404C5640 (HalAllocateCommonBufferVector.c)
+ *     HalFreeCommonBufferVector @ 0x1404C5F60 (HalFreeCommonBufferVector.c)
+ *     HalFreeCommonBufferThin @ 0x1404CACF0 (HalFreeCommonBufferThin.c)
+ *     HalpAllocateCommonBufferThin @ 0x1404CB230 (HalpAllocateCommonBufferThin.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x1403A4F60 (HalpMmAllocCtxFree.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x140378ED0 (HalpMmAllocCtxFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     HalpIommuFreeDmaDomain @ 0x1404C94AC (HalpIommuFreeDmaDomain.c)
+ *     HalpLaFreeState @ 0x1404DB104 (HalpLaFreeState.c)
  */
 
 __int64 __fastcall HalpDmaDereferenceDomainObject(__int64 *BugCheckParameter3)
@@ -32,14 +28,14 @@ __int64 __fastcall HalpDmaDereferenceDomainObject(__int64 *BugCheckParameter3)
   KIRQL v4; // al
   __int64 *v5; // rcx
   unsigned __int64 v6; // rsi
+  __int64 v7; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v10; // eax
-  bool v11; // zf
-  int v12; // eax
-  __int64 v13; // rcx
-  __int64 v14; // rcx
+  int v11; // eax
+  bool v12; // zf
+  int v13; // eax
+  __int64 *v14; // rcx
   __int64 **v15; // rax
 
   v2 = 0;
@@ -51,44 +47,54 @@ __int64 __fastcall HalpDmaDereferenceDomainObject(__int64 *BugCheckParameter3)
   {
     if ( BugCheckParameter3 == v5 )
     {
-      v11 = (*((_DWORD *)BugCheckParameter3 + 28))-- == 1;
+      v12 = (*((_DWORD *)BugCheckParameter3 + 32))-- == 1;
       v3 = 1;
-      if ( v11 )
+      if ( v12 )
       {
-        v14 = *BugCheckParameter3;
+        v14 = (__int64 *)*BugCheckParameter3;
         v15 = (__int64 **)BugCheckParameter3[1];
         if ( *(__int64 **)(*BugCheckParameter3 + 8) != BugCheckParameter3 || *v15 != BugCheckParameter3 )
           __fastfail(3u);
-        *v15 = (__int64 *)v14;
+        *v15 = v14;
         v2 = 1;
-        *(_QWORD *)(v14 + 8) = v15;
+        v14[1] = (__int64)v15;
       }
       break;
     }
     v5 = (__int64 *)*v5;
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&HalpDmaDomainListLock);
+  KxReleaseSpinLock(&HalpDmaDomainListLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-      v11 = (v10 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v10;
-      if ( v11 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v7 = (unsigned int)(v6 + 1);
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v12 = (v11 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v11;
+        if ( v12 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v6);
   if ( v2 )
   {
-    v12 = (*(__int64 (__fastcall **)(__int64))(HalpDmaIommuInterfaceFcnTable + 8))(BugCheckParameter3[5]);
-    if ( v12 < 0 )
-      KeBugCheckEx(0x1D9u, 0LL, v12, (ULONG_PTR)BugCheckParameter3, 0LL);
-    HalpMmAllocCtxFree(v13, (__int64)BugCheckParameter3);
+    if ( *((_DWORD *)BugCheckParameter3 + 16) )
+    {
+      v13 = HalpIommuFreeDmaDomain(BugCheckParameter3[5]);
+      if ( v13 < 0 )
+        KeBugCheckEx(0x1D9u, 0LL, v13, (ULONG_PTR)BugCheckParameter3, 0LL);
+      v7 = BugCheckParameter3[6];
+      if ( v7 )
+        HalpLaFreeState(v7);
+    }
+    HalpMmAllocCtxFree(v7, (__int64)BugCheckParameter3);
   }
   return v3 == 0 ? 0xC000000D : 0;
 }

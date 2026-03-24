@@ -1,9 +1,9 @@
 /*
- * XREFs of ??$ValueSetter@P8CMesh2DEffect@@EAAJUD2D_MATRIX_3X2_F@@@Z$H?SetTextureTransform@1@QEAAJ0@ZA@UID2D1EffectImpl@@@@YAJPEAUIUnknown@@PEBEI@Z @ 0x1802B1F10
+ * XREFs of ??$ValueSetter@P8CMesh2DEffect@@EAAJUD2D_MATRIX_3X2_F@@@Z$H?SetTextureTransform@1@QEAAJ0@ZA@UID2D1EffectImpl@@@@YAJPEAUIUnknown@@PEBEI@Z @ 0x18026C7C0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetTextureTransform@CMesh2DEffect@@QEAAJUD2D_MATRIX_3X2_F@@@Z @ 0x1800FD020 (-SetTextureTransform@CMesh2DEffect@@QEAAJUD2D_MATRIX_3X2_F@@@Z.c)
+ *     ?SetTextureTransform@CMesh2DEffect@@QEAAJUD2D_MATRIX_3X2_F@@@Z @ 0x1800E3D8C (-SetTextureTransform@CMesh2DEffect@@QEAAJUD2D_MATRIX_3X2_F@@@Z.c)
  */
 
 __int64 __fastcall ValueSetter<long (CMesh2DEffect::*)(D2D_MATRIX_3X2_F),{public: long CMesh2DEffect::SetTextureTransform(D2D_MATRIX_3X2_F),0},ID2D1EffectImpl>(

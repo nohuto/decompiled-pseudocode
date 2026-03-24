@@ -1,15 +1,17 @@
 /*
- * XREFs of ?DrawGenericInk@CDrawingContext@@UEAAJPEAUIDCompositionDirectInkWetStrokePartner@@_N@Z @ 0x1801D3F30
+ * XREFs of ?DrawGenericInk@CDrawingContext@@UEAAJPEAUIDCompositionDirectInkWetStrokePartner@@_N@Z @ 0x180175370
  * Callers:
- *     <none>
+ *     ?Draw@CGenericInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801C25A8 (-Draw@CGenericInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  * Callees:
- *     ?HasDeferredD2DLayers@CScopedClipStack@@QEBA_NXZ @ 0x180013108 (-HasDeferredD2DLayers@CScopedClipStack@@QEBA_NXZ.c)
- *     ??1CTryIgnoreCpuClippingScope@CDrawingContext@@QEAA@XZ @ 0x18001312C (--1CTryIgnoreCpuClippingScope@CDrawingContext@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Enter@CTryIgnoreCpuClippingScope@CDrawingContext@@QEAAJPEAV2@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x1800DC324 (-Enter@CTryIgnoreCpuClippingScope@CDrawingContext@@QEAAJPEAV2@AEBV-$TMil3DRect@MV-$TMilRect_@MUM.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?DrawGenericInk@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAUIDCompositionDirectInkWetStrokePartner@@W4D2D1_ANTIALIAS_MODE@@W4D2D1_PRIMITIVE_BLEND@@M_N@Z @ 0x180286840 (-DrawGenericInk@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAUIDCompositionDirectInkWetStrokePartn.c)
+ *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x180040940 (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
+ *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x1800415F0 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ApplyRenderStateInternal@CDrawingContext@@AEAAJ_N@Z @ 0x1800803D0 (-ApplyRenderStateInternal@CDrawingContext@@AEAAJ_N@Z.c)
+ *     ?GetTopByReference@CMatrixStack@@QEBAPEBVCMILMatrix@@XZ @ 0x18008D0E8 (-GetTopByReference@CMatrixStack@@QEBAPEBVCMILMatrix@@XZ.c)
+ *     ?D2DPrimitiveBlendFromMilCompositingMode@@YA?AW4D2D1_PRIMITIVE_BLEND@@W4Enum@MilCompositingMode@@@Z @ 0x1801747E4 (-D2DPrimitiveBlendFromMilCompositingMode@@YA-AW4D2D1_PRIMITIVE_BLEND@@W4Enum@MilCompositingMode@.c)
+ *     ?IsIn3DMode@CDrawingContext@@UEBA_NXZ @ 0x180177590 (-IsIn3DMode@CDrawingContext@@UEBA_NXZ.c)
+ *     ??$Is2DTransformExceptForZTranslation@$00@CMILMatrix@@AEBA_NXZ @ 0x180210AC0 (--$Is2DTransformExceptForZTranslation@$00@CMILMatrix@@AEBA_NXZ.c)
+ *     ?DrawGenericInk@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAUIDCompositionDirectInkWetStrokePartner@@W4D2D1_ANTIALIAS_MODE@@W4D2D1_PRIMITIVE_BLEND@@M_N@Z @ 0x18023B600 (-DrawGenericInk@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAUIDCompositionDirectInkWetStrokePartn.c)
  */
 
 __int64 __fastcall CDrawingContext::DrawGenericInk(
@@ -17,103 +19,98 @@ __int64 __fastcall CDrawingContext::DrawGenericInk(
         struct IDCompositionDirectInkWetStrokePartner *a2,
         bool a3)
 {
-  unsigned __int64 v3; // r15
-  __int64 v7; // rcx
-  unsigned int v8; // ebx
-  int v9; // eax
-  __int64 v10; // rcx
-  char *v11; // rsi
-  int v12; // eax
-  float v13; // xmm0_4
-  int v14; // ecx
-  enum D2D1_PRIMITIVE_BLEND v15; // r8d
-  int v16; // ecx
-  enum D2D1_PRIMITIVE_BLEND v18; // [rsp+20h] [rbp-60h]
-  CDrawingContext *v19; // [rsp+40h] [rbp-40h] BYREF
-  __int128 v20; // [rsp+48h] [rbp-38h] BYREF
-  __int128 v21; // [rsp+58h] [rbp-28h] BYREF
-  int v22; // [rsp+68h] [rbp-18h]
-  int v23; // [rsp+6Ch] [rbp-14h]
+  unsigned __int64 v3; // r14
+  char v7; // bp
+  const struct CMILMatrix *TopByReference; // rax
+  __int128 *v9; // rcx
+  __int128 v10; // xmm0
+  CDrawingContext *v11; // rsi
+  __int128 v12; // xmm2
+  __int128 v13; // xmm3
+  __int128 v14; // xmm4
+  int v15; // eax
+  __int64 v16; // rcx
+  unsigned int v17; // ebx
+  int v18; // eax
+  __int64 v19; // rcx
+  int v20; // eax
+  float v21; // xmm0_4
+  enum D2D1_PRIMITIVE_BLEND v22; // eax
+  __int64 v23; // r10
+  int v24; // eax
+  __int64 v25; // rcx
+  _OWORD v27[4]; // [rsp+40h] [rbp-A8h] BYREF
+  int v28; // [rsp+80h] [rbp-68h]
+  __int128 v29; // [rsp+C0h] [rbp-28h]
 
-  v19 = 0LL;
   v3 = (unsigned __int64)this + 8;
-  if ( (**((unsigned __int8 (__fastcall ***)(char *))this + 1))((char *)this + 8) )
+  v7 = 0;
+  if ( CDrawingContext::IsIn3DMode((CDrawingContext *)((char *)this + 8)) )
   {
-    v8 = -2147467263;
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, -2147467263, 0x2FBu, 0LL);
-    goto LABEL_22;
-  }
-  if ( CScopedClipStack::HasDeferredD2DLayers((CDrawingContext *)((char *)this + 880)) )
-  {
-    v9 = (*(__int64 (__fastcall **)(struct IDCompositionDirectInkWetStrokePartner *, __int128 *))(*(_QWORD *)a2 + 32LL))(
-           a2,
-           &v20);
-    v8 = v9;
-    if ( v9 < 0 )
+    TopByReference = CMatrixStack::GetTopByReference((CDrawingContext *)((char *)this + 392));
+    if ( !(unsigned __int8)CMILMatrix::Is2DTransformExceptForZTranslation<1>(TopByReference) )
     {
-      v18 = 771;
-      goto LABEL_21;
+      v17 = -2147467263;
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)v9, 0LL, 0, -2147467263, 0x2F7u, 0LL);
+      return v17;
     }
-    v22 = 0;
-    v11 = (char *)this - 16;
-    v23 = 0;
-    v21 = v20;
-    v9 = CDrawingContext::CTryIgnoreCpuClippingScope::Enter((__int64 *)&v19, (__int64)this - 16, (__int64)&v21, 0LL);
-    v8 = v9;
-    if ( v9 < 0 )
+    v10 = v9[3];
+    v28 = 0;
+    v11 = (CDrawingContext *)((char *)this - 16);
+    v12 = *v9;
+    v13 = v9[1];
+    v14 = v9[2];
+    v29 = v10;
+    DWORD2(v29) = 0;
+    v27[3] = v29;
+    v27[0] = v12;
+    v27[1] = v13;
+    v27[2] = v14;
+    v15 = CDrawingContext::PushTransformInternal(
+            (CDrawingContext *)((char *)this - 16),
+            0LL,
+            (const struct CMILMatrix *)v27,
+            0,
+            1);
+    v17 = v15;
+    if ( v15 < 0 )
     {
-      v18 = 773;
-LABEL_21:
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, v18, 0LL);
-      goto LABEL_22;
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x2F2u, 0LL);
+      return v17;
     }
+    v7 = 1;
   }
   else
   {
-    v11 = (char *)this - 16;
+    v11 = (CDrawingContext *)((char *)this - 16);
   }
-  v9 = (*(__int64 (__fastcall **)(CDrawingContext *))(*(_QWORD *)this + 112LL))(this);
-  v8 = v9;
-  if ( v9 < 0 )
+  v18 = CDrawingContext::ApplyRenderStateInternal(v11, 0);
+  v17 = v18;
+  if ( v18 < 0 )
   {
-    v18 = 776;
-    goto LABEL_21;
+    MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x2FBu, 0LL);
   }
-  v12 = *((_DWORD *)this + 808);
-  if ( v12 )
-    v13 = *(float *)(*((_QWORD *)this + 406) + 4LL * (unsigned int)(v12 - 1));
   else
-    v13 = *(float *)&FLOAT_1_0;
-  v14 = *((_DWORD *)this + 81);
-  v15 = D2D1_PRIMITIVE_BLEND_SOURCE_OVER;
-  if ( v14 )
   {
-    v16 = v14 - 1;
-    if ( v16 )
-    {
-      if ( v16 == 3 )
-        v15 = D2D1_PRIMITIVE_BLEND_MIN;
-    }
+    v20 = *((_DWORD *)this + 804);
+    if ( v20 )
+      v21 = *(float *)(*((_QWORD *)this + 404) + 4LL * (unsigned int)(v20 - 1));
     else
-    {
-      v15 = D2D1_PRIMITIVE_BLEND_COPY;
-    }
+      v21 = *(float *)&FLOAT_1_0;
+    v22 = (unsigned int)D2DPrimitiveBlendFromMilCompositingMode(*((_DWORD *)this + 66));
+    v24 = CD2DContext::DrawGenericInk(
+            (CD2DContext *)(v23 + 16),
+            (const struct ID2DContextOwner *)(v3 & -(__int64)(v11 != 0LL)),
+            a2,
+            (enum D2D1_ANTIALIAS_MODE)(*((_DWORD *)this + 65) != 0),
+            v22,
+            v21,
+            a3);
+    v17 = v24;
+    if ( v24 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v24, 0x302u, 0LL);
   }
-  v9 = CD2DContext::DrawGenericInk(
-         (CD2DContext *)(*((_QWORD *)this + 3) + 16LL),
-         (const struct ID2DContextOwner *)(v3 & -(__int64)(v11 != 0LL)),
-         a2,
-         (enum D2D1_ANTIALIAS_MODE)(*((_DWORD *)this + 80) != 0),
-         v15,
-         v13,
-         a3);
-  v8 = v9;
-  if ( v9 < 0 )
-  {
-    v18 = 783;
-    goto LABEL_21;
-  }
-LABEL_22:
-  CDrawingContext::CTryIgnoreCpuClippingScope::~CTryIgnoreCpuClippingScope(&v19);
-  return v8;
+  if ( v7 )
+    CDrawingContext::PopTransformInternal(v11, 1);
+  return v17;
 }

@@ -3,7 +3,7 @@
  * Callers:
  *     EtwpSetProviderTraitsCommon @ 0x1405C4A10 (EtwpSetProviderTraitsCommon.c)
  * Callees:
- *     strnlen @ 0x140197380 (strnlen.c)
+ *     strnlen @ 0x1401973A0 (strnlen.c)
  */
 
 char *__fastcall EtwpGetProviderGroupFromTraits(const char *a1)

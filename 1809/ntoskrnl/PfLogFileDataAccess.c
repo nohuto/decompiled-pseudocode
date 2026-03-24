@@ -1,10 +1,10 @@
 /*
- * XREFs of PfLogFileDataAccess @ 0x1402D3078
+ * XREFs of PfLogFileDataAccess @ 0x1402D3178
  * Callers:
- *     MiLogRelocationRva @ 0x14064B1AC (MiLogRelocationRva.c)
+ *     MiLogRelocationRva @ 0x14064B18C (MiLogRelocationRva.c)
  * Callees:
- *     PsGetPagePriorityThread @ 0x1400B5BC0 (PsGetPagePriorityThread.c)
- *     PfLogEvent @ 0x1400D53D8 (PfLogEvent.c)
+ *     PsGetPagePriorityThread @ 0x1400B5BE0 (PsGetPagePriorityThread.c)
+ *     PfLogEvent @ 0x1400D53F8 (PfLogEvent.c)
  */
 
 __int64 __fastcall PfLogFileDataAccess(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)

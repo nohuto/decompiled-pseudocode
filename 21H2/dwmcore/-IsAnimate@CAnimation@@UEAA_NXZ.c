@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsAnimate@CAnimation@@UEAA_NXZ @ 0x1800E5000
+ * XREFs of ?IsAnimate@CAnimation@@UEAA_NXZ @ 0x1800CE960
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CAnimation::IsAnimate(CAnimation *this)
@@ -12,7 +12,7 @@ char __fastcall CAnimation::IsAnimate(CAnimation *this)
   char v3; // dl
   char v4; // al
 
-  v2 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)this - 8) + 192LL))((char *)this - 64);
+  v2 = (*(__int64 (__fastcall **)(char *))(*((_QWORD *)this - 7) + 208LL))((char *)this - 56);
   v3 = 0;
   if ( !v2 )
   {

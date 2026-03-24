@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmPerfApplyProcessorStates @ 0x140175170
+ * XREFs of PpmPerfApplyProcessorStates @ 0x140175190
  * Callers:
  *     <none>
  * Callees:
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     KeOrAffinityEx @ 0x1400DC8D0 (KeOrAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x1400ED920 (KeCountSetBitsAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1400EDA50 (KeRemoveProcessorAffinityEx.c)
- *     PpmPerfApplyProcessorState @ 0x14017535C (PpmPerfApplyProcessorState.c)
- *     PpmPerfQueueAction @ 0x1401758B8 (PpmPerfQueueAction.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     PpmPerfApplyHiddenProcessorState @ 0x1401B5958 (PpmPerfApplyHiddenProcessorState.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     KeOrAffinityEx @ 0x1400DC8F0 (KeOrAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x1400ED940 (KeCountSetBitsAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1400EDA70 (KeRemoveProcessorAffinityEx.c)
+ *     PpmPerfApplyProcessorState @ 0x14017537C (PpmPerfApplyProcessorState.c)
+ *     PpmPerfQueueAction @ 0x1401758D8 (PpmPerfQueueAction.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PpmPerfApplyHiddenProcessorState @ 0x1401B5978 (PpmPerfApplyHiddenProcessorState.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 char PpmPerfApplyProcessorStates()

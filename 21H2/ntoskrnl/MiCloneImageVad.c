@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCloneImageVad @ 0x1405B9904
+ * XREFs of MiCloneImageVad @ 0x140559280
  * Callers:
- *     MiAllocateChildVads @ 0x1409800F4 (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x1408D8A90 (MiAllocateChildVads.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     MiCreatePerSessionProtos @ 0x1406DDB48 (MiCreatePerSessionProtos.c)
- *     MiCopyForkedFixupVad @ 0x14097FC80 (MiCopyForkedFixupVad.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     MiCreatePerSessionProtos @ 0x1406BC914 (MiCreatePerSessionProtos.c)
+ *     MiCopyForkedFixupVad @ 0x1408D7BEC (MiCopyForkedFixupVad.c)
  */
 
 __int64 __fastcall MiCloneImageVad(__int64 a1, __int64 a2, __int64 a3)
@@ -18,23 +18,23 @@ __int64 __fastcall MiCloneImageVad(__int64 a1, __int64 a2, __int64 a3)
 
   v3 = *(_DWORD *)(a3 + 48);
   v5 = **(_QWORD **)(a3 + 72);
-  if ( (v3 & 0x200000) == 0 && (v3 & 0x70) == 0x20 && (v3 & 0x400000) != 0 )
+  if ( (v3 & 0x100000) == 0 && (v3 & 0x70) == 0x20 && (v3 & 0x200000) != 0 )
   {
     v6 = 1;
     MiCopyForkedFixupVad(a2, a3);
-    ++*(_QWORD *)(*(_QWORD *)(a1 + 1680) + 368LL);
+    ++*(_QWORD *)(*(_QWORD *)(a1 + 1680) + 384LL);
   }
   else
   {
     v6 = 0;
   }
-  if ( (*(_DWORD *)(v5 + 56) & 0x8000000) == 0 )
+  if ( (*(_DWORD *)(v5 + 56) & 0x4000000) == 0 )
     return 0LL;
   SessionId = MmGetSessionIdEx(a1);
   result = MiCreatePerSessionProtos(v5, SessionId);
   if ( (int)result >= 0 )
     return 0LL;
-  if ( v6 )
-    --*(_QWORD *)(*(_QWORD *)(a1 + 1680) + 368LL);
+  if ( v6 == 1 )
+    --*(_QWORD *)(*(_QWORD *)(a1 + 1680) + 384LL);
   return result;
 }

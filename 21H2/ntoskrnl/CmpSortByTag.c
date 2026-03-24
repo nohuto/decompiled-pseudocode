@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpSortByTag @ 0x140B138C4
+ * XREFs of CmpSortByTag @ 0x140A60710
  * Callers:
- *     CmpDoSort @ 0x140B13790 (CmpDoSort.c)
+ *     CmpDoSort @ 0x140A605D8 (CmpDoSort.c)
  * Callees:
  *     <none>
  */

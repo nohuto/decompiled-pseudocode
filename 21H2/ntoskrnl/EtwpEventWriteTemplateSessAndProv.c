@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpEventWriteTemplateSessAndProv @ 0x140882EB0
+ * XREFs of EtwpEventWriteTemplateSessAndProv @ 0x140939DA0
  * Callers:
- *     EtwUnregister @ 0x1406B7470 (EtwUnregister.c)
- *     EtwpCloseRegistrationObject @ 0x1406B75F0 (EtwpCloseRegistrationObject.c)
- *     EtwpRegisterKMProvider @ 0x1406D2394 (EtwpRegisterKMProvider.c)
- *     EtwpEnableGuid @ 0x14079028C (EtwpEnableGuid.c)
- *     EtwpRegisterUMProvider @ 0x140796040 (EtwpRegisterUMProvider.c)
+ *     EtwpRegisterUMGuid @ 0x1405EBAF0 (EtwpRegisterUMGuid.c)
+ *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
+ *     EtwpCloseRegistrationObject @ 0x14070EA40 (EtwpCloseRegistrationObject.c)
+ *     EtwUnregister @ 0x1407601D0 (EtwUnregister.c)
+ *     EtwpRegisterProvider @ 0x140762D20 (EtwpRegisterProvider.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateSessAndProv(

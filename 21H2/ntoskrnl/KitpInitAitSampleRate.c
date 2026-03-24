@@ -1,13 +1,13 @@
 /*
- * XREFs of KitpInitAitSampleRate @ 0x140B2DD94
+ * XREFs of KitpInitAitSampleRate @ 0x140A7179C
  * Callers:
- *     KitInitialize @ 0x140B2DD5C (KitInitialize.c)
+ *     KitInitialize @ 0x140A71764 (KitInitialize.c)
  * Callees:
- *     strstr @ 0x1403E0C40 (strstr.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwSetSystemInformation @ 0x14041EE00 (ZwSetSystemInformation.c)
- *     KitpReadUlongFromKey @ 0x140861350 (KitpReadUlongFromKey.c)
- *     KitpOpenRegKey @ 0x1408613C8 (KitpOpenRegKey.c)
+ *     strstr @ 0x1403D1880 (strstr.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwSetSystemInformation @ 0x1403FD920 (ZwSetSystemInformation.c)
+ *     KitpReadUlongFromKey @ 0x1407D165C (KitpReadUlongFromKey.c)
+ *     KitpOpenRegKey @ 0x1407D16D4 (KitpOpenRegKey.c)
  */
 
 NTSTATUS __fastcall KitpInitAitSampleRate(__int64 a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bPenFlatten@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z @ 0x1C02F1908
+ * XREFs of ?bPenFlatten@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z @ 0x1C013F038
  * Callers:
- *     ?bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C02F1AFC (-bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z.c)
+ *     ?bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C0141678 (-bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?bGrowPath@WIDEPATHOBJ@@IEAAHXZ @ 0x1C015D896 (-bGrowPath@WIDEPATHOBJ@@IEAAHXZ.c)
- *     ?vInit@BEZIER@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z @ 0x1C02F295C (-vInit@BEZIER@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z.c)
+ *     ?vInit@BEZIER@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z @ 0x1C013F194 (-vInit@BEZIER@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z.c)
+ *     ?bGrowPath@WIDEPATHOBJ@@IEAAHXZ @ 0x1C01407D0 (-bGrowPath@WIDEPATHOBJ@@IEAAHXZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall WIDEPENOBJ::bPenFlatten(struct _POINTFIX **this, struct _POINTFIX *a2)
@@ -14,10 +14,10 @@ __int64 __fastcall WIDEPENOBJ::bPenFlatten(struct _POINTFIX **this, struct _POIN
   struct _POINTFIX *v5; // r14
   int i; // esi
   struct _POINTFIX *v7; // rdx
-  struct _POINTFIX *v8; // r15
-  bool v9; // zf
-  int v10; // eax
+  bool v8; // zf
+  int v9; // eax
   __int64 result; // rax
+  struct _POINTFIX *v11; // r15
   _BYTE v12[168]; // [rsp+20h] [rbp-D8h] BYREF
   int v13; // [rsp+C8h] [rbp-30h]
 
@@ -37,7 +37,7 @@ __int64 __fastcall WIDEPENOBJ::bPenFlatten(struct _POINTFIX **this, struct _POIN
       v7 = this[16];
       if ( v7 > this[17] )
       {
-        v8 = v7 - 2;
+        v11 = v7 - 2;
         *(_DWORD *)(*(_QWORD *)&this[1][5] + 20LL) = ((__int64)&v7[-3] - *(_QWORD *)&this[1][5]) >> 3;
         *(_QWORD *)(*(_QWORD *)&this[1][3] + 8LL) = *(_QWORD *)&this[1][5]
                                                   + 24LL
@@ -45,19 +45,19 @@ __int64 __fastcall WIDEPENOBJ::bPenFlatten(struct _POINTFIX **this, struct _POIN
         if ( !(unsigned int)WIDEPATHOBJ::bGrowPath((WIDEPATHOBJ *)this) )
           return 0LL;
         *(_DWORD *)(*(_QWORD *)&this[1][5] + 16LL) = 0;
-        *this[16]++ = *v8;
-        *this[16] = v8[1];
+        *this[16]++ = *v11;
+        *this[16] = v11[1];
         --this[17];
         v7 = this[16] + 1;
       }
-      v9 = v13 == 0;
+      v8 = v13 == 0;
       this[16] = v7 + 1;
-      if ( v9 )
-        v10 = BEZIER64::bNext((BEZIER64 *)v12, v7);
+      if ( v8 )
+        v9 = BEZIER64::bNext((BEZIER64 *)v12, v7);
       else
-        v10 = BEZIER32::bNext((BEZIER32 *)v12, v7);
+        v9 = BEZIER32::bNext((BEZIER32 *)v12, v7);
     }
-    while ( v10 );
+    while ( v9 );
     a2 += 3;
   }
   v5->x = -this[16][-2].x;

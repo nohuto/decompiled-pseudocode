@@ -1,8 +1,8 @@
 /*
- * XREFs of ?MsgLookupTableCleanUp@@YAXPEAPEAX@Z @ 0x1C00A085C
+ * XREFs of ?MsgLookupTableCleanUp@@YAXPEAPEAX@Z @ 0x1C010F84C
  * Callers:
- *     FreeProcessMessageFilter @ 0x1C00A0830 (FreeProcessMessageFilter.c)
- *     FreeWindowMessageFilter @ 0x1C013C880 (FreeWindowMessageFilter.c)
+ *     FreeWindowMessageFilter @ 0x1C007C150 (FreeWindowMessageFilter.c)
+ *     FreeProcessMessageFilter @ 0x1C010F820 (FreeProcessMessageFilter.c)
  * Callees:
  *     <none>
  */

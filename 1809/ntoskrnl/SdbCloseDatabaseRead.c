@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbCloseDatabaseRead @ 0x140680AB4
+ * XREFs of SdbCloseDatabaseRead @ 0x140680A94
  * Callers:
  *     SdbInitDatabaseInMemory @ 0x1405A21DC (SdbInitDatabaseInMemory.c)
- *     SdbReleaseDatabase @ 0x140680AFC (SdbReleaseDatabase.c)
- *     SdbpCloseLocalDatabaseEx @ 0x1408E81A8 (SdbpCloseLocalDatabaseEx.c)
- *     SdbpOpenCompressedDatabase @ 0x1408E8F10 (SdbpOpenCompressedDatabase.c)
+ *     SdbReleaseDatabase @ 0x140680ADC (SdbReleaseDatabase.c)
+ *     SdbpCloseLocalDatabaseEx @ 0x1408E8188 (SdbpCloseLocalDatabaseEx.c)
+ *     SdbpOpenCompressedDatabase @ 0x1408E8EF0 (SdbpOpenCompressedDatabase.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     AslFileMappingDelete @ 0x14067E984 (AslFileMappingDelete.c)
- *     AslHashFree @ 0x1408E9E98 (AslHashFree.c)
+ *     AslFileMappingDelete @ 0x14067E964 (AslFileMappingDelete.c)
+ *     AslHashFree @ 0x1408E9E78 (AslHashFree.c)
  */
 
 void __fastcall SdbCloseDatabaseRead(_QWORD *P)

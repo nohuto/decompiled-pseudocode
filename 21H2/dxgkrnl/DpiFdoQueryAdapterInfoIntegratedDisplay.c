@@ -1,109 +1,130 @@
 /*
- * XREFs of DpiFdoQueryAdapterInfoIntegratedDisplay @ 0x1C038AA48
+ * XREFs of DpiFdoQueryAdapterInfoIntegratedDisplay @ 0x1C02CB4F0
  * Callers:
- *     DpiFdoCreateRelatedObjects @ 0x1C01FBF08 (DpiFdoCreateRelatedObjects.c)
+ *     DpiFdoCreateRelatedObjects @ 0x1C018AE58 (DpiFdoCreateRelatedObjects.c)
  * Callees:
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C016BE48 (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C01B40A0 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01B445C (DpiAcquireCoreSyncAccessSafe.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0121730 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C01219AC (DpiAcquireCoreSyncAccessSafe.c)
+ *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C012A308 (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
  */
 
-__int64 __fastcall DpiFdoQueryAdapterInfoIntegratedDisplay(__int64 a1, __int64 a2)
+__int64 __fastcall DpiFdoQueryAdapterInfoIntegratedDisplay(__int64 a1, __int64 a2, __int64 a3)
 {
-  int v2; // eax
-  __int64 v3; // r13
-  __int64 v5; // rdx
-  __int16 v8; // ax
-  unsigned __int16 v9; // ax
+  __int64 v3; // rsi
+  __int64 v5; // r13
+  __int64 v7; // rax
+  __int16 v9; // di
+  unsigned __int16 v10; // di
+  __int64 v11; // rax
   _DWORD *PoolWithTag; // rax
-  __int64 v11; // r14
-  _DWORD *v12; // rsi
-  __int64 v13; // rdi
-  int v14; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
   __int64 v15; // r8
-  UINT v16; // eax
-  __int64 v17; // rax
-  __int64 v18; // rcx
-  struct _DXGKARG_QUERYADAPTERINFO v19; // [rsp+20h] [rbp-30h] BYREF
-  int v20; // [rsp+80h] [rbp+30h] BYREF
+  __int64 v16; // r9
+  __int64 v17; // r14
+  _DWORD *v18; // rsi
+  __int64 v19; // rdi
+  __int64 v20; // rax
+  int v21; // eax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  __int64 v25; // rax
+  UINT v26; // eax
+  __int64 v27; // rax
+  __int64 v28; // rcx
+  struct _DXGKARG_QUERYADAPTERINFO v29; // [rsp+20h] [rbp-30h] BYREF
+  int v30; // [rsp+80h] [rbp+30h] BYREF
 
-  v2 = *(_DWORD *)(a2 + 24);
-  v3 = *(_QWORD *)(a1 + 64);
-  v5 = *(unsigned __int16 *)(a2 + 92);
-  v20 = v2;
-  memset(&v19, 0, sizeof(v19));
-  if ( (unsigned int)v5 <= 0x7C || (*(_WORD *)(a2 + 94) = v5 - 124, (unsigned __int16)(v5 - 124) < 0x80u) )
+  v3 = *(unsigned __int16 *)(a2 + 92);
+  v5 = *(_QWORD *)(a1 + 64);
+  v30 = *(_DWORD *)(a2 + 24);
+  memset(&v29, 0, sizeof(v29));
+  if ( (unsigned int)v3 <= 0x7C )
   {
-    WdLogSingleEntry1(2LL, v5);
+    v7 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v7 + 24) = *(unsigned __int16 *)(a2 + 92);
+LABEL_3:
+    WdLogEvent5_WdError(v7);
     return 3221225485LL;
   }
-  else
+  *(_WORD *)(a2 + 94) = v3 - 124;
+  if ( (unsigned __int16)(v3 - 124) < 0x80u )
   {
-    v8 = (v5 - 124) & 0xFF80;
-    *(_WORD *)(a2 + 94) = v8;
-    v9 = v8 + 124;
-    if ( v9 != (_WORD)v5 )
+    v7 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v7 + 24) = v3;
+    goto LABEL_3;
+  }
+  v9 = (v3 - 124) & 0xFF80;
+  *(_WORD *)(a2 + 94) = v9;
+  v10 = v9 + 124;
+  if ( v10 != (_WORD)v3 )
+  {
+    v11 = WdLogNewEntry5_WdWarning(a1, a2, a3);
+    *(_QWORD *)(v11 + 24) = *(unsigned __int16 *)(a2 + 92) - (unsigned __int64)v10;
+    WdLogEvent5_WdWarning(v11);
+    LOWORD(v3) = *(_WORD *)(a2 + 92);
+  }
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned __int16)v3, 0x74727044u);
+  v17 = 0LL;
+  v18 = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    memset(PoolWithTag, 0, *(unsigned __int16 *)(a2 + 92));
+    v21 = DpiAcquireCoreSyncAccessSafe(a1, 0);
+    v19 = v21;
+    if ( v21 < 0 )
+      goto LABEL_11;
+    *(_QWORD *)&v29.Type = 0LL;
+    v29.pInputData = &v30;
+    v26 = *(unsigned __int16 *)(a2 + 92);
+    *(&v29.InputDataSize + 1) = 0;
+    v29.Type = DXGKQAITYPE_INTEGRATED_DISPLAY_DESCRIPTOR;
+    *(_OWORD *)&v29.OutputDataSize = 0LL;
+    v29.OutputDataSize = v26;
+    v29.InputDataSize = 4;
+    v29.pOutputData = v18;
+    v19 = (int)DXGADAPTER::DdiQueryAdapterInfo(*(DXGADAPTER **)(v5 + 3896), &v29, v24);
+    DpiReleaseCoreSyncAccessSafe(a1, 0);
+    if ( (int)v19 < 0 )
     {
-      WdLogSingleEntry1(3LL, v5 - v9);
-      LOWORD(v5) = *(_WORD *)(a2 + 92);
-    }
-    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned __int16)v5, 0x74727044u);
-    v11 = 0LL;
-    v12 = PoolWithTag;
-    if ( PoolWithTag )
-    {
-      memset(PoolWithTag, 0, *(unsigned __int16 *)(a2 + 92));
-      v14 = DpiAcquireCoreSyncAccessSafe(a1, 0);
-      v13 = v14;
-      if ( v14 < 0 )
-        goto LABEL_9;
-      *(_QWORD *)&v19.Type = 0LL;
-      v19.pInputData = &v20;
-      v16 = *(unsigned __int16 *)(a2 + 92);
-      *(&v19.InputDataSize + 1) = 0;
-      v19.Type = DXGKQAITYPE_INTEGRATED_DISPLAY_DESCRIPTOR;
-      *(_OWORD *)&v19.OutputDataSize = 0LL;
-      v19.OutputDataSize = v16;
-      v19.InputDataSize = 4;
-      v19.pOutputData = v12;
-      v13 = (int)DXGADAPTER::DdiQueryAdapterInfo(*(DXGADAPTER **)(v3 + 3896), &v19, v15);
-      DpiReleaseCoreSyncAccessSafe(a1, 0);
-      if ( (int)v13 < 0 )
-      {
-LABEL_9:
-        WdLogSingleEntry1(2LL, v13);
-      }
-      else
-      {
-        **(_DWORD **)(a2 + 104) = *v12;
-        v17 = *(_QWORD *)(a2 + 104);
-        *(_OWORD *)(v17 + 8) = *(_OWORD *)(v12 + 2);
-        *(_OWORD *)(v17 + 24) = *(_OWORD *)(v12 + 6);
-        *(_OWORD *)(v17 + 40) = *(_OWORD *)(v12 + 10);
-        *(_QWORD *)(v17 + 56) = *((_QWORD *)v12 + 7);
-        *(_DWORD *)(*(_QWORD *)(a2 + 104) + 64LL) = v12[16];
-        v18 = *(_QWORD *)(a2 + 104);
-        *(_OWORD *)(v18 + 68) = *(_OWORD *)(v12 + 17);
-        *(_OWORD *)(v18 + 84) = *(_OWORD *)(v12 + 21);
-        *(_OWORD *)(v18 + 100) = *(_OWORD *)(v12 + 25);
-        *(_DWORD *)(v18 + 116) = v12[29];
-        do
-        {
-          *(_BYTE *)(*(_QWORD *)(a2 + 104) + v11 + 120) = *((_BYTE *)v12 + v11 + 120);
-          ++v11;
-        }
-        while ( v11 < 4 );
-        memmove(*(void **)(a2 + 112), v12 + 31, *(unsigned __int16 *)(a2 + 94));
-      }
-      ExFreePoolWithTag(v12, 0);
+LABEL_11:
+      v25 = WdLogNewEntry5_WdError(v23, v22);
+      *(_QWORD *)(v25 + 24) = v19;
+      WdLogEvent5_WdError(v25);
     }
     else
     {
-      LODWORD(v13) = -1073741670;
-      WdLogSingleEntry1(6LL, -1073741670LL);
+      **(_DWORD **)(a2 + 104) = *v18;
+      v27 = *(_QWORD *)(a2 + 104);
+      *(_OWORD *)(v27 + 8) = *(_OWORD *)(v18 + 2);
+      *(_OWORD *)(v27 + 24) = *(_OWORD *)(v18 + 6);
+      *(_OWORD *)(v27 + 40) = *(_OWORD *)(v18 + 10);
+      *(_QWORD *)(v27 + 56) = *((_QWORD *)v18 + 7);
+      *(_DWORD *)(*(_QWORD *)(a2 + 104) + 64LL) = v18[16];
+      v28 = *(_QWORD *)(a2 + 104);
+      *(_OWORD *)(v28 + 68) = *(_OWORD *)(v18 + 17);
+      *(_OWORD *)(v28 + 84) = *(_OWORD *)(v18 + 21);
+      *(_OWORD *)(v28 + 100) = *(_OWORD *)(v18 + 25);
+      *(_DWORD *)(v28 + 116) = v18[29];
+      do
+      {
+        *(_BYTE *)(*(_QWORD *)(a2 + 104) + v17 + 120) = *((_BYTE *)v18 + v17 + 120);
+        ++v17;
+      }
+      while ( v17 < 4 );
+      memmove(*(void **)(a2 + 112), v18 + 31, *(unsigned __int16 *)(a2 + 94));
     }
-    return (unsigned int)v13;
+    ExFreePoolWithTag(v18, 0);
   }
+  else
+  {
+    LODWORD(v19) = -1073741670;
+    v20 = WdLogNewEntry5_WdLowResource(v14, v13, v15, v16);
+    *(_QWORD *)(v20 + 24) = -1073741670LL;
+    WdLogEvent5_WdLowResource(v20);
+  }
+  return (unsigned int)v19;
 }

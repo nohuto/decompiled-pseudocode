@@ -1,13 +1,13 @@
 /*
- * XREFs of EngEqualRgn @ 0x1C0177A80
+ * XREFs of EngEqualRgn @ 0x1C014B830
  * Callers:
  *     <none>
  * Callees:
- *     GreGetObjectOwner @ 0x1C001F0C0 (GreGetObjectOwner.c)
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C0027B78 (--1RGNOBJAPI@@QEAA@XZ.c)
- *     ??0EngModeState@@QEAA@XZ @ 0x1C008EA90 (--0EngModeState@@QEAA@XZ.c)
- *     ?GreEqualRgn@@YAHAEAVRGNOBJAPI@@0@Z @ 0x1C009829C (-GreEqualRgn@@YAHAEAVRGNOBJAPI@@0@Z.c)
- *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DA130 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ *     GreGetObjectOwner @ 0x1C0031450 (GreGetObjectOwner.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00348A0 (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ?GreEqualRgn@@YAHAEAVRGNOBJAPI@@0@Z @ 0x1C0093DEC (-GreEqualRgn@@YAHAEAVRGNOBJAPI@@0@Z.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00C8F50 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ *     ??0EngModeState@@QEAA@XZ @ 0x1C00CB6DC (--0EngModeState@@QEAA@XZ.c)
  */
 
 BOOL __stdcall EngEqualRgn(HANDLE hrgn1, HANDLE hrgn2)
@@ -32,6 +32,6 @@ BOOL __stdcall EngEqualRgn(HANDLE hrgn1, HANDLE hrgn2)
     RGNOBJAPI::~RGNOBJAPI((RGNOBJAPI *)v7);
   }
   if ( v8 )
-    *(_DWORD *)(v8 + 328) &= ~0x10u;
+    *(_DWORD *)(v8 + 328) &= ~0x20u;
   return v4;
 }

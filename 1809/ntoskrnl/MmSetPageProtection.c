@@ -1,11 +1,11 @@
 /*
- * XREFs of MmSetPageProtection @ 0x140133560
+ * XREFs of MmSetPageProtection @ 0x140133580
  * Callers:
- *     sub_1401AD7C0 @ 0x1401AD7C0 (sub_1401AD7C0.c)
+ *     sub_1401AD7E0 @ 0x1401AD7E0 (sub_1401AD7E0.c)
  *     KeWriteProtectProcessorState @ 0x1405723B8 (KeWriteProtectProcessorState.c)
- *     MmAllocateIsrStack @ 0x140729A0C (MmAllocateIsrStack.c)
+ *     MmAllocateIsrStack @ 0x1407299EC (MmAllocateIsrStack.c)
  *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
- *     VslpIumPhase0Initialize @ 0x1409F45F8 (VslpIumPhase0Initialize.c)
+ *     VslpIumPhase0Initialize @ 0x1409F4600 (VslpIumPhase0Initialize.c)
  * Callees:
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
@@ -14,8 +14,8 @@
  *     MiLockPageAndSetDirty @ 0x140086028 (MiLockPageAndSetDirty.c)
  *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall MmSetPageProtection(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)

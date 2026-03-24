@@ -1,15 +1,14 @@
 /*
- * XREFs of ?RecommitVirtualAddressRanges@CVirtualAddressAllocator@@QEAAJ_KPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00AA698
+ * XREFs of ?RecommitVirtualAddressRanges@CVirtualAddressAllocator@@QEAAJ_KPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00BDAA4
  * Callers:
- *     ?CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MDL@@W4VIDMM_FLUSH_TLB_MODE@@PEAPEAUVIDMM_ALLOC@@PEA_N@Z @ 0x1C008A360 (-CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MD.c)
- *     ?RecommitGpuVirtualAddresses@VIDMM_GLOBAL@@QEAAJ_K@Z @ 0x1C00AA598 (-RecommitGpuVirtualAddresses@VIDMM_GLOBAL@@QEAAJ_K@Z.c)
+ *     ?CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MDL@@W4VIDMM_FLUSH_TLB_MODE@@PEAPEAUVIDMM_ALLOC@@PEA_N@Z @ 0x1C006FD28 (-CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MD.c)
+ *     ?RecommitGpuVirtualAddresses@VIDMM_GLOBAL@@QEAAJ_K@Z @ 0x1C00B2CC0 (-RecommitGpuVirtualAddresses@VIDMM_GLOBAL@@QEAAJ_K@Z.c)
  * Callees:
- *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0002224 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000242C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?GetVidMmGlobalAllocFromOwner@@YAPEAU_VIDMM_GLOBAL_ALLOC@@W4VIDMM_VAD_OWNER_TYPE@@PEAX@Z @ 0x1C0002E2C (-GetVidMmGlobalAllocFromOwner@@YAPEAU_VIDMM_GLOBAL_ALLOC@@W4VIDMM_VAD_OWNER_TYPE@@PEAX@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     ?VidMmGetFullMDL@@YAPEAU_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C008661C (-VidMmGetFullMDL@@YAPEAU_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@@Z.c)
- *     ?CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MDL@@W4VIDMM_FLUSH_TLB_MODE@@PEAPEAUVIDMM_ALLOC@@PEA_N@Z @ 0x1C008A360 (-CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MD.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001BD0 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0001D90 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
+ *     ?GetVidMmGlobalAllocFromOwner@@YAPEAU_VIDMM_GLOBAL_ALLOC@@W4VIDMM_VAD_OWNER_TYPE@@PEAX@Z @ 0x1C0015054 (-GetVidMmGlobalAllocFromOwner@@YAPEAU_VIDMM_GLOBAL_ALLOC@@W4VIDMM_VAD_OWNER_TYPE@@PEAX@Z.c)
+ *     ?CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MDL@@W4VIDMM_FLUSH_TLB_MODE@@PEAPEAUVIDMM_ALLOC@@PEA_N@Z @ 0x1C006FD28 (-CommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@II_KPEAU_MD.c)
+ *     ?VidMmGetFullMDL@@YAPEAU_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C00898C4 (-VidMmGetFullMDL@@YAPEAU_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@@Z.c)
  */
 
 __int64 __fastcall CVirtualAddressAllocator::RecommitVirtualAddressRanges(
@@ -17,128 +16,134 @@ __int64 __fastcall CVirtualAddressAllocator::RecommitVirtualAddressRanges(
         __int64 a2,
         struct VIDMM_ALLOC **a3)
 {
-  char v3; // r13
-  CVirtualAddressAllocator *i; // rbx
-  __int64 v6; // rbp
-  char *v8; // r15
-  char *v9; // rax
+  CVirtualAddressAllocator *i; // rsi
+  __int64 v5; // rdi
+  char **v6; // rcx
+  char *v7; // r14
+  char *v8; // rax
   struct _MDL *FullMDL; // r9
+  int v10; // r12d
   int v11; // ecx
-  int v12; // eax
   __int64 VidMmGlobalAllocFromOwner; // rax
-  int v14; // r9d
-  VIDMM_SEGMENT *v15; // rcx
-  __int64 v16; // r8
-  int v17; // eax
+  int v13; // r9d
+  VIDMM_SEGMENT *v14; // rcx
+  __int64 v15; // r8
+  int v16; // eax
+  __int64 v17; // rdx
   __int64 v18; // rcx
-  __int64 v19; // [rsp+50h] [rbp-58h]
-  __int64 v20; // [rsp+B8h] [rbp+10h]
+  __int64 v19; // r8
+  __int64 v20; // r12
+  _QWORD *v21; // rax
+  __int64 v23; // [rsp+50h] [rbp-58h]
+  char v24; // [rsp+B0h] [rbp+8h]
+  __int64 v25; // [rsp+B8h] [rbp+10h]
 
-  v20 = a2;
-  v3 = 0;
+  v25 = a2;
+  v24 = 0;
   if ( this[8] != KeGetCurrentThread() )
   {
     DXGPUSHLOCK::AcquireExclusive((DXGPUSHLOCK *)(this + 7));
-    a2 = v20;
-    v3 = 1;
+    a2 = v25;
+    v24 = 1;
   }
   for ( i = this[3]; i != (CVirtualAddressAllocator *)(this + 3); i = *(CVirtualAddressAllocator **)i )
   {
-    v6 = 0LL;
-    if ( *((_DWORD *)this[11] + 1754) )
+    v5 = 0LL;
+    if ( *((_DWORD *)this[11] + 1750) )
     {
       while ( 1 )
       {
-        if ( _bittest64(&a2, (unsigned int)v6) )
+        if ( _bittest64(&a2, (unsigned int)v5) )
         {
-          v8 = (char *)*((_QWORD *)i + 3 * v6 + 7);
-          if ( v8 != (char *)i + 16 * v6 + 8 * (unsigned int)v6 + 56 )
+          v6 = (char **)((char *)i + 32 * v5 + 8 * (unsigned int)v5 + 56);
+          v7 = *v6;
+          if ( *v6 != (char *)v6 )
             break;
         }
-LABEL_7:
-        v6 = (unsigned int)(v6 + 1);
-        if ( (unsigned int)v6 >= *((_DWORD *)this[11] + 1754) )
-          goto LABEL_8;
+LABEL_24:
+        v5 = (unsigned int)(v5 + 1);
+        if ( (unsigned int)v5 >= *((_DWORD *)this[11] + 1750) )
+          goto LABEL_25;
       }
-      v9 = (char *)i + 16 * v6 + 8 * (unsigned int)v6 + 56;
-      while ( 2 )
+      v8 = (char *)i + 32 * v5 + 8 * (unsigned int)v5 + 56;
+LABEL_8:
+      FullMDL = 0LL;
+      v23 = 0LL;
+      v10 = 0;
+      v11 = (int)(*((_DWORD *)v7 + 14) << 28) >> 28;
+      if ( v11 != 1 )
       {
-        FullMDL = 0LL;
-        v19 = 0LL;
-        v11 = (int)(*((_DWORD *)v8 + 14) << 28) >> 28;
-        if ( v11 == 1 )
-          goto LABEL_23;
         if ( v11 == 2 )
+          goto LABEL_14;
+        if ( v11 <= 2 )
+          goto LABEL_22;
+        if ( v11 > 5 )
         {
-          FullMDL = *(struct _MDL **)(*((_QWORD *)v8 + 6) + 56LL);
-        }
-        else
-        {
-          if ( v11 <= 2 )
-            goto LABEL_31;
-          if ( v11 > 5 )
+          if ( v11 == 6 )
           {
-            if ( v11 != 6 )
-            {
-              if ( v11 == 7 )
-              {
-                FullMDL = *(struct _MDL **)(*((_QWORD *)v8 + 6) + 64LL);
-                break;
-              }
-LABEL_31:
-              v8 = *(char **)v8;
-              if ( v8 == v9 )
-              {
-                a2 = v20;
-                goto LABEL_7;
-              }
-              continue;
-            }
-            v12 = -2;
-LABEL_28:
-            v17 = CVirtualAddressAllocator::CommitVirtualAddressRange(
+            v10 = -2;
+            goto LABEL_20;
+          }
+          if ( v11 == 7 )
+          {
+LABEL_14:
+            FullMDL = (struct _MDL *)**((_QWORD **)v7 + 6);
+LABEL_20:
+            v16 = CVirtualAddressAllocator::CommitVirtualAddressRange(
                     (__int64)this,
-                    (__int64)(v8 - 8),
-                    v6,
-                    v12,
-                    *((_QWORD *)v8 + 8) + v19,
+                    (__int64)(v7 - 8),
+                    (unsigned int)v5,
+                    v10,
+                    *((_QWORD *)v7 + 8) + v23,
                     (__int64)FullMDL,
                     0,
                     a3,
                     0LL);
-            if ( v17 < 0 )
+            v20 = v16;
+            if ( v16 < 0 )
             {
-              WdLogSingleEntry4(1LL, v17, *((_QWORD *)v8 + 11), *((_QWORD *)v8 + 12), (unsigned int)v6);
-              DxgkLogInternalTriageEvent(v18, 0x40000LL);
-              goto LABEL_9;
+              v21 = (_QWORD *)WdLogNewEntry5_WdAssertion(v18, v17, v19);
+              v21[3] = v20;
+              v21[4] = *((_QWORD *)v7 + 11);
+              v21[5] = *((_QWORD *)v7 + 12);
+              v21[6] = (unsigned int)v5;
+              WdLogEvent5_WdAssertion(v21);
+              break;
             }
-LABEL_30:
-            v9 = (char *)i + 16 * v6 + 8 * (unsigned int)v6 + 56;
-            goto LABEL_31;
+LABEL_21:
+            v8 = (char *)i + 32 * v5 + 8 * (unsigned int)v5 + 56;
           }
-LABEL_23:
-          VidMmGlobalAllocFromOwner = GetVidMmGlobalAllocFromOwner(v11, *((_QWORD *)v8 + 6));
-          if ( *(_DWORD *)(VidMmGlobalAllocFromOwner + 112) == v14 )
-            goto LABEL_30;
-          v15 = *(VIDMM_SEGMENT **)(VidMmGlobalAllocFromOwner + 120);
-          if ( (*((_DWORD *)v15 + 20) & 0x1001) == 0 )
+LABEL_22:
+          v7 = *(char **)v7;
+          if ( v7 == v8 )
           {
-            v12 = VIDMM_SEGMENT::DriverId(v15);
-            v19 = *(_QWORD *)(v16 + 128);
-            goto LABEL_28;
+            a2 = v25;
+            goto LABEL_24;
           }
+          goto LABEL_8;
+        }
+      }
+      VidMmGlobalAllocFromOwner = GetVidMmGlobalAllocFromOwner(v11, *((_QWORD *)v7 + 6));
+      if ( *(_DWORD *)(VidMmGlobalAllocFromOwner + 120) != v13 )
+      {
+        v14 = *(VIDMM_SEGMENT **)(VidMmGlobalAllocFromOwner + 128);
+        if ( (*((_DWORD *)v14 + 20) & 0x1001) != 0 )
+        {
           FullMDL = VidMmGetFullMDL((struct _VIDMM_GLOBAL_ALLOC *)VidMmGlobalAllocFromOwner, 0LL);
         }
-        break;
+        else
+        {
+          v10 = VIDMM_SEGMENT::DriverId(v14);
+          v23 = *(_QWORD *)(v15 + 136);
+        }
+        goto LABEL_20;
       }
-      v12 = 0;
-      goto LABEL_28;
+      goto LABEL_21;
     }
-LABEL_8:
+LABEL_25:
     ;
   }
-LABEL_9:
-  if ( v3 )
+  if ( v24 )
   {
     this[8] = 0LL;
     ExReleasePushLockExclusiveEx(this + 7, 0LL);

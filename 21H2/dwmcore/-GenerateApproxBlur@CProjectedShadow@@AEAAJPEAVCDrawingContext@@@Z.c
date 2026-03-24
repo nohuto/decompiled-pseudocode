@@ -1,378 +1,370 @@
 /*
- * XREFs of ?GenerateApproxBlur@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x1802334E4
+ * XREFs of ?GenerateApproxBlur@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x180008E98
  * Callers:
- *     ?UpdateShadowIntermediates@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x180235174 (-UpdateShadowIntermediates@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?UpdateShadowIntermediates@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x18000C544 (-UpdateShadowIntermediates@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D0F68 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
- *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D92A8 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?reset@?$com_ptr_t@VCBrushRenderingGraph@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800DC290 (-reset@-$com_ptr_t@VCBrushRenderingGraph@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800FFDD8 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?GetBlurForBoundary@CProjectedShadow@@AEBAMW4Enum@ApproxBlurStageBoundary@@@Z @ 0x180114836 (-GetBlurForBoundary@CProjectedShadow@@AEBAMW4Enum@ApproxBlurStageBoundary@@@Z.c)
- *     ?AdjustNineGridBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCNineGridBrush@@@Z @ 0x180232ADC (-AdjustNineGridBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCNineGridBrush@@@Z.c)
- *     ?AdjustSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCSurfaceBrush@@@Z @ 0x180232D48 (-AdjustSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCSurfaceBrush@@@Z.c)
- *     ?CreateCrossFadeGraph@CProjectedShadow@@AEAAJPEAVCBrush@@0@Z @ 0x1802330B0 (-CreateCrossFadeGraph@CProjectedShadow@@AEAAJPEAVCBrush@@0@Z.c)
- *     ?GenerateApproxBlurIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@MAEBUD2D_SIZE_F@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180233CD8 (-GenerateApproxBlurIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@MAEBUD2D_SIZE_F@@PEA.c)
- *     ?GenerateNineGridBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVIBitmapRealization@@AEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVCNineGridBrush@@@Z @ 0x18023450C (-GenerateNineGridBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVIBitmapRealization@@AEAV-.c)
- *     ?GenerateSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVIBitmapRealization@@AEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVCSurfaceBrush@@@Z @ 0x18023468C (-GenerateSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVIBitmapRealization@@AEAV-$.c)
+ *     ?AdjustNineGridBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCNineGridBrush@@@Z @ 0x180009208 (-AdjustNineGridBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCNineGridBrush@@@Z.c)
+ *     ?GetBlurForBoundary@CProjectedShadow@@AEBAMW4Enum@ApproxBlurStageBoundary@@@Z @ 0x18000C7E8 (-GetBlurForBoundary@CProjectedShadow@@AEBAMW4Enum@ApproxBlurStageBoundary@@@Z.c)
+ *     ?GenerateApproxBlurIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@MAEBUD2D_SIZE_F@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x18000E924 (-GenerateApproxBlurIntermediate@CProjectedShadow@@AEAAJPEAVCDrawingContext@@MAEBUD2D_SIZE_F@@PEA.c)
+ *     ?CreateCrossFadeGraph@CProjectedShadow@@AEAAJPEAVCBrush@@0@Z @ 0x18001D058 (-CreateCrossFadeGraph@CProjectedShadow@@AEAAJPEAVCBrush@@0@Z.c)
+ *     ?GenerateSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVIBitmapRealization@@AEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVCSurfaceBrush@@@Z @ 0x18001D5E4 (-GenerateSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVIBitmapRealization@@AEAV-$.c)
+ *     ?GenerateNineGridBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVIBitmapRealization@@AEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVCNineGridBrush@@@Z @ 0x180020338 (-GenerateNineGridBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVIBitmapRealization@@AEAV-.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800C0048 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?AdjustSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCSurfaceBrush@@@Z @ 0x1801E3B8C (-AdjustSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVCSurfaceBrush@@@Z.c)
  */
 
 __int64 __fastcall CProjectedShadow::GenerateApproxBlur(CProjectedShadow *this, struct CDrawingContext *a2)
 {
   int v2; // eax
+  struct CDrawingContext *v3; // r15
   unsigned int v5; // ebx
-  int ApproxBlurIntermediate; // eax
-  __int64 v7; // rcx
-  struct CBrush *v8; // r14
-  struct CBrush *v9; // rsi
-  float v10; // xmm2_4
-  float v11; // xmm1_4
+  struct CBrush *v6; // r14
+  struct CBrush *v7; // rsi
+  float v8; // xmm2_4
+  float v9; // xmm1_4
+  struct IRenderTargetBitmap *v10; // rax
+  struct CNineGridBrush *v11; // r8
   int v12; // eax
-  __int64 v13; // rcx
-  CSurfaceBrush **v14; // r8
-  int v15; // edx
-  int v16; // r8d
+  __int64 v13; // rdx
+  unsigned int v14; // ecx
+  struct IRenderTargetBitmap *v15; // rax
+  struct CNineGridBrush *v16; // r8
+  int v17; // eax
+  unsigned int v18; // ecx
+  __int64 v19; // rcx
+  __int64 v20; // rdx
+  double BlurForBoundary; // xmm0_8
+  int v22; // eax
+  unsigned int v23; // ecx
+  int v24; // eax
+  unsigned int v25; // ecx
+  int v27; // eax
+  unsigned int v28; // ecx
+  struct CNineGridBrush *v29; // rcx
+  int v30; // r8d
   int NineGridBrush; // eax
-  __int64 v18; // rcx
-  int v19; // eax
-  __int64 v20; // rcx
-  int v21; // eax
-  __int64 v22; // rcx
-  CSurfaceBrush **v23; // r8
-  int v24; // edx
-  int v25; // r8d
-  int v26; // eax
-  __int64 v27; // rcx
-  int v28; // eax
-  __int64 v29; // rcx
-  __int64 v30; // rcx
-  float BlurForBoundary; // xmm0_4
-  int v32; // edx
+  unsigned int v32; // ecx
   int v33; // eax
-  __int64 v34; // rcx
-  CSurfaceBrush **v35; // r8
-  int v36; // edx
-  int v37; // r8d
-  int v38; // eax
-  __int64 v39; // rcx
-  int v40; // eax
-  __int64 v41; // rcx
-  int v42; // eax
-  __int64 v43; // rcx
-  CSurfaceBrush **v44; // r8
-  int v45; // edx
-  int v46; // r8d
-  int v47; // eax
-  __int64 v48; // rcx
-  int v49; // eax
-  __int64 v50; // rcx
-  __int64 v51; // rbx
+  unsigned int v34; // ecx
+  struct CNineGridBrush *v35; // rcx
+  int v36; // r8d
+  int v37; // eax
+  unsigned int v38; // ecx
+  __int64 v39; // rbx
   int CrossFadeGraph; // eax
-  __int64 v53; // rcx
+  unsigned int v41; // ecx
+  int ApproxBlurIntermediate; // eax
+  unsigned int v43; // ecx
+  struct CNineGridBrush *v44; // rcx
+  struct CSurfaceBrush *v45; // rcx
+  struct IRenderTargetBitmap *v46; // rax
+  int v47; // eax
+  unsigned int v48; // ecx
+  struct CNineGridBrush *v49; // rcx
+  struct CNineGridBrush *v50; // r8
+  int v51; // r8d
+  int v52; // eax
+  unsigned int v53; // ecx
   int v54; // eax
-  __int64 v55; // rcx
-  int v56; // eax
-  __int64 v57; // rcx
+  int v55; // edx
+  unsigned int v56; // ecx
+  struct IRenderTargetBitmap *v57; // rax
   int v58; // eax
-  __int64 v59; // rcx
-  CSurfaceBrush **v60; // r8
-  int v61; // edx
+  unsigned int v59; // ecx
+  struct CNineGridBrush *v60; // rcx
+  struct CSurfaceBrush *v61; // rcx
   int v62; // r8d
   int v63; // eax
-  __int64 v64; // rcx
+  unsigned int v64; // ecx
   int v65; // eax
-  __int64 v66; // rcx
-  struct CSurfaceBrush *v67; // r8
-  __int64 v68; // rdx
-  char *v69; // r8
-  int v70; // eax
-  __int64 v71; // rcx
-  int v72; // eax
-  __int64 v73; // rcx
-  _BYTE v75[4]; // [rsp+40h] [rbp-30h] BYREF
-  _BYTE v76[4]; // [rsp+44h] [rbp-2Ch] BYREF
-  float v77; // [rsp+48h] [rbp-28h] BYREF
-  __int128 v78; // [rsp+50h] [rbp-20h] BYREF
+  unsigned int v66; // ecx
+  struct IRenderTargetBitmap *v67; // rax
+  int v68; // eax
+  unsigned int v69; // ecx
+  struct CNineGridBrush *v70; // rcx
+  struct CSurfaceBrush *v71; // rcx
+  int v72; // r8d
+  int v73; // eax
+  unsigned int v74; // ecx
+  int v75; // eax
+  __int64 v76; // rdx
+  unsigned int v77; // ecx
+  struct CSurfaceBrush *v78; // r8
+  char *v79; // r8
+  int v80; // eax
+  unsigned int v81; // ecx
+  int v82; // eax
+  unsigned int v83; // ecx
+  __int64 v84; // rcx
+  _BYTE v85[4]; // [rsp+40h] [rbp-30h] BYREF
+  _BYTE v86[4]; // [rsp+44h] [rbp-2Ch] BYREF
+  float v87; // [rsp+48h] [rbp-28h] BYREF
+  __int128 v88; // [rsp+50h] [rbp-20h] BYREF
 
-  v2 = *((_DWORD *)this + 82);
+  v2 = *((_DWORD *)this + 80);
+  v3 = a2;
   v5 = 0;
   if ( v2 == 5 )
   {
     if ( !CProjectedShadow::s_cp2xBlurAsset )
     {
-      wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp2xBlurAsset);
+      CProjectedShadow::s_cp2xBlurAsset = 0LL;
       ApproxBlurIntermediate = CProjectedShadow::GenerateApproxBlurIntermediate(
                                  this,
                                  a2,
                                  64.0,
-                                 &stru_18038C580,
+                                 &stru_1802CD888,
                                  &CProjectedShadow::s_cp2xBlurAsset);
       v5 = ApproxBlurIntermediate;
       if ( ApproxBlurIntermediate < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, ApproxBlurIntermediate, 0x3A4u);
+        MilInstrumentationCheckHR_MaybeFailFast(v43, 0LL, 0, ApproxBlurIntermediate, 0x3A4u, 0LL);
       }
       else
       {
-        wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp2xBlurNineGrid);
-        wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp2xBlurSurface);
+        v44 = CProjectedShadow::s_cp2xBlurNineGrid;
+        CProjectedShadow::s_cp2xBlurNineGrid = 0LL;
+        if ( v44 )
+          (*(void (__fastcall **)(struct CNineGridBrush *))(*(_QWORD *)v44 + 16LL))(v44);
+        v45 = CProjectedShadow::s_cp2xBlurSurface;
+        CProjectedShadow::s_cp2xBlurSurface = 0LL;
+        if ( v45 )
+          (*(void (__fastcall **)(struct CSurfaceBrush *))(*(_QWORD *)v45 + 16LL))(v45);
       }
     }
     return v5;
   }
-  v8 = 0LL;
-  v9 = 0LL;
-  v10 = 0.0;
-  v11 = 0.0;
-  v78 = _xmm;
-  switch ( v2 )
+  v6 = 0LL;
+  v7 = 0LL;
+  v8 = 0.0;
+  v9 = 0.0;
+  v88 = _xmm;
+  if ( v2 == 2 )
   {
-    case 2:
-      if ( !CProjectedShadow::s_cpHalfBlurAsset )
+    v10 = CProjectedShadow::s_cpHalfBlurAsset;
+    if ( !CProjectedShadow::s_cpHalfBlurAsset )
+    {
+      CProjectedShadow::s_cpHalfBlurAsset = 0LL;
+      v27 = CProjectedShadow::GenerateApproxBlurIntermediate(
+              this,
+              a2,
+              16.0,
+              &stru_1802CD888,
+              &CProjectedShadow::s_cpHalfBlurAsset);
+      v5 = v27;
+      if ( v27 < 0 )
       {
-        wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cpHalfBlurAsset);
-        v12 = CProjectedShadow::GenerateApproxBlurIntermediate(
-                this,
-                a2,
-                16.0,
-                &stru_18038C580,
-                &CProjectedShadow::s_cpHalfBlurAsset);
-        v5 = v12;
-        if ( v12 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0x3BEu);
-          return v5;
-        }
-        wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cpHalfBlurNineGrid);
+        MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, v27, 0x3BEu, 0LL);
+        return v5;
       }
-      v14 = (CSurfaceBrush **)CProjectedShadow::s_cpHalfBlurNineGrid;
-      if ( !CProjectedShadow::s_cpHalfBlurNineGrid )
+      v29 = CProjectedShadow::s_cpHalfBlurNineGrid;
+      v11 = 0LL;
+      CProjectedShadow::s_cpHalfBlurNineGrid = 0LL;
+      if ( !v29 )
       {
-        wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cpHalfBlurNineGrid);
-        if ( CProjectedShadow::s_cpHalfBlurAsset )
+        v10 = CProjectedShadow::s_cpHalfBlurAsset;
+LABEL_21:
+        CProjectedShadow::s_cpHalfBlurNineGrid = 0LL;
+        if ( v11 )
         {
-          v15 = *(_DWORD *)(*((_QWORD *)CProjectedShadow::s_cpHalfBlurAsset + 1) + 16LL);
-          v16 = v15 + (_DWORD)CProjectedShadow::s_cpHalfBlurAsset + 8;
+          (*(void (__fastcall **)(struct CNineGridBrush *))(*(_QWORD *)v11 + 16LL))(v11);
+          v10 = CProjectedShadow::s_cpHalfBlurAsset;
+        }
+        if ( v10 )
+        {
+          LODWORD(a2) = *(_DWORD *)(*((_QWORD *)v10 + 1) + 16LL);
+          v30 = (_DWORD)a2 + (_DWORD)v10 + 8;
         }
         else
         {
-          v16 = 0;
+          v30 = 0;
         }
         NineGridBrush = CProjectedShadow::GenerateNineGridBrush(
                           (_DWORD)this,
-                          v15,
-                          v16,
-                          (unsigned int)&v78,
+                          (_DWORD)a2,
+                          v30,
+                          (unsigned int)&v88,
                           (__int64)&CProjectedShadow::s_cpHalfBlurNineGrid);
         v5 = NineGridBrush;
         if ( NineGridBrush < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0LL, NineGridBrush, 0x3C7u);
+          MilInstrumentationCheckHR_MaybeFailFast(v32, 0LL, 0, NineGridBrush, 0x3C7u, 0LL);
           return v5;
         }
-        v14 = (CSurfaceBrush **)CProjectedShadow::s_cpHalfBlurNineGrid;
-      }
-      v19 = CProjectedShadow::AdjustNineGridBrush((struct CComposition **)this, a2, v14);
-      v5 = v19;
-      if ( v19 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0LL, v19, 0x3CBu);
-        return v5;
-      }
-      if ( !CProjectedShadow::s_cp1xBlurAsset )
-      {
-        wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp1xBlurAsset);
-        v21 = CProjectedShadow::GenerateApproxBlurIntermediate(
-                this,
-                a2,
-                32.0,
-                &stru_18038C580,
-                &CProjectedShadow::s_cp1xBlurAsset);
-        v5 = v21;
-        if ( v21 < 0 )
+        v11 = CProjectedShadow::s_cpHalfBlurNineGrid;
+LABEL_5:
+        v12 = CProjectedShadow::AdjustNineGridBrush(this, v3, v11);
+        v5 = v12;
+        if ( v12 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0LL, v21, 0x3D2u);
+          MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v12, 0x3CBu, 0LL);
           return v5;
         }
-        wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp1xBlurNineGrid);
-      }
-      v23 = (CSurfaceBrush **)CProjectedShadow::s_cp1xBlurNineGrid;
-      if ( !CProjectedShadow::s_cp1xBlurNineGrid )
-      {
-        wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp1xBlurNineGrid);
-        if ( CProjectedShadow::s_cp1xBlurAsset )
+        v15 = CProjectedShadow::s_cp1xBlurAsset;
+        if ( !CProjectedShadow::s_cp1xBlurAsset )
         {
-          v24 = *(_DWORD *)(*((_QWORD *)CProjectedShadow::s_cp1xBlurAsset + 1) + 16LL);
-          v25 = v24 + (_DWORD)CProjectedShadow::s_cp1xBlurAsset + 8;
+          CProjectedShadow::s_cp1xBlurAsset = 0LL;
+          v33 = CProjectedShadow::GenerateApproxBlurIntermediate(
+                  this,
+                  v3,
+                  32.0,
+                  &stru_1802CD888,
+                  &CProjectedShadow::s_cp1xBlurAsset);
+          v5 = v33;
+          if ( v33 < 0 )
+          {
+            MilInstrumentationCheckHR_MaybeFailFast(v34, 0LL, 0, v33, 0x3D2u, 0LL);
+            return v5;
+          }
+          v35 = CProjectedShadow::s_cp1xBlurNineGrid;
+          v16 = 0LL;
+          CProjectedShadow::s_cp1xBlurNineGrid = 0LL;
+          if ( !v35 )
+          {
+            v15 = CProjectedShadow::s_cp1xBlurAsset;
+            goto LABEL_30;
+          }
+          (*(void (__fastcall **)(struct CNineGridBrush *, __int64, _QWORD))(*(_QWORD *)v35 + 16LL))(v35, v13, 0LL);
+          v15 = CProjectedShadow::s_cp1xBlurAsset;
+        }
+        v16 = CProjectedShadow::s_cp1xBlurNineGrid;
+        if ( CProjectedShadow::s_cp1xBlurNineGrid )
+        {
+LABEL_8:
+          v17 = CProjectedShadow::AdjustNineGridBrush(this, v3, v16);
+          v5 = v17;
+          if ( v17 < 0 )
+          {
+            MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x3DFu, 0LL);
+            return v5;
+          }
+          v6 = CProjectedShadow::s_cpHalfBlurNineGrid;
+          v7 = CProjectedShadow::s_cp1xBlurNineGrid;
+          CProjectedShadow::GetBlurForBoundary(this, 0LL);
+          v20 = 1LL;
+          goto LABEL_10;
+        }
+LABEL_30:
+        CProjectedShadow::s_cp1xBlurNineGrid = 0LL;
+        if ( v16 )
+        {
+          (*(void (__fastcall **)(struct CNineGridBrush *))(*(_QWORD *)v16 + 16LL))(v16);
+          v15 = CProjectedShadow::s_cp1xBlurAsset;
+        }
+        if ( v15 )
+        {
+          LODWORD(v13) = *(_DWORD *)(*((_QWORD *)v15 + 1) + 16LL);
+          v36 = v13 + (_DWORD)v15 + 8;
         }
         else
         {
-          v25 = 0;
+          v36 = 0;
         }
-        v26 = CProjectedShadow::GenerateNineGridBrush(
+        v37 = CProjectedShadow::GenerateNineGridBrush(
                 (_DWORD)this,
-                v24,
-                v25,
-                (unsigned int)&v78,
-                (__int64)&CProjectedShadow::s_cp1xBlurNineGrid);
-        v5 = v26;
-        if ( v26 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0LL, v26, 0x3DBu);
-          return v5;
-        }
-        v23 = (CSurfaceBrush **)CProjectedShadow::s_cp1xBlurNineGrid;
-      }
-      v28 = CProjectedShadow::AdjustNineGridBrush((struct CComposition **)this, a2, v23);
-      v5 = v28;
-      if ( v28 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0LL, v28, 0x3DFu);
-        return v5;
-      }
-      v8 = CProjectedShadow::s_cpHalfBlurNineGrid;
-      v9 = CProjectedShadow::s_cp1xBlurNineGrid;
-      BlurForBoundary = CProjectedShadow::GetBlurForBoundary((__int64)this, 0);
-      v32 = 1;
-      break;
-    case 3:
-      if ( !CProjectedShadow::s_cp1xBlurAsset )
-      {
-        wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp1xBlurAsset);
-        v33 = CProjectedShadow::GenerateApproxBlurIntermediate(
-                this,
-                a2,
-                32.0,
-                &stru_18038C580,
-                &CProjectedShadow::s_cp1xBlurAsset);
-        v5 = v33;
-        if ( v33 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v34, 0LL, 0LL, v33, 0x3EEu);
-          return v5;
-        }
-        wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp1xBlurNineGrid);
-      }
-      v35 = (CSurfaceBrush **)CProjectedShadow::s_cp1xBlurNineGrid;
-      if ( !CProjectedShadow::s_cp1xBlurNineGrid )
-      {
-        wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp1xBlurNineGrid);
-        if ( CProjectedShadow::s_cp1xBlurAsset )
-        {
-          v36 = *(_DWORD *)(*((_QWORD *)CProjectedShadow::s_cp1xBlurAsset + 1) + 16LL);
-          v37 = v36 + (_DWORD)CProjectedShadow::s_cp1xBlurAsset + 8;
-        }
-        else
-        {
-          v37 = 0;
-        }
-        v38 = CProjectedShadow::GenerateNineGridBrush(
-                (_DWORD)this,
+                v13,
                 v36,
-                v37,
-                (unsigned int)&v78,
+                (unsigned int)&v88,
                 (__int64)&CProjectedShadow::s_cp1xBlurNineGrid);
-        v5 = v38;
-        if ( v38 < 0 )
+        v5 = v37;
+        if ( v37 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v39, 0LL, 0LL, v38, 0x3F7u);
+          MilInstrumentationCheckHR_MaybeFailFast(v38, 0LL, 0, v37, 0x3DBu, 0LL);
           return v5;
         }
-        v35 = (CSurfaceBrush **)CProjectedShadow::s_cp1xBlurNineGrid;
+        v16 = CProjectedShadow::s_cp1xBlurNineGrid;
+        goto LABEL_8;
       }
-      v40 = CProjectedShadow::AdjustNineGridBrush((struct CComposition **)this, a2, v35);
-      v5 = v40;
-      if ( v40 < 0 )
+      (*(void (__fastcall **)(struct CNineGridBrush *, struct CDrawingContext *, _QWORD))(*(_QWORD *)v29 + 16LL))(
+        v29,
+        a2,
+        0LL);
+      v10 = CProjectedShadow::s_cpHalfBlurAsset;
+    }
+    v11 = CProjectedShadow::s_cpHalfBlurNineGrid;
+    if ( CProjectedShadow::s_cpHalfBlurNineGrid )
+      goto LABEL_5;
+    goto LABEL_21;
+  }
+  if ( v2 == 3 )
+  {
+    v46 = CProjectedShadow::s_cp1xBlurAsset;
+    if ( !CProjectedShadow::s_cp1xBlurAsset )
+    {
+      CProjectedShadow::s_cp1xBlurAsset = 0LL;
+      v47 = CProjectedShadow::GenerateApproxBlurIntermediate(
+              this,
+              a2,
+              32.0,
+              &stru_1802CD888,
+              &CProjectedShadow::s_cp1xBlurAsset);
+      v5 = v47;
+      if ( v47 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v41, 0LL, 0LL, v40, 0x3FBu);
+        MilInstrumentationCheckHR_MaybeFailFast(v48, 0LL, 0, v47, 0x3EEu, 0LL);
         return v5;
       }
-      if ( !CProjectedShadow::s_cp2xBlurAsset )
+      v49 = CProjectedShadow::s_cp1xBlurNineGrid;
+      v50 = 0LL;
+      CProjectedShadow::s_cp1xBlurNineGrid = 0LL;
+      if ( !v49 )
       {
-        wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp2xBlurAsset);
-        v42 = CProjectedShadow::GenerateApproxBlurIntermediate(
-                this,
-                a2,
-                64.0,
-                &stru_18038C580,
-                &CProjectedShadow::s_cp2xBlurAsset);
-        v5 = v42;
-        if ( v42 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v43, 0LL, 0LL, v42, 0x402u);
-          return v5;
-        }
-        wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp2xBlurNineGrid);
-        wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp2xBlurSurface);
+        v46 = CProjectedShadow::s_cp1xBlurAsset;
+        goto LABEL_63;
       }
-      v44 = (CSurfaceBrush **)CProjectedShadow::s_cp2xBlurNineGrid;
-      if ( !CProjectedShadow::s_cp2xBlurNineGrid )
+      (*(void (__fastcall **)(struct CNineGridBrush *, struct CDrawingContext *, _QWORD))(*(_QWORD *)v49 + 16LL))(
+        v49,
+        a2,
+        0LL);
+      v46 = CProjectedShadow::s_cp1xBlurAsset;
+    }
+    v50 = CProjectedShadow::s_cp1xBlurNineGrid;
+    if ( CProjectedShadow::s_cp1xBlurNineGrid )
+    {
+LABEL_73:
+      v54 = CProjectedShadow::AdjustNineGridBrush(this, v3, v50);
+      v5 = v54;
+      if ( v54 < 0 )
       {
-        wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp2xBlurNineGrid);
-        if ( CProjectedShadow::s_cp2xBlurAsset )
-        {
-          v45 = *(_DWORD *)(*((_QWORD *)CProjectedShadow::s_cp2xBlurAsset + 1) + 16LL);
-          v46 = v45 + (_DWORD)CProjectedShadow::s_cp2xBlurAsset + 8;
-        }
-        else
-        {
-          v46 = 0;
-        }
-        v47 = CProjectedShadow::GenerateNineGridBrush(
-                (_DWORD)this,
-                v45,
-                v46,
-                (unsigned int)&v78,
-                (__int64)&CProjectedShadow::s_cp2xBlurNineGrid);
-        v5 = v47;
-        if ( v47 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v48, 0LL, 0LL, v47, 0x40Cu);
-          return v5;
-        }
-        v44 = (CSurfaceBrush **)CProjectedShadow::s_cp2xBlurNineGrid;
-      }
-      v49 = CProjectedShadow::AdjustNineGridBrush((struct CComposition **)this, a2, v44);
-      v5 = v49;
-      if ( v49 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v50, 0LL, 0LL, v49, 0x410u);
+        MilInstrumentationCheckHR_MaybeFailFast(v56, 0LL, 0, v54, 0x3FBu, 0LL);
         return v5;
       }
-      v8 = CProjectedShadow::s_cp1xBlurNineGrid;
-      v9 = CProjectedShadow::s_cp2xBlurNineGrid;
-      BlurForBoundary = CProjectedShadow::GetBlurForBoundary((__int64)this, 1);
-      v32 = 2;
-      break;
-    case 4:
+      v57 = CProjectedShadow::s_cp2xBlurAsset;
       if ( !CProjectedShadow::s_cp2xBlurAsset )
       {
-        wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp2xBlurAsset);
+        CProjectedShadow::s_cp2xBlurAsset = 0LL;
         v58 = CProjectedShadow::GenerateApproxBlurIntermediate(
                 this,
-                a2,
+                v3,
                 64.0,
-                &stru_18038C580,
+                &stru_1802CD888,
                 &CProjectedShadow::s_cp2xBlurAsset);
         v5 = v58;
         if ( v58 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v59, 0LL, 0LL, v58, 0x41Fu);
+          MilInstrumentationCheckHR_MaybeFailFast(v59, 0LL, 0, v58, 0x402u, 0LL);
           return v5;
         }
-        wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp2xBlurNineGrid);
-        wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp2xBlurSurface);
+        v60 = CProjectedShadow::s_cp2xBlurNineGrid;
+        CProjectedShadow::s_cp2xBlurNineGrid = 0LL;
+        if ( v60 )
+          (*(void (__fastcall **)(struct CNineGridBrush *))(*(_QWORD *)v60 + 16LL))(v60);
+        v61 = CProjectedShadow::s_cp2xBlurSurface;
+        CProjectedShadow::s_cp2xBlurSurface = 0LL;
+        if ( v61 )
+          (*(void (__fastcall **)(struct CSurfaceBrush *))(*(_QWORD *)v61 + 16LL))(v61);
+        v57 = CProjectedShadow::s_cp2xBlurAsset;
       }
-      v60 = (CSurfaceBrush **)CProjectedShadow::s_cp2xBlurNineGrid;
       if ( !CProjectedShadow::s_cp2xBlurNineGrid )
       {
-        wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp2xBlurNineGrid);
-        if ( CProjectedShadow::s_cp2xBlurAsset )
+        CProjectedShadow::s_cp2xBlurNineGrid = 0LL;
+        if ( v57 )
         {
-          v61 = *(_DWORD *)(*((_QWORD *)CProjectedShadow::s_cp2xBlurAsset + 1) + 16LL);
-          v62 = v61 + (_DWORD)CProjectedShadow::s_cp2xBlurAsset + 8;
+          v55 = *(_DWORD *)(*((_QWORD *)v57 + 1) + 16LL);
+          v62 = v55 + (_DWORD)v57 + 8;
         }
         else
         {
@@ -380,114 +372,211 @@ __int64 __fastcall CProjectedShadow::GenerateApproxBlur(CProjectedShadow *this, 
         }
         v63 = CProjectedShadow::GenerateNineGridBrush(
                 (_DWORD)this,
-                v61,
+                v55,
                 v62,
-                (unsigned int)&v78,
+                (unsigned int)&v88,
                 (__int64)&CProjectedShadow::s_cp2xBlurNineGrid);
         v5 = v63;
         if ( v63 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v64, 0LL, 0LL, v63, 0x429u);
+          MilInstrumentationCheckHR_MaybeFailFast(v64, 0LL, 0, v63, 0x40Cu, 0LL);
           return v5;
         }
-        v60 = (CSurfaceBrush **)CProjectedShadow::s_cp2xBlurNineGrid;
       }
-      v65 = CProjectedShadow::AdjustNineGridBrush((struct CComposition **)this, a2, v60);
+      v65 = CProjectedShadow::AdjustNineGridBrush(this, v3, CProjectedShadow::s_cp2xBlurNineGrid);
       v5 = v65;
       if ( v65 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v66, 0LL, 0LL, v65, 0x42Du);
+        MilInstrumentationCheckHR_MaybeFailFast(v66, 0LL, 0, v65, 0x410u, 0LL);
         return v5;
       }
-      v67 = CProjectedShadow::s_cp2xBlurSurface;
-      if ( !CProjectedShadow::s_cp2xBlurSurface )
-      {
-        wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&CProjectedShadow::s_cp2xBlurSurface);
-        if ( CProjectedShadow::s_cp2xBlurAsset )
-        {
-          v68 = *(int *)(*((_QWORD *)CProjectedShadow::s_cp2xBlurAsset + 1) + 16LL);
-          v69 = (char *)CProjectedShadow::s_cp2xBlurAsset + v68 + 8;
-        }
-        else
-        {
-          v69 = 0LL;
-        }
-        v70 = CProjectedShadow::GenerateSurfaceBrush(this, v68, v69, &v78, &CProjectedShadow::s_cp2xBlurSurface);
-        v5 = v70;
-        if ( v70 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v71, 0LL, 0LL, v70, 0x434u);
-          return v5;
-        }
-        v67 = CProjectedShadow::s_cp2xBlurSurface;
-      }
-      v72 = CProjectedShadow::AdjustSurfaceBrush((struct CComposition **)this, a2, v67);
-      v5 = v72;
-      if ( v72 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v73, 0LL, 0LL, v72, 0x438u);
-        return v5;
-      }
-      v8 = CProjectedShadow::s_cp2xBlurNineGrid;
-      v9 = CProjectedShadow::s_cp2xBlurSurface;
-      BlurForBoundary = CProjectedShadow::GetBlurForBoundary((__int64)this, 2);
-      v32 = 3;
-      break;
-    default:
-      goto LABEL_61;
-  }
-  v10 = BlurForBoundary;
-  v11 = CProjectedShadow::GetBlurForBoundary(v30, v32);
-LABEL_61:
-  v77 = (float)(*((float *)this + 24) - v10) / (float)(v11 - v10);
-  if ( *((struct CBrush **)this + 42) != v8 || *((struct CBrush **)this + 43) != v9 )
-  {
-    v51 = *((_QWORD *)this + 47);
-    if ( v51 )
+      v6 = CProjectedShadow::s_cp1xBlurNineGrid;
+      v7 = CProjectedShadow::s_cp2xBlurNineGrid;
+      CProjectedShadow::GetBlurForBoundary(this, 1LL);
+      v20 = 2LL;
+      goto LABEL_10;
+    }
+LABEL_63:
+    CProjectedShadow::s_cp1xBlurNineGrid = 0LL;
+    if ( v50 )
     {
-      *(_DWORD *)(v51 + 40) = 0;
-      DynArrayImpl<0>::ShrinkToSize(v51 + 16, 0x18u);
-      *(_BYTE *)(v51 + 200) = 1;
-      wil::com_ptr_t<CBrushRenderingGraph,wil::err_returncode_policy>::reset((__int64 *)this + 47);
+      (*(void (__fastcall **)(struct CNineGridBrush *))(*(_QWORD *)v50 + 16LL))(v50);
+      v46 = CProjectedShadow::s_cp1xBlurAsset;
+    }
+    if ( v46 )
+    {
+      LODWORD(a2) = *(_DWORD *)(*((_QWORD *)v46 + 1) + 16LL);
+      v51 = (_DWORD)a2 + (_DWORD)v46 + 8;
+    }
+    else
+    {
+      v51 = 0;
+    }
+    v52 = CProjectedShadow::GenerateNineGridBrush(
+            (_DWORD)this,
+            (_DWORD)a2,
+            v51,
+            (unsigned int)&v88,
+            (__int64)&CProjectedShadow::s_cp1xBlurNineGrid);
+    v5 = v52;
+    if ( v52 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v53, 0LL, 0, v52, 0x3F7u, 0LL);
+      return v5;
+    }
+    v50 = CProjectedShadow::s_cp1xBlurNineGrid;
+    goto LABEL_73;
+  }
+  if ( v2 != 4 )
+    goto LABEL_11;
+  v67 = CProjectedShadow::s_cp2xBlurAsset;
+  if ( !CProjectedShadow::s_cp2xBlurAsset )
+  {
+    CProjectedShadow::s_cp2xBlurAsset = 0LL;
+    v68 = CProjectedShadow::GenerateApproxBlurIntermediate(
+            this,
+            a2,
+            64.0,
+            &stru_1802CD888,
+            &CProjectedShadow::s_cp2xBlurAsset);
+    v5 = v68;
+    if ( v68 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v69, 0LL, 0, v68, 0x41Fu, 0LL);
+      return v5;
+    }
+    v70 = CProjectedShadow::s_cp2xBlurNineGrid;
+    CProjectedShadow::s_cp2xBlurNineGrid = 0LL;
+    if ( v70 )
+      (*(void (__fastcall **)(struct CNineGridBrush *))(*(_QWORD *)v70 + 16LL))(v70);
+    v71 = CProjectedShadow::s_cp2xBlurSurface;
+    CProjectedShadow::s_cp2xBlurSurface = 0LL;
+    if ( v71 )
+      (*(void (__fastcall **)(struct CSurfaceBrush *))(*(_QWORD *)v71 + 16LL))(v71);
+    v67 = CProjectedShadow::s_cp2xBlurAsset;
+  }
+  if ( !CProjectedShadow::s_cp2xBlurNineGrid )
+  {
+    CProjectedShadow::s_cp2xBlurNineGrid = 0LL;
+    if ( v67 )
+    {
+      LODWORD(a2) = *(_DWORD *)(*((_QWORD *)v67 + 1) + 16LL);
+      v72 = (_DWORD)a2 + (_DWORD)v67 + 8;
+    }
+    else
+    {
+      v72 = 0;
+    }
+    v73 = CProjectedShadow::GenerateNineGridBrush(
+            (_DWORD)this,
+            (_DWORD)a2,
+            v72,
+            (unsigned int)&v88,
+            (__int64)&CProjectedShadow::s_cp2xBlurNineGrid);
+    v5 = v73;
+    if ( v73 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v74, 0LL, 0, v73, 0x429u, 0LL);
+      return v5;
     }
   }
-  if ( !*((_QWORD *)this + 47) )
+  v75 = CProjectedShadow::AdjustNineGridBrush(this, v3, CProjectedShadow::s_cp2xBlurNineGrid);
+  v5 = v75;
+  if ( v75 < 0 )
   {
-    CrossFadeGraph = CProjectedShadow::CreateCrossFadeGraph(this, v8, v9);
+    MilInstrumentationCheckHR_MaybeFailFast(v77, 0LL, 0, v75, 0x42Du, 0LL);
+    return v5;
+  }
+  v78 = CProjectedShadow::s_cp2xBlurSurface;
+  if ( !CProjectedShadow::s_cp2xBlurSurface )
+  {
+    CProjectedShadow::s_cp2xBlurSurface = 0LL;
+    if ( CProjectedShadow::s_cp2xBlurAsset )
+    {
+      v76 = *(int *)(*((_QWORD *)CProjectedShadow::s_cp2xBlurAsset + 1) + 16LL);
+      v79 = (char *)CProjectedShadow::s_cp2xBlurAsset + v76 + 8;
+    }
+    else
+    {
+      v79 = 0LL;
+    }
+    v80 = CProjectedShadow::GenerateSurfaceBrush(this, v76, v79, &v88, &CProjectedShadow::s_cp2xBlurSurface);
+    v5 = v80;
+    if ( v80 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v81, 0LL, 0, v80, 0x434u, 0LL);
+      return v5;
+    }
+    v78 = CProjectedShadow::s_cp2xBlurSurface;
+  }
+  v82 = CProjectedShadow::AdjustSurfaceBrush(this, v3, v78);
+  v5 = v82;
+  if ( v82 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v83, 0LL, 0, v82, 0x438u, 0LL);
+    return v5;
+  }
+  v6 = CProjectedShadow::s_cp2xBlurNineGrid;
+  v7 = CProjectedShadow::s_cp2xBlurSurface;
+  CProjectedShadow::GetBlurForBoundary(this, 2LL);
+  v20 = 3LL;
+LABEL_10:
+  v8 = *(float *)&_xmm;
+  BlurForBoundary = CProjectedShadow::GetBlurForBoundary(v19, v20);
+  v9 = *(float *)&BlurForBoundary;
+LABEL_11:
+  v87 = (float)(*((float *)this + 22) - v8) / (float)(v9 - v8);
+  if ( *((struct CBrush **)this + 41) != v6 || *((struct CBrush **)this + 42) != v7 )
+  {
+    v39 = *((_QWORD *)this + 46);
+    if ( v39 )
+    {
+      *(_DWORD *)(v39 + 40) = 0;
+      DynArrayImpl<0>::ShrinkToSize(v39 + 16, 24LL);
+      *(_BYTE *)(v39 + 200) = 1;
+      v84 = *((_QWORD *)this + 46);
+      *((_QWORD *)this + 46) = 0LL;
+      if ( v84 )
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v84 + 8LL))(v84);
+    }
+  }
+  if ( !*((_QWORD *)this + 46) )
+  {
+    CrossFadeGraph = CProjectedShadow::CreateCrossFadeGraph(this, v6, v7);
     v5 = CrossFadeGraph;
     if ( CrossFadeGraph < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v53, 0LL, 0LL, CrossFadeGraph, 0x450u);
+      MilInstrumentationCheckHR_MaybeFailFast(v41, 0LL, 0, CrossFadeGraph, 0x450u, 0LL);
       return v5;
     }
-    *((_QWORD *)this + 42) = v8;
-    *((_QWORD *)this + 43) = v9;
+    *((_QWORD *)this + 41) = v6;
+    *((_QWORD *)this + 42) = v7;
   }
-  v54 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, char *, _BYTE *, _BYTE *))(**((_QWORD **)this + 48) + 32LL))(
-          *((_QWORD *)this + 48),
+  v22 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64, char *, _BYTE *, _BYTE *))(**((_QWORD **)this + 47) + 32LL))(
+          *((_QWORD *)this + 47),
           0LL,
           69LL,
-          (char *)this + 352,
-          v75,
-          v76);
-  v5 = v54;
-  if ( v54 < 0 )
+          (char *)this + 344,
+          v85,
+          v86);
+  v5 = v22;
+  if ( v22 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v55, 0LL, 0LL, v54, 0x45Au);
+    MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0x45Au, 0LL);
   }
   else
   {
-    v56 = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64, float *, _BYTE *, _BYTE *))(**((_QWORD **)this + 48)
+    v24 = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64, float *, _BYTE *, _BYTE *))(**((_QWORD **)this + 47)
                                                                                          + 32LL))(
-            *((_QWORD *)this + 48),
+            *((_QWORD *)this + 47),
             1LL,
             18LL,
-            &v77,
-            v75,
-            v76);
-    v5 = v56;
-    if ( v56 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v57, 0LL, 0LL, v56, 0x45Bu);
+            &v87,
+            v85,
+            v86);
+    v5 = v24;
+    if ( v24 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v24, 0x45Bu, 0LL);
   }
   return v5;
 }

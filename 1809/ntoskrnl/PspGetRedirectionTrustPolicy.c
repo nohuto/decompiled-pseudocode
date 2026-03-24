@@ -1,11 +1,11 @@
 /*
  * XREFs of PspGetRedirectionTrustPolicy @ 0x1405827D4
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
- *     SeTokenGetRedirectionTrustPolicy @ 0x1401B702C (SeTokenGetRedirectionTrustPolicy.c)
+ *     SeTokenGetRedirectionTrustPolicy @ 0x1401B704C (SeTokenGetRedirectionTrustPolicy.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
  */
 

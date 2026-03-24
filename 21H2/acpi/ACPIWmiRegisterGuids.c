@@ -1,15 +1,16 @@
 /*
- * XREFs of ACPIWmiRegisterGuids @ 0x1C002D87C
+ * XREFs of ACPIWmiRegisterGuids @ 0x1C0030B2C
  * Callers:
- *     ACPIDispatchWmiLog @ 0x1C002D7E0 (ACPIDispatchWmiLog.c)
+ *     ACPIDispatchWmiLog @ 0x1C0030A90 (ACPIDispatchWmiLog.c)
  * Callees:
- *     memset @ 0x1C0030080 (memset.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall ACPIWmiRegisterGuids(_DWORD *a1, unsigned int a2, _DWORD *a3)
 {
   char *v5; // rcx
-  __int128 v7; // [rsp+20h] [rbp-18h]
+  __int128 v7; // [rsp+20h] [rbp-20h]
 
   *a3 = 0;
   *(_QWORD *)&v7 = 0x477D2D48DAB01D4DLL;

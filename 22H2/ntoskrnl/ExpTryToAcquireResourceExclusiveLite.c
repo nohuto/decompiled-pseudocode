@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpTryToAcquireResourceExclusiveLite @ 0x14060AFA4
+ * XREFs of ExpTryToAcquireResourceExclusiveLite @ 0x1405B583C
  * Callers:
- *     ExTryToAcquireResourceExclusiveLite @ 0x14060AB00 (ExTryToAcquireResourceExclusiveLite.c)
+ *     ExTryToAcquireResourceExclusiveLite @ 0x1405B5460 (ExTryToAcquireResourceExclusiveLite.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpTryAcquireResourceExclusive @ 0x1403C9C50 (ExpTryAcquireResourceExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PerfLogExecutiveResourceAcquire @ 0x14060071C (PerfLogExecutiveResourceAcquire.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExpTryAcquireResourceExclusive @ 0x1402CDEB0 (ExpTryAcquireResourceExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x1405AACCC (PerfLogExecutiveResourceAcquire.c)
  */
 
 char __fastcall ExpTryToAcquireResourceExclusiveLite(__int64 a1)
@@ -26,16 +26,16 @@ char __fastcall ExpTryToAcquireResourceExclusiveLite(__int64 a1)
   _DWORD *SchedulerAssist; // r9
   int v14; // eax
   bool v15; // zf
-  struct _KLOCK_QUEUE_HANDLE v17[2]; // [rsp+20h] [rbp-38h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
-  memset(v17, 0, 24);
+  memset(&LockHandle, 0, sizeof(LockHandle));
   v2 = 0;
   CurrentThread = KeGetCurrentThread();
   v4 = 0;
   v5 = DWORD1(PerfGlobalGroupMask) & 0x20000;
   v6 = 65537;
-  __incgsdword(0x8AE0u);
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 96), v17);
+  __incgsdword(0x86E0u);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 96), &LockHandle);
   v7 = ExpTryAcquireResourceExclusive(a1);
   if ( v7 )
   {
@@ -65,27 +65,30 @@ char __fastcall ExpTryToAcquireResourceExclusiveLite(__int64 a1)
   {
     v7 = 0;
   }
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)v17);
-  OldIrql = v17[0].OldIrql;
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v17[0].OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v14 = ~(unsigned __int16)(-1LL << (v17[0].OldIrql + 1));
-      v15 = (v14 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v14;
-      if ( v15 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v14 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v15 = (v14 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v14;
+        if ( v15 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);
   if ( v7 )
   {
-    __incgsdword(0x8AE4u);
-    __incgsdword(0x8A64u);
+    __incgsdword(0x86E4u);
+    __incgsdword(0x8664u);
   }
   if ( v5 )
     PerfLogExecutiveResourceAcquire(v6, a1, v2, v4);

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?OpenAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@PEAVDXGALLOCATION@@PEAU_DXGK_OPENALLOCATIONINFO@@PEAPEAX4PEAXEEIPEAIPEA_K@Z @ 0x1C018D7E0
+ * XREFs of ?OpenAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@PEAVDXGALLOCATION@@PEAU_DXGK_OPENALLOCATIONINFO@@PEAPEAX4PEAXEEIPEAIPEA_K@Z @ 0x1C00F5DB0
  * Callers:
- *     ?CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@IPEAU_EPROCESS@@PEAIPEA_K6PEAU_D3DKMT_CREATESTANDARDALLOCATION@@PEAXI@Z @ 0x1C0191710 (-CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEB.c)
+ *     ?CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@IPEAU_EPROCESS@@PEAIPEA_K6PEAU_D3DKMT_CREATESTANDARDALLOCATION@@PEAXI@Z @ 0x1C00F2BE0 (-CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEB.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?DdiOpenAllocation@ADAPTER_RENDER@@QEAAJPEAXPEBU_DXGKARG_OPENALLOCATION@@@Z @ 0x1C02CA54C (-DdiOpenAllocation@ADAPTER_RENDER@@QEAAJPEAXPEBU_DXGKARG_OPENALLOCATION@@@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage @ 0x1C0026138 (Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     ?DdiOpenAllocation@ADAPTER_RENDER@@QEAAJPEAXPEBU_DXGKARG_OPENALLOCATION@@@Z @ 0x1C021BFB0 (-DdiOpenAllocation@ADAPTER_RENDER@@QEAAJPEAXPEBU_DXGKARG_OPENALLOCATION@@@Z.c)
  */
 
 __int64 __fastcall DXGDEVICE::OpenAllocations(
@@ -25,195 +25,204 @@ __int64 __fastcall DXGDEVICE::OpenAllocations(
         unsigned int *a12,
         unsigned __int64 *a13)
 {
-  struct DXGALLOCATION *v13; // r14
-  __int64 v16; // rcx
-  UINT v17; // ebx
-  void *v18; // r12
-  int v19; // r15d
+  DXGDEVICE *v16; // r12
+  __int64 v17; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  UINT v21; // edi
+  int v22; // r14d
   UINT NumAllocations; // edx
-  UINT v21; // esi
-  struct DXGALLOCATION *v22; // r12
-  struct _D3DDDI_ALLOCATIONINFO2 *v23; // r8
-  void *v24; // rcx
+  DXGK_OPENALLOCATIONINFO *pOpenAllocation; // rcx
+  UINT v25; // ebx
+  struct DXGALLOCATION *v26; // rax
+  __int64 v27; // r9
+  struct _D3DDDI_ALLOCATIONINFO2 *v28; // r8
+  void *v29; // rcx
   void *pPrivateDriverData; // r10
-  unsigned __int64 PrivateDriverDataSize; // rax
-  struct DXGALLOCATION *v27; // r14
-  char v28; // si
-  char v29; // r8
-  const void *v30; // rdx
-  size_t v31; // r8
-  char *v32; // rcx
-  size_t v33; // r8
-  void *v34; // rcx
-  size_t v36; // rax
-  size_t v37; // r8
+  __int64 v31; // rax
+  UINT PrivateDriverDataSize; // eax
+  struct DXGALLOCATION *v33; // r15
+  PVOID v34; // rax
+  __int64 v35; // rdx
+  __int64 v36; // rcx
+  __int64 v37; // r8
+  _QWORD *v38; // rax
+  DXGDEVICE *v39; // r12
+  size_t v40; // r8
+  char v41; // bl
+  char v42; // r8
+  size_t v43; // r8
   D3DKMT_CREATESTANDARDALLOCATION *pStandardAllocation; // rcx
-  D3DKMT_CREATESTANDARDALLOCATION *v39; // rcx
-  _DXGKARG_OPENALLOCATION v40; // [rsp+70h] [rbp-78h] BYREF
-  struct DXGALLOCATION *v42; // [rsp+108h] [rbp+20h]
+  D3DKMT_CREATESTANDARDALLOCATION *v45; // rcx
+  const void *v46; // rdx
+  size_t v47; // r8
+  char *v48; // rcx
+  struct DXGALLOCATION *v50; // [rsp+20h] [rbp-98h]
+  void *v51; // [rsp+28h] [rbp-90h]
+  _DXGKARG_OPENALLOCATION v52; // [rsp+38h] [rbp-80h] BYREF
+  __int64 v53; // [rsp+70h] [rbp-48h]
 
-  v42 = a4;
-  v13 = a4;
-  v16 = *(_QWORD *)(*((_QWORD *)this + 2) + 16LL);
-  if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v16 + 184)
-    || ExIsResourceAcquiredSharedLite(*(PERESOURCE *)(v16 + 168)) )
+  v16 = this;
+  v17 = *(_QWORD *)(*((_QWORD *)this + 2) + 16LL);
+  if ( KeGetCurrentThread() != *(struct _KTHREAD **)(v17 + 184)
+    && !ExIsResourceAcquiredSharedLite(*(PERESOURCE *)(v17 + 168)) )
   {
-    v17 = 0;
+    v20 = WdLogNewEntry5_WdAssertion(v19, v18);
+    *(_QWORD *)(v20 + 24) = 3542LL;
+    WdLogEvent5_WdAssertion(v20);
   }
-  else
-  {
-    WdLogSingleEntry1(1LL, 3606LL);
-    v17 = 0;
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetRenderCore()->IsCoreResourceSharedOwner()",
-      3606LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-  }
-  v18 = 0LL;
-  v19 = 0;
+  v21 = 0;
+  v51 = 0LL;
+  v22 = 0;
   NumAllocations = a2->NumAllocations;
   if ( !NumAllocations )
-    goto LABEL_34;
-  *(&v40.NumAllocations + 1) = 0;
-  v40.pPrivateDriverData = 0LL;
-  v40.PrivateDriverSize = 0;
-  memset(&v40.SubresourceIndex + 1, 0, 20);
-  v40.Flags.Value = (a10 == 0) | (*(_DWORD *)&a2->Flags >> 6) & 2;
-  v40.NumAllocations = NumAllocations;
-  v40.pOpenAllocation = a5;
-  v40.SubresourceIndex = a11;
-  v21 = 0;
-  v22 = v13;
-  while ( v21 < a2->NumAllocations )
+    goto LABEL_56;
+  *(&v52.NumAllocations + 1) = 0;
+  v52.pPrivateDriverData = 0LL;
+  memset(&v52.SubresourceIndex + 1, 0, 20);
+  v52.Flags.Value = (*(_DWORD *)&a2->Flags >> 6) & 2 | (a10 == 0);
+  v52.NumAllocations = NumAllocations;
+  pOpenAllocation = a5;
+  v52.pOpenAllocation = a5;
+  v52.SubresourceIndex = a11;
+  v25 = 0;
+  v26 = a4;
+  v50 = a4;
+  while ( 1 )
   {
-    a4 = (struct DXGALLOCATION *)(32LL * v21);
-    *(_DWORD *)((char *)a4 + (unsigned __int64)v40.pOpenAllocation) = *((_DWORD *)v22 + 4);
-    *(_QWORD *)((char *)a4 + (unsigned __int64)v40.pOpenAllocation + 24) = 0LL;
-    v23 = &a3[v21];
-    *(_DWORD *)((char *)a4 + (unsigned __int64)v40.pOpenAllocation + 16) = v23->PrivateDriverDataSize;
-    v24 = a6[v21];
-    *(_QWORD *)((char *)a4 + (unsigned __int64)v40.pOpenAllocation + 8) = v24;
-    pPrivateDriverData = v23->pPrivateDriverData;
+    v27 = v25;
+    pOpenAllocation[v27].hAllocation = *((_DWORD *)v26 + 4);
+    v52.pOpenAllocation[v27].hDeviceSpecificAllocation = 0LL;
+    v28 = &a3[v25];
+    v52.pOpenAllocation[v27].PrivateDriverDataSize = v28->PrivateDriverDataSize;
+    v29 = a6[v25];
+    v52.pOpenAllocation[v27].pPrivateDriverData = v29;
+    pPrivateDriverData = v28->pPrivateDriverData;
     if ( pPrivateDriverData )
     {
-      if ( a9 && (*(_DWORD *)&a2->Flags & 0x10000) == 0 )
-      {
-        memmove(v24, a7[v21], v23->PrivateDriverDataSize);
-        goto LABEL_11;
-      }
-      memmove(
-        *(void **)((char *)a4 + (unsigned __int64)v40.pOpenAllocation + 8),
-        pPrivateDriverData,
-        v23->PrivateDriverDataSize);
-      ++v21;
-      v22 = (struct DXGALLOCATION *)*((_QWORD *)v22 + 8);
+      if ( !a9 || (*(_DWORD *)&a2->Flags & 0x10000) != 0 )
+        memmove(v52.pOpenAllocation[v27].pPrivateDriverData, pPrivateDriverData, v28->PrivateDriverDataSize);
+      else
+        memmove(v29, a7[v25], v28->PrivateDriverDataSize);
     }
-    else
+    else if ( v28->PrivateDriverDataSize && a9 )
     {
-      if ( v23->PrivateDriverDataSize && a9 )
-      {
-        WdLogSingleEntry2(3LL, this, -1073741811LL);
-        v19 = -1073741811;
-      }
-LABEL_11:
-      ++v21;
-      v22 = (struct DXGALLOCATION *)*((_QWORD *)v22 + 8);
+      v31 = WdLogNewEntry5_WdWarning(v29, v25, v28);
+      *(_QWORD *)(v31 + 24) = v16;
+      *(_QWORD *)(v31 + 32) = -1073741811LL;
+      WdLogEvent5_WdWarning(v31);
+      v22 = -1073741811;
     }
+    ++v25;
+    v26 = (struct DXGALLOCATION *)*((_QWORD *)v50 + 8);
+    v50 = v26;
+    if ( v25 >= a2->NumAllocations )
+      break;
+    pOpenAllocation = v52.pOpenAllocation;
+    v16 = this;
   }
   PrivateDriverDataSize = a2->PrivateDriverDataSize;
-  v40.PrivateDriverSize = a2->PrivateDriverDataSize;
-  v27 = v42;
-  v18 = 0LL;
-  if ( a2->pStandardAllocation && (_DWORD)PrivateDriverDataSize )
+  v52.PrivateDriverSize = PrivateDriverDataSize;
+  v33 = a4;
+  if ( a2->pStandardAllocation && PrivateDriverDataSize )
   {
-    v18 = (void *)operator new[](PrivateDriverDataSize, 0x4B677844u, 258LL, (__int64)a4);
-    v36 = a2->PrivateDriverDataSize;
-    if ( !v18 )
+    v34 = operator new[](PrivateDriverDataSize, 0x4B677844u, PagedPool);
+    v51 = v34;
+    if ( v34 )
     {
-      v19 = -1073741801;
-      WdLogSingleEntry3(3LL, this, (unsigned int)v36, -1073741801LL);
-      goto LABEL_34;
+      v52.pPrivateDriverData = v34;
+      v40 = a2->PrivateDriverDataSize;
+      v41 = a9;
+      if ( a9 )
+        memmove(v34, Src, v40);
+      else
+        memmove(v34, a2->pStandardAllocation, v40);
+      v39 = this;
+      goto LABEL_26;
     }
-    v40.pPrivateDriverData = v18;
-    v28 = a9;
-    if ( a9 )
-      memmove(v18, Src, v36);
-    else
-      memmove(v18, a2->pStandardAllocation, v36);
+    v38 = (_QWORD *)WdLogNewEntry5_WdWarning(v36, v35, v37);
+    v39 = this;
+    v38[3] = this;
+    v38[4] = a2->PrivateDriverDataSize;
+    v22 = -1073741801;
+    v38[5] = -1073741801LL;
+    WdLogEvent5_WdWarning(v38);
   }
   else
   {
-    v28 = a9;
+    v39 = this;
   }
-  if ( v19 >= 0 )
+  v41 = a9;
+LABEL_26:
+  if ( !(unsigned int)Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage() || (*(_DWORD *)&a2->Flags & 0x100000) == 0 )
   {
-    if ( (*(_DWORD *)&a2->Flags & 0x100000) == 0 )
-      v19 = ADAPTER_RENDER::DdiOpenAllocation(*((ADAPTER_RENDER **)this + 2), *((void **)this + 73), &v40);
-    if ( v19 >= 0 )
+    if ( v22 < 0 )
+      goto LABEL_56;
+    v22 = ADAPTER_RENDER::DdiOpenAllocation(*((ADAPTER_RENDER **)v39 + 2), *((void **)v39 + 73), &v52);
+  }
+  if ( v22 >= 0 )
+  {
+    if ( a12 )
+      *a12 = v52.Pitch;
+    if ( a13 )
+      *a13 = v52.SubresourceOffset;
+    v42 = a10;
+    if ( !v51 || a10 )
+      goto LABEL_45;
+    if ( v41 )
     {
-      if ( a12 )
-        *a12 = v40.Pitch;
-      if ( a13 )
-        *a13 = v40.SubresourceOffset;
-      v29 = a10;
-      if ( v18 && !a10 )
+      v43 = a2->PrivateDriverDataSize;
+      pStandardAllocation = a2->pStandardAllocation;
+      if ( (unsigned __int64)pStandardAllocation + v43 > MmUserProbeAddress
+        || (D3DKMT_CREATESTANDARDALLOCATION *)((char *)pStandardAllocation + v43) <= pStandardAllocation )
       {
-        if ( v28 )
-        {
-          v37 = a2->PrivateDriverDataSize;
-          pStandardAllocation = a2->pStandardAllocation;
-          if ( (unsigned __int64)pStandardAllocation + v37 > MmUserProbeAddress
-            || (D3DKMT_CREATESTANDARDALLOCATION *)((char *)pStandardAllocation + v37) <= pStandardAllocation )
-          {
-            *(_BYTE *)MmUserProbeAddress = 0;
-          }
-          memmove(pStandardAllocation, v18, v37);
-          v39 = Src;
-        }
-        else
-        {
-          v39 = a2->pStandardAllocation;
-        }
-        memmove(v39, v18, a2->PrivateDriverDataSize);
-        v29 = a10;
+        *(_BYTE *)MmUserProbeAddress = 0;
       }
-      while ( v17 < a2->NumAllocations )
+      memmove(pStandardAllocation, v51, v43);
+      v45 = Src;
+    }
+    else
+    {
+      v45 = a2->pStandardAllocation;
+    }
+    memmove(v45, v51, a2->PrivateDriverDataSize);
+    while ( 1 )
+    {
+      while ( 1 )
       {
-        *((_QWORD *)v27 + 4) = v40.pOpenAllocation[v17].hDeviceSpecificAllocation;
-        v30 = a6[v17];
-        if ( v30 && !v29 )
+        v42 = a10;
+LABEL_45:
+        if ( v21 >= a2->NumAllocations )
+          goto LABEL_56;
+        v53 = v21;
+        *((_QWORD *)v33 + 4) = v52.pOpenAllocation[v21].hDeviceSpecificAllocation;
+        v46 = a6[v21];
+        if ( v46 )
         {
-          if ( !a9 || (*(_DWORD *)&a2->Flags & 0x10000) != 0 )
-          {
-            v33 = a3[v17].PrivateDriverDataSize;
-            v34 = a3[v17].pPrivateDriverData;
-          }
-          else
-          {
-            v31 = a3[v17].PrivateDriverDataSize;
-            v32 = (char *)a3[v17].pPrivateDriverData;
-            if ( (unsigned __int64)&v32[v31] > MmUserProbeAddress || &v32[v31] <= v32 )
-              *(_BYTE *)MmUserProbeAddress = 0;
-            memmove(v32, v30, v31);
-            v33 = a3[v17].PrivateDriverDataSize;
-            v30 = a6[v17];
-            v34 = a7[v17];
-          }
-          memmove(v34, v30, v33);
+          if ( !v42 )
+            break;
         }
-        ++v17;
-        v27 = (struct DXGALLOCATION *)*((_QWORD *)v27 + 8);
-        v29 = a10;
+LABEL_55:
+        ++v21;
+        v33 = (struct DXGALLOCATION *)*((_QWORD *)v33 + 8);
       }
+      if ( !a9 || (*(_DWORD *)&a2->Flags & 0x10000) != 0 )
+      {
+        memmove(a3[v21].pPrivateDriverData, v46, a3[v21].PrivateDriverDataSize);
+        goto LABEL_55;
+      }
+      v47 = a3[v21].PrivateDriverDataSize;
+      v48 = (char *)a3[v21].pPrivateDriverData;
+      if ( (unsigned __int64)&v48[v47] > MmUserProbeAddress || &v48[v47] <= v48 )
+        *(_BYTE *)MmUserProbeAddress = 0;
+      memmove(v48, v46, v47);
+      memmove(a7[v21], a6[v21], a3[v21].PrivateDriverDataSize);
+      ++v21;
+      v33 = (struct DXGALLOCATION *)*((_QWORD *)v33 + 8);
     }
   }
-LABEL_34:
-  operator delete[](v18);
-  return (unsigned int)v19;
+LABEL_56:
+  operator delete[](v51);
+  return (unsigned int)v22;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of AlphaBlendBGRF @ 0x1C025DB34
+ * XREFs of AlphaBlendBGRF @ 0x1C0266540
  * Callers:
- *     BltDIB_CY @ 0x1C025E160 (BltDIB_CY.c)
- *     ExpandDIB_CY @ 0x1C025F1F0 (ExpandDIB_CY.c)
- *     ExpandDIB_CY_ExpCX @ 0x1C025FB80 (ExpandDIB_CY_ExpCX.c)
- *     FastExpAA_CY @ 0x1C0260A70 (FastExpAA_CY.c)
- *     GrayExpandDIB_CY @ 0x1C02613F0 (GrayExpandDIB_CY.c)
- *     GrayExpandDIB_CY_ExpCX @ 0x1C0261B60 (GrayExpandDIB_CY_ExpCX.c)
- *     GrayShrinkDIB_CY @ 0x1C0262650 (GrayShrinkDIB_CY.c)
- *     RepDIB_CY @ 0x1C0262E90 (RepDIB_CY.c)
- *     ShrinkDIB_CY @ 0x1C0263610 (ShrinkDIB_CY.c)
- *     ShrinkDIB_CY_SrkCX @ 0x1C0263DB0 (ShrinkDIB_CY_SrkCX.c)
- *     SkipDIB_CY @ 0x1C02647C0 (SkipDIB_CY.c)
- *     TileDIB_CY @ 0x1C0264A30 (TileDIB_CY.c)
+ *     ShrinkDIB_CY_SrkCX @ 0x1C00012D0 (ShrinkDIB_CY_SrkCX.c)
+ *     BltDIB_CY @ 0x1C00C7480 (BltDIB_CY.c)
+ *     RepDIB_CY @ 0x1C013A930 (RepDIB_CY.c)
+ *     ExpandDIB_CY @ 0x1C02679A0 (ExpandDIB_CY.c)
+ *     ExpandDIB_CY_ExpCX @ 0x1C0268310 (ExpandDIB_CY_ExpCX.c)
+ *     FastExpAA_CY @ 0x1C0269200 (FastExpAA_CY.c)
+ *     GrayExpandDIB_CY @ 0x1C0269B90 (GrayExpandDIB_CY.c)
+ *     GrayExpandDIB_CY_ExpCX @ 0x1C026A330 (GrayExpandDIB_CY_ExpCX.c)
+ *     GrayShrinkDIB_CY @ 0x1C026AFC0 (GrayShrinkDIB_CY.c)
+ *     ShrinkDIB_CY @ 0x1C026BC20 (ShrinkDIB_CY.c)
+ *     SkipDIB_CY @ 0x1C026C400 (SkipDIB_CY.c)
+ *     TileDIB_CY @ 0x1C026C670 (TileDIB_CY.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int16 __fastcall AlphaBlendBGRF(int *a1)
@@ -60,27 +60,23 @@ __int16 __fastcall AlphaBlendBGRF(int *a1)
   char v40; // cl
   __int64 v41; // rax
   unsigned __int8 *v42; // rdi
-  __int64 v43; // rax
-  __int64 v44; // rcx
+  __int64 v43; // rcx
+  int v44; // edx
   int v45; // r8d
   __int64 v46; // rax
-  int v47; // ecx
+  unsigned __int8 v47; // cl
   __int64 v48; // rax
   unsigned __int8 v49; // cl
   __int64 v50; // rax
-  unsigned __int8 v51; // cl
-  __int64 v52; // rax
-  _BYTE *v53; // rdi
-  __int64 v54; // rax
-  __int64 v55; // rcx
-  int v56; // r8d
+  _BYTE *v51; // rdi
+  __int64 v52; // rcx
+  int v53; // edx
+  int v54; // r8d
+  __int64 v55; // rax
+  char v56; // cl
   __int64 v57; // rax
-  int v58; // ecx
+  char v58; // cl
   __int64 v59; // rax
-  char v60; // cl
-  __int64 v61; // rax
-  char v62; // cl
-  __int64 v63; // rax
 
   v1 = (unsigned __int8 *)*((_QWORD *)a1 + 67);
   v3 = *a1;
@@ -317,27 +313,25 @@ LABEL_31:
         v43 = *v16;
         if ( (_BYTE)v43 )
         {
-          v44 = *(v42 - 1);
+          v44 = *(unsigned __int8 *)(*(v42 - 1) + v7);
           if ( (_BYTE)v43 == 0xFF )
           {
-            v50 = *v42;
-            *(v42 - 1) = *(_BYTE *)(v44 + v7);
-            v51 = *(_BYTE *)(v50 + v7);
-            v52 = v42[1];
-            *v42 = v51;
-            v49 = *(_BYTE *)(v52 + v7);
+            v48 = *v42;
+            *(v42 - 1) = v44;
+            v49 = *(_BYTE *)(v48 + v7);
+            v50 = v42[1];
+            *v42 = v49;
+            v47 = *(_BYTE *)(v50 + v7);
           }
           else
           {
             v45 = GrayIdxWORD[v43];
-            v46 = *v42;
-            *(v42 - 1) = *v1 + ((v45 * (*(unsigned __int8 *)(v44 + v7) - (unsigned int)*v1) + 0x8000) >> 16);
-            v47 = *(unsigned __int8 *)(v46 + v7 + 256);
-            v48 = v42[1];
-            *v42 = v1[1] + ((v45 * (v47 - (unsigned int)v1[1]) + 0x8000) >> 16);
-            v49 = v1[2] + ((v45 * (*(unsigned __int8 *)(v48 + v7 + 512) - (unsigned int)v1[2]) + 0x8000) >> 16);
+            *(v42 - 1) = *v1 + ((v45 * (v44 - (unsigned int)*v1) + 0x8000) >> 16);
+            v46 = v42[1];
+            *v42 = v1[1] + ((v45 * (*(unsigned __int8 *)(*v42 + v7 + 256) - (unsigned int)v1[1]) + 0x8000) >> 16);
+            v47 = v1[2] + ((v45 * (*(unsigned __int8 *)(v46 + v7 + 512) - (unsigned int)v1[2]) + 0x8000) >> 16);
           }
-          v42[1] = v49;
+          v42[1] = v47;
         }
         else
         {
@@ -354,45 +348,45 @@ LABEL_31:
   }
   else
   {
-    v53 = v5 + 1;
+    v51 = v5 + 1;
     do
     {
-      v54 = *v16;
-      if ( (_BYTE)v54 )
+      v52 = *v16;
+      if ( (_BYTE)v52 )
       {
-        v55 = (unsigned __int8)*(v53 - 2);
-        if ( (_BYTE)v54 == 0xFF )
+        v53 = *(unsigned __int8 *)((unsigned __int8)*(v51 - 2) + v7);
+        if ( (_BYTE)v52 == 0xFF )
         {
-          v61 = (unsigned __int8)*(v53 - 1);
-          *(v53 - 2) = *(_BYTE *)(v55 + v7);
-          v62 = *(_BYTE *)(v61 + v7);
-          v63 = (unsigned __int8)*v53;
-          *(v53 - 1) = v62;
-          v60 = *(_BYTE *)(v63 + v7);
+          v57 = (unsigned __int8)*(v51 - 1);
+          *(v51 - 2) = v53;
+          v58 = *(_BYTE *)(v57 + v7);
+          v59 = (unsigned __int8)*v51;
+          *(v51 - 1) = v58;
+          v56 = *(_BYTE *)(v59 + v7);
         }
         else
         {
-          v56 = GrayIdxWORD[v54];
-          v57 = (unsigned __int8)*(v53 - 1);
-          *(v53 - 2) = *v1 + ((v56 * (*(unsigned __int8 *)(v55 + v7) - (unsigned int)*v1) + 0x8000) >> 16);
-          v58 = *(unsigned __int8 *)(v57 + v7 + 256);
-          v59 = (unsigned __int8)*v53;
-          *(v53 - 1) = v1[1] + ((v56 * (v58 - (unsigned int)v1[1]) + 0x8000) >> 16);
-          v60 = v1[2] + ((v56 * (*(unsigned __int8 *)(v59 + v7 + 512) - (unsigned int)v1[2]) + 0x8000) >> 16);
+          v54 = GrayIdxWORD[v52];
+          *(v51 - 2) = *v1 + ((v54 * (v53 - (unsigned int)*v1) + 0x8000) >> 16);
+          v55 = (unsigned __int8)*v51;
+          *(v51 - 1) = v1[1]
+                     + ((v54 * (*(unsigned __int8 *)((unsigned __int8)*(v51 - 1) + v7 + 256) - (unsigned int)v1[1])
+                       + 0x8000) >> 16);
+          v56 = v1[2] + ((v54 * (*(unsigned __int8 *)(v55 + v7 + 512) - (unsigned int)v1[2]) + 0x8000) >> 16);
         }
-        *v53 = v60;
+        *v51 = v56;
       }
       else
       {
-        *((_WORD *)v53 - 1) = *(_WORD *)v1;
-        *v53 = v1[2];
+        *((_WORD *)v51 - 1) = *(_WORD *)v1;
+        *v51 = v1[2];
       }
-      v53 += 4;
+      v51 += 4;
       ++v16;
       v1 += 3;
-      LOWORD(v8) = (_WORD)v53 - 2;
+      LOWORD(v8) = (_WORD)v51 - 2;
     }
-    while ( (unsigned __int64)(v53 - 2) < v6 );
+    while ( (unsigned __int64)(v51 - 2) < v6 );
   }
   return v8;
 }

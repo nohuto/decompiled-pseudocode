@@ -1,10 +1,9 @@
 /*
- * XREFs of ?EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@1@@Z @ 0x1C0077950
+ * XREFs of ?EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@1@@Z @ 0x1C001BE58
  * Callers:
- *     ?AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z @ 0x1C007703C (-AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z.c)
- *     ?EnsureTokenQueueForPresent@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z @ 0x1C0077A00 (-EnsureTokenQueueForPresent@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z.c)
+ *     ?AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z @ 0x1C001BD50 (-AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z.c)
  * Callees:
- *     ?Create@CTokenQueue@@SAJPEAPEAV1@@Z @ 0x1C00783F8 (-Create@CTokenQueue@@SAJPEAPEAV1@@Z.c)
+ *     ?Create@CTokenQueue@@SAJPEAPEAV1@@Z @ 0x1C00184CC (-Create@CTokenQueue@@SAJPEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall CTokenManager::EnsureTokenQueue(
@@ -20,11 +19,11 @@ __int64 __fastcall CTokenManager::EnsureTokenQueue(
   struct CTokenQueue *v10; // [rsp+58h] [rbp+10h] BYREF
 
   v8[0] = a2;
-  v3 = (struct _RTL_GENERIC_TABLE *)((char *)this + 200);
+  v3 = (struct _RTL_GENERIC_TABLE *)((char *)this + 192);
   v8[1] = 0LL;
   v9 = 0;
   v5 = 0;
-  inserted = RtlInsertElementGenericTable((PRTL_GENERIC_TABLE)((char *)this + 200), v8, 0x10u, &v9);
+  inserted = RtlInsertElementGenericTable((PRTL_GENERIC_TABLE)((char *)this + 192), v8, 0x10u, &v9);
   if ( inserted )
   {
     if ( v9 )

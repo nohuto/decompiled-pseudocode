@@ -1,23 +1,23 @@
 /*
- * XREFs of KiInitializeUserApc @ 0x14029A86C
+ * XREFs of KiInitializeUserApc @ 0x1402B2594
  * Callers:
- *     KiDeliverApc @ 0x1402F1DC0 (KiDeliverApc.c)
+ *     KiDeliverApc @ 0x14024A750 (KiDeliverApc.c)
  * Callees:
- *     KeCopyExceptionRecord @ 0x14025E1EC (KeCopyExceptionRecord.c)
- *     KiSetupForInstrumentationReturn @ 0x14025E30C (KiSetupForInstrumentationReturn.c)
- *     KePopulateContinuationContext @ 0x140294A38 (KePopulateContinuationContext.c)
- *     KeContextFromKframes @ 0x140298BF0 (KeContextFromKframes.c)
- *     KiDispatchException @ 0x140299280 (KiDispatchException.c)
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402F5718 (KiQueryUnbiasedInterruptTime.c)
- *     KeInsertQueueDpc @ 0x140345170 (KeInsertQueueDpc.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
- *     KiUnwindUserSspForApcContextCopyBypass @ 0x14057C724 (KiUnwindUserSspForApcContextCopyBypass.c)
- *     RtlpGetNonLegacyXStateAreaLength @ 0x1405E805C (RtlpGetNonLegacyXStateAreaLength.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
+ *     KiDispatchException @ 0x140273320 (KiDispatchException.c)
+ *     KeContextFromKframes @ 0x140273B00 (KeContextFromKframes.c)
+ *     KePopulateContinuationContext @ 0x14027762C (KePopulateContinuationContext.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     KeCopyExceptionRecord @ 0x1402D3BE8 (KeCopyExceptionRecord.c)
+ *     KiSetupForInstrumentationReturn @ 0x14036CFA8 (KiSetupForInstrumentationReturn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x140525194 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     RtlpGetNonLegacyXStateAreaLength @ 0x14058F904 (RtlpGetNonLegacyXStateAreaLength.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 unsigned __int64 __fastcall KiInitializeUserApc(
@@ -29,58 +29,61 @@ unsigned __int64 __fastcall KiInitializeUserApc(
         __int64 a6,
         unsigned int a7)
 {
-  __int64 v7; // rbx
+  __int64 v7; // rdi
   __int64 v8; // r14
   struct _KTHREAD *CurrentThread; // rcx
   unsigned __int64 v11; // rcx
-  __int64 v12; // rdi
-  int v13; // eax
+  unsigned __int64 v12; // rbx
+  signed int v13; // eax
   int v14; // r15d
-  unsigned __int64 v15; // rbx
-  unsigned __int64 v16; // rbx
-  _QWORD *v17; // rax
+  unsigned __int64 v15; // rdi
+  unsigned __int64 v16; // rdi
+  _QWORD *v17; // rdx
   _QWORD *v18; // r14
-  _QWORD *v19; // rax
-  _DWORD *v20; // rcx
+  _DWORD *v19; // r13
+  SIZE_T v20; // rdx
   __int64 v21; // rcx
-  __int64 v22; // rcx
   unsigned __int64 result; // rax
-  _QWORD *v24; // r8
+  _QWORD *v23; // r8
   const char *i; // rax
-  unsigned int v26; // r9d
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  unsigned int Size; // [rsp+34h] [rbp-184h]
-  __int64 v31; // [rsp+40h] [rbp-178h]
-  _QWORD *v32; // [rsp+40h] [rbp-178h]
-  __int64 v34; // [rsp+58h] [rbp-160h]
-  _QWORD *v36; // [rsp+78h] [rbp-140h]
-  struct _KTHREAD *v37; // [rsp+80h] [rbp-138h]
-  char v38[2]; // [rsp+A8h] [rbp-110h] BYREF
-  __int64 v39; // [rsp+AAh] [rbp-10Eh]
-  _QWORD *v40; // [rsp+B8h] [rbp-100h]
-  _QWORD *v41; // [rsp+C0h] [rbp-F8h]
-  SIZE_T v42; // [rsp+C8h] [rbp-F0h]
-  __int64 UnbiasedInterruptTime; // [rsp+D0h] [rbp-E8h]
-  ULONG_PTR v44[19]; // [rsp+E0h] [rbp-D8h] BYREF
+  unsigned int v25; // r9d
+  __int64 v26; // rdx
+  int v27; // [rsp+30h] [rbp-1A8h]
+  unsigned int Size; // [rsp+34h] [rbp-1A4h]
+  size_t Size_4; // [rsp+38h] [rbp-1A0h]
+  __int64 v31; // [rsp+50h] [rbp-188h]
+  _QWORD *v32; // [rsp+50h] [rbp-188h]
+  int v33; // [rsp+58h] [rbp-180h]
+  _QWORD *v34; // [rsp+60h] [rbp-178h]
+  _QWORD *v35; // [rsp+68h] [rbp-170h]
+  struct _KTHREAD *v36; // [rsp+80h] [rbp-158h]
+  _QWORD *v37; // [rsp+A0h] [rbp-138h]
+  char v40[2]; // [rsp+D0h] [rbp-108h] BYREF
+  __int64 v41; // [rsp+D2h] [rbp-106h]
+  unsigned __int64 v42; // [rsp+E0h] [rbp-F8h]
+  __int64 UnbiasedInterruptTime; // [rsp+E8h] [rbp-F0h]
+  _QWORD v44[19]; // [rsp+100h] [rbp-D8h] BYREF
 
   v7 = a4;
   v8 = a3;
   memset(v44, 0, sizeof(v44));
   CurrentThread = KeGetCurrentThread();
-  v37 = CurrentThread;
+  v36 = CurrentThread;
   if ( a1 )
   {
     v14 = 1048603;
+    v27 = 1048603;
     v15 = 0LL;
     if ( (a7 & 2) != 0 && (KeFeatureBits & 0x800000) != 0 )
     {
       v14 = 1048667;
+      v27 = 1048667;
       v15 = (MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708]) & 0xFFFFFFFFFFFFFFFCuLL;
     }
     if ( (CurrentThread->MiscFlags & 0x100000) != 0 )
     {
       v14 |= 0x100040u;
+      v27 = v14;
       v16 = v15 | 0x800;
     }
     else
@@ -90,69 +93,84 @@ unsigned __int64 __fastcall KiInitializeUserApc(
     v17 = *(_QWORD **)(a2 + 384);
     v32 = v17;
     v18 = v17;
+    v34 = v17;
     Size = 0;
+    v33 = v14 & 0x100040;
     if ( (v14 & 0x100040) == 0x100040 )
     {
       Size = RtlpGetNonLegacyXStateAreaLength(v16);
       v18 = (_QWORD *)(((unsigned __int64)v18 - Size) & 0xFFFFFFFFFFFFFFC0uLL);
+      v34 = v18;
       v17 = v32;
     }
-    v36 = (_QWORD *)((unsigned __int64)(v18 - 5) & 0xFFFFFFFFFFFFFFF0uLL);
-    v40 = v36;
-    v31 = (__int64)(v36 - 4);
-    v41 = v36 - 12;
-    v12 = (__int64)(v36 - 166);
-    v42 = (char *)v17 - (char *)(v36 - 166);
-    ProbeForWrite(v36 - 166, v42, 0x10u);
-    v19 = v36 - 8;
-    *(_OWORD *)v19 = 0LL;
-    v19[2] = 0LL;
-    *(_DWORD *)v19 = 1;
-    *((_DWORD *)v19 + 1) = 2;
-    if ( (a7 & 1) != 0 )
-      *((_DWORD *)v19 + 1) = 3;
-    if ( (v14 & 0x100040) == 0x100040 )
+    v35 = (_QWORD *)((unsigned __int64)(v18 - 5) & 0xFFFFFFFFFFFFFFF0uLL);
+    v31 = (__int64)(v35 - 4);
+    v37 = v35 - 8;
+    v19 = v35 - 12;
+    v12 = (unsigned __int64)(v35 - 166);
+    v20 = (char *)v17 - (char *)(v35 - 166);
+    if ( v20 - 1 > 0xFFE )
     {
-      v20 = v36 - 12;
-      *v20 = -1232;
-      v20[1] = *(_DWORD *)(a2 + 384) - v12;
-      v20[2] = -1232;
-      v20[3] = 1232;
-      v20[4] = (_DWORD)v18 - ((_DWORD)v36 - 96);
-      v20[5] = *(_DWORD *)(a2 + 384) - (_DWORD)v18;
+      ProbeForWrite(v35 - 166, v20, 0x10u);
+    }
+    else
+    {
+      if ( v12 >= 0x7FFFFFFF0000LL )
+        v12 = 0x7FFFFFFF0000LL;
+      *(_BYTE *)v12 = *(_BYTE *)v12;
+      *(_BYTE *)(v12 + v20 - 1) = *(_BYTE *)(v12 + v20 - 1);
+      v19 = v35 - 12;
+      v14 = v27;
+      v12 = (unsigned __int64)(v35 - 166);
+      v35 = (_QWORD *)((unsigned __int64)(v18 - 5) & 0xFFFFFFFFFFFFFFF0uLL);
+      v18 = v34;
+    }
+    *(_OWORD *)v37 = 0LL;
+    v37[2] = 0LL;
+    *(_DWORD *)v37 = 1;
+    *((_DWORD *)v37 + 1) = 2;
+    if ( (a7 & 1) != 0 )
+      *((_DWORD *)v37 + 1) = 3;
+    if ( v33 == 1048640 )
+    {
+      *v19 = -1232;
+      v19[1] = *(_DWORD *)(a2 + 384) - v12;
+      v19[2] = -1232;
+      v19[3] = 1232;
+      v19[4] = (_DWORD)v18 - (_DWORD)v19;
+      v19[5] = *(_DWORD *)(a2 + 384) - (_DWORD)v18;
       memset(v18, 0, Size);
       if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
         v18[1] = v16 | 0x8000000000000000uLL;
     }
     *(_DWORD *)(v12 + 48) = v14;
     KeContextFromKframes(a2, a1, v12);
-    *(_QWORD *)(((unsigned __int64)(v18 - 5) & 0xFFFFFFFFFFFFFFF0uLL) + 0x18) = *(_QWORD *)(v12 + 152);
+    v35[3] = *(_QWORD *)(v12 + 152);
     v21 = *(_QWORD *)(v12 + 248);
-    *v36 = v21;
+    *v35 = v21;
     KePopulateContinuationContext(v21);
     v7 = a4;
     v8 = a3;
   }
   else
   {
-    v34 = *(_QWORD *)(a2 + 208);
-    v11 = v34 + 1296;
-    v31 = v34 + 1296;
-    if ( (((_BYTE)v34 + 16) & 0xF) != 0 )
+    Size_4 = *(_QWORD *)(a2 + 208);
+    v11 = Size_4 + 1296;
+    v31 = Size_4 + 1296;
+    if ( (((_BYTE)Size_4 + 16) & 0xF) != 0 )
       ExRaiseDatatypeMisalignment();
     if ( v11 >= 0x7FFFFFFF0000LL )
       v11 = 0x7FFFFFFF0000LL;
     *(_BYTE *)v11 = *(_BYTE *)v11;
     *(_BYTE *)(v11 + 31) = *(_BYTE *)(v11 + 31);
-    v12 = v34;
-    if ( (v37->MiscFlags & 0x100000) != 0 )
+    v12 = Size_4;
+    if ( (v36->MiscFlags & 0x100000) != 0 )
     {
-      v13 = KiUnwindUserSspForApcContextCopyBypass(v34);
+      v13 = KiUnwindUserSspForApcContextCopyBypass(Size_4);
       if ( v13 < 0 )
-        RtlRaiseStatus((unsigned int)v13);
+        RtlRaiseStatus(v13);
     }
   }
-  v22 = v31;
   *(_OWORD *)v31 = 0LL;
   *(_OWORD *)(v31 + 16) = 0LL;
   if ( (a7 & 4) != 0 )
@@ -167,63 +185,61 @@ unsigned __int64 __fastcall KiInitializeUserApc(
   *(_QWORD *)(v12 + 24) = v8;
   *(_QWORD *)(v12 + 32) = a7;
   *(_QWORD *)(a2 + 384) = v12;
-  *(_QWORD *)(a2 + 360) = qword_140D07188;
+  *(_QWORD *)(a2 + 360) = KeUserApcDispatcher;
   *(_WORD *)(a2 + 368) = 51;
   if ( *(_BYTE *)(a2 + 43) != 2 )
     KiSetupForInstrumentationReturn(a2);
-  LOBYTE(v22) = 1;
-  result = KiQueryUnbiasedInterruptTime(v22);
-  if ( result >= qword_140C4EEB0 )
+  result = KiQueryUnbiasedInterruptTime();
+  v42 = result;
+  if ( result >= qword_140C4C7F0 )
   {
-    __sidt(v38);
-    v24 = (_QWORD *)v39;
-    for ( i = (const char *)v39; (unsigned __int64)i < v39 + 848; i += 64 )
+    __sidt(v40);
+    v23 = (_QWORD *)v41;
+    for ( i = (const char *)v41; (unsigned __int64)i < v41 + 848; i += 64 )
       _mm_prefetch(i, 0);
-    v26 = 848;
-    v27 = qword_140C4EEA0;
-    v28 = (unsigned int)qword_140C4EEA8;
-    while ( v26 >= 8 )
+    v25 = 848;
+    v26 = qword_140C4C7E0;
+    while ( v25 >= 8 )
     {
-      v27 = __ROR8__(v27 - *v24++, qword_140C4EEA8);
-      v26 -= 8;
+      v26 = __ROR8__(v26 - *v23++, qword_140C4C7E8);
+      v25 -= 8;
     }
-    while ( v26 )
+    while ( v25 )
     {
-      v27 = __ROR8__(v27 - *(unsigned __int8 *)v24, qword_140C4EEA8);
-      v24 = (_QWORD *)((char *)v24 + 1);
-      --v26;
+      v26 = __ROR8__(v26 - *(unsigned __int8 *)v23, qword_140C4C7E8);
+      v23 = (_QWORD *)((char *)v23 + 1);
+      --v25;
     }
-    if ( qword_140C4EEB8 != v27 )
+    if ( qword_140C4C7F8 != v26 )
     {
-      if ( qword_140C4EE70 )
-        goto LABEL_39;
-      qword_140C4EE70 = (unsigned int)__ROR4__(150994945, 88);
-      qword_140C4EE78 = 0LL;
-      qword_140C4EE80 = 0LL;
-      qword_140C4EE88 = 269LL;
-      qword_140C4EE90 = v39;
+      if ( qword_140C4C7B0 )
+        goto LABEL_44;
+      qword_140C4C7B0 = (unsigned int)__ROR4__(150994945, 88);
+      qword_140C4C7B8 = 0LL;
+      qword_140C4C7C0 = 0LL;
+      qword_140C4C7C8 = 269LL;
+      qword_140C4C7D0 = v41;
     }
-    if ( !qword_140C4EE70 )
+    if ( !qword_140C4C7B0 )
     {
-LABEL_42:
-      LOBYTE(v28) = 1;
-      UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime(v28);
+LABEL_47:
+      UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
       result = UnbiasedInterruptTime + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
-      qword_140C4EEB0 = result;
+      qword_140C4C7F0 = result;
       return result;
     }
-LABEL_39:
-    if ( Dpc.DeferredRoutine != KiSchedulerDpc )
+LABEL_44:
+    if ( stru_140C4C770.DeferredRoutine != KiSchedulerDpc )
     {
-      Dpc.TargetInfoAsUlong = 275;
-      Dpc.DeferredRoutine = KiSchedulerDpc;
-      Dpc.DeferredContext = &Dpc;
-      Dpc.DpcData = 0LL;
-      Dpc.ProcessorHistory = 0LL;
+      stru_140C4C770.TargetInfoAsUlong = 275;
+      stru_140C4C770.DeferredRoutine = KiSchedulerDpc;
+      stru_140C4C770.DeferredContext = &stru_140C4C770;
+      stru_140C4C770.DpcData = 0LL;
+      stru_140C4C770.ProcessorHistory = 0LL;
     }
-    qword_140C4EE98 = 1019616LL;
-    KeInsertQueueDpc(&Dpc, 0LL, 0LL);
-    goto LABEL_42;
+    qword_140C4C7D8 = 999648LL;
+    KeInsertQueueDpc(&stru_140C4C770, 0LL, 0LL);
+    goto LABEL_47;
   }
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GDXGVMBUSCHANNEL@@UEAAPEAXI@Z @ 0x1C0355180
+ * XREFs of ??_GDXGVMBUSCHANNEL@@UEAAPEAXI@Z @ 0x1C02B28E0
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ??1DXGVMBUSCHANNEL@@UEAA@XZ @ 0x1C03550A0 (--1DXGVMBUSCHANNEL@@UEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ??1DXGVMBUSCHANNEL@@UEAA@XZ @ 0x1C02B2834 (--1DXGVMBUSCHANNEL@@UEAA@XZ.c)
  */
 
 void **__fastcall DXGVMBUSCHANNEL::`scalar deleting destructor'(void **this, char a2)

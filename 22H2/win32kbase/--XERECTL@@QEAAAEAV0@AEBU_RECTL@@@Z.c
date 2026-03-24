@@ -1,9 +1,9 @@
 /*
- * XREFs of ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C008F794
+ * XREFs of ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C0029548
  * Callers:
- *     ?vSetup@XCLIPOBJ@@QEAAXPEAVREGION@@AEAVERECTL@@H@Z @ 0x1C008F4A0 (-vSetup@XCLIPOBJ@@QEAAXPEAVREGION@@AEAVERECTL@@H@Z.c)
- *     ?GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z @ 0x1C00D2BB8 (-GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z.c)
- *     ?bSetDefaultRegion@DC@@QEAAHXZ @ 0x1C00E0090 (-bSetDefaultRegion@DC@@QEAAHXZ.c)
+ *     ?vSetup@XCLIPOBJ@@QEAAXPEAVREGION@@AEAVERECTL@@H@Z @ 0x1C0029250 (-vSetup@XCLIPOBJ@@QEAAXPEAVREGION@@AEAVERECTL@@H@Z.c)
+ *     ?GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z @ 0x1C00CB878 (-GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z.c)
+ *     ?bSetDefaultRegion@DC@@QEAAHXZ @ 0x1C013C750 (-bSetDefaultRegion@DC@@QEAAHXZ.c)
  * Callees:
  *     <none>
  */
@@ -11,9 +11,9 @@
 int *__fastcall ERECTL::operator*=(int *a1, int *a2)
 {
   int v2; // eax
-  int v4; // r8d
+  int v4; // r10d
   int v5; // eax
-  int v6; // r10d
+  int v6; // r9d
   int v7; // eax
   int v8; // edx
   int v9; // r11d

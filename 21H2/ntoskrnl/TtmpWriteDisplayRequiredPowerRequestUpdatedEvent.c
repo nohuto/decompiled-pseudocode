@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x1409A61C4
+ * XREFs of TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x1409005E8
  * Callers:
- *     TtmpPublishDisplayRequiredPowerRequestEvents @ 0x1409A5AA4 (TtmpPublishDisplayRequiredPowerRequestEvents.c)
- *     TtmpUpdateDisplayRequiredPowerRequest @ 0x1409A6030 (TtmpUpdateDisplayRequiredPowerRequest.c)
+ *     TtmpPublishDisplayRequiredPowerRequestEvents @ 0x1408FFEB8 (TtmpPublishDisplayRequiredPowerRequestEvents.c)
+ *     TtmpUpdateDisplayRequiredPowerRequest @ 0x140900450 (TtmpUpdateDisplayRequiredPowerRequest.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     TtmiWriteEventToAllQueues @ 0x1409A5188 (TtmiWriteEventToAllQueues.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
- *     TtmiWriteEventToSingleQueue @ 0x1409AB3EC (TtmiWriteEventToSingleQueue.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     TtmiWriteEventToAllQueues @ 0x1408FF578 (TtmiWriteEventToAllQueues.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
+ *     TtmiWriteEventToSingleQueue @ 0x1409056FC (TtmiWriteEventToSingleQueue.c)
  */
 
 void __fastcall TtmpWriteDisplayRequiredPowerRequestUpdatedEvent(__int64 a1, __int64 a2, __int64 a3)

@@ -3,9 +3,9 @@
  * Callers:
  *     _CmGetDeviceMappedPropertyFromComposite @ 0x14059C504 (_CmGetDeviceMappedPropertyFromComposite.c)
  *     _CmGetDeviceStatus @ 0x14059E508 (_CmGetDeviceStatus.c)
- *     _CmIsDevicePresent @ 0x14070A304 (_CmIsDevicePresent.c)
+ *     _CmIsDevicePresent @ 0x14070A2E4 (_CmIsDevicePresent.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     _PnpCtxGetNtPlugPlayRoutine @ 0x1405C5884 (_PnpCtxGetNtPlugPlayRoutine.c)
  */
 

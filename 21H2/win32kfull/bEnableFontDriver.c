@@ -1,9 +1,9 @@
 /*
- * XREFs of bEnableFontDriver @ 0x1C00F7DB0
+ * XREFs of bEnableFontDriver @ 0x1C00F4A30
  * Callers:
- *     UmfdSessionInitialize @ 0x1C00F6DB0 (UmfdSessionInitialize.c)
+ *     UmfdSessionInitialize @ 0x1C00F3920 (UmfdSessionInitialize.c)
  * Callees:
- *     ?FntCacheHDEV@@YAXPEAVPDEV@@K@Z @ 0x1C00F7E7C (-FntCacheHDEV@@YAXPEAVPDEV@@K@Z.c)
+ *     ?FntCacheHDEV@@YAXPEAVPDEV@@K@Z @ 0x1C00F4AFC (-FntCacheHDEV@@YAXPEAVPDEV@@K@Z.c)
  */
 
 __int64 __fastcall bEnableFontDriver(__int64 a1, unsigned int a2)
@@ -20,7 +20,7 @@ __int64 __fastcall bEnableFontDriver(__int64 a1, unsigned int a2)
     return 0LL;
   if ( a2 == 5 )
   {
-    qword_1C033BDF8 = (__int64)v5;
+    qword_1C0341AF0 = v5;
     gufiLocalType1Rasterizer = 0x100000002LL;
   }
   FntCacheHDEV(v5, a2);

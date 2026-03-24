@@ -1,14 +1,15 @@
 /*
- * XREFs of SdbpReadMappedData @ 0x140742D9C
+ * XREFs of SdbpReadMappedData @ 0x140759C1C
  * Callers:
- *     SdbpOpenDatabaseInMemory @ 0x140695260 (SdbpOpenDatabaseInMemory.c)
- *     SdbpGetTagHeadSize @ 0x140742488 (SdbpGetTagHeadSize.c)
- *     SdbpReadTagData @ 0x1407579AC (SdbpReadTagData.c)
- *     SdbOpenDatabaseEx @ 0x140A4E5C0 (SdbOpenDatabaseEx.c)
- *     SdbpOpenCompressedDatabase @ 0x140A53278 (SdbpOpenCompressedDatabase.c)
+ *     SdbpOpenDatabaseInMemory @ 0x140755A44 (SdbpOpenDatabaseInMemory.c)
+ *     SdbpReadTagData @ 0x140759730 (SdbpReadTagData.c)
+ *     SdbpGetTagHeadSize @ 0x140759A58 (SdbpGetTagHeadSize.c)
+ *     SdbGetTagDataSize @ 0x140759B30 (SdbGetTagDataSize.c)
+ *     SdbGetTagFromTagID @ 0x140759BE4 (SdbGetTagFromTagID.c)
+ *     SdbOpenDatabaseEx @ 0x1409640DC (SdbOpenDatabaseEx.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpReadMappedData(__int64 a1, unsigned int a2, void *a3, unsigned int a4)

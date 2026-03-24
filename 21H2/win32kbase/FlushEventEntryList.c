@@ -1,9 +1,9 @@
 /*
- * XREFs of FlushEventEntryList @ 0x1C02C897C
+ * XREFs of FlushEventEntryList @ 0x1C0280570
  * Callers:
- *     FlushLookUpTableBucket @ 0x1C00BB74C (FlushLookUpTableBucket.c)
+ *     FlushLookUpTableBucket @ 0x1C01FFBB8 (FlushLookUpTableBucket.c)
  * Callees:
- *     DestroyEventEntry @ 0x1C00BB814 (DestroyEventEntry.c)
+ *     DestroyEventEntry @ 0x1C01FFA64 (DestroyEventEntry.c)
  */
 
 void __fastcall FlushEventEntryList(REGHANDLE RegHandle, PCEVENT_DESCRIPTOR EventDescriptor)

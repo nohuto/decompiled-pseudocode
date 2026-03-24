@@ -1,8 +1,10 @@
 /*
- * XREFs of ??0CFixPred@Prediction@@QEAA@XZ @ 0x1C0123CC0
+ * XREFs of ??0CFixPred@Prediction@@QEAA@XZ @ 0x1C0137AB0
  * Callers:
- *     NtGdiGetFontFileInfo @ 0x1C0112960 (NtGdiGetFontFileInfo.c)
- *     NtGdiGetFontFileData @ 0x1C02BA5F0 (NtGdiGetFontFileData.c)
+ *     ?FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z @ 0x1C00E7758 (-FindLinkedGlyphDataPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@PEAVXDCOBJ@@PEAVESTROBJ@@GKKPEAHHH@Z.c)
+ *     NtGdiGetFontFileInfo @ 0x1C0161230 (NtGdiGetFontFileInfo.c)
+ *     NtGdiGetFontFileData @ 0x1C02BC020 (NtGdiGetFontFileData.c)
+ *     ?bExtraRectsToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@@Z @ 0x1C02BDE40 (-bExtraRectsToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@@Z.c)
  * Callees:
  *     <none>
  */

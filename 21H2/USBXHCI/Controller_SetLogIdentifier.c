@@ -1,10 +1,10 @@
 /*
- * XREFs of Controller_SetLogIdentifier @ 0x1C0072AA4
+ * XREFs of Controller_SetLogIdentifier @ 0x1C006C868
  * Callers:
- *     Controller_Create @ 0x1C00702D4 (Controller_Create.c)
+ *     Controller_Create @ 0x1C006B314 (Controller_Create.c)
  * Callees:
- *     RtlStringCchPrintfA @ 0x1C000597C (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
+ *     RtlStringCchPrintfA @ 0x1C00093AC (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
  */
 
 __int64 __fastcall Controller_SetLogIdentifier(__int64 a1)

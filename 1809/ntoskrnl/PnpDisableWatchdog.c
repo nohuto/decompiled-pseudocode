@@ -2,13 +2,13 @@
  * XREFs of PnpDisableWatchdog @ 0x140005B60
  * Callers:
  *     PnpDisablePnpEventWorkerWatchdog @ 0x140005B14 (PnpDisablePnpEventWorkerWatchdog.c)
- *     PnpDisableDeviceCompletionQueueWatchdog @ 0x140159CB0 (PnpDisableDeviceCompletionQueueWatchdog.c)
- *     PnpDisableDelayedRemoveWorkerWatchdog @ 0x1402899B8 (PnpDisableDelayedRemoveWorkerWatchdog.c)
+ *     PnpDisableDeviceCompletionQueueWatchdog @ 0x140159CD0 (PnpDisableDeviceCompletionQueueWatchdog.c)
+ *     PnpDisableDelayedRemoveWorkerWatchdog @ 0x140289AB8 (PnpDisableDelayedRemoveWorkerWatchdog.c)
  * Callees:
  *     PnpRecordBlackbox @ 0x140005BB0 (PnpRecordBlackbox.c)
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
- *     PnpQueryWatchdogBugcheckEnabled @ 0x140289B54 (PnpQueryWatchdogBugcheckEnabled.c)
- *     PnpWatchdogBugcheck @ 0x140289C30 (PnpWatchdogBugcheck.c)
+ *     PnpQueryWatchdogBugcheckEnabled @ 0x140289C54 (PnpQueryWatchdogBugcheckEnabled.c)
+ *     PnpWatchdogBugcheck @ 0x140289D30 (PnpWatchdogBugcheck.c)
  */
 
 char __fastcall PnpDisableWatchdog(__int64 a1)

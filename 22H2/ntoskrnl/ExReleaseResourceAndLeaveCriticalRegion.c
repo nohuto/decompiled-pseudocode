@@ -1,71 +1,63 @@
 /*
- * XREFs of ExReleaseResourceAndLeaveCriticalRegion @ 0x140260360
+ * XREFs of ExReleaseResourceAndLeaveCriticalRegion @ 0x1402CD780
  * Callers:
  *     <none>
  * Callees:
- *     ExpReleaseResourceForThreadLite @ 0x1402604E0 (ExpReleaseResourceForThreadLite.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     ExpFastResourceLegacyRelease @ 0x1403CA140 (ExpFastResourceLegacyRelease.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     ExpReleaseResourceSharedForThreadLite @ 0x1402CBCD0 (ExpReleaseResourceSharedForThreadLite.c)
+ *     ExpResourceEnforcesOwnershipTransfer @ 0x1402CD8B0 (ExpResourceEnforcesOwnershipTransfer.c)
+ *     ExpReleaseResourceExclusiveForThreadLite @ 0x1402CD8D0 (ExpReleaseResourceExclusiveForThreadLite.c)
+ *     ExpFastResourceLegacyRelease @ 0x14038DDBC (ExpFastResourceLegacyRelease.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 void __stdcall ExReleaseResourceAndLeaveCriticalRegion(PERESOURCE Resource)
 {
-  USHORT Flag; // dx
-  unsigned __int8 v2; // al
-  struct _KTHREAD *v3; // r8
-  unsigned __int8 CurrentIrql; // al
-  struct _KTHREAD *CurrentThread; // rdx
+  __int16 v2; // ax
+  ULONG_PTR v3; // rdi
+  ULONG_PTR v4; // rcx
+  ULONG_PTR v5; // r8
   struct _KTHREAD *v6; // rcx
   bool v7; // zf
+  unsigned __int8 CurrentIrql; // cl
+  struct _KTHREAD *CurrentThread; // rdx
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
 
-  Flag = Resource->Flag;
-  if ( !FeatureFastResource2 )
-  {
-    if ( (Flag & 0x41) != 1 )
-    {
-      if ( (Flag & 1) == 0 )
-        goto LABEL_16;
-      CurrentIrql = KeGetCurrentIrql();
-      CurrentThread = KeGetCurrentThread();
-      if ( CurrentIrql > 2u )
-        KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 2uLL, 0LL);
-      if ( CurrentIrql || (CurrentThread->MiscFlags & 0x400) != 0 || CurrentThread->WaitBlock[3].SpareLong )
-      {
-        LOBYTE(Flag) = Resource->Flag;
-        goto LABEL_16;
-      }
-LABEL_27:
-      KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
-    }
-LABEL_25:
+  if ( (Resource->Flag & 0x41) == 1 )
     KeBugCheckEx(0x1C6u, 0xFuLL, (ULONG_PTR)Resource, 0LL, 0LL);
-  }
-  if ( (Flag & 0x41) == 1 )
-    goto LABEL_25;
-  if ( (Flag & 1) == 0 )
+  v2 = Resource->Flag & 1;
+  if ( v2 )
   {
-LABEL_18:
-    ExpReleaseResourceForThreadLite((ULONG_PTR)Resource, (ULONG_PTR)KeGetCurrentThread());
-    goto LABEL_19;
+    CurrentIrql = KeGetCurrentIrql();
+    CurrentThread = KeGetCurrentThread();
+    if ( CurrentIrql > 2u )
+      KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 2uLL, 0LL);
+    if ( !CurrentIrql && (CurrentThread->MiscFlags & 0x400) == 0 && !CurrentThread->WaitBlock[3].SpareLong )
+      KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
   }
-  v2 = KeGetCurrentIrql();
-  v3 = KeGetCurrentThread();
-  if ( v2 > 2u )
-    KeBugCheckEx(0x1C6u, 0LL, v2, 2uLL, 0LL);
-  if ( !v2 && (v3->MiscFlags & 0x400) == 0 && !v3->WaitBlock[3].SpareLong )
-    goto LABEL_27;
-LABEL_16:
-  if ( (Flag & 1) == 0 )
-    goto LABEL_18;
-  ExpFastResourceLegacyRelease((ULONG_PTR)Resource);
-LABEL_19:
+  if ( v2 )
+  {
+    ExpFastResourceLegacyRelease((ULONG_PTR)Resource);
+  }
+  else
+  {
+    v3 = (ULONG_PTR)KeGetCurrentThread();
+    memset(&LockHandle, 0, sizeof(LockHandle));
+    KeAcquireInStackQueuedSpinLock(&Resource->SpinLock, &LockHandle);
+    if ( (unsigned __int8)ExpResourceEnforcesOwnershipTransfer(Resource) && (v3 & 3) != 3 && v3 != v5 )
+      KeBugCheckEx(0x16Eu, (ULONG_PTR)Resource, v5, v3, 0LL);
+    if ( (Resource->ReservedLowFlags & 0x80u) == 0 )
+      ExpReleaseResourceSharedForThreadLite(v4, v3, &LockHandle);
+    else
+      ExpReleaseResourceExclusiveForThreadLite(v4, v3);
+  }
   v6 = KeGetCurrentThread();
   v7 = v6->KernelApcDisable++ == -1;
   if ( v7
-    && ($C71981A45BEB2B45F82C232A7085991E *)v6->ApcState.ApcListHead[0].Flink != &v6->152
+    && ($C459BD0D405E8E46662177FB3D0A143F *)v6->ApcState.ApcListHead[0].Flink != &v6->152
     && !v6->SpecialApcDisable )
   {
-    KiCheckForKernelApcDelivery();
+    KiCheckForKernelApcDelivery((__int64)v6);
   }
 }

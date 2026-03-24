@@ -1,32 +1,33 @@
 /*
- * XREFs of KiIsHyperVCr3RspErrataPresent @ 0x14041900C
+ * XREFs of KiIsHyperVCr3RspErrataPresent @ 0x1403F3760
  * Callers:
- *     KiIsBranchConfusionMitigationSupported @ 0x140418BA4 (KiIsBranchConfusionMitigationSupported.c)
+ *     KiIsBranchConfusionMitigationSupported @ 0x1403F3154 (KiIsBranchConfusionMitigationSupported.c)
+ *     KiIsTsaMitigationSupported @ 0x1403F33EC (KiIsTsaMitigationSupported.c)
  * Callees:
- *     HviIsHypervisorVendorMicrosoft @ 0x1403BF790 (HviIsHypervisorVendorMicrosoft.c)
- *     HviGetHypervisorFeatures @ 0x1403BF8B0 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HviGetHypervisorVersion @ 0x140647BBC (HviGetHypervisorVersion.c)
+ *     HviGetHypervisorFeatures @ 0x1403AE200 (HviGetHypervisorFeatures.c)
+ *     HviIsHypervisorVendorMicrosoft @ 0x1403AF7D0 (HviIsHypervisorVendorMicrosoft.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HviGetHypervisorVersion @ 0x1405BF040 (HviGetHypervisorVersion.c)
  */
 
-_BOOL8 __fastcall KiIsHyperVCr3RspErrataPresent(__int64 a1, __int64 a2)
+_BOOL8 __fastcall KiIsHyperVCr3RspErrataPresent(__int64 a1)
 {
-  bool v2; // zf
+  bool v1; // zf
   _BOOL8 result; // rax
-  __int128 v4; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v5; // [rsp+30h] [rbp-28h] BYREF
+  __int128 v3; // [rsp+20h] [rbp-38h] BYREF
+  __int128 v4; // [rsp+30h] [rbp-28h] BYREF
 
-  v2 = *(_BYTE *)(a1 + 141) == 1;
-  v4 = 0LL;
+  v1 = *(_BYTE *)(a1 + 141) == 1;
+  v3 = 0LL;
   result = 0;
-  if ( v2 && HviIsHypervisorVendorMicrosoft(a1, a2) )
+  if ( v1 && HviIsHypervisorVendorMicrosoft() )
   {
-    v5 = 0LL;
-    HviGetHypervisorFeatures(&v5);
-    if ( (v5 & 0x100000000000LL) == 0 )
+    v4 = 0LL;
+    HviGetHypervisorFeatures(&v4);
+    if ( (v4 & 0x100000000000LL) == 0 )
     {
-      HviGetHypervisorVersion(&v4);
-      if ( (unsigned int)v4 < 0x429D && ((_DWORD)v4 != 14393 || (HIDWORD(v4) & 0xFFFFFFu) < 0x1479) )
+      HviGetHypervisorVersion(&v3);
+      if ( (unsigned int)v3 < 0x429D && ((_DWORD)v3 != 14393 || (HIDWORD(v3) & 0xFFFFFFu) < 0x1479) )
         return 1;
     }
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipDisableCollectOrEvent @ 0x1407D62A4
+ * XREFs of WmipDisableCollectOrEvent @ 0x1406A4630
  * Callers:
- *     WmipDeleteMethod @ 0x1406C6CF0 (WmipDeleteMethod.c)
+ *     WmipDeleteMethod @ 0x1406B2300 (WmipDeleteMethod.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     WmipSendDisableRequest @ 0x1407D6314 (WmipSendDisableRequest.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     WmipSendDisableRequest @ 0x1406A46A0 (WmipSendDisableRequest.c)
  */
 
 __int64 __fastcall WmipDisableCollectOrEvent(__int64 a1, int a2)

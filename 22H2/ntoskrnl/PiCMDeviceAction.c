@@ -1,19 +1,19 @@
 /*
- * XREFs of PiCMDeviceAction @ 0x14096973C
+ * XREFs of PiCMDeviceAction @ 0x14072F428
  * Callers:
- *     PiCMHandleIoctl @ 0x1406D0810 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1406AD630 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     _CmValidateDeviceName @ 0x1406CE870 (_CmValidateDeviceName.c)
- *     PiCMReleaseObjectInputData @ 0x14079A5E8 (PiCMReleaseObjectInputData.c)
- *     PiCMReturnBasicResultData @ 0x14079A618 (PiCMReturnBasicResultData.c)
- *     PiCMCaptureObjectInputData @ 0x14079A694 (PiCMCaptureObjectInputData.c)
- *     _CmIsRootDevice @ 0x14079A9A8 (_CmIsRootDevice.c)
- *     _CmGetDeviceStatus @ 0x14079AA78 (_CmGetDeviceStatus.c)
- *     PiAuDoesClientHaveAccess @ 0x14079AD98 (PiAuDoesClientHaveAccess.c)
- *     PiAuDoesClientHavePrivilege @ 0x14095B968 (PiAuDoesClientHavePrivilege.c)
- *     PiCMSetProblem @ 0x14096AAD4 (PiCMSetProblem.c)
- *     PiQueueDeviceRequest @ 0x14096DF98 (PiQueueDeviceRequest.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     PiCMReturnBasicResultData @ 0x140684A20 (PiCMReturnBasicResultData.c)
+ *     _CmGetDeviceStatus @ 0x140684C00 (_CmGetDeviceStatus.c)
+ *     PiAuDoesClientHaveAccess @ 0x140684D94 (PiAuDoesClientHaveAccess.c)
+ *     _CmIsRootDevice @ 0x140693D04 (_CmIsRootDevice.c)
+ *     PiCMReleaseObjectInputData @ 0x1406B1920 (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x1406B1954 (PiCMCaptureObjectInputData.c)
+ *     _CmValidateDeviceName @ 0x1406BB050 (_CmValidateDeviceName.c)
+ *     PiQueueDeviceRequest @ 0x14072F6CC (PiQueueDeviceRequest.c)
+ *     PiAuDoesClientHavePrivilege @ 0x14072F800 (PiAuDoesClientHavePrivilege.c)
+ *     PiCMSetProblem @ 0x14072FAFC (PiCMSetProblem.c)
  */
 
 __int64 __fastcall PiCMDeviceAction(
@@ -24,169 +24,174 @@ __int64 __fastcall PiCMDeviceAction(
         int a5,
         _DWORD *a6)
 {
-  unsigned int v6; // esi
+  int v8; // r13d
+  int v9; // esi
   int inited; // ebx
-  const WCHAR *v9; // r13
-  int v10; // r12d
-  int v11; // r14d
-  int v12; // r12d
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  int v15; // r14d
-  int v16; // r14d
-  int v17; // r14d
-  __int64 v18; // rdx
-  unsigned int v20; // [rsp+38h] [rbp-49h]
-  int v21; // [rsp+4Ch] [rbp-35h] BYREF
-  int v22; // [rsp+50h] [rbp-31h]
-  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-29h] BYREF
-  int v24; // [rsp+68h] [rbp-19h] BYREF
-  int v25; // [rsp+6Ch] [rbp-15h] BYREF
-  __int128 v26; // [rsp+70h] [rbp-11h] BYREF
-  PCWSTR SourceString[2]; // [rsp+80h] [rbp-1h]
-  __int64 v28; // [rsp+90h] [rbp+Fh]
+  const WCHAR *v11; // r15
+  int v12; // r14d
+  int v13; // r14d
+  int v14; // r8d
+  int v15; // edx
+  int v16; // eax
+  int v18; // r8d
+  int v19; // esi
+  int v20; // esi
+  int v21; // esi
+  int v22; // edx
+  int v23; // r8d
+  unsigned int v24; // [rsp+38h] [rbp-39h]
+  int DeviceStatus; // [rsp+48h] [rbp-29h] BYREF
+  int v26; // [rsp+4Ch] [rbp-25h] BYREF
+  int v27; // [rsp+50h] [rbp-21h] BYREF
+  int v28; // [rsp+54h] [rbp-1Dh] BYREF
+  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-19h] BYREF
+  __int128 v30; // [rsp+68h] [rbp-9h] BYREF
+  PCWSTR SourceString[2]; // [rsp+78h] [rbp+7h]
+  __int64 v32; // [rsp+88h] [rbp+17h]
 
-  v6 = 0;
-  v28 = 0LL;
-  DestinationString = 0LL;
-  v21 = 0;
+  v32 = 0LL;
+  DeviceStatus = 0;
+  v26 = 0;
   *a6 = 0;
-  v26 = 0LL;
-  v25 = 0;
+  v8 = 0;
+  DestinationString = 0LL;
+  v28 = 0;
+  v9 = 0;
+  v30 = 0LL;
+  v27 = 0;
   *(_OWORD *)SourceString = 0LL;
-  v24 = 0;
-  v22 = 0;
-  inited = PiCMCaptureObjectInputData(a1, a2, a5, (__int64)&v26);
+  inited = PiCMCaptureObjectInputData(a1, a2, a5, (__int64)&v30);
   if ( inited >= 0 )
   {
-    v9 = SourceString[0];
-    if ( !SourceString[0] || DWORD2(v26) != 1 || !a3 || a4 < 8 )
+    v11 = SourceString[0];
+    if ( !SourceString[0] || DWORD2(v30) != 1 || !a3 || a4 < 8 )
     {
       inited = -1073741811;
-      goto LABEL_53;
+      goto LABEL_26;
     }
-    v10 = HIDWORD(SourceString[1]);
+    v12 = HIDWORD(SourceString[1]);
     if ( HIDWORD(SourceString[1]) == 1 )
     {
-      v11 = DWORD1(v26);
-      if ( (unsigned int)(DWORD1(v26) - 1) > 5 )
-        goto LABEL_8;
+      v9 = DWORD1(v30);
+      if ( (unsigned int)(DWORD1(v30) - 1) > 5 )
+        inited = -1073741811;
     }
     else
     {
       if ( HIDWORD(SourceString[1]) != 2 )
-      {
-LABEL_8:
+        goto LABEL_52;
+      v8 = DWORD1(v30);
+      if ( (unsigned int)(DWORD1(v30) - 1) > 1 )
         inited = -1073741811;
-        goto LABEL_53;
-      }
-      v11 = 0;
-      v22 = DWORD1(v26);
-      if ( (unsigned int)(DWORD1(v26) - 1) > 1 )
-        inited = -1073741811;
-      if ( inited < 0 )
-        goto LABEL_53;
     }
+    if ( inited < 0 )
+      goto LABEL_26;
     inited = CmValidateDeviceName((unsigned int)(HIDWORD(SourceString[1]) - 1), SourceString[0]);
     if ( inited < 0 )
-      goto LABEL_53;
-    v12 = v10 - 1;
-    if ( v12 )
+      goto LABEL_26;
+    v13 = v12 - 1;
+    if ( v13 )
     {
-      if ( v12 != 1 )
-        goto LABEL_8;
-      if ( PiAuDoesClientHaveAccess(0x20u) && PiAuDoesClientHavePrivilege(0xAu) )
+      if ( v13 != 1 )
+        goto LABEL_52;
+      if ( PiAuDoesClientHaveAccess(0x20u) && (unsigned __int8)PiAuDoesClientHavePrivilege(10LL) )
       {
-        inited = RtlInitUnicodeStringEx(&DestinationString, v9);
+        inited = RtlInitUnicodeStringEx(&DestinationString, v11);
         if ( inited < 0 )
-          goto LABEL_53;
-        v13 = 9LL;
-        LOBYTE(v6) = v22 != 2;
-        v14 = v6;
-        goto LABEL_51;
-      }
-    }
-    else if ( v11 == 1 || v11 == 2 )
-    {
-      if ( PiAuDoesClientHaveAccess(0x20u) && PiAuDoesClientHavePrivilege(0xAu) )
-      {
-        if ( CmIsRootDevice(v9) )
-          goto LABEL_8;
-        if ( (int)CmGetDeviceStatus(*(__int64 *)&PiPnpRtlCtx, v9, 0LL, &v21, &v25, &v24, v20) >= 0 )
-        {
-          if ( (v21 & 8) != 0 )
-            goto LABEL_53;
-          if ( (v21 & 0x400) != 0 )
-          {
-            inited = PiCMSetProblem(v9);
-            if ( inited < 0 )
-              goto LABEL_53;
-          }
-        }
-        inited = RtlInitUnicodeStringEx(&DestinationString, v9);
-        if ( inited < 0 )
-          goto LABEL_53;
-        v13 = 16LL;
-        v14 = 1LL;
-        if ( v11 != 1 )
-          v13 = 12LL;
-LABEL_51:
-        inited = PiQueueDeviceRequest(&DestinationString, v13, v14);
-        goto LABEL_53;
+          goto LABEL_26;
+        v16 = PiQueueDeviceRequest((unsigned int)&DestinationString, 9, v23, v8 != 2, 0LL);
+        goto LABEL_25;
       }
     }
     else
     {
-      if ( v11 != 3 && v11 != 4 && (unsigned int)(v11 - 5) > 1 )
-        goto LABEL_8;
-      if ( PiAuDoesClientHaveAccess(2u) && PiAuDoesClientHavePrivilege(0xAu) )
+      if ( v9 <= 0 )
+        goto LABEL_52;
+      if ( v9 > 2 )
       {
-        inited = RtlInitUnicodeStringEx(&DestinationString, v9);
-        if ( inited >= 0 )
+        if ( v9 > 6 )
+          goto LABEL_52;
+        if ( PiAuDoesClientHaveAccess(2u) && (unsigned __int8)PiAuDoesClientHavePrivilege(10LL) )
         {
-          v15 = v11 - 3;
-          if ( v15 )
+          inited = RtlInitUnicodeStringEx(&DestinationString, v11);
+          if ( inited >= 0 )
           {
-            v16 = v15 - 1;
-            if ( v16 )
+            v19 = v9 - 3;
+            if ( v19 )
             {
-              v17 = v16 - 1;
-              if ( v17 )
+              v20 = v19 - 1;
+              if ( v20 )
               {
-                if ( v17 != 1 )
+                v21 = v20 - 1;
+                if ( v21 )
                 {
-                  inited = -1073741811;
-                  goto LABEL_53;
+                  if ( v21 != 1 )
+                  {
+                    inited = -1073741811;
+                    DeviceStatus = -1073741811;
+                    goto LABEL_26;
+                  }
+                  v22 = 24;
                 }
-                v18 = 24LL;
+                else
+                {
+                  v22 = 23;
+                }
               }
               else
               {
-                v18 = 23LL;
+                v22 = 22;
               }
             }
             else
             {
-              v18 = 22LL;
+              v22 = 21;
+            }
+            inited = PiQueueDeviceRequest((unsigned int)&DestinationString, v22, v18, 1, (__int64)&DeviceStatus);
+            if ( inited >= 0 )
+              inited = DeviceStatus;
+          }
+LABEL_26:
+          inited = PiCMReturnBasicResultData(inited, v32, a3, a4, a6);
+          goto LABEL_27;
+        }
+      }
+      else if ( PiAuDoesClientHaveAccess(0x20u) && (unsigned __int8)PiAuDoesClientHavePrivilege(10LL) )
+      {
+        if ( !CmIsRootDevice(v11) )
+        {
+          DeviceStatus = CmGetDeviceStatus(PiPnpRtlCtx, v11, 0, &v26, &v28, &v27, v24);
+          if ( DeviceStatus >= 0 )
+          {
+            if ( (v26 & 8) != 0 )
+              goto LABEL_26;
+            if ( (v26 & 0x400) != 0 )
+            {
+              inited = PiCMSetProblem(v11);
+              if ( inited < 0 )
+                goto LABEL_26;
             }
           }
-          else
-          {
-            v18 = 21LL;
-          }
-          inited = PiQueueDeviceRequest(&DestinationString, v18, 1LL);
-          if ( inited >= 0 )
-            inited = 0;
+          inited = RtlInitUnicodeStringEx(&DestinationString, v11);
+          if ( inited < 0 )
+            goto LABEL_26;
+          v15 = 16;
+          if ( v9 != 1 )
+            v15 = 12;
+          v16 = PiQueueDeviceRequest((unsigned int)&DestinationString, v15, v14, 1, 0LL);
+LABEL_25:
+          inited = v16;
+          goto LABEL_26;
         }
-LABEL_53:
-        inited = PiCMReturnBasicResultData(inited, v28, a3, a4, a6);
-        goto LABEL_54;
+LABEL_52:
+        inited = -1073741811;
+        goto LABEL_26;
       }
     }
     inited = -1073741790;
-    goto LABEL_53;
+    goto LABEL_26;
   }
-LABEL_54:
-  PiCMReleaseObjectInputData((__int64)&v26);
+LABEL_27:
+  PiCMReleaseObjectInputData((__int64)&v30);
   return (unsigned int)inited;
 }

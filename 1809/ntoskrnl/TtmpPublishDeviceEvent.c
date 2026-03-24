@@ -1,18 +1,18 @@
 /*
- * XREFs of TtmpPublishDeviceEvent @ 0x14087E260
+ * XREFs of TtmpPublishDeviceEvent @ 0x14087E240
  * Callers:
- *     TtmiAssignDevice @ 0x14087D4FC (TtmiAssignDevice.c)
- *     TtmiPublishDeviceEnumerationEvents @ 0x14087D6A8 (TtmiPublishDeviceEnumerationEvents.c)
- *     TtmiSessionDeviceListWorker @ 0x14087D73C (TtmiSessionDeviceListWorker.c)
+ *     TtmiAssignDevice @ 0x14087D4DC (TtmiAssignDevice.c)
+ *     TtmiPublishDeviceEnumerationEvents @ 0x14087D688 (TtmiPublishDeviceEnumerationEvents.c)
+ *     TtmiSessionDeviceListWorker @ 0x14087D71C (TtmiSessionDeviceListWorker.c)
  * Callees:
  *     RtlStringCchCopyW @ 0x140092420 (RtlStringCchCopyW.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     TtmiWriteEventToAllQueues @ 0x140880670 (TtmiWriteEventToAllQueues.c)
- *     TtmiWriteEventToSingleQueue @ 0x1408825B4 (TtmiWriteEventToSingleQueue.c)
- *     TtmiLogDeviceArrivedTerminalEvent @ 0x140883158 (TtmiLogDeviceArrivedTerminalEvent.c)
- *     TtmiLogDeviceAssignedTerminalEvent @ 0x140883294 (TtmiLogDeviceAssignedTerminalEvent.c)
- *     TtmiLogDeviceDepartedTerminalEvent @ 0x140883380 (TtmiLogDeviceDepartedTerminalEvent.c)
- *     TtmiLogDeviceEnumeratedTerminalEvent @ 0x140883568 (TtmiLogDeviceEnumeratedTerminalEvent.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     TtmiWriteEventToAllQueues @ 0x140880650 (TtmiWriteEventToAllQueues.c)
+ *     TtmiWriteEventToSingleQueue @ 0x140882594 (TtmiWriteEventToSingleQueue.c)
+ *     TtmiLogDeviceArrivedTerminalEvent @ 0x140883138 (TtmiLogDeviceArrivedTerminalEvent.c)
+ *     TtmiLogDeviceAssignedTerminalEvent @ 0x140883274 (TtmiLogDeviceAssignedTerminalEvent.c)
+ *     TtmiLogDeviceDepartedTerminalEvent @ 0x140883360 (TtmiLogDeviceDepartedTerminalEvent.c)
+ *     TtmiLogDeviceEnumeratedTerminalEvent @ 0x140883548 (TtmiLogDeviceEnumeratedTerminalEvent.c)
  */
 
 __int64 __fastcall TtmpPublishDeviceEvent(__int64 a1, __int64 a2, __int64 a3, int a4)

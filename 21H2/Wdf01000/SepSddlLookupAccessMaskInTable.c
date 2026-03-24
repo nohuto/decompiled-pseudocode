@@ -1,7 +1,7 @@
 /*
- * XREFs of SepSddlLookupAccessMaskInTable @ 0x1C00BE8C0
+ * XREFs of SepSddlLookupAccessMaskInTable @ 0x1C00BD150
  * Callers:
- *     SepSddlGetAclForString @ 0x1C00BE464 (SepSddlGetAclForString.c)
+ *     SepSddlGetAclForString @ 0x1C00BCCE4 (SepSddlGetAclForString.c)
  * Callees:
  *     <none>
  */

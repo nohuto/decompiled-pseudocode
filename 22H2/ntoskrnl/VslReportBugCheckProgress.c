@@ -1,15 +1,15 @@
 /*
- * XREFs of VslReportBugCheckProgress @ 0x14054C380
+ * XREFs of VslReportBugCheckProgress @ 0x1404FD120
  * Callers:
- *     PopCheckpointSystemSleepUnsafe @ 0x140AAA6B4 (PopCheckpointSystemSleepUnsafe.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x1409B2824 (PopCheckpointSystemSleepUnsafe.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
-__int64 __fastcall VslReportBugCheckProgress(char *a1, __int128 *a2, const void *a3, unsigned int a4, int a5)
+NTSTATUS __fastcall VslReportBugCheckProgress(char *a1, __int128 *a2, const void *a3, unsigned int a4, int a5)
 {
   size_t v6; // rbx
   unsigned int v9; // edi
@@ -18,13 +18,13 @@ __int64 __fastcall VslReportBugCheckProgress(char *a1, __int128 *a2, const void 
   int v12; // r8d
   int v13; // edx
   __int128 v14; // xmm0
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int128 v16; // xmm0
   _OWORD v17[7]; // [rsp+20h] [rbp-51h] BYREF
 
   v6 = a4;
   if ( (a5 & 1) == 0 || a4 > 8 )
-    return 3221225485LL;
+    return -1073741811;
   memset(v17, 0, 0x68uLL);
   v9 = 0;
   v10 = IumBugCheckVariables;
@@ -50,12 +50,12 @@ __int64 __fastcall VslReportBugCheckProgress(char *a1, __int128 *a2, const void 
   *((_QWORD *)&v17[0] + 1) = v9;
 LABEL_11:
   if ( v9 == 4 )
-    return 3221225485LL;
+    return -1073741811;
   v14 = *a2;
   memset(&v17[2], 0, 24);
   v17[1] = v14;
   if ( (a5 & 0x40) != 0 )
-    result = 3221225485LL;
+    result = -1073741811;
   else
     result = VslpEnterIumSecureMode(2u, 261, 0, (__int64)v17);
   if ( (_DWORD)v6 )

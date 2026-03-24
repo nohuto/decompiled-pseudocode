@@ -3,12 +3,12 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     NtOpenKey @ 0x1405E04C0 (NtOpenKey.c)
  *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     NtQueryValueKey @ 0x140640360 (NtQueryValueKey.c)
- *     IopApplySystemPartitionProt @ 0x1409F4F30 (IopApplySystemPartitionProt.c)
+ *     NtQueryValueKey @ 0x140640340 (NtQueryValueKey.c)
+ *     IopApplySystemPartitionProt @ 0x1409F4F40 (IopApplySystemPartitionProt.c)
  */
 
 char __fastcall IopProtectSystemPartition(__int64 a1)

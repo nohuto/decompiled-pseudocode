@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSiloGetMultiUserTsFromRegistry @ 0x1409AC5A0
+ * XREFs of PspSiloGetMultiUserTsFromRegistry @ 0x140906858
  * Callers:
- *     PspSiloInitializeSuiteMask @ 0x1409AC788 (PspSiloInitializeSuiteMask.c)
+ *     PspSiloInitializeSuiteMask @ 0x1409069DC (PspSiloInitializeSuiteMask.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
  */
 
 __int64 __fastcall PspSiloGetMultiUserTsFromRegistry(_BYTE *a1)
@@ -21,7 +21,7 @@ __int64 __fastcall PspSiloGetMultiUserTsFromRegistry(_BYTE *a1)
   v4[2] = L"TSAppCompat";
   LODWORD(v4[4]) = 0x4000000;
   v4[3] = &v5;
-  result = RtlpQueryRegistryValues(2, L"Terminal Server", (__int64)v4, 0LL);
+  result = RtlpQueryRegistryValues(2LL, L"Terminal Server", (__int64)v4, 0LL);
   if ( (_DWORD)result == -1073741772 )
   {
     result = 0LL;

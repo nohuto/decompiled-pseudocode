@@ -1,9 +1,9 @@
 /*
- * XREFs of ApplyEdgeFlagsWorker_768_256_512_ @ 0x1801E7700
+ * XREFs of ApplyEdgeFlagsWorker_768_256_512_ @ 0x1801A1650
  * Callers:
- *     ApplyEdgeFlags @ 0x1801E7AC8 (ApplyEdgeFlags.c)
+ *     ApplyEdgeFlags @ 0x1801A1CB8 (ApplyEdgeFlags.c)
  * Callees:
- *     _o_ceil_0 @ 0x1801018B0 (_o_ceil_0.c)
+ *     _o_ceil_0 @ 0x1800E8180 (_o_ceil_0.c)
  */
 
 float __fastcall ApplyEdgeFlagsWorker_768_256_512_(__int16 a1, float a2, float a3)

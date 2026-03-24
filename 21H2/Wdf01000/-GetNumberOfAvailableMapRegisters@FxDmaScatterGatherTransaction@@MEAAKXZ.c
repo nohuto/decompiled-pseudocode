@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetNumberOfAvailableMapRegisters@FxDmaScatterGatherTransaction@@MEAAKXZ @ 0x1C000BAE0
+ * XREFs of ?GetNumberOfAvailableMapRegisters@FxDmaScatterGatherTransaction@@MEAAKXZ @ 0x1C000DA10
  * Callers:
  *     <none>
  * Callees:

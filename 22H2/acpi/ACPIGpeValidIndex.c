@@ -1,20 +1,26 @@
 /*
- * XREFs of ACPIGpeValidIndex @ 0x1C002C6FC
+ * XREFs of ACPIGpeValidIndex @ 0x1C001A140
  * Callers:
- *     ACPIGpeIndexToByteIndex @ 0x1C0003564 (ACPIGpeIndexToByteIndex.c)
- *     ACPIBuildProcessDevicePhasePrw @ 0x1C000FDA0 (ACPIBuildProcessDevicePhasePrw.c)
- *     ACPIGpeIndexToGpeRegister @ 0x1C002C3BC (ACPIGpeIndexToGpeRegister.c)
- *     ACPIGpeInstallRemoveIndex @ 0x1C002C418 (ACPIGpeInstallRemoveIndex.c)
- *     ACPIVectorConnect @ 0x1C0043E60 (ACPIVectorConnect.c)
+ *     ACPIBuildProcessDevicePhasePrw @ 0x1C0015900 (ACPIBuildProcessDevicePhasePrw.c)
+ *     ACPIGpeInstallRemoveIndex @ 0x1C00172E4 (ACPIGpeInstallRemoveIndex.c)
+ *     ACPIGpeIndexToGpeRegister @ 0x1C001A108 (ACPIGpeIndexToGpeRegister.c)
+ *     ACPIGpeIndexToByteIndex @ 0x1C002697C (ACPIGpeIndexToByteIndex.c)
+ *     ACPIVectorConnect @ 0x1C0060B20 (ACPIVectorConnect.c)
  * Callees:
- *     ACPIValidateGPEEventIndex @ 0x1C002C73C (ACPIValidateGPEEventIndex.c)
+ *     ACPIValidateGPEEventIndex @ 0x1C00560EC (ACPIValidateGPEEventIndex.c)
  */
 
-bool __fastcall ACPIGpeValidIndex(__int64 a1)
+char __fastcall ACPIGpeValidIndex(__int64 a1)
 {
-  __int64 v1; // rcx
-  __int64 v2; // r9
+  char result; // al
 
-  return (unsigned __int8)ACPIValidateGPEEventIndex(a1, 0LL, *((unsigned __int16 *)AcpiInformation + 43))
-      || (unsigned __int8)ACPIValidateGPEEventIndex(v1, *(unsigned __int16 *)(v2 + 100), *(unsigned __int16 *)(v2 + 98)) != 0;
+  if ( (unsigned int)a1 < 8 * (unsigned int)*((unsigned __int16 *)AcpiInformation + 43) )
+    return 1;
+  result = ACPIValidateGPEEventIndex(
+             a1,
+             *((unsigned __int16 *)AcpiInformation + 50),
+             *((unsigned __int16 *)AcpiInformation + 49));
+  if ( result )
+    return 1;
+  return result;
 }

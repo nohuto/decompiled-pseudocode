@@ -1,18 +1,18 @@
 /*
- * XREFs of WmipFindRegEntryByDevice @ 0x14012E928
+ * XREFs of WmipFindRegEntryByDevice @ 0x14012E948
  * Callers:
- *     WmipQueryWmiDataBlock @ 0x1406A7BF0 (WmipQueryWmiDataBlock.c)
- *     IoWMIRegistrationControl @ 0x1406B8F20 (IoWMIRegistrationControl.c)
- *     WmipUpdateRegistration @ 0x1406B8FF8 (WmipUpdateRegistration.c)
- *     WmipDeregisterDevice @ 0x140707514 (WmipDeregisterDevice.c)
- *     WmipRegisterDevice @ 0x14070B24C (WmipRegisterDevice.c)
+ *     WmipQueryWmiDataBlock @ 0x1406A7BD0 (WmipQueryWmiDataBlock.c)
+ *     IoWMIRegistrationControl @ 0x1406B8F00 (IoWMIRegistrationControl.c)
+ *     WmipUpdateRegistration @ 0x1406B8FD8 (WmipUpdateRegistration.c)
+ *     WmipDeregisterDevice @ 0x1407074F4 (WmipDeregisterDevice.c)
+ *     WmipRegisterDevice @ 0x14070B22C (WmipRegisterDevice.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     WmipDoFindRegEntryByDevice @ 0x14012E9B8 (WmipDoFindRegEntryByDevice.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     WmipDoFindRegEntryByDevice @ 0x14012E9D8 (WmipDoFindRegEntryByDevice.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall WmipFindRegEntryByDevice(__int64 a1)

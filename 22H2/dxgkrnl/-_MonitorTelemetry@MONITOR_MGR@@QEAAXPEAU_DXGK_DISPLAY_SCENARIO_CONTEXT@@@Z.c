@@ -1,82 +1,81 @@
 /*
- * XREFs of ?_MonitorTelemetry@MONITOR_MGR@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03C85E8
+ * XREFs of ?_MonitorTelemetry@MONITOR_MGR@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F31D4
  * Callers:
- *     ?AdapterTelemetryEnabledCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C030D1A0 (-AdapterTelemetryEnabledCallback@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
+ *     ?AdapterTelemetryEnabledCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C02B0F90 (-AdapterTelemetryEnabledCallback@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1MUTEX_LOCK@@QEAA@XZ @ 0x1C0005BE4 (--1MUTEX_LOCK@@QEAA@XZ.c)
- *     ??0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z @ 0x1C0005D78 (--0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??0?$RESOURCE_LOCK@VDXGMONITOR@@@@QEAA@PEAVDXGMONITOR@@_N@Z @ 0x1C0014EC8 (--0-$RESOURCE_LOCK@VDXGMONITOR@@@@QEAA@PEAVDXGMONITOR@@_N@Z.c)
- *     ?TriggerMonitorTelemetry@DXGMONITOR@@UEBAXW4TELEMETRY_MONITOR_INVENTORY_TRIGGER@DxgMonitor@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C021F3E0 (-TriggerMonitorTelemetry@DXGMONITOR@@UEBAXW4TELEMETRY_MONITOR_INVENTORY_TRIGGER@DxgMonitor@@PEAU.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?_MonitorTelemetry@DXGMONITOR@@QEAAXW4_TELEMETRY_MONITOR_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0182398 (-_MonitorTelemetry@DXGMONITOR@@QEAAXW4_TELEMETRY_MONITOR_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SC.c)
  */
 
-void __fastcall MONITOR_MGR::_MonitorTelemetry(MONITOR_MGR *this, struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a2)
+void __fastcall MONITOR_MGR::_MonitorTelemetry(struct _FAST_MUTEX *this, struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a2)
 {
-  struct DXGFASTMUTEX *v4; // rbp
-  char *v5; // rsi
-  MONITOR_MGR *v6; // rax
-  char *v7; // rbx
-  DXGFASTMUTEX **i; // rcx
-  __int64 v9; // rdi
-  char *v10; // rax
-  __int64 v11; // [rsp+80h] [rbp+8h] BYREF
-  char v12; // [rsp+90h] [rbp+18h] BYREF
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  struct _FAST_MUTEX *v7; // rbx
+  __int64 v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  ULONG *p_Contention; // r14
+  MONITOR_MGR *v12; // rax
+  char *v13; // rdi
+  __int64 v14; // rsi
+  __int64 v15; // rax
+  char *v16; // rax
+  __int64 v17; // rax
 
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*((_QWORD *)this + 3) + 16LL)) )
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*((DXGADAPTER **)this->Owner + 2)) )
   {
-    WdLogSingleEntry1(1LL, 4867LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"_GetAdapter()->IsCoreResourceSharedOwner()",
-      4867LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v6 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v6 + 24) = 12201LL;
+    WdLogEvent5_WdAssertion(v6);
   }
-  v4 = (MONITOR_MGR *)((char *)this + 80);
-  MUTEX_LOCK::MUTEX_LOCK((MUTEX_LOCK *)&v11, (MONITOR_MGR *)((char *)this + 80));
-  v5 = (char *)this + 40;
-  v6 = (MONITOR_MGR *)*((_QWORD *)this + 5);
-  if ( v6 == (MONITOR_MGR *)((char *)this + 40) )
+  v7 = this + 3;
+  if ( this == (struct _FAST_MUTEX *)-168LL )
   {
-    v7 = 0LL;
+    v8 = WdLogNewEntry5_WdAssertion(v5, v4);
+    WdLogEvent5_WdAssertion(v8);
   }
-  else
+  KeAcquireGuardedMutex(this + 3);
+  p_Contention = &this[2].Contention;
+  v12 = *(MONITOR_MGR **)&this[2].Contention;
+  if ( v12 != (MONITOR_MGR *)&this[2].Contention )
   {
-    v7 = (char *)v6 - 152;
-    if ( !v6 )
-      v7 = 0LL;
-  }
-  for ( i = (DXGFASTMUTEX **)&v11; ; i = (DXGFASTMUTEX **)&v12 )
-  {
-    MUTEX_LOCK::~MUTEX_LOCK(i);
-    if ( !v7 )
-      break;
-    v9 = (__int64)v7;
-    if ( *((_DWORD *)v7 + 78) != 1 && *((_QWORD *)v7 + 40) )
-      v9 = *((_QWORD *)v7 + 40);
-    RESOURCE_LOCK<DXGMONITOR>::RESOURCE_LOCK<DXGMONITOR>(&v11, v9, 0);
-    DXGMONITOR::TriggerMonitorTelemetry(v9, 2, (__int64)a2);
-    if ( v11 )
+    v13 = (char *)v12 - 16;
+    if ( !v12 )
+      v13 = 0LL;
+    while ( v13 )
     {
-      ExReleaseResourceLite((PERESOURCE)(v11 + 24));
+      v14 = (__int64)v13;
+      if ( *((_DWORD *)v13 + 108) != 1 && *((_QWORD *)v13 + 55) )
+        v14 = *((_QWORD *)v13 + 55);
+      if ( !v14 )
+      {
+        v15 = WdLogNewEntry5_WdAssertion(v10, v9);
+        WdLogEvent5_WdAssertion(v15);
+      }
+      KeEnterCriticalRegion();
+      ExAcquireResourceSharedLite((PERESOURCE)(v14 + 296), 1u);
+      DXGMONITOR::_MonitorTelemetry(v14, 2LL, (__int64)a2);
+      v16 = (char *)*((_QWORD *)v13 + 2);
+      if ( v16 == (char *)p_Contention )
+      {
+        v13 = 0LL;
+      }
+      else
+      {
+        v13 = v16 - 16;
+        if ( !v16 )
+          v13 = 0LL;
+      }
+      ExReleaseResourceLite((PERESOURCE)(v14 + 296));
       KeLeaveCriticalRegion();
     }
-    MUTEX_LOCK::MUTEX_LOCK((MUTEX_LOCK *)&v12, v4);
-    v10 = (char *)*((_QWORD *)v7 + 19);
-    if ( v10 == v5 )
-    {
-      v7 = 0LL;
-    }
-    else
-    {
-      v7 = v10 - 152;
-      if ( !v10 )
-        v7 = 0LL;
-    }
   }
+  if ( !v7 )
+  {
+    v17 = WdLogNewEntry5_WdAssertion(v10, v9);
+    WdLogEvent5_WdAssertion(v17);
+  }
+  KeReleaseGuardedMutex(v7);
 }

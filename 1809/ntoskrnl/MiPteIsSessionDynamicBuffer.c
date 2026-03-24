@@ -1,5 +1,5 @@
 /*
- * XREFs of MiPteIsSessionDynamicBuffer @ 0x140158B34
+ * XREFs of MiPteIsSessionDynamicBuffer @ 0x140158B54
  * Callers:
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
  * Callees:

@@ -1,6 +1,3 @@
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x00000250F61580C0>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x00000250F61580C0>) 
- 
+[EXCEPTION] ??_GCDrawListCache@@EEAAPEAXI@Z @ 0x180093240: Hex-Rays returned no pseudocode for 0x180093240
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x180093240'), <traceback object at 0x000002381C11CD40>)
+

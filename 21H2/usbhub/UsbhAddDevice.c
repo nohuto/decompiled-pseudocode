@@ -1,19 +1,19 @@
 /*
- * XREFs of UsbhAddDevice @ 0x1C0041550
+ * XREFs of UsbhAddDevice @ 0x1C0042800
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhRawWait @ 0x1C001A650 (UsbhRawWait.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhReferenceListOpen @ 0x1C004100C (UsbhReferenceListOpen.c)
- *     UsbhAssignHubNumber @ 0x1C0041AB0 (UsbhAssignHubNumber.c)
- *     UsbhModuleDispatch @ 0x1C0043450 (UsbhModuleDispatch.c)
- *     UsbhReleaseHubNumber @ 0x1C00435F0 (UsbhReleaseHubNumber.c)
- *     Usbh_FDO_Pnp_State @ 0x1C0043A98 (Usbh_FDO_Pnp_State.c)
- *     UsbhLogAlloc @ 0x1C0048074 (UsbhLogAlloc.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhRawWait @ 0x1C0018570 (UsbhRawWait.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhReferenceListOpen @ 0x1C004223C (UsbhReferenceListOpen.c)
+ *     UsbhAssignHubNumber @ 0x1C0042D60 (UsbhAssignHubNumber.c)
+ *     UsbhModuleDispatch @ 0x1C0044710 (UsbhModuleDispatch.c)
+ *     UsbhReleaseHubNumber @ 0x1C00448B0 (UsbhReleaseHubNumber.c)
+ *     Usbh_FDO_Pnp_State @ 0x1C0044D48 (Usbh_FDO_Pnp_State.c)
+ *     UsbhLogAlloc @ 0x1C00493F4 (UsbhLogAlloc.c)
  */
 
 __int64 __fastcall UsbhAddDevice(PDRIVER_OBJECT DriverObject, PDEVICE_OBJECT TargetDevice)
@@ -50,15 +50,8 @@ __int64 __fastcall UsbhAddDevice(PDRIVER_OBJECT DriverObject, PDEVICE_OBJECT Tar
       0,
       1u,
       0x14u,
-      (__int64)&WPP_70750b4e52e537afa0d3aa3795e637f0_Traceguids);
-  v6 = IoCreateDevice(
-         DriverObject,
-         (WPP_MAIN_CB.Dpc.TargetInfoAsUlong << 12) + 5280,
-         0LL,
-         0x8600u,
-         0x80u,
-         0,
-         &SourceDevice);
+      (__int64)&WPP_bd192adfbaab37968b6512a601d84f30_Traceguids);
+  v6 = IoCreateDevice(DriverObject, (dword_1C006C4E8 << 12) + 5280, 0LL, 0x8600u, 0x80u, 0, &SourceDevice);
   if ( v6 >= 0 )
   {
     if ( !SourceDevice )
@@ -103,7 +96,7 @@ __int64 __fastcall UsbhAddDevice(PDRIVER_OBJECT DriverObject, PDEVICE_OBJECT Tar
   KeInitializeSpinLock((PKSPIN_LOCK)DeviceExtension + 632);
   UsbhRawWait(Usbh_Long_AddDevice);
   UsbhAssignHubNumber(SourceDevice);
-  UsbhLogAlloc(SourceDevice, DeviceExtension + 880, WPP_MAIN_CB.Dpc.TargetInfoAsUlong);
+  UsbhLogAlloc(SourceDevice, DeviceExtension + 880, (unsigned int)dword_1C006C4E8);
   v11 = SourceDevice;
   *((_QWORD *)DeviceExtension + 175) = SourceDevice;
   *((_QWORD *)DeviceExtension + 173) = 2017613128LL;
@@ -190,10 +183,10 @@ __int64 __fastcall UsbhAddDevice(PDRIVER_OBJECT DriverObject, PDEVICE_OBJECT Tar
     UsbhModuleDispatch(v19, v20, (_DWORD)SourceDevice, 0, 0LL, (__int64)(v18 + 346));
     SourceDevice->Flags |= 0x2000u;
     SourceDevice->Flags &= ~0x80u;
-    v21 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);
+    v21 = KeAcquireSpinLockRaiseToDpc(&HubG);
     *((_DWORD *)DeviceExtension + 314) = 1;
-    WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
-    KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v21);
+    qword_1C006C500 = 0LL;
+    KeReleaseSpinLock(&HubG, v21);
     v22 = FdoExt((__int64)SourceDevice);
     v17 = Usbh_FDO_Pnp_State(v22 + 346, 1LL);
   }

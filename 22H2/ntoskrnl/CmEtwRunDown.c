@@ -1,135 +1,130 @@
 /*
- * XREFs of CmEtwRunDown @ 0x140A124D4
+ * XREFs of CmEtwRunDown @ 0x14086A3B8
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140827608 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x1407922CC (EtwpKernelTraceRundown.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     EtwTraceSiloDcEvent @ 0x1405FD5B0 (EtwTraceSiloDcEvent.c)
- *     CmpConstructNameWithStatus @ 0x1406D7C60 (CmpConstructNameWithStatus.c)
- *     CmpGetNextActiveHive @ 0x140752570 (CmpGetNextActiveHive.c)
- *     CmpLockRegistryExclusive @ 0x1407696FC (CmpLockRegistryExclusive.c)
- *     CmpLogHiveRundownEvent @ 0x140A12AA0 (CmpLogHiveRundownEvent.c)
- *     CmpDetachFromRegistryProcess @ 0x140AF6230 (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x140AF6250 (CmpAttachToRegistryProcess.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     EtwTraceSiloDcEvent @ 0x1405A80D0 (EtwTraceSiloDcEvent.c)
+ *     CmpConstructNameWithStatus @ 0x1405F2FF0 (CmpConstructNameWithStatus.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpGetNextActiveHive @ 0x1406EB310 (CmpGetNextActiveHive.c)
+ *     CmpLockRegistryExclusive @ 0x1406EB57C (CmpLockRegistryExclusive.c)
+ *     CmpLogHiveRundownEvent @ 0x14086AA4C (CmpLogHiveRundownEvent.c)
  */
 
-__int64 __fastcall CmEtwRunDown(__int64 a1, unsigned int a2, char a3, char a4, char a5)
+__int64 __fastcall CmEtwRunDown(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, char a5)
 {
-  char v6; // di
-  char v7; // si
+  char v5; // di
+  char v6; // si
+  unsigned int v7; // r13d
   struct _EX_RUNDOWN_REF *v9; // rcx
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  unsigned int v14; // eax
-  __int64 *v15; // rsi
-  __int64 v16; // r15
+  unsigned int v10; // eax
+  __int64 *v11; // rsi
+  __int64 v12; // r15
   __int64 i; // rdi
-  void *v18; // r14
-  int v19; // edx
-  __int64 *v20; // rbx
-  NTSTATUS v21; // ebx
-  __int16 v25; // [rsp+34h] [rbp-CCh] BYREF
-  int v26; // [rsp+38h] [rbp-C8h] BYREF
+  void *v14; // r14
+  __int64 *v15; // rbx
+  NTSTATUS v16; // ebx
+  char v18; // [rsp+30h] [rbp-D0h]
+  char v19; // [rsp+31h] [rbp-CFh]
+  __int16 v20; // [rsp+34h] [rbp-CCh] BYREF
+  int v21; // [rsp+38h] [rbp-C8h] BYREF
   ULONG ResultLength; // [rsp+3Ch] [rbp-C4h] BYREF
   HANDLE KeyHandle; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned __int16 *v29; // [rsp+48h] [rbp-B8h] BYREF
+  unsigned __int16 *v24; // [rsp+48h] [rbp-B8h] BYREF
   __int64 *NextActiveHive; // [rsp+50h] [rbp-B0h]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
-  UNICODE_STRING ValueName; // [rsp+98h] [rbp-68h] BYREF
-  __int128 v34; // [rsp+A8h] [rbp-58h] BYREF
-  __int128 v35; // [rsp+B8h] [rbp-48h] BYREF
-  __int128 v36; // [rsp+C8h] [rbp-38h]
-  __int128 KeyValueInformation; // [rsp+D8h] [rbp-28h] BYREF
-  _OWORD v38[3]; // [rsp+E8h] [rbp-18h] BYREF
-  __int64 *v39; // [rsp+118h] [rbp+18h] BYREF
-  __int64 v40; // [rsp+120h] [rbp+20h]
-  __int64 v41; // [rsp+128h] [rbp+28h]
-  int v42; // [rsp+130h] [rbp+30h]
-  int v43; // [rsp+134h] [rbp+34h]
-  __int16 *v44; // [rsp+138h] [rbp+38h]
-  __int64 v45; // [rsp+140h] [rbp+40h]
+  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
+  UNICODE_STRING ValueName; // [rsp+68h] [rbp-98h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
+  __int128 v29; // [rsp+A8h] [rbp-58h] BYREF
+  __int128 v30; // [rsp+B8h] [rbp-48h]
+  __int128 KeyValueInformation; // [rsp+C8h] [rbp-38h] BYREF
+  _OWORD v32[3]; // [rsp+D8h] [rbp-28h] BYREF
+  __int64 *v33; // [rsp+108h] [rbp+8h] BYREF
+  __int64 v34; // [rsp+110h] [rbp+10h]
+  __int64 v35; // [rsp+118h] [rbp+18h]
+  int v36; // [rsp+120h] [rbp+20h]
+  int v37; // [rsp+124h] [rbp+24h]
+  __int16 *v38; // [rsp+128h] [rbp+28h]
+  __int64 v39; // [rsp+130h] [rbp+30h]
 
-  v34 = 0LL;
-  v26 = 0;
-  v6 = a4;
-  memset(&ObjectAttributes, 0, 44);
+  v19 = (char)a4;
+  v18 = a3;
+  v5 = (char)a4;
+  v6 = a3;
+  v7 = a2;
+  v21 = 0;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   ResultLength = 0;
-  v7 = a3;
   KeyHandle = 0LL;
+  v20 = 0;
   ValueName = 0LL;
-  v25 = 0;
   KeyValueInformation = 0LL;
   DestinationString = 0LL;
-  v35 = 0LL;
-  v36 = 0LL;
-  memset(v38, 0, sizeof(v38));
-  CmpInitializeThreadInfo((__int64)&v34);
+  v29 = 0LL;
+  v30 = 0LL;
+  memset(v32, 0, sizeof(v32));
   if ( !a5 )
   {
-    CmpAttachToRegistryProcess(v38);
-    v40 = 24LL;
-    v39 = (__int64 *)&v35;
+    CmpAttachToRegistryProcess((__int64)v32, a2, a3, a4);
+    v34 = 24LL;
+    v33 = (__int64 *)&v29;
     v9 = 0LL;
-    v45 = 2LL;
-    v44 = &v25;
+    v39 = 2LL;
+    v38 = &v20;
     while ( 1 )
     {
       NextActiveHive = CmpGetNextActiveHive(v9);
-      v20 = NextActiveHive;
+      v15 = NextActiveHive;
       if ( !NextActiveHive )
         break;
       CmpLockRegistryExclusive();
+      if ( v5 )
+        CmpLogHiveRundownEvent(v15, a1, v7);
       if ( v6 )
-        CmpLogHiveRundownEvent(v20, a1, a2);
-      if ( v7 )
       {
-        v14 = *((_DWORD *)v20 + 414);
-        if ( v14 )
+        v10 = *((_DWORD *)v15 + 412);
+        if ( v10 )
         {
-          v15 = (__int64 *)(v20[206] + 16);
-          v16 = v14;
+          v11 = (__int64 *)(v15[205] + 16);
+          v12 = v10;
           do
           {
-            for ( i = *v15; i; i = *(_QWORD *)(i + 8) )
+            for ( i = *v11; i; i = *(_QWORD *)(i + 8) )
             {
-              v29 = 0LL;
-              CmpConstructNameWithStatus(i - 16, &v29, v12);
-              v18 = v29;
-              if ( v29 )
+              v24 = 0LL;
+              CmpConstructNameWithStatus(i - 16, &v24);
+              v14 = v24;
+              if ( v24 )
               {
-                v19 = *v29;
-                v41 = *((_QWORD *)v29 + 1);
-                v42 = v19;
-                *(_QWORD *)&v36 = i - 16;
-                v43 = 0;
-                EtwTraceSiloDcEvent((__int64)&v39, 3u, a1, a2, 0x919u, 0x401802u);
-                CmpFreeTransientPoolWithTag(v18, 0x624E4D43u);
+                v35 = *((_QWORD *)v24 + 1);
+                v36 = *v24;
+                *(_QWORD *)&v30 = i - 16;
+                v37 = 0;
+                EtwTraceSiloDcEvent((__int64)&v33, 3u, a1, v7, 0x919u, 0x401802u);
+                CmpFreeTransientPoolWithTag(v14, 0x624E4D43u);
               }
             }
-            v15 += 3;
-            --v16;
+            v11 += 3;
+            --v12;
           }
-          while ( v16 );
-          v20 = NextActiveHive;
-          v6 = a4;
+          while ( v12 );
+          v15 = NextActiveHive;
+          v5 = v19;
         }
-        v7 = a3;
+        v6 = v18;
       }
-      CmpUnlockRegistry(v11, v10, v12, v13);
-      v9 = (struct _EX_RUNDOWN_REF *)v20;
+      CmpUnlockRegistry();
+      v9 = (struct _EX_RUNDOWN_REF *)v15;
     }
-    CmpDetachFromRegistryProcess(v38);
+    KiUnstackDetachProcess((__int64)v32, 0);
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\Select");
     ObjectAttributes.Length = 48;
     ObjectAttributes.ObjectName = &DestinationString;
@@ -139,7 +134,7 @@ __int64 __fastcall CmEtwRunDown(__int64 a1, unsigned int a2, char a3, char a4, c
     if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
     {
       RtlInitUnicodeString(&ValueName, L"Current");
-      v21 = ZwQueryValueKey(
+      v16 = ZwQueryValueKey(
               KeyHandle,
               &ValueName,
               KeyValuePartialInformation,
@@ -147,18 +142,17 @@ __int64 __fastcall CmEtwRunDown(__int64 a1, unsigned int a2, char a3, char a4, c
               0x10u,
               &ResultLength);
       ZwClose(KeyHandle);
-      if ( v21 >= 0 )
+      if ( v16 >= 0 )
       {
-        v26 = HIDWORD(KeyValueInformation);
-        v39 = (__int64 *)&v26;
-        v40 = 4LL;
-        EtwTraceSiloDcEvent((__int64)&v39, 1u, a1, a2, 0x923u, 0x401802u);
+        v21 = HIDWORD(KeyValueInformation);
+        v33 = (__int64 *)&v21;
+        LODWORD(v34) = 4;
+        EtwTraceSiloDcEvent((__int64)&v33, 1u, a1, v7, 0x923u, 0x401802u);
       }
     }
   }
-  v39 = &CmPerfCounters;
-  v40 = 88LL;
-  EtwTraceSiloDcEvent((__int64)&v39, 1u, a1, a2, 0x922u, 0x401802u);
-  CmCleanupThreadInfo((__int64 *)&v34);
+  v33 = &CmPerfCounters;
+  v34 = 88LL;
+  EtwTraceSiloDcEvent((__int64)&v33, 1u, a1, v7, 0x922u, 0x401802u);
   return 0LL;
 }

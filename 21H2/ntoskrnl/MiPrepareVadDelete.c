@@ -1,55 +1,83 @@
 /*
- * XREFs of MiPrepareVadDelete @ 0x14079D5B4
+ * XREFs of MiPrepareVadDelete @ 0x1406EE878
  * Callers:
- *     MiFreeVadRange @ 0x1402ECEB0 (MiFreeVadRange.c)
+ *     MiFreeVadRange @ 0x1403185C4 (MiFreeVadRange.c)
  * Callees:
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140281A58 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiVadDeleted @ 0x14030EB80 (MiVadDeleted.c)
- *     MiLockAddressSpaceToo @ 0x140310450 (MiLockAddressSpaceToo.c)
+ *     MiVadDeleted @ 0x14025B330 (MiVadDeleted.c)
+ *     MiLockAddressSpaceToo @ 0x1402BD720 (MiLockAddressSpaceToo.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x140314860 (UNLOCK_ADDRESS_SPACE.c)
  */
 
-__int64 __fastcall MiPrepareVadDelete(__int64 a1, _BYTE *a2, __int64 a3, __int64 a4, _DWORD *a5)
+__int64 __fastcall MiPrepareVadDelete(__int64 a1, char *a2, __int64 a3, __int64 a4, int *a5)
 {
-  unsigned __int64 v7; // r10
-  unsigned __int64 v8; // rdx
-  int v10; // ecx
-  struct _KTHREAD *v11; // rax
+  unsigned __int64 v7; // r11
+  unsigned __int64 v8; // r10
+  __int64 v9; // rax
+  unsigned __int64 v10; // r10
+  int v11; // eax
+  char v12; // cl
+  int v14; // ecx
+  struct _KTHREAD *v15; // rcx
+  int v16; // eax
+  unsigned int v17; // ecx
   struct _KTHREAD *CurrentThread; // rcx
 
   v7 = *(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32);
-  v8 = *(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32);
-  if ( a4 == v8 && a3 == v7 )
+  v8 = (unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32;
+  v9 = *(unsigned int *)(a1 + 28);
+  *a5 = 0;
+  v10 = v9 | v8;
+  if ( a3 != v7 || (v11 = 0, a4 != v10) )
   {
-    *a5 = 0;
-    if ( *a2 )
+    v14 = *(_DWORD *)(a1 + 48);
+    if ( (v14 & 0x300000) != 0x300000 )
+    {
+      if ( (v14 & 0x70) != 0 )
+      {
+        if ( (v14 & 0x70) == 0x40 )
+          goto LABEL_12;
+      }
+      else if ( (v14 & 0x100000) == 0 || (v14 & 0x400000) == 0 && (v14 & 0xC0000u) < 0x80000 )
+      {
+LABEL_12:
+        if ( a3 == v7 )
+        {
+          *a5 = 1;
+          v11 = 1;
+        }
+        else
+        {
+          v11 = 2;
+          if ( a4 != v10 )
+            v11 = 3;
+          *a5 = v11;
+        }
+        goto LABEL_3;
+      }
+    }
+    return 3221225631LL;
+  }
+LABEL_3:
+  v12 = *a2;
+  if ( !v11 )
+  {
+    if ( v12 == 1 )
     {
       CurrentThread = KeGetCurrentThread();
-      UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, (__int64)CurrentThread->ApcState.Process);
+      UNLOCK_ADDRESS_SPACE((__int64)CurrentThread, (__int64)CurrentThread->ApcState.Process);
       *a2 = 0;
     }
     return 0LL;
   }
-  v10 = *(_DWORD *)(a1 + 48);
-  if ( (v10 & 0x600000) == 0x600000 )
-    return 3221225631LL;
-  if ( (v10 & 0x70) != 0 )
-  {
-    if ( (v10 & 0x70) == 0x40 )
-      goto LABEL_11;
-    return 3221225631LL;
-  }
-  if ( (v10 & 0x200000) != 0 && ((v10 & 0x800000) != 0 || (v10 & 0x180000u) >= 0x100000) )
-    return 3221225631LL;
-LABEL_11:
-  if ( a3 == v7 )
-    *a5 = 1;
-  else
-    *a5 = (a4 != v8) + 2;
-  if ( *a2 )
+  if ( v12 )
     return 0LL;
-  v11 = KeGetCurrentThread();
+  v15 = KeGetCurrentThread();
+  *a5 = 0;
   *a2 = 1;
-  if ( (unsigned int)MiLockAddressSpaceToo((__int64)v11->ApcState.Process, a1) )
-    return 0LL;
-  return (unsigned int)MiVadDeleted(a1) != 0 ? -1073741664 : -1073741267;
+  MiLockAddressSpaceToo((__int64)v15->ApcState.Process, a1);
+  v16 = MiVadDeleted(a1);
+  v17 = -1073741267;
+  if ( v16 == 1 )
+    return (unsigned int)-1073741664;
+  return v17;
 }

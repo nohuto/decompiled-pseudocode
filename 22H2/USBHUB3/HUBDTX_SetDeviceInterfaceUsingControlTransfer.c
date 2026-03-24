@@ -1,16 +1,16 @@
 /*
- * XREFs of HUBDTX_SetDeviceInterfaceUsingControlTransfer @ 0x1C002B6A0
+ * XREFs of HUBDTX_SetDeviceInterfaceUsingControlTransfer @ 0x1C0028A24
  * Callers:
- *     HUBDSM_SettingDeviceInterfaceInSettingInterfaceOnFailureForCompat @ 0x1C0023C70 (HUBDSM_SettingDeviceInterfaceInSettingInterfaceOnFailureForCompat.c)
+ *     HUBDSM_SettingDeviceInterfaceInSettingInterfaceOnFailureForCompat @ 0x1C0021490 (HUBDSM_SettingDeviceInterfaceInSettingInterfaceOnFailureForCompat.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
- *     HUBMISC_ControlTransfer @ 0x1C0032554 (HUBMISC_ControlTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
  */
 
 __int64 __fastcall HUBDTX_SetDeviceInterfaceUsingControlTransfer(__int64 *a1)
 {
-  __int64 v2; // rcx
+  __int64 v1; // rdi
   int v3; // edx
   __int64 v4; // rcx
   __int64 v5; // rdx
@@ -19,11 +19,11 @@ __int64 __fastcall HUBDTX_SetDeviceInterfaceUsingControlTransfer(__int64 *a1)
   __int64 v8; // [rsp+28h] [rbp-30h]
   char v9; // [rsp+40h] [rbp-18h]
 
-  v2 = a1[8];
-  if ( v2 )
+  v1 = (__int64)(a1 + 63);
+  if ( a1[8] )
   {
     *((_BYTE *)a1 + 400) = a1[50] & 0x1C | 1;
-    v4 = *(_QWORD *)(v2 + 32);
+    v4 = *(_QWORD *)(a1[8] + 32);
     *((_BYTE *)a1 + 401) = 11;
     *((_WORD *)a1 + 201) = *(unsigned __int8 *)(v4 + 3);
     *((_WORD *)a1 + 202) = *(unsigned __int8 *)(v4 + 2);
@@ -53,7 +53,7 @@ __int64 __fastcall HUBDTX_SetDeviceInterfaceUsingControlTransfer(__int64 *a1)
         2u,
         5u,
         0x44u,
-        (__int64)&WPP_84d33890ce5c36f044156420b7e16ac3_Traceguids,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         v8);
     }
     v3 = 4004;
@@ -62,5 +62,5 @@ __int64 __fastcall HUBDTX_SetDeviceInterfaceUsingControlTransfer(__int64 *a1)
   {
     v3 = 4012;
   }
-  return HUBSM_AddEvent((__int64)(a1 + 63), v3);
+  return HUBSM_AddEvent(v1, v3);
 }

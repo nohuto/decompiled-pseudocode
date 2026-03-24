@@ -1,13 +1,13 @@
 /*
- * XREFs of VidSchiGetSoftwareOnlyNodeForDriverEngine @ 0x1C00188D8
+ * XREFs of VidSchiGetSoftwareOnlyNodeForDriverEngine @ 0x1C0016120
  * Callers:
- *     VidSchCreateContext @ 0x1C0090040 (VidSchCreateContext.c)
- *     VidSchCreateSystemDevices @ 0x1C00C1F44 (VidSchCreateSystemDevices.c)
+ *     VidSchCreateContext @ 0x1C007FA20 (VidSchCreateContext.c)
+ *     VidSchCreateSystemDevices @ 0x1C0096A64 (VidSchCreateSystemDevices.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall VidSchiGetSoftwareOnlyNodeForDriverEngine(__int64 a1, int a2)
 {
-  return (unsigned int)(a2 + *(_DWORD *)(a1 + 80));
+  return (unsigned int)(a2 + *(_DWORD *)(a1 + 72));
 }

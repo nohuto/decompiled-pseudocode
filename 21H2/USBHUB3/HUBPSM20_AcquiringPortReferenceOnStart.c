@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM20_AcquiringPortReferenceOnStart @ 0x1C0010950
+ * XREFs of HUBPSM20_AcquiringPortReferenceOnStart @ 0x1C0010540
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_AcquirePortPowerReference @ 0x1C000FA08 (HUBMUX_AcquirePortPowerReference.c)
+ *     HUBMUX_AcquirePortPowerReference @ 0x1C000F5EC (HUBMUX_AcquirePortPowerReference.c)
  */
 
 __int64 __fastcall HUBPSM20_AcquiringPortReferenceOnStart(__int64 a1)

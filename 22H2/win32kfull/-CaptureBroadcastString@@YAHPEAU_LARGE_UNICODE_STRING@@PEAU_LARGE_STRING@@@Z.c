@@ -1,57 +1,53 @@
 /*
- * XREFs of ?CaptureBroadcastString@@YAHPEAU_LARGE_UNICODE_STRING@@PEAU_LARGE_STRING@@@Z @ 0x1C0050894
+ * XREFs of ?CaptureBroadcastString@@YAHPEAU_LARGE_UNICODE_STRING@@PEAU_LARGE_STRING@@@Z @ 0x1C0132FA0
  * Callers:
- *     xxxBroadcastMessageEx @ 0x1C004C8D0 (xxxBroadcastMessageEx.c)
- *     xxxSendNotifyMessage @ 0x1C004D370 (xxxSendNotifyMessage.c)
+ *     xxxBroadcastMessageEx @ 0x1C003FDE8 (xxxBroadcastMessageEx.c)
+ *     xxxSendNotifyMessage @ 0x1C00402D0 (xxxSendNotifyMessage.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall CaptureBroadcastString(struct _LARGE_UNICODE_STRING *a1, struct _LARGE_STRING *a2)
 {
-  int v4; // ecx
+  int v4; // eax
   bool v5; // zf
-  __int64 v6; // rcx
+  ULONG v6; // eax
   WCHAR *v7; // rax
-  void **v8; // rdi
-  ULONG v9; // edx
+  ULONG v8; // edx
   ULONG BytesInMultiByteString; // ecx
-  NTSTATUS v11; // edx
-  ULONG BytesInUnicodeString; // [rsp+68h] [rbp+10h] BYREF
-  char *v14; // [rsp+70h] [rbp+18h]
+  NTSTATUS v10; // edx
+  ULONG BytesInUnicodeString; // [rsp+58h] [rbp+10h] BYREF
 
-  v4 = 2 * *(_DWORD *)a2;
-  if ( *((int *)a2 + 1) >= 0 )
-    v4 = *(_DWORD *)a2;
+  v4 = *(_DWORD *)a2;
+  if ( *((int *)a2 + 1) < 0 )
+    v4 *= 2;
   v5 = v4 == -2;
-  v6 = (unsigned int)(v4 + 2);
+  v6 = v4 + 2;
   BytesInUnicodeString = v6;
   if ( !v5 )
   {
-    v7 = (WCHAR *)Win32AllocPoolWithQuotaZInit(v6, 1936946005LL);
-    v8 = (void **)((char *)a1 + 8);
-    v14 = (char *)a1 + 8;
+    v7 = (WCHAR *)Win32AllocPoolWithQuota(v6, 1936946005LL);
     *((_QWORD *)a1 + 1) = v7;
     if ( v7 )
     {
-      v9 = BytesInUnicodeString;
+      v8 = BytesInUnicodeString;
       *((_DWORD *)a1 + 1) = BytesInUnicodeString & 0x7FFFFFFF;
       BytesInMultiByteString = *(_DWORD *)a2;
       if ( *((int *)a2 + 1) < 0 )
       {
-        v11 = RtlMultiByteToUnicodeN(v7, v9, &BytesInUnicodeString, *((const CHAR **)a2 + 1), BytesInMultiByteString);
+        v10 = RtlMultiByteToUnicodeN(v7, v8, &BytesInUnicodeString, *((const CHAR **)a2 + 1), BytesInMultiByteString);
         *(_DWORD *)a1 = BytesInUnicodeString;
       }
       else
       {
         *(_DWORD *)a1 = BytesInMultiByteString;
         memmove(v7, *((const void **)a2 + 1), BytesInMultiByteString);
-        v11 = 0;
+        v10 = 0;
       }
-      *((_WORD *)*v8 + ((unsigned __int64)*(unsigned int *)a1 >> 1)) = 0;
-      if ( v11 >= 0 )
+      *(_WORD *)(*((_QWORD *)a1 + 1) + 2 * ((unsigned __int64)*(unsigned int *)a1 >> 1)) = 0;
+      if ( v10 >= 0 )
         return 1LL;
-      Win32FreePool(*v8);
+      Win32FreePool(*((void **)a1 + 1));
     }
   }
   return 0LL;

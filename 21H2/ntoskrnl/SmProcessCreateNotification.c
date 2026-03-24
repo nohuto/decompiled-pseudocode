@@ -1,16 +1,16 @@
 /*
- * XREFs of SmProcessCreateNotification @ 0x14070EE20
+ * XREFs of SmProcessCreateNotification @ 0x1406D967C
  * Callers:
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
  * Callees:
- *     SmpKeyedStoreCreate @ 0x1406ED260 (SmpKeyedStoreCreate.c)
+ *     SmpKeyedStoreCreate @ 0x140710B44 (SmpKeyedStoreCreate.c)
  */
 
-__int64 __fastcall SmProcessCreateNotification(LUID a1, char a2)
+__int64 __fastcall SmProcessCreateNotification(__int64 a1, char a2)
 {
-  if ( (dword_140D321C0 & 0xC) == 0 || *(_WORD *)(*(_QWORD *)&a1 + 1838LL) )
+  if ( (dword_140D24180 & 0xC) == 0 || *(_WORD *)(a1 + 1838) )
     return 3221225659LL;
   if ( (a2 & 3) != 0 )
-    return SmpKeyedStoreCreate((ULONG_PTR)&qword_140D321C8, (__int64)&SmGlobals, a1);
+    return SmpKeyedStoreCreate((ULONG_PTR)qword_140D24188);
   return 3221266944LL;
 }

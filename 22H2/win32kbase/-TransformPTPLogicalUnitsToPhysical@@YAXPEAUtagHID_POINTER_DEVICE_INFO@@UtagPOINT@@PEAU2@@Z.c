@@ -1,10 +1,10 @@
 /*
- * XREFs of ?TransformPTPLogicalUnitsToPhysical@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@PEAU2@@Z @ 0x1C00E10EC
+ * XREFs of ?TransformPTPLogicalUnitsToPhysical@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@PEAU2@@Z @ 0x1C0163B4C
  * Callers:
- *     RIMApplyPTPTranslation @ 0x1C00E117E (RIMApplyPTPTranslation.c)
+ *     RIMApplyPTPTranslation @ 0x1C01641EC (RIMApplyPTPTranslation.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     RIMConvertPointCoordinates @ 0x1C018F5D8 (RIMConvertPointCoordinates.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMConvertPointCoordinates @ 0x1C0164460 (RIMConvertPointCoordinates.c)
  */
 
 void __fastcall TransformPTPLogicalUnitsToPhysical(
@@ -16,7 +16,7 @@ void __fastcall TransformPTPLogicalUnitsToPhysical(
 
   x = a2.x;
   if ( *((_DWORD *)a1 + 6) != 7 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 2070);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2047);
   if ( !(unsigned int)RIMConvertPointCoordinates(x) )
     *a3 = 0LL;
 }

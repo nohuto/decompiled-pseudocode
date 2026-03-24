@@ -1,59 +1,23 @@
 /*
- * XREFs of ?Deallocate@DXGPROCESS_ADAPTER_INFO_PASID_DATA@@QEAAXXZ @ 0x1C01E8F3C
+ * XREFs of ?Deallocate@DXGPROCESS_ADAPTER_INFO_PASID_DATA@@QEAAXXZ @ 0x1C016B7C0
  * Callers:
- *     ?Initialize@DXGPROCESS_RENDER_ADAPTER_INFO@@QEAAJPEAVDXGPROCESS@@PEAVADAPTER_RENDER@@@Z @ 0x1C018F4E4 (-Initialize@DXGPROCESS_RENDER_ADAPTER_INFO@@QEAAJPEAVDXGPROCESS@@PEAVADAPTER_RENDER@@@Z.c)
- *     ?DestroyAdapterInfo@DXGPROCESS@@QEAAXPEAUDXGPROCESS_RENDER_ADAPTER_INFO@@@Z @ 0x1C01A97E4 (-DestroyAdapterInfo@DXGPROCESS@@QEAAXPEAUDXGPROCESS_RENDER_ADAPTER_INFO@@@Z.c)
+ *     ?DestroyAdapterInfo@DXGPROCESS@@QEAAXPEAUDXGPROCESS_ADAPTER_INFO@@@Z @ 0x1C0124E9C (-DestroyAdapterInfo@DXGPROCESS@@QEAAXPEAUDXGPROCESS_ADAPTER_INFO@@@Z.c)
+ *     ?Initialize@DXGPROCESS_ADAPTER_INFO@@QEAAJPEAVDXGPROCESS@@PEAVADAPTER_RENDER@@@Z @ 0x1C015EB24 (-Initialize@DXGPROCESS_ADAPTER_INFO@@QEAAJPEAVDXGPROCESS@@PEAVADAPTER_RENDER@@@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?SmmUseIommuV3Interface@@YA_NXZ @ 0x1C00200D4 (-SmmUseIommuV3Interface@@YA_NXZ.c)
- *     Feature_DxgkGpuVaIoMmu__private_IsEnabledDeviceUsage @ 0x1C0023FE8 (Feature_DxgkGpuVaIoMmu__private_IsEnabledDeviceUsage.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?SysMmDestroyPasidDevice@@YAJPEAU_IOMMU_DMA_PASID_DEVICE@@@Z @ 0x1C03D6720 (-SysMmDestroyPasidDevice@@YAJPEAU_IOMMU_DMA_PASID_DEVICE@@@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
  */
 
 void __fastcall DXGPROCESS_ADAPTER_INFO_PASID_DATA::Deallocate(DXGPROCESS_ADAPTER_INFO_PASID_DATA *this)
 {
-  unsigned int v2; // ecx
-  __int64 i; // rdi
-  __int64 v4; // rdx
-  DXGPROCESS_ADAPTER_INFO_PASID_DATA *v5; // rcx
+  DXGPROCESS_ADAPTER_INFO_PASID_DATA *v2; // rcx
 
-  if ( (unsigned int)Feature_DxgkGpuVaIoMmu__private_IsEnabledDeviceUsage() && *((_QWORD *)this + 4) )
+  v2 = (DXGPROCESS_ADAPTER_INFO_PASID_DATA *)*((_QWORD *)this + 1);
+  if ( v2 )
   {
-    v2 = *((_DWORD *)this + 4);
-    for ( i = 0LL; (unsigned int)i < v2; i = (unsigned int)(i + 1) )
+    if ( v2 != this )
     {
-      if ( *(_QWORD *)(*((_QWORD *)this + 4) + 8 * i) )
-      {
-        if ( SmmUseIommuV3Interface() )
-          ((void (*)(void))qword_1C0140CB8)();
-        SysMmDestroyPasidDevice(*(struct _IOMMU_DMA_PASID_DEVICE **)(*((_QWORD *)this + 4) + 8 * i));
-        *(_QWORD *)(*((_QWORD *)this + 4) + 8 * i) = 0LL;
-      }
-      v2 = *((_DWORD *)this + 4);
-    }
-    if ( *((_QWORD *)this + 5) )
-    {
-      if ( SmmUseIommuV3Interface() )
-      {
-        ((void (__fastcall *)(__int64))qword_1C0140BF8)(v4);
-        v2 = *((_DWORD *)this + 4);
-      }
-      *((_QWORD *)this + 5) = 0LL;
-    }
-    if ( v2 > 1 )
-    {
-      operator delete(*((void **)this + 4));
-      *((_QWORD *)this + 4) = 0LL;
-    }
-  }
-  v5 = (DXGPROCESS_ADAPTER_INFO_PASID_DATA *)*((_QWORD *)this + 3);
-  if ( v5 )
-  {
-    if ( v5 != this )
-    {
-      operator delete(v5);
-      *((_QWORD *)this + 3) = 0LL;
+      operator delete[](v2);
+      *((_QWORD *)this + 1) = 0LL;
     }
   }
 }

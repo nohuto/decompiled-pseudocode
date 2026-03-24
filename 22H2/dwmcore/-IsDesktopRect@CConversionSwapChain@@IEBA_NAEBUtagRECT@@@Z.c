@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsDesktopRect@CConversionSwapChain@@IEBA_NAEBUtagRECT@@@Z @ 0x1802A25C8
+ * XREFs of ?IsDesktopRect@CConversionSwapChain@@IEBA_NAEBUtagRECT@@@Z @ 0x18024F708
  * Callers:
- *     ?CheckMultiplaneOverlaySupport@CConversionSwapChain@@UEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x1802A0E30 (-CheckMultiplaneOverlaySupport@CConversionSwapChain@@UEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPO.c)
+ *     ?CheckMultiplaneOverlaySupport@CConversionSwapChain@@UEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x18024E240 (-CheckMultiplaneOverlaySupport@CConversionSwapChain@@UEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPO.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall CConversionSwapChain::IsDesktopRect(CConversionSwapChain *this, const struct tagRECT *a2)
@@ -13,9 +13,9 @@ char __fastcall CConversionSwapChain::IsDesktopRect(CConversionSwapChain *this, 
   int v6; // [rsp+30h] [rbp+8h] BYREF
   int v7; // [rsp+34h] [rbp+Ch]
 
-  v3 = (void (__fastcall ***)(_QWORD, int *))(*((_QWORD *)this + 16)
+  v3 = (void (__fastcall ***)(_QWORD, int *))(*((_QWORD *)this + 10)
                                             + 8LL
-                                            + *(int *)(*(_QWORD *)(*((_QWORD *)this + 16) + 8LL) + 16LL));
+                                            + *(int *)(*(_QWORD *)(*((_QWORD *)this + 10) + 8LL) + 16LL));
   (**v3)(v3, &v6);
   v4 = 0;
   if ( !*(_QWORD *)&a2->left && a2->right == v6 )

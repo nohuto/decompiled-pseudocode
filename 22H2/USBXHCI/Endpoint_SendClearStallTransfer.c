@@ -1,16 +1,16 @@
 /*
- * XREFs of Endpoint_SendClearStallTransfer @ 0x1C003BD6C
+ * XREFs of Endpoint_SendClearStallTransfer @ 0x1C0039D7C
  * Callers:
- *     Endpoint_OnCancelEndpointConfigureCompletion @ 0x1C003A8C0 (Endpoint_OnCancelEndpointConfigureCompletion.c)
+ *     Endpoint_OnCancelEndpointConfigureCompletion @ 0x1C0038980 (Endpoint_OnCancelEndpointConfigureCompletion.c)
  * Callees:
- *     WPP_RECORDER_SF_ddq @ 0x1C000C330 (WPP_RECORDER_SF_ddq.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0020600 (memset.c)
+ *     WPP_RECORDER_SF_ddq @ 0x1C0009428 (WPP_RECORDER_SF_ddq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 _UNKNOWN **__fastcall Endpoint_SendClearStallTransfer(_QWORD *Context)
 {
-  PIRP *v1; // rax
+  PIRP *v2; // rax
   PIRP v3; // rbp
   PIRP *v4; // rdi
   char v5; // al
@@ -29,15 +29,17 @@ _UNKNOWN **__fastcall Endpoint_SendClearStallTransfer(_QWORD *Context)
   __int64 v18; // [rsp+48h] [rbp-20h]
   PIRP v19; // [rsp+50h] [rbp-18h]
 
-  v1 = (PIRP *)Context[34];
-  v3 = *v1;
-  v4 = v1 + 1;
-  IoReuseIrp(*v1, 0);
+  HIDWORD(v18) = 0;
+  v2 = (PIRP *)Context[33];
+  v3 = *v2;
+  v4 = v2 + 1;
+  IoReuseIrp(*v2, 0);
   v5 = (_BYTE)v4[16] & 0x1C;
   *((_BYTE *)v4 + 129) = 1;
   *((_WORD *)v4 + 65) = 0;
   *((_BYTE *)v4 + 128) = v5 | 2;
-  *((_DWORD *)v4 + 33) = *((unsigned __int8 *)Context + 98);
+  *((_WORD *)v4 + 66) = *((unsigned __int8 *)Context + 98);
+  *((_WORD *)v4 + 67) = 0;
   *(_DWORD *)v4 = 3276936;
   v4[4] = (PIRP)24;
   v4[5] = 0LL;
@@ -79,7 +81,7 @@ _UNKNOWN **__fastcall Endpoint_SendClearStallTransfer(_QWORD *Context)
   v12 = *(_QWORD *)(v11 + 176);
   if ( v12 )
   {
-    v14 = Context[34];
+    v14 = Context[33];
     v15 = *(_QWORD *)(*(_QWORD *)(v12 + 88) + 72LL);
     v18 = 0LL;
     v17[0] = 24;
@@ -98,19 +100,19 @@ _UNKNOWN **__fastcall Endpoint_SendClearStallTransfer(_QWORD *Context)
         v16,
         13,
         68,
-        (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
         *(_BYTE *)(Context[2] + 135LL),
         *((_DWORD *)Context + 36),
-        *(_QWORD *)(Context[34] + 144LL));
+        *(_QWORD *)(Context[33] + 144LL));
     }
     result = (_UNKNOWN **)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, __int64))(WdfFunctions_01023 + 2248))(
                             WdfDriverGlobals,
-                            *(_QWORD *)(Context[34] + 144LL),
+                            *(_QWORD *)(Context[33] + 144LL),
                             v15);
     if ( (int)result < 0 )
       return (_UNKNOWN **)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD))(WdfFunctions_01023 + 2104))(
                             WdfDriverGlobals,
-                            *(_QWORD *)(Context[34] + 144LL),
+                            *(_QWORD *)(Context[33] + 144LL),
                             (unsigned int)result);
   }
   else
@@ -124,10 +126,10 @@ _UNKNOWN **__fastcall Endpoint_SendClearStallTransfer(_QWORD *Context)
                             v9,
                             13,
                             67,
-                            (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
+                            (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
                             *(_BYTE *)(v11 + 135),
                             *((_DWORD *)Context + 36),
-                            *(_QWORD *)(Context[34] + 144LL));
+                            *(_QWORD *)(Context[33] + 144LL));
     }
   }
   return result;

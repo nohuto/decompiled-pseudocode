@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CreateWin32KFilterBitmap@@YAJKQEAPEBDHKPEAE@Z @ 0x1C00975E0
+ * XREFs of ?CreateWin32KFilterBitmap@@YAJKQEAPEBDHKPEAE@Z @ 0x1C00698A0
  * Callers:
- *     InitializeWin32KSyscallFilter @ 0x1C0097170 (InitializeWin32KSyscallFilter.c)
+ *     InitializeWin32KSyscallFilter @ 0x1C0069460 (InitializeWin32KSyscallFilter.c)
  * Callees:
- *     ?RtlStringCbPrintfA@@YAJPEAD_KPEBDZZ @ 0x1C0097704 (-RtlStringCbPrintfA@@YAJPEAD_KPEBDZZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     ?RtlStringCbPrintfA@@YAJPEAD_KPEBDZZ @ 0x1C00699C4 (-RtlStringCbPrintfA@@YAJPEAD_KPEBDZZ.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 __int64 __fastcall CreateWin32KFilterBitmap(
@@ -21,7 +21,7 @@ __int64 __fastcall CreateWin32KFilterBitmap(
   __int64 (*ExportedRoutineByName)(void); // rax
   int v11; // eax
   unsigned __int64 v12; // rcx
-  char v14[272]; // [rsp+20h] [rbp-148h] BYREF
+  char Dest[272]; // [rsp+20h] [rbp-148h] BYREF
 
   v5 = 0;
   v7 = a2;
@@ -31,9 +31,9 @@ __int64 __fastcall CreateWin32KFilterBitmap(
     v9 = 0;
     if ( !a1 )
       return v5;
-    while ( (int)RtlStringCbPrintfA(v14, 0x104uLL, "__win32kstub_%s", *v7) >= 0 )
+    while ( (int)RtlStringCbPrintfA(Dest, 0x104uLL, "__win32kstub_%s", *v7) >= 0 )
     {
-      ExportedRoutineByName = (__int64 (*)(void))RtlFindExportedRoutineByName(WPP_MAIN_CB.Dpc.DpcData, v14);
+      ExportedRoutineByName = (__int64 (*)(void))RtlFindExportedRoutineByName(gpvWin32kImageBase, Dest);
       if ( ExportedRoutineByName )
       {
         v11 = ExportedRoutineByName();
@@ -46,7 +46,7 @@ __int64 __fastcall CreateWin32KFilterBitmap(
       {
         v5 = 127;
       }
-      memset(v14, 0, 0x104uLL);
+      memset(Dest, 0, 0x104uLL);
       ++v9;
       ++v7;
       if ( v9 >= a1 )

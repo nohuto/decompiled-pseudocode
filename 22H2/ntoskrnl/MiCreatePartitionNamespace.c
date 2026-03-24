@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreatePartitionNamespace @ 0x14081E5D4
+ * XREFs of MiCreatePartitionNamespace @ 0x1407A0F74
  * Callers:
- *     MiInitializeMemoryEvents @ 0x14081E318 (MiInitializeMemoryEvents.c)
+ *     MiInitializeMemoryEvents @ 0x1407A0B04 (MiInitializeMemoryEvents.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwCreateDirectoryObjectEx @ 0x14041BC00 (ZwCreateDirectoryObjectEx.c)
- *     ObCreateKernelObjectsSD @ 0x14081E1C8 (ObCreateKernelObjectsSD.c)
- *     ObCleanupSecurityDescriptor @ 0x1408643C0 (ObCleanupSecurityDescriptor.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwCreateDirectoryObjectEx @ 0x1403FAF20 (ZwCreateDirectoryObjectEx.c)
+ *     ObCleanupSecurityDescriptor @ 0x1407A1098 (ObCleanupSecurityDescriptor.c)
+ *     ObCreateKernelObjectsSD @ 0x1407A10DC (ObCreateKernelObjectsSD.c)
  */
 
 __int64 __fastcall MiCreatePartitionNamespace(__int64 a1)
@@ -25,10 +25,10 @@ __int64 __fastcall MiCreatePartitionNamespace(__int64 a1)
   _OWORD *v14; // [rsp+90h] [rbp+3Fh]
   __int64 v15; // [rsp+98h] [rbp+47h]
 
-  v13 = 0;
   v9 = 0;
-  v7 = 0LL;
+  v13 = 0;
   DestinationString = 0LL;
+  v7 = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   RtlInitUnicodeString(&DestinationString, 0LL);
   v10 = 0LL;
@@ -37,20 +37,20 @@ __int64 __fastcall MiCreatePartitionNamespace(__int64 a1)
   v14 = (_OWORD *)SePublicDefaultUnrestrictedSd;
   v8 = 48;
   v12 = 576;
-  DirectoryObject = ZwCreateDirectoryObjectEx(a1 + 256, 983055LL);
+  DirectoryObject = ZwCreateDirectoryObjectEx(a1 + 232, 983055LL);
   if ( DirectoryObject >= 0 )
   {
     DirectoryObject = ObCreateKernelObjectsSD(SecurityDescriptor);
     if ( DirectoryObject >= 0 )
     {
-      v3 = *(_QWORD *)(a1 + 256);
+      v3 = *(_QWORD *)(a1 + 232);
       v15 = 0LL;
       v10 = v3;
       v8 = 48;
       p_DestinationString = (UNICODE_STRING *)&MiKernelObjectsDirectoryName;
       v14 = SecurityDescriptor;
       v12 = 576;
-      DirectoryObject = ZwCreateDirectoryObjectEx(a1 + 264, 983055LL);
+      DirectoryObject = ZwCreateDirectoryObjectEx(a1 + 240, 983055LL);
     }
   }
   ObCleanupSecurityDescriptor(SecurityDescriptor);

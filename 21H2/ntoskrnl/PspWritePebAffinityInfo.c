@@ -1,45 +1,50 @@
 /*
- * XREFs of PspWritePebAffinityInfo @ 0x140672BD8
+ * XREFs of PspWritePebAffinityInfo @ 0x140612654
  * Callers:
- *     PspSetupUserProcessAddressSpace @ 0x14067259C (PspSetupUserProcessAddressSpace.c)
- *     PspApplyJobLimitsToProcess @ 0x140683890 (PspApplyJobLimitsToProcess.c)
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
- *     PspUpdateSingleProcessAffinity @ 0x1409AEB50 (PspUpdateSingleProcessAffinity.c)
+ *     PspApplyJobLimitsToProcess @ 0x14060596C (PspApplyJobLimitsToProcess.c)
+ *     PspSetupUserProcessAddressSpace @ 0x14061177C (PspSetupUserProcessAddressSpace.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     PspUpdateSingleProcessAffinity @ 0x1409087D0 (PspUpdateSingleProcessAffinity.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     KeQueryGroupMaskProcess @ 0x14025C828 (KeQueryGroupMaskProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall PspWritePebAffinityInfo(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   unsigned int v5; // ebx
-  __int64 v6; // r13
+  __int64 v6; // r15
   __int64 v7; // rdx
   __int64 *v8; // rax
-  unsigned __int16 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rcx
-  signed __int32 v12[8]; // [rsp+0h] [rbp-A8h] BYREF
-  unsigned __int16 v13; // [rsp+20h] [rbp-88h]
-  int v14; // [rsp+24h] [rbp-84h]
-  unsigned int v15; // [rsp+28h] [rbp-80h]
-  __int64 v16; // [rsp+30h] [rbp-78h]
-  __int64 v17; // [rsp+38h] [rbp-70h]
-  __int64 v18; // [rsp+40h] [rbp-68h]
-  __int64 v19; // [rsp+48h] [rbp-60h]
-  __int64 v20; // [rsp+50h] [rbp-58h]
-  _OWORD v21[3]; // [rsp+58h] [rbp-50h] BYREF
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  int v12; // eax
+  __int64 v13; // r8
+  int v14; // r9d
+  signed __int32 v15[8]; // [rsp+0h] [rbp-A8h] BYREF
+  int v16; // [rsp+20h] [rbp-88h]
+  unsigned int v17; // [rsp+24h] [rbp-84h]
+  unsigned int GroupMaskProcess; // [rsp+28h] [rbp-80h]
+  unsigned int v19; // [rsp+2Ch] [rbp-7Ch]
+  __int64 v20; // [rsp+30h] [rbp-78h]
+  __int64 v21; // [rsp+38h] [rbp-70h]
+  __int64 v22; // [rsp+40h] [rbp-68h]
+  __int64 v23; // [rsp+48h] [rbp-60h]
+  _OWORD v24[3]; // [rsp+50h] [rbp-58h] BYREF
 
-  v19 = a2;
-  memset(v21, 0, sizeof(v21));
+  v23 = a2;
+  memset(v24, 0, sizeof(v24));
   v5 = 0;
-  v14 = 0;
+  v16 = 0;
+  v17 = 0;
   v6 = *(_QWORD *)(a2 + 1360);
-  v17 = v6;
+  v21 = v6;
   if ( !v6 )
     return;
   if ( *(_QWORD *)(a2 + 1088) )
@@ -48,55 +53,53 @@ void __fastcall PspWritePebAffinityInfo(__int64 a1, __int64 a2, __int64 a3, _DWO
     {
       if ( a2 != *(_QWORD *)(a1 + 544) )
         v5 = 2;
-      v14 = v5;
+      v16 = v5;
       if ( v5 < 2 )
       {
-LABEL_21:
+LABEL_19:
         if ( (v5 & 1) != 0 )
-          KiStackAttachProcess((_KPROCESS *)a2, 0LL, (__int64)v21, a4);
+          KiStackAttachProcess((_KPROCESS *)a2, 0LL, (__int64)v24, a4);
         goto LABEL_3;
       }
     }
     else
     {
       v5 = 3;
-      v14 = 3;
+      v16 = 3;
     }
-    if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a2 + 1112)) )
+    if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a2 + 1112)) )
       return;
-    goto LABEL_21;
+    goto LABEL_19;
   }
 LABEL_3:
-  v15 = v5;
+  v19 = v5;
   v7 = 0LL;
   v8 = *(__int64 **)(a2 + 1408);
   if ( v8 )
     v7 = *v8;
-  v18 = v7;
+  v22 = v7;
   do
   {
     do
     {
-      v13 = *(_WORD *)(a2 + 1040);
-      v9 = v13;
-      v10 = v13;
-      v20 = v13;
-      v11 = *(_QWORD *)(a2 + 8LL * v13 + 88);
+      GroupMaskProcess = KeQueryGroupMaskProcess(a2);
+      _BitScanForward((unsigned int *)&v10, GroupMaskProcess);
+      v17 = v10;
+      v11 = *(_QWORD *)(a2 + 8 * v10 + 88);
+      v20 = v11;
     }
     while ( !v11 );
-    if ( (*(_DWORD *)(a2 + 632) & 0x1000) != 0 )
-      v11 = 0LL;
-    v16 = v11;
     *(_QWORD *)(v6 + 312) = v11;
-    if ( v7 )
-      *(_DWORD *)(v7 + 192) = v11 | HIDWORD(v11);
-    _InterlockedOr(v12, 0);
+    if ( v9 )
+      *(_DWORD *)(v9 + 192) = v11 | HIDWORD(v11);
+    _InterlockedOr(v15, 0);
+    v12 = KeQueryGroupMaskProcess(a2);
   }
-  while ( v9 != *(_WORD *)(a2 + 1040) || v11 != *(_QWORD *)(a2 + 8 * v10 + 88) );
+  while ( v14 != v12 || v13 != *(_QWORD *)(a2 + 8LL * v17 + 88) );
   if ( v5 )
   {
     if ( (v5 & 1) != 0 )
-      KiUnstackDetachProcess((__int64)v21, 0LL);
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a2 + 1112));
+      KiUnstackDetachProcess((__int64)v24, 0);
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a2 + 1112));
   }
 }

@@ -1,33 +1,33 @@
 /*
- * XREFs of UserIsCurrentProcessDwm @ 0x1C001B580
+ * XREFs of UserIsCurrentProcessDwm @ 0x1C0048F20
  * Callers:
- *     GreSfmOpenTokenEvent @ 0x1C001B440 (GreSfmOpenTokenEvent.c)
- *     ?DxgkEngOpenAdapterFromHdc@@YAJPEAU_D3DKMT_OPENADAPTERFROMHDC@@@Z @ 0x1C001C770 (-DxgkEngOpenAdapterFromHdc@@YAJPEAU_D3DKMT_OPENADAPTERFROMHDC@@@Z.c)
- *     ?DxgkEngCheckRemoteSessionRemoteAdapterAccess@@YAJU_LUID@@@Z @ 0x1C001E100 (-DxgkEngCheckRemoteSessionRemoteAdapterAccess@@YAJU_LUID@@@Z.c)
- *     ??0CApplicationChannel@DirectComposition@@IEAA@PEAVCConnection@1@_NI@Z @ 0x1C0023170 (--0CApplicationChannel@DirectComposition@@IEAA@PEAVCConnection@1@_NI@Z.c)
- *     DrvEnumDisplayDevices @ 0x1C0023B90 (DrvEnumDisplayDevices.c)
- *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C00246E4 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
- *     NtDCompositionReferenceSharedResourceOnDwmChannel @ 0x1C00318F0 (NtDCompositionReferenceSharedResourceOnDwmChannel.c)
- *     NtUpdateInputSinkTransforms @ 0x1C0031A60 (NtUpdateInputSinkTransforms.c)
- *     NtQueryCompositionInputQueueAndTransform @ 0x1C00326E0 (NtQueryCompositionInputQueueAndTransform.c)
- *     ?CitpSetCompositionInfo@@YAJPEAT_CIT_SI_INFOFLAGS@@PEAT_CIT_SI_INFO@@@Z @ 0x1C0032F98 (-CitpSetCompositionInfo@@YAJPEAT_CIT_SI_INFOFLAGS@@PEAT_CIT_SI_INFO@@@Z.c)
- *     DrvpDisplayConfigGetDisplayDeviceInfo @ 0x1C0034688 (DrvpDisplayConfigGetDisplayDeviceInfo.c)
- *     ?Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z @ 0x1C00864C8 (-Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z.c)
- *     ?KernelCreateCompositionInputSink@CompositionInputObject@@SAJPEBUCOMPOSITION_INPUT_SINK_V2@@PEAPEAX@Z @ 0x1C00A3588 (-KernelCreateCompositionInputSink@CompositionInputObject@@SAJPEBUCOMPOSITION_INPUT_SINK_V2@@PEAP.c)
- *     NtQueryCompositionInputSink @ 0x1C00A7190 (NtQueryCompositionInputSink.c)
- *     NtDCompositionSetMaterialProperty @ 0x1C00AF250 (NtDCompositionSetMaterialProperty.c)
- *     NtDCompositionCreateDwmChannel @ 0x1C00B9F60 (NtDCompositionCreateDwmChannel.c)
- *     ?DrvGetDriverAccelerationsLevel@@YAKPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00BD52C (-DrvGetDriverAccelerationsLevel@@YAKPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     GreSfmGetNotificationTokens @ 0x1C00CBC90 (GreSfmGetNotificationTokens.c)
- *     NtDCompositionCommitSynchronizationObject @ 0x1C0209410 (NtDCompositionCommitSynchronizationObject.c)
- *     NtDCompositionDuplicateHandleToProcess @ 0x1C0209690 (NtDCompositionDuplicateHandleToProcess.c)
- *     NtDCompositionUpdatePointerCapture @ 0x1C0209D00 (NtDCompositionUpdatePointerCapture.c)
- *     NtCompositionInputThread @ 0x1C0231B80 (NtCompositionInputThread.c)
+ *     NtUpdateInputSinkTransforms @ 0x1C0002160 (NtUpdateInputSinkTransforms.c)
+ *     ?DrvGetDriverAccelerationsLevel@@YAKPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0015524 (-DrvGetDriverAccelerationsLevel@@YAKPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     ?DxgkEngCheckRemoteSessionRemoteAdapterAccess@@YAJU_LUID@@@Z @ 0x1C001CD20 (-DxgkEngCheckRemoteSessionRemoteAdapterAccess@@YAJU_LUID@@@Z.c)
+ *     DrvpDisplayConfigGetDisplayDeviceInfo @ 0x1C0021BE8 (DrvpDisplayConfigGetDisplayDeviceInfo.c)
+ *     DrvEnumDisplayDevices @ 0x1C0028990 (DrvEnumDisplayDevices.c)
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C002AC30 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ *     ?CitpSetCompositionInfo@@YAJPEAT_CIT_SI_INFOFLAGS@@PEAT_CIT_SI_INFO@@@Z @ 0x1C00475E0 (-CitpSetCompositionInfo@@YAJPEAT_CIT_SI_INFOFLAGS@@PEAT_CIT_SI_INFO@@@Z.c)
+ *     GreSfmGetNotificationTokens @ 0x1C0048CC0 (GreSfmGetNotificationTokens.c)
+ *     NtDuplicateCompositionInputSink @ 0x1C004C120 (NtDuplicateCompositionInputSink.c)
+ *     NtQueryCompositionInputSink @ 0x1C005B310 (NtQueryCompositionInputSink.c)
+ *     NtQueryCompositionInputQueueAndTransform @ 0x1C005DAF0 (NtQueryCompositionInputQueueAndTransform.c)
+ *     NtDCompositionReferenceSharedResourceOnDwmChannel @ 0x1C005DFD0 (NtDCompositionReferenceSharedResourceOnDwmChannel.c)
+ *     ?KernelCreateCompositionInputSink@CompositionInputObject@@SAJPEBUCOMPOSITION_INPUT_SINK_V2@@PEAPEAX@Z @ 0x1C0095294 (-KernelCreateCompositionInputSink@CompositionInputObject@@SAJPEBUCOMPOSITION_INPUT_SINK_V2@@PEAP.c)
+ *     NtDCompositionSetMaterialProperty @ 0x1C009E0D0 (NtDCompositionSetMaterialProperty.c)
+ *     GreSfmOpenTokenEvent @ 0x1C00A8AF0 (GreSfmOpenTokenEvent.c)
+ *     ?Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z @ 0x1C00AABBC (-Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z.c)
+ *     NtDCompositionCreateDwmChannel @ 0x1C00AFFA0 (NtDCompositionCreateDwmChannel.c)
+ *     ?DxgkEngOpenAdapterFromHdc@@YAJPEAU_D3DKMT_OPENADAPTERFROMHDC@@@Z @ 0x1C014A2B0 (-DxgkEngOpenAdapterFromHdc@@YAJPEAU_D3DKMT_OPENADAPTERFROMHDC@@@Z.c)
+ *     NtDCompositionCommitSynchronizationObject @ 0x1C01D20B0 (NtDCompositionCommitSynchronizationObject.c)
+ *     NtDCompositionDuplicateHandleToProcess @ 0x1C01D2320 (NtDCompositionDuplicateHandleToProcess.c)
+ *     NtDCompositionUpdatePointerCapture @ 0x1C01D2AA0 (NtDCompositionUpdatePointerCapture.c)
+ *     NtCompositionInputThread @ 0x1C01FB110 (NtCompositionInputThread.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall UserIsCurrentProcessDwm(__int64 a1, __int64 a2, __int64 a3)
+_BOOL8 __fastcall UserIsCurrentProcessDwm(__int64 a1, __int64 a2)
 {
-  return PsGetCurrentProcess(a1, a2, a3) == *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels;
+  return PsGetCurrentProcess(a1, a2) == (_QWORD)g_pepDwm;
 }

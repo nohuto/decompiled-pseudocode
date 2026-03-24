@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetAdapterLuid@CDxHandleYUVBitmapRealization@@UEBA?AU_LUID@@XZ @ 0x180135BFA
+ * XREFs of ?GetAdapterLuid@CDxHandleYUVBitmapRealization@@UEBA?AU_LUID@@XZ @ 0x180265934
  * Callers:
- *     ?GetAdapterLuid@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AU_LUID@@XZ @ 0x180122F20 (-GetAdapterLuid@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA-AU_LUID@@XZ.c)
- *     ?Initialize@CDxHandleYUVBitmapRealization@@IEAAJPEAVIYUVSwapChainRealization@@@Z @ 0x1802B44E0 (-Initialize@CDxHandleYUVBitmapRealization@@IEAAJPEAVIYUVSwapChainRealization@@@Z.c)
- *     ?VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ @ 0x1802B498C (-VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ.c)
+ *     ?GetAdapterLuid@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AU_LUID@@XZ @ 0x1800F8950 (-GetAdapterLuid@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA-AU_LUID@@XZ.c)
+ *     ?Initialize@CDxHandleYUVBitmapRealization@@IEAAJPEAVIYUVSwapChainRealization@@@Z @ 0x180266000 (-Initialize@CDxHandleYUVBitmapRealization@@IEAAJPEAVIYUVSwapChainRealization@@@Z.c)
+ *     ?VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ @ 0x1802664C8 (-VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -13,9 +13,9 @@ struct _LUID __fastcall CDxHandleYUVBitmapRealization::GetAdapterLuid(CDxHandleY
   __int64 v2; // rax
   __int64 v3; // rax
 
-  v2 = *((_QWORD *)this - 13);
+  v2 = *((_QWORD *)this - 14);
   if ( v2 )
-    v3 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v2 + 24) + 80LL) + 896LL);
+    v3 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v2 + 16) + 80LL) + 936LL);
   else
     v3 = *((_QWORD *)this - 28);
   *a2 = v3;

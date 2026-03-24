@@ -1,72 +1,62 @@
 /*
- * XREFs of MiIsRegularMemory @ 0x140AF3DB0
+ * XREFs of MiIsRegularMemory @ 0x140A57070
  * Callers:
- *     MxMovePageTables @ 0x140AF3770 (MxMovePageTables.c)
- *     MxMarkValidMappings @ 0x140AF39BC (MxMarkValidMappings.c)
- *     MxCreatePfnsForPtes @ 0x140AF3B50 (MxCreatePfnsForPtes.c)
+ *     MxMovePageTables @ 0x140A569B4 (MxMovePageTables.c)
+ *     MxCreatePfns @ 0x140A56C60 (MxCreatePfns.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MiIsRegularMemory(__int64 a1, unsigned __int64 a2)
 {
-  __int64 result; // rax
-  unsigned __int64 v5; // rdx
-  unsigned __int64 v6; // rcx
-  unsigned __int64 v7; // rdx
-  __int64 v8; // r8
-  unsigned __int64 v9; // rcx
-  unsigned __int64 v10; // rax
-  unsigned __int64 v11; // rax
-  __int64 v12; // rcx
+  __int64 v2; // r11
+  __int64 v3; // r8
+  unsigned __int64 v4; // rcx
+  unsigned __int64 v6; // r10
+  unsigned __int64 v7; // rcx
+  unsigned __int64 v8; // rax
+  __int64 v9; // rcx
 
-  result = MxPfnMemoryDescriptorCache;
-  if ( !MxPfnMemoryDescriptorCache
-    || (v5 = *(_QWORD *)(MxPfnMemoryDescriptorCache + 32), a2 < v5)
-    || a2 >= v5 + *(_QWORD *)(MxPfnMemoryDescriptorCache + 40) )
+  v2 = a1 + 32;
+  v3 = *(_QWORD *)(a1 + 32);
+  if ( MxPfnMemoryDescriptorCache )
   {
-    if ( MxNonPfnMemoryDescriptorCache )
+    v4 = *(_QWORD *)(MxPfnMemoryDescriptorCache + 24);
+    if ( a2 >= v4 )
     {
-      v6 = *(_QWORD *)(MxNonPfnMemoryDescriptorCache + 32);
-      if ( a2 >= v6 && a2 < *(_QWORD *)(MxNonPfnMemoryDescriptorCache + 40) + v6 )
-        return 0LL;
+      if ( a2 < *(_QWORD *)(MxPfnMemoryDescriptorCache + 32) + v4 )
+        return 1LL;
+      v3 = *(_QWORD *)MxPfnMemoryDescriptorCache;
     }
-    v7 = *(_QWORD *)(a1 + 352);
-    if ( (*(_BYTE *)(a1 + 360) & 1) != 0 && v7 )
-      v7 ^= a1 + 352;
-    v8 = 0LL;
-    while ( 1 )
+  }
+  if ( !MxNonPfnMemoryDescriptorCache )
+    goto LABEL_14;
+  v6 = *(_QWORD *)(MxNonPfnMemoryDescriptorCache + 24);
+  if ( a2 < v6 )
+    goto LABEL_14;
+  if ( a2 >= v6 + *(_QWORD *)(MxNonPfnMemoryDescriptorCache + 32) )
+  {
+    if ( v6 > *(_QWORD *)(v3 + 24) )
+      v3 = *(_QWORD *)MxNonPfnMemoryDescriptorCache;
+LABEL_14:
+    while ( v3 != v2 )
     {
-      if ( !v7 )
+      v7 = *(_QWORD *)(v3 + 24);
+      if ( a2 < v7 )
+        break;
+      if ( a2 < *(_QWORD *)(v3 + 32) + v7 )
       {
-        if ( v8 )
+        v8 = *(_DWORD *)(v3 + 16) & 0x3FFFFFFF;
+        if ( (unsigned int)v8 > 0x28 || (v9 = 0x1C5C0C00048LL, !_bittest64(&v9, v8)) )
         {
-          v11 = *(_DWORD *)(v8 + 24) & 0x1FFFFFFF;
-          if ( (unsigned int)v11 > 0x2A || (v12 = 0x5C5C0C00048LL, !_bittest64(&v12, v11)) )
-          {
-            MxPfnMemoryDescriptorCache = v8;
-            return v8;
-          }
-          MxNonPfnMemoryDescriptorCache = v8;
+          MxPfnMemoryDescriptorCache = v3;
+          return 1LL;
         }
+        MxNonPfnMemoryDescriptorCache = v3;
         return 0LL;
       }
-      v9 = *(_QWORD *)(v7 + 32);
-      if ( a2 < v9 )
-        goto LABEL_17;
-      if ( a2 < *(_QWORD *)(v7 + 40) + v9 )
-        break;
-      v10 = *(_QWORD *)(v7 + 8);
-LABEL_18:
-      if ( (*(_BYTE *)(a1 + 360) & 1) != 0 && v10 )
-        v7 ^= v10;
-      else
-        v7 = v10;
+      v3 = *(_QWORD *)v3;
     }
-    v8 = v7;
-LABEL_17:
-    v10 = *(_QWORD *)v7;
-    goto LABEL_18;
   }
-  return result;
+  return 0LL;
 }

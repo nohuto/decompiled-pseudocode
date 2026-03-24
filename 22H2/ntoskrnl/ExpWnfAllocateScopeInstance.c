@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpWnfAllocateScopeInstance @ 0x1407E68B0
+ * XREFs of ExpWnfAllocateScopeInstance @ 0x1406A2B5C
  * Callers:
- *     ExpWnfResolveScopeInstance @ 0x140713418 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x14060F914 (ExpWnfResolveScopeInstance.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfAllocateScopeInstance(_QWORD *a1, int a2, const void *a3, unsigned int a4)
 {
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v9; // rbx
   __int64 result; // rax
 
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, a4 + 80, 543583831LL);
-  v9 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, a4 + 80, 0x20666E57u);
+  v9 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  memset(Pool2, 0, 0x50uLL);
+  memset(PoolWithTag, 0, 0x50uLL);
   *v9 = 5245186;
   v9[4] = a2;
   v9[5] = a4;

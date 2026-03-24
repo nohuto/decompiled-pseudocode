@@ -3,7 +3,7 @@
  * Callers:
  *     ViDdiDispatchWmiRegInfoEx @ 0x140927A84 (ViDdiDispatchWmiRegInfoEx.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall ViDdiBuildWmiRegInfoData(int a1, __int64 a2)

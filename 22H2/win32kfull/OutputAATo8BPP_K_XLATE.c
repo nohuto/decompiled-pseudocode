@@ -1,9 +1,9 @@
 /*
- * XREFs of OutputAATo8BPP_K_XLATE @ 0x1C0259020
+ * XREFs of OutputAATo8BPP_K_XLATE @ 0x1C0264E60
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall OutputAATo8BPP_K_XLATE(
@@ -20,15 +20,15 @@ __int64 __fastcall OutputAATo8BPP_K_XLATE(
   unsigned __int8 *v9; // r10
   __int64 result; // rax
   unsigned int v14; // r13d
-  char v15; // r14
-  unsigned int v16; // r15d
+  char v15; // r8
+  unsigned int v16; // r14d
   __int64 v17; // rcx
-  unsigned int v18; // r12d
+  unsigned int v18; // r15d
   __int64 v19; // rcx
-  unsigned int v20; // r8d
-  unsigned int v21; // edx
+  unsigned int v20; // r12d
+  unsigned int v21; // ecx
   unsigned int v22; // esi
-  unsigned int v23; // ecx
+  unsigned int v23; // edx
   __int128 v24; // [rsp+0h] [rbp-30h]
   _DWORD v25[4]; // [rsp+18h] [rbp-18h]
 
@@ -52,7 +52,7 @@ __int64 __fastcall OutputAATo8BPP_K_XLATE(
         v20 = *(_DWORD *)(a5 + 4 * v19);
         v25[3] = v20;
         v25[2] = v20;
-        v21 = v25[(v16 >= v18) | (unsigned __int64)(v25[v16 >= v18] >= v20 ? 2 : 0)] >> 21;
+        v21 = v25[(v16 >= v18) | (unsigned __int64)(*(_DWORD *)((char *)v25 + (v16 >= v18 ? 4 : 0)) >= v20 ? 2 : 0)] >> 21;
         if ( v21 < v14 )
         {
           v22 = a6[1];
@@ -60,7 +60,7 @@ __int64 __fastcall OutputAATo8BPP_K_XLATE(
           {
             v23 = *a6;
             if ( v21 < v23 )
-              v15 = *(_BYTE *)((((v22 - DWORD1(v24)) & (v18 - v22) & 0x38000 | (v14 - DWORD2(v24)) & (v16 - v14) & 0x1C0000 | (unsigned __int64)((unsigned __int16)(v23 - v24) & (unsigned __int16)(v20 - v23) & 0x7000)) >> 12)
+              v15 = *(_BYTE *)((((v16 - v14) & (v14 - DWORD2(v24)) & 0x1C0000 | (v18 - v22) & (v22 - DWORD1(v24)) & 0x38000 | (unsigned __int64)((unsigned __int16)(v23 - v24) & (unsigned __int16)(v20 - v23) & 0x7000)) >> 12)
                              + a9);
           }
         }

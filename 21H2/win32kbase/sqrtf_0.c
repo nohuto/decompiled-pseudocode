@@ -1,7 +1,7 @@
 /*
- * XREFs of sqrtf_0 @ 0x1C00DD7BF
+ * XREFs of sqrtf_0 @ 0x1C00CE88F
  * Callers:
- *     ?D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z @ 0x1C01E0E4C (-D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z.c)
+ *     ?D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z @ 0x1C01A89D0 (-D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of PcInitializeDmaHW @ 0x140372B20
+ * XREFs of PcInitializeDmaHW @ 0x140365220
  * Callers:
  *     <none>
  * Callees:

@@ -8,8 +8,8 @@
  *     PsGetCurrentSilo @ 0x14004D350 (PsGetCurrentSilo.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     RtlGetDaclSecurityDescriptor @ 0x140092330 (RtlGetDaclSecurityDescriptor.c)
- *     ObpReferenceNamedObject @ 0x14012E1C8 (ObpReferenceNamedObject.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     ObpReferenceNamedObject @ 0x14012E1E8 (ObpReferenceNamedObject.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ObpGrantAccess @ 0x14059578C (ObpGrantAccess.c)
  *     ObpDecrementHandleCount @ 0x1405A9584 (ObpDecrementHandleCount.c)
  *     RtlGetControlSecurityDescriptor @ 0x1405B95F0 (RtlGetControlSecurityDescriptor.c)
@@ -19,7 +19,7 @@
  *     ObpIncrementHandleCountEx @ 0x1405E35F0 (ObpIncrementHandleCountEx.c)
  *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
  *     SeReleaseSecurityDescriptor @ 0x140631850 (SeReleaseSecurityDescriptor.c)
- *     ObpDeleteDirectoryEntry @ 0x1406A6CBC (ObpDeleteDirectoryEntry.c)
+ *     ObpDeleteDirectoryEntry @ 0x1406A6C9C (ObpDeleteDirectoryEntry.c)
  */
 
 __int64 __fastcall ObpInsertOrLocateNamedObject(

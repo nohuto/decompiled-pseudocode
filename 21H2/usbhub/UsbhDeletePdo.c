@@ -1,32 +1,32 @@
 /*
- * XREFs of UsbhDeletePdo @ 0x1C00537BC
+ * XREFs of UsbhDeletePdo @ 0x1C0054E1C
  * Callers:
- *     UsbhWaitConnect @ 0x1C0019D60 (UsbhWaitConnect.c)
- *     UsbhRequestPortSuspend @ 0x1C001A734 (UsbhRequestPortSuspend.c)
- *     Usbh_BusPause_PdoEvent @ 0x1C0039DEC (Usbh_BusPause_PdoEvent.c)
- *     Usbh_BusPnpFreeResources_PdoEvent @ 0x1C0039F80 (Usbh_BusPnpFreeResources_PdoEvent.c)
- *     Usbh_BusPnpStop_PdoEvent @ 0x1C003A10C (Usbh_BusPnpStop_PdoEvent.c)
- *     Usbh_BusRemove_PdoEvent @ 0x1C003A2BC (Usbh_BusRemove_PdoEvent.c)
- *     Usbh_Disconnect_PdoEvent @ 0x1C003A55C (Usbh_Disconnect_PdoEvent.c)
- *     Usbh_ErrorDisconnect_PdoEvent @ 0x1C003A660 (Usbh_ErrorDisconnect_PdoEvent.c)
- *     Usbh_PdoRemove_PdoEvent @ 0x1C003A7CC (Usbh_PdoRemove_PdoEvent.c)
+ *     UsbhWaitConnect @ 0x1C000ABD0 (UsbhWaitConnect.c)
+ *     UsbhRequestPortSuspend @ 0x1C0016130 (UsbhRequestPortSuspend.c)
+ *     Usbh_BusPause_PdoEvent @ 0x1C003B0FC (Usbh_BusPause_PdoEvent.c)
+ *     Usbh_BusPnpFreeResources_PdoEvent @ 0x1C003B290 (Usbh_BusPnpFreeResources_PdoEvent.c)
+ *     Usbh_BusPnpStop_PdoEvent @ 0x1C003B41C (Usbh_BusPnpStop_PdoEvent.c)
+ *     Usbh_BusRemove_PdoEvent @ 0x1C003B5CC (Usbh_BusRemove_PdoEvent.c)
+ *     Usbh_Disconnect_PdoEvent @ 0x1C003B86C (Usbh_Disconnect_PdoEvent.c)
+ *     Usbh_ErrorDisconnect_PdoEvent @ 0x1C003B970 (Usbh_ErrorDisconnect_PdoEvent.c)
+ *     Usbh_PdoRemove_PdoEvent @ 0x1C003BADC (Usbh_PdoRemove_PdoEvent.c)
  * Callees:
- *     UsbhUnlinkPdoDeviceHandle @ 0x1C00015D0 (UsbhUnlinkPdoDeviceHandle.c)
- *     UsbhSshSetPortsBusyState @ 0x1C0005CA0 (UsbhSshSetPortsBusyState.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhDisableTimerObject @ 0x1C000B4D0 (UsbhDisableTimerObject.c)
- *     UsbhDecPdoIoCount @ 0x1C000EE64 (UsbhDecPdoIoCount.c)
- *     UsbhDecHubBusy @ 0x1C0010740 (UsbhDecHubBusy.c)
- *     UsbhDisconnectPdoFromHub @ 0x1C002990C (UsbhDisconnectPdoFromHub.c)
- *     WPP_RECORDER_SF_q @ 0x1C002E090 (WPP_RECORDER_SF_q.c)
- *     SET_PDO_HWPNPSTATE @ 0x1C0035D18 (SET_PDO_HWPNPSTATE.c)
- *     UsbhBillboardCleanup @ 0x1C00529F4 (UsbhBillboardCleanup.c)
- *     UsbhDeleteOrphanPdo @ 0x1C0053618 (UsbhDeleteOrphanPdo.c)
- *     UsbhRemoveAndDeletePdo @ 0x1C0056D50 (UsbhRemoveAndDeletePdo.c)
- *     UsbhResetPortData @ 0x1C0056EB0 (UsbhResetPortData.c)
- *     UsbhEtwLogDeviceInformation @ 0x1C005AE08 (UsbhEtwLogDeviceInformation.c)
+ *     UsbhDecHubBusy @ 0x1C0003610 (UsbhDecHubBusy.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhSshSetPortsBusyState @ 0x1C000FE00 (UsbhSshSetPortsBusyState.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhDisableTimerObject @ 0x1C0011260 (UsbhDisableTimerObject.c)
+ *     UsbhDecPdoIoCount @ 0x1C0014E84 (UsbhDecPdoIoCount.c)
+ *     UsbhUnlinkPdoDeviceHandle @ 0x1C0018990 (UsbhUnlinkPdoDeviceHandle.c)
+ *     UsbhDisconnectPdoFromHub @ 0x1C002AC5C (UsbhDisconnectPdoFromHub.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002F46C (WPP_RECORDER_SF_q.c)
+ *     SET_PDO_HWPNPSTATE @ 0x1C0036FD4 (SET_PDO_HWPNPSTATE.c)
+ *     UsbhBillboardCleanup @ 0x1C0054048 (UsbhBillboardCleanup.c)
+ *     UsbhDeleteOrphanPdo @ 0x1C0054C78 (UsbhDeleteOrphanPdo.c)
+ *     UsbhRemoveAndDeletePdo @ 0x1C0058428 (UsbhRemoveAndDeletePdo.c)
+ *     UsbhResetPortData @ 0x1C0058588 (UsbhResetPortData.c)
+ *     UsbhEtwLogDeviceInformation @ 0x1C005C4B8 (UsbhEtwLogDeviceInformation.c)
  */
 
 void __fastcall UsbhDeletePdo(__int64 a1, struct _DEVICE_OBJECT *a2, int a3, int a4, __int64 a5)
@@ -78,9 +78,9 @@ void __fastcall UsbhDeletePdo(__int64 a1, struct _DEVICE_OBJECT *a2, int a3, int
   if ( a3 == 6 )
   {
     *(_DWORD *)(a5 + 136) = 0;
-    WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+    qword_1C006C500 = 0LL;
     *(_DWORD *)(a5 + 88) = 1734964085;
-    KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, *(_BYTE *)(a5 + 132));
+    KeReleaseSpinLock(&HubG, *(_BYTE *)(a5 + 132));
   }
   else
   {
@@ -104,10 +104,10 @@ void __fastcall UsbhDeletePdo(__int64 a1, struct _DEVICE_OBJECT *a2, int a3, int
     }
     SET_PDO_HWPNPSTATE((__int64)a2, 6, a4);
     *(_DWORD *)(a5 + 136) = 0;
-    WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+    qword_1C006C500 = 0LL;
     v17 = *(_BYTE *)(a5 + 132);
     *(_DWORD *)(a5 + 88) = 1734964085;
-    KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v17);
+    KeReleaseSpinLock(&HubG, v17);
     if ( v10 )
       UsbhSshSetPortsBusyState(a1, *((_WORD *)v13 + 714), 1, 0);
     if ( a1 )

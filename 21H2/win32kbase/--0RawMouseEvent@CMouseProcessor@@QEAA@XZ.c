@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0RawMouseEvent@CMouseProcessor@@QEAA@XZ @ 0x1C009A440
+ * XREFs of ??0RawMouseEvent@CMouseProcessor@@QEAA@XZ @ 0x1C0042300
  * Callers:
- *     <none>
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C0040F54 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

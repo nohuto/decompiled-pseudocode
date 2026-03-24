@@ -1,44 +1,58 @@
 /*
- * XREFs of ?ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x180103518
+ * XREFs of ?ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1800EB470
  * Callers:
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_UniformDpiProgrammingModel@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x18001E5BC (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_UniformDpiProgrammingModel@@@details@wil@.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_RenderThreadWatchdog@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180027FE4 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_RenderThreadWatchdog@@@details@wil@@QEAAX.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_DepthSorting@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180045EC0 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_DepthSorting@@@details@wil@@QEAAX_NW4Repo.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_ProjectedShadow@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180053130 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_ProjectedShadow@@@details@wil@@QEAAX_NW4R.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180079F40 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing@@@details@wil@@.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x18007D878 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@QEAAX_NW4R.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_AutomaticBoundsToLocalSpace@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800F32DC (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_AutomaticBoundsToLocalSpace@@@details@wil.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_905892157@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180103F20 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_905892157@@@details@wil@@QEAAX_NW4Reporti.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_1781982525@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180104200 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_1781982525@@@details@wil@@QEAAX_NW4Report.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_3187573053@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1801044B8 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_3187573053@@@details@wil@@QEAAX_NW4Report.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_SpatialComposition@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180199E6C (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_SpatialComposition@@@details@wil@@QEAAX_N.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_SuperWetInk@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1801A8058 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_SuperWetInk@@@details@wil@@QEAAX_NW4Repor.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_VailSuperWetInk@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1801A80DC (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_VailSuperWetInk@@@details@wil@@QEAAX_NW4R.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_VTest@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1801B3F70 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_VTest@@@details@wil@@QEAAX_NW4ReportingKi.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_VailUnifiedDpi@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1801C367C (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_VailUnifiedDpi@@@details@wil@@QEAAX_NW4Re.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_Rendering_SharpMagShader@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1801DE700 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_Rendering_SharpMagShader@@@details@wil@@Q.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_ClampPositionAfterExpressionProcessing@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x18021C5DC (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_ClampPositionAfterExpressionProcessing@@@.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_SpatialCompositionLabel@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x18023CAA8 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_SpatialCompositionLabel@@@details@wil@@QE.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_PresentationAPIDisableScanoutProtection@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180248EA0 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_PresentationAPIDisableScanoutProtection@@.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_PresentationAPIWithIFlip@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180248F24 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_PresentationAPIWithIFlip@@@details@wil@@Q.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_SVR_PresentAt_PresentationHandler@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180248FA8 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_SVR_PresentAt_PresentationHandler@@@detai.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_AutomaticBoundsToLocalSpace@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180005FC4 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_AutomaticBoundsToLocalSpace@@@details@wil.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_ProjectedShadow@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x18003EB2C (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_ProjectedShadow@@@details@wil@@QEAAX_NW4R.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_DepthSorting@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180058C3C (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_DepthSorting@@@details@wil@@QEAAX_NW4Repo.c)
+ *     ?PreRender@CComposition@@IEAAJXZ @ 0x180071B10 (-PreRender@CComposition@@IEAAJXZ.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800A0404 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_StereoscopicUwp@@@details@wil@@QEAAX_NW4R.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_RenderThreadWatchdog@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800AE160 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_RenderThreadWatchdog@@@details@wil@@QEAAX.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_3161392440@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800EBC90 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_3161392440@@@details@wil@@QEAAX_NW4Report.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_3569146171@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800EFED8 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_3569146171@@@details@wil@@QEAAX_NW4Report.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_ExpressionKeyframePerFrameSampling@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800F0070 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_ExpressionKeyframePerFrameSampling@@@deta.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_84144442@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800F0304 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_84144442@@@details@wil@@QEAAX_NW4Reportin.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_1934314809@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800F066C (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_1934314809@@@details@wil@@QEAAX_NW4Report.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_SpatialComposition@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180168C74 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_SpatialComposition@@@details@wil@@QEAAX_N.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_Rendering_SharpMagShader@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1801937B4 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_Rendering_SharpMagShader@@@details@wil@@Q.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_SuperWetInk@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180195B2C (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_SuperWetInk@@@details@wil@@QEAAX_NW4Repor.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_VailSuperWetInk@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180195BB0 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_VailSuperWetInk@@@details@wil@@QEAAX_NW4R.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_TreeDumping@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180197ED0 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_TreeDumping@@@details@wil@@QEAAX_NW4Repor.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_SpatialCompositionLabel@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1801E9D34 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_SpatialCompositionLabel@@@details@wil@@QE.c)
  * Callees:
- *     ?ReportUsageToServiceDirect@details@wil@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_details_ServiceReportingKind@@I_K@Z @ 0x18010365C (-ReportUsageToServiceDirect@details@wil@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_deta.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ReportUsageToServiceDirect@details@wil@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1800EB500 (-ReportUsageToServiceDirect@details@wil@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_deta.c)
+ *     wil_details_MapReportingKind @ 0x1800EB968 (wil_details_MapReportingKind.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall wil::details::ReportUsageToService(
+_UNKNOWN **__fastcall wil::details::ReportUsageToService(
         __int64 a1,
         unsigned int a2,
         __int64 a3,
         __int64 a4,
-        const struct FEATURE_LOGGED_TRAITS *a5,
-        int a6,
-        int a7)
+        __int64 a5,
+        unsigned int a6,
+        unsigned int a7)
 {
-  if ( a7 && (unsigned int)wil::details::ReportUsageToServiceDirect(a1) )
+  _UNKNOWN **result; // rax
+  unsigned int v9; // r10d
+  __int64 v10; // r11
+  char v11; // [rsp+30h] [rbp-28h]
+  _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h] BYREF
+
+  result = &retaddr;
+  if ( a7 )
   {
-    if ( g_wil_details_pfnFeatureLoggingHook )
-      g_wil_details_pfnFeatureLoggingHook(a2, a5, 0LL, a6, (const enum wil_ReportingKind *)&a7, 0LL, 0, 1uLL);
+    wil_details_MapReportingKind(a7, a6);
+    result = (_UNKNOWN **)wil::details::ReportUsageToServiceDirect(v10, a2, v9);
+    if ( (_DWORD)result )
+    {
+      result = (_UNKNOWN **)g_wil_details_pfnFeatureLoggingHook;
+      if ( g_wil_details_pfnFeatureLoggingHook )
+      {
+        v11 = 0;
+        return (_UNKNOWN **)g_wil_details_pfnFeatureLoggingHook(a2, a5, 0LL, a6, &a7, 0LL, v11, 1LL);
+      }
+    }
   }
+  return result;
 }

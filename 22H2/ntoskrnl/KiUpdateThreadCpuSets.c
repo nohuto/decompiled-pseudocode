@@ -1,131 +1,40 @@
 /*
- * XREFs of KiUpdateThreadCpuSets @ 0x14039E750
+ * XREFs of KiUpdateThreadCpuSets @ 0x1403C5C5C
  * Callers:
- *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x14039E710 (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
- *     KeSetSelectedCpuSetsThread @ 0x140575BD0 (KeSetSelectedCpuSetsThread.c)
+ *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x1403C5BBC (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
+ *     KeSetSelectedCpuSetsThread @ 0x14051CB20 (KeSetSelectedCpuSetsThread.c)
  * Callees:
- *     KiRescheduleThreadAfterAffinityChange @ 0x140203570 (KiRescheduleThreadAfterAffinityChange.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246750 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiComputeThreadAffinity @ 0x1402BF804 (KiComputeThreadAffinity.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140307790 (KiReleasePrcbLocksForIsolationUnit.c)
- *     EtwTraceIdealProcessor @ 0x1405FCE20 (EtwTraceIdealProcessor.c)
+ *     KiAcquireThreadStateLock @ 0x1402308B0 (KiAcquireThreadStateLock.c)
+ *     KiReleaseThreadStateLock @ 0x14035B9E0 (KiReleaseThreadStateLock.c)
+ *     KiComputeThreadAffinity @ 0x14035D000 (KiComputeThreadAffinity.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x14035DB70 (KiRescheduleThreadAfterAffinityChange.c)
  */
 
-char __fastcall KiUpdateThreadCpuSets(__int64 a1, __int64 a2)
+__int64 __fastcall KiUpdateThreadCpuSets(__int64 a1, __int64 a2)
 {
-  int v3; // eax
-  unsigned int v5; // r15d
-  unsigned int v6; // ebp
-  unsigned __int8 v7; // r14
-  __int64 v8; // rdi
-  volatile signed __int32 *v9; // rsi
-  char v10; // al
-  __int64 v11; // rax
-  bool v12; // zf
-  __int64 v13; // rbp
-  __int64 v14; // rbp
-  __int64 v15; // rax
-  int v17; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v18; // [rsp+80h] [rbp+18h] BYREF
+  int v2; // eax
+  __int64 v3; // r8
+  char v6; // bl
+  volatile signed __int64 *v7; // rdi
+  int v8; // ebx
+  __int64 v9; // rcx
+  __int64 v11; // [rsp+28h] [rbp-10h]
+  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
+  volatile signed __int64 *v13; // [rsp+50h] [rbp+18h] BYREF
 
-  v18 = 0LL;
-  v3 = *(_DWORD *)(a1 + 116);
-  v5 = *(_DWORD *)(a1 + 588);
-  v6 = v5;
-  if ( (v3 & 8) == 0 )
+  v2 = *(_DWORD *)(a1 + 116);
+  v3 = 0LL;
+  v13 = 0LL;
+  v12 = 0LL;
+  if ( (v2 & 8) == 0 )
   {
-    while ( 1 )
-    {
-      while ( 1 )
-      {
-        while ( 1 )
-        {
-          v7 = *(_BYTE *)(a1 + 388);
-          v8 = 0LL;
-          v9 = 0LL;
-          if ( v7 != 1 )
-            break;
-          v14 = *(unsigned int *)(a1 + 536);
-          if ( (int)v14 >= 0 )
-          {
-            v8 = KiProcessorBlock[v14];
-            KiAcquirePrcbLocksForIsolationUnit(v8, 0, &v18);
-            if ( *(_BYTE *)(a1 + 388) != 1 )
-              goto LABEL_31;
-            v12 = *(_DWORD *)(a1 + 536) == (_DWORD)v14;
-            goto LABEL_12;
-          }
-          v15 = (unsigned int)v14;
-          LODWORD(v15) = v14 & 0x7FFFFFFF;
-          v17 = 0;
-          v9 = *(volatile signed __int32 **)(KiProcessorBlock[v15] + 34888);
-          while ( _interlockedbittestandset64(v9, 0LL) )
-          {
-            do
-              KeYieldProcessorEx(&v17);
-            while ( *(_QWORD *)v9 );
-          }
-          if ( *(_BYTE *)(a1 + 388) == 1 && *(_DWORD *)(a1 + 536) == (_DWORD)v14 )
-          {
-LABEL_7:
-            KiComputeThreadAffinity(a1);
-            v6 = *(_DWORD *)(a1 + 588);
-            LOBYTE(v3) = KiRescheduleThreadAfterAffinityChange(
-                           a1,
-                           *(_QWORD *)(a1 + 576),
-                           0LL,
-                           v7,
-                           v8,
-                           (__int64)&v18,
-                           (volatile signed __int64 *)v9,
-                           a2);
-            goto LABEL_8;
-          }
-          _InterlockedAnd64((volatile signed __int64 *)v9, 0LL);
-        }
-        if ( *(_BYTE *)(a1 + 388) != 2 )
-          break;
-LABEL_10:
-        v11 = *(unsigned int *)(a1 + 536);
-        if ( (int)v11 >= 0 )
-        {
-          v8 = KiProcessorBlock[v11];
-          KiAcquirePrcbLocksForIsolationUnit(v8, 0, &v18);
-          v12 = a1 == *(_QWORD *)(v8 + 8);
-LABEL_12:
-          if ( v12 )
-            goto LABEL_7;
-          goto LABEL_31;
-        }
-      }
-      if ( *(_BYTE *)(a1 + 388) != 3 )
-      {
-        if ( *(_BYTE *)(a1 + 388) != 5 )
-          goto LABEL_7;
-        v10 = *(_BYTE *)(a1 + 112) & 7;
-        if ( v10 == 1 || (unsigned __int8)(v10 - 3) <= 3u )
-          goto LABEL_7;
-        v7 = 2;
-        goto LABEL_10;
-      }
-      v13 = *(unsigned int *)(a1 + 536);
-      if ( (int)v13 >= 0 )
-      {
-        v8 = KiProcessorBlock[v13];
-        KiAcquirePrcbLocksForIsolationUnit(v8, 0, &v18);
-        if ( a1 == *(_QWORD *)(v8 + 16) )
-          goto LABEL_7;
-        if ( *(_BYTE *)(a1 + 388) == 3 && *(_DWORD *)(a1 + 536) == (_DWORD)v13 )
-          __fastfail(0x1Eu);
-LABEL_31:
-        KiReleasePrcbLocksForIsolationUnit(&v18);
-      }
-    }
+    v6 = KiAcquireThreadStateLock(a1, &v12, (volatile signed __int32 **)&v13);
+    KiComputeThreadAffinity(a1);
+    v11 = a2;
+    v7 = v13;
+    v8 = KiRescheduleThreadAfterAffinityChange(a1, a1 + 576, v6, v12, (__int64)v13, v11);
+    KiReleaseThreadStateLock(v9, v12, v7);
+    return v12 & -(__int64)(v8 != 0);
   }
-  *(_QWORD *)(a1 + 64) = 0LL;
-LABEL_8:
-  if ( (xmmword_140D1EAD0 & 0x8000000) != 0 )
-    LOBYTE(v3) = EtwTraceIdealProcessor(a1, 1350LL, v5, v6);
   return v3;
 }

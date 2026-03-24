@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpFreeTraceBuffer @ 0x14024E01C
+ * XREFs of EtwpFreeTraceBuffer @ 0x1402C7EC4
  * Callers:
- *     EtwpAdjustSiloTraceBuffers @ 0x1402E1140 (EtwpAdjustSiloTraceBuffers.c)
- *     EtwpFreeTraceBufferPool @ 0x1406D1CF4 (EtwpFreeTraceBufferPool.c)
- *     EtwpCancelMemoryPreservation @ 0x1409EC988 (EtwpCancelMemoryPreservation.c)
- *     EtwpPreserveLogger @ 0x1409ECCCC (EtwpPreserveLogger.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x140265D30 (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpFreeTraceBufferPool @ 0x1406B566C (EtwpFreeTraceBufferPool.c)
+ *     EtwpCancelMemoryPreservation @ 0x140948510 (EtwpCancelMemoryPreservation.c)
+ *     EtwpPreserveLogger @ 0x14094885C (EtwpPreserveLogger.c)
  * Callees:
- *     MiFreePagesFromMdl @ 0x140221A30 (MiFreePagesFromMdl.c)
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     EtwpFreePartitionMemory @ 0x140633468 (EtwpFreePartitionMemory.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     MiFreePagesFromMdl @ 0x1402FF4EC (MiFreePagesFromMdl.c)
+ *     EtwpFreePartitionMemory @ 0x1405B06C8 (EtwpFreePartitionMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreeTraceBuffer(__int64 a1, char *a2)
@@ -22,13 +22,13 @@ void __fastcall EtwpFreeTraceBuffer(__int64 a1, char *a2)
   PHYSICAL_ADDRESS PhysicalAddress; // rax
 
   v2 = a2;
-  if ( *(_QWORD *)(a1 + 1320) )
+  if ( *(_QWORD *)(a1 + 1304) )
   {
     EtwpFreePartitionMemory();
   }
-  else if ( (*(_DWORD *)(a1 + 816) & 0x20000000) != 0 )
+  else if ( (*(_DWORD *)(a1 + 832) & 0x20000000) != 0 )
   {
-    v3 = *(_QWORD *)(a1 + 1328);
+    v3 = *(_QWORD *)(a1 + 1312);
     *(_WORD *)(v3 + 10) |= 3u;
     v4 = (unsigned __int64 *)(v3 + 48);
     *(_QWORD *)(v3 + 24) = a2;
@@ -45,7 +45,7 @@ void __fastcall EtwpFreeTraceBuffer(__int64 a1, char *a2)
       }
       while ( v6 );
     }
-    MiFreePagesFromMdl(v3, 0);
+    MiFreePagesFromMdl(v3);
   }
   else
   {

@@ -1,208 +1,206 @@
 /*
- * XREFs of ?VirtualGpuDriverEscape@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGK_VIRTUALGPUDRIVERESCAPE@@@Z @ 0x1C035F150
+ * XREFs of ?VirtualGpuDriverEscape@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGK_VIRTUALGPUDRIVERESCAPE@@@Z @ 0x1C02360F0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005BFAC (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
- *     ?VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ @ 0x1C0358FC8 (-VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ.c)
+ *     Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage @ 0x1C0026138 (Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C00400A4 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ @ 0x1C0230C38 (-VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ.c)
  */
 
 __int64 __fastcall DXGK_VIRTUAL_GPU_PARAV::VirtualGpuDriverEscape(
         DXGK_VIRTUAL_GPU_PARAV *this,
         struct _DXGK_VIRTUALGPUDRIVERESCAPE *a2)
 {
+  unsigned int v3; // r14d
   unsigned __int64 InputBufferSize; // rdx
-  unsigned int v5; // r14d
-  const wchar_t *v6; // r9
+  __int64 v6; // rcx
   __int64 v7; // rax
-  _DWORD *pInputBuffer; // rsi
-  int v10; // ecx
-  int v11; // ecx
-  int v12; // ecx
+  unsigned int *pInputBuffer; // rsi
+  __int64 v10; // rcx
+  __int64 v11; // rcx
+  __int64 v12; // rcx
   int v13; // ecx
-  int v14; // ecx
-  __int64 v15; // rbx
-  bool v16; // zf
-  int v17; // eax
-  __int64 v18; // rbx
-  __int64 v19; // rax
-  ULONG OutputBufferSize; // eax
-  int v21; // eax
-  __int64 v22; // [rsp+28h] [rbp-48h]
-  PVOID pOutputBuffer; // [rsp+50h] [rbp-20h] BYREF
-  int v24; // [rsp+58h] [rbp-18h]
-  int v25; // [rsp+5Ch] [rbp-14h]
-  int v26; // [rsp+60h] [rbp-10h]
-  int v27; // [rsp+64h] [rbp-Ch]
+  __int64 v14; // rcx
+  bool v15; // zf
+  unsigned int v16; // eax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  char *v19; // rax
+  __int64 OutputBufferSize; // rcx
+  char *pOutputBuffer; // rax
+  int v22; // eax
+  char *v23; // [rsp+40h] [rbp-20h] BYREF
+  int v24; // [rsp+48h] [rbp-18h]
+  unsigned int v25; // [rsp+4Ch] [rbp-14h]
+  unsigned int v26; // [rsp+50h] [rbp-10h]
+  int v27; // [rsp+54h] [rbp-Ch]
 
+  v3 = 0;
   InputBufferSize = a2->InputBufferSize;
-  v5 = 0;
   if ( (unsigned int)InputBufferSize < 0xC )
   {
-    WdLogSingleEntry1(2LL, InputBufferSize);
-    v6 = L"Invalid input buffer size: 0x%I64x";
-    v22 = 0LL;
-LABEL_3:
+    v6 = WdLogNewEntry5_WdError(this, InputBufferSize);
     v7 = a2->InputBufferSize;
+LABEL_3:
+    *(_QWORD *)(v6 + 24) = v7;
 LABEL_4:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v6, v7, v22, 0LL, 0LL, 0LL);
+    WdLogEvent5_WdError(v6);
     return 3221225485LL;
   }
-  pInputBuffer = a2->pInputBuffer;
+  pInputBuffer = (unsigned int *)a2->pInputBuffer;
   v10 = pInputBuffer[2];
-  if ( v10 )
+  if ( !(_DWORD)v10 )
   {
-    v11 = v10 - 1;
-    if ( !v11 )
+    if ( (unsigned int)InputBufferSize >= 0x14 )
     {
-      if ( (unsigned int)InputBufferSize >= 0x14 )
+      if ( a2->OutputBufferSize >= pInputBuffer[4] )
       {
-        v19 = (unsigned int)pInputBuffer[4];
-        if ( (unsigned int)v19 < 0xFFFF && InputBufferSize >= v19 + 20 )
-        {
-          v27 = 0;
-          pOutputBuffer = pInputBuffer + 5;
-          v24 = *((_DWORD *)this + 6);
-          v25 = pInputBuffer[3];
-          v26 = pInputBuffer[4];
-          v5 = (*(__int64 (__fastcall **)(DXGK_VIRTUAL_GPU_PARAV *, PVOID *))(*(_QWORD *)this + 56LL))(
-                 this,
-                 &pOutputBuffer);
-          if ( bTracingEnabled )
-            VgpuTraceFrequentRead(
-              1,
-              v5,
-              this,
-              L"DXGKVGPU_ESCAPE_TYPE_WRITE_PCI_CONFIG",
-              (wchar_t *)L"(offset, size)  %d %d",
-              pInputBuffer[3],
-              pInputBuffer[4]);
-          return v5;
-        }
-        v18 = 459LL;
-      }
-      else
-      {
-        v18 = 453LL;
-      }
-      WdLogSingleEntry2(2LL, InputBufferSize, v18);
-      v6 = L"Invalid input buffer size to write PCI config: 0x%I64x";
-      v22 = v18;
-      goto LABEL_3;
-    }
-    v12 = v11 - 1;
-    if ( v12 )
-    {
-      v13 = v12 - 1;
-      if ( v13 )
-      {
-        v14 = v13 - 1;
-        if ( v14 )
-        {
-          if ( v14 != 1 )
-          {
-            WdLogSingleEntry2(2LL, (int)pInputBuffer[2], 537LL);
-            v7 = (int)pInputBuffer[2];
-            v6 = L"Invalid escape type: 0x%I64x";
-            v22 = 537LL;
-            goto LABEL_4;
-          }
-          if ( (unsigned int)InputBufferSize < 0x10 )
-          {
-            v15 = 526LL;
-LABEL_20:
-            WdLogSingleEntry2(2LL, InputBufferSize, v15);
-            v6 = L"Invalid input/output buffer size: 0x%I64x";
-            v22 = v15;
-            goto LABEL_3;
-          }
-          v16 = bTracingEnabled == 0;
-          v17 = pInputBuffer[3];
-          *((_DWORD *)this + 42) = v17;
-          if ( !v16 )
-            VgpuTrace(1, 0, this, L"DXGKVGPU_ESCAPE_TYPE_POWERTRANSITIONCOMPLETE", (wchar_t *)L"%d", v17);
-        }
-        else
-        {
-          if ( a2->OutputBufferSize != 4 )
-          {
-            v15 = 478LL;
-            goto LABEL_20;
-          }
-          *(_DWORD *)a2->pOutputBuffer = 1;
-        }
-      }
-      else
-      {
+        pOutputBuffer = (char *)a2->pOutputBuffer;
+        v27 = 0;
+        v23 = pOutputBuffer;
+        v24 = *((_DWORD *)this + 6);
+        v25 = pInputBuffer[3];
+        v26 = pInputBuffer[4];
+        v22 = (*(__int64 (__fastcall **)(DXGK_VIRTUAL_GPU_PARAV *, char **))(*(_QWORD *)this + 48LL))(this, &v23);
+        v3 = v22;
         if ( bTracingEnabled )
-          VgpuTrace(1, 0, this, L"DXGKVGPU_ESCAPE_TYPE_RELEASE", 0LL);
-        *((_BYTE *)this + 172) = 0;
+          VgpuTraceFrequentRead(
+            1,
+            v22,
+            this,
+            L"DXGKVGPU_ESCAPE_TYPE_READ_PCI_CONFIG",
+            (wchar_t *)L"(offset, size) %d %d",
+            pInputBuffer[3],
+            pInputBuffer[4]);
+        return v3;
       }
+      v17 = WdLogNewEntry5_WdError(v10, InputBufferSize);
+      OutputBufferSize = a2->OutputBufferSize;
+      *(_QWORD *)(v17 + 32) = 435LL;
     }
     else
     {
-      if ( (unsigned int)InputBufferSize < 0x1C )
+      v17 = WdLogNewEntry5_WdError(v10, InputBufferSize);
+      OutputBufferSize = a2->InputBufferSize;
+      *(_QWORD *)(v17 + 32) = 429LL;
+    }
+LABEL_40:
+    *(_QWORD *)(v17 + 24) = OutputBufferSize;
+    goto LABEL_41;
+  }
+  v11 = (unsigned int)(v10 - 1);
+  if ( !(_DWORD)v11 )
+  {
+    if ( (unsigned int)InputBufferSize < 0x14 )
+    {
+      v6 = WdLogNewEntry5_WdError(v11, InputBufferSize);
+      v7 = a2->InputBufferSize;
+      *(_QWORD *)(v6 + 32) = 454LL;
+      goto LABEL_3;
+    }
+    v18 = pInputBuffer[4];
+    if ( (unsigned int)v18 < 0xFFFF )
+    {
+      v11 = v18 + 20;
+      if ( InputBufferSize >= v18 + 20 )
       {
-        v15 = 488LL;
-        goto LABEL_20;
+        if ( (unsigned int)Feature_WSL_Device_GPU__private_IsEnabledDeviceUsage() )
+        {
+          v19 = (char *)a2->pInputBuffer;
+          v27 = 0;
+          v23 = v19 + 20;
+          v24 = *((_DWORD *)this + 6);
+          v25 = pInputBuffer[3];
+          v26 = pInputBuffer[4];
+          v3 = (*(__int64 (__fastcall **)(DXGK_VIRTUAL_GPU_PARAV *, char **))(*(_QWORD *)this + 56LL))(this, &v23);
+        }
+        if ( bTracingEnabled )
+          VgpuTraceFrequentRead(
+            1,
+            v3,
+            this,
+            L"DXGKVGPU_ESCAPE_TYPE_WRITE_PCI_CONFIG",
+            (wchar_t *)L"(offset, size)  %d %d",
+            pInputBuffer[3],
+            pInputBuffer[4]);
+        return v3;
       }
-      if ( *((_BYTE *)this + 172) )
-      {
-        WdLogSingleEntry2(2LL, this, 493LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"DXGKVGPU_ESCAPE_TYPE_INITIALIZE called twice for vGPU 0x%I64x",
-          (__int64)this,
-          493LL,
-          0LL,
-          0LL,
-          0LL);
-        return 3221225485LL;
-      }
+    }
+    v17 = WdLogNewEntry5_WdError(v11, InputBufferSize);
+    OutputBufferSize = a2->InputBufferSize;
+    *(_QWORD *)(v17 + 32) = 460LL;
+    goto LABEL_40;
+  }
+  v12 = (unsigned int)(v11 - 1);
+  if ( !(_DWORD)v12 )
+  {
+    if ( (unsigned int)InputBufferSize < 0x1C )
+    {
+      v6 = WdLogNewEntry5_WdError(v12, InputBufferSize);
+      v7 = a2->InputBufferSize;
+      *(_QWORD *)(v6 + 32) = 493LL;
+      goto LABEL_3;
+    }
+    if ( !*((_BYTE *)this + 164) )
+    {
       if ( bTracingEnabled )
         VgpuTrace(1, 0, this, L"DXGKVGPU_ESCAPE_TYPE_INITIALIZE", 0LL);
-      *((_BYTE *)this + 172) = 1;
-      *((_OWORD *)this + 22) = *(_OWORD *)((char *)a2->pInputBuffer + 12);
+      *((_BYTE *)this + 164) = 1;
+      *(_OWORD *)((char *)this + 328) = *(_OWORD *)((char *)a2->pInputBuffer + 12);
+      return v3;
+    }
+    v17 = WdLogNewEntry5_WdError(v12, InputBufferSize);
+    *(_QWORD *)(v17 + 24) = this;
+    *(_QWORD *)(v17 + 32) = 498LL;
+LABEL_41:
+    v6 = v17;
+    goto LABEL_4;
+  }
+  v13 = v12 - 1;
+  if ( v13 )
+  {
+    v14 = (unsigned int)(v13 - 1);
+    if ( (_DWORD)v14 )
+    {
+      if ( (_DWORD)v14 != 1 )
+      {
+        v6 = WdLogNewEntry5_WdError(v14, InputBufferSize);
+        v7 = (int)pInputBuffer[2];
+        *(_QWORD *)(v6 + 32) = 542LL;
+        goto LABEL_3;
+      }
+      if ( (unsigned int)InputBufferSize < 0x10 )
+      {
+        v6 = WdLogNewEntry5_WdError(v14, InputBufferSize);
+        v7 = a2->InputBufferSize;
+        *(_QWORD *)(v6 + 32) = 531LL;
+        goto LABEL_3;
+      }
+      v15 = bTracingEnabled == 0;
+      v16 = pInputBuffer[3];
+      *((_DWORD *)this + 40) = v16;
+      if ( !v15 )
+        VgpuTrace(1, 0, this, L"DXGKVGPU_ESCAPE_TYPE_POWERTRANSITIONCOMPLETE", (wchar_t *)L"%d", v16);
+    }
+    else
+    {
+      if ( a2->OutputBufferSize != 4 )
+      {
+        v6 = WdLogNewEntry5_WdError(v14, InputBufferSize);
+        v7 = a2->InputBufferSize;
+        *(_QWORD *)(v6 + 32) = 483LL;
+        goto LABEL_3;
+      }
+      *(_DWORD *)a2->pOutputBuffer = 1;
     }
   }
   else
   {
-    if ( (unsigned int)InputBufferSize < 0x14 )
-    {
-      WdLogSingleEntry2(2LL, InputBufferSize, 428LL);
-      v6 = L"Invalid input buffer size to read PCI config: 0x%I64x";
-      v22 = 428LL;
-      goto LABEL_3;
-    }
-    OutputBufferSize = a2->OutputBufferSize;
-    if ( OutputBufferSize < pInputBuffer[4] )
-    {
-      WdLogSingleEntry2(2LL, OutputBufferSize, 434LL);
-      v7 = a2->OutputBufferSize;
-      v6 = L"Invalid output buffer size to read PCI config: 0x%I64x";
-      v22 = 434LL;
-      goto LABEL_4;
-    }
-    pOutputBuffer = a2->pOutputBuffer;
-    v24 = *((_DWORD *)this + 6);
-    v27 = 0;
-    v25 = pInputBuffer[3];
-    v26 = pInputBuffer[4];
-    v21 = (*(__int64 (__fastcall **)(DXGK_VIRTUAL_GPU_PARAV *, PVOID *))(*(_QWORD *)this + 48LL))(this, &pOutputBuffer);
-    v5 = v21;
     if ( bTracingEnabled )
-      VgpuTraceFrequentRead(
-        1,
-        v21,
-        this,
-        L"DXGKVGPU_ESCAPE_TYPE_READ_PCI_CONFIG",
-        (wchar_t *)L"(offset, size) %d %d",
-        pInputBuffer[3],
-        pInputBuffer[4]);
+      VgpuTrace(1, 0, this, L"DXGKVGPU_ESCAPE_TYPE_RELEASE", 0LL);
+    *((_BYTE *)this + 164) = 0;
   }
-  return v5;
+  return v3;
 }

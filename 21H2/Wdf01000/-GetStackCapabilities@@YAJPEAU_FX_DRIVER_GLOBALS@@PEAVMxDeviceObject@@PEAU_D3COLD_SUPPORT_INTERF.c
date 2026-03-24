@@ -1,15 +1,14 @@
 /*
- * XREFs of ?GetStackCapabilities@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAVMxDeviceObject@@PEAU_D3COLD_SUPPORT_INTERFACE@@PEAU_STACK_DEVICE_CAPABILITIES@@@Z @ 0x1C001A70C
+ * XREFs of ?GetStackCapabilities@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAVMxDeviceObject@@PEAU_D3COLD_SUPPORT_INTERFACE@@PEAU_STACK_DEVICE_CAPABILITIES@@@Z @ 0x1C0015FA0
  * Callers:
- *     ?PnpQueryCapabilities@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C001A2D8 (-PnpQueryCapabilities@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z.c)
- *     ?QueryForCapabilities@FxPkgPnp@@IEAAJXZ @ 0x1C0021D90 (-QueryForCapabilities@FxPkgPnp@@IEAAJXZ.c)
- *     ?_QueryCapsWorkItem@FxPkgPdo@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C0083AA0 (-_QueryCapsWorkItem@FxPkgPdo@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z.c)
+ *     ?_PnpQueryCapabilities@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z @ 0x1C0015B10 (-_PnpQueryCapabilities@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z.c)
+ *     ?_QueryCapsWorkItem@FxPkgPdo@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C0079CC0 (-_QueryCapsWorkItem@FxPkgPdo@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z.c)
+ *     ?QueryForCapabilities@FxPkgPnp@@IEAAJXZ @ 0x1C0082234 (-QueryForCapabilities@FxPkgPnp@@IEAAJXZ.c)
  * Callees:
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0019824 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
- *     ?SendIrpSynchronously@FxIrp@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C001AB80 (-SendIrpSynchronously@FxIrp@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0036C00 (memset.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C00150E8 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001D540 (memset.c)
  */
 
 __int64 __fastcall GetStackCapabilities(
@@ -18,66 +17,90 @@ __int64 __fastcall GetStackCapabilities(
         _D3COLD_SUPPORT_INTERFACE *D3ColdInterface,
         _STACK_DEVICE_CAPABILITIES *Capabilities)
 {
-  _IRP *m_Irp; // rbx
-  unsigned int v9; // edi
+  PIRP Irp; // rbx
+  NTSTATUS _a2; // esi
   PDEVICE_OBJECT AttachedDeviceReference; // rax
-  signed int _a2; // eax
-  unsigned int v12; // edx
-  __m128i si128; // xmm0
-  unsigned int i; // edi
-  FxIrp deepestWakeableDstate; // [rsp+78h] [rbp+10h] BYREF
+  unsigned int v11; // r12d
+  _IO_STACK_LOCATION *v12; // rcx
+  _IO_STACK_LOCATION *CurrentStackLocation; // rax
+  _DEVICE_OBJECT *m_DeviceObject; // rsi
+  _IO_STACK_LOCATION *v15; // rax
+  unsigned int v16; // edx
+  _KEVENT Event; // [rsp+40h] [rbp-48h] BYREF
+  char v19; // [rsp+58h] [rbp-30h]
+  _DEVICE_WAKE_DEPTH deepestWakeableDstate; // [rsp+98h] [rbp+10h] BYREF
 
-  m_Irp = 0LL;
-  v9 = -1073741670;
+  Irp = 0LL;
+  _a2 = -1073741670;
   AttachedDeviceReference = IoGetAttachedDeviceReference(DeviceInStack->m_DeviceObject);
   DeviceInStack->m_DeviceObject = AttachedDeviceReference;
   if ( AttachedDeviceReference )
   {
-    deepestWakeableDstate.m_Irp = IoAllocateIrp(AttachedDeviceReference->StackSize, 0);
-    m_Irp = deepestWakeableDstate.m_Irp;
-    if ( deepestWakeableDstate.m_Irp )
+    Irp = IoAllocateIrp(AttachedDeviceReference->StackSize, 0);
+    if ( Irp )
     {
       memset(Capabilities, 0, sizeof(_STACK_DEVICE_CAPABILITIES));
       *(_DWORD *)&Capabilities->DeviceCaps.Size = 65600;
-      Capabilities->DeviceCaps.Address = -1;
-      Capabilities->DeviceCaps.UINumber = -1;
-      m_Irp->IoStatus.Status = -1073741637;
-      memset(&m_Irp->Tail.Overlay.CurrentStackLocation[-1], 0, sizeof(m_Irp->Tail.Overlay.CurrentStackLocation[-1]));
-      m_Irp->Tail.Overlay.CurrentStackLocation[-1].MajorFunction = 27;
-      m_Irp->Tail.Overlay.CurrentStackLocation[-1].MinorFunction = 9;
-      m_Irp->Tail.Overlay.CurrentStackLocation[-1].Parameters.WMI.ProviderId = (unsigned __int64)Capabilities;
-      _a2 = FxIrp::SendIrpSynchronously(&deepestWakeableDstate, DeviceInStack->m_DeviceObject);
-      v9 = _a2;
+      v11 = 1;
+      *(_QWORD *)&Capabilities->DeviceCaps.Address = -1LL;
+      v12 = Irp->Tail.Overlay.CurrentStackLocation - 1;
+      Irp->IoStatus.Status = -1073741637;
+      memset(v12, 0, sizeof(_IO_STACK_LOCATION));
+      CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
+      v19 = 0;
+      CurrentStackLocation[-1].MajorFunction = 27;
+      Irp->Tail.Overlay.CurrentStackLocation[-1].MinorFunction = 9;
+      Irp->Tail.Overlay.CurrentStackLocation[-1].Parameters.WMI.ProviderId = (unsigned __int64)Capabilities;
+      m_DeviceObject = DeviceInStack->m_DeviceObject;
+      KeInitializeEvent(&Event, SynchronizationEvent, 0);
+      v15 = Irp->Tail.Overlay.CurrentStackLocation;
+      v19 = 1;
+      v15[-1].CompletionRoutine = FxIrp::_IrpSynchronousCompletion;
+      v15[-1].Context = &Event;
+      v15[-1].Control = -32;
+      _a2 = IofCallDriver(m_DeviceObject, Irp);
+      if ( _a2 == 259 )
+      {
+        KeEnterCriticalRegion();
+        KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+        KeLeaveCriticalRegion();
+        _a2 = Irp->IoStatus.Status;
+      }
       if ( _a2 < 0 )
       {
         WPP_IFR_SF_qL(DriverGlobals, 2u, 0xCu, 0xAu, WPP_supportKM_cpp_Traceguids, DeviceInStack->m_DeviceObject, _a2);
       }
       else
       {
-        si128 = _mm_load_si128((const __m128i *)&_xmm);
-        *(__m128i *)Capabilities->DeepestWakeableDstate = si128;
-        *(_QWORD *)&Capabilities->DeepestWakeableDstate[4] = si128.m128i_i64[0];
+        Capabilities->DeepestWakeableDstate[0] = DeviceWakeDepthMaximum;
+        Capabilities->DeepestWakeableDstate[1] = DeviceWakeDepthMaximum;
+        Capabilities->DeepestWakeableDstate[2] = DeviceWakeDepthMaximum;
+        Capabilities->DeepestWakeableDstate[3] = DeviceWakeDepthMaximum;
+        Capabilities->DeepestWakeableDstate[4] = DeviceWakeDepthMaximum;
+        Capabilities->DeepestWakeableDstate[5] = DeviceWakeDepthMaximum;
         if ( D3ColdInterface
           && D3ColdInterface->GetIdleWakeInfo
-          && _FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(DriverGlobals, v12, 0xBu) )
+          && _FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(DriverGlobals, v16, 0xBu) )
         {
-          LODWORD(deepestWakeableDstate.m_Irp) = 0;
-          for ( i = 1; i <= 5; ++i )
+          deepestWakeableDstate = DeviceWakeDepthNotWakeable;
+          do
           {
             if ( D3ColdInterface->GetIdleWakeInfo(
                    D3ColdInterface->Context,
-                   (_SYSTEM_POWER_STATE)i,
-                   (_DEVICE_WAKE_DEPTH *)&deepestWakeableDstate) >= 0 )
-              Capabilities->DeepestWakeableDstate[i] = (_DEVICE_WAKE_DEPTH)deepestWakeableDstate.m_Irp;
+                   (_SYSTEM_POWER_STATE)v11,
+                   &deepestWakeableDstate) >= 0 )
+              Capabilities->DeepestWakeableDstate[v11] = deepestWakeableDstate;
+            ++v11;
           }
+          while ( v11 <= 5 );
         }
-        v9 = 0;
+        _a2 = 0;
       }
     }
   }
   if ( DeviceInStack->m_DeviceObject )
     ObfDereferenceObject(DeviceInStack->m_DeviceObject);
-  if ( m_Irp )
-    IoFreeIrp(m_Irp);
-  return v9;
+  if ( Irp )
+    IoFreeIrp(Irp);
+  return (unsigned int)_a2;
 }

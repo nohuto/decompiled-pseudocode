@@ -1,9 +1,9 @@
 /*
- * XREFs of XilRegister_ReadUchar @ 0x1C0014060
+ * XREFs of XilRegister_ReadUchar @ 0x1C00140B8
  * Callers:
- *     Register_BiosHandoff @ 0x1C0013F1C (Register_BiosHandoff.c)
+ *     Register_BiosHandoff @ 0x1C0013F74 (Register_BiosHandoff.c)
  * Callees:
- *     Register_ReadSecureMmio @ 0x1C003D040 (Register_ReadSecureMmio.c)
+ *     Register_ReadSecureMmio @ 0x1C003CAB8 (Register_ReadSecureMmio.c)
  */
 
 char __fastcall XilRegister_ReadUchar(__int64 a1, __int64 a2)

@@ -1,21 +1,21 @@
 /*
- * XREFs of PfpScenCtxPrefetchStateSet @ 0x140AA0330
+ * XREFs of PfpScenCtxPrefetchStateSet @ 0x140998C10
  * Callers:
- *     PfSetSuperfetchInformation @ 0x14075FEA4 (PfSetSuperfetchInformation.c)
- *     PfpScenCtxScenarioSet @ 0x140A883D8 (PfpScenCtxScenarioSet.c)
+ *     PfSetSuperfetchInformation @ 0x140709624 (PfSetSuperfetchInformation.c)
+ *     PfpScenCtxScenarioSet @ 0x14099AB88 (PfpScenCtxScenarioSet.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
  */
 
 __int64 __fastcall PfpScenCtxPrefetchStateSet(ULONG_PTR BugCheckParameter2, int a2, int a3, int a4)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v9; // esi
-  int v10; // ecx
+  unsigned int v9; // ecx
+  unsigned int v10; // esi
 
   if ( !a4 )
   {
@@ -27,24 +27,23 @@ __int64 __fastcall PfpScenCtxPrefetchStateSet(ULONG_PTR BugCheckParameter2, int 
   {
     if ( a3 == 1 && (*(_DWORD *)(BugCheckParameter2 + 8) & 0xC) == 8 )
     {
-      v9 = -1073741431;
+      v10 = -1073741431;
     }
     else
     {
-      v10 = *(_DWORD *)(BugCheckParameter2 + 8);
-      if ( (v10 & 0xC) == 4 )
+      v9 = *(_DWORD *)(BugCheckParameter2 + 8);
+      if ( (v9 & 0xC) == 4 )
       {
         KeSetEvent((PRKEVENT)(BugCheckParameter2 + 16), 1, 0);
-        *(_DWORD *)(BugCheckParameter2 + 8) &= 0xFFFFFFF3;
-        v10 = *(_DWORD *)(BugCheckParameter2 + 8);
+        v9 = *(_DWORD *)(BugCheckParameter2 + 8) & 0xFFFFFFF3;
       }
-      *(_DWORD *)(BugCheckParameter2 + 8) = v10 ^ ((unsigned __int8)a3 ^ (unsigned __int8)v10) & 3;
-      v9 = 0;
+      *(_DWORD *)(BugCheckParameter2 + 8) = v9 ^ ((unsigned __int8)a3 ^ (unsigned __int8)v9) & 3;
+      v10 = 0;
     }
   }
   else
   {
-    v9 = -1073741735;
+    v10 = -1073741735;
   }
   if ( !a4 )
   {
@@ -53,5 +52,5 @@ __int64 __fastcall PfpScenCtxPrefetchStateSet(ULONG_PTR BugCheckParameter2, int 
     KeAbPostRelease(BugCheckParameter2);
     KeLeaveCriticalRegion();
   }
-  return v9;
+  return v10;
 }

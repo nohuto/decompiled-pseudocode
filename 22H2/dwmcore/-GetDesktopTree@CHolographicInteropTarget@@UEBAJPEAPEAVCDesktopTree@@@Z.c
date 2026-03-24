@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDesktopTree@CHolographicInteropTarget@@UEBAJPEAPEAVCDesktopTree@@@Z @ 0x1802A93B0
+ * XREFs of ?GetDesktopTree@CHolographicInteropTarget@@UEBAJPEAPEAVCDesktopTree@@@Z @ 0x180257990
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CHolographicInteropTarget::GetDesktopTree(RTL_SRWLOCK **this, struct CDesktopTree **a2)
 {
-  return CHolographicManager::GetDefaultDesktopTree(this[3], a2);
+  return CHolographicManager::GetDefaultDesktopTree(this[2], a2);
 }

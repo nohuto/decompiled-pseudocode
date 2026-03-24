@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmGetAllocationGpuVirtualAddress @ 0x1C0016EF0
+ * XREFs of VidMmGetAllocationGpuVirtualAddress @ 0x1C0014990
  * Callers:
  *     <none>
  * Callees:
- *     ?VidMmGetAllocationGpuVirtualAddress@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MULTI_ALLOC@@EI@Z @ 0x1C00A3D1C (-VidMmGetAllocationGpuVirtualAddress@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MULTI_ALLOC@@EI@Z.c)
+ *     ?VidMmGetAllocationGpuVirtualAddress@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MULTI_ALLOC@@EI@Z @ 0x1C0089568 (-VidMmGetAllocationGpuVirtualAddress@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MULTI_ALLOC@@EI@Z.c)
  */
 
 unsigned __int64 __fastcall VidMmGetAllocationGpuVirtualAddress(

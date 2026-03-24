@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PointerDelegateGetClient@@YAHGKPEAUtagDELEGATEPOINTERMAP@@@Z @ 0x1C01EBFD0
+ * XREFs of ?PointerDelegateGetClient@@YAHGKPEAUtagDELEGATEPOINTERMAP@@@Z @ 0x1C01F14CC
  * Callers:
- *     ValidateDelegatePointerList @ 0x1C01EA5B0 (ValidateDelegatePointerList.c)
+ *     ValidateDelegatePointerList @ 0x1C01EFC80 (ValidateDelegatePointerList.c)
  * Callees:
- *     INPUTDEST_FROM_PWND @ 0x1C0077618 (INPUTDEST_FROM_PWND.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     INPUTDEST_FROM_PWND @ 0x1C01325F4 (INPUTDEST_FROM_PWND.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall PointerDelegateGetClient(unsigned __int16 a1, unsigned int a2, struct tagDELEGATEPOINTERMAP *a3)
@@ -26,10 +26,10 @@ __int64 __fastcall PointerDelegateGetClient(unsigned __int16 a1, unsigned int a2
   int v19; // [rsp+FCh] [rbp-4Ch]
 
   CTouchProcessor::DelegateCapture(gpTouchProcessor, v17, a1, a2, 0);
-  if ( v19 != 2 )
-    return 0LL;
-  v6 = v18;
-  if ( !v18 || *(_QWORD *)(v18 + 16) == gptiCurrent )
+  v6 = 0LL;
+  if ( v19 == 2 )
+    v6 = v18;
+  if ( !v6 || *(_QWORD *)(v6 + 16) == gptiCurrent )
     return 0LL;
   *(_WORD *)a3 = a1;
   *((_DWORD *)a3 + 1) = a2;

@@ -1,23 +1,25 @@
 /*
- * XREFs of PiPnpRtlObjectEventDispatch @ 0x140788E10
+ * XREFs of PiPnpRtlObjectEventDispatch @ 0x1406ACC70
  * Callers:
- *     PiPnpRtlObjectEventWorker @ 0x1407889E0 (PiPnpRtlObjectEventWorker.c)
- *     PiPnpRtlEndOperation @ 0x140788CDC (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlEndOperation @ 0x1406ACCB8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1407464B0 (PiPnpRtlObjectEventWorker.c)
  * Callees:
- *     PiDqObjectManagerHandleObjectEvent @ 0x140788430 (PiDqObjectManagerHandleObjectEvent.c)
- *     PiDqGetObjectManagerForPnpObjectType @ 0x14078851C (PiDqGetObjectManagerForPnpObjectType.c)
- *     PiDcHandleObjectEvent @ 0x140788574 (PiDcHandleObjectEvent.c)
+ *     PiDcHandleObjectEvent @ 0x140757EC4 (PiDcHandleObjectEvent.c)
+ *     PiDqObjectManagerHandleObjectEvent @ 0x140765DB8 (PiDqObjectManagerHandleObjectEvent.c)
+ *     PiDqGetObjectManagerForPnpObjectType @ 0x140765EC4 (PiDqGetObjectManagerForPnpObjectType.c)
  */
 
-void __fastcall PiPnpRtlObjectEventDispatch(__int64 a1)
+__int64 __fastcall PiPnpRtlObjectEventDispatch(__int64 a1)
 {
-  struct _ERESOURCE *ObjectManagerForPnpObjectType; // rax
+  __int64 result; // rax
 
-  if ( (*(_DWORD *)(a1 + 4) & 0xB) != 0 || *(_DWORD *)(a1 + 76) )
+  result = *(unsigned int *)(a1 + 4);
+  if ( (result & 0xB) != 0 || *(_DWORD *)(a1 + 76) )
   {
-    PiDcHandleObjectEvent(a1);
-    ObjectManagerForPnpObjectType = PiDqGetObjectManagerForPnpObjectType(*(_DWORD *)(*(_QWORD *)(a1 + 8) + 28LL));
-    if ( ObjectManagerForPnpObjectType )
-      PiDqObjectManagerHandleObjectEvent((__int64)ObjectManagerForPnpObjectType, a1);
+    PiDcHandleObjectEvent();
+    result = PiDqGetObjectManagerForPnpObjectType(*(unsigned int *)(*(_QWORD *)(a1 + 8) + 28LL));
+    if ( result )
+      return PiDqObjectManagerHandleObjectEvent(result, a1);
   }
+  return result;
 }

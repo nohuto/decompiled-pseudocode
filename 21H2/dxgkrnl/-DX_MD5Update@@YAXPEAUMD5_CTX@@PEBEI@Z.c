@@ -1,64 +1,58 @@
 /*
- * XREFs of ?DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z @ 0x1C01AD620
+ * XREFs of ?DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z @ 0x1C0131B7C
  * Callers:
- *     ?CcdCreateMd5Checksum@@YAJPEBEIPEAE@Z @ 0x1C01ACB70 (-CcdCreateMd5Checksum@@YAJPEBEIPEAE@Z.c)
- *     ?DX_MD5Final@@YAXPEAUMD5_CTX@@@Z @ 0x1C01ACC2C (-DX_MD5Final@@YAXPEAUMD5_CTX@@@Z.c)
+ *     ?CcdCreateMd5Checksum@@YAJPEBEIPEAE@Z @ 0x1C01310BC (-CcdCreateMd5Checksum@@YAJPEBEIPEAE@Z.c)
+ *     ?DX_MD5Final@@YAXPEAUMD5_CTX@@@Z @ 0x1C0131188 (-DX_MD5Final@@YAXPEAUMD5_CTX@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     TransformMD5 @ 0x1C01ACD40 (TransformMD5.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     TransformMD5 @ 0x1C013129C (TransformMD5.c)
  */
 
 void __fastcall DX_MD5Update(struct MD5_CTX *a1, const unsigned __int8 *a2, unsigned int a3)
 {
   unsigned int v3; // eax
-  int v6; // r8d
-  int v8; // ecx
-  unsigned int v9; // r8d
-  unsigned int v10; // edx
-  __int64 v11; // rcx
-  unsigned int v12; // r8d
-  int *v13; // r9
-  __int64 v14; // r10
-  __int64 v15; // rax
-  int v16; // edx
-  int v17[16]; // [rsp+20h] [rbp-58h] BYREF
+  unsigned int v6; // edi
+  __int64 v7; // rcx
+  unsigned int v8; // edx
+  int v9; // r8d
+  unsigned int v10; // r8d
+  int *v11; // r9
+  __int64 v12; // r10
+  __int64 v13; // rax
+  int v14; // edx
+  int v15[16]; // [rsp+20h] [rbp-58h] BYREF
 
   v3 = *(_DWORD *)a1;
-  v6 = *(_DWORD *)a1 >> 3;
-  v8 = *((_DWORD *)a1 + 1);
-  v9 = v6 & 0x3F;
-  v10 = v3 + 8 * a3;
-  if ( v10 < v3 )
-    ++v8;
-  *(_DWORD *)a1 = v10;
-  *((_DWORD *)a1 + 1) = v8 + (a3 >> 29);
-  if ( a3 )
+  v6 = a3;
+  v7 = (*(_DWORD *)a1 >> 3) & 0x3F;
+  v8 = v3 + 8 * a3;
+  v9 = *((_DWORD *)a1 + 1);
+  if ( v8 < v3 )
+    ++v9;
+  *(_DWORD *)a1 = v8;
+  *((_DWORD *)a1 + 1) = v9 + (v6 >> 29);
+  while ( v6 )
   {
-    v11 = v9;
-    do
+    --v6;
+    *((_BYTE *)a1 + v7 + 24) = *a2++;
+    if ( ++v7 == 64 )
     {
-      --a3;
-      *((_BYTE *)a1 + v11 + 24) = *a2++;
-      if ( ++v11 == 64 )
+      v10 = 2;
+      v11 = v15;
+      v12 = 16LL;
+      do
       {
-        v12 = 2;
-        v13 = v17;
-        v14 = 16LL;
-        do
-        {
-          v15 = v12 - 2;
-          v16 = (*((unsigned __int8 *)a1 + v12 + 23) | ((*((unsigned __int8 *)a1 + v12 + 24) | (*((unsigned __int8 *)a1
-                                                                                                + v12
-                                                                                                + 25) << 8)) << 8)) << 8;
-          v12 += 4;
-          *v13++ = *((unsigned __int8 *)a1 + v15 + 24) | v16;
-          --v14;
-        }
-        while ( v14 );
-        TransformMD5((int *)a1 + 2, v17);
-        v11 = 0LL;
+        v13 = v10 - 2;
+        v14 = (*((unsigned __int8 *)a1 + v10 + 23) | ((*((unsigned __int8 *)a1 + v10 + 24) | (*((unsigned __int8 *)a1
+                                                                                              + v10
+                                                                                              + 25) << 8)) << 8)) << 8;
+        v10 += 4;
+        *v11++ = *((unsigned __int8 *)a1 + v13 + 24) | v14;
+        --v12;
       }
+      while ( v12 );
+      TransformMD5((int *)a1 + 2, v15);
+      v7 = 0LL;
     }
-    while ( a3 );
   }
 }

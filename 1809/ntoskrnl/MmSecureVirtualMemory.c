@@ -1,7 +1,7 @@
 /*
  * XREFs of MmSecureVirtualMemory @ 0x1405F5DF0
  * Callers:
- *     RtlFileMapMapView @ 0x140178C38 (RtlFileMapMapView.c)
+ *     RtlFileMapMapView @ 0x140178C58 (RtlFileMapMapView.c)
  * Callees:
  *     MmSecureVirtualMemoryEx @ 0x1405F5CB8 (MmSecureVirtualMemoryEx.c)
  */

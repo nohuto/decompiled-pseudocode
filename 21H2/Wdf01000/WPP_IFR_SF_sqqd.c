@@ -1,16 +1,16 @@
 /*
- * XREFs of WPP_IFR_SF_sqqd @ 0x1C008644C
+ * XREFs of WPP_IFR_SF_sqqd @ 0x1C007D248
  * Callers:
- *     ?InvokeCxCallback@FxPnpDevicePrepareHardware@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C0085C20 (-InvokeCxCallback@FxPnpDevicePrepareHardware@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvoke.c)
- *     ?InvokeCxCallback@FxPnpDeviceReleaseHardware@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C0085CD0 (-InvokeCxCallback@FxPnpDeviceReleaseHardware@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvoke.c)
- *     ?InvokeCxCallback@FxPnpDeviceSelfManagedIoInit@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C0085DA0 (-InvokeCxCallback@FxPnpDeviceSelfManagedIoInit@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvo.c)
- *     ?InvokeCxCallback@FxPnpDeviceSelfManagedIoRestart@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C0085E40 (-InvokeCxCallback@FxPnpDeviceSelfManagedIoRestart@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxI.c)
- *     ?InvokeCxCallback@FxPnpDeviceSelfManagedIoSuspend@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C0085F20 (-InvokeCxCallback@FxPnpDeviceSelfManagedIoSuspend@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxI.c)
- *     ?InvokeCxCallback@FxPowerDeviceArmWakeFromS0@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C0085FF0 (-InvokeCxCallback@FxPowerDeviceArmWakeFromS0@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvoke.c)
- *     ?InvokeCxCallback@FxPowerDeviceArmWakeFromSx@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C0086090 (-InvokeCxCallback@FxPowerDeviceArmWakeFromSx@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvoke.c)
+ *     ?InvokeCxCallback@FxPowerDeviceArmWakeFromS0@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C001BE30 (-InvokeCxCallback@FxPowerDeviceArmWakeFromS0@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvoke.c)
+ *     ?InvokeCxCallback@FxPowerDeviceArmWakeFromSx@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C001BED0 (-InvokeCxCallback@FxPowerDeviceArmWakeFromSx@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvoke.c)
+ *     ?InvokeCxCallback@FxPnpDevicePrepareHardware@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C007CC50 (-InvokeCxCallback@FxPnpDevicePrepareHardware@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvoke.c)
+ *     ?InvokeCxCallback@FxPnpDeviceReleaseHardware@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C007CD00 (-InvokeCxCallback@FxPnpDeviceReleaseHardware@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvoke.c)
+ *     ?InvokeCxCallback@FxPnpDeviceSelfManagedIoInit@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C007CDA0 (-InvokeCxCallback@FxPnpDeviceSelfManagedIoInit@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvo.c)
+ *     ?InvokeCxCallback@FxPnpDeviceSelfManagedIoRestart@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C007CE40 (-InvokeCxCallback@FxPnpDeviceSelfManagedIoRestart@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxI.c)
+ *     ?InvokeCxCallback@FxPnpDeviceSelfManagedIoSuspend@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C007CF20 (-InvokeCxCallback@FxPnpDeviceSelfManagedIoSuspend@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxI.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_sqqd(

@@ -1,11 +1,11 @@
 /*
- * XREFs of EditionKeepMachineUp @ 0x1C00FED70
+ * XREFs of EditionKeepMachineUp @ 0x1C0111F60
  * Callers:
  *     <none>
  * Callees:
- *     ?KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C00FEE30 (-KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
- *     ?MapInputToMonitorOnReason@@YA?AW4POWER_MONITOR_REQUEST_REASON@@W4_LINP_SOURCE@@@Z @ 0x1C00FEF18 (-MapInputToMonitorOnReason@@YA-AW4POWER_MONITOR_REQUEST_REASON@@W4_LINP_SOURCE@@@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C0112020 (-KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
+ *     ?MapInputToMonitorOnReason@@YA?AW4POWER_MONITOR_REQUEST_REASON@@W4_LINP_SOURCE@@@Z @ 0x1C0112108 (-MapInputToMonitorOnReason@@YA-AW4POWER_MONITOR_REQUEST_REASON@@W4_LINP_SOURCE@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!

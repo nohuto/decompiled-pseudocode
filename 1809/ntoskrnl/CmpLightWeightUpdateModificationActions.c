@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpLightWeightUpdateModificationActions @ 0x140804D3C
+ * XREFs of CmpLightWeightUpdateModificationActions @ 0x140804D1C
  * Callers:
- *     CmpLightWeightCreateModificationData @ 0x140803E7C (CmpLightWeightCreateModificationData.c)
+ *     CmpLightWeightCreateModificationData @ 0x140803E5C (CmpLightWeightCreateModificationData.c)
  * Callees:
- *     CmListGetNextElement @ 0x1406948E0 (CmListGetNextElement.c)
+ *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
  */
 
 char *__fastcall CmpLightWeightUpdateModificationActions(__int64 a1, __int64 a2)

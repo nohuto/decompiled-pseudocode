@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpCreateEvent @ 0x14071489C
+ * XREFs of CmpCreateEvent @ 0x140671E70
  * Callers:
- *     CmpDoFileRead @ 0x1402509C4 (CmpDoFileRead.c)
- *     CmpGetVolumeClusterSize @ 0x14068BEAC (CmpGetVolumeClusterSize.c)
- *     CmpOpenHiveFile @ 0x140713F8C (CmpOpenHiveFile.c)
- *     CmpDoFileWrite @ 0x140714594 (CmpDoFileWrite.c)
+ *     CmpDoFileRead @ 0x1402C781C (CmpDoFileRead.c)
+ *     CmpDoFileWrite @ 0x1406715BC (CmpDoFileWrite.c)
+ *     CmpOpenHiveFile @ 0x1406718C8 (CmpOpenHiveFile.c)
+ *     CmpGetVolumeClusterSize @ 0x14071DDD8 (CmpGetVolumeClusterSize.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateEvent @ 0x14041C060 (ZwCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall CmpCreateEvent(EVENT_TYPE EventType, HANDLE *a2, PVOID *a3)
@@ -19,11 +19,10 @@ __int64 __fastcall CmpCreateEvent(EVENT_TYPE EventType, HANDLE *a2, PVOID *a3)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+38h] [rbp-38h] BYREF
   HANDLE EventHandle; // [rsp+98h] [rbp+28h] BYREF
 
+  memset(&ObjectAttributes.Length + 1, 0, 20);
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   EventHandle = 0LL;
-  ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.ObjectName = 0LL;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   v5 = ZwCreateEvent(&EventHandle, 0x1F0003u, &ObjectAttributes, EventType, 0);
   if ( v5 < 0 || (Object = 0LL, v5 = ObReferenceObjectByHandle(EventHandle, 0x1F0003u, 0LL, 0, &Object, 0LL), v5 < 0) )

@@ -1,26 +1,30 @@
 /*
- * XREFs of VerifierExAcquireSharedWaitForExclusive @ 0x140AA11C0
+ * XREFs of VerifierExAcquireSharedWaitForExclusive @ 0x1409E1D50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfDeadlockAcquireResource @ 0x140A97900 (VfDeadlockAcquireResource.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VfDeadlockAcquireResource @ 0x1409DD5C8 (VfDeadlockAcquireResource.c)
+ *     ViResourceAcquireSanityChecks @ 0x1409E25D0 (ViResourceAcquireSanityChecks.c)
  */
 
-char __fastcall VerifierExAcquireSharedWaitForExclusive(LONG *a1, char a2)
+char __fastcall VerifierExAcquireSharedWaitForExclusive(ULONG_PTR a1, char a2)
 {
-  char v4; // al
-  unsigned int v5; // r9d
-  char v6; // bl
+  __int64 v4; // rdx
+  char v5; // al
+  unsigned int v6; // r9d
+  char v7; // bl
   PVOID retaddr; // [rsp+38h] [rbp+0h]
 
-  v4 = ((__int64 (*)(void))pXdvExAcquireSharedWaitForExclusive)();
-  v5 = 0;
-  v6 = v4;
-  if ( v4 )
+  ViResourceAcquireSanityChecks(a1);
+  LOBYTE(v4) = a2;
+  v5 = ((__int64 (__fastcall *)(ULONG_PTR, __int64))pXdvExAcquireSharedWaitForExclusive)(a1, v4);
+  v6 = 0;
+  v7 = v5;
+  if ( v5 )
   {
-    LOBYTE(v5) = a2 == 0;
-    VfDeadlockAcquireResource(a1, 8, (__int64)KeGetCurrentThread(), v5, retaddr);
+    LOBYTE(v6) = a2 == 0;
+    VfDeadlockAcquireResource(a1, 8, (__int64)KeGetCurrentThread(), v6, retaddr);
   }
-  return v6;
+  return v7;
 }

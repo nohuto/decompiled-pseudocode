@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z @ 0x1800CC668
+ * XREFs of ??0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z @ 0x1800B5BA8
  * Callers:
- *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800AEC50 (-Initialize@CComposition@@MEAAJXZ.c)
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800B46F0 (-Initialize@CComposition@@MEAAJXZ.c)
  * Callees:
- *     ??0CMmcssTask@@QEAA@XZ @ 0x1800CC928 (--0CMmcssTask@@QEAA@XZ.c)
- *     ??0CManipulationManager@@IEAA@PEAVCComposition@@@Z @ 0x1800CCA20 (--0CManipulationManager@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CMmcssTask@@QEAA@XZ @ 0x1800B5C08 (--0CMmcssTask@@QEAA@XZ.c)
+ *     ??0CManipulationManager@@IEAA@PEAVCComposition@@@Z @ 0x1800B5C48 (--0CManipulationManager@@IEAA@PEAVCComposition@@@Z.c)
  */
 
 CGlobalManipulationManager *__fastcall CGlobalManipulationManager::CGlobalManipulationManager(
@@ -16,9 +16,9 @@ CGlobalManipulationManager *__fastcall CGlobalManipulationManager::CGlobalManipu
 
   CManipulationManager::CManipulationManager(this, a2);
   *(_QWORD *)this = &CGlobalManipulationManager::`vftable';
-  CMmcssTask::CMmcssTask((CGlobalManipulationManager *)((char *)this + 312));
+  CMmcssTask::CMmcssTask((CGlobalManipulationManager *)((char *)this + 336));
   v3 = ((unsigned __int64)(2000 * g_qpcFrequency.QuadPart) * (unsigned __int128)0x624DD2F1A9FBE77uLL) >> 64;
   result = this;
-  *((_QWORD *)this + 34) = (v3 + ((unsigned __int64)(2000 * g_qpcFrequency.QuadPart - v3) >> 1)) >> 9;
+  *((_QWORD *)this + 37) = (v3 + ((unsigned __int64)(2000 * g_qpcFrequency.QuadPart - v3) >> 1)) >> 9;
   return result;
 }

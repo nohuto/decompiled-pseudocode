@@ -1,8 +1,8 @@
 /*
- * XREFs of ArbFreeOrderingList @ 0x1C009EA24
+ * XREFs of ArbFreeOrderingList @ 0x1C00A05F0
  * Callers:
- *     ArbBuildAssignmentOrdering @ 0x1C009E3D8 (ArbBuildAssignmentOrdering.c)
- *     ArbDeleteArbiterInstance @ 0x1C00B7724 (ArbDeleteArbiterInstance.c)
+ *     ArbBuildAssignmentOrdering @ 0x1C009FF94 (ArbBuildAssignmentOrdering.c)
+ *     ArbDeleteArbiterInstance @ 0x1C00B7C24 (ArbDeleteArbiterInstance.c)
  * Callees:
  *     <none>
  */

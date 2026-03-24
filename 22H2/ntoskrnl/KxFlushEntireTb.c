@@ -1,106 +1,128 @@
 /*
- * XREFs of KxFlushEntireTb @ 0x1403B241C
+ * XREFs of KxFlushEntireTb @ 0x14022F2F0
  * Callers:
- *     KeFlushTb @ 0x140279850 (KeFlushTb.c)
- *     KeFlushEntireTb @ 0x1403B23B0 (KeFlushEntireTb.c)
+ *     KeFlushTb @ 0x14022FA90 (KeFlushTb.c)
+ *     KeFlushEntireTb @ 0x1403B6A90 (KeFlushEntireTb.c)
  * Callees:
- *     KiCopyAffinityEx @ 0x1402544A0 (KiCopyAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C0280 (KeRemoveProcessorAffinityEx.c)
- *     KiIpiSendRequestEx @ 0x1402EB5F0 (KiIpiSendRequestEx.c)
- *     KxSetTimeStampBusy @ 0x1403461A4 (KxSetTimeStampBusy.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxSetTimeStampBusy @ 0x140249FE8 (KxSetTimeStampBusy.c)
+ *     KeCopyAffinityEx @ 0x1402BBAE0 (KeCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402BBB30 (KeRemoveProcessorAffinityEx.c)
+ *     KiIpiSendRequestEx @ 0x1402BC030 (KiIpiSendRequestEx.c)
+ *     KiFlushCurrentTbWorker @ 0x140300780 (KiFlushCurrentTbWorker.c)
+ *     KiIpiSendRequest @ 0x140343EE0 (KiIpiSendRequest.c)
+ *     HvlNotifyLongSpinWait @ 0x14038FA40 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140390820 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KxFlushEntireTb(int a1)
 {
-  bool v1; // dl
-  __int64 v2; // r15
+  __int64 v1; // r14
+  bool v2; // r10
   unsigned __int8 CurrentIrql; // bp
-  __int64 result; // rax
-  _DWORD *SchedulerAssist; // r10
-  __int64 v6; // r8
   struct _KPRCB *CurrentPrcb; // rsi
-  _KPROCESS *Process; // rbx
-  unsigned __int8 v9; // al
-  struct _KPRCB *v10; // r9
-  _DWORD *v11; // r8
-  int v12; // eax
-  bool v13; // zf
-  signed __int32 v14[8]; // [rsp+0h] [rbp-68h] BYREF
+  _KSTATIC_AFFINITY_BLOCK *p_StaticAffinity; // rbx
+  unsigned int v6; // edi
+  unsigned __int16 v7; // ax
+  unsigned __int64 v8; // rdx
+  __int64 result; // rax
+  _DWORD *SchedulerAssist; // r9
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  unsigned __int8 v15; // al
+  struct _KPRCB *v16; // r9
+  _DWORD *v17; // r8
+  int v18; // eax
+  bool v19; // zf
+  signed __int32 v20[8]; // [rsp+0h] [rbp-58h] BYREF
+  __int64 v21; // [rsp+20h] [rbp-38h]
 
-  v1 = 1;
-  v2 = 3LL;
+  v1 = 3LL;
+  v2 = 1;
   if ( a1 == 1 )
   {
-    v2 = 2147483651LL;
+    v1 = 2147483651LL;
   }
   else if ( !a1 )
   {
-    v1 = KiKvaShadow == 0;
+    v2 = KiKvaShadow == 0;
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 12 )
-      LODWORD(v6) = 4096;
-    else
-      v6 = (-1LL << (CurrentIrql + 1)) & 0x1FFC;
-    SchedulerAssist[5] |= v6;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0x1FFC;
   }
-  if ( v1 )
+  if ( v2 )
   {
-    if ( KxSetTimeStampBusy(&KiTbFlushTimeStamp) )
+    if ( (unsigned __int8)KxSetTimeStampBusy(&KiTbFlushTimeStamp) )
     {
-      KiIpiSendRequestEx(
-        (__int64)KeGetCurrentPrcb(),
-        1,
-        0LL,
-        0LL,
-        v2,
-        (void (__fastcall *)(__int64))KiFlushCurrentTbWorker,
-        0LL);
-      _InterlockedAdd(&KiTbFlushTimeStamp, 1u);
+      KiIpiSendRequestEx((unsigned int)KeGetCurrentPrcb(), 1, 0, 0, v1, (__int64)KiFlushCurrentTbWorker, 0LL);
+      _InterlockedIncrement(&KiTbFlushTimeStamp);
     }
   }
   else
   {
-    _InterlockedOr(v14, 0);
+    _InterlockedOr(v20, 0);
     CurrentPrcb = KeGetCurrentPrcb();
-    Process = CurrentPrcb->CurrentThread->ApcState.Process;
-    *(_QWORD *)&CurrentPrcb->StaticAffinity.KeFlushTbAffinity.Count = 2097153LL;
-    memset(
-      &CurrentPrcb->StaticAffinity.KeSyncContextAffinity.8,
-      0,
-      sizeof(CurrentPrcb->StaticAffinity.KeSyncContextAffinity.8));
-    KiCopyAffinityEx(
-      (__int64)&CurrentPrcb->StaticAffinity,
-      CurrentPrcb->StaticAffinity.KeFlushTbAffinity.Size,
-      &Process->ActiveProcessors.Count);
-    KeRemoveProcessorAffinityEx(&CurrentPrcb->StaticAffinity.KeFlushTbAffinity.Count, CurrentPrcb->Number);
-    KiIpiSendRequestEx(
-      (__int64)CurrentPrcb,
-      0,
-      (__int64)&CurrentPrcb->StaticAffinity,
-      0LL,
-      v2,
-      (void (__fastcall *)(__int64))KiFlushCurrentTbWorker,
-      0LL);
+    p_StaticAffinity = &CurrentPrcb->StaticAffinity;
+    KeCopyAffinityEx(&CurrentPrcb->StaticAffinity, &CurrentPrcb->CurrentThread->ApcState.Process->ActiveProcessors);
+    KeRemoveProcessorAffinityEx(&CurrentPrcb->StaticAffinity, CurrentPrcb->Number);
+    v6 = 0;
+    v7 = 0;
+    if ( CurrentPrcb->StaticAffinity.KeFlushTbAffinity.Count )
+    {
+      while ( 1 )
+      {
+        v8 = p_StaticAffinity->KeFlushTbAffinity.Bitmap[v7];
+        if ( v8 )
+        {
+          if ( v7 != CurrentPrcb->Group || v8 != CurrentPrcb->GroupSetMember )
+            break;
+        }
+        if ( ++v7 >= p_StaticAffinity->KeFlushTbAffinity.Count )
+          goto LABEL_9;
+      }
+      KiIpiSendRequest((_DWORD)CurrentPrcb, 0, (_DWORD)CurrentPrcb + 11704, 0, v1);
+      KiFlushCurrentTbWorker(0LL);
+      while ( CurrentPrcb->PacketBarrier )
+      {
+        if ( (++v6 & HvlLongSpinCountMask) == 0
+          && (HvlEnlightenments & 0x40) != 0
+          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v12, v11, v13, v14, v21) )
+        {
+          HvlNotifyLongSpinWait(v6);
+        }
+        else
+        {
+          _mm_pause();
+        }
+      }
+    }
+    else
+    {
+LABEL_9:
+      KiFlushCurrentTbWorker(0LL);
+    }
   }
   if ( KiIrqlFlags )
   {
-    v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v10 = KeGetCurrentPrcb();
-      v11 = v10->SchedulerAssist;
-      v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v13 = (v12 & v11[5]) == 0;
-      v11[5] &= v12;
-      if ( v13 )
-        KiRemoveSystemWorkPriorityKick(v10);
+      v15 = KeGetCurrentIrql();
+      if ( v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      {
+        v16 = KeGetCurrentPrcb();
+        v17 = v16->SchedulerAssist;
+        v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v19 = (v18 & v17[5]) == 0;
+        v17[5] &= v18;
+        if ( v19 )
+          KiRemoveSystemWorkPriorityKick(v16);
+      }
     }
   }
   result = CurrentIrql;

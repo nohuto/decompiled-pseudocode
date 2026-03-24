@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpPreQueryKeyName @ 0x14080C7C0
+ * XREFs of VrpPreQueryKeyName @ 0x14080C7A0
  * Callers:
- *     VrpRegistryCallback @ 0x140808010 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x140807FF0 (VrpRegistryCallback.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     EtwActivityIdControl @ 0x1400A3B50 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  */
 
 __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
@@ -50,7 +50,7 @@ __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
     v18 = v6;
     v19 = v5;
     v20 = 0;
-    TlgWrite(&stru_1403FFAD8, &unk_14036CCFD, &ActivityId, 0LL, 4u, &pData);
+    TlgWrite(&stru_1403FFAD8, &unk_14036CE0D, &ActivityId, 0LL, 4u, &pData);
   }
   v7 = (_WORD *)(v2 + 16);
   v13[2] = v2 + 16;
@@ -85,7 +85,7 @@ __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
     v20 = 0;
     v21 = v13;
     v22 = 4LL;
-    TlgWrite(&stru_1403FFAD8, &unk_14036CBC5, &ActivityId, 0LL, 5u, &pData);
+    TlgWrite(&stru_1403FFAD8, &unk_14036CCD5, &ActivityId, 0LL, 5u, &pData);
   }
   return v10;
 }

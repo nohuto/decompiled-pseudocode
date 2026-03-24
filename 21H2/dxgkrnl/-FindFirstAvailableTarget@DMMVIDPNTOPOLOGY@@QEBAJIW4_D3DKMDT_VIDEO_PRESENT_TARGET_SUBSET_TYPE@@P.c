@@ -1,95 +1,126 @@
 /*
- * XREFs of ?FindFirstAvailableTarget@DMMVIDPNTOPOLOGY@@QEBAJIW4_D3DKMDT_VIDEO_PRESENT_TARGET_SUBSET_TYPE@@PEAIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@2PEAW4_D3DKMT_DISPLAY_TARGET_USAGE@@@Z @ 0x1C03A5664
+ * XREFs of ?FindFirstAvailableTarget@DMMVIDPNTOPOLOGY@@QEBAJIW4_D3DKMDT_VIDEO_PRESENT_TARGET_SUBSET_TYPE@@PEAIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@2PEAW4_D3DKMT_DISPLAY_TARGET_USAGE@@@Z @ 0x1C02E6A98
  * Callers:
- *     ?FindFirstAvailableTarget@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@IW4_D3DKMDT_VIDEO_PRESENT_TARGET_SUBSET_TYPE@@PEAI@Z @ 0x1C03A20B0 (-FindFirstAvailableTarget@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY_.c)
- *     ?_AugmentVidPnTopology@BTL_CDS_JOURNAL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVDMMVIDPNTOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C03AC5EC (-_AugmentVidPnTopology@BTL_CDS_JOURNAL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVDMMVIDPNTOPOLOGY@@PEAUD3DKMT.c)
+ *     ?FindFirstAvailableTarget@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@IW4_D3DKMDT_VIDEO_PRESENT_TARGET_SUBSET_TYPE@@PEAI@Z @ 0x1C02E3160 (-FindFirstAvailableTarget@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY_.c)
+ *     ?_AugmentVidPnTopology@BTL_CDS_JOURNAL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVDMMVIDPNTOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C02F0D74 (-_AugmentVidPnTopology@BTL_CDS_JOURNAL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVDMMVIDPNTOPOLOGY@@PEAUD3DKMT.c)
  * Callees:
- *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C0011E60 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
- *     ?GetContainer@?$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ @ 0x1C001CC0C (-GetContainer@-$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ.c)
- *     ?GetNextTarget@DMMVIDPNTARGETSET@@QEBAPEAVDMMVIDPNTARGET@@QEBV2@@Z @ 0x1C0069CB0 (-GetNextTarget@DMMVIDPNTARGETSET@@QEBAPEAVDMMVIDPNTARGET@@QEBV2@@Z.c)
- *     ?GetPathSourceFromTarget@DMMVIDPNTOPOLOGY@@QEBAII@Z @ 0x1C01A8564 (-GetPathSourceFromTarget@DMMVIDPNTOPOLOGY@@QEBAII@Z.c)
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000A84C (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     ?GetContainer@?$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ @ 0x1C0018798 (-GetContainer@-$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ.c)
+ *     ?GetNextTarget@DMMVIDPNTARGETSET@@QEBAPEAVDMMVIDPNTARGET@@QEBV2@@Z @ 0x1C005CB70 (-GetNextTarget@DMMVIDPNTARGETSET@@QEBAPEAVDMMVIDPNTARGET@@QEBV2@@Z.c)
+ *     ?GetPathSourceFromTarget@DMMVIDPNTOPOLOGY@@QEBAII@Z @ 0x1C01106EC (-GetPathSourceFromTarget@DMMVIDPNTOPOLOGY@@QEBAII@Z.c)
  */
 
 __int64 __fastcall DMMVIDPNTOPOLOGY::FindFirstAvailableTarget(
         DMMVIDPNTOPOLOGY *a1,
-        unsigned int a2,
+        __int64 a2,
         int a3,
         _DWORD *a4,
-        DMMVIDPNTARGETSET *a5,
+        _DWORD *a5,
         _DWORD *a6,
         _DWORD *a7)
 {
-  __int64 v7; // r12
-  __int64 Container; // r13
-  bool v13; // di
-  DMMVIDPNTARGETSET *v14; // rbx
-  struct DMMVIDPNTARGET *i; // rbx
-  __int64 v16; // rax
-  DMMVIDPNTARGETSET *v20; // [rsp+80h] [rbp+28h]
+  __int64 v7; // r13
+  __int64 v11; // rax
+  __int64 v12; // rax
+  _DWORD *v13; // r15
+  _DWORD *v14; // r14
+  _DWORD *v15; // rsi
+  __int64 v16; // rdx
+  __int64 Container; // rbp
+  char *v18; // r8
+  bool v19; // di
+  char *v20; // rcx
+  DMMVIDPNTARGETSET *v21; // rbx
+  struct DMMVIDPNTARGET *NextTarget; // rbx
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v26; // rax
+  DMMVIDPNTARGETSET *v29; // [rsp+78h] [rbp+20h]
 
-  v7 = a2;
+  v7 = (unsigned int)a2;
   if ( !a4 )
-    WdLogSingleEntry0(1LL);
+  {
+    v11 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v11);
+  }
   if ( !a3 )
-    WdLogSingleEntry0(1LL);
+  {
+    v12 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v12);
+  }
+  v13 = a5;
   *a4 = -1;
   if ( a5 )
-    *(_DWORD *)a5 = -2;
+    *a5 = -2;
+  v14 = a6;
   if ( a6 )
     *a6 = -2;
+  v15 = a7;
   if ( a7 )
     *a7 = 0;
-  Container = ContainedBy<DMMVIDPN>::GetContainer((__int64)a1 + 160);
-  v13 = (_DWORD)v7 == -1;
-  v20 = *(DMMVIDPNTARGETSET **)(Container + 312);
-  v14 = (DMMVIDPNTARGETSET *)*((_QWORD *)v20 + 3);
-  if ( v14 == (DMMVIDPNTARGETSET *)((char *)v20 + 24) )
-  {
-    i = 0LL;
-  }
+  Container = ContainedBy<DMMVIDPN>::GetContainer((__int64)a1 + 160, a2);
+  v19 = (_DWORD)v7 == -1;
+  v29 = *(DMMVIDPNTARGETSET **)(Container + 312);
+  v20 = (char *)v29 + 24;
+  v21 = (DMMVIDPNTARGETSET *)*((_QWORD *)v29 + 3);
+  if ( v21 == (DMMVIDPNTARGETSET *)((char *)v29 + 24) )
+    NextTarget = 0LL;
   else
+    NextTarget = (DMMVIDPNTARGETSET *)((char *)v21 - 8);
+  if ( NextTarget )
   {
-    for ( i = (DMMVIDPNTARGETSET *)((char *)v14 - 8); i; i = DMMVIDPNTARGETSET::GetNextTarget(v20, i) )
+    while ( 1 )
     {
-      if ( v13 )
+      if ( v19 )
       {
-        v16 = *((_QWORD *)i + 12);
-        if ( *(_QWORD *)(v16 + 112)
-          && (a3 != 2 || IsInternalVideoOutput(*(enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)(v16 + 80)))
-          && (unsigned int)DMMVIDPNTOPOLOGY::GetPathSourceFromTarget(a1, *((unsigned int *)i + 6)) == -1 )
+        v23 = *((_QWORD *)NextTarget + 12);
+        if ( *(_QWORD *)(v23 + 112)
+          && (a3 != 2 || IsInternalVideoOutput(*(enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)(v23 + 80)))
+          && (unsigned int)DMMVIDPNTOPOLOGY::GetPathSourceFromTarget(a1, *((unsigned int *)NextTarget + 6), v18) == -1 )
         {
-          goto LABEL_19;
+LABEL_23:
+          v15 = a7;
+          v14 = a6;
+          v13 = a5;
+          break;
         }
       }
       else
       {
-        v13 = *((_DWORD *)i + 6) == (_DWORD)v7;
+        v19 = *((_DWORD *)NextTarget + 6) == (_DWORD)v7;
       }
+      NextTarget = DMMVIDPNTARGETSET::GetNextTarget(v29, NextTarget);
+      if ( !NextTarget )
+        goto LABEL_23;
     }
   }
-  if ( v13 )
+  if ( v19 )
   {
-LABEL_19:
-    if ( i )
+    if ( NextTarget )
     {
-      *a4 = *((_DWORD *)i + 6);
-      if ( a5 )
-        *(_DWORD *)a5 = *(_DWORD *)(*((_QWORD *)i + 12) + 80LL);
-      if ( a6 )
-        *a6 = *(_DWORD *)(*((_QWORD *)i + 12) + 84LL);
-      if ( a7 )
-        *a7 = *(_DWORD *)(*((_QWORD *)i + 12) + 92LL);
+      *a4 = *((_DWORD *)NextTarget + 6);
+      if ( v13 )
+        *v13 = *(_DWORD *)(*((_QWORD *)NextTarget + 12) + 80LL);
+      if ( v14 )
+        *v14 = *(_DWORD *)(*((_QWORD *)NextTarget + 12) + 84LL);
+      if ( v15 )
+        *v15 = *(_DWORD *)(*((_QWORD *)NextTarget + 12) + 88LL);
       return 0LL;
     }
     else
     {
-      WdLogSingleEntry1(7LL, Container);
+      v26 = WdLogNewEntry5_WdDmmEvent(v20, v16);
+      *(_QWORD *)(v26 + 24) = Container;
+      WdLogEvent5_WdDmmEvent(v26);
       return 3223192371LL;
     }
   }
   else
   {
-    WdLogSingleEntry2(2LL, Container, v7);
+    v24 = WdLogNewEntry5_WdError(v20, v16);
+    *(_QWORD *)(v24 + 24) = Container;
+    *(_QWORD *)(v24 + 32) = v7;
+    WdLogEvent5_WdError(v24);
     return 3223192325LL;
   }
 }

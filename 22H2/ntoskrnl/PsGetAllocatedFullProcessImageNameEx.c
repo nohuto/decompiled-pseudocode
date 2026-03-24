@@ -1,41 +1,39 @@
 /*
- * XREFs of PsGetAllocatedFullProcessImageNameEx @ 0x140742C84
+ * XREFs of PsGetAllocatedFullProcessImageNameEx @ 0x14062F1D8
  * Callers:
- *     SepAdtTokenRightAdjusted @ 0x1406BB15C (SepAdtTokenRightAdjusted.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x1406C341C (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SeCheckForCriticalAceRemoval @ 0x14070FC70 (SeCheckForCriticalAceRemoval.c)
- *     ExpGetProcessInformation @ 0x1407432D0 (ExpGetProcessInformation.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x1407C8A64 (SepAdtPrivilegedServiceAuditAlarm.c)
- *     SeLocateProcessImageName @ 0x1407D8D40 (SeLocateProcessImageName.c)
- *     SepQueryNameString @ 0x1407F555C (SepQueryNameString.c)
- *     SepAuditAssignPrimaryToken @ 0x140842830 (SepAuditAssignPrimaryToken.c)
- *     SeAuditProcessCreation @ 0x140842A54 (SeAuditProcessCreation.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x1409CA0C4 (SeAdtRegistryValueChangedAuditAlarm.c)
- *     SeAuditFipsCryptoSelftests @ 0x1409CA680 (SeAuditFipsCryptoSelftests.c)
- *     SeAuditProcessExit @ 0x1409CAFC4 (SeAuditProcessExit.c)
- *     SeAuditSystemTimeChange @ 0x1409CB148 (SeAuditSystemTimeChange.c)
- *     SeAuditTransactionStateChange @ 0x1409CB310 (SeAuditTransactionStateChange.c)
- *     SeOperationAuditAlarm @ 0x1409CB54C (SeOperationAuditAlarm.c)
- *     SepAdtCloseObjectAuditAlarm @ 0x1409CB888 (SepAdtCloseObjectAuditAlarm.c)
- *     SepAdtDeleteObjectAuditAlarm @ 0x1409CBAB4 (SepAdtDeleteObjectAuditAlarm.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409CC218 (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409CCCF0 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x1409CCF9C (SepAdtStagingEvent.c)
- *     ExProcessCounterSetCallback @ 0x1409F5E80 (ExProcessCounterSetCallback.c)
- *     CmpReportAuditVirtualizationEvent @ 0x140A1BAD4 (CmpReportAuditVirtualizationEvent.c)
+ *     SepAdtTokenRightAdjusted @ 0x140608AA0 (SepAdtTokenRightAdjusted.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x140627C28 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x140627D4C (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SeLocateProcessImageName @ 0x14062F1C0 (SeLocateProcessImageName.c)
+ *     SeCheckForCriticalAceRemoval @ 0x1406E7260 (SeCheckForCriticalAceRemoval.c)
+ *     SepQueryNameString @ 0x14070F83C (SepQueryNameString.c)
+ *     SepAuditAssignPrimaryToken @ 0x1407BC5A4 (SepAuditAssignPrimaryToken.c)
+ *     SeAuditProcessCreation @ 0x1407BCD58 (SeAuditProcessCreation.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140871DE8 (CmpReportAuditVirtualizationEvent.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x14091D39C (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SeAuditFipsCryptoSelftests @ 0x14091D950 (SeAuditFipsCryptoSelftests.c)
+ *     SeAuditProcessExit @ 0x14091E294 (SeAuditProcessExit.c)
+ *     SeAuditSystemTimeChange @ 0x14091E414 (SeAuditSystemTimeChange.c)
+ *     SeAuditTransactionStateChange @ 0x14091E5D0 (SeAuditTransactionStateChange.c)
+ *     SeOperationAuditAlarm @ 0x14091E80C (SeOperationAuditAlarm.c)
+ *     SepAdtCloseObjectAuditAlarm @ 0x14091EB48 (SepAdtCloseObjectAuditAlarm.c)
+ *     SepAdtDeleteObjectAuditAlarm @ 0x14091ED74 (SepAdtDeleteObjectAuditAlarm.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091F4E8 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14091FFAC (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x140920250 (SepAdtStagingEvent.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PsGetAllocatedFullProcessImageName @ 0x140742CB8 (PsGetAllocatedFullProcessImageName.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PsGetAllocatedFullProcessImageName @ 0x14062F20C (PsGetAllocatedFullProcessImageName.c)
  */
 
-__int64 __fastcall PsGetAllocatedFullProcessImageNameEx(__int64 a1)
+__int64 __fastcall PsGetAllocatedFullProcessImageNameEx(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
 
   result = 3221226021LL;
-  if ( *(_QWORD *)(a1 + 2240) && (_QWORD)xmmword_140C381A0 )
-    return ((__int64 (*)(void))xmmword_140C381A0)();
+  if ( *(_QWORD *)(a1 + 2240) && (_QWORD)xmmword_140C1E080 )
+    return ((__int64 (*)(void))xmmword_140C1E080)();
   if ( *(_QWORD *)(a1 + 1472) )
-    return PsGetAllocatedFullProcessImageName();
+    return PsGetAllocatedFullProcessImageName(a1, a2);
   return result;
 }

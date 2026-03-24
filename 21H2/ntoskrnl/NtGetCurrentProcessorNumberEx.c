@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGetCurrentProcessorNumberEx @ 0x1409AD660
+ * XREFs of NtGetCurrentProcessorNumberEx @ 0x1409077F0
  * Callers:
  *     <none>
  * Callees:
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
  */
 
 __int64 __fastcall NtGetCurrentProcessorNumberEx(_BYTE *a1)

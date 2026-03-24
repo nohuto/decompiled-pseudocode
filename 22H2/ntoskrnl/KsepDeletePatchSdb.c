@@ -1,40 +1,40 @@
 /*
- * XREFs of KsepDeletePatchSdb @ 0x1409775A4
+ * XREFs of KsepDeletePatchSdb @ 0x1408C0CC4
  * Callers:
- *     KseShimDatabaseOpen @ 0x140694C20 (KseShimDatabaseOpen.c)
+ *     KseShimDatabaseOpen @ 0x14075A8D0 (KseShimDatabaseOpen.c)
  * Callees:
- *     KsepLogError @ 0x14020A5CC (KsepLogError.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwDeleteFile @ 0x14041C1C0 (ZwDeleteFile.c)
- *     KsepDebugPrint @ 0x140580D64 (KsepDebugPrint.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     KsepLogError @ 0x140372754 (KsepLogError.c)
+ *     ZwDeleteFile @ 0x1403FB480 (ZwDeleteFile.c)
+ *     KsepDebugPrint @ 0x140526E28 (KsepDebugPrint.c)
  */
 
-NTSTATUS KsepDeletePatchSdb()
+void KsepDeletePatchSdb()
 {
-  NTSTATUS result; // eax
+  NTSTATUS v0; // eax
   __int64 v1; // rcx
   char v2; // al
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
+  UNICODE_STRING v3; // [rsp+20h] [rbp-48h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-38h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  DestinationString = 0LL;
-  RtlInitUnicodeString(&DestinationString, L"\\SystemRoot\\AppPatch\\drvpatch.sdb");
+  v3 = 0LL;
+  RtlInitUnicodeString(&v3, L"\\SystemRoot\\AppPatch\\drvpatch.sdb");
   ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.ObjectName = &DestinationString;
-  ObjectAttributes.Attributes = 576;
+  ObjectAttributes.ObjectName = &v3;
+  ObjectAttributes.Length = 48;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  result = ZwDeleteFile(&ObjectAttributes);
-  if ( result < 0 )
+  ObjectAttributes.Attributes = 576;
+  v0 = ZwDeleteFile(&ObjectAttributes);
+  if ( v0 < 0 )
   {
     v1 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    KsepHistoryErrors[2 * v1 + 1] = result;
+    KsepHistoryErrors[2 * v1 + 1] = v0;
     v2 = KsepDebugFlag;
     KsepHistoryErrors[2 * v1] = 590372;
     if ( (v2 & 2) != 0 )
       KsepDebugPrint(0LL, "KSE: Failed to delete patch shim database!\n");
-    return KsepLogError(0LL, (__int64)"KSE: Failed to delete patch shim database!\n");
+    KsepLogError(0, "KSE: Failed to delete patch shim database!\n");
   }
-  return result;
 }

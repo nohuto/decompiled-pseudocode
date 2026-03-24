@@ -1,137 +1,121 @@
 /*
- * XREFs of MiWaitForFreePage @ 0x140653AB8
+ * XREFs of MiWaitForFreePage @ 0x14055C13C
  * Callers:
- *     MiGetSystemPage @ 0x14021A618 (MiGetSystemPage.c)
- *     MmAccessFault @ 0x140235350 (MmAccessFault.c)
- *     MiWalkPageTablesRecursively @ 0x14025C050 (MiWalkPageTablesRecursively.c)
- *     MiAllocateKernelStackPages @ 0x1402731A0 (MiAllocateKernelStackPages.c)
- *     MiMakePageAvoidRead @ 0x1402CE000 (MiMakePageAvoidRead.c)
- *     MiMakeOutswappedPageResident @ 0x1406185DC (MiMakeOutswappedPageResident.c)
- *     MiSwitchToTransition @ 0x1406331FC (MiSwitchToTransition.c)
- *     MiSplitDirectMapPage @ 0x14063F2D4 (MiSplitDirectMapPage.c)
- *     MiBuildForkPte @ 0x140662270 (MiBuildForkPte.c)
- *     MiDoneWithThisPageGetAnother @ 0x140663FF4 (MiDoneWithThisPageGetAnother.c)
- *     MiHandleForkTransitionPte @ 0x1406649B8 (MiHandleForkTransitionPte.c)
- *     MiCopyOnWriteCheckConditions @ 0x140666E90 (MiCopyOnWriteCheckConditions.c)
- *     MiAllocateTopLevelPage @ 0x140706244 (MiAllocateTopLevelPage.c)
- *     MiAllocateDriverPage @ 0x1407063D4 (MiAllocateDriverPage.c)
- *     MmAllocateIndependentPagesEx @ 0x14086C70C (MmAllocateIndependentPagesEx.c)
- *     MiFillPerSessionProtos @ 0x140A4A01C (MiFillPerSessionProtos.c)
+ *     MiWalkPageTablesRecursively @ 0x14020BD60 (MiWalkPageTablesRecursively.c)
+ *     MmAccessFault @ 0x14020D050 (MmAccessFault.c)
+ *     MiAllocateKernelStackPages @ 0x14023E170 (MiAllocateKernelStackPages.c)
+ *     MiMakePageAvoidRead @ 0x1402A4700 (MiMakePageAvoidRead.c)
+ *     MiGetSystemPage @ 0x140339EE8 (MiGetSystemPage.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BA00 (MiMakeOutswappedPageResident.c)
+ *     MiSwitchToTransition @ 0x140539E54 (MiSwitchToTransition.c)
+ *     MiSplitDirectMapPage @ 0x14054207C (MiSplitDirectMapPage.c)
+ *     MiBuildForkPte @ 0x1405581FC (MiBuildForkPte.c)
+ *     MiDoneWithThisPageGetAnother @ 0x14055A078 (MiDoneWithThisPageGetAnother.c)
+ *     MiHandleForkTransitionPte @ 0x14055A9A4 (MiHandleForkTransitionPte.c)
+ *     MiCopyOnWriteCheckConditions @ 0x14055BE38 (MiCopyOnWriteCheckConditions.c)
+ *     MiAllocateTopLevelPage @ 0x1406FE0F4 (MiAllocateTopLevelPage.c)
+ *     MiAllocateDriverPage @ 0x1406FF348 (MiAllocateDriverPage.c)
+ *     MmAllocateIndependentPagesEx @ 0x14076202C (MmAllocateIndependentPagesEx.c)
+ *     MiFillPerSessionProtos @ 0x1408D8030 (MiFillPerSessionProtos.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeResetEvent @ 0x1402AFB70 (KeResetEvent.c)
- *     MiSufficientAvailablePages @ 0x1402E35AC (MiSufficientAvailablePages.c)
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MiObtainFreePages @ 0x140634F9C (MiObtainFreePages.c)
- *     MiCanFlushMakeProgress @ 0x140638C0C (MiCanFlushMakeProgress.c)
- *     MiNoPagesLastChance @ 0x140650F64 (MiNoPagesLastChance.c)
- *     MiDemoteSlabEntries @ 0x140656824 (MiDemoteSlabEntries.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiSufficientAvailablePages @ 0x14033E480 (MiSufficientAvailablePages.c)
+ *     KeResetEvent @ 0x140344C50 (KeResetEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiObtainFreePages @ 0x14053B4C4 (MiObtainFreePages.c)
+ *     MiNoPagesLastChance @ 0x140550708 (MiNoPagesLastChance.c)
  */
 
 __int64 __fastcall MiWaitForFreePage(_QWORD *a1)
 {
-  int v2; // r8d
-  unsigned __int64 v3; // r13
-  struct _KEVENT *v4; // rdi
-  volatile LONG Lock; // r12d
-  unsigned __int64 OldIrql; // rsi
+  KSPIN_LOCK *v2; // r13
+  int v3; // edx
+  unsigned __int64 v4; // r12
+  struct _KEVENT *v5; // rbx
+  volatile LONG Lock; // r15d
+  unsigned __int64 OldIrql; // r14
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v10; // eax
-  bool v11; // zf
-  unsigned int v12; // r14d
-  unsigned int v13; // esi
+  int v11; // eax
+  bool v12; // zf
   __int64 result; // rax
-  unsigned __int64 v15; // rbx
-  struct _KPRCB *v16; // r9
-  _DWORD *v17; // r8
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+38h] [rbp-79h] BYREF
-  LARGE_INTEGER Timeout; // [rsp+50h] [rbp-61h] BYREF
-  __int64 v20; // [rsp+58h] [rbp-59h]
-  _QWORD v21[14]; // [rsp+68h] [rbp-49h] BYREF
+  unsigned __int64 v14; // rbx
+  struct _KPRCB *v15; // r9
+  _DWORD *v16; // r8
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+38h] [rbp-69h] BYREF
+  _QWORD v18[14]; // [rsp+58h] [rbp-49h] BYREF
 
-  Timeout.QuadPart = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v2 = *((_DWORD *)&KeGetCurrentThread()[1].SwapListEntry + 3) & 2;
-  v3 = v2 != 0 ? 34 : 160;
-  v20 = MiNoPagesTimeout / -10000;
-  v4 = (struct _KEVENT *)((char *)a1 + (-(__int64)(v2 != 0) & 0xFFFFFFFFFFFFFFE0uLL) + 15912);
-  KeAcquireInStackQueuedSpinLock(a1 + 1984, &LockHandle);
-  while ( !(unsigned int)MiSufficientAvailablePages((__int64)a1, v3) )
+  v2 = a1 + 616;
+  v3 = *((_DWORD *)&KeGetCurrentThread()[1].SwapListEntry + 3) & 2;
+  v4 = v3 != 0 ? 34 : 160;
+  v5 = (struct _KEVENT *)((char *)a1 + (-(__int64)(v3 != 0) & 0xFFFFFFFFFFFFFFE0uLL) + 4968);
+  KeAcquireInStackQueuedSpinLock(a1 + 616, &LockHandle);
+  Lock = v5[1].Header.Lock;
+  while ( !(unsigned int)MiSufficientAvailablePages((__int64)a1, v4) )
   {
-    KeResetEvent(v4);
-    Lock = v4[1].Header.Lock;
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+    KeResetEvent(v5);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v10 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v11 = (v10 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v10;
-        if ( v11 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v11 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v12 = (v11 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v11;
+          if ( v12 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(OldIrql);
     MiObtainFreePages((__int64)a1);
-    if ( a1[57] )
+    if ( a1[54] )
     {
-      memset(v21, 0, 0x68uLL);
-      v21[1] = a1[25];
-      VslpEnterIumSecureMode(2u, 253, 0, (__int64)v21);
+      memset(v18, 0, 0x68uLL);
+      v18[1] = a1[22];
+      VslpEnterIumSecureMode(2u, 253, 0, (__int64)v18);
     }
-    v12 = 0;
-    while ( 1 )
+    if ( KeWaitForSingleObject(v5, WrFreePage, 0, 0, (PLARGE_INTEGER)&MiNoPagesTimeout) == 258
+      && Lock == v5[1].Header.LockNV )
     {
-      if ( !a1[2200] || (v13 = 1000, !(unsigned int)MiCanFlushMakeProgress((__int64)a1, 0)) )
-        v13 = 100;
-      Timeout.QuadPart = -10000LL * v13;
-      if ( KeWaitForSingleObject(v4, WrFreePage, 0, 0, &Timeout) != 258 )
-        break;
-      if ( Lock != v4[1].Header.LockNV )
-        break;
-      v12 += v13;
-      MiDemoteSlabEntries(a1);
-      if ( Lock != v4[1].Header.LockNV )
-        break;
-      if ( v12 >= (unsigned int)v20 )
-      {
-        MiNoPagesLastChance((__int64)a1, v3);
-        break;
-      }
+      MiNoPagesLastChance((__int64)a1, v4);
     }
-    KeAcquireInStackQueuedSpinLock(a1 + 1984, &LockHandle);
+    Lock = v5[1].Header.Lock;
+    KeAcquireInStackQueuedSpinLock(v2, &LockHandle);
   }
-  result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-  v15 = LockHandle.OldIrql;
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  result = (unsigned int)KiIrqlFlags;
+  v14 = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && LockHandle.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v16 = KeGetCurrentPrcb();
-      v17 = v16->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-      v11 = ((unsigned int)result & v17[5]) == 0;
-      v17[5] &= result;
-      if ( v11 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)v16);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        v15 = KeGetCurrentPrcb();
+        v16 = v15->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v12 = ((unsigned int)result & v16[5]) == 0;
+        v16[5] &= result;
+        if ( v12 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)v15);
+      }
     }
   }
-  __writecr8(v15);
+  __writecr8(v14);
   return result;
 }

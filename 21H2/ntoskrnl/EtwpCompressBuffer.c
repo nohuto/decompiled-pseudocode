@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCompressBuffer @ 0x14063499C
+ * XREFs of EtwpCompressBuffer @ 0x1405AC714
  * Callers:
- *     EtwpCompressPendingBuffers @ 0x140634D24 (EtwpCompressPendingBuffers.c)
+ *     EtwpCompressPendingBuffers @ 0x1405ACA9C (EtwpCompressPendingBuffers.c)
  * Callees:
- *     EtwpUpdateEventsLostCount @ 0x14022A874 (EtwpUpdateEventsLostCount.c)
- *     RtlCompressBuffer @ 0x140244760 (RtlCompressBuffer.c)
- *     EtwpGetNextEventOffsetType @ 0x1403B3D20 (EtwpGetNextEventOffsetType.c)
- *     EtwpRotateCompressionTarget @ 0x140635600 (EtwpRotateCompressionTarget.c)
- *     EtwpRotateCompressionTargetIfNeeded @ 0x14063566C (EtwpRotateCompressionTargetIfNeeded.c)
+ *     RtlCompressBuffer @ 0x1402DAB30 (RtlCompressBuffer.c)
+ *     EtwpUpdateEventsLostCount @ 0x14036CD78 (EtwpUpdateEventsLostCount.c)
+ *     EtwpGetNextEventOffsetType @ 0x1405AD450 (EtwpGetNextEventOffsetType.c)
+ *     EtwpRotateCompressionTarget @ 0x1405AD7C4 (EtwpRotateCompressionTarget.c)
+ *     EtwpRotateCompressionTargetIfNeeded @ 0x1405AD830 (EtwpRotateCompressionTargetIfNeeded.c)
  */
 
 __int64 __fastcall EtwpCompressBuffer(__int64 a1, __int64 a2)
@@ -51,19 +51,19 @@ LABEL_5:
   EtwpRotateCompressionTargetIfNeeded();
   while ( 1 )
   {
-    v19 = *(_QWORD *)(a1 + 1152);
+    v19 = *(_QWORD *)(a1 + 1136);
     if ( !v19 )
     {
-      ++*(_DWORD *)(a1 + 252);
+      ++*(_DWORD *)(a1 + 268);
       return 3221225495LL;
     }
     v9 = *(unsigned int *)(v19 + 8);
-    v10 = *(_QWORD *)(a1 + 1152);
+    v10 = *(_QWORD *)(a1 + 1136);
     v11 = (unsigned int)v9;
     v7 = v9 + 72;
     CompressedBufferSize = (unsigned int)(*(_DWORD *)(a1 + 4) - *(_DWORD *)(v10 + 8) - 72);
     v22 = *(_DWORD *)(a1 + 4) - *(_DWORD *)(v10 + 8) - 72;
-    if ( *(_DWORD *)(v10 + 8) == 72 || v5 < (int)CompressedBufferSize * *(_DWORD *)(a1 + 1172) )
+    if ( *(_DWORD *)(v10 + 8) == 72 || v5 < (int)CompressedBufferSize * *(_DWORD *)(a1 + 1156) )
     {
       v13 = RtlCompressBuffer(
               3u,
@@ -73,7 +73,7 @@ LABEL_5:
               CompressedBufferSize,
               0,
               &FinalCompressedSize,
-              *(PVOID *)(a1 + 1160));
+              *(PVOID *)(a1 + 1144));
       v7 = (unsigned int)v13;
       if ( v13 >= 0 )
       {
@@ -89,15 +89,15 @@ LABEL_5:
         *(_DWORD *)(v10 + v11 + 4) = v5 + 72;
         *(_DWORD *)(v10 + v11 + 12) = 0;
         *(_DWORD *)(v10 + v11 + 44) = 3;
-        *(_DWORD *)(*(_QWORD *)(a1 + 1152) + 8LL) += 72;
-        *(_DWORD *)(*(_QWORD *)(a1 + 1152) + 8LL) += FinalCompressedSize;
+        *(_DWORD *)(*(_QWORD *)(a1 + 1136) + 8LL) += 72;
+        *(_DWORD *)(*(_QWORD *)(a1 + 1136) + 8LL) += FinalCompressedSize;
         return (unsigned int)v7;
       }
       CompressedBufferSize = v22;
     }
     LOBYTE(v14) = 1;
     v25 = 1;
-    if ( *(_DWORD *)(a1 + 1176) )
+    if ( *(_DWORD *)(a1 + 1160) )
       break;
 LABEL_27:
     v5 = v4 - v6;
@@ -108,7 +108,7 @@ LABEL_27:
     v15 = v6 + (v5 >> v14);
     for ( i = 0; ; i += v24 )
     {
-      NextEventOffsetType = EtwpGetNextEventOffsetType((unsigned int *)a2, v6 + i, &v24);
+      NextEventOffsetType = EtwpGetNextEventOffsetType(a2, v6 + i, &v24);
       if ( !NextEventOffsetType )
         break;
       v8 = v24;
@@ -125,7 +125,7 @@ LABEL_27:
              CompressedBufferSize,
              0,
              &FinalCompressedSize,
-             *(PVOID *)(a1 + 1160)) >= 0 )
+             *(PVOID *)(a1 + 1144)) >= 0 )
       {
         v6 += i;
         *(_OWORD *)(v10 + v11) = *(_OWORD *)a2;
@@ -140,15 +140,15 @@ LABEL_27:
         *(_DWORD *)(v10 + v11 + 4) = i + 72;
         *(_DWORD *)(v10 + v11 + 12) = 0;
         *(_DWORD *)(v10 + v11 + 44) = 3;
-        *(_DWORD *)(*(_QWORD *)(a1 + 1152) + 8LL) += 72;
-        v8 = FinalCompressedSize + *(_DWORD *)(*(_QWORD *)(a1 + 1152) + 8LL);
-        *(_DWORD *)(*(_QWORD *)(a1 + 1152) + 8LL) = v8;
+        *(_DWORD *)(*(_QWORD *)(a1 + 1136) + 8LL) += 72;
+        v8 = FinalCompressedSize + *(_DWORD *)(*(_QWORD *)(a1 + 1136) + 8LL);
+        *(_DWORD *)(*(_QWORD *)(a1 + 1136) + 8LL) = v8;
         goto LABEL_27;
       }
       v14 = ++v25;
       goto LABEL_24;
     }
-    if ( *(_DWORD *)(*(_QWORD *)(a1 + 1152) + 8LL) != 72 )
+    if ( *(_DWORD *)(*(_QWORD *)(a1 + 1136) + 8LL) != 72 )
       goto LABEL_27;
     if ( !NextEventOffsetType )
       break;
@@ -161,10 +161,10 @@ LABEL_27:
     v14 = v25;
 LABEL_24:
     v5 = v4 - v6;
-    if ( v14 > *(_DWORD *)(a1 + 1176) )
+    if ( v14 > *(_DWORD *)(a1 + 1160) )
       goto LABEL_27;
   }
-  ++*(_DWORD *)(a1 + 252);
+  ++*(_DWORD *)(a1 + 268);
 LABEL_30:
   LODWORD(v7) = -1073741566;
   return (unsigned int)v7;

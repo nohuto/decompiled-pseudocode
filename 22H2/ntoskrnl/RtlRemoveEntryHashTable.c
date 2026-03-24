@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlRemoveEntryHashTable @ 0x14036F630
+ * XREFs of RtlRemoveEntryHashTable @ 0x140251520
  * Callers:
- *     SepCleanupMarkedForDeletionEntries @ 0x14036F3DC (SepCleanupMarkedForDeletionEntries.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x1407EF74C (SepDereferenceLowBoxNumberEntry.c)
- *     SepDereferenceCachedHandlesEntry @ 0x1407EF89C (SepDereferenceCachedHandlesEntry.c)
- *     SepDeReferenceSharedSidEntries @ 0x1409D1390 (SepDeReferenceSharedSidEntries.c)
- *     SepInsertOrReferenceSharedSidEntries @ 0x1409D189C (SepInsertOrReferenceSharedSidEntries.c)
- *     SepRmDestroyCapTable @ 0x1409D242C (SepRmDestroyCapTable.c)
+ *     SepCleanupMarkedForDeletionEntries @ 0x1402512F4 (SepCleanupMarkedForDeletionEntries.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x1406355DC (SepDereferenceLowBoxNumberEntry.c)
+ *     SepDereferenceCachedHandlesEntry @ 0x140635720 (SepDereferenceCachedHandlesEntry.c)
+ *     SepDeReferenceSharedSidEntries @ 0x140924F5C (SepDeReferenceSharedSidEntries.c)
+ *     SepInsertOrReferenceSharedSidEntries @ 0x1409254B4 (SepInsertOrReferenceSharedSidEntries.c)
+ *     SepRmDestroyCapTable @ 0x140926088 (SepRmDestroyCapTable.c)
  * Callees:
- *     RtlpPopulateContext @ 0x14036F754 (RtlpPopulateContext.c)
+ *     RtlpPopulateContext @ 0x140250EE0 (RtlpPopulateContext.c)
  */
 
 BOOLEAN __stdcall RtlRemoveEntryHashTable(
@@ -16,21 +16,25 @@ BOOLEAN __stdcall RtlRemoveEntryHashTable(
         PRTL_DYNAMIC_HASH_TABLE_ENTRY Entry,
         PRTL_DYNAMIC_HASH_TABLE_CONTEXT Context)
 {
-  struct _LIST_ENTRY *Flink; // rcx
+  unsigned __int64 Signature; // r8
+  struct _LIST_ENTRY *Flink; // r9
   struct _LIST_ENTRY *Blink; // rax
 
+  Signature = Entry->Signature;
   --HashTable->NumEntries;
-  if ( Entry->Linkage.Flink == Entry->Linkage.Blink )
-    --HashTable->NonEmptyBuckets;
   Flink = Entry->Linkage.Flink;
-  if ( (PRTL_DYNAMIC_HASH_TABLE_ENTRY)Entry->Linkage.Flink->Blink != Entry
-    || (Blink = Entry->Linkage.Blink, (PRTL_DYNAMIC_HASH_TABLE_ENTRY)Blink->Flink != Entry) )
+  Blink = Entry->Linkage.Blink;
+  if ( Entry->Linkage.Flink == Blink )
   {
-    __fastfail(3u);
+    --HashTable->NonEmptyBuckets;
+    Blink = Entry->Linkage.Blink;
+    Flink = Entry->Linkage.Flink;
   }
+  if ( (PRTL_DYNAMIC_HASH_TABLE_ENTRY)Flink->Blink != Entry || (PRTL_DYNAMIC_HASH_TABLE_ENTRY)Blink->Flink != Entry )
+    __fastfail(3u);
   Blink->Flink = Flink;
   Flink->Blink = Blink;
   if ( Context && !Context->ChainHead )
-    RtlpPopulateContext(HashTable, Context);
+    RtlpPopulateContext(HashTable, (__int64)Context, Signature);
   return 1;
 }

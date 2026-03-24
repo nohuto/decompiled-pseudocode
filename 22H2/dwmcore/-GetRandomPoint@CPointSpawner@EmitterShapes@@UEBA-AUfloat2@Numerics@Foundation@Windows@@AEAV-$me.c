@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetRandomPoint@CPointSpawner@EmitterShapes@@UEBA?AUfloat2@Numerics@Foundation@Windows@@AEAV?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@M@Z @ 0x180107540
+ * XREFs of ?GetRandomPoint@CPointSpawner@EmitterShapes@@UEBA?AUfloat2@Numerics@Foundation@Windows@@AEAV?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@M@Z @ 0x1800E2BF0
  * Callers:
- *     <none>
+ *     ?GetSize@CHolographicInteropTarget@@$4PPPPPPPM@A@EBA?AUD2D_SIZE_U@@XZ @ 0x1800F7D20 (-GetSize@CHolographicInteropTarget@@$4PPPPPPPM@A@EBA-AUD2D_SIZE_U@@XZ.c)
  * Callees:
  *     <none>
  */

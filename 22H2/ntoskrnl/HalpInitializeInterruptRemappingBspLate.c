@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpInitializeInterruptRemappingBspLate @ 0x14085E2E8
+ * XREFs of HalpInitializeInterruptRemappingBspLate @ 0x140865780
  * Callers:
- *     HalpInitializeInterruptsBspLate @ 0x1403AEC6C (HalpInitializeInterruptsBspLate.c)
+ *     HalpInitializeInterruptsBspLate @ 0x1403CD42C (HalpInitializeInterruptsBspLate.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     HalpIrtExtendRemappingRange @ 0x14085E3CC (HalpIrtExtendRemappingRange.c)
- *     HalpIrtInitializeDeviceApertures @ 0x140934A94 (HalpIrtInitializeDeviceApertures.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     RtlSetBits @ 0x1402D9750 (RtlSetBits.c)
+ *     HalpIrtExtendRemappingRange @ 0x140865D78 (HalpIrtExtendRemappingRange.c)
+ *     HalpIrtInitializeDeviceApertures @ 0x140865F2C (HalpIrtInitializeDeviceApertures.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 HalpInitializeInterruptRemappingBspLate()
 {
   unsigned int v0; // ebx
   struct _KPRCB *CurrentPrcb; // rax
-  char v2; // r8
-  unsigned int v3; // r8d
-  unsigned int v4; // r9d
+  char v2; // cl
+  bool v3; // zf
+  unsigned int v4; // ecx
   int v5; // ebx
 
   HalpIrtLock.Owner = 0LL;
@@ -31,30 +31,27 @@ __int64 HalpInitializeInterruptRemappingBspLate()
   if ( CurrentPrcb->CpuVendor == 1 )
   {
     v2 = 15;
-    HalpIrtAllocationFlags = 15;
     v0 = 32;
+    HalpIrtAllocationFlags = 15;
     HalpIrtTotalRanges = 32;
   }
+  v3 = (v2 & 4) == 0;
+  v4 = 512;
   HalpIrtEntriesPerRange = HalpIrtTotalEntries / v0;
-  if ( (v2 & 4) != 0 )
-  {
-    v3 = 512;
-    HalpIrtEntriesPerDeviceAperture = 512;
-    v4 = 512;
-  }
-  else
-  {
-    HalpIrtEntriesPerDeviceAperture = HalpIrtTotalEntries;
-    v3 = HalpIrtTotalEntries;
+  if ( v3 )
     v4 = HalpIrtTotalEntries;
-  }
-  HalpIrtAperturesPerRange = HalpIrtTotalEntries / v0 / v3;
+  HalpIrtEntriesPerDeviceAperture = v4;
+  HalpIrtAperturesPerRange = HalpIrtTotalEntries / v0 / v4;
   HalpIrtTotalApertures = HalpIrtTotalEntries / v4;
-  v5 = HalpIrtExtendRemappingRange(0LL);
-  if ( v5 < 0
-    || (RtlSetBits(&HalpIrtRanges, 0, 8u), (HalpIrtAllocationFlags & 4) != 0)
-    && (v5 = HalpIrtInitializeDeviceApertures(), v5 < 0) )
+  v5 = HalpIrtExtendRemappingRange(0LL, HalpIrtTotalEntries % v4);
+  if ( v5 < 0 )
+    goto LABEL_9;
+  RtlSetBits(&HalpIrtRanges, 0, 8u);
+  if ( (HalpIrtAllocationFlags & 4) != 0 )
+    v5 = HalpIrtInitializeDeviceApertures();
+  if ( v5 < 0 )
   {
+LABEL_9:
     if ( HalpIrtRanges.Buffer )
     {
       ExFreePoolWithTag(HalpIrtRanges.Buffer, 0);

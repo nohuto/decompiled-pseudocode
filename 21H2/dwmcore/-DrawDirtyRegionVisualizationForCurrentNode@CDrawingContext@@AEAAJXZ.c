@@ -1,181 +1,179 @@
 /*
- * XREFs of ?DrawDirtyRegionVisualizationForCurrentNode@CDrawingContext@@AEAAJXZ @ 0x1801B0228
+ * XREFs of ?DrawDirtyRegionVisualizationForCurrentNode@CDrawingContext@@AEAAJXZ @ 0x18017531C
  * Callers:
- *     ?PostSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18009C330 (-PostSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ??$WalkSubtree@VCDrawingContext@@@CVisualTreeIterator@@QEAAJPEBVCVisual@@PEAVCDrawingContext@@W4WalkReason@@@Z @ 0x18007ACF0 (--$WalkSubtree@VCDrawingContext@@@CVisualTreeIterator@@QEAAJPEBVCVisual@@PEAVCDrawingContext@@W4.c)
  * Callees:
- *     ?FillRectanglesWithSolidColor@CDrawingContext@@QEAAJAEBV?$span@$$CBUMilRectF@@$0?0@gsl@@AEBU_D3DCOLORVALUE@@@Z @ 0x180004548 (-FillRectanglesWithSolidColor@CDrawingContext@@QEAAJAEBV-$span@$$CBUMilRectF@@$0-0@gsl@@AEBU_D3D.c)
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x18003C050 (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x1800A9DE0 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
- *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800AE500 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x1800D53DC (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
- *     ?Invert@CMILMatrix@@QEAA_NXZ @ 0x1800DCDBC (-Invert@CMILMatrix@@QEAA_NXZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _o_ceilf_0 @ 0x1801018BC (_o_ceilf_0.c)
- *     floorf @ 0x1801018F8 (floorf.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x180190BB4 (-terminate@details@gsl@@YAXXZ.c)
- *     ?CurrentRedrawRegionColor@CComposition@@QEAA?AU_D3DCOLORVALUE@@XZ @ 0x18019316C (-CurrentRedrawRegionColor@CComposition@@QEAA-AU_D3DCOLORVALUE@@XZ.c)
- *     ??$?0$0?0V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@$0A@@?$span@UMilRectF@@$0?0@gsl@@QEAA@AEAV?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@Z @ 0x1801AEEDC (--$-0$0-0V-$vector@UMilRectF@@V-$allocator@UMilRectF@@@std@@@std@@$0A@@-$span@UMilRectF@@$0-0@gs.c)
- *     ??$?0E$0?0$0?0$0A@@?$span@$$CBE$0?0@gsl@@QEAA@AEBV?$span@E$0?0@1@@Z @ 0x1801AEF2C (--$-0E$0-0$0-0$0A@@-$span@$$CBE$0-0@gsl@@QEAA@AEBV-$span@E$0-0@1@@Z.c)
- *     ??0?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@QEAA@AEBV01@@Z @ 0x1801AF36C (--0-$vector@UMilRectF@@V-$allocator@UMilRectF@@@std@@@std@@QEAA@AEBV01@@Z.c)
- *     ?CalcClippedNodeWorldSpaceBounds@CDrawingContext@@AEBAXPEBVCVisual@@PEAV?$CRectF@UDeviceHPC@CoordinateSpace@@@@@Z @ 0x1801AF784 (-CalcClippedNodeWorldSpaceBounds@CDrawingContext@@AEBAXPEBVCVisual@@PEAV-$CRectF@UDeviceHPC@Coor.c)
- *     ?GetDirtyRegionVisualizationData@CVisual@@QEBAPEAV?$deque@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@V?$allocator@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@@2@@std@@XZ @ 0x1801B2AD4 (-GetDirtyRegionVisualizationData@CVisual@@QEBAPEAV-$deque@V-$tuple@V-$com_ptr_t@VCKeyframeAnimat.c)
- *     ?_Tidy@?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@AEAAXXZ @ 0x1801B46A0 (-_Tidy@-$vector@UMilRectF@@V-$allocator@UMilRectF@@@std@@@std@@AEAAXXZ.c)
- *     ?pop_front@?$deque@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@V?$allocator@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@@2@@std@@QEAAXXZ @ 0x1801B46DC (-pop_front@-$deque@V-$tuple@V-$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@.c)
- *     ?AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV?$DynArray@UMilRectF@@$0A@@@@Z @ 0x1801F6D64 (-AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV-$DynArray@UMilRectF@@$0A@@@@Z.c)
+ *     ?SetToInverse@CMILMatrix@@QEAA_NAEBV1@@Z @ 0x18003E1BC (-SetToInverse@CMILMatrix@@QEAA_NAEBV1@@Z.c)
+ *     ?PopTransformInternal@CDrawingContext@@IEAAX_N@Z @ 0x180040A80 (-PopTransformInternal@CDrawingContext@@IEAAX_N@Z.c)
+ *     ?PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z @ 0x180041730 (-PushTransformInternal@CDrawingContext@@IEAAJPEBVCVisual@@PEBVCMILMatrix@@_N2@Z.c)
+ *     ??$narrow@_J_K@gsl@@YA_J_K@Z @ 0x180042654 (--$narrow@_J_K@gsl@@YA_J_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x1800656F0 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800869D0 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     ?GetCurrentVisual@CDrawingContext@@UEBAPEAVCVisual@@XZ @ 0x1800BA7B0 (-GetCurrentVisual@CDrawingContext@@UEBAPEAVCVisual@@XZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     ?front@?$deque@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@V?$allocator@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@@2@@std@@QEAAAEAV?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@2@XZ @ 0x1800EBD50 (-front@-$deque@V-$tuple@V-$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V-$c.c)
+ *     ceilf_0 @ 0x1800F4757 (ceilf_0.c)
+ *     floorf_0 @ 0x1800F476F (floorf_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?CurrentRedrawRegionColor@CComposition@@QEAA?AU_D3DCOLORVALUE@@XZ @ 0x18015586C (-CurrentRedrawRegionColor@CComposition@@QEAA-AU_D3DCOLORVALUE@@XZ.c)
+ *     ??1?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@QEAA@XZ @ 0x18016BBF0 (--1-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@QEAA@XZ.c)
+ *     ??$?0UMilRectF@@$0?0X@?$span@$$CBUMilRectF@@$0?0@gsl@@QEAA@AEBV?$span@UMilRectF@@$0?0@1@@Z @ 0x180174520 (--$-0UMilRectF@@$0-0X@-$span@$$CBUMilRectF@@$0-0@gsl@@QEAA@AEBV-$span@UMilRectF@@$0-0@1@@Z.c)
+ *     ??0?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@QEAA@AEBV01@@Z @ 0x180174664 (--0-$vector@UMilRectF@@V-$allocator@UMilRectF@@@std@@@std@@QEAA@AEBV01@@Z.c)
+ *     ??A?$deque@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@V?$allocator@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@@2@@std@@QEAAAEAV?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@1@_K@Z @ 0x1801747F0 (--A-$deque@V-$tuple@V-$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V-$com_p.c)
+ *     ?CalcClippedNodeWorldSpaceBounds@CDrawingContext@@AEBAXPEBVCVisual@@PEAV?$CRectF@UDeviceHPC@CoordinateSpace@@@@@Z @ 0x1801749B4 (-CalcClippedNodeWorldSpaceBounds@CDrawingContext@@AEBAXPEBVCVisual@@PEAV-$CRectF@UDeviceHPC@Coor.c)
+ *     ?FillRectanglesWithSolidColor@CDrawingContext@@QEAAJAEBV?$span@$$CBUMilRectF@@$0?0@gsl@@AEBU_D3DCOLORVALUE@@@Z @ 0x1801771A8 (-FillRectanglesWithSolidColor@CDrawingContext@@QEAAJAEBV-$span@$$CBUMilRectF@@$0-0@gsl@@AEBU_D3D.c)
+ *     ?GetDirtyRegionVisualizationData@CVisual@@QEBAPEAV?$deque@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@V?$allocator@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@@2@@std@@XZ @ 0x18017761C (-GetDirtyRegionVisualizationData@CVisual@@QEBAPEAV-$deque@V-$tuple@V-$com_ptr_t@VCKeyframeAnimat.c)
+ *     ?pop_front@?$deque@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@V?$allocator@V?$tuple@V?$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@V?$com_ptr_t@VCColorBrush@@Uerr_returncode_policy@wil@@@2@V?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@@std@@@2@@std@@QEAAXXZ @ 0x180178B60 (-pop_front@-$deque@V-$tuple@V-$com_ptr_t@VCKeyframeAnimation@@Uerr_returncode_policy@wil@@@wil@@.c)
+ *     ?AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV?$DynArray@UMilRectF@@$0A@@@@Z @ 0x1801AD254 (-AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV-$DynArray@UMilRectF@@$0A@@@@Z.c)
  */
 
 __int64 __fastcall CDrawingContext::DrawDirtyRegionVisualizationForCurrentNode(CDrawingContext *this)
 {
   unsigned int v2; // ebx
   CComposition *v3; // rcx
-  __int64 v4; // rax
-  __int64 v5; // rdi
-  __int128 v6; // xmm0
-  __int128 v7; // xmm1
-  __int128 v8; // xmm0
-  __int128 v9; // xmm1
-  __int64 v10; // rdx
-  struct Windows::Foundation::Numerics::float4x4 *v11; // r8
-  __int64 v12; // r9
-  float v13; // xmm1_4
-  float v14; // xmm1_4
-  float v15; // xmm2_4
-  float v16; // xmm1_4
-  int v17; // eax
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // rbx
-  gsl::details *v21; // rcx
-  int v22; // eax
-  __int64 v23; // rcx
-  _QWORD *i; // rsi
-  _QWORD *DirtyRegionVisualizationData; // rdi
-  unsigned int v26; // esi
-  __int64 v27; // r8
-  __int64 v28; // rdx
-  __int64 v29; // r9
-  __int64 v30; // r10
-  __int64 *v31; // rax
-  int v32; // eax
-  __int64 v33; // rcx
-  _QWORD v35[3]; // [rsp+30h] [rbp-D8h] BYREF
-  int v36; // [rsp+48h] [rbp-C0h]
-  int v37; // [rsp+4Ch] [rbp-BCh]
-  unsigned int v38; // [rsp+50h] [rbp-B8h]
-  struct _D3DCOLORVALUE v39; // [rsp+58h] [rbp-B0h] BYREF
-  __m128 v40; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 v41[4]; // [rsp+78h] [rbp-90h] BYREF
-  _OWORD v42[4]; // [rsp+98h] [rbp-70h] BYREF
-  int v43; // [rsp+D8h] [rbp-30h]
+  struct CVisual *CurrentVisual; // rdi
+  float v5; // xmm1_4
+  float v6; // xmm1_4
+  float v7; // xmm2_4
+  float v8; // xmm1_4
+  int v9; // eax
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  int v14; // eax
+  __int64 v15; // rcx
+  __int64 i; // r14
+  __int64 DirtyRegionVisualizationData; // rdi
+  unsigned int v18; // r14d
+  __int64 v19; // r10
+  __int64 v20; // r10
+  __int64 v21; // rax
+  __int64 v22; // rbx
+  __int64 v23; // rax
+  int v24; // eax
+  __int64 v25; // rcx
+  _QWORD v27[3]; // [rsp+30h] [rbp-D8h] BYREF
+  int v28; // [rsp+48h] [rbp-C0h]
+  int v29; // [rsp+4Ch] [rbp-BCh]
+  unsigned int v30; // [rsp+50h] [rbp-B8h]
+  struct _D3DCOLORVALUE v31; // [rsp+58h] [rbp-B0h] BYREF
+  __m128 v32; // [rsp+68h] [rbp-A0h] BYREF
+  __int64 v33[4]; // [rsp+78h] [rbp-90h] BYREF
+  _BYTE v34[64]; // [rsp+98h] [rbp-70h] BYREF
+  int v35; // [rsp+D8h] [rbp-30h]
   __int128 X; // [rsp+E8h] [rbp-20h] BYREF
-  __int128 v45; // [rsp+F8h] [rbp-10h] BYREF
+  __m128 v37; // [rsp+F8h] [rbp-10h] BYREF
 
   v2 = 0;
-  if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)this + 991) + 184LL))(*((_QWORD *)this + 991)) )
+  if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)this + 741) + 200LL))(*((_QWORD *)this + 741)) )
   {
-    CComposition::CurrentRedrawRegionColor(v3, &v39);
-    v36 = 0;
-    v4 = *((_QWORD *)this + 3);
-    v37 = 0;
-    v38 = 0;
-    v45 = 0LL;
+    CComposition::CurrentRedrawRegionColor(v3, &v31);
+    v28 = 0;
+    v29 = 0;
+    v30 = 0;
+    v37 = 0LL;
     X = 0LL;
-    *(_OWORD *)&v35[1] = 0LL;
-    v5 = (*(__int64 (__fastcall **)(char *))(v4 + 32))((char *)this + 24);
-    CDrawingContext::CalcClippedNodeWorldSpaceBounds((__int64)this, v5, &v45);
-    v6 = *((_OWORD *)this + 6);
-    v7 = *((_OWORD *)this + 7);
-    v43 = *((_DWORD *)this + 40);
-    v42[0] = v6;
-    v8 = *((_OWORD *)this + 8);
-    v42[1] = v7;
-    v9 = *((_OWORD *)this + 9);
-    v42[2] = v8;
-    v42[3] = v9;
-    CMILMatrix::Invert((CMILMatrix *)v42, v10, v11);
-    CMILMatrix::Transform2DBoundsHelper<0>((__int64)v42, (__int64)&v45, (float *)&X, v12);
-    v13 = *(float *)&X;
+    *(_OWORD *)&v27[1] = 0LL;
+    CurrentVisual = CDrawingContext::GetCurrentVisual((CDrawingContext *)((char *)this + 24));
+    CDrawingContext::CalcClippedNodeWorldSpaceBounds((__int64)this, (__int64)CurrentVisual, &v37);
+    v35 = 0;
+    CMILMatrix::SetToInverse((CMILMatrix *)v34, (CDrawingContext *)((char *)this + 96));
+    CMILMatrix::Transform2DBoundsHelper<0>((CMILMatrix *)v34, (__int64)&v37, (float *)&X);
+    v5 = *(float *)&X;
     if ( COERCE_FLOAT(X & _xmm) < 8388608.0 )
-      v13 = (float)(int)floorf(*(float *)&X);
-    *(float *)&X = v13;
-    v14 = *((float *)&X + 1);
+      v5 = (float)(int)floorf_0(*(float *)&X);
+    *(float *)&X = v5;
+    v6 = *((float *)&X + 1);
     if ( COERCE_FLOAT(DWORD1(X) & _xmm) < 8388608.0 )
-      v14 = (float)(int)floorf(*((float *)&X + 1));
-    v15 = *((float *)&X + 2);
-    *((float *)&X + 1) = v14;
+      v6 = (float)(int)floorf_0(*((float *)&X + 1));
+    v7 = *((float *)&X + 2);
+    *((float *)&X + 1) = v6;
     if ( COERCE_FLOAT(DWORD2(X) & _xmm) < 8388608.0 )
-      v15 = (float)(int)o_ceilf_0(*((float *)&X + 2));
-    v16 = *((float *)&X + 3);
-    *((float *)&X + 2) = v15;
+      v7 = (float)(int)ceilf_0(*((float *)&X + 2));
+    v8 = *((float *)&X + 3);
+    *((float *)&X + 2) = v7;
     if ( COERCE_FLOAT(HIDWORD(X) & _xmm) < 8388608.0 )
-      v16 = (float)(int)o_ceilf_0(*((float *)&X + 3));
-    *((float *)&X + 3) = v16;
-    v17 = CDrawingContext::PushTransformInternal(this, 0LL, (CDrawingContext *)((char *)this + 96), 0, 0);
-    v2 = v17;
-    if ( v17 < 0 )
+      v8 = (float)(int)ceilf_0(*((float *)&X + 3));
+    *((float *)&X + 3) = v8;
+    v9 = CDrawingContext::PushTransformInternal(this, 0LL, (CDrawingContext *)((char *)this + 96), 0, 0);
+    v2 = v9;
+    if ( v9 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0LL, v17, 0x18E6u);
-      DynArrayImpl<1>::~DynArrayImpl<1>((void **)&v35[1]);
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x180Bu, 0LL);
+      DynArrayImpl<0>::~DynArrayImpl<0>((__int64)&v27[1]);
     }
     else
     {
-      LOBYTE(v19) = (*(_BYTE *)(v5 + 101) & 8) != 0;
-      (*(void (__fastcall **)(_QWORD, __int128 *, __int64, _QWORD *))(**((_QWORD **)this + 991) + 216LL))(
-        *((_QWORD *)this + 991),
+      LOBYTE(v11) = (*((_BYTE *)CurrentVisual + 93) & 0x10) != 0;
+      (*(void (__fastcall **)(_QWORD, __int128 *, __int64, _QWORD *))(**((_QWORD **)this + 741) + 232LL))(
+        *((_QWORD *)this + 741),
         &X,
-        v19,
-        &v35[1]);
-      if ( (*(_BYTE *)(v5 + 101) & 8) != 0 )
+        v11,
+        &v27[1]);
+      if ( (*((_BYTE *)CurrentVisual + 93) & 0x10) != 0 )
       {
-        if ( (**(_DWORD **)(v5 + 232) & 0x80000) != 0 )
+        if ( (**((_DWORD **)CurrentVisual + 28) & 0x80000) != 0 )
         {
-          for ( i = (_QWORD *)CVisual::GetDirtyRegionVisualizationData(v5);
-                i[4] && (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(i[1] + 8 * (i[3] & (i[2] - 1LL))) + 32LL) + 572LL) & 1) == 0;
+          for ( i = CVisual::GetDirtyRegionVisualizationData(CurrentVisual, v12, v13);
+                *(_QWORD *)(i + 32)
+             && (*(_BYTE *)(*(_QWORD *)(std::deque<std::tuple<wil::com_ptr_t<CKeyframeAnimation,wil::err_returncode_policy>,wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>,std::vector<MilRectF>>>::front((__int64 **)i)
+                                      + 32)
+                          + 548LL) & 1) == 0;
                 std::deque<std::tuple<wil::com_ptr_t<CKeyframeAnimation,wil::err_returncode_policy>,wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>,std::vector<MilRectF>>>::pop_front(i) )
           {
             ;
           }
         }
-        if ( v38 )
-          CVisual::AppendDirtyRegionVisualizationRects(v5, &v35[1]);
-        if ( (**(_DWORD **)(v5 + 232) & 0x80000) != 0 )
+        if ( v30 )
+          CVisual::AppendDirtyRegionVisualizationRects(CurrentVisual, &v27[1]);
+        if ( (**((_DWORD **)CurrentVisual + 28) & 0x80000) != 0 )
         {
-          DirtyRegionVisualizationData = (_QWORD *)CVisual::GetDirtyRegionVisualizationData(v5);
-          if ( DirtyRegionVisualizationData[4] )
+          DirtyRegionVisualizationData = CVisual::GetDirtyRegionVisualizationData(CurrentVisual, v12, v13);
+          if ( *(_QWORD *)(DirtyRegionVisualizationData + 32) )
           {
-            v26 = 0;
-            v27 = 0LL;
+            v18 = 0;
+            v19 = 0LL;
             while ( 1 )
             {
-              v28 = DirtyRegionVisualizationData[3];
-              v29 = DirtyRegionVisualizationData[2];
-              v30 = DirtyRegionVisualizationData[1];
-              v40 = (__m128)_mm_loadu_si128((const __m128i *)(*(_QWORD *)(*(_QWORD *)(v30 + 8
-                                                                                          * ((v29 - 1) & (v27 + v28)))
-                                                                        + 24LL)
-                                                            + 88LL));
-              if ( _mm_shuffle_ps(v40, v40, 255).m128_f32[0] > 0.0 )
+              v32 = (__m128)_mm_loadu_si128((const __m128i *)(*(_QWORD *)(std::deque<std::tuple<wil::com_ptr_t<CKeyframeAnimation,wil::err_returncode_policy>,wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>,std::vector<MilRectF>>>::operator[](
+                                                                            DirtyRegionVisualizationData,
+                                                                            v19)
+                                                                        + 24)
+                                                            + 80LL));
+              if ( _mm_shuffle_ps(v32, v32, 255).m128_f32[0] > 0.0 )
               {
-                std::vector<MilRectF>::vector<MilRectF>(v41, *(_QWORD *)(v30 + 8 * ((v29 - 1) & (v27 + v28))));
-                v31 = (__int64 *)gsl::span<MilRectF,-1>::span<MilRectF,-1>((gsl::details *)&v45, v41);
-                gsl::span<unsigned char const,-1>::span<unsigned char const,-1>(&v39, v31);
-                v32 = CDrawingContext::FillRectanglesWithSolidColor(this, (__int64)&v39, (__int64)&v40);
-                v2 = v32;
-                if ( v32 < 0 )
+                v21 = std::deque<std::tuple<wil::com_ptr_t<CKeyframeAnimation,wil::err_returncode_policy>,wil::com_ptr_t<CColorBrush,wil::err_returncode_policy>,std::vector<MilRectF>>>::operator[](
+                        DirtyRegionVisualizationData,
+                        v20);
+                std::vector<MilRectF>::vector<MilRectF>(v33, v21);
+                v22 = v33[0];
+                v23 = gsl::narrow<__int64,unsigned __int64>((v33[1] - v33[0]) >> 4);
+                v37.m128_u64[0] = v23;
+                if ( v23 < 0 )
+                  goto LABEL_36;
+                v37.m128_u64[1] = v22;
+                if ( !v22 )
                 {
-                  MilInstrumentationCheckHR_MaybeFailFast(v33, 0LL, 0LL, v32, 0x191Au);
-                  std::vector<MilRectF>::_Tidy(v41);
+                  if ( v23 )
+                    goto LABEL_36;
+                }
+                gsl::span<MilRectF const,-1>::span<MilRectF const,-1>((__int64 *)&v31, (__int64 *)&v37);
+                v24 = CDrawingContext::FillRectanglesWithSolidColor(this);
+                v2 = v24;
+                if ( v24 < 0 )
+                {
+                  MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v24, 0x183Fu, 0LL);
+                  std::vector<tagRECT>::~vector<tagRECT>((__int64)v33);
                   break;
                 }
-                std::vector<MilRectF>::_Tidy(v41);
+                std::vector<tagRECT>::~vector<tagRECT>((__int64)v33);
               }
-              v27 = ++v26;
-              if ( (unsigned __int64)v26 >= DirtyRegionVisualizationData[4] )
+              v19 = ++v18;
+              if ( (unsigned __int64)v18 >= *(_QWORD *)(DirtyRegionVisualizationData + 32) )
               {
-                *((_BYTE *)g_pComposition + 1276) = 1;
+                *((_BYTE *)g_pComposition + 1131) = 1;
                 break;
               }
             }
@@ -184,21 +182,21 @@ __int64 __fastcall CDrawingContext::DrawDirtyRegionVisualizationForCurrentNode(C
       }
       else
       {
-        v20 = v35[1];
-        gsl::details::extent_type<-1>::extent_type<-1>((gsl::details *)&v45, v38);
-        *((_QWORD *)&v45 + 1) = v20;
-        if ( (_QWORD)v45 == -1LL || !v20 && (_QWORD)v45 )
+        v37.m128_u64[0] = v30;
+        v37.m128_u64[1] = v27[1];
+        if ( !v27[1] && v30 )
         {
-          gsl::details::terminate(v21);
+LABEL_36:
+          ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
           __debugbreak();
         }
-        gsl::span<unsigned char const,-1>::span<unsigned char const,-1>(&v40, (__int64 *)&v45);
-        v22 = CDrawingContext::FillRectanglesWithSolidColor(this, (__int64)&v40, (__int64)&v39);
-        v2 = v22;
-        if ( v22 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0LL, v22, 0x18F1u);
+        gsl::span<MilRectF const,-1>::span<MilRectF const,-1>((__int64 *)&v32, (__int64 *)&v37);
+        v14 = CDrawingContext::FillRectanglesWithSolidColor(this);
+        v2 = v14;
+        if ( v14 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x1816u, 0LL);
       }
-      DynArrayImpl<1>::~DynArrayImpl<1>((void **)&v35[1]);
+      DynArrayImpl<0>::~DynArrayImpl<0>((__int64)&v27[1]);
       CDrawingContext::PopTransformInternal(this, 0);
     }
   }

@@ -1,18 +1,24 @@
 /*
- * XREFs of DpiSuspendAdapterDpc @ 0x1C001ABF0
+ * XREFs of DpiSuspendAdapterDpc @ 0x1C0051DE0
  * Callers:
  *     <none>
  * Callees:
- *     DpiRequestDevicePowerState @ 0x1C001AE94 (DpiRequestDevicePowerState.c)
+ *     DpiRequestDevicePowerState @ 0x1C0051844 (DpiRequestDevicePowerState.c)
  */
 
 void __fastcall DpiSuspendAdapterDpc(
         struct _KDPC *Dpc,
-        int *DeferredContext,
+        _QWORD *DeferredContext,
         PVOID SystemArgument1,
         PVOID SystemArgument2)
 {
-  WdLogSingleEntry3(5LL, DeferredContext, DeferredContext[1040], DeferredContext[1041]);
-  if ( DeferredContext[1040] != 4 && DeferredContext[1041] == 1 )
-    DpiRequestDevicePowerState(*((_QWORD *)DeferredContext + 3), 4LL);
+  _QWORD *v5; // rax
+
+  v5 = (_QWORD *)WdLogNewEntry5_WdTrace(Dpc, DeferredContext);
+  v5[3] = DeferredContext;
+  v5[4] = *((int *)DeferredContext + 1034);
+  v5[5] = *((int *)DeferredContext + 1035);
+  WdLogEvent5_WdTrace(v5);
+  if ( *((_DWORD *)DeferredContext + 1034) != 4 && *((_DWORD *)DeferredContext + 1035) == 1 )
+    DpiRequestDevicePowerState(DeferredContext[3], 4, 1);
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of TdrTimedOperationBugcheckOnTimeout @ 0x1C0052898
+ * XREFs of TdrTimedOperationBugcheckOnTimeout @ 0x1C00453A8
  * Callers:
- *     TdrTimedOperationDelay @ 0x1C00528F0 (TdrTimedOperationDelay.c)
- *     TdrTimedOperationWaitForSingleObject @ 0x1C0307060 (TdrTimedOperationWaitForSingleObject.c)
+ *     TdrTimedOperationDelay @ 0x1C0045400 (TdrTimedOperationDelay.c)
+ *     TdrTimedOperationWaitForSingleObject @ 0x1C0266790 (TdrTimedOperationWaitForSingleObject.c)
  * Callees:
  *     <none>
  */

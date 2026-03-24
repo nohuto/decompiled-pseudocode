@@ -1,20 +1,18 @@
 /*
- * XREFs of BapdpQueryData @ 0x140B1C6B0
+ * XREFs of BapdpQueryData @ 0x140A41734
  * Callers:
- *     BapdpProcessSpacesBootInformation @ 0x1403CCC40 (BapdpProcessSpacesBootInformation.c)
- *     BapdpProcessEtwEvents @ 0x1403CCD08 (BapdpProcessEtwEvents.c)
- *     BapdpProcessEDrvHintInfo @ 0x140B1BD88 (BapdpProcessEDrvHintInfo.c)
- *     BapdpProcessFwUpdateResults @ 0x140B1BE18 (BapdpProcessFwUpdateResults.c)
- *     BapdpProcessWmdResults @ 0x140B1BEA8 (BapdpProcessWmdResults.c)
- *     BapdpProcessBootMetadata @ 0x140B1BF9C (BapdpProcessBootMetadata.c)
- *     BapdpProcessHSTIResults @ 0x140B1C06C (BapdpProcessHSTIResults.c)
- *     BapdpRegisterWbclData @ 0x140B1C22C (BapdpRegisterWbclData.c)
- *     BapdpProcessResumeInformation @ 0x140B1C2F4 (BapdpProcessResumeInformation.c)
- *     BapdpProcessBitlockerStatus @ 0x140B1C3C8 (BapdpProcessBitlockerStatus.c)
- *     BapdpProcessVsmKeyBlobs @ 0x140B1C49C (BapdpProcessVsmKeyBlobs.c)
- *     BapdpProcessBCDCache @ 0x140B1C78C (BapdpProcessBCDCache.c)
+ *     BapdpProcessEtwEvents @ 0x1403AF538 (BapdpProcessEtwEvents.c)
+ *     BapdpProcessEDrvHintInfo @ 0x140A40E2C (BapdpProcessEDrvHintInfo.c)
+ *     BapdpProcessFwUpdateResults @ 0x140A40EBC (BapdpProcessFwUpdateResults.c)
+ *     BapdpProcessWmdResults @ 0x140A40F4C (BapdpProcessWmdResults.c)
+ *     BapdpProcessBootMetadata @ 0x140A41040 (BapdpProcessBootMetadata.c)
+ *     BapdpProcessHSTIResults @ 0x140A410EC (BapdpProcessHSTIResults.c)
+ *     BapdpProcessResumeInformation @ 0x140A4126C (BapdpProcessResumeInformation.c)
+ *     BapdpProcessBitlockerStatus @ 0x140A4133C (BapdpProcessBitlockerStatus.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140A4140C (BapdpProcessVsmKeyBlobs.c)
+ *     BapdpRegisterWbclData @ 0x140A41620 (BapdpRegisterWbclData.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall BapdpQueryData(__int64 a1, _QWORD *a2, int a3, void *a4, unsigned int *a5)
@@ -27,12 +25,12 @@ __int64 __fastcall BapdpQueryData(__int64 a1, _QWORD *a2, int a3, void *a4, unsi
 
   if ( !a5 || !a2 || *a5 && !a4 )
     return 3221225485LL;
-  v8 = (__int64 *)qword_140D00130;
+  v8 = (__int64 *)qword_140CF29F0;
   for ( i = 0; ; ++i )
   {
     while ( 1 )
     {
-      if ( v8 == &qword_140D00130 )
+      if ( v8 == &qword_140CF29F0 )
         return 3221226021LL;
       v10 = v8[2];
       v8 = (__int64 *)*v8;

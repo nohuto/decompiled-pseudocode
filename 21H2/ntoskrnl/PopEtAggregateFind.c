@@ -1,9 +1,9 @@
 /*
- * XREFs of PopEtAggregateFind @ 0x1407A53A0
+ * XREFs of PopEtAggregateFind @ 0x14061A1A4
  * Callers:
- *     PopEtAggregateGet @ 0x1407A50BC (PopEtAggregateGet.c)
+ *     PopEtAggregateGet @ 0x140619EA8 (PopEtAggregateGet.c)
  * Callees:
- *     memcmp @ 0x1403E1D90 (memcmp.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
  */
 
 __int64 __fastcall PopEtAggregateFind(__int64 a1, unsigned __int8 *a2, __int64 *a3)
@@ -35,36 +35,38 @@ __int64 __fastcall PopEtAggregateFind(__int64 a1, unsigned __int8 *a2, __int64 *
   *a3 = v6;
   v10 = -1LL << (v9 & 0x1F);
   v11 = v10 & v6;
-LABEL_4:
-  if ( v7 )
-    goto LABEL_7;
-  if ( v9 >> 5 )
+  do
   {
-    v7 = *(_QWORD *)(a1 + 56)
-       + 8LL
-       * ((37
-         * (BYTE6(v11)
-          + 37
-          * (BYTE5(v11)
-           + 37
-           * (BYTE4(v11)
-            + 37 * (BYTE3(v11) + 37 * (BYTE2(v11) + 37 * (BYTE1(v11) + 37 * ((unsigned __int8)v11 + 11623883)))))))
-         + HIBYTE(v11)) & ((v9 >> 5) - 1));
-LABEL_7:
-    while ( 1 )
+    if ( v7 )
+      goto LABEL_7;
+    if ( v9 >> 5 )
     {
-      v7 = *(_QWORD *)v7;
-      if ( (v7 & 1) != 0 )
-        break;
-      if ( v11 == (v10 & *(_QWORD *)(v7 + 8)) )
+      v7 = *(_QWORD *)(a1 + 56)
+         + 8LL
+         * ((37
+           * (BYTE6(v11)
+            + 37
+            * (BYTE5(v11)
+             + 37
+             * (BYTE4(v11)
+              + 37 * (BYTE3(v11) + 37 * (BYTE2(v11) + 37 * (BYTE1(v11) + 37 * ((unsigned __int8)v11 + 11623883)))))))
+           + HIBYTE(v11)) & ((v9 >> 5) - 1));
+LABEL_7:
+      while ( 1 )
       {
-        if ( !v7 )
-          return 0LL;
-        if ( !memcmp((const void *)(v7 + 16), a2, 0x20uLL) )
-          return v7;
-        goto LABEL_4;
+        v7 = *(_QWORD *)v7;
+        if ( (v7 & 1) != 0 )
+          break;
+        if ( v11 == (v10 & *(_QWORD *)(v7 + 8)) )
+          goto LABEL_11;
       }
+      v7 = 0LL;
+LABEL_11:
+      if ( v7 )
+        continue;
     }
+    return 0LL;
   }
-  return 0LL;
+  while ( memcmp((const void *)(v7 + 16), a2, 0x20uLL) );
+  return v7;
 }

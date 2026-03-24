@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ProcessSetSurfaces@CCompositionMipmapSurface@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONMIPMAPSURFACE_SETSURFACES@@PEBXI@Z @ 0x18022441C
+ * XREFs of ?ProcessSetSurfaces@CCompositionMipmapSurface@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONMIPMAPSURFACE_SETSURFACES@@PEBXI@Z @ 0x1801BA4C8
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x180049524 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18004A8DC (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?IsEquivalentTo@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18012FA60 (-IsEquivalentTo@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D9B0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A1010 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ?IsEquivalentTo@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x1800D17F8 (-IsEquivalentTo@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionMipmapSurface::ProcessSetSurfaces(
@@ -17,137 +17,136 @@ __int64 __fastcall CCompositionMipmapSurface::ProcessSetSurfaces(
         const struct tagMILCMD_COMPOSITIONMIPMAPSURFACE_SETSURFACES *a3,
         _DWORD *a4)
 {
-  CResourceTable *v7; // r8
-  __int64 v8; // rax
   unsigned __int64 ResourceWithoutType; // rcx
-  unsigned int v10; // ebx
-  __int64 v11; // rbp
-  int v12; // eax
-  __int64 v13; // rbp
-  struct CResource *v14; // r12
-  struct CResource *v15; // rax
-  __int64 v16; // r9
-  __int64 v17; // r13
-  struct CResource *v18; // r10
-  __int64 v19; // r11
-  __int64 v20; // r14
-  int v21; // eax
-  __int64 v22; // rcx
-  __int64 v23; // rbx
-  struct CResource *v24; // rdx
-  __int64 v25; // rcx
-  __int64 v26; // rax
-  unsigned int v28; // [rsp+20h] [rbp-68h]
-  int v29; // [rsp+30h] [rbp-58h]
-  _DWORD v30[20]; // [rsp+38h] [rbp-50h] BYREF
-  int v31; // [rsp+90h] [rbp+8h]
-  int v33; // [rsp+A0h] [rbp+18h]
-  unsigned int v35; // [rsp+B0h] [rbp+28h]
+  CResourceTable *v8; // r9
+  unsigned int v9; // ebx
+  __int64 v10; // rbp
+  int v11; // eax
+  __int64 v12; // rbp
+  struct CResource *v13; // r12
+  struct CResource *v14; // rax
+  __int64 v15; // r8
+  __int64 v16; // r13
+  struct CResource *v17; // r10
+  __int64 v18; // r11
+  __int64 v19; // r14
+  int v20; // eax
+  __int64 v21; // rcx
+  __int64 v22; // rbx
+  struct CResource *v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // rax
+  unsigned int v27; // [rsp+20h] [rbp-68h]
+  int v28; // [rsp+30h] [rbp-58h]
+  _DWORD v29[20]; // [rsp+38h] [rbp-50h] BYREF
+  int v30; // [rsp+90h] [rbp+8h]
+  int v32; // [rsp+A0h] [rbp+18h]
+  unsigned int v34; // [rsp+B0h] [rbp+28h]
 
-  v7 = a2;
-  v8 = *((_QWORD *)this + 13) - *((_QWORD *)this + 12);
   ResourceWithoutType = *((unsigned int *)a3 + 2);
-  if ( ResourceWithoutType > v8 >> 5 )
+  v8 = a2;
+  if ( ResourceWithoutType > (__int64)(*((_QWORD *)this + 12) - *((_QWORD *)this + 11)) >> 5 )
   {
-    v28 = 230;
+    v27 = 230;
     goto LABEL_3;
   }
-  v11 = 0LL;
+  v10 = 0LL;
   if ( (_DWORD)ResourceWithoutType )
   {
     while ( 1 )
     {
-      ResourceWithoutType = (unsigned __int64)CResourceTable::GetResourceWithoutType(v7, a4[6 * v11 + 1]);
-      if ( a4[6 * v11] >= *((_DWORD *)this + 34)
-        || ResourceWithoutType
-        && !(*(unsigned __int8 (__fastcall **)(unsigned __int64, __int64))(*(_QWORD *)ResourceWithoutType + 56LL))(
-              ResourceWithoutType,
-              42LL) )
+      ResourceWithoutType = (unsigned __int64)CResourceTable::GetResourceWithoutType(v8, a4[6 * v10 + 1]);
+      if ( a4[6 * v10] >= *((_DWORD *)this + 32) )
+        break;
+      if ( ResourceWithoutType )
       {
-        break;
+        if ( !(*(unsigned __int8 (__fastcall **)(unsigned __int64, __int64))(*(_QWORD *)ResourceWithoutType + 56LL))(
+                ResourceWithoutType,
+                40LL) )
+          break;
+        v8 = a2;
       }
-      v12 = a4[6 * v11 + 2];
-      if ( v12 < 0 )
+      v11 = a4[6 * v10 + 2];
+      if ( v11 < 0 )
         break;
-      ResourceWithoutType = (unsigned int)a4[6 * v11 + 3];
+      ResourceWithoutType = (unsigned int)a4[6 * v10 + 3];
       if ( (ResourceWithoutType & 0x80000000) != 0LL
-        || a4[6 * v11 + 4] < v12
-        || a4[6 * v11 + 5] < (int)ResourceWithoutType )
+        || a4[6 * v10 + 4] < v11
+        || a4[6 * v10 + 5] < (int)ResourceWithoutType )
       {
         break;
       }
       LODWORD(ResourceWithoutType) = *((_DWORD *)a3 + 2);
-      v11 = (unsigned int)(v11 + 1);
-      v7 = a2;
-      if ( (unsigned int)v11 >= (unsigned int)ResourceWithoutType )
-        goto LABEL_14;
+      v10 = (unsigned int)(v10 + 1);
+      if ( (unsigned int)v10 >= (unsigned int)ResourceWithoutType )
+        goto LABEL_15;
     }
-    v28 = 258;
+    v27 = 258;
 LABEL_3:
-    v10 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(ResourceWithoutType, 0LL, 0, -2003303421, v28, 0LL);
-    return v10;
+    v9 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast(ResourceWithoutType, 0LL, 0, -2003303421, v27, 0LL);
+    return v9;
   }
-LABEL_14:
-  v13 = 0LL;
+LABEL_15:
+  v12 = 0LL;
   if ( !(_DWORD)ResourceWithoutType )
     return 0;
   while ( 1 )
   {
-    v14 = 0LL;
-    v15 = CResourceTable::GetResourceWithoutType(v7, a4[6 * v13 + 1]);
-    v17 = (unsigned int)a4[2 * v16];
-    v18 = v15;
-    v35 = a4[2 * v16 + 2];
-    v30[0] = v35;
-    v31 = a4[2 * v16 + 3];
-    v30[1] = v31;
-    v33 = a4[2 * v16 + 4];
-    v30[2] = v33;
-    v29 = a4[2 * v16 + 5];
-    v30[3] = v29;
-    if ( v15 )
+    v13 = 0LL;
+    v14 = CResourceTable::GetResourceWithoutType(v8, a4[6 * v12 + 1]);
+    v16 = (unsigned int)a4[2 * v15];
+    v17 = v14;
+    v34 = a4[2 * v15 + 2];
+    v29[0] = v34;
+    v30 = a4[2 * v15 + 3];
+    v29[1] = v30;
+    v32 = a4[2 * v15 + 4];
+    v29[2] = v32;
+    v28 = a4[2 * v15 + 5];
+    v29[3] = v28;
+    if ( v14 )
     {
-      v19 = *((_QWORD *)this + 12);
-      v20 = 32LL * (unsigned int)v17;
-      v14 = v15;
-      if ( *(struct CResource **)(v20 + v19) != v15
+      v18 = *((_QWORD *)this + 11);
+      v19 = 32LL * (unsigned int)v16;
+      v13 = v14;
+      if ( *(struct CResource **)(v19 + v18) != v14
         || !TMilRect<unsigned int,MilRectU,Mil3DRectU,RectUniqueness::NotNeeded>::IsEquivalentTo(
-              (_DWORD *)(v20 + v19 + 8),
-              v30) )
+              (_DWORD *)(v19 + v18 + 8),
+              v29) )
       {
-        *(_BYTE *)(v20 + v19 + 24) = 1;
-        *((_BYTE *)this + 160) = 1;
-        if ( *(struct CResource **)(v20 + *((_QWORD *)this + 12)) != v18 )
+        *(_BYTE *)(v19 + v18 + 24) = 1;
+        *((_BYTE *)this + 152) = 1;
+        if ( *(struct CResource **)(v19 + *((_QWORD *)this + 11)) != v17 )
           break;
       }
     }
-LABEL_22:
-    v13 = (unsigned int)(v13 + 1);
-    v25 = 32 * v17;
-    *(_QWORD *)(v25 + *((_QWORD *)this + 12)) = v14;
-    v26 = *((_QWORD *)this + 12);
-    *(_DWORD *)(v25 + v26 + 8) = v35;
-    *(_DWORD *)(v25 + v26 + 12) = v31;
-    *(_DWORD *)(v25 + v26 + 16) = v33;
-    *(_DWORD *)(v25 + v26 + 20) = v29;
-    if ( (unsigned int)v13 >= *((_DWORD *)a3 + 2) )
+LABEL_23:
+    v12 = (unsigned int)(v12 + 1);
+    v24 = 32 * v16;
+    *(_QWORD *)(v24 + *((_QWORD *)this + 11)) = v13;
+    v25 = *((_QWORD *)this + 11);
+    *(_DWORD *)(v24 + v25 + 8) = v34;
+    *(_DWORD *)(v24 + v25 + 12) = v30;
+    *(_DWORD *)(v24 + v25 + 16) = v32;
+    *(_DWORD *)(v24 + v25 + 20) = v28;
+    if ( (unsigned int)v12 >= *((_DWORD *)a3 + 2) )
       return 0;
-    v7 = a2;
+    v8 = a2;
   }
-  v21 = CResource::RegisterNotifier(this, v18);
-  v10 = v21;
-  if ( v21 >= 0 )
+  v20 = CResource::RegisterNotifier(this, v17);
+  v9 = v20;
+  if ( v20 >= 0 )
   {
-    v23 = *((_QWORD *)this + 12);
-    v24 = *(struct CResource **)(v20 + v23);
-    if ( v24 )
+    v22 = *((_QWORD *)this + 11);
+    v23 = *(struct CResource **)(v19 + v22);
+    if ( v23 )
     {
-      CResource::UnRegisterNotifierInternal(this, v24);
-      *(_QWORD *)(v20 + v23) = 0LL;
+      CResource::UnRegisterNotifierInternal(this, v23);
+      *(_QWORD *)(v19 + v22) = 0LL;
     }
-    goto LABEL_22;
+    goto LABEL_23;
   }
-  MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x11Du, 0LL);
-  return v10;
+  MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x11Du, 0LL);
+  return v9;
 }

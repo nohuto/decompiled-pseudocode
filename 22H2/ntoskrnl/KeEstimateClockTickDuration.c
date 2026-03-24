@@ -1,15 +1,15 @@
 /*
- * XREFs of KeEstimateClockTickDuration @ 0x1402C21DC
+ * XREFs of KeEstimateClockTickDuration @ 0x140513AE0
  * Callers:
- *     PpmEstimateIdleDuration @ 0x1402C203C (PpmEstimateIdleDuration.c)
+ *     PpmEstimateIdleDuration @ 0x140565914 (PpmEstimateIdleDuration.c)
  * Callees:
- *     KiGetNextTimerExpirationDueTime @ 0x14027DED0 (KiGetNextTimerExpirationDueTime.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x140225560 (KiGetNextTimerExpirationDueTime.c)
  */
 
 int *__fastcall KeEstimateClockTickDuration(
         __int64 a1,
         char a2,
-        unsigned __int8 a3,
+        char a3,
         unsigned __int8 a4,
         unsigned __int64 a5,
         __int64 *a6,
@@ -30,20 +30,22 @@ int *__fastcall KeEstimateClockTickDuration(
   v13 = 2;
   if ( v8 )
   {
-    KiGetNextTimerExpirationDueTime(a1, 0, a5, a3, a4, v12, &v13, 0LL);
+    KiGetNextTimerExpirationDueTime(a1, 0, a5, a3, a4, v12, &v13);
     if ( v9 <= v12[0] )
       v9 = v12[0];
-    goto LABEL_4;
+    goto LABEL_11;
   }
   if ( a2 )
   {
-    if ( !(_BYTE)KiDynamicTickDisableReason && !KiClockState )
+    if ( (_BYTE)KiDynamicTickDisableReason || KiClockState )
+      a2 = 0;
+    if ( a2 )
     {
-      KiGetNextTimerExpirationDueTime(a1, 1u, a5, a3, a4, v12, &v13, 0LL);
+      KiGetNextTimerExpirationDueTime(a1, 1u, a5, a3, a4, v12, &v13);
       if ( a5 + (unsigned int)KiLastRequestedTimeIncrement < v12[0] )
       {
         v9 = v12[0];
-LABEL_4:
+LABEL_11:
         v7 = v13;
       }
     }

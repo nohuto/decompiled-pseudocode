@@ -1,18 +1,18 @@
 /*
- * XREFs of MiValidatePagefilePageHash @ 0x1402CC414
+ * XREFs of MiValidatePagefilePageHash @ 0x1402CC514
  * Callers:
  *     MiWaitForInPageComplete @ 0x14001B7E0 (MiWaitForInPageComplete.c)
- *     MiMakeOutswappedPageResident @ 0x1402A4268 (MiMakeOutswappedPageResident.c)
+ *     MiMakeOutswappedPageResident @ 0x1402A4368 (MiMakeOutswappedPageResident.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     MiGetPagingFileOffset @ 0x14010FA04 (MiGetPagingFileOffset.c)
- *     MiComputePageHash @ 0x14015166C (MiComputePageHash.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiComparePageHash @ 0x1402CC160 (MiComparePageHash.c)
- *     MiObtainPagefileHashes @ 0x1402CC2D8 (MiObtainPagefileHashes.c)
+ *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
+ *     MiComputePageHash @ 0x14015168C (MiComputePageHash.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiComparePageHash @ 0x1402CC260 (MiComparePageHash.c)
+ *     MiObtainPagefileHashes @ 0x1402CC3D8 (MiObtainPagefileHashes.c)
  */
 
 __int64 __fastcall MiValidatePagefilePageHash(__int64 a1)

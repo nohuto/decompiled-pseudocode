@@ -1,9 +1,9 @@
 /*
- * XREFs of ?NotifyGlobalVmBusStatusChange@DXGDODPRESENT@@QEAAXE@Z @ 0x1C03D1DD8
+ * XREFs of ?NotifyGlobalVmBusStatusChange@DXGDODPRESENT@@QEAAXE@Z @ 0x1C02FE028
  * Callers:
- *     ?GlobalVmBusStatChangeCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C03759B0 (-GlobalVmBusStatChangeCallback@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
+ *     ?GlobalVmBusStatChangeCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C023AFB0 (-GlobalVmBusStatChangeCallback@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
  * Callees:
- *     ?IssueCommand@BLTQUEUE@@AEAAJXZ @ 0x1C0194B64 (-IssueCommand@BLTQUEUE@@AEAAJXZ.c)
+ *     ?IssueCommand@BLTQUEUE@@AEAAJXZ @ 0x1C01645B8 (-IssueCommand@BLTQUEUE@@AEAAJXZ.c)
  */
 
 void __fastcall DXGDODPRESENT::NotifyGlobalVmBusStatusChange(DXGDODPRESENT *this, char a2)
@@ -13,9 +13,9 @@ void __fastcall DXGDODPRESENT::NotifyGlobalVmBusStatusChange(DXGDODPRESENT *this
 
   for ( i = 0; i < *(_DWORD *)this; ++i )
   {
-    v5 = (BLTQUEUE *)(*((_QWORD *)this + 1) + 2920LL * i);
-    *((_BYTE *)v5 + 584) = a2;
-    *((_BYTE *)v5 + 576) = 1;
+    v5 = (BLTQUEUE *)(*((_QWORD *)this + 1) + 2904LL * i);
+    *((_BYTE *)v5 + 576) = a2;
+    *((_BYTE *)v5 + 568) = 1;
     BLTQUEUE::IssueCommand(v5);
   }
 }

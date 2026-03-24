@@ -1,66 +1,57 @@
 /*
- * XREFs of CcRemoveExternalCache @ 0x14053729C
+ * XREFs of CcRemoveExternalCache @ 0x1404E9DE8
  * Callers:
- *     CcUnregisterExternalCache @ 0x1405374A0 (CcUnregisterExternalCache.c)
+ *     CcUnregisterExternalCache @ 0x1404E9EE0 (CcUnregisterExternalCache.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcDereferencePartition @ 0x14029C310 (CcDereferencePartition.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall CcRemoveExternalCache(_QWORD *a1)
+__int64 __fastcall CcRemoveExternalCache(__int64 a1)
 {
-  unsigned __int64 v2; // rsi
-  __int64 v3; // r8
-  _QWORD *v4; // rdx
-  int v5; // eax
-  __int64 v6; // rdi
+  KIRQL v2; // al
+  __int64 **v3; // rdx
+  __int64 *v4; // rbx
+  unsigned __int64 v5; // rdi
+  __int64 *v6; // rax
   __int64 result; // rax
-  struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *SchedulerAssist; // r8
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
   bool v10; // zf
 
   v2 = KeAcquireSpinLockRaiseToDpc(&CcExternalCacheListLock);
-  v3 = a1[4];
-  v4 = (_QWORD *)a1[5];
-  if ( *(_QWORD **)(v3 + 8) != a1 + 4 || (_QWORD *)*v4 != a1 + 4 )
+  v3 = *(__int64 ***)(a1 + 40);
+  v4 = (__int64 *)(a1 + 32);
+  v5 = v2;
+  v6 = (__int64 *)*v4;
+  if ( *(__int64 **)(*v4 + 8) != v4 || *v3 != v4 )
     __fastfail(3u);
-  v5 = CcNumberOfExternalCaches;
-  *v4 = v3;
-  *(_QWORD *)(v3 + 8) = v4;
-  if ( !v5 )
-    KeBugCheckEx(0x34u, 0x1E4CuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-  CcNumberOfExternalCaches = v5 - 1;
-  if ( CcEnablePerVolumeLazyWriter )
-  {
-    v6 = a1[7];
-    CcDereferencePartition(a1[6]);
-    if ( v6 )
-    {
-      if ( _InterlockedDecrement64((volatile signed __int64 *)(v6 + 8)) <= -1 )
-        __fastfail(0xEu);
-    }
-  }
-  result = KxReleaseSpinLock((volatile signed __int64 *)&CcExternalCacheListLock);
+  *v3 = v6;
+  v6[1] = (__int64)v3;
+  if ( CcNumberOfExternalCaches - 1 >= (unsigned int)CcNumberOfExternalCaches )
+    KeBugCheckEx(0x34u, 0x138DuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+  --CcNumberOfExternalCaches;
+  KxReleaseSpinLock(&CcExternalCacheListLock);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v2 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v10 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v10 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v5 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+        v10 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v10 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
-  __writecr8(v2);
+  __writecr8(v5);
   return result;
 }

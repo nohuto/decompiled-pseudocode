@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ReportVaAllocatorState@CVirtualAddressAllocator@@QEAAXXZ @ 0x1C00E46E8
+ * XREFs of ?ReportVaAllocatorState@CVirtualAddressAllocator@@QEAAXXZ @ 0x1C00BF51C
  * Callers:
- *     ?ReportProcessStates@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00D95A0 (-ReportProcessStates@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?ReportProcessStates@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B3280 (-ReportProcessStates@VIDMM_GLOBAL@@QEAAXXZ.c)
  * Callees:
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000209C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000242C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00024A4 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     McTemplateK0ppp_EtwWriteTransfer @ 0x1C002F09C (McTemplateK0ppp_EtwWriteTransfer.c)
- *     McTemplateK0ppxxxxxqxx_EtwWriteTransfer @ 0x1C00301BC (McTemplateK0ppxxxxxqxx_EtwWriteTransfer.c)
- *     McTemplateK0pqxx_EtwWriteTransfer @ 0x1C00302BC (McTemplateK0pqxx_EtwWriteTransfer.c)
- *     ?ReportState@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@@Z @ 0x1C00E440C (-ReportState@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001B74 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001BD0 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0001C48 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     McTemplateK0ppp_EtwWriteTransfer @ 0x1C0024FC8 (McTemplateK0ppp_EtwWriteTransfer.c)
+ *     McTemplateK0ppxxxxxqxx_EtwWriteTransfer @ 0x1C0026158 (McTemplateK0ppxxxxxqxx_EtwWriteTransfer.c)
+ *     McTemplateK0pqxx_EtwWriteTransfer @ 0x1C0026258 (McTemplateK0pqxx_EtwWriteTransfer.c)
+ *     ?ReportState@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@@Z @ 0x1C00BF234 (-ReportState@VIDMM_PAGE_DIRECTORY@@QEAAXPEAVCVirtualAddressAllocator@@@Z.c)
  */
 
 void __fastcall CVirtualAddressAllocator::ReportVaAllocatorState(CVirtualAddressAllocator *this)
@@ -19,27 +19,28 @@ void __fastcall CVirtualAddressAllocator::ReportVaAllocatorState(CVirtualAddress
   _QWORD *v4; // rax
   unsigned __int64 k; // rbx
   __int64 i; // rbp
+  __int64 **v7; // r14
   __int64 *j; // rsi
-  _QWORD **v8; // rax
+  _QWORD **v9; // rax
   _QWORD *m; // rax
-  _QWORD **v10; // rax
-  VIDMM_PAGE_DIRECTORY *v11; // rcx
-  __int64 v12; // [rsp+20h] [rbp-78h]
-  __int64 v13; // [rsp+50h] [rbp-48h]
-  _BYTE v14[8]; // [rsp+70h] [rbp-28h] BYREF
-  DXGPUSHLOCK *v15; // [rsp+78h] [rbp-20h]
-  int v16; // [rsp+80h] [rbp-18h]
+  _QWORD **v11; // rax
+  VIDMM_PAGE_DIRECTORY *v12; // rcx
+  __int64 v13; // [rsp+20h] [rbp-78h]
+  __int64 v14; // [rsp+50h] [rbp-48h]
+  _BYTE v15[8]; // [rsp+70h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v16; // [rsp+78h] [rbp-20h]
+  int v17; // [rsp+80h] [rbp-18h]
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v14, (struct _KTHREAD **)this + 7, 0);
-  DXGPUSHLOCK::AcquireExclusive(v15);
-  v16 = 2;
-  if ( (byte_1C006E942 & 0x20) != 0 )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v15, (struct _KTHREAD **)this + 7, 0);
+  DXGPUSHLOCK::AcquireExclusive(v16);
+  v17 = 2;
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000) != 0 )
     McTemplateK0ppp_EtwWriteTransfer(
       *(_QWORD *)(*((_QWORD *)this + 12) + 32LL),
       &ReportGpuVirtualAddressAllocator,
       *((_QWORD *)this + 11),
       this,
-      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 12) + 32LL) + 64LL) + 80LL),
+      *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 12) + 32LL) + 64LL) + 72LL),
       *(_QWORD *)(*((_QWORD *)this + 11) + 24LL));
   v4 = (_QWORD *)*((_QWORD *)this + 6);
   k = 0LL;
@@ -50,25 +51,26 @@ void __fastcall CVirtualAddressAllocator::ReportVaAllocatorState(CVirtualAddress
   }
   while ( k )
   {
-    if ( (byte_1C006E942 & 0x20) != 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000) != 0 )
     {
-      LODWORD(v12) = *(_DWORD *)(k + 72);
+      LODWORD(v13) = *(_DWORD *)(k + 72);
       McTemplateK0pqxx_EtwWriteTransfer(
         (__int64)v2,
         &ReportGpuVirtualAddressRange,
         v3,
         this,
-        v12,
+        v13,
         *(_QWORD *)(k + 24),
         *(_QWORD *)(k + 32));
     }
-    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(*((_QWORD *)this + 11) + 7016LL); i = (unsigned int)(i + 1) )
+    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(*((_QWORD *)this + 11) + 7000LL); i = (unsigned int)(i + 1) )
     {
-      for ( j = *(__int64 **)(k + 24 * i + 96); j != (__int64 *)(k + 24 * (i + 4)); j = (__int64 *)*j )
+      v7 = (__int64 **)(k + 8 * (i + 4 * i + 12));
+      for ( j = *v7; j != (__int64 *)v7; j = (__int64 *)*j )
       {
-        if ( (byte_1C006E942 & 0x20) != 0 )
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000) != 0 )
         {
-          LODWORD(v13) = *((_DWORD *)j + 14);
+          LODWORD(v14) = *((_DWORD *)j + 14);
           McTemplateK0ppxxxxxqxx_EtwWriteTransfer(
             (__int64)v2,
             &ReportGpuVirtualAddressRangeMapping,
@@ -80,17 +82,17 @@ void __fastcall CVirtualAddressAllocator::ReportVaAllocatorState(CVirtualAddress
             j[12],
             j[10],
             j[9],
-            v13,
+            v14,
             j[13],
             j[14]);
         }
       }
     }
-    v8 = *(_QWORD ***)(k + 8);
+    v9 = *(_QWORD ***)(k + 8);
     v2 = (_QWORD *)k;
-    if ( v8 )
+    if ( v9 )
     {
-      v2 = *v8;
+      v2 = *v9;
       for ( k = *(_QWORD *)(k + 8); v2; v2 = (_QWORD *)*v2 )
         k = (unsigned __int64)v2;
     }
@@ -109,23 +111,23 @@ void __fastcall CVirtualAddressAllocator::ReportVaAllocatorState(CVirtualAddress
     k = (unsigned __int64)m;
   while ( k )
   {
-    if ( (byte_1C006E942 & 0x20) != 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000) != 0 )
     {
-      LODWORD(v12) = *(_DWORD *)(k + 72);
+      LODWORD(v13) = *(_DWORD *)(k + 72);
       McTemplateK0pqxx_EtwWriteTransfer(
         (__int64)v2,
         &ReportGpuVirtualAddressRange,
         v3,
         this,
-        v12,
+        v13,
         *(_QWORD *)(k + 24),
         *(_QWORD *)(k + 32));
     }
-    v10 = *(_QWORD ***)(k + 8);
+    v11 = *(_QWORD ***)(k + 8);
     v2 = (_QWORD *)k;
-    if ( v10 )
+    if ( v11 )
     {
-      v2 = *v10;
+      v2 = *v11;
       for ( k = *(_QWORD *)(k + 8); v2; v2 = (_QWORD *)*v2 )
         k = (unsigned __int64)v2;
     }
@@ -140,8 +142,8 @@ void __fastcall CVirtualAddressAllocator::ReportVaAllocatorState(CVirtualAddress
       }
     }
   }
-  v11 = (VIDMM_PAGE_DIRECTORY *)**((_QWORD **)this + 15);
-  if ( v11 )
-    VIDMM_PAGE_DIRECTORY::ReportState(v11, this);
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v14);
+  v12 = (VIDMM_PAGE_DIRECTORY *)**((_QWORD **)this + 15);
+  if ( v12 )
+    VIDMM_PAGE_DIRECTORY::ReportState(v12, this);
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v15);
 }

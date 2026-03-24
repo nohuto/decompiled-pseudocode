@@ -1,11 +1,11 @@
 /*
- * XREFs of __tailMerge_api_ms_win_core_com_l1_1_0_dll @ 0x180102D8B
+ * XREFs of __tailMerge_api_ms_win_core_com_l1_1_0_dll @ 0x1800E8DE8
  * Callers:
- *     __imp_load_CoCreateFreeThreadedMarshaler @ 0x180102D7F (__imp_load_CoCreateFreeThreadedMarshaler.c)
- *     __imp_load_CoCreateInstance @ 0x180102E0A (__imp_load_CoCreateInstance.c)
- *     __imp_load_CoTaskMemAlloc @ 0x180102E1C (__imp_load_CoTaskMemAlloc.c)
+ *     __imp_load_CoCreateFreeThreadedMarshaler @ 0x1800E8DDC (__imp_load_CoCreateFreeThreadedMarshaler.c)
+ *     __imp_load_CoCreateInstance @ 0x1800E8E67 (__imp_load_CoCreateInstance.c)
+ *     __imp_load_CoTaskMemAlloc @ 0x1800E8E79 (__imp_load_CoTaskMemAlloc.c)
  * Callees:
- *     __delayLoadHelper2 @ 0x1800F39B0 (__delayLoadHelper2.c)
+ *     __delayLoadHelper2 @ 0x1800DE920 (__delayLoadHelper2.c)
  */
 
 __int64 __fastcall _tailMerge_api_ms_win_core_com_l1_1_0_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

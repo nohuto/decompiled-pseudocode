@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpCoverageReset @ 0x1408B6A48
+ * XREFs of EtwpCoverageReset @ 0x1408B6A28
  * Callers:
- *     EtwpCoverageFlushWorkItemCallback @ 0x140684760 (EtwpCoverageFlushWorkItemCallback.c)
- *     EtwSetProcessTelemetryCoverage @ 0x1406B3FA0 (EtwSetProcessTelemetryCoverage.c)
- *     EtwpCoverageResetWorkItemCallback @ 0x1408B6F00 (EtwpCoverageResetWorkItemCallback.c)
+ *     EtwpCoverageFlushWorkItemCallback @ 0x140684740 (EtwpCoverageFlushWorkItemCallback.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x1406B3F80 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwpCoverageResetWorkItemCallback @ 0x1408B6EE0 (EtwpCoverageResetWorkItemCallback.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwTelemetryCoverageReport @ 0x14012A560 (EtwTelemetryCoverageReport.c)
- *     TelemetryCoverageStringHashInternal @ 0x14012A748 (TelemetryCoverageStringHashInternal.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     EtwpCoverageFlushPending @ 0x140684830 (EtwpCoverageFlushPending.c)
- *     EtwpCoverageFreeStringBuffers @ 0x1408B699C (EtwpCoverageFreeStringBuffers.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwTelemetryCoverageReport @ 0x14012A580 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageStringHashInternal @ 0x14012A768 (TelemetryCoverageStringHashInternal.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     EtwpCoverageFlushPending @ 0x140684810 (EtwpCoverageFlushPending.c)
+ *     EtwpCoverageFreeStringBuffers @ 0x1408B697C (EtwpCoverageFreeStringBuffers.c)
  */
 
 struct _KTHREAD *__fastcall EtwpCoverageReset(__int64 a1, char a2)
@@ -25,11 +25,11 @@ struct _KTHREAD *__fastcall EtwpCoverageReset(__int64 a1, char a2)
 
   if ( *(_DWORD *)(*(_QWORD *)(a1 + 16) + 32LL) )
   {
-    if ( (unsigned int)dword_140401CEC < MEMORY[0xFFFFF7800000037C] )
+    if ( (unsigned int)dword_140401CBC < MEMORY[0xFFFFF7800000037C] )
     {
-      if ( !dword_140401CE8 )
-        dword_140401CE8 = TelemetryCoverageStringHashInternal(off_140401CE0, &v7);
-      EtwTelemetryCoverageReport(&off_140401CE0);
+      if ( !dword_140401CB8 )
+        dword_140401CB8 = TelemetryCoverageStringHashInternal(off_140401CB0, &v7);
+      EtwTelemetryCoverageReport(&off_140401CB0);
     }
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;

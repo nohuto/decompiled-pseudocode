@@ -1,11 +1,11 @@
 /*
- * XREFs of IopTestConfiguration @ 0x14072E318
+ * XREFs of IopTestConfiguration @ 0x14072E2F8
  * Callers:
- *     PnpFindBestConfigurationWorker @ 0x14072E204 (PnpFindBestConfigurationWorker.c)
+ *     PnpFindBestConfigurationWorker @ 0x14072E1E4 (PnpFindBestConfigurationWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PnpLookupArbitersNewResources @ 0x14072E400 (PnpLookupArbitersNewResources.c)
- *     PnpLogDeviceConflictingResource @ 0x14073043C (PnpLogDeviceConflictingResource.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PnpLookupArbitersNewResources @ 0x14072E3E0 (PnpLookupArbitersNewResources.c)
+ *     PnpLogDeviceConflictingResource @ 0x14073041C (PnpLogDeviceConflictingResource.c)
  */
 
 __int64 __fastcall IopTestConfiguration(int a1, int a2, __int64 **a3)

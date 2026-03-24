@@ -1,7 +1,7 @@
 /*
- * XREFs of PowerIsDisplayBurstActive @ 0x1C0147EC0
+ * XREFs of PowerIsDisplayBurstActive @ 0x1C011A1B0
  * Callers:
- *     PowerIsDisplayIdleExpired @ 0x1C007D130 (PowerIsDisplayIdleExpired.c)
+ *     PowerIsDisplayIdleExpired @ 0x1C00856F0 (PowerIsDisplayIdleExpired.c)
  * Callees:
  *     <none>
  */
@@ -18,13 +18,13 @@ _BOOL8 __fastcall PowerIsDisplayBurstActive(int *a1)
 
   v2 = (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
       * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64;
-  v3 = v2 - qword_1C0296F60;
-  v4 = v2 - qword_1C0296F58;
-  v5 = v2 - qword_1C0296F50;
+  v3 = v2 - qword_1C0252190;
+  v4 = v2 - qword_1C0252188;
+  v5 = v2 - qword_1C0252180;
   v6 = v3 <= 0x7D0 || v4 <= 0x1388 || v5 <= 0x61A8;
   v7 = ((((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
        * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64)
-     - qword_1C0296F58;
+     - qword_1C0252188;
   if ( v4 >= v5 )
     v7 = v5;
   if ( v3 <= v7 )

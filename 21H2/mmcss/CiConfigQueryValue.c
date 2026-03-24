@@ -1,13 +1,13 @@
 /*
- * XREFs of CiConfigQueryValue @ 0x1C000DE00
+ * XREFs of CiConfigQueryValue @ 0x1C000DE80
  * Callers:
- *     CiConfigQueryTaskFromRegistry @ 0x1C000DD10 (CiConfigQueryTaskFromRegistry.c)
+ *     CiConfigQueryTaskFromRegistry @ 0x1C000DD90 (CiConfigQueryTaskFromRegistry.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0003170 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x1C00031B0 (__report_rangecheckfailure.c)
- *     memmove @ 0x1C0003400 (memmove.c)
- *     WPP_SF_Zd @ 0x1C00047E8 (WPP_SF_Zd.c)
- *     WPP_SF_L @ 0x1C0004D98 (WPP_SF_L.c)
+ *     __security_check_cookie @ 0x1C0002FD0 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1C0003010 (__report_rangecheckfailure.c)
+ *     memmove @ 0x1C00031C0 (memmove.c)
+ *     WPP_SF_Zd @ 0x1C0004538 (WPP_SF_Zd.c)
+ *     WPP_SF_L @ 0x1C0004AE8 (WPP_SF_L.c)
  */
 
 __int64 __fastcall CiConfigQueryValue(HANDLE KeyHandle, __int64 a2, _QWORD *a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of AcpiDiagTraceThermalNotification @ 0x1C0008B38
+ * XREFs of AcpiDiagTraceThermalNotification @ 0x1C0011E00
  * Callers:
- *     ACPIThermalLoopEx @ 0x1C0041110 (ACPIThermalLoopEx.c)
+ *     ACPIThermalLoopEx @ 0x1C0012A28 (ACPIThermalLoopEx.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
- *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C0010920 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 void __fastcall AcpiDiagTraceThermalNotification(_DWORD *a1, __int64 a2, __int16 a3)
@@ -52,7 +52,7 @@ void __fastcall AcpiDiagTraceThermalNotification(_DWORD *a1, __int64 a2, __int16
     && (a3 != 128 || EtwEventEnabled(AcpiDiagHandle, &ACPI_ETW_EVENT_TEMPERATURE_NOTIFICATION))
     && (a3 != 129 || EtwEventEnabled(AcpiDiagHandle, &ACPI_ETW_EVENT_TRIP_POINT_NOTIFICATION))
     && (unsigned __int16)(a3 - 128) <= 1u
-    && (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a2 + 760), &DestinationString_8, 1LL) >= 0 )
+    && (int)ACPIAmliBuildObjectPathnameUnicode(*(_QWORD *)(a2 + 720), (__int64)&DestinationString_8) >= 0 )
   {
     v6 = &v31;
     v7 = 10LL;

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bRedo@UNDOW32THREADPIDLOCKS@@QEAAHXZ @ 0x1C00FAD28
+ * XREFs of ?bRedo@UNDOW32THREADPIDLOCKS@@QEAAHXZ @ 0x1C00EF094
  * Callers:
- *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C0031BF0 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
- *     ?bSpBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C00FA780 (-bSpBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEA.c)
- *     ?bSpBltScreenToScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C027E220 (-bSpBltScreenToScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@.c)
+ *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C0096930 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?bSpBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C00EEAF0 (-bSpBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEA.c)
+ *     ?bSpBltScreenToScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C02805A0 (-bSpBltScreenToScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@.c)
  * Callees:
  *     <none>
  */
@@ -31,7 +31,7 @@ LABEL_2:
   v4 = **this;
   if ( !*((_DWORD *)this + 5) )
   {
-    if ( (unsigned int)SURFACE::Map(*(_QWORD *)(v4 + 496), 0LL, v4) == 2 )
+    if ( (unsigned int)SURFACE::Map(*(_QWORD *)(v4 + 496), 0LL) == 2 )
     {
       *(_DWORD *)(**this + 44) |= 1u;
       v2 = 0;
@@ -43,7 +43,7 @@ LABEL_2:
   v7 = *(_QWORD *)(*v5 + 496);
   if ( v7 >= v6 )
   {
-    if ( (unsigned int)SURFACE::Map(*(_QWORD *)(v4 + 496), 0LL, v4) == 2 )
+    if ( (unsigned int)SURFACE::Map(*(_QWORD *)(v4 + 496), 0LL) == 2 )
     {
       *(_DWORD *)(**this + 44) |= 1u;
       v2 = 0;
@@ -51,20 +51,20 @@ LABEL_2:
     _InterlockedOr(v10, 0);
     v9 = v7;
 LABEL_16:
-    if ( (unsigned int)SURFACE::Map(v9, 0LL, 0LL) != 2 )
+    if ( (unsigned int)SURFACE::Map(v9, 0LL) != 2 )
       return v2;
     v8 = this[1];
 LABEL_18:
     *(_DWORD *)(*v8 + 44) |= 1u;
     return 0;
   }
-  if ( (unsigned int)SURFACE::Map(*(_QWORD *)(*v5 + 496), 0LL, 0LL) == 2 )
+  if ( (unsigned int)SURFACE::Map(*(_QWORD *)(*v5 + 496), 0LL) == 2 )
   {
     *(_DWORD *)(*this[1] + 44) |= 1u;
     v2 = 0;
   }
   _InterlockedOr(v10, 0);
-  if ( (unsigned int)SURFACE::Map(v6, 0LL, **this) == 2 )
+  if ( (unsigned int)SURFACE::Map(v6, 0LL) == 2 )
   {
     v8 = *this;
     goto LABEL_18;

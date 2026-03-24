@@ -1,30 +1,30 @@
 /*
- * XREFs of PopUmpoProcessMessages @ 0x1407EFAD0
+ * XREFs of PopUmpoProcessMessages @ 0x14067A3E4
  * Callers:
- *     PopUmpoMessageCallback @ 0x14036A1B0 (PopUmpoMessageCallback.c)
- *     PopUmpoInitializeChannel @ 0x140B2B9FC (PopUmpoInitializeChannel.c)
+ *     PopUmpoMessageCallback @ 0x140281310 (PopUmpoMessageCallback.c)
+ *     PopUmpoInitializeChannel @ 0x140A6FE7C (PopUmpoInitializeChannel.c)
  * Callees:
- *     AlpcGetMessageAttribute @ 0x14036A1D0 (AlpcGetMessageAttribute.c)
- *     AlpcInitializeMessageAttribute @ 0x14036A210 (AlpcInitializeMessageAttribute.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwAlpcSendWaitReceivePort @ 0x14041C8E0 (ZwAlpcSendWaitReceivePort.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PopUmpoProcessMessage @ 0x1407EFC00 (PopUmpoProcessMessage.c)
- *     PopDiagTraceUmpoAlpcProcessingError @ 0x140993610 (PopDiagTraceUmpoAlpcProcessingError.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     AlpcGetMessageAttribute @ 0x140281330 (AlpcGetMessageAttribute.c)
+ *     AlpcInitializeMessageAttribute @ 0x140281370 (AlpcInitializeMessageAttribute.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x1403FB520 (ZwAlpcSendWaitReceivePort.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PopUmpoProcessMessage @ 0x14067A514 (PopUmpoProcessMessage.c)
+ *     PopDiagTraceUmpoAlpcProcessingError @ 0x1408EBC44 (PopDiagTraceUmpoAlpcProcessingError.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void PopUmpoProcessMessages()
 {
-  void *Pool2; // rdi
+  PVOID PoolWithTag; // rdi
   int v1; // ebx
   char *MessageAttribute; // rax
   __int64 v3; // [rsp+58h] [rbp-B0h] BYREF
   _DWORD v4[40]; // [rsp+68h] [rbp-A0h] BYREF
 
-  Pool2 = (void *)ExAllocatePool2(256LL, 4096LL, 1869638997LL);
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x6F706D55u);
+  if ( !PoolWithTag )
   {
     v1 = -1073741670;
 LABEL_7:
@@ -39,9 +39,9 @@ LABEL_7:
     if ( v1 )
       break;
     MessageAttribute = AlpcGetMessageAttribute(v4, 0x20000000);
-    PopUmpoProcessMessage(Pool2, MessageAttribute);
+    PopUmpoProcessMessage(PoolWithTag, MessageAttribute);
   }
-  ExFreePoolWithTag(Pool2, 0);
+  ExFreePoolWithTag(PoolWithTag, 0);
   if ( v1 < 0 )
     goto LABEL_7;
 }

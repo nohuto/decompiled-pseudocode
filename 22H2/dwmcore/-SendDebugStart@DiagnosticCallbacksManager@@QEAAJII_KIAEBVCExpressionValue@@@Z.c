@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SendDebugStart@DiagnosticCallbacksManager@@QEAAJII_KIAEBVCExpressionValue@@@Z @ 0x1801BAD6C
+ * XREFs of ?SendDebugStart@DiagnosticCallbacksManager@@QEAAJII_KIAEBVCExpressionValue@@@Z @ 0x180166A20
  * Callers:
- *     ?DeferredSendDebugStart@CAnimationLoggingManager@@AEAAXI_KI@Z @ 0x1802153C8 (-DeferredSendDebugStart@CAnimationLoggingManager@@AEAAXI_KI@Z.c)
+ *     ?DeferredSendDebugStart@CAnimationLoggingManager@@AEAAXI_KI@Z @ 0x1801AFF74 (-DeferredSendDebugStart@CAnimationLoggingManager@@AEAAXI_KI@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B76D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?TryGetProxyForPeer@DiagnosticCallbacksManager@@AEAAPEAUICompObjectDiagnosticsRootProxy@@I@Z @ 0x1801BBE00 (-TryGetProxyForPeer@DiagnosticCallbacksManager@@AEAAPEAUICompObjectDiagnosticsRootProxy@@I@Z.c)
- *     ?GetValueSizeInBytes@CExpressionValue@@QEBA_KXZ @ 0x180217624 (-GetValueSizeInBytes@CExpressionValue@@QEBA_KXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801643CC (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?TryGetProxyForPeer@DiagnosticCallbacksManager@@AEAAPEAUICompObjectDiagnosticsRootProxy@@I@Z @ 0x180167404 (-TryGetProxyForPeer@DiagnosticCallbacksManager@@AEAAPEAUICompObjectDiagnosticsRootProxy@@I@Z.c)
+ *     ?GetValueSizeInBytes@CExpressionValue@@QEBA_KXZ @ 0x1801B1734 (-GetValueSizeInBytes@CExpressionValue@@QEBA_KXZ.c)
  */
 
 __int64 __fastcall DiagnosticCallbacksManager::SendDebugStart(
@@ -17,29 +17,36 @@ __int64 __fastcall DiagnosticCallbacksManager::SendDebugStart(
         unsigned int a5,
         const struct CExpressionValue *a6)
 {
-  struct ICompObjectDiagnosticsRootProxy *ProxyForPeer; // rbx
-  __int64 v9; // r11
-  int v10; // eax
-  int v12; // [rsp+20h] [rbp-28h]
+  int ValueSizeInBytes; // eax
+  __int64 v9; // r10
+  __int64 v10; // r11
+  int v11; // ecx
+  int v12; // eax
   wil::details::in1diag3 *retaddr; // [rsp+48h] [rbp+0h]
 
-  ProxyForPeer = DiagnosticCallbacksManager::TryGetProxyForPeer(this, a2);
-  if ( ProxyForPeer )
+  if ( DiagnosticCallbacksManager::TryGetProxyForPeer(this, a2) )
   {
-    CExpressionValue::GetValueSizeInBytes(a6);
-    v12 = *(_DWORD *)(v9 + 72);
-    v10 = (*(__int64 (__fastcall **)(struct ICompObjectDiagnosticsRootProxy *, _QWORD, __int64, _QWORD))(*(_QWORD *)ProxyForPeer + 32LL))(
-            ProxyForPeer,
+    ValueSizeInBytes = CExpressionValue::GetValueSizeInBytes(a6);
+    v11 = *(_DWORD *)(v9 + 72);
+    if ( v11 == 11 )
+      v9 = *(_QWORD *)(v9 + 64);
+    v12 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64, _QWORD, int, __int64, int))(*(_QWORD *)v10 + 32LL))(
+            v10,
             a3,
             a4,
-            a5);
-    if ( v10 < 0 )
+            a5,
+            v11,
+            v9,
+            ValueSizeInBytes);
+    if ( v12 < 0 )
+    {
       wil::details::in1diag3::FailFast_Hr(
         retaddr,
-        180LL,
+        (void *)0xB4,
         (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\diagnosticcallbacksmanager.cpp",
-        (const char *)(unsigned int)v10,
-        v12);
+        (const char *)(unsigned int)v12);
+      __debugbreak();
+    }
   }
   return 0LL;
 }

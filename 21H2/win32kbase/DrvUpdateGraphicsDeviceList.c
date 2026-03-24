@@ -1,627 +1,565 @@
 /*
- * XREFs of DrvUpdateGraphicsDeviceList @ 0x1C006ADB0
+ * XREFs of DrvUpdateGraphicsDeviceList @ 0x1C001DEE0
  * Callers:
- *     DrvInitConsole @ 0x1C0068750 (DrvInitConsole.c)
- *     UpdateGraphicsDeviceList @ 0x1C006A194 (UpdateGraphicsDeviceList.c)
- *     DrvSetGraphicsDevices @ 0x1C00C53C0 (DrvSetGraphicsDevices.c)
- *     ?PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0146B18 (-PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     ?Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C014790C (-Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     UpdateGraphicsDeviceList @ 0x1C001DE68 (UpdateGraphicsDeviceList.c)
+ *     DrvSetGraphicsDevices @ 0x1C0085D10 (DrvSetGraphicsDevices.c)
+ *     DrvInitConsole @ 0x1C009A010 (DrvInitConsole.c)
+ *     ?PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0118400 (-PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0119628 (-Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FC74 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?DrvSortGraphicsDeviceList@@YAXXZ @ 0x1C0069B28 (-DrvSortGraphicsDeviceList@@YAXXZ.c)
- *     DrvCleanupOneGraphicsDevice @ 0x1C0069DB0 (DrvCleanupOneGraphicsDevice.c)
- *     ?DrvAddAdapterLuid@@YAJU_LUID@@@Z @ 0x1C006A51C (-DrvAddAdapterLuid@@YAJU_LUID@@@Z.c)
- *     ?DrvForceChildDeviceReenumeration@@YAJPEAU_DEVICE_OBJECT@@PEAPEAU_DEVICE_RELATIONS@@@Z @ 0x1C006A5AC (-DrvForceChildDeviceReenumeration@@YAJPEAU_DEVICE_OBJECT@@PEAPEAU_DEVICE_RELATIONS@@@Z.c)
- *     ?DrvSetDisconnectedGraphicsDevice@@YAHH@Z @ 0x1C006A740 (-DrvSetDisconnectedGraphicsDevice@@YAHH@Z.c)
- *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C006AC74 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     bSetDeviceSessionUsage @ 0x1C006ACE0 (bSetDeviceSessionUsage.c)
- *     ?DrvGetDeviceConfigurationInformation@@YAXPEAUtagGRAPHICS_DEVICE@@PEAXH@Z @ 0x1C006BAAC (-DrvGetDeviceConfigurationInformation@@YAXPEAUtagGRAPHICS_DEVICE@@PEAXH@Z.c)
- *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C006CFA0 (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
- *     UserIsWddmConnectedSession @ 0x1C0071CE0 (UserIsWddmConnectedSession.c)
- *     ?DrvGetPruneFlag@@YAHPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0072BC8 (-DrvGetPruneFlag@@YAHPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C0072CC4 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
- *     ?DrvAddMirrorDriversToRemoteList@@YAHXZ @ 0x1C00D1F30 (-DrvAddMirrorDriversToRemoteList@@YAHXZ.c)
- *     ?DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00D4218 (-DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     wcsncmp @ 0x1C00D6268 (wcsncmp.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?DrvGetPruneFlag@@YAHPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0015CCC (-DrvGetPruneFlag@@YAHPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     ?DrvGetDeviceConfigurationInformation@@YAXPEAUtagGRAPHICS_DEVICE@@PEAXH@Z @ 0x1C001A85C (-DrvGetDeviceConfigurationInformation@@YAXPEAUtagGRAPHICS_DEVICE@@PEAXH@Z.c)
+ *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C001D00C (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
+ *     UserIsWddmConnectedSession @ 0x1C001DEB0 (UserIsWddmConnectedSession.c)
+ *     ?DrvSetDisconnectedGraphicsDevice@@YAHH@Z @ 0x1C001EBB0 (-DrvSetDisconnectedGraphicsDevice@@YAHH@Z.c)
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C00297C0 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ *     PALLOCMEM2 @ 0x1C002AE08 (PALLOCMEM2.c)
+ *     ?DrvAddAdapterLuid@@YAJU_LUID@@@Z @ 0x1C007D274 (-DrvAddAdapterLuid@@YAJU_LUID@@@Z.c)
+ *     DrvCleanupOneGraphicsDevice @ 0x1C007D360 (DrvCleanupOneGraphicsDevice.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00ADCE4 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     bSetDeviceSessionUsage @ 0x1C00ADF30 (bSetDeviceSessionUsage.c)
+ *     ?DrvForceChildDeviceReenumeration@@YAJPEAU_DEVICE_OBJECT@@PEAPEAU_DEVICE_RELATIONS@@@Z @ 0x1C00B0B68 (-DrvForceChildDeviceReenumeration@@YAJPEAU_DEVICE_OBJECT@@PEAPEAU_DEVICE_RELATIONS@@@Z.c)
+ *     ?DrvSortGraphicsDeviceList@@YAXXZ @ 0x1C00B3484 (-DrvSortGraphicsDeviceList@@YAXXZ.c)
+ *     ?DrvAddMirrorDriversToRemoteList@@YAHXZ @ 0x1C00C31D0 (-DrvAddMirrorDriversToRemoteList@@YAHXZ.c)
+ *     ?DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00C49BC (-DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     wcsncmp @ 0x1C00C552C (wcsncmp.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C020012C (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
  */
 
 __int64 __fastcall DrvUpdateGraphicsDeviceList(int a1)
 {
-  int v1; // esi
-  BOOL v2; // r15d
-  _BOOL8 v3; // r14
-  char v4; // di
-  unsigned int v5; // edi
-  int v6; // eax
-  struct tagGRAPHICS_DEVICE *v7; // rsi
-  wchar_t *v8; // rdi
-  NTSTATUS DeviceObjectPointer; // eax
-  PVOID v10; // rdi
-  __int64 Pool2; // rbx
-  int v12; // edi
-  int v13; // eax
-  struct _DEVICE_OBJECT *v14; // rcx
-  __int64 v15; // rax
-  int v16; // r12d
-  struct _DEVICE_OBJECT *v17; // r13
-  __int64 v18; // r15
-  PVOID v19; // rsi
-  unsigned __int64 v20; // rdx
-  __int64 v21; // rdi
-  __int64 v22; // r9
-  __int64 v23; // r8
-  PVOID v24; // rdx
-  wchar_t *v25; // rcx
+  __int64 v1; // rsi
+  BOOL v2; // r12d
+  int v3; // r13d
+  __int64 v4; // rax
+  char v5; // di
+  unsigned int v6; // eax
+  __int64 v7; // rdx
+  unsigned int v8; // edi
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  wchar_t *v12; // rdx
+  unsigned __int64 i; // rcx
+  __int64 v14; // rax
+  int v16; // eax
+  struct tagGRAPHICS_DEVICE *v17; // rsi
+  wchar_t *v18; // rdi
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rbx
+  int v22; // esi
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  struct _DEVICE_OBJECT *v25; // rcx
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // rax
+  struct _DEVICE_OBJECT *v29; // r14
+  __int64 v30; // rdi
+  wchar_t *v31; // rcx
   int PruneFlag; // eax
-  int v27; // ecx
-  unsigned int v28; // ecx
-  bool v29; // zf
-  int v30; // r15d
-  unsigned int v31; // edi
-  wchar_t *v33; // rcx
-  unsigned int v34; // r8d
-  int v35; // edx
-  unsigned int v36; // edx
-  wchar_t *v37; // rdx
-  char v38; // r9
-  int v39; // r8d
-  wchar_t *i; // rcx
-  const wchar_t *v41; // r9
-  void *RegistryHandleFromDeviceMap; // rax
-  __int64 v43; // rax
-  void *v44; // rax
-  __int64 *v45; // rdx
+  int v33; // ecx
+  unsigned int v34; // ecx
+  bool v35; // zf
+  unsigned int v36; // r9d
+  int v37; // r8d
+  __int64 v38; // rax
+  wchar_t *v39; // rcx
+  unsigned int v40; // r8d
+  int v41; // edx
+  unsigned int v42; // edx
+  __int64 v43; // r9
+  __int64 v44; // r8
+  PVOID v45; // rdx
   __int64 v46; // rax
-  int v47; // eax
-  unsigned int v48; // eax
-  unsigned int v49; // ecx
-  int v50; // eax
-  __int64 v51; // rdx
-  __int64 v52; // rcx
-  __int64 v53; // r8
-  int v54; // eax
+  const wchar_t *v47; // r9
+  void *v48; // rax
+  __int64 v49; // rax
+  void *RegistryHandleFromDeviceMap; // rax
+  __int64 *v51; // rdx
+  __int64 v52; // rax
+  int v53; // eax
+  unsigned int v54; // eax
+  __int64 v55; // rcx
+  __int64 v56; // rax
+  unsigned int v57; // eax
   int updated; // eax
   struct _DEVICE_OBJECT *RelatedDeviceObject; // rax
-  __int64 v57; // rax
-  __int64 v58; // rax
-  char v59; // r14
-  struct _DEVICE_OBJECT *v60; // rcx
-  PVOID Environment; // [rsp+28h] [rbp-E0h]
-  char v62; // [rsp+58h] [rbp-B0h]
-  int v64; // [rsp+60h] [rbp-A8h] BYREF
-  NTSTATUS v65; // [rsp+64h] [rbp-A4h] BYREF
-  __int64 v66; // [rsp+68h] [rbp-A0h] BYREF
-  PVOID v67; // [rsp+70h] [rbp-98h] BYREF
-  unsigned int v68[2]; // [rsp+78h] [rbp-90h] BYREF
-  void *DeviceRegKey; // [rsp+80h] [rbp-88h] BYREF
-  int v70; // [rsp+88h] [rbp-80h]
-  PFILE_OBJECT FileObject; // [rsp+90h] [rbp-78h] BYREF
-  PDEVICE_OBJECT DeviceObject; // [rsp+98h] [rbp-70h] BYREF
-  _BOOL8 v73; // [rsp+A0h] [rbp-68h]
-  int v74; // [rsp+A8h] [rbp-60h]
-  PVOID P; // [rsp+B0h] [rbp-58h] BYREF
-  __int128 InputBuffer; // [rsp+B8h] [rbp-50h] BYREF
-  __int128 v77; // [rsp+C8h] [rbp-40h]
-  __int64 v78; // [rsp+D8h] [rbp-30h]
-  __int128 v79; // [rsp+E0h] [rbp-28h] BYREF
-  __int128 v80; // [rsp+F0h] [rbp-18h]
-  struct _UNICODE_STRING DestinationString; // [rsp+100h] [rbp-8h] BYREF
-  PVOID BackTrace[20]; // [rsp+118h] [rbp+10h] BYREF
-  PVOID v83[20]; // [rsp+1B8h] [rbp+B0h] BYREF
-  struct _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+258h] [rbp+150h] BYREF
-  __int64 v85; // [rsp+290h] [rbp+188h]
-  int v86; // [rsp+298h] [rbp+190h]
-  __int128 v87; // [rsp+2A0h] [rbp+198h]
-  __int128 v88; // [rsp+2B0h] [rbp+1A8h]
-  __int64 v89; // [rsp+2C0h] [rbp+1B8h]
+  __int64 v60; // rax
+  __int64 v61; // rax
+  struct _DEVICE_OBJECT *v62; // rcx
+  __int64 v63; // rax
+  __int64 v64; // rax
+  PVOID Environment; // [rsp+20h] [rbp-E0h]
+  int v66; // [rsp+30h] [rbp-D0h]
+  char v67; // [rsp+50h] [rbp-B0h]
+  NTSTATUS DeviceObjectPointer; // [rsp+54h] [rbp-ACh] BYREF
+  _BYTE v69[4]; // [rsp+58h] [rbp-A8h] BYREF
+  int v70; // [rsp+5Ch] [rbp-A4h]
+  unsigned int v71; // [rsp+60h] [rbp-A0h] BYREF
+  unsigned int v72; // [rsp+64h] [rbp-9Ch] BYREF
+  PVOID v73; // [rsp+68h] [rbp-98h] BYREF
+  void *DeviceRegKey; // [rsp+70h] [rbp-90h] BYREF
+  PFILE_OBJECT FileObject; // [rsp+78h] [rbp-88h] BYREF
+  PDEVICE_OBJECT DeviceObject; // [rsp+80h] [rbp-80h] BYREF
+  PVOID P; // [rsp+88h] [rbp-78h] BYREF
+  __int128 InputBuffer; // [rsp+90h] [rbp-70h] BYREF
+  __int128 v79; // [rsp+A0h] [rbp-60h]
+  __int64 v80; // [rsp+B0h] [rbp-50h]
+  __int128 v81; // [rsp+B8h] [rbp-48h] BYREF
+  __int128 v82; // [rsp+C8h] [rbp-38h]
+  struct _UNICODE_STRING DestinationString; // [rsp+D8h] [rbp-28h] BYREF
+  struct _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+F0h] [rbp-10h] BYREF
+  __int64 v85; // [rsp+128h] [rbp+28h]
+  int v86; // [rsp+130h] [rbp+30h]
+  __int128 v87; // [rsp+138h] [rbp+38h]
+  __int128 v88; // [rsp+148h] [rbp+48h]
+  __int64 v89; // [rsp+158h] [rbp+58h]
 
   v1 = a1;
+  v70 = a1;
   v2 = gProtocolType == 0;
-  LODWORD(v66) = 0;
+  v72 = 0;
   DeviceObject = 0LL;
-  v78 = 0LL;
+  v80 = 0LL;
+  v3 = 1;
   FileObject = 0LL;
-  v74 = v2;
   P = 0LL;
+  DeviceObjectPointer = 0;
   DeviceRegKey = 0LL;
   InputBuffer = 0LL;
-  v70 = 1;
-  v77 = 0LL;
-  v3 = gProtocolType == 0;
-  v73 = v3;
-  WdLogSingleEntry2(4LL, a1, v3);
-  v62 = 0;
-  v4 = 0;
+  v79 = 0LL;
+  v4 = WdLogNewEntry5_WdEvent();
+  *(_QWORD *)(v4 + 24) = v1;
+  *(_QWORD *)(v4 + 32) = v2;
+  WdLogEvent5_WdEvent(v4);
+  v67 = 0;
+  v5 = 0;
   if ( v2 )
   {
     gcNextGlobalDeviceNumber = gcLocalNextGlobalDeviceNumber;
     gpGraphicsDeviceList = (wchar_t *)gpLocalGraphicsDeviceList;
     gpGraphicsDeviceListLast = gpLocalGraphicsDeviceListLast;
     gcNextGlobalPhysicalOutputNumber = gcLocalNextGlobalPhysicalOutputNumber;
-    gcNextGlobalVirtualOutputNumber = gcLocalNextGlobalVirtualOutputNumber;
-    QueryTable.Name = L"MaxObjectNumber";
-    QueryTable.EntryContext = &v66;
-    QueryTable.DefaultData = v68;
-    v89 = 0LL;
-    v68[0] = 0;
+    v6 = gcLocalNextGlobalVirtualOutputNumber;
+  }
+  else
+  {
+    gcNextGlobalDeviceNumber = gcRemoteNextGlobalDeviceNumber;
+    gpGraphicsDeviceList = (wchar_t *)gpRemoteGraphicsDeviceList;
+    gpGraphicsDeviceListLast = gpRemoteGraphicsDeviceListLast;
+    gcNextGlobalPhysicalOutputNumber = gcRemoteNextGlobalPhysicalOutputNumber;
+    v6 = gcRemoteNextGlobalVirtualOutputNumber;
+  }
+  gcNextGlobalVirtualOutputNumber = v6;
+  if ( v2 )
+  {
+    v71 = 0;
     QueryTable.QueryRoutine = 0LL;
+    QueryTable.Name = L"MaxObjectNumber";
     QueryTable.Flags = 288;
+    QueryTable.EntryContext = &v72;
     QueryTable.DefaultType = 67108868;
+    QueryTable.DefaultData = &v71;
     QueryTable.DefaultLength = 4;
+    v89 = 0LL;
     v85 = 0LL;
     v86 = 0;
     v87 = 0LL;
     v88 = 0LL;
     RtlQueryRegistryValues(4u, L"VIDEO", &QueryTable, 0LL, 0LL);
-    goto LABEL_3;
   }
-  gcNextGlobalDeviceNumber = gcRemoteNextGlobalDeviceNumber;
-  gpGraphicsDeviceList = (wchar_t *)gpRemoteGraphicsDeviceList;
-  gpGraphicsDeviceListLast = gpRemoteGraphicsDeviceListLast;
-  gcNextGlobalPhysicalOutputNumber = gcRemoteNextGlobalPhysicalOutputNumber;
-  gcNextGlobalVirtualOutputNumber = gcRemoteNextGlobalVirtualOutputNumber;
-  if ( !(unsigned int)((__int64 (*)(void))UserIsWddmConnectedSession)() )
+  else if ( (unsigned int)UserIsWddmConnectedSession() )
+  {
+    v71 = 0;
+    DeviceObjectPointer = ((__int64 (__fastcall *)(unsigned int *, unsigned int *))qword_1C0251B90)(&v71, &v72);
+    if ( DeviceObjectPointer < 0 )
+    {
+      v56 = WdLogNewEntry5_WdError(v55, v7);
+      *(_QWORD *)(v56 + 24) = DeviceObjectPointer;
+      WdLogEvent5_WdError(v56);
+      v72 = gcNextGlobalDeviceNumber;
+    }
+    v57 = gcNextGlobalDeviceNumber;
+    if ( v71 > gcNextGlobalDeviceNumber )
+    {
+      v57 = v71;
+      gcNextGlobalDeviceNumber = v71;
+    }
+    if ( v72 >= v57 + 16 )
+      MicrosoftTelemetryAssertTriggeredNoArgsKM();
+  }
+  else
   {
     if ( gProtocolType != -1 )
-      LODWORD(v66) = gRemoteContext - 1;
-    if ( !dword_1C0297080 )
-      goto LABEL_3;
-    updated = DrvUpdateRemoteAdapterInfo(0LL);
-    if ( updated >= 0 )
-      goto LABEL_3;
-    return 0LL;
-  }
-  v65 = 0;
-  v50 = ((__int64 (__fastcall *)(NTSTATUS *, __int64 *))qword_1C0296960)(&v65, &v66);
-  if ( v50 < 0 )
-  {
-    WdLogSingleEntry1(2LL, v50);
-    LODWORD(v66) = gcNextGlobalDeviceNumber;
-  }
-  v54 = gcNextGlobalDeviceNumber;
-  if ( v65 > (unsigned int)gcNextGlobalDeviceNumber )
-  {
-    v54 = v65;
-    gcNextGlobalDeviceNumber = v65;
-  }
-  if ( (unsigned int)v66 >= v54 + 16 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v52, v51, v53);
-  while ( 1 )
-  {
-LABEL_3:
-    if ( gProtocolType == -1 )
-      goto LABEL_76;
-    v5 = gcNextGlobalDeviceNumber;
-    if ( gcNextGlobalDeviceNumber > (unsigned int)v66 )
-      goto LABEL_75;
-    if ( !v1 )
+      v72 = gRemoteContext - 1;
+    if ( dword_1C02522A0 )
     {
-      WdLogSingleEntry0(5LL);
+      updated = DrvUpdateRemoteAdapterInfo(0LL);
+      DeviceObjectPointer = updated;
+      if ( updated < 0 )
+        return 0LL;
+    }
+  }
+  while ( 2 )
+  {
+    if ( gProtocolType == -1 )
+      goto LABEL_8;
+    v8 = gcNextGlobalDeviceNumber;
+    if ( gcNextGlobalDeviceNumber > v72 )
+    {
+      v5 = v67;
+      goto LABEL_8;
+    }
+    if ( !(_DWORD)v1 )
+    {
+      v63 = WdLogNewEntry5_WdTrace(0xFFFFLL, v7);
+      WdLogEvent5_WdTrace(v63);
       return 0LL;
     }
-    if ( (unsigned int)UserIsWddmConnectedSession(0xFFFFLL) )
+    if ( (unsigned int)UserIsWddmConnectedSession() )
     {
-      if ( v3 )
+      if ( v2 )
       {
-        v6 = StringCchPrintfW((unsigned __int16 *)&QueryTable, 50LL, L"\\Device\\Video%d", v5);
-        goto LABEL_9;
+        v16 = StringCchPrintfW((wchar_t *)&QueryTable, 0x32uLL, L"\\Device\\Video%d", v8);
+        goto LABEL_19;
       }
-      v41 = L"RemoteVideo";
+      v47 = L"RemoteVideo";
     }
     else
     {
-      v41 = (const wchar_t *)qword_1C0297078;
+      v47 = (const wchar_t *)qword_1C0252298;
     }
-    LODWORD(Environment) = v5;
-    v6 = StringCchPrintfW((unsigned __int16 *)&QueryTable, 50LL, L"\\Device\\%s%d", v41, Environment);
-LABEL_9:
-    if ( v6 < 0 )
+    LODWORD(Environment) = v8;
+    v16 = StringCchPrintfW((wchar_t *)&QueryTable, 0x32uLL, L"\\Device\\%s%d", v47, Environment);
+LABEL_19:
+    if ( v16 < 0 )
       return 0LL;
-    v7 = gpRemoteGraphicsDeviceListLast;
-    v8 = gpGraphicsDeviceList;
-    if ( v3 )
-      v7 = gpLocalGraphicsDeviceListLast;
-    while ( v8 )
+    v17 = gpRemoteGraphicsDeviceListLast;
+    v18 = gpGraphicsDeviceList;
+    if ( v2 )
+      v17 = gpLocalGraphicsDeviceListLast;
+    while ( v18 )
     {
-      if ( !wcsncmp((const wchar_t *)&QueryTable, v8, 0x40uLL) )
-        goto LABEL_85;
-      if ( v8 == (wchar_t *)v7 )
+      if ( !wcsncmp((const wchar_t *)&QueryTable, v18, 0x40uLL) )
+      {
+        ++gcNextGlobalDeviceNumber;
+        goto LABEL_75;
+      }
+      if ( v18 == (wchar_t *)v17 )
         break;
-      v8 = (wchar_t *)*((_QWORD *)v8 + 16);
+      v18 = (wchar_t *)*((_QWORD *)v18 + 16);
     }
     DestinationString = 0LL;
     RtlInitUnicodeString(&DestinationString, (PCWSTR)&QueryTable);
     DeviceObjectPointer = IoGetDeviceObjectPointer(&DestinationString, 0, &FileObject, &DeviceObject);
-    if ( DeviceObjectPointer < 0 )
-      break;
-LABEL_17:
-    v10 = gpLeakTrackingAllocator;
-    if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x76646747) != 0x76646747
-      || (v57 = 0LL, !*((_DWORD *)gpLeakTrackingAllocator + 11)) )
+    if ( DeviceObjectPointer >= 0 )
     {
-LABEL_18:
-      Pool2 = ExAllocatePool2(260LL, 312LL);
-LABEL_19:
-      v4 = v62;
-      v1 = a1;
-      if ( !Pool2 )
+LABEL_27:
+      v5 = v67;
+      v21 = PALLOCMEM2(0x138uLL);
+      LODWORD(v1) = v70;
+      if ( !v21 )
         continue;
-      goto LABEL_20;
-    }
-    while ( *((_DWORD *)gpLeakTrackingAllocator + v57) != 1986291527 )
-    {
-      if ( ++v57 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-        goto LABEL_18;
-    }
-    Pool2 = ExAllocatePool2(260LL, 328LL);
-    if ( !Pool2 )
-      goto LABEL_86;
-    memset(BackTrace, 0, sizeof(BackTrace));
-    RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-    if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-    {
-      if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                               v10,
-                               Pool2,
-                               BackTrace) )
+      *(_DWORD *)(v21 + 216) = 0;
+      *(_QWORD *)(v21 + 224) = 0LL;
+      *(_QWORD *)(v21 + 136) = DeviceObject;
+      *(_WORD *)(v21 + 220) = gProtocolType;
+      *(_QWORD *)(v21 + 272) = 0LL;
+      if ( !v2 )
+        *(_DWORD *)(v21 + 160) |= 0x4000000u;
+      *(_QWORD *)(v21 + 232) = FileObject;
+      if ( v2 || gRemoteSessionUseWddm )
+        *(_DWORD *)(v21 + 260) = 0;
+      v22 = 0;
+      if ( !v2 && !gRemoteSessionUseWddm )
       {
-LABEL_162:
-        ExFreePoolWithTag((PVOID)Pool2, 0);
-LABEL_86:
-        v4 = v62;
-LABEL_74:
-        v1 = a1;
-        continue;
+        *(_QWORD *)(v21 + 248) = 0xFFFFFFFFLL;
+        *(_DWORD *)(v21 + 256) = gcNextGlobalDeviceNumber;
+        *(_QWORD *)(v21 + 240) = 0LL;
+        goto LABEL_45;
       }
-      Pool2 += 16LL;
-      goto LABEL_19;
-    }
-    if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                             v10,
-                             Pool2,
-                             BackTrace) )
-      goto LABEL_162;
-LABEL_20:
-    *(_DWORD *)(Pool2 + 216) = 0;
-    *(_QWORD *)(Pool2 + 224) = 0LL;
-    *(_QWORD *)(Pool2 + 136) = DeviceObject;
-    *(_WORD *)(Pool2 + 220) = gProtocolType;
-    *(_QWORD *)(Pool2 + 272) = 0LL;
-    if ( !v3 )
-      *(_DWORD *)(Pool2 + 160) |= 0x4000000u;
-    *(_QWORD *)(Pool2 + 232) = FileObject;
-    if ( v3 || gRemoteSessionUseWddm )
-      *(_DWORD *)(Pool2 + 260) = 0;
-    v12 = 0;
-    if ( !v3 && !gRemoteSessionUseWddm )
-    {
-      *(_QWORD *)(Pool2 + 248) = 0xFFFFFFFFLL;
-      *(_DWORD *)(Pool2 + 256) = gcNextGlobalDeviceNumber;
-      *(_QWORD *)(Pool2 + 240) = 0LL;
-      goto LABEL_37;
-    }
-    *((_QWORD *)&InputBuffer + 1) = VideoPortCallout;
-    v78 = 0LL;
-    v77 = 0LL;
-    *(_QWORD *)&InputBuffer = Pool2;
-    v13 = GreDeviceIoControlImpl(
-            *(PDEVICE_OBJECT *)(Pool2 + 136),
-            0x23201Fu,
-            &InputBuffer,
-            0x28u,
-            &InputBuffer,
-            0x28u,
-            v68,
-            1u,
-            1);
-    if ( v13 < 0 )
-    {
-      WdLogSingleEntry1(5LL, v13);
-      goto LABEL_169;
-    }
-    if ( (_DWORD)v77 )
-      *(_DWORD *)(Pool2 + 160) |= 0x40000000u;
-    if ( (v78 & 0xC0000001) != 0 )
-    {
-      WdLogSingleEntry2(5LL, (unsigned int)v78, -1073741637LL);
-LABEL_169:
-      DrvCleanupOneGraphicsDevice((_QWORD *)Pool2);
-LABEL_85:
-      ++gcNextGlobalDeviceNumber;
-      goto LABEL_86;
-    }
-    if ( (v78 & 0x20000000) != 0 )
-      *(_DWORD *)(Pool2 + 160) |= 0x100000u;
-    v14 = *(struct _DEVICE_OBJECT **)(Pool2 + 136);
-    *(_QWORD *)(Pool2 + 144) = *((_QWORD *)&v77 + 1);
-    *(_DWORD *)(Pool2 + 256) = 0;
-    v79 = 0LL;
-    v80 = 0LL;
-    if ( (int)GreDeviceIoControlImpl(v14, 0x232033u, 0LL, 0, &v79, 0x20u, v68, 1u, 1) < 0 )
-    {
-      if ( !v3 )
-        goto LABEL_169;
-    }
-    else
-    {
-      if ( (_DWORD)v79 != 2 )
-        WdLogSingleEntry0(1LL);
-      if ( gRemoteTerminalLuid != *((_QWORD *)&v80 + 1) )
-        goto LABEL_169;
-      v15 = *((_QWORD *)&v79 + 1);
-      if ( !*((_QWORD *)&v79 + 1) )
-        goto LABEL_169;
-      *(_DWORD *)(Pool2 + 160) |= 0x800000u;
-      *(_QWORD *)(Pool2 + 240) = v15;
-      *(_DWORD *)(Pool2 + 256) = DWORD1(v79);
-      *(_QWORD *)(Pool2 + 248) = v80;
-    }
-LABEL_37:
-    v65 = DrvForceChildDeviceReenumeration(DeviceObject, (struct _DEVICE_RELATIONS **)&P);
-    v16 = v65;
-    if ( v65 >= 0 )
-    {
-      v17 = (struct _DEVICE_OBJECT *)*((_QWORD *)P + 1);
-      ExFreePoolWithTag(P, 0);
-      v65 = IoOpenDeviceRegistryKey(v17, 2u, 0x2000000u, &DeviceRegKey);
-      v16 = v65;
-      if ( v65 < 0 )
+      v80 = 0LL;
+      *((_QWORD *)&InputBuffer + 1) = VideoPortCallout;
+      *(_QWORD *)&InputBuffer = v21;
+      v79 = 0LL;
+      DeviceObjectPointer = GreDeviceIoControlImpl(
+                              *(PDEVICE_OBJECT *)(v21 + 136),
+                              0x23201Fu,
+                              &InputBuffer,
+                              0x28u,
+                              &InputBuffer,
+                              0x28u,
+                              &v71,
+                              1u,
+                              1);
+      if ( DeviceObjectPointer < 0 )
       {
-LABEL_60:
-        ObfDereferenceObject(v17);
-        goto LABEL_61;
+        v60 = WdLogNewEntry5_WdTrace(v24, v23);
+        *(_QWORD *)(v60 + 24) = DeviceObjectPointer;
       }
-      v67 = 0LL;
-      LODWORD(v18) = 0;
-      if ( (int)GreDeviceIoControlImpl(DeviceObject, 0x23201Bu, 0LL, 0, &v67, 8u, v68, 1u, 1) >= 0 )
+      else
       {
-        if ( v67 )
+        if ( (_DWORD)v79 )
+          *(_DWORD *)(v21 + 160) |= 0x40000000u;
+        if ( (v80 & 0xC0000001) == 0 )
         {
-          v12 = 1;
-          if ( (*(_DWORD *)v67 & 0x20000000) != 0 )
+          if ( (v80 & 0x20000000) != 0 )
+            *(_DWORD *)(v21 + 160) |= 0x100000u;
+          v25 = *(struct _DEVICE_OBJECT **)(v21 + 136);
+          *(_QWORD *)(v21 + 144) = *((_QWORD *)&v79 + 1);
+          *(_DWORD *)(v21 + 256) = 0;
+          v81 = 0LL;
+          v82 = 0LL;
+          DeviceObjectPointer = GreDeviceIoControlImpl(v25, 0x232033u, 0LL, 0, &v81, 0x20u, &v71, 1u, 1);
+          if ( DeviceObjectPointer < 0 )
           {
-            do
-              v18 = (unsigned int)(v18 + 1);
-            while ( (*((_DWORD *)v67 + 5 * v18) & 0x20000000) != 0 );
+            if ( v2 )
+              goto LABEL_45;
           }
-        }
-      }
-      DrvGetDeviceConfigurationInformation((PVOID)Pool2, (PCWSTR)DeviceRegKey, 1);
-      if ( !v12 )
-      {
-LABEL_59:
-        ZwClose(DeviceRegKey);
-        goto LABEL_60;
-      }
-      if ( !(_DWORD)v18 )
-      {
-LABEL_58:
-        ExFreePoolWithTag(v67, 0);
-        goto LABEL_59;
-      }
-      *(_DWORD *)(Pool2 + 216) = v18;
-      if ( 20 * (_DWORD)v18 )
-      {
-        v19 = gpLeakTrackingAllocator;
-        v20 = (unsigned int)(20 * v18);
-        if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x76646747) != 0x76646747
-          || (v58 = 0LL, !*((_DWORD *)gpLeakTrackingAllocator + 11)) )
-        {
-LABEL_47:
-          v21 = ExAllocatePool2(260LL, v20);
-          goto LABEL_48;
-        }
-        while ( *((_DWORD *)gpLeakTrackingAllocator + v58) != 1986291527 )
-        {
-          if ( ++v58 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-            goto LABEL_47;
-        }
-        v59 = 0;
-        if ( v20 < 0x1000 || ((20 * (_WORD)v18) & 0xFFF) != 0 )
-        {
-          v59 = 1;
-          v20 += 16LL;
-        }
-        v21 = ExAllocatePool2(260LL, v20);
-        if ( v21 )
-        {
-          memset(v83, 0, sizeof(v83));
-          RtlCaptureStackBackTrace(0, 0x14u, v83, 0LL);
-          if ( v59 && (unsigned __int64)(v21 & 0xFFF) + 16 < 0x1000 )
+          else
           {
-            if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                    v19,
-                                    v21,
-                                    v83) )
+            if ( (_DWORD)v81 != 2 )
             {
-              v21 += 16LL;
-LABEL_182:
-              v3 = v73;
-              goto LABEL_48;
+              v61 = WdLogNewEntry5_WdAssertion(v27, v26);
+              WdLogEvent5_WdAssertion(v61);
+            }
+            if ( gRemoteTerminalLuid == *((_QWORD *)&v82 + 1) )
+            {
+              v28 = *((_QWORD *)&v81 + 1);
+              if ( *((_QWORD *)&v81 + 1) )
+              {
+                *(_DWORD *)(v21 + 160) |= 0x800000u;
+                *(_QWORD *)(v21 + 240) = v28;
+                *(_DWORD *)(v21 + 256) = DWORD1(v81);
+                *(_QWORD *)(v21 + 248) = v82;
+LABEL_45:
+                DeviceObjectPointer = DrvForceChildDeviceReenumeration(DeviceObject, (struct _DEVICE_RELATIONS **)&P);
+                if ( DeviceObjectPointer < 0 )
+                {
+                  if ( (*(_DWORD *)(v21 + 160) & 0x20000000) != 0 )
+                  {
+                    v62 = *(struct _DEVICE_OBJECT **)(v21 + 144);
+                    if ( v62 )
+                    {
+                      DeviceObjectPointer = IoOpenDeviceRegistryKey(v62, 2u, 0x2000000u, &DeviceRegKey);
+                      if ( DeviceObjectPointer >= 0 )
+                      {
+                        DrvGetDeviceConfigurationInformation((PVOID)v21, (WCHAR *)DeviceRegKey, 1);
+                        ZwClose(DeviceRegKey);
+                      }
+                    }
+                  }
+                }
+                else
+                {
+                  v29 = (struct _DEVICE_OBJECT *)*((_QWORD *)P + 1);
+                  ExFreePoolWithTag(P, 0);
+                  DeviceObjectPointer = IoOpenDeviceRegistryKey(v29, 2u, 0x2000000u, &DeviceRegKey);
+                  if ( DeviceObjectPointer >= 0 )
+                  {
+                    v73 = 0LL;
+                    LODWORD(v30) = 0;
+                    if ( (int)GreDeviceIoControlImpl(DeviceObject, 0x23201Bu, 0LL, 0, &v73, 8u, &v71, 1u, 1) >= 0 )
+                    {
+                      if ( v73 )
+                      {
+                        v22 = 1;
+                        if ( (*(_DWORD *)v73 & 0x20000000) != 0 )
+                        {
+                          do
+                            v30 = (unsigned int)(v30 + 1);
+                          while ( (*((_DWORD *)v73 + 5 * v30) & 0x20000000) != 0 );
+                        }
+                      }
+                    }
+                    DrvGetDeviceConfigurationInformation((PVOID)v21, (WCHAR *)DeviceRegKey, 1);
+                    if ( v22 )
+                    {
+                      if ( (_DWORD)v30 )
+                      {
+                        *(_DWORD *)(v21 + 216) = v30;
+                        *(_QWORD *)(v21 + 224) = PALLOCMEM2((unsigned int)(20 * v30));
+                        v43 = (unsigned int)v30;
+                        v44 = 0LL;
+                        do
+                        {
+                          *(_DWORD *)(v44 + *(_QWORD *)(v21 + 224)) = 0;
+                          v45 = v73;
+                          if ( (*(_DWORD *)((_BYTE *)v73 + v44) & 1) != 0 )
+                          {
+                            *(_DWORD *)(v44 + *(_QWORD *)(v21 + 224)) |= 1u;
+                            v45 = v73;
+                          }
+                          if ( (*(_DWORD *)((_BYTE *)v45 + v44) & 2) == 0 )
+                          {
+                            *(_DWORD *)(v44 + *(_QWORD *)(v21 + 224)) |= 2u;
+                            v45 = v73;
+                          }
+                          if ( *(int *)((char *)v45 + v44) >= 0 )
+                          {
+                            *(_DWORD *)(v44 + *(_QWORD *)(v21 + 224)) |= 0x80000000;
+                            v45 = v73;
+                          }
+                          if ( (*(_DWORD *)((_BYTE *)v45 + v44) & 0x40000000) == 0 )
+                          {
+                            *(_DWORD *)(v44 + *(_QWORD *)(v21 + 224)) |= 0x40000000u;
+                            v45 = v73;
+                          }
+                          *(_DWORD *)(v44 + *(_QWORD *)(v21 + 224) + 4) = *(_DWORD *)((char *)v45 + v44 + 4);
+                          *(_QWORD *)(v44 + *(_QWORD *)(v21 + 224) + 8) = *(_QWORD *)((char *)v73 + v44 + 8);
+                          *(_BYTE *)(v44 + *(_QWORD *)(v21 + 224) + 16) = *((_BYTE *)v73 + v44 + 16);
+                          v44 += 20LL;
+                          --v43;
+                        }
+                        while ( v43 );
+                      }
+                      ExFreePoolWithTag(v73, 0);
+                    }
+                    ZwClose(DeviceRegKey);
+                  }
+                  ObfDereferenceObject(v29);
+                }
+                swprintf_s((wchar_t *)v21, 0x20uLL, (const wchar_t *)&QueryTable);
+                ++gcNextGlobalDeviceNumber;
+                if ( DeviceObjectPointer >= 0
+                  || (v48 = (void *)DrvGetRegistryHandleFromDeviceMap(v21, 0LL, 0LL, 0LL, 0, &DeviceObjectPointer, v66),
+                      DeviceRegKey = v48,
+                      DeviceObjectPointer >= 0)
+                  && (DrvGetDeviceConfigurationInformation((PVOID)v21, (WCHAR *)v48, 0),
+                      ZwClose(DeviceRegKey),
+                      DeviceObjectPointer >= 0) )
+                {
+                  if ( !*(_QWORD *)(v21 + 208) )
+                  {
+                    v49 = PALLOCMEM2(0x20uLL);
+                    *(_QWORD *)(v21 + 208) = v49;
+                    if ( v49 )
+                    {
+                      RegistryHandleFromDeviceMap = (void *)DrvGetRegistryHandleFromDeviceMap(
+                                                              v21,
+                                                              0LL,
+                                                              0LL,
+                                                              v49,
+                                                              16,
+                                                              &DeviceObjectPointer,
+                                                              v66);
+                      DeviceRegKey = RegistryHandleFromDeviceMap;
+                      if ( RegistryHandleFromDeviceMap )
+                        ZwClose(RegistryHandleFromDeviceMap);
+                    }
+                    else
+                    {
+                      DeviceObjectPointer = -1073741670;
+                    }
+                  }
+                }
+                v31 = (wchar_t *)(v21 + 64);
+                if ( (*(_DWORD *)(v21 + 160) & 8) != 0 )
+                {
+                  ++gcNextGlobalVirtualOutputNumber;
+                  swprintf_s(v31, 0x20uLL, L"\\\\.\\DISPLAYV%d");
+                }
+                else
+                {
+                  ++gcNextGlobalPhysicalOutputNumber;
+                  swprintf_s(v31, 0x20uLL, L"\\\\.\\DISPLAY%d");
+                }
+                PruneFlag = DrvGetPruneFlag((struct tagGRAPHICS_DEVICE *)v21);
+                v33 = *(_DWORD *)(v21 + 160);
+                if ( PruneFlag )
+                  v34 = v33 & 0xFFF7FFFF;
+                else
+                  v34 = v33 | 0x80000;
+                *(_DWORD *)(v21 + 160) = v34;
+                if ( (unsigned int)bSetDeviceSessionUsage(v21, 1LL) )
+                {
+                  if ( v2 || gRemoteSessionUseWddm )
+                    goto LABEL_63;
+                  goto LABEL_129;
+                }
+                if ( !v2 && !gRemoteSessionUseWddm )
+                {
+LABEL_129:
+                  *(_QWORD *)(v21 + 280) = 0LL;
+                  v51 = (__int64 *)(v21 + 296);
+                  if ( dword_1C02522A0 )
+                    v52 = qword_1C02522A4;
+                  else
+                    v52 = 0LL;
+                  *v51 = v52;
+                  *(_QWORD *)(v21 + 304) = 0LL;
+                  v69[0] = 0;
+                  if ( (int)((__int64 (__fastcall *)(__int64, __int64 *, __int64, __int64, _BYTE *))qword_1C02519F8)(
+                              v21 + 280,
+                              v51,
+                              v21 + 304,
+                              v21 + 288,
+                              v69) >= 0 )
+                  {
+                    v53 = *(_DWORD *)(v21 + 164);
+                    if ( v69[0] )
+                      v54 = v53 | 4;
+                    else
+                      v54 = v53 & 0xFFFFFFFB;
+                    *(_DWORD *)(v21 + 164) = v54;
+                    DrvUpdateRemoteAdapterInfo((struct tagGRAPHICS_DEVICE *)v21);
+                  }
+                  if ( DeviceObjectPointer < 0 && !gRemoteSessionUseWddm )
+                  {
+                    DrvCleanupOneGraphicsDevice(v21);
+                    --gcNextGlobalPhysicalOutputNumber;
+                    v3 = 0;
+                    v5 = v67;
+                    goto LABEL_68;
+                  }
+LABEL_63:
+                  if ( gpGraphicsDeviceList )
+                    *((_QWORD *)gpGraphicsDeviceListLast + 16) = v21;
+                  else
+                    gpGraphicsDeviceList = (wchar_t *)v21;
+                  v35 = (*(_DWORD *)(v21 + 160) & 0x800000) == 0;
+                  gpGraphicsDeviceListLast = (struct tagGRAPHICS_DEVICE *)v21;
+                  if ( !v35 )
+                    DrvAddAdapterLuid(*(struct _LUID *)(v21 + 248));
+                  v5 = 1;
+                  v67 = 1;
+                  goto LABEL_68;
+                }
+                DrvCleanupOneGraphicsDevice(v21);
+LABEL_75:
+                v5 = v67;
+LABEL_68:
+                LODWORD(v1) = v70;
+                continue;
+              }
             }
           }
-          else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                       v19,
-                                       v21,
-                                       v83) )
-          {
-            goto LABEL_182;
-          }
-          ExFreePoolWithTag((PVOID)v21, 0);
+LABEL_159:
+          DrvCleanupOneGraphicsDevice(v21);
+          ++gcNextGlobalDeviceNumber;
+          goto LABEL_75;
         }
-        v3 = v73;
+        DeviceObjectPointer = -1073741637;
+        v60 = WdLogNewEntry5_WdTrace(v24, v23);
+        *(_QWORD *)(v60 + 24) = (unsigned int)v80;
+        *(_QWORD *)(v60 + 32) = DeviceObjectPointer;
       }
-      v21 = 0LL;
-LABEL_48:
-      *(_QWORD *)(Pool2 + 224) = v21;
-      v22 = (unsigned int)v18;
-      v23 = 0LL;
-      do
-      {
-        *(_DWORD *)(v23 + *(_QWORD *)(Pool2 + 224)) = 0;
-        v24 = v67;
-        if ( (*(_DWORD *)((_BYTE *)v67 + v23) & 1) != 0 )
-        {
-          *(_DWORD *)(v23 + *(_QWORD *)(Pool2 + 224)) |= 1u;
-          v24 = v67;
-        }
-        if ( (*(_DWORD *)((_BYTE *)v24 + v23) & 2) == 0 )
-        {
-          *(_DWORD *)(v23 + *(_QWORD *)(Pool2 + 224)) |= 2u;
-          v24 = v67;
-        }
-        if ( *(int *)((char *)v24 + v23) >= 0 )
-        {
-          *(_DWORD *)(v23 + *(_QWORD *)(Pool2 + 224)) |= 0x80000000;
-          v24 = v67;
-        }
-        if ( (*(_DWORD *)((_BYTE *)v24 + v23) & 0x40000000) == 0 )
-        {
-          *(_DWORD *)(v23 + *(_QWORD *)(Pool2 + 224)) |= 0x40000000u;
-          v24 = v67;
-        }
-        *(_DWORD *)(v23 + *(_QWORD *)(Pool2 + 224) + 4) = *(_DWORD *)((char *)v24 + v23 + 4);
-        *(_QWORD *)(v23 + *(_QWORD *)(Pool2 + 224) + 8) = *(_QWORD *)((char *)v67 + v23 + 8);
-        *(_BYTE *)(v23 + *(_QWORD *)(Pool2 + 224) + 16) = *((_BYTE *)v67 + v23 + 16);
-        v23 += 20LL;
-        --v22;
-      }
-      while ( v22 );
-      goto LABEL_58;
+      WdLogEvent5_WdTrace(v60);
+      goto LABEL_159;
     }
-    if ( (*(_DWORD *)(Pool2 + 160) & 0x20000000) != 0 )
-    {
-      v60 = *(struct _DEVICE_OBJECT **)(Pool2 + 144);
-      if ( v60 )
-      {
-        v65 = IoOpenDeviceRegistryKey(v60, 2u, 0x2000000u, &DeviceRegKey);
-        v16 = v65;
-        if ( v65 >= 0 )
-        {
-          DrvGetDeviceConfigurationInformation((PVOID)Pool2, (PCWSTR)DeviceRegKey, 1);
-          ZwClose(DeviceRegKey);
-        }
-      }
-    }
-LABEL_61:
-    swprintf_s((wchar_t *)Pool2, 0x20uLL, (const wchar_t *)&QueryTable);
-    ++gcNextGlobalDeviceNumber;
-    if ( v16 < 0 )
-    {
-      RegistryHandleFromDeviceMap = (void *)DrvGetRegistryHandleFromDeviceMap(Pool2, 0LL, 0LL, 0LL, 0, &v65);
-      v16 = v65;
-      DeviceRegKey = RegistryHandleFromDeviceMap;
-      if ( v65 < 0 )
-        goto LABEL_63;
-      DrvGetDeviceConfigurationInformation((PVOID)Pool2, (PCWSTR)RegistryHandleFromDeviceMap, 0);
-      ZwClose(DeviceRegKey);
-    }
-    if ( !*(_QWORD *)(Pool2 + 208) )
-    {
-      v43 = NSInstrumentation::CLeakTrackingAllocator::Allocate(
-              (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-              260LL,
-              0x20uLL,
-              1936876615);
-      *(_QWORD *)(Pool2 + 208) = v43;
-      if ( v43 )
-      {
-        v44 = (void *)DrvGetRegistryHandleFromDeviceMap(Pool2, 0LL, 0LL, v43, 16, &v65);
-        DeviceRegKey = v44;
-        if ( v44 )
-          ZwClose(v44);
-        v16 = v65;
-      }
-      else
-      {
-        v16 = -1073741670;
-      }
-    }
-LABEL_63:
-    v25 = (wchar_t *)(Pool2 + 64);
-    if ( (*(_DWORD *)(Pool2 + 160) & 8) != 0 )
-    {
-      ++gcNextGlobalVirtualOutputNumber;
-      swprintf_s(v25, 0x20uLL, L"\\\\.\\DISPLAYV%d");
-    }
-    else
-    {
-      ++gcNextGlobalPhysicalOutputNumber;
-      swprintf_s(v25, 0x20uLL, L"\\\\.\\DISPLAY%d");
-    }
-    PruneFlag = DrvGetPruneFlag((struct tagGRAPHICS_DEVICE *)Pool2);
-    v27 = *(_DWORD *)(Pool2 + 160);
-    if ( PruneFlag )
-      v28 = v27 & 0xFFF7FFFF;
-    else
-      v28 = v27 | 0x80000;
-    *(_DWORD *)(Pool2 + 160) = v28;
-    if ( (unsigned int)bSetDeviceSessionUsage(Pool2, 1) )
-    {
-      if ( !v3 && !gRemoteSessionUseWddm )
-      {
-LABEL_128:
-        *(_QWORD *)(Pool2 + 280) = 0LL;
-        v45 = (__int64 *)(Pool2 + 296);
-        if ( dword_1C0297080 )
-          v46 = qword_1C0297084;
-        else
-          v46 = 0LL;
-        *v45 = v46;
-        *(_QWORD *)(Pool2 + 304) = 0LL;
-        LOBYTE(v64) = 0;
-        if ( (int)((__int64 (__fastcall *)(__int64, __int64 *, __int64, __int64, int *))qword_1C02967E8)(
-                    Pool2 + 280,
-                    v45,
-                    Pool2 + 304,
-                    Pool2 + 288,
-                    &v64) >= 0 )
-        {
-          v47 = *(_DWORD *)(Pool2 + 164);
-          if ( (_BYTE)v64 )
-            v48 = v47 | 4;
-          else
-            v48 = v47 & 0xFFFFFFFB;
-          *(_DWORD *)(Pool2 + 164) = v48;
-          DrvUpdateRemoteAdapterInfo((struct tagGRAPHICS_DEVICE *)Pool2);
-        }
-        if ( !gRemoteSessionUseWddm && v16 < 0 )
-        {
-          DrvCleanupOneGraphicsDevice((_QWORD *)Pool2);
-          --gcNextGlobalPhysicalOutputNumber;
-          v4 = v62;
-          v70 = 0;
-          goto LABEL_74;
-        }
-      }
-      if ( gpGraphicsDeviceList )
-        *((_QWORD *)gpGraphicsDeviceListLast + 16) = Pool2;
-      else
-        gpGraphicsDeviceList = (wchar_t *)Pool2;
-      v29 = (*(_DWORD *)(Pool2 + 160) & 0x800000) == 0;
-      gpGraphicsDeviceListLast = (struct tagGRAPHICS_DEVICE *)Pool2;
-      if ( !v29 )
-        DrvAddAdapterLuid(*(struct _LUID *)(Pool2 + 248));
-      v4 = 1;
-      v62 = 1;
-      goto LABEL_74;
-    }
-    if ( !v3 && !gRemoteSessionUseWddm )
-      goto LABEL_128;
-    DrvCleanupOneGraphicsDevice((_QWORD *)Pool2);
-    v4 = v62;
-    v1 = a1;
+    break;
   }
-  if ( v3 || gRemoteSessionUseWddm || gRemoteContext != 1 )
+  if ( v2 || gRemoteSessionUseWddm || gRemoteContext != 1 )
   {
-    WdLogSingleEntry1(5LL, DeviceObjectPointer);
-    goto LABEL_85;
+    v38 = WdLogNewEntry5_WdTrace(v20, v19);
+    *(_QWORD *)(v38 + 24) = DeviceObjectPointer;
+    WdLogEvent5_WdTrace(v38);
+    ++gcNextGlobalDeviceNumber;
+    goto LABEL_75;
   }
   FileObject = ::FileObject;
   if ( ::FileObject )
@@ -632,39 +570,40 @@ LABEL_128:
     {
       if ( RelatedDeviceObject )
       {
+        DeviceObjectPointer = 0;
         FileObject = 0LL;
-        goto LABEL_17;
+        goto LABEL_27;
       }
     }
   }
-LABEL_75:
-  v4 = v62;
-LABEL_76:
-  v30 = v74;
-  if ( !v74 && !gRemoteSessionUseWddm )
+  v5 = v67;
+  DeviceObjectPointer = -1073741772;
+LABEL_8:
+  if ( !v2 && !gRemoteSessionUseWddm )
   {
-    v33 = gpGraphicsDeviceList;
-    v34 = 0;
-    while ( v33 )
+    v39 = gpGraphicsDeviceList;
+    v40 = 0;
+    while ( v39 )
     {
-      v35 = *((_DWORD *)v33 + 40);
-      if ( (v35 & 0x4000000) != 0 )
+      v41 = *((_DWORD *)v39 + 40);
+      if ( (v41 & 0x4000000) != 0 )
       {
-        v36 = v35 & 0xFFFFFFFB;
-        *((_DWORD *)v33 + 40) = v36;
-        *((_DWORD *)v33 + 65) = v34 < gRemoteContext;
-        if ( v34 == dword_1C0297044 )
-          *((_DWORD *)v33 + 40) = v36 | 4;
-        ++v34;
+        v42 = v41 & 0xFFFFFFFB;
+        *((_DWORD *)v39 + 40) = v42;
+        *((_DWORD *)v39 + 65) = v40 < gRemoteContext;
+        if ( v40 == dword_1C0252264 )
+          *((_DWORD *)v39 + 40) = v42 | 4;
+        ++v40;
       }
-      v33 = (wchar_t *)*((_QWORD *)v33 + 16);
+      v39 = (wchar_t *)*((_QWORD *)v39 + 16);
     }
   }
-  DrvSetDisconnectedGraphicsDevice(v30);
-  WdLogSingleEntry0(5LL);
-  if ( v4 )
+  DrvSetDisconnectedGraphicsDevice(v2);
+  v11 = WdLogNewEntry5_WdTrace(v10, v9);
+  WdLogEvent5_WdTrace(v11);
+  if ( v5 )
     DrvSortGraphicsDeviceList();
-  if ( v30 )
+  if ( v2 )
   {
     gcLocalNextGlobalDeviceNumber = gcNextGlobalDeviceNumber;
     gpLocalGraphicsDeviceList = (struct tagGRAPHICS_DEVICE *)gpGraphicsDeviceList;
@@ -674,53 +613,53 @@ LABEL_76:
   }
   else
   {
-    v37 = gpGraphicsDeviceList;
-    v38 = 0;
+    v12 = gpGraphicsDeviceList;
+    v36 = 0;
     gcRemoteNextGlobalDeviceNumber = gcNextGlobalDeviceNumber;
-    v39 = 0;
+    v37 = 0;
     gpRemoteGraphicsDeviceListLast = gpGraphicsDeviceListLast;
     gcRemoteNextGlobalPhysicalOutputNumber = gcNextGlobalPhysicalOutputNumber;
     gcRemoteNextGlobalVirtualOutputNumber = gcNextGlobalVirtualOutputNumber;
     gpRemoteGraphicsDeviceList = (struct tagGRAPHICS_DEVICE *)gpGraphicsDeviceList;
-    if ( gpGraphicsDeviceList )
+    while ( v12 )
     {
-      do
+      if ( (*((_DWORD *)v12 + 40) & 0x4000000) != 0 )
       {
-        if ( (*((_DWORD *)v37 + 40) & 0x4000000) != 0 )
-        {
-          v49 = *((_DWORD *)v37 + 64);
-          ++v38;
-          if ( v49 > 0x10 || ((1 << v49) & v39) != 0 )
-            goto LABEL_201;
-          v39 |= 1 << v49;
-        }
-        v37 = (wchar_t *)*((_QWORD *)v37 + 16);
+        i = *((unsigned int *)v12 + 64);
+        ++v36;
+        if ( (unsigned int)i > 0x10 || ((1 << i) & v37) != 0 )
+          goto LABEL_176;
+        v37 |= 1 << i;
       }
-      while ( v37 );
-      if ( v39 == (1 << v38) - 1 )
-        goto LABEL_81;
-LABEL_201:
-      WdLogSingleEntry0(1LL);
+      v12 = (wchar_t *)*((_QWORD *)v12 + 16);
     }
+    i = v36;
+    if ( v37 == (1 << v36) - 1 )
+      goto LABEL_13;
+LABEL_176:
+    v64 = WdLogNewEntry5_WdAssertion(i, v12);
+    WdLogEvent5_WdAssertion(v64);
   }
-LABEL_81:
+LABEL_13:
   if ( (unsigned __int16)(gProtocolType - 1) <= 0xFFFDu )
   {
     DrvAddMirrorDriversToRemoteList();
     if ( !gbVideoInitialized )
     {
-      WdLogSingleEntry0(4LL);
+      v46 = WdLogNewEntry5_WdEvent();
+      WdLogEvent5_WdEvent(v46);
       if ( (unsigned __int16)(gProtocolType - 1) <= 0xFFFDu )
       {
-        for ( i = gpGraphicsDeviceList; i; i = (wchar_t *)*((_QWORD *)i + 16) )
+        for ( i = (unsigned __int64)gpGraphicsDeviceList; i; i = *(_QWORD *)(i + 128) )
         {
-          if ( (*((_DWORD *)i + 40) & 8) != 0 )
-            *((_DWORD *)i + 65) = 0;
+          if ( (*(_DWORD *)(i + 160) & 8) != 0 )
+            *(_DWORD *)(i + 260) = 0;
         }
       }
     }
   }
-  v31 = v70;
-  WdLogSingleEntry1(5LL, v70);
-  return v31;
+  v14 = WdLogNewEntry5_WdTrace(i, v12);
+  *(_QWORD *)(v14 + 24) = v3;
+  WdLogEvent5_WdTrace(v14);
+  return (unsigned int)v3;
 }

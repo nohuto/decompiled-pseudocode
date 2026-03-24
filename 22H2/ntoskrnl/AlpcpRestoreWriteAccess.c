@@ -1,36 +1,39 @@
 /*
- * XREFs of AlpcpRestoreWriteAccess @ 0x1407C34A0
+ * XREFs of AlpcpRestoreWriteAccess @ 0x14061FD70
  * Callers:
- *     AlpcpExposeViewAttributeInSenderContext @ 0x14071A8C8 (AlpcpExposeViewAttributeInSenderContext.c)
- *     AlpcViewDestroyProcedure @ 0x14071ED50 (AlpcViewDestroyProcedure.c)
+ *     AlpcViewDestroyProcedure @ 0x14061E250 (AlpcViewDestroyProcedure.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x1406DA940 (AlpcpExposeViewAttributeInSenderContext.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MmUnsecureVirtualMemory @ 0x1406B0260 (MmUnsecureVirtualMemory.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MmUnsecureVirtualMemory @ 0x14061FB80 (MmUnsecureVirtualMemory.c)
  */
 
-void __fastcall AlpcpRestoreWriteAccess(__int64 a1)
+void __fastcall AlpcpRestoreWriteAccess(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v2; // rdi
+  __int64 v5; // rdi
+  void *v6; // rcx
   _KPROCESS *Process; // rsi
-  _KPROCESS *v4; // rcx
-  $115DCDF994C6370D29323EAB0E0C9502 v5; // [rsp+20h] [rbp-48h] BYREF
+  _OWORD v8[3]; // [rsp+20h] [rbp-48h] BYREF
 
-  memset(&v5, 0, sizeof(v5));
-  v2 = *(_QWORD *)(a1 + 16);
+  memset(v8, 0, sizeof(v8));
+  v5 = *(_QWORD *)(a1 + 16);
+  v6 = *(void **)(a1 + 64);
   Process = KeGetCurrentThread()->ApcState.Process;
-  if ( *(_QWORD *)(a1 + 64) )
+  if ( v6 )
   {
-    v4 = *(_KPROCESS **)(a1 + 32);
-    if ( v4 != Process )
-      KiStackAttachProcess(v4, 0, (__int64)&v5);
-    MmUnsecureVirtualMemory(*(HANDLE *)(a1 + 64));
     if ( *(_KPROCESS **)(a1 + 32) != Process )
-      KiUnstackDetachProcess(&v5);
+    {
+      KiStackAttachProcess(*(_KPROCESS **)(a1 + 32), 0LL, (__int64)v8, a4);
+      v6 = *(void **)(a1 + 64);
+    }
+    MmUnsecureVirtualMemory(v6);
+    if ( *(_KPROCESS **)(a1 + 32) != Process )
+      KiUnstackDetachProcess((__int64)v8, 0);
     *(_QWORD *)(a1 + 64) = 0LL;
   }
   *(_DWORD *)(a1 + 72) |= 1u;
-  *(_QWORD *)(v2 + 72) = 0LL;
-  *(_QWORD *)(v2 + 80) = a1;
+  *(_QWORD *)(v5 + 72) = 0LL;
+  *(_QWORD *)(v5 + 80) = a1;
 }

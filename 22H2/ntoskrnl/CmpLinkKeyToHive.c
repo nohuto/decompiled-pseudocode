@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpLinkKeyToHive @ 0x14080DD08
+ * XREFs of CmpLinkKeyToHive @ 0x1407A7EF0
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x14080D490 (CmpFinishSystemHivesLoad.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A76E0 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
  */
 
-bool __fastcall CmpLinkKeyToHive(PCWSTR SourceString, PCWSTR a2)
+char __fastcall CmpLinkKeyToHive(PCWSTR SourceString, PCWSTR a2)
 {
   NTSTATUS v3; // ebx
   UNICODE_STRING Data; // [rsp+40h] [rbp+7h] BYREF
@@ -18,15 +18,16 @@ bool __fastcall CmpLinkKeyToHive(PCWSTR SourceString, PCWSTR a2)
   ULONG Disposition; // [rsp+B0h] [rbp+77h] BYREF
   HANDLE KeyHandle; // [rsp+B8h] [rbp+7Fh] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
   Disposition = 0;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
   DestinationString = 0LL;
   Data = 0LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwCreateKey(&KeyHandle, 0x20u, &ObjectAttributes, 0, 0LL, 3u, &Disposition) >= 0 )
@@ -36,9 +37,13 @@ bool __fastcall CmpLinkKeyToHive(PCWSTR SourceString, PCWSTR a2)
       RtlInitUnicodeString(&Data, a2);
       v3 = ZwSetValueKey(KeyHandle, &CmSymbolicLinkValueName, 0, 6u, Data.Buffer, Data.Length);
       ZwClose(KeyHandle);
-      return v3 >= 0;
+      if ( v3 >= 0 )
+        return 1;
     }
-    ZwClose(KeyHandle);
+    else
+    {
+      ZwClose(KeyHandle);
+    }
   }
   return 0;
 }

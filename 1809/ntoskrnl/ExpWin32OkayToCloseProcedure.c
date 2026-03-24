@@ -1,5 +1,5 @@
 /*
- * XREFs of ExpWin32OkayToCloseProcedure @ 0x1406B0EE0
+ * XREFs of ExpWin32OkayToCloseProcedure @ 0x1406B0EC0
  * Callers:
  *     <none>
  * Callees:

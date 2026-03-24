@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwSetTimerResolution @ 0x14041EEC0
+ * XREFs of ZwSetTimerResolution @ 0x1403FD9E0
  * Callers:
- *     ExCleanTimerResolutionRequest @ 0x14025D2C4 (ExCleanTimerResolutionRequest.c)
+ *     ExCleanTimerResolutionRequest @ 0x14036CDE4 (ExCleanTimerResolutionRequest.c)
  * Callees:
  *     <none>
  */

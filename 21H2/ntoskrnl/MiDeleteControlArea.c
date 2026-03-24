@@ -1,23 +1,22 @@
 /*
- * XREFs of MiDeleteControlArea @ 0x1402700FC
+ * XREFs of MiDeleteControlArea @ 0x1402F7AE4
  * Callers:
- *     MiDereferenceControlAreaProbe @ 0x14027031C (MiDereferenceControlAreaProbe.c)
- *     MiWaitForInPageComplete @ 0x14027AA30 (MiWaitForInPageComplete.c)
- *     MiDeleteCachedSubsection @ 0x14058A6D4 (MiDeleteCachedSubsection.c)
- *     MiDeleteControlAreaList @ 0x14058AFF8 (MiDeleteControlAreaList.c)
- *     MiFlushControlArea @ 0x14058B0C8 (MiFlushControlArea.c)
+ *     MiDereferenceControlAreaProbe @ 0x1402F7AB0 (MiDereferenceControlAreaProbe.c)
+ *     MiDeleteCachedSubsection @ 0x140528DAC (MiDeleteCachedSubsection.c)
+ *     MiDeleteControlAreaList @ 0x1405296C4 (MiDeleteControlAreaList.c)
+ *     MiFlushControlArea @ 0x140529794 (MiFlushControlArea.c)
  * Callees:
- *     MiDecrementControlAreaCount @ 0x140270204 (MiDecrementControlAreaCount.c)
- *     MiDecrementSubsectionViewCount @ 0x1402869C0 (MiDecrementSubsectionViewCount.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1405C4B8C (MiReturnCrossPartitionSectionCharges.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x1405C4C6C (MiUpdateSubsectionCrossPartitionRefs.c)
- *     SeReleaseImageValidationContext @ 0x1406B8748 (SeReleaseImageValidationContext.c)
- *     MiDeleteFileExtents @ 0x1406F48DC (MiDeleteFileExtents.c)
- *     MiFreeRelocations @ 0x1407FB090 (MiFreeRelocations.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiDecrementControlAreaCount @ 0x1402F7BE8 (MiDecrementControlAreaCount.c)
+ *     MiDecrementSubsectionViewCount @ 0x140315170 (MiDecrementSubsectionViewCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1405550EC (MiReturnCrossPartitionSectionCharges.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x1405551CC (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     MiDeleteFileExtents @ 0x1406E8278 (MiDeleteFileExtents.c)
+ *     MiFreeRelocations @ 0x14076B198 (MiFreeRelocations.c)
+ *     SeReleaseImageValidationContext @ 0x14078E874 (SeReleaseImageValidationContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteControlArea(PVOID P)
@@ -25,10 +24,10 @@ void __fastcall MiDeleteControlArea(PVOID P)
   int v2; // ecx
   __int64 v3; // r14
   __int64 v4; // rbp
-  __int64 v5; // rbx
+  __int64 v5; // r13
   ULONG_PTR v6; // rdi
-  ULONG_PTR v7; // r13
-  __int64 v8; // rdi
+  ULONG_PTR v7; // r12
+  __int64 v8; // rbx
   unsigned __int64 v9; // r15
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -38,7 +37,7 @@ void __fastcall MiDeleteControlArea(PVOID P)
 
   v2 = *((_DWORD *)P + 14);
   v3 = 0LL;
-  v4 = *(_QWORD *)(qword_140C51F48 + 8LL * (*((_WORD *)P + 30) & 0x3FF));
+  v4 = *(_QWORD *)(qword_140C4E648 + 8LL * (*((_WORD *)P + 30) & 0x3FF));
   v5 = v4 + 1352;
   if ( (v2 & 0x20) != 0 )
   {
@@ -47,15 +46,13 @@ void __fastcall MiDeleteControlArea(PVOID P)
       SeReleaseImageValidationContext(*(_QWORD *)(v8 + 40) & 0xFFFFFFFFFFFFFFF8uLL);
     MiFreeRelocations(P, *(_QWORD *)(v8 + 32));
   }
-  else if ( (v2 & 0x80u) == 0 )
-  {
-    v5 = v4 + 1360;
-  }
   else
   {
-    v6 = *((_QWORD *)P + 18);
-    if ( v6 )
+    if ( (v2 & 0x80u) != 0 )
     {
+      v6 = *((_QWORD *)P + 18);
+      if ( !v6 )
+        goto LABEL_6;
       do
       {
         v7 = *(_QWORD *)(v6 + 16);
@@ -89,10 +86,15 @@ void __fastcall MiDeleteControlArea(PVOID P)
         v6 = v7;
       }
       while ( v7 );
-      if ( v3 )
-        MiReturnCrossPartitionSectionCharges(v4, 1LL, v3);
     }
+    else
+    {
+      v5 = v4 + 1360;
+    }
+    if ( v3 )
+      MiReturnCrossPartitionSectionCharges(v4, 1LL, v3);
   }
+LABEL_6:
   MiDecrementControlAreaCount(v4, v5);
   MiDeleteFileExtents(P);
   ExFreePoolWithTag(P, 0);

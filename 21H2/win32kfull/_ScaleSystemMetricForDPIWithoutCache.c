@@ -1,21 +1,20 @@
 /*
- * XREFs of _ScaleSystemMetricForDPIWithoutCache @ 0x1C01E4D60
+ * XREFs of _ScaleSystemMetricForDPIWithoutCache @ 0x1C01EA5E0
  * Callers:
- *     ?GetWindowBordersWithDpiAwareness@@YAHPEBUtagWND@@_N1I@Z @ 0x1C004CE04 (-GetWindowBordersWithDpiAwareness@@YAHPEBUtagWND@@_N1I@Z.c)
- *     ?xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z @ 0x1C0066D38 (-xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z.c)
- *     _AdjustWindowRectExForDpi @ 0x1C006DA8C (_AdjustWindowRectExForDpi.c)
- *     ?GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z @ 0x1C00BBD38 (-GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z.c)
- *     ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C00BBD80 (-GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z.c)
- *     _EnsureDpiDepSysMetCacheForPlateau @ 0x1C01E4CEC (_EnsureDpiDepSysMetCacheForPlateau.c)
- *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01E4D60 (_ScaleSystemMetricForDPIWithoutCache.c)
- *     NtUserScaleSystemMetricForDPIWithoutCache @ 0x1C01FC360 (NtUserScaleSystemMetricForDPIWithoutCache.c)
+ *     GetWindowBordersWithDpiAwareness @ 0x1C004AEAC (GetWindowBordersWithDpiAwareness.c)
+ *     ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C004BA58 (-GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z.c)
+ *     _AdjustWindowRectExForDpi @ 0x1C004E77C (_AdjustWindowRectExForDpi.c)
+ *     ?xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z @ 0x1C0061054 (-xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z.c)
+ *     ?GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z @ 0x1C00E12C0 (-GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z.c)
+ *     _EnsureDpiDepSysMetCacheForPlateau @ 0x1C01EA560 (_EnsureDpiDepSysMetCacheForPlateau.c)
+ *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01EA5E0 (_ScaleSystemMetricForDPIWithoutCache.c)
  * Callees:
- *     GetDpiDependentMetric @ 0x1C006718C (GetDpiDependentMetric.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     GetCursorSizeFromIndex @ 0x1C009AAF8 (GetCursorSizeFromIndex.c)
- *     GetDPIMETRICSForDpi @ 0x1C00BF104 (GetDPIMETRICSForDpi.c)
- *     GetDPIServerInfoForDpi @ 0x1C00C76E0 (GetDPIServerInfoForDpi.c)
- *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01E4D60 (_ScaleSystemMetricForDPIWithoutCache.c)
+ *     GetDPIServerInfoForDpi @ 0x1C0044EF8 (GetDPIServerInfoForDpi.c)
+ *     GetDPIMETRICSForDpi @ 0x1C0048190 (GetDPIMETRICSForDpi.c)
+ *     GetDpiDependentMetric @ 0x1C00614D0 (GetDpiDependentMetric.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     GetCursorSizeFromIndex @ 0x1C012135C (GetCursorSizeFromIndex.c)
+ *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01EA5E0 (_ScaleSystemMetricForDPIWithoutCache.c)
  */
 
 __int64 __fastcall ScaleSystemMetricForDPIWithoutCache(__int64 a1, __int64 a2, __int64 a3)
@@ -34,25 +33,22 @@ __int64 __fastcall ScaleSystemMetricForDPIWithoutCache(__int64 a1, __int64 a2, _
   int v15; // edi
   __int64 DPIMETRICSForDpi; // rax
   INT DpiDependentMetric; // eax
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  __int64 v20; // rcx
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  int v23; // edi
-  int v24; // ebx
+  __int64 v18; // rcx
+  int v19; // edi
+  int v20; // ebx
+  int v21; // ebx
+  int v22; // ebx
+  int v23; // ebx
+  int v24; // eax
   int v25; // ebx
-  int v26; // ebx
-  int v27; // ebx
-  int v28; // ebx
-  int v29; // eax
-  __int64 v30; // rdx
-  __int64 v31; // rcx
-  __int64 v32; // rcx
-  int v33; // ebx
-  int v34; // eax
-  int v35; // ebx
-  int v36; // eax
+  int v26; // eax
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // rcx
+  int v30; // ebx
+  int v31; // eax
+  int v32; // ebx
+  int v33; // eax
 
   v3 = a2;
   v4 = a1;
@@ -103,32 +99,35 @@ LABEL_29:
               v7 = EngMulDiv(DpiDependentMetric, v3, 96);
               if ( v4 > 19 )
               {
-                v24 = v4 - 23;
-                if ( v24 )
+                v20 = v4 - 23;
+                if ( v20 )
                 {
-                  v25 = v24 - 1;
-                  if ( !v25 )
+                  v21 = v20 - 1;
+                  if ( !v21 )
                   {
                     if ( v7 > *(_DWORD *)(GetDPIMETRICSForDpi(v3) + 44) + 2 )
                       return (unsigned int)v7;
-                    v23 = *(_DWORD *)(GetDPIMETRICSForDpi(v3) + 44);
-                    return (unsigned int)(v23 + 2);
+                    v19 = *(_DWORD *)(GetDPIMETRICSForDpi(v3) + 44);
+                    return (unsigned int)(v19 + 2);
                   }
-                  v26 = v25 - 1;
-                  if ( v26 )
+                  v22 = v21 - 1;
+                  if ( v22 )
                   {
-                    v27 = v26 - 1;
-                    if ( v27 )
+                    v23 = v22 - 1;
+                    if ( v23 )
                     {
-                      if ( v27 == 3 )
+                      if ( v23 == 3 )
                       {
-                        if ( v7 >= 100 )
-                        {
-                          return 100;
-                        }
-                        else if ( v7 <= 0 )
+                        v24 = 100;
+                        if ( v7 < 100 )
+                          v24 = v7;
+                        if ( v24 <= 0 )
                         {
                           return 0;
+                        }
+                        else if ( v7 >= 100 )
+                        {
+                          return 100;
                         }
                       }
                     }
@@ -146,8 +145,8 @@ LABEL_29:
                 {
                   if ( v7 > (int)ScaleSystemMetricForDPIWithoutCache(6LL, v3) )
                     return (unsigned int)v7;
-                  v20 = 6LL;
-                  return (unsigned int)ScaleSystemMetricForDPIWithoutCache(v20, v3);
+                  v18 = 6LL;
+                  return (unsigned int)ScaleSystemMetricForDPIWithoutCache(v18, v3);
                 }
                 if ( v4 > 1 )
                 {
@@ -163,13 +162,13 @@ LABEL_29:
                       {
                         if ( v4 != 18 || v7 > (int)ScaleSystemMetricForDPIWithoutCache(5LL, v3) )
                           return (unsigned int)v7;
-                        v20 = 5LL;
-                        return (unsigned int)ScaleSystemMetricForDPIWithoutCache(v20, v3);
+                        v18 = 5LL;
+                        return (unsigned int)ScaleSystemMetricForDPIWithoutCache(v18, v3);
                       }
-                      if ( v7 > *(_DWORD *)(GetDPIServerInfoForDpi(v3, v18, v19) + 20) + 2 )
+                      if ( v7 > *(_DWORD *)(GetDPIServerInfoForDpi(v3) + 20) + 2 )
                         return (unsigned int)v7;
-                      v23 = *(_DWORD *)(GetDPIServerInfoForDpi(v3, v21, v22) + 20);
-                      return (unsigned int)(v23 + 2);
+                      v19 = *(_DWORD *)(GetDPIServerInfoForDpi(v3) + 20);
+                      return (unsigned int)(v19 + 2);
                     }
                   }
                 }
@@ -182,7 +181,7 @@ LABEL_29:
           }
           return (unsigned int)(ScaleSystemMetricForDPIWithoutCache(v8, a2) + 1);
         }
-        v10 = 2 * *(_DWORD *)(GetDPIServerInfoForDpi((unsigned int)a2, a2, a3) + 16);
+        v10 = 2 * *(_DWORD *)(GetDPIServerInfoForDpi(a2) + 16);
         v11 = ScaleSystemMetricForDPIWithoutCache(29LL, v3) + v10;
         v12 = 2 * (v11 + ScaleSystemMetricForDPIWithoutCache(14LL, v3));
         v13 = ScaleSystemMetricForDPIWithoutCache(12LL, v3);
@@ -193,32 +192,32 @@ LABEL_29:
       switch ( (_DWORD)a1 )
       {
         case 0x11:
-          v35 = ScaleSystemMetricForDPIWithoutCache(29LL, a2);
-          v36 = ScaleSystemMetricForDPIWithoutCache(15LL, v3);
+          v32 = ScaleSystemMetricForDPIWithoutCache(29LL, a2);
+          v33 = ScaleSystemMetricForDPIWithoutCache(15LL, v3);
           v14 = 2LL;
-          v15 = 2 * (v36 + v35);
+          v15 = 2 * (v33 + v32);
           return (unsigned int)(ScaleSystemMetricForDPIWithoutCache(v14, v3) + v15);
         case 0x14:
-          v33 = ScaleSystemMetricForDPIWithoutCache(12LL, a2) - 2;
-          v34 = ScaleSystemMetricForDPIWithoutCache(5LL, v3);
-          v30 = v3;
-          if ( v33 < v34 / 2 )
+          v30 = ScaleSystemMetricForDPIWithoutCache(12LL, a2) - 2;
+          v31 = ScaleSystemMetricForDPIWithoutCache(5LL, v3);
+          v27 = v3;
+          if ( v30 < v31 / 2 )
           {
-            v31 = 12LL;
-            return (unsigned int)(ScaleSystemMetricForDPIWithoutCache(v31, v30) - 2);
+            v28 = 12LL;
+            return (unsigned int)(ScaleSystemMetricForDPIWithoutCache(v28, v27) - 2);
           }
-          v32 = 5LL;
+          v29 = 5LL;
           break;
         case 0x15:
-          v28 = ScaleSystemMetricForDPIWithoutCache(13LL, a2) - 2;
-          v29 = ScaleSystemMetricForDPIWithoutCache(6LL, v3);
-          v30 = v3;
-          if ( v28 < v29 / 2 )
+          v25 = ScaleSystemMetricForDPIWithoutCache(13LL, a2) - 2;
+          v26 = ScaleSystemMetricForDPIWithoutCache(6LL, v3);
+          v27 = v3;
+          if ( v25 < v26 / 2 )
           {
-            v31 = 13LL;
-            return (unsigned int)(ScaleSystemMetricForDPIWithoutCache(v31, v30) - 2);
+            v28 = 13LL;
+            return (unsigned int)(ScaleSystemMetricForDPIWithoutCache(v28, v27) - 2);
           }
-          v32 = 6LL;
+          v29 = 6LL;
           break;
         case 0x16:
           v8 = 24LL;
@@ -232,9 +231,9 @@ LABEL_29:
           }
           goto LABEL_29;
       }
-      return (unsigned int)((int)ScaleSystemMetricForDPIWithoutCache(v32, v30) / 2);
+      return (unsigned int)((int)ScaleSystemMetricForDPIWithoutCache(v29, v27) / 2);
     }
   }
-  UserSetLastError(87LL, a2);
+  UserSetLastError(87LL, a2, a3);
   return 0LL;
 }

@@ -1,44 +1,54 @@
 /*
- * XREFs of KeCopyPage @ 0x140424020
+ * XREFs of KeCopyPage @ 0x1404024D0
  * Callers:
- *     MiInitializeImageProtos @ 0x14021A220 (MiInitializeImageProtos.c)
- *     MiCopyPage @ 0x140283CF0 (MiCopyPage.c)
- *     MiCopyDataPageToImagePage @ 0x14028B350 (MiCopyDataPageToImagePage.c)
- *     MiInitializeSystemPageTable @ 0x1402E45A8 (MiInitializeSystemPageTable.c)
- *     MiCombineInitialInstance @ 0x1402EC690 (MiCombineInitialInstance.c)
- *     MiReplacePageOfProtoPool @ 0x14061DA50 (MiReplacePageOfProtoPool.c)
- *     MiCopyKstack @ 0x14062CB50 (MiCopyKstack.c)
- *     MiSlowRotateCopy @ 0x140632FD4 (MiSlowRotateCopy.c)
- *     MiScrubPage @ 0x14065F160 (MiScrubPage.c)
- *     MiCopyMemoryPagefileData @ 0x14065FB98 (MiCopyMemoryPagefileData.c)
- *     MiValidateSectionCreate @ 0x1406ABE8C (MiValidateSectionCreate.c)
- *     MiRevertRelocatedImagePfn @ 0x1406B1250 (MiRevertRelocatedImagePfn.c)
- *     MxCopyPage @ 0x140B9A540 (MxCopyPage.c)
+ *     MiCopyPage @ 0x14023FB90 (MiCopyPage.c)
+ *     MiCopyDataPageToImagePage @ 0x140284A68 (MiCopyDataPageToImagePage.c)
+ *     MiReplacePageOfProtoPool @ 0x140331F6C (MiReplacePageOfProtoPool.c)
+ *     MiInitializeImageProtos @ 0x140336F8C (MiInitializeImageProtos.c)
+ *     MiCreateSystemPageTable @ 0x140356770 (MiCreateSystemPageTable.c)
+ *     MiFillCombinePage @ 0x14036A95C (MiFillCombinePage.c)
+ *     MiCopyKstack @ 0x140535B90 (MiCopyKstack.c)
+ *     MiSlowRotateCopy @ 0x140539C3C (MiSlowRotateCopy.c)
+ *     MiScrubPage @ 0x140564234 (MiScrubPage.c)
+ *     MiValidateSectionCreate @ 0x14066B20C (MiValidateSectionCreate.c)
+ *     MiRevertRelocatedImagePfn @ 0x140680398 (MiRevertRelocatedImagePfn.c)
+ *     MxCopyPage @ 0x140A568CC (MxCopyPage.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall KeCopyPage(__int64 a1, __int64 a2)
 {
-  __int64 result; // rax
+  __int64 v2; // rcx
   __int64 v3; // rdx
-  __int64 v4; // rcx
-  __m128i v5; // xmm1
-  __m128i v6; // xmm2
-  __m128i v7; // xmm3
+  __int64 v4; // rax
+  __int64 result; // rax
+  __m128i v6; // xmm1
+  __m128i v7; // xmm2
+  __m128i v8; // xmm3
 
-  result = -4096LL;
+  v2 = a1 + 4096;
   v3 = a2 + 4096;
-  v4 = a1 + 4096;
+  v4 = -4096LL;
   do
   {
-    v5 = *(__m128i *)(v3 + result + 16);
-    v6 = *(__m128i *)(v3 + result + 32);
-    v7 = *(__m128i *)(v3 + result + 48);
-    _mm_stream_si128((__m128i *)(v4 + result), *(__m128i *)(v3 + result));
-    _mm_stream_si128((__m128i *)(v4 + result + 16), v5);
-    _mm_stream_si128((__m128i *)(v4 + result + 32), v6);
-    _mm_stream_si128((__m128i *)(v4 + result + 48), v7);
+    _mm_prefetch((const char *)(v3 + v4), 0);
+    _mm_prefetch((const char *)(v3 + v4 + 64), 0);
+    _mm_prefetch((const char *)(v3 + v4 + 128), 0);
+    _mm_prefetch((const char *)(v3 + v4 + 192), 0);
+    v4 += 256LL;
+  }
+  while ( v4 );
+  result = -4096LL;
+  do
+  {
+    v6 = *(__m128i *)(v3 + result + 16);
+    v7 = *(__m128i *)(v3 + result + 32);
+    v8 = *(__m128i *)(v3 + result + 48);
+    _mm_stream_si128((__m128i *)(v2 + result), *(__m128i *)(v3 + result));
+    _mm_stream_si128((__m128i *)(v2 + result + 16), v6);
+    _mm_stream_si128((__m128i *)(v2 + result + 32), v7);
+    _mm_stream_si128((__m128i *)(v2 + result + 48), v8);
     result += 64LL;
   }
   while ( result );

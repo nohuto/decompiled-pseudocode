@@ -1,31 +1,31 @@
 /*
- * XREFs of WdipSemOpenRegistryKey @ 0x140833248
+ * XREFs of WdipSemOpenRegistryKey @ 0x140795204
  * Callers:
- *     WdipSemLoadGroupPolicy @ 0x14083160C (WdipSemLoadGroupPolicy.c)
- *     WdipSemLoadConfigInfo @ 0x14083193C (WdipSemLoadConfigInfo.c)
- *     WdipSemLoadNextEndEvent @ 0x1408322D0 (WdipSemLoadNextEndEvent.c)
- *     WdipSemLoadNextContextProvider @ 0x1408325D4 (WdipSemLoadNextContextProvider.c)
- *     WdipSemLoadScenarioTable @ 0x140832854 (WdipSemLoadScenarioTable.c)
- *     WdipSemLoadNextScenario @ 0x140832C60 (WdipSemLoadNextScenario.c)
- *     WdipSemLoadLocalGroupPolicy @ 0x1409DE138 (WdipSemLoadLocalGroupPolicy.c)
+ *     WdipSemLoadGroupPolicy @ 0x140794080 (WdipSemLoadGroupPolicy.c)
+ *     WdipSemLoadConfigInfo @ 0x1407940D8 (WdipSemLoadConfigInfo.c)
+ *     WdipSemLoadNextEndEvent @ 0x140794284 (WdipSemLoadNextEndEvent.c)
+ *     WdipSemLoadNextContextProvider @ 0x140794588 (WdipSemLoadNextContextProvider.c)
+ *     WdipSemLoadScenarioTable @ 0x140794808 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadNextScenario @ 0x140794C14 (WdipSemLoadNextScenario.c)
+ *     WdipSemLoadLocalGroupPolicy @ 0x140930300 (WdipSemLoadLocalGroupPolicy.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall WdipSemOpenRegistryKey(PCWSTR SourceString, void *a2, HANDLE *a3)
 {
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
+  UNICODE_STRING v6; // [rsp+20h] [rbp-48h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-38h] BYREF
 
-  *(&ObjectAttributes.Attributes + 1) = 0;
   *(&ObjectAttributes.Length + 1) = 0;
-  DestinationString = 0LL;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  v6 = 0LL;
   if ( !SourceString || !a3 )
     return -1073741811;
-  RtlInitUnicodeString(&DestinationString, SourceString);
+  RtlInitUnicodeString(&v6, SourceString);
   ObjectAttributes.Length = 48;
-  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.ObjectName = &v6;
   ObjectAttributes.RootDirectory = a2;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;

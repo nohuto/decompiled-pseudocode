@@ -1,63 +1,61 @@
 /*
- * XREFs of PopFxAddLogEntry @ 0x140312914
+ * XREFs of PopFxAddLogEntry @ 0x140260514
  * Callers:
- *     PopDiagTraceFxDevicePowerState @ 0x14028DBA4 (PopDiagTraceFxDevicePowerState.c)
- *     PopDiagTraceIrpFinish @ 0x14028E3F4 (PopDiagTraceIrpFinish.c)
- *     PopDiagTraceIrpStart @ 0x14028EA80 (PopDiagTraceIrpStart.c)
- *     PopFxAllocatePowerIrp @ 0x14028ED0C (PopFxAllocatePowerIrp.c)
- *     PopFxCompleteDevicePowerRequired @ 0x140310900 (PopFxCompleteDevicePowerRequired.c)
- *     PopDiagTraceFxDevicePowered @ 0x140310990 (PopDiagTraceFxDevicePowered.c)
- *     PopFxProcessWork @ 0x140312454 (PopFxProcessWork.c)
- *     PopDiagTraceFxDevicePowerRequirement @ 0x140312870 (PopDiagTraceFxDevicePowerRequirement.c)
- *     PopFxIdleWorker @ 0x1403129BC (PopFxIdleWorker.c)
- *     PoFxCompleteIdleCondition @ 0x140356D00 (PoFxCompleteIdleCondition.c)
- *     PoFxSetComponentLatency @ 0x14035AE70 (PoFxSetComponentLatency.c)
- *     PoFxCompleteIdleState @ 0x14035BD70 (PoFxCompleteIdleState.c)
- *     PopDiagTraceFxComponentIdleState @ 0x14035C05C (PopDiagTraceFxComponentIdleState.c)
- *     PopFxUpdateDeviceIdleTimer @ 0x14036AC84 (PopFxUpdateDeviceIdleTimer.c)
- *     PopFxIdleTimeoutDpcRoutine @ 0x14036B940 (PopFxIdleTimeoutDpcRoutine.c)
- *     PoFxCompleteDevicePowerNotRequired @ 0x14036E150 (PoFxCompleteDevicePowerNotRequired.c)
- *     PoFxSetComponentResidency @ 0x1403B3620 (PoFxSetComponentResidency.c)
- *     PopPluginNotifyIdleState @ 0x14046276E (PopPluginNotifyIdleState.c)
- *     PopFxCompleteComponentPerfState @ 0x140589628 (PopFxCompleteComponentPerfState.c)
- *     PopFxCompleteDirectedPowerTransition @ 0x14058972C (PopFxCompleteDirectedPowerTransition.c)
- *     PopFxHandleDirectedPowerTransition @ 0x14058A530 (PopFxHandleDirectedPowerTransition.c)
- *     PopFxIssueComponentPerfStateChanges @ 0x14058AC48 (PopFxIssueComponentPerfStateChanges.c)
- *     PopDiagTraceFxComponentWake @ 0x1405930E8 (PopDiagTraceFxComponentWake.c)
- *     PopDiagTraceFxDeviceDirectedCompletion @ 0x14059354C (PopDiagTraceFxDeviceDirectedCompletion.c)
- *     PopDiagTraceFxDeviceDirectedTransition @ 0x140593650 (PopDiagTraceFxDeviceDirectedTransition.c)
- *     PopFxTraceDeviceRegistration @ 0x140838CD8 (PopFxTraceDeviceRegistration.c)
- *     PopDiagTraceFxDeviceStartPowerManagement @ 0x140838D84 (PopDiagTraceFxDeviceStartPowerManagement.c)
- *     PopDiagTraceFxDeviceUnregistration @ 0x14098F65C (PopDiagTraceFxDeviceUnregistration.c)
- *     PopFxTracePerfRegistration @ 0x140992470 (PopFxTracePerfRegistration.c)
+ *     PopFxProcessWork @ 0x1402600A4 (PopFxProcessWork.c)
+ *     PopDiagTraceFxDevicePowerRequirement @ 0x140260470 (PopDiagTraceFxDevicePowerRequirement.c)
+ *     PopFxIdleWorker @ 0x140260604 (PopFxIdleWorker.c)
+ *     PopDiagTraceFxDevicePowered @ 0x140261F38 (PopDiagTraceFxDevicePowered.c)
+ *     PopFxCompleteDevicePowerRequired @ 0x140261FA4 (PopFxCompleteDevicePowerRequired.c)
+ *     PoFxCompleteIdleCondition @ 0x14031D640 (PoFxCompleteIdleCondition.c)
+ *     PopDiagTraceIrpStart @ 0x140370C44 (PopDiagTraceIrpStart.c)
+ *     PopDiagTraceIrpFinish @ 0x14037A5E4 (PopDiagTraceIrpFinish.c)
+ *     PopFxAllocatePowerIrp @ 0x140399310 (PopFxAllocatePowerIrp.c)
+ *     PopDiagTraceFxDevicePowerState @ 0x14039F6EC (PopDiagTraceFxDevicePowerState.c)
+ *     PopFxIdleTimeoutDpcRoutine @ 0x1403A59C0 (PopFxIdleTimeoutDpcRoutine.c)
+ *     PopDiagTraceFxComponentIdleState @ 0x1403A5A84 (PopDiagTraceFxComponentIdleState.c)
+ *     PoFxCompleteIdleState @ 0x1403A5FA0 (PoFxCompleteIdleState.c)
+ *     PoFxCompleteDevicePowerNotRequired @ 0x1403A6FE0 (PoFxCompleteDevicePowerNotRequired.c)
+ *     PopFxUpdateDeviceIdleTimer @ 0x1403C8054 (PopFxUpdateDeviceIdleTimer.c)
+ *     PopFxCompleteComponentPerfState @ 0x14056A398 (PopFxCompleteComponentPerfState.c)
+ *     PopFxCompleteDirectedPowerTransition @ 0x14056A49C (PopFxCompleteDirectedPowerTransition.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x14056ABE8 (PopFxHandleDirectedPowerTransition.c)
+ *     PopFxIssueComponentPerfStateChanges @ 0x14056B298 (PopFxIssueComponentPerfStateChanges.c)
+ *     PopPluginNotifyIdleState @ 0x14056D910 (PopPluginNotifyIdleState.c)
+ *     PopDiagTraceFxComponentLatency @ 0x140571B7C (PopDiagTraceFxComponentLatency.c)
+ *     PopDiagTraceFxComponentResidency @ 0x140571C6C (PopDiagTraceFxComponentResidency.c)
+ *     PopDiagTraceFxComponentWake @ 0x140571D5C (PopDiagTraceFxComponentWake.c)
+ *     PopDiagTraceFxDeviceDirectedCompletion @ 0x1405721A0 (PopDiagTraceFxDeviceDirectedCompletion.c)
+ *     PopDiagTraceFxDeviceDirectedTransition @ 0x1405722A4 (PopDiagTraceFxDeviceDirectedTransition.c)
+ *     PopFxTraceDeviceRegistration @ 0x1406F8E60 (PopFxTraceDeviceRegistration.c)
+ *     PopFxUnregisterDevice @ 0x1407B495C (PopFxUnregisterDevice.c)
+ *     PopDiagTraceFxDeviceStartPowerManagement @ 0x1407B4D90 (PopDiagTraceFxDeviceStartPowerManagement.c)
+ *     PopFxTracePerfRegistration @ 0x1408EC08C (PopFxTracePerfRegistration.c)
  * Callees:
- *     <none>
+ *     KeGetCurrentProcessorNumberEx @ 0x1402605D0 (KeGetCurrentProcessorNumberEx.c)
  */
 
-struct _KTHREAD *__fastcall PopFxAddLogEntry(__int64 a1, char a2, char a3, __int64 a4)
+void __fastcall PopFxAddLogEntry(__int64 a1, char a2, char a3, __int64 a4)
 {
-  __int64 v6; // r10
-  __int64 v7; // r8
-  __int64 v8; // rdx
-  struct _KTHREAD *result; // rax
+  __int64 v4; // rbx
+  __int64 v7; // rdx
+  __int64 v8; // rbx
+  __int64 v9; // rdi
 
   if ( a1 )
   {
-    v6 = *(_QWORD *)(a1 + 80);
-    if ( v6 )
+    v4 = *(_QWORD *)(a1 + 80);
+    if ( v4 )
     {
-      v7 = 3LL
-         * ((unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(v6 + 856), 1u) % *(_DWORD *)(v6 + 840));
-      v8 = *(_QWORD *)(v6 + 848);
-      *(_QWORD *)(v8 + 8 * v7) = MEMORY[0xFFFFF78000000008];
-      *(_BYTE *)(v8 + 8 * v7 + 8) = a3;
-      *(_BYTE *)(v8 + 8 * v7 + 9) = a2;
-      *(_WORD *)(v8 + 8 * v7 + 10) = KeGetCurrentPrcb()->Number;
-      *(_WORD *)(v8 + 8 * v7 + 12) = KeGetCurrentThread()[1].CycleTime;
-      result = KeGetCurrentThread();
-      *(_WORD *)(v8 + 8 * v7 + 14) = result[1].CurrentRunTime;
-      *(_QWORD *)(v8 + 8 * v7 + 16) = a4;
+      v7 = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(v4 + 856), 1u) % *(_DWORD *)(v4 + 840);
+      v8 = *(_QWORD *)(v4 + 848);
+      v9 = 3 * v7;
+      *(_QWORD *)(v8 + 8 * v9) = MEMORY[0xFFFFF78000000008];
+      *(_BYTE *)(v8 + 8 * v9 + 8) = a3;
+      *(_BYTE *)(v8 + 8 * v9 + 9) = a2;
+      *(_WORD *)(v8 + 8 * v9 + 10) = KeGetCurrentProcessorNumberEx(0LL);
+      *(_WORD *)(v8 + 8 * v9 + 12) = KeGetCurrentThread()[1].CycleTime;
+      *(_WORD *)(v8 + 8 * v9 + 14) = KeGetCurrentThread()[1].CurrentRunTime;
+      *(_QWORD *)(v8 + 8 * v9 + 16) = a4;
     }
   }
-  return result;
 }

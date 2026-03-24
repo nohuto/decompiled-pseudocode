@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeVadBitMap @ 0x140679C00
+ * XREFs of MiInitializeVadBitMap @ 0x140679BE0
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406798D8 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406798B8 (MmInitializeProcessAddressSpace.c)
  * Callees:
  *     LOCK_ADDRESS_SPACE @ 0x1400767B8 (LOCK_ADDRESS_SPACE.c)
  *     UNLOCK_ADDRESS_SPACE @ 0x140078294 (UNLOCK_ADDRESS_SPACE.c)
- *     MiExpandVadBitMap @ 0x140679CEC (MiExpandVadBitMap.c)
+ *     MiExpandVadBitMap @ 0x140679CCC (MiExpandVadBitMap.c)
  */
 
 __int64 __fastcall MiInitializeVadBitMap(int a1)

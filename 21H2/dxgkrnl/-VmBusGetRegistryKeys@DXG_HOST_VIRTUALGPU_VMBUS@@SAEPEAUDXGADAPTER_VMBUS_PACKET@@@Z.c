@@ -1,345 +1,299 @@
 /*
- * XREFs of ?VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C036E6A0
+ * XREFs of ?VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0241F70
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000FA80 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     RtlUnicodeStringValidateDestWorker @ 0x1C0019CC4 (RtlUnicodeStringValidateDestWorker.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C004A2B4 (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
- *     ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0051310 (-RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_GETREGISTRYKEYS@@@@YAPEAUDXGKVMB_COMMAND_GETREGISTRYKEYS@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005C7B4 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_GETREGISTRYKEYS@@@@YAPEAUDXGKVMB_COMMAND_GETREGISTRYKEYS@.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005DE78 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     ??1DXG_REGISTRY_KEY_LIST@@QEAA@XZ @ 0x1C0301D90 (--1DXG_REGISTRY_KEY_LIST@@QEAA@XZ.c)
- *     ?AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@Z @ 0x1C0301DD4 (-AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@.c)
- *     ?InsertHead@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0303A38 (-InsertHead@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
- *     ?ReadNextPath@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0304254 (-ReadNextPath@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x1C0004488 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C00046F8 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007018 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C000C748 (RtlUnicodeStringValidateDestWorker.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C003F12C (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_GETREGISTRYKEYS@@@@YAPEAUDXGKVMB_COMMAND_GETREGISTRYKEYS@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0040714 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_GETREGISTRYKEYS@@@@YAPEAUDXGKVMB_COMMAND_GETREGISTRYKEYS@.c)
+ *     ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0041088 (-RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C0041850 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     ??1DXG_REGISTRY_KEY_LIST@@QEAA@XZ @ 0x1C0261984 (--1DXG_REGISTRY_KEY_LIST@@QEAA@XZ.c)
+ *     ?AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@Z @ 0x1C02619C8 (-AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@.c)
+ *     ?InsertHead@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0263434 (-InsertHead@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?ReadNextPath@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C0263C48 (-ReadNextPath@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
  */
 
 char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusGetRegistryKeys(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  struct DXGADAPTER_VMBUS_PACKET *v1; // rbx
-  __int64 v2; // rax
-  char v3; // di
-  __int64 v4; // r9
-  __int64 v5; // r13
-  unsigned int v6; // r14d
-  _DWORD *v7; // r15
-  unsigned int *v8; // r12
-  __int64 v9; // rsi
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  char v5; // di
+  __int64 v6; // rax
+  __int64 v7; // r13
+  unsigned int v8; // ebx
+  _DWORD *v9; // r15
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  unsigned int *v14; // r14
+  __int64 v15; // rsi
+  __int64 v16; // rax
   struct _DEVICE_OBJECT *DeviceAttachmentBaseRef; // rbx
-  const wchar_t *v11; // r9
-  NTSTATUS v12; // eax
-  wchar_t *v13; // r8
-  wchar_t *v14; // r9
-  __int16 v15; // r10
-  __int64 v16; // rdx
-  __int16 v17; // ax
-  size_t v18; // rcx
-  NTSTATUS inserted; // eax
-  int v20; // eax
-  NTSTATUS v21; // eax
-  NTSTATUS v22; // eax
-  __int64 v23; // r9
-  ULONG v24; // ebx
-  ULONG Values; // ecx
-  ULONG v26; // r13d
-  __int64 v27; // rax
-  NTSTATUS v28; // eax
-  unsigned int *v29; // rbx
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rcx
+  int v21; // eax
+  __int64 v22; // rdx
+  char *v23; // rcx
+  _WORD *v24; // r9
+  __int16 v25; // r11
+  __int64 v26; // r10
+  size_t v27; // r8
+  int inserted; // eax
+  int v29; // eax
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  NTSTATUS v32; // eax
+  NTSTATUS v33; // eax
+  ULONG v34; // ebx
+  __int64 v35; // rcx
+  __int64 v36; // r8
+  __int64 v37; // r9
+  ULONG Values; // eax
+  ULONG v39; // r13d
+  NTSTATUS v40; // eax
+  unsigned int *v41; // rbx
   int appended; // eax
-  const wchar_t *v31; // r9
-  unsigned int v32; // eax
+  __int64 v43; // rax
+  __int64 v44; // rax
+  unsigned int v45; // eax
   PULONG ResultLength; // [rsp+28h] [rbp-E0h]
-  __int64 ResultLengtha; // [rsp+28h] [rbp-E0h]
-  ULONG v36; // [rsp+30h] [rbp-D8h]
-  void *KeyHandle; // [rsp+60h] [rbp-A8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-A0h] BYREF
-  wchar_t *ppszDest; // [rsp+78h] [rbp-90h] BYREF
-  size_t pcchDestLength; // [rsp+80h] [rbp-88h] BYREF
-  size_t pcchDest; // [rsp+88h] [rbp-80h] BYREF
-  wchar_t *v43[2]; // [rsp+90h] [rbp-78h] BYREF
-  void *DeviceRegKey; // [rsp+A0h] [rbp-68h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp-60h] BYREF
-  _BYTE v46[8]; // [rsp+D8h] [rbp-30h] BYREF
-  DXGPUSHLOCK *v47; // [rsp+E0h] [rbp-28h]
-  int v48; // [rsp+E8h] [rbp-20h]
-  struct _KEY_FULL_INFORMATION KeyInformation; // [rsp+F0h] [rbp-18h] BYREF
-  char v50; // [rsp+128h] [rbp+20h] BYREF
+  ULONG v48; // [rsp+30h] [rbp-D8h]
+  void *KeyHandle; // [rsp+38h] [rbp-D0h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C8h] BYREF
+  wchar_t *ppszDest; // [rsp+50h] [rbp-B8h] BYREF
+  size_t pcchDestLength; // [rsp+58h] [rbp-B0h] BYREF
+  size_t pcchDest; // [rsp+60h] [rbp-A8h] BYREF
+  _QWORD v54[2]; // [rsp+68h] [rbp-A0h] BYREF
+  void *DeviceRegKey; // [rsp+78h] [rbp-90h] BYREF
+  struct _OBJECT_ATTRIBUTES DeviceRegKey_8; // [rsp+80h] [rbp-88h] BYREF
+  _BYTE v57[8]; // [rsp+B0h] [rbp-58h] BYREF
+  DXGPUSHLOCK *v58; // [rsp+B8h] [rbp-50h]
+  int v59; // [rsp+C0h] [rbp-48h]
+  struct _KEY_FULL_INFORMATION KeyInformation; // [rsp+C8h] [rbp-40h] BYREF
+  char v61; // [rsp+F8h] [rbp-10h] BYREF
 
-  v1 = a1;
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v46, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
-  DXGPUSHLOCK::AcquireShared(v47);
-  v2 = *((_QWORD *)v1 + 10);
-  v3 = 0;
-  v48 = 1;
-  if ( !*(_BYTE *)(v2 + 173) )
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v57, (struct _KTHREAD **)(*((_QWORD *)a1 + 5) + 232LL), 0);
+  DXGPUSHLOCK::AcquireShared(v58);
+  v4 = *((_QWORD *)a1 + 5);
+  v5 = 0;
+  v59 = 1;
+  if ( !*(_BYTE *)(v4 + 165) )
   {
-    WdLogSingleEntry1(2LL, 5761LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"The adapter is already closed by the guest",
-      5761LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    goto LABEL_60;
+    v6 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v6 + 24) = 5215LL;
+    WdLogEvent5_WdError(v6);
+    goto LABEL_54;
   }
-  v5 = CastToVmBusCommand<DXGKVMB_COMMAND_GETREGISTRYKEYS>((__int64)v1);
-  if ( !v5 )
-    goto LABEL_60;
+  v7 = CastToVmBusCommand<DXGKVMB_COMMAND_GETREGISTRYKEYS>((__int64)a1);
+  if ( !v7 )
+    goto LABEL_54;
   DeviceRegKey = 0LL;
   KeyHandle = 0LL;
-  DestinationString.Buffer = (wchar_t *)&v50;
-  v6 = 130040;
+  DestinationString.Buffer = (wchar_t *)&v61;
+  v8 = 130040;
   *(_QWORD *)&DestinationString.Length = 34078720LL;
-  v43[1] = (wchar_t *)v43;
-  v43[0] = (wchar_t *)v43;
+  v54[1] = v54;
+  v54[0] = v54;
+  v9 = 0LL;
   memset(&KeyInformation, 0, sizeof(KeyInformation));
-  v7 = 0LL;
-  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
-  v8 = (unsigned int *)operator new[](0x1FBF8uLL, 0x4B677844u, 64LL, v4);
-  if ( v8 )
+  memset(&DeviceRegKey_8, 0, sizeof(DeviceRegKey_8));
+  v14 = (unsigned int *)operator new(0x1FBF8uLL, 0x4B677844u, 1, (POOL_TYPE)512);
+  if ( v14 )
   {
-    DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(*(PDEVICE_OBJECT *)(*(_QWORD *)(*((_QWORD *)v1 + 10) + 16LL)
+    DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(*(PDEVICE_OBJECT *)(*(_QWORD *)(*((_QWORD *)a1 + 5) + 16LL)
                                                                              + 216LL));
-    v9 = IoOpenDeviceRegistryKey(DeviceAttachmentBaseRef, 2u, 0x20019u, &DeviceRegKey);
+    v15 = IoOpenDeviceRegistryKey(DeviceAttachmentBaseRef, 2u, 0x20019u, &DeviceRegKey);
     ObfDereferenceObject(DeviceAttachmentBaseRef);
-    if ( (int)v9 >= 0 )
+    if ( (int)v15 >= 0 )
     {
-      v12 = RtlUnicodeStringCopyString(&DestinationString, (wchar_t *)(v5 + 24));
-      v9 = v12;
-      if ( v12 >= 0 )
+      v21 = RtlUnicodeStringCopyString(&DestinationString, (const unsigned __int16 *)(v7 + 24));
+      v15 = v21;
+      if ( v21 >= 0 )
       {
         ppszDest = 0LL;
         pcchDest = 0LL;
         pcchDestLength = 0LL;
-        LODWORD(v9) = RtlUnicodeStringValidateDestWorker(
-                        &DestinationString,
-                        &ppszDest,
-                        &pcchDest,
-                        &pcchDestLength,
-                        (const size_t)ResultLength,
-                        v36);
-        if ( (int)v9 >= 0 )
+        LODWORD(v15) = RtlUnicodeStringValidateDestWorker(
+                         &DestinationString,
+                         &ppszDest,
+                         &pcchDest,
+                         &pcchDestLength,
+                         (const size_t)ResultLength,
+                         v48);
+        if ( (int)v15 >= 0 )
         {
-          v15 = pcchDestLength;
-          v13 = (wchar_t *)&unk_1C0102218;
-          v16 = 0x7FFFLL;
-          LODWORD(v9) = 0;
-          v14 = &ppszDest[pcchDestLength];
-          v17 = 0;
-          v18 = pcchDest - pcchDestLength;
+          v24 = &unk_1C007B3A8;
+          v25 = pcchDestLength;
+          v26 = 0x7FFFLL;
+          LODWORD(v15) = 0;
+          v22 = 0LL;
+          v27 = pcchDest - pcchDestLength;
           if ( pcchDest != pcchDestLength )
           {
-            while ( v16 )
+            v23 = (char *)ppszDest + 2 * pcchDestLength - (_QWORD)&unk_1C007B3A8;
+            do
             {
-              if ( *v13 )
-              {
-                *v14++ = *v13++;
-                --v16;
-                ++v17;
-                if ( --v18 )
-                  continue;
-              }
-              if ( !v18 && v16 && *v13 )
-                LODWORD(v9) = -2147483643;
-              break;
+              if ( !v26 )
+                break;
+              if ( !*v24 )
+                break;
+              *(_WORD *)&v23[(_QWORD)v24] = *v24;
+              --v26;
+              ++v24;
+              ++v22;
+              --v27;
             }
+            while ( v27 );
+            if ( !v27 && v26 && *v24 )
+              LODWORD(v15) = -2147483643;
           }
-          DestinationString.Length = 2 * (v15 + v17);
+          LOWORD(v22) = 2 * (v25 + v22);
+          DestinationString.Length = v22;
         }
-        if ( (int)v9 < 0 )
+        if ( (int)v15 < 0 )
         {
-          WdLogSingleEntry1(2LL, (int)v9);
-          v11 = L"Failed to append null char to CurrentRegistryPath for VmBusGetRegistryKeys (status = 0x%I64x).";
-          ResultLengtha = (int)v9;
-LABEL_9:
-          DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v11, ResultLengtha, 0LL, 0LL, 0LL, 0LL);
-LABEL_52:
-          v1 = a1;
-          v6 = 130040;
-          goto LABEL_53;
+LABEL_22:
+          v20 = WdLogNewEntry5_WdError(v23, v22);
+          *(_QWORD *)(v20 + 24) = (int)v15;
+LABEL_8:
+          WdLogEvent5_WdError(v20);
+LABEL_44:
+          v8 = 130040;
+          goto LABEL_45;
         }
-        inserted = DXG_REGISTRY_KEY_LIST::InsertHead(
-                     (DXG_REGISTRY_KEY_LIST *)v43,
-                     &DestinationString,
-                     (__int64)v13,
-                     (__int64)v14);
-        v9 = inserted;
+        inserted = DXG_REGISTRY_KEY_LIST::InsertHead((DXG_REGISTRY_KEY_LIST *)v54, &DestinationString);
+        v15 = inserted;
         if ( inserted >= 0 )
         {
           while ( 1 )
           {
-            if ( (wchar_t **)v43[0] == v43 )
-              goto LABEL_51;
-            v20 = DXG_REGISTRY_KEY_LIST::ReadNextPath(v43, &DestinationString);
-            v9 = v20;
-            if ( v20 < 0 )
+            if ( (_QWORD *)v54[0] == v54 )
+              goto LABEL_43;
+            v29 = DXG_REGISTRY_KEY_LIST::ReadNextPath((DXG_REGISTRY_KEY_LIST *)v54, &DestinationString);
+            v15 = v29;
+            if ( v29 < 0 )
+              goto LABEL_42;
+            DeviceRegKey_8.RootDirectory = DeviceRegKey;
+            DeviceRegKey_8.Length = 48;
+            DeviceRegKey_8.ObjectName = &DestinationString;
+            DeviceRegKey_8.Attributes = 576;
+            *(_OWORD *)&DeviceRegKey_8.SecurityDescriptor = 0LL;
+            v32 = ZwOpenKey(&KeyHandle, 0x20019u, &DeviceRegKey_8);
+            v15 = v32;
+            if ( v32 < 0
+              || (LODWORD(ppszDest) = 0,
+                  v33 = ZwQueryKey(KeyHandle, KeyFullInformation, &KeyInformation, 0x30u, (PULONG)&ppszDest),
+                  v15 = v33,
+                  v33 < 0) )
             {
-              WdLogSingleEntry1(2LL, v20);
-              v31 = L"Failed to initialize subkey string for VmBusGetRegistryKeys (status = 0x%I64x).";
-              goto LABEL_50;
+LABEL_42:
+              v44 = WdLogNewEntry5_WdError(v31, v30);
+              *(_QWORD *)(v44 + 24) = v15;
+              WdLogEvent5_WdError(v44);
+LABEL_43:
+              v9 = 0LL;
+              goto LABEL_44;
             }
-            ObjectAttributes.RootDirectory = DeviceRegKey;
-            ObjectAttributes.Length = 48;
-            ObjectAttributes.ObjectName = &DestinationString;
-            ObjectAttributes.Attributes = 576;
-            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-            v21 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
-            v9 = v21;
-            if ( v21 < 0 )
-              break;
-            LODWORD(ppszDest) = 0;
-            v22 = ZwQueryKey(KeyHandle, KeyFullInformation, &KeyInformation, 0x30u, (PULONG)&ppszDest);
-            v9 = v22;
-            if ( v22 < 0 )
+            v34 = KeyInformation.MaxValueDataLen + 2 * (KeyInformation.MaxValueNameLen + 12);
+            LODWORD(pcchDest) = v34;
+            v9 = operator new(v34, 0x4B677844u, 1, PagedPool);
+            if ( !v9 )
             {
-              WdLogSingleEntry1(2LL, v22);
-              v31 = L"Failed to query key for VmBusGetRegistryKeys (status = 0x%I64x).";
-LABEL_50:
-              DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v31, v9, 0LL, 0LL, 0LL, 0LL);
-LABEL_51:
-              v7 = 0LL;
-              goto LABEL_52;
-            }
-            v24 = KeyInformation.MaxValueDataLen + 2 * (KeyInformation.MaxValueNameLen + 12);
-            LODWORD(pcchDest) = v24;
-            v7 = (_DWORD *)operator new[](v24, 0x4B677844u, 256LL, v23);
-            if ( !v7 )
-            {
-              LODWORD(v9) = -1073741801;
-              WdLogSingleEntry1(6LL, 5871LL);
-              DxgkLogInternalTriageEvent(
-                0LL,
-                262145,
-                -1,
-                (__int64)L"Cannot allocate memory for KEY_VALUE_FULL_INFORMATION",
-                5871LL,
-                0LL,
-                0LL,
-                0LL,
-                0LL);
-              goto LABEL_52;
+              LODWORD(v15) = -1073741801;
+              v43 = WdLogNewEntry5_WdLowResource(v35, v22, v36, v37);
+              *(_QWORD *)(v43 + 24) = 5325LL;
+              WdLogEvent5_WdLowResource(v43);
+              goto LABEL_44;
             }
             Values = KeyInformation.Values;
-            v26 = 0;
-            v27 = *v8;
+            v39 = 0;
             if ( KeyInformation.Values )
-            {
-              while ( (_DWORD)v27 != 42 )
-              {
-                memset(v7, 0, v24);
-                LODWORD(pcchDestLength) = 0;
-                v28 = ZwEnumerateValueKey(KeyHandle, v26, KeyValueFullInformation, v7, v24, (PULONG)&pcchDestLength);
-                v9 = v28;
-                if ( v28 < 0 )
-                {
-                  WdLogSingleEntry1(2LL, v28);
-                  v11 = L"Failed to Enumerate Value for VmBusGetRegistryKeys (status = 0x%I64x).";
-                  goto LABEL_8;
-                }
-                v29 = &v8[774 * *v8];
-                RtlStringCbCopyUnicodeString((char *)v29 + 2056, 0x208uLL, &DestinationString);
-                memmove(v29 + 644, v7 + 5, (unsigned int)v7[4]);
-                memmove(v29 + 2, (char *)v7 + (unsigned int)v7[2], (unsigned int)v7[3]);
-                ++v26;
-                v29[774] = v7[1];
-                v29[775] = v7[3];
-                v24 = pcchDest;
-                v27 = *v8 + 1;
-                *v8 = v27;
-                Values = KeyInformation.Values;
-                if ( v26 >= KeyInformation.Values )
-                  goto LABEL_36;
-              }
-              WdLogSingleEntry1(2LL, (unsigned int)v9);
-              v11 = L"Maximum number of KeyValues reached, aborting VmBusGetRegistryKeys (status = 0x%I64x).";
-              ResultLengtha = (unsigned int)v9;
-              goto LABEL_9;
-            }
-LABEL_36:
+              break;
+LABEL_34:
             if ( !KeyInformation.SubKeys && !Values )
             {
-              RtlStringCbCopyUnicodeString((char *)&v8[774 * v27 + 514], 0x208uLL, &DestinationString);
-              ++*v8;
+              RtlStringCbCopyUnicodeString((char *)&v14[774 * *v14 + 514], 0x208uLL, &DestinationString);
+              ++*v14;
             }
             appended = DXG_REGISTRY_KEY_LIST::AppendSubKeys(
-                         (DXG_REGISTRY_KEY_LIST *)v43,
+                         (DXG_REGISTRY_KEY_LIST *)v54,
                          KeyHandle,
                          &KeyInformation,
                          &DestinationString);
-            v9 = appended;
+            v15 = appended;
             if ( appended < 0 )
-            {
-              WdLogSingleEntry1(2LL, appended);
-              v11 = L"Failed to Append SubKeys for VmBusGetRegistryKeys (status = 0x%I64x).";
-              goto LABEL_8;
-            }
+              goto LABEL_7;
             if ( KeyHandle )
               ZwClose(KeyHandle);
-            operator delete[](v7);
+            operator delete[](v9);
             KeyHandle = 0LL;
           }
-          WdLogSingleEntry1(2LL, v21);
-          v31 = L"Failed to open PnP registry subkey for VmBusGetRegistryKeys (status = 0x%I64x).";
-          goto LABEL_50;
+          v23 = (char *)*v14;
+          while ( (_DWORD)v23 != 42 )
+          {
+            memset(v9, 0, v34);
+            LODWORD(pcchDestLength) = 0;
+            v40 = ZwEnumerateValueKey(KeyHandle, v39, KeyValueFullInformation, v9, v34, (PULONG)&pcchDestLength);
+            v15 = v40;
+            if ( v40 < 0 )
+              goto LABEL_7;
+            v41 = &v14[774 * *v14];
+            RtlStringCbCopyUnicodeString((char *)v41 + 2056, 0x208uLL, &DestinationString);
+            memmove(v41 + 644, v9 + 5, (unsigned int)v9[4]);
+            memmove(v41 + 2, (char *)v9 + (unsigned int)v9[2], (unsigned int)v9[3]);
+            ++v39;
+            v41[774] = v9[1];
+            v41[775] = v9[3];
+            ++*v14;
+            Values = KeyInformation.Values;
+            v23 = (char *)*v14;
+            v34 = pcchDest;
+            if ( v39 >= KeyInformation.Values )
+              goto LABEL_34;
+          }
+          goto LABEL_22;
         }
-        WdLogSingleEntry1(2LL, inserted);
-        v11 = L"Failed to insert root registry key name into list for VmBusGetRegistryKeys (status = 0x%I64x).";
-      }
-      else
-      {
-        WdLogSingleEntry1(2LL, v12);
-        v11 = L"Failed to copy root registry key name for VmBusGetRegistryKeys (status = 0x%I64x).";
       }
     }
-    else
-    {
-      WdLogSingleEntry1(2LL, v9);
-      v11 = L"Failed to read PnP registry key name for VmBusGetRegistryKeys (status = 0x%I64x).";
-    }
-LABEL_8:
-    ResultLengtha = v9;
-    goto LABEL_9;
+LABEL_7:
+    v20 = WdLogNewEntry5_WdError(v19, v18);
+    *(_QWORD *)(v20 + 24) = v15;
+    goto LABEL_8;
   }
-  LODWORD(v9) = -1073741801;
-  WdLogSingleEntry1(6LL, 5781LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    262145,
-    -1,
-    (__int64)L"Cannot allocate memory for DXGKVMB_COMMAND_GETREGISTRYKEYS_RETURN",
-    5781LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-LABEL_53:
+  LODWORD(v15) = -1073741801;
+  v16 = WdLogNewEntry5_WdLowResource(v11, v10, v12, v13);
+  *(_QWORD *)(v16 + 24) = 5235LL;
+  WdLogEvent5_WdLowResource(v16);
+LABEL_45:
   if ( DeviceRegKey )
     ZwClose(DeviceRegKey);
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  v32 = *v8;
-  v8[1] = v9;
-  if ( v32 < 0x2A )
-    v6 = 3096 * v32 + 8;
-  VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)v1 + 16), v8, v6);
-  operator delete[](v8);
-  operator delete[](v7);
-  v3 = 1;
-  DXG_REGISTRY_KEY_LIST::~DXG_REGISTRY_KEY_LIST((DXG_REGISTRY_KEY_LIST *)v43);
-LABEL_60:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v46);
-  return v3;
+  if ( v14 )
+  {
+    v45 = *v14;
+    v14[1] = v15;
+    if ( v45 < 0x2A )
+      v8 = 3096 * v45 + 8;
+    VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 9), v14, v8);
+    v5 = 1;
+  }
+  operator delete[](v14);
+  operator delete[](v9);
+  DXG_REGISTRY_KEY_LIST::~DXG_REGISTRY_KEY_LIST((DXG_REGISTRY_KEY_LIST *)v54);
+LABEL_54:
+  DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v57);
+  return v5;
 }

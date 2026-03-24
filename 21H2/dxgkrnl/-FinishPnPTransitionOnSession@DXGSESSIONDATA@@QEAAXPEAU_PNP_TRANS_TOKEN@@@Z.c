@@ -1,97 +1,95 @@
 /*
- * XREFs of ?FinishPnPTransitionOnSession@DXGSESSIONDATA@@QEAAXPEAU_PNP_TRANS_TOKEN@@@Z @ 0x1C0217E28
+ * XREFs of ?FinishPnPTransitionOnSession@DXGSESSIONDATA@@QEAAXPEAU_PNP_TRANS_TOKEN@@@Z @ 0x1C019C888
  * Callers:
- *     ?CompletePnPTransition@DXGSESSIONMGR@@QEAAXPEAX@Z @ 0x1C0217D04 (-CompletePnPTransition@DXGSESSIONMGR@@QEAAXPEAX@Z.c)
- *     ?FinishPnPTransitionOnSession@DXGSESSIONMGR@@QEAAXPEAXK@Z @ 0x1C0217DA0 (-FinishPnPTransitionOnSession@DXGSESSIONMGR@@QEAAXPEAXK@Z.c)
+ *     ?CompletePnPTransition@DXGSESSIONMGR@@QEAAXPEAX@Z @ 0x1C019C764 (-CompletePnPTransition@DXGSESSIONMGR@@QEAAXPEAX@Z.c)
+ *     ?FinishPnPTransitionOnSession@DXGSESSIONMGR@@QEAAXPEAXK@Z @ 0x1C019C800 (-FinishPnPTransitionOnSession@DXGSESSIONMGR@@QEAAXPEAXK@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
-void __fastcall DXGSESSIONDATA::FinishPnPTransitionOnSession(
-        DXGSESSIONDATA *this,
-        struct _PNP_TRANS_TOKEN *a2,
-        __int64 a3,
-        __int64 a4)
+void __fastcall DXGSESSIONDATA::FinishPnPTransitionOnSession(DXGSESSIONDATA *this, struct _PNP_TRANS_TOKEN *a2)
 {
-  __int64 v4; // r8
-  unsigned int v5; // ebx
-  struct _PNP_TRANS_TOKEN *v6; // r14
-  DXGSESSIONDATA *v7; // rdi
-  char v8; // si
-  char v9; // bp
+  unsigned int v2; // r8d
+  unsigned int v3; // ebx
+  struct _PNP_TRANS_TOKEN *v4; // r14
+  DXGSESSIONDATA *v5; // rdi
+  char v6; // si
+  char v7; // bp
   __int64 CurrentProcess; // rax
+  __int64 v9; // rcx
+  _QWORD *v10; // rdx
   __int64 v11; // rcx
-  _QWORD *v12; // rdx
-  __int64 v13; // rcx
-  _QWORD *v14; // rax
-  unsigned int v15; // ebx
-  char v16; // dl
+  _QWORD *v12; // rax
+  struct _KEVENT *v13; // rcx
+  unsigned int v14; // ebx
+  char v15; // r8
   struct _KAPC_STATE ApcState; // [rsp+20h] [rbp-58h] BYREF
 
-  v4 = *((unsigned int *)this + 4690);
-  v5 = 0;
-  v6 = a2;
-  v7 = this;
-  v8 = 1;
-  if ( (_DWORD)v4 )
+  v2 = *((_DWORD *)this + 4684);
+  v3 = 0;
+  v4 = a2;
+  v5 = this;
+  v6 = 1;
+  if ( v2 )
   {
-    a2 = (struct _PNP_TRANS_TOKEN *)*((_QWORD *)this + 2346);
+    a2 = (struct _PNP_TRANS_TOKEN *)*((_QWORD *)this + 2343);
     do
     {
-      this = (DXGSESSIONDATA *)*((_QWORD *)a2 + 4 * v5 + 1);
+      this = (DXGSESSIONDATA *)*((_QWORD *)a2 + 4 * v3 + 1);
       if ( this )
       {
-        if ( this == v6 )
+        if ( this == v4 )
           break;
-        v8 = 0;
+        v6 = 0;
       }
-      ++v5;
+      ++v3;
     }
-    while ( v5 < (unsigned int)v4 );
+    while ( v3 < v2 );
   }
-  if ( *((_QWORD *)v7 + 2316) )
+  if ( *((_QWORD *)v5 + 2314) )
   {
-    v9 = 0;
+    v7 = 0;
     memset(&ApcState, 0, sizeof(ApcState));
-    CurrentProcess = PsGetCurrentProcess(this, a2, v4, a4);
-    if ( (unsigned int)PsGetProcessSessionIdEx(CurrentProcess) != *(_DWORD *)v7 )
+    CurrentProcess = PsGetCurrentProcess(this, a2);
+    if ( (unsigned int)PsGetProcessSessionIdEx(CurrentProcess) != *(_DWORD *)v5 )
     {
-      v9 = 1;
-      KeStackAttachProcess(*((PRKPROCESS *)v7 + 2331), &ApcState);
+      v7 = 1;
+      KeStackAttachProcess(*((PRKPROCESS *)v5 + 2329), &ApcState);
     }
-    _InterlockedIncrement(*((volatile signed __int32 **)v7 + 2316));
-    if ( v9 )
+    _InterlockedIncrement(*((volatile signed __int32 **)v5 + 2314));
+    if ( v7 )
       KeUnstackDetachProcess(&ApcState);
   }
-  if ( v5 < *((_DWORD *)v7 + 4690) )
+  if ( v3 < *((_DWORD *)v5 + 4684) )
   {
-    v11 = 32LL * v5;
-    *(_QWORD *)(v11 + *((_QWORD *)v7 + 2346) + 8) = 0LL;
-    v12 = (_QWORD *)(v11 + *((_QWORD *)v7 + 2346) + 16LL);
-    v13 = *v12;
-    if ( *(_QWORD **)(*v12 + 8LL) != v12 || (v14 = (_QWORD *)v12[1], (_QWORD *)*v14 != v12) )
+    v9 = 32LL * v3;
+    *(_QWORD *)(v9 + *((_QWORD *)v5 + 2343) + 8) = 0LL;
+    v10 = (_QWORD *)(v9 + *((_QWORD *)v5 + 2343) + 16LL);
+    v11 = *v10;
+    if ( *(_QWORD **)(*v10 + 8LL) != v10 || (v12 = (_QWORD *)v10[1], (_QWORD *)*v12 != v10) )
       __fastfail(3u);
-    *v14 = v13;
-    *(_QWORD *)(v13 + 8) = v14;
-    --*((_DWORD *)v6 + 1);
-    if ( *((_QWORD *)v7 + 2344) )
+    *v12 = v11;
+    *(_QWORD *)(v11 + 8) = v12;
+    --*((_DWORD *)v4 + 1);
+    v13 = (struct _KEVENT *)*((_QWORD *)v5 + 2341);
+    if ( v13 )
     {
-      v15 = v5 + 1;
-      if ( v8 )
+      v14 = v3 + 1;
+      if ( v6 )
       {
-        while ( 1 )
+        do
         {
-          v16 = 0;
-          if ( v15 >= *((_DWORD *)v7 + 4690) )
+          if ( v14 >= *((_DWORD *)v5 + 4684) )
             break;
-          if ( !*(_QWORD *)(32LL * v15 + *((_QWORD *)v7 + 2346) + 8) )
-            v16 = v8;
-          ++v15;
-          v8 = v16;
-          if ( !v16 )
-            return;
+          v15 = 0;
+          if ( !*(_QWORD *)(32LL * v14 + *((_QWORD *)v5 + 2343) + 8) )
+            v15 = v6;
+          ++v14;
+          v6 = v15;
         }
-        KeSetEvent(*((PRKEVENT *)v7 + 2344), 0, 0);
+        while ( v15 );
+        if ( v6 )
+          KeSetEvent(v13, 0, 0);
       }
     }
   }

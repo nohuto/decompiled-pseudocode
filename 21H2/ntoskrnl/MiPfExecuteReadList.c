@@ -1,15 +1,14 @@
 /*
- * XREFs of MiPfExecuteReadList @ 0x1406F4E78
+ * XREFs of MiPfExecuteReadList @ 0x1406E9104
  * Callers:
- *     MiPrefetchControlArea @ 0x1406B85C8 (MiPrefetchControlArea.c)
- *     MmPrefetchForCacheManager @ 0x1406FA590 (MmPrefetchForCacheManager.c)
- *     MmPrefetchPagesEx @ 0x1406FA730 (MmPrefetchPagesEx.c)
+ *     MmPrefetchPagesEx @ 0x14061C354 (MmPrefetchPagesEx.c)
+ *     MmPrefetchForCacheManager @ 0x1406E898C (MmPrefetchForCacheManager.c)
+ *     MiPrefetchControlArea @ 0x140715998 (MiPrefetchControlArea.c)
  * Callees:
- *     MiPageRead @ 0x1402792AC (MiPageRead.c)
- *     MiReferenceInPageFile @ 0x14027A818 (MiReferenceInPageFile.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     SmPageRead @ 0x140394BE8 (SmPageRead.c)
- *     MiReadFromMemoryPagefile @ 0x14059A410 (MiReadFromMemoryPagefile.c)
+ *     SmPageRead @ 0x1402AF95C (SmPageRead.c)
+ *     MiPageRead @ 0x1402FCACC (MiPageRead.c)
+ *     MiReferenceInPageFile @ 0x14031CC98 (MiReferenceInPageFile.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
  */
 
 int __fastcall MiPfExecuteReadList(__int64 a1, char a2, unsigned int a3, __int64 a4)
@@ -22,7 +21,7 @@ int __fastcall MiPfExecuteReadList(__int64 a1, char a2, unsigned int a3, __int64
   char v9; // r15
   int v11; // edi
   __int64 v12; // rsi
-  unsigned __int64 v13; // rax
+  __int64 v13; // rax
   __int64 v14; // rcx
   _UNKNOWN *retaddr; // [rsp+68h] [rbp+0h] BYREF
 
@@ -58,16 +57,13 @@ int __fastcall MiPfExecuteReadList(__int64 a1, char a2, unsigned int a3, __int64
         v9 = BYTE4(CurrentThread[1].Queue);
         BYTE4(CurrentThread[1].Queue) = 1;
       }
-      if ( v14 && _bittest16((const signed __int16 *)(v14 + 204), 0xBu) )
+      if ( v14 && (*(_WORD *)(v14 + 204) & 0x800) != 0 )
       {
-        MiReadFromMemoryPagefile(v14, v7);
         LODWORD(v4) = 0;
       }
       else if ( (*(_DWORD *)(v7 + 192) & 0x100) != 0 )
       {
-        LODWORD(v4) = SmPageRead(
-                        (union _MM_STORE_KEY *)(v7 + 96),
-                        (v7 + 272) | ((-(__int64)(v8 != 0) & 0xFFFFFFFFFFFFFFFEuLL) + 3));
+        LODWORD(v4) = SmPageRead((union _MM_STORE_KEY *)(v7 + 96), (v7 + 272) | (v8 != 0 ? 1 : 3));
       }
       else
       {

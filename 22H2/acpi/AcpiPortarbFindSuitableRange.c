@@ -1,10 +1,10 @@
 /*
- * XREFs of AcpiPortarbFindSuitableRange @ 0x1C008C270
+ * XREFs of AcpiPortarbFindSuitableRange @ 0x1C00B20F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     AcpiArblibIsAliasedRangeAvailable @ 0x1C007D0E8 (AcpiArblibIsAliasedRangeAvailable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     AcpiArblibIsAliasedRangeAvailable @ 0x1C00AD37C (AcpiArblibIsAliasedRangeAvailable.c)
  */
 
 char __fastcall AcpiPortarbFindSuitableRange(__int64 a1, unsigned __int64 *a2)

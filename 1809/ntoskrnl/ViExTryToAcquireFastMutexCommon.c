@@ -4,7 +4,7 @@
  *     VerifierExTryToAcquireFastMutex @ 0x140942300 (VerifierExTryToAcquireFastMutex.c)
  *     VerifierExTryToAcquireFastMutexNoReboot @ 0x140942360 (VerifierExTryToAcquireFastMutexNoReboot.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     VfKeIrqlTransitionReserveLogEntry @ 0x14093AC40 (VfKeIrqlTransitionReserveLogEntry.c)
  *     ViKeIrqlLogCommon @ 0x14093AEAC (ViKeIrqlLogCommon.c)
  *     ViExCheckAPCLevelOrBelow @ 0x1409426BC (ViExCheckAPCLevelOrBelow.c)

@@ -1,40 +1,40 @@
 /*
- * XREFs of ?SetProperty@CColorBrush@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800C5110
+ * XREFs of ?SetProperty@CColorBrush@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800BDEC0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV?$span@QEBUAnimatedProperty@AnimationHelper@@$0?0@gsl@@IW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800C5398 (-FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV-$span@QEBUAnimatedPro.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV?$span@QEBUAnimatedProperty@AnimationHelper@@$0?0@gsl@@IW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800BE2A8 (-FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV-$span@QEBUAnimatedPro.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CColorBrush::SetProperty(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall CColorBrush::SetProperty(__int64 a1)
 {
   __int64 AnimatablePropertyInfo; // rax
-  __int64 v5; // rcx
-  __int64 v6; // r11
-  int v7; // eax
-  __int64 v8; // rcx
-  unsigned int v9; // ebx
-  _QWORD v11[3]; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v3; // rcx
+  __int64 v4; // r11
+  int v5; // eax
+  __int64 v6; // rcx
+  unsigned int v7; // ebx
+  _QWORD v9[3]; // [rsp+30h] [rbp-18h] BYREF
 
-  v11[0] = 1LL;
-  v11[1] = &CColorBrush::k_rgAnimDef;
-  AnimatablePropertyInfo = AnimationHelper::FindAnimatablePropertyInfo(v11, a2, a3);
+  v9[0] = 1LL;
+  v9[1] = &CColorBrush::k_rgAnimDef;
+  AnimatablePropertyInfo = AnimationHelper::FindAnimatablePropertyInfo(v9);
   if ( AnimatablePropertyInfo )
   {
-    v7 = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(AnimatablePropertyInfo + 24))(
+    v5 = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(AnimatablePropertyInfo + 24))(
            a1 + *(int *)(AnimatablePropertyInfo + 32),
            AnimatablePropertyInfo,
-           v6);
-    v9 = v7;
-    if ( v7 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0x37u);
+           v4);
+    v7 = v5;
+    if ( v5 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x37u, 0LL);
   }
   else
   {
-    v9 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0LL, -2147024809, 0x3Bu);
+    v7 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, -2147024809, 0x3Bu, 0LL);
   }
-  return v9;
+  return v7;
 }

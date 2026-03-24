@@ -1,25 +1,25 @@
 /*
- * XREFs of ExpSetDriverEntry @ 0x1408D1EEC
+ * XREFs of ExpSetDriverEntry @ 0x1408D1ECC
  * Callers:
- *     NtAddDriverEntry @ 0x1408D35A0 (NtAddDriverEntry.c)
- *     NtModifyDriverEntry @ 0x1408D46D0 (NtModifyDriverEntry.c)
+ *     NtAddDriverEntry @ 0x1408D3580 (NtAddDriverEntry.c)
+ *     NtModifyDriverEntry @ 0x1408D46B0 (NtModifyDriverEntry.c)
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     swprintf_s @ 0x14019A340 (swprintf_s.c)
- *     ZwTranslateFilePath @ 0x1401BB910 (ZwTranslateFilePath.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     swprintf_s @ 0x14019A360 (swprintf_s.c)
+ *     ZwTranslateFilePath @ 0x1401BB930 (ZwTranslateFilePath.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     IoGetEnvironmentVariableEx @ 0x14082131C (IoGetEnvironmentVariableEx.c)
- *     IoSetEnvironmentVariableEx @ 0x140821608 (IoSetEnvironmentVariableEx.c)
- *     ExpSafeWcslen @ 0x1408D16FC (ExpSafeWcslen.c)
- *     ExpVerifyFilePath @ 0x1408D33A0 (ExpVerifyFilePath.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     IoGetEnvironmentVariableEx @ 0x1408212FC (IoGetEnvironmentVariableEx.c)
+ *     IoSetEnvironmentVariableEx @ 0x1408215E8 (IoSetEnvironmentVariableEx.c)
+ *     ExpSafeWcslen @ 0x1408D16DC (ExpSafeWcslen.c)
+ *     ExpVerifyFilePath @ 0x1408D3380 (ExpVerifyFilePath.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall ExpSetDriverEntry(int a1, const void *a2, unsigned __int64 a3)

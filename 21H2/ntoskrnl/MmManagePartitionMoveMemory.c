@@ -1,135 +1,62 @@
 /*
- * XREFs of MmManagePartitionMoveMemory @ 0x140982688
+ * XREFs of MmManagePartitionMoveMemory @ 0x1408DBAE0
  * Callers:
- *     NtManagePartition @ 0x1407DE5F0 (NtManagePartition.c)
+ *     NtManagePartition @ 0x140691E80 (NtManagePartition.c)
  * Callees:
- *     KeGetIdealNodeNumberThread @ 0x14056D710 (KeGetIdealNodeNumberThread.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     MiAddSpecialPurposeMemoryCleanup @ 0x14096DE64 (MiAddSpecialPurposeMemoryCleanup.c)
- *     MiAddSpecialPurposeMemoryComplete @ 0x14096DEDC (MiAddSpecialPurposeMemoryComplete.c)
- *     MiAddSpecialPurposeMemoryPrepare @ 0x14096DF60 (MiAddSpecialPurposeMemoryPrepare.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1409811F0 (MiAllocatePartitionPhysicalPages.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408DA978 (MiAllocatePartitionPhysicalPages.c)
  */
 
-__int64 __fastcall MmManagePartitionMoveMemory(__int64 *a1, __int64 *a2, __int64 a3, KPROCESSOR_MODE a4)
+__int64 __fastcall MmManagePartitionMoveMemory(ULONG_PTR **a1, ULONG_PTR **a2, __int64 a3, KPROCESSOR_MODE a4)
 {
-  __int64 v4; // r15
-  __int64 *v5; // r14
-  __int64 v6; // rdx
-  __int64 v8; // rbp
-  __int64 result; // rax
-  unsigned int v10; // ebx
-  unsigned __int16 IdealNodeNumberThread; // ax
-  int v12; // edi
-  bool v13; // zf
-  bool v14; // zf
-  int PartitionPhysicalPages; // eax
-  unsigned int v16; // esi
-  __int64 *v17; // [rsp+70h] [rbp+8h] BYREF
-  volatile signed __int64 *v18; // [rsp+78h] [rbp+10h] BYREF
+  ULONG_PTR *v4; // rbp
+  unsigned __int64 v6; // rdx
+  ULONG_PTR *v7; // r14
+  unsigned int v9; // ebx
+  int v10; // edi
+  bool v11; // zf
 
   v4 = *a2;
-  v5 = 0LL;
   v6 = *(_QWORD *)a3;
-  v18 = 0LL;
-  v8 = *a1;
-  v17 = 0LL;
-  if ( !v6 )
+  v7 = *a1;
+  if ( !*(_QWORD *)a3 )
     return 0LL;
-  v10 = *(_DWORD *)(a3 + 8);
-  if ( v10 == -1 )
+  v9 = *(_DWORD *)(a3 + 8);
+  if ( v9 == -1 )
   {
-    IdealNodeNumberThread = KeGetIdealNodeNumberThread((__int64)KeGetCurrentThread());
-    v5 = v17;
-    v10 = IdealNodeNumberThread;
+    v9 = *(unsigned __int16 *)(*(_QWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor] + 192) + 146LL);
   }
-  else if ( v10 >= (unsigned __int16)KeNumberNodes )
+  else if ( v9 >= (unsigned __int16)KeNumberNodes )
   {
     return 3221225485LL;
   }
-  v12 = *(_DWORD *)(a3 + 12);
-  if ( (v12 & 0xFFFFF000) != 0 )
+  v10 = *(_DWORD *)(a3 + 12);
+  if ( (v10 & 0xFFFFFC00) != 0 )
     return 3221225485LL;
-  if ( (v12 & 0x400) != 0 )
+  if ( (v10 & 0x200) != 0 )
+    return 3221225659LL;
+  if ( (v10 & 0x12) != 0 )
   {
-    if ( v4 != v8 || v6 != 0x40000 || (*(_DWORD *)(a3 + 12) & 0xA00) == 0x800 )
-      return 3221225485LL;
-  }
-  else if ( (v12 & 0x800) != 0 )
-  {
-    return 3221225485LL;
-  }
-  if ( (v12 & 0x200) != 0 )
-  {
-    if ( (v12 & 0x100) == 0 || (v12 & 0xFFFFF0F6) != 0 )
-      return 3221225485LL;
-    if ( (v12 & 0x400) == 0 )
-      goto LABEL_21;
-    v13 = (v12 & 8) == 0;
+    v11 = (*(_DWORD *)(a3 + 12) & 0x1E0) == 0;
   }
   else
   {
-    if ( (v12 & 0x400) == 0 )
-      goto LABEL_21;
-    v13 = (v12 & 0xFFFFFA7E) == 0;
-  }
-  if ( !v13 || (v12 & 0x180) == 0 )
-    return 3221225485LL;
-LABEL_21:
-  if ( (v12 & 0x12) != 0 )
-  {
-    v14 = (*(_DWORD *)(a3 + 12) & 0x1E0) == 0;
-LABEL_27:
-    if ( !v14 || (v6 & 0x1FF) != 0 )
-      return 3221225485LL;
-    goto LABEL_33;
-  }
-  if ( (v12 & 0x60) != 0 )
-  {
-    v14 = (*(_DWORD *)(a3 + 12) & 0x180) == 0;
-    goto LABEL_27;
-  }
-  if ( (v12 & 0x180) != 0 )
-  {
-    if ( !_bittest64(&KeFeatureBits, 0x25u) )
-      return 3221225659LL;
-    if ( (v6 & 0x3FFFF) != 0 )
-      return 3221225485LL;
-  }
-LABEL_33:
-  if ( (v12 & 8) != 0 )
-  {
-    if ( (ULONG_PTR *)v8 == &MiSystemPartition && ((ULONG_PTR *)v4 != &MiSystemPartition || (v12 & 0x200) != 0) )
+    if ( (v10 & 0x60) == 0 )
     {
-      if ( !SeSinglePrivilegeCheck(SeLockMemoryPrivilege, a4) )
-        return 3221225569LL;
-      goto LABEL_39;
+      if ( (v10 & 0x180) != 0 && ((KeFeatureBits & 0x2000000000LL) == 0 || (v6 & 0x3FFFF) != 0) )
+        return 3221225485LL;
+      goto LABEL_19;
     }
+    v11 = (*(_DWORD *)(a3 + 12) & 0x180) == 0;
+  }
+  if ( !v11 || (v6 & 0x1FF) != 0 )
     return 3221225485LL;
-  }
-LABEL_39:
-  if ( _bittest((const signed __int32 *)(v8 + 4), 8u) )
-    return 3221225659LL;
-  if ( !_bittest((const signed __int32 *)(v4 + 4), 8u) )
-    goto LABEL_44;
-  if ( (v12 & 0xFFFFFE08) != 0 )
-    return 3221225659LL;
-  result = MiAddSpecialPurposeMemoryPrepare(v8, (const void *)(v4 + 16640), &v17, &v18);
-  if ( (int)result < 0 )
-    return result;
-  v5 = v17;
-  v8 = *v17;
-  do
-  {
-LABEL_44:
-    PartitionPhysicalPages = MiAllocatePartitionPhysicalPages((ULONG_PTR *)v4, v8, *(_QWORD *)a3, v10, v12, 0);
-    v16 = PartitionPhysicalPages;
-  }
-  while ( PartitionPhysicalPages == -1073740023 );
-  if ( _bittest((const signed __int32 *)(v8 + 4), 8u) )
-  {
-    MiAddSpecialPurposeMemoryComplete(v5, &v18, PartitionPhysicalPages);
-    MiAddSpecialPurposeMemoryCleanup((__int64)v5, &v18);
-  }
-  return v16;
+LABEL_19:
+  if ( (v10 & 8) == 0 )
+    return MiAllocatePartitionPhysicalPages(v4, (unsigned __int64)v7, *(_QWORD *)a3, v9, v10, 0);
+  if ( v7 != &MiSystemPartition || v4 == &MiSystemPartition )
+    return 3221225485LL;
+  if ( !SeSinglePrivilegeCheck(SeLockMemoryPrivilege, a4) )
+    return 3221225569LL;
+  return MiAllocatePartitionPhysicalPages(v4, (unsigned __int64)v7, *(_QWORD *)a3, v9, v10, 0);
 }

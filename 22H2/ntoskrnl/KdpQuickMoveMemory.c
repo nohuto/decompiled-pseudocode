@@ -1,13 +1,13 @@
 /*
- * XREFs of KdpQuickMoveMemory @ 0x140AB2880
+ * XREFs of KdpQuickMoveMemory @ 0x1409B9CF0
  * Callers:
- *     KdpGetContextEx @ 0x140393BA4 (KdpGetContextEx.c)
- *     KdpSetContextEx @ 0x140393C88 (KdpSetContextEx.c)
- *     KdpCopyContext @ 0x140AB15FC (KdpCopyContext.c)
- *     KdpReportExceptionStateChange @ 0x140AB25A4 (KdpReportExceptionStateChange.c)
- *     KdpSearchMemory @ 0x140AB5634 (KdpSearchMemory.c)
- *     KdpPrint @ 0x140AB6358 (KdpPrint.c)
- *     KdpPrompt @ 0x140AB64D8 (KdpPrompt.c)
+ *     KdpGetContextEx @ 0x140511238 (KdpGetContextEx.c)
+ *     KdpSetContextEx @ 0x14051142C (KdpSetContextEx.c)
+ *     KdpReportExceptionStateChange @ 0x1409B7CE0 (KdpReportExceptionStateChange.c)
+ *     KdpSearchMemory @ 0x1409B8018 (KdpSearchMemory.c)
+ *     KdpPrint @ 0x1409B96C8 (KdpPrint.c)
+ *     KdpPrompt @ 0x1409B9848 (KdpPrompt.c)
+ *     KdpCopyContext @ 0x1409B9B28 (KdpCopyContext.c)
  * Callees:
  *     <none>
  */

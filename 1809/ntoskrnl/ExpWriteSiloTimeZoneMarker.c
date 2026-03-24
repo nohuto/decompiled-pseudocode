@@ -1,9 +1,9 @@
 /*
  * XREFs of ExpWriteSiloTimeZoneMarker @ 0x140583AE4
  * Callers:
- *     ExpSetTimeZoneInformation @ 0x1408CC994 (ExpSetTimeZoneInformation.c)
+ *     ExpSetTimeZoneInformation @ 0x1408CC974 (ExpSetTimeZoneInformation.c)
  * Callees:
- *     RtlWriteRegistryValue @ 0x1406C2280 (RtlWriteRegistryValue.c)
+ *     RtlWriteRegistryValue @ 0x1406C2260 (RtlWriteRegistryValue.c)
  */
 
 NTSTATUS __fastcall ExpWriteSiloTimeZoneMarker(unsigned __int8 a1)

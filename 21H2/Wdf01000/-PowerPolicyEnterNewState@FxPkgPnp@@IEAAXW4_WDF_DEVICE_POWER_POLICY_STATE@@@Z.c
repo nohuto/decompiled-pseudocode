@@ -1,59 +1,67 @@
 /*
- * XREFs of ?PowerPolicyEnterNewState@FxPkgPnp@@IEAAXW4_WDF_DEVICE_POWER_POLICY_STATE@@@Z @ 0x1C001666C
+ * XREFs of ?PowerPolicyEnterNewState@FxPkgPnp@@IEAAXW4_WDF_DEVICE_POWER_POLICY_STATE@@@Z @ 0x1C0012030
  * Callers:
- *     ?PowerPolicyProcessEventInner@FxPkgPnp@@IEAAXPEAUFxPostProcessInfo@@@Z @ 0x1C00161D8 (-PowerPolicyProcessEventInner@FxPkgPnp@@IEAAXPEAUFxPostProcessInfo@@@Z.c)
+ *     ?PowerPolicyProcessEventInner@FxPkgPnp@@IEAAXPEAUFxPostProcessInfo@@@Z @ 0x1C0011B40 (-PowerPolicyProcessEventInner@FxPkgPnp@@IEAAXPEAUFxPostProcessInfo@@@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?Stop@MxTimer@@QEAAEXZ @ 0x1C0011D90 (-Stop@MxTimer@@QEAAEXZ.c)
- *     ?Initialize@MxTimer@@QEAAJPEAXP6AXPEAU_KDPC@@000@ZJ@Z @ 0x1C0013450 (-Initialize@MxTimer@@QEAAJPEAXP6AXPEAU_KDPC@@000@ZJ@Z.c)
- *     ?Start@MxTimer@@QEAAXT_LARGE_INTEGER@@K@Z @ 0x1C0013E68 (-Start@MxTimer@@QEAAXT_LARGE_INTEGER@@K@Z.c)
- *     WPP_IFR_SF_qqLL @ 0x1C0016980 (WPP_IFR_SF_qqLL.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?Invoke@FxPowerPolicyStateCallback@@QEAAXW4_WDF_DEVICE_POWER_POLICY_STATE@@W4_WDF_STATE_NOTIFICATION_TYPE@@PEAUWDFDEVICE__@@PEBU_WDF_DEVICE_POWER_POLICY_NOTIFICATION_DATA@@@Z @ 0x1C0085700 (-Invoke@FxPowerPolicyStateCallback@@QEAAXW4_WDF_DEVICE_POWER_POLICY_STATE@@W4_WDF_STATE_NOTIFICA.c)
+ *     WPP_IFR_SF_qqLL @ 0x1C0012660 (WPP_IFR_SF_qqLL.c)
+ *     ?Initialize@MxTimer@@QEAAJPEAXP6AXPEAU_KDPC@@000@ZJ@Z @ 0x1C0014D64 (-Initialize@MxTimer@@QEAAJPEAXP6AXPEAU_KDPC@@000@ZJ@Z.c)
+ *     ?Start@MxTimer@@QEAAXT_LARGE_INTEGER@@K@Z @ 0x1C0018E90 (-Start@MxTimer@@QEAAXT_LARGE_INTEGER@@K@Z.c)
+ *     ?Stop@MxTimer@@QEAAEXZ @ 0x1C0019190 (-Stop@MxTimer@@QEAAEXZ.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?Invoke@FxPowerPolicyStateCallback@@QEAAXW4_WDF_DEVICE_POWER_POLICY_STATE@@W4_WDF_STATE_NOTIFICATION_TYPE@@PEAUWDFDEVICE__@@PEBU_WDF_DEVICE_POWER_POLICY_NOTIFICATION_DATA@@@Z @ 0x1C007C8E4 (-Invoke@FxPowerPolicyStateCallback@@QEAAXW4_WDF_DEVICE_POWER_POLICY_STATE@@W4_WDF_STATE_NOTIFICA.c)
  */
 
+// local variable allocation has failed, the output may be wrong!
 void __fastcall FxPkgPnp::PowerPolicyEnterNewState(FxPkgPnp *this, __int64 NewState)
 {
-  struct _EX_TIMER *m_KernelExTimer; // rcx
+  _LIST_ENTRY *Flink; // r15
   _WDF_DEVICE_POWER_POLICY_STATE _a3; // ebx
   FxDeviceBase *m_DeviceBase; // rax
-  _WDF_DEVICE_POWER_POLICY_STATE _a4; // r14d
+  _WDF_DEVICE_POWER_POLICY_STATE v6; // r12d
   FxDeviceBase *v7; // rdx
   const void *_a1; // rcx
+  FxPowerPolicyStateCallback *m_PowerPolicyStateCallbacks; // rcx
   __int64 m_HistoryIndex; // r8
-  const POWER_POLICY_STATE_TABLE *v10; // rsi
-  FxDeviceBase *v11; // rcx
-  WDFDEVICE__ *ObjectHandleUnchecked; // rax
-  FxPowerPolicyStateCallback *v13; // r10
-  FxDeviceBase *v14; // rcx
-  WDFDEVICE__ *v15; // rax
-  FxPowerPolicyStateCallback *v16; // r10
-  FxDeviceBase *v17; // rcx
-  WDFDEVICE__ *v18; // rax
-  FxPowerPolicyStateCallback *v19; // r10
-  FxWatchdog watchdog; // [rsp+50h] [rbp-B0h] BYREF
-  _WDF_DEVICE_POWER_POLICY_NOTIFICATION_DATA data; // [rsp+100h] [rbp+0h] BYREF
+  FxPowerPolicyStateCallback *v11; // rcx
+  __int64 v12; // rsi
+  _WDF_DEVICE_POWER_POLICY_STATE (__fastcall *StateFunc)(FxPkgPnp *); // rax
+  int v14; // r14d
+  _WDF_DEVICE_POWER_POLICY_STATE v15; // eax
+  FxPowerPolicyStateCallback *v16; // rcx
+  FxDeviceBase *v17; // r9
+  unsigned __int16 m_ObjectSize; // ax
+  WDFDEVICE__ *v19; // r9
+  FxDeviceBase *v20; // r9
+  unsigned __int16 v21; // ax
+  WDFDEVICE__ *v22; // r9
+  _LARGE_INTEGER v23; // rdx
+  FxDeviceBase *v24; // r9
+  unsigned __int16 v25; // ax
+  WDFDEVICE__ *v26; // r9
+  FxWatchdog watchdog; // [rsp+50h] [rbp-B8h] BYREF
+  struct _KTHREAD *CurrentThread; // [rsp+F8h] [rbp-10h]
+  __int64 data_8; // [rsp+108h] [rbp+0h] OVERLAPPED BYREF
+  _WDF_DEVICE_POWER_POLICY_STATE v30; // [rsp+110h] [rbp+8h]
 
-  *(_QWORD *)&data.Type = 0LL;
-  data.Data.EnterState.NewState = WdfDevStatePwrPolInvalid;
-  m_KernelExTimer = 0LL;
-  watchdog.m_Timer.m_Timer.m_TimerContext = 0LL;
+  Flink = 0LL;
+  data_8 = 0LL;
   _a3 = (int)NewState;
-  watchdog.m_Timer.m_Timer.m_TimerCallback = 0LL;
+  v30 = WdfDevStatePwrPolInvalid;
   m_DeviceBase = this->m_DeviceBase;
-  watchdog.m_Timer.m_Timer.m_Period = 0;
-  watchdog.m_Timer.m_Timer.m_KernelExTimer = 0LL;
-  watchdog.m_PkgPnp = this;
-  _a4 = *(_DWORD *)&m_DeviceBase[1].m_Type;
+  watchdog.m_PkgPnp = 0LL;
+  *(_OWORD *)&watchdog.m_Timer.m_Timer.KernelTimer.Header.Lock = 0uLL;
+  LODWORD(watchdog.m_Timer.m_Timer.m_TimerCallback) = 0;
+  watchdog.m_CallingThread = (struct _KTHREAD *)this;
+  v6 = *(_DWORD *)&m_DeviceBase[1].m_Type;
   if ( (_DWORD)NewState != 1472 )
   {
     do
     {
       v7 = this->m_DeviceBase;
-      _a1 = (const void *)((unsigned __int64)v7 ^ 0xFFFFFFFFFFFFFFF8uLL);
-      if ( !v7->m_ObjectSize )
-        _a1 = 0LL;
+      _a1 = 0LL;
+      if ( v7->m_ObjectSize )
+        _a1 = (const void *)((unsigned __int64)v7 ^ 0xFFFFFFFFFFFFFFF8uLL);
       WPP_IFR_SF_qqLL(
         this->m_Globals,
         4u,
@@ -63,66 +71,108 @@ void __fastcall FxPkgPnp::PowerPolicyEnterNewState(FxPkgPnp *this, __int64 NewSt
         _a1,
         v7->m_DeviceObject.m_DeviceObject,
         _a3,
-        _a4);
-      if ( this->m_PowerPolicyStateCallbacks )
+        v6);
+      m_PowerPolicyStateCallbacks = this->m_PowerPolicyStateCallbacks;
+      if ( m_PowerPolicyStateCallbacks )
       {
-        v11 = this->m_DeviceBase;
-        data.Type = StateNotificationLeaveState;
-        data.Data = (_WDF_DEVICE_POWER_POLICY_NOTIFICATION_DATA::<unnamed_type_Data>)__PAIR64__(_a3, _a4);
-        ObjectHandleUnchecked = (WDFDEVICE__ *)FxObject::GetObjectHandleUnchecked(v11);
-        FxPowerPolicyStateCallback::Invoke(v13, _a4, StateNotificationLeaveState, ObjectHandleUnchecked, &data);
+        v17 = this->m_DeviceBase;
+        LODWORD(data_8) = 4;
+        HIDWORD(data_8) = v6;
+        v30 = _a3;
+        m_ObjectSize = v17->m_ObjectSize;
+        v19 = (WDFDEVICE__ *)((unsigned __int64)v17 ^ 0xFFFFFFFFFFFFFFF8uLL);
+        if ( !m_ObjectSize )
+          v19 = 0LL;
+        FxPowerPolicyStateCallback::Invoke(
+          m_PowerPolicyStateCallbacks,
+          v6,
+          StateNotificationLeaveState,
+          v19,
+          (const _WDF_DEVICE_POWER_POLICY_NOTIFICATION_DATA *)&data_8);
       }
       m_HistoryIndex = this->m_PowerPolicyMachine.m_HistoryIndex;
       NewState = ((int)m_HistoryIndex + 1) % (unsigned int)this->m_PowerPolicyMachine.m_QueueDepth;
       this->m_PowerPolicyMachine.m_HistoryIndex = NewState;
       this->m_PowerPolicyMachine.m_States.History[m_HistoryIndex] = _a3;
-      if ( this->m_PowerPolicyStateCallbacks )
+      v11 = this->m_PowerPolicyStateCallbacks;
+      if ( v11 )
       {
-        v14 = this->m_DeviceBase;
-        data.Type = StateNotificationEnterState;
-        data.Data = (_WDF_DEVICE_POWER_POLICY_NOTIFICATION_DATA::<unnamed_type_Data>)__PAIR64__(_a3, _a4);
-        v15 = (WDFDEVICE__ *)FxObject::GetObjectHandleUnchecked(v14);
-        FxPowerPolicyStateCallback::Invoke(v16, _a3, StateNotificationEnterState, v15, &data);
+        v20 = this->m_DeviceBase;
+        LODWORD(data_8) = 1;
+        HIDWORD(data_8) = v6;
+        v30 = _a3;
+        v21 = v20->m_ObjectSize;
+        v22 = (WDFDEVICE__ *)((unsigned __int64)v20 ^ 0xFFFFFFFFFFFFFFF8uLL);
+        if ( !v21 )
+          v22 = 0LL;
+        FxPowerPolicyStateCallback::Invoke(
+          v11,
+          _a3,
+          StateNotificationEnterState,
+          v22,
+          (const _WDF_DEVICE_POWER_POLICY_NOTIFICATION_DATA *)&data_8);
       }
-      _a4 = _a3;
+      v6 = _a3;
+      v12 = (_a3 & 0xFFFF7FFF) - 1280;
       *(_DWORD *)&this->m_DeviceBase[1].m_Type = _a3;
-      v10 = &FxPkgPnp::m_WdfPowerPolicyStates[(_a3 & 0xFFFF7FFF) - 1280];
-      if ( v10->StateFunc )
+      StateFunc = FxPkgPnp::m_WdfPowerPolicyStates[v12].StateFunc;
+      if ( StateFunc )
       {
+        v14 = _a3 & 0x8000;
         if ( (_a3 & 0x8000) != 0 )
         {
-          MxTimer::Initialize(&watchdog.m_Timer, &watchdog, FxWatchdog::_WatchdogDpc, 0);
-          watchdog.m_CallingThread = KeGetCurrentThread();
-          MxTimer::Start(
-            &watchdog.m_Timer,
-            (_LARGE_INTEGER)((-(__int64)(watchdog.m_PkgPnp->m_SharedPower.m_ExtendWatchDogTimer != 0) & 0xFFFFFF383B36FC00uLL)
-                           - 6000000000LL),
+          MxTimer::Initialize(
+            (MxTimer *)&watchdog.m_Timer.m_Timer.8,
+            &watchdog.m_Timer.m_Timer.8,
+            FxWatchdog::_WatchdogDpc,
             0);
+          CurrentThread = KeGetCurrentThread();
+          v23.QuadPart = -864000000000LL;
+          if ( !*((_BYTE *)watchdog.m_CallingThread + 921) )
+            v23.QuadPart = -6000000000LL;
+          MxTimer::Start((MxTimer *)&watchdog.m_Timer.m_Timer.8, v23, 0);
+          v15 = FxPkgPnp::m_WdfPowerPolicyStates[v12].StateFunc(this);
         }
-        _a3 = v10->StateFunc(this);
+        else
+        {
+          v15 = StateFunc(this);
+        }
+        _a3 = v15;
+        if ( v14 )
+          MxTimer::Stop((MxTimer *)&watchdog.m_Timer.m_Timer.8);
       }
       else
       {
         _a3 = WdfDevStatePwrPolNull;
       }
-      if ( this->m_PowerPolicyStateCallbacks )
+      v16 = this->m_PowerPolicyStateCallbacks;
+      if ( v16 )
       {
-        v17 = this->m_DeviceBase;
-        data.Type = StateNotificationPostProcessState;
-        data.Data = (_WDF_DEVICE_POWER_POLICY_NOTIFICATION_DATA::<unnamed_type_Data>)(unsigned int)_a4;
-        v18 = (WDFDEVICE__ *)FxObject::GetObjectHandleUnchecked(v17);
-        FxPowerPolicyStateCallback::Invoke(v19, _a4, StateNotificationPostProcessState, v18, &data);
+        v24 = this->m_DeviceBase;
+        v30 = WdfDevStatePwrPolInvalid;
+        LODWORD(data_8) = 2;
+        HIDWORD(data_8) = v6;
+        v25 = v24->m_ObjectSize;
+        v26 = (WDFDEVICE__ *)((unsigned __int64)v24 ^ 0xFFFFFFFFFFFFFFF8uLL);
+        if ( !v25 )
+          v26 = 0LL;
+        FxPowerPolicyStateCallback::Invoke(
+          v16,
+          v6,
+          StateNotificationPostProcessState,
+          v26,
+          (const _WDF_DEVICE_POWER_POLICY_NOTIFICATION_DATA *)&data_8);
       }
     }
     while ( _a3 != WdfDevStatePwrPolNull );
-    m_KernelExTimer = watchdog.m_Timer.m_Timer.m_KernelExTimer;
+    Flink = watchdog.m_Timer.m_Timer.KernelTimer.Header.WaitListHead.Flink;
   }
-  if ( watchdog.m_Timer.m_Timer.m_IsExtTimer )
+  if ( BYTE4(watchdog.m_Timer.m_Timer.m_ExTimerCallback) )
   {
-    if ( m_KernelExTimer )
+    if ( Flink )
     {
       LOBYTE(NewState) = 1;
-      ExDeleteTimer(m_KernelExTimer, NewState, 0LL, 0LL);
+      ExDeleteTimer(Flink, NewState, 0LL, 0LL);
     }
   }
 }

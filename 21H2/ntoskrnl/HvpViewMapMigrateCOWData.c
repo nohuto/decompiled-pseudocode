@@ -1,21 +1,25 @@
 /*
- * XREFs of HvpViewMapMigrateCOWData @ 0x14080C194
+ * XREFs of HvpViewMapMigrateCOWData @ 0x140732A4C
  * Callers:
- *     HvpViewMapPromoteRangeToMapping @ 0x14068D310 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x140724B50 (HvpViewMapPromoteRangeToMapping.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     HvpViewMapMakeViewRangeCOWByCaller @ 0x14068DFF0 (HvpViewMapMakeViewRangeCOWByCaller.c)
- *     HvpAllExceptionsFatalFilter @ 0x140919F98 (HvpAllExceptionsFatalFilter.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     HvpViewMapMakeViewRangeWriteable @ 0x1405CCD5C (HvpViewMapMakeViewRangeWriteable.c)
+ *     HvpViewMapMakeViewRangeReadOnly @ 0x140723D04 (HvpViewMapMakeViewRangeReadOnly.c)
+ *     HvpViewMapMakeViewRangeCOWByCaller @ 0x140723E38 (HvpViewMapMakeViewRangeCOWByCaller.c)
+ *     HvpAllExceptionsFatalFilter @ 0x1408735C0 (HvpAllExceptionsFatalFilter.c)
  */
 
 __int64 __fastcall HvpViewMapMigrateCOWData(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
-  __int64 v6; // rdi
-  __int64 v7; // r14
-  __int64 v8; // rdx
-  __int64 v9; // rbx
+  __int64 v6; // rbx
+  __int64 v7; // rsi
+  __int64 v8; // r9
+  unsigned __int8 *v9; // r13
+  unsigned __int8 v10; // dl
+  __int64 v11; // rdi
+  unsigned __int64 v12; // rcx
   __int64 result; // rax
-  unsigned __int64 i; // rcx
 
   v6 = a2[5];
   v7 = a3[6];
@@ -26,17 +30,40 @@ __int64 __fastcall HvpViewMapMigrateCOWData(__int64 a1, _QWORD *a2, _QWORD *a3)
   while ( v6 < v7 )
   {
     v8 = a3[3];
-    v9 = v6 + 4096;
-    if ( (*((_BYTE *)a3 + ((unsigned __int64)(v6 - v8) >> 12) + 72) & 2) != 0 )
+    v9 = (unsigned __int8 *)a3 + ((unsigned __int64)(v6 - v8) >> 12) + 72;
+    v10 = *v9;
+    v11 = v6 + 4096;
+    if ( (*v9 & 6) != 0 )
     {
-      for ( i = v9 - v8; v9 < v7 && (*((_BYTE *)a3 + (i >> 12) + 72) & 2) != 0; i += 4096LL )
-        v9 += 4096LL;
-      result = HvpViewMapMakeViewRangeCOWByCaller(a1, a2, v6, v9);
-      if ( (int)result < 0 )
-        return result;
-      memmove((void *)(v6 + a2[7] - a2[3]), (const void *)(v6 + a3[7] - a3[3]), v9 - v6);
+      if ( v11 < v7 )
+      {
+        v12 = v11 - v8;
+        do
+        {
+          if ( ((*((_BYTE *)a3 + (v12 >> 12) + 72) & 2) != 0) != ((v10 & 2) != 0) )
+            break;
+          if ( ((*((_BYTE *)a3 + (v12 >> 12) + 72) ^ v10) & 4) != 0 )
+            break;
+          v11 += 4096LL;
+          v12 += 4096LL;
+        }
+        while ( v11 < v7 );
+      }
+      if ( (v10 & 2) != 0 )
+      {
+        result = HvpViewMapMakeViewRangeCOWByCaller(a1, a2, v6, v11);
+        if ( (int)result < 0 )
+          return result;
+      }
+      else
+      {
+        HvpViewMapMakeViewRangeWriteable(a1, (__int64)a2, v6, v11);
+      }
+      memmove((void *)(v6 + a2[7] - a2[3]), (const void *)(v6 + a3[7] - a3[3]), v11 - v6);
+      if ( (*v9 & 2) == 0 )
+        HvpViewMapMakeViewRangeReadOnly(a1, (__int64)a2, v6, v11);
     }
-    v6 = v9;
+    v6 = v11;
   }
   return 0LL;
 }

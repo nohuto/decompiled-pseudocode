@@ -1,12 +1,12 @@
 /*
- * XREFs of IopLiveDumpBufferDumpData @ 0x140A6581C
+ * XREFs of IopLiveDumpBufferDumpData @ 0x1409AB3FC
  * Callers:
- *     IopLiveDumpProcessCorralStateChange @ 0x140A677B8 (IopLiveDumpProcessCorralStateChange.c)
+ *     IopLiveDumpProcessCorralStateChange @ 0x1409AD37C (IopLiveDumpProcessCorralStateChange.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     MmMapMemoryDumpMdlEx @ 0x14038C0F0 (MmMapMemoryDumpMdlEx.c)
- *     IopLiveDumpGetCapturePagesNoLock @ 0x140A66CEC (IopLiveDumpGetCapturePagesNoLock.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     MmMapMemoryDumpMdlEx @ 0x140383580 (MmMapMemoryDumpMdlEx.c)
+ *     IopLiveDumpGetCapturePagesNoLock @ 0x1409AC884 (IopLiveDumpGetCapturePagesNoLock.c)
  */
 
 void __fastcall IopLiveDumpBufferDumpData(__int64 *a1, unsigned int *a2)
@@ -43,10 +43,10 @@ void __fastcall IopLiveDumpBufferDumpData(__int64 *a1, unsigned int *a2)
   v3 = *a2;
   v4 = v2 + 680;
   v21 = v2 + 680;
-  if ( *a2 < *(_DWORD *)(v2 + 880) && v3 < *(_DWORD *)(v2 + 1104) )
+  if ( *a2 < *(_DWORD *)(v2 + 784) && v3 < *(_DWORD *)(v2 + 1008) )
   {
-    v5 = *(_QWORD **)(*(_QWORD *)(v2 + 1112) + 8LL * v3);
-    v6 = (__int64 *)(*(_QWORD *)(v2 + 888) + 16LL * v3);
+    v5 = *(_QWORD **)(*(_QWORD *)(v2 + 1016) + 8LL * v3);
+    v6 = (__int64 *)(*(_QWORD *)(v2 + 792) + 16LL * v3);
     v22 = v5;
     v26 = v2 + 544;
     v7 = v6[1] + 48;

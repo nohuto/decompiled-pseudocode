@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceDwmVisRgnDirty @ 0x1C00A22B0
+ * XREFs of EtwTraceDwmVisRgnDirty @ 0x1C0086A10
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0pp_EtwWriteTransfer @ 0x1C013CB4C (McTemplateK0pp_EtwWriteTransfer.c)
+ *     McTemplateK0pp_EtwWriteTransfer @ 0x1C0125CEC (McTemplateK0pp_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceDwmVisRgnDirty(__int64 a1, __int64 a2, __int64 a3)

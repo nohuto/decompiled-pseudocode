@@ -1,17 +1,21 @@
 /*
- * XREFs of McGenEventRegister_EventRegister @ 0x1800AE62C
+ * XREFs of McGenEventRegister_EventRegister @ 0x1800B2DBC
  * Callers:
- *     ?RegisterDwmGuidWithEtw@@YAXXZ @ 0x1800AE450 (-RegisterDwmGuidWithEtw@@YAXXZ.c)
+ *     ?RegisterDwmGuidWithEtw@@YAXXZ @ 0x1800B2C5C (-RegisterDwmGuidWithEtw@@YAXXZ.c)
  * Callees:
  *     <none>
  */
 
-ULONG __fastcall McGenEventRegister_EventRegister(const GUID *a1, __int64 a2, void *a3, ULONGLONG *a4)
+ULONG McGenEventRegister_EventRegister()
 {
   ULONG result; // eax
 
   result = 0;
-  if ( !*a4 )
-    return EventRegister(a1, (PENABLECALLBACK)McGenControlCallbackV2, a3, a4);
+  if ( !Microsoft_Windows_Dwm_Core_Provider_Context[0] )
+    return EventRegister(
+             &Microsoft_Windows_Dwm_Core_Provider,
+             McGenControlCallbackV2,
+             Microsoft_Windows_Dwm_Core_Provider_Context,
+             Microsoft_Windows_Dwm_Core_Provider_Context);
   return result;
 }

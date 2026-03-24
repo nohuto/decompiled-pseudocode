@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlULongSub @ 0x140101CF4
+ * XREFs of RtlULongSub @ 0x140101D14
  * Callers:
- *     DbgkpTriageDumpSnapData @ 0x14026E260 (DbgkpTriageDumpSnapData.c)
- *     IopTrackLink @ 0x14068BD48 (IopTrackLink.c)
- *     PnpCallDriverQueryServiceHelper @ 0x1406E7A98 (PnpCallDriverQueryServiceHelper.c)
- *     PiForEachDriverQueryRoutine @ 0x14070D05C (PiForEachDriverQueryRoutine.c)
- *     _RegRtlQueryKeyPathName @ 0x14076185C (_RegRtlQueryKeyPathName.c)
- *     BiGetFilePathFromEfiPath @ 0x1408F3CA8 (BiGetFilePathFromEfiPath.c)
+ *     DbgkpTriageDumpSnapData @ 0x14026E360 (DbgkpTriageDumpSnapData.c)
+ *     IopTrackLink @ 0x14068BD28 (IopTrackLink.c)
+ *     PnpCallDriverQueryServiceHelper @ 0x1406E7A78 (PnpCallDriverQueryServiceHelper.c)
+ *     PiForEachDriverQueryRoutine @ 0x14070D03C (PiForEachDriverQueryRoutine.c)
+ *     _RegRtlQueryKeyPathName @ 0x14076183C (_RegRtlQueryKeyPathName.c)
+ *     BiGetFilePathFromEfiPath @ 0x1408F3C88 (BiGetFilePathFromEfiPath.c)
  * Callees:
  *     <none>
  */

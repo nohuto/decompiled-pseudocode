@@ -1,27 +1,27 @@
 /*
- * XREFs of CmpLogCheckpoint @ 0x140742A44
+ * XREFs of CmpLogCheckpoint @ 0x1407705E4
  * Callers:
- *     CmpStopRMLog @ 0x14069FF64 (CmpStopRMLog.c)
- *     CmpTransWriteLog @ 0x140717EE4 (CmpTransWriteLog.c)
- *     CmpCleanupTransactionState @ 0x140742300 (CmpCleanupTransactionState.c)
+ *     CmpStopRMLog @ 0x1406BB6A8 (CmpStopRMLog.c)
+ *     CmpTransWriteLog @ 0x140763B98 (CmpTransWriteLog.c)
+ *     CmpCleanupTransactionState @ 0x140770484 (CmpCleanupTransactionState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
- *     CmListGetNextElement @ 0x140AB4218 (CmListGetNextElement.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpLogCheckpoint(__int64 a1, __int64 a2, char a3)
 {
   int v3; // edi
   struct _KTHREAD *CurrentThread; // rax
-  const CLFS_LSN *NextElement; // rax
+  char *NextElement; // rax
   NTSTATUS LogFileInformation; // eax
   CLFS_LSN LastLsn; // rcx
   CLFS_INFORMATION *PoolWithTag; // rax
@@ -33,18 +33,21 @@ __int64 __fastcall CmpLogCheckpoint(__int64 a1, __int64 a2, char a3)
   const CLFS_LSN *v17; // r14
   CLFS_CONTAINER_ID v18; // ebx
   CLFS_LSN plsn; // [rsp+40h] [rbp-C0h] BYREF
-  ULONG v20[2]; // [rsp+48h] [rbp-B8h] BYREF
-  ULONG pcbInfoBuffer; // [rsp+50h] [rbp-B0h] BYREF
+  ULONG pcbInfoBuffer; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG v21; // [rsp+4Ch] [rbp-B4h] BYREF
+  ULONG v22; // [rsp+50h] [rbp-B0h] BYREF
+  int v23; // [rsp+54h] [rbp-ACh] BYREF
   CLFS_LSN pvRestartBuffer; // [rsp+58h] [rbp-A8h] BYREF
-  CLFS_LSN plsnNext; // [rsp+60h] [rbp-A0h] BYREF
+  _QWORD *v25; // [rsp+60h] [rbp-A0h] BYREF
+  CLFS_LSN plsnNext; // [rsp+68h] [rbp-98h] BYREF
   CLFS_INFORMATION pinfoBuffer; // [rsp+70h] [rbp-90h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v25; // [rsp+F0h] [rbp-10h] BYREF
-  ULONG *v26; // [rsp+110h] [rbp+10h]
-  int v27; // [rsp+118h] [rbp+18h]
-  int v28; // [rsp+11Ch] [rbp+1Ch]
+  struct _EVENT_DATA_DESCRIPTOR v28; // [rsp+F0h] [rbp-10h] BYREF
+  int *v29; // [rsp+110h] [rbp+10h]
+  int v30; // [rsp+118h] [rbp+18h]
+  int v31; // [rsp+11Ch] [rbp+1Ch]
 
   v3 = 0;
-  *(_QWORD *)v20 = 0LL;
+  v25 = 0LL;
   pvRestartBuffer.ullOffset = 0LL;
   plsn.ullOffset = CLFS_LSN_INVALID_EXT;
   plsnNext.ullOffset = CLFS_LSN_NULL_EXT;
@@ -53,94 +56,87 @@ __int64 __fastcall CmpLogCheckpoint(__int64 a1, __int64 a2, char a3)
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireFastMutexUnsafe(&CmpTransactionListLock);
-  NextElement = (const CLFS_LSN *)CmListGetNextElement(a1 + 16, v20, 0LL);
-  if ( NextElement )
+  while ( 1 )
   {
-    while ( 1 )
+    NextElement = CmListGetNextElement((_QWORD **)(a1 + 16), &v25, 0);
+    if ( !NextElement )
+      break;
+    v17 = (const CLFS_LSN *)(NextElement + 104);
+    if ( !ClfsLsnInvalid((const CLFS_LSN *)NextElement + 13) )
     {
-      v17 = NextElement + 13;
-      if ( !ClfsLsnInvalid(NextElement + 13) )
+      v18 = ClfsLsnContainer((const CLFS_LSN *)(a1 + 120));
+      if ( ClfsLsnContainer(v17) == v18 )
       {
-        v18 = ClfsLsnContainer((const CLFS_LSN *)(a1 + 120));
-        if ( ClfsLsnContainer(v17) == v18 )
-          break;
+        ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        return 0LL;
       }
-      if ( ClfsLsnInvalid(&plsn) || ClfsLsnLess(v17, &plsn) )
-        plsn = *v17;
-      NextElement = (const CLFS_LSN *)CmListGetNextElement(a1 + 16, v20, 0LL);
-      if ( !NextElement )
-        goto LABEL_2;
     }
-    ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-    KeLeaveCriticalRegion();
-    return 0LL;
+    if ( ClfsLsnInvalid(&plsn) || ClfsLsnLess(v17, &plsn) )
+      plsn = *v17;
   }
-  else
+  ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  if ( ClfsLsnInvalid(&plsn) )
   {
-LABEL_2:
-    ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
-    KeLeaveCriticalRegion();
-    if ( ClfsLsnInvalid(&plsn) )
-    {
-      LogFileInformation = ClfsGetLogFileInformation(*(PLOG_FILE_OBJECT *)(a1 + 88), &pinfoBuffer, &pcbInfoBuffer);
-      LastLsn = plsn;
-      v3 = LogFileInformation;
-      if ( LogFileInformation >= 0 )
-        LastLsn = pinfoBuffer.LastLsn;
-      plsn = LastLsn;
-    }
-    v20[0] = 120;
-    PoolWithTag = (CLFS_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x78uLL, 0x20204D43u);
-    v11 = PoolWithTag;
-    if ( PoolWithTag )
-    {
-      ClfsGetLogFileInformation(*(PLOG_FILE_OBJECT *)(a1 + 88), PoolWithTag, v20);
-      ExFreePoolWithTag(v11, 0);
-    }
-    if ( v3 >= 0 )
-    {
-      v12 = *(void **)(a1 + 96);
-      pvRestartBuffer = plsn;
-      v13 = ClfsWriteRestartArea(
-              v12,
-              &pvRestartBuffer,
-              8u,
-              (PCLFS_LSN)((unsigned __int64)&plsn & -(__int64)(a3 != 0)),
-              0,
-              &pcbInfoBuffer,
-              &plsnNext);
-      v3 = v13;
-      if ( a3 )
-      {
-        if ( v13 >= 0 )
-          *(CLFS_LSN *)(a1 + 120) = plsn;
-      }
-    }
-    v20[0] = 120;
-    v14 = (CLFS_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x78uLL, 0x20204D43u);
-    v15 = v14;
-    if ( v14 )
-    {
-      ClfsGetLogFileInformation(*(PLOG_FILE_OBJECT *)(a1 + 88), v14, v20);
-      ExFreePoolWithTag(v15, 0);
-    }
-    if ( (unsigned int)dword_140C03868 > 5 )
-    {
-      if ( tlgKeywordOn((__int64)&dword_140C03868, 1LL) )
-      {
-        v28 = 0;
-        v26 = v20;
-        v20[0] = v3;
-        v27 = 4;
-        tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C03868,
-          (unsigned __int8 *)&dword_140029F04,
-          0LL,
-          0LL,
-          3u,
-          &v25);
-      }
-    }
-    return (unsigned int)v3;
+    LogFileInformation = ClfsGetLogFileInformation(*(PLOG_FILE_OBJECT *)(a1 + 88), &pinfoBuffer, &pcbInfoBuffer);
+    LastLsn = plsn;
+    v3 = LogFileInformation;
+    if ( LogFileInformation >= 0 )
+      LastLsn = pinfoBuffer.LastLsn;
+    plsn = LastLsn;
   }
+  v21 = 120;
+  PoolWithTag = (CLFS_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x78uLL, 0x20204D43u);
+  v11 = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    ClfsGetLogFileInformation(*(PLOG_FILE_OBJECT *)(a1 + 88), PoolWithTag, &v21);
+    ExFreePoolWithTag(v11, 0);
+  }
+  if ( v3 >= 0 )
+  {
+    v12 = *(void **)(a1 + 96);
+    pvRestartBuffer = plsn;
+    v13 = ClfsWriteRestartArea(
+            v12,
+            &pvRestartBuffer,
+            8u,
+            (PCLFS_LSN)((unsigned __int64)&plsn & -(__int64)(a3 != 0)),
+            0,
+            &pcbInfoBuffer,
+            &plsnNext);
+    v3 = v13;
+    if ( a3 )
+    {
+      if ( v13 >= 0 )
+        *(CLFS_LSN *)(a1 + 120) = plsn;
+    }
+  }
+  v22 = 120;
+  v14 = (CLFS_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x78uLL, 0x20204D43u);
+  v15 = v14;
+  if ( v14 )
+  {
+    ClfsGetLogFileInformation(*(PLOG_FILE_OBJECT *)(a1 + 88), v14, &v22);
+    ExFreePoolWithTag(v15, 0);
+  }
+  if ( (unsigned int)dword_140C02130 > 5 )
+  {
+    if ( tlgKeywordOn((__int64)&dword_140C02130, 1LL) )
+    {
+      v31 = 0;
+      v29 = &v23;
+      v23 = v3;
+      v30 = 4;
+      tlgWriteTransfer_EtwWriteTransfer(
+        (__int64)&dword_140C02130,
+        (unsigned __int8 *)byte_14002397B,
+        0LL,
+        0LL,
+        3u,
+        &v28);
+    }
+  }
+  return (unsigned int)v3;
 }

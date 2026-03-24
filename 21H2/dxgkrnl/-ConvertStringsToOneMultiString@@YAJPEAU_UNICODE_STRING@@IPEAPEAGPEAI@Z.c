@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ConvertStringsToOneMultiString@@YAJPEAU_UNICODE_STRING@@IPEAPEAGPEAI@Z @ 0x1C0205788
+ * XREFs of ?ConvertStringsToOneMultiString@@YAJPEAU_UNICODE_STRING@@IPEAPEAGPEAI@Z @ 0x1C019E498
  * Callers:
- *     ?CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C020271C (-CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
- *     ?CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C0202E20 (-CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
+ *     ?CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C0187240 (-CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
+ *     ?CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C0187948 (-CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000EFE8 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0009F18 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 __int64 __fastcall ConvertStringsToOneMultiString(
@@ -30,9 +30,9 @@ __int64 __fastcall ConvertStringsToOneMultiString(
   char v15; // al
   unsigned int v16; // ebx
   unsigned int v17; // edi
-  unsigned __int64 v18; // rax
-  __int64 v19; // rsi
-  unsigned int v20; // ebx
+  SIZE_T v18; // rax
+  unsigned __int16 *v19; // rsi
+  int v20; // ebx
   _DWORD *v21; // rbp
   const unsigned __int16 **v22; // r14
   char **v24; // r11
@@ -134,7 +134,7 @@ LABEL_9:
   v18 = 2LL * v17;
   if ( !is_mul_ok(v17, 2uLL) )
     v18 = -1LL;
-  v19 = operator new[](v18, 0x4B677844u, 256LL, -1LL);
+  v19 = (unsigned __int16 *)operator new[](v18, 0x4B677844u, PagedPool);
   if ( !v19 )
     return 3221225495LL;
   v20 = 0;
@@ -146,7 +146,7 @@ LABEL_9:
     {
       if ( v17 != v20 )
       {
-        RtlStringCchCopyW((unsigned __int16 *)(v19 + 2LL * v20), v17 - v20, *v22);
+        RtlStringCchCopyW(&v19[v20], v17 - v20, *v22);
         v20 += *v21;
       }
       ++v22;
@@ -155,8 +155,8 @@ LABEL_9:
     }
     while ( v8 );
   }
-  *(_WORD *)(v19 + 2LL * v20) = 0;
-  *v4 = (unsigned __int16 *)v19;
+  v19[v20] = 0;
+  *v4 = v19;
   *a4 = v17;
   return 0LL;
 }

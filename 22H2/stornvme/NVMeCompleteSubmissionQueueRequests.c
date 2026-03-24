@@ -1,13 +1,13 @@
 /*
- * XREFs of NVMeCompleteSubmissionQueueRequests @ 0x1C000C6F4
+ * XREFs of NVMeCompleteSubmissionQueueRequests @ 0x1C000D258
  * Callers:
- *     NVMeControllerCompleteAllIORequests @ 0x1C000CD04 (NVMeControllerCompleteAllIORequests.c)
- *     NVMeLunCompleteAllIORequests @ 0x1C000FB18 (NVMeLunCompleteAllIORequests.c)
+ *     NVMeControllerCompleteAllIORequests @ 0x1C000D7A4 (NVMeControllerCompleteAllIORequests.c)
+ *     NVMeLunCompleteAllIORequests @ 0x1C000FC14 (NVMeLunCompleteAllIORequests.c)
  * Callees:
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     NVMeRequestComplete @ 0x1C000368C (NVMeRequestComplete.c)
- *     _guard_dispatch_icall_nop @ 0x1C00047E0 (_guard_dispatch_icall_nop.c)
- *     IsInternalSrb @ 0x1C0007CFC (IsInternalSrb.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0007D70 (_guard_dispatch_icall_nop.c)
+ *     IsInternalSrb @ 0x1C000A6A8 (IsInternalSrb.c)
+ *     NVMeRequestComplete @ 0x1C0010AB0 (NVMeRequestComplete.c)
  */
 
 void __fastcall NVMeCompleteSubmissionQueueRequests(
@@ -19,16 +19,15 @@ void __fastcall NVMeCompleteSubmissionQueueRequests(
         char a6,
         char a7)
 {
-  unsigned int v7; // ebp
-  __int64 v8; // rsi
-  __int64 v13; // r10
+  unsigned int v7; // edi
+  __int64 v8; // r14
+  __int64 v13; // rbx
   __int64 v14; // rdx
   unsigned __int8 v15; // cl
   int v16; // r11d
-  __int64 v17; // rdi
-  __int64 v18; // rdx
+  __int64 v17; // rbx
   __int64 SrbExtension; // rax
-  void (__fastcall *v20)(__int64, __int64, _QWORD); // rax
+  void (__fastcall *v19)(__int64, __int64, _QWORD); // rax
 
   if ( a3 )
   {
@@ -47,23 +46,12 @@ void __fastcall NVMeCompleteSubmissionQueueRequests(
           v17 = _InterlockedExchange64((volatile __int64 *)(v13 + 16LL * v7), 0LL);
           if ( v17 )
           {
-            v18 = *(_QWORD *)(a2 + 32);
-            if ( (*(_DWORD *)(v8 + v18 + 8) & 1) != 0 )
-            {
-              _InterlockedExchange((volatile __int32 *)(v18 + 16LL * v7 + 8), 0);
-            }
-            else
-            {
-              SrbExtension = GetSrbExtension(v17);
-              *(_BYTE *)(v17 + 3) = a7;
-              if ( SrbExtension )
-              {
-                v20 = *(void (__fastcall **)(__int64, __int64, _QWORD))(SrbExtension + 4224);
-                if ( v20 )
-                  v20(a1, v17, 0LL);
-              }
-              NVMeRequestComplete(a1);
-            }
+            SrbExtension = GetSrbExtension(v17);
+            *(_BYTE *)(v17 + 3) = a7;
+            v19 = *(void (__fastcall **)(__int64, __int64, _QWORD))(SrbExtension + 4224);
+            if ( v19 )
+              v19(a1, v17, 0LL);
+            NVMeRequestComplete(a1, v17, 0LL);
             ++*(_DWORD *)(a2 + 132);
             _InterlockedDecrement16((volatile signed __int16 *)(a2 + 128));
           }

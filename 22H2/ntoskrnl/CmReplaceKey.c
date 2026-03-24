@@ -1,152 +1,136 @@
 /*
- * XREFs of CmReplaceKey @ 0x140A157A4
+ * XREFs of CmReplaceKey @ 0x14086DA18
  * Callers:
- *     NtReplaceKey @ 0x140A0E560 (NtReplaceKey.c)
+ *     NtReplaceKey @ 0x140869190 (NtReplaceKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwFlushBuffersFile @ 0x14041B000 (ZwFlushBuffersFile.c)
- *     CmpCmdHiveOpen @ 0x14068B2C0 (CmpCmdHiveOpen.c)
- *     CmpFlushHive @ 0x140753398 (CmpFlushHive.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x140828CF4 (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140828D7C (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     CmpCmdRenameHive @ 0x140A11A28 (CmpCmdRenameHive.c)
- *     CmpDestroyHive @ 0x140A1CD50 (CmpDestroyHive.c)
- *     CmpPreserveSystemHiveData @ 0x140A225AC (CmpPreserveSystemHiveData.c)
- *     CmpDetachFromRegistryProcess @ 0x140AF6230 (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x140AF6250 (CmpAttachToRegistryProcess.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
- *     HvLockHiveFlusherExclusive @ 0x140AF6670 (HvLockHiveFlusherExclusive.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140AF668C (HvUnlockHiveFlusherExclusive.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwFlushBuffersFile @ 0x1403FA380 (ZwFlushBuffersFile.c)
+ *     CmpDetachFromRegistryProcess @ 0x1405F613C (CmpDetachFromRegistryProcess.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpCmdHiveOpen @ 0x140603588 (CmpCmdHiveOpen.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x14071D558 (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x14071D590 (HvLockHiveFlusherExclusive.c)
+ *     CmpDestroyHive @ 0x140729DF8 (CmpDestroyHive.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x14079F008 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14079F9E4 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     CmpCmdRenameHive @ 0x140876B2C (CmpCmdRenameHive.c)
+ *     CmpPreserveSystemHiveData @ 0x1408796BC (CmpPreserveSystemHiveData.c)
  */
 
-__int64 __fastcall CmReplaceKey(ULONG_PTR BugCheckParameter3, __int64 a2, int a3, const void **a4)
+__int64 __fastcall CmReplaceKey(__int64 a1, __int64 a2, const UNICODE_STRING *a3, struct _LOOKASIDE_LIST_EX *a4)
 {
-  ULONG_PTR v6; // rsi
-  char v8; // r14
-  char v9; // r12
-  struct _PRIVILEGE_SET *Pool; // r15
-  int v11; // ebx
+  char v6; // r14
+  char v7; // r12
+  struct _PRIVILEGE_SET *TransientPoolWithTag; // rax
+  struct _PRIVILEGE_SET *v9; // r15
+  int v10; // ebx
+  int v11; // eax
   __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  __int64 v27; // r9
-  __int64 v28; // rdx
-  __int64 v29; // r8
-  __int64 v30; // r9
-  char v32; // [rsp+50h] [rbp-B0h] BYREF
-  ULONG_PTR BugCheckParameter2; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v13; // r8
+  _DWORD *v14; // r9
+  HANDLE *v15; // rsi
+  _BYTE v17[8]; // [rsp+50h] [rbp-B0h] BYREF
+  PVOID P; // [rsp+58h] [rbp-A8h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-A0h] BYREF
-  _OWORD v35[3]; // [rsp+70h] [rbp-90h] BYREF
-  const void *ObjectInformation[64]; // [rsp+A0h] [rbp-60h] BYREF
+  _OWORD v20[3]; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE ObjectInformation[512]; // [rsp+A0h] [rbp-60h] BYREF
 
-  v32 = 0;
-  v6 = 0LL;
-  BugCheckParameter2 = 0LL;
+  v17[0] = 0;
+  P = 0LL;
   IoStatusBlock = 0LL;
-  v8 = 0;
-  v9 = 0;
-  memset(v35, 0, sizeof(v35));
-  Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(256LL, 432LL, 859393347LL);
-  if ( !Pool )
+  v6 = 0;
+  v7 = 0;
+  memset(v20, 0, sizeof(v20));
+  TransientPoolWithTag = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithTag(PagedPool, 0x1B0uLL, 0x33394D43u, a4);
+  v9 = TransientPoolWithTag;
+  if ( !TransientPoolWithTag )
+    return (unsigned int)-1073741670;
+  v11 = CmpCmdHiveOpen(a3, 0, (__int64)v17, (__int64)&P, 18415617, 0, 0LL, 0LL, (__int64)TransientPoolWithTag);
+  v15 = (HANDLE *)P;
+  v10 = v11;
+  if ( v11 >= 0 )
   {
-    v11 = -1073741670;
-    goto LABEL_21;
-  }
-  v11 = CmpCmdHiveOpen(a3, 0, (int)&v32, (__int64)&BugCheckParameter2, 18415617, 0, 0LL, 0LL, Pool);
-  if ( v11 < 0 )
-  {
-    v6 = BugCheckParameter2;
-    goto LABEL_21;
-  }
-  CmpAttachToRegistryProcess(v35);
-  v8 = 1;
-  CmpLockRegistry(v13, v12, v14, v15);
-  HvLockHiveFlusherExclusive(BugCheckParameter3);
-  v6 = BugCheckParameter2;
-  if ( (*(_DWORD *)(BugCheckParameter3 + 160) & 4) != 0 )
-    goto LABEL_5;
-  if ( (*(_DWORD *)(BugCheckParameter3 + 4112) & 0x20) != 0 )
-  {
-LABEL_7:
-    v11 = -1073741811;
-    goto LABEL_18;
-  }
-  if ( BugCheckParameter3 != qword_140C028D0
-    || (v11 = CmpPreserveSystemHiveData(BugCheckParameter3, BugCheckParameter2), v11 >= 0) )
-  {
-    HvUnlockHiveFlusherExclusive(BugCheckParameter3);
-    CmpUnlockRegistry(v17, v16, v18, v19);
-    v11 = CmpFlushHive(v6, 0xCu);
-    if ( v11 < 0 )
-      goto LABEL_21;
-    CmpDetachFromRegistryProcess(v35);
-    v8 = 0;
-    CmpBecomeActiveFlusherAndReconciler(BugCheckParameter3);
-    v9 = 1;
-    CmpLockRegistry(v21, v20, v22, v23);
-    HvLockHiveFlusherExclusive(BugCheckParameter3);
-    if ( (*(_DWORD *)(BugCheckParameter3 + 160) & 4) != 0 )
+    CmpAttachToRegistryProcess((__int64)v20, v12, v13, v14);
+    v6 = 1;
+    CmpLockRegistry();
+    HvLockHiveFlusherExclusive(a1);
+    if ( (*(_DWORD *)(a1 + 160) & 4) != 0 )
     {
 LABEL_5:
-      v11 = -1073741611;
+      v10 = -1073741611;
       goto LABEL_18;
     }
-    if ( (*(_DWORD *)(BugCheckParameter3 + 4112) & 0x20) == 0 )
+    if ( (*(_DWORD *)(a1 + 4152) & 0x20) != 0 )
+      goto LABEL_7;
+    if ( a1 == qword_140C01170 )
     {
-      v11 = CmpCmdRenameHive(*(HANDLE *)(BugCheckParameter3 + 1544), ObjectInformation, a4, 0x200u, 0);
-      if ( v11 >= 0 )
+      v10 = CmpPreserveSystemHiveData(a1, v15);
+      if ( v10 < 0 )
       {
-        *(_DWORD *)(BugCheckParameter3 + 160) |= 4u;
-        v11 = CmpCmdRenameHive(*(HANDLE *)(v6 + 1544), 0LL, ObjectInformation, 0, 0);
-        if ( v11 < 0 || (v11 = ZwFlushBuffersFile(*(HANDLE *)(v6 + 1544), &IoStatusBlock), v11 < 0) )
-        {
-          if ( CmpCmdRenameHive(*(HANDLE *)(BugCheckParameter3 + 1544), 0LL, ObjectInformation, 0, 0) < 0 )
-            v11 = -1073741492;
-        }
+LABEL_18:
+        HvUnlockHiveFlusherExclusive(a1);
+        CmpUnlockRegistry();
+        if ( v7 )
+          CmpFinishBeingActiveFlusherAndReconciler(a1);
+        goto LABEL_20;
       }
+    }
+    HvUnlockHiveFlusherExclusive(a1);
+    CmpUnlockRegistry();
+    v10 = CmpFlushHive((ULONG_PTR)v15, 0xCu);
+    if ( v10 >= 0 )
+    {
+      CmpDetachFromRegistryProcess((__int64)v20);
+      v6 = 0;
+      CmpBecomeActiveFlusherAndReconciler(a1);
+      v7 = 1;
+      CmpLockRegistry();
+      HvLockHiveFlusherExclusive(a1);
+      if ( (*(_DWORD *)(a1 + 160) & 4) != 0 )
+        goto LABEL_5;
+      if ( (*(_DWORD *)(a1 + 4152) & 0x20) == 0 )
+      {
+        v10 = CmpCmdRenameHive(*(HANDLE *)(a1 + 1536), ObjectInformation, 0);
+        if ( v10 >= 0 )
+        {
+          *(_DWORD *)(a1 + 160) |= 4u;
+          v10 = CmpCmdRenameHive(v15[192], 0LL, 0);
+          if ( v10 < 0 || (v10 = ZwFlushBuffersFile(v15[192], &IoStatusBlock), v10 < 0) )
+          {
+            if ( (int)CmpCmdRenameHive(*(HANDLE *)(a1 + 1536), 0LL, 0) < 0 )
+              v10 = -1073741492;
+          }
+        }
+        goto LABEL_18;
+      }
+LABEL_7:
+      v10 = -1073741811;
       goto LABEL_18;
     }
-    goto LABEL_7;
   }
-LABEL_18:
-  HvUnlockHiveFlusherExclusive(BugCheckParameter3);
-  CmpUnlockRegistry(v25, v24, v26, v27);
-  if ( v9 )
-    CmpFinishBeingActiveFlusherAndReconciler(BugCheckParameter3, v28, v29, v30);
-LABEL_21:
-  if ( v6 )
+LABEL_20:
+  if ( v15 )
   {
-    if ( !v8 )
+    if ( !v6 )
     {
-      CmpAttachToRegistryProcess(v35);
-      v8 = 1;
+      CmpAttachToRegistryProcess((__int64)v20, v12, v13, v14);
+      v6 = 1;
     }
-    if ( v11 >= 0 )
+    if ( v10 >= 0 )
     {
-      *(_OWORD *)(v6 + 1544) = 0LL;
-      *(_OWORD *)(v6 + 1560) = 0LL;
-      *(_OWORD *)(v6 + 1576) = 0LL;
+      *((_OWORD *)v15 + 96) = 0LL;
+      *((_OWORD *)v15 + 97) = 0LL;
+      *((_OWORD *)v15 + 98) = 0LL;
     }
-    CmpDestroyHive((PVOID)v6);
+    CmpDestroyHive((volatile signed __int32 *)v15);
   }
-  if ( v8 )
-    CmpDetachFromRegistryProcess(v35);
-  if ( Pool )
-    CmSiFreeMemory(Pool);
-  return (unsigned int)v11;
+  if ( v6 )
+    CmpDetachFromRegistryProcess((__int64)v20);
+  CmSiFreeMemory(v9);
+  return (unsigned int)v10;
 }

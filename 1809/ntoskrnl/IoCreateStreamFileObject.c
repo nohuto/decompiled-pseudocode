@@ -1,5 +1,5 @@
 /*
- * XREFs of IoCreateStreamFileObject @ 0x140705800
+ * XREFs of IoCreateStreamFileObject @ 0x1407057E0
  * Callers:
  *     <none>
  * Callees:

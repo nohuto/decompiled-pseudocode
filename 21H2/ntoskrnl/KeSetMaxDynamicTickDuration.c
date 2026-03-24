@@ -1,7 +1,7 @@
 /*
- * XREFs of KeSetMaxDynamicTickDuration @ 0x14056A8A8
+ * XREFs of KeSetMaxDynamicTickDuration @ 0x140514948
  * Callers:
- *     PopEnforceResiliencyScenarios @ 0x1408083DC (PopEnforceResiliencyScenarios.c)
+ *     PopEnforceResiliencyScenarios @ 0x140779BFC (PopEnforceResiliencyScenarios.c)
  * Callees:
  *     <none>
  */

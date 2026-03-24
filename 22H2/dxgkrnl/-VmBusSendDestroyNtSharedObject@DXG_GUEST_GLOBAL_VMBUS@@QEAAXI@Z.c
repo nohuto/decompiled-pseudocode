@@ -1,33 +1,25 @@
 /*
- * XREFs of ?VmBusSendDestroyNtSharedObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAXI@Z @ 0x1C038818C
+ * XREFs of ?VmBusSendDestroyNtSharedObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAXI@Z @ 0x1C0248750
  * Callers:
- *     ?DxgkSharedAllocationObDeleteProcedure@@YAXPEAX@Z @ 0x1C01A0FB0 (-DxgkSharedAllocationObDeleteProcedure@@YAXPEAX@Z.c)
- *     ?DxgkSharedSyncObjectObDeleteProcedure@@YAXPEAX@Z @ 0x1C01EA070 (-DxgkSharedSyncObjectObDeleteProcedure@@YAXPEAX@Z.c)
+ *     ?DxgkSharedAllocationObDeleteProcedure@@YAXPEAX@Z @ 0x1C01288B0 (-DxgkSharedAllocationObDeleteProcedure@@YAXPEAX@Z.c)
+ *     ?DxgkSharedSyncObjectObDeleteProcedure@@YAXPEAX@Z @ 0x1C016B840 (-DxgkSharedSyncObjectObDeleteProcedure@@YAXPEAX@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C038FC58 (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_M.c)
+ *     ?VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C024DA2C (-VmBusSendSyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@.c)
  */
 
 void __fastcall DXG_GUEST_GLOBAL_VMBUS::VmBusSendDestroyNtSharedObject(DXG_GUEST_GLOBAL_VMBUS *this, int a2)
 {
-  struct DXGKVMB_COMMAND_BASE *v4; // rax
-  struct _MDL *v5; // [rsp+30h] [rbp-148h]
-  struct DXGKVMB_COMMAND_BASE *v6[2]; // [rsp+40h] [rbp-138h] BYREF
-  unsigned int v7; // [rsp+50h] [rbp-128h]
+  struct _MDL *v2; // [rsp+28h] [rbp-30h]
+  __int64 v3; // [rsp+30h] [rbp-28h] BYREF
+  int v4; // [rsp+38h] [rbp-20h]
+  int v5; // [rsp+3Ch] [rbp-1Ch]
+  int v6; // [rsp+40h] [rbp-18h]
+  int v7; // [rsp+48h] [rbp-10h]
 
-  v7 = 0;
-  *(_OWORD *)v6 = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)v6, this, 0x20u, 0LL, 0LL, 0LL);
-  v4 = v6[0];
-  *(_QWORD *)v6[0] = 0LL;
-  *((_DWORD *)v4 + 2) = 0;
-  *((_DWORD *)v4 + 5) = 0;
-  *((_BYTE *)v4 + 12) = 1;
-  *((_DWORD *)v4 + 3) &= 0x1FFu;
-  *((_DWORD *)v4 + 4) = 1005;
-  *((_DWORD *)v4 + 6) = a2;
-  DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(this, (unsigned __int8 *)v6[1], v6[0], v7, 0LL, 0LL, v5);
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)v6);
+  v7 = a2;
+  v3 = 0LL;
+  v4 = 0;
+  v5 = 1;
+  v6 = 1005;
+  DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessage(this, (struct DXGKVMB_COMMAND_BASE *)&v3, 0x20u, 0LL, 0LL, v2);
 }

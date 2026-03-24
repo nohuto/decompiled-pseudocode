@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpDispatchGetTerminalEvent @ 0x1409A69EC
+ * XREFs of TtmpDispatchGetTerminalEvent @ 0x140900E10
  * Callers:
- *     TtmDispatchApi @ 0x1409A6270 (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x140900694 (TtmDispatchApi.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
- *     TtmiRetrieveEventFromQueue @ 0x1409AB284 (TtmiRetrieveEventFromQueue.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
+ *     TtmiRetrieveEventFromQueue @ 0x14090558C (TtmiRetrieveEventFromQueue.c)
  */
 
 __int64 __fastcall TtmpDispatchGetTerminalEvent(__int64 a1, __int64 a2)
@@ -19,35 +19,36 @@ __int64 __fastcall TtmpDispatchGetTerminalEvent(__int64 a1, __int64 a2)
   __int64 v8; // r8
   __int64 v9; // rdx
   int EventFromQueue; // eax
-  PVOID Object; // [rsp+40h] [rbp+8h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = *(void **)(a1 + 8);
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  Object = 0LL;
-  v5 = ObReferenceObjectByHandle(v3, 0xF0000u, TtmpQueueObjectType, PreviousMode, &Object, 0LL);
+  DmaAdapter = 0LL;
+  v5 = ObReferenceObjectByHandle(v3, 0xF0000u, TtmpQueueObjectType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
   v6 = v5;
   if ( v5 < 0 )
-  {
     TtmiLogError("TtmiReferenceQueueByHandle", 310LL, (unsigned int)v5, (unsigned int)v5);
+  if ( (v6 & 0x80000000) != 0 )
+  {
     v7 = v6;
     v8 = v6;
     v9 = 410LL;
-LABEL_3:
+LABEL_5:
     TtmiLogError("TtmpDispatchGetTerminalEvent", v9, v8, v7);
-    goto LABEL_7;
+    goto LABEL_9;
   }
-  EventFromQueue = TtmiRetrieveEventFromQueue(Object, a2);
+  EventFromQueue = TtmiRetrieveEventFromQueue(DmaAdapter, a2);
   v6 = EventFromQueue;
   if ( EventFromQueue < 0 )
   {
     v7 = (unsigned int)EventFromQueue;
     v8 = (unsigned int)EventFromQueue;
     v9 = 418LL;
-    goto LABEL_3;
+    goto LABEL_5;
   }
   v6 = 0;
-LABEL_7:
-  if ( Object )
-    ObfDereferenceObject(Object);
+LABEL_9:
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
   return v6;
 }

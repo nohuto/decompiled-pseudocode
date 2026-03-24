@@ -1,24 +1,24 @@
 /*
- * XREFs of ulCharsetToCodePage @ 0x1C016D1E0
+ * XREFs of ulCharsetToCodePage @ 0x1C014D760
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ulCharsetToCodePage(__int64 a1)
+__int64 __fastcall ulCharsetToCodePage(int a1)
 {
   __int64 v1; // rax
-  const unsigned int near *const *i; // rdx
+  char *i; // rdx
 
-  if ( (_DWORD)a1 == 255 )
+  if ( a1 == 255 )
     return 1LL;
   v1 = 0LL;
-  for ( i = &charsets; *(_DWORD *)i != (_DWORD)a1; i = (const unsigned int near *const *)((char *)i + 4) )
+  for ( i = charsets; *(_DWORD *)i != a1; i += 4 )
   {
     v1 = (unsigned int)(v1 + 1);
     if ( (unsigned int)v1 >= 0x11 )
-      return *(_DWORD *)(*(_QWORD *)(SGDGetSessionState(a1) + 24) + 156LL) != 0 ? 0x4E4 : 0;
+      return gbDBCSCodePage != 0 ? 0x4E4 : 0;
   }
   return codepages[v1];
 }

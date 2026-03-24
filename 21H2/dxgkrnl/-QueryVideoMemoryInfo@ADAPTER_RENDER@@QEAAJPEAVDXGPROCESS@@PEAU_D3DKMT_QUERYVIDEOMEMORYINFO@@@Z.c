@@ -1,9 +1,9 @@
 /*
- * XREFs of ?QueryVideoMemoryInfo@ADAPTER_RENDER@@QEAAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYVIDEOMEMORYINFO@@@Z @ 0x1C015D15C
+ * XREFs of ?QueryVideoMemoryInfo@ADAPTER_RENDER@@QEAAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYVIDEOMEMORYINFO@@@Z @ 0x1C00DF65C
  * Callers:
- *     DxgkQueryVideoMemoryInfo @ 0x1C015CDF0 (DxgkQueryVideoMemoryInfo.c)
+ *     DxgkQueryVideoMemoryInfo @ 0x1C00DF2D0 (DxgkQueryVideoMemoryInfo.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ADAPTER_RENDER::QueryVideoMemoryInfo(
@@ -11,19 +11,19 @@ __int64 __fastcall ADAPTER_RENDER::QueryVideoMemoryInfo(
         struct DXGPROCESS *a2,
         struct _D3DKMT_QUERYVIDEOMEMORYINFO *a3)
 {
-  __int64 v3; // r9
-  __int64 v4; // r14
+  __int64 v3; // rsi
+  __int64 v4; // r9
   __int64 v5; // rcx
   __int64 v6; // rdx
 
   v3 = *((_QWORD *)this + 81);
-  v4 = *((_QWORD *)this + 82);
+  v4 = *((_QWORD *)this + 80);
   v5 = *((_QWORD *)a2 + 8);
   v6 = 0LL;
   if ( v5 )
-    v6 = *(_QWORD *)(v5 + 8LL * (unsigned int)(*(_DWORD *)v3 - 1));
-  return (*(__int64 (__fastcall **)(__int64, __int64, _QWORD, _QWORD, UINT64 *, UINT64 *, UINT64 *, UINT64 *))(*(_QWORD *)(v3 + 8) + 1056LL))(
-           v4,
+    v6 = *(_QWORD *)(v5 + 8LL * (unsigned int)(*(_DWORD *)v4 - 1));
+  return (*(__int64 (__fastcall **)(__int64, __int64, _QWORD, _QWORD, UINT64 *, UINT64 *, UINT64 *, UINT64 *))(*(_QWORD *)(v4 + 8) + 1048LL))(
+           v3,
            v6,
            a3->PhysicalAdapterIndex,
            (unsigned int)a3->MemorySegmentGroup,

@@ -1,61 +1,59 @@
 /*
- * XREFs of MiStackTheftFreezeProcessors @ 0x14062D38C
+ * XREFs of MiStackTheftFreezeProcessors @ 0x14053626C
  * Callers:
- *     MiJumpStackTarget @ 0x14062CFF0 (MiJumpStackTarget.c)
+ *     MiJumpStackTarget @ 0x140535F90 (MiJumpStackTarget.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140222070 (KeQueryActiveProcessorCountEx.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348380 (MiLockNestedPageAtDpcInline.c)
- *     KeIpiGenericCall @ 0x14039A940 (KeIpiGenericCall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140333FA0 (MiLockNestedPageAtDpcInline.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140344620 (KeQueryActiveProcessorCountEx.c)
+ *     KeIpiGenericCall @ 0x1403A4420 (KeIpiGenericCall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiStackTheftFreezeProcessors(ULONG_PTR Context)
+__int64 __fastcall MiStackTheftFreezeProcessors(ULONG_PTR Context, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v2; // rdi
+  __int64 v5; // rdi
   unsigned __int8 CurrentIrql; // bl
   _DWORD *SchedulerAssist; // r9
-  __int64 v5; // rdx
   ULONG ActiveProcessorCount; // eax
-  unsigned __int8 v7; // al
+  unsigned __int8 v9; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v9; // r8
-  int v10; // eax
-  bool v11; // zf
+  _DWORD *v11; // r8
+  int v12; // eax
+  bool v13; // zf
   __int64 result; // rax
 
-  v2 = 48LL * *(_QWORD *)(Context + 8) - 0x220000000000LL;
-  MiLockNestedPageAtDpcInline(v2);
+  v5 = 48LL * *(_QWORD *)(Context + 8) - 0x58000000000LL;
+  MiLockNestedPageAtDpcInline(v5, a2, a3, a4);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 12 )
-      LODWORD(v5) = 4096;
-    else
-      v5 = (-1LL << (CurrentIrql + 1)) & 0x1FFC;
-    SchedulerAssist[5] |= v5;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0x1FFC;
   }
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
-  *(_DWORD *)(Context + 68) = ActiveProcessorCount;
-  *(_DWORD *)(Context + 64) = ActiveProcessorCount;
+  *(_DWORD *)(Context + 76) = ActiveProcessorCount;
+  *(_DWORD *)(Context + 72) = ActiveProcessorCount;
   KeIpiGenericCall(MiStackTheftIsr, Context);
   if ( KiIrqlFlags )
   {
-    v7 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v9 = CurrentPrcb->SchedulerAssist;
-      v10 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v11 = (v10 & v9[5]) == 0;
-      v9[5] &= v10;
-      if ( v11 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v9 = KeGetCurrentIrql();
+      if ( v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v11 = CurrentPrcb->SchedulerAssist;
+        v12 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v13 = (v12 & v11[5]) == 0;
+        v11[5] &= v12;
+        if ( v13 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);
   result = 0x7FFFFFFFFFFFFFFFLL;
-  _InterlockedAnd64((volatile signed __int64 *)(v2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   return result;
 }

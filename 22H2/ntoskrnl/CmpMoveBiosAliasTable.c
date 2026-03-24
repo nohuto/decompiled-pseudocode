@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpMoveBiosAliasTable @ 0x140A10D4C
+ * XREFs of CmpMoveBiosAliasTable @ 0x140877C68
  * Callers:
- *     CmSetAcpiHwProfile @ 0x14084B574 (CmSetAcpiHwProfile.c)
+ *     CmSetAcpiHwProfile @ 0x1407A5D38 (CmSetAcpiHwProfile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403DDD60 (swprintf_s.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x14041A960 (ZwQueryKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     ZwEnumerateKey @ 0x14041ACE0 (ZwEnumerateKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     ZwDeleteKey @ 0x14041C1E0 (ZwDeleteKey.c)
- *     CmpOpenDevicesControlSet @ 0x14084BC14 (CmpOpenDevicesControlSet.c)
- *     CmDeleteKeyRecursive @ 0x140A0FE68 (CmDeleteKeyRecursive.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D61F0 (swprintf_s.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1403F9CE0 (ZwQueryKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     ZwEnumerateKey @ 0x1403FA060 (ZwEnumerateKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x1403FB4A0 (ZwDeleteKey.c)
+ *     CmpOpenDevicesControlSet @ 0x1407A6B94 (CmpOpenDevicesControlSet.c)
+ *     CmDeleteKeyRecursive @ 0x140876DE0 (CmDeleteKeyRecursive.c)
  */
 
 __int64 __fastcall CmpMoveBiosAliasTable(
@@ -32,30 +32,31 @@ __int64 __fastcall CmpMoveBiosAliasTable(
   ULONG i; // esi
   __int64 v14; // rcx
   NTSTATUS v15; // ebx
+  __int64 v16; // r9
   ULONG Length; // [rsp+20h] [rbp-C1h]
   HANDLE Handle; // [rsp+30h] [rbp-B1h] BYREF
   ULONG ResultLength; // [rsp+38h] [rbp-A9h] BYREF
-  HANDLE v20; // [rsp+40h] [rbp-A1h] BYREF
+  HANDLE v21; // [rsp+40h] [rbp-A1h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-99h] BYREF
   HANDLE KeyHandle; // [rsp+58h] [rbp-89h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-81h] BYREF
   int Data; // [rsp+90h] [rbp-51h] BYREF
-  void *v25; // [rsp+98h] [rbp-49h]
+  void *v26; // [rsp+98h] [rbp-49h]
   __int128 KeyInformation; // [rsp+A0h] [rbp-41h] BYREF
-  __int128 v27; // [rsp+B0h] [rbp-31h]
-  __int128 v28; // [rsp+C0h] [rbp-21h]
+  __int128 v28; // [rsp+B0h] [rbp-31h]
+  __int128 v29; // [rsp+C0h] [rbp-21h]
 
-  v25 = a1;
+  v26 = a1;
   KeyHandle = 0LL;
   Handle = 0LL;
-  v20 = 0LL;
+  v21 = 0LL;
   ResultLength = 0;
   DestinationString = 0LL;
-  memset(&ObjectAttributes, 0, 44);
   Data = a4;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   KeyInformation = 0LL;
-  v27 = 0LL;
   v28 = 0LL;
+  v29 = 0LL;
   RtlInitUnicodeString(&DestinationString, L"SerialNumber");
   if ( ZwQueryValueKey(a2, &DestinationString, KeyValueFullInformation, KeyValueInformation, 0x100u, &ResultLength) >= 0
     && *((_DWORD *)KeyValueInformation + 1) == 4
@@ -80,7 +81,7 @@ __int64 __fastcall CmpMoveBiosAliasTable(
     v12 = ZwQueryKey(KeyHandle, KeyFullInformation, &KeyInformation, 0x30u, &ResultLength);
     if ( v12 >= 0 )
     {
-      for ( i = 0; i < DWORD1(v27); ++i )
+      for ( i = 0; i < DWORD1(v28); ++i )
       {
         v12 = ZwEnumerateKey(KeyHandle, i, KeyBasicInformation, KeyValueInformation, 0xFEu, &ResultLength);
         if ( v12 < 0 )
@@ -138,16 +139,16 @@ __int64 __fastcall CmpMoveBiosAliasTable(
           ZwClose(Handle);
           Handle = 0LL;
           RtlInitUnicodeString(&DestinationString, L"Hardware Profiles");
-          ObjectAttributes.RootDirectory = v25;
+          ObjectAttributes.RootDirectory = v26;
           ObjectAttributes.Length = 48;
           ObjectAttributes.ObjectName = &DestinationString;
           ObjectAttributes.Attributes = 576;
           *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-          if ( ZwOpenKey(&v20, 0x2001Fu, &ObjectAttributes) < 0 )
+          if ( ZwOpenKey(&v21, 0x2001Fu, &ObjectAttributes) < 0 )
             goto LABEL_32;
           swprintf_s(Dst, 0x80uLL, L"%04d", a3);
           RtlInitUnicodeString(&DestinationString, Dst);
-          ObjectAttributes.RootDirectory = v20;
+          ObjectAttributes.RootDirectory = v21;
           ObjectAttributes.Length = 48;
           ObjectAttributes.ObjectName = &DestinationString;
           ObjectAttributes.Attributes = 576;
@@ -171,8 +172,8 @@ __int64 __fastcall CmpMoveBiosAliasTable(
           {
             ZwDeleteKey(Handle);
             ZwClose(Handle);
-            ZwClose(v20);
-            v20 = 0LL;
+            ZwClose(v21);
+            v21 = 0LL;
             Handle = 0LL;
             if ( (int)CmpOpenDevicesControlSet(v14, &Handle, 0LL) < 0 )
               goto LABEL_32;
@@ -181,25 +182,25 @@ __int64 __fastcall CmpMoveBiosAliasTable(
             ObjectAttributes.ObjectName = (PUNICODE_STRING)L"\"$";
             ObjectAttributes.Attributes = 576;
             *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-            v15 = ZwOpenKey(&v20, 0x2001Fu, &ObjectAttributes);
+            v15 = ZwOpenKey(&v21, 0x2001Fu, &ObjectAttributes);
             ZwClose(Handle);
             Handle = 0LL;
             if ( v15 < 0 )
             {
 LABEL_32:
-              v20 = 0LL;
+              v21 = 0LL;
               goto LABEL_33;
             }
             swprintf_s(Dst, 0x80uLL, L"%04d", a3);
-            v12 = CmDeleteKeyRecursive(v20, Dst, (__int64)KeyValueInformation, 256, Length);
-            ZwClose(v20);
-            v20 = 0LL;
+            v12 = CmDeleteKeyRecursive(v21, Dst, (__int64)KeyValueInformation, v16, Length);
+            ZwClose(v21);
+            v21 = 0LL;
           }
           else
           {
             ZwClose(Handle);
-            ZwClose(v20);
-            v20 = 0LL;
+            ZwClose(v21);
+            v21 = 0LL;
             Handle = 0LL;
           }
         }
@@ -222,7 +223,7 @@ LABEL_33:
 LABEL_36:
   if ( Handle )
     ZwClose(Handle);
-  if ( v20 )
-    ZwClose(v20);
+  if ( v21 )
+    ZwClose(v21);
   return (unsigned int)v12;
 }

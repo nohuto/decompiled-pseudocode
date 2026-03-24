@@ -1,13 +1,13 @@
 /*
- * XREFs of ?bInsertPathLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@@Z @ 0x1C02FDD64
+ * XREFs of ?bInsertPathLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@@Z @ 0x1C02D5208
  * Callers:
- *     ?bInsertGlyphbitsLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@K@Z @ 0x1C02FD85C (-bInsertGlyphbitsLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@K@Z.c)
+ *     ?bInsertGlyphbitsLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@K@Z @ 0x1C02D4F2C (-bInsertGlyphbitsLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@K@Z.c)
  * Callees:
- *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C0080E54 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?vInit@EPATHFONTOBJ@@QEAAXK@Z @ 0x1C028669C (-vInit@EPATHFONTOBJ@@QEAAXK@Z.c)
- *     ?bEnsureAuxCacheBuffer@RFONTOBJ@@QEAAHK@Z @ 0x1C02FD7BC (-bEnsureAuxCacheBuffer@RFONTOBJ@@QEAAHK@Z.c)
+ *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C009A248 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
+ *     ?vInit@EPATHFONTOBJ@@QEAAXK@Z @ 0x1C0152750 (-vInit@EPATHFONTOBJ@@QEAAXK@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?bEnsureAuxCacheBuffer@RFONTOBJ@@QEAAHK@Z @ 0x1C02D4E9C (-bEnsureAuxCacheBuffer@RFONTOBJ@@QEAAHK@Z.c)
  */
 
 __int64 __fastcall RFONTOBJ::bInsertPathLookaside(struct _FONTOBJ **this, struct _GLYPHPOS *a2)
@@ -23,7 +23,7 @@ __int64 __fastcall RFONTOBJ::bInsertPathLookaside(struct _FONTOBJ **this, struct
   __int64 v13; // [rsp+58h] [rbp-A8h]
   struct _GLYPHDATA v14; // [rsp+D0h] [rbp-30h] BYREF
 
-  memset_0(&v14, 0, sizeof(v14));
+  memset(&v14, 0, sizeof(v14));
   PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v12);
   v4 = 0;
   if ( v13 )

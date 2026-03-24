@@ -1,9 +1,9 @@
 /*
- * XREFs of KeQueryEffectiveBasePriorityThread @ 0x1402230F4
+ * XREFs of KeQueryEffectiveBasePriorityThread @ 0x14033A98C
  * Callers:
- *     MiStoreUpdateMemoryConditions @ 0x140222F90 (MiStoreUpdateMemoryConditions.c)
+ *     MiStoreUpdateMemoryConditions @ 0x14033A2F4 (MiStoreUpdateMemoryConditions.c)
  * Callees:
- *     KiIsThreadRankNonZero @ 0x140308EB0 (KiIsThreadRankNonZero.c)
+ *     KiIsThreadRankNonZero @ 0x14024CDC0 (KiIsThreadRankNonZero.c)
  */
 
 __int64 __fastcall KeQueryEffectiveBasePriorityThread(__int64 a1)
@@ -11,7 +11,7 @@ __int64 __fastcall KeQueryEffectiveBasePriorityThread(__int64 a1)
   bool v2; // zf
   __int64 result; // rax
 
-  v2 = (unsigned __int8)KiIsThreadRankNonZero(a1, 0LL) == 0;
+  v2 = !KiIsThreadRankNonZero(a1, 0LL);
   result = 1LL;
   if ( v2 )
     return (unsigned int)*(char *)(a1 + 563);

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiValidateStrongCodeDriverImage @ 0x1402AB034
+ * XREFs of MiValidateStrongCodeDriverImage @ 0x1402AB134
  * Callers:
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
  * Callees:
  *     <none>
  */

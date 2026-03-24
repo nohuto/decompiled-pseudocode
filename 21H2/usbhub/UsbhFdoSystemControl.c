@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhFdoSystemControl @ 0x1C000F730
+ * XREFs of UsbhFdoSystemControl @ 0x1C0015970
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhFdoChainIrp @ 0x1C002996C (UsbhFdoChainIrp.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhFdoChainIrp @ 0x1C002ACBC (UsbhFdoChainIrp.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
  */
 
 __int64 __fastcall UsbhFdoSystemControl(PDEVICE_OBJECT DeviceObject, PIRP Irp)

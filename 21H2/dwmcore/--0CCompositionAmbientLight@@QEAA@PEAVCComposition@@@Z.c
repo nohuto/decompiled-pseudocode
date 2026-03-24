@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CCompositionAmbientLight@@QEAA@PEAVCComposition@@@Z @ 0x1800EC2EC
+ * XREFs of ??0CCompositionAmbientLight@@QEAA@PEAVCComposition@@@Z @ 0x180029CC0
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800BE0A8 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2008 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
  * Callees:
- *     ??0CCompositionLight@@QEAA@PEAVCComposition@@_N@Z @ 0x1800EC47C (--0CCompositionLight@@QEAA@PEAVCComposition@@_N@Z.c)
+ *     ??0CCompositionLight@@QEAA@PEAVCComposition@@_N@Z @ 0x180029D14 (--0CCompositionLight@@QEAA@PEAVCComposition@@_N@Z.c)
  */
 
 CCompositionAmbientLight *__fastcall CCompositionAmbientLight::CCompositionAmbientLight(
@@ -13,12 +13,12 @@ CCompositionAmbientLight *__fastcall CCompositionAmbientLight::CCompositionAmbie
   __int64 v2; // rcx
 
   CCompositionLight::CCompositionLight(this, a2, 1);
-  *(_QWORD *)(v2 + 80) = &CCompositionSpotLight::`vftable'{for `ISceneNotificationListener'};
+  *(_QWORD *)(v2 + 72) = &CCompositionSpotLight::`vftable'{for `ISceneNotificationListener'};
   *(_QWORD *)v2 = &CCompositionAmbientLight::`vftable'{for `CPropertyChangeResource'};
-  *(_DWORD *)(v2 + 268) = 1065353216;
-  *(_DWORD *)(v2 + 264) = 1065353216;
   *(_DWORD *)(v2 + 260) = 1065353216;
   *(_DWORD *)(v2 + 256) = 1065353216;
-  *(_DWORD *)(v2 + 272) = 1065353216;
+  *(_DWORD *)(v2 + 252) = 1065353216;
+  *(_DWORD *)(v2 + 248) = 1065353216;
+  *(_DWORD *)(v2 + 264) = 1065353216;
   return (CCompositionAmbientLight *)v2;
 }

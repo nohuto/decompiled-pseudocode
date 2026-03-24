@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpDmaInitializeMasterAdapter @ 0x140B1D9DC
+ * XREFs of HalpDmaInitializeMasterAdapter @ 0x140A65B2C
  * Callers:
- *     HalpDmaInit @ 0x140B1D878 (HalpDmaInit.c)
+ *     HalpDmaInit @ 0x140A659C8 (HalpDmaInit.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140215340 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140215660 (MmUnmapIoSpace.c)
- *     RtlSetAllBits @ 0x140262CA0 (RtlSetAllBits.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x1403B1F04 (HalpMmAllocCtxAlloc.c)
- *     HalpDmaCommitContiguousMapBuffers @ 0x1403CDDB0 (HalpDmaCommitContiguousMapBuffers.c)
- *     HalpDmaAllocateTranslationBuffer @ 0x140B1DB14 (HalpDmaAllocateTranslationBuffer.c)
- *     HalpDmaFreeTranslationBuffer @ 0x140B4BF10 (HalpDmaFreeTranslationBuffer.c)
+ *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
+ *     RtlSetAllBits @ 0x1402E2160 (RtlSetAllBits.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     HalpDmaCommitContiguousMapBuffers @ 0x1403BBD0C (HalpDmaCommitContiguousMapBuffers.c)
+ *     HalpDmaAllocateTranslationBuffer @ 0x140A65C64 (HalpDmaAllocateTranslationBuffer.c)
+ *     HalpDmaFreeTranslationBuffer @ 0x140A8C9C8 (HalpDmaFreeTranslationBuffer.c)
  */
 
 __int64 __fastcall HalpDmaInitializeMasterAdapter(
@@ -22,8 +22,8 @@ __int64 __fastcall HalpDmaInitializeMasterAdapter(
         int a6,
         char a7)
 {
-  unsigned int v8; // ebp
-  SIZE_T v10; // rsi
+  SIZE_T v8; // rsi
+  unsigned int v9; // ebp
   __int64 v11; // rcx
   __int64 v12; // r15
   __int64 v13; // rax
@@ -34,43 +34,43 @@ __int64 __fastcall HalpDmaInitializeMasterAdapter(
   void *v18; // rbp
   __int64 v20; // rdx
 
-  *(_QWORD *)(a1 + 120) = 0LL;
   *(_QWORD *)(a1 + 160) = a1 + 152;
   *(_QWORD *)(a1 + 152) = a1 + 152;
-  v8 = (a6 + 31) & 0xFFFFFFE0;
+  v8 = a3;
   *(_QWORD *)(a1 + 176) = a1 + 168;
+  v9 = (a6 + 31) & 0xFFFFFFE0;
   *(_QWORD *)(a1 + 168) = a1 + 168;
+  *(_QWORD *)(a1 + 120) = 0LL;
   *(_QWORD *)(a1 + 128) = 0LL;
   *(_QWORD *)(a1 + 16) = 0LL;
-  v10 = a3;
   *(_BYTE *)(a1 + 144) = 1;
   *(_BYTE *)(a1 + 145) = a7;
-  v12 = HalpMmAllocCtxAlloc(a1, (unsigned __int64)v8 >> 3);
+  v12 = HalpMmAllocCtxAlloc(a1, (unsigned __int64)v9 >> 3);
   if ( v12 )
   {
     v13 = HalpMmAllocCtxAlloc(v11, 16LL);
     *(_QWORD *)(a1 + 16) = v13;
     if ( v13 )
     {
-      *(_DWORD *)v13 = v8;
+      *(_DWORD *)v13 = v9;
       *(_QWORD *)(v13 + 8) = v12;
       RtlSetAllBits(*(PRTL_BITMAP *)(a1 + 16));
-      if ( !(_DWORD)v10 )
+      if ( !(_DWORD)v8 )
         return 0LL;
       TranslationBuffer = HalpDmaAllocateTranslationBuffer(v15, a1 + 56);
       *(_QWORD *)(a1 + 40) = TranslationBuffer;
       if ( TranslationBuffer )
       {
-        v17 = MmMapIoSpaceEx(a2, (unsigned int)v10, 4u);
+        v17 = MmMapIoSpaceEx(a2, (unsigned int)v8, 4u);
         v18 = (void *)v17;
         if ( v17 )
         {
-          if ( HalpDmaCommitContiguousMapBuffers(a1, v17, a2, ((unsigned int)v10 >> 12) + ((v10 & 0xFFF) != 0)) )
+          if ( HalpDmaCommitContiguousMapBuffers(a1, v17, a2, ((unsigned int)v8 >> 12) + ((v8 & 0xFFF) != 0)) )
           {
-            *(_DWORD *)(a1 + 204) = (unsigned int)v10 >> 13;
+            *(_DWORD *)(a1 + 204) = (unsigned int)v8 >> 13;
             return 0LL;
           }
-          MmUnmapIoSpace(v18, v10);
+          MmUnmapIoSpace(v18, v8);
         }
         HalpDmaFreeTranslationBuffer(*(_QWORD *)(a1 + 40));
       }

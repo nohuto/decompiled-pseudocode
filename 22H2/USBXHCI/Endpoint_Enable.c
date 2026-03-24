@@ -1,241 +1,225 @@
 /*
- * XREFs of Endpoint_Enable @ 0x1C000BDF0
+ * XREFs of Endpoint_Enable @ 0x1C00083B0
  * Callers:
- *     UsbDevice_InitializeInputContextForAddEndpoints @ 0x1C000BC1C (UsbDevice_InitializeInputContextForAddEndpoints.c)
- *     UsbDevice_UcxEvtEnable @ 0x1C0013260 (UsbDevice_UcxEvtEnable.c)
+ *     UsbDevice_InitializeInputContextForAddEndpoints @ 0x1C0007D58 (UsbDevice_InitializeInputContextForAddEndpoints.c)
+ *     UsbDevice_UcxEvtEnable @ 0x1C000E990 (UsbDevice_UcxEvtEnable.c)
  * Callees:
- *     TR_Enable_Internal @ 0x1C0007D94 (TR_Enable_Internal.c)
- *     Endpoint_Disable_Internal @ 0x1C000B8D4 (Endpoint_Disable_Internal.c)
- *     RtlStringCchPrintfA @ 0x1C000C2C4 (RtlStringCchPrintfA.c)
- *     WPP_RECORDER_SF_ddq @ 0x1C000C330 (WPP_RECORDER_SF_ddq.c)
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     Endpoint_GetDequeuePointer @ 0x1C000CF0C (Endpoint_GetDequeuePointer.c)
- *     TR_GetDequeuePointer @ 0x1C000CF30 (TR_GetDequeuePointer.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0018000 (WPP_RECORDER_SF_ddd.c)
- *     WPP_RECORDER_SF_dddd @ 0x1C001A790 (WPP_RECORDER_SF_dddd.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     Controller_SetHSIIWorkaround @ 0x1C001ED8C (Controller_SetHSIIWorkaround.c)
- *     Endpoint_IsCandidateForSplitTransactionHSIIWorkaround @ 0x1C001EE48 (Endpoint_IsCandidateForSplitTransactionHSIIWorkaround.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     XilEndpoint_AllocateStreamContextArray @ 0x1C0038ADC (XilEndpoint_AllocateStreamContextArray.c)
- *     XilEndpoint_CommitStreamContextArrayUpdates @ 0x1C0038D24 (XilEndpoint_CommitStreamContextArrayUpdates.c)
+ *     TR_Enable_Internal @ 0x1C00055F4 (TR_Enable_Internal.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C0008334 (Endpoint_GetDequeuePointer.c)
+ *     TR_GetDequeuePointer @ 0x1C0008358 (TR_GetDequeuePointer.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     RtlStringCchPrintfA @ 0x1C00093AC (RtlStringCchPrintfA.c)
+ *     WPP_RECORDER_SF_ddq @ 0x1C0009428 (WPP_RECORDER_SF_ddq.c)
+ *     Endpoint_Disable_Internal @ 0x1C000ABD4 (Endpoint_Disable_Internal.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C000E080 (WPP_RECORDER_SF_dddd.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0013CB0 (WPP_RECORDER_SF_ddd.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     XilEndpoint_AllocateStreamContextArray @ 0x1C003701C (XilEndpoint_AllocateStreamContextArray.c)
+ *     XilEndpoint_CommitStreamContextArrayUpdates @ 0x1C0037290 (XilEndpoint_CommitStreamContextArrayUpdates.c)
  */
 
 __int64 __fastcall Endpoint_Enable(__m128i **a1)
 {
-  __m128i **v2; // r14
-  void *v3; // rdx
-  __m128i *v4; // rcx
-  __int64 v5; // rdx
+  void *v2; // rdx
+  __m128i *v3; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rax
   __int64 v6; // rax
-  __m128i *v7; // rcx
-  __int64 v8; // rax
-  __int64 v9; // r12
-  __m128i *v10; // rsi
-  __int64 Pool2; // rax
-  int v12; // r8d
+  __int64 v7; // r15
+  __m128i *v8; // rsi
+  __m128i *PoolWithTag; // rax
+  __int64 v10; // rdx
   int StreamContextArray; // edi
-  int v14; // edx
-  int v15; // r9d
-  __int64 v16; // rcx
-  __m128i *v17; // rax
-  __int64 v18; // r8
-  __int64 v20; // rax
-  unsigned int v21; // r15d
+  int v12; // r9d
+  __m128i *v13; // rax
+  __m128i *v14; // rdx
+  __int64 v15; // rax
+  unsigned int v16; // r14d
   __int64 DequeuePointer; // rax
-  __int64 v23; // rdx
-  int v24; // edx
-  char v25; // [rsp+30h] [rbp-31h]
-  int v26; // [rsp+38h] [rbp-29h]
-  char v27; // [rsp+40h] [rbp-21h]
-  __int128 v28; // [rsp+58h] [rbp-9h] BYREF
-  __int128 v29; // [rsp+68h] [rbp+7h]
-  char pszDest[16]; // [rsp+78h] [rbp+17h] BYREF
-  __int64 v31; // [rsp+88h] [rbp+27h]
+  __int64 v18; // r8
+  int v19; // edx
+  __int128 v21; // [rsp+58h] [rbp+7h] BYREF
+  __int128 v22; // [rsp+68h] [rbp+17h]
+  char pszDest[16]; // [rsp+78h] [rbp+27h] BYREF
 
-  v28 = 0LL;
-  v31 = 0LL;
-  v29 = 0LL;
+  v21 = 0LL;
+  v22 = 0LL;
   *(_OWORD *)pszDest = 0LL;
-  v2 = a1 + 2;
-  v3 = &WPP_54015396503830aea6e7f220ba327c55_Traceguids;
+  v2 = &WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v3) = 4;
+    LOBYTE(v2) = 4;
     WPP_RECORDER_SF_ddq(
       (*a1)[4].m128i_i64[1],
-      (_DWORD)v3,
+      (_DWORD)v2,
       13,
       23,
-      (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
-      (*v2)[8].m128i_i8[7],
+      (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
+      a1[2][8].m128i_i8[7],
       *((_DWORD *)a1 + 36),
       (char)a1[3]);
   }
   if ( (_mm_srli_si128((*a1)[21], 8).m128i_u64[0] & 0x10000) != 0 )
   {
-    v4 = *v2;
-    if ( (*v2)[2].m128i_i32[1] == 1 && ((*((_DWORD *)a1 + 30) - 3) & 0xFFFFFFFB) == 0 )
+    v3 = a1[2];
+    if ( v3[2].m128i_i32[1] == 1 && ((*((_DWORD *)a1 + 30) - 3) & 0xFFFFFFFB) == 0 )
     {
-      v5 = 120LL * (unsigned int)(v4[2].m128i_i32[3] - 1);
-      v6 = *(_QWORD *)(*(_QWORD *)(v4->m128i_i64[1] + 152) + 48LL);
-      if ( *(_BYTE *)(v5 + v6 + 13) == 3 )
-        _InterlockedAdd((volatile signed __int32 *)(v5 + v6 + 108), 1u);
+      v4 = 112LL * (unsigned int)(v3[2].m128i_i32[3] - 1);
+      v5 = *(_QWORD *)(*(_QWORD *)(v3->m128i_i64[1] + 152) + 48LL);
+      if ( *(_BYTE *)(v4 + v5 + 13) == 3 )
+        _InterlockedIncrement((volatile signed __int32 *)(v4 + v5 + 108));
     }
   }
-  if ( (unsigned __int8)Endpoint_IsCandidateForSplitTransactionHSIIWorkaround(a1) )
-  {
-    if ( !*((_BYTE *)a1 + 38) )
-    {
-      v7 = *a1;
-      *((_BYTE *)a1 + 38) = 1;
-      if ( _InterlockedIncrement(v7[41].m128i_i32) == 1 )
-        Controller_SetHSIIWorkaround();
-    }
-  }
-  v8 = ((__int64 (__fastcall *)(__int64, __m128i *, __int64 (__fastcall *)(_QWORD)))qword_1C0064838)(
+  v6 = ((__int64 (__fastcall *)(__int64, __m128i *, __int64 (__fastcall *)(_QWORD)))qword_1C00617D8)(
          UcxDriverGlobals,
          a1[3],
          Endpoint_Enable);
-  v9 = v8;
+  v7 = v6;
   if ( *((_BYTE *)a1 + 37) )
   {
-    if ( v8 )
+    if ( !v6 )
     {
-      v20 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
-              WdfDriverGlobals,
-              v8,
-              off_1C0063338);
-      a1[17] = (__m128i *)v20;
-      v10 = (__m128i *)v20;
-      if ( !*(_QWORD *)(v20 + 32) )
+      v8 = a1[16];
+      if ( !v8 )
       {
-        StreamContextArray = XilEndpoint_AllocateStreamContextArray(v20);
-        if ( StreamContextArray < 0 )
-          goto LABEL_42;
-      }
-      v21 = 1;
-      if ( v10->m128i_i32[2] )
-      {
-        while ( 1 )
-        {
-          StreamContextArray = TR_Enable_Internal(*((_QWORD **)&a1[17][-3] + 13 * v21 - 1));
-          if ( StreamContextArray < 0 )
-            break;
-          DequeuePointer = Endpoint_GetDequeuePointer(a1, v21);
-          v23 = v21++;
-          *(_QWORD *)(*(_QWORD *)(a1[17][2].m128i_i64[0] + 16) + 16 * v23) = DequeuePointer;
-          if ( v21 > v10->m128i_i32[2] )
-            goto LABEL_22;
-        }
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          v24 = (*v2)[8].m128i_u8[7];
-          LOBYTE(v24) = 2;
-          WPP_RECORDER_SF_dddd(
-            (*a1)[4].m128i_i64[1],
-            v24,
-            13,
-            25,
-            (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids,
-            (*v2)[8].m128i_i8[7],
-            *((_DWORD *)a1 + 36),
-            v21 + 1,
-            StreamContextArray);
-        }
-        goto LABEL_42;
-      }
-    }
-    else
-    {
-      v10 = a1[16];
-      if ( !v10 )
-      {
-        Pool2 = ExAllocatePool2(64LL, 152LL, 1229146200LL);
-        a1[16] = (__m128i *)Pool2;
-        LODWORD(v10) = Pool2;
-        if ( !Pool2 )
+        PoolWithTag = (__m128i *)ExAllocatePoolWithTag(
+                                   (POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState,
+                                   0x98uLL,
+                                   0x49434858u);
+        a1[16] = PoolWithTag;
+        v8 = PoolWithTag;
+        if ( !PoolWithTag )
         {
           StreamContextArray = -1073741670;
-LABEL_42:
-          Endpoint_Disable_Internal((__int64 *)a1, 1, v12);
-          goto LABEL_27;
+LABEL_24:
+          LOBYTE(v10) = 1;
+          Endpoint_Disable_Internal(a1, v10);
+          goto LABEL_37;
         }
-        a1[17] = (__m128i *)Pool2;
-        *(_QWORD *)Pool2 = a1;
-        *(_DWORD *)(Pool2 + 8) = 1;
-        *(_DWORD *)(Pool2 + 12) = 1;
+        a1[17] = PoolWithTag;
+        memset(&PoolWithTag[1], 0, 0x88uLL);
+        v8->m128i_i64[0] = (__int64)a1;
+        v8->m128i_i32[2] = 1;
+        v8->m128i_i32[3] = 1;
         a1[17][3].m128i_i64[0] = (__int64)a1[11];
-        StreamContextArray = XilEndpoint_AllocateStreamContextArray(Pool2);
+        StreamContextArray = XilEndpoint_AllocateStreamContextArray(v8);
         if ( StreamContextArray < 0 )
-          goto LABEL_42;
+          goto LABEL_24;
       }
       StreamContextArray = TR_Enable_Internal(a1[11]);
       if ( StreamContextArray < 0 )
       {
         if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_42;
-        v15 = 24;
-        v27 = StreamContextArray;
-        v26 = *((_DWORD *)a1 + 36);
-        v25 = (*v2)[8].m128i_i8[7];
-        v16 = (*a1)[4].m128i_i64[1];
-LABEL_41:
-        LOBYTE(v14) = 2;
-        WPP_RECORDER_SF_ddd(v16, v14, 13, v15, (__int64)&WPP_54015396503830aea6e7f220ba327c55_Traceguids, v25, v26, v27);
-        goto LABEL_42;
+          goto LABEL_23;
+        v12 = 24;
+        goto LABEL_17;
       }
-      *(_QWORD *)(*(_QWORD *)(a1[17][2].m128i_i64[0] + 16) + 16LL) = TR_GetDequeuePointer(a1[11]);
+      *(_QWORD *)(*(_QWORD *)(a1[17][2].m128i_i64[0] + 16) + 16LL) = TR_GetDequeuePointer((__int64)a1[11]);
+      goto LABEL_19;
     }
-LABEL_22:
-    StreamContextArray = XilEndpoint_CommitStreamContextArrayUpdates((_DWORD)v10);
-    if ( StreamContextArray < 0 )
-      goto LABEL_42;
+    v15 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+            WdfDriverGlobals,
+            v6,
+            off_1C0060338);
+    a1[17] = (__m128i *)v15;
+    v8 = (__m128i *)v15;
+    if ( !*(_QWORD *)(v15 + 32) )
+    {
+      StreamContextArray = XilEndpoint_AllocateStreamContextArray(v15);
+      if ( StreamContextArray < 0 )
+        goto LABEL_24;
+    }
+    v16 = 1;
+    if ( !v8->m128i_i32[2] )
+    {
+LABEL_19:
+      StreamContextArray = XilEndpoint_CommitStreamContextArrayUpdates((_DWORD)v8);
+      if ( StreamContextArray < 0 )
+        goto LABEL_24;
+      goto LABEL_20;
+    }
+    while ( 1 )
+    {
+      StreamContextArray = TR_Enable_Internal(*((_QWORD **)&a1[17][-3] + 13 * v16 - 1));
+      if ( StreamContextArray < 0 )
+        break;
+      DequeuePointer = Endpoint_GetDequeuePointer((__int64)a1, v16);
+      v18 = v16++;
+      *(_QWORD *)(*(_QWORD *)(a1[17][2].m128i_i64[0] + 16) + 16 * v18) = DequeuePointer;
+      if ( v16 > v8->m128i_i32[2] )
+        goto LABEL_19;
+    }
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v19 = a1[2][8].m128i_u8[7];
+      LOBYTE(v19) = 2;
+      WPP_RECORDER_SF_dddd(
+        (*a1)[4].m128i_i64[1],
+        v19,
+        13,
+        25,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
+        a1[2][8].m128i_i8[7],
+        *((_DWORD *)a1 + 36),
+        v16 + 1,
+        StreamContextArray);
+    }
   }
   else
   {
     StreamContextArray = TR_Enable_Internal(a1[11]);
-    if ( StreamContextArray < 0 )
+    if ( StreamContextArray >= 0 )
     {
-      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        goto LABEL_42;
-      v15 = 26;
-      v27 = StreamContextArray;
-      v16 = (*a1)[4].m128i_i64[1];
-      v26 = *((_DWORD *)a1 + 36);
-      v25 = (*v2)[8].m128i_i8[7];
-      goto LABEL_41;
+LABEL_20:
+      v13 = a1[2];
+      v14 = *a1;
+      *(_QWORD *)&v22 = 0LL;
+      *(_QWORD *)&v21 = 48LL;
+      pszDest[0] = 0;
+      HIDWORD(v22) = 16;
+      BYTE8(v22) = 0;
+      *((_QWORD *)&v21 + 1) = 0xC800000400LL;
+      RtlStringCchPrintfA(
+        pszDest,
+        0x10uLL,
+        "%02d SLT%02d DCI%02d",
+        v14[11].m128i_i32[0],
+        v13[8].m128i_u8[7],
+        *((_DWORD *)a1 + 36));
+      if ( (unsigned int)imp_WppRecorderLogCreate(WPP_GLOBAL_Control, &v21, a1 + 10) )
+        a1[10] = (__m128i *)(*a1)[4].m128i_i64[1];
+      StreamContextArray = 0;
+      goto LABEL_23;
+    }
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v12 = 26;
+LABEL_17:
+      LOBYTE(v10) = 2;
+      WPP_RECORDER_SF_ddd(
+        (*a1)[4].m128i_i64[1],
+        v10,
+        13,
+        v12,
+        (__int64)&WPP_e17193f9e7953bf0d59f9dd2738aa1c9_Traceguids,
+        a1[2][8].m128i_i8[7],
+        *((_DWORD *)a1 + 36),
+        StreamContextArray);
     }
   }
-  v17 = *v2;
-  v18 = (__int64)*a1;
-  *(_QWORD *)&v29 = 0LL;
-  *(_QWORD *)&v28 = 56LL;
-  pszDest[0] = 0;
-  HIDWORD(v29) = 16;
-  BYTE8(v29) = 0;
-  v31 = 0x200000002LL;
-  *((_QWORD *)&v28 + 1) = 0xC800000400LL;
-  if ( RtlStringCchPrintfA(
-         pszDest,
-         0x10uLL,
-         "%02d SLT%02d DCI%02d",
-         *(_DWORD *)(v18 + 176),
-         v17[8].m128i_u8[7],
-         *((_DWORD *)a1 + 36)) < 0
-    || (int)imp_WppRecorderLogCreate(WPP_GLOBAL_Control, &v28, a1 + 10) < 0 )
-  {
-    a1[10] = (__m128i *)(*a1)[4].m128i_i64[1];
-  }
-  StreamContextArray = 0;
-  ESM_AddEvent(a1 + 37);
-LABEL_27:
-  if ( v9 )
+LABEL_23:
+  if ( StreamContextArray < 0 )
+    goto LABEL_24;
+  ESM_AddEvent(a1 + 36);
+LABEL_37:
+  if ( v7 )
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64 (__fastcall *)(_QWORD), __int64, const char *))(WdfFunctions_01023 + 1648))(
       WdfDriverGlobals,
-      v9,
+      v7,
       Endpoint_Enable,
-      1224LL,
+      1149LL,
       "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\endpoint.c");
   return (unsigned int)StreamContextArray;
 }

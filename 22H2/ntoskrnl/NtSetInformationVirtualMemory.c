@@ -1,159 +1,155 @@
 /*
- * XREFs of NtSetInformationVirtualMemory @ 0x1407A4530
+ * XREFs of NtSetInformationVirtualMemory @ 0x1406FA310
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsGetIoPriorityThread @ 0x1402A8A90 (PsGetIoPriorityThread.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiGetEffectivePagePriorityThread @ 0x1402E14F0 (MiGetEffectivePagePriorityThread.c)
- *     MiPrefetchVirtualMemory @ 0x1402EE1C8 (MiPrefetchVirtualMemory.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     MiProcessVaContiguityInformation @ 0x14065DA24 (MiProcessVaContiguityInformation.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     MiValidateMemoryRangeEntries @ 0x1407A4BCC (MiValidateMemoryRangeEntries.c)
- *     MiCfgMarkValidEntries @ 0x1407A4C5C (MiCfgMarkValidEntries.c)
- *     MiProcessVaRangesInfoClass @ 0x1407A5514 (MiProcessVaRangesInfoClass.c)
- *     VmPrefetchVirtualAddresses @ 0x1409DBF94 (VmPrefetchVirtualAddresses.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     MiProcessRemoveFromWorkingSet @ 0x140A311C0 (MiProcessRemoveFromWorkingSet.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeUnstackDetachProcess @ 0x140207580 (KeUnstackDetachProcess.c)
+ *     PsGetIoPriorityThread @ 0x140242180 (PsGetIoPriorityThread.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     KeStackAttachProcess @ 0x14025B970 (KeStackAttachProcess.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     MiGetEffectivePagePriorityThread @ 0x140339E94 (MiGetEffectivePagePriorityThread.c)
+ *     MiPrefetchVirtualMemory @ 0x14033DEB0 (MiPrefetchVirtualMemory.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     MiProcessVaContiguityInformation @ 0x140552200 (MiProcessVaContiguityInformation.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     MiValidateMemoryRangeEntries @ 0x1406FA9AC (MiValidateMemoryRangeEntries.c)
+ *     MiCfgMarkValidEntries @ 0x1406FAA44 (MiCfgMarkValidEntries.c)
+ *     MiProcessVaRangesInfoClass @ 0x1406FAC44 (MiProcessVaRangesInfoClass.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     MiSetImageHotPatchAllowed @ 0x1408CE554 (MiSetImageHotPatchAllowed.c)
+ *     VmPrefetchVirtualAddresses @ 0x14092E8A0 (VmPrefetchVirtualAddresses.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtSetInformationVirtualMemory(
-        ULONG_PTR a1,
-        unsigned int a2,
-        char *a3,
+NTSTATUS __fastcall NtSetInformationVirtualMemory(
+        void *a1,
+        int a2,
+        unsigned __int64 a3,
         char *a4,
         unsigned __int64 a5,
         unsigned int a6)
 {
-  unsigned __int64 v7; // r13
-  ULONG_PTR v9; // r15
+  void *v9; // r15
   char v10; // r11
   int v11; // ebx
   NTSTATUS valid; // edi
   __int64 v13; // rcx
+  NTSTATUS result; // eax
   struct _KTHREAD *CurrentThread; // r9
-  LONG *p_LockNV; // r8
-  char PreviousMode; // r9
-  __int64 v17; // rax
-  unsigned __int64 v18; // rcx
-  unsigned int v19; // eax
-  __int64 v20; // r13
-  __int64 v21; // r13
-  __int64 result; // rax
+  _DWORD *p_LockNV; // r8
+  KPROCESSOR_MODE PreviousMode; // r9
+  __int64 v18; // rax
+  unsigned __int64 v19; // rcx
+  char *v20; // rdx
   _QWORD *Pool; // r15
-  int v24; // r8d
-  unsigned int v25; // r14d
-  unsigned int v26; // r14d
-  _BYTE *v27; // r14
-  bool v28; // zf
-  PVOID v29; // r13
-  __int64 v30; // r8
-  int v31; // r9d
-  NTSTATUS v32; // eax
-  __int64 v33; // r9
-  __int64 v34; // r8
-  unsigned int v35; // r14d
-  unsigned int v36; // r14d
-  unsigned int v37; // r14d
-  unsigned int v38; // r14d
+  int v22; // r8d
+  int v23; // r14d
+  int v24; // r14d
+  _BYTE *v25; // r14
+  void *v26; // r13
+  __int64 v27; // r9
+  int IoPriorityThread; // eax
+  int v29; // r8d
+  int v30; // r9d
+  NTSTATUS v31; // eax
+  __int64 v32; // r9
+  __int64 v33; // r8
+  int v34; // r14d
+  int v35; // r14d
+  int v36; // r14d
   KPROCESSOR_MODE AccessMode; // [rsp+50h] [rbp-318h]
-  PVOID v40; // [rsp+58h] [rbp-310h]
-  _BYTE *v41; // [rsp+60h] [rbp-308h]
-  unsigned int v42; // [rsp+68h] [rbp-300h]
-  unsigned int v43; // [rsp+70h] [rbp-2F8h]
-  char v44; // [rsp+78h] [rbp-2F0h]
-  PVOID Object; // [rsp+80h] [rbp-2E8h] BYREF
+  _BYTE *v38; // [rsp+58h] [rbp-310h]
+  unsigned int v40; // [rsp+68h] [rbp-300h]
+  unsigned int v41; // [rsp+6Ch] [rbp-2FCh]
+  char v42; // [rsp+74h] [rbp-2F4h]
+  PVOID Object; // [rsp+78h] [rbp-2F0h] BYREF
+  int v44; // [rsp+80h] [rbp-2E8h] BYREF
   PVOID P; // [rsp+88h] [rbp-2E0h]
-  int v47; // [rsp+90h] [rbp-2D8h] BYREF
-  ULONG_PTR BugCheckParameter1; // [rsp+98h] [rbp-2D0h]
+  int v46; // [rsp+90h] [rbp-2D8h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+98h] [rbp-2D0h]
   volatile void *Address[2]; // [rsp+A0h] [rbp-2C8h]
-  HANDLE Handle[2]; // [rsp+B0h] [rbp-2B8h]
-  __int64 v51; // [rsp+C0h] [rbp-2A8h]
-  PVOID v52; // [rsp+C8h] [rbp-2A0h] BYREF
-  struct _KTHREAD *v53; // [rsp+D0h] [rbp-298h]
-  ULONG_PTR v54; // [rsp+D8h] [rbp-290h]
-  LONG *v55; // [rsp+E0h] [rbp-288h]
-  void *Src; // [rsp+E8h] [rbp-280h]
-  $115DCDF994C6370D29323EAB0E0C9502 v57; // [rsp+100h] [rbp-268h] BYREF
-  _BYTE v58[256]; // [rsp+130h] [rbp-238h] BYREF
-  _BYTE v59[256]; // [rsp+230h] [rbp-138h] BYREF
+  HANDLE v49[2]; // [rsp+B0h] [rbp-2B8h]
+  __int64 v50; // [rsp+C0h] [rbp-2A8h]
+  PVOID v51; // [rsp+C8h] [rbp-2A0h] BYREF
+  struct _KTHREAD *v52; // [rsp+D0h] [rbp-298h]
+  void *v53; // [rsp+D8h] [rbp-290h]
+  void *Src; // [rsp+E0h] [rbp-288h]
+  struct _KAPC_STATE ApcState; // [rsp+F8h] [rbp-270h] BYREF
+  _BYTE v56[256]; // [rsp+130h] [rbp-238h] BYREF
+  _BYTE v57[256]; // [rsp+230h] [rbp-138h] BYREF
 
   Src = a4;
-  v7 = (unsigned __int64)a3;
-  P = a3;
   v9 = a1;
-  BugCheckParameter1 = a1;
-  v54 = a1;
+  v53 = a1;
   Object = 0LL;
-  memset(&v57, 0, sizeof(v57));
-  v47 = 0;
-  v40 = 0LL;
-  v10 = 0;
+  memset(&ApcState, 0, sizeof(ApcState));
   v44 = 0;
-  v11 = 0;
-  v41 = v58;
-  valid = 0;
+  DmaAdapter = 0LL;
+  v10 = 0;
   v42 = 0;
-  if ( a2 >= 2 )
+  v11 = 0;
+  v46 = 0;
+  v38 = v56;
+  valid = 0;
+  v40 = 0;
+  if ( a2 < 0 )
+    return -1073741584;
+  if ( a2 > 1 )
   {
     if ( a2 == 2 )
     {
       v13 = a6;
       if ( a6 == 40 )
-        goto LABEL_4;
-      return 3221225716LL;
+        goto LABEL_11;
+      return -1073741580;
     }
-    if ( a2 != 3 && a2 != 4 && a2 != 5 && a2 - 6 >= 2 )
-      return 3221225712LL;
+    if ( a2 > 6 )
+      return -1073741584;
   }
   if ( !a5 )
-    return 3221225715LL;
+    return -1073741581;
   v13 = a6;
   if ( a6 != 4 )
-    return 3221225716LL;
+    return -1073741580;
   if ( a2 == a6 )
   {
-    if ( !dword_140C6997C )
-      return 3221225659LL;
-    if ( a3 != (char *)1 )
-      return 3221225713LL;
+    if ( !MiUserHotPatchReserveSize )
+      return -1073741637;
+    if ( a3 != 1 )
+      return -1073741583;
   }
-LABEL_4:
-  if ( (unsigned __int64)(a3 - 1) > 0xFFFFFFFFFFFFFFELL )
-    return 3221225713LL;
+LABEL_11:
+  if ( a3 - 1 > 0xFFFFFFFFFFFFFFELL )
+    return -1073741583;
   CurrentThread = KeGetCurrentThread();
-  v53 = CurrentThread;
+  v52 = CurrentThread;
   p_LockNV = &CurrentThread->ApcState.Process->Header.LockNV;
-  v55 = p_LockNV;
+  P = p_LockNV;
   if ( a2 == 2 && (p_LockNV[628] & 0x100) != 0 )
   {
     if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 0x40000) == 0 )
       v10 = 1;
-    v44 = v10;
+    v42 = v10;
   }
   *(_OWORD *)Address = 0LL;
-  *(_OWORD *)Handle = 0LL;
-  v51 = 0LL;
+  *(_OWORD *)v49 = 0LL;
+  v50 = 0LL;
   PreviousMode = CurrentThread->PreviousMode;
   AccessMode = PreviousMode;
   if ( PreviousMode )
   {
-    v17 = 16 * v7;
-    if ( 16 * v7 )
+    v18 = 16 * a3;
+    if ( 16 * a3 )
     {
       if ( ((unsigned __int8)a4 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( (unsigned __int64)&a4[v17] > 0x7FFFFFFF0000LL || &a4[v17] < a4 )
+      if ( (unsigned __int64)&a4[v18] > 0x7FFFFFFF0000LL || &a4[v18] < a4 )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
     if ( a2 == 2 )
@@ -162,253 +158,237 @@ LABEL_4:
       {
         if ( (a5 & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        v18 = a5 + v13;
-        if ( v18 > 0x7FFFFFFF0000LL || v18 < a5 )
+        v19 = a5 + v13;
+        if ( v19 > 0x7FFFFFFF0000LL || v19 < a5 )
           MEMORY[0x7FFFFFFF0000] = 0;
       }
       *(_OWORD *)Address = *(_OWORD *)a5;
-      *(_OWORD *)Handle = *(_OWORD *)(a5 + 16);
-      v51 = *(_QWORD *)(a5 + 32);
-      v19 = _mm_cvtsi128_si32(*(__m128i *)Address);
-      v43 = v19;
-      if ( !v19 )
-        return 3221225715LL;
-      v20 = v19;
-      if ( HIDWORD(Address[0]) )
-        return 3221225715LL;
+      *(_OWORD *)v49 = *(_OWORD *)(a5 + 16);
+      v50 = *(_QWORD *)(a5 + 32);
+      v41 = _mm_cvtsi128_si32(*(__m128i *)Address);
+      if ( !v41 || HIDWORD(Address[0]) )
+        return -1073741581;
       ProbeForWrite(Address[1], 4uLL, 4u);
-      v21 = 16 * v20;
-      if ( v21 )
-      {
-        if ( ((__int64)Handle[0] & 3) != 0 )
-          ExRaiseDatatypeMisalignment();
-        if ( (unsigned __int64)Handle[0] + v21 > 0x7FFFFFFF0000LL || (char *)Handle[0] + v21 < Handle[0] )
-          MEMORY[0x7FFFFFFF0000] = 0;
-      }
-      v7 = (unsigned __int64)P;
+      if ( ((__int64)v49[0] & 3) != 0 )
+        ExRaiseDatatypeMisalignment();
+      v20 = (char *)v49[0] + 16 * v41;
+      if ( (unsigned __int64)v20 > 0x7FFFFFFF0000LL || v20 < v49[0] )
+        MEMORY[0x7FFFFFFF0000] = 0;
       PreviousMode = AccessMode;
     }
     else
     {
       if ( (a5 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v42 = *(_DWORD *)a5;
-      v43 = (unsigned int)Address[0];
+      v40 = *(_DWORD *)a5;
+      v41 = (unsigned int)Address[0];
     }
-    p_LockNV = v55;
-    v9 = BugCheckParameter1;
-    goto LABEL_36;
+    p_LockNV = P;
+    v9 = a1;
+    goto LABEL_42;
   }
   if ( a2 != 2 )
   {
-    v42 = *(_DWORD *)a5;
-    v43 = (unsigned int)Address[0];
-    goto LABEL_36;
+    v40 = *(_DWORD *)a5;
+    v41 = (unsigned int)Address[0];
+    goto LABEL_42;
   }
   *(_OWORD *)Address = *(_OWORD *)a5;
-  *(_OWORD *)Handle = *(_OWORD *)(a5 + 16);
-  v51 = *(_QWORD *)(a5 + 32);
-  v43 = _mm_cvtsi128_si32(*(__m128i *)Address);
-  if ( !v43 || HIDWORD(Address[0]) )
-    return 3221225715LL;
-LABEL_36:
-  if ( v9 == -1LL )
+  *(_OWORD *)v49 = *(_OWORD *)(a5 + 16);
+  v50 = *(_QWORD *)(a5 + 32);
+  v41 = _mm_cvtsi128_si32(*(__m128i *)Address);
+  if ( !v41 || HIDWORD(Address[0]) )
+    return -1073741581;
+LABEL_42:
+  if ( v9 == (void *)-1LL )
   {
     Object = p_LockNV;
   }
   else
   {
-    result = ObpReferenceObjectByHandleWithTag(
+    result = ObReferenceObjectByHandleWithTag(
                v9,
-               8,
-               (__int64)PsProcessType,
+               8u,
+               (POBJECT_TYPE)PsProcessType,
                PreviousMode,
                0x66506D4Du,
                &Object,
-               0LL,
                0LL);
     valid = result;
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
   }
-  Pool = v59;
-  P = v59;
-  if ( v7 > 0x10 )
+  Pool = v57;
+  P = v57;
+  if ( a3 > 0x10 )
   {
-    Pool = MiAllocatePool(64, 16 * v7, 0x724D6D4Du);
+    Pool = MiAllocatePool(64, 16 * a3, 0x724D6D4Du);
     P = Pool;
     if ( !Pool )
     {
-      Pool = v59;
-LABEL_100:
-      v27 = v58;
+      Pool = v57;
       valid = -1073741670;
-      v29 = 0LL;
-      goto LABEL_53;
+      v25 = v56;
+      goto LABEL_82;
     }
   }
   if ( a2 == 2 )
   {
-    if ( v43 > 0x10 )
+    if ( v41 > 0x10 )
     {
-      v41 = MiAllocatePool(64, 16LL * v43, 0x724D6D4Du);
-      if ( !v41 )
-        goto LABEL_100;
-    }
-    if ( Handle[1] )
-    {
-      v52 = 0LL;
-      valid = ObReferenceObjectByHandle(Handle[1], 1u, MmSectionObjectType, AccessMode, &v52, 0LL);
-      v40 = v52;
-      if ( valid < 0 )
+      v38 = MiAllocatePool(64, 16LL * v41, 0x724D6D4Du);
+      if ( !v38 )
       {
-        v29 = v52;
-        goto LABEL_74;
+        v25 = v56;
+        valid = -1073741670;
+        goto LABEL_82;
       }
     }
+    if ( v49[1] )
+    {
+      v51 = 0LL;
+      valid = ObReferenceObjectByHandle(v49[1], 1u, MmSectionObjectType, AccessMode, &v51, 0LL);
+      DmaAdapter = (PADAPTER_OBJECT)v51;
+      if ( valid < 0 )
+        goto LABEL_81;
+    }
   }
-  memmove(Pool, Src, 16 * v7);
+  memmove(Pool, Src, 16 * a3);
   if ( a2 == 2 )
-    memmove(v41, Handle[0], 16LL * v43);
-  if ( v53->ApcState.Process != Object )
+    memmove(v38, v49[0], 16LL * v41);
+  if ( v52->ApcState.Process != Object )
   {
-    if ( a2 - 3 <= 1 )
+    if ( (unsigned int)(a2 - 3) <= 1 )
     {
       valid = -1073741585;
-      goto LABEL_73;
+      goto LABEL_81;
     }
-    KiStackAttachProcess((_KPROCESS *)Object, 0, (__int64)&v57);
+    KeStackAttachProcess((PRKPROCESS)Object, &ApcState);
     v11 = 1;
   }
-  if ( !(unsigned int)MiValidateMemoryRangeEntries(Pool, v7, 0LL) )
-  {
-    valid = -1073741582;
-    goto LABEL_73;
-  }
+  if ( !(unsigned int)MiValidateMemoryRangeEntries(Pool, a3, 0LL) )
+    goto LABEL_104;
   if ( !a2 )
   {
-    if ( v42 == v24 )
+    if ( v40 == v22 )
     {
-      MiGetEffectivePagePriorityThread((__int64)v53);
-      if ( (int)PsGetIoPriorityThread(v30) <= 1 )
-        v31 |= 0x400u;
-      v32 = MiPrefetchVirtualMemory(v7, (__int64)Pool, (__int64)Object + 1664, v31);
-      goto LABEL_72;
+      MiGetEffectivePagePriorityThread((__int64)v52);
+      IoPriorityThread = PsGetIoPriorityThread(v27);
+      v30 = 17408;
+      if ( IoPriorityThread > 1 )
+        v30 = 0x4000;
+      v31 = MiPrefetchVirtualMemory(a3, (__int64)Pool, (__int64)Object + 1664, v29 | (unsigned int)v30);
+      goto LABEL_80;
     }
-    goto LABEL_116;
+    goto LABEL_87;
   }
-  v25 = a2 - 1;
-  if ( v25 )
+  v23 = a2 - 1;
+  if ( !v23 )
   {
-    v26 = v25 - 1;
-    if ( !v26 )
+    if ( v40 > 5 )
+      goto LABEL_87;
+    v32 = v40;
+    v33 = 1LL;
+    goto LABEL_85;
+  }
+  v24 = v23 - 1;
+  if ( v24 )
+  {
+    v34 = v24 - 1;
+    if ( v34 )
     {
-      v27 = v41;
-      v28 = v7 == 1;
-      v29 = v40;
-      if ( v28 )
+      v35 = v34 - 1;
+      if ( v35 )
       {
-        valid = MiCfgMarkValidEntries(
-                  (_DWORD)Object,
-                  *Pool,
-                  Pool[1],
-                  (_DWORD)v41,
-                  v43,
-                  (__int64)&v47,
-                  v44,
-                  (__int64)v40,
-                  v51,
-                  AccessMode == (KPROCESSOR_MODE)v24);
-        if ( v11 )
+        v36 = v35 - 1;
+        if ( v36 )
         {
-          KiUnstackDetachProcess(&v57);
-          LOBYTE(v11) = 0;
-        }
-        *(_DWORD *)Address[1] = v47;
-      }
-      else
-      {
-        valid = -1073741582;
-      }
-      goto LABEL_53;
-    }
-    v35 = v26 - 1;
-    if ( v35 )
-    {
-      v36 = v35 - 1;
-      if ( v36 )
-      {
-        v37 = v36 - 1;
-        if ( v37 )
-        {
-          v38 = v37 - 1;
-          if ( !v38 )
+          if ( v36 != 1 )
+            goto LABEL_81;
+          if ( v40 != v22 )
           {
-            if ( v42 != v24 )
-            {
-              valid = -1073741811;
-              goto LABEL_73;
-            }
-            v32 = VmPrefetchVirtualAddresses(Pool);
-            goto LABEL_72;
+            valid = -1073741811;
+            goto LABEL_81;
           }
-          if ( v38 != 1 )
-            goto LABEL_73;
-          if ( (v42 & 0xFFFFFFFE) == 0 )
-          {
-            v32 = MiProcessRemoveFromWorkingSet(v7, Pool, v42);
-            goto LABEL_72;
-          }
-LABEL_116:
-          valid = -1073741581;
-          goto LABEL_73;
+          v31 = VmPrefetchVirtualAddresses(Pool);
+          goto LABEL_80;
         }
-        if ( v42 == 512 )
+        if ( v40 == 512 )
         {
           if ( !SeSinglePrivilegeCheck(SeLockMemoryPrivilege, AccessMode) )
           {
             valid = -1073741727;
-            goto LABEL_73;
+            goto LABEL_81;
           }
-          v32 = MiProcessVaContiguityInformation((unsigned __int64)Pool, v7);
-          goto LABEL_72;
+          v31 = MiProcessVaContiguityInformation((unsigned __int64)Pool, a3);
+          goto LABEL_80;
         }
+LABEL_115:
+        valid = -1073741637;
+        goto LABEL_81;
       }
-LABEL_123:
-      valid = -1073741637;
-      goto LABEL_73;
+      if ( v40 == 1 )
+      {
+        if ( Pool[1] == 4096LL )
+        {
+          v31 = MiSetImageHotPatchAllowed(*Pool);
+          goto LABEL_80;
+        }
+LABEL_104:
+        valid = -1073741582;
+        goto LABEL_81;
+      }
+LABEL_87:
+      valid = -1073741581;
+      goto LABEL_81;
     }
-    if ( v42 != v24 )
-      goto LABEL_116;
+    if ( v40 != v22 )
+      goto LABEL_87;
     if ( (*((_DWORD *)Object + 281) & 0x10) == 0 )
-      goto LABEL_123;
-    v33 = 0LL;
-    v34 = 3LL;
+      goto LABEL_115;
+    v32 = 0LL;
+    v33 = 3LL;
+LABEL_85:
+    v31 = MiProcessVaRangesInfoClass(a3, Pool, v33, v32);
+LABEL_80:
+    valid = v31;
+LABEL_81:
+    v25 = v38;
+    goto LABEL_82;
   }
-  else
+  v25 = v38;
+  if ( a3 == 1 )
   {
-    if ( v42 > 5 )
-      goto LABEL_116;
-    v33 = v42;
-    v34 = 1LL;
+    valid = MiCfgMarkValidEntries(
+              (_DWORD)Object,
+              *Pool,
+              Pool[1],
+              (_DWORD)v38,
+              v41,
+              (__int64)&v44,
+              v42,
+              (__int64)DmaAdapter,
+              v50);
+    if ( v11 )
+      KeUnstackDetachProcess(&ApcState);
+    LOBYTE(v11) = 0;
+    *(_DWORD *)Address[1] = v44;
+    v26 = a1;
+    goto LABEL_59;
   }
-  v32 = MiProcessVaRangesInfoClass(v7, Pool, v34, v33);
-LABEL_72:
-  valid = v32;
-LABEL_73:
-  v29 = v40;
-LABEL_74:
-  v27 = v41;
-LABEL_53:
+  valid = -1073741582;
+LABEL_82:
+  v26 = a1;
+LABEL_59:
   if ( (v11 & 1) != 0 )
-    KiUnstackDetachProcess(&v57);
-  if ( v29 )
-    ObfDereferenceObject(v29);
-  if ( BugCheckParameter1 != -1LL )
+    KeUnstackDetachProcess(&ApcState);
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
+  if ( v26 != (void *)-1LL )
     ObfDereferenceObjectWithTag(Object, 0x66506D4Du);
-  if ( Pool != (_QWORD *)v59 )
+  if ( Pool != (_QWORD *)v57 )
     ExFreePoolWithTag(Pool, 0);
-  if ( v27 != v58 )
-    ExFreePoolWithTag(v27, 0);
-  return (unsigned int)valid;
+  if ( v25 != v56 )
+    ExFreePoolWithTag(v25, 0);
+  return valid;
 }

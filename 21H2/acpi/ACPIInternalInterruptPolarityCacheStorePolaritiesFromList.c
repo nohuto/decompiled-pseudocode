@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIInternalInterruptPolarityCacheStorePolaritiesFromList @ 0x1C00235A4
+ * XREFs of ACPIInternalInterruptPolarityCacheStorePolaritiesFromList @ 0x1C0016430
  * Callers:
- *     ACPIBusIrpQueryResources @ 0x1C00978C0 (ACPIBusIrpQueryResources.c)
- *     ACPIBusIrpQueryResourceRequirements @ 0x1C0097B70 (ACPIBusIrpQueryResourceRequirements.c)
+ *     ACPIBusIrpQueryResources @ 0x1C009C0D0 (ACPIBusIrpQueryResources.c)
+ *     ACPIBusIrpQueryResourceRequirements @ 0x1C009C4B0 (ACPIBusIrpQueryResourceRequirements.c)
  * Callees:
- *     ACPIInternalInterruptPolarityCacheStorePolarity @ 0x1C00229AC (ACPIInternalInterruptPolarityCacheStorePolarity.c)
+ *     ACPIInternalInterruptPolarityCacheStorePolarity @ 0x1C0016300 (ACPIInternalInterruptPolarityCacheStorePolarity.c)
  */
 
 __int64 __fastcall ACPIInternalInterruptPolarityCacheStorePolaritiesFromList(__int64 a1, __int64 a2)

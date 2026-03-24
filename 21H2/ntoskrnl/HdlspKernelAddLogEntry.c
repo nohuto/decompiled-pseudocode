@@ -1,15 +1,16 @@
 /*
- * XREFs of HdlspKernelAddLogEntry @ 0x140AA9A28
+ * XREFs of HdlspKernelAddLogEntry @ 0x1409EF9AC
  * Callers:
- *     HeadlessKernelAddLogEntry @ 0x1402D26C0 (HeadlessKernelAddLogEntry.c)
- *     PipInitializeCoreDriversByGroup @ 0x140B10D98 (PipInitializeCoreDriversByGroup.c)
- *     IopInitializeBuiltinDriver @ 0x140B11EBC (IopInitializeBuiltinDriver.c)
- *     IoInitSystem @ 0x140B21B40 (IoInitSystem.c)
+ *     HeadlessKernelAddLogEntry @ 0x14036F610 (HeadlessKernelAddLogEntry.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140A5D42C (PipInitializeCoreDriversByGroup.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
+ *     IopInitializeBuiltinDriver @ 0x140A5E618 (IopInitializeBuiltinDriver.c)
+ *     IoInitSystem @ 0x140A66E8C (IoInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     wcscpy_s @ 0x1403E76C0 (wcscpy_s.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     HdlspDispatch @ 0x140AA8ED0 (HdlspDispatch.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
  */
 
 __int64 __fastcall HdlspKernelAddLogEntry(unsigned int a1, unsigned __int16 *a2)

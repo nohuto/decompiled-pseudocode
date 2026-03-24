@@ -1,15 +1,16 @@
 /*
- * XREFs of _wctomb_s_l @ 0x1403DB8C4
+ * XREFs of _wctomb_s_l @ 0x1403D3E34
  * Callers:
- *     wctomb @ 0x1403DB980 (wctomb.c)
- *     wctomb_s @ 0x1403DB9C4 (wctomb_s.c)
+ *     wctomb @ 0x1403D3EF0 (wctomb.c)
+ *     wctomb_s @ 0x1403D3F34 (wctomb_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036DD70 (xHalTimerWatchdogStop.c)
- *     RtlUnicodeToMultiByteN @ 0x1406D9F90 (RtlUnicodeToMultiByteN.c)
+ *     xHalTimerWatchdogStop @ 0x14039A2F0 (xHalTimerWatchdogStop.c)
+ *     RtlUnicodeToMultiByteN @ 0x1405EDEA0 (RtlUnicodeToMultiByteN.c)
  */
 
 errno_t __cdecl wctomb_s_l(int *SizeConverted, char *MbCh, size_t SizeInBytes, wchar_t WCh, _locale_t Locale)
 {
+  errno_t result; // eax
   ULONG BytesInMultiByteString; // [rsp+48h] [rbp+10h] BYREF
   WCHAR UnicodeString; // [rsp+58h] [rbp+20h] BYREF
 
@@ -27,7 +28,11 @@ errno_t __cdecl wctomb_s_l(int *SizeConverted, char *MbCh, size_t SizeInBytes, w
     {
       BytesInMultiByteString = 0;
       if ( RtlUnicodeToMultiByteN(MbCh, SizeInBytes, &BytesInMultiByteString, &UnicodeString, 2u) < 0 )
-        return 42;
+      {
+        result = 42;
+        gbl_errno = 42;
+        return result;
+      }
       if ( SizeConverted )
         *SizeConverted = BytesInMultiByteString;
     }

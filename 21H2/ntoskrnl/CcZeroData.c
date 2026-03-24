@@ -1,19 +1,19 @@
 /*
- * XREFs of CcZeroData @ 0x14029BD20
+ * XREFs of CcZeroData @ 0x1402E82C0
  * Callers:
- *     FsRtlCopyWrite @ 0x14092D2C0 (FsRtlCopyWrite.c)
- *     FsRtlPrepareMdlWriteDev @ 0x14092DCF0 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlCopyWrite @ 0x14088A890 (FsRtlCopyWrite.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x14088B2B0 (FsRtlPrepareMdlWriteDev.c)
  * Callees:
- *     CcZeroDataOnDisk @ 0x1402458E0 (CcZeroDataOnDisk.c)
- *     CcDereferencePartition @ 0x140276728 (CcDereferencePartition.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     CcFlushCachePriv @ 0x140283030 (CcFlushCachePriv.c)
- *     CcGetPartitionFromFileObject @ 0x14029C124 (CcGetPartitionFromFileObject.c)
- *     CcZeroDataInCache @ 0x14029C34C (CcZeroDataInCache.c)
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     CcZeroDataOnDisk @ 0x1402BFC10 (CcZeroDataOnDisk.c)
+ *     CcGetPartitionFromFileObject @ 0x1402E86C4 (CcGetPartitionFromFileObject.c)
+ *     CcZeroDataInCache @ 0x1402E86F8 (CcZeroDataInCache.c)
+ *     CcDereferencePartition @ 0x1402F6D2C (CcDereferencePartition.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN __stdcall CcZeroData(
@@ -59,7 +59,7 @@ BOOLEAN __stdcall CcZeroData(
   v9 = EndOffset->QuadPart - QuadPart;
   KeAcquireInStackQueuedSpinLock(&CcMasterLock, &LockHandle);
   PartitionFromFileObject = CcGetPartitionFromFileObject(FileObject);
-  if ( _InterlockedIncrement64((volatile signed __int64 *)(PartitionFromFileObject + 1232)) <= 1 )
+  if ( _InterlockedIncrement64((volatile signed __int64 *)(PartitionFromFileObject + 968)) <= 1 )
     __fastfail(0xEu);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
@@ -83,7 +83,7 @@ BOOLEAN __stdcall CcZeroData(
   __writecr8(OldIrql);
   if ( !v8
     && v9 <= 0x200000
-    && (*(_QWORD *)(**(_QWORD **)(PartitionFromFileObject + 8) + 16896LL) >= 0x800uLL || v9 <= 0x2000)
+    && (*(_QWORD *)(**(_QWORD **)(PartitionFromFileObject + 8) + 7104LL) >= 0x800uLL || v9 <= 0x2000)
     || Wait )
   {
     if ( IoGetRelatedDeviceObject(FileObject)->SectorSize )
@@ -101,9 +101,9 @@ BOOLEAN __stdcall CcZeroData(
         LOBYTE(v11) = v30;
         if ( !(unsigned __int8)CcZeroDataInCache(FileObject, StartOffset, v19, v11) )
           goto LABEL_42;
-        CcFlushCachePriv((__int64)FileObject->SectionObjectPointer, StartOffset, v19, 0LL, 0, (int *)&v25);
+        CcFlushCachePriv((__int64)FileObject->SectionObjectPointer, StartOffset, v19, 0LL, 0, &v25);
         if ( (int)v25 < 0 )
-          RtlRaiseStatus((unsigned int)v25);
+          RtlRaiseStatus(v25);
       }
 LABEL_17:
       if ( v28 < v29->QuadPart )
@@ -115,7 +115,7 @@ LABEL_17:
       v27 = 1;
       goto LABEL_42;
     }
-    if ( *(_QWORD *)(**(_QWORD **)(PartitionFromFileObject + 8) + 16896LL) >= 0x800uLL )
+    if ( *(_QWORD *)(**(_QWORD **)(PartitionFromFileObject + 8) + 7104LL) >= 0x800uLL )
       goto LABEL_12;
     if ( v9 > 0x2000 && ((unsigned int)v28 & v12) != 0 )
     {

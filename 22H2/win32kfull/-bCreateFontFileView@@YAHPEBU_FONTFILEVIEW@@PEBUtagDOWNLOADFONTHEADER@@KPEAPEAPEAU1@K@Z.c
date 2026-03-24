@@ -1,13 +1,14 @@
 /*
- * XREFs of ?bCreateFontFileView@@YAHPEBU_FONTFILEVIEW@@PEBUtagDOWNLOADFONTHEADER@@KPEAPEAPEAU1@K@Z @ 0x1C028B0DC
+ * XREFs of ?bCreateFontFileView@@YAHPEBU_FONTFILEVIEW@@PEBUtagDOWNLOADFONTHEADER@@KPEAPEAPEAU1@K@Z @ 0x1C028978C
  * Callers:
- *     GreAddFontMemResourceEx @ 0x1C028B7DC (GreAddFontMemResourceEx.c)
- *     NtGdiAddRemoteFontToDC @ 0x1C028B900 (NtGdiAddRemoteFontToDC.c)
+ *     GreAddFontMemResourceEx @ 0x1C0289E28 (GreAddFontMemResourceEx.c)
+ *     NtGdiAddRemoteFontToDC @ 0x1C0289F40 (NtGdiAddRemoteFontToDC.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??0AutoAttachFonDrvProcess@UmfdHostLifeTimeManager@@QEAA@XZ @ 0x1C013F010 (--0AutoAttachFonDrvProcess@UmfdHostLifeTimeManager@@QEAA@XZ.c)
- *     ??1AutoAttachFonDrvProcess@UmfdHostLifeTimeManager@@QEAA@XZ @ 0x1C028A574 (--1AutoAttachFonDrvProcess@UmfdHostLifeTimeManager@@QEAA@XZ.c)
- *     ?Attach@AutoAttachFonDrvProcess@UmfdHostLifeTimeManager@@QEAA_N_K@Z @ 0x1C02E0C4C (-Attach@AutoAttachFonDrvProcess@UmfdHostLifeTimeManager@@QEAA_N_K@Z.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ??0AutoAttachFonDrvProcess@UmfdHostLifeTimeManager@@QEAA@XZ @ 0x1C016AF00 (--0AutoAttachFonDrvProcess@UmfdHostLifeTimeManager@@QEAA@XZ.c)
+ *     ??1AutoAttachFonDrvProcess@UmfdHostLifeTimeManager@@QEAA@XZ @ 0x1C0288C14 (--1AutoAttachFonDrvProcess@UmfdHostLifeTimeManager@@QEAA@XZ.c)
+ *     ?Attach@AutoAttachFonDrvProcess@UmfdHostLifeTimeManager@@QEAA_N_K@Z @ 0x1C0288C78 (-Attach@AutoAttachFonDrvProcess@UmfdHostLifeTimeManager@@QEAA_N_K@Z.c)
  */
 
 __int64 __fastcall bCreateFontFileView(
@@ -18,97 +19,81 @@ __int64 __fastcall bCreateFontFileView(
         unsigned int a5)
 {
   unsigned int v9; // ebx
-  __int128 v11; // xmm1
-  __int128 v12; // xmm2
-  __int128 v13; // xmm3
-  __int128 v14; // xmm4
-  __int128 v15; // xmm5
-  __int128 v16; // xmm6
-  __int128 v17; // xmm7
-  __int64 v18; // xmm0_8
-  unsigned int v19; // edi
-  struct _FONTFILEVIEW **v20; // rcx
-  struct _FONTFILEVIEW **v21; // r11
-  char *v22; // r8
-  unsigned int v23; // r9d
-  __int64 i; // rdx
-  unsigned int v25; // r10d
-  __int128 v26; // [rsp+50h] [rbp-178h]
-  __int128 v27; // [rsp+80h] [rbp-148h]
-  __int128 v28; // [rsp+90h] [rbp-138h]
-  _BYTE v29[60]; // [rsp+140h] [rbp-88h] BYREF
-  int v30; // [rsp+17Ch] [rbp-4Ch]
+  unsigned int v11; // edi
+  struct _FONTFILEVIEW **v12; // rax
+  struct _FONTFILEVIEW **v13; // r11
+  char *v14; // rdx
+  unsigned int v15; // r8d
+  __int64 i; // rcx
+  unsigned int v17; // r10d
+  __int128 v18; // [rsp+50h] [rbp-158h]
+  __int128 v19; // [rsp+60h] [rbp-148h]
+  __int128 v20; // [rsp+70h] [rbp-138h]
+  __int128 v21; // [rsp+80h] [rbp-128h]
+  __int128 v22; // [rsp+90h] [rbp-118h]
+  __int128 v23; // [rsp+A0h] [rbp-108h]
+  __int128 v24; // [rsp+B0h] [rbp-F8h]
+  __int64 v25; // [rsp+130h] [rbp-78h]
+  _BYTE v26[60]; // [rsp+140h] [rbp-68h] BYREF
+  int v27; // [rsp+17Ch] [rbp-2Ch]
 
   v9 = 1;
-  UmfdHostLifeTimeManager::AutoAttachFonDrvProcess::AutoAttachFonDrvProcess((UmfdHostLifeTimeManager::AutoAttachFonDrvProcess *)v29);
+  UmfdHostLifeTimeManager::AutoAttachFonDrvProcess::AutoAttachFonDrvProcess((UmfdHostLifeTimeManager::AutoAttachFonDrvProcess *)v26);
   if ( !UmfdHostLifeTimeManager::AutoAttachFonDrvProcess::Attach(
-          (UmfdHostLifeTimeManager::AutoAttachFonDrvProcess *)v29,
+          (UmfdHostLifeTimeManager::AutoAttachFonDrvProcess *)v26,
           *((_QWORD *)a1 + 9)) )
     goto LABEL_2;
-  v11 = *(_OWORD *)a1;
-  v26 = *(_OWORD *)a1;
-  v12 = *((_OWORD *)a1 + 1);
-  v13 = *((_OWORD *)a1 + 2);
-  v14 = *((_OWORD *)a1 + 3);
-  v27 = v14;
-  v15 = *((_OWORD *)a1 + 4);
-  v28 = v15;
-  v16 = *((_OWORD *)a1 + 5);
-  v17 = *((_OWORD *)a1 + 6);
-  v18 = *((_QWORD *)a1 + 14);
+  v18 = *(_OWORD *)a1;
+  v19 = *((_OWORD *)a1 + 1);
+  v20 = *((_OWORD *)a1 + 2);
+  v21 = *((_OWORD *)a1 + 3);
+  v22 = *((_OWORD *)a1 + 4);
+  v23 = *((_OWORD *)a1 + 5);
+  v24 = *((_OWORD *)a1 + 6);
+  v25 = *((_QWORD *)a1 + 14);
   if ( a3 <= ((4 * a5 + 15) & 0xFFFFFFF8) )
   {
-    v30 = 87;
+    v27 = 87;
 LABEL_2:
-    UmfdHostLifeTimeManager::AutoAttachFonDrvProcess::~AutoAttachFonDrvProcess((UmfdHostLifeTimeManager::AutoAttachFonDrvProcess *)v29);
+    UmfdHostLifeTimeManager::AutoAttachFonDrvProcess::~AutoAttachFonDrvProcess((UmfdHostLifeTimeManager::AutoAttachFonDrvProcess *)v26);
     return 0LL;
   }
-  v19 = (8 * a5 + 7) & 0xFFFFFFF8;
-  if ( v19 + 120 * a5 )
+  v11 = (8 * a5 + 7) & 0xFFFFFFF8;
+  v12 = (struct _FONTFILEVIEW **)PALLOCMEM2(v11 + 120 * a5, 1986422343LL, 1);
+  if ( !v12 )
   {
-    v20 = (struct _FONTFILEVIEW **)Win32AllocPoolZInit(v19 + 120 * a5, 1986422343LL);
-    v11 = v26;
-    v14 = v27;
-    v15 = v28;
-  }
-  else
-  {
-    v20 = 0LL;
-  }
-  if ( !v20 )
-  {
-    v30 = 8;
+    v27 = 8;
     goto LABEL_2;
   }
-  v21 = v20;
-  v22 = (char *)v20 + v19;
-  *(_OWORD *)v22 = v11;
-  *((_OWORD *)v22 + 1) = v12;
-  *((_OWORD *)v22 + 2) = v13;
-  *((_OWORD *)v22 + 3) = v14;
-  *((_OWORD *)v22 + 4) = v15;
-  *((_OWORD *)v22 + 5) = v16;
-  *((_OWORD *)v22 + 6) = v17;
-  *((_QWORD *)v22 + 14) = v18;
-  v23 = 0;
+  v13 = v12;
+  v14 = (char *)v12 + v11;
+  *(_OWORD *)v14 = v18;
+  *((_OWORD *)v14 + 1) = v19;
+  *((_OWORD *)v14 + 2) = v20;
+  *((_OWORD *)v14 + 3) = v21;
+  *((_OWORD *)v14 + 4) = v22;
+  *((_OWORD *)v14 + 5) = v23;
+  *((_OWORD *)v14 + 6) = v24;
+  *((_QWORD *)v14 + 14) = v25;
+  v15 = 0;
   for ( i = 0LL; (unsigned int)i < a5; i = (unsigned int)(i + 1) )
   {
-    v25 = *((_DWORD *)a2 + i + 2);
-    if ( v25 < v23 || v25 > DWORD2(v12) || v23 != ((v23 + 3) & 0xFFFFFFFC) )
+    v17 = *((_DWORD *)a2 + i + 2);
+    if ( v17 < v15 || v17 > DWORD2(v19) || v15 != ((v15 + 3) & 0xFFFFFFFC) )
     {
       v9 = 0;
       break;
     }
-    *((_QWORD *)v22 + 2) = v12 + v23;
-    *((_DWORD *)v22 + 6) = v25 - v23;
-    *v21++ = (struct _FONTFILEVIEW *)v22;
-    v22 += 120;
-    v23 = v25;
+    *((_QWORD *)v14 + 2) = v19 + v15;
+    *((_DWORD *)v14 + 6) = v17 - v15;
+    *v13++ = (struct _FONTFILEVIEW *)v14;
+    v14 += 120;
+    v15 = v17;
   }
   if ( v9 )
-    *a4 = v20;
+    *a4 = v12;
   else
-    Win32FreePool(v20);
-  UmfdHostLifeTimeManager::AutoAttachFonDrvProcess::~AutoAttachFonDrvProcess((UmfdHostLifeTimeManager::AutoAttachFonDrvProcess *)v29);
+    Win32FreePool(v12);
+  UmfdHostLifeTimeManager::AutoAttachFonDrvProcess::~AutoAttachFonDrvProcess((UmfdHostLifeTimeManager::AutoAttachFonDrvProcess *)v26);
   return v9;
 }

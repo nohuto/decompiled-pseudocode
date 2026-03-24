@@ -1,13 +1,13 @@
 /*
- * XREFs of XilEndpoint_SendRequestToGetSecureStreamContextArray @ 0x1C003936C
+ * XREFs of XilEndpoint_SendRequestToGetSecureStreamContextArray @ 0x1C00378B4
  * Callers:
- *     XilEndpoint_FetchStreamContextArray @ 0x1C0038FE8 (XilEndpoint_FetchStreamContextArray.c)
+ *     XilEndpoint_FetchStreamContextArray @ 0x1C003754C (XilEndpoint_FetchStreamContextArray.c)
  * Callees:
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     memmove @ 0x1C0020300 (memmove.c)
- *     WPP_RECORDER_SF_ddL @ 0x1C0030AE4 (WPP_RECORDER_SF_ddL.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     memmove @ 0x1C001B000 (memmove.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall XilEndpoint_SendRequestToGetSecureStreamContextArray(
@@ -20,7 +20,7 @@ __int64 __fastcall XilEndpoint_SendRequestToGetSecureStreamContextArray(
   __int64 v5; // rdi
   size_t v7; // r14
   unsigned int v9; // ebx
-  int *Pool2; // rsi
+  int *PoolWithTag; // rsi
   int v11; // edx
   int v12; // ebx
   int v13; // edx
@@ -38,21 +38,21 @@ __int64 __fastcall XilEndpoint_SendRequestToGetSecureStreamContextArray(
   v18 = *(_QWORD *)(*(_QWORD *)v5 + 112LL);
   if ( v7 > 0xFFFFFFFF || (v9 = v7 + 4, (int)v7 + 4 < (unsigned int)v7) )
     v9 = 0;
-  Pool2 = (int *)ExAllocatePool2(64LL, v9, 1229146200LL);
-  if ( Pool2 )
+  PoolWithTag = (int *)ExAllocatePoolWithTag((POOL_TYPE)WPP_MAIN_CB.DeviceLock.Header.SignalState, v9, 0x49434858u);
+  if ( PoolWithTag )
   {
     memset(v19, 0, 24);
     *(_QWORD *)&v19[32] = 36LL;
     *(_QWORD *)&v19[24] = a2;
     *(_DWORD *)&v19[40] = 0;
     v20 = a4;
-    v12 = SecureChannel_SendRequestSynchronously(v18, v19, 48LL, Pool2, v9);
+    v12 = SecureChannel_SendRequestSynchronously(v18, v19, 48LL, PoolWithTag, v9);
     if ( v12 >= 0 )
     {
-      v12 = *Pool2;
-      if ( *Pool2 >= 0 )
+      v12 = *PoolWithTag;
+      if ( *PoolWithTag >= 0 )
       {
-        memmove(a5, Pool2 + 1, v7);
+        memmove(a5, PoolWithTag + 1, v7);
         v12 = 0;
         goto LABEL_16;
       }
@@ -77,12 +77,12 @@ LABEL_11:
         v13,
         13,
         v14,
-        (__int64)&WPP_21ddac9bc1473b1039e66530083bb77c_Traceguids,
+        (__int64)&WPP_539d53059a2e35bc1c6dc9c85d9f465f_Traceguids,
         v16,
         v17);
     }
 LABEL_16:
-    ExFreePoolWithTag(Pool2, 0x49434858u);
+    ExFreePoolWithTag(PoolWithTag, 0x49434858u);
     return (unsigned int)v12;
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -94,7 +94,7 @@ LABEL_16:
       v11,
       13,
       21,
-      (__int64)&WPP_21ddac9bc1473b1039e66530083bb77c_Traceguids,
+      (__int64)&WPP_539d53059a2e35bc1c6dc9c85d9f465f_Traceguids,
       *(_BYTE *)(*(_QWORD *)(v5 + 16) + 135LL),
       *(_DWORD *)(v5 + 144),
       v9);

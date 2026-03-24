@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwOpenSemaphore @ 0x1401BA610
+ * XREFs of ZwOpenSemaphore @ 0x1401BA630
  * Callers:
  *     <none>
  * Callees:

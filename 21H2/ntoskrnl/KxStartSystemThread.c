@@ -1,10 +1,10 @@
 /*
- * XREFs of KxStartSystemThread @ 0x1404244D0
+ * XREFs of KxStartSystemThread @ 0x140406ED0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheck @ 0x14041F3B0 (KeBugCheck.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     KeBugCheck @ 0x1403FDED0 (KeBugCheck.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 void __noreturn KxStartSystemThread()
@@ -15,7 +15,7 @@ void __noreturn KxStartSystemThread()
 
   if ( (_BYTE)KeSmapEnabled )
     __asm { stac }
-  __writecr8(KeGetCurrentThread()->WaitIrql);
+  __writecr8(1uLL);
   v2(v1, retaddr);
   KeBugCheck(0xEu);
 }

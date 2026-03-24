@@ -1,12 +1,11 @@
 /*
- * XREFs of ?ValidateInertiaInfo@CInertiaManager@@QEBA_NPEAUINERTIA_INFO@@PEBUINERTIA_REGION@@PEAU_D3DMATRIX@@PEAN@Z @ 0x1C01E2290
+ * XREFs of ?ValidateInertiaInfo@CInertiaManager@@QEBA_NPEAUINERTIA_INFO@@PEBUINERTIA_REGION@@PEAU_D3DMATRIX@@PEAN@Z @ 0x1C01A91D8
  * Callers:
- *     NtUserReportInertia @ 0x1C000E690 (NtUserReportInertia.c)
+ *     NtUserReportInertia @ 0x1C0004160 (NtUserReportInertia.c)
  * Callees:
- *     sqrt_0 @ 0x1C00D690D (sqrt_0.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     ?D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z @ 0x1C01E18E8 (-D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z.c)
- *     FloatingPointExceptionFilter @ 0x1C01E2430 (FloatingPointExceptionFilter.c)
+ *     sqrt_0 @ 0x1C00CE9DD (sqrt_0.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     ?D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z @ 0x1C01A8900 (-D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z.c)
  */
 
 char __fastcall CInertiaManager::ValidateInertiaInfo(
@@ -23,12 +22,13 @@ char __fastcall CInertiaManager::ValidateInertiaInfo(
   double v12; // xmm7_8
   double v13; // xmm0_8
   float v14; // xmm1_4
-  float v16; // [rsp+90h] [rbp+8h] BYREF
-  D3DVALUE *v17; // [rsp+A0h] [rbp+18h]
-  struct _D3DMATRIX *v18; // [rsp+A8h] [rbp+20h]
+  CInertiaManager *v16; // [rsp+A0h] [rbp+8h] BYREF
+  D3DVALUE *v17; // [rsp+B0h] [rbp+18h]
+  struct _D3DMATRIX *v18; // [rsp+B8h] [rbp+20h]
 
   v18 = a4;
   v17 = a3;
+  v16 = this;
   v8 = 1;
   v9 = *((_DWORD *)a2 + 2);
   if ( v9 <= 8 )
@@ -36,6 +36,7 @@ char __fastcall CInertiaManager::ValidateInertiaInfo(
     v10 = 278;
     if ( _bittest(&v10, v9) )
     {
+      LODWORD(v16) = 0;
       v11 = *((float *)a2 + 1);
       v12 = *(float *)a2;
       v13 = sqrt_0(v12 * v12 + v11 * v11);
@@ -65,7 +66,7 @@ char __fastcall CInertiaManager::ValidateInertiaInfo(
       a4->_41 = a3[8];
       a4->_42 = a3[9];
       a4->_44 = 1.0;
-      if ( (unsigned int)D3DXMatrixDeterminant(&v16, a4) )
+      if ( (unsigned int)D3DXMatrixDeterminant((float *)&v16, a4) )
       {
         *a5 = v13;
         return v8;

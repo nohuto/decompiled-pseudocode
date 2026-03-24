@@ -1,23 +1,23 @@
 /*
- * XREFs of PnpProfileUpdateHardwareProfile @ 0x14094F96C
+ * XREFs of PnpProfileUpdateHardwareProfile @ 0x1408AB17C
  * Callers:
- *     PpProfileCancelTransitioningDock @ 0x14094FC28 (PpProfileCancelTransitioningDock.c)
- *     PpProfileCommitTransitioningDock @ 0x14094FCD4 (PpProfileCommitTransitioningDock.c)
+ *     PpProfileCancelTransitioningDock @ 0x1408AB430 (PpProfileCancelTransitioningDock.c)
+ *     PpProfileCommitTransitioningDock @ 0x1408AB4DC (PpProfileCommitTransitioningDock.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     IopExecuteHardwareProfileChange @ 0x14095E13C (IopExecuteHardwareProfileChange.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     IopExecuteHardwareProfileChange @ 0x1408B8B44 (IopExecuteHardwareProfileChange.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpProfileUpdateHardwareProfile(__int64 a1)
 {
   int v2; // eax
-  __int64 Pool2; // rax
+  char *PoolWithTag; // rax
   char *v4; // rdi
   char *v5; // rbx
   __int64 *i; // rax
@@ -34,22 +34,24 @@ __int64 __fastcall PnpProfileUpdateHardwareProfile(__int64 a1)
   Handle = 0LL;
   *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
   ExAcquireFastMutex(&PiProfileDeviceListLock);
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   KeyHandle = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
   ValueName.Buffer = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\IDConfigDB";
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
-  ObjectAttributes.ObjectName = &ValueName;
   *(_DWORD *)&ValueName.Length = 8126586;
+  ObjectAttributes.ObjectName = &ValueName;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
+    *(&ObjectAttributes.Length + 1) = 0;
     memset(&ObjectAttributes.Attributes + 1, 0, 20);
     ValueName.Buffer = (wchar_t *)L"CurrentDockInfo";
     ObjectAttributes.RootDirectory = KeyHandle;
-    *(_QWORD *)&ObjectAttributes.Length = 48LL;
-    ObjectAttributes.ObjectName = &ValueName;
     *(_DWORD *)&ValueName.Length = 2097182;
+    ObjectAttributes.ObjectName = &ValueName;
+    ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 576;
     if ( ZwOpenKey(&Handle, 0x2001Fu, &ObjectAttributes) >= 0 )
     {
@@ -63,11 +65,11 @@ __int64 __fastcall PnpProfileUpdateHardwareProfile(__int64 a1)
   v2 = PiProfileDeviceCount;
   if ( !PiProfileDeviceCount )
     v2 = 1;
-  Pool2 = ExAllocatePool2(64LL, (unsigned int)(8 * v2 + 8), 538996816LL);
-  v4 = (char *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(8 * v2 + 8), 0x20207050u);
+  v4 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v5 = (char *)Pool2;
+    v5 = PoolWithTag;
     for ( i = (__int64 *)PiProfileDeviceListHead; i != &PiProfileDeviceListHead; i = (__int64 *)*i )
     {
       v7 = i[2];

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpGetCorrectKcbLockOrder @ 0x14071B20C
+ * XREFs of CmpGetCorrectKcbLockOrder @ 0x1406BA63C
  * Callers:
- *     CmpIsKcbLockAllowed @ 0x14071B1C8 (CmpIsKcbLockAllowed.c)
- *     CmpUnlockTwoKcbs @ 0x1407C2FB4 (CmpUnlockTwoKcbs.c)
- *     CmpLockTwoKcbsShared @ 0x1407C300C (CmpLockTwoKcbsShared.c)
+ *     CmpLockTwoKcbsShared @ 0x1405F38C0 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x1405F3950 (CmpUnlockTwoKcbs.c)
+ *     CmpIsKcbLockAllowed @ 0x140766754 (CmpIsKcbLockAllowed.c)
  * Callees:
  *     <none>
  */

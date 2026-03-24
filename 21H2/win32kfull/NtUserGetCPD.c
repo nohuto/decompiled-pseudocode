@@ -1,18 +1,18 @@
 /*
- * XREFs of NtUserGetCPD @ 0x1C00E3D30
+ * XREFs of NtUserGetCPD @ 0x1C00792B0
  * Callers:
  *     <none>
  * Callees:
- *     GetCPD @ 0x1C00E3DB8 (GetCPD.c)
+ *     GetCPD @ 0x1C0078B60 (GetCPD.c)
  */
 
-__int64 __fastcall NtUserGetCPD(__int64 a1, unsigned int a2, __int64 a3)
+__int64 __fastcall NtUserGetCPD(__int64 a1, int a2, __int64 a3)
 {
   __int64 v6; // rax
   __int64 CPD; // rbx
   __int64 v8; // rcx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v6 = ValidateHwnd(a1);
   CPD = 0LL;
   v8 = v6;

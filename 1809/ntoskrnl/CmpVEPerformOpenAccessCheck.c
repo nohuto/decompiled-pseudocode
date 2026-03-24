@@ -3,10 +3,10 @@
  * Callers:
  *     CmpCheckOpenAccessOnKeyBody @ 0x140596210 (CmpCheckOpenAccessOnKeyBody.c)
  * Callees:
- *     RtlMapGenericMask @ 0x14063ED50 (RtlMapGenericMask.c)
- *     CmpIsSystemEntity @ 0x1406B1FF4 (CmpIsSystemEntity.c)
- *     CmpCheckAdminAccess @ 0x1407F27A4 (CmpCheckAdminAccess.c)
- *     CmpCheckKeyBodyAccess @ 0x1407F48E0 (CmpCheckKeyBodyAccess.c)
+ *     RtlMapGenericMask @ 0x14063ED30 (RtlMapGenericMask.c)
+ *     CmpIsSystemEntity @ 0x1406B1FD4 (CmpIsSystemEntity.c)
+ *     CmpCheckAdminAccess @ 0x1407F2784 (CmpCheckAdminAccess.c)
+ *     CmpCheckKeyBodyAccess @ 0x1407F48C0 (CmpCheckKeyBodyAccess.c)
  */
 
 __int64 __fastcall CmpVEPerformOpenAccessCheck(

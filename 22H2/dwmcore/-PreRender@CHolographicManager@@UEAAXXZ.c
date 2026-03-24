@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PreRender@CHolographicManager@@UEAAXXZ @ 0x1800EF620
+ * XREFs of ?PreRender@CHolographicManager@@UEAAXXZ @ 0x1800CC570
  * Callers:
  *     <none>
  * Callees:
- *     CHolographicInteropTaskQueue::ProcessPendingMessages__lambda_db6293ec4389496e05a5db7898b72386___ @ 0x1802A42AC (CHolographicInteropTaskQueue--ProcessPendingMessages__lambda_db6293ec4389496e05a5db7898b72386___.c)
+ *     CHolographicInteropTaskQueue::ProcessPendingMessages__lambda_db6293ec4389496e05a5db7898b72386___ @ 0x1802522DC (CHolographicInteropTaskQueue--ProcessPendingMessages__lambda_db6293ec4389496e05a5db7898b72386___.c)
  */
 
 void __fastcall CHolographicManager::PreRender(CHolographicManager *this)

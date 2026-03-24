@@ -1,11 +1,10 @@
 /*
- * XREFs of ?AddPresentPath@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GW4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@@Z @ 0x1C02FFEA0
+ * XREFs of ?AddPresentPath@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GW4_D3DKMDT_MONITOR_CONNECTIVITY_CHECKS@@@Z @ 0x1C025CDCC
  * Callers:
- *     ?AddPathToFirstAvailableTarget@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GW4_D3DKMDT_VIDEO_PRESENT_TARGET_SUBSET_TYPE@@@Z @ 0x1C02FFCE0 (-AddPathToFirstAvailableTarget@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTER.c)
- *     ?AugmentVidPnTopologyOnNoLkg@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@PEAXPEBU_DXGDMM_INTERFACE@@IW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GEQEA_KQEAI@Z @ 0x1C0300418 (-AugmentVidPnTopologyOnNoLkg@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFA.c)
+ *     ?AddPathToFirstAvailableTarget@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@IW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GW4_D3DKMDT_VIDEO_PRESENT_TARGET_SUBSET_TYPE@@@Z @ 0x1C025CC78 (-AddPathToFirstAvailableTarget@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTER.c)
+ *     ?AugmentVidPnTopologyOnNoLkg@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@PEAXPEBU_DXGDMM_INTERFACE@@IW4_D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE@@GEQEA_KQEAI@Z @ 0x1C025D214 (-AugmentVidPnTopologyOnNoLkg@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFA.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall AddPresentPath(
@@ -14,11 +13,16 @@ __int64 __fastcall AddPresentPath(
         unsigned int a3,
         unsigned int a4)
 {
-  __int64 v5; // rsi
-  __int64 v6; // rbp
+  __int64 v5; // rdi
+  __int64 v6; // rsi
   int v7; // eax
-  __int64 v8; // rdi
-  unsigned int v9; // ebx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rbx
+  _QWORD *v11; // rax
+  _QWORD *v13; // rax
+  _QWORD *v14; // rax
+  __int64 v15; // rax
 
   v5 = a4;
   v6 = a3;
@@ -29,30 +33,41 @@ __int64 __fastcall AddPresentPath(
          255LL,
          -1,
          2);
-  v8 = v7;
-  v9 = -1071774975;
-  if ( v7 == -1071774975 || (v9 = -1071774920, v7 == -1071774920) || (v9 = -1071774976, v7 == -1071774976) )
+  v10 = v7;
+  switch ( v7 )
   {
-    WdLogSingleEntry3(7LL, v6, v5, a1);
-    return v9;
-  }
-  else if ( v7 >= 0 )
-  {
-    return 0LL;
-  }
-  else
-  {
-    WdLogSingleEntry1(2LL, v7);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"failed call to DXGDMM_VIDPNTOPOLOGY_INTERFACE::pfnAddPath (status = 0x%I64x).",
-      v8,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return (unsigned int)v8;
+    case -1071774975:
+      v11 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v9);
+      v11[3] = v6;
+      v11[4] = v5;
+      v11[5] = a1;
+      WdLogEvent5_WdDmmEvent(v11);
+      return (unsigned int)v10;
+    case -1071774920:
+      v13 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v9);
+      v13[3] = v6;
+      v13[4] = v5;
+      v13[5] = a1;
+      WdLogEvent5_WdDmmEvent(v13);
+      return 3223192376LL;
+    case -1071774976:
+      v14 = (_QWORD *)WdLogNewEntry5_WdDmmEvent(v9);
+      v14[3] = v6;
+      v14[4] = v5;
+      v14[5] = a1;
+      WdLogEvent5_WdDmmEvent(v14);
+      return 3223192320LL;
+    default:
+      if ( v7 >= 0 )
+      {
+        return 0LL;
+      }
+      else
+      {
+        v15 = WdLogNewEntry5_WdError(v9, v8);
+        *(_QWORD *)(v15 + 24) = v10;
+        WdLogEvent5_WdError(v15);
+        return (unsigned int)v10;
+      }
   }
 }

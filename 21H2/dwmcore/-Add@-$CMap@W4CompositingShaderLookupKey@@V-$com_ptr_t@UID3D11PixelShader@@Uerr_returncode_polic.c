@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Add@?$CMap@W4CompositingShaderLookupKey@@V?$com_ptr_t@UID3D11PixelShader@@Uerr_returncode_policy@wil@@@wil@@V?$CMapEqualHelper@W4CompositingShaderLookupKey@@V?$com_ptr_t@UID3D11PixelShader@@Uerr_returncode_policy@wil@@@wil@@@@@@QEAAHAEBW4CompositingShaderLookupKey@@AEBV?$com_ptr_t@UID3D11PixelShader@@Uerr_returncode_policy@wil@@@wil@@@Z @ 0x18027CC68
+ * XREFs of ?Add@?$CMap@W4CompositingShaderLookupKey@@V?$com_ptr_t@UID3D11PixelShader@@Uerr_returncode_policy@wil@@@wil@@V?$CMapEqualHelper@W4CompositingShaderLookupKey@@V?$com_ptr_t@UID3D11PixelShader@@Uerr_returncode_policy@wil@@@wil@@@@@@QEAAHAEBW4CompositingShaderLookupKey@@AEBV?$com_ptr_t@UID3D11PixelShader@@Uerr_returncode_policy@wil@@@wil@@@Z @ 0x18023D948
  * Callers:
- *     ?GetCompositingPixelShaderNoRef@CD3DDevice@@AEAAJV?$span@$$CBUPixelFormatInfo@@$0?0@gsl@@W4DXGI_COLOR_SPACE_TYPE@@PEAPEAUID3D11PixelShader@@@Z @ 0x18027E284 (-GetCompositingPixelShaderNoRef@CD3DDevice@@AEAAJV-$span@$$CBUPixelFormatInfo@@$0-0@gsl@@W4DXGI_.c)
+ *     ?GetCompositingPixelShaderNoRef@CD3DDevice@@AEAAJV?$span@$$CBUPixelFormatInfo@@$0?0@gsl@@W4DXGI_COLOR_SPACE_TYPE@@PEAPEAUID3D11PixelShader@@@Z @ 0x18023F6D8 (-GetCompositingPixelShaderNoRef@CD3DDevice@@AEAAJV-$span@$$CBUPixelFormatInfo@@$0-0@gsl@@W4DXGI_.c)
  * Callees:
- *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x18003AF88 (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x18004624C (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CMap<enum CompositingShaderLookupKey,wil::com_ptr_t<ID3D11PixelShader,wil::err_returncode_policy>,CMapEqualHelper<enum CompositingShaderLookupKey,wil::com_ptr_t<ID3D11PixelShader,wil::err_returncode_policy>>>::Add(

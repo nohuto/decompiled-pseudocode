@@ -1,13 +1,13 @@
 /*
- * XREFs of SepSetProcessUniqueAttribute @ 0x14064EEB4
+ * XREFs of SepSetProcessUniqueAttribute @ 0x14064EE94
  * Callers:
- *     SeSubProcessToken @ 0x14064EA6C (SeSubProcessToken.c)
+ *     SeSubProcessToken @ 0x14064EA4C (SeSubProcessToken.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x1400D8A74 (AuthzBasepSetSecurityAttributesToken.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     SepRefDerefLuidToIndexEntryIfNecessary @ 0x14064EFA0 (SepRefDerefLuidToIndexEntryIfNecessary.c)
- *     SepAddLuidToIndexEntry @ 0x14064EFCC (SepAddLuidToIndexEntry.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1400D8A94 (AuthzBasepSetSecurityAttributesToken.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SepRefDerefLuidToIndexEntryIfNecessary @ 0x14064EF80 (SepRefDerefLuidToIndexEntryIfNecessary.c)
+ *     SepAddLuidToIndexEntry @ 0x14064EFAC (SepAddLuidToIndexEntry.c)
  */
 
 __int64 __fastcall SepSetProcessUniqueAttribute(__int64 a1)

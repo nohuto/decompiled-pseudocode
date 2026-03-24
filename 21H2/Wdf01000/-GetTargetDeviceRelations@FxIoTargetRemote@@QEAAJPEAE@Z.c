@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetTargetDeviceRelations@FxIoTargetRemote@@QEAAJPEAE@Z @ 0x1C002CD4C
+ * XREFs of ?GetTargetDeviceRelations@FxIoTargetRemote@@QEAAJPEAE@Z @ 0x1C0067FE4
  * Callers:
- *     ?Open@FxIoTargetRemote@@QEAAJPEAU_WDF_IO_TARGET_OPEN_PARAMS@@@Z @ 0x1C002CAD0 (-Open@FxIoTargetRemote@@QEAAJPEAU_WDF_IO_TARGET_OPEN_PARAMS@@@Z.c)
+ *     ?Open@FxIoTargetRemote@@QEAAJPEAU_WDF_IO_TARGET_OPEN_PARAMS@@@Z @ 0x1C00670B0 (-Open@FxIoTargetRemote@@QEAAJPEAU_WDF_IO_TARGET_OPEN_PARAMS@@@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qL @ 0x1C0013680 (WPP_IFR_SF_qL.c)
- *     ?SendIrpSynchronously@FxIrp@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C001AB80 (-SendIrpSynchronously@FxIrp@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?SendIrpSynchronously@FxIrp@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C0041384 (-SendIrpSynchronously@FxIrp@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
  */
 
 __int64 __fastcall FxIoTargetRemote::GetTargetDeviceRelations(FxIoTargetRemote *this, unsigned __int8 *Close)
@@ -13,9 +13,9 @@ __int64 __fastcall FxIoTargetRemote::GetTargetDeviceRelations(FxIoTargetRemote *
   _IRP *v4; // rbx
   PDEVICE_OBJECT AttachedDeviceReference; // r14
   PIRP v6; // rax
-  PIRP v7; // rdi
+  PIRP v7; // rsi
   _IO_STACK_LOCATION *CurrentStackLocation; // rcx
-  NTSTATUS v9; // esi
+  NTSTATUS v9; // edi
   _DEVICE_OBJECT **Information; // rcx
   const void *_a1; // rax
   FxAutoIrp irp; // [rsp+60h] [rbp+8h] BYREF
@@ -39,11 +39,6 @@ __int64 __fastcall FxIoTargetRemote::GetTargetDeviceRelations(FxIoTargetRemote *
       this->m_TargetPdo = Information[1];
       ExFreePoolWithTag(Information, 0);
     }
-    if ( v9 != -1073741670 )
-    {
-      v9 = 0;
-      goto LABEL_6;
-    }
   }
   else
   {
@@ -52,8 +47,10 @@ __int64 __fastcall FxIoTargetRemote::GetTargetDeviceRelations(FxIoTargetRemote *
     WPP_IFR_SF_qL(this->m_Globals, 2u, 0xEu, 0x14u, WPP_FxIoTargetRemotekm_cpp_Traceguids, _a1, 0xC000009A);
     v7 = 0LL;
   }
-  *Close = 1;
-LABEL_6:
+  if ( v9 == -1073741670 )
+    *Close = 1;
+  else
+    v9 = 0;
   ObfDereferenceObject(AttachedDeviceReference);
   if ( v7 )
     IoFreeIrp(v4);

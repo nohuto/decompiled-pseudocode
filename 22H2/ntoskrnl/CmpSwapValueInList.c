@@ -1,46 +1,35 @@
 /*
- * XREFs of CmpSwapValueInList @ 0x140367BCC
+ * XREFs of CmpSwapValueInList @ 0x1402FBC98
  * Callers:
- *     CmSetValueKey @ 0x1406D32F0 (CmSetValueKey.c)
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x140A29B60 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x14066EF68 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmSetValueKey @ 0x1406DD4B0 (CmSetValueKey.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall CmpSwapValueInList(ULONG_PTR a1, int a2, unsigned int a3, __int64 a4)
+__int64 __fastcall CmpSwapValueInList(__int64 a1, int a2, unsigned int a3, __int64 a4)
 {
-  ULONG_PTR v5; // rdx
-  bool v6; // zf
-  __int64 v8; // rsi
-  __int64 CellPaged; // rax
-  unsigned int v10; // edi
-  int v12; // [rsp+30h] [rbp+8h] BYREF
-  int v13; // [rsp+34h] [rbp+Ch]
+  __int64 v5; // rdx
+  __int64 v7; // rsi
+  __int64 v8; // rax
+  unsigned int v9; // ebx
+  int v11; // [rsp+30h] [rbp+8h] BYREF
+  int v12; // [rsp+34h] [rbp+Ch]
 
-  v12 = -1;
+  v11 = -1;
   v5 = *(unsigned int *)(a4 + 4);
-  v6 = (*(_BYTE *)(a1 + 140) & 1) == 0;
-  v8 = a3;
-  v13 = 0;
-  if ( v6 )
-    CellPaged = HvpGetCellPaged(a1);
-  else
-    CellPaged = HvpGetCellFlat(a1, v5);
-  v10 = 0;
-  if ( CellPaged )
+  v12 = 0;
+  v7 = a3;
+  v8 = (*(__int64 (__fastcall **)(__int64, __int64, int *))(a1 + 8))(a1, v5, &v11);
+  v9 = 0;
+  if ( v8 )
   {
-    *(_DWORD *)(CellPaged + 4 * v8) = a2;
-    if ( (*(_BYTE *)(a1 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(a1, &v12);
-    else
-      HvpReleaseCellPaged(a1, &v12);
+    *(_DWORD *)(v8 + 4 * v7) = a2;
+    (*(void (__fastcall **)(__int64, int *))(a1 + 16))(a1, &v11);
   }
   else
   {
     return (unsigned int)-1073741670;
   }
-  return v10;
+  return v9;
 }

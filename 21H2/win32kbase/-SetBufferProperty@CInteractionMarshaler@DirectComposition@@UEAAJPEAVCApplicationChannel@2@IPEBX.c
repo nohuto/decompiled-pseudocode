@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CInteractionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0084F40
+ * XREFs of ?SetBufferProperty@CInteractionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0083670
  * Callers:
  *     <none>
  * Callees:
- *     ?ProcessUpdateConfiguration@CInteractionConfigurationGroup@DirectComposition@@QEAAJPEBUDwmInteractionConfiguration@@W4Enum@InteractionProperty@@PEA_N@Z @ 0x1C0084F9C (-ProcessUpdateConfiguration@CInteractionConfigurationGroup@DirectComposition@@QEAAJPEBUDwmIntera.c)
+ *     ?ProcessUpdateConfiguration@CInteractionConfigurationGroup@DirectComposition@@QEAAJPEBUDwmInteractionConfiguration@@W4Enum@InteractionProperty@@PEA_N@Z @ 0x1C00836CC (-ProcessUpdateConfiguration@CInteractionConfigurationGroup@DirectComposition@@QEAAJPEBUDwmIntera.c)
  */
 
 __int64 __fastcall DirectComposition::CInteractionMarshaler::SetBufferProperty(
@@ -21,12 +21,12 @@ __int64 __fastcall DirectComposition::CInteractionMarshaler::SetBufferProperty(
   {
     if ( a3 <= 3 )
     {
-      v6 = (char *)this + 64;
+      v6 = (char *)this + 56;
       return DirectComposition::CInteractionConfigurationGroup::ProcessUpdateConfiguration(v6, a4);
     }
-    if ( a3 - 8 <= 1 )
+    if ( a3 - 7 <= 1 )
     {
-      v6 = (char *)this + 168;
+      v6 = (char *)this + 160;
       return DirectComposition::CInteractionConfigurationGroup::ProcessUpdateConfiguration(v6, a4);
     }
   }

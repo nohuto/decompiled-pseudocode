@@ -1,34 +1,37 @@
 /*
- * XREFs of PnpDeleteAllDependencyRelations @ 0x14078E96C
+ * XREFs of PnpDeleteAllDependencyRelations @ 0x14069610C
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1403B6A4C (PnpRemoveLockedDeviceNode.c)
- *     IopDeleteDevice @ 0x14078E900 (IopDeleteDevice.c)
+ *     PnpRemoveLockedDeviceNode @ 0x140370078 (PnpRemoveLockedDeviceNode.c)
+ *     IopDeleteDevice @ 0x140695F90 (IopDeleteDevice.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1406C9A08 (PnpAcquireDependencyRelationsLock.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x14079C854 (PipProcessRebuildPowerRelationsQueue.c)
- *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x140839A10 (PipAddDependentsToRebuildPowerRelationsQueue.c)
- *     PipDeleteAllDependencyRelations @ 0x1409544C0 (PipDeleteAllDependencyRelations.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406B29FC (PnpAcquireDependencyRelationsLock.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x140747A0C (PipProcessRebuildPowerRelationsQueue.c)
+ *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x1407B6700 (PipAddDependentsToRebuildPowerRelationsQueue.c)
+ *     PipDeleteAllDependencyRelations @ 0x1407CD520 (PipDeleteAllDependencyRelations.c)
  */
 
 __int64 __fastcall PnpDeleteAllDependencyRelations(__int64 a1)
 {
   unsigned int v1; // ebx
+  __int64 v2; // rdi
   __int64 v3; // rsi
 
   v1 = 0;
+  v2 = a1;
   if ( a1 )
   {
-    PnpAcquireDependencyRelationsLock(1);
-    v3 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 80LL);
+    LOBYTE(a1) = 1;
+    PnpAcquireDependencyRelationsLock(a1);
+    v3 = *(_QWORD *)(*(_QWORD *)(v2 + 312) + 80LL);
     if ( v3 )
     {
-      PipAddDependentsToRebuildPowerRelationsQueue(a1);
-      PipDeleteAllDependencyRelations(a1);
+      PipAddDependentsToRebuildPowerRelationsQueue(v2);
+      PipDeleteAllDependencyRelations(v2);
     }
     ExReleaseResourceLite(&PiDependencyRelationsLock);
-    PpDevNodeUnlockTree(0);
+    PpDevNodeUnlockTree(0LL);
     if ( v3 )
       PipProcessRebuildPowerRelationsQueue();
   }

@@ -1,19 +1,19 @@
 /*
- * XREFs of KiInvokeInterruptServiceRoutine @ 0x140576200
+ * XREFs of KiInvokeInterruptServiceRoutine @ 0x14052196C
  * Callers:
- *     KiInterruptDispatchCommon @ 0x140575CD8 (KiInterruptDispatchCommon.c)
+ *     KiInterruptDispatchCommon @ 0x140521428 (KiInterruptDispatchCommon.c)
  * Callees:
- *     EtwGetKernelTraceTimestamp @ 0x140223A20 (EtwGetKernelTraceTimestamp.c)
- *     PerfInfoLogInterrupt @ 0x140223B10 (PerfInfoLogInterrupt.c)
- *     KiCallInterruptServiceRoutine @ 0x140294110 (KiCallInterruptServiceRoutine.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KiSetTimerEx @ 0x1402E2D20 (KiSetTimerEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KeCancelTimer @ 0x140356EB0 (KeCancelTimer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
+ *     KiCallInterruptServiceRoutine @ 0x14027A9B0 (KiCallInterruptServiceRoutine.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14029B060 (EtwGetKernelTraceTimestamp.c)
+ *     PerfInfoLogInterrupt @ 0x14029BD60 (PerfInfoLogInterrupt.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 bool __fastcall KiInvokeInterruptServiceRoutine(__int64 a1, unsigned __int8 CurrentIrql, int a3)
@@ -33,29 +33,18 @@ bool __fastcall KiInvokeInterruptServiceRoutine(__int64 a1, unsigned __int8 Curr
   char v19; // [rsp+31h] [rbp-CFh]
   __int128 Object; // [rsp+38h] [rbp-C8h] BYREF
   __int128 v21; // [rsp+48h] [rbp-B8h]
-  int v22; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v23; // [rsp+64h] [rbp-9Ch]
-  int v24; // [rsp+6Ch] [rbp-94h]
-  __int64 v25; // [rsp+70h] [rbp-90h]
-  void *v26; // [rsp+78h] [rbp-88h]
-  __int128 *p_Object; // [rsp+80h] [rbp-80h]
-  __int64 v28; // [rsp+88h] [rbp-78h]
-  __int64 v29; // [rsp+90h] [rbp-70h]
-  __int64 v30; // [rsp+98h] [rbp-68h]
-  struct _KTIMER v31; // [rsp+A0h] [rbp-60h] BYREF
-  _OWORD v32[2]; // [rsp+E0h] [rbp-20h] BYREF
+  struct _KTIMER v22; // [rsp+60h] [rbp-A0h] BYREF
+  _QWORD v23[8]; // [rsp+A0h] [rbp-60h] BYREF
+  _OWORD v24[2]; // [rsp+E0h] [rbp-20h] BYREF
 
-  v23 = 0LL;
-  v24 = 0;
-  v28 = 0LL;
-  v29 = 0LL;
-  memset(v32, 0, sizeof(v32));
+  memset(v24, 0, sizeof(v24));
   Object = 0LL;
   v21 = 0LL;
-  memset(&v31, 0, sizeof(v31));
+  memset(v23, 0, sizeof(v23));
+  memset(&v22, 0, sizeof(v22));
   v6 = *(unsigned __int8 *)(a1 + 93);
-  v19 = 0;
   v7 = 1;
+  v19 = 0;
   v8 = 0;
   if ( (_BYTE)v6 )
   {
@@ -88,32 +77,32 @@ bool __fastcall KiInvokeInterruptServiceRoutine(__int64 a1, unsigned __int8 Curr
       LOWORD(Object) = 1;
       *((_QWORD *)&Object + 1) = (char *)&Object + 8;
       BYTE2(Object) = 6;
-      v31.Header.WaitListHead.Blink = &v31.Header.WaitListHead;
+      v22.Header.WaitListHead.Blink = &v22.Header.WaitListHead;
       DWORD1(Object) = 0;
-      v31.Header.WaitListHead.Flink = &v31.Header.WaitListHead;
-      v26 = &KiPassiveIsrWatchdog;
-      p_Object = &Object;
-      v31.Header.Type = 8;
-      v31.Header.SignalState = 0;
-      v31.DueTime.QuadPart = 0LL;
-      v31.Period = 0;
-      v31.Processor = 0;
-      v22 = 275;
-      v30 = 0LL;
-      v25 = 0LL;
-      KiSetTimerEx((unsigned __int64)&v31, -10000000LL * KiPassiveWatchdogTimeout, 0, 0, (__int64)&v22);
+      v22.Header.WaitListHead.Flink = &v22.Header.WaitListHead;
+      v23[3] = &KiPassiveIsrWatchdog;
+      v23[4] = &Object;
+      v22.Header.Type = 8;
+      v22.Header.SignalState = 0;
+      v22.DueTime.QuadPart = 0LL;
+      v22.Period = 0;
+      v22.Processor = 0;
+      LODWORD(v23[0]) = 275;
+      v23[7] = 0LL;
+      v23[2] = 0LL;
+      KiSetTimerEx((__int64)&v22, -10000000LL * KiPassiveWatchdogTimeout, 0, 0, (__int64)v23);
       v19 = 1;
     }
     v7 = 1;
   }
   *(_QWORD *)(a1 + 152) = KeGetCurrentThread();
   if ( v8 )
-    EtwGetKernelTraceTimestamp((unsigned __int64)v32, 0x20004000uLL);
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v24, 0x20004000u);
   v11 = KiCallInterruptServiceRoutine(a1, v7);
   v12 = v11;
   if ( v8 )
-    PerfInfoLogInterrupt(a1, (a3 << 8) | v11, (__int64)v32);
-  if ( v19 && !KeCancelTimer(&v31) )
+    PerfInfoLogInterrupt(a1, (a3 << 8) | v11, (__int64)v24);
+  if ( v19 && !KeCancelTimer(&v22) )
     KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
   *(_QWORD *)(a1 + 152) = 0LL;
   if ( (_BYTE)v6 )
@@ -143,7 +132,7 @@ bool __fastcall KiInvokeInterruptServiceRoutine(__int64 a1, unsigned __int8 Curr
   else
   {
     KeSetEvent(*(PRKEVENT *)(a1 + 128), 0, 0);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   return v12 == 1;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?TryProbeAndReadUserModeGlyphSet@QueryFontTreeRequest@@AEAA_NPEAK0@Z @ 0x1C008D8D8
+ * XREFs of ?TryProbeAndReadUserModeGlyphSet@QueryFontTreeRequest@@AEAA_NPEAK0@Z @ 0x1C00D22E8
  * Callers:
- *     ?CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ @ 0x1C008CB90 (-CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ.c)
+ *     ?CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ @ 0x1C00D1C10 (-CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ.c)
  * Callees:
- *     ?Win32ProbeForRead@@YAXPEAX_KK@Z @ 0x1C008D92C (-Win32ProbeForRead@@YAXPEAX_KK@Z.c)
+ *     ?Win32ProbeForRead@@YAXPEAX_KK@Z @ 0x1C00D233C (-Win32ProbeForRead@@YAXPEAX_KK@Z.c)
  */
 
 char __fastcall QueryFontTreeRequest::TryProbeAndReadUserModeGlyphSet(

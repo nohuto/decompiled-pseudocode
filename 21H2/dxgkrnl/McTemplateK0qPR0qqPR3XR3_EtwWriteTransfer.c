@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0qPR0qqPR3XR3_EtwWriteTransfer @ 0x1C00542D0
+ * XREFs of McTemplateK0qPR0qqPR3XR3_EtwWriteTransfer @ 0x1C0047228
  * Callers:
- *     ?SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPROCESS@@_N66@Z @ 0x1C017EED0 (-SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPRO.c)
- *     ?SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z @ 0x1C0310230 (-SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z.c)
+ *     ?SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPROCESS@@_N6@Z @ 0x1C00FBD50 (-SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPRO.c)
+ *     ?SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z @ 0x1C026F14C (-SubmitSignalSyncObjectsToHwQueue@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_KPEAVDXGPROCESS@@_N4@Z.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0013C40 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C000BC78 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0qPR0qqPR3XR3_EtwWriteTransfer(
@@ -38,21 +38,21 @@ NTSTATUS __fastcall McTemplateK0qPR0qqPR3XR3_EtwWriteTransfer(
   int v26; // [rsp+D8h] [rbp+57h] BYREF
 
   v26 = a4;
-  v12 = 4LL;
-  v15 = 0;
   v11 = &v26;
   v13 = a5;
   v14 = 8 * a4;
-  v22 = 0;
   v16 = &a6;
   v18 = &a7;
   v20 = a8;
+  v23 = a9;
+  v15 = 0;
+  v21 = 8 * a7;
+  v22 = 0;
+  v24 = 8 * a7;
   v25 = 0;
+  v12 = 4LL;
   v17 = 4LL;
   v19 = 4LL;
-  v23 = a9;
-  v21 = 8 * a7;
-  v24 = 8 * a7;
   return McGenEventWrite_EtwWriteTransfer(
            (REGHANDLE *)&DxgkControlGuid_Context,
            &EventSignalSynchronizationObjectFromGpu,

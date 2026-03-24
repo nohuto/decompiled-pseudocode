@@ -1,12 +1,11 @@
 /*
- * XREFs of ?GetStandardAllocationDriverData@DXGDEVICE@@QEAAJW4_D3DKMDT_STANDARDALLOCATION_TYPE@@PEAXPEAIPEAPEAX@Z @ 0x1C02D65FC
+ * XREFs of ?GetStandardAllocationDriverData@DXGDEVICE@@QEAAJW4_D3DKMDT_STANDARDALLOCATION_TYPE@@PEAXPEAIPEAPEAX@Z @ 0x1C022805C
  * Callers:
- *     ?DxgkCreateAllocationInternal@@YAJPEAU_D3DKMT_CREATEALLOCATION@@PEA_K@Z @ 0x1C018DB90 (-DxgkCreateAllocationInternal@@YAJPEAU_D3DKMT_CREATEALLOCATION@@PEA_K@Z.c)
+ *     ?DxgkCreateAllocationInternal@@YAJPEAU_D3DKMT_CREATEALLOCATION@@PEA_K@Z @ 0x1C00EF9B0 (-DxgkCreateAllocationInternal@@YAJPEAU_D3DKMT_CREATEALLOCATION@@PEA_K@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ?DdiGetStandardAllocationDriverData@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_GETSTANDARDALLOCATIONDRIVERDATA@@@Z @ 0x1C01CFE2C (-DdiGetStandardAllocationDriverData@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_GETSTANDARDALLOCATIONDRIVE.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?DdiGetStandardAllocationDriverData@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_GETSTANDARDALLOCATIONDRIVERDATA@@@Z @ 0x1C0113FA4 (-DdiGetStandardAllocationDriverData@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_GETSTANDARDALLOCATIONDRIVE.c)
  */
 
 __int64 __fastcall DXGDEVICE::GetStandardAllocationDriverData(
@@ -17,101 +16,95 @@ __int64 __fastcall DXGDEVICE::GetStandardAllocationDriverData(
         void **a5)
 {
   ADAPTER_RENDER *v6; // rcx
-  void *v9; // r14
+  PVOID v9; // rsi
   int StandardAllocationDriverData; // eax
-  __int64 v11; // r9
-  __int64 v12; // rdi
-  void *v14; // rax
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 ResourcePrivateDriverDataSize; // rdx
-  ADAPTER_RENDER *v18; // rcx
-  int v19; // eax
-  struct _DXGKARG_GETSTANDARDALLOCATIONDRIVERDATA v20; // [rsp+50h] [rbp-30h] BYREF
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rbx
+  __int64 v14; // rax
+  PVOID v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // rcx
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // rax
+  ADAPTER_RENDER *v23; // rcx
+  int v24; // eax
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // rax
+  struct _DXGKARG_GETSTANDARDALLOCATIONDRIVERDATA v29; // [rsp+20h] [rbp-30h] BYREF
 
-  memset(&v20, 0, sizeof(v20));
-  v20.StandardAllocationType = D3DKMDT_STANDARDALLOCATION_GDISURFACE;
+  memset(&v29, 0, sizeof(v29));
+  v29.StandardAllocationType = D3DKMDT_STANDARDALLOCATION_GDISURFACE;
   v6 = (ADAPTER_RENDER *)*((_QWORD *)this + 2);
-  v20.pCreateSharedPrimarySurfaceData = a3;
+  v29.pCreateSharedPrimarySurfaceData = a3;
   v9 = 0LL;
-  StandardAllocationDriverData = ADAPTER_RENDER::DdiGetStandardAllocationDriverData(v6, &v20, (__int64)a3);
-  v12 = StandardAllocationDriverData;
-  if ( StandardAllocationDriverData >= 0 )
+  StandardAllocationDriverData = ADAPTER_RENDER::DdiGetStandardAllocationDriverData(v6, &v29, (__int64)a3);
+  v13 = StandardAllocationDriverData;
+  if ( StandardAllocationDriverData < 0 )
   {
-    if ( !v20.AllocationPrivateDriverDataSize && !v20.ResourcePrivateDriverDataSize )
-    {
-      WdLogSingleEntry2(v20.AllocationPrivateDriverDataSize + 2, this, -1073741823LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Device 0x%I64x: Driver returned zero size for pAllocationPrivateDriverData and                         "
-                  "    pResourcePrivateDriverData buffer, returning 0x%I64x",
-        (__int64)this,
-        -1073741823LL,
-        0LL,
-        0LL,
-        0LL);
-      return 3221225473LL;
-    }
-    v14 = (void *)operator new[](v20.AllocationPrivateDriverDataSize, 0x4B677844u, 256LL, v11);
-    *a5 = v14;
-    if ( v14 )
-    {
-      if ( !v20.ResourcePrivateDriverDataSize
-        || (v9 = (void *)operator new[](v20.ResourcePrivateDriverDataSize, 0x4B677844u, 256LL, v16)) != 0LL )
-      {
-        v18 = (ADAPTER_RENDER *)*((_QWORD *)this + 2);
-        v20.pAllocationPrivateDriverData = *a5;
-        v20.StandardAllocationType = D3DKMDT_STANDARDALLOCATION_GDISURFACE;
-        v20.pCreateSharedPrimarySurfaceData = a3;
-        v20.pResourcePrivateDriverData = v9;
-        v19 = ADAPTER_RENDER::DdiGetStandardAllocationDriverData(v18, &v20, v15);
-        v12 = v19;
-        if ( v19 >= 0 )
-        {
-          *a4 = v20.AllocationPrivateDriverDataSize;
-        }
-        else
-        {
-          WdLogSingleEntry2(1LL, this, v19);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262146,
-            -1,
-            (__int64)L"Device 0x%I64x: Driver failed to generate pPrivateDriverData buffer, returning 0x%I64x",
-            (__int64)this,
-            v12,
-            0LL,
-            0LL,
-            0LL);
-        }
-        goto LABEL_15;
-      }
-      ResourcePrivateDriverDataSize = v20.ResourcePrivateDriverDataSize;
-    }
-    else
-    {
-      ResourcePrivateDriverDataSize = v20.AllocationPrivateDriverDataSize;
-    }
-    LODWORD(v12) = -1073741801;
-    WdLogSingleEntry2(3LL, ResourcePrivateDriverDataSize, -1073741801LL);
-LABEL_15:
-    operator delete[](v9);
-    if ( (int)v12 < 0 )
-      operator delete[](*a5);
-    return (unsigned int)v12;
+    v14 = WdLogNewEntry5_WdError(v12, v11);
+LABEL_3:
+    *(_QWORD *)(v14 + 32) = v13;
+    *(_QWORD *)(v14 + 24) = this;
+    WdLogEvent5_WdError(v14);
+    return (unsigned int)v13;
   }
-  WdLogSingleEntry2(2LL, this, StandardAllocationDriverData);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Device 0x%I64x: Failed to find size of PrivateDriverData buffers, returning 0x%I64x",
-    (__int64)this,
-    v12,
-    0LL,
-    0LL,
-    0LL);
-  return (unsigned int)v12;
+  if ( !v29.AllocationPrivateDriverDataSize && !v29.ResourcePrivateDriverDataSize )
+  {
+    v14 = WdLogNewEntry5_WdError(v12, v11);
+    v13 = -1073741823LL;
+    goto LABEL_3;
+  }
+  v15 = operator new[](v29.AllocationPrivateDriverDataSize, 0x4B677844u, PagedPool);
+  *a5 = v15;
+  if ( !v15 )
+  {
+    v19 = WdLogNewEntry5_WdWarning(v17, v16, v18);
+    LODWORD(v13) = -1073741801;
+    *(_QWORD *)(v19 + 24) = v29.AllocationPrivateDriverDataSize;
+    *(_QWORD *)(v19 + 32) = -1073741801LL;
+LABEL_9:
+    WdLogEvent5_WdWarning(v19);
+    goto LABEL_16;
+  }
+  if ( v29.ResourcePrivateDriverDataSize )
+  {
+    v9 = operator new[](v29.ResourcePrivateDriverDataSize, 0x4B677844u, PagedPool);
+    if ( !v9 )
+    {
+      v22 = WdLogNewEntry5_WdWarning(v21, v20, v18);
+      LODWORD(v13) = -1073741801;
+      *(_QWORD *)(v22 + 24) = v29.ResourcePrivateDriverDataSize;
+      v19 = v22;
+      *(_QWORD *)(v22 + 32) = -1073741801LL;
+      goto LABEL_9;
+    }
+  }
+  v23 = (ADAPTER_RENDER *)*((_QWORD *)this + 2);
+  v29.pAllocationPrivateDriverData = *a5;
+  v29.StandardAllocationType = D3DKMDT_STANDARDALLOCATION_GDISURFACE;
+  v29.pCreateSharedPrimarySurfaceData = a3;
+  v29.pResourcePrivateDriverData = v9;
+  v24 = ADAPTER_RENDER::DdiGetStandardAllocationDriverData(v23, &v29, v18);
+  v13 = v24;
+  if ( v24 >= 0 )
+  {
+    *a4 = v29.AllocationPrivateDriverDataSize;
+  }
+  else
+  {
+    v27 = WdLogNewEntry5_WdAssertion(v26, v25);
+    *(_QWORD *)(v27 + 24) = this;
+    *(_QWORD *)(v27 + 32) = v13;
+    WdLogEvent5_WdAssertion(v27);
+  }
+LABEL_16:
+  operator delete[](v9);
+  if ( (int)v13 < 0 )
+    operator delete[](*a5);
+  return (unsigned int)v13;
 }

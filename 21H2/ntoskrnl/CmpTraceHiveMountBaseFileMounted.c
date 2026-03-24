@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpTraceHiveMountBaseFileMounted @ 0x14068D648
+ * XREFs of CmpTraceHiveMountBaseFileMounted @ 0x140723468
  * Callers:
- *     HvLoadHive @ 0x14068C238 (HvLoadHive.c)
+ *     HvLoadHive @ 0x140722748 (HvLoadHive.c)
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     CmpQueryNameString @ 0x140742C78 (CmpQueryNameString.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     CmpQueryNameString @ 0x140716838 (CmpQueryNameString.c)
  */
 
-void __fastcall CmpTraceHiveMountBaseFileMounted(__int64 a1, int a2)
+void __fastcall CmpTraceHiveMountBaseFileMounted(void *a1, int a2)
 {
   __int16 v3; // [rsp+38h] [rbp-9h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-1h] BYREF
@@ -29,7 +29,7 @@ void __fastcall CmpTraceHiveMountBaseFileMounted(__int64 a1, int a2)
   {
     UnicodeString.Buffer = 0LL;
     *(_DWORD *)&UnicodeString.Length = 0;
-    if ( (int)CmpQueryNameString(a1, &UnicodeString) >= 0 )
+    if ( CmpQueryNameString(a1, &UnicodeString) >= 0 )
     {
       UserData.Ptr = (ULONGLONG)UnicodeString.Buffer;
       UserData.Size = UnicodeString.Length;
@@ -40,7 +40,7 @@ void __fastcall CmpTraceHiveMountBaseFileMounted(__int64 a1, int a2)
       v8 = 2LL;
       v10 = 4LL;
       EtwWrite(EtwpRegTraceHandle, &EventDescriptor, 0LL, 3u, &UserData);
-      RtlFreeUnicodeString(&UnicodeString);
+      RtlFreeAnsiString(&UnicodeString);
     }
   }
 }

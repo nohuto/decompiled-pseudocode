@@ -1,59 +1,59 @@
 /*
- * XREFs of MmAddVerifierSpecialThunks @ 0x140A2D4A0
+ * XREFs of MmAddVerifierSpecialThunks @ 0x1408C64E0
  * Callers:
  *     <none>
  * Callees:
- *     MiLookupDataTableEntry @ 0x1402136C0 (MiLookupDataTableEntry.c)
- *     VfIsVerifierEnabled @ 0x140293860 (VfIsVerifierEnabled.c)
- *     MmAcquireLoadLock @ 0x140704660 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x1407049E0 (MmReleaseLoadLock.c)
- *     VfThunkAddSpecialDriverThunks @ 0x140ADC020 (VfThunkAddSpecialDriverThunks.c)
+ *     VfIsVerifierEnabled @ 0x14032D0E0 (VfIsVerifierEnabled.c)
+ *     MiLookupDataTableEntry @ 0x140358CCC (MiLookupDataTableEntry.c)
+ *     MmReleaseLoadLock @ 0x1406FE9E0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406FEA40 (MmAcquireLoadLock.c)
+ *     VfThunkAddSpecialDriverThunks @ 0x1409D88C4 (VfThunkAddSpecialDriverThunks.c)
  */
 
 NTSTATUS __stdcall MmAddVerifierSpecialThunks(ULONG_PTR EntryRoutine, PVOID ThunkBuffer, ULONG ThunkBufferSize)
 {
   int v6; // ebx
-  ULONG v7; // edi
   struct _KTHREAD *Lock; // rsi
-  _QWORD *v10; // rax
-  _QWORD *v11; // r9
-  unsigned __int64 v12; // rdx
-  unsigned __int64 v13; // r8
-  unsigned __int64 *v14; // rax
-  NTSTATUS v15; // ebx
+  __int64 v9; // rax
+  __int64 v10; // r9
+  unsigned __int64 v11; // rdx
+  unsigned __int64 v12; // r8
+  unsigned __int64 *v13; // rax
+  NTSTATUS v14; // ebx
   unsigned __int64 retaddr; // [rsp+38h] [rbp+0h]
 
   if ( (MiFlags & 1) == 0 )
     return -1073741637;
   v6 = 0;
-  if ( !(unsigned int)VfIsVerifierEnabled() || (VfRuleClasses & 0xFF217644) == 0 )
+  if ( !(unsigned int)VfIsVerifierEnabled()
+    || (VfRuleClasses & 0xFFAFFFFF) == 0 && (VfRuleClasses & 0x200000000LL) == 0 && (VfRuleClasses & 0x400000000LL) == 0 )
+  {
     return -1073741637;
-  v7 = ThunkBufferSize >> 4;
+  }
   if ( !(ThunkBufferSize >> 4) )
     return -1073741583;
-  VfNumberOfClassDriverThunks += v7;
   Lock = MmAcquireLoadLock();
-  v10 = MiLookupDataTableEntry(EntryRoutine, 0);
-  v11 = v10;
-  if ( v10 && (v12 = v10[6], retaddr >= v12) && (v13 = v12 + *((unsigned int *)v10 + 16), retaddr < v13) )
+  v9 = MiLookupDataTableEntry(EntryRoutine, 0);
+  v10 = v9;
+  if ( v9 && (v11 = *(_QWORD *)(v9 + 48), retaddr >= v11) && (v12 = v11 + *(unsigned int *)(v9 + 64), retaddr < v12) )
   {
-    v14 = (unsigned __int64 *)((char *)ThunkBuffer + 8);
-    while ( *v14 >= v12 && *v14 < v13 )
+    v13 = (unsigned __int64 *)((char *)ThunkBuffer + 8);
+    while ( *v13 >= v11 && *v13 < v12 )
     {
-      v14 += 2;
-      if ( ++v6 >= v7 )
+      v13 += 2;
+      if ( ++v6 >= ThunkBufferSize >> 4 )
       {
-        v15 = VfThunkAddSpecialDriverThunks(EntryRoutine, ThunkBuffer, ThunkBufferSize, v11);
-        goto LABEL_16;
+        v14 = VfThunkAddSpecialDriverThunks(EntryRoutine, ThunkBuffer, ThunkBufferSize, v10);
+        goto LABEL_18;
       }
     }
-    v15 = -1073741584;
+    v14 = -1073741584;
   }
   else
   {
-    v15 = -1073741585;
+    v14 = -1073741585;
   }
-LABEL_16:
+LABEL_18:
   MmReleaseLoadLock((__int64)Lock);
-  return v15;
+  return v14;
 }

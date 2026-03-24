@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlUpperOplockFsctrl @ 0x140815190
+ * XREFs of FsRtlUpperOplockFsctrl @ 0x140815170
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
  *     FsRtlpOplockFsctrlInternal @ 0x1405DC640 (FsRtlpOplockFsctrlInternal.c)
  *     FsRtlpOplockUpperLowerCompatible @ 0x1405DCC54 (FsRtlpOplockUpperLowerCompatible.c)
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?IsOutOfBounds@CInteractionTracker@@QEAA_NXZ @ 0x18021B654
+ * XREFs of ?IsOutOfBounds@CInteractionTracker@@QEAA_NXZ @ 0x1801CA228
  * Callers:
- *     ?CheckForIdle@CInteractionTracker@@AEAAXXZ @ 0x180219E28 (-CheckForIdle@CInteractionTracker@@AEAAXXZ.c)
- *     ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x18021E3F8 (-TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z.c)
- *     ?PrepareForCalculation@CScrollAnimation@@UEAAXPEA_N@Z @ 0x1802546D0 (-PrepareForCalculation@CScrollAnimation@@UEAAXPEA_N@Z.c)
+ *     ?CheckForIdle@CInteractionTracker@@AEAAXXZ @ 0x1801C8C9C (-CheckForIdle@CInteractionTracker@@AEAAXXZ.c)
+ *     ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x1801CD3E0 (-TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z.c)
+ *     ?PrepareForCalculation@CScrollAnimation@@UEAAXPEA_N@Z @ 0x180203E40 (-PrepareForCalculation@CScrollAnimation@@UEAAXPEA_N@Z.c)
  * Callees:
- *     ?IsOutOfBounds@CInteractionTracker@@QEAA_NW4ScrollAxis@@@Z @ 0x18021B5F4 (-IsOutOfBounds@CInteractionTracker@@QEAA_NW4ScrollAxis@@@Z.c)
+ *     ?IsOutOfBounds@CInteractionTracker@@QEAA_NW4ScrollAxis@@@Z @ 0x1801CA1C8 (-IsOutOfBounds@CInteractionTracker@@QEAA_NW4ScrollAxis@@@Z.c)
  */
 
 char __fastcall CInteractionTracker::IsOutOfBounds(CInteractionTracker *this)

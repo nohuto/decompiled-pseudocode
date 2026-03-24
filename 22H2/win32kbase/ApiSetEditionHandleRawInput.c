@@ -1,32 +1,56 @@
 /*
- * XREFs of ApiSetEditionHandleRawInput @ 0x1C0206660
+ * XREFs of ApiSetEditionHandleRawInput @ 0x1C004E718
  * Callers:
- *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C006B3FC (xxxUpdateGlobalsAndSendKeyEvent.c)
+ *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C004D1F0 (xxxUpdateGlobalsAndSendKeyEvent.c)
  * Callees:
- *     EditionHandleRawInput @ 0x1C00B06B0 (EditionHandleRawInput.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     EditionHandleRawInput @ 0x1C004E828 (EditionHandleRawInput.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ApiSetEditionHandleRawInput(
-        unsigned int a1,
-        unsigned int a2,
+        int a1,
+        int a2,
         char a3,
         char a4,
         int a5,
         __int64 a6,
         __int16 a7,
-        unsigned __int16 a8,
+        __int16 a8,
         int a9,
         __int64 a10)
 {
-  unsigned int v10; // ebx
-  __int64 v15; // r8
+  int v12; // ebp
+  unsigned int v14; // ebx
+  int v15; // eax
 
-  v10 = 0;
-  if ( qword_1C0296740 && (int)qword_1C0296740() >= 0 )
+  v12 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(v15) = a3;
-    return (unsigned int)EditionHandleRawInput(a1, a2, v15, a4, a5, a6, a7, a8, a9, a10);
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      410,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
   }
-  return v10;
+  v14 = 0;
+  if ( qword_1C02574E8 )
+    v15 = qword_1C02574E8();
+  else
+    v15 = -1073741637;
+  if ( v15 >= 0 )
+    v14 = EditionHandleRawInput(a1, v12, a3, a4, a5, a6, a7, a8, a9, a10);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      10,
+      411,
+      (__int64)&WPP_44e4dd1e14ae338345a151075859def0_Traceguids);
+  }
+  return v14;
 }

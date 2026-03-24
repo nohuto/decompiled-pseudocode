@@ -1,36 +1,36 @@
 /*
- * XREFs of CmpCanGrowHive @ 0x140750668
+ * XREFs of CmpCanGrowHive @ 0x1407227C4
  * Callers:
- *     HvpAddBin @ 0x14074F684 (HvpAddBin.c)
+ *     HvpAddBin @ 0x140721E28 (HvpAddBin.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CmpCanGrowHive(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rax
-  struct _WORK_QUEUE_ITEM *Pool2; // rax
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
 
   if ( a2 <= 0x7FFFE000 )
   {
-    if ( a1 != qword_140C028D0 )
+    if ( a1 != qword_140C01170 )
       return 1;
     if ( a2 + 4096 <= CmSystemHiveLimitSize )
     {
       LODWORD(v3) = 393216;
-      if ( *(_QWORD *)(*(_QWORD *)qword_140C674C8 + 17040LL) >> 1 < 0x60000uLL )
-        v3 = *(_QWORD *)(*(_QWORD *)qword_140C674C8 + 17040LL) >> 1;
+      if ( *(_QWORD *)(*(_QWORD *)qword_140C4E648 + 6928LL) >> 1 < 0x60000uLL )
+        v3 = *(_QWORD *)(*(_QWORD *)qword_140C4E648 + 6928LL) >> 1;
       if ( a2 + 4096 > 36864 * (int)v3 / 0xAu && !CmpSystemQuotaWarningPopupDisplayed && ExReadyForErrors )
       {
-        Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(64LL, 32LL, 538987843LL);
-        if ( Pool2 )
+        PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x20204D43u);
+        if ( PoolWithTag )
         {
-          Pool2->List.Flink = 0LL;
-          Pool2->WorkerRoutine = (void (__fastcall *)(void *))CmpQuotaWarningWorker;
+          PoolWithTag->List.Flink = 0LL;
+          PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))CmpQuotaWarningWorker;
           CmpSystemQuotaWarningPopupDisplayed = 1;
-          Pool2->Parameter = Pool2;
-          ExQueueWorkItem(Pool2, DelayedWorkQueue);
+          PoolWithTag->Parameter = PoolWithTag;
+          ExQueueWorkItem(PoolWithTag, DelayedWorkQueue);
         }
       }
       return 1;

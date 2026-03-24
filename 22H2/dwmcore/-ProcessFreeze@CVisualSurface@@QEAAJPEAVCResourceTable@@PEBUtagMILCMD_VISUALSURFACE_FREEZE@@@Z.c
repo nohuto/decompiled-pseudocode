@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ProcessFreeze@CVisualSurface@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALSURFACE_FREEZE@@@Z @ 0x18021AE3C
+ * XREFs of ?ProcessFreeze@CVisualSurface@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUALSURFACE_FREEZE@@@Z @ 0x1801F262C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?UpdateFromVisualSurface@CCachedVisualImage@@IEAAJPEAVCVisualTree@@AEBUD2D_VECTOR_2F@@11W4Enum@MilStretch@@@Z @ 0x1800B43D8 (-UpdateFromVisualSurface@CCachedVisualImage@@IEAAJPEAVCVisualTree@@AEBUD2D_VECTOR_2F@@11W4Enum@M.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?RegisterRenderSnapshotToPerform@CComposition@@QEAAJPEAVCCachedVisualImage@@@Z @ 0x1800FBE70 (-RegisterRenderSnapshotToPerform@CComposition@@QEAAJPEAVCCachedVisualImage@@@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?RegisterSnapshotToPerform@CComposition@@QEAAJPEAVCCachedVisualImage@@@Z @ 0x180155A20 (-RegisterSnapshotToPerform@CComposition@@QEAAJPEAVCCachedVisualImage@@@Z.c)
+ *     ?UpdateFromVisualSurface@CCachedVisualImage@@IEAAJPEAVCVisual@@AEBUD2D_VECTOR_2F@@11W4Enum@MilStretch@@@Z @ 0x1801ABA10 (-UpdateFromVisualSurface@CCachedVisualImage@@IEAAJPEAVCVisual@@AEBUD2D_VECTOR_2F@@11W4Enum@MilSt.c)
  */
 
 __int64 __fastcall CVisualSurface::ProcessFreeze(
@@ -15,7 +15,7 @@ __int64 __fastcall CVisualSurface::ProcessFreeze(
         const struct tagMILCMD_VISUALSURFACE_FREEZE *a3)
 {
   int v4; // r10d
-  __int64 v5; // rdx
+  struct CResource *v5; // rdx
   int v6; // eax
   unsigned int v7; // edi
   __int64 v9; // rdx
@@ -24,39 +24,39 @@ __int64 __fastcall CVisualSurface::ProcessFreeze(
   unsigned int v12; // ebx
   wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
 
-  if ( !*((_BYTE *)this + 200) || *((_BYTE *)this + 201) )
+  if ( !*((_BYTE *)this + 152) || *((_BYTE *)this + 153) )
     return 0LL;
-  v4 = *((_DWORD *)this + 26);
-  v5 = *((_QWORD *)this + 9);
-  *((_BYTE *)this + 201) = 1;
+  v4 = *((_DWORD *)this + 22);
+  v5 = (struct CResource *)*((_QWORD *)this + 7);
+  *((_BYTE *)this + 153) = 1;
   v6 = CCachedVisualImage::UpdateFromVisualSurface(
-         **((__int64 ***)this + 14),
+         **((_QWORD **)this + 12),
          v5,
+         (float *)this + 16,
+         (float *)this + 18,
          (float *)this + 20,
-         (float *)this + 22,
-         (float *)this + 24,
          v4);
   v7 = v6;
   if ( v6 < 0 )
   {
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0x129,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\visualsurface.cpp",
+      (void *)0x106,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\visualsurface.cpp",
       (const char *)(unsigned int)v6);
     return v7;
   }
-  v9 = **((_QWORD **)this + 14);
-  *(_BYTE *)(v9 + 1776) = 1;
-  v10 = CComposition::RegisterRenderSnapshotToPerform(*(CComposition **)(v9 + 16), (struct CCachedVisualImage *)v9);
+  v9 = **((_QWORD **)this + 12);
+  *(_BYTE *)(v9 + 1800) = 1;
+  v10 = CComposition::RegisterSnapshotToPerform(*(CComposition **)(v9 + 16), (struct CCachedVisualImage *)v9);
   v12 = v10;
   if ( v10 >= 0 )
     return 0LL;
-  MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x151u, 0LL);
+  MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x135u, 0LL);
   wil::details::in1diag3::Return_Hr(
     retaddr,
-    (void *)0x12B,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\visualsurface.cpp",
+    (void *)0x108,
+    (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\visualsurface.cpp",
     (const char *)v12);
   return v12;
 }

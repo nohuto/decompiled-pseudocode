@@ -1,20 +1,43 @@
 /*
- * XREFs of ?EnsureTokenQueueForPresent@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z @ 0x1C0077A00
+ * XREFs of ?EnsureTokenQueueForPresent@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z @ 0x1C00183F0
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C00121F0 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
- *     ?EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@1@@Z @ 0x1C0077950 (-EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@.c)
+ *     ?Create@CTokenQueue@@SAJPEAPEAV1@@Z @ 0x1C00184CC (-Create@CTokenQueue@@SAJPEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall CTokenManager::EnsureTokenQueueForPresent(CTokenManager *this, struct CompositionSurfaceObject *a2)
 {
-  int v4; // eax
+  int v4; // edi
+  _QWORD *inserted; // rbx
+  _QWORD Buffer[5]; // [rsp+20h] [rbp-28h] BYREF
+  unsigned __int8 NewElement; // [rsp+50h] [rbp+8h] BYREF
+  struct CTokenQueue *v9; // [rsp+58h] [rbp+10h] BYREF
 
-  CTokenManager::AcquireTokenManagerLock(this);
-  v4 = CTokenManager::EnsureTokenQueue(this, a2, 0LL);
-  *((_QWORD *)this + 13) = 0LL;
-  LODWORD(a2) = v4;
-  ExReleasePushLockExclusiveEx((char *)this + 96, 0LL);
-  return (unsigned int)a2;
+  ExAcquirePushLockExclusiveEx((char *)this + 88, 0LL);
+  *((_QWORD *)this + 12) = KeGetCurrentThread();
+  Buffer[0] = a2;
+  v4 = 0;
+  Buffer[1] = 0LL;
+  NewElement = 0;
+  inserted = RtlInsertElementGenericTable((PRTL_GENERIC_TABLE)((char *)this + 192), Buffer, 0x10u, &NewElement);
+  if ( inserted )
+  {
+    if ( NewElement )
+    {
+      v9 = 0LL;
+      v4 = CTokenQueue::Create(&v9);
+      if ( v4 < 0 )
+        RtlDeleteElementGenericTable((PRTL_GENERIC_TABLE)((char *)this + 192), inserted);
+      else
+        inserted[1] = v9;
+    }
+  }
+  else
+  {
+    v4 = -1073741801;
+  }
+  *((_QWORD *)this + 12) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)this + 88, 0LL);
+  return (unsigned int)v4;
 }

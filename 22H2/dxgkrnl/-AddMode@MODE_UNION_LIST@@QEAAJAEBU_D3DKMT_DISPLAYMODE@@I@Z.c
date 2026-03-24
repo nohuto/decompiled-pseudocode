@@ -1,13 +1,13 @@
 /*
- * XREFs of ?AddMode@MODE_UNION_LIST@@QEAAJAEBU_D3DKMT_DISPLAYMODE@@I@Z @ 0x1C01F7F74
+ * XREFs of ?AddMode@MODE_UNION_LIST@@QEAAJAEBU_D3DKMT_DISPLAYMODE@@I@Z @ 0x1C012D344
  * Callers:
- *     ??ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z @ 0x1C01F7020 (--ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z.c)
- *     ?AddUniqueMode@MODE_UNION_LIST@@QEAAJAEBU_D3DKMT_DISPLAYMODE@@@Z @ 0x1C01F816C (-AddUniqueMode@MODE_UNION_LIST@@QEAAJAEBU_D3DKMT_DISPLAYMODE@@@Z.c)
+ *     ?AddUniqueMode@MODE_UNION_LIST@@QEAAJAEBU_D3DKMT_DISPLAYMODE@@@Z @ 0x1C00DE05C (-AddUniqueMode@MODE_UNION_LIST@@QEAAJAEBU_D3DKMT_DISPLAYMODE@@@Z.c)
+ *     ??ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z @ 0x1C012C790 (--ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     memmove @ 0x1C0028340 (memmove.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C00039C0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
  */
 
 __int64 __fastcall MODE_UNION_LIST::AddMode(
@@ -16,103 +16,117 @@ __int64 __fastcall MODE_UNION_LIST::AddMode(
         unsigned int a3)
 {
   unsigned int v4; // eax
-  __int64 v5; // rbp
-  unsigned int v7; // ecx
-  const void **v8; // rdi
-  char *v9; // rcx
-  __int64 v10; // rdx
-  unsigned int v11; // esi
-  unsigned __int64 v13; // rax
-  void *v14; // rsi
-  bool v15; // zf
-  unsigned __int64 v16; // rax
-  void *v17; // rax
-  void *v18; // rsi
+  unsigned int v5; // edi
+  unsigned int v6; // ecx
+  __int64 v8; // r14
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  int v11; // edx
+  SIZE_T v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  char *v16; // rsi
+  __int64 v17; // r8
+  __int64 v18; // r9
   const void *v19; // rdx
-  __int64 v20; // rbp
-  const wchar_t *v21; // r9
-  void *v22; // rcx
+  SIZE_T v20; // rax
+  char *v21; // rax
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  __int64 v25; // r9
+  char *v26; // rsi
+  const void *v27; // rdx
+  __int64 v28; // rax
+  void *v29; // rcx
+  void *v30; // rcx
 
-  v4 = *((_DWORD *)this + 4) + 1;
-  v5 = a3;
-  *((_DWORD *)this + 4) = v4;
-  v7 = *((_DWORD *)this + 6);
-  v8 = (const void **)((char *)this + 8);
-  if ( v4 <= v7 )
-    goto LABEL_2;
-  v13 = 44LL * (v7 + 500);
-  if ( !is_mul_ok(v7 + 500, 0x2CuLL) )
-    v13 = -1LL;
-  v14 = (void *)operator new[](v13, 0x4B677844u, 256LL);
-  if ( v14 )
+  v4 = ++*((_DWORD *)this + 4);
+  v5 = 0;
+  v6 = *((_DWORD *)this + 6);
+  v8 = a3;
+  if ( v4 <= v6 )
   {
-    if ( *v8 )
-    {
-      memmove(v14, *v8, 44LL * *((unsigned int *)this + 6));
-      operator delete((void *)*v8);
-    }
-    v15 = *((_BYTE *)this + 28) == 0;
-    *v8 = v14;
-    if ( v15 )
-      goto LABEL_20;
-    v16 = 4LL * (unsigned int)(*((_DWORD *)this + 6) + 500);
-    if ( !is_mul_ok((unsigned int)(*((_DWORD *)this + 6) + 500), 4uLL) )
-      v16 = -1LL;
-    v17 = (void *)operator new[](v16, 0x4B677844u, 256LL);
-    v18 = v17;
-    if ( v17 )
-    {
-      v19 = (const void *)*((_QWORD *)this + 4);
-      if ( v19 )
-      {
-        memmove(v17, v19, 4LL * *((unsigned int *)this + 6));
-        operator delete(*((void **)this + 4));
-      }
-      *((_QWORD *)this + 4) = v18;
-LABEL_20:
-      *((_DWORD *)this + 6) += 500;
 LABEL_2:
-      v9 = (char *)*v8;
-      v10 = 44LL * (unsigned int)(*((_DWORD *)this + 4) - 1);
-      *(_OWORD *)&v9[v10] = *(_OWORD *)&a2->Width;
-      *(_OWORD *)&v9[v10 + 16] = *(_OWORD *)&a2->RefreshRate.Numerator;
-      *(_QWORD *)&v9[v10 + 32] = *(_QWORD *)&a2->DisplayFixedOutput;
-      *(_DWORD *)&v9[v10 + 40] = *((_DWORD *)&a2->Flags + 1);
-      if ( *((_BYTE *)this + 28) )
+    v9 = 44LL * (v4 - 1);
+    v10 = *((_QWORD *)this + 1);
+    *(_OWORD *)(v9 + v10) = *(_OWORD *)&a2->Width;
+    *(_OWORD *)(v9 + v10 + 16) = *(_OWORD *)&a2->RefreshRate.Numerator;
+    *(_QWORD *)(v9 + v10 + 32) = *(_QWORD *)&a2->DisplayFixedOutput;
+    *(_DWORD *)(v9 + v10 + 40) = *((_DWORD *)&a2->Flags + 1);
+    if ( *((_BYTE *)this + 28) )
+    {
+      v11 = *((_DWORD *)this + 4);
+      if ( v11 - (int)v8 - 1 > 0 )
       {
-        if ( *((_DWORD *)this + 4) - (int)v5 - 1 > 0 )
-          memmove(
-            (void *)(*((_QWORD *)this + 4) + 4 * v5 + 4),
-            (const void *)(*((_QWORD *)this + 4) + 4 * v5),
-            4LL * (*((_DWORD *)this + 4) - (int)v5 - 1));
-        *(_DWORD *)(*((_QWORD *)this + 4) + 4 * v5) = *((_DWORD *)this + 4) - 1;
+        memmove(
+          (void *)(*((_QWORD *)this + 4) + 4 * v8 + 4),
+          (const void *)(*((_QWORD *)this + 4) + 4 * v8),
+          4LL * (*((_DWORD *)this + 4) - (int)v8 - 1));
+        v11 = *((_DWORD *)this + 4);
       }
-      return 0;
+      *(_DWORD *)(*((_QWORD *)this + 4) + 4 * v8) = v11 - 1;
     }
-    v20 = 1947LL;
-    WdLogSingleEntry1(6LL, 1947LL);
-    v21 = L"unable to allocate memory for display mode index.";
+    return v5;
+  }
+  v13 = 44LL * (v6 + 500);
+  if ( !is_mul_ok(v6 + 500, 0x2CuLL) )
+    v13 = -1LL;
+  v16 = (char *)operator new[](v13, 0x4B677844u, PagedPool);
+  if ( v16 )
+  {
+    v19 = (const void *)*((_QWORD *)this + 1);
+    if ( v19 )
+    {
+      memmove(v16, v19, 44LL * *((unsigned int *)this + 6));
+      operator delete[](*((void **)this + 1));
+    }
+    memset(&v16[44 * *((unsigned int *)this + 6)], 0, 0x55F0uLL);
+    *((_QWORD *)this + 1) = v16;
+    if ( !*((_BYTE *)this + 28) )
+      goto LABEL_19;
+    v20 = 4LL * (unsigned int)(*((_DWORD *)this + 6) + 500);
+    if ( !is_mul_ok((unsigned int)(*((_DWORD *)this + 6) + 500), 4uLL) )
+      v20 = -1LL;
+    v21 = (char *)operator new[](v20, 0x4B677844u, PagedPool);
+    v26 = v21;
+    if ( v21 )
+    {
+      v27 = (const void *)*((_QWORD *)this + 4);
+      if ( v27 )
+      {
+        memmove(v21, v27, 4LL * *((unsigned int *)this + 6));
+        operator delete[](*((void **)this + 4));
+      }
+      memset(&v26[4 * *((unsigned int *)this + 6)], 0, 0x7D0uLL);
+      *((_QWORD *)this + 4) = v26;
+LABEL_19:
+      *((_DWORD *)this + 6) += 500;
+      v4 = *((_DWORD *)this + 4);
+      goto LABEL_2;
+    }
+    v28 = WdLogNewEntry5_WdLowResource(v23, v22, v24, v25);
+    *(_QWORD *)(v28 + 24) = 1830LL;
   }
   else
   {
-    v20 = 1919LL;
-    WdLogSingleEntry1(6LL, 1919LL);
-    v21 = L"unable to allocate memory for display mode list.";
+    v28 = WdLogNewEntry5_WdLowResource(v15, v14, v17, v18);
+    *(_QWORD *)(v28 + 24) = 1800LL;
   }
-  v11 = -1073741801;
-  DxgkLogInternalTriageEvent(0LL, 262145, -1, (__int64)v21, v20, 0LL, 0LL, 0LL, 0LL);
-  v22 = (void *)*((_QWORD *)this + 4);
-  if ( v22 )
+  WdLogEvent5_WdLowResource(v28);
+  v29 = (void *)*((_QWORD *)this + 4);
+  if ( v29 )
   {
-    operator delete(v22);
+    operator delete[](v29);
     *((_QWORD *)this + 4) = 0LL;
   }
-  if ( *v8 )
+  v30 = (void *)*((_QWORD *)this + 1);
+  if ( v30 )
   {
-    operator delete((void *)*v8);
-    *v8 = 0LL;
+    operator delete[](v30);
+    *((_QWORD *)this + 1) = 0LL;
   }
   *((_DWORD *)this + 4) = 0;
   *((_DWORD *)this + 6) = 0;
-  return v11;
+  return (unsigned int)-1073741801;
 }

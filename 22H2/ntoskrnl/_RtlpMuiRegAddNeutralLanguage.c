@@ -1,7 +1,7 @@
 /*
- * XREFs of _RtlpMuiRegAddNeutralLanguage @ 0x1408475D0
+ * XREFs of _RtlpMuiRegAddNeutralLanguage @ 0x14078EECC
  * Callers:
- *     _RtlpMuiRegInitAnyLanguage @ 0x1408474F4 (_RtlpMuiRegInitAnyLanguage.c)
+ *     _RtlpMuiRegInitAnyLanguage @ 0x14078EDF0 (_RtlpMuiRegInitAnyLanguage.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsIdentity@CComponentTransform2D@@QEBA_NXZ @ 0x180222528
+ * XREFs of ?IsIdentity@CComponentTransform2D@@QEBA_NXZ @ 0x180004D20
  * Callers:
- *     ?GetBrushParameters@CNineGridBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x18002E450 (-GetBrushParameters@CNineGridBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z.c)
+ *     ?GetBrushParameters@CNineGridBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x180006F00 (-GetBrushParameters@CNineGridBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z.c)
  * Callees:
- *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x18008065C (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
+ *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x180007298 (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
  */
 
 bool __fastcall CComponentTransform2D::IsIdentity(CComponentTransform2D *this)
@@ -11,15 +11,15 @@ bool __fastcall CComponentTransform2D::IsIdentity(CComponentTransform2D *this)
   char v1; // dl
 
   v1 = 0;
-  if ( *((float *)this + 40) == 0.0
-    && *((float *)this + 41) == 0.0
-    && *((float *)this + 46) == 1.0
-    && *((float *)this + 47) == 1.0
-    && *((float *)this + 48) == 0.0
-    && *((float *)this + 44) == 0.0
-    && *((float *)this + 45) == 0.0 )
+  if ( *((float *)this + 38) == 0.0
+    && *((float *)this + 39) == 0.0
+    && *((float *)this + 44) == 1.0
+    && *((float *)this + 45) == 1.0
+    && *((float *)this + 46) == 0.0
+    && *((float *)this + 42) == 0.0
+    && *((float *)this + 43) == 0.0 )
   {
-    return D2D1::Matrix3x2F::IsIdentity((CComponentTransform2D *)((char *)this + 196));
+    return D2D1::Matrix3x2F::IsIdentity((CComponentTransform2D *)((char *)this + 188));
   }
   return v1;
 }

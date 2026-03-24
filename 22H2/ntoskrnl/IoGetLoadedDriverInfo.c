@@ -1,23 +1,23 @@
 /*
- * XREFs of IoGetLoadedDriverInfo @ 0x1405507A4
+ * XREFs of IoGetLoadedDriverInfo @ 0x1405020DC
  * Callers:
- *     IoFillTriageDumpBuffer @ 0x14054FF70 (IoFillTriageDumpBuffer.c)
- *     KeCapturePersistentThreadState @ 0x140554360 (KeCapturePersistentThreadState.c)
+ *     IoFillTriageDumpBuffer @ 0x140501A40 (IoFillTriageDumpBuffer.c)
+ *     KeCapturePersistentThreadState @ 0x140504CC0 (KeCapturePersistentThreadState.c)
  * Callees:
- *     KiIsAddressRangeValid @ 0x1403A7C94 (KiIsAddressRangeValid.c)
+ *     KiIsAddressRangeValid @ 0x1403C9B9C (KiIsAddressRangeValid.c)
  */
 
-__int64 __fastcall IoGetLoadedDriverInfo(__int64 a1, _DWORD *a2, _DWORD *a3)
+__int64 __fastcall IoGetLoadedDriverInfo(char a1, _DWORD *a2, _DWORD *a3)
 {
   PVOID *v3; // rbx
   int v4; // edi
   int i; // esi
-  int v8; // eax
+  int v9; // eax
   __int64 result; // rax
 
   v3 = (PVOID *)PsLoadedModuleList;
   v4 = 0;
-  for ( i = 0; ; i += v8 + 9 )
+  for ( i = 0; ; i += v9 + 9 )
   {
     if ( v3 == &PsLoadedModuleList )
     {
@@ -26,12 +26,13 @@ __int64 __fastcall IoGetLoadedDriverInfo(__int64 a1, _DWORD *a2, _DWORD *a3)
       *a3 = i;
       return result;
     }
-    if ( !KiIsAddressRangeValid((__int64)v3, 160LL)
-      || !KiIsAddressRangeValid((__int64)v3[12], *((unsigned __int16 *)v3 + 44)) )
+    if ( a1
+      && (!KiIsAddressRangeValid((__int64)v3, 160LL)
+       || !KiIsAddressRangeValid((__int64)v3[12], *((unsigned __int16 *)v3 + 44))) )
     {
       break;
     }
-    v8 = *((unsigned __int16 *)v3 + 44);
+    v9 = *((unsigned __int16 *)v3 + 44);
     ++v4;
     v3 = (PVOID *)*v3;
   }

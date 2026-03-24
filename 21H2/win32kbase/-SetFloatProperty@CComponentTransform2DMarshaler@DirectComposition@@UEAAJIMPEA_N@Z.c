@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetFloatProperty@CComponentTransform2DMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C021B030
+ * XREFs of ?SetFloatProperty@CComponentTransform2DMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C01E4A80
  * Callers:
  *     <none>
  * Callees:
@@ -18,7 +18,7 @@ __int64 __fastcall DirectComposition::CComponentTransform2DMarshaler::SetFloatPr
   if ( a2 != 3 )
     return 3221225485LL;
   *((_DWORD *)this + 4) &= ~0x400u;
-  *((float *)this + 26) = a3;
+  *((float *)this + 24) = a3;
   *a4 = 1;
   return result;
 }

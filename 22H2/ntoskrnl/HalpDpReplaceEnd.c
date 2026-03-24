@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDpReplaceEnd @ 0x140935380
+ * XREFs of HalpDpReplaceEnd @ 0x1408666C0
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpDpReplaceEnd(_QWORD *P)
@@ -12,7 +12,7 @@ __int64 __fastcall HalpDpReplaceEnd(_QWORD *P)
 
   v2 = (void *)P[4];
   if ( v2 )
-    ExFreePoolWithTag(v2, 0x436C6148u);
-  ExFreePoolWithTag(P, 0x436C6148u);
+    ExFreePoolWithTag(v2, 0x206C6148u);
+  ExFreePoolWithTag(P, 0x206C6148u);
   return 0LL;
 }

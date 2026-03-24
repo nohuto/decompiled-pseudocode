@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceTouchPadCurtainSize @ 0x1C013B340
+ * XREFs of EtwTraceTouchPadCurtainSize @ 0x1C0123F90
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0qqqt_EtwWriteTransfer @ 0x1C013DE80 (McTemplateK0qqqt_EtwWriteTransfer.c)
+ *     McTemplateK0qqqt_EtwWriteTransfer @ 0x1C0126D54 (McTemplateK0qqqt_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceTouchPadCurtainSize(int a1, int a2, int a3, char a4)

@@ -1,32 +1,31 @@
 /*
- * XREFs of RtlCopyContext @ 0x140702F70
+ * XREFs of RtlCopyContext @ 0x1406480E8
  * Callers:
- *     PspInitializeThunkContext @ 0x140702CA4 (PspInitializeThunkContext.c)
- *     PspGetSetContextInternal @ 0x1407035C0 (PspGetSetContextInternal.c)
- *     PspWow64GetContextThread @ 0x140704EF8 (PspWow64GetContextThread.c)
- *     PspWow64SetContextThread @ 0x140705578 (PspWow64SetContextThread.c)
- *     PspSetContextState @ 0x1409B4D94 (PspSetContextState.c)
+ *     PspInitializeThunkContext @ 0x140647A20 (PspInitializeThunkContext.c)
+ *     PspGetSetContextInternal @ 0x1406498B0 (PspGetSetContextInternal.c)
+ *     PspWow64SetContextThread @ 0x140695D20 (PspWow64SetContextThread.c)
+ *     PspWow64GetContextThread @ 0x1406960CC (PspWow64GetContextThread.c)
+ *     PspSetContextState @ 0x14090F1A4 (PspSetContextState.c)
  * Callees:
- *     RtlpCopyXStateChunk @ 0x140246EB8 (RtlpCopyXStateChunk.c)
- *     RtlpGetContextFlagsLocation @ 0x140294C0C (RtlpGetContextFlagsLocation.c)
- *     RtlpCopyLegacyContext @ 0x140294EBC (RtlpCopyLegacyContext.c)
- *     RtlpValidateContextFlags @ 0x140297F80 (RtlpValidateContextFlags.c)
- *     RtlpCopyKernelCetChunk @ 0x1405E7C54 (RtlpCopyKernelCetChunk.c)
+ *     RtlpCopyLegacyContext @ 0x140275538 (RtlpCopyLegacyContext.c)
+ *     RtlpValidateContextFlags @ 0x140276D30 (RtlpValidateContextFlags.c)
+ *     RtlpGetContextFlagsLocation @ 0x14027720C (RtlpGetContextFlagsLocation.c)
+ *     RtlpCopyXStateChunk @ 0x1402C0D08 (RtlpCopyXStateChunk.c)
  */
 
 __int64 __fastcall RtlCopyContext(__int64 a1, int a2, __int64 a3)
 {
   __int64 v6; // rdi
-  __int64 v7; // rsi
+  __int64 v7; // rbp
   __int64 result; // rax
   int v9; // edx
   int *v10; // rax
   int *v11; // r8
   int v12; // r12d
-  int v13; // ebp
-  int v14; // ebp
-  unsigned int v15; // ebx
-  char v16; // bp
+  int v13; // esi
+  int v14; // esi
+  __int64 v15; // rcx
+  unsigned int v16; // ebx
   int v17; // [rsp+30h] [rbp-38h] BYREF
   _DWORD *ContextFlagsLocation; // [rsp+38h] [rbp-30h]
   int v19; // [rsp+88h] [rbp+20h] BYREF
@@ -50,7 +49,7 @@ __int64 __fastcall RtlCopyContext(__int64 a1, int a2, __int64 a3)
       if ( (int)result >= 0 )
       {
         result = RtlpValidateContextFlags(v12, &v19);
-        v15 = result;
+        v16 = result;
         if ( (int)result >= 0 )
         {
           if ( (~v19 & v17) != 0 )
@@ -59,7 +58,8 @@ __int64 __fastcall RtlCopyContext(__int64 a1, int a2, __int64 a3)
           }
           else
           {
-            RtlpCopyLegacyContext(1, a1, v14, a3);
+            LOBYTE(v15) = 1;
+            RtlpCopyLegacyContext(v15, a1, v14);
             *ContextFlagsLocation |= v12;
             if ( (v19 & 0xFFFFFFFE) != 0 )
             {
@@ -86,16 +86,12 @@ __int64 __fastcall RtlCopyContext(__int64 a1, int a2, __int64 a3)
                 v6 = a1 + 912;
               }
             }
-            v16 = v17;
-            if ( (v17 & 2) == 0 || (result = RtlpCopyXStateChunk(1, v6, v6, v7, v7), v15 = result, (int)result >= 0) )
-            {
-              if ( (v16 & 4) == 0 )
-                return v15;
-              result = RtlpCopyKernelCetChunk(1, v6, v6, v7, v7);
-              v15 = result;
-              if ( (int)result >= 0 )
-                return v15;
-            }
+            if ( (v17 & 2) == 0 )
+              return v16;
+            result = RtlpCopyXStateChunk(1, v6, v6, v7, v7);
+            v16 = result;
+            if ( (int)result >= 0 )
+              return v16;
           }
         }
       }

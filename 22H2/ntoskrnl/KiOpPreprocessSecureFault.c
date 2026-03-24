@@ -1,41 +1,25 @@
 /*
- * XREFs of KiOpPreprocessSecureFault @ 0x14056CDF4
+ * XREFs of KiOpPreprocessSecureFault @ 0x140514B40
  * Callers:
- *     KiPreprocessFault @ 0x14030DD94 (KiPreprocessFault.c)
+ *     KiPreprocessFault @ 0x14033C940 (KiPreprocessFault.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-char __fastcall KiOpPreprocessSecureFault(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, _QWORD *a3)
+char __fastcall KiOpPreprocessSecureFault(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
-  struct _KPRCB *CurrentPrcb; // r9
-  ULONG_PTR v4; // rax
-  ULONG_PTR v5; // rbx
-  __int64 v6; // r11
+  ULONG_PTR v3; // rdx
 
-  if ( !VslVsmEnabled || *(_DWORD *)(BugCheckParameter3 + 24) != 3 )
-    KeBugCheckEx(0x12u, 4uLL, BugCheckParameter3, BugCheckParameter4, *(_QWORD *)(BugCheckParameter3 + 32));
-  CurrentPrcb = KeGetCurrentPrcb();
-  v4 = *(_QWORD *)(BugCheckParameter3 + 32);
-  v5 = *(_QWORD *)(BugCheckParameter3 + 40);
-  v6 = *(_QWORD *)(BugCheckParameter3 + 48);
-  if ( a3 )
-    *a3 = -1LL;
-  if ( v4 != 1 && v4 != 2 && v4 != 4 )
-    KeBugCheckEx(0x18Du, v4, v5, BugCheckParameter3, BugCheckParameter4);
-  *(_QWORD *)(BugCheckParameter3 + 48) = 0LL;
-  *(_DWORD *)BugCheckParameter3 = 268435460;
-  *(_DWORD *)(BugCheckParameter3 + 24) = 2;
-  if ( v4 == 1 )
-  {
-    *(_QWORD *)(BugCheckParameter3 + 32) = 8LL;
-  }
+  if ( !VslVsmEnabled || *(_DWORD *)(BugCheckParameter2 + 24) != 2 )
+    KeBugCheckEx(0x12u, 4uLL, BugCheckParameter2, BugCheckParameter3, *(_QWORD *)(BugCheckParameter2 + 32));
+  v3 = *(_QWORD *)(BugCheckParameter2 + 32);
+  if ( !v3 || v3 > 2 && v3 != 4 )
+    KeBugCheckEx(0x18Du, v3, *(_QWORD *)(BugCheckParameter2 + 40), BugCheckParameter2, BugCheckParameter3);
+  *(_DWORD *)BugCheckParameter2 = 268435460;
+  *(_DWORD *)(BugCheckParameter2 + 24) = 2;
+  if ( v3 == 1 )
+    *(_QWORD *)(BugCheckParameter2 + 32) = 8LL;
   else
-  {
-    *(_QWORD *)(BugCheckParameter3 + 32) = v4 != 2;
-    if ( a3 )
-      *a3 = v6;
-  }
-  _InterlockedIncrement64((volatile signed __int64 *)&CurrentPrcb->NumberOfSecureFaults);
+    *(_QWORD *)(BugCheckParameter2 + 32) = v3 != 2;
   return 0;
 }

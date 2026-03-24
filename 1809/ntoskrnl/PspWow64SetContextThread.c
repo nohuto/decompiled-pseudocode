@@ -1,23 +1,23 @@
 /*
- * XREFs of PspWow64SetContextThread @ 0x1406A89DC
+ * XREFs of PspWow64SetContextThread @ 0x1406A89BC
  * Callers:
  *     NtSetInformationThread @ 0x1405E9EA0 (NtSetInformationThread.c)
- *     WbSetWowTrapFrame @ 0x1408E554C (WbSetWowTrapFrame.c)
+ *     WbSetWowTrapFrame @ 0x1408E552C (WbSetWowTrapFrame.c)
  * Callees:
  *     RtlGetExtendedContextLength @ 0x1400A1D44 (RtlGetExtendedContextLength.c)
  *     RtlInitializeExtendedContext @ 0x1400A1D9C (RtlInitializeExtendedContext.c)
- *     PsGetThreadTeb @ 0x140123AC0 (PsGetThreadTeb.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _alloca_probe @ 0x1401C5DA0 (_alloca_probe.c)
+ *     PsGetThreadTeb @ 0x140123AE0 (PsGetThreadTeb.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1401C5DC0 (_alloca_probe.c)
  *     PspSetContextThreadInternal @ 0x140620A30 (PspSetContextThreadInternal.c)
  *     PspGetContextThreadInternal @ 0x140620C00 (PspGetContextThreadInternal.c)
  *     RtlCopyContext @ 0x140620E78 (RtlCopyContext.c)
  *     RtlpReadExtendedContext @ 0x140620F80 (RtlpReadExtendedContext.c)
- *     RtlpWow64SanitizeContextFlags @ 0x1406A8D4C (RtlpWow64SanitizeContextFlags.c)
- *     PspWow64ReadOrWriteThreadCpuArea @ 0x1406A8D94 (PspWow64ReadOrWriteThreadCpuArea.c)
- *     EtwTiLogSetContextThread @ 0x1406A91A0 (EtwTiLogSetContextThread.c)
- *     RtlpWow64SetContextOnAmd64 @ 0x1406A922C (RtlpWow64SetContextOnAmd64.c)
- *     RtlGuardIsValidWow64StackPointer @ 0x1406A955C (RtlGuardIsValidWow64StackPointer.c)
+ *     RtlpWow64SanitizeContextFlags @ 0x1406A8D2C (RtlpWow64SanitizeContextFlags.c)
+ *     PspWow64ReadOrWriteThreadCpuArea @ 0x1406A8D74 (PspWow64ReadOrWriteThreadCpuArea.c)
+ *     EtwTiLogSetContextThread @ 0x1406A9180 (EtwTiLogSetContextThread.c)
+ *     RtlpWow64SetContextOnAmd64 @ 0x1406A920C (RtlpWow64SetContextOnAmd64.c)
+ *     RtlGuardIsValidWow64StackPointer @ 0x1406A953C (RtlGuardIsValidWow64StackPointer.c)
  */
 
 __int64 __fastcall PspWow64SetContextThread(PETHREAD Thread, _DWORD *a2, int a3, char a4)

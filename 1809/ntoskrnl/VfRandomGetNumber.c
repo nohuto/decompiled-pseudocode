@@ -5,7 +5,7 @@
  *     VfFaultsInjectResourceFailure @ 0x140938308 (VfFaultsInjectResourceFailure.c)
  *     ViInitPickRandomTargets @ 0x1409DB108 (ViInitPickRandomTargets.c)
  * Callees:
- *     RtlRandomEx @ 0x14013DAA0 (RtlRandomEx.c)
+ *     RtlRandomEx @ 0x14013DAC0 (RtlRandomEx.c)
  */
 
 ULONG __fastcall VfRandomGetNumber(unsigned int a1, unsigned int a2)

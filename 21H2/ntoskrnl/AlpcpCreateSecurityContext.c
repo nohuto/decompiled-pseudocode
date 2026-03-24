@@ -1,27 +1,27 @@
 /*
- * XREFs of AlpcpCreateSecurityContext @ 0x1407A74A4
+ * XREFs of AlpcpCreateSecurityContext @ 0x1406605EC
  * Callers:
- *     NtAlpcCreateSecurityContext @ 0x1407A56B0 (NtAlpcCreateSecurityContext.c)
- *     AlpcpCaptureSecurityAttributeInternal @ 0x1407A817C (AlpcpCaptureSecurityAttributeInternal.c)
- *     AlpcCreateSecurityContext @ 0x1409662A0 (AlpcCreateSecurityContext.c)
+ *     AlpcpCaptureSecurityAttributeInternal @ 0x140660844 (AlpcpCaptureSecurityAttributeInternal.c)
+ *     NtAlpcCreateSecurityContext @ 0x140662590 (NtAlpcCreateSecurityContext.c)
+ *     AlpcCreateSecurityContext @ 0x1408C22C0 (AlpcCreateSecurityContext.c)
  * Callees:
- *     IoThreadToProcess @ 0x1402321F0 (IoThreadToProcess.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SeCreateClientSecurity @ 0x1407271D0 (SeCreateClientSecurity.c)
- *     AlpcAddHandleTableEntry @ 0x1407A5530 (AlpcAddHandleTableEntry.c)
- *     AlpcpEndInitialization @ 0x1407A5668 (AlpcpEndInitialization.c)
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
- *     AlpcpInsertResourcePort @ 0x1407A6950 (AlpcpInsertResourcePort.c)
- *     AlpcpReleasePagedPoolQuota @ 0x1407A7378 (AlpcpReleasePagedPoolQuota.c)
- *     AlpcpAllocateBlob @ 0x1407A73B0 (AlpcpAllocateBlob.c)
- *     AlpcpChargePagedPoolQuota @ 0x1407A7464 (AlpcpChargePagedPoolQuota.c)
- *     AlpcpReferenceBlob @ 0x1407A7F84 (AlpcpReferenceBlob.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     IoThreadToProcess @ 0x140205700 (IoThreadToProcess.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x14061FB44 (AlpcpReleasePagedPoolQuota.c)
+ *     SeCreateClientSecurity @ 0x14065DD70 (SeCreateClientSecurity.c)
+ *     AlpcpReferenceBlob @ 0x140660A14 (AlpcpReferenceBlob.c)
+ *     AlpcpChargePagedPoolQuota @ 0x140660A4C (AlpcpChargePagedPoolQuota.c)
+ *     AlpcpAllocateBlob @ 0x140660A8C (AlpcpAllocateBlob.c)
+ *     AlpcpInsertResourcePort @ 0x140660DCC (AlpcpInsertResourcePort.c)
+ *     AlpcpEndInitialization @ 0x140662784 (AlpcpEndInitialization.c)
+ *     AlpcAddHandleTableEntry @ 0x1406627C8 (AlpcAddHandleTableEntry.c)
  */
 
 __int64 __fastcall AlpcpCreateSecurityContext(
@@ -34,20 +34,20 @@ __int64 __fastcall AlpcpCreateSecurityContext(
   struct _KPROCESS *v9; // rdi
   void *Blob; // rax
   ULONG_PTR v11; // rbx
-  int ClientSecurity; // ebp
-  volatile signed __int64 *v14; // rdi
-  __int64 v15; // rcx
-  __int64 v16; // rax
+  NTSTATUS ClientSecurity; // ebp
+  volatile signed __int64 *v13; // rdi
+  __int64 v14; // rcx
+  __int64 v15; // rax
   ULONG_PTR v17[7]; // [rsp+20h] [rbp-38h] BYREF
 
   v9 = IoThreadToProcess(ClientThread);
-  Blob = (void *)AlpcpAllocateBlob((__int64)AlpcSecurityType, 112LL, 0);
+  Blob = (void *)AlpcpAllocateBlob(AlpcSecurityType, 112LL, 0LL);
   v11 = (ULONG_PTR)Blob;
   if ( !Blob )
     return 3221225626LL;
   memset(Blob, 0, 0x70uLL);
   *(_QWORD *)(v11 + 8) = -1LL;
-  ClientSecurity = AlpcpChargePagedPoolQuota(v9, 0xA0uLL);
+  ClientSecurity = AlpcpChargePagedPoolQuota(v9, 160LL);
   if ( ClientSecurity >= 0 )
   {
     ClientSecurity = SeCreateClientSecurity(ClientThread, a4, 0, (PSECURITY_CLIENT_CONTEXT)(v11 + 32));
@@ -61,34 +61,34 @@ __int64 __fastcall AlpcpCreateSecurityContext(
       *(_QWORD *)(v11 + 16) = v9;
       if ( !a3 )
       {
-LABEL_5:
+LABEL_10:
         *a5 = v11;
         return 0LL;
       }
-      v14 = Object + 44;
+      v13 = Object + 44;
       ExAcquirePushLockSharedEx((ULONG_PTR)(Object + 44), 0LL);
       if ( (Object[52] & 0x20) == 0 )
       {
         ExAcquirePushLockExclusiveEx(v11 - 16, 0LL);
         *(_BYTE *)(v11 - 32) |= 4u;
         AlpcpReferenceBlob(v11);
-        v15 = *((_QWORD *)Object + 2) + 40LL;
+        v14 = *((_QWORD *)Object + 2) + 40LL;
         v17[0] = v11;
-        *(_QWORD *)v11 = v15;
-        v16 = AlpcAddHandleTableEntry(v15, v17);
-        *(_QWORD *)(v11 + 8) = v16;
-        if ( v16 != -1 )
+        *(_QWORD *)v11 = v14;
+        v15 = AlpcAddHandleTableEntry(v14, v17);
+        *(_QWORD *)(v11 + 8) = v15;
+        if ( v15 != -1 )
         {
           ObfReferenceObject((PVOID)Object);
           *(_QWORD *)(v11 + 24) = Object;
-          AlpcpInsertResourcePort((__int64)Object, v11);
-          if ( _InterlockedCompareExchange64(v14, 0LL, 17LL) != 17 )
+          AlpcpInsertResourcePort(Object, v11);
+          if ( _InterlockedCompareExchange64(v13, 0LL, 17LL) != 17 )
             ExfReleasePushLockShared((signed __int64 *)Object + 44);
           KeAbPostRelease((ULONG_PTR)(Object + 44));
           AlpcpEndInitialization(v11);
-          goto LABEL_5;
+          goto LABEL_10;
         }
-        if ( _InterlockedCompareExchange64(v14, 0LL, 17LL) != 17 )
+        if ( _InterlockedCompareExchange64(v13, 0LL, 17LL) != 17 )
           ExfReleasePushLockShared((signed __int64 *)Object + 44);
         KeAbPostRelease((ULONG_PTR)(Object + 44));
         *(_QWORD *)v11 = 0LL;
@@ -96,7 +96,7 @@ LABEL_5:
         AlpcpDereferenceBlobEx(v11, 2);
         return 3221225626LL;
       }
-      if ( _InterlockedCompareExchange64(v14, 0LL, 17LL) != 17 )
+      if ( _InterlockedCompareExchange64(v13, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared((signed __int64 *)Object + 44);
       KeAbPostRelease((ULONG_PTR)(Object + 44));
       ClientSecurity = -1073741670;

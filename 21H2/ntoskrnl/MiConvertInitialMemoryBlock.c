@@ -1,10 +1,10 @@
 /*
- * XREFs of MiConvertInitialMemoryBlock @ 0x14081E03C
+ * XREFs of MiConvertInitialMemoryBlock @ 0x1407CB784
  * Callers:
- *     MiMakePartitionMemoryBlock @ 0x140981F58 (MiMakePartitionMemoryBlock.c)
- *     MiInitNucleus @ 0x140AF47DC (MiInitNucleus.c)
+ *     MiMakePartitionMemoryBlock @ 0x1408DB580 (MiMakePartitionMemoryBlock.c)
+ *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
  */
 
 char *__fastcall MiConvertInitialMemoryBlock(__int64 a1, __int64 a2)

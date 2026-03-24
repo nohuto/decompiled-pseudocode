@@ -1,5 +1,5 @@
 /*
- * XREFs of ?EntryRemoved@FxRelatedDeviceList@@MEAAXPEAUFxTransactionedEntry@@@Z @ 0x1C0091630
+ * XREFs of ?EntryRemoved@FxRelatedDeviceList@@MEAAXPEAUFxTransactionedEntry@@@Z @ 0x1C0091480
  * Callers:
  *     <none>
  * Callees:

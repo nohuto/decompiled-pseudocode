@@ -1,103 +1,117 @@
 /*
- * XREFs of HalpInterruptSetRemappedDestinationHv @ 0x1405046CC
+ * XREFs of HalpInterruptSetRemappedDestinationHv @ 0x1404BB810
  * Callers:
- *     HalpInterruptSetDestination @ 0x14031F770 (HalpInterruptSetDestination.c)
+ *     HalpInterruptSetDestination @ 0x140378400 (HalpInterruptSetDestination.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     HalpInterruptFindControllerAndLineState @ 0x14031FC08 (HalpInterruptFindControllerAndLineState.c)
- *     HalpInterruptGsiToLine @ 0x14031FD30 (HalpInterruptGsiToLine.c)
- *     HalpInterruptSetLineStateInternal @ 0x14037D080 (HalpInterruptSetLineStateInternal.c)
- *     HalpAcquireHighLevelLock @ 0x14037D1C8 (HalpAcquireHighLevelLock.c)
- *     HalpHvRetargetDeviceMsiInterrupt @ 0x14050BBCC (HalpHvRetargetDeviceMsiInterrupt.c)
- *     HalpHvRetargetIoApicDeviceInterrupt @ 0x14050BC48 (HalpHvRetargetIoApicDeviceInterrupt.c)
- *     HalpInterruptSetProblemEx @ 0x14051AAC8 (HalpInterruptSetProblemEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14037861C (HalpInterruptSetLineStateInternal.c)
+ *     HalpAcquireHighLevelLock @ 0x140378990 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptGsiToLine @ 0x1403789CC (HalpInterruptGsiToLine.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpInterruptFindControllerAndLineState @ 0x1404BB584 (HalpInterruptFindControllerAndLineState.c)
+ *     HalpHvRetargetDeviceMsiInterrupt @ 0x1404C29DC (HalpHvRetargetDeviceMsiInterrupt.c)
+ *     HalpHvRetargetIoApicDeviceInterrupt @ 0x1404C2A58 (HalpHvRetargetIoApicDeviceInterrupt.c)
  */
 
 __int64 __fastcall HalpInterruptSetRemappedDestinationHv(unsigned int *a1, int *a2, __int64 a3)
 {
+  int v3; // ebx
   int v5; // eax
-  int v6; // eax
-  unsigned int v7; // ebx
+  unsigned int v6; // ebx
   int ControllerAndLineState; // eax
-  __int64 v9; // rsi
-  int v10; // eax
+  int v8; // edx
+  ULONG_PTR *v9; // rcx
+  ULONG_PTR *v10; // rdi
   int v11; // eax
-  unsigned __int64 v12; // rdi
-  unsigned __int8 CurrentIrql; // cl
+  int v12; // eax
+  unsigned __int64 v13; // rsi
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v16; // eax
-  bool v17; // zf
-  __int64 v19; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v20; // [rsp+38h] [rbp-8h] BYREF
-  char v21; // [rsp+68h] [rbp+28h] BYREF
-  __int64 v22; // [rsp+78h] [rbp+38h] BYREF
+  int v17; // eax
+  bool v18; // zf
+  __int64 v20; // [rsp+30h] [rbp-10h] BYREF
+  __int64 v21; // [rsp+38h] [rbp-8h] BYREF
+  char v22; // [rsp+68h] [rbp+28h] BYREF
+  ULONG_PTR *v23; // [rsp+78h] [rbp+38h] BYREF
 
-  v22 = 0LL;
+  v23 = 0LL;
+  v3 = a3;
+  v21 = 0LL;
   v20 = 0LL;
-  v19 = 0LL;
   v5 = *a2;
-  v21 = 0;
+  v22 = 0;
   if ( v5 )
   {
     if ( v5 == 3 )
     {
       v6 = HalpHvRetargetDeviceMsiInterrupt(a2, a3);
-      v7 = v6;
-      if ( v6 < 0 )
-        HalpInterruptSetProblemEx(0, 37, v6, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", 723);
-      return v7;
+      if ( (v6 & 0x80000000) != 0 )
+        HalpInterruptLastProblem = 37;
+      return v6;
     }
     return (unsigned int)-1073741811;
   }
   if ( !a1 )
     return (unsigned int)-1073741811;
-  ControllerAndLineState = HalpInterruptFindControllerAndLineState(*a1, &v22, &v19);
+  ControllerAndLineState = HalpInterruptFindControllerAndLineState(*a1, &v23, &v20);
   if ( ControllerAndLineState < 0 )
   {
-    HalpInterruptSetProblemEx(
-      v22,
-      18,
-      ControllerAndLineState,
-      (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c",
-      741);
+    v9 = v23;
+    HalpInterruptLastProblem = 18;
+    if ( v23 )
+    {
+      *((_DWORD *)v23 + 74) = ControllerAndLineState;
+      v9[38] = (ULONG_PTR)"minkernel\\hals\\lib\\interrupts\\common\\connect.c";
+      *((_DWORD *)v9 + 73) = 18;
+      *((_DWORD *)v9 + 78) = 727;
+    }
     return (unsigned int)-1073741811;
   }
-  v9 = v22;
-  v10 = HalpHvRetargetIoApicDeviceInterrupt(*(unsigned int *)(v22 + 256), v19, a3, &v21);
-  v7 = v10;
-  if ( v10 < 0 )
+  v10 = v23;
+  v11 = HalpHvRetargetIoApicDeviceInterrupt(*((_DWORD *)v23 + 58), v8, v20, v3, (__int64)&v22);
+  v6 = v11;
+  if ( v11 < 0 )
   {
-    HalpInterruptSetProblemEx(v9, 37, v10, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", 755);
-    return v7;
+    *((_DWORD *)v10 + 74) = v11;
+    v10[38] = (ULONG_PTR)"minkernel\\hals\\lib\\interrupts\\common\\connect.c";
+    HalpInterruptLastProblem = 37;
+    *((_DWORD *)v10 + 73) = 37;
+    *((_DWORD *)v10 + 78) = 742;
+    return v6;
   }
-  if ( v21 )
+  if ( !v22 )
+    return v6;
+  v12 = HalpInterruptGsiToLine(*a1, &v21);
+  if ( v12 < 0 )
   {
-    v11 = HalpInterruptGsiToLine(*a1, &v20);
-    if ( v11 < 0 )
-    {
-      HalpInterruptSetProblemEx(v9, 18, v11, (unsigned int)"minkernel\\hals\\lib\\interrupts\\common\\connect.c", 769);
-      return (unsigned int)-1073741811;
-    }
-    v12 = HalpAcquireHighLevelLock(&HalpInterruptLock);
-    v7 = HalpInterruptSetLineStateInternal(v9, (__int64)&v20, v19);
-    KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
-    if ( KiIrqlFlags )
+    *((_DWORD *)v10 + 74) = v12;
+    HalpInterruptLastProblem = 18;
+    v10[38] = (ULONG_PTR)"minkernel\\hals\\lib\\interrupts\\common\\connect.c";
+    *((_DWORD *)v10 + 73) = 18;
+    *((_DWORD *)v10 + 78) = 756;
+    return (unsigned int)-1073741811;
+  }
+  v13 = HalpAcquireHighLevelLock(&HalpInterruptLock);
+  v6 = HalpInterruptSetLineStateInternal((__int64)v10, (__int64)&v21, v20);
+  KxReleaseSpinLock(&HalpInterruptLock);
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
-        v17 = (v16 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v16;
-        if ( v17 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
+        v18 = (v17 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v17;
+        if ( v18 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
-    __writecr8(v12);
   }
-  return v7;
+  __writecr8(v13);
+  return v6;
 }

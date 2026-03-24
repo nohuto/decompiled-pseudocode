@@ -1,36 +1,36 @@
 /*
- * XREFs of ?TranslateUmdFileNameToVmMultiString@@YAJPEAGIPEAK@Z @ 0x1C02D070C
+ * XREFs of ?TranslateUmdFileNameToVmMultiString@@YAJPEAGIPEAK@Z @ 0x1C0222F40
  * Callers:
- *     ?PostProcessUMDFileName@@YAJW4_KMTQUERYADAPTERINFOTYPE@@PEAXI@Z @ 0x1C02CFE4C (-PostProcessUMDFileName@@YAJW4_KMTQUERYADAPTERINFOTYPE@@PEAXI@Z.c)
- *     ?VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z @ 0x1C0389F28 (-VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z.c)
+ *     ?PostProcessUMDFileName@@YAJW4_KMTQUERYADAPTERINFOTYPE@@PEAXI@Z @ 0x1C02228A8 (-PostProcessUMDFileName@@YAJW4_KMTQUERYADAPTERINFOTYPE@@PEAXI@Z.c)
+ *     ?VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z @ 0x1C0249868 (-VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?TranslateUmdFileNameToVm@@YAJPEAGIPEAK@Z @ 0x1C02D05FC (-TranslateUmdFileNameToVm@@YAJPEAGIPEAK@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?TranslateUmdFileNameToVm@@YAJPEAGIPEAK@Z @ 0x1C0222E20 (-TranslateUmdFileNameToVm@@YAJPEAGIPEAK@Z.c)
  */
 
 __int64 __fastcall TranslateUmdFileNameToVmMultiString(unsigned __int16 *a1, int a2, unsigned int *a3)
 {
   __int64 v3; // rbp
-  _QWORD *v6; // rbx
-  _QWORD *v7; // r15
-  int v8; // esi
-  unsigned int v9; // edi
-  __int64 v10; // rax
-  unsigned int v11; // edx
-  unsigned __int16 *v12; // r8
-  unsigned __int16 v13; // r9
-  unsigned int v14; // edx
-  _QWORD *v15; // r8
-  __int64 v16; // r9
-  __int64 v17; // rax
-  unsigned __int16 v18; // cx
-  __int64 v19; // rax
+  _QWORD *v6; // rdi
+  _QWORD *v7; // r12
+  int v8; // r14d
+  unsigned int v9; // esi
+  char *v10; // rax
+  char *v11; // rbx
+  unsigned int v12; // edx
+  unsigned __int16 *v13; // r8
+  unsigned __int16 v14; // r9
+  unsigned int v15; // edx
+  _QWORD *v16; // r8
+  __int64 v17; // r9
+  __int64 v18; // rax
+  __int64 v19; // rcx
   __int64 v20; // rax
-  int v21; // edi
+  int v21; // ebx
   void *v22; // rcx
   __int64 v23; // rax
-  int v24; // edi
+  int v24; // ebx
 
   v3 = (unsigned int)(a2 - 1);
   v6 = 0LL;
@@ -44,38 +44,46 @@ __int64 __fastcall TranslateUmdFileNameToVmMultiString(unsigned __int16 *a1, int
     {
       if ( a1[v9] )
       {
-        v10 = operator new[](0x210uLL, 0x4B677844u, 256LL);
-        if ( !v10 )
+        v10 = (char *)operator new[](0x210uLL, 0x4B677844u, PagedPool);
+        v11 = v10;
+        if ( v10 )
+        {
+          *(_QWORD *)v10 = 0LL;
+          *((_WORD *)v10 + 263) = 0;
+        }
+        else
+        {
+          v11 = 0LL;
+        }
+        if ( !v11 )
         {
           v8 = -1073741801;
-          goto LABEL_21;
+          goto LABEL_25;
         }
-        *(_QWORD *)v10 = 0LL;
-        *(_WORD *)(v10 + 526) = 0;
         if ( v6 )
-          *v7 = v10;
+          *v7 = v11;
         else
-          v6 = (_QWORD *)v10;
-        v11 = 0;
-        v12 = (unsigned __int16 *)(v10 + 8);
-        v7 = (_QWORD *)v10;
+          v6 = v11;
+        v12 = 0;
+        v13 = (unsigned __int16 *)(v11 + 8);
         do
         {
-          v13 = a1[v9];
-          if ( !v13 )
+          v14 = a1[v9];
+          if ( !v14 )
             break;
           if ( v9 >= (unsigned int)v3 )
             break;
-          *v12 = v13;
-          ++v9;
+          *v13 = v14;
           ++v12;
-          ++v11;
+          ++v13;
+          ++v9;
         }
-        while ( v11 < 0x103 );
-        *(_WORD *)(v10 + 2LL * v11 + 8) = 0;
-        v8 = TranslateUmdFileNameToVm((size_t *)(v10 + 8), 0x104u, 0LL);
+        while ( v12 < 0x103 );
+        *(_WORD *)&v11[2 * v12 + 8] = 0;
+        v8 = TranslateUmdFileNameToVm((size_t *)v11 + 1, 0x104u, 0LL);
+        v7 = v11;
         if ( v8 < 0 )
-          goto LABEL_21;
+          goto LABEL_25;
       }
       else
       {
@@ -84,40 +92,36 @@ __int64 __fastcall TranslateUmdFileNameToVmMultiString(unsigned __int16 *a1, int
     }
     while ( v9 < (unsigned int)v3 );
   }
-  v14 = 0;
-  v15 = v6;
-  if ( !v6 )
+  v15 = 0;
+  v16 = v6;
+  if ( v6 )
   {
+    while ( 1 )
+    {
+      LODWORD(v17) = 0;
+      if ( *((_WORD *)v16 + 4) )
+        break;
 LABEL_21:
-    v21 = 0;
-    goto LABEL_27;
+      v20 = v15++;
+      a1[v20] = 0;
+      v16 = (_QWORD *)*v16;
+      if ( !v16 )
+        goto LABEL_25;
+    }
+    while ( v15 < (unsigned int)v3 )
+    {
+      v18 = (unsigned int)v17;
+      v17 = (unsigned int)(v17 + 1);
+      v19 = v15++;
+      a1[v19] = *((_WORD *)v16 + v18 + 4);
+      if ( !*((_WORD *)v16 + v17 + 4) )
+        goto LABEL_21;
+    }
+    v8 = -2147483643;
   }
-  while ( 1 )
-  {
-    LODWORD(v16) = 0;
-    if ( *((_WORD *)v15 + 4) )
-      break;
-LABEL_18:
-    v20 = v14++;
-    a1[v20] = 0;
-    v15 = (_QWORD *)*v15;
-    if ( !v15 )
-      goto LABEL_23;
-  }
-  while ( v14 < (unsigned int)v3 )
-  {
-    v17 = (unsigned int)v16;
-    v16 = (unsigned int)(v16 + 1);
-    v18 = *((_WORD *)v15 + v17 + 4);
-    v19 = v14++;
-    a1[v19] = v18;
-    if ( !*((_WORD *)v15 + v16 + 4) )
-      goto LABEL_18;
-  }
-  v8 = -2147483643;
-LABEL_23:
+LABEL_25:
   v21 = 0;
-  do
+  while ( v6 )
   {
     v22 = v6;
     v23 = -1LL;
@@ -127,10 +131,7 @@ LABEL_23:
     v6 = (_QWORD *)*v6;
     v21 += v23 + 1;
     operator delete(v22);
-LABEL_27:
-    ;
   }
-  while ( v6 );
   v24 = 2 * v21 + 2;
   if ( (int)(v8 + 0x80000000) < 0 || v8 == -2147483643 )
     *a3 = v24;

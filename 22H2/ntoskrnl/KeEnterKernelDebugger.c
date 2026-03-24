@@ -1,17 +1,16 @@
 /*
- * XREFs of KeEnterKernelDebugger @ 0x140569410
+ * XREFs of KeEnterKernelDebugger @ 0x140517960
  * Callers:
  *     <none>
  * Callees:
- *     KiBugCheckDebugBreak @ 0x140569800 (KiBugCheckDebugBreak.c)
- *     KdInitSystem @ 0x140AB2040 (KdInitSystem.c)
+ *     KiBugCheckDebugBreak @ 0x140517D60 (KiBugCheckDebugBreak.c)
+ *     KdInitSystem @ 0x1409B5160 (KdInitSystem.c)
  */
 
 __int64 KeEnterKernelDebugger()
 {
   unsigned __int8 CurrentIrql; // cl
-  _DWORD *SchedulerAssist; // r10
-  __int64 v2; // r8
+  _DWORD *SchedulerAssist; // r9
 
   _InterlockedExchange(&KiHardwareTrigger, 1);
   _disable();
@@ -20,13 +19,9 @@ __int64 KeEnterKernelDebugger()
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 15 )
-      LODWORD(v2) = 0x8000;
-    else
-      v2 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-    SchedulerAssist[5] |= v2;
+    SchedulerAssist[5] |= ~((unsigned __int16)(1LL << (CurrentIrql + 1)) - 1) & 0xFFFC;
   }
-  if ( !(_BYTE)KdDebuggerEnabled && !KdPitchDebugger && !_InterlockedExchange(&dword_140D18568, 1) )
+  if ( !(_BYTE)KdDebuggerEnabled && !KdPitchDebugger && !_InterlockedExchange(&dword_140CFA2AC, 1) )
     KdInitSystem(0LL, 0LL);
   return KiBugCheckDebugBreak(5u);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of IoProcessPassiveInterrupts @ 0x140560798
+ * XREFs of IoProcessPassiveInterrupts @ 0x14050D054
  * Callers:
- *     KiDispatchPassiveInterrupts @ 0x14045B710 (KiDispatchPassiveInterrupts.c)
- *     KiInterruptDispatchCommon @ 0x140575CD8 (KiInterruptDispatchCommon.c)
+ *     KiDispatchPassiveInterrupts @ 0x140521390 (KiDispatchPassiveInterrupts.c)
+ *     KiInterruptDispatchCommon @ 0x140521428 (KiInterruptDispatchCommon.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiInsertQueueDpc @ 0x140345190 (KiInsertQueueDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     IopAcquirePassiveInterruptBlockLock @ 0x140459EC8 (IopAcquirePassiveInterruptBlockLock.c)
- *     IopFindPassiveInterruptBlock @ 0x1405609F8 (IopFindPassiveInterruptBlock.c)
+ *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     IopAcquirePassiveInterruptBlockLock @ 0x14050D1B4 (IopAcquirePassiveInterruptBlockLock.c)
+ *     IopFindPassiveInterruptBlock @ 0x14050D3A8 (IopFindPassiveInterruptBlock.c)
  */
 
 __int64 IoProcessPassiveInterrupts()
@@ -30,7 +30,7 @@ __int64 IoProcessPassiveInterrupts()
   if ( result )
   {
     if ( !*(_DWORD *)(result + 32) )
-      ((void (__fastcall *)(_QWORD, __int64))off_140C01DC0[0])(*(unsigned int *)(result + 24), 1LL);
+      ((void (__fastcall *)(_QWORD, __int64))off_140C00770[0])(*(unsigned int *)(result + 24), 1LL);
     IopAcquirePassiveInterruptBlockLock(v1, &v8);
     v2 = *(_BYTE *)(v1 + 64) == 0;
     *(_BYTE *)(v1 + 65) = 1;

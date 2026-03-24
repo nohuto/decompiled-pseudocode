@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBREG_QueryExtPropDescSemaphoreInDeviceHardwareKey @ 0x1C0084F98
+ * XREFs of HUBREG_QueryExtPropDescSemaphoreInDeviceHardwareKey @ 0x1C007F4C8
  * Callers:
- *     HUBDSM_CheckingIfMSOSExtendedPropertyDescriptorShouldBeQueried @ 0x1C0024740 (HUBDSM_CheckingIfMSOSExtendedPropertyDescriptorShouldBeQueried.c)
+ *     HUBDSM_CheckingIfMSOSExtendedPropertyDescriptorShouldBeQueried @ 0x1C0021F60 (HUBDSM_CheckingIfMSOSExtendedPropertyDescriptorShouldBeQueried.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBREG_QueryExtPropDescSemaphoreInDeviceHardwareKey(__int64 a1)
@@ -61,7 +61,7 @@ __int64 __fastcall HUBREG_QueryExtPropDescSemaphoreInDeviceHardwareKey(__int64 a
       2u,
       5u,
       0x52u,
-      (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
+      (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
       v8);
   }
   v6 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
@@ -82,7 +82,7 @@ __int64 __fastcall HUBREG_QueryExtPropDescSemaphoreInDeviceHardwareKey(__int64 a
       2u,
       5u,
       0x53u,
-      (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
+      (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
       v9);
   }
   _InterlockedAnd((volatile signed __int32 *)(a1 + 1632), 0xFFFFFDFF);
@@ -106,7 +106,7 @@ LABEL_22:
                2u,
                5u,
                v4,
-               (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
+               (__int64)&WPP_bb780d5c926432a673b7a78c72bdde31_Traceguids,
                v7);
     goto LABEL_23;
   }

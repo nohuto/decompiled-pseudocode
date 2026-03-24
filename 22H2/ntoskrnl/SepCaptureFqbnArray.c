@@ -1,94 +1,87 @@
 /*
- * XREFs of SepCaptureFqbnArray @ 0x1409CD830
+ * XREFs of SepCaptureFqbnArray @ 0x140920C04
  * Callers:
- *     SepCaptureTokenSecurityAttributesInformation @ 0x1407F1020 (SepCaptureTokenSecurityAttributesInformation.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x1406EEC68 (SepCaptureTokenSecurityAttributesInformation.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepCaptureFqbnArray(char *Src, unsigned int a2, __int64 a3, _QWORD *a4)
 {
-  size_t v5; // r12
-  __int64 v6; // r15
-  unsigned int v7; // edi
-  __int64 result; // rax
-  unsigned __int16 *Pool2; // rbx
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  unsigned int v12; // r15d
-  unsigned int v13; // ecx
-  _QWORD *v14; // rax
-  _QWORD *v15; // r14
-  char *v16; // rsi
-  unsigned int i; // edi
-  __int64 v18; // rax
-  unsigned __int64 v19; // rcx
+  size_t v6; // rbx
+  unsigned __int16 *PoolWithTag; // rdi
+  SIZE_T v9; // rdx
+  unsigned int i; // r8d
+  unsigned int v11; // ecx
+  _QWORD *v12; // rax
+  _QWORD *v13; // r14
+  unsigned int v14; // ebx
+  char *v15; // rsi
+  unsigned int j; // ebx
+  __int64 v17; // rcx
+  unsigned __int64 v18; // rdx
 
-  v5 = 24LL * a2;
-  v6 = 0xFFFFFFFFLL;
-  if ( v5 <= 0xFFFFFFFF )
-    v6 = (unsigned int)v5;
-  v7 = -1073741675;
-  result = v5 > 0xFFFFFFFF ? 0xC0000095 : 0;
-  if ( v5 <= 0xFFFFFFFF )
+  v6 = 24LL * a2;
+  if ( v6 > 0xFFFFFFFF )
+    return 3221225621LL;
+  PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v6, 0x74416553u);
+  if ( !PoolWithTag )
+    return 3221225626LL;
+  if ( (_DWORD)v6 )
   {
-    Pool2 = (unsigned __int16 *)ExAllocatePool2(256LL, (unsigned int)v6, 1950442835LL);
-    if ( !Pool2 )
-      return 3221225626LL;
-    if ( (_DWORD)v6 )
-    {
-      if ( ((unsigned __int8)Src & 3) != 0 )
-        ExRaiseDatatypeMisalignment();
-      if ( (unsigned __int64)&Src[v6] > 0x7FFFFFFF0000LL || &Src[v6] < Src )
-        MEMORY[0x7FFFFFFF0000] = 0;
-    }
-    memmove(Pool2, Src, (unsigned int)v6);
-    if ( ((v6 + 1) & 0xFFFFFFFFFFFFFFFEuLL) < (unsigned int)v6 )
-      goto LABEL_19;
-    v10 = ((_DWORD)v6 + 1) & 0xFFFFFFFE;
-    v11 = 0LL;
-    v12 = a2;
-    while ( (unsigned int)v11 < a2 )
-    {
-      v13 = v10 + Pool2[12 * v11 + 4];
-      if ( v13 < (unsigned int)v10 )
-        goto LABEL_19;
-      v10 = v13;
-      v11 = (unsigned int)(v11 + 1);
-    }
-    v14 = (_QWORD *)ExAllocatePool2(256LL, v10, 1950442835LL);
-    v15 = v14;
-    if ( !v14 )
-    {
-      v7 = -1073741670;
-LABEL_19:
-      ExFreePoolWithTag(Pool2, 0);
-      return v7;
-    }
-    memmove(v14, Pool2, v5);
-    v16 = (char *)(((unsigned __int64)&v15[v5 / 8] + 1) & 0xFFFFFFFFFFFFFFFEuLL);
-    for ( i = 0; i < v12; ++i )
-    {
-      v18 = Pool2[12 * i + 4];
-      if ( (_WORD)v18 )
-      {
-        v19 = *(_QWORD *)&Pool2[12 * i + 8];
-        if ( (v19 & 1) != 0 )
-          ExRaiseDatatypeMisalignment();
-        if ( v19 + v18 > 0x7FFFFFFF0000LL || v19 + v18 < v19 )
-          MEMORY[0x7FFFFFFF0000] = 0;
-      }
-      memmove(v16, *(const void **)&Pool2[12 * i + 8], Pool2[12 * i + 4]);
-      v15[3 * i + 2] = v16;
-      v16 += Pool2[12 * i + 4];
-      v12 = a2;
-    }
-    ExFreePoolWithTag(Pool2, 0);
-    *a4 = v15;
-    return 0LL;
+    if ( ((unsigned __int8)Src & 3) != 0 )
+      ExRaiseDatatypeMisalignment();
+    if ( (unsigned __int64)&Src[(unsigned int)v6] > 0x7FFFFFFF0000LL || &Src[(unsigned int)v6] < Src )
+      MEMORY[0x7FFFFFFF0000] = 0;
   }
-  return result;
+  memmove(PoolWithTag, Src, (unsigned int)v6);
+  if ( (((unsigned int)v6 + 1LL) & 0xFFFFFFFFFFFFFFFEuLL) < (unsigned int)v6 )
+  {
+LABEL_27:
+    v14 = -1073741675;
+    goto LABEL_28;
+  }
+  v9 = ((_DWORD)v6 + 1) & 0xFFFFFFFE;
+  for ( i = 0; i < a2; ++i )
+  {
+    v11 = v9 + PoolWithTag[12 * i + 4];
+    if ( v11 < (unsigned int)v9 )
+      goto LABEL_27;
+    v9 = v11;
+  }
+  v12 = ExAllocatePoolWithTag(PagedPool, v9, 0x74416553u);
+  v13 = v12;
+  if ( !v12 )
+  {
+    v14 = -1073741670;
+LABEL_28:
+    ExFreePoolWithTag(PoolWithTag, 0);
+    return v14;
+  }
+  memmove(v12, PoolWithTag, v6);
+  v15 = (char *)(((unsigned __int64)&v13[v6 / 8] + 1) & 0xFFFFFFFFFFFFFFFEuLL);
+  for ( j = 0; j < a2; ++j )
+  {
+    v17 = PoolWithTag[12 * j + 4];
+    if ( (_WORD)v17 )
+    {
+      v18 = *(_QWORD *)&PoolWithTag[12 * j + 8];
+      if ( (v18 & 1) != 0 )
+        ExRaiseDatatypeMisalignment();
+      if ( v18 + v17 > 0x7FFFFFFF0000LL || v18 + v17 < v18 )
+      {
+        MEMORY[0x7FFFFFFF0000] = 0;
+        LOWORD(v17) = PoolWithTag[12 * j + 4];
+      }
+    }
+    memmove(v15, *(const void **)&PoolWithTag[12 * j + 8], (unsigned __int16)v17);
+    v13[3 * j + 2] = v15;
+    v15 += PoolWithTag[12 * j + 4];
+  }
+  ExFreePoolWithTag(PoolWithTag, 0);
+  *a4 = v13;
+  return 0LL;
 }

@@ -1,41 +1,46 @@
 /*
- * XREFs of ?GetTransform@CAtlasBitmapResource@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18026B090
+ * XREFs of ?GetTransform@CAtlasBitmapResource@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18020A580
  * Callers:
  *     <none>
  * Callees:
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ?GetSize@CAtlasTexture@@QEBA?AUD2D_SIZE_U@@XZ @ 0x1800F4EBC (-GetSize@CAtlasTexture@@QEBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?GetSize@CAtlasTexture@@QEBA?AUD2D_SIZE_U@@XZ @ 0x18020A544 (-GetSize@CAtlasTexture@@QEBA-AUD2D_SIZE_U@@XZ.c)
  */
 
-char __fastcall CAtlasBitmapResource::GetTransform(__int64 a1, CMILMatrix *a2, __int64 a3)
+char __fastcall CAtlasBitmapResource::GetTransform(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v4; // r8
-  CAtlasTexture *v5; // rcx
-  int v6; // eax
-  float v7; // xmm1_4
-  int v9; // [rsp+40h] [rbp+18h] BYREF
-  int v10; // [rsp+44h] [rbp+1Ch]
+  CAtlasTexture *v4; // rcx
+  int v5; // eax
+  float v6; // xmm1_4
+  int v8; // [rsp+38h] [rbp+10h] BYREF
+  int v9; // [rsp+3Ch] [rbp+14h]
 
-  CMILMatrix::SetToIdentity(a2);
+  *(_QWORD *)a2 = 1065353216LL;
+  *(_QWORD *)(a2 + 8) = 0LL;
+  *(_DWORD *)(a2 + 16) = 0;
+  *(_QWORD *)(a2 + 20) = 1065353216LL;
+  *(_QWORD *)(a2 + 28) = 0LL;
+  *(_DWORD *)(a2 + 36) = 0;
+  *(_QWORD *)(a2 + 40) = 1065353216LL;
+  *(_QWORD *)(a2 + 48) = 0LL;
+  *(_DWORD *)(a2 + 56) = 0;
+  *(_DWORD *)(a2 + 60) = 1065353216;
+  *(_WORD *)(a2 + 64) = 32085;
   if ( a3 )
   {
-    v5 = *(CAtlasTexture **)(v4 + 16);
-    if ( v5 )
+    v4 = *(CAtlasTexture **)(a1 + 16);
+    if ( v4 )
     {
-      CAtlasTexture::GetSize(v5, (__int64)&v9);
-      v6 = v9;
-      *(_DWORD *)a3 = 0;
-      *(_DWORD *)(a3 + 4) = 0;
-      v7 = (float)v10;
-      *(float *)(a3 + 8) = (float)v6;
-      *(float *)(a3 + 12) = v7;
+      CAtlasTexture::GetSize(v4, (__int64)&v8);
+      v5 = v8;
+      *(_QWORD *)a3 = 0LL;
+      v6 = (float)v9;
+      *(float *)(a3 + 8) = (float)v5;
+      *(float *)(a3 + 12) = v6;
     }
     else
     {
-      *(_DWORD *)(a3 + 12) = 0;
-      *(_DWORD *)(a3 + 8) = 0;
-      *(_DWORD *)(a3 + 4) = 0;
-      *(_DWORD *)a3 = 0;
+      *(_QWORD *)(a3 + 8) = 0LL;
+      *(_QWORD *)a3 = 0LL;
     }
   }
   return 0;

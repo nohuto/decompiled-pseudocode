@@ -1,50 +1,60 @@
 /*
- * XREFs of ?DxgkpPopulateFile@@YAJPEAG0W4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C0302ED8
+ * XREFs of ?DxgkpPopulateFile@@YAJPEAG0W4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C02628B8
  * Callers:
- *     ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C0301F98 (-CopyDriverStore@DXGADAPTER@@QEAAJXZ.c)
+ *     ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C0261B50 (-CopyDriverStore@DXGADAPTER@@QEAAJXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?DxgkpGetFileVersion@@YAJPEAU_UNICODE_STRING@@PEAT_LARGE_INTEGER@@PEAJ@Z @ 0x1C0215344 (-DxgkpGetFileVersion@@YAJPEAU_UNICODE_STRING@@PEAT_LARGE_INTEGER@@PEAJ@Z.c)
- *     ?DxgkpCopyFile@@YAJPEBG0@Z @ 0x1C03027D4 (-DxgkpCopyFile@@YAJPEBG0@Z.c)
- *     ?DxgkpDeleteFile@@YAJPEBG@Z @ 0x1C0302D10 (-DxgkpDeleteFile@@YAJPEBG@Z.c)
- *     ?DxgkpGetFileLastWriteTime@@YAJPEAGPEAT_LARGE_INTEGER@@@Z @ 0x1C0302D80 (-DxgkpGetFileLastWriteTime@@YAJPEAGPEAT_LARGE_INTEGER@@@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?DxgkpGetFileVersion@@YAJPEAU_UNICODE_STRING@@PEAT_LARGE_INTEGER@@PEAJ@Z @ 0x1C019985C (-DxgkpGetFileVersion@@YAJPEAU_UNICODE_STRING@@PEAT_LARGE_INTEGER@@PEAJ@Z.c)
+ *     ?DxgkpCopyFile@@YAJPEBG0@Z @ 0x1C0262250 (-DxgkpCopyFile@@YAJPEBG0@Z.c)
+ *     ?DxgkpDeleteFile@@YAJPEBG@Z @ 0x1C02626D8 (-DxgkpDeleteFile@@YAJPEBG@Z.c)
+ *     ?DxgkpGetFileLastWriteTime@@YAJPEAGPEAT_LARGE_INTEGER@@@Z @ 0x1C0262748 (-DxgkpGetFileLastWriteTime@@YAJPEAGPEAT_LARGE_INTEGER@@@Z.c)
  */
 
 __int64 __fastcall DxgkpPopulateFile(const WCHAR *a1, _WORD *a2, int a3)
 {
   bool v4; // si
-  __int64 v5; // rbx
-  __int64 v6; // rdi
-  __int64 v7; // r9
-  char v8; // r12
-  unsigned int v9; // ebx
-  ULONG v10; // r13d
-  void *v11; // r14
-  __int64 v12; // rax
-  const wchar_t *v13; // rbx
+  __int64 v5; // rdi
+  NTSTATUS v6; // eax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // rbx
+  char v11; // r12
+  unsigned int v12; // edi
+  ULONG v13; // r13d
+  _DWORD *v14; // r14
+  _DWORD *v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  __int64 v20; // rax
+  __int64 v21; // rax
+  const wchar_t *v22; // rbx
   int FileVersion; // eax
-  const WCHAR *v15; // rbx
-  int v16; // eax
-  NTSTATUS v17; // eax
-  union _LARGE_INTEGER v19; // [rsp+58h] [rbp-59h] BYREF
-  union _LARGE_INTEGER v20; // [rsp+60h] [rbp-51h] BYREF
-  union _LARGE_INTEGER v21; // [rsp+68h] [rbp-49h] BYREF
-  union _LARGE_INTEGER v22; // [rsp+70h] [rbp-41h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+78h] [rbp-39h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-29h] BYREF
-  struct _UNICODE_STRING v25; // [rsp+98h] [rbp-19h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp-9h] BYREF
-  void *FileHandle; // [rsp+130h] [rbp+7Fh] BYREF
+  const WCHAR *v24; // rdi
+  int v25; // eax
+  NTSTATUS v26; // eax
+  __int64 v27; // rax
+  union _LARGE_INTEGER v29; // [rsp+38h] [rbp-59h] BYREF
+  union _LARGE_INTEGER v30; // [rsp+40h] [rbp-51h] BYREF
+  union _LARGE_INTEGER v31; // [rsp+48h] [rbp-49h] BYREF
+  union _LARGE_INTEGER v32; // [rsp+50h] [rbp-41h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-39h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-29h] BYREF
+  struct _UNICODE_STRING v35; // [rsp+78h] [rbp-19h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-9h] BYREF
+  void *FileHandle; // [rsp+110h] [rbp+7Fh] BYREF
 
   v4 = 0;
   v5 = -1LL;
   *(&ObjectAttributes.Length + 1) = 0;
   DestinationString = 0LL;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  v25 = 0LL;
+  v35 = 0LL;
   FileHandle = (void *)-1LL;
   IoStatusBlock = 0LL;
   RtlInitUnicodeString(&DestinationString, a1);
@@ -54,138 +64,131 @@ __int64 __fastcall DxgkpPopulateFile(const WCHAR *a1, _WORD *a2, int a3)
   ObjectAttributes.Attributes = 64;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v6 = ZwOpenFile(&FileHandle, 0x100100u, &ObjectAttributes, &IoStatusBlock, 7u, 0x204020u);
-  v8 = 1;
-  if ( (_DWORD)v6 == -1073741790 )
+  v10 = v6;
+  v11 = 1;
+  if ( v6 == -1073741790 )
   {
-    v8 = 0;
+    v11 = 0;
   }
-  else if ( (int)v6 < 0 )
+  else if ( v6 < 0 )
   {
-    WdLogSingleEntry2(2LL, v6, 831LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to open file in DxgkpPopulateFile: 0x%I64x",
-      v6,
-      831LL,
-      0LL,
-      0LL,
-      0LL);
-    return (unsigned int)v6;
+    v21 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v21 + 24) = v10;
+    *(_QWORD *)(v21 + 32) = 826LL;
+    WdLogEvent5_WdError(v21);
+    return (unsigned int)v10;
   }
   do
     ++v5;
   while ( a2[v5] );
-  v9 = 2 * v5;
-  v10 = 0;
-  v11 = 0LL;
-  if ( v8 )
+  v12 = 2 * v5;
+  v13 = 0;
+  v14 = 0LL;
+  if ( v11 )
   {
-    v10 = v9 + 24;
-    v12 = operator new[](v9 + 24, 0x4B677844u, 256LL, v7);
-    v11 = (void *)v12;
-    if ( !v12 )
+    v13 = v12 + 24;
+    v15 = operator new[](v12 + 24, 0x4B677844u, PagedPool);
+    v14 = v15;
+    if ( !v15 )
     {
-      WdLogSingleEntry1(6LL, 844LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262145,
-        -1,
-        (__int64)L"Failed allocate memory for LinkInfo in DxgkpPopulateFile",
-        844LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      LODWORD(v6) = -1073741801;
-      goto LABEL_40;
+      v20 = WdLogNewEntry5_WdLowResource(v17, v16, v18, v19);
+      *(_QWORD *)(v20 + 24) = 839LL;
+      WdLogEvent5_WdLowResource(v20);
+      LODWORD(v10) = -1073741801;
+      goto LABEL_41;
     }
-    *(_DWORD *)(v12 + 16) = v9;
-    memmove((void *)(v12 + 20), a2, v9);
-    LODWORD(v6) = ZwSetInformationFile(FileHandle, &IoStatusBlock, v11, v10, FileLinkInformation);
+    memset(v15, 0, v12 + 24);
+    v14[4] = v12;
+    memmove(v14 + 5, a2, v12);
+    LODWORD(v10) = ZwSetInformationFile(FileHandle, &IoStatusBlock, v14, v13, FileLinkInformation);
   }
-  if ( (int)v6 >= 0 )
-    goto LABEL_39;
-  if ( (_DWORD)v6 != -1073741771 && v8 )
+  if ( (int)v10 >= 0 )
+    goto LABEL_40;
+  if ( (_DWORD)v10 != -1073741771 && v11 )
     goto LABEL_38;
   if ( a3 != 1 )
-    goto LABEL_31;
-  v20.QuadPart = 0LL;
-  v22.QuadPart = 0LL;
-  v19.QuadPart = 0LL;
-  v21.QuadPart = 0LL;
-  if ( (v9 & 0xFFFFFFFE) < 8 )
-    goto LABEL_24;
-  v13 = &a2[(unsigned __int64)v9 >> 1];
-  if ( _wcsnicmp(v13 - 4, L".dll", 4uLL) )
   {
-    if ( _wcsnicmp(v13 - 4, L".exe", 4uLL) )
-      goto LABEL_24;
+    v4 = 1;
+    goto LABEL_29;
   }
-  if ( (int)DxgkpGetFileVersion(&DestinationString, &v20, 0LL) < 0 )
-    goto LABEL_24;
-  RtlInitUnicodeString(&v25, a2);
-  FileVersion = DxgkpGetFileVersion(&v25, &v19, 0LL);
-  LODWORD(v6) = FileVersion;
-  if ( FileVersion < 0 )
+  v30.QuadPart = 0LL;
+  v32.QuadPart = 0LL;
+  v29.QuadPart = 0LL;
+  v31.QuadPart = 0LL;
+  if ( (v12 & 0xFFFFFFFE) >= 8 )
   {
-    if ( FileVersion != -1073741772 )
-      goto LABEL_24;
-LABEL_31:
-    v15 = a1;
-LABEL_32:
-    if ( v8 )
+    v22 = &a2[(unsigned __int64)v12 >> 1];
+    if ( (!_wcsnicmp(v22 - 4, L".dll", 4uLL) || !_wcsnicmp(v22 - 4, L".exe", 4uLL))
+      && (int)DxgkpGetFileVersion(&DestinationString, &v30, 0LL) >= 0 )
     {
-      LODWORD(v6) = DxgkpDeleteFile(a2);
-      if ( (int)v6 < 0 )
+      RtlInitUnicodeString(&v35, a2);
+      FileVersion = DxgkpGetFileVersion(&v35, &v29, 0LL);
+      LODWORD(v10) = FileVersion;
+      if ( FileVersion < 0 )
       {
-LABEL_38:
-        WdLogSingleEntry2(3LL, (int)v6, 948LL);
-        goto LABEL_39;
-      }
-      v17 = ZwSetInformationFile(FileHandle, &IoStatusBlock, v11, v10, FileLinkInformation);
-    }
-    else
-    {
-      v17 = DxgkpCopyFile(v15, a2);
-    }
-    LODWORD(v6) = v17;
-    goto LABEL_37;
-  }
-  v4 = v20.QuadPart > v19.QuadPart;
-  if ( v20.QuadPart != v19.QuadPart )
-  {
-    v15 = a1;
-    goto LABEL_21;
-  }
-LABEL_24:
-  v15 = a1;
-  LODWORD(v6) = DxgkpGetFileLastWriteTime(a1, &v22);
-  if ( (int)v6 >= 0 )
-  {
-    v16 = DxgkpGetFileLastWriteTime(a2, &v21);
-    LODWORD(v6) = v16;
-    if ( v16 < 0 )
-    {
-      if ( v16 == -1073741772 )
-        v4 = 1;
-    }
-    else if ( v22.QuadPart > v21.QuadPart )
-    {
-      v4 = 1;
-    }
-  }
-LABEL_21:
-  if ( v4 )
-    goto LABEL_32;
-LABEL_37:
-  if ( (int)v6 < 0 )
-    goto LABEL_38;
+        if ( FileVersion == -1073741772 )
+        {
+          v24 = a1;
+LABEL_33:
+          if ( v11 )
+          {
+            LODWORD(v10) = DxgkpDeleteFile(a2);
+            if ( (int)v10 < 0 )
+            {
 LABEL_39:
-  operator delete[](v11);
+              v27 = WdLogNewEntry5_WdWarning(v8, v7, v9);
+              *(_QWORD *)(v27 + 24) = (int)v10;
+              *(_QWORD *)(v27 + 32) = 944LL;
+              WdLogEvent5_WdWarning(v27);
+              goto LABEL_40;
+            }
+            v26 = ZwSetInformationFile(FileHandle, &IoStatusBlock, v14, v13, FileLinkInformation);
+          }
+          else
+          {
+            v26 = DxgkpCopyFile(v24, a2);
+          }
+          LODWORD(v10) = v26;
+          goto LABEL_38;
+        }
+        goto LABEL_22;
+      }
+      v4 = v30.QuadPart > v29.QuadPart;
+      if ( v30.QuadPart != v29.QuadPart )
+      {
+LABEL_29:
+        v24 = a1;
+        goto LABEL_30;
+      }
+    }
+  }
+LABEL_22:
+  v24 = a1;
+  LODWORD(v10) = DxgkpGetFileLastWriteTime(a1, &v32);
+  if ( (int)v10 < 0 )
+    goto LABEL_30;
+  v25 = DxgkpGetFileLastWriteTime(a2, &v31);
+  LODWORD(v10) = v25;
+  if ( v25 < 0 )
+  {
+    if ( v25 != -1073741772 )
+      goto LABEL_30;
+  }
+  else if ( v32.QuadPart <= v31.QuadPart )
+  {
+    goto LABEL_30;
+  }
+  v4 = 1;
+LABEL_30:
+  if ( v4 )
+    goto LABEL_33;
+LABEL_38:
+  if ( (int)v10 < 0 )
+    goto LABEL_39;
 LABEL_40:
+  operator delete[](v14);
+LABEL_41:
   if ( FileHandle != (void *)-1LL )
     ZwClose(FileHandle);
-  return (unsigned int)v6;
+  return (unsigned int)v10;
 }

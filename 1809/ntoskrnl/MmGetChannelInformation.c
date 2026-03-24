@@ -1,11 +1,11 @@
 /*
- * XREFs of MmGetChannelInformation @ 0x14085F278
+ * XREFs of MmGetChannelInformation @ 0x14085F258
  * Callers:
- *     ExpQueryChannelInformation @ 0x1408CBBD0 (ExpQueryChannelInformation.c)
- *     ExpQueryNumaAvailableMemory @ 0x1408CC32C (ExpQueryNumaAvailableMemory.c)
+ *     ExpQueryChannelInformation @ 0x1408CBBB0 (ExpQueryChannelInformation.c)
+ *     ExpQueryNumaAvailableMemory @ 0x1408CC30C (ExpQueryNumaAvailableMemory.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     MiGetChannelInformation @ 0x1406086FC (MiGetChannelInformation.c)
  */

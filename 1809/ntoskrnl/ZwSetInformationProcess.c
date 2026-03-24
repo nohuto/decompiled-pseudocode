@@ -1,9 +1,9 @@
 /*
- * XREFs of ZwSetInformationProcess @ 0x1401B84F0
+ * XREFs of ZwSetInformationProcess @ 0x1401B8510
  * Callers:
  *     RtlCreateUserStack @ 0x1405F8EDC (RtlCreateUserStack.c)
- *     RtlpWow64CreateUserStack @ 0x1406BBC84 (RtlpWow64CreateUserStack.c)
- *     CmpInitializeRegistryProcess @ 0x1407572EC (CmpInitializeRegistryProcess.c)
+ *     RtlpWow64CreateUserStack @ 0x1406BBC64 (RtlpWow64CreateUserStack.c)
+ *     CmpInitializeRegistryProcess @ 0x1407572CC (CmpInitializeRegistryProcess.c)
  *     StartFirstUserProcess @ 0x1409C5CC0 (StartFirstUserProcess.c)
  * Callees:
  *     <none>

@@ -1,52 +1,49 @@
 /*
- * XREFs of ExpSeedHotTags @ 0x140B61D18
+ * XREFs of ExpSeedHotTags @ 0x140A68D80
  * Callers:
- *     ExInitializePoolTracker @ 0x140B61AFC (ExInitializePoolTracker.c)
+ *     ExInitializePoolTracker @ 0x140A68AF4 (ExInitializePoolTracker.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 __int64 ExpSeedHotTags()
 {
   __int64 v0; // r10
   unsigned int *v1; // r8
-  __int64 v2; // r9
-  __int64 v3; // rbx
-  unsigned int v4; // edx
+  int v2; // r11d
+  __int64 v3; // r9
+  __int64 v4; // rbx
+  unsigned int v5; // edx
   __int64 result; // rax
-  _DWORD v6[64]; // [rsp+8h] [rbp-100h] BYREF
+  _DWORD v7[64]; // [rsp+0h] [rbp-100h] BYREF
 
   v0 = PoolTrackTable;
-  v1 = v6;
+  v1 = v7;
+  v2 = PoolTrackTableMask;
+  v3 = 64LL;
   qmemcpy(
-    v6,
+    v7,
     "Io  Hal MdlPPooLObStIrp NDdbIrpLIoOpMdl FileCMVaSeSdNtFCPoolTCPrCMNbSeTdNtFsTCPTTCPCKey ObSqIoNmIoEaTCPcNtFaNtf0Sect"
     "IrpSTokeSe  ObClCcScNtFLSeAcFSfmCcWkFSimAfdCAfdEFSroNtfnUIRPNpFrNpFRSePaSeUsAcpFAcpMSeScObNmNpFsSeLuScPDEvenRqrvVadl"
     "Pp  VadSVad VadLVadFMmdi",
-    sizeof(v6));
-  v2 = 64LL;
+    sizeof(v7));
   do
   {
-    v3 = *v1;
-    v4 = PoolTrackTableMask & ((40543 * v3) ^ ((unsigned __int64)(40543 * v3) >> 32));
-    while ( 1 )
+    v4 = *v1;
+    v5 = v2 & ((40543 * v4) ^ ((unsigned __int64)(40543 * v4) >> 32));
+    while ( *(_DWORD *)(56LL * v5 + v0) || v5 == PoolTrackTableSize - 1 )
     {
-      if ( !*(_DWORD *)(v0 + 80LL * v4) )
-      {
-        result = PoolTrackTableSize - 1;
-        if ( v4 != PoolTrackTableSize - 1 )
-          break;
-      }
-      result = (unsigned int)PoolTrackTableMask & (v4 + 1);
-      v4 = result;
-      if ( (_DWORD)result == ((unsigned int)PoolTrackTableMask & ((40543 * (int)v3) ^ ((unsigned __int64)(40543 * v3) >> 32))) )
+      result = v2 & (v5 + 1);
+      v5 = result;
+      if ( (_DWORD)result == (v2 & ((40543 * (int)v4) ^ ((unsigned __int64)(40543 * v4) >> 32))) )
         goto LABEL_6;
     }
-    *(_DWORD *)(v0 + 80LL * v4) = v3;
+    result = 56LL * v5;
+    *(_DWORD *)(result + v0) = v4;
 LABEL_6:
     ++v1;
-    --v2;
+    --v3;
   }
-  while ( v2 );
+  while ( v3 );
   return result;
 }

@@ -1,103 +1,99 @@
 /*
- * XREFs of MiUnmapFrameBuffer @ 0x14020101C
+ * XREFs of MiUnmapFrameBuffer @ 0x140299C2C
  * Callers:
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140200D20 (MiReplaceRotateWithDemandZeroNoCopy.c)
- *     MiDeleteVa @ 0x140330730 (MiDeleteVa.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140299824 (MiReplaceRotateWithDemandZero.c)
+ *     MiDeleteVa @ 0x140337A80 (MiDeleteVa.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402294F0 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140229550 (MiPteHasShadow.c)
- *     MiSwizzleInvalidPte @ 0x1402CCC50 (MiSwizzleInvalidPte.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140317A80 (MiPteInShadowRange.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
+ *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnmapFrameBuffer(unsigned __int64 *BugCheckParameter2, int a2, unsigned int a3, _QWORD *a4)
 {
   ULONG_PTR v8; // rdi
-  unsigned __int64 v9; // r10
+  __int64 v9; // rax
   __int64 v10; // rdx
-  __int64 v11; // rax
-  int v12; // edx
-  __int64 v13; // r9
-  __int64 v14; // r10
-  unsigned __int64 v15; // rbx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  __int64 v13; // r10
+  unsigned __int64 v14; // rbx
+  __int64 v15; // rcx
   __int64 v16; // rax
-  int v17; // edi
+  int v17; // eax
+  int v18; // edi
   __int64 v19; // rdx
-  unsigned __int16 v20; // cx
-  bool v21; // cc
-  int v22; // eax
-  __int64 v23; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  __int64 v24; // [rsp+78h] [rbp+20h] BYREF
 
   *a4 = -1LL;
-  v23 = MI_READ_PTE_LOCK_FREE(BugCheckParameter2);
-  v8 = v23;
-  v9 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE(&v23) >> 12) & 0xFFFFFFFFFFLL;
-  if ( v9 > qword_140C50840 )
-    v10 = 0LL;
-  else
-    v10 = (*(_QWORD *)(48 * v9 - 0x21FFFFFFFFD8LL) >> 54) & 1LL;
-  v11 = MiSwizzleInvalidPte(128LL, v10);
-  v15 = v11;
+  v24 = MI_READ_PTE_LOCK_FREE(BugCheckParameter2);
+  v8 = v24;
+  MI_READ_PTE_LOCK_FREE(&v24);
+  v9 = MiSwizzleInvalidPte(128LL);
+  v14 = v9;
   if ( a2 == 2 )
   {
-    v15 = v11 | 0x300;
+    v14 = v9 | 0x300;
   }
   else if ( a2 )
   {
     if ( a2 == 3 )
     {
-      if ( v12 )
-        v15 = 0LL;
+      if ( (_DWORD)v10 )
+        v14 = 0LL;
       else
-        v15 = v8 & 0xFFFFFFFFFFFFFBFEuLL | 0x400;
+        v14 = v8 & 0xFFFFFFFFFFFFFBFEuLL | 0x400;
     }
   }
   else
   {
-    v15 = v11 | 0x100;
+    v14 = v9 | 0x100;
   }
-  v16 = 48 * v14 - 0x220000000000LL;
-  if ( v12 )
+  v15 = 8 * v12 - 0x58000000000LL;
+  if ( (_DWORD)v10 )
   {
-    v19 = *(_QWORD *)(v16 + 40);
-    v20 = 1;
-    if ( (v19 & 0x10000000000LL) != 0 || (v13 & v19) == 0x3FFFFFFFFELL )
-      v20 = 2;
-    v21 = *(_WORD *)(v16 + 32) <= v20;
-    if ( *(_WORD *)(v16 + 32) < v20 )
-      KeBugCheckEx(0x1Au, 0x41301uLL, (ULONG_PTR)BugCheckParameter2, v8, 48 * v14 - 0x220000000000LL);
-    v22 = 1;
-    if ( v21 )
-      v22 = a3;
-    a3 = v22;
+    v16 = *(_QWORD *)(v15 + 40);
+    v10 = 1LL;
+    if ( (v16 & 0x1000000000LL) != 0 || (v13 & v16) == 0xFFFFFFFFDLL )
+      v10 = 2LL;
+    if ( *(_WORD *)(v15 + 32) < (unsigned __int16)v10 )
+      KeBugCheckEx(0x1Au, 0x41301uLL, (ULONG_PTR)BugCheckParameter2, v8, 8 * v12 - 0x58000000000LL);
+    v17 = 1;
+    if ( *(_WORD *)(v15 + 32) <= (unsigned __int16)v10 )
+      v17 = a3;
+    a3 = v17;
   }
   else
   {
-    *a4 = v14;
+    *a4 = v11;
   }
   if ( a2 != 3 )
-    v15 = (v15 & 0xFF1F ^ (v15 & 0xFF1F | (unsigned __int16)((v8 & 0x800) != 0 ? 128 : 32))) & 0x3E0 ^ v15 & 0xFFFFFFFFFFFFFF1FuLL;
-  v17 = 0;
-  if ( (unsigned int)MiPteInShadowRange(BugCheckParameter2) )
+    v14 = (v14 & 0xFF1F ^ (v14 & 0xFF1F | (unsigned __int16)((v8 & 0x800) != 0 ? 128 : 32))) & 0x3E0 ^ v14 & 0xFFFFFFFFFFFFFF1FuLL;
+  v18 = 0;
+  if ( (unsigned int)MiPteInShadowRange(BugCheckParameter2, v10) )
   {
-    if ( (unsigned int)MiPteHasShadow() )
+    if ( (unsigned int)MiPteHasShadow(v20, v19, v21, v22) )
     {
-      v17 = 1;
-      if ( HIBYTE(word_140C51864) )
-        goto LABEL_10;
+      v18 = 1;
+      if ( HIBYTE(word_140C4E008) )
+        goto LABEL_27;
     }
     else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
     {
-      goto LABEL_10;
+      goto LABEL_27;
     }
-    if ( (v15 & 1) != 0 )
-      v15 |= 0x8000000000000000uLL;
+    if ( (v14 & 1) != 0 )
+      v14 |= 0x8000000000000000uLL;
   }
-LABEL_10:
-  *BugCheckParameter2 = v15;
-  if ( v17 )
-    MiWritePteShadow(BugCheckParameter2, v15);
+LABEL_27:
+  *BugCheckParameter2 = v14;
+  if ( v18 )
+    MiWritePteShadow(BugCheckParameter2, v14);
   return a3;
 }

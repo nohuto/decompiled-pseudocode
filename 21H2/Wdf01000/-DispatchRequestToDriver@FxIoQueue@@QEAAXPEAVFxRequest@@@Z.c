@@ -1,91 +1,93 @@
 /*
- * XREFs of ?DispatchRequestToDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z @ 0x1C0009D30
+ * XREFs of ?DispatchRequestToDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z @ 0x1C0008E30
  * Callers:
- *     ?DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z @ 0x1C0009550 (-DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z.c)
+ *     ?DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z @ 0x1C0008440 (-DispatchEvents@FxIoQueue@@QEAAEEPEAVFxRequest@@@Z.c)
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?Invoke@FxIoQueueIoWrite@@QEAAXPEAUWDFQUEUE__@@PEAUWDFREQUEST__@@K@Z @ 0x1C00117F8 (-Invoke@FxIoQueueIoWrite@@QEAAXPEAUWDFQUEUE__@@PEAUWDFREQUEST__@@K@Z.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?Invoke@FxIoQueueIoRead@@QEAAXPEAUWDFQUEUE__@@PEAUWDFREQUEST__@@K@Z @ 0x1C00396A0 (-Invoke@FxIoQueueIoRead@@QEAAXPEAUWDFQUEUE__@@PEAUWDFREQUEST__@@K@Z.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ?Complete@FxRequest@@QEAAJJ@Z @ 0x1C0063FCC (-Complete@FxRequest@@QEAAJJ@Z.c)
- *     ?SetVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C0064138 (-SetVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
- *     ?ClearVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C0068628 (-ClearVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
- *     ?UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z @ 0x1C006E6F0 (-UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z.c)
- *     WPP_IFR_SF_Lqd @ 0x1C008178C (WPP_IFR_SF_Lqd.c)
- *     ?Vf_VerifyRequestIsNotCompleted@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C7B00 (-Vf_VerifyRequestIsNotCompleted@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?Complete@FxRequest@@QEAAJJ@Z @ 0x1C0049B14 (-Complete@FxRequest@@QEAAJJ@Z.c)
+ *     ?SetVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C0049D8C (-SetVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
+ *     ?ClearVerifierFlags@FxRequestBase@@QEAAXF@Z @ 0x1C004ED58 (-ClearVerifierFlags@FxRequestBase@@QEAAXF@Z.c)
+ *     ?UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z @ 0x1C005B788 (-UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z.c)
+ *     WPP_IFR_SF_Lqd @ 0x1C0075394 (WPP_IFR_SF_Lqd.c)
+ *     ?Invoke@FxIoQueueIoWrite@@QEAAXPEAUWDFQUEUE__@@PEAUWDFREQUEST__@@K@Z @ 0x1C00766B8 (-Invoke@FxIoQueueIoWrite@@QEAAXPEAUWDFQUEUE__@@PEAUWDFREQUEST__@@K@Z.c)
+ *     ?Vf_VerifyRequestIsNotCompleted@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C6A10 (-Vf_VerifyRequestIsNotCompleted@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
-void __fastcall FxIoQueue::DispatchRequestToDriver(FxIoQueue *this, FxRequest *pRequest, unsigned __int8 a3)
+void __fastcall FxIoQueue::DispatchRequestToDriver(FxIoQueue *this, FxRequest *pRequest)
 {
-  _FX_DRIVER_GLOBALS *m_Globals; // rsi
-  WDFQUEUE__ *v6; // r14
+  _FX_DRIVER_GLOBALS *m_Globals; // rdi
+  WDFQUEUE__ *v5; // r14
   unsigned __int8 m_CompletionState; // al
-  unsigned int v8; // edx
-  unsigned int v9; // r8d
-  unsigned __int16 m_ObjectSize; // cx
-  _IRP *m_Irp; // rdx
+  unsigned int v7; // edx
+  unsigned int v8; // r8d
+  unsigned __int16 m_ObjectSize; // dx
   WDFREQUEST__ *_a1; // r15
-  _IO_STACK_LOCATION *CurrentStackLocation; // rax
-  unsigned int MajorFunction; // ebp
-  unsigned int *p_MajorFunction; // rax
-  unsigned int v16; // ebp
-  unsigned __int64 v17; // r12
-  unsigned __int64 v18; // r13
+  _IO_STACK_LOCATION *CurrentStackLocation; // rcx
+  unsigned int MajorFunction; // esi
+  _IO_STACK_LOCATION *v13; // rcx
+  unsigned int LowPart; // esi
   void (__fastcall *Method)(WDFQUEUE__ *, WDFREQUEST__ *, unsigned __int64, unsigned __int64, unsigned int); // rax
+  unsigned __int64 Options; // r12
+  unsigned __int64 v17; // r13
   FxCallbackLock *m_CallbackLock; // rcx
+  FxCallbackLock *v19; // rcx
+  void (__fastcall *v20)(WDFQUEUE__ *, WDFREQUEST__ *); // rax
   FxCallbackLock *v21; // rcx
-  unsigned int *v22; // rax
-  unsigned int v23; // ebp
-  unsigned __int64 v24; // r12
-  unsigned __int64 v25; // r13
-  void (__fastcall *v26)(WDFQUEUE__ *, WDFREQUEST__ *, unsigned __int64, unsigned __int64, unsigned int); // rax
-  FxCallbackLock *v27; // rcx
-  FxIoQueueIoDefault *p_m_IoDefault; // rbp
-  unsigned __int64 v29; // rdi
-  void (__fastcall *v30)(WDFQUEUE__ *, WDFREQUEST__ *); // rax
-  FxCallbackLock *v31; // rcx
-  unsigned int v32; // ebp
-  unsigned __int8 v33; // r8
-  _FX_DRIVER_GLOBALS *v34; // rdx
-  const void *v35; // rcx
+  __int64 v22; // rdx
+  _IO_STACK_LOCATION *v23; // rcx
+  unsigned int v24; // esi
+  void (__fastcall *v25)(WDFQUEUE__ *, WDFREQUEST__ *, unsigned __int64, unsigned __int64, unsigned int); // rax
+  unsigned __int64 v26; // r12
+  unsigned __int64 v27; // r13
+  FxCallbackLock *v28; // rcx
+  _FX_DRIVER_GLOBALS *v29; // rdx
+  const void *v30; // rcx
   _LIST_ENTRY *Blink; // rcx
-  unsigned int Length; // ebp
-  unsigned __int16 v38; // ax
-  const void *_a2; // rdi
-  __int64 v40; // r8
-  WDFQUEUE__ *v41; // rdx
-  unsigned __int16 v42; // ax
-  const void *v43; // rdi
-  const void *v44; // rax
-  unsigned __int16 v45; // ax
-  const void *v46; // rdi
-  unsigned __int16 v47; // ax
-  const void *v48; // rdi
+  unsigned int Length; // esi
+  unsigned __int16 v33; // ax
+  const void *_a2; // rbp
+  __int64 v35; // r8
+  FxIoQueueIoWrite *p_m_IoRead; // rcx
+  WDFQUEUE__ *v37; // rdx
+  unsigned int v38; // r9d
+  WDFREQUEST__ *v39; // r8
+  unsigned int v40; // esi
+  unsigned __int16 v41; // ax
+  const void *v42; // rbp
+  const void *v43; // rax
+  unsigned __int16 v44; // ax
+  const void *v45; // rbp
+  unsigned __int16 v46; // ax
+  const void *v47; // rbp
   __int16 m_VerifierFlags; // di
-  unsigned __int8 v50; // r8
-  unsigned __int8 PreviousIrql; // [rsp+70h] [rbp+8h] BYREF
+  unsigned __int8 v49[24]; // [rsp+40h] [rbp-58h] BYREF
+  unsigned __int8 PreviousIrql; // [rsp+A0h] [rbp+8h] BYREF
+  unsigned __int8 v51; // [rsp+A8h] [rbp+10h] BYREF
+  unsigned __int8 v52; // [rsp+B0h] [rbp+18h] BYREF
+  unsigned __int8 v53; // [rsp+B8h] [rbp+20h] BYREF
 
   m_Globals = this->m_Globals;
   if ( pRequest->m_Globals->FxVerifierIO )
   {
     PreviousIrql = 0;
-    FxNonPagedObject::Lock(pRequest, &PreviousIrql, a3);
-    v34 = pRequest->m_Globals;
-    if ( v34->FxVerifierOn )
-      FxRequest::Vf_VerifyRequestIsNotCompleted(pRequest, v34);
-    FxNonPagedObject::Unlock(pRequest, PreviousIrql, v33);
+    FxNonPagedObject::Lock(pRequest, &PreviousIrql);
+    v29 = pRequest->m_Globals;
+    if ( v29->FxVerifierOn )
+      FxRequest::Vf_VerifyRequestIsNotCompleted(pRequest, v29);
+    FxNonPagedObject::Unlock(pRequest, PreviousIrql);
   }
-  v6 = 0LL;
+  v5 = 0LL;
   if ( pRequest->m_Completed )
   {
-    v35 = (const void *)((unsigned __int64)pRequest ^ 0xFFFFFFFFFFFFFFF8uLL);
+    v30 = (const void *)((unsigned __int64)pRequest ^ 0xFFFFFFFFFFFFFFF8uLL);
     if ( !pRequest->m_ObjectSize )
-      v35 = 0LL;
-    WPP_IFR_SF_q(pRequest->m_Globals, 2u, 0x10u, 0x27u, WPP_FxRequest_cpp_Traceguids, v35);
+      v30 = 0LL;
+    WPP_IFR_SF_q(pRequest->m_Globals, 2u, 0x10u, 0x27u, WPP_FxRequest_cpp_Traceguids, v30);
     FxVerifierDbgBreakPoint(pRequest->m_Globals);
   }
   else
@@ -94,7 +96,7 @@ void __fastcall FxIoQueue::DispatchRequestToDriver(FxIoQueue *this, FxRequest *p
     pRequest->m_CompletionState = 1;
     if ( !m_CompletionState )
     {
-      v8 = _InterlockedIncrement(&pRequest->m_Refcnt);
+      v7 = _InterlockedIncrement(&pRequest->m_Refcnt);
       if ( SLOBYTE(pRequest->m_ObjectFlags) < 0 )
       {
         Blink = pRequest[-1].m_OwnerListEntry2.Blink;
@@ -105,7 +107,7 @@ void __fastcall FxIoQueue::DispatchRequestToDriver(FxIoQueue *this, FxRequest *p
             1820,
             "minkernel\\wdf\\framework\\shared\\core\\fxrequest.cpp",
             TagAddRef,
-            v8);
+            v7);
       }
     }
   }
@@ -118,115 +120,115 @@ void __fastcall FxIoQueue::DispatchRequestToDriver(FxIoQueue *this, FxRequest *p
       3219,
       "minkernel\\wdf\\framework\\shared\\irphandlers\\io\\fxioqueue.cpp");
   m_ObjectSize = pRequest->m_ObjectSize;
-  m_Irp = pRequest->m_Irp.m_Irp;
   _a1 = 0LL;
   if ( m_ObjectSize )
     _a1 = (WDFREQUEST__ *)((unsigned __int64)pRequest ^ 0xFFFFFFFFFFFFFFF8uLL);
-  CurrentStackLocation = m_Irp->Tail.Overlay.CurrentStackLocation;
+  CurrentStackLocation = pRequest->m_Irp.m_Irp->Tail.Overlay.CurrentStackLocation;
   MajorFunction = CurrentStackLocation->MajorFunction;
   switch ( (_BYTE)MajorFunction )
   {
     case 3:
-      if ( this->m_IoRead.Method )
+      if ( !this->m_IoRead.Method )
+        break;
+      Length = CurrentStackLocation->Parameters.Read.Length;
+      if ( !Length && !this->m_AllowZeroLengthRequests )
       {
-        Length = CurrentStackLocation->Parameters.Read.Length;
-        if ( Length || this->m_AllowZeroLengthRequests )
-        {
-          pRequest->m_Presented = 1;
-          if ( m_Globals->FxVerboseOn )
-            WPP_IFR_SF_q(m_Globals, 5u, 0xDu, 0x33u, WPP_FxIoQueue_cpp_Traceguids, _a1);
-          v41 = (WDFQUEUE__ *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
-          if ( !this->m_ObjectSize )
-            v41 = 0LL;
-          FxIoQueueIoRead::Invoke(&this->m_IoRead, v41, _a1, Length);
-          goto LABEL_21;
-        }
         if ( m_Globals->FxVerboseOn )
         {
-          v38 = this->m_ObjectSize;
+          v33 = this->m_ObjectSize;
           _a2 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
-          if ( !v38 )
+          if ( !v33 )
             _a2 = 0LL;
           WPP_IFR_SF_qq(m_Globals, 5u, 0xDu, 0x32u, WPP_FxIoQueue_cpp_Traceguids, _a1, _a2);
         }
         FxRequest::Complete(pRequest, 0);
         if ( m_Globals->FxVerifierOn )
         {
-          v40 = 3261LL;
-          goto LABEL_111;
+          v35 = 3261LL;
+          goto LABEL_110;
         }
         return;
       }
-      break;
+      pRequest->m_Presented = 1;
+      if ( m_Globals->FxVerboseOn )
+        WPP_IFR_SF_q(m_Globals, 5u, 0xDu, 0x33u, WPP_FxIoQueue_cpp_Traceguids, _a1);
+      p_m_IoRead = (FxIoQueueIoWrite *)&this->m_IoRead;
+      v37 = (WDFQUEUE__ *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+      v38 = Length;
+      v39 = _a1;
+      if ( !this->m_ObjectSize )
+        v37 = 0LL;
+      goto LABEL_72;
     case 4:
-      if ( this->m_IoWrite.Method )
+      if ( !this->m_IoWrite.Method )
+        break;
+      v40 = CurrentStackLocation->Parameters.Read.Length;
+      if ( !v40 && !this->m_AllowZeroLengthRequests )
       {
-        v32 = CurrentStackLocation->Parameters.Read.Length;
-        if ( v32 || this->m_AllowZeroLengthRequests )
-        {
-          pRequest->m_Presented = 1;
-          if ( m_Globals->FxVerboseOn )
-          {
-            v44 = (const void *)((unsigned __int64)pRequest ^ 0xFFFFFFFFFFFFFFF8uLL);
-            if ( !m_ObjectSize )
-              v44 = 0LL;
-            WPP_IFR_SF_q(m_Globals, 5u, 0xDu, 0x35u, WPP_FxIoQueue_cpp_Traceguids, v44);
-          }
-          if ( this->m_ObjectSize )
-            v6 = (WDFQUEUE__ *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
-          FxIoQueueIoWrite::Invoke(&this->m_IoWrite, v6, _a1, v32);
-          goto LABEL_21;
-        }
         if ( m_Globals->FxVerboseOn )
         {
-          v42 = this->m_ObjectSize;
-          v43 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
-          if ( !v42 )
-            v43 = 0LL;
-          WPP_IFR_SF_qq(m_Globals, 5u, 0xDu, 0x34u, WPP_FxIoQueue_cpp_Traceguids, _a1, v43);
+          v41 = this->m_ObjectSize;
+          v42 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+          if ( !v41 )
+            v42 = 0LL;
+          WPP_IFR_SF_qq(m_Globals, 5u, 0xDu, 0x34u, WPP_FxIoQueue_cpp_Traceguids, _a1, v42);
         }
         FxRequest::Complete(pRequest, 0);
         if ( m_Globals->FxVerifierOn )
         {
-          v40 = 3300LL;
-          goto LABEL_111;
+          v35 = 3300LL;
+          goto LABEL_110;
         }
         return;
       }
-      break;
+      pRequest->m_Presented = 1;
+      if ( m_Globals->FxVerboseOn )
+      {
+        v43 = (const void *)((unsigned __int64)pRequest ^ 0xFFFFFFFFFFFFFFF8uLL);
+        if ( !m_ObjectSize )
+          v43 = 0LL;
+        WPP_IFR_SF_q(m_Globals, 5u, 0xDu, 0x35u, WPP_FxIoQueue_cpp_Traceguids, v43);
+      }
+      p_m_IoRead = &this->m_IoWrite;
+      v37 = (WDFQUEUE__ *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+      v38 = v40;
+      v39 = _a1;
+      if ( !this->m_ObjectSize )
+        v37 = 0LL;
+LABEL_72:
+      FxIoQueueIoWrite::Invoke(p_m_IoRead, v37, v39, v38);
+      goto LABEL_21;
     case 0xE:
       if ( this->m_IoDeviceControl.Method )
       {
         pRequest->m_Presented = 1;
         if ( m_Globals->FxVerboseOn )
-        {
           WPP_IFR_SF_q(m_Globals, 5u, 0xDu, 0x36u, WPP_FxIoQueue_cpp_Traceguids, _a1);
-          m_Irp = pRequest->m_Irp.m_Irp;
-        }
-        p_MajorFunction = (unsigned int *)&m_Irp->Tail.Overlay.CurrentStackLocation->MajorFunction;
-        v16 = p_MajorFunction[6];
-        v17 = p_MajorFunction[4];
-        v18 = p_MajorFunction[2];
+        v13 = pRequest->m_Irp.m_Irp->Tail.Overlay.CurrentStackLocation;
+        LowPart = v13->Parameters.Read.ByteOffset.LowPart;
         if ( this->m_ObjectSize )
-          v6 = (WDFQUEUE__ *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+          v5 = (WDFQUEUE__ *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
         Method = this->m_IoDeviceControl.Method;
+        Options = v13->Parameters.Create.Options;
+        v17 = v13->Parameters.Read.Length;
         if ( !Method )
           goto LABEL_21;
         m_CallbackLock = this->m_IoDeviceControl.m_CallbackLock;
-        PreviousIrql = 0;
+        v51 = 0;
         if ( m_CallbackLock )
         {
-          m_CallbackLock->Lock(m_CallbackLock, &PreviousIrql);
-          this->m_IoDeviceControl.Method(v6, _a1, v18, v17, v16);
+          m_CallbackLock->Lock(m_CallbackLock, &v51);
+          this->m_IoDeviceControl.Method(v5, _a1, v17, Options, LowPart);
         }
         else
         {
-          Method(v6, _a1, v18, v17, v16);
+          Method(v5, _a1, v17, Options, LowPart);
         }
-        v21 = this->m_IoDeviceControl.m_CallbackLock;
-        if ( !v21 )
+        v19 = this->m_IoDeviceControl.m_CallbackLock;
+        if ( !v19 )
           goto LABEL_21;
-        goto LABEL_33;
+        v22 = v51;
+        goto LABEL_49;
       }
       break;
     default:
@@ -234,132 +236,59 @@ void __fastcall FxIoQueue::DispatchRequestToDriver(FxIoQueue *this, FxRequest *p
       {
         pRequest->m_Presented = 1;
         if ( m_Globals->FxVerboseOn )
-        {
           WPP_IFR_SF_q(m_Globals, 5u, 0xDu, 0x37u, WPP_FxIoQueue_cpp_Traceguids, _a1);
-          m_Irp = pRequest->m_Irp.m_Irp;
-        }
-        v22 = (unsigned int *)&m_Irp->Tail.Overlay.CurrentStackLocation->MajorFunction;
-        v23 = v22[6];
-        v24 = v22[4];
-        v25 = v22[2];
+        v23 = pRequest->m_Irp.m_Irp->Tail.Overlay.CurrentStackLocation;
+        v24 = v23->Parameters.Read.ByteOffset.LowPart;
         if ( this->m_ObjectSize )
-          v6 = (WDFQUEUE__ *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
-        v26 = this->m_IoInternalDeviceControl.Method;
-        if ( !v26 )
+          v5 = (WDFQUEUE__ *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+        v25 = this->m_IoInternalDeviceControl.Method;
+        v26 = v23->Parameters.Create.Options;
+        v27 = v23->Parameters.Read.Length;
+        if ( !v25 )
           goto LABEL_21;
-        v27 = this->m_IoInternalDeviceControl.m_CallbackLock;
-        PreviousIrql = 0;
-        if ( v27 )
+        v28 = this->m_IoInternalDeviceControl.m_CallbackLock;
+        v52 = 0;
+        if ( v28 )
         {
-          v27->Lock(v27, &PreviousIrql);
-          this->m_IoInternalDeviceControl.Method(v6, _a1, v25, v24, v23);
+          v28->Lock(v28, &v52);
+          this->m_IoInternalDeviceControl.Method(v5, _a1, v27, v26, v24);
         }
         else
         {
-          v26(v6, _a1, v25, v24, v23);
+          v25(v5, _a1, v27, v26, v24);
         }
-        v21 = this->m_IoInternalDeviceControl.m_CallbackLock;
-        if ( !v21 )
+        v19 = this->m_IoInternalDeviceControl.m_CallbackLock;
+        if ( !v19 )
           goto LABEL_21;
-LABEL_33:
-        v21->Unlock(v21, PreviousIrql);
+        v22 = v52;
+LABEL_49:
+        v19->Unlock(v19, v22);
 LABEL_21:
         if ( !m_Globals->FxVerifierOn )
           return;
-        PreviousIrql = 0;
-        FxNonPagedObject::Lock(pRequest, &PreviousIrql, v9);
+        v49[0] = 0;
+        FxNonPagedObject::Lock(pRequest, v49);
         m_VerifierFlags = pRequest->m_VerifierFlags;
-        FxNonPagedObject::Unlock(pRequest, PreviousIrql, v50);
+        FxNonPagedObject::Unlock(pRequest, v49[0]);
         if ( (m_VerifierFlags & 4) == 0 )
           FxRequestBase::ClearVerifierFlags(pRequest, 8);
-        v40 = 3465LL;
-LABEL_111:
+        v35 = 3465LL;
+LABEL_110:
         pRequest->Release(
           pRequest,
           (void *)1952543827,
-          v40,
+          v35,
           "minkernel\\wdf\\framework\\shared\\irphandlers\\io\\fxioqueue.cpp");
         return;
       }
       break;
   }
-  if ( this->m_IoDefault.Method )
-  {
-    if ( m_Globals->FxVerboseOn )
-      WPP_IFR_SF_q(m_Globals, 5u, 0xDu, 0x38u, WPP_FxIoQueue_cpp_Traceguids, _a1);
-    if ( this->m_AllowZeroLengthRequests )
-    {
-LABEL_38:
-      pRequest->m_Presented = 1;
-      p_m_IoDefault = &this->m_IoDefault;
-      if ( this->m_ObjectSize )
-        v29 = (unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL;
-      else
-        v29 = 0LL;
-      v30 = p_m_IoDefault->Method;
-      if ( !v30 )
-        goto LABEL_21;
-      v31 = p_m_IoDefault->m_CallbackLock;
-      PreviousIrql = 0;
-      if ( v31 )
-      {
-        v31->Lock(v31, &PreviousIrql);
-        p_m_IoDefault->Method((WDFQUEUE__ *)v29, _a1);
-      }
-      else
-      {
-        v30((WDFQUEUE__ *)v29, _a1);
-      }
-      v21 = p_m_IoDefault->m_CallbackLock;
-      if ( !p_m_IoDefault->m_CallbackLock )
-        goto LABEL_21;
-      goto LABEL_33;
-    }
-    if ( (_BYTE)MajorFunction == 3 )
-    {
-      if ( pRequest->m_Irp.m_Irp->Tail.Overlay.CurrentStackLocation->Parameters.Read.Length )
-        goto LABEL_38;
-      if ( m_Globals->FxVerboseOn )
-      {
-        v45 = this->m_ObjectSize;
-        v46 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
-        if ( !v45 )
-          v46 = 0LL;
-        WPP_IFR_SF_qq(m_Globals, 5u, 0xDu, 0x39u, WPP_FxIoQueue_cpp_Traceguids, _a1, v46);
-      }
-      FxRequest::Complete(pRequest, 0);
-      if ( m_Globals->FxVerifierOn )
-      {
-        v40 = 3384LL;
-        goto LABEL_111;
-      }
-    }
-    else
-    {
-      if ( (_BYTE)MajorFunction != 4 || pRequest->m_Irp.m_Irp->Tail.Overlay.CurrentStackLocation->Parameters.Read.Length )
-        goto LABEL_38;
-      FxRequest::Complete(pRequest, 0);
-      if ( m_Globals->FxVerboseOn )
-      {
-        v47 = this->m_ObjectSize;
-        v48 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
-        if ( !v47 )
-          v48 = 0LL;
-        WPP_IFR_SF_qq(m_Globals, 5u, 0xDu, 0x3Au, WPP_FxIoQueue_cpp_Traceguids, _a1, v48);
-      }
-      if ( m_Globals->FxVerifierOn )
-      {
-        v40 = 3405LL;
-        goto LABEL_111;
-      }
-    }
-  }
-  else
+  if ( !this->m_IoDefault.Method )
   {
     WPP_IFR_SF_Lqd(
       m_Globals,
-      (unsigned __int8)m_Irp,
-      v9,
+      m_ObjectSize,
+      v8,
       0x3Bu,
       WPP_FxIoQueue_cpp_Traceguids,
       MajorFunction,
@@ -368,8 +297,75 @@ LABEL_38:
     FxRequest::Complete(pRequest, -1073741808);
     if ( m_Globals->FxVerifierOn )
     {
-      v40 = 3436LL;
-      goto LABEL_111;
+      v35 = 3436LL;
+      goto LABEL_110;
     }
+    return;
+  }
+  if ( m_Globals->FxVerboseOn )
+    WPP_IFR_SF_q(m_Globals, 5u, 0xDu, 0x38u, WPP_FxIoQueue_cpp_Traceguids, _a1);
+  if ( this->m_AllowZeroLengthRequests )
+    goto LABEL_30;
+  if ( (_BYTE)MajorFunction != 3 )
+  {
+    if ( (_BYTE)MajorFunction == 4 && !pRequest->m_Irp.m_Irp->Tail.Overlay.CurrentStackLocation->Parameters.Read.Length )
+    {
+      FxRequest::Complete(pRequest, 0);
+      if ( m_Globals->FxVerboseOn )
+      {
+        v46 = this->m_ObjectSize;
+        v47 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+        if ( !v46 )
+          v47 = 0LL;
+        WPP_IFR_SF_qq(m_Globals, 5u, 0xDu, 0x3Au, WPP_FxIoQueue_cpp_Traceguids, _a1, v47);
+      }
+      if ( m_Globals->FxVerifierOn )
+      {
+        v35 = 3405LL;
+        goto LABEL_110;
+      }
+      return;
+    }
+    goto LABEL_30;
+  }
+  if ( pRequest->m_Irp.m_Irp->Tail.Overlay.CurrentStackLocation->Parameters.Read.Length )
+  {
+LABEL_30:
+    pRequest->m_Presented = 1;
+    if ( this->m_ObjectSize )
+      v5 = (WDFQUEUE__ *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+    v20 = this->m_IoDefault.Method;
+    if ( !v20 )
+      goto LABEL_21;
+    v21 = this->m_IoDefault.m_CallbackLock;
+    v53 = 0;
+    if ( v21 )
+    {
+      v21->Lock(v21, &v53);
+      this->m_IoDefault.Method(v5, _a1);
+    }
+    else
+    {
+      v20(v5, _a1);
+    }
+    v19 = this->m_IoDefault.m_CallbackLock;
+    if ( !v19 )
+      goto LABEL_21;
+    v22 = v53;
+    goto LABEL_49;
+  }
+  if ( m_Globals->FxVerboseOn )
+  {
+    v44 = this->m_ObjectSize;
+    v45 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+    if ( !v44 )
+      v45 = 0LL;
+    WPP_IFR_SF_qq(m_Globals, 5u, 0xDu, 0x39u, WPP_FxIoQueue_cpp_Traceguids, _a1, v45);
+  }
+  FxRequest::Complete(pRequest, 0);
+  if ( m_Globals->FxVerifierOn )
+  {
+    v35 = 3384LL;
+    goto LABEL_110;
   }
 }

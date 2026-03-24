@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM30_IssuingPortResetTimedOutToDSM @ 0x1C0013340
+ * XREFs of HUBPSM30_IssuingPortResetTimedOutToDSM @ 0x1C0011E20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBPSM30_IssuingPortResetTimedOutToDSM(__int64 a1)

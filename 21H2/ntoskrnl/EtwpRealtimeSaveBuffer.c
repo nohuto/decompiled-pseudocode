@@ -1,48 +1,53 @@
 /*
- * XREFs of EtwpRealtimeSaveBuffer @ 0x1406ED114
+ * XREFs of EtwpRealtimeSaveBuffer @ 0x1406BEE5C
  * Callers:
- *     EtwpRealtimeSendEmptyMarker @ 0x1406EF9E0 (EtwpRealtimeSendEmptyMarker.c)
- *     EtwpFlushBufferToRealtime @ 0x140798DA8 (EtwpFlushBufferToRealtime.c)
- *     EtwpRealtimeUpdateReferenceTime @ 0x14085E858 (EtwpRealtimeUpdateReferenceTime.c)
+ *     EtwpFlushBufferToRealtime @ 0x140645C38 (EtwpFlushBufferToRealtime.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x1406E0C94 (EtwpRealtimeSendEmptyMarker.c)
+ *     EtwpRealtimeUpdateReferenceTime @ 0x1407D05D8 (EtwpRealtimeUpdateReferenceTime.c)
  * Callees:
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     ZwWriteFile @ 0x14041B860 (ZwWriteFile.c)
- *     EtwpEventWriteTemplateAdmin @ 0x1409E08A8 (EtwpEventWriteTemplateAdmin.c)
- *     EtwpEventWriteTemplateBackingFile @ 0x1409E0968 (EtwpEventWriteTemplateBackingFile.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x140939B5C (EtwpEventWriteTemplateAdmin.c)
+ *     EtwpEventWriteTemplateBackingFile @ 0x140939C1C (EtwpEventWriteTemplateBackingFile.c)
  */
 
 __int64 __fastcall EtwpRealtimeSaveBuffer(__int64 a1, __int64 Buffer)
 {
   LARGE_INTEGER v2; // r8
-  LARGE_INTEGER v3; // rbx
-  __int64 v5; // rax
-  NTSTATUS v7; // ebp
-  LONGLONG v8; // r8
-  __int64 v9; // rax
-  unsigned __int64 v10; // rcx
-  bool v12; // sf
-  int v13; // edx
-  int v14; // ecx
-  int v15; // r8d
-  int v16; // edx
-  int v17; // ecx
-  int v18; // r8d
+  LONGLONG v3; // rbx
+  signed __int64 v5; // rax
+  __int64 QuadPart; // r9
+  NTSTATUS v8; // ebp
+  LONGLONG v9; // r8
+  __int64 v10; // rax
+  unsigned __int64 v11; // rcx
+  bool v13; // sf
+  int v14; // edx
+  int v15; // ecx
+  int v16; // r8d
+  int v17; // edx
+  int v18; // ecx
   int v19; // r8d
+  int v20; // r8d
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-18h] BYREF
   LARGE_INTEGER ByteOffset; // [rsp+70h] [rbp+8h] BYREF
 
-  v2 = *(LARGE_INTEGER *)(a1 + 384);
-  v3 = *(LARGE_INTEGER *)(a1 + 400);
+  v2 = *(LARGE_INTEGER *)(a1 + 400);
+  v3 = *(_QWORD *)(a1 + 416);
   IoStatusBlock = 0LL;
-  v5 = *(_QWORD *)(a1 + 392);
+  v5 = *(_QWORD *)(a1 + 408);
   ByteOffset = v2;
-  if ( v2.QuadPart >= v5
-    && (v2.QuadPart + *(unsigned int *)(Buffer + 48) <= *(_QWORD *)(a1 + 416)
-     || (v3 = v2, ByteOffset.QuadPart = 72LL, v2.QuadPart = 72LL, v5 <= 72))
-    || v2.QuadPart + *(unsigned int *)(Buffer + 48) < v5 )
+  QuadPart = v2.QuadPart;
+  if ( v2.QuadPart >= v5 && v2.QuadPart + *(unsigned int *)(Buffer + 48) > *(_QWORD *)(a1 + 432) )
   {
-    v7 = ZwWriteFile(
-           *(HANDLE *)(a1 + 360),
+    QuadPart = 72LL;
+    v3 = v2.QuadPart;
+    ByteOffset.QuadPart = 72LL;
+  }
+  if ( QuadPart >= v5 || QuadPart + *(unsigned int *)(Buffer + 48) < v5 )
+  {
+    v8 = ZwWriteFile(
+           *(HANDLE *)(a1 + 376),
            0LL,
            0LL,
            0LL,
@@ -51,56 +56,56 @@ __int64 __fastcall EtwpRealtimeSaveBuffer(__int64 a1, __int64 Buffer)
            *(_DWORD *)(Buffer + 48),
            &ByteOffset,
            0LL);
-    if ( v7 < 0 )
+    if ( v8 < 0 )
     {
-      ++*(_DWORD *)(a1 + 260);
-      *(_DWORD *)(a1 + 448) = 2;
+      ++*(_DWORD *)(a1 + 276);
+      *(_DWORD *)(a1 + 464) = 2;
       if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_WRITE_FAILED) )
         EtwpEventWriteTemplateAdmin(
-          a1 + 368,
+          a1 + 384,
           (unsigned int)&ETW_EVENT_WRITE_FAILED,
-          v19,
-          a1 + 136,
-          a1 + 368,
-          v7,
+          v20,
+          a1 + 152,
+          a1 + 384,
+          v8,
           *(_DWORD *)(a1 + 12));
     }
     else
     {
-      v8 = ByteOffset.QuadPart + *(unsigned int *)(Buffer + 48);
-      v9 = *(_QWORD *)(a1 + 416);
-      *(_QWORD *)(a1 + 384) = v8;
-      if ( v3.QuadPart <= v8 )
-        v3.QuadPart = v8;
-      *(LARGE_INTEGER *)(a1 + 400) = v3;
-      *(_QWORD *)(a1 + 408) += *(unsigned int *)(Buffer + 48);
-      v10 = (unsigned int)(*(_DWORD *)(a1 + 4) * *(_DWORD *)(a1 + 236));
-      ++*(_DWORD *)(a1 + 424);
-      if ( v9 - *(_QWORD *)(a1 + 408) <= v10 && *(int *)(a1 + 16) >= 0 )
+      v9 = ByteOffset.QuadPart + *(unsigned int *)(Buffer + 48);
+      v10 = *(_QWORD *)(a1 + 432);
+      *(_QWORD *)(a1 + 400) = v9;
+      if ( v3 <= v9 )
+        v3 = v9;
+      *(_QWORD *)(a1 + 416) = v3;
+      *(_QWORD *)(a1 + 424) += *(unsigned int *)(Buffer + 48);
+      v11 = (unsigned int)(*(_DWORD *)(a1 + 4) * *(_DWORD *)(a1 + 252));
+      ++*(_DWORD *)(a1 + 440);
+      if ( v10 - *(_QWORD *)(a1 + 424) <= v11 && *(int *)(a1 + 16) >= 0 )
       {
         _InterlockedExchange((volatile __int32 *)(a1 + 16), -1073741432);
         if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_BACKING_FILE_FULL) )
-          EtwpEventWriteTemplateBackingFile(v17, v16, v18, a1 + 136);
-      }
-      if ( !v7 )
-      {
-        if ( *(_WORD *)(Buffer + 54) == 6 )
-          _InterlockedOr((volatile signed __int32 *)(a1 + 816), 0x10000000u);
-        else
-          _InterlockedAnd((volatile signed __int32 *)(a1 + 816), 0xEFFFFFFF);
+          EtwpEventWriteTemplateBackingFile(v18, v17, v19, a1 + 152);
       }
     }
-    return (unsigned int)v7;
+    if ( !v8 )
+    {
+      if ( *(_WORD *)(Buffer + 54) == 6 )
+        _InterlockedOr((volatile signed __int32 *)(a1 + 832), 0x10000000u);
+      else
+        _InterlockedAnd((volatile signed __int32 *)(a1 + 832), 0xEFFFFFFF);
+    }
+    return (unsigned int)v8;
   }
   else
   {
-    ++*(_DWORD *)(a1 + 260);
-    v12 = *(int *)(a1 + 16) < 0;
-    *(_DWORD *)(a1 + 448) = 2;
-    if ( !v12 )
+    ++*(_DWORD *)(a1 + 276);
+    v13 = *(int *)(a1 + 16) < 0;
+    *(_DWORD *)(a1 + 464) = 2;
+    if ( !v13 )
       _InterlockedExchange((volatile __int32 *)(a1 + 16), -1073741432);
     if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_BACKING_FILE_FULL) )
-      EtwpEventWriteTemplateBackingFile(v14, v13, v15, a1 + 136);
+      EtwpEventWriteTemplateBackingFile(v15, v14, v16, a1 + 152);
     return 3221225864LL;
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of CFlipPropertySetBase::WriteSerializedProperties__lambda_e99d979129121065e2eb9a95ec4ea8f5___ @ 0x1C00797C4
+ * XREFs of CFlipPropertySetBase::WriteSerializedProperties__lambda_e99d979129121065e2eb9a95ec4ea8f5___ @ 0x1C0068114
  * Callers:
- *     NtFlipObjectConsumerAcquirePresent @ 0x1C007A5D0 (NtFlipObjectConsumerAcquirePresent.c)
- *     NtFlipObjectReadNextMessageToProducer @ 0x1C007B500 (NtFlipObjectReadNextMessageToProducer.c)
+ *     NtFlipObjectConsumerAcquirePresent @ 0x1C0068EA0 (NtFlipObjectConsumerAcquirePresent.c)
+ *     NtFlipObjectReadNextMessageToProducer @ 0x1C0069CC0 (NtFlipObjectReadNextMessageToProducer.c)
  * Callees:
- *     memmove @ 0x1C002CD00 (memmove.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
  */
 
 unsigned __int64 __fastcall CFlipPropertySetBase::WriteSerializedProperties__lambda_e99d979129121065e2eb9a95ec4ea8f5___(

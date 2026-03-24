@@ -1,217 +1,169 @@
 /*
- * XREFs of ?_ProcessInputSpace@CInputConfig@@AEAAXPEAUCInputSpace@@@Z @ 0x1C0063720
+ * XREFs of ?_ProcessInputSpace@CInputConfig@@AEAAXPEAUCInputSpace@@@Z @ 0x1C006EF08
  * Callers:
- *     ?_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z @ 0x1C0063548 (-_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z.c)
+ *     ?_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z @ 0x1C006E7A4 (-_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z.c)
  * Callees:
- *     PtInRect @ 0x1C0063154 (PtInRect.c)
- *     ?ModifiableRegion@Iter@CInputSpace@@QEAAPEAUCInputSpaceRegion@@XZ @ 0x1C0063E2C (-ModifiableRegion@Iter@CInputSpace@@QEAAPEAUCInputSpaceRegion@@XZ.c)
- *     ?PopulatePanelId@CInputSpaceRegion@@QEAAXXZ @ 0x1C006D25C (-PopulatePanelId@CInputSpaceRegion@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?PopulatePanelId@CInputSpaceRegion@@QEAAXXZ @ 0x1C006DC20 (-PopulatePanelId@CInputSpaceRegion@@QEAAXXZ.c)
+ *     ?ModifiableRegion@Iter@CInputSpace@@QEAAPEAUCInputSpaceRegion@@XZ @ 0x1C006F89C (-ModifiableRegion@Iter@CInputSpace@@QEAAPEAUCInputSpaceRegion@@XZ.c)
+ *     PtInRect @ 0x1C00707BC (PtInRect.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CInputConfig::_ProcessInputSpace(CInputConfig *this, struct CInputSpace *a2)
 {
-  __m128i v3; // xmm6
-  char *v4; // r14
-  struct CInputSpaceRegion *v5; // rbx
-  char *v6; // rsi
-  _QWORD *v7; // r10
-  __int32 v8; // ebp
-  struct CInputSpaceRegion *v9; // rdi
-  __int32 v10; // r15d
-  __int32 v11; // r12d
-  __int32 v12; // r13d
-  _QWORD *v13; // rcx
-  struct CInputSpaceRegion *v14; // rax
-  struct CInputSpaceRegion *v15; // r8
-  __int32 v16; // ecx
-  int v17; // r9d
-  __int32 v18; // ecx
-  __int32 v19; // eax
-  int v20; // eax
-  __int16 v21; // ax
-  struct CInputSpace *v22; // rdi
-  __int64 v23; // r8
-  _OWORD *v24; // rax
-  _OWORD *v25; // rcx
-  __int128 v26; // xmm1
+  struct CInputSpaceRegion *v3; // rbx
+  struct CInputSpaceRegion *v4; // r14
+  struct CInputSpace *v5; // rdi
+  int v6; // r12d
+  int v7; // r13d
+  struct CInputSpaceRegion *v8; // rax
+  int v9; // r9d
+  struct CInputSpaceRegion *v10; // rcx
+  int v11; // r8d
+  int v12; // eax
+  int v13; // r8d
+  __int16 v14; // dx
+  unsigned __int16 v15; // ax
+  _OWORD *v16; // rax
+  _OWORD *v17; // rcx
+  __int64 v18; // r8
+  __int128 v19; // xmm1
+  __int64 v20; // rax
+  __int128 v21; // xmm1
+  __int128 v22; // xmm0
+  __int128 v23; // xmm1
+  __int128 v24; // xmm0
+  __int128 v25; // xmm1
+  __int128 v26; // xmm0
   __int128 v27; // xmm1
-  __int128 v28; // xmm0
-  __int128 v29; // xmm1
-  __int128 v30; // xmm0
-  __int128 v31; // xmm1
-  __int128 v32; // xmm0
-  __int128 v33; // xmm1
-  __int128 v34; // xmm1
-  __int128 v35; // xmm0
-  __int128 v36; // xmm1
-  __int64 v37; // rax
-  __int32 v38; // [rsp+20h] [rbp-98h]
-  __m128i v39; // [rsp+28h] [rbp-90h] BYREF
-  struct CInputSpaceRegion *v40; // [rsp+38h] [rbp-80h]
-  __int32 v41; // [rsp+40h] [rbp-78h]
-  __int32 v42; // [rsp+44h] [rbp-74h]
-  __int64 v43; // [rsp+48h] [rbp-70h]
-  struct CInputSpace *v44; // [rsp+50h] [rbp-68h]
-  _QWORD v45[3]; // [rsp+58h] [rbp-60h] BYREF
+  __int128 v28; // xmm1
+  __int128 v29; // xmm0
+  __int64 v30; // [rsp+20h] [rbp-50h]
+  __int128 v31; // [rsp+28h] [rbp-48h]
+  _QWORD v33[3]; // [rsp+48h] [rbp-28h] BYREF
 
-  v44 = a2;
-  if ( !ExIsResourceAcquiredExclusiveLite(CInputConfig::slock) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 675LL);
   v3 = 0LL;
-  v39 = 0LL;
-  v45[0] = &CInputConfig::slock;
-  v4 = (char *)a2 + 1456;
-  v5 = 0LL;
+  if ( !ExIsResourceAcquiredExclusiveLite(CInputConfig::slock) )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 657LL);
+  v31 = 0LL;
+  v33[0] = &CInputConfig::slock;
+  v4 = 0LL;
   KeEnterCriticalRegion();
   ExAcquireResourceSharedLite(CInputConfig::slock, 1u);
-  v6 = (char *)*((_QWORD *)a2 + 182);
-  v7 = 0LL;
-  v8 = 0;
-  v9 = 0LL;
-  v10 = 0;
-  v11 = 0;
-  v12 = 0;
-  v45[1] = v4;
+  v5 = (struct CInputSpace *)*((_QWORD *)a2 + 178);
+  v6 = 0;
+  v7 = 0;
+  v30 = 0LL;
+  v33[1] = (char *)a2 + 1424;
   while ( 1 )
   {
-    v45[2] = v6;
-    LODWORD(v40) = v8;
-    v13 = v7;
-    v42 = v10;
-    if ( v6 != v4 )
-      v13 = v6 + 16;
-    v41 = v11;
-    v38 = v12;
-    if ( !v13 )
+    v33[2] = v5;
+    if ( v5 == (struct CInputSpace *)((char *)a2 + 1424) || v5 == (struct CInputSpace *)-16LL )
       break;
-    v14 = CInputSpace::Iter::ModifiableRegion((CInputSpace::Iter *)v45);
-    v15 = v14;
-    v16 = *(_DWORD *)v14;
-    v17 = *((_DWORD *)v14 + 4);
-    if ( v12 >= *(_DWORD *)v14 )
-      v12 = *(_DWORD *)v14;
-    v39.m128i_i32[0] = v12;
-    v12 = v16;
-    if ( v38 < v16 )
-      v12 = v38;
-    v18 = *((_DWORD *)v14 + 1);
-    v19 = *((_DWORD *)v14 + 2);
-    if ( v11 >= v18 )
-      v11 = v18;
-    v39.m128i_i32[1] = v11;
-    v11 = v18;
-    if ( v41 < v18 )
-      v11 = v41;
-    if ( v10 <= v19 )
-      v10 = v19;
-    v39.m128i_i32[2] = v10;
-    v10 = v19;
-    if ( v42 > v19 )
-      v10 = v42;
-    v20 = *((_DWORD *)v15 + 3);
-    if ( v8 <= v20 )
-      v8 = *((_DWORD *)v15 + 3);
-    v39.m128i_i32[3] = v8;
-    v8 = v20;
-    if ( (int)v40 > v20 )
-      v8 = (int)v40;
-    if ( (v17 & 1) != 0 )
-      v9 = v15;
-    v7 = 0LL;
-    if ( !v5 || (v43 = 0LL, PtInRect(v15, 0LL)) )
-      v5 = v15;
-    v21 = *((_WORD *)v15 + 10);
-    if ( (unsigned __int16)v21 < 0x60u )
+    v8 = CInputSpace::Iter::ModifiableRegion((CInputSpace::Iter *)v33);
+    v9 = v30;
+    v10 = v8;
+    v11 = HIDWORD(v30);
+    v12 = *(_DWORD *)v8;
+    if ( (int)v30 >= v12 )
+      v9 = v12;
+    LODWORD(v30) = v9;
+    LODWORD(v31) = v9;
+    if ( SHIDWORD(v30) >= *((_DWORD *)v10 + 1) )
+      v11 = *((_DWORD *)v10 + 1);
+    HIDWORD(v30) = v11;
+    DWORD1(v31) = v11;
+    v13 = *((_DWORD *)v10 + 4);
+    if ( v7 <= *((_DWORD *)v10 + 2) )
+      v7 = *((_DWORD *)v10 + 2);
+    DWORD2(v31) = v7;
+    if ( v6 <= *((_DWORD *)v10 + 3) )
+      v6 = *((_DWORD *)v10 + 3);
+    HIDWORD(v31) = v6;
+    if ( (v13 & 1) != 0 )
+      v4 = v10;
+    if ( !v3 || (unsigned int)PtInRect(v10, 0LL) )
+      v3 = v10;
+    v14 = *((_WORD *)v10 + 10);
+    v15 = *((_WORD *)v10 + 11);
+    if ( (unsigned __int16)v14 < 0x60u )
     {
-      v21 = *((_WORD *)v15 + 11);
-      if ( (unsigned __int16)v21 <= 0x60u )
-        v21 = 96;
-      *((_WORD *)v15 + 10) = v21;
+      if ( v15 <= 0x60u )
+        v14 = 96;
+      else
+        v14 = *((_WORD *)v10 + 11);
+      *((_WORD *)v10 + 10) = v14;
     }
-    if ( *((_WORD *)v15 + 11) == (_WORD)v7 )
-      *((_WORD *)v15 + 11) = v21;
-    if ( (v17 & 2) != 0 )
-    {
-      CInputSpaceRegion::PopulatePanelId(v15);
-      v7 = 0LL;
-    }
-    v6 = *(char **)v6;
-    v39.m128i_i64[0] = __PAIR64__(v11, v12);
-    v39.m128i_i64[1] = __PAIR64__(v8, v10);
-    v3 = _mm_loadu_si128(&v39);
+    if ( !v15 )
+      *((_WORD *)v10 + 11) = v14;
+    if ( (v13 & 2) != 0 )
+      CInputSpaceRegion::PopulatePanelId(v10);
+    v5 = *(struct CInputSpace **)v5;
   }
-  v40 = v9;
   ExReleaseResourceLite(CInputConfig::slock);
   KeLeaveCriticalRegion();
-  v22 = v44;
-  if ( v40 )
-    v5 = v40;
-  v23 = 5LL;
-  *((_DWORD *)v44 + 10) = 0;
-  v24 = (_OWORD *)((char *)v22 + 24);
-  v25 = (_OWORD *)((char *)v22 + 736);
-  *(__m128i *)((char *)v22 + 24) = v3;
-  if ( v5 )
+  *((_DWORD *)a2 + 10) = 0;
+  v16 = (_OWORD *)((char *)a2 + 24);
+  v17 = (_OWORD *)((char *)a2 + 720);
+  *(_OWORD *)((char *)a2 + 24) = v31;
+  if ( v4 )
+    v3 = v4;
+  v18 = 5LL;
+  if ( v3 )
   {
-    *((_DWORD *)v5 + 4) |= 1u;
+    *((_DWORD *)v3 + 4) |= 1u;
     do
     {
-      *v25 = *(_OWORD *)v5;
-      v25[1] = *((_OWORD *)v5 + 1);
-      v25[2] = *((_OWORD *)v5 + 2);
-      v25[3] = *((_OWORD *)v5 + 3);
-      v25[4] = *((_OWORD *)v5 + 4);
-      v25[5] = *((_OWORD *)v5 + 5);
-      v25[6] = *((_OWORD *)v5 + 6);
-      v25 += 8;
-      v26 = *((_OWORD *)v5 + 7);
-      v5 = (struct CInputSpaceRegion *)((char *)v5 + 128);
-      *(v25 - 1) = v26;
-      --v23;
+      *v17 = *(_OWORD *)v3;
+      v17[1] = *((_OWORD *)v3 + 1);
+      v17[2] = *((_OWORD *)v3 + 2);
+      v17[3] = *((_OWORD *)v3 + 3);
+      v17[4] = *((_OWORD *)v3 + 4);
+      v17[5] = *((_OWORD *)v3 + 5);
+      v17[6] = *((_OWORD *)v3 + 6);
+      v17 += 8;
+      v19 = *((_OWORD *)v3 + 7);
+      v3 = (struct CInputSpaceRegion *)((char *)v3 + 128);
+      *(v17 - 1) = v19;
+      --v18;
     }
-    while ( v23 );
-    *v25 = *(_OWORD *)v5;
-    v25[1] = *((_OWORD *)v5 + 1);
-    v25[2] = *((_OWORD *)v5 + 2);
-    v25[3] = *((_OWORD *)v5 + 3);
-    *((_QWORD *)v25 + 8) = *((_QWORD *)v5 + 8);
+    while ( v18 );
+    *v17 = *(_OWORD *)v3;
+    v17[1] = *((_OWORD *)v3 + 1);
+    v17[2] = *((_OWORD *)v3 + 2);
+    v20 = *((_QWORD *)v3 + 6);
   }
   else
   {
     do
     {
-      v27 = v24[1];
-      *v25 = *v24;
-      v28 = v24[2];
-      v25[1] = v27;
-      v29 = v24[3];
-      v25[2] = v28;
-      v30 = v24[4];
-      v25[3] = v29;
-      v31 = v24[5];
-      v25[4] = v30;
-      v32 = v24[6];
-      v25[5] = v31;
-      v33 = v24[7];
-      v24 += 8;
-      v25[6] = v32;
-      v25 += 8;
-      *(v25 - 1) = v33;
-      --v23;
+      v21 = v16[1];
+      *v17 = *v16;
+      v22 = v16[2];
+      v17[1] = v21;
+      v23 = v16[3];
+      v17[2] = v22;
+      v24 = v16[4];
+      v17[3] = v23;
+      v25 = v16[5];
+      v17[4] = v24;
+      v26 = v16[6];
+      v17[5] = v25;
+      v27 = v16[7];
+      v16 += 8;
+      v17[6] = v26;
+      v17 += 8;
+      *(v17 - 1) = v27;
+      --v18;
     }
-    while ( v23 );
-    v34 = v24[1];
-    *v25 = *v24;
-    v35 = v24[2];
-    v25[1] = v34;
-    v36 = v24[3];
-    v37 = *((_QWORD *)v24 + 8);
-    v25[2] = v35;
-    v25[3] = v36;
-    *((_QWORD *)v25 + 8) = v37;
-    *((_WORD *)v22 + 378) = 96;
+    while ( v18 );
+    v28 = v16[1];
+    *v17 = *v16;
+    v29 = v16[2];
+    v20 = *((_QWORD *)v16 + 6);
+    v17[1] = v28;
+    v17[2] = v29;
   }
-  *((_WORD *)v22 + 22) = *((_WORD *)v22 + 378);
+  *((_QWORD *)v17 + 6) = v20;
 }

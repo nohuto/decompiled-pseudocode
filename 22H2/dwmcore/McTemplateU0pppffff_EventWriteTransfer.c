@@ -1,15 +1,15 @@
 /*
- * XREFs of McTemplateU0pppffff_EventWriteTransfer @ 0x1801325C4
+ * XREFs of McTemplateU0pppffff_EventWriteTransfer @ 0x1801BC884
  * Callers:
- *     ?Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18000CD60 (-Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@.c)
+ *     ?Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180013674 (-Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 McTemplateU0pppffff_EventWriteTransfer(__int64 a1, __int64 a2, ...)
+ULONG McTemplateU0pppffff_EventWriteTransfer(__int64 a1, __int64 a2, ...)
 {
-  _BYTE v3[16]; // [rsp+30h] [rbp-61h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v3; // [rsp+30h] [rbp-61h] BYREF
   va_list v4; // [rsp+40h] [rbp-51h]
   __int64 v5; // [rsp+48h] [rbp-49h]
   va_list v6; // [rsp+50h] [rbp-41h]
@@ -71,9 +71,9 @@ __int64 McTemplateU0pppffff_EventWriteTransfer(__int64 a1, __int64 a2, ...)
   v15 = 4LL;
   v17 = 4LL;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_ETWGUID_COMPOSITION_SURFACE_DRAW,
            v19,
-           8LL,
-           v3);
+           8u,
+           &v3);
 }

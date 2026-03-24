@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCbPrintfA @ 0x14017DE94 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     VfUtilDbgPrint @ 0x14030994C (VfUtilDbgPrint.c)
- *     ViErrorReport1 @ 0x14030AE3C (ViErrorReport1.c)
- *     ViErrorReport6 @ 0x14030AFF8 (ViErrorReport6.c)
+ *     RtlStringCbPrintfA @ 0x14017DEB4 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VfUtilDbgPrint @ 0x140309A4C (VfUtilDbgPrint.c)
+ *     ViErrorReport1 @ 0x14030AF3C (ViErrorReport1.c)
+ *     ViErrorReport6 @ 0x14030B0F8 (ViErrorReport6.c)
  *     VfMajorIsNewRequest @ 0x140935A1C (VfMajorIsNewRequest.c)
  *     VfMajorIsValidIrpStatus @ 0x140935A9C (VfMajorIsValidIrpStatus.c)
  *     ViErrorDisplayDescription @ 0x140936124 (ViErrorDisplayDescription.c)

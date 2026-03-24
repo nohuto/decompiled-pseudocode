@@ -1,9 +1,9 @@
 /*
- * XREFs of NtQueryDirectoryFile @ 0x140756250
+ * XREFs of NtQueryDirectoryFile @ 0x14064E910
  * Callers:
  *     <none>
  * Callees:
- *     NtQueryDirectoryFileEx @ 0x1407562E0 (NtQueryDirectoryFileEx.c)
+ *     NtQueryDirectoryFileEx @ 0x14064FBF0 (NtQueryDirectoryFileEx.c)
  */
 
 NTSTATUS __stdcall NtQueryDirectoryFile(

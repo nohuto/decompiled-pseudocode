@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1CHolographicExclusiveView@@EEAA@XZ @ 0x180298BEC
+ * XREFs of ??1CHolographicExclusiveView@@EEAA@XZ @ 0x180256CC0
  * Callers:
- *     ??_GCHolographicExclusiveView@@EEAAPEAXI@Z @ 0x180298C40 (--_GCHolographicExclusiveView@@EEAAPEAXI@Z.c)
+ *     ??_GCHolographicExclusiveView@@EEAAPEAXI@Z @ 0x180256D00 (--_GCHolographicExclusiveView@@EEAAPEAXI@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CHolographicExclusiveView::~CHolographicExclusiveView(CHolographicExclusiveView *this)
@@ -11,7 +11,7 @@ void __fastcall CHolographicExclusiveView::~CHolographicExclusiveView(CHolograph
   __int64 v2; // rcx
 
   *(_QWORD *)this = &CHolographicExclusiveView::`vftable';
-  v2 = *((_QWORD *)this + 15);
+  v2 = *((_QWORD *)this + 14);
   if ( v2 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 16LL))(v2);
   CResource::~CResource(this);

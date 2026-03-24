@@ -1,30 +1,19 @@
 /*
- * XREFs of MiPrefetchNormally @ 0x14033E440
+ * XREFs of MiPrefetchNormally @ 0x14033A8E8
  * Callers:
- *     MiPrefetchPagesViable @ 0x14033E3E4 (MiPrefetchPagesViable.c)
- *     MiPfPrepareReadList @ 0x1406F6350 (MiPfPrepareReadList.c)
+ *     MiPfPutPagesInTransition @ 0x14027BCA0 (MiPfPutPagesInTransition.c)
+ *     MiPfPrepareReadList @ 0x14063D030 (MiPfPrepareReadList.c)
  * Callees:
- *     MiGetAvailablePagesBelowPriority @ 0x14025B9B0 (MiGetAvailablePagesBelowPriority.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14033A92C (MiGetAvailablePagesBelowPriority.c)
+ *     MiCommitmentAvailable @ 0x14033A968 (MiCommitmentAvailable.c)
  */
 
-__int64 __fastcall MiPrefetchNormally(_QWORD *a1, __int64 a2, unsigned int a3)
+_BOOL8 __fastcall MiPrefetchNormally(__int64 a1, __int64 a2)
 {
-  unsigned __int64 v4; // rax
-  unsigned int v5; // ebx
-  unsigned __int64 v6; // rcx
-  unsigned __int64 v7; // rax
-  unsigned __int64 AvailablePagesBelowPriority; // rax
-  unsigned __int64 v9; // r11
+  __int64 v2; // rcx
+  unsigned int v3; // r8d
 
-  if ( a1[2160] < a2 + 159 )
-    return 0LL;
-  v4 = a1[2227];
-  v5 = 0;
-  v6 = a1[2197];
-  v7 = v6 > v4 ? 0LL : v4 - v6;
-  if ( v7 < a2 + 4223 )
-    return 0LL;
-  AvailablePagesBelowPriority = MiGetAvailablePagesBelowPriority(a1, a3);
-  LOBYTE(v5) = AvailablePagesBelowPriority >= v9;
-  return v5;
+  return *(__int64 *)(a1 + 7168) >= 160
+      && (unsigned __int64)MiCommitmentAvailable(a1, a2, (unsigned int)a2) >= 0x1080
+      && MiGetAvailablePagesBelowPriority(v2, v3);
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?ResolveTargetNoRef@CBaseExpression@@IEAAPEAVCResource@@XZ @ 0x1800C22B0
+ * XREFs of ?ResolveTargetNoRef@CBaseExpression@@IEAAPEAVCResource@@XZ @ 0x1800AD3B4
  * Callers:
- *     ?SampleStartingValue@CKeyframeAnimation@@AEAAJXZ @ 0x1800C2160 (-SampleStartingValue@CKeyframeAnimation@@AEAAJXZ.c)
- *     ?SampleInitialValueAndFinalValueIfNecessary@CNaturalAnimation@@AEAAJXZ @ 0x18023DB78 (-SampleInitialValueAndFinalValueIfNecessary@CNaturalAnimation@@AEAAJXZ.c)
+ *     ?SampleStartingValue@CKeyframeAnimation@@AEAAJXZ @ 0x1800AD298 (-SampleStartingValue@CKeyframeAnimation@@AEAAJXZ.c)
+ *     ?SampleInitialValueAndFinalValueIfNecessary@CNaturalAnimation@@AEAAJXZ @ 0x1801D89C0 (-SampleInitialValueAndFinalValueIfNecessary@CNaturalAnimation@@AEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ struct CResource *__fastcall CBaseExpression::ResolveTargetNoRef(CBaseExpression
   __int64 v1; // rdx
   struct CResource *result; // rax
 
-  v1 = *((_QWORD *)this + 23);
+  v1 = *((_QWORD *)this + 22);
   result = 0LL;
   if ( v1 )
     return *(struct CResource **)(v1 + 16);

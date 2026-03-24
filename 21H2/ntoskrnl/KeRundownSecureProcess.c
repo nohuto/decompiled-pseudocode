@@ -1,9 +1,9 @@
 /*
- * XREFs of KeRundownSecureProcess @ 0x14056C694
+ * XREFs of KeRundownSecureProcess @ 0x140513A1C
  * Callers:
- *     PspRundownSingleProcess @ 0x140683990 (PspRundownSingleProcess.c)
+ *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
  * Callees:
- *     VslRundownSecureProcess @ 0x140932B54 (VslRundownSecureProcess.c)
+ *     VslRundownSecureProcess @ 0x1408901FC (VslRundownSecureProcess.c)
  */
 
 __int64 __fastcall KeRundownSecureProcess(__int64 a1)

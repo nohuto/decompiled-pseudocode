@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipClearIrpObjectList @ 0x140369BDC
+ * XREFs of WmipClearIrpObjectList @ 0x14032B06C
  * Callers:
- *     WmipReceiveNotifications @ 0x140360F3C (WmipReceiveNotifications.c)
- *     WmipCompleteGuidIrpWithError @ 0x140369AC8 (WmipCompleteGuidIrpWithError.c)
- *     WmipNotificationIrpCancel @ 0x140369B70 (WmipNotificationIrpCancel.c)
- *     WmipWriteWnodeToObject @ 0x1405FBC44 (WmipWriteWnodeToObject.c)
+ *     WmipReceiveNotifications @ 0x140319C9C (WmipReceiveNotifications.c)
+ *     WmipNotificationIrpCancel @ 0x14032B000 (WmipNotificationIrpCancel.c)
+ *     WmipCompleteGuidIrpWithError @ 0x14032E0E4 (WmipCompleteGuidIrpWithError.c)
+ *     WmipWriteWnodeToObject @ 0x140371BA4 (WmipWriteWnodeToObject.c)
  * Callees:
  *     <none>
  */
@@ -13,23 +13,23 @@ void __fastcall WmipClearIrpObjectList(__int64 a1)
 {
   _QWORD *v1; // rdx
   _QWORD *v2; // rcx
-  _QWORD *v3; // r8
-  _QWORD *v4; // rax
-  _QWORD *v5; // r9
+  _QWORD *v3; // rax
+  _QWORD *v4; // r8
+  __int64 v5; // r9
   _QWORD *v6; // rax
 
   v1 = (_QWORD *)(a1 + 120);
   v2 = *(_QWORD **)(a1 + 120);
   while ( v2 != v1 )
   {
-    v3 = (_QWORD *)*v2;
+    v3 = v2;
     v4 = v2;
-    v5 = v2;
-    v2 = v3;
-    *(v4 - 1) = 0LL;
-    if ( (_QWORD *)v3[1] != v4 || (v6 = (_QWORD *)v4[1], (_QWORD *)*v6 != v5) )
+    v2 = (_QWORD *)*v2;
+    *(v3 - 1) = 0LL;
+    v5 = *v3;
+    if ( *(_QWORD **)(*v3 + 8LL) != v3 || (v6 = (_QWORD *)v3[1], (_QWORD *)*v6 != v4) )
       __fastfail(3u);
-    *v6 = v3;
-    v3[1] = v6;
+    *v6 = v5;
+    *(_QWORD *)(v5 + 8) = v6;
   }
 }

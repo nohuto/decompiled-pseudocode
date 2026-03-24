@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpTraceDatabaseReleaseLock @ 0x1405EE4E0
+ * XREFs of RtlpTraceDatabaseReleaseLock @ 0x14058EF18
  * Callers:
- *     RtlTraceDatabaseAdd @ 0x1405EDE20 (RtlTraceDatabaseAdd.c)
- *     RtlTraceDatabaseEnumerate @ 0x1405EE040 (RtlTraceDatabaseEnumerate.c)
- *     RtlTraceDatabaseFind @ 0x1405EE110 (RtlTraceDatabaseFind.c)
- *     RtlTraceDatabaseUnlock @ 0x1405EE1A0 (RtlTraceDatabaseUnlock.c)
- *     RtlTraceDatabaseValidate @ 0x1405EE1C0 (RtlTraceDatabaseValidate.c)
+ *     RtlTraceDatabaseAdd @ 0x14058E860 (RtlTraceDatabaseAdd.c)
+ *     RtlTraceDatabaseEnumerate @ 0x14058EA80 (RtlTraceDatabaseEnumerate.c)
+ *     RtlTraceDatabaseFind @ 0x14058EB50 (RtlTraceDatabaseFind.c)
+ *     RtlTraceDatabaseUnlock @ 0x14058EBE0 (RtlTraceDatabaseUnlock.c)
+ *     RtlTraceDatabaseValidate @ 0x14058EC00 (RtlTraceDatabaseValidate.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall RtlpTraceDatabaseReleaseLock(__int64 a1)

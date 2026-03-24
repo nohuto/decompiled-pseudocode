@@ -1,12 +1,12 @@
 /*
- * XREFs of WMI_QueryInstanceDeviceNodeInfo @ 0x1C003D980
+ * XREFs of WMI_QueryInstanceDeviceNodeInfo @ 0x1C003D300
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0043840 (memmove.c)
- *     memset @ 0x1C0043B00 (memset.c)
- *     WMI_GetPropertyString @ 0x1C0086410 (WMI_GetPropertyString.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
+ *     memset @ 0x1C0042D40 (memset.c)
+ *     WMI_GetPropertyString @ 0x1C00847C0 (WMI_GetPropertyString.c)
  */
 
 __int64 __fastcall WMI_QueryInstanceDeviceNodeInfo(__int64 a1, unsigned int a2, _DWORD *a3, unsigned int *a4)
@@ -46,7 +46,7 @@ __int64 __fastcall WMI_QueryInstanceDeviceNodeInfo(__int64 a1, unsigned int a2, 
   v32 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
           WdfDriverGlobals,
           v9,
-          off_1C00670F8);
+          off_1C00660D0);
   v10 = *(_QWORD *)(v32 + 24);
   if ( !v10 )
   {

@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmPerfCheckRequired @ 0x140390848
+ * XREFs of PpmPerfCheckRequired @ 0x1403C1894
  * Callers:
- *     PpmCheckReInit @ 0x14082E63C (PpmCheckReInit.c)
+ *     PpmCheckReInit @ 0x1407BAFA4 (PpmCheckReInit.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ char __fastcall PpmPerfCheckRequired(__int64 a1)
     {
       for ( i = PpmPerfDomainHead; (__int64 *)i != &PpmPerfDomainHead; i = *(_QWORD *)i )
       {
-        if ( *(_DWORD *)(i + 444) > 0x64u )
+        if ( *(_DWORD *)(i + 320) > 0x64u )
           return 1;
       }
     }

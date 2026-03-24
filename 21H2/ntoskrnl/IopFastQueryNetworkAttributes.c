@@ -1,14 +1,14 @@
 /*
- * XREFs of IopFastQueryNetworkAttributes @ 0x140936A54
+ * XREFs of IopFastQueryNetworkAttributes @ 0x140894148
  * Callers:
- *     IoFastQueryNetworkAttributes @ 0x1409363D0 (IoFastQueryNetworkAttributes.c)
+ *     IoFastQueryNetworkAttributes @ 0x140893B80 (IoFastQueryNetworkAttributes.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x140347D50 (PsGetCurrentSilo.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     FsRtlpCleanupEcps @ 0x14066EE14 (FsRtlpCleanupEcps.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     ObOpenObjectByNameEx @ 0x1407CAF90 (ObOpenObjectByNameEx.c)
+ *     PsGetCurrentSilo @ 0x14027C930 (PsGetCurrentSilo.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     FsRtlpCleanupEcps @ 0x14060C8C0 (FsRtlpCleanupEcps.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     ObOpenObjectByNameEx @ 0x140655CD0 (ObOpenObjectByNameEx.c)
  */
 
 char __fastcall IopFastQueryNetworkAttributes(__int64 a1, ACCESS_MASK a2, char a3, int a4, __int64 a5, __int64 a6)

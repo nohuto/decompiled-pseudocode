@@ -1,8 +1,8 @@
 /*
- * XREFs of VidSchDeviceQueuesNotEmpty @ 0x1C0001EA0
+ * XREFs of VidSchDeviceQueuesNotEmpty @ 0x1C0012AA8
  * Callers:
- *     ?IndefinitelySuspend@VIDMM_DEVICE@@QEAAX_N@Z @ 0x1C0089554 (-IndefinitelySuspend@VIDMM_DEVICE@@QEAAX_N@Z.c)
- *     ?FullySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00B4D1C (-FullySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
+ *     ?IndefinitelySuspend@VIDMM_DEVICE@@QEAAX_N@Z @ 0x1C0082E38 (-IndefinitelySuspend@VIDMM_DEVICE@@QEAAX_N@Z.c)
+ *     ?FullySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00B6820 (-FullySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlpCancelReadOnlyOplockIrp @ 0x14054268C
+ * XREFs of FsRtlpCancelReadOnlyOplockIrp @ 0x1404F06F8
  * Callers:
- *     FsRtlpRequestShareableOplock @ 0x1402A2490 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpAcknowledgeOplockBreak @ 0x140542458 (FsRtlpAcknowledgeOplockBreak.c)
- *     FsRtlpReadOnlyOplockIrpCancelRoutine @ 0x140542AD0 (FsRtlpReadOnlyOplockIrpCancelRoutine.c)
+ *     FsRtlpRequestShareableOplock @ 0x1402057F0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x1404F04C4 (FsRtlpAcknowledgeOplockBreak.c)
+ *     FsRtlpReadOnlyOplockIrpCancelRoutine @ 0x1404F0B30 (FsRtlpReadOnlyOplockIrpCancelRoutine.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     FsRtlpComputeShareableOplockState @ 0x1402A2DE8 (FsRtlpComputeShareableOplockState.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x140542AEC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpComputeShareableOplockState @ 0x140206150 (FsRtlpComputeShareableOplockState.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1404F0B4C (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
  */
 
 void __fastcall FsRtlpCancelReadOnlyOplockIrp(__int64 a1, char a2)

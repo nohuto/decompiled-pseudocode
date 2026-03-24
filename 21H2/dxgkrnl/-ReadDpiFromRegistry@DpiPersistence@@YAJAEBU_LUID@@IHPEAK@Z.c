@@ -1,17 +1,15 @@
 /*
- * XREFs of ?ReadDpiFromRegistry@DpiPersistence@@YAJAEBU_LUID@@IHPEAK@Z @ 0x1C01D642C
+ * XREFs of ?ReadDpiFromRegistry@DpiPersistence@@YAJAEBU_LUID@@IHPEAK@Z @ 0x1C0146F0C
  * Callers:
- *     DxgkUpdateGdiInfo @ 0x1C01D4920 (DxgkUpdateGdiInfo.c)
- *     DxgkGetDpiOverrideForSource @ 0x1C01D7ED0 (DxgkGetDpiOverrideForSource.c)
+ *     DxgkUpdateGdiInfo @ 0x1C0148B60 (DxgkUpdateGdiInfo.c)
+ *     DxgkGetDpiOverrideForSource @ 0x1C016EA90 (DxgkGetDpiOverrideForSource.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ?GetUserRegistryPath@DXGSESSIONDATA@@QEAAPEAU_UNICODE_STRING@@G@Z @ 0x1C0019B80 (-GetUserRegistryPath@DXGSESSIONDATA@@QEAAPEAU_UNICODE_STRING@@G@Z.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?WriteDwordToParticularRegValue@DpiPersistence@@YAJAEBU_UNICODE_STRING@@00QEBGK@Z @ 0x1C01D62B8 (-WriteDwordToParticularRegValue@DpiPersistence@@YAJAEBU_UNICODE_STRING@@00QEBGK@Z.c)
- *     ?OpenRegistrySubkey@@YAJPEAPEAXKPEAXAEBU_UNICODE_STRING@@PEAK@Z @ 0x1C01D6784 (-OpenRegistrySubkey@@YAJPEAPEAXKPEAXAEBU_UNICODE_STRING@@PEAK@Z.c)
- *     ?AllocateMonitorSetIdFromAdapterSource@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@@Z @ 0x1C01D698C (-AllocateMonitorSetIdFromAdapterSource@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?WriteDwordToParticularRegValue@DpiPersistence@@YAJAEBU_UNICODE_STRING@@00QEBGK@Z @ 0x1C0146DA8 (-WriteDwordToParticularRegValue@DpiPersistence@@YAJAEBU_UNICODE_STRING@@00QEBGK@Z.c)
+ *     ?OpenRegistrySubkey@@YAJPEAPEAXKPEAXAEBU_UNICODE_STRING@@PEAK@Z @ 0x1C0147238 (-OpenRegistrySubkey@@YAJPEAPEAXKPEAXAEBU_UNICODE_STRING@@PEAK@Z.c)
+ *     ?AllocateMonitorSetIdFromAdapterSource@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@@Z @ 0x1C01472F0 (-AllocateMonitorSetIdFromAdapterSource@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@@Z.c)
  */
 
 __int64 __fastcall DpiPersistence::ReadDpiFromRegistry(
@@ -20,230 +18,192 @@ __int64 __fastcall DpiPersistence::ReadDpiFromRegistry(
         int a3,
         struct _UNICODE_STRING *a4)
 {
-  DXGSESSIONDATA *v5; // rbx
-  __int64 v7; // rdi
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rcx
-  DXGSESSIONMGR *v11; // rbx
+  struct _UNICODE_STRING *SessionDataForSpecifiedSession; // rsi
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rdi
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  DXGSESSIONMGR *v12; // rbx
+  __int64 v13; // r8
+  __int64 v14; // r9
   unsigned int CurrentProcessSessionId; // eax
-  DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  __int64 v14; // r8
-  __int64 v15; // r9
-  DXGSESSIONDATA *v16; // rsi
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // r9
-  __int64 v21; // r8
-  __int64 v22; // r9
-  struct _UNICODE_STRING *UserRegistryPath; // rax
-  const WCHAR *v24; // rdx
-  int v25; // eax
-  HANDLE v26; // r8
-  int v27; // eax
-  const struct _UNICODE_STRING *v28; // r9
-  __int64 v30; // rdx
-  __int64 v31; // rcx
-  HANDLE v32; // r8
-  int v33; // eax
-  HANDLE v34; // rdx
-  int v35; // eax
-  unsigned int v36; // eax
-  __int64 v37; // rcx
-  unsigned int v38; // eax
-  unsigned int *v39; // [rsp+20h] [rbp-B9h]
-  HANDLE KeyHandle; // [rsp+50h] [rbp-89h] BYREF
-  HANDLE v41; // [rsp+58h] [rbp-81h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-79h] BYREF
-  struct _UNICODE_STRING v43; // [rsp+70h] [rbp-69h] BYREF
-  struct _UNICODE_STRING v44; // [rsp+80h] [rbp-59h] BYREF
-  __int64 v45; // [rsp+90h] [rbp-49h] BYREF
-  int v46; // [rsp+98h] [rbp-41h]
-  const WCHAR *v47; // [rsp+A0h] [rbp-39h]
-  struct _UNICODE_STRING *v48; // [rsp+A8h] [rbp-31h]
-  int v49; // [rsp+B0h] [rbp-29h]
-  int *v50; // [rsp+B8h] [rbp-21h]
-  int v51; // [rsp+C0h] [rbp-19h]
-  __int64 v52; // [rsp+C8h] [rbp-11h]
-  int v53; // [rsp+D0h] [rbp-9h]
-  __int128 v54; // [rsp+D8h] [rbp-1h]
-  __int128 v55; // [rsp+E8h] [rbp+Fh]
-  __int64 v56; // [rsp+F8h] [rbp+1Fh]
-  int v57; // [rsp+150h] [rbp+77h] BYREF
-  HANDLE Handle; // [rsp+158h] [rbp+7Fh] BYREF
+  __int64 v16; // rax
+  const WCHAR *v17; // rdx
+  int v18; // eax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  HANDLE v21; // r8
+  int v22; // eax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // rax
+  const struct _UNICODE_STRING *v26; // r9
+  HANDLE v28; // r8
+  int v29; // eax
+  HANDLE v30; // rdx
+  int v31; // eax
+  __int64 v32; // rbx
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // rax
+  __int64 v36; // rax
+  __int64 v37; // rax
+  __int64 v38; // rax
+  __int64 v39; // rax
+  unsigned int *v40; // [rsp+20h] [rbp-89h]
+  HANDLE KeyHandle; // [rsp+30h] [rbp-79h] BYREF
+  HANDLE v42; // [rsp+38h] [rbp-71h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-69h] BYREF
+  struct _UNICODE_STRING v44; // [rsp+50h] [rbp-59h] BYREF
+  struct _UNICODE_STRING v45; // [rsp+60h] [rbp-49h] BYREF
+  __int64 v46; // [rsp+70h] [rbp-39h] BYREF
+  int v47; // [rsp+78h] [rbp-31h]
+  const WCHAR *v48; // [rsp+80h] [rbp-29h]
+  struct _UNICODE_STRING *v49; // [rsp+88h] [rbp-21h]
+  int v50; // [rsp+90h] [rbp-19h]
+  int *v51; // [rsp+98h] [rbp-11h]
+  int v52; // [rsp+A0h] [rbp-9h]
+  __int64 v53; // [rsp+A8h] [rbp-1h]
+  int v54; // [rsp+B0h] [rbp+7h]
+  __int128 v55; // [rsp+B8h] [rbp+Fh]
+  __int128 v56; // [rsp+C8h] [rbp+1Fh]
+  __int64 v57; // [rsp+D8h] [rbp+2Fh]
+  int v58; // [rsp+120h] [rbp+77h] BYREF
+  HANDLE Handle; // [rsp+128h] [rbp+7Fh] BYREF
 
-  v57 = 0;
+  v58 = 0;
   *(_DWORD *)&a4->Length = 0;
   Handle = 0LL;
-  v44 = 0LL;
+  v45 = 0LL;
   KeyHandle = 0LL;
-  v5 = 0LL;
-  v41 = 0LL;
-  v43 = 0LL;
+  SessionDataForSpecifiedSession = 0LL;
+  v42 = 0LL;
+  v44 = 0LL;
   DestinationString = 0LL;
-  LODWORD(v7) = DpiPersistence::AllocateMonitorSetIdFromAdapterSource(this, a2, (unsigned int)&v44, a4);
-  if ( (int)v7 < 0 )
-    goto LABEL_12;
-  v11 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-  if ( !v11 )
+  LODWORD(v9) = DpiPersistence::AllocateMonitorSetIdFromAdapterSource(this, a2, (unsigned int)&v45, a4);
+  if ( (int)v9 >= 0 )
   {
-    v5 = 0LL;
-    goto LABEL_38;
-  }
-  CurrentProcessSessionId = PsGetCurrentProcessSessionId(v10);
-  SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v11, CurrentProcessSessionId);
-  v16 = SessionDataForSpecifiedSession;
-  v5 = SessionDataForSpecifiedSession;
-  if ( !SessionDataForSpecifiedSession )
-  {
-LABEL_38:
-    v36 = PsGetCurrentProcessSessionId(v10);
-    LODWORD(v7) = -1073741811;
-    WdLogSingleEntry2(2LL, v36, -1073741811LL);
-    v38 = PsGetCurrentProcessSessionId(v37);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Current session does not have session data in session 0x%I64x, returning 0x%I64x.",
-      v38,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
-    goto LABEL_14;
-  }
-  if ( DXGSESSIONDATA::GetUserRegistryPath(SessionDataForSpecifiedSession, 0, v14, v15)->Buffer )
-  {
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v18, v17) + 24) = 863LL;
-    UserRegistryPath = DXGSESSIONDATA::GetUserRegistryPath(v5, 0, v21, v22);
-    v24 = L"Control Panel\\Desktop\\PerMonitorSettings\\";
-    v43 = *UserRegistryPath;
-  }
-  else
-  {
-    if ( DXGSESSIONDATA::GetUserRegistryPath(v16, 0, v19, v20)->Length )
+    v12 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal(v8, v7) + 102);
+    if ( v12 )
     {
-      WdLogSingleEntry1(1LL, 854LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"pDxgSessionData->GetUserRegistryPath()->Length == 0",
-        854LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      CurrentProcessSessionId = PsGetCurrentProcessSessionId(v11, v10);
+      SessionDataForSpecifiedSession = (struct _UNICODE_STRING *)DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
+                                                                   v12,
+                                                                   CurrentProcessSessionId);
     }
-    *(_QWORD *)(WdLogNewEntry5_WdTrace(v31, v30) + 24) = 855LL;
-    RtlInitUnicodeString(&v43, L"\\Registry\\Machine\\System");
-    v24 = L"CurrentControlSet\\Control\\GraphicsDrivers\\ScaleFactors";
-  }
-  RtlInitUnicodeString(&DestinationString, v24);
-  v25 = OpenRegistrySubkey(&Handle, 0xF003Fu, 0LL, &v43, 0LL);
-  v7 = v25;
-  if ( v25 < 0 )
-  {
-    WdLogSingleEntry1(2LL, v25);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Unable to open HKey root handle (Status = 0x%I64x)",
-      v7,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-  }
-  else
-  {
-    v26 = Handle;
-    if ( !Handle )
+    if ( !SessionDataForSpecifiedSession )
     {
-      WdLogSingleEntry1(1LL, 883LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"HKeyRootHandle", 883LL, 0LL, 0LL, 0LL, 0LL);
-      v26 = Handle;
+      v32 = WdLogNewEntry5_WdError(v11, v10);
+      LODWORD(v9) = -1073741811;
+      *(_QWORD *)(v32 + 24) = (unsigned int)PsGetCurrentProcessSessionId(v34, v33);
+      *(_QWORD *)(v32 + 32) = -1073741811LL;
+      WdLogEvent5_WdError(v32);
+      goto LABEL_14;
     }
-    v27 = OpenRegistrySubkey(&KeyHandle, 0xF003Fu, v26, &DestinationString, 0LL);
-    v7 = v27;
-    if ( v27 >= 0 )
+    if ( SessionDataForSpecifiedSession[1169].Buffer )
     {
-      v32 = KeyHandle;
+      v16 = WdLogNewEntry5_WdTrace(v11, v10, v13, v14);
+      v17 = L"Control Panel\\Desktop\\PerMonitorSettings\\";
+      *(_QWORD *)(v16 + 24) = 861LL;
+      v44 = SessionDataForSpecifiedSession[1169];
+    }
+    else
+    {
+      if ( SessionDataForSpecifiedSession[1169].Length )
+      {
+        v35 = WdLogNewEntry5_WdAssertion(v11, v10);
+        *(_QWORD *)(v35 + 24) = 852LL;
+        WdLogEvent5_WdAssertion(v35);
+      }
+      *(_QWORD *)(WdLogNewEntry5_WdTrace(v11, v10, v13, v14) + 24) = 853LL;
+      RtlInitUnicodeString(&v44, L"\\Registry\\Machine\\System");
+      v17 = L"CurrentControlSet\\Control\\GraphicsDrivers\\ScaleFactors";
+    }
+    RtlInitUnicodeString(&DestinationString, v17);
+    v18 = OpenRegistrySubkey(&Handle, 0xF003Fu, 0LL, &v44, 0LL);
+    v9 = v18;
+    if ( v18 >= 0 )
+    {
+      v21 = Handle;
+      if ( !Handle )
+      {
+        v36 = WdLogNewEntry5_WdAssertion(v20, v19);
+        *(_QWORD *)(v36 + 24) = 881LL;
+        WdLogEvent5_WdAssertion(v36);
+        v21 = Handle;
+      }
+      v22 = OpenRegistrySubkey(&KeyHandle, 0xF003Fu, v21, &DestinationString, 0LL);
+      v9 = v22;
+      if ( v22 < 0 )
+        goto LABEL_11;
+      v28 = KeyHandle;
       if ( !KeyHandle )
       {
-        WdLogSingleEntry1(1LL, 899LL);
-        DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"PerMonSettingsKeyHandle", 899LL, 0LL, 0LL, 0LL, 0LL);
-        v32 = KeyHandle;
+        v37 = WdLogNewEntry5_WdAssertion(v24, v23);
+        *(_QWORD *)(v37 + 24) = 897LL;
+        WdLogEvent5_WdAssertion(v37);
+        v28 = KeyHandle;
       }
-      v33 = OpenRegistrySubkey(&v41, 0xF003Fu, v32, &v44, 0LL);
-      v7 = v33;
-      if ( v33 >= 0 )
+      v29 = OpenRegistrySubkey(&v42, 0xF003Fu, v28, &v45, 0LL);
+      v9 = v29;
+      if ( v29 < 0 )
       {
-        v34 = v41;
-        if ( !v41 )
-        {
-          WdLogSingleEntry1(1LL, 915LL);
-          DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"MonitorIdKeyHandle", 915LL, 0LL, 0LL, 0LL, 0LL);
-          v34 = v41;
-        }
-        v45 = 0LL;
-        v46 = 288;
-        v47 = L"DpiValue";
-        v48 = a4;
-        v50 = &v57;
-        v49 = 67108868;
-        v56 = 0LL;
-        v51 = 4;
-        v52 = 0LL;
-        v53 = 0;
-        v54 = 0LL;
-        v55 = 0LL;
-        v35 = RtlQueryRegistryValuesEx(0x40000000LL, v34, &v45, 0LL, 0LL);
-        v7 = v35;
-        v5 = v16;
-        if ( v35 < 0 )
-        {
-          WdLogSingleEntry1(2LL, v35);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Unable to read registry values. (Status = 0x%I64x, SubKeyHandle2 = 0x%I64x, QueryTable = 0x%I64x)",
-            v7,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-        }
+LABEL_11:
+        v25 = WdLogNewEntry5_WdEvent(v24, v23);
+        *(_QWORD *)(v25 + 24) = v9;
+        WdLogEvent5_WdEvent(v25);
         goto LABEL_12;
       }
+      v30 = v42;
+      if ( !v42 )
+      {
+        v38 = WdLogNewEntry5_WdAssertion(v24, 0LL);
+        *(_QWORD *)(v38 + 24) = 913LL;
+        WdLogEvent5_WdAssertion(v38);
+        v30 = v42;
+      }
+      v46 = 0LL;
+      v47 = 288;
+      v48 = L"DpiValue";
+      v49 = a4;
+      v51 = &v58;
+      v50 = 67108868;
+      v57 = 0LL;
+      v52 = 4;
+      v53 = 0LL;
+      v54 = 0;
+      v55 = 0LL;
+      v56 = 0LL;
+      v31 = RtlQueryRegistryValuesEx(0x40000000LL, v30, &v46, 0LL, 0LL);
+      v9 = v31;
+      if ( v31 >= 0 )
+        goto LABEL_12;
     }
-    WdLogSingleEntry1(4LL, v7);
+    v39 = WdLogNewEntry5_WdError(v20, v19);
+    *(_QWORD *)(v39 + 24) = v9;
+    WdLogEvent5_WdError(v39);
   }
-  v5 = v16;
 LABEL_12:
-  if ( (_DWORD)v7 == -1073741772 )
+  if ( (_DWORD)v9 == -1073741772 )
   {
-    LODWORD(v7) = 0;
-    *(_DWORD *)&a4->Length = v57;
+    LODWORD(v9) = 0;
+    *(_DWORD *)&a4->Length = v58;
   }
 LABEL_14:
-  if ( a3 && (int)v7 >= 0 && v5 && DXGSESSIONDATA::GetUserRegistryPath(v5, 0, v8, v9)->Buffer )
+  if ( a3 && (int)v9 >= 0 && SessionDataForSpecifiedSession && SessionDataForSpecifiedSession[1169].Buffer )
   {
-    RtlInitUnicodeString(&v43, L"\\Registry\\Machine\\System");
+    RtlInitUnicodeString(&v44, L"\\Registry\\Machine\\System");
     RtlInitUnicodeString(&DestinationString, L"CurrentControlSet\\Control\\GraphicsDrivers\\ScaleFactors");
-    LODWORD(v39) = *(_DWORD *)&a4->Length;
-    DpiPersistence::WriteDwordToParticularRegValue(&v43, &DestinationString, &v44, v28, (const unsigned __int16 *)v39);
+    LODWORD(v40) = *(_DWORD *)&a4->Length;
+    DpiPersistence::WriteDwordToParticularRegValue(&v44, &DestinationString, &v45, v26, (const unsigned __int16 *)v40);
   }
-  operator delete[](v44.Buffer);
+  operator delete[](v45.Buffer);
   if ( Handle )
     ZwClose(Handle);
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  if ( v41 )
-    ZwClose(v41);
-  return (unsigned int)v7;
+  if ( v42 )
+    ZwClose(v42);
+  return (unsigned int)v9;
 }

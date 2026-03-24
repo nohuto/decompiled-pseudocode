@@ -1,51 +1,56 @@
 /*
- * XREFs of xxxRestoreCsrssThreadDesktop @ 0x1C0069B30
+ * XREFs of xxxRestoreCsrssThreadDesktop @ 0x1C00D8E60
  * Callers:
- *     xxxSetInformationThread @ 0x1C00699B0 (xxxSetInformationThread.c)
- *     xxxQueryInformationThread @ 0x1C00E21E4 (xxxQueryInformationThread.c)
- *     xxxHardErrorControl @ 0x1C0223D54 (xxxHardErrorControl.c)
+ *     xxxQueryInformationThread @ 0x1C00D8048 (xxxQueryInformationThread.c)
+ *     xxxSetInformationThread @ 0x1C00D8CE0 (xxxSetInformationThread.c)
+ *     xxxHardErrorControl @ 0x1C02418AC (xxxHardErrorControl.c)
  * Callees:
- *     xxxInternalGetMessage @ 0x1C006A4F0 (xxxInternalGetMessage.c)
- *     CloseProtectedHandle @ 0x1C006A694 (CloseProtectedHandle.c)
- *     xxxSetThreadDesktop @ 0x1C006A6E4 (xxxSetThreadDesktop.c)
- *     SendMsgCleanup @ 0x1C006C8D0 (SendMsgCleanup.c)
- *     xxxDispatchMessage @ 0x1C0117884 (xxxDispatchMessage.c)
+ *     xxxDispatchMessage @ 0x1C006ADB4 (xxxDispatchMessage.c)
+ *     CloseProtectedHandle @ 0x1C00D9098 (CloseProtectedHandle.c)
+ *     xxxSetThreadDesktop @ 0x1C00D9270 (xxxSetThreadDesktop.c)
+ *     xxxInternalGetMessage @ 0x1C00D9C60 (xxxInternalGetMessage.c)
+ *     SendMsgCleanup @ 0x1C00DA140 (SendMsgCleanup.c)
  */
 
 __int64 __fastcall xxxRestoreCsrssThreadDesktop(_QWORD *a1, char a2)
 {
-  __int64 v4; // rax
-  unsigned int v5; // edi
-  void *v6; // rcx
-  _OWORD v8[3]; // [rsp+30h] [rbp-38h] BYREF
+  void *v4; // rcx
+  void *v5; // rax
+  unsigned int v6; // eax
+  unsigned int v7; // edi
+  void *v8; // rcx
+  _OWORD v10[3]; // [rsp+30h] [rbp-38h] BYREF
 
-  memset(v8, 0, sizeof(v8));
-  v4 = *(_QWORD *)(gptiCurrent + 456LL);
-  if ( *a1 == v4 )
+  v4 = (void *)*a1;
+  memset(v10, 0, sizeof(v10));
+  v5 = *(void **)(gptiCurrent + 456LL);
+  if ( v4 == v5 )
   {
-    v5 = 0;
+    v7 = 0;
   }
   else
   {
-    if ( v4 )
+    if ( v5 )
     {
-      while ( (unsigned int)xxxInternalGetMessage((unsigned int)v8, 0, 0, 0, 3, 0) )
-        xxxDispatchMessage(v8);
+      while ( (unsigned int)xxxInternalGetMessage((unsigned int)v10, 0, 0, 0, 3, 0) )
+        xxxDispatchMessage((__int64)v10);
       if ( (a2 & 1) != 0 )
         SendMsgCleanup(gptiCurrent);
     }
-    v5 = xxxSetThreadDesktop(0LL, *a1);
+    v6 = xxxSetThreadDesktop(0LL, *a1);
+    v4 = (void *)*a1;
+    v7 = v6;
   }
-  if ( *a1 )
+  if ( v4 )
   {
-    ObfDereferenceObject((PVOID)*a1);
+    ObfDereferenceObject(v4);
     *a1 = 0LL;
   }
-  v6 = (void *)a1[1];
-  if ( v6 )
+  v8 = (void *)a1[1];
+  if ( v8 )
   {
-    CloseProtectedHandle(v6);
+    CloseProtectedHandle(v8);
     a1[1] = 0LL;
   }
-  return v5;
+  return v7;
 }

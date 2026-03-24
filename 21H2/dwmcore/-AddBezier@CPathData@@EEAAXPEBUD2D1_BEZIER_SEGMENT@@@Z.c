@@ -1,16 +1,16 @@
 /*
- * XREFs of ?AddBezier@CPathData@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@@Z @ 0x18026FA70
+ * XREFs of ?AddBezier@CPathData@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@@Z @ 0x1802209E0
  * Callers:
  *     <none>
  * Callees:
- *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x1801138DE (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
- *     ?AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z @ 0x18026FCC4 (-AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z.c)
+ *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x1801B5DF8 (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
+ *     ?AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z @ 0x180220C34 (-AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z.c)
  */
 
 void __fastcall CPathData::AddBezier(CPathData *this, const struct D2D1_BEZIER_SEGMENT *a2)
 {
   D2D1_POINT_2F point1; // xmm0_8
-  char v5[8]; // [rsp+20h] [rbp-28h] BYREF
+  _BYTE v5[8]; // [rsp+20h] [rbp-28h] BYREF
   D2D1_POINT_2F v6; // [rsp+28h] [rbp-20h]
   __int128 v7; // [rsp+30h] [rbp-18h]
 
@@ -18,5 +18,5 @@ void __fastcall CPathData::AddBezier(CPathData *this, const struct D2D1_BEZIER_S
   point1 = a2->point1;
   v7 = *(_OWORD *)&a2->point2.x;
   v6 = point1;
-  CPathData::AppendSegment(this, (struct Path::Segment *)v5);
+  CPathData::AppendSegment((CPathData *)((char *)this - 16), (struct Path::Segment *)v5);
 }

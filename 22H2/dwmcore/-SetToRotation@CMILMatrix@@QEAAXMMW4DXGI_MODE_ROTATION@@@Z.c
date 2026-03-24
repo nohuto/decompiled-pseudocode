@@ -1,47 +1,62 @@
 /*
- * XREFs of ?SetToRotation@CMILMatrix@@QEAAXMMW4DXGI_MODE_ROTATION@@@Z @ 0x180270A74
+ * XREFs of ?SetToRotation@CMILMatrix@@QEAAXMMW4DXGI_MODE_ROTATION@@@Z @ 0x1802117EC
  * Callers:
- *     ?CalcRotationTransform@CBitmapRealization@@QEBA_NAEBUD2D_SIZE_U@@PEAVCMILMatrix@@@Z @ 0x18000E11C (-CalcRotationTransform@CBitmapRealization@@QEBA_NAEBUD2D_SIZE_U@@PEAVCMILMatrix@@@Z.c)
- *     ?CalcHDRConvertUVTransform@CD3DDevice@@SAXAEBUD2D_SIZE_U@@0AEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@W4DXGI_MODE_ROTATION@@1PEAVCMILMatrix@@@Z @ 0x18028C8E8 (-CalcHDRConvertUVTransform@CD3DDevice@@SAXAEBUD2D_SIZE_U@@0AEBV-$TMilRect_@HUtagRECT@@UMilPointA.c)
+ *     ?CalcRotationTransform@CBitmapRealization@@QEBA_NAEBUD2D_SIZE_U@@PEAVCMILMatrix@@@Z @ 0x180014B10 (-CalcRotationTransform@CBitmapRealization@@QEBA_NAEBUD2D_SIZE_U@@PEAVCMILMatrix@@@Z.c)
+ *     ?CalcHDRConvertUVTransform@CD3DDevice@@SAXAEBUD2D_SIZE_U@@0AEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@W4DXGI_MODE_ROTATION@@1PEAVCMILMatrix@@@Z @ 0x18023D70C (-CalcHDRConvertUVTransform@CD3DDevice@@SAXAEBUD2D_SIZE_U@@0AEBV-$TMilRect_@HUtagRECT@@UMilPointA.c)
  * Callees:
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ?Translate@CMILMatrix@@QEAAXMM@Z @ 0x180090E80 (-Translate@CMILMatrix@@QEAAXMM@Z.c)
- *     ?Scale@CMILMatrix@@QEAAXMMM@Z @ 0x1800DB9D8 (-Scale@CMILMatrix@@QEAAXMMM@Z.c)
- *     ?Rotate270@CMILMatrix@@QEAAXXZ @ 0x180270714 (-Rotate270@CMILMatrix@@QEAAXXZ.c)
- *     ?Rotate90@CMILMatrix@@QEAAXXZ @ 0x18027074C (-Rotate90@CMILMatrix@@QEAAXXZ.c)
+ *     ?Translate@CMILMatrix@@QEAAXMM@Z @ 0x180041E0C (-Translate@CMILMatrix@@QEAAXMM@Z.c)
+ *     ?Scale@CMILMatrix@@QEAAXMMM@Z @ 0x18004226C (-Scale@CMILMatrix@@QEAAXMMM@Z.c)
+ *     ?Rotate270@CMILMatrix@@QEAAXXZ @ 0x180211210 (-Rotate270@CMILMatrix@@QEAAXXZ.c)
+ *     ?Rotate90@CMILMatrix@@QEAAXXZ @ 0x180211248 (-Rotate90@CMILMatrix@@QEAAXXZ.c)
  */
 
 void __fastcall CMILMatrix::SetToRotation(CMILMatrix *this, float a2, float a3, enum DXGI_MODE_ROTATION a4)
 {
-  CMILMatrix *v4; // rcx
+  int v4; // r9d
   int v5; // r9d
-  int v6; // r9d
-  int v7; // r9d
-  CMILMatrix *v8; // rcx
+  CMILMatrix *v6; // rcx
+  float v7; // xmm5_4
+  float v8; // xmm1_4
+  float v9; // xmm2_4
+  float v10; // xmm4_4
+  float v11; // xmm5_4
+  float v12; // xmm4_4
 
-  CMILMatrix::SetToIdentity(this);
-  v6 = v5 - 2;
-  if ( v6 )
+  *(_QWORD *)this = 1065353216LL;
+  *((_QWORD *)this + 1) = 0LL;
+  *((_DWORD *)this + 4) = 0;
+  *(_QWORD *)((char *)this + 20) = 1065353216LL;
+  *(_QWORD *)((char *)this + 28) = 0LL;
+  *((_DWORD *)this + 9) = 0;
+  *((_QWORD *)this + 5) = 1065353216LL;
+  *((_QWORD *)this + 6) = 0LL;
+  *((_DWORD *)this + 14) = 0;
+  *((_DWORD *)this + 15) = 1065353216;
+  *((_WORD *)this + 32) = 32085;
+  v4 = a4 - 2;
+  if ( v4 )
   {
-    v7 = v6 - 1;
-    if ( v7 )
+    v5 = v4 - 1;
+    if ( v5 )
     {
-      if ( v7 != 1 )
+      if ( v5 != 1 )
         return;
-      CMILMatrix::Rotate90(v4);
-      a2 = a3;
-      a3 = 0.0;
+      CMILMatrix::Rotate90(this);
+      v8 = v7;
+      v9 = 0.0;
     }
     else
     {
-      CMILMatrix::Scale(v4, -1.0, -1.0, 1.0);
+      CMILMatrix::Scale(this, -1.0, -1.0, 1.0);
+      v8 = v10;
+      v9 = v11;
     }
   }
   else
   {
-    CMILMatrix::Rotate270(v4);
-    a3 = a2;
-    a2 = 0.0;
+    CMILMatrix::Rotate270(this);
+    v9 = v12;
+    v8 = 0.0;
   }
-  CMILMatrix::Translate(v8, a2, a3);
+  CMILMatrix::Translate(v6, v8, v9);
 }

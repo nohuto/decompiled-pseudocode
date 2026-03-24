@@ -1,9 +1,9 @@
 /*
- * XREFs of InitSkuSessionParameters @ 0x140B2E6EC
+ * XREFs of InitSkuSessionParameters @ 0x140A71D04
  * Callers:
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExIsMultiSessionSku @ 0x140861984 (ExIsMultiSessionSku.c)
+ *     ExIsMultiSessionSku @ 0x1407D1BA8 (ExIsMultiSessionSku.c)
  */
 
 int InitSkuSessionParameters()

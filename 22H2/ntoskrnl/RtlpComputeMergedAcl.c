@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpComputeMergedAcl @ 0x1409BC864
+ * XREFs of RtlpComputeMergedAcl @ 0x140913F80
  * Callers:
- *     RtlpNewSecurityObject @ 0x14072A470 (RtlpNewSecurityObject.c)
- *     RtlpSetSecurityObject @ 0x14072BDE0 (RtlpSetSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x14064CD10 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1406D7180 (RtlpSetSecurityObject.c)
  * Callees:
- *     RtlpComputeMergedAcl2 @ 0x1409BC98C (RtlpComputeMergedAcl2.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlpComputeMergedAcl2 @ 0x1409140A8 (RtlpComputeMergedAcl2.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpComputeMergedAcl(
@@ -32,7 +32,7 @@ __int64 __fastcall RtlpComputeMergedAcl(
   v15 = 0;
   while ( 1 )
   {
-    Acl = (ACL *)ExAllocatePool2(256LL, v10, 1665230163LL);
+    Acl = (ACL *)ExAllocatePoolWithTag(PagedPool, v10, 0x63416553u);
     *a9 = Acl;
     if ( !Acl )
       break;

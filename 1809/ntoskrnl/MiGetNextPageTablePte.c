@@ -7,11 +7,11 @@
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiReleaseWalkLocks @ 0x140122778 (MiReleaseWalkLocks.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     MiFlushAllFilesystemPages @ 0x1402AAEF0 (MiFlushAllFilesystemPages.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiReleaseWalkLocks @ 0x140122798 (MiReleaseWalkLocks.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MiFlushAllFilesystemPages @ 0x1402AAFF0 (MiFlushAllFilesystemPages.c)
  */
 
 __int64 __fastcall MiGetNextPageTablePte(int *a1, __int64 *a2, __int64 a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStateDurationDelta @ 0x1402F5E5C
+ * XREFs of RtlStateDurationDelta @ 0x140254650
  * Callers:
- *     PopEtEnergyValuesDeltaCalculate @ 0x1407A6130 (PopEtEnergyValuesDeltaCalculate.c)
+ *     PopEtEnergyValuesDeltaCalculate @ 0x140619558 (PopEtEnergyValuesDeltaCalculate.c)
  * Callees:
  *     <none>
  */

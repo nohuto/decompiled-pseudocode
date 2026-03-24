@@ -1,10 +1,10 @@
 /*
- * XREFs of IommupHvGetDeviceCapabilities @ 0x140527604
+ * XREFs of IommupHvGetDeviceCapabilities @ 0x1404D9F44
  * Callers:
- *     IommuMapDevice @ 0x1405264A0 (IommuMapDevice.c)
+ *     IommuMapDevice @ 0x1404D8E90 (IommuMapDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IommupHvGetDeviceCapabilities(__int64 a1, _QWORD *a2, _QWORD *a3)
@@ -22,7 +22,7 @@ __int64 __fastcall IommupHvGetDeviceCapabilities(__int64 a1, _QWORD *a2, _QWORD 
     return 3221225659LL;
   HIWORD(v7) = *(_WORD *)(a1 + 8);
   LOWORD(v7) = *(_WORD *)(a1 + 12);
-  result = ((__int64 (__fastcall *)(_QWORD, __int64 *))qword_140C4C560)(v7, &v8);
+  result = ((__int64 (__fastcall *)(_QWORD, __int64 *))qword_140C4A260)(v7, &v8);
   if ( (int)result < 0 )
     return result;
   if ( (v8 & 1) == 0 || HIDWORD(v8) < IommupHvMaximumAsids )

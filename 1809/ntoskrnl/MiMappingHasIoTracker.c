@@ -1,8 +1,8 @@
 /*
- * XREFs of MiMappingHasIoTracker @ 0x1401232F4
+ * XREFs of MiMappingHasIoTracker @ 0x140123314
  * Callers:
- *     MmUnmapIoSpace @ 0x140123200 (MmUnmapIoSpace.c)
- *     MmProtectMdlSystemAddress @ 0x1402A9B70 (MmProtectMdlSystemAddress.c)
+ *     MmUnmapIoSpace @ 0x140123220 (MmUnmapIoSpace.c)
+ *     MmProtectMdlSystemAddress @ 0x1402A9C70 (MmProtectMdlSystemAddress.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)

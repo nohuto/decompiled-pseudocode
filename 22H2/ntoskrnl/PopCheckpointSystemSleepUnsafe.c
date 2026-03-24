@@ -1,26 +1,21 @@
 /*
- * XREFs of PopCheckpointSystemSleepUnsafe @ 0x140AAA6B4
+ * XREFs of PopCheckpointSystemSleepUnsafe @ 0x1409B2824
  * Callers:
- *     PopEnableSystemSleepCheckpoint @ 0x140996E9C (PopEnableSystemSleepCheckpoint.c)
- *     PopCheckpointSystemSleep @ 0x140AAA5A8 (PopCheckpointSystemSleep.c)
+ *     PopEnableSystemSleepCheckpoint @ 0x140775418 (PopEnableSystemSleepCheckpoint.c)
+ *     PopCheckpointSystemSleep @ 0x140993C64 (PopCheckpointSystemSleep.c)
  * Callees:
- *     HalSetEnvironmentVariableEx @ 0x140504B70 (HalSetEnvironmentVariableEx.c)
- *     VslReportBugCheckProgress @ 0x14054C380 (VslReportBugCheckProgress.c)
- *     ExSetFirmwareEnvironmentVariable @ 0x1409FBA50 (ExSetFirmwareEnvironmentVariable.c)
+ *     HalSetEnvironmentVariableEx @ 0x1404BBCE0 (HalSetEnvironmentVariableEx.c)
+ *     VslReportBugCheckProgress @ 0x1404FD120 (VslReportBugCheckProgress.c)
+ *     ExSetFirmwareEnvironmentVariable @ 0x14094F4F0 (ExSetFirmwareEnvironmentVariable.c)
  */
 
-__int64 __fastcall PopCheckpointSystemSleepUnsafe(char a1)
+NTSTATUS __fastcall PopCheckpointSystemSleepUnsafe(char a1)
 {
   char v2; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = a1;
   if ( !PoAllProcIntrDisabled )
-    return ExSetFirmwareEnvironmentVariable(
-             (const void **)L"*,",
-             (int)SYSTEM_SLEEP_ETW_CHECKPOINT_GUID,
-             (__int64)&v2,
-             1,
-             1);
+    return ExSetFirmwareEnvironmentVariable((__int64)L"*,", (int)SYSTEM_SLEEP_ETW_CHECKPOINT_GUID, (__int64)&v2, 1, 1);
   if ( PopCheckpointEfiRuntimeRedirected )
     return VslReportBugCheckProgress(
              (char *)L"SystemSleepCheckpoint",

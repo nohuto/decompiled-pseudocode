@@ -1,77 +1,72 @@
 /*
- * XREFs of ?RemoveAllChildren@CVisual@@IEAAXXZ @ 0x1800474A4
+ * XREFs of ?RemoveAllChildren@CVisual@@IEAAXXZ @ 0x18009F510
  * Callers:
- *     ??1CVisual@@MEAA@XZ @ 0x18004A90C (--1CVisual@@MEAA@XZ.c)
- *     ?SetRootVisual@CDesktopTree@@AEAAJPEAVCVisual@@@Z @ 0x1800F7A0C (-SetRootVisual@CDesktopTree@@AEAAJPEAVCVisual@@@Z.c)
- *     ?ProcessRemoveAllChildren@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_REMOVEALLCHILDREN@@@Z @ 0x1801F7B9C (-ProcessRemoveAllChildren@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_REMOVEALLCHILDR.c)
+ *     ??1CVisual@@MEAA@XZ @ 0x1800A047C (--1CVisual@@MEAA@XZ.c)
+ *     ?SetRootVisual@CDesktopTree@@AEAAJPEAVCVisual@@@Z @ 0x1800DFB54 (-SetRootVisual@CDesktopTree@@AEAAJPEAVCVisual@@@Z.c)
+ *     ?ProcessRemoveAllChildren@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_REMOVEALLCHILDREN@@@Z @ 0x1801AE69C (-ProcessRemoveAllChildren@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_REMOVEALLCHILDR.c)
  * Callees:
- *     ?DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@_N@Z @ 0x1800486D0 (-DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@_N@Z.c)
- *     ?PropagateBackdropUpdates@CVisual@@AEAAXHH@Z @ 0x180048898 (-PropagateBackdropUpdates@CVisual@@AEAAXHH@Z.c)
- *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z @ 0x180048C04 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@W4VisualInvalidationOption@@@Z.c)
- *     ?GetCount@CPtrArrayBase@@IEBA_KXZ @ 0x180062474 (-GetCount@CPtrArrayBase@@IEBA_KXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??ACPtrArrayBase@@IEBA_K_K@Z @ 0x1800D18A0 (--ACPtrArrayBase@@IEBA_K_K@Z.c)
- *     ?Clear@CPtrArrayBase@@IEAAXXZ @ 0x1800DE2D4 (-Clear@CPtrArrayBase@@IEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?NotifyMidManipulationUpdate@CVisual@@AEAAXW4MidManipulationUpdateType@@PEAV1@@Z @ 0x18009EDE0 (-NotifyMidManipulationUpdate@CVisual@@AEAAXW4MidManipulationUpdateType@@PEAV1@@Z.c)
+ *     ?AddToInputSinkPossibleDirtyList@CComposition@@QEAAXPEAVCVisual@@@Z @ 0x18009EE48 (-AddToInputSinkPossibleDirtyList@CComposition@@QEAAXPEAVCVisual@@@Z.c)
+ *     ?PropagateBackdropUpdates@CVisual@@AEAAXHH@Z @ 0x18009F824 (-PropagateBackdropUpdates@CVisual@@AEAAXHH@Z.c)
+ *     ??ACPtrArrayBase@@IEBA_K_K@Z @ 0x1800C1520 (--ACPtrArrayBase@@IEBA_K_K@Z.c)
+ *     ?GetCount@CPtrArrayBase@@IEBA_KXZ @ 0x1800C1558 (-GetCount@CPtrArrayBase@@IEBA_KXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall CVisual::RemoveAllChildren(CVisual *this)
+void __fastcall CVisual::RemoveAllChildren(CComposition **this)
 {
-  CPtrArrayBase *v1; // rdi
+  CPtrArrayBase *v1; // rbx
   unsigned int Count; // eax
-  int v4; // ebx
+  int v4; // edi
   int v5; // esi
-  unsigned int v6; // r12d
-  __int64 v7; // r13
-  __int64 v8; // r15
-  struct CVisual *v9; // rax
-  unsigned __int64 v10; // r10
-  __int64 v11; // r11
-  struct CVisual *v12; // r14
-  char v13; // al
-  int v14; // edx
+  unsigned __int64 v6; // r13
+  __int64 v7; // r15
+  __int64 v8; // r14
+  __int64 v9; // rax
+  __int64 v10; // r8
+  __int64 v11; // r12
+  char v12; // al
+  int v13; // edx
+  int v14; // r8d
   unsigned __int64 v15; // rax
-  unsigned int v16; // ecx
-  unsigned __int64 v17; // [rsp+70h] [rbp+8h]
-  __int64 v18; // [rsp+78h] [rbp+10h]
+  __int64 v16; // rcx
+  __int64 v17; // [rsp+60h] [rbp+8h]
 
-  v1 = (CVisual *)((char *)this + 80);
-  Count = CPtrArrayBase::GetCount((CVisual *)((char *)this + 80));
+  v1 = (CPtrArrayBase *)(this + 9);
+  Count = CPtrArrayBase::GetCount((CPtrArrayBase *)(this + 9));
   v4 = 0;
   v5 = 0;
-  v6 = Count;
   if ( Count )
   {
-    v17 = 0LL;
+    v6 = 0LL;
     v7 = 0LL;
-    v18 = Count;
+    v17 = Count;
     v8 = 16LL;
     do
     {
-      v9 = (struct CVisual *)CPtrArrayBase::operator[](v1, v7);
-      v12 = v9;
+      v9 = CPtrArrayBase::operator[](v1, v7);
+      v11 = v9;
       if ( v9 )
       {
-        if ( (*((_BYTE *)v9 + 103) & 2) != 0 )
-        {
-          CVisual::DirtyForInvisibleChild(this, v9, 0);
-          v5 += *((_DWORD *)v12 + 67);
-          v13 = *((_BYTE *)v12 + 272);
-          v14 = v4 + *((_DWORD *)v12 + 66);
-          v4 = v14 + 1;
-          if ( (v13 & 1) == 0 )
-            v4 = v14;
-          if ( (v13 & 4) != 0 )
-            ++v5;
-        }
-        *((_QWORD *)v12 + 11) = 0LL;
-        (*(void (__fastcall **)(struct CVisual *))(*(_QWORD *)v12 + 16LL))(v12);
+        CVisual::NotifyMidManipulationUpdate((__int64)this, 3u, v9);
+        *(_QWORD *)(v11 + 80) = 0LL;
+        CComposition::AddToInputSinkPossibleDirtyList(this[2], (struct CVisual *)v11);
+        v12 = *(_BYTE *)(v11 + 264);
+        v13 = v4 + *(_DWORD *)(v11 + 256);
+        v14 = v5 + *(_DWORD *)(v11 + 260);
+        v4 = v13 + 1;
+        if ( (v12 & 1) == 0 )
+          v4 = v13;
+        v5 = v14 + 1;
+        if ( (v12 & 2) == 0 )
+          v5 = v14;
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 16LL))(v11);
         v15 = CPtrArrayBase::GetCount(v1);
-        v10 = v17;
-        if ( v17 >= v15 )
+        if ( v6 >= v15 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, -2147024809, 0x126u, 0LL);
-          v10 = v17;
+          MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, -2147024809, 0x139u, 0LL);
         }
         else if ( v15 == 1 )
         {
@@ -81,17 +76,18 @@ void __fastcall CVisual::RemoveAllChildren(CVisual *this)
         {
           *(_QWORD *)((*(_QWORD *)v1 & 0xFFFFFFFFFFFFFFFCuLL) + v8) = 0LL;
         }
-        v11 = v18;
+        v10 = v17;
       }
       ++v7;
+      ++v6;
       v8 += 8LL;
-      v17 = v10 + 1;
-      v18 = v11 - 1;
+      v17 = v10 - 1;
     }
-    while ( v11 != 1 );
+    while ( v10 != 1 );
   }
-  CPtrArrayBase::Clear(v1);
-  CVisual::PropagateBackdropUpdates(this, -v4, -v5);
-  if ( v6 )
-    CVisual::PropagateFlags(this, 5LL);
+  if ( (*(_QWORD *)v1 & 2) != 0 )
+    operator delete((void *)(*(_QWORD *)v1 & 0xFFFFFFFFFFFFFFFCuLL));
+  *(_QWORD *)v1 = 0LL;
+  CVisual::PropagateBackdropUpdates((CVisual *)this, -v4, -v5);
+  CVisual::PropagateFlags(this, 5LL);
 }

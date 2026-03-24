@@ -1,37 +1,38 @@
 /*
- * XREFs of ?CloseCallback@CTTMDEVICE@@CAX_K@Z @ 0x1C0354DE0
+ * XREFs of ?CloseCallback@CTTMDEVICE@@CAX_K@Z @ 0x1C029EDD0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??_GCTTMDEVICE@@QEAAPEAXI@Z @ 0x1C0058C9C (--_GCTTMDEVICE@@QEAAPEAXI@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
  */
 
-void __fastcall CTTMDEVICE::CloseCallback(CTTMDEVICE *this)
+void __fastcall CTTMDEVICE::CloseCallback(void *a1, __int64 a2)
 {
-  __int64 v2; // rax
-  struct _KEVENT *v3; // rcx
+  __int64 v3; // rax
+  __int64 v4; // rax
+  struct _KEVENT *v5; // rcx
 
-  if ( !this )
+  if ( !a1 )
   {
-    WdLogSingleEntry1(1LL, 6145LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pThis != NULL", 6145LL, 0LL, 0LL, 0LL, 0LL);
+    v3 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    *(_QWORD *)(v3 + 24) = 6016LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  v2 = _InterlockedExchangeAdd((volatile signed __int32 *)this + 156, 1u) & 0x1F;
-  *((_DWORD *)this + 2 * v2 + 157) = 1073741826;
-  *((_DWORD *)this + 2 * (unsigned int)v2 + 158) = MEMORY[0xFFFFF78000000008] / 0x2710uLL;
-  if ( *((_BYTE *)this + 913) )
+  v4 = _InterlockedExchangeAdd((volatile signed __int32 *)a1 + 156, 1u) & 0x1F;
+  *((_DWORD *)a1 + 2 * v4 + 157) = 1073741826;
+  *((_DWORD *)a1 + 2 * (unsigned int)v4 + 158) = MEMORY[0xFFFFF78000000008] / 0x2710uLL;
+  if ( *((_BYTE *)a1 + 913) )
   {
-    CTTMDEVICE::`scalar deleting destructor'(this);
+    operator delete(a1);
   }
   else
   {
-    ExReInitializeRundownProtection((PEX_RUNDOWN_REF)this + 6);
-    v3 = (struct _KEVENT *)*((_QWORD *)this + 7);
-    if ( v3 )
+    ExReInitializeRundownProtection((PEX_RUNDOWN_REF)a1 + 6);
+    v5 = (struct _KEVENT *)*((_QWORD *)a1 + 7);
+    if ( v5 )
     {
-      KeSetEvent(v3, 0, 0);
-      *((_QWORD *)this + 7) = 0LL;
+      KeSetEvent(v5, 0, 0);
+      *((_QWORD *)a1 + 7) = 0LL;
     }
   }
 }

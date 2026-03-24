@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpMceInit @ 0x140A5A7C8
+ * XREFs of HalpMceInit @ 0x1409A0F1C
  * Callers:
- *     HalpInitializeMce @ 0x140A5A6CC (HalpInitializeMce.c)
+ *     HalpInitializeMce @ 0x1409A0E1C (HalpInitializeMce.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
- *     HalpHvInitMcaPcrContext @ 0x1403D2700 (HalpHvInitMcaPcrContext.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HalpHvInitMcaStatusMsrCache @ 0x14050E490 (HalpHvInitMcaStatusMsrCache.c)
- *     HalpHvSetMachineCheckHandlerState @ 0x14050F000 (HalpHvSetMachineCheckHandlerState.c)
- *     HalpMceInitProcessor @ 0x140A5A8F8 (HalpMceInitProcessor.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
+ *     HalpHvInitMcaPcrContext @ 0x1403C54F0 (HalpHvInitMcaPcrContext.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalpHvInitMcaStatusMsrCache @ 0x1404C2090 (HalpHvInitMcaStatusMsrCache.c)
+ *     HalpHvSetMachineCheckHandlerState @ 0x1404C2BE0 (HalpHvSetMachineCheckHandlerState.c)
+ *     HalpMceInitProcessor @ 0x1409A104C (HalpMceInitProcessor.c)
  */
 
 void __fastcall HalpMceInit(__int64 a1)
 {
   ULONG v2; // edi
   ULONG ActiveProcessorCount; // ebp
-  unsigned int *v4; // rsi
+  int *v4; // rsi
   unsigned int v5; // edx
   struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 i; // rbx
@@ -48,8 +48,8 @@ void __fastcall HalpMceInit(__int64 a1)
         p_PreviousAffinity = &PreviousAffinity;
       KeSetSystemGroupAffinityThread(&Affinity, p_PreviousAffinity);
       HalpHvInitMcaPcrContext();
-      for ( i = *(_QWORD *)&KeGetPcr()->HalReserved[6]; i; i = *(_QWORD *)(i + 184) )
-        HalpMceInitProcessor(a1, *(_QWORD *)(i + 172));
+      for ( i = *(_QWORD *)&KeGetPcr()->HalReserved[6]; i; i = *(_QWORD *)(i + 176) )
+        HalpMceInitProcessor(a1, *(_QWORD *)(i + 164));
       ++v2;
       ++v4;
     }

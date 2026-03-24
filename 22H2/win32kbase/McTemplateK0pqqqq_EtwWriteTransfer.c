@@ -1,15 +1,15 @@
 /*
- * XREFs of McTemplateK0pqqqq_EtwWriteTransfer @ 0x1C00DFB64
+ * XREFs of McTemplateK0pqqqq_EtwWriteTransfer @ 0x1C0126348
  * Callers:
- *     EtwTraceInternalSetTimer @ 0x1C009D890 (EtwTraceInternalSetTimer.c)
- *     EtwTraceTimerProc @ 0x1C00A2600 (EtwTraceTimerProc.c)
- *     EtwDirtyRectUpdate @ 0x1C00AAF70 (EtwDirtyRectUpdate.c)
- *     EtwLogicalSurfRemovedTranslationFromDirtyEvent @ 0x1C016B5F0 (EtwLogicalSurfRemovedTranslationFromDirtyEvent.c)
- *     EtwLogicalSurfRemovedTranslationFromMoveEvent @ 0x1C016B630 (EtwLogicalSurfRemovedTranslationFromMoveEvent.c)
- *     EtwTranslationUpdate @ 0x1C016B9D0 (EtwTranslationUpdate.c)
+ *     EtwTraceInternalSetTimer @ 0x1C0082B60 (EtwTraceInternalSetTimer.c)
+ *     EtwTraceTimerProc @ 0x1C0082C50 (EtwTraceTimerProc.c)
+ *     EtwDirtyRectUpdate @ 0x1C0085A70 (EtwDirtyRectUpdate.c)
+ *     EtwLogicalSurfRemovedTranslationFromDirtyEvent @ 0x1C014C690 (EtwLogicalSurfRemovedTranslationFromDirtyEvent.c)
+ *     EtwLogicalSurfRemovedTranslationFromMoveEvent @ 0x1C014C6D0 (EtwLogicalSurfRemovedTranslationFromMoveEvent.c)
+ *     EtwTranslationUpdate @ 0x1C014CA60 (EtwTranslationUpdate.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0pqqqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)

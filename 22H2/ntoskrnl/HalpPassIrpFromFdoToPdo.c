@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpPassIrpFromFdoToPdo @ 0x14038F0E4
+ * XREFs of HalpPassIrpFromFdoToPdo @ 0x1403A6B9C
  * Callers:
- *     HalpDispatchPnp @ 0x140829D70 (HalpDispatchPnp.c)
- *     HalpDispatchWmi @ 0x1408660B0 (HalpDispatchWmi.c)
- *     HalpDispatchPower @ 0x140A95CA0 (HalpDispatchPower.c)
+ *     HalpDispatchPnp @ 0x1407645A0 (HalpDispatchPnp.c)
+ *     HalpDispatchWmi @ 0x1407D5240 (HalpDispatchWmi.c)
+ *     HalpDispatchPower @ 0x140998190 (HalpDispatchPower.c)
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
  */
 
 NTSTATUS __fastcall HalpPassIrpFromFdoToPdo(__int64 a1, IRP *a2)

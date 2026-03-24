@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM30_EnablingSuperSpeedOnTimerExpiration @ 0x1C0012EB0
+ * XREFs of HUBPSM30_EnablingSuperSpeedOnTimerExpiration @ 0x1C00119A0
  * Callers:
  *     <none>
  * Callees:
- *     HUBHTX_SetLinkStateToRxDetectUsingControlTransfer @ 0x1C0007048 (HUBHTX_SetLinkStateToRxDetectUsingControlTransfer.c)
+ *     HUBHTX_SetLinkStateToRxDetectUsingControlTransfer @ 0x1C00068FC (HUBHTX_SetLinkStateToRxDetectUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBPSM30_EnablingSuperSpeedOnTimerExpiration(__int64 a1)

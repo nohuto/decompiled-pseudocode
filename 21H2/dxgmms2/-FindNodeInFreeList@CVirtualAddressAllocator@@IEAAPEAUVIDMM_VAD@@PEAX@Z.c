@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FindNodeInFreeList@CVirtualAddressAllocator@@IEAAPEAUVIDMM_VAD@@PEAX@Z @ 0x1C008E120
+ * XREFs of ?FindNodeInFreeList@CVirtualAddressAllocator@@IEAAPEAUVIDMM_VAD@@PEAX@Z @ 0x1C006E6DC
  * Callers:
- *     ?AllocateVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAU_RTL_AVL_TREE@@_K111IPEAPEAUVIDMM_VAD@@E@Z @ 0x1C008DD00 (-AllocateVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAU_RTL_AVL_TREE@@_K111IPEAPEAUVIDM.c)
+ *     ?AllocateVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAU_RTL_AVL_TREE@@_K111IPEAPEAUVIDMM_VAD@@E@Z @ 0x1C006E3DC (-AllocateVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAU_RTL_AVL_TREE@@_K111IPEAPEAUVIDM.c)
  * Callees:
- *     ?CompareVadSizeGreaterOrEqualAvl@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z @ 0x1C00A5398 (-CompareVadSizeGreaterOrEqualAvl@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z.c)
- *     ?CompareVadSizeLessOrEqualAvl@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z @ 0x1C00A5A10 (-CompareVadSizeLessOrEqualAvl@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z.c)
+ *     ?CompareVadSizeLessOrEqualAvl@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z @ 0x1C0089C90 (-CompareVadSizeLessOrEqualAvl@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z.c)
+ *     ?CompareVadSizeGreaterOrEqualAvl@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z @ 0x1C0089E5C (-CompareVadSizeGreaterOrEqualAvl@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z.c)
  */
 
 struct _RTL_BALANCED_NODE *__fastcall CVirtualAddressAllocator::FindNodeInFreeList(
@@ -12,25 +12,25 @@ struct _RTL_BALANCED_NODE *__fastcall CVirtualAddressAllocator::FindNodeInFreeLi
         unsigned __int64 *a2)
 {
   struct _RTL_BALANCED_NODE *i; // rbx
-  int v5; // eax
-  unsigned __int64 v6; // r8
-  unsigned __int64 v7; // rdx
-  struct _RTL_BALANCED_NODE *v8; // rcx
-  unsigned __int64 v9; // rax
-  struct _RTL_BALANCED_NODE *result; // rax
   struct _RTL_BALANCED_NODE *k; // rdi
-  int v12; // eax
-  struct _RTL_BALANCED_NODE *j; // rax
-  unsigned __int64 v14; // r9
-  struct _RTL_BALANCED_NODE *v15; // rax
+  int v6; // eax
+  unsigned __int64 v7; // r9
+  struct _RTL_BALANCED_NODE *v8; // rax
+  struct _RTL_BALANCED_NODE *v9; // rcx
+  struct _RTL_BALANCED_NODE *v10; // rdx
+  struct _RTL_BALANCED_NODE *v11; // r8
+  struct _RTL_BALANCED_NODE *v12; // rax
+  unsigned __int64 v13; // rdx
+  struct _RTL_BALANCED_NODE *v14; // rax
+  struct _RTL_BALANCED_NODE *v15; // rcx
   struct _RTL_BALANCED_NODE *v16; // rcx
-  struct _RTL_BALANCED_NODE *v17; // rdx
-  struct _RTL_BALANCED_NODE *v18; // r8
-  struct _RTL_BALANCED_NODE *v19; // rax
+  struct _RTL_BALANCED_NODE *result; // rax
+  int v18; // eax
+  unsigned __int64 v19; // r8
   unsigned __int64 v20; // rdx
-  struct _RTL_BALANCED_NODE *v21; // rax
-  struct _RTL_BALANCED_NODE *v22; // rcx
-  struct _RTL_BALANCED_NODE *v23; // rcx
+  struct _RTL_BALANCED_NODE *v21; // rcx
+  unsigned __int64 v22; // rax
+  struct _RTL_BALANCED_NODE *j; // rax
   struct _RTL_BALANCED_NODE *v24; // rax
   struct _RTL_BALANCED_NODE *v25; // rcx
   struct _RTL_BALANCED_NODE *v26; // rcx
@@ -41,27 +41,27 @@ struct _RTL_BALANCED_NODE *__fastcall CVirtualAddressAllocator::FindNodeInFreeLi
     i = (struct _RTL_BALANCED_NODE *)*((_QWORD *)this + 5);
     while ( i )
     {
-      v5 = CompareVadSizeGreaterOrEqualAvl(a2 + 4, i);
-      if ( v5 < 0 )
+      v18 = CompareVadSizeGreaterOrEqualAvl(a2 + 4, i);
+      if ( v18 < 0 )
       {
         i = i->Children[0];
       }
       else
       {
-        if ( v5 <= 0 )
+        if ( v18 <= 0 )
           break;
         i = i->Children[1];
       }
     }
     if ( i )
     {
-      v6 = a2[5];
-      v7 = a2[6];
+      v19 = a2[5];
+      v20 = a2[6];
       do
       {
-        v8 = i[1].Children[1];
-        v9 = v7 & ((unsigned __int64)i[1].Children[0] + v6);
-        if ( v9 < (unsigned __int64)v8 && (unsigned __int64)v8 - v9 >= a2[4] )
+        v21 = i[1].Children[1];
+        v22 = v20 & ((unsigned __int64)i[1].Children[0] + v19);
+        if ( v22 < (unsigned __int64)v21 && (unsigned __int64)v21 - v22 >= a2[4] )
           break;
         v24 = i->Children[1];
         v25 = i;
@@ -86,24 +86,24 @@ struct _RTL_BALANCED_NODE *__fastcall CVirtualAddressAllocator::FindNodeInFreeLi
       if ( i )
       {
         if ( (*((_DWORD *)this + 36) & 2) != 0 )
-          a2[7] = v7 & ((unsigned __int64)i[1].Children[1] - a2[4]);
+          a2[7] = v20 & ((unsigned __int64)i[1].Children[1] - a2[4]);
         else
-          a2[7] = v7 & ((unsigned __int64)i[1].Children[0] + v6);
+          a2[7] = v20 & ((unsigned __int64)i[1].Children[0] + v19);
       }
     }
-    goto LABEL_17;
+    goto LABEL_33;
   }
   k = (struct _RTL_BALANCED_NODE *)*((_QWORD *)this + 5);
   while ( k )
   {
-    v12 = CompareVadSizeLessOrEqualAvl(a2 + 4, k);
-    if ( v12 < 0 )
+    v6 = CompareVadSizeLessOrEqualAvl(a2 + 4, k);
+    if ( v6 < 0 )
     {
       k = k->Children[0];
     }
     else
     {
-      if ( v12 <= 0 )
+      if ( v6 <= 0 )
         break;
       k = k->Children[1];
     }
@@ -113,64 +113,64 @@ struct _RTL_BALANCED_NODE *__fastcall CVirtualAddressAllocator::FindNodeInFreeLi
     for ( j = (struct _RTL_BALANCED_NODE *)*((_QWORD *)this + 5); j; j = j->Children[0] )
       k = j;
     if ( !k )
-      goto LABEL_17;
+      goto LABEL_33;
   }
-  v14 = *a2;
+  v7 = *a2;
   while ( 1 )
   {
-    v15 = k[1].Children[0];
-    if ( v14 )
+    v8 = k[1].Children[0];
+    if ( v7 )
       break;
-    v16 = (struct _RTL_BALANCED_NODE *)a2[3];
-    if ( v15 < v16 )
+    v9 = (struct _RTL_BALANCED_NODE *)a2[3];
+    if ( v8 < v9 )
     {
-      v17 = k[1].Children[1];
-      v18 = (struct _RTL_BALANCED_NODE *)a2[2];
-      if ( v17 > v18 )
+      v10 = k[1].Children[1];
+      v11 = (struct _RTL_BALANCED_NODE *)a2[2];
+      if ( v10 > v11 )
       {
-        if ( v15 > v18 )
-          v18 = k[1].Children[0];
-        if ( v17 < v16 )
-          v16 = k[1].Children[1];
-        v19 = (*((_DWORD *)this + 36) & 2) != 0
-            ? (struct _RTL_BALANCED_NODE *)((char *)v16 - a2[4])
-            : (struct _RTL_BALANCED_NODE *)((char *)v18 + a2[5]);
-        v20 = (unsigned __int64)v19 & a2[6];
-        if ( v20 < (unsigned __int64)v16 && v20 >= (unsigned __int64)v18 && (unsigned __int64)v16 - v20 >= a2[4] )
+        if ( v8 > v11 )
+          v11 = k[1].Children[0];
+        if ( v10 < v9 )
+          v9 = k[1].Children[1];
+        v12 = (*((_DWORD *)this + 36) & 2) != 0
+            ? (struct _RTL_BALANCED_NODE *)((char *)v9 - a2[4])
+            : (struct _RTL_BALANCED_NODE *)((char *)v11 + a2[5]);
+        v13 = (unsigned __int64)v12 & a2[6];
+        if ( v13 >= (unsigned __int64)v11 && v13 < (unsigned __int64)v9 && (unsigned __int64)v9 - v13 >= a2[4] )
         {
-          a2[7] = v20;
-          goto LABEL_43;
+          a2[7] = v13;
+          goto LABEL_32;
         }
       }
     }
-LABEL_44:
-    v21 = k->Children[1];
-    v22 = k;
-    if ( v21 )
+LABEL_23:
+    v14 = k->Children[1];
+    v15 = k;
+    if ( v14 )
     {
-      v23 = v21->Children[0];
-      for ( k = k->Children[1]; v23; v23 = v23->Children[0] )
-        k = v23;
+      v16 = v14->Children[0];
+      for ( k = k->Children[1]; v16; v16 = v16->Children[0] )
+        k = v16;
     }
     else
     {
       while ( 1 )
       {
         k = (struct _RTL_BALANCED_NODE *)(k->ParentValue & 0xFFFFFFFFFFFFFFFCuLL);
-        if ( !k || k->Children[0] == v22 )
+        if ( !k || k->Children[0] == v15 )
           break;
-        v22 = k;
+        v15 = k;
       }
     }
     if ( !k )
-      goto LABEL_17;
+      goto LABEL_33;
   }
-  if ( v14 < (unsigned __int64)v15 || (struct _RTL_BALANCED_NODE *)a2[1] > k[1].Children[1] )
-    goto LABEL_44;
-  a2[7] = v14;
-LABEL_43:
+  if ( v7 < (unsigned __int64)v8 || (struct _RTL_BALANCED_NODE *)a2[1] > k[1].Children[1] )
+    goto LABEL_23;
+  a2[7] = v7;
+LABEL_32:
   i = k;
-LABEL_17:
+LABEL_33:
   result = i;
   *((_DWORD *)this + 36) ^= 2 * (*((_DWORD *)this + 36) & 1);
   return result;

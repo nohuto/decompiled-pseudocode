@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C006EA8C
+ * XREFs of ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C002EA88
  * Callers:
- *     DwmSyncCaptureSurfaceBits @ 0x1C000887C (DwmSyncCaptureSurfaceBits.c)
- *     DwmSyncGetTitleBarInfo @ 0x1C000C49C (DwmSyncGetTitleBarInfo.c)
- *     DwmSyncNotifyMinimizing @ 0x1C001383C (DwmSyncNotifyMinimizing.c)
- *     DwmSyncGetCompositionAttribute @ 0x1C0013CA0 (DwmSyncGetCompositionAttribute.c)
- *     DwmSyncDesktopSwitch @ 0x1C006E974 (DwmSyncDesktopSwitch.c)
- *     DwmSyncFlushForceRenderAndWaitForBatch @ 0x1C026DEB0 (DwmSyncFlushForceRenderAndWaitForBatch.c)
- *     DwmSyncHitTestQuery @ 0x1C026E030 (DwmSyncHitTestQuery.c)
- *     DwmSyncMagnUpdateWindowSharedTextures @ 0x1C026E160 (DwmSyncMagnUpdateWindowSharedTextures.c)
+ *     DwmSyncHitTestQuery @ 0x1C002AC54 (DwmSyncHitTestQuery.c)
+ *     DwmSyncDesktopSwitch @ 0x1C002AD90 (DwmSyncDesktopSwitch.c)
+ *     DwmSyncNotifyMinimizing @ 0x1C002C4FC (DwmSyncNotifyMinimizing.c)
+ *     DwmSyncCaptureSurfaceBits @ 0x1C002E324 (DwmSyncCaptureSurfaceBits.c)
+ *     DwmSyncGetTitleBarInfo @ 0x1C002E5B4 (DwmSyncGetTitleBarInfo.c)
+ *     DwmSyncFlushForceRenderAndWaitForBatch @ 0x1C002E840 (DwmSyncFlushForceRenderAndWaitForBatch.c)
+ *     DwmSyncGetCompositionAttribute @ 0x1C002E940 (DwmSyncGetCompositionAttribute.c)
+ *     DwmSyncMagnUpdateWindowSharedTextures @ 0x1C02753C0 (DwmSyncMagnUpdateWindowSharedTextures.c)
  * Callees:
  *     <none>
  */
@@ -16,24 +16,15 @@
 __int64 __fastcall SyncLpcCheckNtStatus(int a1, struct _PORT_MESSAGE *a2)
 {
   __int64 result; // rax
-  int Type; // ecx
-  unsigned int v4; // edx
 
+  if ( a1 < 0 )
+    return (unsigned int)a1;
+  if ( a1 == 192 )
+    return 3221225473LL;
+  if ( a1 == 258 )
+    return 3221225473LL;
   result = (unsigned int)a1;
-  if ( a1 >= 0 )
-  {
-    if ( a1 == 192 || a1 == 258 )
-    {
-      return 3221225473LL;
-    }
-    else
-    {
-      Type = (unsigned __int16)a2->u2.s2.Type;
-      v4 = -1073741823;
-      if ( (Type & 0xFFFF00FF) == 2 )
-        return (unsigned int)result;
-      return v4;
-    }
-  }
+  if ( ((unsigned __int16)a2->u2.s2.Type & 0xFFFF00FF) != 2 )
+    return 3221225473LL;
   return result;
 }

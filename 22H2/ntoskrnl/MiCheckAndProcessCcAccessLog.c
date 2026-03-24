@@ -1,29 +1,25 @@
 /*
- * XREFs of MiCheckAndProcessCcAccessLog @ 0x1402F4CE8
+ * XREFs of MiCheckAndProcessCcAccessLog @ 0x1403A2F14
  * Callers:
- *     MiEmptyAccessLogs @ 0x1402005B0 (MiEmptyAccessLogs.c)
- *     MiTrimOrAgeWorkingSet @ 0x14025B380 (MiTrimOrAgeWorkingSet.c)
+ *     MiEmptyAccessLogs @ 0x1403A2D30 (MiEmptyAccessLogs.c)
  * Callees:
- *     MiReturnCcAccessLog @ 0x1402F4D30 (MiReturnCcAccessLog.c)
- *     MiQueuePageAccessLog @ 0x1402F54F0 (MiQueuePageAccessLog.c)
+ *     MiQueuePageAccessLog @ 0x14025B88C (MiQueuePageAccessLog.c)
+ *     MiReturnCcAccessLog @ 0x1403215BC (MiReturnCcAccessLog.c)
  */
 
-__int64 __fastcall MiCheckAndProcessCcAccessLog(__int64 a1, int a2)
+void __fastcall MiCheckAndProcessCcAccessLog(__int64 a1, int a2)
 {
-  __int64 result; // rax
-  _QWORD *v3; // rcx
+  struct _SLIST_ENTRY *v3; // rcx
 
-  result = a1;
-  if ( qword_140C680C0 )
+  if ( qword_140C4E800 )
   {
-    v3 = (_QWORD *)_InterlockedExchange64(&qword_140C680C0, 0LL);
+    v3 = (struct _SLIST_ENTRY *)_InterlockedExchange64(&qword_140C4E800, 0LL);
     if ( v3 )
     {
-      if ( result - v3[2] > (unsigned __int64)PfKernelGlobals || a2 )
-        return MiQueuePageAccessLog(v3);
+      if ( a1 - (unsigned __int64)v3[1].Next > PfKernelGlobals || a2 )
+        MiQueuePageAccessLog(v3);
       else
-        return MiReturnCcAccessLog();
+        MiReturnCcAccessLog((signed __int64)v3, 0);
     }
   }
-  return result;
 }

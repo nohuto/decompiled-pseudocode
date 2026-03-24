@@ -1,20 +1,20 @@
 /*
- * XREFs of HalRequestClockInterrupt @ 0x14022F2D0
+ * XREFs of HalRequestClockInterrupt @ 0x140292B90
  * Callers:
- *     KiSendClockInterruptToClockOwner @ 0x14022F244 (KiSendClockInterruptToClockOwner.c)
- *     HalpTimerWatchdogTriggerSystemReset @ 0x14050EB80 (HalpTimerWatchdogTriggerSystemReset.c)
+ *     KiSendClockInterruptToClockOwner @ 0x140292B04 (KiSendClockInterruptToClockOwner.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x1404C2760 (HalpTimerWatchdogTriggerSystemReset.c)
  * Callees:
- *     HalRequestIpiSpecifyVector @ 0x140300100 (HalRequestIpiSpecifyVector.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     HalRequestIpiSpecifyVector @ 0x14027B3E0 (HalRequestIpiSpecifyVector.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall HalRequestClockInterrupt(unsigned int a1, __int64 a2)
+__int64 __fastcall HalRequestClockInterrupt(int a1, _WORD *a2)
 {
   ULONG_PTR BugCheckParameter4; // rbx
   __int64 result; // rax
 
-  BugCheckParameter4 = (int)a1;
-  result = HalRequestIpiSpecifyVector(a1, a2, 210LL);
+  BugCheckParameter4 = a1;
+  result = HalRequestIpiSpecifyVector(a1, a2, 0xD2u);
   if ( (int)result < 0 )
     KeBugCheckEx(0x5Cu, 0x201uLL, HalpInterruptController, (int)result, BugCheckParameter4);
   return result;

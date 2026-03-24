@@ -1,24 +1,24 @@
 /*
- * XREFs of wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1C0024638
+ * XREFs of wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1C0024F8C
  * Callers:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C00245B0 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0024F04 (wil_details_FeatureReporting_ReportUsageToService.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     wil_details_FeatureReporting_RecordUsageInCache @ 0x1C0024430 (wil_details_FeatureReporting_RecordUsageInCache.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     wil_details_FeatureReporting_RecordUsageInCache @ 0x1C0024D9C (wil_details_FeatureReporting_RecordUsageInCache.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall wil_details_FeatureReporting_ReportUsageToServiceDirect(__int64 a1, __int64 a2, __int64 a3)
 {
   __int16 v3; // bx
-  unsigned int v5; // ebp
-  _DWORD *v6; // rax
+  unsigned int v5; // esi
+  int *v6; // rax
   unsigned int v7; // edi
-  int v9; // [rsp+30h] [rbp-68h] BYREF
-  int v10; // [rsp+34h] [rbp-64h]
-  _BYTE v11[24]; // [rsp+38h] [rbp-60h] BYREF
-  __int128 v12; // [rsp+50h] [rbp-48h] BYREF
-  __int64 v13; // [rsp+60h] [rbp-38h]
+  int v9; // [rsp+30h] [rbp-40h] BYREF
+  int v10; // [rsp+34h] [rbp-3Ch]
+  _BYTE v11[24]; // [rsp+38h] [rbp-38h] BYREF
+  __int128 v12; // [rsp+50h] [rbp-20h] BYREF
+  __int64 v13; // [rsp+60h] [rbp-10h]
 
   v3 = a2;
   v5 = a3;

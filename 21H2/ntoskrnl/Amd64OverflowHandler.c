@@ -1,164 +1,146 @@
 /*
- * XREFs of Amd64OverflowHandler @ 0x14052C290
+ * XREFs of Amd64OverflowHandler @ 0x1404DDAB0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     Amd64IsModifiedByBadActorInternal @ 0x14052C1E4 (Amd64IsModifiedByBadActorInternal.c)
- *     KeProfileInterruptWithSource @ 0x140571540 (KeProfileInterruptWithSource.c)
- *     PoGetProcessorIdleAccounting @ 0x1405C6DA0 (PoGetProcessorIdleAccounting.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeProfileInterruptWithSource @ 0x14051BB80 (KeProfileInterruptWithSource.c)
+ *     PoGetProcessorIdleAccounting @ 0x1405654E0 (PoGetProcessorIdleAccounting.c)
  */
 
-__int64 (__fastcall **__fastcall Amd64OverflowHandler(__int64 a1))()
+int __fastcall Amd64OverflowHandler(__int64 a1)
 {
-  unsigned __int64 v2; // rsi
-  __int64 (__fastcall **result)(); // rax
-  __int64 v4; // r14
-  unsigned int i; // ebp
-  unsigned int v6; // r12d
-  unsigned int v7; // r8d
+  unsigned __int64 v1; // rax
+  __int64 v2; // rbx
+  _DWORD *v4; // r14
+  unsigned int v5; // r15d
+  __int64 v6; // r8
+  unsigned __int64 v7; // rax
   unsigned __int64 v8; // rax
-  unsigned int v9; // edi
+  __int64 v9; // rdi
   __int64 v10; // rbx
-  __int64 v11; // rdi
-  __int64 v12; // rbx
-  unsigned int v13; // ecx
-  int v14; // eax
-  unsigned int v15; // eax
-  int v16; // eax
-  unsigned int v17; // r12d
-  LARGE_INTEGER v18; // rax
-  __int64 v19; // r8
-  unsigned __int64 v20; // [rsp+20h] [rbp-58h]
-  __int64 v21; // [rsp+28h] [rbp-50h] BYREF
-  LARGE_INTEGER PerformanceFrequency; // [rsp+30h] [rbp-48h] BYREF
-  bool v23; // [rsp+88h] [rbp+10h] BYREF
-  unsigned int v24; // [rsp+90h] [rbp+18h]
-  unsigned int v25; // [rsp+98h] [rbp+20h]
+  unsigned int v11; // ecx
+  int v12; // eax
+  unsigned __int64 v13; // rsi
+  unsigned int v14; // eax
+  int v15; // eax
+  unsigned int v16; // r12d
+  LARGE_INTEGER v17; // rax
+  __int64 v18; // r8
+  LARGE_INTEGER v19; // r9
+  unsigned __int64 v20; // rcx
+  unsigned __int64 v21; // rax
+  LARGE_INTEGER PerformanceFrequency; // [rsp+20h] [rbp-10h] BYREF
+  int v24; // [rsp+78h] [rbp+48h]
+  __int64 v25; // [rsp+80h] [rbp+50h]
+  __int64 v26; // [rsp+88h] [rbp+58h] BYREF
 
-  v23 = 0;
-  LODWORD(v2) = 0x7FFFFFFF;
-  result = &DefaultProfileInterface;
-  if ( HalpProfileInterface == &DefaultProfileInterface )
+  LODWORD(v1) = KeGetPcr()->Prcb.Number;
+  v2 = 4LL;
+  v24 = 0x7FFFFFFF;
+  v4 = (_DWORD *)(Amd64CounterStatus + ((unsigned __int64)(unsigned int)v1 << 6) + 12);
+  v5 = -1073676288;
+  v25 = 4LL;
+  do
   {
-    v4 = HalpCounterStatus;
-  }
-  else
-  {
-    result = (__int64 (__fastcall **)())HalpCounterStatus;
-    v4 = HalpCounterStatus + 8LL * HalpNumberOfCounters * KeGetPcr()->Prcb.Number;
-  }
-  for ( i = 0; i < Amd64NumberCounters; ++i )
-  {
-    result = *(__int64 (__fastcall ***)())(v4 + 8LL * i);
-    if ( !*((_DWORD *)result + 6) )
+    if ( !*(v4 - 3) )
     {
-      v7 = *((_DWORD *)result + 8);
-      v25 = *((_DWORD *)&Amd64PerfCounterRegisters + i);
-      v6 = v25;
-      v8 = __readmsr(v25);
-      result = (__int64 (__fastcall **)())((((unsigned __int64)HIDWORD(v8) << 32) | (unsigned int)v8) & 0xFFFFFFFFFFFFLL);
-      if ( (unsigned __int64)result < 0xFFFF80000001LL )
+      v6 = (unsigned int)*(v4 - 2);
+      v7 = __readmsr(v5 + 4);
+      v1 = (((unsigned __int64)HIDWORD(v7) << 32) | (unsigned int)v7) & 0xFFFFFFFFFFFFLL;
+      if ( v1 < 0xFFFF80000001LL )
       {
-        v24 = *((_DWORD *)&Amd64EventSelectRegisters + i);
-        v9 = v24;
-        v20 = __readmsr(v24);
-        v10 = v20;
-        __writemsr(v24, v20 & 0xFFFFFFFFFFAFFFFFuLL);
-        if ( v7 )
+        v8 = *v4 & 0xFFAFFFFF;
+        __writemsr(v5, v8);
+        if ( (_DWORD)v6 )
         {
-          KeProfileInterruptWithSource(a1, v7);
-          LODWORD(v2) = **(_DWORD **)(v4 + 8LL * i);
+          KeProfileInterruptWithSource(a1, (unsigned int)v6);
+          LODWORD(v13) = *(v4 - 1);
+          v24 = v13;
         }
         else
         {
-          v21 = 0LL;
+          v26 = 0LL;
           PerformanceFrequency.QuadPart = 0LL;
           if ( HalpTimerProfilingCallback )
-            HalpTimerProfilingCallback(a1);
+            HalpTimerProfilingCallback(a1, HIDWORD(v8), v6);
           else
             KeProfileInterruptWithSource(a1, 0LL);
-          v11 = HalpProfileData;
-          v12 = 32LL * KeGetPcr()->Prcb.Number;
-          v13 = *(_DWORD *)(v12 + HalpProfileData + 24);
-          if ( v13 )
+          v9 = HalpProfileData;
+          v10 = 32LL * KeGetPcr()->Prcb.Number;
+          v11 = *(_DWORD *)(v10 + HalpProfileData + 24);
+          if ( v11 )
           {
-            v14 = *(_DWORD *)(v12 + HalpProfileData + 20);
-            LODWORD(v2) = *(_DWORD *)(v12 + HalpProfileData + 16);
-            if ( v14 )
+            v12 = *(_DWORD *)(v10 + HalpProfileData + 20);
+            LODWORD(v13) = *(_DWORD *)(v10 + HalpProfileData + 16);
+            v24 = v13;
+            if ( v12 )
             {
-              v16 = v14 - 1;
-              *(_DWORD *)(v12 + HalpProfileData + 20) = v16;
-              if ( !v16 )
+              v15 = v12 - 1;
+              *(_DWORD *)(v10 + HalpProfileData + 20) = v15;
+              if ( !v15 )
               {
-                *(_DWORD *)(v12 + v11 + 20) = 0x2710 / v13;
-                v17 = 0x2710 / v13;
-                if ( !(0x2710 / v13) )
+                *(_DWORD *)(v10 + v9 + 20) = 0x2710 / v11;
+                v16 = 0x2710 / v11;
+                if ( !(0x2710 / v11) )
                 {
-                  *(_DWORD *)(v12 + v11 + 20) = 1;
-                  v17 = 1;
+                  *(_DWORD *)(v10 + v9 + 20) = 1;
+                  v16 = 1;
                 }
-                PoGetProcessorIdleAccounting(&v21, 0x2710 % v13);
-                if ( v21 == *(_QWORD *)(v12 + v11 + 8) )
+                PoGetProcessorIdleAccounting(&v26, 0x2710 % v11);
+                if ( v26 == *(_QWORD *)(v10 + v9 + 8) )
                 {
-                  v18 = KeQueryPerformanceCounter(&PerformanceFrequency);
-                  v19 = HalpProfileData;
-                  if ( v18.QuadPart != *(_QWORD *)(v12 + HalpProfileData) )
+                  v17 = KeQueryPerformanceCounter(&PerformanceFrequency);
+                  v18 = HalpProfileData;
+                  v19 = v17;
+                  v20 = v17.QuadPart - *(_QWORD *)(v10 + HalpProfileData);
+                  if ( v17.QuadPart != *(_QWORD *)(v10 + HalpProfileData) )
                   {
-                    v2 = PerformanceFrequency.QuadPart
-                       * (v17
-                        * (unsigned int)v2
-                        * (unsigned __int64)*(unsigned int *)(v12 + HalpProfileData + 24)
-                        / (v18.QuadPart - *(_QWORD *)(v12 + HalpProfileData)))
-                       / 0x989680;
-                    if ( v2 >= 0x1000 )
-                    {
-                      if ( v2 > 0x7FFFFFFF )
-                        LODWORD(v2) = 0x7FFFFFFF;
-                    }
-                    else
-                    {
-                      LODWORD(v2) = 4096;
-                    }
-                    *(_DWORD *)(v12 + HalpProfileData + 16) = v2;
-                    *(LARGE_INTEGER *)(v12 + v19) = v18;
+                    v21 = v16 * (unsigned int)v13 * (unsigned __int64)*(unsigned int *)(v10 + HalpProfileData + 24);
+                    *(LARGE_INTEGER *)(v10 + HalpProfileData) = v19;
+                    v13 = PerformanceFrequency.QuadPart * (v21 / v20) / 0x989680;
+                    if ( v13 < 0x1000 )
+                      v13 = 4096LL;
+                    if ( v13 > 0x7FFFFFFF )
+                      LODWORD(v13) = 0x7FFFFFFF;
+                    v24 = v13;
+                    *(_DWORD *)(v10 + v18 + 16) = v13;
                   }
                 }
                 else
                 {
-                  *(_QWORD *)(v12 + v11 + 8) = v21;
-                  *(LARGE_INTEGER *)(v12 + HalpProfileData) = KeQueryPerformanceCounter(0LL);
+                  *(_QWORD *)(v10 + v9 + 8) = v26;
+                  *(LARGE_INTEGER *)(v10 + HalpProfileData) = KeQueryPerformanceCounter(0LL);
                 }
-                v6 = v25;
               }
             }
             else
             {
-              v15 = 0x2710 / v13;
-              if ( !(0x2710 / v13) )
-                v15 = 1;
-              *(_DWORD *)(v12 + HalpProfileData + 20) = v15;
-              PoGetProcessorIdleAccounting(&v21, 0x2710 % v13);
-              *(_QWORD *)(v12 + v11 + 8) = v21;
-              *(LARGE_INTEGER *)(v12 + HalpProfileData) = KeQueryPerformanceCounter(0LL);
+              v14 = 0x2710 / v11;
+              if ( !(0x2710 / v11) )
+                v14 = 1;
+              *(_DWORD *)(v10 + HalpProfileData + 20) = v14;
+              PoGetProcessorIdleAccounting(&v26, 0x2710 % v11);
+              *(_QWORD *)(v10 + v9 + 8) = v26;
+              *(LARGE_INTEGER *)(v10 + HalpProfileData) = KeQueryPerformanceCounter(0LL);
             }
           }
-          v9 = v24;
-          v10 = v20;
+          else
+          {
+            LODWORD(v13) = v24;
+          }
+          v2 = v25;
         }
-        if ( i < 6 && *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(v4 + 8LL * i) + 16LL) + 8LL) )
-          __writemsr(*((_DWORD *)&Amd64PerfCounterRegisters + i + 1), 0xFFFFuLL);
-        __writemsr(v6, -(__int64)(unsigned int)v2);
-        __writemsr(v9, v10 | 0x500000);
-        result = (__int64 (__fastcall **)())Amd64IsModifiedByBadActorInternal(i, v10, &v23);
-        if ( v23 )
-        {
-          result = *(__int64 (__fastcall ***)())(v4 + 8LL * i);
-          *((_BYTE *)result + 36) = 1;
-        }
+        __writemsr(v5 + 4, -(__int64)(unsigned int)v13);
+        v1 = (unsigned int)*v4 | 0x500000LL;
+        __writemsr(v5, v1);
       }
     }
+    ++v5;
+    v4 += 4;
+    v25 = --v2;
   }
-  return result;
+  while ( v2 );
+  return v1;
 }

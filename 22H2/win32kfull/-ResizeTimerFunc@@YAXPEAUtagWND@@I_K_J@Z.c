@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ResizeTimerFunc@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01EA610
+ * XREFs of ?ResizeTimerFunc@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C020BAB0
  * Callers:
  *     <none>
  * Callees:
- *     FindTimer @ 0x1C003BF24 (FindTimer.c)
- *     GreCancelSynchronizedWindowResize @ 0x1C026737C (GreCancelSynchronizedWindowResize.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
+ *     GreCancelSynchronizedWindowResize @ 0x1C026EB90 (GreCancelSynchronizedWindowResize.c)
  */
 
 void __fastcall ResizeTimerFunc(struct tagWND *a1, __int64 a2, __int64 a3)
@@ -14,6 +14,6 @@ void __fastcall ResizeTimerFunc(struct tagWND *a1, __int64 a2, __int64 a3)
   FindTimer((__int64)a1, a3, 2u, 1, 0LL);
   v4 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 672LL);
   if ( v4 && *(struct tagWND **)(v4 + 16) == a1 )
-    *(_DWORD *)(v4 + 200) |= 0x80000000;
+    *(_DWORD *)(v4 + 200) |= 2u;
   GreCancelSynchronizedWindowResize(*(HWND *)a1);
 }

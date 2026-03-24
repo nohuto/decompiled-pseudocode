@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPIGpeIndexToGpeRegister @ 0x1C001D5CC
+ * XREFs of ACPIGpeIndexToGpeRegister @ 0x1C001A108
  * Callers:
- *     ACPIGpeInstallRemoveIndex @ 0x1C001D2F0 (ACPIGpeInstallRemoveIndex.c)
- *     ACPIGpeBuildWakeMasks @ 0x1C001D4E0 (ACPIGpeBuildWakeMasks.c)
- *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C001FF34 (ACPIWakeRemoveDevicesAndUpdate.c)
- *     ACPIDeviceIrpWaitWakeRequestComplete @ 0x1C004FD30 (ACPIDeviceIrpWaitWakeRequestComplete.c)
- *     ACPIVectorClear @ 0x1C0061880 (ACPIVectorClear.c)
- *     ACPIVectorDisable @ 0x1C0061AC0 (ACPIVectorDisable.c)
- *     ACPIVectorEnable @ 0x1C0061CF0 (ACPIVectorEnable.c)
+ *     ACPIGpeInstallRemoveIndex @ 0x1C00172E4 (ACPIGpeInstallRemoveIndex.c)
+ *     ACPIGpeBuildWakeMasks @ 0x1C001AFA8 (ACPIGpeBuildWakeMasks.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C0026398 (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     ACPIDeviceIrpWaitWakeRequestComplete @ 0x1C0050B7C (ACPIDeviceIrpWaitWakeRequestComplete.c)
+ *     ACPIVectorClear @ 0x1C0060AC0 (ACPIVectorClear.c)
+ *     ACPIVectorDisable @ 0x1C0060D00 (ACPIVectorDisable.c)
+ *     ACPIVectorEnable @ 0x1C0060F30 (ACPIVectorEnable.c)
  * Callees:
- *     ACPIGpeValidIndex @ 0x1C001D604 (ACPIGpeValidIndex.c)
+ *     ACPIGpeValidIndex @ 0x1C001A140 (ACPIGpeValidIndex.c)
  */
 
 __int64 __fastcall ACPIGpeIndexToGpeRegister(__int64 a1)

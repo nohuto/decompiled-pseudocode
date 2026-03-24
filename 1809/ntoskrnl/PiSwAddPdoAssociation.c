@@ -1,7 +1,7 @@
 /*
- * XREFs of PiSwAddPdoAssociation @ 0x1406D9030
+ * XREFs of PiSwAddPdoAssociation @ 0x1406D9010
  * Callers:
- *     PiSwGetChildPdo @ 0x1406D8EB8 (PiSwGetChildPdo.c)
+ *     PiSwGetChildPdo @ 0x1406D8E98 (PiSwGetChildPdo.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)

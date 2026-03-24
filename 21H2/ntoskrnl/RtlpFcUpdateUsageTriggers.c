@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpFcUpdateUsageTriggers @ 0x1409BF948
+ * XREFs of RtlpFcUpdateUsageTriggers @ 0x14091A6E8
  * Callers:
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14092317C (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14087E060 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
  * Callees:
- *     qsort @ 0x1403E1E70 (qsort.c)
- *     RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x1405EE7A0 (RtlpFcCompareUsageSubscriptionToUsageSubscription.c)
- *     RtlpFcAddUsageSubscriptionFromUpdate @ 0x1409BF0A8 (RtlpFcAddUsageSubscriptionFromUpdate.c)
- *     RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable @ 0x1409BF370 (RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable.c)
+ *     qsort @ 0x1403D2AC0 (qsort.c)
+ *     RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x1403F8848 (RtlpFcCompareUsageSubscriptionToUsageSubscription.c)
+ *     RtlpFcAddUsageSubscriptionFromUpdate @ 0x140919BA8 (RtlpFcAddUsageSubscriptionFromUpdate.c)
+ *     RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable @ 0x140919E90 (RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable.c)
  */
 
-__int64 __fastcall RtlpFcUpdateUsageTriggers(
+NTSTATUS __fastcall RtlpFcUpdateUsageTriggers(
         _DWORD *a1,
         __int64 a2,
         int *a3,
@@ -18,7 +18,7 @@ __int64 __fastcall RtlpFcUpdateUsageTriggers(
         unsigned __int64 *a6)
 {
   int *v7; // r13
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _DWORD *v10; // rbx
   unsigned __int64 v11; // rdi
   size_t v12; // rsi
@@ -41,8 +41,8 @@ __int64 __fastcall RtlpFcUpdateUsageTriggers(
   v25 = 0LL;
   v7 = a3;
   qsort(a3, a4, 0x14uLL, (int (__cdecl *)(const void *, const void *))RtlpFcCompareUsageSubscriptionUpdates);
-  result = RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable(a1, v7, a4, (__int64 *)&v25);
-  if ( (int)result >= 0 )
+  result = RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable(a1, v7, a4, &v25);
+  if ( result >= 0 )
   {
     if ( v25 )
     {
@@ -141,12 +141,12 @@ __int64 __fastcall RtlpFcUpdateUsageTriggers(
           }
           while ( v24 );
         }
-        return 0LL;
+        return 0;
       }
       else
       {
         *a6 = v25;
-        return 2147483653LL;
+        return -2147483643;
       }
     }
     else

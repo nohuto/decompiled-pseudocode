@@ -1,7 +1,7 @@
 /*
- * XREFs of DpiDisableInterruptResources @ 0x1C0388518
+ * XREFs of DpiDisableInterruptResources @ 0x1C02C7CD8
  * Callers:
- *     DpiFdoHandleFilterResources @ 0x1C0219D90 (DpiFdoHandleFilterResources.c)
+ *     DpiFdoHandleFilterResources @ 0x1C019DE30 (DpiFdoHandleFilterResources.c)
  * Callees:
  *     <none>
  */

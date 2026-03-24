@@ -1,138 +1,124 @@
 /*
- * XREFs of ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01DBF48
+ * XREFs of ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01E0D20
  * Callers:
- *     ?CheckCrossThreadInput@@YAHQEAUtagWND@@PEAUtagQMSG@@PEAH2PEAPEAU2@@Z @ 0x1C00F61A4 (-CheckCrossThreadInput@@YAHQEAUtagWND@@PEAUtagQMSG@@PEAH2PEAPEAU2@@Z.c)
- *     ?_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C016B120 (-_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z.c)
+ *     ?CheckCrossThreadInput@@YAHQEAUtagWND@@PEAUtagQMSG@@PEAH2PEAPEAU2@@Z @ 0x1C00C15F8 (-CheckCrossThreadInput@@YAHQEAUtagWND@@PEAUtagQMSG@@PEAH2PEAPEAU2@@Z.c)
+ *     ?_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C01E1860 (-_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_qiqdd @ 0x1C005806C (WPP_RECORDER_AND_TRACE_SF_qiqdd.c)
- *     DelQEntry @ 0x1C005BE3C (DelQEntry.c)
- *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C0078850 (WPP_RECORDER_AND_TRACE_SF_qq.c)
- *     ?WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z @ 0x1C00ABB1C (-WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z.c)
- *     IsPointerInputMessage @ 0x1C00AC3A0 (IsPointerInputMessage.c)
- *     ?FindMsgInsertionPoint@@YAPEAUtagQMSG@@QEAUtagQ@@QEAU1@@Z @ 0x1C016AB2E (-FindMsgInsertionPoint@@YAPEAUtagQMSG@@QEAUtagQ@@QEAU1@@Z.c)
- *     ?ReassignMessage@DManip@InputTraceLogging@@SAXPEBUtagQMSG@@@Z @ 0x1C01DC1E4 (-ReassignMessage@DManip@InputTraceLogging@@SAXPEBUtagQMSG@@@Z.c)
- *     DelegateCoalescePointerMessage @ 0x1C01EC898 (DelegateCoalescePointerMessage.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C004F354 (WPP_RECORDER_SF_qq.c)
+ *     ?WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z @ 0x1C0051608 (-WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z.c)
+ *     WPP_RECORDER_SF_qiqdd @ 0x1C0058670 (WPP_RECORDER_SF_qiqdd.c)
+ *     DelQEntry @ 0x1C006684C (DelQEntry.c)
+ *     IsPointerInputMessage @ 0x1C006B374 (IsPointerInputMessage.c)
+ *     GetAppCompatFlags2QuadWord @ 0x1C01101B0 (GetAppCompatFlags2QuadWord.c)
+ *     ?FindMsgInsertionPoint@@YAPEAUtagQMSG@@QEAUtagQ@@QEAU1@@Z @ 0x1C01E0444 (-FindMsgInsertionPoint@@YAPEAUtagQMSG@@QEAUtagQ@@QEAU1@@Z.c)
+ *     ?ReassignMessage@DManip@InputTraceLogging@@SAXPEBUtagQMSG@@@Z @ 0x1C01E0F40 (-ReassignMessage@DManip@InputTraceLogging@@SAXPEBUtagQMSG@@@Z.c)
+ *     DelegateCoalescePointerMessage @ 0x1C01F1F38 (DelegateCoalescePointerMessage.c)
  */
 
 void __fastcall ReassignInputMessage(struct tagTHREADINFO *a1, struct tagTHREADINFO *a2, struct tagQMSG *a3)
 {
   __int64 v6; // rdi
-  int v7; // edx
-  int v8; // r8d
-  __int64 v9; // r9
+  __int64 v7; // rdx
+  __int64 v8; // rcx
   struct tagQMSG *MsgInsertionPoint; // rax
-  struct tagQMSG *v11; // rcx
-  _QWORD *v12; // rax
-  char v13; // dl
-  int v14; // ecx
-  __int64 v15; // rdx
-  int v16; // [rsp+20h] [rbp-68h]
-  int v17; // [rsp+28h] [rbp-60h]
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  _QWORD *v12; // rsi
+  __int64 v13; // rcx
+  _QWORD *v14; // rax
+  int v15; // eax
+  int v16; // ecx
+  __int64 v17; // rdx
 
   InputTraceLogging::DManip::ReassignMessage(a3);
   v6 = *((_QWORD *)a2 + 54);
-  DelQEntry(*((_QWORD *)a1 + 54) + 24LL, (__int64)a3, 0);
-  v9 = *((_QWORD *)a1 + 54);
-  if ( *(struct tagQMSG **)(v9 + 80) == a3 )
+  DelQEntry((unsigned int **)(*((_QWORD *)a1 + 54) + 24LL), (unsigned int *)a3, 0);
+  v7 = *((_QWORD *)a1 + 54);
+  if ( *(struct tagQMSG **)(v7 + 80) == a3 )
   {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) == 0
-      || (LOBYTE(v7) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+    v8 = *((_QWORD *)a1 + 54);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     {
-      LOBYTE(v7) = 0;
-    }
-    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-      || (LOBYTE(v8) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-    {
-      LOBYTE(v8) = 0;
-    }
-    if ( (_BYTE)v7 || (_BYTE)v8 )
-      WPP_RECORDER_AND_TRACE_SF_qq(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v7,
+      WPP_RECORDER_SF_qq(
         v8,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        5,
-        18,
-        10,
-        (__int64)&WPP_2f2057662fc63cc3a929ce6289f6f23a_Traceguids,
-        v9,
-        *(_QWORD *)(v9 + 80));
-    *(_QWORD *)(*((_QWORD *)a1 + 54) + 80LL) = 0LL;
+        5u,
+        0x12u,
+        0xAu,
+        (__int64)&WPP_aa0cdaa0f1c33ddef9256642731d7c5d_Traceguids,
+        v7,
+        *(_QWORD *)(v7 + 80));
+      v8 = *((_QWORD *)a1 + 54);
+    }
+    *(_QWORD *)(v8 + 80) = 0LL;
   }
   *((_DWORD *)a3 + 25) &= ~0x10u;
   *((_QWORD *)a3 + 1) = 0LL;
   *(_QWORD *)a3 = 0LL;
   *((_QWORD *)a3 + 13) = a2;
   MsgInsertionPoint = FindMsgInsertionPoint((struct tagQ *const)v6, a3);
-  v11 = MsgInsertionPoint;
+  v12 = (_QWORD *)(v6 + 24);
+  v13 = (__int64)MsgInsertionPoint;
   if ( MsgInsertionPoint )
   {
-    v12 = (_QWORD *)*((_QWORD *)MsgInsertionPoint + 1);
-    if ( v12 )
-      *v12 = a3;
+    v14 = (_QWORD *)*((_QWORD *)MsgInsertionPoint + 1);
+    if ( v14 )
+      *v14 = a3;
     else
-      *(_QWORD *)(v6 + 24) = a3;
-    *(_QWORD *)a3 = v11;
-    *((_QWORD *)a3 + 1) = *((_QWORD *)v11 + 1);
-    *((_QWORD *)v11 + 1) = a3;
+      *v12 = a3;
+    *(_QWORD *)a3 = v13;
+    *((_QWORD *)a3 + 1) = *(_QWORD *)(v13 + 8);
+    *(_QWORD *)(v13 + 8) = a3;
   }
   else
   {
-    if ( *(_QWORD *)(v6 + 24) )
+    if ( *v12 )
     {
       **(_QWORD **)(v6 + 32) = a3;
       *((_QWORD *)a3 + 1) = *(_QWORD *)(v6 + 32);
     }
     else
     {
-      *(_QWORD *)(v6 + 24) = a3;
+      *v12 = a3;
     }
     *(_QWORD *)(v6 + 32) = a3;
   }
-  ++*(_DWORD *)(v6 + 40);
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) == 0
-    || (v13 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    v13 = 0;
-  }
-  if ( v13 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_qiqdd(
-      (__int64)WPP_GLOBAL_Control->AttachedDevice,
+  v15 = *(_DWORD *)(v6 + 40) + 1;
+  *(_DWORD *)(v6 + 40) = v15;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qiqdd(
       v13,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      v6 + 24,
-      v16,
-      v17,
+      v10,
+      v11,
       0xBu,
-      (__int64)&WPP_2f2057662fc63cc3a929ce6289f6f23a_Traceguids);
+      (__int64)&WPP_aa0cdaa0f1c33ddef9256642731d7c5d_Traceguids,
+      a3,
+      *((_QWORD *)a3 + 17),
+      v6 + 24,
+      *(_DWORD *)(v6 + 44),
+      v15);
   if ( !IsPointerInputMessage(*((_DWORD *)a3 + 6)) || !(unsigned int)DelegateCoalescePointerMessage(a2, 0LL, a3) )
   {
-    if ( _bittest64((const signed __int64 *)a2 + 81, 0x31u) )
+    if ( (GetAppCompatFlags2QuadWord((__int64)a2) & 0x2000000000000LL) != 0 && *((_DWORD *)a3 + 6) == 512 )
     {
-      if ( *((_DWORD *)a3 + 6) == 512 )
+      v16 = *((_DWORD *)a3 + 25);
+      if ( (v16 & 0x40) != 0 )
       {
-        v14 = *((_DWORD *)a3 + 25);
-        if ( (v14 & 0x40) != 0 )
+        if ( *(_QWORD *)(*((_QWORD *)a2 + 54) + 136LL) )
         {
-          if ( *(_QWORD *)(*((_QWORD *)a2 + 54) + 136LL) )
+          v17 = *((_QWORD *)a3 + 1);
+          if ( v17 )
           {
-            v15 = *((_QWORD *)a3 + 1);
-            if ( v15 )
+            if ( *(_DWORD *)(v17 + 24) == 512
+              && *(_QWORD *)(v17 + 16) == *((_QWORD *)a3 + 2)
+              && *(_QWORD *)(v6 + 80) != v17
+              && (v16 & 0x100) == 0 )
             {
-              if ( *(_DWORD *)(v15 + 24) == 512
-                && *(_QWORD *)(v15 + 16) == *((_QWORD *)a3 + 2)
-                && *(_QWORD *)(v6 + 80) != v15
-                && (v14 & 0x100) == 0 )
-              {
-                DelQEntry(v6 + 24, v15, 1);
-              }
+              DelQEntry((unsigned int **)(v6 + 24), (unsigned int *)v17, 1);
             }
           }
         }
       }
     }
-    WakeSomeone(v6, (__int64)a2, *((unsigned int *)a3 + 6), a3);
+    WakeSomeone((struct tagQ *)v6, a2, *((_DWORD *)a3 + 6), a3);
   }
 }

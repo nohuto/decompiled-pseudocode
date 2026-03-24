@@ -1,26 +1,24 @@
 /*
- * XREFs of xxxUpdatePerUserAccessPackSettings @ 0x1C0060150
+ * XREFs of xxxUpdatePerUserAccessPackSettings @ 0x1C000DFA0
  * Callers:
  *     <none>
  * Callees:
- *     GetProcessLuid @ 0x1C0018FF0 (GetProcessLuid.c)
- *     OpenCacheKeyEx @ 0x1C0019FB0 (OpenCacheKeyEx.c)
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0047358 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     ?CalculateMouseTable@@YAXXZ @ 0x1C005F930 (-CalculateMouseTable@@YAXXZ.c)
- *     ?MKHideMouseCursor@@YAXXZ @ 0x1C005FA20 (-MKHideMouseCursor@@YAXXZ.c)
- *     ?AccessTimeOutReset@@YAXXZ @ 0x1C005FA40 (-AccessTimeOutReset@@YAXXZ.c)
- *     ?SetAccessEnabledFlag@@YAXXZ @ 0x1C005FA80 (-SetAccessEnabledFlag@@YAXXZ.c)
- *     FastGetProfileIntW @ 0x1C0061160 (FastGetProfileIntW.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
- *     ?MKShowMouseCursor@@YAXXZ @ 0x1C01B9570 (-MKShowMouseCursor@@YAXXZ.c)
- *     ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C01BAF10 (-xxxTurnOffStickyKeys@@YAXXZ.c)
+ *     ?CalculateMouseTable@@YAXXZ @ 0x1C000C2C0 (-CalculateMouseTable@@YAXXZ.c)
+ *     ?MKHideMouseCursor@@YAXXZ @ 0x1C000C3C0 (-MKHideMouseCursor@@YAXXZ.c)
+ *     ?AccessTimeOutReset@@YAXXZ @ 0x1C000C3E0 (-AccessTimeOutReset@@YAXXZ.c)
+ *     ?SetAccessEnabledFlag@@YAXXZ @ 0x1C000C420 (-SetAccessEnabledFlag@@YAXXZ.c)
+ *     GetProcessLuid @ 0x1C000C950 (GetProcessLuid.c)
+ *     FastGetProfileIntW @ 0x1C000F0D0 (FastGetProfileIntW.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C000FA94 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     OpenCacheKeyEx @ 0x1C0026440 (OpenCacheKeyEx.c)
+ *     Win32AllocPoolWithQuota @ 0x1C00295D0 (Win32AllocPoolWithQuota.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     ?MKShowMouseCursor@@YAXXZ @ 0x1C01837A0 (-MKShowMouseCursor@@YAXXZ.c)
+ *     ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C0185650 (-xxxTurnOffStickyKeys@@YAXXZ.c)
  */
 
-void __fastcall xxxUpdatePerUserAccessPackSettings(const UNICODE_STRING *a1)
+void __fastcall xxxUpdatePerUserAccessPackSettings(__int64 a1)
 {
   int v2; // ebx
   ULONG v3; // esi
@@ -44,106 +42,104 @@ void __fastcall xxxUpdatePerUserAccessPackSettings(const UNICODE_STRING *a1)
   ULONG v21; // eax
   int v22; // eax
   void *v23; // rsi
-  PVOID v24; // r14
-  __int64 Pool2; // rbx
-  NTSTATUS v26; // eax
-  int v27; // r14d
-  int v28; // ecx
-  unsigned int v29; // ecx
+  __int64 v24; // rbx
+  NTSTATUS v25; // eax
+  int v26; // r14d
+  int v27; // ecx
+  unsigned int v28; // ecx
+  int v29; // edx
   int v30; // edx
   int v31; // edx
-  int v32; // edx
-  int v33; // eax
-  __int64 v34; // rax
-  ULONG Value; // [rsp+38h] [rbp-D0h] BYREF
-  int v36; // [rsp+3Ch] [rbp-CCh] BYREF
-  ULONG Length[2]; // [rsp+40h] [rbp-C8h] BYREF
-  struct _LUID DestinationString; // [rsp+48h] [rbp-C0h] BYREF
-  struct _UNICODE_STRING DestinationString_8; // [rsp+50h] [rbp-B8h] BYREF
-  PVOID BackTrace[20]; // [rsp+68h] [rbp-A0h] BYREF
-  size_t v41[32]; // [rsp+108h] [rbp+0h] BYREF
+  int v32; // eax
+  ULONG Value; // [rsp+30h] [rbp-D0h] BYREF
+  int v34; // [rsp+34h] [rbp-CCh] BYREF
+  ULONG Length; // [rsp+38h] [rbp-C8h] BYREF
+  BOOL v36; // [rsp+3Ch] [rbp-C4h]
+  struct _LUID AuthenticationId; // [rsp+40h] [rbp-C0h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
+  unsigned __int16 v39[128]; // [rsp+60h] [rbp-A0h] BYREF
 
-  DestinationString = 0LL;
+  AuthenticationId = 0LL;
   Value = 0;
-  GetProcessLuid(0LL, &DestinationString);
-  if ( DestinationString.LowPart != 999 || (v2 = 1, DestinationString.HighPart) )
+  GetProcessLuid(0LL, &AuthenticationId);
+  if ( AuthenticationId.LowPart != 999 || (v2 = 1, AuthenticationId.HighPart) )
     v2 = 0;
-  FastGetProfileIntW((int)a1, 15, (int)L"Flags", 0, &Value, 0);
+  FastGetProfileIntW(a1, 15, (int)L"Flags", 0, &Value, 0);
   v3 = Value & 1;
-  FastGetProfileIntW((int)a1, 14, (int)L"Flags", 0, &Value, 0);
+  FastGetProfileIntW(a1, 14, (int)L"Flags", 0, &Value, 0);
   v4 = Value & 1;
-  FastGetProfileIntW((int)a1, 16, (int)L"Flags", 0, &Value, 0);
+  FastGetProfileIntW(a1, 16, (int)L"Flags", 0, &Value, 0);
   v5 = Value & 1;
-  FastGetProfileIntW((int)a1, 17, (int)L"Flags", 0, &Value, 0);
+  FastGetProfileIntW(a1, 17, (int)L"Flags", 0, &Value, 0);
   v6 = Value & 1;
-  FastGetProfileIntW((int)a1, 27, (int)L"On", 0, &Value, 0);
-  Length[1] = Value != 0;
-  FastGetProfileIntW((int)a1, 28, (int)L"On", 0, &Value, 0);
-  Length[0] = Value != 0;
-  FastGetProfileIntW((int)a1, 18, (int)L"Flags", 0, &Value, 0);
+  FastGetProfileIntW(a1, 27, (int)L"On", 0, &Value, 0);
+  Length = Value != 0;
+  FastGetProfileIntW(a1, 28, (int)L"On", 0, &Value, 0);
+  v36 = Value != 0;
+  FastGetProfileIntW(a1, 18, (int)L"Flags", 0, &Value, 0);
   v7 = Value & 1;
-  FastGetProfileIntW((int)a1, 29, (int)L"Flags", 0, &Value, 0);
+  FastGetProfileIntW(a1, 29, (int)L"Flags", 0, &Value, 0);
   v8 = Value & 1;
-  v36 = v8;
+  v34 = v8;
   if ( v2 )
   {
     if ( v3 )
     {
-      LODWORD(xmmword_1C0295A4C) = xmmword_1C0295A4C | 1;
+      LODWORD(xmmword_1C0250C04) = xmmword_1C0250C04 | 1;
       v9 = gdwPUDFlags | 1;
     }
     else
     {
-      LODWORD(xmmword_1C0295A4C) = xmmword_1C0295A4C & 0xFFFFFFFE;
+      LODWORD(xmmword_1C0250C04) = xmmword_1C0250C04 & 0xFFFFFFFE;
       v9 = gdwPUDFlags & 0xFFFFFFFE;
     }
     gdwPUDFlags = v9;
-    if ( (dword_1C0295A44 & 1) != 0 && !v3 )
+    if ( (dword_1C0250C1C & 1) != 0 && !v3 )
     {
       xxxTurnOffStickyKeys();
-      v8 = v36;
+      v8 = v34;
     }
     if ( v4 )
     {
-      dword_1C0295A44 |= 1u;
+      dword_1C0250C1C |= 1u;
       v10 = gdwPUDFlags | 2;
     }
     else
     {
-      dword_1C0295A44 &= ~1u;
+      dword_1C0250C1C &= ~1u;
       v10 = gdwPUDFlags & 0xFFFFFFFD;
     }
     if ( v5 )
     {
-      dword_1C0295A24 |= 1u;
+      dword_1C0250BD4 |= 1u;
       v11 = v10 | 4;
     }
     else
     {
-      dword_1C0295A24 &= ~1u;
+      dword_1C0250BD4 &= ~1u;
       v11 = v10 & 0xFFFFFFFB;
     }
     if ( v6 )
     {
-      dword_1C0295A0C |= 1u;
+      dword_1C0250BCC |= 1u;
       v12 = v11 | 8;
     }
     else
     {
-      dword_1C0295A0C &= ~1u;
+      dword_1C0250BCC &= ~1u;
       v12 = v11 & 0xFFFFFFF7;
     }
     if ( v7 )
     {
-      LODWORD(qword_1C0295A14) = qword_1C0295A14 | 1;
+      LODWORD(qword_1C0250BF4) = qword_1C0250BF4 | 1;
       v13 = v12 | 0x10;
     }
     else
     {
-      LODWORD(qword_1C0295A14) = qword_1C0295A14 & 0xFFFFFFFE;
+      LODWORD(qword_1C0250BF4) = qword_1C0250BF4 & 0xFFFFFFFE;
       v13 = v12 & 0xFFFFFFEF;
     }
-    if ( Length[1] )
+    if ( Length )
     {
       gdwPUDFlags = v13 | 0x20020;
       _InterlockedOr((volatile signed __int32 *)gpsi, 0x80u);
@@ -153,162 +149,160 @@ void __fastcall xxxUpdatePerUserAccessPackSettings(const UNICODE_STRING *a1)
       gdwPUDFlags = v13 & 0xFFFDFFDF;
       _InterlockedAnd((volatile signed __int32 *)gpsi, 0xFFFFFF7F);
     }
-    if ( Length[0] )
+    if ( v36 )
       v14 = gdwPUDFlags | 0x40040;
     else
       v14 = gdwPUDFlags & 0xFFFBFFBF;
     if ( v8 )
     {
-      dword_1C02959FC |= 1u;
+      dword_1C0250BBC |= 1u;
       v15 = v14 | 0x80;
     }
     else
     {
-      dword_1C02959FC &= ~1u;
+      dword_1C0250BBC &= ~1u;
       v15 = v14 & 0xFFFFFF7F;
     }
     gdwPUDFlags = v15;
     goto LABEL_22;
   }
-  if ( (((unsigned __int8)gdwPUDFlags ^ (unsigned __int8)xmmword_1C0295A4C) & 1) == 0 )
+  if ( (((unsigned __int8)gdwPUDFlags ^ (unsigned __int8)xmmword_1C0250C04) & 1) == 0 )
   {
     if ( v3 )
-      v28 = xmmword_1C0295A4C | 1;
+      v27 = xmmword_1C0250C04 | 1;
     else
-      v28 = xmmword_1C0295A4C & 0xFFFFFFFE;
-    LODWORD(xmmword_1C0295A4C) = v28;
+      v27 = xmmword_1C0250C04 & 0xFFFFFFFE;
+    LODWORD(xmmword_1C0250C04) = v27;
   }
-  if ( (dword_1C0295A44 & 1) == (((unsigned int)gdwPUDFlags >> 1) & 1) )
+  if ( (dword_1C0250C1C & 1) == (((unsigned int)gdwPUDFlags >> 1) & 1) )
   {
-    if ( (dword_1C0295A44 & 1) != 0 )
+    if ( (dword_1C0250C1C & 1) != 0 )
     {
-      if ( !v4 )
-      {
-        xxxTurnOffStickyKeys();
-        v8 = v36;
-        goto LABEL_67;
-      }
+      if ( v4 )
+        goto LABEL_109;
+      xxxTurnOffStickyKeys();
+      v8 = v34;
     }
-    else if ( !v4 )
+    if ( !v4 )
     {
-LABEL_67:
-      dword_1C0295A44 &= ~1u;
-      goto LABEL_68;
+      dword_1C0250C1C &= ~1u;
+      goto LABEL_65;
     }
-    dword_1C0295A44 |= 1u;
+LABEL_109:
+    dword_1C0250C1C |= 1u;
   }
-LABEL_68:
-  v29 = gdwPUDFlags;
-  if ( (((unsigned __int8)dword_1C0295A24 ^ (unsigned __int8)((unsigned int)gdwPUDFlags >> 2)) & 1) == 0 )
+LABEL_65:
+  v28 = gdwPUDFlags;
+  if ( (((unsigned __int8)dword_1C0250BD4 ^ (unsigned __int8)((unsigned int)gdwPUDFlags >> 2)) & 1) == 0 )
   {
     if ( v5 )
-      v30 = dword_1C0295A24 | 1;
+      v29 = dword_1C0250BD4 | 1;
     else
-      v30 = dword_1C0295A24 & 0xFFFFFFFE;
-    dword_1C0295A24 = v30;
+      v29 = dword_1C0250BD4 & 0xFFFFFFFE;
+    dword_1C0250BD4 = v29;
   }
-  if ( (((unsigned __int8)dword_1C0295A0C ^ (unsigned __int8)((unsigned int)gdwPUDFlags >> 3)) & 1) == 0 )
+  if ( (((unsigned __int8)dword_1C0250BCC ^ (unsigned __int8)((unsigned int)gdwPUDFlags >> 3)) & 1) == 0 )
   {
     if ( v6 )
-      v31 = dword_1C0295A0C | 1;
+      v30 = dword_1C0250BCC | 1;
     else
-      v31 = dword_1C0295A0C & 0xFFFFFFFE;
-    dword_1C0295A0C = v31;
+      v30 = dword_1C0250BCC & 0xFFFFFFFE;
+    dword_1C0250BCC = v30;
   }
-  if ( (((unsigned __int8)qword_1C0295A14 ^ (unsigned __int8)((unsigned int)gdwPUDFlags >> 4)) & 1) == 0 )
+  if ( (((unsigned __int8)qword_1C0250BF4 ^ (unsigned __int8)((unsigned int)gdwPUDFlags >> 4)) & 1) == 0 )
   {
     if ( v7 )
-      v32 = qword_1C0295A14 | 1;
+      v31 = qword_1C0250BF4 | 1;
     else
-      v32 = qword_1C0295A14 & 0xFFFFFFFE;
-    LODWORD(qword_1C0295A14) = v32;
+      v31 = qword_1C0250BF4 & 0xFFFFFFFE;
+    LODWORD(qword_1C0250BF4) = v31;
   }
   if ( (((unsigned __int8)gdwPUDFlags ^ (unsigned __int8)((unsigned int)gdwPUDFlags >> 12)) & 0x20) == 0 )
   {
-    if ( Length[1] )
-      v29 = gdwPUDFlags | 0x20000;
+    if ( Length )
+      v28 = gdwPUDFlags | 0x20000;
     else
-      v29 = gdwPUDFlags & 0xFFFDFFFF;
-    gdwPUDFlags = v29;
+      v28 = gdwPUDFlags & 0xFFFDFFFF;
+    gdwPUDFlags = v28;
   }
-  if ( (((unsigned __int8)v29 ^ (unsigned __int8)(v29 >> 12)) & 0x40) == 0 )
+  if ( (((unsigned __int8)v28 ^ (unsigned __int8)(v28 >> 12)) & 0x40) == 0 )
   {
-    if ( Length[0] )
-      v29 |= 0x40000u;
+    if ( v36 )
+      v28 |= 0x40000u;
     else
-      v29 &= ~0x40000u;
-    gdwPUDFlags = v29;
+      v28 &= ~0x40000u;
+    gdwPUDFlags = v28;
   }
-  if ( (((unsigned __int8)dword_1C02959FC ^ (unsigned __int8)(v29 >> 7)) & 1) == 0 )
+  if ( (((unsigned __int8)dword_1C0250BBC ^ (unsigned __int8)(v28 >> 7)) & 1) == 0 )
   {
     if ( v8 )
-      v33 = dword_1C02959FC | 1;
+      v32 = dword_1C0250BBC | 1;
     else
-      v33 = dword_1C02959FC & 0xFFFFFFFE;
-    dword_1C02959FC = v33;
+      v32 = dword_1C0250BBC & 0xFFFFFFFE;
+    dword_1C0250BBC = v32;
   }
 LABEL_22:
-  FastGetProfileIntW((int)a1, 15, (int)L"Flags", 82, &Value, 0);
-  if ( (xmmword_1C0295A4C & 1) != 0 )
+  FastGetProfileIntW(a1, 15, (int)L"Flags", 82, &Value, 0);
+  if ( (xmmword_1C0250C04 & 1) != 0 )
     v16 = Value | 1;
   else
     v16 = Value & 0xFFFFFFFE;
   Value = v16;
-  LODWORD(xmmword_1C0295A4C) = v16;
-  FastGetProfileIntW((int)a1, 15, (int)L"DelayBeforeAcceptance", 1000, (PULONG)&xmmword_1C0295A4C + 1, 0);
-  FastGetProfileIntW((int)a1, 15, (int)L"AutoRepeatRate", 500, (PULONG)&xmmword_1C0295A4C + 3, 0);
-  FastGetProfileIntW((int)a1, 15, (int)L"AutoRepeatDelay", 1000, (PULONG)&xmmword_1C0295A4C + 2, 0);
-  FastGetProfileIntW((int)a1, 15, (int)L"BounceTime", 0, &::Value, 0);
-  FastGetProfileIntW((int)a1, 19, (int)L"Flags", 2, &dword_1C0298C94, 0);
-  FastGetProfileIntW((int)a1, 19, (int)L"FSTextEffect", 0, &dword_1C0298C98, 0);
-  FastGetProfileIntW((int)a1, 19, (int)L"WindowsEffect", 0, &dword_1C0298CB0, 0);
-  FastGetProfileIntW((int)a1, 20, (int)L"On", 0, &Value, 0);
+  LODWORD(xmmword_1C0250C04) = v16;
+  FastGetProfileIntW(a1, 15, (int)L"DelayBeforeAcceptance", 1000, (PULONG)&xmmword_1C0250C04 + 1, 0);
+  FastGetProfileIntW(a1, 15, (int)L"AutoRepeatRate", 500, (PULONG)&xmmword_1C0250C04 + 3, 0);
+  FastGetProfileIntW(a1, 15, (int)L"AutoRepeatDelay", 1000, (PULONG)&xmmword_1C0250C04 + 2, 0);
+  FastGetProfileIntW(a1, 15, (int)L"BounceTime", 0, &::Value, 0);
+  FastGetProfileIntW(a1, 19, (int)L"Flags", 2, &dword_1C0253ED4, 0);
+  FastGetProfileIntW(a1, 19, (int)L"FSTextEffect", 0, &dword_1C0253ED8, 0);
+  FastGetProfileIntW(a1, 19, (int)L"WindowsEffect", 0, &dword_1C0253EF0, 0);
+  FastGetProfileIntW(a1, 20, (int)L"On", 0, &Value, 0);
   if ( Value )
     v17 = gdwPUDFlags | 0x8000;
   else
     v17 = gdwPUDFlags & 0xFFFF7FFF;
   gdwPUDFlags = v17;
   *((_DWORD *)gpsi + 544) = (v17 >> 15) & 1;
-  FastGetProfileIntW((int)a1, 14, (int)L"Flags", 466, &Value, 0);
-  if ( (dword_1C0295A44 & 1) != 0 )
+  FastGetProfileIntW(a1, 14, (int)L"Flags", 466, &Value, 0);
+  if ( (dword_1C0250C1C & 1) != 0 )
     v18 = Value | 1;
   else
     v18 = Value & 0xFFFFFFFE;
   Value = v18;
-  dword_1C0295A44 = v18;
-  FastGetProfileIntW((int)a1, 16, (int)L"Flags", 18, &Value, 0);
-  if ( (dword_1C0295A24 & 1) != 0 )
+  dword_1C0250C1C = v18;
+  FastGetProfileIntW(a1, 16, (int)L"Flags", 18, &Value, 0);
+  if ( (dword_1C0250BD4 & 1) != 0 )
     v19 = Value | 1;
   else
     v19 = Value & 0xFFFFFFFE;
   Value = v19;
-  dword_1C0295A24 = v19;
-  FastGetProfileIntW((int)a1, 16, (int)L"MaximumSpeed", 40, &dword_1C0295A28, 0);
-  FastGetProfileIntW((int)a1, 16, (int)L"TimeToMaximumSpeed", 3000, &dword_1C0295A2C, 0);
-  if ( dword_1C0295A28 - 10 > 0x15E )
-    dword_1C0295A28 = 40;
-  if ( dword_1C0295A2C - 1000 > 0xFA0 )
-    dword_1C0295A2C = 3000;
+  dword_1C0250BD4 = v19;
+  FastGetProfileIntW(a1, 16, (int)L"MaximumSpeed", 40, &dword_1C0250BD8, 0);
+  FastGetProfileIntW(a1, 16, (int)L"TimeToMaximumSpeed", 3000, &dword_1C0250BDC, 0);
+  if ( dword_1C0250BD8 - 10 > 0x15E )
+    dword_1C0250BD8 = 40;
+  if ( dword_1C0250BDC - 1000 > 0xFA0 )
+    dword_1C0250BDC = 3000;
   CalculateMouseTable();
-  gbMKMouseMode = ((dword_1C0295A24 & 0x80) != 0) ^ (((unsigned __int8)(1 << (2 * (gNumLockVk & 3) + 1)) & *((_BYTE *)&gafAsyncKeyState + ((unsigned __int64)(unsigned __int8)gNumLockVk >> 2))) != 0);
-  if ( (dword_1C0295A24 & 1) != 0 )
+  gbMKMouseMode = ((dword_1C0250BD4 & 0x80) != 0) ^ (((unsigned __int8)(1 << (2 * (gNumLockVk & 3) + 1)) & *((_BYTE *)&gafAsyncKeyState + ((unsigned __int64)(unsigned __int8)gNumLockVk >> 2))) != 0);
+  if ( (dword_1C0250BD4 & 1) != 0 )
     MKShowMouseCursor();
   else
     MKHideMouseCursor();
-  FastGetProfileIntW((int)a1, 17, (int)L"Flags", 18, &Value, 0);
-  if ( (dword_1C0295A0C & 1) != 0 )
+  FastGetProfileIntW(a1, 17, (int)L"Flags", 18, &Value, 0);
+  if ( (dword_1C0250BCC & 1) != 0 )
     v20 = Value | 1;
   else
     v20 = Value & 0xFFFFFFFE;
   Value = v20;
-  dword_1C0295A0C = v20;
-  FastGetProfileIntW((int)a1, 18, (int)L"Flags", 2, &Value, 0);
-  if ( (qword_1C0295A14 & 1) != 0 )
+  dword_1C0250BCC = v20;
+  FastGetProfileIntW(a1, 18, (int)L"Flags", 2, &Value, 0);
+  if ( (qword_1C0250BF4 & 1) != 0 )
     v21 = Value | 1;
   else
     v21 = Value & 0xFFFFFFFE;
   Value = v21;
-  LODWORD(qword_1C0295A14) = v21;
+  LODWORD(qword_1C0250BF4) = v21;
   if ( gpKbdNlsTbl )
   {
     if ( *(_DWORD *)(gpKbdNlsTbl + 16) == 16 && *(_QWORD *)(gpKbdNlsTbl + 24) )
@@ -319,110 +313,70 @@ LABEL_22:
       gOemScrollVk = 21;
     }
   }
-  FastGetProfileIntW((int)a1, 18, (int)L"TimeToWait", 300000, (PULONG)&qword_1C0295A14 + 1, 0);
-  FastGetProfileIntW((int)a1, 29, (int)L"Flags", 82, &Value, 0);
-  if ( (dword_1C02959FC & 1) != 0 )
+  FastGetProfileIntW(a1, 18, (int)L"TimeToWait", 300000, (PULONG)&qword_1C0250BF4 + 1, 0);
+  FastGetProfileIntW(a1, 29, (int)L"Flags", 82, &Value, 0);
+  if ( (dword_1C0250BBC & 1) != 0 )
     v22 = Value | 1;
   else
     v22 = Value & 0xFFFFFFFE;
   Value = v22;
-  dword_1C02959FC = v22;
-  v36 = gdwPolicyFlags;
-  DestinationString_8 = 0LL;
-  v23 = OpenCacheKeyEx(a1, 29LL, 131097LL, &v36);
+  dword_1C0250BBC = v22;
+  v34 = gdwPolicyFlags;
+  DestinationString = 0LL;
+  v23 = (void *)OpenCacheKeyEx(a1, 29LL, 131097LL, &v34);
   if ( v23 )
   {
     while ( 1 )
     {
-      v24 = gpLeakTrackingAllocator;
-      Length[0] = 268;
-      if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x72707355) != 0x72707355 )
+      Length = 268;
+      v24 = Win32AllocPoolWithQuota(268LL, 1919972181LL);
+      if ( !v24 )
+        goto LABEL_50;
+      RtlInitUnicodeString(&DestinationString, L"High Contrast Scheme");
+      v25 = ZwQueryValueKey(v23, &DestinationString, KeyValuePartialInformation, (PVOID)v24, Length, &Length);
+      if ( v25 == -2147483643 )
+        v25 = 0;
+      if ( v25 >= 0 )
         break;
-      v34 = 0LL;
-      if ( !*((_DWORD *)gpLeakTrackingAllocator + 11) )
-        break;
-      while ( *((_DWORD *)gpLeakTrackingAllocator + v34) != 1919972181 )
+      if ( !v34 )
       {
-        if ( ++v34 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-          goto LABEL_45;
+        Win32FreePool(v24);
+LABEL_50:
+        if ( v23 )
+          ZwClose(v23);
+        goto LABEL_52;
       }
-      Pool2 = ExAllocatePool2(261LL, 284LL);
-      if ( !Pool2 )
-        goto LABEL_51;
-      memset(BackTrace, 0, sizeof(BackTrace));
-      RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-      if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-      {
-        if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                 v24,
-                                 Pool2,
-                                 BackTrace) )
-        {
-LABEL_132:
-          ExFreePoolWithTag((PVOID)Pool2, 0);
-          goto LABEL_51;
-        }
-        Pool2 += 16LL;
-        goto LABEL_46;
-      }
-      if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                               v24,
-                               Pool2,
-                               BackTrace) )
-        goto LABEL_132;
-LABEL_47:
-      RtlInitUnicodeString(&DestinationString_8, L"High Contrast Scheme");
-      v26 = ZwQueryValueKey(v23, &DestinationString_8, KeyValuePartialInformation, (PVOID)Pool2, Length[0], Length);
-      if ( v26 == -2147483643 || v26 >= 0 )
-      {
-        v27 = 128;
-        if ( *(_DWORD *)(Pool2 + 8) >> 1 < 0x80u )
-          v27 = *(_DWORD *)(Pool2 + 8) >> 1;
-        if ( *(_DWORD *)(Pool2 + 8) < 2u )
-        {
-          LOWORD(v41[0]) = 0;
-        }
-        else
-        {
-          *(_WORD *)(Pool2 + 2LL * (unsigned int)(v27 - 1) + 12) = 0;
-          RtlStringCchCopyW((unsigned __int16 *)v41, 0x80uLL, (size_t *)(Pool2 + 12));
-        }
-        NSInstrumentation::CLeakTrackingAllocator::Free(
-          (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-          (void *)Pool2);
-        ZwClose(v23);
-        if ( v27 )
-          RtlStringCchCopyW(&gHighContrastDefaultScheme, 0x80uLL, v41);
-        goto LABEL_58;
-      }
-      if ( !v36 )
-      {
-        NSInstrumentation::CLeakTrackingAllocator::Free(
-          (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-          (void *)Pool2);
-LABEL_51:
-        ZwClose(v23);
-        goto LABEL_58;
-      }
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        (void *)Pool2);
+      Win32FreePool(v24);
       ZwClose(v23);
-      v23 = OpenCacheKeyEx(a1, 29LL, 131097LL, &v36);
+      v23 = (void *)OpenCacheKeyEx(a1, 29LL, 131097LL, &v34);
       if ( !v23 )
-        goto LABEL_58;
+        goto LABEL_50;
     }
-LABEL_45:
-    Pool2 = ExAllocatePool2(261LL, 268LL);
-LABEL_46:
-    if ( !Pool2 )
-      goto LABEL_51;
-    goto LABEL_47;
+    v26 = 128;
+    if ( *(_DWORD *)(v24 + 8) >> 1 < 0x80u )
+      v26 = *(_DWORD *)(v24 + 8) >> 1;
+    if ( *(_DWORD *)(v24 + 8) < 2u )
+    {
+      v39[0] = 0;
+    }
+    else
+    {
+      *(_WORD *)(v24 + 2LL * (unsigned int)(v26 - 1) + 12) = 0;
+      RtlStringCchCopyW(v39, 0x80uLL, (const unsigned __int16 *)(v24 + 12));
+    }
+    Win32FreePool(v24);
+    ZwClose(v23);
   }
-LABEL_58:
+  else
+  {
+LABEL_52:
+    v26 = 0;
+  }
+  if ( v26 )
+    RtlStringCchCopyW(&gHighContrastDefaultScheme, 0x80uLL, v39);
   gAudioDescription = 12;
-  FastGetProfileIntW((int)a1, 48, (int)L"On", 0, &dword_1C02959EC, 0);
-  FastGetProfileIntW((int)a1, 48, (int)L"Locale", 0, &dword_1C02959F0, 0);
+  FastGetProfileIntW(a1, 48, (int)L"On", 0, &dword_1C0250BAC, 0);
+  FastGetProfileIntW(a1, 48, (int)L"Locale", 0, &dword_1C0250BB0, 0);
   AccessTimeOutReset();
   SetAccessEnabledFlag();
 }

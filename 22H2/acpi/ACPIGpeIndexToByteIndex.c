@@ -1,24 +1,24 @@
 /*
- * XREFs of ACPIGpeIndexToByteIndex @ 0x1C0003564
+ * XREFs of ACPIGpeIndexToByteIndex @ 0x1C002697C
  * Callers:
- *     ACPIInterruptDispatchEventDpc @ 0x1C0003670 (ACPIInterruptDispatchEventDpc.c)
- *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C (ACPIWakeRemoveDevicesAndUpdate.c)
- *     ACPIVectorDisconnect @ 0x1C0044060 (ACPIVectorDisconnect.c)
- *     ACPIVectorInstall @ 0x1C00442D8 (ACPIVectorInstall.c)
+ *     ACPIInterruptDispatchEventDpc @ 0x1C0026060 (ACPIInterruptDispatchEventDpc.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C0026398 (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     ACPIVectorDisconnect @ 0x1C0060DF0 (ACPIVectorDisconnect.c)
+ *     ACPIVectorInstall @ 0x1C0061154 (ACPIVectorInstall.c)
  * Callees:
- *     ACPIGpeValidIndex @ 0x1C002C6FC (ACPIGpeValidIndex.c)
+ *     ACPIGpeValidIndex @ 0x1C001A140 (ACPIGpeValidIndex.c)
  */
 
-__int64 ACPIGpeIndexToByteIndex()
+__int64 __fastcall ACPIGpeIndexToByteIndex(__int64 a1)
 {
-  unsigned int v0; // ecx
-  unsigned int v1; // edx
+  unsigned int v1; // ecx
+  unsigned int v2; // edx
 
-  if ( !(unsigned __int8)ACPIGpeValidIndex() )
-    KeBugCheckEx(0xA5u, 0x17uLL, v0, 1uLL, 0LL);
-  v1 = *((unsigned __int16 *)AcpiInformation + 50);
-  if ( v0 >= v1 )
-    return v0 + *((unsigned __int16 *)AcpiInformation + 43) - v1;
+  if ( !ACPIGpeValidIndex(a1) )
+    KeBugCheckEx(0xA5u, 0x17uLL, v1, 1uLL, 0LL);
+  v2 = *((unsigned __int16 *)AcpiInformation + 50);
+  if ( v1 >= v2 )
+    return v1 + *((unsigned __int16 *)AcpiInformation + 43) - v2;
   else
-    return v0;
+    return v1;
 }

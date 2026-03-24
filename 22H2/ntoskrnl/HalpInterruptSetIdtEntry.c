@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpInterruptSetIdtEntry @ 0x14037D8C0
+ * XREFs of HalpInterruptSetIdtEntry @ 0x1403A1FAC
  * Callers:
- *     HalpTimerInitializeProfiling @ 0x14037B310 (HalpTimerInitializeProfiling.c)
- *     HalpTimerClockActivate @ 0x14037B9B0 (HalpTimerClockActivate.c)
- *     HalpConnectThermalInterrupt @ 0x14037C510 (HalpConnectThermalInterrupt.c)
- *     HalpTimerConfigureInterrupt @ 0x14037D5E4 (HalpTimerConfigureInterrupt.c)
- *     HalpTimerInitializeClockPn @ 0x14037D70C (HalpTimerInitializeClockPn.c)
- *     HalpInitializeInterruptsPn @ 0x14037D7AC (HalpInitializeInterruptsPn.c)
- *     HalpTimerInitializeClock @ 0x1403B1320 (HalpTimerInitializeClock.c)
- *     HalpTimerTestHypervisorTimer @ 0x14050A9E8 (HalpTimerTestHypervisorTimer.c)
- *     HalpIommuInitInterrupts @ 0x140A8A62C (HalpIommuInitInterrupts.c)
- *     HalpInitializeInterrupts @ 0x140B4BA90 (HalpInitializeInterrupts.c)
- *     IommupHvInitializeLibrary @ 0x140B93694 (IommupHvInitializeLibrary.c)
+ *     HalpTimerClockActivate @ 0x1403A1D70 (HalpTimerClockActivate.c)
+ *     HalpTimerConfigureInterrupt @ 0x1403A1E84 (HalpTimerConfigureInterrupt.c)
+ *     HalpTimerInitializeClock @ 0x1403AF5E4 (HalpTimerInitializeClock.c)
+ *     HalpTimerInitializeProfiling @ 0x1403AF9E0 (HalpTimerInitializeProfiling.c)
+ *     HalpTimerInitializeClockPn @ 0x1403AFBA0 (HalpTimerInitializeClockPn.c)
+ *     HalpInitializeInterruptsPn @ 0x1403B0348 (HalpInitializeInterruptsPn.c)
+ *     HalpTimerTestHypervisorTimer @ 0x1404C1A6C (HalpTimerTestHypervisorTimer.c)
+ *     HalpConnectThermalInterrupt @ 0x1404D14F0 (HalpConnectThermalInterrupt.c)
+ *     HalpIommuInitInterrupts @ 0x14099ED28 (HalpIommuInitInterrupts.c)
+ *     HalpInitializeInterrupts @ 0x140A44BFC (HalpInitializeInterrupts.c)
+ *     IommupHvInitializeLibrary @ 0x140A8D764 (IommupHvInitializeLibrary.c)
  * Callees:
- *     HalpCreateInterrupt @ 0x14037D8F8 (HalpCreateInterrupt.c)
+ *     HalpCreateInterrupt @ 0x1403A1FE4 (HalpCreateInterrupt.c)
  */
 
 __int64 __fastcall HalpInterruptSetIdtEntry(unsigned __int8 a1, int a2, char a3, __int64 a4, __int64 a5)

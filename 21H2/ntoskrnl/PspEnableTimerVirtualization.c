@@ -1,5 +1,5 @@
 /*
- * XREFs of PspEnableTimerVirtualization @ 0x1407F5070
+ * XREFs of PspEnableTimerVirtualization @ 0x1407264B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,6 +8,6 @@
 
 __int64 __fastcall PspEnableTimerVirtualization(__int64 a1)
 {
-  _interlockedbittestandset((volatile signed __int32 *)(a1 + 1512), 0x12u);
+  _interlockedbittestandset((volatile signed __int32 *)(a1 + 1320), 0x12u);
   return 0LL;
 }

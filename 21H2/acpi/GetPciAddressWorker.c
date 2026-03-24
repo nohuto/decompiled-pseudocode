@@ -1,79 +1,75 @@
 /*
- * XREFs of GetPciAddressWorker @ 0x1C000CDE0
+ * XREFs of GetPciAddressWorker @ 0x1C0018A70
  * Callers:
- *     PciConfigSpaceHandlerWorker @ 0x1C000C920 (PciConfigSpaceHandlerWorker.c)
- *     GetPciAddress @ 0x1C005B4BC (GetPciAddress.c)
+ *     PciConfigSpaceHandlerWorker @ 0x1C00184A0 (PciConfigSpaceHandlerWorker.c)
+ *     GetPciAddress @ 0x1C002EC0C (GetPciAddress.c)
  * Callees:
- *     AMLIIsNamedChildPresent @ 0x1C000A410 (AMLIIsNamedChildPresent.c)
- *     AMLIIsEqualHandle @ 0x1C000C8F0 (AMLIIsEqualHandle.c)
- *     ACPIGet @ 0x1C0010180 (ACPIGet.c)
- *     DereferenceObjectEx @ 0x1C00189F4 (DereferenceObjectEx.c)
- *     HeapFree @ 0x1C0018DD0 (HeapFree.c)
- *     CacheBBNResult @ 0x1C002E6E0 (CacheBBNResult.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     GetPciAddress @ 0x1C005B4BC (GetPciAddress.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     AMLIIsNamedChildPresent @ 0x1C001F220 (AMLIIsNamedChildPresent.c)
+ *     GetPciAddress @ 0x1C002EC0C (GetPciAddress.c)
+ *     CacheBBNResult @ 0x1C0031710 (CacheBBNResult.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall GetPciAddressWorker(__int64 a1, int a2, __int64 a3, unsigned __int16 *a4)
 {
-  volatile signed __int32 *v5; // r15
-  unsigned int v6; // esi
+  volatile signed __int32 *v5; // r14
+  int v6; // edi
   int v8; // eax
-  __int64 v9; // rcx
+  __int64 *v9; // rcx
   __int64 result; // rax
   KIRQL v11; // al
   _QWORD *v12; // rcx
   _QWORD *v13; // rbx
-  __int64 v14; // rcx
-  volatile signed __int32 *v15; // rbx
-  __int64 v16; // rbx
+  __int64 v14; // rbx
+  KIRQL v15; // al
+  __int64 v16; // rdx
   KIRQL v17; // al
-  __int64 v18; // rdx
-  KIRQL v19; // al
-  _QWORD *v20; // rcx
-  _QWORD *v21; // rbx
-  KIRQL v22; // al
-  _QWORD *v23; // rcx
-  _QWORD *v24; // rbx
-  int v25; // eax
-  KIRQL v26; // al
-  __int64 v27; // r8
-  KIRQL v28; // r9
-  __int64 v29; // r8
-  __int64 v30; // r10
-  int v31; // eax
-  KIRQL v32; // al
-  _QWORD *v33; // rcx
-  _QWORD *v34; // rbx
-  __int64 v35; // rcx
-  int v36; // eax
+  _QWORD *v18; // rcx
+  _QWORD *v19; // rbx
+  KIRQL v20; // al
+  _QWORD *v21; // rcx
+  _QWORD *v22; // rbx
+  int v23; // eax
+  KIRQL v24; // al
+  __int64 v25; // r8
+  _QWORD *v26; // rdx
+  KIRQL v27; // al
+  _QWORD *v28; // rcx
+  _QWORD *v29; // rbx
+  __int64 v30; // rcx
+  __int64 v31; // rbx
+  int v32; // eax
   int PciAddress; // eax
   ULONG BusDataByOffset; // eax
-  int v39; // ecx
+  int v35; // ecx
+  unsigned __int64 v36; // rcx
+  int v37; // eax
+  int v38; // eax
+  int v39; // eax
   int v40; // eax
-  int v41; // eax
-  int v42; // eax
-  int v43; // eax
-  __int64 v44; // rcx
-  __int64 v45; // rcx
+  unsigned __int64 v41; // rcx
+  unsigned __int64 v42; // rcx
   _BYTE Buffer[64]; // [rsp+60h] [rbp-88h] BYREF
 
   v5 = 0LL;
   v6 = a2;
   _InterlockedIncrement((volatile signed __int32 *)a4 + 12);
   if ( a2 < 0 )
-    goto LABEL_16;
+    goto LABEL_46;
   v8 = *((_DWORD *)a4 + 8);
   if ( (v8 & 8) == 0 )
   {
-    v9 = *(_QWORD *)a4;
+    v9 = *(__int64 **)a4;
     *((_DWORD *)a4 + 8) = v8 | 8;
     result = ACPIGet(
                v9,
                1380204895,
                -1543240702,
-               0,
+               0LL,
                0,
                (__int64)GetPciAddressWorker,
                (__int64)a4,
@@ -83,7 +79,7 @@ __int64 __fastcall GetPciAddressWorker(__int64 a1, int a2, __int64 a3, unsigned 
     if ( (_DWORD)result == 259 )
       return result;
     if ( (int)result < 0 )
-      goto LABEL_16;
+      goto LABEL_46;
   }
   if ( (*((_DWORD *)a4 + 8) & 0x100) == 0 )
   {
@@ -93,8 +89,8 @@ __int64 __fastcall GetPciAddressWorker(__int64 a1, int a2, __int64 a3, unsigned 
   }
   **((_DWORD **)a4 + 1) = 0;
   v5 = *(volatile signed __int32 **)a4;
-  dword_1C0081AC8 = 0;
-  byte_1C0081ACC = 0;
+  dword_1C0082908 = 0;
+  pszDest = 0;
   if ( (gdwfAMLI & 4) != 0 )
     _InterlockedIncrement(v5 + 2);
   v11 = ExAcquireSpinLockShared(&ACPINamespaceLock);
@@ -103,71 +99,80 @@ __int64 __fastcall GetPciAddressWorker(__int64 a1, int a2, __int64 a3, unsigned 
   if ( v12 == (_QWORD *)*v12 )
   {
 LABEL_12:
-    ExReleaseSpinLockShared(&ACPINamespaceLock, v11);
-    goto LABEL_27;
+    v13 = 0LL;
   }
-  while ( *((_DWORD *)v13 + 10) != 1145653343 )
+  else
   {
-    v13 = (_QWORD *)*v13;
-    if ( v12 == v13 )
-      goto LABEL_12;
+    while ( *((_DWORD *)v13 + 10) != 1145653343 )
+    {
+      v13 = (_QWORD *)*v13;
+      if ( v12 == v13 )
+        goto LABEL_12;
+    }
   }
   ExReleaseSpinLockShared(&ACPINamespaceLock, v11);
   if ( !v13 )
   {
-LABEL_27:
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
+    dword_1C0082908 = 0;
+    pszDest = 0;
     if ( (gdwfAMLI & 4) != 0 && _InterlockedExchangeAdd(v5 + 2, 0xFFFFFFFF) == 1 )
     {
-      v35 = *(_QWORD *)v5;
+      v36 = *(_QWORD *)v5;
       if ( v5 == (volatile signed __int32 *)(*(_QWORD *)v5 + 120LL) )
       {
-        DereferenceObjectEx(v35);
+        DereferenceObjectEx(v36);
       }
       else
       {
-        DereferenceObjectEx(v35);
+        DereferenceObjectEx(v36);
         HeapFree(v5);
       }
     }
-    v16 = *(_QWORD *)a4;
-    v17 = ExAcquireSpinLockShared(&ACPINamespaceLock);
-    v18 = *(_QWORD *)(*(_QWORD *)v16 + 16LL);
-    if ( v18 )
+    v14 = *(_QWORD *)a4;
+    v15 = ExAcquireSpinLockShared(&ACPINamespaceLock);
+    v16 = *(_QWORD *)(*(_QWORD *)v14 + 16LL);
+    if ( v16 )
     {
-      v5 = (volatile signed __int32 *)(v18 + 120);
-      dword_1C0081AC8 = 0;
-      byte_1C0081ACC = 0;
+      v5 = (volatile signed __int32 *)(v16 + 120);
+      dword_1C0082908 = 0;
+      pszDest = 0;
       if ( (gdwfAMLI & 4) != 0 )
-        _InterlockedIncrement((volatile signed __int32 *)(v18 + 128));
-      ExReleaseSpinLockShared(&ACPINamespaceLock, v17);
-      if ( v5 )
+        _InterlockedIncrement((volatile signed __int32 *)(v16 + 128));
+    }
+    else
+    {
+      v5 = 0LL;
+    }
+    ExReleaseSpinLockShared(&ACPINamespaceLock, v15);
+    if ( !v5 )
+    {
+      v6 = -1073741661;
+      goto LABEL_46;
+    }
+    v17 = ExAcquireSpinLockShared(&ACPINamespaceLock);
+    v18 = (_QWORD *)(*(_QWORD *)v5 + 24LL);
+    v19 = (_QWORD *)*v18;
+    if ( v18 == (_QWORD *)*v18 )
+    {
+LABEL_57:
+      v19 = 0LL;
+    }
+    else
+    {
+      while ( *((_DWORD *)v19 + 10) != 1145653343 )
       {
-        v19 = ExAcquireSpinLockShared(&ACPINamespaceLock);
-        v20 = (_QWORD *)(*(_QWORD *)v5 + 24LL);
-        v21 = (_QWORD *)*v20;
-        if ( v20 == (_QWORD *)*v20 )
-        {
-LABEL_61:
-          ExReleaseSpinLockShared(&ACPINamespaceLock, v19);
-        }
-        else
-        {
-          while ( *((_DWORD *)v21 + 10) != 1145653343 )
-          {
-            v21 = (_QWORD *)*v21;
-            if ( v20 == v21 )
-              goto LABEL_61;
-          }
-          ExReleaseSpinLockShared(&ACPINamespaceLock, v19);
-          if ( v21 )
-            goto LABEL_35;
-        }
-        v36 = *((_DWORD *)a4 + 8);
-        if ( (v36 & 0x20) != 0 )
-          goto LABEL_65;
-        *((_DWORD *)a4 + 8) = v36 | 0x20;
+        v19 = (_QWORD *)*v19;
+        if ( v18 == v19 )
+          goto LABEL_57;
+      }
+    }
+    ExReleaseSpinLockShared(&ACPINamespaceLock, v17);
+    if ( !v19 )
+    {
+      v32 = *((_DWORD *)a4 + 8);
+      if ( (v32 & 0x20) == 0 )
+      {
+        *((_DWORD *)a4 + 8) = v32 | 0x20;
         PciAddress = GetPciAddress(
                        (_DWORD)v5,
                        (unsigned int)GetPciAddressWorker,
@@ -176,233 +181,227 @@ LABEL_61:
                        (__int64)(a4 + 14));
         v6 = PciAddress;
         if ( PciAddress == 259 )
-          goto LABEL_23;
-        if ( PciAddress >= 0 )
-        {
-LABEL_65:
-          BusDataByOffset = HalGetBusDataByOffset(
-                              PCIConfiguration,
-                              *((_DWORD *)a4 + 6),
-                              *((_DWORD *)a4 + 7),
-                              Buffer,
-                              0,
-                              0x1Au);
-          v39 = *((_DWORD *)a4 + 6) & 0xFFFF00;
-          if ( BusDataByOffset )
-          {
-            if ( (Buffer[14] & 0x7Fu) - 1 <= 1 )
-            {
-              **((_DWORD **)a4 + 1) = Buffer[25] | v39;
-              (*(void (__fastcall **)(_QWORD))(PmHalDispatchTable + 72))(**((unsigned int **)a4 + 1));
-              v6 = 0;
-            }
-            else
-            {
-              v6 = 0;
-              **((_DWORD **)a4 + 1) = v39;
-            }
-          }
-          else
-          {
-            v6 = 0;
-            **((_DWORD **)a4 + 1) = v39;
-          }
-        }
-        goto LABEL_16;
+          goto LABEL_52;
+        if ( PciAddress < 0 )
+          goto LABEL_46;
       }
-    }
-    else
-    {
-      ExReleaseSpinLockShared(&ACPINamespaceLock, v17);
-      v5 = 0LL;
-    }
-    v6 = -1073741661;
-    goto LABEL_16;
-  }
-LABEL_35:
-  v22 = ExAcquireSpinLockShared(&ACPINamespaceLock);
-  v23 = (_QWORD *)(*(_QWORD *)v5 + 24LL);
-  v24 = (_QWORD *)*v23;
-  if ( v23 == (_QWORD *)*v23 )
-  {
-LABEL_38:
-    ExReleaseSpinLockShared(&ACPINamespaceLock, v22);
-    goto LABEL_39;
-  }
-  while ( *((_DWORD *)v24 + 10) != 1312965215 )
-  {
-    v24 = (_QWORD *)*v24;
-    if ( v23 == v24 )
-      goto LABEL_38;
-  }
-  ExReleaseSpinLockShared(&ACPINamespaceLock, v22);
-  if ( !v24 )
-  {
-LABEL_39:
-    if ( (AcpiOverrideAttributes & 0x1000) == 0 && AMLIIsNamedChildPresent((__int64 *)v5, 1195725663) )
-    {
-      v42 = *((_DWORD *)a4 + 8);
-      if ( (v42 & 0x4000) == 0 )
+      BusDataByOffset = HalGetBusDataByOffset(
+                          PCIConfiguration,
+                          *((_DWORD *)a4 + 6),
+                          *((_DWORD *)a4 + 7),
+                          Buffer,
+                          0,
+                          0x1Au);
+      v35 = *((_DWORD *)a4 + 6) & 0xFFFF00;
+      if ( BusDataByOffset )
       {
-        *((_DWORD *)a4 + 8) = v42 | 0x4000;
-        v43 = ACPIGet(
-                (_DWORD)v5,
+        if ( (Buffer[14] & 0x7Fu) - 1 > 1 )
+        {
+          **((_DWORD **)a4 + 1) = v35;
+        }
+        else
+        {
+          **((_DWORD **)a4 + 1) = Buffer[25] | v35;
+          (*(void (__fastcall **)(_QWORD))(PmHalDispatchTable + 72))(**((unsigned int **)a4 + 1));
+        }
+      }
+      else
+      {
+        **((_DWORD **)a4 + 1) = v35;
+      }
+      goto LABEL_64;
+    }
+  }
+  v20 = ExAcquireSpinLockShared(&ACPINamespaceLock);
+  v21 = (_QWORD *)(*(_QWORD *)v5 + 24LL);
+  v22 = (_QWORD *)*v21;
+  if ( v21 == (_QWORD *)*v21 )
+  {
+LABEL_73:
+    v22 = 0LL;
+  }
+  else
+  {
+    while ( *((_DWORD *)v22 + 10) != 1312965215 )
+    {
+      v22 = (_QWORD *)*v22;
+      if ( v21 == v22 )
+        goto LABEL_73;
+    }
+  }
+  ExReleaseSpinLockShared(&ACPINamespaceLock, v20);
+  if ( !v22 )
+  {
+    if ( (AcpiOverrideAttributes & 0x1000) == 0 && (unsigned __int8)AMLIIsNamedChildPresent(v5, 1195725663LL) )
+    {
+      v39 = *((_DWORD *)a4 + 8);
+      if ( (v39 & 0x4000) == 0 )
+      {
+        *((_DWORD *)a4 + 8) = v39 | 0x4000;
+        v40 = ACPIGet(
+                (__int64 *)v5,
                 1195725663,
                 604241922,
-                0,
+                0LL,
                 0,
                 (__int64)GetPciAddressWorker,
                 (__int64)a4,
                 (__int64)(a4 + 20),
                 0LL);
-        v6 = v43;
-        if ( v43 == 259 )
-          goto LABEL_22;
-        if ( v43 < 0 )
-          goto LABEL_16;
+        v6 = v40;
+        if ( v40 == 259 )
+          goto LABEL_52;
+        if ( v40 < 0 )
+          goto LABEL_46;
       }
       **((_DWORD **)a4 + 1) = (unsigned __int16)*((_DWORD *)a4 + 10) << 8;
     }
+LABEL_64:
     v6 = 0;
-    goto LABEL_16;
+    goto LABEL_46;
   }
-  v25 = *((_DWORD *)a4 + 8);
-  if ( (v25 & 0x2000) == 0 )
+  v23 = *((_DWORD *)a4 + 8);
+  if ( (v23 & 0x2000) == 0 )
   {
-    *((_DWORD *)a4 + 8) = v25 | 0x2000;
-    v26 = KeAcquireSpinLockRaiseToDpc(&gBBNResultCacheLock);
-    v27 = gBBNResultCacheListHead;
-    v28 = v26;
+    *((_DWORD *)a4 + 8) = v23 | 0x2000;
+    v24 = KeAcquireSpinLockRaiseToDpc(&gBBNResultCacheLock);
+    v25 = gBBNResultCacheListHead;
+    v6 = -1073741275;
     if ( (__int64 *)gBBNResultCacheListHead != &gBBNResultCacheListHead )
     {
-      while ( !AMLIIsEqualHandle(*(_QWORD **)(v27 + 16), v5) )
+      while ( 1 )
       {
-        v27 = *(_QWORD *)v29;
-        if ( v27 == v30 )
-          goto LABEL_47;
+        v26 = *(_QWORD **)(v25 + 16);
+        if ( v26 )
+        {
+          if ( *v26 == *(_QWORD *)v5 )
+            break;
+        }
+        v25 = *(_QWORD *)v25;
+        if ( (__int64 *)v25 == &gBBNResultCacheListHead )
+          goto LABEL_32;
       }
-      *((_DWORD *)a4 + 11) = *(_DWORD *)(v29 + 24);
-      KeReleaseSpinLock(&gBBNResultCacheLock, v28);
-      goto LABEL_51;
+      v6 = 0x40000000;
+      *((_DWORD *)a4 + 11) = *(_DWORD *)(v25 + 24);
     }
-LABEL_47:
-    KeReleaseSpinLock(&gBBNResultCacheLock, v28);
-    v31 = ACPIGet(
-            (_DWORD)v5,
-            1312965215,
-            604241922,
-            0,
-            0,
-            (__int64)GetPciAddressWorker,
-            (__int64)a4,
-            (__int64)(a4 + 22),
-            0LL);
-    v6 = v31;
-    if ( v31 == 259 )
-      goto LABEL_22;
-    if ( v31 < 0 )
-      goto LABEL_16;
+LABEL_32:
+    KeReleaseSpinLock(&gBBNResultCacheLock, v24);
+    if ( v6 != 0x40000000 )
+      v6 = ACPIGet(
+             (__int64 *)v5,
+             1312965215,
+             604241922,
+             0LL,
+             0,
+             (__int64)GetPciAddressWorker,
+             (__int64)a4,
+             (__int64)(a4 + 22),
+             0LL);
+    if ( v6 == 259 )
+      goto LABEL_52;
+    if ( v6 < 0 )
+      goto LABEL_46;
   }
   if ( v6 != 0x40000000 )
     CacheBBNResult(v5, *((unsigned int *)a4 + 11));
-LABEL_51:
-  if ( (AcpiOverrideAttributes & 0x1000) == 0 )
+  if ( (AcpiOverrideAttributes & 0x1000) != 0 )
+    goto LABEL_44;
+  v27 = ExAcquireSpinLockShared(&ACPINamespaceLock);
+  v28 = (_QWORD *)(*(_QWORD *)v5 + 24LL);
+  v29 = (_QWORD *)*v28;
+  if ( v28 == (_QWORD *)*v28 )
   {
-    v32 = ExAcquireSpinLockShared(&ACPINamespaceLock);
-    v33 = (_QWORD *)(*(_QWORD *)v5 + 24LL);
-    v34 = (_QWORD *)*v33;
-    if ( v33 == (_QWORD *)*v33 )
+LABEL_42:
+    v29 = 0LL;
+  }
+  else
+  {
+    while ( *((_DWORD *)v29 + 10) != 1195725663 )
     {
-LABEL_55:
-      ExReleaseSpinLockShared(&ACPINamespaceLock, v32);
+      v29 = (_QWORD *)*v29;
+      if ( v28 == v29 )
+        goto LABEL_42;
     }
-    else
+  }
+  ExReleaseSpinLockShared(&ACPINamespaceLock, v27);
+  if ( !v29 )
+    goto LABEL_44;
+  v37 = *((_DWORD *)a4 + 8);
+  if ( (v37 & 0x4000) != 0 )
+  {
+LABEL_79:
+    *((_DWORD *)a4 + 11) |= (unsigned __int16)*((_DWORD *)a4 + 10) << 8;
+LABEL_44:
+    (*(void (__fastcall **)(_QWORD))(PmHalDispatchTable + 72))(*((unsigned int *)a4 + 11));
+    v6 = 0;
+    **((_DWORD **)a4 + 1) = *((_DWORD *)a4 + 11);
+    v30 = *(_QWORD *)(*(_QWORD *)v5 + 104LL);
+    if ( v30 )
     {
-      while ( *((_DWORD *)v34 + 10) != 1195725663 )
+      _InterlockedOr64((volatile signed __int64 *)(v30 + 8), 0x2000000uLL);
+      _InterlockedOr((volatile signed __int32 *)(v30 + 184), 1u);
+    }
+    goto LABEL_46;
+  }
+  *((_DWORD *)a4 + 8) = v37 | 0x4000;
+  v38 = ACPIGet(
+          (__int64 *)v5,
+          1195725663,
+          604241922,
+          0LL,
+          0,
+          (__int64)GetPciAddressWorker,
+          (__int64)a4,
+          (__int64)(a4 + 20),
+          0LL);
+  v6 = v38;
+  if ( v38 != 259 )
+  {
+    if ( v38 >= 0 )
+      goto LABEL_79;
+LABEL_46:
+    if ( *((_DWORD *)a4 + 12) )
+      (*((void (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD))a4 + 7))(a1, (unsigned int)v6, 0LL, *((_QWORD *)a4 + 8));
+    v31 = *(_QWORD *)a4;
+    if ( *(_QWORD *)a4 )
+    {
+      dword_1C0082908 = 0;
+      pszDest = 0;
+      if ( (gdwfAMLI & 4) != 0 && _InterlockedExchangeAdd((volatile signed __int32 *)(v31 + 8), 0xFFFFFFFF) == 1 )
       {
-        v34 = (_QWORD *)*v34;
-        if ( v33 == v34 )
-          goto LABEL_55;
-      }
-      ExReleaseSpinLockShared(&ACPINamespaceLock, v32);
-      if ( v34 )
-      {
-        v40 = *((_DWORD *)a4 + 8);
-        if ( (v40 & 0x4000) == 0 )
+        v41 = *(_QWORD *)v31;
+        if ( v31 == *(_QWORD *)v31 + 120LL )
         {
-          *((_DWORD *)a4 + 8) = v40 | 0x4000;
-          v41 = ACPIGet(
-                  (_DWORD)v5,
-                  1195725663,
-                  604241922,
-                  0,
-                  0,
-                  (__int64)GetPciAddressWorker,
-                  (__int64)a4,
-                  (__int64)(a4 + 20),
-                  0LL);
-          v6 = v41;
-          if ( v41 == 259 )
-            goto LABEL_22;
-          if ( v41 < 0 )
-            goto LABEL_16;
+          DereferenceObjectEx(v41);
         }
-        *((_DWORD *)a4 + 11) |= (unsigned __int16)*((_DWORD *)a4 + 10) << 8;
+        else
+        {
+          DereferenceObjectEx(v41);
+          HeapFree((_QWORD *)v31);
+        }
       }
+      *(_QWORD *)a4 = 0LL;
     }
+    ExFreePoolWithTag(a4, 0);
   }
-  (*(void (__fastcall **)(_QWORD))(PmHalDispatchTable + 72))(*((unsigned int *)a4 + 11));
-  v6 = 0;
-  **((_DWORD **)a4 + 1) = *((_DWORD *)a4 + 11);
-  v14 = *(_QWORD *)(*(_QWORD *)v5 + 104LL);
-  if ( v14 )
-  {
-    _InterlockedOr64((volatile signed __int64 *)(v14 + 8), 0x2000000uLL);
-    _InterlockedOr((volatile signed __int32 *)(v14 + 184), 1u);
-  }
-LABEL_16:
-  if ( *((_DWORD *)a4 + 12) )
-    (*((void (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD))a4 + 7))(a1, v6, 0LL, *((_QWORD *)a4 + 8));
-  v15 = *(volatile signed __int32 **)a4;
-  if ( *(_QWORD *)a4 )
-  {
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
-    if ( (gdwfAMLI & 4) != 0 && _InterlockedExchangeAdd(v15 + 2, 0xFFFFFFFF) == 1 )
-    {
-      v44 = *(_QWORD *)v15;
-      if ( v15 == (volatile signed __int32 *)(*(_QWORD *)v15 + 120LL) )
-      {
-        DereferenceObjectEx(v44);
-      }
-      else
-      {
-        DereferenceObjectEx(v44);
-        HeapFree(v15);
-      }
-    }
-    *(_QWORD *)a4 = 0LL;
-  }
-  ExFreePoolWithTag(a4, 0);
-LABEL_22:
+LABEL_52:
   if ( v5 )
   {
-LABEL_23:
-    dword_1C0081AC8 = 0;
-    byte_1C0081ACC = 0;
+    dword_1C0082908 = 0;
+    pszDest = 0;
     if ( (gdwfAMLI & 4) != 0 && _InterlockedExchangeAdd(v5 + 2, 0xFFFFFFFF) == 1 )
     {
-      v45 = *(_QWORD *)v5;
+      v42 = *(_QWORD *)v5;
       if ( v5 == (volatile signed __int32 *)(*(_QWORD *)v5 + 120LL) )
       {
-        DereferenceObjectEx(v45);
+        DereferenceObjectEx(v42);
       }
       else
       {
-        DereferenceObjectEx(v45);
+        DereferenceObjectEx(v42);
         HeapFree(v5);
       }
     }
   }
-  return v6;
+  return (unsigned int)v6;
 }

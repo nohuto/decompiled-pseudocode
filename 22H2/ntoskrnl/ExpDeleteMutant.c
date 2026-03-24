@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpDeleteMutant @ 0x14028CA70
+ * XREFs of ExpDeleteMutant @ 0x140302960
  * Callers:
  *     <none>
  * Callees:
- *     KeDeleteMutant @ 0x14028CA88 (KeDeleteMutant.c)
+ *     KeDeleteMutant @ 0x140302978 (KeDeleteMutant.c)
  */
 
 __int64 __fastcall ExpDeleteMutant(ULONG_PTR a1)

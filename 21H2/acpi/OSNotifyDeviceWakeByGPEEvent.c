@@ -1,21 +1,21 @@
 /*
- * XREFs of OSNotifyDeviceWakeByGPEEvent @ 0x1C0059E04
+ * XREFs of OSNotifyDeviceWakeByGPEEvent @ 0x1C0058F78
  * Callers:
- *     ACPIInterruptDispatchEventDpc @ 0x1C0057880 (ACPIInterruptDispatchEventDpc.c)
+ *     ACPIInterruptDispatchEventDpc @ 0x1C0026060 (ACPIInterruptDispatchEventDpc.c)
  * Callees:
- *     WPP_RECORDER_SF_Lqss @ 0x1C0010020 (WPP_RECORDER_SF_Lqss.c)
- *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C001FF34 (ACPIWakeRemoveDevicesAndUpdate.c)
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     OSNotifyDeviceWakeCallBack @ 0x1C005A1F0 (OSNotifyDeviceWakeCallBack.c)
- *     WPP_RECORDER_SF_LDL @ 0x1C005A37C (WPP_RECORDER_SF_LDL.c)
- *     ACPIWakeDisableAsync @ 0x1C00627FC (ACPIWakeDisableAsync.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_Lqss @ 0x1C00209B0 (WPP_RECORDER_SF_Lqss.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C0026398 (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     OSNotifyDeviceWakeCallBack @ 0x1C0059380 (OSNotifyDeviceWakeCallBack.c)
+ *     WPP_RECORDER_SF_LDL @ 0x1C005950C (WPP_RECORDER_SF_LDL.c)
+ *     ACPIWakeDisableAsync @ 0x1C00619AC (ACPIWakeDisableAsync.c)
  */
 
 void __fastcall OSNotifyDeviceWakeByGPEEvent(int a1, int a2, int a3, int a4)
 {
   char v4; // si
   __int64 v6; // rdi
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v8; // rbx
   __int64 *i; // rcx
   __int64 v10; // r8
@@ -31,18 +31,18 @@ void __fastcall OSNotifyDeviceWakeByGPEEvent(int a1, int a2, int a3, int a4)
   v6 = 0LL;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     WPP_RECORDER_SF_LDL(WPP_GLOBAL_Control->DeviceExtension, a2, a3, a4);
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 16LL, 1299211073LL);
-  v8 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x10uLL, 0x4D706341u);
+  v8 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    Pool2[1] = Pool2;
-    *Pool2 = Pool2;
+    PoolWithTag[1] = PoolWithTag;
+    *PoolWithTag = PoolWithTag;
     IoAcquireCancelSpinLock(&Irql);
     KeAcquireSpinLockAtDpcLevel(&AcpiPowerLock);
     for ( i = (__int64 *)AcpiPowerWaitWakeList; i != &AcpiPowerWaitWakeList; i = (__int64 *)*i )
     {
       v6 = i[5];
-      if ( (*(_QWORD *)(v6 + 1000) & 0x500000000LL) == 0 && *(_DWORD *)(v6 + 504) == a1 )
+      if ( (*(_QWORD *)(v6 + 960) & 0x500000000LL) == 0 && *(_DWORD *)(v6 + 464) == a1 )
       {
         ACPIWakeRemoveDevicesAndUpdate(i[5], (__int64)v8);
         break;
@@ -60,17 +60,17 @@ void __fastcall OSNotifyDeviceWakeByGPEEvent(int a1, int a2, int a3, int a4)
       v12 = v11;
       if ( v11 != 259 )
         OSNotifyDeviceWakeCallBack(0LL, v11, 0LL, v8);
-      v13 = &unk_1C006FB8B;
-      v14 = &unk_1C006FB8B;
+      v13 = &unk_1C00701BA;
+      v14 = &unk_1C00701BA;
       if ( v6 )
       {
         v15 = *(_QWORD *)(v6 + 8);
         v4 = v6;
         if ( (v15 & 0x200000000000LL) != 0 )
         {
-          v13 = *(void **)(v6 + 608);
+          v13 = *(void **)(v6 + 568);
           if ( (v15 & 0x400000000000LL) != 0 )
-            v14 = *(void **)(v6 + 616);
+            v14 = *(void **)(v6 + 576);
         }
       }
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )

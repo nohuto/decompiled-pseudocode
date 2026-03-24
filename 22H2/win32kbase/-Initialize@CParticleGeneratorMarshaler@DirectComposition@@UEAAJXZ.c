@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CParticleGeneratorMarshaler@DirectComposition@@UEAAJXZ @ 0x1C021CBA0
+ * XREFs of ?Initialize@CParticleGeneratorMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01DBED0
  * Callers:
  *     <none>
  * Callees:

@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x1406CEA04
+ * XREFs of _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x140766324
  * Callers:
- *     _CmSetDeviceInterfaceMappedProperty @ 0x1406CE8B8 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x1407661D4 (_CmSetDeviceInterfaceMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _RegRtlSetValue @ 0x1406D5A30 (_RegRtlSetValue.c)
- *     _PnpCtxRegCreateKey @ 0x140772A24 (_PnpCtxRegCreateKey.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x140784B14 (_CmOpenDeviceInterfaceRegKey.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     _PnpCtxRegCreateKey @ 0x14063B560 (_PnpCtxRegCreateKey.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x14063D844 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _RegRtlSetValue @ 0x140768AF4 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
-        int a1,
-        int a2,
-        __int64 a3,
+        __int64 a1,
+        __int64 a2,
+        void *a3,
         __int64 a4,
         unsigned int a5,
         __int64 a6,
@@ -20,7 +20,7 @@ __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
 {
   unsigned int v7; // r11d
   int v8; // ebx
-  unsigned int v13; // r9d
+  __int64 v13; // r9
   DEVPROPKEY **v14; // rcx
   DEVPROPKEY *v15; // r10
   DEVPROPKEY **v16; // r8
@@ -30,7 +30,7 @@ __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
   __int64 v20; // rax
   int Key; // eax
   __int64 v23; // rax
-  int v24; // edx
+  HANDLE v24; // rdx
   __int64 v25; // rax
   __int64 v26; // rax
   HANDLE KeyHandle; // [rsp+40h] [rbp-10h] BYREF
@@ -44,8 +44,8 @@ __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
   Handle = 0LL;
   if ( v7 < 2 )
     return (unsigned int)-1073741264;
-  v13 = 0;
-  v14 = &off_140A380C0;
+  v13 = 0LL;
+  v14 = &off_1409839B8;
   do
   {
     v15 = *v14;
@@ -59,10 +59,10 @@ __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
         break;
     }
     v16 = 0LL;
-    ++v13;
+    v13 = (unsigned int)(v13 + 1);
     v14 += 2;
   }
-  while ( v13 < 3 );
+  while ( (unsigned int)v13 < 3 );
   if ( !v16 )
     return (unsigned int)-1073741264;
   v18 = *((_DWORD *)v16 + 2);
@@ -82,7 +82,7 @@ __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
 LABEL_11:
   if ( !a3 )
   {
-    v8 = CmOpenDeviceInterfaceRegKey(a1, a2, 48, v13, 1, 0, (__int64)&v28, 0LL);
+    v8 = CmOpenDeviceInterfaceRegKey(a1, a2, 0x30u, v13, 1, 0, (__int64)&v28, 0LL);
     if ( v8 < 0 )
       goto LABEL_21;
   }
@@ -94,25 +94,25 @@ LABEL_11:
       v23 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_DeviceInterface_FriendlyName.fmtid.Data4;
     if ( !v23 )
     {
-      v24 = (int)v28;
+      v24 = v28;
       if ( a3 )
         v24 = a3;
-      Key = PnpCtxRegCreateKey(a1, v24, (unsigned int)L"Device Parameters", 0, 2, 0LL, (__int64)&KeyHandle, 0LL);
+      Key = PnpCtxRegCreateKey(a1, (__int64)v24, (__int64)L"Device Parameters", 0, 2u, 0LL, (__int64)&KeyHandle, 0LL);
       if ( Key == -1073741444 )
-        goto LABEL_28;
+        goto LABEL_45;
       if ( Key < 0 )
-        goto LABEL_29;
+        goto LABEL_36;
       Key = RegRtlSetValue(KeyHandle, a7);
 LABEL_19:
       if ( Key != -1073741444 )
       {
         if ( Key >= 0 )
           goto LABEL_21;
-LABEL_29:
+LABEL_36:
         v8 = Key;
         goto LABEL_21;
       }
-LABEL_28:
+LABEL_45:
       v8 = -1073741772;
       goto LABEL_21;
     }
@@ -149,7 +149,7 @@ LABEL_54:
     v20 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_InstanceId.fmtid.Data4;
   if ( v20 )
     goto LABEL_55;
-  v8 = CmOpenDeviceInterfaceRegKey(a1, a2, 49, v13, 2, 0, (__int64)&Handle, 0LL);
+  v8 = CmOpenDeviceInterfaceRegKey(a1, a2, 0x31u, v13, 2, 0, (__int64)&Handle, 0LL);
   if ( v8 >= 0 )
   {
     Key = RegRtlSetValue(Handle, a7);

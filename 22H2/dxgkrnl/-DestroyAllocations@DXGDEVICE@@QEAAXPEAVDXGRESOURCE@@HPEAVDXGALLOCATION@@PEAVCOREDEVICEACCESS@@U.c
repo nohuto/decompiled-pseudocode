@@ -1,50 +1,36 @@
 /*
- * XREFs of ?DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C01B7900
+ * XREFs of ?DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C0134134
  * Callers:
- *     ?DestroyResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C018AB64 (-DestroyResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCA.c)
- *     ?DrainAllocations@DXGDEVICE@@QEAAXXZ @ 0x1C01B7874 (-DrainAllocations@DXGDEVICE@@QEAAXXZ.c)
- *     ?TerminateAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C01B9800 (-TerminateAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@.c)
- *     ?CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@IPEAU_EPROCESS@@PEAIPEA_K6PEAU_D3DKMT_CREATESTANDARDALLOCATION@@PEAXI@Z @ 0x1C01CD980 (-CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEB.c)
+ *     ?CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@IPEAU_EPROCESS@@PEAIPEA_K6PEAU_D3DKMT_CREATESTANDARDALLOCATION@@PEAXI@Z @ 0x1C00FD200 (-CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEB.c)
+ *     ?TerminateAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C01140D0 (-TerminateAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@.c)
+ *     ?DrainAllocations@DXGDEVICE@@QEAAXXZ @ 0x1C0133FF0 (-DrainAllocations@DXGDEVICE@@QEAAXXZ.c)
+ *     ?DestroyResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C0134070 (-DestroyResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCA.c)
  * Callees:
- *     ?TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z @ 0x1C0003E88 (-TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z.c)
- *     ?AcquireSharedUncheck@COREDEVICEACCESS@@QEAAXPEAD@Z @ 0x1C0004690 (-AcquireSharedUncheck@COREDEVICEACCESS@@QEAAXPEAD@Z.c)
- *     ?Release@COREDEVICEACCESS@@QEAAXXZ @ 0x1C00046C0 (-Release@COREDEVICEACCESS@@QEAAXXZ.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0005BA8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z @ 0x1C0009784 (-AcquireDdiSync@DXGADAPTER@@QEAAXW4DXGADAPTERDDISYNC_LEVEL@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?ReleaseDdiSync@DXGADAPTER@@QEAAXXZ @ 0x1C000A858 (-ReleaseDdiSync@DXGADAPTER@@QEAAXXZ.c)
- *     ?AcquireShared@COREACCESS@@QEAAXPEAD@Z @ 0x1C000A958 (-AcquireShared@COREACCESS@@QEAAXPEAD@Z.c)
- *     ?Release@COREACCESS@@QEAAXXZ @ 0x1C000A9D0 (-Release@COREACCESS@@QEAAXXZ.c)
- *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000AF80 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ??0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z @ 0x1C000B2C0 (--0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?SearchDxgThreadList@DXGGLOBAL@@QEAAPEAVDXGPROCESS@@PEAU_ETHREAD@@@Z @ 0x1C00164A0 (-SearchDxgThreadList@DXGGLOBAL@@QEAAPEAVDXGPROCESS@@PEAU_ETHREAD@@@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer @ 0x1C0048028 (McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer.c)
- *     ?Destroy@DXGSHAREDRESOURCE@@IEAAXPEAPEAXI@Z @ 0x1C0175A88 (-Destroy@DXGSHAREDRESOURCE@@IEAAXPEAPEAXI@Z.c)
- *     ?RemovePrimaryAllocation@DXGDEVICE@@QEAAXPEBVDXGALLOCATION@@@Z @ 0x1C0186A04 (-RemovePrimaryAllocation@DXGDEVICE@@QEAAXPEBVDXGALLOCATION@@@Z.c)
- *     ?FlushScheduler@DXGDEVICE@@QEAAXW4DXGDEVICE_FLUSHSCHEDULER_REASON@@I_N@Z @ 0x1C018AF08 (-FlushScheduler@DXGDEVICE@@QEAAXW4DXGDEVICE_FLUSHSCHEDULER_REASON@@I_N@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?FreeHandle@HMGRTABLE@@QEAAXI@Z @ 0x1C01BA410 (-FreeHandle@HMGRTABLE@@QEAAXI@Z.c)
- *     ?DxgkUnreferenceDxgAllocation@@YAXPEAVDXGALLOCATION@@@Z @ 0x1C01BA4E0 (-DxgkUnreferenceDxgAllocation@@YAXPEAVDXGALLOCATION@@@Z.c)
- *     ??1DXGALLOCATION@@QEAA@XZ @ 0x1C01BAEE0 (--1DXGALLOCATION@@QEAA@XZ.c)
- *     ?DdiDestroyAllocation@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_DESTROYALLOCATION@@E@Z @ 0x1C01BAF20 (-DdiDestroyAllocation@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_DESTROYALLOCATION@@E@Z.c)
- *     ??1DXGADAPTERALLOCATION@@QEAA@XZ @ 0x1C01BB2C4 (--1DXGADAPTERALLOCATION@@QEAA@XZ.c)
- *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C01CA0D0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
- *     ?TraceCloseParavirtualizedAllocation@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z @ 0x1C02D8DB4 (-TraceCloseParavirtualizedAllocation@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@@Z.c)
- *     ?RemoveDirectFlipAllocationFromList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z @ 0x1C02ECB20 (-RemoveDirectFlipAllocationFromList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z.c)
- *     ?Destroy@DXGOVERLAY@@QEAAXXZ @ 0x1C0334828 (-Destroy@DXGOVERLAY@@QEAAXXZ.c)
- *     ?DxgkThreadObjectCreateDxgThread@@YAPEAVDXGTHREAD@@_N@Z @ 0x1C03440A8 (-DxgkThreadObjectCreateDxgThread@@YAPEAVDXGTHREAD@@_N@Z.c)
- *     ?VmBusSendDestroyAllocation@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXIIIIPEAPEAVDXGALLOCATION@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C0387C78 (-VmBusSendDestroyAllocation@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXIIIIPEAPEAVDXGALLOCATION@@U_D3DDDIC.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0002910 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0003524 (--3@YAXPEAX@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?AcquireSharedUncheck@COREDEVICEACCESS@@QEAAXPEAD@Z @ 0x1C0005500 (-AcquireSharedUncheck@COREDEVICEACCESS@@QEAAXPEAD@Z.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000903C (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Release@COREDEVICEACCESS@@QEAAXXZ @ 0x1C000A008 (-Release@COREDEVICEACCESS@@QEAAXXZ.c)
+ *     ?TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z @ 0x1C0019830 (-TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?FlushScheduler@DXGDEVICE@@QEAAXW4DXGDEVICE_FLUSHSCHEDULER_REASON@@@Z @ 0x1C00EF2E8 (-FlushScheduler@DXGDEVICE@@QEAAXW4DXGDEVICE_FLUSHSCHEDULER_REASON@@@Z.c)
+ *     ??1DXGALLOCATION@@QEAA@XZ @ 0x1C010E508 (--1DXGALLOCATION@@QEAA@XZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ??1DXGADAPTERALLOCATION@@QEAA@XZ @ 0x1C012456C (--1DXGADAPTERALLOCATION@@QEAA@XZ.c)
+ *     ?DdiCloseAllocation@ADAPTER_RENDER@@QEAAJPEAXPEBU_DXGKARG_CLOSEALLOCATION@@@Z @ 0x1C0134AA0 (-DdiCloseAllocation@ADAPTER_RENDER@@QEAAJPEAXPEBU_DXGKARG_CLOSEALLOCATION@@@Z.c)
+ *     ?FreeAllocationHandleAndWaitForZeroReferences@ADAPTER_RENDER@@QEAAXPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C0134C2C (-FreeAllocationHandleAndWaitForZeroReferences@ADAPTER_RENDER@@QEAAXPEAVDXGALLOCATION@@PEAVCOREDE.c)
+ *     ?Destroy@DXGSHAREDRESOURCE@@IEAAXPEAPEAXI@Z @ 0x1C0134E10 (-Destroy@DXGSHAREDRESOURCE@@IEAAXPEAPEAXI@Z.c)
+ *     ?DdiDestroyAllocation@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_DESTROYALLOCATION@@E@Z @ 0x1C01350A0 (-DdiDestroyAllocation@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_DESTROYALLOCATION@@E@Z.c)
+ *     ?RemovePrimaryAllocation@DXGDEVICE@@QEAAXPEBVDXGALLOCATION@@@Z @ 0x1C015F764 (-RemovePrimaryAllocation@DXGDEVICE@@QEAAXPEBVDXGALLOCATION@@@Z.c)
+ *     ?RemoveDirectFlipAllocationFromList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z @ 0x1C0171FB0 (-RemoveDirectFlipAllocationFromList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z.c)
+ *     ?VmBusSendDestroyAllocation@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXIIIIPEAPEAVDXGALLOCATION@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C0248608 (-VmBusSendDestroyAllocation@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXIIIIPEAPEAVDXGALLOCATION@@U_D3DDDIC.c)
+ *     ?Destroy@DXGOVERLAY@@QEAAXXZ @ 0x1C027A668 (-Destroy@DXGOVERLAY@@QEAAXXZ.c)
  */
 
 void __fastcall DXGDEVICE::DestroyAllocations(
@@ -52,921 +38,483 @@ void __fastcall DXGDEVICE::DestroyAllocations(
         struct DXGRESOURCE *a2,
         int a3,
         struct DXGALLOCATION *a4,
-        struct COREDEVICEACCESS *a5,
+        PERESOURCE **a5,
         struct _D3DDDICB_DESTROYALLOCATION2FLAGS a6)
 {
-  __int64 v7; // rax
-  struct DXGALLOCATION *v8; // r14
-  struct DXGRESOURCE *v10; // r12
-  __int64 v11; // rcx
-  struct DXGRESOURCE *v12; // rbx
+  __int64 v6; // rax
+  PERESOURCE **v8; // r12
+  struct DXGALLOCATION *v9; // r13
+  struct DXGRESOURCE *v11; // rsi
+  DXGADAPTER *v12; // rcx
   __int64 v13; // rdx
   __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 v17; // rsi
-  struct DXGALLOCATION *v18; // rsi
-  struct DXGALLOCATION *v19; // r12
-  COREDEVICEACCESS *v20; // r14
-  __int64 v21; // r15
-  __int64 v22; // rax
-  struct DXGALLOCATION *v23; // r9
-  unsigned int v24; // edx
-  __int64 v25; // rcx
-  unsigned int v26; // edx
-  unsigned int v27; // edx
-  __int64 v28; // rdx
-  __int64 CurrentProcess; // rax
-  __int64 ProcessDxgProcess; // rax
-  struct DXGPROCESS *v31; // r15
-  struct DXGPROCESS *v32; // rdi
-  char *v33; // r15
-  __int64 v34; // rcx
-  __int64 v35; // r8
-  HMGRTABLE *v36; // rcx
-  struct DXGALLOCATION *v37; // rdi
-  char v38; // r15
-  __int64 v39; // rdx
-  __int64 v40; // rax
-  int v41; // eax
-  __int64 v42; // rdx
-  __int64 v43; // rcx
-  __int64 v44; // rax
-  void *v45; // rcx
-  __int64 v46; // rsi
-  __int64 v47; // rcx
-  __int64 v48; // rax
-  __int64 v49; // rax
-  struct DXGPROCESS *v50; // r15
-  struct DXGPROCESS *v51; // rdi
-  char *v52; // rbx
-  __int64 v53; // rcx
-  __int64 v54; // r8
-  KIRQL CurrentIrql; // al
-  __int64 v56; // r12
-  struct DXGTHREAD *v57; // rdi
-  __int64 v58; // r15
-  __int64 v59; // rdx
-  __int64 v60; // rcx
-  __int64 v61; // r8
-  __int64 v62; // r9
-  _QWORD *v63; // rax
-  COREDEVICEACCESS *v64; // rcx
-  __int64 v65; // rcx
-  __int64 v66; // r8
-  void *v67; // rcx
-  char v68; // r15
-  struct DXGALLOCATION *v69; // rbx
-  struct DXGALLOCATION *v70; // r12
-  struct DXGALLOCATION *v71; // rdi
-  struct DXGRESOURCE *v72; // r14
-  struct DXGALLOCATION *v73; // rsi
-  __int64 v74; // rdi
-  void *v75; // rcx
-  DXGADAPTERALLOCATION *v76; // rbx
-  int v77; // ebx
-  struct DXGALLOCATION *v78; // rbx
-  __int64 v79; // rcx
-  __int64 v80; // rcx
-  __int64 v81; // rax
-  __int64 v82; // rax
-  __int64 v83; // rcx
-  __int64 v85; // rcx
-  __int64 v86; // rdi
-  __int64 v87; // rax
-  unsigned int j; // r8d
-  volatile signed __int32 *v89; // rcx
-  unsigned int v90; // r8d
-  __int64 v91; // rax
-  unsigned int v92; // r15d
-  unsigned int v93; // edi
+  __int64 v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  __int64 v20; // rax
+  __int64 v21; // rcx
+  unsigned int v22; // edi
   struct DXGPROCESS *Current; // rax
-  unsigned int v95; // edi
-  struct DXGPROCESS *v96; // rax
+  struct DXGALLOCATION *v24; // r14
+  __int64 v25; // rcx
+  unsigned int v26; // edi
+  struct DXGPROCESS *v27; // rax
+  __int64 v28; // rax
+  struct DXGALLOCATION *v29; // r9
+  __int64 v30; // rdx
+  unsigned int v31; // ecx
+  __int64 v32; // rcx
+  __int64 v33; // rax
+  ADAPTER_RENDER *v34; // rcx
+  __int64 v35; // rdx
   DXGOVERLAY *i; // rdi
-  __int64 v98; // rax
-  char *v99; // rdx
-  struct DXGTHREAD *v100; // rax
-  struct _ETHREAD *CurrentThread; // rdi
-  KSPIN_LOCK *Global; // rax
-  int v103; // r9d
-  struct DXGTHREAD *v104; // rax
-  struct _ETHREAD *v105; // rbx
-  KSPIN_LOCK *v106; // rax
-  int v107; // r9d
-  KIRQL v108; // al
-  DXGADAPTER *v109; // rcx
-  int v110; // [rsp+40h] [rbp-140h]
-  int v111; // [rsp+48h] [rbp-138h]
-  int v112; // [rsp+50h] [rbp-130h]
-  int v113; // [rsp+60h] [rbp-120h]
-  int v114; // [rsp+68h] [rbp-118h]
-  int v115; // [rsp+70h] [rbp-110h]
-  int v116; // [rsp+78h] [rbp-108h]
-  int v117; // [rsp+88h] [rbp-F8h]
-  int v118; // [rsp+E0h] [rbp-A0h]
-  int v119; // [rsp+E8h] [rbp-98h]
-  unsigned __int8 v120; // [rsp+100h] [rbp-80h]
-  struct DXGALLOCATION *v121; // [rsp+108h] [rbp-78h] BYREF
-  void *v122; // [rsp+110h] [rbp-70h]
-  int v123; // [rsp+118h] [rbp-68h]
-  int v124; // [rsp+11Ch] [rbp-64h]
-  struct DXGRESOURCE *v125; // [rsp+120h] [rbp-60h]
-  void **v126; // [rsp+128h] [rbp-58h]
-  COREDEVICEACCESS *v127; // [rsp+130h] [rbp-50h]
-  unsigned int v128; // [rsp+138h] [rbp-48h] BYREF
-  __int128 v129; // [rsp+140h] [rbp-40h] BYREF
-  PVOID Object; // [rsp+150h] [rbp-30h] BYREF
-  struct DXGTHREAD *DxgThread; // [rsp+158h] [rbp-28h] BYREF
-  struct _DXGKARG_DESTROYALLOCATION v132; // [rsp+160h] [rbp-20h] BYREF
-  struct DXGALLOCATION *v133; // [rsp+180h] [rbp+0h]
-  int v134; // [rsp+188h] [rbp+8h] BYREF
-  __int64 v135; // [rsp+190h] [rbp+10h]
-  char v136; // [rsp+198h] [rbp+18h]
-  _BYTE v137[16]; // [rsp+1A0h] [rbp+20h] BYREF
-  _BYTE v138[16]; // [rsp+1B0h] [rbp+30h] BYREF
-  char v139[8]; // [rsp+1C0h] [rbp+40h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+1C8h] [rbp+48h] BYREF
-  _BYTE v141[128]; // [rsp+200h] [rbp+80h] BYREF
+  __int64 v37; // rdx
+  __int64 v38; // rax
+  unsigned int v39; // edx
+  unsigned int v40; // edx
+  int v41; // eax
+  __int64 v42; // rcx
+  __int64 v43; // rax
+  __int64 v44; // rax
+  __int64 v45; // rdx
+  char *v46; // rdx
+  void *v47; // rdx
+  ADAPTER_RENDER *v48; // rcx
+  void *v49; // r12
+  char v50; // di
+  __int64 v51; // rax
+  __int64 v52; // rax
+  __int64 v54; // rdx
+  __int64 v55; // rax
+  __int64 v56; // rbx
+  __int64 v57; // rax
+  __int64 v58; // rax
+  __int64 v59; // rax
+  __int64 v60; // rax
+  unsigned int v61; // r8d
+  struct DXGALLOCATION *v62; // rbx
+  int v63; // eax
+  struct DXGALLOCATION *v64; // r14
+  __int64 v65; // rax
+  __int64 v66; // rax
+  __int64 v67; // rax
+  void *v68; // rcx
+  __int64 v69; // rax
+  __int64 v70; // rax
+  __int64 v71; // rax
+  void **v72; // rbx
+  __int64 v73; // rdx
+  __int64 v74; // rcx
+  __int64 v75; // rax
+  DXGALLOCATION *v76; // rbx
+  char v77; // [rsp+40h] [rbp-C0h]
+  void **v79; // [rsp+48h] [rbp-B8h]
+  void *v80; // [rsp+50h] [rbp-B0h]
+  PVOID Object; // [rsp+58h] [rbp-A8h] BYREF
+  _DXGKARG_CLOSEALLOCATION v82; // [rsp+60h] [rbp-A0h] BYREF
+  struct _DXGKARG_DESTROYALLOCATION v83; // [rsp+70h] [rbp-90h] BYREF
+  struct DXGALLOCATION *v84; // [rsp+90h] [rbp-70h] BYREF
+  struct DXGALLOCATION *v85; // [rsp+98h] [rbp-68h]
+  struct DXGRESOURCE *v86; // [rsp+A0h] [rbp-60h] BYREF
+  char v87; // [rsp+A8h] [rbp-58h]
+  _BYTE v88[16]; // [rsp+B0h] [rbp-50h] BYREF
+  struct DXGALLOCATION *v89; // [rsp+C0h] [rbp-40h]
+  _BYTE v90[128]; // [rsp+D0h] [rbp-30h] BYREF
 
-  v127 = a5;
-  v7 = *((_QWORD *)this + 2);
-  v8 = a4;
-  v133 = a4;
-  v123 = a3;
-  v10 = a2;
-  v125 = a2;
-  v11 = *(_QWORD *)(v7 + 16);
-  if ( KeGetCurrentThread() != *(struct _KTHREAD **)(v11 + 184)
-    && !ExIsResourceAcquiredSharedLite(*(PERESOURCE *)(v11 + 168)) )
+  v6 = *((_QWORD *)this + 2);
+  v8 = a5;
+  v9 = a4;
+  v85 = a4;
+  v11 = a2;
+  v12 = *(DXGADAPTER **)(v6 + 16);
+  v86 = a2;
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(v12) )
   {
-    WdLogSingleEntry1(1LL, 1296LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetRenderCore()->IsCoreResourceSharedOwner()",
-      1296LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v15 = WdLogNewEntry5_WdAssertion(v14, v13);
+    *(_QWORD *)(v15 + 24) = 1281LL;
+    WdLogEvent5_WdAssertion(v15);
   }
-  v12 = 0LL;
-  if ( a3 )
-    v12 = v10;
-  memset(v141, 0, sizeof(v141));
-  if ( !v12 || (v126 = (void **)*((_QWORD *)v12 + 8)) == 0LL )
-    v126 = (void **)v141;
-  v129 = 0LL;
-  if ( v10 && a3 )
+  memset(v90, 0, sizeof(v90));
+  if ( ((unsigned __int64)v11 & -(__int64)(a3 != 0)) == 0
+    || (v79 = *(void ***)(((unsigned __int64)v11 & -(__int64)(a3 != 0)) + 0x40)) == 0LL )
   {
-    v81 = WdLogNewEntry5_WdTrace(v14, v13, v15, v16);
-    *(_QWORD *)(v81 + 24) = v10;
-    v14 = *((_QWORD *)v10 + 1);
-    v13 = *(_QWORD *)(v14 + 40);
-    *(_QWORD *)(v81 + 32) = v13;
+    v79 = (void **)v90;
   }
-  LOBYTE(v13) = 0;
-  v120 = 0;
-  v17 = *(_QWORD *)(*((_QWORD *)this + 2) + 16LL);
-  if ( *(_BYTE *)(v17 + 209) )
+  v82 = 0LL;
+  if ( v11 && a3 )
   {
-    if ( a3 )
+    v20 = WdLogNewEntry5_WdTrace(v17, v16);
+    *(_QWORD *)(v20 + 24) = v11;
+    v16 = *(_QWORD *)(*((_QWORD *)v11 + 1) + 40LL);
+    *(_QWORD *)(v20 + 32) = v16;
+  }
+  v77 = 0;
+  v21 = *(_QWORD *)(*((_QWORD *)this + 2) + 16LL);
+  if ( *(_BYTE *)(v21 + 209) && a3 && v11 && *((_DWORD *)v11 + 5) )
+  {
+    v22 = *((_DWORD *)this + 110);
+    Current = DXGPROCESS::GetCurrent(v21, v16, v18, v19);
+    DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendDestroyAllocation(
+      (DXG_GUEST_VIRTUALGPU_VMBUS *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 4240LL),
+      *((_DWORD *)Current + 106),
+      v22,
+      *((_DWORD *)v11 + 5),
+      0,
+      0LL,
+      a6);
+    *((_DWORD *)v11 + 5) = 0;
+    v77 = 1;
+  }
+  v84 = v9;
+  v24 = v9;
+  if ( v9 )
+  {
+    do
     {
-      if ( v10 )
+      v89 = (struct DXGALLOCATION *)*((_QWORD *)v24 + 8);
+      v25 = *(_QWORD *)(*((_QWORD *)this + 2) + 16LL);
+      if ( *(_BYTE *)(v25 + 209) )
       {
-        v92 = *((_DWORD *)v10 + 5);
-        if ( v92 )
+        if ( !v77 && *((_DWORD *)v24 + 24) )
         {
-          v93 = *((_DWORD *)this + 118);
-          Current = DXGPROCESS::GetCurrent(v14);
+          v26 = *((_DWORD *)this + 110);
+          v27 = DXGPROCESS::GetCurrent(v25, v16, v18, v19);
           DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendDestroyAllocation(
-            (DXG_GUEST_VIRTUALGPU_VMBUS *)(v17 + 4472),
-            *((_DWORD *)Current + 126),
-            v93,
-            v92,
-            0,
-            0LL,
-            a6);
-          LOBYTE(v13) = 1;
-          *((_DWORD *)v10 + 5) = 0;
-          v120 = 1;
-        }
-      }
-    }
-  }
-  v121 = v8;
-  v18 = v8;
-  if ( v8 )
-  {
-    v19 = v8;
-    v14 = (__int64)v8;
-    v20 = v127;
-    while ( 1 )
-    {
-      v19 = (struct DXGALLOCATION *)*((_QWORD *)v19 + 8);
-      v21 = *(_QWORD *)(*((_QWORD *)this + 2) + 16LL);
-      if ( *(_BYTE *)(v21 + 209) )
-      {
-        if ( !(_BYTE)v13 && (*(_BYTE *)(v14 + 128) & 4) != 0 )
-        {
-          v95 = *((_DWORD *)this + 118);
-          v96 = DXGPROCESS::GetCurrent(v14);
-          DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendDestroyAllocation(
-            (DXG_GUEST_VIRTUALGPU_VMBUS *)(v21 + 4472),
-            *((_DWORD *)v96 + 126),
-            v95,
+            (DXG_GUEST_VIRTUALGPU_VMBUS *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 4240LL),
+            *((_DWORD *)v27 + 106),
+            v26,
             0,
             1u,
-            &v121,
+            &v84,
             a6);
         }
-        *((_BYTE *)v18 + 128) &= ~4u;
+        *((_DWORD *)v24 + 24) = 0;
       }
-      v22 = WdLogNewEntry5_WdTrace(v14, v13, v15, v16);
-      *(_QWORD *)(v22 + 24) = v18;
-      *(_QWORD *)(v22 + 32) = *(_QWORD *)(*((_QWORD *)v18 + 1) + 40LL);
-      v24 = *(_DWORD *)(*((_QWORD *)v18 + 6) + 4LL);
-      if ( (v24 & 1) != 0 )
+      v28 = WdLogNewEntry5_WdTrace(v25, v16);
+      *(_QWORD *)(v28 + 24) = v24;
+      v30 = *(_QWORD *)(*((_QWORD *)v24 + 1) + 40LL);
+      *(_QWORD *)(v28 + 32) = v30;
+      v31 = *(_DWORD *)(*((_QWORD *)v24 + 6) + 4LL);
+      if ( (v31 & 1) != 0 )
       {
-        v90 = *((_DWORD *)this + 472);
-        if ( v90 || (*(_DWORD *)(*((_QWORD *)this + 5) + 424LL) & 0x100) == 0 )
+        v32 = (v31 >> 6) & 0xF;
+        if ( (unsigned int)v32 >= *((_DWORD *)this + 464) )
         {
-          if ( ((v24 >> 6) & 0xF) >= v90 )
-          {
-            WdLogSingleEntry1(1LL, 1392LL);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              262146,
-              -1,
-              (__int64)L"VidPnSourceId < this->GetNumVidPnSources()",
-              1392LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-          }
-          DXGDEVICE::RemovePrimaryAllocation(this, v18);
+          v33 = WdLogNewEntry5_WdAssertion(v32, v30);
+          *(_QWORD *)(v33 + 24) = 1377LL;
+          WdLogEvent5_WdAssertion(v33);
         }
+        DXGDEVICE::RemovePrimaryAllocation(this, v24);
       }
-      v25 = *(unsigned int *)(*((_QWORD *)v18 + 6) + 4LL);
-      if ( (v25 & 8) != 0 )
+      v34 = (ADAPTER_RENDER *)*(unsigned int *)(*((_QWORD *)v24 + 6) + 4LL);
+      if ( ((unsigned __int8)v34 & 8) != 0 )
       {
-        DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v137, (struct DXGFASTMUTEX *const)(*((_QWORD *)this + 2) + 856LL), 0);
-        DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v137);
-        for ( i = (DXGOVERLAY *)*((_QWORD *)this + 64); i != (DXGDEVICE *)((char *)this + 512) && i; i = *(DXGOVERLAY **)i )
+        DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v88, (struct DXGFASTMUTEX *const)(*((_QWORD *)this + 2) + 728LL), 0);
+        DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v88);
+        for ( i = (DXGOVERLAY *)*((_QWORD *)this + 60); i != (DXGDEVICE *)((char *)this + 480) && i; i = *(DXGOVERLAY **)i )
         {
-          if ( *((struct DXGALLOCATION **)i + 6) == v18 )
+          if ( *((struct DXGALLOCATION **)i + 6) == v24 )
             DXGOVERLAY::Destroy(i);
         }
-        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v137);
-        if ( v137[8] )
-          DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v137);
+        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v88, v35);
+        if ( v88[8] )
+          DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v88, v37);
+        v8 = a5;
       }
-      v26 = *(_DWORD *)(*((_QWORD *)v18 + 6) + 4LL);
-      if ( (v26 & 0x2000) != 0 && *((_QWORD *)v18 + 3) )
-        DXGDEVICE::RemoveDirectFlipAllocationFromList(this, (v26 >> 6) & 0xF, v18);
-      v27 = *(_DWORD *)(*((_QWORD *)v18 + 6) + 4LL);
-      if ( (v27 & 0x200A) != 0 )
-        DXGDEVICE::TestAndSetDisplayedPrimary(this, (v27 >> 6) & 0xF, v18, v23);
-      v28 = *((_QWORD *)v18 + 3);
-      if ( v28 && (*((_DWORD *)v18 + 18) & 0x800) != 0 )
+      v38 = *((_QWORD *)v24 + 6);
+      v39 = *(_DWORD *)(v38 + 4);
+      if ( (v39 & 0x2000) != 0 && *((_QWORD *)v24 + 3) )
       {
-        if ( (*(_DWORD *)(*((_QWORD *)v18 + 6) + 4LL) & 0x2000) != 0 )
-        {
-          v98 = *((_QWORD *)this + 2);
-          v128 = 0;
-          if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64, unsigned int *))(*(_QWORD *)(*(_QWORD *)(v98 + 760)
-                                                                                              + 8LL)
-                                                                                  + 688LL))(
-                 *(_QWORD *)(v98 + 768),
-                 v28,
-                 &v128) )
-          {
-            if ( v128 <= 1 && v20 && !DXGADAPTER::IsCoreResourceExclusiveOwner(*((PERESOURCE **)v20 + 3)) )
-            {
-              COREDEVICEACCESS::Release(v20);
-              (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 760LL)
-                                                                         + 8LL)
-                                                             + 696LL))(
-                *(_QWORD *)(*((_QWORD *)this + 2) + 768LL),
-                *((_QWORD *)v18 + 3),
-                (*(_DWORD *)(*((_QWORD *)v18 + 6) + 4LL) >> 6) & 0xF);
-              COREDEVICEACCESS::AcquireSharedUncheck(v20, v99);
-            }
-          }
-        }
-        (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 760LL) + 8LL) + 224LL))(
-          *(_QWORD *)(*((_QWORD *)this + 2) + 768LL),
-          *((_QWORD *)v18 + 3));
-        *((_DWORD *)v18 + 18) &= ~0x800u;
+        DXGDEVICE::RemoveDirectFlipAllocationFromList(this, (v39 >> 6) & 0xF, v24);
+        v38 = *((_QWORD *)v24 + 6);
       }
-      CurrentProcess = PsGetCurrentProcess(v25);
-      ProcessDxgProcess = PsGetProcessDxgProcess(CurrentProcess);
-      v31 = (struct DXGPROCESS *)ProcessDxgProcess;
-      if ( ProcessDxgProcess && (*(_DWORD *)(ProcessDxgProcess + 424) & 0x80) == 0 )
-        goto LABEL_22;
-      v100 = DXGTHREAD::GetCurrent();
-      if ( v100 )
+      v40 = *(_DWORD *)(v38 + 4);
+      if ( (v40 & 0x2000) != 0 || (v40 & 2) != 0 || (v40 & 8) != 0 )
+        DXGDEVICE::TestAndSetDisplayedPrimary((struct _KTHREAD **)this, (v40 >> 6) & 0xF, v24, v29);
+      if ( *((_QWORD *)v24 + 3) && (*((_DWORD *)v24 + 18) & 0x800) != 0 )
       {
-        v32 = (struct DXGPROCESS *)*((_QWORD *)v100 + 3);
-        if ( !v32 )
-          goto LABEL_22;
+        (*(void (__fastcall **)(_QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 640LL) + 8LL) + 240LL))(*(_QWORD *)(*((_QWORD *)this + 2) + 648LL));
+        *((_DWORD *)v24 + 18) &= ~0x800u;
       }
-      else
+      ADAPTER_RENDER::FreeAllocationHandleAndWaitForZeroReferences(v34, v24, (struct COREDEVICEACCESS *)v8);
+      v16 = *((_QWORD *)v24 + 3);
+      if ( v16 )
       {
-        CurrentThread = KeGetCurrentThread();
-        Global = (KSPIN_LOCK *)DXGGLOBAL::GetGlobal();
-        v32 = DXGGLOBAL::SearchDxgThreadList(Global, CurrentThread);
-        if ( !v32 )
-        {
-          WdLogSingleEntry1(2LL, 2923LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed to find DXGPROCESS",
-            2923LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-LABEL_22:
-          v32 = v31;
-        }
-      }
-      v33 = (char *)v32 + 248;
-      KeEnterCriticalRegion();
-      if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx((char *)v32 + 248, 0LL) )
-      {
-        if ( bTracingEnabled )
-        {
-          v103 = *((_DWORD *)v32 + 68);
-          if ( v103 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-            McTemplateK0q_EtwWriteTransfer(v34, &EventBlockThread, v35, v103);
-        }
-        ExAcquirePushLockExclusiveEx((char *)v32 + 248, 0LL);
-      }
-      v36 = (struct DXGPROCESS *)((char *)v32 + 280);
-      v37 = v121;
-      *((_QWORD *)v33 + 1) = KeGetCurrentThread();
-      HMGRTABLE::FreeHandle(v36, *((_DWORD *)v37 + 4));
-      DxgkUnreferenceDxgAllocation(v37);
-      *((_QWORD *)v33 + 1) = 0LL;
-      ExReleasePushLockExclusiveEx(v33, 0LL);
-      KeLeaveCriticalRegion();
-      v38 = 0;
-      if ( v20 )
-      {
-        v79 = *((_QWORD *)v20 + 3);
-        if ( KeGetCurrentThread() == *(struct _KTHREAD **)(v79 + 184) )
-        {
-          v37 = v121;
-          ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)v121 + 11);
-          goto LABEL_26;
-        }
-        if ( !ExIsResourceAcquiredExclusiveLite(*(PERESOURCE *)(v79 + 168)) )
-        {
-          v38 = 1;
-          COREACCESS::Release((COREDEVICEACCESS *)((char *)v20 + 8));
-          if ( *((_BYTE *)v20 + 144) )
-          {
-            COREACCESS::Release((COREDEVICEACCESS *)((char *)v20 + 72));
-            v37 = v121;
-            ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)v121 + 11);
-LABEL_99:
-            if ( *((_BYTE *)v20 + 144) )
-              COREACCESS::AcquireShared((COREDEVICEACCESS *)((char *)v20 + 72), 0LL);
-            COREACCESS::AcquireShared((COREDEVICEACCESS *)((char *)v20 + 8), 0LL);
-            goto LABEL_26;
-          }
-        }
-        v37 = v121;
-      }
-      ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)v37 + 11);
-      if ( v38 )
-        goto LABEL_99;
-LABEL_26:
-      v39 = *((_QWORD *)v18 + 3);
-      if ( v39 )
-      {
-        v40 = *((_QWORD *)this + 2);
         Object = 0LL;
-        v41 = (*(__int64 (__fastcall **)(_QWORD, __int64, PVOID *, _QWORD))(*(_QWORD *)(*(_QWORD *)(v40 + 760) + 8LL)
-                                                                          + 160LL))(
-                *(_QWORD *)(v40 + 768),
-                v39,
+        v41 = (*(__int64 (__fastcall **)(_QWORD, __int64, PVOID *, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2)
+                                                                                                  + 640LL)
+                                                                                      + 8LL)
+                                                                          + 176LL))(
+                *(_QWORD *)(*((_QWORD *)this + 2) + 648LL),
+                v16,
                 &Object,
                 a6.Value);
         if ( v41 < 0 )
         {
           if ( v41 != -1071775486 )
           {
-            WdLogSingleEntry1(1LL, 1505LL);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              262146,
-              -1,
-              (__int64)L"ntStatus == STATUS_GRAPHICS_ALLOCATION_BUSY",
-              1505LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
+            v43 = WdLogNewEntry5_WdAssertion(v42, v16);
+            *(_QWORD *)(v43 + 24) = 1455LL;
+            WdLogEvent5_WdAssertion(v43);
           }
-          v44 = WdLogNewEntry5_WdTrace(v43, v42, v15, v16);
-          *(_QWORD *)(v44 + 24) = *((_QWORD *)this + 99);
-          *(_QWORD *)(v44 + 32) = *((_QWORD *)v18 + 3);
-          if ( v20 )
+          v44 = WdLogNewEntry5_WdTrace(v42, v16);
+          *(_QWORD *)(v44 + 24) = *((_QWORD *)this + 95);
+          *(_QWORD *)(v44 + 32) = *((_QWORD *)v24 + 3);
+          if ( v8 && !DXGADAPTER::IsCoreResourceExclusiveOwner(v8[3]) )
           {
-            v80 = *((_QWORD *)v20 + 3);
-            if ( KeGetCurrentThread() != *(struct _KTHREAD **)(v80 + 184)
-              && !ExIsResourceAcquiredExclusiveLite(*(PERESOURCE *)(v80 + 168)) )
+            COREDEVICEACCESS::Release((COREDEVICEACCESS *)v8, v45);
+            if ( Object )
             {
-              COREACCESS::Release((COREDEVICEACCESS *)((char *)v20 + 8));
-              if ( *((_BYTE *)v20 + 144) )
-                COREACCESS::Release((COREDEVICEACCESS *)((char *)v20 + 72));
-              if ( Object )
+              if ( KeWaitForSingleObject(Object, Executive, 0, 1u, 0LL) == 257 )
               {
-                if ( KeWaitForSingleObject(Object, Executive, 0, 1u, 0LL) == 257 )
-                {
-                  DXGDEVICE::FlushScheduler(this, 3u, 0xFFFFFFFD, 0);
-                  KeWaitForSingleObject(Object, Executive, 0, 0, 0LL);
-                }
+                DXGDEVICE::FlushScheduler(this, 3u);
+                KeWaitForSingleObject(Object, Executive, 0, 0, 0LL);
               }
-              else
-              {
-                (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2)
-                                                                                                + 760LL)
-                                                                                    + 8LL)
-                                                                        + 608LL))(
-                  *(_QWORD *)(*((_QWORD *)this + 2) + 768LL),
-                  *((_QWORD *)v18 + 3),
-                  0LL,
-                  4LL);
-              }
-              if ( *((_BYTE *)v20 + 144) )
-                COREACCESS::AcquireShared((COREDEVICEACCESS *)((char *)v20 + 72), 0LL);
-              COREACCESS::AcquireShared((COREDEVICEACCESS *)((char *)v20 + 8), 0LL);
             }
-            v37 = v121;
+            else
+            {
+              (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2)
+                                                                                              + 640LL)
+                                                                                  + 8LL)
+                                                                      + 616LL))(
+                *(_QWORD *)(*((_QWORD *)this + 2) + 648LL),
+                *((_QWORD *)v24 + 3),
+                0LL,
+                4LL);
+            }
+            COREDEVICEACCESS::AcquireSharedUncheck((COREDEVICEACCESS *)v8, v46);
           }
-          (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 760LL)
+          (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 640LL)
                                                                              + 8LL)
-                                                                 + 152LL))(
-            *(_QWORD *)(*((_QWORD *)this + 2) + 768LL),
-            *((_QWORD *)v18 + 3),
+                                                                 + 168LL))(
+            *(_QWORD *)(*((_QWORD *)this + 2) + 648LL),
+            *((_QWORD *)v24 + 3),
             0LL,
             a6.Value);
         }
-        *((_QWORD *)v18 + 3) = 0LL;
+        *((_QWORD *)v24 + 3) = 0LL;
       }
-      else
+      v21 = *((_QWORD *)v24 + 4);
+      if ( v21 )
       {
-        DXGDEVICE::TraceCloseParavirtualizedAllocation(this, v37);
+        v79[v82.NumAllocations++] = (void *)v21;
+        *((_QWORD *)v24 + 4) = 0LL;
       }
-      v45 = (void *)*((_QWORD *)v37 + 4);
-      if ( v45 )
-      {
-        v126[(unsigned int)v129] = v45;
-        LODWORD(v129) = v129 + 1;
-        *((_QWORD *)v37 + 4) = 0LL;
-      }
-      v13 = v120;
-      v121 = v19;
-      v18 = v19;
-      v14 = (__int64)v19;
-      if ( !v19 )
-      {
-        v8 = v133;
-        v10 = v125;
-        break;
-      }
+      v84 = v89;
+      v24 = v89;
     }
+    while ( v89 );
+    v11 = v86;
+    v9 = v85;
   }
-  if ( (_DWORD)v129 )
+  if ( v82.NumAllocations )
   {
-    v46 = *((_QWORD *)this + 2);
-    *((_QWORD *)&v129 + 1) = v126;
-    v127 = (COREDEVICEACCESS *)*((_QWORD *)this + 77);
-    v134 = -1;
-    v135 = 0LL;
-    if ( (qword_1C013F870 & 2) != 0 )
-    {
-      v136 = 1;
-      v134 = 5029;
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-        McTemplateK0q_EtwWriteTransfer(v14, &EventProfilerEnter, v15, 5029);
-    }
-    else
-    {
-      v136 = 0;
-    }
-    DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v134, 5029);
-    v48 = PsGetCurrentProcess(v47);
-    v49 = PsGetProcessDxgProcess(v48);
-    v50 = (struct DXGPROCESS *)v49;
-    if ( !v49 || (*(_DWORD *)(v49 + 424) & 0x80) != 0 )
-    {
-      v104 = DXGTHREAD::GetCurrent();
-      if ( v104 )
-      {
-        v51 = (struct DXGPROCESS *)*((_QWORD *)v104 + 3);
-        if ( v51 )
-          goto LABEL_43;
-      }
-      else
-      {
-        v105 = KeGetCurrentThread();
-        v106 = (KSPIN_LOCK *)DXGGLOBAL::GetGlobal();
-        v51 = DXGGLOBAL::SearchDxgThreadList(v106, v105);
-        if ( v51 )
-          goto LABEL_43;
-        WdLogSingleEntry1(2LL, 2923LL);
-        DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Failed to find DXGPROCESS", 2923LL, 0LL, 0LL, 0LL, 0LL);
-      }
-    }
-    v51 = v50;
-    if ( !v50 )
-    {
-      v52 = 0LL;
-      LODWORD(v122) = 0;
-LABEL_49:
-      DXGADAPTER::AcquireDdiSync(*(_QWORD *)(v46 + 16), 1);
-      _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v46 + 16) + 4612LL));
-      CurrentIrql = KeGetCurrentIrql();
-      v56 = CurrentIrql;
-      v57 = 0LL;
-      if ( CurrentIrql < 2u
-        && (DxgThread = 0LL, (int)PsTlsGetValue(g_DxgkThreadTlsId, &DxgThread) >= 0)
-        && ((v57 = DxgThread) != 0LL || (DxgThread = DxgkThreadObjectCreateDxgThread(1), (v57 = DxgThread) != 0LL)) )
-      {
-        v124 = *((_DWORD *)v57 + 12);
-      }
-      else
-      {
-        v124 = 0;
-      }
-      DXGVALIDATIONPROCESSATTACH::DXGVALIDATIONPROCESSATTACH(
-        (DXGVALIDATIONPROCESSATTACH *)v139,
-        *(struct DXGADAPTER **)(v46 + 16));
-      v58 = (*(int (__fastcall **)(COREDEVICEACCESS *, __int128 *))(*(_QWORD *)(v46 + 16) + 720LL))(v127, &v129);
-      if ( v139[0] )
-        KeUnstackDetachProcess(&ApcState);
-      if ( (_BYTE)v56 != KeGetCurrentIrql() )
-      {
-        v108 = KeGetCurrentIrql();
-        WdLogSingleEntry5(0LL, 275LL, 16LL, v46, v56, v108);
-      }
-      if ( v57 )
-      {
-        v60 = *((int *)v57 + 12);
-        if ( (_DWORD)v60 != v124 )
-          WdLogSingleEntry5(0LL, 275LL, 38LL, *((int *)v57 + 12), v124, 0LL);
-      }
-      _InterlockedDecrement((volatile signed __int32 *)(*(_QWORD *)(v46 + 16) + 4612LL));
-      v63 = (_QWORD *)WdLogNewEntry5_WdTrace(v60, v59, v61, v62);
-      v64 = v127;
-      v63[3] = v58;
-      v63[4] = v64;
-      v63[5] = (unsigned int)v129;
-      v63[6] = **((_QWORD **)&v129 + 1);
-      if ( (_DWORD)v58 )
-      {
-        WdLogSingleEntry1(2LL, v58);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Driver returned an invalid NTSTATUS code: 0x%I64x",
-          v58,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-      }
-      DXGADAPTER::ReleaseDdiSync(*(DXGADAPTER **)(v46 + 16));
-      if ( (_DWORD)v122 == 2 )
-      {
-        *((_QWORD *)v52 + 1) = 0LL;
-        ExReleasePushLockExclusiveEx(v52, 0LL);
-        KeLeaveCriticalRegion();
-      }
-      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v134);
-      if ( v136 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-        McTemplateK0q_EtwWriteTransfer(v65, &EventProfilerExit, v66, v134);
-      v10 = v125;
-      goto LABEL_66;
-    }
-LABEL_43:
-    v52 = (char *)v51 + 152;
-    LODWORD(v122) = 0;
-    if ( v51 != (struct DXGPROCESS *)-152LL && *((struct _KTHREAD **)v51 + 20) == KeGetCurrentThread() )
-    {
-      WdLogSingleEntry1(1LL, 1453LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"bAllowAcquireRecursive || pPushLock == NULL || !m_pPushLock->IsExclusiveOwner()",
-        1453LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-    }
-    if ( v51 )
-    {
-      KeEnterCriticalRegion();
-      if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx((char *)v51 + 152, 0LL) )
-      {
-        if ( bTracingEnabled )
-        {
-          v107 = *((_DWORD *)v51 + 44);
-          if ( v107 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-            McTemplateK0q_EtwWriteTransfer(v53, &EventBlockThread, v54, v107);
-        }
-        ExAcquirePushLockExclusiveEx((char *)v51 + 152, 0LL);
-      }
-      *((_QWORD *)v51 + 20) = KeGetCurrentThread();
-      LODWORD(v122) = 2;
-    }
-    goto LABEL_49;
+    v47 = (void *)*((_QWORD *)this + 73);
+    v48 = (ADAPTER_RENDER *)*((_QWORD *)this + 2);
+    v82.pOpenHandleList = v79;
+    ADAPTER_RENDER::DdiCloseAllocation(v48, v47, &v82);
   }
-LABEL_66:
-  v67 = 0LL;
-  v68 = 1;
-  v122 = 0LL;
-  if ( v10 )
+  v49 = 0LL;
+  v80 = 0LL;
+  v50 = 1;
+  if ( v11 )
   {
-    if ( (*((_DWORD *)v10 + 1) & 1) != 0 )
+    if ( (*((_DWORD *)v11 + 1) & 1) != 0 )
     {
-      v82 = *((_QWORD *)v10 + 7);
-      if ( v82 )
+      v51 = *((_QWORD *)v11 + 7);
+      if ( v51 )
       {
-        v83 = *(_QWORD *)(v82 + 152);
-        if ( v83 )
+        v52 = *(_QWORD *)(v51 + 152);
+        if ( v52 )
         {
-          if ( *(DXGDEVICE **)(v83 + 80) == this && (*(_DWORD *)(v83 + 72))-- == 1 )
+          if ( *(DXGDEVICE **)(v52 + 72) == this && (*(_DWORD *)(v52 + 64))-- == 1 )
           {
             DXGAUTOMUTEX::DXGAUTOMUTEX(
-              (DXGAUTOMUTEX *)v138,
-              (struct DXGFASTMUTEX *const)(*(_QWORD *)(*((_QWORD *)v10 + 7) + 152LL) + 8LL),
+              (DXGAUTOMUTEX *)&v86,
+              (struct DXGFASTMUTEX *const)(*(_QWORD *)(*((_QWORD *)v11 + 7) + 152LL) + 8LL),
               0);
-            DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v138);
-            *(_QWORD *)(*(_QWORD *)(*((_QWORD *)v10 + 7) + 152LL) + 80LL) = 0LL;
-            if ( v138[8] )
-              DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v138);
+            DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)&v86);
+            v21 = *(_QWORD *)(*((_QWORD *)v11 + 7) + 152LL);
+            *(_QWORD *)(v21 + 72) = 0LL;
+            if ( v87 )
+              DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)&v86, v54);
           }
         }
-        v85 = *((_QWORD *)v10 + 7);
-        v86 = *(_QWORD *)(v85 + 136);
-        if ( (*(_DWORD *)(v86 - 44) & 2) != 0 )
+        v55 = *((_QWORD *)v11 + 7);
+        v56 = *(_QWORD *)(v55 + 136);
+        v16 = *(unsigned int *)(v56 - 44);
+        if ( (v16 & 2) != 0 )
         {
-          if ( *(_DWORD *)(v85 + 132) != 1 )
+          if ( *(_DWORD *)(v55 + 132) != 1 )
           {
-            v109 = *(DXGADAPTER **)(*((_QWORD *)this + 2) + 16LL);
-            if ( *((_DWORD *)v109 + 72) <= 1u || !DXGADAPTER::IsDxgmms2(v109) )
+            v21 = *(_QWORD *)(*((_QWORD *)this + 2) + 16LL);
+            if ( *(_DWORD *)(v21 + 280) <= 1u || !DXGADAPTER::IsDxgmms2((DXGADAPTER *)v21) )
             {
-              WdLogSingleEntry1(1LL, 1625LL);
-              DxgkLogInternalTriageEvent(
-                0LL,
-                262146,
-                -1,
-                (__int64)L"1 == pResource->m_pSharedResource->m_AllocationCount || GetRenderAdapter()->GetPhysicalAdapterC"
-                          "ount() > 1 && GetRenderAdapter()->IsDxgmms2()",
-                1625LL,
-                0LL,
-                0LL,
-                0LL,
-                0LL);
+              v57 = WdLogNewEntry5_WdAssertion(v21, v16);
+              *(_QWORD *)(v57 + 24) = 1571LL;
+              WdLogEvent5_WdAssertion(v57);
+              v16 = *(unsigned int *)(v56 - 44);
             }
           }
-          if ( ((*(_DWORD *)(v86 - 44) >> 6) & 0xFu) >= *((_DWORD *)this + 472)
-            && (*(_DWORD *)(*((_QWORD *)this + 5) + 424LL) & 0x100) == 0 )
+          if ( (((unsigned int)v16 >> 6) & 0xF) >= *((_DWORD *)this + 464) )
           {
-            WdLogSingleEntry1(1LL, 1626LL);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              262146,
-              -1,
-              (__int64)L"pAdapterAlloc->m_VidPnSourceId < this->GetNumVidPnSources() || GetProcess()->IsVmProcess()",
-              1626LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
+            v58 = WdLogNewEntry5_WdAssertion(v21, v16);
+            *(_QWORD *)(v58 + 24) = 1572LL;
+            WdLogEvent5_WdAssertion(v58);
+            v16 = *(unsigned int *)(v56 - 44);
           }
-          v91 = (*(_DWORD *)(v86 - 44) >> 6) & 0xF;
-          if ( *((struct DXGRESOURCE **)this + v91 + 83) == v10 )
-            *((_QWORD *)this + v91 + 83) = 0LL;
+          v59 = ((unsigned int)v16 >> 6) & 0xF;
+          if ( *((struct DXGRESOURCE **)this + v59 + 79) == v11 )
+            *((_QWORD *)this + v59 + 79) = 0LL;
         }
-        v87 = *((_QWORD *)v10 + 3);
-        for ( j = 0; v87; ++j )
-          v87 = *(_QWORD *)(v87 + 64);
-        v89 = (volatile signed __int32 *)*((_QWORD *)v10 + 7);
-        if ( _InterlockedExchangeAdd(v89 + 17, 0xFFFFFFFF) == 1 )
-          DXGSHAREDRESOURCE::Destroy((DXGSHAREDRESOURCE *)v89, v126, j);
-        v67 = v122;
-        *((_QWORD *)v10 + 7) = 0LL;
+        v60 = *((_QWORD *)v11 + 3);
+        v61 = 0;
+        while ( v60 )
+        {
+          v60 = *(_QWORD *)(v60 + 64);
+          ++v61;
+        }
+        v21 = *((_QWORD *)v11 + 7);
+        if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v21 + 68), 0xFFFFFFFF) == 1 )
+          DXGSHAREDRESOURCE::Destroy((DXGSHAREDRESOURCE *)v21, v79, v61);
+        *((_QWORD *)v11 + 7) = 0LL;
       }
-      v68 = 0;
+      v50 = 0;
     }
     else
     {
-      v67 = (void *)*((_QWORD *)v10 + 7);
-      v122 = v67;
+      v49 = (void *)*((_QWORD *)v11 + 7);
+      v80 = v49;
     }
   }
-  v69 = v8;
-  memset(&v132, 0, sizeof(v132));
-  if ( v8 )
+  v62 = v9;
+  memset(&v83, 0, sizeof(v83));
+  if ( v9 )
   {
-    v70 = v8;
-    v71 = v8;
-    v72 = v125;
     while ( 1 )
     {
-      v73 = (struct DXGALLOCATION *)*((_QWORD *)v70 + 8);
-      v70 = v73;
-      if ( (*((_DWORD *)v71 + 18) & 0x800) != 0 )
+      v63 = *((_DWORD *)v62 + 18);
+      v64 = (struct DXGALLOCATION *)*((_QWORD *)v62 + 8);
+      if ( (v63 & 0x800) != 0 )
       {
-        WdLogSingleEntry1(1LL, 1678LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"pCurrentAlloc->m_Pinned == FALSE",
-          1678LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v65 = WdLogNewEntry5_WdAssertion(v21, v16);
+        *(_QWORD *)(v65 + 24) = 1624LL;
+        WdLogEvent5_WdAssertion(v65);
+        v63 = *((_DWORD *)v62 + 18);
       }
-      if ( (*((_DWORD *)v71 + 18) & 0x7FE) != 0 )
+      if ( (v63 & 0x7FE) != 0 )
       {
-        WdLogSingleEntry1(1LL, 1679LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"pCurrentAlloc->m_DirectFlipIndex == 0",
-          1679LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v66 = WdLogNewEntry5_WdAssertion(v21, v16);
+        *(_QWORD *)(v66 + 24) = 1625LL;
+        WdLogEvent5_WdAssertion(v66);
       }
-      v74 = *((_QWORD *)v69 + 6);
-      if ( v74 )
-      {
-        if ( !v68 )
-          goto LABEL_133;
-        if ( (*((_BYTE *)this + 1901) & 1) != 0 )
-        {
-          if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x800) != 0 )
-            McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer(
-              *(_QWORD *)(*((_QWORD *)this + 5) + 64LL),
-              &EventDestroyAdapterAllocation,
-              *(_QWORD *)(v74 + 112),
-              *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 5) + 64LL) + 80LL),
-              (char)this,
-              *(_QWORD *)(*((_QWORD *)this + 2) + 16LL),
-              0,
-              *(_QWORD *)(v74 + 112),
-              v110,
-              v111,
-              v112,
-              0,
-              v113,
-              v114,
-              v115,
-              v116,
-              v74,
-              v117,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              v118,
-              v119,
-              (*(_DWORD *)(v74 + 4) >> 21) & 0x3F,
-              0);
-        }
-        else if ( *(_QWORD *)(v74 + 8) )
-        {
-          (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 760LL) + 8LL) + 120LL))(
-            *((_QWORD *)this + 99),
-            0LL);
-          *(_QWORD *)(v74 + 8) = 0LL;
-        }
-        v75 = *(void **)(*((_QWORD *)v69 + 6) + 16LL);
-        if ( v75 )
-        {
-          v126[v132.NumAllocations++] = v75;
-          *(_QWORD *)(*((_QWORD *)v69 + 6) + 16LL) = 0LL;
-        }
-      }
-      else if ( !v68 )
-      {
-LABEL_133:
-        if ( !v72 )
-        {
-          WdLogSingleEntry1(1LL, 1701LL);
-          DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pResource", 1701LL, 0LL, 0LL, 0LL, 0LL);
-        }
-        if ( (*((_DWORD *)v72 + 1) & 1) == 0 )
-        {
-          WdLogSingleEntry1(1LL, 1702LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            262146,
-            -1,
-            (__int64)L"pResource->m_SharedResource",
-            1702LL,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-        }
-        if ( !v123 )
-        {
-          WdLogSingleEntry1(1LL, 1703LL);
-          DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"bDestroyResource", 1703LL, 0LL, 0LL, 0LL, 0LL);
-        }
-      }
-      v76 = (DXGADAPTERALLOCATION *)*((_QWORD *)v69 + 6);
-      if ( (!v72 || (*((_DWORD *)v72 + 1) & 1) == 0) && v76 )
-      {
-        DXGADAPTERALLOCATION::~DXGADAPTERALLOCATION(v76);
-        operator delete(v76);
-      }
-      v69 = v73;
-      v71 = v73;
-      if ( !v73 )
-      {
-        v8 = v133;
-        v67 = v122;
-        v10 = v125;
+      v67 = *((_QWORD *)v62 + 6);
+      if ( !v67 )
         break;
+      if ( !v50 )
+        goto LABEL_100;
+      if ( *(_QWORD *)(v67 + 8) )
+      {
+        (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 640LL) + 8LL) + 136LL))(
+          *((_QWORD *)this + 95),
+          0LL);
+        *(_QWORD *)(*((_QWORD *)v62 + 6) + 8LL) = 0LL;
+        v67 = *((_QWORD *)v62 + 6);
+      }
+      v68 = *(void **)(v67 + 16);
+      if ( !v68 )
+        goto LABEL_106;
+      v79[v83.NumAllocations] = v68;
+      v21 = 1LL;
+      ++v83.NumAllocations;
+      *(_QWORD *)(*((_QWORD *)v62 + 6) + 16LL) = 0LL;
+LABEL_107:
+      v72 = (void **)*((_QWORD *)v62 + 6);
+      if ( (!v11 || (*((_DWORD *)v11 + 1) & 1) == 0) && v72 )
+      {
+        DXGADAPTERALLOCATION::~DXGADAPTERALLOCATION(v72);
+        operator delete(v72);
+      }
+      v62 = v64;
+      if ( !v64 )
+      {
+        v9 = v85;
+        v49 = v80;
+        goto LABEL_113;
       }
     }
-  }
-  if ( v68 )
-  {
-    v77 = v123;
-    v132.Flags.Value = 0;
-    if ( v10 )
-      v132.Flags.Value = v123 != 0;
-    v132.hResource = v67;
-    if ( v132.NumAllocations )
+    if ( !v50 )
     {
-      v132.pAllocationList = v126;
+LABEL_100:
+      if ( !v11 )
+      {
+        v69 = WdLogNewEntry5_WdAssertion(v21, v16);
+        *(_QWORD *)(v69 + 24) = 1653LL;
+        WdLogEvent5_WdAssertion(v69);
+      }
+      v21 = 1LL;
+      if ( (*((_DWORD *)v11 + 1) & 1) == 0 )
+      {
+        v70 = WdLogNewEntry5_WdAssertion(1LL, v16);
+        *(_QWORD *)(v70 + 24) = 1654LL;
+        WdLogEvent5_WdAssertion(v70);
+        v21 = 1LL;
+      }
+      if ( a3 )
+        goto LABEL_107;
+      v71 = WdLogNewEntry5_WdAssertion(1LL, v16);
+      *(_QWORD *)(v71 + 24) = 1655LL;
+      WdLogEvent5_WdAssertion(v71);
+    }
+LABEL_106:
+    v21 = 1LL;
+    goto LABEL_107;
+  }
+LABEL_113:
+  if ( v50 )
+  {
+    v83.Flags.Value = 0;
+    if ( v11 )
+      v83.Flags.Value = a3 != 0;
+    v83.hResource = v49;
+    if ( v83.NumAllocations )
+    {
+      v83.pAllocationList = v79;
     }
     else
     {
-      v132.pAllocationList = 0LL;
-      if ( !v123 || !v67 )
-        goto LABEL_91;
+      v83.pAllocationList = 0LL;
+      if ( !a3 || !v49 )
+        goto LABEL_126;
     }
-    ADAPTER_RENDER::DdiDestroyAllocation(*((ADAPTER_RENDER **)this + 2), &v132, 0);
-    if ( v10 && !v77 )
+    ADAPTER_RENDER::DdiDestroyAllocation(*((ADAPTER_RENDER **)this + 2), &v83, 0);
+    if ( v11 && !a3 )
     {
-      if ( (*((_DWORD *)v10 + 1) & 1) != 0 )
+      if ( (*((_DWORD *)v11 + 1) & 1) != 0 )
       {
-        WdLogSingleEntry1(1LL, 1751LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"!(pResource->m_SharedResource)",
-          1751LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        v75 = WdLogNewEntry5_WdAssertion(v74, v73);
+        *(_QWORD *)(v75 + 24) = 1703LL;
+        WdLogEvent5_WdAssertion(v75);
       }
-      *((_QWORD *)v10 + 7) = v132.hResource;
+      *((_QWORD *)v11 + 7) = v83.hResource;
     }
   }
-LABEL_91:
-  if ( v8 )
+LABEL_126:
+  if ( v9 )
   {
-    v78 = v8;
+    v76 = v9;
     do
     {
-      v78 = (struct DXGALLOCATION *)*((_QWORD *)v78 + 8);
-      DXGALLOCATION::~DXGALLOCATION(v8);
-      ExFreePoolWithTag(v8, 0);
-      v8 = v78;
+      v9 = (struct DXGALLOCATION *)*((_QWORD *)v9 + 8);
+      if ( v76 )
+      {
+        DXGALLOCATION::~DXGALLOCATION(v76);
+        ExFreePoolWithTag(v76, 0);
+      }
+      v76 = v9;
     }
-    while ( v78 );
+    while ( v9 );
   }
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlAddAuditAccessAce @ 0x140892934
+ * XREFs of RtlAddAuditAccessAce @ 0x140892914
  * Callers:
- *     SepInitProcessAuditSd @ 0x14017D0CC (SepInitProcessAuditSd.c)
+ *     SepInitProcessAuditSd @ 0x14017D0EC (SepInitProcessAuditSd.c)
  *     ObInitSystem @ 0x1409B1964 (ObInitSystem.c)
  * Callees:
  *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)

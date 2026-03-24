@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSetupSleepNotifies @ 0x140AA75A0
+ * XREFs of PopSetupSleepNotifies @ 0x140995250
  * Callers:
- *     PoBroadcastSystemState @ 0x140AA6B28 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140992AC4 (PoBroadcastSystemState.c)
  * Callees:
- *     PopMoveList @ 0x140AA7344 (PopMoveList.c)
+ *     PopMoveList @ 0x140995328 (PopMoveList.c)
  */
 
 __int64 __fastcall PopSetupSleepNotifies(__int64 a1)
@@ -24,9 +24,9 @@ __int64 __fastcall PopSetupSleepNotifies(__int64 a1)
   for ( i = 4; i >= 0; i = v7 - 1 )
   {
     v3 = a1 + 72 + 72LL * i;
-    PopMoveList(v3, (_QWORD **)(a1 + 88 + 72LL * i));
-    PopMoveList(v3, (_QWORD **)(a1 + 120 + 8 * v4));
-    PopMoveList(v3, (_QWORD **)(a1 + 104 + 8 * v5));
+    PopMoveList(v3, a1 + 88 + 72LL * i);
+    PopMoveList(v3, a1 + 120 + 8 * v4);
+    PopMoveList(v3, a1 + 104 + 8 * v5);
     v8 = *(_QWORD **)(v6 - 16);
     while ( v8 != (_QWORD *)v3 )
     {

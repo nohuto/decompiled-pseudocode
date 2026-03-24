@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceTouchpadStopInertiaQueued @ 0x1C014EE30
+ * XREFs of EtwTraceTouchpadStopInertiaQueued @ 0x1C01241F0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C014F270 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C0124580 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTraceTouchpadStopInertiaQueued(__int64 a1)

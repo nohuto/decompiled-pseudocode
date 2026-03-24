@@ -1,11 +1,11 @@
 /*
- * XREFs of KiRestoreProcessorState @ 0x14029CAEC
+ * XREFs of KiRestoreProcessorState @ 0x14029CBEC
  * Callers:
- *     KiFreezeTargetExecution @ 0x1402975DC (KiFreezeTargetExecution.c)
+ *     KiFreezeTargetExecution @ 0x1402976DC (KiFreezeTargetExecution.c)
  * Callees:
- *     RtlXRestore @ 0x14012F8D4 (RtlXRestore.c)
- *     KeContextToKframes @ 0x1401BBCD0 (KeContextToKframes.c)
- *     KiRestoreProcessorControlState @ 0x1401BBE20 (KiRestoreProcessorControlState.c)
+ *     RtlXRestore @ 0x14012F8F4 (RtlXRestore.c)
+ *     KeContextToKframes @ 0x1401BBCF0 (KeContextToKframes.c)
+ *     KiRestoreProcessorControlState @ 0x1401BBE40 (KiRestoreProcessorControlState.c)
  */
 
 __int64 __fastcall KiRestoreProcessorState(__int64 a1, __int64 a2)

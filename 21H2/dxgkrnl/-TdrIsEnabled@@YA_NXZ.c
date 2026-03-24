@@ -1,5 +1,5 @@
 /*
- * XREFs of ?TdrIsEnabled@@YA_NXZ @ 0x1C021C010
+ * XREFs of ?TdrIsEnabled@@YA_NXZ @ 0x1C019FE30
  * Callers:
  *     <none>
  * Callees:

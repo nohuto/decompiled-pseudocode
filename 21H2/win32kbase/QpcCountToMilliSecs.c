@@ -1,5 +1,5 @@
 /*
- * XREFs of QpcCountToMilliSecs @ 0x1C01E82F0
+ * XREFs of QpcCountToMilliSecs @ 0x1C01AEE50
  * Callers:
  *     <none>
  * Callees:

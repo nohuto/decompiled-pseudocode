@@ -1,11 +1,11 @@
 /*
- * XREFs of PdcPoVerifyActionPolicy @ 0x140996DC0
+ * XREFs of PdcPoVerifyActionPolicy @ 0x1408EFB50
  * Callers:
  *     <none>
  * Callees:
- *     PopVerifyPowerActionPolicy @ 0x140819A74 (PopVerifyPowerActionPolicy.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     PopVerifyPowerActionPolicy @ 0x14078B7CC (PopVerifyPowerActionPolicy.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PdcPoVerifyActionPolicy(int *a1)

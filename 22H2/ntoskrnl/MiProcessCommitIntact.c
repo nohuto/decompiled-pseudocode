@@ -1,35 +1,38 @@
 /*
- * XREFs of MiProcessCommitIntact @ 0x140369168
+ * XREFs of MiProcessCommitIntact @ 0x140201780
  * Callers:
- *     MiProbeLeafPteAccess @ 0x140236C30 (MiProbeLeafPteAccess.c)
- *     MiSplitReducedCommitClonePage @ 0x14061CAD4 (MiSplitReducedCommitClonePage.c)
+ *     MiProbeLeafPteAccess @ 0x14020B6B0 (MiProbeLeafPteAccess.c)
+ *     MiSplitReducedCommitClonePage @ 0x140530CD4 (MiSplitReducedCommitClonePage.c)
  * Callees:
- *     MiLocateAddress @ 0x140217260 (MiLocateAddress.c)
- *     MiGetSharedVm @ 0x140286D54 (MiGetSharedVm.c)
- *     MiUnlockVadTree @ 0x140287758 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x14028A7A0 (MiLockVadTree.c)
- *     MiIsVadEligibleForCommitRelease @ 0x14061823C (MiIsVadEligibleForCommitRelease.c)
+ *     MiGetSharedVm @ 0x14021AF10 (MiGetSharedVm.c)
+ *     MiLocateAddress @ 0x14025B070 (MiLocateAddress.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x14052B5E8 (MiIsVadEligibleForCommitRelease.c)
  */
 
-__int64 __fastcall MiProcessCommitIntact(unsigned __int64 a1)
+_BOOL8 __fastcall MiProcessCommitIntact(__int64 a1)
 {
-  unsigned int v2; // ebx
   _KPROCESS *Process; // rcx
-  char v4; // al
-  __int64 v5; // rcx
-  __int64 **Address; // rax
+  char v3; // al
+  unsigned __int64 *v4; // rcx
+  _BOOL8 result; // rax
+  unsigned __int64 v6; // rdx
+  __int64 Address; // rax
 
-  v2 = 1;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v4 = HIBYTE(Process[1].IdealProcessor[31]);
-  v5 = (__int64)&Process[1].ActiveProcessors.StaticBitmap[26];
-  if ( (v4 & 0x60) == 0x60 && *((_QWORD *)MiGetSharedVm(v5) + 4) && a1 < 0xFFFF800000000000uLL )
+  v3 = HIBYTE(Process[1].IdealProcessorPadding[11]);
+  v4 = &Process[1].ActiveProcessorsPadding[6];
+  result = 1;
+  if ( (v3 & 0x60) == 0x60 )
   {
-    MiLockVadTree(1);
-    Address = MiLocateAddress(a1);
-    if ( !Address || (unsigned int)MiIsVadEligibleForCommitRelease(Address) )
-      v2 = 0;
-    MiUnlockVadTree(1, 0x11u);
+    if ( *(_QWORD *)(MiGetSharedVm(v4, a1) + 32) )
+    {
+      if ( v6 < 0xFFFF800000000000uLL )
+      {
+        Address = MiLocateAddress(v6);
+        if ( !Address || (unsigned int)MiIsVadEligibleForCommitRelease(Address) )
+          return 0;
+      }
+    }
   }
-  return v2;
+  return result;
 }

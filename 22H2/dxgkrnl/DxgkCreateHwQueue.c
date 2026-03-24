@@ -1,12 +1,13 @@
 /*
- * XREFs of DxgkCreateHwQueue @ 0x1C02311A0
+ * XREFs of DxgkCreateHwQueue @ 0x1C0271940
  * Callers:
  *     <none>
  * Callees:
- *     DxgkCreateHwQueueInternal @ 0x1C031DCDC (DxgkCreateHwQueueInternal.c)
+ *     DxgkCreateHwQueueInternal @ 0x1C0271958 (DxgkCreateHwQueueInternal.c)
  */
 
-__int64 __fastcall DxgkCreateHwQueue(struct _D3DKMT_CREATEHWQUEUE *a1)
+__int64 __fastcall DxgkCreateHwQueue(__int64 a1, __int64 a2)
 {
-  return DxgkCreateHwQueueInternal(a1);
+  LOBYTE(a2) = 1;
+  return DxgkCreateHwQueueInternal(a1, a2);
 }

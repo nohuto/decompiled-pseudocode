@@ -1,40 +1,42 @@
 /*
- * XREFs of ?SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C00AA418
+ * XREFs of ?SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C00DB4C0
  * Callers:
- *     xxxSetWindowNCMetrics @ 0x1C0076530 (xxxSetWindowNCMetrics.c)
+ *     xxxSetWindowNCMetrics @ 0x1C00E22DC (xxxSetWindowNCMetrics.c)
  * Callees:
- *     bSetDevDragWidth @ 0x1C00AAC00 (bSetDevDragWidth.c)
- *     SortMonitorsInSpatialOrder @ 0x1C00AAC60 (SortMonitorsInSpatialOrder.c)
+ *     bSetDevDragWidth @ 0x1C00DB46C (bSetDevDragWidth.c)
+ *     UpdateDesktopThresholds @ 0x1C00DC020 (UpdateDesktopThresholds.c)
  */
 
 void __fastcall SetNCMetrics(struct tagNONCLIENTMETRICSW *a1)
 {
-  int v2; // ecx
-  int v3; // ecx
+  int v2; // r8d
+  int v3; // r8d
   unsigned int v4; // ebx
-  INT v5; // esi
-  __int64 v6; // rcx
+  INT v5; // r13d
   __int64 SessionDpiServerInfo; // r14
-  __int64 v8; // rdi
-  __int64 v9; // r15
-  INT v10; // eax
-  INT v11; // edx
-  INT v12; // ebx
-  INT v13; // edx
-  INT v14; // eax
-  INT v15; // edx
+  __int64 v7; // rsi
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r15
+  int v12; // ebx
+  INT v13; // ebx
+  INT v14; // edx
+  int v15; // edi
   INT v16; // edx
-  INT v17; // eax
-  INT v18; // edx
-  INT v19; // ebx
-  __int64 v20; // rax
-  __int64 v21; // rcx
-  int v22; // ebx
-  int v23; // ecx
-  int v24; // r8d
-  int v25; // edi
-  int v26; // esi
-  int v27; // ebx
+  INT v17; // edi
+  INT v18; // ebx
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // r8
+  __int64 v22; // rax
+  __int64 v23; // rcx
+  int v24; // ebx
+  int v25; // ecx
+  int v26; // r8d
+  int v27; // edi
+  int v28; // esi
+  int v29; // ebx
 
   SetDpiDepSysMet(0LL, *((unsigned int *)a1 + 2));
   SetDpiDepSysMet(1LL, *((unsigned int *)a1 + 2));
@@ -67,26 +69,24 @@ void __fastcall SetNCMetrics(struct tagNONCLIENTMETRICSW *a1)
   SetDpiDepSysMet(26LL, *((unsigned int *)a1 + 55));
   SetDpiDepSysMet(9LL, (unsigned int)(*(_DWORD *)(gpsi + 2388LL) + 1));
   v5 = *((_DWORD *)a1 + 1);
-  SessionDpiServerInfo = GetSessionDpiServerInfo(v6);
+  SessionDpiServerInfo = GetSessionDpiServerInfo();
   *(_DWORD *)(SessionDpiServerInfo + 4) = v5;
   SetDpiDepSysMet(14LL, (unsigned int)(v5 + 3));
   SetDpiDepSysMet(15LL, (unsigned int)(v5 + 3));
-  v8 = Get96DpiMetrics();
-  v9 = Get96DpiServerInfo();
-  v10 = EngMulDiv(*(_DWORD *)(gpsi + 2336LL), 96, *(unsigned __int16 *)(gpsi + 6998LL));
-  v11 = *(_DWORD *)(v9 + 20) + 2;
-  if ( v10 > v11 )
-    v11 = EngMulDiv(*(_DWORD *)(gpsi + 2336LL), 96, *(unsigned __int16 *)(gpsi + 6998LL));
-  *(_DWORD *)(gpsi + 2456LL) = v11;
-  v12 = 8;
+  v7 = Get96DpiMetrics();
+  v11 = Get96DpiServerInfo(v9, v8, v10);
+  v12 = *(_DWORD *)(v11 + 20) + 2;
+  if ( EngMulDiv(*(_DWORD *)(gpsi + 2336LL), 96, *(unsigned __int16 *)(gpsi + 6998LL)) > v12 )
+    v12 = EngMulDiv(*(_DWORD *)(gpsi + 2336LL), 96, *(unsigned __int16 *)(gpsi + 6998LL));
+  *(_DWORD *)(gpsi + 2456LL) = v12;
+  v13 = 8;
   if ( EngMulDiv(*(_DWORD *)(gpsi + 2332LL), 96, *(unsigned __int16 *)(gpsi + 6998LL)) <= 8 )
-    v13 = 8;
+    v14 = 8;
   else
-    v13 = EngMulDiv(*(_DWORD *)(gpsi + 2332LL), 96, *(unsigned __int16 *)(gpsi + 6998LL));
-  *(_DWORD *)(gpsi + 2452LL) = v13;
-  v14 = EngMulDiv(*(_DWORD *)(gpsi + 2380LL), 96, *(unsigned __int16 *)(gpsi + 6998LL));
-  v15 = *(_DWORD *)(v8 + 44) + 2;
-  if ( v14 > v15 )
+    v14 = EngMulDiv(*(_DWORD *)(gpsi + 2332LL), 96, *(unsigned __int16 *)(gpsi + 6998LL));
+  *(_DWORD *)(gpsi + 2452LL) = v14;
+  v15 = *(_DWORD *)(v7 + 44) + 2;
+  if ( EngMulDiv(*(_DWORD *)(gpsi + 2380LL), 96, *(unsigned __int16 *)(gpsi + 6998LL)) > v15 )
     v15 = EngMulDiv(*(_DWORD *)(gpsi + 2380LL), 96, *(unsigned __int16 *)(gpsi + 6998LL));
   *(_DWORD *)(gpsi + 2500LL) = v15;
   if ( EngMulDiv(*(_DWORD *)(gpsi + 2376LL), 96, *(unsigned __int16 *)(gpsi + 6998LL)) <= 8 )
@@ -94,14 +94,13 @@ void __fastcall SetNCMetrics(struct tagNONCLIENTMETRICSW *a1)
   else
     v16 = EngMulDiv(*(_DWORD *)(gpsi + 2376LL), 96, *(unsigned __int16 *)(gpsi + 6998LL));
   *(_DWORD *)(gpsi + 2496LL) = v16;
-  v17 = EngMulDiv(*(_DWORD *)(gpsi + 2388LL), 96, *(unsigned __int16 *)(gpsi + 6998LL));
-  v18 = *(_DWORD *)(v8 + 28);
-  if ( v17 > v18 )
-    v18 = EngMulDiv(*(_DWORD *)(gpsi + 2388LL), 96, *(unsigned __int16 *)(gpsi + 6998LL));
-  *(_DWORD *)(gpsi + 2508LL) = v18;
+  v17 = *(_DWORD *)(v7 + 28);
+  if ( EngMulDiv(*(_DWORD *)(gpsi + 2388LL), 96, *(unsigned __int16 *)(gpsi + 6998LL)) > v17 )
+    v17 = EngMulDiv(*(_DWORD *)(gpsi + 2388LL), 96, *(unsigned __int16 *)(gpsi + 6998LL));
+  *(_DWORD *)(gpsi + 2508LL) = v17;
   if ( EngMulDiv(*(_DWORD *)(gpsi + 2384LL), 96, *(unsigned __int16 *)(gpsi + 6998LL)) > 8 )
-    v12 = EngMulDiv(*(_DWORD *)(gpsi + 2384LL), 96, *(unsigned __int16 *)(gpsi + 6998LL));
-  *(_DWORD *)(gpsi + 2504LL) = v12;
+    v13 = EngMulDiv(*(_DWORD *)(gpsi + 2384LL), 96, *(unsigned __int16 *)(gpsi + 6998LL));
+  *(_DWORD *)(gpsi + 2504LL) = v13;
   *(_DWORD *)(gpsi + 2440LL) = *(_DWORD *)(gpsi + 2508LL) + 1;
   *(_DWORD *)(gpsi + 2412LL) = *(_DWORD *)(gpsi + 2456LL) + 1;
   *(_DWORD *)(gpsi + 2492LL) = *(_DWORD *)(gpsi + 2500LL) + 1;
@@ -112,33 +111,33 @@ void __fastcall SetNCMetrics(struct tagNONCLIENTMETRICSW *a1)
   *(_DWORD *)(gpsi + 2408LL) = EngMulDiv(*(_DWORD *)(gpsi + 2288LL), 96, *(unsigned __int16 *)(gpsi + 6998LL));
   *(_DWORD *)(gpsi + 2444LL) = EngMulDiv(*(_DWORD *)(gpsi + 2324LL), 96, *(unsigned __int16 *)(gpsi + 6998LL));
   *(_DWORD *)(gpsi + 2416LL) = EngMulDiv(*(_DWORD *)(gpsi + 2296LL), 96, *(unsigned __int16 *)(gpsi + 6998LL));
-  v19 = EngMulDiv(v5, 96, *(unsigned __int16 *)(gpsi + 6998LL));
-  v20 = Get96DpiServerInfo();
-  v21 = 2460LL;
-  *(_DWORD *)(v20 + 4) = v19;
-  v22 = v19 + 3;
+  v18 = EngMulDiv(v5, 96, *(unsigned __int16 *)(gpsi + 6998LL));
+  v22 = Get96DpiServerInfo(v20, v19, v21);
+  v23 = 2460LL;
+  *(_DWORD *)(v22 + 4) = v18;
+  v24 = v18 + 3;
   do
   {
-    *(_DWORD *)(v21 + gpsi) = v22;
-    v21 += 4LL;
+    *(_DWORD *)(v23 + gpsi) = v24;
+    v23 += 4LL;
   }
-  while ( v21 < 2468 );
-  v23 = *(_DWORD *)(gpsi + 2520LL);
-  v24 = *(_DWORD *)(gpsi + 2400LL);
-  v25 = v23 + *(_DWORD *)(gpsi + 2460LL);
-  v26 = v23 + *(_DWORD *)(gpsi + 2464LL);
-  v27 = v24 + *(_DWORD *)(gpsi + 2344LL);
+  while ( v23 < 2468 );
+  v25 = *(_DWORD *)(gpsi + 2520LL);
+  v26 = *(_DWORD *)(gpsi + 2400LL);
+  v27 = v25 + *(_DWORD *)(gpsi + 2460LL);
+  v28 = v25 + *(_DWORD *)(gpsi + 2464LL);
+  v29 = v26 + *(_DWORD *)(gpsi + 2344LL);
   SetDpiDepSysMet(
     16LL,
     (unsigned int)(*(_DWORD *)(gpsi + 2336LL)
                  + 3 * *(_DWORD *)(gpsi + 2332LL)
-                 + 2 * (v24 + 2 + *(_DWORD *)(gpsi + 2340LL) + 2 * *(_DWORD *)(SessionDpiServerInfo + 16))));
-  SetDpiDepSysMet(17LL, (unsigned int)(*(_DWORD *)(gpsi + 2292LL) + 2 * v27));
+                 + 2 * (v26 + 2 + *(_DWORD *)(gpsi + 2340LL) + 2 * *(_DWORD *)(SessionDpiServerInfo + 16))));
+  SetDpiDepSysMet(17LL, (unsigned int)(*(_DWORD *)(gpsi + 2292LL) + 2 * v29));
   *(_DWORD *)(gpsi + 2468LL) = *(_DWORD *)(gpsi + 2456LL)
                              + 3 * *(_DWORD *)(gpsi + 2452LL)
-                             + 2 * (v25 + 2 + 2 * *(_DWORD *)(v9 + 16));
-  *(_DWORD *)(gpsi + 2472LL) = *(_DWORD *)(gpsi + 2412LL) + 2 * v26;
+                             + 2 * (v27 + 2 + 2 * *(_DWORD *)(v11 + 16));
+  *(_DWORD *)(gpsi + 2472LL) = *(_DWORD *)(gpsi + 2412LL) + 2 * v28;
   *(_DWORD *)(gpsi + 2128LL) = *(_DWORD *)(gpsi + 2336LL) + 6;
-  bSetDevDragWidth(*(_QWORD *)(gpDispInfo + 40LL), (unsigned int)(*((_DWORD *)a1 + 1) + 3));
-  SortMonitorsInSpatialOrder();
+  bSetDevDragWidth(*(_QWORD *)(gpDispInfo + 40LL), *((_DWORD *)a1 + 1) + 3);
+  UpdateDesktopThresholds();
 }

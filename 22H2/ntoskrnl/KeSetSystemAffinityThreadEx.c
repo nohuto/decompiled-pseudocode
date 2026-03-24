@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSetSystemAffinityThreadEx @ 0x14056F0E0
+ * XREFs of KeSetSystemAffinityThreadEx @ 0x1403CF020
  * Callers:
- *     KeSetSystemAffinityThread @ 0x14056F0C0 (KeSetSystemAffinityThread.c)
+ *     KeSetSystemAffinityThread @ 0x1403CF000 (KeSetSystemAffinityThread.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x140306B20 (KeSetSystemGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14035CA50 (KeSetSystemGroupAffinityThread.c)
  */
 
 KAFFINITY __stdcall KeSetSystemAffinityThreadEx(KAFFINITY Affinity)

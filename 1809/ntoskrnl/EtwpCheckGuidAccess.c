@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCheckGuidAccess @ 0x140656D24
+ * XREFs of EtwpCheckGuidAccess @ 0x140656D04
  * Callers:
- *     EtwpCheckNotificationAccess @ 0x140656CB8 (EtwpCheckNotificationAccess.c)
- *     EtwpCheckProviderLoggingAccess @ 0x1406579D4 (EtwpCheckProviderLoggingAccess.c)
- *     EtwpNotifyGuid @ 0x1406588A8 (EtwpNotifyGuid.c)
- *     EtwpStartLogger @ 0x1406591C0 (EtwpStartLogger.c)
- *     EtwpCheckSystemTraceAccess @ 0x140726EDC (EtwpCheckSystemTraceAccess.c)
- *     EtwSetPerformanceTraceInformation @ 0x1408B9A6C (EtwSetPerformanceTraceInformation.c)
- *     EtwpCheckGuidAccessAndDoRundown @ 0x1408BE4EC (EtwpCheckGuidAccessAndDoRundown.c)
- *     EtwpLogFileNameRundown @ 0x1408BE934 (EtwpLogFileNameRundown.c)
+ *     EtwpCheckNotificationAccess @ 0x140656C98 (EtwpCheckNotificationAccess.c)
+ *     EtwpCheckProviderLoggingAccess @ 0x1406579B4 (EtwpCheckProviderLoggingAccess.c)
+ *     EtwpNotifyGuid @ 0x140658888 (EtwpNotifyGuid.c)
+ *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
+ *     EtwpCheckSystemTraceAccess @ 0x140726EBC (EtwpCheckSystemTraceAccess.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1408B9A4C (EtwSetPerformanceTraceInformation.c)
+ *     EtwpCheckGuidAccessAndDoRundown @ 0x1408BE4CC (EtwpCheckGuidAccessAndDoRundown.c)
+ *     EtwpLogFileNameRundown @ 0x1408BE914 (EtwpLogFileNameRundown.c)
  * Callees:
  *     EtwpAccessCheck @ 0x1405C5280 (EtwpAccessCheck.c)
  *     EtwpFreeSecurityDescriptor @ 0x1405C5658 (EtwpFreeSecurityDescriptor.c)

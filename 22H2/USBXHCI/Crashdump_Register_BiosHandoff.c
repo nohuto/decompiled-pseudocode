@@ -1,9 +1,9 @@
 /*
- * XREFs of Crashdump_Register_BiosHandoff @ 0x1C004D5FC
+ * XREFs of Crashdump_Register_BiosHandoff @ 0x1C004AB54
  * Callers:
- *     Crashdump_Initialize @ 0x1C004C250 (Crashdump_Initialize.c)
+ *     Crashdump_Initialize @ 0x1C0049740 (Crashdump_Initialize.c)
  * Callees:
- *     Crashdump_Register_StopController @ 0x1C004DF20 (Crashdump_Register_StopController.c)
+ *     Crashdump_Register_StopController @ 0x1C004B454 (Crashdump_Register_StopController.c)
  */
 
 __int64 __fastcall Crashdump_Register_BiosHandoff(__int64 a1)

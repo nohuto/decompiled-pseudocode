@@ -1,19 +1,19 @@
 /*
- * XREFs of DrvDbDispatchDeviceId @ 0x140876770
+ * XREFs of DrvDbDispatchDeviceId @ 0x1406F95E0
  * Callers:
  *     <none>
  * Callees:
- *     _PnpCtxGetObjectContext @ 0x14087698C (_PnpCtxGetObjectContext.c)
- *     DrvDbGetDeviceIdMappedProperty @ 0x140876E44 (DrvDbGetDeviceIdMappedProperty.c)
- *     DrvDbDeleteObjectRegKey @ 0x140A6AEB0 (DrvDbDeleteObjectRegKey.c)
- *     DrvDbGetDeviceIdMappedPropertyKeys @ 0x140A6B568 (DrvDbGetDeviceIdMappedPropertyKeys.c)
- *     DrvDbGetObjectList @ 0x140A6C3A0 (DrvDbGetObjectList.c)
- *     DrvDbOpenDeviceIdRegKey @ 0x140A6C9D8 (DrvDbOpenDeviceIdRegKey.c)
- *     DrvDbSetDeviceIdMappedProperty @ 0x140A6CDFC (DrvDbSetDeviceIdMappedProperty.c)
- *     DrvDbValidateDeviceIdName @ 0x140A6D82C (DrvDbValidateDeviceIdName.c)
+ *     _PnpCtxGetObjectContext @ 0x1406B4F28 (_PnpCtxGetObjectContext.c)
+ *     DrvDbGetDeviceIdMappedProperty @ 0x1406F9718 (DrvDbGetDeviceIdMappedProperty.c)
+ *     DrvDbSetDeviceIdMappedProperty @ 0x14072847C (DrvDbSetDeviceIdMappedProperty.c)
+ *     DrvDbOpenDeviceIdRegKey @ 0x140728850 (DrvDbOpenDeviceIdRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x14097CC94 (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbGetDeviceIdMappedPropertyKeys @ 0x14097D320 (DrvDbGetDeviceIdMappedPropertyKeys.c)
+ *     DrvDbGetObjectList @ 0x14097DF6C (DrvDbGetObjectList.c)
+ *     DrvDbValidateDeviceIdName @ 0x14097E724 (DrvDbValidateDeviceIdName.c)
  */
 
-__int64 __fastcall DrvDbDispatchDeviceId(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int *a5)
+__int64 __fastcall DrvDbDispatchDeviceId(__int64 a1, __int64 a2, int a3, __int64 a4, int *a5)
 {
   int ObjectContext; // eax
   int v7; // r9d
@@ -46,36 +46,39 @@ __int64 __fastcall DrvDbDispatchDeviceId(__int64 a1, __int64 a2, unsigned int a3
       LODWORD(v9) = -1073740697;
       return (unsigned int)v9;
     }
-    switch ( v8 )
+    if ( v8 == 2 )
     {
-      case 2:
-        if ( !*((_BYTE *)a5 + 4) )
-          goto LABEL_27;
-        break;
-      case 3:
-      case 4:
-        break;
-      case 5:
-      case 6:
-      case 8:
+      if ( *((_BYTE *)a5 + 4) )
+      {
 LABEL_27:
-        v11 = (unsigned int)v11 >> 31;
-LABEL_13:
-        v9 = (_BYTE)v11 == 0 ? 0xC0000022 : 0;
-        if ( !(_BYTE)v11 )
-          return (unsigned int)v9;
-        goto LABEL_3;
-      case 9:
-        break;
-      default:
-        LOBYTE(v11) = 1;
-        goto LABEL_13;
+        v11 = (unsigned int)v11 >> 30;
+        LOBYTE(v11) = v11 & 1;
+        goto LABEL_29;
+      }
     }
-    v11 = (unsigned int)v11 >> 30;
-    LOBYTE(v11) = v11 & 1;
-    goto LABEL_13;
+    else
+    {
+      if ( v8 <= 2 )
+      {
+LABEL_25:
+        LOBYTE(v11) = 1;
+        goto LABEL_29;
+      }
+      if ( v8 <= 4 )
+        goto LABEL_27;
+      if ( v8 > 6 && v8 != 8 )
+      {
+        if ( v8 != 9 )
+          goto LABEL_25;
+        goto LABEL_27;
+      }
+    }
+    v11 = (unsigned int)v11 >> 31;
+LABEL_29:
+    v9 = (_BYTE)v11 == 0 ? 0xC0000022 : 0;
+    if ( !(_BYTE)v11 )
+      return (unsigned int)v9;
   }
-LABEL_3:
   v12 = v8 - 1;
   if ( !v12 )
   {

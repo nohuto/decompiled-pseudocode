@@ -1,19 +1,19 @@
 /*
- * XREFs of PopPolicyWorkerThread @ 0x140130580
+ * XREFs of PopPolicyWorkerThread @ 0x1401305A0
  * Callers:
  *     <none>
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     PopPolicyWorkerNotify @ 0x1405B01A0 (PopPolicyWorkerNotify.c)
  *     PopPolicySystemIdle @ 0x1405B04E0 (PopPolicySystemIdle.c)
- *     PopPolicyWorkerAction @ 0x1406DE6F0 (PopPolicyWorkerAction.c)
- *     PopPolicyTimeChange @ 0x1406E2630 (PopPolicyTimeChange.c)
- *     PopPolicyWorkerActionPromote @ 0x1406E2690 (PopPolicyWorkerActionPromote.c)
- *     PopCoalescingNotify @ 0x14086B5D0 (PopCoalescingNotify.c)
- *     PopPreCriticalBatteryNotify @ 0x140875060 (PopPreCriticalBatteryNotify.c)
+ *     PopPolicyWorkerAction @ 0x1406DE6D0 (PopPolicyWorkerAction.c)
+ *     PopPolicyTimeChange @ 0x1406E2610 (PopPolicyTimeChange.c)
+ *     PopPolicyWorkerActionPromote @ 0x1406E2670 (PopPolicyWorkerActionPromote.c)
+ *     PopCoalescingNotify @ 0x14086B5B0 (PopCoalescingNotify.c)
+ *     PopPreCriticalBatteryNotify @ 0x140875040 (PopPreCriticalBatteryNotify.c)
  */
 
 __int64 __fastcall PopPolicyWorkerThread(int a1)

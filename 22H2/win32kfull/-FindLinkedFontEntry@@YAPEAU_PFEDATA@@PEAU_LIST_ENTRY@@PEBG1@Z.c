@@ -1,7 +1,8 @@
 /*
- * XREFs of ?FindLinkedFontEntry@@YAPEAU_PFEDATA@@PEAU_LIST_ENTRY@@PEBG1@Z @ 0x1C029E8B0
+ * XREFs of ?FindLinkedFontEntry@@YAPEAU_PFEDATA@@PEAU_LIST_ENTRY@@PEBG1@Z @ 0x1C00A1BA8
  * Callers:
- *     bDeleteFlEntry @ 0x1C029F7D0 (bDeleteFlEntry.c)
+ *     bAddFlEntry @ 0x1C00A0BA8 (bAddFlEntry.c)
+ *     bDeleteFlEntry @ 0x1C0298040 (bDeleteFlEntry.c)
  * Callees:
  *     <none>
  */
@@ -12,35 +13,29 @@ struct _LIST_ENTRY *__fastcall FindLinkedFontEntry(
         const unsigned __int16 *a3)
 {
   struct _LIST_ENTRY *Flink; // rdi
-  struct _LIST_ENTRY *v4; // rsi
+  struct _LIST_ENTRY *i; // rsi
   struct _LIST_ENTRY *v8; // rbx
-  int Flink_high; // eax
-  bool v10; // zf
+  int v10; // eax
 
   Flink = a1->Flink;
-  v4 = 0LL;
-  while ( Flink != a1 )
+  for ( i = 0LL; Flink != a1; i = 0LL )
   {
     v8 = Flink[2].Flink;
-    v4 = Flink;
+    i = Flink;
     if ( !_wcsicmp((const wchar_t *)v8->Flink[1].Blink, a2) )
     {
-      Flink_high = HIDWORD(Flink[1].Flink);
-      if ( !a3 )
+      v10 = HIDWORD(Flink[1].Flink) & 1;
+      if ( a3 )
       {
-        v10 = (Flink_high & 1) == 0;
-        goto LABEL_7;
+        if ( !v10 )
+          goto LABEL_3;
+        v10 = _wcsicmp((const wchar_t *)((char *)v8[2].Flink + SLODWORD(v8[2].Flink->Blink)), a3);
       }
-      if ( (Flink_high & 1) != 0 )
-      {
-        v10 = _wcsicmp((const wchar_t *)((char *)v8[2].Flink + SLODWORD(v8[2].Flink->Blink)), a3) == 0;
-LABEL_7:
-        if ( v10 )
-          return v4;
-      }
+      if ( !v10 )
+        return i;
     }
+LABEL_3:
     Flink = Flink->Flink;
-    v4 = 0LL;
   }
-  return v4;
+  return i;
 }

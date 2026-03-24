@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetHDR10PlusMetaData@CCompositionBuffer@@UEBAJPEAUDXGI_HDR_METADATA_HDR10PLUS@@@Z @ 0x1C0020720
+ * XREFs of ?GetHDR10PlusMetaData@CCompositionBuffer@@UEBAJPEAUDXGI_HDR_METADATA_HDR10PLUS@@@Z @ 0x1C001BB00
  * Callers:
  *     <none>
  * Callees:

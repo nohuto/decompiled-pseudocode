@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_Vail__private_ReportDeviceUsage @ 0x1C0026AAC
+ * XREFs of Feature_Vail__private_ReportDeviceUsage @ 0x1C002808C
  * Callers:
- *     ?IsFeatureEnabled@DXGVAILOBJECT@@SAEXZ @ 0x1C036202C (-IsFeatureEnabled@DXGVAILOBJECT@@SAEXZ.c)
+ *     ?IsFeatureEnabled@DXGVAILOBJECT@@SAEXZ @ 0x1C02B5E0C (-IsFeatureEnabled@DXGVAILOBJECT@@SAEXZ.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C00245B0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0024828 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0024F04 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0025174 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_Vail__private_ReportDeviceUsage()

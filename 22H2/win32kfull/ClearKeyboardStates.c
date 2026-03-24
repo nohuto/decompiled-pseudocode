@@ -1,22 +1,37 @@
 /*
- * XREFs of ClearKeyboardStates @ 0x1C006CF0C
+ * XREFs of ClearKeyboardStates @ 0x1C002A81C
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C0043D70 (xxxSystemParametersInfoWorker.c)
- *     xxxSwitchDesktop @ 0x1C006BB2C (xxxSwitchDesktop.c)
+ *     xxxSwitchDesktop @ 0x1C0029864 (xxxSwitchDesktop.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
  * Callees:
- *     ?ClearCachedHotkeyModifiers@@YAXXZ @ 0x1C006CF50 (-ClearCachedHotkeyModifiers@@YAXXZ.c)
+ *     <none>
  */
 
-void __fastcall ClearKeyboardStates(__int64 a1)
+// write access to const memory has been detected, the output may be wrong!
+__int64 ClearKeyboardStates()
 {
-  __int64 i; // rbx
-  __int64 v2; // rax
+  unsigned int DLT; // eax
+  __m128i *v1; // rax
+  __int64 v2; // rcx
+  __int64 result; // rax
 
-  for ( i = 0LL; i < 64; ++i )
+  DLT = DLT_ASYNCKEYSTATE::getDLT();
+  GetDomainLockRef(DLT);
+  v1 = (__m128i *)gafAsyncKeyState;
+  v2 = 4LL;
+  do
   {
-    v2 = SGDGetUserSessionState(a1);
-    *(_BYTE *)(v2 + i + 13992) &= 0xAAu;
+    *v1 = _mm_and_si128(_mm_loadu_si128(v1), (__m128i)_xmm_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa);
+    ++v1;
+    --v2;
   }
+  while ( v2 );
   ClearKeyboardToggleStates();
-  ClearCachedHotkeyModifiers();
+  result = gfsSASModifiersDown;
+  gfsModifiers = 0;
+  gfsModOnlyCandidate = 0;
+  gfsRawModifiersForHotKey = 0;
+  gfsSASModifiersDown = 0;
+  WindowArrangementSequence::fWindowArrangementSequenceInProgress = 0;
+  return result;
 }

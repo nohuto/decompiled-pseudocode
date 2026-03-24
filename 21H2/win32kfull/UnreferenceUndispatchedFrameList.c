@@ -1,5 +1,5 @@
 /*
- * XREFs of UnreferenceUndispatchedFrameList @ 0x1C00FC720
+ * XREFs of UnreferenceUndispatchedFrameList @ 0x1C010FF80
  * Callers:
  *     <none>
  * Callees:
@@ -12,13 +12,13 @@ void UnreferenceUndispatchedFrameList()
   struct _LIST_ENTRY *v1; // rdx
   struct _LIST_ENTRY *Blink; // rax
 
-  v0 = (struct _LIST_ENTRY *)(gptiCurrent + 1168LL);
+  v0 = (struct _LIST_ENTRY *)(gptiCurrent + 1144LL);
   while ( v0->Flink != v0 )
   {
-    v1 = *(struct _LIST_ENTRY **)(gptiCurrent + 1176LL);
+    v1 = *(struct _LIST_ENTRY **)(gptiCurrent + 1152LL);
     if ( v1->Flink != v0 || (Blink = v1->Blink, Blink->Flink != v1) )
       __fastfail(3u);
-    *(_QWORD *)(gptiCurrent + 1176LL) = Blink;
+    *(_QWORD *)(gptiCurrent + 1152LL) = Blink;
     Blink->Flink = v0;
     v1->Blink = v1;
     v1->Flink = v1;

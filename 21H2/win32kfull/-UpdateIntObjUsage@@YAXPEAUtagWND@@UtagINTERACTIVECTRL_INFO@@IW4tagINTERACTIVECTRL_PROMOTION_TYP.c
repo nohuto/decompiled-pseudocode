@@ -1,9 +1,9 @@
 /*
- * XREFs of ?UpdateIntObjUsage@@YAXPEAUtagWND@@UtagINTERACTIVECTRL_INFO@@IW4tagINTERACTIVECTRL_PROMOTION_TYPE@@_K@Z @ 0x1C02558B8
+ * XREFs of ?UpdateIntObjUsage@@YAXPEAUtagWND@@UtagINTERACTIVECTRL_INFO@@IW4tagINTERACTIVECTRL_PROMOTION_TYPE@@_K@Z @ 0x1C0258B4C
  * Callers:
- *     ?HandleIntObjUsageTelemetry@@YAXPEAURawInputManagerDeviceObject@@PEAUtagWND@@UtagINTERACTIVECTRL_INFO@@IW4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C0255540 (-HandleIntObjUsageTelemetry@@YAXPEAURawInputManagerDeviceObject@@PEAUtagWND@@UtagINTERACTIVECTRL.c)
+ *     ?HandleIntObjUsageTelemetry@@YAXPEAURawInputManagerDeviceObject@@PEAUtagWND@@UtagINTERACTIVECTRL_INFO@@IW4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C02587D4 (-HandleIntObjUsageTelemetry@@YAXPEAURawInputManagerDeviceObject@@PEAUtagWND@@UtagINTERACTIVECTRL.c)
  * Callees:
- *     sqrt_0 @ 0x1C0160220 (sqrt_0.c)
+ *     sqrt_0 @ 0x1C016E480 (sqrt_0.c)
  */
 
 __int64 __fastcall UpdateIntObjUsage(__int64 a1, __int64 a2, __int16 a3, int a4, unsigned __int64 a5)
@@ -34,7 +34,7 @@ __int64 __fastcall UpdateIntObjUsage(__int64 a1, __int64 a2, __int16 a3, int a4,
   {
     if ( (a3 & 0x80u) != 0 )
     {
-      if ( dword_1C033BD18 )
+      if ( dword_1C03419F0 )
       {
         gmsInputEndTime = a5;
         if ( a5 > gmsInputStartTime )
@@ -103,7 +103,7 @@ __int64 __fastcall UpdateIntObjUsage(__int64 a1, __int64 a2, __int16 a3, int a4,
       v23 = *(_QWORD *)(a2 + 12);
       v14 = DOUBLE_1_0;
       v15 = 2;
-      for ( i = (double)((int)v23 - (int)qword_1C033BD0C); ; i = i * i )
+      for ( i = (double)((int)v23 - (int)qword_1C03419E4); ; i = i * i )
       {
         if ( (v15 & 1) != 0 )
           v14 = v14 * i;
@@ -111,7 +111,7 @@ __int64 __fastcall UpdateIntObjUsage(__int64 a1, __int64 a2, __int16 a3, int a4,
         if ( !v15 )
           break;
       }
-      for ( j = (double)(HIDWORD(v23) - HIDWORD(qword_1C033BD0C)); ; j = j * j )
+      for ( j = (double)(HIDWORD(v23) - HIDWORD(qword_1C03419E4)); ; j = j * j )
       {
         if ( (v8 & 1) != 0 )
           v13 = v13 * j;
@@ -131,7 +131,7 @@ __int64 __fastcall UpdateIntObjUsage(__int64 a1, __int64 a2, __int16 a3, int a4,
     {
       gmsInputEndTime = a5;
       if ( a5 > gmsInputStartTime && gmsInputStartTime )
-        qword_1C033BD58 += a5 - gmsInputStartTime;
+        qword_1C0341A48 += a5 - gmsInputStartTime;
       gmsInputStartTime = a5;
       ++*((_DWORD *)&gIntObjTelemetryState + 12 * v11 + 3);
     }
@@ -141,7 +141,7 @@ __int64 __fastcall UpdateIntObjUsage(__int64 a1, __int64 a2, __int16 a3, int a4,
       if ( a5 > gmsInputStartTime )
       {
         if ( gmsInputStartTime )
-          qword_1C033BD88 += a5 - gmsInputStartTime;
+          qword_1C0341A78 += a5 - gmsInputStartTime;
       }
       gmsInputStartTime = a5;
     }
@@ -149,7 +149,7 @@ __int64 __fastcall UpdateIntObjUsage(__int64 a1, __int64 a2, __int16 a3, int a4,
   v22 = *(_QWORD *)(a2 + 16);
   result = *(unsigned int *)(a2 + 24);
   gLastInputInfo = *(_OWORD *)a2;
-  dword_1C033BD18 = result;
-  *(__int64 *)((char *)&qword_1C033BD0C + 4) = v22;
+  dword_1C03419F0 = result;
+  *(__int64 *)((char *)&qword_1C03419E4 + 4) = v22;
   return result;
 }

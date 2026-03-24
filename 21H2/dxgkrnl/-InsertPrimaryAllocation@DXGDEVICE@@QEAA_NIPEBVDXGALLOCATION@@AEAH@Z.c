@@ -1,14 +1,14 @@
 /*
- * XREFs of ?InsertPrimaryAllocation@DXGDEVICE@@QEAA_NIPEBVDXGALLOCATION@@AEAH@Z @ 0x1C001417C
+ * XREFs of ?InsertPrimaryAllocation@DXGDEVICE@@QEAA_NIPEBVDXGALLOCATION@@AEAH@Z @ 0x1C001A680
  * Callers:
- *     ?AddPrimaryAllocation@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@@Z @ 0x1C01C5F88 (-AddPrimaryAllocation@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@@Z.c)
+ *     ?AddPrimaryAllocation@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@@Z @ 0x1C016C0A4 (-AddPrimaryAllocation@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B94 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     memset @ 0x1C0028F00 (memset.c)
  */
 
 char __fastcall DXGDEVICE::InsertPrimaryAllocation(
@@ -20,148 +20,114 @@ char __fastcall DXGDEVICE::InsertPrimaryAllocation(
   __int64 v4; // rbx
   int *v7; // r14
   __int64 v8; // rdx
-  __int64 v9; // r9
-  __int64 v10; // rsi
-  __int64 v11; // rdi
-  int v12; // ecx
-  char v13; // bl
+  int v9; // eax
+  __int64 v10; // rdi
+  __int64 v11; // rbp
+  char v12; // bl
+  unsigned __int64 v13; // rcx
   unsigned int v14; // eax
-  struct _KTHREAD *v15; // rcx
-  __int64 v16; // rdi
-  __int64 v17; // rax
-  __int64 v19; // r14
-  unsigned __int64 v20; // rax
-  struct _KTHREAD *v21; // rax
-  struct _KTHREAD *v22; // r12
-  int v23; // edx
-  int v24; // ecx
-  int v25; // r8d
-  int v26; // edx
-  int v27; // ecx
-  int v28; // r8d
-  struct _KTHREAD *v29; // rcx
-  int v30; // edx
-  int v31; // ecx
-  int v32; // r8d
-  char v33[8]; // [rsp+60h] [rbp-48h] BYREF
-  DXGPUSHLOCK *v34; // [rsp+68h] [rbp-40h]
-  int v35; // [rsp+70h] [rbp-38h]
+  __int64 v15; // rbp
+  __int64 v16; // rax
+  __int64 v18; // rcx
+  unsigned int v19; // eax
+  __int64 v20; // r14
+  SIZE_T v21; // rax
+  char *v22; // rax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // r9
+  void *v27; // r15
+  __int64 v28; // rax
+  __int64 v29; // rax
+  __int64 v30; // rax
+  _BYTE v31[8]; // [rsp+20h] [rbp-48h] BYREF
+  DXGPUSHLOCK *v32; // [rsp+28h] [rbp-40h]
+  int v33; // [rsp+30h] [rbp-38h]
 
   v4 = a2;
   v7 = a4;
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v33, this + 42, 0);
-  DXGPUSHLOCK::AcquireExclusive(v34);
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v31, this + 42, 0);
+  DXGPUSHLOCK::AcquireExclusive(v32);
+  v9 = *((_DWORD *)this + v4 + 302);
   v10 = (unsigned int)v4;
   v11 = *((unsigned int *)this + v4 + 238);
-  v12 = (unsigned __int8)*((_DWORD *)this + v4 + 302);
-  v13 = 0;
-  v35 = 2;
-  if ( (_DWORD)v11 == v12 )
+  v12 = 0;
+  v13 = (unsigned __int8)v9;
+  v33 = 2;
+  if ( (_DWORD)v11 == (unsigned __int8)v9 )
   {
-    v19 = v11;
-    LODWORD(v11) = 2 * v11;
-    if ( (unsigned int)v11 >= 0xFF )
+    v18 = (unsigned int)(2 * v11);
+    v19 = 255;
+    v20 = v11;
+    LODWORD(v11) = 4;
+    if ( (unsigned int)v18 < 0xFF )
+      v19 = v18;
+    if ( v19 >= 4 )
     {
       LODWORD(v11) = 255;
+      if ( (unsigned int)v18 < 0xFF )
+        LODWORD(v11) = v18;
     }
-    else if ( (unsigned int)v11 < 4 )
+    if ( (_DWORD)v11 == (_DWORD)v20 )
     {
-      LODWORD(v11) = 4;
-    }
-    if ( (_DWORD)v11 == (_DWORD)v19 )
-    {
-      WdLogSingleEntry1(2LL, 806LL);
-      if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v24,
-          v23,
-          v25,
-          0,
-          0,
-          -1,
-          (__int64)L"Reached maximum number of primary allocation, rejecting this request",
-          806LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+      v28 = WdLogNewEntry5_WdError(v18, 255LL);
+      *(_QWORD *)(v28 + 24) = 797LL;
+      WdLogEvent5_WdError(v28);
       goto LABEL_8;
     }
-    v20 = 8LL * (unsigned int)v11;
+    v21 = 8LL * (unsigned int)v11;
     if ( !is_mul_ok((unsigned int)v11, 8uLL) )
-      v20 = -1LL;
-    v21 = (struct _KTHREAD *)operator new[](v20, 0x4B677844u, 256LL, v9);
-    v22 = v21;
-    if ( !v21 )
+      v21 = -1LL;
+    v22 = (char *)operator new[](v21, 0x4B677844u, PagedPool);
+    v27 = v22;
+    if ( !v22 )
     {
-      WdLogSingleEntry1(6LL, (unsigned int)v11);
-      if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v27,
-          v26,
-          v28,
-          0,
-          1,
-          -1,
-          (__int64)L"Failed to grow device primary allocation array to %d entries",
-          (unsigned int)v11,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+      v29 = WdLogNewEntry5_WdLowResource(v24, v23, v25, v26);
+      *(_QWORD *)(v29 + 24) = (unsigned int)v11;
+      WdLogEvent5_WdLowResource(v29);
       goto LABEL_8;
     }
-    if ( (_DWORD)v19 )
+    memset(&v22[8 * v20], 0, 8LL * (unsigned int)(v11 - v20));
+    if ( (_DWORD)v20 )
     {
-      memmove(v21, this[v10 + 103], 8 * v19);
-      v29 = this[v10 + 103];
-      if ( v29 )
-        ExFreePoolWithTag(v29, 0);
+      memmove(v27, this[v10 + 103], 8 * v20);
+      v13 = (unsigned __int64)this[v10 + 103];
+      if ( v13 )
+        ExFreePoolWithTag((PVOID)v13, 0);
     }
     v7 = a4;
-    this[v10 + 103] = v22;
+    this[v10 + 103] = (struct _KTHREAD *)v27;
     *((_DWORD *)this + v10 + 238) = v11;
   }
   v14 = 0;
   if ( (_DWORD)v11 )
   {
-    v15 = this[v10 + 103];
+    v13 = (unsigned __int64)this[v10 + 103];
     while ( 1 )
     {
-      v16 = v14;
-      if ( !*((_QWORD *)v15 + v14) )
+      v15 = v14;
+      if ( !*(_QWORD *)(v13 + 8LL * v14) )
         break;
       if ( ++v14 >= *((_DWORD *)this + v10 + 238) )
-        goto LABEL_27;
+        goto LABEL_25;
     }
-    v17 = WdLogNewEntry5_WdTrace(v15, v8);
-    v13 = 1;
-    *(_QWORD *)(v17 + 24) = a3;
-    *(_QWORD *)(v17 + 32) = v10;
-    *((_QWORD *)this[v10 + 103] + v16) = a3;
+    v16 = WdLogNewEntry5_WdTrace();
+    v12 = 1;
+    *(_QWORD *)(v16 + 24) = a3;
+    *(_QWORD *)(v16 + 32) = v10;
+    *((_QWORD *)this[v10 + 103] + v15) = a3;
     ++*((_BYTE *)this + 4 * v10 + 1208);
     *v7 = (*((_DWORD *)this + v10 + 302) >> 8) & 1;
   }
   else
   {
-LABEL_27:
-    WdLogSingleEntry1(1LL, 858LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v31,
-        v30,
-        v32,
-        0,
-        2,
-        -1,
-        (__int64)L"Can't find room in device primary allocation array",
-        858LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+LABEL_25:
+    v30 = WdLogNewEntry5_WdAssertion(v13, v8);
+    *(_QWORD *)(v30 + 24) = 854LL;
+    WdLogEvent5_WdAssertion(v30);
   }
 LABEL_8:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v33);
-  return v13;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v31);
+  return v12;
 }

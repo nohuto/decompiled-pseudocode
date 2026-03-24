@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmAppendInstallerClassFiltersLevel @ 0x1408FC9E8
+ * XREFs of _CmAppendInstallerClassFiltersLevel @ 0x1408FC9C8
  * Callers:
- *     _CmGetInstallerClassCompoundFilterList @ 0x1408FE058 (_CmGetInstallerClassCompoundFilterList.c)
+ *     _CmGetInstallerClassCompoundFilterList @ 0x1408FE038 (_CmGetInstallerClassCompoundFilterList.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     _PnpCtxRegEnumValue @ 0x1406F5604 (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1406F5654 (_PnpCtxRegQueryInfoKey.c)
- *     _PnpMultiSzAppend @ 0x1409002AC (_PnpMultiSzAppend.c)
+ *     _PnpCtxRegEnumValue @ 0x1406F55E4 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406F5634 (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpMultiSzAppend @ 0x14090028C (_PnpMultiSzAppend.c)
  */
 
 __int64 __fastcall CmAppendInstallerClassFiltersLevel(

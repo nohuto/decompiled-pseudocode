@@ -1,48 +1,50 @@
 /*
- * XREFs of ?SetProperty@CComponentTransform3D@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800C5320
+ * XREFs of ?SetProperty@CComponentTransform3D@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800BE0C0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV?$span@QEBUAnimatedProperty@AnimationHelper@@$0?0@gsl@@IW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1800C5398 (-FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV-$span@QEBUAnimatedPro.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CComponentTransform3D::SetProperty(__int64 a1, __int64 a2, __int64 a3, float *a4)
+__int64 __fastcall CComponentTransform3D::SetProperty(__int64 a1, int a2, int a3, float *a4)
 {
-  int *AnimatablePropertyInfo; // rax
-  __int64 v6; // rcx
-  float *v7; // r11
-  int v8; // eax
-  __int64 v9; // rcx
-  unsigned int v10; // ebx
-  _QWORD v12[3]; // [rsp+30h] [rbp-18h] BYREF
-  float v13; // [rsp+58h] [rbp+10h] BYREF
+  int *v5; // rax
+  void **v6; // rcx
+  int v7; // eax
+  __int64 v8; // rcx
+  unsigned int v9; // ebx
+  float v11; // xmm0_4
+  float v12; // [rsp+48h] [rbp+10h] BYREF
 
-  if ( (_DWORD)a2 == 5 && (_DWORD)a3 == 18 )
+  if ( a2 == 16 && a3 == 18 )
   {
-    AnimatablePropertyInfo = (int *)&CComponentTransform3D::sc_RotationAngle;
-    v7 = &v13;
-    v13 = *a4 * 0.017453292;
+    v5 = (int *)&CComponentTransform3D::sc_RotationAngle;
+    v11 = *a4 * 0.017453292;
+    a4 = &v12;
+    v12 = v11;
   }
   else
   {
-    v12[0] = 8LL;
-    v12[1] = &CComponentTransform3D::k_rgAnimDef;
-    AnimatablePropertyInfo = (int *)AnimationHelper::FindAnimatablePropertyInfo(v12, a2, a3);
-    if ( !AnimatablePropertyInfo )
+    v5 = 0LL;
+    v6 = (void **)&CComponentTransform3D::k_rgAnimDef;
+    while ( a2 != *(_DWORD *)*v6 || a3 != *((_DWORD *)*v6 + 1) && a3 )
     {
-      v10 = -2147024809;
-      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, -2147024809, 0x54u);
-      return v10;
+      if ( ++v6 == &CWindowBackgroundTreatment::`vftable'{for `IDeviceResourceNotify'} )
+        goto LABEL_8;
+    }
+    v5 = (int *)*v6;
+LABEL_8:
+    if ( !v5 )
+    {
+      v9 = -2147024809;
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)v6, 0LL, 0, -2147024809, 0x54u, 0LL);
+      return v9;
     }
   }
-  v8 = (*((__int64 (__fastcall **)(__int64, int *, float *))AnimatablePropertyInfo + 3))(
-         a1 + AnimatablePropertyInfo[8],
-         AnimatablePropertyInfo,
-         v7);
-  v10 = v8;
-  if ( v8 < 0 )
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0x50u);
-  return v10;
+  v7 = (*((__int64 (__fastcall **)(__int64, int *, float *))v5 + 3))(a1 + v5[8], v5, a4);
+  v9 = v7;
+  if ( v7 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x50u, 0LL);
+  return v9;
 }

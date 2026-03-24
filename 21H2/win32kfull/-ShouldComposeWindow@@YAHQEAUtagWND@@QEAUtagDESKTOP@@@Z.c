@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ShouldComposeWindow@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z @ 0x1C00B33EC
+ * XREFs of ?ShouldComposeWindow@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z @ 0x1C00ECB68
  * Callers:
- *     zzzComposeDesktop @ 0x1C00B2FD8 (zzzComposeDesktop.c)
+ *     zzzComposeDesktop @ 0x1C00EC878 (zzzComposeDesktop.c)
  * Callees:
- *     IsDesktopWindow @ 0x1C00205C0 (IsDesktopWindow.c)
- *     _IsTopLevelWindow @ 0x1C006D904 (_IsTopLevelWindow.c)
- *     IsWindowBeingDestroyed @ 0x1C0083884 (IsWindowBeingDestroyed.c)
+ *     IsWindowBeingDestroyed @ 0x1C00388DC (IsWindowBeingDestroyed.c)
+ *     IsDesktopWindow @ 0x1C004C5F0 (IsDesktopWindow.c)
+ *     _IsTopLevelWindow @ 0x1C006FC88 (_IsTopLevelWindow.c)
  */
 
 __int64 __fastcall ShouldComposeWindow(struct tagWND *const a1, struct tagDESKTOP *const a2)
@@ -24,7 +24,7 @@ __int64 __fastcall ShouldComposeWindow(struct tagWND *const a1, struct tagDESKTO
       && !(unsigned int)IsWindowBeingDestroyed((__int64)a1)
       && (*(_BYTE *)(*(_QWORD *)(v5 + 40) + 31LL) & 0x10) != 0 )
     {
-      if ( IsTopLevelWindow(v5) )
+      if ( (unsigned int)IsTopLevelWindow(v5) )
         return 1;
       LOBYTE(v7) = IsDesktopWindow(v6);
       if ( v7 )

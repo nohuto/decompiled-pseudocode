@@ -1,33 +1,45 @@
 /*
- * XREFs of ?DirtyFromAccum@CGdiSpriteBitmap@@AEAAXXZ @ 0x1800F5274
+ * XREFs of ?DirtyFromAccum@CGdiSpriteBitmap@@AEAAXXZ @ 0x180031BE8
  * Callers:
- *     ?RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ @ 0x1800A9100 (-RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ.c)
- *     ?SetDirtyFromAccumulation@?$CGdiSpriteBitmapGeneratedT@VCGdiSpriteBitmap@@VCResource@@@@QEAAJ_N@Z @ 0x1801C6A44 (-SetDirtyFromAccumulation@-$CGdiSpriteBitmapGeneratedT@VCGdiSpriteBitmap@@VCResource@@@@QEAAJ_N@.c)
+ *     ?RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ @ 0x180033848 (-RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ.c)
  * Callees:
- *     ?SetHRGN@CRegion@@QEAAXQEAUHRGN__@@@Z @ 0x180042FC0 (-SetHRGN@CRegion@@QEAAXQEAUHRGN__@@@Z.c)
- *     ?AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z @ 0x1800461F0 (-AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     ?GetDirtyRegionFromAccum@CRedirectedGDISurface@@QEAAJPEAPEAUHRGN__@@@Z @ 0x1800F5328 (-GetDirtyRegionFromAccum@CRedirectedGDISurface@@QEAAJPEAPEAUHRGN__@@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?GetInformation@CRedirectedGDISurface@@QEAAJW4_RedirectGDISurfaceInformationClass@@PEAKPEAX@Z @ 0x18003357C (-GetInformation@CRedirectedGDISurface@@QEAAJW4_RedirectGDISurfaceInformationClass@@PEAKPEAX@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z @ 0x18009BC18 (-AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z.c)
+ *     ?SetHRGN@CRegion@@QEAAXQEAUHRGN__@@@Z @ 0x18009CA7C (-SetHRGN@CRegion@@QEAAXQEAUHRGN__@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 void __fastcall CGdiSpriteBitmap::DirtyFromAccum(CGdiSpriteBitmap *this)
 {
-  HGDIOBJ ho; // [rsp+20h] [rbp-78h] BYREF
-  int *v3; // [rsp+30h] [rbp-68h] BYREF
-  int v4; // [rsp+38h] [rbp-60h] BYREF
+  __int64 v2; // rcx
+  int v3; // [rsp+20h] [rbp-59h] BYREF
+  HGDIOBJ ho; // [rsp+28h] [rbp-51h] BYREF
+  _OWORD v5[3]; // [rsp+30h] [rbp-49h] BYREF
+  __int64 v6; // [rsp+60h] [rbp-19h]
+  int *v7; // [rsp+70h] [rbp-9h] BYREF
+  int v8; // [rsp+78h] [rbp-1h] BYREF
 
   ho = 0LL;
-  if ( (int)CRedirectedGDISurface::GetDirtyRegionFromAccum(*((CRedirectedGDISurface **)this + 15), (HRGN *)&ho) >= 0 )
+  v3 = 56;
+  v6 = 0LL;
+  v2 = *((_QWORD *)this + 11);
+  v5[1] = (unsigned __int64)&ho;
+  v5[0] = 0LL;
+  v5[2] = 0LL;
+  if ( (int)((__int64 (__fastcall *)(__int64, _QWORD, int *, _OWORD *))CRedirectedGDISurface::GetInformation)(
+              v2,
+              0LL,
+              &v3,
+              v5) >= 0 )
   {
     if ( !ho )
       return;
-    v4 = 0;
-    v3 = &v4;
-    CRegion::SetHRGN((CRegion *)&v3, (HRGN)ho);
-    CGdiSpriteBitmap::AddDirtyRegion(this, (struct CRegion *)&v3, *((_BYTE *)this + 144));
-    *((_BYTE *)this + 144) = 0;
-    FastRegion::CRegion::FreeMemory((void **)&v3);
+    v8 = 0;
+    v7 = &v8;
+    CRegion::SetHRGN((CRegion *)&v7, (HRGN)ho);
+    CGdiSpriteBitmap::AddDirtyRegion(this, (struct CRegion *)&v7, *((_BYTE *)this + 130));
+    FastRegion::CRegion::FreeMemory((FastRegion::CRegion *)&v7);
   }
   if ( ho )
     DeleteObject(ho);

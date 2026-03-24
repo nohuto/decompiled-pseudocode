@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenProcessToken @ 0x1407C5500
+ * XREFs of NtOpenProcessToken @ 0x140653D30
  * Callers:
  *     <none>
  * Callees:
- *     NtOpenProcessTokenEx @ 0x140737BD0 (NtOpenProcessTokenEx.c)
+ *     NtOpenProcessTokenEx @ 0x140653D50 (NtOpenProcessTokenEx.c)
  */
 
 NTSTATUS __stdcall NtOpenProcessToken(HANDLE ProcessHandle, ACCESS_MASK DesiredAccess, PHANDLE TokenHandle)

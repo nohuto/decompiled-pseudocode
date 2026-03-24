@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CloseChannelObject@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAA_NW4_HMGRENTRY_TYPE@@PEAX@Z @ 0x1C02DEFF0
+ * XREFs of ?CloseChannelObject@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAA_NW4_HMGRENTRY_TYPE@@PEAX@Z @ 0x1C028C630
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall DXG_HOST_COMPOSITIONOBJECTCHANNEL::CloseChannelObject(__int64 a1)

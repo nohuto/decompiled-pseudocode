@@ -1,24 +1,24 @@
 /*
- * XREFs of HalAllocateCommonBufferWithBounds @ 0x1405111C0
+ * XREFs of HalAllocateCommonBufferWithBounds @ 0x1404C5B10
  * Callers:
  *     <none>
  * Callees:
- *     HalpAllocateDomainCommonBufferInternal @ 0x140514A70 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x1403A11F4 (HalpAllocateDomainCommonBufferInternal.c)
  */
 
 __int64 __fastcall HalAllocateCommonBufferWithBounds(
         __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
+        __int64 *a2,
+        unsigned __int64 *a3,
+        unsigned int a4,
         char a5,
-        __int64 a6,
+        _DWORD *a6,
         int a7,
-        __int64 a8)
+        PHYSICAL_ADDRESS *a8)
 {
   __int64 v9; // [rsp+60h] [rbp+8h] BYREF
 
   v9 = 0LL;
-  HalpAllocateDomainCommonBufferInternal(*(_QWORD *)(a1 + 504), a5, a6, a7, a8, (__int64)&v9);
+  HalpAllocateDomainCommonBufferInternal(*(_QWORD *)(a1 + 504), a2, a3, a4, a5, a6, a7, a8, &v9);
   return v9;
 }

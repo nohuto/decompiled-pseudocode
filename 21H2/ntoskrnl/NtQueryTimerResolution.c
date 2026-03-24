@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryTimerResolution @ 0x1406DA1E0
+ * XREFs of NtQueryTimerResolution @ 0x1406BE7B0
  * Callers:
  *     <none>
  * Callees:
@@ -28,13 +28,13 @@ __int64 __fastcall NtQueryTimerResolution(_DWORD *a1, _DWORD *a2, _DWORD *a3)
     *(_DWORD *)v5 = *(_DWORD *)v5;
     *a1 = KeMaximumIncrement;
     *a2 = KeMinimumIncrement;
-    *a3 = KePseudoHrTimeIncrement;
+    *a3 = KeTimeIncrement;
   }
   else
   {
     *a1 = KeMaximumIncrement;
     *a2 = KeMinimumIncrement;
-    *a3 = KePseudoHrTimeIncrement;
+    *a3 = KeTimeIncrement;
   }
   return 0LL;
 }

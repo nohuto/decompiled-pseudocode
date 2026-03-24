@@ -1,23 +1,22 @@
 /*
- * XREFs of RtlInitializeGenericTableAvl @ 0x14031E790
+ * XREFs of RtlInitializeGenericTableAvl @ 0x14032D560
  * Callers:
- *     PiPnpRtlBeginOperation @ 0x140788EE0 (PiPnpRtlBeginOperation.c)
- *     PiDqQueryCreate @ 0x1407F9734 (PiDqQueryCreate.c)
- *     PopDirectedDripsUmInitialize @ 0x140802C48 (PopDirectedDripsUmInitialize.c)
- *     PiDmObjectManagerInit @ 0x14083B378 (PiDmObjectManagerInit.c)
- *     EtwpInitializeAutoLoggers @ 0x14083D85C (EtwpInitializeAutoLoggers.c)
- *     EtwpEnableKeyProviders @ 0x14083E864 (EtwpEnableKeyProviders.c)
- *     VfAvlInitializeTreeEx @ 0x140ABE450 (VfAvlInitializeTreeEx.c)
- *     ViPtInitAvlTrees @ 0x140ADFDB0 (ViPtInitAvlTrees.c)
- *     PiSwInit @ 0x140B3F42C (PiSwInit.c)
- *     PiDcInit @ 0x140B42CC0 (PiDcInit.c)
- *     PiInitializeDDBCache @ 0x140B42F60 (PiInitializeDDBCache.c)
- *     IoInitSystemPreDrivers @ 0x140B4F014 (IoInitSystemPreDrivers.c)
- *     PopPowerRequestInitialize @ 0x140B66098 (PopPowerRequestInitialize.c)
- *     PopPowerRequestStatsInitialize @ 0x140B6625C (PopPowerRequestStatsInitialize.c)
- *     PpInitSystem @ 0x140B75180 (PpInitSystem.c)
+ *     PiDqQueryCreate @ 0x1406A7BF8 (PiDqQueryCreate.c)
+ *     PiPnpRtlBeginOperation @ 0x1406AD460 (PiPnpRtlBeginOperation.c)
+ *     PopDirectedDripsUmInitialize @ 0x140791728 (PopDirectedDripsUmInitialize.c)
+ *     EtwpInitializeAutoLoggers @ 0x140795E44 (EtwpInitializeAutoLoggers.c)
+ *     EtwpEnableKeyProviders @ 0x140796F8C (EtwpEnableKeyProviders.c)
+ *     PiDmObjectManagerInit @ 0x1407A33B0 (PiDmObjectManagerInit.c)
+ *     VfAvlInitializeTreeEx @ 0x1409C2644 (VfAvlInitializeTreeEx.c)
+ *     IoInitSystemPreDrivers @ 0x140A3DF90 (IoInitSystemPreDrivers.c)
+ *     PiDcInit @ 0x140A53024 (PiDcInit.c)
+ *     PiInitializeDDBCache @ 0x140A53128 (PiInitializeDDBCache.c)
+ *     PiSwInit @ 0x140A534A0 (PiSwInit.c)
+ *     PopPowerRequestInit @ 0x140A704D4 (PopPowerRequestInit.c)
+ *     PopStatsInitPowerRequestLibrary @ 0x140A706D8 (PopStatsInitPowerRequestLibrary.c)
+ *     PpInitSystem @ 0x140A72804 (PpInitSystem.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 void __stdcall RtlInitializeGenericTableAvl(

@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vPatternCopyLoop@@YAXPEAU_RECTL@@PEAKPEAU_PATBLTFRAME@@HKKKKJJJPEBK3@Z @ 0x1C02E79DC
+ * XREFs of ?vPatternCopyLoop@@YAXPEAU_RECTL@@PEAKPEAU_PATBLTFRAME@@HKKKKJJJPEBK3@Z @ 0x1C02C798C
  * Callers:
- *     ?vPatCpyRect1_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02E62E0 (-vPatCpyRect1_8x8@@YAXPEAU_PATBLTFRAME@@H@Z.c)
- *     ?vPatCpyRect4_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02E6560 (-vPatCpyRect4_8x8@@YAXPEAU_PATBLTFRAME@@H@Z.c)
+ *     ?vPatCpyRect1_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02C62F0 (-vPatCpyRect1_8x8@@YAXPEAU_PATBLTFRAME@@H@Z.c)
+ *     ?vPatCpyRect4_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02C6550 (-vPatCpyRect4_8x8@@YAXPEAU_PATBLTFRAME@@H@Z.c)
  * Callees:
  *     <none>
  */
@@ -120,7 +120,7 @@ void __fastcall vPatternCopyLoop(
                   if ( (_DWORD)v15 == 9 )
                     break;
 LABEL_31:
-                  v25[v15 + 1] = a5 & v26 | v25[v15 + 1] & a7;
+                  v25[v15 + 1] = a5 & v26 | a7 & v25[v15 + 1];
                   v25 = (unsigned int *)((char *)v25 + a11);
                   if ( !--v24 )
                   {
@@ -188,7 +188,7 @@ LABEL_38:
                   break;
               }
 LABEL_49:
-              v25[v15] = a5 & v26 | a7 & v25[v15];
+              v25[v15] = a5 & v26 | v25[v15] & a7;
               v25 = (unsigned int *)((char *)v25 + a11);
               if ( !--v24 )
                 goto LABEL_41;
@@ -249,13 +249,14 @@ LABEL_56:
               break;
           }
 LABEL_67:
-          v25[v15 + 1] = a5 & v26 | v25[v15 + 1] & a7;
+          v25[v15 + 1] = a5 & v26 | a7 & v25[v15 + 1];
           v25 = (unsigned int *)((char *)v25 + a11);
           if ( !--v24 )
           {
             v14 = a1;
             v13 = a12;
-            goto LABEL_138;
+            v20 = 4 * v15;
+            goto LABEL_139;
           }
         }
         v37 = v25 + 2;
@@ -428,7 +429,7 @@ LABEL_116:
       }
       *v25 = v26;
 LABEL_137:
-      v25[v15] = a5 & v26 | a7 & v25[v15];
+      v25[v15] = a5 & v26 | v25[v15] & a7;
       v25 = (unsigned int *)((char *)v25 + a11);
       --v24;
     }

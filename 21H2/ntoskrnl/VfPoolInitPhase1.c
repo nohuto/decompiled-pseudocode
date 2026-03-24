@@ -1,14 +1,14 @@
 /*
- * XREFs of VfPoolInitPhase1 @ 0x140A9A2E8
+ * XREFs of VfPoolInitPhase1 @ 0x1409E0220
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x140A82328 (VfInitSystemNoRebootNeeded.c)
- *     ViInitSystemPhase1 @ 0x140B27E30 (ViInitSystemPhase1.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409C6D40 (VfInitSystemNoRebootNeeded.c)
+ *     ViInitSystemPhase1 @ 0x140A6FD8C (ViInitSystemPhase1.c)
  * Callees:
- *     InitializeSListHead @ 0x1402A05A0 (InitializeSListHead.c)
- *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     PsCreateSystemThread @ 0x1406F0310 (PsCreateSystemThread.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     PsCreateSystemThread @ 0x1406D0140 (PsCreateSystemThread.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 unsigned __int64 VfPoolInitPhase1()
@@ -21,11 +21,12 @@ unsigned __int64 VfPoolInitPhase1()
   PVOID Object; // [rsp+88h] [rbp+18h] BYREF
 
   ThreadHandle = 0LL;
-  *(&ObjectAttributes.Attributes + 1) = 0;
   *(&ObjectAttributes.Length + 1) = 0;
-  if ( (VfRuleClasses & 0x400000) == 0 || (result = (unsigned int)MmVerifierData, (MmVerifierData & 1) != 0) )
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  result = (unsigned int)MmVerifierData;
+  if ( (MmVerifierData & 0x400000) == 0 || (MmVerifierData & 1) != 0 )
   {
-    v1 = (char *)&unk_140CE1DE8;
+    v1 = (char *)&unk_140CECCE8;
     do
     {
       KeInitializeEvent((PRKEVENT)v1 - 1, SynchronizationEvent, 0);
@@ -52,9 +53,9 @@ unsigned __int64 VfPoolInitPhase1()
         _InterlockedExchange((volatile __int32 *)v1 + 2, 1);
       }
       v1 += 64;
-      result = (unsigned __int64)byte_140CE1E68;
+      result = (unsigned __int64)byte_140CECD68;
     }
-    while ( (__int64)v1 < (__int64)byte_140CE1E68 );
+    while ( (__int64)v1 < (__int64)byte_140CECD68 );
   }
   return result;
 }

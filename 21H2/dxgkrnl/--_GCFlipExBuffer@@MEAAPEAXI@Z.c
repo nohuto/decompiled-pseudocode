@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_GCFlipExBuffer@@MEAAPEAXI@Z @ 0x1C00043F0
+ * XREFs of ??_GCFlipExBuffer@@MEAAPEAXI@Z @ 0x1C000EC60
  * Callers:
  *     <none>
  * Callees:
- *     ??1CFlipExBuffer@@MEAA@XZ @ 0x1C00044C4 (--1CFlipExBuffer@@MEAA@XZ.c)
+ *     ??1CFlipExBuffer@@MEAA@XZ @ 0x1C000ECA4 (--1CFlipExBuffer@@MEAA@XZ.c)
  */
 
 CFlipExBuffer *__fastcall CFlipExBuffer::`scalar deleting destructor'(CFlipExBuffer *P, char a2)

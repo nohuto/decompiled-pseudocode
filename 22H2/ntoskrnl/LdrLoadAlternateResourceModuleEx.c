@@ -1,22 +1,22 @@
 /*
- * XREFs of LdrLoadAlternateResourceModuleEx @ 0x1402F77DC
+ * XREFs of LdrLoadAlternateResourceModuleEx @ 0x140301DF4
  * Callers:
- *     LdrpLoadResourceFromAlternativeModule @ 0x1402F7700 (LdrpLoadResourceFromAlternativeModule.c)
- *     LdrpResSearchResourceMappedFile @ 0x1402F7FA8 (LdrpResSearchResourceMappedFile.c)
- *     LdrResSearchResource @ 0x14075A150 (LdrResSearchResource.c)
+ *     LdrpResSearchResourceMappedFile @ 0x140300848 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x140301D18 (LdrpLoadResourceFromAlternativeModule.c)
+ *     LdrResSearchResource @ 0x140670CE0 (LdrResSearchResource.c)
  * Callees:
- *     LdrpKrnGetDataTableEntry @ 0x1402F7214 (LdrpKrnGetDataTableEntry.c)
- *     LdrpGetFromMUIMemCache @ 0x1402F7A78 (LdrpGetFromMUIMemCache.c)
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     DownLevelLangIDToLanguageName @ 0x14037140C (DownLevelLangIDToLanguageName.c)
- *     LdrpSetAlternateResourceModuleHandle @ 0x1403A1D34 (LdrpSetAlternateResourceModuleHandle.c)
- *     LdrpGetResourceFileName @ 0x1403A6A94 (LdrpGetResourceFileName.c)
- *     LdrpMapResourceFile @ 0x1403A7634 (LdrpMapResourceFile.c)
- *     LdrpVerifyAlternateResourceModuleEx @ 0x1403AD058 (LdrpVerifyAlternateResourceModuleEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     memset @ 0x140435400 (memset.c)
- *     MmUnmapViewInSystemSpace @ 0x1407E0990 (MmUnmapViewInSystemSpace.c)
+ *     LdrpKrnGetDataTableEntry @ 0x1403018A0 (LdrpKrnGetDataTableEntry.c)
+ *     LdrpGetFromMUIMemCache @ 0x140302064 (LdrpGetFromMUIMemCache.c)
+ *     DownLevelLangIDToLanguageName @ 0x1403022DC (DownLevelLangIDToLanguageName.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x14037EC0C (LdrpSetAlternateResourceModuleHandle.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     LdrpMapResourceFile @ 0x14037FE7C (LdrpMapResourceFile.c)
+ *     LdrpGetResourceFileName @ 0x1403803F8 (LdrpGetResourceFileName.c)
+ *     LdrpVerifyAlternateResourceModuleEx @ 0x14038149C (LdrpVerifyAlternateResourceModuleEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MmUnmapViewInSystemSpace @ 0x14068F560 (MmUnmapViewInSystemSpace.c)
  */
 
 __int64 __fastcall LdrLoadAlternateResourceModuleEx(
@@ -102,9 +102,9 @@ LABEL_14:
           }
         }
       }
-      goto LABEL_18;
+      goto LABEL_20;
     }
-    if ( (unsigned int)DownLevelLangIDToLanguageName((unsigned __int16)v7, v24, 85LL, 2LL) )
+    if ( (unsigned int)DownLevelLangIDToLanguageName((unsigned __int16)v7, v24, 85LL) )
     {
       DataTableEntry = v23;
       goto LABEL_14;
@@ -112,7 +112,7 @@ LABEL_14:
     DbgPrintEx(0x55u, 1u, "LDR: No Locale name for LangId %d \n", v7);
   }
   ResourceFileName = -1073020927;
-LABEL_18:
+LABEL_20:
   if ( !v9 )
     v9 = -1LL;
   MappedBase = (PVOID)v9;

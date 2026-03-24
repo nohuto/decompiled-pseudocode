@@ -1,43 +1,42 @@
 /*
- * XREFs of EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1409E190C
+ * XREFs of EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x14093ABA8
  * Callers:
- *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1409E1B94 (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x14093AE40 (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     wcsncmp @ 0x1403E33F0 (wcsncmp.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x14041BA20 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x14041BDA0 (ZwEnumerateKey.c)
- *     ZwDeleteKey @ 0x14041D280 (ZwDeleteKey.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     wcsncmp @ 0x1403D4040 (wcsncmp.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1403FA660 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
+ *     ZwDeleteKey @ 0x1403FBE20 (ZwDeleteKey.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRemoveMicroarchitecturalPmcFromPmcGroup(PCWSTR SourceString, wchar_t *Str1, size_t MaxCount)
 {
   size_t v3; // r12
   __int64 v6; // rax
-  size_t v7; // rsi
-  wchar_t *Pool2; // rdi
+  SIZE_T v7; // r14
+  wchar_t *PoolWithTag; // rdi
   NTSTATUS v10; // ebx
-  int v11; // r14d
-  NTSTATUS v12; // eax
+  int v11; // esi
   ULONG ResultLength; // [rsp+30h] [rbp-D0h] BYREF
   HANDLE KeyHandle; // [rsp+38h] [rbp-C8h] BYREF
   HANDLE Handle; // [rsp+40h] [rbp-C0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
-  _OWORD v18[2]; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v19; // [rsp+A8h] [rbp-58h]
+  _OWORD v17[2]; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v18; // [rsp+A8h] [rbp-58h]
   _DWORD KeyInformation[136]; // [rsp+B0h] [rbp-50h] BYREF
 
   v3 = (unsigned int)MaxCount;
-  v19 = 0LL;
-  memset(v18, 0, sizeof(v18));
+  v18 = 0LL;
+  memset(v17, 0, sizeof(v17));
   memset(KeyInformation, 0, 0x218uLL);
   DestinationString = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
@@ -50,8 +49,8 @@ __int64 __fastcall EtwpRemoveMicroarchitecturalPmcFromPmcGroup(PCWSTR SourceStri
     ++v6;
   while ( SourceString[v6] );
   v7 = 2LL * (unsigned int)(v6 + v3 + 2);
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, v7, 1350005829LL);
-  if ( !Pool2 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v7, 0x50777445u);
+  if ( !PoolWithTag )
     return 3221225495LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
   ObjectAttributes.Length = 48;
@@ -60,46 +59,47 @@ __int64 __fastcall EtwpRemoveMicroarchitecturalPmcFromPmcGroup(PCWSTR SourceStri
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v10 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
+  if ( v10 < 0 )
+    goto LABEL_21;
+  v11 = -1;
+  while ( 1 )
+  {
+    v10 = ZwEnumerateKey(KeyHandle, ++v11, KeyBasicInformation, KeyInformation, 0x216u, &ResultLength);
+    if ( v10 < 0 || KeyInformation[3] != 2 * v3 )
+    {
+      if ( v10 == -1073741789 || v10 == -2147483643 )
+        v10 = 0;
+      goto LABEL_15;
+    }
+    *((_WORD *)&KeyInformation[4] + v3) = 0;
+    if ( !wcsncmp(Str1, (const wchar_t *)&KeyInformation[4], v3) )
+      break;
+LABEL_15:
+    if ( v10 < 0 )
+      goto LABEL_16;
+  }
+  RtlStringCbPrintfW(PoolWithTag, v7, L"%ws\\%ws", SourceString, &KeyInformation[4]);
+  RtlInitUnicodeString(&DestinationString, PoolWithTag);
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Attributes = 576;
+  ObjectAttributes.RootDirectory = 0LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v10 = ZwOpenKey(&Handle, 0xF003Fu, &ObjectAttributes);
+  if ( v10 < 0 )
+    goto LABEL_20;
+  ZwDeleteKey(Handle);
+  ZwClose(Handle);
+LABEL_16:
   if ( v10 >= 0 )
   {
-    v11 = -1;
-    while ( 1 )
-    {
-      while ( 1 )
-      {
-        v12 = ZwEnumerateKey(KeyHandle, ++v11, KeyBasicInformation, KeyInformation, 0x216u, &ResultLength);
-        v10 = v12;
-        if ( v12 >= 0 )
-          break;
-        if ( v12 != -1073741789 && v12 != -2147483643 )
-          goto LABEL_14;
-      }
-      if ( KeyInformation[3] == 2 * v3 )
-      {
-        *((_WORD *)&KeyInformation[4] + v3) = 0;
-        if ( !wcsncmp(Str1, (const wchar_t *)&KeyInformation[4], v3) )
-          break;
-      }
-    }
-    RtlStringCbPrintfW(Pool2, v7, L"%ws\\%ws", SourceString, &KeyInformation[4]);
-    RtlInitUnicodeString(&DestinationString, Pool2);
-    ObjectAttributes.Length = 48;
-    ObjectAttributes.ObjectName = &DestinationString;
-    ObjectAttributes.Attributes = 576;
-    ObjectAttributes.RootDirectory = 0LL;
-    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v10 = ZwOpenKey(&Handle, 0xF003Fu, &ObjectAttributes);
-    if ( v10 >= 0 )
-    {
-      ZwDeleteKey(Handle);
-      ZwClose(Handle);
-      v10 = ZwQueryKey(KeyHandle, KeyCachedInformation, v18, 0x28u, &ResultLength);
-      if ( v10 >= 0 && !HIDWORD(v18[0]) )
-        ZwDeleteKey(KeyHandle);
-    }
-LABEL_14:
-    ZwClose(KeyHandle);
+    v10 = ZwQueryKey(KeyHandle, KeyCachedInformation, v17, 0x28u, &ResultLength);
+    if ( v10 >= 0 && !HIDWORD(v17[0]) )
+      ZwDeleteKey(KeyHandle);
   }
-  ExFreePoolWithTag(Pool2, 0x50777445u);
+LABEL_20:
+  ZwClose(KeyHandle);
+LABEL_21:
+  ExFreePoolWithTag(PoolWithTag, 0x50777445u);
   return (unsigned int)v10;
 }

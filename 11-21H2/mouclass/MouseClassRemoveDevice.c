@@ -1,1 +1,72 @@
-/*\n * XREFs of MouseClassRemoveDevice @ 0x1C00051D4\n * Callers:\n *     MousePnP @ 0x1C0001510 (MousePnP.c)\n * Callees:\n *     MouseClassCleanupQueue @ 0x1C0004AC8 (MouseClassCleanupQueue.c)\n */\n\nvoid __fastcall MouseClassRemoveDevice(__int64 a1, char a2)\n{\n  IRP *v2; // rdi\n  __int64 v3; // rbx\n  KIRQL v4; // al\n  IRP *v5; // rdx\n  __int32 v6; // eax\n\n  v2 = 0LL;\n  v3 = a1;\n  if ( a2 )\n  {\n    *(_BYTE *)(a1 + 346) = 1;\n  }\n  else if ( *(_BYTE *)(a1 + 346) )\n  {\n    goto LABEL_21;\n  }\n  if ( !_InterlockedExchange((volatile __int32 *)(a1 + 304), 1) )\n  {\n    v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 72));\n    v5 = *(IRP **)(v3 + 280);\n    if ( v5 && !*(_BYTE *)(v3 + 288) )\n    {\n      *(_BYTE *)(v3 + 288) = 1;\n      v2 = v5;\n    }\n    KeReleaseSpinLock((PKSPIN_LOCK)(v3 + 72), v4);\n    if ( v2 )\n      IoCancelIrp(v2);\n    v6 = _InterlockedExchange((volatile __int32 *)(v3 + 304), 2);\n    if ( v2 && v6 == 3 )\n      IofCompleteRequest(v2, 0);\n  }\n  IoWMIRegistrationControl(*(PDEVICE_OBJECT *)v3, 2u);\n  if ( *(_BYTE *)(v3 + 65) )\n  {\n    ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n    if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )\n    {\n      if ( SHIDWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) <= 0 )\n      {\n        ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n      }\n      else\n      {\n        *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * *(unsigned int *)(v3 + 180) + 16) = 0;\n        ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n        a1 = _InterlockedExchange64((volatile __int64 *)(v3 + 312), 0LL);\n        if ( a1 )\n          IoUnregisterPlugPlayNotification((PVOID)a1);\n      }\n    }\n    else\n    {\n      ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n      if ( *(_QWORD *)(v3 + 96) )\n        IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 88), 0);\n    }\n  }\nLABEL_21:\n  if ( *(_BYTE *)(v3 + 64) )\n    MouseClassCleanupQueue(a1, v3, 0LL);\n}\n
+/*
+ * XREFs of MouseClassRemoveDevice @ 0x1C00051D4
+ * Callers:
+ *     MousePnP @ 0x1C0001510 (MousePnP.c)
+ * Callees:
+ *     MouseClassCleanupQueue @ 0x1C0004AC8 (MouseClassCleanupQueue.c)
+ */
+
+void __fastcall MouseClassRemoveDevice(__int64 a1, char a2)
+{
+  IRP *v2; // rdi
+  __int64 v3; // rbx
+  KIRQL v4; // al
+  IRP *v5; // rdx
+  __int32 v6; // eax
+
+  v2 = 0LL;
+  v3 = a1;
+  if ( a2 )
+  {
+    *(_BYTE *)(a1 + 346) = 1;
+  }
+  else if ( *(_BYTE *)(a1 + 346) )
+  {
+    goto LABEL_21;
+  }
+  if ( !_InterlockedExchange((volatile __int32 *)(a1 + 304), 1) )
+  {
+    v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 72));
+    v5 = *(IRP **)(v3 + 280);
+    if ( v5 && !*(_BYTE *)(v3 + 288) )
+    {
+      *(_BYTE *)(v3 + 288) = 1;
+      v2 = v5;
+    }
+    KeReleaseSpinLock((PKSPIN_LOCK)(v3 + 72), v4);
+    if ( v2 )
+      IoCancelIrp(v2);
+    v6 = _InterlockedExchange((volatile __int32 *)(v3 + 304), 2);
+    if ( v2 && v6 == 3 )
+      IofCompleteRequest(v2, 0);
+  }
+  IoWMIRegistrationControl(*(PDEVICE_OBJECT *)v3, 2u);
+  if ( *(_BYTE *)(v3 + 65) )
+  {
+    ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+    if ( *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )
+    {
+      if ( SHIDWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) <= 0 )
+      {
+        ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+      }
+      else
+      {
+        *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * *(unsigned int *)(v3 + 180) + 16) = 0;
+        ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+        a1 = _InterlockedExchange64((volatile __int64 *)(v3 + 312), 0LL);
+        if ( a1 )
+          IoUnregisterPlugPlayNotification((PVOID)a1);
+      }
+    }
+    else
+    {
+      ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+      if ( *(_QWORD *)(v3 + 96) )
+        IoSetDeviceInterfaceState((PUNICODE_STRING)(v3 + 88), 0);
+    }
+  }
+LABEL_21:
+  if ( *(_BYTE *)(v3 + 64) )
+    MouseClassCleanupQueue(a1, v3, 0LL);
+}

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlEqualString @ 0x14034BF90
+ * XREFs of RtlEqualString @ 0x1403069D0
  * Callers:
- *     HalMatchAcpiOemId @ 0x140398AA0 (HalMatchAcpiOemId.c)
- *     IopInitializeBuiltinDriver @ 0x140B41264 (IopInitializeBuiltinDriver.c)
- *     IopGetBootDiskInformation @ 0x140B94A0C (IopGetBootDiskInformation.c)
+ *     HalMatchAcpiOemId @ 0x1403BFDC0 (HalMatchAcpiOemId.c)
+ *     IopInitializeBuiltinDriver @ 0x140A5E618 (IopInitializeBuiltinDriver.c)
+ *     IopGetBootDiskInformation @ 0x140A8F9DC (IopGetBootDiskInformation.c)
  * Callees:
- *     RtlUpperChar @ 0x1406D8590 (RtlUpperChar.c)
+ *     RtlUpperChar @ 0x1405ED5E0 (RtlUpperChar.c)
  */
 
 BOOLEAN __stdcall RtlEqualString(const STRING *String1, const STRING *String2, BOOLEAN CaseInSensitive)
@@ -14,9 +14,9 @@ BOOLEAN __stdcall RtlEqualString(const STRING *String1, const STRING *String2, B
   char *Buffer; // rdi
   char *v5; // rsi
   char *v6; // rbp
-  CHAR v7; // r14
-  CHAR v8; // bl
-  signed __int64 v10; // rsi
+  signed __int64 v7; // rsi
+  CHAR v9; // r14
+  CHAR v10; // bl
 
   Length = String1->Length;
   if ( (_WORD)Length == String2->Length )
@@ -30,11 +30,11 @@ BOOLEAN __stdcall RtlEqualString(const STRING *String1, const STRING *String2, B
     {
       while ( 1 )
       {
-        v7 = *v5;
+        v9 = *v5;
         if ( *Buffer != *v5 )
         {
-          v8 = RtlUpperChar(*Buffer);
-          if ( v8 != RtlUpperChar(v7) )
+          v10 = RtlUpperChar(*Buffer);
+          if ( v10 != RtlUpperChar(v9) )
             break;
         }
         ++Buffer;
@@ -45,8 +45,8 @@ BOOLEAN __stdcall RtlEqualString(const STRING *String1, const STRING *String2, B
     }
     else
     {
-      v10 = v5 - Buffer;
-      while ( *Buffer == Buffer[v10] )
+      v7 = v5 - Buffer;
+      while ( *Buffer == Buffer[v7] )
       {
         if ( ++Buffer >= v6 )
           return 1;

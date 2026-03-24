@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpJoinClassOfTrust @ 0x140256264
+ * XREFs of CmpJoinClassOfTrust @ 0x1402D3974
  * Callers:
- *     CmpLoadKeyCommon @ 0x14020AABC (CmpLoadKeyCommon.c)
- *     CmpResolveHiveLoadConflict @ 0x140914914 (CmpResolveHiveLoadConflict.c)
+ *     CmpLoadKeyCommon @ 0x14036195C (CmpLoadKeyCommon.c)
+ *     CmpResolveHiveLoadConflict @ 0x14086E724 (CmpResolveHiveLoadConflict.c)
  * Callees:
- *     CmpPerformTrustClassAccessCheck @ 0x1402562E0 (CmpPerformTrustClassAccessCheck.c)
- *     CmpUnlockHiveList @ 0x1406DEFDC (CmpUnlockHiveList.c)
- *     CmpLockHiveListExclusive @ 0x1406DEFFC (CmpLockHiveListExclusive.c)
+ *     CmpPerformTrustClassAccessCheck @ 0x1402D39F0 (CmpPerformTrustClassAccessCheck.c)
+ *     CmpLockHiveListExclusive @ 0x14071D2A4 (CmpLockHiveListExclusive.c)
+ *     CmpUnlockHiveList @ 0x14071D2C4 (CmpUnlockHiveList.c)
  */
 
 __int64 __fastcall CmpJoinClassOfTrust(__int64 a1, __int64 a2, char a3)
@@ -23,22 +23,22 @@ __int64 __fastcall CmpJoinClassOfTrust(__int64 a1, __int64 a2, char a3)
   result = CmpPerformTrustClassAccessCheck(v5, a2);
   if ( (int)result >= 0 )
   {
-    if ( (*(_DWORD *)(v3 + 4112) & 1) != 0 )
+    if ( (*(_DWORD *)(v3 + 4152) & 1) != 0 )
     {
       CmpLockHiveListExclusive();
-      v7 = *(_QWORD **)(v3 + 4128);
-      v8 = (_QWORD *)(a1 + 4120);
-      if ( *v7 != v3 + 4120 )
+      v7 = *(_QWORD **)(v3 + 4168);
+      v8 = (_QWORD *)(a1 + 4160);
+      if ( *v7 != v3 + 4160 )
         __fastfail(3u);
-      *v8 = v3 + 4120;
-      *(_QWORD *)(a1 + 4128) = v7;
+      *v8 = v3 + 4160;
+      *(_QWORD *)(a1 + 4168) = v7;
       *v7 = v8;
-      *(_QWORD *)(v3 + 4128) = v8;
+      *(_QWORD *)(v3 + 4168) = v8;
       CmpUnlockHiveList();
     }
     else
     {
-      *(_DWORD *)(a1 + 4112) &= ~1u;
+      *(_DWORD *)(a1 + 4152) &= ~1u;
     }
     return 0LL;
   }

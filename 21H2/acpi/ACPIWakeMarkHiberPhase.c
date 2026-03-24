@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIWakeMarkHiberPhase @ 0x1C0063690
+ * XREFs of ACPIWakeMarkHiberPhase @ 0x1C0062350
  * Callers:
  *     <none>
  * Callees:

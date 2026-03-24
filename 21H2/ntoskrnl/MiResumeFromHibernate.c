@@ -1,9 +1,9 @@
 /*
- * XREFs of MiResumeFromHibernate @ 0x14038A288
+ * XREFs of MiResumeFromHibernate @ 0x1403841D0
  * Callers:
- *     MmDuplicateMemory @ 0x140A487C0 (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x14099525C (MmDuplicateMemory.c)
  * Callees:
- *     MiIterateOverPartitions @ 0x14038A2A8 (MiIterateOverPartitions.c)
+ *     MiIterateOverPartitions @ 0x1403841F0 (MiIterateOverPartitions.c)
  */
 
 __int64 __fastcall MiResumeFromHibernate(unsigned int a1)

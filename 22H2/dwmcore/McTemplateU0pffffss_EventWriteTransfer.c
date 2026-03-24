@@ -1,13 +1,13 @@
 /*
- * XREFs of McTemplateU0pffffss_EventWriteTransfer @ 0x180131EE0
+ * XREFs of McTemplateU0pffffss_EventWriteTransfer @ 0x1801AEEE4
  * Callers:
- *     ?RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x18007A550 (-RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
+ *     ?RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x1800B7E60 (-RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     McGenEventWrite_EventWriteTransfer @ 0x1801A28E4 (McGenEventWrite_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B284C (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
-__int64 __fastcall McTemplateU0pffffss_EventWriteTransfer(
+ULONG __fastcall McTemplateU0pffffss_EventWriteTransfer(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -19,12 +19,12 @@ __int64 __fastcall McTemplateU0pffffss_EventWriteTransfer(
         const char *a9)
 {
   const char *v9; // rdx
-  const char *v10; // r8
-  __int64 v11; // rax
-  __int64 v12; // rcx
-  int v13; // ecx
+  __int64 v10; // rax
+  __int64 v11; // rcx
+  int v12; // ecx
+  const char *v13; // rcx
   int v14; // eax
-  _BYTE v16[16]; // [rsp+30h] [rbp-61h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v16; // [rsp+30h] [rbp-61h] BYREF
   __int64 *v17; // [rsp+40h] [rbp-51h]
   __int64 v18; // [rsp+48h] [rbp-49h]
   float *v19; // [rsp+50h] [rbp-41h]
@@ -47,41 +47,41 @@ __int64 __fastcall McTemplateU0pffffss_EventWriteTransfer(
   v34 = a4;
   v33 = a3;
   v9 = a8;
-  v10 = a9;
   v17 = &v33;
-  v19 = &v34;
-  v21 = &a5;
-  v23 = &a6;
   v18 = 8LL;
-  v25 = &a7;
-  v11 = -1LL;
+  v19 = &v34;
   v20 = 4LL;
+  v21 = &a5;
   v22 = 4LL;
+  v23 = &a6;
+  v25 = &a7;
+  v10 = -1LL;
   v24 = 4LL;
   v26 = 4LL;
   if ( a8 )
   {
-    v12 = -1LL;
+    v11 = -1LL;
     do
-      ++v12;
-    while ( a8[v12] );
-    v13 = v12 + 1;
+      ++v11;
+    while ( a8[v11] );
+    v12 = v11 + 1;
   }
   else
   {
-    v13 = 5;
+    v12 = 5;
   }
-  v28 = v13;
-  v29 = 0;
+  v28 = v12;
+  v13 = a9;
   if ( !a8 )
     v9 = "NULL";
+  v29 = 0;
   v27 = v9;
   if ( a9 )
   {
     do
-      ++v11;
-    while ( a9[v11] );
-    v14 = v11 + 1;
+      ++v10;
+    while ( a9[v10] );
+    v14 = v10 + 1;
   }
   else
   {
@@ -90,12 +90,12 @@ __int64 __fastcall McTemplateU0pffffss_EventWriteTransfer(
   v31 = v14;
   v32 = 0;
   if ( !a9 )
-    v10 = "NULL";
-  v30 = v10;
+    v13 = "NULL";
+  v30 = v13;
   return McGenEventWrite_EventWriteTransfer(
-           &Microsoft_Windows_Dwm_Core_Provider_Context,
+           Microsoft_Windows_Dwm_Core_Provider_Context,
            &EVTDESC_ETWGUID_VISUAL_RENDERCONTENT,
-           v10,
-           8LL,
-           v16);
+           0LL,
+           8u,
+           &v16);
 }

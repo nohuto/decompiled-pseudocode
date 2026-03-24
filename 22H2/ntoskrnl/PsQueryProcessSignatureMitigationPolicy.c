@@ -1,9 +1,9 @@
 /*
- * XREFs of PsQueryProcessSignatureMitigationPolicy @ 0x140875520
+ * XREFs of PsQueryProcessSignatureMitigationPolicy @ 0x1406A1EA0
  * Callers:
- *     NtQueryInformationProcess @ 0x1406FCB40 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406216C0 (NtQueryInformationProcess.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall PsQueryProcessSignatureMitigationPolicy(__int64 a1, _DWORD *a2)
@@ -19,27 +19,24 @@ void __fastcall PsQueryProcessSignatureMitigationPolicy(__int64 a1, _DWORD *a2)
   v3 = *(_DWORD *)(a1 + 2512);
   v4 = a2;
   LOBYTE(a1) = *(_BYTE *)(a1 + 2168);
-  if ( (unsigned __int8)a1 < 8u || *(_BYTE *)(v2 + 2169) < 8u )
-  {
-    if ( qword_140C37A00
-      && (LOBYTE(a2) = 6, (unsigned int)qword_140C37A00(a1, a2))
-      && qword_140C37A00
-      && (LOBYTE(v6) = *(_BYTE *)(v2 + 2169), LOBYTE(v5) = 6, (unsigned int)qword_140C37A00(v6, v5)) )
-    {
-      *v4 |= 2u;
-    }
-    else if ( (v3 & 0x1000000) != 0 )
-    {
-      *v4 |= 8u;
-    }
-    else if ( (v3 & 0x2000000) != 0 )
-    {
-      *v4 |= 0x10u;
-    }
-  }
-  else
+  if ( (unsigned __int8)a1 >= 8u && *(_BYTE *)(v2 + 2169) >= 8u )
   {
     *a2 |= 1u;
+  }
+  else if ( qword_140C1DB20
+         && (LOBYTE(a2) = 6, (unsigned int)qword_140C1DB20(a1, a2))
+         && qword_140C1DB20
+         && (LOBYTE(v6) = *(_BYTE *)(v2 + 2169), LOBYTE(v5) = 6, (unsigned int)qword_140C1DB20(v6, v5)) )
+  {
+    *v4 |= 2u;
+  }
+  else if ( (v3 & 0x1000000) != 0 )
+  {
+    *v4 |= 8u;
+  }
+  else if ( (v3 & 0x2000000) != 0 )
+  {
+    *v4 |= 0x10u;
   }
   if ( (v3 & 0x800000) != 0 )
     *v4 |= 4u;

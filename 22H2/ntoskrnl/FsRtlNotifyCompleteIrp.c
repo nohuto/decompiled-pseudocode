@@ -1,28 +1,27 @@
 /*
- * XREFs of FsRtlNotifyCompleteIrp @ 0x14068AA8C
+ * XREFs of FsRtlNotifyCompleteIrp @ 0x140675984
  * Callers:
- *     FsRtlNotifyCompleteIrpList @ 0x14068A9F0 (FsRtlNotifyCompleteIrpList.c)
- *     FsRtlNotifyFilterChangeDirectoryLite @ 0x1407C5090 (FsRtlNotifyFilterChangeDirectoryLite.c)
- *     FsRtlNotifyFilterChangeDirectory @ 0x140852B70 (FsRtlNotifyFilterChangeDirectory.c)
+ *     FsRtlNotifyFilterChangeDirectory @ 0x140675020 (FsRtlNotifyFilterChangeDirectory.c)
+ *     FsRtlNotifyCompleteIrpList @ 0x1406758E8 (FsRtlNotifyCompleteIrpList.c)
+ *     FsRtlNotifyFilterChangeDirectoryLite @ 0x140675B90 (FsRtlNotifyFilterChangeDirectoryLite.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x1402085B0 (PsReturnProcessPagedPoolQuota.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CE40 (MmMapLockedPagesSpecifyCache.c)
- *     IofCompleteRequest @ 0x1402C9950 (IofCompleteRequest.c)
- *     FsRtlNotifySetCancelRoutine @ 0x140302CF8 (FsRtlNotifySetCancelRoutine.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226C80 (MmMapLockedPagesSpecifyCache.c)
+ *     IofCompleteRequest @ 0x140242E00 (IofCompleteRequest.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140298A90 (PsReturnProcessPagedPoolQuota.c)
+ *     FsRtlNotifySetCancelRoutine @ 0x140302F58 (FsRtlNotifySetCancelRoutine.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall FsRtlNotifyCompleteIrp(PIRP Irp, __int64 a2, unsigned int a3, NTSTATUS a4, int a5)
 {
   size_t v6; // r14
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
-  struct _IRP **v10; // r15
-  struct _IRP *v11; // rdx
+  const void *v10; // rdx
   void *MasterIrp; // rcx
   PMDL MdlAddress; // rcx
   PVOID MappedSystemVa; // rax
-  struct _IRP *v15; // rcx
+  struct _IRP *v14; // rcx
 
   v6 = a3;
   if ( FsRtlNotifySetCancelRoutine((__int64)Irp, a2) || !a5 )
@@ -41,9 +40,8 @@ LABEL_21:
       a4 = 268;
       goto LABEL_21;
     }
-    v10 = (struct _IRP **)(a2 + 80);
-    v11 = *(struct _IRP **)(a2 + 80);
-    if ( !v11 )
+    v10 = *(const void **)(a2 + 80);
+    if ( !v10 )
     {
 LABEL_20:
       Irp->IoStatus.Information = (unsigned int)v6;
@@ -66,7 +64,7 @@ LABEL_20:
           LODWORD(v6) = 0;
           goto LABEL_18;
         }
-        v11 = *v10;
+        v10 = *(const void **)(a2 + 80);
         MasterIrp = MappedSystemVa;
       }
       else
@@ -74,23 +72,23 @@ LABEL_20:
         if ( (CurrentStackLocation->Control & 1) != 0 )
         {
           Irp->Flags |= 0x70u;
-          Irp->AssociatedIrp.MasterIrp = *v10;
+          Irp->AssociatedIrp.MasterIrp = *(struct _IRP **)(a2 + 80);
 LABEL_18:
           PsReturnProcessPagedPoolQuota(*(struct _KPROCESS **)(a2 + 120), *(unsigned int *)(a2 + 100));
-          v15 = *v10;
-          if ( *v10 != Irp->AssociatedIrp.MasterIrp )
+          v14 = *(struct _IRP **)(a2 + 80);
+          if ( v14 != Irp->AssociatedIrp.MasterIrp )
           {
-            if ( v15 )
-              ExFreePoolWithTag(v15, 0);
+            if ( v14 )
+              ExFreePoolWithTag(v14, 0);
           }
-          *v10 = 0LL;
+          *(_QWORD *)(a2 + 80) = 0LL;
           *(_DWORD *)(a2 + 100) = 0;
           goto LABEL_20;
         }
         MasterIrp = Irp->UserBuffer;
       }
     }
-    memmove(MasterIrp, v11, v6);
+    memmove(MasterIrp, v10, v6);
     goto LABEL_18;
   }
 }

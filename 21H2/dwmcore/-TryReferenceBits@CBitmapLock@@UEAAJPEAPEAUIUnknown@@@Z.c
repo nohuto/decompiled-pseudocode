@@ -1,33 +1,28 @@
 /*
- * XREFs of ?TryReferenceBits@CBitmapLock@@UEAAJPEAPEAUIUnknown@@@Z @ 0x180271C70
+ * XREFs of ?TryReferenceBits@CBitmapLock@@UEAAJPEAPEAUIUnknown@@@Z @ 0x1802187D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CBitmapLock::TryReferenceBits(CBitmapLock *this, struct IUnknown **a2)
 {
   __int64 v3; // rcx
-  struct IUnknown *v5; // rax
-  char *v6; // rcx
+  struct IUnknown *v5; // rbx
 
   *a2 = 0LL;
-  v3 = *((_QWORD *)this + 10);
+  v3 = *((_QWORD *)this + 9);
   if ( v3 )
   {
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v3 + 8LL))(v3);
-    v5 = (struct IUnknown *)*((_QWORD *)this + 10);
-LABEL_5:
-    *a2 = v5;
-    return 0LL;
+    *a2 = (struct IUnknown *)*((_QWORD *)this + 9);
   }
-  if ( *((_BYTE *)this + 73) )
+  else if ( *((_BYTE *)this + 65) )
   {
-    v6 = (char *)this + *(int *)(*((_QWORD *)this + 1) + 4LL) + 8;
-    (*(void (__fastcall **)(char *))(*(_QWORD *)v6 + 8LL))(v6);
-    v5 = (struct IUnknown *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 4LL) + 8);
-    goto LABEL_5;
+    v5 = (struct IUnknown *)((char *)this - 16);
+    ((void (__fastcall *)(struct IUnknown *))v5->lpVtbl->AddRef)(v5);
+    *a2 = v5;
   }
   return 0LL;
 }

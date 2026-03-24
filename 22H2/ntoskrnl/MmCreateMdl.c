@@ -1,11 +1,11 @@
 /*
- * XREFs of MmCreateMdl @ 0x1403564F0
+ * XREFs of MmCreateMdl @ 0x14027D890
  * Callers:
- *     MiPfAllocateMdls @ 0x1407465B0 (MiPfAllocateMdls.c)
- *     SmKmStoreFileWriteHeader @ 0x1409DA618 (SmKmStoreFileWriteHeader.c)
- *     MiLockRetpolineStubs @ 0x140B9A9F0 (MiLockRetpolineStubs.c)
+ *     MiPfAllocateMdls @ 0x1406363C0 (MiPfAllocateMdls.c)
+ *     SmKmStoreFileWriteHeader @ 0x14092CEC4 (SmKmStoreFileWriteHeader.c)
+ *     MiLockRetpolineStubs @ 0x140A92540 (MiLockRetpolineStubs.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
  */
 
 PMDL __stdcall MmCreateMdl(PMDL MemoryDescriptorList, PVOID Base, SIZE_T Length)
@@ -15,7 +15,7 @@ PMDL __stdcall MmCreateMdl(PMDL MemoryDescriptorList, PVOID Base, SIZE_T Length)
   PMDL result; // rax
 
   Pool = MemoryDescriptorList;
-  if ( Length > 0xFFFFFFFF )
+  if ( Length >= 0x100000000LL )
     return 0LL;
   v6 = (__int16)Base;
   if ( !MemoryDescriptorList )

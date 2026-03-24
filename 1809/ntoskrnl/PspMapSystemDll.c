@@ -1,15 +1,15 @@
 /*
- * XREFs of PspMapSystemDll @ 0x1406779CC
+ * XREFs of PspMapSystemDll @ 0x1406779AC
  * Callers:
- *     PsMapSystemDlls @ 0x140677B90 (PsMapSystemDlls.c)
- *     PspLocateSystemDll @ 0x14075615C (PspLocateSystemDll.c)
+ *     PsMapSystemDlls @ 0x140677B70 (PsMapSystemDlls.c)
+ *     PspLocateSystemDll @ 0x14075613C (PspLocateSystemDll.c)
  *     PspInitPhase3 @ 0x1409DF584 (PspInitPhase3.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     MmMapViewOfSectionEx @ 0x1400F2918 (MmMapViewOfSectionEx.c)
- *     ZwSetInformationVirtualMemory @ 0x1401BB450 (ZwSetInformationVirtualMemory.c)
- *     PspReferenceSystemDll @ 0x140677B48 (PspReferenceSystemDll.c)
+ *     MmMapViewOfSectionEx @ 0x1400F2938 (MmMapViewOfSectionEx.c)
+ *     ZwSetInformationVirtualMemory @ 0x1401BB470 (ZwSetInformationVirtualMemory.c)
+ *     PspReferenceSystemDll @ 0x140677B28 (PspReferenceSystemDll.c)
  */
 
 __int64 __fastcall PspMapSystemDll(struct _KPROCESS *a1, __int64 a2, int a3, int a4)

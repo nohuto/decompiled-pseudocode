@@ -1,24 +1,22 @@
 /*
- * XREFs of EditionNotifyShellLanguageHook @ 0x1C00B9EA0
+ * XREFs of EditionNotifyShellLanguageHook @ 0x1C0133090
  * Callers:
  *     <none>
  * Callees:
- *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C00D3128 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C005B860 (-xxxCallHook@@YAHH_K_JH@Z.c)
  */
 
-_QWORD *__fastcall EditionNotifyShellLanguageHook(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall EditionNotifyShellLanguageHook(__int64 a1, __int64 a2, int a3)
 {
-  _QWORD *result; // rax
+  __int64 result; // rax
 
-  if ( !a3
-    || (result = (_QWORD *)SGDGetUserSessionState(a1), result[1741] != a2)
-    && (result = (_QWORD *)gptiRit, a1 != gptiRit) )
+  if ( !a3 || gLCIDSentToShell != a2 && (result = gptiRit, a1 != gptiRit) )
   {
-    result = *(_QWORD **)(a1 + 464);
-    if ( ((*(_DWORD *)(a1 + 680) | *(_DWORD *)(*result + 16LL)) & 0x800) != 0 )
+    result = *(unsigned int *)(a1 + 680);
+    if ( (((unsigned int)result | *(_DWORD *)(**(_QWORD **)(a1 + 464) + 16LL)) & 0x800) != 0 )
     {
-      *(_QWORD *)(SGDGetUserSessionState(*result) + 13928) = a2;
-      return (_QWORD *)xxxCallHook(8, 0LL, a2, 10);
+      gLCIDSentToShell = a2;
+      return xxxCallHook(8, 0LL, a2, 10);
     }
   }
   return result;

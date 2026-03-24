@@ -1,33 +1,33 @@
 /*
- * XREFs of RtlAllocateAndInitializeSidEx @ 0x1409BBFCC
+ * XREFs of RtlAllocateAndInitializeSidEx @ 0x14091330C
  * Callers:
- *     EtwpUserInAdminOrLogUsersGroup @ 0x1409E502C (EtwpUserInAdminOrLogUsersGroup.c)
+ *     EtwpUserInAdminOrLogUsersGroup @ 0x14093B13C (EtwpUserInAdminOrLogUsersGroup.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
  */
 
-__int64 __fastcall RtlAllocateAndInitializeSidEx(__int64 a1, __int64 a2, _DWORD *a3, __int64 *a4)
+__int64 __fastcall RtlAllocateAndInitializeSidEx(__int64 a1, __int64 a2, char *a3, _QWORD *a4)
 {
-  __int64 Pool2; // rax
+  char *PoolWithQuotaTag; // rax
   __int64 v9; // rcx
-  __int64 v10; // r8
+  signed __int64 v10; // r8
 
-  Pool2 = ExAllocatePool2(65LL, 16LL, 1649439826LL);
-  if ( !Pool2 )
+  PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)520, 0x10uLL, 0x62507452u);
+  if ( !PoolWithQuotaTag )
     return 3221225495LL;
-  *(_BYTE *)Pool2 = 1;
+  *PoolWithQuotaTag = 1;
   v9 = 2LL;
-  *(_DWORD *)(Pool2 + 2) = *(_DWORD *)a1;
-  v10 = Pool2 - (_QWORD)a3;
-  *(_WORD *)(Pool2 + 6) = *(_WORD *)(a1 + 4);
-  *(_BYTE *)(Pool2 + 1) = 2;
+  *(_DWORD *)(PoolWithQuotaTag + 2) = *(_DWORD *)a1;
+  v10 = PoolWithQuotaTag - a3;
+  *((_WORD *)PoolWithQuotaTag + 3) = *(_WORD *)(a1 + 4);
+  PoolWithQuotaTag[1] = 2;
   do
   {
-    *(_DWORD *)((char *)a3 + v10 + 8) = *a3;
-    ++a3;
+    *(_DWORD *)&a3[v10 + 8] = *(_DWORD *)a3;
+    a3 += 4;
     --v9;
   }
   while ( v9 );
-  *a4 = Pool2;
+  *a4 = PoolWithQuotaTag;
   return 0LL;
 }

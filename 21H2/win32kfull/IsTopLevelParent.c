@@ -1,8 +1,8 @@
 /*
- * XREFs of IsTopLevelParent @ 0x1C0075B70
+ * XREFs of IsTopLevelParent @ 0x1C010F778
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     IsParentBandValid @ 0x1C0075B14 (IsParentBandValid.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     IsParentBandValid @ 0x1C010F720 (IsParentBandValid.c)
  * Callees:
  *     <none>
  */

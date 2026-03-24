@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlMakeSelfRelativeSD @ 0x14069BD84
+ * XREFs of RtlMakeSelfRelativeSD @ 0x140767A74
  * Callers:
- *     RtlAbsoluteToSelfRelativeSD @ 0x14069BD60 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1409BE764 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x140732348 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140767A50 (RtlAbsoluteToSelfRelativeSD.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlpQuerySecurityDescriptor @ 0x14069BEF4 (RtlpQuerySecurityDescriptor.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlpQuerySecurityDescriptor @ 0x140767BE4 (RtlpQuerySecurityDescriptor.c)
  */
 
 __int64 __fastcall RtlMakeSelfRelativeSD(int *a1, char *a2, unsigned int *a3)

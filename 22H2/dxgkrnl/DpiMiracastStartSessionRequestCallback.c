@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiMiracastStartSessionRequestCallback @ 0x1C039FF10
+ * XREFs of DpiMiracastStartSessionRequestCallback @ 0x1C02CF5F0
  * Callers:
  *     <none>
  * Callees:
- *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C0060B60 (DpiMiracastReleaseMiracastDeviceContext.c)
- *     DpiMiracastTearDownAssociation @ 0x1C0061800 (DpiMiracastTearDownAssociation.c)
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C00540A0 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     DpiMiracastTearDownAssociation @ 0x1C0054DA8 (DpiMiracastTearDownAssociation.c)
  */
 
 void __fastcall DpiMiracastStartSessionRequestCallback(_DWORD *P, int *a2)

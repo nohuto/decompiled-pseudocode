@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlEnumerateGenericTableWithoutSplayingAvl @ 0x140371100
+ * XREFs of RtlEnumerateGenericTableWithoutSplayingAvl @ 0x14032D5F0
  * Callers:
- *     RtlEnumerateGenericTableAvl @ 0x1403710D0 (RtlEnumerateGenericTableAvl.c)
+ *     RtlEnumerateGenericTableAvl @ 0x140323010 (RtlEnumerateGenericTableAvl.c)
  * Callees:
- *     RealSuccessor @ 0x14037126C (RealSuccessor.c)
+ *     RealSuccessor @ 0x14032D820 (RealSuccessor.c)
  */
 
 PVOID __stdcall RtlEnumerateGenericTableWithoutSplayingAvl(PRTL_AVL_TABLE Table, PVOID *RestartKey)
 {
   __int64 v2; // r8
   _RTL_BALANCED_LINKS *RightChild; // rax
+  _RTL_BALANCED_LINKS **v4; // r9
   _RTL_BALANCED_LINKS *i; // rcx
-  _RTL_BALANCED_LINKS **v6; // r9
 
   if ( !Table->NumberGenericTableElements )
     return 0LL;
@@ -19,7 +19,7 @@ PVOID __stdcall RtlEnumerateGenericTableWithoutSplayingAvl(PRTL_AVL_TABLE Table,
   {
     RightChild = (_RTL_BALANCED_LINKS *)RealSuccessor(*RestartKey, RestartKey, v2, RestartKey);
     if ( RightChild )
-      *v6 = RightChild;
+      *v4 = RightChild;
   }
   else
   {

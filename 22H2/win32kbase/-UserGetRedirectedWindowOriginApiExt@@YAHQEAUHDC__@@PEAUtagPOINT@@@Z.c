@@ -1,18 +1,23 @@
 /*
- * XREFs of ?UserGetRedirectedWindowOriginApiExt@@YAHQEAUHDC__@@PEAUtagPOINT@@@Z @ 0x1C00E0680
+ * XREFs of ?UserGetRedirectedWindowOriginApiExt@@YAHQEAUHDC__@@PEAUtagPOINT@@@Z @ 0x1C014A9A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall UserGetRedirectedWindowOriginApiExt(HDC a1, struct tagPOINT *a2)
 {
   unsigned int v2; // ebx
+  int v5; // eax
 
   v2 = 0;
   *a2 = 0LL;
-  if ( qword_1C02945E0 && (int)qword_1C02945E0() >= 0 && qword_1C02945E8 )
-    return (unsigned int)qword_1C02945E8(a1, a2);
+  if ( qword_1C02551D0 )
+    v5 = qword_1C02551D0();
+  else
+    v5 = -1073741637;
+  if ( v5 >= 0 && qword_1C02551D8 )
+    return (unsigned int)qword_1C02551D8(a1, a2);
   return v2;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetShapeDataCore@CPathGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1800F8FE0
+ * XREFs of ?GetShapeDataCore@CPathGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1801E27E0
  * Callers:
  *     <none>
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800DC518 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ??0CPathSegmentsShape@@QEAA@PEBVCPathData@@@Z @ 0x1800F9054 (--0CPathSegmentsShape@@QEAA@PEBVCPathData@@@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C876C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     ??0CPathSegmentsShape@@QEAA@PEBVCPathData@@@Z @ 0x18025F440 (--0CPathSegmentsShape@@QEAA@PEBVCPathData@@@Z.c)
  */
 
 __int64 __fastcall CPathGeometry::GetShapeDataCore(
@@ -14,16 +14,20 @@ __int64 __fastcall CPathGeometry::GetShapeDataCore(
         const struct D2D_SIZE_F *a2,
         struct CShapePtr *a3)
 {
-  unsigned int v3; // edi
+  unsigned int v3; // esi
   CPathSegmentsShape *v6; // rax
   __int64 v7; // rcx
-  CPathSegmentsShape *v8; // rsi
+  CPathSegmentsShape *v8; // rbx
 
   v3 = 0;
-  if ( this[18] )
+  if ( this[17] )
   {
     v6 = (CPathSegmentsShape *)DefaultHeap::Alloc(0x18uLL);
-    if ( v6 && (v8 = CPathSegmentsShape::CPathSegmentsShape(v6, this[18])) != 0LL )
+    if ( v6 )
+      v8 = CPathSegmentsShape::CPathSegmentsShape(v6, this[17]);
+    else
+      v8 = 0LL;
+    if ( v8 )
     {
       CShapePtr::Release(a3);
       *(_QWORD *)a3 = v8;

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopClearSystemSleepCheckpoint @ 0x140996E2C
+ * XREFs of PopClearSystemSleepCheckpoint @ 0x1407742F0
  * Callers:
- *     PopUnlockAfterSleepWorker @ 0x140AA6A10 (PopUnlockAfterSleepWorker.c)
- *     PopCheckShutdownMarker @ 0x140B37D6C (PopCheckShutdownMarker.c)
+ *     PopUnlockAfterSleepWorker @ 0x140990530 (PopUnlockAfterSleepWorker.c)
+ *     PopCheckShutdownMarker @ 0x140A447E0 (PopCheckShutdownMarker.c)
  * Callees:
- *     ExSetFirmwareEnvironmentVariable @ 0x1409FBA50 (ExSetFirmwareEnvironmentVariable.c)
+ *     ExSetFirmwareEnvironmentVariable @ 0x14094F4F0 (ExSetFirmwareEnvironmentVariable.c)
  */
 
 __int64 __fastcall PopClearSystemSleepCheckpoint(char a1)

@@ -1,29 +1,28 @@
 /*
- * XREFs of PpmEventIdleDurationExpiration @ 0x1405D9F60
+ * XREFs of PpmEventIdleDurationExpiration @ 0x1405799B4
  * Callers:
- *     KiUpdateTime @ 0x140304060 (KiUpdateTime.c)
- *     PoExecuteIdleCheck @ 0x1405C6C1C (PoExecuteIdleCheck.c)
+ *     PoExecuteIdleCheck @ 0x140227E50 (PoExecuteIdleCheck.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventIdleDurationExpiration(unsigned __int16 *a1)
 {
   unsigned __int16 v2; // r10
-  unsigned __int16 v3; // dx
-  unsigned __int16 v4; // r8
-  __int64 v5; // r9
-  __int64 v6; // rcx
+  unsigned __int16 v3; // cx
+  unsigned __int16 v4; // dx
+  __int64 v5; // r8
+  __int64 v6; // r9
   ULONG UserDataCount; // r8d
   _OWORD *v8; // r9
   __int64 v9; // r10
   __int64 v10; // rcx
   __int64 v11; // rcx
-  unsigned __int16 v12; // [rsp+40h] [rbp-638h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData[65]; // [rsp+50h] [rbp-628h] BYREF
-  _QWORD v14[64]; // [rsp+460h] [rbp-218h] BYREF
+  unsigned __int16 v12; // [rsp+40h] [rbp-3F8h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData[41]; // [rsp+50h] [rbp-3E8h] BYREF
+  _QWORD v14[40]; // [rsp+2E0h] [rbp-158h] BYREF
 
   if ( PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_IDLE_DURATION_EXPIRATION) )
   {
@@ -36,16 +35,16 @@ void __fastcall PpmEventIdleDurationExpiration(unsigned __int16 *a1)
       v5 = 2LL * v3;
       *(_OWORD *)&v14[v5] = 0LL;
       LOWORD(v14[v5 + 1]) = v4;
-      if ( v4 < v2 )
-      {
+      if ( v4 >= v2 )
+        v6 = 0LL;
+      else
         v6 = *(_QWORD *)&a1[4 * v4 + 4];
-        v14[2 * v3] = v6;
-        if ( v6 )
-          ++v3;
-      }
+      v14[2 * v3] = v6;
+      if ( v6 )
+        ++v3;
       ++v4;
     }
-    while ( v4 < 0x20u );
+    while ( v4 < 0x14u );
     v12 = v3;
     UserData[0].Ptr = (ULONGLONG)&v12;
     *(_QWORD *)&UserData[0].Size = 2LL;

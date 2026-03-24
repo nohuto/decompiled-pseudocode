@@ -1,23 +1,23 @@
 /*
- * XREFs of ?OnChanged@CSceneMeshRendererComponent@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18023C860
+ * XREFs of ?OnChanged@CSceneMeshRendererComponent@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1801E9B20
  * Callers:
  *     <none>
  * Callees:
- *     ?ApplyMaterialToSpectreResources@CSceneMeshRendererComponent@@AEAAXXZ @ 0x18023C4D0 (-ApplyMaterialToSpectreResources@CSceneMeshRendererComponent@@AEAAXXZ.c)
- *     ?ApplyMeshToSpectreResources@CSceneMeshRendererComponent@@AEAAXXZ @ 0x18023C588 (-ApplyMeshToSpectreResources@CSceneMeshRendererComponent@@AEAAXXZ.c)
+ *     ?ApplyMaterialToSpectreResources@CSceneMeshRendererComponent@@AEAAXXZ @ 0x1801E979C (-ApplyMaterialToSpectreResources@CSceneMeshRendererComponent@@AEAAXXZ.c)
+ *     ?ApplyMeshToSpectreResources@CSceneMeshRendererComponent@@AEAAXXZ @ 0x1801E9830 (-ApplyMeshToSpectreResources@CSceneMeshRendererComponent@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CSceneMeshRendererComponent::OnChanged(CSceneMeshRendererComponent *a1, __int64 a2, __int64 a3)
 {
-  if ( !*((_QWORD *)a1 + 9) )
+  if ( !*((_QWORD *)a1 + 8) )
     return 0LL;
   if ( a3 )
   {
-    if ( a3 == *((_QWORD *)a1 + 11) )
+    if ( a3 == *((_QWORD *)a1 + 10) )
     {
       CSceneMeshRendererComponent::ApplyMeshToSpectreResources(a1);
     }
-    else if ( a3 == *((_QWORD *)a1 + 10) )
+    else if ( a3 == *((_QWORD *)a1 + 9) )
     {
       CSceneMeshRendererComponent::ApplyMaterialToSpectreResources(a1);
     }

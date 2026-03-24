@@ -1,12 +1,12 @@
 /*
- * XREFs of SmRegistrationCtxStart @ 0x14076114C
+ * XREFs of SmRegistrationCtxStart @ 0x14076112C
  * Callers:
- *     ?SmFirstTimeInit@@YAJKK@Z @ 0x1400E3E68 (-SmFirstTimeInit@@YAJKK@Z.c)
- *     SmGetRegistrationInfo @ 0x14075ED50 (SmGetRegistrationInfo.c)
- *     SmcCacheCreatePrepare @ 0x1408ABC5C (SmcCacheCreatePrepare.c)
+ *     ?SmFirstTimeInit@@YAJKK@Z @ 0x1400E3E88 (-SmFirstTimeInit@@YAJKK@Z.c)
+ *     SmGetRegistrationInfo @ 0x14075ED30 (SmGetRegistrationInfo.c)
+ *     SmcCacheCreatePrepare @ 0x1408ABC3C (SmcCacheCreatePrepare.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     SmCreateEvent @ 0x1407611A4 (SmCreateEvent.c)
+ *     SmCreateEvent @ 0x140761184 (SmCreateEvent.c)
  */
 
 __int64 __fastcall SmRegistrationCtxStart(_QWORD *a1)

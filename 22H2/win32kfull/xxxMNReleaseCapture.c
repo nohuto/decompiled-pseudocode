@@ -1,20 +1,20 @@
 /*
- * XREFs of xxxMNReleaseCapture @ 0x1C0219A20
+ * XREFs of xxxMNReleaseCapture @ 0x1C023A53C
  * Callers:
- *     xxxMNStartMenu @ 0x1C01FFC8C (xxxMNStartMenu.c)
- *     xxxMNLoop @ 0x1C02146AC (xxxMNLoop.c)
- *     xxxMNCancel @ 0x1C0216E04 (xxxMNCancel.c)
- *     xxxEndMenu @ 0x1C0231DD0 (xxxEndMenu.c)
- *     xxxTrackPopupMenuEx @ 0x1C023279C (xxxTrackPopupMenuEx.c)
+ *     xxxMNStartMenu @ 0x1C0222080 (xxxMNStartMenu.c)
+ *     xxxMNLoop @ 0x1C0234488 (xxxMNLoop.c)
+ *     xxxMNCancel @ 0x1C0236ED4 (xxxMNCancel.c)
+ *     xxxEndMenu @ 0x1C0249E34 (xxxEndMenu.c)
+ *     xxxTrackPopupMenuEx @ 0x1C024A5F0 (xxxTrackPopupMenuEx.c)
  * Callees:
- *     xxxReleaseCapture @ 0x1C0011688 (xxxReleaseCapture.c)
- *     xxxWindowEvent @ 0x1C00E71B0 (xxxWindowEvent.c)
+ *     xxxWindowEvent @ 0x1C0081440 (xxxWindowEvent.c)
+ *     xxxReleaseCapture @ 0x1C00DAB00 (xxxReleaseCapture.c)
  */
 
 void __fastcall xxxMNReleaseCapture(__int64 a1)
 {
   int v1; // eax
-  struct tagWND *v2; // rdx
+  __int64 v2; // rdx
 
   if ( a1 )
   {
@@ -22,15 +22,15 @@ void __fastcall xxxMNReleaseCapture(__int64 a1)
     if ( (v1 & 0x40000) != 0 )
     {
       *(_DWORD *)(a1 + 8) = v1 & 0xFFFBFFFF;
-      *(_DWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 396LL) &= ~0x100000u;
+      *(_DWORD *)(*(_QWORD *)(gptiCurrent + 432LL) + 388LL) &= ~0x100000u;
       xxxReleaseCapture();
       if ( gpqForeground )
       {
-        v2 = *(struct tagWND **)(gpqForeground + 120LL);
+        v2 = *(_QWORD *)(gpqForeground + 112LL);
         if ( v2 )
         {
-          if ( *((_QWORD *)v2 + 2) == gptiCurrent )
-            xxxWindowEvent(0x80000005, v2, 0, 1u, 33);
+          if ( *(_QWORD *)(v2 + 16) == gptiCurrent )
+            xxxWindowEvent(0x80000005, (struct tagWND *)v2, 0, 1u, 0x21u);
         }
       }
     }

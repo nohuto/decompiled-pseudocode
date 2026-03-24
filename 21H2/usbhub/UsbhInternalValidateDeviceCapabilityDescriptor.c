@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhInternalValidateDeviceCapabilityDescriptor @ 0x1C0051618
+ * XREFs of UsbhInternalValidateDeviceCapabilityDescriptor @ 0x1C0052C68
  * Callers:
- *     UsbhValidateBOSDescriptorSet @ 0x1C0051BFC (UsbhValidateBOSDescriptorSet.c)
+ *     UsbhValidateBOSDescriptorSet @ 0x1C005324C (UsbhValidateBOSDescriptorSet.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhInternalValidateBillboardCapabilityDescriptor @ 0x1C0051378 (UsbhInternalValidateBillboardCapabilityDescriptor.c)
- *     UsbhInternalValidateContainerIDCapabilityDescriptor @ 0x1C0051578 (UsbhInternalValidateContainerIDCapabilityDescriptor.c)
- *     UsbhInternalValidatePlatformCapabilityDescriptor @ 0x1C0051804 (UsbhInternalValidatePlatformCapabilityDescriptor.c)
- *     UsbhInternalValidateSuperSpeedDeviceCapabilityDescriptor @ 0x1C0051A64 (UsbhInternalValidateSuperSpeedDeviceCapabilityDescriptor.c)
- *     UsbhInternalValidateUSB20DeviceCapabilityDescriptor @ 0x1C0051BA0 (UsbhInternalValidateUSB20DeviceCapabilityDescriptor.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhInternalValidateBillboardCapabilityDescriptor @ 0x1C00529C8 (UsbhInternalValidateBillboardCapabilityDescriptor.c)
+ *     UsbhInternalValidateContainerIDCapabilityDescriptor @ 0x1C0052BC8 (UsbhInternalValidateContainerIDCapabilityDescriptor.c)
+ *     UsbhInternalValidatePlatformCapabilityDescriptor @ 0x1C0052E54 (UsbhInternalValidatePlatformCapabilityDescriptor.c)
+ *     UsbhInternalValidateSuperSpeedDeviceCapabilityDescriptor @ 0x1C00530B4 (UsbhInternalValidateSuperSpeedDeviceCapabilityDescriptor.c)
+ *     UsbhInternalValidateUSB20DeviceCapabilityDescriptor @ 0x1C00531F0 (UsbhInternalValidateUSB20DeviceCapabilityDescriptor.c)
  */
 
 char __fastcall UsbhInternalValidateDeviceCapabilityDescriptor(__int64 a1, unsigned __int8 *a2, __int64 a3)

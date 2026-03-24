@@ -1,69 +1,62 @@
 /*
- * XREFs of ?GetInvalidModesForTestPurposes@ADAPTER_DISPLAY@@QEAAJPEAU_D3DKMT_DISPLAYMODELIST@@@Z @ 0x1C02BDA78
+ * XREFs of ?GetInvalidModesForTestPurposes@ADAPTER_DISPLAY@@QEAAJPEAU_D3DKMT_DISPLAYMODELIST@@@Z @ 0x1C0213A5C
  * Callers:
- *     DxgkEscape @ 0x1C01B43F0 (DxgkEscape.c)
+ *     DxgkEscape @ 0x1C0102F00 (DxgkEscape.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     memmove @ 0x1C0028340 (memmove.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
  */
 
 __int64 __fastcall ADAPTER_DISPLAY::GetInvalidModesForTestPurposes(
         ADAPTER_DISPLAY *this,
         struct _D3DKMT_DISPLAYMODELIST *a2)
 {
-  __int64 v4; // rdx
-  unsigned int v5; // ebx
+  __int64 v4; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rax
+  unsigned int v7; // ebx
   __int64 VidPnSourceId; // rax
-  __int64 v7; // r9
-  __int64 v8; // rax
-  _BYTE v10[24]; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v9; // r9
+  __int64 v10; // rax
+  _BYTE v12[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v10, (ADAPTER_DISPLAY *)((char *)this + 296), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v10);
-  v4 = *((_QWORD *)this + 43);
-  if ( v4 )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v12, (ADAPTER_DISPLAY *)((char *)this + 256), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v12);
+  v5 = *((_QWORD *)this + 37);
+  if ( v5 )
   {
     VidPnSourceId = a2->VidPnSourceId;
-    if ( (unsigned int)VidPnSourceId < *((_DWORD *)this + 24) )
+    if ( (unsigned int)VidPnSourceId < *((_DWORD *)this + 20) )
     {
-      v7 = 3 * VidPnSourceId;
-      v8 = *(unsigned int *)(v4 + 24 * VidPnSourceId + 16);
-      if ( a2->ModeCount >= (unsigned int)v8 )
+      v9 = 3 * VidPnSourceId;
+      v10 = *(unsigned int *)(v5 + 24 * VidPnSourceId + 16);
+      if ( a2->ModeCount >= (unsigned int)v10 )
       {
-        memmove(a2->pModeList, *(const void **)(v4 + 8 * v7 + 8), 44 * v8);
-        a2->ModeCount = *(_DWORD *)(*((_QWORD *)this + 43) + 24LL * a2->VidPnSourceId + 16);
-        v5 = 0;
+        memmove(a2->pModeList, *(const void **)(v5 + 8 * v9 + 8), 44 * v10);
+        a2->ModeCount = *(_DWORD *)(*((_QWORD *)this + 37) + 24LL * a2->VidPnSourceId + 16);
+        v7 = 0;
       }
       else
       {
-        a2->ModeCount = v8;
-        v5 = 1075707914;
+        a2->ModeCount = v10;
+        v7 = 1075707914;
       }
     }
     else
     {
-      v5 = -1073741811;
+      v7 = -1073741811;
     }
   }
   else
   {
-    WdLogSingleEntry1(2LL, 8727LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Trying to get invalid display mode list but haven't activated it yet.",
-      8727LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v5 = -1073741709;
+    v6 = WdLogNewEntry5_WdError(v4, 0LL);
+    *(_QWORD *)(v6 + 24) = 8442LL;
+    WdLogEvent5_WdError(v6);
+    v7 = -1073741709;
   }
-  if ( v10[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v10);
-  return v5;
+  if ( v12[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v12, v5);
+  return v7;
 }

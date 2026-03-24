@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEtIsrDpcQuery @ 0x1406BE584
+ * XREFs of PopEtIsrDpcQuery @ 0x1406A1A10
  * Callers:
- *     PopEtProcessEnumSnapshotCallback @ 0x1407A5B90 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x140618FC0 (PopEtProcessEnumSnapshotCallback.c)
  * Callees:
- *     KeQueryCycleTimeStatsProcessor @ 0x140242E98 (KeQueryCycleTimeStatsProcessor.c)
- *     KeEnumerateNextProcessor @ 0x140294050 (KeEnumerateNextProcessor.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
+ *     KeQueryCycleTimeStatsProcessor @ 0x1402BD530 (KeQueryCycleTimeStatsProcessor.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall PopEtIsrDpcQuery(__int64 a1, _OWORD *a2)
@@ -29,7 +29,7 @@ __int64 __fastcall PopEtIsrDpcQuery(__int64 a1, _OWORD *a2)
   v12 = 0;
   v8 = 0;
   memset(a2, 0, 0x1B0uLL);
-  v9[1] = (unsigned __int16 *)qword_140D06E48[0];
+  v9[1] = (unsigned __int16 *)qword_140CFC848[0];
   v9[0] = (unsigned __int16 *)KeActiveProcessors;
   v10 = 0;
   while ( 1 )

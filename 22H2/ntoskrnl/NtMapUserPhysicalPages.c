@@ -1,57 +1,53 @@
 /*
- * XREFs of NtMapUserPhysicalPages @ 0x140A428F0
+ * XREFs of NtMapUserPhysicalPages @ 0x1408D6D30
  * Callers:
  *     <none>
  * Callees:
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MiFreePhysicalPageChain @ 0x14064A1E0 (MiFreePhysicalPageChain.c)
- *     MiGetAweNode @ 0x14064A914 (MiGetAweNode.c)
- *     MiGetAwePageSize @ 0x14064A988 (MiGetAwePageSize.c)
- *     MiGetAweViewPageSize @ 0x14064AA28 (MiGetAweViewPageSize.c)
- *     MiLockAwePagesShared @ 0x14064B084 (MiLockAwePagesShared.c)
- *     MiLockAweVadsShared @ 0x14064B0E0 (MiLockAweVadsShared.c)
- *     MiUnlockAweVadsShared @ 0x14064BEB8 (MiUnlockAweVadsShared.c)
- *     MiWriteAwePtes @ 0x14064C62C (MiWriteAwePtes.c)
- *     MiPageSizeToPteLevel @ 0x14064E2F0 (MiPageSizeToPteLevel.c)
- *     MiCaptureUlongPtrArray @ 0x140A413F4 (MiCaptureUlongPtrArray.c)
- *     MiReferenceIncomingPhysicalPages @ 0x140A41E28 (MiReferenceIncomingPhysicalPages.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     ExGetCallBackBlockRoutine @ 0x140381AA0 (ExGetCallBackBlockRoutine.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MiFreePhysicalPageChain @ 0x14054BB28 (MiFreePhysicalPageChain.c)
+ *     MiGetAweNode @ 0x14054C320 (MiGetAweNode.c)
+ *     MiGetAweViewPageSize @ 0x14054C418 (MiGetAweViewPageSize.c)
+ *     MiLockAwePagesShared @ 0x14054CF1C (MiLockAwePagesShared.c)
+ *     MiLockAweVadsShared @ 0x14054CF78 (MiLockAweVadsShared.c)
+ *     MiUnlockAweVadsShared @ 0x14054DF0C (MiUnlockAweVadsShared.c)
+ *     MiWriteAwePtes @ 0x14054E1D8 (MiWriteAwePtes.c)
+ *     MiCaptureUlongPtrArray @ 0x1408D57F4 (MiCaptureUlongPtrArray.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x1408D6154 (MiReferenceIncomingPhysicalPages.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtMapUserPhysicalPages(__int64 a1, unsigned __int64 a2, unsigned int *a3)
+__int64 __fastcall NtMapUserPhysicalPages(__int64 a1, unsigned __int64 a2, char *a3)
 {
   struct _KTHREAD *CurrentThread; // r12
   unsigned __int64 v6; // rsi
-  __int64 v7; // r14
+  ULONG_PTR v7; // r15
+  __int64 v8; // r14
   _QWORD *Pool; // rdi
-  int v9; // ebx
+  int v10; // ebx
   _QWORD *AweNode; // rax
-  __int64 v11; // rbx
-  unsigned __int64 AweViewPageSize; // r9
-  __int64 v13; // rcx
-  __int64 v14; // r9
-  __int64 v15; // r11
-  unsigned __int64 v16; // r8
-  unsigned __int64 PteAddress; // rax
-  int v19; // r10d
-  bool i; // zf
-  int v21; // r10d
-  unsigned __int64 v22; // r15
-  ULONG_PTR v23; // rsi
-  __int64 *v24; // rsi
-  __int64 v25; // rbp
-  ULONG_PTR v26; // [rsp+40h] [rbp-1068h]
-  __int64 v27[3]; // [rsp+48h] [rbp-1060h] BYREF
+  __int64 v13; // rbx
+  __int64 AweViewPageSize; // r8
+  __int64 v15; // r10
+  unsigned __int64 v16; // r11
+  _DWORD *PteAddress; // rsi
+  __int64 v18; // r8
+  int v19; // r9d
+  __int64 *v20; // rsi
+  __int64 v21; // rbp
+  ULONG_PTR v22; // [rsp+40h] [rbp-1068h]
+  __int64 v23[3]; // [rsp+48h] [rbp-1060h] BYREF
   _BYTE P[4096]; // [rsp+60h] [rbp-1048h] BYREF
 
-  *(_OWORD *)v27 = 0LL;
+  *(_OWORD *)v23 = 0LL;
   if ( a2 - 1 > 0xFFFFFFFFFFFFELL )
     return 3221225712LL;
   CurrentThread = KeGetCurrentThread();
   v6 = a1 & 0xFFFFFFFFFFFFF000uLL;
   v7 = 0LL;
+  v8 = 0LL;
   Pool = 0LL;
   if ( !a3 )
     goto LABEL_6;
@@ -65,70 +61,76 @@ __int64 __fastcall NtMapUserPhysicalPages(__int64 a1, unsigned __int64 a2, unsig
   {
     Pool = P;
   }
-  v9 = MiCaptureUlongPtrArray(Pool, a3, a2);
-  if ( v9 >= 0 )
+  v10 = MiCaptureUlongPtrArray(Pool, a3, a2);
+  if ( v10 >= 0 )
   {
 LABEL_6:
-    v26 = MiLockAweVadsShared((__int64)CurrentThread);
+    v22 = MiLockAweVadsShared((__int64)CurrentThread);
     AweNode = MiGetAweNode(v6);
-    v7 = (__int64)AweNode;
-    if ( AweNode )
+    v8 = (__int64)AweNode;
+    if ( !AweNode )
+      goto LABEL_7;
+    v13 = AweNode[4];
+    AweViewPageSize = MiGetAweViewPageSize((__int64)AweNode);
+    if ( !AweViewPageSize )
+      AweViewPageSize = ExGetCallBackBlockRoutine(v13);
+    if ( AweViewPageSize == 1 || (((AweViewPageSize << 12) - 1) & v6) == 0 )
     {
-      v11 = AweNode[4];
-      AweViewPageSize = MiGetAweViewPageSize((__int64)AweNode);
-      if ( !AweViewPageSize )
-        AweViewPageSize = MiGetAwePageSize(v11);
-      MiPageSizeToPteLevel(AweViewPageSize);
-      if ( v14 == 1 || (((v13 << 12) - 1) & v6) == 0 )
+      v16 = ((AweViewPageSize * a2) << 12) + v6 - 1;
+      if ( v16 > v6 )
       {
-        v16 = ((v14 * a2) << 12) + v6 - 1;
-        if ( v16 <= v6 )
+        if ( v6 < (*(unsigned int *)(v15 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v15 + 32) << 32)) << 12
+          || v16 > (((*(unsigned int *)(v15 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v15 + 33) << 32)) << 12) | 0xFFF) )
         {
-          v9 = -1073741584;
-          goto LABEL_26;
+          v10 = -1073741585;
         }
-        if ( v6 >= (*(unsigned int *)(v15 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v15 + 32) << 32)) << 12
-          && v16 <= (((*(unsigned int *)(v15 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v15 + 33) << 32)) << 12) | 0xFFF) )
+        else
         {
-          PteAddress = MiGetPteAddress(v6);
-          for ( i = v19 == 0; ; i = v21 == 1 )
+          PteAddress = (_DWORD *)MiGetPteAddress(v6);
+          if ( v18 == 512 )
           {
-            v22 = PteAddress;
-            if ( i )
-              break;
-            PteAddress = MiGetPteAddress(PteAddress);
+            do
+              PteAddress = (_DWORD *)MiGetPteAddress((unsigned __int64)PteAddress);
+            while ( v19 != 1 );
           }
-          v23 = MiLockAwePagesShared(v11, (__int64)CurrentThread);
-          if ( !Pool || (v9 = MiReferenceIncomingPhysicalPages(v11, (__int64)Pool, a2, 0LL, v27, v7, v22), v9 >= 0) )
+          v7 = MiLockAwePagesShared(v13, (__int64)CurrentThread);
+          if ( !Pool
+            || (v10 = MiReferenceIncomingPhysicalPages(v13, (__int64)Pool, a2, 0LL, v23, v8, PteAddress), v10 >= 0) )
           {
-            v27[1] = MiWriteAwePtes(v7, (__int64)Pool, a2, 0LL, v22, 1);
-            v9 = 0;
+            v23[1] = MiWriteAwePtes(v8, Pool, a2, 0LL, (unsigned __int64)PteAddress, 1);
+            v10 = 0;
           }
-          if ( v23 )
-            MiUnlockAweVadsShared((__int64)CurrentThread, v23);
-          goto LABEL_26;
         }
+        if ( v7 )
+          MiUnlockAweVadsShared((__int64)CurrentThread, v7);
+      }
+      else
+      {
+        v10 = -1073741584;
       }
     }
-    v9 = -1073741585;
-LABEL_26:
-    if ( v26 )
-      MiUnlockAweVadsShared((__int64)CurrentThread, v26);
+    else
+    {
+LABEL_7:
+      v10 = -1073741585;
+    }
+    if ( v22 )
+      MiUnlockAweVadsShared((__int64)CurrentThread, v22);
   }
-  v24 = v27;
-  v25 = 2LL;
+  v20 = v23;
+  v21 = 2LL;
   do
   {
-    if ( *v24 )
-      MiFreePhysicalPageChain(*(_QWORD *)(v7 + 32), (_QWORD *)*v24);
-    ++v24;
-    --v25;
+    if ( *v20 )
+      MiFreePhysicalPageChain(v8, *v20, 0);
+    ++v20;
+    --v21;
   }
-  while ( v25 );
+  while ( v21 );
   if ( a3 )
   {
     if ( Pool != (_QWORD *)P )
       ExFreePoolWithTag(Pool, 0);
   }
-  return (unsigned int)v9;
+  return (unsigned int)v10;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMirrorReduceBlackWrites @ 0x14038F620
+ * XREFs of MiMirrorReduceBlackWrites @ 0x140385C70
  * Callers:
- *     MiMirrorBlackPhase @ 0x14038A168 (MiMirrorBlackPhase.c)
+ *     MiMirrorBlackPhase @ 0x1403F4064 (MiMirrorBlackPhase.c)
  * Callees:
- *     MiIsDecayPfn @ 0x1402C1520 (MiIsDecayPfn.c)
- *     MiMirrorNodeLargePages @ 0x14038F3B8 (MiMirrorNodeLargePages.c)
- *     MiMirrorOmitPagesFromCopy @ 0x14038F830 (MiMirrorOmitPagesFromCopy.c)
+ *     MiIsDecayPfn @ 0x1402B8C2C (MiIsDecayPfn.c)
+ *     MiMirrorNodeLargePages @ 0x14038590C (MiMirrorNodeLargePages.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x140385E5C (MiMirrorOmitPagesFromCopy.c)
  */
 
-volatile LONG *__fastcall MiMirrorReduceBlackWrites(__int64 a1, __int64 a2)
+unsigned __int64 __fastcall MiMirrorReduceBlackWrites(__int64 a1, __int64 a2)
 {
   int v2; // eax
   __int64 v3; // r13
@@ -16,23 +16,23 @@ volatile LONG *__fastcall MiMirrorReduceBlackWrites(__int64 a1, __int64 a2)
   int v5; // edx
   __int64 v6; // rdi
   unsigned int v7; // r15d
-  unsigned int v8; // ebp
+  __int64 v8; // rbp
   __int64 v9; // r14
   ULONG_PTR v10; // r14
   unsigned __int64 v11; // r9
   unsigned __int64 v12; // rsi
   __int64 v13; // rsi
   __int64 v15; // [rsp+20h] [rbp-58h]
-  unsigned int v17; // [rsp+88h] [rbp+10h]
+  int v17; // [rsp+88h] [rbp+10h]
   int v18; // [rsp+90h] [rbp+18h]
-  int v19; // [rsp+98h] [rbp+20h]
+  __int64 v19; // [rsp+98h] [rbp+20h]
 
   v2 = *(_DWORD *)(a2 + 8);
   v3 = a1;
   v4 = *(_QWORD *)a2;
   v5 = *(_DWORD *)(a2 + 12);
   v15 = v4;
-  v19 = v5;
+  v18 = v5;
   if ( (v2 & 8) != 0 )
   {
     v6 = 1LL;
@@ -44,61 +44,61 @@ volatile LONG *__fastcall MiMirrorReduceBlackWrites(__int64 a1, __int64 a2)
       v6 = 1LL;
   }
   v7 = 0;
-  v8 = 0;
-  v18 = 0;
   v17 = 0;
+  v8 = 0LL;
+LABEL_6:
+  v19 = v6;
   while ( 1 )
   {
     while ( 1 )
     {
       if ( v6 > 1 )
-        v9 = 88LL * v7 + v3 + 2880;
+        v9 = v3 + 40LL * v7 + 2432;
       else
-        v9 = *(_QWORD *)(v3 + 8 * v6 + 2432) + 88LL * v8;
+        v9 = *(_QWORD *)(v3 + 8 * v6 + 2176) + 40 * v8;
       v10 = *(_QWORD *)(v9 + 16);
-      if ( v10 != 0x3FFFFFFFFFLL )
+      if ( v10 != 0xFFFFFFFFFLL )
       {
         while ( 1 )
         {
           if ( v6 == 2 && MiIsDecayPfn(v10) )
           {
             v12 = *(_QWORD *)(v11 + 48 * v10 + 16);
-            if ( qword_140C50780 && (v12 & 0x10) == 0 )
-              v12 &= ~qword_140C50780;
-            v13 = (v12 >> 12) & 0xFFFFFFFFFFLL;
+            if ( qword_140C4DF40 && (v12 & 0x10) == 0 )
+              v12 &= ~qword_140C4DF40;
+            v13 = (v12 >> 12) & 0xFFFFFFFFFLL;
             if ( v13 == v10 )
-              goto LABEL_12;
+              goto LABEL_21;
             do
             {
               MiMirrorOmitPagesFromCopy(v15, v13, 1LL);
-              v13 = *(_QWORD *)(48 * v13 - 0x220000000000LL) & 0xFFFFFFFFFFLL;
+              v13 = *(_QWORD *)(48 * v13 - 0x58000000000LL) & 0xFFFFFFFFFLL;
             }
             while ( v13 != v10 );
+            v6 = v19;
           }
           else
           {
             MiMirrorOmitPagesFromCopy(v15, v10, 1LL);
           }
-          v11 = 0xFFFFDE0000000000uLL;
-LABEL_12:
-          v10 = *(_QWORD *)(v11 + 48 * v10) & 0xFFFFFFFFFFLL;
-          if ( v10 == 0x3FFFFFFFFFLL )
+          v11 = 0xFFFFFA8000000000uLL;
+LABEL_21:
+          v10 = *(_QWORD *)(v11 + 48 * v10) & 0xFFFFFFFFFLL;
+          if ( v10 == 0xFFFFFFFFFLL )
           {
-            v8 = v17;
-            v7 = v18;
+            v7 = v17;
             v3 = a1;
-            v5 = v19;
+            v5 = v18;
             break;
           }
         }
       }
       if ( v6 > 1 )
         break;
-      v17 = ++v8;
-      if ( v8 >= dword_140C5073C )
+      v8 = (unsigned int)(v8 + 1);
+      if ( (unsigned int)v8 >= dword_140C4DEFC )
       {
-        v8 = 0;
-        v17 = 0;
+        v8 = 0LL;
         break;
       }
     }
@@ -106,10 +106,11 @@ LABEL_12:
       return MiMirrorNodeLargePages(v15, v3, 1);
     if ( v6 == 2 )
     {
-      v18 = ++v7;
+      v17 = ++v7;
       if ( v7 != v5 )
         continue;
     }
     --v6;
+    goto LABEL_6;
   }
 }

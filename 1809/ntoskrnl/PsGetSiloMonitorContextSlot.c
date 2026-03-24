@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetSiloMonitorContextSlot @ 0x1406D0C40
+ * XREFs of PsGetSiloMonitorContextSlot @ 0x1406D0C20
  * Callers:
  *     <none>
  * Callees:

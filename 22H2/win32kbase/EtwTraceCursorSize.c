@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwTraceCursorSize @ 0x1C0138E50
+ * XREFs of EtwTraceCursorSize @ 0x1C0121F00
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0qqq_EtwWriteTransfer @ 0x1C00DF768 (McTemplateK0qqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqq_EtwWriteTransfer @ 0x1C01253A4 (McTemplateK0qqq_EtwWriteTransfer.c)
  */
 
-NTSTATUS __fastcall EtwTraceCursorSize(__int64 a1, char a2, __int64 a3)
+__int64 __fastcall EtwTraceCursorSize(int a1, char a2, int a3)
 {
-  NTSTATUS result; // eax
+  __int64 result; // rax
 
   if ( (Microsoft_Windows_Win32kEnableBits & 1) != 0 )
-    return McTemplateK0qqq_EtwWriteTransfer(a1, &CursorSize, a3, a1, a2, a3);
+    return McTemplateK0qqq_EtwWriteTransfer(a1, (unsigned int)&CursorSize, a3, a1, a2, a3);
   return result;
 }

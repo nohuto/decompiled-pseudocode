@@ -1,24 +1,15 @@
 /*
- * XREFs of VfDriverIsKernelImageAddress @ 0x140ACB714
+ * XREFs of VfDriverIsKernelImageAddress @ 0x1409C88D0
  * Callers:
- *     MmIsDriverVerifying @ 0x14020A590 (MmIsDriverVerifying.c)
- *     VfTargetDriversGetVerifierData @ 0x140ACC528 (VfTargetDriversGetVerifierData.c)
- *     ViTargetIncrementCounter @ 0x140ACCBDC (ViTargetIncrementCounter.c)
- *     VfPendingShouldForce @ 0x140AD2A8C (VfPendingShouldForce.c)
- *     VfCheckUserHandle @ 0x140AD4CE4 (VfCheckUserHandle.c)
+ *     VfPendingShouldForce @ 0x1409D59CC (VfPendingShouldForce.c)
+ *     VfTargetDriversGetVerifierData @ 0x1409D6E50 (VfTargetDriversGetVerifierData.c)
+ *     ViTargetIncrementCounter @ 0x1409D751C (ViTargetIncrementCounter.c)
+ *     VfCheckUserHandle @ 0x1409DA194 (VfCheckUserHandle.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall VfDriverIsKernelImageAddress(unsigned __int64 a1)
+_BOOL8 __fastcall VfDriverIsKernelImageAddress(unsigned __int64 a1)
 {
-  bool result; // al
-
-  result = 0;
-  if ( ViDriverKernelBase )
-  {
-    if ( a1 >= ViDriverKernelBase )
-      return a1 < ViDriverKernelEnd;
-  }
-  return result;
+  return ViDriverKernelBase && a1 >= ViDriverKernelBase && a1 < ViDriverKernelEnd;
 }

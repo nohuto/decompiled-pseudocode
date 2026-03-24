@@ -1,10 +1,10 @@
 /*
- * XREFs of MiRemoveFreePoolMemoryFromDump @ 0x1402AC710
+ * XREFs of MiRemoveFreePoolMemoryFromDump @ 0x1402AC810
  * Callers:
- *     MmGetDumpRange @ 0x1402AE208 (MmGetDumpRange.c)
+ *     MmGetDumpRange @ 0x1402AE308 (MmGetDumpRange.c)
  * Callees:
- *     MiScanNonPagedPoolVa @ 0x1401635C0 (MiScanNonPagedPoolVa.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     MiScanNonPagedPoolVa @ 0x1401635E0 (MiScanNonPagedPoolVa.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiRemoveFreePoolMemoryFromDump(__int64 a1)

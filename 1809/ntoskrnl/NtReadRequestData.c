@@ -1,10 +1,10 @@
 /*
- * XREFs of NtReadRequestData @ 0x140849C30
+ * XREFs of NtReadRequestData @ 0x140849C10
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     AlpcpCopyRequestData @ 0x14084A8D0 (AlpcpCopyRequestData.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     AlpcpCopyRequestData @ 0x14084A8B0 (AlpcpCopyRequestData.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

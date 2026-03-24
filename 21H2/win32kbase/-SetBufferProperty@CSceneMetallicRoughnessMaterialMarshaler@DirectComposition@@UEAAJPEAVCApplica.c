@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CSceneMetallicRoughnessMaterialMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0226550
+ * XREFs of ?SetBufferProperty@CSceneMetallicRoughnessMaterialMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DCCD0
  * Callers:
  *     <none>
  * Callees:
- *     ?SetBufferProperty@CScenePbrMaterialMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C02265B0 (-SetBufferProperty@CScenePbrMaterialMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@.c)
+ *     ?SetBufferProperty@CScenePbrMaterialMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DCD28 (-SetBufferProperty@CScenePbrMaterialMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@.c)
  */
 
 __int64 __fastcall DirectComposition::CSceneMetallicRoughnessMaterialMarshaler::SetBufferProperty(
@@ -21,11 +21,15 @@ __int64 __fastcall DirectComposition::CSceneMetallicRoughnessMaterialMarshaler::
   *a6 = 0;
   if ( a3 != 10 )
     return DirectComposition::CScenePbrMaterialMarshaler::SetBufferProperty(this, a2, a3, a4, a5, a6);
-  if ( !a4 || a5 != 16 )
-    return 3221225485LL;
-  v7 = *a4;
-  *((_DWORD *)this + 4) |= 0x8000u;
-  *(_OWORD *)((char *)this + 136) = v7;
-  *a6 = 1;
+  if ( a4 )
+  {
+    if ( a5 == 16 )
+    {
+      v7 = *a4;
+      *((_DWORD *)this + 4) |= 0x8000u;
+      *((_OWORD *)this + 8) = v7;
+      *a6 = 1;
+    }
+  }
   return result;
 }

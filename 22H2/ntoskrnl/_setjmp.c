@@ -1,8 +1,8 @@
 /*
- * XREFs of _setjmp @ 0x14042A810
+ * XREFs of _setjmp @ 0x140408E80
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
- *     setjmp @ 0x14042A8B0 (setjmp.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
+ *     setjmp @ 0x140408F20 (setjmp.c)
  * Callees:
  *     <none>
  */

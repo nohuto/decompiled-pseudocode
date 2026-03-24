@@ -1,5 +1,5 @@
 /*
- * XREFs of ?_PurgeComplete@FxIoQueue@@KAXPEAUWDFQUEUE__@@PEAX@Z @ 0x1C00822D0
+ * XREFs of ?_PurgeComplete@FxIoQueue@@KAXPEAUWDFQUEUE__@@PEAX@Z @ 0x1C0077400
  * Callers:
  *     <none>
  * Callees:

@@ -1,42 +1,49 @@
 /*
- * XREFs of ??$_Emplace_back_with_unused_capacity@AEAU_LUID@@@?$vector@VAdapterInfo@CGlobalSurfaceManager@@V?$allocator@VAdapterInfo@CGlobalSurfaceManager@@@std@@@std@@AEAAAEAVAdapterInfo@CGlobalSurfaceManager@@AEAU_LUID@@@Z @ 0x18003DAFC
+ * XREFs of ??$_Emplace_back_with_unused_capacity@AEAU_LUID@@@?$vector@VAdapterInfo@CGlobalSurfaceManager@@V?$allocator@VAdapterInfo@CGlobalSurfaceManager@@@std@@@std@@AEAAAEAVAdapterInfo@CGlobalSurfaceManager@@AEAU_LUID@@@Z @ 0x180030EB0
  * Callers:
- *     ?EnsureAdapterInfo@CGlobalSurfaceManager@@AEAAJXZ @ 0x18003D964 (-EnsureAdapterInfo@CGlobalSurfaceManager@@AEAAJXZ.c)
+ *     ?EnsureAdapterInfo@CGlobalSurfaceManager@@AEAAJXZ @ 0x180030D40 (-EnsureAdapterInfo@CGlobalSurfaceManager@@AEAAJXZ.c)
  * Callees:
- *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x18003DB7C (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
- *     ?OpenRenderFence@CD3DDevice@@QEBAPEAXXZ @ 0x18003DBF0 (-OpenRenderFence@CD3DDevice@@QEBAPEAXXZ.c)
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x18007E4B0 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     ?GetExistingDevice@CDeviceManager@@QEBAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x1800BB1E8 (-GetExistingDevice@CDeviceManager@@QEBAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x180030F44 (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     ?OpenRenderFence@CD3DDevice@@QEBAPEAXXZ @ 0x180030FB8 (-OpenRenderFence@CD3DDevice@@QEBAPEAXXZ.c)
+ *     ?GetExistingDevice@CDeviceManager@@QEBAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18005F724 (-GetExistingDevice@CDeviceManager@@QEBAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?reset@?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18005FAE0 (-reset@-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x18005FB10 (-Release@CD3DDevice@@UEAAKXZ.c)
  */
 
 __int64 __fastcall std::vector<CGlobalSurfaceManager::AdapterInfo>::_Emplace_back_with_unused_capacity<_LUID &>(
-        CDeviceManager *a1,
-        struct _LUID *a2)
+        __int64 a1,
+        __int64 *a2)
 {
-  struct _LUID *v2; // rax
-  struct _LUID v3; // rdx
-  struct _LUID *v5; // rsi
-  void *v6; // rax
+  __int64 v2; // rbx
+  __int64 v4; // rax
+  __int64 v5; // rsi
+  CDeviceManager *v6; // rcx
+  int ExistingDevice; // eax
+  CD3DDevice *v8; // rbx
+  void *v9; // rax
   __int64 result; // rax
-  CD3DDevice *v8; // [rsp+30h] [rbp+8h] BYREF
+  CD3DDevice *v11; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = (struct _LUID *)*((_QWORD *)a1 + 1);
-  v3 = *a2;
-  v8 = 0LL;
-  v5 = v2 + 1;
-  v2[1] = 0LL;
-  v2[2] = 0LL;
-  *v2 = v3;
-  if ( (int)CDeviceManager::GetExistingDevice(a1, v3, &v8) >= 0 )
+  v2 = *(_QWORD *)(a1 + 8);
+  v4 = *a2;
+  v11 = 0LL;
+  v5 = v2 + 8;
+  *(_QWORD *)(v2 + 8) = 0LL;
+  *(_QWORD *)(v2 + 16) = 0LL;
+  *(_QWORD *)v2 = v4;
+  wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(&v11);
+  ExistingDevice = CDeviceManager::GetExistingDevice(v6, *(struct _LUID *)v2, &v11);
+  v8 = v11;
+  if ( ExistingDevice >= 0 )
   {
-    v6 = CD3DDevice::OpenRenderFence(v8);
+    v9 = CD3DDevice::OpenRenderFence(v11);
     wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>::reset(
       v5,
-      v6);
+      v9);
   }
   if ( v8 )
     CD3DDevice::Release(v8);
-  result = *((_QWORD *)a1 + 1);
-  *((_QWORD *)a1 + 1) = result + 24;
+  result = *(_QWORD *)(a1 + 8);
+  *(_QWORD *)(a1 + 8) = result + 24;
   return result;
 }

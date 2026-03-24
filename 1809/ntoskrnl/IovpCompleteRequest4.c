@@ -4,8 +4,8 @@
  *     IovpLocalCompletionRoutine @ 0x1409246E0 (IovpLocalCompletionRoutine.c)
  * Callees:
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     MdlInvariantPostDriverCompletion @ 0x14030A4B8 (MdlInvariantPostDriverCompletion.c)
- *     ViErrorReport1 @ 0x14030AE3C (ViErrorReport1.c)
+ *     MdlInvariantPostDriverCompletion @ 0x14030A5B8 (MdlInvariantPostDriverCompletion.c)
+ *     ViErrorReport1 @ 0x14030AF3C (ViErrorReport1.c)
  *     VfIrpDatabaseEntryReleaseLock @ 0x14093E3A4 (VfIrpDatabaseEntryReleaseLock.c)
  */
 

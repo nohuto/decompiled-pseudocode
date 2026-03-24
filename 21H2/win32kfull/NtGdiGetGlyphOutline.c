@@ -1,17 +1,17 @@
 /*
- * XREFs of NtGdiGetGlyphOutline @ 0x1C0018940
+ * XREFs of NtGdiGetGlyphOutline @ 0x1C00A0030
  * Callers:
  *     <none>
  * Callees:
- *     GreGetGlyphOutlineInternal @ 0x1C00196F4 (GreGetGlyphOutlineInternal.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     GreGetGlyphOutlineInternal @ 0x1C009C1E4 (GreGetGlyphOutlineInternal.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall NtGdiGetGlyphOutline(
         HDC a1,
-        __int64 a2,
-        __int64 a3,
+        unsigned __int16 a2,
+        int a3,
         ULONG64 a4,
         size_t Size,
         char *a6,
@@ -19,44 +19,44 @@ __int64 __fastcall NtGdiGetGlyphOutline(
         int a8)
 {
   unsigned int GlyphOutlineInternal; // edi
-  void *v10; // rbx
-  __int128 *v11; // rdx
-  __int128 v13; // [rsp+50h] [rbp-68h] BYREF
-  __int128 v14; // [rsp+60h] [rbp-58h]
-  int v15; // [rsp+70h] [rbp-48h]
+  struct tagTTPOLYGONHEADER *v12; // rbx
+  _OWORD *v13; // rdx
+  __int64 v15[2]; // [rsp+50h] [rbp-68h] BYREF
+  __int128 v16; // [rsp+60h] [rbp-58h] BYREF
+  int v17; // [rsp+70h] [rbp-48h]
 
   GlyphOutlineInternal = -1;
-  v13 = 0LL;
-  v14 = 0LL;
-  v15 = 0;
+  *(_OWORD *)v15 = 0LL;
+  v16 = 0LL;
+  v17 = 0;
   if ( (unsigned int)(Size - 1) <= 0x270FFFF )
-    v10 = (void *)AllocFreeTmpBuffer((unsigned int)Size);
+    v12 = (struct tagTTPOLYGONHEADER *)AllocFreeTmpBuffer((unsigned int)Size);
   else
-    v10 = 0LL;
-  if ( v10 || !(_DWORD)Size )
+    v12 = 0LL;
+  if ( v12 || !(_DWORD)Size )
   {
-    v11 = (__int128 *)a7;
+    v13 = (_OWORD *)a7;
     if ( a7 >= MmUserProbeAddress )
-      v11 = (__int128 *)MmUserProbeAddress;
-    v13 = *v11;
-    if ( v10 )
-      memset(v10, 0, (unsigned int)Size);
-    GlyphOutlineInternal = GreGetGlyphOutlineInternal(a1, Size, (__int64)v10, (__int64)&v13, a8);
+      v13 = (_OWORD *)MmUserProbeAddress;
+    *(_OWORD *)v15 = *v13;
+    if ( v12 )
+      memset(v12, 0, (unsigned int)Size);
+    GlyphOutlineInternal = GreGetGlyphOutlineInternal(a1, a2, a3, (__int64)&v16, Size, v12, (struct _MAT2 *)v15, a8);
     if ( GlyphOutlineInternal != -1 )
     {
-      if ( v10 )
+      if ( v12 )
       {
         if ( (unsigned __int64)&a6[(unsigned int)Size] > MmUserProbeAddress || &a6[(unsigned int)Size] <= a6 )
           *(_BYTE *)MmUserProbeAddress = 0;
-        memmove(a6, v10, (unsigned int)Size);
+        memmove(a6, v12, (unsigned int)Size);
       }
       if ( a4 >= MmUserProbeAddress )
         a4 = MmUserProbeAddress;
-      *(_OWORD *)a4 = v14;
-      *(_DWORD *)(a4 + 16) = v15;
+      *(_OWORD *)a4 = v16;
+      *(_DWORD *)(a4 + 16) = v17;
     }
-    if ( v10 )
-      FreeTmpBuffer(v10);
+    if ( v12 )
+      FreeTmpBuffer(v12);
   }
   return GlyphOutlineInternal;
 }

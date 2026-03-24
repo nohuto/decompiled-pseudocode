@@ -1,34 +1,34 @@
 /*
- * XREFs of PiGetDefaultMessageString @ 0x1408523B4
+ * XREFs of PiGetDefaultMessageString @ 0x14076B024
  * Callers:
- *     PiNormalizeDeviceText @ 0x1406E1D34 (PiNormalizeDeviceText.c)
+ *     PiNormalizeDeviceText @ 0x14076AC40 (PiNormalizeDeviceText.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402A07B0 (RtlInitAnsiString.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlInitUTF8String @ 0x1405E4060 (RtlInitUTF8String.c)
- *     RtlCreateUnicodeString @ 0x14066A0F0 (RtlCreateUnicodeString.c)
- *     IopGetDriverNameFromKeyNode @ 0x14067B694 (IopGetDriverNameFromKeyNode.c)
- *     IopReferenceDriverObjectByName @ 0x14067BCBC (IopReferenceDriverObjectByName.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     RtlFindMessage @ 0x140758920 (RtlFindMessage.c)
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
- *     RtlUTF8StringToUnicodeString @ 0x1409BEC80 (RtlUTF8StringToUnicodeString.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlInitUTF8String @ 0x140585490 (RtlInitUTF8String.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     RtlCreateUnicodeString @ 0x1406748C0 (RtlCreateUnicodeString.c)
+ *     RtlFindMessage @ 0x14068D900 (RtlFindMessage.c)
+ *     IopReferenceDriverObjectByName @ 0x140742838 (IopReferenceDriverObjectByName.c)
+ *     IopGetDriverNameFromKeyNode @ 0x140742900 (IopGetDriverNameFromKeyNode.c)
+ *     RtlUTF8StringToUnicodeString @ 0x140919780 (RtlUTF8StringToUnicodeString.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, unsigned int a2, _QWORD *a3)
 {
-  unsigned __int64 *v6; // rdi
+  struct _DMA_ADAPTER *v6; // rdi
   int DriverNameFromKeyNode; // ebx
-  unsigned __int64 *v8; // rax
+  PVOID v8; // rax
   unsigned __int16 v9; // ax
   const WCHAR *v10; // rdx
   unsigned __int16 Length; // ax
   wchar_t *Buffer; // rsi
   unsigned __int64 v13; // rbx
-  _WORD *Pool2; // rax
+  _WORD *PoolWithTag; // rax
   _WORD *v15; // r14
   __int64 v17; // r8
   NTSTATUS v18; // eax
@@ -47,11 +47,11 @@ __int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, unsigned int a2, 
   DriverNameFromKeyNode = IopGetDriverNameFromKeyNode(KeyHandle, &DestinationString);
   if ( DriverNameFromKeyNode >= 0 )
   {
-    v8 = (unsigned __int64 *)IopReferenceDriverObjectByName(&DestinationString);
-    v6 = v8;
+    v8 = IopReferenceDriverObjectByName(&DestinationString);
+    v6 = (struct _DMA_ADAPTER *)v8;
     if ( v8 )
     {
-      DriverNameFromKeyNode = RtlFindMessage(v8[3], 0xBu, 0, a2, &v22);
+      DriverNameFromKeyNode = RtlFindMessage(*((_QWORD *)v8 + 3), 0xBu, 0, a2, &v22);
       if ( DriverNameFromKeyNode < 0 )
         goto LABEL_11;
       v9 = v22[1];
@@ -92,11 +92,11 @@ LABEL_14:
         UnicodeString.Length = Length;
       }
       v13 = Length;
-      Pool2 = (_WORD *)ExAllocatePool2(256LL, Length + 2LL, 538996816LL);
-      v15 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, Length + 2LL, 0x20207050u);
+      v15 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        memmove(Pool2, Buffer, (unsigned int)v13);
+        memmove(PoolWithTag, Buffer, (unsigned int)v13);
         *a3 = v15;
         v15[v13 >> 1] = 0;
         DriverNameFromKeyNode = 0;
@@ -107,9 +107,9 @@ LABEL_14:
     DriverNameFromKeyNode = -1073741823;
   }
 LABEL_11:
-  RtlFreeUnicodeString(&DestinationString);
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString(&DestinationString);
+  RtlFreeAnsiString(&UnicodeString);
   if ( v6 )
-    ObfDereferenceObject(v6);
+    HalPutDmaAdapter(v6);
   return (unsigned int)DriverNameFromKeyNode;
 }

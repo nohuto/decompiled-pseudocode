@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIProcessorStartDevice @ 0x1C00040B0
+ * XREFs of ACPIProcessorStartDevice @ 0x1C000CFF0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIProcessorStartDeviceWorker @ 0x1C0004D10 (ACPIProcessorStartDeviceWorker.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIProcessorStartDeviceWorker @ 0x1C000D040 (ACPIProcessorStartDeviceWorker.c)
  */
 
 __int64 __fastcall ACPIProcessorStartDevice(ULONG_PTR a1, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall ACPIProcessorStartDevice(ULONG_PTR a1, __int64 a2)
   DeviceExtension = (struct _WORK_QUEUE_ITEM *)ACPIInternalGetDeviceExtension(a1);
   v4 = AcpiProcessorAsyncStart == 0;
   v5 = DeviceExtension + 1;
-  DeviceExtension[2].List.Flink = DeviceExtension[24].List.Flink;
+  DeviceExtension[2].List.Flink = (_LIST_ENTRY *)DeviceExtension[22].Parameter;
   DeviceExtension[2].List.Blink = (_LIST_ENTRY *)a2;
   if ( v4 )
   {

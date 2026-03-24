@@ -1,53 +1,51 @@
 /*
- * XREFs of MiSwitchBaseAddress @ 0x1407D439C
+ * XREFs of MiSwitchBaseAddress @ 0x14066AF78
  * Callers:
- *     MiRelocateImageAgain @ 0x1406AA700 (MiRelocateImageAgain.c)
+ *     MiRelocateImageAgain @ 0x14066A858 (MiRelocateImageAgain.c)
  * Callees:
- *     DbgUnLoadImageSymbolsUnicode @ 0x14020B834 (DbgUnLoadImageSymbolsUnicode.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiApplyBytestreamFixup @ 0x14035EB5C (MiApplyBytestreamFixup.c)
+ *     MiWalkEntireImage @ 0x140239E20 (MiWalkEntireImage.c)
+ *     MiApplyBytestreamFixup @ 0x1402FA184 (MiApplyBytestreamFixup.c)
+ *     DbgUnLoadImageSymbolsUnicode @ 0x14037312C (DbgUnLoadImageSymbolsUnicode.c)
  */
 
-__int64 __fastcall MiSwitchBaseAddress(_QWORD *a1, __int64 a2, ULONG_PTR a3, unsigned int a4)
+__int64 __fastcall MiSwitchBaseAddress(_QWORD *a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   __int64 v4; // rdi
-  ULONG_PTR v6; // r10
+  __int64 v5; // r10
   __int64 v7; // rsi
   __int64 v8; // r15
   __int64 v9; // rbx
-  _QWORD *v10; // rcx
   __int64 i; // rax
-  __int64 v12; // rcx
+  __int64 v11; // rcx
   __int64 result; // rax
-  __int64 *v14; // rax
-  __int64 v15; // rbx
-  __int64 *v16; // rax
+  __int64 *v13; // rax
+  __int64 v14; // rbx
+  __int64 *v15; // rax
 
   v4 = *a1;
-  v6 = a3;
+  v5 = a3;
   v7 = *(_QWORD *)(a1[12] + 32LL);
   v8 = a2 - *(_QWORD *)(*a1 + 32LL);
   v9 = *(_QWORD *)(v7 + 40);
   *(_QWORD *)(v7 + 40) = v8;
-  v10 = *(_QWORD **)(v4 + 56);
   *(_QWORD *)(v4 + 32) = a2;
-  *v10 += *(_QWORD *)(v7 + 40);
-  for ( i = *(_QWORD *)(v7 + 16); i; i = *v14 )
-    MiApplyBytestreamFixup((__int64)v10, (_QWORD *)(i + 24), v9);
-  MiWalkEntireImage((ULONG_PTR)a1, v6, 2u, a4);
+  **(_QWORD **)(v4 + 56) += *(_QWORD *)(v7 + 40);
+  for ( i = *(_QWORD *)(v7 + 16); i; i = *v13 )
+    MiApplyBytestreamFixup((__int64)a1, (_QWORD *)(i + 24), v9);
+  MiWalkEntireImage((ULONG_PTR)a1, v5, 2, a4);
   *(_QWORD *)(v7 + 40) = v8 + v9;
   result = *(_QWORD *)(v7 + 16);
   if ( result )
   {
-    v15 = -v9;
+    v14 = -v9;
     do
     {
-      MiApplyBytestreamFixup(v12, (_QWORD *)(result + 24), v15);
-      result = *v16;
+      MiApplyBytestreamFixup(v11, (_QWORD *)(result + 24), v14);
+      result = *v15;
     }
     while ( result );
   }
-  if ( _bittest16((const signed __int16 *)(v4 + 12), 0xDu) )
+  if ( (*(_WORD *)(v4 + 12) & 0x2000) != 0 )
   {
     DbgUnLoadImageSymbolsUnicode(
       (PCUNICODE_STRING)((a1[8] & 0xFFFFFFFFFFFFFFF0uLL) + 88),

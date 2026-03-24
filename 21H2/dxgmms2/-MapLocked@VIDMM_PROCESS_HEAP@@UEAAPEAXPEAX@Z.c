@@ -1,5 +1,5 @@
 /*
- * XREFs of ?MapLocked@VIDMM_PROCESS_HEAP@@UEAAPEAXPEAX@Z @ 0x1C00F1CE0
+ * XREFs of ?MapLocked@VIDMM_PROCESS_HEAP@@UEAAPEAXPEAX@Z @ 0x1C00CD2B0
  * Callers:
  *     <none>
  * Callees:

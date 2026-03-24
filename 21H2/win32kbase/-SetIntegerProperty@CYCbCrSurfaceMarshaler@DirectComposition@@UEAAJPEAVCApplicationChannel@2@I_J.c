@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetIntegerProperty@CYCbCrSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0229900
+ * XREFs of ?SetIntegerProperty@CYCbCrSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01E9BC0
  * Callers:
  *     <none>
  * Callees:
@@ -19,13 +19,13 @@ __int64 __fastcall DirectComposition::CYCbCrSurfaceMarshaler::SetIntegerProperty
   result = 0LL;
   if ( a3 != 2 )
     return 3221225485LL;
-  if ( *((_DWORD *)this + 20) == a4 )
+  if ( *((_DWORD *)this + 18) == a4 )
   {
     v6 = 0;
   }
   else
   {
-    *((_DWORD *)this + 20) = a4;
+    *((_DWORD *)this + 18) = a4;
     v6 = 1;
   }
   *a5 = v6;

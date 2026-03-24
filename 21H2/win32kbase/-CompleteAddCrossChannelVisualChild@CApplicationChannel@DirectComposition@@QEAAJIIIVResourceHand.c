@@ -1,19 +1,18 @@
 /*
- * XREFs of ?CompleteAddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIIIVResourceHandle@@HI0@Z @ 0x1C0002720
+ * XREFs of ?CompleteAddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIIIVResourceHandle@@HI0@Z @ 0x1C000295C
  * Callers:
- *     ?AddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIIIHII@Z @ 0x1C0002580 (-AddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIIIHII@Z.c)
+ *     ?AddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIIIHII@Z @ 0x1C0002660 (-AddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@SAJIIIIHII@Z.c)
  * Callees:
- *     ?RegisterResource@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@@Z @ 0x1C0002998 (-RegisterResource@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@@Z.c)
- *     ?Initialize@CCrossChannelParentVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@VResourceHandle@@I@Z @ 0x1C00029E8 (-Initialize@CCrossChannelParentVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2.c)
- *     ?GetCrossChannelVisualChildNoRef@CVisualMarshaler@DirectComposition@@QEAAPEAVCCrossChannelParentVisualMarshaler@2@VResourceHandle@@@Z @ 0x1C0002CDC (-GetCrossChannelVisualChildNoRef@CVisualMarshaler@DirectComposition@@QEAAPEAVCCrossChannelParent.c)
- *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C001413C (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
- *     ??0CVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C00161D4 (--0CVisualMarshaler@DirectComposition@@QEAA@XZ.c)
- *     ?PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C0085EE4 (-PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179D2C (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAV.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEAVCBackTrace@1@@Z @ 0x1C0179DD0 (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAXPEA.c)
+ *     ?RegisterResource@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@@Z @ 0x1C0002B48 (-RegisterResource@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@@Z.c)
+ *     ?Initialize@CCrossChannelParentVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@VResourceHandle@@I@Z @ 0x1C0002B98 (-Initialize@CCrossChannelParentVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2.c)
+ *     ??0CVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0024A14 (--0CVisualMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ?PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C00263C8 (-PutResourceOnUpdatedList@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C0029550 (Win32AllocPoolWithQuotaZInit.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C005FA08 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
+ *     ?GetCrossChannelVisualChildNoRef@CVisualMarshaler@DirectComposition@@QEAAPEAVCCrossChannelParentVisualMarshaler@2@VResourceHandle@@@Z @ 0x1C01E4FD0 (-GetCrossChannelVisualChildNoRef@CVisualMarshaler@DirectComposition@@QEAAPEAVCCrossChannelParent.c)
  */
 
 __int64 __fastcall DirectComposition::CApplicationChannel::CompleteAddCrossChannelVisualChild(
@@ -28,173 +27,143 @@ __int64 __fastcall DirectComposition::CApplicationChannel::CompleteAddCrossChann
 {
   __int64 CrossChannelVisualChildNoRef; // r15
   unsigned __int64 v9; // r10
-  struct DirectComposition::CResourceMarshaler *v10; // r12
-  __int64 v14; // rax
-  __int64 v15; // rcx
-  struct DirectComposition::CResourceMarshaler *v16; // r14
-  bool v17; // zf
-  unsigned __int64 v18; // rdx
+  struct DirectComposition::CResourceMarshaler *v10; // rbp
+  struct DirectComposition::CResourceMarshaler *v14; // r14
+  unsigned int v15; // ebx
+  __int64 v16; // rax
+  DirectComposition::CVisualMarshaler *v17; // rsi
+  int v18; // ebx
   __int64 v19; // rax
-  __int64 v20; // rcx
-  unsigned int v21; // ebx
-  PVOID v22; // rbp
-  __int64 Pool2; // rdi
-  int v24; // ebx
-  __int64 v25; // rax
-  unsigned __int64 v27; // r8
-  __int64 v28; // rax
-  __int64 v29; // rcx
-  DirectComposition::CResourceMarshaler *v30; // rbx
-  __int64 v31; // rax
-  PVOID BackTrace[20]; // [rsp+40h] [rbp-C8h] BYREF
-  char v33; // [rsp+118h] [rbp+10h] BYREF
+  unsigned __int64 v21; // rdx
+  bool v22; // zf
+  unsigned __int64 v23; // rdx
+  DirectComposition::CResourceMarshaler *v24; // rbx
+  char v25; // [rsp+78h] [rbp+10h] BYREF
 
   CrossChannelVisualChildNoRef = 0LL;
   v9 = (unsigned int)(a2 - 1);
   v10 = 0LL;
-  if ( !a2 )
-    goto LABEL_29;
-  if ( v9 >= *((_QWORD *)a1 + 10) )
-    goto LABEL_29;
-  _mm_lfence();
-  v14 = *((_QWORD *)a1 + 7);
-  v15 = v9 * *((_QWORD *)a1 + 11);
-  v16 = *(struct DirectComposition::CResourceMarshaler **)(v15 + v14);
-  if ( !v16 )
-    goto LABEL_29;
-  if ( !(*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(*(_QWORD *)v16 + 96LL))(*(_QWORD *)(v15 + v14), 195LL) )
-    goto LABEL_30;
+  if ( a2 && v9 < *((_QWORD *)a1 + 10) )
+  {
+    _mm_lfence();
+    v14 = *(struct DirectComposition::CResourceMarshaler **)(v9 * *((_QWORD *)a1 + 11) + *((_QWORD *)a1 + 7));
+  }
+  else
+  {
+    v14 = 0LL;
+  }
+  if ( !v14 )
+    goto LABEL_27;
+  if ( !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)v14 + 96LL))(
+          v14,
+          195LL) )
+    goto LABEL_26;
   if ( a7 )
   {
-    v18 = (unsigned int)(a7 - 1);
-    if ( v18 >= *((_QWORD *)a1 + 10) )
-      goto LABEL_29;
-    _mm_lfence();
-    v19 = *((_QWORD *)a1 + 7);
-    v20 = v18 * *((_QWORD *)a1 + 11);
-    CrossChannelVisualChildNoRef = *(_QWORD *)(v20 + v19);
+    v21 = (unsigned int)(a7 - 1);
+    if ( v21 < *((_QWORD *)a1 + 10) )
+    {
+      _mm_lfence();
+      CrossChannelVisualChildNoRef = *(_QWORD *)(v21 * *((_QWORD *)a1 + 11) + *((_QWORD *)a1 + 7));
+    }
     if ( !CrossChannelVisualChildNoRef )
-      goto LABEL_29;
-    v17 = (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(*(_QWORD *)CrossChannelVisualChildNoRef + 96LL))(
-            *(_QWORD *)(v20 + v19),
+      goto LABEL_27;
+    v22 = (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)CrossChannelVisualChildNoRef + 96LL))(
+            CrossChannelVisualChildNoRef,
             195LL) == 0;
   }
   else
   {
     if ( !a8 )
-      goto LABEL_12;
-    CrossChannelVisualChildNoRef = DirectComposition::CVisualMarshaler::GetCrossChannelVisualChildNoRef(v16);
-    v17 = CrossChannelVisualChildNoRef == 0;
+      goto LABEL_8;
+    CrossChannelVisualChildNoRef = DirectComposition::CVisualMarshaler::GetCrossChannelVisualChildNoRef(v14);
+    v22 = CrossChannelVisualChildNoRef == 0;
   }
-  if ( v17 )
-    goto LABEL_30;
-LABEL_12:
+  if ( v22 )
+    goto LABEL_26;
+LABEL_8:
   if ( a4 )
   {
-    v27 = (unsigned int)(a4 - 1);
-    if ( v27 < *((_QWORD *)a1 + 10) )
+    v23 = (unsigned int)(a4 - 1);
+    if ( v23 >= *((_QWORD *)a1 + 10) )
+    {
+      v24 = 0LL;
+    }
+    else
     {
       _mm_lfence();
-      v28 = *((_QWORD *)a1 + 7);
-      v29 = v27 * *((_QWORD *)a1 + 11);
-      v30 = *(DirectComposition::CResourceMarshaler **)(v29 + v28);
-      if ( v30 )
-      {
-        if ( (*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(*(_QWORD *)v30 + 96LL))(*(_QWORD *)(v29 + v28), 195LL) )
-        {
-          v10 = v30;
-          DirectComposition::CResourceMarshaler::AddRef(v30);
-LABEL_21:
-          v25 = *(_QWORD *)v16;
-          v33 = 0;
-          v24 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, DirectComposition::CApplicationChannel *, struct DirectComposition::CResourceMarshaler *, _QWORD, __int64, char *))(v25 + 224))(
-                  v16,
-                  a1,
-                  v10,
-                  a6,
-                  CrossChannelVisualChildNoRef,
-                  &v33);
-          if ( v24 >= 0 && v33 )
-            DirectComposition::CApplicationChannel::PutResourceOnUpdatedList(a1, v16);
-          goto LABEL_24;
-        }
-LABEL_30:
-        v24 = -1073741811;
-        goto LABEL_24;
-      }
+      v24 = *(DirectComposition::CResourceMarshaler **)(v23 * *((_QWORD *)a1 + 11) + *((_QWORD *)a1 + 7));
     }
-LABEL_29:
-    v24 = -1073741790;
-    goto LABEL_24;
-  }
-  v21 = a5;
-  if ( !a5 )
-    goto LABEL_30;
-  v22 = gpLeakTrackingAllocator;
-  if ( (*((_DWORD *)gpLeakTrackingAllocator + 10) & 0x70784344) != 0x70784344
-    || (v31 = 0LL, !*((_DWORD *)gpLeakTrackingAllocator + 11)) )
-  {
-LABEL_15:
-    Pool2 = ExAllocatePool2(261LL, 392LL);
-LABEL_16:
-    if ( !Pool2 )
+    if ( v24 )
     {
-LABEL_39:
-      v24 = -1073741801;
-      goto LABEL_24;
-    }
-    goto LABEL_17;
-  }
-  while ( *((_DWORD *)gpLeakTrackingAllocator + v31) != 1886929732 )
-  {
-    if ( ++v31 >= (unsigned __int64)*((unsigned int *)gpLeakTrackingAllocator + 11) )
-      goto LABEL_15;
-  }
-  Pool2 = ExAllocatePool2(261LL, 408LL);
-  if ( !Pool2 )
-    goto LABEL_39;
-  memset(BackTrace, 0, sizeof(BackTrace));
-  RtlCaptureStackBackTrace(0, 0x14u, BackTrace, 0LL);
-  if ( (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
-  {
-    if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                             v22,
-                             Pool2,
-                             BackTrace) )
-      goto LABEL_38;
-    Pool2 += 16LL;
-    goto LABEL_16;
-  }
-  if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                           v22,
-                           Pool2,
-                           BackTrace) )
-  {
-LABEL_38:
-    ExFreePoolWithTag((PVOID)Pool2, 0);
-    goto LABEL_39;
-  }
+      if ( (*(unsigned __int8 (__fastcall **)(DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)v24 + 96LL))(
+             v24,
+             195LL) )
+      {
+        v10 = v24;
+        DirectComposition::CResourceMarshaler::AddRef(v24);
 LABEL_17:
-  memset((void *)Pool2, 0, 0x188uLL);
-  DirectComposition::CVisualMarshaler::CVisualMarshaler((DirectComposition::CVisualMarshaler *)Pool2);
-  *(_QWORD *)Pool2 = &DirectComposition::CCrossChannelParentVisualMarshaler::`vftable';
-  v24 = DirectComposition::CCrossChannelParentVisualMarshaler::Initialize(Pool2, a1, v21, a3);
-  if ( v24 < 0
-    || (v24 = DirectComposition::CApplicationChannel::RegisterResource(
+        v19 = *(_QWORD *)v14;
+        v25 = 0;
+        v18 = (*(__int64 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, DirectComposition::CApplicationChannel *, struct DirectComposition::CResourceMarshaler *, _QWORD, __int64, char *))(v19 + 224))(
+                v14,
                 a1,
-                (struct DirectComposition::CResourceMarshaler *)Pool2),
-        v24 < 0) )
+                v10,
+                a6,
+                CrossChannelVisualChildNoRef,
+                &v25);
+        if ( v18 >= 0 && v25 )
+          DirectComposition::CApplicationChannel::PutResourceOnUpdatedList(a1, v14);
+        goto LABEL_20;
+      }
+LABEL_26:
+      v18 = -1073741811;
+      goto LABEL_20;
+    }
+LABEL_27:
+    v18 = -1073741790;
+    goto LABEL_20;
+  }
+  v15 = a5;
+  if ( a5 )
   {
-    (*(void (__fastcall **)(__int64, DirectComposition::CApplicationChannel *))(*(_QWORD *)Pool2 + 88LL))(Pool2, a1);
-    (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)Pool2 + 80LL))(Pool2, 1LL);
+    v16 = Win32AllocPoolWithQuotaZInit(0x178uLL);
+    v17 = (DirectComposition::CVisualMarshaler *)v16;
+    if ( v16 )
+    {
+      memset((void *)(v16 + 8), 0, 0x170uLL);
+      DirectComposition::CVisualMarshaler::CVisualMarshaler(v17);
+      *(_QWORD *)v17 = &DirectComposition::CCrossChannelParentVisualMarshaler::`vftable';
+    }
+    else
+    {
+      v17 = 0LL;
+    }
+    if ( !v17 )
+    {
+      v18 = -1073741801;
+      goto LABEL_20;
+    }
+    v18 = DirectComposition::CCrossChannelParentVisualMarshaler::Initialize(v17, a1, v15, a3);
+    if ( v18 < 0 || (v18 = DirectComposition::CApplicationChannel::RegisterResource(a1, v17), v18 < 0) )
+    {
+      (*(void (__fastcall **)(DirectComposition::CVisualMarshaler *, DirectComposition::CApplicationChannel *))(*(_QWORD *)v17 + 88LL))(
+        v17,
+        a1);
+      (*(void (__fastcall **)(DirectComposition::CVisualMarshaler *, __int64))(*(_QWORD *)v17 + 80LL))(v17, 1LL);
+    }
+    else
+    {
+      v10 = v17;
+    }
   }
   else
   {
-    v10 = (struct DirectComposition::CResourceMarshaler *)Pool2;
+    v18 = -1073741811;
   }
-  if ( v24 >= 0 )
-    goto LABEL_21;
-LABEL_24:
+  if ( v18 >= 0 )
+    goto LABEL_17;
+LABEL_20:
   DirectComposition::CApplicationChannel::ReleaseResource(a1, v10);
-  return (unsigned int)v24;
+  return (unsigned int)v18;
 }

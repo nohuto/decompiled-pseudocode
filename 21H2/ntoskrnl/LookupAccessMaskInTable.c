@@ -1,28 +1,30 @@
 /*
- * XREFs of LookupAccessMaskInTable @ 0x1406773CC
+ * XREFs of LookupAccessMaskInTable @ 0x140673F88
  * Callers:
- *     LocalGetAclForString @ 0x140675DA8 (LocalGetAclForString.c)
- *     LocalConvertAclToString @ 0x140676B80 (LocalConvertAclToString.c)
+ *     LocalConvertAclToString @ 0x140673794 (LocalConvertAclToString.c)
+ *     LocalGetAclForString @ 0x1407878AC (LocalGetAclForString.c)
  * Callees:
- *     _wcsnicmp @ 0x1403E15D0 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
  */
 
 wchar_t **__fastcall LookupAccessMaskInTable(wchar_t *Str1, int a2, int a3)
 {
-  __int64 v3; // rbx
-  const wchar_t **v4; // rdi
-  unsigned int v5; // esi
+  __int64 v3; // rdi
+  const wchar_t **v4; // rsi
+  unsigned int i; // ebx
 
   v3 = 0LL;
-  v4 = (const wchar_t **)&unk_140C03218;
-  v5 = 0;
-  while ( (a3 & (_DWORD)v4[1]) != a3
-       || !(Str1 ? wcsnicmp(Str1, *(v4 - 1), *(unsigned int *)v4) == 0 : a2 == *((_DWORD *)v4 + 1)) )
+  v4 = (const wchar_t **)&unk_140C01DD8;
+  for ( i = 0; i < 0x1C; ++i )
   {
-    ++v5;
+    if ( (a3 & (_DWORD)v4[1]) == a3
+      && (Str1 ? wcsnicmp(Str1, *(v4 - 1), *(unsigned int *)v4) == 0 : a2 == *((_DWORD *)v4 + 1)) )
+    {
+      break;
+    }
     v4 += 3;
-    if ( v5 >= 0x1C )
-      return (wchar_t **)v3;
   }
-  return &(&off_140C03210)[3 * v5];
+  if ( i < 0x1C )
+    return &(&off_140C01DD0)[3 * i];
+  return (wchar_t **)v3;
 }

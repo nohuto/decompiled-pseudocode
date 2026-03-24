@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CEnergyReporter@@AEAA@XZ @ 0x1800DDD50
+ * XREFs of ??0CEnergyReporter@@AEAA@XZ @ 0x18002936C
  * Callers:
- *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800DD5DC (-RunCompositionThread@CConnection@@AEAAJXZ.c)
+ *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x18002692C (-RunCompositionThread@CConnection@@AEAAJXZ.c)
  * Callees:
- *     ?CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ @ 0x1800DDEC8 (-CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ *     ?CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ @ 0x180029470 (-CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
  */
 
 CEnergyReporter *__fastcall CEnergyReporter::CEnergyReporter(_DWORD *pv)
@@ -15,7 +15,7 @@ CEnergyReporter *__fastcall CEnergyReporter::CEnergyReporter(_DWORD *pv)
   void *retaddr; // [rsp+28h] [rbp+0h]
 
   TickCount64 = GetTickCount64();
-  v3 = qword_1803D33D8;
+  v3 = lpMem;
   *(_QWORD *)pv = TickCount64;
   pv[2] = 0;
   *((_QWORD *)pv + 2) = 0LL;

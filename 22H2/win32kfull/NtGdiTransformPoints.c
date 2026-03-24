@@ -1,11 +1,11 @@
 /*
- * XREFs of NtGdiTransformPoints @ 0x1C0006BA0
+ * XREFs of NtGdiTransformPoints @ 0x1C00FA1C0
  * Callers:
  *     <none>
  * Callees:
- *     GreTransformPoints @ 0x1C0006CF4 (GreTransformPoints.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     GreTransformPoints @ 0x1C00FA30C (GreTransformPoints.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall NtGdiTransformPoints(HDC a1, char *Src, char *a3, int a4, int a5)
@@ -51,7 +51,7 @@ __int64 __fastcall NtGdiTransformPoints(HDC a1, char *Src, char *a3, int a4, int
       }
     }
     if ( v10 && v10 != Srca )
-      FreeTmpBuffer(v10, Src, a3);
+      FreeTmpBuffer(v10);
   }
   return v9;
 }

@@ -1,24 +1,24 @@
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000028218C29240>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000028218C29240>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000028218C071C0>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000028218C076C0>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000028218C05E80>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000028218C07D80>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000028218C04A40>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000028218C04A40>) 
- 
+[EXCEPTION] WPP_RECORDER_SF_ @ 0x14000CCC8: Hex-Rays returned no pseudocode for 0x14000CCC8
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14000CCC8'), <traceback object at 0x0000021125BF5440>)
+
+[EXCEPTION] WPP_RECORDER_SF_d @ 0x14000CDA0: Hex-Rays returned no pseudocode for 0x14000CDA0
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14000CDA0'), <traceback object at 0x0000021125B072C0>)
+
+[EXCEPTION] WPP_RECORDER_SF_q @ 0x14002CE68: Hex-Rays returned no pseudocode for 0x14002CE68
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14002CE68'), <traceback object at 0x0000021125B05280>)
+
+[EXCEPTION] WPP_RECORDER_SF_I @ 0x14002F040: Hex-Rays returned no pseudocode for 0x14002F040
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x14002F040'), <traceback object at 0x0000021125B05280>)
+
+[EXCEPTION] WPP_RECORDER_SF_s @ 0x140035598: Hex-Rays returned no pseudocode for 0x140035598
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140035598'), <traceback object at 0x0000021125B05280>)
+
+[EXCEPTION] WPP_RECORDER_SF__guid_ @ 0x140036DA8: Hex-Rays returned no pseudocode for 0x140036DA8
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140036DA8'), <traceback object at 0x0000021125B05280>)
+
+[EXCEPTION] WPP_RECORDER_SF_P @ 0x140044B80: Hex-Rays returned no pseudocode for 0x140044B80
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x140044B80'), <traceback object at 0x0000021125B05280>)
+
+[EXCEPTION] WPP_RECORDER_SF_i @ 0x1400450D4: Hex-Rays returned no pseudocode for 0x1400450D4
+[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1400450D4'), <traceback object at 0x0000021125B05280>)
+

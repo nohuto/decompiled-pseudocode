@@ -1,8 +1,8 @@
 /*
- * XREFs of LockProcessByClientIdEx @ 0x1C009DDE8
+ * XREFs of LockProcessByClientIdEx @ 0x1C00895DC
  * Callers:
- *     _DwmCheckProcessSession @ 0x1C009DB00 (_DwmCheckProcessSession.c)
- *     LockProcessByClientId @ 0x1C009DDA8 (LockProcessByClientId.c)
+ *     LockProcessByClientId @ 0x1C0089330 (LockProcessByClientId.c)
+ *     _DwmCheckProcessSession @ 0x1C0089580 (_DwmCheckProcessSession.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmDeleteCommonClassRegKey @ 0x140A231DC
+ * XREFs of _CmDeleteCommonClassRegKey @ 0x140974CFC
  * Callers:
- *     _CmDeleteInstallerClassWorker @ 0x140A24D6C (_CmDeleteInstallerClassWorker.c)
- *     _CmDeleteInterfaceClassWorker @ 0x140A25124 (_CmDeleteInterfaceClassWorker.c)
+ *     _CmDeleteInstallerClassWorker @ 0x1409752C4 (_CmDeleteInstallerClassWorker.c)
+ *     _CmDeleteInterfaceClassWorker @ 0x140975684 (_CmDeleteInterfaceClassWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     _CmDeleteCommonClassRegKeyWorker @ 0x140A23328 (_CmDeleteCommonClassRegKeyWorker.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     _CmDeleteCommonClassRegKeyWorker @ 0x140974E48 (_CmDeleteCommonClassRegKeyWorker.c)
  */
 
 __int64 __fastcall CmDeleteCommonClassRegKey(__int64 a1, __int64 a2, int a3)

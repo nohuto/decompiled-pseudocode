@@ -5,8 +5,8 @@
  *     KiInitializeDynamicProcessorDpc @ 0x14057B260 (KiInitializeDynamicProcessorDpc.c)
  *     KiInitializeMTRR @ 0x1409C56F4 (KiInitializeMTRR.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1400A7900 (KeQueryActiveProcessorCountEx.c)
- *     KeIpiGenericCall @ 0x140175910 (KeIpiGenericCall.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
+ *     KeIpiGenericCall @ 0x140175930 (KeIpiGenericCall.c)
  */
 
 void KeRestoreMtrrBroadcast()

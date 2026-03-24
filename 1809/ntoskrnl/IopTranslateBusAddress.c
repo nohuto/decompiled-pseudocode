@@ -1,7 +1,7 @@
 /*
- * XREFs of IopTranslateBusAddress @ 0x140750EDC
+ * XREFs of IopTranslateBusAddress @ 0x140750EBC
  * Callers:
- *     IopGenericTranslateOrdering @ 0x140750E50 (IopGenericTranslateOrdering.c)
+ *     IopGenericTranslateOrdering @ 0x140750E30 (IopGenericTranslateOrdering.c)
  * Callees:
  *     <none>
  */

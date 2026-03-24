@@ -1,9 +1,9 @@
 /*
- * XREFs of DereferenceDeviceFirmwareLockHandlerEntry @ 0x1C004EA74
+ * XREFs of DereferenceDeviceFirmwareLockHandlerEntry @ 0x1C004FC48
  * Callers:
- *     AcquireDeviceFirmwareLock @ 0x1C004E7AC (AcquireDeviceFirmwareLock.c)
- *     ReleaseDeviceFirmwareLock @ 0x1C004EF14 (ReleaseDeviceFirmwareLock.c)
- *     AcpiUnregisterDeviceFirmwareLockHandler @ 0x1C00ACFCC (AcpiUnregisterDeviceFirmwareLockHandler.c)
+ *     AcquireDeviceFirmwareLock @ 0x1C004F97C (AcquireDeviceFirmwareLock.c)
+ *     ReleaseDeviceFirmwareLock @ 0x1C00500E4 (ReleaseDeviceFirmwareLock.c)
+ *     AcpiUnregisterDeviceFirmwareLockHandler @ 0x1C00AE47C (AcpiUnregisterDeviceFirmwareLockHandler.c)
  * Callees:
  *     <none>
  */

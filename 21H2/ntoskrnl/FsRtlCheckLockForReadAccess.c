@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlCheckLockForReadAccess @ 0x14021DA60
+ * XREFs of FsRtlCheckLockForReadAccess @ 0x140359130
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlFastCheckLockForRead @ 0x14021DAF0 (FsRtlFastCheckLockForRead.c)
- *     IoGetRequestorProcess @ 0x14021DC00 (IoGetRequestorProcess.c)
+ *     FsRtlFastCheckLockForRead @ 0x140359020 (FsRtlFastCheckLockForRead.c)
+ *     IoGetRequestorProcess @ 0x1403591C0 (IoGetRequestorProcess.c)
  */
 
 BOOLEAN __stdcall FsRtlCheckLockForReadAccess(PFILE_LOCK FileLock, PIRP Irp)
 {
   _QWORD *LockInformation; // r9
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rbx
-  LARGE_INTEGER v6; // rax
+  LARGE_INTEGER v5; // rax
   ULONG Options; // edi
   struct _FILE_OBJECT *FileObject; // rbx
   PEPROCESS ProcessId; // rax
@@ -24,10 +24,10 @@ BOOLEAN __stdcall FsRtlCheckLockForReadAccess(PFILE_LOCK FileLock, PIRP Irp)
   if ( !LockInformation[5] )
     return 1;
   CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
-  v6.QuadPart = CurrentStackLocation->Parameters.Read.Length;
+  v5.QuadPart = CurrentStackLocation->Parameters.Read.Length;
   StartingByte = CurrentStackLocation->Parameters.Read.ByteOffset;
-  Length = v6;
-  if ( StartingByte.QuadPart + v6.QuadPart <= *LockInformation )
+  Length = v5;
+  if ( StartingByte.QuadPart + v5.QuadPart <= *LockInformation )
     return 1;
   Options = CurrentStackLocation->Parameters.Create.Options;
   FileObject = CurrentStackLocation->FileObject;

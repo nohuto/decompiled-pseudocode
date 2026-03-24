@@ -1,11 +1,11 @@
 /*
- * XREFs of NVMeGetCloudSSDErrorRecoveryLogPageCompletion @ 0x1C000E5D0
+ * XREFs of NVMeGetCloudSSDErrorRecoveryLogPageCompletion @ 0x1C0019150
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     NVMeFreeDmaBuffer @ 0x1C00053FC (NVMeFreeDmaBuffer.c)
- *     __security_check_cookie @ 0x1C000E880 (__security_check_cookie.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
+ *     __security_check_cookie @ 0x1C00066D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall NVMeGetCloudSSDErrorRecoveryLogPageCompletion(__int64 a1, __int64 a2)
@@ -17,31 +17,24 @@ __int64 __fastcall NVMeGetCloudSSDErrorRecoveryLogPageCompletion(__int64 a1, __i
   __int64 v7; // rcx
   __int64 result; // rax
   __int64 v9; // [rsp+20h] [rbp-20h] BYREF
-  unsigned __int64 v10; // [rsp+28h] [rbp-18h]
+  __int64 v10; // [rsp+28h] [rbp-18h]
   __int64 v11; // [rsp+30h] [rbp-10h]
 
   SrbExtension = GetSrbExtension(a2);
   v5 = *(_BYTE *)(v4 + 3) == 1;
   v6 = SrbExtension;
-  v10 = 0xAE3430FE2131D944uLL;
+  v10 = 0x4DAB3DFD5A1983BALL;
   v7 = *(_QWORD *)(SrbExtension + 4200);
   v9 = v7;
-  v11 = 0x5A1983BA3DFD4DABLL;
-  if ( !v5 )
-    goto LABEL_2;
-  result = *(_QWORD *)(v7 + 496) - v10;
-  if ( !result )
-    result = *(_QWORD *)(v7 + 504) - v11;
-  if ( result )
+  v11 = 0x44D93121FE3034AELL;
+  if ( v5 && *(_QWORD *)(v7 + 496) == v10 && (result = *(_QWORD *)(v7 + 504), result == v11) )
   {
-LABEL_2:
-    result = NVMeFreeDmaBuffer(a1, 512LL, &v9, *(_QWORD *)(a1 + 4024));
-    *(_QWORD *)(a1 + 4024) = 0LL;
+    *(_QWORD *)(a1 + 3992) = v7;
   }
   else
   {
-    *(_DWORD *)(a1 + 12) |= 1u;
-    *(_QWORD *)(a1 + 4008) = v7;
+    result = NVMeFreeDmaBuffer(a1, 512LL, &v9, *(_QWORD *)(a1 + 4008));
+    *(_QWORD *)(a1 + 4008) = 0LL;
   }
   *(_BYTE *)(v6 + 4253) |= 8u;
   return result;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspVsmEnclaveHashAllocator @ 0x14088E98C
+ * XREFs of PspVsmEnclaveHashAllocator @ 0x14088E96C
  * Callers:
- *     PsCreateVsmEnclave @ 0x14088DBBC (PsCreateVsmEnclave.c)
+ *     PsCreateVsmEnclave @ 0x14088DB9C (PsCreateVsmEnclave.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
  */
 
 PVOID __fastcall PspVsmEnclaveHashAllocator(SIZE_T NumberOfBytes)

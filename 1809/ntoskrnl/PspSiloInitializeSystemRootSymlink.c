@@ -1,16 +1,16 @@
 /*
- * XREFs of PspSiloInitializeSystemRootSymlink @ 0x140887A3C
+ * XREFs of PspSiloInitializeSystemRootSymlink @ 0x140887A1C
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x140887460 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x140887440 (PspInitializeServerSiloDeferred.c)
  * Callees:
  *     PsDetachSiloFromCurrentThread @ 0x14000FBB0 (PsDetachSiloFromCurrentThread.c)
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     RtlCopyUnicodeString @ 0x1400B9870 (RtlCopyUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51B0 (RtlAppendUnicodeStringToString.c)
- *     RtlUShortAdd @ 0x14011CDFC (RtlUShortAdd.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwCreateSymbolicLinkObject @ 0x1401B98D0 (ZwCreateSymbolicLinkObject.c)
+ *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
+ *     RtlUShortAdd @ 0x14011CE1C (RtlUShortAdd.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwCreateSymbolicLinkObject @ 0x1401B98F0 (ZwCreateSymbolicLinkObject.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

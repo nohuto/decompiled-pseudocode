@@ -1,18 +1,18 @@
 /*
- * XREFs of Usbh_PCE_Disable_Action @ 0x1C0011DA0
+ * XREFs of Usbh_PCE_Disable_Action @ 0x1C0004C90
  * Callers:
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhWaitEventWithTimeoutEx @ 0x1C0011440 (UsbhWaitEventWithTimeoutEx.c)
- *     UsbhFlushPortChangeQueue @ 0x1C001D610 (UsbhFlushPortChangeQueue.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_dq @ 0x1C002DFC0 (WPP_RECORDER_SF_dq.c)
- *     UsbhRemoveQueuedSuspend @ 0x1C00347B8 (UsbhRemoveQueuedSuspend.c)
- *     UsbhSetPcqEventStatus @ 0x1C00348C0 (UsbhSetPcqEventStatus.c)
- *     UsbhUnlockPcqWithTag @ 0x1C0034A70 (UsbhUnlockPcqWithTag.c)
- *     UsbhiSignalSuspendEvent @ 0x1C0035C0C (UsbhiSignalSuspendEvent.c)
+ *     UsbhFlushPortChangeQueue @ 0x1C0002580 (UsbhFlushPortChangeQueue.c)
+ *     UsbhWaitEventWithTimeoutEx @ 0x1C00038F0 (UsbhWaitEventWithTimeoutEx.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002F39C (WPP_RECORDER_SF_dq.c)
+ *     UsbhRemoveQueuedSuspend @ 0x1C0035B1C (UsbhRemoveQueuedSuspend.c)
+ *     UsbhSetPcqEventStatus @ 0x1C0035C24 (UsbhSetPcqEventStatus.c)
+ *     UsbhUnlockPcqWithTag @ 0x1C0035D2C (UsbhUnlockPcqWithTag.c)
+ *     UsbhiSignalSuspendEvent @ 0x1C0036EC8 (UsbhiSignalSuspendEvent.c)
  */
 
 __int64 __fastcall Usbh_PCE_Disable_Action(__int64 a1, __int64 a2)
@@ -54,17 +54,23 @@ __int64 __fastcall Usbh_PCE_Disable_Action(__int64 a1, __int64 a2)
   __int64 v38; // r8
   __int64 v39; // rdx
   __int64 v40; // rcx
-  __int64 v41; // rax
-  int v42; // eax
-  __int64 v43; // rdx
-  __int64 v44; // rax
-  __int64 v45; // rax
+  __int64 v41; // r8
+  __int64 v42; // rax
+  __int64 v43; // r9
+  int v44; // eax
+  __int64 v45; // rdx
   __int64 v46; // rax
-  __int64 v47; // rax
-  __int64 v48; // rax
-  __int64 v49; // rax
-  __int64 v50; // rax
+  __int64 v47; // r8
+  __int64 v48; // r9
+  __int64 v49; // r8
+  __int64 v50; // r9
   __int64 v51; // rax
+  __int64 v52; // rax
+  __int64 v53; // rax
+  __int64 v54; // rax
+  __int64 v55; // rax
+  __int64 v56; // rax
+  __int64 v57; // rax
 
   if ( !a1 )
     UsbhTrapFatal_Dbg(0LL, 0LL);
@@ -199,108 +205,108 @@ __int64 __fastcall Usbh_PCE_Disable_Action(__int64 a1, __int64 a2)
     v33 = 32LL * *(unsigned int *)(a2 + 2400);
     *(_DWORD *)(a2 + 448) = 0;
     *(_DWORD *)(v33 + a2 + 1384) = v29;
-    goto LABEL_27;
-  }
-  if ( (_DWORD)v16 == 7 )
-  {
-    Log(a1, 512, 1597141041, 7LL, *(unsigned __int16 *)(a2 + 4));
-    Log(a1, 16, 1886479734, *(int *)(a2 + 12), *(unsigned __int16 *)(a2 + 4));
-    *(_DWORD *)(32 * (*(unsigned int *)(a2 + 2400) + 43LL) + a2 + 24) = 30;
-    v41 = 32LL * *(unsigned int *)(a2 + 2400);
-    *(_DWORD *)(a2 + 12) = 11;
-    *(_DWORD *)(v41 + a2 + 1384) = 11;
-    UsbhFlushPortChangeQueue(a1, a2);
-    KeSetEvent((PRKEVENT)(a2 + 472), 0, 0);
-    Log(a1, 16, 1886465325, *(int *)(a2 + 12), *(unsigned __int16 *)(a2 + 4));
-    v42 = *(_DWORD *)(a2 + 12);
-    v43 = 32LL * *(unsigned int *)(a2 + 2400);
-    *(_DWORD *)(a2 + 448) = 0;
-    *(_DWORD *)(v43 + a2 + 1384) = v42;
 LABEL_27:
     KeReleaseSpinLock((PKSPIN_LOCK)(a2 + 440), v8);
-    goto LABEL_28;
   }
-  switch ( (int)v16 )
+  else
   {
-    case 1:
-    case 2:
-    case 18:
-      Log(a1, 512, 1597141042, v16, *(unsigned __int16 *)(a2 + 4));
-      v45 = 32LL * *(unsigned int *)(a2 + 2400);
-      *(_DWORD *)(a2 + 12) = 6;
-      *(_DWORD *)(v45 + a2 + 1384) = 6;
-      UsbhSetPcqEventStatus(a1, a2, 2LL);
-      UsbhFlushPortChangeQueue(a1, a2);
-      goto LABEL_47;
-    case 3:
-    case 12:
-      Log(a1, 512, 1597141044, v16, *(unsigned __int16 *)(a2 + 4));
-      UsbhSetPcqEventStatus(a1, a2, 2LL);
-      v47 = 32LL * *(unsigned int *)(a2 + 2400);
-      *(_DWORD *)(a2 + 12) = 12;
-      *(_DWORD *)(v47 + a2 + 1384) = 12;
-      break;
-    case 5:
-    case 16:
-    case 17:
-      Log(a1, 512, 1597141048, v16, *(unsigned __int16 *)(a2 + 4));
-      UsbhSetPcqEventStatus(a1, a2, 2LL);
-      v50 = 32LL * *(unsigned int *)(a2 + 2400);
-      *(_DWORD *)(a2 + 12) = v16;
-      *(_DWORD *)(v50 + a2 + 1384) = v16;
-      break;
-    case 6:
-    case 11:
-    case 15:
-      Log(a1, 512, 1597141045, v16, *(unsigned __int16 *)(a2 + 4));
-      UsbhFlushPortChangeQueue(a1, a2);
-      UsbhSetPcqEventStatus(a1, a2, 2LL);
-LABEL_47:
-      KeSetEvent((PRKEVENT)(a2 + 472), 0, 0);
-      break;
-    case 8:
-      UsbhRemoveQueuedSuspend(a1, a2);
-      UsbhiSignalSuspendEvent(a1, a2);
-      Log(a1, 512, 1597141047, v16, *(unsigned __int16 *)(a2 + 4));
-      UsbhSetPcqEventStatus(a1, a2, 2LL);
-      v48 = 32LL * *(unsigned int *)(a2 + 2400);
-      *(_DWORD *)(a2 + 12) = 12;
-      *(_DWORD *)(v48 + a2 + 1384) = 12;
-      break;
-    case 9:
-      UsbhRemoveQueuedSuspend(a1, a2);
-      Log(a1, 512, 1597141046, v16, *(unsigned __int16 *)(a2 + 4));
-      UsbhSetPcqEventStatus(a1, a2, 2LL);
-      v44 = 32LL * *(unsigned int *)(a2 + 2400);
-      *(_DWORD *)(a2 + 12) = 5;
-      *(_DWORD *)(v44 + a2 + 1384) = 5;
-      break;
-    case 10:
-      UsbhRemoveQueuedSuspend(a1, a2);
-      UsbhiSignalSuspendEvent(a1, a2);
-      Log(a1, 512, 1597141047, v16, *(unsigned __int16 *)(a2 + 4));
-      UsbhSetPcqEventStatus(a1, a2, 2LL);
-      v49 = 32LL * *(unsigned int *)(a2 + 2400);
-      *(_DWORD *)(a2 + 12) = 13;
-      *(_DWORD *)(v49 + a2 + 1384) = 13;
-      break;
-    case 13:
-    case 14:
-      Log(a1, 512, 1597141049, v16, *(unsigned __int16 *)(a2 + 4));
-      UsbhSetPcqEventStatus(a1, a2, 2LL);
-      v51 = 32LL * *(unsigned int *)(a2 + 2400);
-      *(_DWORD *)(a2 + 12) = 13;
-      *(_DWORD *)(v51 + a2 + 1384) = 13;
-      break;
-    default:
-      v46 = 32LL * *(unsigned int *)(a2 + 2400);
-      *(_DWORD *)(a2 + 12) = 19;
-      *(_DWORD *)(v46 + a2 + 1384) = 19;
-      UsbhSetPcqEventStatus(a1, a2, 2LL);
-      break;
+    switch ( (int)v16 )
+    {
+      case 1:
+      case 2:
+      case 18:
+        Log(a1, 512, 1597141042, v16, *(unsigned __int16 *)(a2 + 4));
+        v46 = 32LL * *(unsigned int *)(a2 + 2400);
+        *(_DWORD *)(a2 + 12) = 6;
+        *(_DWORD *)(v46 + a2 + 1384) = 6;
+        UsbhSetPcqEventStatus(a1, a2, 2LL);
+        UsbhFlushPortChangeQueue(a1, a2, v47, v48);
+        goto LABEL_45;
+      case 3:
+      case 12:
+        Log(a1, 512, 1597141044, v16, *(unsigned __int16 *)(a2 + 4));
+        UsbhSetPcqEventStatus(a1, a2, 2LL);
+        v52 = 32LL * *(unsigned int *)(a2 + 2400);
+        *(_DWORD *)(a2 + 12) = 12;
+        *(_DWORD *)(v52 + a2 + 1384) = 12;
+        break;
+      case 5:
+      case 16:
+      case 17:
+        Log(a1, 512, 1597141048, v16, *(unsigned __int16 *)(a2 + 4));
+        UsbhSetPcqEventStatus(a1, a2, 2LL);
+        v56 = 32LL * *(unsigned int *)(a2 + 2400);
+        *(_DWORD *)(a2 + 12) = v16;
+        *(_DWORD *)(v56 + a2 + 1384) = v16;
+        break;
+      case 6:
+      case 11:
+      case 15:
+        Log(a1, 512, 1597141045, v16, *(unsigned __int16 *)(a2 + 4));
+        UsbhFlushPortChangeQueue(a1, a2, v49, v50);
+        UsbhSetPcqEventStatus(a1, a2, 2LL);
+LABEL_45:
+        KeSetEvent((PRKEVENT)(a2 + 472), 0, 0);
+        break;
+      case 7:
+        Log(a1, 512, 1597141041, v16, *(unsigned __int16 *)(a2 + 4));
+        Log(a1, 16, 1886479734, *(_DWORD *)(a2 + 12), *(unsigned __int16 *)(a2 + 4));
+        v41 = 32 * (*(unsigned int *)(a2 + 2400) + 43LL);
+        *(_DWORD *)(v41 + a2 + 24) = 30;
+        v42 = 32LL * *(unsigned int *)(a2 + 2400);
+        *(_DWORD *)(a2 + 12) = 11;
+        *(_DWORD *)(v42 + a2 + 1384) = 11;
+        UsbhFlushPortChangeQueue(a1, a2, v41, v43);
+        KeSetEvent((PRKEVENT)(a2 + 472), 0, 0);
+        Log(a1, 16, 1886465325, *(_DWORD *)(a2 + 12), *(unsigned __int16 *)(a2 + 4));
+        v44 = *(_DWORD *)(a2 + 12);
+        v45 = 32LL * *(unsigned int *)(a2 + 2400);
+        *(_DWORD *)(a2 + 448) = 0;
+        *(_DWORD *)(v45 + a2 + 1384) = v44;
+        goto LABEL_27;
+      case 8:
+        UsbhRemoveQueuedSuspend(a1, a2);
+        UsbhiSignalSuspendEvent(a1, a2);
+        Log(a1, 512, 1597141047, v16, *(unsigned __int16 *)(a2 + 4));
+        UsbhSetPcqEventStatus(a1, a2, 2LL);
+        v54 = 32LL * *(unsigned int *)(a2 + 2400);
+        *(_DWORD *)(a2 + 12) = 12;
+        *(_DWORD *)(v54 + a2 + 1384) = 12;
+        break;
+      case 9:
+        UsbhRemoveQueuedSuspend(a1, a2);
+        Log(a1, 512, 1597141046, v16, *(unsigned __int16 *)(a2 + 4));
+        UsbhSetPcqEventStatus(a1, a2, 2LL);
+        v53 = 32LL * *(unsigned int *)(a2 + 2400);
+        *(_DWORD *)(a2 + 12) = 5;
+        *(_DWORD *)(v53 + a2 + 1384) = 5;
+        break;
+      case 10:
+        UsbhRemoveQueuedSuspend(a1, a2);
+        UsbhiSignalSuspendEvent(a1, a2);
+        Log(a1, 512, 1597141047, v16, *(unsigned __int16 *)(a2 + 4));
+        UsbhSetPcqEventStatus(a1, a2, 2LL);
+        v55 = 32LL * *(unsigned int *)(a2 + 2400);
+        *(_DWORD *)(a2 + 12) = 13;
+        *(_DWORD *)(v55 + a2 + 1384) = 13;
+        break;
+      case 13:
+      case 14:
+        Log(a1, 512, 1597141049, v16, *(unsigned __int16 *)(a2 + 4));
+        UsbhSetPcqEventStatus(a1, a2, 2LL);
+        v57 = 32LL * *(unsigned int *)(a2 + 2400);
+        *(_DWORD *)(a2 + 12) = 13;
+        *(_DWORD *)(v57 + a2 + 1384) = 13;
+        break;
+      default:
+        v51 = 32LL * *(unsigned int *)(a2 + 2400);
+        *(_DWORD *)(a2 + 12) = 19;
+        *(_DWORD *)(v51 + a2 + 1384) = 19;
+        UsbhSetPcqEventStatus(a1, a2, 2LL);
+        break;
+    }
+    UsbhUnlockPcqWithTag(a1, a2, v8, 0LL);
   }
-  UsbhUnlockPcqWithTag(a1, a2, v8, 0LL);
-LABEL_28:
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     WPP_RECORDER_SF_d(
       WPP_GLOBAL_Control->DeviceExtension,

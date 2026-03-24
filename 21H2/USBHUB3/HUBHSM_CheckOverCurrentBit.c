@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHSM_CheckOverCurrentBit @ 0x1C00082C0
+ * XREFs of HUBHSM_CheckOverCurrentBit @ 0x1C0007FB0
  * Callers:
  *     <none>
  * Callees:

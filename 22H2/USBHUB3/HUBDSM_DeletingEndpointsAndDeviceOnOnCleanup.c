@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBDSM_DeletingEndpointsAndDeviceOnOnCleanup @ 0x1C001F5F0
+ * XREFs of HUBDSM_DeletingEndpointsAndDeviceOnOnCleanup @ 0x1C001CBE0
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_DeleteDeviceFromUCX @ 0x1C00285DC (HUBUCX_DeleteDeviceFromUCX.c)
- *     HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration @ 0x1C00286A8 (HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration.c)
- *     HUBUCX_DeleteDefaultEndpointFromUCX @ 0x1C0028760 (HUBUCX_DeleteDefaultEndpointFromUCX.c)
- *     HUBMISC_RemoveDeviceInfoFromGlobalChildList @ 0x1C0030604 (HUBMISC_RemoveDeviceInfoFromGlobalChildList.c)
+ *     HUBUCX_DeleteDeviceFromUCX @ 0x1C00259E8 (HUBUCX_DeleteDeviceFromUCX.c)
+ *     HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration @ 0x1C0025AB4 (HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration.c)
+ *     HUBUCX_DeleteDefaultEndpointFromUCX @ 0x1C0025B60 (HUBUCX_DeleteDefaultEndpointFromUCX.c)
+ *     HUBMISC_RemoveDeviceInfoFromGlobalChildList @ 0x1C002D59C (HUBMISC_RemoveDeviceInfoFromGlobalChildList.c)
  */
 
 __int64 __fastcall HUBDSM_DeletingEndpointsAndDeviceOnOnCleanup(__int64 a1)

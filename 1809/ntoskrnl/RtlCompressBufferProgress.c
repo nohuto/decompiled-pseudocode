@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCompressBufferProgress @ 0x1401438D8
+ * XREFs of RtlCompressBufferProgress @ 0x1401438F8
  * Callers:
  *     PopAddPagesToCompressedPageSet @ 0x14056AC20 (PopAddPagesToCompressedPageSet.c)
  * Callees:
- *     RtlCompressBufferXpressLzStandard @ 0x140143A00 (RtlCompressBufferXpressLzStandard.c)
- *     RtlCompressBufferXpressHuffMax @ 0x1402F8A54 (RtlCompressBufferXpressHuffMax.c)
- *     RtlCompressBufferXpressHuffStandard @ 0x1402F90E0 (RtlCompressBufferXpressHuffStandard.c)
- *     RtlCompressBufferXpressLzMax @ 0x1402F989C (RtlCompressBufferXpressLzMax.c)
+ *     RtlCompressBufferXpressLzStandard @ 0x140143A20 (RtlCompressBufferXpressLzStandard.c)
+ *     RtlCompressBufferXpressHuffMax @ 0x1402F8B54 (RtlCompressBufferXpressHuffMax.c)
+ *     RtlCompressBufferXpressHuffStandard @ 0x1402F91E0 (RtlCompressBufferXpressHuffStandard.c)
+ *     RtlCompressBufferXpressLzMax @ 0x1402F999C (RtlCompressBufferXpressLzMax.c)
  */
 
 __int64 __fastcall RtlCompressBufferProgress(

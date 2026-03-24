@@ -1,44 +1,42 @@
 /*
- * XREFs of MiCanFlushMakeProgress @ 0x140388F60
+ * XREFs of MiCanFlushMakeProgress @ 0x14035BAF0
  * Callers:
- *     MiFlushAllHintedStorePages @ 0x1403773D8 (MiFlushAllHintedStorePages.c)
- *     MiFlushAllPagesWorker @ 0x14038A914 (MiFlushAllPagesWorker.c)
+ *     MiFlushAllHintedStorePages @ 0x14035BBB0 (MiFlushAllHintedStorePages.c)
+ *     MiFlushAllPagesWorker @ 0x14038479C (MiFlushAllPagesWorker.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MiCanFlushMakeProgress(__int64 a1, int a2)
 {
-  __int64 v2; // r8
-  unsigned int v3; // edx
-  int v4; // r9d
-  __int64 i; // r10
-  __int64 v6; // rcx
-  __int16 v7; // ax
+  unsigned int v2; // edx
+  int v3; // r8d
+  __int64 i; // r9
+  __int64 v5; // r10
+  __int16 v6; // ax
 
-  v2 = a1;
-  if ( !a2 && *(_QWORD *)(a1 + 17280) != *(_QWORD *)(a1 + 17504) )
+  if ( !a2 && *(_QWORD *)(a1 + 7488) != *(_QWORD *)(a1 + 7600) )
     return 1LL;
-  v3 = *(_DWORD *)(a1 + 16728);
-  if ( v3 )
+  v2 = *(_DWORD *)(a1 + 6936);
+  if ( v2 )
   {
-    v4 = 0;
-    for ( i = 16736LL; ; i += 8LL )
+    v3 = 0;
+    for ( i = 6944LL; ; i += 8LL )
     {
-      v6 = *(_QWORD *)(i + v2);
-      if ( *(_QWORD *)(v6 + 24) )
+      v5 = *(_QWORD *)(i + a1);
+      if ( *(_QWORD *)(v5 + 24) )
       {
-        v7 = *(_WORD *)(v6 + 204);
-        if ( (v7 & 0x40) == 0 )
+        v6 = *(_WORD *)(v5 + 204);
+        if ( (v6 & 0x40) == 0 )
         {
-          if ( (v7 & 0x10) == 0 )
+          if ( (v6 & 0x10) == 0 )
             break;
-          v2 = *(_QWORD *)(v6 + 248);
-          if ( *(_QWORD *)(88LL * (v7 & 0xF) + v2 + 3712) )
+          a1 = *(_QWORD *)(v5 + 248);
+          if ( *(_QWORD *)(a1 + 40LL * (v6 & 0xF) + 2816) )
             break;
         }
       }
-      if ( ++v4 >= v3 )
+      if ( ++v3 >= v2 )
         return 0LL;
     }
     return 1LL;

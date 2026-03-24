@@ -1,21 +1,21 @@
 /*
- * XREFs of PushScope @ 0x1C0053D60
+ * XREFs of PushScope @ 0x1C0022A38
  * Callers:
- *     Device @ 0x1C00504B0 (Device.c)
- *     PowerRes @ 0x1C0050EA0 (PowerRes.c)
- *     Processor @ 0x1C0051010 (Processor.c)
- *     ThermalZone @ 0x1C0051180 (ThermalZone.c)
- *     Scope @ 0x1C0055460 (Scope.c)
- *     IfElse @ 0x1C0055590 (IfElse.c)
- *     While @ 0x1C0055C10 (While.c)
- *     ParseCall @ 0x1C005A6C0 (ParseCall.c)
- *     ParseLoad @ 0x1C005B620 (ParseLoad.c)
+ *     Scope @ 0x1C00228F0 (Scope.c)
+ *     Device @ 0x1C0022980 (Device.c)
+ *     Processor @ 0x1C0023330 (Processor.c)
+ *     ParseLoad @ 0x1C0023470 (ParseLoad.c)
+ *     PowerRes @ 0x1C0023BB0 (PowerRes.c)
+ *     ThermalZone @ 0x1C00251A0 (ThermalZone.c)
  * Callees:
- *     PushFrame @ 0x1C0053C54 (PushFrame.c)
+ *     HeapAlloc @ 0x1C0008E30 (HeapAlloc.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
  */
 
 __int64 __fastcall PushScope(
-        _QWORD *a1,
+        __int64 a1,
         __int64 a2,
         __int64 a3,
         __int64 a4,
@@ -24,32 +24,40 @@ __int64 __fastcall PushScope(
         __int64 a7,
         __int64 a8)
 {
-  unsigned int v12; // r10d
-  _QWORD *v13; // rdx
-  char v14; // cl
-  __int64 v16[3]; // [rsp+30h] [rbp-18h] BYREF
+  unsigned int v11; // edi
+  __int64 v13; // rax
+  _QWORD *v14; // rcx
+  char v15; // al
 
-  v16[0] = 0LL;
-  v12 = PushFrame((__int64)a1, 1347371859, 0x50u, (__int64)ParseScope, v16);
-  if ( !v12 )
+  v11 = 0;
+  v13 = HeapAlloc((struct _SLIST_ENTRY *)(a1 + 480), 1297237576, 0x50u);
+  v14 = (_QWORD *)v13;
+  if ( v13 )
   {
-    v13 = (_QWORD *)v16[0];
-    a1[15] = a2;
-    v13[4] = a3;
-    v13[5] = a4;
-    v13[6] = a1[10];
-    v14 = gdwfAMLI;
-    a1[10] = a5;
-    if ( (v14 & 4) != 0 )
-    {
+    *(_QWORD *)(v13 + 8) = *(_QWORD *)(a1 + 416);
+    *(_QWORD *)(a1 + 416) = v13;
+    *(_QWORD *)(v13 + 24) = ParseScope;
+    *(_DWORD *)v13 = 1347371859;
+    *(_QWORD *)(a1 + 120) = a2;
+    *(_QWORD *)(v13 + 32) = a3;
+    *(_QWORD *)(v13 + 40) = a4;
+    *(_QWORD *)(v13 + 48) = *(_QWORD *)(a1 + 80);
+    v15 = gdwfAMLI;
+    *(_QWORD *)(a1 + 80) = a5;
+    if ( (v15 & 4) != 0 )
       _InterlockedIncrement((volatile signed __int32 *)(a5 + 112));
-      v13 = (_QWORD *)v16[0];
-    }
-    v13[7] = a1[11];
-    a1[11] = a6;
-    v13[8] = a1[40];
-    a1[40] = a7;
-    v13[9] = a8;
+    v14[7] = *(_QWORD *)(a1 + 88);
+    *(_QWORD *)(a1 + 88) = a6;
+    v14[8] = *(_QWORD *)(a1 + 320);
+    *(_QWORD *)(a1 + 320) = a7;
+    v14[9] = a8;
   }
-  return v12;
+  else
+  {
+    LogError(3222536194LL);
+    AcpiDiagTraceAmlError(a1, 3222536194LL);
+    PrintDebugMessage(153, 0, 0, 0, 0LL);
+    return (unsigned int)-1072431102;
+  }
+  return v11;
 }

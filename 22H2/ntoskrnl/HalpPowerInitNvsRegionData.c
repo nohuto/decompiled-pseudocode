@@ -1,29 +1,30 @@
 /*
- * XREFs of HalpPowerInitNvsRegionData @ 0x140B65C44
+ * XREFs of HalpPowerInitNvsRegionData @ 0x140A69594
  * Callers:
- *     HalpPowerInitDiscard @ 0x140B65990 (HalpPowerInitDiscard.c)
+ *     HalpPowerInitDiscard @ 0x140A6949C (HalpPowerInitDiscard.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x14037E158 (HalpMmAllocateMemoryInternal.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BAC58 (HalpMmAllocateMemoryInternal.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-__int64 HalpPowerInitNvsRegionData()
+void HalpPowerInitNvsRegionData()
 {
   __int64 v0; // rbx
-  __int64 result; // rax
-  int v2; // edx
-  unsigned __int64 v3; // rcx
-  unsigned int v4; // r9d
-  __int64 v5; // r8
+  int v1; // ecx
+  int v2; // r9d
+  unsigned __int64 v3; // rax
+  unsigned int v4; // r8d
+  __int64 v5; // rdx
   unsigned int v6; // edi
   __int64 v7; // r10
   unsigned int v8; // r8d
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  int v11; // eax
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  int v12; // eax
 
   v0 = HalpAcpiMultiNode;
-  result = 0LL;
+  v1 = 0;
   v2 = 0;
   if ( HalpAcpiMultiNode )
   {
@@ -36,44 +37,42 @@ __int64 HalpPowerInitNvsRegionData()
       {
         if ( *(_DWORD *)(HalpAcpiMultiNode + 24 * v5 + 32) == 4 )
         {
-          result = (unsigned int)(*(_DWORD *)(HalpAcpiMultiNode + 24 * v5 + 24) + result);
+          v1 += *(_DWORD *)(HalpAcpiMultiNode + 24 * v5 + 24);
           ++v2;
         }
         v5 = ++v4;
       }
       while ( v4 < v3 );
-      if ( (_DWORD)result )
+      if ( v1 )
       {
-        HalpNvsRegionCount = v2;
+        HalpNvsPreservedDataSize = v1;
         v6 = 24 * v2;
-        HalpNvsPreservedDataSize = result;
-        result = HalpMmAllocateMemoryInternal(24 * v2, 1u);
-        HalpNvsRegionData = result;
-        if ( !result )
-          KeBugCheckEx(0xACu, v6, 1uLL, (ULONG_PTR)"minkernel\\hals\\lib\\power\\pmsleep.c", 0x73BuLL);
+        HalpNvsRegionCount = v2;
+        HalpNvsRegionData = HalpMmAllocateMemoryInternal(24 * v2, 1u);
+        if ( !HalpNvsRegionData )
+          KeBugCheckEx(0xACu, v6, 1uLL, (ULONG_PTR)"minkernel\\hals\\lib\\power\\pmsleep.c", 0x73AuLL);
         v7 = 0LL;
         v8 = 0;
         if ( *(_QWORD *)(v0 + 8) )
         {
-          result = 0LL;
+          v9 = 0LL;
           do
           {
-            if ( *(_DWORD *)(v0 + 24 * result + 32) == 4 )
+            if ( *(_DWORD *)(v0 + 24 * v9 + 32) == 4 )
             {
-              v9 = 3 * v7;
-              v10 = HalpNvsRegionData;
-              *(_QWORD *)(HalpNvsRegionData + 8 * v9) = *(_QWORD *)(v0 + 24 * result + 16);
-              v11 = *(_DWORD *)(v0 + 24 * result + 24);
-              *(_QWORD *)(v10 + 8 * v9 + 16) = 0LL;
+              v10 = 3 * v7;
+              v11 = HalpNvsRegionData;
+              *(_QWORD *)(HalpNvsRegionData + 8 * v10) = *(_QWORD *)(v0 + 24 * v9 + 16);
+              v12 = *(_DWORD *)(v0 + 24 * v9 + 24);
+              *(_QWORD *)(v11 + 8 * v10 + 16) = 0LL;
               v7 = (unsigned int)(v7 + 1);
-              *(_DWORD *)(v10 + 8 * v9 + 8) = v11;
+              *(_DWORD *)(v11 + 8 * v10 + 8) = v12;
             }
-            result = ++v8;
+            v9 = ++v8;
           }
           while ( (unsigned __int64)v8 < *(_QWORD *)(v0 + 8) );
         }
       }
     }
   }
-  return result;
 }

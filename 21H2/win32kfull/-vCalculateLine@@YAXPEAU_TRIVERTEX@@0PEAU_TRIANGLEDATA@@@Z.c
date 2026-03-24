@@ -1,11 +1,11 @@
 /*
- * XREFs of ?vCalculateLine@@YAXPEAU_TRIVERTEX@@0PEAU_TRIANGLEDATA@@@Z @ 0x1C028899C
+ * XREFs of ?vCalculateLine@@YAXPEAU_TRIVERTEX@@0PEAU_TRIANGLEDATA@@@Z @ 0x1C014CFB4
  * Callers:
- *     ?bCalculateAndDrawTriangle@@YAHPEAVSURFACE@@PEAU_TRIVERTEX@@11PEAU_TRIANGLEDATA@@P6AX02@Z@Z @ 0x1C0287C60 (-bCalculateAndDrawTriangle@@YAHPEAVSURFACE@@PEAU_TRIVERTEX@@11PEAU_TRIANGLEDATA@@P6AX02@Z@Z.c)
+ *     ?bCalculateAndDrawTriangle@@YAHPEAVSURFACE@@PEAU_TRIVERTEX@@11PEAU_TRIANGLEDATA@@P6AX02@Z@Z @ 0x1C014CDC8 (-bCalculateAndDrawTriangle@@YAHPEAVSURFACE@@PEAU_TRIVERTEX@@11PEAU_TRIANGLEDATA@@P6AX02@Z@Z.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
- *     ?vEdgeDDA@@YAXPEAU_TRIANGLEDATA@@PEAU_TRIDDA@@@Z @ 0x1C0288C5C (-vEdgeDDA@@YAXPEAU_TRIANGLEDATA@@PEAU_TRIDDA@@@Z.c)
- *     ?vHorizontalLine@@YAXPEAU_TRIVERTEX@@0PEAU_TRIANGLEDATA@@PEAU_TRIDDA@@@Z @ 0x1C0288D54 (-vHorizontalLine@@YAXPEAU_TRIVERTEX@@0PEAU_TRIANGLEDATA@@PEAU_TRIDDA@@@Z.c)
+ *     ?vEdgeDDA@@YAXPEAU_TRIANGLEDATA@@PEAU_TRIDDA@@@Z @ 0x1C014D290 (-vEdgeDDA@@YAXPEAU_TRIANGLEDATA@@PEAU_TRIDDA@@@Z.c)
+ *     ?vHorizontalLine@@YAXPEAU_TRIVERTEX@@0PEAU_TRIANGLEDATA@@PEAU_TRIDDA@@@Z @ 0x1C014D3E0 (-vHorizontalLine@@YAXPEAU_TRIVERTEX@@0PEAU_TRIANGLEDATA@@PEAU_TRIDDA@@@Z.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 void __fastcall vCalculateLine(struct _TRIVERTEX *a1, struct _TRIVERTEX *a2, struct _TRIANGLEDATA *a3)
@@ -31,9 +31,9 @@ void __fastcall vCalculateLine(struct _TRIVERTEX *a1, struct _TRIVERTEX *a2, str
   LONG v24; // eax
   int v25; // edi
   int v26; // r9d
-  int v27; // edi
-  int v28; // eax
-  __int64 v29; // rcx
+  __int64 v27; // rcx
+  int v28; // edi
+  int v29; // eax
   _QWORD v30[16]; // [rsp+20h] [rbp-79h] BYREF
   __int64 v31; // [rsp+A0h] [rbp+7h]
   __int64 v32; // [rsp+100h] [rbp+67h]
@@ -102,44 +102,41 @@ void __fastcall vCalculateLine(struct _TRIVERTEX *a1, struct _TRIVERTEX *a2, str
         LODWORD(v30[7]) = v24 - y;
       HIDWORD(v30[5]) = y;
       v30[2] = v13 * (x + 1LL) - v14 * (__int64)y - 1;
-      if ( v14 <= 0 )
-      {
-        if ( v14 >= 0 )
-        {
-          v25 = 0;
-          v30[3] = 0LL;
-          v26 = 0;
-        }
-        else
-        {
-          LODWORD(v30[1]) = -v14;
-          v27 = (-1 - v14) / v13;
-          v28 = v13 * (v27 + 1);
-          v25 = ~v27;
-          LODWORD(v30[3]) = v25;
-          v26 = v14 + v28;
-          HIDWORD(v30[3]) = v26;
-        }
-      }
-      else
+      if ( v14 > 0 )
       {
         LODWORD(v30[3]) = v14 / v13;
         v25 = v14 / v13;
         v26 = v14 % v13;
         HIDWORD(v30[3]) = v26;
       }
-      v29 = y * v26 + v30[2];
-      if ( v29 <= 0 )
+      else if ( v14 < 0 )
       {
-        if ( v29 < 0 )
-          v22 = ~(~v29 / v13);
+        LODWORD(v30[1]) = -v14;
+        v28 = (-1 - v14) / v13;
+        v29 = v13 * (v28 + 1);
+        v25 = ~v28;
+        LODWORD(v30[3]) = v25;
+        v26 = v14 + v29;
+        HIDWORD(v30[3]) = v26;
       }
       else
       {
-        LODWORD(v22) = v29 / v13;
+        v25 = 0;
+        v30[3] = 0LL;
+        v26 = 0;
+      }
+      v27 = y * v26 + v30[2];
+      if ( v27 <= 0 )
+      {
+        if ( v27 < 0 )
+          v22 = ~(~v27 / v13);
+      }
+      else
+      {
+        LODWORD(v22) = v27 / v13;
       }
       LODWORD(v30[5]) = y * v25 + v22;
-      LODWORD(v30[4]) = v29 - v13 * v22;
+      LODWORD(v30[4]) = v27 - v13 * v22;
       HIDWORD(v30[4]) = v13 - LODWORD(v30[4]) - 1;
       v30[12] = v34 * v25 + v6;
       v30[13] = v35 * v25 + v7;

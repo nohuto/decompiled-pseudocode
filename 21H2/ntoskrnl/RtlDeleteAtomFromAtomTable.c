@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlDeleteAtomFromAtomTable @ 0x1406AB320
+ * XREFs of RtlDeleteAtomFromAtomTable @ 0x1406A1480
  * Callers:
- *     NtDeleteAtom @ 0x1406AB2D0 (NtDeleteAtom.c)
+ *     NtDeleteAtom @ 0x1406A12F0 (NtDeleteAtom.c)
  * Callees:
- *     RtlpDereferenceAtom @ 0x140232FC4 (RtlpDereferenceAtom.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     RtlpLookupLowBox @ 0x1402F349C (RtlpLookupLowBox.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     RtlpLockAtomTable @ 0x1407A0EA0 (RtlpLockAtomTable.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x1407A1A30 (RtlpAtomMapAtomToHandleEntry.c)
+ *     RtlpLookupLowBox @ 0x14025AA58 (RtlpLookupLowBox.c)
+ *     RtlpDereferenceAtom @ 0x1402BC6D8 (RtlpDereferenceAtom.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     RtlpLockAtomTable @ 0x14061BA14 (RtlpLockAtomTable.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x14061BA60 (RtlpAtomMapAtomToHandleEntry.c)
  */
 
 __int64 __fastcall RtlDeleteAtomFromAtomTable(__int64 a1, unsigned __int16 a2)
 {
   unsigned int v4; // ebx
-  __int64 v5; // rax
+  unsigned __int64 v5; // rax
   __int64 v6; // rbp
   __int64 *v7; // rax
 
-  if ( !(unsigned __int8)RtlpLockAtomTable() )
+  if ( !RtlpLockAtomTable((_DWORD *)a1) )
     return 3221225485LL;
   v4 = -1073741816;
   if ( a2 < 0xC000u )

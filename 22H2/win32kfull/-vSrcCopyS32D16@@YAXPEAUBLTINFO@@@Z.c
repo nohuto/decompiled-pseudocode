@@ -1,15 +1,15 @@
 /*
- * XREFs of ?vSrcCopyS32D16@@YAXPEAUBLTINFO@@@Z @ 0x1C02EC480
+ * XREFs of ?vSrcCopyS32D16@@YAXPEAUBLTINFO@@@Z @ 0x1C02CAB00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     ?pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ @ 0x1C02DCAF8 (-pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ.c)
+ *     ?pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ @ 0x1C014FD54 (-pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall vSrcCopyS32D16(struct BLTINFO *a1)
 {
-  unsigned int v1; // r14d
+  int v1; // r14d
   XLATE *v2; // rbp
   int v3; // esi
   unsigned __int8 *v4; // rbx
@@ -17,20 +17,20 @@ void __fastcall vSrcCopyS32D16(struct BLTINFO *a1)
   int v6; // r12d
   int v7; // r13d
   int v8; // ecx
-  unsigned int v9; // eax
-  char v10; // r9
-  unsigned __int64 v11; // r8
+  int v9; // r8d
+  int v10; // r8d
+  unsigned __int64 v11; // r9
   int v12; // ecx
   unsigned int v13; // edx
   unsigned int v14; // eax
-  unsigned int v15; // eax
-  char v16; // r9
-  unsigned __int64 v17; // r8
+  int v15; // r8d
+  int v16; // r8d
+  unsigned __int64 v17; // r9
   int v18; // edx
   int v19; // eax
   int v20; // ecx
   __int64 (__fastcall *v21)(struct _XLATEOBJ *, unsigned int); // r13
-  unsigned int v22; // r15d
+  int v22; // r15d
   int v23; // [rsp+60h] [rbp+8h]
   __int64 (__fastcall *i)(struct _XLATEOBJ *, unsigned int); // [rsp+68h] [rbp+10h]
 
@@ -57,9 +57,9 @@ void __fastcall vSrcCopyS32D16(struct BLTINFO *a1)
         v4 += 4;
       }
       v10 = v9 - 2;
-      if ( (int)(v9 - 2) >= 0 )
+      if ( v10 >= 0 )
       {
-        v11 = (unsigned __int64)v9 >> 1;
+        v11 = (unsigned __int64)(unsigned int)(v10 + 2) >> 1;
         do
         {
           v12 = v4[2] & 0xF8 | ((v4[5] & 0xFC) << 11);
@@ -116,9 +116,9 @@ LABEL_22:
       v4 += 4;
     }
     v16 = v15 - 2;
-    if ( (int)(v15 - 2) >= 0 )
+    if ( v16 >= 0 )
     {
-      v17 = (unsigned __int64)v15 >> 1;
+      v17 = (unsigned __int64)(unsigned int)(v16 + 2) >> 1;
       do
       {
         v18 = (v4[1] | (v4[6] << 21)) & 0x1F07C0F8 | ((v4[4] & 0xF8 | (32 * (v4[5] & 0xF8))) << 11);

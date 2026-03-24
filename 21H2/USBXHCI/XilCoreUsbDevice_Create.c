@@ -1,11 +1,11 @@
 /*
- * XREFs of XilCoreUsbDevice_Create @ 0x1C0016294
+ * XREFs of XilCoreUsbDevice_Create @ 0x1C001651C
  * Callers:
- *     XilUsbDevice_Create @ 0x1C0015F1C (XilUsbDevice_Create.c)
+ *     XilUsbDevice_Create @ 0x1C001646C (XilUsbDevice_Create.c)
  * Callees:
- *     WPP_RECORDER_SF_i @ 0x1C00156C4 (WPP_RECORDER_SF_i.c)
- *     XilCommonBuffer_AcquireBufferEx @ 0x1C0016368 (XilCommonBuffer_AcquireBufferEx.c)
- *     XilCoreUsbDevice_FreeResources @ 0x1C0050DA8 (XilCoreUsbDevice_FreeResources.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     XilCommonBuffer_AcquireBufferEx @ 0x1C00165F0 (XilCommonBuffer_AcquireBufferEx.c)
+ *     XilCoreUsbDevice_FreeResources @ 0x1C00501A4 (XilCoreUsbDevice_FreeResources.c)
  */
 
 __int64 __fastcall XilCoreUsbDevice_Create(__int64 a1, char a2, __int64 a3, int a4)
@@ -27,7 +27,7 @@ __int64 __fastcall XilCoreUsbDevice_Create(__int64 a1, char a2, __int64 a3, int 
   v7 = *(_QWORD *)(a1 + 8);
   v8 = *(_QWORD *)(v7 + 120);
   v9 = *(_QWORD *)(v7 + 88);
-  v10 = XilCommonBuffer_AcquireBufferEx(v8, (*(_DWORD *)(v9 + 100) & 4) != 0 ? 2048 : 1024, a3, 829842756, a4);
+  v10 = XilCommonBuffer_AcquireBufferEx(v8, (*(_DWORD *)(v9 + 104) & 4) != 0 ? 2048 : 1024, a3, 829842756, a4);
   v12 = 0;
   *(_QWORD *)(a3 + 24) = v10;
   if ( !v10 )
@@ -51,7 +51,7 @@ LABEL_9:
   }
   v13 = XilCommonBuffer_AcquireBufferEx(
           v8,
-          (*(_DWORD *)(v9 + 100) & 4) != 0 ? 2112 : 1056,
+          (*(_DWORD *)(v9 + 104) & 4) != 0 ? 2112 : 1056,
           a3,
           846619972,
           (unsigned int)(a2 != 0) + 1);

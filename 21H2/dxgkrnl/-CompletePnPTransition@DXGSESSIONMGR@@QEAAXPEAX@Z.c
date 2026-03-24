@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CompletePnPTransition@DXGSESSIONMGR@@QEAAXPEAX@Z @ 0x1C0217D04
+ * XREFs of ?CompletePnPTransition@DXGSESSIONMGR@@QEAAXPEAX@Z @ 0x1C019C764
  * Callers:
- *     DxgkCompletePnPTransition @ 0x1C0217CD4 (DxgkCompletePnPTransition.c)
+ *     DxgkCompletePnPTransition @ 0x1C019C734 (DxgkCompletePnPTransition.c)
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ExFreeToPagedLookasideList @ 0x1C0029DEC (ExFreeToPagedLookasideList.c)
- *     ?FinishPnPTransitionOnSession@DXGSESSIONDATA@@QEAAXPEAU_PNP_TRANS_TOKEN@@@Z @ 0x1C0217E28 (-FinishPnPTransitionOnSession@DXGSESSIONDATA@@QEAAXPEAU_PNP_TRANS_TOKEN@@@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ExFreeToNPagedLookasideList @ 0x1C0020FAC (ExFreeToNPagedLookasideList.c)
+ *     ?FinishPnPTransitionOnSession@DXGSESSIONDATA@@QEAAXPEAU_PNP_TRANS_TOKEN@@@Z @ 0x1C019C888 (-FinishPnPTransitionOnSession@DXGSESSIONDATA@@QEAAXPEAU_PNP_TRANS_TOKEN@@@Z.c)
  */
 
 void __fastcall DXGSESSIONMGR::CompletePnPTransition(DXGSESSIONMGR *this, struct _PNP_TRANS_TOKEN *a2)
@@ -15,10 +15,11 @@ void __fastcall DXGSESSIONMGR::CompletePnPTransition(DXGSESSIONMGR *this, struct
   _QWORD *i; // rdi
   struct _PNP_TRANS_TOKEN **v5; // rcx
   void **v6; // rdx
-  _BYTE v7[24]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v7; // rdx
+  _BYTE v8[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v7, (DXGSESSIONMGR *)((char *)this + 88), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v7);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v8, (DXGSESSIONMGR *)((char *)this + 80), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v8);
   for ( i = (_QWORD *)((char *)a2 + 24);
         (_QWORD *)*i != i;
         DXGSESSIONDATA::FinishPnPTransitionOnSession(*(DXGSESSIONDATA **)(*i - 16LL), a2) )
@@ -33,7 +34,7 @@ void __fastcall DXGSESSIONMGR::CompletePnPTransition(DXGSESSIONMGR *this, struct
   }
   *v6 = v5;
   v5[1] = (struct _PNP_TRANS_TOKEN *)v6;
-  ExFreeToPagedLookasideList((PPAGED_LOOKASIDE_LIST)((char *)this + 192), a2);
-  if ( v7[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v7);
+  ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)((char *)this + 192), a2);
+  if ( v8[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v8, v7);
 }

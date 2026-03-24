@@ -1,71 +1,82 @@
 /*
- * XREFs of ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C0034BE0
+ * XREFs of ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C0012198
  * Callers:
- *     ?GrepCloseCurrentProcess@@YAHXZ @ 0x1C0034CE8 (-GrepCloseCurrentProcess@@YAHXZ.c)
+ *     ?NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z @ 0x1C0073B1C (-NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z.c)
  * Callees:
- *     GreUnlockDisplayDevice @ 0x1C001CBA0 (GreUnlockDisplayDevice.c)
- *     GreLockDisplayDevice @ 0x1C001CBF0 (GreLockDisplayDevice.c)
- *     GreUnlockSprite @ 0x1C001CC30 (GreUnlockSprite.c)
- *     GreLockSprite @ 0x1C001CC90 (GreLockSprite.c)
- *     ?bRenderLddmDriver@PDEVOBJ@@QEAAHXZ @ 0x1C0033B80 (-bRenderLddmDriver@PDEVOBJ@@QEAAHXZ.c)
- *     ??$hdevEnumerate@$00@@YAPEAUHDEV__@@PEAU0@@Z @ 0x1C0035498 (--$hdevEnumerate@$00@@YAPEAUHDEV__@@PEAU0@@Z.c)
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0040814 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C004086C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     GreLockVisRgn @ 0x1C0051080 (GreLockVisRgn.c)
- *     GreUnlockVisRgn @ 0x1C0051170 (GreUnlockVisRgn.c)
- *     ?DxLddmPrimaryLockProcessDestroy@@YAXPEAUHDEV__@@KPEAK@Z @ 0x1C00AD65C (-DxLddmPrimaryLockProcessDestroy@@YAXPEAUHDEV__@@KPEAK@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?DxLddmLogProcessPrimaryLockCount@@YAXK@Z @ 0x1C016894C (-DxLddmLogProcessPrimaryLockCount@@YAXK@Z.c)
+ *     hdevEnumerate @ 0x1C00122B0 (hdevEnumerate.c)
+ *     ?bRenderLddmDriver@PDEVOBJ@@QEAAHXZ @ 0x1C00124D0 (-bRenderLddmDriver@PDEVOBJ@@QEAAHXZ.c)
+ *     GreLockDisplayDevice @ 0x1C0012520 (GreLockDisplayDevice.c)
+ *     GreUnlockDisplayDevice @ 0x1C0012560 (GreUnlockDisplayDevice.c)
+ *     ?DxLddmPrimaryLockProcessDestroy@@YAXPEAUHDEV__@@KPEAK@Z @ 0x1C00125AC (-DxLddmPrimaryLockProcessDestroy@@YAXPEAUHDEV__@@KPEAK@Z.c)
+ *     GreUnlockVisRgn @ 0x1C0039F20 (GreUnlockVisRgn.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C003A048 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     GreLockVisRgn @ 0x1C003A140 (GreLockVisRgn.c)
+ *     GreLockSprite @ 0x1C003CF60 (GreLockSprite.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?DxLddmLogProcessPrimaryLockCount@@YAXK@Z @ 0x1C0149B7C (-DxLddmLogProcessPrimaryLockCount@@YAXK@Z.c)
  */
 
 void __fastcall DxLddmCleanupAtProcessDestroy(unsigned int a1)
 {
-  HDEV v2; // rbx
-  int v3; // ecx
+  HDEV v2; // rdi
+  int v3; // eax
   __int64 v4; // rdx
   __int64 v5; // rcx
-  __int64 v6; // r8
-  void (__fastcall *v7)(_QWORD, __int64); // rdi
+  void (__fastcall *v6)(__int64, __int64); // rsi
+  __int64 v7; // rbx
   __int64 CurrentProcess; // rax
-  unsigned int CurrentProcessSessionId; // eax
-  HDEV v10; // [rsp+38h] [rbp+10h] BYREF
-  unsigned int v11; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v9; // rbx
+  HDEV v10; // [rsp+48h] [rbp+10h] BYREF
+  unsigned int v11; // [rsp+50h] [rbp+18h] BYREF
 
   v11 = 0;
   DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v10);
-  v2 = (HDEV)hdevEnumerate<1>(0LL);
+  v2 = (HDEV)hdevEnumerate(0LL);
   if ( v2 )
   {
     do
     {
-      v3 = (_DWORD)v2[10] & 0x20001;
+      v3 = *((_DWORD *)v2 + 10);
       v10 = v2;
-      if ( v3 == 1 && (unsigned int)PDEVOBJ::bRenderLddmDriver((PDEVOBJ *)&v10) )
+      if ( (v3 & 0x20000) == 0 && (v3 & 1) != 0 && (unsigned int)PDEVOBJ::bRenderLddmDriver((PDEVOBJ *)&v10) )
       {
         GreLockVisRgn(v2);
-        GreLockSprite((__int64)v2);
-        GreLockDisplayDevice((__int64)v2);
+        GreLockSprite(v2);
+        GreLockDisplayDevice(v2);
         DxLddmPrimaryLockProcessDestroy(v2, a1, &v11);
-        v7 = (void (__fastcall *)(_QWORD, __int64))*((_QWORD *)v2 + 329);
-        if ( v7 )
+        v6 = (void (__fastcall *)(__int64, __int64))*((_QWORD *)v2 + 332);
+        if ( v6 )
         {
-          CurrentProcess = PsGetCurrentProcess(v5, v4, v6);
-          v7(*((_QWORD *)v2 + 221), CurrentProcess);
+          v7 = *((_QWORD *)v2 + 225);
+          CurrentProcess = PsGetCurrentProcess(v5, v4);
+          v6(v7, CurrentProcess);
         }
         else
         {
-          CurrentProcessSessionId = PsGetCurrentProcessSessionId();
-          WdLogSingleEntry1(2LL, CurrentProcessSessionId);
+          v9 = WdLogNewEntry5_WdError();
+          *(_QWORD *)(v9 + 24) = (unsigned int)PsGetCurrentProcessSessionId();
+          WdLogEvent5_WdError(v9);
         }
-        GreUnlockDisplayDevice((__int64)v2);
-        GreUnlockSprite((__int64)v2);
+        GreUnlockDisplayDevice(v2);
+        EtwTraceGreLockReleaseSemaphore(L"ghsemSprite", ghsemSprite);
+        if ( ghsemSprite )
+        {
+          ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemSprite);
+          PsLeavePriorityRegion();
+        }
         GreUnlockVisRgn(v2);
       }
-      v2 = (HDEV)hdevEnumerate<1>((PDEV *)v2);
+      v2 = (HDEV)hdevEnumerate(v2);
     }
     while ( v2 );
     if ( v11 )
       DxLddmLogProcessPrimaryLockCount(v11);
   }
-  DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v10);
+  EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
+  if ( ghsemDynamicModeChange )
+  {
+    ExReleaseResourceAndLeaveCriticalRegion((PERESOURCE)ghsemDynamicModeChange);
+    PsLeavePriorityRegion();
+  }
 }

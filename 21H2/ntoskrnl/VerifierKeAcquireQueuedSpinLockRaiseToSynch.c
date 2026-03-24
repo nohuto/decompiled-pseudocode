@@ -1,27 +1,27 @@
 /*
- * XREFs of VerifierKeAcquireQueuedSpinLockRaiseToSynch @ 0x140A95CB0
+ * XREFs of VerifierKeAcquireQueuedSpinLockRaiseToSynch @ 0x1409DA920
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ViTargetIncrementCounter @ 0x140A8B2AC (ViTargetIncrementCounter.c)
- *     ViKeIrqlLogAndTrimMemory @ 0x140A96894 (ViKeIrqlLogAndTrimMemory.c)
+ *     KeAcquireQueuedSpinLockRaiseToSynch @ 0x140516130 (KeAcquireQueuedSpinLockRaiseToSynch.c)
+ *     ViTargetIncrementCounter @ 0x1409D750C (ViTargetIncrementCounter.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DC27C (ViKeRaiseIrqlSanityChecks.c)
  */
 
-__int64 __fastcall VerifierKeAcquireQueuedSpinLockRaiseToSynch(__int64 a1)
+unsigned __int8 __fastcall VerifierKeAcquireQueuedSpinLockRaiseToSynch(__int64 a1)
 {
   __int64 v2; // rcx
   __int64 v3; // rbx
-  __int64 result; // rax
+  unsigned __int8 result; // al
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
-  ++dword_140C29FC8;
+  ++dword_140C2A868;
   v2 = retaddr;
   if ( (MmVerifierData & 0x1000) != 0 )
-    ViTargetIncrementCounter(retaddr, 164LL);
+    ViTargetIncrementCounter(retaddr, 156LL);
   LOBYTE(v2) = 12;
-  v3 = ViKeIrqlLogAndTrimMemory(v2);
-  result = ((__int64 (__fastcall *)(__int64))pXdvKeAcquireQueuedSpinLockRaiseToSynch)(a1);
+  v3 = ViKeRaiseIrqlSanityChecks(v2, 0LL);
+  result = KeAcquireQueuedSpinLockRaiseToSynch(a1);
   if ( v3 )
     *(_WORD *)(v3 + 10) = KeGetPcr()->Prcb.Number;
   return result;

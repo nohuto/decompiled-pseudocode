@@ -1,5 +1,5 @@
 /*
- * XREFs of ?wil_details_SetPropertyFlagCallback@@YAHPEATwil_details_FeaturePropertyCache@@PEAX@Z @ 0x14012AE50
+ * XREFs of ?wil_details_SetPropertyFlagCallback@@YAHPEATwil_details_FeaturePropertyCache@@PEAX@Z @ 0x14012AE70
  * Callers:
  *     <none>
  * Callees:

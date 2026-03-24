@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionUninitializeWppLogging @ 0x1C00BD660
+ * XREFs of EditionUninitializeWppLogging @ 0x1C0135770
  * Callers:
  *     <none>
  * Callees:
- *     WppCleanupKm @ 0x1C0399EB0 (WppCleanupKm.c)
+ *     WppCleanupKm @ 0x1C037AD24 (WppCleanupKm.c)
  */
 
 __int64 __fastcall EditionUninitializeWppLogging(__int64 a1)

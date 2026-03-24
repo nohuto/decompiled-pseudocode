@@ -1,44 +1,40 @@
 /*
- * XREFs of SmProcessRegistrationRequest @ 0x140843050
+ * XREFs of SmProcessRegistrationRequest @ 0x1407CF0C0
  * Callers:
- *     SmQueryStoreInformation @ 0x140842DDC (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x1406A5798 (SmQueryStoreInformation.c)
  * Callees:
- *     SmpGetProcessPartition @ 0x140344590 (SmpGetProcessPartition.c)
- *     SmGetRegistrationInfo @ 0x140843114 (SmGetRegistrationInfo.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     SmGetRegistrationInfo @ 0x1407CF16C (SmGetRegistrationInfo.c)
  */
 
-__int64 __fastcall SmProcessRegistrationRequest(unsigned __int64 a1, int a2, _DWORD *a3, char a4)
+__int64 __fastcall SmProcessRegistrationRequest(__int64 a1, int a2, _DWORD *a3, char a4)
 {
-  __int64 v6; // rcx
-  __int64 ProcessPartition; // rax
-  char v8; // r9
-  __int64 v9; // rdx
+  __int128 *v5; // rbx
   __int64 result; // rax
-  __int128 v11; // [rsp+20h] [rbp-18h] BYREF
+  __int128 v7; // [rsp+20h] [rbp-18h] BYREF
 
-  v11 = 0LL;
+  v5 = (__int128 *)a1;
+  v7 = 0LL;
   if ( a2 != 16 )
     return 3221225990LL;
   if ( a4 )
   {
     if ( (a1 & 7) != 0 )
       ExRaiseDatatypeMisalignment();
-    v6 = 0x7FFFFFFF0000LL;
-    if ( a1 < 0x7FFFFFFF0000LL )
-      v6 = a1;
-    *(_BYTE *)v6 = *(_BYTE *)v6;
-    *(_BYTE *)(v6 + 15) = *(_BYTE *)(v6 + 15);
+    a1 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)v5 < 0x7FFFFFFF0000LL )
+      a1 = (__int64)v5;
+    *(_BYTE *)a1 = *(_BYTE *)a1;
+    *(_BYTE *)(a1 + 15) = *(_BYTE *)(a1 + 15);
   }
-  v11 = *(_OWORD *)a1;
-  if ( (_BYTE)v11 != 2 || (v11 & 0xFFFFFF00) != 0 )
+  v7 = *v5;
+  if ( (_BYTE)v7 != 2 || (v7 & 0xFFFFFF00) != 0 )
     return 3221225485LL;
-  ProcessPartition = SmpGetProcessPartition((__int64)KeGetCurrentThread()->ApcState.Process);
-  LOBYTE(v9) = v8;
-  result = SmGetRegistrationInfo(ProcessPartition, v9, &v11);
+  LOBYTE(a1) = a4;
+  result = SmGetRegistrationInfo(a1, &v7);
   if ( (int)result >= 0 )
   {
-    *(_OWORD *)a1 = v11;
+    *v5 = v7;
     *a3 = 16;
   }
   return result;

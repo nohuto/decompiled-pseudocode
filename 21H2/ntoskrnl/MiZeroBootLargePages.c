@@ -1,138 +1,142 @@
 /*
- * XREFs of MiZeroBootLargePages @ 0x1403D9D88
+ * XREFs of MiZeroBootLargePages @ 0x1403CABF4
  * Callers:
- *     MiZeroPageThread @ 0x1403D9D30 (MiZeroPageThread.c)
+ *     MiZeroPageThread @ 0x1403CABA0 (MiZeroPageThread.c)
  * Callees:
- *     KeWaitForGate @ 0x140217454 (KeWaitForGate.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     ExAllocatePoolMm @ 0x14030B860 (ExAllocatePoolMm.c)
- *     MiNodeCompletedBootZeroing @ 0x1403D3D2C (MiNodeCompletedBootZeroing.c)
- *     MiZeroPageCalibrate @ 0x1403D3EE0 (MiZeroPageCalibrate.c)
- *     MiAllocateZeroPageDecisionTraceBuffer @ 0x1403D9FA8 (MiAllocateZeroPageDecisionTraceBuffer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PsCreateSystemThreadEx @ 0x1406F0360 (PsCreateSystemThreadEx.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     MiComputeMemoryNodeProcessorAssignments @ 0x140B2A220 (MiComputeMemoryNodeProcessorAssignments.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
+ *     MiZeroPageCalibrate @ 0x1403AFE24 (MiZeroPageCalibrate.c)
+ *     MiNodeCompletedBootZeroing @ 0x1403B0EE8 (MiNodeCompletedBootZeroing.c)
+ *     MiAllocateZeroPageDecisionTraceBuffer @ 0x1403CAE64 (MiAllocateZeroPageDecisionTraceBuffer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiComputeMemoryNodeProcessorAssignments @ 0x140A6E2CC (MiComputeMemoryNodeProcessorAssignments.c)
  */
 
 __int64 __fastcall MiZeroBootLargePages(ULONG_PTR a1)
 {
-  unsigned int v2; // ebp
-  int SystemThread; // esi
-  unsigned int v4; // ebx
-  __int64 v5; // r12
-  _QWORD *v6; // r12
-  _DWORD *PoolMm; // rax
-  _DWORD *v8; // r14
-  __int64 ZeroPageDecisionTraceBuffer; // rax
-  unsigned int v10; // ebx
-  __int64 v11; // r14
-  __int64 *v12; // r14
-  __int64 v13; // rdx
-  struct _KEVENT *v15; // rcx
-  HANDLE Handle; // [rsp+50h] [rbp-48h] BYREF
-  __int128 v17; // [rsp+58h] [rbp-40h] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  _DWORD *v4; // r9
+  unsigned int v5; // r13d
+  _QWORD *p_P; // rdi
+  int v7; // r14d
+  int v8; // r15d
+  unsigned int v9; // ebx
+  _QWORD *Pool; // rdi
+  _QWORD *v11; // rax
+  __int64 v12; // rax
+  int SystemThread; // eax
+  HANDLE v14; // rcx
+  void *v16; // rcx
+  _QWORD *P; // [rsp+50h] [rbp-30h] BYREF
+  _QWORD **v18; // [rsp+58h] [rbp-28h]
+  HANDLE Handle; // [rsp+60h] [rbp-20h] BYREF
+  __int64 v20[2]; // [rsp+68h] [rbp-18h] BYREF
 
   Handle = 0LL;
-  v17 = 0LL;
-  KeQueryPerformanceCounter(&stru_140C50750);
-  if ( (ULONG_PTR *)a1 == &MiSystemPartition )
-  {
-    if ( (unsigned int)MiComputeMemoryNodeProcessorAssignments() )
-      goto LABEL_3;
-    v15 = (struct _KEVENT *)(a1 + 16128);
-LABEL_17:
-    KeSetEvent(v15, 0, 0);
+  *(_OWORD *)v20 = 0LL;
+  KeQueryPerformanceCounter(&stru_140C4DF10);
+  if ( !(unsigned int)MiComputeMemoryNodeProcessorAssignments(a1) )
     return 3221225473LL;
-  }
-  v15 = (struct _KEVENT *)(a1 + 16128);
-  *(_WORD *)(a1 + 16128) = 0;
-  *(_DWORD *)(a1 + 16132) = 0;
-  *(_QWORD *)(a1 + 16144) = a1 + 16136;
-  *(_QWORD *)(a1 + 16136) = a1 + 16136;
-  *(_BYTE *)(a1 + 16130) = 6;
-  if ( byte_140C58EB0 )
-    goto LABEL_17;
-LABEL_3:
-  *(_DWORD *)(a1 + 16156) = 0;
-  *(_DWORD *)(a1 + 16108) = 0;
-  v2 = (unsigned __int16)KeNumberNodes;
-  SystemThread = 0;
-  *(_QWORD *)(a1 + 16120) = a1 + 16112;
-  v4 = 0;
-  *(_QWORD *)(a1 + 16112) = a1 + 16112;
-  *(_QWORD *)(a1 + 16168) = a1 + 16160;
-  *(_QWORD *)(a1 + 16160) = a1 + 16160;
-  *(_WORD *)(a1 + 16104) = 263;
-  *(_BYTE *)(a1 + 16106) = 6;
-  *(_WORD *)(a1 + 16152) = 263;
-  *(_BYTE *)(a1 + 16154) = 6;
-  v5 = *(_QWORD *)(a1 + 16);
-  *(_BYTE *)(a1 + 16177) = 1;
-  if ( !v2 )
+  *(_WORD *)(a1 + 6416) = 0;
+  *(_DWORD *)(a1 + 6420) = 0;
+  v5 = (unsigned __int16)KeNumberNodes;
+  p_P = &P;
+  *(_QWORD *)(a1 + 6432) = a1 + 6424;
+  v7 = 0;
+  *(_QWORD *)(a1 + 6424) = a1 + 6424;
+  v8 = 0;
+  *(_BYTE *)(a1 + 6418) = 6;
+  *(_DWORD *)(a1 + 6348) = 0;
+  v9 = 0;
+  *(_QWORD *)(a1 + 6360) = a1 + 6352;
+  *(_QWORD *)(a1 + 6352) = a1 + 6352;
+  v18 = &P;
+  *(_WORD *)(a1 + 6344) = 263;
+  *(_BYTE *)(a1 + 6346) = 6;
+  P = &P;
+  if ( v5 )
   {
-LABEL_7:
-    v10 = 0;
-    v11 = *(_QWORD *)(a1 + 16);
-    *(_DWORD *)(a1 + 16096) = v2;
-    *(_DWORD *)(a1 + 16184) = v2;
-    *(_DWORD *)(a1 + 16192) = v2;
-    if ( !v2 )
-    {
-LABEL_13:
-      KeWaitForGate(a1 + 16104, 0);
-      if ( *(_BYTE *)(a1 + 16176) )
-        return (unsigned int)-1073741823;
-      return (unsigned int)SystemThread;
-    }
-    v12 = (__int64 *)(v11 + 22944);
     while ( 1 )
     {
-      v13 = *v12;
-      if ( SystemThread < 0 )
+      *(_OWORD *)v20 = *(_OWORD *)(4544LL * v9 + *(_QWORD *)(a1 + 16) + 4472);
+      Pool = MiAllocatePool(64, 0x138uLL, 0x20206D4Du);
+      if ( !Pool )
         break;
-      v17 = *(_OWORD *)*(_QWORD *)(120LL * *(unsigned int *)(v13 + 80) + qword_140C506E0 + 112);
+      Pool[38] = MiAllocateZeroPageDecisionTraceBuffer(a1, v9);
+      *((_DWORD *)Pool + 20) = v9;
+      Pool[9] = a1;
+      v11 = v18;
+      if ( *v18 != &P )
+LABEL_25:
+        __fastfail(3u);
+      Pool[1] = v18;
+      *Pool = &P;
+      ++v8;
+      ++v9;
+      *v11 = Pool;
+      v18 = (_QWORD **)Pool;
+      if ( v9 >= v5 )
+        goto LABEL_6;
+    }
+    v7 = -1073741670;
+    *(_BYTE *)(a1 + 6400) = 1;
+LABEL_6:
+    p_P = P;
+  }
+  *(_DWORD *)(a1 + 6336) = v8;
+  *(_DWORD *)(a1 + 6408) = v8;
+  while ( p_P != &P )
+  {
+    if ( (_QWORD **)p_P[1] != &P )
+      goto LABEL_25;
+    v12 = *p_P;
+    if ( *(_QWORD **)(*p_P + 8LL) != p_P )
+      goto LABEL_25;
+    P = (_QWORD *)*p_P;
+    *(_QWORD *)(v12 + 8) = &P;
+    *(_OWORD *)p_P = 0LL;
+    p_P[2] = 0LL;
+    if ( v7 < 0 )
+    {
+      v14 = 0LL;
+      Handle = 0LL;
+    }
+    else
+    {
+      *(_OWORD *)v20 = *(_OWORD *)(4544LL * *((unsigned int *)p_P + 20) + *(_QWORD *)(a1 + 16) + 4472);
       SystemThread = PsCreateSystemThreadEx(
-                       (unsigned int)&Handle,
+                       (int)&Handle,
                        0LL,
                        (__int64)MiZeroNodePages,
-                       v13,
-                       (__int64)&v17,
+                       (__int64)p_P,
+                       (__int64)v20,
                        0LL);
-      if ( SystemThread < 0 )
-        goto LABEL_22;
-      ObCloseHandle(Handle, 0);
-LABEL_12:
-      ++v10;
-      v12 += 3064;
-      if ( v10 >= v2 )
-        goto LABEL_13;
+      v14 = Handle;
+      v7 = SystemThread;
     }
-    Handle = 0LL;
-LABEL_22:
-    *(_BYTE *)(a1 + 16176) = 1;
-    MiNodeCompletedBootZeroing(a1);
-    MiZeroPageCalibrate(a1, 0LL);
-    goto LABEL_12;
+    if ( v7 < 0 )
+    {
+      *(_BYTE *)(a1 + 6400) = 1;
+      MiNodeCompletedBootZeroing(a1, v2, v3, v4);
+      MiZeroPageCalibrate(a1, 0LL);
+      v16 = (void *)p_P[38];
+      if ( v16 )
+        ExFreePoolWithTag(v16, 0);
+      ExFreePoolWithTag(p_P, 0);
+    }
+    else
+    {
+      ObCloseHandle(v14, 0);
+    }
+    p_P = P;
   }
-  v6 = (_QWORD *)(v5 + 22944);
-  while ( 1 )
-  {
-    PoolMm = ExAllocatePoolMm(64LL, 0x138uLL, 0x635A694Du, v4 | 0x80000000);
-    v8 = PoolMm;
-    if ( !PoolMm )
-      break;
-    *v6 = PoolMm;
-    ZeroPageDecisionTraceBuffer = MiAllocateZeroPageDecisionTraceBuffer(a1, v4);
-    v8[20] = v4;
-    v6 += 3064;
-    ++v4;
-    *((_QWORD *)v8 + 38) = ZeroPageDecisionTraceBuffer;
-    *((_QWORD *)v8 + 9) = a1;
-    if ( v4 >= v2 )
-      goto LABEL_7;
-  }
-  KeSetEvent((PRKEVENT)(a1 + 16128), 0, 0);
-  return 3221225626LL;
+  KeWaitForGate(a1 + 6344, 0);
+  if ( *(_BYTE *)(a1 + 6400) )
+    return (unsigned int)-1073741823;
+  return (unsigned int)v7;
 }

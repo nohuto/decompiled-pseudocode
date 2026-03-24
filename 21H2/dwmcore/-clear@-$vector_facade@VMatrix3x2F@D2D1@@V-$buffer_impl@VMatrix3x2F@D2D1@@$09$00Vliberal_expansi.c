@@ -1,23 +1,22 @@
 /*
- * XREFs of ?clear@?$vector_facade@VMatrix3x2F@D2D1@@V?$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x18025C818
+ * XREFs of ?clear@?$vector_facade@VMatrix3x2F@D2D1@@V?$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x18020C870
  * Callers:
- *     ??1CShapeDrawingContext@@QEAA@XZ @ 0x18025BD90 (--1CShapeDrawingContext@@QEAA@XZ.c)
+ *     ??1CShapeDrawingContext@@QEAA@XZ @ 0x18020BA80 (--1CShapeDrawingContext@@QEAA@XZ.c)
+ *     ?Clear@CMatrixStack2D@@QEAAXXZ @ 0x18026C2B8 (-Clear@CMatrixStack2D@@QEAAXXZ.c)
  * Callees:
- *     ?clear_region@?$vector_facade@VMatrix3x2F@D2D1@@V?$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18008A2EC (-clear_region@-$vector_facade@VMatrix3x2F@D2D1@@V-$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_.c)
+ *     ?clear_region@?$vector_facade@VMatrix3x2F@D2D1@@V?$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18020C8B0 (-clear_region@-$vector_facade@VMatrix3x2F@D2D1@@V-$buffer_impl@VMatrix3x2F@D2D1@@$09$00Vliberal_.c)
  */
 
-__int64 __fastcall detail::vector_facade<D2D1::Matrix3x2F,detail::buffer_impl<D2D1::Matrix3x2F,10,1,detail::liberal_expansion_policy>>::clear(
-        __int64 *a1)
+unsigned __int64 __fastcall detail::vector_facade<D2D1::Matrix3x2F,detail::buffer_impl<D2D1::Matrix3x2F,10,1,detail::liberal_expansion_policy>>::clear(
+        _QWORD *a1)
 {
-  __int64 result; // rax
-  __int64 v2; // r8
+  unsigned __int64 result; // rax
 
-  result = 0xAAAAAAAAAAAAAAABuLL;
-  v2 = 0xAAAAAAAAAAAAAAABuLL * ((a1[1] - *a1) >> 3);
-  if ( v2 )
+  result = (unsigned __int64)((unsigned __int128)((__int64)(a1[1] - *a1) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 63;
+  if ( (a1[1] - *a1) / 24LL )
     return detail::vector_facade<D2D1::Matrix3x2F,detail::buffer_impl<D2D1::Matrix3x2F,10,1,detail::liberal_expansion_policy>>::clear_region(
              a1,
              0LL,
-             v2);
+             (a1[1] - *a1) / 24LL);
   return result;
 }

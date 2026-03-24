@@ -1,11 +1,11 @@
 /*
- * XREFs of ScaleDpiOffsetWithSubpixel @ 0x1C01DFDDC
+ * XREFs of ScaleDpiOffsetWithSubpixel @ 0x1C01E5E4C
  * Callers:
- *     OffsetChildren @ 0x1C00848F0 (OffsetChildren.c)
- *     ?GetDpiRectWithSubpixel@@YAXPEBUtagRECT@@PEBMPEBUtagWND@@2PEAM333@Z @ 0x1C01DECC4 (-GetDpiRectWithSubpixel@@YAXPEBUtagRECT@@PEBMPEBUtagWND@@2PEAM333@Z.c)
+ *     OffsetChildren @ 0x1C004CA1C (OffsetChildren.c)
+ *     ?GetDpiRectWithSubpixel@@YAXPEAUtagRECT@@PEAMPEAUtagWND@@21111@Z @ 0x1C01E40A4 (-GetDpiRectWithSubpixel@@YAXPEAUtagRECT@@PEAMPEAUtagWND@@21111@Z.c)
  * Callees:
- *     ?ScaleValueWithSubpixel@@YAXPEAJPEAMM@Z @ 0x1C0003DF4 (-ScaleValueWithSubpixel@@YAXPEAJPEAMM@Z.c)
- *     ?GetWindowCoordinateSpaceDpi@@YAGPEBUtagWND@@@Z @ 0x1C00FECAC (-GetWindowCoordinateSpaceDpi@@YAGPEBUtagWND@@@Z.c)
+ *     ?GetWindowCoordinateSpaceDpi@@YAGPEAUtagWND@@@Z @ 0x1C0113C2C (-GetWindowCoordinateSpaceDpi@@YAGPEAUtagWND@@@Z.c)
+ *     ?ScaleValueWithSubpixel@@YAXPEAJPEAMM@Z @ 0x1C01E42D0 (-ScaleValueWithSubpixel@@YAXPEAJPEAMM@Z.c)
  */
 
 void __fastcall ScaleDpiOffsetWithSubpixel(int *a1, float *a2, struct tagWND *a3, struct tagWND *a4)

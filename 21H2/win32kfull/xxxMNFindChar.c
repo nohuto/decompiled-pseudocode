@@ -1,10 +1,10 @@
 /*
- * XREFs of xxxMNFindChar @ 0x1C024D8A8
+ * XREFs of xxxMNFindChar @ 0x1C02508D8
  * Callers:
- *     xxxMNChar @ 0x1C02309F8 (xxxMNChar.c)
+ *     xxxMNChar @ 0x1C02378A4 (xxxMNChar.c)
  * Callees:
- *     xxxClientFindMnemChar @ 0x1C022C224 (xxxClientFindMnemChar.c)
- *     MNFindNextValidItem @ 0x1C024D7E8 (MNFindNextValidItem.c)
+ *     xxxClientFindMnemChar @ 0x1C02328B0 (xxxClientFindMnemChar.c)
+ *     MNFindNextValidItem @ 0x1C0250818 (MNFindNextValidItem.c)
  */
 
 __int64 __fastcall xxxMNFindChar(__int64 **a1, int a2, int a3, unsigned int *a4)

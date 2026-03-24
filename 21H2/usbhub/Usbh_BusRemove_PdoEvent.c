@@ -1,17 +1,17 @@
 /*
- * XREFs of Usbh_BusRemove_PdoEvent @ 0x1C003A2BC
+ * XREFs of Usbh_BusRemove_PdoEvent @ 0x1C003B5CC
  * Callers:
- *     Usbh_BS_BusPause @ 0x1C0010190 (Usbh_BS_BusPause.c)
- *     Usbh_BS_BusStop @ 0x1C003110C (Usbh_BS_BusStop.c)
+ *     Usbh_BS_BusPause @ 0x1C0003070 (Usbh_BS_BusPause.c)
+ *     Usbh_BS_BusStop @ 0x1C0032440 (Usbh_BS_BusStop.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     UsbhFdoUnblockAllPendedPdoD0Irps @ 0x1C001DB84 (UsbhFdoUnblockAllPendedPdoD0Irps.c)
- *     UsbhAcquirePdoStateLock @ 0x1C00312E4 (UsbhAcquirePdoStateLock.c)
- *     UsbhSetPdo_FailIo @ 0x1C0038C90 (UsbhSetPdo_FailIo.c)
- *     UsbhDeletePdo @ 0x1C00537BC (UsbhDeletePdo.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     UsbhFdoUnblockAllPendedPdoD0Irps @ 0x1C001B724 (UsbhFdoUnblockAllPendedPdoD0Irps.c)
+ *     UsbhAcquirePdoStateLock @ 0x1C001CDA8 (UsbhAcquirePdoStateLock.c)
+ *     UsbhSetPdo_FailIo @ 0x1C0039F80 (UsbhSetPdo_FailIo.c)
+ *     UsbhDeletePdo @ 0x1C0054E1C (UsbhDeletePdo.c)
  */
 
 void __fastcall Usbh_BusRemove_PdoEvent(__int64 a1, __int64 a2)
@@ -107,8 +107,8 @@ LABEL_13:
     }
   }
   *(_DWORD *)(a2 + 136) = 0;
-  WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+  qword_1C006C500 = 0LL;
   v27 = *(_BYTE *)(a2 + 132);
   *(_DWORD *)(a2 + 88) = 1734964085;
-  KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v27);
+  KeReleaseSpinLock(&HubG, v27);
 }

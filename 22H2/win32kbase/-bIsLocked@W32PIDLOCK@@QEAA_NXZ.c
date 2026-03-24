@@ -1,5 +1,5 @@
 /*
- * XREFs of ?bIsLocked@W32PIDLOCK@@QEAA_NXZ @ 0x1C0158540
+ * XREFs of ?bIsLocked@W32PIDLOCK@@QEAA_NXZ @ 0x1C013EEC0
  * Callers:
  *     <none>
  * Callees:

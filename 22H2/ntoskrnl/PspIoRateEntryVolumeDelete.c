@@ -1,7 +1,7 @@
 /*
- * XREFs of PspIoRateEntryVolumeDelete @ 0x1405A4450
+ * XREFs of PspIoRateEntryVolumeDelete @ 0x140582000
  * Callers:
- *     PspJobIoRateVolumeEntryRemoveAll @ 0x140206EEC (PspJobIoRateVolumeEntryRemoveAll.c)
+ *     PspJobIoRateVolumeEntryRemoveAll @ 0x1402DD664 (PspJobIoRateVolumeEntryRemoveAll.c)
  * Callees:
  *     <none>
  */

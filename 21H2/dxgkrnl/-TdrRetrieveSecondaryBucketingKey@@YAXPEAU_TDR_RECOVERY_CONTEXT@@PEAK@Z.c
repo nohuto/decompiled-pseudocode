@@ -1,8 +1,8 @@
 /*
- * XREFs of ?TdrRetrieveSecondaryBucketingKey@@YAXPEAU_TDR_RECOVERY_CONTEXT@@PEAK@Z @ 0x1C03069AC
+ * XREFs of ?TdrRetrieveSecondaryBucketingKey@@YAXPEAU_TDR_RECOVERY_CONTEXT@@PEAK@Z @ 0x1C02660E8
  * Callers:
- *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0306540 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
- *     ?TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0306A60 (-TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C0265C30 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C0266190 (-TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ void __fastcall TdrRetrieveSecondaryBucketingKey(struct _TDR_RECOVERY_CONTEXT *a
   _DWORD *v4; // rax
   __int64 v5; // rcx
 
-  v2 = (unsigned int *)*((_QWORD *)a1 + 359);
+  v2 = (unsigned int *)*((_QWORD *)a1 + 358);
   *a2 = 0;
   if ( v2 )
   {
@@ -22,10 +22,10 @@ void __fastcall TdrRetrieveSecondaryBucketingKey(struct _TDR_RECOVERY_CONTEXT *a
     if ( v3 )
       goto LABEL_9;
   }
-  v4 = (_DWORD *)*((_QWORD *)a1 + 356);
+  v4 = (_DWORD *)*((_QWORD *)a1 + 355);
   if ( v4 )
   {
-    if ( *((_QWORD *)a1 + 357) )
+    if ( *((_QWORD *)a1 + 356) )
     {
       if ( *v4 )
       {

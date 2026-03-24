@@ -1,30 +1,30 @@
 /*
- * XREFs of EtwTelemetryCoverageReport @ 0x14012A560
+ * XREFs of EtwTelemetryCoverageReport @ 0x14012A580
  * Callers:
- *     EtwpCoverageRecordAtHighIrql @ 0x14030EF5C (EtwpCoverageRecordAtHighIrql.c)
- *     EtwpCoverageProvEnableCallback @ 0x1406D0600 (EtwpCoverageProvEnableCallback.c)
- *     PsSetProcessFaultInformation @ 0x1406E1DC0 (PsSetProcessFaultInformation.c)
- *     PopTransitionTelemetryOsState @ 0x1407454E8 (PopTransitionTelemetryOsState.c)
- *     EtwpCoverageEnsureContext @ 0x14075B064 (EtwpCoverageEnsureContext.c)
- *     EtwpCoverageReset @ 0x1408B6A48 (EtwpCoverageReset.c)
- *     EtwpCoverageResetCP @ 0x1408B6C28 (EtwpCoverageResetCP.c)
+ *     EtwpCoverageRecordAtHighIrql @ 0x14030F05C (EtwpCoverageRecordAtHighIrql.c)
+ *     EtwpCoverageProvEnableCallback @ 0x1406D05E0 (EtwpCoverageProvEnableCallback.c)
+ *     PsSetProcessFaultInformation @ 0x1406E1DA0 (PsSetProcessFaultInformation.c)
+ *     PopTransitionTelemetryOsState @ 0x1407454C8 (PopTransitionTelemetryOsState.c)
+ *     EtwpCoverageEnsureContext @ 0x14075B044 (EtwpCoverageEnsureContext.c)
+ *     EtwpCoverageReset @ 0x1408B6A28 (EtwpCoverageReset.c)
+ *     EtwpCoverageResetCP @ 0x1408B6C08 (EtwpCoverageResetCP.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeGetEffectiveIrql @ 0x1400CAAB0 (KeGetEffectiveIrql.c)
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     EtwpCoverageValidateCP @ 0x14012A68C (EtwpCoverageValidateCP.c)
- *     EtwpCoverageAddToStringBuffer @ 0x14012A788 (EtwpCoverageAddToStringBuffer.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeGetEffectiveIrql @ 0x1400CAAD0 (KeGetEffectiveIrql.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     EtwpCoverageValidateCP @ 0x14012A6AC (EtwpCoverageValidateCP.c)
+ *     EtwpCoverageAddToStringBuffer @ 0x14012A7A8 (EtwpCoverageAddToStringBuffer.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpCoverageRecord @ 0x1406B41FC (EtwpCoverageRecord.c)
- *     EtwpCoverageEnsureContext @ 0x14075B064 (EtwpCoverageEnsureContext.c)
+ *     EtwpCoverageRecord @ 0x1406B41DC (EtwpCoverageRecord.c)
+ *     EtwpCoverageEnsureContext @ 0x14075B044 (EtwpCoverageEnsureContext.c)
  */
 
 __int64 __fastcall EtwTelemetryCoverageReport(_QWORD *a1)
@@ -145,7 +145,7 @@ LABEL_54:
       v37 = v2;
       v38 = v1;
       TlgCreateSz(&pDesc, v28);
-      TlgWrite(&stru_140400340, &unk_140372C25, 0LL, 0LL, 9u, &pData);
+      TlgWrite(&stru_140400340, &unk_140372D93, 0LL, 0LL, 9u, &pData);
     }
     return v8;
   }

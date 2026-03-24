@@ -1,51 +1,36 @@
 /*
- * XREFs of DxgkDdiSetVirtualFunctionPowerState @ 0x1C036AF10
+ * XREFs of DxgkDdiSetVirtualFunctionPowerState @ 0x1C02324DC
  * Callers:
- *     ?DpiDdiSetVirtualFunctionPowerState@@YAJPEAXGW4_DEVICE_POWER_STATE@@E@Z @ 0x1C0065B10 (-DpiDdiSetVirtualFunctionPowerState@@YAJPEAXGW4_DEVICE_POWER_STATE@@E@Z.c)
+ *     ?DpiDdiSetVirtualFunctionPowerState@@YAJPEAXGW4_DEVICE_POWER_STATE@@E@Z @ 0x1C0058ED0 (-DpiDdiSetVirtualFunctionPowerState@@YAJPEAXGW4_DEVICE_POWER_STATE@@E@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005B17C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
- *     ?SetVirtualFunctionPowerState@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_SETVIRTUALFUNCTIONPOWERSTATE@@@Z @ 0x1C03698D4 (-SetVirtualFunctionPowerState@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_SETVIRTU.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C0040104 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?SetVirtualFunctionPowerState@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_SETVIRTUALFUNCTIONPOWERSTATE@@@Z @ 0x1C0231570 (-SetVirtualFunctionPowerState@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_SETVIRTU.c)
  */
 
-__int64 __fastcall DxgkDdiSetVirtualFunctionPowerState(
-        _QWORD *a1,
-        int a2,
-        unsigned __int16 a3,
-        signed int a4,
-        unsigned __int8 a5)
+__int64 __fastcall DxgkDdiSetVirtualFunctionPowerState(_QWORD *a1, int a2, unsigned __int16 a3, int a4, char a5)
 {
   int v5; // ebp
-  __int64 v7; // rcx
-  __int64 v8; // rsi
-  __int64 v9; // rbx
-  int v11; // [rsp+28h] [rbp-70h]
-  int v12; // [rsp+30h] [rbp-68h]
-  unsigned int v13[4]; // [rsp+50h] [rbp-48h] BYREF
+  __int64 v8; // rcx
+  unsigned int v9; // ebx
+  int v11; // [rsp+28h] [rbp-50h]
+  int v12; // [rsp+30h] [rbp-48h]
+  __int64 v13; // [rsp+40h] [rbp-38h] BYREF
+  int v14; // [rsp+48h] [rbp-30h]
 
   v5 = a3;
-  v7 = a1[366];
-  v8 = a4;
-  v13[0] = a3;
-  v13[1] = a4;
-  v13[2] = a5;
-  v9 = (int)ADAPTER_RENDER::SetVirtualFunctionPowerState(v7, a2, v13);
+  v13 = 0LL;
+  v14 = 0;
+  v8 = a1[338];
+  LOBYTE(v14) = a5;
+  LODWORD(v13) = a3;
+  HIDWORD(v13) = a4;
+  v9 = ADAPTER_RENDER::SetVirtualFunctionPowerState(v8, a2, (unsigned int *)&v13);
   if ( bTracingEnabled )
   {
-    v12 = v8;
+    v12 = a4;
     v11 = v5;
     VgpuTrace(1, v9, a1, L"DxgkDdiSetVirtualFunctionPowerState", (wchar_t *)L"%d %d", v11, v12);
-    DxgkLogInternalTriageEvent(
-      (__int64)a1,
-      196611,
-      v5,
-      (__int64)L"SetVirtualFunctionPowerState called for power state %1 and wake set %2, returning %3",
-      v8,
-      a5,
-      v9,
-      0LL,
-      0LL);
   }
-  return (unsigned int)v9;
+  return v9;
 }

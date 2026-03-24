@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@W4_D3DKMT_MEMORY_SEGMENT_GROUP@@@Z @ 0x1C00EDDA8
+ * XREFs of ?AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@W4_D3DKMT_MEMORY_SEGMENT_GROUP@@@Z @ 0x1C00CA9CC
  * Callers:
- *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00ABE70 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C008EC90 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
  * Callees:
- *     ?AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z @ 0x1C00EDC60 (-AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z.c)
- *     ?BucketizeBudgetStateProcesses@VIDMM_GLOBAL@@IEAAXKW4_D3DKMT_MEMORY_SEGMENT_GROUP@@@Z @ 0x1C00EE454 (-BucketizeBudgetStateProcesses@VIDMM_GLOBAL@@IEAAXKW4_D3DKMT_MEMORY_SEGMENT_GROUP@@@Z.c)
+ *     ?AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z @ 0x1C00CA884 (-AssignBudgets@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z.c)
+ *     ?BucketizeBudgetStateProcesses@VIDMM_GLOBAL@@IEAAXKW4_D3DKMT_MEMORY_SEGMENT_GROUP@@@Z @ 0x1C00CB078 (-BucketizeBudgetStateProcesses@VIDMM_GLOBAL@@IEAAXKW4_D3DKMT_MEMORY_SEGMENT_GROUP@@@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::AssignBudgets(
@@ -17,14 +17,14 @@ void __fastcall VIDMM_GLOBAL::AssignBudgets(
   __int64 v7; // r11
   struct _RTL_BALANCED_NODE *v8; // rax
   _QWORD *Children; // rbx
-  _QWORD **v10; // rcx
-  _QWORD *v11; // rax
-  _QWORD *i; // rcx
+  _QWORD **v10; // rax
+  _QWORD *v11; // rcx
+  _QWORD *v12; // rcx
 
   v3 = a3;
   VIDMM_GLOBAL::BucketizeBudgetStateProcesses(this, *(_DWORD *)a2, a3);
   v6 = *(unsigned int *)a2;
-  v7 = *((_QWORD *)this + 5028);
+  v7 = *((_QWORD *)this + 5027);
   if ( (*(_BYTE *)(v7 + 24 * (v3 + 66 * v6) + 512) & 1) != 0 )
   {
     v8 = VIDMM_PARTITION::_PartitionTree;
@@ -39,7 +39,7 @@ void __fastcall VIDMM_GLOBAL::AssignBudgets(
       VIDMM_GLOBAL::AssignBudgets(
         this,
         a2,
-        (struct VIDMM_SEGMENT_GROUP_STATE *)(*(_QWORD *)(376LL * *(unsigned int *)(*((_QWORD *)this + 3) + 240LL)
+        (struct VIDMM_SEGMENT_GROUP_STATE *)(*(_QWORD *)(376LL * *(unsigned int *)(*((_QWORD *)this + 3) + 232LL)
                                                        + Children[5]
                                                        + 24)
                                            + 336LL * *(unsigned int *)a2));
@@ -47,9 +47,9 @@ void __fastcall VIDMM_GLOBAL::AssignBudgets(
       v11 = Children;
       if ( v10 )
       {
-        Children = (_QWORD *)Children[1];
-        for ( i = *v10; i; i = (_QWORD *)*i )
-          Children = i;
+        v12 = *v10;
+        for ( Children = (_QWORD *)Children[1]; v12; v12 = (_QWORD *)*v12 )
+          Children = v12;
       }
       else
       {

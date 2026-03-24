@@ -1,9 +1,9 @@
 /*
- * XREFs of ?erase@?$vector@V?$com_ptr_t@VCHolographicExclusiveMode@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCHolographicExclusiveMode@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$com_ptr_t@VCHolographicExclusiveMode@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$com_ptr_t@VCHolographicExclusiveMode@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@@2@@Z @ 0x180296EF0
+ * XREFs of ?erase@?$vector@V?$com_ptr_t@VCHolographicExclusiveMode@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCHolographicExclusiveMode@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$com_ptr_t@VCHolographicExclusiveMode@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$com_ptr_t@VCHolographicExclusiveMode@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@@2@@Z @ 0x1802548B8
  * Callers:
- *     ?RemoveExclusiveModeProxy@CHolographicManager@@QEAAXPEAVCHolographicExclusiveMode@@@Z @ 0x18029660C (-RemoveExclusiveModeProxy@CHolographicManager@@QEAAXPEAVCHolographicExclusiveMode@@@Z.c)
+ *     ?RemoveExclusiveModeProxy@CHolographicManager@@QEAAXPEAVCHolographicExclusiveMode@@@Z @ 0x180254130 (-RemoveExclusiveModeProxy@CHolographicManager@@QEAAXPEAVCHolographicExclusiveMode@@@Z.c)
  * Callees:
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x1800B1804 (-InternalRelease@CResource@@IEAAKXZ.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x18005FB60 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
  */
 
 _QWORD *__fastcall std::vector<wil::com_ptr_t<CHolographicExclusiveMode,wil::err_returncode_policy>>::erase(
@@ -15,8 +15,8 @@ _QWORD *__fastcall std::vector<wil::com_ptr_t<CHolographicExclusiveMode,wil::err
   __int64 *v4; // rdi
   __int64 *v8; // rax
   __int64 v9; // rax
-  CResource *v10; // rcx
-  CResource *v11; // rcx
+  CRenderTargetBitmap *v10; // rcx
+  CRenderTargetBitmap *v11; // rcx
   _QWORD *result; // rax
 
   v3 = *(__int64 **)(a1 + 8);
@@ -28,20 +28,20 @@ _QWORD *__fastcall std::vector<wil::com_ptr_t<CHolographicExclusiveMode,wil::err
     {
       v9 = *v4;
       *v4 = 0LL;
-      v10 = (CResource *)*(v4 - 1);
+      v10 = (CRenderTargetBitmap *)*(v4 - 1);
       *(v4 - 1) = v9;
       if ( v10 )
-        CResource::InternalRelease(v10);
+        CRenderTargetBitmap::Release(v10);
       ++v4;
     }
     while ( v4 != v3 );
     v3 = *(__int64 **)(a1 + 8);
     v8 = v3;
   }
-  v11 = (CResource *)*(v3 - 1);
+  v11 = (CRenderTargetBitmap *)*(v3 - 1);
   if ( v11 )
   {
-    CResource::InternalRelease(v11);
+    CRenderTargetBitmap::Release(v11);
     v8 = *(__int64 **)(a1 + 8);
   }
   *(_QWORD *)(a1 + 8) = v8 - 1;

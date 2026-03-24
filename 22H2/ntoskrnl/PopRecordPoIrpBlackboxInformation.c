@@ -1,204 +1,154 @@
 /*
- * XREFs of PopRecordPoIrpBlackboxInformation @ 0x1405A25C4
+ * XREFs of PopRecordPoIrpBlackboxInformation @ 0x14057F538
  * Callers:
- *     PopRecordPoBlackboxInformation @ 0x1409A10B4 (PopRecordPoBlackboxInformation.c)
+ *     PopRecordPoBlackboxInformation @ 0x1408FAA30 (PopRecordPoBlackboxInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDiagGetDriverName @ 0x140591954 (PopDiagGetDriverName.c)
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140253F54 (KiQueryUnbiasedInterruptTime.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     PopDiagGetDriverName @ 0x14038887C (PopDiagGetDriverName.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void PopRecordPoIrpBlackboxInformation()
 {
-  char v0; // r13
-  __int64 v1; // rsi
-  int v2; // r12d
-  void *v3; // rbx
-  unsigned __int64 v4; // rdi
-  unsigned __int64 v5; // r14
-  __int64 v6; // rax
+  __int64 v0; // rsi
+  int v1; // r15d
+  _DWORD *v2; // rdi
+  SIZE_T v3; // rbx
+  unsigned __int64 v4; // r14
+  __int64 v5; // rax
+  _DWORD *PoolWithTag; // rax
+  ULONG_PTR v7; // rax
+  _DWORD *v8; // r14
+  __int64 i; // rsi
+  __int64 v10; // r12
+  __int64 v11; // r15
+  unsigned __int64 v12; // rsi
   unsigned __int8 CurrentIrql; // al
-  __int64 v8; // r15
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v11; // eax
-  bool v12; // zf
-  unsigned __int64 v13; // r11
-  __int64 v14; // rax
-  __int64 Pool2; // rax
-  ULONG_PTR v16; // rcx
-  __int64 *v17; // r11
-  _DWORD *v18; // r14
-  __int64 v19; // rsi
-  __int64 v20; // r12
-  unsigned __int64 v21; // rsi
-  unsigned __int8 v22; // al
-  struct _KPRCB *v23; // r9
-  _DWORD *v24; // r8
-  int v25; // eax
+  struct _KPRCB *CurrentPrcb; // r9
+  _DWORD *SchedulerAssist; // r8
+  int v16; // eax
+  bool v17; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-A1h] BYREF
   __int64 InputBuffer; // [rsp+48h] [rbp-89h]
   __int128 InputBuffer_8; // [rsp+50h] [rbp-81h] BYREF
-  __int128 v29; // [rsp+60h] [rbp-71h]
+  __int128 v21; // [rsp+60h] [rbp-71h]
   wchar_t Src[64]; // [rsp+78h] [rbp-59h] BYREF
 
   InputBuffer_8 = 0LL;
   InputBuffer = 0LL;
-  v29 = 0LL;
+  v21 = 0LL;
   *(_OWORD *)&LockHandle.LockQueue.Lock = 0LL;
   KeAcquireInStackQueuedSpinLock(&PopIrpLock, (PKLOCK_QUEUE_HANDLE)&LockHandle.LockQueue.Lock);
-  v0 = 0;
-  v1 = PopIrpList;
-  v2 = 0;
-  PopIrpLockThread = (__int64)KeGetCurrentThread();
-  v3 = 0LL;
-  v4 = 64LL;
+  v0 = PopIrpList;
+  v1 = 0;
+  v2 = 0LL;
+  v3 = 64LL;
   if ( (__int64 *)PopIrpList == &PopIrpList )
-    goto LABEL_33;
+    goto LABEL_22;
   do
   {
-    v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v1 + 288));
-    if ( *(_DWORD *)(v1 + 296) == 1 )
+    if ( *(_BYTE *)(v0 + 196) )
     {
-      v6 = *(_QWORD *)(v1 + 48);
-      v0 = 1;
-    }
-    else
-    {
-      v6 = 0LL;
-    }
-    *(_QWORD *)(v1 + 304) = v6;
-    KxReleaseSpinLock((volatile signed __int64 *)(v1 + 288));
-    if ( KiIrqlFlags
-      && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0)
-      && CurrentIrql <= 0xFu
-      && (unsigned __int8)v5 <= 0xFu )
-    {
-      v8 = -1LL;
-      if ( CurrentIrql >= 2u )
+      v4 = 24LL;
+      if ( PopDiagGetDriverName(*(_QWORD *)(v0 + 32), Src) >= 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
-        v12 = (v11 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v11;
-        if ( v12 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-      }
-    }
-    else
-    {
-      v8 = -1LL;
-    }
-    __writecr8(v5);
-    if ( v0 )
-    {
-      v0 = 0;
-      if ( PopDiagGetDriverName(*(_QWORD *)(v1 + 32), Src) >= 0 )
-      {
-        v14 = -1LL;
+        v5 = -1LL;
         do
-          ++v14;
-        while ( Src[v14] );
-        v13 = 2 * v14 + 26;
-        if ( v13 < 0x18 )
-          goto LABEL_33;
+          ++v5;
+        while ( Src[v5] );
+        v4 = 2 * v5 + 26;
+        if ( v4 < 0x18 )
+          goto LABEL_22;
       }
-      ++v2;
-      if ( v4 + v13 < v4 )
-        goto LABEL_33;
-      v4 += v13;
+      ++v1;
+      if ( v3 + v4 < v3 )
+        goto LABEL_22;
+      v3 += v4;
     }
-    else
-    {
-      v0 = 0;
-    }
-    v1 = *(_QWORD *)v1;
+    v0 = *(_QWORD *)v0;
   }
-  while ( (__int64 *)v1 != &PopIrpList );
-  if ( !v2 )
+  while ( (__int64 *)v0 != &PopIrpList );
+  if ( !v1 )
   {
-LABEL_33:
-    v4 = 0LL;
+LABEL_22:
+    v3 = 0LL;
   }
   else
   {
-    Pool2 = ExAllocatePool2(64LL, v4, 1111641936LL);
-    v3 = (void *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v3, 0x42424F50u);
+    v2 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v16 = ExWorkerQueue;
-      v17 = &PopIrpList;
-      *(_QWORD *)(Pool2 + 16) = &PopIrpList;
-      v18 = (_DWORD *)(Pool2 + 40);
-      *(_DWORD *)(Pool2 + 4) = 1;
-      *(_DWORD *)Pool2 = v4;
-      *(_DWORD *)(Pool2 + 8) = v2;
-      *(_QWORD *)(Pool2 + 24) = &PopIrpThreadList;
-      *(_QWORD *)(Pool2 + 32) = v16;
-      v19 = PopIrpList;
-      while ( (__int64 *)v19 != v17 )
+      memset(PoolWithTag, 0, v3);
+      v2[2] = v1;
+      *((_QWORD *)v2 + 3) = &PopIrpThreadList;
+      v7 = ExWorkerQueue;
+      *((_QWORD *)v2 + 2) = &PopIrpList;
+      v8 = v2 + 10;
+      *((_QWORD *)v2 + 4) = v7;
+      v2[1] = 1;
+      *v2 = v3;
+      for ( i = PopIrpList; (__int64 *)i != &PopIrpList; i = *(_QWORD *)i )
       {
-        if ( *(_QWORD *)(v19 + 304) )
+        if ( *(_BYTE *)(i + 196) )
         {
-          v18[2] = *(unsigned __int8 *)(v19 + 184);
-          v18[3] = *(_DWORD *)(v19 + 188);
-          v18[4] = *(_DWORD *)(v19 + 192);
-          v20 = 24LL;
-          v18[1] = (KiQueryUnbiasedInterruptTime() - *(_QWORD *)(v19 + 304)) / 0x2710uLL;
-          if ( PopDiagGetDriverName(*(_QWORD *)(v19 + 32), Src) >= 0 )
+          v8[2] = *(unsigned __int8 *)(i + 184);
+          v8[3] = *(_DWORD *)(i + 188);
+          v8[4] = *(_DWORD *)(i + 192);
+          v10 = 24LL;
+          v8[1] = (KiQueryUnbiasedInterruptTime() - *(_QWORD *)(i + 48)) / 0x2710uLL;
+          if ( PopDiagGetDriverName(*(_QWORD *)(i + 32), Src) >= 0 )
           {
+            v11 = -1LL;
             do
-              ++v8;
-            while ( Src[v8] );
-            v20 = 2 * v8 + 26;
-            memmove(v18 + 5, Src, 2 * v8);
-            v17 = &PopIrpList;
-            *((_WORD *)v18 + v8 + 10) = 0;
+              ++v11;
+            while ( Src[v11] );
+            v10 = 2 * v11 + 26;
+            memmove(v8 + 5, Src, 2 * v11);
+            *((_WORD *)v8 + v11 + 10) = 0;
           }
-          *v18 = v20;
-          v18 = (_DWORD *)((char *)v18 + v20);
+          *v8 = v10;
+          v8 = (_DWORD *)((char *)v8 + v10);
         }
-        v19 = *(_QWORD *)v19;
-        v8 = -1LL;
       }
     }
   }
-  PopIrpLockThread = 0LL;
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle.LockQueue.Lock);
-  v21 = (unsigned __int8)InputBuffer;
+  KeReleaseInStackQueuedSpinLockFromDpcLevel((PKLOCK_QUEUE_HANDLE)&LockHandle.LockQueue.Lock);
+  v12 = (unsigned __int8)InputBuffer;
   if ( KiIrqlFlags )
   {
-    v22 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)InputBuffer <= 0xFu && v22 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v23 = KeGetCurrentPrcb();
-      v24 = v23->SchedulerAssist;
-      v25 = ~(unsigned __int16)(-1LL << ((unsigned __int8)InputBuffer + 1));
-      v12 = (v25 & v24[5]) == 0;
-      v24[5] &= v25;
-      if ( v12 )
-        KiRemoveSystemWorkPriorityKick((__int64)v23);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)InputBuffer <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)InputBuffer + 1));
+        v17 = (v16 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v16;
+        if ( v17 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
-  __writecr8(v21);
-  if ( v4 )
+  __writecr8(v12);
+  if ( v3 )
   {
-    *(_QWORD *)&v29 = 0LL;
-    *((_QWORD *)&v29 + 1) = 4LL;
-    *(_QWORD *)&InputBuffer_8 = v3;
-    *((_QWORD *)&InputBuffer_8 + 1) = (unsigned int)v4;
+    *(_QWORD *)&v21 = 0LL;
+    *((_QWORD *)&v21 + 1) = 4LL;
+    *(_QWORD *)&InputBuffer_8 = v2;
+    *((_QWORD *)&InputBuffer_8 + 1) = (unsigned int)v3;
     NtPowerInformation(UpdateBlackBoxRecorder, &InputBuffer_8, 0x20u, 0LL, 0);
   }
-  if ( v3 )
-    ExFreePoolWithTag(v3, 0x42424F50u);
+  if ( v2 )
+    ExFreePoolWithTag(v2, 0x42424F50u);
 }

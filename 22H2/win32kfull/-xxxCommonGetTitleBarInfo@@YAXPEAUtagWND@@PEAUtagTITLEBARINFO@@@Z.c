@@ -1,44 +1,63 @@
 /*
- * XREFs of ?xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z @ 0x1C0062F3C
+ * XREFs of ?xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z @ 0x1C0060FB4
  * Callers:
- *     xxxGetTitleBarInfoEx @ 0x1C000C37C (xxxGetTitleBarInfoEx.c)
- *     NtUserGetTitleBarInfo @ 0x1C0062D60 (NtUserGetTitleBarInfo.c)
+ *     xxxGetTitleBarInfoEx @ 0x1C002E488 (xxxGetTitleBarInfoEx.c)
+ *     NtUserGetTitleBarInfo @ 0x1C005DC60 (NtUserGetTitleBarInfo.c)
  * Callees:
- *     _HasCaptionIcon @ 0x1C00631C8 (_HasCaptionIcon.c)
- *     xxxMNCanClose @ 0x1C00632C4 (xxxMNCanClose.c)
- *     GetWindowBordersForDpiWithCompatFlags2 @ 0x1C00EDCBC (GetWindowBordersForDpiWithCompatFlags2.c)
- *     GetWindowDpiLastNotify @ 0x1C00F0740 (GetWindowDpiLastNotify.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
+ *     GetDpiDependentMetric @ 0x1C0061430 (GetDpiDependentMetric.c)
+ *     GetDpiCacheSlot @ 0x1C006148C (GetDpiCacheSlot.c)
+ *     xxxMNCanClose @ 0x1C00614C0 (xxxMNCanClose.c)
+ *     _HasCaptionIcon @ 0x1C0061CF8 (_HasCaptionIcon.c)
+ *     _EnsureDpiDepSysMetCacheForPlateau @ 0x1C01E9FA0 (_EnsureDpiDepSysMetCacheForPlateau.c)
+ *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01EA020 (_ScaleSystemMetricForDPIWithoutCache.c)
  */
 
 void __fastcall xxxCommonGetTitleBarInfo(struct tagWND *a1, struct tagTITLEBARINFO *a2)
 {
-  int v4; // ecx
-  __int64 v5; // rdx
+  int v4; // edx
+  __int64 v5; // r8
   int v6; // ecx
-  unsigned int WindowDpiLastNotify; // esi
-  __int64 v8; // rax
-  int v9; // ebp
-  int v10; // r14d
-  __int64 ThreadWin32Thread; // rax
-  int v12; // r8d
-  int v13; // eax
-  int WindowBordersForDpiWithCompatFlags2; // eax
-  __int64 v15; // rcx
-  int v16; // r8d
-  int v17; // edx
-  __int64 v18; // rcx
-  __int64 v19; // rax
-  char v20; // cl
-  __int64 v21; // rax
-  char v22; // cl
-  char *v23; // rcx
-  int v24; // eax
-  int v25; // eax
+  unsigned __int16 v7; // ax
+  unsigned int v8; // esi
+  __int64 v9; // r14
+  __int64 v10; // rax
+  struct _KTHREAD *CurrentThread; // r12
+  int v12; // r15d
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 *ThreadWin32Thread; // rax
+  __int64 v17; // rcx
+  int v18; // r12d
+  int v19; // ebx
+  __int64 v20; // rdx
+  int v21; // r14d
+  int v22; // r15d
+  int v23; // r14d
+  __int64 v24; // rbx
+  int v25; // edx
   int v26; // eax
-  int v27; // eax
-  __int64 v28; // rax
+  int v27; // r8d
+  int v28; // edx
+  __int64 v29; // rcx
+  __int64 v30; // rax
+  char v31; // cl
+  __int64 v32; // rax
+  char v33; // cl
+  char *v34; // rcx
+  __int64 v35; // rax
+  int v36; // eax
+  int v37; // eax
+  int v38; // eax
+  int v39; // eax
+  int v40; // eax
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v43; // rcx
+  __int64 CurrentThreadProcess; // rax
+  unsigned int v45; // r11d
+  int DpiDependentMetric; // eax
+  unsigned int v47; // [rsp+50h] [rbp+8h]
 
   v4 = *((_DWORD *)a2 + 5) | 0x100000;
   *((_DWORD *)a2 + 5) = v4;
@@ -50,57 +69,145 @@ void __fastcall xxxCommonGetTitleBarInfo(struct tagWND *a1, struct tagTITLEBARIN
       v6 = *(_DWORD *)(v5 + 288) & 0xF;
       if ( v6 == 3 )
       {
-        WindowDpiLastNotify = (*(_DWORD *)(v5 + 288) >> 8) & 0x1FF;
+        v8 = (*(_DWORD *)(v5 + 288) >> 8) & 0x1FF;
       }
-      else if ( (*(_DWORD *)(v5 + 232) & 0x400) != 0 )
+      else if ( (*(_DWORD *)(v5 + 232) & 0x8000000) != 0 )
       {
-        WindowDpiLastNotify = GetWindowDpiLastNotify(a1);
+        v7 = *(_WORD *)(v5 + 286);
+        if ( !v7 )
+          v7 = *(_WORD *)(v5 + 284);
+        v8 = v7;
       }
       else if ( !v6
-             && (v28 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
-             && (*(_DWORD *)(**(_QWORD **)(v28 + 8) + 64LL) & 1) != 0 )
+             && (v35 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 456LL)) != 0
+             && (*(_DWORD *)(**(_QWORD **)(v35 + 8) + 64LL) & 1) != 0 )
       {
-        WindowDpiLastNotify = 96;
+        v8 = 96;
       }
       else
       {
-        WindowDpiLastNotify = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
+        v8 = *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 284LL);
       }
+      v9 = 0LL;
       *(_OWORD *)((char *)a2 + 4) = *(_OWORD *)(v5 + 88);
-      v8 = *((_QWORD *)a1 + 5);
-      v9 = *(_DWORD *)(v8 + 24);
-      v10 = *(_DWORD *)(v8 + 28);
-      ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
-      if ( *(_DWORD *)(ThreadWin32Thread + 632) > 0x9900u )
-        v13 = 0;
+      v10 = *((_QWORD *)a1 + 5);
+      CurrentThread = KeGetCurrentThread();
+      v12 = *(_DWORD *)(v10 + 24);
+      v47 = *(_DWORD *)(v10 + 28);
+      if ( !(unsigned __int8)KeIsAttachedProcess(v47)
+        || (CurrentProcess = PsGetCurrentProcess(v14, v13, v15),
+            ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+            CurrentThreadProcess = PsGetCurrentThreadProcess(v43),
+            ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+      {
+        ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+        if ( ThreadWin32Thread )
+          v9 = *ThreadWin32Thread;
+      }
+      v18 = 0;
+      if ( *(_DWORD *)(v9 + 632) <= 0x9900u )
+        v18 = *(_DWORD *)(v9 + 648);
+      if ( (v12 & 0x100) != 0 )
+        v19 = 2;
       else
-        v13 = *(_DWORD *)(ThreadWin32Thread + 648);
-      WindowBordersForDpiWithCompatFlags2 = GetWindowBordersForDpiWithCompatFlags2(
-                                              v10,
-                                              v9,
-                                              v12,
-                                              0,
-                                              WindowDpiLastNotify,
-                                              v13);
-      *((_DWORD *)a2 + 1) += WindowBordersForDpiWithCompatFlags2;
-      *((_DWORD *)a2 + 3) -= WindowBordersForDpiWithCompatFlags2;
-      *((_DWORD *)a2 + 2) += WindowBordersForDpiWithCompatFlags2;
-      *((_DWORD *)a2 + 4) -= WindowBordersForDpiWithCompatFlags2;
-      v15 = 22LL;
-      if ( *(char *)(*((_QWORD *)a1 + 5) + 24LL) >= 0 )
-        v15 = 2LL;
-      *((_DWORD *)a2 + 4) = *((_DWORD *)a2 + 2) + GetDpiDependentMetric(v15, WindowDpiLastNotify);
+        v19 = (v12 & 0x20000) != 0;
+      v20 = v47;
+      v21 = v47 & 0xC00000;
+      if ( (v47 & 0xC00000) != 0 || (v12 & 1) != 0 )
+        ++v19;
+      if ( (v18 & 0x10000000) != 0 || (v18 & 0x20000000) != 0 )
+      {
+        v22 = 0;
+      }
+      else
+      {
+        v17 = gpsi;
+        if ( v8 == *(unsigned __int16 *)(gpsi + 6998LL) )
+        {
+          v22 = *(_DWORD *)(gpsi + 2400LL);
+        }
+        else if ( v8 == 96 )
+        {
+          v22 = *(_DWORD *)(gpsi + 2520LL);
+        }
+        else
+        {
+          if ( (unsigned int)GetDpiCacheSlot(v8) == -1 )
+            DpiDependentMetric = ScaleSystemMetricForDPIWithoutCache(v45, v8);
+          else
+            DpiDependentMetric = GetDpiDependentMetric(v45, v8);
+          v20 = v47;
+          v22 = DpiDependentMetric;
+        }
+      }
+      if ( (v20 & 0x40000) != 0
+        || v22 > 0
+        && (LOBYTE(v17) = v21 != 12582912, v21 == 12582912 || (v20 & 0x40000) != 0)
+        && (v18 & 0x30000000) == 0 )
+      {
+        if ( (v18 & 0x10000000) != 0 )
+        {
+          v23 = 1;
+        }
+        else
+        {
+          v23 = (int)(v8 * *(_DWORD *)(Get96DpiServerInfo(v17, v20, 1LL) + 4) + 48) / 96;
+          if ( (v18 & 0x20000000) != 0 )
+          {
+            if ( v8 == *(unsigned __int16 *)(gpsi + 6998LL) )
+            {
+              v36 = *(_DWORD *)(gpsi + 2400LL);
+            }
+            else if ( v8 == 96 )
+            {
+              v36 = *(_DWORD *)(gpsi + 2520LL);
+            }
+            else if ( (unsigned int)GetDpiCacheSlot(v8) == -1 )
+            {
+              v36 = ScaleSystemMetricForDPIWithoutCache(29LL, v8);
+            }
+            else
+            {
+              v36 = GetDpiDependentMetric(29LL, v8);
+            }
+            v23 += v36;
+          }
+        }
+        v19 += v22 + v23;
+      }
+      *((_DWORD *)a2 + 1) += v19;
+      *((_DWORD *)a2 + 3) -= v19;
+      *((_DWORD *)a2 + 2) += v19;
+      *((_DWORD *)a2 + 4) -= v19;
+      if ( *(char *)(*((_QWORD *)a1 + 5) + 24LL) < 0 )
+      {
+        v26 = *((_DWORD *)a2 + 2) + GetDpiDependentMetric(22LL, v8);
+      }
+      else
+      {
+        v24 = 120LL * (int)GetDpiCacheSlot(v8);
+        v25 = *(_DWORD *)(v24 + gpsi + 2292);
+        if ( v25 == -1 )
+        {
+          EnsureDpiDepSysMetCacheForPlateau(v8);
+          v25 = *(_DWORD *)(v24 + gpsi + 2292);
+          if ( v25 == -1 )
+            v25 = 0;
+        }
+        v26 = v25 + *((_DWORD *)a2 + 2);
+      }
+      *((_DWORD *)a2 + 4) = v26;
       if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 30LL) & 8) != 0 && (unsigned int)HasCaptionIcon(a1) )
       {
-        v16 = *((_DWORD *)a2 + 4);
-        v17 = *((_DWORD *)a2 + 2);
+        v27 = *((_DWORD *)a2 + 4);
+        v28 = *((_DWORD *)a2 + 2);
         if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 26LL) & 0x40) != 0 )
-          *((_DWORD *)a2 + 3) += v17 - v16 + 1;
+          *((_DWORD *)a2 + 3) += v28 - v27 + 1;
         else
-          *((_DWORD *)a2 + 1) += v16 - v17 - 1;
+          *((_DWORD *)a2 + 1) += v27 - v28 - 1;
       }
-      v18 = *((_QWORD *)a1 + 5);
-      if ( (*(_BYTE *)(v18 + 30) & 8) != 0 || (*(_BYTE *)(v18 + 21) & 2) == 0 )
+      v29 = *((_QWORD *)a1 + 5);
+      if ( (*(_BYTE *)(v29 + 30) & 8) != 0 || (*(_BYTE *)(v29 + 21) & 2) == 0 )
       {
         if ( !(unsigned int)xxxMNCanClose(a1) )
           *((_DWORD *)a2 + 10) |= 1u;
@@ -111,18 +218,18 @@ void __fastcall xxxCommonGetTitleBarInfo(struct tagWND *a1, struct tagTITLEBARIN
       {
         *((_DWORD *)a2 + 10) |= 0x8000u;
       }
-      v19 = *((_QWORD *)a1 + 5);
-      v20 = *(_BYTE *)(v19 + 30);
-      if ( (v20 & 8) != 0 || (*(_BYTE *)(v19 + 21) & 2) == 0 )
+      v30 = *((_QWORD *)a1 + 5);
+      v31 = *(_BYTE *)(v30 + 30);
+      if ( (v31 & 8) != 0 || (*(_BYTE *)(v30 + 21) & 2) == 0 )
       {
-        if ( (v20 & 1) == 0 )
+        if ( (v31 & 1) == 0 )
         {
-          v24 = *((_DWORD *)a2 + 8);
-          if ( (v20 & 2) != 0 )
-            v25 = v24 | 1;
+          v37 = *((_DWORD *)a2 + 8);
+          if ( (v31 & 2) != 0 )
+            v38 = v37 | 1;
           else
-            v25 = v24 | 0x8000;
-          *((_DWORD *)a2 + 8) = v25;
+            v38 = v37 | 0x8000;
+          *((_DWORD *)a2 + 8) = v38;
         }
         if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 21LL) & 0x20) != 0 )
           *((_DWORD *)a2 + 8) |= 8u;
@@ -131,18 +238,18 @@ void __fastcall xxxCommonGetTitleBarInfo(struct tagWND *a1, struct tagTITLEBARIN
       {
         *((_DWORD *)a2 + 8) |= 0x8000u;
       }
-      v21 = *((_QWORD *)a1 + 5);
-      v22 = *(_BYTE *)(v21 + 30);
-      if ( (v22 & 8) != 0 || (*(_BYTE *)(v21 + 21) & 2) == 0 )
+      v32 = *((_QWORD *)a1 + 5);
+      v33 = *(_BYTE *)(v32 + 30);
+      if ( (v33 & 8) != 0 || (*(_BYTE *)(v32 + 21) & 2) == 0 )
       {
-        if ( (v22 & 2) == 0 )
+        if ( (v33 & 2) == 0 )
         {
-          v26 = *((_DWORD *)a2 + 7);
-          if ( (v22 & 1) != 0 )
-            v27 = v26 | 1;
+          v39 = *((_DWORD *)a2 + 7);
+          if ( (v33 & 1) != 0 )
+            v40 = v39 | 1;
           else
-            v27 = v26 | 0x8000;
-          *((_DWORD *)a2 + 7) = v27;
+            v40 = v39 | 0x8000;
+          *((_DWORD *)a2 + 7) = v40;
         }
         if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 21LL) & 0x40) != 0 )
           *((_DWORD *)a2 + 7) |= 8u;
@@ -151,12 +258,12 @@ void __fastcall xxxCommonGetTitleBarInfo(struct tagWND *a1, struct tagTITLEBARIN
       {
         *((_DWORD *)a2 + 7) |= 0x8000u;
       }
-      v23 = (char *)*((_QWORD *)a1 + 5);
-      if ( (v23[25] & 4) == 0 || (v23[30] & 3) != 0 )
+      v34 = (char *)*((_QWORD *)a1 + 5);
+      if ( (v34[25] & 4) == 0 || (v34[30] & 3) != 0 )
       {
         *((_DWORD *)a2 + 9) |= 0x8000u;
       }
-      else if ( v23[21] < 0 )
+      else if ( v34[21] < 0 )
       {
         *((_DWORD *)a2 + 9) |= 8u;
       }

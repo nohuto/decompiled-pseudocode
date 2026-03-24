@@ -6,10 +6,10 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     SepCompareClaimAttributes @ 0x1405BC2A4 (SepCompareClaimAttributes.c)
  *     SepCreateClaimAttributes @ 0x1405BD654 (SepCreateClaimAttributes.c)
- *     SepDeleteClaimAttributes @ 0x1408A3EB8 (SepDeleteClaimAttributes.c)
+ *     SepDeleteClaimAttributes @ 0x1408A3E98 (SepDeleteClaimAttributes.c)
  */
 
 __int64 __fastcall SepSetTokenClaims(__int64 a1, int a2, int a3, int a4, void *a5)

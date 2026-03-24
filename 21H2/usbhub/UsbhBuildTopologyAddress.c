@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhBuildTopologyAddress @ 0x1C00484A8
+ * XREFs of UsbhBuildTopologyAddress @ 0x1C0049828
  * Callers:
- *     UsbhFdoReturnTopologyAddress @ 0x1C00308D8 (UsbhFdoReturnTopologyAddress.c)
- *     UsbhGetDeviceNodeInfo @ 0x1C004882C (UsbhGetDeviceNodeInfo.c)
+ *     UsbhFdoReturnTopologyAddress @ 0x1C0031C80 (UsbhFdoReturnTopologyAddress.c)
+ *     UsbhGetDeviceNodeInfo @ 0x1C0049BBC (UsbhGetDeviceNodeInfo.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 __int64 __fastcall UsbhBuildTopologyAddress(__int64 a1, _OWORD *a2, __int16 a3)

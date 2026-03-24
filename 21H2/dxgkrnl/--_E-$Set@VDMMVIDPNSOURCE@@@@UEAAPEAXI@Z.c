@@ -1,9 +1,9 @@
 /*
- * XREFs of ??_E?$Set@VDMMVIDPNSOURCE@@@@UEAAPEAXI@Z @ 0x1C006A910
+ * XREFs of ??_E?$Set@VDMMVIDPNSOURCE@@@@UEAAPEAXI@Z @ 0x1C005D710
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$Set@VDMMVIDPNSOURCE@@@@UEAA@XZ @ 0x1C0010930 (--1-$Set@VDMMVIDPNSOURCE@@@@UEAA@XZ.c)
+ *     ??1?$Set@VDMMVIDPNSOURCE@@@@UEAA@XZ @ 0x1C00092D8 (--1-$Set@VDMMVIDPNSOURCE@@@@UEAA@XZ.c)
  */
 
 _QWORD *__fastcall Set<DMMVIDPNSOURCE>::`vector deleting destructor'(_QWORD *P, char a2)

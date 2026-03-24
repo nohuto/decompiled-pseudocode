@@ -1,12 +1,12 @@
 /*
- * XREFs of PopNotifyCsStateExited @ 0x140996F70
+ * XREFs of PopNotifyCsStateExited @ 0x1408EFD90
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorDiagTraceEvent @ 0x1407F274C (PopPowerAggregatorDiagTraceEvent.c)
- *     PopPowerAggregatorScheduleWorker @ 0x140809508 (PopPowerAggregatorScheduleWorker.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorDiagTraceEvent @ 0x140776334 (PopPowerAggregatorDiagTraceEvent.c)
+ *     PopPowerAggregatorScheduleWorker @ 0x140776390 (PopPowerAggregatorScheduleWorker.c)
  */
 
 void PopNotifyCsStateExited()

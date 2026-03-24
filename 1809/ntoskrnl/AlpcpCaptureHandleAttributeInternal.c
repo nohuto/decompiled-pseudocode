@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpCaptureHandleAttributeInternal @ 0x1406A5684
+ * XREFs of AlpcpCaptureHandleAttributeInternal @ 0x1406A5664
  * Callers:
- *     AlpcpCaptureHandleAttribute @ 0x1406A5640 (AlpcpCaptureHandleAttribute.c)
- *     AlpcpCaptureHandleAttribute32 @ 0x14084BC04 (AlpcpCaptureHandleAttribute32.c)
+ *     AlpcpCaptureHandleAttribute @ 0x1406A5620 (AlpcpCaptureHandleAttribute.c)
+ *     AlpcpCaptureHandleAttribute32 @ 0x14084BBE4 (AlpcpCaptureHandleAttribute32.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     AlpcpAllocateBlob @ 0x14061849C (AlpcpAllocateBlob.c)
  *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)
- *     ObCaptureObjectStateForDuplication @ 0x1406A5948 (ObCaptureObjectStateForDuplication.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ObCaptureObjectStateForDuplication @ 0x1406A5928 (ObCaptureObjectStateForDuplication.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall AlpcpCaptureHandleAttributeInternal(__int64 a1, __int64 a2)

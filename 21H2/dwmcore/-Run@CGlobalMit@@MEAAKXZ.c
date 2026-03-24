@@ -1,16 +1,16 @@
 /*
- * XREFs of ?Run@CGlobalMit@@MEAAKXZ @ 0x18002B940
+ * XREFs of ?Run@CGlobalMit@@MEAAKXZ @ 0x1800AD4F0
  * Callers:
  *     <none>
  * Callees:
- *     ?reset@?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800279B8 (-reset@-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@_E$1-CloseHandle@details@wil@@YAX0@ZU-$i.c)
- *     ?Revert@CMmcssTask@@QEAAXXZ @ 0x18002BB04 (-Revert@CMmcssTask@@QEAAXXZ.c)
- *     ?InitializeCoreMessagingIocp@CGlobalMit@@CAXPEAX@Z @ 0x18002DB40 (-InitializeCoreMessagingIocp@CGlobalMit@@CAXPEAX@Z.c)
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Apply@CMmcssTask@@QEAAJ_N@Z @ 0x1800F4DA0 (-Apply@CMmcssTask@@QEAAJ_N@Z.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     ?Apply@CMmcssTask@@QEAAJ_N@Z @ 0x1800AD378 (-Apply@CMmcssTask@@QEAAJ_N@Z.c)
+ *     ?Revert@CMmcssTask@@QEAAXXZ @ 0x1800AD694 (-Revert@CMmcssTask@@QEAAXXZ.c)
+ *     ?InitializeCoreMessagingIocp@CGlobalMit@@CAXPEAX@Z @ 0x1800AD6E4 (-InitializeCoreMessagingIocp@CGlobalMit@@CAXPEAX@Z.c)
+ *     ?reset@?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@Z$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800B04B8 (-reset@-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@Z$1-CloseHandle@details@wil@@YAX0@ZU-$in.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CGlobalMit::Run(CGlobalMit *this)
@@ -19,10 +19,10 @@ __int64 __fastcall CGlobalMit::Run(CGlobalMit *this)
   void **v3; // rcx
   int SystemInputHost; // eax
   unsigned int v5; // ebx
-  wil::details *updated; // rax
-  CMmcssTask *v7; // rcx
+  __int64 updated; // rax
+  struct _RTL_CRITICAL_SECTION *v7; // rcx
   int v8; // eax
-  unsigned int v9; // ecx
+  __int64 v9; // rcx
   int v10; // r9d
   void *v11; // rcx
   __int64 result; // rax
@@ -45,59 +45,59 @@ __int64 __fastcall CGlobalMit::Run(CGlobalMit *this)
   if ( !v2 )
   {
     v5 = -2147024882;
-    v13 = 131;
+    v13 = 133;
 LABEL_21:
     v10 = v5;
 LABEL_28:
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v3, &dword_1803771F0, 2u, v10, v13, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v3, &dword_180306758, 2u, v10, v13, 0LL);
     goto LABEL_29;
   }
   SystemInputHost = CoreUICreateEx(1LL, &CMit::s_pMessageSession);
   v5 = SystemInputHost;
   if ( SystemInputHost < 0 )
   {
-    v13 = 137;
-    goto LABEL_27;
-  }
-  SystemInputHost = (*(__int64 (__fastcall **)(struct IMessageSession *, _QWORD, __int64 (__fastcall *)(void *, unsigned int, void *), CGlobalMit *))(*(_QWORD *)CMit::s_pMessageSession + 272LL))(
-                      CMit::s_pMessageSession,
-                      *((_QWORD *)this + 3),
-                      CGlobalMit::OnResetEvent,
-                      this);
-  v5 = SystemInputHost;
-  if ( SystemInputHost < 0 )
-  {
     v13 = 139;
     goto LABEL_27;
   }
-  SystemInputHost = (*(__int64 (__fastcall **)(struct IMessageSession *, _QWORD, __int64 (__fastcall *)(void *, unsigned int, void *), CGlobalMit *))(*(_QWORD *)CMit::s_pMessageSession + 272LL))(
+  SystemInputHost = (*(__int64 (__fastcall **)(struct IMessageSession *, _QWORD, __int64 (__fastcall *)(void *, unsigned int, void *), CGlobalMit *))(*(_QWORD *)CMit::s_pMessageSession + 256LL))(
                       CMit::s_pMessageSession,
-                      *((_QWORD *)this + 17),
-                      CGlobalMit::OnResetEvent,
+                      *((_QWORD *)this + 3),
+                      CMit::OnResetEvent,
                       this);
   v5 = SystemInputHost;
   if ( SystemInputHost < 0 )
   {
-    v13 = 140;
+    v13 = 141;
     goto LABEL_27;
   }
-  SystemInputHost = CreateSystemInputHost(*((_QWORD *)this + 5), 0LL, &CMit::s_pSystemInputHost);
+  SystemInputHost = (*(__int64 (__fastcall **)(struct IMessageSession *, _QWORD, __int64 (__fastcall *)(void *, unsigned int, void *), CGlobalMit *))(*(_QWORD *)CMit::s_pMessageSession + 256LL))(
+                      CMit::s_pMessageSession,
+                      *((_QWORD *)this + 17),
+                      CMit::OnResetEvent,
+                      this);
   v5 = SystemInputHost;
   if ( SystemInputHost < 0 )
   {
-    v13 = 145;
+    v13 = 142;
+    goto LABEL_27;
+  }
+  SystemInputHost = CreateSystemInputHost(*((_QWORD *)this + 5), &CMit::s_pSystemInputHost);
+  v5 = SystemInputHost;
+  if ( SystemInputHost < 0 )
+  {
+    v13 = 146;
 LABEL_27:
     v10 = SystemInputHost;
     goto LABEL_28;
   }
-  updated = (wil::details *)MITGetCursorUpdateHandle();
-  _reset___unique_storage_U__resource_policy_PEAXP6AXPEAX__E_1_CloseHandle_details_wil__YAX0_ZU__integral_constant__K_0A__wistd__PEAXPEAX_0A___T_details_wil___details_wil__QEAAXPEAX_Z(
-    (wil::details **)this + 18,
+  updated = MITGetCursorUpdateHandle();
+  wil::details::unique_storage<wil::details::resource_policy<void *,void (*)(void *),&void wil::details::CloseHandle(void *),wistd::integral_constant<unsigned __int64,0>,void *,void *,0,std::nullptr_t>>::reset(
+    (char *)this + 144,
     updated);
   if ( !(unsigned int)NtMITActivateInputProcessing(CGlobalMit::s_HitTestRequest, &v14) )
   {
     v5 = -2147467259;
-    v13 = 152;
+    v13 = 153;
     goto LABEL_21;
   }
   v5 = 0;
@@ -107,18 +107,18 @@ LABEL_27:
     ResetEvent(*((HANDLE *)this + 3));
     if ( *((_BYTE *)this + 32) )
       break;
-    v7 = (CGlobalMit *)((char *)this + 48);
-    if ( *(_BYTE *)(*((_QWORD *)this + 1) + 416LL) )
+    v7 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 48);
+    if ( *(_BYTE *)(*((_QWORD *)this + 1) + 264LL) )
     {
       v8 = CMmcssTask::Apply(v7, 1);
       if ( v8 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xEEu, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xEFu, 0LL);
     }
     else
     {
-      CMmcssTask::Revert(v7);
+      CMmcssTask::Revert((CMmcssTask *)v7);
     }
-    (*(void (__fastcall **)(struct IMessageSession *))(*(_QWORD *)CMit::s_pMessageSession + 232LL))(CMit::s_pMessageSession);
+    (*(void (__fastcall **)(struct IMessageSession *))(*(_QWORD *)CMit::s_pMessageSession + 216LL))(CMit::s_pMessageSession);
   }
   NtMITDeactivateInputProcessing();
 LABEL_29:
@@ -130,7 +130,7 @@ LABEL_29:
   v11 = (void *)*((_QWORD *)this + 5);
   if ( v11 )
   {
-    operator delete(v11, 8uLL);
+    operator delete(v11);
     *((_QWORD *)this + 5) = 0LL;
   }
   if ( CMit::s_pMessageCallSendHost )
@@ -140,10 +140,10 @@ LABEL_29:
   }
   if ( CMit::s_pMessageSession )
   {
-    (*(void (__fastcall **)(struct IMessageSession *, _QWORD))(*(_QWORD *)CMit::s_pMessageSession + 280LL))(
+    (*(void (__fastcall **)(struct IMessageSession *, _QWORD))(*(_QWORD *)CMit::s_pMessageSession + 264LL))(
       CMit::s_pMessageSession,
       *((_QWORD *)this + 17));
-    (*(void (__fastcall **)(struct IMessageSession *, _QWORD))(*(_QWORD *)CMit::s_pMessageSession + 280LL))(
+    (*(void (__fastcall **)(struct IMessageSession *, _QWORD))(*(_QWORD *)CMit::s_pMessageSession + 264LL))(
       CMit::s_pMessageSession,
       *((_QWORD *)this + 3));
     (*(void (__fastcall **)(struct IMessageSession *))(*(_QWORD *)CMit::s_pMessageSession + 16LL))(CMit::s_pMessageSession);

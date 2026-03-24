@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBFDO_EvtDeviceSurpriseRemoval @ 0x1C0075D00
+ * XREFs of HUBFDO_EvtDeviceSurpriseRemoval @ 0x1C0074960
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006D20 (McTemplateK0p_EtwWriteTransfer.c)
- *     HUBMUX_QueueSurpriseRemovalToAllPSMs @ 0x1C000FB2C (HUBMUX_QueueSurpriseRemovalToAllPSMs.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0006A7C (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBMUX_QueueSurpriseRemovalToAllPSMs @ 0x1C000F710 (HUBMUX_QueueSurpriseRemovalToAllPSMs.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall HUBFDO_EvtDeviceSurpriseRemoval(__int64 a1)
@@ -18,7 +18,7 @@ void __fastcall HUBFDO_EvtDeviceSurpriseRemoval(__int64 a1)
   v1 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0067198);
+         off_1C0066170);
   v3 = v1;
   if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink & 2) != 0 )
     McTemplateK0p_EtwWriteTransfer(v2, &USBHUB3_ETW_EVENT_HUB_SURPRISE_REMOVAL_START, 0LL, *(_QWORD *)(v1 + 248));

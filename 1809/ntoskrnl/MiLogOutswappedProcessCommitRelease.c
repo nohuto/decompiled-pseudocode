@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogOutswappedProcessCommitRelease @ 0x1402A4090
+ * XREFs of MiLogOutswappedProcessCommitRelease @ 0x1402A4190
  * Callers:
- *     MiReleaseOutSwappedProcessCommit @ 0x1402A4E74 (MiReleaseOutSwappedProcessCommit.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x1402A4F74 (MiReleaseOutSwappedProcessCommit.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
- *     _TlgWriteEx @ 0x140100898 (_TlgWriteEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogOutswappedProcessCommitRelease(__int64 a1, __int64 a2)
@@ -49,7 +49,7 @@ void __fastcall MiLogOutswappedProcessCommitRelease(__int64 a1, __int64 a2)
       v15 = 4;
       v18 = 8;
       v21 = 8;
-      TlgWriteEx(v6, &unk_14036DA56, v5, (ULONG)v6, v7, v8, 6u, &pData);
+      TlgWriteEx(v6, &unk_14036DB66, v5, (ULONG)v6, v7, v8, 6u, &pData);
     }
   }
 }

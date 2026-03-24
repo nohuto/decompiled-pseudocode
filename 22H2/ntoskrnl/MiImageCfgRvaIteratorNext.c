@@ -1,7 +1,7 @@
 /*
- * XREFs of MiImageCfgRvaIteratorNext @ 0x14079E240
+ * XREFs of MiImageCfgRvaIteratorNext @ 0x1406610B0
  * Callers:
- *     MiImageCfgRvaIteratorFirst @ 0x14079E210 (MiImageCfgRvaIteratorFirst.c)
+ *     MiImageCfgRvaIteratorFirst @ 0x140661080 (MiImageCfgRvaIteratorFirst.c)
  * Callees:
  *     <none>
  */
@@ -10,18 +10,16 @@ __int64 __fastcall MiImageCfgRvaIteratorNext(_DWORD *a1, unsigned int **a2, int 
 {
   int v3; // r9d
   __int64 result; // rax
-  unsigned int v7; // ecx
+  unsigned int v7; // ebx
   unsigned int *v8; // r8
-  __int64 v9; // rbp
-  int v10; // esi
-  char v11; // r11
+  __int64 v9; // rsi
+  int v10; // ebp
+  unsigned __int8 v11; // cl
   unsigned int v12; // edi
   unsigned int v13; // r10d
-  char v14; // di
-  bool v15; // zf
-  int v16; // ecx
-  int v17; // edi
-  bool v18; // si
+  char v14; // bl
+  bool v15; // bl
+  int v16; // edi
 
   v3 = *((_DWORD *)a2 + 2);
   result = 0LL;
@@ -38,10 +36,7 @@ __int64 __fastcall MiImageCfgRvaIteratorNext(_DWORD *a1, unsigned int **a2, int 
       *a3 = 0;
       v13 = *v8;
       if ( *v8 <= v7 || v13 >= v12 )
-      {
-        dword_140C65940 = 14;
-        return result;
-      }
+        break;
       v14 = 1;
       if ( v10 )
       {
@@ -51,42 +46,36 @@ __int64 __fastcall MiImageCfgRvaIteratorNext(_DWORD *a1, unsigned int **a2, int 
       }
       if ( (unsigned int)v9 <= 4 )
       {
-        v18 = 0;
+        v15 = 0;
       }
       else
       {
         v11 = *((_BYTE *)v8 + 4);
-        v15 = (unsigned __int8)(v14 & v11) == 0;
-        v16 = (unsigned __int8)(v14 & v11);
-        v17 = 0;
-        v18 = !v15;
-        if ( v16 )
-          goto LABEL_9;
+        v15 = (v11 & (unsigned __int8)v14) != 0;
       }
-      *a3 = 1;
-      v17 = 1;
-LABEL_9:
-      if ( (v11 & 2) != 0 )
+      v16 = 0;
+      if ( !v15 )
       {
-        v17 |= 4u;
-        *a3 = v17;
+        *a3 = 1;
+        v16 = 1;
       }
-      if ( (v11 & 8) != 0 )
-        *a3 = v17 | 8;
+      if ( (v11 & 2) != 0 )
+        *a3 = v16 | 4;
       v8 = (unsigned int *)((char *)v8 + v9);
       --v3;
-      if ( !v18 )
+      if ( !v15 )
       {
         result = v13;
-LABEL_15:
+LABEL_14:
         *((_DWORD *)a2 + 2) = v3;
         *a2 = v8;
         return result;
       }
       v7 = v13;
       if ( !v3 )
-        goto LABEL_15;
+        goto LABEL_14;
     }
+    dword_140C4CC48 = 14;
   }
   return result;
 }

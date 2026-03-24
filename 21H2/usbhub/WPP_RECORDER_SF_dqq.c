@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_dqq @ 0x1C003C628
+ * XREFs of WPP_RECORDER_SF_dqq @ 0x1C003D808
  * Callers:
- *     UsbhCompleteCanceledPdoWakeIrp @ 0x1C003C040 (UsbhCompleteCanceledPdoWakeIrp.c)
+ *     UsbhCompleteCanceledPdoWakeIrp @ 0x1C001CD00 (UsbhCompleteCanceledPdoWakeIrp.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_dqq(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
@@ -22,7 +22,7 @@ __int64 WPP_RECORDER_SF_dqq(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int 
   va_copy(va2, va1);
   v10 = va_arg(va2, _QWORD);
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0 )
-    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))WPP_MAIN_CB.SecurityDescriptor)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
       &WPP_c17b1c85f60233f7ab03bac02008ab80_Traceguids,

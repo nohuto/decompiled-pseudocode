@@ -1,12 +1,12 @@
 /*
- * XREFs of WheaWmiDispatch @ 0x1403DBBB0
+ * XREFs of WheaWmiDispatch @ 0x1403CCA80
  * Callers:
  *     <none>
  * Callees:
- *     WheapWmiRegisterInfo @ 0x1403DBC0C (WheapWmiRegisterInfo.c)
- *     WheapWmiExecuteMethod @ 0x140646840 (WheapWmiExecuteMethod.c)
- *     WheapWmiGetAllData @ 0x140646BC8 (WheapWmiGetAllData.c)
- *     WheapWmiGetSingleInstance @ 0x140646C2C (WheapWmiGetSingleInstance.c)
+ *     WheapWmiRegisterInfo @ 0x1403CCADC (WheapWmiRegisterInfo.c)
+ *     WheapWmiExecuteMethod @ 0x1405BDDB0 (WheapWmiExecuteMethod.c)
+ *     WheapWmiGetAllData @ 0x1405BDFD8 (WheapWmiGetAllData.c)
+ *     WheapWmiGetSingleInstance @ 0x1405BE03C (WheapWmiGetSingleInstance.c)
  */
 
 __int64 __fastcall WheaWmiDispatch(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5, _DWORD *a6)

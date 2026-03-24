@@ -1,9 +1,9 @@
 /*
- * XREFs of MmManagePartitionCombineMemory @ 0x140860934
+ * XREFs of MmManagePartitionCombineMemory @ 0x140860914
  * Callers:
  *     NtManagePartition @ 0x140608170 (NtManagePartition.c)
  * Callees:
- *     MiCombineIdenticalPages @ 0x1406D1598 (MiCombineIdenticalPages.c)
+ *     MiCombineIdenticalPages @ 0x1406D1578 (MiCombineIdenticalPages.c)
  */
 
 __int64 __fastcall MmManagePartitionCombineMemory(ULONG_PTR **a1, __int64 a2, __int64 a3, KPROCESSOR_MODE a4)

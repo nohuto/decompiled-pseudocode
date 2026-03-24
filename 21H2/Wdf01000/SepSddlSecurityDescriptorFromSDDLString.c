@@ -1,10 +1,10 @@
 /*
- * XREFs of SepSddlSecurityDescriptorFromSDDLString @ 0x1C00BEA60
+ * XREFs of SepSddlSecurityDescriptorFromSDDLString @ 0x1C00BD2F0
  * Callers:
- *     SeSddlSecurityDescriptorFromSDDL @ 0x1C00BE1B4 (SeSddlSecurityDescriptorFromSDDL.c)
+ *     SeSddlSecurityDescriptorFromSDDL @ 0x1C00BCA34 (SeSddlSecurityDescriptorFromSDDL.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     SepSddlDaclFromSDDLString @ 0x1C00BE378 (SepSddlDaclFromSDDLString.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     SepSddlDaclFromSDDLString @ 0x1C00BCBF8 (SepSddlDaclFromSDDLString.c)
  */
 
 __int64 __fastcall SepSddlSecurityDescriptorFromSDDLString(

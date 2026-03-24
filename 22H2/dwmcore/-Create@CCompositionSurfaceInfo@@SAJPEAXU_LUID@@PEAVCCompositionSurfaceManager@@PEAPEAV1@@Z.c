@@ -1,14 +1,14 @@
 /*
- * XREFs of ?Create@CCompositionSurfaceInfo@@SAJPEAXU_LUID@@PEAVCCompositionSurfaceManager@@PEAPEAV1@@Z @ 0x1800BA814
+ * XREFs of ?Create@CCompositionSurfaceInfo@@SAJPEAXU_LUID@@PEAVCCompositionSurfaceManager@@PEAPEAV1@@Z @ 0x1800381C8
  * Callers:
- *     ?GetOrCreateCompositionSurfaceInfo@CCompositionSurfaceManager@@QEAAJPEAXPEAPEAVCCompositionSurfaceInfo@@@Z @ 0x1800BAB10 (-GetOrCreateCompositionSurfaceInfo@CCompositionSurfaceManager@@QEAAJPEAXPEAPEAVCCompositionSurfa.c)
+ *     ?GetOrCreateCompositionSurfaceInfo@CCompositionSurfaceManager@@QEAAJPEAXPEAPEAVCCompositionSurfaceInfo@@@Z @ 0x18003790C (-GetOrCreateCompositionSurfaceInfo@CCompositionSurfaceManager@@QEAAJPEAXPEAPEAVCCompositionSurfa.c)
  * Callees:
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038D40 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F334 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ??0CGlobalCompositionSurfaceInfo@@IEAA@U_LUID@@PEAVCCompositionSurfaceManager@@@Z @ 0x1800BA8EC (--0CGlobalCompositionSurfaceInfo@@IEAA@U_LUID@@PEAVCCompositionSurfaceManager@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0CGlobalCompositionSurfaceInfo@@IEAA@U_LUID@@PEAVCCompositionSurfaceManager@@@Z @ 0x18003829C (--0CGlobalCompositionSurfaceInfo@@IEAA@U_LUID@@PEAVCCompositionSurfaceManager@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F7D8 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C07A0 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CCompositionSurfaceInfo::Create(
@@ -19,46 +19,48 @@ __int64 __fastcall CCompositionSurfaceInfo::Create(
 {
   CGlobalCompositionSurfaceInfo *v8; // rax
   unsigned int v9; // ecx
-  CGlobalCompositionSurfaceInfo *v10; // rax
-  CGlobalCompositionSurfaceInfo *v11; // rbx
-  struct _RTL_GENERIC_TABLE *v12; // rcx
-  unsigned int v13; // ecx
-  __int64 v14; // rax
-  unsigned int v15; // edi
+  CGlobalCompositionSurfaceInfo *v10; // rbx
+  struct _RTL_GENERIC_TABLE *v11; // rcx
+  unsigned int v12; // ecx
+  __int64 v13; // rax
+  unsigned int v14; // edi
+  unsigned int v16; // ecx
   unsigned int v17; // ecx
-  unsigned int v18; // ecx
   _QWORD Buffer[3]; // [rsp+30h] [rbp-18h] BYREF
   unsigned __int8 NewElement; // [rsp+68h] [rbp+20h] BYREF
 
   *a4 = 0LL;
-  v8 = (CGlobalCompositionSurfaceInfo *)DefaultHeap::AllocClear(0x1A8uLL);
-  if ( v8 && (v10 = CGlobalCompositionSurfaceInfo::CGlobalCompositionSurfaceInfo(v8, a2, a3), (v11 = v10) != 0LL) )
+  v8 = (CGlobalCompositionSurfaceInfo *)DefaultHeap::AllocClear(0x168uLL);
+  if ( v8 )
+    v10 = CGlobalCompositionSurfaceInfo::CGlobalCompositionSurfaceInfo(v8, a2, a3);
+  else
+    v10 = 0LL;
+  if ( v10 )
   {
-    CMILRefCountImpl::AddReference((CGlobalCompositionSurfaceInfo *)((char *)v10 + 8));
-    Buffer[0] = *((_QWORD *)v11 + 5);
-    v12 = (struct _RTL_GENERIC_TABLE *)(*((_QWORD *)v11 + 3) + 8LL);
-    Buffer[1] = v11;
-    if ( RtlInsertElementGenericTable(v12, Buffer, 0x10u, &NewElement) )
+    CMILCOMBase::InternalAddRef(v10);
+    v11 = (struct _RTL_GENERIC_TABLE *)(*((_QWORD *)v10 + 3) + 8LL);
+    Buffer[0] = *((_QWORD *)v10 + 5);
+    Buffer[1] = v10;
+    if ( RtlInsertElementGenericTable(v11, Buffer, 0x10u, &NewElement) )
     {
-      v14 = *(_QWORD *)v11;
-      *((_QWORD *)v11 + 4) = a1;
-      (*(void (__fastcall **)(CGlobalCompositionSurfaceInfo *))(v14 + 48))(v11);
-      v15 = 0;
-      *a4 = v11;
+      v13 = *(_QWORD *)v10;
+      *((_QWORD *)v10 + 4) = a1;
+      (*(void (__fastcall **)(CGlobalCompositionSurfaceInfo *))(v13 + 48))(v10);
+      v14 = 0;
+      *a4 = v10;
+      return v14;
     }
-    else
-    {
-      v15 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2147024882, 0x5Fu, 0LL);
-      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, -2147024882, 0x1Bu, 0LL);
-      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, -2147024882, 0x1Eu, 0LL);
-      CMILRefCountBaseT<IUnknown>::InternalRelease((volatile signed __int32 *)v11);
-    }
+    v14 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2147024882, 0x5Fu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, -2147024882, 0x1Bu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, -2147024882, 0x1Eu, 0LL);
   }
   else
   {
-    v15 = -2147024882;
+    v14 = -2147024882;
     MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024882, 0x1Cu, 0LL);
   }
-  return v15;
+  if ( v10 )
+    CRenderTargetBitmap::Release(v10);
+  return v14;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?QueryInterface@CCompositionSurfaceBitmap@@WFI@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18011CC00
+ * XREFs of ?QueryInterface@CCompositionSurfaceBitmap@@WFI@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F4B50
  * Callers:
  *     <none>
  * Callees:

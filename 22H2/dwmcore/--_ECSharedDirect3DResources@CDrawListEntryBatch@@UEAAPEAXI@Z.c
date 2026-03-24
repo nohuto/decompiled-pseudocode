@@ -1,18 +1,25 @@
 /*
- * XREFs of ??_ECSharedDirect3DResources@CDrawListEntryBatch@@UEAAPEAXI@Z @ 0x1801039E0
+ * XREFs of ??_ECSharedDirect3DResources@CDrawListEntryBatch@@UEAAPEAXI@Z @ 0x1800DE940
  * Callers:
  *     <none>
  * Callees:
- *     ??1CSharedDirect3DResources@CDrawListEntryBatch@@UEAA@XZ @ 0x180103A1C (--1CSharedDirect3DResources@CDrawListEntryBatch@@UEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ?InternalRelease@?$ComPtr@UID2D1Geometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C915C (-InternalRelease@-$ComPtr@UID2D1Geometry@@@WRL@Microsoft@@IEAAKXZ.c)
  */
 
 CDrawListEntryBatch::CSharedDirect3DResources *__fastcall CDrawListEntryBatch::CSharedDirect3DResources::`vector deleting destructor'(
         CDrawListEntryBatch::CSharedDirect3DResources *this,
         char a2)
 {
-  CDrawListEntryBatch::CSharedDirect3DResources::~CSharedDirect3DResources(this);
+  Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease((__int64 *)this + 120);
+  Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease((__int64 *)this + 88);
+  Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease((__int64 *)this + 52);
+  Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease((__int64 *)this + 48);
+  Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease((__int64 *)this + 20);
+  Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease((__int64 *)this + 15);
+  Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease((__int64 *)this + 9);
+  Microsoft::WRL::ComPtr<ID2D1Geometry>::InternalRelease((__int64 *)this + 3);
   if ( (a2 & 1) != 0 )
-    operator delete(this, 0x4E0uLL);
+    operator delete(this);
   return this;
 }

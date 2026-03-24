@@ -1,5 +1,5 @@
 /*
- * XREFs of VidSchSetCrossAdapterData @ 0x1C00A7600
+ * XREFs of VidSchSetCrossAdapterData @ 0x1C008BA20
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall VidSchSetCrossAdapterData(__int64 a1, __int64 a2)
 {
-  *(_QWORD *)(a1 + 1720) = a2;
+  *(_QWORD *)(a1 + 1704) = a2;
 }

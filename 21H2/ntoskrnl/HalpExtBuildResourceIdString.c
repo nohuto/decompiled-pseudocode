@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpExtBuildResourceIdString @ 0x1403BE424
+ * XREFs of HalpExtBuildResourceIdString @ 0x1403ABF68
  * Callers:
- *     HalpInterruptBuildKnownResourceIdString @ 0x1403BE068 (HalpInterruptBuildKnownResourceIdString.c)
- *     HalpTimerBuildKnownResourceIdString @ 0x1403BE3D0 (HalpTimerBuildKnownResourceIdString.c)
- *     HalpExtGetRegisteredResourceIdString @ 0x1405107FC (HalpExtGetRegisteredResourceIdString.c)
- *     HalpRegisterDmaController @ 0x14051A18C (HalpRegisterDmaController.c)
- *     ExtEnvRegisterIommu @ 0x140B4BF38 (ExtEnvRegisterIommu.c)
+ *     HalpInterruptBuildKnownResourceIdString @ 0x1403ABBAC (HalpInterruptBuildKnownResourceIdString.c)
+ *     HalpTimerBuildKnownResourceIdString @ 0x1403ABF14 (HalpTimerBuildKnownResourceIdString.c)
+ *     HalpExtGetRegisteredResourceIdString @ 0x1404C42FC (HalpExtGetRegisteredResourceIdString.c)
+ *     HalpRegisterDmaController @ 0x1404CF4F4 (HalpRegisterDmaController.c)
+ *     ExtEnvRegisterIommu @ 0x140A8C9F0 (ExtEnvRegisterIommu.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403E5D20 (swprintf_s.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
  */
 
 __int64 __fastcall HalpExtBuildResourceIdString(

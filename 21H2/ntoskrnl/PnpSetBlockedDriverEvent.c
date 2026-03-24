@@ -1,24 +1,24 @@
 /*
- * XREFs of PnpSetBlockedDriverEvent @ 0x140950968
+ * XREFs of PnpSetBlockedDriverEvent @ 0x1408ABE34
  * Callers:
- *     PnpPrepareDriverLoading @ 0x1406797C8 (PnpPrepareDriverLoading.c)
+ *     PnpPrepareDriverLoading @ 0x14073D9FC (PnpPrepareDriverLoading.c)
  * Callees:
- *     PnpInsertEventInQueue @ 0x14078C398 (PnpInsertEventInQueue.c)
- *     PnpCreateDeviceEventEntry @ 0x14078C4EC (PnpCreateDeviceEventEntry.c)
+ *     PnpCreateDeviceEventEntry @ 0x1406E5E9C (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x1406E756C (PnpInsertEventInQueue.c)
  */
 
-__int64 __fastcall PnpSetBlockedDriverEvent(_OWORD *a1)
+__int64 __fastcall PnpSetBlockedDriverEvent(GUID *a1)
 {
-  __int64 DeviceEventEntry; // rax
+  GUID *DeviceEventEntry; // rax
 
   if ( PnpShutdownEvent.Header.SignalState )
     return 3221225865LL;
-  DeviceEventEntry = PnpCreateDeviceEventEntry(0xC0u);
+  DeviceEventEntry = (GUID *)PnpCreateDeviceEventEntry(0xC0uLL);
   if ( !DeviceEventEntry )
     return 3221225626LL;
-  *(_DWORD *)(DeviceEventEntry + 128) = 7;
-  *(_DWORD *)(DeviceEventEntry + 148) = 80;
-  *(GUID *)(DeviceEventEntry + 112) = GUID_DRIVER_BLOCKED;
-  *(_OWORD *)(DeviceEventEntry + 160) = *a1;
-  return PnpInsertEventInQueue(DeviceEventEntry);
+  DeviceEventEntry[8].Data1 = 7;
+  *(_DWORD *)&DeviceEventEntry[9].Data2 = 80;
+  DeviceEventEntry[7] = GUID_DRIVER_BLOCKED;
+  DeviceEventEntry[10] = *a1;
+  return PnpInsertEventInQueue((__int64)DeviceEventEntry);
 }

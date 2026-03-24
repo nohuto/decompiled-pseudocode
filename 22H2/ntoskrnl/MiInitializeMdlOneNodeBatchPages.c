@@ -1,170 +1,145 @@
 /*
- * XREFs of MiInitializeMdlOneNodeBatchPages @ 0x1402F9810
+ * XREFs of MiInitializeMdlOneNodeBatchPages @ 0x140355284
  * Callers:
- *     MiInitializeMdlBatchPages @ 0x1402F9310 (MiInitializeMdlBatchPages.c)
+ *     MiInitializeMdlBatchPages @ 0x140354E44 (MiInitializeMdlBatchPages.c)
  * Callees:
- *     MiChangePageAttributeBatch @ 0x14021C9D4 (MiChangePageAttributeBatch.c)
- *     MiSearchNumaNodeTable @ 0x14026E9B0 (MiSearchNumaNodeTable.c)
- *     MiUpdateCacheAttributeListsForPage @ 0x1402F9B08 (MiUpdateCacheAttributeListsForPage.c)
- *     MiZeroInParallel @ 0x140304230 (MiZeroInParallel.c)
- *     MiDereferencePageChains @ 0x14032F48C (MiDereferencePageChains.c)
- *     MiPfnBestZeroAttribute @ 0x1403393CC (MiPfnBestZeroAttribute.c)
- *     MiCreatePageChains @ 0x14035B130 (MiCreatePageChains.c)
- *     MiChangePageAttribute @ 0x14036ED6C (MiChangePageAttribute.c)
- *     MiInsertMdlPageNeedsZero @ 0x1403A5BB0 (MiInsertMdlPageNeedsZero.c)
- *     MiZeroAndConvertPage @ 0x1406500A4 (MiZeroAndConvertPage.c)
+ *     MiPfnZeroingNeeded @ 0x1402384D0 (MiPfnZeroingNeeded.c)
+ *     MiChangePageAttributeBatch @ 0x140283C20 (MiChangePageAttributeBatch.c)
+ *     MiSearchNumaNodeTable @ 0x1402ABE20 (MiSearchNumaNodeTable.c)
+ *     MiZeroAndConvertPage @ 0x14030E7F0 (MiZeroAndConvertPage.c)
+ *     MiCreateColorAnchors @ 0x1403538F4 (MiCreateColorAnchors.c)
+ *     MiZeroInParallel @ 0x1403542C0 (MiZeroInParallel.c)
+ *     MiPageAttributeBatchChangeNeeded @ 0x140355540 (MiPageAttributeBatchChangeNeeded.c)
+ *     MiInsertMdlPageNeedsZero @ 0x1403555A8 (MiInsertMdlPageNeedsZero.c)
+ *     MiDeleteColorAnchors @ 0x14035560C (MiDeleteColorAnchors.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-void __fastcall MiInitializeMdlOneNodeBatchPages(__int64 a1, _QWORD *a2, __int64 a3)
+__int64 __fastcall MiInitializeMdlOneNodeBatchPages(__int64 a1, _DWORD **a2, __int64 a3)
 {
-  __int64 v3; // r13
-  int v4; // ebp
-  __int64 v5; // r12
-  int v6; // ebx
-  _QWORD *v7; // r15
-  unsigned __int64 v8; // r9
-  unsigned __int64 v9; // rdx
+  __int64 v3; // rsi
+  _DWORD **v4; // rax
+  int v5; // edx
+  __int64 v6; // rbp
+  __int64 v7; // r13
+  __int64 v8; // r12
+  __int64 v9; // r14
   unsigned __int64 v10; // r8
-  __int64 v11; // rsi
-  __int64 v12; // r14
-  int v13; // ebp
-  __int64 v14; // r15
-  int v15; // ecx
-  int v16; // r8d
-  __int64 v17; // r14
-  int v18; // ebx
-  _QWORD *v19; // rax
-  __int64 PageChains; // rax
-  __int64 v21; // r8
-  __int64 v22; // rsi
-  int v23; // ecx
-  unsigned int v24; // eax
-  char v25; // [rsp+20h] [rbp-A8h]
-  char v26; // [rsp+40h] [rbp-88h]
-  __int64 v27; // [rsp+48h] [rbp-80h]
-  __int64 v28; // [rsp+50h] [rbp-78h]
-  __int64 v29; // [rsp+58h] [rbp-70h] BYREF
-  __int64 v30; // [rsp+60h] [rbp-68h] BYREF
-  __int64 v31; // [rsp+68h] [rbp-60h] BYREF
-  __int64 v32; // [rsp+70h] [rbp-58h] BYREF
-  __int64 v33; // [rsp+78h] [rbp-50h]
-  _QWORD *v35; // [rsp+D8h] [rbp+10h]
-  __int64 v36; // [rsp+E0h] [rbp+18h]
-  unsigned int v37; // [rsp+E8h] [rbp+20h]
+  int v11; // ecx
+  _DWORD *v12; // r9
+  char v13; // r15
+  __int64 v14; // rdi
+  bool v15; // zf
+  __int64 v17; // rax
+  _QWORD *v18; // rax
+  int v19; // eax
+  _DWORD *v20; // r9
+  char v21; // [rsp+20h] [rbp-A8h]
+  int v22; // [rsp+24h] [rbp-A4h]
+  _DWORD **v23; // [rsp+28h] [rbp-A0h]
+  __int64 v24; // [rsp+30h] [rbp-98h]
+  __int64 v25; // [rsp+38h] [rbp-90h]
+  __int128 v26; // [rsp+50h] [rbp-78h] BYREF
+  __int128 v27; // [rsp+60h] [rbp-68h]
+  __int128 v28; // [rsp+70h] [rbp-58h]
 
-  v36 = a3;
-  v35 = a2;
-  v3 = *(_QWORD *)(a1 + 48);
-  v4 = *(_DWORD *)(a1 + 56);
-  v5 = a3;
-  v6 = *(_DWORD *)(a1 + 80);
-  v7 = a2;
-  v26 = v4;
-  v37 = v6;
-  v33 = v3;
-  v28 = 0LL;
+  v3 = *(int *)(a1 + 60);
+  v4 = a2;
+  v23 = a2;
+  v5 = *(_DWORD *)(a1 + 8);
+  v6 = 0LL;
+  v25 = a3;
+  v7 = 0LL;
+  v21 = v5;
+  v8 = 0LL;
+  v24 = 0LL;
+  v9 = 0LL;
+  v26 = 0LL;
   v27 = 0LL;
-  v30 = 0LL;
-  v31 = 0LL;
-  v29 = 0LL;
-  v32 = 0LL;
+  v28 = 0LL;
   if ( !a3 )
-    return;
-  v8 = 0xAAAAAAAAAAAAAAABuLL;
-  v9 = 0xFFFFDE0000000022uLL;
-  v10 = 0xFFFFDE0000000010uLL;
+    return MiDeleteColorAnchors(&v26);
+  v10 = 0xFFFFFA8000000000uLL;
+  v11 = v5 & 1;
+  v22 = v11;
   do
   {
-    v11 = 48LL * *v7 - 0x220000000000LL;
-    if ( !v3 )
-      goto LABEL_11;
-    v12 = v3;
-    v13 = v4 & 1;
-    v14 = v27;
-    do
+    v12 = *v4;
+    v13 = 0;
+    v14 = v10 + 48LL * (_QWORD)*v4;
+    if ( v11 || !MiPfnZeroingNeeded(v10 + 48LL * (_QWORD)v12, v3) )
     {
-      if ( v13
-        || (*(_DWORD *)(v11 + 16) & 0x3E0LL) == 0
-        && ((v15 = *(unsigned __int8 *)(v11 + 34) >> 6, v15 == v6)
-         || ((unsigned __int8)((1 << v15) | (1 << v6)) & (unsigned __int8)byte_140C65C98) == 0) )
-      {
-        v16 = 0;
-        if ( *(unsigned __int8 *)(v11 + 34) >> 6 == v6 )
-          goto LABEL_9;
-      }
-      else
-      {
-        if ( !v14 )
-        {
-          v18 = 1;
-          if ( (v26 & 8) != 0 )
-            v18 = 5;
-          v19 = MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((v11 + 0x220000000000LL) >> 4));
-          PageChains = MiCreatePageChains(*(_QWORD *)a1, *((unsigned int *)v19 + 2), v37);
-          v14 = PageChains;
-          if ( !PageChains )
-          {
-            v23 = *(unsigned __int8 *)(v11 + 34);
-            LOBYTE(v23) = v23 & 0xC0;
-            if ( (_BYTE)v23 == 0xC0 )
-            {
-              v24 = MiPfnBestZeroAttribute(v11, v37, v21);
-              MiChangePageAttribute(v11, v24, 0LL);
-            }
-            v25 = v18;
-            v6 = v37;
-            MiZeroAndConvertPage(v23, v11, 3, v37, v25);
-            goto LABEL_21;
-          }
-          *(_DWORD *)(PageChains + 16) = v18;
-          v6 = v37;
-        }
-        MiInsertMdlPageNeedsZero(v14, v11, 1LL);
-        ++v28;
-        v16 = 1;
-      }
-      MiUpdateCacheAttributeListsForPage(v11, v6, v16, (unsigned int)&v30, (__int64)&v31, (__int64)&v29, (__int64)&v32);
-LABEL_21:
-      v8 = 0xAAAAAAAAAAAAAAABuLL;
-LABEL_9:
-      v11 += 48LL;
-      v9 = 0xFFFFDE0000000022uLL;
-      v10 = 0xFFFFDE0000000010uLL;
-      --v12;
+      if ( *(unsigned __int8 *)(v14 + 34) >> 6 == (_DWORD)v3 )
+        goto LABEL_5;
+      goto LABEL_15;
     }
-    while ( v12 );
-    v5 = v36;
-    v3 = v33;
-    LOBYTE(v4) = v26;
-    v27 = v14;
-    v7 = v35;
-LABEL_11:
-    ++v7;
-    --v5;
-    v35 = v7;
-    v36 = v5;
+    if ( (_DWORD)v27 )
+      goto LABEL_14;
+    v18 = MiSearchNumaNodeTable((__int64)(v14 - v10) / 48);
+    if ( (unsigned int)MiCreateColorAnchors((__int64)&v26, *((_DWORD *)v18 + 2)) )
+    {
+      v19 = 3;
+      if ( (v21 & 8) != 0 )
+        v19 = 7;
+      *((_QWORD *)&v26 + 1) = __PAIR64__(v3, v19);
+      v12 = *v23;
+LABEL_14:
+      MiInsertMdlPageNeedsZero(&v26, v12, 1LL);
+      ++v24;
+      v13 = 1;
+LABEL_15:
+      if ( (_DWORD)v3 == 3 && v13 == 1 )
+      {
+        if ( (unsigned int)MiPageAttributeBatchChangeNeeded(v14) == 1 )
+        {
+          v17 = v6;
+          v6 = v14;
+        }
+        else
+        {
+          v17 = v7;
+          v7 = v14;
+        }
+        *(_QWORD *)(v14 + 16) = v17;
+      }
+      else if ( (unsigned int)MiPageAttributeBatchChangeNeeded(v14) == 1 )
+      {
+        if ( !v13 || dword_140C4DF98[4 * ((unsigned __int64)*(unsigned __int8 *)(v14 + 34) >> 6) + v3] == (_DWORD)v3 )
+        {
+          *(_QWORD *)(v14 + 16) = v8;
+          v8 = v14;
+        }
+        else
+        {
+          *(_QWORD *)(v14 + 16) = v9;
+          v9 = v14;
+        }
+      }
+      goto LABEL_19;
+    }
+    MiZeroAndConvertPage(v14, 3u, v3, 2);
+LABEL_19:
+    v10 = 0xFFFFFA8000000000uLL;
+LABEL_5:
+    v11 = v22;
+    v4 = v23 + 1;
+    v15 = v25-- == 1;
+    ++v23;
   }
-  while ( v5 );
-  if ( v29 )
-    MiChangePageAttributeBatch(v29, v6, 0LL);
-  if ( v28 )
+  while ( !v15 );
+  if ( v8 )
+    MiChangePageAttributeBatch(v8, (unsigned int)v3, 0LL, v12);
+  if ( v6 )
+    MiChangePageAttributeBatch(v6, 1LL, -1LL, v12);
+  if ( v24 )
   {
-    v22 = v30;
-    if ( v30 )
-      MiChangePageAttributeBatch(v30, 1, -1LL);
-    v17 = v27;
-    MiZeroInParallel(v27, v9, v10, v8);
-    if ( v22 )
-      MiChangePageAttributeBatch(v22, 3, 0LL);
-    if ( v31 )
-      MiChangePageAttributeBatch(v31, 3, 0LL);
-    if ( v32 )
-      MiChangePageAttributeBatch(v32, v6, 0LL);
+    MiZeroInParallel((__int64 *)&v26);
+    if ( v6 )
+      MiChangePageAttributeBatch(v6, 3LL, 0LL, v20);
+    if ( v7 )
+      MiChangePageAttributeBatch(v7, 3LL, 0LL, v20);
+    if ( v9 )
+      MiChangePageAttributeBatch(v9, (unsigned int)v3, 0LL, v20);
   }
-  else
-  {
-    v17 = v27;
-  }
-  if ( v17 )
-    MiDereferencePageChains(v17);
+  return MiDeleteColorAnchors(&v26);
 }

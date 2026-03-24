@@ -1,7 +1,7 @@
 /*
- * XREFs of ParsePackageLen @ 0x1C006C04C
+ * XREFs of ParsePackageLen @ 0x1C006BD9C
  * Callers:
- *     ParseFieldConnection @ 0x1C006BCC4 (ParseFieldConnection.c)
+ *     ParseFieldConnection @ 0x1C006BA34 (ParseFieldConnection.c)
  * Callees:
  *     <none>
  */

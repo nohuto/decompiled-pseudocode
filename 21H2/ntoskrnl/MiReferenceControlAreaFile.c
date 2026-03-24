@@ -1,105 +1,149 @@
 /*
- * XREFs of MiReferenceControlAreaFile @ 0x140281750
+ * XREFs of MiReferenceControlAreaFile @ 0x14031CEB0
  * Callers:
- *     MmCreateSpecialImageSection @ 0x14066D4BC (MmCreateSpecialImageSection.c)
- *     MmExtendSection @ 0x1406A377C (MmExtendSection.c)
- *     MiMapImageInSystemSpace @ 0x1406F3884 (MiMapImageInSystemSpace.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1406F71A0 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     MiAllowImageMap @ 0x1406F884C (MiAllowImageMap.c)
- *     MiUnmapViewOfSection @ 0x1406F8D30 (MiUnmapViewOfSection.c)
- *     MiUnmapVad @ 0x1406F9060 (MiUnmapVad.c)
- *     MiMapViewOfImageSection @ 0x1406F9990 (MiMapViewOfImageSection.c)
- *     MiCreateSectionCommon @ 0x1406FD140 (MiCreateSectionCommon.c)
- *     MiParseImageLoadConfig @ 0x140706ABC (MiParseImageLoadConfig.c)
- *     MiLogRelocationFaults @ 0x140707460 (MiLogRelocationFaults.c)
- *     MmLoadSystemImageEx @ 0x14075FC44 (MmLoadSystemImageEx.c)
- *     MiDriverLoadSucceeded @ 0x140761234 (MiDriverLoadSucceeded.c)
- *     MmQueryVirtualMemory @ 0x1407BA750 (MmQueryVirtualMemory.c)
- *     MiParseComAndCetHeaders @ 0x1407E4D40 (MiParseComAndCetHeaders.c)
- *     MmFlushVirtualMemory @ 0x1407F0478 (MmFlushVirtualMemory.c)
- *     NtAreMappedFilesTheSame @ 0x1407FAEE0 (NtAreMappedFilesTheSame.c)
- *     MmGetFileNameForAddress @ 0x140881A9A (MmGetFileNameForAddress.c)
- *     MmSectionToSectionObjectPointers @ 0x140881BB6 (MmSectionToSectionObjectPointers.c)
- *     MmGetFileNameForSection @ 0x14096B158 (MmGetFileNameForSection.c)
- *     MiFillMapFileInfo @ 0x14096CB14 (MiFillMapFileInfo.c)
- *     MiLoadUserSymbols @ 0x14096CCF8 (MiLoadUserSymbols.c)
- *     MiAllocateFileExtents @ 0x14096F8CC (MiAllocateFileExtents.c)
- *     MmIsFileMapped @ 0x1409780D4 (MmIsFileMapped.c)
- *     MiMapImageForEnclaveUse @ 0x14097A9C4 (MiMapImageForEnclaveUse.c)
+ *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
+ *     MiWriteComplete @ 0x140255170 (MiWriteComplete.c)
+ *     MiGatherMappedPages @ 0x140255BC8 (MiGatherMappedPages.c)
+ *     MmFlushSection @ 0x1402746FC (MmFlushSection.c)
+ *     MiReferenceInPageFile @ 0x14031CC98 (MiReferenceInPageFile.c)
+ *     MiCompleteRestrictedImageFault @ 0x14031D0A0 (MiCompleteRestrictedImageFault.c)
+ *     MiMakeSystemCacheRangeValid @ 0x14031EB90 (MiMakeSystemCacheRangeValid.c)
+ *     MiMakeSystemCachePteValid @ 0x14035E91C (MiMakeSystemCachePteValid.c)
+ *     MiCreateSystemSection @ 0x1403720DC (MiCreateSystemSection.c)
+ *     MiDeprioritizeVad @ 0x140381E94 (MiDeprioritizeVad.c)
+ *     MiSetPagesModified @ 0x1405350B0 (MiSetPagesModified.c)
+ *     PsReferenceProcessFilePointer @ 0x140604BE0 (PsReferenceProcessFilePointer.c)
+ *     MmCreateSpecialImageSection @ 0x140608784 (MmCreateSpecialImageSection.c)
+ *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     MiAllowImageMap @ 0x14061D9F0 (MiAllowImageMap.c)
+ *     MiUnmapViewOfSection @ 0x14061E0F0 (MiUnmapViewOfSection.c)
+ *     MiUnmapVad @ 0x14061E420 (MiUnmapVad.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x14061E590 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MmQueryVirtualMemory @ 0x14061E930 (MmQueryVirtualMemory.c)
+ *     DbgkCreateThread @ 0x140647420 (DbgkCreateThread.c)
+ *     MmFlushVirtualMemory @ 0x140689134 (MmFlushVirtualMemory.c)
+ *     MmExtendSection @ 0x1406894BC (MmExtendSection.c)
+ *     NtAreMappedFilesTheSame @ 0x1406BD520 (NtAreMappedFilesTheSame.c)
+ *     MiParseComAndCetHeaders @ 0x1406D27F4 (MiParseComAndCetHeaders.c)
+ *     MmGetFileObjectForSection @ 0x1406D41F0 (MmGetFileObjectForSection.c)
+ *     MiCreateSectionCommon @ 0x140707430 (MiCreateSectionCommon.c)
+ *     MiParseImageLoadConfig @ 0x140712E88 (MiParseImageLoadConfig.c)
+ *     MiLogRelocationFaults @ 0x14071384C (MiLogRelocationFaults.c)
+ *     MiMapImageInSystemSpace @ 0x140715730 (MiMapImageInSystemSpace.c)
+ *     PspInitializeFullProcessImageName @ 0x140718754 (PspInitializeFullProcessImageName.c)
+ *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
+ *     MiDriverLoadSucceeded @ 0x14075C644 (MiDriverLoadSucceeded.c)
+ *     MiLoadUserSymbols @ 0x1407D0E0C (MiLoadUserSymbols.c)
+ *     MmGetFileNameForAddress @ 0x1408C4044 (MmGetFileNameForAddress.c)
+ *     MmGetFileNameForSection @ 0x1408C415C (MmGetFileNameForSection.c)
+ *     MiFillMapFileInfo @ 0x1408C456C (MiFillMapFileInfo.c)
+ *     MiAllocateFileExtents @ 0x1408CF510 (MiAllocateFileExtents.c)
+ *     MmIsFileMapped @ 0x1408D1020 (MmIsFileMapped.c)
+ *     MmSectionToSectionObjectPointers @ 0x1408D11B0 (MmSectionToSectionObjectPointers.c)
+ *     MiMapImageForEnclaveUse @ 0x1408D39BC (MiMapImageForEnclaveUse.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObpFastReplenishReference @ 0x1402F339C (ObpFastReplenishReference.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ObpPushStackInfo @ 0x1405C5EC8 (ObpPushStackInfo.c)
+ *     ObFastReferenceObjectLocked @ 0x140206338 (ObFastReferenceObjectLocked.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ObpTraceObjectDereferenceIfActive @ 0x14024A170 (ObpTraceObjectDereferenceIfActive.c)
+ *     ObReferenceObjectExWithTag @ 0x14029E140 (ObReferenceObjectExWithTag.c)
+ *     ObpDeferObjectDeletion @ 0x1402BC2D0 (ObpDeferObjectDeletion.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-unsigned __int64 __fastcall MiReferenceControlAreaFile(__int64 a1)
+ULONG_PTR __fastcall MiReferenceControlAreaFile(__int64 a1)
 {
-  signed __int64 v2; // r8
-  signed __int64 v3; // rax
-  signed __int64 v4; // rbx
-  unsigned int v5; // r8d
-  unsigned __int64 v6; // rbx
-  unsigned __int64 v8; // rbp
+  volatile signed __int64 *v2; // rdi
+  signed __int64 v3; // r8
+  signed __int64 v4; // rax
+  ULONG_PTR v5; // rbx
+  unsigned int v6; // r8d
+  volatile LONG *v8; // rbx
+  unsigned __int64 v9; // rsi
+  unsigned __int64 v10; // rdi
+  signed __int64 v11; // rax
+  signed __int64 v12; // rtt
+  signed __int64 BugCheckParameter4; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v12; // edx
-  bool v13; // zf
+  int v17; // eax
+  bool v18; // zf
 
+  v2 = (volatile signed __int64 *)(a1 + 64);
   _m_prefetchw((const void *)(a1 + 64));
-  v2 = *(_QWORD *)(a1 + 64);
-  if ( (v2 & 0xF) != 0 )
+  v3 = *(_QWORD *)(a1 + 64);
+  if ( (v3 & 0xF) != 0 )
   {
     do
     {
-      v3 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 64), v2 - 1, v2);
-      if ( v2 == v3 )
+      v4 = _InterlockedCompareExchange64(v2, v3 - 1, v3);
+      if ( v3 == v4 )
         break;
-      v2 = v3;
+      v3 = v4;
     }
-    while ( (v3 & 0xF) != 0 );
+    while ( (v4 & 0xF) != 0 );
   }
-  v4 = v2;
-  v5 = v2 & 0xF;
-  v6 = v4 & 0xFFFFFFFFFFFFFFF0uLL;
-  if ( v5 <= 1 )
+  v5 = v3 & 0xFFFFFFFFFFFFFFF0uLL;
+  v6 = v3 & 0xF;
+  if ( v6 <= 1 )
   {
-    if ( !v5 )
+    if ( !v6 )
+      goto LABEL_8;
+    ObReferenceObjectExWithTag(v5, 15);
+    _m_prefetchw((const void *)v2);
+    v11 = *v2;
+    while ( (v11 & 0xF) == 0 )
     {
-LABEL_9:
-      v8 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(a1 + 72));
-      v6 = *(_QWORD *)(a1 + 64) & 0xFFFFFFFFFFFFFFF0uLL;
-      if ( v6 )
-        ObfReferenceObjectWithTag((PVOID)(*(_QWORD *)(a1 + 64) & 0xFFFFFFFFFFFFFFF0uLL), 0x63536D4Du);
-      ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-      if ( KiIrqlFlags )
-      {
-        if ( (KiIrqlFlags & 1) != 0 )
-        {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
-          {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-            v13 = (v12 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v12;
-            if ( v13 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-          }
-        }
-      }
-      __writecr8(v8);
-      return v6;
+      if ( v5 != (v11 & 0xFFFFFFFFFFFFFFF0uLL) )
+        break;
+      v12 = v11;
+      v11 = _InterlockedCompareExchange64(v2, v11 + 15, v11);
+      if ( v12 == v11 )
+        goto LABEL_4;
     }
-    ObpFastReplenishReference(a1 + 64, v6);
+    ObpTraceObjectDereferenceIfActive(v5 - 48);
+    BugCheckParameter4 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v5 - 48), 0xFFFFFFFFFFFFFFF1uLL) - 15;
+    if ( BugCheckParameter4 <= 0 )
+    {
+      if ( *(_QWORD *)(v5 - 40) )
+        KeBugCheckEx(
+          0x18u,
+          ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v5 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(v5 - 48) >> 8)],
+          v5,
+          6uLL,
+          *(_QWORD *)(v5 - 40));
+      if ( BugCheckParameter4 < 0 )
+        KeBugCheckEx(0x18u, 0LL, v5, 5uLL, BugCheckParameter4);
+      ObpDeferObjectDeletion(v5 - 48);
+    }
   }
-  if ( ObpTraceFlags )
-    ObpPushStackInfo(v6 - 48);
-  if ( !v6 )
-    goto LABEL_9;
-  return v6;
+LABEL_4:
+  if ( v5 )
+    return v5;
+LABEL_8:
+  v8 = (volatile LONG *)(a1 + 72);
+  v9 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(a1 + 72));
+  v10 = ObFastReferenceObjectLocked(v2);
+  ExReleaseSpinLockSharedFromDpcLevel(v8);
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+        v18 = (v17 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v17;
+        if ( v18 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
+    }
+  }
+  __writecr8(v9);
+  return v10;
 }

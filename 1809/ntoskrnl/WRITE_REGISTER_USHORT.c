@@ -1,5 +1,5 @@
 /*
- * XREFs of WRITE_REGISTER_USHORT @ 0x14013E6E0
+ * XREFs of WRITE_REGISTER_USHORT @ 0x14013E700
  * Callers:
  *     <none>
  * Callees:

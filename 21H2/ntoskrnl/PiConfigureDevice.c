@@ -1,12 +1,12 @@
 /*
- * XREFs of PiConfigureDevice @ 0x1409477A4
+ * XREFs of PiConfigureDevice @ 0x14072FDD8
  * Callers:
- *     PnpDeviceActionWorker @ 0x1402DD320 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x1403700A0 (PnpDeviceActionWorker.c)
  * Callees:
- *     PiDevCfgProcessDevice @ 0x140747740 (PiDevCfgProcessDevice.c)
- *     PpDevCfgProcessDeviceClass @ 0x14094EA0C (PpDevCfgProcessDeviceClass.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x14094ED84 (PpDevCfgProcessDeviceExtensions.c)
- *     PpDevCfgProcessDeviceReset @ 0x14094F4CC (PpDevCfgProcessDeviceReset.c)
+ *     PpDevCfgProcessDeviceClass @ 0x14072FE5C (PpDevCfgProcessDeviceClass.c)
+ *     PpDevCfgProcessDeviceReset @ 0x1407301CC (PpDevCfgProcessDeviceReset.c)
+ *     PiDevCfgProcessDevice @ 0x140739D90 (PiDevCfgProcessDevice.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x1408AA8EC (PpDevCfgProcessDeviceExtensions.c)
  */
 
 __int64 __fastcall PiConfigureDevice(__int64 a1)
@@ -19,9 +19,9 @@ __int64 __fastcall PiConfigureDevice(__int64 a1)
 
   v1 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 312LL) + 40LL);
   v2 = *(_DWORD *)(v1 + 300);
-  if ( (unsigned int)(v2 - 789) <= 1 )
+  if ( (unsigned int)(v2 - 787) <= 1 )
     return 3221225558LL;
-  if ( v2 == 768 || v2 > 783 && (v2 <= 787 || v2 > 788 && v2 <= 790) )
+  if ( v2 == 768 || v2 > 781 && (v2 <= 785 || v2 > 786 && v2 <= 788) )
     return 3221225473LL;
   v3 = *(_DWORD *)(a1 + 24) - 21;
   if ( v3 )
@@ -30,14 +30,20 @@ __int64 __fastcall PiConfigureDevice(__int64 a1)
     if ( !v4 )
       return PpDevCfgProcessDeviceClass(v1);
     v5 = v4 - 1;
-    if ( !v5 )
-      return PpDevCfgProcessDeviceExtensions(v1);
-    if ( v5 == 1 )
-      return PpDevCfgProcessDeviceReset(v1);
-    return 3221225473LL;
+    if ( v5 )
+    {
+      if ( v5 == 1 )
+        return PpDevCfgProcessDeviceReset(v1);
+      return 3221225473LL;
+    }
+    return PpDevCfgProcessDeviceExtensions(v1);
   }
-  if ( PiDevCfgMode )
-    return PiDevCfgProcessDevice(v1, 0LL, 0);
+  else if ( PiDevCfgMode )
+  {
+    return PiDevCfgProcessDevice(v1, 0LL, 0LL);
+  }
   else
+  {
     return 3221225659LL;
+  }
 }

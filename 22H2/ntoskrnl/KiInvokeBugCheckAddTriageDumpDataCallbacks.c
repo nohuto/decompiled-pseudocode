@@ -1,81 +1,80 @@
 /*
- * XREFs of KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14056A774
+ * XREFs of KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14051852C
  * Callers:
- *     KeBugCheck2 @ 0x140568330 (KeBugCheck2.c)
- *     KiCaptureDumpPreRecovery @ 0x14057AD7C (KiCaptureDumpPreRecovery.c)
+ *     KeBugCheck2 @ 0x140516A10 (KeBugCheck2.c)
  * Callees:
- *     KiValidateTriageDumpDataArray @ 0x1403A7BA4 (KiValidateTriageDumpDataArray.c)
- *     Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage @ 0x14040F80C (Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KeValidateBugCheckCallbackRecord @ 0x140569588 (KeValidateBugCheckCallbackRecord.c)
- *     KiGlobalDeduplicateTriageDumpData @ 0x14056A6E4 (KiGlobalDeduplicateTriageDumpData.c)
- *     KiValidateComponentName @ 0x14056AD04 (KiValidateComponentName.c)
+ *     KiValidateTriageDumpDataArray @ 0x1403C9ABC (KiValidateTriageDumpDataArray.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x140517AD8 (KeValidateBugCheckCallbackRecord.c)
+ *     KiValidateComponentName @ 0x140518A80 (KiValidateComponentName.c)
  */
 
-char __fastcall KiInvokeBugCheckAddTriageDumpDataCallbacks(char a1)
+char KiInvokeBugCheckAddTriageDumpDataCallbacks()
 {
-  __int64 v1; // rax
-  PVOID *v2; // rbx
-  BOOL v3; // esi
-  __int64 v4; // rdx
-  __int64 *v5; // rcx
-  __int128 v7; // [rsp+40h] [rbp-58h] BYREF
-  __int128 v8; // [rsp+50h] [rbp-48h]
-  __int128 v9; // [rsp+60h] [rbp-38h]
-  __int64 v10; // [rsp+70h] [rbp-28h]
-  PVOID *v11; // [rsp+B8h] [rbp+20h] BYREF
+  __int64 v0; // rax
+  PVOID *v1; // rbx
+  __int64 v2; // rdx
+  __int64 *v3; // rdx
+  __int128 v5; // [rsp+30h] [rbp-58h] BYREF
+  __int128 v6; // [rsp+40h] [rbp-48h]
+  __int128 v7; // [rsp+50h] [rbp-38h]
+  __int64 v8; // [rsp+60h] [rbp-28h]
+  PVOID *v9; // [rsp+98h] [rbp+10h] BYREF
+  PVOID *v10; // [rsp+A0h] [rbp+18h]
+  PVOID *v11; // [rsp+A8h] [rbp+20h]
 
-  LOBYTE(v1) = 0;
+  LOBYTE(v0) = 0;
+  v5 = 0LL;
+  v6 = 0LL;
   v7 = 0LL;
   v8 = 0LL;
-  v9 = 0LL;
-  v10 = 0LL;
-  v2 = (PVOID *)KeBugCheckReasonCallbackListHead;
-  if ( KeBugCheckReasonCallbackListHead && qword_140C42248 )
+  v11 = &KeBugCheckReasonCallbackListHead;
+  v1 = (PVOID *)KeBugCheckReasonCallbackListHead;
+  if ( KeBugCheckReasonCallbackListHead && qword_140C321A8 )
   {
-    v3 = a1 != 0;
-    v11 = &KeBugCheckReasonCallbackListHead;
-    while ( v2 != &KeBugCheckReasonCallbackListHead )
+    v9 = &KeBugCheckReasonCallbackListHead;
+    while ( 1 )
     {
-      LOBYTE(v1) = KeValidateBugCheckCallbackRecord((__int64)v2, 7, &v11);
-      if ( (_BYTE)v1 )
+      v10 = v1;
+      if ( v1 == &KeBugCheckReasonCallbackListHead )
+        break;
+      LOBYTE(v0) = KeValidateBugCheckCallbackRecord((__int64)v1, 7, &v9);
+      if ( (_BYTE)v0 )
       {
-        *(_QWORD *)&v7 = 0LL;
-        *((_QWORD *)&v7 + 1) = v3 | 0x200000000000000LL;
-        LODWORD(v8) = KiBugCheckData;
-        *((_QWORD *)&v8 + 1) = qword_140C42808;
-        v9 = xmmword_140C42810;
-        v10 = qword_140C42820;
-        LOBYTE(v1) = ((__int64 (__fastcall *)(__int64, PVOID *, __int128 *))v2[2])(7LL, v2, &v7);
-        if ( (_QWORD)v7
-          && (LOBYTE(v1) = KiValidateTriageDumpDataArray(v7, v4, 0x2000000u), (_BYTE)v1)
-          && (LOBYTE(v1) = KiValidateComponentName((STRSAFE_PCNZCH)v2[3]), (_BYTE)v1) )
+        *(_QWORD *)&v5 = 0LL;
+        *((_QWORD *)&v5 + 1) = 0x200000000000001LL;
+        LODWORD(v6) = KiBugCheckData;
+        *((_QWORD *)&v6 + 1) = *((_QWORD *)&KiBugCheckData + 1);
+        v7 = xmmword_140C2B550;
+        v8 = qword_140C2B560;
+        LOBYTE(v0) = ((__int64 (__fastcall *)(__int64, PVOID *, __int128 *))v1[2])(7LL, v1, &v5);
+        if ( (_QWORD)v5
+          && (LOBYTE(v0) = KiValidateTriageDumpDataArray(v5, v2, 0x2000000u), (_BYTE)v0)
+          && (LOBYTE(v0) = KiValidateComponentName((STRSAFE_PCNZCH)v1[3]), (_BYTE)v0) )
         {
-          if ( (unsigned int)Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage() )
-            KiGlobalDeduplicateTriageDumpData((_DWORD *)v7);
-          *(_QWORD *)(v7 + 40) = v2[3];
-          *(_DWORD *)(v7 + 32) = 1;
-          v1 = v7;
-          v5 = (__int64 *)qword_140C42258;
-          if ( *(__int64 **)qword_140C42258 != &KeBugCheckTriageDumpDataArrayListHead )
+          *(_QWORD *)(v5 + 40) = v1[3];
+          *(_DWORD *)(v5 + 32) = 1;
+          v0 = v5;
+          v3 = (__int64 *)qword_140C32198;
+          if ( *(__int64 **)qword_140C32198 != &KeBugCheckTriageDumpDataArrayListHead )
             __fastfail(3u);
-          *(_QWORD *)v7 = &KeBugCheckTriageDumpDataArrayListHead;
-          *(_QWORD *)(v1 + 8) = v5;
-          *v5 = v1;
-          qword_140C42258 = v1;
-          *((_BYTE *)v2 + 44) = 3;
+          *(_QWORD *)v5 = &KeBugCheckTriageDumpDataArrayListHead;
+          *(_QWORD *)(v0 + 8) = v3;
+          *v3 = v0;
+          qword_140C32198 = v0;
+          *((_BYTE *)v1 + 44) = 3;
         }
         else
         {
-          *((_WORD *)v2 + 22) = 260;
+          *((_BYTE *)v1 + 44) = 4;
         }
       }
-      else if ( !v11 )
+      else if ( !v9 )
       {
-        return v1;
+        return v0;
       }
-      v2 = (PVOID *)*v2;
+      v1 = (PVOID *)*v1;
     }
   }
-  return v1;
+  return v0;
 }

@@ -1,120 +1,108 @@
 /*
- * XREFs of ?bGetNtoWScales@@YAHPEAVEPOINTFL@@AEAVXDCOBJ@@PEAU_FD_XFORM@@AEAVPFEOBJ@@PEAH@Z @ 0x1C008482C
+ * XREFs of ?bGetNtoWScales@@YAHPEAVEPOINTFL@@AEAVXDCOBJ@@PEAU_FD_XFORM@@AEAVPFEOBJ@@PEAH@Z @ 0x1C0099E6C
  * Callers:
- *     ?bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_XFORM@@QEAU_POINTL@@KKHHK@Z @ 0x1C0083CD4 (-bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_.c)
+ *     ?bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_XFORM@@QEAU_POINTL@@KKHHK@Z @ 0x1C009D950 (-bRealizeFont@RFONTOBJ@@QEAAHPEAVXDCOBJ@@PEAVPDEVOBJ@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_.c)
  * Callees:
- *     ?bUseMetaPtoD@DC@@QEBAHXZ @ 0x1C001764C (-bUseMetaPtoD@DC@@QEBAHXZ.c)
- *     ?pptlBaseline@IFIOBJ@@QEAAPEAU_POINTL@@XZ @ 0x1C0084B38 (-pptlBaseline@IFIOBJ@@QEAAPEAU_POINTL@@XZ.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C0099E60 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FD8F4 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ?pptlBaseline@IFIOBJ@@QEAAPEAU_POINTL@@XZ @ 0x1C0114E60 (-pptlBaseline@IFIOBJ@@QEAAPEAU_POINTL@@XZ.c)
+ *     ?bUseMetaPtoD@DC@@QEBAHXZ @ 0x1C011F328 (-bUseMetaPtoD@DC@@QEBAHXZ.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall bGetNtoWScales(
-        struct EPOINTFL *a1,
-        struct XDCOBJ *a2,
-        struct _FD_XFORM *a3,
-        struct PFEOBJ *a4,
-        int *a5)
+__int64 __fastcall bGetNtoWScales(struct EPOINTFL *a1, struct XDCOBJ *a2, __m128 *a3, struct PFEOBJ *a4, int *a5)
 {
-  float eYY; // xmm3_4
-  float eYX; // xmm2_4
-  float eXY; // xmm1_4
-  __int64 v11; // rax
-  float *v12; // rdx
-  __int64 v14; // r9
-  float v15; // xmm2_4
-  float v16; // xmm3_4
-  float v17; // [rsp+28h] [rbp-51h] BYREF
-  float v18; // [rsp+2Ch] [rbp-4Dh]
-  float v19; // [rsp+30h] [rbp-49h] BYREF
-  float v20; // [rsp+34h] [rbp-45h]
-  float *v21; // [rsp+38h] [rbp-41h] BYREF
-  int v22; // [rsp+44h] [rbp-35h]
-  _BYTE v23[8]; // [rsp+48h] [rbp-31h] BYREF
-  _QWORD v24[2]; // [rsp+50h] [rbp-29h] BYREF
-  __int64 v25; // [rsp+60h] [rbp-19h] BYREF
-  float v26[4]; // [rsp+70h] [rbp-9h] BYREF
-  __int128 v27; // [rsp+80h] [rbp+7h]
-  int v28; // [rsp+90h] [rbp+17h]
+  unsigned int v6; // edi
+  __m128 v7; // xmm0
+  __int64 v10; // rax
+  _OWORD *v11; // rdx
+  __int64 v13; // r9
+  float v14; // xmm2_4
+  float v15; // xmm3_4
+  float v16; // [rsp+28h] [rbp-61h] BYREF
+  float v17; // [rsp+2Ch] [rbp-5Dh]
+  float v18; // [rsp+30h] [rbp-59h] BYREF
+  float v19; // [rsp+34h] [rbp-55h]
+  _OWORD *v20; // [rsp+38h] [rbp-51h] BYREF
+  int v21; // [rsp+44h] [rbp-45h]
+  _BYTE v22[8]; // [rsp+48h] [rbp-41h] BYREF
+  _QWORD v23[2]; // [rsp+50h] [rbp-39h] BYREF
+  __int64 v24; // [rsp+60h] [rbp-29h] BYREF
+  _OWORD v25[2]; // [rsp+70h] [rbp-19h] BYREF
+  int v26; // [rsp+90h] [rbp+7h]
 
-  eYY = a3->eYY;
-  eYX = a3->eYX;
-  eXY = a3->eXY;
-  v28 = 0;
-  v22 = 0;
-  v27 = 0LL;
-  v21 = v26;
-  v26[0] = a3->eXX * 16.0;
-  v26[1] = eXY * 16.0;
-  v26[2] = eYX * 16.0;
-  v26[3] = eYY * 16.0;
-  EXFORMOBJ::vRemoveTranslation((EXFORMOBJ *)&v21);
-  EXFORMOBJ::vComputeAccelFlags((EXFORMOBJ *)&v21, 8u);
-  v25 = *(_QWORD *)(*(_QWORD *)a4 + 32LL);
-  v11 = (__int64)*IFIOBJ::pptlBaseline((IFIOBJ *)&v25);
-  v17 = (float)(int)v11;
-  v18 = (float)SHIDWORD(v11);
-  if ( (*(_DWORD *)(v25 + 48) & 0x80000) != 0 )
+  v25[1] = 0LL;
+  v6 = 0;
+  v7 = *a3;
+  v26 = 0;
+  v20 = v25;
+  v21 = 0;
+  v25[0] = _mm_mul_ps(v7, (__m128)_xmm);
+  EXFORMOBJ::vRemoveTranslation((EXFORMOBJ *)&v20);
+  EXFORMOBJ::vComputeAccelFlags((EXFORMOBJ *)&v20, 8u);
+  v24 = *(_QWORD *)(*(_QWORD *)a4 + 32LL);
+  v10 = (__int64)*IFIOBJ::pptlBaseline((IFIOBJ *)&v24);
+  v16 = (float)(int)v10;
+  v17 = (float)SHIDWORD(v10);
+  if ( (*(_DWORD *)(v24 + 48) & 0x80000) != 0 )
   {
-    v20 = (float)(int)v11;
-    v19 = (float)-HIDWORD(v11);
+    v19 = (float)(int)v10;
+    v18 = (float)-HIDWORD(v10);
   }
   else
   {
-    v19 = (float)SHIDWORD(v11);
-    v20 = (float)-(int)v11;
+    v18 = (float)SHIDWORD(v10);
+    v19 = (float)-(int)v10;
   }
-  v12 = v21;
-  if ( ((_DWORD)v21[8] & 2) == 0 )
+  v11 = v20;
+  if ( (v20[2] & 2) == 0 )
   {
-    if ( !EXFORMOBJ::bXform((EXFORMOBJ *)&v21, (struct VECTORFL *)&v17, (struct VECTORFL *)&v17, 1uLL) )
-      return 0LL;
-    v12 = v21;
+    if ( !EXFORMOBJ::bXform((EXFORMOBJ *)&v20, (struct VECTORFL *)&v16, (struct VECTORFL *)&v16, 1uLL) )
+      return v6;
+    v11 = v20;
   }
-  if ( ((_DWORD)v12[8] & 2) == 0 )
+  if ( (v11[2] & 2) == 0 )
   {
-    if ( !EXFORMOBJ::bXform((EXFORMOBJ *)&v21, (struct VECTORFL *)&v19, (struct VECTORFL *)&v19, 1uLL) )
-      return 0LL;
-    v12 = v21;
+    if ( !EXFORMOBJ::bXform((EXFORMOBJ *)&v20, (struct VECTORFL *)&v18, (struct VECTORFL *)&v18, 1uLL) )
+      return v6;
+    v11 = v20;
   }
   if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 976LL) + 340LL) & 0x802) == 0x802 )
   {
-    *a5 = (_DWORD)v12[8] & 2;
+    *a5 = v11[2] & 2;
 LABEL_11:
-    EFLOAT::eqLength(a1, v23, &v17);
-    EFLOAT::eqLength((char *)a1 + 4, v23, &v19);
-    return 1LL;
+    EFLOAT::eqLength(a1, v22, &v16);
+    EFLOAT::eqLength((char *)a1 + 4, v22, &v18);
+    return 1;
   }
-  EXFORMOBJ::vQuickInit((EXFORMOBJ *)v24, a2, 0x402u);
-  v14 = v24[0];
-  if ( v24[0] )
+  EXFORMOBJ::vQuickInit((EXFORMOBJ *)v23, a2, 0x402u);
+  v13 = v23[0];
+  if ( !v23[0] )
+    return v6;
+  *a5 = 0;
+  if ( *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 976LL) + 208LL) == 1
+    && !(unsigned int)DC::bUseMetaPtoD(*(DC **)a2)
+    && (*(_DWORD *)(v24 + 48) & 4) == 0 )
   {
-    *a5 = 0;
-    if ( *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 976LL) + 208LL) == 1
-      && !(unsigned int)DC::bUseMetaPtoD(*(DC **)a2)
-      && (*(_DWORD *)(v25 + 48) & 4) == 0 )
-    {
-      v15 = v17 * *(float *)v14;
-      v18 = v18 * *(float *)v14;
-      v17 = v15;
-      v16 = *(float *)(v14 + 12);
-      v18 = v18 * 16.0;
-      v20 = (float)(v20 * v16) * 16.0;
-      v17 = v15 * 16.0;
-      v19 = (float)(v16 * v19) * 16.0;
-      goto LABEL_11;
-    }
-    if ( (*(_DWORD *)(v14 + 32) & 2) == 0 )
-    {
-      if ( !EXFORMOBJ::bXform((EXFORMOBJ *)v24, (struct VECTORFL *)&v17, (struct VECTORFL *)&v17, 1uLL) )
-        return 0LL;
-      v14 = v24[0];
-    }
-    if ( (*(_DWORD *)(v14 + 32) & 2) != 0
-      || EXFORMOBJ::bXform((EXFORMOBJ *)v24, (struct VECTORFL *)&v19, (struct VECTORFL *)&v19, 1uLL) )
-    {
-      goto LABEL_11;
-    }
+    v14 = v16 * *(float *)v13;
+    v17 = v17 * *(float *)v13;
+    v16 = v14;
+    v15 = *(float *)(v13 + 12);
+    v17 = v17 * 16.0;
+    v19 = (float)(v19 * v15) * 16.0;
+    v16 = v14 * 16.0;
+    v18 = (float)(v15 * v18) * 16.0;
+    goto LABEL_11;
   }
-  return 0LL;
+  if ( (*(_DWORD *)(v13 + 32) & 2) == 0 )
+  {
+    if ( !EXFORMOBJ::bXform((EXFORMOBJ *)v23, (struct VECTORFL *)&v16, (struct VECTORFL *)&v16, 1uLL) )
+      return v6;
+    v13 = v23[0];
+  }
+  if ( (*(_DWORD *)(v13 + 32) & 2) != 0
+    || EXFORMOBJ::bXform((EXFORMOBJ *)v23, (struct VECTORFL *)&v18, (struct VECTORFL *)&v18, 1uLL) )
+  {
+    goto LABEL_11;
+  }
+  return v6;
 }

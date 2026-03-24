@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIEcConnectGpioInterrupt @ 0x1C00AD4D4
+ * XREFs of ACPIEcConnectGpioInterrupt @ 0x1C00AE854
  * Callers:
- *     ACPIEcInitOpRegionHandler @ 0x1C0020398 (ACPIEcInitOpRegionHandler.c)
- *     ACPIEcConnectInterrupt @ 0x1C00AD5A0 (ACPIEcConnectInterrupt.c)
+ *     ACPIEcInitOpRegionHandler @ 0x1C0026A58 (ACPIEcInitOpRegionHandler.c)
+ *     ACPIEcConnectInterrupt @ 0x1C00AE918 (ACPIEcConnectInterrupt.c)
  * Callees:
- *     memset @ 0x1C0030080 (memset.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 NTSTATUS __fastcall ACPIEcConnectGpioInterrupt(char *DeferredContext)

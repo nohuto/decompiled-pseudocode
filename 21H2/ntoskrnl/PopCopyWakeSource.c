@@ -1,10 +1,10 @@
 /*
- * XREFs of PopCopyWakeSource @ 0x14098F20C
+ * XREFs of PopCopyWakeSource @ 0x1408E69A0
  * Callers:
- *     PopGetWakeSource @ 0x140806788 (PopGetWakeSource.c)
+ *     PopGetWakeSource @ 0x1407787B8 (PopGetWakeSource.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     PopWakeSourceSize @ 0x14098F5E8 (PopWakeSourceSize.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     PopWakeSourceSize @ 0x1408E6EA0 (PopWakeSourceSize.c)
  */
 
 __int64 __fastcall PopCopyWakeSource(__int64 a1, __int64 a2, __int64 a3)
@@ -13,7 +13,7 @@ __int64 __fastcall PopCopyWakeSource(__int64 a1, __int64 a2, __int64 a3)
   __int64 v4; // r9
   __int64 v5; // r10
   __int64 v6; // r8
-  int v7; // ecx
+  unsigned int v7; // ecx
   int v8; // ecx
   int v9; // ecx
   size_t *v10; // rdx
@@ -39,14 +39,12 @@ __int64 __fastcall PopCopyWakeSource(__int64 a1, __int64 a2, __int64 a3)
     {
       if ( *(_DWORD *)(v5 + 24) != 2 )
         return result;
-      goto LABEL_15;
+      goto LABEL_14;
     }
-LABEL_16:
+LABEL_15:
     *(_DWORD *)(v4 + 8) = 0;
     return result;
   }
-  if ( v7 <= 1 )
-    return result;
   if ( v7 <= 3 )
   {
     result = (unsigned int)(v7 != 2) + 2;
@@ -66,11 +64,11 @@ LABEL_16:
   *(_DWORD *)v4 = 4;
   v8 = *(_DWORD *)(v5 + 24);
   if ( !v8 )
-    goto LABEL_16;
+    goto LABEL_15;
   v9 = v8 - 1;
   if ( !v9 )
   {
-LABEL_15:
+LABEL_14:
     *(_DWORD *)(v4 + 8) = 1;
     return result;
   }

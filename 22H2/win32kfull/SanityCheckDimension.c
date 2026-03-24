@@ -1,26 +1,22 @@
 /*
- * XREFs of SanityCheckDimension @ 0x1C0157BD8
+ * XREFs of SanityCheckDimension @ 0x1C001AC98
  * Callers:
- *     HT_HalftoneBitmap @ 0x1C025056C (HT_HalftoneBitmap.c)
+ *     HT_HalftoneBitmap @ 0x1C001A9EC (HT_HalftoneBitmap.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall SanityCheckDimension(__int64 a1, int a2)
+_BOOL8 __fastcall SanityCheckDimension(int a1, int a2)
 {
-  int v3; // edi
-  __int64 v4; // rcx
-  int v5; // r8d
+  int v2; // eax
 
-  v3 = a1;
-  v4 = *(_QWORD *)(SGDGetSessionState(a1) + 48);
-  if ( !*(_DWORD *)(v4 + 72) )
-    return 1;
-  v5 = v3;
-  if ( v3 <= a2 )
+  if ( !gbCheckLimits )
+    return 1LL;
+  v2 = a1;
+  if ( a1 <= a2 )
   {
-    v5 = a2;
-    a2 = v3;
+    v2 = a2;
+    a2 = a1;
   }
-  return (unsigned int)(v5 - a2) <= *(_DWORD *)(v4 + 76);
+  return v2 - a2 <= (unsigned int)gdwMaxSurfaceSize;
 }

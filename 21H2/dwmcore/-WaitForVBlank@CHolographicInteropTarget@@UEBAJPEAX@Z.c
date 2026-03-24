@@ -1,9 +1,9 @@
 /*
- * XREFs of ?WaitForVBlank@CHolographicInteropTarget@@UEBAJPEAX@Z @ 0x18029A740
+ * XREFs of ?WaitForVBlank@CHolographicInteropTarget@@UEBAJPEAX@Z @ 0x1802583C0
  * Callers:
  *     <none>
  * Callees:
- *     ?WaitForVBlank@CHolographicManager@@QEAAJXZ @ 0x180296D94 (-WaitForVBlank@CHolographicManager@@QEAAJXZ.c)
+ *     ?WaitForVBlank@CHolographicManager@@QEAAJXZ @ 0x180254838 (-WaitForVBlank@CHolographicManager@@QEAAJXZ.c)
  */
 
 __int64 __fastcall CHolographicInteropTarget::WaitForVBlank(CHolographicInteropTarget *this, void *a2)

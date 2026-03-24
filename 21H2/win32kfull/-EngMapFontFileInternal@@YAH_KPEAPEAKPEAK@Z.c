@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z @ 0x1C0286184
+ * XREFs of ?EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z @ 0x1C02892F0
  * Callers:
- *     EngMapFontFile @ 0x1C0287190 (EngMapFontFile.c)
+ *     EngMapFontFile @ 0x1C028A2D0 (EngMapFontFile.c)
  * Callees:
- *     vUnmapFile @ 0x1C00EF3E8 (vUnmapFile.c)
- *     ?bMapRoutine@@YAHPEAU_FONTFILEVIEW@@PEAU_FILEVIEW@@W4_MAP_MODE@@H@Z @ 0x1C01017B8 (-bMapRoutine@@YAHPEAU_FONTFILEVIEW@@PEAU_FILEVIEW@@W4_MAP_MODE@@H@Z.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     bMapFile @ 0x1C02875C0 (bMapFile.c)
+ *     ?bMapRoutine@@YAHPEAU_FONTFILEVIEW@@PEAU_FILEVIEW@@W4_MAP_MODE@@H@Z @ 0x1C00A8478 (-bMapRoutine@@YAHPEAU_FONTFILEVIEW@@PEAU_FILEVIEW@@W4_MAP_MODE@@H@Z.c)
+ *     vUnmapFile @ 0x1C00E667C (vUnmapFile.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     bMapFile @ 0x1C028A75C (bMapFile.c)
  */
 
 __int64 __fastcall EngMapFontFileInternal(__int64 a1, unsigned int **a2, unsigned int *a3)

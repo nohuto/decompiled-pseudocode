@@ -1,26 +1,23 @@
 /*
- * XREFs of PopCoalescingCallbackWorker @ 0x140987000
+ * XREFs of PopCoalescingCallbackWorker @ 0x1408E6870
  * Callers:
  *     <none>
  * Callees:
- *     PoIssueCoalescingNotification @ 0x14058D824 (PoIssueCoalescingNotification.c)
- *     PopCoalescingSetActiveState @ 0x14058D97C (PopCoalescingSetActiveState.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     PoIssueCoalescingNotification @ 0x14056E9B8 (PoIssueCoalescingNotification.c)
+ *     PopCoalescingSetActiveState @ 0x14056EB04 (PopCoalescingSetActiveState.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopCoalescingCallbackWorker(int a1)
 {
   __int64 v1; // rdx
   __int64 v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  int v7; // edx
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  int v5; // edx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
 
   while ( 1 )
   {
@@ -30,27 +27,27 @@ __int64 __fastcall PopCoalescingCallbackWorker(int a1)
     if ( (PopCoalescingState & 1) == 0 )
       goto LABEL_9;
     PopCoalescingSetActiveState(0);
-    PopReleasePolicyLock(v5, v4, v6);
-    v7 = 2;
+    PopReleasePolicyLock(v4, v3);
+    v5 = 2;
 LABEL_8:
-    PoIssueCoalescingNotification(PopCoalescingRegistration, v7);
+    PoIssueCoalescingNotification(PopCoalescingRegistration, v5);
   }
   if ( (PopCoalescingState & 1) == 0 )
   {
     PopCoalescingState &= ~4u;
     PopCoalescingSetActiveState(1);
-    PopReleasePolicyLock(v9, v8, v10);
-    v7 = 1;
+    PopReleasePolicyLock(v7, v6);
+    v5 = 1;
     goto LABEL_8;
   }
   if ( (PopCoalescingState & 4) != 0 )
   {
     PopCoalescingState &= ~4u;
-    PopReleasePolicyLock(v2, v1, v3);
-    v7 = 3;
+    PopReleasePolicyLock(v2, v1);
+    v5 = 3;
     goto LABEL_8;
   }
 LABEL_9:
   PopCoalescingState &= ~8u;
-  return PopReleasePolicyLock(v2, v1, v3);
+  return PopReleasePolicyLock(v2, v1);
 }

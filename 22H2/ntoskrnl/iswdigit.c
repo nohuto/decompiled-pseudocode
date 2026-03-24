@@ -1,9 +1,9 @@
 /*
- * XREFs of iswdigit @ 0x1403D9B50
+ * XREFs of iswdigit @ 0x1403D2130
  * Callers:
- *     PfSnParsePrefetchParam @ 0x1407C2DA0 (PfSnParsePrefetchParam.c)
+ *     PfSnParsePrefetchParam @ 0x140630B74 (PfSnParsePrefetchParam.c)
  * Callees:
- *     iswctype @ 0x1403DBCE4 (iswctype.c)
+ *     iswctype @ 0x1403D426C (iswctype.c)
  */
 
 int __cdecl iswdigit(wint_t C)

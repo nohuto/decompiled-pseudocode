@@ -1,22 +1,23 @@
 /*
- * XREFs of ?SwitchWndCleanup@@YAXPEAPEAUtagSwitchWndInfo@@@Z @ 0x1C01C9428
+ * XREFs of ?SwitchWndCleanup@@YAXPEAPEAUtagSwitchWndInfo@@@Z @ 0x1C01F2A5C
  * Callers:
- *     RemoveResidualSwitchWindowInfos @ 0x1C013BE00 (RemoveResidualSwitchWindowInfos.c)
- *     RemoveSwitchWindowInfo @ 0x1C01CA0C0 (RemoveSwitchWindowInfo.c)
+ *     RemoveResidualSwitchWindowInfos @ 0x1C0168DC0 (RemoveResidualSwitchWindowInfos.c)
+ *     RemoveSwitchWindowInfo @ 0x1C01F3720 (RemoveSwitchWindowInfo.c)
  * Callees:
- *     FreeHwndList @ 0x1C00D2E50 (FreeHwndList.c)
+ *     FreeHwndList @ 0x1C006DA20 (FreeHwndList.c)
  */
 
-void __fastcall SwitchWndCleanup(struct tagSwitchWndInfo **a1)
+void __fastcall SwitchWndCleanup(struct tagBWL ***a1)
 {
-  struct tagBWL *v2; // rcx
+  struct tagBWL **v2; // rcx
 
-  v2 = (struct tagBWL *)*((_QWORD *)*a1 + 2);
-  if ( v2 )
+  v2 = *a1;
+  if ( v2[2] )
   {
-    FreeHwndList(v2);
-    *((_QWORD *)*a1 + 2) = 0LL;
+    FreeHwndList(v2[2]);
+    (*a1)[2] = 0LL;
+    v2 = *a1;
   }
-  Win32FreePool(*a1);
+  Win32FreePool(v2);
   *a1 = 0LL;
 }

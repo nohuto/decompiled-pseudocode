@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBHSM_ValidatingAndParsingHubDescriptor @ 0x1C0009560
+ * XREFs of HUBHSM_ValidatingAndParsingHubDescriptor @ 0x1C0009260
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     HUBDESC_Validate30HubDescriptor @ 0x1C003A51C (HUBDESC_Validate30HubDescriptor.c)
- *     HUBDESC_Validate20HubDescriptor @ 0x1C003A918 (HUBDESC_Validate20HubDescriptor.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBDESC_Validate30HubDescriptor @ 0x1C0039E50 (HUBDESC_Validate30HubDescriptor.c)
+ *     HUBDESC_Validate20HubDescriptor @ 0x1C003A24C (HUBDESC_Validate20HubDescriptor.c)
  */
 
 __int64 __fastcall HUBHSM_ValidatingAndParsingHubDescriptor(__int64 a1, __int64 a2)
@@ -65,7 +65,7 @@ __int64 __fastcall HUBHSM_ValidatingAndParsingHubDescriptor(__int64 a1, __int64 
 LABEL_16:
     v5 = 2045;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*(_QWORD *)(v2 + 2520), 2u, 3u, 0x21u, (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(v2 + 2520), 2u, 3u, 0x21u, (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids);
     return v5;
   }
   if ( !(unsigned __int8)HUBDESC_Validate20HubDescriptor(v2 + 1180, a2, v11, *(_QWORD *)(v2 + 2520)) )

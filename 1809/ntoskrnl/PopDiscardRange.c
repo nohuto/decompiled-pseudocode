@@ -1,8 +1,8 @@
 /*
  * XREFs of PopDiscardRange @ 0x14056BA08
  * Callers:
- *     PopSetRange @ 0x14014494C (PopSetRange.c)
- *     PopAllocateHiberContext @ 0x1406DF554 (PopAllocateHiberContext.c)
+ *     PopSetRange @ 0x14014496C (PopSetRange.c)
+ *     PopAllocateHiberContext @ 0x1406DF534 (PopAllocateHiberContext.c)
  * Callees:
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of AdtpBuildPrivilegeAuditString @ 0x140A1B260
+ * XREFs of AdtpBuildPrivilegeAuditString @ 0x14096D3C4
  * Callers:
- *     AdtpPackageParameters @ 0x1403CC5E8 (AdtpPackageParameters.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14064B9D8 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AdtpPackageParameters @ 0x1403C06B4 (AdtpPackageParameters.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C28F4 (AdtpBuildAccessReasonAuditStringInternal.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     AdtpLookupKnownPrivilegeNameQuickly @ 0x14064C978 (AdtpLookupKnownPrivilegeNameQuickly.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     AdtpLookupKnownPrivilegeNameQuickly @ 0x1405C37A4 (AdtpLookupKnownPrivilegeNameQuickly.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildPrivilegeAuditString(
         unsigned int *a1,
         UNICODE_STRING *a2,
-        __int64 *a3,
+        wchar_t **a3,
         __int64 a4,
         unsigned int *a5,
         _BYTE *a6)
@@ -24,13 +24,13 @@ __int64 __fastcall AdtpBuildPrivilegeAuditString(
   unsigned __int16 v13; // bx
   __int64 v14; // rdx
   unsigned int v15; // r8d
-  __int64 Pool2; // r14
-  _WORD *v17; // rsi
+  wchar_t *PoolWithTag; // r14
+  wchar_t *v17; // rdi
   size_t Length; // rbx
   wchar_t *Buffer; // rdx
   unsigned int v20; // ecx
   __int64 v21; // rbx
-  unsigned __int16 v22; // si
+  unsigned __int16 v22; // di
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
   UNICODE_STRING v24; // [rsp+30h] [rbp-30h]
   __int128 v25; // [rsp+40h] [rbp-20h] BYREF
@@ -45,7 +45,7 @@ __int64 __fastcall AdtpBuildPrivilegeAuditString(
   v25 = 0LL;
   if ( v6 )
   {
-    if ( v6 > 0x42 )
+    if ( v6 - 1 > 0x41 )
       return 3221225485LL;
     RtlInitUnicodeString(&DestinationString, L"\r\n\t\t\t");
     RtlInitUnicodeString(&v26, L"?");
@@ -54,19 +54,19 @@ __int64 __fastcall AdtpBuildPrivilegeAuditString(
                            + 2) >> 1;
     if ( a4 && (v14 = *a5, v15 = v14 + v13, v15 < 0x400) )
     {
-      Pool2 = a4 + 2 * v14;
+      PoolWithTag = (wchar_t *)(a4 + 2 * v14);
       *a5 = v15;
     }
     else
     {
-      Pool2 = ExAllocatePool2(256LL, 2LL * v13, 1799447891LL);
-      if ( !Pool2 )
+      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2LL * v13, 0x6B416553u);
+      if ( !PoolWithTag )
         return 3221225495LL;
       *a6 = 1;
     }
-    v24.Buffer = (wchar_t *)Pool2;
+    v24.Buffer = PoolWithTag;
     v24.MaximumLength = 2 * v13;
-    v17 = (_WORD *)Pool2;
+    v17 = PoolWithTag;
     if ( *a1 )
     {
       do
@@ -83,13 +83,13 @@ __int64 __fastcall AdtpBuildPrivilegeAuditString(
         }
         memmove(v17, Buffer, Length);
         v20 = *a1;
-        v17 = (_WORD *)((char *)v17 + Length);
+        v17 = (wchar_t *)((char *)v17 + Length);
         if ( v7 < *a1 - 1 )
         {
           v21 = DestinationString.Length;
           memmove(v17, DestinationString.Buffer, DestinationString.Length);
           v20 = *a1;
-          v17 = (_WORD *)((char *)v17 + v21);
+          v17 = (wchar_t *)((char *)v17 + v21);
         }
         ++v7;
       }
@@ -97,12 +97,12 @@ __int64 __fastcall AdtpBuildPrivilegeAuditString(
       v10 = a2;
     }
     *v17 = 0;
-    v22 = (_WORD)v17 - Pool2;
+    v22 = (_WORD)v17 - (_WORD)PoolWithTag;
     v24.Length = v22;
     if ( a3 )
     {
-      *a3 = Pool2;
-      a3[1] = (unsigned int)v22 + 2;
+      *a3 = PoolWithTag;
+      a3[1] = (wchar_t *)((unsigned int)v22 + 2);
     }
     else
     {
@@ -111,8 +111,8 @@ __int64 __fastcall AdtpBuildPrivilegeAuditString(
   }
   else if ( a3 )
   {
-    a3[1] = 4LL;
-    *a3 = (__int64)"-";
+    a3[1] = (wchar_t *)4;
+    *a3 = (wchar_t *)"-";
   }
   else if ( a2 )
   {

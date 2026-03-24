@@ -1,7 +1,7 @@
 /*
- * XREFs of GetDpiDepStockObjectPlateauSlot @ 0x1C016F188
+ * XREFs of GetDpiDepStockObjectPlateauSlot @ 0x1C0142270
  * Callers:
- *     GreGetDpiDepDefaultGuiFont @ 0x1C016F200 (GreGetDpiDepDefaultGuiFont.c)
+ *     GreGetDpiDepDefaultGuiFont @ 0x1C01422E0 (GreGetDpiDepDefaultGuiFont.c)
  * Callees:
  *     <none>
  */

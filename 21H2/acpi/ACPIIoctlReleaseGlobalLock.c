@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIIoctlReleaseGlobalLock @ 0x1C0058CE0
+ * XREFs of ACPIIoctlReleaseGlobalLock @ 0x1C00582E0
  * Callers:
- *     ACPIIrpDispatchDeviceControl @ 0x1C0001410 (ACPIIrpDispatchDeviceControl.c)
+ *     ACPIIrpDispatchDeviceControl @ 0x1C000B8A0 (ACPIIrpDispatchDeviceControl.c)
  * Callees:
- *     ACPIReleaseGlobalLock @ 0x1C00239A4 (ACPIReleaseGlobalLock.c)
+ *     ACPIReleaseGlobalLock @ 0x1C000F4A4 (ACPIReleaseGlobalLock.c)
  */
 
 __int64 __fastcall ACPIIoctlReleaseGlobalLock(__int64 a1, IRP *a2, __int64 a3)

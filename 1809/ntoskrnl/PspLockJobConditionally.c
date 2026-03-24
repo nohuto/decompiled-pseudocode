@@ -6,7 +6,7 @@
  *     PspRemoveProcessFromJobChain @ 0x140600410 (PspRemoveProcessFromJobChain.c)
  *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
  *     PspSendProcessNotificationToJobChain @ 0x14060394C (PspSendProcessNotificationToJobChain.c)
- *     PspSetNetRateControl @ 0x14088A70C (PspSetNetRateControl.c)
+ *     PspSetNetRateControl @ 0x14088A6EC (PspSetNetRateControl.c)
  * Callees:
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  */

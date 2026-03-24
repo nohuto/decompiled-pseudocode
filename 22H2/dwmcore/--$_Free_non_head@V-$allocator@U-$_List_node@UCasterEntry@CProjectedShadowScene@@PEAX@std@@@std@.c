@@ -1,11 +1,11 @@
 /*
- * XREFs of ??$_Free_non_head@V?$allocator@U?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@@std@@@?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@SAXAEAV?$allocator@U?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@@1@PEAU01@@Z @ 0x1800044A8
+ * XREFs of ??$_Free_non_head@V?$allocator@U?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@@std@@@?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@SAXAEAV?$allocator@U?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@@1@PEAU01@@Z @ 0x18000CF70
  * Callers:
- *     ?ClearCasters@CProjectedShadowScene@@AEAAXXZ @ 0x1800045A8 (-ClearCasters@CProjectedShadowScene@@AEAAXXZ.c)
- *     ??1CProjectedShadowScene@@UEAA@XZ @ 0x1800048C4 (--1CProjectedShadowScene@@UEAA@XZ.c)
+ *     ?ClearCasters@CProjectedShadowScene@@AEAAXXZ @ 0x18000CED4 (-ClearCasters@CProjectedShadowScene@@AEAAXXZ.c)
+ *     ??1CProjectedShadowScene@@UEAA@XZ @ 0x18000E794 (--1CProjectedShadowScene@@UEAA@XZ.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 _QWORD *__fastcall std::_List_node<CProjectedShadowScene::CasterEntry,void *>::_Free_non_head<std::allocator<std::_List_node<CProjectedShadowScene::CasterEntry,void *>>>(
@@ -13,8 +13,9 @@ _QWORD *__fastcall std::_List_node<CProjectedShadowScene::CasterEntry,void *>::_
         __int64 a2)
 {
   _QWORD *result; // rax
-  _QWORD *v3; // rdi
-  _QWORD *v4; // rbx
+  _QWORD *v3; // rbx
+  __int64 v4; // rcx
+  _QWORD *v5; // rdi
 
   result = *(_QWORD **)(a2 + 8);
   *result = 0LL;
@@ -23,12 +24,14 @@ _QWORD *__fastcall std::_List_node<CProjectedShadowScene::CasterEntry,void *>::_
   {
     do
     {
-      v4 = (_QWORD *)*v3;
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(v3 + 2);
+      v4 = v3[2];
+      v5 = (_QWORD *)*v3;
+      if ( v4 )
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
       result = (_QWORD *)std::_Deallocate<16,0>(v3, 176LL);
-      v3 = v4;
+      v3 = v5;
     }
-    while ( v4 );
+    while ( v5 );
   }
   return result;
 }

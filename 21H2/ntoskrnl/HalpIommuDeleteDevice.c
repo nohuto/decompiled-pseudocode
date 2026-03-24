@@ -1,36 +1,35 @@
 /*
- * XREFs of HalpIommuDeleteDevice @ 0x140908DD4
+ * XREFs of HalpIommuDeleteDevice @ 0x140864C50
  * Callers:
- *     HalpIommuBlockDevice @ 0x14051A460 (HalpIommuBlockDevice.c)
- *     HalpIommuUnblockDevice @ 0x14051BA00 (HalpIommuUnblockDevice.c)
- *     IommuDomainAttachDevice @ 0x140527CF0 (IommuDomainAttachDevice.c)
- *     IommuDomainDetachDevice @ 0x140528160 (IommuDomainDetachDevice.c)
- *     IommuDeviceCreate @ 0x1408459C0 (IommuDeviceCreate.c)
- *     IommuDeviceDelete @ 0x14090AA30 (IommuDeviceDelete.c)
+ *     HalpDmaFreeChildAdapter @ 0x14036D1C0 (HalpDmaFreeChildAdapter.c)
+ *     HalpIommuBlockDevice @ 0x1404C8E60 (HalpIommuBlockDevice.c)
+ *     HalpIommuUnblockDevice @ 0x1404C9E80 (HalpIommuUnblockDevice.c)
+ *     IommuDomainAttachDevice @ 0x1404DA3E0 (IommuDomainAttachDevice.c)
+ *     IommuDomainDetachDevice @ 0x1404DA5F0 (IommuDomainDetachDevice.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x1407C36A8 (HalpDmaAllocateChildAdapterV3.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     IommupHvUnregisterDeviceId @ 0x140527CA8 (IommupHvUnregisterDeviceId.c)
- *     IidAreIdsStrictlyEqual @ 0x14064F634 (IidAreIdsStrictlyEqual.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     IommupHvUnregisterDeviceId @ 0x1404DA3BC (IommupHvUnregisterDeviceId.c)
+ *     IidAreIdsStrictlyEqual @ 0x1405C638C (IidAreIdsStrictlyEqual.c)
  */
 
-__int64 __fastcall HalpIommuDeleteDevice(__int64 *a1)
+__int64 __fastcall HalpIommuDeleteDevice(_QWORD *a1)
 {
   unsigned int v2; // ebp
   char v3; // si
   __int64 v4; // rdi
   __int64 i; // r11
   __int64 v6; // r11
-  __int64 v8; // rcx
-  __int64 v10; // rax
-  __int64 *v11; // rcx
+  __int64 v8; // rax
+  __int64 *v9; // rcx
+  __int64 v10; // rcx
   __int64 v12; // rdx
   __int64 v13; // rcx
-  void *v14; // rcx
+  __int64 v14; // rdx
 
   v2 = 0;
   v3 = 0;
@@ -39,14 +38,14 @@ __int64 __fastcall HalpIommuDeleteDevice(__int64 *a1)
   for ( i = HalpIommuDeviceCreatedList; (__int64 *)i != &HalpIommuDeviceCreatedList; i = *(_QWORD *)v6 )
   {
     v4 = i;
-    if ( IidAreIdsStrictlyEqual(*(int **)(i + 16), *a1) && (*(_DWORD *)(v6 + 32))-- == 1 )
+    if ( IidAreIdsStrictlyEqual(*(int **)(i + 16), a1[4]) && (*(_DWORD *)(v6 + 32))-- == 1 )
     {
-      v10 = *(_QWORD *)v6;
-      if ( *(_QWORD *)(*(_QWORD *)v6 + 8LL) != v6 || (v11 = *(__int64 **)(v6 + 8), *v11 != v6) )
+      v8 = *(_QWORD *)v6;
+      if ( *(_QWORD *)(*(_QWORD *)v6 + 8LL) != v6 || (v9 = *(__int64 **)(v6 + 8), *v9 != v6) )
         __fastfail(3u);
-      *v11 = v10;
+      *v9 = v8;
       v3 = 1;
-      *(_QWORD *)(v10 + 8) = v11;
+      *(_QWORD *)(v8 + 8) = v9;
       break;
     }
   }
@@ -59,21 +58,16 @@ __int64 __fastcall HalpIommuDeleteDevice(__int64 *a1)
   {
     v12 = *(_QWORD *)(v4 + 16);
     if ( v12 )
-      HalpMmAllocCtxFree(v8, v12);
-    HalpMmAllocCtxFree(v8, v4);
+      HalpMmAllocCtxFree(v10, v12);
+    HalpMmAllocCtxFree(v10, v4);
   }
   if ( HalpHvIommu )
     v2 = IommupHvUnregisterDeviceId();
   else
-    (*(void (__fastcall **)(_QWORD, __int64, _QWORD))(a1[4] + 96))(*(_QWORD *)(a1[4] + 16), a1[5], 0LL);
-  if ( *a1 )
-    HalpMmAllocCtxFree(v13, *a1);
-  v14 = (void *)a1[1];
+    (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(a1[1] + 96LL))(*(_QWORD *)(a1[1] + 16LL), *a1, 0LL);
+  v14 = a1[4];
   if ( v14 )
-  {
-    ObfDereferenceObjectWithTag(v14, 0x446C6148u);
-    a1[1] = 0LL;
-  }
-  HalpMmAllocCtxFree((__int64)v14, (__int64)a1);
+    HalpMmAllocCtxFree(v13, v14);
+  HalpMmAllocCtxFree(v13, (__int64)a1);
   return v2;
 }

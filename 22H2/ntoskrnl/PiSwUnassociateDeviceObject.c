@@ -1,24 +1,26 @@
 /*
- * XREFs of PiSwUnassociateDeviceObject @ 0x140967CA4
+ * XREFs of PiSwUnassociateDeviceObject @ 0x14073307C
  * Callers:
- *     PiSwDestroyDeviceObject @ 0x14096725C (PiSwDestroyDeviceObject.c)
- *     PiSwProcessRemove @ 0x140967780 (PiSwProcessRemove.c)
+ *     PiSwProcessRemove @ 0x140732F28 (PiSwProcessRemove.c)
+ *     PiSwDestroyDeviceObject @ 0x140733048 (PiSwDestroyDeviceObject.c)
  * Callees:
- *     PiSwDeviceDereference @ 0x14081CB44 (PiSwDeviceDereference.c)
- *     PiSwRemovePdoAssociation @ 0x140967C34 (PiSwRemovePdoAssociation.c)
+ *     PiSwRemovePdoAssociation @ 0x1407330BC (PiSwRemovePdoAssociation.c)
+ *     PiSwDeviceDereference @ 0x140773A00 (PiSwDeviceDereference.c)
  */
 
-void __fastcall PiSwUnassociateDeviceObject(__int64 a1)
+__int64 __fastcall PiSwUnassociateDeviceObject(__int64 a1)
 {
-  __int64 *v1; // rdi
+  _QWORD *v1; // rdi
   void *v2; // rbx
+  __int64 result; // rax
 
-  v1 = *(__int64 **)(a1 + 64);
+  v1 = *(_QWORD **)(a1 + 64);
   v2 = (void *)*v1;
   if ( *v1 )
   {
     PiSwRemovePdoAssociation(*v1, a1);
-    PiSwDeviceDereference(v2);
+    result = PiSwDeviceDereference(v2);
     *v1 = 0LL;
   }
+  return result;
 }

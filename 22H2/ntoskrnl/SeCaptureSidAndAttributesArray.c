@@ -1,22 +1,22 @@
 /*
- * XREFs of SeCaptureSidAndAttributesArray @ 0x1406BCC50
+ * XREFs of SeCaptureSidAndAttributesArray @ 0x1405DD560
  * Callers:
- *     NtCreateTokenEx @ 0x1406BB530 (NtCreateTokenEx.c)
- *     SepLengthSidAndAttributesArray @ 0x1406BD564 (SepLengthSidAndAttributesArray.c)
- *     SepSetTokenCapabilities @ 0x1406BD618 (SepSetTokenCapabilities.c)
- *     NtAdjustGroupsToken @ 0x1407CAEE0 (NtAdjustGroupsToken.c)
- *     SepCreateClaimAttributes @ 0x1407CF994 (SepCreateClaimAttributes.c)
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
- *     NtFilterToken @ 0x1407F1DD0 (NtFilterToken.c)
- *     NtCreateLowBoxToken @ 0x1407F2AC0 (NtCreateLowBoxToken.c)
- *     SepDuplicateClaimAttributes @ 0x1409D14F4 (SepDuplicateClaimAttributes.c)
+ *     NtFilterToken @ 0x1405D9FB0 (NtFilterToken.c)
+ *     NtAdjustGroupsToken @ 0x1405DA5F0 (NtAdjustGroupsToken.c)
+ *     SepCreateClaimAttributes @ 0x1405DC724 (SepCreateClaimAttributes.c)
+ *     NtCreateTokenEx @ 0x1405DC930 (NtCreateTokenEx.c)
+ *     SepSetTokenCapabilities @ 0x1405DD33C (SepSetTokenCapabilities.c)
+ *     SepLengthSidAndAttributesArray @ 0x1405DD4AC (SepLengthSidAndAttributesArray.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
+ *     NtCreateLowBoxToken @ 0x1406EF370 (NtCreateLowBoxToken.c)
+ *     SepDuplicateClaimAttributes @ 0x1409250C0 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A60 (RtlLengthSid.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlValidSid @ 0x1407378A0 (RtlValidSid.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     RtlLengthSid @ 0x140347A80 (RtlLengthSid.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlValidSid @ 0x1406D54E0 (RtlValidSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SeCaptureSidAndAttributesArray(
@@ -30,47 +30,48 @@ __int64 __fastcall SeCaptureSidAndAttributesArray(
         PVOID *a8,
         unsigned int *a9)
 {
-  char *v9; // r13
+  char *v9; // r12
   char *PoolWithTag; // r9
-  int v13; // r12d
+  int v13; // r13d
   unsigned int v14; // r14d
   unsigned int v15; // edi
   unsigned int i; // edx
   char *v17; // rcx
   unsigned int v18; // eax
-  __int64 v19; // rdx
-  unsigned __int64 v20; // rcx
+  __int64 v19; // rcx
+  __int64 v20; // r8
   __int64 v21; // rax
   unsigned int v22; // eax
   char *v23; // r9
-  unsigned int v24; // r8d
+  unsigned int v24; // ecx
   unsigned __int64 v25; // rdx
-  PVOID *v26; // r13
-  char *v27; // rdi
-  char *v28; // r15
-  unsigned int v29; // r14d
-  _QWORD *v30; // r12
-  unsigned __int8 *v31; // rdx
-  unsigned int v32; // edi
-  char *v34; // rcx
-  unsigned int v35; // esi
-  _QWORD *v36; // r15
-  unsigned int v37; // r14d
-  void *v38; // rdi
-  int v39; // [rsp+24h] [rbp-64h]
-  unsigned int v40; // [rsp+28h] [rbp-60h]
-  int v41; // [rsp+30h] [rbp-58h]
-  char *v42; // [rsp+30h] [rbp-58h]
+  unsigned __int64 v26; // r8
+  PVOID *v27; // r13
+  char *v28; // rdi
+  char *v29; // r15
+  unsigned int v30; // r14d
+  _QWORD *v31; // r12
+  unsigned __int8 *v32; // rdx
+  unsigned int v33; // edi
+  char *v35; // rcx
+  unsigned int v36; // esi
+  _QWORD *v37; // r15
+  unsigned int v38; // r14d
+  void *v39; // rdi
+  int v40; // [rsp+24h] [rbp-64h]
+  unsigned int v41; // [rsp+28h] [rbp-60h]
+  int v42; // [rsp+30h] [rbp-58h]
+  char *v43; // [rsp+30h] [rbp-58h]
   char *P; // [rsp+38h] [rbp-50h]
-  char v44; // [rsp+A0h] [rbp+18h]
-  int v46; // [rsp+C0h] [rbp+38h]
+  char v45; // [rsp+A0h] [rbp+18h]
+  int v47; // [rsp+C0h] [rbp+38h]
 
-  v44 = a3;
+  v45 = a3;
   v9 = a4;
   PoolWithTag = 0LL;
   P = 0LL;
   v13 = 0;
-  v46 = 0;
+  v47 = 0;
   if ( !a2 )
   {
     *a8 = 0LL;
@@ -80,12 +81,12 @@ __int64 __fastcall SeCaptureSidAndAttributesArray(
   if ( a2 > 0x1000 )
     return 3221225485LL;
   v14 = 16 * a2;
-  v41 = 16 * a2 + 3;
-  v15 = v41 & 0xFFFFFFFC;
-  v40 = v41 & 0xFFFFFFFC;
+  v42 = 16 * a2 + 3;
+  v15 = v42 & 0xFFFFFFFC;
+  v41 = v42 & 0xFFFFFFFC;
   if ( a3 )
   {
-    PoolWithTag = (char *)ExAllocatePoolWithTag((POOL_TYPE)1025, v15, 0x61546553u);
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v15, 0x61546553u);
     P = PoolWithTag;
     if ( !PoolWithTag )
       return 3221225626LL;
@@ -98,36 +99,40 @@ __int64 __fastcall SeCaptureSidAndAttributesArray(
         MEMORY[0x7FFFFFFF0000] = 0;
     }
     v18 = 0;
-    v39 = 0;
+    v40 = 0;
     while ( v18 < a2 )
     {
       v19 = 16LL * v18;
       v20 = *(_QWORD *)&Src[v19];
       v21 = v20 + 1;
-      if ( v20 + 1 >= 0x7FFFFFFF0000LL )
+      if ( (unsigned __int64)(v20 + 1) >= 0x7FFFFFFF0000LL )
         v21 = 0x7FFFFFFF0000LL;
       v22 = *(unsigned __int8 *)v21;
       if ( v22 > 0xF )
       {
         v13 = -1073741704;
-        v46 = -1073741704;
-        v15 = v40;
+        v47 = -1073741704;
+        v15 = v41;
         break;
       }
       v23 = &PoolWithTag[v19];
       *(_QWORD *)v23 = v20;
       v24 = 4 * v22 + 8;
       *((_DWORD *)v23 + 2) = v24;
-      if ( (v20 & 3) != 0 )
+      v25 = *(_QWORD *)v23;
+      if ( (*(_QWORD *)v23 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v25 = v20 + v24;
-      if ( v25 > 0x7FFFFFFF0000LL || v25 < v20 )
+      v26 = v25 + v24;
+      if ( v26 > 0x7FFFFFFF0000LL || v26 < v25 )
+      {
         MEMORY[0x7FFFFFFF0000] = 0;
-      v15 = ((*((_DWORD *)v23 + 2) + 3) & 0xFFFFFFFC) + v40;
-      v40 = v15;
-      v18 = ++v39;
+        v24 = *((_DWORD *)v23 + 2);
+      }
+      v15 = ((v24 + 3) & 0xFFFFFFFC) + v41;
+      v41 = v15;
+      v18 = ++v40;
       v13 = 0;
-      v46 = 0;
+      v47 = 0;
       PoolWithTag = P;
     }
     if ( v13 < 0 )
@@ -136,7 +141,7 @@ __int64 __fastcall SeCaptureSidAndAttributesArray(
       return (unsigned int)v13;
     }
     v9 = a4;
-    a3 = v44;
+    a3 = v45;
   }
   else
   {
@@ -146,77 +151,77 @@ __int64 __fastcall SeCaptureSidAndAttributesArray(
   *a9 = v15;
   if ( !v9 )
   {
-    v27 = (char *)ExAllocatePoolWithTag((POOL_TYPE)1025, v15, 0x61536553u);
-    v26 = a8;
-    *a8 = v27;
-    if ( v27 )
+    v28 = (char *)ExAllocatePoolWithTag(PagedPool, v15, 0x61536553u);
+    v27 = a8;
+    *a8 = v28;
+    if ( v28 )
     {
-      a3 = v44;
+      a3 = v45;
       goto LABEL_32;
     }
-    if ( v44 )
+    if ( v45 )
       ExFreePoolWithTag(P, 0);
     return 3221225626LL;
   }
   if ( v15 <= a5 )
   {
-    v26 = a8;
-    *a8 = a4;
-    v27 = a4;
+    v27 = a8;
+    *a8 = v9;
+    v28 = v9;
 LABEL_32:
     if ( a3 )
     {
-      memmove(v27, Src, v14);
-      v34 = &v27[v41 & 0xFFFFFFFC];
-      v42 = v34;
-      v35 = 0;
-      v36 = *v26;
-      while ( v35 < a2 && !v13 )
+      memmove(v28, Src, v14);
+      v35 = &v28[v42 & 0xFFFFFFFC];
+      v43 = v35;
+      v36 = 0;
+      v37 = *v27;
+      while ( v36 < a2 && !v47 )
       {
-        memmove(v34, *(const void **)&P[16 * v35], *(unsigned int *)&P[16 * v35 + 8]);
-        v36[2 * v35] = v42;
-        v37 = *(_DWORD *)&P[16 * v35 + 8];
-        v34 = &v42[(v37 + 3) & 0xFFFFFFFC];
-        v42 = v34;
-        if ( (v36[2 * v35 + 1] & 0x1FFFFF80) != 0 )
+        memmove(v35, *(const void **)&P[16 * v36], *(unsigned int *)&P[16 * v36 + 8]);
+        v37[2 * v36] = v43;
+        v38 = *(_DWORD *)&P[16 * v36 + 8];
+        v35 = &v43[(v38 + 3) & 0xFFFFFFFC];
+        v43 = v35;
+        if ( (v37[2 * v36 + 1] & 0x1FFFFF80) != 0 )
         {
-          v13 = -1073741811;
+          v47 = -1073741811;
         }
         else
         {
-          v38 = (void *)v36[2 * v35];
-          if ( !RtlValidSid(v38) || RtlLengthSid(v38) != v37 )
-            v13 = -1073741704;
-          v34 = v42;
+          v39 = (void *)v37[2 * v36];
+          if ( !RtlValidSid(v39) || RtlLengthSid(v39) != v38 )
+            v47 = -1073741704;
+          v35 = v43;
         }
-        ++v35;
+        ++v36;
       }
     }
     else
     {
-      memmove(v27, Src, v14);
-      v28 = &v27[v41 & 0xFFFFFFFC];
-      v29 = 0;
-      v30 = *v26;
-      while ( v29 < a2 )
+      memmove(v28, Src, v14);
+      v29 = &v28[v42 & 0xFFFFFFFC];
+      v30 = 0;
+      v31 = *v27;
+      while ( v30 < a2 )
       {
-        v31 = (unsigned __int8 *)v30[2 * v29];
-        v32 = 4 * v31[1] + 8;
-        memmove(v28, v31, v32);
-        v30[2 * v29++] = v28;
-        v28 += (v32 + 3) & 0xFFFFFFFC;
+        v32 = (unsigned __int8 *)v31[2 * v30];
+        v33 = 4 * v32[1] + 8;
+        memmove(v29, v32, v33);
+        v31[2 * v30++] = v29;
+        v29 += (v33 + 3) & 0xFFFFFFFC;
       }
-      v26 = a8;
-      v13 = v46;
+      v27 = a8;
+      v9 = a4;
     }
-    if ( v44 )
+    if ( v45 )
       ExFreePoolWithTag(P, 0);
-    if ( !a4 && v13 < 0 )
+    if ( !v9 && v47 < 0 )
     {
-      ExFreePoolWithTag(*v26, 0);
-      *v26 = 0LL;
+      ExFreePoolWithTag(*v27, 0);
+      *v27 = 0LL;
     }
-    return (unsigned int)v13;
+    return (unsigned int)v47;
   }
   if ( a3 )
     ExFreePoolWithTag(PoolWithTag, 0);

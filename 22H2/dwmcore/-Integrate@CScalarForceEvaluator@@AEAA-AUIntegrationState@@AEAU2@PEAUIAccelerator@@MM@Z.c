@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Integrate@CScalarForceEvaluator@@AEAA?AUIntegrationState@@AEAU2@PEAUIAccelerator@@MM@Z @ 0x180276BD0
+ * XREFs of ?Integrate@CScalarForceEvaluator@@AEAA?AUIntegrationState@@AEAU2@PEAUIAccelerator@@MM@Z @ 0x180215588
  * Callers:
- *     ?AdvanceToTime@CScalarForceEvaluator@@QEAAMMPEAUIAccelerator@@@Z @ 0x180276794 (-AdvanceToTime@CScalarForceEvaluator@@QEAAMMPEAUIAccelerator@@@Z.c)
+ *     ?AdvanceToTime@CScalarForceEvaluator@@QEAAMMPEAUIAccelerator@@@Z @ 0x1802151E4 (-AdvanceToTime@CScalarForceEvaluator@@QEAAMMPEAUIAccelerator@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Evaluate@CScalarForceEvaluator@@AEAA?AUDerivative@@AEAUIntegrationState@@AEAU2@PEAUIAccelerator@@MM@Z @ 0x180276B10 (-Evaluate@CScalarForceEvaluator@@AEAA-AUDerivative@@AEAUIntegrationState@@AEAU2@PEAUIAccelerator.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Evaluate@CScalarForceEvaluator@@AEAA?AUDerivative@@AEAUIntegrationState@@AEAU2@PEAUIAccelerator@@MM@Z @ 0x1802154D0 (-Evaluate@CScalarForceEvaluator@@AEAA-AUDerivative@@AEAUIntegrationState@@AEAU2@PEAUIAccelerator.c)
  */
 
 __int64 __fastcall CScalarForceEvaluator::Integrate(__int64 a1, __int64 a2, float *a3, __int64 *a4, int a5, float a6)
@@ -12,8 +12,8 @@ __int64 __fastcall CScalarForceEvaluator::Integrate(__int64 a1, __int64 a2, floa
   double v10; // xmm0_8
   float v11; // xmm3_4
   float v12; // xmm2_4
-  float v13; // xmm6_4
-  int v14; // xmm7_4
+  int v13; // xmm7_4
+  float v14; // xmm6_4
   float v15; // xmm0_4
   float v16; // xmm8_4
   float v17; // xmm6_4
@@ -38,19 +38,19 @@ __int64 __fastcall CScalarForceEvaluator::Integrate(__int64 a1, __int64 a2, floa
   }
   else
   {
-    v13 = a3[2];
-    v14 = a5;
+    v13 = a5;
+    v14 = a3[2];
     v15 = (*(float (__fastcall **)(__int64 *, float *))(*a4 + 16))(a4, a3);
     v16 = a6;
-    v26 = v13;
+    v26 = v14;
     v27 = v15;
     v17 = a6 * 0.5;
-    LODWORD(v22) = v14;
+    LODWORD(v22) = v13;
     v18 = CScalarForceEvaluator::Evaluate(a1, (float *)&v28, a3, &v26, a4, v22, a6 * 0.5);
-    LODWORD(v23) = v14;
+    LODWORD(v23) = v13;
     v29 = *(_QWORD *)v18;
     v19 = CScalarForceEvaluator::Evaluate(a1, (float *)&v28, a3, (float *)&v29, a4, v23, v17);
-    LODWORD(v24) = v14;
+    LODWORD(v24) = v13;
     v28 = *(_QWORD *)v19;
     v20 = CScalarForceEvaluator::Evaluate(a1, v25, a3, (float *)&v28, a4, v24, v16);
     v11 = v20[1];

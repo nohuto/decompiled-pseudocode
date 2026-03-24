@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlLookupLargeMcbEntry @ 0x1403A1C60
+ * XREFs of FsRtlLookupLargeMcbEntry @ 0x1404EEF50
  * Callers:
- *     FsRtlLookupMcbEntry @ 0x14053CCB0 (FsRtlLookupMcbEntry.c)
+ *     FsRtlLookupMcbEntry @ 0x1404EF170 (FsRtlLookupMcbEntry.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     FsRtlLookupBaseMcbEntry @ 0x14032F4C0 (FsRtlLookupBaseMcbEntry.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     FsRtlLookupBaseMcbEntry @ 0x1402EEDC0 (FsRtlLookupBaseMcbEntry.c)
  */
 
 BOOLEAN __stdcall FsRtlLookupLargeMcbEntry(
@@ -26,6 +26,6 @@ BOOLEAN __stdcall FsRtlLookupLargeMcbEntry(
                                  StartingLbn,
                                  SectorCountFromStartingLbn,
                                  Index);
-  ExReleaseFastMutex(Mcb->GuardedMutex);
+  KeReleaseGuardedMutex(Mcb->GuardedMutex);
   return (unsigned __int8)SectorCountFromLbn;
 }

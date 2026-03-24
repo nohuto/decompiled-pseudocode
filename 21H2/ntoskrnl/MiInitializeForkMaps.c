@@ -1,23 +1,23 @@
 /*
- * XREFs of MiInitializeForkMaps @ 0x1405BB84C
+ * XREFs of MiInitializeForkMaps @ 0x14055B20C
  * Callers:
- *     MiCloneVads @ 0x1405B99AC (MiCloneVads.c)
+ *     MiCloneVads @ 0x140559328 (MiCloneVads.c)
  * Callees:
- *     MiMapSinglePage @ 0x14026C124 (MiMapSinglePage.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiMapSinglePage @ 0x14036B104 (MiMapSinglePage.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 _BOOL8 __fastcall MiInitializeForkMaps(__int64 a1, _QWORD *a2)
 {
   __m128i si128; // xmm0
-  __int64 v5; // rax
+  ULONG_PTR v5; // rax
 
   memset(a2, 0, 0x48uLL);
   si128 = _mm_load_si128((const __m128i *)&_xmm_ffffffffffffffffffffffffffffffff);
   *(__m128i *)(a2 + 1) = si128;
   a2[3] = si128.m128i_i64[0];
   *a2 = a1;
-  v5 = MiMapSinglePage(0LL, 0LL, 1073741856, 2);
+  v5 = MiMapSinglePage(0LL, 0LL, 1073741856LL, 2uLL);
   a2[7] = v5;
   return v5 != 0;
 }

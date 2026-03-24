@@ -1,5 +1,5 @@
 /*
- * XREFs of IopGetSetSecurityObject @ 0x1406990F0
+ * XREFs of IopGetSetSecurityObject @ 0x1406990D0
  * Callers:
  *     <none>
  * Callees:
@@ -10,24 +10,24 @@
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B70 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1400B8DD0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     IopAllocateIrpExReturn @ 0x1400B92C0 (IopAllocateIrpExReturn.c)
- *     IopQueueThreadIrp @ 0x1400BC360 (IopQueueThreadIrp.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     IopAcquireFastLock_2 @ 0x140117B28 (IopAcquireFastLock_2.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
+ *     IopQueueThreadIrp @ 0x1400BC380 (IopQueueThreadIrp.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     IopAcquireFastLock_2 @ 0x140117B48 (IopAcquireFastLock_2.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     IopAcquireFileObjectLock @ 0x1405A3480 (IopAcquireFileObjectLock.c)
  *     ObDereferenceSecurityDescriptor @ 0x1405C9410 (ObDereferenceSecurityDescriptor.c)
  *     ObLogSecurityDescriptor @ 0x1405C9E70 (ObLogSecurityDescriptor.c)
  *     SeQuerySecurityDescriptorInfo @ 0x1405CB720 (SeQuerySecurityDescriptorInfo.c)
- *     IopSetDeviceSecurityDescriptor @ 0x140699558 (IopSetDeviceSecurityDescriptor.c)
- *     IopSetDeviceSecurityDescriptors @ 0x14070D4F0 (IopSetDeviceSecurityDescriptors.c)
- *     IopAllocateIrpCleanup @ 0x1408193D4 (IopAllocateIrpCleanup.c)
- *     SeAssignWorldSecurityDescriptor @ 0x14089C51C (SeAssignWorldSecurityDescriptor.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x140699538 (IopSetDeviceSecurityDescriptor.c)
+ *     IopSetDeviceSecurityDescriptors @ 0x14070D4D0 (IopSetDeviceSecurityDescriptors.c)
+ *     IopAllocateIrpCleanup @ 0x1408193B4 (IopAllocateIrpCleanup.c)
+ *     SeAssignWorldSecurityDescriptor @ 0x14089C4FC (SeAssignWorldSecurityDescriptor.c)
  */
 
 __int64 __fastcall IopGetSetSecurityObject(

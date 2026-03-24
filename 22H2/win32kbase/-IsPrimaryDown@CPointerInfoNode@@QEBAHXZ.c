@@ -1,11 +1,10 @@
 /*
- * XREFs of ?IsPrimaryDown@CPointerInfoNode@@QEBAHXZ @ 0x1C01CD114
+ * XREFs of ?IsPrimaryDown@CPointerInfoNode@@QEBAHXZ @ 0x1C0196FA4
  * Callers:
- *     ?ShouldForegroundActivate@CPointerInfoNode@@QEBAHXZ @ 0x1C00E4C54 (-ShouldForegroundActivate@CPointerInfoNode@@QEBAHXZ.c)
- *     ?ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@_N@Z @ 0x1C01D0C24 (-ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@_N@Z.c)
- *     ?SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAXPEAUTELEMETRY_POINTER_FRAME_TIMES@@H@Z @ 0x1C01D358C (-SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAXPEAUTELEMETRY_POINTER_FRAME_TIMES@@H.c)
+ *     ?ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@@Z @ 0x1C0199E3C (-ProcessPrimaryDown@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@@Z.c)
+ *     ?ShouldForegroundActivate@CPointerInfoNode@@QEBAHXZ @ 0x1C019EBE4 (-ShouldForegroundActivate@CPointerInfoNode@@QEBAHXZ.c)
  * Callees:
- *     ?IsPrimary@CPointerInfoNode@@QEBAHXZ @ 0x1C01CD0E4 (-IsPrimary@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?IsPrimary@CPointerInfoNode@@QEBAHXZ @ 0x1C0196F74 (-IsPrimary@CPointerInfoNode@@QEBAHXZ.c)
  */
 
 __int64 __fastcall CPointerInfoNode::IsPrimaryDown(CPointerInfoNode *this)

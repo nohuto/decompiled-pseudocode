@@ -1,45 +1,39 @@
 /*
- * XREFs of ?xxxToggleKeysTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01B73C0
+ * XREFs of ?xxxToggleKeysTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0185460
  * Callers:
  *     <none>
  * Callees:
- *     xxxProcessKeyEvent @ 0x1C00C90C0 (xxxProcessKeyEvent.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     ?AccessProceduresStream@@YAHPEAUtagKE@@KH@Z @ 0x1C00E3A10 (-AccessProceduresStream@@YAHPEAUtagKE@@KH@Z.c)
- *     ApiSetEditionPostAccessibilityShortcutNotification @ 0x1C0207294 (ApiSetEditionPostAccessibilityShortcutNotification.c)
- *     ApiSetEditionPostRitSound @ 0x1C0207580 (ApiSetEditionPostRitSound.c)
+ *     PostWinlogonMessage @ 0x1C00763B0 (PostWinlogonMessage.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ?AccessProceduresStream@@YAHPEAUtagKE@@KH@Z @ 0x1C01830F0 (-AccessProceduresStream@@YAHPEAUtagKE@@KH@Z.c)
+ *     xxxProcessKeyEvent @ 0x1C01B1150 (xxxProcessKeyEvent.c)
+ *     ApiSetEditionPostRitSound @ 0x1C01CD44C (ApiSetEditionPostRitSound.c)
  */
 
-void __fastcall xxxToggleKeysTimer(struct tagWND *a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall xxxToggleKeysTimer(struct tagWND *a1, __int64 a2)
 {
-  char v4; // al
-  __int64 v5; // rcx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  _OWORD v10[2]; // [rsp+30h] [rbp-38h] BYREF
+  char v2; // al
+  _OWORD v3[2]; // [rsp+30h] [rbp-38h] BYREF
 
-  v4 = dword_1C02905BC;
-  v5 = 1LL;
-  memset(v10, 0, sizeof(v10));
-  if ( (dword_1C02905BC & 1) != 0 )
+  v2 = dword_1C024F93C;
+  memset(v3, 0, sizeof(v3));
+  if ( (dword_1C024F93C & 1) != 0 )
   {
-    dword_1C02905BC &= ~1u;
-    if ( (v4 & 0x10) != 0 )
+    dword_1C024F93C &= ~1u;
+    if ( (v2 & 0x10) != 0 )
       ApiSetEditionPostRitSound(1LL, a2, 0LL);
   }
   else
   {
-    if ( (dword_1C02905BC & 0x10) != 0 )
+    if ( (dword_1C024F93C & 0x10) != 0 )
       ApiSetEditionPostRitSound(0LL, a2, 0LL);
-    ApiSetEditionPostAccessibilityShortcutNotification(4LL);
+    PostWinlogonMessage(1026LL, 4u);
   }
-  LOBYTE(v10[0]) = gTKScanCode;
-  WORD1(v10[0]) = *(_WORD *)(SGDGetUserSessionState(v5, a2, a3, a4) + 13768) | 0x8000;
-  if ( (unsigned int)AccessProceduresStream((struct tagKE *)v10, gTKExtraInformation, gTKNextProcIndex) )
-    xxxProcessKeyEvent((unsigned __int16 *)v10, gTKExtraInformation, 0, 0, 0LL, 0LL);
-  WORD1(v10[0]) = *(_WORD *)(SGDGetUserSessionState(v7, v6, v8, v9) + 13768);
-  if ( (unsigned int)AccessProceduresStream((struct tagKE *)v10, gTKExtraInformation, gTKNextProcIndex) )
-    xxxProcessKeyEvent((unsigned __int16 *)v10, gTKExtraInformation, 0, 0, 0LL, 0LL);
+  LOBYTE(v3[0]) = gTKScanCode;
+  WORD1(v3[0]) = gNumLockVk | 0x8000;
+  if ( (unsigned int)AccessProceduresStream((struct tagKE *)v3, gTKExtraInformation, gTKNextProcIndex) )
+    xxxProcessKeyEvent(v3, gTKExtraInformation, 0LL, 0LL, 0LL, 0LL);
+  WORD1(v3[0]) = gNumLockVk;
+  if ( (unsigned int)AccessProceduresStream((struct tagKE *)v3, gTKExtraInformation, gTKNextProcIndex) )
+    xxxProcessKeyEvent(v3, gTKExtraInformation, 0LL, 0LL, 0LL, 0LL);
 }

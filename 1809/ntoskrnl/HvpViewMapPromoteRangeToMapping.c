@@ -1,19 +1,19 @@
 /*
- * XREFs of HvpViewMapPromoteRangeToMapping @ 0x1406BA4D0
+ * XREFs of HvpViewMapPromoteRangeToMapping @ 0x1406BA4B0
  * Callers:
  *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
  *     HvpRemapAndEnlistHiveBins @ 0x1405F96A0 (HvpRemapAndEnlistHiveBins.c)
  * Callees:
  *     CmSiGetMemoryAllocationGranularity @ 0x14000F124 (CmSiGetMemoryAllocationGranularity.c)
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
- *     CmSiUnmapViewOfSection @ 0x14013606C (CmSiUnmapViewOfSection.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
+ *     CmSiUnmapViewOfSection @ 0x14013608C (CmSiUnmapViewOfSection.c)
  *     HvpViewMapCreateView @ 0x1405A5570 (HvpViewMapCreateView.c)
  *     HvpViewMapMakeViewRangeValid @ 0x1405A5658 (HvpViewMapMakeViewRangeValid.c)
  *     HvpViewMapFindViewForFileOffset @ 0x1405F9CD0 (HvpViewMapFindViewForFileOffset.c)
- *     HvpViewMapMakeViewRangeInvalid @ 0x1407F6EA8 (HvpViewMapMakeViewRangeInvalid.c)
- *     HvpViewMapMigrateCOWData @ 0x1407F6FB0 (HvpViewMapMigrateCOWData.c)
+ *     HvpViewMapMakeViewRangeInvalid @ 0x1407F6E88 (HvpViewMapMakeViewRangeInvalid.c)
+ *     HvpViewMapMigrateCOWData @ 0x1407F6F90 (HvpViewMapMigrateCOWData.c)
  */
 
 __int64 __fastcall HvpViewMapPromoteRangeToMapping(SIZE_T a1, int a2, unsigned int a3, __int64 *a4)

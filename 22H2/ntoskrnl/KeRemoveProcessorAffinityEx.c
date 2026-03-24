@@ -1,48 +1,43 @@
 /*
- * XREFs of KeRemoveProcessorAffinityEx @ 0x1402C0280
+ * XREFs of KeRemoveProcessorAffinityEx @ 0x1402BBB30
  * Callers:
- *     KiSendFreeze @ 0x14020D170 (KiSendFreeze.c)
- *     KeFreezeExecution @ 0x14020D560 (KeFreezeExecution.c)
- *     KiIpiSetTargetAffinity @ 0x1402543D4 (KiIpiSetTargetAffinity.c)
- *     HalpInterruptSendIpi @ 0x140254C30 (HalpInterruptSendIpi.c)
- *     PpmCheckSnapAllDeliveredPerformance @ 0x140256D60 (PpmCheckSnapAllDeliveredPerformance.c)
- *     KiCheckKeepAlive @ 0x1402BFF1C (KiCheckKeepAlive.c)
- *     KeFlushProcessWriteBuffers @ 0x1402C000C (KeFlushProcessWriteBuffers.c)
- *     PpmIdleExecuteTransition @ 0x1402C52F0 (PpmIdleExecuteTransition.c)
- *     KxFlushSingleTb @ 0x1402EB340 (KxFlushSingleTb.c)
- *     KxFlushNonGlobalTb @ 0x1402EB4C4 (KxFlushNonGlobalTb.c)
- *     PpmPerfApplyProcessorStates @ 0x14034E810 (PpmPerfApplyProcessorStates.c)
- *     KeSynchronizeSecurityDomain @ 0x140356384 (KeSynchronizeSecurityDomain.c)
- *     PpmParkUnblockIdle @ 0x140356610 (PpmParkUnblockIdle.c)
- *     KeSynchronizeAddressPolicy @ 0x1403602AC (KeSynchronizeAddressPolicy.c)
- *     KxFlushMultipleTb @ 0x14038E914 (KxFlushMultipleTb.c)
- *     KxFlushEntireTb @ 0x1403B241C (KxFlushEntireTb.c)
- *     KiForwardTick @ 0x1403CB080 (KiForwardTick.c)
- *     HalpNmiReboot @ 0x14051BE10 (HalpNmiReboot.c)
- *     KeBugCheck2 @ 0x140568330 (KeBugCheck2.c)
- *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057A84C (KiBugCheckRecoveryFreezeOtherProcessors.c)
- *     PpmUnlockProcessors @ 0x1405861F8 (PpmUnlockProcessors.c)
- *     PpmParkComputeUnparkMask @ 0x14059C694 (PpmParkComputeUnparkMask.c)
- *     RtlUpdateSwapReference @ 0x140810658 (RtlUpdateSwapReference.c)
- *     EtwpGetMicroarchitecturalPmcAffinity @ 0x1409E41E4 (EtwpGetMicroarchitecturalPmcAffinity.c)
- *     PnprQuiesceProcessors @ 0x140A9D9C4 (PnprQuiesceProcessors.c)
+ *     HalpInterruptSendIpi @ 0x1402201D0 (HalpInterruptSendIpi.c)
+ *     PpmIdleExecuteTransition @ 0x140222470 (PpmIdleExecuteTransition.c)
+ *     KxFlushEntireTb @ 0x14022F2F0 (KxFlushEntireTb.c)
+ *     PpmParkUnblockIdle @ 0x140307C00 (PpmParkUnblockIdle.c)
+ *     KxFlushNonGlobalTb @ 0x1403097E4 (KxFlushNonGlobalTb.c)
+ *     KiCheckKeepAlive @ 0x140310D70 (KiCheckKeepAlive.c)
+ *     KeSynchronizeSecurityDomain @ 0x1403154EC (KeSynchronizeSecurityDomain.c)
+ *     KeSynchronizeAddressPolicy @ 0x14031B76C (KeSynchronizeAddressPolicy.c)
+ *     KxFlushSingleTb @ 0x140334B68 (KxFlushSingleTb.c)
+ *     KeFlushProcessWriteBuffers @ 0x140343D14 (KeFlushProcessWriteBuffers.c)
+ *     KiIpiSendRequest @ 0x140343EE0 (KiIpiSendRequest.c)
+ *     PpmPerfApplyProcessorStates @ 0x140398250 (PpmPerfApplyProcessorStates.c)
+ *     HalpNmiReboot @ 0x1404D2BC8 (HalpNmiReboot.c)
+ *     KeBugCheck2 @ 0x140516A10 (KeBugCheck2.c)
+ *     KeFreezeExecution @ 0x14051D630 (KeFreezeExecution.c)
+ *     KiSendFreeze @ 0x14051E0C0 (KiSendFreeze.c)
+ *     PpmUnlockProcessors @ 0x140567C38 (PpmUnlockProcessors.c)
+ *     RtlUpdateSwapReference @ 0x1407CABDC (RtlUpdateSwapReference.c)
+ *     EtwpGetMicroarchitecturalPmcAffinity @ 0x14093A3F8 (EtwpGetMicroarchitecturalPmcAffinity.c)
+ *     PnprQuiesceProcessors @ 0x1409AE8B4 (PnprQuiesceProcessors.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall KeRemoveProcessorAffinityEx(unsigned __int16 *a1, int a2)
 {
-  unsigned int v2; // r9d
+  unsigned int v3; // ecx
   __int64 result; // rax
-  unsigned int v4; // edx
+  __int64 v5; // rdx
 
-  v2 = KiProcessorIndexToNumberMappingTable[a2];
-  result = *a1;
-  v4 = v2 >> 6;
-  if ( (unsigned int)result > v2 >> 6 )
+  v3 = KiProcessorIndexToNumberMappingTable[a2];
+  result = v3 >> 6;
+  if ( *a1 > (unsigned int)result )
   {
-    result = *(_QWORD *)&a1[4 * v4 + 4] & ~(1LL << (v2 & 0x3F));
-    *(_QWORD *)&a1[4 * v4 + 4] = result;
+    v5 = (unsigned int)result;
+    result = *(_QWORD *)&a1[4 * result + 4] & ~(1LL << (v3 & 0x3F));
+    *(_QWORD *)&a1[4 * v5 + 4] = result;
   }
   return result;
 }

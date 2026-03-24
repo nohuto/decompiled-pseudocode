@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0InteractiveControlDevice@@QEAA@XZ @ 0x1C02536EC
+ * XREFs of ??0InteractiveControlDevice@@QEAA@XZ @ 0x1C025695C
  * Callers:
- *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C024F594 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C02525A8 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 InteractiveControlDevice *__fastcall InteractiveControlDevice::InteractiveControlDevice(InteractiveControlDevice *this)

@@ -1,58 +1,55 @@
 /*
- * XREFs of ?PopulateEffectTable@CD2DContext@@AEAAJXZ @ 0x1800D1578
+ * XREFs of ?PopulateEffectTable@CD2DContext@@AEAAJXZ @ 0x18002CA30
  * Callers:
- *     ?InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDevice3@@@Z @ 0x1800D1270 (-InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDevice3@@@Z.c)
+ *     ?InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDeviceDWM@@@Z @ 0x18002C2E4 (-InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDeviceDWM@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?ReleaseEffectTable@CD2DContext@@AEAAXXZ @ 0x1800D16A0 (-ReleaseEffectTable@CD2DContext@@AEAAXXZ.c)
- *     ??$ReleaseInterface@UID2D1Effect@@@@YAXAEAPEAUID2D1Effect@@@Z @ 0x1800D16DC (--$ReleaseInterface@UID2D1Effect@@@@YAXAEAPEAUID2D1Effect@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??$ReleaseInterface@UID2D1Geometry@@@@YAXAEAPEAUID2D1Geometry@@@Z @ 0x180017820 (--$ReleaseInterface@UID2D1Geometry@@@@YAXAEAPEAUID2D1Geometry@@@Z.c)
+ *     ?ReleaseEffectTable@CD2DContext@@AEAAXXZ @ 0x18002CE9C (-ReleaseEffectTable@CD2DContext@@AEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD2DContext::PopulateEffectTable(CD2DContext *this)
 {
   int v1; // ebx
   _BYTE *v2; // rsi
-  _QWORD *v3; // r14
+  __int64 *v3; // r14
   __int64 v4; // rdi
   int v7; // eax
-  __int64 v8; // rcx
+  unsigned int v8; // ecx
   __int64 v9; // rcx
-  __int64 v10; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v10; // [rsp+58h] [rbp+10h] BYREF
 
   v1 = 0;
-  v2 = &unk_1803E4D64;
+  v2 = &unk_1803465D4;
   v10 = 0LL;
-  v3 = (_QWORD *)((char *)this + 216);
+  v3 = (__int64 *)((char *)this + 256);
   v4 = 0LL;
-  do
+  while ( !*v2 )
   {
-    if ( *v2 )
-    {
-      v7 = (*(__int64 (__fastcall **)(_QWORD, char *, __int64 *))(**((_QWORD **)this + 25) + 504LL))(
-             *((_QWORD *)this + 25),
-             (char *)&xmmword_1803E4D54 + 24 * v4,
-             &v10);
-      v1 = v7;
-      if ( v7 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x744u, 0LL);
-        goto LABEL_9;
-      }
-      v9 = v10;
-      v10 = 0LL;
-      *v3 = v9;
-    }
+LABEL_3:
     v4 = (unsigned int)(v4 + 1);
     ++v3;
     v2 += 24;
+    if ( (unsigned int)v4 >= 8 )
+      goto LABEL_4;
   }
-  while ( (unsigned int)v4 < 8 );
-  if ( v1 >= 0 )
-    goto LABEL_5;
-LABEL_9:
-  CD2DContext::ReleaseEffectTable(this);
-LABEL_5:
-  ReleaseInterface<ID2D1Effect>(&v10);
+  v7 = (*(__int64 (__fastcall **)(_QWORD, char *, __int64 *))(**((_QWORD **)this + 30) + 504LL))(
+         *((_QWORD *)this + 30),
+         (char *)&xmmword_1803465C4 + 24 * v4,
+         &v10);
+  v1 = v7;
+  if ( v7 >= 0 )
+  {
+    v9 = v10;
+    v10 = 0LL;
+    *v3 = v9;
+    goto LABEL_3;
+  }
+  MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x7D3u, 0LL);
+LABEL_4:
+  if ( v1 < 0 )
+    CD2DContext::ReleaseEffectTable(this);
+  ReleaseInterface<ID2D1Geometry>(&v10);
   return (unsigned int)v1;
 }

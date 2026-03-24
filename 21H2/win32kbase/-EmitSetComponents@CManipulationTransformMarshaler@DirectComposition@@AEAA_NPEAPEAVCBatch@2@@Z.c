@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetComponents@CManipulationTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00B04B0
+ * XREFs of ?EmitSetComponents@CManipulationTransformMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C009B0FC
  * Callers:
- *     ?EmitUpdateCommands@CManipulationTransformMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00B03E0 (-EmitUpdateCommands@CManipulationTransformMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CManipulationTransformMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C009B030 (-EmitUpdateCommands@CManipulationTransformMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CManipulationTransformMarshaler::EmitSetComponents(
@@ -26,20 +26,20 @@ char __fastcall DirectComposition::CManipulationTransformMarshaler::EmitSetCompo
       *(_OWORD *)(v4 + 20) = 0LL;
       *(_OWORD *)(v4 + 36) = 0LL;
       *(_QWORD *)(v4 + 52) = 0LL;
-      *((_DWORD *)v4 + 1) = 253;
-      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
-      *((_DWORD *)v4 + 3) = *((_DWORD *)this + 20);
-      *((_DWORD *)v4 + 4) = *((_DWORD *)this + 21);
-      *((_DWORD *)v4 + 5) = *((_DWORD *)this + 22);
-      *((_DWORD *)v4 + 6) = *((_DWORD *)this + 23);
-      *((_DWORD *)v4 + 7) = *((_DWORD *)this + 24);
-      *((_DWORD *)v4 + 8) = *((_DWORD *)this + 25);
-      *((_DWORD *)v4 + 9) = *((_DWORD *)this + 26);
-      *((_DWORD *)v4 + 10) = *((_DWORD *)this + 27);
-      *((_DWORD *)v4 + 11) = *((_DWORD *)this + 28);
-      *((_DWORD *)v4 + 12) = *((_DWORD *)this + 29);
-      *((_DWORD *)v4 + 13) = *((_DWORD *)this + 30);
-      *((_DWORD *)v4 + 14) = *((_DWORD *)this + 31);
+      *((_DWORD *)v4 + 1) = 262;
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+      *((_DWORD *)v4 + 3) = *((_DWORD *)this + 18);
+      *((_DWORD *)v4 + 4) = *((_DWORD *)this + 19);
+      *((_DWORD *)v4 + 5) = *((_DWORD *)this + 20);
+      *((_DWORD *)v4 + 6) = *((_DWORD *)this + 21);
+      *((_DWORD *)v4 + 7) = *((_DWORD *)this + 22);
+      *((_DWORD *)v4 + 8) = *((_DWORD *)this + 23);
+      *((_DWORD *)v4 + 9) = *((_DWORD *)this + 24);
+      *((_DWORD *)v4 + 10) = *((_DWORD *)this + 25);
+      *((_DWORD *)v4 + 11) = *((_DWORD *)this + 26);
+      *((_DWORD *)v4 + 12) = *((_DWORD *)this + 27);
+      *((_DWORD *)v4 + 13) = *((_DWORD *)this + 28);
+      *((_DWORD *)v4 + 14) = *((_DWORD *)this + 29);
       *((_DWORD *)this + 4) |= 0x80u;
     }
     else

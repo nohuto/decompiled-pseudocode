@@ -2,17 +2,17 @@
  * XREFs of PspCreateThread @ 0x140621D64
  * Callers:
  *     NtCreateThreadEx @ 0x140622100 (NtCreateThreadEx.c)
- *     PsCreateSystemThreadEx @ 0x14066AAE0 (PsCreateSystemThreadEx.c)
- *     NtCreateThread @ 0x140887F40 (NtCreateThread.c)
+ *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
+ *     NtCreateThread @ 0x140887F20 (NtCreateThread.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     PspIsProcessReadyForRemoteThread @ 0x140132200 (PspIsProcessReadyForRemoteThread.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     PspIsProcessReadyForRemoteThread @ 0x140132220 (PspIsProcessReadyForRemoteThread.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
  *     PspAllocateThread @ 0x1405F7E84 (PspAllocateThread.c)
  *     PspInsertThread @ 0x140621450 (PspInsertThread.c)

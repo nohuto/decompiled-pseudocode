@@ -1,24 +1,24 @@
 /*
- * XREFs of IoStartDiskIoAttributionForContext @ 0x14024F7C8
+ * XREFs of IoStartDiskIoAttributionForContext @ 0x14028A250
  * Callers:
- *     PspSetJobIoAttribution @ 0x1406D4A68 (PspSetJobIoAttribution.c)
- *     PspIoRateEntryActivate @ 0x1406D4DF0 (PspIoRateEntryActivate.c)
+ *     PspIoRateEntryActivate @ 0x1405D81B0 (PspIoRateEntryActivate.c)
+ *     PspSetJobIoAttribution @ 0x1406801F0 (PspSetJobIoAttribution.c)
  * Callees:
- *     IopDiskIoAttributionTreeCompare @ 0x140244090 (IopDiskIoAttributionTreeCompare.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbInsertNodeEx @ 0x14034E6B0 (RtlRbInsertNodeEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     IopDiskIoAttributionTreeCompare @ 0x1402C05A8 (IopDiskIoAttributionTreeCompare.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IoStartDiskIoAttributionForContext(__int64 a1)
 {
   KIRQL v2; // al
   __int64 v3; // r8
-  __int64 v4; // rbx
+  unsigned __int64 v4; // rbx
   unsigned __int64 v5; // rsi
   int v6; // edi
-  __int64 v7; // rax
+  unsigned __int64 v7; // rax
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -35,7 +35,7 @@ __int64 __fastcall IoStartDiskIoAttributionForContext(__int64 a1)
   {
     while ( 1 )
     {
-      if ( (int)IopDiskIoAttributionTreeCompare((unsigned __int64 *)(a1 + 24), v4) < 0 )
+      if ( (int)IopDiskIoAttributionTreeCompare(a1 + 24, v4, v3) < 0 )
       {
         v7 = *(_QWORD *)v4;
         if ( v6 )

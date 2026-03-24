@@ -1,91 +1,93 @@
 /*
- * XREFs of ViGenericVerifyIrpStackDownward @ 0x140AC40C0
+ * XREFs of ViGenericVerifyIrpStackDownward @ 0x1409C7550
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCbPrintfA @ 0x140383768 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     VfUtilDbgPrint @ 0x1405CE364 (VfUtilDbgPrint.c)
- *     ViErrorReport1 @ 0x1405CFEB4 (ViErrorReport1.c)
- *     ViErrorReport6 @ 0x1405D0070 (ViErrorReport6.c)
- *     VfMajorIsNewRequest @ 0x140AD3FD8 (VfMajorIsNewRequest.c)
- *     VfMajorIsValidIrpStatus @ 0x140AD4058 (VfMajorIsValidIrpStatus.c)
- *     ViErrorDisplayDescription @ 0x140AD46D0 (ViErrorDisplayDescription.c)
- *     ViErrorFinishReport @ 0x140AD4724 (ViErrorFinishReport.c)
+ *     RtlStringCbPrintfA @ 0x1403A83E4 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     VfUtilDbgPrint @ 0x1405A0634 (VfUtilDbgPrint.c)
+ *     ViErrorReport1 @ 0x1405A1E58 (ViErrorReport1.c)
+ *     ViErrorReport6 @ 0x1405A2014 (ViErrorReport6.c)
+ *     VfMajorIsNewRequest @ 0x1409D7A70 (VfMajorIsNewRequest.c)
+ *     VfMajorIsValidIrpStatus @ 0x1409D7AF0 (VfMajorIsValidIrpStatus.c)
+ *     ViErrorDisplayDescription @ 0x1409D8218 (ViErrorDisplayDescription.c)
+ *     ViErrorFinishReport @ 0x1409D826C (ViErrorFinishReport.c)
  */
 
 __int64 __fastcall ViGenericVerifyIrpStackDownward(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        _BYTE *a4,
+        unsigned __int8 *a4,
         __int64 a5,
         int a6,
         const void *a7)
 {
-  const void *v7; // rbx
+  const void *v7; // rdi
   __int64 v9; // rbp
   unsigned int v11; // r15d
   __int64 result; // rax
-  __int64 v14; // r8
-  __int64 v15; // rbp
-  int v16; // edx
-  unsigned int v17; // ecx
-  unsigned int v18; // [rsp+30h] [rbp-C8h]
-  int v19; // [rsp+34h] [rbp-C4h]
-  int v20; // [rsp+38h] [rbp-C0h]
-  __int64 v21; // [rsp+40h] [rbp-B8h]
-  __int64 v22; // [rsp+48h] [rbp-B0h]
+  unsigned __int8 v14; // cl
+  __int64 v15; // r8
+  __int64 v16; // rbp
+  int v17; // edx
+  unsigned int v18; // ecx
+  unsigned int v19; // [rsp+30h] [rbp-C8h]
+  int v20; // [rsp+34h] [rbp-C4h]
+  int v21; // [rsp+38h] [rbp-C0h]
+  __int64 v22; // [rsp+40h] [rbp-B8h]
+  __int64 v23; // [rsp+48h] [rbp-B0h]
   char pszDest[96]; // [rsp+50h] [rbp-A8h] BYREF
 
   v7 = *(const void **)a1;
   v9 = *(_QWORD *)(a1 + 240);
   v11 = *(_DWORD *)(*(_QWORD *)a1 + 48LL);
-  v20 = *(_DWORD *)(a5 + 96);
-  v22 = *(_QWORD *)(*(_QWORD *)a1 + 56LL);
-  v21 = *(_QWORD *)(a5 + 104);
-  v19 = *(_DWORD *)(a5 + 4) & 0x8000000;
+  v21 = *(_DWORD *)(a5 + 96);
+  v23 = *(_QWORD *)(*(_QWORD *)a1 + 56LL);
+  v22 = *(_QWORD *)(a5 + 104);
+  v20 = *(_DWORD *)(a5 + 4) & 0x8000000;
   result = VfMajorIsNewRequest(a3, a4);
-  v14 = (unsigned int)result;
-  v18 = result;
-  if ( *a4 != 3 && *a4 != 4 && *a4 != 14 && *a4 != 15 && *a4 != 22 && *(_DWORD *)(v9 + 56) == 2 )
+  v14 = *a4;
+  v15 = (unsigned int)result;
+  v19 = result;
+  if ( (*a4 < 3u || v14 > 4u && (v14 <= 0xDu || v14 > 0xFu && v14 != 22)) && *(_DWORD *)(v9 + 56) == 2 )
   {
-    v15 = *(unsigned __int8 *)(a1 + 60);
-    if ( (unsigned __int8)v15 >= 2u && (*(_DWORD *)(a1 + 56) & 0x2000000) == 0 )
+    v16 = *(unsigned __int8 *)(a1 + 60);
+    if ( (unsigned __int8)v16 >= 2u && (*(_DWORD *)(a1 + 56) & 0x2000000) == 0 )
     {
       ViErrorDisplayDescription(769LL);
-      if ( RtlStringCbPrintfA(pszDest, 0x5BuLL, "CulpritAddress = %p, Irp = %p, IRQL = %u.\n", a7, v7, v15) >= 0 )
+      if ( RtlStringCbPrintfA(pszDest, 0x5BuLL, "CulpritAddress = %p, Irp = %p, IRQL = %u.\n", a7, v7, v16) >= 0 )
         VfUtilDbgPrint(pszDest);
-      result = ViErrorFinishReport(769LL, a7, v7, v15);
+      result = ViErrorFinishReport(769LL, a7, v7, v16);
       *(_DWORD *)(a1 + 56) |= 0x2000000u;
-      v14 = v18;
+      v15 = v19;
     }
   }
   if ( a3 )
   {
-    v16 = *(_DWORD *)(a5 + 4);
-    if ( (*(_BYTE *)(a1 + 56) & 0x20) != 0 && (v16 & 0x1000000) == 0 )
+    v17 = *(_DWORD *)(a5 + 4);
+    if ( (*(_BYTE *)(a1 + 56) & 0x20) != 0 && (v17 & 0x1000000) == 0 )
     {
-      if ( (_DWORD)v14 && !v19 )
+      if ( (_DWORD)v15 && !v20 )
       {
-        *(_DWORD *)(a5 + 4) = v16 | 0x1000000;
+        *(_DWORD *)(a5 + 4) = v17 | 0x1000000;
         ViErrorReport1(0x212u, a7, v7);
       }
-      if ( v11 != v20 )
+      if ( v11 != v21 )
       {
         *(_DWORD *)(a5 + 4) |= 0x1000000u;
-        v17 = 571;
+        v18 = 571;
         if ( a4[1] != 0xFF )
-          v17 = 531;
-        ViErrorReport1(v17, a7, v7);
+          v18 = 531;
+        ViErrorReport1(v18, a7, v7);
       }
-      if ( v22 != v21 )
+      if ( v23 != v22 )
       {
         *(_DWORD *)(a5 + 4) |= 0x1000000u;
         ViErrorReport1(0x214u, a7, v7);
       }
     }
-    result = VfMajorIsValidIrpStatus(a4, v11, v14);
+    result = VfMajorIsValidIrpStatus(a4, v11, v15);
     if ( !(_DWORD)result )
       return ViErrorReport6(768LL, a7, v7, v11);
   }

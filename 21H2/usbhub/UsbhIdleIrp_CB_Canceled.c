@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhIdleIrp_CB_Canceled @ 0x1C0057338
+ * XREFs of UsbhIdleIrp_CB_Canceled @ 0x1C0058A08
  * Callers:
- *     UsbhIdleIrp_Event @ 0x1C00576A8 (UsbhIdleIrp_Event.c)
+ *     UsbhIdleIrp_Event @ 0x1C0058D78 (UsbhIdleIrp_Event.c)
  * Callees:
- *     UsbhSetIdleIrpState @ 0x1C0001418 (UsbhSetIdleIrpState.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     UsbhIdleIrp_ReleaseIrp @ 0x1C0057B74 (UsbhIdleIrp_ReleaseIrp.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhSetIdleIrpState @ 0x1C0018E80 (UsbhSetIdleIrpState.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     UsbhIdleIrp_ReleaseIrp @ 0x1C0059244 (UsbhIdleIrp_ReleaseIrp.c)
  */
 
 __int64 __fastcall UsbhIdleIrp_CB_Canceled(ULONG_PTR a1, __int64 a2, __int64 a3, int a4, int a5, KIRQL NewIrql)

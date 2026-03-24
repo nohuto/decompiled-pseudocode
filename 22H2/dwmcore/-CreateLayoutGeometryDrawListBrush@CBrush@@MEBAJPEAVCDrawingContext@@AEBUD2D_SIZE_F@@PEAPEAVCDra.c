@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CreateLayoutGeometryDrawListBrush@CBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDrawListBrush@@@Z @ 0x1800E0F10
+ * XREFs of ?CreateLayoutGeometryDrawListBrush@CBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDrawListBrush@@@Z @ 0x180051A60
  * Callers:
- *     ?CreateLayoutGeometryDrawListBrush@CNineGridBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDrawListBrush@@@Z @ 0x1800E0D50 (-CreateLayoutGeometryDrawListBrush@CNineGridBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEA.c)
+ *     ?CreateLayoutGeometryDrawListBrush@CNineGridBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAPEAVCDrawListBrush@@@Z @ 0x18001C4D0 (-CreateLayoutGeometryDrawListBrush@CNineGridBrush@@MEBAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEA.c)
  * Callees:
- *     ?Create@CGeometryOnlyDrawListBrush@@SAJPEAPEAV1@@Z @ 0x18007E958 (-Create@CGeometryOnlyDrawListBrush@@SAJPEAPEAV1@@Z.c)
- *     ??_ECGeometryOnlyDrawListBrush@@UEAAPEAXI@Z @ 0x18007F180 (--_ECGeometryOnlyDrawListBrush@@UEAAPEAXI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??_ECGeometryOnlyDrawListBrush@@UEAAPEAXI@Z @ 0x180051B20 (--_ECGeometryOnlyDrawListBrush@@UEAAPEAXI@Z.c)
+ *     ?Create@CGeometryOnlyDrawListBrush@@SAJPEAPEAV1@@Z @ 0x180051B68 (-Create@CGeometryOnlyDrawListBrush@@SAJPEAPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CBrush::CreateLayoutGeometryDrawListBrush(
@@ -17,45 +17,42 @@ __int64 __fastcall CBrush::CreateLayoutGeometryDrawListBrush(
   CGeometryOnlyDrawListBrush *v6; // rcx
   int v7; // ebx
   FLOAT width; // xmm1_4
-  CGeometryOnlyDrawListBrush *v9; // rax
   FLOAT height; // xmm0_4
-  CGeometryOnlyDrawListBrush *v11; // rcx
-  CGeometryOnlyDrawListBrush *v13; // [rsp+30h] [rbp-20h] BYREF
-  struct CGeometryOnlyDrawListBrush *v14[2]; // [rsp+38h] [rbp-18h] BYREF
-  char v15; // [rsp+48h] [rbp-8h]
+  CGeometryOnlyDrawListBrush *v10; // rax
+  CGeometryOnlyDrawListBrush *v12; // [rsp+30h] [rbp-20h] BYREF
+  struct CGeometryOnlyDrawListBrush *v13[2]; // [rsp+38h] [rbp-18h] BYREF
+  char v14; // [rsp+48h] [rbp-8h]
 
-  v13 = 0LL;
-  v14[1] = 0LL;
-  v14[0] = (struct CGeometryOnlyDrawListBrush *)&v13;
-  v15 = 1;
-  v7 = CGeometryOnlyDrawListBrush::Create(&v14[1]);
-  if ( v15 )
+  v12 = 0LL;
+  v13[1] = 0LL;
+  v13[0] = (struct CGeometryOnlyDrawListBrush *)&v12;
+  v14 = 1;
+  v7 = CGeometryOnlyDrawListBrush::Create(&v13[1]);
+  if ( v14 )
   {
-    v6 = *(CGeometryOnlyDrawListBrush **)v14[0];
-    *(_QWORD *)v14[0] = v14[1];
+    v6 = *(CGeometryOnlyDrawListBrush **)v13[0];
+    *(_QWORD *)v13[0] = v13[1];
     if ( v6 )
-      CGeometryOnlyDrawListBrush::`vector deleting destructor'(v6, 1);
+      CGeometryOnlyDrawListBrush::`vector deleting destructor'(v6, 1u);
   }
   if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v6, 0LL, 0, v7, 0x8Fu, 0LL);
-    v11 = v13;
+    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v6, 0LL, 0, v7, 0x95u, 0LL);
+    if ( v12 )
+      CGeometryOnlyDrawListBrush::`vector deleting destructor'(v12, 1u);
   }
   else
   {
     width = a3->width;
-    v9 = v13;
     height = a3->height;
-    v14[0] = 0LL;
-    *((_BYTE *)v13 + 52) = 1;
-    v11 = 0LL;
-    *((_DWORD *)v9 + 12) = 50529027;
-    v14[1] = (struct CGeometryOnlyDrawListBrush *)__PAIR64__(LODWORD(height), LODWORD(width));
-    *((_OWORD *)v9 + 2) = *(_OWORD *)v14;
-    *a4 = v13;
-    v13 = 0LL;
+    v10 = v12;
+    v13[0] = 0LL;
+    *(FLOAT *)&v13[1] = width;
+    *((_BYTE *)v12 + 52) = 1;
+    *((_DWORD *)v10 + 12) = 50529027;
+    *((FLOAT *)&v13[1] + 1) = height;
+    *((_OWORD *)v10 + 2) = *(_OWORD *)v13;
+    *a4 = v12;
   }
-  if ( v11 )
-    CGeometryOnlyDrawListBrush::`vector deleting destructor'(v11, 1);
   return (unsigned int)v7;
 }

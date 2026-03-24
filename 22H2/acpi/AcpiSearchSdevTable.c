@@ -1,8 +1,7 @@
 /*
- * XREFs of AcpiSearchSdevTable @ 0x1C0094E08
+ * XREFs of AcpiSearchSdevTable @ 0x1C00B5690
  * Callers:
- *     PnpBiosGetDeviceResourceList @ 0x1C008ED78 (PnpBiosGetDeviceResourceList.c)
- *     AcpiIsDeviceSecure @ 0x1C0094C78 (AcpiIsDeviceSecure.c)
+ *     AcpiIsDeviceSecure @ 0x1C00A264C (AcpiIsDeviceSecure.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +12,7 @@ char __fastcall AcpiSearchSdevTable(__int64 a1, const UNICODE_STRING *a2, _DWORD
   char v4; // si
   unsigned __int64 v5; // rbp
   int i; // r14d
-  __int64 v9; // rax
+  __int64 v9; // rcx
   const char *v10; // rdx
   LONG v11; // ebx
   UNICODE_STRING String2; // [rsp+20h] [rbp-38h] BYREF
@@ -43,8 +42,9 @@ char __fastcall AcpiSearchSdevTable(__int64 a1, const UNICODE_STRING *a2, _DWORD
         *a3 = i;
         return v4;
       }
+      LOWORD(v9) = *(_WORD *)(v3 + 2);
     }
-    v3 += *(unsigned __int16 *)(v3 + 2);
+    v3 += (unsigned __int16)v9;
   }
   return v4;
 }

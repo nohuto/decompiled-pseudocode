@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ @ 0x1C013CE28
+ * XREFs of ?bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ @ 0x1C0019A70
  * Callers:
- *     PDEVOBJ_bCreateHalftoneBrushesWrap @ 0x1C013CE10 (PDEVOBJ_bCreateHalftoneBrushesWrap.c)
+ *     PDEVOBJ_bCreateHalftoneBrushesWrap @ 0x1C0136770 (PDEVOBJ_bCreateHalftoneBrushesWrap.c)
  * Callees:
- *     ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C0092E30 (-pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ.c)
- *     ?bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z @ 0x1C0096C18 (-bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z.c)
- *     ?SETFLAG@@YAXHAECKK@Z @ 0x1C00FB048 (-SETFLAG@@YAXHAECKK@Z.c)
- *     HT_CreateStandardMonoPattern @ 0x1C013D000 (HT_CreateStandardMonoPattern.c)
+ *     HT_CreateStandardMonoPattern @ 0x1C001965C (HT_CreateStandardMonoPattern.c)
+ *     ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C001A8F0 (-pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ.c)
+ *     ?bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z @ 0x1C01122B8 (-bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z.c)
+ *     ?SETFLAG@@YAXHAECKK@Z @ 0x1C0125468 (-SETFLAG@@YAXHAECKK@Z.c)
  */
 
 __int64 __fastcall PDEVOBJ::bCreateHalftoneBrushes(PDEVOBJ *this)
@@ -14,10 +14,10 @@ __int64 __fastcall PDEVOBJ::bCreateHalftoneBrushes(PDEVOBJ *this)
   __int64 v2; // rbx
   __int64 v3; // r14
   __int64 v4; // rsi
-  void *v5; // rax
+  int v5; // eax
   int v6; // r15d
   __int64 v7; // r8
-  void *v8; // rax
+  int v8; // eax
   __int64 v10; // rsi
   __int64 v11; // [rsp+68h] [rbp-19h] BYREF
   char v12; // [rsp+70h] [rbp-11h]
@@ -39,15 +39,15 @@ __int64 __fastcall PDEVOBJ::bCreateHalftoneBrushes(PDEVOBJ *this)
   {
     LODWORD(v2) = 0;
     v3 = 0LL;
-    v4 = 1448LL;
+    v4 = 1456LL;
     do
     {
       v14 = 1;
-      v16 = byte_1C02ED890[v3];
+      v16 = byte_1C02EFEC0[v3];
       v15 = 4;
       v17 = 3848;
       v20 = 0LL;
-      v5 = PDEVOBJ::pDevHTInfo(this);
+      v5 = (unsigned int)PDEVOBJ::pDevHTInfo(this);
       v6 = HT_CreateStandardMonoPattern(v5, &v14);
       if ( v6 <= 0 )
         break;
@@ -71,7 +71,7 @@ __int64 __fastcall PDEVOBJ::bCreateHalftoneBrushes(PDEVOBJ *this)
       *(_QWORD *)(v4 + *(_QWORD *)this) = *(_QWORD *)(v11 + 32);
       v4 += 8LL;
       v20 = *(_QWORD *)(v11 + 72);
-      v8 = PDEVOBJ::pDevHTInfo(this);
+      v8 = (unsigned int)PDEVOBJ::pDevHTInfo(this);
       if ( (unsigned int)HT_CreateStandardMonoPattern(v8, &v14) != v6 )
       {
 LABEL_11:
@@ -80,16 +80,16 @@ LABEL_11:
       }
       SURFMEM::~SURFMEM((SURFMEM *)&v11);
     }
-    while ( v4 < 1496 );
+    while ( v4 < 1504 );
     if ( (int)v2 >= 6 )
     {
-      SETFLAG(1, (volatile unsigned int *)(*(_QWORD *)this + 40LL), 256);
+      SETFLAG(1, (volatile unsigned int *)(*(_QWORD *)this + 40LL), 0x100u);
       return 1LL;
     }
     v2 = (int)v2;
     if ( (int)v2 > 0 )
     {
-      v10 = 8LL * (int)v2 + 1448;
+      v10 = 8LL * (int)v2 + 1456;
       do
       {
         v10 -= 8LL;

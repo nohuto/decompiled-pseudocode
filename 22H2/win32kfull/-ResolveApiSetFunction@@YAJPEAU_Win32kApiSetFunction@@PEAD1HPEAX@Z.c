@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ResolveApiSetFunction@@YAJPEAU_Win32kApiSetFunction@@PEAD1HPEAX@Z @ 0x1C00BF048
+ * XREFs of ?ResolveApiSetFunction@@YAJPEAU_Win32kApiSetFunction@@PEAD1HPEAX@Z @ 0x1C0126E04
  * Callers:
- *     ?ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z @ 0x1C00BEF64 (-ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z.c)
+ *     ?ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z @ 0x1C0126D30 (-ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z.c)
  * Callees:
  *     <none>
  */

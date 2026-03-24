@@ -1,22 +1,22 @@
 /*
- * XREFs of PipProcessRebuildPowerRelationsQueue @ 0x1406EB830
+ * XREFs of PipProcessRebuildPowerRelationsQueue @ 0x1406EB810
  * Callers:
- *     IoResolveDependency @ 0x140181BB0 (IoResolveDependency.c)
+ *     IoResolveDependency @ 0x140181BD0 (IoResolveDependency.c)
  *     PnpDeleteAllDependencyRelations @ 0x14059F218 (PnpDeleteAllDependencyRelations.c)
- *     PnpNewDeviceNodeDependencyCheck @ 0x1406EB74C (PnpNewDeviceNodeDependencyCheck.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x1406ED448 (PnpSurpriseRemoveLockedDeviceNode.c)
- *     IoDuplicateDependency @ 0x1408238E0 (IoDuplicateDependency.c)
- *     IoSetDependency @ 0x140823AA0 (IoSetDependency.c)
+ *     PnpNewDeviceNodeDependencyCheck @ 0x1406EB72C (PnpNewDeviceNodeDependencyCheck.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x1406ED428 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     IoDuplicateDependency @ 0x1408238C0 (IoDuplicateDependency.c)
+ *     IoSetDependency @ 0x140823A80 (IoSetDependency.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
  *     PnpAcquireDependencyRelationsLock @ 0x14059D8F4 (PnpAcquireDependencyRelationsLock.c)
- *     PiGetProviderList @ 0x1406E6C40 (PiGetProviderList.c)
- *     PipIsDeviceReadyForPowerRelations @ 0x1406EB9CC (PipIsDeviceReadyForPowerRelations.c)
- *     PiQueryPowerRelations @ 0x14070B968 (PiQueryPowerRelations.c)
- *     PipDeleteDependencyNode @ 0x14075D8CC (PipDeleteDependencyNode.c)
- *     PiEnumerateProviderListEntry @ 0x140823B6C (PiEnumerateProviderListEntry.c)
+ *     PiGetProviderList @ 0x1406E6C20 (PiGetProviderList.c)
+ *     PipIsDeviceReadyForPowerRelations @ 0x1406EB9AC (PipIsDeviceReadyForPowerRelations.c)
+ *     PiQueryPowerRelations @ 0x14070B948 (PiQueryPowerRelations.c)
+ *     PipDeleteDependencyNode @ 0x14075D8AC (PipDeleteDependencyNode.c)
+ *     PiEnumerateProviderListEntry @ 0x140823B4C (PiEnumerateProviderListEntry.c)
  */
 
 void PipProcessRebuildPowerRelationsQueue()

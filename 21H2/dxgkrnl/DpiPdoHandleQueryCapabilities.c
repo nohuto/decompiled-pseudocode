@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiPdoHandleQueryCapabilities @ 0x1C01F3BB0
+ * XREFs of DpiPdoHandleQueryCapabilities @ 0x1C017A860
  * Callers:
  *     <none>
  * Callees:
- *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C0011E60 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000A84C (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
  */
 
 __int64 __fastcall DpiPdoHandleQueryCapabilities(__int64 a1, __int64 a2)

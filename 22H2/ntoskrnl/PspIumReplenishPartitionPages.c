@@ -1,64 +1,64 @@
 /*
- * XREFs of PspIumReplenishPartitionPages @ 0x1405A6290
+ * XREFs of PspIumReplenishPartitionPages @ 0x140583EB8
  * Callers:
- *     PsDispatchIumService @ 0x1405A4EF4 (PsDispatchIumService.c)
- *     PspIumGetPhysicalPage @ 0x1408A6070 (PspIumGetPhysicalPage.c)
+ *     PsDispatchIumService @ 0x140582C34 (PsDispatchIumService.c)
+ *     PspIumGetPhysicalPage @ 0x14090CB8C (PspIumGetPhysicalPage.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140312010 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MmAllocateNonChargedSecurePages @ 0x14065750C (MmAllocateNonChargedSecurePages.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1402610E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140295410 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmAllocateNonChargedSecurePages @ 0x14053424C (MmAllocateNonChargedSecurePages.c)
  */
 
 bool __fastcall PspIumReplenishPartitionPages(__int64 a1, unsigned int a2)
 {
-  __int64 v2; // r12
-  unsigned __int8 CurrentIrql; // di
+  __int64 v3; // r15
+  unsigned __int8 CurrentIrql; // si
   _DWORD *SchedulerAssist; // r9
-  int v7; // eax
-  unsigned __int8 v8; // al
+  unsigned __int8 v7; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v10; // r9
-  int v11; // edx
-  bool v12; // zf
-  __int64 v14; // rdx
-  unsigned int i; // esi
-  int v16; // eax
+  _DWORD *v9; // r9
+  int v10; // edx
+  bool v11; // zf
+  __int64 v13; // rdx
+  unsigned int i; // edi
+  int v15; // eax
+  __int64 v16; // rcx
   __int64 v17; // rax
   unsigned __int8 v18; // al
   struct _KPRCB *v19; // r9
   _DWORD *v20; // r8
   int v21; // eax
-  int v22; // [rsp+50h] [rbp+8h] BYREF
+  unsigned int v22; // [rsp+50h] [rbp+8h] BYREF
 
-  v2 = *(_QWORD *)(a1 + 160);
+  v3 = *(_QWORD *)(a1 + 160) + 48LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    v7 = 4;
-    if ( CurrentIrql != 2 )
-      v7 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v7;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
-  if ( !(unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel() )
+  if ( !(unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(a1 + 88)) )
   {
     if ( *(_DWORD *)(a1 + 4) >= a2 )
     {
       if ( KiIrqlFlags )
       {
-        v8 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          v10 = CurrentPrcb->SchedulerAssist;
-          v11 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v12 = (v11 & v10[5]) == 0;
-          v10[5] &= v11;
-          if ( v12 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          v7 = KeGetCurrentIrql();
+          if ( v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            v9 = CurrentPrcb->SchedulerAssist;
+            v10 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+            v11 = (v10 & v9[5]) == 0;
+            v9[5] &= v10;
+            if ( v11 )
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          }
         }
       }
       __writecr8(CurrentIrql);
@@ -66,11 +66,11 @@ bool __fastcall PspIumReplenishPartitionPages(__int64 a1, unsigned int a2)
     }
     ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 88));
   }
-  v14 = *(unsigned int *)(a1 + 156);
-  v22 = *(_DWORD *)(a1 + 152) - v14 - *(_DWORD *)(a1 + 4);
+  v13 = *(unsigned int *)(a1 + 156);
+  v22 = *(_DWORD *)(a1 + 152) - v13 - *(_DWORD *)(a1 + 4);
   if ( v22 )
   {
-    MmAllocateNonChargedSecurePages(*(_QWORD *)(a1 + 8), 0LL, &v22, v2 + 8 * v14);
+    MmAllocateNonChargedSecurePages(*(ULONG_PTR ***)(a1 + 8), &v22, (__int64 *)(v3 + 8 * v13));
     *(_DWORD *)(a1 + 156) += v22;
   }
   i = *(_DWORD *)(a1 + 4);
@@ -80,12 +80,13 @@ bool __fastcall PspIumReplenishPartitionPages(__int64 a1, unsigned int a2)
       _mm_pause();
     for ( i = *(_DWORD *)(a1 + 4); i < 8; *(_DWORD *)(a1 + 4) = i )
     {
-      v16 = *(_DWORD *)(a1 + 156);
-      if ( !v16 )
+      v15 = *(_DWORD *)(a1 + 156);
+      if ( !v15 )
         break;
-      v17 = (unsigned int)(v16 - 1);
+      v16 = *(unsigned int *)(a1 + 4);
+      v17 = (unsigned int)(v15 - 1);
       *(_DWORD *)(a1 + 156) = v17;
-      *(_QWORD *)(a1 + 8LL * i + 24) = *(_QWORD *)(v2 + 8 * v17);
+      *(_QWORD *)(a1 + 8 * v16 + 24) = *(_QWORD *)(v3 + 8 * v17);
       i = *(_DWORD *)(a1 + 4) + 1;
     }
     _interlockedbittestandreset((volatile signed __int32 *)a1, 0);
@@ -93,16 +94,19 @@ bool __fastcall PspIumReplenishPartitionPages(__int64 a1, unsigned int a2)
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 88));
   if ( KiIrqlFlags )
   {
-    v18 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      v19 = KeGetCurrentPrcb();
-      v20 = v19->SchedulerAssist;
-      v21 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v12 = (v21 & v20[5]) == 0;
-      v20[5] &= v21;
-      if ( v12 )
-        KiRemoveSystemWorkPriorityKick((__int64)v19);
+      v18 = KeGetCurrentIrql();
+      if ( v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+      {
+        v19 = KeGetCurrentPrcb();
+        v20 = v19->SchedulerAssist;
+        v21 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v11 = (v21 & v20[5]) == 0;
+        v20[5] &= v21;
+        if ( v11 )
+          KiRemoveSystemWorkPriorityKick((__int64)v19);
+      }
     }
   }
   __writecr8(CurrentIrql);

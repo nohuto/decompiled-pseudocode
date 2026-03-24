@@ -1,12 +1,12 @@
 /*
- * XREFs of ExGetSuiteMask @ 0x1407550F0
+ * XREFs of ExGetSuiteMask @ 0x1407550D0
  * Callers:
- *     PspSiloInitializeSuiteMask @ 0x14088796C (PspSiloInitializeSuiteMask.c)
+ *     PspSiloInitializeSuiteMask @ 0x14088794C (PspSiloInitializeSuiteMask.c)
  *     ExpInitSystemPhase0 @ 0x1409D51A0 (ExpInitSystemPhase0.c)
  * Callees:
- *     RtlGetProductInfo @ 0x14018D600 (RtlGetProductInfo.c)
- *     ExpGetProductInfoSuiteTypeMap @ 0x140755184 (ExpGetProductInfoSuiteTypeMap.c)
- *     ExpParseSuiteMask @ 0x1407551CC (ExpParseSuiteMask.c)
+ *     RtlGetProductInfo @ 0x14018D620 (RtlGetProductInfo.c)
+ *     ExpGetProductInfoSuiteTypeMap @ 0x140755164 (ExpGetProductInfoSuiteTypeMap.c)
+ *     ExpParseSuiteMask @ 0x1407551AC (ExpParseSuiteMask.c)
  */
 
 __int64 __fastcall ExGetSuiteMask(__int64 a1, char a2)
@@ -23,7 +23,7 @@ __int64 __fastcall ExGetSuiteMask(__int64 a1, char a2)
   if ( RtlGetProductInfo(6u, 0, 0, 0, &ReturnedProductType) && ReturnedProductType != -1412584499 )
   {
     v4 = 0;
-    v5 = &dword_14090C244;
+    v5 = &dword_14090C224;
     v6 = 51LL;
     do
     {

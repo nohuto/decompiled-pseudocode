@@ -1,28 +1,26 @@
 /*
- * XREFs of ?MasterInputThreadDeactivated@CMouseProcessor@@UEAAXXZ @ 0x1C00C47C0
+ * XREFs of ?MasterInputThreadDeactivated@CMouseProcessor@@UEAAXXZ @ 0x1C00B5620
  * Callers:
  *     <none>
  * Callees:
- *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C0037CB8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
- *     ?DropAllMouseInput@BufferedMouseInputList@CMouseProcessor@@QEAAXXZ @ 0x1C00C4824 (-DropAllMouseInput@BufferedMouseInputList@CMouseProcessor@@QEAAXXZ.c)
- *     ?Disable@MouseInterceptState@CMouseProcessor@@QEAA_NW4DisableReason@12@@Z @ 0x1C00C4848 (-Disable@MouseInterceptState@CMouseProcessor@@QEAA_NW4DisableReason@12@@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ?_CalledOnInputThread@CInputThread@@AEBA_NXZ @ 0x1C0042200 (-_CalledOnInputThread@CInputThread@@AEBA_NXZ.c)
+ *     ?HandleMITTermination@CMouseProcessor@@AEAAXXZ @ 0x1C00B56AC (-HandleMITTermination@CMouseProcessor@@AEAAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CMouseProcessor::MasterInputThreadDeactivated(CMouseProcessor *this)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
+  CInputThread *v1; // rdi
+  bool v3; // bl
 
-  if ( !CInputThreadBase::IsInputThread(gpInputThread) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v3, v2, v4);
-  if ( !CInputThreadBase::IsInputThread(gpInputThread) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(v6, v5, v7);
-  CMouseProcessor::MouseInterceptState::Disable((char *)this + 3704);
-  CMouseProcessor::BufferedMouseInputList::DropAllMouseInput((CMouseProcessor *)((char *)this + 3848));
-  *((_DWORD *)this + 2) = 1;
+  v1 = gpInputThread;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockSharedEx(v1, 0LL);
+  v3 = CInputThread::_CalledOnInputThread(v1);
+  ExReleasePushLockSharedEx(v1, 0LL);
+  KeLeaveCriticalRegion();
+  if ( !v3 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 786LL);
+  CMouseProcessor::HandleMITTermination(this);
+  *((_DWORD *)this + 3) = 1;
 }

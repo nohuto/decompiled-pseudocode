@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhTrapBadIrp @ 0x1C002D620
+ * XREFs of UsbhTrapBadIrp @ 0x1C002EA30
  * Callers:
- *     UsbhGenDispatch @ 0x1C001C560 (UsbhGenDispatch.c)
+ *     UsbhGenDispatch @ 0x1C001A1A0 (UsbhGenDispatch.c)
  * Callees:
- *     USBHUB_TriggerCallBacks @ 0x1C00413B4 (USBHUB_TriggerCallBacks.c)
+ *     USBHUB_TriggerCallBacks @ 0x1C0042660 (USBHUB_TriggerCallBacks.c)
  */
 
 void __fastcall __noreturn UsbhTrapBadIrp(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)

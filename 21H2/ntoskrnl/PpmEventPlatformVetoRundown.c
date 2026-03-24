@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmEventPlatformVetoRundown @ 0x1405DA68C
+ * XREFs of PpmEventPlatformVetoRundown @ 0x14057A0C0
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140864680 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407D53F0 (PpmEventTraceControlCallback.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PpmEventTracePreVetoAccounting @ 0x1405DB13C (PpmEventTracePreVetoAccounting.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmEventTracePreVetoAccounting @ 0x14057AB68 (PpmEventTracePreVetoAccounting.c)
  */
 
 void PpmEventPlatformVetoRundown()
@@ -59,7 +59,7 @@ void PpmEventPlatformVetoRundown()
           UserData.Reserved = 0;
           UserData.Ptr = (ULONGLONG)&i;
           UserData.Size = 4;
-          v5 = (_QWORD **)(448 * v4 + v1 + 88);
+          v5 = (_QWORD **)(384 * v4 + v1 + 88);
           v6 = *v5;
           if ( *v5 != v5 )
           {

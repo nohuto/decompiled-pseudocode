@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlpOplockSendModernAppTermination @ 0x140134CE0
+ * XREFs of FsRtlpOplockSendModernAppTermination @ 0x140134D00
  * Callers:
  *     FsRtlpOplockBreakByCacheFlags @ 0x140018CB0 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockBreakToII @ 0x140130710 (FsRtlpOplockBreakToII.c)
- *     FsRtlpOplockBreakToNone @ 0x14013AAEC (FsRtlpOplockBreakToNone.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3914 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlpOplockBreakNotify @ 0x140815458 (FsRtlpOplockBreakNotify.c)
+ *     FsRtlpOplockBreakToII @ 0x140130730 (FsRtlpOplockBreakToII.c)
+ *     FsRtlpOplockBreakToNone @ 0x14013AB0C (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3934 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpOplockBreakNotify @ 0x140815438 (FsRtlpOplockBreakNotify.c)
  * Callees:
- *     FsRtlSendModernAppTermination @ 0x14018AF80 (FsRtlSendModernAppTermination.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     FsRtlSendModernAppTermination @ 0x14018AFA0 (FsRtlSendModernAppTermination.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

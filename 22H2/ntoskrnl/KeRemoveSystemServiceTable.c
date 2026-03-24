@@ -1,9 +1,9 @@
 /*
- * XREFs of KeRemoveSystemServiceTable @ 0x140973E40
+ * XREFs of KeRemoveSystemServiceTable @ 0x1408BAE00
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1600 (MmGetSessionIdEx.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
  */
 
 char __fastcall KeRemoveSystemServiceTable(int a1)
@@ -13,13 +13,13 @@ char __fastcall KeRemoveSystemServiceTable(int a1)
   if ( (unsigned int)MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process) )
     return 1;
   if ( (unsigned int)(a1 - 1) <= 1
-    && ((_QWORD)xmmword_140E018E0 || (_QWORD)xmmword_140D1F160 || (_QWORD)xmmword_140D1F2E0) )
+    && ((_QWORD)xmmword_140E018E0 || (_QWORD)xmmword_140CFCA60 || (_QWORD)xmmword_140CFCC20) )
   {
     if ( a1 == 1 )
     {
-      *(_QWORD *)&xmmword_140D1F160 = 0LL;
-      LODWORD(xmmword_140D1F170) = 0;
-      *((_QWORD *)&xmmword_140D1F170 + 1) = 0LL;
+      *(_QWORD *)&xmmword_140CFCA60 = 0LL;
+      LODWORD(xmmword_140CFCA70) = 0;
+      *((_QWORD *)&xmmword_140CFCA70 + 1) = 0LL;
     }
     else
     {

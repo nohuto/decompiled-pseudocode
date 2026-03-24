@@ -1,17 +1,17 @@
 /*
- * XREFs of PopFxLogSocSubsystemBlockingTimes @ 0x1409850E8
+ * XREFs of PopFxLogSocSubsystemBlockingTimes @ 0x1408E4B60
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C78A0 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570498 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopDiagTraceSleepStudyBlocker @ 0x140594C0C (PopDiagTraceSleepStudyBlocker.c)
- *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140878E08 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
- *     PopPluginQuerySocSubsystemBlockingTime @ 0x140986528 (PopPluginQuerySocSubsystemBlockingTime.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PopDiagTraceSleepStudyBlocker @ 0x140572FB4 (PopDiagTraceSleepStudyBlocker.c)
+ *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x1408E510C (PopFxLookupSocSubsystemsByPlatformIdleState.c)
+ *     PopPluginQuerySocSubsystemBlockingTime @ 0x1408E5D8C (PopPluginQuerySocSubsystemBlockingTime.c)
  */
 
-__int64 __fastcall PopFxLogSocSubsystemBlockingTimes(__int64 a1, int a2)
+__int64 __fastcall PopFxLogSocSubsystemBlockingTimes(__int64 a1, unsigned int a2)
 {
-  unsigned int v3; // ebx
+  unsigned int v2; // ebx
   __int64 v4; // rax
   __int64 v5; // rcx
   __int64 v6; // rdi
@@ -23,33 +23,31 @@ __int64 __fastcall PopFxLogSocSubsystemBlockingTimes(__int64 a1, int a2)
   int v13; // [rsp+2Ch] [rbp-85h] BYREF
   __int64 v14; // [rsp+30h] [rbp-81h] BYREF
   __int64 v15; // [rsp+38h] [rbp-79h] BYREF
-  int v16; // [rsp+40h] [rbp-71h] BYREF
-  int v17; // [rsp+44h] [rbp-6Dh]
-  __int64 v18; // [rsp+48h] [rbp-69h]
-  unsigned __int16 *v19; // [rsp+50h] [rbp-61h]
-  __int64 v20; // [rsp+58h] [rbp-59h]
-  int v21; // [rsp+60h] [rbp-51h]
-  int v22; // [rsp+64h] [rbp-4Dh]
-  struct _EVENT_DATA_DESCRIPTOR v23; // [rsp+68h] [rbp-49h] BYREF
-  __int64 v24; // [rsp+78h] [rbp-39h]
-  __int64 v25; // [rsp+80h] [rbp-31h]
-  int *v26; // [rsp+88h] [rbp-29h]
-  __int64 v27; // [rsp+90h] [rbp-21h]
-  __int64 v28; // [rsp+98h] [rbp-19h]
-  int v29; // [rsp+A0h] [rbp-11h]
-  int v30; // [rsp+A4h] [rbp-Dh]
-  __int64 v31; // [rsp+A8h] [rbp-9h]
-  __int64 v32; // [rsp+B0h] [rbp-1h]
-  __int64 *v33; // [rsp+B8h] [rbp+7h]
-  __int64 v34; // [rsp+C0h] [rbp+Fh]
-  __int64 *v35; // [rsp+C8h] [rbp+17h]
-  __int64 v36; // [rsp+D0h] [rbp+1Fh]
+  _DWORD v16[2]; // [rsp+40h] [rbp-71h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-69h]
+  unsigned __int16 *v18; // [rsp+50h] [rbp-61h]
+  __int64 v19; // [rsp+58h] [rbp-59h]
+  int v20; // [rsp+60h] [rbp-51h]
+  int v21; // [rsp+64h] [rbp-4Dh]
+  struct _EVENT_DATA_DESCRIPTOR v22; // [rsp+68h] [rbp-49h] BYREF
+  __int64 v23; // [rsp+78h] [rbp-39h]
+  __int64 v24; // [rsp+80h] [rbp-31h]
+  int *v25; // [rsp+88h] [rbp-29h]
+  __int64 v26; // [rsp+90h] [rbp-21h]
+  __int64 v27; // [rsp+98h] [rbp-19h]
+  int v28; // [rsp+A0h] [rbp-11h]
+  int v29; // [rsp+A4h] [rbp-Dh]
+  __int64 v30; // [rsp+A8h] [rbp-9h]
+  __int64 v31; // [rsp+B0h] [rbp-1h]
+  __int64 *v32; // [rsp+B8h] [rbp+7h]
+  __int64 v33; // [rsp+C0h] [rbp+Fh]
+  __int64 *v34; // [rsp+C8h] [rbp+17h]
+  __int64 v35; // [rsp+D0h] [rbp+1Fh]
 
   v15 = PopWnfCsEnterScenarioId;
   v14 = 0LL;
-  v17 = 0;
+  v2 = 0;
   v12 = 0;
-  v3 = 0;
   v13 = 0;
   v4 = PopFxLookupSocSubsystemsByPlatformIdleState(a2);
   v6 = v4;
@@ -60,39 +58,39 @@ __int64 __fastcall PopFxLogSocSubsystemBlockingTimes(__int64 a1, int a2)
     {
       while ( 1 )
       {
-        v17 = 0;
-        v22 = 0;
-        v16 = a2;
+        v16[1] = 0;
+        v21 = 0;
+        v16[0] = a2;
         v8 = 344LL * v7;
         v9 = (unsigned __int16 *)(v8 + v6 + 40);
-        v18 = *(_QWORD *)(v8 + v6 + 64);
-        v19 = v9;
-        v20 = 0LL;
-        v21 = 0;
-        if ( !(unsigned __int8)PopPluginQuerySocSubsystemBlockingTime(v5, *(unsigned int *)(v8 + v6 + 60), &v16) )
+        v17 = *(_QWORD *)(v8 + v6 + 64);
+        v18 = v9;
+        v19 = 0LL;
+        v20 = 0;
+        if ( !(unsigned __int8)PopPluginQuerySocSubsystemBlockingTime(v5, *(unsigned int *)(v8 + v6 + 60), v16) )
           break;
-        v14 = v20;
+        v14 = v19;
         v12 = v15;
-        v23.Ptr = (ULONGLONG)&v12;
-        *(_QWORD *)&v23.Size = 1LL;
-        v24 = v8 + v6 + 88;
-        v25 = 16LL;
+        v22.Ptr = (ULONGLONG)&v12;
+        *(_QWORD *)&v22.Size = 1LL;
+        v23 = v8 + v6 + 88;
+        v24 = 16LL;
         v13 = *v9 >> 1;
-        v26 = &v13;
-        v27 = 4LL;
+        v25 = &v13;
+        v26 = 4LL;
         v10 = *v9;
-        v28 = *(_QWORD *)(v8 + v6 + 48);
-        v29 = v10;
-        v31 = v8 + v6 + 72;
-        v33 = &v14;
-        v35 = &v15;
-        v30 = 0;
-        v32 = 16LL;
-        v34 = 8LL;
-        v36 = 8LL;
-        PopDiagTraceSleepStudyBlocker(v10, &v23);
+        v27 = *(_QWORD *)(v8 + v6 + 48);
+        v28 = v10;
+        v30 = v8 + v6 + 72;
+        v32 = &v14;
+        v34 = &v15;
+        v29 = 0;
+        v31 = 16LL;
+        v33 = 8LL;
+        v35 = 8LL;
+        PopDiagTraceSleepStudyBlocker(v10, &v22);
         if ( ++v7 >= *(_DWORD *)(v6 + 20) )
-          return v3;
+          return v2;
       }
       return (unsigned int)-1073741595;
     }
@@ -101,5 +99,5 @@ __int64 __fastcall PopFxLogSocSubsystemBlockingTimes(__int64 a1, int a2)
   {
     return (unsigned int)-1073741584;
   }
-  return v3;
+  return v2;
 }

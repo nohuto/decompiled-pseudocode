@@ -1,23 +1,23 @@
 /*
- * XREFs of ??_ECFlipQueuedObject@@MEAAPEAXI@Z @ 0x1C007FBC0
+ * XREFs of ??_ECFlipQueuedObject@@MEAAPEAXI@Z @ 0x1C00683E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_QWORD *__fastcall CFlipQueuedObject::`vector deleting destructor'(_QWORD *P, char a2)
+char *__fastcall CFlipQueuedObject::`vector deleting destructor'(char *P, char a2)
 {
-  _QWORD *v3; // rcx
+  char *v3; // rax
   __int64 v4; // r8
-  _QWORD *v5; // rax
+  char **v5; // rcx
 
-  *P = &CFlipPresentCancel::`vftable';
-  v3 = (_QWORD *)((unsigned __int64)(P + 1) & -(__int64)(P != 0LL));
-  v4 = *v3;
-  if ( *(_QWORD **)(*v3 + 8LL) != v3 || (v5 = (_QWORD *)v3[1], (_QWORD *)*v5 != v3) )
+  *(_QWORD *)P = &CFlipPresentCancel::`vftable';
+  v3 = P + 8;
+  v4 = *((_QWORD *)P + 1);
+  if ( *(char **)(v4 + 8) != P + 8 || (v5 = (char **)*((_QWORD *)P + 2), *v5 != v3) )
     __fastfail(3u);
-  *v5 = v4;
+  *v5 = (char *)v4;
   *(_QWORD *)(v4 + 8) = v5;
   if ( (a2 & 1) != 0 )
     ExFreePoolWithTag(P, 0);

@@ -1,45 +1,42 @@
 /*
- * XREFs of _RegRtlQueryValue @ 0x1406CE918
+ * XREFs of _RegRtlQueryValue @ 0x1406BB0F8
  * Callers:
- *     PnpGetServiceStartType @ 0x14068F410 (PnpGetServiceStartType.c)
- *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1406C948C (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
- *     _CmAddDeviceToContainerWorker @ 0x1407956A8 (_CmAddDeviceToContainerWorker.c)
- *     PiCMValidateDeviceInstance @ 0x14079A3C8 (PiCMValidateDeviceInstance.c)
- *     _CmIsDeviceInContainer @ 0x14079B710 (_CmIsDeviceInContainer.c)
- *     _PnpRegQueryValueIndirect @ 0x1407BB240 (_PnpRegQueryValueIndirect.c)
- *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x1407C6530 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14080C9B4 (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
- *     PnpHardwareConfigCreateBootDriverFlags @ 0x140812B88 (PnpHardwareConfigCreateBootDriverFlags.c)
- *     PipHardwareConfigGetIndex @ 0x140813170 (PipHardwareConfigGetIndex.c)
- *     _CmDeviceClassesSubkeyCallback @ 0x14082CAC0 (_CmDeviceClassesSubkeyCallback.c)
- *     IopGetOriginalServiceName @ 0x140837094 (IopGetOriginalServiceName.c)
- *     _SysCtxOpenControlSet @ 0x140856138 (_SysCtxOpenControlSet.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140876094 (_PnpGetGenericStorePropertyKeys.c)
- *     DrvDbGetRegValueMappedProperty @ 0x14087798C (DrvDbGetRegValueMappedProperty.c)
- *     _PnpCtxRegQueryValue @ 0x140877BAC (_PnpCtxRegQueryValue.c)
- *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x14088161C (_CmGetInstallerClassMappedPropertyFromRegValue.c)
- *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x140882F04 (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
- *     PipHardwareConfigGetLastUseTime @ 0x140952000 (PipHardwareConfigGetLastUseTime.c)
- *     PnpCheckDriverDependencies @ 0x140958688 (PnpCheckDriverDependencies.c)
- *     PiUEventBroadcastPortsChangedEvent @ 0x140959BEC (PiUEventBroadcastPortsChangedEvent.c)
- *     PiCMCreateDevice @ 0x1409684E0 (PiCMCreateDevice.c)
- *     PiDrvDbOverlayCopyKeys @ 0x140970238 (PiDrvDbOverlayCopyKeys.c)
- *     PiDrvDbOverlayNodeHive @ 0x1409707D8 (PiDrvDbOverlayNodeHive.c)
- *     PiDrvDbQueryHiveFileName @ 0x140970C14 (PiDrvDbQueryHiveFileName.c)
- *     PiDrvDbQuerySyncNodesUpdated @ 0x140970D90 (PiDrvDbQuerySyncNodesUpdated.c)
- *     _CmAddPanelDeviceWorker @ 0x140A65A10 (_CmAddPanelDeviceWorker.c)
- *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x140A6B75C (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
- *     DrvDbGetDriverFileMappedPropertyKeys @ 0x140A6BBF4 (DrvDbGetDriverFileMappedPropertyKeys.c)
- *     DrvDbGetDriverInfFileMappedPropertyKeys @ 0x140A6BDA0 (DrvDbGetDriverInfFileMappedPropertyKeys.c)
- *     DrvDbGetDriverPackageMappedPropertyKeys @ 0x140A6BF4C (DrvDbGetDriverPackageMappedPropertyKeys.c)
- *     DrvDbSetDriverPackageMappedProperty @ 0x140A6D224 (DrvDbSetDriverPackageMappedProperty.c)
+ *     _PnpRegQueryValueIndirect @ 0x14067DD50 (_PnpRegQueryValueIndirect.c)
+ *     PiCMValidateDeviceInstance @ 0x140684800 (PiCMValidateDeviceInstance.c)
+ *     _PnpCtxRegQueryValue @ 0x14069E104 (_PnpCtxRegQueryValue.c)
+ *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x1406B4084 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x1406B43BC (DrvDbGetRegValueMappedProperty.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1406F9E98 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     DrvDbSetDriverPackageMappedProperty @ 0x140727E7C (DrvDbSetDriverPackageMappedProperty.c)
+ *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x140738768 (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x140739C14 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
+ *     PnpGetServiceStartType @ 0x14073F214 (PnpGetServiceStartType.c)
+ *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140752610 (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmAddDeviceToContainerWorker @ 0x140758A70 (_CmAddDeviceToContainerWorker.c)
+ *     _CmIsDeviceInContainer @ 0x14075A304 (_CmIsDeviceInContainer.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1407675A0 (_PnpGetGenericStorePropertyKeys.c)
+ *     _SysCtxOpenControlSet @ 0x1407A4F54 (_SysCtxOpenControlSet.c)
+ *     PipHardwareConfigGetIndex @ 0x1407AC5A4 (PipHardwareConfigGetIndex.c)
+ *     PnpHardwareConfigCreateBootDriverFlags @ 0x1407AC634 (PnpHardwareConfigCreateBootDriverFlags.c)
+ *     _CmDeviceClassesSubkeyCallback @ 0x1407B1440 (_CmDeviceClassesSubkeyCallback.c)
+ *     PipHardwareConfigGetLastUseTime @ 0x14089B730 (PipHardwareConfigGetLastUseTime.c)
+ *     PnpCheckDriverDependencies @ 0x1408A1A98 (PnpCheckDriverDependencies.c)
+ *     PiUEventBroadcastPortsChangedEvent @ 0x1408A2BDC (PiUEventBroadcastPortsChangedEvent.c)
+ *     PiDrvDbOverlayCopyKeys @ 0x1408B6168 (PiDrvDbOverlayCopyKeys.c)
+ *     PiDrvDbOverlayNodeHive @ 0x1408B6708 (PiDrvDbOverlayNodeHive.c)
+ *     PiDrvDbQuerySyncNodesUpdated @ 0x1408B6B44 (PiDrvDbQuerySyncNodesUpdated.c)
+ *     _CmAddPanelDeviceWorker @ 0x1409778E0 (_CmAddPanelDeviceWorker.c)
+ *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x14097D3F4 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
+ *     DrvDbGetDriverFileMappedPropertyKeys @ 0x14097D868 (DrvDbGetDriverFileMappedPropertyKeys.c)
+ *     DrvDbGetDriverInfFileMappedPropertyKeys @ 0x14097D9F4 (DrvDbGetDriverInfFileMappedPropertyKeys.c)
+ *     DrvDbGetDriverPackageMappedPropertyKeys @ 0x14097DB80 (DrvDbGetDriverPackageMappedPropertyKeys.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlQueryValue(HANDLE KeyHandle, const WCHAR *a2, _DWORD *a3, void *a4, unsigned int *a5)
@@ -51,8 +48,7 @@ __int64 __fastcall RegRtlQueryValue(HANDLE KeyHandle, const WCHAR *a2, _DWORD *a
   NTSTATUS v12; // eax
   unsigned int v13; // edx
   unsigned int v14; // eax
-  unsigned int v16; // eax
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   ULONG ResultLength; // [rsp+30h] [rbp-E8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-E0h] BYREF
   char KeyValueInformation; // [rsp+48h] [rbp-D0h] BYREF
@@ -65,15 +61,14 @@ __int64 __fastcall RegRtlQueryValue(HANDLE KeyHandle, const WCHAR *a2, _DWORD *a
   {
     if ( a4 && *a5 > 0x80 )
     {
-      v16 = *a5 + 12;
-      if ( v16 < 0xC )
-        return (unsigned int)-1073741675;
       Length = *a5 + 12;
-      Pool2 = ExAllocatePool2(256LL, v16, 1279739218LL);
-      v6 = (void *)Pool2;
-      if ( !Pool2 )
+      if ( Length < 0xC )
+        return (unsigned int)-1073741675;
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, Length, 0x4C474552u);
+      v6 = PoolWithTag;
+      if ( !PoolWithTag )
         return (unsigned int)-1073741801;
-      p_KeyValueInformation = (char *)Pool2;
+      p_KeyValueInformation = (char *)PoolWithTag;
     }
     else
     {

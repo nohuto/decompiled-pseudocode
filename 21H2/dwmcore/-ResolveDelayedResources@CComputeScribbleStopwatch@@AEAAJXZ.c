@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ResolveDelayedResources@CComputeScribbleStopwatch@@AEAAJXZ @ 0x1801ECC08
+ * XREFs of ?ResolveDelayedResources@CComputeScribbleStopwatch@@AEAAJXZ @ 0x1801AA598
  * Callers:
- *     ?GetElapsedTimeMs@CComputeScribbleStopwatch@@QEAAMXZ @ 0x1801EC934 (-GetElapsedTimeMs@CComputeScribbleStopwatch@@QEAAMXZ.c)
+ *     ?GetElapsedTimeMs@CComputeScribbleStopwatch@@QEAAMXZ @ 0x1801AA2F8 (-GetElapsedTimeMs@CComputeScribbleStopwatch@@QEAAMXZ.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?Calibrate@CComputeScribbleStopwatch@@AEAAJXZ @ 0x1801EC790 (-Calibrate@CComputeScribbleStopwatch@@AEAAJXZ.c)
- *     ?ResolveGpuTimestamp@CComputeScribbleStopwatch@@AEAAJXZ @ 0x1801ECC70 (-ResolveGpuTimestamp@CComputeScribbleStopwatch@@AEAAJXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Calibrate@CComputeScribbleStopwatch@@AEAAJXZ @ 0x1801AA154 (-Calibrate@CComputeScribbleStopwatch@@AEAAJXZ.c)
+ *     ?ResolveGpuTimestamp@CComputeScribbleStopwatch@@AEAAJXZ @ 0x1801AA600 (-ResolveGpuTimestamp@CComputeScribbleStopwatch@@AEAAJXZ.c)
  */
 
 __int64 __fastcall CComputeScribbleStopwatch::ResolveDelayedResources(CComputeScribbleStopwatch *this)
@@ -24,7 +24,7 @@ LABEL_4:
       wil::details::in1diag3::Return_Hr(
         retaddr,
         (void *)v3,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\global\\computescribblestopwatch.cpp",
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\rendering\\computescribblestopwatch.cpp",
         (const char *)(unsigned int)v2);
       return (unsigned int)v2;
     }

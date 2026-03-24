@@ -1,20 +1,20 @@
 /*
- * XREFs of PspWow64ReadOrWriteThreadCpuArea @ 0x1407049DC
+ * XREFs of PspWow64ReadOrWriteThreadCpuArea @ 0x140696868
  * Callers:
- *     PspWow64GetContextThread @ 0x140704EF8 (PspWow64GetContextThread.c)
- *     PspWow64SetContextThread @ 0x140705578 (PspWow64SetContextThread.c)
+ *     PspWow64SetContextThread @ 0x140695D20 (PspWow64SetContextThread.c)
+ *     PspWow64GetContextThread @ 0x1406960CC (PspWow64GetContextThread.c)
  * Callees:
- *     PsGetThreadTeb @ 0x14029A290 (PsGetThreadTeb.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlWow64GetCpuAreaInfo @ 0x140704D58 (RtlWow64GetCpuAreaInfo.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
+ *     PsGetThreadTeb @ 0x1402B17F0 (PsGetThreadTeb.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x140696BE4 (RtlWow64GetCpuAreaInfo.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PspWow64ReadOrWriteThreadCpuArea(
@@ -56,8 +56,8 @@ __int64 __fastcall PspWow64ReadOrWriteThreadCpuArea(
   v32 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v12 = (signed __int64 *)(a2 + 1360);
-  ExAcquirePushLockSharedEx(a2 + 1360, 0LL);
+  v12 = (signed __int64 *)(a2 + 1280);
+  ExAcquirePushLockSharedEx(a2 + 1280, 0LL);
   ThreadTeb = PsGetThreadTeb(a2);
   v29 = ThreadTeb;
   if ( ThreadTeb )
@@ -164,7 +164,7 @@ __int64 __fastcall PspWow64ReadOrWriteThreadCpuArea(
     {
       CpuAreaInfo = -1073741811;
     }
-    KiUnstackDetachProcess((__int64)v34, 0LL);
+    KiUnstackDetachProcess((__int64)v34, 0);
     v24 = KeGetCurrentThread();
     if ( _InterlockedCompareExchange64(v12, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared(v12);

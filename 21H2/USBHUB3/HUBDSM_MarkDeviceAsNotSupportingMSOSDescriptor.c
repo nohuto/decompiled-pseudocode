@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_MarkDeviceAsNotSupportingMSOSDescriptor @ 0x1C001F810
+ * XREFs of HUBDSM_MarkDeviceAsNotSupportingMSOSDescriptor @ 0x1C001F2D0
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_MarkDeviceAsNotSupportingMSOSDescriptor @ 0x1C007DC20 (HUBMISC_MarkDeviceAsNotSupportingMSOSDescriptor.c)
+ *     HUBMISC_MarkDeviceAsNotSupportingMSOSDescriptor @ 0x1C007C644 (HUBMISC_MarkDeviceAsNotSupportingMSOSDescriptor.c)
  */
 
 __int64 __fastcall HUBDSM_MarkDeviceAsNotSupportingMSOSDescriptor(__int64 a1)

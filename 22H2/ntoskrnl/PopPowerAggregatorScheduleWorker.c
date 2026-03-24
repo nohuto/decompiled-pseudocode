@@ -1,25 +1,24 @@
 /*
- * XREFs of PopPowerAggregatorScheduleWorker @ 0x140875FC0
+ * XREFs of PopPowerAggregatorScheduleWorker @ 0x140776DF0
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x1407A7164 (PopUmpoProcessPowerMessage.c)
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x1407A9984 (PopPowerAggregatorHandleIntentUnsafe.c)
- *     PopPowerAggregatorNotifyDisplayPoweredOn @ 0x140993C60 (PopPowerAggregatorNotifyDisplayPoweredOn.c)
- *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x140993CB8 (PopPowerAggregatorNotifyPdcSleepTransition.c)
- *     PopPowerAggregatorSessionSwitchWorker @ 0x140993FD0 (PopPowerAggregatorSessionSwitchWorker.c)
- *     PopNotifyCsStateExited @ 0x140997EB0 (PopNotifyCsStateExited.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140776874 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorNotifyDisplayPoweredOn @ 0x14077A3A4 (PopPowerAggregatorNotifyDisplayPoweredOn.c)
+ *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x1408EE6C8 (PopPowerAggregatorNotifyPdcSleepTransition.c)
+ *     PopPowerAggregatorSessionSwitchWorker @ 0x1408EEAB0 (PopPowerAggregatorSessionSwitchWorker.c)
+ *     PopNotifyCsStateExited @ 0x1408EFDE0 (PopNotifyCsStateExited.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
  */
 
 void __fastcall PopPowerAggregatorScheduleWorker(__int64 a1)
 {
-  int v1; // r8d
+  int v1; // eax
 
-  v1 = *(_DWORD *)(a1 + 8);
-  *(_DWORD *)(a1 + 8) = v1 | 2;
+  *(_DWORD *)(a1 + 20) |= 2u;
+  v1 = *(_DWORD *)(a1 + 20);
   if ( (v1 & 1) == 0 )
   {
-    *(_DWORD *)(a1 + 8) = v1 | 3;
-    ExQueueWorkItem((PWORK_QUEUE_ITEM)(a1 + 4400), DelayedWorkQueue);
+    *(_DWORD *)(a1 + 20) = v1 | 1;
+    ExQueueWorkItem((PWORK_QUEUE_ITEM)(a1 + 4928), DelayedWorkQueue);
   }
 }

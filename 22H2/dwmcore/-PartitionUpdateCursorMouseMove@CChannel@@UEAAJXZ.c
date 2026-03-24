@@ -1,23 +1,23 @@
 /*
- * XREFs of ?PartitionUpdateCursorMouseMove@CChannel@@UEAAJXZ @ 0x180043F10
+ * XREFs of ?PartitionUpdateCursorMouseMove@CChannel@@UEAAJXZ @ 0x18005DA10
  * Callers:
  *     <none>
  * Callees:
- *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004424C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
- *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800443CC (--1CChannelLock@CChannel@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044610 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005E108 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
  */
 
 __int64 __fastcall CChannel::PartitionUpdateCursorMouseMove(CChannel *this)
 {
   CChannel *v1; // rbx
-  _BYTE v3[24]; // [rsp+20h] [rbp-18h] BYREF
-  int v4; // [rsp+48h] [rbp+10h] BYREF
+  int v3; // [rsp+30h] [rbp+8h] BYREF
+  char *v4; // [rsp+38h] [rbp+10h] BYREF
 
   v1 = this;
-  CChannel::CChannelLock::CChannelLock((CChannel::CChannelLock *)v3, this);
-  v4 = 279;
-  LODWORD(v1) = CChannel::SendCommand(v1, &v4, 4u);
-  CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v3);
+  v4 = (char *)this + 168;
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
+  v3 = 296;
+  LODWORD(v1) = CChannel::SendCommand(v1, &v3, 4u);
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v4);
   return (unsigned int)v1;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of ??1CChannelTable@@UEAA@XZ @ 0x1801CE33C
+ * XREFs of ??1CChannelTable@@UEAA@XZ @ 0x18014EFEC
  * Callers:
- *     ??1CInternalMilCmdConnection@@UEAA@XZ @ 0x1801B57E8 (--1CInternalMilCmdConnection@@UEAA@XZ.c)
- *     ??_GCChannelTable@@UEAAPEAXI@Z @ 0x1801CE380 (--_GCChannelTable@@UEAAPEAXI@Z.c)
+ *     ??1CInternalMilCmdConnection@@EEAA@XZ @ 0x18014EC08 (--1CInternalMilCmdConnection@@EEAA@XZ.c)
+ *     ??_GCChannelTable@@UEAAPEAXI@Z @ 0x18014F030 (--_GCChannelTable@@UEAAPEAXI@Z.c)
  * Callees:
  *     <none>
  */

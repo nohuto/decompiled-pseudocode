@@ -1,15 +1,15 @@
 /*
- * XREFs of SepLogLpacAccessFailure @ 0x1405B7DF8
+ * XREFs of SepLogLpacAccessFailure @ 0x140596168
  * Callers:
- *     SepCommonAccessCheckEx @ 0x140228D00 (SepCommonAccessCheckEx.c)
- *     SeAccessCheckWithHint @ 0x1402316A0 (SeAccessCheckWithHint.c)
- *     SeAccessCheckByType @ 0x1402B3A90 (SeAccessCheckByType.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1406C10C0 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckWithHintWithAdminlessChecks @ 0x1402CE470 (SeAccessCheckWithHintWithAdminlessChecks.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x140345AC0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373854 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406265D0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     SepGetStackTraceHash @ 0x1405B7CCC (SepGetStackTraceHash.c)
- *     DbgkQueueUserExceptionReport @ 0x1409397BC (DbgkQueueUserExceptionReport.c)
- *     EtwTraceLpacAccessFailure @ 0x1409ED164 (EtwTraceLpacAccessFailure.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SepGetStackTraceHash @ 0x140596050 (SepGetStackTraceHash.c)
+ *     DbgkQueueUserExceptionReport @ 0x140886860 (DbgkQueueUserExceptionReport.c)
+ *     EtwTraceLpacAccessFailure @ 0x14093FFA4 (EtwTraceLpacAccessFailure.c)
  */
 
 __int64 SepLogLpacAccessFailure()
@@ -30,7 +30,7 @@ __int64 SepLogLpacAccessFailure()
     return 3221226326LL;
   if ( SeLpacEnableWatsonThrottling )
   {
-    if ( _interlockedbittestandset(&dword_140D1BF50[(unsigned __int64)v1 >> 5], v1 & 0x1F) )
+    if ( _interlockedbittestandset(&dword_140CFA370[(unsigned __int64)v1 >> 5], v1 & 0x1F) )
       return 0LL;
     v0 = v4;
   }
@@ -40,5 +40,5 @@ __int64 SepLogLpacAccessFailure()
   v3[0] = 3221226505LL;
   LODWORD(v3[3]) = 2;
   v3[4] = 43LL;
-  return DbgkQueueUserExceptionReport(KeGetCurrentThread());
+  return DbgkQueueUserExceptionReport((PADAPTER_OBJECT)KeGetCurrentThread());
 }

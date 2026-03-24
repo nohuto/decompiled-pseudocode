@@ -1,20 +1,22 @@
 /*
- * XREFs of VfSettingsApplyMiscellaneousChecks @ 0x140ADBD64
+ * XREFs of VfSettingsApplyMiscellaneousChecks @ 0x1409E0450
  * Callers:
- *     VfSettingsCheckForChanges @ 0x140ADBDA4 (VfSettingsCheckForChanges.c)
- *     VfMiscPluginEntry @ 0x140AE1684 (VfMiscPluginEntry.c)
+ *     VfInitVerifierComponents @ 0x1409C6E80 (VfInitVerifierComponents.c)
+ *     VfSettingsCheckForChanges @ 0x1409E048C (VfSettingsCheckForChanges.c)
  * Callees:
- *     ExClearPoolFlags @ 0x140606CCC (ExClearPoolFlags.c)
- *     ExSetPoolFlags @ 0x140607B08 (ExSetPoolFlags.c)
+ *     ExClearPoolFlags @ 0x1405B3578 (ExClearPoolFlags.c)
+ *     ExSetPoolFlags @ 0x1405B3B18 (ExSetPoolFlags.c)
  */
 
-void VfSettingsApplyMiscellaneousChecks()
+void __fastcall VfSettingsApplyMiscellaneousChecks(__int16 a1)
 {
-  int v0; // ecx
+  bool v1; // cf
+  int v2; // ecx
 
-  v0 = (VfRuleClasses & 0x400000) == 0 ? 0x206 : 0;
-  if ( (MmVerifierData & 0x800) != 0 )
-    ExSetPoolFlags(v0);
+  v1 = (a1 & 0x800) != 0;
+  v2 = (MmVerifierData & 0x400000) == 0 ? 0x206 : 0;
+  if ( v1 )
+    ExSetPoolFlags(v2);
   else
-    ExClearPoolFlags(v0);
+    ExClearPoolFlags(v2);
 }

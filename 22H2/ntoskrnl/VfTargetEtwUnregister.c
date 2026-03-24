@@ -1,13 +1,13 @@
 /*
- * XREFs of VfTargetEtwUnregister @ 0x140ACC734
+ * XREFs of VfTargetEtwUnregister @ 0x1409D7064
  * Callers:
- *     VerifierEtwUnregister @ 0x140AE5050 (VerifierEtwUnregister.c)
+ *     VerifierEtwUnregister @ 0x1409E7F40 (VerifierEtwUnregister.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x14020A004 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x14020A374 (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x140465E48 (VfAvlInitializeLockContext.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACE284 (VerifierBugCheckIfAppropriate.c)
+ *     VfAvlCleanupLockContext @ 0x140372304 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14037E564 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x1405A2514 (VfAvlInitializeLockContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
  */
 
 void __fastcall VfTargetEtwUnregister(__int64 a1)
@@ -38,7 +38,7 @@ void __fastcall VfTargetEtwUnregister(__int64 a1)
         if ( v7 == (_QWORD *)(v6 + 16) )
         {
 LABEL_7:
-          if ( !dword_140C139E0 && (*(_DWORD *)(v6 + 32) & 1) == 0 && (MmVerifierData & 0x800) != 0 )
+          if ( !dword_140C2A958 && (*(_DWORD *)(v6 + 32) & 1) == 0 && (MmVerifierData & 0x800) != 0 )
             VerifierBugCheckIfAppropriate(0xC4u, 0xDCuLL, 0LL, 0LL, 0LL);
         }
         else

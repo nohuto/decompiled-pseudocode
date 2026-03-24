@@ -1,11 +1,11 @@
 /*
- * XREFs of ?FindVirtualGpuByLuid@ADAPTER_RENDER@@QEAAPEAUDXGK_VIRTUAL_GPU@@W4DXG_VIRTUAL_GPU_TYPE@@PEAU_LUID@@@Z @ 0x1C0357600
+ * XREFs of ?FindVirtualGpuByLuid@ADAPTER_RENDER@@QEAAPEAUDXGK_VIRTUAL_GPU@@W4DXG_VIRTUAL_GPU_TYPE@@PEAU_LUID@@@Z @ 0x1C022F898
  * Callers:
- *     DpiFdoDispatchIoctl @ 0x1C01E6840 (DpiFdoDispatchIoctl.c)
- *     DxgkDdiQueryVirtualFunctionIndexByLuid @ 0x1C035A030 (DxgkDdiQueryVirtualFunctionIndexByLuid.c)
- *     DxgkDdiSetVirtualGpuVmBus @ 0x1C035A528 (DxgkDdiSetVirtualGpuVmBus.c)
+ *     DxgkDdiQueryVirtualFunctionIndexByLuid @ 0x1C02316C0 (DxgkDdiQueryVirtualFunctionIndexByLuid.c)
+ *     DxgkDdiSetVirtualGpuVmBus @ 0x1C0231B7C (DxgkDdiSetVirtualGpuVmBus.c)
+ *     DpiFdoDispatchIoctl @ 0x1C02C8F20 (DpiFdoDispatchIoctl.c)
  * Callees:
- *     ?FindVirtualGpuByLuid@DXGVIRTUALGPUMANAGER@@QEAAPEAUDXGK_VIRTUAL_GPU@@PEAU_LUID@@@Z @ 0x1C035763C (-FindVirtualGpuByLuid@DXGVIRTUALGPUMANAGER@@QEAAPEAUDXGK_VIRTUAL_GPU@@PEAU_LUID@@@Z.c)
+ *     ?FindVirtualGpuByLuid@DXGVIRTUALGPUMANAGER@@QEAAPEAUDXGK_VIRTUAL_GPU@@PEAU_LUID@@@Z @ 0x1C022F8D4 (-FindVirtualGpuByLuid@DXGVIRTUALGPUMANAGER@@QEAAPEAUDXGK_VIRTUAL_GPU@@PEAU_LUID@@@Z.c)
  */
 
 struct DXGK_VIRTUAL_GPU *__fastcall ADAPTER_RENDER::FindVirtualGpuByLuid(__int64 a1, int a2, struct _LUID *a3)
@@ -16,11 +16,11 @@ struct DXGK_VIRTUAL_GPU *__fastcall ADAPTER_RENDER::FindVirtualGpuByLuid(__int64
   {
     if ( a2 != 1 )
       return 0LL;
-    v3 = *(DXGVIRTUALGPUMANAGER **)(a1 + 1736);
+    v3 = *(DXGVIRTUALGPUMANAGER **)(a1 + 1640);
   }
   else
   {
-    v3 = *(DXGVIRTUALGPUMANAGER **)(a1 + 1728);
+    v3 = *(DXGVIRTUALGPUMANAGER **)(a1 + 1632);
   }
   if ( v3 )
     return DXGVIRTUALGPUMANAGER::FindVirtualGpuByLuid(v3, a3);

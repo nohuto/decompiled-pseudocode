@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CInteractionMarshaler@DirectComposition@@QEAA@XZ @ 0x1C00944BC
+ * XREFs of ??0CInteractionMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0084EEC
  * Callers:
- *     ?CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C002EB8C (-CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2.c)
- *     ?GeneratedCreateSharedWriteMarshaler@DirectComposition@@YAJIPEBVCSharedSystemResource@1@PEAPEAVCResourceMarshaler@1@@Z @ 0x1C0092E6C (-GeneratedCreateSharedWriteMarshaler@DirectComposition@@YAJIPEBVCSharedSystemResource@1@PEAPEAVC.c)
+ *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C0029A24 (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
+ *     ?Create@CSharedInteractionMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C00842D0 (-Create@CSharedInteractionMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@.c)
  * Callees:
- *     ??0CResourceMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C020B78C (--0CResourceMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z.c)
+ *     <none>
  */
 
 DirectComposition::CInteractionMarshaler *__fastcall DirectComposition::CInteractionMarshaler::CInteractionMarshaler(
@@ -12,10 +12,13 @@ DirectComposition::CInteractionMarshaler *__fastcall DirectComposition::CInterac
 {
   DirectComposition::CInteractionMarshaler *result; // rax
 
-  DirectComposition::CResourceMarshaler::CResourceMarshaler(this, 89LL);
+  *(_QWORD *)((char *)this + 20) = 1LL;
   *(_QWORD *)this = &DirectComposition::CInteractionMarshaler::`vftable';
-  *((_DWORD *)this + 16) = 0;
+  *((_QWORD *)this + 6) = 0LL;
+  result = this;
+  *((_DWORD *)this + 10) = 86;
   *((_QWORD *)this + 7) = this;
+  *((_DWORD *)this + 16) = 0;
   *((_QWORD *)this + 9) = 0LL;
   *((_QWORD *)this + 10) = 0LL;
   *((_QWORD *)this + 12) = 0LL;
@@ -34,8 +37,7 @@ DirectComposition::CInteractionMarshaler *__fastcall DirectComposition::CInterac
   *((_QWORD *)this + 36) = 0LL;
   *((_QWORD *)this + 37) = 0LL;
   *((_QWORD *)this + 38) = 0LL;
-  result = this;
-  *((_BYTE *)this + 332) |= 0xC0u;
+  *((_BYTE *)this + 332) |= 0x60u;
   *((_DWORD *)this + 82) = 4;
   return result;
 }

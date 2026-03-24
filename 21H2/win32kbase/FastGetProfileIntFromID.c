@@ -1,11 +1,11 @@
 /*
- * XREFs of FastGetProfileIntFromID @ 0x1C00610C0
+ * XREFs of FastGetProfileIntFromID @ 0x1C000EF90
  * Callers:
- *     ?UserInitialize@@YAJXZ @ 0x1C005F1A8 (-UserInitialize@@YAJXZ.c)
+ *     ?UserInitialize@@YAJXZ @ 0x1C0068284 (-UserInitialize@@YAJXZ.c)
  * Callees:
- *     FastGetProfileIntW @ 0x1C0061160 (FastGetProfileIntW.c)
- *     RtlLoadStringOrError @ 0x1C00612C0 (RtlLoadStringOrError.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
+ *     FastGetProfileIntW @ 0x1C000F0D0 (FastGetProfileIntW.c)
+ *     RtlLoadStringOrError @ 0x1C000FAE0 (RtlLoadStringOrError.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
  */
 
 __int64 __fastcall FastGetProfileIntFromID(int a1, int a2, ULONG MessageId, int a4, PULONG Value, int a6)

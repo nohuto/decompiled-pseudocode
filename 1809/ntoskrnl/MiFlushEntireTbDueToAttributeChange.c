@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFlushEntireTbDueToAttributeChange @ 0x1400EF360
+ * XREFs of MiFlushEntireTbDueToAttributeChange @ 0x1400EF380
  * Callers:
  *     MiValidateInPage @ 0x14002EC10 (MiValidateInPage.c)
  *     MiChangePageAttributeBatch @ 0x1400823F0 (MiChangePageAttributeBatch.c)
- *     MiCopyPage @ 0x1400B1C30 (MiCopyPage.c)
- *     MiChangePageAttribute @ 0x1400EF900 (MiChangePageAttribute.c)
- *     MiCombiningInProgress @ 0x14013C3BC (MiCombiningInProgress.c)
- *     MiValidateSectionCreate @ 0x140652E30 (MiValidateSectionCreate.c)
- *     MiRemovePhysicalMemory @ 0x14084D56C (MiRemovePhysicalMemory.c)
+ *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
+ *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
+ *     MiCombiningInProgress @ 0x14013C3DC (MiCombiningInProgress.c)
+ *     MiValidateSectionCreate @ 0x140652E10 (MiValidateSectionCreate.c)
+ *     MiRemovePhysicalMemory @ 0x14084D54C (MiRemovePhysicalMemory.c)
  *     MiInitializeCacheFlushing @ 0x1409BC02C (MiInitializeCacheFlushing.c)
  * Callees:
  *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
- *     VslpEnterIumSecureMode @ 0x140129C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiFlushEntireTbDueToAttributeChange(__int64 a1)

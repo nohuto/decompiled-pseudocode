@@ -1,52 +1,50 @@
 /*
- * XREFs of DxgkIncreaseSessionAdapterUniqueness @ 0x1C01DAAB8
+ * XREFs of DxgkIncreaseSessionAdapterUniqueness @ 0x1C015ECFC
  * Callers:
- *     DxgkSessionDisconnected @ 0x1C01DA900 (DxgkSessionDisconnected.c)
- *     DxgkSessionConnected @ 0x1C01DA9B0 (DxgkSessionConnected.c)
- *     DxgkSessionReconnected @ 0x1C01F2CB0 (DxgkSessionReconnected.c)
- *     ?IncreaseAdapterUniquenessCallback@@YAEPEAXW4_SESSION_CALLBACK_REASON@@K@Z @ 0x1C02C3F90 (-IncreaseAdapterUniquenessCallback@@YAEPEAXW4_SESSION_CALLBACK_REASON@@K@Z.c)
+ *     DxgkSessionDisconnected @ 0x1C015EB10 (DxgkSessionDisconnected.c)
+ *     DxgkSessionConnected @ 0x1C015EBC0 (DxgkSessionConnected.c)
+ *     DxgkSessionReconnected @ 0x1C0178CA0 (DxgkSessionReconnected.c)
+ *     ?IncreaseAdapterUniquenessCallback@@YAEPEAXW4_SESSION_CALLBACK_REASON@@K@Z @ 0x1C0216200 (-IncreaseAdapterUniquenessCallback@@YAEPEAXW4_SESSION_CALLBACK_REASON@@K@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
  */
 
-__int64 DxgkIncreaseSessionAdapterUniqueness()
+__int64 __fastcall DxgkIncreaseSessionAdapterUniqueness(__int64 a1, __int64 a2)
 {
-  __int64 v0; // rcx
-  DXGSESSIONMGR *v1; // rbx
-  unsigned int v2; // eax
-  struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  volatile signed __int32 *v4; // rax
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  DXGSESSIONMGR *v4; // rbx
   unsigned int CurrentProcessSessionId; // eax
-  __int64 v7; // rcx
-  unsigned int v8; // eax
+  struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
+  volatile signed __int32 *v7; // rax
+  __int64 v9; // rbx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
 
-  v1 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-  if ( v1
-    && (v2 = PsGetCurrentProcessSessionId(v0),
-        (SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v1, v2)) != 0LL) )
+  v4 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal(a1, a2) + 102);
+  if ( v4 )
   {
-    v4 = (volatile signed __int32 *)*((_QWORD *)SessionDataForSpecifiedSession + 2316);
-    if ( v4 )
-      _InterlockedIncrement(v4);
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v3, v2);
+    SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v4, CurrentProcessSessionId);
+  }
+  else
+  {
+    SessionDataForSpecifiedSession = 0LL;
+  }
+  if ( SessionDataForSpecifiedSession )
+  {
+    v7 = (volatile signed __int32 *)*((_QWORD *)SessionDataForSpecifiedSession + 2314);
+    if ( v7 )
+      _InterlockedIncrement(v7);
     return 0LL;
   }
   else
   {
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v0);
-    WdLogSingleEntry2(2LL, CurrentProcessSessionId, -1073741811LL);
-    v8 = PsGetCurrentProcessSessionId(v7);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Cannot find the session data for session 0x%I64x, returning 0x%I64x.",
-      v8,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
+    v9 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v9 + 24) = (unsigned int)PsGetCurrentProcessSessionId(v11, v10);
+    *(_QWORD *)(v9 + 32) = -1073741811LL;
+    WdLogEvent5_WdError(v9);
     return 3221225485LL;
   }
 }

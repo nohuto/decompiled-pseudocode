@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpLockKcbShared @ 0x140644190
+ * XREFs of CmpLockKcbShared @ 0x140644170
  * Callers:
  *     CmpDoQueryKeyName @ 0x140016840 (CmpDoQueryKeyName.c)
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of IopAddBugcheckPowerTriageData @ 0x14055C464
+ * XREFs of IopAddBugcheckPowerTriageData @ 0x14050AEB0
  * Callers:
- *     IopAddBugcheckTriageDataFromParameters @ 0x140553A48 (IopAddBugcheckTriageDataFromParameters.c)
+ *     IopAddBugcheckTriageDataFromParameters @ 0x14050347C (IopAddBugcheckTriageDataFromParameters.c)
  * Callees:
- *     KiIsAddressRangeValid @ 0x1403D7FD4 (KiIsAddressRangeValid.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     IopAddBugcheckTriageDevice @ 0x14055C6BC (IopAddBugcheckTriageDevice.c)
- *     IopAddBugcheckTriageIrp @ 0x14055C8B4 (IopAddBugcheckTriageIrp.c)
- *     IopAddBugcheckTriageThread @ 0x14055CA14 (IopAddBugcheckTriageThread.c)
- *     IopAddBugcheckTriageWorkQueue @ 0x14055CBA8 (IopAddBugcheckTriageWorkQueue.c)
+ *     KiIsAddressRangeValid @ 0x1403CA26C (KiIsAddressRangeValid.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     IopAddBugcheckTriageDevice @ 0x14050B108 (IopAddBugcheckTriageDevice.c)
+ *     IopAddBugcheckTriageIrp @ 0x14050B300 (IopAddBugcheckTriageIrp.c)
+ *     IopAddBugcheckTriageThread @ 0x14050B45C (IopAddBugcheckTriageThread.c)
+ *     IopAddBugcheckTriageWorkQueue @ 0x14050B5EC (IopAddBugcheckTriageWorkQueue.c)
  */
 
 __int64 __fastcall IopAddBugcheckPowerTriageData(ULONG a1, __int64 a2, ULONG a3)

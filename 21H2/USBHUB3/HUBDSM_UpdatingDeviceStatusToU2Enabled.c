@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_UpdatingDeviceStatusToU2Enabled @ 0x1C00231F0
+ * XREFs of HUBDSM_UpdatingDeviceStatusToU2Enabled @ 0x1C0022DA0
  * Callers:
  *     <none>
  * Callees:

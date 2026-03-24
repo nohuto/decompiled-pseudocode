@@ -1,41 +1,44 @@
 /*
- * XREFs of AcpiNotifyPlExtDeleteDeviceAsync @ 0x1C005C430
+ * XREFs of AcpiNotifyPlExtDeleteDeviceAsync @ 0x1C005B580
  * Callers:
- *     AcpiNotifyPlExtDeleteDeviceSync @ 0x1C005C61C (AcpiNotifyPlExtDeleteDeviceSync.c)
+ *     AcpiNotifyPlExtDeleteDeviceSync @ 0x1C005B77C (AcpiNotifyPlExtDeleteDeviceSync.c)
  * Callees:
- *     WPP_RECORDER_SF_qD @ 0x1C0007340 (WPP_RECORDER_SF_qD.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     AcpiCreateDiscoveryDeleteParameters @ 0x1C005BF88 (AcpiCreateDiscoveryDeleteParameters.c)
- *     AcpiNotifyDiscoverDeleteMainCompletion @ 0x1C005C350 (AcpiNotifyDiscoverDeleteMainCompletion.c)
- *     WPP_RECORDER_SF_qqD @ 0x1C005D0E0 (WPP_RECORDER_SF_qqD.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     AcpiCreateDiscoveryDeleteParameters @ 0x1C005B0B8 (AcpiCreateDiscoveryDeleteParameters.c)
+ *     AcpiNotifyDiscoverDeleteMainCompletion @ 0x1C005B4A0 (AcpiNotifyDiscoverDeleteMainCompletion.c)
+ *     WPP_RECORDER_SF_qqD @ 0x1C005C244 (WPP_RECORDER_SF_qqD.c)
  */
 
 __int64 __fastcall AcpiNotifyPlExtDeleteDeviceAsync(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v7; // ebx
-  __int64 *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   int v9; // edx
-  __int64 *v10; // rdi
+  void *v10; // rdi
   int v11; // edx
   PVOID P; // [rsp+60h] [rbp+18h] BYREF
 
   P = 0LL;
-  if ( qword_1C0080DA8 && (*((unsigned __int8 (**)(void))&xmmword_1C0080DB0 + 1))() )
+  if ( qword_1C0081BE8 && (*((unsigned __int8 (**)(void))&xmmword_1C0081BF0 + 1))() )
   {
-    Pool2 = (__int64 *)ExAllocatePool2(64LL, 72LL, 1315988289LL);
-    v10 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x48uLL, 0x4E706341u);
+    v10 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      Pool2[1] = (__int64)Pool2;
-      *Pool2 = (__int64)Pool2;
-      Pool2[4] = a2;
-      Pool2[6] = a4;
-      Pool2[5] = (__int64)AcpiInterpreterPausedSignalEventCallback;
-      Pool2[2] = a1;
-      v7 = AcpiCreateDiscoveryDeleteParameters(Pool2, 0, (__int64 *)&P);
+      PoolWithTag[3] = 0LL;
+      PoolWithTag[7] = 0LL;
+      PoolWithTag[8] = 0LL;
+      PoolWithTag[1] = PoolWithTag;
+      *PoolWithTag = PoolWithTag;
+      PoolWithTag[4] = a2;
+      PoolWithTag[5] = AcpiInterpreterPausedSignalEventCallback;
+      PoolWithTag[6] = a4;
+      PoolWithTag[2] = a1;
+      v7 = AcpiCreateDiscoveryDeleteParameters(PoolWithTag, 0, &P);
       if ( v7 >= 0 )
       {
-        v7 = ((__int64 (__fastcall *)(PVOID))xmmword_1C0080DB0)(P);
+        v7 = ((__int64 (__fastcall *)(PVOID))xmmword_1C0081BF0)(P);
         if ( v7 != 259 )
         {
           AcpiNotifyDiscoverDeleteMainCompletion(P);
@@ -47,14 +50,16 @@ __int64 __fastcall AcpiNotifyPlExtDeleteDeviceAsync(__int64 a1, __int64 a2, __in
             4u,
             0x13u,
             0x10u,
-            (__int64)&WPP_6b96f8ebb13c3b7665ec42abfcbc7cd5_Traceguids,
+            (__int64)&WPP_4ea83bc4352b3df9b35783bbf858603c_Traceguids,
             a1,
             v7);
       }
-      else
+      else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_qqD(WPP_GLOBAL_Control->DeviceExtension, v11, 19, 15);
+        WPP_RECORDER_SF_qqD(WPP_GLOBAL_Control->DeviceExtension, v11, 19, 15);
+      }
+      if ( v7 != 259 )
+      {
         ExFreePoolWithTag(v10, 0x4E706341u);
         if ( P )
           ExFreePoolWithTag(P, 0x4E706341u);

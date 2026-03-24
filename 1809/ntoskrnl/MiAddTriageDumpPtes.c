@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddTriageDumpPtes @ 0x1402AE004
+ * XREFs of MiAddTriageDumpPtes @ 0x1402AE104
  * Callers:
- *     MmSnapTriageDumpInformation @ 0x1402AE6D0 (MmSnapTriageDumpInformation.c)
+ *     MmSnapTriageDumpInformation @ 0x1402AE7D0 (MmSnapTriageDumpInformation.c)
  * Callees:
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     IoAddTriageDumpDataBlock @ 0x140191CCC (IoAddTriageDumpDataBlock.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
  */
 
 __int64 __fastcall MiAddTriageDumpPtes(unsigned __int64 a1)

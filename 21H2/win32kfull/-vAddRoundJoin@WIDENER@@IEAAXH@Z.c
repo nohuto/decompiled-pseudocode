@@ -1,17 +1,17 @@
 /*
- * XREFs of ?vAddRoundJoin@WIDENER@@IEAAXH@Z @ 0x1C02CDE10
+ * XREFs of ?vAddRoundJoin@WIDENER@@IEAAXH@Z @ 0x1C02CF87C
  * Callers:
- *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C0130EE8 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
+ *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C0140F90 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
  * Callees:
- *     ?vAddLeft@WIDENER@@IEAAXAEAVEVECTORFX@@H@Z @ 0x1C0131030 (-vAddLeft@WIDENER@@IEAAXAEAVEVECTORFX@@H@Z.c)
- *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z @ 0x1C013105C (-vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z.c)
- *     ?vecOutPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C013152C (-vecOutPerp@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
- *     ?vecInPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C0131574 (-vecInPerp@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
- *     ?bTurnLeftRandom@@YAHPEAVEVECTORFX@@0@Z @ 0x1C01315BC (-bTurnLeftRandom@@YAHPEAVEVECTORFX@@0@Z.c)
- *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@H@Z @ 0x1C0131D00 (-vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@H@Z.c)
- *     ?vecInDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C01706F8 (-vecInDraw@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
- *     ?vecOutDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C017073E (-vecOutDraw@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
- *     ?cptAddRound@WIDEPENOBJ@@QEAAKAEAVWIDENER@@AEAVLINEDATA@@1HHH@Z @ 0x1C02CDA84 (-cptAddRound@WIDEPENOBJ@@QEAAKAEAVWIDENER@@AEAVLINEDATA@@1HHH@Z.c)
+ *     ?vAddLeft@WIDENER@@IEAAXAEAVEVECTORFX@@H@Z @ 0x1C01410D4 (-vAddLeft@WIDENER@@IEAAXAEAVEVECTORFX@@H@Z.c)
+ *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z @ 0x1C0141100 (-vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@PEAVEVECTORFX@@H@Z.c)
+ *     ?vecOutPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C01415D0 (-vecOutPerp@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
+ *     ?vecInPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C0141618 (-vecInPerp@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
+ *     ?bTurnLeftRandom@@YAHPEAVEVECTORFX@@0@Z @ 0x1C0141660 (-bTurnLeftRandom@@YAHPEAVEVECTORFX@@0@Z.c)
+ *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@H@Z @ 0x1C0141BEC (-vAddPoint@WIDEPATHOBJ@@QEAAXPEAU_POINTFIX@@H@Z.c)
+ *     ?cptAddRound@WIDEPENOBJ@@QEAAKAEAVWIDENER@@AEAVLINEDATA@@1HHH@Z @ 0x1C02CF250 (-cptAddRound@WIDEPENOBJ@@QEAAKAEAVWIDENER@@AEAVLINEDATA@@1HHH@Z.c)
+ *     ?vecInDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C02CFD84 (-vecInDraw@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
+ *     ?vecOutDraw@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C02CFDCC (-vecOutDraw@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
  */
 
 void __fastcall WIDENER::vAddRoundJoin(WIDENER *this)
@@ -31,7 +31,7 @@ void __fastcall WIDENER::vAddRoundJoin(WIDENER *this)
   int v14; // edi
   __int64 v15; // [rsp+80h] [rbp+40h] BYREF
   __int64 v16; // [rsp+90h] [rbp+50h] BYREF
-  __int64 v17; // [rsp+98h] [rbp+58h] BYREF
+  char v17; // [rsp+98h] [rbp+58h] BYREF
 
   v2 = 0;
   v4 = bTurnLeftRandom(
@@ -39,7 +39,7 @@ void __fastcall WIDENER::vAddRoundJoin(WIDENER *this)
          (struct EVECTORFX *)(*((_QWORD *)this + 89) + 48LL));
   if ( (*((_DWORD *)this + 10) & 0x10) != 0 || v3 )
   {
-    v5 = WIDENER::vecInDraw(this, &v16);
+    v5 = (__int64 *)WIDENER::vecInDraw(this, &v16);
   }
   else
   {
@@ -51,7 +51,7 @@ void __fastcall WIDENER::vAddRoundJoin(WIDENER *this)
   if ( v2 )
     v7 = WIDENER::vecOutPerp(this, &v16);
   else
-    v7 = WIDENER::vecOutDraw(this, &v17);
+    v7 = (__int64 *)WIDENER::vecOutDraw(this, &v17);
   v16 = *v7;
   v8 = v16;
   WIDEPATHOBJ::vAddPoint(

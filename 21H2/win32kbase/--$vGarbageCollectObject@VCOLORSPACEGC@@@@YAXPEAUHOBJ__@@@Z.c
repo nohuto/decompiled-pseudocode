@@ -1,16 +1,16 @@
 /*
- * XREFs of ??$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00DB9B4
+ * XREFs of ??$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00CBAE4
  * Callers:
- *     ?vGarbageCollectObjects@@YAXXZ @ 0x1C0017AB0 (-vGarbageCollectObjects@@YAXXZ.c)
+ *     ?vGarbageCollectObjects@@YAXXZ @ 0x1C00CBF38 (-vGarbageCollectObjects@@YAXXZ.c)
  * Callees:
- *     ??1SURFREF@@QEAA@XZ @ 0x1C001F08C (--1SURFREF@@QEAA@XZ.c)
- *     HmgShareLock @ 0x1C0021AA0 (HmgShareLock.c)
- *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C0021FC0 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
- *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C0022260 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
- *     ??1HANDLELOCK@@QEAA@XZ @ 0x1C0022D20 (--1HANDLELOCK@@QEAA@XZ.c)
- *     PushThreadGuardedObject @ 0x1C00232C0 (PushThreadGuardedObject.c)
- *     ?Feature_3101493560__private_IsEnabled@@YAHXZ @ 0x1C00D8CC0 (-Feature_3101493560__private_IsEnabled@@YAHXZ.c)
- *     ?bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z @ 0x1C00DBD84 (-bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z.c)
+ *     PopThreadGuardedObject @ 0x1C002C080 (PopThreadGuardedObject.c)
+ *     PushThreadGuardedObject @ 0x1C002CCA0 (PushThreadGuardedObject.c)
+ *     DEC_SHARE_REF_CNT @ 0x1C002E0A0 (DEC_SHARE_REF_CNT.c)
+ *     HmgShareLock @ 0x1C002E7A0 (HmgShareLock.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C002F290 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C002F590 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ??1HANDLELOCK@@QEAA@XZ @ 0x1C0030210 (--1HANDLELOCK@@QEAA@XZ.c)
+ *     ?bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z @ 0x1C00CAF18 (-bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z.c)
  */
 
 void __fastcall vGarbageCollectObject<COLORSPACEGC>(unsigned int a1)
@@ -19,36 +19,41 @@ void __fastcall vGarbageCollectObject<COLORSPACEGC>(unsigned int a1)
   __int64 v3; // [rsp+30h] [rbp-40h] BYREF
   int v4; // [rsp+38h] [rbp-38h]
   _OWORD v5[2]; // [rsp+48h] [rbp-28h] BYREF
-  _QWORD *v6; // [rsp+68h] [rbp-8h]
+  struct HOBJ__ **v6; // [rsp+68h] [rbp-8h]
 
   memset(v5, 0, sizeof(v5));
-  if ( (unsigned int)Feature_3101493560__private_IsEnabled() )
-    PushThreadGuardedObject(
-      v5,
-      (__int64)v5,
-      (__int64)UnexpectedThreadTerminationHandler<COLORSPACEREF>::OnUnexpectedThreadTerminationStatic);
+  PushThreadGuardedObject(
+    v5,
+    (__int64)v5,
+    (__int64)UnexpectedThreadTerminationHandler<COLORSPACEREF>::OnUnexpectedThreadTerminationStatic);
   v6 = 0LL;
   v2 = HmgShareLock(a1, 9);
-  v6 = (_QWORD *)v2;
-  if ( v2 && *(_DWORD *)(v2 + 8) <= 1u && (*(_WORD *)(v2 + 14) & 0x4000) != 0 )
+  v6 = (struct HOBJ__ **)v2;
+  if ( v2 )
   {
-    v3 = 0LL;
-    v4 = 0;
-    HANDLELOCK::vLockHandle((HANDLELOCK *)&v3, (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000, 0LL, 0, 0);
-    if ( v4 && (*(_DWORD *)(v3 + 8) & 0xFFFFFFFE) == 0x80000012 )
+    if ( *(_DWORD *)(v2 + 8) <= 1u && (*(_WORD *)(v2 + 14) & 0x4000) != 0 )
     {
-      HANDLELOCK::vUnlock((HANDLELOCK *)&v3);
-      if ( (unsigned int)bDeleteColorSpace(*v6, 3LL) )
+      v3 = 0LL;
+      v4 = 0;
+      HANDLELOCK::vLockHandle((HANDLELOCK *)&v3, (unsigned __int16)a1 | (a1 >> 8) & 0xFF0000, 0, 0, 0);
+      if ( v4 && (*(_DWORD *)(v3 + 8) & 0xFFFFFFFE) == 0x80000012 )
       {
-        v6 = 0LL;
-        _InterlockedDecrement(&gGarbageCollectionPendingCount);
+        HANDLELOCK::vUnlock((HANDLELOCK *)&v3);
+        if ( (unsigned int)bDeleteColorSpace(*v6, 3) )
+        {
+          v6 = 0LL;
+          _InterlockedDecrement(&gGarbageCollectionPendingCount);
+        }
       }
+      else
+      {
+        HANDLELOCK::vUnlock((HANDLELOCK *)&v3);
+      }
+      HANDLELOCK::~HANDLELOCK((HANDLELOCK *)&v3);
+      v2 = (__int64)v6;
     }
-    else
-    {
-      HANDLELOCK::vUnlock((HANDLELOCK *)&v3);
-    }
-    HANDLELOCK::~HANDLELOCK((HANDLELOCK *)&v3);
+    if ( v2 )
+      DEC_SHARE_REF_CNT((unsigned int *)v2);
   }
-  SURFREF::~SURFREF((SURFREF *)v5);
+  PopThreadGuardedObject(v5);
 }

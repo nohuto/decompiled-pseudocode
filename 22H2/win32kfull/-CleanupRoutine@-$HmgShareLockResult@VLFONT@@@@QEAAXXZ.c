@@ -1,8 +1,8 @@
 /*
- * XREFs of ?CleanupRoutine@?$HmgShareLockResult@VLFONT@@@@QEAAXXZ @ 0x1C013FFF4
+ * XREFs of ?CleanupRoutine@?$HmgShareLockResult@VLFONT@@@@QEAAXXZ @ 0x1C016C8FC
  * Callers:
- *     ??1?$HmgShareLockResult@VLFONT@@@@QEAA@XZ @ 0x1C013FFC8 (--1-$HmgShareLockResult@VLFONT@@@@QEAA@XZ.c)
- *     ?OnUnexpectedThreadTerminationStatic@?$UnexpectedThreadTerminationHandler@V?$HmgShareLockResult@VLFONT@@@@@@SAXPEAX@Z @ 0x1C0140030 (-OnUnexpectedThreadTerminationStatic@-$UnexpectedThreadTerminationHandler@V-$HmgShareLockResult@.c)
+ *     ?OnUnexpectedThreadTerminationStatic@?$UnexpectedThreadTerminationHandler@V?$HmgShareLockResult@VLFONT@@@@@@SAXPEAX@Z @ 0x1C016C930 (-OnUnexpectedThreadTerminationStatic@-$UnexpectedThreadTerminationHandler@V-$HmgShareLockResult@.c)
+ *     GreSelectFontInternal @ 0x1C016C948 (GreSelectFontInternal.c)
  * Callees:
  *     <none>
  */

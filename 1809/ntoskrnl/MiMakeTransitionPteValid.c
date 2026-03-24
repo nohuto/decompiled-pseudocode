@@ -5,7 +5,7 @@
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
  *     MiResolveProtoCombine @ 0x14007BF74 (MiResolveProtoCombine.c)
- *     MiProtectAweRegion @ 0x1402B14BC (MiProtectAweRegion.c)
+ *     MiProtectAweRegion @ 0x1402B15BC (MiProtectAweRegion.c)
  * Callees:
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)

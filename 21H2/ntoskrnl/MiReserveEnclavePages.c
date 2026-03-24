@@ -1,41 +1,67 @@
 /*
- * XREFs of MiReserveEnclavePages @ 0x1405A9E34
+ * XREFs of MiReserveEnclavePages @ 0x14054B2EC
  * Callers:
- *     MiAddPagesToEnclave @ 0x1405A7D28 (MiAddPagesToEnclave.c)
- *     MiCreateHardwareEnclave @ 0x140979A34 (MiCreateHardwareEnclave.c)
+ *     MiAddPagesToEnclave @ 0x140549104 (MiAddPagesToEnclave.c)
+ *     MiCreateHardwareEnclave @ 0x1408D28D0 (MiCreateHardwareEnclave.c)
  * Callees:
- *     MiSetPfnBlink @ 0x140313CA0 (MiSetPfnBlink.c)
- *     MiAllocateEnclavePages @ 0x1405A828C (MiAllocateEnclavePages.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetEnclavePage @ 0x14054A6D8 (MiGetEnclavePage.c)
  */
 
-__int64 __fastcall MiReserveEnclavePages(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiReserveEnclavePages(__int64 a1, _QWORD *a2, unsigned __int64 a3)
 {
-  _QWORD *EnclavePages; // rcx
-  __int64 v7; // rax
-  __int64 v8; // rbx
+  unsigned __int64 v6; // rax
+  int v7; // edi
+  unsigned __int64 OldIrql; // r14
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v12; // edx
+  bool v13; // zf
+  _QWORD *v15; // rcx
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  EnclavePages = (_QWORD *)MiAllocateEnclavePages(
-                             a2,
-                             *(unsigned __int16 *)(*(_QWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor]
-                                                             + 192)
-                                                 + 138LL),
-                             1,
-                             a3);
-  if ( !EnclavePages )
-    return 3221225495LL;
-  *(_QWORD *)(a1 + 104) += a3;
-  do
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  KeAcquireInStackQueuedSpinLock(a2 + 524, &LockHandle);
+  v6 = a2[520];
+  if ( v6 < a3 )
   {
-    v7 = EnclavePages[3] & 0xFFFFFFFFFFLL;
-    if ( v7 == 0x3FFFFFFFFFLL )
-      v8 = 0LL;
-    else
-      v8 = 48 * v7 - 0x220000000000LL;
-    *EnclavePages = *(_QWORD *)(a1 + 96);
-    *(_QWORD *)(a1 + 96) = EnclavePages;
-    MiSetPfnBlink((__int64)EnclavePages, 0LL, 0);
-    EnclavePages = (_QWORD *)v8;
+    v7 = -1073741801;
   }
-  while ( v8 );
+  else
+  {
+    a2[520] = v6 - a3;
+    v7 = 0;
+  }
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  OldIrql = LockHandle.OldIrql;
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v12 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v13 = (v12 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v12;
+        if ( v13 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
+  }
+  __writecr8(OldIrql);
+  if ( v7 < 0 )
+    return (unsigned int)v7;
+  for ( *(_QWORD *)(a1 + 104) += a3; a3; --a3 )
+  {
+    v15 = (_QWORD *)(48 * MiGetEnclavePage(a2, 1) - 0x58000000000LL);
+    *v15 = *(_QWORD *)(a1 + 96);
+    *(_QWORD *)(a1 + 96) = v15;
+  }
   return 0LL;
 }

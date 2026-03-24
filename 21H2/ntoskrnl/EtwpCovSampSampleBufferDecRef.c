@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCovSampSampleBufferDecRef @ 0x140636A30
+ * XREFs of EtwpCovSampSampleBufferDecRef @ 0x1405AF870
  * Callers:
- *     EtwpCovSampCaptureBufferQueue @ 0x140635B80 (EtwpCovSampCaptureBufferQueue.c)
- *     EtwpCovSampCaptureFlushSampleBuffers @ 0x1406360C0 (EtwpCovSampCaptureFlushSampleBuffers.c)
- *     EtwpCovSampSampleBufferReserve @ 0x140636A64 (EtwpCovSampSampleBufferReserve.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x1405AE6E4 (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampCaptureFlushSampleBuffers @ 0x1405AEC30 (EtwpCovSampCaptureFlushSampleBuffers.c)
+ *     EtwpCovSampSampleBufferReserve @ 0x1405AF8AC (EtwpCovSampSampleBufferReserve.c)
  * Callees:
- *     EtwpCovSampCaptureQueueBuffer @ 0x140460CEC (EtwpCovSampCaptureQueueBuffer.c)
+ *     EtwpCovSampCaptureQueueBuffer @ 0x1405AF068 (EtwpCovSampCaptureQueueBuffer.c)
  */
 
 char __fastcall EtwpCovSampSampleBufferDecRef(__int64 a1, __int64 a2)
@@ -21,7 +21,10 @@ char __fastcall EtwpCovSampSampleBufferDecRef(__int64 a1, __int64 a2)
   {
     if ( v4 )
       __fastfail(0xEu);
-    LOBYTE(v4) = EtwpCovSampCaptureQueueBuffer(a1, (struct _SLIST_ENTRY *)a2);
+    goto LABEL_5;
   }
+  if ( !v4 )
+LABEL_5:
+    LOBYTE(v4) = EtwpCovSampCaptureQueueBuffer(a1, (struct _SLIST_ENTRY *)a2);
   return v4;
 }

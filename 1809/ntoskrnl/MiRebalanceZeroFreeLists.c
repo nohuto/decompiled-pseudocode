@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRebalanceZeroFreeLists @ 0x1402C0D70
+ * XREFs of MiRebalanceZeroFreeLists @ 0x1402C0E70
  * Callers:
  *     <none>
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiNodeFreeZeroPages @ 0x1400EE2D4 (MiNodeFreeZeroPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetNodeStandbyPageCount @ 0x1402C02B0 (MiGetNodeStandbyPageCount.c)
- *     MiPruneStandbyPages @ 0x1402C0994 (MiPruneStandbyPages.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiNodeFreeZeroPages @ 0x1400EE2F4 (MiNodeFreeZeroPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetNodeStandbyPageCount @ 0x1402C03B0 (MiGetNodeStandbyPageCount.c)
+ *     MiPruneStandbyPages @ 0x1402C0A94 (MiPruneStandbyPages.c)
  */
 
 void __fastcall MiRebalanceZeroFreeLists(_QWORD *a1)

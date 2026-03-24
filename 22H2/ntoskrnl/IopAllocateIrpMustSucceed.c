@@ -1,13 +1,13 @@
 /*
- * XREFs of IopAllocateIrpMustSucceed @ 0x14022E280
+ * XREFs of IopAllocateIrpMustSucceed @ 0x1402D2090
  * Callers:
- *     IopCloseFile @ 0x14072FFC0 (IopCloseFile.c)
- *     IopDeleteFile @ 0x140730450 (IopDeleteFile.c)
- *     IoCancelFileOpen @ 0x140946DB0 (IoCancelFileOpen.c)
- *     IopFreeBandwidthContract @ 0x1409519DC (IopFreeBandwidthContract.c)
+ *     IopCloseFile @ 0x14064A140 (IopCloseFile.c)
+ *     IopDeleteFile @ 0x140650DF0 (IopDeleteFile.c)
+ *     IoCancelFileOpen @ 0x140893670 (IoCancelFileOpen.c)
+ *     IopFreeBandwidthContract @ 0x14089B114 (IopFreeBandwidthContract.c)
  * Callees:
- *     IopAllocateIrpExReturn @ 0x14022EF90 (IopAllocateIrpExReturn.c)
- *     IopAllocateReserveIrp @ 0x140554D18 (IopAllocateReserveIrp.c)
+ *     IopAllocateIrpExReturn @ 0x1402D21F0 (IopAllocateIrpExReturn.c)
+ *     IopAllocateReserveIrp @ 0x1404FFFF0 (IopAllocateReserveIrp.c)
  */
 
 __int64 __fastcall IopAllocateIrpMustSucceed(__int64 a1, __int64 a2)
@@ -15,9 +15,12 @@ __int64 __fastcall IopAllocateIrpMustSucceed(__int64 a1, __int64 a2)
   unsigned __int8 v2; // bl
   __int64 result; // rax
   __int64 v5; // rcx
+  void *retaddr; // [rsp+28h] [rbp+0h]
 
   v2 = a2;
-  for ( result = IopAllocateIrpExReturn(a1, a2, 0LL); !result; result = IopAllocateIrpExReturn(a1, v2, 0LL) )
+  for ( result = IopAllocateIrpExReturn(a1, a2, 0LL, retaddr);
+        !result;
+        result = IopAllocateIrpExReturn(a1, v2, 0LL, retaddr) )
   {
     result = IopAllocateReserveIrp(v5, v2, 3LL);
     if ( result )

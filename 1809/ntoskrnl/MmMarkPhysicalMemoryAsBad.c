@@ -1,20 +1,20 @@
 /*
- * XREFs of MmMarkPhysicalMemoryAsBad @ 0x1402A7310
+ * XREFs of MmMarkPhysicalMemoryAsBad @ 0x1402A7410
  * Callers:
- *     MiScrubNodeLargePageList @ 0x1402CCA90 (MiScrubNodeLargePageList.c)
- *     WheapAttemptPhysicalPageOffline @ 0x1408DBD6C (WheapAttemptPhysicalPageOffline.c)
+ *     MiScrubNodeLargePageList @ 0x1402CCB90 (MiScrubNodeLargePageList.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x1408DBD4C (WheapAttemptPhysicalPageOffline.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
  *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
  *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiReleaseNonPagedResources @ 0x1400E18C8 (MiReleaseNonPagedResources.c)
- *     MiFreeContiguousPages @ 0x1401230D4 (MiFreeContiguousPages.c)
- *     MiAcquireNonPagedResources @ 0x14013DA0C (MiAcquireNonPagedResources.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
- *     MiReferencePagePartition @ 0x1402B4554 (MiReferencePagePartition.c)
- *     MiMarkFileOnlyPfnBad @ 0x1402B6288 (MiMarkFileOnlyPfnBad.c)
+ *     MiReleaseNonPagedResources @ 0x1400E18E8 (MiReleaseNonPagedResources.c)
+ *     MiFreeContiguousPages @ 0x1401230F4 (MiFreeContiguousPages.c)
+ *     MiAcquireNonPagedResources @ 0x14013DA2C (MiAcquireNonPagedResources.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
+ *     MiReferencePagePartition @ 0x1402B4654 (MiReferencePagePartition.c)
+ *     MiMarkFileOnlyPfnBad @ 0x1402B6388 (MiMarkFileOnlyPfnBad.c)
  */
 
 __int64 __fastcall MmMarkPhysicalMemoryAsBad(_DWORD *a1, _DWORD *a2)

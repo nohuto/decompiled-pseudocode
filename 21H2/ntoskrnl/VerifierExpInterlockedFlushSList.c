@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierExpInterlockedFlushSList @ 0x140A7ED40
+ * XREFs of VerifierExpInterlockedFlushSList @ 0x1409D1ED0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierExpInterlockedFlushSList()

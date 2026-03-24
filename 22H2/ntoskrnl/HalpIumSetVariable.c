@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIumSetVariable @ 0x1405207D0
+ * XREFs of HalpIumSetVariable @ 0x1404D6770
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpIumSetVariable(_WORD *Src, __int128 *a2, int a3, size_t a4, void *Srca)
@@ -14,13 +14,13 @@ __int64 __fastcall HalpIumSetVariable(_WORD *Src, __int128 *a2, int a3, size_t a
   __int64 v9; // rax
   size_t v10; // rsi
   unsigned __int64 v11; // rbx
-  __int64 Pool2; // rax
+  char *PoolWithTag; // rax
   _QWORD *v14; // rdi
   void *v15; // rcx
   __int128 v16; // xmm0
   __int64 v17; // rbx
 
-  if ( !qword_140C62650 || KeGetCurrentIrql() > 2u )
+  if ( !qword_140C4A2D0 || KeGetCurrentIrql() > 2u )
     return 0x8000000000000003uLL;
   v9 = -1LL;
   do
@@ -30,13 +30,13 @@ __int64 __fastcall HalpIumSetVariable(_WORD *Src, __int128 *a2, int a3, size_t a
   v11 = (v10 + a4 + 4151) & 0xFFFFFFFFFFFFF000uLL;
   if ( v11 > 0x1FA000 )
     return 0x8000000000000004uLL;
-  Pool2 = ExAllocatePool2(64LL, (v10 + a4 + 4151) & 0xFFFFFFFFFFFFF000uLL, 2001103699LL);
-  v14 = (_QWORD *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, (v10 + a4 + 4151) & 0xFFFFFFFFFFFFF000uLL, 0x77466B53u);
+  v14 = PoolWithTag;
+  if ( !PoolWithTag )
     return 0x8000000000000009uLL;
-  *(_DWORD *)(Pool2 + 32) = a3;
-  *(_QWORD *)Pool2 = Pool2 + 56;
-  memmove((void *)(Pool2 + 56), Src, v10);
+  *((_DWORD *)PoolWithTag + 8) = a3;
+  *(_QWORD *)PoolWithTag = PoolWithTag + 56;
+  memmove(PoolWithTag + 56, Src, v10);
   v15 = (void *)(v10 + *v14);
   v14[1] = v10;
   v16 = *a2;
@@ -44,7 +44,7 @@ __int64 __fastcall HalpIumSetVariable(_WORD *Src, __int128 *a2, int a3, size_t a
   *((_OWORD *)v14 + 1) = v16;
   memmove(v15, Srca, a4);
   v14[5] = a4;
-  v17 = ((__int64 (__fastcall *)(__int64, _QWORD *, unsigned __int64))qword_140C62650)(5LL, v14, v11);
+  v17 = ((__int64 (__fastcall *)(__int64, _QWORD *, unsigned __int64))qword_140C4A2D0)(5LL, v14, v11);
   ExFreePoolWithTag(v14, 0);
   return v17;
 }

@@ -1,46 +1,43 @@
 /*
- * XREFs of ?RecordVSync@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C0055938
+ * XREFs of ?RecordVSync@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C0047D0C
  * Callers:
- *     ?NotifyVSync@DXGADAPTER@@QEAAXI@Z @ 0x1C000BE00 (-NotifyVSync@DXGADAPTER@@QEAAXI@Z.c)
+ *     ?NotifyVSync@DXGADAPTER@@QEAAXI@Z @ 0x1C00380C4 (-NotifyVSync@DXGADAPTER@@QEAAXI@Z.c)
  * Callees:
- *     ?CalculatePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C005539C (-CalculatePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z.c)
+ *     ?CalculatePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C004785C (-CalculatePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z.c)
  */
 
 void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::RecordVSync(KSPIN_LOCK *this)
 {
-  signed __int64 v2; // r11
-  _QWORD *v3; // rdi
-  __int64 v4; // r8
-  KSPIN_LOCK v5; // rax
-  KSPIN_LOCK v6; // rcx
-  __int64 v7; // rdx
-  __int64 v8; // r11
+  signed __int64 v2; // r9
+  __int64 v3; // r8
+  KSPIN_LOCK v4; // rax
+  KSPIN_LOCK v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // r9
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   KeAcquireInStackQueuedSpinLock(this + 3, &LockHandle);
   if ( *((_BYTE *)this + 88) != 1 )
   {
     v2 = this[4];
-    v3 = this + 9;
     if ( v2 > (__int64)this[5] )
     {
-      v4 = *(unsigned int *)(this[2] + 4LL * *((unsigned int *)this + 14) + 4);
-      v5 = **(_QWORD **)(*this + 4200);
-      this[4] = v5;
-      v6 = v5 - v2;
-      v2 = v5;
-      *v3 += v6 * v4;
+      v3 = *(unsigned int *)(this[2] + 4LL * *((unsigned int *)this + 14) + 4);
+      v4 = **(_QWORD **)(*this + 3976);
+      this[4] = v4;
+      v5 = v4 - v2;
+      v2 = v4;
+      this[9] += v5 * v3;
     }
-    LODWORD(v7) = 0;
+    LODWORD(v6) = 0;
     if ( v2 )
     {
-      v8 = **(_QWORD **)(*this + 4208);
-      if ( v8 )
-        v7 = 1000LL * *v3 / *(unsigned int *)(this[2] + 4LL * *((unsigned int *)this + 14) + 4) / v8;
+      v7 = **(_QWORD **)(*this + 3984);
+      if ( v7 )
+        v6 = (__int64)(1000 * this[9]) / *(unsigned int *)(this[2] + 4LL * *((unsigned int *)this + 14) + 4) / v7;
     }
-    DXGPOWERSTATISTICSTRANSITIONENGINE::CalculatePState((DXGPOWERSTATISTICSTRANSITIONENGINE *)this, v7);
-    *v3 = 0LL;
+    DXGPOWERSTATISTICSTRANSITIONENGINE::CalculatePState((DXGPOWERSTATISTICSTRANSITIONENGINE *)this, v6);
+    this[9] = 0LL;
   }
   KeReleaseInStackQueuedSpinLock(&LockHandle);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkpWerAllocatePool @ 0x14093B6E4
+ * XREFs of DbgkpWerAllocatePool @ 0x140888DAC
  * Callers:
- *     DbgkCaptureLiveKernelDump @ 0x14053C1B8 (DbgkCaptureLiveKernelDump.c)
+ *     DbgkCaptureLiveKernelDump @ 0x1404EE598 (DbgkCaptureLiveKernelDump.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall DbgkpWerAllocatePool(__int64 a1)
+PVOID __fastcall DbgkpWerAllocatePool(SIZE_T NumberOfBytes)
 {
-  return ExAllocatePool2(256LL, a1, 1466393156LL);
+  return ExAllocatePoolWithTag(PagedPool, NumberOfBytes, 0x57676244u);
 }

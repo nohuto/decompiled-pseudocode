@@ -1,7 +1,7 @@
 /*
- * XREFs of IopIsNotifyInBroadcast @ 0x140A51338
+ * XREFs of IopIsNotifyInBroadcast @ 0x1409978AC
  * Callers:
- *     IoBuildPoDeviceNotifyList @ 0x140A50D3C (IoBuildPoDeviceNotifyList.c)
+ *     IoBuildPoDeviceNotifyList @ 0x1409972B0 (IoBuildPoDeviceNotifyList.c)
  * Callees:
  *     <none>
  */

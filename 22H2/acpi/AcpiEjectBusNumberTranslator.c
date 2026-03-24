@@ -1,30 +1,35 @@
 /*
- * XREFs of AcpiEjectBusNumberTranslator @ 0x1C00972F0
+ * XREFs of AcpiEjectBusNumberTranslator @ 0x1C00A362C
  * Callers:
- *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
+ *     ACPIBusIrpQueryInterface @ 0x1C0010C50 (ACPIBusIrpQueryInterface.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     PciConfigPinToLine @ 0x1C0001990 (PciConfigPinToLine.c)
- *     ACPIGet @ 0x1C00293A4 (ACPIGet.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     PciConfigPinToLine @ 0x1C000CA40 (PciConfigPinToLine.c)
  */
 
 __int64 __fastcall AcpiEjectBusNumberTranslator(ULONG_PTR a1, __int64 a2)
 {
-  __int64 DeviceExtension; // rax
+  __int64 *DeviceExtension; // rax
   __int64 v4; // rcx
   __int64 v5; // rbx
   __int64 v7; // rcx
   __int64 v8; // [rsp+68h] [rbp+10h] BYREF
 
-  DeviceExtension = ACPIInternalGetDeviceExtension(a1);
+  DeviceExtension = (__int64 *)ACPIInternalGetDeviceExtension(a1);
   v4 = *(_QWORD *)(a2 + 184);
   v5 = *(_QWORD *)(v4 + 24);
   if ( *(_WORD *)(v4 + 18) )
     return 3221225659LL;
-  if ( *(_WORD *)(v4 + 16) >= 0x30u )
+  if ( *(_WORD *)(v4 + 16) < 0x30u )
+  {
+    *(_WORD *)v5 = 48;
+    return 3221225485LL;
+  }
+  else
   {
     v8 = 0LL;
-    if ( (int)ACPIGet(DeviceExtension, 0x4745535Fu, 268697602, 0LL, 0, 0LL, 0LL, (__int64)&v8, 0LL) >= 0 && v8 )
+    if ( (int)ACPIGet(DeviceExtension, 1195725663, 268697602, 0LL, 0, 0LL, 0LL, (__int64)&v8, 0LL) >= 0 && v8 )
     {
       *(_DWORD *)v5 = 48;
       v7 = (unsigned __int16)v8;
@@ -40,10 +45,5 @@ __int64 __fastcall AcpiEjectBusNumberTranslator(ULONG_PTR a1, __int64 a2)
     {
       return *(unsigned int *)(a2 + 48);
     }
-  }
-  else
-  {
-    *(_WORD *)v5 = 48;
-    return 3221225485LL;
   }
 }

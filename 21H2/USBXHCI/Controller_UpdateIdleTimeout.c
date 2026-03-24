@@ -1,13 +1,13 @@
 /*
- * XREFs of Controller_UpdateIdleTimeout @ 0x1C006C49C
+ * XREFs of Controller_UpdateIdleTimeout @ 0x1C0075A00
  * Callers:
- *     Controller_IdleTimeoutUpdateWorker @ 0x1C0014090 (Controller_IdleTimeoutUpdateWorker.c)
- *     Controller_UpdateIdleTimeoutOnControllerFDOD0Entry @ 0x1C006C1A0 (Controller_UpdateIdleTimeoutOnControllerFDOD0Entry.c)
- *     Controller_ConfigureS0IdleSettings @ 0x1C006F1BC (Controller_ConfigureS0IdleSettings.c)
+ *     Controller_IdleTimeoutUpdateWorker @ 0x1C0031DC0 (Controller_IdleTimeoutUpdateWorker.c)
+ *     Controller_UpdateIdleTimeoutOnControllerFDOD0Entry @ 0x1C006B2B4 (Controller_UpdateIdleTimeoutOnControllerFDOD0Entry.c)
+ *     Controller_ConfigureS0IdleSettings @ 0x1C0070814 (Controller_ConfigureS0IdleSettings.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Controller_UpdateIdleTimeout(__int64 *a1, int a2)
@@ -31,23 +31,23 @@ __int64 __fastcall Controller_UpdateIdleTimeout(__int64 *a1, int a2)
              WdfDriverGlobals,
              v3,
              v7);
-  if ( (int)result < 0 )
-  {
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v6) = 4;
-      result = WPP_RECORDER_SF_d(a1[9], v6, 4, 30, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, result);
-    }
-    *((_DWORD *)a1 + 116) = 2;
-  }
-  else
+  if ( (int)result >= 0 )
   {
     *((_DWORD *)a1 + 132) = a2;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v6) = 4;
-      return WPP_RECORDER_SF_d(a1[9], v6, 4, 31, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, a2);
+      return WPP_RECORDER_SF_d(a1[9], v6, 4, 31, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, a2);
     }
+  }
+  else
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v6) = 4;
+      result = WPP_RECORDER_SF_d(a1[9], v6, 4, 30, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, result);
+    }
+    *((_DWORD *)a1 + 116) = 2;
   }
   return result;
 }

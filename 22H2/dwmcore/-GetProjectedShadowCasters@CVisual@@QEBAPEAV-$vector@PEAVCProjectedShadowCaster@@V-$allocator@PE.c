@@ -1,15 +1,15 @@
 /*
- * XREFs of ?GetProjectedShadowCasters@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowCaster@@V?$allocator@PEAVCProjectedShadowCaster@@@std@@@std@@XZ @ 0x18000986C
+ * XREFs of ?GetProjectedShadowCasters@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowCaster@@V?$allocator@PEAVCProjectedShadowCaster@@@std@@@std@@XZ @ 0x180011D40
  * Callers:
- *     ?AddProjectedShadowCaster@CVisual@@QEAAXPEAVCProjectedShadowCaster@@@Z @ 0x180008E9C (-AddProjectedShadowCaster@CVisual@@QEAAXPEAVCProjectedShadowCaster@@@Z.c)
- *     ?SetCastingVisual@CProjectedShadowCaster@@QEAAXPEAVCVisual@@@Z @ 0x180008F4C (-SetCastingVisual@CProjectedShadowCaster@@QEAAXPEAVCVisual@@@Z.c)
- *     ?DirtyProjectedShadowCasters@CVisual@@QEAAXXZ @ 0x1800097E0 (-DirtyProjectedShadowCasters@CVisual@@QEAAXXZ.c)
- *     ?OnLayoutChanged@CVisual@@AEAAXXZ @ 0x18004A5D0 (-OnLayoutChanged@CVisual@@AEAAXXZ.c)
- *     ?UpdateTransform@CPreWalkVisual@CPreComputeContext@@QEAAXPEBVCVisualTree@@@Z @ 0x180088C54 (-UpdateTransform@CPreWalkVisual@CPreComputeContext@@QEAAXPEBVCVisualTree@@@Z.c)
- *     ??1CVisual@@MEAA@XZ @ 0x18009A7CC (--1CVisual@@MEAA@XZ.c)
- *     ?InsertChild@CVisual@@IEAAJPEAV1@0_N@Z @ 0x18009BBF8 (-InsertChild@CVisual@@IEAAJPEAV1@0_N@Z.c)
- *     ?ReleaseVisualTreeData@CVisual@@QEAAXPEAVCVisualTreeData@@@Z @ 0x1800DCB3C (-ReleaseVisualTreeData@CVisual@@QEAAXPEAVCVisualTreeData@@@Z.c)
- *     ?OnClipChanged@CVisual@@AEAAXXZ @ 0x1800E4F28 (-OnClipChanged@CVisual@@AEAAXXZ.c)
+ *     ?SetCastingVisual@CProjectedShadowCaster@@QEAAXPEAVCVisual@@@Z @ 0x18001010C (-SetCastingVisual@CProjectedShadowCaster@@QEAAXPEAVCVisual@@@Z.c)
+ *     ?AddProjectedShadowCaster@CVisual@@QEAAXPEAVCProjectedShadowCaster@@@Z @ 0x18001017C (-AddProjectedShadowCaster@CVisual@@QEAAXPEAVCProjectedShadowCaster@@@Z.c)
+ *     ?DirtyProjectedShadowCasters@CVisual@@QEAAXXZ @ 0x180010314 (-DirtyProjectedShadowCasters@CVisual@@QEAAXXZ.c)
+ *     ?ReleaseVisualTreeData@CVisual@@QEAAXPEAVCVisualTreeData@@@Z @ 0x180024368 (-ReleaseVisualTreeData@CVisual@@QEAAXPEAVCVisualTreeData@@@Z.c)
+ *     ?PreCompute@CPreComputeContext@@IEAAJPEAVCDirtyRegion@@@Z @ 0x18008D730 (-PreCompute@CPreComputeContext@@IEAAJPEAVCDirtyRegion@@@Z.c)
+ *     ??1CVisual@@MEAA@XZ @ 0x1800A08FC (--1CVisual@@MEAA@XZ.c)
+ *     ?OnClipChanged@CVisual@@AEAAXXZ @ 0x1800A1E5C (-OnClipChanged@CVisual@@AEAAXXZ.c)
+ *     ?OnLayoutChanged@CVisual@@AEAAXXZ @ 0x1800CD828 (-OnLayoutChanged@CVisual@@AEAAXXZ.c)
+ *     ?UpdateProjectedShadowCasters@CPreComputeContext@@AEAAJ_N@Z @ 0x1800D95C4 (-UpdateProjectedShadowCasters@CPreComputeContext@@AEAAJ_N@Z.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ __int64 __fastcall CVisual::GetProjectedShadowCasters(__int64 a1)
   __int64 v4; // rcx
   unsigned int i; // eax
 
-  v1 = *(_DWORD **)(a1 + 232);
+  v1 = *(_DWORD **)(a1 + 224);
   if ( (*v1 & 0x40000) == 0 )
     return 0LL;
   v2 = (unsigned int)v1[1];

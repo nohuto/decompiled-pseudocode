@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpTraceDebugPrint @ 0x140311890
+ * XREFs of EtwpTraceDebugPrint @ 0x140311990
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpTraceDebugPrint(PSTRING Output, ULONG ComponentId, ULONG Level)

@@ -1,48 +1,49 @@
 /*
- * XREFs of NtGdiExtEscape @ 0x1C00108F0
+ * XREFs of NtGdiExtEscape @ 0x1C00A75A0
  * Callers:
  *     <none>
  * Callees:
- *     UmfdDispatchEscape @ 0x1C0010B54 (UmfdDispatchEscape.c)
- *     ?IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00C5360 (-IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
- *     UmfdDispatchWinLogonEscape @ 0x1C00F70E8 (UmfdDispatchWinLogonEscape.c)
- *     GreExtEscape @ 0x1C013D59C (GreExtEscape.c)
- *     bUMPD @ 0x1C014321C (bUMPD.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     GreScalingDispatchEscape @ 0x1C029DA54 (GreScalingDispatchEscape.c)
- *     GreNamedEscape @ 0x1C02A5034 (GreNamedEscape.c)
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
+ *     bUMPD @ 0x1C00A7418 (bUMPD.c)
+ *     UmfdDispatchEscape @ 0x1C00A7800 (UmfdDispatchEscape.c)
+ *     GreExtEscape @ 0x1C00A8F00 (GreExtEscape.c)
+ *     ?IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00E411C (-IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     UmfdDispatchWinLogonEscape @ 0x1C00F41AC (UmfdDispatchWinLogonEscape.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     GreScalingDispatchEscape @ 0x1C029F150 (GreScalingDispatchEscape.c)
+ *     GreNamedEscape @ 0x1C02A7604 (GreNamedEscape.c)
  */
 
-__int64 __fastcall NtGdiExtEscape(HDC a1, const void *a2, int a3, int a4, int a5, char *Src, int a7, char *a8)
+__int64 __fastcall NtGdiExtEscape(HDC a1, char *a2, int a3, __int64 a4, int a5, char *Src, int a7, char *a8)
 {
-  unsigned int v9; // r12d
+  __int64 v8; // r14
   char *v10; // rdi
-  char *v11; // rsi
-  char *v13; // r14
-  unsigned int v14; // eax
-  __int64 v15; // rax
-  size_t v16; // rdx
-  ULONG64 v17; // rcx
-  int v18; // [rsp+34h] [rbp-324h]
-  int v19; // [rsp+38h] [rbp-320h]
-  size_t v22; // [rsp+58h] [rbp-300h]
-  wchar_t *Str1; // [rsp+70h] [rbp-2E8h]
-  _OWORD v25[2]; // [rsp+80h] [rbp-2D8h] BYREF
-  _OWORD v26[2]; // [rsp+A0h] [rbp-2B8h] BYREF
-  char v27; // [rsp+C0h] [rbp-298h] BYREF
-  char v28; // [rsp+E0h] [rbp-278h] BYREF
-  _WORD v29[264]; // [rsp+100h] [rbp-258h] BYREF
+  __int64 result; // rax
+  char *v12; // r13
+  char *v13; // rbx
+  size_t v14; // r14
+  unsigned int v15; // [rsp+30h] [rbp-318h]
+  int v16; // [rsp+38h] [rbp-310h]
+  int v17; // [rsp+3Ch] [rbp-30Ch]
+  wchar_t *Str1; // [rsp+60h] [rbp-2E8h]
+  _OWORD v20[2]; // [rsp+70h] [rbp-2D8h] BYREF
+  _OWORD v21[2]; // [rsp+90h] [rbp-2B8h] BYREF
+  char v22; // [rsp+B0h] [rbp-298h] BYREF
+  char v23; // [rsp+D0h] [rbp-278h] BYREF
+  _WORD v24[264]; // [rsp+F0h] [rbp-258h] BYREF
 
-  Str1 = 0LL;
-  v9 = -1;
-  memset(v25, 0, sizeof(v25));
-  memset(v26, 0, sizeof(v26));
-  v19 = 0;
-  v18 = 0;
+  v8 = a3;
   v10 = 0LL;
-  v11 = 0LL;
+  Str1 = 0LL;
+  result = 0xFFFFFFFFLL;
+  v15 = -1;
+  memset(v20, 0, sizeof(v20));
+  memset(v21, 0, sizeof(v21));
+  v17 = 0;
+  v16 = 0;
+  v12 = 0LL;
   if ( a5 < 0 || a7 < 0 || a3 < 0 || a1 && a2 )
     goto LABEL_31;
   if ( gpidLogon && PsGetCurrentProcessId() == (HANDLE)gpidLogon )
@@ -55,105 +56,116 @@ __int64 __fastcall NtGdiExtEscape(HDC a1, const void *a2, int a3, int a4, int a5
     UmfdDispatchEscape(Src);
     return 0LL;
   }
-  if ( !a2 )
+  if ( a2 )
   {
-LABEL_13:
-    if ( Str1 && !_wcsicmp(Str1, L"GSESC") && (int)GreScalingDispatchEscape(Src) >= 0 )
-      return 0LL;
-    if ( a5 )
+    if ( (int)v8 > 260 )
+      goto LABEL_76;
+    Str1 = v24;
+    v14 = 2 * v8;
+    if ( &a2[v14] < a2 || (unsigned __int64)&a2[v14] > MmUserProbeAddress )
+      *(_BYTE *)MmUserProbeAddress = 0;
+    memmove(v24, a2, v14);
+    v24[v14 / 2] = 0;
+  }
+  if ( Str1 && !_wcsicmp(Str1, L"GSESC") && (int)GreScalingDispatchEscape(Src) >= 0 )
+    return 0LL;
+  if ( a5 )
+  {
+    if ( (unsigned int)bUMPD(a1) )
     {
-      if ( !(unsigned int)bUMPD(a1) )
+      if ( a5 > 32 )
       {
-        if ( a5 > 32 )
-        {
-          if ( a5 <= 40960000 )
-            v11 = (char *)Win32AllocPool((unsigned int)a5, 1886221383LL);
-          if ( !v11 )
-            goto LABEL_31;
-          v19 = 1;
-          goto LABEL_18;
-        }
-LABEL_17:
-        v11 = &v27;
-LABEL_18:
-        if ( &Src[a5] < Src || (unsigned __int64)&Src[a5] > MmUserProbeAddress )
+        if ( (unsigned __int64)&Src[a5] > MmUserProbeAddress || &Src[a5] < Src )
           *(_BYTE *)MmUserProbeAddress = 0;
-        memmove(v11, Src, a5);
+        v12 = Src;
         goto LABEL_22;
       }
-      if ( a5 <= 32 )
-        goto LABEL_17;
-      if ( (unsigned __int64)&Src[a5] > MmUserProbeAddress || &Src[a5] < Src )
-        *(_BYTE *)MmUserProbeAddress = 0;
-      v11 = Src;
     }
-LABEL_22:
-    if ( a7 )
+    else if ( a5 > 32 )
     {
-      if ( (unsigned int)bUMPD(a1) )
-      {
-        v13 = a8;
-        ProbeForWrite(a8, a7, 1u);
-        v10 = a8;
-LABEL_24:
-        if ( v19 && v11 )
-          PushThreadGuardedObject(v25, v11, Win32FreePool);
-        if ( v18 && v10 )
-          PushThreadGuardedObject(v26, v10, Win32FreePool);
-        if ( Str1 )
-          v14 = GreNamedEscape((_DWORD)Str1, a4, a5, (_DWORD)v11, a7, (__int64)v10);
-        else
-          v14 = GreExtEscape(a1, a7, (__int64)v10);
-        v9 = v14;
-        if ( v19 && v11 )
-          PopThreadGuardedObject(v25);
-        if ( v18 && v10 )
-          PopThreadGuardedObject(v26);
-        if ( a7 && v10 != v13 )
-        {
-          if ( (unsigned __int64)&v13[a7] > MmUserProbeAddress || &v13[a7] <= v13 )
-            *(_BYTE *)MmUserProbeAddress = 0;
-          memmove(v13, v10, a7);
-        }
-        goto LABEL_31;
-      }
-      if ( a7 > 32 )
-      {
-        if ( a7 <= 40960000 )
-          v10 = (char *)Win32AllocPool((unsigned int)a7, 1886221383LL);
-        if ( !v10 )
-          goto LABEL_31;
-        v18 = 1;
-      }
-      else
-      {
-        v10 = &v28;
-      }
-      memset(v10, 0, a7);
+      if ( a5 <= 40960000 )
+        v12 = (char *)PALLOCMEM2((unsigned int)a5, 1886221383LL, 0);
+      if ( !v12 )
+        goto LABEL_76;
+      v17 = 1;
+      goto LABEL_18;
     }
+    v12 = &v22;
+LABEL_18:
+    if ( &Src[a5] < Src || (unsigned __int64)&Src[a5] > MmUserProbeAddress )
+      *(_BYTE *)MmUserProbeAddress = 0;
+    memmove(v12, Src, a5);
+  }
+LABEL_22:
+  if ( !a7 )
+  {
+LABEL_23:
     v13 = a8;
     goto LABEL_24;
   }
-  v15 = a3;
-  if ( a3 <= 260 )
+  if ( (unsigned int)bUMPD(a1) )
   {
-    Str1 = v29;
-    v16 = 2LL * a3;
-    v22 = v16;
-    v17 = (ULONG64)a2 + 2 * v15;
-    if ( v17 < (unsigned __int64)a2 || v17 > MmUserProbeAddress )
-      *(_BYTE *)MmUserProbeAddress = 0;
-    memmove(v29, a2, v16);
-    *(_WORD *)((char *)v29 + v22) = 0;
-    goto LABEL_13;
+    v13 = a8;
+    ProbeForWrite(a8, a7, 1u);
+    v10 = a8;
+LABEL_24:
+    if ( v17 && v12 )
+      PushThreadGuardedObject(v20, v12, Win32FreePool);
+    if ( v16 && v10 )
+      PushThreadGuardedObject(v21, v10, Win32FreePool);
+    if ( Str1 )
+      result = GreNamedEscape(Str1, a7, (__int64)v10);
+    else
+      result = GreExtEscape(a1, a7, (__int64)v10);
+    v15 = result;
+    if ( v17 && v12 )
+    {
+      PopThreadGuardedObject(v20);
+      result = v15;
+    }
+    if ( v16 && v10 )
+    {
+      PopThreadGuardedObject(v21);
+      result = v15;
+    }
+    if ( a7 && v10 != v13 )
+    {
+      if ( (unsigned __int64)&v13[a7] > MmUserProbeAddress || &v13[a7] <= v13 )
+        *(_BYTE *)MmUserProbeAddress = 0;
+      memmove(v13, v10, a7);
+      result = v15;
+    }
+    goto LABEL_31;
   }
+  if ( a7 <= 32 )
+  {
+    v10 = &v23;
+LABEL_61:
+    memset(v10, 0, a7);
+    goto LABEL_23;
+  }
+  if ( a7 <= 40960000 )
+    v10 = (char *)PALLOCMEM2((unsigned int)a7, 1886221383LL, 0);
+  if ( v10 )
+  {
+    v16 = 1;
+    goto LABEL_61;
+  }
+LABEL_76:
+  result = 0xFFFFFFFFLL;
 LABEL_31:
-  if ( v18 && v10 )
-    Win32FreePool(v10);
-  if ( v19 )
+  if ( v16 && v10 )
   {
-    if ( v11 )
-      Win32FreePool(v11);
+    Win32FreePool(v10);
+    result = v15;
   }
-  return v9;
+  if ( v17 )
+  {
+    if ( v12 )
+    {
+      Win32FreePool(v12);
+      return v15;
+    }
+  }
+  return result;
 }

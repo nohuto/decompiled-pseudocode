@@ -1,41 +1,25 @@
 /*
- * XREFs of PipIsDevNodeDNStarted @ 0x14022B1A0
+ * XREFs of PipIsDevNodeDNStarted @ 0x14032E358
  * Callers:
- *     PipSetDevNodeState @ 0x14022AEA4 (PipSetDevNodeState.c)
- *     PipRestoreDevNodeState @ 0x1403B6928 (PipRestoreDevNodeState.c)
- *     PnpCheckForActiveDependencies @ 0x1406CBD6C (PnpCheckForActiveDependencies.c)
- *     PiControlGetUserFlagsFromDeviceNode @ 0x1406CBFE4 (PiControlGetUserFlagsFromDeviceNode.c)
- *     IoReportDetectedDevice @ 0x140836920 (IoReportDetectedDevice.c)
- *     PnpDriverLoadingFailed @ 0x140862E64 (PnpDriverLoadingFailed.c)
- *     PnpProcessDependencyRelations @ 0x14086931C (PnpProcessDependencyRelations.c)
- *     PnpRequestDeviceRemovalWorker @ 0x140869470 (PnpRequestDeviceRemovalWorker.c)
- *     PiDevCfgLogDeviceStarted @ 0x140879E9C (PiDevCfgLogDeviceStarted.c)
- *     PiDevCfgConfigureDevice @ 0x14087AC04 (PiDevCfgConfigureDevice.c)
- *     PiControlGetDevicePowerData @ 0x14096D930 (PiControlGetDevicePowerData.c)
+ *     PipSetDevNodeState @ 0x14036EEA8 (PipSetDevNodeState.c)
+ *     PipRestoreDevNodeState @ 0x140371258 (PipRestoreDevNodeState.c)
+ *     PiControlGetUserFlagsFromDeviceNode @ 0x1406B2B28 (PiControlGetUserFlagsFromDeviceNode.c)
+ *     PiDevCfgLogDeviceStarted @ 0x14073727C (PiDevCfgLogDeviceStarted.c)
+ *     PnpCheckForActiveDependencies @ 0x14073DD50 (PnpCheckForActiveDependencies.c)
+ *     PiDevCfgConfigureDevice @ 0x14073F2C0 (PiDevCfgConfigureDevice.c)
+ *     PnpProcessDependencyRelations @ 0x140749770 (PnpProcessDependencyRelations.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x14074A8A0 (PnpRequestDeviceRemovalWorker.c)
+ *     IoReportDetectedDevice @ 0x1407AED50 (IoReportDetectedDevice.c)
+ *     PnpDriverLoadingFailed @ 0x1407D2B70 (PnpDriverLoadingFailed.c)
+ *     PiControlGetDevicePowerData @ 0x1408B34E4 (PiControlGetDevicePowerData.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall PipIsDevNodeDNStarted(__int64 a1)
+_BOOL8 __fastcall PipIsDevNodeDNStarted(__int64 a1)
 {
-  __int64 result; // rax
+  int v1; // eax
 
-  switch ( *(_DWORD *)(a1 + 300) )
-  {
-    case 0x307:
-    case 0x308:
-    case 0x309:
-    case 0x30A:
-    case 0x30B:
-    case 0x30C:
-    case 0x30D:
-    case 0x30E:
-    case 0x30F:
-      result = 1LL;
-      break;
-    default:
-      result = 0LL;
-      break;
-  }
-  return result;
+  v1 = *(_DWORD *)(a1 + 300);
+  return v1 > 772 && v1 <= 781;
 }

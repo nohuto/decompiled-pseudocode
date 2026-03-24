@@ -1,10 +1,10 @@
 /*
- * XREFs of TR_ProcessExpectedEventTRBs @ 0x1C000FCE0
+ * XREFs of TR_ProcessExpectedEventTRBs @ 0x1C000F538
  * Callers:
- *     ESM_ProcessingExpectedEventTRBsAfterEndpointStop @ 0x1C000F680 (ESM_ProcessingExpectedEventTRBsAfterEndpointStop.c)
- *     ESM_ProcessingExpectedEventTRBsAfterEndpointHalt @ 0x1C00517B0 (ESM_ProcessingExpectedEventTRBsAfterEndpointHalt.c)
+ *     ESM_ProcessingExpectedEventTRBsAfterEndpointStop @ 0x1C000EDE0 (ESM_ProcessingExpectedEventTRBsAfterEndpointStop.c)
+ *     ESM_ProcessingExpectedEventTRBsAfterEndpointHalt @ 0x1C004EB70 (ESM_ProcessingExpectedEventTRBsAfterEndpointHalt.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall TR_ProcessExpectedEventTRBs(__int64 a1)

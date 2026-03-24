@@ -1,7 +1,7 @@
 /*
- * XREFs of PsReferenceVsmEnclave @ 0x14088E3E4
+ * XREFs of PsReferenceVsmEnclave @ 0x14088E3C4
  * Callers:
- *     MiCanDeleteEnclave @ 0x1402BCD14 (MiCanDeleteEnclave.c)
+ *     MiCanDeleteEnclave @ 0x1402BCE14 (MiCanDeleteEnclave.c)
  * Callees:
  *     <none>
  */

@@ -2,10 +2,10 @@
  * XREFs of PiDqQueryEvaluateFilter @ 0x14059552C
  * Callers:
  *     PiDqQueryEnumObject @ 0x140595674 (PiDqQueryEnumObject.c)
- *     PiDqQueryApplyObjectEvent @ 0x1406F7898 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryApplyObjectEvent @ 0x1406F7878 (PiDqQueryApplyObjectEvent.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     FilterEval @ 0x140595454 (FilterEval.c)
  *     PnpFreeDevPropertyArray @ 0x140595490 (PnpFreeDevPropertyArray.c)

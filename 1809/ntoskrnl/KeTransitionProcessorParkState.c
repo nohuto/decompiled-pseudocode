@@ -1,24 +1,24 @@
 /*
- * XREFs of KeTransitionProcessorParkState @ 0x14029CC9C
+ * XREFs of KeTransitionProcessorParkState @ 0x14029CD9C
  * Callers:
- *     KiForceIdleParkUnparkProcessor @ 0x14029AEA8 (KiForceIdleParkUnparkProcessor.c)
- *     PpmParkReportParkedCore @ 0x1402E7DF4 (PpmParkReportParkedCore.c)
- *     PpmParkReportUnparkedCore @ 0x1402E7E78 (PpmParkReportUnparkedCore.c)
+ *     KiForceIdleParkUnparkProcessor @ 0x14029AFA8 (KiForceIdleParkUnparkProcessor.c)
+ *     PpmParkReportParkedCore @ 0x1402E7EF4 (PpmParkReportParkedCore.c)
+ *     PpmParkReportUnparkedCore @ 0x1402E7F78 (PpmParkReportUnparkedCore.c)
  * Callees:
  *     KiRequestSoftwareInterrupt @ 0x140005AC0 (KiRequestSoftwareInterrupt.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiInsertDeferredReadyList @ 0x1400ACBA8 (KiInsertDeferredReadyList.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiReadyDeferredReadyList @ 0x1400CDC04 (KiReadyDeferredReadyList.c)
- *     KiUpdateThreadPriority @ 0x1400D0D20 (KiUpdateThreadPriority.c)
- *     KiIsThreadRankNonZero @ 0x1400D1460 (KiIsThreadRankNonZero.c)
- *     KiGroupSchedulingGenerationEnd @ 0x1400D308C (KiGroupSchedulingGenerationEnd.c)
- *     KiSetProcessorIdle @ 0x1400D7324 (KiSetProcessorIdle.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSendHeteroRescheduleIntRequest @ 0x140298B30 (KiSendHeteroRescheduleIntRequest.c)
- *     KiSetSchedulerAssistPriority @ 0x14029952C (KiSetSchedulerAssistPriority.c)
- *     KiFlushReadyLists @ 0x14029D1C8 (KiFlushReadyLists.c)
+ *     KiInsertDeferredReadyList @ 0x1400ACBC8 (KiInsertDeferredReadyList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiReadyDeferredReadyList @ 0x1400CDC24 (KiReadyDeferredReadyList.c)
+ *     KiUpdateThreadPriority @ 0x1400D0D40 (KiUpdateThreadPriority.c)
+ *     KiIsThreadRankNonZero @ 0x1400D1480 (KiIsThreadRankNonZero.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1400D30AC (KiGroupSchedulingGenerationEnd.c)
+ *     KiSetProcessorIdle @ 0x1400D7344 (KiSetProcessorIdle.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSendHeteroRescheduleIntRequest @ 0x140298C30 (KiSendHeteroRescheduleIntRequest.c)
+ *     KiSetSchedulerAssistPriority @ 0x14029962C (KiSetSchedulerAssistPriority.c)
+ *     KiFlushReadyLists @ 0x14029D2C8 (KiFlushReadyLists.c)
  */
 
 __int64 __fastcall KeTransitionProcessorParkState(__int64 a1)

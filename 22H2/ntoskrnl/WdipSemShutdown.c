@@ -1,15 +1,15 @@
 /*
- * XREFs of WdipSemShutdown @ 0x1409DDCA0
+ * XREFs of WdipSemShutdown @ 0x14092FE60
  * Callers:
- *     WdipSemEnableScenario @ 0x1407E5A8C (WdipSemEnableScenario.c)
- *     WdipSemCleanStart @ 0x1408315A0 (WdipSemCleanStart.c)
- *     WdipSemDisableScenario @ 0x140831AF8 (WdipSemDisableScenario.c)
- *     WdipSemUpdate @ 0x1409DD9EC (WdipSemUpdate.c)
+ *     WdipSemDisableScenario @ 0x140789250 (WdipSemDisableScenario.c)
+ *     WdipSemEnableScenario @ 0x1407894DC (WdipSemEnableScenario.c)
+ *     WdipSemCleanStart @ 0x140793EEC (WdipSemCleanStart.c)
+ *     WdipSemUpdate @ 0x14092FBA4 (WdipSemUpdate.c)
  * Callees:
- *     WdipSemClearFrequentScenarioTable @ 0x140392E7C (WdipSemClearFrequentScenarioTable.c)
- *     memset @ 0x140435400 (memset.c)
- *     WdipSemFreePool @ 0x1409DE0A0 (WdipSemFreePool.c)
- *     WdipSemDisableAllProviders @ 0x1409DE834 (WdipSemDisableAllProviders.c)
+ *     WdipSemClearFrequentScenarioTable @ 0x1403AA630 (WdipSemClearFrequentScenarioTable.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     WdipSemFreePool @ 0x140930268 (WdipSemFreePool.c)
+ *     WdipSemDisableAllProviders @ 0x140930A18 (WdipSemDisableAllProviders.c)
  */
 
 __int64 WdipSemShutdown()
@@ -23,10 +23,10 @@ __int64 WdipSemShutdown()
   WdipContextLoggerId = 0;
   memset(WdipSemScenarioTable, 0, 0x208uLL);
   memset(WdipSemProviderTable, 0, 0x2008uLL);
-  qword_140C34E68 = 0LL;
-  dword_140C34E90 = 0;
-  qword_140C34E98 = 0LL;
-  qword_140C34E88 = (__int64)&WdipSemEnabledInstanceTable;
+  qword_140C1C9A8 = 0LL;
+  dword_140C1A750 = 0;
+  qword_140C1A758 = 0LL;
+  qword_140C1A748 = (__int64)&WdipSemEnabledInstanceTable;
   WdipSemEnabledInstanceTable = (__int64)&WdipSemEnabledInstanceTable;
   WdipSemClearFrequentScenarioTable();
   return WdipSemFreePool();

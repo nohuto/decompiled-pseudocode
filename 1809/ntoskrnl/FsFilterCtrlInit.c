@@ -7,10 +7,10 @@
  *     FsRtlAcquireFileForCcFlushEx @ 0x1405DD0AC (FsRtlAcquireFileForCcFlushEx.c)
  *     FsRtlReleaseFile @ 0x1405DE940 (FsRtlReleaseFile.c)
  *     FsRtlAcquireFileExclusiveCommon @ 0x1405DEB10 (FsRtlAcquireFileExclusiveCommon.c)
- *     FsRtlQueryOpen @ 0x140814EDC (FsRtlQueryOpen.c)
+ *     FsRtlQueryOpen @ 0x140814EBC (FsRtlQueryOpen.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     FsFilterAllocateCompletionStack @ 0x14027037C (FsFilterAllocateCompletionStack.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     FsFilterAllocateCompletionStack @ 0x14027047C (FsFilterAllocateCompletionStack.c)
  */
 
 __int64 __fastcall FsFilterCtrlInit(__int64 a1, char a2, __int64 a3, __int64 a4, __int64 a5, unsigned __int8 a6)

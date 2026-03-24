@@ -1,15 +1,21 @@
 /*
- * XREFs of ??1SFMLOGICALSURFACEREF@@QEAA@XZ @ 0x1C016F4F0
+ * XREFs of ??1SFMLOGICALSURFACEREF@@QEAA@XZ @ 0x1C013F708
  * Callers:
- *     bMigrateSurfaceForConversion @ 0x1C0061D70 (bMigrateSurfaceForConversion.c)
+ *     bMigrateSurfaceForConversion @ 0x1C00B9E00 (bMigrateSurfaceForConversion.c)
  * Callees:
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C00D8C28 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     PopThreadGuardedObject @ 0x1C002C080 (PopThreadGuardedObject.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall SFMLOGICALSURFACEREF::~SFMLOGICALSURFACEREF(SFMLOGICALSURFACEREF *this)
 {
-  if ( qword_1C029B080 && (int)qword_1C029B080() >= 0 && qword_1C029B088 )
-    qword_1C029B088(this);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(this);
+  int v2; // eax
+
+  if ( qword_1C0256300 )
+    v2 = qword_1C0256300();
+  else
+    v2 = -1073741637;
+  if ( v2 >= 0 && qword_1C0256308 )
+    qword_1C0256308(this);
+  PopThreadGuardedObject(this);
 }

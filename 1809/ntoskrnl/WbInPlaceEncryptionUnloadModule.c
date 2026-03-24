@@ -1,7 +1,7 @@
 /*
- * XREFs of WbInPlaceEncryptionUnloadModule @ 0x1406B0AC8
+ * XREFs of WbInPlaceEncryptionUnloadModule @ 0x1406B0AA8
  * Callers:
- *     WbProcessModuleUnload @ 0x1406B09E4 (WbProcessModuleUnload.c)
+ *     WbProcessModuleUnload @ 0x1406B09C4 (WbProcessModuleUnload.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
@@ -9,7 +9,7 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     sub_140584234 @ 0x140584234 (sub_140584234.c)
- *     sub_1406B0E5C @ 0x1406B0E5C (sub_1406B0E5C.c)
+ *     sub_1406B0E3C @ 0x1406B0E3C (sub_1406B0E3C.c)
  */
 
 __int64 __fastcall WbInPlaceEncryptionUnloadModule(__int64 a1, __int64 a2)
@@ -40,7 +40,7 @@ __int64 __fastcall WbInPlaceEncryptionUnloadModule(__int64 a1, __int64 a2)
     {
       if ( *(_QWORD *)(v12 + 32) == a2 )
       {
-        v3 = sub_1406B0E5C((int)a1 + 136, 0, 0, i, 0LL);
+        v3 = sub_1406B0E3C((int)a1 + 136, 0, 0, i, 0LL);
         if ( v3 >= 0 )
         {
           sub_140584234((volatile signed __int64 *)v12);

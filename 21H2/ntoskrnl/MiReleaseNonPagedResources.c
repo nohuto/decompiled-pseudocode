@@ -1,14 +1,16 @@
 /*
- * XREFs of MiReleaseNonPagedResources @ 0x1405B2DA0
+ * XREFs of MiReleaseNonPagedResources @ 0x140296B90
  * Callers:
- *     MiChargeSystemImageCommitment @ 0x140761D88 (MiChargeSystemImageCommitment.c)
- *     MiAllocateProcessShadow @ 0x1407F1A10 (MiAllocateProcessShadow.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1409811F0 (MiAllocatePartitionPhysicalPages.c)
+ *     MiReturnMdlExcess @ 0x1405341AC (MiReturnMdlExcess.c)
+ *     MiFreeLargePageCharges @ 0x14055E47C (MiFreeLargePageCharges.c)
+ *     MiAllocateProcessShadow @ 0x1406D073C (MiAllocateProcessShadow.c)
+ *     MiChargeSystemImageCommitment @ 0x14075EB64 (MiChargeSystemImageCommitment.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408DA978 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiReturnCommit @ 0x14028CE10 (MiReturnCommit.c)
+ *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
  */
 
-unsigned __int64 __fastcall MiReleaseNonPagedResources(__int64 a1, __int64 a2)
+unsigned __int64 __fastcall MiReleaseNonPagedResources(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // rbx
   unsigned __int64 result; // rax
@@ -55,6 +57,6 @@ unsigned __int64 __fastcall MiReleaseNonPagedResources(__int64 a1, __int64 a2)
     }
   }
   if ( v2 )
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 16960), v2);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v2);
   return result;
 }

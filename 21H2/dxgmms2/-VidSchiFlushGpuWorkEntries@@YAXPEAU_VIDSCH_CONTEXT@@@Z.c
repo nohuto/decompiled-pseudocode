@@ -1,13 +1,13 @@
 /*
- * XREFs of ?VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0017B68
+ * XREFs of ?VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C001561C
  * Callers:
- *     VidSchiProcessDpcCompletedPacket @ 0x1C0007C30 (VidSchiProcessDpcCompletedPacket.c)
- *     VidSchiProfilePerformanceTick @ 0x1C000A180 (VidSchiProfilePerformanceTick.c)
- *     VidSchiSwitchContextWithCheck @ 0x1C000AEB0 (VidSchiSwitchContextWithCheck.c)
- *     ?VidSchiAddGpuWorkEntry@@YAXPEAU_VIDSCH_CONTEXT@@_N@Z @ 0x1C0011148 (-VidSchiAddGpuWorkEntry@@YAXPEAU_VIDSCH_CONTEXT@@_N@Z.c)
- *     VidSchiDecrementContextReference @ 0x1C0013610 (VidSchiDecrementContextReference.c)
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C00095B0 (VidSchiProcessDpcCompletedPacket.c)
+ *     VidSchiProfilePerformanceTick @ 0x1C000B670 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiSwitchContextWithCheck @ 0x1C000C350 (VidSchiSwitchContextWithCheck.c)
+ *     VidSchiDecrementContextReference @ 0x1C0011740 (VidSchiDecrementContextReference.c)
+ *     ?VidSchiAddGpuWorkEntry@@YAXPEAU_VIDSCH_CONTEXT@@_N@Z @ 0x1C00138B8 (-VidSchiAddGpuWorkEntry@@YAXPEAU_VIDSCH_CONTEXT@@_N@Z.c)
  * Callees:
- *     McTemplateK0pqIR1_EtwWriteTransfer @ 0x1C0036AA0 (McTemplateK0pqIR1_EtwWriteTransfer.c)
+ *     McTemplateK0pqIR1_EtwWriteTransfer @ 0x1C002D66C (McTemplateK0pqIR1_EtwWriteTransfer.c)
  */
 
 void __fastcall VidSchiFlushGpuWorkEntries(struct _VIDSCH_CONTEXT *a1, __int64 a2, int a3)
@@ -16,18 +16,18 @@ void __fastcall VidSchiFlushGpuWorkEntries(struct _VIDSCH_CONTEXT *a1, __int64 a
   int v5; // edx
   __int64 v6; // r9
 
-  v4 = *((_QWORD *)a1 + 124);
+  v4 = *((_QWORD *)a1 + 123);
   if ( v4 )
   {
-    v5 = *((_DWORD *)a1 + 246);
+    v5 = *((_DWORD *)a1 + 244);
     if ( v5 )
     {
       v6 = *((_QWORD *)a1 + 7);
       if ( !v6 || (*((_DWORD *)a1 + 28) & 0x40) != 0 )
         LODWORD(v6) = (_DWORD)a1;
-      if ( (byte_1C006E942 & 4) != 0 )
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
         McTemplateK0pqIR1_EtwWriteTransfer(v4, v5, a3, v6, v5, v4);
-      *((_DWORD *)a1 + 246) = 0;
+      *((_DWORD *)a1 + 244) = 0;
     }
   }
 }

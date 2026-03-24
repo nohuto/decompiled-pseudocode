@@ -1,13 +1,13 @@
 /*
- * XREFs of BiVerifyBootPartition @ 0x140714B24
+ * XREFs of BiVerifyBootPartition @ 0x140714B04
  * Callers:
- *     BiConvertBootEnvironmentDeviceToNt @ 0x140711BE4 (BiConvertBootEnvironmentDeviceToNt.c)
- *     BiGetNtPartitionPath @ 0x140711D64 (BiGetNtPartitionPath.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140711BC4 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiGetNtPartitionPath @ 0x140711D44 (BiGetNtPartitionPath.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiConvertBootEnvironmentDeviceToNt @ 0x140711BE4 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140711BC4 (BiConvertBootEnvironmentDeviceToNt.c)
  */
 
 __int64 __fastcall BiVerifyBootPartition(int *a1, _QWORD *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5, unsigned int *a6)

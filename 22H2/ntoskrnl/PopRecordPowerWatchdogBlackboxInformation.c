@@ -1,41 +1,39 @@
 /*
- * XREFs of PopRecordPowerWatchdogBlackboxInformation @ 0x1405A2968
+ * XREFs of PopRecordPowerWatchdogBlackboxInformation @ 0x14057F830
  * Callers:
- *     PopRecordPoBlackboxInformation @ 0x1409A10B4 (PopRecordPoBlackboxInformation.c)
+ *     PopRecordPoBlackboxInformation @ 0x1408FAA30 (PopRecordPoBlackboxInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void PopRecordPowerWatchdogBlackboxInformation()
 {
   KIRQL v0; // al
   __int64 v1; // rdx
-  int v2; // edi
+  int v2; // esi
   unsigned __int64 v3; // rbp
-  void *v4; // rbx
+  _DWORD *v4; // rbx
   int v5; // ecx
   bool v6; // zf
-  __int64 v7; // rsi
-  _DWORD *Pool2; // rax
-  _DWORD *v9; // r14
-  __int64 i; // rdi
-  int v11; // eax
+  SIZE_T v7; // rdi
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v9; // r9
+  __int64 i; // r8
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v15; // eax
-  __int128 InputBuffer; // [rsp+30h] [rbp-38h] BYREF
-  __int128 v17; // [rsp+40h] [rbp-28h]
-  LARGE_INTEGER v18; // [rsp+70h] [rbp+8h] BYREF
+  int v14; // eax
+  __int128 InputBuffer; // [rsp+30h] [rbp-28h] BYREF
+  __int128 v16; // [rsp+40h] [rbp-18h]
 
   InputBuffer = 0LL;
-  v17 = 0LL;
+  v16 = 0LL;
   v0 = KeAcquireSpinLockRaiseToDpc(&PopWatchdogLock);
   v1 = PopWatchdogList;
   v2 = 0;
@@ -46,7 +44,7 @@ void PopRecordPowerWatchdogBlackboxInformation()
   do
   {
     v5 = v2++;
-    v6 = *(_BYTE *)(v1 + 208) == 0;
+    v6 = *(_BYTE *)(v1 + 216) == 0;
     v1 = *(_QWORD *)v1;
     if ( v6 )
       v2 = v5;
@@ -60,57 +58,59 @@ LABEL_13:
   else
   {
     v7 = 80LL * (unsigned int)(v2 - 1) + 96;
-    Pool2 = (_DWORD *)ExAllocatePool2(64LL, v7, 1111641936LL);
-    v4 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v7, 0x42424F50u);
+    v4 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *Pool2 = 1;
-      v9 = Pool2 + 4;
-      Pool2[1] = v7;
-      Pool2[2] = v2;
+      memset(PoolWithTag, 0, v7);
+      *v4 = 1;
+      v9 = v4 + 4;
+      v4[1] = v7;
+      v4[2] = v2;
       for ( i = PopWatchdogList; (__int64 *)i != &PopWatchdogList; i = *(_QWORD *)i )
       {
-        if ( *(_BYTE *)(i + 208) )
+        if ( *(_BYTE *)(i + 216) )
         {
-          v11 = *(_DWORD *)(i + 16);
-          v18.QuadPart = 0LL;
-          *v9 = v11;
-          *((_QWORD *)v9 + 9) = *(_QWORD *)(i + 288);
-          v9[1] = (RtlGetInterruptTimePrecise(&v18) - *(_QWORD *)(i + 296)) / 0x2710uLL;
-          v9[2] = *(_DWORD *)(i + 216);
-          v9[3] = *(_DWORD *)(i + 224);
-          *((_QWORD *)v9 + 2) = *(_QWORD *)(i + 232);
-          *((_QWORD *)v9 + 3) = *(_QWORD *)(i + 240);
-          *((_QWORD *)v9 + 4) = *(_QWORD *)(i + 248);
-          *((_QWORD *)v9 + 5) = *(_QWORD *)(i + 256);
-          *((_QWORD *)v9 + 8) = i + 216;
-          *((_QWORD *)v9 + 6) = *(_QWORD *)(i + 272);
-          *((_QWORD *)v9 + 7) = *(_QWORD *)(i + 280);
+          *v9 = *(_DWORD *)(i + 16);
+          *((_QWORD *)v9 + 9) = *(_QWORD *)(i + 304);
+          v9[1] = (MEMORY[0xFFFFF78000000008] - *(_QWORD *)(i + 296)) / 0x2710uLL;
+          v9[2] = *(_DWORD *)(i + 224);
+          v9[3] = *(_DWORD *)(i + 232);
+          *((_QWORD *)v9 + 2) = *(_QWORD *)(i + 240);
+          *((_QWORD *)v9 + 3) = *(_QWORD *)(i + 248);
+          *((_QWORD *)v9 + 4) = *(_QWORD *)(i + 256);
+          *((_QWORD *)v9 + 5) = *(_QWORD *)(i + 264);
+          *((_QWORD *)v9 + 8) = i + 224;
+          *((_QWORD *)v9 + 6) = *(_QWORD *)(i + 280);
+          *((_QWORD *)v9 + 7) = *(_QWORD *)(i + 288);
           v9 += 20;
         }
       }
     }
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&PopWatchdogLock);
+  KxReleaseSpinLock(&PopWatchdogLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-      v6 = (v15 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v15;
-      if ( v6 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+        v6 = (v14 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v14;
+        if ( v6 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v3);
   if ( v7 )
   {
-    *(_QWORD *)&v17 = 0LL;
-    *((_QWORD *)&v17 + 1) = 8LL;
+    *(_QWORD *)&v16 = 0LL;
+    *((_QWORD *)&v16 + 1) = 8LL;
     *(_QWORD *)&InputBuffer = v4;
     *((_QWORD *)&InputBuffer + 1) = (unsigned int)v7;
     NtPowerInformation(UpdateBlackBoxRecorder, &InputBuffer, 0x20u, 0LL, 0);

@@ -2,7 +2,7 @@
  * XREFs of ExpWnfSubscribeWnfStateChange @ 0x14060F054
  * Callers:
  *     NtSubscribeWnfStateChange @ 0x14060EF80 (NtSubscribeWnfStateChange.c)
- *     ExSubscribeWnfStateChange @ 0x1406BC490 (ExSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x1406BC470 (ExSubscribeWnfStateChange.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
@@ -13,7 +13,7 @@
  *     ExpWnfResolveScopeInstance @ 0x14060F9EC (ExpWnfResolveScopeInstance.c)
  *     ExpWnfCheckCallerAccess @ 0x14060FF4C (ExpWnfCheckCallerAccess.c)
  *     ExpWnfSubscribeNameInstance @ 0x14061034C (ExpWnfSubscribeNameInstance.c)
- *     ExpWnfNotifySubscription @ 0x1406B7828 (ExpWnfNotifySubscription.c)
+ *     ExpWnfNotifySubscription @ 0x1406B7808 (ExpWnfNotifySubscription.c)
  */
 
 __int64 __fastcall ExpWnfSubscribeWnfStateChange(

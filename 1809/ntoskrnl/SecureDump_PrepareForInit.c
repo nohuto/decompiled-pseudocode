@@ -1,11 +1,11 @@
 /*
- * XREFs of SecureDump_PrepareForInit @ 0x14019144C
+ * XREFs of SecureDump_PrepareForInit @ 0x14019146C
  * Callers:
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     SecureDump_ReadRegistry @ 0x140191560 (SecureDump_ReadRegistry.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     SecureDump_LogErrorEvent @ 0x140286850 (SecureDump_LogErrorEvent.c)
+ *     SecureDump_ReadRegistry @ 0x140191580 (SecureDump_ReadRegistry.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     SecureDump_LogErrorEvent @ 0x140286950 (SecureDump_LogErrorEvent.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

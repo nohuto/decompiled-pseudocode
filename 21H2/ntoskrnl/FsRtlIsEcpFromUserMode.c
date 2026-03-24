@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlIsEcpFromUserMode @ 0x1406B7640
+ * XREFs of FsRtlIsEcpFromUserMode @ 0x14069C470
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmRegisterSystemHiveLimitCallback @ 0x140863DD8
+ * XREFs of CmRegisterSystemHiveLimitCallback @ 0x1407A1B10
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     CmpDoQueueSystemHiveHysteresis @ 0x14091191C (CmpDoQueueSystemHiveHysteresis.c)
+ *     CmpDoQueueSystemHiveHysteresis @ 0x14086B6BC (CmpDoQueueSystemHiveHysteresis.c)
  */
 
 __int64 __fastcall CmRegisterSystemHiveLimitCallback(__int64 a1, __int64 a2, __int64 a3)
@@ -11,10 +11,10 @@ __int64 __fastcall CmRegisterSystemHiveLimitCallback(__int64 a1, __int64 a2, __i
   int v3; // ecx
   unsigned int v4; // ebx
 
-  if ( qword_140C02770 )
+  if ( qword_140C01170 )
   {
     HIDWORD(a2) = 0;
-    v3 = *(_DWORD *)(*(_QWORD *)(qword_140C02770 + 64) + 40LL) + 4096;
+    v3 = *(_DWORD *)(*(_QWORD *)(qword_140C01170 + 64) + 40LL) + 4096;
     LODWORD(a2) = 100 * v3 % (unsigned int)CmSystemHiveLimitSize;
     v4 = 100 * v3 / (unsigned int)CmSystemHiveLimitSize;
   }

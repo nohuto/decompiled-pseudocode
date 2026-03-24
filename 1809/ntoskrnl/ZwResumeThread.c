@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwResumeThread @ 0x1401B8BB0
+ * XREFs of ZwResumeThread @ 0x1401B8BD0
  * Callers:
- *     DbgkUserReportWorkRoutine @ 0x140810900 (DbgkUserReportWorkRoutine.c)
+ *     DbgkUserReportWorkRoutine @ 0x1408108E0 (DbgkUserReportWorkRoutine.c)
  *     StartFirstUserProcess @ 0x1409C5CC0 (StartFirstUserProcess.c)
  * Callees:
  *     <none>

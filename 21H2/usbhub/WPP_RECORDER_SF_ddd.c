@@ -1,19 +1,19 @@
 /*
- * XREFs of WPP_RECORDER_SF_dDD @ 0x1C0047C4C
+ * XREFs of WPP_RECORDER_SF_DDD @ 0x1C0048FCC
  * Callers:
- *     UsbhWaitConnect @ 0x1C0019D60 (UsbhWaitConnect.c)
- *     UsbhHandleSuspend @ 0x1C001B878 (UsbhHandleSuspend.c)
- *     UsbhGetInitRegUsbDeviceFlags @ 0x1C0044570 (UsbhGetInitRegUsbDeviceFlags.c)
- *     UsbhGetRegUsbDeviceFlags @ 0x1C0044F78 (UsbhGetRegUsbDeviceFlags.c)
- *     UsbhGetRegUsbHubFlags @ 0x1C0045268 (UsbhGetRegUsbHubFlags.c)
- *     UsbhExceptionTrace @ 0x1C004A388 (UsbhExceptionTrace.c)
- *     UsbhBuildHardwareID @ 0x1C004F438 (UsbhBuildHardwareID.c)
- *     UsbhUpdateUxdSettings @ 0x1C005A420 (UsbhUpdateUxdSettings.c)
+ *     UsbhWaitConnect @ 0x1C000ABD0 (UsbhWaitConnect.c)
+ *     UsbhHandleSuspend @ 0x1C001BDDC (UsbhHandleSuspend.c)
+ *     UsbhGetInitRegUsbDeviceFlags @ 0x1C0045830 (UsbhGetInitRegUsbDeviceFlags.c)
+ *     UsbhGetRegUsbDeviceFlags @ 0x1C0046278 (UsbhGetRegUsbDeviceFlags.c)
+ *     UsbhGetRegUsbHubFlags @ 0x1C0046580 (UsbhGetRegUsbHubFlags.c)
+ *     UsbhExceptionTrace @ 0x1C004B76C (UsbhExceptionTrace.c)
+ *     UsbhBuildHardwareID @ 0x1C00509B0 (UsbhBuildHardwareID.c)
+ *     UsbhUpdateUxdSettings @ 0x1C005BAE4 (UsbhUpdateUxdSettings.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 WPP_RECORDER_SF_dDD(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4, __int64 a5, ...)
+__int64 WPP_RECORDER_SF_DDD(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4, __int64 a5, ...)
 {
   int v8; // [rsp+20h] [rbp-48h]
   __int64 v9; // [rsp+98h] [rbp+30h] BYREF
@@ -29,7 +29,7 @@ __int64 WPP_RECORDER_SF_dDD(__int64 a1, __int64 a2, __int64 a3, unsigned __int16
   va_copy(va2, va1);
   v11 = va_arg(va2, _QWORD);
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0 )
-    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, __int64, _QWORD, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, __int64, _QWORD, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))WPP_MAIN_CB.SecurityDescriptor)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
       a5,

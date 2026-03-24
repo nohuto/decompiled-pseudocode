@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetPageFileSectionForReservation @ 0x14059C8C8
+ * XREFs of MiGetPageFileSectionForReservation @ 0x140387AC0
  * Callers:
- *     MiReservePageFileSpace @ 0x14033AC90 (MiReservePageFileSpace.c)
- *     MiBuildReservationCluster @ 0x14059B62C (MiBuildReservationCluster.c)
+ *     MiReservePageFileSpace @ 0x14023D190 (MiReservePageFileSpace.c)
+ *     MiBuildReservationCluster @ 0x140386DF0 (MiBuildReservationCluster.c)
  * Callees:
- *     MiReferencePfBackedSection @ 0x14023FA50 (MiReferencePfBackedSection.c)
- *     MiLockProtoPoolPage @ 0x140273AF0 (MiLockProtoPoolPage.c)
- *     MiReleasePageFileSectionInfo @ 0x14059D028 (MiReleasePageFileSectionInfo.c)
+ *     MiReferencePfBackedSection @ 0x1402C5218 (MiReferencePfBackedSection.c)
+ *     MiLockProtoPoolPage @ 0x14031A100 (MiLockProtoPoolPage.c)
+ *     MiReleasePageFileSectionInfo @ 0x140387A84 (MiReleasePageFileSectionInfo.c)
  */
 
 __int64 __fastcall MiGetPageFileSectionForReservation(unsigned __int64 a1, _QWORD *a2, int a3)
@@ -18,9 +18,8 @@ __int64 __fastcall MiGetPageFileSectionForReservation(unsigned __int64 a1, _QWOR
   unsigned __int64 v10; // rdx
   unsigned __int64 v11; // rdx
   __int64 v13; // rax
-  __int64 v14; // rdx
 
-  v6 = MiReferencePfBackedSection(a1);
+  v6 = (_QWORD *)MiReferencePfBackedSection(a1);
   v7 = v6;
   if ( v6 )
   {
@@ -46,7 +45,7 @@ __int64 __fastcall MiGetPageFileSectionForReservation(unsigned __int64 a1, _QWOR
     a2[1] = v13;
     if ( v13 )
       return 1LL;
-    MiReleasePageFileSectionInfo(a2, v14);
+    MiReleasePageFileSectionInfo((__int64)a2);
   }
   return 0LL;
 }

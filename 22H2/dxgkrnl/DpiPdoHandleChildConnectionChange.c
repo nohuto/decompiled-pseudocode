@@ -1,225 +1,197 @@
 /*
- * XREFs of DpiPdoHandleChildConnectionChange @ 0x1C020F55C
+ * XREFs of DpiPdoHandleChildConnectionChange @ 0x1C0178898
  * Callers:
- *     DxgkQueryConnectionChanges @ 0x1C001C200 (DxgkQueryConnectionChanges.c)
- *     DpiFdoHandleTargetConnectionState @ 0x1C039C378 (DpiFdoHandleTargetConnectionState.c)
+ *     DxgkQueryConnectionChanges @ 0x1C00205E0 (DxgkQueryConnectionChanges.c)
+ *     DpiFdoHandleTargetConnectionState @ 0x1C02CB274 (DpiFdoHandleTargetConnectionState.c)
  * Callees:
- *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C0002EE4 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
- *     DpiFdoGetChildDescriptor @ 0x1C00157F4 (DpiFdoGetChildDescriptor.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     Feature_OnlyHandlingLidSwitchInBroker__private_ReportDeviceUsage @ 0x1C0026FD4 (Feature_OnlyHandlingLidSwitchInBroker__private_ReportDeviceUsage.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C017CDCC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
- *     DxgkIsConsoleSessionDispBrokerEnabled @ 0x1C01E6318 (DxgkIsConsoleSessionDispBrokerEnabled.c)
- *     MonitorCreatePhysicalMonitor @ 0x1C0209A70 (MonitorCreatePhysicalMonitor.c)
- *     MonitorNotifyDeviceNodeReady @ 0x1C020A2F0 (MonitorNotifyDeviceNodeReady.c)
- *     MonitorCancelSkippedDepartures @ 0x1C020F90C (MonitorCancelSkippedDepartures.c)
- *     DpiPdoAddPdo @ 0x1C0210B20 (DpiPdoAddPdo.c)
- *     DpiPdoRemovePdo @ 0x1C03A9CBC (DpiPdoRemovePdo.c)
- *     DpiPdoSetMonitorDriverInterfaceState @ 0x1C03AA04C (DpiPdoSetMonitorDriverInterfaceState.c)
- *     MonitorRemovePhysicalMonitor @ 0x1C03C4890 (MonitorRemovePhysicalMonitor.c)
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000983C (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     DpiFdoGetChildDescriptor @ 0x1C001A070 (DpiFdoGetChildDescriptor.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C0145F7C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DpiPdoAddPdo @ 0x1C0178A0C (DpiPdoAddPdo.c)
+ *     MonitorNotifyDeviceNodeReady @ 0x1C01838B8 (MonitorNotifyDeviceNodeReady.c)
+ *     MonitorCreatePhysicalMonitor @ 0x1C0185598 (MonitorCreatePhysicalMonitor.c)
+ *     DpiPdoRemovePdo @ 0x1C02D9BC0 (DpiPdoRemovePdo.c)
+ *     DpiPdoSetMonitorDriverInterfaceState @ 0x1C02D9F70 (DpiPdoSetMonitorDriverInterfaceState.c)
+ *     MonitorRemovePhysicalMonitor @ 0x1C02F4814 (MonitorRemovePhysicalMonitor.c)
  */
 
 __int64 __fastcall DpiPdoHandleChildConnectionChange(
         __int64 a1,
         unsigned int a2,
-        int a3,
+        unsigned int a3,
         unsigned __int8 a4,
         char a5,
         char a6,
-        BOOLEAN a7,
+        char a7,
         char a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11)
+        struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a9)
 {
-  __int64 v11; // r15
-  __int64 v13; // r13
-  __int64 v14; // rdi
-  char v15; // bl
-  int v16; // eax
-  __int64 v17; // rdx
+  __int64 v10; // r15
+  __int64 v11; // rdi
+  unsigned __int8 v12; // bl
+  unsigned __int8 v13; // r13
   enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *ChildDescriptor; // rax
-  __int64 v19; // r8
-  int v20; // r9d
-  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *v21; // rsi
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *v19; // rsi
+  __int64 v20; // rdx
+  int v21; // eax
   __int64 v22; // rbx
-  char v23; // r14
   __int64 v24; // rdx
-  __int64 v25; // r13
-  bool v26; // r15
-  __int64 v27; // r9
+  int v25; // eax
+  __int64 v26; // rax
+  __int64 v27; // r15
   NTSTATUS v28; // eax
-  char *v29; // rcx
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // r13
+  __int64 v32; // rax
+  void *v33; // rcx
   int PhysicalMonitor; // eax
-  int v31; // eax
-  int v32; // eax
-  int v33; // eax
-  int v34; // eax
-  bool v36; // [rsp+51h] [rbp-AFh] BYREF
-  unsigned __int8 v37; // [rsp+52h] [rbp-AEh]
-  __int64 v38; // [rsp+58h] [rbp-A8h]
-  int v39; // [rsp+60h] [rbp-A0h]
-  __int64 v40; // [rsp+68h] [rbp-98h]
-  int v41[2]; // [rsp+70h] [rbp-90h]
-  __int64 v42; // [rsp+78h] [rbp-88h]
-  _DWORD v43[8]; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v44; // [rsp+A0h] [rbp-60h]
-  int v45; // [rsp+A8h] [rbp-58h]
-  int v46; // [rsp+ACh] [rbp-54h]
-  int v47; // [rsp+B0h] [rbp-50h]
-  int v48; // [rsp+B4h] [rbp-4Ch]
-  unsigned int v49; // [rsp+B8h] [rbp-48h]
-  int v50; // [rsp+BCh] [rbp-44h]
-  __int64 v51; // [rsp+C0h] [rbp-40h]
-  _DWORD OutputBuffer[60]; // [rsp+D0h] [rbp-30h] BYREF
+  int v35; // eax
+  int v36; // eax
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  __int64 v39; // rbx
+  __int64 v40; // rax
+  ULONG OutputBufferLength; // [rsp+20h] [rbp-E0h]
+  int v42; // [rsp+28h] [rbp-D8h]
+  _DWORD v46[8]; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v47; // [rsp+70h] [rbp-90h]
+  int v48; // [rsp+78h] [rbp-88h]
+  int v49; // [rsp+7Ch] [rbp-84h]
+  int v50; // [rsp+80h] [rbp-80h]
+  int v51; // [rsp+84h] [rbp-7Ch]
+  unsigned int v52; // [rsp+88h] [rbp-78h]
+  int v53; // [rsp+8Ch] [rbp-74h]
+  __int64 v54; // [rsp+90h] [rbp-70h]
+  _DWORD OutputBuffer[60]; // [rsp+A0h] [rbp-60h] BYREF
 
-  v11 = a10;
-  v13 = a11;
-  *(_QWORD *)v41 = a1;
-  v14 = *(_QWORD *)(a1 + 64);
-  v15 = a4;
-  v39 = a3;
-  v37 = a4;
-  v42 = a9;
-  v38 = a10;
-  v40 = a11;
+  v10 = a1;
+  v11 = *(_QWORD *)(a1 + 64);
+  v12 = a4;
+  v13 = a4;
   if ( !a8 )
   {
-    v46 = 0;
-    v45 = 0;
-    v44 = 0LL;
-    v16 = *(_DWORD *)(v14 + 24) & 0xFFFF00;
-    v49 = a2;
-    v17 = *(_QWORD *)(v14 + 5744);
-    v48 = v16 | 1;
-    v51 = *(_QWORD *)(v14 + 2672);
-    v43[0] = 30;
-    v43[1] = 72;
-    memset(&v43[2], 0, 24);
-    v47 = 39;
-    v50 = a4;
-    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v43, v17);
+    v49 = 0;
+    v48 = 0;
+    v47 = 0LL;
+    v24 = *(_QWORD *)(v11 + 5936);
+    v25 = *(_DWORD *)(v11 + 24) & 0xFFFF00;
+    v46[0] = 30;
+    v46[1] = 72;
+    v51 = v25 | 1;
+    v54 = *(_QWORD *)(v11 + 2672);
+    memset(&v46[2], 0, 24);
+    v50 = 39;
+    v52 = a2;
+    v53 = a4;
+    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v46, v24);
   }
-  ChildDescriptor = (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)DpiFdoGetChildDescriptor(v14, a2);
-  v21 = ChildDescriptor;
+  ChildDescriptor = (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)DpiFdoGetChildDescriptor(v11, a2);
+  v19 = ChildDescriptor;
   if ( !ChildDescriptor )
   {
     v22 = -1073741810LL;
-LABEL_5:
-    WdLogSingleEntry1(2LL, v22);
-    return (unsigned int)v22;
+    goto LABEL_18;
   }
   if ( !*((_QWORD *)ChildDescriptor + 6) )
   {
-    v23 = 0;
-    goto LABEL_31;
+    LOBYTE(v17) = 0;
+    goto LABEL_6;
   }
-  v23 = 1;
   if ( IsInternalVideoOutput(ChildDescriptor[1]) )
   {
-    v25 = *(_QWORD *)(v24 + 64);
-    if ( *((_BYTE *)v21 + 66) == v15 )
+    v27 = *(_QWORD *)(v20 + 64);
+    if ( *((_BYTE *)v19 + 66) == v12 )
     {
-LABEL_29:
-      v13 = v40;
-      v15 = 1;
-      goto LABEL_31;
+LABEL_32:
+      v10 = a1;
+      v12 = 1;
+      goto LABEL_6;
     }
-    v26 = 0;
-    v36 = 0;
-    Feature_OnlyHandlingLidSwitchInBroker__private_ReportDeviceUsage();
-    if ( (int)DxgkIsConsoleSessionDispBrokerEnabled(&v36) >= 0 )
-    {
-      if ( !v36 )
-        goto LABEL_13;
-      v26 = 1;
-    }
-    if ( v36 )
-    {
-LABEL_16:
-      v29 = *(char **)(v14 + 3912);
-      if ( v15 )
-      {
-        v11 = v38;
-        LOBYTE(v27) = 1;
-        PhysicalMonitor = MonitorCreatePhysicalMonitor(
-                            v29,
-                            a2,
-                            *((struct _DEVICE_OBJECT **)v21 + 6),
-                            v27,
-                            v15,
-                            0LL,
-                            (bool *)v38,
-                            (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v40);
-        v22 = PhysicalMonitor;
-        if ( PhysicalMonitor < 0 )
-          goto LABEL_5;
-        if ( *(_BYTE *)(v25 + 944) )
-        {
-          MonitorNotifyDeviceNodeReady(*(PERESOURCE **)(v14 + 3912), a2, *((_QWORD *)v21 + 6));
-          v31 = DpiPdoSetMonitorDriverInterfaceState(*((PVOID *)v21 + 6));
-          if ( v31 < 0 )
-            WdLogSingleEntry1(3LL, v31);
-        }
-      }
-      else
-      {
-        v32 = MonitorRemovePhysicalMonitor(v29, a2, v40);
-        v22 = v32;
-        if ( v32 < 0 )
-          goto LABEL_5;
-        if ( !v26 )
-        {
-          if ( *(_BYTE *)(v25 + 944) )
-          {
-            v33 = DpiPdoSetMonitorDriverInterfaceState(*((PVOID *)v21 + 6));
-            if ( v33 < 0 )
-              WdLogSingleEntry1(3LL, v33);
-          }
-        }
-        v11 = v38;
-      }
-      v23 = 1;
-      goto LABEL_29;
-    }
-LABEL_13:
     memset(OutputBuffer, 0, 0xE8uLL);
     v28 = ZwPowerInformation(SystemPowerPolicyCurrent, 0LL, 0, OutputBuffer, 0xE8u);
+    v31 = v28;
     if ( v28 < 0 )
     {
-      v26 = 0;
-      WdLogSingleEntry1(2LL, v28);
+      OutputBuffer[7] = 0;
+      v32 = WdLogNewEntry5_WdError(v30, v29);
+      *(_QWORD *)(v32 + 24) = v31;
+      WdLogEvent5_WdError(v32);
+    }
+    v33 = *(void **)(v11 + 3896);
+    if ( v12 )
+    {
+      PhysicalMonitor = MonitorCreatePhysicalMonitor(v33, a2, *((struct _DEVICE_OBJECT **)v19 + 6), 1u, v12, a9);
+      v22 = PhysicalMonitor;
+      if ( PhysicalMonitor >= 0 )
+      {
+        if ( *(_BYTE *)(v27 + 944) )
+        {
+          MonitorNotifyDeviceNodeReady(*(DXGADAPTER **)(v11 + 3896), a2);
+          goto LABEL_29;
+        }
+        goto LABEL_31;
+      }
     }
     else
     {
-      v26 = OutputBuffer[7] != 0;
-    }
-    goto LABEL_16;
-  }
+      v35 = MonitorRemovePhysicalMonitor(v33, a2, OutputBuffer[7] != 0, a9);
+      v22 = v35;
+      if ( v35 >= 0 )
+      {
+        if ( !OutputBuffer[7] && *(_BYTE *)(v27 + 944) )
+        {
+LABEL_29:
+          v36 = DpiPdoSetMonitorDriverInterfaceState(*((PVOID *)v19 + 6));
+          v39 = v36;
+          if ( v36 < 0 )
+          {
+            v40 = WdLogNewEntry5_WdWarning(v38, v37, v17);
+            *(_QWORD *)(v40 + 24) = v39;
+            WdLogEvent5_WdWarning(v40);
+          }
+        }
 LABEL_31:
-  *((_BYTE *)v21 + 66) = v37;
-  if ( v15 )
-    MonitorCancelSkippedDepartures(*(DXGADAPTER **)(v14 + 3912), a2);
-  if ( v23 != v15 || v15 && a6 )
+        LOBYTE(v17) = 1;
+        v13 = a4;
+        goto LABEL_32;
+      }
+    }
+LABEL_18:
+    v26 = WdLogNewEntry5_WdError(v16, v15);
+    *(_QWORD *)(v26 + 24) = v22;
+    WdLogEvent5_WdError(v26);
+    return (unsigned int)v22;
+  }
+LABEL_6:
+  *((_BYTE *)v19 + 66) = v13;
+  if ( (_BYTE)v17 != v12 || v12 && a6 )
   {
-    *((_BYTE *)v21 + 65) = v15;
-    if ( v15 )
+    *((_BYTE *)v19 + 65) = v12;
+    if ( v12 )
     {
-      LOBYTE(v20) = a5;
-      v34 = DpiPdoAddPdo(v41[0], (int)v21, v39, v20, a6, a7, v42, v11, v13);
+      LOBYTE(v18) = a5;
+      LOBYTE(v42) = a7;
+      LOBYTE(OutputBufferLength) = a6;
+      v21 = DpiPdoAddPdo(v10, v19, a3, v18, OutputBufferLength, v42, a9);
     }
     else
     {
-      LOBYTE(v19) = 1;
-      v34 = DpiPdoRemovePdo(*(_QWORD *)v41, v21, v19, v11, v13);
+      LOBYTE(v17) = 1;
+      v21 = DpiPdoRemovePdo(v10, v19, v17, a9);
     }
-    LODWORD(v22) = v34;
-    if ( v34 >= 0 && v34 != 0x40000000 && v34 != 128 )
+    LODWORD(v22) = v21;
+    if ( v21 >= 0 && v21 != 0x40000000 )
     {
-      _m_prefetchw((const void *)(v14 + 3660));
-      if ( (_InterlockedOr((volatile signed __int32 *)(v14 + 3660), 1u) & 1) == 0 )
-        IoInvalidateDeviceRelations(*(PDEVICE_OBJECT *)(v14 + 152), BusRelations);
+      _m_prefetchw((const void *)(v11 + 3644));
+      if ( (_InterlockedOr((volatile signed __int32 *)(v11 + 3644), 1u) & 1) == 0 )
+        IoInvalidateDeviceRelations(*(PDEVICE_OBJECT *)(v11 + 152), BusRelations);
     }
   }
   else

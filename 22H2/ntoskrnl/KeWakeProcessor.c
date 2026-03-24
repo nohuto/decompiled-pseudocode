@@ -1,32 +1,34 @@
 /*
- * XREFs of KeWakeProcessor @ 0x140341390
+ * XREFs of KeWakeProcessor @ 0x140519960
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402C52F0 (PpmIdleExecuteTransition.c)
- *     KxIsrLinkage @ 0x140422330 (KxIsrLinkage.c)
- *     KiHvInterrupt @ 0x140424840 (KiHvInterrupt.c)
- *     KiVmbusInterrupt0 @ 0x140424BA0 (KiVmbusInterrupt0.c)
- *     KiVmbusInterrupt1 @ 0x140424F00 (KiVmbusInterrupt1.c)
- *     KiVmbusInterrupt2 @ 0x140425260 (KiVmbusInterrupt2.c)
- *     KiVmbusInterrupt3 @ 0x1404255C0 (KiVmbusInterrupt3.c)
- *     KiSwInterrupt @ 0x140426460 (KiSwInterrupt.c)
- *     KiIpiInterrupt @ 0x140427360 (KiIpiInterrupt.c)
- *     KiNmiInterruptStart @ 0x14042BF80 (KiNmiInterruptStart.c)
- *     KiMcheckAbort @ 0x140430280 (KiMcheckAbort.c)
+ *     PpmIdleExecuteTransition @ 0x140222470 (PpmIdleExecuteTransition.c)
+ *     KxIsrLinkage @ 0x1404011C0 (KxIsrLinkage.c)
+ *     KiHvInterrupt @ 0x140402C80 (KiHvInterrupt.c)
+ *     KiVmbusInterrupt0 @ 0x140402F70 (KiVmbusInterrupt0.c)
+ *     KiVmbusInterrupt1 @ 0x140403260 (KiVmbusInterrupt1.c)
+ *     KiVmbusInterrupt2 @ 0x140403550 (KiVmbusInterrupt2.c)
+ *     KiVmbusInterrupt3 @ 0x140403840 (KiVmbusInterrupt3.c)
+ *     KiSwInterrupt @ 0x1404045E0 (KiSwInterrupt.c)
+ *     KiIpiInterrupt @ 0x140405370 (KiIpiInterrupt.c)
+ *     KiNmiInterruptStart @ 0x14040A440 (KiNmiInterruptStart.c)
+ *     KiMcheckAbort @ 0x14040E1C0 (KiMcheckAbort.c)
  * Callees:
- *     KeInterlockedClearProcessorAffinityEx @ 0x1403413F0 (KeInterlockedClearProcessorAffinityEx.c)
+ *     <none>
  */
 
 unsigned __int64 KeWakeProcessor()
 {
   struct _KPRCB *CurrentPrcb; // rax
-  __int64 Number; // rdx
+  __int64 Number; // rcx
   unsigned __int64 v2; // rcx
   unsigned __int64 result; // rax
 
   CurrentPrcb = KeGetCurrentPrcb();
   Number = CurrentPrcb->Number;
   CurrentPrcb->DeepSleep = 0;
-  KeInterlockedClearProcessorAffinityEx(&KeSleepingProcessors, Number);
+  _InterlockedAnd64(
+    &qword_140C2B408[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[Number] >> 6],
+    ~(1LL << (KiProcessorIndexToNumberMappingTable[Number] & 0x3F)));
   v2 = __readcr4();
   if ( (v2 & 0x20080) != 0 )
   {

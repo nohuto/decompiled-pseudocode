@@ -1,5 +1,5 @@
 /*
- * XREFs of KdAcquireDebuggerLock @ 0x14028BD00
+ * XREFs of KdAcquireDebuggerLock @ 0x14028BE00
  * Callers:
  *     <none>
  * Callees:

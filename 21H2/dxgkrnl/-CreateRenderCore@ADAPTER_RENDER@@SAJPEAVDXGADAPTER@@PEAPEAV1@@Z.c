@@ -1,330 +1,317 @@
 /*
- * XREFs of ?CreateRenderCore@ADAPTER_RENDER@@SAJPEAVDXGADAPTER@@PEAPEAV1@@Z @ 0x1C0201EB4
+ * XREFs of ?CreateRenderCore@ADAPTER_RENDER@@SAJPEAVDXGADAPTER@@PEAPEAV1@@Z @ 0x1C018670C
  * Callers:
- *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01FECEC (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01845A8 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_GADAPTER_RENDER@@QEAAPEAXI@Z @ 0x1C0043484 (--_GADAPTER_RENDER@@QEAAPEAXI@Z.c)
- *     ?Initialize@ADAPTER_RENDER@@QEAAJXZ @ 0x1C0203930 (-Initialize@ADAPTER_RENDER@@QEAAJXZ.c)
- *     ??0ADAPTER_RENDER@@QEAA@PEAVDXGADAPTER@@@Z @ 0x1C0204EB4 (--0ADAPTER_RENDER@@QEAA@PEAVDXGADAPTER@@@Z.c)
- *     ?Destroy@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02C3330 (-Destroy@ADAPTER_RENDER@@QEAAXXZ.c)
+ *     ??2@YAPEAX_KIHW4_POOL_TYPE@@@Z @ 0x1C00046F8 (--2@YAPEAX_KIHW4_POOL_TYPE@@@Z.c)
+ *     ??_GADAPTER_RENDER@@QEAAPEAXI@Z @ 0x1C0037044 (--_GADAPTER_RENDER@@QEAAPEAXI@Z.c)
+ *     ?Initialize@ADAPTER_RENDER@@QEAAJXZ @ 0x1C0189BF8 (-Initialize@ADAPTER_RENDER@@QEAAJXZ.c)
+ *     ??0ADAPTER_RENDER@@QEAA@PEAVDXGADAPTER@@@Z @ 0x1C019B8F4 (--0ADAPTER_RENDER@@QEAA@PEAVDXGADAPTER@@@Z.c)
+ *     ?Destroy@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02155D0 (-Destroy@ADAPTER_RENDER@@QEAAXXZ.c)
  */
 
 __int64 __fastcall ADAPTER_RENDER::CreateRenderCore(
-        struct DXGADAPTER *a1,
+        __int64 (__fastcall **a1)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *),
         struct ADAPTER_RENDER **a2,
         __int64 a3,
-        __int64 (__fastcall *a4)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *))
+        __int64 a4)
 {
   __int64 (__fastcall *v6)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *); // r8
   __int64 (__fastcall *v7)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *); // rax
   __int64 (__fastcall *v8)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *); // rcx
   __int64 (__fastcall *v9)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *); // rdx
-  int v10; // ecx
+  __int64 v10; // rcx
   int v11; // eax
   int v12; // eax
-  int v13; // ecx
-  __int64 v14; // rdx
-  ADAPTER_RENDER *v15; // rax
+  int v13; // eax
+  unsigned int v14; // eax
+  __int64 v15; // rcx
   ADAPTER_RENDER *v16; // rax
-  ADAPTER_RENDER *v17; // rdi
-  int v18; // esi
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  ADAPTER_RENDER *v21; // rdi
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  int v24; // esi
+  __int64 v25; // rax
   __int64 result; // rax
-  __int64 v20; // rbx
-  const wchar_t *v21; // r9
-  __int64 v22; // rbx
-  const wchar_t *v23; // r9
-  int v24; // edx
-  unsigned int v25; // eax
+  __int64 v27; // rax
+  __int64 v28; // rax
+  __int64 v29; // rax
+  __int64 v30; // rax
+  _QWORD *v31; // rax
+  __int64 v32; // rax
+  __int64 v33; // rax
 
   if ( !a1 )
   {
-    WdLogSingleEntry1(1LL, 480LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_pAdapter != NULL", 480LL, 0LL, 0LL, 0LL, 0LL);
+    v28 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    *(_QWORD *)(v28 + 24) = 478LL;
+    WdLogEvent5_WdAssertion(v28);
   }
   if ( !a2 )
   {
-    WdLogSingleEntry1(1LL, 481LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"o_ppRenderCore != NULL", 481LL, 0LL, 0LL, 0LL, 0LL);
+    v29 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v29 + 24) = 479LL;
+    WdLogEvent5_WdAssertion(v29);
   }
-  if ( *((_BYTE *)a1 + 209) )
-    goto LABEL_60;
-  if ( !*((_BYTE *)a1 + 440)
-    || !*((_QWORD *)a1 + 57)
-    || !*((_QWORD *)a1 + 59)
-    || !*((_QWORD *)a1 + 60)
-    || !*((_QWORD *)a1 + 89)
-    || !*((_QWORD *)a1 + 90)
-    || !*((_QWORD *)a1 + 61)
-    || !*((_QWORD *)a1 + 65)
-    || !*((_QWORD *)a1 + 66)
-    || !*((_QWORD *)a1 + 67)
-    || !*((_QWORD *)a1 + 71)
-    || !*((_QWORD *)a1 + 72)
-    || !*((_QWORD *)a1 + 75) && *((int *)a1 + 673) < 2000
-    || !*((_QWORD *)a1 + 86) && (*((_DWORD *)a1 + 666) & 8) == 0
-    || !*((_QWORD *)a1 + 88)
-    || !*((_QWORD *)a1 + 74)
-    || !*((_QWORD *)a1 + 92) )
+  if ( !*((_BYTE *)a1 + 209) )
   {
-    if ( *((int *)a1 + 673) >= 1200 )
+    if ( !*((_BYTE *)a1 + 352)
+      || !a1[46]
+      || !a1[48]
+      || !a1[49]
+      || !a1[78]
+      || !a1[79]
+      || !a1[50]
+      || !a1[54]
+      || !a1[55]
+      || !a1[56]
+      || !a1[60]
+      || !a1[61]
+      || !a1[64] && *((int *)a1 + 649) < 2000
+      || !a1[75] && ((_DWORD)a1[321] & 8) == 0
+      || !a1[77]
+      || !a1[63]
+      || !a1[81] )
     {
-      if ( !*((_QWORD *)a1 + 57)
-        && !*((_QWORD *)a1 + 59)
-        && !*((_QWORD *)a1 + 60)
-        && !*((_QWORD *)a1 + 89)
-        && !*((_QWORD *)a1 + 90)
-        && !*((_QWORD *)a1 + 61)
-        && !*((_QWORD *)a1 + 65)
-        && !*((_QWORD *)a1 + 66)
-        && !*((_QWORD *)a1 + 67)
-        && !*((_QWORD *)a1 + 71)
-        && !*((_QWORD *)a1 + 72)
-        && !*((_QWORD *)a1 + 75)
-        && !*((_QWORD *)a1 + 88)
-        && !*((_QWORD *)a1 + 92)
-        && !*((_QWORD *)a1 + 58)
-        && !*((_QWORD *)a1 + 64)
-        && !*((_QWORD *)a1 + 91)
-        && !*((_QWORD *)a1 + 99)
-        && !*((_QWORD *)a1 + 62)
-        && !*((_QWORD *)a1 + 63)
-        && !*((_QWORD *)a1 + 85)
-        && !*((_QWORD *)a1 + 87)
-        && !*((_QWORD *)a1 + 93)
-        && !*((_QWORD *)a1 + 94)
-        && !*((_QWORD *)a1 + 95) )
+      if ( *((int *)a1 + 649) < 1200 )
       {
-        *(_QWORD *)(WdLogNewEntry5_WdTrace(a1, a2) + 24) = 545LL;
-        result = 0LL;
-        *a2 = 0LL;
-        return result;
+        v27 = WdLogNewEntry5_WdError(a1, a2);
+        *(_QWORD *)(v27 + 24) = 555LL;
       }
-      v20 = 539LL;
-      WdLogSingleEntry1(2LL, 539LL);
-      v21 = L"Not all the render relevant DDIs are NULL.";
-      goto LABEL_141;
+      else
+      {
+        if ( !a1[46]
+          && !a1[48]
+          && !a1[49]
+          && !a1[78]
+          && !a1[79]
+          && !a1[50]
+          && !a1[54]
+          && !a1[55]
+          && !a1[56]
+          && !a1[60]
+          && !a1[61]
+          && !a1[64]
+          && !a1[77]
+          && !a1[81]
+          && !a1[47]
+          && !a1[53]
+          && !a1[80]
+          && !a1[88]
+          && !a1[51]
+          && !a1[52]
+          && !a1[74]
+          && !a1[76]
+          && !a1[82]
+          && !a1[83]
+          && !a1[84] )
+        {
+          *(_QWORD *)(WdLogNewEntry5_WdTrace(a1, a2, a3, a4) + 24) = 543LL;
+          result = 0LL;
+          *a2 = 0LL;
+          return result;
+        }
+        v27 = WdLogNewEntry5_WdError(a1, a2);
+        *(_QWORD *)(v27 + 24) = 537LL;
+      }
+      goto LABEL_139;
     }
-    v20 = 557LL;
-    WdLogSingleEntry1(2LL, 557LL);
-    goto LABEL_117;
-  }
-  *(_QWORD *)(WdLogNewEntry5_WdTrace(a1, a2) + 24) = 509LL;
-  v6 = (__int64 (__fastcall *)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *))*((_QWORD *)a1 + 87);
-  if ( !v6 )
-  {
-    *((_QWORD *)a1 + 87) = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
-    v6 = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
-  }
-  v7 = (__int64 (__fastcall *)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *))*((_QWORD *)a1 + 93);
-  if ( !v7 )
-  {
-    *((_QWORD *)a1 + 93) = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
-    v7 = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
-  }
-  v8 = (__int64 (__fastcall *)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *))*((_QWORD *)a1 + 94);
-  if ( !v8 )
-  {
-    *((_QWORD *)a1 + 94) = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
-    v8 = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
-  }
-  v9 = (__int64 (__fastcall *)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *))*((_QWORD *)a1 + 95);
-  if ( !v9 )
-  {
-    *((_QWORD *)a1 + 95) = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
-    v9 = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
-  }
-  if ( !*((_QWORD *)a1 + 85) )
-    *((_QWORD *)a1 + 85) = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
-  a4 = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
-  if ( !*((_QWORD *)a1 + 62) )
-    *((_QWORD *)a1 + 62) = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
-  if ( !*((_QWORD *)a1 + 63) )
-    *((_QWORD *)a1 + 63) = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
-  if ( v6 == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange )
-  {
-    if ( v7 == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
-      && v8 == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
-      && v9 == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange )
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(a1, a2, a3, a4) + 24) = 507LL;
+    v6 = a1[76];
+    if ( !v6 )
     {
-      goto LABEL_41;
+      a1[76] = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
+      v6 = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
     }
+    v7 = a1[82];
+    if ( !v7 )
+    {
+      a1[82] = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
+      v7 = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
+    }
+    v8 = a1[83];
+    if ( !v8 )
+    {
+      a1[83] = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
+      v8 = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
+    }
+    v9 = a1[84];
+    if ( !v9 )
+    {
+      a1[84] = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
+      v9 = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
+    }
+    if ( !a1[74] )
+      a1[74] = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
+    if ( !a1[51] )
+      a1[51] = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
+    if ( !a1[52] )
+      a1[52] = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
+    if ( v6 == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange )
+    {
+      if ( v7 == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
+        && v8 == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
+        && v9 == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange )
+      {
+        goto LABEL_41;
+      }
+    }
+    else if ( v9 != ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
+           && v8 != ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
+           && v7 != ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange )
+    {
+LABEL_41:
+      v10 = *((unsigned int *)a1 + 582);
+      if ( (((_DWORD)v10 - 4096) & 0xFFFFFCFF) != 0 || (_DWORD)v10 == 4352 || a1[47] && a1[53] && a1[80] )
+      {
+        v11 = *((_DWORD *)a1 + 511);
+        if ( (v11 & 4) != 0 )
+        {
+          if ( !a1[88] )
+          {
+            v30 = WdLogNewEntry5_WdError(v10, v9);
+            *(_QWORD *)(v30 + 24) = 637LL;
+LABEL_113:
+            WdLogEvent5_WdError(v30);
+            return 3221225485LL;
+          }
+          if ( *((int *)a1 + 649) < 1105 )
+          {
+            v32 = WdLogNewEntry5_WdWarning(v10, v9, v6);
+            *(_QWORD *)(v32 + 24) = a1;
+            WdLogEvent5_WdWarning(v32);
+            *((_DWORD *)a1 + 511) &= ~4u;
+            v11 = *((_DWORD *)a1 + 511);
+            a1[88] = 0LL;
+          }
+          if ( (v11 & 0x20000000) != 0 )
+          {
+            v30 = WdLogNewEntry5_WdError(v10, v9);
+            *(_QWORD *)(v30 + 24) = 649LL;
+            goto LABEL_113;
+          }
+        }
+        if ( *((_DWORD *)a1 + 509) > 4u )
+          *((_DWORD *)a1 + 509) = 4;
+        if ( !*((_DWORD *)a1 + 508)
+          || a1[51] != ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
+          && a1[52] != ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange )
+        {
+          v12 = *((_DWORD *)a1 + 514);
+          if ( (v12 & 1) != 0 )
+          {
+            if ( *((int *)a1 + 582) >= 0x2000 )
+              goto LABEL_61;
+            v13 = *((_DWORD *)a1 + 517);
+            if ( v13 )
+            {
+              v14 = *((_DWORD *)a1 + 70) * v13;
+              if ( v14 > 0x40 && *((int *)a1 + 649) <= 2400 )
+              {
+                v31 = (_QWORD *)WdLogNewEntry5_WdWarning(v10, 0x2000LL, v6);
+                v31[3] = a1;
+                v31[4] = 64LL;
+                v31[5] = *((unsigned int *)a1 + 70);
+                v31[6] = *((unsigned int *)a1 + 517);
+                goto LABEL_115;
+              }
+              *((_DWORD *)a1 + 648) = v14;
+LABEL_61:
+              if ( *((_BYTE *)a1 + 2608)
+                && *((int *)a1 + 582) >= 4608
+                && (!*((_DWORD *)a1 + 630)
+                 || !*((_DWORD *)a1 + 631)
+                 || !*((_BYTE *)a1 + 2530)
+                 || (*((_DWORD *)a1 + 513) & 2) == 0
+                 || (*((_DWORD *)a1 + 87) & 0x10) == 0 && (*((_DWORD *)a1 + 511) & 4) == 0) )
+              {
+                v30 = WdLogNewEntry5_WdError(v10, 0x2000LL);
+                *(_QWORD *)(v30 + 24) = 728LL;
+                goto LABEL_113;
+              }
+              v15 = *((unsigned int *)a1 + 582);
+              if ( (int)v15 >= 0x2000 && (*((_DWORD *)a1 + 513) & 2) == 0 )
+              {
+                v30 = WdLogNewEntry5_WdError(v15, 0x2000LL);
+                *(_QWORD *)(v30 + 24) = *((unsigned int *)a1 + 513);
+                goto LABEL_113;
+              }
+              if ( (int)v15 >= 4864 && !a1[98] )
+              {
+                v30 = WdLogNewEntry5_WdError(v15, 0x2000LL);
+                *(_QWORD *)(v30 + 24) = 750LL;
+                goto LABEL_113;
+              }
+              if ( (int)v15 >= 9216 && (*((_DWORD *)a1 + 515) & 0x800) != 0 && (!a1[156] || !a1[157]) )
+              {
+                v30 = WdLogNewEntry5_WdError(v15, 0x2000LL);
+                *(_QWORD *)(v30 + 24) = 765LL;
+                goto LABEL_113;
+              }
+              goto LABEL_68;
+            }
+          }
+          else if ( (v12 & 4) == 0 && (v12 & 0x10) == 0 )
+          {
+            *((_DWORD *)a1 + 517) = 1;
+            *((_DWORD *)a1 + 648) = 1;
+            goto LABEL_61;
+          }
+          v31 = (_QWORD *)WdLogNewEntry5_WdWarning(v10, 0x2000LL, v6);
+          v31[3] = a1;
+LABEL_115:
+          WdLogEvent5_WdWarning(v31);
+          return 3221225485LL;
+        }
+        v27 = WdLogNewEntry5_WdError(v10, v9);
+        *(_QWORD *)(v27 + 24) = 664LL;
+      }
+      else
+      {
+        v27 = WdLogNewEntry5_WdError(v10, v9);
+        *(_QWORD *)(v27 + 24) = 628LL;
+      }
 LABEL_139:
-    v20 = 610LL;
-    WdLogSingleEntry1(2LL, 610LL);
-    v21 = L"Create, Update, Flip and DestroyOverlay should all be supplied if any one of them is";
-    goto LABEL_141;
-  }
-  if ( v9 == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
-    || v8 == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
-    || v7 == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange )
-  {
+      WdLogEvent5_WdError(v27);
+      return 3221225561LL;
+    }
+    v27 = WdLogNewEntry5_WdError(v8, v9);
+    *(_QWORD *)(v27 + 24) = 608LL;
     goto LABEL_139;
   }
-LABEL_41:
-  v10 = *((_DWORD *)a1 + 606);
-  if ( ((v10 - 4096) & 0xFFFFFCFF) == 0
-    && v10 != 4352
-    && (!*((_QWORD *)a1 + 58) || !*((_QWORD *)a1 + 64) || !*((_QWORD *)a1 + 91)) )
-  {
-    v20 = 630LL;
-    WdLogSingleEntry1(2LL, 630LL);
-    v21 = L"Miniport did not provide required DDIs for WDDM v1.x";
-LABEL_141:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v21, v20, 0LL, 0LL, 0LL, 0LL);
-    return 3221225561LL;
-  }
-  v11 = *((_DWORD *)a1 + 535);
-  if ( (v11 & 4) != 0 )
-  {
-    if ( !*((_QWORD *)a1 + 99) )
-    {
-      v22 = 639LL;
-      WdLogSingleEntry1(2LL, 639LL);
-      v23 = L"Miniport did not provide RenderKm function but reported PresentationCaps.SupportKernelModeCommandBuffer cap";
-LABEL_109:
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v23, v22, 0LL, 0LL, 0LL, 0LL);
-      return 3221225485LL;
-    }
-    if ( *((int *)a1 + 673) < 1105 )
-    {
-      WdLogSingleEntry1(3LL, a1);
-      *((_DWORD *)a1 + 535) &= ~4u;
-      a4 = ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange;
-      v11 = *((_DWORD *)a1 + 535);
-      *((_QWORD *)a1 + 99) = 0LL;
-    }
-    if ( (v11 & 0x20000000) != 0 )
-    {
-      v22 = 651LL;
-      WdLogSingleEntry1(2LL, 651LL);
-      v23 = L"Miniport set the NoCacheCoherentApertureMemory cap on non-ARM architecture";
-      goto LABEL_109;
-    }
-  }
-  if ( *((_DWORD *)a1 + 533) > 4u )
-    *((_DWORD *)a1 + 533) = 4;
-  if ( *((_DWORD *)a1 + 532)
-    && (*((__int64 (__fastcall **)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *))a1 + 62) == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
-     || *((__int64 (__fastcall **)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *))a1 + 63) == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange) )
-  {
-    v20 = 666LL;
-    WdLogSingleEntry1(2LL, 666LL);
-LABEL_117:
-    v21 = L"Miniport did not provide required DDIs";
-    goto LABEL_141;
-  }
-  v12 = *((_DWORD *)a1 + 538);
-  if ( (v12 & 1) == 0 )
-  {
-    if ( (v12 & 4) == 0 && (v12 & 0x10) == 0 )
-    {
-      *((_DWORD *)a1 + 541) = 1;
-      *((_DWORD *)a1 + 672) = 1;
-      goto LABEL_52;
-    }
-    goto LABEL_110;
-  }
-  if ( *((int *)a1 + 606) >= 0x2000 )
-    goto LABEL_52;
-  v24 = *((_DWORD *)a1 + 541);
-  if ( !v24 )
-  {
-LABEL_110:
-    WdLogSingleEntry1(3LL, a1);
-    return 3221225485LL;
-  }
-  v25 = v24 * *((_DWORD *)a1 + 72);
-  if ( *((int *)a1 + 673) <= 2400 && v25 > 0x40 )
-  {
-    WdLogSingleEntry4(3LL, a1, 64LL, *((unsigned int *)a1 + 72), *((unsigned int *)a1 + 541));
-    return 3221225485LL;
-  }
-  *((_DWORD *)a1 + 672) = v25;
-LABEL_52:
-  if ( *((_BYTE *)a1 + 2704)
-    && *((int *)a1 + 606) >= 4608
-    && (!*((_DWORD *)a1 + 654)
-     || !*((_DWORD *)a1 + 655)
-     || !*((_BYTE *)a1 + 2626)
-     || (*((_DWORD *)a1 + 666) & 8) == 0
-     && ((*((_DWORD *)a1 + 537) & 2) == 0 || (*((_DWORD *)a1 + 109) & 0x10) == 0 && (*((_DWORD *)a1 + 535) & 4) == 0)) )
-  {
-    v22 = 731LL;
-    WdLogSingleEntry1(2LL, 731LL);
-    v23 = L"Driver reports WDDM version 1.2 but does not implement all mandatory WDDM 1.2 render features.";
-    goto LABEL_109;
-  }
-  v13 = *((_DWORD *)a1 + 606);
-  if ( v13 < 0x2000 )
-  {
-    if ( v13 < 4864 )
-      goto LABEL_60;
-  }
+LABEL_68:
+  v16 = (ADAPTER_RENDER *)operator new(0x680uLL, 0x4B677844u, 1, (POOL_TYPE)512);
+  if ( v16 )
+    v21 = ADAPTER_RENDER::ADAPTER_RENDER(v16, (struct DXGADAPTER *)a1);
   else
+    v21 = 0LL;
+  if ( v21 )
   {
-    v14 = *((unsigned int *)a1 + 537);
-    if ( (v14 & 2) == 0 && (*((_DWORD *)a1 + 666) & 8) == 0 )
+    v24 = ADAPTER_RENDER::Initialize(v21);
+    if ( v24 < 0 )
     {
-      WdLogSingleEntry1(2LL, v14);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Driver reports WDDM version 2.0 or higher but does not support FlipOnVSyncMmIo cap. The caps value is 0x%x",
-        *((unsigned int *)a1 + 537),
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      return 3221225485LL;
-    }
-  }
-  if ( !*((_QWORD *)a1 + 109) )
-  {
-    v22 = 753LL;
-    WdLogSingleEntry1(2LL, 753LL);
-    v23 = L"Driver reports WDDM 1.3 driver, but does not support node metadata.";
-    goto LABEL_109;
-  }
-  if ( v13 >= 9216 && (*((_DWORD *)a1 + 539) & 0x800) != 0 && (!*((_QWORD *)a1 + 163) || !*((_QWORD *)a1 + 164)) )
-  {
-    v22 = 768LL;
-    WdLogSingleEntry1(2LL, 768LL);
-    v23 = L"Driver reports WDDM 2.4 driver with IoMmuSecureMode support, but does not support Begin/EndExclusiveAccess DDIs.";
-    goto LABEL_109;
-  }
-LABEL_60:
-  v15 = (ADAPTER_RENDER *)operator new[](0x700uLL, 0x4B677844u, 64LL, (__int64)a4);
-  if ( v15 && (v16 = ADAPTER_RENDER::ADAPTER_RENDER(v15, a1), (v17 = v16) != 0LL) )
-  {
-    v18 = ADAPTER_RENDER::Initialize(v16);
-    if ( v18 < 0 )
-    {
-      ADAPTER_RENDER::Destroy(v17);
-      ADAPTER_RENDER::`scalar deleting destructor'(v17);
+      ADAPTER_RENDER::Destroy(v21);
+      ADAPTER_RENDER::`scalar deleting destructor'(v21);
     }
     else
     {
-      WdLogSingleEntry2(4LL, v17, a1);
-      *a2 = v17;
+      v25 = WdLogNewEntry5_WdEvent(v23, v22);
+      *(_QWORD *)(v25 + 24) = v21;
+      *(_QWORD *)(v25 + 32) = a1;
+      WdLogEvent5_WdEvent(v25);
+      *a2 = v21;
     }
-    return (unsigned int)v18;
+    return (unsigned int)v24;
   }
   else
   {
-    WdLogSingleEntry1(6LL, -1073741801LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Out of memory allocating ADAPTER_RENDER class, returning 0x%I64x",
-      -1073741801LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v33 = WdLogNewEntry5_WdLowResource(v18, v17, v19, v20);
+    *(_QWORD *)(v33 + 24) = -1073741801LL;
+    WdLogEvent5_WdLowResource(v33);
     return 3221225495LL;
   }
 }

@@ -1,213 +1,235 @@
 /*
- * XREFs of PerformSample @ 0x180028ED0
+ * XREFs of PerformSample @ 0x1800474BC
  * Callers:
- *     AppendShaderBody @ 0x180028430 (AppendShaderBody.c)
- *     PrepareSamplers @ 0x180028BDC (PrepareSamplers.c)
+ *     AppendShaderBody @ 0x180046EEC (AppendShaderBody.c)
+ *     PrepareSamplers @ 0x180047E0C (PrepareSamplers.c)
  * Callees:
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x1800255BC (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     AppendColorModifications @ 0x180027CD4 (AppendColorModifications.c)
- *     ApplyTexcoordTransformations @ 0x180027DF8 (ApplyTexcoordTransformations.c)
- *     ?CopyNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@0@Z @ 0x18002915C (-CopyNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@0@Z.c)
- *     ?AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@@Z @ 0x18002A408 (-AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V-$.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     GetExtendModeDecoration @ 0x1800FF018 (GetExtendModeDecoration.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
+ *     ApplyTexcoordTransformations @ 0x180046FBC (ApplyTexcoordTransformations.c)
+ *     AppendColorConversion @ 0x180047144 (AppendColorConversion.c)
+ *     ?CopyNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@0@Z @ 0x1800473E8 (-CopyNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@0@Z.c)
+ *     ?AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@@Z @ 0x180048DA0 (-AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V-$.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PerformSample(
-        __int64 a1,
+        unsigned __int64 a1,
         __int64 a2,
         unsigned int a3,
-        unsigned __int16 a4,
+        __int16 a4,
         unsigned __int16 a5,
         void *a6)
 {
-  unsigned __int16 v7; // r13
-  __int64 v9; // rdi
-  int v11; // r15d
-  unsigned __int16 v12; // r15
+  void *v6; // r15
+  __int16 v7; // r13
+  __int64 v8; // rdi
+  bool v12; // zf
+  int v13; // ecx
+  int v14; // eax
+  unsigned int v15; // ecx
+  unsigned int v16; // ebx
+  int v17; // eax
+  unsigned int v18; // ecx
+  unsigned __int8 v19; // si
+  int v20; // eax
+  unsigned int v21; // ecx
+  int v22; // eax
+  unsigned int v23; // ecx
+  __int128 v25; // xmm0
   int appended; // eax
-  unsigned int v14; // ecx
-  unsigned int v15; // ebx
-  int v16; // eax
-  __int64 v17; // rcx
-  unsigned __int8 v18; // si
-  __int64 v19; // rdx
-  gsl::details *v20; // rcx
-  int v21; // r12d
-  __int128 v23; // xmm0
-  char ExtendModeDecoration; // al
-  __int64 v25; // rcx
-  __int64 v26; // rdx
-  __int64 v27; // r8
-  char v28; // r8
-  char v29; // al
-  __int64 v30; // xmm1_8
-  int v31; // r9d
-  unsigned int v32; // [rsp+20h] [rbp-69h]
-  __int16 v33; // [rsp+30h] [rbp-59h]
-  __int64 v34; // [rsp+40h] [rbp-49h] BYREF
-  void **v35; // [rsp+48h] [rbp-41h]
-  _BYTE v36[24]; // [rsp+50h] [rbp-39h] BYREF
-  char v37; // [rsp+68h] [rbp-21h]
-  unsigned __int8 v38; // [rsp+69h] [rbp-20h]
-  char v39; // [rsp+6Ah] [rbp-1Fh]
-  void *v40; // [rsp+70h] [rbp-19h] BYREF
-  _WORD v41[4]; // [rsp+78h] [rbp-11h] BYREF
+  unsigned int v27; // ecx
+  int v28; // eax
+  unsigned int v29; // ecx
+  int v30; // eax
+  unsigned int v31; // ecx
+  char v32; // al
+  __int64 v33; // xmm1_8
+  int v34; // eax
+  unsigned int v35; // ecx
+  int v36; // eax
+  unsigned int v37; // ecx
+  unsigned __int16 v38; // [rsp+30h] [rbp-59h] BYREF
+  __int128 v39; // [rsp+40h] [rbp-49h] BYREF
+  __int16 v40; // [rsp+50h] [rbp-39h]
+  unsigned __int16 v41; // [rsp+54h] [rbp-35h] BYREF
+  unsigned __int16 v42; // [rsp+56h] [rbp-33h]
+  __int16 v43; // [rsp+58h] [rbp-31h]
+  _BYTE v44[24]; // [rsp+60h] [rbp-29h] BYREF
+  char v45; // [rsp+78h] [rbp-11h]
+  unsigned __int8 v46; // [rsp+79h] [rbp-10h]
+  char v47; // [rsp+7Ah] [rbp-Fh]
 
-  v40 = a6;
+  v6 = a6;
   v7 = a3 | 0x300;
-  v9 = a2 + 32LL * a3;
-  v33 = a3 | 0x400;
-  if ( !*(_BYTE *)(v9 + 23) )
+  v8 = a2 + 32LL * a3;
+  v12 = *(_BYTE *)(v8 + 22) == 0;
+  v40 = a3 | 0x400;
+  if ( v12 )
   {
-    v11 = *(_DWORD *)(a1 + 80);
-    *(_DWORD *)(a1 + 80) = v11 + 1;
-    v12 = v11 | 0x600;
-    appended = CShaderLinkingGraphBuilder::CopyNode(a1, v12, a4);
-    v15 = appended;
-    if ( appended < 0 )
+    v13 = *(_DWORD *)(a1 + 80);
+    *(_DWORD *)(a1 + 80) = v13 + 1;
+    v38 = v13 | 0x600;
+    v14 = CShaderLinkingGraphBuilder::CopyNode(a1, v13 | 0x600u, a4);
+    v16 = v14;
+    if ( v14 < 0 )
     {
-      v32 = 683;
-      goto LABEL_35;
+      MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x27Fu, 0LL);
+      return v16;
     }
-    v16 = ApplyTexcoordTransformations(a1, a2, a3, v12, v40);
-    v15 = v16;
-    if ( v16 < 0 )
+    v17 = ApplyTexcoordTransformations(a1, a2, a3, v38, v6);
+    v16 = v17;
+    if ( v17 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x2B2u, 0LL);
-      return v15;
+      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x286u, 0LL);
+      return v16;
     }
-    v18 = a3 + 48;
-    v41[0] = v12;
-    v41[1] = v7;
-    v41[2] = v33;
+    v19 = a3 + 48;
     if ( *(_BYTE *)(a2 + 156) )
     {
-      qmemcpy(v36, "SampleCubeTexture", 17);
-      *(_WORD *)&v36[17] = v18;
-      goto LABEL_8;
-    }
-    if ( *(_BYTE *)(v9 + 21) )
-    {
-      v19 = 1LL;
-      *(_WORD *)&v36[18] = v18;
-      qmemcpy(v36, "MultiSampleTexture", 18);
-      if ( *(_BYTE *)(v9 + 18) )
-      {
-        LOBYTE(v17) = *(_BYTE *)(v9 + 16);
-        if ( (_BYTE)v17 )
-        {
-          ExtendModeDecoration = GetExtendModeDecoration(v17, 1LL, 0LL);
-          LOBYTE(v25) = *(_BYTE *)(v9 + 17);
-          v36[19] = ExtendModeDecoration;
-          v36[20] = GetExtendModeDecoration(v25, v26, v27);
-          v19 = 2LL;
-          v36[21] = v28;
-        }
-      }
-LABEL_9:
-      gsl::details::extent_type<-1>::extent_type<-1>((gsl::details *)&v34, v19);
-      v35 = (void **)v41;
-      if ( v34 == -1 )
-      {
-        gsl::details::terminate(v20);
-        JUMPOUT(0x180029154LL);
-      }
-      v21 = (int)v40;
-      appended = CShaderLinkingGraphBuilder::AppendNode(
-                   a1,
-                   a5,
-                   (unsigned int)word_18033C020,
-                   (_DWORD)v40,
-                   (__int64)v36,
-                   (__int64)&v34);
-      v15 = appended;
-      if ( appended < 0 )
-      {
-        v32 = 744;
-        goto LABEL_35;
-      }
-      v15 = AppendColorModifications(a1, (__int128 *)v9, a5, v21);
-      if ( (v15 & 0x80000000) != 0 )
-      {
-        v31 = v15;
-        v32 = 745;
-LABEL_36:
-        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v31, v32, 0LL);
-        return v15;
-      }
-      if ( *(_BYTE *)(v9 + 18) )
-      {
-        if ( !*(_BYTE *)(v9 + 16) )
-        {
-          v34 = 3LL;
-          v35 = &v40;
-          LOWORD(v40) = a5;
-          WORD1(v40) = v12;
-          WORD2(v40) = v7;
-          appended = CShaderLinkingGraphBuilder::AppendNode(
-                       a1,
-                       a5,
-                       (unsigned int)word_18033C020,
-                       v21,
-                       (__int64)"ClampTransparent",
-                       (__int64)&v34);
-          v15 = appended;
-          if ( appended < 0 )
-          {
-            v32 = 755;
-            goto LABEL_35;
-          }
-        }
-      }
-      return v15;
-    }
-    if ( !*(_BYTE *)(v9 + 20) )
-    {
-      qmemcpy(v36, "SampleTexture", 13);
-      *(_WORD *)&v36[13] = v18;
-LABEL_8:
-      v19 = 1LL;
-      goto LABEL_9;
-    }
-    if ( *(_BYTE *)(v9 + 17) == 2 )
-    {
-      if ( *(_BYTE *)(v9 + 16) == 2 )
-      {
-        v23 = *(_OWORD *)"SampleWrappedTexture";
-        *(_DWORD *)&v36[16] = *(_DWORD *)"ture";
-        *(_WORD *)&v36[20] = v18;
-LABEL_20:
-        *(_OWORD *)v36 = v23;
-        v19 = 3LL;
-        goto LABEL_9;
-      }
-      v23 = *(_OWORD *)"SampleWrappedTextureVOnly";
-      v29 = aSamplewrappedt[24];
-      v30 = *(_QWORD *)"tureVOnly";
+      qmemcpy(v44, "SampleCubeTexture", 17);
+      *(_WORD *)&v44[17] = v19;
     }
     else
     {
-      v23 = *(_OWORD *)"SampleWrappedTextureUOnly";
-      v29 = aSamplewrappedt_0[24];
-      v30 = *(_QWORD *)"tureUOnly";
+      if ( !*(_BYTE *)(v8 + 21) )
+      {
+        if ( !*(_BYTE *)(v8 + 20) )
+        {
+          qmemcpy(v44, "SampleTexture", 13);
+          *(_WORD *)&v44[13] = v19;
+          goto LABEL_8;
+        }
+        if ( *(_BYTE *)(v8 + 17) == 2 )
+        {
+          if ( *(_BYTE *)(v8 + 16) == 2 )
+          {
+            v25 = *(_OWORD *)"SampleWrappedTexture";
+            *(_DWORD *)&v44[16] = *(_DWORD *)"ture";
+            *(_WORD *)&v44[20] = v19;
+            goto LABEL_17;
+          }
+          v25 = *(_OWORD *)"SampleWrappedTextureVOnly";
+          v32 = aSamplewrappedt[24];
+          v33 = *(_QWORD *)"tureVOnly";
+        }
+        else
+        {
+          v25 = *(_OWORD *)"SampleWrappedTextureUOnly";
+          v32 = aSamplewrappedt_0[24];
+          v33 = *(_QWORD *)"tureUOnly";
+        }
+        *(_QWORD *)&v44[16] = v33;
+        v45 = v32;
+        v46 = v19;
+        v47 = 0;
+LABEL_17:
+        v41 = v38;
+        v43 = v40;
+        *((_QWORD *)&v39 + 1) = &v41;
+        *(_QWORD *)&v39 = 3LL;
+        *(_OWORD *)v44 = v25;
+        v42 = v7;
+        appended = CShaderLinkingGraphBuilder::AppendNode(
+                     a1,
+                     a5,
+                     (unsigned int)&word_1802CE406,
+                     (_DWORD)v6,
+                     (__int64)v44,
+                     (__int64)&v39);
+        v16 = appended;
+        if ( appended < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, appended, 0x2ACu, 0LL);
+          return v16;
+        }
+        goto LABEL_9;
+      }
+      qmemcpy(v44, "MultiSampleTexture", 18);
+      *(_WORD *)&v44[18] = v19;
     }
-    *(_QWORD *)&v36[16] = v30;
-    v37 = v29;
-    v38 = v18;
-    v39 = 0;
-    goto LABEL_20;
+LABEL_8:
+    *((_QWORD *)&v39 + 1) = &v38;
+    *(_QWORD *)&v39 = 1LL;
+    v20 = CShaderLinkingGraphBuilder::AppendNode(
+            a1,
+            a5,
+            (unsigned int)&word_1802CE406,
+            (_DWORD)v6,
+            (__int64)v44,
+            (__int64)&v39);
+    v16 = v20;
+    if ( v20 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, v20, 0x2B0u, 0LL);
+      return v16;
+    }
+LABEL_9:
+    if ( *(_BYTE *)(v8 + 23)
+      && (*((_QWORD *)&v39 + 1) = &a5,
+          *(_QWORD *)&v39 = 1LL,
+          v28 = CShaderLinkingGraphBuilder::AppendNode(
+                  a1,
+                  a5,
+                  (unsigned int)&word_1802CE406,
+                  (_DWORD)v6,
+                  (__int64)"IgnoreAlpha",
+                  (__int64)&v39),
+          v16 = v28,
+          v28 < 0) )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, v28, 0x2B5u, 0LL);
+    }
+    else if ( *(_BYTE *)(v8 + 24)
+           && (*((_QWORD *)&v39 + 1) = &a5,
+               *(_QWORD *)&v39 = 1LL,
+               v34 = CShaderLinkingGraphBuilder::AppendNode(
+                       a1,
+                       a5,
+                       (unsigned int)&word_1802CE406,
+                       (_DWORD)v6,
+                       (__int64)"UnBoostSDRLuminance",
+                       (__int64)&v39),
+               v16 = v34,
+               v34 < 0) )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v35, 0LL, 0, v34, 0x2BBu, 0LL);
+    }
+    else
+    {
+      v39 = *(_OWORD *)v8;
+      v22 = AppendColorConversion(a1, (int)v6, a5, (__int64)&v39, 0);
+      v16 = v22;
+      if ( v22 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0x2BEu, 0LL);
+      }
+      else if ( *(_BYTE *)(v8 + 18) )
+      {
+        if ( !*(_BYTE *)(v8 + 16) )
+        {
+          v42 = v38;
+          *(_QWORD *)&v39 = 3LL;
+          *((_QWORD *)&v39 + 1) = &v41;
+          v41 = a5;
+          v43 = v7;
+          v36 = CShaderLinkingGraphBuilder::AppendNode(
+                  a1,
+                  a5,
+                  (unsigned int)&word_1802CE406,
+                  (_DWORD)v6,
+                  (__int64)"ClampTransparent",
+                  (__int64)&v39);
+          v16 = v36;
+          if ( v36 < 0 )
+            MilInstrumentationCheckHR_MaybeFailFast(v37, 0LL, 0, v36, 0x2C8u, 0LL);
+        }
+      }
+    }
+    return v16;
   }
-  appended = CShaderLinkingGraphBuilder::CopyNode(a1, a5, v7);
-  v15 = appended;
-  if ( appended < 0 )
-  {
-    v32 = 673;
-LABEL_35:
-    v31 = appended;
-    goto LABEL_36;
-  }
-  return v15;
+  v30 = CShaderLinkingGraphBuilder::CopyNode(a1, a5, v7);
+  v16 = v30;
+  if ( v30 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v31, 0LL, 0, v30, 0x275u, 0LL);
+  return v16;
 }

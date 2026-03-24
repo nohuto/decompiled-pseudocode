@@ -1,7 +1,7 @@
 /*
- * XREFs of StorNVMe_wil_deinit @ 0x1C00037B0
+ * XREFs of StorNVMe_wil_deinit @ 0x1C0006730
  * Callers:
- *     DriverEntry @ 0x1C00076D8 (DriverEntry.c)
+ *     DriverEntry @ 0x1C000A530 (DriverEntry.c)
  * Callees:
  *     <none>
  */
@@ -10,11 +10,10 @@ __int64 StorNVMe_wil_deinit()
 {
   __int64 result; // rax
 
-  if ( g_wil_details_featureChangeNotification )
+  if ( wil_details_featureChangeNotification )
   {
     result = RtlUnregisterFeatureConfigurationChangeNotification();
-    g_wil_details_featureChangeNotification = 0LL;
+    wil_details_featureChangeNotification = 0LL;
   }
-  g_wil_details_isFeatureStagingInitialized = 0;
   return result;
 }

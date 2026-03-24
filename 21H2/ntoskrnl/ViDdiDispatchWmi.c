@@ -1,24 +1,27 @@
 /*
- * XREFs of ViDdiDispatchWmi @ 0x140A83200
+ * XREFs of ViDdiDispatchWmi @ 0x1409C8010
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     ViDdiDispatchWmiQueryAllData @ 0x140A83264 (ViDdiDispatchWmiQueryAllData.c)
- *     ViDdiDispatchWmiRegInfoEx @ 0x140A83400 (ViDdiDispatchWmiRegInfoEx.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     ViDdiDispatchWmiQueryAllData @ 0x1409C807C (ViDdiDispatchWmiQueryAllData.c)
+ *     ViDdiDispatchWmiRegInfoEx @ 0x1409C8218 (ViDdiDispatchWmiRegInfoEx.c)
  */
 
 __int64 __fastcall ViDdiDispatchWmi(__int64 a1, IRP *a2)
 {
   UCHAR MinorFunction; // dl
-  NTSTATUS AllData; // eax
   unsigned int Status; // ebx
+  unsigned int AllData; // eax
 
   MinorFunction = a2->Tail.Overlay.CurrentStackLocation->MinorFunction;
   if ( MinorFunction )
   {
     if ( MinorFunction != 11 )
-      goto LABEL_6;
+    {
+      Status = -1073741637;
+      goto LABEL_7;
+    }
     AllData = ViDdiDispatchWmiRegInfoEx(a1, a2);
   }
   else
@@ -26,14 +29,11 @@ __int64 __fastcall ViDdiDispatchWmi(__int64 a1, IRP *a2)
     AllData = ViDdiDispatchWmiQueryAllData(a1, a2);
   }
   Status = AllData;
-  if ( AllData != -1073741637 )
-  {
-    a2->IoStatus.Status = AllData;
-    goto LABEL_8;
-  }
-LABEL_6:
-  Status = a2->IoStatus.Status;
-LABEL_8:
+LABEL_7:
+  if ( Status == -1073741637 )
+    Status = a2->IoStatus.Status;
+  else
+    a2->IoStatus.Status = Status;
   IofCompleteRequest(a2, 0);
   return Status;
 }

@@ -1,18 +1,14 @@
 /*
- * XREFs of DpiGdiHandleAsyncDisplayCallout @ 0x1C0228880
+ * XREFs of DpiGdiHandleAsyncDisplayCallout @ 0x1C02C6BD0
  * Callers:
  *     <none>
  * Callees:
- *     DpiGdiSyncDisplayCallout @ 0x1C02288D0 (DpiGdiSyncDisplayCallout.c)
+ *     DpiGdiSyncDisplayCallout @ 0x1C02C6C1C (DpiGdiSyncDisplayCallout.c)
  */
 
-void __fastcall DpiGdiHandleAsyncDisplayCallout(PVOID IoObject, _BYTE *Context, PIO_WORKITEM IoWorkItem)
+void __fastcall DpiGdiHandleAsyncDisplayCallout(PVOID IoObject, _QWORD *Context, PIO_WORKITEM IoWorkItem)
 {
-  _QWORD *v3; // rdi
-
-  v3 = Context;
-  LOBYTE(Context) = Context[8];
-  DpiGdiSyncDisplayCallout(*v3, Context);
+  DpiGdiSyncDisplayCallout(*Context);
   IoFreeWorkItem(IoWorkItem);
-  ExFreePoolWithTag(v3, 0);
+  ExFreePoolWithTag(Context, 0);
 }

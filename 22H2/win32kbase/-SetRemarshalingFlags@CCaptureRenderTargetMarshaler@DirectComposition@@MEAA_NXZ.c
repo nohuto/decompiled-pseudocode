@@ -1,34 +1,30 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C022E350
+ * XREFs of ?SetRemarshalingFlags@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01F53C0
  * Callers:
- *     ?SetRemarshalingFlags@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C022E840 (-SetRemarshalingFlags@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01F58D0 (-SetRemarshalingFlags@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NXZ.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall DirectComposition::CCaptureRenderTargetMarshaler::SetRemarshalingFlags(
+char __fastcall DirectComposition::CCaptureRenderTargetMarshaler::SetRemarshalingFlags(
         DirectComposition::CCaptureRenderTargetMarshaler *this)
 {
-  _DWORD *v1; // rdx
-  bool result; // al
+  int v1; // eax
 
-  v1 = (_DWORD *)((char *)this + 16);
   if ( *((_QWORD *)this + 15) )
-    *v1 |= 0x20u;
+    *((_DWORD *)this + 4) |= 0x20u;
   if ( *((_QWORD *)this + 14) )
-    *v1 |= 0x40u;
+    *((_DWORD *)this + 4) |= 0x40u;
   if ( *((_DWORD *)this + 20) || *((_DWORD *)this + 19) )
-    *v1 |= 0x80u;
+    *((_DWORD *)this + 4) |= 0x80u;
   if ( *((float *)this + 15) != 0.0 || *((float *)this + 16) != 0.0 || *((float *)this + 17) != 0.0 )
-    *v1 |= 0x400u;
+    *((_DWORD *)this + 4) |= 0x400u;
   if ( *((_BYTE *)this + 57) )
-    *v1 |= 0x200u;
+    *((_DWORD *)this + 4) |= 0x200u;
+  v1 = *((_DWORD *)this + 4);
   if ( *((_BYTE *)this + 56) )
-    *v1 |= 0x800u;
-  if ( *((float *)this + 32) != 0.0 )
-    *v1 |= 0x1000u;
-  *v1 &= ~0x100u;
-  result = 1;
+    v1 |= 0x800u;
   *((_QWORD *)this + 12) = 0LL;
-  return result;
+  *((_DWORD *)this + 4) = v1 & 0xFFFFFEFF;
+  return 1;
 }

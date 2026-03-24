@@ -1,24 +1,38 @@
 /*
- * XREFs of ??1CSceneNode@@MEAA@XZ @ 0x180250CDC
+ * XREFs of ??1CSceneNode@@MEAA@XZ @ 0x1801EB4E0
  * Callers:
- *     ??_GCSceneNode@@MEAAPEAXI@Z @ 0x180250DB0 (--_GCSceneNode@@MEAAPEAXI@Z.c)
+ *     ??_GCSceneNode@@MEAAPEAXI@Z @ 0x1801EB590 (--_GCSceneNode@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?SetParent@CSceneNode@@AEAAXPEAV1@@Z @ 0x1802513C4 (-SetParent@CSceneNode@@AEAAXPEAV1@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?SetParent@CSceneNode@@AEAAXPEAV1@@Z @ 0x1801EBC90 (-SetParent@CSceneNode@@AEAAXPEAV1@@Z.c)
  */
 
 void __fastcall CSceneNode::~CSceneNode(CSceneNode *this)
 {
-  CSceneNode **v2; // rsi
-  CSceneNode **i; // rdi
+  CSceneNode **v2; // rdi
+  __int64 v3; // rbp
+  unsigned __int64 v4; // rsi
+  __int64 v5; // rcx
 
   *(_QWORD *)this = &CSceneNode::`vftable';
-  v2 = (CSceneNode **)*((_QWORD *)this + 10);
-  for ( i = (CSceneNode **)*((_QWORD *)this + 9); i != v2; ++i )
+  v2 = (CSceneNode **)*((_QWORD *)this + 8);
+  v3 = 0LL;
+  v4 = (unsigned __int64)(*((_QWORD *)this + 9) - (_QWORD)v2 + 7LL) >> 3;
+  if ( (unsigned __int64)v2 > *((_QWORD *)this + 9) )
+    v4 = 0LL;
+  if ( v4 )
   {
-    if ( *((CSceneNode **)*i + 16) == this )
-      CSceneNode::SetParent(*i, 0LL);
+    do
+    {
+      if ( *((CSceneNode **)*v2 + 15) == this )
+        CSceneNode::SetParent(*v2, 0LL);
+      ++v2;
+      ++v3;
+    }
+    while ( v3 != v4 );
   }
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 17);
+  v5 = *((_QWORD *)this + 16);
+  if ( v5 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
   CSceneNodeGeneratedT<CSceneNode,CSceneObject>::~CSceneNodeGeneratedT<CSceneNode,CSceneObject>(this);
 }

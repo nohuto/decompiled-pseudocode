@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmEnumDevicesInContainerWithCallback @ 0x140A63D54
+ * XREFs of _CmEnumDevicesInContainerWithCallback @ 0x140975D40
  * Callers:
- *     PiDcResetChildDeviceContainers @ 0x14095B530 (PiDcResetChildDeviceContainers.c)
- *     _CmGetContainerBooleanProperty @ 0x140A64114 (_CmGetContainerBooleanProperty.c)
+ *     PiDcResetChildDeviceContainers @ 0x1408A3928 (PiDcResetChildDeviceContainers.c)
+ *     _CmGetContainerBooleanProperty @ 0x140976104 (_CmGetContainerBooleanProperty.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     _CmEnumDevicesInContainerWithCallbackWorker @ 0x140A63EA4 (_CmEnumDevicesInContainerWithCallbackWorker.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _CmEnumDevicesInContainerWithCallbackWorker @ 0x140975E90 (_CmEnumDevicesInContainerWithCallbackWorker.c)
  */
 
 __int64 __fastcall CmEnumDevicesInContainerWithCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

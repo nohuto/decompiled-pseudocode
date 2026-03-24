@@ -1,9 +1,9 @@
 /*
- * XREFs of RawInputManagerDeviceObjectCreateKernelHandle @ 0x1C0045444
+ * XREFs of RawInputManagerDeviceObjectCreateKernelHandle @ 0x1C0057BD8
  * Callers:
- *     rimCreateDev @ 0x1C0045360 (rimCreateDev.c)
+ *     rimCreateDev @ 0x1C0057AF4 (rimCreateDev.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall RawInputManagerDeviceObjectCreateKernelHandle(
@@ -11,23 +11,20 @@ __int64 __fastcall RawInputManagerDeviceObjectCreateKernelHandle(
         __int64 a2,
         __int64 a3,
         __int64 a4,
-        PHANDLE Handle)
+        void **a5)
 {
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  NTSTATUS v7; // ebx
-  __int64 v8; // r8
+  NTSTATUS v5; // ebx
 
-  *Handle = (void *)-1LL;
+  *a5 = (void *)-1LL;
   if ( a1[1] == 2 )
   {
-    v7 = ObOpenObjectByPointer(a1, 0x200u, 0LL, 3u, ExRawInputManagerObjectType, 0, Handle);
-    if ( v7 < 0 )
-      MicrosoftTelemetryAssertTriggeredNoArgsKM(v6, v5, v8);
+    v5 = ObOpenObjectByPointer(a1, 0x200u, 0LL, 3u, ExRawInputManagerObjectType, 0, a5);
+    if ( v5 < 0 )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 638LL);
   }
   else
   {
     return (unsigned int)-1073741788;
   }
-  return (unsigned int)v7;
+  return (unsigned int)v5;
 }

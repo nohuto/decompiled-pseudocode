@@ -1,14 +1,14 @@
 /*
- * XREFs of WbFreeMemoryBlockRegion @ 0x1407E1CA4
+ * XREFs of WbFreeMemoryBlockRegion @ 0x1406A8B64
  * Callers:
- *     sub_1407E1B90 @ 0x1407E1B90 (sub_1407E1B90.c)
+ *     sub_1406A8A5C @ 0x1406A8A5C (sub_1406A8A5C.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall WbFreeMemoryBlockRegion(__int64 a1, __int64 a2)
@@ -18,55 +18,42 @@ __int64 __fastcall WbFreeMemoryBlockRegion(__int64 a1, __int64 a2)
   __int64 v6; // rax
   __int64 v7; // rsi
   unsigned __int64 v8; // rbx
-  __int64 v9; // rcx
-  _BYTE *v10; // rax
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  _BYTE *i; // rax
-  char v14; // bp
-  struct _KTHREAD *v15; // rax
-  bool v16; // zf
+  __int64 i; // rcx
+  __int64 v10; // rcx
+  __int64 j; // r8
+  char v12; // r14
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
   v5 = (unsigned __int64 *)(a1 + 1072);
-  v6 = KeAbPreAcquire(a1 + 1072, 0LL);
+  v6 = KeAbPreAcquire(a1 + 1072, 0LL, 0);
   v7 = v6;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v5, v6, (__int64)v5);
+    ExfAcquirePushLockExclusiveEx(v5, v6, (ULONG_PTR)v5);
   if ( v7 )
-    *(_BYTE *)(v7 + 18) = 1;
+    *(_BYTE *)(v7 + 26) |= 1u;
   v8 = (unsigned __int64)(a2 - *(_QWORD *)(a1 + 32)) >> 6;
   if ( (_DWORD)v8 )
   {
-    v9 = (unsigned int)(v8 - 1);
-    v10 = (_BYTE *)(v9 + a1 + 44);
-    do
+    for ( i = (unsigned int)(v8 - 1); i >= 0; --i )
     {
-      if ( *v10 != 2 )
+      if ( *(_BYTE *)(i + a1 + 44) != 2 )
         break;
-      --v10;
-      --v9;
     }
-    while ( v9 >= 0 );
-    v11 = v9 + 1;
+    v10 = i + 1;
   }
   else
   {
-    v11 = 0LL;
+    v10 = 0LL;
   }
-  v12 = (unsigned int)v8;
-  for ( i = (_BYTE *)((unsigned int)v8 + a1 + 44); *i == 2; ++i )
-    ++v12;
-  if ( v11 <= v12 )
-    memset((void *)(a1 + v11 + 44), 0, v12 - v11 + 1);
-  v14 = _InterlockedExchangeAdd64((volatile signed __int64 *)v5, 0xFFFFFFFFFFFFFFFFuLL);
-  if ( (v14 & 2) != 0 && (v14 & 4) == 0 )
+  for ( j = (unsigned int)v8; *(_BYTE *)(j + a1 + 44) == 2; ++j )
+    ;
+  if ( v10 <= j )
+    memset((void *)(a1 + v10 + 44), 0, j - v10 + 1);
+  v12 = _InterlockedExchangeAdd64((volatile signed __int64 *)v5, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v12 & 2) != 0 && (v12 & 4) == 0 )
     ExfTryToWakePushLock(v5);
   KeAbPostRelease((ULONG_PTR)v5);
-  v15 = KeGetCurrentThread();
-  v16 = v15->SpecialApcDisable++ == -1;
-  if ( v16 && ($CEA84C04E3712D858E5667A507841A2A *)v15->ApcState.ApcListHead[0].Flink != &v15->152 )
-    KiCheckForKernelApcDelivery();
+  KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   return 0LL;
 }

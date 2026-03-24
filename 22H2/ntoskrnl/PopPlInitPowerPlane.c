@@ -1,49 +1,51 @@
 /*
- * XREFs of PopPlInitPowerPlane @ 0x1409A086C
+ * XREFs of PopPlInitPowerPlane @ 0x1408F9944
  * Callers:
- *     PopPlRegisterPowerPlane @ 0x1405A1924 (PopPlRegisterPowerPlane.c)
+ *     PopPlRegisterPowerPlane @ 0x14057E964 (PopPlRegisterPowerPlane.c)
  * Callees:
- *     PopPlInitDevices @ 0x1409A06F0 (PopPlInitDevices.c)
- *     PopPlInitWString @ 0x1409A0960 (PopPlInitWString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopPlInitDevices @ 0x1408F97C8 (PopPlInitDevices.c)
+ *     PopPlInitWString @ 0x1408F9A4C (PopPlInitWString.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PopPlInitPowerPlane(__int64 a1, __int64 a2, unsigned __int64 a3, UNICODE_STRING **a4)
+__int64 __fastcall PopPlInitPowerPlane(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 *a4)
 {
-  UNICODE_STRING *v4; // rbx
+  __int64 v4; // rbx
   int inited; // edi
-  UNICODE_STRING *Pool2; // rax
-  wchar_t *Buffer; // rcx
+  PVOID PoolWithTag; // rax
+  void *v11; // rcx
   __int64 result; // rax
 
   v4 = 0LL;
   if ( a1 + 52 <= a3 )
   {
-    Pool2 = (UNICODE_STRING *)ExAllocatePool2(64LL, 64LL, 1817210704LL);
-    v4 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x6C506F50u);
+    v4 = (__int64)PoolWithTag;
+    if ( PoolWithTag )
     {
-      inited = PopPlInitWString(Pool2);
+      memset(PoolWithTag, 0, 0x40uLL);
+      inited = PopPlInitWString((PUNICODE_STRING)v4);
       if ( inited >= 0 )
       {
-        *(_QWORD *)&v4[1].Length = 0LL;
+        *(_QWORD *)(v4 + 16) = 0LL;
         inited = PopPlInitDevices(
-                   (__int64)v4,
+                   v4,
                    a1 + 8,
                    *(unsigned int *)(a1 + 4),
                    a2,
                    a3,
-                   (unsigned __int64 *)&v4[3].Length,
-                   &v4[3].Buffer);
+                   (unsigned __int64 *)(v4 + 48),
+                   (_QWORD *)(v4 + 56));
         if ( inited >= 0 )
           goto LABEL_11;
-        Buffer = v4->Buffer;
-        if ( Buffer )
-          ExFreePoolWithTag(Buffer, 0x6C506F50u);
-        *v4 = 0LL;
+        v11 = *(void **)(v4 + 8);
+        if ( v11 )
+          ExFreePoolWithTag(v11, 0x6C506F50u);
+        *(_OWORD *)v4 = 0LL;
       }
-      ExFreePoolWithTag(v4, 0x6C506F50u);
+      ExFreePoolWithTag((PVOID)v4, 0x6C506F50u);
       v4 = 0LL;
       goto LABEL_11;
     }

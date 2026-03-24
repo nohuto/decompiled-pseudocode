@@ -1,58 +1,59 @@
 /*
- * XREFs of xxxClientCallDefaultInputHandler @ 0x1C0211388
+ * XREFs of xxxClientCallDefaultInputHandler @ 0x1C0231320
  * Callers:
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
  * Callees:
- *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBE98 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00EBF84 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
- *     ?CallDefaultInputHandler@Delivery@InputTraceLogging@@SAXPEBUtagMSG@@@Z @ 0x1C0204E9C (-CallDefaultInputHandler@Delivery@InputTraceLogging@@SAXPEBUtagMSG@@@Z.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C00522B4 (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C005236C (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052430 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0052468 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ?CallDefaultInputHandler@Delivery@InputTraceLogging@@SAXPEBUtagMSG@@@Z @ 0x1C0227D84 (-CallDefaultInputHandler@Delivery@InputTraceLogging@@SAXPEBUtagMSG@@@Z.c)
  */
 
-__int64 __fastcall xxxClientCallDefaultInputHandler(const struct tagMSG *a1)
+__int64 __fastcall xxxClientCallDefaultInputHandler(__int64 *a1)
 {
-  const struct tagMSG *v1; // rbx
-  __int64 v2; // rdx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 *v7; // rcx
+  int v2; // ebx
+  __int64 *v3; // rcx
   __int64 result; // rax
-  __int64 v9; // [rsp+38h] [rbp-40h] BYREF
-  int v10; // [rsp+40h] [rbp-38h]
-  int v11; // [rsp+44h] [rbp-34h]
-  __int64 v12; // [rsp+48h] [rbp-30h]
-  __int64 v13; // [rsp+50h] [rbp-28h]
-  int v14; // [rsp+58h] [rbp-20h]
-  __int64 v15; // [rsp+5Ch] [rbp-1Ch]
-  int v16; // [rsp+64h] [rbp-14h]
-  __int64 v17; // [rsp+80h] [rbp+8h] BYREF
-  int v18; // [rsp+88h] [rbp+10h] BYREF
-  unsigned __int64 v19; // [rsp+90h] [rbp+18h] BYREF
+  __int64 v5; // [rsp+38h] [rbp-40h] BYREF
+  int v6; // [rsp+40h] [rbp-38h]
+  int v7; // [rsp+44h] [rbp-34h]
+  __int64 v8; // [rsp+48h] [rbp-30h]
+  __int64 v9; // [rsp+50h] [rbp-28h]
+  int v10; // [rsp+58h] [rbp-20h]
+  __int64 v11; // [rsp+5Ch] [rbp-1Ch]
+  int v12; // [rsp+64h] [rbp-14h]
+  __int64 v13; // [rsp+80h] [rbp+8h] BYREF
+  char v14; // [rsp+88h] [rbp+10h] BYREF
+  int v15; // [rsp+90h] [rbp+18h] BYREF
+  unsigned __int64 v16; // [rsp+98h] [rbp+20h] BYREF
 
-  v1 = a1;
-  v19 = 0LL;
-  v18 = 0;
-  v11 = 0;
-  v16 = 0;
-  InputTraceLogging::Delivery::CallDefaultInputHandler(a1);
-  v9 = *(_QWORD *)v1;
-  v10 = *((_DWORD *)v1 + 2);
-  v12 = *((_QWORD *)v1 + 2);
-  v13 = *((_QWORD *)v1 + 3);
-  v14 = *((_DWORD *)v1 + 8);
-  v15 = *(_QWORD *)((char *)v1 + 36);
-  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v17, v2, v3, v4);
+  v16 = 0LL;
+  v15 = 0;
+  v7 = 0;
+  v12 = 0;
+  InputTraceLogging::Delivery::CallDefaultInputHandler((const struct tagMSG *)a1);
+  v5 = *a1;
+  v6 = *((_DWORD *)a1 + 2);
+  v8 = a1[2];
+  v9 = a1[3];
+  v10 = *((_DWORD *)a1 + 8);
+  v11 = *(__int64 *)((char *)a1 + 36);
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v14);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v13);
   EtwTraceBeginCallback(116LL);
-  LODWORD(v1) = KeUserModeCallback(116LL, &v9, 48LL, &v19, &v18);
+  v2 = KeUserModeCallback(116LL, &v5, 48LL, &v16, &v15);
   EtwTraceEndCallback(116LL);
-  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v17, v5, v6);
-  if ( (int)v1 < 0 || v18 != 24 )
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v13);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)&v14);
+  if ( v2 < 0 || v15 != 24 )
     return 0LL;
-  v7 = (__int64 *)v19;
-  if ( v19 + 8 < v19 || v19 + 8 > MmUserProbeAddress )
-    v7 = (__int64 *)MmUserProbeAddress;
-  result = *v7;
-  v17 = *v7;
+  v3 = (__int64 *)v16;
+  if ( v16 + 8 < v16 || v16 + 8 > MmUserProbeAddress )
+    v3 = (__int64 *)MmUserProbeAddress;
+  result = *v3;
+  v13 = *v3;
   return result;
 }

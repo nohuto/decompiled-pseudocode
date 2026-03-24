@@ -1,17 +1,17 @@
 /*
- * XREFs of PfpLogApplicationEvent @ 0x1400D8478
+ * XREFs of PfpLogApplicationEvent @ 0x1400D8498
  * Callers:
  *     PspExitProcess @ 0x140608E0C (PspExitProcess.c)
- *     PfCalculateProcessHash @ 0x140666FC0 (PfCalculateProcessHash.c)
+ *     PfCalculateProcessHash @ 0x140666FA0 (PfCalculateProcessHash.c)
  * Callees:
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     PfLogEvent @ 0x1400D53D8 (PfLogEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     PfLogEvent @ 0x1400D53F8 (PfLogEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     MmGetSessionGlobalVA @ 0x1405B12A8 (MmGetSessionGlobalVA.c)
- *     MmGetDirectoryFrameFromProcess @ 0x1406CB1B4 (MmGetDirectoryFrameFromProcess.c)
+ *     MmGetDirectoryFrameFromProcess @ 0x1406CB194 (MmGetDirectoryFrameFromProcess.c)
  */
 
 __int64 __fastcall PfpLogApplicationEvent(__int64 a1, UNICODE_STRING *a2, char a3)

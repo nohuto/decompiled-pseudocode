@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiRectInRegion @ 0x1C0158C60
+ * XREFs of NtGdiRectInRegion @ 0x1C00BECA0
  * Callers:
  *     <none>
  * Callees:
- *     GreRectInRegion @ 0x1C0098880 (GreRectInRegion.c)
+ *     GreRectInRegion @ 0x1C0081E00 (GreRectInRegion.c)
  */
 
 __int64 __fastcall NtGdiRectInRegion(HRGN a1, ULONG64 a2)
@@ -27,26 +27,26 @@ __int64 __fastcall NtGdiRectInRegion(HRGN a1, ULONG64 a2)
     v4 = *v3;
     v5 = v3->m128i_i64[0];
     v6 = _mm_srli_si128(v4, 8).m128i_u64[0];
-    if ( (int)v5 <= (int)v6 )
-    {
-      v10.left = v5;
-      v10.right = v6;
-    }
-    else
+    if ( (int)v5 > (int)v6 )
     {
       v10.left = v6;
       v10.right = v5;
     }
-    v7 = HIDWORD(v5);
-    if ( (int)v7 <= SHIDWORD(v6) )
-    {
-      v10.top = v7;
-      v10.bottom = HIDWORD(v6);
-    }
     else
+    {
+      v10.left = v5;
+      v10.right = v6;
+    }
+    v7 = HIDWORD(v5);
+    if ( (int)v7 > SHIDWORD(v6) )
     {
       v10.top = HIDWORD(v6);
       v10.bottom = v7;
+    }
+    else
+    {
+      v10.top = v7;
+      v10.bottom = HIDWORD(v6);
     }
     v8 = GreRectInRegion(a1, &v10);
     if ( v8 )

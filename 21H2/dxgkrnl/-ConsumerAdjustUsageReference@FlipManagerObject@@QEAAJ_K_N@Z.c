@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ConsumerAdjustUsageReference@FlipManagerObject@@QEAAJ_K_N@Z @ 0x1C0079C08
+ * XREFs of ?ConsumerAdjustUsageReference@FlipManagerObject@@QEAAJ_K_N@Z @ 0x1C0068558
  * Callers:
- *     NtFlipObjectConsumerAdjustUsageReference @ 0x1C007A730 (NtFlipObjectConsumerAdjustUsageReference.c)
- *     ?Complete@CFlipWaitedConsumerReturn@@UEAAXXZ @ 0x1C0081950 (-Complete@CFlipWaitedConsumerReturn@@UEAAXXZ.c)
+ *     NtFlipObjectConsumerAdjustUsageReference @ 0x1C0069000 (NtFlipObjectConsumerAdjustUsageReference.c)
+ *     ?Complete@CFlipWaitedConsumerReturn@@UEAAXXZ @ 0x1C006EBD0 (-Complete@CFlipWaitedConsumerReturn@@UEAAXXZ.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00069FC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0007EB4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?AddUsageReference@CPoolBufferResource@@QEAAXXZ @ 0x1C007EFAC (-AddUsageReference@CPoolBufferResource@@QEAAXXZ.c)
- *     ?RemoveUsageReference@CPoolBufferResource@@QEAAXXZ @ 0x1C007F350 (-RemoveUsageReference@CPoolBufferResource@@QEAAXXZ.c)
- *     ?FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@@@Z @ 0x1C007F9EC (-FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0010CC4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@@@Z @ 0x1C006C6DC (-FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@.c)
+ *     ?AddUsageReference@CPoolBufferResource@@QEAAXXZ @ 0x1C006DB64 (-AddUsageReference@CPoolBufferResource@@QEAAXXZ.c)
+ *     ?RemoveUsageReference@CPoolBufferResource@@QEAAXXZ @ 0x1C006DE50 (-RemoveUsageReference@CPoolBufferResource@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FlipManagerObject::ConsumerAdjustUsageReference(
@@ -25,7 +25,7 @@ __int64 __fastcall FlipManagerObject::ConsumerAdjustUsageReference(
   if ( v7 >= 0 )
   {
     v7 = 0;
-    ResourceState = CEndpointResourceStateManager::FindResourceState(v6, a2, (struct _LIST_ENTRY *)((char *)this + 136));
+    ResourceState = CEndpointResourceStateManager::FindResourceState(v6, a2, (struct _LIST_ENTRY *)((char *)this + 120));
     if ( ResourceState )
     {
       v9 = (CPoolBufferResource *)*((_QWORD *)ResourceState + 3);

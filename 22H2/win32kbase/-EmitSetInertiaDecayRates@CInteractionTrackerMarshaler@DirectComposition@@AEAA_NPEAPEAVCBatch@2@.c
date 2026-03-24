@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetInertiaDecayRates@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0228798
+ * XREFs of ?EmitSetInertiaDecayRates@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EF8C8
  * Callers:
- *     ?EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0229180 (-EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F0300 (-EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetInertiaDecayRates(
@@ -24,8 +24,8 @@ char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetInertiaD
       *(_DWORD *)v6 = 24;
       *(_OWORD *)(v4 + 4) = 0LL;
       *((_DWORD *)v4 + 5) = 0;
-      *((_DWORD *)v4 + 1) = 206;
-      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
+      *((_DWORD *)v4 + 1) = 215;
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
       *((_DWORD *)v4 + 3) = *((_DWORD *)this + 37);
       *((_DWORD *)v4 + 4) = *((_DWORD *)this + 38);
       *((_DWORD *)v4 + 5) = *((_DWORD *)this + 47);

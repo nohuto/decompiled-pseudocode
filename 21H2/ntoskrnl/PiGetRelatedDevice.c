@@ -1,42 +1,40 @@
 /*
- * XREFs of PiGetRelatedDevice @ 0x1407754E4
+ * XREFs of PiGetRelatedDevice @ 0x1406AE154
  * Callers:
- *     PiControlGetRelatedDevice @ 0x1407753A0 (PiControlGetRelatedDevice.c)
- *     PiCMGetRelatedDeviceInstance @ 0x14078A748 (PiCMGetRelatedDeviceInstance.c)
+ *     PiControlGetRelatedDevice @ 0x1406AE010 (PiControlGetRelatedDevice.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1407687E4 (PiCMGetRelatedDeviceInstance.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x14077572C (PpDevNodeLockTree.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140779C10 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406386D0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
  */
 
 __int64 __fastcall PiGetRelatedDevice(__int64 a1, char *a2, _DWORD *a3, int a4)
 {
   unsigned int v5; // esi
-  __int64 v9; // rax
+  _QWORD *v9; // rax
   void *v10; // r14
   __int64 *v11; // rdi
   __int64 v12; // rbp
   int v14; // eax
-  int v15; // eax
   struct _KTHREAD *CurrentThread; // rax
-  void *v17; // rax
+  _QWORD *v16; // rax
+  int v17; // eax
 
   v5 = 0;
-  PpDevNodeLockTree(0LL);
-  v9 = PnpDeviceObjectFromDeviceInstanceWithTag(a1, 1131441744LL);
-  v10 = (void *)v9;
-  if ( !v9
-    || (v11 = *(__int64 **)(*(_QWORD *)(v9 + 312) + 40LL)) == 0LL
-    || (unsigned int)(*((_DWORD *)v11 + 75) - 789) <= 1 )
+  PpDevNodeLockTree(0);
+  v9 = PnpDeviceObjectFromDeviceInstanceWithTag(a1, 0x43706E50u);
+  v10 = v9;
+  if ( !v9 || (v11 = *(__int64 **)(v9[39] + 40LL)) == 0LL || (unsigned int)(*((_DWORD *)v11 + 75) - 787) <= 1 )
   {
-LABEL_25:
+LABEL_14:
     v5 = -1073741810;
-    goto LABEL_10;
+    goto LABEL_11;
   }
   switch ( a4 )
   {
@@ -46,11 +44,11 @@ LABEL_25:
     case 2:
       v11 = (__int64 *)v11[1];
       if ( !v11
-        || (v15 = *((_DWORD *)v11 + 99), (v15 & 0x2000) == 0)
+        || (v14 = *((_DWORD *)v11 + 99), (v14 & 0x2000) == 0)
         || *((_DWORD *)v11 + 101) != 24
-        || (v15 & 0x1000) == 0 )
+        || (v14 & 0x1000) == 0 )
       {
-LABEL_20:
+LABEL_18:
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
         ExAcquireResourceSharedLite(&PnpRegistryDeviceResource, 1u);
@@ -60,20 +58,20 @@ LABEL_20:
           {
             if ( v11[6] )
             {
-              v17 = (void *)PnpDeviceObjectFromDeviceInstanceWithTag(v11 + 5, 1131441744LL);
-              if ( v17 )
+              v16 = PnpDeviceObjectFromDeviceInstanceWithTag((__int64)(v11 + 5), 0x43706E50u);
+              if ( v16 )
                 break;
             }
             v11 = (__int64 *)*v11;
             if ( !v11 )
-              goto LABEL_24;
+              goto LABEL_22;
           }
-          ObfDereferenceObjectWithTag(v17, 0x43706E50u);
+          ObfDereferenceObjectWithTag(v16, 0x43706E50u);
         }
-LABEL_24:
+LABEL_22:
         ExReleaseResourceLite(&PnpRegistryDeviceResource);
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-LABEL_6:
+        KeLeaveCriticalRegion();
+LABEL_7:
         if ( v11 )
         {
           v12 = *((unsigned __int16 *)v11 + 20);
@@ -88,28 +86,31 @@ LABEL_6:
             *(_WORD *)&a2[v12] = 0;
           }
           *a3 = v12;
-          goto LABEL_10;
+          goto LABEL_11;
         }
-        goto LABEL_25;
+        goto LABEL_14;
       }
+      goto LABEL_24;
+    case 3:
       do
       {
-LABEL_15:
+LABEL_24:
         v11 = (__int64 *)*v11;
         if ( !v11 )
           break;
-        v14 = *((_DWORD *)v11 + 99);
-        if ( (v14 & 0x2000) == 0 )
+        v17 = *((_DWORD *)v11 + 99);
+        if ( (v17 & 0x2000) == 0 )
           break;
       }
-      while ( *((_DWORD *)v11 + 101) == 24 && (v14 & 0x1000) != 0 );
-      goto LABEL_20;
-    case 3:
-      goto LABEL_15;
+      while ( *((_DWORD *)v11 + 101) == 24 && (v17 & 0x1000) != 0 );
+LABEL_6:
+      if ( a4 == 1 )
+        goto LABEL_7;
+      goto LABEL_18;
   }
   v5 = -1073741811;
-LABEL_10:
-  PpDevNodeUnlockTree(0LL);
+LABEL_11:
+  PpDevNodeUnlockTree(0);
   if ( v10 )
     ObfDereferenceObjectWithTag(v10, 0x43706E50u);
   return v5;

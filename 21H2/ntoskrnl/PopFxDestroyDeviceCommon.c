@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxDestroyDeviceCommon @ 0x1403DCBDC
+ * XREFs of PopFxDestroyDeviceCommon @ 0x1403CD734
  * Callers:
- *     PopFxDestroyDeviceDpm @ 0x1403DCAD0 (PopFxDestroyDeviceDpm.c)
- *     PopFxAcpiRegisterDevice @ 0x1405DDFFC (PopFxAcpiRegisterDevice.c)
- *     PopFxAcpiUnregisterDevice @ 0x1405DE108 (PopFxAcpiUnregisterDevice.c)
+ *     PopFxDestroyDeviceDpm @ 0x1403CD618 (PopFxDestroyDeviceDpm.c)
+ *     PopFxAcpiRegisterDevice @ 0x14057E078 (PopFxAcpiRegisterDevice.c)
+ *     PopFxAcpiUnregisterDevice @ 0x14057E188 (PopFxAcpiUnregisterDevice.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopFxDestroyDeviceCommon(PVOID *P, int a2)

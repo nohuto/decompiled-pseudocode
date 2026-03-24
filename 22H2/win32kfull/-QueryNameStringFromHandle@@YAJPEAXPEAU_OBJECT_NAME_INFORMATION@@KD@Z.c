@@ -1,8 +1,8 @@
 /*
- * XREFs of ?QueryNameStringFromHandle@@YAJPEAXPEAU_OBJECT_NAME_INFORMATION@@KD@Z @ 0x1C007933C
+ * XREFs of ?QueryNameStringFromHandle@@YAJPEAXPEAU_OBJECT_NAME_INFORMATION@@KD@Z @ 0x1C00A8A44
  * Callers:
- *     ?bIsFileInSystemFontsDir@@YAHPEAX@Z @ 0x1C0079284 (-bIsFileInSystemFontsDir@@YAHPEAX@Z.c)
- *     vInitFontsDirectoryNameInformation @ 0x1C0088A60 (vInitFontsDirectoryNameInformation.c)
+ *     vInitFontsDirectoryNameInformation @ 0x1C000D9D0 (vInitFontsDirectoryNameInformation.c)
+ *     ?bIsFileInSystemFontsDir@@YAHPEAX@Z @ 0x1C00A899C (-bIsFileInSystemFontsDir@@YAHPEAX@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,27 +1,27 @@
 /*
- * XREFs of EtwpReferenceLastBranchLookasideList @ 0x1409EE3D4
+ * XREFs of EtwpReferenceLastBranchLookasideList @ 0x1409480B0
  * Callers:
- *     EtwpUpdateLastBranchTracingConfiguration @ 0x1409EE454 (EtwpUpdateLastBranchTracingConfiguration.c)
+ *     EtwpUpdateLastBranchTracingConfiguration @ 0x140948130 (EtwpUpdateLastBranchTracingConfiguration.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 EtwpReferenceLastBranchLookasideList()
+struct _SLIST_ENTRY *EtwpReferenceLastBranchLookasideList()
 {
-  __int64 v0; // rdi
+  SIZE_T v0; // rdi
   int v1; // ebx
-  __int64 result; // rax
+  struct _SLIST_ENTRY *result; // rax
 
   v0 = (unsigned int)(24 * EtwpLastBranchStackSize + 16);
-  v1 = 2 * KeNumberProcessors_0 * _InterlockedIncrement(&dword_140C5A6A0);
+  v1 = 2 * KeNumberProcessors_0 * _InterlockedIncrement(&dword_140C53D60);
   do
   {
-    result = ExAllocatePool2(64LL, v0, 2021094469LL);
+    result = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v0, 0x78777445u);
     if ( !result )
       break;
-    RtlpInterlockedPushEntrySList(&EtwpLastBranchLookAsideList, (PSLIST_ENTRY)result);
-    result = (unsigned int)_InterlockedIncrement(&dword_140C5A6A4);
+    RtlpInterlockedPushEntrySList(&EtwpLastBranchLookAsideList, result);
+    result = (struct _SLIST_ENTRY *)(unsigned int)_InterlockedIncrement(&dword_140C53D64);
   }
   while ( (int)result < v1 );
   return result;

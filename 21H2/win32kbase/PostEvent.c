@@ -1,27 +1,21 @@
 /*
- * XREFs of PostEvent @ 0x1C01E8148
+ * XREFs of PostEvent @ 0x1C01AEC68
  * Callers:
- *     ?SetForeground@CActivationObjectManager@@AEAAJPEAVCActivationObject@@W4ACTIVATIONOBJECTSTATECHANGE_REASON@@W4ACTIVATION_OBJECT_CONFIG_BEHAVIOR@@PEAVForegroundChangeTracker@1@@Z @ 0x1C0142BC0 (-SetForeground@CActivationObjectManager@@AEAAJPEAVCActivationObject@@W4ACTIVATIONOBJECTSTATECHAN.c)
- *     ?ZapForeground@CActivationObjectManager@@AEAAXPEAVForegroundChangeTracker@1@@Z @ 0x1C0142F28 (-ZapForeground@CActivationObjectManager@@AEAAXPEAVForegroundChangeTracker@1@@Z.c)
- *     NtMITPostWindowEventMessage @ 0x1C0155930 (NtMITPostWindowEventMessage.c)
+ *     ?SetForeground@CActivationObjectManager@@AEAAJ_NW4ACTIVATIONOBJECTSTATECHANGE_REASON@@PEAVCActivationObject@@@Z @ 0x1C0127D0C (-SetForeground@CActivationObjectManager@@AEAAJ_NW4ACTIVATIONOBJECTSTATECHANGE_REASON@@PEAVCActiv.c)
+ *     NtMITPostWindowEventMessage @ 0x1C012B480 (NtMITPostWindowEventMessage.c)
  * Callees:
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C002CA0C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C002CA34 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0042954 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C00429A0 (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     EditionPostInputEvent @ 0x1C00A95A4 (EditionPostInputEvent.c)
  */
 
-bool __fastcall PostEvent(__int64 a1, __int64 a2, __int64 a3)
+char PostEvent(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5, ...)
 {
-  int v5; // eax
-  bool v6; // bl
-  _BYTE v8[24]; // [rsp+40h] [rbp-18h] BYREF
+  va_list va; // [rsp+78h] [rbp+30h] BYREF
 
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v8, a2, a3);
-  if ( qword_1C029CD58 )
-    v5 = qword_1C029CD58(30LL, a1, a2);
-  else
-    v5 = -1073741637;
-  v6 = v5 != 0;
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)v8);
-  return v6;
+  va_start(va, a5);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)va);
+  LOBYTE(a4) = (unsigned int)EditionPostInputEvent(30LL, a1, a2, a3, a4, a5) != 0;
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)va);
+  return a4;
 }

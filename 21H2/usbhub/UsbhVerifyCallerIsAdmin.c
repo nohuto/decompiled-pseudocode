@@ -1,8 +1,8 @@
 /*
- * XREFs of UsbhVerifyCallerIsAdmin @ 0x1C0040D50
+ * XREFs of UsbhVerifyCallerIsAdmin @ 0x1C0041F6C
  * Callers:
- *     UsbhIoctlCyclePort @ 0x1C003DB64 (UsbhIoctlCyclePort.c)
- *     UsbhIoctlResetStuckHub @ 0x1C00404C8 (UsbhIoctlResetStuckHub.c)
+ *     UsbhIoctlCyclePort @ 0x1C003ED54 (UsbhIoctlCyclePort.c)
+ *     UsbhIoctlResetStuckHub @ 0x1C00416D4 (UsbhIoctlResetStuckHub.c)
  * Callees:
  *     <none>
  */

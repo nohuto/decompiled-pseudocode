@@ -1,17 +1,17 @@
 /*
- * XREFs of _PnpSetPropertyWorker @ 0x140798154
+ * XREFs of _PnpSetPropertyWorker @ 0x140742C80
  * Callers:
- *     _PnpSetGenericStoreProperty @ 0x1407976D8 (_PnpSetGenericStoreProperty.c)
+ *     _PnpSetGenericStoreProperty @ 0x140742C38 (_PnpSetGenericStoreProperty.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x14022B68C (RtlUnalignedStringCchLengthW.c)
- *     RtlStringCchPrintfExW @ 0x14022B740 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403DDD60 (swprintf_s.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _PnpOpenPropertiesKey @ 0x1406CDCF0 (_PnpOpenPropertiesKey.c)
- *     _PnpCtxRegCreateKey @ 0x1407983D0 (_PnpCtxRegCreateKey.c)
- *     _RegRtlSetValue @ 0x1407D4F54 (_RegRtlSetValue.c)
- *     _RegRtlDeleteTreeInternal @ 0x14086B738 (_RegRtlDeleteTreeInternal.c)
+ *     RtlUnalignedStringCchLengthW @ 0x14032EA54 (RtlUnalignedStringCchLengthW.c)
+ *     RtlStringCchPrintfExW @ 0x14032EBA4 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D61F0 (swprintf_s.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _PnpCtxRegCreateKey @ 0x1406B4340 (_PnpCtxRegCreateKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1406BE2A4 (_PnpOpenPropertiesKey.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140765F94 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlSetValue @ 0x140768114 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall PnpSetPropertyWorker(
@@ -63,27 +63,27 @@ __int64 __fastcall PnpSetPropertyWorker(
   if ( a5 == 25 && a3 && *a3 != v7 )
     return (unsigned int)-1073741811;
   if ( RtlStringCchPrintfExW(pszDest, 0x27uLL, 0LL, 0LL, 0x800u, L"{%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}") < 0 )
-    goto LABEL_20;
+    goto LABEL_26;
   swprintf_s(Dst, 9uLL, L"%04lX", *(unsigned int *)(a4 + 16));
-  v11 = PnpOpenPropertiesKey(a1, v26, 0LL, 4, 1, (__int64)pszFormat, &v22);
+  v11 = PnpOpenPropertiesKey(a1, v26, 0LL, 4u, 1, (__int64)pszFormat, &v22);
   if ( v11 < 0 )
   {
     v22 = 0LL;
     goto LABEL_13;
   }
-  Key = PnpCtxRegCreateKey(a1, (_DWORD)v22, (unsigned int)pszDest, 0, 4, 0LL, (__int64)&v21, (__int64)&v24);
+  Key = PnpCtxRegCreateKey(a1, (__int64)v22, (__int64)pszDest, 0, 4u, 0LL, (__int64)&v21, (__int64)&v24);
   if ( Key == -1073741444 )
-    goto LABEL_20;
+    goto LABEL_26;
   if ( Key < 0 )
   {
     v21 = 0LL;
     v11 = Key;
     goto LABEL_13;
   }
-  v13 = PnpCtxRegCreateKey(a1, (_DWORD)v21, (unsigned int)Dst, 0, 65542, 0LL, (__int64)&Handle, (__int64)&v23);
+  v13 = PnpCtxRegCreateKey(a1, (__int64)v21, (__int64)Dst, 0, 0x10006u, 0LL, (__int64)&Handle, (__int64)&v23);
   if ( v13 == -1073741444 )
   {
-LABEL_20:
+LABEL_26:
     v11 = -1073741595;
 LABEL_13:
     if ( Handle )
@@ -109,7 +109,7 @@ LABEL_13:
         v11 = v14;
       goto LABEL_13;
     }
-    goto LABEL_20;
+    goto LABEL_26;
   }
   Handle = 0LL;
   v11 = v13;

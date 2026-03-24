@@ -1,14 +1,14 @@
 /*
- * XREFs of LdrUnloadAlternateResourceModuleEx @ 0x14016C8E0
+ * XREFs of LdrUnloadAlternateResourceModuleEx @ 0x14016C900
  * Callers:
- *     LdrpGetFromMUIMemCache @ 0x1400F4260 (LdrpGetFromMUIMemCache.c)
- *     LdrUnloadAlternateResourceModule @ 0x14016C8CC (LdrUnloadAlternateResourceModule.c)
+ *     LdrpGetFromMUIMemCache @ 0x1400F4280 (LdrpGetFromMUIMemCache.c)
+ *     LdrUnloadAlternateResourceModule @ 0x14016C8EC (LdrUnloadAlternateResourceModule.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeReleaseMutant @ 0x1400BF9F0 (KeReleaseMutant.c)
- *     LdrpInitMuiCrits @ 0x1400F4418 (LdrpInitMuiCrits.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KeReleaseMutant @ 0x1400BFA10 (KeReleaseMutant.c)
+ *     LdrpInitMuiCrits @ 0x1400F4438 (LdrpInitMuiCrits.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MmUnmapViewInSystemSpace @ 0x1405DF390 (MmUnmapViewInSystemSpace.c)

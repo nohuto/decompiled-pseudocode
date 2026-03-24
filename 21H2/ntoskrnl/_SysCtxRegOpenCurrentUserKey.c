@@ -1,33 +1,33 @@
 /*
- * XREFs of _SysCtxRegOpenCurrentUserKey @ 0x140A2CF6C
+ * XREFs of _SysCtxRegOpenCurrentUserKey @ 0x14072D458
  * Callers:
- *     _CmOpenDeviceContainerRegKeyWorker @ 0x14076D4A4 (_CmOpenDeviceContainerRegKeyWorker.c)
- *     _CmOpenDeviceRegKeyWorker @ 0x14077F420 (_CmOpenDeviceRegKeyWorker.c)
- *     _CmOpenCommonClassRegKeyWorker @ 0x140781268 (_CmOpenCommonClassRegKeyWorker.c)
- *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x140781A70 (_CmOpenDeviceInterfaceRegKeyWorker.c)
- *     _CmDeleteCommonClassRegKeyWorker @ 0x140A23328 (_CmDeleteCommonClassRegKeyWorker.c)
- *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x140A23A34 (_CmDeleteDeviceInterfaceRegKeyWorker.c)
- *     _CmDeleteDeviceRegKeyWorker @ 0x140A24104 (_CmDeleteDeviceRegKeyWorker.c)
- *     _CmDeleteDeviceContainerRegKeyWorker @ 0x140A25AC0 (_CmDeleteDeviceContainerRegKeyWorker.c)
- *     _CmDeleteDevicePanelRegKeyWorker @ 0x140A281F8 (_CmDeleteDevicePanelRegKeyWorker.c)
- *     _CmOpenDevicePanelRegKeyWorker @ 0x140A28FC4 (_CmOpenDevicePanelRegKeyWorker.c)
+ *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x14063D95C (_CmOpenDeviceInterfaceRegKeyWorker.c)
+ *     _CmOpenDeviceRegKeyWorker @ 0x140641CB0 (_CmOpenDeviceRegKeyWorker.c)
+ *     _CmOpenCommonClassRegKeyWorker @ 0x140645118 (_CmOpenCommonClassRegKeyWorker.c)
+ *     _CmOpenDeviceContainerRegKeyWorker @ 0x1406AA244 (_CmOpenDeviceContainerRegKeyWorker.c)
+ *     _CmDeleteDeviceContainerRegKeyWorker @ 0x14072C290 (_CmDeleteDeviceContainerRegKeyWorker.c)
+ *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x14072C7B4 (_CmDeleteDeviceInterfaceRegKeyWorker.c)
+ *     _CmDeleteDeviceRegKeyWorker @ 0x14072D04C (_CmDeleteDeviceRegKeyWorker.c)
+ *     _CmDeleteCommonClassRegKeyWorker @ 0x140974E48 (_CmDeleteCommonClassRegKeyWorker.c)
+ *     _CmDeleteDevicePanelRegKeyWorker @ 0x140977EBC (_CmDeleteDevicePanelRegKeyWorker.c)
+ *     _CmOpenDevicePanelRegKeyWorker @ 0x14097880C (_CmOpenDevicePanelRegKeyWorker.c)
  * Callees:
- *     RtlEqualSid @ 0x1402A6DB0 (RtlEqualSid.c)
- *     RtlUShortAdd @ 0x1402DE190 (RtlUShortAdd.c)
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     RtlSubAuthoritySid @ 0x1402EF430 (RtlSubAuthoritySid.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwQueryInformationToken @ 0x14041BB80 (ZwQueryInformationToken.c)
- *     ZwOpenThreadTokenEx @ 0x14041BD40 (ZwOpenThreadTokenEx.c)
- *     ZwOpenProcessTokenEx @ 0x14041BD60 (ZwOpenProcessTokenEx.c)
- *     RtlConvertSidToUnicodeString @ 0x140669DD0 (RtlConvertSidToUnicodeString.c)
- *     _SysCtxGetCachedContextBaseKey @ 0x1406D7C74 (_SysCtxGetCachedContextBaseKey.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
- *     RtlInitializeSid @ 0x14078DDC0 (RtlInitializeSid.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
+ *     RtlUShortAdd @ 0x1402B256C (RtlUShortAdd.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwQueryInformationToken @ 0x1403FA7C0 (ZwQueryInformationToken.c)
+ *     ZwOpenThreadTokenEx @ 0x1403FA980 (ZwOpenThreadTokenEx.c)
+ *     ZwOpenProcessTokenEx @ 0x1403FA9A0 (ZwOpenProcessTokenEx.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
+ *     RtlConvertSidToUnicodeString @ 0x1406745A0 (RtlConvertSidToUnicodeString.c)
+ *     _SysCtxGetCachedContextBaseKey @ 0x1406B2D20 (_SysCtxGetCachedContextBaseKey.c)
+ *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SysCtxRegOpenCurrentUserKey(_QWORD *a1, unsigned int a2, unsigned int a3, __int64 a4)
@@ -35,9 +35,9 @@ __int64 __fastcall SysCtxRegOpenCurrentUserKey(_QWORD *a1, unsigned int a2, unsi
   wchar_t *v8; // rdi
   int appended; // ebx
   PSID v10; // rsi
-  unsigned __int16 v11; // bx
-  wchar_t *Pool2; // rax
-  __int64 v13; // rcx
+  unsigned __int16 v12; // bx
+  wchar_t *PoolWithTag; // rax
+  __int64 v14; // rcx
   USHORT pusResult[2]; // [rsp+30h] [rbp-99h] BYREF
   struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-95h] BYREF
   int TokenInformation; // [rsp+3Ch] [rbp-8Dh] BYREF
@@ -73,73 +73,73 @@ __int64 __fastcall SysCtxRegOpenCurrentUserKey(_QWORD *a1, unsigned int a2, unsi
       {
         appended = ZwQueryInformationToken(Handle, TokenImpersonationLevel, &v20, 4u, &ReturnLength);
         if ( appended < 0 )
-          goto LABEL_23;
+          goto LABEL_11;
         if ( v20 < 2 )
         {
           appended = -1073741790;
-          goto LABEL_23;
+          goto LABEL_11;
         }
       }
       else if ( TokenInformation != 1 )
       {
-        goto LABEL_10;
+LABEL_10:
+        appended = -1073741637;
+        goto LABEL_11;
       }
       appended = ZwQueryInformationToken(Handle, TokenUser, Sid2, 0x54u, &ReturnLength);
-      if ( appended < 0 )
-        goto LABEL_23;
-      v10 = Sid2[0];
-      appended = RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
-      if ( appended < 0 )
-        goto LABEL_23;
-      *RtlSubAuthoritySid(Sid, 0) = 18;
-      if ( !RtlEqualSid(Sid, v10) )
+      if ( appended >= 0 )
       {
-        appended = RtlConvertSidToUnicodeString(&UnicodeString, v10, 1u);
+        v10 = Sid2[0];
+        appended = RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
         if ( appended >= 0 )
         {
-          appended = RtlUShortAdd(UnicodeString.Length, 0x1Eu, pusResult);
+          *RtlSubAuthoritySid(Sid, 0) = 18;
+          if ( RtlEqualSid(Sid, v10) )
+            goto LABEL_10;
+          appended = RtlConvertSidToUnicodeString(&UnicodeString, v10, 1u);
           if ( appended >= 0 )
           {
-            appended = RtlUShortAdd(pusResult[0], 2u, pusResult);
+            appended = RtlUShortAdd(UnicodeString.Length, 0x1Eu, pusResult);
             if ( appended >= 0 )
             {
-              v11 = pusResult[0];
-              Pool2 = (wchar_t *)ExAllocatePool2(256LL, pusResult[0], 1397771856LL);
-              v8 = Pool2;
-              if ( Pool2 )
+              appended = RtlUShortAdd(pusResult[0], 2u, pusResult);
+              if ( appended >= 0 )
               {
-                Destination.Length = 0;
-                Destination.MaximumLength = v11;
-                Destination.Buffer = Pool2;
-                appended = RtlAppendUnicodeStringToString(&Destination, &stru_14000AE48);
-                if ( appended >= 0 )
+                v12 = pusResult[0];
+                PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, pusResult[0], 0x53504E50u);
+                v8 = PoolWithTag;
+                if ( PoolWithTag )
                 {
-                  appended = RtlAppendUnicodeStringToString(&Destination, &UnicodeString);
+                  Destination.Length = 0;
+                  Destination.MaximumLength = v12;
+                  Destination.Buffer = PoolWithTag;
+                  appended = RtlAppendUnicodeStringToString(&Destination, &stru_140009DB0);
                   if ( appended >= 0 )
                   {
-                    appended = SysCtxGetCachedContextBaseKey(a1, 3, &v22);
+                    appended = RtlAppendUnicodeStringToString(&Destination, &UnicodeString);
                     if ( appended >= 0 )
-                      appended = SysCtxRegOpenKey(v13, v22, (__int64)(Destination.Buffer + 15), a2, a3, a4);
+                    {
+                      appended = SysCtxGetCachedContextBaseKey(a1, 3, &v22);
+                      if ( appended >= 0 )
+                        appended = SysCtxRegOpenKey(v14, v22, (__int64)(Destination.Buffer + 15), a2, a3, a4);
+                    }
                   }
                 }
-              }
-              else
-              {
-                appended = -1073741801;
+                else
+                {
+                  appended = -1073741801;
+                }
               }
             }
           }
         }
-        goto LABEL_23;
       }
-LABEL_10:
-      appended = -1073741637;
     }
   }
-LABEL_23:
+LABEL_11:
   if ( Handle )
     ZwClose(Handle);
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString(&UnicodeString);
   if ( v8 )
     ExFreePoolWithTag(v8, 0);
   return (unsigned int)appended;

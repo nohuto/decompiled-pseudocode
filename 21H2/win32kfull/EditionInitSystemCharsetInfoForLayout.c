@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionInitSystemCharsetInfoForLayout @ 0x1C011B590
+ * XREFs of EditionInitSystemCharsetInfoForLayout @ 0x1C0130120
  * Callers:
  *     <none>
  * Callees:
- *     xxxClientGetCharsetInfo @ 0x1C011B648 (xxxClientGetCharsetInfo.c)
+ *     xxxClientGetCharsetInfo @ 0x1C01301D8 (xxxClientGetCharsetInfo.c)
  */
 
 __int64 __fastcall EditionInitSystemCharsetInfoForLayout(__int64 a1, __int64 a2)

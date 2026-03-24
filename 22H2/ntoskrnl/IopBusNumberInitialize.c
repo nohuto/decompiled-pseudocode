@@ -1,16 +1,16 @@
 /*
- * XREFs of IopBusNumberInitialize @ 0x140814C58
+ * XREFs of IopBusNumberInitialize @ 0x1407A2228
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ArbInitializeArbiterInstance @ 0x140815CC8 (ArbInitializeArbiterInstance.c)
+ *     ArbInitializeArbiterInstance @ 0x1407A2690 (ArbInitializeArbiterInstance.c)
  */
 
 __int64 __fastcall IopBusNumberInitialize(__int64 a1, int a2)
 {
-  qword_140C5C258 = (__int64)IopBusNumberUnpackRequirement;
-  qword_140C5C260 = (__int64)IopBusNumberPackResource;
-  qword_140C5C268 = (__int64)IopBusNumberUnpackResource;
-  qword_140C5C270 = (__int64)IopBusNumberScoreRequirement;
+  qword_140C44338 = (__int64)IopBusNumberUnpackRequirement;
+  qword_140C44340 = (__int64)IopBusNumberPackResource;
+  qword_140C44348 = (__int64)IopBusNumberUnpackResource;
+  qword_140C44350 = (__int64)IopBusNumberScoreRequirement;
   return ArbInitializeArbiterInstance((unsigned int)&IopRootBusNumberArbiter, a2, 6, (unsigned int)L"RootBusNumber");
 }

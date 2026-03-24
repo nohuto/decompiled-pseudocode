@@ -1,7 +1,7 @@
 /*
- * XREFs of MmOutSwapVirtualAddresses @ 0x1402CB990
+ * XREFs of MmOutSwapVirtualAddresses @ 0x1402CBA90
  * Callers:
- *     SmPerformStoreSwapOperation @ 0x140309080 (SmPerformStoreSwapOperation.c)
+ *     SmPerformStoreSwapOperation @ 0x140309180 (SmPerformStoreSwapOperation.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -14,19 +14,19 @@
  *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1400531B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
  *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiFindBestOutswapPagefile @ 0x1400E4D8C (MiFindBestOutswapPagefile.c)
- *     MiOutSwapWorkingSet @ 0x1400E57C8 (MiOutSwapWorkingSet.c)
- *     MiReAllocateWorkingSetSwapSupport @ 0x1400E58BC (MiReAllocateWorkingSetSwapSupport.c)
- *     MiAllocateWorkingSetSwapSupport @ 0x1400E5914 (MiAllocateWorkingSetSwapSupport.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MiFindBestOutswapPagefile @ 0x1400E4DAC (MiFindBestOutswapPagefile.c)
+ *     MiOutSwapWorkingSet @ 0x1400E57E8 (MiOutSwapWorkingSet.c)
+ *     MiReAllocateWorkingSetSwapSupport @ 0x1400E58DC (MiReAllocateWorkingSetSwapSupport.c)
+ *     MiAllocateWorkingSetSwapSupport @ 0x1400E5934 (MiAllocateWorkingSetSwapSupport.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     MiValidateMemoryRangeEntries @ 0x1405F6D18 (MiValidateMemoryRangeEntries.c)
- *     EtwTraceWorkingSetSwap @ 0x14066B7E8 (EtwTraceWorkingSetSwap.c)
- *     MiFreeReservationRuns @ 0x1406B8E6C (MiFreeReservationRuns.c)
- *     MiExtendWorkingSetSwapPagefile @ 0x14085EA54 (MiExtendWorkingSetSwapPagefile.c)
- *     MiReserveWorkingSetSwapSpace @ 0x14085EB6C (MiReserveWorkingSetSwapSpace.c)
+ *     EtwTraceWorkingSetSwap @ 0x14066B7C8 (EtwTraceWorkingSetSwap.c)
+ *     MiFreeReservationRuns @ 0x1406B8E4C (MiFreeReservationRuns.c)
+ *     MiExtendWorkingSetSwapPagefile @ 0x14085EA34 (MiExtendWorkingSetSwapPagefile.c)
+ *     MiReserveWorkingSetSwapSpace @ 0x14085EB4C (MiReserveWorkingSetSwapSpace.c)
  */
 
 __int64 __fastcall MmOutSwapVirtualAddresses(PEPROCESS Process, unsigned __int64 *a2, __int64 a3, _QWORD *a4)

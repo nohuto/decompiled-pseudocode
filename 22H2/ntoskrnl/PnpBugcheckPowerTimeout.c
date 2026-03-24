@@ -1,27 +1,26 @@
 /*
- * XREFs of PnpBugcheckPowerTimeout @ 0x140561128
+ * XREFs of PnpBugcheckPowerTimeout @ 0x14050D720
  * Callers:
- *     PnpPowerStateTransitionWatchdogCallback @ 0x140560750 (PnpPowerStateTransitionWatchdogCallback.c)
- *     PopBuildDeviceNotifyListWatchdog @ 0x140AA7320 (PopBuildDeviceNotifyListWatchdog.c)
+ *     PopBuildDeviceNotifyListWatchdog @ 0x1409B26E0 (PopBuildDeviceNotifyListWatchdog.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-void __fastcall __noreturn PnpBugcheckPowerTimeout(ULONG_PTR BugCheckParameter2)
+void __noreturn PnpBugcheckPowerTimeout()
 {
-  ULONG_PTR v1; // r9
+  ULONG_PTR v0; // r9
   ULONG_PTR BugCheckParameter4[5]; // [rsp+30h] [rbp-28h] BYREF
 
-  v1 = *(_QWORD *)&PnpDelayedRemoveWorkerThread;
-  if ( !*(_QWORD *)&PnpDelayedRemoveWorkerThread )
+  v0 = PnpDelayedRemoveWorkerThread;
+  if ( !PnpDelayedRemoveWorkerThread )
   {
-    v1 = *(_QWORD *)&PnpDeviceEventThread;
-    if ( !*(_QWORD *)&PnpDeviceEventThread )
-      v1 = PnpDeviceActionThread;
+    v0 = PnpDeviceEventThread;
+    if ( !PnpDeviceEventThread )
+      v0 = PnpDeviceActionThread[0];
   }
   BugCheckParameter4[1] = (ULONG_PTR)&PnpDeviceCompletionQueue;
   BugCheckParameter4[2] = ExWorkerQueue;
   BugCheckParameter4[3] = IoWorkerQueue;
   BugCheckParameter4[0] = 163841LL;
-  KeBugCheckEx(0x9Fu, 4uLL, (unsigned int)BugCheckParameter2, v1, (ULONG_PTR)BugCheckParameter4);
+  KeBugCheckEx(0x9Fu, 4uLL, (unsigned int)PopWatchdogSleepTimeout, v0, (ULONG_PTR)BugCheckParameter4);
 }

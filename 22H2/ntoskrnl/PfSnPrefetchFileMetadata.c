@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnPrefetchFileMetadata @ 0x1407D831C
+ * XREFs of PfSnPrefetchFileMetadata @ 0x1406928A8
  * Callers:
- *     PfSnGetSectionObject @ 0x14075CEB0 (PfSnGetSectionObject.c)
- *     PfSnPrefetchMetadata @ 0x14075EAF4 (PfSnPrefetchMetadata.c)
+ *     PfSnPrefetchMetadata @ 0x1406324B0 (PfSnPrefetchMetadata.c)
+ *     PfSnGetSectionObject @ 0x1406331D8 (PfSnGetSectionObject.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     NtWaitForSingleObject @ 0x1406E3770 (NtWaitForSingleObject.c)
- *     IopXxxControlFile @ 0x1406E5590 (IopXxxControlFile.c)
- *     NtResetEvent @ 0x1407D8450 (NtResetEvent.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     NtWaitForSingleObject @ 0x14063DF50 (NtWaitForSingleObject.c)
+ *     IopXxxControlFile @ 0x14064B730 (IopXxxControlFile.c)
+ *     NtResetEvent @ 0x1406929D0 (NtResetEvent.c)
  */
 
 __int64 __fastcall PfSnPrefetchFileMetadata(
@@ -16,21 +16,23 @@ __int64 __fastcall PfSnPrefetchFileMetadata(
         __int64 a3,
         unsigned int a4,
         unsigned int a5,
-        IRP *a6)
+        HANDLE Handle)
 {
-  unsigned int Status; // r10d
+  unsigned int v6; // r10d
   unsigned int v10; // ebx
   unsigned int v11; // eax
   __int64 v13; // rsi
   unsigned int v14; // r14d
   void *v15; // r9
   int v16; // r13d
-  unsigned int v17; // ebx
-  int v18; // [rsp+48h] [rbp-50h]
-  struct _IO_STATUS_BLOCK v19; // [rsp+60h] [rbp-38h] BYREF
+  int v17; // ebx
+  size_t Size; // [rsp+38h] [rbp-60h]
+  SIZE_T Length; // [rsp+48h] [rbp-50h]
+  __int64 v20; // [rsp+50h] [rbp-48h]
+  __int128 v21; // [rsp+60h] [rbp-38h] BYREF
 
-  Status = 0;
-  v19 = 0LL;
+  v6 = 0;
+  v21 = 0LL;
   if ( a5 )
   {
     v10 = *(_DWORD *)(a3 + 4);
@@ -57,14 +59,28 @@ __int64 __fastcall PfSnPrefetchFileMetadata(
           *(_DWORD *)(v13 + 4) = v16;
           memmove(v15, (const void *)(a3 + 16 + 8LL * (v14 + a4)), (unsigned int)(8 * v16));
           v17 = 8 * *(_DWORD *)(v13 + 4) + 16;
-          NtResetEvent(a6);
-          Status = IopXxxControlFile(a2, a6, 0LL, 0LL, &v19, 0x90120u, (char *)v13, v17, 0LL, 0, 0);
-          if ( Status == 259 )
+          NtResetEvent(Handle);
+          LOBYTE(v20) = 0;
+          LODWORD(Length) = 0;
+          LODWORD(Size) = v17;
+          v6 = IopXxxControlFile(
+                 a2,
+                 Handle,
+                 0LL,
+                 0LL,
+                 (unsigned __int64)&v21,
+                 0x90120u,
+                 (char *)v13,
+                 Size,
+                 0LL,
+                 Length,
+                 v20);
+          if ( v6 == 259 )
           {
-            NtWaitForSingleObject((int)a6, 0, 0LL);
-            Status = v19.Status;
+            NtWaitForSingleObject((int)Handle, 0, 0LL);
+            v6 = v21;
           }
-          if ( (Status & 0xC0000000) == 0xC0000000 )
+          if ( (v6 & 0xC0000000) == 0xC0000000 )
             break;
           v14 += v16;
           v15 = (void *)(v13 + 16);
@@ -75,16 +91,27 @@ __int64 __fastcall PfSnPrefetchFileMetadata(
       {
         *(_QWORD *)(a3 + 8) = v11;
         *(_DWORD *)(a3 + 4) = a5;
-        NtResetEvent(a6);
-        Status = IopXxxControlFile(a2, a6, 0LL, 0LL, &v19, 0x90120u, (char *)a3, 8 * a5 + 16, 0LL, a4 & v18, a4);
-        if ( Status == 259 )
+        NtResetEvent(Handle);
+        v6 = IopXxxControlFile(
+               a2,
+               Handle,
+               0LL,
+               0LL,
+               (unsigned __int64)&v21,
+               0x90120u,
+               (char *)a3,
+               8 * a5 + 16,
+               0LL,
+               a4 & (unsigned int)Length,
+               a4);
+        if ( v6 == 259 )
         {
-          NtWaitForSingleObject((int)a6, 0, 0LL);
-          Status = v19.Status;
+          NtWaitForSingleObject((int)Handle, 0, 0LL);
+          v6 = v21;
         }
         *(_DWORD *)(a3 + 4) = v10;
       }
     }
   }
-  return Status;
+  return v6;
 }

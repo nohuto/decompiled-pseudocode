@@ -1,10 +1,10 @@
 /*
- * XREFs of MNDrawEdge @ 0x1C0234820
+ * XREFs of MNDrawEdge @ 0x1C024C258
  * Callers:
- *     xxxMenuWindowProc @ 0x1C021A810 (xxxMenuWindowProc.c)
- *     xxxMNDrawFullNC @ 0x1C023534C (xxxMNDrawFullNC.c)
+ *     xxxMenuWindowProc @ 0x1C023B5E0 (xxxMenuWindowProc.c)
+ *     xxxMNDrawFullNC @ 0x1C024C484 (xxxMNDrawFullNC.c)
  * Callees:
- *     ?DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z @ 0x1C0233708 (-DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z.c)
+ *     ?DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z @ 0x1C024B6F0 (-DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z.c)
  */
 
 void __fastcall MNDrawEdge(__int64 a1, HDC a2, _DWORD *a3, int a4)

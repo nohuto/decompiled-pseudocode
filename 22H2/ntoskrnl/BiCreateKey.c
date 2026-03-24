@@ -1,19 +1,19 @@
 /*
- * XREFs of BiCreateKey @ 0x140806388
+ * XREFs of BiCreateKey @ 0x140783B10
  * Callers:
- *     BiSetObjectDescription @ 0x140804A48 (BiSetObjectDescription.c)
- *     BiAddStoreFromFile @ 0x140804BEC (BiAddStoreFromFile.c)
- *     BiCreateObject @ 0x14080581C (BiCreateObject.c)
- *     BcdSetElementDataWithFlags @ 0x14080669C (BcdSetElementDataWithFlags.c)
+ *     BiAddStoreFromFile @ 0x140781CD8 (BiAddStoreFromFile.c)
+ *     BcdSetElementDataWithFlags @ 0x140783EDC (BcdSetElementDataWithFlags.c)
+ *     BiCreateObject @ 0x14096F018 (BiCreateObject.c)
+ *     BiSetObjectDescription @ 0x14096F3EC (BiSetObjectDescription.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     BiSanitizeHandle @ 0x14036937C (BiSanitizeHandle.c)
- *     BiZwOpenKey @ 0x14037440C (BiZwOpenKey.c)
- *     BiZwSetSecurityObject @ 0x140374434 (BiZwSetSecurityObject.c)
- *     CmSiCloseSection @ 0x140374450 (CmSiCloseSection.c)
- *     BiZwCreateKey @ 0x1403744B8 (BiZwCreateKey.c)
- *     BiCreateKeySecurityDescriptor @ 0x140807830 (BiCreateKeySecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     CmSiCloseSection @ 0x140321658 (CmSiCloseSection.c)
+ *     BiSanitizeHandle @ 0x14032C5AC (BiSanitizeHandle.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     BiZwOpenKey @ 0x14039AE84 (BiZwOpenKey.c)
+ *     BiZwSetSecurityObject @ 0x14039AEAC (BiZwSetSecurityObject.c)
+ *     BiZwCreateKey @ 0x14039AEE8 (BiZwCreateKey.c)
+ *     BiCreateKeySecurityDescriptor @ 0x1407844E0 (BiCreateKeySecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiCreateKey(__int64 a1, const WCHAR *a2, ACCESS_MASK a3, unsigned int a4, _QWORD *a5, bool *a6)
@@ -41,7 +41,7 @@ __int64 __fastcall BiCreateKey(__int64 a1, const WCHAR *a2, ACCESS_MASK a3, unsi
   v21 = 0;
   v23 = 0LL;
   DestinationString = 0LL;
-  memset(v25, 0, 44);
+  memset(v25, 0, 48);
   for ( i = 0; ; ++i )
   {
     *(_QWORD *)v22 = 0LL;

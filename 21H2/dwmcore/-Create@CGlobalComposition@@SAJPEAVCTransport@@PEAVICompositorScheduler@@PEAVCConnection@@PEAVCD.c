@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Create@CGlobalComposition@@SAJPEAVCTransport@@PEAVICompositorScheduler@@PEAVCConnection@@PEAVCDebugFrameCounter@@PEAPEAVCComposition@@@Z @ 0x1800F21F8
+ * XREFs of ?Create@CGlobalComposition@@SAJPEAVCTransport@@PEAVICompositorScheduler@@PEAVCConnection@@PEAVCDebugFrameCounter@@PEAPEAVCComposition@@@Z @ 0x1800DE3D4
  * Callers:
- *     ?Initialize@CPartitionVerticalBlankScheduler@@AEAAJXZ @ 0x1800DD7C4 (-Initialize@CPartitionVerticalBlankScheduler@@AEAAJXZ.c)
+ *     ?Initialize@CPartitionVerticalBlankScheduler@@AEAAJXZ @ 0x180026D74 (-Initialize@CPartitionVerticalBlankScheduler@@AEAAJXZ.c)
  * Callees:
- *     ?Initialize@CComposition@@MEAAJXZ @ 0x18002E810 (-Initialize@CComposition@@MEAAJXZ.c)
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18004F61C (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800D193C (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ??0CComposition@@IEAA@PEAVCTransport@@PEAVICompositorScheduler@@PEAVCConnection@@PEAVCDebugFrameCounter@@@Z @ 0x1800F22B0 (--0CComposition@@IEAA@PEAVCTransport@@PEAVICompositorScheduler@@PEAVCConnection@@PEAVCDebugFrame.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800520D0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F358 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??0CComposition@@IEAA@PEAVCTransport@@PEAVICompositorScheduler@@PEAVCConnection@@PEAVCDebugFrameCounter@@@Z @ 0x1800B570C (--0CComposition@@IEAA@PEAVCTransport@@PEAVICompositorScheduler@@PEAVCConnection@@PEAVCDebugFrame.c)
+ *     ?Initialize@CGlobalComposition@@EEAAJXZ @ 0x1800DE480 (-Initialize@CGlobalComposition@@EEAAJXZ.c)
  */
 
 __int64 __fastcall CGlobalComposition::Create(
@@ -19,37 +19,40 @@ __int64 __fastcall CGlobalComposition::Create(
 {
   CComposition *v9; // rax
   __int64 v10; // rcx
-  struct CComposition *v11; // rdi
+  struct CComposition *v11; // rbx
   int v12; // eax
   __int64 v13; // rcx
-  unsigned int v14; // ebx
+  unsigned int v14; // edi
 
-  v9 = (CComposition *)DefaultHeap::AllocClear(0x558uLL);
+  v9 = (CComposition *)DefaultHeap::AllocClear(0x4B0uLL);
   v11 = v9;
   if ( v9 )
   {
     CComposition::CComposition(v9, a1, a2, a3, a4);
-    g_pComposition = v11;
     *(_QWORD *)v11 = &CGlobalComposition::`vftable';
-    *((_QWORD *)v11 + 168) = 0LL;
-    *((_QWORD *)v11 + 169) = 0LL;
-    *((_QWORD *)v11 + 170) = 0LL;
-    v12 = CComposition::Initialize(v11);
+  }
+  else
+  {
+    v11 = 0LL;
+  }
+  if ( v11 )
+  {
+    g_pComposition = v11;
+    v12 = CGlobalComposition::Initialize(v11);
     v14 = v12;
-    if ( v12 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0x38u);
-      CMILRefCountBaseT<IMILRefCount>::InternalRelease((volatile signed __int32 *)v11);
-    }
-    else
+    if ( v12 >= 0 )
     {
       *a5 = v11;
+      return v14;
     }
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x34u, 0LL);
   }
   else
   {
     v14 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, -2147024882, 0x34u);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2147024882, 0x30u, 0LL);
   }
+  if ( v11 )
+    CDrawListEntry::Release(v11);
   return v14;
 }

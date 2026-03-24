@@ -1,13 +1,13 @@
 /*
- * XREFs of ResolveMouseOrPointerDevice @ 0x1C00BABE0
+ * XREFs of ResolveMouseOrPointerDevice @ 0x1C00ADEE0
  * Callers:
- *     NtUserGetPointerDeviceInputSpace @ 0x1C0144D20 (NtUserGetPointerDeviceInputSpace.c)
- *     NtUserGetPointerDeviceOrientation @ 0x1C0144E00 (NtUserGetPointerDeviceOrientation.c)
+ *     NtUserGetPointerDeviceInputSpace @ 0x1C012F170 (NtUserGetPointerDeviceInputSpace.c)
+ *     NtUserGetPointerDeviceOrientation @ 0x1C012F260 (NtUserGetPointerDeviceOrientation.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00590FC (HMValidateHandleNoSecure.c)
+ *     HMValidateHandleNoSecure @ 0x1C0046930 (HMValidateHandleNoSecure.c)
  */
 
-__int64 __fastcall ResolveMouseOrPointerDevice(__int64 a1, _QWORD *a2, _DWORD *a3)
+__int64 __fastcall ResolveMouseOrPointerDevice(unsigned __int64 a1, _QWORD *a2, _DWORD *a3)
 {
   unsigned int v3; // ebx
   __int64 v7; // rax
@@ -16,7 +16,7 @@ __int64 __fastcall ResolveMouseOrPointerDevice(__int64 a1, _QWORD *a2, _DWORD *a
   *a2 = 0LL;
   if ( a3 )
     *a3 = 0;
-  if ( a1 != -1 )
+  if ( a1 != -1LL )
   {
     v7 = HMValidateHandleNoSecure(a1, 19);
     if ( !v7 )
@@ -25,7 +25,7 @@ __int64 __fastcall ResolveMouseOrPointerDevice(__int64 a1, _QWORD *a2, _DWORD *a
     {
       if ( (*(_DWORD *)(v7 + 200) & 0x80u) == 0 )
         return v3;
-      *a2 = *(_QWORD *)(v7 + 472);
+      *a2 = *(_QWORD *)(v7 + 480);
     }
     else
     {

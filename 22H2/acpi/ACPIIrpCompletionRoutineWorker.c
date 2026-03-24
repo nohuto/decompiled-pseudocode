@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIIrpCompletionRoutineWorker @ 0x1C007BDF0
+ * XREFs of ACPIIrpCompletionRoutineWorker @ 0x1C0091D50
  * Callers:
- *     ACPIIrpGenericFilterCompletionHandler @ 0x1C000AAD0 (ACPIIrpGenericFilterCompletionHandler.c)
+ *     ACPIIrpGenericFilterCompletionHandler @ 0x1C000E730 (ACPIIrpGenericFilterCompletionHandler.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     ACPIInternalDecrementIrpReferenceCount @ 0x1C002E548 (ACPIInternalDecrementIrpReferenceCount.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInternalDecrementIrpReferenceCount @ 0x1C000E778 (ACPIInternalDecrementIrpReferenceCount.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall ACPIIrpCompletionRoutineWorker(ULONG_PTR DeviceObject, PVOID Context)
@@ -26,29 +26,33 @@ void __fastcall ACPIIrpCompletionRoutineWorker(ULONG_PTR DeviceObject, PVOID Con
   if ( Status >= 0 )
   {
     v10 = *((_BYTE *)Context + 24) == 0;
-    goto LABEL_8;
+    goto LABEL_3;
   }
   if ( Status == -1073741637 )
   {
     v10 = *((_BYTE *)Context + 25) == 0;
-    goto LABEL_8;
+    goto LABEL_3;
   }
-  if ( !*((_BYTE *)Context + 26) )
+  if ( *((_BYTE *)Context + 26) )
   {
-    if ( !v6->Cancel )
-      goto LABEL_10;
-    v10 = *((_BYTE *)Context + 27) == 0;
-LABEL_8:
-    if ( v10 )
-      goto LABEL_10;
+LABEL_4:
+    LOBYTE(v5) = 1;
+    v8 = (*((__int64 (__fastcall **)(ULONG_PTR, IRP *, _QWORD, __int64))Context + 2))(
+           DeviceObject,
+           v6,
+           *((_QWORD *)Context + 5),
+           v5);
+    goto LABEL_5;
   }
-  LOBYTE(v5) = 1;
-  v8 = (*((__int64 (__fastcall **)(ULONG_PTR, IRP *, _QWORD, __int64))Context + 2))(
-         DeviceObject,
-         v6,
-         *((_QWORD *)Context + 5),
-         v5);
-LABEL_10:
+  if ( v6->Cancel )
+  {
+    v10 = *((_BYTE *)Context + 27) == 0;
+LABEL_3:
+    if ( v10 )
+      goto LABEL_5;
+    goto LABEL_4;
+  }
+LABEL_5:
   ACPIInternalDecrementIrpReferenceCount(v7);
   IoFreeWorkItem(*((PIO_WORKITEM *)Context + 4));
   ExFreePoolWithTag(Context, 0);

@@ -1,5 +1,5 @@
 /*
- * XREFs of IvtConfigureSettings @ 0x140A88AD0
+ * XREFs of IvtConfigureSettings @ 0x1409902E0
  * Callers:
  *     <none>
  * Callees:
@@ -8,8 +8,8 @@
 
 __int64 __fastcall IvtConfigureSettings(_DWORD *a1, _DWORD *a2)
 {
-  a1[78] = a2[3];
-  a1[77] = a2[2];
-  a1[76] = a2[4];
+  a1[66] = a2[3];
+  a1[65] = a2[2];
+  a1[64] = a2[4];
   return 0LL;
 }

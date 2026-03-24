@@ -1,12 +1,12 @@
 /*
  * XREFs of KiFatalExceptionFilter @ 0x1409DB23C
  * Callers:
- *     KiLockServiceTable @ 0x1401738C4 (KiLockServiceTable.c)
+ *     KiLockServiceTable @ 0x1401738E4 (KiLockServiceTable.c)
  * Callees:
- *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C50 (RtlpImageDirectoryEntryToDataEx.c)
- *     RtlLookupExceptionHandler @ 0x140191240 (RtlLookupExceptionHandler.c)
- *     KeBugCheck @ 0x1401BBB80 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C70 (RtlpImageDirectoryEntryToDataEx.c)
+ *     RtlLookupExceptionHandler @ 0x140191260 (RtlLookupExceptionHandler.c)
+ *     KeBugCheck @ 0x1401BBBA0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 KiFatalExceptionFilter()

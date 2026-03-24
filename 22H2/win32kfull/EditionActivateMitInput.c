@@ -1,46 +1,49 @@
 /*
- * XREFs of EditionActivateMitInput @ 0x1C00A4400
+ * XREFs of EditionActivateMitInput @ 0x1C010B650
  * Callers:
  *     <none>
  * Callees:
- *     ?ForceSetCurrentCursorShape@CursorApiRouter@@QEAAXXZ @ 0x1C005AEDC (-ForceSetCurrentCursorShape@CursorApiRouter@@QEAAXXZ.c)
- *     WakeRIT @ 0x1C00A4548 (WakeRIT.c)
- *     WaitForRitToCompleteLastCommand @ 0x1C00A45A8 (WaitForRitToCompleteLastCommand.c)
- *     DitTakeOver @ 0x1C00A4604 (DitTakeOver.c)
+ *     WaitForRitToCompleteLastCommand @ 0x1C010B98C (WaitForRitToCompleteLastCommand.c)
+ *     WakeRIT @ 0x1C010BAB0 (WakeRIT.c)
+ *     DitTakeOver @ 0x1C010BB10 (DitTakeOver.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
 __int64 EditionActivateMitInput()
 {
   unsigned int v0; // ebx
-  __int64 v1; // rcx
-  CursorApiRouter *v2; // rcx
 
   v0 = 1;
-  gbInMitRitHandOff = 1;
-  AddThreadWakeEventDispatcherToIOCP();
+  gbDITInHitTest = 1;
+  IOCPDispatcher::RegisterThreadDispatcherObject(gpIOCPDispatcher, ghDITEvent);
   EtwTraceDitWaitForRitDisEngagement();
   WakeRIT(16LL);
   WaitForRitToCompleteLastCommand();
-  if ( !gbMIT )
-    goto LABEL_5;
+  if ( !gbDIT )
+    goto LABEL_8;
   if ( !(unsigned int)DitTakeOver() )
   {
-    gbMIT = 0;
+    gbDIT = 0;
     WakeRIT(8LL);
     WaitForRitToCompleteLastCommand();
-LABEL_5:
+LABEL_8:
     v0 = 0;
     goto LABEL_4;
   }
   WakeRIT(128LL);
   WaitForRitToCompleteLastCommand();
-  _InterlockedAnd(gdwMITWakeReason, 0xFFFFFFFE);
-  _InterlockedExchange((volatile __int32 *)(SGDGetUserSessionState(v1) + 15976), 1);
+  _InterlockedAnd(&gdwDITWakeReason, 0xFFFFFFFE);
+  _InterlockedExchange(&glDitMouseHandling, 1);
   gbNoMoreDITHitTest = 0;
 LABEL_4:
-  gbInMitRitHandOff = 0;
-  EnterLeaveCritMitRitHandOffHazard::ReleaseAllWaiters();
-  CursorApiRouter::ForceSetCurrentCursorShape(v2);
+  if ( gbDITInHitTest )
+  {
+    gbDITInHitTest = 0;
+    if ( gcDITHitTestWaiters )
+    {
+      KeReleaseSemaphore(gpsemDITHitTestWaiters, 0, gcDITHitTestWaiters, 0);
+      gcDITHitTestWaiters = 0;
+    }
+  }
   return v0;
 }

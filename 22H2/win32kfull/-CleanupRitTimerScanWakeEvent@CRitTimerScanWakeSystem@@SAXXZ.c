@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CleanupRitTimerScanWakeEvent@CRitTimerScanWakeSystem@@SAXXZ @ 0x1C00BD808
+ * XREFs of ?CleanupRitTimerScanWakeEvent@CRitTimerScanWakeSystem@@SAXXZ @ 0x1C000A6C8
  * Callers:
- *     RawInputThread @ 0x1C003F070 (RawInputThread.c)
- *     EditionBaseDriverUnloadUninitialize @ 0x1C00BECD0 (EditionBaseDriverUnloadUninitialize.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
+ *     EditionBaseDriverUnloadUninitialize @ 0x1C01272F0 (EditionBaseDriverUnloadUninitialize.c)
  * Callees:
- *     ??0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C005D4CC (--0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ??0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00376B4 (--0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
  */
 
 void CRitTimerScanWakeSystem::CleanupRitTimerScanWakeEvent(void)

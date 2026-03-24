@@ -1,21 +1,21 @@
 /*
- * XREFs of ?CoalesceQFrames@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAUCPointerQFrame@@PEAU2@@Z @ 0x1C01BD564
+ * XREFs of ?CoalesceQFrames@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAUCPointerQFrame@@PEAU2@@Z @ 0x1C018A4B4
  * Callers:
- *     ?DelegateCoalesceQFrame@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@K@Z @ 0x1C01C1264 (-DelegateCoalesceQFrame@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@K@Z.c)
+ *     ?DelegateCoalesceQFrame@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@K@Z @ 0x1C018CF9C (-DelegateCoalesceQFrame@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@K@Z.c)
  * Callees:
- *     ApiSetEditionDelQEntry @ 0x1C00C97FC (ApiSetEditionDelQEntry.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     EtwTraceBeginPointerFrameCoalesce @ 0x1C0138B40 (EtwTraceBeginPointerFrameCoalesce.c)
- *     EtwTraceEndPointerFrameCoalesce @ 0x1C01393C0 (EtwTraceEndPointerFrameCoalesce.c)
- *     ?CanCoalesceIgnoreNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAW4CPointerCoalesce@@@Z @ 0x1C01BB0D0 (-CanCoalesceIgnoreNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAW4.c)
- *     ?CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAUtagQMSG@@PEAUCPointerQFrame@@PEAW4CPointerCoalesce@@@Z @ 0x1C01BB208 (-CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@.c)
- *     ?CoalesceMessage@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@_K@Z @ 0x1C01BCEB4 (-CoalesceMessage@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@_K@Z.c)
- *     ?CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@KH@Z @ 0x1C01BD108 (-CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@.c)
- *     ?FindNodeQueuedMessage@CTouchProcessor@@AEAAPEAUtagQMSG@@PEBUCPointerInfoNode@@HPEAPEAUtagQ@@@Z @ 0x1C01C2A00 (-FindNodeQueuedMessage@CTouchProcessor@@AEAAPEAUtagQMSG@@PEBUCPointerInfoNode@@HPEAPEAUtagQ@@@Z.c)
- *     ?GetCoalesceInfo@CTouchProcessor@@AEAAPEAUtagCPointerCoalesceInfo@@K@Z @ 0x1C01C6D84 (-GetCoalesceInfo@CTouchProcessor@@AEAAPEAUtagCPointerCoalesceInfo@@K@Z.c)
- *     ?IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C01CCB18 (-IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
- *     ?IsFullyReleased@CPointerInfoNode@@QEBAHXZ @ 0x1C01CCB6C (-IsFullyReleased@CPointerInfoNode@@QEBAHXZ.c)
- *     ?TrackCoalesceOnReassign@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@W4CPointerCoalesce@@@Z @ 0x1C01D7D08 (-TrackCoalesceOnReassign@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@W4CPointerCoalesce@@@Z.c)
+ *     ApiSetEditionDelQEntry @ 0x1C0001CB0 (ApiSetEditionDelQEntry.c)
+ *     ?IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C00CD0C0 (-IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     EtwTraceBeginPointerFrameCoalesce @ 0x1C0121BA0 (EtwTraceBeginPointerFrameCoalesce.c)
+ *     EtwTraceEndPointerFrameCoalesce @ 0x1C0122320 (EtwTraceEndPointerFrameCoalesce.c)
+ *     ?CanCoalesceIgnoreNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAW4CPointerCoalesce@@@Z @ 0x1C018891C (-CanCoalesceIgnoreNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAW4.c)
+ *     ?CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAUtagQMSG@@PEAUCPointerQFrame@@PEAW4CPointerCoalesce@@@Z @ 0x1C0188A54 (-CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@.c)
+ *     ?CoalesceMessage@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z @ 0x1C0189EE4 (-CoalesceMessage@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z.c)
+ *     ?CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@KH@Z @ 0x1C018A058 (-CoalesceNodeWithPrevious@CTouchProcessor@@AEAA_KPEBUCPointerInputFrame@@0PEAUCPointerInfoNode@@.c)
+ *     ?FindNodeQueuedMessage@CTouchProcessor@@AEAAPEAUtagQMSG@@PEBUCPointerInfoNode@@HPEAPEAUtagQ@@@Z @ 0x1C018E5EC (-FindNodeQueuedMessage@CTouchProcessor@@AEAAPEAUtagQMSG@@PEBUCPointerInfoNode@@HPEAPEAUtagQ@@@Z.c)
+ *     ?GetCoalesceInfo@CTouchProcessor@@AEAAPEAUtagCPointerCoalesceInfo@@K@Z @ 0x1C0191780 (-GetCoalesceInfo@CTouchProcessor@@AEAAPEAUtagCPointerCoalesceInfo@@K@Z.c)
+ *     ?IsFullyReleased@CPointerInfoNode@@QEBAHXZ @ 0x1C0196864 (-IsFullyReleased@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?TrackCoalesceOnReassign@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@W4CPointerCoalesce@@@Z @ 0x1C019F2E0 (-TrackCoalesceOnReassign@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@W4CPointerCoalesce@@@Z.c)
  */
 
 struct tagCPointerCoalesceInfo *__fastcall CTouchProcessor::CoalesceQFrames(
@@ -24,186 +24,215 @@ struct tagCPointerCoalesceInfo *__fastcall CTouchProcessor::CoalesceQFrames(
         struct CPointerQFrame *a3,
         struct CPointerInputFrame *a4)
 {
-  unsigned int v4; // r13d
+  unsigned int v4; // r12d
   __int64 v9; // rcx
+  int v10; // eax
   struct tagCPointerCoalesceInfo *result; // rax
-  __int64 v11; // r14
-  unsigned int v12; // ecx
-  unsigned int CanCoalesceNodeWithPrevious; // ebx
-  const struct CPointerInfoNode *v14; // rsi
-  int v15; // r12d
-  struct tagQ *v16; // rdx
-  int v17; // r8d
-  struct tagQMSG *NodeQueuedMessage; // rbx
-  unsigned int v19; // ecx
-  unsigned int v20; // edx
-  unsigned int v21; // r12d
-  unsigned __int64 v22; // rsi
-  unsigned int v23; // ebx
-  __int64 v24; // r13
-  struct tagQ *v25; // rcx
-  __int64 v26; // r8
-  __int64 v27; // rcx
-  unsigned int v28; // [rsp+44h] [rbp-Ch]
-  struct tagQ *v29; // [rsp+48h] [rbp-8h] BYREF
-  unsigned int v31; // [rsp+A0h] [rbp+50h] BYREF
-  struct CPointerInputFrame *v32; // [rsp+A8h] [rbp+58h]
+  __int64 v12; // r13
+  __int64 v13; // rax
+  unsigned int v14; // ebx
+  const struct CPointerInfoNode *v15; // rsi
+  int v16; // r14d
+  struct tagQ *v17; // rdx
+  int v18; // r8d
+  struct tagQMSG *NodeQueuedMessage; // rax
+  struct tagQMSG *v20; // rbx
+  unsigned int v21; // eax
+  unsigned int v22; // ecx
+  unsigned int v23; // edx
+  unsigned int v24; // r12d
+  unsigned __int64 v25; // rsi
+  unsigned int v26; // ebx
+  __int64 v27; // r14
+  __int64 v28; // rdx
+  struct tagQ *v29; // rcx
+  __int64 v30; // r8
+  __int64 v31; // rcx
+  int CanCoalesceNodeWithPrevious; // [rsp+30h] [rbp-20h]
+  struct tagQ *v33; // [rsp+48h] [rbp-8h] BYREF
+  unsigned int v35; // [rsp+A0h] [rbp+50h] BYREF
+  struct CPointerInputFrame *v36; // [rsp+A8h] [rbp+58h]
 
-  v32 = a4;
+  v36 = a4;
   v4 = 0;
-  v29 = 0LL;
-  if ( this[5] != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15316);
-  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced(this, a2) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15318);
-  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced(v9, a4) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15319);
-  if ( (*((_DWORD *)a3 + 35) & 4) != 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15320);
-  if ( (*((_DWORD *)a3 + 35) & 1) == 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15321);
-  if ( (*((_DWORD *)a3 + 35) & 8) != 0 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15322);
+  v33 = 0LL;
+  if ( this[6] != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14654);
+  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced((__int64)this, (__int64)a2) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14656);
+  if ( !(unsigned int)CTouchProcessor::IsFrameReferenced(v9, (__int64)a4) )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14657);
+  v10 = *((_DWORD *)a3 + 35);
+  if ( (v10 & 4) != 0 )
+  {
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14658);
+    v10 = *((_DWORD *)a3 + 35);
+  }
+  if ( (v10 & 1) == 0 )
+  {
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14659);
+    v10 = *((_DWORD *)a3 + 35);
+  }
+  if ( (v10 & 8) != 0 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14660);
   if ( *(_DWORD *)a3 == -1 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15323);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14661);
   result = CTouchProcessor::GetCoalesceInfo((CTouchProcessor *)this, *((_DWORD *)a3 + 34));
-  v11 = (__int64)result;
+  v12 = (__int64)result;
   if ( !result )
     return result;
-  v12 = *((_DWORD *)a2 + 12);
-  v31 = 1;
+  v13 = *((unsigned int *)a2 + 12);
+  v14 = 1;
+  v35 = 1;
+  v15 = (const struct CPointerInfoNode *)*((_QWORD *)a2 + 17);
+  v16 = 0;
   CanCoalesceNodeWithPrevious = 1;
-  v14 = (const struct CPointerInfoNode *)*((_QWORD *)a2 + 30);
-  v15 = 0;
-  if ( !v12 )
+  if ( !(_DWORD)v13 )
+    goto LABEL_46;
+  while ( 1 )
   {
-LABEL_71:
-    v31 = 19;
-LABEL_72:
-    CanCoalesceNodeWithPrevious = 0;
-    goto LABEL_73;
-  }
-  do
-  {
-    if ( (unsigned __int64)v14 >= *((_QWORD *)a2 + 30) + 480 * (unsigned __int64)v12 )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15351);
-    if ( *((_DWORD *)v14 + 2) != *(_DWORD *)a3 )
-      goto LABEL_35;
-    if ( (*(_DWORD *)v14 & 0x2000) == 0 && !(unsigned int)CPointerInfoNode::IsFullyReleased(v14) )
+    if ( (unsigned __int64)v15 >= *((_QWORD *)a2 + 17) + 480 * v13 )
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14689);
+    if ( *((_DWORD *)v15 + 2) == *(_DWORD *)a3 )
     {
-      v29 = v16;
-      NodeQueuedMessage = CTouchProcessor::FindNodeQueuedMessage((CTouchProcessor *)this, v14, v17, &v29);
-      if ( NodeQueuedMessage )
+      if ( (*(_DWORD *)v15 & 0x2000) == 0 && !(unsigned int)CPointerInfoNode::IsFullyReleased(v15) )
       {
-        if ( *((_QWORD *)NodeQueuedMessage + 1) )
+        v33 = v17;
+        NodeQueuedMessage = CTouchProcessor::FindNodeQueuedMessage((CTouchProcessor *)this, v15, v18, &v33);
+        v20 = NodeQueuedMessage;
+        if ( NodeQueuedMessage )
         {
-          if ( !v29 )
-            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15420);
-          if ( v4 < *(_DWORD *)(v11 + 4) )
-            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15421);
-          if ( *(_DWORD *)(v11 + 4) >= *(_DWORD *)v11 )
-            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15422);
-          *(_QWORD *)(*(_QWORD *)(v11 + 8) + 16LL * *(unsigned int *)(v11 + 4)) = v29;
-          *(_QWORD *)(*(_QWORD *)(v11 + 8) + 16LL * (unsigned int)(*(_DWORD *)(v11 + 4))++ + 8) = NodeQueuedMessage;
-          if ( *(_DWORD *)(v11 + 4) > *(_DWORD *)v11 )
-            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15426);
-          CanCoalesceNodeWithPrevious = CTouchProcessor::CanCoalesceNodeWithPrevious(
-                                          this,
-                                          v32,
-                                          v14,
-                                          NodeQueuedMessage,
-                                          a3,
-                                          (enum CPointerCoalesce *)&v31);
-          if ( !CanCoalesceNodeWithPrevious )
-            goto LABEL_73;
-          v15 = 1;
-          goto LABEL_35;
+          if ( *((_QWORD *)NodeQueuedMessage + 1) )
+          {
+            if ( !v33 )
+              MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14758);
+            v21 = *(_DWORD *)(v12 + 4);
+            if ( v4 < v21 )
+            {
+              MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14759);
+              v21 = *(_DWORD *)(v12 + 4);
+            }
+            if ( v21 >= *(_DWORD *)v12 )
+            {
+              MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14760);
+              v21 = *(_DWORD *)(v12 + 4);
+            }
+            *(_QWORD *)(*(_QWORD *)(v12 + 8) + 16LL * v21) = v33;
+            *(_QWORD *)(*(_QWORD *)(v12 + 8) + 16LL * (unsigned int)(*(_DWORD *)(v12 + 4))++ + 8) = v20;
+            if ( *(_DWORD *)(v12 + 4) > *(_DWORD *)v12 )
+              MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14764);
+            CanCoalesceNodeWithPrevious = CTouchProcessor::CanCoalesceNodeWithPrevious(
+                                            this,
+                                            v36,
+                                            v15,
+                                            v20,
+                                            a3,
+                                            (enum CPointerCoalesce *)&v35);
+            v14 = CanCoalesceNodeWithPrevious;
+            if ( !CanCoalesceNodeWithPrevious )
+              goto LABEL_76;
+            v16 = 1;
+            goto LABEL_35;
+          }
+          v35 = 18;
         }
-        v31 = 18;
+        else
+        {
+          v35 = 15;
+        }
+        v14 = 0;
+        goto LABEL_76;
       }
-      else
-      {
-        v31 = 15;
-      }
-      CanCoalesceNodeWithPrevious = 0;
-      goto LABEL_73;
-    }
-    if ( !(unsigned int)CTouchProcessor::CanCoalesceIgnoreNode(this, v32, v14, (enum CPointerCoalesce *)&v31) )
-    {
-      if ( v31 != 3 && v31 != 20 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15389);
-      CanCoalesceNodeWithPrevious = 0;
-      goto LABEL_73;
+      if ( !(unsigned int)CTouchProcessor::CanCoalesceIgnoreNode(this, v36, v15, (enum CPointerCoalesce *)&v35) )
+        break;
     }
 LABEL_35:
-    v12 = *((_DWORD *)a2 + 12);
+    v13 = *((unsigned int *)a2 + 12);
     ++v4;
-    v14 = (const struct CPointerInfoNode *)((char *)v14 + 480);
+    v15 = (const struct CPointerInfoNode *)((char *)v15 + 480);
+    if ( v4 >= (unsigned int)v13 )
+      goto LABEL_44;
   }
-  while ( v4 < v12 );
-  if ( !v15 )
-    goto LABEL_71;
-  v19 = *((_DWORD *)a3 + 34);
-  if ( v19 != *(_DWORD *)(*((_QWORD *)a3 + 19) + 136LL) )
+  if ( v35 != 3 && v35 != 20 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14727);
+  v14 = 0;
+  CanCoalesceNodeWithPrevious = 0;
+LABEL_44:
+  if ( v14 )
   {
-    v31 = 17;
-    goto LABEL_72;
-  }
-  if ( *(_DWORD *)(v11 + 4) > v19 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15472);
-  if ( v31 != 1 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15473);
-  EtwTraceBeginPointerFrameCoalesce(*((unsigned int *)a2 + 10), *((_DWORD *)a2 + 12), 1LL);
-  v20 = *((_DWORD *)a2 + 12);
-  v21 = 0;
-  v22 = *((_QWORD *)a2 + 30);
-  if ( v20 )
-  {
-    v28 = CanCoalesceNodeWithPrevious;
-    v23 = 0;
-    do
+    if ( !v16 )
     {
-      if ( v22 >= *((_QWORD *)a2 + 30) + 480 * (unsigned __int64)v20 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15483);
-      if ( *(_DWORD *)(v22 + 8) == *(_DWORD *)a3
-        && (*(_DWORD *)v22 & 0x2000) == 0
-        && !(unsigned int)CPointerInfoNode::IsFullyReleased((CPointerInfoNode *)v22) )
-      {
-        if ( v23 > v21 )
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15502);
-        if ( v23 >= *(_DWORD *)(v11 + 4) )
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15503);
-        v29 = *(struct tagQ **)(*(_QWORD *)(v11 + 8) + 16LL * v23);
-        v24 = *(_QWORD *)(*(_QWORD *)(v11 + 8) + 16LL * v23 + 8);
-        if ( *(_QWORD *)(v22 + 16) != *(_QWORD *)(v24 + 40) )
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15506);
-        CTouchProcessor::CoalesceNodeWithPrevious(this, a2, v32, (struct CPointerInfoNode *)v22, v21, 1);
-        if ( *(_QWORD *)(v22 + 16) == *(_QWORD *)(v24 + 40) )
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 15514);
-        InputTraceLogging::Delivery::CoalesceMessage(*(const struct tagQMSG **)(v24 + 8));
-        *(_QWORD *)(*(_QWORD *)(v24 + 8) + 136LL) = *(_QWORD *)(v24 + 136);
-        v25 = v29;
-        if ( *((_QWORD *)v29 + 11) == v24 )
-        {
-          *((_QWORD *)v29 + 11) = 0LL;
-          v25 = v29;
-        }
-        ApiSetEditionDelQEntry((__int64)v25 + 24, v24);
-        ++v23;
-      }
-      v20 = *((_DWORD *)a2 + 12);
-      ++v21;
-      v22 += 480LL;
+LABEL_46:
+      v35 = 19;
+      v14 = 0;
+      CanCoalesceNodeWithPrevious = 0;
     }
-    while ( v21 < v20 );
-    CanCoalesceNodeWithPrevious = v28;
+    if ( v14 )
+    {
+      v22 = *((_DWORD *)a3 + 34);
+      if ( v22 != *(_DWORD *)(*((_QWORD *)a3 + 19) + 136LL) )
+      {
+        v14 = 0;
+        v35 = 17;
+        CanCoalesceNodeWithPrevious = 0;
+      }
+      if ( v14 )
+      {
+        if ( *(_DWORD *)(v12 + 4) > v22 )
+          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14810);
+        if ( v35 != 1 )
+          MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14811);
+        EtwTraceBeginPointerFrameCoalesce(*((_DWORD *)a2 + 10), *((_DWORD *)a2 + 12), 1);
+        v23 = *((_DWORD *)a2 + 12);
+        v24 = 0;
+        v25 = *((_QWORD *)a2 + 17);
+        if ( v23 )
+        {
+          v26 = 0;
+          do
+          {
+            if ( v25 >= *((_QWORD *)a2 + 17) + 480 * (unsigned __int64)v23 )
+              MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14821);
+            if ( *(_DWORD *)(v25 + 8) == *(_DWORD *)a3
+              && (*(_DWORD *)v25 & 0x2000) == 0
+              && !(unsigned int)CPointerInfoNode::IsFullyReleased((CPointerInfoNode *)v25) )
+            {
+              if ( v26 > v24 )
+                MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14840);
+              if ( v26 >= *(_DWORD *)(v12 + 4) )
+                MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14841);
+              v33 = *(struct tagQ **)(*(_QWORD *)(v12 + 8) + 16LL * v26);
+              v27 = *(_QWORD *)(*(_QWORD *)(v12 + 8) + 16LL * v26 + 8);
+              if ( *(_QWORD *)(v25 + 16) != *(_QWORD *)(v27 + 40) )
+                MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14844);
+              CTouchProcessor::CoalesceNodeWithPrevious(this, a2, v36, (struct CPointerInfoNode *)v25, v24, 1);
+              if ( *(_QWORD *)(v25 + 16) == *(_QWORD *)(v27 + 40) )
+                MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 14852);
+              InputTraceLogging::Delivery::CoalesceMessage((const struct tagQMSG *)v27, v28);
+              v29 = v33;
+              if ( *((_QWORD *)v33 + 10) == v27 )
+              {
+                *((_QWORD *)v33 + 10) = 0LL;
+                v29 = v33;
+              }
+              ApiSetEditionDelQEntry((__int64)v29 + 24, v27);
+              ++v26;
+            }
+            v23 = *((_DWORD *)a2 + 12);
+            ++v24;
+            v25 += 480LL;
+          }
+          while ( v24 < v23 );
+          v14 = CanCoalesceNodeWithPrevious;
+        }
+        EtwTraceEndPointerFrameCoalesce(*((_DWORD *)a2 + 10), v23, 1);
+      }
+    }
   }
-  EtwTraceEndPointerFrameCoalesce(*((unsigned int *)a2 + 10), v20, 1LL);
-LABEL_73:
-  v26 = v31;
-  v27 = *((_DWORD *)a3 + 35) & 0xFFFFFFF9 | (2
-                                           * ((2 * (CanCoalesceNodeWithPrevious & 1)) | CanCoalesceNodeWithPrevious & 1));
-  *((_DWORD *)a3 + 35) = v27;
-  CTouchProcessor::TrackCoalesceOnReassign(v27, a3, v26);
-  return (struct tagCPointerCoalesceInfo *)CanCoalesceNodeWithPrevious;
+LABEL_76:
+  v30 = v35;
+  v31 = *((_DWORD *)a3 + 35) & 0xFFFFFFF9 | (2 * ((2 * (v14 & 1)) | v14 & 1));
+  *((_DWORD *)a3 + 35) = v31;
+  CTouchProcessor::TrackCoalesceOnReassign(v31, a3, v30);
+  return (struct tagCPointerCoalesceInfo *)v14;
 }

@@ -1,54 +1,63 @@
 /*
- * XREFs of ?AlignRectFToPointAndSizeL@@YAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUMilPointAndSizeL@@@Z @ 0x180273680
+ * XREFs of ?AlignRectFToPointAndSizeL@@YAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUMilPointAndSizeL@@@Z @ 0x180211F54
  * Callers:
- *     ?ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z @ 0x1801D34FC (-ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z.c)
- *     ?PushColorTransformLayer@CDrawingContext@@QEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAVCColorTransformResource@@@Z @ 0x1801D6620 (-PushColorTransformLayer@CDrawingContext@@QEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
- *     ?Draw@CGenericInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18022D2B8 (-Draw@CGenericInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z @ 0x180174770 (-ComputeExternalLayerOffsetAndBounds@CDrawingContext@@AEBAJPEAUMilPointAndSizeL@@@Z.c)
+ *     ?PushColorTransformLayer@CDrawingContext@@QEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV?$TValueResource@UMilColorTransform@@UtagMILCMD_COLORTRANSFORMRESOURCE@@$0BI@@@@Z @ 0x180177C9C (-PushColorTransformLayer@CDrawingContext@@QEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
+ *     ?Draw@CGenericInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801C25A8 (-Draw@CGenericInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  * Callees:
- *     ?PixelAlign@@YAHMW4Enum@PixelAlignMode@@@Z @ 0x180014134 (-PixelAlign@@YAHMW4Enum@PixelAlignMode@@@Z.c)
- *     ?IsWellOrdered@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x180048E20 (-IsWellOrdered@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PixelAlign@@YAHMW4Enum@PixelAlignMode@@@Z @ 0x180077744 (-PixelAlign@@YAHMW4Enum@PixelAlignMode@@@Z.c)
+ *     ?IsWellOrdered@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x1800C97B4 (-IsWellOrdered@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
  */
 
-__int64 __fastcall AlignRectFToPointAndSizeL(float *a1, _DWORD *a2)
+__int64 __fastcall AlignRectFToPointAndSizeL(float *a1)
 {
-  unsigned int v4; // ebp
-  float *v5; // rcx
-  float v6; // xmm0_4
-  float v7; // xmm6_4
-  int v8; // eax
-  int v9; // ebx
-  int v10; // eax
+  unsigned int v1; // ebx
+  float *v2; // rcx
+  float v3; // xmm0_4
+  float v4; // xmm4_4
+  int v5; // eax
+  _DWORD *v6; // r11
+  int v7; // edx
+  float v8; // xmm4_4
+  int v9; // eax
+  __int64 v10; // r10
   float v11; // xmm0_4
-  int v12; // edi
+  __int64 v12; // r11
   int v13; // eax
-  float v14; // xmm0_4
+  __int64 v14; // r10
+  float v15; // xmm0_4
+  int v16; // r8d
+  __int64 v17; // r11
+  int v18; // edx
+  int v19; // eax
+  int v20; // r9d
+  __int64 v21; // r11
 
-  v4 = 0;
+  v1 = 0;
   if ( TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsWellOrdered(a1)
-    && (v6 = *v5, *v5 >= -2147483600.0)
-    && v6 <= 2147483600.0
-    && (v7 = v5[1], v7 >= -2147483600.0)
-    && v7 <= 2147483600.0
-    && v5[2] <= 2147483600.0
-    && v5[3] <= 2147483600.0 )
+    && (v3 = *v2, *v2 >= -2147483600.0)
+    && v3 <= 2147483600.0
+    && (v4 = v2[1], v4 >= -2147483600.0)
+    && v4 <= 2147483600.0
+    && v2[2] <= 2147483600.0
+    && v2[3] <= 2147483600.0 )
   {
-    v8 = PixelAlign(v6, 0);
-    *a2 = v8;
-    v9 = v8;
-    v10 = PixelAlign(v7, 0);
-    v11 = a1[2];
-    v12 = v10;
-    a2[1] = v10;
+    v5 = PixelAlign(v3, 0);
+    *v6 = v5;
+    v9 = PixelAlign(v8, v7);
+    v11 = *(float *)(v10 + 8);
+    *(_DWORD *)(v12 + 4) = v9;
     v13 = PixelAlign(v11, 1);
-    v14 = a1[3];
-    a2[2] = v13 - v9;
-    a2[3] = PixelAlign(v14, 1) - v12;
+    v15 = *(float *)(v14 + 12);
+    *(_DWORD *)(v17 + 8) = v13 - v16;
+    v19 = PixelAlign(v15, v18);
+    *(_DWORD *)(v21 + 12) = v19 - v20;
   }
   else
   {
-    v4 = -2003304438;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v5, 0LL, 0, -2003304438, 0xE2u, 0LL);
+    v1 = -2003304438;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v2, 0LL, 0, -2003304438, 0xE2u, 0LL);
   }
-  return v4;
+  return v1;
 }

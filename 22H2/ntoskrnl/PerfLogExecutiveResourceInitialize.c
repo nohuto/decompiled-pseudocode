@@ -1,33 +1,33 @@
 /*
- * XREFs of PerfLogExecutiveResourceInitialize @ 0x14060083C
+ * XREFs of PerfLogExecutiveResourceInitialize @ 0x1405AADE0
  * Callers:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     ExReinitializeResourceLite @ 0x1403187C0 (ExReinitializeResourceLite.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
+ *     ExReinitializeResourceLite @ 0x140277FA0 (ExReinitializeResourceLite.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall PerfLogExecutiveResourceInitialize(int a1, __int64 a2, int a3, int a4)
+void __fastcall PerfLogExecutiveResourceInitialize(int a1, __int64 a2, int a3, int a4)
 {
   struct _KPRCB *CurrentPrcb; // rax
-  _QWORD v6[3]; // [rsp+30h] [rbp-50h] BYREF
-  int v7; // [rsp+48h] [rbp-38h]
+  _QWORD v5[3]; // [rsp+30h] [rbp-50h] BYREF
+  int v6; // [rsp+48h] [rbp-38h]
   unsigned int CurrentRunTime; // [rsp+4Ch] [rbp-34h]
-  __int64 v9; // [rsp+50h] [rbp-30h]
-  int v10; // [rsp+58h] [rbp-28h]
-  int v11; // [rsp+5Ch] [rbp-24h]
-  _QWORD v12[2]; // [rsp+60h] [rbp-20h] BYREF
+  __int64 v8; // [rsp+50h] [rbp-30h]
+  int v9; // [rsp+58h] [rbp-28h]
+  int v10; // [rsp+5Ch] [rbp-24h]
+  _QWORD v11[2]; // [rsp+60h] [rbp-20h] BYREF
 
   CurrentPrcb = KeGetCurrentPrcb();
   ++CurrentPrcb->SynchCounters.ExEtwSynchTrackingNotificationsCount;
-  v10 = a1;
-  v9 = a2;
-  v7 = a3;
-  v11 = a4;
-  memset(v6, 0, sizeof(v6));
-  v12[1] = 48LL;
+  v9 = a1;
+  v8 = a2;
+  v6 = a3;
+  v10 = a4;
+  memset(v5, 0, sizeof(v5));
+  v11[1] = 48LL;
   CurrentRunTime = KeGetCurrentThread()[1].CurrentRunTime;
-  v12[0] = v6;
-  return EtwTraceKernelEvent((int)v12, 1, 0x20020000u, 1323, 22026242);
+  v11[0] = v5;
+  EtwTraceKernelEvent((__int64)v11, 1u, 0x20020000u, 0x52Bu, 0x1501802u);
 }

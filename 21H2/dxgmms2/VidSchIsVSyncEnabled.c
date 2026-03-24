@@ -1,107 +1,104 @@
 /*
- * XREFs of VidSchIsVSyncEnabled @ 0x1C00A3970
+ * XREFs of VidSchIsVSyncEnabled @ 0x1C007BBA0
  * Callers:
- *     VidSchiSendToExecutionQueue @ 0x1C0007350 (VidSchiSendToExecutionQueue.c)
- *     VidSchiSubmitMmIoFlipCommand @ 0x1C0015200 (VidSchiSubmitMmIoFlipCommand.c)
- *     ?VidSchiSubmitDisablePlanesFlip@@YAJPEAU_VIDSCH_DEVICE@@I@Z @ 0x1C001B5B8 (-VidSchiSubmitDisablePlanesFlip@@YAJPEAU_VIDSCH_DEVICE@@I@Z.c)
- *     VidSchiRedirectedFlipWaitOnSyncObject @ 0x1C00394DC (VidSchiRedirectedFlipWaitOnSyncObject.c)
- *     VidSchiEnsureVSyncEnabled @ 0x1C00972B0 (VidSchiEnsureVSyncEnabled.c)
+ *     VidSchiSubmitMmIoFlipCommand @ 0x1C0002F90 (VidSchiSubmitMmIoFlipCommand.c)
+ *     VidSchiSendToExecutionQueue @ 0x1C0008AF0 (VidSchiSendToExecutionQueue.c)
+ *     ?VidSchiSubmitDisablePlanesFlip@@YAJPEAU_VIDSCH_DEVICE@@I@Z @ 0x1C002C210 (-VidSchiSubmitDisablePlanesFlip@@YAJPEAU_VIDSCH_DEVICE@@I@Z.c)
+ *     VidSchiRedirectedFlipWaitOnSyncObject @ 0x1C00308E0 (VidSchiRedirectedFlipWaitOnSyncObject.c)
+ *     VidSchiEnsureVSyncEnabled @ 0x1C0080630 (VidSchiEnsureVSyncEnabled.c)
  * Callees:
- *     VidSchiSetVSyncSuspended @ 0x1C00151D8 (VidSchiSetVSyncSuspended.c)
- *     VidSchiGetVSyncSuspended @ 0x1C0015F1C (VidSchiGetVSyncSuspended.c)
- *     DxgkLogInternalTriageEvent @ 0x1C001CE40 (DxgkLogInternalTriageEvent.c)
- *     VidSchiControlVSync @ 0x1C00A3788 (VidSchiControlVSync.c)
+ *     VidSchiSetVSyncSuspended @ 0x1C0002784 (VidSchiSetVSyncSuspended.c)
+ *     VidSchiGetVSyncSuspended @ 0x1C0002EF4 (VidSchiGetVSyncSuspended.c)
+ *     VidSchiControlVSync @ 0x1C007B390 (VidSchiControlVSync.c)
  */
 
-char __fastcall VidSchIsVSyncEnabled(struct _VIDSCH_GLOBAL *a1, unsigned int a2)
+char __fastcall VidSchIsVSyncEnabled(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v2; // rdi
-  char v4; // si
-  int v5; // eax
-  struct _ERESOURCE *v6; // rcx
+  __int64 v3; // rdi
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  char v8; // si
+  int v9; // eax
+  char v10; // r14
+  __int64 v11; // rcx
   char VSyncSuspended; // r14
-  char v8; // al
-  char v10; // cl
-  enum _DXGK_INTERRUPT_TYPE v11; // edx
-  unsigned int v12; // r9d
-  __int64 v13; // rcx
-  __int64 v14; // rcx
-  __int64 v15; // rcx
+  char v13; // al
+  char v15; // al
+  __int64 v16; // rdx
+  unsigned int v17; // r9d
+  __int64 v18; // rax
+  __int64 v19; // rax
 
-  v2 = a2;
-  if ( a1 )
+  v3 = (unsigned int)a2;
+  if ( !a1 )
   {
-    if ( a2 >= *((_DWORD *)a1 + 10) )
-    {
-      WdLogSingleEntry1(1LL, a2);
-      DxgkLogInternalTriageEvent(v14, 0x40000LL);
-      return 0;
-    }
-    else
-    {
-      ExAcquireResourceExclusiveLite((PERESOURCE)((char *)a1 + 1088), 1u);
-      v4 = 0;
-      if ( (unsigned int)v2 >= *((_DWORD *)a1 + 10) )
-      {
-        WdLogSingleEntry1(1LL, v2);
-        DxgkLogInternalTriageEvent(v15, 0x40000LL);
-      }
-      else
-      {
-        ExAcquireResourceExclusiveLite((PERESOURCE)((char *)a1 + 1088), 1u);
-        v5 = *((_DWORD *)a1 + 552);
-        v6 = (struct _ERESOURCE *)((char *)a1 + 1088);
-        if ( _bittest(&v5, v2) )
-        {
-          ExReleaseResourceLite(v6);
-          VSyncSuspended = VidSchiGetVSyncSuspended((__int64)a1, v2);
-          if ( VSyncSuspended )
-          {
-            v10 = *((_BYTE *)a1 + 2212);
-            if ( v10 )
-              v11 = *((_DWORD *)a1 + v2 + 456);
-            else
-              v11 = *((_DWORD *)a1 + 456);
-            if ( v11 )
-            {
-              if ( v10 )
-                v12 = v2;
-              else
-                v12 = -3;
-              LOBYTE(v11) = 1;
-              VidSchiControlVSync(a1, v11, 65539LL, v12);
-            }
-            else
-            {
-              VidSchiSetVSyncSuspended((__int64)a1, v2, 0);
-            }
-          }
-          v8 = *((_BYTE *)a1 + 2212);
-          if ( v8 )
-            v4 = *((_BYTE *)a1 + v2 + 1808);
-          else
-            v4 = *((_BYTE *)a1 + 1808);
-          if ( v4 && !VSyncSuspended )
-          {
-            if ( v8 )
-              _InterlockedExchange((volatile __int32 *)a1 + v2 + 568, 1);
-            else
-              _InterlockedExchange((volatile __int32 *)a1 + 568, 1);
-          }
-        }
-        else
-        {
-          ExReleaseResourceLite(v6);
-        }
-      }
-      ExReleaseResourceLite((PERESOURCE)((char *)a1 + 1088));
-      return v4;
-    }
+    v18 = WdLogNewEntry5_WdAssertion(0LL, a2, a3);
+LABEL_26:
+    WdLogEvent5_WdAssertion(v18);
+    return 0;
+  }
+  if ( (unsigned int)a2 >= *(_DWORD *)(a1 + 40) )
+  {
+    v18 = WdLogNewEntry5_WdAssertion(a1, a2, a3);
+    *(_QWORD *)(v18 + 24) = v3;
+    goto LABEL_26;
+  }
+  ExAcquireResourceExclusiveLite((PERESOURCE)(a1 + 1072), 1u);
+  v8 = 0;
+  if ( (unsigned int)v3 >= *(_DWORD *)(a1 + 40) )
+  {
+    v19 = WdLogNewEntry5_WdAssertion(v6, v5, v7);
+    *(_QWORD *)(v19 + 24) = v3;
+    WdLogEvent5_WdAssertion(v19);
   }
   else
   {
-    WdLogSingleEntry0(1LL);
-    DxgkLogInternalTriageEvent(v13, 0x40000LL);
-    return 0;
+    ExAcquireResourceExclusiveLite((PERESOURCE)(a1 + 1072), 1u);
+    v9 = *(_DWORD *)(a1 + 2128);
+    if ( _bittest(&v9, v3) )
+      v10 = 1;
+    else
+      v10 = 0;
+    ExReleaseResourceLite((PERESOURCE)(a1 + 1072));
+    if ( v10 )
+    {
+      VSyncSuspended = VidSchiGetVSyncSuspended(a1, v3);
+      if ( VSyncSuspended )
+      {
+        v15 = *(_BYTE *)(a1 + 2132);
+        if ( v15 )
+          v16 = *(unsigned int *)(a1 + 4 * v3 + 1808);
+        else
+          v16 = *(unsigned int *)(a1 + 1808);
+        if ( (_DWORD)v16 )
+        {
+          if ( v15 )
+            v17 = v3;
+          else
+            v17 = -3;
+          LOBYTE(v16) = 1;
+          VidSchiControlVSync(v11, v16, 65539LL, v17);
+        }
+        else
+        {
+          VidSchiSetVSyncSuspended(v11, v3, 0);
+        }
+      }
+      v13 = *(_BYTE *)(a1 + 2132);
+      if ( v13 )
+        v8 = *(_BYTE *)(v3 + a1 + 1792);
+      else
+        v8 = *(_BYTE *)(a1 + 1792);
+      if ( v8 && !VSyncSuspended )
+      {
+        if ( v13 )
+          _InterlockedExchange((volatile __int32 *)(a1 + 4 * v3 + 2192), 1);
+        else
+          _InterlockedExchange((volatile __int32 *)(a1 + 2192), 1);
+      }
+    }
   }
+  ExReleaseResourceLite((PERESOURCE)(a1 + 1072));
+  return v8;
 }

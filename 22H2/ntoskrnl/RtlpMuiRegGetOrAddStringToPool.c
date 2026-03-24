@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpMuiRegGetOrAddStringToPool @ 0x140847698
+ * XREFs of RtlpMuiRegGetOrAddStringToPool @ 0x14078EF94
  * Callers:
- *     RtlpMuiRegGetOrAddString @ 0x1408475F8 (RtlpMuiRegGetOrAddString.c)
+ *     RtlpMuiRegGetOrAddString @ 0x14078EEF4 (RtlpMuiRegGetOrAddString.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlpMuiRegGetStringIndexInPool @ 0x14084779C (RtlpMuiRegGetStringIndexInPool.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlpMuiRegGetStringIndexInPool @ 0x14078F098 (RtlpMuiRegGetStringIndexInPool.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetOrAddStringToPool(__int64 a1, _WORD *a2, char a3, _DWORD *a4)

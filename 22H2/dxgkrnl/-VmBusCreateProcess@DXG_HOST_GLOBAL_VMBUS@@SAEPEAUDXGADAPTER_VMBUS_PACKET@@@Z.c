@@ -1,242 +1,192 @@
 /*
- * XREFs of ?VmBusCreateProcess@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037B700
+ * XREFs of ?VmBusCreateProcess@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C023F480
  * Callers:
  *     <none>
  * Callees:
- *     ??0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0004D78 (--0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireReference@DXGPROCESS@@QEAAXXZ @ 0x1C000859C (-AcquireReference@DXGPROCESS@@QEAAXXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000B020 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     Feature_425239864__private_IsEnabledDeviceUsage @ 0x1C0026CD4 (Feature_425239864__private_IsEnabledDeviceUsage.c)
- *     Feature_809279800__private_IsEnabledDeviceUsage @ 0x1C0026D28 (Feature_809279800__private_IsEnabledDeviceUsage.c)
- *     McTemplateK0ppqqpppz_EtwWriteTransfer @ 0x1C0056A34 (McTemplateK0ppqqpppz_EtwWriteTransfer.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_CREATEPROCESS@@@@YAPEAUDXGKVMB_COMMAND_CREATEPROCESS@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005B8F4 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_CREATEPROCESS@@@@YAPEAUDXGKVMB_COMMAND_CREATEPROCESS@@PEA.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     ?CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@@Z @ 0x1C01AA014 (-CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@@Z.c)
- *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C01AB2B4 (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
- *     ?AllocHandle@HMGRTABLE@@QEAAIPEAXW4_HMGRENTRY_TYPE@@IH@Z @ 0x1C01B3D00 (-AllocHandle@HMGRTABLE@@QEAAIPEAXW4_HMGRENTRY_TYPE@@IH@Z.c)
- *     ?IncrementNumVmProcesses@DXGVIRTUALMACHINE@@QEAAJXZ @ 0x1C0344F1C (-IncrementNumVmProcesses@DXGVIRTUALMACHINE@@QEAAJXZ.c)
- *     ?SetVmProcessName@DXGPROCESSVM@@QEAAXPEAG@Z @ 0x1C0346384 (-SetVmProcessName@DXGPROCESSVM@@QEAAXPEAG@Z.c)
+ *     ??0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C00033B0 (--0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003700 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003960 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireReference@DXGPROCESS@@QEAAXXZ @ 0x1C0008660 (-AcquireReference@DXGPROCESS@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     Feature_1279041848__private_IsEnabledDeviceUsage @ 0x1C00266EC (Feature_1279041848__private_IsEnabledDeviceUsage.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_CREATEPROCESS@@@@YAPEAUDXGKVMB_COMMAND_CREATEPROCESS@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C00406FC (--$CastToVmBusCommand@UDXGKVMB_COMMAND_CREATEPROCESS@@@@YAPEAUDXGKVMB_COMMAND_CREATEPROCESS@@PEA.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     ?AllocHandle@HMGRTABLE@@QEAAIPEAXW4_HMGRENTRY_TYPE@@IH@Z @ 0x1C0116660 (-AllocHandle@HMGRTABLE@@QEAAIPEAXW4_HMGRENTRY_TYPE@@IH@Z.c)
+ *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C0123260 (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
+ *     ?CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@PEAX@Z @ 0x1C0125434 (-CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@PEAX@Z.c)
+ *     ?IncrementNumVmProcesses@DXGVIRTUALMACHINE@@QEAAJXZ @ 0x1C0285AB0 (-IncrementNumVmProcesses@DXGVIRTUALMACHINE@@QEAAJXZ.c)
+ *     ?SetVmProcessName@DXGPROCESSVM@@QEAAXPEAG@Z @ 0x1C0286978 (-SetVmProcessName@DXGPROCESSVM@@QEAAXPEAG@Z.c)
  */
 
 unsigned __int8 __fastcall DXG_HOST_GLOBAL_VMBUS::VmBusCreateProcess(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
-  struct DXGADAPTER_VMBUS_PACKET *v1; // rdi
-  __int64 v2; // r15
-  unsigned int v3; // r12d
-  bool v4; // si
-  __int64 v5; // rbx
-  const wchar_t *v6; // r9
-  char v7; // cl
-  __int64 v8; // r14
-  unsigned int v9; // eax
-  bool v10; // bl
-  int v11; // eax
-  DXGPROCESSVM *v12; // rdi
-  __int64 v13; // rax
-  _QWORD *v14; // r13
-  unsigned int v15; // esi
-  int v16; // edx
-  char v17; // al
-  DXGFASTMUTEX *v18; // rbx
-  __int64 v19; // r8
-  __int64 v20; // rbx
-  struct VMBPACKETCOMPLETION__ *v21; // rcx
-  int v23; // [rsp+6Ch] [rbp-35h] BYREF
-  DXGPROCESSVM *v24; // [rsp+70h] [rbp-31h] BYREF
-  struct DXGADAPTER_VMBUS_PACKET *v25; // [rsp+78h] [rbp-29h]
-  _BYTE v26[24]; // [rsp+80h] [rbp-21h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+98h] [rbp-9h] BYREF
+  __int64 v2; // rax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r15
+  unsigned int v6; // r14d
+  bool v7; // di
+  __int64 v8; // rsi
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  int v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rbx
+  DXGPROCESSVM *v16; // rbx
+  __int64 *v17; // r12
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  unsigned int v21; // edi
+  int v22; // edx
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  char v25; // al
+  DXGFASTMUTEX *v26; // rbx
+  __int64 v27; // rdx
+  __int64 v28; // rdx
+  __int64 v29; // rdx
+  __int64 v30; // rax
+  __int64 v31; // rax
+  struct VMBPACKETCOMPLETION__ *v32; // rcx
+  int v34; // [rsp+38h] [rbp-29h] BYREF
+  DXGPROCESSVM *v35; // [rsp+40h] [rbp-21h] BYREF
+  _BYTE v36[24]; // [rsp+48h] [rbp-19h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+60h] [rbp-1h] BYREF
 
-  v1 = a1;
-  v25 = a1;
   v2 = CastToVmBusCommand<DXGKVMB_COMMAND_CREATEPROCESS>((__int64)a1);
+  v5 = v2;
   if ( !v2 )
     return 0;
-  v24 = 0LL;
-  v3 = 0;
-  v4 = 0;
-  if ( (unsigned int)Feature_425239864__private_IsEnabledDeviceUsage() && (*(_BYTE *)(v2 + 562) & 0x10) != 0 )
+  LOBYTE(v4) = *(_BYTE *)(v2 + 562);
+  v6 = 0;
+  v35 = 0LL;
+  v7 = 0;
+  if ( (v4 & 3) == 3 || v4 & 1 | ((v4 & 2) != 0) && (v4 & 4) != 0 )
   {
-    v5 = 7178LL;
-    WdLogSingleEntry1(2LL, 7178LL);
-    v6 = L"Invalid process flag, bWslProcess is not supported";
-LABEL_51:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v6, v5, 0LL, 0LL, 0LL, 0LL);
-    return 0;
+    v9 = WdLogNewEntry5_WdError(v4, v3);
+    *(_QWORD *)(v9 + 24) = 6126LL;
+    goto LABEL_41;
   }
-  v7 = *(_BYTE *)(v2 + 562);
-  if ( (v7 & 3) == 3 || v7 & 1 | ((v7 & 2) != 0) && (v7 & 4) != 0 )
+  v8 = *((_QWORD *)a1 + 7);
+  if ( *(_DWORD *)(*(_QWORD *)(v8 + 496) + 352LL) >= 0x1Bu )
   {
-    v5 = 7186LL;
-    WdLogSingleEntry1(2LL, 7186LL);
-    v6 = L"Invalid process flags";
-    goto LABEL_51;
+    v7 = (v4 & 8) != 0;
+    if ( (v4 & 8) != 0 && (v4 & 7) != 0 )
+    {
+      v9 = WdLogNewEntry5_WdError(v4, v3);
+      *(_QWORD *)(v9 + 24) = 6136LL;
+LABEL_41:
+      WdLogEvent5_WdError(v9);
+      return 0;
+    }
   }
-  v8 = *((_QWORD *)v1 + 12);
-  v9 = *(_DWORD *)(*(_QWORD *)(v8 + 608) + 392LL);
-  if ( v9 < 0x1F )
+  if ( (int)DXGVIRTUALMACHINE::IncrementNumVmProcesses(*(DXGVIRTUALMACHINE **)(v8 + 496)) < 0 )
   {
-    v10 = 0;
-    if ( v9 < 0x1B )
-      goto LABEL_15;
-  }
-  else
-  {
-    v10 = (v7 & 0x10) != 0;
-  }
-  v4 = (v7 & 8) != 0;
-  if ( ((v7 & 8) != 0 || v10) && (v7 & 7) != 0 )
-  {
-    v5 = 7205LL;
-    WdLogSingleEntry1(2LL, 7205LL);
-    v6 = L"Invalid process Linux/WSL flags";
-    goto LABEL_51;
-  }
-LABEL_15:
-  if ( (int)DXGVIRTUALMACHINE::IncrementNumVmProcesses(*(DXGVIRTUALMACHINE **)(v8 + 608)) < 0 )
-  {
-    v5 = 7213LL;
-    WdLogSingleEntry1(2LL, 7213LL);
-    v6 = L"To  many VM processes created";
-    goto LABEL_51;
+    v9 = WdLogNewEntry5_WdError(v11, v10);
+    *(_QWORD *)(v9 + 24) = 6145LL;
+    goto LABEL_41;
   }
   memset(&ApcState, 0, sizeof(ApcState));
   KeStackAttachProcess(*(PRKPROCESS *)(v8 + 56), &ApcState);
-  v11 = DXGPROCESS::CreateDxgProcess(&v24, (struct DXGPROCESS *)v8, *(struct DXGPROCESS **)(v2 + 24), 0, 0LL);
-  v23 = v11;
-  if ( v11 < 0 )
+  v12 = DXGPROCESS::CreateDxgProcess(
+          &v35,
+          (struct DXGPROCESS *)v8,
+          *(struct DXGPROCESS **)(v5 + 24),
+          0LL,
+          0LL,
+          *(void **)(v5 + 32));
+  v15 = v12;
+  v34 = v12;
+  if ( v12 < 0 )
   {
-    v20 = v11;
-    WdLogSingleEntry1(2LL, v11);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to create VM process: 0x%I64x",
-      v20,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v31 = WdLogNewEntry5_WdError(v14, v13);
+    *(_QWORD *)(v31 + 24) = v15;
+    WdLogEvent5_WdError(v31);
   }
   else
   {
-    v12 = v24;
-    if ( v4 )
-      *((_DWORD *)v24 + 106) |= 0x20u;
-    if ( v10 )
+    v16 = v35;
+    if ( v7 )
+      *((_BYTE *)v35 + 347) |= 4u;
+    DXGHANDLETABLELOCKEXCLUSIVE::DXGHANDLETABLELOCKEXCLUSIVE((DXGHANDLETABLELOCKEXCLUSIVE *)v36, (struct _KTHREAD **)v8);
+    v17 = (__int64 *)(v8 + 240);
+    v6 = HMGRTABLE::AllocHandle((unsigned int *)(v8 + 240), (__int64)v16, 12, 0, 0);
+    if ( !v6 )
     {
-      v13 = *((_QWORD *)v12 + 8);
-      *((_DWORD *)v12 + 106) |= 0x10u;
-      *(_BYTE *)(v13 + 136) = 1;
-    }
-    DXGHANDLETABLELOCKEXCLUSIVE::DXGHANDLETABLELOCKEXCLUSIVE(
-      (DXGHANDLETABLELOCKEXCLUSIVE *)v26,
-      (struct DXGPROCESS *)v8);
-    v14 = (_QWORD *)(v8 + 280);
-    v3 = HMGRTABLE::AllocHandle((unsigned int *)(v8 + 280), (__int64)v12, 12, 0, 0);
-    if ( !v3 )
-    {
-      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v26);
-      WdLogSingleEntry1(2LL, 7242LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to allocate process handle: 0x%I64x",
-        7242LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      DXGPROCESS::DestroyDxgProcess(v12);
-      _InterlockedDecrement(*(volatile signed __int32 **)(v8 + 608));
-      if ( (unsigned int)Feature_809279800__private_IsEnabledDeviceUsage() )
+      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v36);
+      v20 = WdLogNewEntry5_WdError(v19, v18);
+      *(_QWORD *)(v20 + 24) = 6170LL;
+      WdLogEvent5_WdError(v20);
+      DXGPROCESS::DestroyDxgProcess(v16);
+      _InterlockedDecrement(*(volatile signed __int32 **)(v8 + 496));
+      if ( (unsigned int)Feature_1279041848__private_IsEnabledDeviceUsage() )
         KeUnstackDetachProcess(&ApcState);
-      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v26);
+      DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v36);
       return 0;
     }
-    v15 = (v3 >> 6) & 0xFFFFFF;
-    if ( v15 < *(_DWORD *)(v8 + 296) )
+    v21 = (v6 >> 6) & 0xFFFFFF;
+    if ( v21 < *(_DWORD *)(v8 + 256) )
     {
-      v16 = *(_DWORD *)(*v14 + 16LL * v15 + 8);
-      if ( ((v3 >> 25) & 0x60) == (*(_BYTE *)(*v14 + 16LL * v15 + 8) & 0x60) && (v16 & 0x2000) == 0 && (v16 & 0x1F) != 0 )
-        *(_DWORD *)(*v14 + 16 * (((unsigned __int64)v3 >> 6) & 0xFFFFFF) + 8) |= 0x2000u;
+      v22 = *(_DWORD *)(*v17 + 16LL * v21 + 8);
+      if ( ((v6 >> 25) & 0x60) == (*(_BYTE *)(*v17 + 16LL * v21 + 8) & 0x60) && (v22 & 0x2000) == 0 && (v22 & 0x1F) != 0 )
+        *(_DWORD *)(*v17 + 16 * (((unsigned __int64)v6 >> 6) & 0xFFFFFF) + 8) |= 0x2000u;
     }
-    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v26);
-    *((_DWORD *)v12 + 163) = v3;
-    DXGPROCESSVM::SetVmProcessName(v12, (unsigned __int16 *)(v2 + 40));
-    *(_QWORD *)(*((_QWORD *)v12 + 8) + 88LL) = *(_QWORD *)(v2 + 32);
-    v17 = *(_BYTE *)(v2 + 562);
-    if ( (v17 & 2) != 0 )
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v36);
+    *((_DWORD *)v16 + 135) = v6;
+    DXGPROCESSVM::SetVmProcessName(v16, (unsigned __int16 *)(v5 + 40));
+    v25 = *(_BYTE *)(v5 + 562);
+    if ( (v25 & 2) != 0 )
     {
-      *((_DWORD *)v12 + 106) |= 4u;
+      *((_BYTE *)v16 + 346) = 1;
     }
-    else if ( (v17 & 1) != 0 )
+    else if ( (v25 & 1) != 0 )
     {
-      *((_DWORD *)v12 + 106) |= 1u;
+      *((_BYTE *)v16 + 344) = 1;
     }
-    else if ( (v17 & 4) != 0 )
+    else if ( (v25 & 4) != 0 )
     {
-      *((_DWORD *)v12 + 106) |= 8u;
+      *((_BYTE *)v16 + 347) |= 1u;
     }
-    v18 = (struct DXGGLOBAL *)((char *)DXGGLOBAL::GetGlobal() + 368);
-    DXGFASTMUTEX::Acquire(v18);
-    DXGPROCESS::AcquireReference((DXGPROCESS *)v8);
-    DXGFASTMUTEX::Release((struct _KTHREAD **)v18);
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-      McTemplateK0ppqqpppz_EtwWriteTransfer(
-        *((_QWORD *)v12 + 8),
-        &EventCreateDxgProcessVm,
-        v19,
-        v12,
-        *(_QWORD *)(*((_QWORD *)v12 + 8) + 80LL),
-        *((_DWORD *)v12 + 126),
-        *((_DWORD *)v12 + 106),
-        *(_QWORD *)(*((_QWORD *)v12 + 8) + 88LL),
-        *((_QWORD *)v12 + 77),
-        *(_QWORD *)(*((_QWORD *)v12 + 76) + 608LL),
-        v2 + 40);
-    DXGPUSHLOCK::AcquireExclusive((DXGPUSHLOCK *)(v8 + 248));
-    if ( v15 < *(_DWORD *)(v8 + 296)
-      && ((v3 >> 25) & 0x60) == (*(_BYTE *)(*v14 + 16LL * v15 + 8) & 0x60)
-      && (*(_DWORD *)(*v14 + 16LL * v15 + 8) & 0x1F) != 0 )
+    v26 = (struct DXGGLOBAL *)((char *)DXGGLOBAL::GetGlobal(v24, v23) + 320);
+    DXGFASTMUTEX::Acquire(v26);
+    DXGPROCESS::AcquireReference((DXGPROCESS *)v8, v27);
+    DXGFASTMUTEX::Release((struct _KTHREAD **)v26, v28);
+    DXGPUSHLOCK::AcquireExclusive((DXGPUSHLOCK *)(v8 + 208));
+    if ( v21 < *(_DWORD *)(v8 + 256) )
     {
-      if ( (*(_DWORD *)(*v14 + 16LL * ((v3 >> 6) & 0xFFFFFF) + 8) & 0x2000) == 0 )
+      v29 = *v17;
+      if ( ((v6 >> 25) & 0x60) == (*(_BYTE *)(*v17 + 16LL * v21 + 8) & 0x60)
+        && (*(_DWORD *)(*v17 + 16LL * v21 + 8) & 0x1F) != 0 )
       {
-        WdLogSingleEntry1(1LL, 222LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"m_pEntryTable[GetIndex(hObject)].Destroyed",
-          222LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
+        if ( (*(_DWORD *)(v29 + 16LL * ((v6 >> 6) & 0xFFFFFF) + 8) & 0x2000) == 0 )
+        {
+          v30 = WdLogNewEntry5_WdAssertion((v6 >> 25) & 0x60, v29);
+          *(_QWORD *)(v30 + 24) = 222LL;
+          WdLogEvent5_WdAssertion(v30);
+          v29 = *v17;
+        }
+        *(_DWORD *)(v29 + 16LL * ((v6 >> 6) & 0xFFFFFF) + 8) &= ~0x2000u;
       }
-      *(_DWORD *)(*v14 + 16LL * ((v3 >> 6) & 0xFFFFFF) + 8) &= ~0x2000u;
     }
-    *(_QWORD *)(v8 + 256) = 0LL;
-    ExReleasePushLockExclusiveEx(v8 + 248, 0LL);
+    *(_QWORD *)(v8 + 216) = 0LL;
+    ExReleasePushLockExclusiveEx(v8 + 208, 0LL);
     KeLeaveCriticalRegion();
-    v1 = v25;
+    LODWORD(v15) = v34;
   }
   KeUnstackDetachProcess(&ApcState);
-  if ( v23 >= 0 )
+  if ( (int)v15 >= 0 )
   {
-    v21 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)v1 + 16);
-    v23 = v3;
-    VmBusCompletePacket(v21, &v23, 4u);
+    v32 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)a1 + 9);
+    v34 = v6;
+    VmBusCompletePacket(v32, &v34, 4u);
     return 1;
   }
-  _InterlockedDecrement(*(volatile signed __int32 **)(v8 + 608));
+  _InterlockedDecrement(*(volatile signed __int32 **)(v8 + 496));
   return 0;
 }

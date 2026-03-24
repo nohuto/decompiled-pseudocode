@@ -1,13 +1,13 @@
 /*
- * XREFs of ReadRegisterWithIndex8 @ 0x14067D7D0
+ * XREFs of ReadRegisterWithIndex8 @ 0x1405CB850
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ReadRegisterWithIndex8(__int64 a1, unsigned __int8 a2)
 {
-  return ((__int64 (__fastcall *)(_QWORD))off_140C06B10[0])(*(_QWORD *)a1 + a2
-                                                                          * (unsigned int)*(unsigned __int8 *)(a1 + 14));
+  return ((__int64 (__fastcall *)(_QWORD))off_140C053C0)(*(_QWORD *)a1 + a2
+                                                                       * (unsigned int)*(unsigned __int8 *)(a1 + 14));
 }

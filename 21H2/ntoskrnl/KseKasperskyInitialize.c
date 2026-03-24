@@ -1,0 +1,28 @@
+/*
+ * XREFs of KseKasperskyInitialize @ 0x140A687B0
+ * Callers:
+ *     KseInitialize @ 0x140A3C89C (KseInitialize.c)
+ * Callees:
+ *     KsepLogError @ 0x140371F74 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
+ *     KseRegisterShim @ 0x1407BD420 (KseRegisterShim.c)
+ */
+
+void KseKasperskyInitialize()
+{
+  int v0; // eax
+  __int64 v1; // rcx
+  char v2; // al
+
+  v0 = KseRegisterShim((__int64)&KseKasperskyShim, 0LL, 0LL);
+  if ( v0 < 0 )
+  {
+    v1 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+    KsepHistoryErrors[2 * v1 + 1] = v0;
+    v2 = KsepDebugFlag;
+    KsepHistoryErrors[2 * v1] = 983165;
+    if ( (v2 & 2) != 0 )
+      KsepDebugPrint(12LL, "Kaspersky shim: failed to register.\n");
+    KsepLogError(12, "Kaspersky shim: failed to register.\n");
+  }
+}

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetRenderingAdapterLuid@CHolographicManager@@UEAA?AU_LUID@@XZ @ 0x180108870
+ * XREFs of ?GetRenderingAdapterLuid@CHolographicManager@@UEAA?AU_LUID@@XZ @ 0x1800E34E0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ComputeMaximumMessageSize@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@PEAPEBEIIIIPEAI@Z @ 0x1C00A1498
+ * XREFs of ?ComputeMaximumMessageSize@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@PEAPEBEIIIIPEAI@Z @ 0x1C0099634
  * Callers:
- *     CoreUICallComputeMaximumMessageSize @ 0x1C00A1204 (CoreUICallComputeMaximumMessageSize.c)
+ *     CoreUICallComputeMaximumMessageSize @ 0x1C00991C4 (CoreUICallComputeMaximumMessageSize.c)
  * Callees:
- *     ?PrepareMessageWorker@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@GGPEBEPEADHIII@Z @ 0x1C00A1558 (-PrepareMessageWorker@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@GGPEBE.c)
+ *     ?PrepareMessageWorker@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@GGPEBEPEADHIII@Z @ 0x1C00996F4 (-PrepareMessageWorker@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@GGPEBE.c)
  */
 
 __int64 __fastcall CoreMessaging::Calling::SendProcessor::ComputeMaximumMessageSize(

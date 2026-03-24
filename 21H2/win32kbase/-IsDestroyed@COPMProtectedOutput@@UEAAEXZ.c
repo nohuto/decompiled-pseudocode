@@ -1,10 +1,10 @@
 /*
- * XREFs of ?IsDestroyed@COPMProtectedOutput@@UEAAEXZ @ 0x1C00CF9B0
+ * XREFs of ?IsDestroyed@COPMProtectedOutput@@UEAAEXZ @ 0x1C00C0010
  * Callers:
  *     <none>
  * Callees:
- *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C009ABA0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
- *     ?IsDestroyed@CMonitorPDO@OPM@@UEAAEXZ @ 0x1C00CFA10 (-IsDestroyed@CMonitorPDO@OPM@@UEAAEXZ.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00870E0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ?IsDestroyed@CMonitorPDO@OPM@@UEAAEXZ @ 0x1C00C0070 (-IsDestroyed@CMonitorPDO@OPM@@UEAAEXZ.c)
  */
 
 unsigned __int8 __fastcall COPMProtectedOutput::IsDestroyed(COPMProtectedOutput *this)

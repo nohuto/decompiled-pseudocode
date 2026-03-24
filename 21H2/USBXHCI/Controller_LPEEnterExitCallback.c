@@ -1,12 +1,12 @@
 /*
- * XREFs of Controller_LPEEnterExitCallback @ 0x1C0032770
+ * XREFs of Controller_LPEEnterExitCallback @ 0x1C00326F0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_i @ 0x1C00156C4 (WPP_RECORDER_SF_i.c)
- *     Controller_InUseByDebugger @ 0x1C001589C (Controller_InUseByDebugger.c)
- *     Controller_AcquireWdfPowerReferenceForDebugger @ 0x1C0030B80 (Controller_AcquireWdfPowerReferenceForDebugger.c)
- *     Controller_ReleaseWdfPowerReferenceForDebugger @ 0x1C00329F0 (Controller_ReleaseWdfPowerReferenceForDebugger.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     Controller_InUseByDebugger @ 0x1C0015798 (Controller_InUseByDebugger.c)
+ *     Controller_AcquireWdfPowerReferenceForDebugger @ 0x1C00308D0 (Controller_AcquireWdfPowerReferenceForDebugger.c)
+ *     Controller_ReleaseWdfPowerReferenceForDebugger @ 0x1C0032970 (Controller_ReleaseWdfPowerReferenceForDebugger.c)
  */
 
 __int64 __fastcall Controller_LPEEnterExitCallback(
@@ -31,7 +31,7 @@ __int64 __fastcall Controller_LPEEnterExitCallback(
       v4 = -1073741811;
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v7 = 260;
+        v7 = 259;
         v9 = *Context;
 LABEL_19:
         LOBYTE(Value) = 2;
@@ -40,7 +40,7 @@ LABEL_19:
           (_DWORD)Value,
           4,
           v7,
-          (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+          (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
           v9);
       }
     }
@@ -53,8 +53,8 @@ LABEL_19:
           Context[9],
           (_DWORD)Value,
           4,
-          262,
-          (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+          261,
+          (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
           *Context);
       }
       if ( Controller_InUseByDebugger(Context) )
@@ -69,12 +69,12 @@ LABEL_19:
           Context[9],
           (_DWORD)Value,
           4,
-          261,
-          (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids,
+          260,
+          (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
           *Context);
       }
       if ( Controller_InUseByDebugger(Context) )
-        Controller_AcquireWdfPowerReferenceForDebugger(Context);
+        Controller_AcquireWdfPowerReferenceForDebugger((__int64)Context);
     }
   }
   else
@@ -82,7 +82,7 @@ LABEL_19:
     v4 = -1073741811;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v7 = 259;
+      v7 = 258;
       v9 = *Context;
       goto LABEL_19;
     }

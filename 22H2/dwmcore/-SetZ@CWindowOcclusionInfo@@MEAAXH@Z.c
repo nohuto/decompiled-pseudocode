@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetZ@CWindowOcclusionInfo@@MEAAXH@Z @ 0x180107960
+ * XREFs of ?SetZ@CWindowOcclusionInfo@@MEAAXH@Z @ 0x1800E2D40
  * Callers:
  *     <none>
  * Callees:
@@ -8,8 +8,8 @@
 
 void __fastcall CWindowOcclusionInfo::SetZ(CWindowOcclusionInfo *this, int a2)
 {
+  *((_DWORD *)this + 4) = a2;
   *((_DWORD *)this + 8) = a2;
-  *((_DWORD *)this + 12) = a2;
-  *((_DWORD *)this + 11) = a2;
-  *((_DWORD *)this + 10) = a2;
+  *((_DWORD *)this + 7) = a2;
+  *((_DWORD *)this + 6) = a2;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of Crashdump_UsbDevice_ConfigureEndpoints @ 0x1C004DDA0
+ * XREFs of Crashdump_UsbDevice_ConfigureEndpoints @ 0x1C004D31C
  * Callers:
- *     Crashdump_UsbDevice_Configure @ 0x1C004DAE0 (Crashdump_UsbDevice_Configure.c)
+ *     Crashdump_UsbDevice_Configure @ 0x1C004D05C (Crashdump_UsbDevice_Configure.c)
  * Callees:
- *     memset @ 0x1C0019CC0 (memset.c)
- *     Crashdump_Command_SendCommand @ 0x1C004CA30 (Crashdump_Command_SendCommand.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Crashdump_Command_SendCommand @ 0x1C004BFB0 (Crashdump_Command_SendCommand.c)
  */
 
 __int64 __fastcall Crashdump_UsbDevice_ConfigureEndpoints(__int64 *a1)
@@ -47,7 +47,7 @@ __int64 __fastcall Crashdump_UsbDevice_ConfigureEndpoints(__int64 *a1)
       if ( *v4 )
       {
         v8 = i - 1 + 2LL;
-        if ( (*(_DWORD *)(*(_QWORD *)a1[1] + 100LL) & 4) != 0 )
+        if ( (*(_DWORD *)(*(_QWORD *)a1[1] + 104LL) & 4) != 0 )
           v9 = v8 << 6;
         else
           v9 = 32 * v8;
@@ -81,7 +81,7 @@ __int64 __fastcall Crashdump_UsbDevice_ConfigureEndpoints(__int64 *a1)
     }
     ++v4;
   }
-  v15 = -(__int64)((*(_DWORD *)(*(_QWORD *)a1[1] + 100LL) & 4) != 0);
+  v15 = -(__int64)((*(_DWORD *)(*(_QWORD *)a1[1] + 104LL) & 4) != 0);
   v23 = 0;
   v16 = v3 + 32 + (v15 & 0x20);
   v17 = (v5 << 27) | *(_DWORD *)v16 & 0x7FFFFFF;

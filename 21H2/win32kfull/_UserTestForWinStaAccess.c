@@ -1,9 +1,9 @@
 /*
- * XREFs of _UserTestForWinStaAccess @ 0x1C00CFB14
+ * XREFs of _UserTestForWinStaAccess @ 0x1C000FECC
  * Callers:
- *     xxxResolveDesktop @ 0x1C00CF130 (xxxResolveDesktop.c)
+ *     xxxResolveDesktop @ 0x1C000F4F0 (xxxResolveDesktop.c)
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 int __fastcall UserTestForWinStaAccess(PCUNICODE_STRING String1, int a2)
@@ -19,7 +19,6 @@ int __fastcall UserTestForWinStaAccess(PCUNICODE_STRING String1, int a2)
   int v12; // edx
   int v13; // eax
   ULONG v14; // eax
-  __int64 v15; // rdx
   HANDLE TokenHandle; // [rsp+40h] [rbp-30h] BYREF
   PVOID Object; // [rsp+48h] [rbp-28h] BYREF
   HANDLE Handle; // [rsp+50h] [rbp-20h] BYREF
@@ -53,7 +52,7 @@ int __fastcall UserTestForWinStaAccess(PCUNICODE_STRING String1, int a2)
     v8 = ZwQueryInformationToken(TokenHandle, TokenStatistics, 0LL, 0, &TokenInformationLength);
     if ( v8 == -1073741789 )
     {
-      v10 = (_DWORD *)Win32AllocPoolWithQuotaZInit(TokenInformationLength, 1702064981LL);
+      v10 = (_DWORD *)Win32AllocPoolWithQuota(TokenInformationLength, 1702064981LL);
       if ( v10 )
       {
         v8 = ZwQueryInformationToken(TokenHandle, TokenStatistics, v10, TokenInformationLength, &TokenInformationLength);
@@ -95,7 +94,7 @@ int __fastcall UserTestForWinStaAccess(PCUNICODE_STRING String1, int a2)
   if ( v7 < 0 )
   {
     v14 = RtlNtStatusToDosError(v7);
-    UserSetLastError(v14, v15);
+    UserSetLastError(v14);
     return v8;
   }
   v9 = ObOpenObjectByPointer(Object, 0x40u, 0LL, v4, ExWindowStationObjectType, 1, &Handle);

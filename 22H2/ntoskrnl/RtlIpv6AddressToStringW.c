@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIpv6AddressToStringW @ 0x1403A3620
+ * XREFs of RtlIpv6AddressToStringW @ 0x14037DDA0
  * Callers:
- *     RtlIpv6AddressToStringExW @ 0x1403A3540 (RtlIpv6AddressToStringExW.c)
- *     AdtpBuildIPv6Strings @ 0x140A5A834 (AdtpBuildIPv6Strings.c)
+ *     RtlIpv6AddressToStringExW @ 0x14037DCC0 (RtlIpv6AddressToStringExW.c)
+ *     AdtpBuildIPv6Strings @ 0x14096D214 (AdtpBuildIPv6Strings.c)
  * Callees:
- *     swprintf_s @ 0x1403DDD60 (swprintf_s.c)
+ *     swprintf_s @ 0x1403D61F0 (swprintf_s.c)
  */
 
 PWSTR __stdcall RtlIpv6AddressToStringW(const struct in6_addr *Addr, PWSTR S)

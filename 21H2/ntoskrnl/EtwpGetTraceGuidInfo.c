@@ -1,379 +1,312 @@
 /*
- * XREFs of EtwpGetTraceGuidInfo @ 0x14065F10C
+ * XREFs of EtwpGetTraceGuidInfo @ 0x14072E6C8
  * Callers:
- *     NtTraceControl @ 0x1407954F0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     EtwpGetMetaProviderContext @ 0x1402E108C (EtwpGetMetaProviderContext.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     memset @ 0x140435E00 (memset.c)
- *     EtwpMapMetaProviderKeywords @ 0x140461882 (EtwpMapMetaProviderKeywords.c)
- *     EtwpFindGuidEntryByGuid @ 0x1407968D0 (EtwpFindGuidEntryByGuid.c)
- *     EtwpUnreferenceGuidEntry @ 0x140796B04 (EtwpUnreferenceGuidEntry.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140797594 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x1407981E8 (EtwpReleaseLoggerContext.c)
+ *     RtlULongAdd @ 0x140200578 (RtlULongAdd.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     EtwpFindGuidEntryByGuid @ 0x1405EB9B0 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
  */
 
-__int64 __fastcall EtwpGetTraceGuidInfo(__int64 a1, _QWORD *a2, int *a3, unsigned int *a4)
+__int64 __fastcall EtwpGetTraceGuidInfo(__int64 a1, __int64 a2, int *a3, unsigned int *a4)
 {
   size_t v4; // r15
-  int v5; // edi
-  unsigned int v9; // ebx
-  __int64 v10; // rbp
-  unsigned int i; // edx
-  __int64 v12; // r13
+  int v5; // r12d
+  int v6; // ebx
+  __int64 v10; // rdi
+  unsigned int i; // ecx
+  __int64 v12; // r14
   __int64 *v13; // r8
-  __int64 v14; // rcx
-  __int64 (**MetaProviderContext)[2]; // rax
-  __int64 v16; // r8
-  __int64 GuidEntryByGuid; // rbp
-  unsigned int *v18; // r14
-  struct _KTHREAD *v19; // rax
-  __int64 v20; // rdx
-  __int64 *v21; // r8
-  unsigned int v22; // eax
-  _DWORD *v23; // r11
-  char v24; // cl
-  unsigned int v25; // r12d
-  _BYTE *v26; // r10
-  int v27; // r13d
-  char *v28; // r9
-  __int64 *v29; // r14
-  int v30; // ecx
-  int v31; // r12d
-  unsigned int k; // r14d
-  __int64 v34; // r10
-  __int64 v35; // r12
-  unsigned int v36; // eax
-  _DWORD *v37; // rbp
-  unsigned int v38; // r12d
-  unsigned __int8 *v39; // r13
-  unsigned int v40; // ebx
-  __int64 *v41; // rsi
+  _QWORD *GuidEntryByGuid; // r14
+  __int64 v16; // rdx
+  unsigned int v17; // ecx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v43; // rdx
-  __int64 v44; // r8
-  int *v45; // rsi
-  unsigned int v46; // eax
-  unsigned int v47; // eax
-  unsigned int v48; // ecx
-  _DWORD *v49; // rdx
-  unsigned int v50; // r11d
-  _OWORD *v51; // r8
-  int v52; // r10d
-  unsigned int j; // r9d
-  __int64 v54; // rax
-  unsigned int v55; // eax
-  _DWORD *v56; // rdx
-  char *v57; // rcx
-  __int64 v58; // rcx
-  unsigned int v59; // [rsp+20h] [rbp-58h]
-  __int64 v60; // [rsp+28h] [rbp-50h]
-  __int64 v61; // [rsp+80h] [rbp+8h] BYREF
-  int *v62; // [rsp+90h] [rbp+18h]
-  unsigned int *v63; // [rsp+98h] [rbp+20h]
+  _QWORD *v19; // r9
+  unsigned int v20; // edi
+  _DWORD *v21; // r13
+  char v22; // r12
+  __int64 v23; // r9
+  _QWORD *v24; // r11
+  _BYTE *v25; // rcx
+  int v26; // r8d
+  __int64 v27; // rdx
+  __int64 v28; // r10
+  unsigned int j; // r12d
+  __int64 v30; // r11
+  _OWORD *v31; // r10
+  __int64 v32; // rax
+  _OWORD *v33; // r10
+  __int64 v34; // r11
+  _QWORD *v35; // r9
+  int v36; // ecx
+  _DWORD *v37; // r10
+  unsigned int v38; // ecx
+  int v39; // r13d
+  unsigned int k; // r12d
+  __int64 v41; // r9
+  _OWORD *v42; // r11
+  NTSTATUS v43; // eax
+  __int64 v44; // r9
+  __int64 v45; // r10
+  __int64 v46; // r11
+  int v47; // [rsp+20h] [rbp-30h]
+  int v48; // [rsp+24h] [rbp-2Ch]
+  unsigned int v49; // [rsp+28h] [rbp-28h]
+  _BYTE *v50; // [rsp+30h] [rbp-20h]
+  __int64 v51; // [rsp+40h] [rbp-10h]
+  ULONG ulAugend; // [rsp+A0h] [rbp+50h] BYREF
+  unsigned int *v53; // [rsp+A8h] [rbp+58h]
 
-  v63 = a4;
-  v62 = a3;
+  v53 = a4;
   v4 = *a4;
   v5 = 0;
-  LODWORD(v61) = 0;
-  v9 = 8;
+  v6 = 0;
+  ulAugend = 8;
+  v47 = 0;
   if ( a1 == EtwpHostSiloState )
     v10 = 2147353472LL;
   else
-    v10 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1320LL) + 550LL;
+    v10 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1128LL) + 550LL;
   for ( i = 0; i < 0xA; ++i )
   {
     v12 = 2LL * i;
     v13 = (__int64 *)(&EtwpUmglProviders)[2 * i];
-    v14 = *v13 - *a2;
-    if ( *v13 == *a2 )
-      v14 = v13[1] - a2[1];
-    if ( !v14 )
+    if ( *v13 == *(_QWORD *)a2 && v13[1] == *(_QWORD *)(a2 + 8) )
     {
       memset(a3, 0, v4);
-      v58 = LOBYTE((&EtwpUmglProviders)[v12 + 1]);
-      v40 = 24;
-      if ( *(_BYTE *)(v10 + 2 * v58) )
+      v16 = LOBYTE((&EtwpUmglProviders)[v12 + 1]);
+      v17 = 24;
+      if ( *(_BYTE *)(v10 + 2 * v16) )
       {
-        v40 = 56;
-        if ( (unsigned int)v4 < 0x38 )
-          goto LABEL_85;
-        a3[3] = 1;
-        a3[6] = 1;
-        *((_WORD *)a3 + 15) = *(unsigned __int8 *)(v10 + 2 * v58);
-        *((_QWORD *)a3 + 5) = *(unsigned __int8 *)(v10 + 2 * v58 + 1);
+        v17 = 56;
+        if ( (unsigned int)v4 >= 0x38 )
+        {
+          a3[3] = 1;
+          a3[6] = 1;
+          *((_WORD *)a3 + 15) = *(unsigned __int8 *)(v10 + 2 * v16);
+          *((_QWORD *)a3 + 5) = *(unsigned __int8 *)(v10 + 2 * v16 + 1);
+        }
       }
       else
       {
         if ( (unsigned int)v4 < 0x18 )
-          goto LABEL_85;
+          goto LABEL_17;
         a3[3] = 0;
       }
-      *a3 = 1;
-      a3[5] = 1;
-      a3[4] = 0;
-      a3[2] = 0;
-      goto LABEL_86;
+      if ( v17 <= (unsigned int)v4 )
+      {
+        *a3 = 1;
+        a3[5] = 1;
+        a3[4] = 0;
+        a3[2] = 0;
+LABEL_18:
+        *a4 = v17;
+        return (unsigned int)v6;
+      }
+LABEL_17:
+      v6 = -1073741789;
+      goto LABEL_18;
     }
   }
-  MetaProviderContext = EtwpGetMetaProviderContext(a2);
-  if ( MetaProviderContext )
+  GuidEntryByGuid = EtwpFindGuidEntryByGuid(a1, (_DWORD *)a2, 0);
+  if ( !GuidEntryByGuid )
+    return 3221226133LL;
+  memset(a3, 0, *a4);
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)(GuidEntryByGuid + 51), 0LL);
+  v19 = (_QWORD *)GuidEntryByGuid[7];
+  v20 = ulAugend;
+  GuidEntryByGuid[52] = KeGetCurrentThread();
+  if ( v19 != GuidEntryByGuid + 7 )
   {
-    v61 = 0LL;
-    v37 = a3 + 6;
-    v38 = 0;
-    v39 = (unsigned __int8 *)(a1 + 4232);
-    v40 = 24;
-    v41 = (__int64 *)MetaProviderContext;
-    do
+    while ( 1 )
     {
-      CurrentThread = KeGetCurrentThread();
-      --CurrentThread->KernelApcDisable;
-      LOBYTE(v16) = 1;
-      v60 = EtwpAcquireLoggerContextByLoggerId(a1, *v39, v16);
-      if ( v60 )
+      v49 = v20;
+      v21 = (int *)((char *)a3 + v20);
+      v22 = 0;
+      if ( RtlULongAdd(v20, 0x10u, &ulAugend) < 0 )
+        break;
+      v20 = ulAugend;
+      v25 = (_BYTE *)(v23 + 98);
+      ++v47;
+      v26 = 0;
+      v27 = v23;
+      v48 = 0;
+      v50 = (_BYTE *)(v23 + 98);
+      if ( (*(_BYTE *)(v23 + 98) & 8) != 0 )
       {
-        EtwpMapMetaProviderKeywords(v41, 32LL * v38 + a1 + 4284, &v61);
-        v44 = v61;
-        if ( v61 )
+        v22 = 1;
+        if ( (*((_BYTE *)GuidEntryByGuid + 91) & 1) != 0 )
         {
-          ++v5;
-          v40 += 32;
-          if ( v40 <= (unsigned int)v4 )
+          if ( RtlULongAdd(ulAugend, 0x20u, &ulAugend) < 0 )
+            break;
+          v20 = ulAugend;
+          v27 = v23;
+          v26 = 1;
+          v25 = v50;
+          if ( ulAugend <= (unsigned int)v4 )
           {
-            *v37 = 1;
-            *((_QWORD *)v37 + 2) = v44;
-            *((_WORD *)v37 + 3) = *v39;
-            v37 += 8;
+            *(_DWORD *)v28 = 1;
+            *(_BYTE *)(v28 + 4) = *((_BYTE *)GuidEntryByGuid + 90);
+            *(_QWORD *)(v28 + 16) = GuidEntryByGuid[10];
+            *(_WORD *)(v28 + 6) = *((_WORD *)GuidEntryByGuid + 44);
           }
         }
-        LOBYTE(v43) = 1;
-        EtwpReleaseLoggerContext(v60, v43);
       }
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-      ++v38;
-      v39 += 2;
-    }
-    while ( v38 < 8 );
-    v45 = v62;
-    v62[2] = 0;
-    v45[3] = v5;
-    v5 = 0;
-    if ( v40 <= (unsigned int)v4 )
-    {
-      *v45 = 1;
-LABEL_86:
-      *v63 = v40;
-      return (unsigned int)v5;
-    }
-LABEL_85:
-    v5 = -1073741789;
-    goto LABEL_86;
-  }
-  GuidEntryByGuid = EtwpFindGuidEntryByGuid(a1, a2, 0LL);
-  if ( GuidEntryByGuid )
-  {
-    v18 = v63;
-    memset(a3, 0, *v63);
-    v19 = KeGetCurrentThread();
-    --v19->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx(GuidEntryByGuid + 408, 0LL);
-    v20 = GuidEntryByGuid + 56;
-    v21 = *(__int64 **)(GuidEntryByGuid + 56);
-    *(_QWORD *)(GuidEntryByGuid + 416) = KeGetCurrentThread();
-    if ( v21 == (__int64 *)(GuidEntryByGuid + 56) )
-    {
-LABEL_24:
-      *(_QWORD *)(GuidEntryByGuid + 416) = 0LL;
-      ExReleasePushLockEx(GuidEntryByGuid + 408, 0LL);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-      v31 = v61;
-      if ( !(_DWORD)v61 )
+      else if ( *(_BYTE *)(v23 + 100) || *(_BYTE *)(v23 + 101) )
       {
-        v48 = v9 + 16;
-        v49 = (int *)((char *)a3 + v9);
-        v31 = 2;
-        if ( v9 + 16 < v9 )
-          goto LABEL_63;
-        v50 = v9 + 48;
-        v51 = (_OWORD *)((char *)a3 + v48);
-        v52 = 0;
         for ( j = 0; j < 8; ++j )
         {
-          v54 = 32 * (j + 4LL);
-          if ( *(_DWORD *)(v54 + GuidEntryByGuid) )
+          v30 = 4 * (j + 4LL);
+          if ( LODWORD(GuidEntryByGuid[v30]) && ((unsigned __int8)(1 << j) & *(_BYTE *)(v23 + 100)) != 0 )
           {
-            ++v52;
-            if ( v50 < v48 )
-              goto LABEL_63;
-            v48 += 32;
-            v50 += 32;
-            if ( v48 <= (unsigned int)v4 )
+            v48 = v26 + 1;
+            if ( RtlULongAdd(v20, 0x20u, &ulAugend) < 0 )
+              goto LABEL_57;
+            v20 = ulAugend;
+            v26 = v48;
+            if ( ulAugend <= (unsigned int)v4 )
             {
-              *v51 = *(_OWORD *)(v54 + GuidEntryByGuid);
-              v51[1] = *(_OWORD *)(v54 + GuidEntryByGuid + 16);
-              v51 += 2;
+              *v31 = *(_OWORD *)&GuidEntryByGuid[v30];
+              v31[1] = *(_OWORD *)&GuidEntryByGuid[v30 + 2];
             }
           }
-        }
-        if ( v48 <= (unsigned int)v4 )
-        {
-          v49[2] = 0;
-          v49[1] = v52;
-          *v49 = v48 - v9;
-          v49[3] = 2;
-        }
-        v55 = v48 + 16;
-        v56 = (int *)((char *)a3 + v48);
-        if ( v48 + 16 < v48 )
-          goto LABEL_63;
-        v9 = v48 + 48;
-        v57 = (char *)a3 + v55;
-        if ( v55 + 32 < v55 )
-          goto LABEL_63;
-        if ( v9 <= (unsigned int)v4 )
-        {
-          v56[2] = 0;
-          v56[1] = 0;
-          *v56 = 0;
-          v56[3] = 3;
-          *(_DWORD *)v57 = *(_BYTE *)(GuidEntryByGuid + 91) & 1;
-          if ( (*(_BYTE *)(GuidEntryByGuid + 91) & 1) != 0 )
+          v32 = *(_QWORD *)(v23 + 40);
+          v51 = v32;
+          if ( v32 && *(_DWORD *)(v32 + v30 * 8) && ((unsigned __int8)(1 << j) & *(_BYTE *)(v23 + 101)) != 0 )
           {
-            v56[1] = 1;
-            v57[4] = *(_BYTE *)(GuidEntryByGuid + 90);
-            *((_QWORD *)v57 + 2) = *(_QWORD *)(GuidEntryByGuid + 80);
-            *((_WORD *)v57 + 3) = *(_WORD *)(GuidEntryByGuid + 88);
+            v48 = v26 + 1;
+            if ( RtlULongAdd(v20, 0x20u, &ulAugend) < 0 )
+              goto LABEL_57;
+            v20 = ulAugend;
+            if ( ulAugend <= (unsigned int)v4 )
+            {
+              *v33 = *(_OWORD *)(v51 + v34);
+              v33[1] = *(_OWORD *)(v51 + v34 + 16);
+            }
           }
+          v26 = v48;
+        }
+        v25 = v50;
+        v24 = GuidEntryByGuid + 7;
+        v22 = 0;
+        v27 = v23;
+      }
+      v35 = *(_QWORD **)v23;
+      if ( v20 <= (unsigned int)v4 )
+      {
+        if ( v22 == 1 )
+          v21[3] = 1;
+        if ( (*v25 & 2) != 0 )
+          v36 = *(_DWORD *)(*(_QWORD *)(v27 + 80) + 1088LL);
+        else
+          v36 = 0;
+        v21[2] = v36;
+        v21[1] = v26;
+        if ( v35 == v24 )
+        {
+          *v21 = 0;
+LABEL_53:
+          v5 = v47;
+          goto LABEL_54;
+        }
+        *v21 = v20 - v49;
+      }
+      if ( v35 == v24 )
+        goto LABEL_53;
+    }
+LABEL_57:
+    GuidEntryByGuid[52] = 0LL;
+    ExReleasePushLockEx((ULONG_PTR)(GuidEntryByGuid + 51), 0LL);
+    KeLeaveCriticalRegion();
+LABEL_58:
+    v20 = ulAugend;
+    v6 = -2147483643;
+    goto LABEL_59;
+  }
+LABEL_54:
+  GuidEntryByGuid[52] = 0LL;
+  ExReleasePushLockEx((ULONG_PTR)(GuidEntryByGuid + 51), 0LL);
+  KeLeaveCriticalRegion();
+  if ( !v5 )
+  {
+    v5 = 2;
+    v47 = 2;
+    if ( RtlULongAdd(v20, 0x10u, &ulAugend) >= 0 )
+    {
+      v38 = ulAugend;
+      v39 = 0;
+      for ( k = 0; k < 8; ++k )
+      {
+        if ( LODWORD(GuidEntryByGuid[4 * k + 16]) )
+        {
+          ++v39;
+          if ( RtlULongAdd(v38, 0x20u, &ulAugend) < 0 )
+            goto LABEL_58;
+          v38 = ulAugend;
+          if ( ulAugend <= (unsigned int)v4 )
+          {
+            *v42 = *(_OWORD *)((char *)GuidEntryByGuid + v41);
+            v42[1] = *(_OWORD *)((char *)GuidEntryByGuid + v41 + 16);
+          }
+        }
+      }
+      if ( v38 <= (unsigned int)v4 )
+      {
+        v37[2] = 0;
+        v37[1] = v39;
+        *v37 = v38 - v20;
+        v37[3] = 2;
+      }
+      if ( RtlULongAdd(v38, 0x10u, &ulAugend) < 0 )
+        goto LABEL_58;
+      v43 = RtlULongAdd(ulAugend, 0x20u, &ulAugend);
+      v20 = ulAugend;
+      if ( v43 < 0 )
+      {
+        v6 = -2147483643;
+        goto LABEL_59;
+      }
+      if ( ulAugend > (unsigned int)v4 )
+      {
+LABEL_59:
+        v5 = v47;
+      }
+      else
+      {
+        *(_QWORD *)(v44 + 4) = v46;
+        *(_DWORD *)v44 = v46;
+        *(_DWORD *)(v44 + 12) = 3;
+        *(_DWORD *)v45 = *((_BYTE *)GuidEntryByGuid + 91) & 1;
+        v5 = 2;
+        if ( (*((_BYTE *)GuidEntryByGuid + 91) & 1) != 0 )
+        {
+          *(_DWORD *)(v44 + 4) = 1;
+          *(_BYTE *)(v45 + 4) = *((_BYTE *)GuidEntryByGuid + 90);
+          *(_QWORD *)(v45 + 16) = GuidEntryByGuid[10];
+          *(_WORD *)(v45 + 6) = *((_WORD *)GuidEntryByGuid + 44);
         }
       }
     }
     else
     {
-      while ( 1 )
-      {
-        v22 = v9 + 16;
-        v23 = (int *)((char *)a3 + v9);
-        v59 = v9;
-        v24 = 0;
-        v25 = v9;
-        if ( v9 + 16 < v9 )
-          break;
-        LODWORD(v61) = v61 + 1;
-        v26 = (char *)v21 + 98;
-        v27 = 0;
-        v28 = (char *)a3 + v22;
-        v9 += 16;
-        v29 = v21;
-        if ( (*((_BYTE *)v21 + 98) & 8) != 0 )
-        {
-          v24 = 1;
-          if ( (*(_BYTE *)(GuidEntryByGuid + 91) & 1) != 0 )
-          {
-            v46 = v22 + 32;
-            v27 = 1;
-            if ( v46 < v9 )
-              break;
-            v9 = v46;
-            if ( v46 <= (unsigned int)v4 )
-            {
-              *(_DWORD *)v28 = 1;
-              v28[4] = *(_BYTE *)(GuidEntryByGuid + 90);
-              *((_QWORD *)v28 + 2) = *(_QWORD *)(GuidEntryByGuid + 80);
-              *((_WORD *)v28 + 3) = *(_WORD *)(GuidEntryByGuid + 88);
-            }
-          }
-        }
-        else if ( *((_BYTE *)v21 + 100) || *((_BYTE *)v21 + 101) )
-        {
-          for ( k = 0; k < 8; ++k )
-          {
-            v34 = 32 * (k + 4LL);
-            if ( *(_DWORD *)(v34 + GuidEntryByGuid) && ((unsigned __int8)(1 << k) & *((_BYTE *)v21 + 100)) != 0 )
-            {
-              ++v27;
-              v47 = v9 + 32;
-              if ( v9 + 32 < v9 )
-                goto LABEL_62;
-              v9 += 32;
-              if ( v47 <= (unsigned int)v4 )
-              {
-                *(_OWORD *)v28 = *(_OWORD *)(v34 + GuidEntryByGuid);
-                *((_OWORD *)v28 + 1) = *(_OWORD *)(v34 + GuidEntryByGuid + 16);
-                v28 += 32;
-              }
-            }
-            v35 = v21[5];
-            if ( v35 && *(_DWORD *)(v35 + v34) && ((unsigned __int8)(1 << k) & *((_BYTE *)v21 + 101)) != 0 )
-            {
-              ++v27;
-              v36 = v9 + 32;
-              if ( v9 + 32 < v9 )
-                goto LABEL_62;
-              v9 += 32;
-              if ( v36 <= (unsigned int)v4 )
-              {
-                *(_OWORD *)v28 = *(_OWORD *)(v35 + v34);
-                *((_OWORD *)v28 + 1) = *(_OWORD *)(v35 + v34 + 16);
-                v28 += 32;
-              }
-            }
-          }
-          v26 = (char *)v21 + 98;
-          v20 = GuidEntryByGuid + 56;
-          v25 = v59;
-          v24 = 0;
-          v29 = v21;
-        }
-        v21 = (__int64 *)*v21;
-        if ( v9 > (unsigned int)v4 )
-        {
-          if ( v21 == (__int64 *)v20 )
-            goto LABEL_23;
-        }
-        else
-        {
-          if ( v24 )
-            v23[3] = 1;
-          if ( (*v26 & 2) != 0 )
-            v30 = *(_DWORD *)(v29[10] + 1088);
-          else
-            v30 = 0;
-          v23[2] = v30;
-          v23[1] = v27;
-          if ( v21 == (__int64 *)v20 )
-          {
-            *v23 = 0;
-LABEL_23:
-            v18 = v63;
-            goto LABEL_24;
-          }
-          *v23 = v9 - v25;
-        }
-      }
-LABEL_62:
-      *(_QWORD *)(GuidEntryByGuid + 416) = 0LL;
-      ExReleasePushLockEx(GuidEntryByGuid + 408, 0LL);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-      v18 = v63;
-      v31 = v61;
-LABEL_63:
-      v9 = -1;
-      v5 = -2147483643;
+      v20 = ulAugend;
+      v6 = -2147483643;
     }
-    EtwpUnreferenceGuidEntry((PVOID)GuidEntryByGuid);
-    if ( v5 >= 0 )
-    {
-      if ( v9 > (unsigned int)v4 )
-        v5 = -1073741789;
-      else
-        *a3 = v31;
-    }
-    *v18 = v9;
-    return (unsigned int)v5;
   }
-  return 3221226133LL;
+  EtwpUnreferenceGuidEntry(GuidEntryByGuid);
+  if ( v6 >= 0 )
+  {
+    if ( v20 > (unsigned int)v4 )
+      v6 = -1073741789;
+    else
+      *a3 = v5;
+  }
+  *v53 = v20;
+  return (unsigned int)v6;
 }

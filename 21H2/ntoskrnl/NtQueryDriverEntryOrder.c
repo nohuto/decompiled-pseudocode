@@ -1,16 +1,16 @@
 /*
- * XREFs of NtQueryDriverEntryOrder @ 0x140A00A80
+ * XREFs of NtQueryDriverEntryOrder @ 0x1409546C0
  * Callers:
  *     <none>
  * Callees:
- *     ExUnlockUserBuffer @ 0x140231450 (ExUnlockUserBuffer.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     HalGetEnvironmentVariableEx @ 0x1403DAAF0 (HalGetEnvironmentVariableEx.c)
- *     ExLockUserBuffer @ 0x1406A904C (ExLockUserBuffer.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExUnlockUserBuffer @ 0x1402997FC (ExUnlockUserBuffer.c)
+ *     HalGetEnvironmentVariableEx @ 0x1403BAC50 (HalGetEnvironmentVariableEx.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ExLockUserBuffer @ 0x140683180 (ExLockUserBuffer.c)
  */
 
 __int64 __fastcall NtQueryDriverEntryOrder(volatile void *Address, unsigned int *a2)
@@ -35,7 +35,7 @@ __int64 __fastcall NtQueryDriverEntryOrder(volatile void *Address, unsigned int 
   v16 = 0LL;
   v19 = 0;
   P = 0LL;
-  if ( dword_140C15C70 != 2 )
+  if ( dword_140C19850 != 2 )
     return 3221225474LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
@@ -74,7 +74,7 @@ __int64 __fastcall NtQueryDriverEntryOrder(volatile void *Address, unsigned int 
     ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
     EnvironmentVariable = HalGetEnvironmentVariableEx(L"DriverOrder", (int)&EfiDriverVariablesGuid, v16, &v19, 0LL);
     ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( EnvironmentVariable < 0 )
     {
       if ( EnvironmentVariable == -1073741568 )

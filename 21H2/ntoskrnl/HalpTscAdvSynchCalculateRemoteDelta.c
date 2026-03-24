@@ -1,39 +1,70 @@
 /*
- * XREFs of HalpTscAdvSynchCalculateRemoteDelta @ 0x1403ACC4C
+ * XREFs of HalpTscAdvSynchCalculateRemoteDelta @ 0x14039D104
  * Callers:
- *     HalpTscAdvSynchToTarget @ 0x140398190 (HalpTscAdvSynchToTarget.c)
- *     HalpTscAdvSynchCalculateRemoteDeltas @ 0x1403AC9F8 (HalpTscAdvSynchCalculateRemoteDeltas.c)
- *     HalpTscAdvSynchToLeader @ 0x1403ACB14 (HalpTscAdvSynchToLeader.c)
+ *     HalpTscAdvSynchCalculateRemoteDeltas @ 0x14039CED4 (HalpTscAdvSynchCalculateRemoteDeltas.c)
+ *     HalpTscAdjustToLeader @ 0x14039D018 (HalpTscAdjustToLeader.c)
+ *     HalpTscAdjustToTarget @ 0x1404C0F88 (HalpTscAdjustToTarget.c)
+ *     HalpTscAdvSynchToLeader @ 0x1404C114C (HalpTscAdvSynchToLeader.c)
+ *     HalpTscAdvSynchToTarget @ 0x1404C1368 (HalpTscAdvSynchToTarget.c)
  * Callees:
- *     HalpTscAdvSynchComputeMinimumDeltaAlternate @ 0x1403ACE38 (HalpTscAdvSynchComputeMinimumDeltaAlternate.c)
+ *     HalpTscAdvSynchComputeMinimumDeltaAlternate @ 0x14039D2F4 (HalpTscAdvSynchComputeMinimumDeltaAlternate.c)
+ *     HalpTscAdvSynchComputeMinimumDelta @ 0x1404C104C (HalpTscAdvSynchComputeMinimumDelta.c)
  */
 
-__int64 __fastcall HalpTscAdvSynchCalculateRemoteDelta(unsigned int a1, _DWORD *a2)
+__int64 __fastcall HalpTscAdvSynchCalculateRemoteDelta(unsigned int a1, __int64 a2, _DWORD *a3)
 {
-  unsigned __int64 v3; // rbx
-  unsigned int Number; // r8d
-  unsigned __int64 v5; // r9
-  _QWORD *v6; // rcx
-  __int64 v7; // r8
+  __int64 v4; // r10
+  unsigned __int64 v5; // rbx
+  __int64 Number; // rcx
+  __int64 v7; // rax
   __int64 v8; // rax
-  signed __int32 v10[10]; // [rsp+0h] [rbp-28h] BYREF
+  __int64 v9; // rdx
+  __int64 v10; // rax
+  __int64 v12; // rcx
+  signed __int32 v13[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  v3 = (unsigned __int64)a1 << 7;
+  v4 = a1;
+  if ( HalpTscSyncPolicy )
+  {
+    if ( HalpTscSyncPolicy == 1 )
+    {
+      v12 = TscRequest;
+      v5 = v4 << 7;
+      *(_DWORD *)((v4 << 7) + TscRequest + 4) = 0;
+      _InterlockedExchange((volatile __int32 *)((v4 << 7) + v12), 4);
+      if ( *(_DWORD *)((v4 << 7) + TscRequest) == 4 )
+      {
+        do
+          _mm_pause();
+        while ( *(_DWORD *)(v5 + TscRequest) == 4 );
+      }
+      v8 = HalpTscAdvSynchComputeMinimumDelta((unsigned int)v4);
+      goto LABEL_5;
+    }
+    if ( HalpTscSyncPolicy != 2 )
+      return -1LL;
+  }
+  v5 = (unsigned __int64)a1 << 7;
   Number = KeGetCurrentPrcb()->Number;
-  v5 = (unsigned __int64)Number << 7;
-  v6 = *(_QWORD **)(v3 + TscRequest + 16);
-  *(_DWORD *)(v3 + TscRequest + 4) = Number;
-  *v6 = 0LL;
-  **(_QWORD **)(v5 + TscRequest + 16) = -1LL;
-  _InterlockedExchange((volatile __int32 *)(v3 + TscRequest), 4);
-  while ( *(_DWORD *)(v3 + TscRequest) == 4 )
+  v7 = TscRequest;
+  *(_DWORD *)((v4 << 7) + TscRequest + 4) = Number;
+  **(_QWORD **)((v4 << 7) + v7 + 16) = 0LL;
+  **(_QWORD **)((Number << 7) + TscRequest + 16) = -1LL;
+  _InterlockedExchange((volatile __int32 *)((v4 << 7) + TscRequest), 5);
+  if ( *(_DWORD *)((v4 << 7) + TscRequest) == 5 )
+  {
+    do
+      _mm_pause();
+    while ( *(_DWORD *)(v5 + TscRequest) == 5 );
+  }
+  v8 = HalpTscAdvSynchComputeMinimumDeltaAlternate((unsigned int)v4);
+LABEL_5:
+  v9 = v8;
+  while ( *(_DWORD *)(v5 + TscRequest) )
     _mm_pause();
-  v7 = HalpTscAdvSynchComputeMinimumDeltaAlternate(*(_QWORD *)(v5 + TscRequest + 16), *(_QWORD *)(v3 + TscRequest + 16));
-  while ( *(_DWORD *)(v3 + TscRequest) )
-    _mm_pause();
-  _InterlockedOr(v10, 0);
-  v8 = *(_QWORD *)(v3 + TscRequest + 8);
-  if ( a2 )
-    *a2 = v7 + v8;
-  return (v8 - v7) / 2;
+  _InterlockedOr(v13, 0);
+  v10 = *(_QWORD *)(v5 + TscRequest + 8);
+  if ( a3 )
+    *a3 = v9 + v10;
+  return (v10 - v9) / 2;
 }

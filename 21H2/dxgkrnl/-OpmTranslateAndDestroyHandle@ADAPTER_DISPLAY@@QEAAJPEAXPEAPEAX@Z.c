@@ -1,53 +1,56 @@
 /*
- * XREFs of ?OpmTranslateAndDestroyHandle@ADAPTER_DISPLAY@@QEAAJPEAXPEAPEAX@Z @ 0x1C01ED870
+ * XREFs of ?OpmTranslateAndDestroyHandle@ADAPTER_DISPLAY@@QEAAJPEAXPEAPEAX@Z @ 0x1C0174054
  * Callers:
- *     DxgkOpmTranslateAndDestroyHandle @ 0x1C01ED788 (DxgkOpmTranslateAndDestroyHandle.c)
+ *     DxgkOpmTranslateAndDestroyHandle @ 0x1C0173FAC (DxgkOpmTranslateAndDestroyHandle.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??3@YAXPEAX@Z @ 0x1C000D96C (--3@YAXPEAX@Z.c)
- *     ?OpmValidateAdapterHandle@ADAPTER_DISPLAY@@AEAAEPEAX@Z @ 0x1C01EDE04 (-OpmValidateAdapterHandle@ADAPTER_DISPLAY@@AEAAEPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?FindOpmAdapterMapping@ADAPTER_DISPLAY@@AEAAPEAU_OPM_HANDLE_MAPPING@@_K@Z @ 0x1C00D6190 (-FindOpmAdapterMapping@ADAPTER_DISPLAY@@AEAAPEAU_OPM_HANDLE_MAPPING@@_K@Z.c)
  */
 
-__int64 __fastcall ADAPTER_DISPLAY::OpmTranslateAndDestroyHandle(DXGADAPTER **this, _QWORD *a2, void **a3)
+__int64 __fastcall ADAPTER_DISPLAY::OpmTranslateAndDestroyHandle(DXGADAPTER **this, __int64 a2, void **a3)
 {
-  _QWORD **v6; // rcx
-  void **v7; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  struct _OPM_HANDLE_MAPPING *OpmAdapterMapping; // rax
+  __int64 v10; // rdx
+  struct _OPM_HANDLE_MAPPING *v11; // rcx
+  struct _OPM_HANDLE_MAPPING **v12; // rdx
+  void **v13; // rax
+  __int64 v15; // rax
+  __int64 v16; // rax
 
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 6661LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceSharedOwner()", 6661LL, 0LL, 0LL, 0LL, 0LL);
+    v15 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v15 + 24) = 6424LL;
+    WdLogEvent5_WdAssertion(v15);
   }
-  if ( this[49] != KeGetCurrentThread() )
+  if ( this[43] != KeGetCurrentThread() )
   {
-    WdLogSingleEntry1(1LL, 6662LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_OpmI2CMutex.IsOwner()", 6662LL, 0LL, 0LL, 0LL, 0LL);
+    v8 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v8 + 24) = 6425LL;
+    WdLogEvent5_WdAssertion(v8);
   }
-  if ( ADAPTER_DISPLAY::OpmValidateAdapterHandle((ADAPTER_DISPLAY *)this, a2) )
+  OpmAdapterMapping = ADAPTER_DISPLAY::FindOpmAdapterMapping((ADAPTER_DISPLAY *)this, a2);
+  v11 = OpmAdapterMapping;
+  if ( OpmAdapterMapping )
   {
-    v6 = (_QWORD **)*a2;
-    *a3 = (void *)a2[2];
-    if ( v6[1] != a2 || (v7 = (void **)a2[1], *v7 != a2) )
+    v12 = *(struct _OPM_HANDLE_MAPPING ***)OpmAdapterMapping;
+    *a3 = (void *)*((_QWORD *)OpmAdapterMapping + 2);
+    if ( v12[1] != OpmAdapterMapping || (v13 = (void **)*((_QWORD *)OpmAdapterMapping + 1), *v13 != v11) )
       __fastfail(3u);
-    *v7 = v6;
-    v6[1] = v7;
-    operator delete(a2);
+    *v13 = v12;
+    v12[1] = (struct _OPM_HANDLE_MAPPING *)v13;
+    operator delete(v11);
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(1LL, 6670LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"OPM passed in an invalid hOpmAdapterHandle!",
-      6670LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v16 = WdLogNewEntry5_WdAssertion(0LL, v10);
+    *(_QWORD *)(v16 + 24) = 6434LL;
+    WdLogEvent5_WdAssertion(v16);
     return 3223192844LL;
   }
 }

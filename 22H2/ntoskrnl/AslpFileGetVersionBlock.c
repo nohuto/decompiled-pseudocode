@@ -1,27 +1,27 @@
 /*
- * XREFs of AslpFileGetVersionBlock @ 0x140759B0C
+ * XREFs of AslpFileGetVersionBlock @ 0x1407B3664
  * Callers:
- *     AslpFileGetVersionAttributes @ 0x140759728 (AslpFileGetVersionAttributes.c)
+ *     AslpFileGetVersionAttributes @ 0x1407B2D98 (AslpFileGetVersionAttributes.c)
  * Callees:
- *     RtlFileMapFree @ 0x1402F7C50 (RtlFileMapFree.c)
- *     RtlVerifyVersionInfo @ 0x1403833D0 (RtlVerifyVersionInfo.c)
- *     VerSetConditionMask @ 0x140392E40 (VerSetConditionMask.c)
- *     RtlFileMapMapView @ 0x1403B0C90 (RtlFileMapMapView.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslAlloc @ 0x1407589A8 (AslAlloc.c)
- *     AslFileMappingEnsure @ 0x140759400 (AslFileMappingEnsure.c)
- *     LdrResSearchResource @ 0x14075A150 (LdrResSearchResource.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlFileMapFree @ 0x140371CCC (RtlFileMapFree.c)
+ *     RtlVerifyVersionInfo @ 0x14037D230 (RtlVerifyVersionInfo.c)
+ *     VerSetConditionMask @ 0x14037F010 (VerSetConditionMask.c)
+ *     RtlFileMapMapView @ 0x1403BD264 (RtlFileMapMapView.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     LdrResSearchResource @ 0x140670CE0 (LdrResSearchResource.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075A888 (AslAlloc.c)
+ *     AslFileMappingEnsure @ 0x1407B2D08 (AslFileMappingEnsure.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
 {
   __int64 v6; // rcx
   int v7; // ebx
-  unsigned __int64 v8; // r13
+  ULONGLONG v8; // r13
   int v9; // eax
   __int64 v10; // rcx
   unsigned __int64 v11; // r8
@@ -44,7 +44,7 @@ __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
   __int128 v29; // [rsp+88h] [rbp-190h]
   __int128 v30; // [rsp+98h] [rbp-180h]
   __int64 v31; // [rsp+A8h] [rbp-170h]
-  _OSVERSIONINFOEXW VersionInfo; // [rsp+C0h] [rbp-158h] BYREF
+  struct _OSVERSIONINFOEXW VersionInfo; // [rsp+C0h] [rbp-158h] BYREF
   size_t Size; // [rsp+238h] [rbp+20h] BYREF
 
   Src = 0LL;
@@ -73,15 +73,7 @@ __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
     v27[2] = 0LL;
     v8 = *(_QWORD *)(a3 + 32);
     v26 = *(_QWORD *)(a3 + 40);
-    v9 = LdrResSearchResource(
-           v8,
-           (unsigned int)v27,
-           3,
-           *(_BYTE *)(a3 + 59) == 0 ? 0x200 : 0,
-           (__int64)&Src,
-           (__int64)&Size,
-           0LL,
-           0LL);
+    v9 = LdrResSearchResource(v8, v27, 3u, *(_BYTE *)(a3 + 59) == 0 ? 0x200 : 0, &Src, (__int64 *)&Size, 0LL, 0LL);
     v7 = v9;
     if ( v9 < 0 )
     {
@@ -96,7 +88,7 @@ __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
       v17 = VerSetConditionMask(0LL, 2u, 3u);
       v18 = VerSetConditionMask(v17, 1u, 3u);
       if ( RtlVerifyVersionInfo(&VersionInfo, 3u, v18) < 0 )
-        goto LABEL_32;
+        goto LABEL_31;
       v19 = *(_QWORD *)(a3 + 8);
       LOBYTE(v31) = 0;
       *(_QWORD *)&v28 = v19;
@@ -105,7 +97,7 @@ __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
         goto LABEL_43;
       AslLogCallPrintf(3LL);
       v8 = *((_QWORD *)&v29 + 1);
-      v7 = LdrResSearchResource(DWORD2(v29), (unsigned int)v27, 3, 0, (__int64)&Src, (__int64)&Size, 0LL, 0LL);
+      v7 = LdrResSearchResource(*((ULONGLONG *)&v29 + 1), v27, 3u, 0, &Src, (__int64 *)&Size, 0LL, 0LL);
       AslLogCallPrintf(2LL);
       if ( v7 < 0 )
         goto LABEL_43;
@@ -127,47 +119,49 @@ __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
       {
         v12 = 0;
       }
-      if ( v12 < 0
-        || (unsigned __int64)Src < v8
-        || v11 > v10 + v8
-        || !*(_BYTE *)(a3 + 59) && !*((_QWORD *)&v28 + 1) && v11 > v8 + *(_QWORD *)(a3 + 24) )
+      if ( v12 >= 0
+        && (unsigned __int64)Src >= v8
+        && v11 <= v10 + v8
+        && (*(_BYTE *)(a3 + 59) || *((_QWORD *)&v28 + 1) || v11 <= v8 + *(_QWORD *)(a3 + 24)) )
       {
-        v7 = -1073741687;
-        goto LABEL_43;
-      }
-      if ( Size < 0x26 || wcsicmp((const wchar_t *)Src + 3, L"VS_VERSION_INFO") )
-      {
-        v7 = -1073741595;
+        if ( Size < 0x26 || wcsicmp((const wchar_t *)Src + 3, L"VS_VERSION_INFO") )
+        {
+          v7 = -1073741595;
+        }
+        else
+        {
+          v14 = AslAlloc(v13, Size);
+          v15 = v14;
+          v25 = v14;
+          if ( v14 )
+          {
+            memmove(v14, Src, Size);
+            if ( Size < (unsigned __int16)*v15 )
+              *v15 = Size;
+            *(_QWORD *)(a3 + 72) = v15;
+            v25 = 0LL;
+            v16 = *(_QWORD *)(a3 + 72);
+            if ( *(_WORD *)(v16 + 2) < 0x34u )
+              *a2 = 0LL;
+            else
+              *a2 = v16 + 40;
+            *a1 = v16;
+            v7 = 0;
+            goto LABEL_44;
+          }
+          v7 = -1073741801;
+        }
       }
       else
       {
-        v14 = AslAlloc(v13, Size);
-        v15 = v14;
-        v25 = v14;
-        if ( v14 )
-        {
-          memmove(v14, Src, Size);
-          if ( Size < (unsigned __int16)*v15 )
-            *v15 = Size;
-          *(_QWORD *)(a3 + 72) = v15;
-          v25 = 0LL;
-          v16 = *(_QWORD *)(a3 + 72);
-          if ( *(_WORD *)(v16 + 2) < 0x34u )
-            *a2 = 0LL;
-          else
-            *a2 = v16 + 40;
-          *a1 = v16;
-          v7 = 0;
-          goto LABEL_44;
-        }
-        v7 = -1073741801;
+        v7 = -1073741687;
       }
 LABEL_43:
       AslLogCallPrintf(1LL);
       goto LABEL_44;
     }
     AslLogCallPrintf(1LL);
-LABEL_32:
+LABEL_31:
     v7 = -1073741687;
     goto LABEL_44;
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MNMarkDelayedFreePopup @ 0x1C021BE1C
+ * XREFs of MNMarkDelayedFreePopup @ 0x1C0221F64
  * Callers:
- *     xxxMNStartMenuState @ 0x1C021C5F4 (xxxMNStartMenuState.c)
- *     xxxMNOpenHierarchy @ 0x1C02325D0 (xxxMNOpenHierarchy.c)
- *     xxxTrackPopupMenuEx @ 0x1C024614C (xxxTrackPopupMenuEx.c)
+ *     xxxMNStartMenuState @ 0x1C0222A90 (xxxMNStartMenuState.c)
+ *     xxxMNOpenHierarchy @ 0x1C0239AB8 (xxxMNOpenHierarchy.c)
+ *     xxxTrackPopupMenuEx @ 0x1C024ABB0 (xxxTrackPopupMenuEx.c)
  * Callees:
  *     <none>
  */

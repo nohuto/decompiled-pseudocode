@@ -1,7 +1,7 @@
 /*
- * XREFs of SmcCacheRemove @ 0x1408AED3C
+ * XREFs of SmcCacheRemove @ 0x1408AED1C
  * Callers:
- *     SmcCacheDelete @ 0x1408AEA48 (SmcCacheDelete.c)
+ *     SmcCacheDelete @ 0x1408AEA28 (SmcCacheDelete.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetSDRBoost@CDDASwapChain@@UEAAXM@Z @ 0x1802A3880
+ * XREFs of ?SetSDRBoost@CDDASwapChain@@UEAAXM@Z @ 0x1800F20A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CDDASwapChain::SetSDRBoost(CDDASwapChain *this, float a2)
@@ -11,8 +11,8 @@ void __fastcall CDDASwapChain::SetSDRBoost(CDDASwapChain *this, float a2)
   __int64 v2; // rdx
   __int64 v3; // rcx
 
-  v2 = *((_QWORD *)this + 4);
-  *((float *)this + 17) = a2;
+  v2 = *((_QWORD *)this + 3);
+  *((float *)this + 15) = a2;
   if ( v2 )
   {
     v3 = v2 + 8 + *(int *)(*(_QWORD *)(v2 + 8) + 24LL);

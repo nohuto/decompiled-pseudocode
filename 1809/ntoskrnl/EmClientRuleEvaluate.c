@@ -1,7 +1,7 @@
 /*
  * XREFs of EmClientRuleEvaluate @ 0x1405654A0
  * Callers:
- *     PopPepInitializeVetoMasks @ 0x1402DD2F0 (PopPepInitializeVetoMasks.c)
+ *     PopPepInitializeVetoMasks @ 0x1402DD3F0 (PopPepInitializeVetoMasks.c)
  *     PoRegisterPowerSettingCallback @ 0x140589EE0 (PoRegisterPowerSettingCallback.c)
  *     PopReadErrataSkipMemoryOverwriteRequestControlLockAction @ 0x1409DF3CC (PopReadErrataSkipMemoryOverwriteRequestControlLockAction.c)
  * Callees:
@@ -10,7 +10,7 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     EmpEvaluateTargetRule @ 0x1400A4B6C (EmpEvaluateTargetRule.c)
+ *     EmpEvaluateTargetRule @ 0x1400A4B8C (EmpEvaluateTargetRule.c)
  *     EmpAcquirePagingReference @ 0x1405655A8 (EmpAcquirePagingReference.c)
  *     EmpReleasePagingReference @ 0x140565618 (EmpReleasePagingReference.c)
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of MiWaitForVadDeletion @ 0x1402CB050
+ * XREFs of MiWaitForVadDeletion @ 0x1402CB150
  * Callers:
  *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
  *     MiObtainReferencedSecureVad @ 0x1400861D0 (MiObtainReferencedSecureVad.c)
@@ -11,7 +11,7 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     MiUnlockVad @ 0x1400784B0 (MiUnlockVad.c)
  *     MiInsertVadEvent @ 0x140087B30 (MiInsertVadEvent.c)
- *     KeWaitForGate @ 0x1400FA2E4 (KeWaitForGate.c)
+ *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
  */
 
 void __fastcall MiWaitForVadDeletion(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

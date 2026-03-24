@@ -1,21 +1,21 @@
 /*
- * XREFs of ArbInitializeArbiterInstance @ 0x1C009E128
+ * XREFs of ArbInitializeArbiterInstance @ 0x1C009FCF0
  * Callers:
- *     AcpiInitializeBusNumberArbiter @ 0x1C00ACE08 (AcpiInitializeBusNumberArbiter.c)
- *     AcpiInitializeMemoryArbiter @ 0x1C00AF680 (AcpiInitializeMemoryArbiter.c)
- *     AcpiInitializePortArbiter @ 0x1C00B1110 (AcpiInitializePortArbiter.c)
- *     AcpiIrqLibInitializeGlobalState @ 0x1C00BEA3C (AcpiIrqLibInitializeGlobalState.c)
+ *     AcpiInitializeBusNumberArbiter @ 0x1C00AE288 (AcpiInitializeBusNumberArbiter.c)
+ *     AcpiInitializeMemoryArbiter @ 0x1C00B01D0 (AcpiInitializeMemoryArbiter.c)
+ *     AcpiInitializePortArbiter @ 0x1C00B1EB4 (AcpiInitializePortArbiter.c)
+ *     AcpiIrqLibInitializeGlobalState @ 0x1C00BEF34 (AcpiIrqLibInitializeGlobalState.c)
  * Callees:
- *     RtlInitializeRangeList_0 @ 0x1C002F1A1 (RtlInitializeRangeList_0.c)
- *     ArbBuildAssignmentOrdering @ 0x1C009E3D8 (ArbBuildAssignmentOrdering.c)
+ *     RtlInitializeRangeList_0 @ 0x1C0031CE1 (RtlInitializeRangeList_0.c)
+ *     ArbBuildAssignmentOrdering @ 0x1C009FF94 (ArbBuildAssignmentOrdering.c)
  */
 
 __int64 __fastcall ArbInitializeArbiterInstance(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
-  struct _KEVENT *Pool2; // rax
-  __int64 v8; // rax
-  __int64 v9; // rax
-  __int64 v10; // rax
+  struct _KEVENT *PoolWithTag; // rax
+  PVOID v8; // rax
+  PVOID v9; // rax
+  PVOID v10; // rax
   struct _KEVENT *v11; // rax
   int v12; // edi
   void *v14; // rcx
@@ -26,27 +26,27 @@ __int64 __fastcall ArbInitializeArbiterInstance(__int64 a1, __int64 a2, int a3, 
 
   *(_QWORD *)(a1 + 320) = a2;
   *(_DWORD *)a1 = 1935831617;
-  Pool2 = (struct _KEVENT *)ExAllocatePool2(64LL, 24LL, 1298297409LL);
-  *(_QWORD *)(a1 + 8) = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (struct _KEVENT *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x4D627241u);
+  *(_QWORD *)(a1 + 8) = PoolWithTag;
+  if ( !PoolWithTag )
     goto LABEL_44;
-  KeInitializeEvent(Pool2, SynchronizationEvent, 1u);
-  v8 = ExAllocatePool2(256LL, 4096LL, 1096970817LL);
+  KeInitializeEvent(PoolWithTag, SynchronizationEvent, 1u);
+  v8 = ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x41627241u);
   *(_QWORD *)(a1 + 112) = v8;
   if ( !v8 )
     goto LABEL_44;
   *(_DWORD *)(a1 + 104) = 4096;
-  v9 = ExAllocatePool2(256LL, 32LL, 1382183489LL);
+  v9 = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x52627241u);
   *(_QWORD *)(a1 + 40) = v9;
   if ( !v9 )
     goto LABEL_44;
-  v10 = ExAllocatePool2(256LL, 32LL, 1382183489LL);
+  v10 = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x52627241u);
   *(_QWORD *)(a1 + 48) = v10;
   if ( v10
     && (RtlInitializeRangeList_0(*(PRTL_RANGE_LIST *)(a1 + 40)),
         RtlInitializeRangeList_0(*(PRTL_RANGE_LIST *)(a1 + 48)),
         *(_BYTE *)(a1 + 296) = 0,
-        v11 = (struct _KEVENT *)ExAllocatePool2(64LL, 24LL, 1298297409LL),
+        v11 = (struct _KEVENT *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x4D627241u),
         (*(_QWORD *)(a1 + 304) = v11) != 0LL) )
   {
     KeInitializeEvent(v11, NotificationEvent, 1u);

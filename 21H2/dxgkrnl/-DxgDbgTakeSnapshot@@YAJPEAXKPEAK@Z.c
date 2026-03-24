@@ -1,36 +1,45 @@
 /*
- * XREFs of ?DxgDbgTakeSnapshot@@YAJPEAXKPEAK@Z @ 0x1C02EB624
+ * XREFs of ?DxgDbgTakeSnapshot@@YAJPEAXKPEAK@Z @ 0x1C025A788
  * Callers:
- *     DxgkEscape @ 0x1C0179FA0 (DxgkEscape.c)
+ *     DxgkEscape @ 0x1C00F9100 (DxgkEscape.c)
  * Callees:
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N@Z @ 0x1C0052318 (-TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N@Z.c)
- *     _DxgDbgTakeSnapshot_::_2_::_AUTO::__AUTO @ 0x1C02EB5E0 (_DxgDbgTakeSnapshot_--_2_--_AUTO--__AUTO.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     ?TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N@Z @ 0x1C0044E2C (-TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N@Z.c)
+ *     _DxgDbgTakeSnapshot_::_2_::_AUTO::__AUTO @ 0x1C025A744 (_DxgDbgTakeSnapshot_--_2_--_AUTO--__AUTO.c)
  */
 
 __int64 __fastcall DxgDbgTakeSnapshot(void *a1, unsigned int a2, unsigned int *a3)
 {
   __int64 v4; // rsi
-  int v7; // eax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  int v10; // eax
   int Snapshot; // ebx
-  unsigned int v9; // ebx
-  unsigned int v10; // eax
+  unsigned int v12; // ebx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  unsigned int v16; // eax
   void *Src[2]; // [rsp+30h] [rbp-18h] BYREF
 
   v4 = a2;
   if ( SeSinglePrivilegeCheck((LUID)11LL, 1) )
   {
     *(_OWORD *)Src = 0LL;
-    v7 = TdrCollectBugcheckSecondaryDumpData(0LL, 0xFFFFFFFF, 0);
-    if ( v7 )
+    v10 = TdrCollectBugcheckSecondaryDumpData(0LL, 0xFFFFFFFF, 0);
+    if ( v10 )
     {
-      v9 = v7 + 4096;
-      Src[0] = ExAllocatePoolWithTag(PagedPool, (unsigned int)(v7 + 4096), 0x52445476u);
+      v12 = v10 + 4096;
+      Src[0] = ExAllocatePoolWithTag(PagedPool, (unsigned int)(v10 + 4096), 0x52445476u);
       if ( Src[0] )
       {
-        WdLogSingleEntry2(4LL, a1, v4);
-        v10 = TdrCollectBugcheckSecondaryDumpData((_QWORD *)Src[0], v9, 1);
-        Snapshot = WdDbgCreateSnapshot(&WdDxgkSecondaryDataGUID, Src[0], v10, &Src[1], a3);
+        v15 = WdLogNewEntry5_WdEvent(v14, v13);
+        *(_QWORD *)(v15 + 24) = a1;
+        *(_QWORD *)(v15 + 32) = v4;
+        WdLogEvent5_WdEvent(v15);
+        v16 = TdrCollectBugcheckSecondaryDumpData((_QWORD *)Src[0], v12, 1);
+        Snapshot = WdDbgCreateSnapshot(&WdDxgkSecondaryDataGUID, Src[0], v16, &Src[1], a3);
         if ( Snapshot >= 0 )
         {
           if ( (unsigned int)v4 >= *a3 )
@@ -59,7 +68,10 @@ __int64 __fastcall DxgDbgTakeSnapshot(void *a1, unsigned int a2, unsigned int *a
   }
   else
   {
-    WdLogSingleEntry2(4LL, a1, (unsigned int)v4);
+    v8 = WdLogNewEntry5_WdEvent(v7, v6);
+    *(_QWORD *)(v8 + 24) = a1;
+    *(_QWORD *)(v8 + 32) = v4;
+    WdLogEvent5_WdEvent(v8);
     return 3221225506LL;
   }
 }

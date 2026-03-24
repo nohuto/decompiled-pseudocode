@@ -1,15 +1,15 @@
 /*
- * XREFs of BiTranslateFilePath @ 0x140A20C90
+ * XREFs of BiTranslateFilePath @ 0x140972D28
  * Callers:
- *     BiCreateBootEntry @ 0x140A1EE84 (BiCreateBootEntry.c)
- *     BiCreateMergedBootEntry @ 0x140A1F420 (BiCreateMergedBootEntry.c)
- *     BiGetDeviceFromEfiPath @ 0x140A1FFC0 (BiGetDeviceFromEfiPath.c)
+ *     BiCreateBootEntry @ 0x140970F20 (BiCreateBootEntry.c)
+ *     BiCreateMergedBootEntry @ 0x1409714B4 (BiCreateMergedBootEntry.c)
+ *     BiGetDeviceFromEfiPath @ 0x140972054 (BiGetDeviceFromEfiPath.c)
  * Callees:
- *     ZwTranslateFilePath @ 0x14041F160 (ZwTranslateFilePath.c)
- *     BiReleasePrivilege @ 0x140813B50 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x140813BA8 (BiAcquirePrivilege.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ZwTranslateFilePath @ 0x1403FDC60 (ZwTranslateFilePath.c)
+ *     BiReleasePrivilege @ 0x140785C38 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140785C90 (BiAcquirePrivilege.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiTranslateFilePath(__int64 a1, unsigned int a2, _QWORD *a3)

@@ -1,53 +1,49 @@
 /*
- * XREFs of MiReleaseFreshPage @ 0x140268408
+ * XREFs of MiReleaseFreshPage @ 0x1402E6774
  * Callers:
- *     MiPrivateFixup @ 0x14024076C (MiPrivateFixup.c)
- *     MiSwapStackPage @ 0x140249930 (MiSwapStackPage.c)
- *     MiDeleteUltraMapContext @ 0x1402682BC (MiDeleteUltraMapContext.c)
- *     MiCreateUltraThreadContextHelper @ 0x14026A5DC (MiCreateUltraThreadContextHelper.c)
- *     MiFreeLargeZeroPages @ 0x14026E05C (MiFreeLargeZeroPages.c)
- *     MiClaimPhysicalRun @ 0x14027738C (MiClaimPhysicalRun.c)
- *     MiGetPageTablePages @ 0x14027D03C (MiGetPageTablePages.c)
- *     MiMakePageAvoidRead @ 0x1402BBEE0 (MiMakePageAvoidRead.c)
- *     MiTradeTransitionPage @ 0x1402E8240 (MiTradeTransitionPage.c)
- *     MiStealPage @ 0x1402E97D4 (MiStealPage.c)
- *     MiFinalizeImageHeaderPage @ 0x1402EB1A0 (MiFinalizeImageHeaderPage.c)
- *     MiLockCode @ 0x140312BB0 (MiLockCode.c)
- *     MiAllocateMdlPagesByLists @ 0x140324C60 (MiAllocateMdlPagesByLists.c)
- *     MiGetPage @ 0x1403250B0 (MiGetPage.c)
- *     MmCheckCachedPageStates @ 0x140328690 (MmCheckCachedPageStates.c)
- *     MiFinishHardFault @ 0x140334C40 (MiFinishHardFault.c)
- *     MiAllocateKernelStackPages @ 0x14033B770 (MiAllocateKernelStackPages.c)
- *     MiMakeDriverPagesPrivate @ 0x14033F41C (MiMakeDriverPagesPrivate.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x14038E608 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiResolvePageFileFault @ 0x1403927C4 (MiResolvePageFileFault.c)
- *     MiFreePageChain @ 0x1403936C0 (MiFreePageChain.c)
- *     MiReplaceLockedPage @ 0x1403D0BD4 (MiReplaceLockedPage.c)
- *     MiProtectDriverSectionPte @ 0x140582320 (MiProtectDriverSectionPte.c)
- *     MiSwitchToTransition @ 0x1405954F4 (MiSwitchToTransition.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140599EBC (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiSplitDirectMapPage @ 0x1405A0B10 (MiSplitDirectMapPage.c)
- *     MiCompleteSecureProcessFault @ 0x1405A6E74 (MiCompleteSecureProcessFault.c)
- *     MiSwapNumaStandbyPage @ 0x1405B4024 (MiSwapNumaStandbyPage.c)
- *     MiIdealClusterPage @ 0x1405C3C6C (MiIdealClusterPage.c)
- *     MiFreeReadListPages @ 0x1406FAD90 (MiFreeReadListPages.c)
- *     MiFreeReadListPageList @ 0x1406FAE2C (MiFreeReadListPageList.c)
- *     MiInitializeCacheFlushing @ 0x140B08B40 (MiInitializeCacheFlushing.c)
+ *     MiGetPage @ 0x140213610 (MiGetPage.c)
+ *     MiFinishHardFault @ 0x140239890 (MiFinishHardFault.c)
+ *     MiAllocateKernelStackPages @ 0x14023E800 (MiAllocateKernelStackPages.c)
+ *     MiTradeTransitionPage @ 0x14026B6E8 (MiTradeTransitionPage.c)
+ *     MiStealPage @ 0x14026BCA4 (MiStealPage.c)
+ *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
+ *     MiFreePageChain @ 0x14028BED4 (MiFreePageChain.c)
+ *     MiPrivateFixup @ 0x14028CA28 (MiPrivateFixup.c)
+ *     MiSwapStackPage @ 0x1402C605C (MiSwapStackPage.c)
+ *     MiCreateUltraThreadContextHelper @ 0x1402E3164 (MiCreateUltraThreadContextHelper.c)
+ *     MiGetPageTablePages @ 0x1402E59A0 (MiGetPageTablePages.c)
+ *     MiDeleteUltraMapContext @ 0x1402E6634 (MiDeleteUltraMapContext.c)
+ *     MiMakeDriverPagesPrivate @ 0x1402E6EF4 (MiMakeDriverPagesPrivate.c)
+ *     MiFinalizeImageHeaderPage @ 0x1402E7BEC (MiFinalizeImageHeaderPage.c)
+ *     MiFreeLargeZeroPages @ 0x1402FD354 (MiFreeLargeZeroPages.c)
+ *     MiClaimPhysicalRun @ 0x140300A2C (MiClaimPhysicalRun.c)
+ *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
+ *     MiLockCode @ 0x1403235B0 (MiLockCode.c)
+ *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
+ *     MiAllocateMdlPagesByLists @ 0x140374714 (MiAllocateMdlPagesByLists.c)
+ *     MiSwitchToTransition @ 0x140539F14 (MiSwitchToTransition.c)
+ *     MiReplaceLockedPage @ 0x14053D76C (MiReplaceLockedPage.c)
+ *     MiCompleteSecureProcessFault @ 0x140548184 (MiCompleteSecureProcessFault.c)
+ *     MiSwapNumaStandbyPage @ 0x1405513D0 (MiSwapNumaStandbyPage.c)
+ *     MiIdealClusterPage @ 0x140555E14 (MiIdealClusterPage.c)
+ *     MiFreeReadListPages @ 0x1406E8BA4 (MiFreeReadListPages.c)
+ *     MiFreeReadListPageList @ 0x1406E8C2C (MiFreeReadListPageList.c)
+ *     MiInitializeCacheFlushing @ 0x140A54B0C (MiInitializeCacheFlushing.c)
  * Callees:
- *     MiReturnFreeZeroPage @ 0x14026845C (MiReturnFreeZeroPage.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiReturnFreeZeroPage @ 0x140303050 (MiReturnFreeZeroPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiReleaseFreshPage(__int64 a1)
+__int64 __fastcall MiReleaseFreshPage(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 v2; // rdi
+  unsigned __int64 v4; // rdi
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v6; // zf
+  bool v8; // zf
 
-  v2 = (unsigned __int8)MiLockPageInline(a1);
+  v4 = (unsigned __int8)MiLockPageInline(a1, a2, a3);
   MiReturnFreeZeroPage(a1, 0LL);
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   result = (unsigned int)KiIrqlFlags;
@@ -56,18 +52,18 @@ __int64 __fastcall MiReleaseFreshPage(__int64 a1)
     if ( (KiIrqlFlags & 1) != 0 )
     {
       result = KeGetCurrentIrql();
-      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v2 <= 0xFu && (unsigned __int8)result >= 2u )
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v4 <= 0xFu && (unsigned __int8)result >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-        v6 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+        v8 = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
-        if ( v6 )
+        if ( v8 )
           result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
   }
-  __writecr8(v2);
+  __writecr8(v4);
   return result;
 }

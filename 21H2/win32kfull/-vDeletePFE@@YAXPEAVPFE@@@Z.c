@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vDeletePFE@@YAXPEAVPFE@@@Z @ 0x1C02C1500
+ * XREFs of ?vDeletePFE@@YAXPEAVPFE@@@Z @ 0x1C02C2C70
  * Callers:
  *     <none>
  * Callees:
- *     ?vDelete@PFEOBJ@@QEAAXXZ @ 0x1C000CF64 (-vDelete@PFEOBJ@@QEAAXXZ.c)
+ *     ?vDelete@PFEOBJ@@QEAAXXZ @ 0x1C00A5B7C (-vDelete@PFEOBJ@@QEAAXXZ.c)
  */
 
 void __fastcall vDeletePFE(struct PFE *a1)

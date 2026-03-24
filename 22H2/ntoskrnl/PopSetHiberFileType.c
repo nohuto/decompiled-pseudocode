@@ -1,30 +1,42 @@
 /*
- * XREFs of PopSetHiberFileType @ 0x1409891D8
+ * XREFs of PopSetHiberFileType @ 0x1408E7400
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
- *     PopSetHiberFileSize @ 0x140989134 (PopSetHiberFileSize.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
+ *     PopSetHiberFileSize @ 0x1408E72F0 (PopSetHiberFileSize.c)
  * Callees:
- *     PopCalculateHiberFileSize @ 0x1408016AC (PopCalculateHiberFileSize.c)
- *     PopSetHiberPersistedRegValue @ 0x140989288 (PopSetHiberPersistedRegValue.c)
- *     PopValidateHiberFileSize @ 0x140989320 (PopValidateHiberFileSize.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     PopOpenKey @ 0x1403A75B0 (PopOpenKey.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     PopValidateHiberFileSize @ 0x140773EB8 (PopValidateHiberFileSize.c)
+ *     PopCalculateHiberFileSize @ 0x14078D708 (PopCalculateHiberFileSize.c)
  */
 
-__int64 __fastcall PopSetHiberFileType(int a1, _QWORD *a2)
+__int64 __fastcall PopSetHiberFileType(int a1, __int64 *a2)
 {
   int v3; // edi
-  __int64 v4; // rsi
-  int v5; // ecx
-  __int64 v7; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v4; // rbp
+  int v5; // ebx
+  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
+  HANDLE KeyHandle; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v9; // [rsp+78h] [rbp+20h] BYREF
 
-  v7 = 0LL;
+  v9 = 0LL;
+  KeyHandle = 0LL;
+  DestinationString = 0LL;
   if ( ((unsigned int)PopHiberFileSizePercent < 0x28 || a1 == 2) && (unsigned int)(a1 - 1) <= 1 )
   {
     v3 = PopHiberFileType;
     PopHiberFileType = a1;
-    PopCalculateHiberFileSize(&v7, 0LL);
-    v4 = v7;
-    v5 = PopValidateHiberFileSize(v7, 0LL);
-    if ( v5 < 0 || (v5 = PopSetHiberPersistedRegValue(2LL), v5 < 0) )
+    PopCalculateHiberFileSize(&v9, 0LL);
+    v4 = v9;
+    v5 = PopValidateHiberFileSize(v9, 0LL, 0LL);
+    if ( v5 < 0
+      || (v5 = PopOpenKey(&KeyHandle, L"Control\\Power", 0x20006u), v5 < 0)
+      || (RtlInitUnicodeString(&DestinationString, L"HiberFileType"),
+          v5 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &PopHiberFileType, 4u),
+          ZwClose(KeyHandle),
+          v5 < 0) )
     {
       PopHiberFileType = v3;
     }

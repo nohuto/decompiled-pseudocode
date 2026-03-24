@@ -1,8 +1,8 @@
 /*
- * XREFs of ?IsBitSet@@YAHPEAEI@Z @ 0x1C00514F4
+ * XREFs of ?IsBitSet@@YAHPEAEI@Z @ 0x1C012B374
  * Callers:
- *     ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C0051080 (-_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z.c)
- *     GetGestureConfigSettings @ 0x1C02045D0 (GetGestureConfigSettings.c)
+ *     ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C012AFE0 (-_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z.c)
+ *     GetGestureConfigSettings @ 0x1C0227088 (GetGestureConfigSettings.c)
  * Callees:
  *     <none>
  */

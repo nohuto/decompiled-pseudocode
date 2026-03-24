@@ -1,12 +1,12 @@
 /*
- * XREFs of PopZeroHiberFile @ 0x14086BDF0
+ * XREFs of PopZeroHiberFile @ 0x14086BDD0
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     PopEnableHiberFile @ 0x140745F9C (PopEnableHiberFile.c)
+ *     PopEnableHiberFile @ 0x140745F7C (PopEnableHiberFile.c)
  * Callees:
- *     MmZeroPageWrite @ 0x140128398 (MmZeroPageWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x1401B8390 (ZwQueryInformationFile.c)
+ *     MmZeroPageWrite @ 0x1401283B8 (MmZeroPageWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x1401B83B0 (ZwQueryInformationFile.c)
  *     PopDiagTraceZeroHiberFile @ 0x14057DF7C (PopDiagTraceZeroHiberFile.c)
  *     PopDiagTraceZeroHiberFileEnd @ 0x14057DF98 (PopDiagTraceZeroHiberFileEnd.c)
  */

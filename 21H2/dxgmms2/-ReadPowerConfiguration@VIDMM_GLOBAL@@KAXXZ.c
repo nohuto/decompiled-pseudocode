@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReadPowerConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00B6714
+ * XREFs of ?ReadPowerConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0095F64
  * Callers:
- *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00B41D8 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C0093BFC (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1C001CD70 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0017820 (__security_check_cookie.c)
  */
 
 void VIDMM_GLOBAL::ReadPowerConfiguration(void)
@@ -54,6 +54,6 @@ void VIDMM_GLOBAL::ReadPowerConfiguration(void)
   v19 = 0LL;
   v20 = 0LL;
   RtlQueryRegistryValuesEx(2LL, L"GraphicsDrivers\\MemoryManager", &v4, 0LL, 0LL);
-  qword_1C006E508 = (unsigned __int64)v0 << 20;
-  qword_1C006E518 = (unsigned __int64)v1 << 20;
+  qword_1C0050498 = (unsigned __int64)v0 << 20;
+  qword_1C00504A8 = (unsigned __int64)v1 << 20;
 }

@@ -1,38 +1,37 @@
 /*
- * XREFs of EtwTraceIdealProcessor @ 0x1405FCE20
+ * XREFs of EtwTraceIdealProcessor @ 0x1405A7784
  * Callers:
- *     KiSetAffinityThread @ 0x14020327C (KiSetAffinityThread.c)
- *     KiQueueReadyThread @ 0x1402344F0 (KiQueueReadyThread.c)
- *     KiDeferredReadySingleThread @ 0x14023A2B0 (KiDeferredReadySingleThread.c)
- *     KeStartThread @ 0x1402BE0A8 (KeStartThread.c)
- *     KiSetSystemAffinityThread @ 0x14030702C (KiSetSystemAffinityThread.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x14039DBFC (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiUpdateThreadCpuSets @ 0x14039E750 (KiUpdateThreadCpuSets.c)
- *     KeSetIdealProcessorThreadEx @ 0x1403CE7F8 (KeSetIdealProcessorThreadEx.c)
- *     KiAdaptThreadIdealProcessorForProcessIdealSetChange @ 0x1405768AC (KiAdaptThreadIdealProcessorForProcessIdealSetChange.c)
- *     KiSetHeteroPolicyThread @ 0x140577A9C (KiSetHeteroPolicyThread.c)
+ *     KiQueueReadyThread @ 0x140258C10 (KiQueueReadyThread.c)
+ *     KiDeferredReadySingleThread @ 0x1402C4550 (KiDeferredReadySingleThread.c)
+ *     KeStartThread @ 0x140340A7C (KeStartThread.c)
+ *     KeSetIdealProcessorThreadEx @ 0x14035C2A8 (KeSetIdealProcessorThreadEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035C8F0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14035CA50 (KeSetSystemGroupAffinityThread.c)
+ *     KiSetAffinityThread @ 0x14035D934 (KiSetAffinityThread.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x14035E53C (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x1403C5BBC (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
+ *     KeSetSelectedCpuSetsThread @ 0x14051CB20 (KeSetSelectedCpuSetsThread.c)
+ *     KiSetHeteroPolicyThread @ 0x1405202A4 (KiSetHeteroPolicyThread.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140211EFC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14035C1F0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall EtwTraceIdealProcessor(__int64 a1, __int16 a2, int a3, int a4)
+void __fastcall EtwTraceIdealProcessor(__int64 a1, unsigned __int16 a2, int a3, int a4)
 {
-  __int64 result; // rax
-  _DWORD v5[4]; // [rsp+30h] [rbp-38h] BYREF
-  _DWORD *v6; // [rsp+40h] [rbp-28h] BYREF
-  int v7; // [rsp+48h] [rbp-20h]
-  int v8; // [rsp+4Ch] [rbp-1Ch]
+  _DWORD v4[4]; // [rsp+30h] [rbp-38h] BYREF
+  _DWORD *v5; // [rsp+40h] [rbp-28h] BYREF
+  int v6; // [rsp+48h] [rbp-20h]
+  int v7; // [rsp+4Ch] [rbp-1Ch]
 
   if ( a3 != a4 )
   {
-    v5[0] = *(_DWORD *)(a1 + 1232);
-    v6 = v5;
-    v8 = 0;
-    v5[2] = a4;
-    v5[1] = a3;
-    v7 = 12;
-    return EtwTraceKernelEvent((int)&v6, 1, 0x88000000, a2, 22026499);
+    v4[0] = *(_DWORD *)(a1 + 1152);
+    v5 = v4;
+    v7 = 0;
+    v4[2] = a4;
+    v4[1] = a3;
+    v6 = 12;
+    EtwTraceKernelEvent((__int64)&v5, 1u, 0x88000000, a2, 0x1501903u);
   }
-  return result;
 }

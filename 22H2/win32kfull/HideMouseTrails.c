@@ -1,27 +1,13 @@
 /*
- * XREFs of HideMouseTrails @ 0x1C0152000
+ * XREFs of HideMouseTrails @ 0x1C01D4140
  * Callers:
  *     <none>
  * Callees:
- *     ?MovePointer@CursorApiRouter@@QEAAXPEAUHDEV__@@HHK@Z @ 0x1C005B8C4 (-MovePointer@CursorApiRouter@@QEAAXPEAUHDEV__@@HHK@Z.c)
+ *     GreMovePointer @ 0x1C0016B30 (GreMovePointer.c)
  */
 
-void __fastcall HideMouseTrails(__int64 a1)
+void HideMouseTrails()
 {
-  __int64 v1; // rcx
-  __int64 v2; // rbx
-  __int64 v3; // rcx
-  signed __int32 v4; // edx
-
-  if ( *(int *)(SGDGetUserSessionState(a1) + 15940) > 0 )
-  {
-    v2 = SGDGetUserSessionState(v1);
-    v4 = *(_DWORD *)(SGDGetUserSessionState(v3) + 15936);
-    if ( _InterlockedDecrement((volatile signed __int32 *)(v2 + 15940)) < v4 )
-      CursorApiRouter::MovePointer(
-        gpsi,
-        *(HDEV *)(gpDispInfo + 40LL),
-        *(_DWORD *)(gpsi + 4960LL),
-        *(_DWORD *)(gpsi + 4964LL));
-  }
+  if ( gMouseTrailsToHide > 0 && _InterlockedDecrement(&gMouseTrailsToHide) < SLODWORD(WPP_MAIN_CB.DeviceQueue.Lock) )
+    GreMovePointer(*(_DWORD **)(gpDispInfo + 40LL), *(_DWORD *)(gpsi + 4960LL), *(_DWORD *)(gpsi + 4964LL), 1);
 }

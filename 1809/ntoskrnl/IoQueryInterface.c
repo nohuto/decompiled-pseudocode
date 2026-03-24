@@ -1,10 +1,10 @@
 /*
- * XREFs of IoQueryInterface @ 0x140755AC0
+ * XREFs of IoQueryInterface @ 0x140755AA0
  * Callers:
- *     ExShareAddressSpaceWithDevice @ 0x14031D260 (ExShareAddressSpaceWithDevice.c)
+ *     ExShareAddressSpaceWithDevice @ 0x14031D360 (ExShareAddressSpaceWithDevice.c)
  * Callees:
- *     PnpQueryInterface @ 0x1406F9198 (PnpQueryInterface.c)
- *     IopQueryInterfaceRecurseUp @ 0x140755B10 (IopQueryInterfaceRecurseUp.c)
+ *     PnpQueryInterface @ 0x1406F9178 (PnpQueryInterface.c)
+ *     IopQueryInterfaceRecurseUp @ 0x140755AF0 (IopQueryInterfaceRecurseUp.c)
  */
 
 __int64 __fastcall IoQueryInterface(

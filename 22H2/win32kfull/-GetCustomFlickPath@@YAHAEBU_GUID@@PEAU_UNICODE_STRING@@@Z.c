@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetCustomFlickPath@@YAHAEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C01F3454
+ * XREFs of ?GetCustomFlickPath@@YAHAEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C0209050
  * Callers:
- *     ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C01F3320 (-GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
- *     ?SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C01F3510 (-SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ *     ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C0208F1C (-GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ *     ?SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C0209118 (-SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ _BOOL8 __fastcall GetCustomFlickPath(GUID *Guid, PUNICODE_STRING Destination)
   *(_DWORD *)&Destination->Length = 14548992;
   GuidString = 0LL;
   v4 = 0;
-  v5 = (WCHAR *)Win32AllocPoolZInit(222LL, 2020635477LL);
+  v5 = (WCHAR *)Win32AllocPool(222LL, 2020635477LL);
   if ( v5 )
   {
     Destination->Buffer = v5;
@@ -25,6 +25,7 @@ _BOOL8 __fastcall GetCustomFlickPath(GUID *Guid, PUNICODE_STRING Destination)
            L"\\Software\\Microsoft\\Wisp\\Pen\\SysEventParameters\\CustomFlickCommands\\") >= 0
       && RtlStringFromGUID(Guid, &GuidString) >= 0 )
     {
+      GuidString.Buffer[39] = 0;
       v4 = RtlAppendUnicodeStringToString(Destination, &GuidString) >= 0;
       RtlFreeUnicodeString(&GuidString);
     }

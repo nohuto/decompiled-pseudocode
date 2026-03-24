@@ -1,19 +1,20 @@
 /*
- * XREFs of PnpiBiosAddressDoubleToIoDescriptor @ 0x1C009888C
+ * XREFs of PnpiBiosAddressDoubleToIoDescriptor @ 0x1C009D6AC
  * Callers:
- *     PnpBiosResourcesToNtResources @ 0x1C009832C (PnpBiosResourcesToNtResources.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     PnpiBiosValidateMemoryMapAttribute @ 0x1C0022FA0 (PnpiBiosValidateMemoryMapAttribute.c)
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     ACPIInitIgnoreResourceMapDescriptor @ 0x1C005E810 (ACPIInitIgnoreResourceMapDescriptor.c)
- *     PnpiBiosAddressHandleGlobalFlags @ 0x1C00980F0 (PnpiBiosAddressHandleGlobalFlags.c)
- *     PnpiUpdateResourceList @ 0x1C0098B40 (PnpiUpdateResourceList.c)
- *     PnpiBiosAddressHandleMemoryFlags @ 0x1C0098D5C (PnpiBiosAddressHandleMemoryFlags.c)
- *     AcpiDiagTraceMemoryReserved @ 0x1C00AA0D4 (AcpiDiagTraceMemoryReserved.c)
+ *     WPP_RECORDER_SF_L @ 0x1C0002ACC (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     PnpiBiosValidateMemoryMapAttribute @ 0x1C0017180 (PnpiBiosValidateMemoryMapAttribute.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     ACPIInitIgnoreResourceMapDescriptor @ 0x1C005DB00 (ACPIInitIgnoreResourceMapDescriptor.c)
+ *     PnpiBiosAddressHandleMemoryFlags @ 0x1C009CA28 (PnpiBiosAddressHandleMemoryFlags.c)
+ *     PnpiBiosAddressHandleGlobalFlags @ 0x1C009CCB8 (PnpiBiosAddressHandleGlobalFlags.c)
+ *     PnpiUpdateResourceList @ 0x1C009D638 (PnpiUpdateResourceList.c)
+ *     AcpiDiagTraceMemoryReserved @ 0x1C00AB2D8 (AcpiDiagTraceMemoryReserved.c)
  */
 
-NTSTATUS __fastcall PnpiBiosAddressDoubleToIoDescriptor(
+int __fastcall PnpiBiosAddressDoubleToIoDescriptor(
         unsigned __int8 *BugCheckParameter2,
         __int64 a2,
         unsigned int a3,
@@ -25,8 +26,8 @@ NTSTATUS __fastcall PnpiBiosAddressDoubleToIoDescriptor(
   int v8; // ecx
   unsigned int v9; // r8d
   __int64 v10; // r10
-  NTSTATUS result; // eax
-  __int64 v12; // rdi
+  int result; // eax
+  const void **v12; // rdi
   struct _IO_RESOURCE_DESCRIPTOR *v13; // rdi
   unsigned int v14; // eax
   __int64 v15; // rax
@@ -76,7 +77,7 @@ NTSTATUS __fastcall PnpiBiosAddressDoubleToIoDescriptor(
   }
   if ( !v8 )
     return 0;
-  v12 = v10 + 8LL * v9;
+  v12 = (const void **)(v10 + 8LL * v9);
   result = PnpiUpdateResourceList(v12, &v29);
   if ( result >= 0 )
   {
@@ -100,12 +101,12 @@ NTSTATUS __fastcall PnpiBiosAddressDoubleToIoDescriptor(
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        WPP_RECORDER_SF_D(
+        WPP_RECORDER_SF_L(
           (__int64)WPP_GLOBAL_Control->DeviceExtension,
           2u,
           0xDu,
           0xFu,
-          (__int64)&WPP_acc401d4e49f33dc1a5cdf16911e1587_Traceguids,
+          (__int64)&WPP_fad942c932903a636e6a214bab40d1dd_Traceguids,
           *(unsigned __int16 *)(BugCheckParameter2 + 1));
         LOWORD(v14) = *(_WORD *)(BugCheckParameter2 + 1);
       }
@@ -136,7 +137,7 @@ NTSTATUS __fastcall PnpiBiosAddressDoubleToIoDescriptor(
             2u,
             0xDu,
             0x10u,
-            (__int64)&WPP_acc401d4e49f33dc1a5cdf16911e1587_Traceguids);
+            (__int64)&WPP_fad942c932903a636e6a214bab40d1dd_Traceguids);
         v19 = v21;
       }
       if ( ((unsigned int)v16 & *(_DWORD *)(BugCheckParameter2 + 6)) != 0 )
@@ -147,7 +148,7 @@ NTSTATUS __fastcall PnpiBiosAddressDoubleToIoDescriptor(
             2u,
             0xDu,
             0x11u,
-            (__int64)&WPP_acc401d4e49f33dc1a5cdf16911e1587_Traceguids);
+            (__int64)&WPP_fad942c932903a636e6a214bab40d1dd_Traceguids);
         v18 = 1;
       }
       else
@@ -192,7 +193,7 @@ NTSTATUS __fastcall PnpiBiosAddressDoubleToIoDescriptor(
           2u,
           0xDu,
           0x12u,
-          (__int64)&WPP_acc401d4e49f33dc1a5cdf16911e1587_Traceguids,
+          (__int64)&WPP_fad942c932903a636e6a214bab40d1dd_Traceguids,
           BugCheckParameter2[3]);
       }
     }
@@ -208,7 +209,7 @@ NTSTATUS __fastcall PnpiBiosAddressDoubleToIoDescriptor(
       v13->Type = 3;
       *(_DWORD *)(v4 + 8) = (~BugCheckParameter2[5] & 0x20 | 0x10u) >> 4;
       *(_DWORD *)(v4 + 12) = v28;
-      PnpiBiosAddressHandleMemoryFlags(BugCheckParameter2, v13, 0LL, 1LL);
+      PnpiBiosAddressHandleMemoryFlags((__int64)BugCheckParameter2, (__int64)v13);
       v13->u.Port.Alignment = 1;
     }
     result = PnpiBiosAddressHandleGlobalFlags((__int64)BugCheckParameter2, v31, v32, v13);

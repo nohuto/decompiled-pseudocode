@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgBreakPointWithStatus @ 0x140429800
+ * XREFs of DbgBreakPointWithStatus @ 0x1404078B0
  * Callers:
- *     KdCheckForDebugBreak @ 0x140222368 (KdCheckForDebugBreak.c)
- *     vDbgPrintExWithPrefixInternal @ 0x140369C50 (vDbgPrintExWithPrefixInternal.c)
- *     KiBugCheckDebugBreak @ 0x1405672C0 (KiBugCheckDebugBreak.c)
- *     NtSystemDebugControl @ 0x1406DC120 (NtSystemDebugControl.c)
- *     PopInvokeSystemStateHandler @ 0x140A4AF0C (PopInvokeSystemStateHandler.c)
- *     ExpDebuggerWorker @ 0x140A70F90 (ExpDebuggerWorker.c)
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x1402841E0 (vDbgPrintExWithPrefixInternal.c)
+ *     KdCheckForDebugBreak @ 0x140383EB0 (KdCheckForDebugBreak.c)
+ *     KiBugCheckDebugBreak @ 0x140517E20 (KiBugCheckDebugBreak.c)
+ *     NtSystemDebugControl @ 0x1407CFC00 (NtSystemDebugControl.c)
+ *     PopInvokeSystemStateHandler @ 0x140992A68 (PopInvokeSystemStateHandler.c)
+ *     ExpDebuggerWorker @ 0x1409B5030 (ExpDebuggerWorker.c)
+ *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
  * Callees:
  *     <none>
  */

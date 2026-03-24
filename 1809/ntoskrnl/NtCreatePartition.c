@@ -1,5 +1,5 @@
 /*
- * XREFs of NtCreatePartition @ 0x14088D120
+ * XREFs of NtCreatePartition @ 0x14088D100
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
  *     PsReferencePartitionByHandle @ 0x1406083B4 (PsReferencePartitionByHandle.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     PspAllocatePartition @ 0x14075CA68 (PspAllocatePartition.c)
+ *     PspAllocatePartition @ 0x14075CA48 (PspAllocatePartition.c)
  */
 
 __int64 __fastcall NtCreatePartition(ULONG_PTR a1, HANDLE *a2, unsigned int a3, int a4)

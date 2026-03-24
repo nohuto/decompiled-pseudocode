@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpDmaFreeMapRegisters @ 0x14045746C
+ * XREFs of HalpDmaFreeMapRegisters @ 0x1404C7AB8
  * Callers:
- *     HalDmaFreeCrashDumpRegistersEx @ 0x140398080 (HalDmaFreeCrashDumpRegistersEx.c)
- *     HalpDmaFreeCrashDumpRegisters @ 0x140398FD0 (HalpDmaFreeCrashDumpRegisters.c)
- *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403B58F0 (HalDmaAllocateCrashDumpRegistersEx.c)
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x1404584D6 (HalpDmaProcessMapRegisterQueueV2.c)
- *     IoFreeMapRegistersV2 @ 0x140458780 (IoFreeMapRegistersV2.c)
- *     IoFreeMapRegistersV3 @ 0x1405129C8 (IoFreeMapRegistersV3.c)
+ *     HalpDmaFreeCrashDumpRegisters @ 0x14038DBA0 (HalpDmaFreeCrashDumpRegisters.c)
+ *     IoFreeMapRegistersV3 @ 0x1403A2CD4 (IoFreeMapRegistersV3.c)
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403A6380 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalDmaFreeCrashDumpRegistersEx @ 0x1403A7070 (HalDmaFreeCrashDumpRegistersEx.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x1404CCCE8 (HalpDmaProcessMapRegisterQueueV2.c)
+ *     IoFreeMapRegistersV2 @ 0x1404CCFA0 (IoFreeMapRegistersV2.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
- *     HalpDmaAcquireBufferMappings @ 0x140456CC6 (HalpDmaAcquireBufferMappings.c)
- *     HalpDmaReleaseBufferMappings @ 0x140457742 (HalpDmaReleaseBufferMappings.c)
- *     HalpDmaReturnPageToOwner @ 0x140457800 (HalpDmaReturnPageToOwner.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     HalpDmaAcquireBufferMappings @ 0x1404C65A8 (HalpDmaAcquireBufferMappings.c)
+ *     HalpDmaReleaseBufferMappings @ 0x1404C7E8C (HalpDmaReleaseBufferMappings.c)
+ *     HalpDmaReturnPageToOwner @ 0x1404C7F4C (HalpDmaReturnPageToOwner.c)
  */
 
 __int64 __fastcall HalpDmaFreeMapRegisters(__int64 a1, _QWORD *a2, unsigned int a3)

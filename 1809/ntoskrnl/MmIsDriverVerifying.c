@@ -1,7 +1,7 @@
 /*
- * XREFs of MmIsDriverVerifying @ 0x14013A200
+ * XREFs of MmIsDriverVerifying @ 0x14013A220
  * Callers:
- *     VfIsVerificationEnabled @ 0x140177E30 (VfIsVerificationEnabled.c)
+ *     VfIsVerificationEnabled @ 0x140177E50 (VfIsVerificationEnabled.c)
  *     VfXdvDriverCaptureIoCallbacks @ 0x140921338 (VfXdvDriverCaptureIoCallbacks.c)
  *     VfGetPristineDispatchRoutine @ 0x14092FCFC (VfGetPristineDispatchRoutine.c)
  *     VfGetPristineDriverInit @ 0x14092FD4C (VfGetPristineDriverInit.c)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PsThawProcess @ 0x14067E324
+ * XREFs of PsThawProcess @ 0x14067E304
  * Callers:
  *     PspChangeProcessExecutionState @ 0x1406035AC (PspChangeProcessExecutionState.c)
- *     DbgkpSendApiMessage @ 0x140810BD4 (DbgkpSendApiMessage.c)
- *     DbgkpSendApiMessageLpc @ 0x140810CCC (DbgkpSendApiMessageLpc.c)
- *     DbgkpSendErrorMessage @ 0x140810DEC (DbgkpSendErrorMessage.c)
- *     DbgkpResumeProcess @ 0x1408115AC (DbgkpResumeProcess.c)
+ *     DbgkpSendApiMessage @ 0x140810BB4 (DbgkpSendApiMessage.c)
+ *     DbgkpSendApiMessageLpc @ 0x140810CAC (DbgkpSendApiMessageLpc.c)
+ *     DbgkpSendErrorMessage @ 0x140810DCC (DbgkpSendErrorMessage.c)
+ *     DbgkpResumeProcess @ 0x14081158C (DbgkpResumeProcess.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
@@ -13,14 +13,14 @@
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeThawProcess @ 0x1400F489C (KeThawProcess.c)
+ *     KeThawProcess @ 0x1400F48BC (KeThawProcess.c)
  *     PsSetProcessTelemetryAppState @ 0x1405B1974 (PsSetProcessTelemetryAppState.c)
  *     PsInvokeWin32Callout @ 0x1405F4E90 (PsInvokeWin32Callout.c)
- *     PspWow64GetSharedInformation @ 0x1406783FC (PspWow64GetSharedInformation.c)
- *     PsWow64GetProcessNtdllType @ 0x140678414 (PsWow64GetProcessNtdllType.c)
- *     VslUpdateFreezeTimeBias @ 0x1408190FC (VslUpdateFreezeTimeBias.c)
- *     EtwTraceFreezeThawProcess @ 0x1408B73E0 (EtwTraceFreezeThawProcess.c)
- *     EtwTiLogSuspendResumeProcess @ 0x1408BC9D4 (EtwTiLogSuspendResumeProcess.c)
+ *     PspWow64GetSharedInformation @ 0x1406783DC (PspWow64GetSharedInformation.c)
+ *     PsWow64GetProcessNtdllType @ 0x1406783F4 (PsWow64GetProcessNtdllType.c)
+ *     VslUpdateFreezeTimeBias @ 0x1408190DC (VslUpdateFreezeTimeBias.c)
+ *     EtwTraceFreezeThawProcess @ 0x1408B73C0 (EtwTraceFreezeThawProcess.c)
+ *     EtwTiLogSuspendResumeProcess @ 0x1408BC9B4 (EtwTiLogSuspendResumeProcess.c)
  */
 
 __int64 __fastcall PsThawProcess(ULONG_PTR a1, char a2)

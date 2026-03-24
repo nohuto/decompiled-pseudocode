@@ -1,13 +1,13 @@
 /*
- * XREFs of ?MultiUserGreCleanupDrivers@@YAXXZ @ 0x1C0090BE0
+ * XREFs of ?MultiUserGreCleanupDrivers@@YAXXZ @ 0x1C007D560
  * Callers:
- *     MultiUserNtGreCleanup @ 0x1C008F7E4 (MultiUserNtGreCleanup.c)
+ *     MultiUserNtGreCleanup @ 0x1C007BDB8 (MultiUserNtGreCleanup.c)
  * Callees:
- *     ?vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z @ 0x1C00717F0 (-vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z.c)
- *     ldevUnloadImage @ 0x1C0075120 (ldevUnloadImage.c)
- *     DxDdCleanupDxGraphics @ 0x1C0090C74 (DxDdCleanupDxGraphics.c)
- *     ?InitializeClientReferenceCount@PDEV@@QEAAXXZ @ 0x1C0090D20 (-InitializeClientReferenceCount@PDEV@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ldevUnloadImage @ 0x1C00153B0 (ldevUnloadImage.c)
+ *     ?vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z @ 0x1C00218E0 (-vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z.c)
+ *     DxDdCleanupDxGraphics @ 0x1C007D5F4 (DxDdCleanupDxGraphics.c)
+ *     ?InitializeClientReferenceCount@PDEV@@QEAAXXZ @ 0x1C007D6A0 (-InitializeClientReferenceCount@PDEV@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall MultiUserGreCleanupDrivers(__int64 a1, __int64 a2)
@@ -42,7 +42,7 @@ void __fastcall MultiUserGreCleanupDrivers(__int64 a1, __int64 a2)
         if ( v6 )
         {
           LOBYTE(a2) = 1;
-          ((void (__fastcall *)(__int64, __int64, _QWORD))qword_1C02967F0)(v6, a2, *((_QWORD *)v3 + 36));
+          ((void (__fastcall *)(__int64, __int64, _QWORD))qword_1C0251A00)(v6, a2, *((_QWORD *)v3 + 36));
         }
       }
       v3 = v4;

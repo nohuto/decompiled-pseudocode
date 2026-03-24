@@ -1,12 +1,12 @@
 /*
- * XREFs of PFTOBJ_bUnloadWorkhorseWrap @ 0x1C02711C0
+ * XREFs of PFTOBJ_bUnloadWorkhorseWrap @ 0x1C0273350
  * Callers:
  *     <none>
  * Callees:
- *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C0011CB0 (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
+ *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C00A21FC (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
  */
 
-_BOOL8 __fastcall PFTOBJ_bUnloadWorkhorseWrap(PFTOBJ *a1, struct PFF *a2, struct PFF **a3, unsigned int a4)
+__int64 __fastcall PFTOBJ_bUnloadWorkhorseWrap(PFTOBJ *a1, struct PFF *a2, struct PFF **a3, unsigned int a4)
 {
   return PFTOBJ::bUnloadWorkhorse(a1, a2, a3, a4);
 }

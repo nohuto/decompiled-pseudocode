@@ -1,1 +1,31 @@
-/*\n * XREFs of KeyboardClassCancelPendingIrpLeds @ 0x1C0004CB8\n * Callers:\n *     KeyboardPnP @ 0x1C0002090 (KeyboardPnP.c)\n * Callees:\n *     WPP_RECORDER_SF_qq @ 0x1C0001480 (WPP_RECORDER_SF_qq.c)\n */\n\nchar __fastcall KeyboardClassCancelPendingIrpLeds(__int64 a1)\n{\n  char v1; // si\n  IRP *v3; // rbx\n  __int64 v5; // [rsp+20h] [rbp-28h]\n\n  v1 = 0;\n  v3 = (IRP *)_InterlockedExchange64((volatile __int64 *)(a1 + 368), 0LL);\n  if ( v3 )\n  {\n    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n      WPP_RECORDER_SF_qq((__int64)WPP_GLOBAL_Control->DeviceExtension, 4u, 4u, 0x59u, v5);\n    IoCancelIrp(v3);\n    v1 = 1;\n    if ( _InterlockedExchange((volatile __int32 *)(a1 + 376), 2) == 3 )\n    {\n      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n        WPP_RECORDER_SF_qq((__int64)WPP_GLOBAL_Control->DeviceExtension, 4u, 4u, 0x5Au, v5);\n      IoFreeIrp(v3);\n    }\n  }\n  return v1;\n}\n
+/*
+ * XREFs of KeyboardClassCancelPendingIrpLeds @ 0x1C0004CB8
+ * Callers:
+ *     KeyboardPnP @ 0x1C0002090 (KeyboardPnP.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qq @ 0x1C0001480 (WPP_RECORDER_SF_qq.c)
+ */
+
+char __fastcall KeyboardClassCancelPendingIrpLeds(__int64 a1)
+{
+  char v1; // si
+  IRP *v3; // rbx
+  __int64 v5; // [rsp+20h] [rbp-28h]
+
+  v1 = 0;
+  v3 = (IRP *)_InterlockedExchange64((volatile __int64 *)(a1 + 368), 0LL);
+  if ( v3 )
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_qq((__int64)WPP_GLOBAL_Control->DeviceExtension, 4u, 4u, 0x59u, v5);
+    IoCancelIrp(v3);
+    v1 = 1;
+    if ( _InterlockedExchange((volatile __int32 *)(a1 + 376), 2) == 3 )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        WPP_RECORDER_SF_qq((__int64)WPP_GLOBAL_Control->DeviceExtension, 4u, 4u, 0x5Au, v5);
+      IoFreeIrp(v3);
+    }
+  }
+  return v1;
+}

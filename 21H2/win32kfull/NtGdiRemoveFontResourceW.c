@@ -1,13 +1,13 @@
 /*
- * XREFs of NtGdiRemoveFontResourceW @ 0x1C02AE430
+ * XREFs of NtGdiRemoveFontResourceW @ 0x1C02AFD40
  * Callers:
  *     <none>
  * Callees:
- *     ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C00F9694 (-bCheckAndCapThePath@@YAHPEAGPEBGKK@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     GreRemoveFontResourceW @ 0x1C0289180 (GreRemoveFontResourceW.c)
- *     ?ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z @ 0x1C02AC728 (-ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z.c)
+ *     ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C010EA68 (-bCheckAndCapThePath@@YAHPEAGPEBGKK@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     GreRemoveFontResourceW @ 0x1C028B530 (GreRemoveFontResourceW.c)
+ *     ?ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z @ 0x1C02ADFBC (-ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z.c)
  */
 
 __int64 __fastcall NtGdiRemoveFontResourceW(

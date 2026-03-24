@@ -1,9 +1,9 @@
 /*
- * XREFs of ViAvlCompareNodeUseSessionId @ 0x140134C10
+ * XREFs of ViAvlCompareNodeUseSessionId @ 0x140134C30
  * Callers:
  *     <none>
  * Callees:
- *     ViAvlCompareNode @ 0x140134C60 (ViAvlCompareNode.c)
+ *     ViAvlCompareNode @ 0x140134C80 (ViAvlCompareNode.c)
  */
 
 RTL_GENERIC_COMPARE_RESULTS __fastcall ViAvlCompareNodeUseSessionId(struct _RTL_AVL_TABLE *a1, _DWORD *a2, _DWORD *a3)

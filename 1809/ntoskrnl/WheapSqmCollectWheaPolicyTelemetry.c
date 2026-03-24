@@ -1,11 +1,11 @@
 /*
- * XREFs of WheapSqmCollectWheaPolicyTelemetry @ 0x1408DC4A4
+ * XREFs of WheapSqmCollectWheaPolicyTelemetry @ 0x1408DC484
  * Callers:
- *     WheapPfaMemoryCheck @ 0x1408DCAD8 (WheapPfaMemoryCheck.c)
- *     WheapPfaRetireExpiredMemoryEntries @ 0x1408DCE30 (WheapPfaRetireExpiredMemoryEntries.c)
- *     WheapSqmWaitWorkerRoutine @ 0x1408DD4C0 (WheapSqmWaitWorkerRoutine.c)
+ *     WheapPfaMemoryCheck @ 0x1408DCAB8 (WheapPfaMemoryCheck.c)
+ *     WheapPfaRetireExpiredMemoryEntries @ 0x1408DCE10 (WheapPfaRetireExpiredMemoryEntries.c)
+ *     WheapSqmWaitWorkerRoutine @ 0x1408DD4A0 (WheapSqmWaitWorkerRoutine.c)
  * Callees:
- *     WheapSqmDwordCommon @ 0x140321A98 (WheapSqmDwordCommon.c)
+ *     WheapSqmDwordCommon @ 0x140321B98 (WheapSqmDwordCommon.c)
  */
 
 NTSTATUS WheapSqmCollectWheaPolicyTelemetry()

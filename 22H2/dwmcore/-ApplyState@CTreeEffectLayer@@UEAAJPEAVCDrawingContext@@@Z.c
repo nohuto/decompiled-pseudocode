@@ -1,52 +1,23 @@
 /*
- * XREFs of ?ApplyState@CTreeEffectLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x1800195C0
+ * XREFs of ?ApplyState@CTreeEffectLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x1800191F0
  * Callers:
  *     <none>
  * Callees:
- *     ?ApplyState@CExternalLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x180019640 (-ApplyState@CExternalLayer@@UEAAJPEAVCDrawingContext@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?D2DInterpolationModeFromMilInterpolationMode@@YA?AW4D2D1_INTERPOLATION_MODE@@W4Enum@MilBitmapInterpolationMode@@@Z @ 0x1800E126C (-D2DInterpolationModeFromMilInterpolationMode@@YA-AW4D2D1_INTERPOLATION_MODE@@W4Enum@MilBitmapIn.c)
+ *     ?D2DInterpolationModeFromMilInterpolationMode@@YA?AW4D2D1_INTERPOLATION_MODE@@W4Enum@MilBitmapInterpolationMode@@@Z @ 0x1800C8D60 (-D2DInterpolationModeFromMilInterpolationMode@@YA-AW4D2D1_INTERPOLATION_MODE@@W4Enum@MilBitmapIn.c)
  */
 
-__int64 __fastcall CTreeEffectLayer::ApplyState(CTreeEffectLayer *this, struct CDrawingContext *a2)
+int __fastcall CTreeEffectLayer::ApplyState(CTreeEffectLayer *this, struct CDrawingContext *a2)
 {
-  int v3; // ebx
-  __int64 v4; // rcx
-  int v6; // eax
-  unsigned int v7; // ecx
-  unsigned int v8; // ebp
+  __int64 v2; // rcx
+  int v3; // eax
+  CExternalLayer *v4; // r8
+  struct CDrawingContext *v5; // rdx
 
-  *((_BYTE *)this + 120) = *((_BYTE *)a2 + 8171);
-  v3 = 0;
-  v4 = *((unsigned int *)a2 + 83);
-  *((_BYTE *)a2 + 8171) = 0;
-  *((_DWORD *)this + 31) = D2DInterpolationModeFromMilInterpolationMode(v4);
-  *((_DWORD *)a2 + 83) = 1;
-  v6 = CExternalLayer::ApplyState(this, a2);
-  v8 = v6;
-  if ( v6 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x229u, 0LL);
-    *((_BYTE *)a2 + 8171) = *((_BYTE *)this + 120);
-    switch ( *((_DWORD *)this + 31) )
-    {
-      case 1:
-        v3 = 1;
-        break;
-      case 2:
-        v3 = 2;
-        break;
-      case 3:
-        v3 = 6;
-        break;
-      case 4:
-        v3 = 5;
-        break;
-      case 5:
-        v3 = 7;
-        break;
-    }
-    *((_DWORD *)a2 + 83) = v3;
-  }
-  return v8;
+  *((_BYTE *)this + 120) = *((_BYTE *)a2 + 5956);
+  v2 = *((unsigned int *)a2 + 68);
+  *((_BYTE *)a2 + 5956) = 0;
+  v3 = D2DInterpolationModeFromMilInterpolationMode(v2);
+  *((_DWORD *)v4 + 31) = v3;
+  *((_DWORD *)v5 + 68) = 1;
+  return CExternalLayer::ApplyState(v4, v5);
 }

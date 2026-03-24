@@ -1,31 +1,37 @@
 /*
- * XREFs of DrvIsNotUsingGraphicsDevice @ 0x1C00C2820
+ * XREFs of DrvIsNotUsingGraphicsDevice @ 0x1C00B65C0
  * Callers:
- *     ?Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C013356C (-Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01198F8 (-Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
  * Callees:
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C00462E4 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     UserIsUserCritSecIn @ 0x1C004AA80 (UserIsUserCritSecIn.c)
  */
 
-__int64 __fastcall DrvIsNotUsingGraphicsDevice(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall DrvIsNotUsingGraphicsDevice(__int64 a1)
 {
-  int v5; // ebx
-  unsigned int v6; // edx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  int v4; // ebx
+  unsigned int v5; // edx
   __int64 i; // rdi
+  __int64 v8; // rax
 
-  v5 = 0;
-  if ( !IS_USERCRIT_OWNED_AT_ALL(a1, a2, a3, a4) )
-    WdLogSingleEntry0(1LL);
+  v4 = 0;
+  if ( !(unsigned int)UserIsUserCritSecIn() )
+  {
+    v8 = WdLogNewEntry5_WdAssertion(v3, v2);
+    WdLogEvent5_WdAssertion(v8);
+  }
   if ( !a1 )
     return 1LL;
-  v6 = *(_DWORD *)(a1 + 20);
-  if ( !v6 )
+  v5 = *(_DWORD *)(a1 + 20);
+  if ( !v5 )
     return 1LL;
   for ( i = a1 + 40;
         (*(_DWORD *)(*(_QWORD *)i + 40LL) & 0x20000) != 0
-     || (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)i + 2552LL) + 160LL) & 0x2000000) != 0;
+     || (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)i + 2576LL) + 160LL) & 0x2000000) != 0;
         i += 56LL )
   {
-    if ( ++v5 >= v6 )
+    if ( ++v4 >= v5 )
       return 1LL;
   }
   return 0LL;

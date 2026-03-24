@@ -1,313 +1,340 @@
 /*
- * XREFs of DxgkDisplayOnOff @ 0x1C0162A00
+ * XREFs of DxgkDisplayOnOff @ 0x1C014ED50
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C000955C (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ??1COREACCESS@@QEAA@XZ @ 0x1C000BC90 (--1COREACCESS@@QEAA@XZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     ?AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z @ 0x1C000F45C (-AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z.c)
- *     ?IsRemoteConnection@DXGPROCESS@@QEBAEXZ @ 0x1C000F538 (-IsRemoteConnection@DXGPROCESS@@QEBAEXZ.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?AcquireExclusive@COREDEVICEACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@PEAD@Z @ 0x1C0013788 (-AcquireExclusive@COREDEVICEACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@PEAD@Z.c)
- *     ??0DXGDEVICEACCESSLOCKEXCLUSIVECDD@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C00137F4 (--0DXGDEVICEACCESSLOCKEXCLUSIVECDD@@QEAA@PEAVDXGDEVICE@@@Z.c)
- *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C00138D4 (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
- *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVECDD@@QEAAXXZ @ 0x1C001E30C (-Release@DXGDEVICEACCESSLOCKEXCLUSIVECDD@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     DxgkGetCddDeviceAndContextForCurrentSession @ 0x1C0164D50 (DxgkGetCddDeviceAndContextForCurrentSession.c)
- *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C01668C0 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ?GetPrimaryDisplaySource@SESSION_VIEW@@QEBAPEAVDISPLAY_SOURCE@@XZ @ 0x1C01A3618 (-GetPrimaryDisplaySource@SESSION_VIEW@@QEBAPEAVDISPLAY_SOURCE@@XZ.c)
- *     DxgkReleaseSessionModeChangeLock @ 0x1C01A46EC (DxgkReleaseSessionModeChangeLock.c)
- *     ?GetSessionViewFromSource@DXGSESSIONDATA@@QEBAPEAVSESSION_VIEW@@AEBU_LUID@@I@Z @ 0x1C01A52B0 (-GetSessionViewFromSource@DXGSESSIONDATA@@QEBAPEAVSESSION_VIEW@@AEBU_LUID@@I@Z.c)
- *     ?GetNextDisplaySource@SESSION_VIEW@@QEBAPEAVDISPLAY_SOURCE@@PEBV2@@Z @ 0x1C01B631C (-GetNextDisplaySource@SESSION_VIEW@@QEBAPEAVDISPLAY_SOURCE@@PEBV2@@Z.c)
- *     ?SetCopyProtectionWithLock@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C01BC39C (-SetCopyProtectionWithLock@ADAPTER_DISPLAY@@QEAAJI@Z.c)
- *     ?DmmDisablePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@I@Z @ 0x1C01C770C (-DmmDisablePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@I@Z.c)
- *     ?ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C01C80AC (-ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
- *     ?DmmEnablePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IEPEAVCOREDEVICEACCESS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01E8324 (-DmmEnablePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IEPEAVCOREDEVICEACCESS@@PEAU_DXGK_DISPLAY_SCEN.c)
- *     ?HasAnyVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEXZ @ 0x1C01E9C14 (-HasAnyVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEXZ.c)
- *     DxgkDestroyCddDeviceAndContextForCurrentSession @ 0x1C03493B4 (DxgkDestroyCddDeviceAndContextForCurrentSession.c)
+ *     ??0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z @ 0x1C00022BC (--0COREDEVICEACCESS@@QEAA@QEAVDXGDEVICE@@W4_DXGDEVICEACCESS_TYPE@@I_N@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ??1COREACCESS@@QEAA@XZ @ 0x1C00040C0 (--1COREACCESS@@QEAA@XZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ??0DXGDEVICEACCESSLOCKEXCLUSIVECDD@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0006F9C (--0DXGDEVICEACCESSLOCKEXCLUSIVECDD@@QEAA@PEAVDXGDEVICE@@@Z.c)
+ *     ?AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z @ 0x1C0007D94 (-AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z.c)
+ *     ?IsRemoteConnection@DXGPROCESS@@QEBAEXZ @ 0x1C000A914 (-IsRemoteConnection@DXGPROCESS@@QEBAEXZ.c)
+ *     ?AcquireExclusive@COREDEVICEACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@PEAD@Z @ 0x1C000BA88 (-AcquireExclusive@COREDEVICEACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@PEAD@Z.c)
+ *     ?Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C000D12C (-Attach@CPROCESSATTACHHELPER@@QEAAXPEAU_EPROCESS@@@Z.c)
+ *     ?Release@DXGDEVICEACCESSLOCKEXCLUSIVECDD@@QEAAXXZ @ 0x1C001A29C (-Release@DXGDEVICEACCESSLOCKEXCLUSIVECDD@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C00E49F4 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?GetSessionViewFromSource@DXGSESSIONDATA@@QEBAPEAVSESSION_VIEW@@AEBU_LUID@@I@Z @ 0x1C0121638 (-GetSessionViewFromSource@DXGSESSIONDATA@@QEBAPEAVSESSION_VIEW@@AEBU_LUID@@I@Z.c)
+ *     DxgkReleaseSessionModeChangeLock @ 0x1C0122794 (DxgkReleaseSessionModeChangeLock.c)
+ *     ?GetPrimaryDisplaySource@SESSION_VIEW@@QEBAPEAVDISPLAY_SOURCE@@XZ @ 0x1C0130DBC (-GetPrimaryDisplaySource@SESSION_VIEW@@QEBAPEAVDISPLAY_SOURCE@@XZ.c)
+ *     ?SetCopyProtectionWithLock@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C0143468 (-SetCopyProtectionWithLock@ADAPTER_DISPLAY@@QEAAJI@Z.c)
+ *     DxgkGetCddDeviceAndContextForCurrentSession @ 0x1C0143960 (DxgkGetCddDeviceAndContextForCurrentSession.c)
+ *     ?DmmDisablePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@I@Z @ 0x1C014BE84 (-DmmDisablePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@I@Z.c)
+ *     ?GetNextDisplaySource@SESSION_VIEW@@QEBAPEAVDISPLAY_SOURCE@@PEBV2@@Z @ 0x1C014F35C (-GetNextDisplaySource@SESSION_VIEW@@QEBAPEAVDISPLAY_SOURCE@@PEBV2@@Z.c)
+ *     ?ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C014F550 (-ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
+ *     ?DmmEnablePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IEPEAVCOREDEVICEACCESS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C014F988 (-DmmEnablePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IEPEAVCOREDEVICEACCESS@@PEAU_DXGK_DISPLAY_SCEN.c)
+ *     ?HasAnyVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEXZ @ 0x1C0150458 (-HasAnyVidPnSourceOwner@ADAPTER_DISPLAY@@QEBAEXZ.c)
+ *     DxgkDestroyCddDeviceAndContextForCurrentSession @ 0x1C029FF78 (DxgkDestroyCddDeviceAndContextForCurrentSession.c)
  */
 
 __int64 __fastcall DxgkDisplayOnOff(struct _LUID *a1, unsigned int a2, char a3, unsigned __int8 a4)
 {
-  __int64 v4; // r12
+  __int64 v4; // r15
   __int64 v6; // rcx
   __int64 v7; // r8
-  struct DXGDEVICE *v8; // rsi
-  unsigned int v9; // ebx
-  DXGSESSIONMGR *v10; // rdi
-  unsigned int v11; // eax
-  struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  DXGSESSIONDATA *v13; // rdi
-  DXGPROCESS *Current; // rax
-  __int64 v15; // r14
-  int v16; // eax
-  SESSION_VIEW *SessionViewFromSource; // rax
-  SESSION_VIEW *v18; // rbx
-  struct DISPLAY_SOURCE *PrimaryDisplaySource; // r13
-  __int64 v20; // rdi
-  __int64 v21; // r15
-  unsigned int *v22; // r12
-  int CddDeviceAndContextForCurrentSession; // eax
-  __int64 v24; // r9
-  int v25; // eax
-  int v26; // eax
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  const wchar_t *v30; // rdi
-  __int64 v31; // rax
-  __int64 v32; // rdi
-  const wchar_t *v33; // r9
-  __int64 HighPart; // rax
-  __int64 LowPart; // rcx
-  __int64 v36; // rbx
-  __int64 v37; // rbx
-  __int64 v38; // rbx
+  struct DXGDEVICE *v8; // rbx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  DXGSESSIONMGR *v13; // rdi
   unsigned int CurrentProcessSessionId; // eax
-  char v41; // [rsp+51h] [rbp-AFh] BYREF
-  char v42; // [rsp+52h] [rbp-AEh]
-  struct DXGDEVICE *v43; // [rsp+58h] [rbp-A8h]
-  SESSION_VIEW *v44; // [rsp+60h] [rbp-A0h]
-  _BYTE v45[8]; // [rsp+68h] [rbp-98h] BYREF
-  char v46; // [rsp+70h] [rbp-90h]
-  int v47; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v48; // [rsp+80h] [rbp-80h]
-  char v49; // [rsp+88h] [rbp-78h]
-  _BYTE v50[16]; // [rsp+98h] [rbp-68h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+A8h] [rbp-58h] BYREF
-  char v52; // [rsp+D8h] [rbp-28h]
-  _QWORD v53[10]; // [rsp+E0h] [rbp-20h] BYREF
-  _BYTE v54[8]; // [rsp+130h] [rbp+30h] BYREF
-  _BYTE v55[64]; // [rsp+138h] [rbp+38h] BYREF
-  _BYTE v56[88]; // [rsp+178h] [rbp+78h] BYREF
+  PRKPROCESS *SessionDataForSpecifiedSession; // rsi
+  __int64 v16; // rdi
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  DXGPROCESS *Current; // rax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  DXGPROCESS *v22; // r12
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  int v25; // eax
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  DXGSESSIONDATA **SessionViewFromSource; // rax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  SESSION_VIEW *v31; // r13
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  struct DISPLAY_SOURCE *PrimaryDisplaySource; // rdi
+  __int64 v35; // r15
+  __int64 v36; // rsi
+  unsigned int *v37; // r14
+  int CddDeviceAndContextForCurrentSession; // eax
+  __int64 v39; // rdx
+  __int64 v40; // rcx
+  __int64 v41; // rbx
+  __int64 v42; // r9
+  int v43; // eax
+  __int64 v44; // rdx
+  __int64 v45; // rcx
+  __int64 v46; // r12
+  unsigned __int8 v47; // r12
+  int v48; // eax
+  __int64 v49; // rdx
+  __int64 v50; // rcx
+  __int64 v51; // r12
+  __int64 v52; // rdx
+  struct DISPLAY_SOURCE *NextDisplaySource; // rax
+  __int64 v54; // rcx
+  __int64 v55; // r8
+  __int64 v57; // rbx
+  __int64 v58; // rdx
+  __int64 v59; // rcx
+  __int64 v60; // rcx
+  __int64 v61; // rax
+  __int64 v62; // rax
+  _QWORD *v63; // rax
+  _QWORD *v64; // rax
+  __int64 v65; // rdx
+  _QWORD *v66; // rax
+  char v67; // [rsp+30h] [rbp-D0h] BYREF
+  char v68; // [rsp+31h] [rbp-CFh]
+  unsigned __int8 v69; // [rsp+32h] [rbp-CEh]
+  struct DXGDEVICE *v70; // [rsp+38h] [rbp-C8h] BYREF
+  DXGPROCESS *v71; // [rsp+40h] [rbp-C0h]
+  _BYTE v72[8]; // [rsp+48h] [rbp-B8h] BYREF
+  char v73; // [rsp+50h] [rbp-B0h]
+  int v74; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v75; // [rsp+60h] [rbp-A0h]
+  char v76; // [rsp+68h] [rbp-98h]
+  _BYTE v77[16]; // [rsp+78h] [rbp-88h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+88h] [rbp-78h] BYREF
+  char v79; // [rsp+B8h] [rbp-48h]
+  _QWORD v80[10]; // [rsp+C0h] [rbp-40h] BYREF
+  _BYTE v81[8]; // [rsp+110h] [rbp+10h] BYREF
+  _BYTE v82[64]; // [rsp+118h] [rbp+18h] BYREF
+  _BYTE v83[88]; // [rsp+158h] [rbp+58h] BYREF
 
   v4 = a2;
-  v42 = a3;
-  memset(v53, 0, 0x48uLL);
-  EtwActivityIdControl(3u, (LPGUID)&v53[1]);
-  v47 = -1;
-  v53[8] = MEMORY[0xFFFFF78000000014];
-  LODWORD(v53[3]) = 53;
-  LOBYTE(v53[6]) = -1;
-  v48 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  v68 = a3;
+  v69 = a4;
+  memset(v80, 0, 0x48uLL);
+  EtwActivityIdControl(3u, (LPGUID)&v80[1]);
+  v74 = -1;
+  v80[8] = MEMORY[0xFFFFF78000000014];
+  LODWORD(v80[3]) = 53;
+  LOBYTE(v80[6]) = -1;
+  v75 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v49 = 1;
-    v47 = 2183;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v76 = 1;
+    v74 = 2183;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(v6, &EventProfilerEnter, v7, 2183);
   }
   else
   {
-    v49 = 0;
+    v76 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v47, 2183);
-  v52 = 0;
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v74, 2183LL);
   v8 = 0LL;
-  v43 = 0LL;
-  v9 = -1073741811;
-  v10 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-  if ( !v10
-    || (v11 = PsGetCurrentProcessSessionId(),
-        SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(v10, v11),
-        (v13 = SessionDataForSpecifiedSession) == 0LL) )
+  v79 = 0;
+  v70 = 0LL;
+  v13 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal(v10, v9) + 102);
+  if ( v13 )
   {
-    CurrentProcessSessionId = PsGetCurrentProcessSessionId();
-    WdLogSingleEntry2(2LL, CurrentProcessSessionId, -1073741811LL);
-    v30 = L"Cannot find the session data for session 0x%I64x, returning 0x%I64x.";
-    v15 = (unsigned int)PsGetCurrentProcessSessionId();
-    v31 = -1073741811LL;
-    goto LABEL_55;
-  }
-  CPROCESSATTACHHELPER::Attach(&ApcState, *((PRKPROCESS *)SessionDataForSpecifiedSession + 2331));
-  Current = DXGPROCESS::GetCurrent();
-  v15 = (__int64)Current;
-  if ( !Current )
-  {
-    v15 = 9819LL;
-    WdLogSingleEntry1(2LL, 9819LL);
-    v30 = L"Failed to get current DXGPROCESS";
-LABEL_40:
-    v31 = 0LL;
-LABEL_55:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v30, v15, v31, 0LL, 0LL, 0LL);
-    goto LABEL_29;
-  }
-  if ( DXGPROCESS::IsRemoteConnection(Current) )
-  {
-    WdLogSingleEntry1(2LL, v15);
-    v9 = -1073741790;
-    v30 = L"DxgkDisplayOnOff is not called from console session (Current DXGPROCESS 0x%I64x).";
-    goto LABEL_40;
-  }
-  v41 = 0;
-  v16 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)&v41, 1);
-  v9 = v16;
-  if ( v16 < 0 )
-  {
-    v32 = v16;
-    WdLogSingleEntry1(2LL, v16);
-    v33 = L"Failed to acquire session mode change lock exclusively (Status = 0x%I64x)";
-    HighPart = 0LL;
-    LowPart = 0LL;
+    CurrentProcessSessionId = PsGetCurrentProcessSessionId(v12, v11);
+    SessionDataForSpecifiedSession = (PRKPROCESS *)DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
+                                                     v13,
+                                                     CurrentProcessSessionId);
   }
   else
   {
-    SessionViewFromSource = DXGSESSIONDATA::GetSessionViewFromSource(v13, a1, v4);
-    v44 = SessionViewFromSource;
-    v18 = SessionViewFromSource;
-    if ( SessionViewFromSource )
+    SessionDataForSpecifiedSession = 0LL;
+  }
+  LODWORD(v16) = -1073741811;
+  if ( !SessionDataForSpecifiedSession )
+  {
+    v57 = WdLogNewEntry5_WdError(v12, v11);
+    *(_QWORD *)(v57 + 24) = (unsigned int)PsGetCurrentProcessSessionId(v59, v58);
+    v60 = v57;
+    *(_QWORD *)(v57 + 32) = -1073741811LL;
+LABEL_43:
+    WdLogEvent5_WdError(v60);
+    goto LABEL_33;
+  }
+  CPROCESSATTACHHELPER::Attach(&ApcState, SessionDataForSpecifiedSession[2329]);
+  Current = DXGPROCESS::GetCurrent(v18, v17);
+  v71 = Current;
+  v22 = Current;
+  if ( !Current )
+  {
+    v60 = WdLogNewEntry5_WdError(v21, v20);
+    *(_QWORD *)(v60 + 24) = 9797LL;
+    goto LABEL_43;
+  }
+  if ( DXGPROCESS::IsRemoteConnection(Current) )
+  {
+    v61 = WdLogNewEntry5_WdError(v24, v23);
+    *(_QWORD *)(v61 + 24) = v22;
+    WdLogEvent5_WdError(v61);
+    LODWORD(v16) = -1073741790;
+  }
+  else
+  {
+    v67 = 0;
+    v25 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)&v67, 1);
+    v16 = v25;
+    if ( v25 < 0 )
     {
-      PrimaryDisplaySource = SESSION_VIEW::GetPrimaryDisplaySource(SessionViewFromSource);
-      if ( PrimaryDisplaySource )
+      v62 = WdLogNewEntry5_WdError(v27, v26);
+      *(_QWORD *)(v62 + 24) = v16;
+      WdLogEvent5_WdError(v62);
+    }
+    else
+    {
+      SessionViewFromSource = DXGSESSIONDATA::GetSessionViewFromSource(
+                                (DXGSESSIONDATA *)SessionDataForSpecifiedSession,
+                                a1,
+                                v4);
+      v31 = (SESSION_VIEW *)SessionViewFromSource;
+      if ( SessionViewFromSource )
       {
-        while ( 1 )
+        PrimaryDisplaySource = SESSION_VIEW::GetPrimaryDisplaySource((SESSION_VIEW *)SessionViewFromSource);
+        if ( PrimaryDisplaySource )
         {
-          v20 = *((unsigned int *)PrimaryDisplaySource + 4);
-          v21 = *(_QWORD *)(*((_QWORD *)PrimaryDisplaySource + 1) + 16LL);
-          v22 = (unsigned int *)(v21 + 404);
-          if ( v8 )
+          while ( 1 )
           {
-            DxgkDestroyCddDeviceAndContextForCurrentSession((struct _LUID *)(v21 + 404), v8);
-            if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v8 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-              ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v43 + 2), v43);
-            v43 = 0LL;
+            v35 = *((unsigned int *)PrimaryDisplaySource + 4);
+            v36 = *(_QWORD *)(*((_QWORD *)PrimaryDisplaySource + 1) + 16LL);
+            v37 = (unsigned int *)(v36 + 316);
+            if ( v8 )
+            {
+              DxgkDestroyCddDeviceAndContextForCurrentSession((struct _LUID *)(v36 + 316), v8);
+              if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v8 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
+                ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v70 + 2), v70);
+              v70 = 0LL;
+            }
+            CddDeviceAndContextForCurrentSession = DxgkGetCddDeviceAndContextForCurrentSession(
+                                                     (struct _LUID *)(v36 + 316),
+                                                     &v70,
+                                                     0LL,
+                                                     0LL,
+                                                     0);
+            v41 = CddDeviceAndContextForCurrentSession;
+            if ( CddDeviceAndContextForCurrentSession >= 0 )
+              break;
+            v64 = (_QWORD *)WdLogNewEntry5_WdError(v40, v39);
+            v64[3] = *(int *)(v36 + 320);
+            v64[4] = *v37;
+            v64[5] = v41;
+            WdLogEvent5_WdError(v64);
+            v8 = 0LL;
+            v70 = 0LL;
+            NextDisplaySource = SESSION_VIEW::GetNextDisplaySource(v31, PrimaryDisplaySource);
+LABEL_28:
+            PrimaryDisplaySource = NextDisplaySource;
+LABEL_29:
+            if ( !PrimaryDisplaySource )
+              goto LABEL_30;
           }
-          CddDeviceAndContextForCurrentSession = DxgkGetCddDeviceAndContextForCurrentSession(
-                                                   (struct _LUID *)(v21 + 404),
-                                                   0);
-          if ( CddDeviceAndContextForCurrentSession < 0 )
+          v8 = v70;
+          DXGDEVICEACCESSLOCKEXCLUSIVECDD::DXGDEVICEACCESSLOCKEXCLUSIVECDD((DXGDEVICEACCESSLOCKEXCLUSIVECDD *)v77, v70);
+          DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v72, *((struct DXGFASTMUTEX *const *)v22 + 42), 0);
+          DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v72);
+          COREDEVICEACCESS::COREDEVICEACCESS((__int64)v81, (__int64)v8, 1, v42, 0);
+          v43 = COREDEVICEACCESS::AcquireExclusive((__int64)v81, 2u);
+          v46 = v43;
+          if ( v43 == -1073741130 )
           {
-            v36 = CddDeviceAndContextForCurrentSession;
-            WdLogSingleEntry3(2LL, *(int *)(v21 + 408), *v22, CddDeviceAndContextForCurrentSession);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              0x40000,
-              -1,
-              (__int64)L"Fail to get CDD device on DXGADAPTER 0x%I64x%08I64x (Status = 0x%I64x).",
-              *(int *)(v21 + 408),
-              *v22,
-              v36,
-              0LL,
-              0LL);
-            v18 = v44;
-            goto LABEL_23;
+            COREACCESS::~COREACCESS((COREACCESS *)v83);
+            COREACCESS::~COREACCESS((COREACCESS *)v82);
+            if ( v73 )
+              DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v72, v65);
+            DXGDEVICEACCESSLOCKEXCLUSIVECDD::Release((DXGDEVICEACCESSLOCKEXCLUSIVECDD *)v77);
+            v22 = v71;
+            goto LABEL_29;
           }
-          v8 = v43;
-          DXGDEVICEACCESSLOCKEXCLUSIVECDD::DXGDEVICEACCESSLOCKEXCLUSIVECDD((DXGDEVICEACCESSLOCKEXCLUSIVECDD *)v50, v43);
-          DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v45, (struct DXGFASTMUTEX *const)(v15 + 376), 0);
-          DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v45);
-          COREDEVICEACCESS::COREDEVICEACCESS((__int64)v54, (__int64)v8, 1, v24, 0);
-          v25 = COREDEVICEACCESS::AcquireExclusive((__int64)v54, 2u);
-          if ( v25 == -1073741130 )
+          if ( v43 < 0 )
           {
-            COREACCESS::~COREACCESS((COREACCESS *)v56);
-            COREACCESS::~COREACCESS((COREACCESS *)v55);
-            if ( v46 )
-              DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v45);
-            DXGDEVICEACCESSLOCKEXCLUSIVECDD::Release((DXGDEVICEACCESSLOCKEXCLUSIVECDD *)v50);
-            goto LABEL_25;
+            v66 = (_QWORD *)WdLogNewEntry5_WdError(v45, v44);
+            v66[3] = *(int *)(v36 + 320);
+            v66[4] = *v37;
+            v66[5] = v46;
           }
-          if ( v25 < 0 )
-            break;
-          if ( v42 )
+          else
           {
-            if ( a4 && ADAPTER_DISPLAY::HasAnyVidPnSourceOwner(*(ADAPTER_DISPLAY **)(v21 + 2792)) )
+            if ( !v68 )
+            {
+              DmmDisablePathsFromVidPnSource(v8, v35);
+LABEL_21:
+              COREACCESS::~COREACCESS((COREACCESS *)v83);
+              COREACCESS::~COREACCESS((COREACCESS *)v82);
+              if ( v73 )
+                DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v72, v52);
+              DXGDEVICEACCESSLOCKEXCLUSIVECDD::Release((DXGDEVICEACCESSLOCKEXCLUSIVECDD *)v77);
+              if ( v8 )
+              {
+                if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v8 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
+                  ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v70 + 2), v70);
+                v8 = 0LL;
+                v70 = 0LL;
+              }
+              NextDisplaySource = SESSION_VIEW::GetNextDisplaySource(v31, PrimaryDisplaySource);
+              v22 = v71;
+              goto LABEL_28;
+            }
+            v47 = v69;
+            if ( v69 && ADAPTER_DISPLAY::HasAnyVidPnSourceOwner(*(ADAPTER_DISPLAY **)(v36 + 2696)) )
               ADAPTER_DISPLAY::ReleaseAllVidPnSourceOwners(
-                *(ADAPTER_DISPLAY **)(v21 + 2792),
+                *(ADAPTER_DISPLAY **)(v36 + 2696),
                 *((struct ADAPTER_RENDER **)v8 + 2));
             if ( (int)DmmEnablePathsFromVidPnSource(
                         v8,
-                        v20,
-                        a4,
-                        (struct COREDEVICEACCESS *)v54,
-                        (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v53) < 0 )
-              goto LABEL_18;
-            v26 = ADAPTER_DISPLAY::SetCopyProtectionWithLock(*(ADAPTER_DISPLAY **)(v21 + 2792), v20);
-            if ( v26 >= 0 )
-              goto LABEL_18;
-            v38 = v26;
-            WdLogSingleEntry4(2LL, v20, *(int *)(v21 + 408), *v22, v26);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              0x40000,
-              -1,
-              (__int64)L"Failed in restoring copy protection on VidPnSourceId 0x%I64x on adapter 0x%I64x%08I64x (status = 0x%I64x)",
-              v20,
-              *(int *)(v21 + 408),
-              *v22,
-              v38,
-              0LL);
-            goto LABEL_53;
+                        v35,
+                        v47,
+                        (struct COREDEVICEACCESS *)v81,
+                        (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v80) < 0 )
+              goto LABEL_21;
+            v48 = ADAPTER_DISPLAY::SetCopyProtectionWithLock(*(DXGADAPTER ***)(v36 + 2696), v35);
+            v51 = v48;
+            if ( v48 >= 0 )
+              goto LABEL_21;
+            v66 = (_QWORD *)WdLogNewEntry5_WdError(v50, v49);
+            v66[3] = v35;
+            v66[4] = *(int *)(v36 + 320);
+            v66[5] = *v37;
+            v66[6] = v51;
           }
-          DmmDisablePathsFromVidPnSource(v8, v20);
-LABEL_18:
-          COREACCESS::~COREACCESS((COREACCESS *)v56);
-          COREACCESS::~COREACCESS((COREACCESS *)v55);
-          if ( v46 )
-            DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v45);
-          DXGDEVICEACCESSLOCKEXCLUSIVECDD::Release((DXGDEVICEACCESSLOCKEXCLUSIVECDD *)v50);
-          if ( !v8 )
-            goto LABEL_24;
-          if ( _InterlockedExchangeAdd64((volatile signed __int64 *)v8 + 8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-            ADAPTER_RENDER::DestroyDeviceNoLocks(*((ADAPTER_RENDER **)v43 + 2), v43);
-LABEL_23:
-          v8 = 0LL;
-          v43 = 0LL;
-LABEL_24:
-          PrimaryDisplaySource = SESSION_VIEW::GetNextDisplaySource(v18, PrimaryDisplaySource);
-LABEL_25:
-          if ( !PrimaryDisplaySource )
-            goto LABEL_26;
+          WdLogEvent5_WdError(v66);
+          goto LABEL_21;
         }
-        v37 = v25;
-        WdLogSingleEntry3(2LL, *(int *)(v21 + 408), *v22, v25);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Failed to acquire device lock on adapter 0x%I64x%08I64x (Status = 0x%I64x)",
-          *(int *)(v21 + 408),
-          *v22,
-          v37,
-          0LL,
-          0LL);
-LABEL_53:
-        v18 = v44;
-        goto LABEL_18;
+LABEL_30:
+        LODWORD(v16) = 0;
       }
-LABEL_26:
-      v9 = 0;
-      goto LABEL_27;
+      else
+      {
+        v63 = (_QWORD *)WdLogNewEntry5_WdError(v30, v29);
+        v63[3] = v4;
+        v63[4] = a1->HighPart;
+        v63[5] = a1->LowPart;
+        WdLogEvent5_WdError(v63);
+        LODWORD(v16) = -1073741811;
+      }
     }
-    v32 = v4;
-    WdLogSingleEntry3(2LL, v4, a1->HighPart, a1->LowPart);
-    HighPart = a1->HighPart;
-    v33 = L"Failed to find session view from caller specified VidPn source 0x%I64x on Adapter 0x%I64x%08I64x.";
-    LowPart = a1->LowPart;
-    v9 = -1073741811;
+    if ( v67 )
+      DxgkReleaseSessionModeChangeLock(v33, v32);
   }
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v33, v32, HighPart, LowPart, 0LL, 0LL);
-LABEL_27:
-  if ( v41 )
-    DxgkReleaseSessionModeChangeLock();
-LABEL_29:
-  if ( v52 )
+LABEL_33:
+  if ( v79 )
   {
     KeUnstackDetachProcess(&ApcState);
-    v52 = 0;
+    v79 = 0;
   }
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v47);
-  if ( v49 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-    McTemplateK0q_EtwWriteTransfer(v27, &EventProfilerExit, v28, v47);
-  return v9;
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v74, v32);
+  if ( v76 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v54, &EventProfilerExit, v55, v74);
+  return (unsigned int)v16;
 }

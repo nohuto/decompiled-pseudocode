@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxIdleComponent @ 0x1400FECEC
+ * XREFs of PopFxIdleComponent @ 0x1400FED0C
  * Callers:
- *     PopFxCompleteComponentActivation @ 0x1400FEC2C (PopFxCompleteComponentActivation.c)
- *     PoFxIdleComponent @ 0x1400FECD0 (PoFxIdleComponent.c)
- *     PopFxResidentTimeoutRoutine @ 0x140100260 (PopFxResidentTimeoutRoutine.c)
- *     PoFxIdleDevice @ 0x140159F08 (PoFxIdleDevice.c)
- *     PoFxReportDevicePoweredOn @ 0x140170C60 (PoFxReportDevicePoweredOn.c)
- *     PoFxStartDevicePowerManagement @ 0x14018BCB0 (PoFxStartDevicePowerManagement.c)
+ *     PopFxCompleteComponentActivation @ 0x1400FEC4C (PopFxCompleteComponentActivation.c)
+ *     PoFxIdleComponent @ 0x1400FECF0 (PoFxIdleComponent.c)
+ *     PopFxResidentTimeoutRoutine @ 0x140100280 (PopFxResidentTimeoutRoutine.c)
+ *     PoFxIdleDevice @ 0x140159F28 (PoFxIdleDevice.c)
+ *     PoFxReportDevicePoweredOn @ 0x140170C80 (PoFxReportDevicePoweredOn.c)
+ *     PoFxStartDevicePowerManagement @ 0x14018BCD0 (PoFxStartDevicePowerManagement.c)
  * Callees:
  *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
- *     PopFxIdleWorker @ 0x1400FE8D4 (PopFxIdleWorker.c)
- *     PpmInterlockedUpdateTimeNoFence @ 0x1400FEE60 (PpmInterlockedUpdateTimeNoFence.c)
- *     PopFxArmResidentTimer @ 0x140100380 (PopFxArmResidentTimer.c)
- *     PopFxQueueWorkOrder @ 0x140100490 (PopFxQueueWorkOrder.c)
- *     PopFxBugCheck @ 0x1402D73C0 (PopFxBugCheck.c)
+ *     PopFxIdleWorker @ 0x1400FE8F4 (PopFxIdleWorker.c)
+ *     PpmInterlockedUpdateTimeNoFence @ 0x1400FEE80 (PpmInterlockedUpdateTimeNoFence.c)
+ *     PopFxArmResidentTimer @ 0x1401003A0 (PopFxArmResidentTimer.c)
+ *     PopFxQueueWorkOrder @ 0x1401004B0 (PopFxQueueWorkOrder.c)
+ *     PopFxBugCheck @ 0x1402D74C0 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopFxIdleComponent(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, char a3)

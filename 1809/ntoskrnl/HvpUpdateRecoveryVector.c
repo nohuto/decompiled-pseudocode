@@ -1,8 +1,8 @@
 /*
- * XREFs of HvpUpdateRecoveryVector @ 0x1408071C0
+ * XREFs of HvpUpdateRecoveryVector @ 0x1408071A0
  * Callers:
- *     HvpApplyIncrementalLogFile @ 0x140806794 (HvpApplyIncrementalLogFile.c)
- *     HvpApplyLegacyLogFile @ 0x1408069B0 (HvpApplyLegacyLogFile.c)
+ *     HvpApplyIncrementalLogFile @ 0x140806774 (HvpApplyIncrementalLogFile.c)
+ *     HvpApplyLegacyLogFile @ 0x140806990 (HvpApplyLegacyLogFile.c)
  * Callees:
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
  */

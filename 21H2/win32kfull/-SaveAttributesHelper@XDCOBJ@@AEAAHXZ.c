@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SaveAttributesHelper@XDCOBJ@@AEAAHXZ @ 0x1C012CAC0
+ * XREFs of ?SaveAttributesHelper@XDCOBJ@@AEAAHXZ @ 0x1C013A9D0
  * Callers:
- *     ?vSaveAttributesAlways@XDCOBJ@@AEAAXXZ @ 0x1C012CA98 (-vSaveAttributesAlways@XDCOBJ@@AEAAXXZ.c)
- *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C015D85C (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
+ *     ?vSaveAttributesAlways@XDCOBJ@@AEAAXXZ @ 0x1C013A9A8 (-vSaveAttributesAlways@XDCOBJ@@AEAAXXZ.c)
+ *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C016A898 (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
  * Callees:
  *     <none>
  */

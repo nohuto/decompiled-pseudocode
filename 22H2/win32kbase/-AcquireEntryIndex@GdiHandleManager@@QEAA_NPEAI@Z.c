@@ -1,175 +1,128 @@
 /*
- * XREFs of ?AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z @ 0x1C003FBE0
+ * XREFs of ?AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z @ 0x1C002CFC0
  * Callers:
- *     HmgAlloc @ 0x1C003DD30 (HmgAlloc.c)
- *     GreCreateRectRgnIndirect @ 0x1C003F2F0 (GreCreateRectRgnIndirect.c)
- *     ?HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z @ 0x1C0046F30 (-HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z.c)
- *     HmgCreate @ 0x1C007C9D4 (HmgCreate.c)
+ *     HmgAlloc @ 0x1C0001410 (HmgAlloc.c)
+ *     ?HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z @ 0x1C0035F00 (-HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z.c)
+ *     HmgCreate @ 0x1C006BCFC (HmgCreate.c)
  * Callees:
- *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0029EC8 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?AcquireEntryIndex@GdiHandleEntryTable@@QEAA_NPEAI@Z @ 0x1C003FB68 (-AcquireEntryIndex@GdiHandleEntryTable@@QEAA_NPEAI@Z.c)
- *     ?GetEntryObject@GdiHandleEntryTable@@QEAAPEAVOBJECT@@I@Z @ 0x1C0044280 (-GetEntryObject@GdiHandleEntryTable@@QEAAPEAVOBJECT@@I@Z.c)
- *     ?_Create@GdiHandleEntryTable@@CAPEAV1@I_N@Z @ 0x1C007ECD4 (-_Create@GdiHandleEntryTable@@CAPEAV1@I_N@Z.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     ?AcquireEntryIndex@GdiHandleEntryTable@@QEAA_NPEAI@Z @ 0x1C002D0B0 (-AcquireEntryIndex@GdiHandleEntryTable@@QEAA_NPEAI@Z.c)
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C0031220 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C00313F0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?_Create@GdiHandleEntryTable@@CAPEAV1@I_N@Z @ 0x1C006C530 (-_Create@GdiHandleEntryTable@@CAPEAV1@I_N@Z.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 char __fastcall GdiHandleManager::AcquireEntryIndex(GdiHandleManager *this, unsigned int *a2)
 {
+  GdiHandleManager *v2; // rdi
   __int64 v4; // rsi
-  __int64 v5; // r15
-  __int64 v6; // rdi
-  __int64 v7; // rcx
-  char v8; // r10
-  unsigned int v9; // esi
-  __int64 v10; // rsi
-  __int64 v11; // r11
-  unsigned int v12; // edx
-  GdiHandleEntryTable *v13; // rsi
-  __int64 v14; // r9
-  __int64 v16; // rax
-  __int64 *v17; // r13
-  unsigned __int64 v18; // r12
-  _QWORD *v19; // rax
-  unsigned int v20; // eax
-  unsigned int v21; // edi
-  GdiHandleEntryTable *v22; // rbp
-  GdiHandleEntryTable *v23; // rcx
-  void *v24; // rax
-  signed __int32 v25[18]; // [rsp+0h] [rbp-48h] BYREF
-  unsigned int v26; // [rsp+50h] [rbp+8h] BYREF
+  GdiHandleEntryTable *v5; // rcx
+  unsigned int v6; // ebx
+  char v7; // si
+  unsigned int v8; // eax
+  unsigned int v9; // eax
+  struct _ENTRY *Entry; // rax
+  unsigned int v12; // eax
+  unsigned int v13; // ebx
+  GdiHandleEntryTable *v14; // rbp
+  GdiHandleEntryTable *v15; // rcx
+  __int64 v16; // rdx
+  void *v17; // rax
+  GdiHandleManager *v18; // [rsp+40h] [rbp+8h] BYREF
 
-  while ( *((_DWORD *)this + 1) < *((_DWORD *)this + 2) )
+  v18 = this;
+  v2 = gpHandleManager;
+  if ( *((_DWORD *)gpHandleManager + 1) < *((_DWORD *)gpHandleManager + 2) )
   {
-    v4 = *((_QWORD *)this + 2);
-    if ( *(_BYTE *)v4 )
-      return 0;
-    v5 = *(_QWORD *)(v4 + 8);
-    v26 = 0;
-    if ( *(_DWORD *)(v5 + 16) < *(_DWORD *)(v5 + 8) )
+    while ( 1 )
     {
-      v6 = *(unsigned int *)(v5 + 12);
-      if ( (_DWORD)v6 != -1 )
-      {
-        v7 = *(unsigned int *)(*(_QWORD *)v5 + 24 * v6);
-        *(_DWORD *)(v5 + 12) = v7;
-LABEL_6:
-        ++*(_DWORD *)(v5 + 16);
-        goto LABEL_7;
-      }
-      LODWORD(v6) = *(_DWORD *)(v5 + 20);
-      v17 = *(__int64 **)(v5 + 24);
-      v7 = *v17;
-      v18 = 8 * ((unsigned __int64)(unsigned int)v6 >> 8);
-      if ( *(_QWORD *)(*v17 + v18)
-        || (*(_QWORD *)(v18 + *v17) = NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                                        gpLeakTrackingAllocator,
-                                        260LL,
-                                        0x1000uLL,
-                                        0x636C6547u),
-            v7 = *v17,
-            *(_QWORD *)(*v17 + v18)) )
-      {
-        v19 = (_QWORD *)(*(_QWORD *)(v18 + v7) + 16LL * (unsigned __int8)v6);
-        *v19 = 0LL;
-        v19[1] = 0LL;
-        _InterlockedOr(v25, 0);
-        ++*(_DWORD *)(v5 + 20);
-        goto LABEL_6;
-      }
-    }
-    if ( *(_DWORD *)(*(_QWORD *)(v4 + 8) + 16LL) != *(_DWORD *)(*(_QWORD *)(v4 + 8) + 8LL) )
-      return 0;
-    LOWORD(v20) = *(_WORD *)(v4 + 2);
-    v21 = 1;
-    if ( (unsigned __int16)v20 <= 1u )
-    {
-LABEL_28:
-      if ( (_WORD)v20 == 256 )
-      {
-        *(_BYTE *)v4 = 1;
+      v4 = *((_QWORD *)v2 + 2);
+      if ( *(_BYTE *)v4 )
         return 0;
-      }
-      *(_QWORD *)(v4 + 8LL * *(unsigned __int16 *)(v4 + 2) + 8) = GdiHandleEntryTable::_Create(0x10000u, 1);
-      v23 = *(GdiHandleEntryTable **)(v4 + 8LL * *(unsigned __int16 *)(v4 + 2) + 8);
-      if ( !v23 )
-        return 0;
-      GdiHandleEntryTable::AcquireEntryIndex(v23, &v26);
-      v21 = *(unsigned __int16 *)(v4 + 2);
-      *(_WORD *)(v4 + 2) = v21 + 1;
-    }
-    else
-    {
-      while ( 1 )
+      v5 = *(GdiHandleEntryTable **)(v4 + 8);
+      LODWORD(v18) = 0;
+      if ( GdiHandleEntryTable::AcquireEntryIndex(v5, (unsigned int *)&v18) )
       {
-        v22 = *(GdiHandleEntryTable **)(v4 + 8LL * v21 + 8);
-        if ( GdiHandleEntryTable::AcquireEntryIndex(v22, &v26) )
-          break;
-        if ( *((_DWORD *)v22 + 4) != *((_DWORD *)v22 + 2) )
+        v6 = (unsigned int)v18;
+      }
+      else
+      {
+        if ( *(_DWORD *)(*(_QWORD *)(v4 + 8) + 16LL) != *(_DWORD *)(*(_QWORD *)(v4 + 8) + 8LL) )
           return 0;
-        v20 = *(unsigned __int16 *)(v4 + 2);
-        if ( ++v21 >= v20 )
-          goto LABEL_28;
+        LOWORD(v12) = *(_WORD *)(v4 + 2);
+        v13 = 1;
+        if ( (unsigned __int16)v12 <= 1u )
+        {
+LABEL_19:
+          if ( (_WORD)v12 == 256 )
+          {
+            *(_BYTE *)v4 = 1;
+            return 0;
+          }
+          *(_QWORD *)(v4 + 8LL * *(unsigned __int16 *)(v4 + 2) + 8) = GdiHandleEntryTable::_Create(0x10000u, 1);
+          v15 = *(GdiHandleEntryTable **)(v4 + 8LL * *(unsigned __int16 *)(v4 + 2) + 8);
+          if ( !v15 )
+            return 0;
+          GdiHandleEntryTable::AcquireEntryIndex(v15, (unsigned int *)&v18);
+          v13 = *(unsigned __int16 *)(v4 + 2);
+          *(_WORD *)(v4 + 2) = v13 + 1;
+        }
+        else
+        {
+          while ( 1 )
+          {
+            v14 = *(GdiHandleEntryTable **)(v4 + 8LL * v13 + 8);
+            if ( GdiHandleEntryTable::AcquireEntryIndex(v14, (unsigned int *)&v18) )
+              break;
+            if ( *((_DWORD *)v14 + 4) != *((_DWORD *)v14 + 2) )
+              return 0;
+            v12 = *(unsigned __int16 *)(v4 + 2);
+            if ( ++v13 >= v12 )
+              goto LABEL_19;
+          }
+        }
+        v6 = (_DWORD)v18 + *(_DWORD *)(v4 + 2056) + ((v13 + 0xFFFF) << 16);
       }
-    }
-    LODWORD(v6) = v26 + *(_DWORD *)(v4 + 2056) + ((v21 + 0xFFFF) << 16);
-LABEL_7:
-    v8 = 0;
-    v9 = *((_DWORD *)this + 1) + 1;
-    *((_DWORD *)this + 1) = v9;
-    if ( v9 > *(_DWORD *)this )
-    {
-      *(_DWORD *)this = v9;
-      v16 = SGDGetSessionState(v7);
-      v8 = 1;
-      *(_DWORD *)(*(_QWORD *)(v16 + 24) + 1948LL) = v9;
-    }
-    v10 = *((_QWORD *)this + 2);
-    v11 = (unsigned __int16)v6;
-    v12 = *(_DWORD *)(v10 + 2056);
-    if ( (unsigned __int16)v6 >= v12 + ((*(unsigned __int16 *)(v10 + 2) + 0xFFFF) << 16) )
-    {
-      v14 = 0LL;
-    }
-    else
-    {
-      if ( (unsigned __int16)v6 >= v12 )
+      ++*((_DWORD *)v2 + 1);
+      v7 = 0;
+      v8 = *((_DWORD *)v2 + 1);
+      if ( v8 > *(_DWORD *)v2 )
       {
-        v13 = *(GdiHandleEntryTable **)(v10 + 8LL * ((((unsigned __int16)v6 - v12) >> 16) + 1) + 8);
-        v11 = -65536 * (((unsigned __int16)v6 - v12) >> 16) - v12 + (unsigned __int16)v6;
+        *(_DWORD *)v2 = v8;
+        v7 = 1;
+        gcMaxHmgr = v8;
       }
-      else
+      v9 = GdiHandleManager::DecodeIndex(v2, (unsigned __int16)v6);
+      Entry = GdiHandleEntryDirectory::GetEntry(*((GdiHandleEntryDirectory **)v2 + 2), v9, 1);
+      if ( v6 < 0x10000 )
       {
-        v13 = *(GdiHandleEntryTable **)(v10 + 8);
+        if ( v7 || *(_DWORD *)v2 > 0x10000u )
+          *((_BYTE *)Entry + 13) = 0;
+        else
+          v6 += (unsigned __int8)++*((_BYTE *)Entry + 13) << 16;
+LABEL_11:
+        *a2 = v6;
+        return 1;
       }
-      if ( (unsigned int)v11 < *((_DWORD *)v13 + 5) || GdiHandleEntryTable::GetEntryObject(v13, v11) )
-        v14 = *(_QWORD *)v13 + 24 * v11;
+      if ( *((unsigned __int8 *)Entry + 13) != HIWORD(v6) )
+        goto LABEL_11;
+      v16 = *((_QWORD *)v2 + 3);
+      if ( v16 )
+        goto LABEL_27;
+      v17 = (void *)Win32AllocPool(0x40000LL, 0x636D6847u);
+      *((_QWORD *)v2 + 3) = v17;
+      if ( v17 )
+        break;
+LABEL_28:
+      if ( *((_DWORD *)v2 + 1) >= *((_DWORD *)v2 + 2) )
+        return 0;
     }
-    if ( (unsigned int)v6 < 0x10000 )
-    {
-      if ( v8 || *(_DWORD *)this > 0x10000u )
-        *(_BYTE *)(v14 + 13) = 0;
-      else
-        LODWORD(v6) = ((unsigned __int8)++*(_BYTE *)(v14 + 13) << 16) + v6;
-LABEL_18:
-      *a2 = v6;
-      return 1;
-    }
-    if ( *(unsigned __int8 *)(v14 + 13) != WORD1(v6) )
-      goto LABEL_18;
-    if ( *((_QWORD *)this + 3) )
-      goto LABEL_40;
-    v24 = (void *)NSInstrumentation::CLeakTrackingAllocator::Allocate(
-                    gpLeakTrackingAllocator,
-                    260LL,
-                    0x40000uLL,
-                    0x636D6847u);
-    *((_QWORD *)this + 3) = v24;
-    if ( v24 )
-    {
-      memset(v24, 0, 0x40000uLL);
-LABEL_40:
-      *(_DWORD *)(*((_QWORD *)this + 3) + 4LL * (unsigned __int16)v6) = v6;
-    }
+    memset(v17, 0, 0x40000uLL);
+    v16 = *((_QWORD *)v2 + 3);
+LABEL_27:
+    *(_DWORD *)(v16 + 4LL * (unsigned __int16)v6) = v6;
+    goto LABEL_28;
   }
   return 0;
 }

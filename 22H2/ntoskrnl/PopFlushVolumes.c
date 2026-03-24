@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFlushVolumes @ 0x140AA65A8
+ * XREFs of PopFlushVolumes @ 0x140997CDC
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409918D8 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     PopDiagTraceEventNoPayload @ 0x140366FF0 (PopDiagTraceEventNoPayload.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwFlushKey @ 0x14041C4A0 (ZwFlushKey.c)
- *     PsCreateSystemThread @ 0x1407B86B0 (PsCreateSystemThread.c)
- *     PopFlushVolumeWorker @ 0x140AA6370 (PopFlushVolumeWorker.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     PopDiagTraceEventNoPayload @ 0x1403265D4 (PopDiagTraceEventNoPayload.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwFlushKey @ 0x1403FB760 (ZwFlushKey.c)
+ *     PsCreateSystemThread @ 0x1406FDA10 (PsCreateSystemThread.c)
+ *     PopFlushVolumeWorker @ 0x140997F90 (PopFlushVolumeWorker.c)
  */
 
 void __fastcall PopFlushVolumes(int a1)
@@ -24,14 +24,14 @@ void __fastcall PopFlushVolumes(int a1)
   char v5; // al
   int v6; // ebx
   __int64 *v7; // rcx
-  __int64 v8; // r8
-  __int64 *v9; // rdx
-  __int64 v10; // r9
-  __int64 v11; // rax
-  __int64 **v12; // rax
-  __int64 **v13; // rax
+  __int64 v8; // rax
+  __int64 **v9; // rax
+  __int64 **v10; // rax
+  __int64 v11; // r8
+  __int64 *v12; // rdx
+  __int64 v13; // r9
   _QWORD *v14; // rcx
-  __int64 v15; // r10
+  __int64 v15; // r9
   _QWORD *v16; // rdx
   __int64 v17; // r8
   int v18; // eax
@@ -49,7 +49,7 @@ void __fastcall PopFlushVolumes(int a1)
 
   ThreadHandle = 0LL;
   KeyHandle = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
   PopDiagTraceEventNoPayload(&POP_ETW_EVENT_FLUSHVOLUMES_START);
   v27 = 0LL;
@@ -64,7 +64,7 @@ void __fastcall PopFlushVolumes(int a1)
   else
   {
     v2 = PopFlushPolicy;
-    if ( byte_140C3D040 )
+    if ( byte_140C23E80 )
       v2 = 3;
   }
   v3 = v2 | 0x10;
@@ -97,30 +97,30 @@ void __fastcall PopFlushVolumes(int a1)
   v7 = (__int64 *)PopVolumeDevices;
   while ( v7 != &PopVolumeDevices )
   {
-    v8 = *(v7 - 6);
-    v9 = v7;
+    v11 = *(v7 - 6);
+    v12 = v7;
     v7 = (__int64 *)*v7;
-    v10 = *(_QWORD *)(v8 + 56);
-    if ( (*(_BYTE *)(v10 + 4) & 1) != 0 && (*(_DWORD *)(v8 + 52) & 0x10006) == 0 )
+    v13 = *(_QWORD *)(v11 + 56);
+    if ( (*(_BYTE *)(v13 + 4) & 1) != 0 && (*(_DWORD *)(v11 + 52) & 0x10006) == 0 )
     {
-      v11 = *(_QWORD *)(v10 + 16);
-      if ( !v11 || (*(_DWORD *)(v11 + 52) & 4) == 0 )
+      v8 = *(_QWORD *)(v13 + 16);
+      if ( !v8 || (*(_DWORD *)(v8 + 52) & 4) == 0 )
       {
-        if ( (__int64 *)v7[1] != v9
-          || (v12 = (__int64 **)v9[1], *v12 != v9)
-          || (*v12 = v7,
-              v7[1] = (__int64)v12,
-              v13 = (__int64 **)p_StartContext,
+        if ( (__int64 *)v7[1] != v12
+          || (v9 = (__int64 **)v12[1], *v9 != v12)
+          || (*v9 = v7,
+              v7[1] = (__int64)v9,
+              v10 = (__int64 **)p_StartContext,
               (_QWORD **)*p_StartContext != &StartContext) )
         {
-LABEL_44:
+LABEL_34:
           __fastfail(3u);
         }
-        v9[1] = (__int64)p_StartContext;
-        *v9 = (__int64)&StartContext;
+        v12[1] = (__int64)p_StartContext;
+        *v12 = (__int64)&StartContext;
         ++v6;
-        *v13 = v9;
-        p_StartContext = v9;
+        *v10 = v12;
+        p_StartContext = v12;
       }
     }
   }
@@ -142,26 +142,26 @@ LABEL_44:
             && (!v17 || (v19 = *(_DWORD *)(v17 + 48), (v19 & 0x200000) == 0) || (v19 & 0x100) != 0) )
           {
             if ( (_QWORD *)v14[1] != v16 )
-              goto LABEL_44;
+              goto LABEL_34;
             v20 = (_QWORD *)v16[1];
             if ( (_QWORD *)*v20 != v16 )
-              goto LABEL_44;
+              goto LABEL_34;
             *v20 = v14;
             v14[1] = v20;
-            v21 = (_QWORD *)qword_140C3D808;
-            if ( *(__int64 **)qword_140C3D808 != &PopVolumeDevices )
-              goto LABEL_44;
+            v21 = (_QWORD *)qword_140C23208;
+            if ( *(__int64 **)qword_140C23208 != &PopVolumeDevices )
+              goto LABEL_34;
             *v16 = &PopVolumeDevices;
             --v6;
             v16[1] = v21;
             *v21 = v16;
-            qword_140C3D808 = (__int64)v16;
+            qword_140C23208 = (__int64)v16;
           }
         }
       }
     }
   }
-  ExReleaseFastMutex(&PopVolumeLock);
+  KeReleaseGuardedMutex(&PopVolumeLock);
   if ( v6 )
   {
     ObjectAttributes.Length = 48;
@@ -180,17 +180,17 @@ LABEL_44:
              &ObjectAttributes,
              0LL,
              0LL,
-             (PKSTART_ROUTINE)PopFlushVolumeWorker,
+             PopFlushVolumeWorker,
              &StartContext) < 0 )
       {
         ExAcquireFastMutex(&PopVolumeLock);
         LODWORD(v26[0]) -= v6;
-        ExReleaseFastMutex(&PopVolumeLock);
+        KeReleaseGuardedMutex(&PopVolumeLock);
         break;
       }
       ZwClose(ThreadHandle);
     }
-    PopFlushVolumeWorker((struct _KEVENT *)&StartContext);
+    PopFlushVolumeWorker(&StartContext);
     KeWaitForSingleObject(&v26[1], Executive, 0, 0, 0LL);
   }
   PopDiagTraceEventNoPayload(&POP_ETW_EVENT_FLUSHVOLUMES_STOP);

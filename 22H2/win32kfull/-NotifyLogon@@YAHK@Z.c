@@ -1,8 +1,8 @@
 /*
- * XREFs of ?NotifyLogon@@YAHK@Z @ 0x1C00B8464
+ * XREFs of ?NotifyLogon@@YAHK@Z @ 0x1C00D77A0
  * Callers:
- *     ?InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z @ 0x1C00B81DC (-InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z.c)
- *     ?EndShutdown@@YAXJ@Z @ 0x1C00B83C0 (-EndShutdown@@YAXJ@Z.c)
+ *     ?EndShutdown@@YAXJ@Z @ 0x1C00D76E0 (-EndShutdown@@YAXJ@Z.c)
+ *     ?InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z @ 0x1C00D77D4 (-InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CSharedSectionBase@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C5860
+ * XREFs of ?IsOfType@CSharedSectionBase@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F780
  * Callers:
  *     <none>
  * Callees:

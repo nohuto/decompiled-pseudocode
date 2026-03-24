@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetRailsState@CManipulation@@UEAA?AW4RailsState@@XZ @ 0x1800FB080
+ * XREFs of ?GetRailsState@CManipulation@@UEAA?AW4RailsState@@XZ @ 0x1800E2C90
  * Callers:
  *     <none>
  * Callees:

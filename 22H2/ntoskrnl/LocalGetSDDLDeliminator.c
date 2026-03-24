@@ -1,10 +1,10 @@
 /*
- * XREFs of LocalGetSDDLDeliminator @ 0x14069E3C0
+ * XREFs of LocalGetSDDLDeliminator @ 0x140787E28
  * Callers:
- *     LocalGetAclForString @ 0x14069C8EC (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x1407877AC (LocalGetAclForString.c)
  * Callees:
- *     wcschr @ 0x1403DB2B0 (wcschr.c)
- *     FContainCallBackAce @ 0x14069E4E0 (FContainCallBackAce.c)
+ *     wcschr @ 0x1403D3810 (wcschr.c)
+ *     FContainCallBackAce @ 0x140787F64 (FContainCallBackAce.c)
  */
 
 __int64 __fastcall LocalGetSDDLDeliminator(wchar_t *Str, _QWORD *a2)

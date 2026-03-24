@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpAuditQueryResults @ 0x140935404
+ * XREFs of HalpAuditQueryResults @ 0x140866744
  * Callers:
- *     HaliQuerySystemInformation @ 0x140A88510 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x14098F9D0 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

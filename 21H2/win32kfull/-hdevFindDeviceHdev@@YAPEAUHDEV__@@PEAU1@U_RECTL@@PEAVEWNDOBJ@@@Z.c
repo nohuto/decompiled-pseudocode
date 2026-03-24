@@ -1,15 +1,15 @@
 /*
- * XREFs of ?hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z @ 0x1C02A4808
+ * XREFs of ?hdevFindDeviceHdev@@YAPEAUHDEV__@@PEAU1@U_RECTL@@PEAVEWNDOBJ@@@Z @ 0x1C02A6DE0
  * Callers:
- *     ?GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z @ 0x1C013D690 (-GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z.c)
- *     ?iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C02797A8 (-iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z.c)
- *     ?iWndObjSetupExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C0279E28 (-iWndObjSetupExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z.c)
- *     ?ipfdDevMaxGet@XDCOBJ@@QEAAJXZ @ 0x1C02BB108 (-ipfdDevMaxGet@XDCOBJ@@QEAAJXZ.c)
- *     GreDescribePixelFormat @ 0x1C02BB240 (GreDescribePixelFormat.c)
- *     NtGdiSetPixelFormat @ 0x1C02BB3F0 (NtGdiSetPixelFormat.c)
- *     NtGdiSwapBuffers @ 0x1C02BB630 (NtGdiSwapBuffers.c)
+ *     ?GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z @ 0x1C00A8FFC (-GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z.c)
+ *     ?iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C027BC58 (-iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z.c)
+ *     ?iWndObjSetupExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C027C2B8 (-iWndObjSetupExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z.c)
+ *     ?ipfdDevMaxGet@XDCOBJ@@QEAAJXZ @ 0x1C02BCB58 (-ipfdDevMaxGet@XDCOBJ@@QEAAJXZ.c)
+ *     GreDescribePixelFormat @ 0x1C02BCC90 (GreDescribePixelFormat.c)
+ *     NtGdiSetPixelFormat @ 0x1C02BCE40 (NtGdiSetPixelFormat.c)
+ *     NtGdiSwapBuffers @ 0x1C02BD080 (NtGdiSwapBuffers.c)
  * Callees:
- *     ?bValid@EWNDOBJ@@QEBAHXZ @ 0x1C0283754 (-bValid@EWNDOBJ@@QEBAHXZ.c)
+ *     ?bValid@EWNDOBJ@@QEBAHXZ @ 0x1C0286BA8 (-bValid@EWNDOBJ@@QEBAHXZ.c)
  */
 
 __int64 __fastcall hdevFindDeviceHdev(_QWORD *a1, struct _RECTL *a2, struct EWNDOBJ *a3)
@@ -21,7 +21,7 @@ __int64 __fastcall hdevFindDeviceHdev(_QWORD *a1, struct _RECTL *a2, struct EWND
   _QWORD *v8; // rdi
   int v9; // esi
 
-  v3 = (_QWORD *)a1[221];
+  v3 = (_QWORD *)a1[225];
   v4 = 0LL;
   if ( a3 && EWNDOBJ::bValid(a3) )
   {
@@ -50,7 +50,7 @@ __int64 __fastcall hdevFindDeviceHdev(_QWORD *a1, struct _RECTL *a2, struct EWND
       if ( (unsigned int)bIntersect((char *)v8 + 28, a2) )
       {
         v4 = v8[6];
-        if ( (*(_DWORD *)(v4 + 2096) & 0x100) != 0 )
+        if ( (*(_DWORD *)(v4 + 2128) & 0x100) != 0 )
           return v4;
         ++v9;
       }

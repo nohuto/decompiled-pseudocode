@@ -1,9 +1,9 @@
 /*
- * XREFs of CmRegUtilUcValueGetDword @ 0x1C03861A0
+ * XREFs of CmRegUtilUcValueGetDword @ 0x1C02C54B0
  * Callers:
- *     CmRegUtilWstrValueGetDword @ 0x1C0386484 (CmRegUtilWstrValueGetDword.c)
+ *     CmRegUtilWstrValueGetDword @ 0x1C02C5794 (CmRegUtilWstrValueGetDword.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CmRegUtilUcValueGetDword(void *a1, struct _UNICODE_STRING *a2, __int64 a3, _DWORD *a4)

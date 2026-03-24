@@ -1,26 +1,26 @@
 /*
- * XREFs of MiPfCompletePrefetchIos @ 0x1402A3920
+ * XREFs of MiPfCompletePrefetchIos @ 0x14027D180
  * Callers:
- *     MiPrefetchVirtualMemory @ 0x1402EE1C8 (MiPrefetchVirtualMemory.c)
- *     MmWaitForCacheManagerPrefetch @ 0x14031056C (MmWaitForCacheManagerPrefetch.c)
- *     MmPrefetchPagesEx @ 0x14073EBE8 (MmPrefetchPagesEx.c)
- *     MiPrefetchControlArea @ 0x1407DCE8C (MiPrefetchControlArea.c)
+ *     MmWaitForCacheManagerPrefetch @ 0x14027BC08 (MmWaitForCacheManagerPrefetch.c)
+ *     MiPrefetchVirtualMemory @ 0x14033DEB0 (MiPrefetchVirtualMemory.c)
+ *     MmPrefetchPagesEx @ 0x14061C774 (MmPrefetchPagesEx.c)
+ *     MiPrefetchControlArea @ 0x14066BF34 (MiPrefetchControlArea.c)
  * Callees:
- *     MiPfCompleteInPageSupport @ 0x1402A39CC (MiPfCompleteInPageSupport.c)
- *     MiPfCoalesceAndIssueIOs @ 0x140360C60 (MiPfCoalesceAndIssueIOs.c)
- *     MiPfCompleteCoalescedIo @ 0x140631C10 (MiPfCompleteCoalescedIo.c)
+ *     MiPfCompleteInPageSupport @ 0x14027D218 (MiPfCompleteInPageSupport.c)
+ *     MiPfCoalesceAndIssueIOs @ 0x14031B9F4 (MiPfCoalesceAndIssueIOs.c)
+ *     MiPfCompleteCoalescedIo @ 0x140538FCC (MiPfCompleteCoalescedIo.c)
  */
 
 __int64 __fastcall MiPfCompletePrefetchIos(_QWORD **a1, __int64 a2, __int64 a3)
 {
-  unsigned int v3; // edi
+  unsigned int v5; // edi
   _QWORD *v6; // rcx
   _QWORD *v7; // rax
-  unsigned int v8; // eax
+  int v8; // eax
 
-  v3 = 0;
   if ( a2 )
     MiPfCoalesceAndIssueIOs(a2, a1, 0LL);
+  v5 = 0;
   while ( 1 )
   {
     v6 = *a1;
@@ -34,8 +34,8 @@ __int64 __fastcall MiPfCompletePrefetchIos(_QWORD **a1, __int64 a2, __int64 a3)
       v8 = MiPfCompleteCoalescedIo(v6);
     else
       v8 = MiPfCompleteInPageSupport(v6, a3);
-    if ( ((v8 + 0x80000000) & 0x80000000) == 0 && v8 != -1073740748 )
-      v3 = v8;
+    if ( v8 < 0 && v8 != -1073740748 )
+      v5 = v8;
   }
-  return v3;
+  return v5;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiScanLeafNonPagedPool @ 0x1401637D0
+ * XREFs of MiScanLeafNonPagedPool @ 0x1401637F0
  * Callers:
- *     MiScanNonPagedPoolVa @ 0x1401635C0 (MiScanNonPagedPoolVa.c)
+ *     MiScanNonPagedPoolVa @ 0x1401635E0 (MiScanNonPagedPoolVa.c)
  * Callees:
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     RtlFindClearBitsAndSetEx @ 0x14008AB50 (RtlFindClearBitsAndSetEx.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     RtlFindNextForwardRunClearCappedEx @ 0x14015B100 (RtlFindNextForwardRunClearCappedEx.c)
- *     MiIncreaseNonPagedPoolUsage @ 0x140163E28 (MiIncreaseNonPagedPoolUsage.c)
- *     MiReplenishNonPagedSlists @ 0x140163E84 (MiReplenishNonPagedSlists.c)
- *     MiAllocatingNonPagedPoolVa @ 0x140164040 (MiAllocatingNonPagedPoolVa.c)
- *     MiCheckPoolForContiguousPages @ 0x1401643F4 (MiCheckPoolForContiguousPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     RtlFindNextForwardRunClearCappedEx @ 0x14015B120 (RtlFindNextForwardRunClearCappedEx.c)
+ *     MiIncreaseNonPagedPoolUsage @ 0x140163E48 (MiIncreaseNonPagedPoolUsage.c)
+ *     MiReplenishNonPagedSlists @ 0x140163EA4 (MiReplenishNonPagedSlists.c)
+ *     MiAllocatingNonPagedPoolVa @ 0x140164060 (MiAllocatingNonPagedPoolVa.c)
+ *     MiCheckPoolForContiguousPages @ 0x140164414 (MiCheckPoolForContiguousPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiScanLeafNonPagedPool(

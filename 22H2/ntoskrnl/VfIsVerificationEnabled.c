@@ -1,10 +1,10 @@
 /*
- * XREFs of VfIsVerificationEnabled @ 0x1403B3A60
+ * XREFs of VfIsVerificationEnabled @ 0x1403A6B10
  * Callers:
- *     VfFailDeviceNode @ 0x1403B3A20 (VfFailDeviceNode.c)
+ *     VfFailDeviceNode @ 0x1403A6AD0 (VfFailDeviceNode.c)
  * Callees:
- *     MmIsDriverVerifying @ 0x14020A590 (MmIsDriverVerifying.c)
- *     PpvUtilIsHardwareBeingVerified @ 0x140AC2FEC (PpvUtilIsHardwareBeingVerified.c)
+ *     MmIsDriverVerifying @ 0x14037D940 (MmIsDriverVerifying.c)
+ *     PpvUtilIsHardwareBeingVerified @ 0x1409C5B5C (PpvUtilIsHardwareBeingVerified.c)
  */
 
 LOGICAL __fastcall VfIsVerificationEnabled(int a1, struct _DRIVER_OBJECT *a2)

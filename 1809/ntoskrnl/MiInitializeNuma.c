@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeNuma @ 0x14072B198
+ * XREFs of MiInitializeNuma @ 0x14072B178
  * Callers:
- *     MiInitializePartition @ 0x14072AB48 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14072AB28 (MiInitializePartition.c)
  * Callees:
- *     InitializeSListHead @ 0x1400F3160 (InitializeSListHead.c)
- *     MiInitializeSystemChannelOrdering @ 0x1409F7AC0 (MiInitializeSystemChannelOrdering.c)
+ *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
+ *     MiInitializeSystemChannelOrdering @ 0x1409F7AD0 (MiInitializeSystemChannelOrdering.c)
  */
 
 void __fastcall MiInitializeNuma(ULONG_PTR *a1)

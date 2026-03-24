@@ -1,16 +1,13 @@
 /*
- * XREFs of ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18007EDE8
+ * XREFs of ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18006C030
  * Callers:
- *     ?PostSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18009CC10 (-PostSubgraph@COcclusionContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
- *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18009FA80 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18007B940 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall CMILMatrix::SetToIdentity(CMILMatrix *this)
 {
-  char v1; // al
-
   *(_QWORD *)this = 1065353216LL;
   *((_QWORD *)this + 1) = 0LL;
   *((_DWORD *)this + 4) = 0;
@@ -21,7 +18,5 @@ void __fastcall CMILMatrix::SetToIdentity(CMILMatrix *this)
   *((_QWORD *)this + 6) = 0LL;
   *((_DWORD *)this + 14) = 0;
   *((_DWORD *)this + 15) = 1065353216;
-  v1 = *((_BYTE *)this + 65) & 0xD7;
-  *((_BYTE *)this + 64) = 85;
-  *((_BYTE *)this + 65) = v1 | 0x17;
+  *((_WORD *)this + 32) = 32085;
 }

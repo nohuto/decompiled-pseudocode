@@ -1,15 +1,15 @@
 /*
- * XREFs of MiNodeFreeZeroPages @ 0x1400EE2D4
+ * XREFs of MiNodeFreeZeroPages @ 0x1400EE2F4
  * Callers:
- *     MiReplenishPageSlist @ 0x1400EE380 (MiReplenishPageSlist.c)
- *     MiSignalLargePageRebuild @ 0x1400EF794 (MiSignalLargePageRebuild.c)
- *     MiFreeZeroPageSlistSufficient @ 0x1402BF9B4 (MiFreeZeroPageSlistSufficient.c)
- *     MiPruneStandbyPages @ 0x1402C0994 (MiPruneStandbyPages.c)
- *     MiRebalanceZeroFreeLists @ 0x1402C0D70 (MiRebalanceZeroFreeLists.c)
- *     MiRebuildLargePage @ 0x1402CE2E4 (MiRebuildLargePage.c)
- *     MiRebuildLargePages @ 0x1402CE550 (MiRebuildLargePages.c)
+ *     MiReplenishPageSlist @ 0x1400EE3A0 (MiReplenishPageSlist.c)
+ *     MiSignalLargePageRebuild @ 0x1400EF7B4 (MiSignalLargePageRebuild.c)
+ *     MiFreeZeroPageSlistSufficient @ 0x1402BFAB4 (MiFreeZeroPageSlistSufficient.c)
+ *     MiPruneStandbyPages @ 0x1402C0A94 (MiPruneStandbyPages.c)
+ *     MiRebalanceZeroFreeLists @ 0x1402C0E70 (MiRebalanceZeroFreeLists.c)
+ *     MiRebuildLargePage @ 0x1402CE3E4 (MiRebuildLargePage.c)
+ *     MiRebuildLargePages @ 0x1402CE650 (MiRebuildLargePages.c)
  * Callees:
- *     MiNodeLargeFreeZeroPages @ 0x1400EE908 (MiNodeLargeFreeZeroPages.c)
+ *     MiNodeLargeFreeZeroPages @ 0x1400EE928 (MiNodeLargeFreeZeroPages.c)
  */
 
 __int64 __fastcall MiNodeFreeZeroPages(__int64 a1, __int64 a2, int a3)

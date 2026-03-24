@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSetDeleteOnClose @ 0x14058C1D4
+ * XREFs of MiSetDeleteOnClose @ 0x14052AA14
  * Callers:
- *     MiWriteComplete @ 0x14028C230 (MiWriteComplete.c)
- *     MiRelocateImage @ 0x1407074F0 (MiRelocateImage.c)
+ *     MiWriteComplete @ 0x140255170 (MiWriteComplete.c)
+ *     MiRelocateImage @ 0x1406D54B0 (MiRelocateImage.c)
  * Callees:
- *     MiRemoveUnusedSegment @ 0x140287A2C (MiRemoveUnusedSegment.c)
- *     MiInsertUnusedSegment @ 0x140287FB8 (MiInsertUnusedSegment.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1405C4B8C (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveUnusedSegment @ 0x1403573A8 (MiRemoveUnusedSegment.c)
+ *     MiInsertUnusedSegment @ 0x140357560 (MiInsertUnusedSegment.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1405550EC (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiSetDeleteOnClose(__int64 a1, int a2)
@@ -27,7 +27,7 @@ __int64 __fastcall MiSetDeleteOnClose(__int64 a1, int a2)
   v6 = *(_DWORD *)(a1 + 56);
   if ( (v6 & 0x40000) == 0 )
   {
-    if ( (v6 & 0x10000000) != 0 )
+    if ( (v6 & 0x8000000) != 0 )
     {
       MiRemoveUnusedSegment(a1);
       *(_DWORD *)(a1 + 56) |= 0x40000u;
@@ -38,7 +38,7 @@ __int64 __fastcall MiSetDeleteOnClose(__int64 a1, int a2)
       *(_DWORD *)(a1 + 56) = v6 | 0x40000;
     }
   }
-  if ( a2 )
+  if ( a2 == 1 )
     *(_DWORD *)(a1 + 56) |= 0x10u;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
   result = (unsigned int)KiIrqlFlags;
@@ -62,7 +62,7 @@ __int64 __fastcall MiSetDeleteOnClose(__int64 a1, int a2)
   __writecr8(v5);
   if ( inserted )
     return MiReturnCrossPartitionSectionCharges(
-             *(_QWORD *)(qword_140C51F48 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF)),
+             *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF)),
              1LL,
              inserted);
   return result;

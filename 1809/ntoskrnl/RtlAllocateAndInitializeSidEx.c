@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlAllocateAndInitializeSidEx @ 0x14089384C
+ * XREFs of RtlAllocateAndInitializeSidEx @ 0x14089382C
  * Callers:
- *     EtwpUserInAdminOrLogUsersGroup @ 0x1408BC02C (EtwpUserInAdminOrLogUsersGroup.c)
+ *     EtwpUserInAdminOrLogUsersGroup @ 0x1408BC00C (EtwpUserInAdminOrLogUsersGroup.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
  */
 
 __int64 __fastcall RtlAllocateAndInitializeSidEx(__int64 a1, __int64 a2, char *a3, _QWORD *a4)

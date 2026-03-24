@@ -4,7 +4,7 @@
  *     KdpDeleteBreakpoint @ 0x140918D78 (KdpDeleteBreakpoint.c)
  *     KdpSuspendAllBreakpoints @ 0x140919280 (KdpSuspendAllBreakpoints.c)
  * Callees:
- *     KdpIsBreakpoint @ 0x14028CF18 (KdpIsBreakpoint.c)
+ *     KdpIsBreakpoint @ 0x14028D018 (KdpIsBreakpoint.c)
  *     KdpCopyCodeStream @ 0x1409188A8 (KdpCopyCodeStream.c)
  *     KdpRemoveBreakpoint @ 0x14091904C (KdpRemoveBreakpoint.c)
  */

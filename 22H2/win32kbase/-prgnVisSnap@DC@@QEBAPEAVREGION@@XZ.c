@@ -1,25 +1,27 @@
 /*
- * XREFs of ?prgnVisSnap@DC@@QEBAPEAVREGION@@XZ @ 0x1C0038B60
+ * XREFs of ?prgnVisSnap@DC@@QEBAPEAVREGION@@XZ @ 0x1C003CED8
  * Callers:
- *     GreGetClipBox @ 0x1C00389B0 (GreGetClipBox.c)
- *     EngUpdateDeviceSurface @ 0x1C015F100 (EngUpdateDeviceSurface.c)
+ *     GreGetClipBox @ 0x1C003B540 (GreGetClipBox.c)
+ *     EngUpdateDeviceSurface @ 0x1C0142300 (EngUpdateDeviceSurface.c)
  * Callees:
- *     ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C005FDE0 (-bDpiScaledSurface@DC@@QEBAHXZ.c)
+ *     ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C0021A1C (-bDpiScaledSurface@DC@@QEBAHXZ.c)
  */
 
 struct REGION *__fastcall DC::prgnVisSnap(DC *this)
 {
+  DC *v1; // r8
   struct REGION *result; // rax
-  bool v2; // zf
-  struct REGION *v3; // r8
+  bool v3; // zf
+  struct REGION *v4; // r9
 
-  if ( !*((_QWORD *)this + 145) )
-    return (struct REGION *)*((_QWORD *)this + 143);
+  v1 = this;
+  if ( !*((_QWORD *)this + 146) )
+    return (struct REGION *)*((_QWORD *)v1 + 144);
   if ( (*((_DWORD *)this + 10) & 2) == 0 )
-    return (struct REGION *)*((_QWORD *)this + 143);
-  v2 = (unsigned int)DC::bDpiScaledSurface(this) == 0;
-  result = v3;
-  if ( v2 )
-    return (struct REGION *)*((_QWORD *)this + 143);
+    return (struct REGION *)*((_QWORD *)v1 + 144);
+  v3 = (unsigned int)DC::bDpiScaledSurface(this) == 0;
+  result = v4;
+  if ( v3 )
+    return (struct REGION *)*((_QWORD *)v1 + 144);
   return result;
 }

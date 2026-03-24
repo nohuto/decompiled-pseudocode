@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DrawRectangle@CRenderDataBuilder@@UEAAJAEBUMilRectF@@I@Z @ 0x1800ECC10
+ * XREFs of ?DrawRectangle@CRenderDataBuilder@@UEAAJAEBUMilRectF@@I@Z @ 0x1800D9B90
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800894E4 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800B8BD4 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
  */
 
 __int64 __fastcall CRenderDataBuilder::DrawRectangle(CRenderDataBuilder *this, const struct MilRectF *a2, int a3)
@@ -15,11 +15,11 @@ __int64 __fastcall CRenderDataBuilder::DrawRectangle(CRenderDataBuilder *this, c
   __int64 v9; // rcx
   __int128 v10; // xmm0
 
-  v6 = DynArrayImpl<0>::Grow((unsigned __int64)this + 16, 1u, 28, 0, 0LL);
+  v6 = DynArrayImpl<0>::Grow((__int64)this + 16, 1u, 28, 0, 0LL);
   v8 = v6;
   if ( v6 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v6, 0xBBu);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0xBBu, 0LL);
   }
   else
   {
@@ -27,7 +27,7 @@ __int64 __fastcall CRenderDataBuilder::DrawRectangle(CRenderDataBuilder *this, c
     *(_DWORD *)v9 = 28;
     *(_OWORD *)(v9 + 4) = 0LL;
     *(_QWORD *)(v9 + 20) = 0LL;
-    *(_DWORD *)(v9 + 4) = 460;
+    *(_DWORD *)(v9 + 4) = 465;
     v10 = *(_OWORD *)a2;
     *(_DWORD *)(v9 + 8) = a3;
     *(_OWORD *)(v9 + 12) = v10;

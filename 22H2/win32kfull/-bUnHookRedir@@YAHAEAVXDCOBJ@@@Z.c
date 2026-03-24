@@ -1,85 +1,82 @@
 /*
- * XREFs of ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C02A66FC
+ * XREFs of ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C029D638
  * Callers:
- *     ?bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00AB110 (-bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ.c)
- *     ?bUnMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C00F7234 (-bUnMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ.c)
- *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C00F8B40 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
- *     GreStretchBltInternal @ 0x1C00FF3A0 (GreStretchBltInternal.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C011C160 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C008AF30 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E920 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF240 (GreSetDIBitsToDeviceInternal.c)
+ *     ?bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00FEE5C (-bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ.c)
+ *     ?bUnMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C00FF3FC (-bUnMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?bUndoMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C02A6880 (-bUndoMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
- *     ?vFindAndReplaceRFONT@@YAXAEAVPDEVOBJ@@00@Z @ 0x1C02A6920 (-vFindAndReplaceRFONT@@YAXAEAVPDEVOBJ@@00@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ?bUndoMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C029D7B0 (-bUndoMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
+ *     ?vFindAndReplaceRFONT@@YAXAEAVPDEVOBJ@@00@Z @ 0x1C029D814 (-vFindAndReplaceRFONT@@YAXAEAVPDEVOBJ@@00@Z.c)
  */
 
 __int64 __fastcall bUnHookRedir(struct XDCOBJ *a1)
 {
-  Gre::Base *v2; // rcx
+  __int64 v2; // r8
   __int64 v3; // rdx
-  __int64 v4; // rbx
-  struct SURFACE *v5; // rsi
-  __int64 v6; // rbp
-  signed __int32 v7; // ett
+  struct SURFACE *v4; // rcx
+  signed __int32 v5; // ett
+  __int64 v6; // r9
+  __int64 v7; // rdi
   __int64 v8; // rbx
-  __int64 v9; // rdi
-  __int64 v10; // rdx
-  _OWORD *v11; // rcx
-  _OWORD *v12; // rax
-  __int128 v13; // xmm1
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  _OWORD *v11; // rax
+  __int128 v12; // xmm1
   __int64 result; // rax
-  __int64 v15; // [rsp+48h] [rbp+10h] BYREF
-  __int64 v16; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v14; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v15; // [rsp+40h] [rbp+18h] BYREF
 
-  if ( !*(_QWORD *)(*(_QWORD *)(SGDGetSessionState(a1) + 32) + 23376LL) )
+  if ( !gpRedirDev )
     return 0LL;
-  v3 = *(_QWORD *)a1;
-  if ( !*(_QWORD *)a1 || (*(_DWORD *)(v3 + 36) & 0x4000) == 0 )
+  v2 = *(_QWORD *)a1;
+  if ( !*(_QWORD *)a1 || (*(_DWORD *)(v2 + 36) & 0x4000) == 0 )
     return 0LL;
-  v5 = *(struct SURFACE **)(v3 + 496);
-  v15 = *(_QWORD *)(v3 + 48);
-  v4 = v15;
-  Gre::Base::Globals(v2);
-  v6 = *(_QWORD *)(v4 + 3496);
-  _m_prefetchw((const void *)(v4 + 40));
+  v3 = *(_QWORD *)(v2 + 48);
+  v4 = *(struct SURFACE **)(v2 + 496);
+  v15 = v3;
+  _m_prefetchw((const void *)(v3 + 40));
   do
-    v7 = *(_DWORD *)(v4 + 40);
-  while ( v7 != _InterlockedCompareExchange((volatile signed __int32 *)(v4 + 40), v7 & 0xFF7FFFFF, v7) );
-  v8 = v15;
-  *(_QWORD *)(v15 + 3496) = 0LL;
-  bUndoMakeOpaque(v5);
+    v5 = *(_DWORD *)(v3 + 40);
+  while ( v5 != _InterlockedCompareExchange((volatile signed __int32 *)(v3 + 40), v5 & 0xFF7FFFFF, v5) );
+  *(_QWORD *)(v3 + 3520) = 0LL;
+  bUndoMakeOpaque(v4);
   *(_QWORD *)(*(_QWORD *)a1 + 48LL) = v6;
-  v9 = *(_QWORD *)(*(_QWORD *)a1 + 48LL);
-  v16 = v9;
-  vFindAndReplaceRFONT((struct PDEVOBJ *)&v16, (struct PDEVOBJ *)&v15, (struct PDEVOBJ *)&v16);
-  memmove((void *)(v9 + 80), (const void *)(v8 + 80), 0x598uLL);
-  v10 = 8LL;
-  v11 = (_OWORD *)(v9 + 1536);
-  v12 = (_OWORD *)(v8 + 1536);
+  v7 = *(_QWORD *)(*(_QWORD *)a1 + 48LL);
+  v14 = v7;
+  vFindAndReplaceRFONT((struct PDEVOBJ *)&v14, (struct PDEVOBJ *)&v15, (struct PDEVOBJ *)&v14);
+  v8 = v15;
+  memmove((void *)(v7 + 88), (const void *)(v15 + 88), 0x598uLL);
+  v9 = 8LL;
+  v10 = v7 + 1544;
+  v11 = (_OWORD *)(v8 + 1544);
   do
   {
-    *v11 = *v12;
-    v11[1] = v12[1];
-    v11[2] = v12[2];
-    v11[3] = v12[3];
-    v11[4] = v12[4];
-    v11[5] = v12[5];
-    v11[6] = v12[6];
+    *(_OWORD *)v10 = *v11;
+    *(_OWORD *)(v10 + 16) = v11[1];
+    *(_OWORD *)(v10 + 32) = v11[2];
+    *(_OWORD *)(v10 + 48) = v11[3];
+    *(_OWORD *)(v10 + 64) = v11[4];
+    *(_OWORD *)(v10 + 80) = v11[5];
+    *(_OWORD *)(v10 + 96) = v11[6];
+    v10 += 128LL;
+    v12 = v11[7];
     v11 += 8;
-    v13 = v12[7];
-    v12 += 8;
-    *(v11 - 1) = v13;
-    --v10;
+    *(_OWORD *)(v10 - 16) = v12;
+    --v9;
   }
-  while ( v10 );
-  *v11 = *v12;
-  v11[1] = v12[1];
-  v11[2] = v12[2];
-  v11[3] = v12[3];
-  v11[4] = v12[4];
-  v11[5] = v12[5];
-  *((_QWORD *)v11 + 12) = *((_QWORD *)v12 + 12);
+  while ( v9 );
+  *(_OWORD *)v10 = *v11;
+  *(_OWORD *)(v10 + 16) = v11[1];
+  *(_OWORD *)(v10 + 32) = v11[2];
+  *(_OWORD *)(v10 + 48) = v11[3];
+  *(_OWORD *)(v10 + 64) = v11[4];
+  *(_OWORD *)(v10 + 80) = v11[5];
+  *(_OWORD *)(v10 + 96) = v11[6];
+  *(_QWORD *)(v10 + 112) = *((_QWORD *)v11 + 14);
   result = 1LL;
-  *(_QWORD *)(v9 + 80) = v9;
+  *(_QWORD *)(v7 + 88) = v7;
   return result;
 }

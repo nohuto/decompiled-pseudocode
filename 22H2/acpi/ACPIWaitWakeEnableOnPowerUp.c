@@ -1,34 +1,30 @@
 /*
- * XREFs of ACPIWaitWakeEnableOnPowerUp @ 0x1C0044AD0
+ * XREFs of ACPIWaitWakeEnableOnPowerUp @ 0x1C0061880
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     ACPIWakeEnableDisablePciDevice @ 0x1C0045BD4 (ACPIWakeEnableDisablePciDevice.c)
+ *     ACPIWakeEnableDisablePciDevice @ 0x1C002F754 (ACPIWakeEnableDisablePciDevice.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall ACPIWaitWakeEnableOnPowerUp(__int64 a1, __int64 a2, int a3)
 {
   KIRQL v5; // al
-  __int64 v6; // rdx
-  __int64 *v7; // rbx
-  KIRQL v8; // si
+  __int64 *v6; // rbx
+  KIRQL v7; // si
 
   (*(void (__fastcall **)(__int64, _QWORD))(a2 + 8))(a1, *(_QWORD *)a2);
   if ( a3 >= 0 )
   {
     v5 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
-    v7 = (__int64 *)AcpiPowerWaitWakeList;
-    v8 = v5;
-    while ( v7 != &AcpiPowerWaitWakeList )
+    v6 = (__int64 *)AcpiPowerWaitWakeList;
+    v7 = v5;
+    while ( v6 != &AcpiPowerWaitWakeList )
     {
-      if ( v7[5] == a1 )
-      {
-        LOBYTE(v6) = 1;
-        ACPIWakeEnableDisablePciDevice(a1, v6);
-      }
-      v7 = (__int64 *)*v7;
+      if ( v6[5] == a1 )
+        ACPIWakeEnableDisablePciDevice(a1, 1);
+      v6 = (__int64 *)*v6;
     }
-    KeReleaseSpinLock(&AcpiPowerLock, v8);
+    KeReleaseSpinLock(&AcpiPowerLock, v7);
   }
 }

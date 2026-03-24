@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlInitUnicodeString_0 @ 0x1C0001A0D
+ * XREFs of RtlInitUnicodeString_0 @ 0x1C0031CBD
  * Callers:
- *     ArbpGetRegistryValue @ 0x1C00A2FBC (ArbpGetRegistryValue.c)
+ *     ArbpGetRegistryValue @ 0x1C00A04C0 (ArbpGetRegistryValue.c)
  * Callees:
  *     <none>
  */

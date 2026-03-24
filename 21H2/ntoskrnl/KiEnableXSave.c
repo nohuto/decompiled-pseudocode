@@ -1,48 +1,36 @@
 /*
- * XREFs of KiEnableXSave @ 0x140A5433C
+ * XREFs of KiEnableXSave @ 0x14099B204
  * Callers:
- *     KiRestoreXSaveSupport @ 0x140A4DC5C (KiRestoreXSaveSupport.c)
- *     KiInitializeKernel @ 0x140A580F0 (KiInitializeKernel.c)
- *     KiConfigureDynamicProcessor @ 0x140A699D0 (KiConfigureDynamicProcessor.c)
+ *     KiRestoreXSaveSupport @ 0x14099485C (KiRestoreXSaveSupport.c)
+ *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
+ *     KiConfigureDynamicProcessor @ 0x1409AF8E0 (KiConfigureDynamicProcessor.c)
  * Callees:
  *     <none>
  */
 
-_CONTEXT *__fastcall KiEnableXSave(unsigned __int64 *a1)
+__int64 KiEnableXSave()
 {
-  unsigned __int64 v1; // rdx
+  unsigned __int64 v0; // rcx
+  __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // rcx
-  _CONTEXT *result; // rax
-  unsigned __int64 v4; // rdx
 
-  v1 = __readcr4();
+  v0 = __readcr4();
+  result = 0x40000LL;
   if ( (KeFeatureBits & 0x800000) != 0 )
   {
-    if ( (v1 & 0x40000) == 0 )
-      __writecr4(v1 | 0x40000);
+    if ( (v0 & 0x40000) == 0 )
+      __writecr4(v0 | 0x40000);
     __asm { xsetbv }
-    if ( KeEnabledSupervisorXStateFeatures )
-      __writemsr(0xDA0u, KeEnabledSupervisorXStateFeatures);
-    if ( _bittest64(&KeFeatureBits, 0x37u) )
-    {
-      if ( a1 )
-        v4 = *a1;
-      else
-        v4 = MEMORY[0xFFFFF78000000710];
-      __writemsr(0x1C4u, v4);
-    }
+    if ( MEMORY[0xFFFFF780000005F0] )
+      __writemsr(0xDA0u, MEMORY[0xFFFFF780000005F0]);
     CurrentPrcb = KeGetCurrentPrcb();
-    result = &CurrentPrcb->ProcessorState.ContextFrame;
+    result = (__int64)&CurrentPrcb->ProcessorState.ContextFrame;
     if ( CurrentPrcb->Context != &CurrentPrcb->ProcessorState.ContextFrame )
-    {
       CurrentPrcb->ContextFlagsInit |= 0x100040u;
-      if ( (_BYTE)KiKernelCetEnabled )
-        CurrentPrcb->ContextFlagsInit |= 0x100080u;
-    }
   }
-  else if ( (v1 & 0x40000) != 0 )
+  else if ( (v0 & 0x40000) != 0 )
   {
-    __writecr4(v1 & 0xFFFFFFFFFFFBFFFFuLL);
+    __writecr4(v0 & 0xFFFFFFFFFFFBFFFFuLL);
   }
   return result;
 }

@@ -1,85 +1,67 @@
 /*
- * XREFs of CcCopyBytesToUserBuffer @ 0x140262090
+ * XREFs of CcCopyBytesToUserBuffer @ 0x1402A3B50
  * Callers:
- *     CcMapAndCopyFromCache @ 0x1406F5CC0 (CcMapAndCopyFromCache.c)
+ *     CcMapAndCopyFromCache @ 0x14063CC70 (CcMapAndCopyFromCache.c)
  * Callees:
- *     IoFreeMdl @ 0x1402ACFB0 (IoFreeMdl.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     FsRtlIsNtstatusExpected @ 0x140359700 (FsRtlIsNtstatusExpected.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     CcCopyReadExceptionFilter @ 0x140537500 (CcCopyReadExceptionFilter.c)
- *     CcLockSystemCacheBuffer @ 0x140537810 (CcLockSystemCacheBuffer.c)
- *     HviCopyMemory @ 0x1405B5BF4 (HviCopyMemory.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     FsRtlIsNtstatusExpected @ 0x14031B530 (FsRtlIsNtstatusExpected.c)
+ *     IoFreeMdl @ 0x14035AB60 (IoFreeMdl.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     CcCopyReadExceptionFilter @ 0x1404E9F14 (CcCopyReadExceptionFilter.c)
+ *     CcLockSystemCacheBuffer @ 0x1404EA3E8 (CcLockSystemCacheBuffer.c)
+ *     HviCopyMemory @ 0x14059451C (HviCopyMemory.c)
  */
 
 __int64 __fastcall CcCopyBytesToUserBuffer(char *a1, char *Src, size_t Size, char a4)
 {
   unsigned int v5; // ebx
-  char *v6; // r15
-  char *v7; // rax
+  char *v6; // r14
   unsigned int v8; // edi
   struct _MDL *v9; // r13
   __int64 v10; // rcx
-  unsigned int v11; // r14d
-  __int64 v12; // rsi
-  __int64 v14; // [rsp+38h] [rbp-40h]
-  struct _MDL *v15; // [rsp+40h] [rbp-38h] BYREF
-  char *v16; // [rsp+80h] [rbp+8h]
-  unsigned int v17; // [rsp+98h] [rbp+20h] BYREF
+  unsigned int v11; // esi
+  __int64 v13; // [rsp+38h] [rbp-40h]
+  struct _MDL *v14; // [rsp+40h] [rbp-38h] BYREF
+  unsigned int v15; // [rsp+98h] [rbp+20h] BYREF
 
-  v16 = a1;
   v5 = Size;
   v6 = Src;
-  v7 = a1;
   v8 = 0;
   v9 = 0LL;
-  v15 = 0LL;
-  v10 = 0LL;
   v14 = 0LL;
-  v17 = 0;
-  if ( a4 )
+  v10 = 0LL;
+  v13 = 0LL;
+  v15 = 0;
+  if ( !a4 || (v10 = CcLockSystemCacheBuffer(Src, &v14, Size, 0LL, &v15), v13 = v10, v9 = v14, v10) )
   {
-    v10 = CcLockSystemCacheBuffer((_DWORD)Src, (unsigned int)&v15, Size, 0, (__int64)&v17);
-    v14 = v10;
-    v9 = v15;
-    if ( !v10 )
+    while ( v5 )
     {
-      v8 = v17;
-      goto LABEL_9;
-    }
-    v7 = v16;
-  }
-  while ( v5 )
-  {
-    if ( v5 >= 0x40000 )
-      v11 = 0x40000;
-    else
-      v11 = v5;
-    if ( a4 )
-    {
-      HviCopyMemory(v7, v10, v11);
-      v12 = v11;
-    }
-    else
-    {
-      v12 = v11;
-      memmove(v7, v6, v11);
-    }
-    v5 -= v11;
-    v7 = &v16[v12];
-    v16 += v12;
-    v10 = v14;
-    if ( a4 )
-    {
-      v10 = v12 + v14;
-      v14 += v12;
-    }
-    else
-    {
-      v6 += v12;
+      if ( v5 >= 0x40000 )
+        v11 = 0x40000;
+      else
+        v11 = v5;
+      if ( a4 )
+        HviCopyMemory(a1, v10, v11);
+      else
+        memmove(a1, v6, v11);
+      v5 -= v11;
+      a1 += v11;
+      v10 = v13;
+      if ( a4 )
+      {
+        v10 = v11 + v13;
+        v13 = v10;
+      }
+      else
+      {
+        v6 += v11;
+      }
     }
   }
-LABEL_9:
+  else
+  {
+    v8 = v15;
+  }
   if ( v9 )
   {
     MmUnlockPages(v9);

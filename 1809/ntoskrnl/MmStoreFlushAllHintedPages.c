@@ -1,9 +1,9 @@
 /*
- * XREFs of MmStoreFlushAllHintedPages @ 0x14085C304
+ * XREFs of MmStoreFlushAllHintedPages @ 0x14085C2E4
  * Callers:
- *     ?SmpFlushStorePages@@YAXPEAX@Z @ 0x140303560 (-SmpFlushStorePages@@YAXPEAX@Z.c)
+ *     ?SmpFlushStorePages@@YAXPEAX@Z @ 0x140303660 (-SmpFlushStorePages@@YAXPEAX@Z.c)
  * Callees:
- *     MiFlushAllHintedStorePages @ 0x1402B7F34 (MiFlushAllHintedStorePages.c)
+ *     MiFlushAllHintedStorePages @ 0x1402B8034 (MiFlushAllHintedStorePages.c)
  */
 
 __int64 __fastcall MmStoreFlushAllHintedPages(__int64 a1, __int64 a2, __int64 a3)

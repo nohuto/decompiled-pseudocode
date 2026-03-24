@@ -1,8 +1,8 @@
 /*
- * XREFs of KiOpFetchBytes @ 0x14029C4A0
+ * XREFs of KiOpFetchBytes @ 0x14029C5A0
  * Callers:
  *     KiOpDecode @ 0x1400A3648 (KiOpDecode.c)
- *     KiOpDecodeModRM @ 0x140193290 (KiOpDecodeModRM.c)
+ *     KiOpDecodeModRM @ 0x1401932B0 (KiOpDecodeModRM.c)
  * Callees:
  *     KiOpFetchNextByte @ 0x1400A37A8 (KiOpFetchNextByte.c)
  */

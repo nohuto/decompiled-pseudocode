@@ -1,15 +1,15 @@
 /*
- * XREFs of IoWMISuggestInstanceName @ 0x1408B2450
+ * XREFs of IoWMISuggestInstanceName @ 0x1408B2430
  * Callers:
  *     <none>
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     IoGetDeviceProperty @ 0x1405876E0 (IoGetDeviceProperty.c)
- *     IoOpenDeviceInterfaceRegistryKey @ 0x140825A20 (IoOpenDeviceInterfaceRegistryKey.c)
+ *     IoOpenDeviceInterfaceRegistryKey @ 0x140825A00 (IoOpenDeviceInterfaceRegistryKey.c)
  */
 
 NTSTATUS __stdcall IoWMISuggestInstanceName(

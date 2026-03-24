@@ -1,60 +1,66 @@
 /*
- * XREFs of NtGdiFONTOBJ_pvTrueTypeFontFile @ 0x1C02B3350
+ * XREFs of NtGdiFONTOBJ_pvTrueTypeFontFile @ 0x1C02B4F40
  * Callers:
  *     <none>
  * Callees:
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C0009B28 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ??$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z @ 0x1C012AD40 (--$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z.c)
- *     ?FONTOBJ_pvTrueTypeFontFileUMPD@@YAPEAXPEAU_FONTOBJ@@PEAKPEAPEAX@Z @ 0x1C02910C4 (-FONTOBJ_pvTrueTypeFontFileUMPD@@YAPEAXPEAU_FONTOBJ@@PEAKPEAPEAX@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CFBDC (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ??$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z @ 0x1C013CEBC (--$GetDDIOBJ@U_FONTOBJ@@@UMPDOBJ@@QEAAPEAU_FONTOBJ@@PEAU1@@Z.c)
+ *     Feature_1508323640__private_IsEnabledDeviceUsage @ 0x1C016A12C (Feature_1508323640__private_IsEnabledDeviceUsage.c)
+ *     ?bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ @ 0x1C016D8BC (-bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ.c)
+ *     ?FONTOBJ_pvTrueTypeFontFileUMPD@@YAPEAXPEAU_FONTOBJ@@PEAKPEAPEAX@Z @ 0x1C0293554 (-FONTOBJ_pvTrueTypeFontFileUMPD@@YAPEAXPEAU_FONTOBJ@@PEAKPEAPEAX@Z.c)
+ *     ?pvFontFile@UMPDOBJ@@QEAAXPEAX0K@Z @ 0x1C02B1FE4 (-pvFontFile@UMPDOBJ@@QEAAXPEAX0K@Z.c)
+ *     ?vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ @ 0x1C02B2070 (-vDecrementEngCallRecursionCount@UMPDOBJ@@AEAAXXZ.c)
  */
 
 void *__fastcall NtGdiFONTOBJ_pvTrueTypeFontFile(__int64 a1, _DWORD *a2)
 {
   struct _W32THREAD *ThreadWin32Thread; // rax
-  struct UMPDOBJ *ThreadCurrentObj; // rax
-  struct UMPDOBJ *v6; // rdi
-  void *v8; // rsi
-  struct _FONTOBJ *v9; // rax
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  void *v12; // rbx
-  unsigned int v13; // [rsp+60h] [rbp+18h] BYREF
-  void *v14; // [rsp+68h] [rbp+20h] BYREF
+  struct UMPDOBJ *ThreadCurrentObj; // rbx
+  void *v7; // rdi
+  struct _FONTOBJ *v8; // rax
+  void *v9; // rax
+  unsigned int v10; // [rsp+60h] [rbp+18h] BYREF
+  void *v11; // [rsp+68h] [rbp+20h] BYREF
 
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
-  v6 = ThreadCurrentObj;
+  if ( ThreadCurrentObj )
+  {
+    if ( (unsigned int)Feature_1508323640__private_IsEnabledDeviceUsage() )
+    {
+      if ( !UMPDOBJ::bIncrementEngCallRecursionCount(ThreadCurrentObj) )
+        return 0LL;
+    }
+    else
+    {
+      ++*((_DWORD *)ThreadCurrentObj + 105);
+    }
+  }
   if ( !ThreadCurrentObj )
     return 0LL;
-  ++*((_DWORD *)ThreadCurrentObj + 105);
-  v14 = 0LL;
-  v8 = 0LL;
-  v13 = 0;
-  v9 = (struct _FONTOBJ *)UMPDOBJ::GetDDIOBJ<_FONTOBJ>((__int64)ThreadCurrentObj, a1);
-  if ( v9 )
+  v11 = 0LL;
+  v7 = 0LL;
+  v10 = 0;
+  v8 = (struct _FONTOBJ *)UMPDOBJ::GetDDIOBJ<_FONTOBJ>((__int64)ThreadCurrentObj, a1);
+  if ( v8 )
   {
-    v13 = *((_DWORD *)v6 + 93);
-    v8 = (void *)*((_QWORD *)v6 + 45);
-    if ( !v8 )
+    v10 = *((_DWORD *)ThreadCurrentObj + 93);
+    v7 = (void *)*((_QWORD *)ThreadCurrentObj + 45);
+    if ( !v7 )
     {
-      v8 = FONTOBJ_pvTrueTypeFontFileUMPD(v9, &v13, &v14);
-      if ( v8 )
-      {
-        v12 = v14;
-        *((_QWORD *)v6 + 47) = PsGetCurrentProcess(v11, v10);
-        *((_QWORD *)v6 + 45) = v8;
-        *((_QWORD *)v6 + 44) = v12;
-        *((_DWORD *)v6 + 93) = v13;
-      }
+      v9 = FONTOBJ_pvTrueTypeFontFileUMPD(v8, &v10, &v11);
+      v7 = v9;
+      if ( v9 )
+        UMPDOBJ::pvFontFile(ThreadCurrentObj, v9, v11, v10);
     }
   }
   if ( a2 )
   {
     if ( (unsigned __int64)a2 >= MmUserProbeAddress )
       a2 = (_DWORD *)MmUserProbeAddress;
-    *a2 = v8 != 0LL ? v13 : 0;
+    *a2 = v7 != 0LL ? v10 : 0;
   }
-  --*((_DWORD *)v6 + 105);
-  return v8;
+  UMPDOBJ::vDecrementEngCallRecursionCount(ThreadCurrentObj);
+  return v7;
 }

@@ -3,7 +3,7 @@
  * Callers:
  *     KiSetCacheInformation @ 0x1405720C4 (KiSetCacheInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     KiSetStandardizedCacheInformation @ 0x140572210 (KiSetStandardizedCacheInformation.c)
  *     KiGetL2L3AssociativityAmd @ 0x14057B758 (KiGetL2L3AssociativityAmd.c)
  */

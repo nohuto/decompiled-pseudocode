@@ -1,40 +1,33 @@
 /*
- * XREFs of HvCheckAndUpdateHiveBackupTimeStamp @ 0x1407034AC
+ * XREFs of HvCheckAndUpdateHiveBackupTimeStamp @ 0x1407203B0
  * Callers:
- *     CmpCreateHive @ 0x14070247C (CmpCreateHive.c)
- *     HvpPerformLogFileRecovery @ 0x14080093C (HvpPerformLogFileRecovery.c)
- *     CmpMountPreloadedHives @ 0x1408632CC (CmpMountPreloadedHives.c)
- *     CmpCreateHiveRootCell @ 0x14087495C (CmpCreateHiveRootCell.c)
- *     CmpRecoverFlushProtocolStateFromFiles @ 0x140A1CF34 (CmpRecoverFlushProtocolStateFromFiles.c)
+ *     CmpCreateHive @ 0x14071D9E8 (CmpCreateHive.c)
+ *     CmpCreateHiveRootCell @ 0x14078DAF0 (CmpCreateHiveRootCell.c)
+ *     CmpMountPreloadedHives @ 0x1407AB024 (CmpMountPreloadedHives.c)
+ *     HvpPerformLogFileRecovery @ 0x14087410C (HvpPerformLogFileRecovery.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     HvpMarkDirty @ 0x140747620 (HvpMarkDirty.c)
- *     HvpGetBinContextInitialize @ 0x140AF6200 (HvpGetBinContextInitialize.c)
- *     HvpMapEntryGetBinAddress @ 0x140AF6210 (HvpMapEntryGetBinAddress.c)
- *     HvpGetCellMap @ 0x140AF6280 (HvpGetCellMap.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     HvpMarkDirty @ 0x140655BF0 (HvpMarkDirty.c)
+ *     HvpGetCellMap @ 0x140655DC0 (HvpGetCellMap.c)
  */
 
 __int64 __fastcall HvCheckAndUpdateHiveBackupTimeStamp(ULONG_PTR BugCheckParameter2)
 {
   __int64 CellMap; // rax
-  __int64 v3; // rcx
-  __int64 BinAddress; // rdi
-  __int64 result; // rax
-  __int16 v6; // [rsp+48h] [rbp+10h] BYREF
+  unsigned int v3; // ebx
+  unsigned __int64 v4; // rsi
 
-  v6 = 0;
-  HvpGetBinContextInitialize(&v6);
-  CellMap = HvpGetCellMap(BugCheckParameter2, 0LL);
+  CellMap = HvpGetCellMap(BugCheckParameter2, 0);
+  v3 = 0;
   if ( !CellMap )
-    KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, 0LL, 0x13D2uLL);
-  BinAddress = HvpMapEntryGetBinAddress(v3, CellMap, &v6);
-  if ( *(_QWORD *)(BinAddress + 20) == *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 12LL) )
-    return 0LL;
-  result = HvpMarkDirty(BugCheckParameter2);
-  if ( (int)result >= 0 )
+    KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, 0LL, 0x13D4uLL);
+  v4 = *(_QWORD *)(CellMap + 8) & 0xFFFFFFFFFFFFFFF0uLL;
+  if ( *(_QWORD *)(v4 + 0x14) != *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 12LL) )
   {
-    *(_QWORD *)(BinAddress + 20) = *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 12LL);
-    return 0LL;
+    if ( HvpMarkDirty(BugCheckParameter2, 0, 0x20u, 0) )
+      *(_QWORD *)(v4 + 20) = *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 12LL);
+    else
+      return (unsigned int)-1073741443;
   }
-  return result;
+  return v3;
 }

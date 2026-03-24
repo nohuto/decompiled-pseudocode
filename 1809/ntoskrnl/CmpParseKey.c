@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpParseKey @ 0x140641370
+ * XREFs of CmpParseKey @ 0x140641350
  * Callers:
  *     <none>
  * Callees:
@@ -8,18 +8,18 @@
  *     PsGetCurrentSilo @ 0x14004D350 (PsGetCurrentSilo.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeEnterCriticalRegion @ 0x1400B9BE0 (KeEnterCriticalRegion.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x1401B2F98 (CmpIsRegistryLockAcquired.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeEnterCriticalRegion @ 0x1400B9C00 (KeEnterCriticalRegion.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     CmpCleanupParseContext @ 0x1405B5FC4 (CmpCleanupParseContext.c)
  *     CmpCallCallBacksEx @ 0x1405E5AE0 (CmpCallCallBacksEx.c)
- *     CmPostCallbackNotificationEx @ 0x14063FAC0 (CmPostCallbackNotificationEx.c)
- *     CmpDoesParseEnterRegistryA @ 0x1406418A0 (CmpDoesParseEnterRegistryA.c)
- *     CmpDoParseKey @ 0x140641CC0 (CmpDoParseKey.c)
- *     CmpGetRegistryNamespaceRootForSilo @ 0x14068E570 (CmpGetRegistryNamespaceRootForSilo.c)
- *     CmpRollbackTransactionArray @ 0x1407F8AFC (CmpRollbackTransactionArray.c)
+ *     CmPostCallbackNotificationEx @ 0x14063FAA0 (CmPostCallbackNotificationEx.c)
+ *     CmpDoesParseEnterRegistryA @ 0x140641880 (CmpDoesParseEnterRegistryA.c)
+ *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmpGetRegistryNamespaceRootForSilo @ 0x14068E550 (CmpGetRegistryNamespaceRootForSilo.c)
+ *     CmpRollbackTransactionArray @ 0x1407F8ADC (CmpRollbackTransactionArray.c)
  */
 
 __int64 __fastcall CmpParseKey(

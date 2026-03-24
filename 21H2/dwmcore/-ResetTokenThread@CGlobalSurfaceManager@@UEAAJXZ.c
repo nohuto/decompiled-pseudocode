@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ResetTokenThread@CGlobalSurfaceManager@@UEAAJXZ @ 0x1800EC950
+ * XREFs of ?ResetTokenThread@CGlobalSurfaceManager@@UEAAJXZ @ 0x1800D9E10
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CGlobalSurfaceManager::ResetTokenThread(CGlobalSurfaceManager *this)
@@ -15,7 +15,7 @@ __int64 __fastcall CGlobalSurfaceManager::ResetTokenThread(CGlobalSurfaceManager
   __int64 v7; // rcx
 
   v2 = 0;
-  v3 = (char *)*((_QWORD *)this + 55);
+  v3 = (char *)*((_QWORD *)this + 52);
   if ( (unsigned __int64)(v3 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
   {
     ThreadId = GetThreadId(v3);
@@ -28,7 +28,7 @@ __int64 __fastcall CGlobalSurfaceManager::ResetTokenThread(CGlobalSurfaceManager
       else
       {
         SetLastError(0);
-        if ( !SetEvent(*((HANDLE *)this + 56)) )
+        if ( !SetEvent(*((HANDLE *)this + 53)) )
         {
           LastError = GetLastError();
           v2 = LastError;
@@ -36,7 +36,7 @@ __int64 __fastcall CGlobalSurfaceManager::ResetTokenThread(CGlobalSurfaceManager
             v2 = (unsigned __int16)LastError | 0x80070000;
           if ( v2 >= 0 )
             v2 = -2003304445;
-          MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0LL, v2, 0x87u);
+          MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v2, 0x8Cu, 0LL);
         }
       }
     }

@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlUninitializeLargeMcb @ 0x140111150
+ * XREFs of FsRtlUninitializeLargeMcb @ 0x140111170
  * Callers:
- *     FsRtlUninitializeMcb @ 0x140815000 (FsRtlUninitializeMcb.c)
+ *     FsRtlUninitializeMcb @ 0x140814FE0 (FsRtlUninitializeMcb.c)
  * Callees:
  *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     FsRtlUninitializeBaseMcb @ 0x140111190 (FsRtlUninitializeBaseMcb.c)
+ *     FsRtlUninitializeBaseMcb @ 0x1401111B0 (FsRtlUninitializeBaseMcb.c)
  */
 
 void __stdcall FsRtlUninitializeLargeMcb(PLARGE_MCB Mcb)

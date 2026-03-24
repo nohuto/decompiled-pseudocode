@@ -1,12 +1,12 @@
 /*
- * XREFs of ?WriteSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C0253550
+ * XREFs of ?WriteSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C02567C4
  * Callers:
- *     ?SetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@H@Z @ 0x1C024FEF4 (-SetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@H@Z.c)
+ *     ?SetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@H@Z @ 0x1C0252F08 (-SetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@H@Z.c)
  * Callees:
- *     ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C010C288 (-_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z.c)
+ *     ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C00E4510 (-_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z.c)
  */
 
-__int64 __fastcall InteractiveControlSettings::WriteSettings(InteractiveControlSettings *this, __int64 a2, ULONG a3)
+__int64 __fastcall InteractiveControlSettings::WriteSettings(InteractiveControlSettings *this, __int64 a2, __int64 a3)
 {
   int v4; // esi
   const wchar_t **v5; // rbx

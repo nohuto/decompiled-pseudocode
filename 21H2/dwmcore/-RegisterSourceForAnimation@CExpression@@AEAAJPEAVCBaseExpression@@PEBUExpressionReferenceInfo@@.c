@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RegisterSourceForAnimation@CExpression@@AEAAJPEAVCBaseExpression@@PEBUExpressionReferenceInfo@@@Z @ 0x180046C70
+ * XREFs of ?RegisterSourceForAnimation@CExpression@@AEAAJPEAVCBaseExpression@@PEBUExpressionReferenceInfo@@@Z @ 0x180065400
  * Callers:
- *     ?RegisterSourcesForOwner@CExpression@@UEAAJXZ @ 0x180046BF0 (-RegisterSourcesForOwner@CExpression@@UEAAJXZ.c)
+ *     ?RegisterSourcesForOwner@CExpression@@UEAAJXZ @ 0x180065380 (-RegisterSourcesForOwner@CExpression@@UEAAJXZ.c)
  * Callees:
- *     ?AddSourceAnimation@CResource@@QEAAJPEAVCBaseExpression@@I@Z @ 0x180046D0C (-AddSourceAnimation@CResource@@QEAAJPEAVCBaseExpression@@I@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddSourceAnimation@CResource@@QEAAJPEAVCBaseExpression@@I@Z @ 0x18006549C (-AddSourceAnimation@CResource@@QEAAJPEAVCBaseExpression@@I@Z.c)
  */
 
 __int64 __fastcall CExpression::RegisterSourceForAnimation(
@@ -16,15 +16,15 @@ __int64 __fastcall CExpression::RegisterSourceForAnimation(
   __int64 v6; // rdx
   CResource *v7; // rcx
   int v8; // eax
-  unsigned int v9; // ecx
+  __int64 v9; // rcx
 
-  if ( *((_DWORD *)a3 + 5) >= *((_DWORD *)this + 106) )
+  if ( *((_DWORD *)a3 + 5) >= *((_DWORD *)this + 100) )
   {
     v5 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2147024809, 0x192u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x192u, 0LL);
     return v5;
   }
-  v6 = *(_QWORD *)(*((_QWORD *)this + 52) + 8LL * *((unsigned int *)a3 + 5));
+  v6 = *(_QWORD *)(*((_QWORD *)this + 49) + 8LL * *((unsigned int *)a3 + 5));
   if ( v6 )
   {
     v7 = *(CResource **)(v6 + 16);
@@ -37,7 +37,7 @@ __int64 __fastcall CExpression::RegisterSourceForAnimation(
         MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x19Bu, 0LL);
         return v5;
       }
-      *((_BYTE *)this + 456) |= 2u;
+      *((_BYTE *)this + 432) |= 2u;
     }
   }
   return 0;

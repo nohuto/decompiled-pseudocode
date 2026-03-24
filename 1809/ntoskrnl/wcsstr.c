@@ -1,21 +1,21 @@
 /*
- * XREFs of wcsstr @ 0x140197930
+ * XREFs of wcsstr @ 0x140197950
  * Callers:
- *     BcpGetProgressMessages @ 0x1401867B8 (BcpGetProgressMessages.c)
- *     SmUniqueIdParseProductName @ 0x140306704 (SmUniqueIdParseProductName.c)
+ *     BcpGetProgressMessages @ 0x1401867D8 (BcpGetProgressMessages.c)
+ *     SmUniqueIdParseProductName @ 0x140306804 (SmUniqueIdParseProductName.c)
  *     PopGetBitlockerKeyLocation @ 0x14056BD8C (PopGetBitlockerKeyLocation.c)
  *     PiGetDeviceRegProperty @ 0x140587C10 (PiGetDeviceRegProperty.c)
- *     PfSnIsHostingApplication @ 0x140667D0C (PfSnIsHostingApplication.c)
- *     SiIsWinPEBoot @ 0x1406AE858 (SiIsWinPEBoot.c)
- *     SiGetBootDeviceName @ 0x1406AE8C4 (SiGetBootDeviceName.c)
- *     EtwpGenerateFileName @ 0x1406CF55C (EtwpGenerateFileName.c)
- *     SiGetBiosSystemPartition @ 0x140704110 (SiGetBiosSystemPartition.c)
- *     BiIsWinPEBoot @ 0x14071220C (BiIsWinPEBoot.c)
- *     IopCheckIfNotNativeDriver @ 0x140819830 (IopCheckIfNotNativeDriver.c)
- *     PiGetDeviceRegistryProperty @ 0x140824738 (PiGetDeviceRegistryProperty.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x1408F3E04 (BiGetObjectReferenceFromEfiEntry.c)
- *     BiUpdateObjectReferenceInEfiEntry @ 0x1408F4D84 (BiUpdateObjectReferenceInEfiEntry.c)
- *     SubstringMatch @ 0x140905080 (SubstringMatch.c)
+ *     PfSnIsHostingApplication @ 0x140667CEC (PfSnIsHostingApplication.c)
+ *     SiIsWinPEBoot @ 0x1406AE838 (SiIsWinPEBoot.c)
+ *     SiGetBootDeviceName @ 0x1406AE8A4 (SiGetBootDeviceName.c)
+ *     EtwpGenerateFileName @ 0x1406CF53C (EtwpGenerateFileName.c)
+ *     SiGetBiosSystemPartition @ 0x1407040F0 (SiGetBiosSystemPartition.c)
+ *     BiIsWinPEBoot @ 0x1407121EC (BiIsWinPEBoot.c)
+ *     IopCheckIfNotNativeDriver @ 0x140819810 (IopCheckIfNotNativeDriver.c)
+ *     PiGetDeviceRegistryProperty @ 0x140824718 (PiGetDeviceRegistryProperty.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x1408F3DE4 (BiGetObjectReferenceFromEfiEntry.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x1408F4D64 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     SubstringMatch @ 0x140905060 (SubstringMatch.c)
  * Callees:
  *     <none>
  */

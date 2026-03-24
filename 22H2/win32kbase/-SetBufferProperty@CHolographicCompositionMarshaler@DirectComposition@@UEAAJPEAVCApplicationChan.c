@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CHolographicCompositionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0226FE0
+ * XREFs of ?SetBufferProperty@CHolographicCompositionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01EE1E0
  * Callers:
  *     <none>
  * Callees:

@@ -1,5 +1,5 @@
 /*
- * XREFs of MmMapMdl @ 0x1402AD760
+ * XREFs of MmMapMdl @ 0x1402AD860
  * Callers:
  *     <none>
  * Callees:
@@ -10,14 +10,14 @@
  *     MiFillSystemPtes @ 0x14005C300 (MiFillSystemPtes.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
- *     MiMappingHasIoReferences @ 0x1400E63DC (MiMappingHasIoReferences.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiZeroAndFlushPtes @ 0x14012335C (MiZeroAndFlushPtes.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     MiInsertPteTracker @ 0x1402CD9C0 (MiInsertPteTracker.c)
- *     MiFreeUltraMdlContext @ 0x1402CDE58 (MiFreeUltraMdlContext.c)
- *     MiGetUltraMdlContext @ 0x1402CDEEC (MiGetUltraMdlContext.c)
+ *     MiMappingHasIoReferences @ 0x1400E63FC (MiMappingHasIoReferences.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiZeroAndFlushPtes @ 0x14012337C (MiZeroAndFlushPtes.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     MiInsertPteTracker @ 0x1402CDAC0 (MiInsertPteTracker.c)
+ *     MiFreeUltraMdlContext @ 0x1402CDF58 (MiFreeUltraMdlContext.c)
+ *     MiGetUltraMdlContext @ 0x1402CDFEC (MiGetUltraMdlContext.c)
  */
 
 __int64 __fastcall MmMapMdl(__int64 a1, unsigned int a2, void (__fastcall *a3)(__int64, unsigned __int64), __int64 a4)

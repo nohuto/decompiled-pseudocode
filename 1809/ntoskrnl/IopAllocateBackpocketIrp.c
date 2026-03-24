@@ -1,15 +1,15 @@
 /*
- * XREFs of IopAllocateBackpocketIrp @ 0x14027E320
+ * XREFs of IopAllocateBackpocketIrp @ 0x14027E420
  * Callers:
- *     IoPageReadEx @ 0x1400DE720 (IoPageReadEx.c)
- *     IoSynchronousPageWriteEx @ 0x1400DEA00 (IoSynchronousPageWriteEx.c)
- *     IoAsynchronousPageWrite @ 0x140134FF4 (IoAsynchronousPageWrite.c)
+ *     IoPageReadEx @ 0x1400DE740 (IoPageReadEx.c)
+ *     IoSynchronousPageWriteEx @ 0x1400DEA20 (IoSynchronousPageWriteEx.c)
+ *     IoAsynchronousPageWrite @ 0x140135014 (IoAsynchronousPageWrite.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IopAllocateIrpExReturn @ 0x1400B92C0 (IopAllocateIrpExReturn.c)
- *     IoInitializeIrp @ 0x14011A180 (IoInitializeIrp.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     IopInitActivityIdIrp @ 0x14027EEE4 (IopInitActivityIdIrp.c)
+ *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
+ *     IoInitializeIrp @ 0x14011A1A0 (IoInitializeIrp.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     IopInitActivityIdIrp @ 0x14027EFE4 (IopInitActivityIdIrp.c)
  */
 
 __int64 __fastcall IopAllocateBackpocketIrp(__int64 a1, char a2, char a3)

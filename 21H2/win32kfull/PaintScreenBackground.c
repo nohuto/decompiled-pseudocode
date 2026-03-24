@@ -1,30 +1,29 @@
 /*
- * XREFs of PaintScreenBackground @ 0x1C01218D0
+ * XREFs of PaintScreenBackground @ 0x1C0135D30
  * Callers:
  *     <none>
  * Callees:
- *     FillRect @ 0x1C00C1CEC (FillRect.c)
+ *     FillRect @ 0x1C0045734 (FillRect.c)
  */
 
 __int64 PaintScreenBackground()
 {
   __int64 v0; // rcx
-  __int64 v1; // rdx
+  HDC v1; // rcx
   __int64 v2; // rcx
-  __int64 v3; // r8
-  HDC v4; // rcx
-  __int64 v5; // rcx
-  RECT v7; // [rsp+20h] [rbp-18h] BYREF
+  RECT v4; // [rsp+30h] [rbp-18h] BYREF
 
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
   EnterRenderBlock();
   UserSessionSwitchLeaveCrit(v0);
-  EnterSharedCrit(v2, v1, v3);
+  EnterSharedCrit(0LL, 1LL);
   EnterSharedRenderCrit();
-  v4 = *(HDC *)(gpDispInfo + 56LL);
-  v7 = *(RECT *)(*gpDispInfo + 24LL);
-  FillRect(v4, &v7, *(HBRUSH *)(gpsi + 4704LL));
+  v1 = *(HDC *)(gpDispInfo + 56LL);
+  v4 = *(RECT *)(*gpDispInfo + 24LL);
+  FillRect(v1, &v4, *(HBRUSH *)(gpsi + 4704LL));
   LeaveRenderBlock();
   LeaveRenderCrit();
-  UserSessionSwitchLeaveCrit(v5);
-  return EnterCrit(1LL, 0LL);
+  UserSessionSwitchLeaveCrit(v2);
+  return EnterCrit(0LL, 1LL);
 }

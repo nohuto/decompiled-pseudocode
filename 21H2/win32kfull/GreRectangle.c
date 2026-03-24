@@ -1,37 +1,36 @@
 /*
- * XREFs of GreRectangle @ 0x1C0136C70
+ * XREFs of GreRectangle @ 0x1C01440E0
  * Callers:
- *     NtGdiRectangle @ 0x1C0136B50 (NtGdiRectangle.c)
+ *     NtGdiRectangle @ 0x1C0143FC0 (NtGdiRectangle.c)
  * Callees:
- *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C002CE30 (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
- *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C002F5C4 (-vOrder@ERECTL@@QEAAXXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?bWrapped@ERECTL@@QEBAHXZ @ 0x1C008E110 (-bWrapped@ERECTL@@QEBAHXZ.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00E47F8 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     bFToL @ 0x1C00E82E4 (bFToL.c)
- *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C0134298 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
- *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C0137840 (--1XEPATHOBJ@@QEAA@XZ.c)
- *     ??0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C0137C34 (--0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
- *     ?GreRectBlt@@YAHAEAVDCOBJ@@PEAVERECTL@@@Z @ 0x1C01388F0 (-GreRectBlt@@YAHAEAVDCOBJ@@PEAVERECTL@@@Z.c)
- *     ?vInit@RECTANGLEPATHOBJ@@QEAAXPEAU_RECTL@@H@Z @ 0x1C0139280 (-vInit@RECTANGLEPATHOBJ@@QEAAXPEAU_RECTL@@H@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??1MDCOBJ@@QEAA@XZ @ 0x1C015DA34 (--1MDCOBJ@@QEAA@XZ.c)
- *     ??0EBOX@@QEAA@AEAVDCOBJ@@AEAU_RECTL@@PEAU_LINEATTRS@@H@Z @ 0x1C02AEC68 (--0EBOX@@QEAA@AEAVDCOBJ@@AEAU_RECTL@@PEAU_LINEATTRS@@H@Z.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C00B4CCC (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00B79F8 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     ?bWrapped@ERECTL@@QEBAHXZ @ 0x1C00B7A60 (-bWrapped@ERECTL@@QEBAHXZ.c)
+ *     bFToL @ 0x1C00FB538 (bFToL.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FDC44 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ??0EBOX@@QEAA@AEAVDCOBJ@@AEAU_RECTL@@PEAU_LINEATTRS@@H@Z @ 0x1C0142564 (--0EBOX@@QEAA@AEAVDCOBJ@@AEAU_RECTL@@PEAU_LINEATTRS@@H@Z.c)
+ *     ?vInit@RECTANGLEPATHOBJ@@QEAAXPEAU_RECTL@@H@Z @ 0x1C014377C (-vInit@RECTANGLEPATHOBJ@@QEAAXPEAU_RECTL@@H@Z.c)
+ *     ??0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C0145120 (--0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
+ *     ?GreRectBlt@@YAHAEAVDCOBJ@@PEAVERECTL@@@Z @ 0x1C0145E54 (-GreRectBlt@@YAHAEAVDCOBJ@@PEAVERECTL@@@Z.c)
+ *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C0146E94 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C016A098 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016AA7C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreRectangle(HDC a1, LONG a2, LONG a3, LONG a4, LONG a5)
 {
-  POINTL *v8; // r10
-  unsigned int v9; // edi
-  LONG v10; // r14d
+  __int64 v8; // r10
+  LONG v9; // r14d
+  unsigned int v10; // edi
   LONG v11; // r15d
   bool v12; // zf
   int v13; // ecx
-  POINTL v14; // rdx
+  __int64 v14; // rdx
   int v15; // ebx
   __int64 v16; // rbx
-  POINTL *v17; // rsi
+  __int64 v17; // rsi
   int v18; // edx
   int v19; // eax
   int v20; // eax
@@ -63,12 +62,12 @@ __int64 __fastcall GreRectangle(HDC a1, LONG a2, LONG a3, LONG a4, LONG a5)
   unsigned int v46; // r8d
   int v47; // edx
   unsigned int v48; // r8d
-  POINTL v49; // rax
-  LONG y; // ebx
+  __int64 v49; // rax
+  int v50; // ebx
   unsigned int v51; // ecx
-  POINTL v52; // rbx
+  __int64 v52; // rbx
   int v54; // [rsp+30h] [rbp-D0h] BYREF
-  POINTL *v55[2]; // [rsp+38h] [rbp-C8h] BYREF
+  _QWORD v55[2]; // [rsp+38h] [rbp-C8h] BYREF
   _BYTE v56[32]; // [rsp+48h] [rbp-B8h] BYREF
   _DWORD v57[4]; // [rsp+68h] [rbp-98h] BYREF
   struct _XFORMOBJ v58[2]; // [rsp+78h] [rbp-88h] BYREF
@@ -78,49 +77,51 @@ __int64 __fastcall GreRectangle(HDC a1, LONG a2, LONG a3, LONG a4, LONG a5)
   struct _POINTL v62; // [rsp+B0h] [rbp-50h] BYREF
   PATHOBJ v63; // [rsp+F0h] [rbp-10h] BYREF
   __int64 v64; // [rsp+F8h] [rbp-8h]
+  _BYTE v65[32]; // [rsp+140h] [rbp+40h] BYREF
+  int v66; // [rsp+160h] [rbp+60h]
   PATHOBJ ppo; // [rsp+3B0h] [rbp+2B0h] BYREF
 
   DCOBJ::DCOBJ((DCOBJ *)v55, a1);
   v8 = v55[0];
-  if ( !v55[0] || (v55[0][4].y & 0x10000) != 0 )
+  if ( !v55[0] || (*(_DWORD *)(v55[0] + 36LL) & 0x10000) != 0 )
   {
     EngSetLastError(6u);
-    v9 = 0;
-    goto LABEL_63;
+    v10 = 0;
+    goto LABEL_64;
   }
-  v9 = 1;
-  v10 = a4 - 1;
+  v9 = a4 - 1;
+  v10 = 1;
   v11 = a2 - 1;
-  v12 = (*(_DWORD *)(*(_QWORD *)&v55[0][122] + 108LL) & 1) == 0;
-  v13 = *(_DWORD *)(*(_QWORD *)&v55[0][122] + 108LL) & 1;
+  v12 = (*(_DWORD *)(*(_QWORD *)(v55[0] + 976LL) + 108LL) & 1) == 0;
+  v13 = *(_DWORD *)(*(_QWORD *)(v55[0] + 976LL) + 108LL) & 1;
   v59.top = a3;
   if ( v12 )
-    v10 = a4;
+    v9 = a4;
   v59.bottom = a5;
-  v59.right = v10;
-  if ( (v13 & 1) == 0 )
+  v59.right = v9;
+  if ( !v13 )
     v11 = a2;
   v59.left = v11;
-  v14 = v55[0][122];
-  v15 = *(_DWORD *)(*(_QWORD *)&v14 + 152LL);
+  v14 = *(_QWORD *)(v55[0] + 976LL);
+  v15 = *(_DWORD *)(v14 + 152);
   if ( (v15 & 0x1000) != 0 )
   {
-    GreDCSelectBrush(v55[0], *(_QWORD *)(*(_QWORD *)&v14 + 160LL));
+    GreDCSelectBrush(v55[0], *(_QWORD *)(v14 + 160));
     v8 = v55[0];
   }
   if ( (v15 & 0x2000) != 0 )
-    GreDCSelectPen(v8, *(_QWORD *)(*(_QWORD *)&v8[122] + 168LL));
+    GreDCSelectPen(v8, *(_QWORD *)(*(_QWORD *)(v8 + 976) + 168LL));
   EXFORMOBJ::vQuickInit((EXFORMOBJ *)v58, (struct XDCOBJ *)v55, 516);
   v16 = *(_QWORD *)&v58[0].ulReserved;
   v17 = v55[0];
-  if ( (*(_DWORD *)(*(_QWORD *)&v58[0].ulReserved + 32LL) & 1) == 0 || (v55[0][31].x & 1) != 0 )
+  if ( (*(_DWORD *)(*(_QWORD *)&v58[0].ulReserved + 32LL) & 1) == 0 || (*(_DWORD *)(v55[0] + 248LL) & 1) != 0 )
     goto LABEL_47;
-  if ( (struct PEN *)v55[0][18] != gpPenNull )
+  if ( *(struct PEN **)(v55[0] + 144LL) != gpPenNull )
   {
-    if ( (v55[0][26].x & 1) == 0 )
+    if ( (*(_DWORD *)(v55[0] + 208LL) & 1) == 0 )
     {
       v32 = *(_DWORD *)(*(_QWORD *)&v58[0].ulReserved + 32LL) & 2;
-      if ( *(_DWORD *)(*(_QWORD *)&v55[0][122] + 208LL) == 2 )
+      if ( *(_DWORD *)(*(_QWORD *)(v55[0] + 976LL) + 208LL) == 2 )
       {
         if ( v32 )
         {
@@ -185,17 +186,17 @@ __int64 __fastcall GreRectangle(HDC a1, LONG a2, LONG a3, LONG a4, LONG a5)
         --v59.right;
         --v59.bottom;
         if ( v59.left > v59.right || v59.top > v40 )
-          goto LABEL_63;
+          goto LABEL_64;
       }
-      RECTANGLEPATHOBJ::vInit((RECTANGLEPATHOBJ *)&ppo, &v59, v17[31].x & 4);
-      if ( (struct BRUSH *)v55[0][17] == gpbrNull )
+      RECTANGLEPATHOBJ::vInit((RECTANGLEPATHOBJ *)&ppo, &v59, *(_DWORD *)(v17 + 248) & 4);
+      if ( *(struct BRUSH **)(v55[0] + 136LL) == gpbrNull )
       {
-        if ( (v55[0][4].y & 0x40) != 0 )
+        if ( (*(_DWORD *)(v55[0] + 36LL) & 0x40) != 0 )
         {
           v57[3] = a5;
           v57[0] = v11;
           v57[1] = a3;
-          v57[2] = v10;
+          v57[2] = v9;
           XDCOBJ::vAccumulate((XDCOBJ *)v55, (struct ERECTL *)v57);
         }
       }
@@ -205,17 +206,17 @@ __int64 __fastcall GreRectangle(HDC a1, LONG a2, LONG a3, LONG a4, LONG a5)
         ++v59.top;
         if ( !ERECTL::bWrapped((ERECTL *)&v59) && !(unsigned int)GreRectBlt((struct DCOBJ *)v55, (struct ERECTL *)&v59) )
         {
-          v9 = 0;
-          goto LABEL_63;
+          v10 = 0;
+          goto LABEL_64;
         }
       }
-      v31 = EPATHOBJ::bStrokeAndOrFill(&ppo, v55, (LINEATTRS *)&v17[26], 0LL, 1u);
+      v31 = EPATHOBJ::bStrokeAndOrFill(&ppo, (struct XDCOBJ *)v55, (LINEATTRS *)(v17 + 208), 0LL, 1u);
       goto LABEL_46;
     }
 LABEL_47:
-    EBOX::EBOX((EBOX *)v60, (struct DCOBJ *)v55, &v59, (struct _LINEATTRS *)&v55[0][26], 0);
+    EBOX::EBOX((EBOX *)v60, (struct DCOBJ *)v55, &v59, (struct _LINEATTRS *)(v55[0] + 208LL), 0);
     if ( v60[0] )
-      goto LABEL_63;
+      goto LABEL_64;
     PATHSTACKOBJ::PATHSTACKOBJ((PATHSTACKOBJ *)&v63, (struct XDCOBJ *)v55, 1);
     if ( v64 )
     {
@@ -223,27 +224,27 @@ LABEL_47:
         && EPATHOBJ::bPolyLineTo((EPATHOBJ *)&v63, 0LL, &v62, 3u)
         && EPATHOBJ::bCloseFigure((EPATHOBJ *)&v63) )
       {
-        if ( (v55[0][31].x & 1) == 0 )
+        if ( (*(_DWORD *)(v55[0] + 248LL) & 1) == 0 )
         {
-          v49 = v55[0][18];
+          v49 = *(_QWORD *)(v55[0] + 144LL);
           if ( v60[1] )
           {
-            v52 = v55[0][17];
-            v55[0][17] = v49;
-            v55[0][39].y |= 1u;
-            v51 = EPATHOBJ::bStrokeAndOrFill(&v63, v55, 0LL, 0LL, 2u);
-            v55[0][17] = v52;
-            v55[0][39].y |= 1u;
+            v52 = *(_QWORD *)(v55[0] + 136LL);
+            *(_QWORD *)(v55[0] + 136LL) = v49;
+            *(_DWORD *)(v55[0] + 316LL) |= 1u;
+            v51 = EPATHOBJ::bStrokeAndOrFill(&v63, (struct XDCOBJ *)v55, 0LL, 0LL, 2u);
+            *(_QWORD *)(v55[0] + 136LL) = v52;
+            *(_DWORD *)(v55[0] + 316LL) |= 1u;
           }
           else
           {
-            y = v17[26].y;
-            if ( (*(_DWORD *)(*(_QWORD *)&v49 + 40LL) & 0x800) != 0 )
-              v17[26].y = 2;
-            v51 = EPATHOBJ::bStrokeAndOrFill(&v63, v55, (LINEATTRS *)&v17[26], v58, 3u);
-            v17[26].y = y;
+            v50 = *(_DWORD *)(v17 + 212);
+            if ( (*(_DWORD *)(v49 + 40) & 0x800) != 0 )
+              *(_DWORD *)(v17 + 212) = 2;
+            v51 = EPATHOBJ::bStrokeAndOrFill(&v63, (struct XDCOBJ *)v55, (LINEATTRS *)(v17 + 208), v58, 3u);
+            *(_DWORD *)(v17 + 212) = v50;
           }
-          v9 = v51;
+          v10 = v51;
         }
         goto LABEL_51;
       }
@@ -252,15 +253,20 @@ LABEL_47:
     {
       EngSetLastError(8u);
     }
-    v9 = 0;
+    v10 = 0;
 LABEL_51:
-    XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)&v63);
-    goto LABEL_63;
+    EPATHOBJ::vUnlock((EPATHOBJ *)&v63);
+    if ( v66 )
+    {
+      PopThreadGuardedObject(v65);
+      v66 = 0;
+    }
+    goto LABEL_64;
   }
-  if ( (struct BRUSH *)v55[0][17] != gpbrNull || (v55[0][4].y & 0x40) != 0 )
+  if ( *(struct BRUSH **)(v55[0] + 136LL) != gpbrNull || (*(_DWORD *)(v55[0] + 36LL) & 0x40) != 0 )
   {
     v18 = *(_DWORD *)(*(_QWORD *)&v58[0].ulReserved + 32LL) & 2;
-    if ( *(_DWORD *)(*(_QWORD *)&v55[0][122] + 208LL) == 2 )
+    if ( *(_DWORD *)(*(_QWORD *)(v55[0] + 976LL) + 208LL) == 2 )
     {
       if ( v18 )
       {
@@ -325,11 +331,11 @@ LABEL_51:
     {
       v31 = GreRectBlt((struct DCOBJ *)v55, (struct ERECTL *)&v59);
 LABEL_46:
-      v9 = v31;
+      v10 = v31;
     }
   }
-LABEL_63:
+LABEL_64:
   MDCOBJ::~MDCOBJ((MDCOBJ *)v55);
   UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v56);
-  return v9;
+  return v10;
 }

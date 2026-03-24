@@ -1,12 +1,13 @@
 /*
- * XREFs of ?GetAdjustedHandoffValue@CAnimationInterpolator@@IEAA_N_JMW4Enum@DwmAnimationHandoffType@@M_KPEAM@Z @ 0x180270964
+ * XREFs of ?GetAdjustedHandoffValue@CAnimationInterpolator@@IEAA_N_JMW4Enum@DwmAnimationHandoffType@@M_KPEAM@Z @ 0x18021FEC8
  * Callers:
- *     ?GetAnimationValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z @ 0x1800CD690 (-GetAnimationValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z.c)
+ *     ?UpdateAnimateValues@CAnimation@@UEAAXXZ @ 0x1800BB5D0 (-UpdateAnimateValues@CAnimation@@UEAAXXZ.c)
+ *     ?GetAnimationValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z @ 0x18021FFD0 (-GetAnimationValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z.c)
  * Callees:
- *     ?EnsureHandoffCachedData@CAnimationInterpolator@@IEAA_NM_K@Z @ 0x180270874 (-EnsureHandoffCachedData@CAnimationInterpolator@@IEAA_NM_K@Z.c)
+ *     ?EnsureHandoffCachedData@CAnimationInterpolator@@IEAA_NM_K@Z @ 0x18021FD4C (-EnsureHandoffCachedData@CAnimationInterpolator@@IEAA_NM_K@Z.c)
  */
 
-bool __fastcall CAnimationInterpolator::GetAdjustedHandoffValue(
+char __fastcall CAnimationInterpolator::GetAdjustedHandoffValue(
         __int64 a1,
         signed __int64 a2,
         float a3,
@@ -16,7 +17,7 @@ bool __fastcall CAnimationInterpolator::GetAdjustedHandoffValue(
         float *a7)
 {
   float v9; // xmm6_4
-  bool v11; // bp
+  char v11; // bp
   int v12; // edi
   float v13; // xmm0_4
 

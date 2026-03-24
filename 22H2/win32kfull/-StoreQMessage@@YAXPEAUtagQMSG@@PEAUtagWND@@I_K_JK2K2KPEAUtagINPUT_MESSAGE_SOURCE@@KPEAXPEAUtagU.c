@@ -1,25 +1,25 @@
 /*
- * XREFs of ?StoreQMessage@@YAXPEAUtagQMSG@@PEAUtagWND@@I_K_JK2K2KPEAUtagINPUT_MESSAGE_SOURCE@@KPEAXPEAUtagUIPI_INFO@@@Z @ 0x1C011F1F0
+ * XREFs of ?StoreQMessage@@YAXPEAUtagQMSG@@PEAUtagWND@@I_K_JK2K2KPEAUtagINPUT_MESSAGE_SOURCE@@KPEAXPEAUtagUIPI_INFO@@@Z @ 0x1C00551A0
  * Callers:
- *     xxxBroadcastMessageEx @ 0x1C004C8D0 (xxxBroadcastMessageEx.c)
- *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0050C44 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
- *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C0061584 (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
- *     _PostThreadMessageEx @ 0x1C0115548 (_PostThreadMessageEx.c)
- *     PostInputMessage @ 0x1C0117268 (PostInputMessage.c)
- *     NtUserScheduleDispatchNotification @ 0x1C011CF40 (NtUserScheduleDispatchNotification.c)
- *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C011E780 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
- *     xxxCallJournalPlaybackHook @ 0x1C01BB72C (xxxCallJournalPlaybackHook.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C003D1EC (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FBD0 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     PostInputMessage @ 0x1C00507E0 (PostInputMessage.c)
+ *     _ScheduleDispatchNotification @ 0x1C0053AC0 (_ScheduleDispatchNotification.c)
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C00549A0 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
+ *     _PostThreadMessageEx @ 0x1C00DA464 (_PostThreadMessageEx.c)
+ *     xxxCallJournalPlaybackHook @ 0x1C01E6484 (xxxCallJournalPlaybackHook.c)
  * Callees:
- *     ?OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z @ 0x1C0007A4C (-OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_Ddd @ 0x1C000C65C (WPP_RECORDER_AND_TRACE_SF_Ddd.c)
- *     IsCurrentDesktopComposed @ 0x1C006D940 (IsCurrentDesktopComposed.c)
- *     ?IsCompositionInputWindow@@YAHPEBUtagWND@@@Z @ 0x1C0121FB0 (-IsCompositionInputWindow@@YAHPEBUtagWND@@@Z.c)
+ *     WPP_RECORDER_SF_Ddd @ 0x1C000343C (WPP_RECORDER_SF_Ddd.c)
+ *     IsCurrentDesktopComposed @ 0x1C0014620 (IsCurrentDesktopComposed.c)
+ *     ?OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z @ 0x1C010FF40 (-OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     LogQMsg @ 0x1C01D2AFC (LogQMsg.c)
  */
 
 void __fastcall StoreQMessage(
         struct tagQMSG *a1,
-        struct _EX_PUSH_LOCK **a2,
+        struct tagWND *a2,
         int a3,
         __int64 a4,
         __int64 a5,
@@ -33,53 +33,45 @@ void __fastcall StoreQMessage(
         void *a13,
         struct tagUIPI_INFO *a14)
 {
-  int v14; // r14d
-  struct _EX_PUSH_LOCK *v18; // rax
-  unsigned __int64 v19; // rcx
-  LARGE_INTEGER PerformanceCounter; // rax
-  int v21; // ecx
-  unsigned int v22; // edi
-  struct tagWND *QuadPart; // r15
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  __int64 v26; // r8
+  __int64 v17; // rax
+  unsigned __int64 v18; // rcx
+  LARGE_INTEGER PerformanceCounter; // rbp
+  __int64 v20; // rcx
   __int64 CurrentProcessWow64Process; // rax
-  int v28; // r8d
-  unsigned int v29; // r8d
-  int v30; // eax
-  unsigned int v31; // r8d
-  int v32; // eax
-  unsigned int v33; // r8d
-  int v34; // eax
-  unsigned int v35; // r8d
-  unsigned int v36; // r8d
-  _DWORD *v37; // r14
-  int v38; // ecx
-  char v39; // dl
-  struct tagUIPI_INFO *v40; // rax
-  __int64 v41; // rax
+  unsigned int v22; // r8d
+  int v23; // r8d
+  int v24; // eax
+  unsigned int v25; // ecx
+  int v26; // eax
+  unsigned int v27; // ecx
+  int v28; // eax
+  int v29; // ecx
+  __int64 Prop; // rax
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  unsigned __int64 v33; // r8
+  __int64 v34; // r9
+  struct tagUIPI_INFO *v35; // rax
+  __int64 v36; // rax
+  int v37; // [rsp+20h] [rbp-58h]
 
-  v14 = 0;
   if ( a2 )
-    v18 = *a2;
+    v17 = *(_QWORD *)a2;
   else
-    v18 = 0LL;
-  *((_QWORD *)a1 + 2) = v18;
+    v17 = 0LL;
+  *((_QWORD *)a1 + 2) = v17;
   *((_DWORD *)a1 + 6) = a3;
   *((_QWORD *)a1 + 4) = a4;
   *((_QWORD *)a1 + 5) = a5;
   if ( a6 )
-    LODWORD(v19) = a6;
+    LODWORD(v18) = a6;
   else
-    v19 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-  *((_DWORD *)a1 + 12) = v19;
+    v18 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+  *((_DWORD *)a1 + 12) = v18;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  v21 = *((_DWORD *)a1 + 12);
-  v22 = a3 - 512;
+  *((_DWORD *)a1 + 38) = *((_DWORD *)a1 + 12);
   *((LARGE_INTEGER *)a1 + 16) = PerformanceCounter;
-  QuadPart = (struct tagWND *)PerformanceCounter.QuadPart;
-  *((_DWORD *)a1 + 38) = v21;
-  if ( v22 <= 0xE && (unsigned int)IsCurrentDesktopComposed() )
+  if ( (unsigned int)(a3 - 512) <= 0xE && (unsigned int)IsCurrentDesktopComposed() )
   {
     *((_DWORD *)a1 + 13) = (__int16)a5;
     *((_DWORD *)a1 + 14) = SWORD1(a5);
@@ -89,33 +81,28 @@ void __fastcall StoreQMessage(
     *(_QWORD *)((char *)a1 + 52) = LogicalCursorPosFromDpiAwarenessContext(a12);
   }
   *((_DWORD *)a1 + 24) = a8;
-  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v25, v24, v26);
-  v28 = *((_DWORD *)a1 + 25);
+  CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v20);
+  v22 = *((_DWORD *)a1 + 25) & 0xFFFFFFFE;
   *((_QWORD *)a1 + 9) = a9;
-  v29 = (CurrentProcessWow64Process != 0) | v28 & 0xFFFFFFFE;
-  *((_DWORD *)a1 + 25) = v29;
+  v23 = (CurrentProcessWow64Process != 0) | v22;
+  *((_DWORD *)a1 + 25) = v23;
   *((_QWORD *)a1 + 10) = *(_QWORD *)(gpsi + 4960LL);
-  v30 = 0;
+  v24 = 0;
   *((_QWORD *)a1 + 11) = *(_QWORD *)(gpsi + 4952LL);
-  if ( (a10 & 1) != 0 )
-    v30 = 2;
-  v31 = v30 | v29 & 0xFFFFFFFD;
-  v32 = 0;
   if ( (a10 & 4) != 0 )
-    v32 = 0x80000;
-  v33 = v32 | v31 & 0xFFF7FFFF;
-  v34 = 0;
+    v24 = 0x400000;
+  v25 = v24 | (v23 ^ ((unsigned __int8)v23 ^ (unsigned __int8)(2 * a10)) & 2) & 0xFFBFFFFF;
+  v26 = 0;
   if ( (a10 & 0x20) != 0 )
-    v34 = 0x100000;
-  v35 = v34 | v33 & 0xFFEFFFFF;
+    v26 = 0x800000;
+  v27 = v26 | v25 & 0xFF7FFFFF;
+  v28 = 0;
   if ( (a10 & 0x40) != 0 )
-    v14 = 0x400000;
-  v36 = v14 | v35 & 0xFFBFFFFF;
-  v37 = (_DWORD *)((char *)a1 + 120);
-  *((_DWORD *)a1 + 25) = v36;
+    v28 = 0x2000000;
+  *((_DWORD *)a1 + 25) = v28 | v27 & 0xFDFFFFFF;
   if ( a11 )
   {
-    *v37 = *(_DWORD *)a11;
+    *((_DWORD *)a1 + 30) = *(_DWORD *)a11;
     *((_DWORD *)a1 + 31) = *((_DWORD *)a11 + 1);
   }
   else
@@ -123,44 +110,46 @@ void __fastcall StoreQMessage(
     SetUnavailableInputSource((char *)a1 + 120);
   }
   *((_QWORD *)a1 + 18) = a13;
-  if ( (a10 & 2) == 0 && (a1 == (struct tagQMSG *)-120LL || v22 > 0xE || ((*v37 - 4) & 0xFFFFFFFB) != 0) )
+  if ( (a10 & 2) == 0
+    && (a1 == (struct tagQMSG *)-120LL
+     || (unsigned int)(a3 - 512) > 0xE
+     || ((*((_DWORD *)a1 + 30) - 4) & 0xFFFFFFFB) != 0) )
   {
-    *((_DWORD *)a1 + 25) &= ~0x800u;
+    *((_DWORD *)a1 + 25) &= ~0x1000u;
   }
   else
   {
-    v40 = a14;
+    v35 = a14;
     if ( !a14 )
-      v40 = (struct tagUIPI_INFO *)(*(_QWORD *)(gptiCurrent + 424LL) + 888LL);
-    v41 = *(_QWORD *)v40;
-    *((_DWORD *)a1 + 25) |= 0x800u;
-    *((_QWORD *)a1 + 14) = v41;
+      v35 = (struct tagUIPI_INFO *)(*(_QWORD *)(gptiCurrent + 424LL) + 880LL);
+    v36 = *(_QWORD *)v35;
+    *((_DWORD *)a1 + 25) |= 0x1000u;
+    *((_QWORD *)a1 + 14) = v36;
   }
-  v38 = *((_DWORD *)a1 + 25);
-  if ( a1 != (struct tagQMSG *)-120LL && v22 <= 0xE && ((*v37 - 4) & 0xFFFFFFFB) == 0 )
+  v29 = *((_DWORD *)a1 + 25);
+  if ( a1 != (struct tagQMSG *)-120LL
+    && (unsigned int)(a3 - 512) <= 0xE
+    && ((*((_DWORD *)a1 + 30) - 4) & 0xFFFFFFFB) == 0 )
   {
     *((_QWORD *)a1 + 9) = (unsigned __int8)a9 | 0xFF515700LL;
     *((_DWORD *)a1 + 38) = *((_DWORD *)a1 + 12) - ((int)a9 >> 8);
   }
-  if ( (v38 & 8) != 0 && a2 && (unsigned int)IsCompositionInputWindow((const struct tagWND *)a2) )
+  if ( (v29 & 8) != 0 )
   {
-    v39 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-       && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x20000) != 0
-       && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( v39 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_AND_TRACE_SF_Ddd(
-        (__int64)WPP_GLOBAL_Control->AttachedDevice,
-        v39,
-        WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-        23LL,
-        4u,
-        0x12u,
-        0x17u,
-        (__int64)&WPP_da10ed9f41f835a692699b91a3623186_Traceguids,
-        *((_DWORD *)a1 + 6),
-        *((_DWORD *)a1 + 13),
-        *((_DWORD *)a1 + 14));
-    InputTransform::OnInput(a2, QuadPart);
+    if ( a2 )
+    {
+      Prop = RealGetProp(*((_QWORD *)a2 + 18), CInputQueueProp::s_atom, 1LL);
+      if ( Prop )
+      {
+        if ( !*(_DWORD *)(Prop + 24) )
+          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 95LL);
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_Ddd(v32, v31, v33, v34, v37);
+        InputTransform::OnInput(a2, (struct tagWND *)PerformanceCounter.QuadPart, v33);
+      }
+    }
   }
   EtwTraceQueueMessage(a1);
+  if ( (_DWORD)gMsgQLog )
+    LogQMsg(a1);
 }

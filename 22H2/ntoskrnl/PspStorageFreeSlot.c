@@ -1,22 +1,20 @@
 /*
- * XREFs of PspStorageFreeSlot @ 0x1409B7EF4
+ * XREFs of PspStorageFreeSlot @ 0x14090EF94
  * Callers:
- *     PsFreeSiloContextSlot @ 0x1409AC640 (PsFreeSiloContextSlot.c)
- *     PsUnregisterSiloMonitor @ 0x1409B40C0 (PsUnregisterSiloMonitor.c)
- *     PspInitializeSiloStructures @ 0x140B4CF10 (PspInitializeSiloStructures.c)
+ *     PsFreeSiloContextSlot @ 0x140905A80 (PsFreeSiloContextSlot.c)
+ *     PsUnregisterSiloMonitor @ 0x14090B530 (PsUnregisterSiloMonitor.c)
+ *     PspInitializeSiloStructures @ 0x140A3BFF4 (PspInitializeSiloStructures.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
  */
 
 __int64 __fastcall PspStorageFreeSlot(unsigned int a1)
 {
-  unsigned int v1; // edi
-  RTL_BITMAP *v2; // rsi
-  struct _KTHREAD *CurrentThread; // rax
-  unsigned int v4; // edi
+  unsigned int v1; // ebx
+  RTL_BITMAP *v2; // rdi
+  unsigned int v3; // ebx
 
   v1 = a1;
   if ( a1 >= 0x20 )
@@ -30,21 +28,18 @@ __int64 __fastcall PspStorageFreeSlot(unsigned int a1)
   {
     v2 = &PspStorageBitmap;
   }
-  CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&PspStorageBitmapLock, 0LL);
   if ( _bittest64((const signed __int64 *)v2->Buffer, v1) )
   {
-    *((_BYTE *)v2->Buffer + ((unsigned __int64)v1 >> 3)) &= ~(1 << (v1 & 7));
-    v4 = 0;
+    _bittestandreset((signed __int32 *)v2->Buffer, v1);
+    v3 = 0;
   }
   else
   {
-    v4 = -1073741811;
+    v3 = -1073741811;
   }
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PspStorageBitmapLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&PspStorageBitmapLock);
   KeAbPostRelease((ULONG_PTR)&PspStorageBitmapLock);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return v4;
+  return v3;
 }

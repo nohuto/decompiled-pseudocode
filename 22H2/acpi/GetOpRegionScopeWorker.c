@@ -1,82 +1,83 @@
 /*
- * XREFs of GetOpRegionScopeWorker @ 0x1C0034C40
+ * XREFs of GetOpRegionScopeWorker @ 0x1C0017D20
  * Callers:
- *     GetOpRegionScope @ 0x1C0034B80 (GetOpRegionScope.c)
+ *     GetOpRegionScope @ 0x1C0017C54 (GetOpRegionScope.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     IsPciDevice @ 0x1C00358C8 (IsPciDevice.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIIterateParentNext @ 0x1C00488C4 (AMLIIterateParentNext.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     IsPciDevice @ 0x1C0017E30 (IsPciDevice.c)
+ *     AMLIIterateParentNext @ 0x1C002F1F4 (AMLIIterateParentNext.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall GetOpRegionScopeWorker(__int64 a1, int a2, __int64 a3, volatile signed __int32 *a4)
+__int64 __fastcall GetOpRegionScopeWorker(__int64 a1, int a2, __int64 a3, __int64 *a4)
 {
   unsigned int v5; // edi
   int v6; // eax
   __int64 v7; // rcx
-  int v8; // eax
+  __int64 result; // rax
   __int64 v9; // rcx
-  __int64 v10; // rax
+  __int64 v10; // rcx
   __int64 v11; // rcx
-  __int64 v13; // rcx
+  __int64 v12; // rax
 
   v5 = a2;
-  _InterlockedIncrement(a4 + 6);
+  _InterlockedIncrement((volatile signed __int32 *)a4 + 6);
   if ( a2 >= 0 )
   {
-    if ( *((_QWORD *)a4 + 1) )
+    if ( a4[1] )
     {
       while ( 1 )
       {
         v6 = *((_DWORD *)a4 + 4);
         if ( (v6 & 0x800) == 0 )
         {
-          v7 = *((_QWORD *)a4 + 1);
+          v7 = a4[1];
           *((_DWORD *)a4 + 4) = v6 | 0x800;
-          v8 = IsPciDevice(v7, GetOpRegionScopeWorker, a4, a4 + 5);
-          v5 = v8;
-          if ( v8 == 259 )
-            return 259LL;
-          if ( v8 < 0 )
-            goto LABEL_9;
+          result = IsPciDevice(v7, GetOpRegionScopeWorker, a4, (char *)a4 + 20);
+          v5 = result;
+          if ( (_DWORD)result == 259 )
+            return result;
+          if ( (int)result < 0 )
+            break;
         }
         *((_DWORD *)a4 + 4) &= ~0x800u;
-        v9 = *((_QWORD *)a4 + 1);
+        v9 = a4[1];
         if ( *((_BYTE *)a4 + 20) )
+        {
+          *(_QWORD *)a4[6] = v9;
+          v10 = *(_QWORD *)a4[6];
+          dword_1C0082908 = 0;
+          pszDest = 0;
+          if ( (gdwfAMLI & 4) != 0 )
+            _InterlockedIncrement((volatile signed __int32 *)(v10 + 8));
+          v5 = 0;
           break;
-        v10 = AMLIIterateParentNext(v9);
-        *((_QWORD *)a4 + 1) = v10;
-        if ( !v10 )
-          goto LABEL_8;
+        }
+        v12 = AMLIIterateParentNext(v9);
+        a4[1] = v12;
+        if ( !v12 )
+          goto LABEL_19;
       }
-      **((_QWORD **)a4 + 6) = v9;
-      v13 = **((_QWORD **)a4 + 6);
-      dword_1C006F938 = 0;
-      pszDest = 0;
-      if ( (gdwfAMLI & 4) != 0 )
-        _InterlockedIncrement((volatile signed __int32 *)(v13 + 8));
-      v5 = 0;
     }
     else
     {
-LABEL_8:
+LABEL_19:
       v5 = -1073741275;
     }
   }
-LABEL_9:
   if ( *((_DWORD *)a4 + 6) )
-    (*((void (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD))a4 + 4))(*(_QWORD *)a4, v5, 0LL, *((_QWORD *)a4 + 5));
-  if ( *(_QWORD *)a4 )
+    ((void (__fastcall *)(__int64, _QWORD, _QWORD, __int64))a4[4])(*a4, v5, 0LL, a4[5]);
+  if ( *a4 )
   {
-    AMLIDereferenceHandleEx(*(_QWORD *)a4);
-    *(_QWORD *)a4 = 0LL;
+    AMLIDereferenceHandleEx(*a4);
+    *a4 = 0LL;
   }
-  v11 = *((_QWORD *)a4 + 1);
+  v11 = a4[1];
   if ( v11 )
   {
     AMLIDereferenceHandleEx(v11);
-    *((_QWORD *)a4 + 1) = 0LL;
+    a4[1] = 0LL;
   }
-  ExFreePoolWithTag((PVOID)a4, 0x46706341u);
+  ExFreePoolWithTag(a4, 0x46706341u);
   return v5;
 }

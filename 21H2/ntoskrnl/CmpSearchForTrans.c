@@ -1,29 +1,29 @@
 /*
- * XREFs of CmpSearchForTrans @ 0x14067F714
+ * XREFs of CmpSearchForTrans @ 0x14076704C
  * Callers:
- *     CmpTransSearchAddTrans @ 0x14067F520 (CmpTransSearchAddTrans.c)
+ *     CmpTransSearchAddTrans @ 0x140766E2C (CmpTransSearchAddTrans.c)
  * Callees:
- *     CmpTransUowIsEqual @ 0x1409196EC (CmpTransUowIsEqual.c)
- *     CmListGetNextElement @ 0x140AB4218 (CmListGetNextElement.c)
+ *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
+ *     CmpTransUowIsEqual @ 0x140872DAC (CmpTransUowIsEqual.c)
  */
 
-__int64 __fastcall CmpSearchForTrans(__int64 a1, __int64 a2, __int64 a3)
+char *__fastcall CmpSearchForTrans(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v3; // rbp
-  __int64 NextElement; // rax
-  __int64 v7; // rdi
-  __int64 v9; // [rsp+30h] [rbp+8h] BYREF
+  _QWORD **v3; // rbp
+  char *result; // rax
+  char *v7; // rdi
+  _QWORD *v8; // [rsp+30h] [rbp+8h] BYREF
 
-  v9 = 0LL;
-  v3 = a1 + 16;
+  v8 = 0LL;
+  v3 = (_QWORD **)(a1 + 16);
   while ( 1 )
   {
-    NextElement = CmListGetNextElement(v3, &v9, 0LL);
-    v7 = NextElement;
-    if ( !NextElement )
+    result = CmListGetNextElement(v3, &v8, 0);
+    v7 = result;
+    if ( !result )
       break;
-    if ( a2 && a2 == *(_QWORD *)(NextElement + 56) || a3 && (unsigned __int8)CmpTransUowIsEqual(a3, NextElement + 88) )
+    if ( a2 && a2 == *((_QWORD *)result + 7) || a3 && (unsigned __int8)CmpTransUowIsEqual(a3, result + 88) )
       return v7;
   }
-  return 0LL;
+  return result;
 }

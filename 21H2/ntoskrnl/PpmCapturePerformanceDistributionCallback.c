@@ -1,9 +1,11 @@
 /*
- * XREFs of PpmCapturePerformanceDistributionCallback @ 0x1405D71E0
+ * XREFs of PpmCapturePerformanceDistributionCallback @ 0x140576E40
  * Callers:
- *     PpmCapturePerformanceDistribution @ 0x1405D6FBC (PpmCapturePerformanceDistribution.c)
+ *     PpmCapturePerformanceDistribution @ 0x140576C1C (PpmCapturePerformanceDistribution.c)
  * Callees:
- *     PpmSnapPerformanceAccumulation @ 0x1403051E0 (PpmSnapPerformanceAccumulation.c)
+ *     PpmSnapPerformanceAccumulation @ 0x140221190 (PpmSnapPerformanceAccumulation.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall PpmCapturePerformanceDistributionCallback(struct _KPRCB *a1, __int64 *a2)
@@ -18,20 +20,13 @@ __int64 __fastcall PpmCapturePerformanceDistributionCallback(struct _KPRCB *a1, 
   __int64 v11; // rbx
   char v12; // cl
   unsigned __int64 v13; // rdx
-  __int128 v15; // [rsp+30h] [rbp-58h] BYREF
-  __int128 v16; // [rsp+40h] [rbp-48h]
-  __int128 v17; // [rsp+50h] [rbp-38h]
-  __int64 v18; // [rsp+60h] [rbp-28h]
+  unsigned __int64 v15[12]; // [rsp+30h] [rbp-98h] BYREF
 
   v2 = *((_DWORD *)a2 + 3);
   Constraint = a1->PowerState.CheckContext.Constraint;
-  v15 = 0LL;
-  v16 = 0LL;
-  v17 = 0LL;
-  v18 = 0LL;
   v6 = (v2 + 7) & 0xFFFFFFF8;
   if ( v2 + 7 < v2 )
-    v6 = v2;
+    v6 = *((_DWORD *)a2 + 3);
   v7 = 0;
   v8 = Constraint != 0LL ? 2 : 0;
   v9 = 16 * v8 + v6 + 8;
@@ -49,13 +44,14 @@ LABEL_11:
     *((_DWORD *)a2 + 3) = v9;
     return v7;
   }
-  if ( PpmSnapPerformanceAccumulation((__int64)a1, 0, a1 != KeGetCurrentPrcb(), 0, (__int64)&v15, 0LL) )
+  memset(v15, 0, sizeof(v15));
+  if ( PpmSnapPerformanceAccumulation((__int64)a1, 0, a1 != KeGetCurrentPrcb(), 0, v15) )
   {
     v12 = PpmPerformanceDistributionShift;
     if ( a1->PowerState.Hypervisor == ProcHypervisorHvCounters )
       v12 = PpmHvPerformanceDistributionShift;
-    v13 = (unsigned __int64)(255LL * *((_QWORD *)&v15 + 1) - *((_QWORD *)&v16 + 1)) >> v12;
-    *(_QWORD *)(v11 + 24) = *((_QWORD *)&v16 + 1) >> v12;
+    v13 = (255 * v15[1] - v15[3]) >> v12;
+    *(_QWORD *)(v11 + 24) = v15[3] >> v12;
     *(_QWORD *)(v11 + 8) = v13;
     *(_BYTE *)(v11 + 16) = 0;
     *(_BYTE *)(v11 + 32) = -1;

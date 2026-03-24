@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Dispose@FxDmaScatterGatherTransaction@@UEAAEXZ @ 0x1C0057E50
+ * XREFs of ?Dispose@FxDmaScatterGatherTransaction@@UEAAEXZ @ 0x1C0034F90
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?FreeSgListBuffer@FxDmaScatterGatherTransaction@@AEAAXXZ @ 0x1C0057EB0 (-FreeSgListBuffer@FxDmaScatterGatherTransaction@@AEAAXXZ.c)
- *     ?Dispose@FxDmaTransactionBase@@UEAAEXZ @ 0x1C00590A0 (-Dispose@FxDmaTransactionBase@@UEAAEXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?FreeSgListBuffer@FxDmaScatterGatherTransaction@@AEAAXXZ @ 0x1C0034FF0 (-FreeSgListBuffer@FxDmaScatterGatherTransaction@@AEAAXXZ.c)
+ *     ?Dispose@FxDmaTransactionBase@@UEAAEXZ @ 0x1C0036430 (-Dispose@FxDmaTransactionBase@@UEAAEXZ.c)
  */
 
 unsigned __int8 __fastcall FxDmaScatterGatherTransaction::Dispose(FxDmaScatterGatherTransaction *this)

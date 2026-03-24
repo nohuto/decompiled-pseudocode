@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpLogIneligibleLogHeader @ 0x1409256A0
+ * XREFs of HvpLogIneligibleLogHeader @ 0x140881A80
  * Callers:
- *     HvAnalyzeLogFiles @ 0x1409246D8 (HvAnalyzeLogFiles.c)
+ *     HvAnalyzeLogFiles @ 0x140880C2C (HvAnalyzeLogFiles.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void HvpLogIneligibleLogHeader()
@@ -24,9 +24,9 @@ void HvpLogIneligibleLogHeader()
   int *v11; // [rsp+80h] [rbp+37h]
   __int64 v12; // [rsp+88h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140C03868 > 5 )
+  if ( (unsigned int)dword_140C02130 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03868, 8LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02130, 8LL) )
     {
       v5 = v0;
       v7 = &v3;
@@ -37,7 +37,7 @@ void HvpLogIneligibleLogHeader()
       v4 = v1;
       v10 = 4LL;
       v12 = 4LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03868, (unsigned __int8 *)&unk_14002A2D0, 0LL, 0LL, 5u, &v6);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)byte_140023E51, 0LL, 0LL, 5u, &v6);
     }
   }
 }

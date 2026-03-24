@@ -1,18 +1,18 @@
 /*
- * XREFs of PopCompleteNotifyTransitionCommon @ 0x1403945DC
+ * XREFs of PopCompleteNotifyTransitionCommon @ 0x1403887B8
  * Callers:
- *     PopCompleteDirectedPowerTransitionCallback @ 0x1405D6DC4 (PopCompleteDirectedPowerTransitionCallback.c)
- *     PopSystemIrpCompletion @ 0x140A50A10 (PopSystemIrpCompletion.c)
+ *     PopCompleteDirectedPowerTransitionCallback @ 0x140576A24 (PopCompleteDirectedPowerTransitionCallback.c)
+ *     PopSystemIrpCompletion @ 0x140997040 (PopSystemIrpCompletion.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseSemaphoreEx @ 0x14035AD70 (KeReleaseSemaphoreEx.c)
- *     PopPrepChildWake @ 0x140394914 (PopPrepChildWake.c)
- *     PopReadyParentSleep @ 0x140394980 (PopReadyParentSleep.c)
- *     PopReadyChildWake @ 0x140394A00 (PopReadyChildWake.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PopDiagTraceDriverVeto @ 0x140A6B7AC (PopDiagTraceDriverVeto.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     PopPrepChildWake @ 0x140388AF4 (PopPrepChildWake.c)
+ *     PopReadyParentSleep @ 0x140388B60 (PopReadyParentSleep.c)
+ *     PopReadyChildWake @ 0x140388BE0 (PopReadyChildWake.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDiagTraceDriverVeto @ 0x1409B1FC4 (PopDiagTraceDriverVeto.c)
  */
 
 LONG __fastcall PopCompleteNotifyTransitionCommon(__int64 a1, __int64 *a2, int a3, __int64 a4)
@@ -34,16 +34,15 @@ LONG __fastcall PopCompleteNotifyTransitionCommon(__int64 a1, __int64 *a2, int a
   __int64 *v19; // r15
   __int64 *v20; // r11
   __int64 *i; // r10
-  int v22; // eax
   _DWORD *SchedulerAssist; // r9
   LONG result; // eax
   unsigned __int64 OldIrql; // rbx
-  __int64 v26; // rax
-  __int64 **v27; // rdx
+  __int64 v25; // rax
+  __int64 **v26; // rdx
   __int64 *j; // rsi
-  __int64 *v29; // r10
+  __int64 *v28; // r10
   struct _KPRCB *CurrentPrcb; // r10
-  bool v31; // zf
+  bool v30; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-68h] BYREF
 
   v4 = (_QWORD *)*(a2 - 19);
@@ -55,7 +54,7 @@ LONG __fastcall PopCompleteNotifyTransitionCommon(__int64 a1, __int64 *a2, int a
     v6 = *(a2 - 18);
   v9 = 0;
   v10 = 0;
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140C22750 + 1, &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140C23430 + 1, &LockHandle);
   v13 = v5 + 48;
   v14 = (__int64 *)*a2;
   v15 = 9LL * *((unsigned __int8 *)a2 + 56);
@@ -102,31 +101,23 @@ LONG __fastcall PopCompleteNotifyTransitionCommon(__int64 a1, __int64 *a2, int a
         v4 = (_QWORD *)*v4;
       }
       v20 = a2 + 2;
-      for ( i = (__int64 *)a2[2]; i != v20; i = (__int64 *)*v29 )
+      for ( i = (__int64 *)a2[2]; i != v20; i = (__int64 *)*v28 )
       {
         LOBYTE(v11) = v8;
         PopPrepChildWake(*(i - 1), v13, v11);
       }
-      v22 = a3;
       if ( a3 >= 0 )
         goto LABEL_14;
       if ( a4 && *(_BYTE *)v5 == 3 )
-      {
         PopDiagTraceDriverVeto(a4, a2);
-        v22 = a3;
-      }
-      if ( *(_BYTE *)(v5 + 466) || v22 == -1073741637 && *(_BYTE *)(v5 + 467) )
+      if ( a3 >= 0 || *(_BYTE *)(v5 + 466) || a3 == -1073741637 && *(_BYTE *)(v5 + 467) || *(int *)(v5 + 448) < 0 )
       {
 LABEL_14:
         v9 = 0;
       }
-      else if ( *(int *)(v5 + 448) < 0 )
-      {
-        v9 = 0;
-      }
       else
       {
-        *(_DWORD *)(v5 + 448) = v22;
+        *(_DWORD *)(v5 + 448) = a3;
         v9 = 1;
         *(_QWORD *)(v5 + 456) = a2[8];
       }
@@ -135,14 +126,14 @@ LABEL_14:
 LABEL_53:
     __fastfail(3u);
   }
-  v26 = v5 + 72 + 8 * v15;
-  v27 = *(__int64 ***)(v26 + 8);
-  if ( *v27 != (__int64 *)v26 )
+  v25 = v5 + 72 + 8 * v15;
+  v26 = *(__int64 ***)(v25 + 8);
+  if ( *v26 != (__int64 *)v25 )
     goto LABEL_53;
-  *a2 = v26;
-  a2[1] = (__int64)v27;
-  *v27 = a2;
-  *(_QWORD *)(v26 + 8) = a2;
+  *a2 = v25;
+  a2[1] = (__int64)v26;
+  *v26 = a2;
+  *(_QWORD *)(v25 + 8) = a2;
   ++*(_DWORD *)(v13 + 8 * v15 + 20);
   while ( v4 )
   {
@@ -173,9 +164,9 @@ LABEL_15:
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
         result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v31 = (result & SchedulerAssist[5]) == 0;
+        v30 = (result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
-        if ( v31 )
+        if ( v30 )
           result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
@@ -184,6 +175,6 @@ LABEL_15:
   if ( v9 )
     return KeSetEvent(*(PRKEVENT *)(v5 + 24), 0, 0);
   if ( v10 )
-    return KeReleaseSemaphoreEx(*(volatile signed __int32 **)(v5 + 32), 0LL, v10, SchedulerAssist, 0);
+    return KeReleaseSemaphoreEx(*(_QWORD *)(v5 + 32), 0LL, v10, SchedulerAssist, 0);
   return result;
 }

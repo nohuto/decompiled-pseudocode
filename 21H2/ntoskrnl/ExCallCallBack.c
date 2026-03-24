@@ -1,13 +1,12 @@
 /*
- * XREFs of ExCallCallBack @ 0x1406F8074
+ * XREFs of ExCallCallBack @ 0x14061AE3C
  * Callers:
- *     NtFindAtom @ 0x1406F68C0 (NtFindAtom.c)
- *     PsInvokeWin32Callout @ 0x1406F83A0 (PsInvokeWin32Callout.c)
- *     KeUserModeCallback @ 0x1407A3EC0 (KeUserModeCallback.c)
+ *     NtFindAtom @ 0x14061ACD0 (NtFindAtom.c)
+ *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140281870 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x140281930 (ExDereferenceCallBackBlock.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     ExReferenceCallBackBlock @ 0x14025A950 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14025AA10 (ExDereferenceCallBackBlock.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ExCallCallBack(signed __int64 *a1, __int64 a2, __int64 a3)

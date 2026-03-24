@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapCreateRecordFromGenericErrorData @ 0x140320954
+ * XREFs of WheapCreateRecordFromGenericErrorData @ 0x140320A54
  * Callers:
- *     WheapDefaultErrSrcCreateRecord @ 0x140320B70 (WheapDefaultErrSrcCreateRecord.c)
+ *     WheapDefaultErrSrcCreateRecord @ 0x140320C70 (WheapDefaultErrSrcCreateRecord.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
- *     WheaInitializeRecordHeader @ 0x140320650 (WheaInitializeRecordHeader.c)
- *     WheapAddRecoveryPacketToErrorRecord @ 0x140320724 (WheapAddRecoveryPacketToErrorRecord.c)
- *     WheapAddSectionFromGenericErrorData @ 0x140320840 (WheapAddSectionFromGenericErrorData.c)
- *     WheapSqmDwordCommon @ 0x140321A98 (WheapSqmDwordCommon.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     WheaInitializeRecordHeader @ 0x140320750 (WheaInitializeRecordHeader.c)
+ *     WheapAddRecoveryPacketToErrorRecord @ 0x140320824 (WheapAddRecoveryPacketToErrorRecord.c)
+ *     WheapAddSectionFromGenericErrorData @ 0x140320940 (WheapAddSectionFromGenericErrorData.c)
+ *     WheapSqmDwordCommon @ 0x140321B98 (WheapSqmDwordCommon.c)
  */
 
 __int64 __fastcall WheapCreateRecordFromGenericErrorData(_DWORD *a1, __int64 a2, __int64 a3, unsigned int a4)

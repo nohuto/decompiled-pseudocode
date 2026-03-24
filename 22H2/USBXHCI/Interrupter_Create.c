@@ -1,10 +1,10 @@
 /*
- * XREFs of Interrupter_Create @ 0x1C006FE08
+ * XREFs of Interrupter_Create @ 0x1C0070D2C
  * Callers:
- *     Controller_WdfEvtDeviceAdd @ 0x1C006FAA0 (Controller_WdfEvtDeviceAdd.c)
+ *     Controller_WdfEvtDeviceAdd @ 0x1C0070440 (Controller_WdfEvtDeviceAdd.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     Interrupter_CreateInterrupter @ 0x1C00701D8 (Interrupter_CreateInterrupter.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     Interrupter_CreateInterrupter @ 0x1C0070DA4 (Interrupter_CreateInterrupter.c)
  */
 
 __int64 __fastcall Interrupter_Create(int a1, __int64 a2, _QWORD *a3)
@@ -28,7 +28,7 @@ __int64 __fastcall Interrupter_Create(int a1, __int64 a2, _QWORD *a3)
         v5,
         9,
         10,
-        (__int64)&WPP_89e87cee83d7332425398286600bed19_Traceguids,
+        (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
         Interrupter);
     }
   }

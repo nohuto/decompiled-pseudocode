@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllocateWorkingSetSwapSupport @ 0x140342508
+ * XREFs of MiAllocateWorkingSetSwapSupport @ 0x140351768
  * Callers:
- *     MiGetKernelStackSwapSupport @ 0x14034191C (MiGetKernelStackSwapSupport.c)
- *     MmOutSwapWorkingSet @ 0x140341B10 (MmOutSwapWorkingSet.c)
- *     MiReAllocateWorkingSetSwapSupport @ 0x1403424B0 (MiReAllocateWorkingSetSwapSupport.c)
- *     MmOutSwapVirtualAddresses @ 0x140652CBC (MmOutSwapVirtualAddresses.c)
+ *     MmOutSwapVirtualAddresses @ 0x1403504CC (MmOutSwapVirtualAddresses.c)
+ *     MiGetKernelStackSwapSupport @ 0x140350BDC (MiGetKernelStackSwapSupport.c)
+ *     MmOutSwapWorkingSet @ 0x140350FC0 (MmOutSwapWorkingSet.c)
+ *     MiReAllocateWorkingSetSwapSupport @ 0x140351710 (MiReAllocateWorkingSetSwapSupport.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
  */
 
 _QWORD *__fastcall MiAllocateWorkingSetSwapSupport(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopUpdateExternalDisplayState @ 0x1406EB8A4
+ * XREFs of PopUpdateExternalDisplayState @ 0x1407D2E18
  * Callers:
- *     PopPowerInformationInternal @ 0x140751B78 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopQueueWorkItem @ 0x14036AAC4 (PopQueueWorkItem.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PopReleasePolicyLock @ 0x140A47CF8 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A48330 (PopAcquirePolicyLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PopQueueWorkItem @ 0x1402D3A34 (PopQueueWorkItem.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopUpdateExternalDisplayState(int a1)
@@ -24,13 +24,13 @@ __int64 __fastcall PopUpdateExternalDisplayState(int a1)
   v1 = a1;
   PopAcquirePolicyLock(a1);
   PopConsoleExternalDisplayConnected = v1;
-  if ( (unsigned int)dword_140C03A00 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
     v9 = 0;
     v7 = &v5;
     v5 = v1;
     v8 = 1;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03A00, (unsigned __int8 *)&dword_14002F0EC, 0LL, 0LL, 3u, &v6);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02228, (unsigned __int8 *)byte_140027D03, 0LL, 0LL, 3u, &v6);
   }
   PopQueueWorkItem((__int64)&PopExternalMonitorUpdatedWorkItem, DelayedWorkQueue);
   return PopReleasePolicyLock(v3, v2);

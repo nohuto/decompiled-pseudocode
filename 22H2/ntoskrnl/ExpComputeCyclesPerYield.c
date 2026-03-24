@@ -1,64 +1,39 @@
 /*
- * XREFs of ExpComputeCyclesPerYield @ 0x140B68390
+ * XREFs of ExpComputeCyclesPerYield @ 0x140A6B1A0
  * Callers:
- *     Phase1InitializationDiscard @ 0x140B4FF9C (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3AAD4 (Phase1InitializationDiscard.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     <none>
  */
 
 __int64 ExpComputeCyclesPerYield()
 {
-  volatile signed __int32 *SchedulerAssist; // rcx
-  __int64 v1; // rcx
-  unsigned __int64 v2; // rdi
-  unsigned __int64 v3; // rbx
-  struct _KPRCB *CurrentPrcb; // rcx
-  signed __int32 *v5; // r8
-  __int64 result; // rax
-  unsigned __int64 v7; // rbx
-  signed __int32 v8; // eax
-  signed __int32 v9; // ett
-  __int16 v10; // [rsp+20h] [rbp-8h]
+  __int64 v0; // rdx
+  unsigned __int64 v1; // r8
+  unsigned __int64 v2; // rax
+  unsigned __int16 v3; // cx
+  unsigned __int64 v4; // rax
+  __int16 v6; // [rsp+0h] [rbp-8h]
 
   _disable();
-  SchedulerAssist = (volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
-  if ( SchedulerAssist )
-    _InterlockedOr(SchedulerAssist, 0x200000u);
-  v1 = 256LL;
-  v2 = __rdtsc();
+  v0 = 256LL;
+  v1 = __rdtsc();
   do
   {
     _mm_pause();
-    --v1;
+    --v0;
   }
-  while ( v1 );
-  v3 = __rdtsc();
-  if ( (v10 & 0x200) != 0 )
-  {
-    CurrentPrcb = KeGetCurrentPrcb();
-    v5 = (signed __int32 *)CurrentPrcb->SchedulerAssist;
-    if ( v5 )
-    {
-      _m_prefetchw(v5);
-      v8 = *v5;
-      do
-      {
-        v9 = v8;
-        v8 = _InterlockedCompareExchange(v5, v8 & 0xFFDFFFFF, v8);
-      }
-      while ( v9 != v8 );
-      if ( (v8 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
-    }
+  while ( v0 );
+  v2 = __rdtsc();
+  if ( (v6 & 0x200) != 0 )
     _enable();
-  }
-  result = 0xFFFFLL;
-  v7 = (v3 - v2) >> 8;
-  if ( v7 <= 0xFFFF )
+  v3 = -1;
+  v4 = (v2 - v1) >> 8;
+  if ( v4 <= 0xFFFF )
   {
-    result = v7;
-    if ( !v7 )
-      return 1LL;
+    v3 = v4;
+    if ( !v4 )
+      return 1;
   }
-  return result;
+  return v3;
 }

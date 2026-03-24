@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwFontLoadAttemptEvent @ 0x1C0178670
+ * XREFs of EtwFontLoadAttemptEvent @ 0x1C014C370
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0zqzt_EtwWriteTransfer @ 0x1C0179124 (McTemplateK0zqzt_EtwWriteTransfer.c)
+ *     McTemplateK0zqzt_EtwWriteTransfer @ 0x1C014CF38 (McTemplateK0zqzt_EtwWriteTransfer.c)
  */
 
 char __fastcall EtwFontLoadAttemptEvent(int a1, int a2, __int64 a3, char a4)

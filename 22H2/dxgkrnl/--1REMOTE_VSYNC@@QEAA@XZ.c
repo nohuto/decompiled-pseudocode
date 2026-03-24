@@ -1,16 +1,19 @@
 /*
- * XREFs of ??1REMOTE_VSYNC@@QEAA@XZ @ 0x1C034C458
+ * XREFs of ??1REMOTE_VSYNC@@QEAA@XZ @ 0x1C028A9B4
  * Callers:
- *     ??1DXGGLOBAL@@EEAA@XZ @ 0x1C0311CA0 (--1DXGGLOBAL@@EEAA@XZ.c)
+ *     ??1DXGGLOBAL@@AEAA@XZ @ 0x1C0268910 (--1DXGGLOBAL@@AEAA@XZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
-void __fastcall REMOTE_VSYNC::~REMOTE_VSYNC(REMOTE_VSYNC *this)
+void __fastcall REMOTE_VSYNC::~REMOTE_VSYNC(REMOTE_VSYNC *this, __int64 a2)
 {
+  __int64 v2; // rax
+
   if ( *((_QWORD *)this + 1) )
   {
-    WdLogSingleEntry1(1LL, 32LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_pEmulation == NULL", 32LL, 0LL, 0LL, 0LL, 0LL);
+    v2 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v2 + 24) = 32LL;
+    WdLogEvent5_WdAssertion(v2);
   }
 }

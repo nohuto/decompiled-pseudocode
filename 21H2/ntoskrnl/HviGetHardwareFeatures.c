@@ -1,19 +1,18 @@
 /*
- * XREFs of HviGetHardwareFeatures @ 0x140647B00
+ * XREFs of HviGetHardwareFeatures @ 0x1405BEF70
  * Callers:
- *     HalpWdatDiscover @ 0x1403BE570 (HalpWdatDiscover.c)
- *     HvlSvmGetSystemCapabilities @ 0x140548D80 (HvlSvmGetSystemCapabilities.c)
- *     HvlpDetermineEnlightenments @ 0x14054C1A4 (HvlpDetermineEnlightenments.c)
- *     HvipApertureDetectParameters @ 0x1405F2D28 (HvipApertureDetectParameters.c)
- *     HvlQueryDetailInfo @ 0x140930DA8 (HvlQueryDetailInfo.c)
- *     HvlQueryVsmProtectionInfo @ 0x140930EC4 (HvlQueryVsmProtectionInfo.c)
- *     HalpIommuInitializeAll @ 0x140A543D8 (HalpIommuInitializeAll.c)
- *     HalpInterruptInitDiscard @ 0x140AF819C (HalpInterruptInitDiscard.c)
- *     HalpIommuInitDiscard @ 0x140AF9238 (HalpIommuInitDiscard.c)
- *     EtwpTraceSystemInitialization @ 0x140AFAD4C (EtwpTraceSystemInitialization.c)
+ *     HvlSvmGetSystemCapabilities @ 0x1404F7060 (HvlSvmGetSystemCapabilities.c)
+ *     HvlpDetermineEnlightenments @ 0x1404FA3C4 (HvlpDetermineEnlightenments.c)
+ *     HvipApertureDetectParameters @ 0x140594784 (HvipApertureDetectParameters.c)
+ *     HviIsIommuInUse @ 0x1405BF180 (HviIsIommuInUse.c)
+ *     HvlQueryDetailInfo @ 0x14088E328 (HvlQueryDetailInfo.c)
+ *     HvlQueryVsmProtectionInfo @ 0x14088E444 (HvlQueryVsmProtectionInfo.c)
+ *     HalpIommuInitDiscard @ 0x140A39AE8 (HalpIommuInitDiscard.c)
+ *     EtwpTraceSystemInitialization @ 0x140A428C8 (EtwpTraceSystemInitialization.c)
+ *     HalpInterruptInitDiscard @ 0x140A72AD4 (HalpInterruptInitDiscard.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HviGetHypervisorVendorAndMaxFunction @ 0x140647B74 (HviGetHypervisorVendorAndMaxFunction.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HviGetHypervisorVendorAndMaxFunction @ 0x1405BEFF0 (HviGetHypervisorVendorAndMaxFunction.c)
  */
 
 __int64 __fastcall HviGetHardwareFeatures(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

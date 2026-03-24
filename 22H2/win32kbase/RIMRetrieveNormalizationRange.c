@@ -1,20 +1,19 @@
 /*
- * XREFs of RIMRetrieveNormalizationRange @ 0x1C01B0E5C
+ * XREFs of RIMRetrieveNormalizationRange @ 0x1C01814FC
  * Callers:
- *     RIMPopulatePointerDevice @ 0x1C0182600 (RIMPopulatePointerDevice.c)
- *     RIMCreatePointerDeviceInfo @ 0x1C0187070 (RIMCreatePointerDeviceInfo.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C015BF5C (RIMCreatePointerDeviceInfo.c)
+ *     RIMPopulatePointerDevice @ 0x1C0161CFC (RIMPopulatePointerDevice.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     RIMRetrieveRealAngularPhysicalValues @ 0x1C01B0FA4 (RIMRetrieveRealAngularPhysicalValues.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMRetrieveRealAngularPhysicalValues @ 0x1C0181654 (RIMRetrieveRealAngularPhysicalValues.c)
  */
 
 __int64 __fastcall RIMRetrieveNormalizationRange(unsigned __int16 a1, __int16 *a2, _QWORD *a3)
 {
-  int v3; // r14d
-  unsigned int v6; // edi
+  unsigned int v6; // esi
   int v7; // r9d
-  _WORD *v8; // rcx
-  int v9; // edx
+  _WORD *v8; // rdx
+  int v9; // ecx
   unsigned int v10; // r8d
   __int16 v11; // r10
   __int128 v12; // xmm1
@@ -31,15 +30,14 @@ __int64 __fastcall RIMRetrieveNormalizationRange(unsigned __int16 a1, __int16 *a
   int v24; // [rsp+A8h] [rbp+38h] BYREF
   int v25; // [rsp+B0h] [rbp+40h] BYREF
 
-  v3 = a1;
   v6 = 0;
   if ( !a3 )
   {
     v24 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 23);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 23);
   }
   v7 = *((_DWORD *)a2 + 12);
-  v8 = &unk_1C02659D2;
+  v8 = &unk_1C024E962;
   v9 = *((_DWORD *)a2 + 13);
   v10 = 0;
   v11 = *a2;
@@ -53,8 +51,8 @@ __int64 __fastcall RIMRetrieveNormalizationRange(unsigned __int16 a1, __int16 *a
       return v6;
   }
   v6 = 1;
-  *a3 = *(_QWORD *)((char *)&unk_1C02659D4 + 12 * v10);
-  if ( (v3 == 7485 || v3 == 7486 || v3 == 7489 || v3 == 19775) && v9 - v7 > 0 )
+  *a3 = *(_QWORD *)((char *)&unk_1C024E964 + 12 * v10);
+  if ( a1 >= 0x1D3Du && (a1 <= 0x1D3Eu || a1 == 7489 || a1 == 19775) && v9 - v7 > 0 )
   {
     v12 = *((_OWORD *)a2 + 1);
     v19 = *(_OWORD *)a2;

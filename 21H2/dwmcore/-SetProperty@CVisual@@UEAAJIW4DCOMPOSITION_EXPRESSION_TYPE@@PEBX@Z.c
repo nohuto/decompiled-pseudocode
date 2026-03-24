@@ -1,38 +1,37 @@
 /*
- * XREFs of ?SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180045FA0
+ * XREFs of ?SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800D0DF0
  * Callers:
- *     ?SetProperty@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x18022FDD0 (-SetProperty@-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@MEAAJIW4DCO.c)
+ *     ?SetProperty@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801E0EB0 (-SetProperty@-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@MEAAJIW4DCO.c)
  * Callees:
- *     ?SetOpacity@CVisual@@QEAAXM@Z @ 0x18004561C (-SetOpacity@CVisual@@QEAAXM@Z.c)
- *     ?SetSize@CVisual@@QEAAXMM@Z @ 0x1800460F4 (-SetSize@CVisual@@QEAAXMM@Z.c)
- *     ?SetOffset@CVisual@@QEAAXMMM@Z @ 0x180047600 (-SetOffset@CVisual@@QEAAXMMM@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetRelativeSize@CVisual@@QEAAXMM@Z @ 0x1800E11F0 (-SetRelativeSize@CVisual@@QEAAXMM@Z.c)
- *     ?GetRelativeLayoutSizeInternal@CVisual@@QEBA?AUD2D_SIZE_F@@XZ @ 0x1800E129C (-GetRelativeLayoutSizeInternal@CVisual@@QEBA-AUD2D_SIZE_F@@XZ.c)
- *     ?SetVisible@CVisual@@QEAAX_N@Z @ 0x1800E69D0 (-SetVisible@CVisual@@QEAAX_N@Z.c)
- *     ?SetRelativeOffset@CVisual@@QEAAXMMM@Z @ 0x1800E941C (-SetRelativeOffset@CVisual@@QEAAXMMM@Z.c)
- *     ?GetRelativeOffsetInternal@CVisual@@QEBA?AUD2D_VECTOR_3F@@XZ @ 0x1800E9540 (-GetRelativeOffsetInternal@CVisual@@QEBA-AUD2D_VECTOR_3F@@XZ.c)
- *     ?SetPixelSnappingEnabled@CVisual@@QEAAX_N@Z @ 0x1801F863C (-SetPixelSnappingEnabled@CVisual@@QEAAX_N@Z.c)
+ *     ?SetVisible@CVisual@@QEAAX_N@Z @ 0x18001F5C0 (-SetVisible@CVisual@@QEAAX_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetOffset@CVisual@@QEAAXMMM@Z @ 0x1800658E0 (-SetOffset@CVisual@@QEAAXMMM@Z.c)
+ *     ?SetSize@CVisual@@QEAAXMM@Z @ 0x180065A88 (-SetSize@CVisual@@QEAAXMM@Z.c)
+ *     ?SetRelativeSize@CVisual@@QEAAXMM@Z @ 0x180067434 (-SetRelativeSize@CVisual@@QEAAXMM@Z.c)
+ *     ?GetRelativeLayoutSizeInternal@CVisual@@QEBA?AUD2D_SIZE_F@@XZ @ 0x1800674E0 (-GetRelativeLayoutSizeInternal@CVisual@@QEBA-AUD2D_SIZE_F@@XZ.c)
+ *     ?SetOpacity@CVisual@@QEAAXM@Z @ 0x1800682F4 (-SetOpacity@CVisual@@QEAAXM@Z.c)
+ *     ?SetRelativeOffset@CVisual@@QEAAXMMM@Z @ 0x1800D216C (-SetRelativeOffset@CVisual@@QEAAXMMM@Z.c)
+ *     ?GetRelativeOffsetInternal@CVisual@@QEBA?AUD2D_VECTOR_3F@@XZ @ 0x1800D240C (-GetRelativeOffsetInternal@CVisual@@QEBA-AUD2D_VECTOR_3F@@XZ.c)
  */
 
-__int64 __fastcall CVisual::SetProperty(float *a1, unsigned int a2, int a3, __int64 a4)
+__int64 __fastcall CVisual::SetProperty(float *a1, unsigned int a2, int a3, float *a4)
 {
   CVisual *v4; // rbx
   int v5; // r8d
   int v6; // r8d
-  int v7; // r8d
-  float v8; // xmm3_4
-  float v9; // xmm2_4
-  float v10; // xmm1_4
-  unsigned int v11; // ebx
-  float v13; // xmm6_4
+  double v7; // xmm6_8
+  unsigned int v8; // ebx
+  int v10; // r8d
+  float v11; // xmm3_4
+  float v12; // xmm2_4
+  float v13; // xmm1_4
+  float v14; // xmm2_4
+  float v15; // xmm1_4
   float z; // xmm3_4
-  float v15; // xmm2_4
-  float x; // xmm1_4
   float v17; // xmm2_4
-  float v18; // xmm1_4
-  float v19; // xmm2_4
-  float v20; // xmm1_4
+  float x; // xmm1_4
+  double v19; // xmm2_8
+  double v20; // xmm1_8
   unsigned int v21; // edx
   unsigned int v22; // edx
   unsigned int v23; // edx
@@ -49,68 +48,59 @@ __int64 __fastcall CVisual::SetProperty(float *a1, unsigned int a2, int a3, __in
   v5 = a3 - 17;
   if ( !v5 )
   {
-    if ( a2 == 27 )
-    {
-      CVisual::SetPixelSnappingEnabled((CVisual *)a1, *(_BYTE *)a4);
-      return 0;
-    }
     if ( a2 == 38 )
     {
       CVisual::SetVisible((CVisual *)a1, *(_BYTE *)a4);
       return 0;
     }
-    goto LABEL_46;
+    goto LABEL_42;
   }
   v6 = v5 - 1;
-  if ( !v6 )
+  if ( v6 )
   {
-    v13 = *(float *)a4;
-    if ( a2 <= 0x1A )
+    v10 = v6 - 17;
+    if ( !v10 )
     {
-      if ( a2 == 26 )
+      if ( a2 == 29 )
       {
-        CVisual::SetOpacity((CVisual *)a1, *(float *)a4);
+        v14 = a4[1];
+        v15 = *a4;
+LABEL_15:
+        CVisual::SetSize((CVisual *)a1, v15, v14);
         return 0;
       }
-      if ( !a2 )
+      if ( a2 != 31 )
       {
-        v8 = a1[30];
-        v10 = *(float *)a4;
-        v9 = a1[29];
-        goto LABEL_7;
+LABEL_42:
+        v8 = -2147024809;
+        MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, 0x9E0u, 0LL);
+        return v8;
       }
-      v21 = a2 - 1;
-      if ( v21 )
-      {
-        v22 = v21 - 1;
-        if ( v22 )
-        {
-          v23 = v22 - 22;
-          if ( v23 )
-          {
-            if ( v23 != 1 )
-              goto LABEL_46;
-            v20 = a1[33];
-            v19 = *(float *)a4;
-          }
-          else
-          {
-            v19 = a1[34];
-            v20 = *(float *)a4;
-          }
-          goto LABEL_36;
-        }
-        v9 = a1[29];
-        v8 = *(float *)a4;
-      }
-      else
-      {
-        v8 = a1[30];
-        v9 = *(float *)a4;
-      }
-      v10 = a1[28];
-      goto LABEL_7;
+      *(_QWORD *)&v19 = *((unsigned int *)a4 + 1);
+      *(_QWORD *)&v20 = *(unsigned int *)a4;
+LABEL_25:
+      CVisual::SetRelativeSize((CVisual *)a1, v20, v19);
+      return 0;
     }
+    if ( v10 != 17 )
+      goto LABEL_42;
+    if ( a2 == 28 )
+    {
+      v11 = a4[2];
+      v12 = a4[1];
+      v13 = *a4;
+      goto LABEL_12;
+    }
+    if ( a2 != 30 )
+      goto LABEL_42;
+    z = a4[2];
+    v17 = a4[1];
+    x = *a4;
+    goto LABEL_20;
+  }
+  *(_QWORD *)&v7 = *(unsigned int *)a4;
+  if ( a2 > 0x1A )
+  {
     v24 = a2 - 32;
     if ( v24 )
     {
@@ -124,78 +114,84 @@ __int64 __fastcall CVisual::SetProperty(float *a1, unsigned int a2, int a3, __in
           if ( v27 )
           {
             if ( v27 != 1 )
-              goto LABEL_46;
-            v17 = *(float *)a4;
-            v18 = **(float **)&CVisual::GetRelativeLayoutSizeInternal((CVisual *)a1);
-            goto LABEL_26;
+              goto LABEL_42;
+            *(_QWORD *)&v19 = *(unsigned int *)a4;
+            *(_QWORD *)&v20 = **(unsigned int **)&CVisual::GetRelativeLayoutSizeInternal((CVisual *)a1, &v30);
+            goto LABEL_24;
           }
         }
         else
         {
           y = CVisual::GetRelativeOffsetInternal((CVisual *)a1, &v30)->y;
           RelativeOffsetInternal = CVisual::GetRelativeOffsetInternal(v4, &v31);
-          CVisual::SetRelativeOffset(v4, RelativeOffsetInternal->x, y, v13);
+          CVisual::SetRelativeOffset(v4, RelativeOffsetInternal->x, y, *(float *)&v7);
         }
-        v18 = v13;
-        v17 = *(float *)(*(_QWORD *)&CVisual::GetRelativeLayoutSizeInternal(v4) + 4LL);
-LABEL_26:
+        v20 = v7;
+        *(_QWORD *)&v19 = *(unsigned int *)(*(_QWORD *)&CVisual::GetRelativeLayoutSizeInternal(v4, &v30) + 4LL);
+LABEL_24:
         a1 = (float *)v4;
-        goto LABEL_27;
+        goto LABEL_25;
       }
       z = CVisual::GetRelativeOffsetInternal((CVisual *)a1, &v31)->z;
-      v15 = v13;
+      v17 = *(float *)&v7;
       x = CVisual::GetRelativeOffsetInternal(v4, &v30)->x;
     }
     else
     {
       z = CVisual::GetRelativeOffsetInternal((CVisual *)a1, &v31)->z;
-      x = v13;
-      v15 = CVisual::GetRelativeOffsetInternal(v4, &v30)->y;
+      x = *(float *)&v7;
+      v17 = CVisual::GetRelativeOffsetInternal(v4, &v30)->y;
     }
     a1 = (float *)v4;
-    goto LABEL_21;
-  }
-  v7 = v6 - 17;
-  if ( !v7 )
-  {
-    if ( a2 != 29 )
-    {
-      if ( a2 != 31 )
-        goto LABEL_46;
-      v17 = *(float *)(a4 + 4);
-      v18 = *(float *)a4;
-LABEL_27:
-      CVisual::SetRelativeSize((CVisual *)a1, v18, v17);
-      return 0;
-    }
-    v19 = *(float *)(a4 + 4);
-    v20 = *(float *)a4;
-LABEL_36:
-    CVisual::SetSize((CVisual *)a1, v20, v19);
+LABEL_20:
+    CVisual::SetRelativeOffset((CVisual *)a1, x, v17, z);
     return 0;
   }
-  if ( v7 != 17 )
-    goto LABEL_46;
-  if ( a2 != 28 )
+  if ( a2 != 26 )
   {
-    if ( a2 == 30 )
+    if ( a2 )
     {
-      z = *(float *)(a4 + 8);
-      v15 = *(float *)(a4 + 4);
-      x = *(float *)a4;
-LABEL_21:
-      CVisual::SetRelativeOffset((CVisual *)a1, x, v15, z);
-      return 0;
+      v21 = a2 - 1;
+      if ( v21 )
+      {
+        v22 = v21 - 1;
+        if ( v22 )
+        {
+          v23 = v22 - 22;
+          if ( !v23 )
+          {
+            v14 = a1[32];
+            v15 = *a4;
+            goto LABEL_15;
+          }
+          if ( v23 == 1 )
+          {
+            v15 = a1[31];
+            v14 = *a4;
+            goto LABEL_15;
+          }
+          goto LABEL_42;
+        }
+        v12 = a1[27];
+        v11 = *a4;
+      }
+      else
+      {
+        v11 = a1[28];
+        v12 = *a4;
+      }
+      v13 = a1[26];
     }
-LABEL_46:
-    v11 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)a1, 0LL, 0, -2147024809, 0x96Au, 0LL);
-    return v11;
+    else
+    {
+      v11 = a1[28];
+      v13 = *a4;
+      v12 = a1[27];
+    }
+LABEL_12:
+    CVisual::SetOffset((CVisual *)a1, v13, v12, v11);
+    return 0;
   }
-  v8 = *(float *)(a4 + 8);
-  v9 = *(float *)(a4 + 4);
-  v10 = *(float *)a4;
-LABEL_7:
-  CVisual::SetOffset((CVisual *)a1, v10, v9, v8);
+  CVisual::SetOpacity((CVisual *)a1, *a4);
   return 0;
 }

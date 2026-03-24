@@ -1,7 +1,7 @@
 /*
- * XREFs of NtOpenSession @ 0x1406DB0F0
+ * XREFs of NtOpenSession @ 0x1406DB0D0
  * Callers:
- *     PfpSourceGetPrefetchSupport @ 0x140864E80 (PfpSourceGetPrefetchSupport.c)
+ *     PfpSourceGetPrefetchSupport @ 0x140864E60 (PfpSourceGetPrefetchSupport.c)
  * Callees:
  *     ObOpenObjectByName @ 0x1405B9290 (ObOpenObjectByName.c)
  */

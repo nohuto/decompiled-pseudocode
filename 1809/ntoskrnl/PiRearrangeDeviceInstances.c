@@ -1,15 +1,15 @@
 /*
- * XREFs of PiRearrangeDeviceInstances @ 0x140706130
+ * XREFs of PiRearrangeDeviceInstances @ 0x140706110
  * Callers:
- *     PiProcessDriverInstance @ 0x140708DC0 (PiProcessDriverInstance.c)
+ *     PiProcessDriverInstance @ 0x140708DA0 (PiProcessDriverInstance.c)
  * Callees:
  *     RtlStringCchPrintfExW @ 0x140015EF4 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQueryKey @ 0x1401B8430 (ZwQueryKey.c)
- *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1401B9B90 (ZwDeleteValueKey.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQueryKey @ 0x1401B8450 (ZwQueryKey.c)
+ *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopGetRegistryValue @ 0x1406804F4 (IopGetRegistryValue.c)
+ *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
  */
 
 void __fastcall PiRearrangeDeviceInstances(HANDLE KeyHandle, int a2, int a3)

@@ -1,134 +1,133 @@
 /*
- * XREFs of RecordCommandTimingHistory @ 0x1C0025214
+ * XREFs of RecordCommandTimingHistory @ 0x1C001C8A4
  * Callers:
- *     NVMeCompletionDpcRoutine @ 0x1C0002000 (NVMeCompletionDpcRoutine.c)
+ *     NVMeCompletionDpcRoutine @ 0x1C00030F0 (NVMeCompletionDpcRoutine.c)
  * Callees:
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
- *     CalculateTimeDurationIn100ns @ 0x1C00179B4 (CalculateTimeDurationIn100ns.c)
+ *     CalculateTimeDurationIn100ns @ 0x1C00010AC (CalculateTimeDurationIn100ns.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
  */
 
 void __fastcall RecordCommandTimingHistory(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
-  unsigned int v5; // edx
-  unsigned int v6; // r8d
-  __int64 v7; // rbx
-  __int64 SrbExtension; // rax
+  unsigned int v3; // r10d
+  unsigned int v5; // r8d
+  __int64 v6; // rbx
+  __int64 v7; // rdx
+  _QWORD *SrbExtension; // r10
   __int64 v9; // r11
-  _QWORD *v10; // r10
-  _DWORD *v11; // r8
-  unsigned __int64 v12; // rcx
-  unsigned __int64 v13; // rax
-  int v14; // eax
-  unsigned __int64 v15; // rax
-  unsigned __int64 v16; // rcx
-  int v17; // eax
-  unsigned __int64 v18; // rcx
-  unsigned __int64 v19; // rax
-  int v20; // eax
-  unsigned __int64 v21; // rcx
-  unsigned __int64 v22; // rax
-  int v23; // eax
-  unsigned __int64 v24; // rcx
-  unsigned __int64 v25; // rax
-  int v26; // eax
-  unsigned __int64 v27; // rcx
-  unsigned __int64 v28; // rax
-  int v29; // eax
-  unsigned __int64 v30; // rcx
-  unsigned __int64 v31; // rax
-  int v32; // eax
-  __int64 v33; // r11
+  __int64 v10; // rcx
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // rax
+  int v13; // eax
+  unsigned __int64 v14; // rax
+  unsigned __int64 v15; // rcx
+  int v16; // eax
+  unsigned __int64 v17; // rcx
+  unsigned __int64 v18; // rax
+  int v19; // eax
+  unsigned __int64 v20; // rcx
+  unsigned __int64 v21; // rax
+  int v22; // eax
+  unsigned __int64 v23; // rcx
+  unsigned __int64 v24; // rax
+  int v25; // eax
+  unsigned __int64 v26; // rcx
+  unsigned __int64 v27; // rax
+  int v28; // eax
+  unsigned __int64 v29; // rcx
+  unsigned __int64 v30; // rax
+  int v31; // eax
+  __int64 v32; // r11
 
-  v5 = *(_DWORD *)(a1 + 3876);
-  if ( v5 )
+  v3 = *(_DWORD *)(a1 + 3860);
+  if ( v3 )
   {
-    if ( *(_QWORD *)(a1 + 3888) )
+    if ( *(_QWORD *)(a1 + 3872) )
     {
-      v6 = *(_DWORD *)(a1 + 3880);
-      *(_DWORD *)(a1 + 3880) = v6 + 1 < v5 ? v6 + 1 : 0;
-      v7 = 3LL * (v6 < v5 ? v6 : 0);
-      SrbExtension = GetSrbExtension(a2);
-      v10 = (_QWORD *)SrbExtension;
-      if ( *(_QWORD *)(SrbExtension + 4160) )
+      v5 = *(_DWORD *)(a1 + 3864);
+      *(_DWORD *)(a1 + 3864) = v5 + 1 < v3 ? v5 + 1 : 0;
+      v6 = 3LL * (v5 < v3 ? v5 : 0);
+      SrbExtension = (_QWORD *)GetSrbExtension(a2);
+      if ( SrbExtension[520] )
       {
-        v11 = (_DWORD *)(a2 + 60);
-        if ( *(_BYTE *)(a2 + 2) != 40 )
-          v11 = (_DWORD *)(a2 + 16);
-        *(_DWORD *)(v9 + 8 * v7) = *v11;
-        v12 = *(_QWORD *)(SrbExtension + 4168);
-        v13 = *(_QWORD *)(SrbExtension + 4160);
-        if ( v12 < v13 )
+        v10 = 60LL;
+        if ( *(_BYTE *)(v7 + 2) != 40 )
+          v10 = 16LL;
+        *(_DWORD *)(v9 + 8 * v6) = *(_DWORD *)(v10 + v7);
+        v11 = SrbExtension[521];
+        v12 = SrbExtension[520];
+        if ( v11 < v12 )
         {
-          *(_DWORD *)(v9 + 8 * v7 + 4) = 195935983;
+          *(_DWORD *)(v9 + 8 * v6 + 4) = 195935983;
         }
         else
         {
-          v14 = CalculateTimeDurationIn100ns(v12 - v13, a3);
-          *(_DWORD *)(v9 + 8 * v7 + 4) = v14;
+          v13 = CalculateTimeDurationIn100ns(v11 - v12, a3);
+          *(_DWORD *)(v9 + 8 * v6 + 4) = v13;
         }
-        v15 = v10[522];
-        if ( v15 )
+        v14 = SrbExtension[522];
+        if ( v14 )
         {
-          v16 = v10[521];
-          if ( v15 < v16 )
-            v17 = v16 - v15 > 0x100 ? 0xBADBEEF : 0;
+          v15 = SrbExtension[521];
+          if ( v14 < v15 )
+            v16 = v15 - v14 > 0x100 ? 0xBADBEEF : 0;
           else
-            v17 = CalculateTimeDurationIn100ns(v15 - v16, a3);
-          *(_DWORD *)(v9 + 8 * v7 + 8) = v17;
-          v18 = v10[522];
-          v19 = v10[520];
-          if ( v18 < v19 )
-            v20 = 195935983;
+            v16 = CalculateTimeDurationIn100ns(v14 - v15, a3);
+          *(_DWORD *)(v9 + 8 * v6 + 8) = v16;
+          v17 = SrbExtension[522];
+          v18 = SrbExtension[520];
+          if ( v17 < v18 )
+            v19 = 195935983;
           else
-            v20 = CalculateTimeDurationIn100ns(v18 - v19, a3);
-          *(_DWORD *)(v9 + 8 * v7 + 12) = v20;
-          v21 = v10[523];
-          v22 = v10[522];
-          if ( v21 < v22 )
+            v19 = CalculateTimeDurationIn100ns(v17 - v18, a3);
+          *(_DWORD *)(v9 + 8 * v6 + 12) = v19;
+          v20 = SrbExtension[523];
+          v21 = SrbExtension[522];
+          if ( v20 < v21 )
           {
-            v23 = v22 - v21 > 0x100 ? 0xBADBEEF : 0;
+            v22 = v21 - v20 > 0x100 ? 0xBADBEEF : 0;
 LABEL_26:
-            *(_DWORD *)(v9 + 8 * v7 + 16) = v23;
+            *(_DWORD *)(v9 + 8 * v6 + 16) = v22;
             goto LABEL_28;
           }
         }
         else
         {
-          v24 = v10[523];
-          v25 = v10[521];
-          if ( v24 < v25 )
-            v26 = 195935983;
+          v23 = SrbExtension[523];
+          v24 = SrbExtension[521];
+          if ( v23 < v24 )
+            v25 = 195935983;
           else
-            v26 = CalculateTimeDurationIn100ns(v24 - v25, a3);
-          *(_DWORD *)(v9 + 8 * v7 + 8) = v26;
-          v27 = v10[523];
-          v28 = v10[520];
-          if ( v27 < v28 )
-            v29 = 195935983;
+            v25 = CalculateTimeDurationIn100ns(v23 - v24, a3);
+          *(_DWORD *)(v9 + 8 * v6 + 8) = v25;
+          v26 = SrbExtension[523];
+          v27 = SrbExtension[520];
+          if ( v26 < v27 )
+            v28 = 195935983;
           else
-            v29 = CalculateTimeDurationIn100ns(v27 - v28, a3);
-          *(_DWORD *)(v9 + 8 * v7 + 12) = v29;
-          v21 = v10[523];
-          v22 = v10[521];
-          if ( v21 < v22 )
+            v28 = CalculateTimeDurationIn100ns(v26 - v27, a3);
+          *(_DWORD *)(v9 + 8 * v6 + 12) = v28;
+          v20 = SrbExtension[523];
+          v21 = SrbExtension[521];
+          if ( v20 < v21 )
           {
-            *(_DWORD *)(v9 + 8 * v7 + 16) = 195935983;
+            *(_DWORD *)(v9 + 8 * v6 + 16) = 195935983;
 LABEL_28:
-            v30 = v10[524];
-            v31 = v10[523];
-            if ( v30 < v31 )
+            v29 = SrbExtension[524];
+            v30 = SrbExtension[523];
+            if ( v29 < v30 )
             {
-              *(_DWORD *)(v9 + 8 * v7 + 20) = 195935983;
+              *(_DWORD *)(v9 + 8 * v6 + 20) = 195935983;
             }
             else
             {
-              v32 = CalculateTimeDurationIn100ns(v30 - v31, a3);
-              *(_DWORD *)(v33 + 8 * v7 + 20) = v32;
+              v31 = CalculateTimeDurationIn100ns(v29 - v30, a3);
+              *(_DWORD *)(v32 + 8 * v6 + 20) = v31;
             }
             return;
           }
         }
-        v23 = CalculateTimeDurationIn100ns(v21 - v22, a3);
+        v22 = CalculateTimeDurationIn100ns(v20 - v21, a3);
         goto LABEL_26;
       }
     }

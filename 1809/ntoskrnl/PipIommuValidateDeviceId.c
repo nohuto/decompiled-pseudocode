@@ -1,9 +1,9 @@
 /*
- * XREFs of PipIommuValidateDeviceId @ 0x140750708
+ * XREFs of PipIommuValidateDeviceId @ 0x1407506E8
  * Callers:
- *     PipIommuRetrieveDeviceId @ 0x14075062C (PipIommuRetrieveDeviceId.c)
+ *     PipIommuRetrieveDeviceId @ 0x14075060C (PipIommuRetrieveDeviceId.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall PipIommuValidateDeviceId(ULONG_PTR BugCheckParameter2, unsigned int *BugCheckParameter3, __int64 a3)

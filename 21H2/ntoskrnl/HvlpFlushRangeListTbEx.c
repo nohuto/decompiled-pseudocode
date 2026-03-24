@@ -1,11 +1,12 @@
 /*
- * XREFs of HvlpFlushRangeListTbEx @ 0x14054CD1C
+ * XREFs of HvlpFlushRangeListTbEx @ 0x1404FAF7C
  * Callers:
- *     HvlFlushRangeListTb @ 0x14039DB1C (HvlFlushRangeListTb.c)
+ *     HvlFlushRangeListTb @ 0x14038FF5C (HvlFlushRangeListTb.c)
  * Callees:
- *     HvlpCountFlushVaList @ 0x14039DC1C (HvlpCountFlushVaList.c)
- *     HvlpFastFlushListTbEx @ 0x14054CBD0 (HvlpFastFlushListTbEx.c)
- *     HvlpSlowFlushListTbEx @ 0x14054CFC4 (HvlpSlowFlushListTbEx.c)
+ *     HvlpAllowFastFlushList @ 0x1403905AC (HvlpAllowFastFlushList.c)
+ *     HvlpCountFlushVaList @ 0x1403905D8 (HvlpCountFlushVaList.c)
+ *     HvlpFastFlushListTbEx @ 0x1404FAE50 (HvlpFastFlushListTbEx.c)
+ *     HvlpSlowFlushListTbEx @ 0x1404FB39C (HvlpSlowFlushListTbEx.c)
  */
 
 void __fastcall HvlpFlushRangeListTbEx(
@@ -19,7 +20,7 @@ void __fastcall HvlpFlushRangeListTbEx(
 {
   unsigned int v8; // r8d
   __int64 v9; // rax
-  int v10; // edx
+  int v10; // edi
   int v11; // r8d
   int v12; // r9d
   unsigned int v13; // r10d
@@ -37,13 +38,13 @@ void __fastcall HvlpFlushRangeListTbEx(
     v15[1] = v9;
   }
   v10 = HvlpCountFlushVaList(a6, a7);
-  if ( v10 + ((HvlpFlags >> 8) & 0xF) + 5 > 0xE || (HvlEnlightenments & 0x80u) == 0 || v14 && v13 + 1 > 0xC )
+  if ( v10 + ((HvlpFlags >> 8) & 0xF) + 5 <= 0xE && HvlpAllowFastFlushList(v14, v13) )
   {
-    LOBYTE(v11) = v14;
-    HvlpSlowFlushListTbEx((unsigned int)v15, a2, v11, v12, v13, (__int64)a7, v10);
+    HvlpFastFlushListTbEx(v15, a2, v14, v12, v13, a7, v10);
   }
   else
   {
-    HvlpFastFlushListTbEx(v15, a2, v14, v12, v13, a7, v10);
+    LOBYTE(v11) = v14;
+    HvlpSlowFlushListTbEx((unsigned int)v15, a2, v11, v12, v13, (__int64)a7, v10);
   }
 }

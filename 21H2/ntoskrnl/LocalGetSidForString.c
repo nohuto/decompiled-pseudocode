@@ -1,14 +1,14 @@
 /*
- * XREFs of LocalGetSidForString @ 0x140675CC0
+ * XREFs of LocalGetSidForString @ 0x140787E40
  * Callers:
- *     LocalGetAclForString @ 0x140675DA8 (LocalGetAclForString.c)
- *     LocalConvertStringSDToSD_Rev1 @ 0x140743E60 (LocalConvertStringSDToSD_Rev1.c)
- *     GetOperandValue @ 0x1409D0A60 (GetOperandValue.c)
- *     LocalGetRelativeAttributeForString @ 0x1409D23E8 (LocalGetRelativeAttributeForString.c)
+ *     LocalConvertStringSDToSD_Rev1 @ 0x1407875B4 (LocalConvertStringSDToSD_Rev1.c)
+ *     LocalGetAclForString @ 0x1407878AC (LocalGetAclForString.c)
+ *     GetOperandValue @ 0x140927504 (GetOperandValue.c)
+ *     LocalGetRelativeAttributeForString @ 0x1409285E0 (LocalGetRelativeAttributeForString.c)
  * Callees:
- *     LookupSidInTable @ 0x1406775C8 (LookupSidInTable.c)
- *     RtlNtStatusToDosError @ 0x14069E070 (RtlNtStatusToDosError.c)
- *     LocalpConvertStringSidToSid @ 0x140843D74 (LocalpConvertStringSidToSid.c)
+ *     LookupSidInTable @ 0x14067432C (LookupSidInTable.c)
+ *     RtlNtStatusToDosError @ 0x14068A4C0 (RtlNtStatusToDosError.c)
+ *     LocalpConvertStringSidToSid @ 0x1407B7BB0 (LocalpConvertStringSidToSid.c)
  */
 
 __int64 __fastcall LocalGetSidForString(wchar_t *a1, _QWORD *a2, _QWORD *a3, _BYTE *a4)
@@ -28,7 +28,7 @@ __int64 __fastcall LocalGetSidForString(wchar_t *a1, _QWORD *a2, _QWORD *a3, _BY
   if ( *a1 && a1[1] )
   {
     *a3 = a1 + 2;
-    v9 = LookupSidInTable(a1, 0LL, v13, 0, (__int64)&v14);
+    v9 = LookupSidInTable(a1, 0LL, 0LL, (__int64)a4, v13, 0, &v14);
     if ( v9 )
     {
       v10 = *(_QWORD *)(v9 + 16);

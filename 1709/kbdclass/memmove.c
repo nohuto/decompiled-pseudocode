@@ -1,1 +1,224 @@
-/*\n * XREFs of memmove @ 0x1C0002AC0\n * Callers:\n *     KeyboardClassReadCopyData @ 0x1C00046A0 (KeyboardClassReadCopyData.c)\n *     KeyboardClassServiceCallback @ 0x1C0004A20 (KeyboardClassServiceCallback.c)\n *     KeyboardAddDevice @ 0x1C000C2C0 (KeyboardAddDevice.c)\n *     KeyboardAddDeviceEx @ 0x1C000C550 (KeyboardAddDeviceEx.c)\n *     KeyboardClassGetWaitWakeEnableState @ 0x1C000D150 (KeyboardClassGetWaitWakeEnableState.c)\n *     WppTraceCallback @ 0x1C000E7B0 (WppTraceCallback.c)\n *     DriverEntry @ 0x1C000F080 (DriverEntry.c)\n * Callees:\n *     <none>\n */\n\nvoid *__cdecl memmove(void *a1, const void *Src, size_t Size)\n{\n  __m128i *v3; // r11\n  bool v4; // cf\n  unsigned __int64 v5; // rdx\n  size_t k; // r9\n  __int64 v7; // rax\n  size_t m; // r8\n  char v9; // al\n  unsigned int v11; // ecx\n  size_t v12; // r9\n  __m128i v13; // xmm0\n  __m128i v14; // xmm1\n  int v15; // eax\n  int v16; // eax\n  __m128i v17; // xmm1\n  __m128i v18; // xmm1\n  __m128i *v19; // rcx\n  size_t i; // r9\n  __int64 v21; // rax\n  size_t j; // r8\n  __int8 v23; // al\n  __m128i *v24; // rax\n  __int64 v25; // rcx\n  size_t v26; // r9\n  __m128i v27; // xmm0\n  __m128i v28; // xmm1\n  int v29; // eax\n  int v30; // eax\n  __m128i v31; // xmm1\n  __m128i v32; // xmm1\n  _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF\n\n  v3 = (__m128i *)a1;\n  v4 = Src < a1;\n  v5 = (_BYTE *)Src - (_BYTE *)a1;\n  if ( v4 )\n  {\n    v19 = (__m128i *)((char *)a1 + Size);\n    if ( Size >= 0x4F )\n    {\n      if ( v5 > 0xFFFFFFFFFFFFFFF0uLL )\n      {\n        for ( ; ((unsigned __int8)v19 & 0xF) != 0; v19->m128i_i8[0] = v19->m128i_i8[v5] )\n        {\n          v19 = (__m128i *)((char *)v19 - 1);\n          --Size;\n        }\n      }\n      else\n      {\n        v24 = v19;\n        v25 = (unsigned __int8)v19 & 0xF;\n        if ( (_DWORD)v25 )\n        {\n          Size -= (unsigned int)v25;\n          v25 = -(__int64)(unsigned int)v25;\n          v24[-1] = _mm_loadu_si128((__m128i *)((char *)v24 + v5 - 16));\n        }\n        v19 = (__m128i *)((char *)v24 + v25);\n      }\n      v26 = Size >> 5;\n      if ( Size >> 5 <= 0x2000 || v5 > 0xFFFFFFFFFFFFFE00uLL )\n        goto xmov40;\n      do\n      {\n        v29 = 4;\n        do\n        {\n          v19 -= 8;\n          _mm_prefetch(&v19->m128i_i8[v5], 0);\n          _mm_prefetch(&v19[4].m128i_i8[v5], 0);\n          --v29;\n        }\n        while ( v29 );\n        v19 += 32;\n        v30 = 8;\n        do\n        {\n          v31 = _mm_loadu_si128((__m128i *)((char *)v19 + v5 - 32));\n          _mm_stream_si128(v19 - 1, _mm_loadu_si128((__m128i *)((char *)v19 + v5 - 16)));\n          _mm_stream_si128(v19 - 2, v31);\n          v19 -= 4;\n          v32 = _mm_loadu_si128((__m128i *)((char *)v19 + v5));\n          _mm_stream_si128(v19 + 1, _mm_loadu_si128((__m128i *)((char *)v19 + v5 + 16)));\n          _mm_stream_si128(v19, v32);\n          --v30;\n        }\n        while ( v30 );\n        Size -= 512LL;\n      }\n      while ( Size >= 0x200 );\n      _InterlockedOr8((volatile signed __int8 *)&retaddr, 0);\n      v26 = Size >> 5;\n      if ( Size >> 5 )\n      {\nxmov40:\n        Size &= 0x1Fu;\n        do\n        {\n          v27 = _mm_loadu_si128((__m128i *)((char *)v19 + v5 - 16));\n          v28 = _mm_loadu_si128((__m128i *)((char *)v19 + v5 - 32));\n          v19 -= 2;\n          v19[1] = v27;\n          *v19 = v28;\n          --v26;\n        }\n        while ( v26 );\n      }\n    }\n    for ( i = Size >> 3; i; v19->m128i_i64[0] = v21 )\n    {\n      v21 = *(__int64 *)((char *)&v19->m128i_i64[-1] + v5);\n      v19 = (__m128i *)((char *)v19 - 8);\n      --i;\n    }\n    for ( j = Size & 7; j; v19->m128i_i8[0] = v23 )\n    {\n      v23 = v19->m128i_i8[v5 - 1];\n      v19 = (__m128i *)((char *)v19 - 1);\n      --j;\n    }\n    return v3;\n  }\n  else\n  {\n    if ( Size >= 0x4F )\n    {\n      if ( v5 < 0x10 )\n      {\n        for ( ; ((unsigned __int8)a1 & 0xF) != 0; a1 = (char *)a1 + 1 )\n        {\n          --Size;\n          *(_BYTE *)a1 = *((_BYTE *)a1 + v5);\n        }\n      }\n      else\n      {\n        v11 = -(int)a1 & 0xF;\n        if ( v11 )\n        {\n          Size -= v11;\n          *v3 = _mm_loadu_si128((__m128i *)((char *)v3 + v5));\n        }\n        a1 = &v3->m128i_i8[v11];\n      }\n      v12 = Size >> 5;\n      if ( Size >> 5 <= 0x2000 || v5 < 0x200 )\n        goto xcpy40;\n      do\n      {\n        v15 = 4;\n        do\n        {\n          _mm_prefetch((const char *)a1 + v5, 0);\n          _mm_prefetch((const char *)a1 + v5 + 64, 0);\n          a1 = (char *)a1 + 128;\n          --v15;\n        }\n        while ( v15 );\n        a1 = (char *)a1 - 512;\n        v16 = 8;\n        do\n        {\n          v17 = _mm_loadu_si128((const __m128i *)((char *)a1 + v5 + 16));\n          _mm_stream_si128((__m128i *)a1, _mm_loadu_si128((const __m128i *)((char *)a1 + v5)));\n          _mm_stream_si128((__m128i *)a1 + 1, v17);\n          a1 = (char *)a1 + 64;\n          v18 = _mm_loadu_si128((const __m128i *)((char *)a1 + v5 - 16));\n          _mm_stream_si128((__m128i *)a1 - 2, _mm_loadu_si128((const __m128i *)((char *)a1 + v5 - 32)));\n          _mm_stream_si128((__m128i *)a1 - 1, v18);\n          --v16;\n        }\n        while ( v16 );\n        Size -= 512LL;\n      }\n      while ( Size >= 0x200 );\n      _InterlockedOr8((volatile signed __int8 *)&retaddr, 0);\n      v12 = Size >> 5;\n      if ( Size >> 5 )\n      {\nxcpy40:\n        Size &= 0x1Fu;\n        do\n        {\n          v13 = _mm_loadu_si128((const __m128i *)((char *)a1 + v5));\n          v14 = _mm_loadu_si128((const __m128i *)((char *)a1 + v5 + 16));\n          a1 = (char *)a1 + 32;\n          *((__m128i *)a1 - 2) = v13;\n          *((__m128i *)a1 - 1) = v14;\n          --v12;\n        }\n        while ( v12 );\n      }\n    }\n    for ( k = Size >> 3; k; *((_QWORD *)a1 - 1) = v7 )\n    {\n      v7 = *(_QWORD *)((char *)a1 + v5);\n      a1 = (char *)a1 + 8;\n      --k;\n    }\n    for ( m = Size & 7; m; *((char *)a1 - 1) = v9 )\n    {\n      v9 = *((_BYTE *)a1 + v5);\n      a1 = (char *)a1 + 1;\n      --m;\n    }\n    return v3;\n  }\n}\n
+/*
+ * XREFs of memmove @ 0x1C0002AC0
+ * Callers:
+ *     KeyboardClassReadCopyData @ 0x1C00046A0 (KeyboardClassReadCopyData.c)
+ *     KeyboardClassServiceCallback @ 0x1C0004A20 (KeyboardClassServiceCallback.c)
+ *     KeyboardAddDevice @ 0x1C000C2C0 (KeyboardAddDevice.c)
+ *     KeyboardAddDeviceEx @ 0x1C000C550 (KeyboardAddDeviceEx.c)
+ *     KeyboardClassGetWaitWakeEnableState @ 0x1C000D150 (KeyboardClassGetWaitWakeEnableState.c)
+ *     WppTraceCallback @ 0x1C000E7B0 (WppTraceCallback.c)
+ *     DriverEntry @ 0x1C000F080 (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
+void *__cdecl memmove(void *a1, const void *Src, size_t Size)
+{
+  __m128i *v3; // r11
+  bool v4; // cf
+  unsigned __int64 v5; // rdx
+  size_t k; // r9
+  __int64 v7; // rax
+  size_t m; // r8
+  char v9; // al
+  unsigned int v11; // ecx
+  size_t v12; // r9
+  __m128i v13; // xmm0
+  __m128i v14; // xmm1
+  int v15; // eax
+  int v16; // eax
+  __m128i v17; // xmm1
+  __m128i v18; // xmm1
+  __m128i *v19; // rcx
+  size_t i; // r9
+  __int64 v21; // rax
+  size_t j; // r8
+  __int8 v23; // al
+  __m128i *v24; // rax
+  __int64 v25; // rcx
+  size_t v26; // r9
+  __m128i v27; // xmm0
+  __m128i v28; // xmm1
+  int v29; // eax
+  int v30; // eax
+  __m128i v31; // xmm1
+  __m128i v32; // xmm1
+  _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF
+
+  v3 = (__m128i *)a1;
+  v4 = Src < a1;
+  v5 = (_BYTE *)Src - (_BYTE *)a1;
+  if ( v4 )
+  {
+    v19 = (__m128i *)((char *)a1 + Size);
+    if ( Size >= 0x4F )
+    {
+      if ( v5 > 0xFFFFFFFFFFFFFFF0uLL )
+      {
+        for ( ; ((unsigned __int8)v19 & 0xF) != 0; v19->m128i_i8[0] = v19->m128i_i8[v5] )
+        {
+          v19 = (__m128i *)((char *)v19 - 1);
+          --Size;
+        }
+      }
+      else
+      {
+        v24 = v19;
+        v25 = (unsigned __int8)v19 & 0xF;
+        if ( (_DWORD)v25 )
+        {
+          Size -= (unsigned int)v25;
+          v25 = -(__int64)(unsigned int)v25;
+          v24[-1] = _mm_loadu_si128((__m128i *)((char *)v24 + v5 - 16));
+        }
+        v19 = (__m128i *)((char *)v24 + v25);
+      }
+      v26 = Size >> 5;
+      if ( Size >> 5 <= 0x2000 || v5 > 0xFFFFFFFFFFFFFE00uLL )
+        goto xmov40;
+      do
+      {
+        v29 = 4;
+        do
+        {
+          v19 -= 8;
+          _mm_prefetch(&v19->m128i_i8[v5], 0);
+          _mm_prefetch(&v19[4].m128i_i8[v5], 0);
+          --v29;
+        }
+        while ( v29 );
+        v19 += 32;
+        v30 = 8;
+        do
+        {
+          v31 = _mm_loadu_si128((__m128i *)((char *)v19 + v5 - 32));
+          _mm_stream_si128(v19 - 1, _mm_loadu_si128((__m128i *)((char *)v19 + v5 - 16)));
+          _mm_stream_si128(v19 - 2, v31);
+          v19 -= 4;
+          v32 = _mm_loadu_si128((__m128i *)((char *)v19 + v5));
+          _mm_stream_si128(v19 + 1, _mm_loadu_si128((__m128i *)((char *)v19 + v5 + 16)));
+          _mm_stream_si128(v19, v32);
+          --v30;
+        }
+        while ( v30 );
+        Size -= 512LL;
+      }
+      while ( Size >= 0x200 );
+      _InterlockedOr8((volatile signed __int8 *)&retaddr, 0);
+      v26 = Size >> 5;
+      if ( Size >> 5 )
+      {
+xmov40:
+        Size &= 0x1Fu;
+        do
+        {
+          v27 = _mm_loadu_si128((__m128i *)((char *)v19 + v5 - 16));
+          v28 = _mm_loadu_si128((__m128i *)((char *)v19 + v5 - 32));
+          v19 -= 2;
+          v19[1] = v27;
+          *v19 = v28;
+          --v26;
+        }
+        while ( v26 );
+      }
+    }
+    for ( i = Size >> 3; i; v19->m128i_i64[0] = v21 )
+    {
+      v21 = *(__int64 *)((char *)&v19->m128i_i64[-1] + v5);
+      v19 = (__m128i *)((char *)v19 - 8);
+      --i;
+    }
+    for ( j = Size & 7; j; v19->m128i_i8[0] = v23 )
+    {
+      v23 = v19->m128i_i8[v5 - 1];
+      v19 = (__m128i *)((char *)v19 - 1);
+      --j;
+    }
+    return v3;
+  }
+  else
+  {
+    if ( Size >= 0x4F )
+    {
+      if ( v5 < 0x10 )
+      {
+        for ( ; ((unsigned __int8)a1 & 0xF) != 0; a1 = (char *)a1 + 1 )
+        {
+          --Size;
+          *(_BYTE *)a1 = *((_BYTE *)a1 + v5);
+        }
+      }
+      else
+      {
+        v11 = -(int)a1 & 0xF;
+        if ( v11 )
+        {
+          Size -= v11;
+          *v3 = _mm_loadu_si128((__m128i *)((char *)v3 + v5));
+        }
+        a1 = &v3->m128i_i8[v11];
+      }
+      v12 = Size >> 5;
+      if ( Size >> 5 <= 0x2000 || v5 < 0x200 )
+        goto xcpy40;
+      do
+      {
+        v15 = 4;
+        do
+        {
+          _mm_prefetch((const char *)a1 + v5, 0);
+          _mm_prefetch((const char *)a1 + v5 + 64, 0);
+          a1 = (char *)a1 + 128;
+          --v15;
+        }
+        while ( v15 );
+        a1 = (char *)a1 - 512;
+        v16 = 8;
+        do
+        {
+          v17 = _mm_loadu_si128((const __m128i *)((char *)a1 + v5 + 16));
+          _mm_stream_si128((__m128i *)a1, _mm_loadu_si128((const __m128i *)((char *)a1 + v5)));
+          _mm_stream_si128((__m128i *)a1 + 1, v17);
+          a1 = (char *)a1 + 64;
+          v18 = _mm_loadu_si128((const __m128i *)((char *)a1 + v5 - 16));
+          _mm_stream_si128((__m128i *)a1 - 2, _mm_loadu_si128((const __m128i *)((char *)a1 + v5 - 32)));
+          _mm_stream_si128((__m128i *)a1 - 1, v18);
+          --v16;
+        }
+        while ( v16 );
+        Size -= 512LL;
+      }
+      while ( Size >= 0x200 );
+      _InterlockedOr8((volatile signed __int8 *)&retaddr, 0);
+      v12 = Size >> 5;
+      if ( Size >> 5 )
+      {
+xcpy40:
+        Size &= 0x1Fu;
+        do
+        {
+          v13 = _mm_loadu_si128((const __m128i *)((char *)a1 + v5));
+          v14 = _mm_loadu_si128((const __m128i *)((char *)a1 + v5 + 16));
+          a1 = (char *)a1 + 32;
+          *((__m128i *)a1 - 2) = v13;
+          *((__m128i *)a1 - 1) = v14;
+          --v12;
+        }
+        while ( v12 );
+      }
+    }
+    for ( k = Size >> 3; k; *((_QWORD *)a1 - 1) = v7 )
+    {
+      v7 = *(_QWORD *)((char *)a1 + v5);
+      a1 = (char *)a1 + 8;
+      --k;
+    }
+    for ( m = Size & 7; m; *((char *)a1 - 1) = v9 )
+    {
+      v9 = *((_BYTE *)a1 + v5);
+      a1 = (char *)a1 + 1;
+      --m;
+    }
+    return v3;
+  }
+}

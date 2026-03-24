@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmParkApplyForcedMask @ 0x14099E10C
+ * XREFs of PpmParkApplyForcedMask @ 0x1408F92A4
  * Callers:
- *     NtPowerInformation @ 0x14074F950 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
  * Callees:
- *     PpmReleaseLock @ 0x140224C00 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     PpmParkApplyPolicy @ 0x1403CEDC4 (PpmParkApplyPolicy.c)
- *     PpmCheckApplyParkConstraints @ 0x1403CF1A0 (PpmCheckApplyParkConstraints.c)
- *     PpmParkParkingAvailable @ 0x14081A654 (PpmParkParkingAvailable.c)
+ *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
+ *     PpmParkApplyPolicy @ 0x1403C1C84 (PpmParkApplyPolicy.c)
+ *     PpmCheckApplyParkConstraints @ 0x1403C2048 (PpmCheckApplyParkConstraints.c)
+ *     PpmParkParkingAvailable @ 0x1407BAA10 (PpmParkParkingAvailable.c)
  */
 
 __int64 __fastcall PpmParkApplyForcedMask(__int64 *a1, __int64 *a2)
@@ -28,7 +28,7 @@ __int64 __fastcall PpmParkApplyForcedMask(__int64 *a1, __int64 *a2)
   v5 = 0;
   v14 = 0LL;
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
-  if ( v2 > 0x20u || *((_WORD *)a1 + 5) || *((_WORD *)a1 + 6) || *((_WORD *)a1 + 7) )
+  if ( v2 > 0x14u || *((_WORD *)a1 + 5) || *((_WORD *)a1 + 6) || *((_WORD *)a1 + 7) )
     goto LABEL_7;
   if ( a2 )
   {
@@ -46,7 +46,7 @@ __int64 __fastcall PpmParkApplyForcedMask(__int64 *a1, __int64 *a2)
   {
     do
     {
-      v11 = PpmParkNodes + 336LL * v10;
+      v11 = PpmParkNodes + 272LL * v10;
       if ( *(_WORD *)(v11 + 4) == v2 )
       {
         v12 = *(_QWORD *)(v11 + 8);

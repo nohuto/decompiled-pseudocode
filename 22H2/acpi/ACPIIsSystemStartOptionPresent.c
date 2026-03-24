@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIIsSystemStartOptionPresent @ 0x1C00A9574
+ * XREFs of ACPIIsSystemStartOptionPresent @ 0x1C00BCA40
  * Callers:
- *     ACPIInitGetPlatformOverrides @ 0x1C00A87F8 (ACPIInitGetPlatformOverrides.c)
+ *     ACPIInitGetPlatformOverrides @ 0x1C00BC920 (ACPIInitGetPlatformOverrides.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserCloseDesktop @ 0x1C00B1DB0
+ * XREFs of NtUserCloseDesktop @ 0x1C00A35E0
  * Callers:
  *     <none>
  * Callees:
- *     ApiSetEditionCloseDesktopEntryPoint @ 0x1C00B1DC8 (ApiSetEditionCloseDesktopEntryPoint.c)
+ *     ApiSetEditionCloseDesktopEntryPoint @ 0x1C00A35F8 (ApiSetEditionCloseDesktopEntryPoint.c)
  */
 
 __int64 NtUserCloseDesktop()

@@ -3,7 +3,7 @@
  * Callers:
  *     FsRtlRemoveNodeFromTunnel @ 0x1400146B4 (FsRtlRemoveNodeFromTunnel.c)
  *     FsRtlPrivateInsertSharedLock @ 0x14008D22C (FsRtlPrivateInsertSharedLock.c)
- *     FsRtlUninitializeFileLock @ 0x1401111D0 (FsRtlUninitializeFileLock.c)
+ *     FsRtlUninitializeFileLock @ 0x1401111F0 (FsRtlUninitializeFileLock.c)
  * Callees:
  *     SwapSplayLinks @ 0x140014544 (SwapSplayLinks.c)
  *     RtlSubtreePredecessor @ 0x140014690 (RtlSubtreePredecessor.c)

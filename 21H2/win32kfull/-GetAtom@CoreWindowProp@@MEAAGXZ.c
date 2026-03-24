@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetAtom@CoreWindowProp@@MEAAGXZ @ 0x1C0123D00
+ * XREFs of ?GetAtom@CoreWindowProp@@MEAAGXZ @ 0x1C0137B60
  * Callers:
  *     <none>
  * Callees:

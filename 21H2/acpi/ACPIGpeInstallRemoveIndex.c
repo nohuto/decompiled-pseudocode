@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIGpeInstallRemoveIndex @ 0x1C001D2F0
+ * XREFs of ACPIGpeInstallRemoveIndex @ 0x1C00172E4
  * Callers:
- *     ACPIGpeBuildEventMasks @ 0x1C001B8FC (ACPIGpeBuildEventMasks.c)
- *     ACPIVectorConnect @ 0x1C00618E0 (ACPIVectorConnect.c)
- *     ACPIVectorDisconnect @ 0x1C0061BB0 (ACPIVectorDisconnect.c)
+ *     ACPIGpeBuildEventMasks @ 0x1C001718C (ACPIGpeBuildEventMasks.c)
+ *     ACPIVectorConnect @ 0x1C0060B20 (ACPIVectorConnect.c)
+ *     ACPIVectorDisconnect @ 0x1C0060DF0 (ACPIVectorDisconnect.c)
  * Callees:
- *     WPP_RECORDER_SF_dDD @ 0x1C001D434 (WPP_RECORDER_SF_dDD.c)
- *     ACPIGpeIndexToGpeRegister @ 0x1C001D5CC (ACPIGpeIndexToGpeRegister.c)
- *     ACPIGpeValidIndex @ 0x1C001D604 (ACPIGpeValidIndex.c)
+ *     WPP_RECORDER_SF_dDD @ 0x1C0017428 (WPP_RECORDER_SF_dDD.c)
+ *     ACPIGpeIndexToGpeRegister @ 0x1C001A108 (ACPIGpeIndexToGpeRegister.c)
+ *     ACPIGpeValidIndex @ 0x1C001A140 (ACPIGpeValidIndex.c)
  */
 
 char __fastcall ACPIGpeInstallRemoveIndex(__int64 a1, int a2, int a3, char *a4)
@@ -20,7 +20,7 @@ char __fastcall ACPIGpeInstallRemoveIndex(__int64 a1, int a2, int a3, char *a4)
   unsigned int v12; // edx
   char v13; // cl
   int v14; // r9d
-  __int64 Pool2; // rax
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
   char v17; // bl
 
   v4 = 0;
@@ -89,14 +89,14 @@ LABEL_12:
   }
   else
   {
-    Pool2 = ExAllocatePool2(64LL, 40LL, 1299211073LL);
-    if ( Pool2 )
+    PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x4D706341u);
+    if ( PoolWithTag )
     {
-      *(_DWORD *)(Pool2 + 32) = v8;
-      *(_QWORD *)(Pool2 + 16) = ACPIGpeInstallRemoveIndexErrorWorker;
-      *(_QWORD *)(Pool2 + 24) = Pool2;
-      *(_QWORD *)Pool2 = 0LL;
-      ExQueueWorkItem((PWORK_QUEUE_ITEM)Pool2, DelayedWorkQueue);
+      LODWORD(PoolWithTag[1].List.Flink) = v8;
+      PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))ACPIGpeInstallRemoveIndexErrorWorker;
+      PoolWithTag->Parameter = PoolWithTag;
+      PoolWithTag->List.Flink = 0LL;
+      ExQueueWorkItem(PoolWithTag, DelayedWorkQueue);
     }
   }
   return 0;

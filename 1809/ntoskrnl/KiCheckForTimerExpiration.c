@@ -3,14 +3,14 @@
  * Callers:
  *     KeAccumulateTicks @ 0x1400601D0 (KeAccumulateTicks.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1400F36F0 (EtwTraceKernelEvent.c)
- *     PoTraceSystemTimerResolutionKernel @ 0x1400FCC30 (PoTraceSystemTimerResolutionKernel.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x1400FCCF0 (KiSetClockIntervalToMinimumRequested.c)
- *     KiGetClockIntervalOneShot @ 0x1400FCF84 (KiGetClockIntervalOneShot.c)
- *     KiSetClockInterval @ 0x14012EAD8 (KiSetClockInterval.c)
- *     KiResetClockInterval @ 0x140190BCC (KiResetClockInterval.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x1400FCC50 (PoTraceSystemTimerResolutionKernel.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x1400FCD10 (KiSetClockIntervalToMinimumRequested.c)
+ *     KiGetClockIntervalOneShot @ 0x1400FCFA4 (KiGetClockIntervalOneShot.c)
+ *     KiSetClockInterval @ 0x14012EAF8 (KiSetClockInterval.c)
+ *     KiResetClockInterval @ 0x140190BEC (KiResetClockInterval.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int16 __fastcall KiCheckForTimerExpiration(__int64 a1)

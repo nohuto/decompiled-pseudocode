@@ -1,86 +1,51 @@
 /*
- * XREFs of ?EmitSetDiagnosticItemId@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000B35C
+ * XREFs of ?EmitSetDiagnosticItemId@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0065860
  * Callers:
- *     ?EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000ACB0 (-EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@.c)
+ *     ?EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00659D0 (-EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@.c)
  * Callees:
- *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C000B2B0 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
- *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C000B3E0 (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_050ea75d8595f0edb25d7def78c25e14___ @ 0x1C022A40C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_050ea75d8595f0edb25d7def78c25e1.c)
+ *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C00658DC (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_b3e55f7810137ca39e6ab1bd9a1e7155___ @ 0x1C01EA6CC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_b3e55f7810137ca39e6ab1bd9a1e715.c)
  */
 
 char __fastcall DirectComposition::CAnimationLoggingManagerMarshaler::EmitSetDiagnosticItemId(
         DirectComposition::CAnimationLoggingManagerMarshaler *this,
         struct DirectComposition::CBatch **a2)
 {
-  unsigned int v2; // esi
-  unsigned int v4; // ebp
-  char v6; // di
-  __int64 v8; // r14
-  __int64 v9; // rax
-  __int64 v10; // rcx
-  __int128 v11; // xmm1
-  struct DirectComposition::CWeakReferenceBase *v12; // rdx
-  char updated; // al
-  size_t v14; // r8
-  _QWORD v15[2]; // [rsp+20h] [rbp-48h] BYREF
-  __int128 Src; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v17; // [rsp+40h] [rbp-28h]
+  unsigned int v3; // esi
+  char updated; // di
+  unsigned int v7; // ecx
+  _QWORD v8[3]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v9; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = *((_DWORD *)this + 50);
-  v4 = *((_DWORD *)this + 46);
-  v6 = 1;
-  if ( v2 < v4 )
+  v3 = *((_DWORD *)this + 44);
+  v9 = *((_DWORD *)this + 48);
+  updated = 1;
+  if ( v9 < v3 )
   {
-    v8 = *((unsigned int *)this + 50);
+    v8[0] = this;
+    v8[1] = &v9;
     do
     {
-      v9 = *((_QWORD *)this + 20);
-      v10 = v8 * *((_QWORD *)this + 24);
-      v11 = *(_OWORD *)(v10 + v9);
-      Src = v11;
-      v12 = (struct DirectComposition::CWeakReferenceBase *)v11;
-      v17 = *(_QWORD *)(v10 + v9 + 16);
-      if ( (_QWORD)v11 && *(_QWORD *)(v11 + 16) )
-      {
-        v15[0] = this;
-        v15[1] = &Src;
-        updated = DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_050ea75d8595f0edb25d7def78c25e14___(
-                    this,
-                    a2,
-                    v15);
-        v12 = (struct DirectComposition::CWeakReferenceBase *)Src;
-        v6 = updated;
-      }
-      else
-      {
-        v6 = 1;
-      }
-      if ( v12 )
-      {
-        DirectComposition::CApplicationChannel::ReleaseWeakReference(
-          *((DirectComposition::CApplicationChannel **)*a2 + 1),
-          v12);
-        v14 = *((_QWORD *)this + 24);
-        *(_QWORD *)&Src = 0LL;
-        memmove((void *)(*((_QWORD *)this + 20) + v14 * v2), &Src, v14);
-      }
-      if ( !v6 )
+      updated = DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_b3e55f7810137ca39e6ab1bd9a1e7155___(
+                  this,
+                  a2,
+                  v8);
+      if ( !updated )
         break;
-      ++*((_DWORD *)this + 50);
-      ++v2;
-      ++v8;
+      v7 = v9;
+      ++*((_DWORD *)this + 48);
+      v9 = v7 + 1;
     }
-    while ( v2 < v4 );
+    while ( v7 + 1 < v3 );
   }
-  if ( *((_DWORD *)this + 50) == v4 )
+  if ( *((_DWORD *)this + 48) == v3 )
   {
-    v6 = 1;
+    updated = 1;
     DirectComposition::CDCompDynamicArrayBase::SetCount(
-      (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 160),
+      (DirectComposition::CAnimationLoggingManagerMarshaler *)((char *)this + 152),
       0LL,
       0x6D6C4344u);
-    *((_DWORD *)this + 50) = 0;
+    *((_DWORD *)this + 48) = 0;
   }
-  return v6;
+  return updated;
 }

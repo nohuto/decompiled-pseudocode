@@ -1,22 +1,20 @@
 /*
- * XREFs of ?CreateSkyBoxPrimitive@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAPEAVCDrawListPrimitive@@@Z @ 0x180225820
+ * XREFs of ?CreateSkyBoxPrimitive@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAPEAVCDrawListPrimitive@@@Z @ 0x1801BB8C4
  * Callers:
- *     ?BuildDrawList@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAVCDrawListEntryBuilder@@@Z @ 0x180225410 (-BuildDrawList@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAVCDrawListEntryBuil.c)
+ *     ?BuildDrawList@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAVCDrawListEntryBuilder@@@Z @ 0x1801BB420 (-BuildDrawList@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAVCDrawListEntryBuil.c)
  * Callees:
- *     ?Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z @ 0x18000A1C4 (-Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z.c)
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x1800255BC (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ?Create@CDrawListPrimitive@@SAJAEBV?$StridedSpan@$$CBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@AEBV?$StridedSpan@$$CBUVertexAAFixup_UVxN@@@@IV?$span@G$0?0@gsl@@AEBUD2D_VECTOR_2F@@_NPEAPEAV1@@Z @ 0x18004217C (-Create@CDrawListPrimitive@@SAJAEBV-$StridedSpan@$$CBU-$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@AEBV.c)
- *     ?GetMatrix@CTransform3D@@QEAAAEBVCMILMatrix@@PEBUD2D_SIZE_F@@@Z @ 0x1800585B0 (-GetMatrix@CTransform3D@@QEAAAEBVCMILMatrix@@PEBUD2D_SIZE_F@@@Z.c)
- *     ?Translate@CMILMatrix@@QEAAXMMM@Z @ 0x18005F260 (-Translate@CMILMatrix@@QEAAXMMM@Z.c)
- *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180071B00 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
- *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
- *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097870 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800C4940 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
- *     ?Scale@CMILMatrix@@QEAAXMMM@Z @ 0x1800DB9D8 (-Scale@CMILMatrix@@QEAAXMMM@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
- *     ?AddMultipleAndSet@?$DynArray@G$0A@@@QEAAJPEFBGI@Z @ 0x18022537C (-AddMultipleAndSet@-$DynArray@G$0A@@@QEAAJPEFBGI@Z.c)
+ *     ?Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z @ 0x18000B9EC (-Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z.c)
+ *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180041988 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
+ *     ?Translate@CMILMatrix@@QEAAXMMM@Z @ 0x180041AB0 (-Translate@CMILMatrix@@QEAAXMMM@Z.c)
+ *     ?Scale@CMILMatrix@@QEAAXMMM@Z @ 0x18004226C (-Scale@CMILMatrix@@QEAAXMMM@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180065C00 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?Create@CDrawListPrimitive@@SAJ_NAEBV?$StridedSpan@$$CBU?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@AEBV?$StridedSpan@$$CBUVertexAAFixup_UVxN@@@@IV?$span@G$0?0@gsl@@AEBUD2D_VECTOR_2F@@0PEAPEAV1@@Z @ 0x180067378 (-Create@CDrawListPrimitive@@SAJ_NAEBV-$StridedSpan@$$CBU-$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@AE.c)
+ *     ?GetMatrix@CTransform3D@@QEAAAEBVCMILMatrix@@PEBUD2D_SIZE_F@@@Z @ 0x18007B128 (-GetMatrix@CTransform3D@@QEAAAEBVCMILMatrix@@PEBUD2D_SIZE_F@@@Z.c)
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800B8A24 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?AddMultipleAndSet@?$DynArray@G$0A@@@QEAAJPEFBGI@Z @ 0x1801BB38C (-AddMultipleAndSet@-$DynArray@G$0A@@@QEAAJPEFBGI@Z.c)
  */
 
 __int64 __fastcall CCompositionSkyBoxBrush::CreateSkyBoxPrimitive(
@@ -31,114 +29,117 @@ __int64 __fastcall CCompositionSkyBoxBrush::CreateSkyBoxPrimitive(
   int v10; // eax
   CTransform3D *v11; // rcx
   const struct CMILMatrix *Matrix; // rax
-  __int64 v13; // rbx
-  const struct MilPoint4F *v14; // rdi
-  __int64 v15; // rsi
-  int v16; // xmm0_4
+  const struct MilPoint4F *v13; // rdx
+  __int64 v14; // rbx
+  int v15; // xmm0_4
+  _DWORD *v16; // rdx
   int v17; // eax
-  int v18; // xmm1_4
-  int v19; // xmm0_4
-  int v20; // eax
-  __int128 v21; // xmm0
-  gsl::details *v22; // rcx
-  int v23; // eax
-  __int64 v24; // rcx
-  _QWORD v26[2]; // [rsp+40h] [rbp-C0h] BYREF
-  __int128 v27; // [rsp+50h] [rbp-B0h] BYREF
-  int v28; // [rsp+60h] [rbp-A0h]
-  int v29; // [rsp+64h] [rbp-9Ch]
-  unsigned int v30; // [rsp+68h] [rbp-98h]
-  int v31[2]; // [rsp+70h] [rbp-90h] BYREF
-  int v32; // [rsp+78h] [rbp-88h]
-  int v33; // [rsp+7Ch] [rbp-84h]
-  int v34[2]; // [rsp+80h] [rbp-80h] BYREF
-  int v35; // [rsp+88h] [rbp-78h]
-  int v36; // [rsp+8Ch] [rbp-74h]
-  _BYTE v37[80]; // [rsp+90h] [rbp-70h] BYREF
-  size_t v38; // [rsp+E0h] [rbp-20h] BYREF
+  __int64 v18; // r11
+  int v19; // xmm1_4
+  int v20; // xmm0_4
+  int v21; // eax
+  int v22; // eax
+  __int64 v23; // rcx
+  __int128 v25; // [rsp+40h] [rbp-C0h] BYREF
+  int v26; // [rsp+50h] [rbp-B0h]
+  int v27; // [rsp+54h] [rbp-ACh]
+  unsigned int v28; // [rsp+58h] [rbp-A8h]
+  _DWORD *v29; // [rsp+60h] [rbp-A0h] BYREF
+  int v30; // [rsp+68h] [rbp-98h]
+  int v31; // [rsp+6Ch] [rbp-94h]
+  _DWORD *v32; // [rsp+70h] [rbp-90h] BYREF
+  int v33; // [rsp+78h] [rbp-88h]
+  int v34; // [rsp+7Ch] [rbp-84h]
+  _QWORD v35[2]; // [rsp+80h] [rbp-80h] BYREF
+  _OWORD v36[4]; // [rsp+90h] [rbp-70h] BYREF
+  __int16 v37; // [rsp+D0h] [rbp-30h]
+  unsigned __int64 v38; // [rsp+E0h] [rbp-20h] BYREF
   int v39; // [rsp+E8h] [rbp-18h]
   _DWORD v40[64]; // [rsp+F0h] [rbp-10h] BYREF
   _DWORD v41[64]; // [rsp+1F0h] [rbp+F0h] BYREF
 
-  CMILMatrix::SetToIdentity((CMILMatrix *)v37);
+  v26 = 0;
+  v27 = 0;
   v28 = 0;
-  v29 = 0;
-  v30 = 0;
-  v27 = 0LL;
-  v6 = DynArrayImpl<0>::Grow((unsigned __int64)&v27, 2u, 36, 0, 0LL);
+  v36[0] = _xmm;
+  v36[2] = _xmm;
+  v36[1] = _xmm;
+  v25 = 0LL;
+  v37 = 32085;
+  v36[3] = _xmm;
+  v6 = DynArrayImpl<0>::Grow((__int64)&v25, 2u, 36, 0, 0LL);
   v8 = v6;
   if ( v6 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x128u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x12Fu, 0LL);
   }
   else
   {
     for ( i = 0; i < 6; ++i )
     {
-      v10 = *((_DWORD *)this + 30);
+      v10 = *((_DWORD *)this + 28);
       if ( _bittest(&v10, i) )
-        DynArray<unsigned short,0>::AddMultipleAndSet((__int64)&v27, (__int64 *)((char *)&unk_1803B8210 + 12 * i));
+        DynArray<unsigned short,0>::AddMultipleAndSet((__int64)&v25, (__int64 *)((char *)&unk_180304AC0 + 12 * i));
     }
-    CMILMatrix::Scale((CMILMatrix *)v37, *((float *)this + 29), *((float *)this + 29), *((float *)this + 29));
-    CMILMatrix::Translate((CMILMatrix *)v37, *((float *)this + 26), *((float *)this + 27), *((float *)this + 28));
-    v11 = (CTransform3D *)*((_QWORD *)this + 12);
+    CMILMatrix::Scale((CMILMatrix *)v36, *((float *)this + 27), *((float *)this + 27), *((float *)this + 27));
+    CMILMatrix::Translate((CMILMatrix *)v36, *((float *)this + 24), *((float *)this + 25), *((float *)this + 26));
+    v11 = (CTransform3D *)*((_QWORD *)this + 11);
     if ( v11 )
     {
       Matrix = CTransform3D::GetMatrix(v11, a2 + 1);
-      CMILMatrix::Multiply((CMILMatrix *)v37, Matrix);
+      CMILMatrix::Multiply((CMILMatrix *)v36, Matrix);
     }
-    CMILMatrix::Translate((CMILMatrix *)v37, a2[1].width * 0.5, a2[1].height * 0.5, 0.0);
-    v13 = 0LL;
-    v14 = (const struct MilPoint4F *)&unk_1803B8260;
-    v15 = 8LL;
+    CMILMatrix::Translate((CMILMatrix *)v36, a2[1].width * 0.5, a2[1].height * 0.5, 0.0);
+    v13 = (const struct MilPoint4F *)&unk_180304B10;
+    v14 = 8LL;
     do
     {
-      CMILMatrix::Transform((CMILMatrix *)v37, v14, (struct MilPoint4F *)&v38, 1);
-      v16 = HIDWORD(v38);
-      v17 = *(_DWORD *)v14;
-      v40[v13 + 3] = -1;
-      v40[v13 + 7] = 0;
-      v41[v13 + 2] = 0;
-      v18 = v38;
-      v41[v13 + 1] = v16;
-      v40[v13 + 1] = v16;
-      v40[v13 + 2] = v39;
-      v19 = *((_DWORD *)v14 + 1) ^ _xmm;
-      v40[v13 + 4] = v17;
-      v20 = *((_DWORD *)v14 + 2);
-      v14 = (const struct MilPoint4F *)((char *)v14 + 16);
-      v40[v13 + 5] = v19;
-      v40[v13] = v18;
-      v40[v13 + 6] = v20;
-      v41[v13] = v18;
-      v41[v13 + 3] = 1065353216;
-      v21 = *(_OWORD *)&v40[v13 + 4];
-      v13 += 8LL;
-      *(_OWORD *)&v40[v13 + 60] = v21;
-      --v15;
+      CMILMatrix::Transform((CMILMatrix *)v36, v13, (struct MilPoint4F *)&v38, 1);
+      v15 = HIDWORD(v38);
+      v17 = *v16;
+      *(_DWORD *)((char *)&v40[3] + v18) = -1;
+      *(_DWORD *)((char *)&v40[7] + v18) = 0;
+      *(_DWORD *)((char *)&v41[2] + v18) = 0;
+      v19 = v38;
+      *(_DWORD *)((char *)&v41[1] + v18) = v15;
+      *(_DWORD *)((char *)&v40[1] + v18) = v15;
+      *(_DWORD *)((char *)&v40[2] + v18) = v39;
+      v20 = v16[1] ^ _xmm;
+      *(_DWORD *)((char *)&v40[4] + v18) = v17;
+      v21 = v16[2];
+      v13 = (const struct MilPoint4F *)(v16 + 4);
+      *(_DWORD *)((char *)&v40[5] + v18) = v20;
+      *(_DWORD *)((char *)v40 + v18) = v19;
+      *(_DWORD *)((char *)&v40[6] + v18) = v21;
+      *(_DWORD *)((char *)v41 + v18) = v19;
+      *(_DWORD *)((char *)&v41[3] + v18) = 1065353216;
+      *(_OWORD *)((char *)&v40[68] + v18) = *(_OWORD *)((char *)&v40[4] + v18);
+      --v14;
     }
-    while ( v15 );
-    *(_QWORD *)v34 = v40;
+    while ( v14 );
+    v32 = v40;
+    v29 = v41;
     v38 = _mm_unpacklo_ps((__m128)(unsigned int)FLOAT_1_0, (__m128)(unsigned int)FLOAT_1_0).m128_u64[0];
-    v35 = 32;
-    v36 = 8;
-    *(_QWORD *)v31 = v41;
-    v32 = 32;
-    v33 = 8;
-    gsl::details::extent_type<-1>::extent_type<-1>((gsl::details *)v26, v30);
-    if ( v26[0] == -1LL || (v22 = (gsl::details *)v27) == 0LL && v26[0] )
+    v33 = 32;
+    v34 = 8;
+    v30 = 32;
+    v31 = 8;
+    if ( !(_QWORD)v25 && v28 )
     {
-      gsl::details::terminate(v22);
+      ((void (__fastcall *)(_QWORD, const struct MilPoint4F *))`gsl::details::get_terminate_handler'::`2'::handler)(
+        0LL,
+        v13);
       __debugbreak();
     }
-    v26[1] = v27;
-    v23 = CDrawListPrimitive::Create((__int64)v34, (int)v31, 2, (__int64)v26, (size_t)&v38, 0, (__int64 *)a3);
-    v8 = v23;
-    if ( v23 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v23, 0x167u, 0LL);
+    v35[0] = v28;
+    v35[1] = v25;
+    v22 = CDrawListPrimitive::Create(0, (__int64)&v32, (__int64)&v29, 2u, (__int64)v35, (__int64)&v38, 0, a3);
+    v8 = v22;
+    if ( v22 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, v22, 0x16Fu, 0LL);
     else
       v8 = 0;
   }
-  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)&v27);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)&v25);
   return v8;
 }

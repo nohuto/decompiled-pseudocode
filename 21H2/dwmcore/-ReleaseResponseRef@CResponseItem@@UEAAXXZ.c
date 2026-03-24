@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ReleaseResponseRef@CResponseItem@@UEAAXXZ @ 0x1800274A0
+ * XREFs of ?ReleaseResponseRef@CResponseItem@@UEAAXXZ @ 0x180043F20
  * Callers:
- *     ?Channel_AsyncFlush@CGlobalComposition@@UEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_ASYNCFLUSH@@@Z @ 0x180027420 (-Channel_AsyncFlush@CGlobalComposition@@UEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMIL.c)
+ *     ?AddAsyncFlushResponse@CLegacySurfaceManager@@QEAAJPEAVCChannelContext@@II@Z @ 0x180043E10 (-AddAsyncFlushResponse@CLegacySurfaceManager@@QEAAJPEAVCChannelContext@@II@Z.c)
  * Callees:
- *     ?QueueResponse@CResponseItem@@QEAAJXZ @ 0x1800274C8 (-QueueResponse@CResponseItem@@QEAAJXZ.c)
+ *     ?QueueResponse@CResponseItem@@QEAAJXZ @ 0x180043F48 (-QueueResponse@CResponseItem@@QEAAJXZ.c)
  */
 
 void __fastcall CResponseItem::ReleaseResponseRef(CResponseItem *this)
 {
   if ( (*((_DWORD *)this + 4))-- == 1 )
     CResponseItem::QueueResponse(this);
-  CMILRefCountBaseT<IMILRefCount>::InternalRelease(this);
+  CDrawListEntry::Release(this);
 }

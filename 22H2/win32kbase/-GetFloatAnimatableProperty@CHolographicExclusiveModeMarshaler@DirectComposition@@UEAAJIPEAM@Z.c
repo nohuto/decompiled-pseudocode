@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetFloatAnimatableProperty@CHolographicExclusiveModeMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C0226D60
+ * XREFs of ?GetFloatAnimatableProperty@CHolographicExclusiveModeMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C01EDF40
  * Callers:
  *     <none>
  * Callees:
- *     ?GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C020D650 (-GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z.c)
+ *     <none>
  */
 
 __int64 __fastcall DirectComposition::CHolographicExclusiveModeMarshaler::GetFloatAnimatableProperty(
@@ -11,19 +11,11 @@ __int64 __fastcall DirectComposition::CHolographicExclusiveModeMarshaler::GetFlo
         int a2,
         float *a3)
 {
-  unsigned int v3; // r9d
+  __int64 result; // rax
 
-  v3 = 0;
-  if ( a3 )
-  {
-    if ( a2 == 1 )
-      *a3 = *((float *)this + 15);
-    else
-      return (unsigned int)DirectComposition::CResourceMarshaler::GetFloatAnimatableProperty(this, a2, a3);
-  }
-  else
-  {
-    return (unsigned int)-1073741811;
-  }
-  return v3;
+  result = 0LL;
+  if ( !a3 || a2 != 1 )
+    return 3221225485LL;
+  *a3 = *((float *)this + 15);
+  return result;
 }

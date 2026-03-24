@@ -1,34 +1,29 @@
 /*
- * XREFs of ?FreeRoutedAwayTarget@CTouchProcessor@@AEAAXPEAUtagCPointerRoutedAwayTarget@@@Z @ 0x1C01C6438
+ * XREFs of ?FreeRoutedAwayTarget@CTouchProcessor@@AEAAXPEAUtagCPointerRoutedAwayTarget@@@Z @ 0x1C018F7E4
  * Callers:
- *     ?PopRoutedAwayTarget@CTouchProcessor@@AEAA?AVCInputDest@@G@Z @ 0x1C01CF3B4 (-PopRoutedAwayTarget@CTouchProcessor@@AEAA-AVCInputDest@@G@Z.c)
- *     ?RemoveRoutedAwayTarget@CTouchProcessor@@AEAAXGVCInputDest@@@Z @ 0x1C01D3B64 (-RemoveRoutedAwayTarget@CTouchProcessor@@AEAAXGVCInputDest@@@Z.c)
+ *     ?PopRoutedAwayTarget@CTouchProcessor@@AEAA?AVCInputDest@@G@Z @ 0x1C0197BF0 (-PopRoutedAwayTarget@CTouchProcessor@@AEAA-AVCInputDest@@G@Z.c)
+ *     ?RemoveRoutedAwayTarget@CTouchProcessor@@AEAAXGVCInputDest@@@Z @ 0x1C019B3B4 (-RemoveRoutedAwayTarget@CTouchProcessor@@AEAAXGVCInputDest@@@Z.c)
  * Callees:
- *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0038C0C (-SetEmpty@CInputDest@@QEAAXXZ.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C0042894 (-SetEmpty@CInputDest@@QEAAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-void __fastcall CTouchProcessor::FreeRoutedAwayTarget(
-        struct _KTHREAD **this,
-        struct tagCPointerRoutedAwayTarget ***a2,
-        __int64 a3)
+void __fastcall CTouchProcessor::FreeRoutedAwayTarget(struct _KTHREAD **this, struct tagCPointerRoutedAwayTarget ***a2)
 {
-  struct tagCPointerRoutedAwayTarget **v4; // rax
-  struct tagCPointerRoutedAwayTarget **v5; // rcx
+  struct tagCPointerRoutedAwayTarget **v3; // rax
+  struct tagCPointerRoutedAwayTarget **v4; // rcx
 
-  if ( this[5] != KeGetCurrentThread() )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(this, a2, a3);
-  v4 = *a2;
+  if ( this[6] != KeGetCurrentThread() )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 10784);
+  v3 = *a2;
   if ( (*a2)[1] != (struct tagCPointerRoutedAwayTarget *)a2
-    || (v5 = a2[1], *v5 != (struct tagCPointerRoutedAwayTarget *)a2) )
+    || (v4 = a2[1], *v4 != (struct tagCPointerRoutedAwayTarget *)a2) )
   {
     __fastfail(3u);
   }
-  *v5 = (struct tagCPointerRoutedAwayTarget *)v4;
-  v4[1] = (struct tagCPointerRoutedAwayTarget *)v5;
+  *v4 = (struct tagCPointerRoutedAwayTarget *)v3;
+  v3[1] = (struct tagCPointerRoutedAwayTarget *)v4;
   CInputDest::SetEmpty((CInputDest *)(a2 + 2));
-  NSInstrumentation::CLeakTrackingAllocator::Free(
-    (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-    (char *)a2);
+  Win32FreePool((__int64)a2);
 }

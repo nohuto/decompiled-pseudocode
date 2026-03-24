@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Draw@CRedirectedVisualContent@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180107DF0
+ * XREFs of ?Draw@CRedirectedVisualContent@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F6C20
  * Callers:
  *     <none>
  * Callees:
@@ -12,5 +12,5 @@ __int64 __fastcall CRedirectedVisualContent::Draw(
         const struct D2D_SIZE_F *a3,
         struct CDrawListCache *a4)
 {
-  return CRedirectedVisualContent::Draw((CRedirectedVisualContent *)(a1 - *(int *)(a1 - 4)), a2, a3, a4);
+  return CRedirectedVisualContent::Draw((struct CVisual **)(a1 - *(int *)(a1 - 4)), a2, a3, a4);
 }

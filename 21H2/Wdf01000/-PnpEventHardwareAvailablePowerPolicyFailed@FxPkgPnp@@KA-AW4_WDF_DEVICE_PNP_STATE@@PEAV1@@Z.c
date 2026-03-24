@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PnpEventHardwareAvailablePowerPolicyFailed@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C000BDE0
+ * XREFs of ?PnpEventHardwareAvailablePowerPolicyFailed@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C000DD20
  * Callers:
  *     <none>
  * Callees:

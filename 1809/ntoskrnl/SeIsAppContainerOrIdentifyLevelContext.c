@@ -1,11 +1,11 @@
 /*
  * XREFs of SeIsAppContainerOrIdentifyLevelContext @ 0x140588B1C
  * Callers:
- *     IopDoFullTraverseCheck @ 0x1400B8D90 (IopDoFullTraverseCheck.c)
+ *     IopDoFullTraverseCheck @ 0x1400B8DB0 (IopDoFullTraverseCheck.c)
  *     PopPowerRequestActionInfo @ 0x140588A30 (PopPowerRequestActionInfo.c)
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
  *     PfpPrivSourceEnum @ 0x1405B1B60 (PfpPrivSourceEnum.c)
- *     IopParseDevice @ 0x14063CD00 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
  * Callees:
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
  *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)

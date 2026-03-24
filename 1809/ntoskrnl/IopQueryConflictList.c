@@ -1,12 +1,12 @@
 /*
- * XREFs of IopQueryConflictList @ 0x140841FDC
+ * XREFs of IopQueryConflictList @ 0x140841FBC
  * Callers:
- *     PiControlQueryConflictList @ 0x14083BD80 (PiControlQueryConflictList.c)
+ *     PiControlQueryConflictList @ 0x14083BD60 (PiControlQueryConflictList.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeReleaseSemaphore @ 0x1400C5EA0 (KeReleaseSemaphore.c)
- *     IopQueryConflictListInternal @ 0x140842074 (IopQueryConflictListInternal.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeReleaseSemaphore @ 0x1400C5EC0 (KeReleaseSemaphore.c)
+ *     IopQueryConflictListInternal @ 0x140842054 (IopQueryConflictListInternal.c)
  */
 
 __int64 __fastcall IopQueryConflictList(int a1, int a2, __int64 a3, int a4, int a5)

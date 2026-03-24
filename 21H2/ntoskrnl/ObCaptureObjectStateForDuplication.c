@@ -1,15 +1,15 @@
 /*
- * XREFs of ObCaptureObjectStateForDuplication @ 0x14066B04C
+ * XREFs of ObCaptureObjectStateForDuplication @ 0x140685408
  * Callers:
- *     AlpcpCaptureHandleAttributeInternal @ 0x14066AD78 (AlpcpCaptureHandleAttributeInternal.c)
+ *     AlpcpCaptureHandleAttributeInternal @ 0x14068513C (AlpcpCaptureHandleAttributeInternal.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     ObReferenceProcessHandleTable @ 0x14066B3D8 (ObReferenceProcessHandleTable.c)
- *     RtlMapGenericMask @ 0x140728CB0 (RtlMapGenericMask.c)
- *     ObpIncrementHandleCountEx @ 0x140733B40 (ObpIncrementHandleCountEx.c)
- *     ObpReferenceProcessObjectByHandle @ 0x1407A2680 (ObpReferenceProcessObjectByHandle.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceProcessHandleTable @ 0x1405F57B4 (ObReferenceProcessHandleTable.c)
+ *     ObpReferenceProcessObjectByHandle @ 0x1406855C0 (ObpReferenceProcessObjectByHandle.c)
+ *     ObpIncrementHandleCountEx @ 0x1406F5F60 (ObpIncrementHandleCountEx.c)
+ *     RtlMapGenericMask @ 0x140702EA0 (RtlMapGenericMask.c)
  */
 
 __int64 __fastcall ObCaptureObjectStateForDuplication(
@@ -23,7 +23,7 @@ __int64 __fastcall ObCaptureObjectStateForDuplication(
   ACCESS_MASK v7; // r14d
   int v8; // esi
   int v10; // edi
-  __int64 v11; // rax
+  unsigned __int64 v11; // rax
   int v12; // r9d
   int v13; // esi
   char *v14; // rsi
@@ -62,52 +62,49 @@ __int64 __fastcall ObCaptureObjectStateForDuplication(
           (__int64)&v23);
   if ( v13 < 0 )
   {
-    ExReleaseRundownProtection(Object + 139);
+    ExReleaseRundownProtection_0(Object + 139);
     return (unsigned int)v13;
+  }
+  if ( (v22 & 4) != 0 )
+    LODWORD(v23) = 0;
+  v14 = (char *)Objecta[0];
+  v15 = v10 == 0;
+  v16 = HIDWORD(v22);
+  v17 = a6;
+  if ( !v15 )
+    v7 = HIDWORD(v22);
+  AccessMask = v7;
+  v18 = v22 & 4 | 8;
+  if ( (a4 & 8) == 0 )
+    v18 = v22 & 0xC;
+  *(_QWORD *)(a6 + 28) = v23;
+  v19 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*(v14 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)v14 - 48) >> 8)];
+  if ( (v7 & 0xF0000000) != 0 )
+  {
+    RtlMapGenericMask(&AccessMask, (PGENERIC_MAPPING)(v19 + 76));
+    v7 = AccessMask;
+  }
+  v27 = v7 & (*(_DWORD *)(v19 + 92) | 0x1000000);
+  if ( (~v16 & v27) != 0 )
+  {
+    ExReleaseRundownProtection_0(Object + 139);
+    ObfDereferenceObjectWithTag(v14, 0x7544624Fu);
+    return 3221225506LL;
+  }
+  v20 = ObpIncrementHandleCountEx(2, (unsigned int)&v27, (_DWORD)Object, (_DWORD)v14, a5, v18, 0LL);
+  ExReleaseRundownProtection_0(Object + 139);
+  if ( v20 < 0 )
+  {
+    ObfDereferenceObjectWithTag(v14, 0x7544624Fu);
   }
   else
   {
-    if ( (v22 & 4) != 0 )
-      LODWORD(v23) = 0;
-    v14 = (char *)Objecta[0];
-    v15 = v10 == 0;
-    v16 = HIDWORD(v22);
-    v17 = a6;
-    if ( !v15 )
-      v7 = HIDWORD(v22);
-    AccessMask = v7;
-    v18 = v22 & 4 | 8;
-    if ( (a4 & 8) == 0 )
-      v18 = v22 & 0xC;
-    *(_QWORD *)(a6 + 28) = v23;
-    v19 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*(v14 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)v14 - 48) >> 8)];
-    if ( (v7 & 0xF0000000) != 0 )
-    {
-      RtlMapGenericMask(&AccessMask, (PGENERIC_MAPPING)(v19 + 76));
-      v7 = AccessMask;
-    }
-    v27 = v7 & (*(_DWORD *)(v19 + 92) | 0x1000000);
-    if ( (~v16 & v27) != 0 )
-    {
-      ExReleaseRundownProtection(Object + 139);
-      ObfDereferenceObjectWithTag(v14, 0x7544624Fu);
-      return 3221225506LL;
-    }
-    v20 = ObpIncrementHandleCountEx(2, (unsigned int)&v27, (_DWORD)Object, (_DWORD)v14, a5, v18, 0LL);
-    ExReleaseRundownProtection(Object + 139);
-    if ( v20 < 0 )
-    {
-      ObfDereferenceObjectWithTag(v14, 0x7544624Fu);
-    }
-    else
-    {
-      *(_DWORD *)(v17 + 24) = v27;
-      *(_QWORD *)(v17 + 8) = a2;
-      *(_DWORD *)(v17 + 36) = v18;
-      ObfReferenceObjectWithTag(Object, 0x7544624Fu);
-      *(_QWORD *)v17 = Object;
-      *(_QWORD *)(v17 + 16) = v14;
-    }
-    return (unsigned int)v20;
+    *(_DWORD *)(v17 + 24) = v27;
+    *(_QWORD *)(v17 + 8) = a2;
+    *(_DWORD *)(v17 + 36) = v18;
+    ObfReferenceObjectWithTag(Object, 0x7544624Fu);
+    *(_QWORD *)v17 = Object;
+    *(_QWORD *)(v17 + 16) = v14;
   }
+  return (unsigned int)v20;
 }

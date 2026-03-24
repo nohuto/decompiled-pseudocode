@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceThermalStandbyComplete @ 0x1405D4370
+ * XREFs of PopTraceThermalStandbyComplete @ 0x140573964
  * Callers:
- *     PopThermalStandbyEndTracking @ 0x14038B428 (PopThermalStandbyEndTracking.c)
+ *     PopThermalStandbyEndTracking @ 0x14038AE70 (PopThermalStandbyEndTracking.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void PopTraceThermalStandbyComplete()
@@ -24,9 +24,9 @@ void PopTraceThermalStandbyComplete()
   int *v11; // [rsp+80h] [rbp+37h]
   __int64 v12; // [rsp+88h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140C03A00 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03A00, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
     {
       v5 = v0;
       v7 = &v3;
@@ -38,8 +38,8 @@ void PopTraceThermalStandbyComplete()
       v10 = 4LL;
       v12 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03A00,
-        (unsigned __int8 *)&dword_14002F40E + 1,
+        (__int64)&dword_140C02228,
+        (unsigned __int8 *)&byte_140028057,
         0LL,
         0LL,
         5u,

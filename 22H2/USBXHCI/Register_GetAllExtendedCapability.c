@@ -1,20 +1,20 @@
 /*
- * XREFs of Register_GetAllExtendedCapability @ 0x1C001A888
+ * XREFs of Register_GetAllExtendedCapability @ 0x1C0019008
  * Callers:
- *     Wmi_CreateControllerCapabilities @ 0x1C0015204 (Wmi_CreateControllerCapabilities.c)
+ *     Wmi_CreateControllerCapabilities @ 0x1C00110F8 (Wmi_CreateControllerCapabilities.c)
  * Callees:
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     XilRegister_ReadBufferUlong @ 0x1C001A970 (XilRegister_ReadBufferUlong.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     XilRegister_ReadBufferUlong @ 0x1C00190E8 (XilRegister_ReadBufferUlong.c)
  */
 
 void __fastcall Register_GetAllExtendedCapability(__int64 a1, __int64 a2)
 {
   unsigned int *v2; // rdi
   int Ulong; // eax
-  __int64 v6; // rcx
-  __int64 v7; // r9
-  __int64 v8; // r8
+  __int64 v6; // r9
+  __int64 v7; // r8
+  __int64 v8; // rcx
   int v9; // edx
 
   v2 = *(unsigned int **)(a1 + 56);
@@ -33,7 +33,7 @@ void __fastcall Register_GetAllExtendedCapability(__int64 a1, __int64 a2)
           v9,
           6,
           71,
-          (__int64)&WPP_9becb08c9a963bf1570437ff97ef33f0_Traceguids,
+          (__int64)&WPP_1c1335c0938732c3a8bc02d386676659_Traceguids,
           Ulong,
           *(_BYTE *)(a2 + 1));
       }
@@ -42,26 +42,24 @@ void __fastcall Register_GetAllExtendedCapability(__int64 a1, __int64 a2)
       if ( (unsigned __int8)*(_DWORD *)a2 == 2 )
       {
         XilRegister_ReadBufferUlong(a1, v2, a2, 4LL);
-        v7 = *(_DWORD *)(a2 + 8) >> 28;
-        if ( (_DWORD)v7 )
+        v6 = *(_DWORD *)(a2 + 8) >> 28;
+        if ( (_DWORD)v6 )
         {
-          v8 = a2 + 16;
-LABEL_13:
-          XilRegister_ReadBufferUlong(a1, v2, v8, v7);
+          v7 = a2 + 16;
+LABEL_9:
+          XilRegister_ReadBufferUlong(a1, v2, v7, v6);
         }
       }
-      if ( *(_DWORD *)a2 == -1 )
-        return;
       if ( !*(_BYTE *)(a2 + 1) )
         return;
-      v6 = 4LL * *(unsigned __int8 *)(a2 + 1);
-      v2 = (unsigned int *)((char *)v2 + v6);
+      v8 = 4LL * *(unsigned __int8 *)(a2 + 1);
+      v2 = (unsigned int *)((char *)v2 + v8);
       if ( (unsigned __int64)v2 >= *(_QWORD *)(a1 + 24) + (unsigned __int64)*(unsigned int *)(a1 + 20) )
         return;
-      a2 += v6;
+      a2 += v8;
     }
-    v7 = 2LL;
-    v8 = a2;
-    goto LABEL_13;
+    v6 = 2LL;
+    v7 = a2;
+    goto LABEL_9;
   }
 }

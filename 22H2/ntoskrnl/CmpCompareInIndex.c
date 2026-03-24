@@ -1,13 +1,12 @@
 /*
- * XREFs of CmpCompareInIndex @ 0x1406D9710
+ * XREFs of CmpCompareInIndex @ 0x1405EDCF0
  * Callers:
- *     CmpFindSubKeyInRoot @ 0x1406D7F3C (CmpFindSubKeyInRoot.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x1406D9590 (CmpFindSubKeyInLeafWithStatus.c)
- *     CmpAddToLeaf @ 0x140708AA4 (CmpAddToLeaf.c)
+ *     CmpFindSubKeyInRoot @ 0x1405ED60C (CmpFindSubKeyInRoot.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1405EDFE0 (CmpFindSubKeyInLeafWithStatus.c)
+ *     CmpAddToLeaf @ 0x1406E290C (CmpAddToLeaf.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D330 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     CmpDoCompareKeyName @ 0x1406DA960 (CmpDoCompareKeyName.c)
+ *     NLS_UPCASE @ 0x140206AB0 (NLS_UPCASE.c)
+ *     CmpDoCompareKeyName @ 0x1405EE600 (CmpDoCompareKeyName.c)
  */
 
 __int64 __fastcall CmpCompareInIndex(
@@ -20,129 +19,95 @@ __int64 __fastcall CmpCompareInIndex(
 {
   __int16 v9; // r11
   __int16 v10; // ax
-  __int16 *v11; // rbp
-  unsigned int v12; // ebx
-  _BYTE *v13; // rax
-  unsigned int v14; // ecx
-  unsigned int v15; // edx
-  unsigned int v16; // r9d
-  __int64 v17; // rdi
-  unsigned __int8 *v18; // rsi
-  unsigned __int16 v19; // dx
-  unsigned int v20; // r11d
-  int v21; // r10d
-  unsigned int v22; // eax
-  int v23; // r10d
-  unsigned int v24; // eax
-  unsigned int v25; // edx
+  __int16 *v11; // rbx
+  unsigned int v12; // eax
+  unsigned int v13; // edx
+  __int16 *v14; // rbp
+  __int64 v15; // r11
+  _BYTE *v16; // rcx
+  unsigned int v17; // eax
+  unsigned int v18; // edx
+  unsigned int v19; // ebx
+  unsigned __int16 v20; // cx
+  unsigned int v21; // r10d
+  int v22; // r9d
+  int v23; // eax
+  int v24; // r9d
+  unsigned int v25; // eax
   __int64 result; // rax
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned __int16 v28; // dx
-  _QWORD *v29; // rax
-  unsigned __int16 v30; // r11
-  __int16 *v31; // rbx
-  unsigned int v32; // eax
 
   v9 = *a5;
   v10 = *a5;
   *a6 = -1;
   if ( ((v10 - 26220) & 0xFDFF) != 0 )
   {
-    v31 = &a5[2 * a4];
-    v32 = CmpDoCompareKeyName(a1, a2, a3, *((unsigned int *)v31 + 1));
-    v25 = v32;
-    if ( v32 != 2 )
+    v11 = &a5[2 * a4];
+    v12 = CmpDoCompareKeyName(a1, a2, a3, *((unsigned int *)v11 + 1));
+    v13 = v12;
+    if ( v12 != 2 )
     {
-      if ( !v32 )
-        *a6 = *((_DWORD *)v31 + 1);
-      return v25;
-    }
-    return 2LL;
-  }
-  v11 = &a5[4 * a4];
-  if ( v9 != 26220 )
-    goto LABEL_20;
-  v12 = 0;
-  v13 = v11 + 4;
-  v14 = 0;
-  v15 = 4;
-  while ( *v13 )
-  {
-    ++v14;
-    ++v13;
-    if ( v14 >= 4 )
-      goto LABEL_6;
-  }
-  v15 = v14;
-LABEL_6:
-  if ( a3 )
-    v16 = *a3;
-  else
-    v16 = *a2 >> 1;
-  if ( v16 >= v15 )
-    v16 = v15;
-  if ( !v16 )
-  {
-LABEL_20:
-    v24 = CmpDoCompareKeyName(a1, a2, a3, *((unsigned int *)v11 + 1));
-    v25 = v24;
-    if ( v24 != 2 )
-    {
-      if ( !v24 )
+      if ( !v12 )
         *a6 = *((_DWORD *)v11 + 1);
-      return v25;
+      return v13;
     }
     return 2LL;
   }
-  v17 = 0LL;
-  v18 = (unsigned __int8 *)(v11 + 4);
+  v14 = &a5[4 * a4];
+  if ( v9 != 26220 )
+    goto LABEL_32;
+  v15 = 0LL;
+  v16 = v14 + 4;
+  v17 = 0;
+  v18 = 4;
+  while ( *v16 )
+  {
+    ++v17;
+    ++v16;
+    if ( v17 >= 4 )
+      goto LABEL_11;
+  }
+  v18 = v17;
+LABEL_11:
+  if ( a3 )
+    v19 = *a3;
+  else
+    v19 = *a2 >> 1;
+  if ( v19 >= v18 )
+    v19 = v18;
+  if ( !v19 )
+  {
+LABEL_32:
+    v25 = CmpDoCompareKeyName(a1, a2, a3, *((unsigned int *)v14 + 1));
+    v13 = v25;
+    if ( v25 != 2 )
+    {
+      if ( !v25 )
+        *a6 = *((_DWORD *)v14 + 1);
+      return v13;
+    }
+    return 2LL;
+  }
   while ( 1 )
   {
-    v19 = a3 ? *(unsigned __int8 *)(*((_QWORD *)a3 + 1) + v12) : *(_WORD *)(v17 + *((_QWORD *)a2 + 1));
-    v20 = *v18;
-    if ( v19 >= 0x61u )
-    {
-      if ( v19 <= 0x7Au )
-      {
-        v21 = v19 - 32;
-      }
-      else
-      {
-        CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-        v21 = NLS_UPCASE(CurrentServerSiloGlobals[154], v28);
-      }
-    }
+    v20 = a3 ? *(unsigned __int8 *)(v15 + *((_QWORD *)a3 + 1)) : *(_WORD *)(*((_QWORD *)a2 + 1) + 2 * v15);
+    v21 = *((unsigned __int8 *)v14 + v15 + 8);
+    if ( v20 >= 0x61u )
+      v22 = v20 <= 0x7Au ? v20 - 32 : NLS_UPCASE(v20);
     else
-    {
-      v21 = v19;
-    }
-    if ( v20 >= 0x61 )
-    {
-      if ( v20 <= 0x7A )
-      {
-        v22 = v20 - 32;
-      }
-      else
-      {
-        v29 = PsGetCurrentServerSiloGlobals();
-        v22 = NLS_UPCASE(v29[154], v30);
-      }
-    }
-    else
-    {
       v22 = v20;
-    }
-    v23 = v21 - v22;
-    if ( v23 )
+    if ( v21 >= 0x61 )
+      v23 = v21 <= 0x7A ? v21 - 32 : NLS_UPCASE(v21);
+    else
+      v23 = v21;
+    v24 = v22 - v23;
+    if ( v24 )
       break;
-    ++v12;
-    v17 += 2LL;
-    ++v18;
-    if ( v12 >= v16 )
-      goto LABEL_20;
+    v15 = (unsigned int)(v15 + 1);
+    if ( (unsigned int)v15 >= v19 )
+      goto LABEL_32;
   }
   result = 1LL;
-  if ( v23 <= 0 )
+  if ( v24 <= 0 )
     return 0xFFFFFFFFLL;
   return result;
 }

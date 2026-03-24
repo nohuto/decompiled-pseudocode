@@ -1,10 +1,10 @@
 /*
- * XREFs of KdDecodeDataBlock @ 0x140567240
+ * XREFs of KdDecodeDataBlock @ 0x140510744
  * Callers:
- *     KeBugCheck2 @ 0x140568330 (KeBugCheck2.c)
- *     IopLiveDumpStartDumpDataBuffering @ 0x140A9C5F8 (IopLiveDumpStartDumpDataBuffering.c)
+ *     KeBugCheck2 @ 0x140516A10 (KeBugCheck2.c)
+ *     IopLiveDumpStartDumpDataBuffering @ 0x1409AD698 (IopLiveDumpStartDumpDataBuffering.c)
  * Callees:
- *     KdCopyDataBlock @ 0x140567170 (KdCopyDataBlock.c)
+ *     KdCopyDataBlock @ 0x140510688 (KdCopyDataBlock.c)
  */
 
 __int64 KdDecodeDataBlock()

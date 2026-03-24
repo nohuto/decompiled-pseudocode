@@ -1,9 +1,8 @@
 /*
- * XREFs of ?GetChannelCallbackId@CNotificationResource@@IEBAIXZ @ 0x1800EB758
+ * XREFs of ?GetChannelCallbackId@CNotificationResource@@IEBAIXZ @ 0x1800AD3D0
  * Callers:
- *     ?PreRender@CComposition@@IEAAJXZ @ 0x18004F2D0 (-PreRender@CComposition@@IEAAJXZ.c)
- *     ?OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ @ 0x1800EB630 (-OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ.c)
- *     ?SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z @ 0x180132E62 (-SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z.c)
+ *     ?OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ @ 0x1800A97FC (-OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ.c)
+ *     ?SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z @ 0x1801CB6A8 (-SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z.c)
  * Callees:
  *     <none>
  */
@@ -16,6 +15,6 @@ __int64 __fastcall CNotificationResource::GetChannelCallbackId(CNotificationReso
   v1 = *((_QWORD *)this + 6);
   result = 0LL;
   if ( v1 )
-    return *(unsigned int *)(v1 + 76);
+    return *(unsigned int *)(v1 + 68);
   return result;
 }

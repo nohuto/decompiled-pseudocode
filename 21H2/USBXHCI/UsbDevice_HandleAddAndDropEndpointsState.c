@@ -1,77 +1,82 @@
 /*
- * XREFs of UsbDevice_HandleAddAndDropEndpointsState @ 0x1C000254C
+ * XREFs of UsbDevice_HandleAddAndDropEndpointsState @ 0x1C00078C4
  * Callers:
- *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C000239C (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0007714 (UsbDevice_QueueConfigureEndpointEvent.c)
  * Callees:
- *     UsbDevice_InitializeInputContextForAddDropEndpoints @ 0x1C0001F74 (UsbDevice_InitializeInputContextForAddDropEndpoints.c)
- *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C000239C (UsbDevice_QueueConfigureEndpointEvent.c)
- *     UsbDevice_SendConfigureEndpointCommand @ 0x1C0002A5C (UsbDevice_SendConfigureEndpointCommand.c)
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     TR_ReAllocateTransferRingSegmentsForOffload @ 0x1C003FD80 (TR_ReAllocateTransferRingSegmentsForOffload.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     UsbDevice_InitializeInputContextForAddDropEndpoints @ 0x1C0005AC0 (UsbDevice_InitializeInputContextForAddDropEndpoints.c)
+ *     UsbDevice_SendConfigureEndpointCommand @ 0x1C0005FDC (UsbDevice_SendConfigureEndpointCommand.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0007714 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     TR_ReAllocateTransferRingSegmentsForOffload @ 0x1C003F56C (TR_ReAllocateTransferRingSegmentsForOffload.c)
  */
 
-__int64 __fastcall UsbDevice_HandleAddAndDropEndpointsState(__int64 a1, __int64 a2)
+_UNKNOWN **__fastcall UsbDevice_HandleAddAndDropEndpointsState(__int64 a1, __int64 a2)
 {
-  int TransferRingSegmentsForOffload; // esi
-  __int64 v5; // r8
-  __int64 v6; // r9
-  unsigned int *v8; // rbp
-  unsigned int v9; // r14d
-  __int64 v10; // rsi
-  __int64 v11; // rax
-  int v12; // edx
+  _UNKNOWN **result; // rax
+  int TransferRingSegmentsForOffload; // edi
+  unsigned int *v6; // rbp
+  unsigned int v7; // r14d
+  __int64 v8; // rdi
+  __int64 v9; // rax
+  int v10; // edx
 
-  if ( *(_DWORD *)(*(_QWORD *)(a1 + 8) + 588LL) == 1 && (v8 = *(unsigned int **)(a2 + 88), v9 = 0, *(_DWORD *)(a2 + 84)) )
+  if ( *(_DWORD *)(*(_QWORD *)(a1 + 8) + 588LL) == 1 && (v6 = *(unsigned int **)(a2 + 88), v7 = 0, *(_DWORD *)(a2 + 84)) )
   {
     while ( 1 )
     {
-      v10 = 0LL;
+      v8 = 0LL;
       if ( *(_DWORD *)(a2 + 24) )
       {
         while ( 1 )
         {
-          v11 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
-                  WdfDriverGlobals,
-                  *(_QWORD *)(*(_QWORD *)(a2 + 32) + 8 * v10),
-                  off_1C00611A8);
-          if ( *(unsigned __int8 *)(v11 + 98) == *((_WORD *)v8 + 2) )
+          v9 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, void *))(WdfFunctions_01023 + 1616))(
+                 WdfDriverGlobals,
+                 *(_QWORD *)(*(_QWORD *)(a2 + 32) + 8 * v8),
+                 off_1C00601A8);
+          if ( *(unsigned __int8 *)(v9 + 98) == *((_WORD *)v6 + 2) )
             break;
-          v10 = (unsigned int)(v10 + 1);
-          if ( (unsigned int)v10 >= *(_DWORD *)(a2 + 24) )
-            goto LABEL_8;
+          v8 = (unsigned int)(v8 + 1);
+          if ( (unsigned int)v8 >= *(_DWORD *)(a2 + 24) )
+            goto LABEL_10;
         }
-        TransferRingSegmentsForOffload = TR_ReAllocateTransferRingSegmentsForOffload(*(_QWORD *)(v11 + 88));
+        TransferRingSegmentsForOffload = TR_ReAllocateTransferRingSegmentsForOffload(*(_QWORD *)(v9 + 88));
         if ( TransferRingSegmentsForOffload < 0 )
           break;
       }
-LABEL_8:
-      ++v9;
-      v8 = (unsigned int *)((char *)v8 + *v8);
-      if ( v9 >= *(_DWORD *)(a2 + 84) )
+LABEL_10:
+      ++v7;
+      v6 = (unsigned int *)((char *)v6 + *v6);
+      if ( v7 >= *(_DWORD *)(a2 + 84) )
         goto LABEL_2;
     }
+    result = &WPP_RECORDER_INITIALIZED;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v12) = 2;
-      WPP_RECORDER_SF_DD(
-        *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
-        v12,
-        12,
-        45,
-        (__int64)&WPP_5cc87a4a737631244eec1c43efcd9051_Traceguids,
-        *(_BYTE *)(a1 + 135),
-        TransferRingSegmentsForOffload);
+      LOBYTE(v10) = 2;
+      result = (_UNKNOWN **)WPP_RECORDER_SF_dd(
+                              *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
+                              v10,
+                              12,
+                              45,
+                              (__int64)&WPP_2e14ba44bfb4396fe7ac9baa15c70ba7_Traceguids,
+                              *(_BYTE *)(a1 + 135),
+                              TransferRingSegmentsForOffload);
     }
   }
   else
   {
 LABEL_2:
-    TransferRingSegmentsForOffload = UsbDevice_InitializeInputContextForAddDropEndpoints(a1, a2, 0);
-    if ( TransferRingSegmentsForOffload >= 0 )
-      return UsbDevice_SendConfigureEndpointCommand(a1, 0LL, v5, v6);
+    result = (_UNKNOWN **)UsbDevice_InitializeInputContextForAddDropEndpoints(a1, a2, 0);
+    TransferRingSegmentsForOffload = (int)result;
+    if ( (int)result >= 0 )
+      result = (_UNKNOWN **)UsbDevice_SendConfigureEndpointCommand(a1, 0);
   }
-  if ( *(_DWORD *)(a1 + 448) == 259 )
-    *(_DWORD *)(a1 + 448) = TransferRingSegmentsForOffload;
-  return UsbDevice_QueueConfigureEndpointEvent(a1, 2LL);
+  while ( TransferRingSegmentsForOffload < 0 )
+  {
+    if ( *(_DWORD *)(a1 + 448) == 259 )
+      *(_DWORD *)(a1 + 448) = TransferRingSegmentsForOffload;
+    result = (_UNKNOWN **)UsbDevice_QueueConfigureEndpointEvent(a1, 2LL);
+  }
+  return result;
 }

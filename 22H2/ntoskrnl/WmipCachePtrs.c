@@ -1,48 +1,48 @@
 /*
- * XREFs of WmipCachePtrs @ 0x14086AFF8
+ * XREFs of WmipCachePtrs @ 0x1407571F0
  * Callers:
- *     WmipUpdateDataSource @ 0x140800178 (WmipUpdateDataSource.c)
- *     WmipGenerateRegistrationNotification @ 0x14086AF18 (WmipGenerateRegistrationNotification.c)
+ *     WmipGenerateRegistrationNotification @ 0x140757110 (WmipGenerateRegistrationNotification.c)
+ *     WmipUpdateDataSource @ 0x1407C4788 (WmipUpdateDataSource.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall WmipCachePtrs(__int64 a1, __int64 a2, unsigned int *a3, int *a4, const void **a5)
+unsigned __int64 __fastcall WmipCachePtrs(__int64 a1, __int64 a2, unsigned int *a3, int *a4, const void **a5)
 {
-  int v9; // edx
-  _QWORD *v10; // rcx
+  unsigned int v5; // r10d
+  _QWORD *v10; // rdi
   __int64 v11; // rax
-  __int64 result; // rax
-  const void *v13; // rbp
-  int v14; // ebx
-  void *v15; // r15
+  unsigned __int64 result; // rax
+  int v13; // ebx
+  void *v14; // rbp
 
+  v5 = *a3;
   if ( *a3 != *a4 )
   {
-LABEL_2:
-    v9 = *a3;
     v10 = *a5;
-    v11 = 2LL * *a3;
+LABEL_3:
+    v11 = 2LL * v5;
     v10[v11] = a1;
     v10[v11 + 1] = a2;
-    result = (unsigned int)(v9 + 1);
+    result = v5 + 1;
     *a3 = result;
     return result;
   }
-  result = ExAllocatePool2(256LL, 16LL * (unsigned int)(*a4 + 64), 1885957463LL);
-  v13 = (const void *)result;
+  result = (unsigned __int64)ExAllocatePoolWithTag(PagedPool, 16LL * (unsigned int)(*a4 + 64), 0x70696D57u);
+  v10 = (_QWORD *)result;
   if ( result )
   {
-    v14 = *a4;
-    v15 = (void *)*a5;
+    v13 = *a4;
+    v14 = (void *)*a5;
     memmove((void *)result, *a5, 16LL * (unsigned int)*a4);
-    *a4 = v14 + 64;
-    if ( v15 )
-      ExFreePoolWithTag(v15, 0);
-    *a5 = v13;
-    goto LABEL_2;
+    *a4 = v13 + 64;
+    if ( v14 )
+      ExFreePoolWithTag(v14, 0);
+    v5 = *a3;
+    *a5 = v10;
+    goto LABEL_3;
   }
   return result;
 }

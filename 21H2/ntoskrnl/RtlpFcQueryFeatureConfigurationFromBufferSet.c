@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x140832F68
+ * XREFs of RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x140778F34
  * Callers:
- *     RtlQueryFeatureConfiguration @ 0x1403C7820 (RtlQueryFeatureConfiguration.c)
+ *     RtlQueryFeatureConfiguration @ 0x14038C800 (RtlQueryFeatureConfiguration.c)
  * Callees:
- *     RtlpFcValidateFeatureConfigurationType @ 0x1403C7970 (RtlpFcValidateFeatureConfigurationType.c)
- *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x140832FD0 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ *     RtlpFcValidateFeatureConfigurationType @ 0x14038C900 (RtlpFcValidateFeatureConfigurationType.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x14091A2C0 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
  */
 
 __int64 __fastcall RtlpFcQueryFeatureConfigurationFromBufferSet(__int64 a1, unsigned int a2, signed int a3)
@@ -13,7 +13,7 @@ __int64 __fastcall RtlpFcQueryFeatureConfigurationFromBufferSet(__int64 a1, unsi
   __int64 result; // rax
   __int64 v6; // r11
   __int64 v7; // r10
-  _QWORD *v8; // rax
+  _QWORD *i; // rax
   _DWORD v9[6]; // [rsp+20h] [rbp-18h]
 
   v3 = a3;
@@ -21,20 +21,14 @@ __int64 __fastcall RtlpFcQueryFeatureConfigurationFromBufferSet(__int64 a1, unsi
   if ( (int)result >= 0 )
   {
     v7 = 0LL;
-    v8 = (_QWORD *)(v6 + 8);
-    do
+    for ( i = (_QWORD *)(v6 + 8); !*i; i += 3 )
     {
-      if ( *v8 )
-      {
-        v9[0] = 0;
-        v9[1] = 1;
-        return RtlpFcQueryFeatureConfigurationFromBuffers(a2, v6 + 24LL * (int)v9[v3], v6 + 48);
-      }
-      ++v7;
-      v8 += 3;
+      if ( ++v7 >= 3 )
+        return 2147483682LL;
     }
-    while ( v7 < 3 );
-    return 2147483682LL;
+    v9[0] = 0;
+    v9[1] = 1;
+    return RtlpFcQueryFeatureConfigurationFromBuffers(a2, v6 + 24LL * (int)v9[v3], v6 + 48);
   }
   return result;
 }

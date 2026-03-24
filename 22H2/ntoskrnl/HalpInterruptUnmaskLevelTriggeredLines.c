@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptUnmaskLevelTriggeredLines @ 0x140521030
+ * XREFs of HalpInterruptUnmaskLevelTriggeredLines @ 0x1404D71C0
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptRestoreAllControllerState @ 0x140A95770 (HalpInterruptRestoreAllControllerState.c)
+ *     HalpInterruptRestoreAllControllerState @ 0x140997C90 (HalpInterruptRestoreAllControllerState.c)
  */
 
 __int64 HalpInterruptUnmaskLevelTriggeredLines()

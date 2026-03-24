@@ -1,9 +1,9 @@
 /*
- * XREFs of AMLIGetNSObjectNameSegment @ 0x1C00483A4
+ * XREFs of AMLIGetNSObjectNameSegment @ 0x1C000236C
  * Callers:
- *     AcpiArblibAllocateArbiterInstance @ 0x1C007CB74 (AcpiArblibAllocateArbiterInstance.c)
- *     ACPIGetPnpLocationString @ 0x1C0087680 (ACPIGetPnpLocationString.c)
- *     PnpiUpdateForceActiveBothInterrupts @ 0x1C0091FD4 (PnpiUpdateForceActiveBothInterrupts.c)
+ *     ACPIGetPnpLocationString @ 0x1C00A0750 (ACPIGetPnpLocationString.c)
+ *     AcpiArblibAllocateArbiterInstance @ 0x1C00ACD30 (AcpiArblibAllocateArbiterInstance.c)
+ *     PnpiUpdateForceActiveBothInterrupts @ 0x1C00B41DC (PnpiUpdateForceActiveBothInterrupts.c)
  * Callees:
  *     <none>
  */

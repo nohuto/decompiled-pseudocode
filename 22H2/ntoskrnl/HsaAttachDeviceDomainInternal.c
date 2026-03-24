@@ -1,15 +1,15 @@
 /*
- * XREFs of HsaAttachDeviceDomainInternal @ 0x14052F148
+ * XREFs of HsaAttachDeviceDomainInternal @ 0x1404E2438
  * Callers:
- *     HsaAttachDeviceDomain @ 0x14052F130 (HsaAttachDeviceDomain.c)
- *     HsaDetachDeviceDomain @ 0x14052F690 (HsaDetachDeviceDomain.c)
+ *     HsaAttachDeviceDomain @ 0x1404E2420 (HsaAttachDeviceDomain.c)
+ *     HsaDetachDeviceDomain @ 0x1404E2960 (HsaDetachDeviceDomain.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CAB0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     memset @ 0x140435400 (memset.c)
- *     HsaFlushTbInternal @ 0x14052FA4C (HsaFlushTbInternal.c)
- *     HsaUpdateDeviceTableEntry @ 0x140530DD0 (HsaUpdateDeviceTableEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402D1100 (KxAcquireQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HsaFlushTbInternal @ 0x1404E2D3C (HsaFlushTbInternal.c)
+ *     HsaUpdateDeviceTableEntry @ 0x1404E4338 (HsaUpdateDeviceTableEntry.c)
  */
 
 __int64 __fastcall HsaAttachDeviceDomainInternal(__int64 a1, __int64 a2, _DWORD *a3)
@@ -17,17 +17,19 @@ __int64 __fastcall HsaAttachDeviceDomainInternal(__int64 a1, __int64 a2, _DWORD 
   int v6; // eax
   unsigned __int8 CurrentIrql; // bl
   _DWORD *SchedulerAssist; // r9
-  __int64 v9; // rdx
-  int v11; // r9d
+  int v9; // r9d
+  unsigned __int8 v10; // al
   struct _KPRCB *CurrentPrcb; // r9
-  unsigned __int8 v13; // al
-  _DWORD *v14; // r8
-  int v15; // eax
-  bool v16; // zf
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+50h] [rbp-A8h] BYREF
-  _DWORD v18[28]; // [rsp+70h] [rbp-88h] BYREF
+  _DWORD *v12; // r8
+  int v13; // eax
+  bool v14; // zf
+  _QWORD v16[2]; // [rsp+58h] [rbp-39h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+68h] [rbp-29h] BYREF
+  _DWORD v18[20]; // [rsp+88h] [rbp-9h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
+  *(_QWORD *)&LockHandle.OldIrql = 0LL;
+  v16[1] = v16;
+  v16[0] = v16;
   memset(v18, 0, sizeof(v18));
   if ( !a3 )
   {
@@ -47,32 +49,32 @@ __int64 __fastcall HsaAttachDeviceDomainInternal(__int64 a1, __int64 a2, _DWORD 
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 15 )
-      LODWORD(v9) = 0x8000;
-    else
-      v9 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
-    SchedulerAssist[5] |= v9;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
   }
-  KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(a1 + 152), &LockHandle);
-  LOBYTE(v11) = 1;
-  HsaUpdateDeviceTableEntry(a1, *(_QWORD *)(a2 + 40), 0, v11, (__int64)a3, 1, 0);
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+  LockHandle.LockQueue.Next = 0LL;
+  LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 152);
+  KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(a1 + 152));
+  LOBYTE(v9) = 1;
+  HsaUpdateDeviceTableEntry(a1, *(_QWORD *)(a2 + 32), 0, v9, (__int64)a3, 1, 0);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   if ( KiIrqlFlags )
   {
-    v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v14 = CurrentPrcb->SchedulerAssist;
-      v15 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v16 = (v15 & v14[5]) == 0;
-      v14[5] &= v15;
-      if ( v16 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v10 = KeGetCurrentIrql();
+      if ( v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v12 = CurrentPrcb->SchedulerAssist;
+        v13 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v14 = (v13 & v12[5]) == 0;
+        v12[5] &= v13;
+        if ( v14 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(CurrentIrql);
-  LOBYTE(CurrentPrcb) = 1;
-  HsaFlushTbInternal(a1, 0, a3[12], (_DWORD)CurrentPrcb, 0LL, 0LL, 0, 0LL);
+  HsaFlushTbInternal(a1, 0, a3[6], 0, 1, 0, (__int64)v16, 0, 0LL);
   return 0LL;
 }

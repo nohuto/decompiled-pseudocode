@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SendVideoPortCalloutRequest@@YAJPEAU_POWER_INIT@@PEAH@Z @ 0x1C00CD504
+ * XREFs of ?SendVideoPortCalloutRequest@@YAJPEAU_POWER_INIT@@PEAH@Z @ 0x1C0118A8C
  * Callers:
- *     VideoPortCallout @ 0x1C00CD3B0 (VideoPortCallout.c)
+ *     VideoPortCallout @ 0x1C011A560 (VideoPortCallout.c)
  * Callees:
- *     InitCreateSystemThreadsMsg @ 0x1C00B8420 (InitCreateSystemThreadsMsg.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     InitCreateSystemThreadsMsg @ 0x1C00B5150 (InitCreateSystemThreadsMsg.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 __int64 __fastcall SendVideoPortCalloutRequest(struct _POWER_INIT *a1, int *a2)

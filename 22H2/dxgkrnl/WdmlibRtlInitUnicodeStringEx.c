@@ -1,13 +1,13 @@
 /*
- * XREFs of WdmlibRtlInitUnicodeStringEx @ 0x1C005DF44
+ * XREFs of WdmlibRtlInitUnicodeStringEx @ 0x1C0050BBC
  * Callers:
- *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C0397C84 (PiRegStateReadStackCreationSettingsFromKey.c)
- *     PpRegStateReadCreateClassCreationSettings @ 0x1C0397E78 (PpRegStateReadCreateClassCreationSettings.c)
- *     CmRegUtilCreateWstrKey @ 0x1C03982B4 (CmRegUtilCreateWstrKey.c)
- *     CmRegUtilOpenExistingWstrKey @ 0x1C039838C (CmRegUtilOpenExistingWstrKey.c)
- *     CmRegUtilWstrValueGetDword @ 0x1C03986DC (CmRegUtilWstrValueGetDword.c)
- *     CmRegUtilWstrValueSetFullBuffer @ 0x1C0398714 (CmRegUtilWstrValueSetFullBuffer.c)
- *     CmRegUtilWstrValueSetWstrString @ 0x1C0398770 (CmRegUtilWstrValueSetWstrString.c)
+ *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C02C5300 (PiRegStateReadStackCreationSettingsFromKey.c)
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C02C54F4 (PpRegStateReadCreateClassCreationSettings.c)
+ *     CmRegUtilCreateWstrKey @ 0x1C02C5930 (CmRegUtilCreateWstrKey.c)
+ *     CmRegUtilOpenExistingWstrKey @ 0x1C02C5A04 (CmRegUtilOpenExistingWstrKey.c)
+ *     CmRegUtilWstrValueGetDword @ 0x1C02C5D24 (CmRegUtilWstrValueGetDword.c)
+ *     CmRegUtilWstrValueSetFullBuffer @ 0x1C02C5D5C (CmRegUtilWstrValueSetFullBuffer.c)
+ *     CmRegUtilWstrValueSetWstrString @ 0x1C02C5DB8 (CmRegUtilWstrValueSetWstrString.c)
  * Callees:
  *     <none>
  */

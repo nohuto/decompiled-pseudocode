@@ -1,1 +1,188 @@
-/*\n * XREFs of MouseClassDeviceControl @ 0x1C000BF90\n * Callers:\n *     <none>\n * Callees:\n *     WPP_RECORDER_SF_ @ 0x1C0004500 (WPP_RECORDER_SF_.c)\n *     WPP_RECORDER_SF_qqL @ 0x1C0004FF0 (WPP_RECORDER_SF_qqL.c)\n *     WPP_RECORDER_SF_qqLd @ 0x1C00053A4 (WPP_RECORDER_SF_qqLd.c)\n */\n\n__int64 __fastcall MouseClassDeviceControl(__int64 a1, __int64 a2)\n{\n  __int64 v2; // rbx\n  __int64 v4; // rsi\n  __int64 v5; // r14\n  struct _IO_REMOVE_LOCK *v6; // r15\n  NTSTATUS v7; // eax\n  unsigned int v8; // edi\n  __int64 v9; // rdx\n  __int64 v10; // r8\n  __int64 v11; // r9\n  unsigned int v12; // eax\n  bool v13; // zf\n  __int64 v14; // rdx\n  unsigned int v16; // eax\n  unsigned int v17; // eax\n  unsigned int v18; // eax\n  unsigned int v19; // eax\n  unsigned int v20; // eax\n  unsigned int v21; // eax\n  unsigned int v22; // eax\n  unsigned int v23; // edi\n  __int64 v24; // rax\n  __int64 RemlockSize; // [rsp+20h] [rbp-48h]\n  ULONG RemlockSizea; // [rsp+20h] [rbp-48h]\n\n  v2 = a2;\n  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )\n  {\n    LOBYTE(a2) = 5;\n    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, a2, 4LL);\n  }\n  v4 = *(_QWORD *)(a1 + 64);\n  v5 = *(_QWORD *)(v2 + 184);\n  v6 = (struct _IO_REMOVE_LOCK *)(v4 + 32);\n  v7 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), (PVOID)v2, File, 1u, 0x20u);\n  v8 = v7;\n  if ( v7 < 0 )\n  {\n    *(_DWORD *)(v2 + 48) = v7;\n    *(_QWORD *)(v2 + 56) = 0LL;\n    IofCompleteRequest((PIRP)v2, 0);\n    return v8;\n  }\n  WPP_RECORDER_SF_qqL((__int64)WPP_GLOBAL_Control->DeviceExtension, 4u, 4u, 0x18u, RemlockSize);\n  v12 = *(_DWORD *)(v5 + 24);\n  if ( v12 > 0xB01A8 )\n  {\n    v16 = v12 - 721338;\n    if ( v16 )\n    {\n      v17 = v16 - 4;\n      if ( v17 )\n      {\n        v18 = v17 - 4;\n        if ( v18 )\n        {\n          v19 = v18 - 32;\n          if ( v19 )\n          {\n            v20 = v19 - 261662;\n            if ( !v20 )\n            {\n              v22 = *(_DWORD *)(v5 + 16);\n              if ( v22 )\n              {\n                if ( v22 < 2 )\n                {\n                  v8 = -1073741789;\n                  WPP_RECORDER_SF_qqLd((__int64)WPP_GLOBAL_Control->DeviceExtension, v9, v10, v11, RemlockSizea);\n                  goto LABEL_18;\n                }\n                v23 = **(unsigned __int16 **)(v2 + 24);\n              }\n              else\n              {\n                v23 = 0;\n              }\n              if ( *(_QWORD *)v4 != *(_QWORD *)(v4 + 8) )\n              {\n                v8 = -1073741637;\n                goto LABEL_18;\n              }\n              if ( v4 == *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )\n              {\n                ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n                if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) <= v23 )\n                  goto LABEL_39;\n                if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )\n                {\n                  if ( !*((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v23 + 16)\n                    || *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v23 + 19) )\n                  {\n                    v23 = 0;\n                  }\n                  while ( !*((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v23 + 16)\n                       || *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v23 + 19) )\n                  {\n                    if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) <= v23 )\n                      goto LABEL_39;\n                    ++v23;\n                  }\n                }\n                if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) <= v23 )\n                {\nLABEL_39:\n                  ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n                  v8 = -1073741811;\n                  *(_DWORD *)(v2 + 48) = -1073741811;\n                  goto LABEL_19;\n                }\n                v4 = *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 3 * v23 + 1);\n                *(_QWORD *)(v5 + 48) = *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 3 * v23);\n                ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);\n              }\n              v24 = *(_QWORD *)(v2 + 184);\n              *(_OWORD *)(v24 - 72) = *(_OWORD *)v24;\n              *(_OWORD *)(v24 - 56) = *(_OWORD *)(v24 + 16);\n              *(_OWORD *)(v24 - 40) = *(_OWORD *)(v24 + 32);\n              *(_QWORD *)(v24 - 24) = *(_QWORD *)(v24 + 48);\n              *(_BYTE *)(v24 - 69) = 0;\n              *(_BYTE *)(*(_QWORD *)(v2 + 184) - 72LL) = 15;\n              goto LABEL_51;\n            }\n            v21 = v20 - 1720640;\n            if ( v21 )\n            {\n              v13 = v21 == 4;\nLABEL_16:\n              if ( !v13 )\n                goto LABEL_17;\n            }\n          }\n        }\n      }\n    }\n  }\n  else\n  {\n    if ( v12 == 721320 )\n      goto LABEL_52;\n    if ( v12 < 0xB0190 )\n      goto LABEL_17;\n    if ( v12 <= 0xB0194 )\n      goto LABEL_52;\n    if ( v12 <= 0xB0196 )\n    {\nLABEL_17:\n      v8 = -1073741808;\nLABEL_18:\n      *(_DWORD *)(v2 + 48) = v8;\nLABEL_19:\n      *(_QWORD *)(v2 + 56) = 0LL;\n      IofCompleteRequest((PIRP)v2, 0);\n      goto LABEL_20;\n    }\n    if ( v12 > 0xB0198 && v12 != 721306 && v12 != 721308 && v12 != 721310 && v12 != 721312 )\n    {\n      v13 = v12 == 721316;\n      goto LABEL_16;\n    }\n  }\nLABEL_52:\n  if ( !*(_BYTE *)(v4 + 64) || v4 == *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )\n    goto LABEL_17;\n  ++*(_BYTE *)(v2 + 67);\n  *(_QWORD *)(v2 + 184) += 72LL;\nLABEL_51:\n  v8 = IofCallDriver(*(PDEVICE_OBJECT *)(v4 + 16), (PIRP)v2);\nLABEL_20:\n  IoReleaseRemoveLockEx(v6, (PVOID)v2, 0x20u);\n  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )\n  {\n    LOBYTE(v14) = 5;\n    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v14, 4LL);\n  }\n  return v8;\n}\n
+/*
+ * XREFs of MouseClassDeviceControl @ 0x1C000BF90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0004500 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_qqL @ 0x1C0004FF0 (WPP_RECORDER_SF_qqL.c)
+ *     WPP_RECORDER_SF_qqLd @ 0x1C00053A4 (WPP_RECORDER_SF_qqLd.c)
+ */
+
+__int64 __fastcall MouseClassDeviceControl(__int64 a1, __int64 a2)
+{
+  __int64 v2; // rbx
+  __int64 v4; // rsi
+  __int64 v5; // r14
+  struct _IO_REMOVE_LOCK *v6; // r15
+  NTSTATUS v7; // eax
+  unsigned int v8; // edi
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  unsigned int v12; // eax
+  bool v13; // zf
+  __int64 v14; // rdx
+  unsigned int v16; // eax
+  unsigned int v17; // eax
+  unsigned int v18; // eax
+  unsigned int v19; // eax
+  unsigned int v20; // eax
+  unsigned int v21; // eax
+  unsigned int v22; // eax
+  unsigned int v23; // edi
+  __int64 v24; // rax
+  __int64 RemlockSize; // [rsp+20h] [rbp-48h]
+  ULONG RemlockSizea; // [rsp+20h] [rbp-48h]
+
+  v2 = a2;
+  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, a2, 4LL);
+  }
+  v4 = *(_QWORD *)(a1 + 64);
+  v5 = *(_QWORD *)(v2 + 184);
+  v6 = (struct _IO_REMOVE_LOCK *)(v4 + 32);
+  v7 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v4 + 32), (PVOID)v2, File, 1u, 0x20u);
+  v8 = v7;
+  if ( v7 < 0 )
+  {
+    *(_DWORD *)(v2 + 48) = v7;
+    *(_QWORD *)(v2 + 56) = 0LL;
+    IofCompleteRequest((PIRP)v2, 0);
+    return v8;
+  }
+  WPP_RECORDER_SF_qqL((__int64)WPP_GLOBAL_Control->DeviceExtension, 4u, 4u, 0x18u, RemlockSize);
+  v12 = *(_DWORD *)(v5 + 24);
+  if ( v12 > 0xB01A8 )
+  {
+    v16 = v12 - 721338;
+    if ( v16 )
+    {
+      v17 = v16 - 4;
+      if ( v17 )
+      {
+        v18 = v17 - 4;
+        if ( v18 )
+        {
+          v19 = v18 - 32;
+          if ( v19 )
+          {
+            v20 = v19 - 261662;
+            if ( !v20 )
+            {
+              v22 = *(_DWORD *)(v5 + 16);
+              if ( v22 )
+              {
+                if ( v22 < 2 )
+                {
+                  v8 = -1073741789;
+                  WPP_RECORDER_SF_qqLd((__int64)WPP_GLOBAL_Control->DeviceExtension, v9, v10, v11, RemlockSizea);
+                  goto LABEL_18;
+                }
+                v23 = **(unsigned __int16 **)(v2 + 24);
+              }
+              else
+              {
+                v23 = 0;
+              }
+              if ( *(_QWORD *)v4 != *(_QWORD *)(v4 + 8) )
+              {
+                v8 = -1073741637;
+                goto LABEL_18;
+              }
+              if ( v4 == *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )
+              {
+                ExAcquireFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+                if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) <= v23 )
+                  goto LABEL_39;
+                if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) )
+                {
+                  if ( !*((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v23 + 16)
+                    || *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v23 + 19) )
+                  {
+                    v23 = 0;
+                  }
+                  while ( !*((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v23 + 16)
+                       || *((_BYTE *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 24 * v23 + 19) )
+                  {
+                    if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) <= v23 )
+                      goto LABEL_39;
+                    ++v23;
+                  }
+                }
+                if ( LODWORD(WPP_MAIN_CB.Queue.Wcb.DeviceContext) <= v23 )
+                {
+LABEL_39:
+                  ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+                  v8 = -1073741811;
+                  *(_DWORD *)(v2 + 48) = -1073741811;
+                  goto LABEL_19;
+                }
+                v4 = *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 3 * v23 + 1);
+                *(_QWORD *)(v5 + 48) = *((_QWORD *)WPP_MAIN_CB.Queue.Wcb.DeviceRoutine + 3 * v23);
+                ExReleaseFastMutex((PFAST_MUTEX)&WPP_MAIN_CB.Queue.Wcb.DeviceObject);
+              }
+              v24 = *(_QWORD *)(v2 + 184);
+              *(_OWORD *)(v24 - 72) = *(_OWORD *)v24;
+              *(_OWORD *)(v24 - 56) = *(_OWORD *)(v24 + 16);
+              *(_OWORD *)(v24 - 40) = *(_OWORD *)(v24 + 32);
+              *(_QWORD *)(v24 - 24) = *(_QWORD *)(v24 + 48);
+              *(_BYTE *)(v24 - 69) = 0;
+              *(_BYTE *)(*(_QWORD *)(v2 + 184) - 72LL) = 15;
+              goto LABEL_51;
+            }
+            v21 = v20 - 1720640;
+            if ( v21 )
+            {
+              v13 = v21 == 4;
+LABEL_16:
+              if ( !v13 )
+                goto LABEL_17;
+            }
+          }
+        }
+      }
+    }
+  }
+  else
+  {
+    if ( v12 == 721320 )
+      goto LABEL_52;
+    if ( v12 < 0xB0190 )
+      goto LABEL_17;
+    if ( v12 <= 0xB0194 )
+      goto LABEL_52;
+    if ( v12 <= 0xB0196 )
+    {
+LABEL_17:
+      v8 = -1073741808;
+LABEL_18:
+      *(_DWORD *)(v2 + 48) = v8;
+LABEL_19:
+      *(_QWORD *)(v2 + 56) = 0LL;
+      IofCompleteRequest((PIRP)v2, 0);
+      goto LABEL_20;
+    }
+    if ( v12 > 0xB0198 && v12 != 721306 && v12 != 721308 && v12 != 721310 && v12 != 721312 )
+    {
+      v13 = v12 == 721316;
+      goto LABEL_16;
+    }
+  }
+LABEL_52:
+  if ( !*(_BYTE *)(v4 + 64) || v4 == *(_QWORD *)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels )
+    goto LABEL_17;
+  ++*(_BYTE *)(v2 + 67);
+  *(_QWORD *)(v2 + 184) += 72LL;
+LABEL_51:
+  v8 = IofCallDriver(*(PDEVICE_OBJECT *)(v4 + 16), (PIRP)v2);
+LABEL_20:
+  IoReleaseRemoveLockEx(v6, (PVOID)v2, 0x20u);
+  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(v14) = 5;
+    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v14, 4LL);
+  }
+  return v8;
+}

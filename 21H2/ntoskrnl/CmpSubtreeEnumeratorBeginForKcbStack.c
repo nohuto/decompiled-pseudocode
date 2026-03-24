@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpSubtreeEnumeratorBeginForKcbStack @ 0x14091D1FC
+ * XREFs of CmpSubtreeEnumeratorBeginForKcbStack @ 0x1408766F8
  * Callers:
- *     CmRenameKey @ 0x140912608 (CmRenameKey.c)
- *     CmpSubtreeEnumeratorStartForKcbStack @ 0x14091D2E4 (CmpSubtreeEnumeratorStartForKcbStack.c)
+ *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
+ *     CmpSubtreeEnumeratorStartForKcbStack @ 0x1408767D8 (CmpSubtreeEnumeratorStartForKcbStack.c)
  * Callees:
- *     CmpPopulateKeyNodeStackFromKcbStack @ 0x14069EEC0 (CmpPopulateKeyNodeStackFromKcbStack.c)
+ *     CmpPopulateKeyNodeStackFromKcbStack @ 0x14072A2C0 (CmpPopulateKeyNodeStackFromKcbStack.c)
  */
 
 __int64 __fastcall CmpSubtreeEnumeratorBeginForKcbStack(__int64 a1, __int64 a2)

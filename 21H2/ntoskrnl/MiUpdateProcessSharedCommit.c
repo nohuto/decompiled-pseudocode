@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUpdateProcessSharedCommit @ 0x1406A43A4
+ * XREFs of MiUpdateProcessSharedCommit @ 0x14069CF34
  * Callers:
- *     MiChargeSegmentCommit @ 0x1406A4140 (MiChargeSegmentCommit.c)
+ *     MiChargeSegmentCommit @ 0x14061FED0 (MiChargeSegmentCommit.c)
  * Callees:
- *     MiIncludeSharedCommit @ 0x140287930 (MiIncludeSharedCommit.c)
+ *     MiIncludeSharedCommit @ 0x140314F30 (MiIncludeSharedCommit.c)
  */
 
 _QWORD *__fastcall MiUpdateProcessSharedCommit(__int64 a1)
 {
   _QWORD *result; // rax
-  unsigned __int64 v2; // rdx
-  __int64 v3; // rcx
+  __int64 v2; // rcx
+  unsigned __int64 v3; // r9
   _QWORD *v4; // r8
   _QWORD *i; // rcx
   _QWORD **v6; // rcx
@@ -21,18 +21,18 @@ _QWORD *__fastcall MiUpdateProcessSharedCommit(__int64 a1)
   result = (_QWORD *)MiIncludeSharedCommit(a1);
   if ( (_DWORD)result )
   {
-    result = *(_QWORD **)v3;
+    result = *(_QWORD **)v2;
     v4 = 0LL;
-    for ( i = *(_QWORD **)(*(_QWORD *)v3 + 72LL); i; i = (_QWORD *)*i )
+    for ( i = *(_QWORD **)(*(_QWORD *)v2 + 72LL); i; i = (_QWORD *)*i )
       v4 = i;
     while ( v4 )
     {
       v7 = v4[3];
       if ( (v7 & 1) != 0 )
-        v8 = (volatile signed __int64 *)((v7 & 0xFFFFFFFFFFFFFFFEuLL) + 1528);
+        v8 = (volatile signed __int64 *)((v7 & 0xFFFFFFFFFFFFFFFEuLL) + 1336);
       else
         v8 = (volatile signed __int64 *)(v7 + 2344);
-      _InterlockedExchangeAdd64(v8, v2);
+      _InterlockedExchangeAdd64(v8, v3);
       result = (_QWORD *)v4[1];
       v9 = v4;
       if ( result )

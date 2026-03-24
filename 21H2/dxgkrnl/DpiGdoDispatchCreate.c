@@ -1,5 +1,5 @@
 /*
- * XREFs of DpiGdoDispatchCreate @ 0x1C01DBC20
+ * XREFs of DpiGdoDispatchCreate @ 0x1C015C040
  * Callers:
  *     <none>
  * Callees:
@@ -20,9 +20,9 @@ __int64 __fastcall DpiGdoDispatchCreate(__int64 a1, IRP *a2)
   }
   else if ( *(_BYTE *)(v3 + 1154) && *(_BYTE *)(v3 + 480) )
   {
-    v6 = dword_1C01307F0 != 4 ? 0xC0000001 : 0;
+    v6 = dword_1C00B2E68 != 4 ? 0xC0000001 : 0;
   }
-  else if ( *(_BYTE *)(v3 + 5453) )
+  else if ( *(_BYTE *)(v3 + 5525) )
   {
     v6 = -1073741823;
   }

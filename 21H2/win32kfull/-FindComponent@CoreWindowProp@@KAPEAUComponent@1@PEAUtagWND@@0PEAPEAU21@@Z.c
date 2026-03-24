@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FindComponent@CoreWindowProp@@KAPEAUComponent@1@PEAUtagWND@@0PEAPEAU21@@Z @ 0x1C0238CC4
+ * XREFs of ?FindComponent@CoreWindowProp@@KAPEAUComponent@1@PEAUtagWND@@0PEAPEAU21@@Z @ 0x1C00051FC
  * Callers:
- *     ?AddComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z @ 0x1C0238A64 (-AddComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z.c)
- *     ?RemoveComponentInternal@CoreWindowProp@@KAJPEAUtagWND@@0@Z @ 0x1C0238E50 (-RemoveComponentInternal@CoreWindowProp@@KAJPEAUtagWND@@0@Z.c)
+ *     ?AddComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z @ 0x1C00050C0 (-AddComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z.c)
+ *     ?RemoveComponentInternal@CoreWindowProp@@KAJPEAUtagWND@@0@Z @ 0x1C023DB3C (-RemoveComponentInternal@CoreWindowProp@@KAJPEAUtagWND@@0@Z.c)
  * Callees:
- *     ??$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z @ 0x1C00821A8 (--$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z.c)
+ *     ??$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z @ 0x1C006B788 (--$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z.c)
  */
 
 struct CoreWindowProp::Component *__fastcall CoreWindowProp::FindComponent(
@@ -19,10 +19,10 @@ struct CoreWindowProp::Component *__fastcall CoreWindowProp::FindComponent(
   v7 = 0LL;
   if ( a3 )
     *a3 = 0LL;
-  if ( CWindowProp::GetProp<CoreWindowProp>((__int64)a1, &v7) )
+  if ( (unsigned int)CWindowProp::GetProp<CoreWindowProp>(a1, &v7) )
   {
     v5 = 0LL;
-    for ( result = *(struct CoreWindowProp::Component **)(v7 + 40);
+    for ( result = *(struct CoreWindowProp::Component **)(v7 + 32);
           result;
           result = *(struct CoreWindowProp::Component **)result )
     {

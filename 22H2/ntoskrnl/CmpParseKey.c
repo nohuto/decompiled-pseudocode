@@ -1,31 +1,29 @@
 /*
- * XREFs of CmpParseKey @ 0x1406E6A30
+ * XREFs of CmpParseKey @ 0x140646330
  * Callers:
  *     <none>
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     PsGetCurrentSilo @ 0x14022E220 (PsGetCurrentSilo.c)
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x14022FB70 (CmpIsRegistryLockAcquired.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     PsGetPermanentSiloContext @ 0x14031C660 (PsGetPermanentSiloContext.c)
- *     memset @ 0x140435400 (memset.c)
- *     PsGetParentSilo @ 0x1406831E0 (PsGetParentSilo.c)
- *     CmpCleanupParseContext @ 0x140692A84 (CmpCleanupParseContext.c)
- *     CmpCallCallBacksEx @ 0x1406E86A0 (CmpCallCallBacksEx.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
- *     CmpDoesParseEnterRegistryA @ 0x1407E3724 (CmpDoesParseEnterRegistryA.c)
- *     CmpRollbackTransactionArray @ 0x140A1E7B0 (CmpRollbackTransactionArray.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x1402D0610 (ExIsResourceAcquiredSharedLite.c)
+ *     PsGetCurrentSilo @ 0x140345940 (PsGetCurrentSilo.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpCallCallBacksEx @ 0x140640B60 (CmpCallCallBacksEx.c)
+ *     CmPostCallbackNotificationEx @ 0x140645BA0 (CmPostCallbackNotificationEx.c)
+ *     CmpDoesParseEnterRegistryA @ 0x140646840 (CmpDoesParseEnterRegistryA.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
+ *     CmpGetRegistryNamespaceRootForSilo @ 0x140660C90 (CmpGetRegistryNamespaceRootForSilo.c)
+ *     CmpCleanupParseContext @ 0x1406CE840 (CmpCleanupParseContext.c)
+ *     CmpRollbackTransactionArray @ 0x1408750C8 (CmpRollbackTransactionArray.c)
  */
 
 __int64 __fastcall CmpParseKey(
-        __int64 a1,
-        __int64 a2,
+        PVOID a1,
+        POBJECT_TYPE *a2,
         _DWORD *a3,
-        unsigned __int8 a4,
+        struct _LOOKASIDE_LIST_EX *a4,
         int a5,
         __int64 a6,
         __int128 *a7,
@@ -34,11 +32,12 @@ __int64 __fastcall CmpParseKey(
         __int64 a10,
         _QWORD *a11)
 {
-  _DWORD *v12; // rbx
-  __int64 v13; // r15
-  __int64 v14; // r14
+  __int64 v11; // r15
+  __int64 RegistryNamespaceRootForSilo; // rdi
+  __int64 v13; // r14
+  _DWORD *v14; // rbx
   __int128 v15; // xmm0
-  POBJECT_TYPE *v16; // r10
+  PPRIVILEGE_SET v16; // r12
   __int64 v17; // r13
   unsigned __int16 v18; // dx
   _WORD *v19; // rcx
@@ -46,131 +45,92 @@ __int64 __fastcall CmpParseKey(
   int v21; // esi
   struct _KTHREAD *CurrentThread; // rax
   __int64 v23; // r12
-  int v24; // r9d
-  __int64 v25; // rax
-  int v26; // eax
-  int v27; // ebx
-  int v28; // esi
-  int v29; // eax
-  __int64 v30; // r8
-  _DWORD *v31; // rdx
-  __int64 v32; // rdi
-  int v33; // ecx
-  int v34; // ecx
-  struct _KTHREAD *v35; // rcx
-  bool v36; // zf
-  struct _PRIVILEGE_SET *v37; // rdi
-  __int64 i; // rbx
-  int v40; // ebx
-  struct _PRIVILEGE_SET *Pool; // rax
-  struct _PRIVILEGE_SET *v42; // rsi
-  _DWORD *v43; // rsi
-  int v44; // eax
-  int Timeout; // [rsp+20h] [rbp-E0h]
-  int Timeouta; // [rsp+20h] [rbp-E0h]
-  __int64 v47; // [rsp+28h] [rbp-D8h]
-  __int128 v48; // [rsp+50h] [rbp-B0h] BYREF
-  _QWORD v49[2]; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v50; // [rsp+70h] [rbp-90h] BYREF
-  __int128 v51; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v52; // [rsp+88h] [rbp-78h]
-  __int64 v53; // [rsp+90h] [rbp-70h] BYREF
-  int v54; // [rsp+98h] [rbp-68h]
-  int v55; // [rsp+9Ch] [rbp-64h]
-  __int128 *v56; // [rsp+A0h] [rbp-60h]
-  int v57; // [rsp+A8h] [rbp-58h]
-  __int128 v58; // [rsp+ACh] [rbp-54h]
-  __int64 v59; // [rsp+BCh] [rbp-44h]
-  int v60; // [rsp+C4h] [rbp-3Ch]
-  PPRIVILEGE_SET Privileges; // [rsp+C8h] [rbp-38h]
-  __int64 *v62; // [rsp+D0h] [rbp-30h] BYREF
-  __int128 *v63; // [rsp+D8h] [rbp-28h]
-  _WORD v64[2]; // [rsp+E0h] [rbp-20h] BYREF
-  int v65; // [rsp+E4h] [rbp-1Ch]
-  __int64 v66; // [rsp+E8h] [rbp-18h]
-  __int128 v67; // [rsp+F0h] [rbp-10h] BYREF
-  __int128 v68; // [rsp+100h] [rbp+0h]
-  __int128 v69; // [rsp+110h] [rbp+10h]
-  __int128 v70; // [rsp+120h] [rbp+20h]
-  __int128 v71; // [rsp+130h] [rbp+30h]
-  __int128 v72; // [rsp+140h] [rbp+40h]
-  __int128 v73; // [rsp+150h] [rbp+50h]
-  __int128 v74; // [rsp+160h] [rbp+60h]
-  __int64 v75; // [rsp+170h] [rbp+70h]
-  __int128 v76; // [rsp+180h] [rbp+80h] BYREF
-  __int128 v77; // [rsp+190h] [rbp+90h] BYREF
-  char v78; // [rsp+1F0h] [rbp+F0h]
-  int v79; // [rsp+1F8h] [rbp+F8h] BYREF
-  _DWORD *v80; // [rsp+200h] [rbp+100h]
-  unsigned __int8 v81; // [rsp+208h] [rbp+108h]
+  __int64 v24; // rax
+  int v25; // eax
+  signed int v26; // ebx
+  unsigned int i; // esi
+  signed int v28; // eax
+  __int64 v29; // r8
+  _DWORD *v30; // rdi
+  __int64 v31; // rdx
+  int v32; // eax
+  bool v34; // zf
+  struct _PRIVILEGE_SET *TransientPoolWithTag; // rax
+  _DWORD *v36; // rdi
+  int v37; // eax
+  __int128 v38; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v39; // [rsp+60h] [rbp-A0h] BYREF
+  struct _SLIST_ENTRY v40; // [rsp+68h] [rbp-98h] BYREF
+  __int64 v41; // [rsp+78h] [rbp-88h]
+  _QWORD v42[2]; // [rsp+80h] [rbp-80h] BYREF
+  PPRIVILEGE_SET Privileges; // [rsp+90h] [rbp-70h]
+  _WORD v44[2]; // [rsp+98h] [rbp-68h] BYREF
+  int v45; // [rsp+9Ch] [rbp-64h]
+  __int64 v46; // [rsp+A0h] [rbp-60h]
+  __int128 v47; // [rsp+B0h] [rbp-50h] BYREF
+  __int128 v48; // [rsp+C0h] [rbp-40h]
+  __int128 v49; // [rsp+D0h] [rbp-30h]
+  __int128 v50; // [rsp+E0h] [rbp-20h]
+  __int128 v51; // [rsp+F0h] [rbp-10h]
+  __int128 v52; // [rsp+100h] [rbp+0h]
+  __int128 v53; // [rsp+110h] [rbp+10h]
+  __int128 v54; // [rsp+120h] [rbp+20h]
+  __int64 v55; // [rsp+130h] [rbp+30h]
+  __int128 v56; // [rsp+140h] [rbp+40h] BYREF
+  char v57; // [rsp+1A0h] [rbp+A0h]
+  int v58; // [rsp+1A8h] [rbp+A8h] BYREF
+  _DWORD *v59; // [rsp+1B0h] [rbp+B0h]
+  unsigned __int8 v60; // [rsp+1B8h] [rbp+B8h]
 
-  v81 = a4;
-  v80 = a3;
-  v12 = a3;
-  v77 = 0LL;
-  v48 = 0LL;
-  v76 = 0LL;
-  CmpInitializeThreadInfo((__int64)&v77);
-  v13 = (__int64)a11;
-  v14 = a8;
-  v78 = 0;
+  v60 = (unsigned __int8)a4;
+  v59 = a3;
+  v11 = (__int64)a11;
+  RegistryNamespaceRootForSilo = (__int64)a1;
+  v13 = a8;
+  v56 = 0LL;
+  v14 = a3;
+  v57 = 0;
   v15 = *a7;
   *a11 = 0LL;
-  v75 = 0LL;
-  v52 = 0LL;
-  v49[1] = v49;
-  v48 = v15;
-  v49[0] = v49;
-  v50 = 0LL;
+  v16 = 0LL;
+  v55 = 0LL;
+  v41 = 0LL;
+  v42[1] = v42;
+  v38 = v15;
+  v42[0] = v42;
+  v39 = 0LL;
   Privileges = 0LL;
-  v67 = 0LL;
+  v47 = 0LL;
   LODWORD(a7) = 0;
-  v68 = 0LL;
-  v79 = 0;
-  v69 = 0LL;
-  v70 = 0LL;
-  v71 = 0LL;
-  v72 = 0LL;
-  v73 = 0LL;
-  v74 = 0LL;
+  v48 = 0LL;
+  v58 = 0;
+  v49 = 0LL;
+  v50 = 0LL;
   v51 = 0LL;
-  if ( v16 != CmKeyObjectType )
-  {
-    v27 = -1073741788;
-    goto LABEL_46;
-  }
+  v52 = 0LL;
+  v53 = 0LL;
+  v54 = 0LL;
+  v40 = 0LL;
+  if ( a2 != CmKeyObjectType )
+    return 3221225508LL;
   v17 = a10;
-  if ( (PVOID)a1 == CmpRegistryRootObject )
+  if ( a1 == CmpRegistryRootObject )
+    RegistryNamespaceRootForSilo = CmpGetRegistryNamespaceRootForSilo(*(_QWORD *)(a10 + 8));
+  v18 = v38;
+  if ( (_WORD)v38 )
   {
-    for ( i = *(_QWORD *)(a10 + 8); ; i = PsGetParentSilo(i) )
+    v19 = (_WORD *)*((_QWORD *)&v38 + 1);
+    while ( *(_WORD *)(*((_QWORD *)&v38 + 1) + 2 * ((unsigned __int64)v18 >> 1) - 2) == 92 )
     {
-      a8 = 0LL;
-      PsGetPermanentSiloContext(i, CmpSiloContextSlot, (unsigned __int64 *)&a8);
-      if ( a8 )
-      {
-        a1 = *(_QWORD *)(a8 + 32);
-        if ( a1 )
-          break;
-      }
-    }
-    v13 = (__int64)a11;
-    v12 = v80;
-  }
-  v18 = v48;
-  if ( (_WORD)v48 )
-  {
-    v19 = (_WORD *)*((_QWORD *)&v48 + 1);
-    while ( *(_WORD *)(*((_QWORD *)&v48 + 1) + 2 * ((unsigned __int64)v18 >> 1) - 2) == 92 )
-    {
-      v36 = v18 == 2;
+      v34 = v18 == 2;
       v18 -= 2;
-      LOWORD(v48) = v18;
-      if ( v36 )
-        goto LABEL_9;
+      LOWORD(v38) = v18;
+      if ( v34 )
+        goto LABEL_10;
     }
     if ( v18 )
     {
-      v20 = WORD1(v48);
+      v20 = WORD1(v38);
       do
       {
         if ( *v19 != 92 )
@@ -178,240 +138,198 @@ __int64 __fastcall CmpParseKey(
         ++v19;
         v18 -= 2;
         v20 -= 2;
-        *((_QWORD *)&v48 + 1) = v19;
-        LOWORD(v48) = v18;
-        WORD1(v48) = v20;
+        *((_QWORD *)&v38 + 1) = v19;
+        LOWORD(v38) = v18;
+        WORD1(v38) = v20;
       }
       while ( v18 );
     }
   }
-LABEL_9:
-  if ( !v14 )
+LABEL_10:
+  if ( !v13 )
   {
-    Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(256LL, 296LL, 875973955LL);
-    Privileges = Pool;
-    v42 = Pool;
-    if ( !Pool )
-    {
-      v27 = -1073741670;
-      goto LABEL_46;
-    }
-    memset(Pool, 0, 0x128uLL);
-    v42[4].Privilege[0].Attributes = -1;
-    *(_QWORD *)&v42[7].Privilege[0].Luid.HighPart = (char *)v42 + 144;
-    *(_QWORD *)&v42[7].Control = (char *)v42 + 144;
-    memset(&v42[10].Privilege[0].Attributes, 0, 0x50uLL);
-    v14 = (__int64)v42;
+    TransientPoolWithTag = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithTag(
+                                                      PagedPool,
+                                                      0x128uLL,
+                                                      0x34364D43u,
+                                                      a4);
+    Privileges = TransientPoolWithTag;
+    v16 = TransientPoolWithTag;
+    if ( !TransientPoolWithTag )
+      return 3221225626LL;
+    memset(TransientPoolWithTag, 0, 0x128uLL);
+    v16[4].Privilege[0].Attributes = -1;
+    *(_QWORD *)&v16[7].Privilege[0].Luid.HighPart = (char *)v16 + 144;
+    *(_QWORD *)&v16[7].Control = (char *)v16 + 144;
+    memset(&v16[10].Privilege[0].Attributes, 0, 0x50uLL);
+    v13 = (__int64)v16;
   }
-  v21 = *(_DWORD *)(v17 + 4) & *(_DWORD *)(a1 + 96);
-  *(_DWORD *)(v14 + 96) = v21;
-  if ( *(_QWORD *)(a1 + 8) == *((_QWORD *)CmpRegistryRootObject + 1)
-    && (_WORD)v48
-    && ((**((_WORD **)&v48 + 1) - 65) & 0xFFDF) == 0
-    && ((unsigned __int16)v48 <= 2u || *(_WORD *)(*((_QWORD *)&v48 + 1) + 2LL) == 92)
-    && (*(_DWORD *)v14 & 0x40) == 0 )
+  v21 = *(_DWORD *)(v17 + 4) & *(_DWORD *)(RegistryNamespaceRootForSilo + 96);
+  *(_DWORD *)(v13 + 96) = v21;
+  if ( (unsigned __int8)CmpDoesParseEnterRegistryA(RegistryNamespaceRootForSilo, &v38) && (*(_DWORD *)v13 & 0x40) == 0 )
   {
-    v27 = -1073741790;
-    goto LABEL_44;
+    v26 = -1073741790;
+    goto LABEL_38;
   }
-  if ( (*(_DWORD *)v14 & 0x800) == 0 || (unsigned __int8)CmpDoesParseEnterRegistryA(a1, &v48) )
+  if ( (*(_DWORD *)v13 & 0x800) != 0 && !(unsigned __int8)CmpDoesParseEnterRegistryA(RegistryNamespaceRootForSilo, &v38) )
   {
-    if ( (*(_DWORD *)(a1 + 48) & 0x10) != 0 )
-      *(_DWORD *)(v14 + 24) |= 0x10u;
-    CurrentThread = KeGetCurrentThread();
-    v23 = a6;
-    --CurrentThread->KernelApcDisable;
-    if ( CmpCallBackCount && !CmpIsRegistryLockAcquired() )
-    {
-      *((_QWORD *)&v73 + 1) = 1LL;
-      DWORD2(v74) = *(_DWORD *)(v14 + 28);
-      LOBYTE(v24) = 1;
-      HIDWORD(v74) = a5;
-      *(_QWORD *)&v74 = &v48;
-      LOBYTE(v75) = v81;
-      DWORD2(v68) = *(_DWORD *)(v14 + 24);
-      *(_QWORD *)&v68 = CmKeyObjectType;
-      DWORD2(v70) = v12[4];
-      *(_QWORD *)&v67 = v23;
-      *((_QWORD *)&v67 + 1) = a1;
-      *((_QWORD *)&v71 + 1) = v13;
-      v25 = *(_QWORD *)(v14 + 72);
-      if ( (v25 & 1) != 0 )
-        v25 = 0LL;
-      *(_QWORD *)&v73 = v25;
-      *(_QWORD *)&v51 = &v67;
-      DWORD2(v51) = *(_DWORD *)(v14 + 96);
-      v52 = v14 + 144;
-      if ( (*(_DWORD *)v14 & 1) != 0 )
-      {
-        v64[0] = *(_WORD *)(v14 + 4);
-        v64[1] = v64[0];
-        v66 = *(_QWORD *)(v14 + 8);
-        *(_QWORD *)&v71 = v14 + 32;
-        *(_QWORD *)&v69 = v64;
-        *((_QWORD *)&v69 + 1) = *((_QWORD *)v12 + 8);
-        *(_QWORD *)&v70 = a9;
-        v65 = 0;
-        v26 = CmpCallCallBacksEx(26, (unsigned int)&v67, (unsigned int)&v51, v24, 27, a1, (__int64)v49);
-      }
-      else
-      {
-        v26 = CmpCallCallBacksEx(28, (unsigned int)&v67, (unsigned int)&v51, v24, 29, a1, (__int64)v49);
-      }
-      v27 = v26;
-      if ( v26 < 0 )
-      {
-        if ( v26 != -1073740541 )
-          goto LABEL_43;
-        v27 = HIDWORD(v51);
-        if ( HIDWORD(v51) != 260 )
-        {
-          if ( HIDWORD(v51) != 872 )
-          {
-            v43 = v80;
-            v44 = HIDWORD(v70);
-            v80[5] |= HIDWORD(v70);
-            v43[4] &= ~(v44 | 0x2000000);
-            v27 = 0;
-            goto LABEL_43;
-          }
-          goto LABEL_73;
-        }
-        goto LABEL_40;
-      }
-      a1 = *((_QWORD *)&v67 + 1);
-      *(_DWORD *)(v14 + 96) = DWORD2(v51);
-      v78 = 1;
-    }
-    v28 = (int)v80;
-    while ( 1 )
+    v26 = -1073741790;
+    goto LABEL_38;
+  }
+  if ( (*(_DWORD *)(RegistryNamespaceRootForSilo + 48) & 0x10) != 0 )
+    *(_DWORD *)(v13 + 24) |= 0x10u;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v23 = a6;
+  if ( !CmpCallBackCount || ExIsResourceAcquiredSharedLite((PERESOURCE)&CmpRegistryLock) )
+    goto LABEL_23;
+  *((_QWORD *)&v53 + 1) = 1LL;
+  DWORD2(v54) = *(_DWORD *)(v13 + 28);
+  HIDWORD(v54) = a5;
+  *(_QWORD *)&v54 = &v38;
+  LOBYTE(v55) = v60;
+  DWORD2(v48) = *(_DWORD *)(v13 + 24);
+  *(_QWORD *)&v48 = CmKeyObjectType;
+  DWORD2(v50) = v14[4];
+  *(_QWORD *)&v47 = v23;
+  *((_QWORD *)&v47 + 1) = RegistryNamespaceRootForSilo;
+  *((_QWORD *)&v51 + 1) = v11;
+  v24 = *(_QWORD *)(v13 + 72);
+  if ( (v24 & 1) != 0 )
+    v24 = 0LL;
+  *(_QWORD *)&v53 = v24;
+  v40.Next = (_SLIST_ENTRY *)&v47;
+  *((_DWORD *)&v40.Next + 2) = *(_DWORD *)(v13 + 96);
+  v41 = v13 + 144;
+  if ( (*(_DWORD *)v13 & 1) != 0 )
+  {
+    v44[0] = *(_WORD *)(v13 + 4);
+    v44[1] = v44[0];
+    v46 = *(_QWORD *)(v13 + 8);
+    *(_QWORD *)&v51 = v13 + 32;
+    *(_QWORD *)&v49 = v44;
+    *((_QWORD *)&v49 + 1) = *((_QWORD *)v14 + 8);
+    *(_QWORD *)&v50 = a9;
+    v45 = 0;
+    v25 = CmpCallCallBacksEx(0x1Au, (__int64)&v47, &v40, 1, 0x1Bu, RegistryNamespaceRootForSilo, (__int64)v42);
+  }
+  else
+  {
+    v25 = CmpCallCallBacksEx(0x1Cu, (__int64)&v47, &v40, 1, 0x1Du, RegistryNamespaceRootForSilo, (__int64)v42);
+  }
+  v26 = v25;
+  if ( v25 >= 0 )
+  {
+    RegistryNamespaceRootForSilo = *((_QWORD *)&v47 + 1);
+    LODWORD(v14) = (_DWORD)v59;
+    *(_DWORD *)(v13 + 96) = *((_DWORD *)&v40.Next + 2);
+    v57 = 1;
+LABEL_23:
+    for ( i = (unsigned int)a7; ; ++i )
     {
       while ( 1 )
       {
-        v76 = v48;
-        v29 = CmpDoParseKey(a1, v28, v81, a5, v23, (__int64)&v76, v14, a9, (__int64)&v50);
-        v27 = v29;
-        if ( v29 != 259 )
+        v56 = v38;
+        v28 = CmpDoParseKey(
+                RegistryNamespaceRootForSilo,
+                (_DWORD)v14,
+                v60,
+                a5,
+                v23,
+                (__int64)&v56,
+                v13,
+                a9,
+                (__int64)&v39);
+        v26 = v28;
+        if ( v28 != 259 )
           break;
-        KeWaitForSingleObject((char *)&unk_140C02700 + 184 * *(unsigned int *)(v14 + 136), Executive, 0, 0, 0LL);
-        *(_DWORD *)v14 &= ~0x100u;
+        KeWaitForSingleObject((char *)&unk_140C00F70 + 200 * *(unsigned int *)(v13 + 136), Executive, 0, 0, 0LL);
+        *(_DWORD *)v13 &= ~0x100u;
+        LODWORD(v14) = (_DWORD)v59;
       }
-      if ( v29 != -1073741267 )
+      if ( v28 != -1073741267 )
         break;
-      v40 = (int)a7;
-      if ( (unsigned int)a7 >= 0x40 )
+      if ( i >= 0x40 )
       {
-        v27 = -1073741772;
-        v21 = *(_DWORD *)(v17 + 4) & *(_DWORD *)(a1 + 96);
-        goto LABEL_27;
+        v26 = -1073741772;
+        break;
       }
-      if ( (*(_DWORD *)(v14 + 100) & 4) != 0 )
+      if ( (*(_DWORD *)(v13 + 100) & 4) != 0 )
       {
-        CmpRollbackTransactionArray(*(unsigned int *)(v14 + 120), *(_QWORD *)(v14 + 128), v30, &v79, Timeout);
-        *(_DWORD *)(v14 + 100) &= ~4u;
-        *(_DWORD *)(v14 + 120) = 0;
-        *(_QWORD *)(v14 + 128) = 0LL;
+        CmpRollbackTransactionArray(*(unsigned int *)(v13 + 120), *(_QWORD *)(v13 + 128), v29, &v58);
+        *(_DWORD *)(v13 + 100) &= ~4u;
+        *(_DWORD *)(v13 + 120) = 0;
+        *(_QWORD *)(v13 + 128) = 0LL;
       }
-      LODWORD(a7) = v40 + 1;
+      LODWORD(v14) = (_DWORD)v59;
     }
-    v21 = *(_DWORD *)(v17 + 4) & *(_DWORD *)(a1 + 96);
-    if ( v29 >= 0 )
+    v21 = *(_DWORD *)(v17 + 4) & *(_DWORD *)(RegistryNamespaceRootForSilo + 96);
+    if ( v26 >= 0 )
     {
-      *(_QWORD *)v13 = v50;
-      v50 = 0LL;
+      *(_QWORD *)v11 = v39;
+      v39 = 0LL;
     }
-LABEL_27:
-    if ( v78 )
+    if ( v57 )
     {
-      v31 = v80;
-      v32 = *(_QWORD *)v13;
-      v33 = v80[5];
-      HIDWORD(v70) = v33;
-      if ( (*(_DWORD *)v14 & 1) != 0 )
+      v30 = v59;
+      v31 = *(_QWORD *)v11;
+      HIDWORD(v50) = v59[5];
+      v26 = CmPostCallbackNotificationEx(
+              2 * (unsigned int)((*(_DWORD *)v13 & 1) == 0) + 27,
+              v31,
+              v26,
+              (__int64)&v47,
+              (__int64)&v40,
+              v42);
+      if ( v26 >= 0 )
       {
-        if ( !CmpCallBackCount )
+        v32 = HIDWORD(v50);
+        if ( HIDWORD(v50) != v30[5] )
         {
-LABEL_35:
-          if ( v27 >= 0 && v33 != v31[5] )
-          {
-            v31[5] = v33;
-            v31[4] = v31[6] & ~(v33 | 0x2000000);
-          }
-          if ( *(_QWORD *)v13 )
-            *(_DWORD *)(*(_QWORD *)v13 + 96LL) = DWORD2(v51);
-          goto LABEL_40;
+          v30[5] = HIDWORD(v50);
+          v30[4] = v30[6] & ~(v32 | 0x2000000);
         }
-        if ( CmpIsRegistryLockAcquired() || (_QWORD *)v49[0] == v49 )
-        {
+      }
+      if ( *(_QWORD *)v11 )
+        *(_DWORD *)(*(_QWORD *)v11 + 96LL) = *((_DWORD *)&v40.Next + 2);
+    }
 LABEL_34:
-          v33 = HIDWORD(v70);
-          v31 = v80;
-          goto LABEL_35;
-        }
-        v34 = 27;
-        v56 = &v67;
-        v62 = &v53;
-        v63 = &v51;
-        v47 = v32;
-        Timeouta = 27;
-      }
-      else
-      {
-        if ( !CmpCallBackCount )
-          goto LABEL_35;
-        if ( CmpIsRegistryLockAcquired() || (_QWORD *)v49[0] == v49 )
-          goto LABEL_34;
-        v34 = 29;
-        v56 = &v67;
-        v62 = &v53;
-        v63 = &v51;
-        v47 = v32;
-        Timeouta = 29;
-      }
-      v55 = 0;
-      v59 = 0LL;
-      v60 = 0;
-      v53 = v32;
-      v58 = 0LL;
-      v54 = v27;
-      v57 = v27;
-      CmpCallCallBacksEx(v34, (unsigned int)&v53, (unsigned int)&v62, 0, Timeouta, v47, (__int64)v49);
-      v27 = v57;
-      goto LABEL_34;
-    }
-LABEL_40:
-    if ( v27 != 872 )
+    if ( v26 != 872 )
     {
-      if ( v27 == 260 )
+      if ( v26 == 260 )
       {
-        *(_DWORD *)(v14 + 96) = v21;
+        *(_DWORD *)(v13 + 96) = v21;
         *(_QWORD *)(v17 + 8) = PsGetCurrentSilo();
       }
-      goto LABEL_43;
+      goto LABEL_37;
     }
-LABEL_73:
-    *(_QWORD *)(v14 + 64) = 0LL;
-    *(_QWORD *)(v17 + 8) = 0LL;
-LABEL_43:
-    v35 = KeGetCurrentThread();
-    v36 = v35->KernelApcDisable++ == -1;
-    if ( v36
-      && ($C71981A45BEB2B45F82C232A7085991E *)v35->ApcState.ApcListHead[0].Flink != &v35->152
-      && !v35->SpecialApcDisable )
-    {
-      KiCheckForKernelApcDelivery();
-    }
-    goto LABEL_44;
+    goto LABEL_50;
   }
-  v27 = -1073741790;
-LABEL_44:
-  v37 = Privileges;
-  if ( Privileges )
+  if ( v25 != -1073740541 )
+    goto LABEL_34;
+  v26 = *((_DWORD *)&v40.Next + 3);
+  if ( *((_DWORD *)&v40.Next + 3) == 260 )
+    goto LABEL_34;
+  if ( *((_DWORD *)&v40.Next + 3) != 872 )
   {
-    CmpCleanupParseContext(Privileges, 0LL);
-    CmSiFreeMemory(v37);
+    v36 = v59;
+    v37 = HIDWORD(v50);
+    v59[5] |= HIDWORD(v50);
+    v36[4] &= ~(v37 | 0x2000000);
+    v26 = 0;
+    goto LABEL_37;
   }
-LABEL_46:
-  CmCleanupThreadInfo((__int64 *)&v77);
-  return (unsigned int)v27;
+LABEL_50:
+  *(_QWORD *)(v13 + 64) = 0LL;
+  *(_QWORD *)(v17 + 8) = 0LL;
+LABEL_37:
+  KeLeaveCriticalRegion();
+  v16 = Privileges;
+LABEL_38:
+  if ( v16 )
+  {
+    CmpCleanupParseContext(v16, 0LL);
+    CmSiFreeMemory(v16);
+  }
+  return (unsigned int)v26;
 }

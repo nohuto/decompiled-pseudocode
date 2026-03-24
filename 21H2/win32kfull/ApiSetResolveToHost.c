@@ -1,9 +1,9 @@
 /*
- * XREFs of ApiSetResolveToHost @ 0x1C0112508
+ * XREFs of ApiSetResolveToHost @ 0x1C0127488
  * Callers:
- *     ?ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z @ 0x1C0112124 (-ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z.c)
+ *     ?ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z @ 0x1C01270B0 (-ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z.c)
  * Callees:
- *     ApiSetpSearchForApiSet @ 0x1C01125F0 (ApiSetpSearchForApiSet.c)
+ *     ApiSetpSearchForApiSet @ 0x1C0127570 (ApiSetpSearchForApiSet.c)
  */
 
 __int64 __fastcall ApiSetResolveToHost(__int64 a1, unsigned __int16 *a2, __int64 a3, char *a4, __int64 a5)

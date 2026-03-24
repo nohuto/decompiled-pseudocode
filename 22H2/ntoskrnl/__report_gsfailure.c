@@ -1,9 +1,9 @@
 /*
- * XREFs of __report_gsfailure @ 0x1404FE1D0
+ * XREFs of __report_gsfailure @ 0x1404B6390
  * Callers:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 void __cdecl __noreturn _report_gsfailure(uintptr_t StackCookie)

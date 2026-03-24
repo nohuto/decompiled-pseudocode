@@ -1,5 +1,5 @@
 /*
- * XREFs of PnpReportTargetDeviceChangeAsyncWorker @ 0x140825F70
+ * XREFs of PnpReportTargetDeviceChangeAsyncWorker @ 0x140825F50
  * Callers:
  *     <none>
  * Callees:

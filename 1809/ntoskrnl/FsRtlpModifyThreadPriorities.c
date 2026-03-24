@@ -1,20 +1,20 @@
 /*
- * XREFs of FsRtlpModifyThreadPriorities @ 0x140107D80
+ * XREFs of FsRtlpModifyThreadPriorities @ 0x140107DA0
  * Callers:
  *     FsRtlpOplockCleanup @ 0x14001794C (FsRtlpOplockCleanup.c)
  *     FsRtlpOplockBreakByCacheFlags @ 0x140018CB0 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlUninitializeOplock @ 0x14011B480 (FsRtlUninitializeOplock.c)
- *     FsRtlpOplockBreakToII @ 0x140130710 (FsRtlpOplockBreakToII.c)
- *     FsRtlpOplockBreakToNone @ 0x14013AAEC (FsRtlpOplockBreakToNone.c)
- *     FsRtlpCancelExclusiveIrp @ 0x14013F6FC (FsRtlpCancelExclusiveIrp.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x140168D80 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3914 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlpAcknowledgeOplockBreak @ 0x14026F858 (FsRtlpAcknowledgeOplockBreak.c)
- *     FsRtlpOpBatchBreakClosePending @ 0x14081531C (FsRtlpOpBatchBreakClosePending.c)
- *     FsRtlpOplockBreakNotify @ 0x140815458 (FsRtlpOplockBreakNotify.c)
+ *     FsRtlUninitializeOplock @ 0x14011B4A0 (FsRtlUninitializeOplock.c)
+ *     FsRtlpOplockBreakToII @ 0x140130730 (FsRtlpOplockBreakToII.c)
+ *     FsRtlpOplockBreakToNone @ 0x14013AB0C (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpCancelExclusiveIrp @ 0x14013F71C (FsRtlpCancelExclusiveIrp.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x140168DA0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3934 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x14026F958 (FsRtlpAcknowledgeOplockBreak.c)
+ *     FsRtlpOpBatchBreakClosePending @ 0x1408152FC (FsRtlpOpBatchBreakClosePending.c)
+ *     FsRtlpOplockBreakNotify @ 0x140815438 (FsRtlpOplockBreakNotify.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x1400BBF70 (PsBoostThreadIoEx.c)
- *     FsRtlpDoBoost @ 0x140107E44 (FsRtlpDoBoost.c)
+ *     PsBoostThreadIoEx @ 0x1400BBF90 (PsBoostThreadIoEx.c)
+ *     FsRtlpDoBoost @ 0x140107E64 (FsRtlpDoBoost.c)
  */
 
 void __fastcall FsRtlpModifyThreadPriorities(__int64 a1, __int64 a2, char a3)

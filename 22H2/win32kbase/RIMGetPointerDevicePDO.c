@@ -1,15 +1,12 @@
 /*
- * XREFs of RIMGetPointerDevicePDO @ 0x1C006E3E4
+ * XREFs of RIMGetPointerDevicePDO @ 0x1C006DD34
  * Callers:
- *     RIMGetMouseDeviceHardwareId @ 0x1C006CAE0 (RIMGetMouseDeviceHardwareId.c)
- *     RIMGetDeviceParent @ 0x1C006CE24 (RIMGetDeviceParent.c)
- *     RIMGetContainerId @ 0x1C006D15C (RIMGetContainerId.c)
- *     RIMGetPanelId @ 0x1C006D320 (RIMGetPanelId.c)
- *     RIMRegOpenDeviceInstanceKey @ 0x1C006DB88 (RIMRegOpenDeviceInstanceKey.c)
- *     RIMIsHIDMouse @ 0x1C006E330 (RIMIsHIDMouse.c)
- *     rimIsCrossSessionDevice @ 0x1C0171F08 (rimIsCrossSessionDevice.c)
+ *     RIMRegOpenDeviceInstanceKey @ 0x1C006D818 (RIMRegOpenDeviceInstanceKey.c)
+ *     RIMGetDeviceParent @ 0x1C006D900 (RIMGetDeviceParent.c)
+ *     RIMGetPanelId @ 0x1C006DC84 (RIMGetPanelId.c)
+ *     RIMGetContainerId @ 0x1C015D800 (RIMGetContainerId.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall RIMGetPointerDevicePDO(PDEVICE_OBJECT DeviceObject, _QWORD *a2)
@@ -22,11 +19,10 @@ __int64 __fastcall RIMGetPointerDevicePDO(PDEVICE_OBJECT DeviceObject, _QWORD *a
   struct _KEVENT Event; // [rsp+50h] [rbp-38h] BYREF
 
   IoStatusBlock = 0LL;
-  memset(&Event, 0, sizeof(Event));
   if ( !DeviceObject )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 995LL);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1048LL);
   if ( !a2 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 996LL);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1049LL);
   KeInitializeEvent(&Event, NotificationEvent, 0);
   v4 = IoBuildSynchronousFsdRequest(0x1Bu, DeviceObject, 0LL, 0, 0LL, &Event, &IoStatusBlock);
   if ( v4 )
@@ -45,9 +41,9 @@ __int64 __fastcall RIMGetPointerDevicePDO(PDEVICE_OBJECT DeviceObject, _QWORD *a
     {
       Information = (_QWORD *)IoStatusBlock.Information;
       if ( !IoStatusBlock.Information )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1031LL);
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1084LL);
       if ( *(_DWORD *)Information != 1 )
-        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1032LL);
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1085LL);
       *a2 = Information[1];
       ExFreePoolWithTag(Information, 0);
     }

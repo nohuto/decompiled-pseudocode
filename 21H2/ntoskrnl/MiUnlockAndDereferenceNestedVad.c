@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUnlockAndDereferenceNestedVad @ 0x1405B204C
+ * XREFs of MiUnlockAndDereferenceNestedVad @ 0x14055BDD0
  * Callers:
- *     MiFinishVadDeletion @ 0x14030FEC0 (MiFinishVadDeletion.c)
- *     MiMapViewOfDataSection @ 0x1406FB4D0 (MiMapViewOfDataSection.c)
- *     MiReserveUserMemory @ 0x1407B8B60 (MiReserveUserMemory.c)
+ *     MiFinishVadDeletion @ 0x140316DC0 (MiFinishVadDeletion.c)
+ *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
  * Callees:
- *     MiDereferenceVad @ 0x1405B1FD0 (MiDereferenceVad.c)
- *     MiUnlockNestedVad @ 0x14097EE28 (MiUnlockNestedVad.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiDereferenceVad @ 0x14031745C (MiDereferenceVad.c)
+ *     MiUnlockNestedVad @ 0x1408D9A94 (MiUnlockNestedVad.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiUnlockAndDereferenceNestedVad(PVOID P)

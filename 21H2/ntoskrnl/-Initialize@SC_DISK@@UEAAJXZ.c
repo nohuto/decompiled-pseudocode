@@ -1,12 +1,11 @@
 /*
- * XREFs of ?Initialize@SC_DISK@@UEAAJXZ @ 0x1406510A0
+ * XREFs of ?Initialize@SC_DISK@@UEAAJXZ @ 0x1405C6DB0
  * Callers:
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x140930388 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14088D908 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ?Initialize@SC_DEVICE@@UEAAJXZ @ 0x1406522B0 (-Initialize@SC_DEVICE@@UEAAJXZ.c)
- *     ?UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z @ 0x14065241C (-UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ?Initialize@SC_DEVICE@@UEAAJXZ @ 0x1405C8F70 (-Initialize@SC_DEVICE@@UEAAJXZ.c)
+ *     ?UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z @ 0x1405C90B4 (-UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z.c)
  */
 
 __int64 __fastcall SC_DISK::Initialize(SC_DISK *this)
@@ -16,13 +15,7 @@ __int64 __fastcall SC_DISK::Initialize(SC_DISK *this)
   _QWORD *v4; // rdi
   enum _STORAGE_PROPERTY_ID v5; // edx
   unsigned int v6; // eax
-  __int128 v7; // [rsp+40h] [rbp-38h] BYREF
-  __int128 v8; // [rsp+50h] [rbp-28h]
-  __int64 v9; // [rsp+60h] [rbp-18h]
 
-  v7 = 0LL;
-  v9 = 0LL;
-  v8 = 0LL;
   result = SC_DEVICE::Initialize(this);
   if ( (int)result >= 0 )
   {
@@ -30,50 +23,37 @@ __int64 __fastcall SC_DISK::Initialize(SC_DISK *this)
     if ( !v3 )
       v3 = *((_QWORD *)this + 2) - *(_QWORD *)GUID_DEVCLASS_SMRDISK.Data4;
     if ( !v3 )
-      *((_DWORD *)this + 50) |= 1u;
-    v4 = (_QWORD *)((char *)this + 208);
-    if ( (*(int (__fastcall **)(SC_DISK *, __int64, _QWORD, _QWORD, char *, int))(*(_QWORD *)this + 16LL))(
-           this,
-           475228LL,
-           0LL,
-           0LL,
-           (char *)this + 208,
-           8) < 0
-      || !*v4 )
-    {
-      result = (*(__int64 (__fastcall **)(SC_DISK *, __int64, _QWORD, _QWORD, __int128 *, int))(*(_QWORD *)this + 16LL))(
-                 this,
-                 458912LL,
-                 0LL,
-                 0LL,
-                 &v7,
-                 40);
-      if ( (int)result < 0 )
-        return result;
-      *v4 = *((_QWORD *)&v8 + 1);
-    }
+      *((_DWORD *)this + 48) |= 1u;
+    v4 = (_QWORD *)((char *)this + 200);
     result = (*(__int64 (__fastcall **)(SC_DISK *, __int64, _QWORD, _QWORD, char *, int))(*(_QWORD *)this + 16LL))(
                this,
-               458752LL,
+               475228LL,
                0LL,
                0LL,
-               (char *)this + 216,
-               24);
+               (char *)this + 200,
+               8);
     if ( (int)result >= 0 )
     {
-      v6 = *((_DWORD *)this + 59);
-      if ( v6 )
+      if ( !*v4 )
+        return 3221225635LL;
+      result = (*(__int64 (__fastcall **)(SC_DISK *, __int64, _QWORD, _QWORD, char *, int))(*(_QWORD *)this + 16LL))(
+                 this,
+                 458752LL,
+                 0LL,
+                 0LL,
+                 (char *)this + 208,
+                 24);
+      if ( (int)result >= 0 )
       {
+        v6 = *((_DWORD *)this + 57);
+        if ( !v6 )
+          return 3221225635LL;
         _BitScanReverse(&v6, v6);
-        *((_DWORD *)this + 60) = v6;
-        *((_QWORD *)this + 31) = *v4 >> *((_DWORD *)this + 60);
+        *((_DWORD *)this + 58) = v6;
+        *((_QWORD *)this + 30) = *v4 >> *((_DWORD *)this + 58);
         result = SC_DEVICE::UpdateStorageProperty(this, v5);
         if ( (int)result < 0 )
           return 0LL;
-      }
-      else
-      {
-        return 3221225635LL;
       }
     }
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitUpdateCommands@CPrimitiveColorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0229520
+ * XREFs of ?EmitUpdateCommands@CPrimitiveColorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E97F0
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 bool __fastcall DirectComposition::CPrimitiveColorMarshaler::EmitUpdateCommands(
@@ -21,9 +21,9 @@ bool __fastcall DirectComposition::CPrimitiveColorMarshaler::EmitUpdateCommands(
   *(_DWORD *)v5 = 28;
   *(_OWORD *)(v3 + 4) = 0LL;
   *(_QWORD *)(v3 + 20) = 0LL;
-  *((_DWORD *)v3 + 1) = 292;
-  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
+  *((_DWORD *)v3 + 1) = 299;
+  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
   result = 1;
-  *(_OWORD *)(v3 + 12) = *((_OWORD *)this + 4);
+  *(_OWORD *)(v3 + 12) = *(_OWORD *)((char *)this + 56);
   return result;
 }

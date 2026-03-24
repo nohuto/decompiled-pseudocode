@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPICMLidSetPowerCompletion @ 0x1C00198C0
+ * XREFs of ACPICMLidSetPowerCompletion @ 0x1C004F050
  * Callers:
- *     ACPICMLidSetPower @ 0x1C0019820 (ACPICMLidSetPower.c)
+ *     ACPICMLidSetPower @ 0x1C004EFB0 (ACPICMLidSetPower.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     ACPIBusIrpSetSystemPower @ 0x1C0016FF4 (ACPIBusIrpSetSystemPower.c)
- *     ACPIButtonEvent @ 0x1C00189F0 (ACPIButtonEvent.c)
- *     ACPICMButtonSetPower @ 0x1C0018C10 (ACPICMButtonSetPower.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIButtonEvent @ 0x1C003000C (ACPIButtonEvent.c)
+ *     ACPIBusIrpSetSystemPower @ 0x1C004D9C4 (ACPIBusIrpSetSystemPower.c)
+ *     ACPICMButtonSetPower @ 0x1C004EA80 (ACPICMButtonSetPower.c)
  */
 
 __int64 __fastcall ACPICMLidSetPowerCompletion(__int64 a1, int a2, __int64 a3, __int64 a4)
@@ -17,9 +17,9 @@ __int64 __fastcall ACPICMLidSetPowerCompletion(__int64 a1, int a2, __int64 a3, _
   int v9; // ebp
   int v10; // r15d
   __int64 v11; // r13
-  KSPIN_LOCK *v13; // rbx
+  KSPIN_LOCK *v13; // rdi
   KIRQL v14; // al
-  char v15; // di
+  char v15; // bl
 
   v4 = *(_QWORD *)(a4 + 184);
   v7 = *(struct _DEVICE_OBJECT **)(v4 + 40);
@@ -35,8 +35,8 @@ __int64 __fastcall ACPICMLidSetPowerCompletion(__int64 a1, int a2, __int64 a3, _
   v15 = *(_BYTE *)(v11 + 192);
   *(_BYTE *)(v11 + 192) = v9 != 0;
   KeReleaseSpinLock(v13, v14);
-  LOBYTE(v10) = v15 != 0;
-  if ( (v9 != 0) != v10 )
+  LOBYTE(v10) = v9 != 0;
+  if ( v10 != (v15 != 0) )
     ACPIButtonEvent((ULONG_PTR)v7, v9 != 0 ? -2146697216 : 786432);
   return ACPICMButtonSetPower(v7, a4);
 }

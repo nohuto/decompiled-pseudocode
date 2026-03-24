@@ -1,7 +1,7 @@
 /*
- * XREFs of MiValidateMdlAllocationRequest @ 0x1402F8FAC
+ * XREFs of MiValidateMdlAllocationRequest @ 0x14035738C
  * Callers:
- *     MiAllocatePagesForMdl @ 0x1402F8CDC (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x140354954 (MiAllocatePagesForMdl.c)
  * Callees:
  *     <none>
  */
@@ -15,163 +15,117 @@ __int64 __fastcall MiValidateMdlAllocationRequest(
         unsigned __int64 a6,
         int a7,
         int a8,
-        signed int a9,
-        __int64 a10)
+        int a9)
 {
-  signed int v10; // r10d
-  int *v11; // r11
-  unsigned __int64 v14; // r12
-  unsigned __int64 v15; // r14
-  int v16; // eax
+  int v9; // r10d
+  unsigned __int64 v12; // rdi
+  ULONG_PTR v13; // rbx
+  int v14; // eax
+  unsigned __int64 v15; // r8
+  __int64 v16; // rcx
   unsigned __int64 v17; // rcx
-  __int64 v18; // rdx
-  int v19; // edi
-  __int64 v20; // rax
-  unsigned __int64 v21; // r9
-  unsigned int v22; // eax
-  __int64 *v23; // rdx
-  unsigned __int64 v24; // rax
-  unsigned __int64 v25; // r8
-  int v26; // edx
+  __int64 v18; // rax
+  unsigned __int64 v19; // r9
+  __int64 result; // rax
+  unsigned int v21; // eax
+  __int64 *v22; // rdx
 
-  v10 = a9;
-  v11 = (int *)(a1 + 84);
-  if ( (a9 & 0x400000) != 0 )
+  v9 = a9;
+  if ( (a9 & 0x100) != 0 && (ULONG_PTR *)a2 != &MiSystemPartition )
+    return 3221225485LL;
+  v12 = a3 >> 12;
+  v13 = a4 >> 12;
+  if ( a4 >> 12 < 0xFFFFFFFFFLL )
   {
-    v10 = a9 & 0xFFBFFFFF;
-    *v11 |= 2u;
-  }
-  if ( (v10 & 0x100) != 0 )
-  {
-    if ( (_UNKNOWN *)a2 != &MiSystemPartition )
-      return 3221225485LL;
-    *v11 |= 2u;
-  }
-  if ( (*(_DWORD *)(a2 + 4) & 0x10) != 0 )
-    *v11 |= 2u;
-  v14 = a3 >> 12;
-  v15 = a4 >> 12;
-  if ( a4 >> 12 < qword_140C65CA0 )
-  {
-    if ( v15 >= *(_QWORD *)(a2 + 17032) && !v14 )
-      v10 |= 0x10000u;
+    if ( v13 >= *(_QWORD *)(a2 + 6920) && !v12 )
+      v9 = a9 | 0x10000;
   }
   else
   {
-    v15 = qword_140C65CA0;
-    v16 = v10 | 0x10000;
-    if ( v14 )
-      v16 = v10;
-    v10 = v16;
+    v13 = 0xFFFFFFFFFLL;
+    v14 = a9 | 0x10000;
+    if ( v12 )
+      v14 = a9;
+    v9 = v14;
   }
   if ( (a5 & 0xFFF) != 0 )
     return 3221225485LL;
-  v17 = a5 >> 12;
-  if ( ((v17 - 1) & v17) != 0 )
+  v15 = a5 >> 12;
+  if ( ((v15 - 1) & v15) != 0 )
   {
-    if ( (v10 & 0x40) != 0 )
+    if ( (v9 & 0x40) != 0 )
       return 3221225485LL;
-    v17 = 0LL;
+    v15 = 0LL;
   }
-  if ( (v10 & 0x400) != 0 && ((v10 & 0x370) != 0 || (v10 & 0x10001) != 0x10001 || ((a7 - 1) & 0xFFFFFFFD) != 0) )
+  if ( (v9 & 0x400) != 0 && ((v9 & 0x362) != 0 || (v9 & 0x10001) == 0 || ((a7 - 1) & 0xFFFFFFFD) != 0) )
     return 3221225485LL;
-  *(_QWORD *)(a1 + 48) = 1LL;
-  v18 = 1LL;
-  if ( v10 >= 0 )
-  {
-    v19 = v10 & 4;
-    goto LABEL_15;
-  }
-  if ( (v10 & 0x1000) == 0 )
-  {
-    if ( (v10 & 0x1000000) != 0 )
-    {
-      v18 = 512LL;
-    }
-    else
-    {
-      if ( (v10 & 0x2000000) == 0 )
-        goto LABEL_50;
-      v18 = 0x40000LL;
-    }
-    *(_QWORD *)(a1 + 48) = v18;
-    goto LABEL_50;
-  }
-  *(_QWORD *)(a1 + 48) = 16LL;
-  v18 = 16LL;
-LABEL_50:
-  if ( (v10 & 4) != 0 )
+  v16 = a6;
+  if ( a6 <= 0xFFFFE000 )
+    goto LABEL_10;
+  if ( (v9 & 4) != 0 )
     return 3221225485LL;
-  *v11 |= 2u;
-  v19 = 0;
-LABEL_15:
-  v20 = a6;
-  if ( a6 > 4294963200LL * v18 )
+  v16 = 4294959104LL;
+  if ( (v9 & 0x60) != 0 && v15 )
+    v16 = ~((v15 << 12) - 1) & 0xFFFFE000;
+LABEL_10:
+  v17 = (unsigned __int64)(v16 + 4095) >> 12;
+  if ( (v9 & 0x40) != 0 )
   {
-    if ( v19 )
+    if ( (v12 & 0xFFFFFFFFFFEFFFFFuLL) != 0 || v13 < BugCheckParameter3 )
       return 3221225485LL;
-    v20 = 4294963200LL * v18;
-    if ( (v10 & 0x60) != 0 && v18 == 1 && v17 )
-      v20 = (4294963200LL * v18) & ~((v17 << 12) - 1);
-  }
-  v21 = (unsigned __int64)(v20 + 4095) >> 12;
-  if ( (v10 & 0x40) != 0 )
-  {
-    if ( (v14 & 0xFFFFFFFFFFEFFFFFuLL) != 0 || v15 < *(_QWORD *)(a2 + 17032) )
-      return 3221225485LL;
-    v22 = 0;
-    v23 = MiLargePageSizes;
-    while ( v17 != *v23 )
+    v21 = 0;
+    v22 = MiLargePageSizes;
+    do
     {
-      ++v22;
-      ++v23;
-      if ( v22 >= 3 )
-      {
-        if ( v22 == 3 )
-          return 3221225485LL;
+      if ( v15 == *v22 )
         break;
-      }
+      ++v21;
+      ++v22;
     }
-    if ( v21 % v17 && (v19 || v21 < v17) )
+    while ( v21 < 3 );
+    if ( v21 == 3 || v17 % v15 && ((v9 & 4) != 0 || v17 < v15) )
       return 3221225485LL;
   }
-  v24 = (unsigned __int64)(~(unsigned __int8)*(_DWORD *)(a2 + 4) & 0x10) << 6;
-  *(_QWORD *)(a1 + 40) = v24;
-  v25 = *(_QWORD *)(a2 + 17280) - v24;
-  if ( (__int64)v25 <= 0 )
+  v18 = 32LL * (~(unsigned __int8)*(_DWORD *)(a2 + 4) & 0x20);
+  *(_QWORD *)(a1 + 48) = v18;
+  v19 = *(_QWORD *)(a2 + 7168) - v18;
+  if ( (__int64)v19 <= 0 )
     return 3221225485LL;
-  if ( v21 <= v25 )
+  if ( v17 <= v19 )
+    goto LABEL_13;
+  if ( (v9 & 4) == 0 )
   {
-    v25 = v21;
-    if ( v21 )
-      goto LABEL_27;
-    return 3221225485LL;
-  }
-  if ( v19 )
-    return 3221225626LL;
-  if ( (v10 & 0x40) != 0 )
-  {
-    if ( v25 % v17 && v25 < v17 )
+    v17 = *(_QWORD *)(a2 + 7168) - v18;
+    if ( (v9 & 0x40) != 0 )
+    {
+      if ( v19 % v15 && v19 < v15 )
+        return 3221225626LL;
+    }
+    else if ( (v9 & 0x20) == 0 || !v15 )
+    {
+LABEL_49:
+      if ( v17 && v17 >= v15 )
+      {
+LABEL_13:
+        if ( v17 )
+        {
+          *(_DWORD *)(a1 + 56) = a8;
+          result = 0LL;
+          *(_QWORD *)a1 = a2;
+          *(_DWORD *)(a1 + 8) = v9;
+          *(_QWORD *)(a1 + 16) = v12;
+          *(_QWORD *)(a1 + 24) = v13;
+          *(_QWORD *)(a1 + 32) = v15;
+          *(_DWORD *)(a1 + 60) = a7;
+          *(_QWORD *)(a1 + 40) = v17;
+          return result;
+        }
+        return 3221225485LL;
+      }
       return 3221225626LL;
-    goto LABEL_67;
+    }
+    v17 = v19 & ~(v15 - 1);
+    goto LABEL_49;
   }
-  if ( (v10 & 0x20) != 0 && v17 )
-LABEL_67:
-    v25 &= ~(v17 - 1);
-  if ( !v25 || v25 < v17 )
-    return 3221225626LL;
-LABEL_27:
-  v26 = *v11;
-  *(_DWORD *)(a1 + 60) = a8;
-  *(_QWORD *)(a1 + 24) = v17;
-  *(_QWORD *)(a1 + 72) = a10;
-  *(_QWORD *)a1 = a2;
-  *(_DWORD *)(a1 + 56) = v10;
-  *(_QWORD *)(a1 + 8) = v14;
-  *(_QWORD *)(a1 + 16) = v15;
-  *(_DWORD *)(a1 + 80) = a7;
-  *(_QWORD *)(a1 + 32) = v25;
-  if ( (v26 & 2) == 0 && (v10 & 0x10000) == 0 )
-    *v11 = v26 | 2;
-  return 0LL;
+  return 3221225626LL;
 }

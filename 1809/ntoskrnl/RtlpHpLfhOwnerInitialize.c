@@ -3,9 +3,9 @@
  * Callers:
  *     RtlpHpLfhBucketActivate @ 0x140008E10 (RtlpHpLfhBucketActivate.c)
  *     RtlpHpLfhBucketInitialize @ 0x140008FE0 (RtlpHpLfhBucketInitialize.c)
- *     RtlpHpLfhBucketAllocateSlot @ 0x1402FD188 (RtlpHpLfhBucketAllocateSlot.c)
+ *     RtlpHpLfhBucketAllocateSlot @ 0x1402FD288 (RtlpHpLfhBucketAllocateSlot.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 _BYTE *__fastcall RtlpHpLfhOwnerInitialize(_BYTE *a1, char a2, int a3)

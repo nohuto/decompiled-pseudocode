@@ -2,8 +2,8 @@
  * XREFs of CmpLinkHiveToMaster @ 0x1405B8C48
  * Callers:
  *     CmpLoadKeyCommon @ 0x140010994 (CmpLoadKeyCommon.c)
- *     CmpFinishSystemHivesLoad @ 0x1407325A0 (CmpFinishSystemHivesLoad.c)
- *     CmpLoadHiveVolatile @ 0x140802918 (CmpLoadHiveVolatile.c)
+ *     CmpFinishSystemHivesLoad @ 0x140732580 (CmpFinishSystemHivesLoad.c)
+ *     CmpLoadHiveVolatile @ 0x1408028F8 (CmpLoadHiveVolatile.c)
  *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
  *     CmpInitializeSystemHive @ 0x1409C3B30 (CmpInitializeSystemHive.c)
  *     CmpInitializePreloadedHive @ 0x1409C3CAC (CmpInitializePreloadedHive.c)
@@ -13,10 +13,10 @@
  *     CmpFreeTransientPoolWithTag @ 0x140017768 (CmpFreeTransientPoolWithTag.c)
  *     RtlUnicodeStringCopy @ 0x140017780 (RtlUnicodeStringCopy.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     CmpCleanupParseContext @ 0x1405B5FC4 (CmpCleanupParseContext.c)
  *     ObOpenObjectByName @ 0x1405B9290 (ObOpenObjectByName.c)
@@ -25,11 +25,11 @@
  *     CmpConstructNameWithStatus @ 0x1405D73A0 (CmpConstructNameWithStatus.c)
  *     CmpReferenceKeyControlBlockUnsafe @ 0x1405D8ADC (CmpReferenceKeyControlBlockUnsafe.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     CmpLockRegistry @ 0x140645120 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpRecordUnloadEventForHive @ 0x140692F0C (CmpRecordUnloadEventForHive.c)
- *     CmpEtwDumpKcb @ 0x1407EB9A0 (CmpEtwDumpKcb.c)
- *     CmpLogHiveLinkEvent @ 0x1407EBC40 (CmpLogHiveLinkEvent.c)
+ *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpRecordUnloadEventForHive @ 0x140692EEC (CmpRecordUnloadEventForHive.c)
+ *     CmpEtwDumpKcb @ 0x1407EB980 (CmpEtwDumpKcb.c)
+ *     CmpLogHiveLinkEvent @ 0x1407EBC20 (CmpLogHiveLinkEvent.c)
  */
 
 __int64 __fastcall CmpLinkHiveToMaster(

@@ -1,19 +1,18 @@
 /*
- * XREFs of ??1CInteractionTracker@@UEAA@XZ @ 0x180218970
+ * XREFs of ??1CInteractionTracker@@UEAA@XZ @ 0x1801C7948
  * Callers:
- *     ??_ECInteractionTracker@@UEAAPEAXI@Z @ 0x180218CD0 (--_ECInteractionTracker@@UEAAPEAXI@Z.c)
+ *     ??_ECInteractionTracker@@UEAAPEAXI@Z @ 0x1801C7C60 (--_ECInteractionTracker@@UEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UIHolographicFrameProcessor@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180014EBC (--1-$com_ptr_t@UIHolographicFrameProcessor@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x180049B6C (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
- *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x18008EF8C (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
- *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1801000AC (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?BoostCompositorClock@CInteractionTracker@@AEAAX_N@Z @ 0x1802194C8 (-BoostCompositorClock@CInteractionTracker@@AEAAX_N@Z.c)
- *     ?DestroyDefaultAnimations@CInteractionTracker@@AEAAX_N@Z @ 0x18021A420 (-DestroyDefaultAnimations@CInteractionTracker@@AEAAX_N@Z.c)
- *     ?DestroyInteractionAnimations@CInteractionTracker@@AEAAXXZ @ 0x18021A558 (-DestroyInteractionAnimations@CInteractionTracker@@AEAAXXZ.c)
- *     ?StopCustomAnimations@CInteractionTracker@@AEAAX_N@Z @ 0x18021E0BC (-StopCustomAnimations@CInteractionTracker@@AEAAX_N@Z.c)
- *     ??1InteractionSourceManager@@QEAA@XZ @ 0x180263CE4 (--1InteractionSourceManager@@QEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x1800656F0 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x180094910 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800A9824 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800CB404 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?DestroyDefaultAnimations@CInteractionTracker@@AEAAX_N@Z @ 0x1801C924C (-DestroyDefaultAnimations@CInteractionTracker@@AEAAX_N@Z.c)
+ *     ?DestroyInteractionAnimations@CInteractionTracker@@AEAAXXZ @ 0x1801C9384 (-DestroyInteractionAnimations@CInteractionTracker@@AEAAXXZ.c)
+ *     ?StopCustomAnimations@CInteractionTracker@@AEAAX_N@Z @ 0x1801CD0A8 (-StopCustomAnimations@CInteractionTracker@@AEAAX_N@Z.c)
+ *     ??1InteractionSourceManager@@QEAA@XZ @ 0x180212D08 (--1InteractionSourceManager@@QEAA@XZ.c)
  */
 
 void __fastcall CInteractionTracker::~CInteractionTracker(CInteractionTracker *this)
@@ -30,9 +29,8 @@ void __fastcall CInteractionTracker::~CInteractionTracker(CInteractionTracker *t
   CInteractionTracker::DestroyInteractionAnimations(this);
   CInteractionTracker::StopCustomAnimations(this, 0);
   CInteractionTracker::DestroyDefaultAnimations(this, 0);
-  CInteractionTracker::BoostCompositorClock(this, 0);
   v2 = 0LL;
-  v3 = *(_QWORD *)(*((_QWORD *)this + 2) + 424LL);
+  v3 = *(_QWORD *)(*((_QWORD *)this + 2) + 272LL);
   v4 = *(_DWORD *)(v3 + 288);
   v5 = *(_QWORD *)(v3 + 264);
   if ( v4 )
@@ -55,7 +53,7 @@ void __fastcall CInteractionTracker::~CInteractionTracker(CInteractionTracker *t
     }
     *(_DWORD *)(v3 + 288) = v4 - 1;
   }
-  v6 = (void **)((char *)this + 416);
+  v6 = (void **)((char *)this + 408);
   v7 = 4LL;
   do
   {
@@ -64,30 +62,30 @@ void __fastcall CInteractionTracker::~CInteractionTracker(CInteractionTracker *t
     --v7;
   }
   while ( v7 );
-  v8 = *((_QWORD *)this + 80);
+  v8 = *((_QWORD *)this + 79);
   if ( v8 )
   {
-    *((_QWORD *)this + 80) = 0LL;
+    *((_QWORD *)this + 79) = 0LL;
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 16LL))(v8);
   }
-  DynArrayImpl<1>::~DynArrayImpl<1>((void **)this + 60);
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 59);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 472);
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 58);
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 57);
   `vector destructor iterator'(
-    (char *)this + 384,
+    (char *)this + 376,
     8LL,
     4LL,
-    (void (__fastcall *)(char *))Microsoft::WRL::ComPtr<ID2D1Bitmap1>::~ComPtr<ID2D1Bitmap1>);
+    (void (__fastcall *)(char *))Microsoft::WRL::ComPtr<CConditionalExpression>::~ComPtr<CConditionalExpression>);
   `vector destructor iterator'(
-    (char *)this + 368,
+    (char *)this + 360,
     8LL,
     2LL,
-    (void (__fastcall *)(char *))Microsoft::WRL::ComPtr<ID2D1Bitmap1>::~ComPtr<ID2D1Bitmap1>);
-  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 43);
+    (void (__fastcall *)(char *))Microsoft::WRL::ComPtr<CConditionalExpression>::~ComPtr<CConditionalExpression>);
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 42);
   Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 41);
-  InteractionSourceManager::~InteractionSourceManager((CInteractionTracker *)((char *)this + 200));
-  wil::com_ptr_t<IHolographicFrameProcessor,wil::err_returncode_policy>::~com_ptr_t<IHolographicFrameProcessor,wil::err_returncode_policy>((__int64 *)this + 9);
+  Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)this + 40);
+  InteractionSourceManager::~InteractionSourceManager((CInteractionTracker *)((char *)this + 192));
+  Microsoft::WRL::ComPtr<IMessageCallSendHost>::InternalAddRef((__int64 *)this + 8);
   *(_QWORD *)this = &CNotificationResource::`vftable';
   CResource::~CResource(this);
 }

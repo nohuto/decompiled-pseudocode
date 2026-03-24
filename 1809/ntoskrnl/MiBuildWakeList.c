@@ -9,10 +9,10 @@
  *     MiComputeDataFlushRange @ 0x140076E30 (MiComputeDataFlushRange.c)
  *     MiUnlockControlAreaSectionExtend @ 0x140092C28 (MiUnlockControlAreaSectionExtend.c)
  *     MiPrepareSegmentForDeletion @ 0x1400958BC (MiPrepareSegmentForDeletion.c)
- *     MiPreventControlAreaDeletion @ 0x1400E94D8 (MiPreventControlAreaDeletion.c)
- *     MiReferencePfBackedSection @ 0x140130400 (MiReferencePfBackedSection.c)
- *     MiDecrementLargeSubsections @ 0x1402B5714 (MiDecrementLargeSubsections.c)
- *     MiIncrementLargeSubsections @ 0x1402B605C (MiIncrementLargeSubsections.c)
+ *     MiPreventControlAreaDeletion @ 0x1400E94F8 (MiPreventControlAreaDeletion.c)
+ *     MiReferencePfBackedSection @ 0x140130420 (MiReferencePfBackedSection.c)
+ *     MiDecrementLargeSubsections @ 0x1402B5814 (MiDecrementLargeSubsections.c)
+ *     MiIncrementLargeSubsections @ 0x1402B615C (MiIncrementLargeSubsections.c)
  * Callees:
  *     <none>
  */

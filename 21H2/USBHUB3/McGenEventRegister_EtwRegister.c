@@ -1,7 +1,7 @@
 /*
  * XREFs of McGenEventRegister_EtwRegister @ 0x1C00012B4
  * Callers:
- *     DriverEntry @ 0x1C008C008 (DriverEntry.c)
+ *     DriverEntry @ 0x1C0088008 (DriverEntry.c)
  * Callees:
  *     <none>
  */

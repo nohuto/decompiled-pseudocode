@@ -1,46 +1,44 @@
 /*
- * XREFs of VidSchTerminateProcess @ 0x1C009C3C0
+ * XREFs of VidSchTerminateProcess @ 0x1C00783E0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00055A8 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C00055CC (-GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
- *     ?VidSchiProcessExitTelemetry@@YAXPEAU_VIDSCH_PROCESS@@@Z @ 0x1C00058E0 (-VidSchiProcessExitTelemetry@@YAXPEAU_VIDSCH_PROCESS@@@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C00199AC (DxgkLogInternalTriageEvent.c)
+ *     ?GetMaximumAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C000229C (-GetMaximumAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00022C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
  */
 
-__int64 __fastcall VidSchTerminateProcess(struct _VIDSCH_PROCESS *a1)
+__int64 __fastcall VidSchTerminateProcess(PVOID *P, __int64 a2, __int64 a3)
 {
-  unsigned int v2; // edi
+  unsigned int v4; // edi
   DXGGLOBAL *Global; // rax
-  DXGGLOBAL *v4; // rax
-  __int64 v6; // rcx
+  DXGGLOBAL *v6; // rax
+  __int64 v8; // rax
 
-  if ( a1 )
+  if ( P )
   {
-    v2 = 0;
+    v4 = 0;
     Global = DXGGLOBAL::GetGlobal();
-    if ( (unsigned int)DXGGLOBAL::GetMaximumGlobalAdapterCount(Global) )
+    if ( (unsigned int)DXGGLOBAL::GetMaximumAdapterCount(Global) )
     {
       do
       {
-        ++v2;
-        v4 = DXGGLOBAL::GetGlobal();
+        ++v4;
+        v6 = DXGGLOBAL::GetGlobal();
       }
-      while ( v2 < (unsigned int)DXGGLOBAL::GetMaximumGlobalAdapterCount(v4) );
+      while ( v4 < (unsigned int)DXGGLOBAL::GetMaximumAdapterCount(v6) );
     }
-    VidSchiProcessExitTelemetry((__m128i *)a1);
-    ExFreePoolWithTag(*((PVOID *)a1 + 4), 0);
-    ExFreePoolWithTag(*((PVOID *)a1 + 328), 0);
-    if ( (struct _VIDSCH_PROCESS *)g_pVidSchSystemProcess == a1 )
+    ExFreePoolWithTag(P[3], 0);
+    ExFreePoolWithTag(P[327], 0);
+    if ( (PVOID *)g_pVidSchSystemProcess == P )
       g_pVidSchSystemProcess = 0LL;
-    ExFreePoolWithTag(a1, 0);
+    ExFreePoolWithTag(P, 0);
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(1LL, -1073741811LL);
-    DxgkLogInternalTriageEvent(v6, 0x40000LL);
+    v8 = WdLogNewEntry5_WdAssertion(0LL, a2, a3);
+    *(_QWORD *)(v8 + 24) = -1073741811LL;
+    WdLogEvent5_WdAssertion(v8);
     return 3221225485LL;
   }
 }

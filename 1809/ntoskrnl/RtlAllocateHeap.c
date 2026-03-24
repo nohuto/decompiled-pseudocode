@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlAllocateHeap @ 0x14011EF40
+ * XREFs of RtlAllocateHeap @ 0x14011EF60
  * Callers:
  *     <none>
  * Callees:
- *     RtlpAllocateHeapInternal @ 0x14011EF94 (RtlpAllocateHeapInternal.c)
- *     RtlpHpAllocWithExceptionProtection @ 0x1402ED8D8 (RtlpHpAllocWithExceptionProtection.c)
- *     RtlpLogHeapFailure @ 0x1402FB738 (RtlpLogHeapFailure.c)
+ *     RtlpAllocateHeapInternal @ 0x14011EFB4 (RtlpAllocateHeapInternal.c)
+ *     RtlpHpAllocWithExceptionProtection @ 0x1402ED9D8 (RtlpHpAllocWithExceptionProtection.c)
+ *     RtlpLogHeapFailure @ 0x1402FB838 (RtlpLogHeapFailure.c)
  */
 
 PVOID __stdcall RtlAllocateHeap(PVOID HeapHandle, ULONG Flags, SIZE_T Size)

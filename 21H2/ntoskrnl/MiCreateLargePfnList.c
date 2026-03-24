@@ -1,197 +1,164 @@
 /*
- * XREFs of MiCreateLargePfnList @ 0x1405C14D4
+ * XREFs of MiCreateLargePfnList @ 0x14055DEFC
  * Callers:
- *     MiCommitExistingVad @ 0x14032C1B0 (MiCommitExistingVad.c)
- *     MiAllocateLargeProcessPagesFromCache @ 0x1405C0828 (MiAllocateLargeProcessPagesFromCache.c)
- *     MiMapUserLargePages @ 0x1405C2A4C (MiMapUserLargePages.c)
+ *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
+ *     MiMapUserLargePages @ 0x14055E730 (MiMapUserLargePages.c)
  * Callees:
- *     MiFreeLargeZeroPages @ 0x14026E05C (MiFreeLargeZeroPages.c)
- *     MiChargeResident @ 0x1402821F4 (MiChargeResident.c)
- *     MiReturnCommit @ 0x14028CE10 (MiReturnCommit.c)
- *     MiChargeCommit @ 0x14032A4B0 (MiChargeCommit.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiComputePreferredNode @ 0x14057F4C8 (MiComputePreferredNode.c)
- *     MiGetCrossPartitionCharges @ 0x1405BE6F4 (MiGetCrossPartitionCharges.c)
- *     MiReturnCrossPartitionCharges @ 0x1405BF468 (MiReturnCrossPartitionCharges.c)
- *     MiAllocateLargeProcessPagesFromCache @ 0x1405C0828 (MiAllocateLargeProcessPagesFromCache.c)
- *     MiAllocateLargeZeroPages @ 0x1405C0D40 (MiAllocateLargeZeroPages.c)
- *     MiComputeIdealLargePage @ 0x1405C1218 (MiComputeIdealLargePage.c)
+ *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x14025A658 (MiChargeResident.c)
+ *     MiFreeLargeZeroPages @ 0x1402FD354 (MiFreeLargeZeroPages.c)
+ *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     MiComputePreferredNode @ 0x140547B78 (MiComputePreferredNode.c)
+ *     MiAllocateLargeZeroPages @ 0x14055DA5C (MiAllocateLargeZeroPages.c)
+ *     MiGetCrossPartitionCharges @ 0x140562428 (MiGetCrossPartitionCharges.c)
+ *     MiReturnCrossPartitionCharges @ 0x140562B90 (MiReturnCrossPartitionCharges.c)
  */
 
-__int64 __fastcall MiCreateLargePfnList(
-        __int64 a1,
-        __int64 a2,
-        unsigned __int64 a3,
-        __int64 a4,
-        int a5,
-        char a6,
-        __int64 *a7,
-        char a8,
-        _QWORD *a9)
+__int64 __fastcall MiCreateLargePfnList(__int64 a1, unsigned __int64 a2, char a3, __int64 *a4, __int64 a5)
 {
-  __int64 v11; // r15
-  unsigned int v12; // ebx
-  __int64 v13; // r14
-  unsigned int CrossPartitionCharges; // edi
-  __int64 v15; // r10
-  char v16; // r15
-  int LargeProcessPagesFromCache; // eax
-  unsigned int v19; // r9d
-  int v20; // r11d
-  int v21; // eax
-  _DWORD *v22; // rdi
-  int v23; // ecx
-  __int64 v24; // rax
-  __int64 v25; // rcx
-  unsigned __int64 v26; // r8
+  unsigned __int64 v5; // rsi
+  unsigned int v7; // ebx
+  __int64 v8; // rbp
+  __int64 v9; // r14
+  int CrossPartitionCharges; // edi
+  unsigned int v11; // edi
+  __int64 v12; // r9
+  unsigned int v13; // r14d
+  unsigned int *v14; // r15
+  __int64 v15; // rcx
+  __int64 v16; // rax
+  __int64 v17; // rax
+  char v18; // r13
+  unsigned __int64 LargeZeroPages; // rax
+  unsigned __int64 v20; // rdi
+  unsigned __int64 v21; // r8
   struct _KPRCB *CurrentPrcb; // r9
   __int64 CachedResidentAvailable; // rdx
-  bool v29; // zf
-  signed __int32 v30; // eax
-  _QWORD v31[18]; // [rsp+38h] [rbp-59h] BYREF
-  __int64 v32; // [rsp+D8h] [rbp+47h]
-  _DWORD *v35; // [rsp+108h] [rbp+77h]
+  bool v24; // zf
+  signed __int32 v25; // eax
+  __int64 v27; // [rsp+48h] [rbp-50h]
+  unsigned int *v28; // [rsp+50h] [rbp-48h]
+  unsigned int v31; // [rsp+B8h] [rbp+20h]
 
-  memset(v31, 0, 0x58uLL);
-  v11 = (__int64)a7;
-  v12 = 0;
-  v13 = *(_QWORD *)(qword_140C51F48 + 8LL * KeGetCurrentThread()->ApcState.Process[1].IdealProcessor[25]);
-  v32 = MiVadPageSizes[(*(_DWORD *)(a1 + 48) >> 19) & 3];
-  if ( !a7 )
-    goto LABEL_6;
-  v11 = *a7;
-  v13 = *a7;
-  CrossPartitionCharges = MiGetCrossPartitionCharges(*a7, 4, 1, a3);
-  if ( (CrossPartitionCharges & 0x80000000) == 0 )
+  v5 = a2;
+  v7 = 0;
+  v8 = *(_QWORD *)(qword_140C4E648 + 8LL * KeGetCurrentThread()->ApcState.Process[1].IdealProcessorPadding[5]);
+  if ( a4 )
   {
-    if ( !(unsigned int)MiChargeCommit(v11, a3, 0) )
+    v9 = *a4;
+    v8 = *a4;
+    CrossPartitionCharges = MiGetCrossPartitionCharges(*a4, 4LL, 1LL, a2);
+    if ( CrossPartitionCharges < 0 )
+      goto LABEL_25;
+    v7 = 1;
+  }
+  else
+  {
+    v9 = 0LL;
+  }
+  v11 = MiComputePreferredNode(a1);
+  if ( v9 )
+  {
+    if ( !(unsigned int)MiChargeCommit(v8, v5, 0) )
     {
       CrossPartitionCharges = -1073741523;
-LABEL_43:
-      MiReturnCrossPartitionCharges(v13, 4, 1, a3);
-      return CrossPartitionCharges;
+      goto LABEL_25;
     }
-    v12 = 3;
-LABEL_6:
-    if ( (unsigned int)MiChargeResident((ULONG_PTR *)v13, a3, 0LL) )
-    {
-      v12 |= 4u;
-      v15 = 0LL;
-      if ( v11 || (_DWORD)v32 != 16 || a3 >= 0x200 )
-      {
-        v16 = a6;
-      }
-      else
-      {
-        v16 = a6;
-        if ( (*(_DWORD *)(v13 + 4) & 0x20) == 0 )
-        {
-          LargeProcessPagesFromCache = MiAllocateLargeProcessPagesFromCache(a1, a2, a3, a5, a6, a9);
-          v15 = 16LL * a9[8];
-          if ( LargeProcessPagesFromCache >= 0 )
-            return 0LL;
-        }
-      }
-      v19 = *(_DWORD *)(a1 + 48);
-      v20 = MmMakeProtectNotWriteCopy[(v19 >> 7) & 0x1F];
-      if ( a5 )
-      {
-        v21 = a5 - 1;
-        if ( a5 - 1 >= (unsigned int)(unsigned __int16)KeNumberNodes )
-        {
-          CrossPartitionCharges = -1073741811;
-LABEL_27:
-          if ( v12 >= 4 )
-          {
-            v26 = a3;
-            if ( (ULONG_PTR *)v13 == &MiSystemPartition )
-            {
-              CurrentPrcb = KeGetCurrentPrcb();
-              CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
-              if ( (_DWORD)CachedResidentAvailable != -1 )
-              {
-                if ( a3 + CachedResidentAvailable <= 0x100 )
-                {
-                  do
-                  {
-                    if ( a3 >= 0x80000 )
-                      break;
-                    v30 = _InterlockedCompareExchange(
-                            (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                            CachedResidentAvailable + a3,
-                            CachedResidentAvailable);
-                    v29 = (_DWORD)CachedResidentAvailable == v30;
-                    LODWORD(CachedResidentAvailable) = v30;
-                    if ( v29 )
-                      goto LABEL_40;
-                  }
-                  while ( v30 != -1 && a3 + v30 <= 0x100 );
-                }
-                if ( (int)CachedResidentAvailable > 192
-                  && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
-                                                          (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                                                          192,
-                                                          CachedResidentAvailable) )
-                {
-                  v26 = a3 + (int)CachedResidentAvailable - 192;
-                }
-              }
-            }
-            if ( v26 )
-              _InterlockedExchangeAdd64((volatile signed __int64 *)(v13 + 16960), v26);
-          }
-LABEL_40:
-          if ( (v12 & 2) != 0 )
-            MiReturnCommit(v13, a3);
-          if ( (v12 & 1) == 0 )
-            return CrossPartitionCharges;
-          goto LABEL_43;
-        }
-      }
-      else
-      {
-        v21 = MiComputePreferredNode(a1);
-      }
-      v31[4] = __PAIR64__(v20, v21);
-      v31[1] = v13;
-      v31[9] = v15;
-      v31[2] = a3;
-      v31[7] = a2;
-      v22 = (_DWORD *)(qword_140C506D8 + 4LL * v21 * (unsigned int)(unsigned __int16)KeNumberNodes);
-      v35 = &v22[(unsigned __int16)KeNumberNodes];
-      v23 = 0;
-      if ( (v19 & 0x1A00000) == 0x1A00000 )
-        v23 = 8;
-      v31[5] = -1LL;
-      LODWORD(v31[0]) = v23;
-      v31[3] = a4;
-      if ( (a8 & 0x10) != 0 )
-        LODWORD(v31[0]) = v23 | 0x10;
-      v31[10] = a9;
-      MiComputeIdealLargePage(a1, a2 + (v15 << 12), a3 - v15, (__int64)v31);
-      MiAllocateLargeZeroPages((unsigned int *)v31);
-      v24 = v31[9];
-      v25 = v31[2];
-      if ( v31[9] == v31[2] )
-        return 0;
-      do
-      {
-        if ( v16 )
-          break;
-        if ( ++v22 == v35 )
-          break;
-        LODWORD(v31[4]) = *v22;
-        MiAllocateLargeZeroPages((unsigned int *)v31);
-        v24 = v31[9];
-        v25 = v31[2];
-      }
-      while ( v31[9] != v31[2] );
-      if ( v24 == v25 )
-        return 0;
-      MiFreeLargeZeroPages(v13, (__int64)a9, (LODWORD(v31[0]) >> 3) & 1, 0LL);
-    }
-    CrossPartitionCharges = -1073741670;
-    goto LABEL_27;
+    v7 |= 2u;
   }
-  return CrossPartitionCharges;
+  if ( !(unsigned int)MiChargeResident((ULONG_PTR *)v8, v5, 0LL, v12) )
+    goto LABEL_10;
+  v13 = *(_DWORD *)(a1 + 48);
+  v31 = MmMakeProtectNotWriteCopy[(v13 >> 7) & 0x1F];
+  v14 = (unsigned int *)(qword_140C4DE98 + 4LL * v11 * (unsigned __int16)KeNumberNodes);
+  v15 = (v13 >> 18) & 3;
+  v28 = &v14[(unsigned __int16)KeNumberNodes];
+  if ( (unsigned int)MiVadPageSizes[v15] == 16 )
+  {
+    v16 = 2LL;
+  }
+  else if ( (v13 & 0x500000) == 0x500000 )
+  {
+    v16 = (unsigned int)MiVadPageIndices[v15];
+  }
+  else
+  {
+    v16 = 1LL;
+  }
+  v17 = MiLargePageSizes[v16];
+  v27 = v17;
+  v18 = 2;
+  if ( (v13 & 0xD00000) != 0xD00000 )
+    v18 = 0;
+  LargeZeroPages = MiAllocateLargeZeroPages(v8, v5, v17, v11, MmMakeProtectNotWriteCopy[(v13 >> 7) & 0x1F], a5, v18);
+  v20 = v5 - LargeZeroPages;
+  if ( v5 != LargeZeroPages )
+  {
+    do
+    {
+      if ( a3 )
+        break;
+      if ( ++v14 == v28 )
+        break;
+      v20 -= MiAllocateLargeZeroPages(v8, v20, v27, *v14, v31, a5, v18);
+    }
+    while ( v20 );
+    v7 |= 4u;
+    v5 = a2;
+    if ( v20 )
+    {
+      MiFreeLargeZeroPages(v8, a5, (v13 & 0xD00000) == 13631488);
+LABEL_10:
+      CrossPartitionCharges = -1073741670;
+      goto LABEL_25;
+    }
+  }
+  v7 = 0;
+  CrossPartitionCharges = 0;
+LABEL_25:
+  if ( v7 >= 4 )
+  {
+    v21 = v5;
+    if ( (ULONG_PTR *)v8 == &MiSystemPartition )
+    {
+      CurrentPrcb = KeGetCurrentPrcb();
+      CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
+      if ( (_DWORD)CachedResidentAvailable != -1 )
+      {
+        if ( v5 + CachedResidentAvailable <= 0x100 )
+        {
+          do
+          {
+            if ( v5 >= 0x80000 )
+              break;
+            v25 = _InterlockedCompareExchange(
+                    (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                    CachedResidentAvailable + v5,
+                    CachedResidentAvailable);
+            v24 = (_DWORD)CachedResidentAvailable == v25;
+            LODWORD(CachedResidentAvailable) = v25;
+            if ( v24 )
+              goto LABEL_38;
+          }
+          while ( v25 != -1 && v5 + v25 <= 0x100 );
+        }
+        if ( (int)CachedResidentAvailable > 192
+          && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
+                                                  (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                                                  192,
+                                                  CachedResidentAvailable) )
+        {
+          v21 = v5 + (int)CachedResidentAvailable - 192;
+        }
+      }
+    }
+    if ( v21 )
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(v8 + 7168), v21);
+  }
+LABEL_38:
+  if ( (v7 & 2) != 0 )
+    MiReturnCommit(v8, v5);
+  if ( (v7 & 1) != 0 )
+    MiReturnCrossPartitionCharges(v8, 4LL, 1LL, v5);
+  return (unsigned int)CrossPartitionCharges;
 }

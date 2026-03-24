@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsElevatedRid @ 0x14079FAF0
+ * XREFs of RtlIsElevatedRid @ 0x1406744C0
  * Callers:
- *     SepRemoveDisabledGroupsAndPrivileges @ 0x1406A26A8 (SepRemoveDisabledGroupsAndPrivileges.c)
- *     SeQueryInformationToken @ 0x14079F290 (SeQueryInformationToken.c)
- *     NtQueryInformationToken @ 0x1407B13E0 (NtQueryInformationToken.c)
+ *     SepRemoveDisabledGroupsAndPrivileges @ 0x1405DA360 (SepRemoveDisabledGroupsAndPrivileges.c)
+ *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
+ *     NtQueryInformationToken @ 0x140657DF0 (NtQueryInformationToken.c)
  * Callees:
- *     RtlSubAuthorityCountSid @ 0x1402EF420 (RtlSubAuthorityCountSid.c)
- *     RtlSubAuthoritySid @ 0x1402EF430 (RtlSubAuthoritySid.c)
+ *     RtlSubAuthorityCountSid @ 0x14027F280 (RtlSubAuthorityCountSid.c)
+ *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
  */
 
 char __fastcall RtlIsElevatedRid(__int64 a1)
@@ -29,7 +29,7 @@ char __fastcall RtlIsElevatedRid(__int64 a1)
   v3 = RtlSubAuthoritySid(v1, v2 - 1);
   v4 = 0;
   v5 = *v3;
-  for ( i = qword_140018DA0; v5 != *(_DWORD *)i; i = (__int64 *)((char *)i + 4) )
+  for ( i = qword_140018570; v5 != *(_DWORD *)i; i = (__int64 *)((char *)i + 4) )
   {
     if ( (unsigned int)++v4 >= 0x13 )
       return 0;

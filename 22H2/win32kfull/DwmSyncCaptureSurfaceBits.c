@@ -1,73 +1,73 @@
 /*
- * XREFs of DwmSyncCaptureSurfaceBits @ 0x1C000887C
+ * XREFs of DwmSyncCaptureSurfaceBits @ 0x1C002E324
  * Callers:
- *     ?bSpDwmUpdateSurface@@YAHPEAUHWND__@@_KAEAVXDCOBJ@@PEAUHSURF__@@MHHAEAVERECTL@@PEAVREGION@@@Z @ 0x1C00081A8 (-bSpDwmUpdateSurface@@YAHPEAUHWND__@@_KAEAVXDCOBJ@@PEAUHSURF__@@MHHAEAVERECTL@@PEAVREGION@@@Z.c)
+ *     ?bSpDwmUpdateSurface@@YAHPEAUHWND__@@_KAEAVXDCOBJ@@PEAUHSURF__@@MHHAEAVERECTL@@PEAVREGION@@@Z @ 0x1C002DC64 (-bSpDwmUpdateSurface@@YAHPEAUHWND__@@_KAEAVXDCOBJ@@PEAUHSURF__@@MHHAEAVERECTL@@PEAVREGION@@@Z.c)
  * Callees:
- *     ?DwmSyncLPCAllowed@@YAJXZ @ 0x1C006EA5C (-DwmSyncLPCAllowed@@YAJXZ.c)
- *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C006EA8C (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C002EA88 (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 __int64 __fastcall DwmSyncCaptureSurfaceBits(
         PVOID Object,
         __int64 a2,
         float a3,
-        unsigned int a4,
-        unsigned int a5,
+        int a4,
+        int a5,
         int a6,
         int a7,
         __int64 a8,
         _DWORD *a9,
-        unsigned __int64 *a10)
+        _QWORD *a10)
 {
-  int v13; // ebx
+  signed int v13; // ebx
   _DWORD *v14; // rsi
-  int v15; // eax
-  unsigned __int64 *v16; // rcx
-  _PORT_MESSAGE v18; // [rsp+38h] [rbp-59h] BYREF
-  int v19; // [rsp+60h] [rbp-31h]
-  double v20; // [rsp+64h] [rbp-2Dh]
-  unsigned __int64 v21; // [rsp+6Ch] [rbp-25h]
-  int v22; // [rsp+74h] [rbp-1Dh]
-  int v23; // [rsp+78h] [rbp-19h]
-  int v24; // [rsp+7Ch] [rbp-15h]
-  __int64 v25; // [rsp+80h] [rbp-11h]
-  __int64 v26; // [rsp+88h] [rbp-9h]
-  __int64 v27; // [rsp+C8h] [rbp+37h] BYREF
+  __int64 v15; // r8
+  __int64 v16; // r9
+  int v17; // eax
+  _QWORD *v18; // rdx
+  _BYTE v20[88]; // [rsp+38h] [rbp-59h] BYREF
+  __int64 v21; // [rsp+C8h] [rbp+37h] BYREF
 
   v13 = -1073741823;
   if ( Object )
   {
-    v13 = DwmSyncLPCAllowed();
-    if ( v13 >= 0 )
+    v13 = gbInVideoPnpCallout != 0 ? 0xC0000001 : 0;
+    if ( !gbInVideoPnpCallout )
     {
-      memset_0(&v18, 0, 0x58uLL);
-      v21 = __PAIR64__(a5, a4);
+      memset(v20, 0, sizeof(v20));
+      *(_DWORD *)&v20[52] = a4;
       v14 = a9;
-      v18.u2.s2.Type = 0x8000;
-      v22 = a6;
-      v23 = a7;
-      v24 = *a9;
-      v25 = a8;
-      v18.u1.Length = 5767216;
-      v19 = -2147483642;
-      v20 = a3;
-      v26 = a2;
-      EtwUpdateEvent(0LL, 2147483654LL);
-      v27 = 88LL;
-      v15 = LpcSendWaitReceivePort(Object, 0x20000LL, &v18, &v18, &v27, 0LL);
-      v13 = SyncLpcCheckNtStatus(v15, &v18);
-      if ( v13 >= 0 && v18.u1.s1.DataLength == 20 )
+      *(_WORD *)&v20[4] = 0x8000;
+      *(_DWORD *)&v20[56] = a5;
+      *(_DWORD *)&v20[60] = a6;
+      *(_DWORD *)&v20[64] = a7;
+      *(_DWORD *)&v20[68] = *a9;
+      *(_QWORD *)&v20[72] = a8;
+      *(_DWORD *)v20 = 5767216;
+      *(_DWORD *)&v20[40] = -2147483642;
+      *(double *)&v20[44] = a3;
+      *(_QWORD *)&v20[80] = a2;
+      EtwUpdateEvent(0LL, 2147483654LL, v15, v16);
+      v21 = 88LL;
+      v17 = ((__int64 (__fastcall *)(PVOID, __int64, _BYTE *, _BYTE *, __int64 *, _QWORD))LpcSendWaitReceivePort)(
+              Object,
+              0x20000LL,
+              v20,
+              v20,
+              &v21,
+              0LL);
+      v13 = SyncLpcCheckNtStatus(v17, (struct _PORT_MESSAGE *)v20);
+      if ( v13 >= 0 && *(_WORD *)v20 == 20 )
       {
-        if ( SLODWORD(v20) < 0 )
+        if ( *(int *)&v20[44] < 0 )
         {
           v13 = -1073741823;
         }
         else
         {
-          v16 = a10;
-          *v14 = HIDWORD(v20);
-          *v16 = v21;
+          v18 = a10;
+          *v14 = *(_DWORD *)&v20[48];
+          *v18 = *(_QWORD *)&v20[52];
         }
       }
     }

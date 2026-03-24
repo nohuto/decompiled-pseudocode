@@ -8,15 +8,15 @@
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDD0 (ObfReferenceObjectWithTag.c)
- *     PsIsHostSilo @ 0x1400B8A60 (PsIsHostSilo.c)
- *     KeIsSingleGroupAffinityEx @ 0x1401315E0 (KeIsSingleGroupAffinityEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PspGetJobSilo @ 0x1402E955C (PspGetJobSilo.c)
- *     PspIsSiloInServerSilo @ 0x1402E9610 (PspIsSiloInServerSilo.c)
- *     PsGetJobServerSilo @ 0x1402E9FF0 (PsGetJobServerSilo.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
+ *     PsIsHostSilo @ 0x1400B8A80 (PsIsHostSilo.c)
+ *     KeIsSingleGroupAffinityEx @ 0x140131600 (KeIsSingleGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PspGetJobSilo @ 0x1402E965C (PspGetJobSilo.c)
+ *     PspIsSiloInServerSilo @ 0x1402E9710 (PspIsSiloInServerSilo.c)
+ *     PsGetJobServerSilo @ 0x1402EA0F0 (PsGetJobServerSilo.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PspGetJobLimitInformationValidFlags @ 0x140582884 (PspGetJobLimitInformationValidFlags.c)
  *     PspQueryRateControlHistory @ 0x1405A7F5C (PspQueryRateControlHistory.c)
@@ -31,15 +31,15 @@
  *     PspUnlockJobListShared @ 0x140600A50 (PspUnlockJobListShared.c)
  *     PspNotificationLimitRateControlToleranceIntervalField @ 0x140603400 (PspNotificationLimitRateControlToleranceIntervalField.c)
  *     PspNotificationLimitRateControlToleranceField @ 0x140603428 (PspNotificationLimitRateControlToleranceField.c)
- *     PspQueryJobIoAttribution @ 0x14068CEA4 (PspQueryJobIoAttribution.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x1406ACB24 (PspAllocateAndQueryNotificationChannel.c)
- *     PspQueryJobHierarchyProcessIdList @ 0x1406B7730 (PspQueryJobHierarchyProcessIdList.c)
- *     PspLimitViolationRateControlToleranceLimitField @ 0x1406C431C (PspLimitViolationRateControlToleranceLimitField.c)
- *     PsGetParentSilo @ 0x140886730 (PsGetParentSilo.c)
- *     PspQueryJobHierarchyInterferenceCount @ 0x140889E7C (PspQueryJobHierarchyInterferenceCount.c)
- *     EtwTraceJobSetQuery @ 0x1408B7818 (EtwTraceJobSetQuery.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
- *     ObGetSiloRootDirectoryPath @ 0x140906238 (ObGetSiloRootDirectoryPath.c)
+ *     PspQueryJobIoAttribution @ 0x14068CE84 (PspQueryJobIoAttribution.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1406ACB04 (PspAllocateAndQueryNotificationChannel.c)
+ *     PspQueryJobHierarchyProcessIdList @ 0x1406B7710 (PspQueryJobHierarchyProcessIdList.c)
+ *     PspLimitViolationRateControlToleranceLimitField @ 0x1406C42FC (PspLimitViolationRateControlToleranceLimitField.c)
+ *     PsGetParentSilo @ 0x140886710 (PsGetParentSilo.c)
+ *     PspQueryJobHierarchyInterferenceCount @ 0x140889E5C (PspQueryJobHierarchyInterferenceCount.c)
+ *     EtwTraceJobSetQuery @ 0x1408B77F8 (EtwTraceJobSetQuery.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ObGetSiloRootDirectoryPath @ 0x140906218 (ObGetSiloRootDirectoryPath.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -264,7 +264,7 @@ LABEL_19:
       }
       return -1073741820;
   }
-  v8 = dword_14090B7EC[JobInformationClass];
+  v8 = dword_14090B89C[JobInformationClass];
   if ( JobInformationLength != v8 )
   {
     if ( (unsigned int)JobInformationClass <= JobObjectSiloRootDirectory )
@@ -289,7 +289,7 @@ LABEL_21:
   {
     if ( (_DWORD)v5 )
     {
-      if ( ((dword_14090B8BC[v6] - 1) & (unsigned int)JobInformation) != 0 )
+      if ( ((dword_14090B7CC[v6] - 1) & (unsigned int)JobInformation) != 0 )
         ExRaiseDatatypeMisalignment();
       *(_QWORD *)&JobInformationClass = 0x7FFFFFFF0000LL;
       if ( (unsigned __int64)JobInformation + v5 > 0x7FFFFFFF0000LL || (char *)JobInformation + v5 < JobInformation )

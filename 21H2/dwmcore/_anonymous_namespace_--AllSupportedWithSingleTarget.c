@@ -1,10 +1,10 @@
 /*
- * XREFs of _anonymous_namespace_::AllSupportedWithSingleTarget @ 0x180185FA8
+ * XREFs of _anonymous_namespace_::AllSupportedWithSingleTarget @ 0x180237494
  * Callers:
- *     _anonymous_namespace_::DisableBufferingForInteraction @ 0x1801861DC (_anonymous_namespace_--DisableBufferingForInteraction.c)
- *     ?GetPointerTarget@CGestureTargetingManager@@SAJAEBUtagPOINTER_INFO@@PEBUIManipulationContext@@PEAUTargetingInfo@@@Z @ 0x180186268 (-GetPointerTarget@CGestureTargetingManager@@SAJAEBUtagPOINTER_INFO@@PEBUIManipulationContext@@PE.c)
+ *     _anonymous_namespace_::DisableBufferingForInteraction @ 0x180237660 (_anonymous_namespace_--DisableBufferingForInteraction.c)
+ *     ?GetPointerTarget@CGestureTargetingManager@@SAJAEBUtagPOINTER_INFO@@PEBUIManipulationContext@@PEAUTargetingInfo@@@Z @ 0x1802376D8 (-GetPointerTarget@CGestureTargetingManager@@SAJAEBUtagPOINTER_INFO@@PEBUIManipulationContext@@PE.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 bool __fastcall anonymous_namespace_::AllSupportedWithSingleTarget(__int64 a1, unsigned int a2)

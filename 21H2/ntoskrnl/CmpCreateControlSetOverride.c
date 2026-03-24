@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpCreateControlSetOverride @ 0x140B4DCBC
+ * XREFs of CmpCreateControlSetOverride @ 0x140A8E6E4
  * Callers:
- *     CmpCreateExtendedControlSets @ 0x140B30CA4 (CmpCreateExtendedControlSets.c)
+ *     CmpCreateExtendedControlSets @ 0x140A584D0 (CmpCreateExtendedControlSets.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1402D17BC (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
+ *     RtlUnicodeStringPrintf @ 0x14036EF9C (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
  */
 
 __int64 __fastcall CmpCreateControlSetOverride(__int64 a1)
@@ -17,16 +17,16 @@ __int64 __fastcall CmpCreateControlSetOverride(__int64 a1)
   NTSTATUS v3; // ebx
   HANDLE KeyHandle; // [rsp+40h] [rbp-C0h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-B8h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-B0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+80h] [rbp-80h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
   char v9; // [rsp+90h] [rbp-70h] BYREF
 
   v1 = *(_QWORD *)(a1 + 48);
   v2 = *(_QWORD *)(a1 + 56);
   *(_QWORD *)&DestinationString.Length = 0x1000000LL;
-  DestinationString.Buffer = (wchar_t *)&v9;
-  memset(&ObjectAttributes, 0, 44);
   KeyHandle = 0LL;
+  DestinationString.Buffer = (wchar_t *)&v9;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   Handle = 0LL;
   v3 = RtlUnicodeStringPrintf(&DestinationString, L"\\REGISTRY\\%ws\\%ws", v2, v1);
   if ( v3 >= 0 )

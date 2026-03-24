@@ -1,65 +1,67 @@
 /*
- * XREFs of NtOpenKeyTransactedEx @ 0x1407D3A80
+ * XREFs of NtOpenKeyTransactedEx @ 0x14066DC10
  * Callers:
- *     NtOpenKeyTransacted @ 0x140A0D970 (NtOpenKeyTransacted.c)
+ *     NtOpenKeyTransacted @ 0x1408685B0 (NtOpenKeyTransacted.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     CmOpenKey @ 0x1406E2B10 (CmOpenKey.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     CmpTransDereferenceTransaction @ 0x140768F38 (CmpTransDereferenceTransaction.c)
- *     CmpAcquireShutdownRundown @ 0x140AF6380 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140AF6470 (CmpReleaseShutdownRundown.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     CmpTransDereferenceTransaction @ 0x14066E000 (CmpTransDereferenceTransaction.c)
+ *     CmOpenKey @ 0x1406CE0F0 (CmOpenKey.c)
  */
 
-__int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4, HANDLE Handle)
+__int64 __fastcall NtOpenKeyTransactedEx(int a1, int a2, int a3, int a4, HANDLE Handle)
 {
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
+  struct _KTHREAD *CurrentThread; // rax
+  BOOLEAN v10; // al
+  struct _KTHREAD *v11; // rcx
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS v13; // eax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // rbx
-  unsigned int v17; // edi
-  KPROCESSOR_MODE v18; // r9
-  NTSTATUS v19; // eax
-  PVOID Object; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v22[3]; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v14; // rbx
+  int v15; // edi
+  NTSTATUS v16; // eax
+  PVOID Object; // [rsp+30h] [rbp-28h] BYREF
+  PVOID v19; // [rsp+38h] [rbp-20h] BYREF
 
-  *(_OWORD *)v22 = 0LL;
-  CmpInitializeThreadInfo((__int64)v22);
-  if ( !(unsigned __int8)CmpAcquireShutdownRundown(v10, v9, v11) )
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v10 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+  v11 = KeGetCurrentThread();
+  if ( !v10 )
   {
-    v17 = -1073741431;
-    goto LABEL_8;
+    KeLeaveCriticalRegionThread((__int64)v11);
+    return (unsigned int)-1073741431;
   }
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  PreviousMode = v11->PreviousMode;
   Object = 0LL;
   v13 = ObReferenceObjectByHandle(Handle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
-  v16 = (__int64)Object;
-  v17 = v13;
-  if ( v13 != -1073741788 )
+  v14 = (__int64)Object;
+  v15 = v13;
+  if ( v13 == -1073741788 )
   {
-    if ( v13 < 0 )
-      goto LABEL_5;
-    v16 = (unsigned __int64)Object | 1;
+    v19 = 0LL;
+    v16 = ObReferenceObjectByHandle(
+            Handle,
+            4u,
+            (POBJECT_TYPE)TmTransactionObjectType,
+            KeGetCurrentThread()->PreviousMode,
+            &v19,
+            0LL);
+    v14 = (__int64)v19;
+    v15 = v16;
     goto LABEL_4;
   }
-  v18 = KeGetCurrentThread()->PreviousMode;
-  Object = 0LL;
-  v19 = ObReferenceObjectByHandle(Handle, 4u, (POBJECT_TYPE)TmTransactionObjectType, v18, &Object, 0LL);
-  v16 = (__int64)Object;
-  v17 = v19;
-  if ( v19 >= 0 )
+  if ( v13 >= 0 )
+  {
+    v14 = (unsigned __int64)Object | 1;
 LABEL_4:
-    v17 = CmOpenKey(a1, a2, a3, a4, v16, KeGetCurrentThread()->PreviousMode);
-LABEL_5:
-  if ( v16 )
-    CmpTransDereferenceTransaction(v16);
-  CmpReleaseShutdownRundown(v15, v14);
-LABEL_8:
-  CmCleanupThreadInfo(v22);
-  return v17;
+    if ( v15 >= 0 )
+      v15 = CmOpenKey(a1, a2, a3, a4, v14);
+  }
+  if ( v14 )
+    CmpTransDereferenceTransaction(v14);
+  ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return (unsigned int)v15;
 }

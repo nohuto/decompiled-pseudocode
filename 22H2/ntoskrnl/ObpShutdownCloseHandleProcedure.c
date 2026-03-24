@@ -1,24 +1,25 @@
 /*
- * XREFs of ObpShutdownCloseHandleProcedure @ 0x14097B2F0
+ * XREFs of ObpShutdownCloseHandleProcedure @ 0x1408DC900
  * Callers:
  *     <none>
  * Callees:
- *     ExGetHandlePointer @ 0x14022F740 (ExGetHandlePointer.c)
- *     DbgPrint @ 0x14032A510 (DbgPrint.c)
- *     ExfUnblockPushLock @ 0x140411A50 (ExfUnblockPushLock.c)
+ *     DbgPrint @ 0x140364360 (DbgPrint.c)
+ *     ExfUnblockPushLock @ 0x1403F8BE0 (ExfUnblockPushLock.c)
  */
 
-char __fastcall ObpShutdownCloseHandleProcedure(__int64 a1, __int64 *a2, int a3, _DWORD *a4)
+char __fastcall ObpShutdownCloseHandleProcedure(__int64 a1, volatile signed __int64 *a2, int a3, _DWORD *a4)
 {
-  unsigned __int64 HandlePointer; // r14
-  signed __int32 v10[10]; // [rsp+0h] [rbp-28h] BYREF
+  unsigned __int64 v6; // rbx
+  volatile __int64 *v7; // rcx
+  signed __int32 v9[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  HandlePointer = ExGetHandlePointer(a2);
+  v6 = (*(__int64 *)a2 >> 16) & 0xFFFFFFFFFFFFFFF0uLL;
   _InterlockedExchangeAdd64(a2, 1uLL);
-  _InterlockedOr(v10, 0);
-  if ( *(_QWORD *)(a1 + 48) )
-    ExfUnblockPushLock((volatile __int64 *)(a1 + 48), 0LL);
-  DbgPrint("\tFound object %p(handle %08lx)\n", (const void *)(HandlePointer + 48), a3);
+  v7 = (volatile __int64 *)(a1 + 48);
+  _InterlockedOr(v9, 0);
+  if ( *v7 )
+    ExfUnblockPushLock(v7, 0LL);
+  DbgPrint("\tFound object %p(handle %08lx)\n", (const void *)(v6 + 48), a3);
   ++*a4;
   return 0;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of DpiFdoGetInterruptIrql @ 0x1C01FF8AC
+ * XREFs of DpiFdoGetInterruptIrql @ 0x1C01882F0
  * Callers:
- *     DpiFdoConnectInterrupt @ 0x1C01FF784 (DpiFdoConnectInterrupt.c)
- *     DpiLdaGetInterruptIrqlForChain @ 0x1C03A8170 (DpiLdaGetInterruptIrqlForChain.c)
+ *     DpiFdoConnectInterrupt @ 0x1C01881BC (DpiFdoConnectInterrupt.c)
+ *     DpiLdaGetInterruptIrqlForChain @ 0x1C02D7F54 (DpiLdaGetInterruptIrqlForChain.c)
  * Callees:
  *     <none>
  */

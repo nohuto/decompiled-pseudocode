@@ -1,9 +1,9 @@
 /*
- * XREFs of ACPIInternalDeviceClockIrpStartDevice @ 0x1C00AEE70
+ * XREFs of ACPIInternalDeviceClockIrpStartDevice @ 0x1C0090920
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInitStartDevice @ 0x1C00050B0 (ACPIInitStartDevice.c)
+ *     ACPIInitStartDevice @ 0x1C000D968 (ACPIInitStartDevice.c)
  */
 
 __int64 __fastcall ACPIInternalDeviceClockIrpStartDevice(ULONG_PTR a1, __int64 a2)

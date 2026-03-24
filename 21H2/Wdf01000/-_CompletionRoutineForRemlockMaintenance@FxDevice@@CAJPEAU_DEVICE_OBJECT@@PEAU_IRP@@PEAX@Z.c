@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_CompletionRoutineForRemlockMaintenance@FxDevice@@CAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x1C00031B0
+ * XREFs of ?_CompletionRoutineForRemlockMaintenance@FxDevice@@CAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x1C0002F70
  * Callers:
  *     <none>
  * Callees:
- *     ?PropagatePendingReturned@FxIrp@@QEAAXXZ @ 0x1C00031F4 (-PropagatePendingReturned@FxIrp@@QEAAXXZ.c)
+ *     <none>
  */
 
 __int64 __fastcall FxDevice::_CompletionRoutineForRemlockMaintenance(
@@ -11,12 +11,8 @@ __int64 __fastcall FxDevice::_CompletionRoutineForRemlockMaintenance(
         _IRP *Irp,
         void *Context)
 {
-  __int64 v3; // r8
-  PVOID v4; // r9
-  FxIrp v6; // [rsp+30h] [rbp+8h] BYREF
-
-  v6.m_Irp = Irp;
-  FxIrp::PropagatePendingReturned(&v6);
-  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v3 + 336), v4, 0x20u);
+  if ( Irp->PendingReturned && Irp->CurrentLocation <= Irp->StackCount )
+    Irp->Tail.Overlay.CurrentStackLocation->Control |= 1u;
+  IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)&DeviceObject[1], Irp, 0x20u);
   return 0LL;
 }

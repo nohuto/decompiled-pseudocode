@@ -1,23 +1,23 @@
 /*
- * XREFs of PiDrvDbOverlayCopyKeys @ 0x14095C264
+ * XREFs of PiDrvDbOverlayCopyKeys @ 0x1408B6118
  * Callers:
- *     PiDrvDbOverlayCopyKeys @ 0x14095C264 (PiDrvDbOverlayCopyKeys.c)
- *     PiDrvDbOverlayNodeHive @ 0x14095C804 (PiDrvDbOverlayNodeHive.c)
+ *     PiDrvDbOverlayCopyKeys @ 0x1408B6118 (PiDrvDbOverlayCopyKeys.c)
+ *     PiDrvDbOverlayNodeHive @ 0x1408B66B8 (PiDrvDbOverlayNodeHive.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x1403E15D0 (_wcsnicmp.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwQueryKey @ 0x14041BA20 (ZwQueryKey.c)
- *     _PnpCtxRegEnumValue @ 0x14069946C (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1406994BC (_PnpCtxRegQueryInfoKey.c)
- *     _RegRtlEnumKey @ 0x1406CB3B4 (_RegRtlEnumKey.c)
- *     _RegRtlSetValue @ 0x1406D5A30 (_RegRtlSetValue.c)
- *     _PnpCtxRegCreateKey @ 0x140772A24 (_PnpCtxRegCreateKey.c)
- *     _RegRtlQueryValue @ 0x14077FC64 (_RegRtlQueryValue.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
- *     PiDrvDbOverlayCopyKeys @ 0x14095C264 (PiDrvDbOverlayCopyKeys.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwQueryKey @ 0x1403FA660 (ZwQueryKey.c)
+ *     _PnpCtxRegCreateKey @ 0x14063B560 (_PnpCtxRegCreateKey.c)
+ *     _RegRtlQueryValue @ 0x140642318 (_RegRtlQueryValue.c)
+ *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumValue @ 0x1406C4714 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406C484C (_PnpCtxRegQueryInfoKey.c)
+ *     _RegRtlEnumKey @ 0x140766B7C (_RegRtlEnumKey.c)
+ *     _RegRtlSetValue @ 0x140768AF4 (_RegRtlSetValue.c)
+ *     PiDrvDbOverlayCopyKeys @ 0x1408B6118 (PiDrvDbOverlayCopyKeys.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDrvDbOverlayCopyKeys(
@@ -31,33 +31,33 @@ __int64 __fastcall PiDrvDbOverlayCopyKeys(
         __int64 a8)
 {
   unsigned int v10; // esi
-  char *Pool2; // rdi
-  void *v12; // r15
-  int InfoKey; // ebx
+  unsigned int *PoolWithTag; // rdi
+  PVOID v12; // r15
+  int v13; // ebx
   int Key; // eax
   __int64 v15; // rcx
   ULONG v16; // esi
-  ULONG v17; // eax
+  unsigned int v17; // eax
   unsigned int v18; // r12d
   ULONG i; // r13d
   int v20; // eax
   __int64 v21; // rcx
-  ULONG v22; // r14d
+  unsigned int v22; // r14d
   __int64 v23; // rsi
   unsigned int v24; // r12d
   const wchar_t **v25; // r14
   __int64 v26; // rdx
   __int16 v27; // ax
-  ULONG v28; // ecx
-  __int64 v29; // rcx
-  HANDLE v30; // rdx
-  int v31; // eax
-  ULONG v32; // r13d
-  __int64 v33; // r14
-  ULONG v35; // [rsp+40h] [rbp-69h] BYREF
-  ULONG v36; // [rsp+44h] [rbp-65h] BYREF
-  unsigned int v37; // [rsp+48h] [rbp-61h] BYREF
-  ULONG v38; // [rsp+4Ch] [rbp-5Dh] BYREF
+  unsigned int v28; // ecx
+  HANDLE v29; // rdx
+  int v30; // eax
+  unsigned int v31; // r13d
+  int v32; // eax
+  SIZE_T v33; // r14
+  unsigned int v35; // [rsp+40h] [rbp-69h] BYREF
+  unsigned int NumberOfBytes; // [rsp+44h] [rbp-65h] BYREF
+  unsigned int NumberOfBytes_4; // [rsp+48h] [rbp-61h] BYREF
+  unsigned int v38; // [rsp+4Ch] [rbp-5Dh] BYREF
   unsigned int v39; // [rsp+50h] [rbp-59h]
   ULONG ResultLength; // [rsp+54h] [rbp-55h] BYREF
   HANDLE KeyHandle; // [rsp+58h] [rbp-51h] BYREF
@@ -76,7 +76,7 @@ __int64 __fastcall PiDrvDbOverlayCopyKeys(
   v49 = a6;
   v10 = 0;
   v50 = a8;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   KeyHandle = 0LL;
   KeyInformation = 0LL;
   v52 = 0;
@@ -89,28 +89,28 @@ __int64 __fastcall PiDrvDbOverlayCopyKeys(
   v35 = 0;
   v38 = 0;
   v39 = 0;
-  v36 = 0;
+  NumberOfBytes = 0;
   v46 = 0;
   ResultLength = 0;
   v43 = a7;
-  InfoKey = SysCtxRegOpenKey(0LL, a1, a2, 8u, 0x20019u, (__int64)&KeyHandle);
-  if ( InfoKey >= 0 )
+  v13 = SysCtxRegOpenKey(0LL, a1, a2, 8u, 0x20019u, (__int64)&KeyHandle);
+  if ( v13 >= 0 )
   {
     if ( ZwQueryKey(KeyHandle, KeyFlagsInformation, &KeyInformation, 0xCu, &ResultLength) >= 0 )
     {
       if ( (KeyInformation & 0x200000000LL) != 0 )
       {
-        InfoKey = -2147483603;
-        goto LABEL_83;
+        v13 = -2147483603;
+        goto LABEL_84;
       }
       v10 = (KeyInformation & 0x100000000LL) != 0;
     }
     Key = PnpCtxRegCreateKey(0LL, a3, a4, v10, 0x6001Fu, 0LL, (__int64)&v47, (__int64)&v45);
     v16 = 0;
-    InfoKey = Key;
+    v13 = Key;
     if ( Key >= 0 )
     {
-      if ( (int)PnpCtxRegQueryInfoKey(v15, (int)KeyHandle, 0, (int)&v35, 0LL, (__int64)&v38, (__int64)&v36) < 0 )
+      if ( (int)PnpCtxRegQueryInfoKey(v15, KeyHandle, 0LL, &v35, 0LL, &v38, &NumberOfBytes) < 0 )
       {
         v18 = 0;
       }
@@ -123,105 +123,54 @@ __int64 __fastcall PiDrvDbOverlayCopyKeys(
         v39 = v18;
         if ( 2 * v17 != -2 )
         {
-          Pool2 = (char *)ExAllocatePool2(256LL, v18, 1650749520LL);
-          if ( !Pool2 )
+          PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, v18, 0x62647050u);
+          if ( !PoolWithTag )
           {
-            InfoKey = -1073741670;
-            goto LABEL_83;
+            v13 = -1073741670;
+            goto LABEL_84;
           }
         }
       }
-      if ( (!v36 || (v12 = (void *)ExAllocatePool2(256LL, v36, 1650749520LL)) != 0LL)
-        && (!v49 || !a7 || (P = (PVOID)ExAllocatePool2(256LL, 8LL * a7, 1650749520LL)) != 0LL) )
+      if ( (!NumberOfBytes || (v12 = ExAllocatePoolWithTag(PagedPool, NumberOfBytes, 0x62647050u)) != 0LL)
+        && (!v49 || !a7 || (P = ExAllocatePoolWithTag(PagedPool, 8LL * a7, 0x62647050u)) != 0LL) )
       {
         for ( i = 0; ; ++i )
         {
           v38 = i;
-          v37 = v18 >> 1;
-          v20 = RegRtlEnumKey(KeyHandle, i, Pool2, &v37);
+          NumberOfBytes_4 = v18 >> 1;
+          v20 = RegRtlEnumKey(KeyHandle, i, PoolWithTag, &NumberOfBytes_4);
           if ( v20 == -2147483622 )
-          {
-            if ( InfoKey >= 0 )
-            {
-              v32 = v36;
-              while ( 1 )
-              {
-                v37 = v18 >> 1;
-                v36 = v32;
-                v20 = PnpCtxRegEnumValue(v21, KeyHandle, v16, Pool2, (__int64)&v37, (__int64)&v46, v12, (__int64)&v36);
-                if ( v20 == -2147483622 )
-                  break;
-                if ( v20 == -1073741789 )
-                {
-                  if ( v37 > v18 >> 1 )
-                  {
-                    v18 = 2 * v37;
-                    if ( Pool2 )
-                      ExFreePoolWithTag(Pool2, 0);
-                    Pool2 = (char *)ExAllocatePool2(256LL, v18, 1650749520LL);
-                    if ( !Pool2 )
-                      goto LABEL_57;
-                  }
-                  v33 = v36;
-                  if ( v36 > v32 )
-                  {
-                    v32 = v36;
-                    if ( v12 )
-                      ExFreePoolWithTag(v12, 0);
-                    v12 = (void *)ExAllocatePool2(256LL, v33, 1650749520LL);
-                    if ( !v12 )
-                      goto LABEL_16;
-                  }
-                  --v16;
-                }
-                else
-                {
-                  if ( v20 < 0 )
-                    goto LABEL_76;
-                  if ( v45 != 2
-                    || (ResultLength = 0,
-                        (unsigned int)RegRtlQueryValue(v47, (const WCHAR *)Pool2, 0LL, 0LL, &ResultLength) != -1073741789) )
-                  {
-                    InfoKey = RegRtlSetValue(v47, (const WCHAR *)Pool2, v46, v12, v36);
-                    if ( InfoKey < 0 )
-                      goto LABEL_77;
-                  }
-                }
-                ++v16;
-              }
-            }
-            goto LABEL_77;
-          }
+            goto LABEL_59;
           if ( v20 == -1073741789 )
           {
-            v18 = 2 * v37;
-            v39 = 2 * v37;
-            if ( Pool2 )
-              ExFreePoolWithTag(Pool2, 0);
-            Pool2 = (char *)ExAllocatePool2(256LL, v18, 1650749520LL);
-            if ( Pool2 )
+            v18 = 2 * NumberOfBytes_4;
+            v39 = 2 * NumberOfBytes_4;
+            if ( PoolWithTag )
+              ExFreePoolWithTag(PoolWithTag, 0);
+            PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, v18, 0x62647050u);
+            if ( PoolWithTag )
             {
               --i;
               continue;
             }
 LABEL_57:
-            InfoKey = -1073741670;
-            goto LABEL_79;
+            v13 = -1073741670;
+            goto LABEL_80;
           }
           if ( v20 < 0 )
-            goto LABEL_76;
+            goto LABEL_58;
           v22 = 0;
           v35 = 0;
           if ( !v49 )
             goto LABEL_43;
-          v23 = v37;
-          if ( !v37 )
+          v23 = NumberOfBytes_4;
+          if ( !NumberOfBytes_4 )
             goto LABEL_42;
           v24 = 0;
           if ( !v43 )
             goto LABEL_41;
           v25 = (const wchar_t **)v49;
-          while ( wcsnicmp(*v25, (const wchar_t *)Pool2, (unsigned int)(v23 - 1)) )
+          while ( wcsnicmp(*v25, (const wchar_t *)PoolWithTag, (unsigned int)(v23 - 1)) )
           {
 LABEL_37:
             ++v24;
@@ -249,7 +198,7 @@ LABEL_42:
 LABEL_43:
           if ( !v50 )
             goto LABEL_50;
-          v20 = SysCtxRegOpenKey(0LL, v50, (__int64)Pool2, 0, 0x20019u, (__int64)&Handle);
+          v20 = SysCtxRegOpenKey(0LL, v50, (__int64)PoolWithTag, 0, 0x20019u, (__int64)&Handle);
           if ( v20 == -1073741772 )
           {
             Handle = 0LL;
@@ -257,42 +206,93 @@ LABEL_43:
           }
           if ( v20 < 0 )
           {
-LABEL_76:
-            InfoKey = v20;
-            goto LABEL_77;
+LABEL_58:
+            v13 = v20;
+LABEL_59:
+            if ( v13 >= 0 )
+            {
+              v31 = NumberOfBytes;
+              while ( 1 )
+              {
+                NumberOfBytes_4 = v18 >> 1;
+                NumberOfBytes = v31;
+                v32 = PnpCtxRegEnumValue(v21, KeyHandle, v16, PoolWithTag, &NumberOfBytes_4, &v46, v12, &NumberOfBytes);
+                if ( v32 == -2147483622 )
+                  break;
+                if ( v32 == -1073741789 )
+                {
+                  if ( NumberOfBytes_4 > v18 >> 1 )
+                  {
+                    v18 = 2 * NumberOfBytes_4;
+                    if ( PoolWithTag )
+                      ExFreePoolWithTag(PoolWithTag, 0);
+                    PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(PagedPool, v18, 0x62647050u);
+                    if ( !PoolWithTag )
+                      goto LABEL_57;
+                  }
+                  v33 = NumberOfBytes;
+                  if ( NumberOfBytes > v31 )
+                  {
+                    v31 = NumberOfBytes;
+                    if ( v12 )
+                      ExFreePoolWithTag(v12, 0);
+                    v12 = ExAllocatePoolWithTag(PagedPool, v33, 0x62647050u);
+                    if ( !v12 )
+                      goto LABEL_16;
+                  }
+                  --v16;
+                }
+                else
+                {
+                  if ( v32 < 0 )
+                  {
+                    v13 = v32;
+                    goto LABEL_78;
+                  }
+                  if ( v45 != 2
+                    || (ResultLength = 0,
+                        (unsigned int)RegRtlQueryValue(v47, (const WCHAR *)PoolWithTag, 0LL, 0LL, &ResultLength) != -1073741789) )
+                  {
+                    v13 = RegRtlSetValue(v47, (const WCHAR *)PoolWithTag, v46, v12, NumberOfBytes);
+                    if ( v13 < 0 )
+                      goto LABEL_78;
+                  }
+                }
+                ++v16;
+              }
+            }
+            goto LABEL_78;
           }
-          InfoKey = PnpCtxRegQueryInfoKey(v29, (int)Handle, (int)&v44, 0, 0LL, 0LL, 0LL);
-          if ( InfoKey >= 0 )
+          v13 = PnpCtxRegQueryInfoKey(v21, Handle, &v44, 0LL, 0LL, 0LL, 0LL);
+          if ( v13 < 0 )
+            goto LABEL_59;
+          if ( !v44 )
           {
-            if ( !v44 )
-            {
-              ZwClose(Handle);
-              v30 = 0LL;
-              Handle = 0LL;
-              goto LABEL_51;
-            }
-LABEL_50:
-            v30 = Handle;
-LABEL_51:
-            v31 = PiDrvDbOverlayCopyKeys(
-                    (_DWORD)KeyHandle,
-                    (_DWORD)Pool2,
-                    (_DWORD)v47,
-                    (_DWORD)Pool2,
-                    0,
-                    (unsigned __int64)P & -(__int64)(v22 != 0),
-                    v22,
-                    (__int64)v30);
-            InfoKey = v31;
-            if ( v31 == -2147483603 )
-            {
-              InfoKey = 0;
-              continue;
-            }
-            if ( v31 >= 0 )
-              continue;
+            ZwClose(Handle);
+            v29 = 0LL;
+            Handle = 0LL;
+            goto LABEL_51;
           }
-          goto LABEL_77;
+LABEL_50:
+          v29 = Handle;
+LABEL_51:
+          v30 = PiDrvDbOverlayCopyKeys(
+                  (_DWORD)KeyHandle,
+                  (_DWORD)PoolWithTag,
+                  (_DWORD)v47,
+                  (_DWORD)PoolWithTag,
+                  0,
+                  (unsigned __int64)P & -(__int64)(v22 != 0),
+                  v22,
+                  (__int64)v29);
+          v13 = v30;
+          if ( v30 == -2147483603 )
+          {
+            v13 = 0;
+            continue;
+          }
+          if ( v30 < 0 )
+            goto LABEL_78;
         }
         if ( v27 == 92 && P )
         {
@@ -303,23 +303,23 @@ LABEL_51:
         goto LABEL_37;
       }
 LABEL_16:
-      InfoKey = -1073741670;
-LABEL_77:
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0);
-LABEL_79:
+      v13 = -1073741670;
+LABEL_78:
+      if ( PoolWithTag )
+        ExFreePoolWithTag(PoolWithTag, 0);
+LABEL_80:
       if ( v12 )
         ExFreePoolWithTag(v12, 0);
       if ( P )
         ExFreePoolWithTag(P, 0);
     }
   }
-LABEL_83:
+LABEL_84:
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( v47 )
     ZwClose(v47);
   if ( Handle )
     ZwClose(Handle);
-  return (unsigned int)InfoKey;
+  return (unsigned int)v13;
 }

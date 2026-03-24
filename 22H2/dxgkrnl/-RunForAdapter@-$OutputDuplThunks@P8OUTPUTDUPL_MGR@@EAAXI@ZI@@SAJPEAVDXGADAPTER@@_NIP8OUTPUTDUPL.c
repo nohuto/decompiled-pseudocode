@@ -1,20 +1,18 @@
 /*
- * XREFs of ?RunForAdapter@?$OutputDuplThunks@P8OUTPUTDUPL_MGR@@EAAXI@ZI@@SAJPEAVDXGADAPTER@@_NIP8OUTPUTDUPL_MGR@@EAAXI@ZIP6AJPEAV3@2I@Z@Z @ 0x1C01E0F6C
+ * XREFs of ?RunForAdapter@?$OutputDuplThunks@P8OUTPUTDUPL_MGR@@EAAXI@ZI@@SAJPEAVDXGADAPTER@@_NIP8OUTPUTDUPL_MGR@@EAAXI@ZIP6AJPEAV3@2I@Z@Z @ 0x1C014FBC8
  * Callers:
- *     DxgkDesktopSwitch @ 0x1C01E0EF0 (DxgkDesktopSwitch.c)
+ *     DxgkDesktopSwitch @ 0x1C014FB30 (DxgkDesktopSwitch.c)
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0002DEC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C00076A0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00076E8 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0008770 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?FindRemoteOutputDuplMgr@@YAPEAVOUTPUTDUPL_MGR@@XZ @ 0x1C01A90A0 (-FindRemoteOutputDuplMgr@@YAPEAVOUTPUTDUPL_MGR@@XZ.c)
- *     ?DxgIsRemoteSessionUsingXddmMonitors@@YAHXZ @ 0x1C01E1158 (-DxgIsRemoteSessionUsingXddmMonitors@@YAHXZ.c)
- *     ?FindOutputDuplManager@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12PEAPEAVOUTPUTDUPL_MGR@@@Z @ 0x1C01E11B4 (-FindOutputDuplManager@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12PEAPEAVOUTPUTDUPL_MGR@@@Z.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004EC0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007B84 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0007BE0 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007DF0 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?FindRemoteOutputDuplMgr@@YAPEAVOUTPUTDUPL_MGR@@XZ @ 0x1C0123CD0 (-FindRemoteOutputDuplMgr@@YAPEAVOUTPUTDUPL_MGR@@XZ.c)
+ *     ?FindOutputDuplManager@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12PEAPEAVOUTPUTDUPL_MGR@@@Z @ 0x1C014F4D8 (-FindOutputDuplManager@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12PEAPEAVOUTPUTDUPL_MGR@@@Z.c)
  */
 
 __int64 __fastcall OutputDuplThunks<void (OUTPUTDUPL_MGR::*)(unsigned int),unsigned int>::RunForAdapter(
@@ -25,111 +23,96 @@ __int64 __fastcall OutputDuplThunks<void (OUTPUTDUPL_MGR::*)(unsigned int),unsig
         unsigned int a5,
         __int64 (__fastcall *a6)(struct OUTPUTDUPL_MGR *, void (__fastcall *)(OUTPUTDUPL_MGR *__hidden this, unsigned int), _QWORD))
 {
-  __int64 v7; // r12
-  int IsRemoteSessionUsingXddmMonitors; // eax
-  char v9; // si
-  int v10; // r15d
-  struct DXGADAPTER *v11; // rdi
+  struct DXGADAPTER *v6; // rbx
+  __int64 v8; // r15
   int OutputDuplManager; // eax
-  unsigned int v13; // ebx
-  struct OUTPUTDUPL_MGR *RemoteOutputDuplMgr; // rbx
-  char v15; // al
-  int v16; // edi
-  struct OUTPUTDUPL_MGR *v18; // [rsp+50h] [rbp-B0h] BYREF
-  struct DXGADAPTER *v19; // [rsp+58h] [rbp-A8h] BYREF
-  DXGADAPTER *v20; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE v21[8]; // [rsp+68h] [rbp-98h] BYREF
-  struct DXGADAPTER *v22; // [rsp+70h] [rbp-90h]
-  char v23; // [rsp+78h] [rbp-88h]
-  unsigned __int64 v24; // [rsp+80h] [rbp-80h] BYREF
-  unsigned __int64 v25; // [rsp+88h] [rbp-78h] BYREF
-  _BYTE v26[144]; // [rsp+90h] [rbp-70h] BYREF
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  struct OUTPUTDUPL_MGR *RemoteOutputDuplMgr; // rdi
+  char v14; // al
+  char v15; // si
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  struct OUTPUTDUPL_MGR *v24; // [rsp+40h] [rbp-C0h] BYREF
+  struct DXGADAPTER *v25; // [rsp+48h] [rbp-B8h] BYREF
+  DXGADAPTER *v26; // [rsp+50h] [rbp-B0h] BYREF
+  _BYTE v27[8]; // [rsp+58h] [rbp-A8h] BYREF
+  struct DXGADAPTER *v28; // [rsp+60h] [rbp-A0h]
+  char v29; // [rsp+68h] [rbp-98h]
+  unsigned __int64 v30; // [rsp+70h] [rbp-90h] BYREF
+  unsigned __int64 v31; // [rsp+78h] [rbp-88h] BYREF
+  _BYTE v32[144]; // [rsp+80h] [rbp-80h] BYREF
 
-  v7 = a3;
-  IsRemoteSessionUsingXddmMonitors = DxgIsRemoteSessionUsingXddmMonitors();
-  v9 = 0;
-  v10 = IsRemoteSessionUsingXddmMonitors;
-  v20 = 0LL;
-  v11 = 0LL;
-  v19 = 0LL;
-  v18 = 0LL;
-  if ( !a1 || IsRemoteSessionUsingXddmMonitors )
+  v26 = 0LL;
+  v6 = 0LL;
+  v24 = 0LL;
+  v8 = a3;
+  v25 = 0LL;
+  if ( a1 )
   {
-    if ( !(unsigned int)DxgIsRemoteSessionUsingXddmMonitors() )
+    OutputDuplManager = FindOutputDuplManager(a1, a3, &v26, &v31, &v25, &v30, &v24);
+    v6 = (struct DXGADAPTER *)OutputDuplManager;
+    if ( OutputDuplManager < 0 )
     {
-      WdLogSingleEntry1(1LL, 80LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"DxgIsRemoteSessionUsingXddmMonitors()",
-        80LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v22 = WdLogNewEntry5_WdWarning(v11, v10, v12);
+      *(_QWORD *)(v22 + 24) = a1;
+      *(_QWORD *)(v22 + 32) = v6;
+      WdLogEvent5_WdWarning(v22);
+      return (unsigned int)v6;
     }
-    RemoteOutputDuplMgr = FindRemoteOutputDuplMgr();
-    if ( !RemoteOutputDuplMgr )
+    v6 = v25;
+    RemoteOutputDuplMgr = v24;
+    if ( v25 )
     {
-      WdLogSingleEntry1(2LL, 86LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to find remote output duplication manager",
-        86LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      return 3221226021LL;
+      v14 = 1;
+LABEL_5:
+      v15 = 0;
+      v28 = v6;
+      v29 = 0;
+      if ( v14 )
+      {
+        DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v27);
+        v15 = v29;
+      }
+      COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v32, v6, 0LL);
+      if ( !a1
+        || (DXGADAPTER::ReleaseReference(v26),
+            DXGADAPTER::ReleaseReference(v6),
+            LODWORD(v6) = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v32, 0LL),
+            (int)v6 >= 0) )
+      {
+        if ( (unsigned int)v8 >= *((_DWORD *)RemoteOutputDuplMgr + 13) )
+        {
+          v23 = WdLogNewEntry5_WdError(v17, v16);
+          *(_QWORD *)(v23 + 24) = v8;
+          WdLogEvent5_WdError(v23);
+          LODWORD(v6) = -1071774972;
+        }
+        else
+        {
+          LODWORD(v6) = a6(RemoteOutputDuplMgr, OUTPUTDUPL_MGR::ProcessDesktopSwitch, a5);
+        }
+      }
+      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v32, v16);
+      if ( v15 )
+        DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v27);
+      return (unsigned int)v6;
     }
-LABEL_20:
-    v15 = 0;
-    goto LABEL_6;
+LABEL_16:
+    v14 = 0;
+    goto LABEL_5;
   }
-  OutputDuplManager = FindOutputDuplManager(a1, v7, &v20, &v25, &v19, &v24, &v18);
-  v13 = OutputDuplManager;
-  if ( OutputDuplManager < 0 )
-  {
-    WdLogSingleEntry2(3LL, a1, OutputDuplManager);
-    return v13;
-  }
-  v11 = v19;
-  RemoteOutputDuplMgr = v18;
-  if ( !v19 )
-    goto LABEL_20;
-  v15 = 1;
-LABEL_6:
-  v22 = v11;
-  v23 = 0;
-  if ( v15 )
-  {
-    DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v21);
-    v9 = v23;
-  }
-  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v26, v11, 0LL);
-  if ( !a1
-    || v10
-    || (DXGADAPTER::ReleaseReference(v20),
-        DXGADAPTER::ReleaseReference(v11),
-        v16 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v26, 0LL),
-        v16 >= 0) )
-  {
-    if ( (unsigned int)v7 >= *((_DWORD *)RemoteOutputDuplMgr + 19) )
-    {
-      WdLogSingleEntry1(2LL, v7);
-      DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Invalid source ID 0x%I64x", v7, 0LL, 0LL, 0LL, 0LL);
-      v16 = -1071774972;
-    }
-    else
-    {
-      v16 = a6(RemoteOutputDuplMgr, OUTPUTDUPL_MGR::ProcessDesktopSwitch, a5);
-    }
-  }
-  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v26);
-  if ( v9 )
-    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v21);
-  return (unsigned int)v16;
+  RemoteOutputDuplMgr = FindRemoteOutputDuplMgr(0LL, a2);
+  if ( RemoteOutputDuplMgr )
+    goto LABEL_16;
+  v21 = WdLogNewEntry5_WdError(v20, v19);
+  *(_QWORD *)(v21 + 24) = 90LL;
+  WdLogEvent5_WdError(v21);
+  return 3221226021LL;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmPerfForceDomainStates @ 0x1403B0B70
+ * XREFs of PpmPerfForceDomainStates @ 0x1403A6C90
  * Callers:
  *     <none>
  * Callees:
@@ -9,21 +9,16 @@
 char PpmPerfForceDomainStates()
 {
   __int64 i; // r8
-  __int64 v1; // r9
-  __int64 v2; // rdx
+  unsigned int v1; // r9d
+  __int64 v2; // rax
 
   for ( i = PpmPerfDomainHead; (__int64 *)i != &PpmPerfDomainHead; i = *(_QWORD *)i )
   {
-    if ( *(_BYTE *)(i + 1061) )
+    if ( *(_BYTE *)(i + 765) )
     {
-      v1 = 0LL;
-      for ( *(_BYTE *)(i + 1060) = 1;
-            (unsigned int)v1 < *(_DWORD *)(i + 296);
-            *(_BYTE *)(*(_QWORD *)(i + 312) + 8 * v2 + 124) = 1 )
-      {
-        v2 = 18 * v1;
-        v1 = (unsigned int)(v1 + 1);
-      }
+      v1 = 0;
+      for ( *(_BYTE *)(i + 764) = 1; v1 < *(_DWORD *)(i + 200); *(_BYTE *)(136 * v2 + *(_QWORD *)(i + 216) + 124) = 1 )
+        v2 = v1++;
     }
   }
   return 1;

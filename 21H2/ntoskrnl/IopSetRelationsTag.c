@@ -1,15 +1,15 @@
 /*
- * XREFs of IopSetRelationsTag @ 0x14080EB6C
+ * XREFs of IopSetRelationsTag @ 0x140737810
  * Callers:
- *     PnpInvalidateRelationsInList @ 0x14080E8D0 (PnpInvalidateRelationsInList.c)
- *     PnpChainDereferenceComplete @ 0x14080EA40 (PnpChainDereferenceComplete.c)
+ *     PnpChainDereferenceComplete @ 0x140736488 (PnpChainDereferenceComplete.c)
+ *     PnpInvalidateRelationsInList @ 0x14073808C (PnpInvalidateRelationsInList.c)
  * Callees:
- *     PipIsDeviceInDeviceObjectList @ 0x140767E88 (PipIsDeviceInDeviceObjectList.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x1407378FC (PipIsDeviceInDeviceObjectList.c)
  */
 
-__int64 __fastcall IopSetRelationsTag(unsigned int **a1, __int64 a2)
+__int64 __fastcall IopSetRelationsTag(__int64 *a1, __int64 a2)
 {
-  unsigned int *v3; // rcx
+  __int64 v3; // rcx
   unsigned int v4; // r11d
   __int64 v5; // rdx
   int v6; // eax
@@ -17,17 +17,17 @@ __int64 __fastcall IopSetRelationsTag(unsigned int **a1, __int64 a2)
 
   v3 = *a1;
   v8 = 0LL;
-  if ( PipIsDeviceInDeviceObjectList(v3, a2, (__int64)&v8) )
+  if ( (unsigned __int8)PipIsDeviceInDeviceObjectList(v3, a2, &v8) )
   {
     v5 = v8;
     v6 = *(_DWORD *)(v8 + 16);
     if ( (v6 & 1) != 0 )
     {
-      --(*a1)[2];
+      --*(_DWORD *)(*a1 + 8);
       v6 = *(_DWORD *)(v5 + 16);
     }
     *(_DWORD *)(v5 + 16) = v6 | 1;
-    ++(*a1)[2];
+    ++*(_DWORD *)(*a1 + 8);
   }
   else
   {

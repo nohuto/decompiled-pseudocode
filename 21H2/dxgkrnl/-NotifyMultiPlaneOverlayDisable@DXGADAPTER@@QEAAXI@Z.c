@@ -1,87 +1,59 @@
 /*
- * XREFs of ?NotifyMultiPlaneOverlayDisable@DXGADAPTER@@QEAAXI@Z @ 0x1C0014BD4
+ * XREFs of ?NotifyMultiPlaneOverlayDisable@DXGADAPTER@@QEAAXI@Z @ 0x1C0037C5C
  * Callers:
- *     DxgkMultiPlaneOverlayDisabledCB @ 0x1C0014B70 (DxgkMultiPlaneOverlayDisabledCB.c)
- *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C01B85D0 (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
+ *     DxgkMultiPlaneOverlayDisabledCB @ 0x1C0043100 (DxgkMultiPlaneOverlayDisabledCB.c)
+ *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C013FB1C (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
- *     ?HandleAdapterMultiPlaneDisableEvent@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C01C9090 (-HandleAdapterMultiPlaneDisableEvent@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z.c)
+ *     ?HandleAdapterMultiPlaneDisableEvent@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C020D490 (-HandleAdapterMultiPlaneDisableEvent@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z.c)
  */
 
 void __fastcall DXGADAPTER::NotifyMultiPlaneOverlayDisable(DXGADAPTER *this, int a2)
 {
   _QWORD *PoolWithTag; // rax
-  void *v5; // rbx
-  KIRQL CurrentIrql; // al
-  struct _DEVICE_OBJECT *v7; // rcx
-  int v8; // edx
-  int v9; // ecx
-  int v10; // r8d
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  void *v9; // rbx
+  __int64 v10; // rax
+  struct _DEVICE_OBJECT *v11; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
   struct _IO_WORKITEM *WorkItem; // rdi
-  int v12; // edx
-  int v13; // ecx
-  int v14; // r8d
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int64 v17; // rax
 
   PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0x10uLL, 0x4B677844u);
-  v5 = PoolWithTag;
-  if ( PoolWithTag )
+  v9 = PoolWithTag;
+  if ( !PoolWithTag )
   {
-    *PoolWithTag = this;
-    *((_DWORD *)PoolWithTag + 2) = a2;
-    *((_DWORD *)PoolWithTag + 3) = PsGetCurrentProcessSessionId();
-    CurrentIrql = KeGetCurrentIrql();
-    v7 = (struct _DEVICE_OBJECT *)*((_QWORD *)this + 27);
-    if ( CurrentIrql >= 2u )
+    v10 = WdLogNewEntry5_WdLowResource(v6, v5, v7, v8);
+    *(_QWORD *)(v10 + 24) = 2451LL;
+LABEL_3:
+    WdLogEvent5_WdLowResource(v10);
+    return;
+  }
+  *PoolWithTag = this;
+  *((_DWORD *)PoolWithTag + 2) = a2;
+  *((_DWORD *)PoolWithTag + 3) = PsGetCurrentProcessSessionId();
+  v11 = (struct _DEVICE_OBJECT *)*((_QWORD *)this + 27);
+  if ( KeGetCurrentIrql() >= 2u )
+  {
+    WorkItem = IoAllocateWorkItem(v11);
+    if ( !WorkItem )
     {
-      WorkItem = IoAllocateWorkItem(v7);
-      if ( WorkItem )
-      {
-        WdLogSingleEntry1(4LL, 2502LL);
-        IoQueueWorkItemEx(WorkItem, HandleAdapterMultiPlaneDisableEvent, DelayedWorkQueue, v5);
-      }
-      else
-      {
-        WdLogSingleEntry1(6LL, 2498LL);
-        if ( bTracingEnabled )
-        {
-          if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-            McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-              v13,
-              v12,
-              v14,
-              0,
-              1,
-              -1,
-              (__int64)L"Can't allocate memory to hold IO work item.",
-              2498LL,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-        }
-      }
+      v10 = WdLogNewEntry5_WdLowResource(v13, v12, v15, v16);
+      *(_QWORD *)(v10 + 24) = 2471LL;
+      goto LABEL_3;
     }
-    else
-    {
-      HandleAdapterMultiPlaneDisableEvent(v7, v5, 0LL);
-    }
+    v17 = WdLogNewEntry5_WdEvent();
+    *(_QWORD *)(v17 + 24) = 2475LL;
+    WdLogEvent5_WdEvent(v17);
+    IoQueueWorkItemEx(WorkItem, HandleAdapterMultiPlaneDisableEvent, DelayedWorkQueue, v9);
   }
   else
   {
-    WdLogSingleEntry1(6LL, 2478LL);
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-      McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-        v9,
-        v8,
-        v10,
-        0,
-        1,
-        -1,
-        (__int64)L"Cannot allocate memory for teardown event structure",
-        2478LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+    HandleAdapterMultiPlaneDisableEvent(v11, v9, 0LL);
   }
 }

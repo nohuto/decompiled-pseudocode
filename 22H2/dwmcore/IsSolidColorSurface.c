@@ -1,12 +1,12 @@
 /*
- * XREFs of IsSolidColorSurface @ 0x180273504
+ * XREFs of IsSolidColorSurface @ 0x180210730
  * Callers:
- *     DebugInspectSysMemSurface_NoOpt @ 0x180272E44 (DebugInspectSysMemSurface_NoOpt.c)
+ *     DebugInspectSysMemSurface_NoOpt @ 0x18020FF48 (DebugInspectSysMemSurface_NoOpt.c)
  * Callees:
- *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003E7E0 (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memcmp_0 @ 0x18011B98C (memcmp_0.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
+ *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003C06C (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memcmp_0 @ 0x1800F3FFF (memcmp_0.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
  */
 
 char __fastcall IsSolidColorSurface(char *Src, unsigned int a2, unsigned int a3, int a4, int a5)

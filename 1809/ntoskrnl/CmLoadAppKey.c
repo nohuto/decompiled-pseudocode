@@ -15,14 +15,14 @@
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
  *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     ExBlockOnAddressPushLock @ 0x1401119F0 (ExBlockOnAddressPushLock.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     CmpCheckHivePrimaryFileReadWriteAccess @ 0x14026C228 (CmpCheckHivePrimaryFileReadWriteAccess.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     ExBlockOnAddressPushLock @ 0x140111A10 (ExBlockOnAddressPushLock.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     CmpCheckHivePrimaryFileReadWriteAccess @ 0x14026C328 (CmpCheckHivePrimaryFileReadWriteAccess.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpDeleteHive @ 0x1405AFDEC (CmpDeleteHive.c)
  *     UNLOCK_HIVE_LOAD @ 0x1405B1514 (UNLOCK_HIVE_LOAD.c)
@@ -38,8 +38,8 @@
  *     CmpReferenceKeyControlBlockUnsafe @ 0x1405D8ADC (CmpReferenceKeyControlBlockUnsafe.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
- *     CmpGetLastHive @ 0x1406C2314 (CmpGetLastHive.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     CmpGetLastHive @ 0x1406C22F4 (CmpGetLastHive.c)
  */
 
 __int64 __fastcall CmLoadAppKey(
@@ -497,7 +497,7 @@ LABEL_90:
       v118 = 8LL;
       v120 = 4LL;
       v122 = 1LL;
-      TlgWriteAgg((__int64)&stru_1403FFAA0, (unsigned __int8 *)dword_14036BC4E, v59, v60, 5u, &v116);
+      TlgWriteAgg((__int64)&stru_1403FFAA0, (unsigned __int8 *)dword_14036BD5E, v59, v60, 5u, &v116);
     }
   }
   else if ( LOWORD(v98[1]) || WORD1(v98[1]) )
@@ -523,7 +523,7 @@ LABEL_90:
       v112 = 2LL;
       v114 = 12 * v57;
       v115 = 0;
-      TlgWrite(&stru_1403FFAA0, &unk_14036BCA8, 0LL, 0LL, 9u, &pData);
+      TlgWrite(&stru_1403FFAA0, &unk_14036BDB8, 0LL, 0LL, 9u, &pData);
     }
   }
   else if ( stru_1403FFAA0.LevelPlus1 > 5 )
@@ -536,7 +536,7 @@ LABEL_90:
       v75 = KeyCommon;
       v125 = 8LL;
       v127 = 4LL;
-      TlgWriteAgg((__int64)&stru_1403FFAA0, (unsigned __int8 *)dword_14036BD82, v55, v56, 4u, &v123);
+      TlgWriteAgg((__int64)&stru_1403FFAA0, (unsigned __int8 *)dword_14036BE92, v55, v56, 4u, &v123);
     }
   }
   return (unsigned int)KeyCommon;

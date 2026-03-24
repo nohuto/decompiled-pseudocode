@@ -1,17 +1,17 @@
 /*
- * XREFs of ?bValidSurf@XDCOBJ@@QEAAHXZ @ 0x1C002BB70
+ * XREFs of ?bValidSurf@XDCOBJ@@QEAAHXZ @ 0x1C00B5924
  * Callers:
- *     GreStretchBltInternal @ 0x1C002AF84 (GreStretchBltInternal.c)
- *     GreMaskBlt @ 0x1C0087168 (GreMaskBlt.c)
- *     ?bEndDocInternal@@YAHPEAUHDC__@@KG@Z @ 0x1C012C564 (-bEndDocInternal@@YAHPEAUHDC__@@KG@Z.c)
- *     NtGdiStartPage @ 0x1C012C8A0 (NtGdiStartPage.c)
- *     ?GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z @ 0x1C013D690 (-GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z.c)
- *     ?GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z @ 0x1C0140E60 (-GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z.c)
- *     ?GreGetPerBandInfo@@YAKPEAUHDC__@@PEAU_PERBANDINFO@@@Z @ 0x1C01425D8 (-GreGetPerBandInfo@@YAKPEAUHDC__@@PEAU_PERBANDINFO@@@Z.c)
- *     NtGdiEndPage @ 0x1C027ACD0 (NtGdiEndPage.c)
- *     GrePlgBlt @ 0x1C028B85C (GrePlgBlt.c)
- *     NtGdiUpdateColors @ 0x1C02B6B20 (NtGdiUpdateColors.c)
- *     NtGdiExtFloodFill @ 0x1C02B8670 (NtGdiExtFloodFill.c)
+ *     ?GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z @ 0x1C00A8FFC (-GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z.c)
+ *     GreStretchBltInternal @ 0x1C00B4D10 (GreStretchBltInternal.c)
+ *     GreMaskBlt @ 0x1C010979C (GreMaskBlt.c)
+ *     NtGdiStartPage @ 0x1C013A7B0 (NtGdiStartPage.c)
+ *     ?GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z @ 0x1C0152880 (-GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z.c)
+ *     ?GreGetPerBandInfo@@YAKPEAUHDC__@@PEAU_PERBANDINFO@@@Z @ 0x1C0154488 (-GreGetPerBandInfo@@YAKPEAUHDC__@@PEAU_PERBANDINFO@@@Z.c)
+ *     ?bEndDocInternal@@YAHPEAUHDC__@@KG@Z @ 0x1C016B4F4 (-bEndDocInternal@@YAHPEAUHDC__@@KG@Z.c)
+ *     NtGdiEndPage @ 0x1C027D170 (NtGdiEndPage.c)
+ *     GrePlgBlt @ 0x1C028DBB0 (GrePlgBlt.c)
+ *     NtGdiUpdateColors @ 0x1C02B89F0 (NtGdiUpdateColors.c)
+ *     NtGdiExtFloodFill @ 0x1C02BA3E0 (NtGdiExtFloodFill.c)
  * Callees:
  *     <none>
  */

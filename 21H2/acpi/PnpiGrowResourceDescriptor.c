@@ -1,36 +1,38 @@
 /*
- * XREFs of PnpiGrowResourceDescriptor @ 0x1C0098224
+ * XREFs of PnpiGrowResourceDescriptor @ 0x1C009CDEC
  * Callers:
- *     PnpiUpdateResourceList @ 0x1C0098B40 (PnpiUpdateResourceList.c)
+ *     PnpiUpdateResourceList @ 0x1C009D638 (PnpiUpdateResourceList.c)
  * Callees:
- *     WPP_RECORDER_SF_ddL @ 0x1C0022E18 (WPP_RECORDER_SF_ddL.c)
- *     ACPIInternalGrowBuffer @ 0x1C0098CDC (ACPIInternalGrowBuffer.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0016FF8 (WPP_RECORDER_SF_ddL.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIInternalGrowBuffer @ 0x1C009BF88 (ACPIInternalGrowBuffer.c)
  */
 
-__int64 __fastcall PnpiGrowResourceDescriptor(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall PnpiGrowResourceDescriptor(const void **a1, __int64 a2, __int64 a3)
 {
-  _WORD *Pool2; // rax
+  PVOID PoolWithTag; // rax
   int v6; // edi
   int v7; // [rsp+20h] [rbp-28h]
 
-  if ( *(_QWORD *)a1 )
+  if ( *a1 )
   {
-    v6 = 32 * *(_DWORD *)(*(_QWORD *)a1 + 4LL);
+    v6 = 32 * *((_DWORD *)*a1 + 1);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_ddL((__int64)WPP_GLOBAL_Control->DeviceExtension, 4u, a3, 0x1Eu, v7);
-    return ACPIInternalGrowBuffer(a1, (unsigned int)(v6 + 8), (unsigned int)(v6 + 264));
+    return ACPIInternalGrowBuffer(a1, v6 + 8, v6 + 264);
   }
   else
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_ddL((__int64)WPP_GLOBAL_Control->DeviceExtension, 2u, a3, 0x1Du, v7);
-    Pool2 = (_WORD *)ExAllocatePool2(256LL, 264LL, 1383097153LL);
-    *(_QWORD *)a1 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x108uLL, 0x52706341u);
+    *a1 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *Pool2 = 1;
-      *(_WORD *)(*(_QWORD *)a1 + 2LL) = 1;
-      *(_DWORD *)(*(_QWORD *)a1 + 4LL) = 0;
+      memset(PoolWithTag, 0, 0x108uLL);
+      *(_WORD *)*a1 = 1;
+      *((_WORD *)*a1 + 1) = 1;
+      *((_DWORD *)*a1 + 1) = 0;
       return 0LL;
     }
     else

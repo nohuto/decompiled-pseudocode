@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpTimeToTimeFieldsNoLeapSeconds @ 0x14033B5A4
+ * XREFs of RtlpTimeToTimeFieldsNoLeapSeconds @ 0x14030D444
  * Callers:
- *     RtlpTimeToTimeFields @ 0x14033B4C8 (RtlpTimeToTimeFields.c)
+ *     RtlpTimeToTimeFields @ 0x14030D368 (RtlpTimeToTimeFields.c)
  * Callees:
- *     TimeToDaysAndFraction @ 0x14033B78C (TimeToDaysAndFraction.c)
+ *     TimeToDaysAndFraction @ 0x14030D634 (TimeToDaysAndFraction.c)
  */
 
 __int64 __fastcall RtlpTimeToTimeFieldsNoLeapSeconds(__int64 a1, _WORD *a2)
 {
   int v3; // r11d
   unsigned int v4; // kr00_4
-  unsigned int v5; // edi
+  unsigned int v5; // esi
   unsigned int v6; // r9d
   __int64 v7; // r11
-  __int64 v8; // rcx
+  __int64 v8; // rbx
   __int16 v9; // ax
   unsigned int v10; // kr04_4
   unsigned int v11; // r8d
@@ -45,10 +45,10 @@ __int64 __fastcall RtlpTimeToTimeFieldsNoLeapSeconds(__int64 a1, _WORD *a2)
   }
   v10 = v14;
   a2[1] = v8 + 1;
+  *a2 = v5 + 1601;
   a2[2] = v7 - v9 + 1;
   a2[6] = v10 % 0x3E8;
   v11 = v10 / 0x3E8 / 0x3C;
-  *a2 = v5 + 1601;
   a2[3] = v11 / 0x3C;
   a2[4] = v11 % 0x3C;
   result = (unsigned int)(__int16)v11;

@@ -1,15 +1,14 @@
 /*
- * XREFs of ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C00483D0
+ * XREFs of ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C00E130C
  * Callers:
- *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0024CFC (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
- *     EditionGetPointerDeviceConfigurationKey @ 0x1C0047C70 (EditionGetPointerDeviceConfigurationKey.c)
- *     ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C00491C4 (-_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z.c)
- *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C0049BF0 (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
- *     ReadTiltCalibrationData @ 0x1C01A559C (ReadTiltCalibrationData.c)
- *     WriteTiltCalibrationData @ 0x1C01A5B04 (WriteTiltCalibrationData.c)
+ *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0024954 (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
+ *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C00E1190 (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
+ *     ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C00E41C0 (-_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z.c)
+ *     ReadTiltCalibrationData @ 0x1C01CEE1C (ReadTiltCalibrationData.c)
+ *     WriteTiltCalibrationData @ 0x1C01CF40C (WriteTiltCalibrationData.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker @ 0x1C0048004 (RtlUnicodeStringValidateWorker.c)
- *     RtlUnicodeStringValidateDestWorker @ 0x1C00482A8 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C00E15C8 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlUnicodeStringValidateWorker @ 0x1C00E1638 (RtlUnicodeStringValidateWorker.c)
  */
 
 __int64 __fastcall RtlUnicodeStringCopy(struct _UNICODE_STRING *a1, const struct _UNICODE_STRING *a2)
@@ -17,64 +16,56 @@ __int64 __fastcall RtlUnicodeStringCopy(struct _UNICODE_STRING *a1, const struct
   __int16 v3; // bx
   size_t v5; // rdx
   NTSTATUS v6; // r8d
-  NTSTATUS v7; // eax
-  PWSTR Buffer; // rdx
-  unsigned __int64 v9; // rcx
-  size_t v10; // r9
-  wchar_t *v11; // r11
-  __int16 v12; // r10
-  size_t v14; // [rsp+20h] [rbp-18h]
-  ULONG v15; // [rsp+28h] [rbp-10h]
-  size_t v16; // [rsp+50h] [rbp+18h] BYREF
-  wchar_t *v17; // [rsp+58h] [rbp+20h] BYREF
+  unsigned __int64 v7; // r10
+  PWSTR Buffer; // r11
+  size_t v9; // rcx
+  __int16 v10; // dx
+  char *v11; // r9
+  size_t v13; // [rsp+20h] [rbp-18h]
+  ULONG v14; // [rsp+28h] [rbp-10h]
+  size_t v15; // [rsp+50h] [rbp+18h] BYREF
+  wchar_t *v16; // [rsp+58h] [rbp+20h] BYREF
 
   v3 = 0;
-  v17 = 0LL;
   v16 = 0LL;
-  v6 = RtlUnicodeStringValidateDestWorker(a1, &v17, &v16, 0LL, v14, v15);
+  v15 = 0LL;
+  v6 = RtlUnicodeStringValidateDestWorker(a1, &v16, &v15, 0LL, v13, v14);
   if ( v6 >= 0 )
   {
-    v7 = RtlUnicodeStringValidateWorker(a2, v5, v6);
-    v6 = v7;
-    if ( v7 >= 0 && a2 )
+    v6 = RtlUnicodeStringValidateWorker(a2, v5, v6);
+    if ( v6 >= 0 )
     {
-      Buffer = a2->Buffer;
-      v9 = (unsigned __int64)a2->Length >> 1;
-    }
-    else
-    {
-      Buffer = 0LL;
-      v9 = 0LL;
-      if ( v7 < 0 )
+      if ( a2 )
       {
-LABEL_10:
-        a1->Length = 2 * v3;
-        return (unsigned int)v6;
+        Buffer = a2->Buffer;
+        v7 = (unsigned __int64)a2->Length >> 1;
       }
-    }
-    v10 = v16;
-    v6 = 0;
-    v11 = v17;
-    v12 = 0;
-    if ( v16 )
-    {
-      while ( v9 )
+      v9 = v15;
+      v6 = 0;
+      v10 = 0;
+      if ( !v15 )
+        goto LABEL_13;
+      v11 = (char *)((char *)v16 - (char *)Buffer);
+      do
       {
+        if ( !v7 )
+          break;
+        --v7;
+        *(PWSTR)((char *)Buffer + (_QWORD)v11) = *Buffer;
+        ++v10;
+        ++Buffer;
         --v9;
-        *v11++ = *Buffer++;
-        ++v12;
-        if ( !--v10 )
-          goto LABEL_14;
       }
+      while ( v9 );
+      if ( !v9 )
+      {
+LABEL_13:
+        if ( v7 )
+          v6 = -2147483643;
+      }
+      v3 = v10;
     }
-    else
-    {
-LABEL_14:
-      if ( v9 )
-        v6 = -2147483643;
-    }
-    v3 = v12;
-    goto LABEL_10;
+    a1->Length = 2 * v3;
   }
   return (unsigned int)v6;
 }

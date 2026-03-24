@@ -1,11 +1,11 @@
 /*
- * XREFs of ?growlastrec@EPATHOBJ@@IEAAXPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C00196DC
+ * XREFs of ?growlastrec@EPATHOBJ@@IEAAXPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C0080994
  * Callers:
- *     ?addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z @ 0x1C00192AC (-addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z.c)
+ *     ?addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z @ 0x1C00805CC (-addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z.c)
  * Callees:
- *     ?bXformRound@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z @ 0x1C001B1F0 (-bXformRound@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z.c)
- *     ?vInclude@ERECTFX@@QEAAXAEAU_POINTFIX@@@Z @ 0x1C00CC16C (-vInclude@ERECTFX@@QEAAXAEAU_POINTFIX@@@Z.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ?bXformRound@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z @ 0x1C00BC570 (-bXformRound@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z.c)
+ *     ?vInclude@ERECTFX@@QEAAXAEAU_POINTFIX@@@Z @ 0x1C00BD398 (-vInclude@ERECTFX@@QEAAXAEAU_POINTFIX@@@Z.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 void __fastcall EPATHOBJ::growlastrec(
@@ -20,7 +20,7 @@ void __fastcall EPATHOBJ::growlastrec(
   __int64 v10; // rcx
   unsigned __int64 v11; // r10
   unsigned __int64 v12; // rax
-  __int64 v13; // rdi
+  unsigned int v13; // edi
   struct _POINTL *v14; // rdx
   struct _POINTFIX *v15; // rdx
   struct _POINTFIX *v16; // rdx
@@ -42,22 +42,18 @@ void __fastcall EPATHOBJ::growlastrec(
         v12 = v9 + *(unsigned int *)(v9 + 16);
         if ( v12 > v11 )
           v10 = (__int64)(v12 - v11) >> 3;
-        v13 = *((unsigned int *)a3 + 1);
-        if ( (unsigned int)v10 <= (unsigned int)v13 )
-          v13 = (unsigned int)v10;
+        v13 = *((_DWORD *)a3 + 1);
+        if ( (unsigned int)v10 <= v13 )
+          v13 = v10;
         if ( (*(_DWORD *)a3 & 0x10) != 0 )
-          v13 = 3 * ((unsigned int)v13 / 3);
-        if ( (_DWORD)v13 )
+          v13 = 3 * (v13 / 3);
+        if ( v13 )
         {
           v14 = (struct _POINTL *)*((_QWORD *)a3 + 1);
           if ( a2 )
-            EXFORMOBJ::bXformRound(
-              a2,
-              v14,
-              (struct _POINTFIX *)(v8 + 8 * (*(unsigned int *)(v8 + 20) + 3LL)),
-              (unsigned int)v13);
+            EXFORMOBJ::bXformRound(a2, v14, (struct _POINTFIX *)(v8 + 8 * (*(unsigned int *)(v8 + 20) + 3LL)), v13);
           else
-            memmove((void *)(v8 + 8 * (*(unsigned int *)(v8 + 20) + 3LL)), v14, 8 * v13);
+            memmove((void *)(v8 + 8 * (*(unsigned int *)(v8 + 20) + 3LL)), v14, 8LL * v13);
           v15 = (struct _POINTFIX *)(v8 + 24 + 8LL * *(unsigned int *)(v8 + 20));
           do
           {
@@ -67,10 +63,10 @@ void __fastcall EPATHOBJ::growlastrec(
           while ( v17 != 1 );
           v18 = *(_DWORD *)(v8 + 20);
           *((_DWORD *)a3 + 1) -= v13;
-          v19 = (unsigned int)(v13 + v18);
+          v19 = v13 + v18;
           *(_DWORD *)(v8 + 20) = v19;
+          *((_QWORD *)a3 + 1) += 8LL * v13;
           *(_QWORD *)(v9 + 8) = v8 + 8 * (v19 + 3);
-          *((_QWORD *)a3 + 1) += 8 * v13;
         }
       }
     }

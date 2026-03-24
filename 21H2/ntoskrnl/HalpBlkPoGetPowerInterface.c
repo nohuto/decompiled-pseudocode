@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpBlkPoGetPowerInterface @ 0x1403DF6C0
+ * XREFs of HalpBlkPoGetPowerInterface @ 0x1403D03A0
  * Callers:
  *     <none>
  * Callees:

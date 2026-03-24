@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDSM_StoppingTimerAndRequestingCycleOnStopSuspend @ 0x1C0021120
+ * XREFs of HUBDSM_StoppingTimerAndRequestingCycleOnStopSuspend @ 0x1C0020D20
  * Callers:
  *     <none>
  * Callees:
- *     HUBMISC_StopTimer @ 0x1C002BE54 (HUBMISC_StopTimer.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     HUBMISC_StopTimer @ 0x1C002B774 (HUBMISC_StopTimer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBDSM_StoppingTimerAndRequestingCycleOnStopSuspend(__int64 a1)

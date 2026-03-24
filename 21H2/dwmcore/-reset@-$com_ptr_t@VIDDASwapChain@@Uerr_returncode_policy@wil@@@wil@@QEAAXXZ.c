@@ -1,13 +1,19 @@
 /*
- * XREFs of ?reset@?$com_ptr_t@VIDDASwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1801C3A9C
+ * XREFs of ?reset@?$com_ptr_t@VIDDASwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800C5BB4
  * Callers:
- *     ?EnsureSwapChain@CRemoteAppRenderTarget@@IEAAJXZ @ 0x1801C21F8 (-EnsureSwapChain@CRemoteAppRenderTarget@@IEAAJXZ.c)
- *     ?RailMultimonRenderAndPresent@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion@@@Z @ 0x1801C2BF8 (-RailMultimonRenderAndPresent@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@AEBVCDirtyRegion.c)
- *     ?ReleaseSwapChain@CRemoteAppRenderTarget@@IEAAXXZ @ 0x1801C2F80 (-ReleaseSwapChain@CRemoteAppRenderTarget@@IEAAXXZ.c)
- *     ?EnsureSwapChain@CDDARenderTarget@@IEAAJXZ @ 0x1801E102C (-EnsureSwapChain@CDDARenderTarget@@IEAAJXZ.c)
- *     ?UpdateTransform@CDDARenderTarget@@QEAAXAEBVCMonitorTransform@@@Z @ 0x1801E16EC (-UpdateTransform@CDDARenderTarget@@QEAAXAEBVCMonitorTransform@@@Z.c)
+ *     ?ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ @ 0x18006107C (-ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ.c)
+ *     ?PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z @ 0x180090948 (-PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z.c)
+ *     ?RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCComposeTop@@@Z @ 0x180092098 (-RenderDirtyRegion@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCCompose.c)
+ *     ?EnsureSwapChain@CRemoteAppRenderTarget@@IEAAJXZ @ 0x1801861BC (-EnsureSwapChain@CRemoteAppRenderTarget@@IEAAJXZ.c)
+ *     ?RailMultimonRenderAndPresent@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x180186A1C (-RailMultimonRenderAndPresent@CRemoteAppRenderTarget@@IEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?ReleaseSwapChain@CRemoteAppRenderTarget@@IEAAXXZ @ 0x180186D00 (-ReleaseSwapChain@CRemoteAppRenderTarget@@IEAAXXZ.c)
+ *     ?EnsureSwapChain@CLocalAppRenderTarget@@IEAAJXZ @ 0x18018A95C (-EnsureSwapChain@CLocalAppRenderTarget@@IEAAJXZ.c)
+ *     ?ReleaseSwapChain@CLocalAppRenderTarget@@IEAAXXZ @ 0x18018ADCC (-ReleaseSwapChain@CLocalAppRenderTarget@@IEAAXXZ.c)
+ *     ?RenderDirtyRegion@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCComposeTop@@@Z @ 0x18018CE0C (-RenderDirtyRegion@CDDisplayRenderTarget@@IEAAJPEAVCDrawingContext@@PEBVCDirtyRegion@@PEAVCCompo.c)
+ *     ?EnsureSwapChain@CDDARenderTarget@@IEAAJXZ @ 0x1801990F0 (-EnsureSwapChain@CDDARenderTarget@@IEAAJXZ.c)
+ *     ?UpdateTransform@CDDARenderTarget@@QEAAXAEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@W4DXGI_MODE_ROTATION@@@Z @ 0x180199484 (-UpdateTransform@CDDARenderTarget@@QEAAXAEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRect.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall wil::com_ptr_t<IDDASwapChain,wil::err_returncode_policy>::reset(__int64 *a1)

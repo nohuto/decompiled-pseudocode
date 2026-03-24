@@ -3,14 +3,14 @@
  * Callers:
  *     PspGetSetContextInternal @ 0x14061F940 (PspGetSetContextInternal.c)
  *     PspInitializeThunkContext @ 0x1406207DC (PspInitializeThunkContext.c)
- *     PspWow64GetContextThread @ 0x1406A82D8 (PspWow64GetContextThread.c)
- *     PspWow64SetContextThread @ 0x1406A89DC (PspWow64SetContextThread.c)
- *     PspSetContextState @ 0x14088F720 (PspSetContextState.c)
+ *     PspWow64GetContextThread @ 0x1406A82B8 (PspWow64GetContextThread.c)
+ *     PspWow64SetContextThread @ 0x1406A89BC (PspWow64SetContextThread.c)
+ *     PspSetContextState @ 0x14088F700 (PspSetContextState.c)
  * Callees:
  *     RtlpValidateContextFlags @ 0x1400A2070 (RtlpValidateContextFlags.c)
  *     RtlpGetContextFlagsLocation @ 0x1400A20EC (RtlpGetContextFlagsLocation.c)
  *     RtlpCopyLegacyContext @ 0x1400A21D4 (RtlpCopyLegacyContext.c)
- *     RtlpCopyXStateChunk @ 0x140141814 (RtlpCopyXStateChunk.c)
+ *     RtlpCopyXStateChunk @ 0x140141834 (RtlpCopyXStateChunk.c)
  */
 
 __int64 __fastcall RtlCopyContext(__int64 a1, int a2, __int64 a3)

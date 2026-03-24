@@ -1,13 +1,13 @@
 /*
- * XREFs of ExGetExpirationDate @ 0x14073541C
+ * XREFs of ExGetExpirationDate @ 0x1407353FC
  * Callers:
  *     ExInitializeTimeRefresh @ 0x1409C4288 (ExInitializeTimeRefresh.c)
  *     ExInitLicenseData @ 0x1409C43A0 (ExInitLicenseData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     RtlTimeFieldsToTime @ 0x140127040 (RtlTimeFieldsToTime.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQueryLicenseValue @ 0x1401BAAF0 (ZwQueryLicenseValue.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     RtlTimeFieldsToTime @ 0x140127060 (RtlTimeFieldsToTime.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQueryLicenseValue @ 0x1401BAB10 (ZwQueryLicenseValue.c)
  */
 
 __int64 __fastcall ExGetExpirationDate(PLARGE_INTEGER Time)

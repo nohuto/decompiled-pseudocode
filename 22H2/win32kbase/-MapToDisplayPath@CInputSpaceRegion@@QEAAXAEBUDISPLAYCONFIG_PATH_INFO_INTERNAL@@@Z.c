@@ -1,11 +1,11 @@
 /*
- * XREFs of ?MapToDisplayPath@CInputSpaceRegion@@QEAAXAEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z @ 0x1C00BC644
+ * XREFs of ?MapToDisplayPath@CInputSpaceRegion@@QEAAXAEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z @ 0x1C006DADC
  * Callers:
- *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C001917C (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
+ *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C006E540 (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
  * Callees:
- *     ?PopulatePanelId@CInputSpaceRegion@@QEAAXXZ @ 0x1C006D25C (-PopulatePanelId@CInputSpaceRegion@@QEAAXXZ.c)
- *     RIMUpdatePointerDeviceScalingInfo @ 0x1C00BC790 (RIMUpdatePointerDeviceScalingInfo.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?PopulatePanelId@CInputSpaceRegion@@QEAAXXZ @ 0x1C006DC20 (-PopulatePanelId@CInputSpaceRegion@@QEAAXXZ.c)
+ *     RIMUpdatePointerDeviceScalingInfo @ 0x1C006F508 (RIMUpdatePointerDeviceScalingInfo.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CInputSpaceRegion::MapToDisplayPath(
@@ -32,8 +32,7 @@ void __fastcall CInputSpaceRegion::MapToDisplayPath(
   *((_OWORD *)this + 40) = *((_OWORD *)a2 + 9);
   *((_OWORD *)this + 41) = *((_OWORD *)a2 + 10);
   *((_OWORD *)this + 42) = *((_OWORD *)a2 + 11);
-  *((_OWORD *)this + 43) = *((_OWORD *)a2 + 12);
-  *((_QWORD *)this + 88) = *((_QWORD *)a2 + 26);
+  *((_QWORD *)this + 86) = *((_QWORD *)a2 + 24);
   *((_DWORD *)this + 4) |= 2u;
   *(_QWORD *)((char *)this + 36) = *((_QWORD *)a2 + 2);
   v5 = *((_DWORD *)a2 + 7);

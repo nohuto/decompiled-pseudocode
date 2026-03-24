@@ -1,14 +1,14 @@
 /*
- * XREFs of IsAdaptiveQueueDetachExempted @ 0x1C00A9974
+ * XREFs of IsAdaptiveQueueDetachExempted @ 0x1C003CE40
  * Callers:
- *     xxxRealInternalGetMessage @ 0x1C0055460 (xxxRealInternalGetMessage.c)
- *     IsShellFrameHangResilient @ 0x1C00A98EC (IsShellFrameHangResilient.c)
- *     PostInputMessage @ 0x1C00AB69C (PostInputMessage.c)
- *     EditionMouseMoveShellResilience @ 0x1C01073B0 (EditionMouseMoveShellResilience.c)
- *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C020EBC4 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ *     IsShellFrameHangResilient @ 0x1C003CDB4 (IsShellFrameHangResilient.c)
+ *     PostInputMessage @ 0x1C0050880 (PostInputMessage.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055720 (xxxRealInternalGetMessage.c)
+ *     EditionMouseMoveShellResilience @ 0x1C011AF70 (EditionMouseMoveShellResilience.c)
+ *     xxxMoveSize @ 0x1C0212874 (xxxMoveSize.c)
  * Callees:
- *     IsDebuggerAttached @ 0x1C00A99EC (IsDebuggerAttached.c)
- *     IsIAMThread @ 0x1C00A9A2C (IsIAMThread.c)
+ *     IsDebuggerAttached @ 0x1C003CEB8 (IsDebuggerAttached.c)
+ *     IsIAMThread @ 0x1C003CEF8 (IsIAMThread.c)
  */
 
 _BOOL8 __fastcall IsAdaptiveQueueDetachExempted(__int64 a1, __int64 a2, __int64 a3)

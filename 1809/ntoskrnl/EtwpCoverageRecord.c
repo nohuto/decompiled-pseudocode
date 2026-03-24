@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCoverageRecord @ 0x1406B41FC
+ * XREFs of EtwpCoverageRecord @ 0x1406B41DC
  * Callers:
- *     EtwTelemetryCoverageReport @ 0x14012A560 (EtwTelemetryCoverageReport.c)
- *     EtwpCoverageHighIrqlCPWorkItemCallback @ 0x14030EDB0 (EtwpCoverageHighIrqlCPWorkItemCallback.c)
- *     EtwSetProcessTelemetryCoverage @ 0x1406B3FA0 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwTelemetryCoverageReport @ 0x14012A580 (EtwTelemetryCoverageReport.c)
+ *     EtwpCoverageHighIrqlCPWorkItemCallback @ 0x14030EEB0 (EtwpCoverageHighIrqlCPWorkItemCallback.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x1406B3F80 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
@@ -12,13 +12,13 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeSetTimer2 @ 0x1400FC150 (KeSetTimer2.c)
- *     TelemetryCoverageTableLocateInternal @ 0x14012A638 (TelemetryCoverageTableLocateInternal.c)
- *     EtwpCoverageValidateCP @ 0x14012A68C (EtwpCoverageValidateCP.c)
- *     EtwpCoverageAddToStringBuffer @ 0x14012A788 (EtwpCoverageAddToStringBuffer.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     EtwpCoverageFlushPending @ 0x140684830 (EtwpCoverageFlushPending.c)
- *     EtwpCoverageEnsureStringBuffer @ 0x14075B458 (EtwpCoverageEnsureStringBuffer.c)
+ *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
+ *     TelemetryCoverageTableLocateInternal @ 0x14012A658 (TelemetryCoverageTableLocateInternal.c)
+ *     EtwpCoverageValidateCP @ 0x14012A6AC (EtwpCoverageValidateCP.c)
+ *     EtwpCoverageAddToStringBuffer @ 0x14012A7A8 (EtwpCoverageAddToStringBuffer.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwpCoverageFlushPending @ 0x140684810 (EtwpCoverageFlushPending.c)
+ *     EtwpCoverageEnsureStringBuffer @ 0x14075B438 (EtwpCoverageEnsureStringBuffer.c)
  */
 
 void __fastcall EtwpCoverageRecord(int **a1, __int64 a2)
@@ -179,7 +179,7 @@ LABEL_8:
     v62 = 4;
     v65 = 4;
     TlgCreateSz(&pDesc, v16);
-    TlgWrite(&stru_140400340, &unk_140372D6B, 0LL, 0LL, 7u, &pData);
+    TlgWrite(&stru_140400340, &unk_140372E7B, 0LL, 0LL, 7u, &pData);
   }
   if ( EtwpCoverageCoreTracingEnabled && stru_140400340.LevelPlus1 > 5 )
   {
@@ -213,7 +213,7 @@ LABEL_8:
       v48 = 4;
       v51 = 4;
       TlgCreateSz(&v53, v19);
-      TlgWrite(&stru_140400340, &unk_140372CF7, 0LL, 0LL, 9u, &v34);
+      TlgWrite(&stru_140400340, &unk_140372E07, 0LL, 0LL, 9u, &v34);
     }
   }
 }

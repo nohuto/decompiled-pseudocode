@@ -6,16 +6,16 @@
  *     PspQueryProcessAccountingInformationCallback @ 0x140600010 (PspQueryProcessAccountingInformationCallback.c)
  *     PspFoldProcessAccountingIntoJob @ 0x1406037D8 (PspFoldProcessAccountingIntoJob.c)
  *     PopEtEnergyContextProcessStateUpdate @ 0x1406069F0 (PopEtEnergyContextProcessStateUpdate.c)
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     PoEnergyEstimationEnabled @ 0x1400ACF60 (PoEnergyEstimationEnabled.c)
- *     KeQueryTimelineBitmapTime @ 0x1400ACF70 (KeQueryTimelineBitmapTime.c)
- *     RtlTimelineBitmapUpdateRange @ 0x14011ED78 (RtlTimelineBitmapUpdateRange.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PoEnergyEstimationEnabled @ 0x1400ACF80 (PoEnergyEstimationEnabled.c)
+ *     KeQueryTimelineBitmapTime @ 0x1400ACF90 (KeQueryTimelineBitmapTime.c)
+ *     RtlTimelineBitmapUpdateRange @ 0x14011ED98 (RtlTimelineBitmapUpdateRange.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 char __fastcall PsQueryProcessEnergyValues(_QWORD *a1, _OWORD *a2)

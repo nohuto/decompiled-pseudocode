@@ -1,8 +1,8 @@
 /*
- * XREFs of ?CheckRemoveHotkeyBit@@YAXPEAUtagTHREADINFO@@PEAUtagMLIST@@@Z @ 0x1C0014EF0
+ * XREFs of ?CheckRemoveHotkeyBit@@YAXPEAUtagTHREADINFO@@PEAUtagMLIST@@@Z @ 0x1C0135504
  * Callers:
- *     ?xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIH@Z @ 0x1C012A920 (-xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIH@Z.c)
- *     FindQMsg @ 0x1C012AFC0 (FindQMsg.c)
+ *     ?xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIPEAU_QMSG_POSTCHAR_FLAGS@@H@Z @ 0x1C0057C00 (-xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIPEAU_QMSG_POSTCHAR_FLAGS@@H.c)
+ *     FindQMsg @ 0x1C0058200 (FindQMsg.c)
  * Callees:
  *     <none>
  */
@@ -31,7 +31,7 @@ void __fastcall CheckRemoveHotkeyBit(struct tagTHREADINFO *a1, __int64 **a2)
   if ( v5 <= 1 )
   {
 LABEL_6:
-    _InterlockedAnd((volatile signed __int32 *)(*((_QWORD *)a1 + 56) + 8LL), 0xFFFFFF7F);
-    _InterlockedAnd((volatile signed __int32 *)(*((_QWORD *)a1 + 56) + 4LL), 0xFFFFFF7F);
+    *(_WORD *)(*((_QWORD *)a1 + 56) + 6LL) &= ~0x80u;
+    *(_WORD *)(*((_QWORD *)a1 + 56) + 4LL) &= ~0x80u;
   }
 }

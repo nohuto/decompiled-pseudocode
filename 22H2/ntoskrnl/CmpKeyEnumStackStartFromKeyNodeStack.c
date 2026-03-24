@@ -1,18 +1,22 @@
 /*
- * XREFs of CmpKeyEnumStackStartFromKeyNodeStack @ 0x140A2444C
+ * XREFs of CmpKeyEnumStackStartFromKeyNodeStack @ 0x14087AD78
  * Callers:
- *     CmpGetSubKeyCountForKeyNodeStack @ 0x140A23664 (CmpGetSubKeyCountForKeyNodeStack.c)
- *     CmpKeyEnumStackStartFromKcbStack @ 0x140A2439C (CmpKeyEnumStackStartFromKcbStack.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x14087A75C (CmpGetSubKeyCountForKeyNodeStack.c)
+ *     CmpKeyEnumStackStartFromKcbStack @ 0x14087ACC8 (CmpKeyEnumStackStartFromKcbStack.c)
  * Callees:
- *     CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x140A23964 (CmpKeyEnumStackBeginEnumerationForKeyNodeStack.c)
- *     CmpKeyEnumStackStart @ 0x140A242EC (CmpKeyEnumStackStart.c)
+ *     CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x14072AC48 (CmpKeyEnumStackBeginEnumerationForKeyNodeStack.c)
+ *     CmpKeyEnumStackStart @ 0x14072B04C (CmpKeyEnumStackStart.c)
  */
 
-__int64 __fastcall CmpKeyEnumStackStartFromKeyNodeStack(unsigned __int16 *a1, __int16 *a2)
+__int64 __fastcall CmpKeyEnumStackStartFromKeyNodeStack(
+        __int16 *a1,
+        __int16 *a2,
+        __int64 a3,
+        struct _LOOKASIDE_LIST_EX *a4)
 {
   __int64 result; // rax
 
-  result = CmpKeyEnumStackStart((__int64)a1, *a2);
+  result = CmpKeyEnumStackStart((__int64)a1, *a2, a3, a4);
   if ( (int)result >= 0 )
   {
     CmpKeyEnumStackBeginEnumerationForKeyNodeStack(a1, (__int64)a2);

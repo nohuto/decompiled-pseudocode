@@ -1,10 +1,10 @@
 /*
- * XREFs of Controller_QueryControllerCapabilitiesFromACPI @ 0x1C00154E0
+ * XREFs of Controller_QueryControllerCapabilitiesFromACPI @ 0x1C0017B84
  * Callers:
- *     Controller_WdfEvtDeviceAdd @ 0x1C006D740 (Controller_WdfEvtDeviceAdd.c)
+ *     Controller_WdfEvtDeviceAdd @ 0x1C0070440 (Controller_WdfEvtDeviceAdd.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     Controller_ExecuteDSM @ 0x1C006C218 (Controller_ExecuteDSM.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     Controller_ExecuteDSM @ 0x1C006EEB8 (Controller_ExecuteDSM.c)
  */
 
 void __fastcall Controller_QueryControllerCapabilitiesFromACPI(__int64 a1)
@@ -37,15 +37,15 @@ void __fastcall Controller_QueryControllerCapabilitiesFromACPI(__int64 a1)
               *(_QWORD *)(a1 + 72),
               v3,
               4,
-              248,
-              (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids);
+              247,
+              (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
           }
           *(_DWORD *)(a1 + 588) = 1;
         }
         else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
           LOBYTE(v3) = 2;
-          WPP_RECORDER_SF_(*(_QWORD *)(a1 + 72), v3, 4, 247, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids);
+          WPP_RECORDER_SF_(*(_QWORD *)(a1 + 72), v3, 4, 246, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
         }
       }
     }

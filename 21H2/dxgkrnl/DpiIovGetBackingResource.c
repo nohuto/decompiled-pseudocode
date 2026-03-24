@@ -1,14 +1,14 @@
 /*
- * XREFs of DpiIovGetBackingResource @ 0x1C03914F0
+ * XREFs of DpiIovGetBackingResource @ 0x1C02D41D0
  * Callers:
  *     <none>
  * Callees:
- *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z @ 0x1C005F2C8 (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z.c)
- *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C005F440 (--1CInterfaceCallContext@@QEAA@XZ.c)
- *     ?DpiGetVirtualGpuType@@YA?AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C0065D24 (-DpiGetVirtualGpuType@@YA-AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z.c)
- *     DxgkDdiGetBackingResource @ 0x1C03595A0 (DxgkDdiGetBackingResource.c)
- *     DxgkDdiGetResourceForBar @ 0x1C03599B4 (DxgkDdiGetResourceForBar.c)
- *     DxgkDdiQueryVirtualFunctionIndexByLuid @ 0x1C035A030 (DxgkDdiQueryVirtualFunctionIndexByLuid.c)
+ *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@E@Z @ 0x1C0050FFC (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@E@Z.c)
+ *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C0051124 (--1CInterfaceCallContext@@QEAA@XZ.c)
+ *     ?DpiGetVirtualGpuType@@YA?AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C0059090 (-DpiGetVirtualGpuType@@YA-AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z.c)
+ *     DxgkDdiGetBackingResource @ 0x1C0230FA4 (DxgkDdiGetBackingResource.c)
+ *     DxgkDdiGetResourceForBar @ 0x1C0231238 (DxgkDdiGetResourceForBar.c)
+ *     DxgkDdiQueryVirtualFunctionIndexByLuid @ 0x1C02316C0 (DxgkDdiQueryVirtualFunctionIndexByLuid.c)
  */
 
 __int64 __fastcall DpiIovGetBackingResource(_DWORD *a1, struct _LUID a2, unsigned __int16 a3, __int64 a4, void *a5)
@@ -34,7 +34,7 @@ __int64 __fastcall DpiIovGetBackingResource(_DWORD *a1, struct _LUID a2, unsigne
   *(_DWORD *)(a4 + 16) = 0;
   *v5 = 0LL;
   VirtualGpuType = DpiGetVirtualGpuType(a1, &a5);
-  CInterfaceCallContext::CInterfaceCallContext((CInterfaceCallContext *)v17, a5, 0LL, 1, 0);
+  CInterfaceCallContext::CInterfaceCallContext((CInterfaceCallContext *)v17, a5, 0LL, 1);
   v9 = ResourceForBar;
   if ( ResourceForBar < 0 )
     goto LABEL_10;
@@ -46,7 +46,7 @@ __int64 __fastcall DpiIovGetBackingResource(_DWORD *a1, struct _LUID a2, unsigne
     goto LABEL_10;
   if ( *(_BYTE *)(v10 + 2692) )
   {
-    if ( !*(_QWORD *)(v10 + 5232) )
+    if ( !*(_QWORD *)(v10 + 5304) )
     {
       ResourceForBar = DxgkDdiGetResourceForBar(*(_QWORD **)(v10 + 3896), VirtualGpuType, (unsigned __int16)a5, a3, a4);
       v9 = ResourceForBar;
@@ -59,7 +59,7 @@ __int64 __fastcall DpiIovGetBackingResource(_DWORD *a1, struct _LUID a2, unsigne
       goto LABEL_10;
     }
   }
-  else if ( !*(_QWORD *)(v10 + 5232) )
+  else if ( !*(_QWORD *)(v10 + 5304) )
   {
     goto LABEL_10;
   }

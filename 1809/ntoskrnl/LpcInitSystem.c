@@ -3,7 +3,7 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     AlpcpInitSystem @ 0x14075D2AC (AlpcpInitSystem.c)
+ *     AlpcpInitSystem @ 0x14075D28C (AlpcpInitSystem.c)
  */
 
 char LpcInitSystem()

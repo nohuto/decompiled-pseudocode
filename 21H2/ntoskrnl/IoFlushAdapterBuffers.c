@@ -1,11 +1,11 @@
 /*
- * XREFs of IoFlushAdapterBuffers @ 0x140393E00
+ * XREFs of IoFlushAdapterBuffers @ 0x140389E20
  * Callers:
- *     HalPutScatterGatherListV2 @ 0x140230618 (HalPutScatterGatherListV2.c)
+ *     HalPutScatterGatherList @ 0x14029E020 (HalPutScatterGatherList.c)
  * Callees:
- *     HalpDmaGetAdapterVersion @ 0x14023A8D0 (HalpDmaGetAdapterVersion.c)
- *     IoFlushAdapterBuffersV2 @ 0x140393E40 (IoFlushAdapterBuffersV2.c)
- *     IoFlushAdapterBuffersV3 @ 0x140517BAC (IoFlushAdapterBuffersV3.c)
+ *     HalpDmaGetAdapterVersion @ 0x1402B62B0 (HalpDmaGetAdapterVersion.c)
+ *     IoFlushAdapterBuffersV2 @ 0x140389E60 (IoFlushAdapterBuffersV2.c)
+ *     IoFlushAdapterBuffersV3 @ 0x1404CA910 (IoFlushAdapterBuffersV3.c)
  */
 
 BOOLEAN __stdcall IoFlushAdapterBuffers(

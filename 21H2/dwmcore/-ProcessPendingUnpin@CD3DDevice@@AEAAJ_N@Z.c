@@ -1,89 +1,64 @@
 /*
- * XREFs of ?ProcessPendingUnpin@CD3DDevice@@AEAAJ_N@Z @ 0x18007F718
+ * XREFs of ?ProcessPendingUnpin@CD3DDevice@@AEAAJ_N@Z @ 0x18002A414
  * Callers:
- *     ??1CD3DDevice@@MEAA@XZ @ 0x1800213C4 (--1CD3DDevice@@MEAA@XZ.c)
- *     ?AdvanceFrame@CD3DDevice@@QEAAJXZ @ 0x18007F3E4 (-AdvanceFrame@CD3DDevice@@QEAAJXZ.c)
+ *     ??1CD3DDevice@@MEAA@XZ @ 0x18002A490 (--1CD3DDevice@@MEAA@XZ.c)
  * Callees:
- *     ??$_Emplace_reallocate@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@?$vector@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAPEAV?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@QEAV23@$$QEAV23@@Z @ 0x180005404 (--$_Emplace_reallocate@V-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@-$vector@.c)
- *     ?erase@?$vector_facade@VCUnpinResource@CD3DDevice@@V?$buffer_impl@VCUnpinResource@CD3DDevice@@$06$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@VCUnpinResource@CD3DDevice@@@2@V?$basic_iterator@$$CBVCUnpinResource@CD3DDevice@@@2@@Z @ 0x1800059A8 (-erase@-$vector_facade@VCUnpinResource@CD3DDevice@@V-$buffer_impl@VCUnpinResource@CD3DDevice@@$0.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x18007F688 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
- *     ?_Tidy@?$vector@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@AEAAXXZ @ 0x1800DD2C8 (-_Tidy@-$vector@V-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V-$allocator@V-$c.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0q_EventWriteTransfer @ 0x180111C2C (McTemplateU0q_EventWriteTransfer.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180078248 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x180090244 (-GetCurrentFrameId@@YA_KXZ.c)
+ *     ?_Tidy@?$vector@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@AEAAXXZ @ 0x1800D93D0 (-_Tidy@-$vector@V-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V-$allocator@V-$c.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??$emplace_back@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@?$vector@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAAEAV?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@$$QEAV23@@Z @ 0x1801F8918 (--$emplace_back@V-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@-$vector@V-$com_.c)
+ *     ?erase@?$vector_facade@VCUnpinResource@CD3DDevice@@V?$buffer_impl@VCUnpinResource@CD3DDevice@@$06$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@VCUnpinResource@CD3DDevice@@@2@V?$basic_iterator@$$CBVCUnpinResource@CD3DDevice@@@2@@Z @ 0x18024107C (-erase@-$vector_facade@VCUnpinResource@CD3DDevice@@V-$buffer_impl@VCUnpinResource@CD3DDevice@@$0.c)
  */
 
 __int64 __fastcall CD3DDevice::ProcessPendingUnpin(CD3DDevice *this, char a2)
 {
-  unsigned int v2; // esi
-  _QWORD *v3; // r12
+  unsigned int v2; // edi
+  char *v3; // r14
   __int64 v4; // rbx
-  __int64 *v5; // r15
-  __int64 *v7; // rdi
-  __int64 v9; // rbx
-  int v11; // eax
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  __int128 v14; // [rsp+30h] [rbp-20h] BYREF
-  __int64 *v15; // [rsp+40h] [rbp-10h]
-  __int64 v16; // [rsp+90h] [rbp+40h] BYREF
-  __int64 v17; // [rsp+A0h] [rbp+50h] BYREF
+  int v8; // eax
+  unsigned int v9; // ecx
+  unsigned int v10; // ebx
+  __int64 v11; // [rsp+30h] [rbp-38h] BYREF
+  __int128 v12; // [rsp+38h] [rbp-30h]
+  __int64 v13; // [rsp+70h] [rbp+8h] BYREF
+  char v14; // [rsp+80h] [rbp+18h] BYREF
 
   v2 = 0;
-  v3 = (_QWORD *)((char *)this + 1200);
-  v4 = *((_QWORD *)this + 150);
-  v5 = 0LL;
-  v14 = 0LL;
-  v7 = 0LL;
-  v15 = 0LL;
-  while ( v4 != *((_QWORD *)this + 151) )
+  v3 = (char *)this + 1232;
+  v4 = *((_QWORD *)this + 154);
+  v11 = 0LL;
+  v12 = 0LL;
+  while ( v4 != *((_QWORD *)this + 155) )
   {
-    if ( !*(_DWORD *)(v4 + 28) || a2 )
+    if ( *(_QWORD *)(v4 + 8) <= GetCurrentFrameId() || a2 )
     {
-      if ( v7 == v5 )
-      {
-        std::vector<wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy>>::_Emplace_reallocate<wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy>>(
-          (__int64 *)&v14,
-          (__int64)v7,
-          (__int64 *)v4);
-        v5 = v15;
-        v7 = (__int64 *)*((_QWORD *)&v14 + 1);
-      }
-      else
-      {
-        v13 = *(_QWORD *)v4;
-        *(_QWORD *)v4 = 0LL;
-        *v7++ = v13;
-        *((_QWORD *)&v14 + 1) = v7;
-      }
-      v16 = v4;
-      v4 = *detail::vector_facade<CD3DDevice::CUnpinResource,detail::buffer_impl<CD3DDevice::CUnpinResource,7,1,detail::liberal_expansion_policy>>::erase(
-              v3,
-              &v17,
-              &v16);
+      std::vector<wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy>>::emplace_back<wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy>>(
+        &v11,
+        v4);
+      v13 = v4;
+      v4 = *(_QWORD *)detail::vector_facade<CD3DDevice::CUnpinResource,detail::buffer_impl<CD3DDevice::CUnpinResource,7,1,detail::liberal_expansion_policy>>::erase(
+                        v3,
+                        &v14,
+                        &v13);
     }
     else
     {
-      v4 += 32LL;
+      v4 += 16LL;
     }
   }
-  v9 = v14;
-  if ( (__int64 *)v14 != v7 )
+  if ( v11 != (_QWORD)v12 )
   {
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20000000) != 0 )
-      McTemplateU0q_EventWriteTransfer(this, &Pinning_D3DUnpinStart, (__int64)((__int64)v7 - v14) >> 3);
-    v11 = (*(__int64 (__fastcall **)(_QWORD, __int64, _QWORD))(**((_QWORD **)this + 68) + 32LL))(
-            *((_QWORD *)this + 68),
-            v9,
-            (unsigned int)(((__int64)v7 - v9) >> 3));
-    v2 = v11;
-    if ( v11 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, v11, 0x3D8u);
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20000000) != 0 )
-      McTemplateU0q_EventWriteTransfer(v12, &Pinning_D3DUnpinStop, v2);
-    if ( v2 )
-      v2 = CD3DDevice::TranslateDXGIorD3DErrorInContext((__int64)this, v2, 0);
+    v8 = (*(__int64 (__fastcall **)(_QWORD, __int64, __int64))(**((_QWORD **)this + 73) + 32LL))(
+           *((_QWORD *)this + 73),
+           v11,
+           ((__int64)v12 - v11) >> 3);
+    v10 = v8;
+    if ( v8 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0xF98u, 0LL);
+    v2 = CD3DDevice::TranslateDXGIorD3DErrorInContext(this, v10, 0LL);
   }
-  std::vector<wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy>>::_Tidy(&v14);
+  std::vector<wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy>>::_Tidy(&v11);
   return v2;
 }

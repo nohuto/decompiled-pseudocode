@@ -1,5 +1,5 @@
 /*
- * XREFs of PspIoMiniPacketCallbackRoutine @ 0x1406A3ED0
+ * XREFs of PspIoMiniPacketCallbackRoutine @ 0x1406A3EB0
  * Callers:
  *     <none>
  * Callees:

@@ -1,7 +1,7 @@
 /*
- * XREFs of _anonymous_namespace_::QpcToFileTimeAndGetCurrentFileTime @ 0x18010E460
+ * XREFs of _anonymous_namespace_::QpcToFileTimeAndGetCurrentFileTime @ 0x1800B0AB8
  * Callers:
- *     _anonymous_namespace_::SendFramesReport @ 0x18010BCB0 (_anonymous_namespace_--SendFramesReport.c)
+ *     _anonymous_namespace_::SendFramesReport @ 0x18004B9C4 (_anonymous_namespace_--SendFramesReport.c)
  * Callees:
  *     <none>
  */

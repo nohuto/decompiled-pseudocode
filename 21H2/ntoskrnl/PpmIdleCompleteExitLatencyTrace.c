@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmIdleCompleteExitLatencyTrace @ 0x1405C7D34
+ * XREFs of PpmIdleCompleteExitLatencyTrace @ 0x14056670C
  * Callers:
- *     PpmIdleExecuteTransition @ 0x140306100 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x1402224B0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     PpmConvertTime @ 0x14029394C (PpmConvertTime.c)
- *     PpmCancelExitLatencyTrace @ 0x1403DA6C0 (PpmCancelExitLatencyTrace.c)
- *     PpmTraceExitLatency @ 0x1405C8ECC (PpmTraceExitLatency.c)
+ *     PpmConvertTime @ 0x14027C22C (PpmConvertTime.c)
+ *     PpmCancelExitLatencyTrace @ 0x1405656E0 (PpmCancelExitLatencyTrace.c)
+ *     PpmTraceExitLatency @ 0x140567BE0 (PpmTraceExitLatency.c)
  */
 
 __int64 PpmIdleCompleteExitLatencyTrace(__int64 a1, int a2, char a3, ...)
@@ -32,7 +32,7 @@ __int64 PpmIdleCompleteExitLatencyTrace(__int64 a1, int a2, char a3, ...)
   v3 = a1;
   if ( a2 < 0 )
     return PpmCancelExitLatencyTrace(a1);
-  if ( a3 && (v4 = *(_QWORD *)(*(_QWORD *)(a1 + 33600) + 56LL), v7 > v4) )
+  if ( a3 && (v4 = *(_QWORD *)(*(_QWORD *)(a1 + 0x8000) + 56LL), v7 > v4) )
     v5 = PpmConvertTime(v7 - v4, PopQpcFrequency, 0x989680uLL);
   else
     v5 = v9;
@@ -41,7 +41,7 @@ __int64 PpmIdleCompleteExitLatencyTrace(__int64 a1, int a2, char a3, ...)
     a1 = v3;
     return PpmCancelExitLatencyTrace(a1);
   }
-  result = *(_QWORD *)(v3 + 33600);
+  result = *(_QWORD *)(v3 + 0x8000);
   *(_BYTE *)(result + 3) = 0;
   *(_QWORD *)(result + 56) = 0LL;
   return result;

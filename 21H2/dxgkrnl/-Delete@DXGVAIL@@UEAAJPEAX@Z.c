@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Delete@DXGVAIL@@UEAAJPEAX@Z @ 0x1C0350E50
+ * XREFs of ?Delete@DXGVAIL@@UEAAJPEAX@Z @ 0x1C02B5170
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DXGVAIL::Delete(DXGVAIL *this, void (__fastcall ***a2)(_QWORD, __int64))

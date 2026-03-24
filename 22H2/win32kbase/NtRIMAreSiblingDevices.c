@@ -1,10 +1,10 @@
 /*
- * XREFs of NtRIMAreSiblingDevices @ 0x1C0174BF0
+ * XREFs of NtRIMAreSiblingDevices @ 0x1C0153020
  * Callers:
  *     <none>
  * Callees:
- *     RIMAreSiblingDevices @ 0x1C0176B60 (RIMAreSiblingDevices.c)
- *     ApiSetEditionIsUsermodeRIMAccessAllowed @ 0x1C0206B8C (ApiSetEditionIsUsermodeRIMAccessAllowed.c)
+ *     ApiSetEditionIsUsermodeRIMAccessAllowed @ 0x1C0056718 (ApiSetEditionIsUsermodeRIMAccessAllowed.c)
+ *     RIMAreSiblingDevices @ 0x1C0155590 (RIMAreSiblingDevices.c)
  */
 
 __int64 __fastcall NtRIMAreSiblingDevices(__int64 a1, __int64 a2, __int64 a3)

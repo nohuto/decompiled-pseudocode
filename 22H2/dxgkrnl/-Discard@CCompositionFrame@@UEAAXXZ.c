@@ -1,93 +1,80 @@
 /*
- * XREFs of ?Discard@CCompositionFrame@@UEAAXXZ @ 0x1C0017BA0
+ * XREFs of ?Discard@CCompositionFrame@@UEAAXXZ @ 0x1C0012CE0
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0013814 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C0013858 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z @ 0x1C0018038 (-ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?ProcessSignal@CFlipManager@@QEAAXPEAVCFlipManagerSignal@@_K@Z @ 0x1C0084E08 (-ProcessSignal@CFlipManager@@QEAAXPEAVCFlipManagerSignal@@_K@Z.c)
+ *     ?ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z @ 0x1C0012DCC (-ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CCompositionFrame::Discard(CCompositionFrame *this)
 {
-  __int64 (__fastcall ***i)(_QWORD); // rbx
-  void *v3; // rdx
-  char *v4; // rsi
-  char *v5; // rax
-  __int64 v6; // rcx
-  char *v7; // rsi
-  char *v8; // rax
-  __int64 v9; // rcx
-  unsigned __int64 v10; // r14
-  _QWORD *v11; // rdi
-  __int64 v12; // rax
+  void *v2; // rdx
+  char *v3; // rsi
+  char *v4; // rax
+  __int64 v5; // rcx
+  char *v6; // rdi
+  char *v7; // rax
+  __int64 v8; // rcx
+  char *v9; // rbx
+  __int64 v10; // rax
+  __int64 *v11; // rcx
+  __int64 v12; // rbx
   __int64 v13; // rdx
   char *v14; // rbx
-  char *v15; // rbx
-  struct CFlipManagerSignal *v16; // rbx
-  __int64 v17; // rsi
 
-  for ( i = (__int64 (__fastcall ***)(_QWORD))*((_QWORD *)this + 13); i; *((_QWORD *)this + 13) = i )
+  if ( *((_QWORD *)this + 12) )
   {
-    v12 = (**i)(i);
-    LOBYTE(v13) = 1;
-    i = (__int64 (__fastcall ***)(_QWORD))v12;
-    (*(void (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 13) + 8LL))(*((_QWORD *)this + 13), v13);
-  }
-  v3 = (void *)*((_QWORD *)this + 14);
-  *((_DWORD *)this + 24) = 3;
-  if ( v3 )
-  {
-    CTokenManager::ReturnLegacyTokenBuffer(*((CTokenManager **)this + 25), v3);
-    *((_QWORD *)this + 14) = 0LL;
-  }
-  *((_BYTE *)this + 120) = 0;
-  v4 = (char *)this + 152;
-  while ( 1 )
-  {
-    v5 = *(char **)v4;
-    if ( *(char **)(*(_QWORD *)v4 + 8LL) != v4 || (v6 = *(_QWORD *)v5, *(char **)(*(_QWORD *)v5 + 8LL) != v5) )
-LABEL_16:
-      __fastfail(3u);
-    *(_QWORD *)v4 = v6;
-    *(_QWORD *)(v6 + 8) = v4;
-    if ( v5 == v4 )
-      break;
-    v14 = v5 - 8;
-    (*(void (__fastcall **)(char *))(*((_QWORD *)v5 - 1) + 56LL))(v5 - 8);
-    (**(void (__fastcall ***)(char *, __int64))v14)(v14, 1LL);
-  }
-  v7 = (char *)this + 168;
-  while ( 1 )
-  {
-    v8 = *(char **)v7;
-    if ( *(char **)(*(_QWORD *)v7 + 8LL) != v7 )
-      goto LABEL_16;
-    v9 = *(_QWORD *)v8;
-    if ( *(char **)(*(_QWORD *)v8 + 8LL) != v8 )
-      goto LABEL_16;
-    *(_QWORD *)v7 = v9;
-    *(_QWORD *)(v9 + 8) = v7;
-    if ( v8 == v7 )
-      break;
-    v15 = v8 - 48;
-    (*(void (__fastcall **)(char *))(*((_QWORD *)v8 - 1) + 56LL))(v8 - 8);
-    ObfDereferenceObject(v15);
-  }
-  v10 = *((_QWORD *)this + 11);
-  v11 = (_QWORD *)((char *)this + 184);
-  while ( (_QWORD *)*v11 != v11 )
-  {
-    v16 = (struct CFlipManagerSignal *)((*v11 - 8LL) & ((unsigned __int128)-(__int128)(unsigned __int64)*v11 >> 64));
-    v17 = *((_QWORD *)v16 + 5);
-    *((_QWORD *)v16 + 5) = 0LL;
-    if ( (int)CPushLock::AcquireLockExclusive((CPushLock *)(v17 + 40)) >= 0 )
+    do
     {
-      CFlipManager::ProcessSignal((CFlipManager *)(v17 + 32), v16, v10);
-      CPushLock::ReleaseLock((CPushLock *)(v17 + 40));
+      v10 = (***((__int64 (__fastcall ****)(_QWORD))this + 12))(*((_QWORD *)this + 12));
+      v11 = (__int64 *)*((_QWORD *)this + 12);
+      v12 = v10;
+      v13 = *v11;
+      LOBYTE(v13) = 1;
+      (*(void (__fastcall **)(__int64 *, __int64))(*v11 + 8))(v11, v13);
+      *((_QWORD *)this + 12) = v12;
     }
-    ObfDereferenceObject((PVOID)v17);
+    while ( v12 );
+  }
+  v2 = (void *)*((_QWORD *)this + 13);
+  *((_DWORD *)this + 22) = 3;
+  if ( v2 )
+  {
+    CTokenManager::ReturnLegacyTokenBuffer(*((CTokenManager **)this + 22), v2);
+    *((_QWORD *)this + 13) = 0LL;
+  }
+  *((_BYTE *)this + 112) = 0;
+  v3 = (char *)this + 144;
+  while ( 1 )
+  {
+    v4 = *(char **)v3;
+    if ( *(char **)(*(_QWORD *)v3 + 8LL) != v3 || (v5 = *(_QWORD *)v4, *(char **)(*(_QWORD *)v4 + 8LL) != v4) )
+LABEL_14:
+      __fastfail(3u);
+    *(_QWORD *)v3 = v5;
+    *(_QWORD *)(v5 + 8) = v3;
+    if ( v4 == v3 )
+      break;
+    v9 = v4 - 8;
+    (*(void (__fastcall **)(char *))(*((_QWORD *)v4 - 1) + 56LL))(v4 - 8);
+    (**(void (__fastcall ***)(char *, __int64))v9)(v9, 1LL);
+  }
+  v6 = (char *)this + 160;
+  while ( 1 )
+  {
+    v7 = *(char **)v6;
+    if ( *(char **)(*(_QWORD *)v6 + 8LL) != v6 )
+      goto LABEL_14;
+    v8 = *(_QWORD *)v7;
+    if ( *(char **)(*(_QWORD *)v7 + 8LL) != v7 )
+      goto LABEL_14;
+    *(_QWORD *)v6 = v8;
+    *(_QWORD *)(v8 + 8) = v6;
+    if ( v7 == v6 )
+      break;
+    v14 = v7 - 48;
+    (*(void (__fastcall **)(char *))(*((_QWORD *)v7 - 1) + 56LL))(v7 - 8);
+    ObfDereferenceObject(v14);
   }
 }

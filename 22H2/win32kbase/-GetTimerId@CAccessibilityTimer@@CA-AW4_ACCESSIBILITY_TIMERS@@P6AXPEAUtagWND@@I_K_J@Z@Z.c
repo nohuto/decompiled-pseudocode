@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetTimerId@CAccessibilityTimer@@CA?AW4_ACCESSIBILITY_TIMERS@@P6AXPEAUtagWND@@I_K_J@Z@Z @ 0x1C01E1448
+ * XREFs of ?GetTimerId@CAccessibilityTimer@@CA?AW4_ACCESSIBILITY_TIMERS@@P6AXPEAUtagWND@@I_K_J@Z@Z @ 0x1C01A84A8
  * Callers:
- *     ?SetTimer@CAccessibilityTimer@@SA?AW4_ACCESSIBILITY_TIMERS@@KP6AXPEAUtagWND@@I_K_J@ZH@Z @ 0x1C01E1570 (-SetTimer@CAccessibilityTimer@@SA-AW4_ACCESSIBILITY_TIMERS@@KP6AXPEAUtagWND@@I_K_J@ZH@Z.c)
+ *     ?SetTimer@CAccessibilityTimer@@SA?AW4_ACCESSIBILITY_TIMERS@@KP6AXPEAUtagWND@@I_K_J@ZH@Z @ 0x1C01A85D0 (-SetTimer@CAccessibilityTimer@@SA-AW4_ACCESSIBILITY_TIMERS@@KP6AXPEAUtagWND@@I_K_J@ZH@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall CAccessibilityTimer::GetTimerId(void (__fastcall *a1)(struct tagWND *a1))
@@ -25,11 +25,11 @@ __int64 __fastcall CAccessibilityTimer::GetTimerId(void (__fastcall *a1)(struct 
     {
       return 4;
     }
-    else if ( (char *)a1 == (char *)xxxMKMoveAccelCursorTimer )
+    else if ( a1 == xxxMKMoveAccelCursorTimer )
     {
       return 5;
     }
-    else if ( (char *)a1 == (char *)xxxMKMoveConstCursorTimer )
+    else if ( a1 == xxxMKMoveConstCursorTimer )
     {
       return 6;
     }
@@ -43,7 +43,7 @@ __int64 __fastcall CAccessibilityTimer::GetTimerId(void (__fastcall *a1)(struct 
     }
     else
     {
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 99);
+      MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 99);
     }
   }
   return v1;

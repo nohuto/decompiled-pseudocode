@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipGetGuidObjectInstanceInfo @ 0x1406C1A74
+ * XREFs of WmipGetGuidObjectInstanceInfo @ 0x14078D2A4
  * Callers:
- *     IoWMIDeviceObjectToInstanceName @ 0x1406C1980 (IoWMIDeviceObjectToInstanceName.c)
- *     WmipTranslateFileHandle @ 0x1409DE060 (WmipTranslateFileHandle.c)
+ *     IoWMIDeviceObjectToInstanceName @ 0x14078D1B0 (IoWMIDeviceObjectToInstanceName.c)
+ *     WmipTranslateFileHandle @ 0x140933408 (WmipTranslateFileHandle.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     IoGetDeviceInstanceName @ 0x1402DDEC0 (IoGetDeviceInstanceName.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     _wcsnicmp @ 0x1403E15D0 (_wcsnicmp.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     IoGetDeviceInstanceName @ 0x14036FF20 (IoGetDeviceInstanceName.c)
+ *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall WmipGetGuidObjectInstanceInfo(__int64 a1, ULONG_PTR a2, UNICODE_STRING *a3, _DWORD *a4)
@@ -83,7 +83,7 @@ LABEL_11:
       *v6 = v16;
     }
     if ( Buffer )
-      RtlFreeUnicodeString(&Str2);
+      RtlFreeAnsiString(&Str2);
   }
   return (unsigned int)DeviceInstanceName;
 }

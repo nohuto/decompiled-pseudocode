@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Release@?$ValueReference@I@@W7EAAKXZ @ 0x18011F480
+ * XREFs of ?Release@?$ValueReference@I@@W7EAAKXZ @ 0x1800F6BC0
  * Callers:
  *     <none>
  * Callees:

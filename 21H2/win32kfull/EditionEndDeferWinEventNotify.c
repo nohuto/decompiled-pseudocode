@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionEndDeferWinEventNotify @ 0x1C010CBB0
+ * XREFs of EditionEndDeferWinEventNotify @ 0x1C01224F0
  * Callers:
  *     <none>
  * Callees:
- *     zzzEndDeferWinEventNotify @ 0x1C0048944 (zzzEndDeferWinEventNotify.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C006DF44 (zzzEndDeferWinEventNotify.c)
  */
 
 void EditionEndDeferWinEventNotify()

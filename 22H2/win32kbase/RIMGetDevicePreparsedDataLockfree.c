@@ -1,36 +1,37 @@
 /*
- * XREFs of RIMGetDevicePreparsedDataLockfree @ 0x1C0177D10
+ * XREFs of RIMGetDevicePreparsedDataLockfree @ 0x1C0155F90
  * Callers:
- *     NtRIMGetDevicePreparsedDataLockfree @ 0x1C0174E00 (NtRIMGetDevicePreparsedDataLockfree.c)
- *     RIMGetDevicePreparsedData @ 0x1C0177AC0 (RIMGetDevicePreparsedData.c)
+ *     NtRIMGetDevicePreparsedDataLockfree @ 0x1C0153730 (NtRIMGetDevicePreparsedDataLockfree.c)
+ *     RIMGetDevicePreparsedData @ 0x1C0155E20 (RIMGetDevicePreparsedData.c)
  * Callees:
- *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0072E20 (RawInputManagerDeviceObjectResolveHandle.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0058C60 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
-__int64 __fastcall RIMGetDevicePreparsedDataLockfree(char *a1, char *a2, _DWORD *a3, int a4)
+__int64 __fastcall RIMGetDevicePreparsedDataLockfree(char *a1, char *a2, unsigned int *a3, int a4)
 {
   int v7; // esi
   PVOID v8; // rdi
   char *v9; // rax
   __int64 v10; // rax
-  __int64 v11; // rdx
+  unsigned int v11; // edx
   const void *v12; // r9
+  __int64 v13; // rax
   PVOID Object; // [rsp+28h] [rbp-10h] BYREF
 
   Object = 0LL;
-  v7 = RawInputManagerDeviceObjectResolveHandle(a1, 1u, 1, &Object);
+  v7 = RawInputManagerDeviceObjectResolveHandle(a1, 3u, 1, &Object);
   if ( v7 >= 0 )
   {
     v8 = Object;
     if ( Object )
-      v9 = (char *)Object + 72;
+      v9 = (char *)Object + 88;
     else
       v9 = 0LL;
     if ( v9[48] == 2 )
     {
-      v10 = *((_QWORD *)v9 + 57);
-      v11 = *(unsigned int *)(v10 + 104);
+      v10 = *((_QWORD *)v9 + 58);
+      v11 = *(_DWORD *)(v10 + 104);
       v12 = *(const void **)(v10 + 16);
       if ( a2 )
       {
@@ -38,21 +39,24 @@ __int64 __fastcall RIMGetDevicePreparsedDataLockfree(char *a1, char *a2, _DWORD 
         {
           if ( a3 + 1 < a3 || (unsigned __int64)(a3 + 1) > MmUserProbeAddress )
             *(_BYTE *)MmUserProbeAddress = 0;
-          if ( (unsigned int)v11 >= *a3 )
-            v11 = (unsigned int)*a3;
-          if ( (unsigned __int64)&a2[v11] > MmUserProbeAddress || &a2[v11] <= a2 )
+          v13 = *a3;
+          if ( v11 < (unsigned int)v13 )
+            v13 = v11;
+          if ( (unsigned __int64)&a2[v13] > MmUserProbeAddress || &a2[v13] <= a2 )
             *(_BYTE *)MmUserProbeAddress = 0;
+          memmove(a2, v12, (unsigned int)v13);
         }
-        else if ( (unsigned int)v11 >= *a3 )
+        else
         {
-          LODWORD(v11) = *a3;
+          if ( v11 >= *a3 )
+            v11 = *a3;
+          memmove(a2, v12, v11);
         }
-        memmove(a2, v12, (unsigned int)v11);
       }
       else if ( a4 )
       {
         if ( (unsigned __int64)a3 >= MmUserProbeAddress )
-          a3 = (_DWORD *)MmUserProbeAddress;
+          a3 = (unsigned int *)MmUserProbeAddress;
         *a3 = v11;
       }
       else

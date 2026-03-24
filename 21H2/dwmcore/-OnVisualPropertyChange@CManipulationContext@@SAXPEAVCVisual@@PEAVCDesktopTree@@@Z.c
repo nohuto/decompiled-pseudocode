@@ -1,14 +1,14 @@
 /*
- * XREFs of ?OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z @ 0x18018382C
+ * XREFs of ?OnVisualPropertyChange@CManipulationContext@@SAXPEAVCVisual@@PEAVCDesktopTree@@@Z @ 0x180235170
  * Callers:
- *     ?OnInteractionUpdate@CManipulationManager@@IEAAXXZ @ 0x18002AA00 (-OnInteractionUpdate@CManipulationManager@@IEAAXXZ.c)
- *     ?BuildInteractionChainAndUpdateTree@CManipulationContext@@SAXPEAVCDesktopTree@@PEAVCInteraction@@IW4InputType@@_NPEAVCInteractionChain@@PEA_N@Z @ 0x180181FE0 (-BuildInteractionChainAndUpdateTree@CManipulationContext@@SAXPEAVCDesktopTree@@PEAVCInteraction@.c)
- *     ?OnHoverContact@CManipulationContext@@QEAAJPEAVCInteraction@@IW4InputType@@@Z @ 0x180183364 (-OnHoverContact@CManipulationContext@@QEAAJPEAVCInteraction@@IW4InputType@@@Z.c)
- *     ?RevalidateMCTree@CManipulationContext@@AEAAXPEAUMCCollections@@@Z @ 0x180184570 (-RevalidateMCTree@CManipulationContext@@AEAAXPEAUMCCollections@@@Z.c)
+ *     ?OnInteractionUpdate@CManipulationManager@@IEAAXXZ @ 0x18004DCC0 (-OnInteractionUpdate@CManipulationManager@@IEAAXXZ.c)
+ *     ?BuildInteractionChainAndUpdateTree@CManipulationContext@@SAXPEAVCDesktopTree@@PEAVCInteraction@@IW4InputType@@_NPEAVCInteractionChain@@PEA_N@Z @ 0x180233B38 (-BuildInteractionChainAndUpdateTree@CManipulationContext@@SAXPEAVCDesktopTree@@PEAVCInteraction@.c)
+ *     ?OnHoverContact@CManipulationContext@@QEAAJPEAVCInteraction@@IW4InputType@@@Z @ 0x180234D24 (-OnHoverContact@CManipulationContext@@QEAAJPEAVCInteraction@@IW4InputType@@@Z.c)
+ *     ?RevalidateMCTree@CManipulationContext@@AEAAXPEAUMCCollections@@@Z @ 0x180235D70 (-RevalidateMCTree@CManipulationContext@@AEAAXPEAUMCCollections@@@Z.c)
  * Callees:
- *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x180049584 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
- *     ?GetWorldTransform@CVisual@@QEBAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z @ 0x18004AFB8 (-GetWorldTransform@CVisual@@QEBAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z.c)
- *     _lambda_9a9771997357178f95a5eaf72b6b0000_::operator() @ 0x180181D34 (_lambda_9a9771997357178f95a5eaf72b6b0000_--operator().c)
+ *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x18009FEE0 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
+ *     ?GetWorldTransform@CVisual@@QEAAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z @ 0x1800B7380 (-GetWorldTransform@CVisual@@QEAAJPEBVCVisualTree@@W4WalkReason@@PEAVCMILMatrix@@PEA_N2@Z.c)
+ *     _lambda_9a9771997357178f95a5eaf72b6b0000_::operator() @ 0x180233928 (_lambda_9a9771997357178f95a5eaf72b6b0000_--operator().c)
  */
 
 void __fastcall CManipulationContext::OnVisualPropertyChange(struct CVisual *a1, struct CDesktopTree *a2)
@@ -41,8 +41,8 @@ void __fastcall CManipulationContext::OnVisualPropertyChange(struct CVisual *a1,
   v5 = InteractionInternal;
   if ( InteractionInternal )
   {
-    CVisual::GetWorldTransform(v3, v4, 5, (__int64)InteractionInternal + 120, 0LL, 0LL);
-    v6 = *((_QWORD *)v5 + 14);
+    CVisual::GetWorldTransform(v3, v4, 5, (__int64)InteractionInternal + 112, 0LL, 0LL);
+    v6 = *((_QWORD *)v5 + 13);
     v7 = 0LL;
     v23 = 0LL;
     v24 = 0LL;
@@ -61,32 +61,32 @@ void __fastcall CManipulationContext::OnVisualPropertyChange(struct CVisual *a1,
         v22[0] = &v21;
         v11 = 0;
         v22[1] = &v20;
-        v12 = *((_QWORD *)v8 + 13);
+        v12 = *((_QWORD *)v8 + 12);
         if ( v12 )
           v11 = *(_DWORD *)(v12 + 76);
         lambda_9a9771997357178f95a5eaf72b6b0000_::operator()(v22, (__int64 *)&v23, v11);
         v13 = 0;
-        v14 = *((_QWORD *)v21 + 13);
+        v14 = *((_QWORD *)v21 + 12);
         if ( v14 )
           v13 = *(_DWORD *)(v14 + 80);
         lambda_9a9771997357178f95a5eaf72b6b0000_::operator()(v22, (__int64 *)&v23 + 1, v13);
         v15 = 0;
-        v16 = *((_QWORD *)v21 + 13);
+        v16 = *((_QWORD *)v21 + 12);
         if ( v16 )
           v15 = *(_DWORD *)(v16 + 88);
         lambda_9a9771997357178f95a5eaf72b6b0000_::operator()(v22, (__int64 *)&v24 + 1, v15);
         v17 = 0;
-        v18 = *((_QWORD *)v21 + 13);
+        v18 = *((_QWORD *)v21 + 12);
         if ( v18 )
           v17 = *(_DWORD *)(v18 + 84);
         lambda_9a9771997357178f95a5eaf72b6b0000_::operator()(v22, (__int64 *)&v24, v17);
         v10 = v20;
       }
-      v7 = *(CVisual **)(v9 + 88);
+      v7 = *(CVisual **)(v9 + 80);
     }
     while ( !v10 );
     v19 = v24;
-    *(_OWORD *)((char *)v5 + 72) = v23;
-    *(_OWORD *)((char *)v5 + 88) = v19;
+    *((_OWORD *)v5 + 4) = v23;
+    *((_OWORD *)v5 + 5) = v19;
   }
 }

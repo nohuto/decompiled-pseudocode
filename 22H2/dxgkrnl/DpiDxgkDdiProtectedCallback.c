@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiDxgkDdiProtectedCallback @ 0x1C03A90FC
+ * XREFs of DpiDxgkDdiProtectedCallback @ 0x1C02D8F50
  * Callers:
- *     DpiFdoExcludeAdapterAccess @ 0x1C039B2A0 (DpiFdoExcludeAdapterAccess.c)
+ *     DpiFdoExcludeAdapterAccess @ 0x1C02CA1A0 (DpiFdoExcludeAdapterAccess.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0ppq_EtwWriteTransfer @ 0x1C005B24C (McTemplateK0ppq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0ppq_EtwWriteTransfer @ 0x1C0052530 (McTemplateK0ppq_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall DpiDxgkDdiProtectedCallback(
@@ -18,12 +18,12 @@ NTSTATUS __fastcall DpiDxgkDdiProtectedCallback(
   __int64 v10; // r8
   __int64 v11; // [rsp+28h] [rbp-10h]
 
-  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     McTemplateK0ppq_EtwWriteTransfer(a1, &EventEnterDdiProtectedCallback, a3, a1, a3, a4);
   result = a2(a1, a3, a4);
   if ( bTracingEnabled )
   {
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     {
       LODWORD(v11) = a4;
       return McTemplateK0ppq_EtwWriteTransfer(v9, &EventExitDdiProtectedCallback, v10, a1, a3, v11);

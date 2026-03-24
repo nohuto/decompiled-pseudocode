@@ -1,12 +1,24 @@
 /*
- * XREFs of NtNotifyChangeDirectoryFile @ 0x1407CC0C0
+ * XREFs of NtNotifyChangeDirectoryFile @ 0x140691630
  * Callers:
  *     <none>
  * Callees:
- *     NtNotifyChangeDirectoryFileEx @ 0x1407CC120 (NtNotifyChangeDirectoryFileEx.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x140691690 (NtNotifyChangeDirectoryFileEx.c)
  */
 
-__int64 __fastcall NtNotifyChangeDirectoryFile(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
+__int64 __fastcall NtNotifyChangeDirectoryFile(
+        int a1,
+        void *a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        volatile void *Address,
+        SIZE_T a7,
+        int a8,
+        char a9)
 {
-  return NtNotifyChangeDirectoryFileEx(a1, a2, a3, a4, a5, a6);
+  SIZE_T Length; // [rsp+30h] [rbp-28h]
+
+  LODWORD(Length) = a7;
+  return NtNotifyChangeDirectoryFileEx(a1, a2, a5, Address, Length, a8, a9, 1);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of VfUtilDbgPrint @ 0x14030994C
+ * XREFs of VfUtilDbgPrint @ 0x140309A4C
  * Callers:
- *     VfClearVerifierSettings @ 0x1403096A8 (VfClearVerifierSettings.c)
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
- *     ViErrorReport1 @ 0x14030AE3C (ViErrorReport1.c)
- *     ViErrorReport10 @ 0x14030AEC0 (ViErrorReport10.c)
- *     ViErrorReport4 @ 0x14030AF54 (ViErrorReport4.c)
- *     ViErrorReport6 @ 0x14030AFF8 (ViErrorReport6.c)
+ *     VfClearVerifierSettings @ 0x1403097A8 (VfClearVerifierSettings.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
+ *     ViErrorReport1 @ 0x14030AF3C (ViErrorReport1.c)
+ *     ViErrorReport10 @ 0x14030AFC0 (ViErrorReport10.c)
+ *     ViErrorReport4 @ 0x14030B054 (ViErrorReport4.c)
+ *     ViErrorReport6 @ 0x14030B0F8 (ViErrorReport6.c)
  *     VfNotifyVerifierOfEvent @ 0x140925D20 (VfNotifyVerifierOfEvent.c)
  *     VfUtilPrintCheckinString @ 0x140926214 (VfUtilPrintCheckinString.c)
  *     ViGenericDumpIrpStack @ 0x140926D00 (ViGenericDumpIrpStack.c)
@@ -37,7 +37,7 @@
  *     VerifierNtReadFile @ 0x1409456E0 (VerifierNtReadFile.c)
  *     VerifierNtWriteFile @ 0x140945830 (VerifierNtWriteFile.c)
  * Callees:
- *     vDbgPrintExWithPrefixInternal @ 0x140126330 (vDbgPrintExWithPrefixInternal.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x140126350 (vDbgPrintExWithPrefixInternal.c)
  */
 
 __int64 VfUtilDbgPrint(const char *a1, ...)

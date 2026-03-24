@@ -1,88 +1,112 @@
 /*
- * XREFs of ?SendMouseInput@Mouse@IVRootDeliver@@YAJAEAUCONTAINER_ID@@AEAUContainerMouseInput@@@Z @ 0x1C01F2ED8
+ * XREFs of ?SendMouseInput@Mouse@IVRootDeliver@@YAJAEAUCONTAINER_ID@@AEAUContainerMouseInput@@@Z @ 0x1C01BB7F4
  * Callers:
- *     ?FlushInputDestinedForContainer@ContainerMouseInputBuffer@CMouseProcessor@@QEAAXXZ @ 0x1C01F6E3C (-FlushInputDestinedForContainer@ContainerMouseInputBuffer@CMouseProcessor@@QEAAXXZ.c)
+ *     ?FlushInputDestinedForContainer@ContainerMouseInputBuffer@CMouseProcessor@@QEAAXXZ @ 0x1C01C00FC (-FlushInputDestinedForContainer@ContainerMouseInputBuffer@CMouseProcessor@@QEAAXXZ.c)
  * Callees:
- *     ?SendMouseInputToContainer@Detail@Mouse@IVRootDeliver@@YAJAEBUCONTAINER_ID@@PEAXAEBUContainerMouseInput@@@Z @ 0x1C01F300C (-SendMouseInputToContainer@Detail@Mouse@IVRootDeliver@@YAJAEBUCONTAINER_ID@@PEAXAEBUContainerMou.c)
- *     ?ContainerConnected@CIVChannel@@SA_NK@Z @ 0x1C01F38C4 (-ContainerConnected@CIVChannel@@SA_NK@Z.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     ?SendMouseInputToContainer@Detail@Mouse@IVRootDeliver@@YAJAEBUCONTAINER_ID@@PEAXAEBUContainerMouseInput@@@Z @ 0x1C01BB99C (-SendMouseInputToContainer@Detail@Mouse@IVRootDeliver@@YAJAEBUCONTAINER_ID@@PEAXAEBUContainerMou.c)
  */
 
 __int64 __fastcall IVRootDeliver::Mouse::SendMouseInput(
         IVRootDeliver::Mouse *this,
         struct CONTAINER_ID *a2,
-        struct ContainerMouseInput *a3,
-        __int64 a4)
+        struct ContainerMouseInput *a3)
 {
+  struct CONTAINER_ID *v3; // rbx
+  IVRootDeliver::Mouse::Detail *v4; // r9
   int v5; // r14d
-  __int64 v6; // rax
-  const struct ContainerMouseInput *v7; // r9
-  __int64 v8; // r15
-  unsigned int v9; // ebx
-  unsigned int v10; // esi
-  char v11; // dl
-  __int64 v12; // rcx
-  const struct CONTAINER_ID *v13; // r12
-  unsigned __int64 v14; // rax
-  __int64 v15; // r13
-  int v16; // eax
-  __int64 v18; // [rsp+30h] [rbp-20h] BYREF
-  int v19; // [rsp+38h] [rbp-18h]
-  __int64 v20; // [rsp+3Ch] [rbp-14h]
-  int v21; // [rsp+44h] [rbp-Ch]
-  char v23; // [rsp+A0h] [rbp+50h]
-  __int64 v24; // [rsp+A8h] [rbp+58h]
+  __int64 v6; // r15
+  unsigned int v7; // edi
+  unsigned int v8; // esi
+  __int64 v9; // rcx
+  char v10; // dl
+  const struct CONTAINER_ID *v11; // r12
+  unsigned __int64 v12; // rax
+  __int64 v13; // r13
+  int v14; // eax
+  int v16; // [rsp+38h] [rbp-28h]
+  __int64 v17; // [rsp+40h] [rbp-20h] BYREF
+  int v18; // [rsp+48h] [rbp-18h]
+  __int64 v19; // [rsp+4Ch] [rbp-14h]
+  int v20; // [rsp+54h] [rbp-Ch]
+  char v22; // [rsp+B0h] [rbp+50h]
+  __int64 v23; // [rsp+B8h] [rbp+58h]
 
-  v5 = 0;
-  v6 = SGDGetUserSessionState(this, a2, a3, a4);
-  if ( CIVChannel::ContainerConnected(*(_DWORD *)(*(_QWORD *)(v6 + 3272) + 1296LL)) )
+  v3 = a2;
+  v4 = this;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    v8 = *(_QWORD *)a2;
-    v9 = 1;
-    v10 = *((_DWORD *)a2 + 2);
-    v11 = 0;
-    v23 = 0;
-    v12 = *(_QWORD *)a2;
-    v24 = *(_QWORD *)a2;
-    v13 = *(const struct CONTAINER_ID **)(*(_QWORD *)a2 + 24LL);
-    if ( v10 )
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      (_DWORD)a2,
+      12,
+      21,
+      (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids);
+    v4 = this;
+  }
+  v5 = 0;
+  if ( *((_DWORD *)gpMouseSensor + 314) )
+  {
+    v6 = *(_QWORD *)v3;
+    v7 = 1;
+    v8 = *((_DWORD *)v3 + 2);
+    v9 = *(_QWORD *)v3;
+    v23 = *(_QWORD *)v3;
+    v10 = 0;
+    v22 = 0;
+    v11 = *(const struct CONTAINER_ID **)(*(_QWORD *)v3 + 24LL);
+    if ( v8 )
     {
       do
       {
-        v14 = (unsigned __int64)v9 << 6;
-        v15 = v14 + v8;
-        if ( *(const struct CONTAINER_ID **)(v14 + v8 + 24) != v13 || v9 == v10 )
+        v12 = (unsigned __int64)v7 << 6;
+        v13 = v12 + v6;
+        if ( *(const struct CONTAINER_ID **)(v12 + v6 + 24) != v11 || v7 == v8 )
         {
-          v18 = v12;
-          v19 = (__int64)(v8 + v14 - v12) >> 6;
-          v21 = 0;
-          v20 = 0LL;
-          if ( !v11 && *((_BYTE *)a2 + 20) )
+          LOBYTE(v16) = 0;
+          v17 = v9;
+          v18 = (__int64)(v6 + v12 - v9) >> 6;
+          v20 = v16;
+          v19 = 0LL;
+          if ( !v10 && *((_BYTE *)v3 + 20) )
           {
-            v16 = *((_DWORD *)a2 + 5);
-            v20 = *(_QWORD *)((char *)a2 + 12);
-            v21 = v16;
-            v23 = 1;
+            v14 = *((_DWORD *)v3 + 5);
+            v19 = *(_QWORD *)((char *)v3 + 12);
+            v20 = v14;
+            v22 = 1;
           }
-          v5 = IVRootDeliver::Mouse::Detail::SendMouseInputToContainer(this, v13, &v18, v7);
+          v5 = IVRootDeliver::Mouse::Detail::SendMouseInputToContainer(v4, v11, &v17, v4);
           if ( v5 < 0 )
-            return (unsigned int)v5;
-          v11 = v23;
-          if ( v9 == v10 )
+            break;
+          v10 = v22;
+          if ( v7 == v8 )
           {
-            v12 = v24;
+            v9 = v23;
           }
           else
           {
-            v13 = *(const struct CONTAINER_ID **)(v15 + 24);
-            v12 = v15;
-            v24 = v15;
+            v11 = *(const struct CONTAINER_ID **)(v13 + 24);
+            v9 = v13;
+            v23 = v13;
           }
         }
-        v10 = *((_DWORD *)a2 + 2);
-        ++v9;
+        v8 = *((_DWORD *)v3 + 2);
+        ++v7;
+        v4 = this;
       }
-      while ( v9 <= v10 );
+      while ( v7 <= v8 );
     }
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      (_DWORD)a2,
+      12,
+      22,
+      (__int64)&WPP_ce934868e6283481801d375bb45badae_Traceguids);
   }
   return (unsigned int)v5;
 }

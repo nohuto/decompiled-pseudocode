@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Confirm@CTokenBase@@UEAAXXZ @ 0x1C001A020
+ * XREFs of ?Confirm@CTokenBase@@UEAAXXZ @ 0x1C001B840
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopGetHwConfigurationSignature @ 0x140AA2C8C
+ * XREFs of PopGetHwConfigurationSignature @ 0x140996ED4
  * Callers:
- *     PopAllocateHiberContext @ 0x140987DE8 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x140777B44 (PopAllocateHiberContext.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140335810 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140335B30 (MmUnmapIoSpace.c)
- *     HalGetMemoryCachingRequirements @ 0x1403647D0 (HalGetMemoryCachingRequirements.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14041AD60 (ZwQuerySystemInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     MmMapIoSpaceEx @ 0x1402E7FA0 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x1402EA680 (MmUnmapIoSpace.c)
+ *     HalGetMemoryCachingRequirements @ 0x1403A40D0 (HalGetMemoryCachingRequirements.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1403FA0E0 (ZwQuerySystemInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PopGetHwConfigurationSignature()
@@ -17,40 +17,40 @@ __int64 PopGetHwConfigurationSignature()
   void *v0; // rbx
   unsigned int v1; // r14d
   unsigned int v2; // esi
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v4; // rdi
   unsigned __int64 v5; // rbx
   _DWORD *v6; // rax
-  int v8; // [rsp+24h] [rbp-2Ch] BYREF
+  SIZE_T NumberOfBytes; // [rsp+20h] [rbp-30h] BYREF
   _DWORD v9[6]; // [rsp+28h] [rbp-28h] BYREF
 
-  v8 = 0;
   v9[4] = 0;
   v0 = 0LL;
-  v9[0] = 1094930505;
-  v9[3] = 0;
-  v1 = 0;
   v9[1] = 1;
+  v9[3] = 0;
+  NumberOfBytes = 0LL;
+  v1 = 0;
+  v9[0] = 1094930505;
   v9[2] = 1346584902;
   v2 = 4;
   if ( (unsigned int)ZwQuerySystemInformation(76LL, (__int64)v9) == -1073741789 )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(64LL, 0LL, 544040269LL);
-    v4 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)NumberOfBytes, 0x206D654Du);
+    v4 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *Pool2 = 1094930505;
-      Pool2[1] = 1;
-      Pool2[2] = 1346584902;
-      Pool2[3] = -16;
-      if ( (int)ZwQuerySystemInformation(76LL, (__int64)Pool2) >= 0 && *((_BYTE *)v4 + 24) >= 5u )
+      *PoolWithTag = 1094930505;
+      PoolWithTag[1] = 1;
+      PoolWithTag[2] = 1346584902;
+      PoolWithTag[3] = NumberOfBytes - 16;
+      if ( (int)ZwQuerySystemInformation(76LL, (__int64)PoolWithTag) >= 0 && *((_BYTE *)v4 + 24) >= 5u )
       {
         v5 = (unsigned int)v4[13];
-        HalGetMemoryCachingRequirements(v5, 64LL, &v8);
-        if ( v8 != 1 )
+        HalGetMemoryCachingRequirements(v5, 64LL, (_DWORD *)&NumberOfBytes + 1);
+        if ( HIDWORD(NumberOfBytes) != 1 )
         {
           v2 = 516;
-          if ( v8 == 2 )
+          if ( HIDWORD(NumberOfBytes) == 2 )
             v2 = 1028;
         }
         v6 = (_DWORD *)MmMapIoSpaceEx(v5, 64LL, v2);

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsPixelAligned@@YA_NM@Z @ 0x1800CAC54
+ * XREFs of ?IsPixelAligned@@YA_NM@Z @ 0x180014428
  * Callers:
- *     ?IsPixelAligned@@YA_NAEBUMilRectF@@@Z @ 0x1800CABFC (-IsPixelAligned@@YA_NAEBUMilRectF@@@Z.c)
+ *     ?IsPixelAligned@@YA_NAEBUMilRectF@@@Z @ 0x1800143D0 (-IsPixelAligned@@YA_NAEBUMilRectF@@@Z.c)
  * Callees:
  *     <none>
  */

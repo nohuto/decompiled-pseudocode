@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwDeleteDriverEntry @ 0x14041D240
+ * XREFs of ZwDeleteDriverEntry @ 0x1403FBDE0
  * Callers:
  *     <none>
  * Callees:

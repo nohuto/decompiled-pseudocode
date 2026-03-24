@@ -1,15 +1,15 @@
 /*
- * XREFs of IoWritePartitionTable @ 0x140940CF0
+ * XREFs of IoWritePartitionTable @ 0x14088E160
  * Callers:
- *     DifIoWritePartitionTableWrapper @ 0x1405E1E10 (DifIoWritePartitionTableWrapper.c)
+ *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ??0SC_DISK@@QEAA@XZ @ 0x1406753D8 (--0SC_DISK@@QEAA@XZ.c)
- *     ??1SC_DISK@@UEAA@XZ @ 0x140675500 (--1SC_DISK@@UEAA@XZ.c)
- *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x140675E48 (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1409404E8 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ??0SC_DISK@@QEAA@XZ @ 0x1405C6914 (--0SC_DISK@@QEAA@XZ.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x1405C6A24 (--1SC_DISK@@UEAA@XZ.c)
+ *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1405C71C4 (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14088D958 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoWritePartitionTable(
@@ -26,11 +26,11 @@ NTSTATUS __stdcall IoWritePartitionTable(
   __int64 v10; // r8
   __int64 v11; // rcx
   __int64 v12; // rdx
-  _QWORD v14[50]; // [rsp+20h] [rbp-1A8h] BYREF
+  _QWORD v14[46]; // [rsp+20h] [rbp-188h] BYREF
 
   SC_DISK::SC_DISK((SC_DISK *)v14);
   PartitionCount = PartitionBuffer->PartitionCount;
-  v14[49] = 0LL;
+  v14[44] = 0LL;
   v14[0] = &NT_DISK::`vftable';
   PoolWithTag = (struct SC_DISK_LAYOUT *)ExAllocatePoolWithTag(NonPagedPoolNx, 144 * PartitionCount + 48, 0x54506F49u);
   v8 = PoolWithTag;

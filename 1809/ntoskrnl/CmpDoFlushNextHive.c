@@ -10,7 +10,7 @@
  *     CmpLockRegistryFreezeAware @ 0x1405B1640 (CmpLockRegistryFreezeAware.c)
  *     LOCK_HIVE_LOAD @ 0x1405B1690 (LOCK_HIVE_LOAD.c)
  *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     CmpUnlockRegistry @ 0x140645170 (CmpUnlockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
  */
 
 char __fastcall CmpDoFlushNextHive(_BYTE *a1, unsigned __int64 *a2)

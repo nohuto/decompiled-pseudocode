@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlPrepareMdlWrite @ 0x1407E9A10
+ * XREFs of FsRtlPrepareMdlWrite @ 0x1406A2EC0
  * Callers:
- *     FsRtlPrepareMdlWriteEx @ 0x1407E9990 (FsRtlPrepareMdlWriteEx.c)
+ *     FsRtlPrepareMdlWriteEx @ 0x1406A2E40 (FsRtlPrepareMdlWriteEx.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 char __fastcall FsRtlPrepareMdlWrite(

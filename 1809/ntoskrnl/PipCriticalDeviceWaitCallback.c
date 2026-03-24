@@ -1,13 +1,13 @@
 /*
- * XREFs of PipCriticalDeviceWaitCallback @ 0x1409F5190
+ * XREFs of PipCriticalDeviceWaitCallback @ 0x1409F51A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
- *     RtlStringCchPrintfA @ 0x14018DFA0 (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87D0 (ZwOpenFile.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
+ *     RtlStringCchPrintfA @ 0x14018DFC0 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  */
 

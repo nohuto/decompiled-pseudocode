@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ValidateZorder@@YAHPEAUtagCVR@@@Z @ 0x1C0082294
+ * XREFs of ?ValidateZorder@@YAHPEAUtagCVR@@@Z @ 0x1C003739C
  * Callers:
- *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C004DF70 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C006E60C (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068330 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C00707F8 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
  * Callees:
- *     HWInsertAfter @ 0x1C0072C90 (HWInsertAfter.c)
- *     PWInsertAfter @ 0x1C0082404 (PWInsertAfter.c)
- *     ?GetLastNonBottomMostWindow@@YAPEAUtagWND@@PEAU1@H@Z @ 0x1C0082518 (-GetLastNonBottomMostWindow@@YAPEAUtagWND@@PEAU1@H@Z.c)
- *     GetLastTopMostWindow @ 0x1C0085494 (GetLastTopMostWindow.c)
+ *     PWInsertAfter @ 0x1C0037514 (PWInsertAfter.c)
+ *     ?GetLastNonBottomMostWindow@@YAPEAUtagWND@@PEAU1@H@Z @ 0x1C0038608 (-GetLastNonBottomMostWindow@@YAPEAUtagWND@@PEAU1@H@Z.c)
+ *     GetLastTopMostWindow @ 0x1C0038CE8 (GetLastTopMostWindow.c)
+ *     HWInsertAfter @ 0x1C010FEA8 (HWInsertAfter.c)
  */
 
 __int64 __fastcall ValidateZorder(struct tagCVR *a1)
@@ -17,13 +17,13 @@ __int64 __fastcall ValidateZorder(struct tagCVR *a1)
   __int64 v4; // rax
   struct tagWND *v5; // r9
   struct tagWND *v6; // rdi
-  char *v7; // r10
-  __int64 v8; // rcx
-  char v9; // dl
-  char v10; // r8
-  char v11; // cl
-  struct tagWND *v12; // rax
-  bool v14; // zf
+  bool v8; // zf
+  char *v9; // r10
+  __int64 v10; // rcx
+  char v11; // dl
+  char v12; // r8
+  char v13; // cl
+  struct tagWND *v14; // rax
   struct tagWND *LastTopMostWindow; // rax
   __int64 v16; // rax
   struct tagWND *LastNonBottomMostWindow; // rax
@@ -42,11 +42,11 @@ __int64 __fastcall ValidateZorder(struct tagCVR *a1)
   if ( v4 == 1 )
   {
     if ( (*(_BYTE *)(*((_QWORD *)v3 + 5) + 20LL) & 0x20) != 0 )
-      v14 = *((_QWORD *)v3 + 11) == 0LL;
+      v8 = *((_QWORD *)v3 + 11) == 0LL;
     else
-      v14 = v3 == GetLastNonBottomMostWindow(v3, 0);
-LABEL_19:
-    LOBYTE(v2) = v14;
+      v8 = v3 == GetLastNonBottomMostWindow(v3, 0);
+LABEL_13:
+    LOBYTE(v2) = v8;
     return v2;
   }
   v6 = *(struct tagWND **)(*((_QWORD *)v3 + 13) + 112LL);
@@ -57,26 +57,26 @@ LABEL_19:
       while ( v6 && *(_DWORD *)(*((_QWORD *)v6 + 5) + 236LL) != 1 )
         v6 = (struct tagWND *)*((_QWORD *)v6 + 11);
     }
-    v14 = v6 == v3;
-    goto LABEL_19;
+    v8 = v6 == v3;
+    goto LABEL_13;
   }
-  v7 = *(char **)(v4 + 40);
-  if ( v7[19] < 0 )
+  v9 = *(char **)(v4 + 40);
+  if ( v9[19] < 0 )
     return 1LL;
-  if ( (v7[20] & 0x20) != 0 )
+  if ( (v9[20] & 0x20) != 0 )
   {
     LastNonBottomMostWindow = GetLastNonBottomMostWindow(v3, 1);
-    *((_QWORD *)a1 + 1) = HWInsertAfter((unsigned __int64)LastNonBottomMostWindow);
+    *((_QWORD *)a1 + 1) = HWInsertAfter(LastNonBottomMostWindow);
   }
   else
   {
-    v8 = *((_QWORD *)v3 + 5);
-    v9 = *(_BYTE *)(v8 + 19);
-    v10 = *(_BYTE *)(v8 + 24) & 8;
-    v11 = v10 ^ 8;
-    if ( (v9 & 4) == 0 )
-      v11 = v10;
-    if ( v11 != (v7[24] & 8) )
+    v10 = *((_QWORD *)v3 + 5);
+    v11 = *(_BYTE *)(v10 + 19);
+    v12 = *(_BYTE *)(v10 + 24) & 8;
+    v13 = v12 ^ 8;
+    if ( (v11 & 4) == 0 )
+      v13 = v12;
+    if ( v13 != (v9[24] & 8) )
     {
       LastTopMostWindow = (struct tagWND *)GetLastTopMostWindow(v3);
       v5 = LastTopMostWindow;
@@ -94,15 +94,15 @@ LABEL_19:
       {
         while ( 1 )
         {
-          v12 = (struct tagWND *)*((_QWORD *)v6 + 11);
-          if ( v12 == v3 )
+          v14 = (struct tagWND *)*((_QWORD *)v6 + 11);
+          if ( v14 == v3 )
             break;
           v6 = (struct tagWND *)*((_QWORD *)v6 + 11);
-          if ( !v12 )
+          if ( !v14 )
             return 1LL;
         }
-        v14 = v5 == v6;
-        goto LABEL_19;
+        v8 = v5 == v6;
+        goto LABEL_13;
       }
       return 1LL;
     }

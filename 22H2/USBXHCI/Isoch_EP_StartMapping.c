@@ -1,31 +1,34 @@
 /*
- * XREFs of Isoch_EP_StartMapping @ 0x1C0001C10
+ * XREFs of Isoch_EP_StartMapping @ 0x1C0001C90
  * Callers:
  *     <none>
  * Callees:
- *     Isoch_MapTransfers @ 0x1C0001C9C (Isoch_MapTransfers.c)
- *     Controller_LowerAndTrackIrql @ 0x1C00074EC (Controller_LowerAndTrackIrql.c)
- *     Controller_RaiseAndTrackIrql @ 0x1C0007588 (Controller_RaiseAndTrackIrql.c)
+ *     Isoch_MapTransfers @ 0x1C0001D00 (Isoch_MapTransfers.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00052C8 (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0005358 (Controller_RaiseAndTrackIrql.c)
  */
 
-char __fastcall Isoch_EP_StartMapping(__int64 a1)
+__int64 __fastcall Isoch_EP_StartMapping(__int64 a1)
 {
-  char v2; // si
-  __int32 v3; // eax
+  char v2; // di
+  __int64 result; // rax
 
   v2 = 0;
-  if ( KeGetCurrentIrql() != 2 )
-    v2 = Controller_RaiseAndTrackIrql(*(_QWORD *)(a1 + 40));
+  result = KeGetCurrentIrql();
+  if ( (_BYTE)result != 2 )
+  {
+    result = Controller_RaiseAndTrackIrql(*(_QWORD *)(a1 + 40));
+    v2 = result;
+  }
   _InterlockedExchange((volatile __int32 *)(a1 + 328), 0);
   *(_DWORD *)(a1 + 376) = 0;
-  v3 = _InterlockedExchange((volatile __int32 *)(a1 + 108), 3);
-  if ( !v3 )
-    LOBYTE(v3) = Isoch_MapTransfers(a1);
+  if ( !_InterlockedExchange((volatile __int32 *)(a1 + 108), 3) )
+    result = Isoch_MapTransfers(a1);
   if ( v2 )
   {
-    LOBYTE(v3) = KeGetCurrentIrql();
-    if ( (_BYTE)v3 == 2 )
-      LOBYTE(v3) = Controller_LowerAndTrackIrql(*(_QWORD *)(a1 + 40));
+    result = KeGetCurrentIrql();
+    if ( (_BYTE)result == 2 )
+      return Controller_LowerAndTrackIrql(*(_QWORD *)(a1 + 40));
   }
-  return v3;
+  return result;
 }

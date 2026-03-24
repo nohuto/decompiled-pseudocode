@@ -1,36 +1,39 @@
 /*
- * XREFs of ?TryLookupPreCompiledBytecode@CommonRenderingShaderDesc@@SA?AV?$span@$$CBE$0?0@gsl@@AEBU1@@Z @ 0x18010028C
+ * XREFs of ?TryLookupPreCompiledBytecode@CommonRenderingShaderDesc@@SA?AV?$span@$$CBE$0?0@gsl@@AEBU1@@Z @ 0x18026A368
  * Callers:
- *     ?GetCommonOrCubeMapRenderingShader@CCommonRenderingShaderCache@@AEAAJPEAVCD3DDevice@@AEBUCommonRenderingShaderDesc@@_NPEAIPEAPEAUID3D11PixelShader@@@Z @ 0x18002C680 (-GetCommonOrCubeMapRenderingShader@CCommonRenderingShaderCache@@AEAAJPEAVCD3DDevice@@AEBUCommonR.c)
+ *     ?GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@@_NPEAIPEAPEAUID3D11PixelShader@@@Z @ 0x1800510A0 (-GetCommonOrCubeMapRenderingShadersNoRefInternal@CD3DDevice@@AEAAJAEBUCommonRenderingShaderDesc@.c)
  * Callees:
  *     <none>
  */
 
 _QWORD *__fastcall CommonRenderingShaderDesc::TryLookupPreCompiledBytecode(_QWORD *a1, __int64 a2)
 {
-  void *v3; // rax
+  void *v2; // rax
 
   if ( *(_DWORD *)(a2 + 16) > 1u || *(_DWORD *)(a2 + 32) > 1u || *(_DWORD *)(a2 + 40) != -1 || *(_BYTE *)(a2 + 44) )
-    goto LABEL_8;
-  switch ( *(_DWORD *)a2 )
+    goto LABEL_12;
+  if ( *(_DWORD *)a2 == 1 )
   {
-    case 1:
-      *a1 = 800LL;
-      v3 = &unk_180353EC0;
-      goto LABEL_11;
-    case 2:
-      *a1 = 824LL;
-      v3 = &unk_1803541E0;
-LABEL_11:
-      a1[1] = v3;
-      return a1;
-    case 5:
-      *a1 = 856LL;
-      v3 = &unk_180354520;
-      goto LABEL_11;
+    *a1 = 800LL;
+    v2 = &unk_1802DEFB0;
+    goto LABEL_9;
   }
-LABEL_8:
-  a1[1] = 0LL;
-  *a1 = 0LL;
+  if ( *(_DWORD *)a2 == 2 )
+  {
+    *a1 = 824LL;
+    v2 = &unk_1802DF2D0;
+    goto LABEL_9;
+  }
+  if ( *(_DWORD *)a2 != 5 )
+  {
+LABEL_12:
+    a1[1] = 0LL;
+    *a1 = 0LL;
+    return a1;
+  }
+  *a1 = 856LL;
+  v2 = &unk_1802DF610;
+LABEL_9:
+  a1[1] = v2;
   return a1;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDirectedDripsClearDisengageReason @ 0x14035DFE8
+ * XREFs of PopDirectedDripsClearDisengageReason @ 0x140379F4C
  * Callers:
- *     PnpDeviceActionWorker @ 0x140358E30 (PnpDeviceActionWorker.c)
- *     PnpRemoveDeviceActionRequests @ 0x1403D5EE0 (PnpRemoveDeviceActionRequests.c)
- *     PnpRemoveDeviceActionRequestFromQueue @ 0x1405626FC (PnpRemoveDeviceActionRequestFromQueue.c)
- *     PopDirectedDripsDisengageTimerCallback @ 0x140586F20 (PopDirectedDripsDisengageTimerCallback.c)
- *     PopDirectedDripsNotify @ 0x1408759B4 (PopDirectedDripsNotify.c)
- *     PopPowerAggregatorEngageModernStandby @ 0x1409937E4 (PopPowerAggregatorEngageModernStandby.c)
- *     PopDripsWatchdogCallbackWorker @ 0x14099C240 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDirectedDripsNotifyPnpActionQueueEvent @ 0x140379DC4 (PopDirectedDripsNotifyPnpActionQueueEvent.c)
+ *     PnpRemoveDeviceActionRequests @ 0x140380A94 (PnpRemoveDeviceActionRequests.c)
+ *     PnpRemoveDeviceActionRequestFromQueue @ 0x14050E770 (PnpRemoveDeviceActionRequestFromQueue.c)
+ *     PopDirectedDripsDisengageTimerCallback @ 0x140568750 (PopDirectedDripsDisengageTimerCallback.c)
+ *     PopDirectedDripsNotify @ 0x14078DA18 (PopDirectedDripsNotify.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x1408EEFD0 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogNotifySessionStart @ 0x1408EF4A0 (PopDripsWatchdogNotifySessionStart.c)
  * Callees:
- *     PopQueueDirectedDripsWork @ 0x14035E054 (PopQueueDirectedDripsWork.c)
+ *     PopQueueDirectedDripsWork @ 0x14037A018 (PopQueueDirectedDripsWork.c)
  */
 
 __int64 __fastcall PopDirectedDripsClearDisengageReason(char a1)
@@ -21,8 +21,8 @@ __int64 __fastcall PopDirectedDripsClearDisengageReason(char a1)
   int v5; // ett
 
   v1 = 1 << a1;
-  _m_prefetchw(&dword_140C3F244);
-  v2 = _InterlockedAnd(&dword_140C3F244, ~(1 << a1));
+  _m_prefetchw(&dword_140C24D24);
+  v2 = _InterlockedAnd(&dword_140C24D24, ~(1 << a1));
   _m_prefetchw(&PopDirectedDripsState);
   LODWORD(result) = PopDirectedDripsState.HandleAttributes;
   do

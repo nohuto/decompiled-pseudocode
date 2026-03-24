@@ -1,13 +1,13 @@
 /*
- * XREFs of ?HitTest@CSurfaceBrush@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800DF614
+ * XREFs of ?HitTest@CSurfaceBrush@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800C6F18
  * Callers:
- *     ?HitTest@CSurfaceBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x18011E3E0 (-HitTest@CSurfaceBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
+ *     ?HitTest@CSurfaceBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800F6290 (-HitTest@CSurfaceBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
  * Callees:
- *     ?ComputeLayout@CSurfaceBrush@@QEBAJAEBUD2D_SIZE_F@@PEAULayoutData@CContent@@PEAPEAVCShape@@@Z @ 0x180080020 (-ComputeLayout@CSurfaceBrush@@QEBAJAEBUD2D_SIZE_F@@PEAULayoutData@CContent@@PEAPEAVCShape@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?FillContainsPoint@CShape@@QEBAJAEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800DF9B0 (-FillContainsPoint@CShape@@QEBAJAEBUD2D_POINT_2F@@PEA_N@Z.c)
- *     ??R?$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z @ 0x1800DFC5C (--R-$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??R?$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z @ 0x180007454 (--R-$default_delete@VCShape@@@std@@QEBAXPEAVCShape@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FillContainsPoint@CShape@@QEBAJAEBUD2D_POINT_2F@@PEA_N@Z @ 0x180069168 (-FillContainsPoint@CShape@@QEBAJAEBUD2D_POINT_2F@@PEA_N@Z.c)
+ *     ?ComputeLayout@CSurfaceBrush@@QEBAJAEBUD2D_SIZE_F@@PEAULayoutData@CContent@@PEAPEAVCShape@@@Z @ 0x180087360 (-ComputeLayout@CSurfaceBrush@@QEBAJAEBUD2D_SIZE_F@@PEAULayoutData@CContent@@PEAPEAVCShape@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CSurfaceBrush::HitTest(
@@ -17,47 +17,50 @@ __int64 __fastcall CSurfaceBrush::HitTest(
         bool *a4)
 {
   unsigned int v4; // ebx
-  CSurfaceBrush *v5; // rsi
-  CShape **v9; // rcx
-  bool v10; // di
-  CShape *v11; // rdx
-  int v12; // eax
-  struct CShape *v14; // [rsp+38h] [rbp-38h] BYREF
-  char v15; // [rsp+40h] [rbp-30h]
-  _BYTE v16[40]; // [rsp+48h] [rbp-28h] BYREF
-  CShape *v17; // [rsp+90h] [rbp+20h] BYREF
+  __int64 v7; // rcx
+  CShape **v10; // rcx
+  bool v11; // di
+  CShape *v12; // rdx
+  int v13; // eax
+  struct CShape *v15; // [rsp+38h] [rbp-38h] BYREF
+  char v16; // [rsp+40h] [rbp-30h]
+  _BYTE v17[40]; // [rsp+48h] [rbp-28h] BYREF
+  CShape *v18; // [rsp+90h] [rbp+20h] BYREF
 
   v4 = 0;
-  v5 = (CSurfaceBrush *)((char *)this - 200);
   *a4 = 0;
-  if ( (*(unsigned __int8 (__fastcall **)(_QWORD, char *))(**((_QWORD **)this - 11) + 16LL))(
-         *((_QWORD *)this - 11),
-         (char *)this - 200)
+  v7 = *((_QWORD *)this - 11);
+  if ( v7
+    && !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v7 + 56LL))(v7, 200LL)
     && a2->width > 0.0
     && a2->height > 0.0
-    && !(*(unsigned __int8 (__fastcall **)(CSurfaceBrush *))(*(_QWORD *)v5 + 192LL))(v5) )
+    && !(*(unsigned __int8 (__fastcall **)(char *))(*((_QWORD *)this - 23) + 208LL))((char *)this - 184) )
   {
-    v17 = 0LL;
-    v14 = 0LL;
-    v15 = 1;
-    v10 = (int)CSurfaceBrush::ComputeLayout(v5, a2, (struct CContent::LayoutData *)v16, &v14) >= 0;
-    if ( v15 )
+    v18 = 0LL;
+    v15 = 0LL;
+    v16 = 1;
+    v11 = (int)CSurfaceBrush::ComputeLayout(
+                 (CSurfaceBrush *)((char *)this - 184),
+                 a2,
+                 (struct CContent::LayoutData *)v17,
+                 &v15) >= 0;
+    if ( v16 )
     {
-      v9 = &v17;
-      v11 = v17;
-      v17 = v14;
-      if ( v11 )
-        std::default_delete<CShape>::operator()(&v17, v11);
+      v10 = &v18;
+      v12 = v18;
+      v18 = v15;
+      if ( v12 )
+        std::default_delete<CShape>::operator()((__int64)&v18, (__int64 (__fastcall ***)(_QWORD, __int64))v12);
     }
-    if ( v10 )
+    if ( v11 )
     {
-      v12 = CShape::FillContainsPoint(v17, a3, a4);
-      v4 = v12;
-      if ( v12 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast((__int64)v9, 0LL, 0, v12, 0x1ACu, 0LL);
+      v13 = CShape::FillContainsPoint(v18, a3, a4);
+      v4 = v13;
+      if ( v13 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast((__int64)v10, 0LL, 0, v13, 0x186u, 0LL);
     }
-    if ( v17 )
-      std::default_delete<CShape>::operator()(v9, v17);
+    if ( v18 )
+      std::default_delete<CShape>::operator()((__int64)v10, (__int64 (__fastcall ***)(_QWORD, __int64))v18);
   }
   return v4;
 }

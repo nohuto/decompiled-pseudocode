@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpReturnMessageOnInsufficientBuffer @ 0x1407CE45C
+ * XREFs of AlpcpReturnMessageOnInsufficientBuffer @ 0x14068AFB8
  * Callers:
- *     AlpcpReceiveMessage @ 0x14073B350 (AlpcpReceiveMessage.c)
- *     AlpcpProcessSynchronousRequest @ 0x14073DAE0 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveMessage @ 0x1405E7C70 (AlpcpReceiveMessage.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     AlpcpRemoveMessageFromPendingQueue @ 0x14071C0CC (AlpcpRemoveMessageFromPendingQueue.c)
- *     AlpcpInsertMessageCanceledQueue @ 0x140779DA0 (AlpcpInsertMessageCanceledQueue.c)
- *     AlpcpExposeContextAttribute @ 0x1407CE520 (AlpcpExposeContextAttribute.c)
- *     AlpcpInsertMessageLargeMessageQueue @ 0x1407CE598 (AlpcpInsertMessageLargeMessageQueue.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     AlpcpRemoveMessageFromPendingQueue @ 0x1405E38B0 (AlpcpRemoveMessageFromPendingQueue.c)
+ *     AlpcpExposeContextAttribute @ 0x14068B0B0 (AlpcpExposeContextAttribute.c)
+ *     AlpcpInsertMessageLargeMessageQueue @ 0x14068B124 (AlpcpInsertMessageLargeMessageQueue.c)
+ *     AlpcpInsertMessageCanceledQueue @ 0x1406A0D7C (AlpcpInsertMessageCanceledQueue.c)
  */
 
 __int64 __fastcall AlpcpReturnMessageOnInsufficientBuffer(__int64 a1, _QWORD *a2, _OWORD *a3)
@@ -33,9 +33,9 @@ __int64 __fastcall AlpcpReturnMessageOnInsufficientBuffer(__int64 a1, _QWORD *a2
     else
     {
       ++*((_WORD *)a2 - 15);
-      AlpcpInsertMessageCanceledQueue(a1, (__int64)a2);
+      AlpcpInsertMessageCanceledQueue(a1, a2);
     }
-LABEL_6:
+LABEL_12:
     if ( _InterlockedCompareExchange64(v3, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared(v3);
     KeAbPostRelease((ULONG_PTR)v3);
@@ -48,7 +48,7 @@ LABEL_6:
       AlpcpRemoveMessageFromPendingQueue((__int64)a2);
     ++*((_WORD *)a2 - 15);
     AlpcpInsertMessageLargeMessageQueue(a1, a2);
-    goto LABEL_6;
+    goto LABEL_12;
   }
   if ( _InterlockedCompareExchange64(v3, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v3);

@@ -1,20 +1,20 @@
 /*
- * XREFs of LdrpAccessResourceData @ 0x14075883C
+ * XREFs of LdrpAccessResourceData @ 0x14068D9BC
  * Callers:
- *     RtlFindMessage @ 0x140758920 (RtlFindMessage.c)
- *     LdrAccessResource @ 0x1408550E0 (LdrAccessResource.c)
- *     RtlLoadString @ 0x1409B7260 (RtlLoadString.c)
+ *     RtlFindMessage @ 0x14068D900 (RtlFindMessage.c)
+ *     LdrAccessResource @ 0x1407C5710 (LdrAccessResource.c)
+ *     RtlLoadString @ 0x1409116C0 (RtlLoadString.c)
  * Callees:
- *     LdrpGetImageSize @ 0x1402D6C18 (LdrpGetImageSize.c)
- *     RtlImageDirectoryEntryToData @ 0x1402D6CB0 (RtlImageDirectoryEntryToData.c)
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1402D7A40 (LdrpGetAlternateResourceModuleHandleEx.c)
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x140757C9C (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402532D0 (RtlImageDirectoryEntryToData.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x1402A8B94 (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpGetImageSize @ 0x1402A8E30 (LdrpGetImageSize.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x14068DA98 (LdrpAccessResourceDataNoMultipleLanguage.c)
  */
 
-__int64 __fastcall LdrpAccessResourceData(unsigned __int64 a1, unsigned int *a2, unsigned __int64 *a3, _DWORD *a4)
+__int64 __fastcall LdrpAccessResourceData(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int *v6; // rbx
-  unsigned __int64 v7; // rdi
+  unsigned __int64 v6; // rbx
+  __int64 v7; // rdi
   unsigned __int64 v8; // rsi
   unsigned __int64 v9; // rax
   __int64 v10; // rdx
@@ -34,18 +34,18 @@ __int64 __fastcall LdrpAccessResourceData(unsigned __int64 a1, unsigned int *a2,
   if ( PnPBootDriversInitialized == 1 )
   {
     v8 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
-    v9 = RtlImageDirectoryEntryToData(a1, (int)a2, 2, (int)&v15);
+    v9 = RtlImageDirectoryEntryToData(a1, a2, 2, (int)&v15);
     if ( !v9 )
       return 3221225609LL;
-    if ( (unsigned __int64)v6 < v9 )
+    if ( v6 < v9 )
       goto LABEL_10;
     result = LdrpGetImageSize(v7, &v13);
     if ( (_DWORD)result == -1073741701 )
       return result;
-    if ( v13 && ((unsigned __int64)v6 < v8 || (unsigned __int64)v6 >= v8 + v13) )
+    if ( v13 && (v6 < v8 || v6 >= v8 + v13) )
     {
 LABEL_10:
-      AlternateResourceModuleHandle = LdrpGetAlternateResourceModuleHandleEx(v7, v10, (__int64)v6, v14);
+      AlternateResourceModuleHandle = LdrpGetAlternateResourceModuleHandleEx(v7, v10, v6, v14);
       if ( (unsigned __int64)(AlternateResourceModuleHandle - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
         v7 = AlternateResourceModuleHandle;
     }

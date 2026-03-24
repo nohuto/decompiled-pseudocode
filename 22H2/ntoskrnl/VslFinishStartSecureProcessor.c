@@ -1,37 +1,43 @@
 /*
- * XREFs of VslFinishStartSecureProcessor @ 0x14054AFA0
+ * XREFs of VslFinishStartSecureProcessor @ 0x1404FBFF4
  * Callers:
- *     KeWriteProtectProcessorState @ 0x140A918B0 (KeWriteProtectProcessorState.c)
+ *     KeWriteProtectProcessorState @ 0x14099ED90 (KeWriteProtectProcessorState.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x14033FAF0 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x1403CE424 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x1403CE69C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     VslpEnterIumSecureMode @ 0x1402624F0 (VslpEnterIumSecureMode.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     VslpUnlockPagesForTransfer @ 0x140393974 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x1403939C8 (VslpLockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall VslFinishStartSecureProcessor(__int64 a1, struct _MDL *a2)
+__int64 __fastcall VslFinishStartSecureProcessor(unsigned int a1)
 {
-  PHYSICAL_ADDRESS PhysicalAddress; // rax
-  int v5; // ebx
-  __int64 *v7[10]; // [rsp+30h] [rbp-D8h] BYREF
-  _QWORD v8[14]; // [rsp+80h] [rbp-88h] BYREF
+  PHYSICAL_ADDRESS *PoolWithTag; // rbx
+  __int64 Prcb; // rax
+  int v5; // edi
+  __int64 *v6[10]; // [rsp+30h] [rbp-D8h] BYREF
+  _QWORD v7[14]; // [rsp+80h] [rbp-88h] BYREF
 
-  memset(v8, 0, 0x68uLL);
-  memset(v7, 0, 0x48uLL);
-  PhysicalAddress.QuadPart = 0LL;
-  LODWORD(v8[1]) = *(_DWORD *)(a1 + 36);
-  if ( LODWORD(v8[1]) )
-    PhysicalAddress = MmGetPhysicalAddress(*(PVOID *)(a1 - 328));
-  v8[2] = PhysicalAddress.QuadPart;
-  v5 = VslpLockPagesForTransfer((__int64)v7, a2, 0x4D0u, 1, 0);
+  memset(v7, 0, 0x68uLL);
+  memset(v6, 0, 0x48uLL);
+  PoolWithTag = (PHYSICAL_ADDRESS *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x10uLL, 0x54736D56u);
+  if ( !PoolWithTag )
+    return 3221225626LL;
+  Prcb = KeGetPrcb(a1);
+  PoolWithTag->LowPart = a1;
+  PoolWithTag[1] = MmGetPhysicalAddress(*(PVOID *)(Prcb - 328));
+  v5 = VslpLockPagesForTransfer((__int64)v6, (struct _MDL *)PoolWithTag, 0x10u, 0, 0);
   if ( v5 >= 0 )
   {
-    v8[3] = v7[0];
-    v8[4] = v7[7];
-    v5 = VslpEnterIumSecureMode(2u, 3, 0, (__int64)v8);
-    VslpUnlockPagesForTransfer(v7);
+    v7[1] = v6[0];
+    v7[2] = v6[7];
+    v5 = VslpEnterIumSecureMode(2u, 3, 0, (__int64)v7);
+    VslpUnlockPagesForTransfer(v6);
   }
+  ExFreePoolWithTag(PoolWithTag, 0);
   return (unsigned int)v5;
 }

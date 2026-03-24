@@ -1,12 +1,12 @@
 /*
- * XREFs of PiUEventGetDeviceInstanceIdFromUserHandle @ 0x14077F604
+ * XREFs of PiUEventGetDeviceInstanceIdFromUserHandle @ 0x14076D92C
  * Callers:
- *     PiUEventHandleRegistration @ 0x14077FBAC (PiUEventHandleRegistration.c)
+ *     PiUEventHandleRegistration @ 0x140715950 (PiUEventHandleRegistration.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PnpGetRelatedTargetDevice @ 0x1403224B8 (PnpGetRelatedTargetDevice.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     PsIsProcessAppContainer @ 0x14077F59C (PsIsProcessAppContainer.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     PnpGetRelatedTargetDevice @ 0x140360F2C (PnpGetRelatedTargetDevice.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     PsIsProcessAppContainer @ 0x140690804 (PsIsProcessAppContainer.c)
  */
 
 __int64 __fastcall PiUEventGetDeviceInstanceIdFromUserHandle(void *a1, _QWORD *a2, _QWORD *a3)
@@ -18,31 +18,31 @@ __int64 __fastcall PiUEventGetDeviceInstanceIdFromUserHandle(void *a1, _QWORD *a
   __int64 v9; // rcx
   bool IsProcessAppContainer; // al
   __int64 v12; // [rsp+50h] [rbp+18h] BYREF
-  PVOID Object; // [rsp+58h] [rbp+20h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+58h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   *a3 = 0LL;
   PreviousMode = CurrentThread->PreviousMode;
   v12 = 0LL;
-  Object = 0LL;
-  v7 = ObReferenceObjectByHandle(a1, 0, (POBJECT_TYPE)IoFileObjectType, PreviousMode, &Object, 0LL);
+  DmaAdapter = 0LL;
+  v7 = ObReferenceObjectByHandle(a1, 0, (POBJECT_TYPE)IoFileObjectType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
   if ( v7 >= 0 )
   {
-    RelatedTargetDevice = PnpGetRelatedTargetDevice((PFILE_OBJECT)Object, &v12);
+    RelatedTargetDevice = PnpGetRelatedTargetDevice((PFILE_OBJECT)DmaAdapter, &v12);
     v9 = v12;
     v7 = RelatedTargetDevice;
     if ( RelatedTargetDevice >= 0 )
     {
       *a2 = v12 + 40;
-      IsProcessAppContainer = PsIsProcessAppContainer((__int64)KeGetCurrentThread()->ApcState.Process);
+      IsProcessAppContainer = PsIsProcessAppContainer(KeGetCurrentThread()->ApcState.Process);
       v9 = v12;
       if ( IsProcessAppContainer )
         *a3 = *(_QWORD *)(v12 + 32);
     }
     if ( v9 )
-      ObfDereferenceObject(*(PVOID *)(v9 + 32));
+      HalPutDmaAdapter(*(PADAPTER_OBJECT *)(v9 + 32));
   }
-  if ( Object )
-    ObfDereferenceObject(Object);
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
   return (unsigned int)v7;
 }

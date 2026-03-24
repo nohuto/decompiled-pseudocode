@@ -1,7 +1,7 @@
 /*
- * XREFs of DrvReleaseHDEV @ 0x1C0271858
+ * XREFs of DrvReleaseHDEV @ 0x1C0273BD8
  * Callers:
- *     xxxRemoteConsoleShadowStop @ 0x1C02208E4 (xxxRemoteConsoleShadowStop.c)
+ *     xxxRemoteConsoleShadowStop @ 0x1C0226F30 (xxxRemoteConsoleShadowStop.c)
  * Callees:
  *     <none>
  */
@@ -9,11 +9,14 @@
 __int64 DrvReleaseHDEV()
 {
   __int64 v0; // rbx
+  __int64 v1; // rax
   __int64 result; // rax
   struct PDEV *i; // rcx
 
   v0 = gConsoleShadowhDev;
-  result = WdLogSingleEntry1(5LL, gConsoleShadowhDev);
+  v1 = WdLogNewEntry5_WdTrace();
+  *(_QWORD *)(v1 + 24) = v0;
+  result = WdLogEvent5_WdTrace(v1);
   if ( v0 )
   {
     GreAcquireSemaphore(ghsemDriverMgmt);

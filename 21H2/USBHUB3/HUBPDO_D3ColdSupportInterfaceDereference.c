@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPDO_D3ColdSupportInterfaceDereference @ 0x1C00194A0
+ * XREFs of HUBPDO_D3ColdSupportInterfaceDereference @ 0x1C0018F50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (__fastcall *__fastcall HUBPDO_D3ColdSupportInterfaceDereference(__int64 a1))(_QWORD)

@@ -1,10 +1,10 @@
 /*
- * XREFs of SepDuplicateTokenClaims @ 0x1408A6B7A
+ * XREFs of SepDuplicateTokenClaims @ 0x1409252CC
  * Callers:
- *     SepDuplicateToken @ 0x140729BF0 (SepDuplicateToken.c)
- *     SepFilterToken @ 0x1407F2180 (SepFilterToken.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     SepDuplicateToken @ 0x140651490 (SepDuplicateToken.c)
  * Callees:
- *     SepDuplicateClaimAttributes @ 0x1409D14F4 (SepDuplicateClaimAttributes.c)
+ *     SepDuplicateClaimAttributes @ 0x1409250C0 (SepDuplicateClaimAttributes.c)
  */
 
 __int64 __fastcall SepDuplicateTokenClaims(__int64 a1, __int64 a2)
@@ -17,7 +17,7 @@ __int64 __fastcall SepDuplicateTokenClaims(__int64 a1, __int64 a2)
   v6 = 0LL;
   if ( (*(_DWORD *)(a1 + 200) & 0x8000) != 0 && *(_QWORD *)(a1 + 1096) )
   {
-    result = SepDuplicateClaimAttributes(*(_QWORD *)(a1 + 1096), &v6);
+    result = SepDuplicateClaimAttributes(*(unsigned int **)(a1 + 1096), &v6);
     v4 = result;
     if ( (int)result >= 0 )
     {

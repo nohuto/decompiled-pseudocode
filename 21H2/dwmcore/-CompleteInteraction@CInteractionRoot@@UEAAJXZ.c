@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CompleteInteraction@CInteractionRoot@@UEAAJXZ @ 0x180182850
+ * XREFs of ?CompleteInteraction@CInteractionRoot@@UEAAJXZ @ 0x180234300
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CInteractionRoot::CompleteInteraction(CInteractionRoot *this)
 {
-  return CInteractionProcessor::CompleteInteraction((CInteractionRoot *)((char *)this + 24), 0LL);
+  return CInteractionProcessor::CompleteInteraction((CInteractionRoot *)((char *)this + 32), 0LL);
 }

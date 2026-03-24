@@ -1,11 +1,11 @@
 /*
- * XREFs of ?GetNextBufferIndexAvailable@CCaptureRenderTarget@@IEAAHXZ @ 0x1801ED480
+ * XREFs of ?GetNextBufferIndexAvailable@CCaptureRenderTarget@@IEAAHXZ @ 0x1800EDA70
  * Callers:
- *     ?CheckOcclusionState@CCaptureRenderTarget@@UEAAJXZ @ 0x1801EC938 (-CheckOcclusionState@CCaptureRenderTarget@@UEAAJXZ.c)
- *     ?TryTargetNextBuffer@CCaptureRenderTarget@@IEAAJXZ @ 0x1801EE130 (-TryTargetNextBuffer@CCaptureRenderTarget@@IEAAJXZ.c)
+ *     ?CheckOcclusionState@CCaptureRenderTarget@@UEAAJXZ @ 0x1800ED5A4 (-CheckOcclusionState@CCaptureRenderTarget@@UEAAJXZ.c)
+ *     ?TryTargetNextBuffer@CCaptureRenderTarget@@IEAAJXZ @ 0x1801880A8 (-TryTargetNextBuffer@CCaptureRenderTarget@@IEAAJXZ.c)
  * Callees:
- *     ?ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z @ 0x1800F2828 (-ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z @ 0x1800D8A44 (-ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CCaptureRenderTarget::GetNextBufferIndexAvailable(CCaptureRenderTarget *this)
@@ -16,9 +16,9 @@ __int64 __fastcall CCaptureRenderTarget::GetNextBufferIndexAvailable(CCaptureRen
   DWORD v5; // eax
   void *retaddr; // [rsp+28h] [rbp+0h]
 
-  v1 = (const HANDLE *)*((_QWORD *)this + 255);
+  v1 = (const HANDLE *)*((_QWORD *)this + 257);
   v2 = -1;
-  v4 = (__int64)(*((_QWORD *)this + 256) - (_QWORD)v1) >> 3;
+  v4 = (__int64)(*((_QWORD *)this + 258) - (_QWORD)v1) >> 3;
   if ( v4 )
   {
     v5 = WaitForMultipleObjects(v4, v1, 0, 0);
@@ -28,7 +28,7 @@ __int64 __fastcall CCaptureRenderTarget::GetNextBufferIndexAvailable(CCaptureRen
     }
     else
     {
-      if ( v5 >= (unsigned __int64)((__int64)(*((_QWORD *)this + 250) - *((_QWORD *)this + 249)) >> 3) )
+      if ( v5 >= (unsigned __int64)((__int64)(*((_QWORD *)this + 252) - *((_QWORD *)this + 251)) >> 3) )
         ModuleFailFastForHRESULT(2147500037LL, retaddr);
       return v5;
     }

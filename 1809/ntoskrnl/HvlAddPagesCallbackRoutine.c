@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlAddPagesCallbackRoutine @ 0x140277440
+ * XREFs of HvlAddPagesCallbackRoutine @ 0x140277540
  * Callers:
  *     <none>
  * Callees:
- *     HvlpGetPageList @ 0x14027A1D8 (HvlpGetPageList.c)
- *     HvlpStartPageListIteration @ 0x14027A4D8 (HvlpStartPageListIteration.c)
+ *     HvlpGetPageList @ 0x14027A2D8 (HvlpGetPageList.c)
+ *     HvlpStartPageListIteration @ 0x14027A5D8 (HvlpStartPageListIteration.c)
  */
 
 void __fastcall HvlAddPagesCallbackRoutine(

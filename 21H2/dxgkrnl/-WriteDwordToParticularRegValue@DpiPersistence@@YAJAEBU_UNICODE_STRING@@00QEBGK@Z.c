@@ -1,12 +1,11 @@
 /*
- * XREFs of ?WriteDwordToParticularRegValue@DpiPersistence@@YAJAEBU_UNICODE_STRING@@00QEBGK@Z @ 0x1C01D62B8
+ * XREFs of ?WriteDwordToParticularRegValue@DpiPersistence@@YAJAEBU_UNICODE_STRING@@00QEBGK@Z @ 0x1C0146DA8
  * Callers:
- *     ?ReadDpiFromRegistry@DpiPersistence@@YAJAEBU_LUID@@IHPEAK@Z @ 0x1C01D642C (-ReadDpiFromRegistry@DpiPersistence@@YAJAEBU_LUID@@IHPEAK@Z.c)
- *     ?WriteDpiToHKLMRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z @ 0x1C02FA47C (-WriteDpiToHKLMRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z.c)
- *     ?WriteDpiToRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z @ 0x1C02FA574 (-WriteDpiToRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z.c)
+ *     ?ReadDpiFromRegistry@DpiPersistence@@YAJAEBU_LUID@@IHPEAK@Z @ 0x1C0146F0C (-ReadDpiFromRegistry@DpiPersistence@@YAJAEBU_LUID@@IHPEAK@Z.c)
+ *     ?WriteDpiToHKLMRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z @ 0x1C02A9668 (-WriteDpiToHKLMRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z.c)
+ *     ?WriteDpiToRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z @ 0x1C02A972C (-WriteDpiToRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?OpenRegistrySubkey@@YAJPEAPEAXKPEAXAEBU_UNICODE_STRING@@PEAK@Z @ 0x1C01D6784 (-OpenRegistrySubkey@@YAJPEAPEAXKPEAXAEBU_UNICODE_STRING@@PEAK@Z.c)
+ *     ?OpenRegistrySubkey@@YAJPEAPEAXKPEAXAEBU_UNICODE_STRING@@PEAK@Z @ 0x1C0147238 (-OpenRegistrySubkey@@YAJPEAPEAXKPEAXAEBU_UNICODE_STRING@@PEAK@Z.c)
  */
 
 __int64 __fastcall DpiPersistence::WriteDwordToParticularRegValue(
@@ -17,84 +16,82 @@ __int64 __fastcall DpiPersistence::WriteDwordToParticularRegValue(
         const unsigned __int16 *ValueData)
 {
   int v7; // eax
-  __int64 v8; // rdi
-  HANDLE v9; // r8
-  int v10; // eax
-  void *v11; // rdx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rbx
+  HANDLE v11; // r8
   int v12; // eax
-  NTSTATUS v13; // eax
-  const wchar_t *v15; // r9
-  HANDLE Handle; // [rsp+50h] [rbp-20h] BYREF
-  HANDLE KeyHandle; // [rsp+58h] [rbp-18h] BYREF
-  PCWSTR Path; // [rsp+60h] [rbp-10h] BYREF
-  unsigned int v19; // [rsp+A8h] [rbp+38h] BYREF
-  int v20; // [rsp+ACh] [rbp+3Ch]
+  WCHAR *v13; // rdx
+  int v14; // eax
+  NTSTATUS v15; // eax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
+  HANDLE Handle; // [rsp+30h] [rbp-20h] BYREF
+  HANDLE KeyHandle; // [rsp+38h] [rbp-18h] BYREF
+  PCWSTR Path; // [rsp+40h] [rbp-10h] BYREF
+  unsigned int v24; // [rsp+88h] [rbp+38h] BYREF
+  int v25; // [rsp+8Ch] [rbp+3Ch]
 
-  v20 = HIDWORD(a4);
+  v25 = HIDWORD(a4);
   Handle = 0LL;
   KeyHandle = 0LL;
   Path = 0LL;
-  v19 = 0;
+  v24 = 0;
   v7 = OpenRegistrySubkey(&Handle, 0xF003Fu, 0LL, this, 0LL);
-  v8 = v7;
-  if ( v7 < 0 )
+  v10 = v7;
+  if ( v7 >= 0 )
   {
-    WdLogSingleEntry1(2LL, v7);
-    v15 = L"Failed to open HKey root (Status = 0x%I64x)";
-  }
-  else
-  {
-    v9 = Handle;
+    v11 = Handle;
     if ( !Handle )
     {
-      WdLogSingleEntry1(1LL, 601LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"HKeyRootHandle", 601LL, 0LL, 0LL, 0LL, 0LL);
-      v9 = Handle;
+      v17 = WdLogNewEntry5_WdAssertion(v9, v8);
+      *(_QWORD *)(v17 + 24) = 599LL;
+      WdLogEvent5_WdAssertion(v17);
+      v11 = Handle;
     }
-    v10 = OpenRegistrySubkey(&KeyHandle, 0xF003Fu, v9, a2, &v19);
-    v8 = v10;
-    if ( v10 < 0 )
+    v12 = OpenRegistrySubkey(&KeyHandle, 0xF003Fu, v11, a2, &v24);
+    v10 = v12;
+    if ( v12 >= 0 )
     {
-      WdLogSingleEntry1(2LL, v10);
-      v15 = L"Unable to open/create HKey subkey (Status = 0x%I64x)";
-    }
-    else
-    {
-      v11 = KeyHandle;
+      v13 = (WCHAR *)KeyHandle;
       if ( !KeyHandle )
       {
-        WdLogSingleEntry1(1LL, 616LL);
-        DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"PerMonSettingsKeyHandle", 616LL, 0LL, 0LL, 0LL, 0LL);
-        v11 = KeyHandle;
+        v18 = WdLogNewEntry5_WdAssertion(v9, 0LL);
+        *(_QWORD *)(v18 + 24) = 614LL;
+        WdLogEvent5_WdAssertion(v18);
+        v13 = (WCHAR *)KeyHandle;
       }
-      if ( a3->Length )
+      if ( !a3->Length )
       {
-        v12 = OpenRegistrySubkey((PHANDLE)&Path, 0xF003Fu, v11, a3, &v19);
-        v8 = v12;
-        if ( v12 < 0 )
-        {
-          WdLogSingleEntry1(2LL, v12);
-          v15 = L"Unable to open/create HKey subkey for monitor set (Status = 0x%I64x)";
-          goto LABEL_23;
-        }
-        v11 = (void *)Path;
+LABEL_11:
+        v15 = RtlWriteRegistryValue(0x40000000u, v13, L"DpiValue", 4u, &ValueData, 4u);
+        v10 = v15;
+        if ( v15 >= 0 )
+          goto LABEL_12;
+        goto LABEL_19;
+      }
+      v14 = OpenRegistrySubkey((PHANDLE)&Path, 0xF003Fu, v13, a3, &v24);
+      v10 = v14;
+      if ( v14 >= 0 )
+      {
+        v13 = (WCHAR *)Path;
         if ( !Path )
         {
-          WdLogSingleEntry1(1LL, 633LL);
-          DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"MonitorIdKeyHandle", 633LL, 0LL, 0LL, 0LL, 0LL);
-          v11 = (void *)Path;
+          v19 = WdLogNewEntry5_WdAssertion(v9, 0LL);
+          *(_QWORD *)(v19 + 24) = 631LL;
+          WdLogEvent5_WdAssertion(v19);
+          v13 = (WCHAR *)Path;
         }
+        goto LABEL_11;
       }
-      v13 = RtlWriteRegistryValue(0x40000000u, (PCWSTR)v11, L"DpiValue", 4u, &ValueData, 4u);
-      v8 = v13;
-      if ( v13 >= 0 )
-        goto LABEL_12;
-      WdLogSingleEntry1(2LL, v13);
-      v15 = L"Failed to write DPI value to HKey subkey. (Status = 0x%I64x)";
     }
   }
-LABEL_23:
-  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v15, v8, 0LL, 0LL, 0LL, 0LL);
+LABEL_19:
+  v20 = WdLogNewEntry5_WdError(v9, v8);
+  *(_QWORD *)(v20 + 24) = v10;
+  WdLogEvent5_WdError(v20);
 LABEL_12:
   if ( Handle )
     ZwClose(Handle);
@@ -102,5 +99,5 @@ LABEL_12:
     ZwClose(KeyHandle);
   if ( Path )
     ZwClose((HANDLE)Path);
-  return (unsigned int)v8;
+  return (unsigned int)v10;
 }

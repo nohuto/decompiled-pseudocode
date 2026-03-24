@@ -1,21 +1,21 @@
 /*
  * XREFs of BapdRecordFirmwareBootStats @ 0x14056F2A0
  * Callers:
- *     PopBootLoaderTraceProcess @ 0x1406DCF88 (PopBootLoaderTraceProcess.c)
+ *     PopBootLoaderTraceProcess @ 0x1406DCF68 (PopBootLoaderTraceProcess.c)
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     BapdRegisterEtwProvider @ 0x140178AB4 (BapdRegisterEtwProvider.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     BapdRegisterEtwProvider @ 0x140178AD4 (BapdRegisterEtwProvider.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     BapdpWriteEventDataToRegistry @ 0x14056F4B0 (BapdpWriteEventDataToRegistry.c)
- *     EtwUnregister @ 0x140707390 (EtwUnregister.c)
- *     TraceLoggingRegisterEx @ 0x14071DC58 (TraceLoggingRegisterEx.c)
+ *     EtwUnregister @ 0x140707370 (EtwUnregister.c)
+ *     TraceLoggingRegisterEx @ 0x14071DC38 (TraceLoggingRegisterEx.c)
  */
 
 void BapdRecordFirmwareBootStats()
@@ -131,7 +131,7 @@ void BapdRecordFirmwareBootStats()
               v35 = 8;
               v38 = 8;
               v41 = 8;
-              TlgWrite(&stru_140400410, &unk_140373DC8, 0LL, 0LL, 7u, &pData);
+              TlgWrite(&stru_140400410, &unk_140373ED8, 0LL, 0LL, 7u, &pData);
             }
           }
         }

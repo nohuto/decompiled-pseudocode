@@ -1,16 +1,15 @@
 /*
- * XREFs of PpmIdleCheckCoordinatedDependency @ 0x1405846FC
+ * XREFs of PpmIdleCheckCoordinatedDependency @ 0x140566080
  * Callers:
- *     PpmIdleCheckCoordinatedDependencies @ 0x14058458C (PpmIdleCheckCoordinatedDependencies.c)
+ *     PpmIdleCheckCoordinatedDependencies @ 0x140565F20 (PpmIdleCheckCoordinatedDependencies.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     KeCheckProcessorAffinityEx @ 0x140257240 (KeCheckProcessorAffinityEx.c)
- *     PpmIdleCheckCoordinatedDependencies @ 0x14058458C (PpmIdleCheckCoordinatedDependencies.c)
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x140584AA4 (PpmIdleCheckCoordinatedStateEligibility.c)
- *     PpmIdleRollbackCoordinatedSelection @ 0x1405854BC (PpmIdleRollbackCoordinatedSelection.c)
- *     PpmIdleTransitionStall @ 0x1405856E0 (PpmIdleTransitionStall.c)
- *     PpmTestAndLockProcessor @ 0x140585F8C (PpmTestAndLockProcessor.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     PpmIdleCheckCoordinatedDependencies @ 0x140565F20 (PpmIdleCheckCoordinatedDependencies.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x140566350 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleRollbackCoordinatedSelection @ 0x140566C0C (PpmIdleRollbackCoordinatedSelection.c)
+ *     PpmIdleTransitionStall @ 0x140566ED8 (PpmIdleTransitionStall.c)
+ *     PpmTestAndLockProcessor @ 0x14056796C (PpmTestAndLockProcessor.c)
  */
 
 __int64 __fastcall PpmIdleCheckCoordinatedDependency(
@@ -18,174 +17,150 @@ __int64 __fastcall PpmIdleCheckCoordinatedDependency(
         int a2,
         unsigned int a3,
         __int64 a4,
-        __int64 a5,
-        unsigned int a6,
-        __int64 a7,
-        int *a8,
-        __int64 a9,
-        __int64 a10,
-        unsigned __int64 *a11)
+        unsigned int a5,
+        __int64 a6,
+        int *a7,
+        __int64 a8,
+        __int64 a9)
 {
-  __int64 v11; // rsi
+  __int64 v9; // r10
+  unsigned int v10; // r11d
+  __int64 v11; // r9
+  __int64 v12; // rbx
   __int64 v13; // rax
-  char v14; // al
-  __int64 v15; // r8
-  char v16; // dl
-  __int64 v17; // rax
-  __int64 v18; // rbx
-  __int64 v19; // rsi
+  char v14; // r12
+  __int64 v15; // rax
+  __int64 v16; // r14
+  __int64 v17; // rsi
+  __int64 v18; // r15
+  __int64 v19; // rcx
   __int64 v20; // rdi
-  __int64 v21; // r15
-  __int64 v22; // rcx
-  __int64 v23; // r14
-  unsigned int v24; // eax
-  unsigned int v25; // r9d
-  __int64 v26; // rax
+  unsigned int v21; // eax
+  unsigned int v22; // r9d
   __int64 Prcb; // rax
-  int v28; // eax
-  unsigned __int64 v29; // rcx
-  unsigned int v31; // [rsp+68h] [rbp-51h]
-  int v32; // [rsp+6Ch] [rbp-4Dh] BYREF
-  unsigned int v33; // [rsp+70h] [rbp-49h] BYREF
-  int v34; // [rsp+74h] [rbp-45h]
-  unsigned __int64 v35; // [rsp+78h] [rbp-41h] BYREF
-  __int128 v36; // [rsp+80h] [rbp-39h] BYREF
-  __int64 v37; // [rsp+90h] [rbp-29h]
-  _QWORD v38[12]; // [rsp+98h] [rbp-21h] BYREF
-  char v43; // [rsp+158h] [rbp+9Fh]
+  unsigned int v25; // [rsp+58h] [rbp-51h]
+  int v26; // [rsp+5Ch] [rbp-4Dh] BYREF
+  unsigned int v27; // [rsp+60h] [rbp-49h] BYREF
+  int v28; // [rsp+64h] [rbp-45h]
+  __int128 v29; // [rsp+68h] [rbp-41h] BYREF
+  __int64 v30; // [rsp+78h] [rbp-31h]
+  _QWORD v31[13]; // [rsp+80h] [rbp-29h] BYREF
 
-  v32 = -1;
-  v11 = a7;
-  v35 = 0LL;
-  v37 = 0LL;
-  v33 = 0;
-  *a11 = -1LL;
-  v31 = 0;
-  v13 = *(_QWORD *)(a7 + 8);
-  v36 = 0LL;
-  v14 = KeCheckProcessorAffinityEx(
-          (unsigned __int16 *)(448LL * *(unsigned int *)(v13 + 4) + PpmPlatformStates + 128),
-          *(_DWORD *)(a1 + 36));
+  v26 = -1;
+  v27 = 0;
+  v9 = a1;
+  v25 = 0;
+  v10 = a3;
+  v11 = a6;
+  v30 = 0LL;
+  v12 = 2147483649LL;
+  v13 = *(unsigned int *)(a1 + 36);
+  v29 = 0LL;
+  v14 = (*(_QWORD *)(PpmPlatformStates
+                   + 8
+                   * (48LL * *(unsigned int *)(*(_QWORD *)(a6 + 8) + 4LL)
+                    + ((unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[v13] >> 6))
+                   + 136) >> (KiProcessorIndexToNumberMappingTable[v13] & 0x3F)) & 1;
   v15 = 0LL;
-  v43 = v14;
-  v16 = v14;
-  v17 = 0LL;
-  v18 = 2147483649LL;
-  v34 = 0;
-  if ( !*(_DWORD *)a7 )
-    return v18;
+  v28 = 0;
+  if ( !*(_DWORD *)a6 )
+    return v12;
   while ( 1 )
   {
-    v19 = *(_QWORD *)(v11 + 8);
-    v20 = 3 * v17;
-    v21 = PpmPlatformStates;
-    v22 = *(unsigned int *)(v19 + 24 * v17 + 4);
-    v23 = 448 * v22;
-    if ( !v16 )
-      break;
-    v31 = *(_DWORD *)(a9 + 4);
-    if ( *(_BYTE *)(v19 + 24 * v17 + 1) != (_BYTE)v15 )
+    v16 = *(_QWORD *)(v11 + 8);
+    v17 = 3 * v15;
+    v18 = PpmPlatformStates;
+    v19 = *(unsigned int *)(v16 + 24 * v15 + 4);
+    v20 = 384 * v19;
+    if ( v14 )
     {
-      v32 = -1;
-      v18 = PpmIdleCheckCoordinatedStateEligibility(a1, a2, a3, a4, a5, v22, a6, (__int64)&v32, a9, (__int64)&v35);
-      if ( !v18 )
+      v25 = *(_DWORD *)(a8 + 4);
+      if ( !*(_BYTE *)(v16 + 24 * v15 + 1) )
+        goto LABEL_25;
+      v26 = -1;
+      v12 = PpmIdleCheckCoordinatedStateEligibility(v9, a2, v10, a4, v19, a5, (__int64)&v26, a8);
+      if ( !v12 )
         goto LABEL_17;
 LABEL_23:
-      PpmIdleRollbackCoordinatedSelection(a9, v31, 0LL);
+      PpmIdleRollbackCoordinatedSelection(a8, v25);
       goto LABEL_24;
     }
-LABEL_25:
-    v11 = a7;
-    v17 = (unsigned int)(v34 + 1);
-    v34 = v17;
-    if ( (unsigned int)v17 >= *(_DWORD *)a7 )
-      return v18;
-  }
-  if ( *(_BYTE *)(v19 + 24 * v17 + 2) == (_BYTE)v15 )
-    goto LABEL_25;
-  v24 = *(_DWORD *)(v23 + PpmPlatformStates + 416);
-  if ( (v24 & 0x4000000) == 0 )
-  {
-    v38[3] = 0x100000000LL;
-    v38[0] = 0LL;
-    v38[1] = PopIdleTransitionTimeout;
-    v38[2] = v15;
-    if ( (v24 & 0x3000000) == 0x1000000 )
-    {
-      do
-      {
-        if ( v24 >> 27 > a6 )
-          break;
-        PpmIdleTransitionStall(v38);
-        v24 = *(_DWORD *)(v23 + v21 + 416);
-      }
-      while ( (v24 & 0x3000000) == 0x1000000 );
-      v16 = v43;
-      v15 = 0LL;
-    }
-    if ( (v24 & 0x4000000) == 0 )
-    {
-      v18 = 2147483659LL;
+    if ( !*(_BYTE *)(v16 + 24 * v15 + 2) )
       goto LABEL_25;
-    }
-  }
-  v25 = *(_DWORD *)(v23 + v21 + 72);
-  if ( v25 > a3 )
-  {
-    v18 = 2147483650LL;
-    goto LABEL_25;
-  }
-  v26 = PpmIdleCheckCoordinatedDependencies(
-          a1,
-          a2,
-          a6,
-          v25 - a3,
-          a4,
-          a5,
-          *(_DWORD *)(v19 + 8 * v20 + 8),
-          *(_QWORD *)(v19 + 8 * v20 + 16),
-          v15,
-          v15,
-          a10,
-          &v35);
-  v15 = 0LL;
-  v18 = v26;
-  if ( v26 )
-  {
-LABEL_24:
-    v16 = v43;
-    goto LABEL_25;
-  }
-LABEL_17:
-  if ( *(_BYTE *)(v19 + 8 * v20) )
-  {
-    LOWORD(v37) = 0;
-    v18 = 0LL;
-    *((_QWORD *)&v36 + 1) = *(_QWORD *)(v23 + v21 + 128 + 8);
-    *(_QWORD *)&v36 = v23 + v21 + 128;
-    while ( !(unsigned int)KeEnumerateNextProcessor(&v33, (unsigned __int16 **)&v36) )
+    v21 = *(_DWORD *)(v20 + PpmPlatformStates + 320);
+    if ( (v21 & 0x4000000) == 0 )
     {
-      Prcb = KeGetPrcb(v33);
-      if ( a1 != Prcb )
+      v31[3] = 0x100000000LL;
+      v31[0] = 0LL;
+      v31[1] = PopIdleTransitionTimeout;
+      v31[2] = 0LL;
+      if ( (v21 & 0x3000000) == 0x1000000 )
       {
-        v28 = PpmTestAndLockProcessor(Prcb, a10, 0LL);
-        v15 = 0LL;
-        if ( v28 < 0 )
+        do
         {
-          v16 = v43;
-          v18 = 2147483653LL;
-          if ( !v43 )
-            goto LABEL_25;
-          goto LABEL_23;
+          if ( v21 >> 27 > a5 )
+            break;
+          PpmIdleTransitionStall(v31);
+          v21 = *(_DWORD *)(v20 + v18 + 320);
         }
+        while ( (v21 & 0x3000000) == 0x1000000 );
+        v9 = a1;
+        v10 = a3;
+        v11 = a6;
+      }
+      if ( (v21 & 0x4000000) == 0 )
+      {
+        v12 = 2147483659LL;
+        goto LABEL_25;
+      }
+    }
+    v22 = *(_DWORD *)(v20 + v18 + 72);
+    if ( v22 <= v10 )
+      break;
+    v12 = 2147483650LL;
+LABEL_24:
+    v11 = a6;
+LABEL_25:
+    v15 = (unsigned int)(v28 + 1);
+    v28 = v15;
+    if ( (unsigned int)v15 >= *(_DWORD *)v11 )
+      return v12;
+    v9 = a1;
+    v10 = a3;
+  }
+  v12 = PpmIdleCheckCoordinatedDependencies(
+          v9,
+          a2,
+          a5,
+          v22 - v10,
+          a4,
+          *(_DWORD *)(v16 + 8 * v17 + 8),
+          *(_QWORD *)(v16 + 8 * v17 + 16),
+          0LL,
+          0LL,
+          a9);
+  if ( v12 )
+    goto LABEL_24;
+LABEL_17:
+  if ( *(_BYTE *)(v16 + 8 * v17) )
+  {
+    LOWORD(v30) = 0;
+    v12 = 0LL;
+    *((_QWORD *)&v29 + 1) = *(_QWORD *)(v20 + v18 + 128 + 8);
+    *(_QWORD *)&v29 = v20 + v18 + 128;
+    while ( !(unsigned int)KeEnumerateNextProcessor(&v27, (unsigned __int16 **)&v29) )
+    {
+      Prcb = KeGetPrcb(v27);
+      if ( a1 != Prcb && (int)PpmTestAndLockProcessor(Prcb, a9, 0LL) < 0 )
+      {
+        v12 = 2147483653LL;
+        if ( !v14 )
+          goto LABEL_24;
+        goto LABEL_23;
       }
     }
   }
-  if ( v43 )
-    *a8 = v32;
-  v29 = v35;
-  if ( *a11 < v35 )
-    v29 = *a11;
-  *a11 = v29;
-  return v18;
+  if ( v14 )
+    *a7 = v26;
+  return v12;
 }

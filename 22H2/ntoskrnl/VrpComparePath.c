@@ -1,10 +1,10 @@
 /*
- * XREFs of VrpComparePath @ 0x14068D9A4
+ * XREFs of VrpComparePath @ 0x1405D520C
  * Callers:
- *     VrpFindNamespaceNode @ 0x14068D8C0 (VrpFindNamespaceNode.c)
+ *     VrpFindNamespaceNode @ 0x1405D4CE4 (VrpFindNamespaceNode.c)
  * Callees:
- *     _wcsnicmp @ 0x1403D9530 (_wcsnicmp.c)
- *     VrpGetNextToken @ 0x14068DA8C (VrpGetNextToken.c)
+ *     _wcsnicmp @ 0x1403D1B10 (_wcsnicmp.c)
+ *     VrpGetNextToken @ 0x1405D52F4 (VrpGetNextToken.c)
  */
 
 __int64 __fastcall VrpComparePath(__int64 a1, __int64 a2, _QWORD *a3)
@@ -36,13 +36,13 @@ __int64 __fastcall VrpComparePath(__int64 a1, __int64 a2, _QWORD *a3)
       v9 = LOWORD(Str2[0]);
     v4 = wcsnicmp(Str1[1], Str2[1], (unsigned __int64)v9 >> 1);
     if ( v4 )
-      goto LABEL_10;
+      goto LABEL_8;
     v4 = v8 - LOWORD(Str2[0]);
     if ( v8 != LOWORD(Str2[0]) )
     {
       if ( !(_WORD)v8 || LOWORD(Str2[0]) )
       {
-LABEL_10:
+LABEL_8:
         v3 = 0LL;
         break;
       }

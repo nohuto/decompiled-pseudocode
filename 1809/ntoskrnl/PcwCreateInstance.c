@@ -1,12 +1,12 @@
 /*
- * XREFs of PcwCreateInstance @ 0x140690170
+ * XREFs of PcwCreateInstance @ 0x140690150
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseExtensionTable @ 0x14010DBCC (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14010DBE4 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     ExpPcwDisabledStatus @ 0x1408D7178 (ExpPcwDisabledStatus.c)
+ *     ExReleaseExtensionTable @ 0x14010DBEC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExpPcwDisabledStatus @ 0x1408D7158 (ExpPcwDisabledStatus.c)
  */
 
 NTSTATUS __stdcall PcwCreateInstance(

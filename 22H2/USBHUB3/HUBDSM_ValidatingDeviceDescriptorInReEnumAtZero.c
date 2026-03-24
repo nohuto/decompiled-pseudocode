@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_ValidatingDeviceDescriptorInReEnumAtZero @ 0x1C0020DC0
+ * XREFs of HUBDSM_ValidatingDeviceDescriptorInReEnumAtZero @ 0x1C001E520
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_ValidateFirstDeviceDescriptorFor20 @ 0x1C002C10C (HUBDTX_ValidateFirstDeviceDescriptorFor20.c)
+ *     HUBDTX_ValidateFirstDeviceDescriptorFor20 @ 0x1C0029414 (HUBDTX_ValidateFirstDeviceDescriptorFor20.c)
  */
 
 __int64 __fastcall HUBDSM_ValidatingDeviceDescriptorInReEnumAtZero(__int64 a1)

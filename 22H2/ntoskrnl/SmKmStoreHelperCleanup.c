@@ -1,11 +1,11 @@
 /*
- * XREFs of SmKmStoreHelperCleanup @ 0x140342B74
+ * XREFs of SmKmStoreHelperCleanup @ 0x14034E950
  * Callers:
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1403428E8 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14034E538 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     SmKmStoreHelperSendCommand @ 0x140342BC4 (SmKmStoreHelperSendCommand.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     SmKmStoreHelperSendCommand @ 0x14034F580 (SmKmStoreHelperSendCommand.c)
  */
 
 LONG_PTR __fastcall SmKmStoreHelperCleanup(PVOID *a1)

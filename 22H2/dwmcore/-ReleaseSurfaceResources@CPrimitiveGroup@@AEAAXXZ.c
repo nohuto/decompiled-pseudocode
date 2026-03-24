@@ -1,21 +1,23 @@
 /*
- * XREFs of ?ReleaseSurfaceResources@CPrimitiveGroup@@AEAAXXZ @ 0x1800E13A0
+ * XREFs of ?ReleaseSurfaceResources@CPrimitiveGroup@@AEAAXXZ @ 0x1800599AC
  * Callers:
- *     ??1CPrimitiveGroup@@MEAA@XZ @ 0x1800135D4 (--1CPrimitiveGroup@@MEAA@XZ.c)
- *     ?ProcessClearSurfaceResources@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_CLEARSURFACERESOURCES@@@Z @ 0x1800E1378 (-ProcessClearSurfaceResources@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEG.c)
- *     ?ProcessAddSurfaceResources@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_ADDSURFACERESOURCES@@PEBXI@Z @ 0x1800E1414 (-ProcessAddSurfaceResources@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGRO.c)
+ *     ?ProcessClearSurfaceResources@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_CLEARSURFACERESOURCES@@@Z @ 0x180059984 (-ProcessClearSurfaceResources@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEG.c)
+ *     ?ProcessAddSurfaceResources@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGROUP_ADDSURFACERESOURCES@@PEBXI@Z @ 0x180059E48 (-ProcessAddSurfaceResources@CPrimitiveGroup@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PRIMITIVEGRO.c)
+ *     ??1CPrimitiveGroup@@MEAA@XZ @ 0x180063CD4 (--1CPrimitiveGroup@@MEAA@XZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CPrimitiveGroup::ReleaseSurfaceResources(CPrimitiveGroup *this)
 {
-  __int64 v1; // rsi
-  char *i; // rbx
+  __int64 i; // rdi
+  __int64 v3; // rcx
 
-  v1 = 0LL;
-  for ( i = (char *)this + 136; (unsigned int)v1 < *((_DWORD *)this + 40); v1 = (unsigned int)(v1 + 1) )
-    (*(void (__fastcall **)(_QWORD))(**(_QWORD **)(*(_QWORD *)i + 8 * v1) + 16LL))(*(_QWORD *)(*(_QWORD *)i + 8 * v1));
-  *((_DWORD *)i + 6) = 0;
-  DynArrayImpl<0>::ShrinkToSize((__int64)i, 8u);
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 50); i = (unsigned int)(i + 1) )
+  {
+    v3 = *(_QWORD *)(*((_QWORD *)this + 22) + 8 * i);
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v3 + 16LL))(v3);
+  }
+  *((_DWORD *)this + 50) = 0;
+  DynArrayImpl<0>::ShrinkToSize((char *)this + 176, 8LL);
 }

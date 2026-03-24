@@ -1,44 +1,41 @@
 /*
- * XREFs of ?pvGetEngRbrush@@YAPEAXPEAU_BRUSHOBJ@@@Z @ 0x1C0086D7C
+ * XREFs of ?pvGetEngRbrush@@YAPEAXPEAU_BRUSHOBJ@@@Z @ 0x1C00CECC8
  * Callers:
- *     EngBitBlt @ 0x1C002D4C0 (EngBitBlt.c)
- *     ?BltLnk@@YAHPEAVSURFACE@@00PEAVECLIPOBJ@@PEAVXLATE@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C0090588 (-BltLnk@@YAHPEAVSURFACE@@00PEAVECLIPOBJ@@PEAVXLATE@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@.c)
- *     ?EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C02F4858 (-EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
+ *     EngBitBlt @ 0x1C00CB280 (EngBitBlt.c)
+ *     ?BltLnk@@YAHPEAVSURFACE@@00PEAVECLIPOBJ@@PEAVXLATE@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C00CCF10 (-BltLnk@@YAHPEAVSURFACE@@00PEAVECLIPOBJ@@PEAVXLATE@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@.c)
+ *     ?EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C01476A0 (-EngFastFill@@YAJPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
  * Callees:
- *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C0086DD4 (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
- *     ?vTryToCacheRealization@@YAXPEAVEBRUSHOBJ@@PEAVRBRUSH@@PEAVBRUSH@@H@Z @ 0x1C0087EE0 (-vTryToCacheRealization@@YAXPEAVEBRUSHOBJ@@PEAVRBRUSH@@PEAVBRUSH@@H@Z.c)
+ *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C00CF9EC (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
+ *     ?vTryToCacheRealization@@YAXPEAVEBRUSHOBJ@@PEAVRBRUSH@@PEAVBRUSH@@H@Z @ 0x1C00D03A8 (-vTryToCacheRealization@@YAXPEAVEBRUSHOBJ@@PEAVRBRUSH@@PEAVBRUSH@@H@Z.c)
  */
 
 PVOID __fastcall pvGetEngRbrush(struct _BRUSHOBJ *a1)
 {
   PVOID result; // rax
-  PVOID pvRbrush; // rcx
+  __int64 v2; // rbx
+  int RealizedBrush; // eax
+  struct RBRUSH *pvRbrush; // rdx
 
   result = a1[1].pvRbrush;
+  v2 = 0LL;
   if ( !result )
   {
-    if ( bGetRealizedBrush(
-           *(struct BRUSH **)&a1[4].flColorType,
-           (struct EBRUSHOBJ *)a1,
-           (int (*)(struct _BRUSHOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _XLATEOBJ *, unsigned int))EngRealizeBrush) )
+    RealizedBrush = bGetRealizedBrush(
+                      *(struct BRUSH **)&a1[4].flColorType,
+                      (struct EBRUSHOBJ *)a1,
+                      (int (*)(struct _BRUSHOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _SURFOBJ *, struct _XLATEOBJ *, unsigned int))EngRealizeBrush);
+    pvRbrush = (struct RBRUSH *)a1[1].pvRbrush;
+    if ( RealizedBrush )
     {
-      vTryToCacheRealization(
-        (struct EBRUSHOBJ *)a1,
-        (struct RBRUSH *)a1[1].pvRbrush,
-        *(struct BRUSH **)&a1[4].flColorType,
-        1);
+      vTryToCacheRealization((struct EBRUSHOBJ *)a1, pvRbrush, *(struct BRUSH **)&a1[4].flColorType, 1);
       return a1[1].pvRbrush;
     }
-    else
+    else if ( pvRbrush )
     {
-      pvRbrush = a1[1].pvRbrush;
-      if ( pvRbrush )
-      {
-        Win32FreePool(pvRbrush);
-        a1[1].pvRbrush = 0LL;
-      }
-      return 0LL;
+      Win32FreePool(a1[1].pvRbrush);
+      a1[1].pvRbrush = 0LL;
     }
+    return (PVOID)v2;
   }
   return result;
 }

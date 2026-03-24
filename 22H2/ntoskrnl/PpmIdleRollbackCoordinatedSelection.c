@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmIdleRollbackCoordinatedSelection @ 0x1405854BC
+ * XREFs of PpmIdleRollbackCoordinatedSelection @ 0x140566C0C
  * Callers:
- *     PpmIdleSelectStates @ 0x1403B6E10 (PpmIdleSelectStates.c)
- *     PpmIdleCheckCoordinatedDependency @ 0x1405846FC (PpmIdleCheckCoordinatedDependency.c)
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x140584AA4 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleSelectStates @ 0x140394E80 (PpmIdleSelectStates.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x140566080 (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x140566350 (PpmIdleCheckCoordinatedStateEligibility.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ __int64 __fastcall PpmIdleRollbackCoordinatedSelection(__int64 a1, unsigned int 
 
   for ( LODWORD(v2) = *(_DWORD *)(a1 + 4);
         (unsigned int)v2 > a2;
-        *(_DWORD *)(448LL * *(unsigned int *)(*(_QWORD *)(a1 + 16) + 4 * v2) + PpmPlatformStates + 416) = 0 )
+        *(_DWORD *)(384LL * *(unsigned int *)(*(_QWORD *)(a1 + 16) + 4 * v2) + PpmPlatformStates + 320) = 0 )
   {
     v2 = (unsigned int)(v2 - 1);
     result = PpmPlatformStates;

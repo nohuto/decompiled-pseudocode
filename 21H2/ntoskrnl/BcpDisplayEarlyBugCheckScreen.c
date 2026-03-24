@@ -1,21 +1,21 @@
 /*
- * XREFs of BcpDisplayEarlyBugCheckScreen @ 0x140B572D0
+ * XREFs of BcpDisplayEarlyBugCheckScreen @ 0x140A974E8
  * Callers:
- *     BgpFwDisplayBugCheckScreen @ 0x14064E9C0 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x1405C5704 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     BgConsoleGetInterface @ 0x140AABC94 (BgConsoleGetInterface.c)
- *     BgConsoleDestroyInterface @ 0x140AAE968 (BgConsoleDestroyInterface.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     BgConsoleGetInterface @ 0x1409F1664 (BgConsoleGetInterface.c)
+ *     BgConsoleDestroyInterface @ 0x1409F3F5C (BgConsoleDestroyInterface.c)
  */
 
 __int64 __fastcall BcpDisplayEarlyBugCheckScreen(unsigned int a1, _QWORD *a2, __int64 a3)
 {
   __int64 (__fastcall **Interface)(); // rax
   __int64 (__fastcall **v7)(); // rbx
-  __int64 v8; // rdx
-  int i; // ecx
-  unsigned __int8 v10; // al
-  __int64 v11; // r8
+  __int64 v8; // r8
+  int v9; // r9d
+  unsigned __int8 v10; // dl
+  _WORD *v11; // r10
   __int16 v12; // ax
   _QWORD *v13; // rdi
   __int64 v14; // rbp
@@ -39,19 +39,22 @@ __int64 __fastcall BcpDisplayEarlyBugCheckScreen(unsigned int a1, _QWORD *a2, __
       if ( *(_WORD *)(a3 + 18) >= 0x16u )
       {
         LODWORD(v8) = 2;
+        v9 = 28;
         **(_WORD **)(a3 + 24) = 48;
         *(_WORD *)(*(_QWORD *)(a3 + 24) + 2LL) = 120;
-        for ( i = 28; i >= 0; i -= 4 )
+        do
         {
-          v10 = (a1 >> i) & 0xF;
-          v11 = (unsigned int)v8;
+          v10 = (a1 >> v9) & 0xF;
+          v11 = (_WORD *)(*(_QWORD *)(a3 + 24) + 2LL * (unsigned int)v8);
           if ( v10 >= 0xAu )
             v12 = (unsigned __int8)(v10 - 10) + 65;
           else
             v12 = v10 + 48;
           v8 = (unsigned int)(v8 + 1);
-          *(_WORD *)(*(_QWORD *)(a3 + 24) + 2 * v11) = v12;
+          *v11 = v12;
+          v9 -= 4;
         }
+        while ( v9 >= 0 );
         *(_WORD *)(*(_QWORD *)(a3 + 24) + 2 * v8) = 0;
         ((void (__fastcall *)(_QWORD))v7[3])(*(_QWORD *)(a3 + 24));
         ((void (__fastcall *)(const wchar_t *))v7[3])(L"\r\n");

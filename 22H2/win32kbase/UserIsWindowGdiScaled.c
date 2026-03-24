@@ -1,47 +1,33 @@
 /*
- * XREFs of UserIsWindowGdiScaled @ 0x1C009B0E0
+ * XREFs of UserIsWindowGdiScaled @ 0x1C0086940
  * Callers:
- *     DxgkEngGetWindowGdiDpiScalingFactor @ 0x1C00E06F0 (DxgkEngGetWindowGdiDpiScalingFactor.c)
+ *     DxgkEngGetWindowGdiDpiScalingFactor @ 0x1C014ABB0 (DxgkEngGetWindowGdiDpiScalingFactor.c)
  * Callees:
- *     ValidateHwndEx @ 0x1C0045FD0 (ValidateHwndEx.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00462A0 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C00462E4 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     ValidateHwndEx @ 0x1C0039A90 (ValidateHwndEx.c)
  */
 
-__int64 __fastcall UserIsWindowGdiScaled(__int64 a1, _WORD *a2, __int64 a3, __int64 a4)
+__int64 __fastcall UserIsWindowGdiScaled(__int64 a1, _WORD *a2)
 {
-  _QWORD *ThreadWin32Thread; // rax
-  __int64 v7; // rbx
-  _QWORD *v8; // rax
-  __int64 v9; // rcx
-  int v10; // edx
+  __int64 v4; // rbx
+  __int64 v5; // rdx
   __int64 result; // rax
 
-  if ( !IS_USERCRIT_OWNED_AT_ALL(a1, (__int64)a2, a3, a4) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 502LL);
-  ThreadWin32Thread = (_QWORD *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( !ThreadWin32Thread )
+  if ( !W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) )
     return 0LL;
-  if ( !*ThreadWin32Thread )
+  v4 = ValidateHwndEx(a1, 1, 0);
+  if ( !v4 )
     return 0LL;
-  v7 = ValidateHwndEx(a1, 1, 0);
-  if ( !v7 )
+  if ( !W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) )
     return 0LL;
-  v8 = (_QWORD *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( !v8 )
+  if ( !*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456) )
     return 0LL;
-  if ( !*v8 )
+  if ( (*(_DWORD *)(**(_QWORD **)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456) + 8LL) + 64LL) & 1) == 0 )
     return 0LL;
-  if ( !*((_QWORD *)PtiCurrentShared() + 57) )
-    return 0LL;
-  if ( (*(_DWORD *)(**(_QWORD **)(*((_QWORD *)PtiCurrentShared() + 57) + 8LL) + 64LL) & 1) == 0 )
-    return 0LL;
-  v9 = *(_QWORD *)(v7 + 40);
-  v10 = *(_DWORD *)(v9 + 288);
-  if ( (v10 & 0xF) != 0 || (v10 & 0x40000000) == 0 )
+  v5 = *(_QWORD *)(v4 + 40);
+  if ( (*(_DWORD *)(v5 + 288) & 0x4000000F) != 0x40000000 )
     return 0LL;
   result = 1LL;
-  *a2 = *(_WORD *)(v9 + 284);
+  *a2 = *(_WORD *)(v5 + 284);
   return result;
 }

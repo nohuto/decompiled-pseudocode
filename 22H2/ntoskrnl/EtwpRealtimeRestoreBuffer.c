@@ -1,58 +1,56 @@
 /*
- * XREFs of EtwpRealtimeRestoreBuffer @ 0x140841CA0
+ * XREFs of EtwpRealtimeRestoreBuffer @ 0x1407BEDE0
  * Callers:
- *     EtwpRealtimeFlushSavedBuffers @ 0x1407734E8 (EtwpRealtimeFlushSavedBuffers.c)
+ *     EtwpRealtimeFlushSavedBuffers @ 0x140696190 (EtwpRealtimeFlushSavedBuffers.c)
  * Callees:
- *     ZwReadFile @ 0x14041A760 (ZwReadFile.c)
+ *     ZwReadFile @ 0x1403F9AE0 (ZwReadFile.c)
  */
 
-NTSTATUS __fastcall EtwpRealtimeRestoreBuffer(__int64 a1, _DWORD *Buffer)
+int __fastcall EtwpRealtimeRestoreBuffer(__int64 a1, _DWORD *Buffer)
 {
   LARGE_INTEGER *ByteOffset; // rbx
   __int64 QuadPart; // rdi
-  NTSTATUS result; // eax
-  NTSTATUS Status; // ecx
-  unsigned int v8; // edx
-  unsigned int v9; // eax
-  __int64 Length; // rdx
+  int result; // eax
+  unsigned int v7; // edx
+  unsigned int v8; // ecx
+  bool v9; // zf
+  __int64 Length; // rcx
   __int64 v11; // r14
-  LARGE_INTEGER v12; // rax
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-28h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-18h] BYREF
 
-  ByteOffset = (LARGE_INTEGER *)(a1 + 392);
-  QuadPart = *(_QWORD *)(a1 + 392) + 72LL;
+  ByteOffset = (LARGE_INTEGER *)(a1 + 408);
+  QuadPart = *(_QWORD *)(a1 + 408) + 72LL;
   IoStatusBlock = 0LL;
-  if ( QuadPart > *(_QWORD *)(a1 + 400) )
+  if ( QuadPart > *(_QWORD *)(a1 + 416) )
     return -1073741566;
-  result = ZwReadFile(*(HANDLE *)(a1 + 360), 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0x48u, ByteOffset, 0LL);
-  Status = result;
+  result = ZwReadFile(*(HANDLE *)(a1 + 376), 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0x48u, ByteOffset, 0LL);
   if ( result < 0 )
     return result;
-  result = IoStatusBlock.Status;
   if ( IoStatusBlock.Status < 0 )
-    return result;
+    return IoStatusBlock.Status;
   if ( IoStatusBlock.Information != 72 )
     return -1073741807;
-  v8 = *(_DWORD *)(a1 + 4);
-  if ( *Buffer != v8 )
+  v7 = *(_DWORD *)(a1 + 4);
+  if ( *Buffer != v7 )
     return -1073741566;
-  v9 = Buffer[12];
-  if ( v9 < 0x48 || v9 > v8 )
+  v8 = Buffer[12];
+  if ( v8 < 0x48 || v8 > v7 )
     return -1073741566;
   *((_WORD *)Buffer + 26) |= 0x10u;
-  Length = v9 - 72;
   ByteOffset->QuadPart = QuadPart;
-  if ( v9 != 72 )
+  v9 = v8 == 72;
+  Length = v8 - 72;
+  if ( !v9 )
   {
     v11 = (unsigned int)Length;
-    if ( Length + QuadPart <= *(_QWORD *)(a1 + 400) )
+    if ( Length + QuadPart <= *(_QWORD *)(a1 + 416) )
     {
-      Status = ZwReadFile(*(HANDLE *)(a1 + 360), 0LL, 0LL, 0LL, &IoStatusBlock, Buffer + 18, Length, ByteOffset, 0LL);
-      if ( Status >= 0 )
+      result = ZwReadFile(*(HANDLE *)(a1 + 376), 0LL, 0LL, 0LL, &IoStatusBlock, Buffer + 18, Length, ByteOffset, 0LL);
+      if ( result >= 0 )
       {
-        Status = IoStatusBlock.Status;
+        result = IoStatusBlock.Status;
         if ( IoStatusBlock.Status >= 0 && IoStatusBlock.Information != v11 )
-          Status = -1073741807;
+          result = -1073741807;
       }
       ByteOffset->QuadPart += v11;
       QuadPart = ByteOffset->QuadPart;
@@ -61,9 +59,7 @@ NTSTATUS __fastcall EtwpRealtimeRestoreBuffer(__int64 a1, _DWORD *Buffer)
     return -1073741566;
   }
 LABEL_15:
-  v12 = *ByteOffset;
-  if ( QuadPart >= *(_QWORD *)(a1 + 400) )
-    v12.QuadPart = 72LL;
-  *ByteOffset = v12;
-  return Status;
+  if ( QuadPart >= *(_QWORD *)(a1 + 416) )
+    ByteOffset->QuadPart = 72LL;
+  return result;
 }

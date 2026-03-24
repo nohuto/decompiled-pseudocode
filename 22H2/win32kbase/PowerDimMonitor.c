@@ -1,74 +1,25 @@
 /*
- * XREFs of PowerDimMonitor @ 0x1C0133920
+ * XREFs of PowerDimMonitor @ 0x1C011A2F0
  * Callers:
- *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C009F448 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
+ *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C0078210 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
  * Callees:
- *     ?PowerMonitorDimStateTelemetry@@YAXPEAU_DIM_UNDIM_TELEMETRY_DATA@@@Z @ 0x1C007A6B0 (-PowerMonitorDimStateTelemetry@@YAXPEAU_DIM_UNDIM_TELEMETRY_DATA@@@Z.c)
- *     DrvSetMonitorBrightness @ 0x1C00BAC38 (DrvSetMonitorBrightness.c)
- *     DrvSetMonitorsDimState @ 0x1C00BAE20 (DrvSetMonitorsDimState.c)
- *     ?InitializeMonitorBrightnessDiagnosticsPacket@@YAXPEAU_DXGK_DIAG_MONITOR_BRIGHTNESS_PACKET_EX@@H@Z @ 0x1C00C12A4 (-InitializeMonitorBrightnessDiagnosticsPacket@@YAXPEAU_DXGK_DIAG_MONITOR_BRIGHTNESS_PACKET_EX@@H.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     ?PowerMonitorDimStateTelemetry@@YAXPEAU_DIM_UNDIM_TELEMETRY_DATA@@@Z @ 0x1C0079258 (-PowerMonitorDimStateTelemetry@@YAXPEAU_DIM_UNDIM_TELEMETRY_DATA@@@Z.c)
+ *     DrvSetMonitorsDimState @ 0x1C0079940 (DrvSetMonitorsDimState.c)
+ *     DrvSetMonitorBrightness @ 0x1C0079A9C (DrvSetMonitorBrightness.c)
+ *     SqmPowerState @ 0x1C0079F90 (SqmPowerState.c)
+ *     ?InitializeMonitorBrightnessDiagnosticsPacket@@YAXPEAU_DXGK_DIAG_MONITOR_BRIGHTNESS_PACKET_EX@@H@Z @ 0x1C007A1E8 (-InitializeMonitorBrightnessDiagnosticsPacket@@YAXPEAU_DXGK_DIAG_MONITOR_BRIGHTNESS_PACKET_EX@@H.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
-void __fastcall PowerDimMonitor(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void PowerDimMonitor()
 {
-  char v4; // di
-  __int64 v5; // rbx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // rbx
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  __int64 v21; // r8
-  __int64 v22; // r9
-  _BYTE *v23; // rbx
-  __int64 v24; // rdx
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  __int64 v27; // r9
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  __int64 v30; // r8
-  __int64 v31; // r9
-  __int64 v32; // rax
-  __int64 v33; // r8
-  __int64 v34; // r9
-  __int64 v35; // rcx
-  __int64 v36; // rcx
-  __int64 DxgkWin32kInterface; // rax
-  __int64 v38; // rdx
-  __int64 v39; // rcx
-  __int64 v40; // r8
-  __int64 v41; // r9
-  int v42; // ebx
-  __int64 v43; // rdx
-  __int64 v44; // rcx
-  __int64 v45; // r8
-  __int64 v46; // r9
-  __int64 v47; // rdx
-  __int64 v48; // rcx
-  __int64 v49; // r8
-  __int64 v50; // r9
-  int v51; // ebx
-  __int64 v52; // rdx
-  __int64 v53; // rcx
-  __int64 v54; // r8
-  __int64 v55; // r9
-  __int128 v56; // [rsp+38h] [rbp-49h] BYREF
-  GUID ActivityId[2]; // [rsp+48h] [rbp-39h] BYREF
-  _BYTE v58[96]; // [rsp+68h] [rbp-19h] BYREF
+  char v0; // bl
+  int v1; // eax
+  __int128 v2; // [rsp+30h] [rbp-49h] BYREF
+  GUID ActivityId[2]; // [rsp+40h] [rbp-39h] BYREF
+  _BYTE v4[96]; // [rsp+60h] [rbp-19h] BYREF
 
   memset(ActivityId, 0, 24);
   ActivityId[0].Data1 = 1;
@@ -76,41 +27,43 @@ void __fastcall PowerDimMonitor(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   LOBYTE(ActivityId[0].Data3) = 1;
   if ( !gProtocolType )
   {
-    v4 = 1;
-    v5 = SGDGetUserSessionState(a1, a2, a3, a4);
-    v11 = *(unsigned int *)(SGDGetUserSessionState(v7, v6, v8, v9) + 3100);
-    if ( *(_DWORD *)(v5 + 3112) == (_DWORD)v11
-      || (v14 = SGDGetUserSessionState(v11, v10, v12, v13),
-          *(_DWORD *)(v14 + 3100) >= *(_DWORD *)(SGDGetUserSessionState(v16, v15, v17, v18) + 3092)) )
+    v0 = 1;
+    if ( !gbPowerHighPrecisionBrightnessSupported
+      && (dword_1C0251230 == dword_1C0251224 || dword_1C0251224 >= (unsigned int)dword_1C025121C) )
     {
-      v4 = 0;
+      v0 = 0;
     }
-    memset(v58, 0, 0x58uLL);
-    if ( v4 )
+    memset(v4, 0, 0x58uLL);
+    if ( v0 )
     {
-      InitializeMonitorBrightnessDiagnosticsPacket((struct _DXGK_DIAG_MONITOR_BRIGHTNESS_PACKET_EX *)v58, 1);
-      v23 = (_BYTE *)(SGDGetUserSessionState(v20, v19, v21, v22) + 3148);
-      SGDGetUserSessionState(v25, v24, v26, v27);
-      v32 = SGDGetUserSessionState(v29, v28, v30, v31);
-      DrvSetMonitorBrightness(*((_QWORD *)gpDispInfo + 2), *(_DWORD *)(v32 + 3132), v33, v34, v23, 0);
+      InitializeMonitorBrightnessDiagnosticsPacket((struct _DXGK_DIAG_MONITOR_BRIGHTNESS_PACKET_EX *)v4, 1);
+      DrvSetMonitorBrightness(
+        *(_QWORD *)(gpDispInfo + 16),
+        (unsigned int)dword_1C0251244,
+        dword_1C0251248,
+        1u,
+        &byte_1C0251254,
+        0);
       LOBYTE(ActivityId[0].Data2) = 1;
     }
     EtwActivityIdControl(3u, (LPGUID)ActivityId[0].Data4);
-    LOBYTE(v35) = 1;
-    v56 = *(_OWORD *)ActivityId[0].Data4;
-    DrvSetMonitorsDimState(v35, &v56);
+    v2 = *(_OWORD *)ActivityId[0].Data4;
+    DrvSetMonitorsDimState(1, &v2);
     HIBYTE(ActivityId[0].Data2) = 1;
-    if ( v4 )
+    if ( v0 )
     {
-      if ( qword_1C02959B0 && (int)qword_1C02959B0() >= 0 && qword_1C02959B8 )
-        qword_1C02959B8();
-      DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v36, a2);
-      (*(void (__fastcall **)(_BYTE *))(DxgkWin32kInterface + 304))(v58);
-      v42 = *(_DWORD *)(SGDGetUserSessionState(v39, v38, v40, v41) + 3132);
-      *(_DWORD *)(SGDGetUserSessionState(v44, v43, v45, v46) + 3100) = v42;
-      v51 = *(_DWORD *)(SGDGetUserSessionState(v48, v47, v49, v50) + 3100);
-      *(_DWORD *)(SGDGetUserSessionState(v53, v52, v54, v55) + 3112) = v51;
+      if ( qword_1C02565A0 )
+        v1 = qword_1C02565A0();
+      else
+        v1 = -1073741637;
+      if ( v1 >= 0 && qword_1C02565A8 )
+        qword_1C02565A8();
+      if ( gSqmIsOptedIn )
+        SqmPowerState();
+      ((void (__fastcall *)(_BYTE *))qword_1C02509C0)(v4);
+      dword_1C0251224 = dword_1C0251244;
+      dword_1C0251230 = dword_1C0251244;
     }
   }
-  PowerMonitorDimStateTelemetry((struct _DIM_UNDIM_TELEMETRY_DATA *)ActivityId, a2, a3, a4);
+  PowerMonitorDimStateTelemetry((struct _DIM_UNDIM_TELEMETRY_DATA *)ActivityId);
 }

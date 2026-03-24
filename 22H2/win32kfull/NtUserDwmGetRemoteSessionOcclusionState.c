@@ -1,5 +1,5 @@
 /*
- * XREFs of NtUserDwmGetRemoteSessionOcclusionState @ 0x1C0135960
+ * XREFs of NtUserDwmGetRemoteSessionOcclusionState @ 0x1C0163BF0
  * Callers:
  *     <none>
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetD2DEffectProperties@CTableTransferEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x1802549A0
+ * XREFs of ?SetD2DEffectProperties@CTableTransferEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x1801F09F0
  * Callers:
  *     <none>
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEffect *this, struct ID2D1Effect *a2)
@@ -34,8 +34,8 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
          a2,
          0LL,
          0LL,
-         *((_QWORD *)this + 23),
-         4 * *((_DWORD *)this + 52));
+         *((_QWORD *)this + 20),
+         4 * *((_DWORD *)this + 46));
   v6 = v4;
   if ( v4 < 0 )
   {
@@ -47,8 +47,8 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
            a2,
            2LL,
            0LL,
-           *((_QWORD *)this + 28),
-           4 * *((_DWORD *)this + 62));
+           *((_QWORD *)this + 25),
+           4 * *((_DWORD *)this + 56));
     v6 = v7;
     if ( v7 < 0 )
     {
@@ -60,8 +60,8 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
              a2,
              4LL,
              0LL,
-             *((_QWORD *)this + 33),
-             4 * *((_DWORD *)this + 72));
+             *((_QWORD *)this + 30),
+             4 * *((_DWORD *)this + 66));
       v6 = v9;
       if ( v9 < 0 )
       {
@@ -73,8 +73,8 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
                 a2,
                 6LL,
                 0LL,
-                *((_QWORD *)this + 38),
-                4 * *((_DWORD *)this + 82));
+                *((_QWORD *)this + 35),
+                4 * *((_DWORD *)this + 76));
         v6 = v11;
         if ( v11 < 0 )
         {
@@ -82,7 +82,7 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
         }
         else
         {
-          v24 = *((unsigned __int8 *)this + 176);
+          v24 = *((unsigned __int8 *)this + 152);
           v13 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                   a2,
                   1LL,
@@ -96,7 +96,7 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
           }
           else
           {
-            v24 = *((unsigned __int8 *)this + 177);
+            v24 = *((unsigned __int8 *)this + 153);
             v15 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                     a2,
                     3LL,
@@ -110,7 +110,7 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
             }
             else
             {
-              v24 = *((unsigned __int8 *)this + 178);
+              v24 = *((unsigned __int8 *)this + 154);
               v17 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                       a2,
                       5LL,
@@ -124,7 +124,7 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
               }
               else
               {
-                v24 = *((unsigned __int8 *)this + 179);
+                v24 = *((unsigned __int8 *)this + 155);
                 v19 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                         a2,
                         7LL,
@@ -138,7 +138,7 @@ __int64 __fastcall CTableTransferEffect::SetD2DEffectProperties(CTableTransferEf
                 }
                 else
                 {
-                  v24 = *((unsigned __int8 *)this + 180);
+                  v24 = *((unsigned __int8 *)this + 156);
                   v21 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, int *, int))(*(_QWORD *)a2 + 72LL))(
                           a2,
                           8LL,

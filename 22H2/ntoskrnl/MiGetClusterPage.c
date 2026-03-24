@@ -1,21 +1,21 @@
 /*
- * XREFs of MiGetClusterPage @ 0x14066A064
+ * XREFs of MiGetClusterPage @ 0x1405558B0
  * Callers:
- *     MiResolvePrivateZeroFault @ 0x14026A260 (MiResolvePrivateZeroFault.c)
- *     MiCreateSharedZeroPages @ 0x1402E0DC0 (MiCreateSharedZeroPages.c)
+ *     MiResolvePrivateZeroFault @ 0x1402100E0 (MiResolvePrivateZeroFault.c)
+ *     MiCreateSharedZeroPages @ 0x1402410E0 (MiCreateSharedZeroPages.c)
  * Callees:
- *     MiGetPageChain @ 0x14026C5E0 (MiGetPageChain.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetProtoPteAddress @ 0x140272D70 (MiGetProtoPteAddress.c)
- *     MiConvertEntireLargePageToSmall @ 0x1402D2AD0 (MiConvertEntireLargePageToSmall.c)
- *     MiGetLargePage @ 0x1402D7A80 (MiGetLargePage.c)
- *     MiProtectionToCacheAttribute @ 0x1402E1560 (MiProtectionToCacheAttribute.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiIsPteEvaluated @ 0x1402F2808 (MiIsPteEvaluated.c)
- *     MiComputeZeroClusterMaximum @ 0x1402F28B0 (MiComputeZeroClusterMaximum.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x14033E8C4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
+ *     MiGetPageChain @ 0x140212CD0 (MiGetPageChain.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x14023BA1C (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiInitializePageColorBase @ 0x14023EBF0 (MiInitializePageColorBase.c)
+ *     MiProtectionToCacheAttribute @ 0x1402417B0 (MiProtectionToCacheAttribute.c)
+ *     MiGetLargePage @ 0x1402840B4 (MiGetLargePage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402AE550 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetProtoPteAddress @ 0x1402B11D0 (MiGetProtoPteAddress.c)
+ *     MiIsPteEvaluated @ 0x14033A25C (MiIsPteEvaluated.c)
+ *     MiComputeZeroClusterMaximum @ 0x14033D4AC (MiComputeZeroClusterMaximum.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1403F52A8 (MiConvertEntireLargePageToSmall.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall MiGetClusterPage(
@@ -26,168 +26,179 @@ __int64 __fastcall MiGetClusterPage(
         unsigned int a5,
         _BYTE *a6)
 {
-  unsigned __int64 v8; // r12
-  unsigned __int64 v9; // rcx
-  unsigned __int64 *v10; // r11
-  unsigned __int64 v11; // rcx
-  int v12; // ebx
-  __int64 v13; // r11
+  unsigned __int64 v8; // rcx
+  unsigned __int64 *v9; // r10
+  unsigned __int64 v10; // rcx
+  int v11; // ebx
+  __int64 v12; // r10
+  unsigned __int64 v13; // r11
   unsigned int v14; // edi
   __int64 v15; // rcx
-  unsigned __int64 v16; // rsi
-  unsigned __int64 v17; // r14
-  __int64 ProtoPteAddress; // r9
+  unsigned __int64 v16; // r14
+  unsigned __int64 v17; // r15
+  __int64 ProtoPteAddress; // r10
   unsigned __int64 v19; // rdx
-  unsigned __int64 v20; // rcx
-  unsigned __int64 v21; // r8
-  __int64 v22; // rax
-  unsigned __int64 v23; // rsi
-  bool v24; // zf
-  unsigned __int64 v25; // rdx
-  __int64 v26; // r14
-  __int64 v27; // r12
-  unsigned int v28; // eax
-  __int64 LargePage; // rdi
+  unsigned __int64 v20; // r8
+  unsigned __int64 v21; // r9
+  unsigned __int64 v22; // rcx
+  __int64 v23; // rax
+  unsigned __int64 v24; // rdi
+  unsigned __int64 v25; // rdi
+  __int64 v26; // rdx
+  bool v27; // zf
+  unsigned __int64 v28; // rdx
+  __int64 v29; // r14
+  __int64 v30; // r8
+  __int64 v31; // r13
+  unsigned int v32; // eax
+  unsigned int v33; // r9d
+  __int64 LargePage; // r15
   __int64 result; // rax
-  unsigned __int64 v31; // rax
-  unsigned __int64 v32; // rdi
-  ULONG_PTR v33; // r15
-  unsigned int v34; // eax
-  __int64 v35; // r8
-  bool v36; // zf
-  __int64 v37; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned int v38; // [rsp+48h] [rbp-B8h]
-  unsigned __int64 *v39; // [rsp+50h] [rbp-B0h]
-  __int64 v40; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned __int64 v41; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned __int64 v42[2]; // [rsp+68h] [rbp-98h] BYREF
-  _BYTE *v43; // [rsp+78h] [rbp-88h]
-  __int128 v44; // [rsp+80h] [rbp-80h] BYREF
-  _QWORD v45[30]; // [rsp+90h] [rbp-70h] BYREF
+  unsigned __int64 v36; // rax
+  __int64 v37; // rsi
+  __int64 v38; // r15
+  unsigned int v39; // eax
+  bool v40; // zf
+  __int64 v42; // [rsp+48h] [rbp-B8h]
+  __int64 v43; // [rsp+50h] [rbp-B0h]
+  _QWORD v44[2]; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 v45; // [rsp+68h] [rbp-98h] BYREF
+  __int64 v46; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE *v47; // [rsp+78h] [rbp-88h]
+  __int128 v48; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v49; // [rsp+90h] [rbp-70h]
+  unsigned __int64 v50; // [rsp+98h] [rbp-68h] BYREF
+  _QWORD v51[28]; // [rsp+A0h] [rbp-60h] BYREF
 
-  v41 = a2;
-  v40 = a3;
-  v38 = a4;
-  v43 = a6;
-  v44 = 0LL;
-  memset(v45, 0, 0x68uLL);
-  v8 = 0LL;
+  v49 = a3;
+  v47 = a6;
+  v48 = 0LL;
+  memset(v51, 0, 0x60uLL);
   *a6 = 0;
-  v9 = (unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32;
-  v37 = 0LL;
-  v10 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[26];
-  v11 = *(unsigned int *)(a1 + 24) | v9;
-  v39 = v10;
-  v42[0] = a2 & 0xFFFFFFFFFFFF0000uLL;
-  v42[1] = 0x10000LL;
-  if ( (a2 & 0xFFFFFFFFFFFF0000uLL) >> 12 < v11
+  v8 = (unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32;
+  v45 = 0LL;
+  v9 = &KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[6];
+  v10 = *(unsigned int *)(a1 + 24) | v8;
+  v42 = (__int64)v9;
+  v44[0] = a2 & 0xFFFFFFFFFFFF0000uLL;
+  v44[1] = 0x10000LL;
+  if ( (a2 & 0xFFFFFFFFFFFF0000uLL) >> 12 < v10
     || ((a2 & 0xFFFFFFFFFFFF0000uLL) + 0xFFFF) >> 12 > (*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32)) )
   {
     return 0LL;
   }
-  v12 = (*(_DWORD *)(a1 + 48) >> 12) & 0x7F;
-  MiInitializePageColorBase((__int64)v10, v12, (__int64)&v44);
-  v14 = HIDWORD(v44) >> byte_140C65B8D;
-  v24 = (*(_DWORD *)(a1 + 48) & 0x200000) == 0;
-  LOWORD(v45[0]) = 2;
-  v45[1] = v42;
-  v45[2] = 1LL;
-  v45[3] = 0LL;
-  v45[4] = 0LL;
-  if ( v24 )
+  v11 = (*(_DWORD *)(a1 + 48) >> 12) & 0x3F;
+  MiInitializePageColorBase((__int64)v9, v11, (__int64)&v48);
+  v14 = HIDWORD(v48) >> byte_140C4DE8C;
+  v27 = (*(_DWORD *)(a1 + 48) & 0x100000) == 0;
+  LOWORD(v51[0]) = 2;
+  v51[1] = v44;
+  v51[2] = 1LL;
+  v51[3] = v13;
+  v51[4] = v13;
+  if ( v27 )
   {
-    ProtoPteAddress = MiGetProtoPteAddress(a1, a2 >> 12, 0, &v37);
-    v19 = *(_QWORD *)(v37 + 8);
-    v20 = v19 + 8 * (*(unsigned int *)(v37 + 44) - (unsigned __int64)(*(_DWORD *)(v37 + 52) & 0x3FFFFFFF));
+    ProtoPteAddress = MiGetProtoPteAddress(a1, a2 >> 12, 0, &v45);
+    v19 = *(_QWORD *)(v45 + 8);
+    v20 = ((a2 & 0xFFFFFFFFFFFFF000uLL) - v44[0]) >> 12;
+    v21 = v19 + 8 * (*(unsigned int *)(v45 + 44) - (unsigned __int64)(*(_DWORD *)(v45 + 52) & 0x3FFFFFFF));
     if ( (ProtoPteAddress & 0xFFFFFFFFFFFFF000uLL) > v19 )
       v19 = ProtoPteAddress & 0xFFFFFFFFFFFFF000uLL;
-    if ( v20 > (ProtoPteAddress & 0xFFFFFFFFFFFFF000uLL) + 4096 )
-      v20 = (ProtoPteAddress & 0xFFFFFFFFFFFFF000uLL) + 4096;
-    v21 = 8 * (((a2 & 0xFFFFFFFFFFFFF000uLL) - v42[0]) >> 12);
-    v16 = ProtoPteAddress - v21;
-    if ( ProtoPteAddress - v21 < v19 || ProtoPteAddress - v21 + 128 > v20 )
+    v22 = (ProtoPteAddress & 0xFFFFFFFFFFFFF000uLL) + 4096;
+    v16 = ProtoPteAddress - 8 * v20;
+    if ( v16 < v19 )
       return 0LL;
-    v17 = ((v42[0] >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v15 = *(_WORD *)(*(_QWORD *)v37 + 60LL) & 0x3FF;
+    if ( v21 <= v22 )
+      v22 = v21;
+    if ( ProtoPteAddress + 8 * (16 - v20) > v22 )
+      return 0LL;
+    v17 = ((v44[0] >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v15 = *(_WORD *)(*(_QWORD *)v45 + 60LL) & 0x3FF;
+    v13 = 0LL;
   }
   else
   {
-    v15 = *(unsigned __int16 *)(v13 + 174);
-    v16 = ((v42[0] >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v17 = 0LL;
+    v15 = *(unsigned __int16 *)(v12 + 174);
+    v16 = ((v44[0] >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v17 = (unsigned int)v13;
   }
-  v22 = *(_QWORD *)(*(_QWORD *)(qword_140C674C8 + 8 * v15) + 16LL);
-  v37 = *(_QWORD *)(qword_140C674C8 + 8 * v15);
-  *(_BYTE *)(25408LL * v14 + v22 + 3251) = 1;
+  v23 = v14;
+  v24 = v13;
+  v43 = *(_QWORD *)(qword_140C4E648 + 8 * v15);
+  *(_BYTE *)(4544 * v23 + *(_QWORD *)(v43 + 16) + 3251) = 1;
   do
   {
-    v45[v8 + 14] = MI_READ_PTE_LOCK_FREE(v16 + 8 * v8);
-    ++v8;
+    v51[v24 + 12] = MI_READ_PTE_LOCK_FREE(v16 + 8 * v24);
+    ++v24;
   }
-  while ( v8 < 0x10 );
-  v23 = 0LL;
+  while ( v24 < 0x10 );
+  v25 = 0LL;
   do
   {
+    v26 = v51[v25 + 12];
+    v46 = v26;
     if ( a5 )
     {
-      if ( (unsigned int)IS_PTE_NOT_DEMAND_ZERO(v45[v23 + 14]) )
+      if ( IS_PTE_NOT_DEMAND_ZERO(v26) )
         break;
-      v24 = ((v25 >> 5) & 0x1F) == a5;
+      v27 = ((v28 >> 5) & 0x1F) == a5;
     }
     else
     {
-      v24 = v45[v23 + 14] == 0LL;
+      v27 = v26 == 0;
     }
-    if ( !v24 || v17 && (unsigned int)MiIsPteEvaluated(v17, a5) )
+    if ( !v27 || v17 && MiIsPteEvaluated(v17, a5) )
       break;
-    if ( ++v23 == v40 )
+    if ( ++v25 == v49 )
       break;
   }
-  while ( v23 < 0x10 );
-  v26 = -1LL;
-  if ( v23 == 16 )
+  while ( v25 < 0x10 );
+  v29 = -1LL;
+  if ( v25 == 16 )
   {
-    v27 = (__int64)v39;
-    if ( MiComputeZeroClusterMaximum((__int64)v45, (__int64)v39, a1) != 16 )
+    v30 = a1;
+    v31 = v42;
+    if ( MiComputeZeroClusterMaximum((__int64)v51, v42, v30) != 16 )
       return 0LL;
-    v28 = MiProtectionToCacheAttribute(v38);
-    LargePage = MiGetLargePage(v37, v42[0], 2u, v14, v28, 4, 0LL);
+    _InterlockedExchangeAdd((volatile signed __int32 *)v48, 1u);
+    v32 = MiProtectionToCacheAttribute(a4);
+    LargePage = MiGetLargePage(v43, 2u, v32, v33, 4, 0LL);
     if ( LargePage )
     {
-      MiConvertEntireLargePageToSmall(LargePage, 2, 2, 1, 0LL, 0LL, 0LL);
+      MiConvertEntireLargePageToSmall(LargePage, 2, 2LL, 1LL, 0LL, 0LL);
       return LargePage;
     }
   }
   else
   {
-    v23 = 0LL;
+    v25 = 0LL;
     while ( 1 )
     {
-      v40 = v45[v23 + 14];
-      if ( (v40 & 1) != 0 )
+      v46 = v51[v25 + 12];
+      if ( (v46 & 1) != 0 )
         break;
-      if ( ++v23 >= 0x10 )
+      if ( ++v25 >= 0x10 )
         goto LABEL_33;
     }
-    v31 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v40);
-    v26 = (v31 >> 12) & 0xFFFFFFFFFFLL;
-    if ( (unsigned __int16)v31 >> 12 != v23 )
+    v36 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v46);
+    v29 = (v36 >> 12) & 0xFFFFFFFFFLL;
+    if ( (unsigned __int16)v36 >> 12 != v25 )
       return 0LL;
 LABEL_33:
-    v27 = (__int64)v39;
+    v31 = v42;
   }
-  v32 = (v41 >> 9) & 0x7FFFFFFFF8LL;
-  v41 = 1LL;
-  v33 = ((__int64)(v32 - ((v42[0] >> 9) & 0x7FFFFFFFF8LL)) >> 3) & 0xF;
-  v34 = MiProtectionToCacheAttribute(v38);
-  result = MiGetPageChain(v37, v27, v35, v12, v34, 258, v33, &v41);
+  v37 = (a2 >> 9) & 0x7FFFFFFFF8LL;
+  v50 = 1LL;
+  v38 = ((v37 - ((v44[0] >> 9) & 0x7FFFFFFFF8LL)) >> 3) & 0xF;
+  v39 = MiProtectionToCacheAttribute(a4);
+  result = MiGetPageChain(v43, v31, v11, v39, 258, v38, &v50);
   if ( !result )
     return 0LL;
-  if ( v23 == 16 )
-    v36 = (((result + 0x220000000000LL) / 48) & 0xF) == v33;
+  if ( v25 == 16 )
+    v40 = (((result + 0x58000000000LL) / 48) & 0xF) == v38;
   else
-    v36 = v26 + ((__int64)(v32 - ((v42[0] >> 9) & 0x7FFFFFFFF8LL)) >> 3) - v23 == (result + 0x220000000000LL) / 48;
-  if ( !v36 )
-    *v43 = 1;
+    v40 = v29 + ((v37 - ((v44[0] >> 9) & 0x7FFFFFFFF8LL)) >> 3) - v25 == (result + 0x58000000000LL) / 48;
+  if ( !v40 )
+    *v47 = 1;
   return result;
 }

@@ -1,47 +1,46 @@
 /*
- * XREFs of NtUserSetActivationFilter @ 0x1C0011E00
+ * XREFs of NtUserSetActivationFilter @ 0x1C00080B0
  * Callers:
  *     <none>
  * Callees:
- *     _SetActivationFilter @ 0x1C0011EB4 (_SetActivationFilter.c)
- *     IAMThreadAccessGranted @ 0x1C002731C (IAMThreadAccessGranted.c)
- *     IsIAMThread @ 0x1C003B1AC (IsIAMThread.c)
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     _SetActivationFilter @ 0x1C0008170 (_SetActivationFilter.c)
+ *     IAMThreadAccessGranted @ 0x1C0037F54 (IAMThreadAccessGranted.c)
+ *     IsIAMThread @ 0x1C003CE58 (IsIAMThread.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
+// write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall NtUserSetActivationFilter(__int64 a1, unsigned int a2)
 {
   int v4; // ebx
   __int64 v5; // rax
-  __int64 v6; // r8
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v12; // rcx
-  char v13; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v9; // rcx
+  char v10; // [rsp+40h] [rbp+18h] BYREF
 
   EnterCrit(0LL, 1LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v13);
   v4 = 0;
+  gbValidateHandleForIL = 0;
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)&v10);
   if ( !(unsigned int)IAMThreadAccessGranted(gptiCurrent) )
   {
-    v12 = 5LL;
+    v9 = 5LL;
     goto LABEL_8;
   }
   v5 = ValidateHwnd(a1);
-  if ( !v5 || !(unsigned int)IsIAMThread(*(_QWORD *)(v5 + 16)) )
+  if ( !v5 || !(unsigned int)IsIAMThread(*(_QWORD *)(v5 + 16), v6, v5) )
   {
-    v12 = 87LL;
+    v9 = 87LL;
 LABEL_8:
-    UserSetLastError(v12);
+    UserSetLastError(v9);
     goto LABEL_5;
   }
-  v4 = SetActivationFilter(v6, a2);
+  v4 = SetActivationFilter(v7, a2);
 LABEL_5:
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v13);
-  UserSessionSwitchLeaveCrit(v8, v7, v9, v10);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)&v10);
+  UserSessionSwitchLeaveCrit();
   return v4;
 }

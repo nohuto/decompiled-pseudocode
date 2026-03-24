@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CParticleAttractorMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C021FA20
+ * XREFs of ?SetRemarshalingFlags@CParticleAttractorMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DEF80
  * Callers:
  *     <none>
  * Callees:

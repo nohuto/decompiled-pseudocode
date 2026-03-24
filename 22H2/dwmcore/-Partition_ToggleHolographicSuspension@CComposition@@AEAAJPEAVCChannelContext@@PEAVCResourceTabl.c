@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Partition_ToggleHolographicSuspension@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_TOGGLEHOLOGRAPHICSUSPENSION@@@Z @ 0x180101EA8
+ * XREFs of ?Partition_ToggleHolographicSuspension@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_TOGGLEHOLOGRAPHICSUSPENSION@@@Z @ 0x1800DE490
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CComposition::Partition_ToggleHolographicSuspension(
@@ -13,8 +13,8 @@ __int64 __fastcall CComposition::Partition_ToggleHolographicSuspension(
         const struct tagMILCMD_PARTITION_TOGGLEHOLOGRAPHICSUSPENSION *a4)
 {
   LOBYTE(a2) = *((_BYTE *)a4 + 4) != 0;
-  (*(void (__fastcall **)(_QWORD, struct CChannelContext *, struct CResourceTable *))(**((_QWORD **)this + 33) + 24LL))(
-    *((_QWORD *)this + 33),
+  (*(void (__fastcall **)(_QWORD, struct CChannelContext *, struct CResourceTable *))(**((_QWORD **)this + 17) + 24LL))(
+    *((_QWORD *)this + 17),
     a2,
     a3);
   return 0LL;

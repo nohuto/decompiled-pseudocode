@@ -1,26 +1,25 @@
 /*
- * XREFs of ?GetNextPendingTermination@VIDMM_GLOBAL@@QEAAPEAUVIDMM_ALLOC@@PEA_N@Z @ 0x1C00166B0
+ * XREFs of ?GetNextPendingTermination@VIDMM_GLOBAL@@QEAAPEAUVIDMM_ALLOC@@PEA_N@Z @ 0x1C0014120
  * Callers:
- *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00B5730 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
- *     ?ProcessPendingTerminations@VIDMM_WORKER_THREAD@@AEAA_N_NPEA_N@Z @ 0x1C00ED734 (-ProcessPendingTerminations@VIDMM_WORKER_THREAD@@AEAA_N_NPEA_N@Z.c)
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C008C500 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
+ *     ?ProcessPendingTerminations@VIDMM_WORKER_THREAD@@AEAAX_NPEA_N1@Z @ 0x1C00B8308 (-ProcessPendingTerminations@VIDMM_WORKER_THREAD@@AEAAX_NPEA_N1@Z.c)
  * Callees:
  *     <none>
  */
 
 struct VIDMM_ALLOC *__fastcall VIDMM_GLOBAL::GetNextPendingTermination(KSPIN_LOCK *this, bool *a2)
 {
-  _QWORD **v4; // rdi
-  _QWORD *v5; // rsi
+  _QWORD *v4; // rax
+  _QWORD *v5; // rbx
+  __int64 v6; // rcx
+  _QWORD *v7; // rdx
   struct VIDMM_ALLOC *result; // rax
-  __int64 v7; // rcx
-  _QWORD *v8; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(this + 5549, &LockHandle);
-  v4 = (_QWORD **)(this + 5550);
-  v5 = *v4;
-  if ( *v4 == v4 )
+  KeAcquireInStackQueuedSpinLock(this + 5544, &LockHandle);
+  v4 = this + 5545;
+  v5 = (_QWORD *)this[5545];
+  if ( v5 == v4 )
   {
     KeReleaseInStackQueuedSpinLock(&LockHandle);
     result = 0LL;
@@ -28,12 +27,12 @@ struct VIDMM_ALLOC *__fastcall VIDMM_GLOBAL::GetNextPendingTermination(KSPIN_LOC
   }
   else
   {
-    v7 = *v5;
-    if ( *(_QWORD **)(*v5 + 8LL) != v5 || (v8 = (_QWORD *)v5[1], (_QWORD *)*v8 != v5) )
+    v6 = *v5;
+    if ( *(_QWORD **)(*v5 + 8LL) != v5 || (v7 = (_QWORD *)v5[1], (_QWORD *)*v7 != v5) )
       __fastfail(3u);
-    *v8 = v7;
-    *(_QWORD *)(v7 + 8) = v8;
-    *a2 = *v4 != v4;
+    *v7 = v6;
+    *(_QWORD *)(v6 + 8) = v7;
+    *a2 = *v4 != (_QWORD)v4;
     KeReleaseInStackQueuedSpinLock(&LockHandle);
     return (struct VIDMM_ALLOC *)(v5 - 25);
   }

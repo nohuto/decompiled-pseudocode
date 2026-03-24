@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCleanupProcessResources @ 0x1407CB74C
+ * XREFs of IopCleanupProcessResources @ 0x1406824F4
  * Callers:
- *     IopCloseFile @ 0x14072FFC0 (IopCloseFile.c)
+ *     IopCloseFile @ 0x14064A140 (IopCloseFile.c)
  * Callees:
- *     IopCancelIrpsInFileObjectList @ 0x1402AF910 (IopCancelIrpsInFileObjectList.c)
- *     IopCleanupFileObjectIosbRange @ 0x140944790 (IopCleanupFileObjectIosbRange.c)
+ *     IopCancelIrpsInFileObjectList @ 0x140313D7C (IopCancelIrpsInFileObjectList.c)
+ *     IopCleanupFileObjectIosbRange @ 0x1408913E8 (IopCleanupFileObjectIosbRange.c)
  */
 
 __int64 __fastcall IopCleanupProcessResources(__int64 a1, __int64 a2, __int64 a3)

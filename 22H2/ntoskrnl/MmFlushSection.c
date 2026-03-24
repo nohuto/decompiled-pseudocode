@@ -1,175 +1,110 @@
 /*
- * XREFs of MmFlushSection @ 0x140287370
+ * XREFs of MmFlushSection @ 0x14033D70C
  * Callers:
- *     MiFlushDataSection @ 0x14020EEA0 (MiFlushDataSection.c)
- *     CcFlushCachePreProcess @ 0x14029DD60 (CcFlushCachePreProcess.c)
- *     CcFlushCacheOneRange @ 0x14029E530 (CcFlushCacheOneRange.c)
- *     CcFlushCachePostProcessOneRange @ 0x14029E8D0 (CcFlushCachePostProcessOneRange.c)
- *     CcSetFileSizesEx @ 0x1402F0FA0 (CcSetFileSizesEx.c)
- *     CcPurgeAndClearCacheSection @ 0x1402F12D4 (CcPurgeAndClearCacheSection.c)
- *     CcMdlWriteComplete2 @ 0x14036B23C (CcMdlWriteComplete2.c)
- *     CcUnpinRepinnedBcb @ 0x140392610 (CcUnpinRepinnedBcb.c)
+ *     CcFlushCachePriv @ 0x14022C510 (CcFlushCachePriv.c)
+ *     CcSetFileSizesEx @ 0x14022DA90 (CcSetFileSizesEx.c)
+ *     CcPurgeAndClearCacheSection @ 0x14026F814 (CcPurgeAndClearCacheSection.c)
+ *     CcMdlWriteComplete2 @ 0x140329A88 (CcMdlWriteComplete2.c)
+ *     MiFlushDataSection @ 0x14035A4B0 (MiFlushDataSection.c)
+ *     CcUnpinRepinnedBcb @ 0x1404EA6A0 (CcUnpinRepinnedBcb.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
- *     MiFlushSectionInternal @ 0x140275630 (MiFlushSectionInternal.c)
- *     MiComputeFlushRange @ 0x140287908 (MiComputeFlushRange.c)
- *     MiFlushRelease @ 0x14029F860 (MiFlushRelease.c)
- *     MiReferenceControlAreaFileWithTag @ 0x1402A22D0 (MiReferenceControlAreaFileWithTag.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x1402A23E0 (ObFastDereferenceObjectDeferDelete.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiFreeOverlappedFlushEntry @ 0x140636050 (MiFreeOverlappedFlushEntry.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x1407B4A78 (FsRtlAcquireFileForCcFlushEx.c)
- *     FsRtlReleaseFileForCcFlush @ 0x1407B4D18 (FsRtlReleaseFileForCcFlush.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiFlushSectionInternal @ 0x140219D70 (MiFlushSectionInternal.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
+ *     MiFlushRelease @ 0x140295690 (MiFlushRelease.c)
+ *     MiReferenceControlAreaFile @ 0x14029D540 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1402D7994 (MiDereferenceControlAreaFile.c)
+ *     MiComputeFlushRange @ 0x14033D8A0 (MiComputeFlushRange.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x1406BFDE4 (FsRtlReleaseFileForCcFlush.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x1406BFFC4 (FsRtlAcquireFileForCcFlushEx.c)
  */
 
-__int64 __fastcall MmFlushSection(
-        int a1,
-        __int64 *a2,
-        ULONG_PTR a3,
-        struct _KEVENT *a4,
-        struct _IO_STATUS_BLOCK *a5,
-        unsigned int a6)
+__int64 __fastcall MmFlushSection(int a1, __int64 *a2, __int64 a3, __int64 a4, _DWORD *a5, unsigned int a6)
 {
-  unsigned int v6; // r12d
-  unsigned int v7; // ebp
-  __int64 *v10; // rsi
-  int v11; // eax
-  int v12; // edi
-  volatile signed __int32 *Pool; // r14
-  struct _IO_STATUS_BLOCK *v14; // rbx
+  __int64 v6; // r14
+  __int64 v7; // rax
+  __int64 v8; // rbx
   struct _KTHREAD *CurrentThread; // rsi
-  __int64 v16; // r15
-  char v17; // r13
-  __int64 v18; // rbp
-  __int64 v19; // r12
-  int v20; // edi
-  __int64 result; // rax
-  __int64 v22; // rax
-  __int64 v23; // r15
-  struct _FILE_OBJECT *v24; // rsi
-  _QWORD *v25; // r13
-  unsigned int v26; // [rsp+28h] [rbp-A0h]
-  struct _KTHREAD *v27; // [rsp+40h] [rbp-88h]
-  __int128 v28; // [rsp+48h] [rbp-80h] BYREF
-  __int128 v29; // [rsp+58h] [rbp-70h]
-  __int128 v30; // [rsp+68h] [rbp-60h]
-  char v32; // [rsp+D8h] [rbp+10h]
-  __int64 v34; // [rsp+E8h] [rbp+20h] BYREF
+  __int64 v10; // r15
+  unsigned int v11; // eax
+  ULONG_PTR v12; // r12
+  _QWORD *v13; // r13
+  int v14; // edi
+  unsigned int v16; // r14d
+  ULONG_PTR v17; // rax
+  struct _FILE_OBJECT *v18; // rsi
+  unsigned int v19; // r15d
+  __int128 v20; // [rsp+40h] [rbp-30h] BYREF
+  __int128 v21; // [rsp+50h] [rbp-20h]
+  __int128 v22; // [rsp+60h] [rbp-10h]
+  struct _KTHREAD *v23; // [rsp+B8h] [rbp+48h]
+  __int64 v25; // [rsp+C8h] [rbp+58h] BYREF
 
-  v6 = a6;
-  v7 = 0;
-  v34 = 0LL;
-  LODWORD(v10) = (_DWORD)a2;
-  v11 = a1;
-  v28 = 0LL;
-  v29 = 0LL;
-  v30 = 0LL;
+  v25 = 0LL;
+  v6 = a3;
+  v20 = 0LL;
+  v21 = 0LL;
+  v22 = 0LL;
   if ( a2 )
   {
-    v10 = &v34;
-    v34 = *a2;
-    v11 = a1;
+    v7 = *a2;
+    a2 = &v25;
+    v25 = v7;
   }
-  v12 = a6 & 1;
-  if ( a4 )
-  {
-    if ( (a6 & 1) != 0 )
-    {
-      result = 3221225716LL;
-      a5->Status = -1073741580;
-      return result;
-    }
-    Pool = (volatile signed __int32 *)MiAllocatePool(64LL, 48LL, 1817144653LL);
-    if ( !Pool )
-    {
-      result = 3221225626LL;
-      a5->Status = -1073741670;
-      return result;
-    }
-    v11 = a1;
-    v12 = 0;
-  }
-  else
-  {
-    Pool = 0LL;
-  }
-  v14 = a5;
-  a5->Status = 0;
-  v14->Information = a3;
-  if ( (unsigned int)MiComputeFlushRange(v11, (_DWORD)v10, a3, 0, (__int64)&v28) )
-  {
-    if ( Pool )
-    {
-      *(_QWORD *)Pool = *((_QWORD *)&v29 + 1);
-      *((_QWORD *)Pool + 1) = v30;
-      *((_QWORD *)Pool + 4) = a4;
-      *((_QWORD *)Pool + 2) = 1LL;
-      *((_QWORD *)Pool + 3) = v14;
-    }
-    CurrentThread = KeGetCurrentThread();
-    v16 = v28;
-    v27 = CurrentThread;
-    v17 = BYTE4(CurrentThread[1].Queue);
-    v32 = v17;
-    BYTE4(CurrentThread[1].Queue) = 1;
-    if ( v12 )
-    {
-      v22 = MiReferenceControlAreaFileWithTag(v16, 1666411853LL);
-      v23 = v30;
-      v24 = (struct _FILE_OBJECT *)v22;
-      v25 = (_QWORD *)*((_QWORD *)&v29 + 1);
-      do
-      {
-        v20 = FsRtlAcquireFileForCcFlushEx(v24);
-        if ( v20 < 0 )
-          break;
-        v20 = MiFlushSectionInternal(*((ULONG_PTR *)&v28 + 1), v29, v25, v23, (__int64)Pool, v6, v14);
-        FsRtlReleaseFileForCcFlush(v24);
-        if ( v20 != -1073741740 )
-          break;
-        ++v7;
-        KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&MiShortTime);
-      }
-      while ( v7 < 5 );
-      v16 = v28;
-      ObFastDereferenceObjectDeferDelete(v28 + 64, v24, 1666411853LL);
-      CurrentThread = v27;
-      v17 = v32;
-      v18 = v30;
-      v19 = *((_QWORD *)&v29 + 1);
-    }
-    else
-    {
-      v18 = v30;
-      v26 = v6;
-      v19 = *((_QWORD *)&v29 + 1);
-      v20 = MiFlushSectionInternal(*((ULONG_PTR *)&v28 + 1), v29, *((_QWORD **)&v29 + 1), v30, (__int64)Pool, v26, v14);
-    }
-    if ( v20 < 0 || v14->Information )
-      v14->Information += (unsigned int)(DWORD2(v30) << 12);
-    else
-      v14->Information = a3;
-    BYTE4(CurrentThread[1].Queue) = v17;
-    if ( Pool )
-    {
-      if ( _InterlockedExchangeAdd(Pool + 4, 0xFFFFFFFF) == 1 )
-        MiFreeOverlappedFlushEntry((PVOID)Pool);
-    }
-    else
-    {
-      MiFlushRelease(v16, v19, v18);
-    }
-    return (unsigned int)v20;
-  }
-  else
-  {
-    if ( Pool )
-    {
-      ExFreePoolWithTag((PVOID)Pool, 0);
-      KeSetEvent(a4, 0, 0);
-    }
+  v8 = (__int64)a5;
+  *a5 = 0;
+  *(_QWORD *)(v8 + 8) = a3;
+  if ( !(unsigned int)MiComputeFlushRange(a1, (_DWORD)a2, a3, 0, (__int64)&v20) )
     return 0LL;
+  CurrentThread = KeGetCurrentThread();
+  v10 = v20;
+  v23 = CurrentThread;
+  LOBYTE(v25) = BYTE4(CurrentThread[1].Queue);
+  v11 = a6;
+  BYTE4(CurrentThread[1].Queue) = 1;
+  if ( (v11 & 1) != 0 )
+  {
+    v16 = 0;
+    v17 = MiReferenceControlAreaFile(v10);
+    v12 = v22;
+    v18 = (struct _FILE_OBJECT *)v17;
+    v13 = (_QWORD *)*((_QWORD *)&v21 + 1);
+    v19 = a6;
+    do
+    {
+      v14 = FsRtlAcquireFileForCcFlushEx(v18);
+      if ( v14 < 0 )
+        break;
+      v14 = MiFlushSectionInternal(*((ULONG_PTR *)&v20 + 1), v21, v13, v12, 0LL, v19, (unsigned int *)v8);
+      FsRtlReleaseFileForCcFlush(v18);
+      if ( v14 != -1073741740 )
+        break;
+      ++v16;
+      KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&MiShortTime);
+    }
+    while ( v16 < 5 );
+    v10 = v20;
+    MiDereferenceControlAreaFile(v20, (unsigned __int64)v18);
+    CurrentThread = v23;
+    v6 = a3;
   }
+  else
+  {
+    v12 = v22;
+    v13 = (_QWORD *)*((_QWORD *)&v21 + 1);
+    v14 = MiFlushSectionInternal(
+            *((ULONG_PTR *)&v20 + 1),
+            v21,
+            *((_QWORD **)&v21 + 1),
+            v22,
+            0LL,
+            v11,
+            (unsigned int *)v8);
+  }
+  if ( v14 < 0 || *(_QWORD *)(v8 + 8) )
+    *(_QWORD *)(v8 + 8) += (unsigned int)(DWORD2(v22) << 12);
+  else
+    *(_QWORD *)(v8 + 8) = v6;
+  BYTE4(CurrentThread[1].Queue) = v25;
+  MiFlushRelease(v10, (ULONG_PTR)v13, v12);
+  return (unsigned int)v14;
 }

@@ -1,231 +1,288 @@
 /*
- * XREFs of ?Persist@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C01C2A0C
+ * XREFs of ?Persist@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C00E14E8
  * Callers:
- *     DxgkPersistPathsModality @ 0x1C01C2940 (DxgkPersistPathsModality.c)
- *     ?Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C01D3EC0 (-Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
- *     ?HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F0FB0 (-HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEA.c)
- *     ?HandleMonitorDepartureCase@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F20A0 (-HandleMonitorDepartureCase@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@.c)
+ *     DxgkPersistPathsModality @ 0x1C00E1420 (DxgkPersistPathsModality.c)
+ *     ?Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C014A0E0 (-Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
+ *     ?HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C029624C (-HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEA.c)
+ *     ?HandleMonitorDepartureCase@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0296F98 (-HandleMonitorDepartureCase@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@.c)
  * Callees:
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C00123E4 (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0183C78 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
- *     ?IsSubsetOf@CCD_SET_STRING_ID@@QEBA_NAEBV1@@Z @ 0x1C01AB36C (-IsSubsetOf@CCD_SET_STRING_ID@@QEBA_NAEBV1@@Z.c)
- *     ?Global@CCD_BTL@@SAAEAV1@XZ @ 0x1C01ACA7C (-Global@CCD_BTL@@SAAEAV1@XZ.c)
- *     ?GetConnectedSetStr@CCD_SET_STRING_ID@@QEBAAEBU_STRING@@XZ @ 0x1C01AD7EC (-GetConnectedSetStr@CCD_SET_STRING_ID@@QEBAAEBU_STRING@@XZ.c)
- *     ?GetModalitySetId@CCD_TOPOLOGY@@QEBAAEBVCCD_SET_STRING_ID@@XZ @ 0x1C01AF5C4 (-GetModalitySetId@CCD_TOPOLOGY@@QEBAAEBVCCD_SET_STRING_ID@@XZ.c)
- *     ?LogCddDatabaseAccessPacket@@YAXHJPEAUD3DKMT_GETPATHSMODALITY@@PEAU_STRING@@I@Z @ 0x1C01B5EA8 (-LogCddDatabaseAccessPacket@@YAXHJPEAUD3DKMT_GETPATHSMODALITY@@PEAU_STRING@@I@Z.c)
- *     ?ForTopology@CCD_STORE@@SAJAEBVCCD_SET_STRING_ID@@P6AJPEAVTOPOLOGY_SET_DESCRIPTOR@1@PEAX@Z2_N@Z @ 0x1C01B6F34 (-ForTopology@CCD_STORE@@SAJAEBVCCD_SET_STRING_ID@@P6AJPEAVTOPOLOGY_SET_DESCRIPTOR@1@PEAX@Z2_N@Z.c)
- *     ?ForConnectedSet@CCD_STORE@@SAJAEBVCCD_SET_STRING_ID@@P6AJPEAVCONNECTED_SET_DESCRIPTOR@1@PEAX@Z2_N@Z @ 0x1C01B6FB4 (-ForConnectedSet@CCD_STORE@@SAJAEBVCCD_SET_STRING_ID@@P6AJPEAVCONNECTED_SET_DESCRIPTOR@1@PEAX@Z2.c)
- *     ?_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ @ 0x1C01B71EC (-_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ.c)
- *     ?InvalidateCache@QDC_CACHE@@QEAAX_N@Z @ 0x1C01C02FC (-InvalidateCache@QDC_CACHE@@QEAAX_N@Z.c)
- *     ?VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBVCCD_SET_STRING_ID@@@Z @ 0x1C01C2CB0 (-VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBVCCD_SET_STRING_ID@@@Z.c)
- *     ?CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z @ 0x1C01E3C20 (-CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z.c)
- *     ?Purge@CDS_JOURNAL@@QEAAJXZ @ 0x1C01E8B00 (-Purge@CDS_JOURNAL@@QEAAJXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C000A9FC (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?Purge@CDS_JOURNAL@@QEAAJXZ @ 0x1C00E0E08 (-Purge@CDS_JOURNAL@@QEAAJXZ.c)
+ *     ?VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBVCCD_SET_STRING_ID@@@Z @ 0x1C00E178C (-VerifyConnectivityHash@CCD_TOPOLOGY@@QEBAJAEBVCCD_SET_STRING_ID@@@Z.c)
+ *     ?InvalidateCache@QDC_CACHE@@QEAAX_N@Z @ 0x1C00E2438 (-InvalidateCache@QDC_CACHE@@QEAAX_N@Z.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C0116C30 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?IsSubsetOf@CCD_SET_STRING_ID@@QEBA_NAEBV1@@Z @ 0x1C0131C6C (-IsSubsetOf@CCD_SET_STRING_ID@@QEBA_NAEBV1@@Z.c)
+ *     ?GetConnectedSetStr@CCD_SET_STRING_ID@@QEBAAEBU_STRING@@XZ @ 0x1C013290C (-GetConnectedSetStr@CCD_SET_STRING_ID@@QEBAAEBU_STRING@@XZ.c)
+ *     ?Global@CCD_BTL@@SAAEAV1@XZ @ 0x1C01352C8 (-Global@CCD_BTL@@SAAEAV1@XZ.c)
+ *     ?GetModalitySetId@CCD_TOPOLOGY@@QEBAAEBVCCD_SET_STRING_ID@@XZ @ 0x1C0137340 (-GetModalitySetId@CCD_TOPOLOGY@@QEBAAEBVCCD_SET_STRING_ID@@XZ.c)
+ *     ?LogCddDatabaseAccessPacket@@YAXHJPEAUD3DKMT_GETPATHSMODALITY@@PEAU_STRING@@I@Z @ 0x1C013C8D8 (-LogCddDatabaseAccessPacket@@YAXHJPEAUD3DKMT_GETPATHSMODALITY@@PEAU_STRING@@I@Z.c)
+ *     ?ForTopology@CCD_STORE@@SAJAEBVCCD_SET_STRING_ID@@P6AJPEAVTOPOLOGY_SET_DESCRIPTOR@1@PEAX@Z2_N@Z @ 0x1C0147620 (-ForTopology@CCD_STORE@@SAJAEBVCCD_SET_STRING_ID@@P6AJPEAVTOPOLOGY_SET_DESCRIPTOR@1@PEAX@Z2_N@Z.c)
+ *     ?ForConnectedSet@CCD_STORE@@SAJAEBVCCD_SET_STRING_ID@@P6AJPEAVCONNECTED_SET_DESCRIPTOR@1@PEAX@Z2_N@Z @ 0x1C01476B0 (-ForConnectedSet@CCD_STORE@@SAJAEBVCCD_SET_STRING_ID@@P6AJPEAVCONNECTED_SET_DESCRIPTOR@1@PEAX@Z2.c)
+ *     ?_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ @ 0x1C01478E8 (-_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ.c)
+ *     ?CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z @ 0x1C0169BBC (-CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z.c)
  */
 
-__int64 __fastcall CCD_TOPOLOGY::Persist(struct D3DKMT_GETPATHSMODALITY **this, __int64 a2)
+__int64 __fastcall CCD_TOPOLOGY::Persist(struct D3DKMT_GETPATHSMODALITY **this, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v3; // rsi
-  struct CCD_BTL *v4; // rax
-  int v5; // eax
-  unsigned int v6; // edi
-  int v7; // eax
-  __int64 v8; // rcx
-  DXGSESSIONMGR *v9; // r14
-  unsigned int CurrentProcessSessionId; // eax
-  struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
-  struct CCD_BTL *v12; // rax
+  __int64 v5; // rsi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  struct CCD_BTL *v8; // rax
+  int v9; // eax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rbx
   __int64 v13; // rdx
   __int64 v14; // rcx
-  int v15; // eax
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // rdi
-  int v19; // eax
-  unsigned int v20; // edi
-  struct CCD_BTL *v21; // rax
-  int v22; // eax
-  unsigned int v23; // edx
+  __int64 v15; // r8
+  int v16; // eax
+  __int64 v17; // r8
+  unsigned int v18; // edx
+  DXGSESSIONMGR *v20; // r14
+  unsigned int CurrentProcessSessionId; // eax
+  struct DXGSESSIONDATA *SessionDataForSpecifiedSession; // rax
+  struct CCD_BTL *v23; // rax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // r9
+  int v28; // eax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // r8
+  __int64 v32; // r9
+  __int64 v33; // rbx
+  bool v34; // r9
+  int v35; // eax
+  __int64 v36; // rdx
+  __int64 v37; // rcx
+  __int64 v38; // rbx
+  struct CCD_BTL *v39; // rax
+  int v40; // eax
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  unsigned int v43; // edx
+  __int64 v44; // rdx
+  __int64 v45; // rcx
   struct DXGGLOBAL *Global; // rax
-  __int64 v25; // rdx
-  unsigned int v27; // edx
-  _QWORD *v28; // rax
-  struct CCD_BTL *v29; // rax
-  int v30; // eax
+  _QWORD *v47; // rax
+  struct CCD_BTL *v48; // rax
+  int v49; // eax
+  __int64 v50; // rdx
+  __int64 v51; // rcx
   struct _STRING *ConnectedSetStr; // rax
-  struct D3DKMT_GETPATHSMODALITY *v32; // r8
-  unsigned int v33; // edx
-  _QWORD *v34; // rax
-  struct _STRING v35; // [rsp+30h] [rbp-50h] BYREF
-  int v36; // [rsp+40h] [rbp-40h] BYREF
-  __int128 v37; // [rsp+48h] [rbp-38h] BYREF
-  __int64 v38; // [rsp+58h] [rbp-28h]
-  __int16 v39; // [rsp+60h] [rbp-20h]
-  __int128 v40; // [rsp+68h] [rbp-18h]
+  struct D3DKMT_GETPATHSMODALITY *v53; // r8
+  _QWORD *v54; // rax
+  _QWORD *v55; // rax
+  _QWORD *v56; // rax
+  unsigned int v57; // edx
+  _QWORD *v58; // rax
+  _QWORD *v59; // rax
+  _QWORD *v60; // rax
+  _QWORD *v61; // rax
+  _QWORD *v62; // rax
+  _QWORD *v63; // rax
+  struct _STRING v64; // [rsp+30h] [rbp-50h] BYREF
+  int v65; // [rsp+40h] [rbp-40h] BYREF
+  __int128 v66; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v67; // [rsp+58h] [rbp-28h]
+  __int16 v68; // [rsp+60h] [rbp-20h]
+  __int128 v69; // [rsp+68h] [rbp-18h]
 
-  v3 = (unsigned int)a2;
+  v5 = (unsigned int)a2;
   if ( g_bDMgrIsSetupRunning == 1 )
   {
-    WdLogNewEntry5_WdTrace(this, a2);
+    WdLogNewEntry5_WdTrace(this, a2, a3, a4);
     return 0LL;
   }
   else
   {
-    if ( *((_WORD *)CCD_TOPOLOGY::GetModalitySetId((void **)this) + 4) )
+    if ( *((_WORD *)CCD_TOPOLOGY::GetModalitySetId((CCD_TOPOLOGY *)this) + 4) )
     {
-      v36 = 0;
-      v37 = 0LL;
-      v38 = 0LL;
-      v40 = 0LL;
-      v39 = 0;
-      v4 = CCD_BTL::Global();
-      v5 = (**(__int64 (__fastcall ***)(struct CCD_BTL *, int *))v4)(v4, &v36);
-      v6 = v5;
-      if ( v5 < 0 )
+      v65 = 0;
+      v66 = 0LL;
+      v67 = 0LL;
+      v69 = 0LL;
+      v68 = 0;
+      v8 = CCD_BTL::Global();
+      v9 = (**(__int64 (__fastcall ***)(struct CCD_BTL *, int *))v8)(v8, &v65);
+      v12 = v9;
+      if ( v9 < 0 )
       {
-        WdLogSingleEntry3(2LL, v5, this, this[8]);
-        v27 = 1;
-        goto LABEL_25;
+        v55 = (_QWORD *)WdLogNewEntry5_WdError(v11, v10);
+        v55[3] = v12;
+        v55[4] = this;
+        v55[5] = this[8];
+        WdLogEvent5_WdError(v55);
+        v18 = 1;
+        goto LABEL_10;
       }
-      if ( CCD_SET_STRING_ID::IsSubsetOf((CCD_SET_STRING_ID *)this, (const struct CCD_SET_STRING_ID *)&v36) )
+      if ( CCD_SET_STRING_ID::IsSubsetOf((CCD_SET_STRING_ID *)this, (const struct CCD_SET_STRING_ID *)&v65) )
       {
-        if ( (v3 & 0x40000000) != 0 )
+        if ( (v5 & 0x40000000) != 0 )
+          goto LABEL_8;
+        v16 = CCD_TOPOLOGY::VerifyConnectivityHash((CCD_TOPOLOGY *)this, (const struct CCD_SET_STRING_ID *)&v65);
+        v12 = v16;
+        if ( v16 != -1073741266 )
         {
-LABEL_8:
-          if ( (int)v3 < 0 )
+          if ( v16 < 0 )
           {
-            v27 = 4;
+            v59 = (_QWORD *)WdLogNewEntry5_WdError(v14, v13);
+            v59[3] = v12;
+            v59[4] = this[8];
+            v59[5] = v5;
+            WdLogEvent5_WdError(v59);
+            v18 = 3;
+            goto LABEL_10;
+          }
+LABEL_8:
+          if ( (int)v5 < 0 )
+          {
+            v18 = 4;
+LABEL_10:
+            DxgkLogCodePointPacket(0x3Fu, v18, v5, v12, 0LL);
+LABEL_11:
+            CCD_SET_STRING_ID::_Cleanup((CCD_SET_STRING_ID *)&v65);
+            return (unsigned int)v12;
+          }
+          v20 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL::GetGlobal(v14, v13) + 102);
+          if ( v20 )
+          {
+            CurrentProcessSessionId = PsGetCurrentProcessSessionId();
+            SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
+                                               v20,
+                                               CurrentProcessSessionId);
           }
           else
           {
-            v9 = (DXGSESSIONMGR *)*((_QWORD *)DXGGLOBAL_GetGlobal() + 122);
-            if ( v9 )
-            {
-              CurrentProcessSessionId = PsGetCurrentProcessSessionId(v8);
-              SessionDataForSpecifiedSession = DXGSESSIONMGR::GetSessionDataForSpecifiedSession(
-                                                 v9,
-                                                 CurrentProcessSessionId);
-              if ( SessionDataForSpecifiedSession )
-              {
-                if ( *((_BYTE *)SessionDataForSpecifiedSession + 18498) )
-                {
-                  v23 = 9;
-LABEL_22:
-                  DxgkLogCodePointPacket(0x3Fu, v23, v3, v6, 0LL);
-                  Global = DXGGLOBAL_GetGlobal();
-                  LOBYTE(v25) = 1;
-                  QDC_CACHE::InvalidateCache(*((QDC_CACHE **)Global + 191), v25);
-LABEL_23:
-                  CCD_SET_STRING_ID::_Cleanup((CCD_SET_STRING_ID *)&v36);
-                  return v6;
-                }
-              }
-            }
-            v12 = CCD_BTL::Global();
-            if ( *((struct CCD_BTL **)v12 + 17) != (struct CCD_BTL *)((char *)v12 + 136) )
-            {
-              v28 = (_QWORD *)WdLogNewEntry5_WdTrace(v14, v13);
-              v28[3] = v3;
-              LODWORD(v3) = v3 | 1;
-              v28[4] = this;
-              v28[5] = this[8];
-              v29 = CCD_BTL::Global();
-              CDS_JOURNAL::Purge((struct CCD_BTL *)((char *)v29 + 112));
-            }
-            if ( (v3 & 1) == 0 )
-            {
-              v15 = CCD_STORE::ForTopology(
-                      (__int64)this,
-                      anonymous_namespace_::_UpdateTimestampTopologySetCallback,
-                      (__int64)this,
-                      0);
-              v18 = v15;
-              if ( v15 >= 0 )
-              {
-LABEL_16:
-                if ( CCD_SET_STRING_ID::IsSubsetOf((CCD_SET_STRING_ID *)this, (const struct CCD_SET_STRING_ID *)&v36) )
-                {
-                  v19 = CCD_STORE::ForConnectedSet(
-                          (const struct CCD_SET_STRING_ID *)&v36,
-                          anonymous_namespace_::_UpdateConnectedSetCallback,
-                          this);
-                  v20 = v19;
-                  if ( v19 < 0 )
-                  {
-                    WdLogSingleEntry4(2LL, v19, &v37, this, this[8]);
-                    DxgkLogCodePointPacket(0x3Fu, 6u, v3, v20, 0LL);
-                  }
-                }
-                v21 = CCD_BTL::Global();
-                v22 = CCD_TOPOLOGY::CopyInheritScope(
-                        (struct CCD_BTL *)((char *)v21 + 8),
-                        (const struct CCD_TOPOLOGY *)this);
-                v6 = v22;
-                if ( v22 < 0 )
-                {
-                  WdLogSingleEntry3(2LL, v22, this, this[8]);
-                  DxgkLogCodePointPacket(0x3Fu, 7u, v3, v6, 0LL);
-                  v6 = 0;
-                }
-                v23 = 8;
-                goto LABEL_22;
-              }
-              v34 = (_QWORD *)WdLogNewEntry5_WdTrace(v17, v16);
-              v34[3] = v18;
-              v34[4] = this;
-              v34[5] = this[8];
-            }
-            v30 = CCD_STORE::ForTopology(
-                    (__int64)this,
-                    anonymous_namespace_::_SaveTopologySetCallback,
-                    (__int64)this,
-                    1);
-            v6 = v30;
-            if ( v30 >= 0 )
-            {
-              if ( *((_BYTE *)DXGGLOBAL_GetGlobal() + 1376) )
-              {
-                ConnectedSetStr = (struct _STRING *)CCD_SET_STRING_ID::GetConnectedSetStr((CCD_SET_STRING_ID *)&v36);
-                v32 = this[8];
-                v35 = *ConnectedSetStr;
-                LogCddDatabaseAccessPacket(0, v6, v32, &v35, 0);
-              }
-              goto LABEL_16;
-            }
-            WdLogSingleEntry3(2LL, v30, this, this[8]);
-            v27 = 5;
+            SessionDataForSpecifiedSession = 0LL;
           }
-LABEL_25:
-          DxgkLogCodePointPacket(0x3Fu, v27, v3, v6, 0LL);
-          goto LABEL_23;
-        }
-        v7 = CCD_TOPOLOGY::VerifyConnectivityHash((CCD_TOPOLOGY *)this, (const struct CCD_SET_STRING_ID *)&v36);
-        v6 = v7;
-        if ( v7 != -1073741266 )
-        {
-          if ( v7 < 0 )
+          if ( SessionDataForSpecifiedSession && *((_BYTE *)SessionDataForSpecifiedSession + 18490) )
           {
-            WdLogSingleEntry3(2LL, v7, this[8], v3);
-            v27 = 3;
-            goto LABEL_25;
+            v43 = 9;
+LABEL_26:
+            DxgkLogCodePointPacket(0x3Fu, v43, v5, v12, 0LL);
+            Global = DXGGLOBAL::GetGlobal(v45, v44);
+            QDC_CACHE::InvalidateCache(*((QDC_CACHE **)Global + 172), 1);
+            goto LABEL_11;
           }
-          goto LABEL_8;
+          v23 = CCD_BTL::Global();
+          if ( *((struct CCD_BTL **)v23 + 16) != (struct CCD_BTL *)((char *)v23 + 128) )
+          {
+            v47 = (_QWORD *)WdLogNewEntry5_WdTrace(v25, v24, v26, v27);
+            v47[3] = v5;
+            LODWORD(v5) = v5 | 1;
+            v47[4] = this;
+            v47[5] = this[8];
+            v48 = CCD_BTL::Global();
+            CDS_JOURNAL::Purge((struct CCD_BTL *)((char *)v48 + 104));
+          }
+          if ( (v5 & 1) == 0 )
+          {
+            v28 = CCD_STORE::ForTopology(
+                    (const struct CCD_SET_STRING_ID *)this,
+                    anonymous_namespace_::_UpdateTimestampTopologySetCallback,
+                    this,
+                    0);
+            v33 = v28;
+            if ( v28 >= 0 )
+            {
+LABEL_20:
+              if ( CCD_SET_STRING_ID::IsSubsetOf((CCD_SET_STRING_ID *)this, (const struct CCD_SET_STRING_ID *)&v65) )
+              {
+                v35 = CCD_STORE::ForConnectedSet(
+                        (const struct CCD_SET_STRING_ID *)&v65,
+                        anonymous_namespace_::_UpdateConnectedSetCallback,
+                        this,
+                        v34);
+                v38 = v35;
+                if ( v35 < 0 )
+                {
+                  v62 = (_QWORD *)WdLogNewEntry5_WdError(v37, v36);
+                  v62[4] = &v66;
+                  v62[3] = v38;
+                  v62[5] = this;
+                  v62[6] = this[8];
+                  WdLogEvent5_WdError(v62);
+                  DxgkLogCodePointPacket(0x3Fu, 6u, v5, v38, 0LL);
+                }
+              }
+              v39 = CCD_BTL::Global();
+              v40 = CCD_TOPOLOGY::CopyInheritScope(
+                      (struct CCD_BTL *)((char *)v39 + 8),
+                      (const struct CCD_TOPOLOGY *)this);
+              v12 = v40;
+              if ( v40 < 0 )
+              {
+                v63 = (_QWORD *)WdLogNewEntry5_WdError(v42, v41);
+                v63[3] = v12;
+                v63[4] = this;
+                v63[5] = this[8];
+                WdLogEvent5_WdError(v63);
+                DxgkLogCodePointPacket(0x3Fu, 7u, v5, v12, 0LL);
+                LODWORD(v12) = 0;
+              }
+              v43 = 8;
+              goto LABEL_26;
+            }
+            v60 = (_QWORD *)WdLogNewEntry5_WdTrace(v30, v29, v31, v32);
+            v60[3] = v33;
+            v60[4] = this;
+            v60[5] = this[8];
+          }
+          v49 = CCD_STORE::ForTopology(
+                  (const struct CCD_SET_STRING_ID *)this,
+                  anonymous_namespace_::_SaveTopologySetCallback,
+                  this,
+                  1);
+          v12 = v49;
+          if ( v49 < 0 )
+          {
+            v61 = (_QWORD *)WdLogNewEntry5_WdError(v51, v50);
+            v61[3] = v12;
+            v61[4] = this;
+            v61[5] = this[8];
+            WdLogEvent5_WdError(v61);
+            v18 = 5;
+            goto LABEL_10;
+          }
+          if ( *((_BYTE *)DXGGLOBAL::GetGlobal(v51, v50) + 1232) )
+          {
+            ConnectedSetStr = (struct _STRING *)CCD_SET_STRING_ID::GetConnectedSetStr((CCD_SET_STRING_ID *)&v65);
+            v53 = this[8];
+            v64 = *ConnectedSetStr;
+            LogCddDatabaseAccessPacket(0, v12, v53, &v64, 0);
+          }
+          goto LABEL_20;
         }
-        WdLogSingleEntry3(3LL, -1073741266LL, this[8], v3);
-        v33 = 3;
+        v58 = (_QWORD *)WdLogNewEntry5_WdWarning(v14, v13, v17);
+        v58[3] = -1073741266LL;
+        v58[4] = this[8];
+        v58[5] = v5;
+        WdLogEvent5_WdWarning(v58);
+        v57 = 3;
       }
       else
       {
-        WdLogSingleEntry3(3LL, -1073741266LL, this[8], v3);
-        v33 = 2;
+        v56 = (_QWORD *)WdLogNewEntry5_WdWarning(v14, v13, v15);
+        v56[3] = -1073741266LL;
+        v56[4] = this[8];
+        v56[5] = v5;
+        WdLogEvent5_WdWarning(v56);
+        v57 = 2;
       }
-      DxgkLogCodePointPacket(0x3Fu, v33, v3, 0xC000022E, 0LL);
-      v6 = -1073741266;
-      goto LABEL_23;
+      DxgkLogCodePointPacket(0x3Fu, v57, v5, 0xC000022E, 0LL);
+      LODWORD(v12) = -1073741266;
+      goto LABEL_11;
     }
-    WdLogSingleEntry3(2LL, this, this[8], *(int *)this);
-    DxgkLogCodePointPacket(0x3Fu, 0, v3, 0xC0000001, 0LL);
+    v54 = (_QWORD *)WdLogNewEntry5_WdError(v7, v6);
+    v54[3] = this;
+    v54[4] = this[8];
+    v54[5] = *(int *)this;
+    WdLogEvent5_WdError(v54);
+    DxgkLogCodePointPacket(0x3Fu, 0, v5, 0xC0000001, 0LL);
     return 3221225473LL;
   }
 }

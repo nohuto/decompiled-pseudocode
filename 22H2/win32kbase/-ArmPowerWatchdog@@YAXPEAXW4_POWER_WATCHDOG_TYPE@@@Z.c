@@ -1,68 +1,64 @@
 /*
- * XREFs of ?ArmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z @ 0x1C013230C
+ * XREFs of ?ArmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z @ 0x1C0078C2C
  * Callers:
- *     QueuePowerRequest @ 0x1C00108E0 (QueuePowerRequest.c)
- *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C009F448 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
- *     PowerOnMonitor @ 0x1C0133F80 (PowerOnMonitor.c)
+ *     QueuePowerRequest @ 0x1C0077DE0 (QueuePowerRequest.c)
+ *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C0078210 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
+ *     PowerOnMonitor @ 0x1C0078C80 (PowerOnMonitor.c)
  * Callees:
- *     Feature_Backport_PowerWatchdogTimeoutUserCritFix__private_IsEnabledDeviceUsage @ 0x1C00D0C30 (Feature_Backport_PowerWatchdogTimeoutUserCritFix__private_IsEnabledDeviceUsage.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     McTemplateK0pq_EtwWriteTransfer @ 0x1C00DFA54 (McTemplateK0pq_EtwWriteTransfer.c)
- *     ?GetPowerWatchdogTimeoutMsec@@YAKW4_POWER_WATCHDOG_TYPE@@@Z @ 0x1C01324C8 (-GetPowerWatchdogTimeoutMsec@@YAKW4_POWER_WATCHDOG_TYPE@@@Z.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$00@@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$00@@AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C0118224 (--$Write@U-$_tlgWrapperByVal@$00@@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@@-$_tlgWrite.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C01261B0 (McTemplateK0pq_EtwWriteTransfer.c)
  */
 
 void __fastcall ArmPowerWatchdog(__int64 a1, int a2)
 {
-  __int64 v2; // rdi
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  _DWORD *v8; // rax
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rcx
-  __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v21; // r9
-  __int64 v22; // rax
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v25; // [rsp+20h] [rbp-19h]
-  _QWORD InputBuffer[12]; // [rsp+30h] [rbp-9h] BYREF
+  __int64 v2; // rbx
+  unsigned int v4; // ecx
+  _DWORD *v5; // rax
+  int v6; // eax
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  int v9; // ecx
+  int v10; // r8d
+  int v11; // r9d
+  _QWORD InputBuffer[14]; // [rsp+40h] [rbp-19h] BYREF
+  char v13; // [rsp+C0h] [rbp+67h] BYREF
+  int v14; // [rsp+D0h] [rbp+77h] BYREF
+  __int64 v15; // [rsp+D8h] [rbp+7Fh] BYREF
 
   if ( a1 )
   {
     v2 = a2;
-    memset(InputBuffer, 0, sizeof(InputBuffer));
+    memset(InputBuffer, 0, 0x60uLL);
+    v4 = 0;
     LODWORD(InputBuffer[0]) = 21;
+    v5 = &gPowerWatchdogTimeouts;
     InputBuffer[1] = a1;
-    LODWORD(InputBuffer[2]) = GetPowerWatchdogTimeoutMsec((unsigned int)v2);
-    v8 = (_DWORD *)SGDGetUserSessionState(v5, v4, v6, v7);
-    v12 = (unsigned int)*v8;
-    HIDWORD(InputBuffer[2]) = *v8;
+    while ( *v5 != (_DWORD)v2 )
+    {
+      ++v4;
+      v5 += 6;
+      if ( v4 >= 5 )
+      {
+        v6 = 30000;
+        goto LABEL_7;
+      }
+    }
+    v6 = v5[4];
+LABEL_7:
+    InputBuffer[2] = __PAIR64__(gSessionId, v6);
     LODWORD(InputBuffer[3]) = 412;
     InputBuffer[4] = v2;
+    if ( gPowerWatchdogTest )
+      InputBuffer[4] = v2 | 0xFFFFFFFF80000000uLL;
     if ( (_DWORD)v2 == 16 )
     {
-      v13 = SGDGetUserSessionState(v12, v9, v10, v11);
       BYTE1(InputBuffer[8]) = 1;
-      InputBuffer[5] = v13 + 720;
-      if ( (unsigned int)Feature_Backport_PowerWatchdogTimeoutUserCritFix__private_IsEnabledDeviceUsage() )
-        v19 = *(_QWORD *)(SGDGetUserSessionState(v15, v14, v16, v17) + 8);
-      else
-        v19 = *(_QWORD *)(SGDGetUserSessionState(v15, v14, v16, v17) + 8) != 0LL;
-      InputBuffer[6] = v19;
-      v22 = SGDGetUserSessionState(v19, v18, v20, v21);
+      InputBuffer[5] = &gpPowerThread;
+      InputBuffer[6] = gpresUser;
+      InputBuffer[7] = &gpPowerRequestCurrent;
       BYTE3(InputBuffer[8]) = 1;
-      InputBuffer[7] = v22 + 672;
     }
     else
     {
@@ -72,9 +68,20 @@ void __fastcall ArmPowerWatchdog(__int64 a1, int a2)
     }
     ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x60u, 0LL, 0);
     if ( (Microsoft_Windows_Win32kEnableBits & 8) != 0 )
+      McTemplateK0pq_EtwWriteTransfer(v7, &StartPowerWatchdog, v8, a1, v2);
+    if ( (unsigned int)dword_1C0245378 > 5 && tlgKeywordOn((__int64)&dword_1C0245378, 0x400000000000LL) )
     {
-      LODWORD(v25) = v2;
-      McTemplateK0pq_EtwWriteTransfer(v23, &StartPowerWatchdog, v24, a1, v25);
+      v14 = v2;
+      v15 = a1;
+      v13 = 1;
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<1>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
+        v9,
+        (unsigned int)&unk_1C02184AB,
+        v10,
+        v11,
+        (__int64)&v13,
+        (__int64)&v15,
+        (__int64)&v14);
     }
   }
 }

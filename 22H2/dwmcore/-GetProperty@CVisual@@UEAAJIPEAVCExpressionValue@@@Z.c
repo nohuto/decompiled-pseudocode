@@ -1,108 +1,95 @@
 /*
- * XREFs of ?GetProperty@CVisual@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1800C4B20
+ * XREFs of ?GetProperty@CVisual@@UEAAJIPEAVCExpressionValue@@@Z @ 0x180067A40
  * Callers:
- *     ?GetProperty@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x180245B90 (-GetProperty@-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@MEAAJIPEAVC.c)
+ *     ?GetProperty@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801E05E0 (-GetProperty@-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@MEAAJIPEAVC.c)
  * Callees:
- *     ?GetRelativeOffsetInternal@CVisual@@QEBA?AUD2D_VECTOR_3F@@XZ @ 0x18001B458 (-GetRelativeOffsetInternal@CVisual@@QEBA-AUD2D_VECTOR_3F@@XZ.c)
- *     ?GetRelativeLayoutSizeInternal@CVisual@@QEBA?AUD2D_SIZE_F@@XZ @ 0x180039EDC (-GetRelativeLayoutSizeInternal@CVisual@@QEBA-AUD2D_SIZE_F@@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetRelativeLayoutSizeInternal@CVisual@@QEBA?AUD2D_SIZE_F@@XZ @ 0x1800679F0 (-GetRelativeLayoutSizeInternal@CVisual@@QEBA-AUD2D_SIZE_F@@XZ.c)
+ *     ?GetOpacityInternal@CVisual@@QEBAMXZ @ 0x1800688A0 (-GetOpacityInternal@CVisual@@QEBAMXZ.c)
+ *     ?GetRelativeOffsetInternal@CVisual@@QEBA?AUD2D_VECTOR_3F@@XZ @ 0x1800D225C (-GetRelativeOffsetInternal@CVisual@@QEBA-AUD2D_VECTOR_3F@@XZ.c)
  */
 
 __int64 __fastcall CVisual::GetProperty(CVisual *this, int a2, struct CExpressionValue *a3)
 {
-  struct CExpressionValue *v3; // r11
-  char v4; // cl
-  __int64 result; // rax
-  __int64 v6; // rax
-  int v7; // xmm0_4
-  FLOAT x; // xmm0_4
-  FLOAT y; // xmm1_4
-  FLOAT z; // xmm2_4
-  int v11; // edx
-  int *v12; // rcx
-  __int64 v13; // r11
-  struct D2D_VECTOR_3F v14; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v15; // [rsp+68h] [rbp+20h] BYREF
+  unsigned int v3; // ebx
+  int v4; // edx
+  __int64 v5; // r11
+  float OpacityInternal; // xmm0_4
+  int v8; // edx
+  int v9; // xmm0_4
+  int v10; // xmm1_4
+  int v11; // xmm2_4
+  int v12; // edx
+  int v13; // edx
+  int v14; // edx
+  bool v15; // al
+  FLOAT v16; // eax
+  struct D2D_VECTOR_3F v17; // [rsp+30h] [rbp-28h] BYREF
+  FLOAT z; // [rsp+48h] [rbp-10h]
+  __int64 v19; // [rsp+78h] [rbp+20h] BYREF
 
-  v3 = a3;
-  if ( a2 == 37 )
+  v3 = 0;
+  v4 = a2 - 26;
+  if ( v4 )
   {
-    v4 = *((_BYTE *)this + 103) & 1;
-    *((_DWORD *)a3 + 18) = 17;
-    *(_BYTE *)a3 = v4;
-    *((_BYTE *)a3 + 76) = 1;
-    return 0LL;
-  }
-  else
-  {
-    switch ( a2 )
+    v8 = v4 - 2;
+    if ( v8 )
     {
-      case 25:
-        v6 = *((_QWORD *)this + 28);
-        if ( (*(_DWORD *)(v6 + 4) & 0x8000000) != 0 )
+      v12 = v8 - 1;
+      if ( v12 )
+      {
+        v13 = v12 - 1;
+        if ( !v13 )
         {
-          v11 = *(_DWORD *)(v6 + 12);
-          v12 = (int *)(v6 + 12);
-          if ( (v11 & 0x7F000000) != 0x5000000 )
-          {
-            do
-            {
-              v12 = (int *)((char *)v12 + (v11 & 0xFFFFFF) + 4);
-              v11 = *v12;
-            }
-            while ( (*v12 & 0x7F000000) != 0x5000000 );
-          }
-          v7 = v12[1];
+          CVisual::GetRelativeOffsetInternal(this, &v17);
+          z = v17.z;
+          v16 = v17.z;
+          *(_QWORD *)v5 = _mm_unpacklo_ps((__m128)LODWORD(v17.x), (__m128)LODWORD(v17.y)).m128_u64[0];
+          *(FLOAT *)(v5 + 8) = v16;
+          *(_DWORD *)(v5 + 72) = 52;
+          goto LABEL_3;
         }
-        else
+        v14 = v13 - 1;
+        if ( !v14 )
         {
-          v7 = (int)FLOAT_1_0;
+          CVisual::GetRelativeLayoutSizeInternal(this, &v19);
+          *(_QWORD *)v5 = _mm_unpacklo_ps((__m128)(unsigned int)v19, (__m128)HIDWORD(v19)).m128_u64[0];
+          *(_DWORD *)(v5 + 72) = 35;
+          goto LABEL_3;
         }
-        *(_DWORD *)a3 = v7;
-        result = 0LL;
-        *((_DWORD *)a3 + 18) = 18;
-        *((_BYTE *)a3 + 76) = 1;
-        return result;
-      case 26:
-        *(_BYTE *)a3 = *((_BYTE *)this + 101) >> 7;
+        if ( v14 != 7 )
+        {
+          v3 = -2147024809;
+          MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x16A1u, 0LL);
+          return v3;
+        }
+        v15 = (*((_BYTE *)this + 95) & 2) != 0;
         *((_DWORD *)a3 + 18) = 17;
-        *((_BYTE *)a3 + 76) = 1;
-        return 0LL;
-      case 27:
-        x = *((float *)this + 28);
-        y = *((float *)this + 29);
-        z = *((float *)this + 30);
-        goto LABEL_9;
-      case 28:
-        result = 0LL;
-        *(_QWORD *)a3 = _mm_unpacklo_ps((__m128)*((unsigned int *)this + 33), (__m128)*((unsigned int *)this + 34)).m128_u64[0];
+        *(_BYTE *)a3 = v15;
+      }
+      else
+      {
+        *(_QWORD *)a3 = _mm_unpacklo_ps((__m128)*((unsigned int *)this + 31), (__m128)*((unsigned int *)this + 32)).m128_u64[0];
         *((_DWORD *)a3 + 18) = 35;
-        *((_BYTE *)a3 + 76) = 1;
-        return result;
-      case 29:
-        CVisual::GetRelativeOffsetInternal(this, &v14);
-        y = v14.y;
-        z = v14.z;
-        x = v14.x;
-LABEL_9:
-        *((_DWORD *)v3 + 18) = 52;
-        result = 0LL;
-        *(FLOAT *)v3 = x;
-        *((FLOAT *)v3 + 1) = y;
-        *((FLOAT *)v3 + 2) = z;
-        *((_BYTE *)v3 + 76) = 1;
-        break;
-      case 30:
-        CVisual::GetRelativeLayoutSizeInternal(this, &v15);
-        *(_QWORD *)v13 = _mm_unpacklo_ps((__m128)(unsigned int)v15, (__m128)HIDWORD(v15)).m128_u64[0];
-        *(_DWORD *)(v13 + 72) = 35;
-        *(_BYTE *)(v13 + 76) = 1;
-        return 0LL;
-      default:
-        MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x1747u, 0LL);
-        result = 2147942487LL;
-        break;
+      }
     }
+    else
+    {
+      v9 = *((_DWORD *)this + 26);
+      v10 = *((_DWORD *)this + 27);
+      v11 = *((_DWORD *)this + 28);
+      *((_DWORD *)a3 + 18) = 52;
+      *(_DWORD *)a3 = v9;
+      *((_DWORD *)a3 + 1) = v10;
+      *((_DWORD *)a3 + 2) = v11;
+    }
+    *((_BYTE *)a3 + 76) = 1;
+    return v3;
   }
-  return result;
+  OpacityInternal = CVisual::GetOpacityInternal(this);
+  *(float *)v5 = OpacityInternal;
+  *(_DWORD *)(v5 + 72) = 18;
+LABEL_3:
+  *(_BYTE *)(v5 + 76) = 1;
+  return v3;
 }

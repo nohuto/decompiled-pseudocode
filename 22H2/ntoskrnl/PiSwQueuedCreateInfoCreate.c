@@ -1,45 +1,47 @@
 /*
- * XREFs of PiSwQueuedCreateInfoCreate @ 0x140967AB0
+ * XREFs of PiSwQueuedCreateInfoCreate @ 0x1408AEB84
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x14081B5CC (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074CF08 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     PsGetCurrentThreadProcessId @ 0x1402AF870 (PsGetCurrentThreadProcessId.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     PnpAllocatePWSTR @ 0x1406CCCEC (PnpAllocatePWSTR.c)
- *     PiSwPnPInfoInit @ 0x14081BB50 (PiSwPnPInfoInit.c)
- *     PnpCopyDevPropertyArray @ 0x14081C0E0 (PnpCopyDevPropertyArray.c)
- *     PiSwQueuedCreateInfoFree @ 0x140967BC0 (PiSwQueuedCreateInfoFree.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PnpAllocatePWSTR @ 0x1406B0F08 (PnpAllocatePWSTR.c)
+ *     PnpCopyDevPropertyArray @ 0x14074D2EC (PnpCopyDevPropertyArray.c)
+ *     PiSwPnPInfoInit @ 0x14074D45C (PiSwPnPInfoInit.c)
+ *     PiSwQueuedCreateInfoFree @ 0x1408AEC98 (PiSwQueuedCreateInfoFree.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiSwQueuedCreateInfoCreate(PVOID *a1, __int64 a2)
+__int64 __fastcall PiSwQueuedCreateInfoCreate(PVOID **a1, __int64 a2)
 {
-  PVOID *Pool2; // rax
+  PVOID *PoolWithTag; // rax
   int PWSTR; // ebx
   __int64 v6; // r8
-  void *v7; // rcx
+  PVOID v7; // rcx
 
-  Pool2 = (PVOID *)ExAllocatePool2(256LL, 88LL, 1466986064LL);
-  *a1 = Pool2;
-  if ( !Pool2 )
-    goto LABEL_2;
-  PWSTR = PnpAllocatePWSTR(*(NTSTRSAFE_PCWSTR *)(a2 + 8), 0xC8uLL, 0x57706E50u, Pool2);
+  PoolWithTag = (PVOID *)ExAllocatePoolWithTag(PagedPool, 0x58uLL, 0x57706E50u);
+  *a1 = PoolWithTag;
+  if ( !PoolWithTag )
+  {
+    PWSTR = -1073741670;
+    goto LABEL_10;
+  }
+  memset(PoolWithTag, 0, 0x58uLL);
+  PWSTR = PnpAllocatePWSTR(*(NTSTRSAFE_PCWSTR *)(a2 + 8), 0xC8uLL, 0x57706E50u, *a1);
   if ( PWSTR >= 0 )
   {
-    PWSTR = PiSwPnPInfoInit((__int64)*a1 + 8, a2);
+    PWSTR = PiSwPnPInfoInit((__int64)(*a1 + 1), a2);
     if ( PWSTR >= 0 )
     {
-      *((_DWORD *)*a1 + 17) = PsGetCurrentThreadProcessId();
       if ( *(_QWORD *)(a2 + 96) )
       {
         *((_DWORD *)*a1 + 16) = *(_DWORD *)(a2 + 88);
-        *((_QWORD *)*a1 + 7) = ExAllocatePool2(256LL, *(unsigned int *)(a2 + 88), 1466986064LL);
-        v7 = (void *)*((_QWORD *)*a1 + 7);
+        (*a1)[7] = ExAllocatePoolWithTag(PagedPool, *(unsigned int *)(a2 + 88), 0x57706E50u);
+        v7 = (*a1)[7];
         if ( !v7 )
         {
-LABEL_2:
           PWSTR = -1073741670;
-          goto LABEL_9;
+          goto LABEL_11;
         }
         memmove(v7, *(const void **)(a2 + 96), *(unsigned int *)(a2 + 88));
       }
@@ -48,12 +50,13 @@ LABEL_2:
                 *(_QWORD *)(a2 + 112),
                 v6,
                 (_DWORD *)*a1 + 20,
-                (PVOID *)*a1 + 9);
+                *a1 + 9);
+LABEL_10:
       if ( PWSTR >= 0 )
         return (unsigned int)PWSTR;
     }
   }
-LABEL_9:
+LABEL_11:
   if ( *a1 )
   {
     PiSwQueuedCreateInfoFree(*a1);

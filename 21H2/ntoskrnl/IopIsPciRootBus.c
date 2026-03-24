@@ -1,40 +1,40 @@
 /*
- * XREFs of IopIsPciRootBus @ 0x140948150
+ * XREFs of IopIsPciRootBus @ 0x1408A2EF0
  * Callers:
- *     IopMemQueryConflict @ 0x140948260 (IopMemQueryConflict.c)
+ *     IopMemQueryConflict @ 0x1408A2FF0 (IopMemQueryConflict.c)
  * Callees:
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     IoGetDeviceProperty @ 0x140773C30 (IoGetDeviceProperty.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     IoGetDeviceProperty @ 0x14063FC90 (IoGetDeviceProperty.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall IopIsPciRootBus(PDEVICE_OBJECT DeviceObject, _BYTE *a2)
 {
   NTSTATUS result; // eax
-  _WORD *Pool2; // rdi
+  _WORD *PoolWithTag; // rdi
   NTSTATUS DeviceProperty; // ebx
   const wchar_t *v7; // rbx
-  ULONG BufferLength; // [rsp+48h] [rbp+10h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+48h] [rbp+10h] BYREF
 
-  BufferLength = 0;
+  LODWORD(NumberOfBytes) = 0;
   *a2 = 0;
-  result = IoGetDeviceProperty(DeviceObject, DevicePropertyHardwareID, 0, 0LL, &BufferLength);
+  result = IoGetDeviceProperty(DeviceObject, DevicePropertyHardwareID, 0, 0LL, (PULONG)&NumberOfBytes);
   if ( result == -1073741789 )
   {
-    Pool2 = (_WORD *)ExAllocatePool2(256LL, BufferLength, 538996816LL);
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x20207050u);
+    if ( PoolWithTag )
     {
-      DeviceProperty = IoGetDeviceProperty(DeviceObject, DevicePropertyHardwareID, BufferLength, Pool2, &BufferLength);
-      if ( DeviceProperty < 0 )
+      DeviceProperty = IoGetDeviceProperty(
+                         DeviceObject,
+                         DevicePropertyHardwareID,
+                         NumberOfBytes,
+                         PoolWithTag,
+                         (PULONG)&NumberOfBytes);
+      if ( DeviceProperty >= 0 )
       {
-        ExFreePoolWithTag(Pool2, 0);
-        return DeviceProperty;
-      }
-      else
-      {
-        v7 = Pool2;
-        if ( *Pool2 )
+        v7 = PoolWithTag;
+        if ( *PoolWithTag )
         {
           while ( wcsicmp(v7, L"ACPI\\PNP0A03") && wcsicmp(v7, L"ACPI\\PNP0A08") )
           {
@@ -46,9 +46,10 @@ NTSTATUS __fastcall IopIsPciRootBus(PDEVICE_OBJECT DeviceObject, _BYTE *a2)
           *a2 = 1;
         }
 LABEL_9:
-        ExFreePoolWithTag(Pool2, 0);
-        return 0;
+        DeviceProperty = 0;
       }
+      ExFreePoolWithTag(PoolWithTag, 0);
+      return DeviceProperty;
     }
     else
     {

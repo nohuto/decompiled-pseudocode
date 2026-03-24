@@ -1,11 +1,11 @@
 /*
  * XREFs of ViGetRealDmaOperation @ 0x14092DB34
  * Callers:
- *     VfAllocateDomainCommonBuffer @ 0x140309EA0 (VfAllocateDomainCommonBuffer.c)
- *     VfFlushDmaBuffer @ 0x140309FD0 (VfFlushDmaBuffer.c)
- *     VfGetDmaDomain @ 0x14030A020 (VfGetDmaDomain.c)
- *     VfJoinDmaDomain @ 0x14030A050 (VfJoinDmaDomain.c)
- *     VfLeaveDmaDomain @ 0x14030A090 (VfLeaveDmaDomain.c)
+ *     VfAllocateDomainCommonBuffer @ 0x140309FA0 (VfAllocateDomainCommonBuffer.c)
+ *     VfFlushDmaBuffer @ 0x14030A0D0 (VfFlushDmaBuffer.c)
+ *     VfGetDmaDomain @ 0x14030A120 (VfGetDmaDomain.c)
+ *     VfJoinDmaDomain @ 0x14030A150 (VfJoinDmaDomain.c)
+ *     VfLeaveDmaDomain @ 0x14030A190 (VfLeaveDmaDomain.c)
  *     VfAllocateAdapterChannel @ 0x140929AE0 (VfAllocateAdapterChannel.c)
  *     VfAllocateAdapterChannelEx @ 0x140929D10 (VfAllocateAdapterChannelEx.c)
  *     VfAllocateCommonBuffer @ 0x140929F50 (VfAllocateCommonBuffer.c)
@@ -36,7 +36,7 @@
  *     VfPutScatterGatherList @ 0x14092C170 (VfPutScatterGatherList.c)
  *     VfReadDmaCounter @ 0x14092C380 (VfReadDmaCounter.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
  *     ViGetAdapterInformationInternal @ 0x14092D868 (ViGetAdapterInformationInternal.c)
  *     ViHalPreprocessOptions @ 0x14092DD28 (ViHalPreprocessOptions.c)
  */
@@ -50,8 +50,8 @@ __int64 __fastcall ViGetRealDmaOperation(ULONG_PTR a1, unsigned int a2)
   v3 = a2;
   if ( ViVerifyDma && !a1 )
   {
-    ViHalPreprocessOptions(byte_1404054EC, "DMA adapters aren't supposed to be NULL anymore", 25LL, 0LL);
-    VfReportIssueWithOptions(0xE6u, (unsigned int)(a1 + 25), 0LL, 0LL, 0LL, byte_1404054EC);
+    ViHalPreprocessOptions(byte_1404054E4, "DMA adapters aren't supposed to be NULL anymore", 25LL, 0LL);
+    VfReportIssueWithOptions(0xE6u, (unsigned int)(a1 + 25), 0LL, 0LL, 0LL, byte_1404054E4);
   }
   AdapterInformationInternal = ViGetAdapterInformationInternal(a1, 1);
   if ( AdapterInformationInternal )

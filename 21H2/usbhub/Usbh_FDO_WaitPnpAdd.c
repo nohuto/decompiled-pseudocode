@@ -1,23 +1,23 @@
 /*
- * XREFs of Usbh_FDO_WaitPnpAdd @ 0x1C0043B30
+ * XREFs of Usbh_FDO_WaitPnpAdd @ 0x1C0044DE0
  * Callers:
  *     <none>
  * Callees:
- *     UsbhReleaseFdoPnpLock @ 0x1C0031348 (UsbhReleaseFdoPnpLock.c)
- *     GET_FDO_PNPSTATE @ 0x1C003B4D4 (GET_FDO_PNPSTATE.c)
- *     UsbhModuleDispatch @ 0x1C0043450 (UsbhModuleDispatch.c)
- *     UsbhSetFdoPnpState @ 0x1C0043998 (UsbhSetFdoPnpState.c)
- *     Usbh_PnpRemove @ 0x1C0044294 (Usbh_PnpRemove.c)
+ *     UsbhReleaseFdoPnpLock @ 0x1C0032618 (UsbhReleaseFdoPnpLock.c)
+ *     GET_FDO_PNPSTATE @ 0x1C003C804 (GET_FDO_PNPSTATE.c)
+ *     UsbhModuleDispatch @ 0x1C0044710 (UsbhModuleDispatch.c)
+ *     UsbhSetFdoPnpState @ 0x1C0044C50 (UsbhSetFdoPnpState.c)
+ *     Usbh_PnpRemove @ 0x1C0045544 (Usbh_PnpRemove.c)
  */
 
 __int64 __fastcall Usbh_FDO_WaitPnpAdd(__int64 a1, __int64 a2)
 {
-  _LIST_ENTRY *v2; // r8
+  struct _DRIVER_OBJECT *v2; // r8
   __int64 v3; // rbx
   int v4; // edi
   __int64 v6; // [rsp+28h] [rbp-10h]
 
-  v2 = *(_LIST_ENTRY **)(a1 + 8);
+  v2 = *(struct _DRIVER_OBJECT **)(a1 + 8);
   v6 = a1;
   v3 = a1;
   LOBYTE(a1) = 1;

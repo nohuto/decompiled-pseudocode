@@ -1,11 +1,11 @@
 /*
- * XREFs of SshpQueryBlockerPendingDelete @ 0x14039630C
+ * XREFs of SshpQueryBlockerPendingDelete @ 0x14057FD9C
  * Callers:
- *     SshpSendSessionData @ 0x140809BEC (SshpSendSessionData.c)
+ *     SshpSendSessionData @ 0x1408FACA8 (SshpSendSessionData.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall SshpQueryBlockerPendingDelete(PKSPIN_LOCK SpinLock)
@@ -16,8 +16,8 @@ bool __fastcall SshpQueryBlockerPendingDelete(PKSPIN_LOCK SpinLock)
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // rax
   _DWORD *SchedulerAssist; // r9
-  int v9; // edx
-  bool v10; // zf
+  int v8; // edx
+  bool v9; // zf
 
   v2 = KeAcquireSpinLockRaiseToDpc(SpinLock);
   v3 = (SpinLock[1] & 8) != 0;
@@ -32,11 +32,11 @@ bool __fastcall SshpQueryBlockerPendingDelete(PKSPIN_LOCK SpinLock)
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v9 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
-        v10 = (v9 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v9;
-        if ( v10 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+        v9 = (v8 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v8;
+        if ( v9 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
   }

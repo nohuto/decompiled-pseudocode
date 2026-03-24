@@ -1,10 +1,10 @@
 /*
- * XREFs of Crashdump_EventRing_PrepareForDump @ 0x1C004C69C
+ * XREFs of Crashdump_EventRing_PrepareForDump @ 0x1C004BC1C
  * Callers:
- *     Crashdump_InitializeWithControllerReset @ 0x1C004A724 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_InitializeWithControllerReset @ 0x1C0049C90 (Crashdump_InitializeWithControllerReset.c)
  * Callees:
- *     memset @ 0x1C0019CC0 (memset.c)
- *     Crashdump_EventRing_UpdateDequeuePointer @ 0x1C004C8A8 (Crashdump_EventRing_UpdateDequeuePointer.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Crashdump_EventRing_UpdateDequeuePointer @ 0x1C004BE28 (Crashdump_EventRing_UpdateDequeuePointer.c)
  */
 
 ULONG __fastcall Crashdump_EventRing_PrepareForDump(__int64 a1)

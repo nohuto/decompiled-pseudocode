@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetFlags@FxRequestMemory@@UEAAGXZ @ 0x1C000BC00
+ * XREFs of ?GetFlags@FxRequestMemory@@UEAAGXZ @ 0x1C000DB40
  * Callers:
  *     <none>
  * Callees:

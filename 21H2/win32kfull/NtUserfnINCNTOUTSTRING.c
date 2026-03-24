@@ -1,10 +1,9 @@
 /*
- * XREFs of NtUserfnINCNTOUTSTRING @ 0x1C0201540
+ * XREFs of NtUserfnINCNTOUTSTRING @ 0x1C02051D0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtUserfnINCNTOUTSTRING(
@@ -22,7 +21,6 @@ __int64 __fastcall NtUserfnINCNTOUTSTRING(
   __int128 v14; // [rsp+48h] [rbp-20h] BYREF
 
   v14 = 0LL;
-  W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   DWORD1(v14) = a7 << 31;
   v11 = a4;
   if ( (unsigned __int64)a4 >= MmUserProbeAddress )

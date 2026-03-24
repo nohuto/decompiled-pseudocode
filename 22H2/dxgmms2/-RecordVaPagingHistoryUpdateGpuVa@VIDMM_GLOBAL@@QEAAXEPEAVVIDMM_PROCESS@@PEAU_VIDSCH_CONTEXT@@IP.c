@@ -1,13 +1,11 @@
 /*
- * XREFs of ?RecordVaPagingHistoryUpdateGpuVa@VIDMM_GLOBAL@@QEAAXEPEAVVIDMM_PROCESS@@PEAU_VIDSCH_CONTEXT@@IPEAU_VIDSCH_SYNC_OBJECT@@_K@Z @ 0x1C00F2E04
+ * XREFs of ?RecordVaPagingHistoryUpdateGpuVa@VIDMM_GLOBAL@@QEAAXEPEAVVIDMM_PROCESS@@PEAU_VIDSCH_CONTEXT@@IPEAU_VIDSCH_SYNC_OBJECT@@_K@Z @ 0x1C00BD304
  * Callers:
- *     ?UpdateGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@IEAAJPEAUVIDSCH_DEVICE_COMMAND_UPDATEGPUVA@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00E88A4 (-UpdateGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@IEAAJPEAUVIDSCH_DEVICE_COMMAND_UPDATEGPUVA@@.c)
- *     ?VidMmUpdateGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAU_D3DKMT_UPDATEGPUVIRTUALADDRESS@@PEAUVIDMM_COMPANION_CONTEXT@@IPEAPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDSCH_SYNC_OBJECT@@PEAPEAU_KSEMAPHORE@@@Z @ 0x1C00EAB78 (-VidMmUpdateGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAU_D3DKMT_UPDATEGPUVIRTUALADDRESS@@PEAUVIDMM_.c)
+ *     ?UpdateGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@IEAAJPEAUVIDSCH_DEVICE_COMMAND_UPDATEGPUVA@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00B39A8 (-UpdateGpuVirtualAddressSystemCommand@VIDMM_GLOBAL@@IEAAJPEAUVIDSCH_DEVICE_COMMAND_UPDATEGPUVA@@.c)
+ *     ?VidMmUpdateGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAU_D3DKMT_UPDATEGPUVIRTUALADDRESS@@PEAUVIDMM_COMPANION_CONTEXT@@IPEAPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDSCH_SYNC_OBJECT@@PEAPEAU_KSEMAPHORE@@@Z @ 0x1C00B5704 (-VidMmUpdateGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAU_D3DKMT_UPDATEGPUVIRTUALADDRESS@@PEAUVIDMM_.c)
  * Callees:
- *     ??0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z @ 0x1C0001DD0 (--0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z.c)
- *     ??2@YAPEAX_KPEAVDXGK_LOG@@II@Z @ 0x1C0005300 (--2@YAPEAX_KPEAVDXGK_LOG@@II@Z.c)
- *     ?Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ @ 0x1C0017C04 (-Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ.c)
- *     ?AllocateVaPagingHistoryEntry@VIDMM_GLOBAL@@QEAAPEAXW4VIDMM_PAGING_HISTORY_ENTRY_TYPE@@_K@Z @ 0x1C00F19F4 (-AllocateVaPagingHistoryEntry@VIDMM_GLOBAL@@QEAAPEAXW4VIDMM_PAGING_HISTORY_ENTRY_TYPE@@_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001668 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0001FC0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::RecordVaPagingHistoryUpdateGpuVa(
@@ -19,29 +17,39 @@ void __fastcall VIDMM_GLOBAL::RecordVaPagingHistoryUpdateGpuVa(
         struct _VIDSCH_SYNC_OBJECT *a6,
         unsigned __int64 a7)
 {
-  int v10; // edi
-  __int64 VaPagingHistoryEntry; // rax
-  _BYTE v12[24]; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD *v11; // rdi
+  unsigned int v12; // ecx
+  void *v13; // rcx
 
-  v10 = a2 != 0 ? 2 : 0;
-  if ( VIDMM_GLOBAL::GpuVaPagingHistoryFreEnabled || *((_QWORD *)this + 5123) )
+  if ( *((_QWORD *)this + 5123) )
   {
-    DXGAUTOPUSHLOCKFASTEXCLUSIVE::DXGAUTOPUSHLOCKFASTEXCLUSIVE(
-      (DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v12,
-      (VIDMM_GLOBAL *)((char *)this + 41000));
-    if ( VIDMM_GLOBAL::GpuVaPagingHistoryFreEnabled )
-      VaPagingHistoryEntry = (__int64)operator new(48, (VIDMM_GLOBAL *)((char *)this + 41024), v10 + 17, 0);
-    else
-      VaPagingHistoryEntry = VIDMM_GLOBAL::AllocateVaPagingHistoryEntry((__int64)this, v10 + 17, 48LL);
-    if ( VaPagingHistoryEntry )
+    v11 = operator new[](0x30uLL, 0x32356956u, PagedPool);
+    if ( v11 )
     {
-      *(_QWORD *)VaPagingHistoryEntry = *(_QWORD *)a3;
-      *(_QWORD *)(VaPagingHistoryEntry + 8) = *((_QWORD *)a3 + 4);
-      *(_DWORD *)(VaPagingHistoryEntry + 24) = a5;
-      *(_QWORD *)(VaPagingHistoryEntry + 32) = a6;
-      *(_QWORD *)(VaPagingHistoryEntry + 40) = a7;
-      *(_QWORD *)(VaPagingHistoryEntry + 16) = a4;
+      KeEnterCriticalRegion();
+      ExAcquirePushLockExclusiveEx((char *)this + 41000, 0LL);
+      *((_QWORD *)this + 5126) = KeGetCurrentThread();
+      v12 = *((_DWORD *)this + 10248);
+      if ( v12 == dword_1C00503AC )
+      {
+        *((_DWORD *)this + 10248) = 0;
+        v12 = 0;
+      }
+      v13 = *(void **)(*((_QWORD *)this + 5123) + 24LL * v12 + 16);
+      if ( v13 )
+        operator delete(v13);
+      *v11 = *(_QWORD *)a3;
+      v11[1] = *((_QWORD *)a3 + 4);
+      *((_DWORD *)v11 + 6) = a5;
+      v11[4] = a6;
+      v11[5] = a7;
+      v11[2] = a4;
+      *(_QWORD *)(*((_QWORD *)this + 5123) + 24LL * *((unsigned int *)this + 10248)) = MEMORY[0xFFFFF78000000014];
+      *(_QWORD *)(*((_QWORD *)this + 5123) + 24LL * *((unsigned int *)this + 10248) + 16) = v11;
+      *(_DWORD *)(*((_QWORD *)this + 5123) + 24LL * (unsigned int)(*((_DWORD *)this + 10248))++ + 8) = a2 != 0 ? 19 : 17;
+      *((_QWORD *)this + 5126) = 0LL;
+      ExReleasePushLockExclusiveEx((char *)this + 41000, 0LL);
+      KeLeaveCriticalRegion();
     }
-    DXGAUTOPUSHLOCKFASTEXCLUSIVE::Release((DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v12);
   }
 }

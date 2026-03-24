@@ -1,84 +1,85 @@
 /*
- * XREFs of ?Stop@FxTimer@@QEAAEE@Z @ 0x1C0003728
+ * XREFs of ?Stop@FxTimer@@QEAAEE@Z @ 0x1C000D5C8
  * Callers:
- *     imp_WdfTimerStop @ 0x1C00036A0 (imp_WdfTimerStop.c)
- *     ?FlushAndRundown@FxTimer@@AEAAXXZ @ 0x1C00189D0 (-FlushAndRundown@FxTimer@@AEAAXXZ.c)
+ *     imp_WdfTimerStop @ 0x1C000D540 (imp_WdfTimerStop.c)
+ *     ?FlushAndRundown@FxTimer@@AEAAXXZ @ 0x1C0054424 (-FlushAndRundown@FxTimer@@AEAAXXZ.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?Stop@MxTimer@@QEAAEXZ @ 0x1C0011D90 (-Stop@MxTimer@@QEAAEXZ.c)
- *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
- *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0019824 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
- *     WPP_IFR_SF_qqq @ 0x1C0030348 (WPP_IFR_SF_qqq.c)
- *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0052DF0 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     WPP_IFR_SF_D @ 0x1C005B340 (WPP_IFR_SF_D.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     WPP_IFR_SF_qq @ 0x1C0013DA4 (WPP_IFR_SF_qq.c)
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C00150E8 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     ?Stop@MxTimer@@QEAAEXZ @ 0x1C0019190 (-Stop@MxTimer@@QEAAEXZ.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_qqq @ 0x1C0032C78 (WPP_IFR_SF_qqq.c)
+ *     WPP_IFR_SF_D @ 0x1C0039220 (WPP_IFR_SF_D.c)
  */
 
-BOOLEAN __fastcall FxTimer::Stop(FxTimer *this, unsigned __int8 Wait)
+BOOLEAN __fastcall FxTimer::Stop(FxTimer *this, unsigned __int8 Wait, unsigned __int8 a3)
 {
-  $FDD9DE4FD1E55C1CC33A56ADBE39F553 *v3; // rcx
-  unsigned __int8 v4; // di
-  struct _EX_TIMER *m_KernelExTimer; // rcx
-  unsigned int v8; // edx
-  unsigned __int8 v9; // dl
+  $850A70033CCCD351962A21FB5D9A4FAC *v4; // rcx
+  unsigned __int8 v6; // di
+  _FX_DRIVER_GLOBALS *m_Globals; // rcx
+  unsigned int v9; // edx
+  struct _KTHREAD *m_StopThread; // r8
+  unsigned __int8 v11; // dl
+  unsigned __int8 v12; // r8
   FxSystemWorkItem *m_SystemWorkItem; // rsi
   const void *_a1; // rax
-  const void *_a2; // rdx
-  KIRQL CurrentIrql; // al
-  unsigned __int8 v14; // dl
-  __int64 v15; // r10
+  unsigned __int8 CurrentIrql; // al
+  __int64 v16; // r10
   const void *ObjectHandleUnchecked; // rax
-  const void *v17; // r8
-  _FX_DRIVER_GLOBALS *v18; // r10
+  const void *_a2; // r8
+  _FX_DRIVER_GLOBALS *v19; // r10
   unsigned __int8 irql; // [rsp+68h] [rbp+10h] BYREF
 
   irql = 0;
   if ( !Wait )
   {
-    v3 = &this->m_Timer.m_Timer.16;
-    v4 = 1;
-    if ( !this->m_Timer.m_Timer.m_IsExtTimer )
-      return KeCancelTimer(&v3->KernelTimer);
-    m_KernelExTimer = v3->m_KernelExTimer;
-    if ( !m_KernelExTimer )
-      return v4;
-    return ExCancelTimer(m_KernelExTimer, 0LL);
+    v4 = &this->m_Timer.m_Timer.16;
+    if ( this->m_Timer.m_Timer.m_IsExtTimer )
+      return ExCancelTimer(v4->m_KernelExTimer, 0LL);
+    else
+      return KeCancelTimer(&v4->KernelTimer);
   }
   if ( this->m_CallbackThread == KeGetCurrentThread() )
   {
     _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this);
-    WPP_IFR_SF_qq(this->m_Globals, 2u, 0x12u, 0x11u, WPP_FxTimer_cpp_Traceguids, _a1, _a2);
+    WPP_IFR_SF_qq(this->m_Globals, 2u, 0x12u, 0x11u, WPP_FxTimer_cpp_Traceguids, _a1, this->m_CallbackThread);
   }
   else
   {
-    if ( !this->m_Globals->FxVerifierOn || !KeGetCurrentIrql() )
+    m_Globals = this->m_Globals;
+    if ( !m_Globals->FxVerifierOn || !KeGetCurrentIrql() )
     {
-      FxNonPagedObject::Lock(this, &irql);
+      FxNonPagedObject::Lock(this, &irql, a3);
       if ( this->m_Globals->FxVerifierOn
-        && (_FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(this->m_Globals, v8, 9u) || *(_BYTE *)(v15 + 325))
-        && this->m_StopThread )
+        && (_FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(this->m_Globals, v9, 9u) || *(_BYTE *)(v16 + 317)) )
       {
-        ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(this);
-        WPP_IFR_SF_qqq(
-          v18,
-          2u,
-          0x12u,
-          0x13u,
-          WPP_FxTimer_cpp_Traceguids,
-          ObjectHandleUnchecked,
-          v17,
-          KeGetCurrentThread());
-        FxVerifierDbgBreakPoint(this->m_Globals);
+        m_StopThread = this->m_StopThread;
+        if ( m_StopThread )
+        {
+          ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(this);
+          WPP_IFR_SF_qqq(
+            v19,
+            2u,
+            0x12u,
+            0x13u,
+            WPP_FxTimer_cpp_Traceguids,
+            ObjectHandleUnchecked,
+            _a2,
+            KeGetCurrentThread());
+          FxVerifierDbgBreakPoint(this->m_Globals);
+        }
       }
       this->m_StartAborted = 0;
       this->m_StopThread = KeGetCurrentThread();
       do
       {
-        v9 = irql;
+        v11 = irql;
         this->m_StopAgain = 0;
-        FxNonPagedObject::Unlock(this, v9);
-        v4 = MxTimer::Stop(&this->m_Timer);
+        FxNonPagedObject::Unlock(this, v11, (unsigned __int8)m_StopThread);
+        v6 = MxTimer::Stop(&this->m_Timer);
         KeFlushQueuedDpcs();
         m_SystemWorkItem = this->m_SystemWorkItem;
         if ( m_SystemWorkItem )
@@ -87,21 +88,21 @@ BOOLEAN __fastcall FxTimer::Stop(FxTimer *this, unsigned __int8 Wait)
           KeWaitForSingleObject(&m_SystemWorkItem->m_WorkItemCompleted, Executive, 0, 0, 0LL);
           KeLeaveCriticalRegion();
         }
-        FxNonPagedObject::Lock(this, &irql);
+        FxNonPagedObject::Lock(this, &irql, v12);
       }
-      while ( !v4 && this->m_StopAgain );
+      while ( !v6 && this->m_StopAgain );
       this->m_StopThread = 0LL;
       this->m_StopAgain = 0;
       if ( this->m_StartAborted )
       {
-        v4 = 1;
+        v6 = 1;
         this->m_StartAborted = 0;
       }
-      FxNonPagedObject::Unlock(this, irql);
-      return v4;
+      FxNonPagedObject::Unlock(this, irql, (unsigned __int8)m_StopThread);
+      return v6;
     }
     CurrentIrql = KeGetCurrentIrql();
-    WPP_IFR_SF_D(this->m_Globals, v14, 0x12u, 0x12u, WPP_FxTimer_cpp_Traceguids, CurrentIrql);
+    WPP_IFR_SF_D(m_Globals, CurrentIrql, 0x12u, 0x12u, WPP_FxTimer_cpp_Traceguids, CurrentIrql);
   }
   FxVerifierDbgBreakPoint(this->m_Globals);
   return 0;

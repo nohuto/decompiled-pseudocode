@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ProcessUpdatePlaybackState@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_UPDATEPLAYBACKSTATE@@@Z @ 0x1800D8BB8
+ * XREFs of ?ProcessUpdatePlaybackState@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_UPDATEPLAYBACKSTATE@@@Z @ 0x1800CCA6C
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?UpdatePlaybackState@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationPlaybackState@@_N_K@Z @ 0x1800D8C0C (-UpdatePlaybackState@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationPlaybackState@@_N_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?UpdatePlaybackState@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationPlaybackState@@_N_K@Z @ 0x1800CCAC0 (-UpdatePlaybackState@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationPlaybackState@@_N_K@Z.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::ProcessUpdatePlaybackState(
@@ -18,13 +18,13 @@ __int64 __fastcall CKeyframeAnimation::ProcessUpdatePlaybackState(
   __int64 v6; // rcx
   unsigned int v7; // ebx
 
-  if ( *((_QWORD *)this + 48) )
+  if ( *((_QWORD *)this + 45) )
   {
     v3 = *((unsigned int *)a3 + 2);
     if ( (unsigned int)v3 > 2 )
     {
       v7 = -2003303421;
-      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2003303421, 0x18Cu);
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003303421, 0x185u, 0LL);
     }
     else
     {
@@ -33,7 +33,7 @@ __int64 __fastcall CKeyframeAnimation::ProcessUpdatePlaybackState(
       updated = CKeyframeAnimation::UpdatePlaybackState(this, v3, a3, v4);
       v7 = updated;
       if ( updated < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, updated, 0x193u);
+        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, updated, 0x18Cu, 0LL);
       else
         return 0;
     }
@@ -41,7 +41,7 @@ __int64 __fastcall CKeyframeAnimation::ProcessUpdatePlaybackState(
   else
   {
     v7 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2003303421, 0x185u);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003303421, 0x17Eu, 0LL);
   }
   return v7;
 }

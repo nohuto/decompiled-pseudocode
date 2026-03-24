@@ -1,42 +1,59 @@
 /*
- * XREFs of GuessMonitorOverrideForCoordinateConversions @ 0x1C000B2B0
+ * XREFs of GuessMonitorOverrideForCoordinateConversions @ 0x1C0087E20
  * Callers:
- *     NtUserLockCursor @ 0x1C005E230 (NtUserLockCursor.c)
- *     NtUserClipCursor @ 0x1C0143210 (NtUserClipCursor.c)
- *     NtUserGetClipCursor @ 0x1C0144510 (NtUserGetClipCursor.c)
+ *     NtUserLockCursor @ 0x1C009D550 (NtUserLockCursor.c)
+ *     NtUserClipCursor @ 0x1C00BEE10 (NtUserClipCursor.c)
+ *     NtUserGetClipCursor @ 0x1C012EBB0 (NtUserGetClipCursor.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     HMValidateSharedHandleNoRip @ 0x1C0208528 (HMValidateSharedHandleNoRip.c)
+ *     HMValidateSharedHandleNoRip @ 0x1C00B4228 (HMValidateSharedHandleNoRip.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall GuessMonitorOverrideForCoordinateConversions(__int64 a1, unsigned int a2, int a3)
 {
   __int64 v3; // rbx
-  __int64 v7; // rdx
-  __int64 v8; // rax
-  __int64 v9; // rcx
-  __int64 v10; // [rsp+30h] [rbp+8h] BYREF
+  int v6; // edi
+  int v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // rax
+  __int64 v11; // r8
+  unsigned int v12; // edx
+  int v13; // ecx
+  __int64 v14; // [rsp+30h] [rbp+8h] BYREF
 
-  v10 = a1;
+  v14 = a1;
   v3 = 0LL;
-  if ( **(_DWORD **)gpDispInfo > 1u && qword_1C0296038 && (int)qword_1C0296038() >= 0 )
+  v6 = 1;
+  if ( **(_DWORD **)gpDispInfo > 1u )
   {
-    if ( qword_1C0296040 )
+    if ( qword_1C0256C28 )
+      v8 = qword_1C0256C28();
+    else
+      v8 = -1073741637;
+    if ( v8 >= 0 && qword_1C0256C30 )
     {
-      v7 = 18LL;
+      v9 = 18LL;
       if ( !a3 )
-        v7 = a2;
-      v8 = qword_1C0296040(&v10, v7);
+        v9 = a2;
+      v10 = qword_1C0256C30(&v14, v9);
     }
     else
     {
-      v8 = 0LL;
+      v10 = 0LL;
     }
-    if ( v8 )
+    if ( v10 )
     {
-      v9 = *(_QWORD *)(v8 + 40);
-      if ( (((unsigned __int16)(a2 >> 8) ^ (unsigned __int16)(*(_DWORD *)(v9 + 288) >> 8)) & 0x1FF) == 0 )
-        return HMValidateSharedHandleNoRip(*(_QWORD *)(v9 + 256));
+      v11 = *(_QWORD *)(v10 + 40);
+      v12 = *(_DWORD *)(v11 + 288);
+      if ( (((unsigned __int16)(a2 >> 8) ^ (unsigned __int16)(v12 >> 8)) & 0x1FF) == 0 )
+      {
+        if ( (a2 & 0xF) != 2 || (v13 = 1, (a2 & 0x20000000) == 0) )
+          v13 = 0;
+        if ( (v12 & 0xF) != 2 || (v12 & 0x20000000) == 0 )
+          v6 = 0;
+        if ( v13 == v6 )
+          return HMValidateSharedHandleNoRip(*(_QWORD *)(v11 + 256));
+      }
     }
   }
   return v3;

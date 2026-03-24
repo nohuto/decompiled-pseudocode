@@ -1,164 +1,199 @@
 /*
- * XREFs of _BmlGetPathModeListForPath @ 0x1C03BE18C
+ * XREFs of _BmlGetPathModeListForPath @ 0x1C02ECDC0
  * Callers:
- *     _BmlGetPathModeListForAdapter @ 0x1C03BDFF0 (_BmlGetPathModeListForAdapter.c)
+ *     _BmlGetPathModeListForAdapter @ 0x1C02ECC08 (_BmlGetPathModeListForAdapter.c)
  * Callees:
- *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C0001D80 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
- *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C0006D74 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
- *     ?AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ @ 0x1C000A568 (-AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ.c)
- *     ?GetNextMode@DMMVIDPNSOURCEMODESET@@QEAAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z @ 0x1C0020B10 (-GetNextMode@DMMVIDPNSOURCEMODESET@@QEAAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z.c)
- *     ?GetBitsPerPixel@DMMVIDPNSOURCEMODE@@QEBAIXZ @ 0x1C006941C (-GetBitsPerPixel@DMMVIDPNSOURCEMODE@@QEBAIXZ.c)
- *     BmlAreRawModesEnabled @ 0x1C0177AD8 (BmlAreRawModesEnabled.c)
- *     BmlIsSecondaryHardwareClonePath @ 0x1C017A300 (BmlIsSecondaryHardwareClonePath.c)
- *     BmlDoesSourceModeObeyConstraint @ 0x1C017A8D0 (BmlDoesSourceModeObeyConstraint.c)
- *     BmlGetModeCategoryForRegion @ 0x1C017ACBC (BmlGetModeCategoryForRegion.c)
- *     ?PinVidPnSourceMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNSOURCEMODESET@@I_N@Z @ 0x1C019A86C (-PinVidPnSourceMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNSOURCEMODESET@@I_N@Z.c)
- *     BmlUnPinSourceMode @ 0x1C03BDBD0 (BmlUnPinSourceMode.c)
- *     _BmlGetPathModeListForPathTargetModes @ 0x1C03BE48C (_BmlGetPathModeListForPathTargetModes.c)
+ *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C00074F0 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z @ 0x1C000A974 (-reset@-$auto_rc@VDMMVIDPNSOURCEMODESET@@@@QEAAXPEAVDMMVIDPNSOURCEMODESET@@@Z.c)
+ *     ?GetNextMode@DMMVIDPNSOURCEMODESET@@QEAAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z @ 0x1C000B820 (-GetNextMode@DMMVIDPNSOURCEMODESET@@QEAAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z.c)
+ *     ?GetBitsPerPixel@DMMVIDPNSOURCEMODE@@QEBAIXZ @ 0x1C005C0F4 (-GetBitsPerPixel@DMMVIDPNSOURCEMODE@@QEBAIXZ.c)
+ *     ?PinVidPnSourceMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNSOURCEMODESET@@I_N@Z @ 0x1C012E69C (-PinVidPnSourceMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNSOURCEMODESET@@I_N@Z.c)
+ *     BmlAreRawModesEnabled @ 0x1C0144944 (BmlAreRawModesEnabled.c)
+ *     BmlIsSecondaryClonePath @ 0x1C0146F70 (BmlIsSecondaryClonePath.c)
+ *     BmlGetModeCategoryForRegion @ 0x1C0147138 (BmlGetModeCategoryForRegion.c)
+ *     BmlDoesSourceModeObeyConstraint @ 0x1C01474DC (BmlDoesSourceModeObeyConstraint.c)
+ *     BmlUnPinSourceMode @ 0x1C02EC960 (BmlUnPinSourceMode.c)
+ *     _BmlGetPathModeListForPathTargetModes @ 0x1C02ED110 (_BmlGetPathModeListForPathTargetModes.c)
  */
 
-__int64 __fastcall BmlGetPathModeListForPath(_BYTE *a1, __int64 a2, __int64 a3, CCD_MODE_RESULT_SET *a4)
+__int64 __fastcall BmlGetPathModeListForPath(_BYTE *a1, __int64 a2, unsigned __int16 a3, CCD_MODE_RESULT_SET *a4)
 {
   struct DMMVIDPNSOURCEMODE *NextMode; // r15
-  __int64 v5; // rbp
+  __int64 v5; // rsi
   __int64 v8; // rax
-  __int64 v9; // r12
-  __int64 v10; // r13
-  __int64 v11; // rax
-  struct DMMVIDPNTARGETMODESET *v12; // rax
-  struct DMMVIDPNTARGETMODESET *v13; // rbx
-  int PathModeListForPathTargetModes; // ebp
-  _QWORD *v15; // rdi
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  _QWORD *v20; // rcx
-  _QWORD *v21; // rdi
+  __int64 v9; // rax
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r14
+  __int64 v14; // r12
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // r13
+  __int64 v18; // rcx
+  _QWORD *v19; // r13
+  int PathModeListForPathTargetModes; // esi
+  _QWORD *v21; // rbx
   __int64 v22; // rdx
-  __int64 BitsPerPixel; // rcx
-  __int64 v24; // r8
-  __int64 v25; // r9
-  unsigned __int16 v26; // di
-  __int64 v27; // rbp
-  __int64 v28; // rdi
+  __int64 v23; // rcx
+  __int64 v24; // rcx
+  __int64 v25; // rax
+  _QWORD *v26; // rcx
+  _QWORD *v27; // rbx
+  __int64 v28; // rdx
   __int64 v29; // rdx
   __int64 v30; // rcx
-  __int64 v31; // r8
-  __int64 v32; // r9
-  __int64 v33; // rax
-  int v34; // edi
-  VIDPN_MGR *v36; // [rsp+30h] [rbp-68h]
-  struct DMMVIDPNPRESENTPATH *Path; // [rsp+38h] [rbp-60h]
-  struct DMMVIDPNTARGETMODESET *v38; // [rsp+40h] [rbp-58h] BYREF
-  struct DMMVIDPNSOURCEMODE *v39; // [rsp+A8h] [rbp+10h]
-  unsigned __int16 v40; // [rsp+B0h] [rbp+18h]
+  __int64 v31; // rsi
+  __int64 v32; // rbx
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // rax
+  __int64 v36; // rdx
+  __int64 v37; // rcx
+  int v38; // ebx
+  __int64 v39; // r8
+  _QWORD *v40; // rax
+  _QWORD *v42; // rax
+  _QWORD *v43; // [rsp+30h] [rbp-68h] BYREF
+  VIDPN_MGR *v44; // [rsp+38h] [rbp-60h]
+  int v45[22]; // [rsp+40h] [rbp-58h]
+  struct DMMVIDPNSOURCEMODE *v46; // [rsp+A8h] [rbp+10h]
 
-  v40 = a3;
   NextMode = 0LL;
-  v5 = (unsigned __int16)a3;
+  v5 = a3;
   if ( !a1 )
-    WdLogSingleEntry0(1LL);
-  if ( !a2 )
-    WdLogSingleEntry0(1LL);
-  v8 = WdLogNewEntry5_WdTrace(a1, a2, a3, a4);
-  v9 = 120 * v5;
-  *(_QWORD *)(v8 + 24) = v5;
-  v10 = v5;
-  *(_QWORD *)(v8 + 32) = a2;
-  v36 = *(VIDPN_MGR **)(a2 + 48);
-  if ( !v36 )
-    WdLogSingleEntry0(1LL);
-  v11 = *(_QWORD *)&a1[v9 + 16];
-  *(_WORD *)&a1[v9 + 64] = 0;
-  *(_WORD *)&a1[v9 + 68] = 0;
-  Path = DMMVIDPNTOPOLOGY::FindPath((DMMVIDPNTOPOLOGY *)(a2 + 96), *(_DWORD *)(v11 + 24), *(_DWORD *)(v11 + 28));
-  v12 = DMMVIDPNTARGET::AcquireCofuncModeSetRef(*((DMMVIDPNTARGET **)Path + 11));
-  v38 = v12;
-  v13 = v12;
-  if ( v12 )
   {
-    v15 = (_QWORD *)((char *)v12 + 48);
-    if ( (_QWORD *)*v15 == v15 )
-    {
-      PathModeListForPathTargetModes = 0;
-      goto LABEL_34;
-    }
-    if ( BmlIsSecondaryHardwareClonePath((__int64)a1, v5, 0LL) )
-    {
-      WdLogNewEntry5_WdTrace(v17, v16, v18, v19);
-      if ( !*((_QWORD *)v13 + 18) )
-        WdLogSingleEntry0(1LL);
-    }
-    *(_QWORD *)&a1[v9 + 92] = 0LL;
+    v8 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    WdLogEvent5_WdAssertion(v8);
+  }
+  if ( !a2 )
+  {
+    v9 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v9);
+  }
+  v10 = WdLogNewEntry5_WdTrace(a1, a2);
+  v13 = 104 * v5;
+  *(_QWORD *)(v10 + 24) = v5;
+  v14 = v5;
+  *(_QWORD *)(v10 + 32) = a2;
+  v44 = *(VIDPN_MGR **)(a2 + 48);
+  if ( !v44 )
+  {
+    v15 = WdLogNewEntry5_WdAssertion(v12, v11);
+    WdLogEvent5_WdAssertion(v15);
+  }
+  v16 = *(_QWORD *)&a1[v13 + 16];
+  *(_WORD *)&a1[v13 + 64] = 0;
+  *(_WORD *)&a1[v13 + 68] = 0;
+  *(_QWORD *)v45 = DMMVIDPNTOPOLOGY::FindPath(
+                     (DMMVIDPNTOPOLOGY *)(a2 + 96),
+                     *(_DWORD *)(v16 + 24),
+                     *(_DWORD *)(v16 + 28));
+  v17 = *(_QWORD *)(*(_QWORD *)v45 + 88LL);
+  v18 = *(_QWORD *)(v17 + 104);
+  if ( !v18 )
+  {
+    v43 = 0LL;
+LABEL_10:
+    PathModeListForPathTargetModes = -1071774968;
+    goto LABEL_33;
+  }
+  _InterlockedIncrement((volatile signed __int32 *)(v18 + 96));
+  v19 = *(_QWORD **)(v17 + 104);
+  v43 = v19;
+  if ( !v19 )
+    goto LABEL_10;
+  v21 = v19 + 6;
+  if ( (_QWORD *)*v21 == v21 )
+  {
     PathModeListForPathTargetModes = 0;
-    *(_QWORD *)&a1[v9 + 100] = 0LL;
-    v20 = (_QWORD *)*v15;
-    v39 = (struct DMMVIDPNSOURCEMODE *)*((_QWORD *)v13 + 18);
-    if ( (_QWORD *)*v15 != v15 )
-      NextMode = (struct DMMVIDPNSOURCEMODE *)(v20 - 1);
-    if ( !NextMode )
-      goto LABEL_34;
-    while ( 1 )
+  }
+  else
+  {
+    if ( BmlIsSecondaryClonePath((__int64)a1, v5, 0LL) )
     {
-      v21 = (_QWORD *)WdLogNewEntry5_WdTrace(v20, v16, v18, v19);
-      v21[3] = *((unsigned int *)NextMode + 6);
-      v21[4] = *((unsigned int *)NextMode + 19);
-      v21[5] = *((unsigned int *)NextMode + 20);
-      BitsPerPixel = (unsigned int)DMMVIDPNSOURCEMODE::GetBitsPerPixel(NextMode);
-      v21[6] = BitsPerPixel;
-      v21[7] = *((int *)NextMode + 24);
-      ++*(_DWORD *)&a1[v9 + 92];
-      if ( (!v39 || v39 == NextMode)
-        && (BmlAreRawModesEnabled((__int64)a1, v10)
-         || (unsigned int)BmlGetModeCategoryForRegion((__int64)NextMode + 76, (__int64)&a1[v9 + 36]) != 1)
-        && (v26 = v40, BmlDoesSourceModeObeyConstraint((__int64)a1, v40, NextMode)) )
+      WdLogNewEntry5_WdTrace(v23, v22);
+      if ( !v19[18] )
       {
-        ++*(_DWORD *)&a1[v9 + 96];
-        v27 = *((unsigned int *)NextMode + 6);
-        if ( !v39 )
+        v25 = WdLogNewEntry5_WdAssertion(v24, v22);
+        WdLogEvent5_WdAssertion(v25);
+      }
+    }
+    *(_QWORD *)&a1[v13 + 92] = 0LL;
+    PathModeListForPathTargetModes = 0;
+    *(_QWORD *)&a1[v13 + 100] = 0LL;
+    v26 = (_QWORD *)*v21;
+    v46 = (struct DMMVIDPNSOURCEMODE *)v19[18];
+    if ( (_QWORD *)*v21 != v21 )
+      NextMode = (struct DMMVIDPNSOURCEMODE *)(v26 - 1);
+    for ( ; NextMode; NextMode = DMMVIDPNSOURCEMODESET::GetNextMode((DMMVIDPNSOURCEMODESET *)v19, NextMode) )
+    {
+      v27 = (_QWORD *)WdLogNewEntry5_WdTrace(v26, v22);
+      v27[3] = *((unsigned int *)NextMode + 6);
+      v27[4] = *((unsigned int *)NextMode + 19);
+      v27[5] = *((unsigned int *)NextMode + 20);
+      v27[6] = (unsigned int)DMMVIDPNSOURCEMODE::GetBitsPerPixel(NextMode, v28);
+      v30 = *((int *)NextMode + 24);
+      v27[7] = v30;
+      ++*(_DWORD *)&a1[v13 + 92];
+      if ( (!v46 || v46 == NextMode)
+        && (BmlAreRawModesEnabled((__int64)a1, v14)
+         || (unsigned int)BmlGetModeCategoryForRegion((__int64)NextMode + 76, (__int64)&a1[v13 + 36]) != 1)
+        && BmlDoesSourceModeObeyConstraint((__int64)a1, a3, (unsigned int *)NextMode) )
+      {
+        ++*(_DWORD *)&a1[v13 + 96];
+        v31 = *((unsigned int *)NextMode + 6);
+        if ( v46 )
         {
-          v28 = (int)VIDPN_MGR::PinVidPnSourceMode(v36, v13, v27, 1);
-          v33 = WdLogNewEntry5_WdTrace(v30, v29, v31, v32);
-          *(_QWORD *)(v33 + 24) = v27;
-          *(_QWORD *)(v33 + 32) = v28;
-          if ( (int)v28 < 0 )
-          {
-            PathModeListForPathTargetModes = 0;
-            goto LABEL_30;
-          }
-          v26 = v40;
+          LODWORD(v32) = 0;
         }
-        PathModeListForPathTargetModes = BmlGetPathModeListForPathTargetModes((int)a1, a2, v26, (int)Path, a4);
-        if ( !v39 )
+        else
         {
-          v34 = BmlUnPinSourceMode(a1, a2, v26);
-          if ( v34 < 0 )
-          {
-            WdLogSingleEntry3(3LL, a1, a2, v10);
-            goto LABEL_35;
-          }
+          v32 = (int)VIDPN_MGR::PinVidPnSourceMode(v44, (struct DMMVIDPNSOURCEMODESET *const)v19, v31, 1);
+          v35 = WdLogNewEntry5_WdTrace(v34, v33);
+          *(_QWORD *)(v35 + 24) = v31;
+          *(_QWORD *)(v35 + 32) = v32;
         }
-        if ( PathModeListForPathTargetModes < 0 )
+        if ( (int)v32 < 0 )
         {
-          WdLogSingleEntry3(2LL, a1, a2, v10);
-          goto LABEL_34;
+          PathModeListForPathTargetModes = 0;
+        }
+        else
+        {
+          PathModeListForPathTargetModes = BmlGetPathModeListForPathTargetModes((int)a1, a2, a3, v45[0], a4);
+          if ( !v46 )
+          {
+            v38 = BmlUnPinSourceMode(a1, a2, a3);
+            if ( v38 < 0 )
+            {
+              v42 = (_QWORD *)WdLogNewEntry5_WdWarning(v37, v36, v39);
+              v42[3] = a1;
+              v42[4] = a2;
+              v42[5] = v14;
+              WdLogEvent5_WdWarning(v42);
+              goto LABEL_34;
+            }
+          }
+          if ( PathModeListForPathTargetModes < 0 )
+          {
+            v40 = (_QWORD *)WdLogNewEntry5_WdError(v37, v36);
+            v40[3] = a1;
+            v40[4] = a2;
+            v40[5] = v14;
+            WdLogEvent5_WdError(v40);
+            break;
+          }
         }
       }
       else
       {
-        WdLogNewEntry5_WdTrace(BitsPerPixel, v22, v24, v25);
+        WdLogNewEntry5_WdTrace(v30, v29);
       }
-LABEL_30:
-      NextMode = DMMVIDPNSOURCEMODESET::GetNextMode(v13, NextMode);
-      if ( !NextMode )
-        goto LABEL_34;
     }
   }
-  PathModeListForPathTargetModes = -1071774968;
+LABEL_33:
+  v38 = PathModeListForPathTargetModes;
 LABEL_34:
-  v34 = PathModeListForPathTargetModes;
-LABEL_35:
-  auto_rc<DMMVIDPNSOURCEMODESET>::reset((__int64 *)&v38, 0LL);
-  return (unsigned int)v34;
+  auto_rc<DMMVIDPNSOURCEMODESET>::reset((__int64 *)&v43, 0LL);
+  return (unsigned int)v38;
 }

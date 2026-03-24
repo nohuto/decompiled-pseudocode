@@ -1,15 +1,15 @@
 /*
- * XREFs of HUBFDO_CompleteGetDescriptorRequest @ 0x1C000DB7C
+ * XREFs of HUBFDO_CompleteGetDescriptorRequest @ 0x1C000D7A4
  * Callers:
- *     HUBSM_FindAndSetTargetState @ 0x1C000A49C (HUBSM_FindAndSetTargetState.c)
- *     HUBDTX_GetDeviceDescriptorComplete @ 0x1C002ADE0 (HUBDTX_GetDeviceDescriptorComplete.c)
- *     HUBDTX_GetDescriptorForFdoRequestUsingPreformattedUrb @ 0x1C002AF14 (HUBDTX_GetDescriptorForFdoRequestUsingPreformattedUrb.c)
- *     HUBFDO_IoctlGetDescriptorFromNodeConnection @ 0x1C0077014 (HUBFDO_IoctlGetDescriptorFromNodeConnection.c)
+ *     HUBSM_FindAndSetTargetState @ 0x1C0009F9C (HUBSM_FindAndSetTargetState.c)
+ *     HUBDTX_GetDeviceDescriptorComplete @ 0x1C002A700 (HUBDTX_GetDeviceDescriptorComplete.c)
+ *     HUBDTX_GetDescriptorForFdoRequestUsingPreformattedUrb @ 0x1C002A834 (HUBDTX_GetDescriptorForFdoRequestUsingPreformattedUrb.c)
+ *     HUBFDO_IoctlGetDescriptorFromNodeConnection @ 0x1C0075C74 (HUBFDO_IoctlGetDescriptorFromNodeConnection.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000C094 (McTemplateK0pqq_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000BCAC (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBFDO_CompleteGetDescriptorRequest(__int64 a1, int a2, __int64 a3, int a4, unsigned int a5)
@@ -27,8 +27,8 @@ __int64 __fastcall HUBFDO_CompleteGetDescriptorRequest(__int64 a1, int a2, __int
       *(_QWORD *)(a1 + 2520),
       4u,
       3u,
-      0x33u,
-      (__int64)&WPP_cbf4a43b0f133f2c4fe58f6ee8af390c_Traceguids,
+      0x2Fu,
+      (__int64)&WPP_40970fddd6f13ebcbe770d49258f843c_Traceguids,
       a4,
       v15);
   if ( (BYTE1(WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink) & 4) != 0 )

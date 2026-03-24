@@ -1,35 +1,31 @@
 /*
- * XREFs of GreGetBitmapDpiScaleValue @ 0x1C02A7D84
+ * XREFs of GreGetBitmapDpiScaleValue @ 0x1C029E70C
  * Callers:
- *     zzzUpdateWindowsAfterModeChange @ 0x1C008E138 (zzzUpdateWindowsAfterModeChange.c)
- *     NtGdiGetBitmapDpiScaleValue @ 0x1C02C2400 (NtGdiGetBitmapDpiScaleValue.c)
+ *     zzzUpdateWindowsAfterModeChange @ 0x1C00F1018 (zzzUpdateWindowsAfterModeChange.c)
+ *     NtGdiGetBitmapDpiScaleValue @ 0x1C02AE000 (NtGdiGetBitmapDpiScaleValue.c)
  * Callees:
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0030084 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ??1SURFREF@@QEAA@XZ @ 0x1C0087EAC (--1SURFREF@@QEAA@XZ.c)
- *     bFToL @ 0x1C009BB20 (bFToL.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C00838AC (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     bFToL @ 0x1C00FB1E8 (bFToL.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreGetBitmapDpiScaleValue(HSURF a1)
 {
-  __int64 v1; // rbx
-  _BYTE v3[32]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v4; // [rsp+40h] [rbp-18h]
-  unsigned int v5; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v1; // rdx
+  __int64 v2; // rbx
+  int v3; // eax
+  unsigned int v4; // edi
+  _BYTE v6[32]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v7; // [rsp+40h] [rbp-18h]
+  unsigned int v8; // [rsp+68h] [rbp+10h] BYREF
 
-  SURFREF::SURFREF((SURFREF *)v3, a1);
-  v5 = 0;
-  v1 = v4;
-  if ( v4 )
-  {
-    if ( (*(_DWORD *)(v4 + 116) & 0x800) != 0 && (unsigned int)bFToL(*(float *)(v4 + 660), (int *)&v5, 6u) )
-    {
-      SURFREF::~SURFREF((SURFREF *)v3);
-      return v5;
-    }
-    if ( v1 )
-      DEC_SHARE_REF_CNT(v1);
-  }
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v3);
-  return 1LL;
+  SURFREF::SURFREF((SURFREF *)v6, a1);
+  v8 = 0;
+  v2 = v7;
+  if ( !v7 || (*(_DWORD *)(v7 + 116) & 0x800) == 0 || (v3 = bFToL(*(float *)(v7 + 660), (int *)&v8, 6u), v4 = v8, !v3) )
+    v4 = 1;
+  if ( v2 )
+    DEC_SHARE_REF_CNT(v2, v1);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v6);
+  return v4;
 }

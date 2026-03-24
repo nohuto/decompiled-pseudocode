@@ -1,14 +1,13 @@
 /*
- * XREFs of HalpDmaRemoveAdapterFromMasterQueue @ 0x140500660
+ * XREFs of HalpDmaRemoveAdapterFromMasterQueue @ 0x1404B7F90
  * Callers:
- *     HalCancelAdapterChannel @ 0x14050EF60 (HalCancelAdapterChannel.c)
- *     HalCancelAdapterChannelDmaThin @ 0x140512FF0 (HalCancelAdapterChannelDmaThin.c)
- *     HalCancelAdapterChannelDmarThin @ 0x1405137E0 (HalCancelAdapterChannelDmarThin.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140514F7C (HalpAllocateDmaResourcesInternal.c)
+ *     HalCancelAdapterChannel @ 0x1404C5E00 (HalCancelAdapterChannel.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x1404CA51C (HalpAllocateDmaResourcesInternal.c)
+ *     HalCancelAdapterChannelThin @ 0x1404CAC20 (HalCancelAdapterChannelThin.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall HalpDmaRemoveAdapterFromMasterQueue(__int64 a1)
@@ -27,20 +26,20 @@ char __fastcall HalpDmaRemoveAdapterFromMasterQueue(__int64 a1)
   int v13; // edx
   bool v14; // zf
   _QWORD *v16; // rdx
-  struct _KLOCK_QUEUE_HANDLE v17; // [rsp+20h] [rbp-28h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 160);
-  memset(&v17, 0, sizeof(v17));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v1 + 128), &v17);
-  v3 = (_QWORD **)(v1 + 160);
-  v4 = (_QWORD **)(v1 + 176);
-  if ( !*(_BYTE *)(a1 + 442) )
+  v1 = *(_QWORD *)(a1 + 152);
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v1 + 120), &LockHandle);
+  v3 = (_QWORD **)(v1 + 152);
+  v4 = (_QWORD **)(v1 + 168);
+  if ( !*(_BYTE *)(a1 + 434) )
     v4 = v3;
   v5 = 0;
   v6 = *v4;
   if ( *v4 != v4 )
   {
-    v7 = (_QWORD *)(a1 + 168);
+    v7 = (_QWORD *)(a1 + 160);
     while ( 1 )
     {
       v8 = (_QWORD **)*v6;
@@ -58,20 +57,23 @@ char __fastcall HalpDmaRemoveAdapterFromMasterQueue(__int64 a1)
     v8[1] = v16;
   }
 LABEL_7:
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&v17);
-  OldIrql = v17.OldIrql;
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v17.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v13 = ~(unsigned __int16)(-1LL << (v17.OldIrql + 1));
-      v14 = (v13 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v13;
-      if ( v14 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v13 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v14 = (v13 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v13;
+        if ( v14 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);

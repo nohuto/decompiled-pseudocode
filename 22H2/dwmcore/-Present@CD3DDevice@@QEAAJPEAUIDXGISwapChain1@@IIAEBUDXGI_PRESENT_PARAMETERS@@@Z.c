@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Present@CD3DDevice@@QEAAJPEAUIDXGISwapChain1@@IIAEBUDXGI_PRESENT_PARAMETERS@@@Z @ 0x18028E5EC
+ * XREFs of ?Present@CD3DDevice@@QEAAJPEAUIDXGISwapChain1@@IIAEBUDXGI_PRESENT_PARAMETERS@@@Z @ 0x180240078
  * Callers:
- *     ?Present@CCompSwapChain@@UEAAJII@Z @ 0x18029EBF0 (-Present@CCompSwapChain@@UEAAJII@Z.c)
+ *     ?Present@CCompSwapChain@@UEAAJII@Z @ 0x180251460 (-Present@CCompSwapChain@@UEAAJII@Z.c)
  * Callees:
- *     ?GetCurrentFrameId@@YA_KXZ @ 0x1800895E0 (-GetCurrentFrameId@@YA_KXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x18008F604 (-GetCurrentFrameId@@YA_KXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD3DDevice::Present(
@@ -19,10 +19,10 @@ __int64 __fastcall CD3DDevice::Present(
   int v7; // eax
   __int64 v8; // rcx
 
-  v5 = *((_DWORD *)this + 272);
+  v5 = *((_DWORD *)this + 282);
   if ( v5 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, &dword_1803BA010, 2u, v5, 0xA25u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, &dword_180306928, 2u, v5, 0xC70u, 0LL);
   }
   else
   {
@@ -34,13 +34,13 @@ __int64 __fastcall CD3DDevice::Present(
     v5 = v7;
     if ( v7 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v8, &dword_1803BA010, 2u, v7, 0xA2Bu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, &dword_180306928, 2u, v7, 0xC7Eu, 0LL);
     }
     else
     {
-      *((_QWORD *)this + 186) = GetCurrentFrameId();
-      *((_BYTE *)this + 1507) = 0;
+      *((_QWORD *)this + 177) = GetCurrentFrameId();
+      *((_BYTE *)this + 1435) = 0;
     }
   }
-  return CD3DDevice::TranslateDXGIorD3DErrorInContext((__int64)this, v5, 1);
+  return CD3DDevice::TranslateDXGIorD3DErrorInContext((__int64)this, v5, 1u);
 }

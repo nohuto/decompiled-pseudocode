@@ -1,13 +1,13 @@
 /*
- * XREFs of UpdateUcmIsPresentBit @ 0x1C005C3A0
+ * XREFs of UpdateUcmIsPresentBit @ 0x1C005DA24
  * Callers:
- *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C005C534 (UsbDualRoleFeaturesQueryLocalMachine.c)
+ *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C005DBB8 (UsbDualRoleFeaturesQueryLocalMachine.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_Sd @ 0x1C00507CC (WPP_RECORDER_SF_Sd.c)
- *     GetPersistedKeyPath @ 0x1C005BE04 (GetPersistedKeyPath.c)
- *     MyRegOpenKeyForRead @ 0x1C005C7F8 (MyRegOpenKeyForRead.c)
- *     MyRegQueryUlong @ 0x1C005CA44 (MyRegQueryUlong.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_Sd @ 0x1C0051E1C (WPP_RECORDER_SF_Sd.c)
+ *     GetPersistedKeyPath @ 0x1C005D4A4 (GetPersistedKeyPath.c)
+ *     MyRegOpenKeyForRead @ 0x1C005DE7C (MyRegOpenKeyForRead.c)
+ *     MyRegQueryUlong @ 0x1C005E0BC (MyRegQueryUlong.c)
  */
 
 void __fastcall UpdateUcmIsPresentBit(_DWORD *a1)

@@ -1,31 +1,27 @@
 /*
- * XREFs of RtlDeleteRegistryValue @ 0x1406E8410
+ * XREFs of RtlDeleteRegistryValue @ 0x140781820
  * Callers:
- *     DifRtlDeleteRegistryValueWrapper @ 0x14061B190 (DifRtlDeleteRegistryValueWrapper.c)
- *     PerfDiagpSaveActiveDCLLogFileName @ 0x140807EA4 (PerfDiagpSaveActiveDCLLogFileName.c)
+ *     PerfDiagpSaveActiveDCLLogFileName @ 0x14092FBC8 (PerfDiagpSaveActiveDCLLogFileName.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
- *     RtlpGetRegistryHandle @ 0x14077FDA0 (RtlpGetRegistryHandle.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     RtlpGetRegistryHandle @ 0x140642460 (RtlpGetRegistryHandle.c)
  */
 
 NTSTATUS __stdcall RtlDeleteRegistryValue(ULONG RelativeTo, PCWSTR Path, PCWSTR ValueName)
 {
-  const WCHAR *v3; // rbx
   NTSTATUS result; // eax
   NTSTATUS v6; // ebx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
   HANDLE KeyHandle; // [rsp+58h] [rbp+20h] BYREF
 
   KeyHandle = 0LL;
-  v3 = ValueName;
-  LOBYTE(ValueName) = 1;
   DestinationString = 0LL;
-  result = RtlpGetRegistryHandle(RelativeTo, Path, ValueName, &KeyHandle);
+  result = RtlpGetRegistryHandle(RelativeTo, Path, 1, &KeyHandle);
   if ( result >= 0 )
   {
-    RtlInitUnicodeString(&DestinationString, v3);
+    RtlInitUnicodeString(&DestinationString, ValueName);
     v6 = ZwDeleteValueKey(KeyHandle, &DestinationString);
     if ( (RelativeTo & 0x40000000) == 0 )
       ZwClose(KeyHandle);

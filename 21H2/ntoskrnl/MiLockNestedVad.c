@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLockNestedVad @ 0x14097EE0C
+ * XREFs of MiLockNestedVad @ 0x1408D9A78
  * Callers:
- *     MiFreeVadRange @ 0x1402ECEB0 (MiFreeVadRange.c)
- *     MiPerformVadSplitting @ 0x1402ED194 (MiPerformVadSplitting.c)
- *     MiUpControlAreaRefs @ 0x14058C330 (MiUpControlAreaRefs.c)
+ *     MiDeletePartialVad @ 0x1402FD8DC (MiDeletePartialVad.c)
+ *     MiFreeVadRange @ 0x1403185C4 (MiFreeVadRange.c)
+ *     MiUpControlAreaRefs @ 0x14052AB70 (MiUpControlAreaRefs.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void __fastcall MiLockNestedVad(__int64 a1)

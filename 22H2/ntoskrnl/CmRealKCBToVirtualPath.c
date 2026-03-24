@@ -1,19 +1,19 @@
 /*
- * XREFs of CmRealKCBToVirtualPath @ 0x140A186B8
+ * XREFs of CmRealKCBToVirtualPath @ 0x1406EB88C
  * Callers:
- *     CmpVEExecuteCreateLogic @ 0x1407BA9F4 (CmpVEExecuteCreateLogic.c)
- *     CmpReparseToVirtualPath @ 0x140A19FB4 (CmpReparseToVirtualPath.c)
- *     CmpReplicateKeyToVirtual @ 0x140A1A058 (CmpReplicateKeyToVirtual.c)
- *     CmpVEExecuteRealStoreParseLogic @ 0x140A1A2B8 (CmpVEExecuteRealStoreParseLogic.c)
- *     CmpReportAuditVirtualizationEvent @ 0x140A1BAD4 (CmpReportAuditVirtualizationEvent.c)
+ *     CmpReparseToVirtualPath @ 0x1406854AC (CmpReparseToVirtualPath.c)
+ *     CmpVEExecuteCreateLogic @ 0x140685510 (CmpVEExecuteCreateLogic.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x1406E89F0 (CmpVEExecuteRealStoreParseLogic.c)
+ *     CmpReplicateKeyToVirtual @ 0x140870A14 (CmpReplicateKeyToVirtual.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140871DE8 (CmpReportAuditVirtualizationEvent.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     CmpFreeTransientPoolWithTag @ 0x14022CEF4 (CmpFreeTransientPoolWithTag.c)
- *     CmpConstructNameWithStatus @ 0x1406D7C60 (CmpConstructNameWithStatus.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     CmpGetVirtualizationID @ 0x140A19DEC (CmpGetVirtualizationID.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140206F68 (CmpFreeTransientPoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     CmpConstructName @ 0x1405F2FBC (CmpConstructName.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     CmpGetVirtualizationID @ 0x1406EBA84 (CmpGetVirtualizationID.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmRealKCBToVirtualPath(__int64 a1, __m128i *a2, __int64 a3, UNICODE_STRING *a4)
@@ -25,21 +25,19 @@ __int64 __fastcall CmRealKCBToVirtualPath(__int64 a1, __m128i *a2, __int64 a3, U
   __m128i v11; // xmm0
   wchar_t *v12; // xmm0_8
   unsigned __int16 Length; // ax
-  __int64 Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   wchar_t *v15; // rax
   UNICODE_STRING v16; // [rsp+20h] [rbp-30h] BYREF
-  UNICODE_STRING v17; // [rsp+30h] [rbp-20h] BYREF
-  UNICODE_STRING Source; // [rsp+40h] [rbp-10h] BYREF
+  UNICODE_STRING Source; // [rsp+30h] [rbp-20h] BYREF
+  UNICODE_STRING v18; // [rsp+40h] [rbp-10h] BYREF
 
   v6 = 0;
   Source = 0LL;
-  v17 = 0LL;
+  v16 = 0LL;
   if ( !CmpVEEnabled )
     return 3221225485LL;
-  *(_QWORD *)&v16.Length = 0LL;
-  CmpConstructNameWithStatus(a1, &v16, a3);
-  v8 = *(_QWORD **)&v16.Length;
-  if ( !*(_QWORD *)&v16.Length )
+  v8 = (_QWORD *)CmpConstructName(a1);
+  if ( !v8 )
     return 3221225626LL;
   VirtualizationID = CmpGetVirtualizationID(&Source);
   if ( VirtualizationID >= 0 )
@@ -48,21 +46,21 @@ __int64 __fastcall CmRealKCBToVirtualPath(__int64 a1, __m128i *a2, __int64 a3, U
     if ( a2 )
     {
       v11 = *a2;
-      *(_QWORD *)&v17.Length = a2->m128i_i64[0];
+      *(_QWORD *)&v16.Length = a2->m128i_i64[0];
       v12 = (wchar_t *)_mm_srli_si128(v11, 8).m128i_u64[0];
-      v17.Buffer = v12;
+      v16.Buffer = v12;
       if ( v12 )
       {
-        Length = v17.Length;
-        if ( v17.Length )
+        Length = v16.Length;
+        if ( v16.Length )
         {
           if ( *v12 )
           {
             if ( *v12 == 92 )
             {
-              v17.Buffer = v12 + 1;
-              Length = v17.Length - 2;
-              v17.Length -= 2;
+              Length = v16.Length - 2;
+              v16.Buffer = v12 + 1;
+              v16.Length -= 2;
             }
             if ( Length )
             {
@@ -73,9 +71,9 @@ __int64 __fastcall CmRealKCBToVirtualPath(__int64 a1, __m128i *a2, __int64 a3, U
         }
       }
     }
-    Pool2 = ExAllocatePool2(256LL, v10, 1649298755LL);
-    a4->Buffer = (wchar_t *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v10, 0x624E4D43u);
+    a4->Buffer = PoolWithTag;
+    if ( PoolWithTag )
     {
       a4->MaximumLength = v10;
       a4->Length = 0;
@@ -88,17 +86,17 @@ __int64 __fastcall CmRealKCBToVirtualPath(__int64 a1, __m128i *a2, __int64 a3, U
       VirtualizationID = RtlAppendUnicodeToString(a4, L"\\VirtualStore");
       if ( VirtualizationID < 0
         || (v15 = (wchar_t *)(v8[1] + 18LL),
-            *(_QWORD *)&v16.Length = *v8,
-            v16.Buffer = v15,
-            v16.Length = *(_WORD *)v8 - 18,
-            VirtualizationID = RtlAppendUnicodeStringToString(a4, &v16),
+            *(_QWORD *)&v18.Length = *v8,
+            v18.Buffer = v15,
+            v18.Length = *(_WORD *)v8 - 18,
+            VirtualizationID = RtlAppendUnicodeStringToString(a4, &v18),
             VirtualizationID < 0)
         || v6
         && ((VirtualizationID = RtlAppendUnicodeToString(a4, L"\\"), VirtualizationID < 0)
-         || (VirtualizationID = RtlAppendUnicodeStringToString(a4, &v17), VirtualizationID < 0)) )
+         || (VirtualizationID = RtlAppendUnicodeStringToString(a4, &v16), VirtualizationID < 0)) )
       {
 LABEL_23:
-        RtlFreeUnicodeString(a4);
+        RtlFreeAnsiString(a4);
       }
     }
     else
@@ -107,6 +105,6 @@ LABEL_23:
     }
   }
   CmpFreeTransientPoolWithTag(v8, 0x624E4D43u);
-  RtlFreeUnicodeString(&Source);
+  RtlFreeAnsiString(&Source);
   return (unsigned int)VirtualizationID;
 }

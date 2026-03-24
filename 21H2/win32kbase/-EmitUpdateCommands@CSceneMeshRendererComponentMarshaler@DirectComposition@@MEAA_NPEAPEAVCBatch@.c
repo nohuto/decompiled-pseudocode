@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EmitUpdateCommands@CSceneMeshRendererComponentMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0237A30
+ * XREFs of ?EmitUpdateCommands@CSceneMeshRendererComponentMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F7680
  * Callers:
  *     <none>
  * Callees:
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_157fb6f7c9b3954e06f37738d8d89d79___ @ 0x1C02377FC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_157fb6f7c9b3954e06f37738d8d89d7.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_3b53c63c137ebbf4e062e784a6f740c1___ @ 0x1C0237880 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_3b53c63c137ebbf4e062e784a6f740c.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_66f16f058a7148ecab2826ea000753f1___lambda_45b02998bed050691e5b6850ccebf4aa___ @ 0x1C0237904 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_66f16f058a7148ecab2826ea000753f.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_66ebe00854328af6b3d1a155e0a6dd52___ @ 0x1C01F744C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_66ebe00854328af6b3d1a155e0a6dd5.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_66f16f058a7148ecab2826ea000753f1___lambda_45b02998bed050691e5b6850ccebf4aa___ @ 0x1C01F74D0 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_66f16f058a7148ecab2826ea000753f.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_6724f6a5706e547093db9ce485c17012___ @ 0x1C01F75F0 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_6724f6a5706e547093db9ce485c1701.c)
  */
 
 char __fastcall DirectComposition::CSceneMeshRendererComponentMarshaler::EmitUpdateCommands(
@@ -14,45 +14,43 @@ char __fastcall DirectComposition::CSceneMeshRendererComponentMarshaler::EmitUpd
 {
   int v2; // eax
   char v3; // di
-  unsigned int v6; // r9d
-  __int64 v8; // [rsp+20h] [rbp-18h]
-  DirectComposition::CSceneMeshRendererComponentMarshaler *v9; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v7; // [rsp+20h] [rbp-18h]
+  DirectComposition::CSceneMeshRendererComponentMarshaler *v8; // [rsp+50h] [rbp+18h] BYREF
 
   v2 = *((_DWORD *)this + 4);
   v3 = 0;
-  v9 = this;
+  v8 = this;
   if ( (v2 & 0x20) != 0 )
   {
-    if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_3b53c63c137ebbf4e062e784a6f740c1___(
+    if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_6724f6a5706e547093db9ce485c17012___(
             (__int64)this,
             a2,
-            (__int64)&v9) )
+            (__int64)&v8) )
       return v3;
     *((_DWORD *)this + 4) &= ~0x20u;
     v2 = *((_DWORD *)this + 4);
   }
-  v9 = this;
+  v8 = this;
   if ( (v2 & 0x40) != 0 )
   {
-    if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_157fb6f7c9b3954e06f37738d8d89d79___(
+    if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_66ebe00854328af6b3d1a155e0a6dd52___(
             (__int64)this,
             a2,
-            (__int64)&v9) )
+            (__int64)&v8) )
       return v3;
     *((_DWORD *)this + 4) &= ~0x40u;
     v2 = *((_DWORD *)this + 4);
   }
-  v6 = *((_DWORD *)this + 22);
-  v9 = this;
+  v8 = this;
   if ( (v2 & 0x80u) == 0 )
     return 1;
   if ( DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_66f16f058a7148ecab2826ea000753f1___lambda_45b02998bed050691e5b6850ccebf4aa___(
          (__int64)this,
          a2,
-         (unsigned int *)this + 23,
-         v6,
-         v8,
-         (__int64)&v9) )
+         (unsigned int *)this + 21,
+         *((_DWORD *)this + 20),
+         v7,
+         (__int64)&v8) )
   {
     *((_DWORD *)this + 4) &= ~0x80u;
     return 1;

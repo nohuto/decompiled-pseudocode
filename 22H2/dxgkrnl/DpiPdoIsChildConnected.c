@@ -1,134 +1,150 @@
 /*
- * XREFs of DpiPdoIsChildConnected @ 0x1C01F5740
+ * XREFs of DpiPdoIsChildConnected @ 0x1C0178364
  * Callers:
- *     DpiFdoHandleDisplayDetectControl @ 0x1C001C04C (DpiFdoHandleDisplayDetectControl.c)
+ *     DpiFdoHandleDisplayDetectControl @ 0x1C00203C8 (DpiFdoHandleDisplayDetectControl.c)
  * Callees:
- *     DpiFdoGetChildDescriptor @ 0x1C00157F4 (DpiFdoGetChildDescriptor.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C017CDCC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
- *     DxgkAcquireAdapterCoreSync @ 0x1C0197F10 (DxgkAcquireAdapterCoreSync.c)
- *     DxgkReleaseAdapterCoreSync @ 0x1C01984C8 (DxgkReleaseAdapterCoreSync.c)
- *     DxgkReleaseAdapterDdiSync @ 0x1C01F59A8 (DxgkReleaseAdapterDdiSync.c)
- *     DxgkAcquireAdapterDdiSync @ 0x1C01F59C8 (DxgkAcquireAdapterDdiSync.c)
- *     DpiDxgkDdiQueryChildStatus @ 0x1C01F59FC (DpiDxgkDdiQueryChildStatus.c)
- *     DpiFdoPendingCreatePdoCompletion @ 0x1C039AACC (DpiFdoPendingCreatePdoCompletion.c)
+ *     DpiFdoGetChildDescriptor @ 0x1C001A070 (DpiFdoGetChildDescriptor.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     DxgkReleaseAdapterCoreSync @ 0x1C012E1AC (DxgkReleaseAdapterCoreSync.c)
+ *     DxgkAcquireAdapterCoreSync @ 0x1C012E510 (DxgkAcquireAdapterCoreSync.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C0145F7C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DxgkAcquireAdapterDdiSync @ 0x1C0174BD0 (DxgkAcquireAdapterDdiSync.c)
+ *     DxgkReleaseAdapterDdiSync @ 0x1C0174C50 (DxgkReleaseAdapterDdiSync.c)
+ *     DpiDxgkDdiQueryChildStatus @ 0x1C01785EC (DpiDxgkDdiQueryChildStatus.c)
+ *     DpiFdoPendingCreatePdoCompletion @ 0x1C02C875C (DpiFdoPendingCreatePdoCompletion.c)
  */
 
 __int64 __fastcall DpiPdoIsChildConnected(__int64 a1, int a2, char a3, char a4, char *a5, bool *a6)
 {
-  char v6; // r12
-  __int64 v9; // r14
+  bool v6; // bl
+  __int64 v7; // r14
+  __int64 v10; // r13
   __int64 ChildStatus; // r15
-  _QWORD *ChildDescriptor; // rax
-  int v12; // edx
-  __int64 v13; // r8
-  _QWORD *v14; // rdi
-  __int64 v15; // rcx
-  bool v16; // cf
-  __int64 v17; // r13
+  PVOID *ChildDescriptor; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  PVOID *v16; // rdi
+  unsigned int v17; // eax
   int v18; // r12d
-  __int64 v19; // r9
-  __int64 v20; // r8
-  char v21; // al
-  __int64 v22; // rax
-  _DWORD v27[2]; // [rsp+48h] [rbp-61h] BYREF
-  __int64 v28; // [rsp+50h] [rbp-59h]
-  _DWORD v29[2]; // [rsp+60h] [rbp-49h] BYREF
-  _BYTE v30[24]; // [rsp+68h] [rbp-41h] BYREF
-  __int64 v31; // [rsp+80h] [rbp-29h]
-  int v32; // [rsp+88h] [rbp-21h]
-  int v33; // [rsp+8Ch] [rbp-1Dh]
-  int v34; // [rsp+90h] [rbp-19h]
-  int v35; // [rsp+94h] [rbp-15h]
-  int v36; // [rsp+98h] [rbp-11h]
-  int v37; // [rsp+9Ch] [rbp-Dh]
-  __int64 v38; // [rsp+A0h] [rbp-9h]
+  __int64 v19; // rcx
+  __int64 v20; // r13
+  __int64 v21; // r9
+  __int64 v22; // rdx
+  __int64 v23; // r8
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  char v26; // al
+  __int64 v27; // rax
+  __int64 v29; // rax
+  __int64 v30; // rax
+  __int64 v31; // rax
+  _DWORD v35[2]; // [rsp+48h] [rbp-61h] BYREF
+  __int64 v36; // [rsp+50h] [rbp-59h]
+  _DWORD v37[2]; // [rsp+60h] [rbp-49h] BYREF
+  _BYTE v38[24]; // [rsp+68h] [rbp-41h] BYREF
+  __int64 v39; // [rsp+80h] [rbp-29h]
+  int v40; // [rsp+88h] [rbp-21h]
+  int v41; // [rsp+8Ch] [rbp-1Dh]
+  int v42; // [rsp+90h] [rbp-19h]
+  int v43; // [rsp+94h] [rbp-15h]
+  int v44; // [rsp+98h] [rbp-11h]
+  int v45; // [rsp+9Ch] [rbp-Dh]
+  __int64 v46; // [rsp+A0h] [rbp-9h]
 
   v6 = 0;
-  v9 = *(_QWORD *)(a1 + 64);
+  v7 = *(_QWORD *)(a1 + 64);
+  v10 = a1;
   LODWORD(ChildStatus) = 0;
   *a5 = 0;
   KeEnterCriticalRegion();
-  ExAcquireResourceSharedLite((PERESOURCE)(v9 + 3320), 1u);
-  ChildDescriptor = DpiFdoGetChildDescriptor(v9, a2);
-  v14 = ChildDescriptor;
+  ExAcquireResourceSharedLite((PERESOURCE)(v7 + 3304), 1u);
+  ChildDescriptor = (PVOID *)DpiFdoGetChildDescriptor(v7, a2);
+  v16 = ChildDescriptor;
   if ( !ChildDescriptor )
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v29 = WdLogNewEntry5_WdError(v14, v13);
+    *(_QWORD *)(v29 + 24) = 0LL;
+    WdLogEvent5_WdError(v29);
     v18 = a2;
     goto LABEL_16;
   }
-  if ( *(_DWORD *)ChildDescriptor == 1
-    && (*((_DWORD *)ChildDescriptor + 1) == 15 || (unsigned int)(*((_DWORD *)ChildDescriptor + 1) - 16) < 2) )
+  if ( *(_DWORD *)ChildDescriptor == 1 )
   {
-    v6 = 1;
+    v17 = *((_DWORD *)ChildDescriptor + 1);
+    if ( v17 >= 0xF )
+      v6 = v17 <= 0x11;
   }
-  switch ( *((_DWORD *)ChildDescriptor + 4) )
+  switch ( *((_DWORD *)v16 + 4) )
   {
     case 1:
       *a5 = 1;
       break;
     case 3:
 LABEL_10:
-      v28 = 0LL;
-      v15 = *(_QWORD *)(v9 + 3912);
-      v16 = v6 != 0;
-      v17 = *(_QWORD *)(v9 + 40);
-      v18 = v12;
-      v27[1] = v12;
-      v27[0] = v16 ? 3 : 1;
-      DxgkAcquireAdapterCoreSync(v15, 1, v13);
-      KeWaitForSingleObject((PVOID)v14[9], Executive, 0, 0, 0LL);
-      DxgkAcquireAdapterDdiSync(*(_QWORD *)(v9 + 3912), 1LL);
-      LOBYTE(v19) = a4;
-      ChildStatus = (int)DpiDxgkDdiQueryChildStatus(v17, *(_QWORD *)(v9 + 48), v27, v19);
-      DxgkReleaseAdapterDdiSync(*(_QWORD *)(v9 + 3912));
-      KeReleaseMutex((PRKMUTEX)v14[9], 0);
-      DxgkReleaseAdapterCoreSync(*(_QWORD *)(v9 + 3912), 1u, v20);
+      v36 = 0LL;
+      v18 = a2;
+      v19 = *(_QWORD *)(v7 + 3896);
+      v20 = *(_QWORD *)(v7 + 40);
+      v35[1] = a2;
+      v35[0] = v6 ? 3 : 1;
+      DxgkAcquireAdapterCoreSync(v19, 1, v15);
+      KeWaitForSingleObject(v16[9], Executive, 0, 0, 0LL);
+      DxgkAcquireAdapterDdiSync(*(_QWORD *)(v7 + 3896), 1LL);
+      LOBYTE(v21) = a4;
+      ChildStatus = (int)DpiDxgkDdiQueryChildStatus(v20, *(_QWORD *)(v7 + 48), v35, v21);
+      DxgkReleaseAdapterDdiSync(*(DXGADAPTER **)(v7 + 3896), v22);
+      KeReleaseMutex((PRKMUTEX)v16[9], 0);
+      DxgkReleaseAdapterCoreSync(*(_QWORD *)(v7 + 3896), 1u, v23);
       if ( (int)ChildStatus < 0 )
       {
-        WdLogSingleEntry2(2LL, *(_QWORD *)(v17 + 208), ChildStatus);
+        v31 = WdLogNewEntry5_WdError(v25, v24);
+        *(_QWORD *)(v31 + 24) = *(_QWORD *)(v20 + 208);
+        *(_QWORD *)(v31 + 32) = ChildStatus;
+        WdLogEvent5_WdError(v31);
         goto LABEL_16;
       }
-      *a5 = v28;
+      v10 = a1;
+      *a5 = v36;
       goto LABEL_12;
     case 4:
-      if ( (!v6 || *((_DWORD *)ChildDescriptor + 1) != 15 || *(_QWORD *)(v9 + 3248)) && a3 )
+      if ( (!v6 || *((_DWORD *)v16 + 1) != 15 || *(_QWORD *)(v7 + 3232)) && a3 )
         goto LABEL_10;
-      *a5 = *((_BYTE *)ChildDescriptor + 65);
+      *a5 = *((_BYTE *)v16 + 65);
       break;
     default:
-      WdLogSingleEntry1(2LL, 0LL);
-      v18 = a2;
-      goto LABEL_12;
+      v30 = WdLogNewEntry5_WdError((unsigned int)(*((_DWORD *)v16 + 4) - 3), 1LL);
+      *(_QWORD *)(v30 + 24) = 0LL;
+      WdLogEvent5_WdError(v30);
+      break;
   }
-  v18 = v12;
+  v18 = a2;
 LABEL_12:
-  v21 = *a5;
-  if ( !*a5 && *((_BYTE *)v14 + 64) == 1 )
+  v26 = *a5;
+  if ( !*a5 && *((_BYTE *)v16 + 64) == 1 )
   {
-    KeWaitForSingleObject((PVOID)(v9 + 3424), Executive, 0, 0, 0LL);
-    DpiFdoPendingCreatePdoCompletion(a1, v14);
-    KeReleaseMutex((PRKMUTEX)(v9 + 3424), 0);
-    v21 = *a5;
+    KeWaitForSingleObject((PVOID)(v7 + 3408), Executive, 0, 0, 0LL);
+    DpiFdoPendingCreatePdoCompletion(v10, v16);
+    KeReleaseMutex((PRKMUTEX)(v7 + 3408), 0);
+    v26 = *a5;
   }
-  *a6 = v21 == (v14[6] == 0LL);
+  *a6 = v26 == (v16[6] == 0LL);
 LABEL_16:
-  ExReleaseResourceLite((PERESOURCE)(v9 + 3320));
+  ExReleaseResourceLite((PERESOURCE)(v7 + 3304));
   KeLeaveCriticalRegion();
-  memset(v30, 0, sizeof(v30));
-  v33 = 0;
-  v22 = *(_QWORD *)(v9 + 2672);
-  v32 = 0;
-  v31 = 0LL;
-  v37 = (unsigned __int8)*a5;
-  v29[0] = 30;
-  v29[1] = 72;
-  memset(v30, 0, sizeof(v30));
-  v34 = 38;
-  v35 = v18;
-  v36 = ChildStatus;
-  v38 = v22;
-  DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v29, *(_QWORD *)(v9 + 5744));
+  memset(v38, 0, sizeof(v38));
+  v41 = 0;
+  v27 = *(_QWORD *)(v7 + 2672);
+  v40 = 0;
+  v39 = 0LL;
+  v45 = (unsigned __int8)*a5;
+  v37[0] = 30;
+  v37[1] = 72;
+  memset(v38, 0, sizeof(v38));
+  v42 = 38;
+  v43 = v18;
+  v44 = ChildStatus;
+  v46 = v27;
+  DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v37, *(_QWORD *)(v7 + 5936));
   return (unsigned int)ChildStatus;
 }

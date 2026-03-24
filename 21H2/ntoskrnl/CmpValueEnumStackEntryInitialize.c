@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpValueEnumStackEntryInitialize @ 0x1402264A8
+ * XREFs of CmpValueEnumStackEntryInitialize @ 0x1402D3894
  * Callers:
- *     CmpValueEnumStackStartFromKeyNodeStack @ 0x140200068 (CmpValueEnumStackStartFromKeyNodeStack.c)
- *     CmpValueEnumStackInitialize @ 0x14069F47C (CmpValueEnumStackInitialize.c)
+ *     CmpValueEnumStackStartFromKeyNodeStack @ 0x14036BD58 (CmpValueEnumStackStartFromKeyNodeStack.c)
+ *     CmpValueEnumStackInitialize @ 0x14072A23C (CmpValueEnumStackInitialize.c)
  * Callees:
- *     HvpGetCellContextReinitialize @ 0x1407C97FC (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellContextInitialize @ 0x140875CF8 (HvpGetCellContextInitialize.c)
  */
 
 __int64 __fastcall CmpValueEnumStackEntryInitialize(_OWORD *a1)
 {
   *a1 = 0LL;
   a1[1] = 0LL;
-  return HvpGetCellContextReinitialize(a1 + 1);
+  return HvpGetCellContextInitialize(a1 + 1);
 }

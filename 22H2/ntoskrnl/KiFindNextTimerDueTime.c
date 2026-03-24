@@ -1,344 +1,355 @@
 /*
- * XREFs of KiFindNextTimerDueTime @ 0x14027E1A0
+ * XREFs of KiFindNextTimerDueTime @ 0x140225840
  * Callers:
- *     KiGetNextTimerExpirationDueTime @ 0x14027DED0 (KiGetNextTimerExpirationDueTime.c)
- *     KePrepareNonClockOwnerForIdle @ 0x1402C1CAC (KePrepareNonClockOwnerForIdle.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x140225560 (KiGetNextTimerExpirationDueTime.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall KiFindNextTimerDueTime(__int64 a1, unsigned __int64 a2, char a3, unsigned __int64 *a4)
 {
-  unsigned int v4; // r15d
-  unsigned __int64 v5; // r14
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  unsigned __int64 *v8; // r10
-  char v9; // r9
-  unsigned int v10; // r8d
-  unsigned int v11; // r13d
+  char v4; // r11
+  unsigned __int64 v5; // r15
+  unsigned int v6; // edx
+  __int64 v7; // r8
+  unsigned int v8; // r13d
+  unsigned __int64 *v9; // rbx
+  __int64 v10; // r10
+  unsigned int v11; // ecx
   unsigned int v12; // eax
-  unsigned __int64 v13; // r12
+  unsigned __int64 v13; // r9
   unsigned int v14; // esi
-  __int64 *v15; // rdi
-  unsigned __int64 v16; // r11
-  unsigned __int64 v17; // r8
-  unsigned __int64 v18; // rbx
-  __int64 v19; // r10
-  unsigned __int64 v20; // r9
-  _QWORD *v21; // rax
-  __int64 v22; // rcx
-  unsigned __int64 v23; // rax
-  unsigned int v24; // eax
-  __int64 v26; // r9
-  int v27; // edx
-  unsigned int v28; // eax
-  unsigned __int64 v29; // rbp
-  __int64 v30; // r11
-  unsigned __int64 v31; // r14
-  unsigned __int64 v32; // r9
-  unsigned __int64 v33; // r10
-  _QWORD *v34; // rcx
-  __int64 v35; // rax
-  unsigned __int64 v36; // rcx
-  unsigned __int64 v37; // rdx
-  unsigned __int64 v38; // rdi
-  unsigned __int16 v39; // r11
-  unsigned __int64 v40; // r10
-  unsigned __int64 v41; // r9
-  __int64 v42; // rbx
-  unsigned __int64 v43; // rdx
-  _QWORD *v44; // rcx
-  __int64 v45; // rax
-  unsigned __int64 v46; // rcx
-  int v47; // r8d
-  __int64 v48; // r10
-  __int64 v49; // rdx
-  unsigned __int64 v50; // r8
-  unsigned int v51; // [rsp+0h] [rbp-68h]
-  int v52; // [rsp+4h] [rbp-64h]
-  unsigned int v53; // [rsp+8h] [rbp-60h]
-  __int64 v54; // [rsp+10h] [rbp-58h]
+  unsigned int v15; // esi
+  __int64 v17; // rbp
+  __int64 v18; // rax
+  __int64 v19; // r14
+  __int64 *v20; // rdi
+  unsigned __int64 v21; // r11
+  unsigned __int64 v22; // r8
+  unsigned __int64 v23; // rbx
+  __int64 v24; // r10
+  unsigned __int64 v25; // r9
+  _QWORD *v26; // rax
+  __int64 v27; // rcx
+  unsigned __int64 v28; // rax
+  unsigned int v29; // eax
+  __int64 v30; // r9
+  __int64 v31; // rbp
+  unsigned int v32; // ecx
+  __int64 v33; // rbx
+  __int64 v34; // rbp
+  unsigned __int64 v35; // r12
+  unsigned __int64 v36; // r15
+  unsigned __int64 v37; // r10
+  unsigned __int64 v38; // r11
+  _QWORD *v39; // r8
+  __int64 v40; // rax
+  unsigned __int64 v41; // r8
+  unsigned __int64 v42; // rdx
+  int v43; // ecx
+  __int64 v44; // r11
+  unsigned __int64 v45; // rdi
+  unsigned __int16 v46; // r11
+  unsigned __int64 v47; // r10
+  unsigned __int64 v48; // r9
+  __int64 v49; // rbx
+  unsigned __int64 v50; // rdx
+  _QWORD *v51; // rcx
+  __int64 v52; // rax
+  unsigned __int64 v53; // rcx
+  __int64 v54; // rdx
+  unsigned int v55; // [rsp+0h] [rbp-88h]
+  __int64 v56; // [rsp+8h] [rbp-80h]
+  unsigned int v57; // [rsp+10h] [rbp-78h]
+  unsigned __int64 v58; // [rsp+18h] [rbp-70h]
+  int v59; // [rsp+20h] [rbp-68h]
+  unsigned int v60; // [rsp+24h] [rbp-64h]
 
-  v4 = -1;
+  v4 = a3;
   v5 = a2;
-  v6 = a1;
-  v51 = -1;
+  v6 = -1;
   v7 = -1LL;
-  v8 = a4;
-  v9 = a3;
-  v54 = -1LL;
-  v10 = -1;
-  if ( KiGlobalTimerResolutionRequests || KePseudoHrTimeIncrement != KeMaximumIncrement )
+  v56 = -1LL;
+  v8 = -1;
+  v55 = -1;
+  v9 = a4;
+  v10 = a1;
+  if ( (KiVelocityFlags & 0x2000) != 0 && KePseudoHrTimeIncrement == KeMaximumIncrement )
   {
-    v11 = 0;
-    v52 = 1;
+    v11 = 1;
+    v59 = -1;
   }
   else
   {
-    v11 = 1;
-    v52 = -1;
+    v11 = 0;
+    v59 = 1;
   }
+  v57 = v11;
   v12 = (unsigned __int8)(v5 >> 18);
-  v53 = v12;
-  while ( 2 )
+  v60 = v12;
+  while ( 1 )
   {
     v13 = -1LL;
+    v58 = -1LL;
     v14 = v12;
-    if ( KiSerializeTimerExpiration )
-    {
-      if ( !v9 )
-        goto LABEL_25;
-      v27 = *(_DWORD *)(KiProcessorBlock[0] + 4LL * v11 + 32272);
-      v28 = (unsigned __int8)(v12 - v27);
-      if ( v28 > 1 )
-        return 0LL;
-      v29 = KiProcessorBlock[0] + ((unsigned __int64)v11 << 13);
-      v30 = (unsigned __int8)v27;
-      v31 = (v5 & 0xFFFFFFFFFFFC0000uLL) - (v28 << 18) + 0x4000000;
-      v4 = 0;
-LABEL_43:
-      v32 = (unsigned int)v30;
-      v33 = KiPendingTimerBitmaps[0] - 1;
-      if ( (unsigned __int64)(unsigned int)v30 >= KiPendingTimerBitmaps[0] )
-        v32 = 0LL;
-      while ( 1 )
-      {
-        if ( v33 - v32 == -1LL )
-        {
-          LODWORD(v36) = -1;
-          goto LABEL_84;
-        }
-        v34 = (_QWORD *)(qword_140D20278[0] + 8 * (v32 >> 6));
-        v35 = ((1LL << (v32 & 0x3F)) - 1) | ~*v34;
-        if ( v35 == -1 )
-          break;
-LABEL_47:
-        _BitScanForward64((unsigned __int64 *)&v35, ~v35);
-        v36 = v35 + (((__int64)v34 - qword_140D20278[0]) >> 3 << 6);
-        if ( v36 > v33 )
-          goto LABEL_88;
-        if ( v36 != -1LL )
-          goto LABEL_49;
-LABEL_84:
-        if ( !v32 )
-        {
-LABEL_49:
-          v10 = v51;
-          if ( (_DWORD)v36 == -1 )
-            goto LABEL_79;
-          v4 += (unsigned __int8)(v36 - v30 + 1);
-          if ( v4 > 0x100 || v4 > v51 )
-            goto LABEL_79;
-          v37 = *(_QWORD *)(32LL * (unsigned int)v36 + v29 + 15896);
-          if ( HIDWORD(v37) != -1 && v37 < v13 )
-          {
-            if ( v37 >= v31 )
-            {
-              v13 = *(_QWORD *)(32LL * (unsigned int)v36 + v29 + 15896);
-            }
-            else
-            {
-              v47 = (unsigned __int8)(v37 >> 18);
-              if ( v47 == (_DWORD)v36 )
-              {
-                v13 = *(_QWORD *)(32LL * (unsigned int)v36 + v29 + 15896);
-                goto LABEL_78;
-              }
-              v50 = (v37 & 0xFFFFFFFFFFFC0000uLL) + ((((_DWORD)v36 - v47) << 18) & 0x3FC0000);
-              if ( v50 < v13 )
-              {
-                v13 = v50;
-                v30 = (unsigned __int8)(v36 + 1);
-                goto LABEL_43;
-              }
-            }
-          }
-          v30 = (unsigned __int8)(v36 + 1);
-          goto LABEL_43;
-        }
-        v48 = v30 + 1;
-        if ( (unsigned __int64)(v30 + 1) > KiPendingTimerBitmaps[0] )
-          v48 = KiPendingTimerBitmaps[0];
-        v33 = v48 - 1;
-        v32 = 0LL;
-      }
-      while ( (unsigned __int64)++v34 <= qword_140D20278[0] + 8 * (v33 >> 6) )
-      {
-        v35 = ~*v34;
-        if ( *v34 )
-          goto LABEL_47;
-      }
-LABEL_88:
-      LODWORD(v36) = -1;
-      goto LABEL_84;
-    }
-    if ( v12 != (unsigned __int8)*(_DWORD *)(v6 + 4LL * v11 + 32272) )
+    if ( !KiSerializeTimerExpiration )
+      break;
+    if ( !v4 )
+      goto LABEL_7;
+    v31 = v11;
+    v32 = (unsigned __int8)(v12 - *(_BYTE *)(KiProcessorBlock[0] + 4LL * v11 + 31568));
+    if ( v32 > 1 )
       return 0LL;
-    if ( v9 )
-    {
-      v38 = v12 << 9;
-      v4 = -1;
-      v39 = 0;
-      while ( 1 )
-      {
-        v40 = KiPendingTimerBitmaps[2 * v39];
-        if ( v38 >= v40 )
-          v41 = 0LL;
-        else
-          v41 = v14 << 9;
-        v42 = KiPendingTimerBitmaps[2 * v39 + 1];
-        v43 = v40 - 1;
-        while ( 1 )
-        {
-          if ( v43 - v41 == -1LL )
-            goto LABEL_90;
-          v44 = (_QWORD *)(v42 + 8 * (v41 >> 6));
-          v45 = ~*v44;
-          if ( v45 == -1 )
-          {
-            while ( (unsigned __int64)++v44 <= v42 + 8 * (v43 >> 6) )
-            {
-              v45 = ~*v44;
-              if ( v45 != -1 )
-                goto LABEL_63;
-            }
-LABEL_90:
-            LODWORD(v46) = -1;
-            goto LABEL_91;
-          }
-LABEL_63:
-          _BitScanForward64((unsigned __int64 *)&v45, ~v45);
-          v46 = v45 + (((__int64)v44 - v42) >> 3 << 6);
-          if ( v46 > v43 )
-          {
-            LODWORD(v46) = -1;
-          }
-          else if ( v46 != -1LL )
-          {
-            break;
-          }
-LABEL_91:
-          if ( !v41 )
-            break;
-          v49 = v38 + 1;
-          if ( v38 + 1 > v40 )
-            v49 = KiPendingTimerBitmaps[2 * v39];
-          v43 = v49 - 1;
-          v41 = 0LL;
-        }
-        if ( (_DWORD)v46 != -1 && (unsigned __int8)(((unsigned int)v46 >> 9) - v14) < v4 )
-          v4 = (unsigned __int8)(((unsigned int)v46 >> 9) - v14);
-        if ( ++v39 >= (unsigned __int16)KiActiveGroups )
-        {
-          v5 = a2;
-          v6 = a1;
-          v10 = v51;
-          v9 = a3;
-          v8 = a4;
-          if ( v4 != -1 )
-            v13 = (unsigned int)KePseudoHrTimeIncrement + (a2 & 0xFFFFFFFFFFFC0000uLL) + (v4 << 18);
-          goto LABEL_24;
-        }
-      }
-    }
-    v4 = 0;
-    v15 = &KiPendingTimerBitmaps[2 * *(unsigned __int8 *)(v6 + 208)];
+    v8 = 0;
+    v33 = (unsigned __int8)*(_DWORD *)(KiProcessorBlock[0] + 4 * v31 + 31568);
+    v34 = KiProcessorBlock[0] + (v31 << 13);
+    v35 = (v5 & 0xFFFFFFFFFFFC0000uLL) - (v32 << 18) + 0x4000000;
     while ( 2 )
     {
-      v16 = *v15;
-      v17 = (unsigned __int64)v14 << 9;
-      if ( v17 >= *v15 )
-        v18 = 0LL;
-      else
-        v18 = (unsigned __int64)v14 << 9;
-      v19 = v15[1];
-      v20 = v16 - 1;
+      v36 = v13;
+      v37 = (unsigned int)v33;
+      v38 = KiPendingTimerBitmaps[0] - 1;
+      if ( (unsigned __int64)(unsigned int)v33 >= KiPendingTimerBitmaps[0] )
+        v37 = 0LL;
       while ( 1 )
       {
-        if ( v20 - v18 == -1LL )
+        if ( v38 - v37 == -1LL )
         {
-          LODWORD(v23) = -1;
+          LODWORD(v41) = -1;
         }
         else
         {
-          v21 = (_QWORD *)(v19 + 8 * (v18 >> 6));
-          v22 = ~*v21;
-          if ( v22 == -1 )
+          v39 = (_QWORD *)(qword_140CFD788 + 8 * (v37 >> 6));
+          v40 = ((1LL << (v37 & 0x3F)) - 1) | ~*v39;
+          if ( v40 == -1 )
           {
-            while ( (unsigned __int64)++v21 <= v19 + 8 * (v20 >> 6) )
+            while ( (unsigned __int64)++v39 <= qword_140CFD788 + 8 * (v38 >> 6) )
             {
-              v22 = ~*v21;
-              if ( v22 != -1 )
-                goto LABEL_13;
+              v40 = ~*v39;
+              if ( *v39 )
+                goto LABEL_48;
             }
-LABEL_35:
-            LODWORD(v23) = -1;
-            goto LABEL_36;
+LABEL_64:
+            LODWORD(v41) = -1;
+            goto LABEL_65;
           }
-LABEL_13:
-          _BitScanForward64((unsigned __int64 *)&v22, ~v22);
-          v23 = v22 + (((__int64)v21 - v19) >> 3 << 6);
-          if ( v23 > v20 )
-            goto LABEL_35;
-          if ( v23 != -1LL )
+LABEL_48:
+          _BitScanForward64((unsigned __int64 *)&v40, ~v40);
+          v41 = v40 + (((__int64)v39 - qword_140CFD788) >> 3 << 6);
+          if ( v41 > v38 )
+            goto LABEL_64;
+          if ( v41 != -1LL )
             break;
         }
-LABEL_36:
-        if ( !v18 )
+LABEL_65:
+        if ( !v37 )
           break;
-        v26 = v17 + 1;
-        if ( v17 + 1 > v16 )
-          v26 = *v15;
-        v20 = v26 - 1;
-        v18 = 0LL;
+        v44 = v33 + 1;
+        if ( (unsigned __int64)(v33 + 1) > KiPendingTimerBitmaps[0] )
+          v44 = KiPendingTimerBitmaps[0];
+        v38 = v44 - 1;
+        v37 = 0LL;
       }
-      if ( (_DWORD)v23 == -1 || (v24 = (unsigned int)v23 >> 9, v4 += (unsigned __int8)(v24 - v14), v4 > 0x100) )
+      v6 = v55;
+      v13 = v58;
+      if ( (_DWORD)v41 != -1 )
       {
-LABEL_78:
-        v10 = v51;
-LABEL_79:
-        v5 = a2;
-        goto LABEL_23;
-      }
-      if ( (*(_QWORD *)(v6 + 200) & *(_QWORD *)(((unsigned __int64)v24 << 6)
-                                              + KiPendingTimerBitmaps[2 * *(unsigned __int8 *)(v6 + 208) + 1])) == 0LL )
-      {
-        v14 = (unsigned __int8)(v24 + 1);
-        continue;
+        v8 += (unsigned __int8)(v41 - v33 + 1);
+        if ( v8 <= v55 && v8 <= 0x100 )
+        {
+          v42 = *(_QWORD *)(32LL * (unsigned int)v41 + v34 + 15192);
+          if ( v42 >= v58 || HIDWORD(v42) == -1 )
+            goto LABEL_54;
+          if ( v42 >= v35 )
+          {
+            v13 = *(_QWORD *)(32LL * (unsigned int)v41 + v34 + 15192);
+            v58 = v13;
+LABEL_54:
+            v33 = (unsigned __int8)(v41 + 1);
+            continue;
+          }
+          v43 = (unsigned __int8)(v42 >> 18);
+          if ( v43 != (_DWORD)v41 )
+          {
+            v33 = (unsigned __int8)(v41 + 1);
+            v13 = (v42 & 0xFFFFFFFFFFFC0000uLL) + ((((_DWORD)v41 - v43) << 18) & 0x3FC0000);
+            if ( v13 >= v36 )
+              v13 = v36;
+            v58 = v13;
+            continue;
+          }
+          v13 = *(_QWORD *)(32LL * (unsigned int)v41 + v34 + 15192);
+          v6 = v55;
+        }
       }
       break;
     }
     v5 = a2;
-    v10 = v51;
-    v13 = (unsigned int)KePseudoHrTimeIncrement + (a2 & 0xFFFFFFFFFFFC0000uLL) + (v4 << 18);
-LABEL_23:
-    v6 = a1;
-    v9 = a3;
-    v8 = a4;
-LABEL_24:
-    v7 = v54;
-LABEL_25:
-    if ( v11 )
+LABEL_34:
+    v7 = v56;
+    v10 = a1;
+    v4 = a3;
+    v9 = a4;
+LABEL_7:
+    if ( v57 )
     {
-      *v8 = v13;
+      *v9 = v13;
     }
     else
     {
       v7 = v13;
-      v54 = v13;
+      v56 = v13;
     }
-    if ( v13 != -1LL && v10 >= v4 + 1 )
+    if ( v13 != -1LL && v6 >= v8 + 1 )
     {
-      v10 = v4 + 1;
-      v51 = v4 + 1;
+      v6 = v8 + 1;
+      v55 = v8 + 1;
     }
-    v11 += v52;
-    if ( v11 < 2 )
-    {
-      v12 = v53;
-      continue;
-    }
-    return v7;
+    v15 = v59 + v57;
+    v57 = v15;
+    if ( v15 >= 2 )
+      return v7;
+    v12 = v60;
+    v11 = v15;
   }
+  if ( v12 == (unsigned __int8)*(_DWORD *)(v10 + 4LL * v11 + 31568) )
+  {
+    if ( !v4 )
+    {
+      v8 = 0;
+      v17 = *(_QWORD *)(v10 + 200);
+      v18 = 2LL * *(unsigned __int8 *)(v10 + 208);
+      v19 = KiPendingTimerBitmaps[v18 + 1];
+      v20 = &KiPendingTimerBitmaps[v18];
+      while ( 1 )
+      {
+        v21 = *v20;
+        v22 = (unsigned __int64)v14 << 9;
+        if ( v22 >= *v20 )
+          v23 = 0LL;
+        else
+          v23 = (unsigned __int64)v14 << 9;
+        v24 = v20[1];
+        v25 = v21 - 1;
+        while ( 1 )
+        {
+          if ( v25 - v23 == -1LL )
+            goto LABEL_37;
+          v26 = (_QWORD *)(v24 + 8 * (v23 >> 6));
+          v27 = ~*v26;
+          if ( !*v26 )
+          {
+            while ( (unsigned __int64)++v26 <= v24 + 8 * (v25 >> 6) )
+            {
+              v27 = ~*v26;
+              if ( *v26 )
+                goto LABEL_20;
+            }
+LABEL_37:
+            LODWORD(v28) = -1;
+            goto LABEL_38;
+          }
+LABEL_20:
+          _BitScanForward64((unsigned __int64 *)&v27, ~v27);
+          v28 = v27 + (((__int64)v26 - v24) >> 3 << 6);
+          if ( v28 > v25 )
+          {
+            LODWORD(v28) = -1;
+          }
+          else if ( v28 != -1LL )
+          {
+            break;
+          }
+LABEL_38:
+          if ( !v23 )
+            break;
+          v30 = v22 + 1;
+          if ( v22 + 1 > v21 )
+            v30 = *v20;
+          v25 = v30 - 1;
+          v23 = 0LL;
+        }
+        if ( (_DWORD)v28 == -1 || (v29 = (unsigned int)v28 >> 9, v8 += (unsigned __int8)(v29 - v14) + 1, v8 > 0x100) )
+        {
+          v13 = -1LL;
+          v6 = v55;
+          goto LABEL_34;
+        }
+        if ( (*(_QWORD *)(((unsigned __int64)v29 << 6) + v19) & v17) != 0 )
+        {
+          v6 = v55;
+          v13 = v5 + (v8 << 18);
+          goto LABEL_34;
+        }
+        v14 = (unsigned __int8)(v29 + 1);
+      }
+    }
+    v45 = v12 << 9;
+    v8 = -1;
+    v46 = 0;
+LABEL_72:
+    v47 = KiPendingTimerBitmaps[2 * v46];
+    if ( v45 >= v47 )
+      v48 = 0LL;
+    else
+      v48 = v14 << 9;
+    v49 = KiPendingTimerBitmaps[2 * v46 + 1];
+    v50 = v47 - 1;
+    while ( 1 )
+    {
+      if ( v50 - v48 == -1LL )
+        goto LABEL_91;
+      v51 = (_QWORD *)(v49 + 8 * (v48 >> 6));
+      v52 = ~*v51;
+      if ( !*v51 )
+        break;
+LABEL_77:
+      _BitScanForward64((unsigned __int64 *)&v52, ~v52);
+      v53 = v52 + (((__int64)v51 - v49) >> 3 << 6);
+      if ( v53 > v50 )
+      {
+        LODWORD(v53) = -1;
+      }
+      else if ( v53 != -1LL )
+      {
+        goto LABEL_79;
+      }
+LABEL_92:
+      if ( !v48 )
+      {
+LABEL_79:
+        if ( (_DWORD)v53 != -1 && (unsigned __int8)(((unsigned int)v53 >> 9) - v14) < v8 )
+          v8 = (unsigned __int8)(((unsigned int)v53 >> 9) - v14);
+        if ( ++v46 >= (unsigned __int16)KiActiveGroups )
+        {
+          v6 = v55;
+          v7 = v56;
+          v10 = a1;
+          v4 = a3;
+          v9 = a4;
+          if ( v8 == -1 )
+            v13 = -1LL;
+          else
+            v13 = (unsigned int)KeTimeIncrement + (v5 & 0xFFFFFFFFFFFC0000uLL) + (v8 << 18);
+          goto LABEL_7;
+        }
+        goto LABEL_72;
+      }
+      v54 = v45 + 1;
+      if ( v45 + 1 > v47 )
+        v54 = KiPendingTimerBitmaps[2 * v46];
+      v50 = v54 - 1;
+      v48 = 0LL;
+    }
+    while ( (unsigned __int64)++v51 <= v49 + 8 * (v50 >> 6) )
+    {
+      v52 = ~*v51;
+      if ( *v51 )
+        goto LABEL_77;
+    }
+LABEL_91:
+    LODWORD(v53) = -1;
+    goto LABEL_92;
+  }
+  return 0LL;
 }

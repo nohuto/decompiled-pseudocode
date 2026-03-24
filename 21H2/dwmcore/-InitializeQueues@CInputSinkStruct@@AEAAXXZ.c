@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InitializeQueues@CInputSinkStruct@@AEAAXXZ @ 0x1800E0E8C
+ * XREFs of ?InitializeQueues@CInputSinkStruct@@AEAAXXZ @ 0x1800E1428
  * Callers:
- *     ?ReplaceInputHandle@CInputSinkStruct@@QEAAJPEAX@Z @ 0x1800E0DB0 (-ReplaceInputHandle@CInputSinkStruct@@QEAAJPEAX@Z.c)
+ *     ?ReplaceInputHandle@CInputSinkStruct@@QEAAJPEAX@Z @ 0x1800E134C (-ReplaceInputHandle@CInputSinkStruct@@QEAAJPEAX@Z.c)
  * Callees:
- *     ?InitializeQueueInfo@CInputSinkStruct@@AEAAJAEAUInputQueueInfo@1@@Z @ 0x1800E0EFC (-InitializeQueueInfo@CInputSinkStruct@@AEAAJAEAUInputQueueInfo@1@@Z.c)
+ *     ?InitializeQueueInfo@CInputSinkStruct@@AEAAJAEAUInputQueueInfo@1@@Z @ 0x1800E1498 (-InitializeQueueInfo@CInputSinkStruct@@AEAAJAEAUInputQueueInfo@1@@Z.c)
  */
 
 void __fastcall CInputSinkStruct::InitializeQueues(CInputSinkStruct *this)

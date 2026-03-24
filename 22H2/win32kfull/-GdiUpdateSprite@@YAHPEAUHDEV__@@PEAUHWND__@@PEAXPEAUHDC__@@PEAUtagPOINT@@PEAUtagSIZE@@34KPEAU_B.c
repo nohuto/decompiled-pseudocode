@@ -1,17 +1,17 @@
 /*
- * XREFs of ?GdiUpdateSprite@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@@Z @ 0x1C001D4CC
+ * XREFs of ?GdiUpdateSprite@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@@Z @ 0x1C00EE564
  * Callers:
- *     GreTransferDwmStateToSpriteState @ 0x1C00587CC (GreTransferDwmStateToSpriteState.c)
- *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HHK@Z @ 0x1C00D8400 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
+ *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HH@Z @ 0x1C00907A0 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
+ *     GreTransferDwmStateToSpriteState @ 0x1C00EAC4C (GreTransferDwmStateToSpriteState.c)
  * Callees:
- *     ?pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C001D7AC (-pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
- *     ?bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPEAU_RECTL@@@Z @ 0x1C00F4380 (-bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPE.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX_N@Z @ 0x1C027F53C (-pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX_N@Z.c)
+ *     ?bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPEAU_RECTL@@@Z @ 0x1C00EF73C (-bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPE.c)
+ *     ?pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C00F0050 (-pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C0281748 (-pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
  */
 
 __int64 __fastcall GdiUpdateSprite(
-        Gre::Base *a1,
+        HDEV a1,
         HWND a2,
         void *a3,
         HDC a4,
@@ -22,117 +22,105 @@ __int64 __fastcall GdiUpdateSprite(
         unsigned int a9,
         struct _BLENDFUNCTION *a10,
         unsigned int a11,
-        struct tagRECT *a12)
+        struct _RECTL *a12)
 {
-  unsigned int updated; // edi
-  struct Gre::Base::SESSION_GLOBALS *v15; // rax
-  struct Gre::Base::SESSION_GLOBALS *v16; // r15
-  _QWORD *v17; // rbx
-  struct _RECTL *v18; // r12
-  Gre::Base *v19; // r14
-  const struct _SPRITESTATE *v20; // rcx
+  unsigned int updated; // ebx
+  struct _RECTL *v16; // rsi
+  HDEV v17; // rdi
+  const struct _SPRITESTATE *v18; // rcx
   struct SPRITE *Sprite; // rcx
-  struct _METASPRITE *MetaSprite; // rax
-  int v24; // r9d
-  int v25; // r10d
-  __int64 v26; // rsi
-  struct _METASPRITE *v27; // r15
-  struct _POINTL *v28; // rbx
-  struct _POINTL *v29; // r8
-  __int64 v30; // rax
-  int v31; // [rsp+50h] [rbp-79h]
-  Gre::Base *v33; // [rsp+60h] [rbp-69h] BYREF
-  struct _POINTL v34; // [rsp+68h] [rbp-61h] BYREF
-  _QWORD *v35; // [rsp+70h] [rbp-59h]
-  struct _BLENDFUNCTION *v36; // [rsp+78h] [rbp-51h]
-  struct _POINTL *v37; // [rsp+80h] [rbp-49h]
-  HDC v38; // [rsp+88h] [rbp-41h]
-  struct tagSIZE *v39; // [rsp+90h] [rbp-39h]
-  struct _POINTL *v40; // [rsp+98h] [rbp-31h]
-  HDC v41; // [rsp+A0h] [rbp-29h]
-  struct Gre::Base::SESSION_GLOBALS *v42; // [rsp+A8h] [rbp-21h]
-  _BYTE v43[8]; // [rsp+B0h] [rbp-19h] BYREF
-  __int128 v44; // [rsp+B8h] [rbp-11h] BYREF
+  int v21; // r9d
+  struct _METASPRITE *MetaSprite; // r13
+  __int64 v23; // r14
+  struct _POINTL *v24; // r8
+  __int64 v25; // rax
+  int v26; // [rsp+50h] [rbp-59h]
+  HDEV v27; // [rsp+58h] [rbp-51h] BYREF
+  struct _POINTL v28; // [rsp+60h] [rbp-49h] BYREF
+  struct _BLENDFUNCTION *v29; // [rsp+68h] [rbp-41h]
+  struct _POINTL *v30; // [rsp+70h] [rbp-39h]
+  HDC v31; // [rsp+78h] [rbp-31h]
+  struct tagSIZE *v32; // [rsp+80h] [rbp-29h]
+  HDC v33; // [rsp+88h] [rbp-21h]
+  _BYTE v34[8]; // [rsp+90h] [rbp-19h] BYREF
+  struct _RECTL v35; // [rsp+98h] [rbp-11h] BYREF
 
   updated = 0;
-  v34 = 0LL;
-  v31 = 0;
-  v40 = a5;
-  v39 = a6;
-  v38 = a7;
-  v37 = a8;
-  v36 = a10;
-  v41 = a4;
-  v15 = Gre::Base::Globals(a1);
-  v16 = v15;
-  v42 = v15;
-  v17 = (_QWORD *)((char *)v15 + 120);
-  v35 = (_QWORD *)((char *)v15 + 120);
-  if ( (a11 & 0x200000) != 0 )
+  v28 = 0LL;
+  v26 = 0;
+  v16 = a12;
+  v32 = a6;
+  v31 = a7;
+  v30 = a8;
+  v29 = a10;
+  v33 = a4;
+  if ( (a11 & 0x200000) == 0 )
   {
-    v35 = (_QWORD *)((char *)v15 + 120);
-  }
-  else
-  {
-    GreAcquireSemaphoreSharedInternal(*((_QWORD *)v15 + 10));
-    EtwTraceGreLockAcquireSemaphoreShared(L"GreBaseGlobals.hsemDynamicModeChange", *((_QWORD *)v16 + 10));
-    GreAcquireSemaphore(*v17);
-    EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemGreLock", *v17, 2LL);
-    v31 = 1;
+    GreAcquireSemaphoreSharedInternal(ghsemDynamicModeChange);
+    EtwTraceGreLockAcquireSemaphoreShared(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
+    GreAcquireSemaphore(ghsemGreLock);
+    EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemGreLock", ghsemGreLock, 2LL);
+    v26 = 1;
   }
   if ( a12 )
-    v44 = (__int128)*a12;
-  v33 = a1;
-  v18 = (struct _RECTL *)&v44;
-  if ( !a12 )
-    v18 = 0LL;
-  SPRITELOCK::SPRITELOCK((SPRITELOCK *)v43, (struct PDEVOBJ *)&v33);
-  PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v33);
-  v19 = v33;
-  v20 = (Gre::Base *)((char *)v33 + 80);
-  if ( *((_DWORD *)v33 + 35) )
   {
-    MetaSprite = pSpGetMetaSprite(v20, a2, a3, 0);
+    v16 = &v35;
+    v35 = *a12;
+  }
+  v27 = a1;
+  SPRITELOCK::SPRITELOCK((SPRITELOCK *)v34, (struct PDEVOBJ *)&v27);
+  PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v27);
+  v17 = v27;
+  v18 = (const struct _SPRITESTATE *)(v27 + 22);
+  if ( *((_DWORD *)v27 + 37) )
+  {
+    MetaSprite = pSpGetMetaSprite(v18, a2, a3);
     if ( MetaSprite )
     {
-      v26 = 0LL;
-      updated = v24 + 1;
-      if ( v25 )
+      v23 = 0LL;
+      updated = 1;
+      if ( v21 )
       {
-        v27 = MetaSprite;
-        v28 = v40;
         do
         {
-          v29 = 0LL;
-          v30 = *(_QWORD *)(*((_QWORD *)v19 + 18) + 8 * v26);
-          if ( v28 )
+          v24 = 0LL;
+          v25 = *(_QWORD *)(*((_QWORD *)v17 + 19) + 8 * v23);
+          if ( a5 )
           {
-            v29 = &v34;
-            v34.x = v28->x - *(_DWORD *)(v30 + 2560);
-            v34.y = v28->y - *(_DWORD *)(v30 + 2564);
+            v24 = &v28;
+            v28.x = a5->x - *(_DWORD *)(v25 + 2584);
+            v28.y = a5->y - *(_DWORD *)(v25 + 2588);
           }
-          updated &= bSpUpdateSprite(*((struct SPRITE **)v27 + v26 + 3), v41, v29, v39, v38, v37, a9, v36, a11, v18);
-          v26 = (unsigned int)(v26 + 1);
+          updated &= bSpUpdateSprite(
+                       *((struct SPRITE **)MetaSprite + v23 + 3),
+                       v33,
+                       v24,
+                       v32,
+                       v31,
+                       v30,
+                       a9,
+                       v29,
+                       a11,
+                       v16);
+          v23 = (unsigned int)(v23 + 1);
         }
-        while ( (unsigned int)v26 < *((_DWORD *)v19 + 35) );
-        v17 = v35;
-        v16 = v42;
+        while ( (unsigned int)v23 < *((_DWORD *)v17 + 37) );
       }
     }
   }
   else
   {
-    Sprite = pSpGetSprite(v20, a2, a3);
+    Sprite = pSpGetSprite(v18, a2, a3);
     if ( Sprite )
-      updated = bSpUpdateSprite(Sprite, v41, v40, v39, v38, v37, a9, v36, a11, v18);
+      updated = bSpUpdateSprite(Sprite, v33, a5, v32, v31, v30, a9, v29, a11, v16);
   }
-  SPRITELOCK::~SPRITELOCK((SPRITELOCK *)v43);
-  if ( v31 )
+  SPRITELOCK::~SPRITELOCK((SPRITELOCK *)v34);
+  if ( v26 )
   {
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemGreLock");
-    GreReleaseSemaphoreInternal(*v17);
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDynamicModeChange");
-    GreReleaseSemaphoreInternal(*((_QWORD *)v16 + 10));
+    EtwTraceGreLockReleaseSemaphore(L"ghsemGreLock", ghsemGreLock);
+    GreReleaseSemaphoreInternal(ghsemGreLock);
+    EtwTraceGreLockReleaseSemaphore(L"ghsemDynamicModeChange", ghsemDynamicModeChange);
+    GreReleaseSemaphoreInternal(ghsemDynamicModeChange);
   }
   return updated;
 }

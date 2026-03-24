@@ -1,22 +1,19 @@
 /*
- * XREFs of NtOpenMutant @ 0x14067C690
+ * XREFs of NtOpenMutant @ 0x1406A0930
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x14067C970 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x140655C50 (ObOpenObjectByName.c)
  */
 
-__int64 __fastcall NtOpenMutant(_QWORD *a1, int a2, int a3)
+__int64 __fastcall NtOpenMutant(_QWORD *a1, int a2, __int64 a3)
 {
-  int v3; // esi
   char PreviousMode; // di
   __int64 v7; // rdx
   int v8; // ecx
-  int v9; // r8d
-  _QWORD v11[3]; // [rsp+40h] [rbp-18h] BYREF
+  _QWORD v10[3]; // [rsp+40h] [rbp-18h] BYREF
 
-  v3 = a3;
-  v11[0] = 0LL;
+  v10[0] = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
@@ -25,14 +22,10 @@ __int64 __fastcall NtOpenMutant(_QWORD *a1, int a2, int a3)
       v7 = (__int64)a1;
     *(_QWORD *)v7 = *(_QWORD *)v7;
   }
-  LOBYTE(a3) = PreviousMode;
-  v8 = ObOpenObjectByName(v3, (_DWORD)ExMutantObjectType, a3, 0, a2, 0LL, (__int64)v11);
+  v8 = ObOpenObjectByName(a3, (__int64)ExMutantObjectType, PreviousMode, 0LL, a2, 0LL, (__int64)v10);
   if ( v8 == -1073741788 && ExCrossVmMutantObjectType )
-  {
-    LOBYTE(v9) = PreviousMode;
-    v8 = ObOpenObjectByName(v3, (_DWORD)ExCrossVmMutantObjectType, v9, 0, a2, 0LL, (__int64)v11);
-  }
+    v8 = ObOpenObjectByName(a3, (__int64)ExCrossVmMutantObjectType, PreviousMode, 0LL, a2, 0LL, (__int64)v10);
   if ( v8 >= 0 )
-    *a1 = v11[0];
+    *a1 = v10[0];
   return (unsigned int)v8;
 }

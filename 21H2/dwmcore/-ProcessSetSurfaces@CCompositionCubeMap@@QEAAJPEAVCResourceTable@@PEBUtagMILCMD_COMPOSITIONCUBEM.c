@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ProcessSetSurfaces@CCompositionCubeMap@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONCUBEMAP_SETSURFACES@@PEBXI@Z @ 0x18020C214
+ * XREFs of ?ProcessSetSurfaces@CCompositionCubeMap@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONCUBEMAP_SETSURFACES@@PEBXI@Z @ 0x1801B96FC
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180046EF0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800BDA3C (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800D7C40 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?InternalRelease@?$ComPtr@VCCompositionSurfaceBitmap@@@WRL@Microsoft@@IEAAKXZ @ 0x18020C044 (-InternalRelease@-$ComPtr@VCCompositionSurfaceBitmap@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180045210 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D530 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A0B90 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C0950 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?InternalRelease@?$ComPtr@VCCompositionSurfaceBitmap@@@WRL@Microsoft@@IEAAKXZ @ 0x1801B9550 (-InternalRelease@-$ComPtr@VCCompositionSurfaceBitmap@@@WRL@Microsoft@@IEAAKXZ.c)
  */
 
 __int64 __fastcall CCompositionCubeMap::ProcessSetSurfaces(
@@ -23,35 +23,34 @@ __int64 __fastcall CCompositionCubeMap::ProcessSetSurfaces(
   unsigned int v9; // eax
   unsigned int v10; // esi
   __int64 v11; // rcx
-  struct CResource *v12; // r12
-  __int64 v13; // r14
-  __int64 v14; // rsi
-  unsigned int v15; // edx
+  __int64 v12; // r14
+  __int64 v13; // rsi
+  unsigned int v14; // edx
   struct CResource *ResourceWithoutType; // rax
-  struct CResource *v17; // rbp
-  __int64 v18; // rcx
+  CMILCOMBase *v16; // r12
+  __int64 v17; // rcx
+  int v18; // eax
   int v19; // eax
-  int v20; // eax
-  __int64 v21; // rcx
-  __int64 v22; // rsi
-  __int64 v23; // r14
-  struct CResource *v24; // rdx
-  __int64 v25; // rax
-  __int64 v26; // rcx
-  CResource *v27; // rax
-  unsigned int v28; // ecx
-  __int128 v30; // [rsp+30h] [rbp-48h]
-  CResource *v31; // [rsp+80h] [rbp+8h] BYREF
-  struct CResourceTable *v32; // [rsp+88h] [rbp+10h]
-  CResource *v33; // [rsp+90h] [rbp+18h] BYREF
+  __int64 v20; // rcx
+  __int64 v21; // rsi
+  __int64 v22; // r14
+  struct CResource *v23; // rdx
+  __int64 v24; // rax
+  __int64 v25; // rcx
+  unsigned int v26; // ecx
+  CRenderTargetBitmap *v28; // [rsp+30h] [rbp-20h] BYREF
+  __int128 v29; // [rsp+38h] [rbp-18h]
+  CRenderTargetBitmap *v30; // [rsp+90h] [rbp+40h] BYREF
+  struct CResourceTable *v31; // [rsp+98h] [rbp+48h]
+  CMILCOMBase *v32; // [rsp+A0h] [rbp+50h]
 
-  v32 = a2;
+  v31 = a2;
   v7 = a2;
   v9 = *((_DWORD *)a3 + 2);
-  if ( v9 > *((_DWORD *)this + 28) )
+  if ( v9 > *((_DWORD *)this + 26) )
   {
     v10 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0LL, -2003303421, 0xA2u);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003303421, 0xA2u, 0LL);
     return v10;
   }
   v11 = 0LL;
@@ -59,84 +58,83 @@ __int64 __fastcall CCompositionCubeMap::ProcessSetSurfaces(
   if ( !v9 )
   {
 LABEL_18:
-    *((_DWORD *)this + 30) = -1;
-    v28 = 0;
+    *((_DWORD *)this + 28) = -1;
+    v26 = 0;
     if ( *((_DWORD *)a3 + 2) )
     {
-      while ( !*(_QWORD *)(32LL * v28 + *((_QWORD *)this + 11) + 8) )
+      while ( !*(_QWORD *)(32LL * v26 + *((_QWORD *)this + 10) + 8) )
       {
-        if ( ++v28 >= *((_DWORD *)a3 + 2) )
+        if ( ++v26 >= *((_DWORD *)a3 + 2) )
           goto LABEL_23;
       }
-      *((_DWORD *)this + 30) = v28;
+      *((_DWORD *)this + 28) = v26;
     }
 LABEL_23:
-    *((_BYTE *)this + 152) = 1;
+    *((_BYTE *)this + 144) = 1;
     return 0;
   }
   while ( 1 )
   {
-    v12 = 0LL;
-    v13 = (unsigned int)v11;
-    v30 = 0uLL;
-    v14 = 5 * v11;
-    v15 = a4[5 * v11];
-    v31 = 0LL;
-    ResourceWithoutType = CResourceTable::GetResourceWithoutType(v7, v15);
-    v17 = ResourceWithoutType;
+    v12 = (unsigned int)v11;
+    v29 = 0uLL;
+    v13 = 5 * v11;
+    v14 = a4[5 * v11];
+    v32 = 0LL;
+    v30 = 0LL;
+    ResourceWithoutType = CResourceTable::GetResourceWithoutType(v7, v14);
+    v16 = ResourceWithoutType;
     if ( !ResourceWithoutType )
       goto LABEL_11;
     if ( !(*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)ResourceWithoutType + 56LL))(
             ResourceWithoutType,
             40LL) )
       break;
-    v19 = a4[v14 + 1];
+    v18 = a4[v13 + 1];
+    if ( v18 < 0 )
+      break;
+    v17 = (unsigned int)a4[v13 + 2];
+    if ( (int)v17 < 0 || a4[v13 + 3] <= v18 || a4[v13 + 4] <= (int)v17 )
+      break;
+    CMILCOMBase::InternalAddRef(v16);
+    v28 = 0LL;
+    v32 = v16;
+    v30 = v16;
+    Microsoft::WRL::ComPtr<CCompositionSurfaceBitmap>::InternalRelease(&v28);
+    v29 = *(_OWORD *)&a4[v13 + 1];
+    v19 = CResource::RegisterNotifier(this, v16);
+    v10 = v19;
     if ( v19 < 0 )
-      break;
-    v18 = (unsigned int)a4[v14 + 2];
-    if ( (int)v18 < 0 || a4[v14 + 3] <= v19 || a4[v14 + 4] <= (int)v18 )
-      break;
-    CMILRefCountImpl::AddReference((struct CResource *)((char *)v17 + 8));
-    v33 = 0LL;
-    v12 = v17;
-    v31 = v17;
-    Microsoft::WRL::ComPtr<CCompositionSurfaceBitmap>::InternalRelease(&v33);
-    v30 = *(_OWORD *)&a4[v14 + 1];
-    v20 = CResource::RegisterNotifier(this, v17);
-    v10 = v20;
-    if ( v20 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0LL, v20, 0xC9u);
+      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0xC9u, 0LL);
       goto LABEL_17;
     }
 LABEL_11:
-    v22 = *((_QWORD *)this + 11);
-    v23 = 32 * v13;
-    v24 = *(struct CResource **)(v22 + v23);
-    if ( v24 )
+    v21 = *((_QWORD *)this + 10);
+    v22 = 32 * v12;
+    v23 = *(struct CResource **)(v22 + v21);
+    if ( v23 )
     {
-      CResource::UnRegisterNotifierInternal(this, v24);
-      *(_QWORD *)(v22 + v23) = 0LL;
+      CResource::UnRegisterNotifierInternal(this, v23);
+      *(_QWORD *)(v22 + v21) = 0LL;
     }
-    v25 = *((_QWORD *)this + 11);
-    v31 = 0LL;
-    *(_QWORD *)(v23 + v25) = v17;
-    v26 = *((_QWORD *)this + 11);
-    v27 = *(CResource **)(v26 + v23 + 8);
-    *(_QWORD *)(v26 + v23 + 8) = v12;
-    v33 = v27;
-    Microsoft::WRL::ComPtr<CCompositionSurfaceBitmap>::InternalRelease(&v33);
-    *(_OWORD *)(*((_QWORD *)this + 11) + v23 + 16) = v30;
-    Microsoft::WRL::ComPtr<CCompositionSurfaceBitmap>::InternalRelease(&v31);
+    v24 = *((_QWORD *)this + 10);
+    v30 = 0LL;
+    *(_QWORD *)(v22 + v24) = v16;
+    v25 = *((_QWORD *)this + 10);
+    v28 = *(CRenderTargetBitmap **)(v22 + v25 + 8);
+    *(_QWORD *)(v22 + v25 + 8) = v32;
+    Microsoft::WRL::ComPtr<CCompositionSurfaceBitmap>::InternalRelease(&v28);
+    *(_OWORD *)(v22 + *((_QWORD *)this + 10) + 16) = v29;
+    Microsoft::WRL::ComPtr<CCompositionSurfaceBitmap>::InternalRelease(&v30);
     v11 = a5 + 1;
     a5 = v11;
     if ( (unsigned int)v11 >= *((_DWORD *)a3 + 2) )
       goto LABEL_18;
-    v7 = v32;
+    v7 = v31;
   }
   v10 = -2003303421;
-  MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0LL, -2003303421, 0xC6u);
+  MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, -2003303421, 0xC6u, 0LL);
 LABEL_17:
-  Microsoft::WRL::ComPtr<CCompositionSurfaceBitmap>::InternalRelease(&v31);
+  Microsoft::WRL::ComPtr<CCompositionSurfaceBitmap>::InternalRelease(&v30);
   return v10;
 }

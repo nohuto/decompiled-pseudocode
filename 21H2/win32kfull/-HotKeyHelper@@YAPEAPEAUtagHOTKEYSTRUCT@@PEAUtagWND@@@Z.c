@@ -1,8 +1,9 @@
 /*
- * XREFs of ?HotKeyHelper@@YAPEAPEAUtagHOTKEYSTRUCT@@PEAUtagWND@@@Z @ 0x1C00636DC
+ * XREFs of ?HotKeyHelper@@YAPEAPEAUtagHOTKEYSTRUCT@@PEAUtagWND@@@Z @ 0x1C0111898
  * Callers:
- *     DWP_SetHotKey @ 0x1C0063640 (DWP_SetHotKey.c)
- *     xxxRealDefWindowProc @ 0x1C0067528 (xxxRealDefWindowProc.c)
+ *     DWP_SetHotKey @ 0x1C0008230 (DWP_SetHotKey.c)
+ *     xxxRealDefWindowProc @ 0x1C0049EC8 (xxxRealDefWindowProc.c)
+ *     xxxDestroyWindow @ 0x1C007DCA0 (xxxDestroyWindow.c)
  * Callees:
  *     <none>
  */

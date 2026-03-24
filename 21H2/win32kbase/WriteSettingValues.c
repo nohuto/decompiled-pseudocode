@@ -1,15 +1,14 @@
 /*
- * XREFs of WriteSettingValues @ 0x1C0152050
+ * XREFs of WriteSettingValues @ 0x1C01279E0
  * Callers:
- *     _SetPrecisionTouchPadConfiguration @ 0x1C0148CEC (_SetPrecisionTouchPadConfiguration.c)
- *     WritePointerDeviceSettings @ 0x1C0151F20 (WritePointerDeviceSettings.c)
+ *     _SetPrecisionTouchPadConfiguration @ 0x1C011C010 (_SetPrecisionTouchPadConfiguration.c)
+ *     WritePointerDeviceSettings @ 0x1C01278B0 (WritePointerDeviceSettings.c)
  * Callees:
- *     ApiSetEditionGetPointerDeviceConfigurationKey @ 0x1C00839C4 (ApiSetEditionGetPointerDeviceConfigurationKey.c)
+ *     ApiSetEditionGetPointerDeviceConfigurationKey @ 0x1C000B0C0 (ApiSetEditionGetPointerDeviceConfigurationKey.c)
  */
 
-_BOOL8 __fastcall WriteSettingValues(unsigned int a1, const WCHAR **a2, __int64 a3)
+_BOOL8 __fastcall WriteSettingValues(unsigned int a1, const WCHAR **a2, unsigned int a3)
 {
-  unsigned int v4; // r14d
   NTSTATUS v5; // ebx
   void *PointerDeviceConfigurationKey; // rbp
   unsigned int v7; // edi
@@ -17,13 +16,12 @@ _BOOL8 __fastcall WriteSettingValues(unsigned int a1, const WCHAR **a2, __int64 
   const WCHAR *v9; // rdx
   struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
 
-  v4 = a3;
   v5 = 0;
-  PointerDeviceConfigurationKey = (void *)ApiSetEditionGetPointerDeviceConfigurationKey(a1, 131078LL, a3);
+  PointerDeviceConfigurationKey = (void *)ApiSetEditionGetPointerDeviceConfigurationKey(a1, 0x20006u);
   if ( PointerDeviceConfigurationKey )
   {
     v7 = 0;
-    if ( v4 )
+    if ( a3 )
     {
       v8 = a2;
       do
@@ -37,7 +35,7 @@ _BOOL8 __fastcall WriteSettingValues(unsigned int a1, const WCHAR **a2, __int64 
         ++v7;
         v8 += 2;
       }
-      while ( v7 < v4 );
+      while ( v7 < a3 );
     }
     ZwClose(PointerDeviceConfigurationKey);
   }

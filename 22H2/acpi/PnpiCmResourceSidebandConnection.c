@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpiCmResourceSidebandConnection @ 0x1C0092EC4
+ * XREFs of PnpiCmResourceSidebandConnection @ 0x1C00B49F0
  * Callers:
- *     PnpiCmResourceRemoveSidebandResources @ 0x1C0092CE4 (PnpiCmResourceRemoveSidebandResources.c)
+ *     PnpiCmResourceRemoveSidebandResources @ 0x1C00B4810 (PnpiCmResourceRemoveSidebandResources.c)
  * Callees:
  *     <none>
  */

@@ -1,27 +1,31 @@
 /*
- * XREFs of ?ReferenceVailObject@DXGPROCESS@@QEAAPEAVDXGVAILOBJECT@@XZ @ 0x1C0336D84
+ * XREFs of ?ReferenceVailObject@DXGPROCESS@@QEAAPEAVDXGVAILOBJECT@@XZ @ 0x1C0285B6C
  * Callers:
- *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C018910C (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
- *     ?DxgkExtractRemoteBundleObject@@YAJIKPEAPEAXPEAU_EPROCESS@@@Z @ 0x1C033C4C4 (-DxgkExtractRemoteBundleObject@@YAJIKPEAPEAXPEAU_EPROCESS@@@Z.c)
- *     NtDxgkVailConnect @ 0x1C0353FA0 (NtDxgkVailConnect.c)
- *     NtDxgkVailDisconnect @ 0x1C0354450 (NtDxgkVailDisconnect.c)
+ *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C0117814 (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
+ *     ?DxgkExtractRemoteBundleObject@@YAJIKPEAPEAXPEAU_EPROCESS@@@Z @ 0x1C028A8A0 (-DxgkExtractRemoteBundleObject@@YAJIKPEAPEAXPEAU_EPROCESS@@@Z.c)
+ *     ?VailDRTTest@@YAJQEAVDXGADAPTER@@QEAU_D3DKMT_DRT_ESCAPE_HEAD@@@Z @ 0x1C02B5D80 (-VailDRTTest@@YAJQEAVDXGADAPTER@@QEAU_D3DKMT_DRT_ESCAPE_HEAD@@@Z.c)
+ *     NtDxgkVailConnect @ 0x1C02B8940 (NtDxgkVailConnect.c)
+ *     NtDxgkVailDisconnect @ 0x1C02B8D50 (NtDxgkVailDisconnect.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?AddRef@DxgkCompositionObject@@QEBAJXZ @ 0x1C006C430 (-AddRef@DxgkCompositionObject@@QEBAJXZ.c)
+ *     ?AddRef@DxgkCompositionObject@@QEBAJXZ @ 0x1C005E834 (-AddRef@DxgkCompositionObject@@QEBAJXZ.c)
  */
 
-struct DXGVAILOBJECT *__fastcall DXGPROCESS::ReferenceVailObject(struct _KTHREAD **this)
+struct DXGVAILOBJECT *__fastcall DXGPROCESS::ReferenceVailObject(DxgkCompositionObject **this)
 {
-  DxgkCompositionObject *v2; // rcx
+  struct _KTHREAD *CurrentThread; // rdx
+  __int64 v3; // rax
+  DxgkCompositionObject *v4; // rcx
 
-  if ( this[16] != KeGetCurrentThread() )
+  CurrentThread = KeGetCurrentThread();
+  if ( *((struct _KTHREAD **)this[13] + 2) != CurrentThread )
   {
-    WdLogSingleEntry1(1LL, 1358LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsMutexOwner()", 1358LL, 0LL, 0LL, 0LL, 0LL);
+    v3 = WdLogNewEntry5_WdAssertion(this, CurrentThread);
+    *(_QWORD *)(v3 + 24) = 1419LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  v2 = this[74];
-  if ( !v2 )
+  v4 = this[60];
+  if ( !v4 )
     return 0LL;
-  DxgkCompositionObject::AddRef(v2);
-  return this[74];
+  DxgkCompositionObject::AddRef(v4);
+  return this[60];
 }

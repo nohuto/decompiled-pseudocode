@@ -1,58 +1,45 @@
 /*
- * XREFs of CmpTrimHive @ 0x14074ED94
+ * XREFs of CmpTrimHive @ 0x14071C6E0
  * Callers:
- *     CmpLoadKeyCommon @ 0x1402F659C (CmpLoadKeyCommon.c)
- *     CmpUpdatePhaseAccessBit @ 0x14085DF94 (CmpUpdatePhaseAccessBit.c)
+ *     CmpLoadKeyCommon @ 0x14036102C (CmpLoadKeyCommon.c)
+ *     CmpUpdatePhaseAccessBit @ 0x1407CEE5C (CmpUpdatePhaseAccessBit.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     HvTrimHive @ 0x14085FA7C (HvTrimHive.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     HvTrimHive @ 0x14069FEEC (HvTrimHive.c)
  */
 
-void __fastcall CmpTrimHive(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall CmpTrimHive(__int64 a1)
 {
-  unsigned int v5; // ebp
-  unsigned __int64 v6; // rsi
-  __int64 v7; // rax
-  __int64 v8; // r14
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
+  unsigned int v2; // ebx
+  unsigned int v3; // r8d
+  char v4; // al
 
   if ( CmpAccessBitForPhase == 2 )
   {
-    v5 = *(_DWORD *)(a1 + 4752);
-    if ( v5 || (v5 = *(_DWORD *)(a1 + 4756)) != 0 )
+    v2 = *(_DWORD *)(a1 + 4792);
+    if ( v2 || (v2 = *(_DWORD *)(a1 + 4796)) != 0 )
     {
-      CmpLockRegistry(a1, a2, a3, a4);
-      v6 = KeAbPreAcquire(a1 + 72, 0LL);
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 72), 17LL, 0LL) )
-        ExfAcquirePushLockSharedEx((signed __int64 *)(a1 + 72), 0LL, v6, a1 + 72);
-      if ( v6 )
-        *(_BYTE *)(v6 + 18) = 1;
-      v7 = KeAbPreAcquire(a1 + 80, 0LL);
-      v8 = v7;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 80), 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 80), v7, a1 + 80);
-      if ( v8 )
-        *(_BYTE *)(v8 + 18) = 1;
-      *(_DWORD *)(a1 + 4760) = *(_DWORD *)(a1 + 280);
-      *(_DWORD *)(a1 + 4756) = v5;
-      HvTrimHive(a1, v5);
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 80), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      CmpLockRegistry();
+      ExAcquirePushLockSharedEx(a1 + 72, 0LL);
+      ExAcquirePushLockExclusiveEx(a1 + 80, 0LL);
+      v3 = *(_DWORD *)(a1 + 272);
+      *(_DWORD *)(a1 + 4800) = v3;
+      *(_DWORD *)(a1 + 4796) = v2;
+      HvTrimHive(a1, v2, v3);
+      v4 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 80), 0xFFFFFFFFFFFFFFFFuLL);
+      if ( (v4 & 2) != 0 && (v4 & 4) == 0 )
         ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 80));
       KeAbPostRelease(a1 + 80);
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 72), 0LL, 17LL) != 17 )
         ExfReleasePushLockShared((signed __int64 *)(a1 + 72));
       KeAbPostRelease(a1 + 72);
-      CmpUnlockRegistry(v10, v9, v11, v12);
+      CmpUnlockRegistry();
     }
   }
 }

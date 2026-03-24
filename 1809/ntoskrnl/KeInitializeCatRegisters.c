@@ -1,7 +1,7 @@
 /*
- * XREFs of KeInitializeCatRegisters @ 0x1401438C0
+ * XREFs of KeInitializeCatRegisters @ 0x1401438E0
  * Callers:
- *     KiRestoreFeatureBits @ 0x140143784 (KiRestoreFeatureBits.c)
+ *     KiRestoreFeatureBits @ 0x1401437A4 (KiRestoreFeatureBits.c)
  *     KeInitSystem @ 0x1409C4988 (KeInitSystem.c)
  * Callees:
  *     <none>

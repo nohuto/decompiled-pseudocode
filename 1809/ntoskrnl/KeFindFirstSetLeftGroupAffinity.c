@@ -1,10 +1,10 @@
 /*
- * XREFs of KeFindFirstSetLeftGroupAffinity @ 0x140127FB0
+ * XREFs of KeFindFirstSetLeftGroupAffinity @ 0x140127FD0
  * Callers:
- *     MiZeroPageThread @ 0x1401791E0 (MiZeroPageThread.c)
- *     MiZeroNodePages @ 0x14017F3E0 (MiZeroNodePages.c)
- *     MiGetPagesToZero @ 0x140185240 (MiGetPagesToZero.c)
- *     KeBuildLogicalProcessorSystemInformation @ 0x1406AF548 (KeBuildLogicalProcessorSystemInformation.c)
+ *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
+ *     MiZeroNodePages @ 0x14017F400 (MiZeroNodePages.c)
+ *     MiGetPagesToZero @ 0x140185260 (MiGetPagesToZero.c)
+ *     KeBuildLogicalProcessorSystemInformation @ 0x1406AF528 (KeBuildLogicalProcessorSystemInformation.c)
  * Callees:
  *     <none>
  */

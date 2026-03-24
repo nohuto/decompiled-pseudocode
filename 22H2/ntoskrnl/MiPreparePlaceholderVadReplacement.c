@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPreparePlaceholderVadReplacement @ 0x140A47E98
+ * XREFs of MiPreparePlaceholderVadReplacement @ 0x1408D8500
  * Callers:
- *     MiReserveUserMemory @ 0x14071F450 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1407202F0 (MiMapViewOfDataSection.c)
+ *     MiReserveUserMemory @ 0x140637BF0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x140639820 (MiMapViewOfDataSection.c)
  * Callees:
- *     MiReferenceVad @ 0x140275334 (MiReferenceVad.c)
- *     MiRemoveVad @ 0x14028A350 (MiRemoveVad.c)
- *     PerfInfoLogVirtualFree @ 0x1409E7174 (PerfInfoLogVirtualFree.c)
+ *     MiReferenceVad @ 0x14025ABF0 (MiReferenceVad.c)
+ *     MiRemovePlaceholderVad @ 0x1405552A8 (MiRemovePlaceholderVad.c)
+ *     PerfInfoLogVirtualFree @ 0x140937CE4 (PerfInfoLogVirtualFree.c)
  */
 
 __int64 __fastcall MiPreparePlaceholderVadReplacement(__int64 a1, __int64 a2, __int64 a3)
@@ -16,7 +16,7 @@ __int64 __fastcall MiPreparePlaceholderVadReplacement(__int64 a1, __int64 a2, __
 
   _InterlockedIncrement((volatile signed __int32 *)(a3 + 232));
   MiReferenceVad(a1);
-  MiRemoveVad(a1, 0, 0LL);
+  MiRemovePlaceholderVad(a1);
   result = *(unsigned int *)(a1 + 28);
   *(_QWORD *)(a2 + 1176) += (((*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32))
                             - (result | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32))) << 12)
@@ -27,8 +27,7 @@ __int64 __fastcall MiPreparePlaceholderVadReplacement(__int64 a1, __int64 a2, __
     return PerfInfoLogVirtualFree(
              v6 << 12,
              ((*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32)) - v6 + 1) << 12,
-             a2,
-             0x8000);
+             a2);
   }
   return result;
 }

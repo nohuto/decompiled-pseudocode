@@ -1,9 +1,9 @@
 /*
- * XREFs of PopWakeSourceIsParent @ 0x140987C94
+ * XREFs of PopWakeSourceIsParent @ 0x1408E6E48
  * Callers:
- *     PopProcessWakeSourceWork @ 0x140AA13F8 (PopProcessWakeSourceWork.c)
+ *     PopProcessWakeSourceWork @ 0x1408E6BB4 (PopProcessWakeSourceWork.c)
  * Callees:
- *     wcsncmp @ 0x1403DB3F0 (wcsncmp.c)
+ *     wcsncmp @ 0x1403D3940 (wcsncmp.c)
  */
 
 char __fastcall PopWakeSourceIsParent(unsigned __int16 *a1, __int64 a2)
@@ -44,7 +44,7 @@ char __fastcall PopWakeSourceIsParent(unsigned __int16 *a1, __int64 a2)
         if ( v8 != IopRootDeviceNode )
           v6 = v8;
         if ( v6 == a1 )
-          return v3;
+          v6 = 0LL;
       }
       if ( !v6 )
         return v3;

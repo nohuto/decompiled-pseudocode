@@ -1,12 +1,12 @@
 /*
- * XREFs of MiApplyRequiredDriverHotPatches @ 0x140681E00
+ * XREFs of MiApplyRequiredDriverHotPatches @ 0x140681DE0
  * Callers:
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     MiFindHotPatchRecord @ 0x140682224 (MiFindHotPatchRecord.c)
- *     MiLoadHotPatch @ 0x1408559F8 (MiLoadHotPatch.c)
+ *     MiFindHotPatchRecord @ 0x140682204 (MiFindHotPatchRecord.c)
+ *     MiLoadHotPatch @ 0x1408559D8 (MiLoadHotPatch.c)
  */
 
 __int64 __fastcall MiApplyRequiredDriverHotPatches(__int64 a1)

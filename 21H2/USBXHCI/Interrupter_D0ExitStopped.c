@@ -1,10 +1,10 @@
 /*
- * XREFs of Interrupter_D0ExitStopped @ 0x1C000DFE4
+ * XREFs of Interrupter_D0ExitStopped @ 0x1C000B76C
  * Callers:
- *     Controller_WdfEvtDeviceD0Exit @ 0x1C000DD50 (Controller_WdfEvtDeviceD0Exit.c)
+ *     Controller_WdfEvtDeviceD0Exit @ 0x1C000B4D0 (Controller_WdfEvtDeviceD0Exit.c)
  * Callees:
- *     WPP_RECORDER_SF_qqdddi @ 0x1C00108BC (WPP_RECORDER_SF_qqdddi.c)
- *     WPP_RECORDER_SF_qL @ 0x1C002F454 (WPP_RECORDER_SF_qL.c)
+ *     WPP_RECORDER_SF_qqdddi @ 0x1C000F8B4 (WPP_RECORDER_SF_qqdddi.c)
+ *     WPP_RECORDER_SF_qL @ 0x1C002F170 (WPP_RECORDER_SF_qL.c)
  */
 
 PDEVICE_OBJECT __fastcall Interrupter_D0ExitStopped(__int64 a1, int a2)
@@ -26,8 +26,8 @@ PDEVICE_OBJECT __fastcall Interrupter_D0ExitStopped(__int64 a1, int a2)
                                  *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
                                  a2,
                                  9,
-                                 36,
-                                 (__int64)&WPP_84765f96df013c20a94fd65d5e9532b8_Traceguids,
+                                 35,
+                                 (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
                                  a1,
                                  v7);
     }
@@ -43,7 +43,7 @@ PDEVICE_OBJECT __fastcall Interrupter_D0ExitStopped(__int64 a1, int a2)
                                    *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
                                    *(_DWORD *)(v5 + 124),
                                    *(_QWORD *)(v5 + 144),
-                                   37,
+                                   36,
                                    v6,
                                    v5,
                                    *(_QWORD *)(v5 + 144),

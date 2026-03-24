@@ -1,11 +1,11 @@
 /*
- * XREFs of NtQueryIoCompletion @ 0x140936E80
+ * XREFs of NtQueryIoCompletion @ 0x140894580
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtQueryIoCompletion(HANDLE Handle, int a2, unsigned __int64 a3, int a4, unsigned __int64 a5)
@@ -50,7 +50,7 @@ __int64 __fastcall NtQueryIoCompletion(HANDLE Handle, int a2, unsigned __int64 a
   if ( v12 >= 0 )
   {
     v13 = *((_DWORD *)Object + 1);
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     if ( PreviousMode )
     {
       *(_DWORD *)a3 = v13;

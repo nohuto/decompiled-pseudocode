@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhApplyDeviceFix @ 0x1C0050AAC
+ * XREFs of UsbhApplyDeviceFix @ 0x1C00520FC
  * Callers:
- *     UsbhCheck4GlobalErrata @ 0x1C0050BA0 (UsbhCheck4GlobalErrata.c)
- *     UsbhCheckDeviceErrata @ 0x1C0050C04 (UsbhCheckDeviceErrata.c)
+ *     UsbhCheck4GlobalErrata @ 0x1C00521F0 (UsbhCheck4GlobalErrata.c)
+ *     UsbhCheckDeviceErrata @ 0x1C0052254 (UsbhCheckDeviceErrata.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
  */
 
 _DWORD *__fastcall UsbhApplyDeviceFix(__int64 a1, __int64 a2, int a3)

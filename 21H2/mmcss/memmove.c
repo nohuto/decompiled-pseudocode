@@ -1,10 +1,10 @@
 /*
- * XREFs of memmove @ 0x1C0003400
+ * XREFs of memmove @ 0x1C00031C0
  * Callers:
- *     CiDispatchFastIoDeviceControl @ 0x1C000AA20 (CiDispatchFastIoDeviceControl.c)
- *     WppTraceCallback @ 0x1C000C6B0 (WppTraceCallback.c)
- *     CiConfigInitializeFromRegistry @ 0x1C000D8D0 (CiConfigInitializeFromRegistry.c)
- *     CiConfigQueryValue @ 0x1C000DE00 (CiConfigQueryValue.c)
+ *     CiDispatchFastIoDeviceControl @ 0x1C000A6C0 (CiDispatchFastIoDeviceControl.c)
+ *     WppTraceCallback @ 0x1C000C950 (WppTraceCallback.c)
+ *     CiConfigInitializeFromRegistry @ 0x1C000D960 (CiConfigInitializeFromRegistry.c)
+ *     CiConfigQueryValue @ 0x1C000DE80 (CiConfigQueryValue.c)
  * Callees:
  *     <none>
  */

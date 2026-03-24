@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlFormatMessage @ 0x1409B9AF0
+ * XREFs of RtlFormatMessage @ 0x140910E90
  * Callers:
  *     <none>
  * Callees:
- *     RtlFormatMessageEx @ 0x1409B9B48 (RtlFormatMessageEx.c)
+ *     RtlFormatMessageEx @ 0x140910EE8 (RtlFormatMessageEx.c)
  */
 
 __int64 __fastcall RtlFormatMessage(

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetWinlogonHotKeys@@YAXXZ @ 0x1C009ABC8
+ * XREFs of ?SetWinlogonHotKeys@@YAXXZ @ 0x1C0030778
  * Callers:
- *     RawInputThread @ 0x1C005CC60 (RawInputThread.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
  * Callees:
- *     _RegisterHotKey @ 0x1C009E114 (_RegisterHotKey.c)
+ *     _RegisterHotKey @ 0x1C0032C74 (_RegisterHotKey.c)
  */
 
 void SetWinlogonHotKeys(void)

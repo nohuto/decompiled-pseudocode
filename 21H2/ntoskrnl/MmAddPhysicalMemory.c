@@ -1,16 +1,16 @@
 /*
- * XREFs of MmAddPhysicalMemory @ 0x140969D30
+ * XREFs of MmAddPhysicalMemory @ 0x1408C6320
  * Callers:
- *     WheapClearPoison @ 0x140A092FC (WheapClearPoison.c)
+ *     WheapClearPoison @ 0x14095D954 (WheapClearPoison.c)
  * Callees:
- *     MiAddPhysicalMemoryChunks @ 0x140968AF4 (MiAddPhysicalMemoryChunks.c)
+ *     MiAddPhysicalMemoryChunks @ 0x1408C542C (MiAddPhysicalMemoryChunks.c)
  */
 
 NTSTATUS __stdcall MmAddPhysicalMemory(PPHYSICAL_ADDRESS StartAddress, PLARGE_INTEGER NumberOfBytes)
 {
   bool v2; // zf
   bool v3; // r8
-  LONGLONG QuadPart; // [rsp+40h] [rbp+8h] BYREF
+  LONGLONG QuadPart; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = (StartAddress->QuadPart & 0xFFF) == 0;
   QuadPart = StartAddress->QuadPart;
@@ -20,7 +20,6 @@ NTSTATUS __stdcall MmAddPhysicalMemory(PPHYSICAL_ADDRESS StartAddress, PLARGE_IN
   return MiAddPhysicalMemoryChunks(
            &MiSystemPartition,
            (unsigned __int64 *)&QuadPart,
-           (unsigned __int64 *)&NumberOfBytes->QuadPart,
-           (unsigned __int8)v3 << 9,
-           0);
+           NumberOfBytes,
+           (unsigned __int8)v3 << 8);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateProcessDefaultAweInfo @ 0x140A41700
+ * XREFs of MiCreateProcessDefaultAweInfo @ 0x1408D5B10
  * Callers:
- *     MiAllocateUserPhysicalPages @ 0x140A403C8 (MiAllocateUserPhysicalPages.c)
- *     MiCreateUserPhysicalView @ 0x140A417E8 (MiCreateUserPhysicalView.c)
+ *     MiAllocateUserPhysicalPages @ 0x1408D4D38 (MiAllocateUserPhysicalPages.c)
+ *     MiCreateUserPhysicalView @ 0x1408D5BF8 (MiCreateUserPhysicalView.c)
  * Callees:
- *     MiLockAweVadsExclusive @ 0x14064B0A8 (MiLockAweVadsExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x14064BEF8 (MiUnlockAweVadsExclusive.c)
- *     MiAllocateAweInfo @ 0x140A4009C (MiAllocateAweInfo.c)
- *     MiDeleteAweInfo @ 0x140A41AB8 (MiDeleteAweInfo.c)
+ *     MiLockAweVadsExclusive @ 0x14054CF40 (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x14054DF38 (MiUnlockAweVadsExclusive.c)
+ *     MiAllocateAweInfo @ 0x1408D4BD0 (MiAllocateAweInfo.c)
+ *     MiDeleteAweInfo @ 0x1408D5E94 (MiDeleteAweInfo.c)
  */
 
 __int64 __fastcall MiCreateProcessDefaultAweInfo(KPROCESSOR_MODE a1, _QWORD *a2)
@@ -23,8 +23,8 @@ __int64 __fastcall MiCreateProcessDefaultAweInfo(KPROCESSOR_MODE a1, _QWORD *a2)
   *a2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
-  v5 = Process[1].ActiveProcessors.StaticBitmap[28];
-  v6 = *(_QWORD *)(v5 + 376);
+  v5 = Process[1].ActiveProcessorsPadding[8];
+  v6 = *(_QWORD *)(v5 + 392);
   v9 = v6;
   if ( !v6 )
   {
@@ -34,16 +34,16 @@ __int64 __fastcall MiCreateProcessDefaultAweInfo(KPROCESSOR_MODE a1, _QWORD *a2)
     v8 = 0;
     MiLockAweVadsExclusive((__int64)CurrentThread);
     v6 = v9;
-    if ( !*(_QWORD *)(Process[1].ActiveProcessors.StaticBitmap[28] + 376) )
+    if ( !*(_QWORD *)(Process[1].ActiveProcessorsPadding[8] + 392) )
     {
-      *(_QWORD *)(v5 + 376) = v9;
+      *(_QWORD *)(v5 + 392) = v9;
       v8 = 1;
     }
     MiUnlockAweVadsExclusive((__int64)CurrentThread);
     if ( !v8 )
     {
       MiDeleteAweInfo(KeGetCurrentThread()->ApcState.Process, v9);
-      v6 = *(_QWORD *)(Process[1].ActiveProcessors.StaticBitmap[28] + 376);
+      v6 = *(_QWORD *)(Process[1].ActiveProcessorsPadding[8] + 392);
     }
   }
   *a2 = v6;

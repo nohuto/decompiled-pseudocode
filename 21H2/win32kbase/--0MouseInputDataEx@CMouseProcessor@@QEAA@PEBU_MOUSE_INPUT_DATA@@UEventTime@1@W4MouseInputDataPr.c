@@ -1,13 +1,14 @@
 /*
- * XREFs of ??0MouseInputDataEx@CMouseProcessor@@QEAA@PEBU_MOUSE_INPUT_DATA@@UEventTime@1@W4MouseInputDataProcessingOptions@@U_InputDeviceHandle@@PEBU_SYNTHESIZE_MOUSE_EXTRA_PAYLOAD@@@Z @ 0x1C009A4B4
+ * XREFs of ??0MouseInputDataEx@CMouseProcessor@@QEAA@PEBU_MOUSE_INPUT_DATA@@UEventTime@1@W4MouseInputDataProcessingOptions@@U_InputDeviceHandle@@PEBU_SYNTHESIZE_MOUSE_EXTRA_PAYLOAD@@@Z @ 0x1C008FEA0
  * Callers:
- *     ??0MouseInputDataEx@CMouseProcessor@@QEAA@PEBU_MOUSE_INPUT_DATA@@W4MouseInputDataProcessingPrivate@@W4MouseInputDataProcessingOptions@@@Z @ 0x1C003C62C (--0MouseInputDataEx@CMouseProcessor@@QEAA@PEBU_MOUSE_INPUT_DATA@@W4MouseInputDataProcessingPriva.c)
- *     SynthesizeMouseInput @ 0x1C00B2BC0 (SynthesizeMouseInput.c)
- *     SynthesizePTPMouseInput @ 0x1C00E8FA4 (SynthesizePTPMouseInput.c)
- *     ?Extensibility_SynthesizeMouseInput@CMouseProcessor@@QEAA?AW4_SYNTHESIZED_MOUSE_PROCESSING_RESULT@@PEAU_ExtensibilityMouseInputData@@W4_MOUSEPROCESSOR_PROCESSING_OPTIONS@@PEAU_SYNTHESIZE_MOUSE_EXTRA_PAYLOAD@@@Z @ 0x1C01FA0CC (-Extensibility_SynthesizeMouseInput@CMouseProcessor@@QEAA-AW4_SYNTHESIZED_MOUSE_PROCESSING_RESUL.c)
- *     ?ProcessInput@CMouseProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@@K_N@Z @ 0x1C01FB694 (-ProcessInput@CMouseProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_MOUSE_INPUT_D.c)
+ *     ??0MouseInputDataEx@CMouseProcessor@@QEAA@PEBU_MOUSE_INPUT_DATA@@W4MouseInputDataProcessingPrivate@@W4MouseInputDataProcessingOptions@@@Z @ 0x1C004533C (--0MouseInputDataEx@CMouseProcessor@@QEAA@PEBU_MOUSE_INPUT_DATA@@W4MouseInputDataProcessingPriva.c)
+ *     SynthesizeMouseInput @ 0x1C009F2D0 (SynthesizeMouseInput.c)
+ *     SynthesizeMouseInputForPTP @ 0x1C01AF1F0 (SynthesizeMouseInputForPTP.c)
+ *     SynthesizeMouseInputWithNextPreview @ 0x1C01AF350 (SynthesizeMouseInputWithNextPreview.c)
+ *     ?Extensibility_SynthesizeMouseInput@CMouseProcessor@@QEAA?AW4_SYNTHESIZED_MOUSE_PROCESSING_RESULT@@PEAU_ExtensibilityMouseInputData@@W4_MOUSEPROCESSOR_PROCESSING_OPTIONS@@PEAU_SYNTHESIZE_MOUSE_EXTRA_PAYLOAD@@@Z @ 0x1C01BFA30 (-Extensibility_SynthesizeMouseInput@CMouseProcessor@@QEAA-AW4_SYNTHESIZED_MOUSE_PROCESSING_RESUL.c)
+ *     ?ProcessInput@CMouseProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@@K_N@Z @ 0x1C01C125C (-ProcessInput@CMouseProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_MOUSE_INPUT_D.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall CMouseProcessor::MouseInputDataEx::MouseInputDataEx(
@@ -29,8 +30,8 @@ __int64 __fastcall CMouseProcessor::MouseInputDataEx::MouseInputDataEx(
   *(_QWORD *)(a1 + 40) = v7;
   v9 = *((_QWORD *)a3 + 2);
   *(_OWORD *)(a1 + 48) = v8;
-  *(_QWORD *)(a1 + 64) = v9;
   *(_DWORD *)(a1 + 76) = 0;
+  *(_QWORD *)(a1 + 64) = v9;
   *(_QWORD *)(a1 + 80) = 0LL;
   *(_DWORD *)(a1 + 88) = 0;
   *(_OWORD *)a1 = *(_OWORD *)a2;
@@ -42,7 +43,7 @@ __int64 __fastcall CMouseProcessor::MouseInputDataEx::MouseInputDataEx(
     if ( *(_DWORD *)a6 == 1 || *(_DWORD *)a6 == 2 )
       *(_QWORD *)(a1 + 80) = *a6;
     else
-      MicrosoftTelemetryAssertTriggeredNoArgsKM((unsigned int)(*(_DWORD *)a6 - 1), a6, a3);
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2067LL);
   }
   return a1;
 }

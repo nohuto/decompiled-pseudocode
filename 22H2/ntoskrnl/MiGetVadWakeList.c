@@ -1,106 +1,67 @@
 /*
- * XREFs of MiGetVadWakeList @ 0x14028A050
+ * XREFs of MiGetVadWakeList @ 0x1402986A0
  * Callers:
- *     MiFinishVadDeletion @ 0x140289BF0 (MiFinishVadDeletion.c)
- *     MiFreePlaceholderStorage @ 0x1406834D8 (MiFreePlaceholderStorage.c)
- *     MiReleaseVadEventBlocks @ 0x1406FB68C (MiReleaseVadEventBlocks.c)
- *     MiFreeRotateView @ 0x140A31368 (MiFreeRotateView.c)
- *     MiFreeVadEventBitmap @ 0x140A31F78 (MiFreeVadEventBitmap.c)
- *     MiDeleteVadHotPatchState @ 0x140A36A4C (MiDeleteVadHotPatchState.c)
- *     MiDeletePartialCloneVads @ 0x140A48E9C (MiDeletePartialCloneVads.c)
+ *     MiReleaseVadEventBlocks @ 0x14063AAB0 (MiReleaseVadEventBlocks.c)
+ *     MiFreePlaceholderStorage @ 0x1406A6748 (MiFreePlaceholderStorage.c)
+ *     MiFreeRotateView @ 0x1408C85CC (MiFreeRotateView.c)
+ *     MiFreeVadEventBitmap @ 0x1408C87A8 (MiFreeVadEventBitmap.c)
+ *     MiDeletePartialCloneVads @ 0x1408D9578 (MiDeletePartialCloneVads.c)
  * Callees:
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140207740 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CCC60 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CCC90 (HvlNotifyLongSpinWait.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046ADD8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExpAcquireSpinLockExclusive @ 0x14021D130 (ExpAcquireSpinLockExclusive.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5AE8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  */
 
-unsigned __int64 __fastcall MiGetVadWakeList(__int64 a1, int a2)
+__int64 *__fastcall MiGetVadWakeList(__int64 a1, int a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  unsigned __int64 v2; // rsi
-  _QWORD *v5; // r12
-  _KPROCESS *Process; // rbp
-  int *v7; // rdi
-  unsigned __int8 CurrentIrql; // r14
-  unsigned int v9; // ebx
-  __int64 v10; // rcx
-  unsigned __int64 v11; // rcx
-  unsigned __int64 v13; // rdx
-  _DWORD *SchedulerAssist; // r9
-  __int64 v15; // rdx
+  __int64 **v4; // r14
+  __int64 *v5; // rbp
+  _KPROCESS *Process; // rbx
+  LONG *v8; // rsi
+  unsigned __int8 CurrentIrql; // di
+  __int64 *v10; // rcx
+  __int64 *v12; // rdx
 
-  v2 = 0LL;
+  v4 = (__int64 **)(a1 + 56);
   v5 = 0LL;
   Process = KeGetCurrentThread()->ApcState.Process;
-  if ( (Process[1].IdealProcessor[30] & 7) == 2 )
-    v7 = (int *)&unk_140C6A280;
+  if ( (Process[1].IdealProcessorPadding[10] & 7) == 2 )
+    v8 = &dword_140C4F780;
   else
-    v7 = (int *)&Process[1].IdealNode[2];
+    v8 = (LONG *)&Process[1].IdealNode[2];
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    if ( CurrentIrql == 2 )
-      LODWORD(v15) = 4;
-    else
-      v15 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v15;
+    a3 = (unsigned int)SchedulerAssist[5];
+    SchedulerAssist[5] = a3 | ~((unsigned __int8)(1LL << (CurrentIrql + 1)) - 1) & 4;
   }
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
-  {
-    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(v7, CurrentIrql);
-  }
+    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(v8, CurrentIrql);
   else
-  {
-    v9 = 0;
-    if ( _interlockedbittestandset(v7, 0x1Fu) )
-      v9 = ExpWaitForSpinLockExclusiveAndAcquire(v7, CurrentIrql);
-    while ( 1 )
-    {
-      v10 = (unsigned int)*v7;
-      LODWORD(v10) = v10 & 0xBFFFFFFF;
-      if ( (_DWORD)v10 == 0x80000000 )
-        break;
-      if ( (*v7 & 0x40000000) == 0 )
-        _InterlockedOr(v7, 0x40000000u);
-      if ( (++v9 & HvlLongSpinCountMask) == 0
-        && (HvlEnlightenments & 0x40) != 0
-        && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v10) )
-      {
-        HvlNotifyLongSpinWait(v9);
-      }
-      else
-      {
-        _mm_pause();
-      }
-    }
-  }
-  v7[1] = 0;
-  v11 = *(_QWORD *)(a1 + 56) & 0xFFFFFFFFFFFFFFF0uLL;
-  if ( v11 )
+    ExpAcquireSpinLockExclusive(v8, CurrentIrql, a3, (__int64)SchedulerAssist);
+  v8[1] = 0;
+  v10 = *v4;
+  if ( *v4 )
   {
     do
     {
-      v13 = *(_QWORD *)v11;
-      if ( (a2 & *(_DWORD *)(v11 + 64)) != 0 )
+      v12 = (__int64 *)*v10;
+      if ( (a2 & (_DWORD)v10[8]) != 0 )
       {
-        *(_QWORD *)v11 = v2;
-        v2 = v11;
-        if ( v5 )
-          *v5 = v13;
-        else
-          *(_QWORD *)(a1 + 56) = v13 | *(_DWORD *)(a1 + 56) & 0xF;
+        *v10 = (__int64)v5;
+        v5 = v10;
+        *v4 = v12;
       }
       else
       {
-        v5 = (_QWORD *)v11;
+        v4 = (__int64 **)v10;
       }
-      v11 = v13;
+      v10 = v12;
     }
-    while ( v13 );
+    while ( v12 );
   }
-  MiUnlockWorkingSetExclusive(&Process[1].ActiveProcessors.StaticBitmap[26], CurrentIrql);
-  return v2;
+  MiUnlockWorkingSetExclusive((__int64)&Process[1].ActiveProcessorsPadding[6], CurrentIrql);
+  return v5;
 }

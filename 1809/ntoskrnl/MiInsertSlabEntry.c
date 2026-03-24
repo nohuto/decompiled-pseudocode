@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInsertSlabEntry @ 0x1402C29A4
+ * XREFs of MiInsertSlabEntry @ 0x1402C2AA4
  * Callers:
- *     MiReplenishSlabAllocator @ 0x1402C2BB4 (MiReplenishSlabAllocator.c)
- *     MiCreateSlabEntriesFromLoaderSlab @ 0x1409F744C (MiCreateSlabEntriesFromLoaderSlab.c)
- *     MmUpdateSlabRangeProtection @ 0x1409F75A8 (MmUpdateSlabRangeProtection.c)
+ *     MiReplenishSlabAllocator @ 0x1402C2CB4 (MiReplenishSlabAllocator.c)
+ *     MiCreateSlabEntriesFromLoaderSlab @ 0x1409F745C (MiCreateSlabEntriesFromLoaderSlab.c)
+ *     MmUpdateSlabRangeProtection @ 0x1409F75B8 (MmUpdateSlabRangeProtection.c)
  * Callees:
  *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiCompareSlabEntry @ 0x1402C1E64 (MiCompareSlabEntry.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCompareSlabEntry @ 0x1402C1F64 (MiCompareSlabEntry.c)
  */
 
 __int64 __fastcall MiInsertSlabEntry(__int64 a1, unsigned __int64 a2, __int64 a3)

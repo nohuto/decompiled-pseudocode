@@ -1,12 +1,12 @@
 /*
- * XREFs of MNGetpItem @ 0x1C02168EC
+ * XREFs of MNGetpItem @ 0x1C023663C
  * Callers:
- *     xxxMNKeyDown @ 0x1C0218038 (xxxMNKeyDown.c)
- *     xxxMenuWindowProc @ 0x1C021A810 (xxxMenuWindowProc.c)
- *     xxxMNSetGapState @ 0x1C0231A04 (xxxMNSetGapState.c)
- *     xxxMNUpdateDraggingInfo @ 0x1C0231BFC (xxxMNUpdateDraggingInfo.c)
+ *     xxxMNKeyDown @ 0x1C02384D8 (xxxMNKeyDown.c)
+ *     xxxMenuWindowProc @ 0x1C023B5E0 (xxxMenuWindowProc.c)
+ *     xxxMNSetGapState @ 0x1C024988C (xxxMNSetGapState.c)
+ *     xxxMNUpdateDraggingInfo @ 0x1C0249B78 (xxxMNUpdateDraggingInfo.c)
  * Callees:
- *     MNGetpItemFromIndex @ 0x1C00652C8 (MNGetpItemFromIndex.c)
+ *     MNGetpItemFromIndex @ 0x1C00480C4 (MNGetpItemFromIndex.c)
  */
 
 __int64 __fastcall MNGetpItem(__int64 a1, unsigned int a2)

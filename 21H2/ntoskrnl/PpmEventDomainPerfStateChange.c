@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventDomainPerfStateChange @ 0x140225CB4
+ * XREFs of PpmEventDomainPerfStateChange @ 0x14039A608
  * Callers:
- *     PpmPerfApplyDomainState @ 0x14022560C (PpmPerfApplyDomainState.c)
+ *     PpmPerfApplyDomainState @ 0x1402A05F0 (PpmPerfApplyDomainState.c)
  * Callees:
- *     KeAndGroupAffinityEx @ 0x140263350 (KeAndGroupAffinityEx.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PpmFireWmiEvent @ 0x1405D868C (PpmFireWmiEvent.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     KeAndGroupAffinityEx @ 0x1403746A0 (KeAndGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PpmFireWmiEvent @ 0x1405784F8 (PpmFireWmiEvent.c)
  */
 
 char __fastcall PpmEventDomainPerfStateChange(__int64 a1)
@@ -46,14 +46,14 @@ char __fastcall PpmEventDomainPerfStateChange(__int64 a1)
   __int64 v34; // [rsp+90h] [rbp-78h]
   int *v35; // [rsp+98h] [rbp-70h]
   __int64 v36; // [rsp+A0h] [rbp-68h]
-  _OWORD v37[32]; // [rsp+4F8h] [rbp+3F0h] BYREF
-  _UNKNOWN *retaddr; // [rsp+720h] [rbp+618h] BYREF
+  _OWORD v37[20]; // [rsp+378h] [rbp+270h] BYREF
+  _UNKNOWN *retaddr; // [rsp+4E0h] [rbp+3D8h] BYREF
 
   v1 = &retaddr;
-  if ( !*(_DWORD *)(a1 + 304) )
+  if ( !*(_DWORD *)(a1 + 208) )
   {
-    v26 = *(_DWORD *)(a1 + 736);
-    v27 = *(_DWORD *)(a1 + 748);
+    v26 = *(_DWORD *)(a1 + 552);
+    v27 = *(_DWORD *)(a1 + 564);
     LOBYTE(v1) = WmiPerfStateDomainEventEnabled;
     if ( WmiPerfStateDomainEventEnabled )
     {
@@ -76,15 +76,15 @@ char __fastcall PpmEventDomainPerfStateChange(__int64 a1)
         do
         {
           v7 = &v37[v5];
-          v8 = v6 < (unsigned __int16)KeActiveProcessors;
+          v8 = v6 < (unsigned int)KeActiveProcessors[0];
           *v7 = 0LL;
           *((_WORD *)v7 + 4) = v6;
           if ( v8 )
-            v9 = qword_140D06E48[v6];
+            v9 = qword_140CFC848[v6];
           else
             v9 = 0LL;
           *(_QWORD *)v7 = v9;
-          v10 = (unsigned int)KeAndGroupAffinityEx(a1 + 24, v7, v7) == 0;
+          v10 = (unsigned int)KeAndGroupAffinityEx((_WORD *)(a1 + 24), (__int64)v7, (char *)v7) == 0;
           v5 = v25;
           if ( !v10 )
           {
@@ -93,7 +93,7 @@ char __fastcall PpmEventDomainPerfStateChange(__int64 a1)
           }
           ++v6;
         }
-        while ( v6 < 0x20u );
+        while ( v6 < 0x14u );
         *(_QWORD *)&UserData.Size = 4LL;
         UserData.Ptr = (ULONGLONG)&v26;
         v33 = &v27;
@@ -119,21 +119,21 @@ char __fastcall PpmEventDomainPerfStateChange(__int64 a1)
           while ( v13 );
         }
         v16 = 2LL * v11;
-        *(&UserData.Ptr + v16) = a1 + 744;
+        *(&UserData.Ptr + v16) = a1 + 560;
         *((_QWORD *)&UserData.Size + v16) = 4LL;
         v17 = v11 + 1;
         v18 = v11 + 2;
         v17 *= 2LL;
-        *(&UserData.Ptr + v17) = a1 + 752;
+        *(&UserData.Ptr + v17) = a1 + 568;
         *((_QWORD *)&UserData.Size + v17) = 4LL;
         v19 = 2LL * v18;
-        *(&UserData.Ptr + v19) = a1 + 756;
+        *(&UserData.Ptr + v19) = a1 + 572;
         *((_QWORD *)&UserData.Size + v19) = 4LL;
         v20 = v18 + 1;
         v18 += 2;
         v20 *= 2LL;
-        *(&UserData.Ptr + v20) = a1 + 760;
-        v21 = *(unsigned __int8 *)(a1 + 772);
+        *(&UserData.Ptr + v20) = a1 + 576;
+        v21 = *(unsigned __int8 *)(a1 + 588);
         *((_QWORD *)&UserData.Size + v20) = 4LL;
         v28 = v21;
         v22 = 2LL * v18;

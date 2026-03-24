@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwImpersonateThread @ 0x14041C720
+ * XREFs of ZwImpersonateThread @ 0x1403FB9E0
  * Callers:
  *     <none>
  * Callees:

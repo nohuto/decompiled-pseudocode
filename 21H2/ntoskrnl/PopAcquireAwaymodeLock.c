@@ -1,10 +1,10 @@
 /*
- * XREFs of PopAcquireAwaymodeLock @ 0x140A48C1C
+ * XREFs of PopAcquireAwaymodeLock @ 0x140990530
  * Callers:
- *     PopIssueActionRequest @ 0x1407FF888 (PopIssueActionRequest.c)
- *     PopPowerRequestCallbackAwayModeRequired @ 0x140989CC0 (PopPowerRequestCallbackAwayModeRequired.c)
+ *     PopIssueActionRequest @ 0x140775A08 (PopIssueActionRequest.c)
+ *     PopAwayModePowerRequest @ 0x1408E17D0 (PopAwayModePowerRequest.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
 struct _KTHREAD *PopAcquireAwaymodeLock()

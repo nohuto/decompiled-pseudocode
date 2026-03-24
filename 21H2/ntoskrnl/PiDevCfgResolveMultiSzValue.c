@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDevCfgResolveMultiSzValue @ 0x14080A890
+ * XREFs of PiDevCfgResolveMultiSzValue @ 0x14077B33C
  * Callers:
- *     PiDevCfgCopyDeviceKey @ 0x140679BEC (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140769E0C (PiDevCfgCopyDeviceKey.c)
  * Callees:
- *     PnpValidateStringData @ 0x1402D19D8 (PnpValidateStringData.c)
- *     PnpValidateMultiSzData @ 0x1402D19FC (PnpValidateMultiSzData.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     PnpValidateRegistryMultiSz @ 0x14039A190 (PnpValidateRegistryMultiSz.c)
- *     PnpMultiSzContainsString @ 0x14039F184 (PnpMultiSzContainsString.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     PnpValidateMultiSzData @ 0x14036EF08 (PnpValidateMultiSzData.c)
+ *     PnpValidateStringData @ 0x14036EF78 (PnpValidateStringData.c)
+ *     PnpMultiSzContainsString @ 0x140392E00 (PnpMultiSzContainsString.c)
+ *     PnpValidateRegistryMultiSz @ 0x140392E7C (PnpValidateRegistryMultiSz.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgResolveMultiSzValue(
@@ -23,9 +23,9 @@ __int64 __fastcall PiDevCfgResolveMultiSzValue(
         HANDLE KeyHandle,
         const WCHAR *a6,
         unsigned int *a7,
-        __int64 *a8)
+        _QWORD *a8)
 {
-  __int64 v8; // r15
+  _WORD *v8; // r15
   size_t v9; // rbx
   _WORD *v11; // r14
   unsigned int *v13; // r13
@@ -33,7 +33,7 @@ __int64 __fastcall PiDevCfgResolveMultiSzValue(
   NTSTATUS RegistryValue; // eax
   unsigned int v16; // edi
   unsigned int v17; // esi
-  void *v18; // rax
+  _WORD *v18; // rax
   unsigned int v19; // ecx
   int v20; // r12d
   const WCHAR *v21; // r13
@@ -44,7 +44,7 @@ __int64 __fastcall PiDevCfgResolveMultiSzValue(
   bool v27; // zf
   unsigned int v28; // ebx
   unsigned int v29; // eax
-  void *Pool2; // rax
+  _WORD *PoolWithTag; // rax
   NTSTATUS v31; // [rsp+20h] [rbp-30h]
   unsigned int v32; // [rsp+20h] [rbp-30h]
   PVOID P; // [rsp+28h] [rbp-28h] BYREF
@@ -61,7 +61,7 @@ __int64 __fastcall PiDevCfgResolveMultiSzValue(
   *(_OWORD *)Src = 0LL;
   *a8 = 0LL;
   if ( !a1 )
-    goto LABEL_59;
+    goto LABEL_58;
   if ( a1 <= 2 )
   {
     v14 = PnpValidateStringData((__int64)a3, a2);
@@ -69,7 +69,7 @@ __int64 __fastcall PiDevCfgResolveMultiSzValue(
   else
   {
     if ( a1 != 7 )
-      goto LABEL_59;
+      goto LABEL_58;
     v14 = PnpValidateMultiSzData(a3, a2);
   }
   if ( !v14 )
@@ -86,18 +86,18 @@ __int64 __fastcall PiDevCfgResolveMultiSzValue(
       if ( (a4 & 0x40000) == 0 )
       {
         v17 = 0;
-        goto LABEL_26;
+        goto LABEL_24;
       }
       v29 = v9 + 2;
       if ( a1 == 7 )
         v29 = v9;
       v17 = v29;
-      Pool2 = (void *)ExAllocatePool2(256LL, v29, 1667526736LL);
-      v8 = (__int64)Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v29, 0x63647050u);
+      v8 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        memmove(Pool2, v11, v9);
-        goto LABEL_25;
+        memmove(PoolWithTag, v11, v9);
+        goto LABEL_24;
       }
       v13 = (unsigned int *)P;
       v16 = -1073741670;
@@ -106,7 +106,7 @@ __int64 __fastcall PiDevCfgResolveMultiSzValue(
   }
   if ( !PnpValidateRegistryMultiSz(P) )
   {
-LABEL_59:
+LABEL_58:
     v16 = -1073741823;
     goto LABEL_27;
   }
@@ -116,9 +116,9 @@ LABEL_59:
     Src[0] = (char *)v13 + v13[2];
     if ( !v17 )
       v17 = 2;
-    v18 = (void *)ExAllocatePool2(256LL, v17 + (unsigned int)v9, 1667526736LL);
+    v18 = ExAllocatePoolWithTag(PagedPool, v17 + (unsigned int)v9, 0x63647050u);
     v19 = 0;
-    v8 = (__int64)v18;
+    v8 = v18;
     if ( v18 )
     {
       if ( v17 > 2 )
@@ -128,86 +128,83 @@ LABEL_59:
       }
       v20 = a4 & 0x20000;
       v32 = v19;
-      if ( a1 == 7 )
+      if ( a1 != 7 )
       {
-        if ( !v20 )
+        if ( v20 || v17 == 2 || !PnpMultiSzContainsString((PCWSTR)Src[0], v11) )
         {
-          if ( !*v11 )
-            goto LABEL_24;
-          v21 = (const WCHAR *)Src[0];
-          do
-          {
-            v22 = -1LL;
-            do
-              ++v22;
-            while ( v11[v22] );
-            v23 = 2 * v22 + 2;
-            if ( !PnpMultiSzContainsString(v21, v11) )
-            {
-              memmove((void *)(v8 + v32), v11, v23);
-              v32 += v23;
-              v17 += v23;
-            }
-            v11 += (unsigned __int64)v23 >> 1;
-          }
-          while ( *v11 );
-          goto LABEL_23;
+          memmove((char *)v8 + v32, v11, v9);
+          v17 += v9;
         }
-        memmove((void *)(v8 + v19), v11, v9);
-        v17 = v17 + v9 - 2;
+        goto LABEL_24;
       }
-      else if ( v20 || v17 == 2 || !PnpMultiSzContainsString((PCWSTR)Src[0], v11) )
+      if ( v20 )
       {
-        memmove((void *)(v8 + v32), v11, v9);
-        v17 += v9;
+        memmove((char *)v8 + v19, v11, v9);
+        v17 = v17 + v9 - 2;
+        goto LABEL_24;
       }
+      if ( !*v11 )
+      {
+LABEL_24:
+        if ( v8 )
+          v8[((unsigned __int64)v17 >> 1) - 1] = 0;
+        *a7 = v17;
+        *a8 = v8;
+        goto LABEL_27;
+      }
+      v21 = (const WCHAR *)Src[0];
+      do
+      {
+        v22 = -1LL;
+        do
+          ++v22;
+        while ( v11[v22] );
+        v23 = 2 * v22 + 2;
+        if ( !PnpMultiSzContainsString(v21, v11) )
+        {
+          memmove((char *)v8 + v32, v11, v23);
+          v32 += v23;
+          v17 += v23;
+        }
+        v11 += (unsigned __int64)v23 >> 1;
+      }
+      while ( *v11 );
+LABEL_23:
+      v13 = (unsigned int *)P;
       goto LABEL_24;
     }
   }
   else
   {
-    v8 = ExAllocatePool2(256LL, v13[3], 1667526736LL);
+    v8 = ExAllocatePoolWithTag(PagedPool, v13[3], 0x63647050u);
     if ( v8 )
     {
       if ( a1 != 7 )
         RtlInitUnicodeString(&DestinationString, v11);
       v17 = 2;
       v25 = (const WCHAR *)((char *)v13 + v13[2]);
-      if ( *v25 )
+      if ( !*v25 )
+        goto LABEL_24;
+      v26 = 0;
+      do
       {
-        v26 = 0;
-        do
+        RtlInitUnicodeString((PUNICODE_STRING)Src, v25);
+        if ( a1 == 7 )
+          v27 = PnpMultiSzContainsString(v11, (const WCHAR *)Src[1]) == 0LL;
+        else
+          v27 = RtlEqualUnicodeString(&DestinationString, (PCUNICODE_STRING)Src, 1u) == 0;
+        if ( v27 )
         {
-          RtlInitUnicodeString((PUNICODE_STRING)Src, v25);
-          if ( a1 == 7 )
-            v27 = PnpMultiSzContainsString(v11, (const WCHAR *)Src[1]) == 0LL;
-          else
-            v27 = RtlEqualUnicodeString(&DestinationString, (PCUNICODE_STRING)Src, 1u) == 0;
-          if ( v27 )
-          {
-            v28 = LOWORD(Src[0]) + 2;
-            memmove((void *)(v8 + v26), Src[1], v28);
-            v26 += v28;
-            v17 += v28;
-          }
-          v25 += ((unsigned __int64)LOWORD(Src[0]) >> 1) + 1;
+          v28 = LOWORD(Src[0]) + 2;
+          memmove((char *)v8 + v26, Src[1], v28);
+          v26 += v28;
+          v17 += v28;
         }
-        while ( *v25 );
-        v16 = v31;
-LABEL_23:
-        v13 = (unsigned int *)P;
+        v25 += ((unsigned __int64)LOWORD(Src[0]) >> 1) + 1;
       }
-LABEL_24:
-      if ( !v8 )
-      {
-LABEL_26:
-        *a7 = v17;
-        *a8 = v8;
-        goto LABEL_27;
-      }
-LABEL_25:
-      *(_WORD *)(v8 + 2 * ((unsigned __int64)v17 >> 1) - 2) = 0;
-      goto LABEL_26;
+      while ( *v25 );
+      v16 = v31;
+      goto LABEL_23;
     }
   }
   v16 = -1073741670;

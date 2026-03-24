@@ -1,13 +1,14 @@
 /*
- * XREFs of ACPIBusIommuBusInterface @ 0x1C00923D0
+ * XREFs of ACPIBusIommuBusInterface @ 0x1C00995C4
  * Callers:
- *     ACPIBusIrpQueryInterface @ 0x1C0005A80 (ACPIBusIrpQueryInterface.c)
- *     ACPIFilterIrpQueryIommuInterface @ 0x1C0091D14 (ACPIFilterIrpQueryIommuInterface.c)
+ *     ACPIBusIrpQueryInterface @ 0x1C0010C50 (ACPIBusIrpQueryInterface.c)
+ *     ACPIFilterIrpQueryIommuInterface @ 0x1C00994CC (ACPIFilterIrpQueryIommuInterface.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIAmliBuildObjectPathname @ 0x1C0006528 (ACPIAmliBuildObjectPathname.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIAmliBuildObjectPathname @ 0x1C00116E4 (ACPIAmliBuildObjectPathname.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall ACPIBusIommuBusInterface(ULONG_PTR a1, __int64 a2)
@@ -19,19 +20,20 @@ __int64 __fastcall ACPIBusIommuBusInterface(ULONG_PTR a1, __int64 a2)
   int v6; // r15d
   unsigned __int16 v7; // bp
   __int64 v8; // rax
-  unsigned __int16 *v9; // r12
+  unsigned __int16 *v9; // r13
   _BYTE *v10; // r14
   __int64 v11; // rdi
   __int64 v12; // rax
-  __int64 Pool2; // rax
-  __int64 v14; // rsi
-  void (__fastcall *v15)(__int64); // rax
+  SIZE_T v13; // r12
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v15; // rsi
+  void (__fastcall *v16)(_DWORD *); // rax
   void *Src; // [rsp+58h] [rbp+10h] BYREF
 
   Src = 0LL;
   v2 = *(_QWORD *)(a2 + 184);
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
-  v4 = *(_QWORD *)(DeviceExtension + 760);
+  v4 = *(_QWORD *)(DeviceExtension + 720);
   if ( !v4 )
     return (unsigned int)-1073741823;
   v6 = *(unsigned __int16 *)(v2 + 18);
@@ -44,15 +46,15 @@ __int64 __fastcall ACPIBusIommuBusInterface(ULONG_PTR a1, __int64 a2)
   }
   if ( v6 != 2 )
     return (unsigned int)-1073741811;
-  v7 = 88;
+  v7 = 80;
 LABEL_8:
   if ( *(_WORD *)(v2 + 16) < v7 )
     return (unsigned int)-1073741811;
   v8 = *(_QWORD *)(v2 + 32);
-  if ( !v8 || v8 != *(_QWORD *)(DeviceExtension + 784) )
+  if ( !v8 || v8 != *(_QWORD *)(DeviceExtension + 744) )
     return (unsigned int)-1073741811;
   v9 = *(unsigned __int16 **)(v2 + 24);
-  v5 = ACPIAmliBuildObjectPathname(v4, &Src, 3);
+  v5 = ACPIAmliBuildObjectPathname(v4, (char **)&Src, 3);
   if ( v5 >= 0 )
   {
     v10 = Src;
@@ -61,23 +63,25 @@ LABEL_8:
     do
       ++v12;
     while ( *((_BYTE *)Src + v12) );
-    Pool2 = ExAllocatePool2(256LL, (unsigned int)(v12 + 121), 1181770561LL);
-    v14 = Pool2;
-    if ( Pool2 )
+    v13 = (unsigned int)(v12 + 113);
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v13, 0x46706341u);
+    v15 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      *(_DWORD *)(Pool2 + 96) = 2;
-      *(_QWORD *)(Pool2 + 104) = Pool2 + 120;
+      memset(PoolWithTag, 0, v13);
+      v15[22] = 2;
+      *((_QWORD *)v15 + 12) = v15 + 28;
       do
         ++v11;
       while ( v10[v11] );
-      memmove((void *)(Pool2 + 120), v10, v11 + 1);
+      memmove(v15 + 28, v10, v11 + 1);
       ExFreePoolWithTag(v10, 0x53706341u);
       memmove(v9, &AcpiIommuBusInterface, v7);
-      v15 = (void (__fastcall *)(__int64))*((_QWORD *)v9 + 2);
+      v16 = (void (__fastcall *)(_DWORD *))*((_QWORD *)v9 + 2);
       *v9 = v7;
       v9[1] = v6;
-      *((_QWORD *)v9 + 1) = v14;
-      v15(v14);
+      *((_QWORD *)v9 + 1) = v15;
+      v16(v15);
     }
     else
     {

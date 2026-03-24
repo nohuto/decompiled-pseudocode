@@ -1,10 +1,10 @@
 /*
- * XREFs of HvHiveInitialize @ 0x14068B054
+ * XREFs of HvHiveInitialize @ 0x140720D58
  * Callers:
- *     CmpHiveInitialize @ 0x14068AF4C (CmpHiveInitialize.c)
- *     CmpGetSystemControlValues @ 0x140B14B1C (CmpGetSystemControlValues.c)
+ *     CmpHiveInitialize @ 0x140720C84 (CmpHiveInitialize.c)
+ *     CmpGetSystemControlValues @ 0x140A5FC0C (CmpGetSystemControlValues.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 _QWORD *__fastcall HvHiveInitialize(_DWORD *a1)
@@ -12,8 +12,8 @@ _QWORD *__fastcall HvHiveInitialize(_DWORD *a1)
   _QWORD *result; // rax
   __int64 v3; // rcx
 
-  memset(a1, 0, 0x608uLL);
-  result = a1 + 222;
+  memset(a1, 0, 0x600uLL);
+  result = a1 + 220;
   *a1 = -1092567328;
   v3 = 2LL;
   do
@@ -27,10 +27,10 @@ _QWORD *__fastcall HvHiveInitialize(_DWORD *a1)
   while ( v3 );
   *((_QWORD *)a1 + 9) = 0LL;
   *((_QWORD *)a1 + 10) = 0LL;
-  *((_OWORD *)a1 + 14) = 0LL;
-  *((_OWORD *)a1 + 15) = 0LL;
-  *((_OWORD *)a1 + 16) = 0LL;
+  *(_OWORD *)(a1 + 54) = 0LL;
+  *(_OWORD *)(a1 + 58) = 0LL;
+  *(_OWORD *)(a1 + 62) = 0LL;
+  *((_QWORD *)a1 + 32) = 0LL;
   *((_QWORD *)a1 + 33) = 0LL;
-  *((_QWORD *)a1 + 34) = 0LL;
   return result;
 }

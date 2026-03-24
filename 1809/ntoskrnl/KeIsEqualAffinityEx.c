@@ -1,18 +1,18 @@
 /*
- * XREFs of KeIsEqualAffinityEx @ 0x14018A2D0
+ * XREFs of KeIsEqualAffinityEx @ 0x14018A2F0
  * Callers:
  *     PpmPerfApplyDomainStates @ 0x140063AC0 (PpmPerfApplyDomainStates.c)
- *     PpmPerfApplyDomainState @ 0x140112900 (PpmPerfApplyDomainState.c)
- *     PpmParkReportMask @ 0x1401223B0 (PpmParkReportMask.c)
- *     KeIsSubsetAffinityEx @ 0x14028E2D0 (KeIsSubsetAffinityEx.c)
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x1402D4594 (PpmIdleCheckCoordinatedStateEligibility.c)
- *     PpmIdleRecheckCoordinatedIdleMask @ 0x1402D4DB0 (PpmIdleRecheckCoordinatedIdleMask.c)
- *     PpmUpdateIdleDomains @ 0x1402D6020 (PpmUpdateIdleDomains.c)
- *     PspSetEffectiveJobLimits @ 0x1406B9984 (PspSetEffectiveJobLimits.c)
- *     PpmRegisterPerfStates @ 0x14074E4DC (PpmRegisterPerfStates.c)
- *     PpmHeteroComputeRelativePerformance @ 0x14074FEEC (PpmHeteroComputeRelativePerformance.c)
- *     PsUpdateActiveProcessAffinity @ 0x1408888E0 (PsUpdateActiveProcessAffinity.c)
- *     PspSetProcessAffinitySafe @ 0x140889074 (PspSetProcessAffinitySafe.c)
+ *     PpmPerfApplyDomainState @ 0x140112920 (PpmPerfApplyDomainState.c)
+ *     PpmParkReportMask @ 0x1401223D0 (PpmParkReportMask.c)
+ *     KeIsSubsetAffinityEx @ 0x14028E3D0 (KeIsSubsetAffinityEx.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x1402D4694 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleRecheckCoordinatedIdleMask @ 0x1402D4EB0 (PpmIdleRecheckCoordinatedIdleMask.c)
+ *     PpmUpdateIdleDomains @ 0x1402D6120 (PpmUpdateIdleDomains.c)
+ *     PspSetEffectiveJobLimits @ 0x1406B9964 (PspSetEffectiveJobLimits.c)
+ *     PpmRegisterPerfStates @ 0x14074E4BC (PpmRegisterPerfStates.c)
+ *     PpmHeteroComputeRelativePerformance @ 0x14074FECC (PpmHeteroComputeRelativePerformance.c)
+ *     PsUpdateActiveProcessAffinity @ 0x1408888C0 (PsUpdateActiveProcessAffinity.c)
+ *     PspSetProcessAffinitySafe @ 0x140889054 (PspSetProcessAffinitySafe.c)
  * Callees:
  *     <none>
  */

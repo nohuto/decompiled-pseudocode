@@ -1,42 +1,39 @@
 /*
- * XREFs of ?HandleRemoteLocalDeviceDetached@CBaseInput@@AEAAJXZ @ 0x1C00496B0
+ * XREFs of ?HandleRemoteLocalDeviceDetached@CBaseInput@@AEAAJXZ @ 0x1C0056410
  * Callers:
  *     <none>
  * Callees:
- *     RIMDirectStopDeviceClassNotifications @ 0x1C0048450 (RIMDirectStopDeviceClassNotifications.c)
- *     ?ExecutingInSensorHostingProcess@CBaseInput@@IEBA_NXZ @ 0x1C00497F8 (-ExecutingInSensorHostingProcess@CBaseInput@@IEBA_NXZ.c)
- *     RawInputManagerObjectCreateKernelHandle @ 0x1C004A880 (RawInputManagerObjectCreateKernelHandle.c)
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     RawInputManagerObjectCreateKernelHandle @ 0x1C000A5E0 (RawInputManagerObjectCreateKernelHandle.c)
+ *     RIMDirectStopDeviceClassNotifications @ 0x1C0052BE0 (RIMDirectStopDeviceClassNotifications.c)
+ *     ?ExecutingInSensorHostingProcess@CBaseInput@@IEBA_NXZ @ 0x1C0056538 (-ExecutingInSensorHostingProcess@CBaseInput@@IEBA_NXZ.c)
  */
 
-__int64 __fastcall CBaseInput::HandleRemoteLocalDeviceDetached(char **this, __int64 a2, __int64 a3)
+__int64 __fastcall CBaseInput::HandleRemoteLocalDeviceDetached(CBaseInput *this)
 {
-  unsigned int v4; // edi
-  char *v5; // rcx
-  char *v6; // rcx
-  char *Handle; // [rsp+40h] [rbp+8h]
+  unsigned int v2; // edi
+  HANDLE v3; // rcx
+  _DWORD *v5; // rcx
+  HANDLE Handle; // [rsp+48h] [rbp+10h] BYREF
 
   Handle = 0LL;
-  v4 = -1073741823;
-  if ( !this[1] || !*((_DWORD *)this + 328) )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(this, a2, a3);
-  if ( CBaseInput::ExecutingInSensorHostingProcess((CBaseInput *)this) )
+  v2 = -1073741823;
+  if ( CBaseInput::ExecutingInSensorHostingProcess(this) )
   {
-    v6 = this[1];
-    Handle = v6;
+    v3 = (HANDLE)*((_QWORD *)this + 1);
+    Handle = v3;
   }
   else
   {
-    v5 = this[2];
+    v5 = (_DWORD *)*((_QWORD *)this + 2);
     if ( v5 )
-      RawInputManagerObjectCreateKernelHandle(v5, 3LL, 0LL);
-    v6 = 0LL;
+      RawInputManagerObjectCreateKernelHandle(v5, 3u, 0, 0, &Handle);
+    v3 = Handle;
   }
-  if ( v6 )
+  if ( v3 )
   {
-    v4 = RIMDirectStopDeviceClassNotifications(v6);
-    if ( Handle != this[1] )
+    v2 = RIMDirectStopDeviceClassNotifications((__int64)v3);
+    if ( Handle != *((HANDLE *)this + 1) )
       ZwClose(Handle);
   }
-  return v4;
+  return v2;
 }

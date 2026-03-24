@@ -1,27 +1,52 @@
 /*
- * XREFs of ?GetBlurForBoundary@CProjectedShadow@@AEBAMW4Enum@ApproxBlurStageBoundary@@@Z @ 0x180114836
+ * XREFs of ?GetBlurForBoundary@CProjectedShadow@@AEBAMW4Enum@ApproxBlurStageBoundary@@@Z @ 0x18000C7E8
  * Callers:
- *     ?ComputeShadowColor@CProjectedShadow@@AEBA?AU_D3DCOLORVALUE@@PEAVCDrawingContext@@@Z @ 0x180114772 (-ComputeShadowColor@CProjectedShadow@@AEBA-AU_D3DCOLORVALUE@@PEAVCDrawingContext@@@Z.c)
- *     ?ComputeShadowPath@CProjectedShadow@@AEBA?AW4Enum@ShadowPath@@PEAVCDrawingContext@@@Z @ 0x180232FD8 (-ComputeShadowPath@CProjectedShadow@@AEBA-AW4Enum@ShadowPath@@PEAVCDrawingContext@@@Z.c)
- *     ?GenerateApproxBlur@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x1802334E4 (-GenerateApproxBlur@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?GenerateApproxBlur@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x180008E98 (-GenerateApproxBlur@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?ComputeShadowColor@CProjectedShadow@@AEBA?AU_D3DCOLORVALUE@@PEAVCDrawingContext@@@Z @ 0x180009E54 (-ComputeShadowColor@CProjectedShadow@@AEBA-AU_D3DCOLORVALUE@@PEAVCDrawingContext@@@Z.c)
+ *     ?ComputeShadowPath@CProjectedShadow@@AEBA?AW4Enum@ShadowPath@@PEAVCDrawingContext@@@Z @ 0x18000C720 (-ComputeShadowPath@CProjectedShadow@@AEBA-AW4Enum@ShadowPath@@PEAVCDrawingContext@@@Z.c)
  * Callees:
  *     <none>
  */
 
-float __fastcall CProjectedShadow::GetBlurForBoundary(__int64 a1, int a2)
+double __fastcall CProjectedShadow::GetBlurForBoundary(__int64 a1, int a2)
 {
   int v2; // edx
   int v3; // edx
+  double result; // xmm0_8
 
-  if ( !a2 )
-    return *(float *)(a1 + 392) * 0.5;
-  v2 = a2 - 1;
-  if ( !v2 )
-    return *(float *)(a1 + 392);
-  v3 = v2 - 1;
-  if ( !v3 )
-    return *(float *)(a1 + 392) + *(float *)(a1 + 392);
-  if ( v3 == 1 )
-    return *(float *)(a1 + 392) * 3.0;
-  return 0.0;
+  if ( a2 )
+  {
+    v2 = a2 - 1;
+    if ( v2 )
+    {
+      v3 = v2 - 1;
+      if ( v3 )
+      {
+        if ( v3 == 1 )
+        {
+          *(_QWORD *)&result = *(unsigned int *)(a1 + 384);
+          *(float *)&result = *(float *)&result * 3.0;
+        }
+        else
+        {
+          return 0.0;
+        }
+      }
+      else
+      {
+        *(_QWORD *)&result = *(unsigned int *)(a1 + 384);
+        *(float *)&result = *(float *)&result + *(float *)&result;
+      }
+    }
+    else
+    {
+      *(_QWORD *)&result = *(unsigned int *)(a1 + 384);
+    }
+  }
+  else
+  {
+    *(_QWORD *)&result = *(unsigned int *)(a1 + 384);
+    *(float *)&result = *(float *)&result * 0.5;
+  }
+  return result;
 }

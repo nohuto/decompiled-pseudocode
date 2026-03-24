@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpSegContextReserve @ 0x140140EDC
+ * XREFs of RtlpHpSegContextReserve @ 0x140140EFC
  * Callers:
- *     RtlpHpHeapCreate @ 0x140140AC0 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x140140AE0 (RtlpHpHeapCreate.c)
  * Callees:
  *     RtlpHpSegSegmentAllocate @ 0x14000A588 (RtlpHpSegSegmentAllocate.c)
  *     RtlpHpSegFreeRangeInsert @ 0x14000B704 (RtlpHpSegFreeRangeInsert.c)

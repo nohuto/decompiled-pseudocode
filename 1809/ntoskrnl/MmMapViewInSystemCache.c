@@ -1,5 +1,5 @@
 /*
- * XREFs of MmMapViewInSystemCache @ 0x1400AD910
+ * XREFs of MmMapViewInSystemCache @ 0x1400AD930
  * Callers:
  *     CcGetVacbMiss @ 0x1400216E0 (CcGetVacbMiss.c)
  * Callees:
@@ -8,17 +8,17 @@
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
  *     MiAddViewsForSection @ 0x140077170 (MiAddViewsForSection.c)
  *     MiCompareTbFlushTimeStamp @ 0x14009831C (MiCompareTbFlushTimeStamp.c)
- *     MiObtainSystemCacheView @ 0x1400AD200 (MiObtainSystemCacheView.c)
- *     MiGetPteLink @ 0x1400AD784 (MiGetPteLink.c)
- *     MiManageSubsectionView @ 0x1400ADC60 (MiManageSubsectionView.c)
- *     MiGetSystemCacheReverseMap @ 0x1400ADF30 (MiGetSystemCacheReverseMap.c)
- *     MiOffsetToProtos @ 0x1400AF810 (MiOffsetToProtos.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiRemoveSystemCacheReferences @ 0x1402ABFDC (MiRemoveSystemCacheReferences.c)
+ *     MiObtainSystemCacheView @ 0x1400AD220 (MiObtainSystemCacheView.c)
+ *     MiGetPteLink @ 0x1400AD7A4 (MiGetPteLink.c)
+ *     MiManageSubsectionView @ 0x1400ADC80 (MiManageSubsectionView.c)
+ *     MiGetSystemCacheReverseMap @ 0x1400ADF50 (MiGetSystemCacheReverseMap.c)
+ *     MiOffsetToProtos @ 0x1400AF830 (MiOffsetToProtos.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiRemoveSystemCacheReferences @ 0x1402AC0DC (MiRemoveSystemCacheReferences.c)
  */
 
 __int64 __fastcall MmMapViewInSystemCache(__int64 a1, __int64 *a2, _QWORD *a3)

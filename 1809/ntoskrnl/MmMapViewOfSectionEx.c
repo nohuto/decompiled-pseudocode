@@ -1,10 +1,10 @@
 /*
- * XREFs of MmMapViewOfSectionEx @ 0x1400F2918
+ * XREFs of MmMapViewOfSectionEx @ 0x1400F2938
  * Callers:
- *     PspMapSystemDll @ 0x1406779CC (PspMapSystemDll.c)
- *     MiMapCfgBitMapSection @ 0x14067ABF0 (MiMapCfgBitMapSection.c)
+ *     PspMapSystemDll @ 0x1406779AC (PspMapSystemDll.c)
+ *     MiMapCfgBitMapSection @ 0x14067ABD0 (MiMapCfgBitMapSection.c)
  * Callees:
- *     MiMapViewOfSectionExCommon @ 0x140676C30 (MiMapViewOfSectionExCommon.c)
+ *     MiMapViewOfSectionExCommon @ 0x140676C10 (MiMapViewOfSectionExCommon.c)
  */
 
 __int64 __fastcall MmMapViewOfSectionEx(

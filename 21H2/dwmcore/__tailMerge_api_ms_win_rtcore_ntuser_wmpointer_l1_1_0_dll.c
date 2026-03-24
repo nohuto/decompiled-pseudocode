@@ -1,9 +1,9 @@
 /*
- * XREFs of __tailMerge_api_ms_win_rtcore_ntuser_wmpointer_l1_1_0_dll @ 0x180102562
+ * XREFs of __tailMerge_api_ms_win_rtcore_ntuser_wmpointer_l1_1_0_dll @ 0x1800E90A9
  * Callers:
- *     __imp_load_GetPointerDeviceRects @ 0x180102556 (__imp_load_GetPointerDeviceRects.c)
+ *     __imp_load_GetPointerDeviceRects @ 0x1800E909D (__imp_load_GetPointerDeviceRects.c)
  * Callees:
- *     __delayLoadHelper2 @ 0x1800F39B0 (__delayLoadHelper2.c)
+ *     __delayLoadHelper2 @ 0x1800DE920 (__delayLoadHelper2.c)
  */
 
 __int64 __fastcall _tailMerge_api_ms_win_rtcore_ntuser_wmpointer_l1_1_0_dll(

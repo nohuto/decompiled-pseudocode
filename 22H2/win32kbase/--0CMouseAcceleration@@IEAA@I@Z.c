@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CMouseAcceleration@@IEAA@I@Z @ 0x1C0094F90
+ * XREFs of ??0CMouseAcceleration@@IEAA@I@Z @ 0x1C000C294
  * Callers:
- *     ?CreateInstance@CMouseAcceleration@@SAJPEAPEAVCDeviceAcceleration@@I@Z @ 0x1C0094EE0 (-CreateInstance@CMouseAcceleration@@SAJPEAPEAVCDeviceAcceleration@@I@Z.c)
+ *     CMouseAcceleration_CreateInstance @ 0x1C000C240 (CMouseAcceleration_CreateInstance.c)
  * Callees:
- *     ?UpdateMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEAAXI@Z @ 0x1C0095858 (-UpdateMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEAAXI@Z.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     ?UpdateMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEAAXI@Z @ 0x1C000D2E4 (-UpdateMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEAAXI@Z.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 CMouseAcceleration *__fastcall CMouseAcceleration::CMouseAcceleration(CMouseAcceleration *this, unsigned int a2)

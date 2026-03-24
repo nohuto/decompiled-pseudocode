@@ -1,497 +1,354 @@
 /*
- * XREFs of ObInsertObjectEx @ 0x140729C30
+ * XREFs of ObInsertObjectEx @ 0x140704A20
  * Callers:
- *     NtFilterToken @ 0x1406623D0 (NtFilterToken.c)
- *     AlpcpCreateConnectionPort @ 0x140663D08 (AlpcpCreateConnectionPort.c)
- *     AlpcpAcceptConnectPort @ 0x140665B68 (AlpcpAcceptConnectPort.c)
- *     AlpcpCreateClientPort @ 0x140667114 (AlpcpCreateClientPort.c)
- *     ObInsertObject @ 0x14066BA50 (ObInsertObject.c)
- *     PspInsertProcess @ 0x14066D0AC (PspInsertProcess.c)
- *     MmCreateSpecialImageSection @ 0x14066D4BC (MmCreateSpecialImageSection.c)
- *     SeSubProcessToken @ 0x140671BE0 (SeSubProcessToken.c)
- *     NtCreateJobObject @ 0x140681CB0 (NtCreateJobObject.c)
- *     NtCreateWaitCompletionPacket @ 0x1406AFD10 (NtCreateWaitCompletionPacket.c)
- *     NtCreateTimer @ 0x1406B4B90 (NtCreateTimer.c)
- *     NtCreateIoCompletion @ 0x1406B8FE0 (NtCreateIoCompletion.c)
- *     NtCreatePrivateNamespace @ 0x1406C08F0 (NtCreatePrivateNamespace.c)
- *     ObpCreateDirectoryObject @ 0x1406C2A70 (ObpCreateDirectoryObject.c)
- *     ObCreateSymbolicLink @ 0x1406C505C (ObCreateSymbolicLink.c)
- *     NtAllocateReserveObject @ 0x1406D9390 (NtAllocateReserveObject.c)
- *     ExCreateCallback @ 0x1406E0E40 (ExCreateCallback.c)
- *     PspCreateActivityReference @ 0x1406E1214 (PspCreateActivityReference.c)
- *     NtCreateRegistryTransaction @ 0x1406E2A70 (NtCreateRegistryTransaction.c)
- *     EtwpRealtimeConnect @ 0x1406EC524 (EtwpRealtimeConnect.c)
- *     NtCreateMutant @ 0x1406F0080 (NtCreateMutant.c)
- *     MiCreateSectionCommon @ 0x1406FD140 (MiCreateSectionCommon.c)
- *     PspInsertThread @ 0x140701218 (PspInsertThread.c)
- *     SeCopyClientToken @ 0x14072295C (SeCopyClientToken.c)
- *     NtOpenThreadTokenEx @ 0x140725A50 (NtOpenThreadTokenEx.c)
- *     SepCreateClientSecurityEx @ 0x140727350 (SepCreateClientSecurityEx.c)
- *     NtCreateEvent @ 0x140727DD0 (NtCreateEvent.c)
- *     NtDuplicateToken @ 0x1407297A0 (NtDuplicateToken.c)
- *     NtCreateSemaphore @ 0x14072A4C0 (NtCreateSemaphore.c)
- *     WmipCreateGuidObject @ 0x140782F2C (WmipCreateGuidObject.c)
- *     NtCreateLowBoxToken @ 0x14078DDF0 (NtCreateLowBoxToken.c)
- *     EtwpAddUmRegEntry @ 0x140796F10 (EtwpAddUmRegEntry.c)
- *     NtQueryInformationToken @ 0x1407B13E0 (NtQueryInformationToken.c)
- *     NtCreateWorkerFactory @ 0x1407D5050 (NtCreateWorkerFactory.c)
- *     NtCreateTimer2 @ 0x1407D53D0 (NtCreateTimer2.c)
- *     MiSessionObjectCreate @ 0x1407F385C (MiSessionObjectCreate.c)
- *     SeFilterToken @ 0x140831700 (SeFilterToken.c)
- *     HalpDmaAllocateChildAdapterV3 @ 0x14084685C (HalpDmaAllocateChildAdapterV3.c)
- *     HalpDmaAllocateChildAdapterV2 @ 0x140846BEC (HalpDmaAllocateChildAdapterV2.c)
- *     SepInitializationPhase1 @ 0x140847FF0 (SepInitializationPhase1.c)
- *     NtCreateKeyedEvent @ 0x140854BB0 (NtCreateKeyedEvent.c)
- *     IoCreateController @ 0x140861240 (IoCreateController.c)
- *     NtCreateDebugObject @ 0x140928A50 (NtCreateDebugObject.c)
- *     NtCreateIoRing @ 0x140938B40 (NtCreateIoRing.c)
- *     NtCreateProcessStateChange @ 0x1409AEFF0 (NtCreateProcessStateChange.c)
- *     NtCreateThreadStateChange @ 0x1409AF200 (NtCreateThreadStateChange.c)
- *     SepCopyAnonymousTokenAndSetSilo @ 0x1409C6000 (SepCopyAnonymousTokenAndSetSilo.c)
- *     SeGetLogonSessionToken @ 0x1409CC3A0 (SeGetLogonSessionToken.c)
- *     EtwpRegisterPrivateSession @ 0x1409EBDD0 (EtwpRegisterPrivateSession.c)
- *     EtwpSetCoverageSamplerInformation @ 0x1409F3EC0 (EtwpSetCoverageSamplerInformation.c)
- *     ExpProfileCreate @ 0x140A062C8 (ExpProfileCreate.c)
+ *     NtFilterToken @ 0x1405D9FB0 (NtFilterToken.c)
+ *     AlpcpCreateClientPort @ 0x1405E054C (AlpcpCreateClientPort.c)
+ *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
+ *     EtwpAddUmRegEntry @ 0x1405EAD90 (EtwpAddUmRegEntry.c)
+ *     SeSubProcessToken @ 0x140603B5C (SeSubProcessToken.c)
+ *     PspInsertProcess @ 0x140607710 (PspInsertProcess.c)
+ *     MmCreateSpecialImageSection @ 0x140608784 (MmCreateSpecialImageSection.c)
+ *     WmipCreateGuidObject @ 0x14063F798 (WmipCreateGuidObject.c)
+ *     PspInsertThread @ 0x140649028 (PspInsertThread.c)
+ *     NtCreateTimer @ 0x14064CD60 (NtCreateTimer.c)
+ *     SepCreateClientSecurityEx @ 0x14065E160 (SepCreateClientSecurityEx.c)
+ *     SeCopyClientToken @ 0x140661D04 (SeCopyClientToken.c)
+ *     PopPowerRequestCreateInfo @ 0x14067CFCC (PopPowerRequestCreateInfo.c)
+ *     NtCreateWaitCompletionPacket @ 0x140693F90 (NtCreateWaitCompletionPacket.c)
+ *     EtwpCreateUmReplyObject @ 0x14069C0FC (EtwpCreateUmReplyObject.c)
+ *     NtCreateIoCompletion @ 0x14069C2D0 (NtCreateIoCompletion.c)
+ *     ObpCreateDirectoryObject @ 0x1406A1B60 (ObpCreateDirectoryObject.c)
+ *     AlpcpCreateConnectionPort @ 0x1406AA7A8 (AlpcpCreateConnectionPort.c)
+ *     ObCreateSymbolicLink @ 0x1406AC26C (ObCreateSymbolicLink.c)
+ *     NtAllocateReserveObject @ 0x1406B3300 (NtAllocateReserveObject.c)
+ *     EtwpRealtimeConnect @ 0x1406B88C8 (EtwpRealtimeConnect.c)
+ *     ExCreateCallback @ 0x1406BD240 (ExCreateCallback.c)
+ *     NtCreateRegistryTransaction @ 0x1406BE000 (NtCreateRegistryTransaction.c)
+ *     ObInsertObject @ 0x1406D41C0 (ObInsertObject.c)
+ *     NtCreateTimer2 @ 0x1406D4930 (NtCreateTimer2.c)
+ *     NtCreateMutant @ 0x1406DDC40 (NtCreateMutant.c)
+ *     NtCreatePrivateNamespace @ 0x1406E4E80 (NtCreatePrivateNamespace.c)
+ *     NtCreateEvent @ 0x140703CD0 (NtCreateEvent.c)
+ *     NtCreateSemaphore @ 0x140705010 (NtCreateSemaphore.c)
+ *     NtDuplicateToken @ 0x140705150 (NtDuplicateToken.c)
+ *     NtOpenThreadTokenEx @ 0x140705F00 (NtOpenThreadTokenEx.c)
+ *     MiCreateSectionCommon @ 0x140707430 (MiCreateSectionCommon.c)
+ *     IoCreateDevice @ 0x14071B4E0 (IoCreateDevice.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x14071BF10 (IoCreateStreamFileObjectEx2.c)
+ *     PspCreateActivityReference @ 0x140731498 (PspCreateActivityReference.c)
+ *     HalpDmaAllocateChildAdapterV2 @ 0x140764A8C (HalpDmaAllocateChildAdapterV2.c)
+ *     MiSessionObjectCreate @ 0x140786484 (MiSessionObjectCreate.c)
+ *     IoCreateDriver @ 0x1407A4F00 (IoCreateDriver.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x1407C36A8 (HalpDmaAllocateChildAdapterV3.c)
+ *     NtCreateKeyedEvent @ 0x1407C5210 (NtCreateKeyedEvent.c)
+ *     SeFilterToken @ 0x1407C6800 (SeFilterToken.c)
+ *     PopEtEnergyTrackerCreate @ 0x1407CBA48 (PopEtEnergyTrackerCreate.c)
+ *     PspAllocatePartition @ 0x1407CC2B4 (PspAllocatePartition.c)
+ *     NtCreateDebugObject @ 0x140885B80 (NtCreateDebugObject.c)
+ *     IoCreateController @ 0x140893900 (IoCreateController.c)
+ *     TtmiCreateTerminal @ 0x1408FD52C (TtmiCreateTerminal.c)
+ *     SepCopyAnonymousTokenAndSetSilo @ 0x14091C640 (SepCopyAnonymousTokenAndSetSilo.c)
+ *     SeGetLogonSessionToken @ 0x1409229B0 (SeGetLogonSessionToken.c)
+ *     EtwpRegisterPrivateSession @ 0x14093F3A8 (EtwpRegisterPrivateSession.c)
  * Callees:
- *     SeAssignSecurityEx2 @ 0x1402A49D0 (SeAssignSecurityEx2.c)
- *     SeComputeAutoInheritByObjectTypeEx @ 0x1402A4A60 (SeComputeAutoInheritByObjectTypeEx.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     SepDeleteAccessState @ 0x1403478A0 (SepDeleteAccessState.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x140347A20 (SepCreateAccessStateFromSubjectContext.c)
- *     ObpTraceObjectDereferenceIfActive @ 0x140347B50 (ObpTraceObjectDereferenceIfActive.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SeDeassignSecurity @ 0x1406BC2D0 (SeDeassignSecurity.c)
- *     SeObjectCreateSaclAccessBits @ 0x1406C8634 (SeObjectCreateSaclAccessBits.c)
- *     ObpAdjustCreatorAccessState @ 0x1407227B0 (ObpAdjustCreatorAccessState.c)
- *     ObpChargeQuotaForObject @ 0x140726394 (ObpChargeQuotaForObject.c)
- *     RtlValidSecurityDescriptor @ 0x140726610 (RtlValidSecurityDescriptor.c)
- *     ObpCreateHandle @ 0x140731DA0 (ObpCreateHandle.c)
- *     SeReleaseSecurityDescriptor @ 0x1407B3DA0 (SeReleaseSecurityDescriptor.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     SepDeleteAccessState @ 0x14027C660 (SepDeleteAccessState.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x14027C800 (SepCreateAccessStateFromSubjectContext.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     SeAssignSecurityEx2 @ 0x140355E90 (SeAssignSecurityEx2.c)
+ *     SeComputeAutoInheritByObjectTypeEx @ 0x140355F20 (SeComputeAutoInheritByObjectTypeEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x140657C60 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSecurityDescriptor @ 0x14065C750 (SeReleaseSecurityDescriptor.c)
+ *     RtlValidSecurityDescriptor @ 0x14065EF00 (RtlValidSecurityDescriptor.c)
+ *     ObpChargeQuotaForObject @ 0x140660238 (ObpChargeQuotaForObject.c)
+ *     ObpAdjustCreatorAccessState @ 0x140662D98 (ObpAdjustCreatorAccessState.c)
+ *     SeDeassignSecurity @ 0x14069F9F0 (SeDeassignSecurity.c)
+ *     SeObjectCreateSaclAccessBits @ 0x1406A6CE4 (SeObjectCreateSaclAccessBits.c)
+ *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObInsertObjectEx(
-        char *Object,
+        char *DmaAdapter,
         PACCESS_STATE AccessState,
-        unsigned int a3,
+        ACCESS_MASK a3,
         int a4,
         char a5,
         __int64 a6,
-        _QWORD *a7)
+        unsigned __int64 *a7)
 {
-  struct _SLIST_ENTRY *v9; // rsi
-  char *v10; // r15
-  __int64 v11; // r9
-  unsigned __int64 v12; // r8
-  char *v13; // rdx
-  unsigned __int64 v14; // rcx
-  POBJECT_TYPE v15; // rdi
-  KPROCESSOR_MODE PreviousMode; // r13
-  struct _KTHREAD *CurrentThread; // rcx
-  __int64 Process; // r8
-  PVOID v19; // rax
-  unsigned __int64 v20; // rax
-  _SLIST_ENTRY *v21; // r14
-  char *v22; // rcx
-  PSECURITY_DESCRIPTOR v23; // rdx
-  int v24; // eax
-  int v25; // r14d
-  _SLIST_ENTRY *v26; // rcx
-  bool v27; // zf
-  int v28; // ecx
-  struct _SLIST_ENTRY *v29; // rax
-  PVOID v30; // rdx
-  int v31; // r12d
-  __int64 v32; // r8
-  __int64 v33; // r9
-  _SLIST_ENTRY *v34; // rcx
-  struct _KPRCB *v35; // rdx
-  _GENERAL_LOOKASIDE *L; // rcx
-  unsigned __int64 v37; // r8
-  _KPROCESS *v38; // rdx
-  signed __int64 v39; // rax
-  signed __int64 v40; // rtt
-  PACCESS_TOKEN v41; // rcx
-  __int64 v43; // r8
-  int v44; // ecx
-  unsigned int Handle; // ebx
-  _SLIST_ENTRY *Next; // rcx
+  __int64 v9; // rsi
+  PADAPTER_OBJECT v10; // r15
+  char *v11; // rdx
+  int Handle; // ebx
+  unsigned __int64 v13; // rcx
+  POBJECT_TYPE v14; // r13
+  struct _DMA_ADAPTER *v15; // rax
+  char *v16; // rcx
+  char PreviousMode; // r8
+  unsigned int v18; // ecx
+  void *v19; // rcx
   struct _KPRCB *CurrentPrcb; // rdx
-  _GENERAL_LOOKASIDE *P; // rcx
-  PVOID v49; // r14
-  struct _KTHREAD *v50; // rax
-  char *v51; // rax
-  char *v52; // rcx
-  ULONG_PTR v53; // rcx
-  _QWORD *ClientToken; // rax
-  _QWORD *v55; // rax
-  _QWORD *PrimaryToken; // rax
-  int v57; // [rsp+30h] [rbp-D0h]
-  int v58; // [rsp+40h] [rbp-C0h]
-  __int64 v59; // [rsp+48h] [rbp-B8h]
-  __int64 v60; // [rsp+48h] [rbp-B8h]
-  unsigned int v61; // [rsp+60h] [rbp-A0h] BYREF
-  PVOID v62; // [rsp+68h] [rbp-98h]
-  PVOID Objecta; // [rsp+70h] [rbp-90h]
-  int v64; // [rsp+78h] [rbp-88h]
-  __int64 v65; // [rsp+80h] [rbp-80h] BYREF
-  PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+88h] [rbp-78h] BYREF
-  char *v67; // [rsp+90h] [rbp-70h]
-  struct _KTHREAD *v68; // [rsp+98h] [rbp-68h]
-  ULONG_PTR BugCheckParameter2; // [rsp+A0h] [rbp-60h]
-  __int64 v70; // [rsp+A8h] [rbp-58h]
-  __int128 v71; // [rsp+B0h] [rbp-50h] BYREF
-  unsigned __int64 v72; // [rsp+C0h] [rbp-40h]
-  __int64 v73; // [rsp+C8h] [rbp-38h]
-  struct _KTHREAD *v74; // [rsp+D0h] [rbp-30h]
-  __int64 v75; // [rsp+D8h] [rbp-28h]
-  _QWORD v76[20]; // [rsp+E0h] [rbp-20h] BYREF
-  _QWORD v77[28]; // [rsp+180h] [rbp+80h] BYREF
+  _GENERAL_LOOKASIDE *L; // rcx
+  _BYTE *v23; // rbx
+  char *v24; // rcx
+  PSECURITY_DESCRIPTOR v25; // rdx
+  int v26; // ebx
+  PSECURITY_DESCRIPTOR v27; // rdx
+  void *v28; // rcx
+  bool v29; // zf
+  int v30; // ecx
+  __int64 v31; // rax
+  int v32; // r15d
+  KPROCESSOR_MODE v33; // al
+  struct _KTHREAD *CurrentThread; // rax
+  int v35; // eax
+  ULONG_PTR v36; // rcx
+  void *v37; // rcx
+  struct _KPRCB *v38; // rdx
+  _GENERAL_LOOKASIDE *v39; // rcx
+  int v40; // [rsp+40h] [rbp-C0h]
+  PVOID *v41; // [rsp+48h] [rbp-B8h]
+  PVOID *v42; // [rsp+48h] [rbp-B8h]
+  char v43; // [rsp+60h] [rbp-A0h]
+  unsigned int v45; // [rsp+68h] [rbp-98h] BYREF
+  int v46; // [rsp+6Ch] [rbp-94h]
+  __int64 v47; // [rsp+70h] [rbp-90h] BYREF
+  PVOID P; // [rsp+78h] [rbp-88h]
+  PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+80h] [rbp-80h] BYREF
+  char *v50; // [rsp+88h] [rbp-78h]
+  __int64 v51; // [rsp+90h] [rbp-70h]
+  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+98h] [rbp-68h] BYREF
+  _QWORD v53[20]; // [rsp+C0h] [rbp-40h] BYREF
+  _QWORD v54[28]; // [rsp+160h] [rbp+60h] BYREF
 
-  v61 = a3;
-  Objecta = Object;
-  v70 = a6;
-  v64 = a4;
-  memset(v77, 0, sizeof(v77));
-  memset(v76, 0, sizeof(v76));
-  v9 = (struct _SLIST_ENTRY *)*((_QWORD *)Object - 2);
-  v10 = Object - 48;
+  v51 = a6;
+  v46 = a4;
+  memset(v54, 0, sizeof(v54));
+  memset(v53, 0, sizeof(v53));
+  v9 = *((_QWORD *)DmaAdapter - 2);
+  v10 = (PADAPTER_OBJECT)(DmaAdapter - 48);
   v11 = 0LL;
-  v12 = 0x140000000uLL;
-  v13 = 0LL;
-  v14 = (unsigned __int8)*(Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8);
-  v67 = 0LL;
-  v15 = (POBJECT_TYPE)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ v14];
-  if ( (*(Object - 22) & 2) != 0 )
+  Handle = 0;
+  v13 = (unsigned __int8)*(DmaAdapter - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)DmaAdapter - 48) >> 8);
+  v50 = 0LL;
+  v14 = (POBJECT_TYPE)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ v13];
+  if ( (*(DmaAdapter - 22) & 2) != 0 )
   {
-    v51 = (char *)ObpInfoMaskToOffset[*(Object - 22) & 3];
-    v52 = (char *)(v10 - v51);
-    if ( v10 != v51 )
+    v15 = (struct _DMA_ADAPTER *)ObpInfoMaskToOffset[*(DmaAdapter - 22) & 3];
+    v16 = (char *)((char *)v10 - (char *)v15);
+    if ( v10 != v15 )
     {
-      v13 = v52 + 8;
-      v67 = v52 + 8;
+      v11 = v16 + 8;
+      v50 = v16 + 8;
     }
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( (v15->TypeInfo.ObjectTypeFlags & 8) == 0 && !v13 && !v9[2].Next )
+  v43 = PreviousMode;
+  if ( (v14->TypeInfo.ObjectTypeFlags & 8) == 0 && !v11 && !*(_QWORD *)(v9 + 32) )
   {
-    *((_QWORD *)v10 + 4) = 0LL;
+    *(_QWORD *)&v10[2].Version = 0LL;
     if ( a7 )
     {
-      v43 = v61;
-      v44 = v64 + 1;
-      v60 = v70;
+      v18 = v46 + 1;
+      v41 = (PVOID *)v51;
       *a7 = 0LL;
-      Handle = ObpCreateHandle(0LL, Object, v43, 0LL, v44, v9->Next, PreviousMode, 0LL, 0, v60, a7);
+      Handle = ObpCreateHandle(0, DmaAdapter, a3, 0LL, v18, *(_DWORD *)v9, PreviousMode, 0LL, 0, v41, a7);
     }
-    else
+    v19 = *(void **)(v9 + 32);
+    if ( v19 )
     {
-      Handle = 0;
-    }
-    Next = v9[2].Next;
-    if ( Next )
-    {
-      LOBYTE(v12) = 1;
-      SeReleaseSecurityDescriptor(Next, LOBYTE(v9[1].Next), v12, v11);
-      v9[2].Next = 0LL;
+      SeReleaseSecurityDescriptor(v19, *(_BYTE *)(v9 + 16), 1);
+      *(_QWORD *)(v9 + 32) = 0LL;
     }
     CurrentPrcb = KeGetCurrentPrcb();
-    P = CurrentPrcb->PPLookasideList[4].P;
-    ++P->TotalFrees;
-    if ( LOWORD(P->ListHead.Alignment) < P->Depth
-      || (++P->FreeMisses,
-          P = CurrentPrcb->PPLookasideList[4].L,
-          ++P->TotalFrees,
-          LOWORD(P->ListHead.Alignment) < P->Depth) )
+    L = CurrentPrcb->PPLookasideList[4].P;
+    ++L->TotalFrees;
+    if ( LOWORD(L->ListHead.Alignment) >= L->Depth )
     {
-      RtlpInterlockedPushEntrySList(&P->ListHead, v9);
-      ObfDereferenceObject(Object);
-      return Handle;
+      ++L->FreeMisses;
+      L = CurrentPrcb->PPLookasideList[4].L;
+      ++L->TotalFrees;
+      if ( LOWORD(L->ListHead.Alignment) >= L->Depth )
+      {
+        ++L->FreeMisses;
+        ((void (__fastcall *)(__int64))L->FreeEx)(v9);
+        HalPutDmaAdapter((PADAPTER_OBJECT)DmaAdapter);
+        return (unsigned int)Handle;
+      }
     }
-    else
-    {
-      ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v9);
-      ObfDereferenceObject(Object);
-      return Handle;
-    }
+    RtlpInterlockedPushEntrySList(&L->ListHead, (PSLIST_ENTRY)v9);
+    goto LABEL_15;
   }
   if ( !AccessState )
   {
-    AccessState = (PACCESS_STATE)v76;
-    CurrentThread = KeGetCurrentThread();
-    v68 = CurrentThread;
-    *((_QWORD *)&v71 + 1) = 0LL;
-    Process = (__int64)CurrentThread->ApcState.Process;
-    v75 = Process;
-    v73 = *(_QWORD *)(Process + 1088);
-    if ( CurrentThread )
+    AccessState = (PACCESS_STATE)v53;
+    memset(&SubjectContext, 0, sizeof(SubjectContext));
+    SeCaptureSubjectContextEx(KeGetCurrentThread(), KeGetCurrentThread()->ApcState.Process, &SubjectContext);
+    Handle = SepCreateAccessStateFromSubjectContext(&SubjectContext, v53, v54, a3, &v14->TypeInfo.GenericMapping);
+    if ( Handle < 0 )
     {
-      if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
-      {
-        v74 = KeGetCurrentThread();
-        --v74->KernelApcDisable;
-        BugCheckParameter2 = (ULONG_PTR)&CurrentThread[1].WaitBlockList;
-        ExAcquirePushLockSharedEx((ULONG_PTR)&CurrentThread[1].WaitBlockList, 0LL);
-        if ( (*(_DWORD *)(&v68[1].SwapListEntry + 1) & 8) != 0 )
-        {
-          v62 = (PVOID)(*(_QWORD *)((char *)&v68[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
-          ObfReferenceObjectWithTag(v62, 0x75536553u);
-          DWORD2(v71) = *((_DWORD *)&v68[1].0 + 1) & 3;
-        }
-        else
-        {
-          v62 = 0LL;
-        }
-        v53 = BugCheckParameter2;
-        if ( _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, 0LL, 17LL) != 17 )
-        {
-          ExfReleasePushLockShared((signed __int64 *)BugCheckParameter2);
-          v53 = BugCheckParameter2;
-        }
-        KeAbPostRelease(v53);
-        KeLeaveCriticalRegionThread((__int64)v74);
-        Process = v75;
-        v19 = v62;
-      }
-      else
-      {
-        v19 = 0LL;
-        v62 = 0LL;
-      }
-    }
-    else
-    {
-      v19 = 0LL;
-      v62 = 0LL;
-    }
-    *(_QWORD *)&v71 = v19;
-    v20 = PsReferencePrimaryTokenWithTag(Process, 0x75536553u);
-    v72 = v20;
-    if ( HIDWORD(NlsMbOemCodePageTag) )
-    {
-      if ( v20 )
-      {
-        _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(v20 + 1144) + 284LL));
-        if ( v72 == SepTokenLeakToken )
-          __debugbreak();
-        v55 = (_QWORD *)v71;
-      }
-      else
-      {
-        v55 = v62;
-      }
-      if ( v55 )
-      {
-        _InterlockedIncrement((volatile signed __int32 *)(v55[143] + 284LL));
-        if ( (_QWORD)v71 == SepTokenLeakToken )
-          __debugbreak();
-      }
-    }
-    LODWORD(v62) = SepCreateAccessStateFromSubjectContext(&v71, v76, v77, v61, &v15->TypeInfo.GenericMapping);
-    if ( (int)v62 < 0 )
-    {
-      ObfDereferenceObject(Object);
-      return (unsigned int)v62;
+LABEL_15:
+      HalPutDmaAdapter((PADAPTER_OBJECT)DmaAdapter);
+      return (unsigned int)Handle;
     }
   }
-  v21 = v9[2].Next;
-  AccessState->SecurityDescriptor = v21;
-  if ( v21 )
+  v23 = *(_BYTE **)(v9 + 32);
+  AccessState->SecurityDescriptor = v23;
+  if ( !v23 )
   {
-    if ( !RtlValidSecurityDescriptor(v21) )
+LABEL_23:
+    v24 = v50;
+    if ( !v50 && ((v14->TypeInfo.ObjectTypeFlags & 8) != 0 || *(char **)(v9 + 32) != v50) )
     {
-      ObfDereferenceObject(Objecta);
-      if ( AccessState == (PACCESS_STATE)v76 )
+      v25 = AccessState->SecurityDescriptor;
+      v45 = 0;
+      SecurityDescriptor = 0LL;
+      P = 0LL;
+      v47 = 8LL;
+      v26 = SeComputeAutoInheritByObjectTypeEx((__int64)v14, (__int64)v25, 0LL, &v45, &v47);
+      if ( v26 < 0 )
+      {
+LABEL_32:
+        HalPutDmaAdapter((PADAPTER_OBJECT)DmaAdapter);
+        if ( AccessState == (PACCESS_STATE)v53 )
+        {
+          SepDeleteAccessState((__int64)AccessState);
+          SeReleaseSubjectContext(&AccessState->SubjectSecurityContext);
+        }
+        return (unsigned int)v26;
+      }
+      LODWORD(v27) = (_DWORD)P;
+      if ( !P )
+        v27 = AccessState->SecurityDescriptor;
+      v26 = SeAssignSecurityEx2(
+              0,
+              (int)v27,
+              (int)&SecurityDescriptor,
+              0LL,
+              v14 == ObpDirectoryObjectType,
+              (16 * (a5 & 1)) | v45,
+              &v47,
+              (__int64)&AccessState->SubjectSecurityContext,
+              (__int64)&v14->TypeInfo.GenericMapping);
+      if ( v26 < 0 )
+      {
+        if ( P )
+          ExFreePoolWithTag(P, 0);
+        goto LABEL_32;
+      }
+      if ( P )
+        ExFreePoolWithTag(P, 0);
+      LOBYTE(v40) = KeGetCurrentThread()->PreviousMode;
+      v26 = v14->TypeInfo.SecurityProcedure(
+              DmaAdapter,
+              AssignSecurityDescriptor,
+              0LL,
+              SecurityDescriptor,
+              0LL,
+              0LL,
+              PagedPool,
+              &v14->TypeInfo.GenericMapping,
+              v40);
+      if ( v26 < 0 )
+      {
+        SeDeassignSecurity(&SecurityDescriptor);
+        goto LABEL_32;
+      }
+      v28 = *(void **)(v9 + 32);
+      if ( *(_BYTE *)(v9 + 16) <= 1u && v28 )
+        ExFreePoolWithTag(v28, 0);
+      v24 = v50;
+      v10 = (PADAPTER_OBJECT)(DmaAdapter - 48);
+      *(_QWORD *)(v9 + 32) = 0LL;
+      AccessState->SecurityDescriptor = 0LL;
+    }
+    *(_QWORD *)&v10[2].Version = 0LL;
+    if ( a7 )
+    {
+      v29 = v24 == 0LL;
+      v30 = v46;
+      v31 = 0LL;
+      if ( !v29 )
+        v31 = v9;
+      v42 = (PVOID *)v51;
+      *a7 = 0LL;
+      v32 = ObpCreateHandle(0, DmaAdapter, 0, AccessState, v30 + 1, *(_DWORD *)v9, v43, v31, 0, v42, a7);
+      HalPutDmaAdapter((PADAPTER_OBJECT)DmaAdapter);
+      goto LABEL_57;
+    }
+    if ( AccessState != (PACCESS_STATE)v53 )
+    {
+      v33 = v43;
+      if ( (*(_DWORD *)v9 & 0x400) != 0 )
+        v33 = 1;
+      v32 = ObpAdjustCreatorAccessState(AccessState, v33, (__int64)v14, (__int64)DmaAdapter);
+      if ( v32 < 0 )
+        goto LABEL_56;
+      v10 = (PADAPTER_OBJECT)(DmaAdapter - 48);
+    }
+    CurrentThread = KeGetCurrentThread();
+    --CurrentThread->KernelApcDisable;
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&v10[1], 0LL);
+    v35 = ObpChargeQuotaForObject((__int64)v10, (__int64)KeGetCurrentThread()->ApcState.Process);
+    v36 = (ULONG_PTR)&v10[1];
+    v32 = v35;
+    ExReleasePushLockEx(v36, 0LL);
+    KeLeaveCriticalRegion();
+    if ( v32 >= 0 )
+    {
+LABEL_57:
+      v37 = *(void **)(v9 + 32);
+      if ( v37 )
+      {
+        SeReleaseSecurityDescriptor(v37, *(_BYTE *)(v9 + 16), 1);
+        *(_QWORD *)(v9 + 32) = 0LL;
+      }
+      v38 = KeGetCurrentPrcb();
+      v39 = v38->PPLookasideList[4].P;
+      ++v39->TotalFrees;
+      if ( LOWORD(v39->ListHead.Alignment) < v39->Depth
+        || (++v39->FreeMisses,
+            v39 = v38->PPLookasideList[4].L,
+            ++v39->TotalFrees,
+            LOWORD(v39->ListHead.Alignment) < v39->Depth) )
+      {
+        RtlpInterlockedPushEntrySList(&v39->ListHead, (PSLIST_ENTRY)v9);
+      }
+      else
+      {
+        ++v39->FreeMisses;
+        ((void (__fastcall *)(__int64))v39->FreeEx)(v9);
+      }
+      if ( AccessState == (PACCESS_STATE)v53 )
       {
         SepDeleteAccessState((__int64)AccessState);
         SeReleaseSubjectContext(&AccessState->SubjectSecurityContext);
       }
-      return 3221225593LL;
+      return (unsigned int)v32;
     }
-    if ( (BYTE2(v21->Next) & 0x10) != 0 && (AccessState->PreviouslyGrantedAccess & 0x1000000) == 0 )
-      AccessState->RemainingDesiredAccess |= SeObjectCreateSaclAccessBits(v21);
+LABEL_56:
+    HalPutDmaAdapter((PADAPTER_OBJECT)DmaAdapter);
+    goto LABEL_57;
   }
-  v22 = v67;
-  if ( !v67 && ((v15->TypeInfo.ObjectTypeFlags & 8) != 0 || v9[2].Next) )
+  if ( RtlValidSecurityDescriptor(v23) )
   {
-    v23 = AccessState->SecurityDescriptor;
-    v61 = 0;
-    SecurityDescriptor = 0LL;
-    v65 = 8LL;
-    v24 = SeComputeAutoInheritByObjectTypeEx((__int64)v15, (__int64)v23, 0LL, &v61, &v65);
-    if ( v24 < 0 )
-    {
-      v25 = v24;
-    }
-    else
-    {
-      v61 |= 16 * (a5 & 1);
-      v25 = SeAssignSecurityEx2(
-              0,
-              (int)AccessState->SecurityDescriptor,
-              (int)&SecurityDescriptor,
-              0LL,
-              v15 == ObpDirectoryObjectType,
-              v61,
-              &v65,
-              (__int64)&AccessState->SubjectSecurityContext,
-              (__int64)&v15->TypeInfo.GenericMapping);
-      if ( v25 >= 0 )
-      {
-        LOBYTE(v58) = KeGetCurrentThread()->PreviousMode;
-        v25 = v15->TypeInfo.SecurityProcedure(
-                Objecta,
-                AssignSecurityDescriptor,
-                0LL,
-                SecurityDescriptor,
-                0LL,
-                0LL,
-                PagedPool,
-                &v15->TypeInfo.GenericMapping,
-                v58);
-        if ( v25 >= 0 )
-        {
-          v26 = v9[2].Next;
-          if ( LOBYTE(v9[1].Next) <= 1u && v26 )
-            ExFreePoolWithTag(v26, 0);
-          v22 = v67;
-          v9[2].Next = 0LL;
-          AccessState->SecurityDescriptor = 0LL;
-          goto LABEL_19;
-        }
-        SeDeassignSecurity(&SecurityDescriptor);
-      }
-    }
-    ObfDereferenceObject(Objecta);
-    if ( AccessState == (PACCESS_STATE)v76 )
-    {
-      SepDeleteAccessState((__int64)AccessState);
-      SeReleaseSubjectContext(&AccessState->SubjectSecurityContext);
-    }
-    return (unsigned int)v25;
-  }
-LABEL_19:
-  *((_QWORD *)v10 + 4) = 0LL;
-  if ( a7 )
-  {
-    v27 = v22 == 0LL;
-    v28 = v64;
-    v29 = v9;
-    if ( v27 )
-      v29 = 0LL;
-    v59 = v70;
-    v30 = Objecta;
-    *a7 = 0LL;
-    LOBYTE(v57) = PreviousMode;
-    v31 = ObpCreateHandle(0LL, v30, 0LL, AccessState, v28 + 1, v9->Next, v57, v29, 0, v59, a7);
-    ObfDereferenceObject(Objecta);
+    if ( (v23[2] & 0x10) != 0 && (AccessState->PreviouslyGrantedAccess & 0x1000000) == 0 )
+      AccessState->RemainingDesiredAccess |= SeObjectCreateSaclAccessBits(v23);
     goto LABEL_23;
   }
-  if ( AccessState == (PACCESS_STATE)v76 )
-  {
-    v49 = Objecta;
-    goto LABEL_50;
-  }
-  if ( ((__int64)v9->Next & 0x400) != 0 )
-    PreviousMode = 1;
-  v49 = Objecta;
-  v31 = ObpAdjustCreatorAccessState(AccessState, PreviousMode, (__int64)v15, (__int64)Objecta);
-  if ( v31 >= 0 )
-  {
-LABEL_50:
-    v50 = KeGetCurrentThread();
-    --v50->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)(v10 + 16), 0LL);
-    v31 = ObpChargeQuotaForObject((__int64)v10, (__int64)KeGetCurrentThread()->ApcState.Process);
-    ExReleasePushLockEx((ULONG_PTR)(v10 + 16), 0LL);
-    KeLeaveCriticalRegion();
-    if ( v31 >= 0 )
-      goto LABEL_23;
-  }
-  ObfDereferenceObject(v49);
-LABEL_23:
-  v34 = v9[2].Next;
-  if ( v34 )
-  {
-    LOBYTE(v32) = 1;
-    SeReleaseSecurityDescriptor(v34, LOBYTE(v9[1].Next), v32, v33);
-    v9[2].Next = 0LL;
-  }
-  v35 = KeGetCurrentPrcb();
-  L = v35->PPLookasideList[4].P;
-  ++L->TotalFrees;
-  if ( LOWORD(L->ListHead.Alignment) < L->Depth
-    || (++L->FreeMisses, L = v35->PPLookasideList[4].L, ++L->TotalFrees, LOWORD(L->ListHead.Alignment) < L->Depth) )
-  {
-    RtlpInterlockedPushEntrySList(&L->ListHead, v9);
-  }
-  else
-  {
-    ++L->FreeMisses;
-    ((void (__fastcall *)(struct _SLIST_ENTRY *))L->FreeEx)(v9);
-  }
-  if ( AccessState == (PACCESS_STATE)v76 )
+  HalPutDmaAdapter((PADAPTER_OBJECT)DmaAdapter);
+  if ( AccessState == (PACCESS_STATE)v53 )
   {
     SepDeleteAccessState((__int64)AccessState);
-    if ( HIDWORD(NlsMbOemCodePageTag) )
-    {
-      PrimaryToken = AccessState->SubjectSecurityContext.PrimaryToken;
-      if ( PrimaryToken )
-      {
-        _InterlockedDecrement((volatile signed __int32 *)(PrimaryToken[143] + 284LL));
-        if ( AccessState->SubjectSecurityContext.PrimaryToken == (PACCESS_TOKEN)SepTokenLeakToken )
-          __debugbreak();
-      }
-      ClientToken = AccessState->SubjectSecurityContext.ClientToken;
-      if ( ClientToken )
-      {
-        _InterlockedDecrement((volatile signed __int32 *)(ClientToken[143] + 284LL));
-        if ( AccessState->SubjectSecurityContext.ClientToken == (PACCESS_TOKEN)SepTokenLeakToken )
-          __debugbreak();
-      }
-    }
-    v37 = (unsigned __int64)AccessState->SubjectSecurityContext.PrimaryToken;
-    v38 = KeGetCurrentThread()->ApcState.Process;
-    _m_prefetchw(&v38[1].Affinity.StaticBitmap[5]);
-    v39 = v38[1].Affinity.StaticBitmap[5];
-    if ( (v37 ^ v39) >= 0xF )
-    {
-LABEL_68:
-      ObfDereferenceObjectWithTag((PVOID)v37, 0x75536553u);
-    }
-    else
-    {
-      while ( 1 )
-      {
-        v40 = v39;
-        v39 = _InterlockedCompareExchange64((volatile signed __int64 *)&v38[1].Affinity.StaticBitmap[5], v39 + 1, v39);
-        if ( v40 == v39 )
-          break;
-        if ( (v37 ^ v39) >= 0xF )
-          goto LABEL_68;
-      }
-      ObpTraceObjectDereferenceIfActive(v37 - 48);
-    }
-    v41 = AccessState->SubjectSecurityContext.ClientToken;
-    AccessState->SubjectSecurityContext.PrimaryToken = 0LL;
-    if ( v41 )
-      ObfDereferenceObjectWithTag(v41, 0x75536553u);
-    AccessState->SubjectSecurityContext.ClientToken = 0LL;
+    SeReleaseSubjectContext(&AccessState->SubjectSecurityContext);
   }
-  return (unsigned int)v31;
+  return 3221225593LL;
 }

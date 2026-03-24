@@ -1,8 +1,8 @@
 /*
- * XREFs of ?FxCalculateTotalStringSize@@YA_KPEAUFxCollectionInternal@@EPEAE@Z @ 0x1C0021280
+ * XREFs of ?FxCalculateTotalStringSize@@YA_KPEAUFxCollectionInternal@@EPEAE@Z @ 0x1C0061B10
  * Callers:
- *     ?Initialize@FxPkgPdo@@UEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0020F60 (-Initialize@FxPkgPdo@@UEAAJPEAUWDFDEVICE_INIT@@@Z.c)
- *     imp_WdfRegistryAssignMultiString @ 0x1C00701E0 (imp_WdfRegistryAssignMultiString.c)
+ *     imp_WdfRegistryAssignMultiString @ 0x1C005D990 (imp_WdfRegistryAssignMultiString.c)
+ *     ?Initialize@FxPkgPdo@@UEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0079120 (-Initialize@FxPkgPdo@@UEAAJPEAUWDFDEVICE_INIT@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,17 +14,17 @@ unsigned __int64 __fastcall FxCalculateTotalStringSize(
 {
   _LIST_ENTRY *Flink; // r10
   __int64 i; // r9
+  __int64 v5; // rax
   FxCollectionInternal *p_Blink; // r10
-  __int64 v6; // rax
 
   Flink = StringCollection->m_ListHead.Flink;
-  for ( i = 0LL; ; i += (unsigned __int16)(*(_WORD *)(v6 + 104) + 2) )
+  for ( i = 0LL; ; i += (unsigned __int16)(*(_WORD *)(v5 + 104) + 2) )
   {
     p_Blink = (FxCollectionInternal *)&Flink[-1].Blink;
     if ( p_Blink == StringCollection )
       break;
-    v6 = *(_QWORD *)&p_Blink->m_Count;
-    if ( Verify && *(_WORD *)(v6 + 8) != 4103 )
+    v5 = *(_QWORD *)&p_Blink->m_Count;
+    if ( Verify && *(_WORD *)(v5 + 8) != 4103 )
     {
       *ContainsOnlyStrings = 0;
       return 0LL;

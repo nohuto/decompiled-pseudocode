@@ -1,15 +1,13 @@
 /*
- * XREFs of KeInvalidateRangeAllCaches @ 0x140570E60
+ * XREFs of KeInvalidateRangeAllCaches @ 0x14051B0F0
  * Callers:
- *     KiFlushRangeAllCaches @ 0x14056F780 (KiFlushRangeAllCaches.c)
- *     MiPersistMdl @ 0x14059FECC (MiPersistMdl.c)
- *     MiPersistPage @ 0x1405A02B8 (MiPersistPage.c)
- *     MiTransferFileExtent @ 0x1405A1128 (MiTransferFileExtent.c)
+ *     KiFlushRangeAllCaches @ 0x140519B70 (KiFlushRangeAllCaches.c)
+ *     MiPersistMemory @ 0x14054186C (MiPersistMemory.c)
  * Callees:
- *     KeInvalidateAllCaches @ 0x140259C80 (KeInvalidateAllCaches.c)
- *     KeInvalidateRangeAllCachesNoIpi @ 0x140268B50 (KeInvalidateRangeAllCachesNoIpi.c)
- *     KiIpiSendRequestEx @ 0x1402F42D4 (KiIpiSendRequestEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x1403038F0 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     KiIpiSendRequestEx @ 0x14033B9A0 (KiIpiSendRequestEx.c)
+ *     KeInvalidateAllCaches @ 0x1403A4E00 (KeInvalidateAllCaches.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __stdcall KeInvalidateRangeAllCaches(PVOID BaseAddress, ULONG Length)
@@ -31,7 +29,7 @@ void __stdcall KeInvalidateRangeAllCaches(PVOID BaseAddress, ULONG Length)
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0x1FFC;
     }
-    KiIpiSendRequestEx((__int64)KeGetCurrentPrcb(), 1, 0LL, 0, 7LL, 0LL, 0LL);
+    KiIpiSendRequestEx((__int64)KeGetCurrentPrcb(), 1u, 0LL, 0LL, 7LL, 0LL, 0LL);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )

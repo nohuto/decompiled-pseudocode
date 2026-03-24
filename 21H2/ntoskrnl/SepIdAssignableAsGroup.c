@@ -1,12 +1,12 @@
 /*
- * XREFs of SepIdAssignableAsGroup @ 0x1409CA9E4
+ * XREFs of SepIdAssignableAsGroup @ 0x1409210C8
  * Callers:
- *     NtSetInformationToken @ 0x140754810 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x1406749A0 (NtSetInformationToken.c)
  * Callees:
- *     RtlEqualSid @ 0x1402A6DB0 (RtlEqualSid.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
  */
 
 BOOLEAN __fastcall SepIdAssignableAsGroup(__int64 a1, void *a2)
@@ -38,6 +38,6 @@ BOOLEAN __fastcall SepIdAssignableAsGroup(__int64 a1, void *a2)
     while ( v7 < v8 );
   }
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v2;
 }

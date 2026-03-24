@@ -1,43 +1,48 @@
 /*
- * XREFs of SdbpCheckForMatch @ 0x1408433DC
+ * XREFs of SdbpCheckForMatch @ 0x1407547A4
  * Callers:
- *     SdbpCheckExe @ 0x140843098 (SdbpCheckExe.c)
- *     SdbpCheckKObject @ 0x140843160 (SdbpCheckKObject.c)
+ *     SdbpCheckKObject @ 0x140754D5C (SdbpCheckKObject.c)
+ *     SdbpCheckExe @ 0x1407D220C (SdbpCheckExe.c)
  * Callees:
- *     SdbReadWORDTag @ 0x14078F124 (SdbReadWORDTag.c)
- *     SdbFindFirstTag @ 0x140792CCC (SdbFindFirstTag.c)
- *     SdbpMatchList @ 0x1408434E0 (SdbpMatchList.c)
- *     SdbpMatchOsVersion @ 0x1408436C0 (SdbpMatchOsVersion.c)
- *     SdbpGetExeEntryFlags @ 0x1408437A4 (SdbpGetExeEntryFlags.c)
+ *     SdbpMatchList @ 0x1407548A8 (SdbpMatchList.c)
+ *     SdbpMatchOsVersion @ 0x140754B18 (SdbpMatchOsVersion.c)
+ *     SdbReadWORDTag @ 0x140759ECC (SdbReadWORDTag.c)
+ *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
+ *     SdbpGetExeEntryFlags @ 0x1407C1B60 (SdbpGetExeEntryFlags.c)
  */
 
-__int64 __fastcall SdbpCheckForMatch(int a1, __int64 a2, unsigned int a3, __int64 a4, _DWORD *a5, __int64 a6)
+__int64 __fastcall SdbpCheckForMatch(int a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5, __int64 a6)
 {
+  unsigned int v6; // r14d
   unsigned int v9; // ebx
-  int v11; // r15d
-  BOOL v12; // r12d
-  _DWORD *v13; // rdi
+  __int64 v10; // rdx
+  int v12; // r15d
+  BOOL v13; // r12d
+  _DWORD *v15; // rdi
   unsigned int FirstTag; // eax
-  unsigned int v16; // [rsp+88h] [rbp+20h] BYREF
+  unsigned int v17; // [rsp+88h] [rbp+20h] BYREF
 
+  v6 = a3;
   v9 = 0;
-  v16 = 0;
-  v11 = 1;
-  v12 = SdbFindFirstTag(a2, a3, 4109) != 0;
-  if ( (unsigned int)SdbpMatchOsVersion(a2, a3) )
+  v10 = (unsigned int)a3;
+  v17 = 0;
+  LOWORD(a3) = 4109;
+  v12 = 1;
+  v13 = SdbFindFirstTag(a2, v10, a3) != 0;
+  if ( (unsigned int)SdbpMatchOsVersion(a2, v6) )
   {
-    if ( (unsigned int)SdbpMatchList((unsigned int)&v16, 0, a1, a2, a3, a4, 0)
-      && (v9 = v16) != 0
-      && (unsigned int)SdbpGetExeEntryFlags(a2, a3, a6) )
+    if ( (unsigned int)SdbpMatchList((unsigned int)&v17, 0, a1, a2, v6, a4, 0)
+      && (v9 = v17) != 0
+      && (unsigned int)SdbpGetExeEntryFlags(a2, v6, a6) )
     {
-      v13 = a5;
+      v15 = a5;
       if ( a5 )
       {
-        FirstTag = SdbFindFirstTag(a2, a3, 12289);
+        FirstTag = SdbFindFirstTag(a2, v6, 12289LL);
         if ( FirstTag )
-          *v13 = (unsigned __int16)SdbReadWORDTag(a2, FirstTag, 2u);
+          *v15 = (unsigned __int16)SdbReadWORDTag(a2, FirstTag, 2LL);
         else
-          *v13 = 2;
+          *v15 = 2;
       }
     }
     else
@@ -45,8 +50,8 @@ __int64 __fastcall SdbpCheckForMatch(int a1, __int64 a2, unsigned int a3, __int6
       v9 = 0;
     }
   }
-  if ( !*(_DWORD *)(a4 + 80) || v12 )
-    v11 = 0;
-  *(_DWORD *)(a4 + 80) = v11;
+  if ( !*(_DWORD *)(a4 + 80) || v13 )
+    v12 = 0;
+  *(_DWORD *)(a4 + 80) = v12;
   return v9;
 }

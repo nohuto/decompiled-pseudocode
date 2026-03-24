@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBMISC_IsDeviceOperatingAtSuperSpeedPlusOrHigher @ 0x1C002E29C
+ * XREFs of HUBMISC_IsDeviceOperatingAtSuperSpeedPlusOrHigher @ 0x1C002DC18
  * Callers:
- *     HUBFDO_IoctlGetNodeConnectionInformationExV2 @ 0x1C0077C80 (HUBFDO_IoctlGetNodeConnectionInformationExV2.c)
+ *     HUBFDO_IoctlGetNodeConnectionInformationExV2 @ 0x1C00768D8 (HUBFDO_IoctlGetNodeConnectionInformationExV2.c)
  * Callees:
  *     <none>
  */
@@ -10,8 +10,8 @@ bool __fastcall HUBMISC_IsDeviceOperatingAtSuperSpeedPlusOrHigher(__int64 a1)
 {
   char v1; // dl
   __int64 v2; // rcx
-  unsigned __int64 v3; // r10
-  int v4; // r9d
+  unsigned __int64 v3; // r9
+  int v4; // r10d
   __int64 v5; // r11
   __int64 v6; // rcx
   int v7; // r8d
@@ -28,29 +28,36 @@ bool __fastcall HUBMISC_IsDeviceOperatingAtSuperSpeedPlusOrHigher(__int64 a1)
       v4 = *(_DWORD *)(v2 + 188) & 0xF;
       v5 = *(_QWORD *)(v2 + 224);
       v6 = 0LL;
-      if ( v3 )
+      if ( !v3 )
+        goto LABEL_7;
+      while ( 1 )
       {
-        while ( 1 )
-        {
-          v7 = *(_DWORD *)(v5 + 4 * v6);
-          if ( (v7 & 0xF) == v4 && (v7 & 0x80u) == 0 )
-            break;
-          if ( ++v6 >= v3 )
-            goto LABEL_7;
-        }
-        if ( (v7 & 0xC000) != 0 )
-          return 1;
+        v7 = *(_DWORD *)(v5 + 4 * v6);
+        if ( (v7 & 0xF) == v4 && (v7 & 0x80u) == 0 )
+          break;
+        if ( ++v6 >= v3 )
+          goto LABEL_7;
+      }
+      if ( (v7 & 0xC000) != 0 )
+      {
+        return 1;
+      }
+      else
+      {
 LABEL_7:
         v8 = 0LL;
-        while ( 1 )
+        if ( v3 )
         {
-          v9 = *(_DWORD *)(v5 + 4 * v8);
-          if ( (v9 & 0xF) == v4 && (v9 & 0x80u) != 0 )
-            break;
-          if ( ++v8 >= v3 )
-            return v1;
+          while ( 1 )
+          {
+            v9 = *(_DWORD *)(v5 + 4 * v8);
+            if ( (v9 & 0xF) == v4 && (v9 & 0x80u) != 0 )
+              break;
+            if ( ++v8 >= v3 )
+              return v1;
+          }
+          return (v9 & 0xC000) != 0;
         }
-        return (v9 & 0xC000) != 0;
       }
     }
   }

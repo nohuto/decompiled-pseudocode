@@ -1,30 +1,30 @@
 /*
- * XREFs of RtlpHpHeapCheckCommitLimit @ 0x1403244D8
+ * XREFs of RtlpHpHeapCheckCommitLimit @ 0x14028B1C0
  * Callers:
- *     RtlpHpSegHeapCheckCommitLimit @ 0x1403244A8 (RtlpHpSegHeapCheckCommitLimit.c)
- *     RtlpAllocateHeap @ 0x1405AB2D8 (RtlpAllocateHeap.c)
- *     RtlpExtendHeap @ 0x1405ACE88 (RtlpExtendHeap.c)
- *     RtlpFindAndCommitPages @ 0x1405AD0DC (RtlpFindAndCommitPages.c)
- *     RtlpInitializeHeapSegment @ 0x1405AD98C (RtlpInitializeHeapSegment.c)
+ *     RtlpHpSegHeapCheckCommitLimit @ 0x14028B190 (RtlpHpSegHeapCheckCommitLimit.c)
+ *     RtlpAllocateHeap @ 0x140588A70 (RtlpAllocateHeap.c)
+ *     RtlpExtendHeap @ 0x14058A5F4 (RtlpExtendHeap.c)
+ *     RtlpFindAndCommitPages @ 0x14058A878 (RtlpFindAndCommitPages.c)
+ *     RtlpInitializeHeapSegment @ 0x14058B040 (RtlpInitializeHeapSegment.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1405B4B5C (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x1405934AC (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpHeapCheckCommitLimit(__int64 a1, __int64 a2, int a3, unsigned __int64 *a4)
 {
   unsigned __int64 v4; // r10
   unsigned int v5; // ebx
-  __int64 *v7; // rax
+  char *v7; // rax
   __int64 v8; // r9
 
   v4 = *a4;
   v5 = 0;
-  if ( (*a4 || (v4 = qword_140C6B398) != 0) && a1 + a2 > v4 )
+  if ( (*a4 || (v4 = *((_QWORD *)&xmmword_140C1DE30 + 1)) != 0) && a1 + a2 > v4 )
   {
-    v7 = &qword_140C6B398;
+    v7 = (char *)&xmmword_140C1DE30 + 8;
     if ( *a4 )
-      v7 = (__int64 *)a4;
-    v8 = v7[1];
+      v7 = (char *)a4;
+    v8 = *((_QWORD *)v7 + 1);
     if ( v8 )
       RtlpLogHeapFailure(21, a3, 0, v8, a1, a2);
   }

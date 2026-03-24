@@ -1,21 +1,22 @@
 /*
- * XREFs of MiReplicatePfnDatabaseMappings @ 0x1405839A4
+ * XREFs of MiReplicatePfnDatabaseMappings @ 0x14052EF2C
  * Callers:
- *     MiPfnRangeIsZero @ 0x1403C8EF8 (MiPfnRangeIsZero.c)
+ *     MiPfnRangeIsZero @ 0x1403B9BE8 (MiPfnRangeIsZero.c)
  * Callees:
- *     MiInsertRecursiveTbFlushEntries @ 0x140228BCC (MiInsertRecursiveTbFlushEntries.c)
- *     MiFlushTbList @ 0x14032F1B0 (MiFlushTbList.c)
- *     MiReplicatePteChange @ 0x14036CB28 (MiReplicatePteChange.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x1402974A8 (MiInsertRecursiveTbFlushEntries.c)
+ *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
+ *     MiReplicatePteChange @ 0x1403A4544 (MiReplicatePteChange.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void __fastcall MiReplicatePfnDatabaseMappings(unsigned __int64 a1, unsigned __int64 a2)
 {
   __int64 v4; // rcx
-  _QWORD v5[24]; // [rsp+20h] [rbp-D8h] BYREF
+  _KPROCESS *v5; // rdx
+  _QWORD v6[24]; // [rsp+20h] [rbp-D8h] BYREF
 
-  memset(v5, 0, 0xB8uLL);
+  memset(v6, 0, 0xB8uLL);
   v4 = 3LL;
   do
   {
@@ -25,12 +26,12 @@ void __fastcall MiReplicatePfnDatabaseMappings(unsigned __int64 a1, unsigned __i
   }
   while ( v4 );
   MiReplicatePteChange(a1, a2);
-  v5[3] = 0LL;
-  LODWORD(v5[1]) = 20;
+  v6[3] = 0LL;
+  LODWORD(v6[1]) = 20;
   while ( a1 <= a2 )
   {
-    MiInsertRecursiveTbFlushEntries((__int64)v5, 3, a1);
+    MiInsertRecursiveTbFlushEntries((__int64)v6, 3, a1);
     a1 += 8LL;
   }
-  MiFlushTbList((__int64)v5);
+  MiFlushTbList((__int64)v6, v5);
 }

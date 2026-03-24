@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteImageHotPatchState @ 0x140854CFC
+ * XREFs of MiDeleteImageHotPatchState @ 0x140854CDC
  * Callers:
  *     MiFinishVadDeletion @ 0x140067770 (MiFinishVadDeletion.c)
- *     MiHotPatchImage @ 0x140855350 (MiHotPatchImage.c)
+ *     MiHotPatchImage @ 0x140855330 (MiHotPatchImage.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
- *     MiDeleteHotPatchEntry @ 0x140854B58 (MiDeleteHotPatchEntry.c)
- *     MiGetProcessHotPatchContext @ 0x140855210 (MiGetProcessHotPatchContext.c)
- *     MiHotPatchImageTreeCompare @ 0x140855608 (MiHotPatchImageTreeCompare.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
+ *     MiDeleteHotPatchEntry @ 0x140854B38 (MiDeleteHotPatchEntry.c)
+ *     MiGetProcessHotPatchContext @ 0x1408551F0 (MiGetProcessHotPatchContext.c)
+ *     MiHotPatchImageTreeCompare @ 0x1408555E8 (MiHotPatchImageTreeCompare.c)
  */
 
 void __fastcall MiDeleteImageHotPatchState(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?OpenSharedHandle@CSharedWriteLegacyAnimationTriggerMarshaler@DirectComposition@@UEAAJPEAPEAX@Z @ 0x1C0057980
+ * XREFs of ?OpenSharedHandle@CSharedWriteLegacyAnimationTriggerMarshaler@DirectComposition@@UEAAJPEAPEAX@Z @ 0x1C0005700
  * Callers:
  *     <none>
  * Callees:
- *     ?CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C0058820 (-CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
+ *     ?CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C004AC10 (-CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
  */
 
 int __fastcall DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler::OpenSharedHandle(
@@ -12,7 +12,7 @@ int __fastcall DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler::O
 {
   __int64 v2; // rcx
 
-  v2 = *((_QWORD *)this + 9);
+  v2 = *((_QWORD *)this + 8);
   if ( v2 )
     return CompositionObject::CreateHandle((CompositionObject *)(v2 - 24), 1u, 0, 1, a2);
   else

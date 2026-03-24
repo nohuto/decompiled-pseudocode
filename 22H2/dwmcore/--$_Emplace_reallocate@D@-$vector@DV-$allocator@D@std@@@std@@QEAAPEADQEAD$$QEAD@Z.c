@@ -1,51 +1,49 @@
 /*
- * XREFs of ??$_Emplace_reallocate@D@?$vector@DV?$allocator@D@std@@@std@@QEAAPEADQEAD$$QEAD@Z @ 0x18010D8E0
+ * XREFs of ??$_Emplace_reallocate@D@?$vector@DV?$allocator@D@std@@@std@@QEAAPEADQEAD$$QEAD@Z @ 0x18004AC8C
  * Callers:
- *     _anonymous_namespace_::SendFramesReport @ 0x18010BCB0 (_anonymous_namespace_--SendFramesReport.c)
+ *     _anonymous_namespace_::SendFramesReport @ 0x18004B9C4 (_anonymous_namespace_--SendFramesReport.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800861C0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ?_Calculate_growth@?$vector@DV?$allocator@D@std@@@std@@AEBA_K_K@Z @ 0x18010D9A4 (-_Calculate_growth@-$vector@DV-$allocator@D@std@@@std@@AEBA_K_K@Z.c)
- *     ?_Change_array@?$vector@DV?$allocator@D@std@@@std@@AEAAXQEAD_K1@Z @ 0x18010D9DC (-_Change_array@-$vector@DV-$allocator@D@std@@@std@@AEAAXQEAD_K1@Z.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
+ *     ?_Change_array@?$vector@DV?$allocator@D@std@@@std@@AEAAXQEAD_K1@Z @ 0x18004AD50 (-_Change_array@-$vector@DV-$allocator@D@std@@@std@@AEAAXQEAD_K1@Z.c)
+ *     ?_Calculate_growth@?$vector@DV?$allocator@D@std@@@std@@AEBA_K_K@Z @ 0x18004ADB4 (-_Calculate_growth@-$vector@DV-$allocator@D@std@@@std@@AEBA_K_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050D58 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
  */
 
-char *__fastcall std::vector<char>::_Emplace_reallocate<char>(_QWORD *a1, char *a2, char *a3)
+char *__fastcall std::vector<char>::_Emplace_reallocate<char>(const void **a1, _BYTE *a2, char *a3)
 {
-  _BYTE *v3; // rbp
-  __int64 v6; // rax
-  __int64 v8; // r15
-  SIZE_T v9; // r12
-  char *v10; // rdi
-  char *v11; // r14
-  void *v12; // rcx
-  char *v13; // r8
-  _BYTE *v14; // rdx
-  size_t v15; // r8
+  signed __int64 v3; // rdi
+  signed __int64 v5; // rax
+  signed __int64 v8; // r14
+  SIZE_T v9; // r15
+  char *v10; // rsi
+  char *v11; // rcx
+  _BYTE *v12; // r8
+  _BYTE *v13; // rdx
+  size_t v14; // r8
 
-  v3 = (_BYTE *)*a1;
-  v6 = a1[1] - *a1;
-  if ( v6 == 0x7FFFFFFFFFFFFFFFLL )
-    std::_Xlength_error("vector too long");
-  v8 = v6 + 1;
-  v9 = std::vector<char>::_Calculate_growth(a1, v6 + 1);
+  v3 = a2 - (_BYTE *)*a1;
+  v5 = (_BYTE *)a1[1] - (_BYTE *)*a1;
+  if ( v5 == 0x7FFFFFFFFFFFFFFFLL )
+    std::_Xlength_error("vector<T> too long");
+  v8 = v5 + 1;
+  v9 = std::vector<char>::_Calculate_growth(a1, v5 + 1);
   v10 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(v9);
-  v11 = &a2[v10 - v3];
-  *v11 = *a3;
-  v12 = v10;
-  v13 = (char *)a1[1];
-  v14 = (_BYTE *)*a1;
-  if ( a2 == v13 )
+  v10[v3] = *a3;
+  v11 = v10;
+  v12 = a1[1];
+  v13 = *a1;
+  if ( a2 == v12 )
   {
-    v15 = v13 - v14;
+    v14 = v12 - v13;
   }
   else
   {
-    memmove_0(v10, v14, (size_t)&a2[-*a1]);
-    v12 = v11 + 1;
-    v15 = a1[1] - (_QWORD)a2;
-    v14 = a2;
+    memmove_0(v10, v13, a2 - (_BYTE *)*a1);
+    v14 = (_BYTE *)a1[1] - a2;
+    v13 = a2;
+    v11 = &v10[v3 + 1];
   }
-  memmove_0(v12, v14, v15);
+  memmove_0(v11, v13, v14);
   std::vector<char>::_Change_array(a1, v10, v8, v9);
-  return &a2[v10 - v3];
+  return (char *)*a1 + v3;
 }

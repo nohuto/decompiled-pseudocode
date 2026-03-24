@@ -1,44 +1,32 @@
 /*
- * XREFs of HasWhiteNoise @ 0x180033940
+ * XREFs of HasWhiteNoise @ 0x180046CF4
  * Callers:
- *     ?LinkShader@@YAJAEBUShaderLinkingBody@@AEBUShaderLinkingConfig@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAUVertexShaderDesc@@PEAPEAUID3D10Blob@@@Z @ 0x180033FB0 (-LinkShader@@YAJAEBUShaderLinkingBody@@AEBUShaderLinkingConfig@@V-$span@PEBUShaderLinkingBody@@$.c)
+ *     ?LinkShader@@YAJAEBUShaderLinkingBody@@AEBUShaderLinkingConfig@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAUVertexShaderDesc@@PEAPEAUID3D10Blob@@@Z @ 0x1800479BC (-LinkShader@@YAJAEBUShaderLinkingBody@@AEBUShaderLinkingConfig@@V-$span@PEBUShaderLinkingBody@@$.c)
  * Callees:
- *     ??$find@V?$span_iterator@$$CBW4ShaderLinkingArgument@@@details@gsl@@W4ShaderLinkingArgument@@@std@@YA?AV?$span_iterator@$$CBW4ShaderLinkingArgument@@@details@gsl@@V123@V123@AEBW4ShaderLinkingArgument@@@Z @ 0x1800339C4 (--$find@V-$span_iterator@$$CBW4ShaderLinkingArgument@@@details@gsl@@W4ShaderLinkingArgument@@@st.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x180190BB4 (-terminate@details@gsl@@YAXXZ.c)
+ *     ??9details@gsl@@YA_NV?$span_iterator@V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@$0A@@01@0@Z @ 0x180046D5C (--9details@gsl@@YA_NV-$span_iterator@V-$span@$$CBW4ShaderLinkingArgument@@$0-0@gsl@@$0A@@01@0@Z.c)
+ *     ??$find@V?$span_iterator@V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@$0A@@details@gsl@@W4ShaderLinkingArgument@@@std@@YA?AV?$span_iterator@V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@$0A@@details@gsl@@V123@V123@AEBW4ShaderLinkingArgument@@@Z @ 0x180046D9C (--$find@V-$span_iterator@V-$span@$$CBW4ShaderLinkingArgument@@$0-0@gsl@@$0A@@details@gsl@@W4Shad.c)
  */
 
-bool __fastcall HasWhiteNoise(__int64 a1)
+__int64 __fastcall HasWhiteNoise(__int64 *a1)
 {
-  gsl::details *v2; // rax
-  _QWORD *v3; // rax
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 v7; // [rsp+20h] [rbp-68h] BYREF
-  __int64 v8; // [rsp+28h] [rbp-60h]
-  __int64 v9; // [rsp+30h] [rbp-58h]
-  _QWORD v10[4]; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v11; // [rsp+60h] [rbp-28h] BYREF
-  __int16 v12; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v1; // rax
+  _QWORD v3[2]; // [rsp+20h] [rbp-40h] BYREF
+  __int128 v4; // [rsp+30h] [rbp-30h] BYREF
+  _QWORD v5[2]; // [rsp+40h] [rbp-20h] BYREF
+  _BYTE v6[16]; // [rsp+50h] [rbp-10h] BYREF
+  __int16 v7; // [rsp+70h] [rbp+10h] BYREF
 
-  v7 = *(_QWORD *)(a1 + 8);
-  v12 = 12;
-  v2 = *(gsl::details **)a1;
-  v10[0] = v7;
-  v10[2] = v7;
-  v8 = v7 + 2LL * (_QWORD)v2;
-  v9 = v8;
-  v10[1] = v8;
-  v3 = (_QWORD *)((__int64 (__fastcall *)(__int64 *, _QWORD *, __int64 *, __int16 *))std::find<gsl::details::span_iterator<enum ShaderLinkingArgument const>,enum ShaderLinkingArgument>)(
-                   &v11,
-                   v10,
-                   &v7,
-                   &v12);
-  v4 = *(_QWORD *)(a1 + 8);
-  v5 = v4 + 2LL * *(_QWORD *)a1;
-  if ( *v3 != v4 || v3[1] != v5 )
-  {
-    gsl::details::terminate(*(gsl::details **)a1);
-    JUMPOUT(0x1800339BCLL);
-  }
-  return v3[2] != v5;
+  v1 = *a1;
+  v5[0] = a1;
+  v7 = 12;
+  v3[0] = a1;
+  v4 = (unsigned __int64)a1;
+  v5[1] = v1;
+  v3[1] = v1;
+  v4 = *(_OWORD *)((__int64 (__fastcall *)(_BYTE *, __int128 *, _QWORD *, __int16 *))std::find<gsl::details::span_iterator<gsl::span<enum ShaderLinkingArgument const,-1>,0>,enum ShaderLinkingArgument>)(
+                    v6,
+                    &v4,
+                    v3,
+                    &v7);
+  return gsl::details::operator!=(&v4, v5);
 }

@@ -1,13 +1,14 @@
 /*
- * XREFs of UsbhBuildUxdPnpId @ 0x1C0058FF0
+ * XREFs of UsbhBuildUxdPnpId @ 0x1C005A6C0
  * Callers:
- *     UsbhBuildDeviceID @ 0x1C004F128 (UsbhBuildDeviceID.c)
- *     UsbhBuildHardwareID @ 0x1C004F438 (UsbhBuildHardwareID.c)
+ *     UsbhBuildDeviceID @ 0x1C005068C (UsbhBuildDeviceID.c)
+ *     UsbhBuildHardwareID @ 0x1C00509B0 (UsbhBuildHardwareID.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     memmove @ 0x1C001F540 (memmove.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     UsbhGetPnpKey @ 0x1C0059868 (UsbhGetPnpKey.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     memmove @ 0x1C001DEC0 (memmove.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     UsbhGetPnpKey @ 0x1C005AF84 (UsbhGetPnpKey.c)
  */
 
 __int64 __fastcall UsbhBuildUxdPnpId(size_t a1, __int64 a2, __int64 a3)
@@ -16,10 +17,10 @@ __int64 __fastcall UsbhBuildUxdPnpId(size_t a1, __int64 a2, __int64 a3)
   PDEVICE_OBJECT v5; // rcx
   _DWORD *v6; // rbx
   int PnpKey; // ebx
-  unsigned int v8; // esi
-  void *Pool2; // rax
+  __int64 v8; // rsi
+  PVOID PoolWithTag; // rax
   void *v10; // r14
-  _OWORD v12[3]; // [rsp+30h] [rbp-38h] BYREF
+  __int128 v12; // [rsp+30h] [rbp-38h] BYREF
   size_t Size; // [rsp+70h] [rbp+8h] BYREF
   void *Src; // [rsp+80h] [rbp+18h] BYREF
 
@@ -40,18 +41,22 @@ __int64 __fastcall UsbhBuildUxdPnpId(size_t a1, __int64 a2, __int64 a3)
   }
   *(_QWORD *)(a3 + 8) = 0LL;
   *(_DWORD *)(a3 + 4) = 0;
-  v12[0] = *(_OWORD *)(v6 + 651);
-  PnpKey = UsbhGetPnpKey(v5, v4, v12, &Src, &Size);
+  v12 = *(_OWORD *)(v6 + 651);
+  PnpKey = UsbhGetPnpKey(v5, v4, &v12, &Src, &Size);
   if ( PnpKey >= 0 )
   {
-    v8 = Size;
+    v8 = (unsigned int)Size;
     if ( (_DWORD)Size )
     {
-      Pool2 = (void *)ExAllocatePool2(64LL, (unsigned int)Size + 2LL, 1112885333LL);
-      v10 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(
+                      SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory),
+                      (unsigned int)Size + 2LL,
+                      0x42554855u);
+      v10 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        memmove(Pool2, Src, v8);
+        memset(PoolWithTag, 0, v8 + 2);
+        memmove(v10, Src, (unsigned int)v8);
         *(_QWORD *)(a3 + 8) = v10;
         *(_DWORD *)(a3 + 4) = v8 + 2;
       }

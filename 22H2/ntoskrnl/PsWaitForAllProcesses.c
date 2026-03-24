@@ -1,52 +1,56 @@
 /*
- * XREFs of PsWaitForAllProcesses @ 0x1409B39EC
+ * XREFs of PsWaitForAllProcesses @ 0x14090AE48
  * Callers:
- *     PopGracefulShutdown @ 0x140AA0B20 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x1409B10A0 (PopGracefulShutdown.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     PsGetNextProcess @ 0x1407446C0 (PsGetNextProcess.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     SmIsCompressionProcess @ 0x140304AD0 (SmIsCompressionProcess.c)
+ *     PsGetNextProcess @ 0x14062BFA0 (PsGetNextProcess.c)
+ *     PsQuitNextProcessThread @ 0x1406A62F0 (PsQuitNextProcessThread.c)
  */
 
 char PsWaitForAllProcesses()
 {
-  unsigned int v0; // esi
-  __int64 *i; // rcx
-  int v2; // ecx
-  __int64 *NextProcess; // rax
-  __int64 *v4; // rdi
-  NTSTATUS v6; // ebx
+  unsigned int v0; // ebp
+  LARGE_INTEGER v1; // rbx
+  _QWORD *i; // rcx
+  void *v3; // rcx
+  _DWORD *NextProcess; // rax
+  _QWORD *v5; // rsi
+  NTSTATUS v7; // edi
   LARGE_INTEGER Timeout; // [rsp+40h] [rbp+8h] BYREF
 
-  v0 = 0;
   Timeout.QuadPart = -100000LL;
+  v0 = 0;
+  v1.QuadPart = -100000LL;
   while ( 1 )
   {
-    for ( i = 0LL; ; i = NextProcess )
+    for ( i = 0LL; ; i = v5 )
     {
-      NextProcess = PsGetNextProcess(i);
-      v4 = NextProcess;
+      NextProcess = (_DWORD *)PsGetNextProcess(i);
+      v5 = NextProcess;
       if ( !NextProcess )
         return 1;
-      v2 = *((_DWORD *)NextProcess + 543);
-      if ( (v2 & 0x1000) == 0
+      if ( (NextProcess[543] & 0x1000) == 0
         && NextProcess != PsIdleProcess
-        && (*((_DWORD *)NextProcess + 281) & 4) != 0
-        && (v2 & 0x40000000) == 0
-        && NextProcess[174] )
+        && (NextProcess[281] & 4) != 0
+        && !SmIsCompressionProcess(NextProcess)
+        && v5[174] )
       {
         break;
       }
     }
-    ObfReferenceObjectWithTag(NextProcess, 0x65547350u);
-    ObfDereferenceObjectWithTag(v4, 0x6E457350u);
-    v6 = KeWaitForSingleObject(v4, Executive, 0, 0, &Timeout);
-    ObfDereferenceObjectWithTag(v4, 0x65547350u);
-    if ( v6 == 258 )
+    ObfReferenceObjectWithTag(v3, 0x65547350u);
+    PsQuitNextProcessThread(v5);
+    v7 = KeWaitForSingleObject(v5, Executive, 0, 0, &Timeout);
+    ObfDereferenceObjectWithTag(v5, 0x65547350u);
+    if ( v7 == 258 )
     {
+      v1.QuadPart *= 2LL;
       ++v0;
-      Timeout.QuadPart *= 2LL;
+      Timeout = v1;
       if ( v0 > 0xD )
         break;
     }

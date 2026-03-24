@@ -5,7 +5,7 @@
  * Callees:
  *     HvGetEffectiveLogSizeCapForHive @ 0x1405A60DC (HvGetEffectiveLogSizeCapForHive.c)
  *     HvpLogTypeToLogArrayIndex @ 0x1405A62AC (HvpLogTypeToLogArrayIndex.c)
- *     CmpDoFileSetSizeEx @ 0x1406B8960 (CmpDoFileSetSizeEx.c)
+ *     CmpDoFileSetSizeEx @ 0x1406B8940 (CmpDoFileSetSizeEx.c)
  */
 
 __int64 __fastcall HvTruncateCurrentLogFileIfRequired(__int64 a1)

@@ -3,7 +3,7 @@
  * Callers:
  *     KdpGetContext @ 0x1409162E4 (KdpGetContext.c)
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall KdpInitializeExtendedContext(_DWORD *a1, int a2)

@@ -1,20 +1,17 @@
 /*
- * XREFs of MiAweControlArea @ 0x1402A0D84
+ * XREFs of MiAweControlArea @ 0x1402966C8
  * Callers:
- *     MiReleaseControlAreaCharges @ 0x1402A0CF4 (MiReleaseControlAreaCharges.c)
- *     MiReferenceAweHandle @ 0x14064BD88 (MiReferenceAweHandle.c)
- *     MiMapViewOfDataSection @ 0x1407202F0 (MiMapViewOfDataSection.c)
- *     MmGetSectionInformation @ 0x1407BA640 (MmGetSectionInformation.c)
- *     MiDeletePageFileSectionNodes @ 0x1407CE050 (MiDeletePageFileSectionNodes.c)
- *     MiDereferenceFailedControlArea @ 0x140863600 (MiDereferenceFailedControlArea.c)
+ *     MiReleaseControlAreaCharges @ 0x140294C48 (MiReleaseControlAreaCharges.c)
+ *     MiReferenceAweHandle @ 0x14054DB8C (MiReferenceAweHandle.c)
+ *     MmGetSectionInformation @ 0x140621350 (MmGetSectionInformation.c)
+ *     MiDeletePageFileSectionNodes @ 0x1406359B8 (MiDeletePageFileSectionNodes.c)
+ *     MiMapViewOfDataSection @ 0x140639820 (MiMapViewOfDataSection.c)
+ *     MiDereferenceFailedControlArea @ 0x1406A5E24 (MiDereferenceFailedControlArea.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall MiAweControlArea(__int64 a1)
+_BOOL8 __fastcall MiAweControlArea(__int64 a1)
 {
-  if ( *(_QWORD *)(a1 + 64) || (*(_DWORD *)(a1 + 56) & 0x400) != 0 )
-    return 0LL;
-  else
-    return (*(_DWORD *)(a1 + 92) >> 17) & 1;
+  return !*(_QWORD *)(a1 + 64) && (*(_DWORD *)(a1 + 56) & 0x400) == 0 && (*(_DWORD *)(a1 + 92) & 0x20000) != 0;
 }

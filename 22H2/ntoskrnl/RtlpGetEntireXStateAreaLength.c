@@ -1,9 +1,11 @@
 /*
- * XREFs of RtlpGetEntireXStateAreaLength @ 0x1403D6F40
+ * XREFs of RtlpGetEntireXStateAreaLength @ 0x14031F250
  * Callers:
- *     RtlGetExtendedContextLength2 @ 0x14030D5B0 (RtlGetExtendedContextLength2.c)
- *     RtlInitializeExtendedContext2 @ 0x14030D6A0 (RtlInitializeExtendedContext2.c)
- *     RtlpGetNonLegacyXStateAreaLength @ 0x1405AB284 (RtlpGetNonLegacyXStateAreaLength.c)
+ *     RtlpWalkFrameChain @ 0x14021D210 (RtlpWalkFrameChain.c)
+ *     RtlGetExtendedContextLength2 @ 0x14033F5D0 (RtlGetExtendedContextLength2.c)
+ *     KiContinuePreviousModeUser @ 0x14033FA10 (KiContinuePreviousModeUser.c)
+ *     RtlInitializeExtendedContext2 @ 0x14033FFD0 (RtlInitializeExtendedContext2.c)
+ *     RtlpGetNonLegacyXStateAreaLength @ 0x14058F844 (RtlpGetNonLegacyXStateAreaLength.c)
  * Callees:
  *     <none>
  */

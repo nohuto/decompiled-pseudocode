@@ -1,10 +1,10 @@
 /*
- * XREFs of IrqArbUpdateInterruptProperties @ 0x1C009D9C4
+ * XREFs of IrqArbUpdateInterruptProperties @ 0x1C00B71B4
  * Callers:
- *     AcpiUpdateInterruptProperties @ 0x1C0084170 (AcpiUpdateInterruptProperties.c)
+ *     AcpiUpdateInterruptProperties @ 0x1C00AF560 (AcpiUpdateInterruptProperties.c)
  * Callees:
- *     IrqArbGsivFromIrq @ 0x1C009D6AC (IrqArbGsivFromIrq.c)
- *     IrqArbpSetDeviceProperties @ 0x1C009E604 (IrqArbpSetDeviceProperties.c)
+ *     IrqArbpSetDeviceProperties @ 0x1C0092578 (IrqArbpSetDeviceProperties.c)
+ *     IrqArbGsivFromIrq @ 0x1C00938DC (IrqArbGsivFromIrq.c)
  */
 
 __int64 __fastcall IrqArbUpdateInterruptProperties(int a1, int a2, int a3)
@@ -13,9 +13,9 @@ __int64 __fastcall IrqArbUpdateInterruptProperties(int a1, int a2, int a3)
   PRTL_RANGE v7; // r8
   __int64 v8; // rdx
   __int64 v9; // r8
-  PRTL_RANGE v10; // rbx
+  struct _RTL_RANGE *v10; // rbx
   PRTL_RANGE v11; // rax
-  _OWORD v13[2]; // [rsp+20h] [rbp-50h] BYREF
+  __int128 v13[2]; // [rsp+20h] [rbp-50h] BYREF
   __int128 v14; // [rsp+40h] [rbp-30h]
   struct _RANGE_LIST_ITERATOR Iterator; // [rsp+50h] [rbp-20h] BYREF
   PRTL_RANGE Range; // [rsp+A8h] [rbp+38h] BYREF

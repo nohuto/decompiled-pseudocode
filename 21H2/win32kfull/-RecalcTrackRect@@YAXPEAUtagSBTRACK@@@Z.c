@@ -1,15 +1,15 @@
 /*
- * XREFs of ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C024082C
+ * XREFs of ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C0244898
  * Callers:
- *     DrawThumb2 @ 0x1C00C5BBC (DrawThumb2.c)
- *     ?InvertScrollHilite@@YAXPEAUtagWND@@PEAUtagSBTRACK@@@Z @ 0x1C024078C (-InvertScrollHilite@@YAXPEAUtagWND@@PEAUtagSBTRACK@@@Z.c)
- *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C0241180 (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
- *     xxxTrackBox @ 0x1C0242A00 (xxxTrackBox.c)
- *     xxxTrackThumb @ 0x1C0242B70 (xxxTrackThumb.c)
+ *     DrawThumb2 @ 0x1C0158244 (DrawThumb2.c)
+ *     ?InvertScrollHilite@@YAXPEAUtagWND@@PEAUtagSBTRACK@@@Z @ 0x1C02447F8 (-InvertScrollHilite@@YAXPEAUtagWND@@PEAUtagSBTRACK@@@Z.c)
+ *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C0245214 (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
+ *     xxxTrackBox @ 0x1C0246B40 (xxxTrackBox.c)
+ *     xxxTrackThumb @ 0x1C0246CB0 (xxxTrackThumb.c)
  * Callees:
- *     CalcSBStuff @ 0x1C0065248 (CalcSBStuff.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C02400B0 (-CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z.c)
+ *     CalcSBStuff @ 0x1C0063DA0 (CalcSBStuff.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C0244158 (-CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z.c)
  */
 
 void __fastcall RecalcTrackRect(struct tagSBTRACK *a1)
@@ -26,7 +26,7 @@ void __fastcall RecalcTrackRect(struct tagSBTRACK *a1)
   v8 = 0LL;
   if ( (v1 & 4) == 0 )
   {
-    CalcSBStuff(*((_QWORD *)a1 + 1), *((_QWORD *)a1 + 12), (v1 >> 1) & 1);
+    CalcSBStuff(*((_QWORD *)a1 + 1), *((int **)a1 + 12), (v1 >> 1) & 1);
     v1 = *(_DWORD *)a1;
   }
   v3 = &v8;
@@ -42,31 +42,42 @@ void __fastcall RecalcTrackRect(struct tagSBTRACK *a1)
   *((_DWORD *)v3 + 2) = v5[7];
   v6 = *((_DWORD *)a1 + 14);
   *((_DWORD *)v4 + 2) = v5[5];
-  switch ( v6 )
+  if ( !v6 )
   {
-    case 0:
-      v7 = v5[9];
-      goto LABEL_17;
-    case 1:
-      *(_DWORD *)v4 = v5[10];
-LABEL_18:
-      *((_OWORD *)a1 + 2) = v8;
-      return;
-    case 2:
+    v6 = 0;
+    *((_DWORD *)v4 + 2) = v5[9];
+    goto LABEL_16;
+  }
+  if ( v6 == 1 )
+  {
+    *(_DWORD *)v4 = v5[10];
+  }
+  else
+  {
+    if ( v6 == 2 )
+    {
       *(_DWORD *)v4 = v5[9];
       v7 = v5[13];
-      goto LABEL_17;
-    case 3:
+    }
+    else
+    {
+      if ( v6 != 3 )
+      {
+        if ( v6 == 4 )
+        {
+          CalcTrackDragRect(a1);
+          v6 = *((_DWORD *)a1 + 14);
+        }
+LABEL_16:
+        if ( v6 == 4 )
+          return;
+        goto LABEL_17;
+      }
       *(_DWORD *)v4 = v5[12];
       v7 = v5[10];
-LABEL_17:
-      *((_DWORD *)v4 + 2) = v7;
-      goto LABEL_18;
-    case 4:
-      CalcTrackDragRect(a1, (__int64)v5);
-      v6 = *((_DWORD *)a1 + 14);
-      break;
+    }
+    *((_DWORD *)v4 + 2) = v7;
   }
-  if ( v6 != 4 )
-    goto LABEL_18;
+LABEL_17:
+  *((_OWORD *)a1 + 2) = v8;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of SepSidInTokenSidHash @ 0x1400AAB40
+ * XREFs of SepSidInTokenSidHash @ 0x1400AAB60
  * Callers:
  *     SepTokenIsOwner @ 0x1400131F0 (SepTokenIsOwner.c)
  *     SepSidInToken @ 0x140013310 (SepSidInToken.c)
  *     SeAccessCheckWithHintWithAdminlessChecks @ 0x1400516C0 (SeAccessCheckWithHintWithAdminlessChecks.c)
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9450 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     SepMatchCapability @ 0x140122640 (SepMatchCapability.c)
- *     AuthzBasepDeviceMemberOf @ 0x140325674 (AuthzBasepDeviceMemberOf.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9470 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepMatchCapability @ 0x140122660 (SepMatchCapability.c)
+ *     AuthzBasepDeviceMemberOf @ 0x140325774 (AuthzBasepDeviceMemberOf.c)
  *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
- *     SepIsImpersonationAllowedDueToCapability @ 0x1406AD96C (SepIsImpersonationAllowedDueToCapability.c)
+ *     SepIsImpersonationAllowedDueToCapability @ 0x1406AD94C (SepIsImpersonationAllowedDueToCapability.c)
  * Callees:
- *     RtlEqualSid @ 0x1400A7DD0 (RtlEqualSid.c)
- *     RtlSidHashLookup @ 0x1400AAC00 (RtlSidHashLookup.c)
+ *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
+ *     RtlSidHashLookup @ 0x1400AAC20 (RtlSidHashLookup.c)
  */
 
 char __fastcall SepSidInTokenSidHash(__int64 a1, void *a2, void *a3, char a4, char a5, char a6, char a7)

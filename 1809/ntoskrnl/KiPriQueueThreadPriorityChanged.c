@@ -1,14 +1,14 @@
 /*
- * XREFs of KiPriQueueThreadPriorityChanged @ 0x140112310
+ * XREFs of KiPriQueueThreadPriorityChanged @ 0x140112330
  * Callers:
- *     KeSetActualBasePriorityThread @ 0x1400CCF20 (KeSetActualBasePriorityThread.c)
- *     KeSetBasePriorityThread @ 0x1400CD350 (KeSetBasePriorityThread.c)
- *     KeSetPriorityAndQuantumProcess @ 0x1400D6964 (KeSetPriorityAndQuantumProcess.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
+ *     KeSetBasePriorityThread @ 0x1400CD370 (KeSetBasePriorityThread.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1400D6984 (KeSetPriorityAndQuantumProcess.c)
  * Callees:
- *     KiProcessThreadWaitList @ 0x1400FBE40 (KiProcessThreadWaitList.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiActivateWaiterQueueWithNoLocks @ 0x140112468 (KiActivateWaiterQueueWithNoLocks.c)
- *     KiActivateWaiterPriQueue @ 0x140112630 (KiActivateWaiterPriQueue.c)
+ *     KiProcessThreadWaitList @ 0x1400FBE60 (KiProcessThreadWaitList.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x140112488 (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiActivateWaiterPriQueue @ 0x140112650 (KiActivateWaiterPriQueue.c)
  */
 
 int __fastcall KiPriQueueThreadPriorityChanged(volatile signed __int32 *a1, __int64 a2)

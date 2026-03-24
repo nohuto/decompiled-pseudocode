@@ -1,16 +1,16 @@
 /*
- * XREFs of EmonConfigureCounter @ 0x140399A14
+ * XREFs of EmonConfigureCounter @ 0x14038B22C
  * Callers:
- *     EmonDisableMonitoring @ 0x140520270 (EmonDisableMonitoring.c)
- *     EmonEnableMonitoring @ 0x140520330 (EmonEnableMonitoring.c)
- *     EmonRestartProfiling @ 0x140A530A0 (EmonRestartProfiling.c)
+ *     EmonDisableMonitoring @ 0x1404D3430 (EmonDisableMonitoring.c)
+ *     EmonEnableMonitoring @ 0x1404D34F0 (EmonEnableMonitoring.c)
+ *     EmonRestartProfiling @ 0x140997BE0 (EmonRestartProfiling.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int64 __fastcall EmonConfigureCounter(unsigned int a1, char a2, __int64 a3, unsigned int a4, char a5)
+unsigned __int64 __fastcall EmonConfigureCounter(unsigned int a1, char a2, int a3, unsigned int a4, char a5)
 {
-  __int64 v6; // rdi
+  __int64 v6; // rsi
   char v7; // r10
   unsigned int v8; // r8d
   __int64 v9; // rax
@@ -20,7 +20,7 @@ unsigned __int64 __fastcall EmonConfigureCounter(unsigned int a1, char a2, __int
   unsigned __int64 v13; // rdx
   unsigned int v14; // r10d
   unsigned __int64 v15; // r9
-  unsigned __int64 v16; // r11
+  unsigned __int64 v16; // rbx
   __int64 v17; // rax
 
   v6 = a4;
@@ -39,7 +39,7 @@ unsigned __int64 __fastcall EmonConfigureCounter(unsigned int a1, char a2, __int
         v17 = (1LL << EmonFixedCounterResolution) - 1;
       else
         v17 = -1LL;
-      __writemsr(v14 + 777, v17 & -(a3 & -(__int64)(a5 != 0)));
+      __writemsr(v14 + 777, v17 & -(__int64)(a3 & (unsigned int)-(a5 != 0)));
       _bittestandset64((__int64 *)&v15, v14 + 32);
     }
     else
@@ -66,7 +66,7 @@ LABEL_19:
     v9 = (1LL << EmonCounterResolution) - 1;
   else
     v9 = -1LL;
-  __writemsr(a1 + 193, v9 & -(a3 & -(__int64)(a5 != 0)));
+  __writemsr(a1 + 193, v9 & -(__int64)(a3 & (unsigned int)-(a5 != 0)));
   result = v8;
   __writemsr(a1 + 390, v8);
   if ( (unsigned int)EmonVersion >= 2 )

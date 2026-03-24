@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlDissectDbcs @ 0x14092EF60
+ * XREFs of FsRtlDissectDbcs @ 0x14088C4B0
  * Callers:
- *     FsRtlIsFatDbcsLegal @ 0x140693FB0 (FsRtlIsFatDbcsLegal.c)
- *     FsRtlIsHpfsDbcsLegal @ 0x14092F6A0 (FsRtlIsHpfsDbcsLegal.c)
+ *     FsRtlIsFatDbcsLegal @ 0x1406A5E30 (FsRtlIsFatDbcsLegal.c)
+ *     FsRtlIsHpfsDbcsLegal @ 0x14088CC30 (FsRtlIsHpfsDbcsLegal.c)
  * Callees:
  *     <none>
  */
@@ -11,12 +11,12 @@ void __stdcall FsRtlDissectDbcs(ANSI_STRING *Path, PANSI_STRING FirstName, PANSI
 {
   __int64 v3; // r9
   unsigned int Length; // r8d
-  char *Buffer; // rbx
-  char v8; // di
+  char *Buffer; // rdi
+  char v9; // si
   __int64 i; // rdx
-  __int64 v10; // rcx
-  unsigned __int16 v11; // cx
-  unsigned __int16 v12; // r8
+  char v11; // cl
+  unsigned __int16 v12; // cx
+  unsigned __int16 v13; // r8
 
   v3 = 0LL;
   *(_DWORD *)&FirstName->Length = 0;
@@ -27,26 +27,30 @@ void __stdcall FsRtlDissectDbcs(ANSI_STRING *Path, PANSI_STRING FirstName, PANSI
   if ( Path->Length )
   {
     Buffer = Path->Buffer;
-    v8 = *Buffer;
+    v9 = *Buffer;
     for ( i = *Buffer == 92; (unsigned int)i < Length; LODWORD(i) = i + 1 )
     {
-      v10 = (unsigned __int8)Buffer[(unsigned int)i];
-      if ( (_BYTE)v10 == 92 )
+      v11 = Buffer[(unsigned int)i];
+      if ( v11 == 92 )
         break;
-      if ( (unsigned __int8)v10 >= 0x80u && (_BYTE)NlsMbOemCodePageTag && *((_WORD *)NlsOemLeadByteInfo + v10) )
+      if ( (unsigned __int8)v11 >= 0x80u
+        && (_BYTE)NlsMbOemCodePageTag
+        && NlsOemLeadByteInfoTable[(unsigned __int8)Buffer[(unsigned int)i]] )
+      {
         LODWORD(i) = i + 1;
+      }
     }
-    v11 = i - (*Buffer == 92);
-    FirstName->Length = v11;
-    FirstName->MaximumLength = v11;
-    LOBYTE(v3) = v8 == 92;
-    FirstName->Buffer = &Buffer[v3];
+    v12 = i - (*Buffer == 92);
+    FirstName->Length = v12;
+    FirstName->MaximumLength = v12;
+    LOBYTE(v3) = v9 == 92;
+    FirstName->Buffer = &Path->Buffer[v3];
     if ( (unsigned int)i < Length )
     {
-      v12 = Length - i - 1;
-      RemainingName->Length = v12;
-      RemainingName->Buffer = &Buffer[(unsigned int)(i + 1)];
-      RemainingName->MaximumLength = v12;
+      v13 = Length - i - 1;
+      RemainingName->Length = v13;
+      RemainingName->MaximumLength = v13;
+      RemainingName->Buffer = &Path->Buffer[(unsigned int)(i + 1)];
     }
   }
 }

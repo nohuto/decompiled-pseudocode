@@ -1,25 +1,27 @@
 /*
- * XREFs of HalpDispatchSystemStateTransition @ 0x14050D2B4
+ * XREFs of HalpDispatchSystemStateTransition @ 0x14038B4F0
  * Callers:
- *     HalpDispatchPower @ 0x140A95CA0 (HalpDispatchPower.c)
+ *     HalpDispatchPower @ 0x140998190 (HalpDispatchPower.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     HalpEfiLockOutRuntimeCallsForSystemSleep @ 0x14050D230 (HalpEfiLockOutRuntimeCallsForSystemSleep.c)
- *     HalpInterruptMaskAcpi @ 0x140A95448 (HalpInterruptMaskAcpi.c)
- *     HalpBuildResumeStructures @ 0x140A95FB8 (HalpBuildResumeStructures.c)
- *     HalpFreeResumeStructures @ 0x140A96034 (HalpFreeResumeStructures.c)
+ *     HalpEfiLockOutRuntimeCallsForSystemSleep @ 0x14038B594 (HalpEfiLockOutRuntimeCallsForSystemSleep.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     HalpInterruptMaskAcpi @ 0x14099822C (HalpInterruptMaskAcpi.c)
+ *     HalpFreeResumeStructures @ 0x1409982CC (HalpFreeResumeStructures.c)
+ *     HalpBuildResumeStructures @ 0x14099834C (HalpBuildResumeStructures.c)
  */
 
 __int64 __fastcall HalpDispatchSystemStateTransition(__int64 a1)
 {
-  __int64 v1; // rdx
+  __int64 v1; // rax
   char v2; // di
   int v3; // eax
-  __int64 v4; // rcx
+  int v4; // eax
+  __int64 v5; // rcx
 
   v1 = *(_QWORD *)(a1 + 184);
   v2 = *(_BYTE *)(v1 + 1);
-  if ( *(_DWORD *)(v1 + 24) == 1 )
+  v3 = *(_DWORD *)(v1 + 24);
+  if ( v3 == 1 )
   {
     if ( HalpReEnableDiagnosticEventsOnResume )
     {
@@ -31,36 +33,37 @@ __int64 __fastcall HalpDispatchSystemStateTransition(__int64 a1)
       HalpFreeResumeStructures();
       HalpResumeStructuresAllocated = 0;
     }
-    HalpEfiLockOutRuntimeCallsForSystemSleep(1);
+    LOBYTE(a1) = 1;
+    HalpEfiLockOutRuntimeCallsForSystemSleep(a1);
     if ( (HalpPlatformFlags & 1) != 0 )
     {
-      LOBYTE(v4) = 1;
-      goto LABEL_19;
+      LOBYTE(v5) = 1;
+      goto LABEL_9;
     }
   }
   else
   {
-    if ( *(_DWORD *)(v1 + 24) != 2 && *(_DWORD *)(v1 + 24) != 3 && (unsigned int)(*(_DWORD *)(v1 + 24) - 4) > 1 )
+    if ( (unsigned int)(v3 - 2) > 3 )
       return 0LL;
     if ( !HalpResumeStructuresAllocated )
     {
-      v3 = HalpBuildResumeStructures();
-      if ( v3 < 0 )
+      v4 = HalpBuildResumeStructures();
+      if ( v4 < 0 )
       {
         if ( v2 == 2 )
-          KeBugCheckEx(0x5Cu, 0x10CuLL, v3, 0LL, 0LL);
+          KeBugCheckEx(0x5Cu, 0x10CuLL, v4, 0LL, 0LL);
         return 0LL;
       }
       HalpResumeStructuresAllocated = 1;
     }
     if ( v2 == 2 )
     {
-      HalpEfiLockOutRuntimeCallsForSystemSleep(0);
+      HalpEfiLockOutRuntimeCallsForSystemSleep(0LL);
       if ( (HalpPlatformFlags & 1) != 0 )
       {
-        v4 = 0LL;
-LABEL_19:
-        HalpInterruptMaskAcpi(v4);
+        v5 = 0LL;
+LABEL_9:
+        HalpInterruptMaskAcpi(v5);
       }
     }
   }

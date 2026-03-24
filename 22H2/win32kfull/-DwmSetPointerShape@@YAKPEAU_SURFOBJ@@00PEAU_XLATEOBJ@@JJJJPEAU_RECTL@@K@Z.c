@@ -1,20 +1,20 @@
 /*
- * XREFs of ?DwmSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C0133A6C
+ * XREFs of ?DwmSetPointerShape@@YAKPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C00EB5DC
  * Callers:
- *     EngSetPointerShape @ 0x1C0133970 (EngSetPointerShape.c)
+ *     EngSetPointerShape @ 0x1C00EB470 (EngSetPointerShape.c)
  * Callees:
- *     ?vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z @ 0x1C005AD50 (-vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z.c)
- *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C007E800 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0080520 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ?hspGetNeighborSprite@@YAPEAUHSPRITE__@@PEAU1@_N1@Z @ 0x1C00A71EC (-hspGetNeighborSprite@@YAPEAUHSPRITE__@@PEAU1@_N1@Z.c)
- *     ?AltLockSpriteObj@DWMALTSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z @ 0x1C00AE284 (-AltLockSpriteObj@DWMALTSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z.c)
- *     ?GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z @ 0x1C00C8FF0 (-GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z.c)
- *     ?GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHHHHPEBG@Z @ 0x1C00CD42C (-GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHH.c)
- *     ?bSpDwmUpdateCursor@@YAHPEAUHSPRITE__@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_BLENDFUNCTION@@@Z @ 0x1C0133EB8 (-bSpDwmUpdateCursor@@YAHPEAUHSPRITE__@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_BLENDFUNCT.c)
- *     ?DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z @ 0x1C0134710 (-DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z.c)
- *     ?vSpDwmDestroyCursorSprites@@YAXPEAUHDEV__@@@Z @ 0x1C0135018 (-vSpDwmDestroyCursorSprites@@YAXPEAUHDEV__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??0?$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ @ 0x1C013E508 (--0-$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ.c)
+ *     ?AltLockSpriteObj@DWMALTSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z @ 0x1C0017464 (-AltLockSpriteObj@DWMALTSPRITEREF@@AEAAXPEAUHSPRITE__@@@Z.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BCDE8 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BCE1C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ?GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHHHHPEBG@Z @ 0x1C00BFB1C (-GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHH.c)
+ *     ?DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z @ 0x1C00EBA74 (-DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z.c)
+ *     ?vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z @ 0x1C00EC030 (-vSpDwmUpdateSpriteVisibility@@YAXPEAVDWMSPRITE@@_N@Z.c)
+ *     ?bSpDwmUpdateCursor@@YAHPEAUHSPRITE__@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_BLENDFUNCTION@@@Z @ 0x1C00EC064 (-bSpDwmUpdateCursor@@YAHPEAUHSPRITE__@@PEAU_SURFOBJ@@1PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_BLENDFUNCT.c)
+ *     ?vSpDwmDestroyCursorSprites@@YAXPEAUHDEV__@@@Z @ 0x1C00EC250 (-vSpDwmDestroyCursorSprites@@YAXPEAUHDEV__@@@Z.c)
+ *     ?GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z @ 0x1C00EF150 (-GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z.c)
+ *     ?hspGetNeighborSprite@@YAPEAUHSPRITE__@@PEAU1@_N1@Z @ 0x1C0115830 (-hspGetNeighborSprite@@YAPEAUHSPRITE__@@PEAU1@_N1@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ @ 0x1C0169E84 (--0-$UnexpectedThreadTerminationHandler@VDWMSPRITEREF@@@@QEAA@XZ.c)
  */
 
 __int64 __fastcall DwmSetPointerShape(
@@ -30,171 +30,167 @@ __int64 __fastcall DwmSetPointerShape(
         unsigned int a10)
 {
   HDEV hdev; // rbx
-  struct _SURFOBJ *v13; // r13
-  struct Gre::Base::SESSION_GLOBALS *v14; // rax
-  struct Gre::Base::SESSION_GLOBALS *v15; // rdi
-  unsigned int v16; // r12d
-  _QWORD *v17; // rbx
-  __int64 v18; // rcx
-  _QWORD *v19; // rax
-  __int64 v20; // rdx
-  char v21; // r14
-  unsigned int v22; // esi
-  unsigned int v23; // r15d
-  __int64 v24; // rcx
-  struct _RECTL *v25; // rbx
-  int v26; // eax
-  struct SPRITE *SpriteInternal; // rax
-  __int64 v28; // rcx
-  Gre::Base *v29; // rbx
-  __int64 v30; // rax
-  __int64 v31; // rcx
-  Gre::Base *v32; // rdx
-  Gre::Base *v33; // rsi
-  __int64 NeighborSprite; // rax
-  Gre::Base *v35; // r15
-  struct DWMSPRITE *v36; // rbx
-  Gre::Base *v37; // rbx
-  __int64 v38; // rsi
-  struct _XLATEOBJ *v39; // r9
-  struct tagRECT *v40; // rdx
-  struct _RECTL *v41; // r9
-  struct DWMSPRITE *v43; // [rsp+68h] [rbp-41h] BYREF
-  _BYTE v44[8]; // [rsp+70h] [rbp-39h] BYREF
-  _BYTE v45[32]; // [rsp+78h] [rbp-31h] BYREF
-  __int64 v46; // [rsp+98h] [rbp-11h]
-  struct _XLATEOBJ *v50; // [rsp+110h] [rbp+67h] BYREF
+  unsigned int v12; // r15d
+  _QWORD *v13; // rbx
+  __int64 v14; // rcx
+  _QWORD *v15; // rax
+  char v16; // si
+  unsigned int v17; // edi
+  unsigned int v18; // r14d
+  struct tagRECT *v19; // rbx
+  int v20; // eax
+  unsigned __int16 *SpriteInternal; // rax
+  HSPRITE v22; // rbx
+  struct DwmState *v23; // rcx
+  HSPRITE v24; // rdx
+  HSPRITE v25; // rdi
+  HSPRITE NeighborSprite; // rax
+  HSPRITE v27; // r14
+  struct DWMSPRITE *v28; // rbx
+  __int64 v29; // rdx
+  HSPRITE v30; // rbx
+  struct _SURFOBJ *v31; // r14
+  HSPRITE v32; // rdi
+  struct _XLATEOBJ *v33; // r9
+  struct _RECTL *v34; // r8
+  struct _RECTL *v35; // r9
+  _BYTE v37[8]; // [rsp+68h] [rbp-31h] BYREF
+  _BYTE v38[32]; // [rsp+70h] [rbp-29h] BYREF
+  __int64 v39; // [rsp+90h] [rbp-9h]
+  struct DWMSPRITE *v40; // [rsp+E8h] [rbp+4Fh] BYREF
+  struct _SURFOBJ *v41; // [rsp+F0h] [rbp+57h]
+  struct _SURFOBJ *v42; // [rsp+F8h] [rbp+5Fh]
+  struct _XLATEOBJ *v43; // [rsp+100h] [rbp+67h] BYREF
 
-  v50 = a4;
+  v43 = a4;
+  v42 = a3;
+  v41 = a2;
   hdev = a1->hdev;
-  v13 = a1;
-  v14 = Gre::Base::Globals((Gre::Base *)a1);
-  v15 = v14;
-  v16 = 2;
-  if ( *(_DWORD *)(*((_QWORD *)v14 + 38) + 100LL) )
+  v12 = 2;
+  if ( *((_DWORD *)g_pDwmState + 25) )
   {
     if ( a2 || a3 )
     {
-      UnexpectedThreadTerminationHandler<DWMSPRITEREF>::UnexpectedThreadTerminationHandler<DWMSPRITEREF>(v45);
-      v21 = a10;
-      v46 = 0LL;
-      v22 = ((a10 >> 8) & 0xF) + 1;
+      UnexpectedThreadTerminationHandler<DWMSPRITEREF>::UnexpectedThreadTerminationHandler<DWMSPRITEREF>(v38);
+      v16 = a10;
+      v17 = ((a10 >> 8) & 0xF) + 1;
+      v39 = 0LL;
       if ( (unsigned __int8)(a10 >> 12) )
-        v23 = 0x3E8u / (unsigned __int8)(a10 >> 12);
+        v18 = 0x3E8u / (unsigned __int8)(a10 >> 12);
       else
-        v23 = 0;
-      v24 = *((_QWORD *)v15 + 9);
-      LODWORD(v50) = 0x1000000;
-      GreAcquireSemaphore(v24);
-      EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDwmState", *((_QWORD *)v15 + 9), 7LL);
-      if ( *(_DWORD *)(*((_QWORD *)v15 + 38) + 160LL) < v22 )
+        v18 = 0;
+      LODWORD(v43) = 0x1000000;
+      GreAcquireSemaphore(ghsemDwmState);
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDwmState", ghsemDwmState, 7LL);
+      if ( *((_DWORD *)g_pDwmState + 40) < v17 )
       {
-        v25 = (struct _RECTL *)a9;
+        v19 = a9;
         do
         {
-          if ( a7 == -1 && a8 == -1 || (v26 = 1, (v21 & 0x40) != 0) )
-            v26 = 0;
-          SpriteInternal = GreCreateSpriteInternal((Gre::Base *)v13->hdev, 0LL, v25, 0LL, 0x9900u, 1, v26, 0, 0, 0, 0LL);
+          if ( a7 == -1 && a8 == -1 || (v20 = 1, (v16 & 0x40) != 0) )
+            v20 = 0;
+          SpriteInternal = GreCreateSpriteInternal(a1->hdev, 0LL, v19, 0LL, 0x9900u, 1, v20, 0, 0, 0, 0LL);
           if ( !SpriteInternal )
             break;
-          v28 = *((_QWORD *)v15 + 38);
-          if ( !*(_QWORD *)(v28 + 136) )
-            *(_QWORD *)(v28 + 136) = SpriteInternal;
-          *(_QWORD *)(*((_QWORD *)v15 + 38) + 144LL) = SpriteInternal;
-          ++*(_DWORD *)(*((_QWORD *)v15 + 38) + 160LL);
+          if ( !*((_QWORD *)g_pDwmState + 17) )
+            *((_QWORD *)g_pDwmState + 17) = SpriteInternal;
+          *((_QWORD *)g_pDwmState + 18) = SpriteInternal;
+          ++*((_DWORD *)g_pDwmState + 40);
         }
-        while ( *(_DWORD *)(*((_QWORD *)v15 + 38) + 160LL) < v22 );
+        while ( *((_DWORD *)g_pDwmState + 40) < v17 );
       }
-      while ( 1 )
+      while ( *((_DWORD *)g_pDwmState + 40) > v17 )
       {
-        v30 = *((_QWORD *)v15 + 38);
-        if ( *(_DWORD *)(v30 + 160) <= v22 )
-          break;
-        v29 = *(Gre::Base **)(v30 + 144);
-        *(_QWORD *)(*((_QWORD *)v15 + 38) + 144LL) = hspGetNeighborSprite(v29, 1, 0);
-        GreDeleteSpriteInternal((Gre::Base *)v13->hdev, 0LL, (HSPRITE)v29, 1);
-        --*(_DWORD *)(*((_QWORD *)v15 + 38) + 160LL);
+        v22 = (HSPRITE)*((_QWORD *)g_pDwmState + 18);
+        *((_QWORD *)g_pDwmState + 18) = hspGetNeighborSprite(v22, 1, 0);
+        GreDeleteSpriteInternal(a1->hdev, 0LL, v22, 1);
+        --*((_DWORD *)g_pDwmState + 40);
       }
-      *(_DWORD *)(v30 + 168) = v23;
-      v31 = *((_QWORD *)v15 + 38);
-      v32 = *(Gre::Base **)(v31 + 136);
-      if ( v32 )
+      *((_DWORD *)g_pDwmState + 42) = v18;
+      v23 = g_pDwmState;
+      v24 = (HSPRITE)*((_QWORD *)g_pDwmState + 17);
+      if ( v24 )
       {
-        v33 = *(Gre::Base **)(v31 + 144);
-        if ( v33 != v32 )
+        v25 = (HSPRITE)*((_QWORD *)g_pDwmState + 18);
+        if ( v25 != v24 )
         {
           do
           {
-            NeighborSprite = hspGetNeighborSprite(v33, 1, 0);
-            v43 = 0LL;
-            v35 = (Gre::Base *)NeighborSprite;
-            DWMALTSPRITEREF::AltLockSpriteObj((DWMALTSPRITEREF *)&v43, (HSPRITE)v33);
-            v36 = v43;
-            if ( v43 )
+            NeighborSprite = hspGetNeighborSprite(v25, 1, 0);
+            v40 = 0LL;
+            v27 = NeighborSprite;
+            DWMALTSPRITEREF::AltLockSpriteObj((DWMALTSPRITEREF *)&v40, v25);
+            v28 = v40;
+            if ( v40 )
             {
-              PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v44, (struct DWMSPRITE *)((char *)v43 + 88));
-              vSpDwmUpdateSpriteVisibility(v36, 0);
-              PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v44);
+              PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)v37, (struct DWMSPRITE *)((char *)v40 + 88));
+              vSpDwmUpdateSpriteVisibility(v28, 0);
+              PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)v37);
+              v25 = v27;
+              DEC_SHARE_REF_CNT(v28, v29);
             }
-            v33 = v35;
-            if ( v36 )
-              DEC_SHARE_REF_CNT(v36);
-            v31 = *((_QWORD *)v15 + 38);
+            else
+            {
+              v25 = v27;
+            }
+            v23 = g_pDwmState;
           }
-          while ( v35 != *(Gre::Base **)(v31 + 136) );
+          while ( v27 != *((HSPRITE *)g_pDwmState + 17) );
         }
-        v37 = *(Gre::Base **)(v31 + 144);
-        if ( v37 )
+        v30 = *(HSPRITE *)(*(_QWORD *)v23 + 144LL);
+        if ( v30 )
         {
+          v31 = v42;
           while ( 1 )
           {
-            v38 = hspGetNeighborSprite(v37, 1, 0);
+            v32 = hspGetNeighborSprite(v30, 1, 0);
             if ( !(unsigned int)bSpDwmUpdateCursor(
-                                  (HSPRITE)v37,
-                                  a2,
-                                  a3,
-                                  v39,
+                                  v30,
+                                  v41,
+                                  v31,
+                                  v33,
                                   (struct _RECTL *)a9,
-                                  (struct _BLENDFUNCTION *)((unsigned __int64)&v50 & -(__int64)((v21 & 0x40) != 0))) )
+                                  (struct _BLENDFUNCTION *)((unsigned __int64)&v43 & -(__int64)((v16 & 0x40) != 0))) )
               break;
-            v37 = (Gre::Base *)v38;
-            if ( !v38 )
-              goto LABEL_39;
+            v30 = v32;
+            if ( !v32 )
+              goto LABEL_37;
           }
-          v16 = 0;
+          v12 = 0;
         }
-LABEL_39:
-        v40 = a9;
-        v13 = a1;
-        *(_DWORD *)(*((_QWORD *)v15 + 38) + 152LL) = a5 - a9->left;
-        *(_DWORD *)(*((_QWORD *)v15 + 38) + 156LL) = a6 - v40->top;
+LABEL_37:
+        v34 = (struct _RECTL *)a9;
+        *((_DWORD *)g_pDwmState + 38) = a5 - a9->left;
+        *((_DWORD *)g_pDwmState + 39) = a6 - v34->top;
       }
-      EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDwmState");
-      GreReleaseSemaphoreInternal(*((_QWORD *)v15 + 9));
-      DwmMovePointer(v13, a7, a8, v41, (v21 & 0x60) != 0 ? 4 : 0);
-      if ( v46 )
-        _InterlockedDecrement((volatile signed __int32 *)(v46 + 12));
-      v46 = 0LL;
-      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v45);
+      EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
+      GreReleaseSemaphoreInternal(ghsemDwmState);
+      DwmMovePointer(a1, a7, a8, v35, (v16 & 0x60) != 0 ? 4 : 0);
+      if ( v39 )
+        _InterlockedDecrement((volatile signed __int32 *)(v39 + 12));
+      v39 = 0LL;
+      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v38);
     }
     else
     {
-      GreAcquireSemaphore(*((_QWORD *)v14 + 9));
-      EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDwmState", *((_QWORD *)v15 + 9), 7LL);
-      v17 = hdev + 876;
-      v18 = *v17;
-      if ( *(_QWORD **)(*v17 + 8LL) != v17 || (v19 = (_QWORD *)v17[1], (_QWORD *)*v19 != v17) )
+      GreAcquireSemaphore(ghsemDwmState);
+      EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDwmState", ghsemDwmState, 7LL);
+      v13 = hdev + 882;
+      v14 = *v13;
+      if ( *(_QWORD **)(*v13 + 8LL) != v13 || (v15 = (_QWORD *)v13[1], (_QWORD *)*v15 != v13) )
         __fastfail(3u);
-      *v19 = v18;
-      *(_QWORD *)(v18 + 8) = v19;
-      v17[1] = v17;
-      *v17 = v17;
-      v20 = *((_QWORD *)v15 + 38);
-      if ( *(_QWORD *)(v20 + 104) == v20 + 104 && *(_QWORD *)(v20 + 120) == v20 + 120 )
-        vSpDwmDestroyCursorSprites(v13->hdev);
-      EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDwmState");
-      GreReleaseSemaphoreInternal(*((_QWORD *)v15 + 9));
+      *v15 = v14;
+      *(_QWORD *)(v14 + 8) = v15;
+      v13[1] = v13;
+      *v13 = v13;
+      if ( *((struct DwmState **)g_pDwmState + 13) == (struct DwmState *)((char *)g_pDwmState + 104)
+        && *((struct DwmState **)g_pDwmState + 15) == (struct DwmState *)((char *)g_pDwmState + 120) )
+      {
+        vSpDwmDestroyCursorSprites(a1->hdev);
+      }
+      EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
+      GreReleaseSemaphoreInternal(ghsemDwmState);
     }
   }
-  return v16;
+  return v12;
 }

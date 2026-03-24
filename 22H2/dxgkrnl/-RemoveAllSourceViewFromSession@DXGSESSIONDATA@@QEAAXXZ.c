@@ -1,38 +1,35 @@
 /*
- * XREFs of ?RemoveAllSourceViewFromSession@DXGSESSIONDATA@@QEAAXXZ @ 0x1C01E5978
+ * XREFs of ?RemoveAllSourceViewFromSession@DXGSESSIONDATA@@QEAAXXZ @ 0x1C01614CC
  * Callers:
- *     DxgkDestroyCsrssProcess @ 0x1C01E54B4 (DxgkDestroyCsrssProcess.c)
- *     DxgkRemoveAllSessionViewForCurrentSession @ 0x1C01E590C (DxgkRemoveAllSessionViewForCurrentSession.c)
+ *     DxgkDestroyCsrssProcess @ 0x1C0161014 (DxgkDestroyCsrssProcess.c)
+ *     DxgkRemoveAllSessionViewForCurrentSession @ 0x1C0161464 (DxgkRemoveAllSessionViewForCurrentSession.c)
  * Callees:
- *     ??_GSESSION_VIEW@@QEAAPEAXI@Z @ 0x1C00161C8 (--_GSESSION_VIEW@@QEAAPEAXI@Z.c)
- *     ?RemoveAllDisplaySource@SESSION_VIEW@@QEAAXXZ @ 0x1C01E59DC (-RemoveAllDisplaySource@SESSION_VIEW@@QEAAXXZ.c)
+ *     ??_GSESSION_VIEW@@QEAAPEAXI@Z @ 0x1C0019A50 (--_GSESSION_VIEW@@QEAAPEAXI@Z.c)
+ *     ?RemoveAllDisplaySource@SESSION_VIEW@@QEAAXXZ @ 0x1C016156C (-RemoveAllDisplaySource@SESSION_VIEW@@QEAAXXZ.c)
  */
 
 void __fastcall DXGSESSIONDATA::RemoveAllSourceViewFromSession(DXGSESSIONDATA *this)
 {
   char *v1; // rdi
   char *v2; // rbx
-  SESSION_VIEW *v3; // r11
-  char *v4; // rsi
-  SESSION_VIEW *v5; // r11
-  __int64 v6; // rcx
-  char **v7; // rax
+  SESSION_VIEW *v3; // rsi
+  _QWORD *v4; // r11
+  __int64 v5; // rcx
+  _QWORD *v6; // rax
 
-  v1 = (char *)this + 18592;
-  v2 = (char *)*((_QWORD *)this + 2324);
+  v1 = (char *)this + 18576;
+  v2 = (char *)*((_QWORD *)this + 2322);
   while ( v2 != v1 )
   {
     v3 = (SESSION_VIEW *)(v2 - 8);
-    v4 = v2;
     v2 = *(char **)v2;
     SESSION_VIEW::RemoveAllDisplaySource(v3);
-    v6 = *(_QWORD *)v4;
-    v7 = (char **)*((_QWORD *)v4 + 1);
-    if ( *(char **)(*(_QWORD *)v4 + 8LL) != v4 || *v7 != v4 )
+    v5 = *v4;
+    if ( *(_QWORD **)(*v4 + 8LL) != v4 || (v6 = (_QWORD *)v4[1], (_QWORD *)*v6 != v4) )
       __fastfail(3u);
-    *v7 = (char *)v6;
-    *(_QWORD *)(v6 + 8) = v7;
-    if ( v5 )
-      SESSION_VIEW::`scalar deleting destructor'(v5);
+    *v6 = v5;
+    *(_QWORD *)(v5 + 8) = v6;
+    if ( v3 )
+      SESSION_VIEW::`scalar deleting destructor'(v3);
   }
 }

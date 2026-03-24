@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmInternalProcessorIdleVeto @ 0x1405859F8
+ * XREFs of PpmInternalProcessorIdleVeto @ 0x14056726C
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED5EC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1406F1BE4 (PopPowerInformationInternal.c)
  * Callees:
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
  */
 
 __int64 __fastcall PpmInternalProcessorIdleVeto(unsigned int a1, unsigned int a2, char a3)
@@ -19,16 +19,16 @@ __int64 __fastcall PpmInternalProcessorIdleVeto(unsigned int a1, unsigned int a2
   {
     Prcb = KeGetPrcb(a1);
     v5 = 0;
-    v7 = *(_QWORD *)(Prcb + 33600);
+    v7 = *(_QWORD *)(Prcb + 0x8000);
     if ( v7 )
     {
-      if ( (unsigned int)v4 < *(_DWORD *)(v7 + 40) )
+      if ( (unsigned int)v4 < *(_DWORD *)(v7 + 32) )
       {
-        v8 = 344 * v4;
+        v8 = 248 * v4;
         if ( a3 )
-          _InterlockedOr((volatile signed __int32 *)(v8 + v7 + 1408), 0x80000000);
+          _InterlockedOr((volatile signed __int32 *)(v8 + v7 + 1016), 0x80000000);
         else
-          _InterlockedAnd((volatile signed __int32 *)(v8 + v7 + 1408), 0x7FFFFFFFu);
+          _InterlockedAnd((volatile signed __int32 *)(v8 + v7 + 1016), 0x7FFFFFFFu);
       }
       else
       {

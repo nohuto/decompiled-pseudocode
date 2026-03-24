@@ -1,18 +1,18 @@
 /*
- * XREFs of KeQueryAffinityProcess @ 0x1402395A0
+ * XREFs of KeQueryAffinityProcess @ 0x14025C840
  * Callers:
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
  * Callees:
- *     KiCopyAffinityEx @ 0x140300030 (KiCopyAffinityEx.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1403127E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14031C8D0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KeQueryAffinityProcess(__int64 a1, __int64 a2, _DWORD *a3, _OWORD *a4, _WORD *a5)
+__int64 __fastcall KeQueryAffinityProcess(__int64 a1, _OWORD *a2, _DWORD *a3, __int64 a4)
 {
-  unsigned __int8 CurrentIrql; // di
+  unsigned __int8 CurrentIrql; // bl
+  _OWORD *v9; // r14
   __int64 result; // rax
   _DWORD *SchedulerAssist; // r9
   unsigned __int8 v12; // al
@@ -29,18 +29,26 @@ __int64 __fastcall KeQueryAffinityProcess(__int64 a1, __int64 a2, _DWORD *a3, _O
     SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
   ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-  KiCopyAffinityEx(a2, *(unsigned __int16 *)(a2 + 2), a1 + 80);
+  *a2 = *(_OWORD *)(a1 + 80);
+  a2[1] = *(_OWORD *)(a1 + 96);
+  a2[2] = *(_OWORD *)(a1 + 112);
+  a2[3] = *(_OWORD *)(a1 + 128);
+  a2[4] = *(_OWORD *)(a1 + 144);
+  a2[5] = *(_OWORD *)(a1 + 160);
+  a2[6] = *(_OWORD *)(a1 + 176);
+  v9 = a2 + 8;
+  *(v9 - 1) = *(_OWORD *)(a1 + 192);
+  *v9 = *(_OWORD *)(a1 + 208);
+  v9[1] = *(_OWORD *)(a1 + 224);
+  *((_QWORD *)v9 + 4) = *(_QWORD *)(a1 + 240);
   if ( a3 )
     *a3 = *(_DWORD *)(a1 + 636);
   if ( a4 )
   {
-    *a4 = *(_OWORD *)(a1 + 772);
-    a4[1] = *(_OWORD *)(a1 + 788);
-    a4[2] = *(_OWORD *)(a1 + 804);
-    a4[3] = *(_OWORD *)(a1 + 820);
+    *(_OWORD *)a4 = *(_OWORD *)(a1 + 772);
+    *(_OWORD *)(a4 + 16) = *(_OWORD *)(a1 + 788);
+    *(_QWORD *)(a4 + 32) = *(_QWORD *)(a1 + 804);
   }
-  if ( a5 )
-    *a5 = *(_WORD *)(a1 + 1040);
   ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
   if ( KiIrqlFlags )
   {

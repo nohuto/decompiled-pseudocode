@@ -1,18 +1,18 @@
 /*
- * XREFs of MiSnapThunk @ 0x140679454
+ * XREFs of MiSnapThunk @ 0x140679434
  * Callers:
- *     MiResolveImageReferences @ 0x140678FD0 (MiResolveImageReferences.c)
- *     MiSnapThunk @ 0x140679454 (MiSnapThunk.c)
+ *     MiResolveImageReferences @ 0x140678FB0 (MiResolveImageReferences.c)
+ *     MiSnapThunk @ 0x140679434 (MiSnapThunk.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C20 (RtlImageDirectoryEntryToData.c)
- *     strchr @ 0x140196EA0 (strchr.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
+ *     strchr @ 0x140196EC0 (strchr.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     MiSnapThunk @ 0x140679454 (MiSnapThunk.c)
- *     RtlPrefixString @ 0x1406797B0 (RtlPrefixString.c)
+ *     MiSnapThunk @ 0x140679434 (MiSnapThunk.c)
+ *     RtlPrefixString @ 0x140679790 (RtlPrefixString.c)
  */
 
 __int64 __fastcall MiSnapThunk(char *a1, __int64 a2, __int64 *a3, char **a4, unsigned __int16 *a5)

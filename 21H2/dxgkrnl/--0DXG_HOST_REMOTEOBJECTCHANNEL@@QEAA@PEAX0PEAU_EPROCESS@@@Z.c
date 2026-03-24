@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0DXG_HOST_REMOTEOBJECTCHANNEL@@QEAA@PEAX0PEAU_EPROCESS@@@Z @ 0x1C034FDC8
+ * XREFs of ??0DXG_HOST_REMOTEOBJECTCHANNEL@@QEAA@PEAX0PEAU_EPROCESS@@@Z @ 0x1C02B4014
  * Callers:
- *     ?CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C0350B5C (-CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ.c)
+ *     ?CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C02B4E30 (-CreateVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +23,7 @@ DXG_HOST_REMOTEOBJECTCHANNEL *__fastcall DXG_HOST_REMOTEOBJECTCHANNEL::DXG_HOST_
   *((_QWORD *)this + 4) = 0LL;
   *((_QWORD *)this + 5) = 0LL;
   if ( !a4 )
-    CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(0LL, a2, a3, 0LL);
+    CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(0LL, a2);
   *((_QWORD *)this + 3) = CurrentProcess;
   result = this;
   *((_QWORD *)this + 4) = a2;

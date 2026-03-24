@@ -1,11 +1,11 @@
 /*
- * XREFs of ?AttemptToGrowVPRForAllocation@VIDMM_SEGMENT@@QEAAJ_KPEAU_VIDMM_GLOBAL_ALLOC@@EE@Z @ 0x1C00FC098
+ * XREFs of ?AttemptToGrowVPRForAllocation@VIDMM_SEGMENT@@QEAAJ_KPEAU_VIDMM_GLOBAL_ALLOC@@EE@Z @ 0x1C00C4B40
  * Callers:
- *     ?ReserveVPRResource@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@EE@Z @ 0x1C00FF1F8 (-ReserveVPRResource@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@EE@Z.c)
+ *     ?ReserveVPRResource@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@EE@Z @ 0x1C00C7904 (-ReserveVPRResource@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@EE@Z.c)
  * Callees:
- *     ?Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z @ 0x1C00B01E4 (-Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z.c)
- *     ?DirectedIterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P8VIDMM_SEGMENT@@EAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEA_NPEAX@ZPEAV3@4PEAPEAU4@3@Z @ 0x1C0101A90 (-DirectedIterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@.c)
- *     ?RollbackPlacementOfPendingResources@VIDMM_LINEAR_POOL@@QEAAX_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P6A_NPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K@Z@Z @ 0x1C0102964 (-RollbackPlacementOfPendingResources@VIDMM_LINEAR_POOL@@QEAAX_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P6.c)
+ *     ?Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z @ 0x1C00652F0 (-Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z.c)
+ *     ?DirectedIterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P8VIDMM_SEGMENT@@EAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEA_NPEAX@ZPEAV3@4PEAPEAU4@3@Z @ 0x1C00CD260 (-DirectedIterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAJ_K0W4VIDMM_DEFRAGMENT_DIRECTION@@.c)
+ *     ?RollbackPlacementOfPendingResources@VIDMM_LINEAR_POOL@@QEAAX_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P6A_NPEAU_VIDMM_GLOBAL_ALLOC@@PEA_K@Z@Z @ 0x1C00CE0DC (-RollbackPlacementOfPendingResources@VIDMM_LINEAR_POOL@@QEAAX_K0W4VIDMM_DEFRAGMENT_DIRECTION@@P6.c)
  */
 
 __int64 __fastcall VIDMM_SEGMENT::AttemptToGrowVPRForAllocation(
@@ -21,25 +21,24 @@ __int64 __fastcall VIDMM_SEGMENT::AttemptToGrowVPRForAllocation(
   unsigned __int64 v10; // rsi
   int v11; // ebx
   __int64 v12; // rdx
-  unsigned __int64 v13; // r14
+  unsigned __int64 v13; // rcx
+  unsigned __int64 v14; // r14
   __int64 result; // rax
-  unsigned __int64 v15; // rcx
-  unsigned __int64 v16; // r14
-  char v17; // r15
-  __int64 v18; // r8
-  __int64 v19; // rdx
-  __int64 v20; // r10
+  unsigned __int64 v16; // rcx
+  unsigned __int64 v17; // r14
+  char v18; // r15
+  __int64 v19; // r8
+  __int64 v20; // rdx
   int (*v21)(VIDMM_SEGMENT *__hidden, struct _VIDMM_GLOBAL_ALLOC *, bool *, void *); // rax
-  unsigned __int64 v22; // [rsp+20h] [rbp-88h]
-  unsigned __int64 v23; // [rsp+28h] [rbp-80h]
-  char v24[8]; // [rsp+30h] [rbp-78h]
-  char v25[8]; // [rsp+38h] [rbp-70h]
-  _QWORD v26[9]; // [rsp+60h] [rbp-48h] BYREF
-  union _LARGE_INTEGER v27; // [rsp+B8h] [rbp+10h] BYREF
-  char v28; // [rsp+C0h] [rbp+18h] BYREF
-  char v29; // [rsp+C8h] [rbp+20h]
+  __int64 v22; // rdx
+  __int64 v23; // rcx
+  __int64 v24; // rax
+  _QWORD v25[9]; // [rsp+60h] [rbp-48h] BYREF
+  union _LARGE_INTEGER v26; // [rsp+B8h] [rbp+10h] BYREF
+  char v27; // [rsp+C0h] [rbp+18h] BYREF
+  char v28; // [rsp+C8h] [rbp+20h]
 
-  v29 = a4;
+  v28 = a4;
   v5 = *((unsigned int *)a3 + 8);
   v7 = *((_QWORD *)a3 + 2);
   v9 = ~(v5 - 1);
@@ -51,106 +50,99 @@ __int64 __fastcall VIDMM_SEGMENT::AttemptToGrowVPRForAllocation(
   else
   {
     v11 = -1073741801;
-    KeWaitForSingleObject((PVOID)(*((_QWORD *)this + 1) + 41184LL), Executive, 0, 0, 0LL);
+    KeWaitForSingleObject((PVOID)(*((_QWORD *)this + 1) + 41152LL), Executive, 0, 0, 0LL);
     if ( !*((_QWORD *)this + 54) )
     {
       v12 = *((_QWORD *)this + 58);
       if ( v12 )
       {
-        v13 = *((_QWORD *)this + 52) - v12;
+        v13 = *((_QWORD *)this + 52);
+        v14 = v13 - v12;
         result = VIDMM_LINEAR_POOL::Allocate(
                    *((VIDMM_LINEAR_POOL **)this + 19),
                    v12,
                    1LL,
                    0LL,
+                   v13 - v12,
                    v13,
-                   *((_QWORD *)this + 52),
-                   v29,
+                   v28,
                    a5,
                    0LL,
-                   &v27,
+                   &v26,
                    (void **)this + 57);
         v11 = result;
         if ( (int)result < 0 )
           return result;
-        v10 = v13 & v9;
+        v10 = v14 & v9;
       }
     }
-    v15 = v5;
-    v16 = v9 & (v10 - v7) & ~*((_QWORD *)this + 50);
-    v17 = a5;
+    v16 = v5;
+    v17 = v9 & (v10 - v7) & ~*((_QWORD *)this + 50);
+    v18 = a5;
     if ( v5 <= *((unsigned int *)this + 102) )
-      v15 = *((unsigned int *)this + 102);
-    if ( !(v7 % v15) )
+      v16 = *((unsigned int *)this + 102);
+    if ( !(v7 % v16) )
       v11 = VIDMM_LINEAR_POOL::Allocate(
               *((VIDMM_LINEAR_POOL **)this + 19),
               v7,
               (unsigned int)v5,
               0LL,
-              v16,
+              v17,
               v10,
-              v29,
+              v28,
               a5,
               a3,
-              (union _LARGE_INTEGER *)a3 + 24,
-              (void **)a3 + 23);
+              (union _LARGE_INTEGER *)a3 + 26,
+              (void **)a3 + 25);
     if ( v11 < 0 )
     {
-      v18 = *((_QWORD *)this + 1);
-      v19 = *(_QWORD *)(v18 + 24);
-      if ( (*(_DWORD *)(344LL * *((unsigned int *)this + 95) + *(_QWORD *)(v19 + 2808) + 16) & 4) != 0 )
+      v19 = *((_QWORD *)this + 1);
+      v20 = *(_QWORD *)(v19 + 24);
+      if ( (*(_DWORD *)(360LL * *((unsigned int *)this + 95) + *(_QWORD *)(v20 + 2584) + 16) & 4) != 0 )
       {
-        v20 = *((_QWORD *)this + 19);
-        v26[1] = *((_QWORD *)this + 53);
-        LOBYTE(v27.LowPart) = 0;
-        v26[0] = v16;
-        if ( !*(_BYTE *)(v19 + 2873)
+        v25[1] = *((_QWORD *)this + 53);
+        LOBYTE(v26.LowPart) = 0;
+        v25[0] = v17;
+        if ( !*(_BYTE *)(v20 + 2649)
           || (v21 = VIDMM_SEGMENT::ReserveOutsideRangeCB,
-              *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v18 + 16) + 744LL) + 152LL) != 1) )
+              *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v19 + 16) + 624LL) + 144LL) != 1) )
         {
           v21 = VIDMM_SEGMENT::ReserveOutsideRangeNoDisplayingCB;
         }
         v11 = VIDMM_LINEAR_POOL::DirectedIterateAllocatedBlocksInRange(
-                v20,
-                v16,
+                *((_QWORD *)this + 19),
+                v17,
                 v10,
                 0,
                 (__int64)v21,
                 (__int64)this,
-                (__int64)v26,
-                (__int64)&v28,
-                (__int64)&v27);
-        if ( (*(_DWORD *)(*((_QWORD *)this + 1) + 7056LL) & 0x80000) != 0 )
+                (__int64)v25,
+                (__int64)&v27,
+                (__int64)&v26);
+        if ( v11 < 0
+          || (v11 = VIDMM_LINEAR_POOL::Allocate(
+                      *((VIDMM_LINEAR_POOL **)this + 19),
+                      v7,
+                      (unsigned int)v5,
+                      0LL,
+                      v17,
+                      v10,
+                      v28,
+                      v18,
+                      a3,
+                      (union _LARGE_INTEGER *)a3 + 26,
+                      (void **)a3 + 25),
+              v11 < 0) )
         {
-          v11 = -1073741823;
+          v24 = WdLogNewEntry5_WdWarning(v23, v22);
+          *(_QWORD *)(v24 + 24) = v11;
+          WdLogEvent5_WdWarning(v24);
+          VIDMM_LINEAR_POOL::RollbackPlacementOfPendingResources(
+            *((_QWORD *)this + 19),
+            0LL,
+            *((_QWORD *)this + 6),
+            0LL);
         }
-        else if ( v11 >= 0 )
-        {
-          v11 = VIDMM_LINEAR_POOL::Allocate(
-                  *((VIDMM_LINEAR_POOL **)this + 19),
-                  v7,
-                  (unsigned int)v5,
-                  0LL,
-                  v16,
-                  v10,
-                  v29,
-                  v17,
-                  a3,
-                  (union _LARGE_INTEGER *)a3 + 24,
-                  (void **)a3 + 23);
-          if ( v11 >= 0 )
-            return (unsigned int)v11;
-        }
-        WdLogSingleEntry1(3LL, v11);
-        VIDMM_LINEAR_POOL::RollbackPlacementOfPendingResources(
-          *((_QWORD *)this + 19),
-          0LL,
-          *((_QWORD *)this + 6),
-          0LL,
-          v22,
-          v23,
-          *(_QWORD *)v24,
-          *(_QWORD *)v25);
       }
     }
   }

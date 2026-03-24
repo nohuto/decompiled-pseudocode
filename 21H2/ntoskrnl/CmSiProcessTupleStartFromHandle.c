@@ -1,10 +1,10 @@
 /*
- * XREFs of CmSiProcessTupleStartFromHandle @ 0x1403C7488
+ * XREFs of CmSiProcessTupleStartFromHandle @ 0x1403C92AC
  * Callers:
- *     CmpInitializeRegistryProcess @ 0x140831BF4 (CmpInitializeRegistryProcess.c)
+ *     CmpInitializeRegistryProcess @ 0x1407C606C (CmpInitializeRegistryProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall CmSiProcessTupleStartFromHandle(__int64 a1, void *a2)

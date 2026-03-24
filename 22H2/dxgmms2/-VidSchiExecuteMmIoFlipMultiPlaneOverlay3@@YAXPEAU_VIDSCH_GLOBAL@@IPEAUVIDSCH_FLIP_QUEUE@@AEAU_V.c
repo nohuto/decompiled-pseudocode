@@ -1,298 +1,141 @@
 /*
- * XREFs of ?VidSchiExecuteMmIoFlipMultiPlaneOverlay3@@YAXPEAU_VIDSCH_GLOBAL@@IPEAUVIDSCH_FLIP_QUEUE@@AEAU_VIDSCH_CALL_EXECUTE_FLIP@@PEAW4_VIDSCH_FLIP_STATUS@@K@Z @ 0x1C0010050
+ * XREFs of ?VidSchiExecuteMmIoFlipMultiPlaneOverlay3@@YAXPEAU_VIDSCH_GLOBAL@@IPEAUVIDSCH_FLIP_QUEUE@@AEAU_VIDSCH_CALL_EXECUTE_FLIP@@PEAW4_VIDSCH_FLIP_STATUS@@K@Z @ 0x1C002ABDC
  * Callers:
- *     VidSchiExecuteMmIoFlip @ 0x1C000FA10 (VidSchiExecuteMmIoFlip.c)
+ *     VidSchiExecuteMmIoFlip @ 0x1C000EB20 (VidSchiExecuteMmIoFlip.c)
  * Callees:
- *     ?VidSchiLogMmIoFlipMultiPlaneOverlay3@@YAXPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_FLIP_QUEUE_ENTRY@@PEBU_VIDSCH_CALL_EXECUTE_FLIP@@W4_VIDSCH_FLIP_STATUS@@I_K@Z @ 0x1C000E3B0 (-VidSchiLogMmIoFlipMultiPlaneOverlay3@@YAXPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_FLIP_QUEUE_ENTRY@@PEBU.c)
- *     VidSchiSetupMmIoFlipMultiPlaneOverlay3 @ 0x1C0010400 (VidSchiSetupMmIoFlipMultiPlaneOverlay3.c)
- *     ?VidSchiEnqueueDeviceCommandToWorkerThreadAtDpc@@YAXPEBXW4_VIDSCH_DEVICE_COMMAND_TYPE@@@Z @ 0x1C001852C (-VidSchiEnqueueDeviceCommandToWorkerThreadAtDpc@@YAXPEBXW4_VIDSCH_DEVICE_COMMAND_TYPE@@@Z.c)
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     memset @ 0x1C001ABC0 (memset.c)
- *     McTemplateK0pqqtq_EtwWriteTransfer @ 0x1C0038D38 (McTemplateK0pqqtq_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0018D80 (memset.c)
+ *     ?VidSchiEnqueueDeviceCommandToWorkerThreadAtDpc@@YAXPEBXW4_VIDSCH_DEVICE_COMMAND_TYPE@@@Z @ 0x1C002AA84 (-VidSchiEnqueueDeviceCommandToWorkerThreadAtDpc@@YAXPEBXW4_VIDSCH_DEVICE_COMMAND_TYPE@@@Z.c)
+ *     ?VidSchiLogMmIoFlipMultiPlaneOverlay3@@YAXPEAU_VIDSCH_GLOBAL@@PEAUVIDSCH_FLIP_QUEUE_ENTRY@@PEBU_VIDSCH_CALL_EXECUTE_FLIP@@W4_VIDSCH_FLIP_STATUS@@I@Z @ 0x1C002B1F8 (-VidSchiLogMmIoFlipMultiPlaneOverlay3@@YAXPEAU_VIDSCH_GLOBAL@@PEAUVIDSCH_FLIP_QUEUE_ENTRY@@PEBU_.c)
+ *     VidSchiComputeFlipEntryStatusAfterFlip @ 0x1C002F2AC (VidSchiComputeFlipEntryStatusAfterFlip.c)
+ *     VidSchiSetupMmIoFlipMultiPlaneOverlay3 @ 0x1C0031830 (VidSchiSetupMmIoFlipMultiPlaneOverlay3.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
 void __fastcall VidSchiExecuteMmIoFlipMultiPlaneOverlay3(
         struct _VIDSCH_GLOBAL *a1,
         unsigned int a2,
-        LARGE_INTEGER *a3,
+        struct VIDSCH_FLIP_QUEUE *a3,
         struct _VIDSCH_CALL_EXECUTE_FLIP *a4,
         enum _VIDSCH_FLIP_STATUS *a5,
         unsigned int a6)
 {
-  enum _VIDSCH_FLIP_STATUS *v7; // r13
-  __int64 v9; // r15
-  LARGE_INTEGER *v10; // rbx
-  LARGE_INTEGER *v11; // rdi
-  LARGE_INTEGER v12; // rax
-  char v13; // r14
-  __int64 v14; // r9
-  __int64 v15; // rcx
-  int v16; // eax
-  int v17; // edx
-  int v18; // r8d
-  DWORD v19; // ecx
-  unsigned int v20; // eax
-  unsigned int v21; // r11d
-  bool v22; // zf
-  int v23; // ecx
-  int v24; // r12d
-  unsigned int v25; // r14d
-  unsigned int v26; // r13d
-  __int64 v27; // r14
-  _QWORD *v28; // rdx
-  __int64 v29; // rax
-  __int64 v30; // rcx
-  __int64 v31; // rdx
-  unsigned int v32; // r8d
-  int v33; // ecx
-  DWORD LowPart; // eax
-  __int64 v35; // rdi
-  int v36; // edx
-  __int64 HighPart; // rcx
-  __int64 v38; // rdx
-  int v39; // eax
-  char v40; // dl
-  int v41; // ecx
-  int v42; // eax
-  LARGE_INTEGER *v43; // r10
-  char v44[4]; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned int v45; // [rsp+44h] [rbp-BCh]
-  unsigned int v46; // [rsp+48h] [rbp-B8h]
-  struct _VIDSCH_GLOBAL *v47; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned int v48; // [rsp+58h] [rbp-A8h]
-  unsigned int v49; // [rsp+5Ch] [rbp-A4h]
-  struct VIDSCH_FLIP_QUEUE *v50; // [rsp+60h] [rbp-A0h]
-  char v51; // [rsp+68h] [rbp-98h]
-  int v52; // [rsp+69h] [rbp-97h]
-  __int16 v53; // [rsp+6Dh] [rbp-93h]
-  char v54; // [rsp+6Fh] [rbp-91h]
-  struct _VIDSCH_CALL_EXECUTE_FLIP *v55; // [rsp+70h] [rbp-90h]
-  enum _VIDSCH_FLIP_STATUS *v56; // [rsp+78h] [rbp-88h]
-  __int64 v57[2]; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v58[2]; // [rsp+90h] [rbp-70h] BYREF
-  __int128 v59; // [rsp+A0h] [rbp-60h]
-  __int64 v60; // [rsp+B0h] [rbp-50h]
-  __int64 v61[10]; // [rsp+C0h] [rbp-40h] BYREF
+  __int64 v8; // r14
+  char *v9; // rsi
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  unsigned __int64 v13; // rax
+  _QWORD *v14; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  __int64 v18; // r9
+  __int64 v19; // r9
+  __int64 v20; // r9
+  int v21; // eax
+  __int64 v22; // rdx
+  __int64 v23; // r13
+  _QWORD *v24; // rax
+  int v25; // edx
+  char v26; // [rsp+40h] [rbp-C0h] BYREF
+  char v27; // [rsp+41h] [rbp-BFh]
+  unsigned int v28; // [rsp+44h] [rbp-BCh]
+  __int128 v29; // [rsp+48h] [rbp-B8h] BYREF
+  struct VIDSCH_FLIP_QUEUE *v30; // [rsp+58h] [rbp-A8h]
+  char v31; // [rsp+60h] [rbp-A0h]
+  int v32; // [rsp+61h] [rbp-9Fh]
+  __int16 v33; // [rsp+65h] [rbp-9Bh]
+  char v34; // [rsp+67h] [rbp-99h]
+  __int128 v35; // [rsp+68h] [rbp-98h] BYREF
+  _OWORD v36[2]; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v37; // [rsp+98h] [rbp-68h]
+  _BYTE v38[80]; // [rsp+A0h] [rbp-60h] BYREF
 
-  v7 = a5;
-  v9 = a2;
-  v55 = a4;
-  v10 = &a3[173 * a6];
-  v45 = a2;
-  v11 = (LARGE_INTEGER *)a4;
-  v56 = a5;
-  v46 = a6;
-  memset(v61, 0, sizeof(v61));
-  v60 = 0LL;
-  v12 = v10[148];
-  *(_OWORD *)v57 = 0LL;
-  *(_OWORD *)v58 = 0LL;
-  v59 = 0LL;
-  if ( v12.QuadPart && v12.QuadPart < (unsigned __int64)a3[12].QuadPart )
+  v8 = a2;
+  v28 = a6;
+  v9 = (char *)a3 + 1344 * a6;
+  memset(v38, 0, sizeof(v38));
+  v37 = 0LL;
+  v13 = *((_QWORD *)v9 + 144);
+  v35 = 0LL;
+  memset(v36, 0, sizeof(v36));
+  if ( v13 && v13 <= *((_QWORD *)a3 + 9) )
   {
-    HighPart = a3[10].HighPart;
-    g_DxgMmsBugcheckExportIndex = 1;
-    WdLogSingleEntry5(0LL, 281LL, 36864LL, v9, HighPart, a6);
+    v14 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v12, v11);
+    v14[3] = 281LL;
+    v14[4] = 36864LL;
+    v14[5] = v8;
+    v14[6] = *((int *)a3 + 15);
+    v14[7] = a6;
+    v13 = WdLogEvent5_WdCriticalError(v14);
     __debugbreak();
-    goto LABEL_45;
   }
-  a3[12] = v12;
-  v13 = *(_DWORD *)a5 == 11;
-  VidSchiSetupMmIoFlipMultiPlaneOverlay3(a1, v13, (__int64)v61, (__int64)v57, (__int64)v58);
-  if ( !v11[2].HighPart )
+  *((_QWORD *)a3 + 9) = v13;
+  v27 = *(_DWORD *)a5 == 11;
+  VidSchiSetupMmIoFlipMultiPlaneOverlay3(
+    (_DWORD)a1,
+    (_DWORD)v9 + 88,
+    v8,
+    (_DWORD)a4,
+    v27,
+    (__int64)v38,
+    (__int64)&v35,
+    (__int64)v36);
+  if ( !*((_DWORD *)a4 + 5) )
   {
-LABEL_45:
-    v9 = 0LL;
-    v11[265].LowPart = 0;
-    v27 = v45;
-    WdLogSingleEntry2(4LL, v45, (*(_DWORD *)v10[162].QuadPart >> 10) & 0x3FF);
-    goto LABEL_24;
-  }
-  if ( (v10[157].LowPart & 0x1000) != 0 )
-  {
-    v9 = 0LL;
-    v11[265].LowPart = 0;
-    WdLogSingleEntry0(4LL);
-    v27 = v45;
-    goto LABEL_24;
-  }
-  v14 = *((unsigned int *)a1 + 8);
-  v15 = *((_QWORD *)a1 + 3);
-  v44[0] = 0;
-  v16 = DpSynchronizeExecution(v15, VidSchiExecuteMmIoFlipMultiPlaneOverlayAtISR3, v11, v14, v44);
-  if ( v16 < 0 )
-  {
-    v38 = *((_QWORD *)a1 + 2);
-    g_DxgMmsBugcheckExportIndex = 1;
-    WdLogSingleEntry5(0LL, 281LL, 11LL, v16, v11, v38);
-    __debugbreak();
-LABEL_48:
-    v39 = v9;
-    LOBYTE(v39) = *((_BYTE *)a1 + 59) != (unsigned __int8)v9;
-    v11[2].LowPart = v39 + 1;
-LABEL_38:
-    LowPart = v11[2].LowPart;
-    if ( (LowPart & 2) == 0 )
+    *((_DWORD *)a4 + 530) = 0;
+    v16 = WdLogNewEntry5_WdEvent(0LL, v15);
+    *(_QWORD *)(v16 + 24) = v8;
+    *(_QWORD *)(v16 + 32) = (**((_DWORD **)v9 + 158) >> 10) & 0x3FF;
+LABEL_8:
+    WdLogEvent5_WdEvent(v16);
+LABEL_9:
+    VidSchiComputeFlipEntryStatusAfterFlip(v17, a4, a5);
+    v18 = *(unsigned int *)a5;
+    if ( (_DWORD)v18 == 11 )
     {
-      if ( (LowPart & 1) != 0 )
-      {
-        v35 = v45;
-        v49 = v45;
-        v52 = v9;
-        v53 = v9;
-        v54 = v9;
-        v47 = a1;
-        v50 = (struct VIDSCH_FLIP_QUEUE *)a3;
-        v48 = v46;
-        v51 = v13;
-        VidSchiEnqueueDeviceCommandToWorkerThreadAtDpc(&v47);
-        if ( (v10[157].LowPart & 0x10) != 0 )
-          v36 = ((unsigned __int16)*(_DWORD *)v10[162].QuadPart | (unsigned __int16)(*(_DWORD *)v10[162].QuadPart >> 10)) & 0x3FF;
-        else
-          v36 = (1 << *((_DWORD *)a1 + 38)) - 1;
-        *(_DWORD *)(*((_QWORD *)a1 + v35 + 400) + 3092LL) |= v36;
-        return;
-      }
-      goto LABEL_8;
+      v19 = *((_QWORD *)a1 + v8 + 388);
+      *((_QWORD *)a4 + 266) = *(_QWORD *)(v19 + 33200);
+      *((_DWORD *)a4 + 531) = *(_DWORD *)(v19 + 33192);
+      v18 = *(unsigned int *)a5;
     }
-LABEL_65:
-    if ( Microsoft_Windows_DxgKrnlEnableBits < 0 )
-      McTemplateK0pqqtq_EtwWriteTransfer(
-        v19,
-        v17,
-        v18,
-        *((_QWORD *)a1 + 2),
-        v45,
-        v10[146].LowPart,
-        (v11[2].LowPart & 2) != 0,
-        v19);
+    VidSchiLogMmIoFlipMultiPlaneOverlay3(a1, v9 + 88, a4, v18, *((_DWORD *)v9 + 290));
     return;
   }
-  v19 = v11[265].LowPart;
-  v9 = 0LL;
-  if ( v19 == -1073741267 )
+  if ( (*((_DWORD *)v9 + 306) & 0x1000) != 0 )
   {
-    if ( v11[2].LowPart )
-      goto LABEL_38;
-    goto LABEL_48;
+    *((_DWORD *)a4 + 530) = 0;
+    v16 = WdLogNewEntry5_WdEvent(0LL, v15);
+    goto LABEL_8;
   }
-  if ( v19 == -2147483631 )
-    goto LABEL_65;
-LABEL_8:
-  if ( (v10[157].LowPart & 0x1000) == 0 )
+  v20 = *((unsigned int *)a1 + 8);
+  v26 = 0;
+  v21 = DpSynchronizeExecution(*((_QWORD *)a1 + 3), VidSchiExecuteMmIoFlipMultiPlaneOverlayAtISR3, a4, v20, &v26);
+  v17 = 0LL;
+  v23 = v21;
+  if ( v21 < 0 )
   {
-    v20 = *(_DWORD *)v10[162].QuadPart & 0x3FF;
-    if ( *((_BYTE *)a1 + 156) == (_BYTE)v9 )
-      v21 = v9;
-    else
-      v21 = (*(_DWORD *)v10[162].QuadPart >> 10) & 0x3FF;
-    v22 = !_BitScanForward((unsigned int *)&v23, v20);
-    v24 = v9;
-    if ( v22 )
-      LOBYTE(v23) = -1;
-    v25 = (char)v23;
-    v22 = !_BitScanForward((unsigned int *)&v23, v21);
-    if ( v22 )
-      LOBYTE(v23) = -1;
-    v26 = (char)v23;
-    while ( v20 || v21 )
-    {
-      if ( v25 >= v26 )
-        v32 = v26;
-      else
-        v32 = v25;
-      *(_QWORD *)(*((_QWORD *)a1 + v45 + 400) + 288LL * v32 + 392) = *(_QWORD *)(v24
-                                                                               * ((8
-                                                                                 * *(_DWORD *)(v10[162].QuadPart + 8)
-                                                                                 + 231) & 0xFFFFFFF8)
-                                                                               + v10[162].QuadPart
-                                                                               + 24);
-      if ( v25 >= v26 )
-      {
-        v21 &= ~(1 << v26);
-        v40 = -1;
-        v22 = !_BitScanForward((unsigned int *)&v41, v21);
-        if ( !v22 )
-          v40 = v41;
-        v26 = v40;
-      }
-      else
-      {
-        v20 &= ~(1 << v25);
-        v22 = !_BitScanForward((unsigned int *)&v33, v20);
-        if ( v22 )
-          LOBYTE(v33) = -1;
-        v25 = (char)v33;
-      }
-      ++v24;
-    }
-    v11 = (LARGE_INTEGER *)v55;
-    v7 = v56;
+    v24 = (_QWORD *)WdLogNewEntry5_WdCriticalError(0LL, v22);
+    v24[3] = 281LL;
+    v24[4] = 11LL;
+    v24[5] = v23;
+    v24[6] = a4;
+    v24[7] = *((_QWORD *)a1 + 2);
+    WdLogEvent5_WdCriticalError(v24);
+    __debugbreak();
   }
-  if ( *((_BYTE *)a1 + 59) != (_BYTE)v9 )
-    v10[179] = KeQueryPerformanceCounter(0LL);
-  v27 = v45;
-  v28 = *(_QWORD **)(v10[145].QuadPart + 40);
-  v29 = v11[5].LowPart;
-  v30 = *((_QWORD *)a1 + v45 + 400);
-  if ( (_DWORD)v29 == -1 )
-  {
-    ++v28[346];
-    ++*(_QWORD *)(v30 + 78736);
-  }
-  else if ( !(_DWORD)v29 || (_DWORD)v29 == *(_DWORD *)(v30 + 82936) )
-  {
-    ++v28[344];
-    v28[348] += v29;
-    ++*(_QWORD *)(v30 + 78720);
-    *(_QWORD *)(v30 + 78752) += v29;
-  }
-  else if ( *(_DWORD *)(v30 + 82932) <= 1u )
-  {
-    ++v28[345];
-    v28[349] += v29;
-    ++*(_QWORD *)(v30 + 78728);
-    *(_QWORD *)(v30 + 78760) += v29;
-  }
+  if ( *((_DWORD *)a4 + 530) != -1073741267 || (*((_DWORD *)a4 + 4) & 1) == 0 )
+    goto LABEL_9;
+  *((_QWORD *)&v29 + 1) = __PAIR64__(v8, v28);
+  v32 = v17;
+  v33 = v17;
+  v34 = v17;
+  v31 = v27;
+  *(_QWORD *)&v29 = a1;
+  v30 = a3;
+  VidSchiEnqueueDeviceCommandToWorkerThreadAtDpc(&v29, v22);
+  if ( (*((_DWORD *)v9 + 306) & 0x10) != 0 )
+    v25 = ((unsigned __int16)**((_DWORD **)v9 + 158) | (unsigned __int16)(**((_DWORD **)v9 + 158) >> 10)) & 0x3FF;
   else
-  {
-    ++v28[347];
-    v28[351] += v29;
-    ++*(_QWORD *)(v30 + 78744);
-    *(_QWORD *)(v30 + 78776) += v29;
-  }
-LABEL_24:
-  *(_DWORD *)v7 = 11;
-  if ( !v11[2].HighPart )
-    goto LABEL_64;
-  do
-  {
-    v31 = *(_QWORD *)(v11[3].QuadPart + 8 * v9);
-    if ( (*(_DWORD *)(v31 + 16) & 4) != 0 && (*(_DWORD *)(v31 + 20) & 1) == 0 )
-    {
-      *(_DWORD *)v7 = 5;
-      goto LABEL_28;
-    }
-    if ( (*(_DWORD *)(v31 + 20) & 4) != 0 )
-    {
-      *(_DWORD *)v7 = 15;
-      v42 = 15;
-    }
-    else
-    {
-      v42 = *(_DWORD *)v7;
-    }
-    v9 = (unsigned int)(v9 + 1);
-  }
-  while ( (unsigned int)v9 < v11[2].HighPart );
-  if ( v42 == 11 )
-  {
-LABEL_64:
-    v43 = (LARGE_INTEGER *)*((_QWORD *)a1 + v27 + 400);
-    v11[266] = v43[5526];
-    v11[265].HighPart = v43[5524].LowPart;
-  }
-LABEL_28:
-  VidSchiLogMmIoFlipMultiPlaneOverlay3((__int64)a1, &v10[15], v11, *(_DWORD *)v7, v10[149].LowPart, v10[177].QuadPart);
+    v25 = (1 << *((_DWORD *)a1 + 36)) - 1;
+  *(_DWORD *)(*((_QWORD *)a1 + v8 + 388) + 2356LL) |= v25;
 }

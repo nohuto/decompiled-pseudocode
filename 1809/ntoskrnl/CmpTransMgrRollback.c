@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpTransMgrRollback @ 0x140694214
+ * XREFs of CmpTransMgrRollback @ 0x1406941F4
  * Callers:
- *     CmpAbortLightWeightTransaction @ 0x1406939B0 (CmpAbortLightWeightTransaction.c)
- *     CmKtmNotification @ 0x1406942D0 (CmKtmNotification.c)
- *     CmRmFinalizeRecovery @ 0x1406CDC48 (CmRmFinalizeRecovery.c)
- *     CmpRmUnDoPhase @ 0x1407F93C0 (CmpRmUnDoPhase.c)
+ *     CmpAbortLightWeightTransaction @ 0x140693990 (CmpAbortLightWeightTransaction.c)
+ *     CmKtmNotification @ 0x1406942B0 (CmKtmNotification.c)
+ *     CmRmFinalizeRecovery @ 0x1406CDC28 (CmRmFinalizeRecovery.c)
+ *     CmpRmUnDoPhase @ 0x1407F93A0 (CmpRmUnDoPhase.c)
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     CmListGetNextElement @ 0x1406948E0 (CmListGetNextElement.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmpTransMgrRollback(__int64 a1, _DWORD *a2)

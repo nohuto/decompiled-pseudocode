@@ -1,8 +1,8 @@
 /*
- * XREFs of PspConvertJobToMixed @ 0x1409B00F8
+ * XREFs of PspConvertJobToMixed @ 0x140908CB4
  * Callers:
- *     PspBindProcessSessionToJob @ 0x1406827E8 (PspBindProcessSessionToJob.c)
- *     PspSetJobMemoryPartition @ 0x1409B08E8 (PspSetJobMemoryPartition.c)
+ *     PspBindProcessSessionToJob @ 0x140613568 (PspBindProcessSessionToJob.c)
+ *     PspSetJobMemoryPartition @ 0x14090953C (PspSetJobMemoryPartition.c)
  * Callees:
  *     <none>
  */
@@ -11,13 +11,13 @@ __int64 __fastcall PspConvertJobToMixed(__int64 a1, int a2)
 {
   int v3; // eax
 
-  if ( *(_DWORD *)(a1 + 576) == -2 )
+  if ( *(_DWORD *)(a1 + 480) == -2 )
     return 0LL;
-  v3 = *(_DWORD *)(a1 + 1512);
+  v3 = *(_DWORD *)(a1 + 1320);
   if ( (v3 & 0x10) == 0
-    && ((v3 & 0x40000000) != 0 || ((*(_QWORD *)(a1 + 1752) + 1LL) & 0xFFFFFFFFFFFFFFFEuLL) != 0 || a2) )
+    && ((v3 & 0x40000000) != 0 || ((*(_QWORD *)(a1 + 1560) + 1LL) & 0xFFFFFFFFFFFFFFFEuLL) != 0 || a2) )
   {
-    *(_DWORD *)(a1 + 576) = -2;
+    *(_DWORD *)(a1 + 480) = -2;
     return 0LL;
   }
   return 3221225506LL;

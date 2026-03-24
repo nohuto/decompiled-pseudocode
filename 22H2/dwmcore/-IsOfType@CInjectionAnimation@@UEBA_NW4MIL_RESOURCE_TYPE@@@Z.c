@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CInjectionAnimation@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18022F240
+ * XREFs of ?IsOfType@CInjectionAnimation@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C4A40
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CInjectionAnimation::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 87 || a2 == 11 || a2 == 114;
+  return a2 == 85 || a2 == 10 || a2 == 112;
 }

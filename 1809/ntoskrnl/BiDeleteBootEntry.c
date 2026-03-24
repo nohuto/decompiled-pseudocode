@@ -1,13 +1,13 @@
 /*
- * XREFs of BiDeleteBootEntry @ 0x1408F3304
+ * XREFs of BiDeleteBootEntry @ 0x1408F32E4
  * Callers:
- *     BiBindEfiEntries @ 0x1408F21B4 (BiBindEfiEntries.c)
- *     BiExportBcdObjects @ 0x1408F3580 (BiExportBcdObjects.c)
+ *     BiBindEfiEntries @ 0x1408F2194 (BiBindEfiEntries.c)
+ *     BiExportBcdObjects @ 0x1408F3560 (BiExportBcdObjects.c)
  * Callees:
- *     ZwDeleteBootEntry @ 0x1401B9AD0 (ZwDeleteBootEntry.c)
- *     BiReleasePrivilege @ 0x1407114C4 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x140711514 (BiAcquirePrivilege.c)
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
+ *     ZwDeleteBootEntry @ 0x1401B9AF0 (ZwDeleteBootEntry.c)
+ *     BiReleasePrivilege @ 0x1407114A4 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x1407114F4 (BiAcquirePrivilege.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
  */
 
 __int64 __fastcall BiDeleteBootEntry(PUNICODE_STRING EntryName)

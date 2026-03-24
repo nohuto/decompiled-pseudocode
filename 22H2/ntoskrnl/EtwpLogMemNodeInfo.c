@@ -1,87 +1,71 @@
 /*
- * XREFs of EtwpLogMemNodeInfo @ 0x140467426
+ * XREFs of EtwpLogMemNodeInfo @ 0x1405A8CD8
  * Callers:
- *     EtwpLogMemInfoTimerCallback @ 0x1404673B0 (EtwpLogMemInfoTimerCallback.c)
+ *     EtwpLogMemInfoTimerCallback @ 0x1405A8C60 (EtwpLogMemInfoTimerCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwProviderEnabled @ 0x140304190 (EtwProviderEnabled.c)
- *     PsGetNextPartition @ 0x14036A720 (PsGetNextPartition.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MmFillEtwNodeInformation @ 0x14046B210 (MmFillEtwNodeInformation.c)
- *     MmFillEtwHugeIoSpaceInformation @ 0x1406178A0 (MmFillEtwHugeIoSpaceInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     EtwProviderEnabled @ 0x14025F0A0 (EtwProviderEnabled.c)
+ *     PsGetNextPartition @ 0x140303EF8 (PsGetNextPartition.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MmFillEtwNodeInformation @ 0x140547B34 (MmFillEtwNodeInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void EtwpLogMemNodeInfo()
 {
-  _BYTE *Pool2; // rbx
-  _QWORD *i; // rcx
+  _BYTE *PoolWithTag; // rbx
+  unsigned __int16 **i; // rcx
   int v2; // eax
-  _QWORD *NextPartition; // rax
-  _QWORD *v4; // rdi
-  int v5; // [rsp+48h] [rbp-C0h] BYREF
-  int v6; // [rsp+4Ch] [rbp-BCh] BYREF
-  __int64 v7; // [rsp+50h] [rbp-B8h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 *v9; // [rsp+68h] [rbp-A0h]
-  __int64 v10; // [rsp+70h] [rbp-98h]
-  _BYTE *v11; // [rsp+78h] [rbp-90h]
-  int v12; // [rsp+80h] [rbp-88h]
-  int v13; // [rsp+84h] [rbp-84h]
-  _BYTE P[608]; // [rsp+88h] [rbp-80h] BYREF
+  unsigned __int16 **NextPartition; // rax
+  unsigned __int16 **v4; // rdi
+  int v5; // [rsp+40h] [rbp-C0h] BYREF
+  int v6; // [rsp+44h] [rbp-BCh] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-B8h] BYREF
+  int *v8; // [rsp+58h] [rbp-A8h]
+  int v9; // [rsp+60h] [rbp-A0h]
+  int v10; // [rsp+64h] [rbp-9Ch]
+  _BYTE *v11; // [rsp+68h] [rbp-98h]
+  int v12; // [rsp+70h] [rbp-90h]
+  int v13; // [rsp+74h] [rbp-8Ch]
+  _BYTE P[608]; // [rsp+80h] [rbp-80h] BYREF
 
+  v5 = 0;
   v6 = 0;
-  LOBYTE(v5) = 0;
-  LODWORD(v7) = 0;
-  if ( EtwpHostSiloState != -4540
-    && (*(_DWORD *)(EtwpHostSiloState + 4544) & 0x80000) != 0
+  if ( EtwpHostSiloState != -4516
+    && (*(_DWORD *)(EtwpHostSiloState + 4520) & 0x80000) != 0
     && EtwProviderEnabled(EtwpMemoryProvRegHandle, 0, 0x400uLL) )
   {
     if ( (unsigned __int16)KeNumberNodes > 8u )
     {
-      Pool2 = (_BYTE *)ExAllocatePool2(64LL, 76LL * (unsigned __int16)KeNumberNodes, 1953985605LL);
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 76LL * (unsigned __int16)KeNumberNodes, 0x74777445u);
+      if ( !PoolWithTag )
         return;
     }
     else
     {
-      Pool2 = P;
+      PoolWithTag = P;
     }
     for ( i = 0LL; ; i = v4 )
     {
-      NextPartition = PsGetNextPartition(i);
+      NextPartition = (unsigned __int16 **)PsGetNextPartition(i);
       v4 = NextPartition;
       if ( !NextPartition )
         break;
-      LODWORD(v7) = MmFillEtwNodeInformation(NextPartition, Pool2, (unsigned __int16)KeNumberNodes, &v6);
-      UserData.Ptr = (ULONGLONG)&v6;
-      *(_QWORD *)&UserData.Size = 4LL;
-      v9 = &v7;
-      v12 = 76 * v7;
-      v10 = 4LL;
-      v11 = Pool2;
+      v2 = MmFillEtwNodeInformation(NextPartition, (__int64)PoolWithTag, (unsigned __int16)KeNumberNodes, &v5);
+      UserData.Reserved = 0;
+      v10 = 0;
       v13 = 0;
+      v6 = v2;
+      UserData.Ptr = (ULONGLONG)&v5;
+      v8 = &v6;
+      UserData.Size = 4;
+      v12 = 76 * v2;
+      v9 = 4;
+      v11 = PoolWithTag;
       EtwWriteEx(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_MEMINFO_NODE, 0LL, 0, 0LL, 0LL, 3u, &UserData);
-      if ( qword_140C67EF0 )
-      {
-        v2 = MmFillEtwHugeIoSpaceInformation(
-               (_DWORD)v4,
-               (_DWORD)Pool2,
-               (unsigned __int16)KeNumberNodes,
-               (unsigned int)&v5,
-               (__int64)&v6);
-        LODWORD(v7) = v2;
-        if ( (_BYTE)v5 )
-        {
-          v11 = Pool2;
-          v13 = 0;
-          v12 = 28 * v2;
-          EtwWriteEx(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_MEMINFO_HUGE_IOSPACE, 0LL, 0, 0LL, 0LL, 3u, &UserData);
-        }
-      }
     }
-    if ( Pool2 != P )
-      ExFreePoolWithTag(Pool2, 0);
+    if ( PoolWithTag != P )
+      ExFreePoolWithTag(PoolWithTag, 0);
   }
 }

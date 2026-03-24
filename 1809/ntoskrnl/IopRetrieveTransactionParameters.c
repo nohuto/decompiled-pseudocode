@@ -2,11 +2,11 @@
  * XREFs of IopRetrieveTransactionParameters @ 0x140639970
  * Callers:
  *     IopAllocRealFileObject @ 0x14063BB00 (IopAllocRealFileObject.c)
- *     IopParseDevice @ 0x14063CD00 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     IopGetSetSpecificExtension @ 0x14008D07C (IopGetSetSpecificExtension.c)
- *     IopCheckStackForTransactionSupport @ 0x140169C20 (IopCheckStackForTransactionSupport.c)
+ *     IopCheckStackForTransactionSupport @ 0x140169C40 (IopCheckStackForTransactionSupport.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */
 

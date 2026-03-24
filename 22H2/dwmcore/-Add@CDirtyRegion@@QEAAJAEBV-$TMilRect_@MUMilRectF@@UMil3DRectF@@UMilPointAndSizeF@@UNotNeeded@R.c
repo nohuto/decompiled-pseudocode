@@ -1,37 +1,39 @@
 /*
- * XREFs of ?Add@CDirtyRegion@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180049A64
+ * XREFs of ?Add@CDirtyRegion@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800C549C
  * Callers:
- *     ?Add@CDirtyRegion@@QEAAJAEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180049A14 (-Add@CDirtyRegion@@QEAAJAEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@.c)
- *     ?AddInvalidRects@CRenderTarget@@UEAAXPEBVCVisualTree@@PEAVCDirtyRegion@@@Z @ 0x1800FE810 (-AddInvalidRects@CRenderTarget@@UEAAXPEBVCVisualTree@@PEAVCDirtyRegion@@@Z.c)
- *     ContributeRegionToDirty @ 0x18029AD80 (ContributeRegionToDirty.c)
+ *     ?Add@CDirtyRegion@@QEAAJAEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x1800C544C (-Add@CDirtyRegion@@QEAAJAEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@.c)
+ *     ContributeRegionToDirty @ 0x1802495EC (ContributeRegionToDirty.c)
  * Callees:
- *     ?IsInfinite@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x18004C8DC (-IsInfinite@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
- *     ?_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18006A650 (-_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSiz.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetFullDirty@CDirtyRegion@@QEAAXXZ @ 0x1800C4C70 (-SetFullDirty@CDirtyRegion@@QEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180082E50 (-_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSiz.c)
+ *     ?IsDisabled@CDirtyRegion@@QEBA_NXZ @ 0x1800C5538 (-IsDisabled@CDirtyRegion@@QEBA_NXZ.c)
+ *     ?IsInfinite@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x1800C5554 (-IsInfinite@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?SetFullDirty@CDirtyRegion@@QEAAXXZ @ 0x1800D5D10 (-SetFullDirty@CDirtyRegion@@QEAAXXZ.c)
  */
 
-__int64 __fastcall CDirtyRegion::Add(__int64 a1, __int64 a2)
+__int64 __fastcall CDirtyRegion::Add(CDirtyRegion *a1)
 {
-  unsigned int v2; // ebx
-  CDirtyRegion *v3; // r10
-  int v4; // eax
-  unsigned int v5; // ecx
+  unsigned int v1; // ebx
+  __int64 v2; // rdx
+  float *v3; // rdx
+  CDirtyRegion *v4; // r10
+  int v5; // eax
+  __int64 v6; // rcx
 
-  v2 = 0;
-  if ( !*(_BYTE *)(a1 + 4420) )
+  v1 = 0;
+  if ( !CDirtyRegion::IsDisabled(a1) )
   {
-    if ( (unsigned __int8)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsInfinite(a2) )
+    if ( (unsigned __int8)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsInfinite(v2) )
     {
-      CDirtyRegion::SetFullDirty(v3);
+      CDirtyRegion::SetFullDirty(v4);
     }
     else
     {
-      v4 = CDirtyRegion::_Add(v3);
-      v2 = v4;
-      if ( v4 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x19Du, 0LL);
+      v5 = CDirtyRegion::_Add(v4, 0LL, 1, v3);
+      v1 = v5;
+      if ( v5 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x146u, 0LL);
     }
   }
-  return v2;
+  return v1;
 }

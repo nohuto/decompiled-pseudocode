@@ -1,14 +1,13 @@
 /*
- * XREFs of ExpIsPoolReadyForWork @ 0x140346770
+ * XREFs of ExpIsPoolReadyForWork @ 0x1402428E0
  * Callers:
- *     ExpTryQueueWorkItem @ 0x1402EEE7C (ExpTryQueueWorkItem.c)
- *     ExpQueueWorkItem @ 0x1402EF0CC (ExpQueueWorkItem.c)
- *     ExQueueWorkItemFromIo @ 0x140345DA0 (ExQueueWorkItemFromIo.c)
+ *     ExpTryQueueWorkItem @ 0x14023BDCC (ExpTryQueueWorkItem.c)
+ *     ExpQueueWorkItem @ 0x1402414A0 (ExpQueueWorkItem.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall ExpIsPoolReadyForWork(__int64 a1, unsigned __int16 *a2, int a3)
+bool __fastcall ExpIsPoolReadyForWork(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // r9
   __int64 v4; // rax
@@ -16,7 +15,7 @@ bool __fastcall ExpIsPoolReadyForWork(__int64 a1, unsigned __int16 *a2, int a3)
 
   if ( !a2 )
     return 0;
-  v3 = 8LL * *a2;
+  v3 = 8LL * *(unsigned __int16 *)(a2 + 146);
   if ( *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + v3) + 264LL) < 2uLL )
     return 0;
   v4 = *(_QWORD *)(*(_QWORD *)(v3 + *(_QWORD *)(a1 + 8)) + 8LL * a3);

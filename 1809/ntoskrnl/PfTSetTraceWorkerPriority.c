@@ -1,9 +1,9 @@
 /*
- * XREFs of PfTSetTraceWorkerPriority @ 0x140175A7C
+ * XREFs of PfTSetTraceWorkerPriority @ 0x140175A9C
  * Callers:
  *     PfPowerActionNotify @ 0x140567F10 (PfPowerActionNotify.c)
- *     PfSetSuperfetchInformation @ 0x140665898 (PfSetSuperfetchInformation.c)
- *     PfpLogScenarioEvent @ 0x14071BCD4 (PfpLogScenarioEvent.c)
+ *     PfSetSuperfetchInformation @ 0x140665878 (PfSetSuperfetchInformation.c)
+ *     PfpLogScenarioEvent @ 0x14071BCB4 (PfpLogScenarioEvent.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -13,8 +13,8 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeSetPriorityThread @ 0x1400CD850 (KeSetPriorityThread.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall PfTSetTraceWorkerPriority(unsigned int Priority)

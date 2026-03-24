@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiSetRectRgn @ 0x1C016BCB0
+ * XREFs of NtGdiSetRectRgn @ 0x1C013ECA0
  * Callers:
  *     <none>
  * Callees:
- *     GreSetRectRgn @ 0x1C008E9A0 (GreSetRectRgn.c)
+ *     GreSetRectRgn @ 0x1C007FC00 (GreSetRectRgn.c)
  */
 
 __int64 __fastcall NtGdiSetRectRgn(HRGN a1, LONG a2, LONG a3, LONG a4, LONG a5)

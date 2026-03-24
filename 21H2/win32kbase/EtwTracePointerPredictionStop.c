@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTracePointerPredictionStop @ 0x1C014E4C0
+ * XREFs of EtwTracePointerPredictionStop @ 0x1C01238A0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0d_EtwWriteTransfer @ 0x1C014F9C8 (McTemplateK0d_EtwWriteTransfer.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x1C0125070 (McTemplateK0d_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTracePointerPredictionStop(__int64 a1, __int64 a2, __int64 a3)

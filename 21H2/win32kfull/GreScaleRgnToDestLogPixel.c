@@ -1,12 +1,12 @@
 /*
- * XREFs of GreScaleRgnToDestLogPixel @ 0x1C029D948
+ * XREFs of GreScaleRgnToDestLogPixel @ 0x1C029F044
  * Callers:
- *     ?GetLayeredRegion@@YA_NPEAUtagWND@@PEAUHRGN__@@PEA_N@Z @ 0x1C00B478C (-GetLayeredRegion@@YA_NPEAUtagWND@@PEAUHRGN__@@PEA_N@Z.c)
- *     ?GetWindowRgn@@YAHPEAUtagWND@@PEAUHRGN__@@K@Z @ 0x1C00B4AAC (-GetWindowRgn@@YAHPEAUtagWND@@PEAUHRGN__@@K@Z.c)
- *     ?DrawWindowShadow@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAH@Z @ 0x1C012FB54 (-DrawWindowShadow@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAH@Z.c)
- *     NtUserGetWindowRgnEx @ 0x1C01F7560 (NtUserGetWindowRgnEx.c)
+ *     ?UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z @ 0x1C00394E8 (-UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z.c)
+ *     ?GetWindowRgn@@YAHPEAUtagWND@@PEAUHRGN__@@K@Z @ 0x1C0039934 (-GetWindowRgn@@YAHPEAUtagWND@@PEAUHRGN__@@K@Z.c)
+ *     ?DrawWindowShadow@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAH@Z @ 0x1C013E7D0 (-DrawWindowShadow@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAH@Z.c)
+ *     NtUserGetWindowRgnEx @ 0x1C01FCB60 (NtUserGetWindowRgnEx.c)
  * Callees:
- *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C0042D7C (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00B307C (--1RGNOBJAPI@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreScaleRgnToDestLogPixel(__int64 a1, HRGN a2)

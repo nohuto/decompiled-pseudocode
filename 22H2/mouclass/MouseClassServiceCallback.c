@@ -1,1 +1,187 @@
-/*\n * XREFs of MouseClassServiceCallback @ 0x1C0005190\n * Callers:\n *     <none>\n * Callees:\n *     memmove @ 0x1C0002C00 (memmove.c)\n *     MouseClassDequeueRead @ 0x1C0004A4C (MouseClassDequeueRead.c)\n *     MouseClassReadCopyData @ 0x1C0004D78 (MouseClassReadCopyData.c)\n *     WPP_RECORDER_SF_ @ 0x1C0005CCC (WPP_RECORDER_SF_.c)\n *     WPP_RECORDER_SF_qL @ 0x1C0005EFC (WPP_RECORDER_SF_qL.c)\n *     WPP_RECORDER_SF_qLL @ 0x1C0005FD0 (WPP_RECORDER_SF_qLL.c)\n *     WPP_RECORDER_SF_qLqq @ 0x1C00060C8 (WPP_RECORDER_SF_qLqq.c)\n *     WPP_RECORDER_SF_qlqqd @ 0x1C00062B4 (WPP_RECORDER_SF_qlqqd.c)\n *     WPP_RECORDER_SF_qqLLqq @ 0x1C0006770 (WPP_RECORDER_SF_qqLLqq.c)\n *     WPP_RECORDER_SF_qqiL @ 0x1C0006D48 (WPP_RECORDER_SF_qqiL.c)\n */\n\n__int64 **__fastcall MouseClassServiceCallback(__int64 a1, char *a2, int a3, _DWORD *a4)\n{\n  _DWORD *v4; // r13\n  char *v6; // r14\n  __int64 v8; // rdi\n  unsigned int v9; // ebx\n  size_t v10; // r12\n  int v11; // edx\n  _QWORD *v12; // rsi\n  int v13; // r8d\n  int v14; // r9d\n  __int64 v15; // r13\n  unsigned int v16; // r8d\n  unsigned __int64 v17; // rdx\n  __int64 ***v18; // rsi\n  __int64 **v19; // rax\n  char *v20; // r14\n  unsigned int v21; // ebx\n  int v22; // edx\n  unsigned int v23; // esi\n  unsigned int v24; // r12d\n  unsigned int v25; // esi\n  int v26; // r8d\n  int v27; // r9d\n  char *v28; // r14\n  __int64 v29; // rcx\n  unsigned __int64 v30; // rdx\n  size_t v31; // rbx\n  _QWORD *v32; // rax\n  int v33; // r8d\n  int v34; // r9d\n  _QWORD *v35; // rbx\n  _QWORD *v36; // rdx\n  __int64 ***v37; // rax\n  __int64 v38; // rdx\n  __int64 *v39; // rbx\n  __int64 **result; // rax\n  __int64 *v41; // rax\n  __int64 *v42; // [rsp+60h] [rbp-10h] BYREF\n  __int64 **v43; // [rsp+68h] [rbp-8h]\n\n  v4 = a4;\n  v6 = a2;\n  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )\n  {\n    LOBYTE(a2) = 5;\n    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, a2, 3LL);\n  }\n  v8 = *(_QWORD *)(a1 + 64);\n  v9 = a3 - (_DWORD)v6;\n  LODWORD(v10) = 0;\n  *v4 = 0;\n  KeAcquireSpinLockAtDpcLevel((PKSPIN_LOCK)(v8 + 144));\n  v43 = &v42;\n  v42 = (__int64 *)&v42;\n  v12 = MouseClassDequeueRead(v8);\n  v14 = 0;\n  if ( v12 )\n  {\n    v15 = v12[23];\n    v10 = v9;\n    v16 = *(_DWORD *)(v15 + 8);\n    if ( v9 >= v16 )\n      v10 = v16;\n    v17 = v10 / 0x18;\n    *a4 += v10 / 0x18;\n    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )\n      WPP_RECORDER_SF_qqLLqq(WPP_GLOBAL_Control->DeviceExtension, v17, v16, 0);\n    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )\n      WPP_RECORDER_SF_qqiL(WPP_GLOBAL_Control->DeviceExtension, v17, v16, v14);\n    memmove((void *)v12[3], v6, v10);\n    v12[7] = v10;\n    *((_DWORD *)v12 + 12) = 0;\n    v18 = (__int64 ***)(v12 + 21);\n    *(_DWORD *)(v15 + 8) = v10;\n    v19 = v43;\n    if ( *v43 != (__int64 *)&v42 )\nLABEL_51:\n      __fastfail(3u);\n    v4 = a4;\n    *v18 = &v42;\n    v18[1] = v19;\n    *v19 = (__int64 *)v18;\n    v43 = (__int64 **)v18;\n  }\n  v20 = &v6[(unsigned int)v10];\n  v21 = v9 - v10;\n  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )\n    WPP_RECORDER_SF_qL(WPP_GLOBAL_Control->DeviceExtension, v11, v13, 0);\n  v22 = 0;\n  if ( v21 )\n  {\n    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )\n    {\n      WPP_RECORDER_SF_qLL(WPP_GLOBAL_Control->DeviceExtension, 24 * *(_DWORD *)(v8 + 84), v13, 54);\n      v22 = 0;\n    }\n    v23 = *(_DWORD *)(v8 + 136);\n    v24 = v23;\n    if ( v23 >= v21 )\n      v24 = v21;\n    v25 = *(_DWORD *)(v8 + 104) + v23 - *(_DWORD *)(v8 + 112);\n    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )\n      WPP_RECORDER_SF_qLL(WPP_GLOBAL_Control->DeviceExtension, 0, v13, 56);\n    if ( v24 < v25 )\n      v25 = v24;\n    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )\n      WPP_RECORDER_SF_qLqq(WPP_GLOBAL_Control->DeviceExtension, v22, v13, 57);\n    memmove(*(void **)(v8 + 112), v20, v25);\n    *(_QWORD *)(v8 + 112) += v25;\n    v28 = &v20[v25];\n    v29 = *(_QWORD *)(v8 + 104);\n    v30 = *(_QWORD *)(v8 + 112);\n    if ( v30 >= v29 + (unsigned __int64)*(unsigned int *)(v8 + 136) )\n    {\n      *(_QWORD *)(v8 + 112) = v29;\n      LODWORD(v30) = v29;\n    }\n    v31 = v24 - v25;\n    if ( v24 != v25 )\n    {\n      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )\n        WPP_RECORDER_SF_qLqq(WPP_GLOBAL_Control->DeviceExtension, v30, v26, 58);\n      memmove(*(void **)(v8 + 112), v28, v31);\n      *(_QWORD *)(v8 + 112) += v31;\n    }\n    *(_DWORD *)(v8 + 84) += v24 / 0x18;\n    *v4 += v24 / 0x18;\n    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )\n      WPP_RECORDER_SF_qlqqd(WPP_GLOBAL_Control->DeviceExtension, 0, v26, v27);\n  }\n  while ( *(_DWORD *)(v8 + 84) )\n  {\n    v32 = MouseClassDequeueRead(v8);\n    v35 = v32;\n    if ( !v32 )\n      break;\n    *((_DWORD *)v32 + 12) = MouseClassReadCopyData(v8, v32, v33, v34);\n    v36 = v43;\n    v37 = (__int64 ***)(v35 + 21);\n    if ( *v43 != (__int64 *)&v42 )\n      goto LABEL_51;\n    v35[22] = v43;\n    *v37 = &v42;\n    *v36 = v37;\n    v43 = (__int64 **)(v35 + 21);\n  }\n  KeReleaseSpinLockFromDpcLevel((PKSPIN_LOCK)(v8 + 144));\n  while ( 1 )\n  {\n    v39 = v42;\n    result = &v42;\n    if ( v42 == (__int64 *)&v42 )\n      break;\n    if ( (__int64 **)v42[1] != &v42 )\n      goto LABEL_51;\n    v41 = (__int64 *)*v42;\n    if ( *(__int64 **)(*v42 + 8) != v42 )\n      goto LABEL_51;\n    v42 = (__int64 *)*v42;\n    v41[1] = (__int64)&v42;\n    IofCompleteRequest((PIRP)(v39 - 21), 6);\n    IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v8 + 32), v39 - 21, 0x20u);\n  }\n  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )\n  {\n    LOBYTE(v38) = 5;\n    return (__int64 **)WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v38, 3LL);\n  }\n  return result;\n}\n
+/*
+ * XREFs of MouseClassServiceCallback @ 0x1C0004BE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0002A80 (memmove.c)
+ *     MouseClassDequeueRead @ 0x1C000449C (MouseClassDequeueRead.c)
+ *     MouseClassReadCopyData @ 0x1C00047C8 (MouseClassReadCopyData.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000572C (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_qL @ 0x1C000595C (WPP_RECORDER_SF_qL.c)
+ *     WPP_RECORDER_SF_qLL @ 0x1C0005A30 (WPP_RECORDER_SF_qLL.c)
+ *     WPP_RECORDER_SF_qLqq @ 0x1C0005B28 (WPP_RECORDER_SF_qLqq.c)
+ *     WPP_RECORDER_SF_qlqqd @ 0x1C0005D14 (WPP_RECORDER_SF_qlqqd.c)
+ *     WPP_RECORDER_SF_qqLLqq @ 0x1C00061D4 (WPP_RECORDER_SF_qqLLqq.c)
+ *     WPP_RECORDER_SF_qqiL @ 0x1C00067B4 (WPP_RECORDER_SF_qqiL.c)
+ */
+
+__int64 **__fastcall MouseClassServiceCallback(__int64 a1, char *a2, int a3, _DWORD *a4)
+{
+  _DWORD *v4; // r13
+  char *v6; // r14
+  __int64 v8; // rdi
+  unsigned int v9; // ebx
+  size_t v10; // r12
+  int v11; // edx
+  _QWORD *v12; // rsi
+  int v13; // r8d
+  int v14; // r9d
+  __int64 v15; // r13
+  unsigned int v16; // r8d
+  __int64 ***v17; // rsi
+  __int64 **v18; // rax
+  char *v19; // r14
+  unsigned int v20; // ebx
+  unsigned int v21; // ecx
+  unsigned int v22; // r12d
+  unsigned int v23; // ebx
+  unsigned int v24; // esi
+  int v25; // r8d
+  int v26; // r9d
+  char *v27; // r14
+  char *v28; // rdx
+  char *v29; // rcx
+  char *v30; // rax
+  _QWORD *v31; // rax
+  int v32; // r8d
+  int v33; // r9d
+  _QWORD *v34; // rbx
+  _QWORD *v35; // rdx
+  __int64 ***v36; // rax
+  __int64 v37; // rdx
+  __int64 *v38; // rbx
+  __int64 **result; // rax
+  __int64 *v40; // rax
+  __int64 *v41; // [rsp+60h] [rbp-10h] BYREF
+  __int64 **v42; // [rsp+68h] [rbp-8h]
+
+  v4 = a4;
+  v6 = a2;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(a2) = 5;
+    WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, a2, 3LL);
+  }
+  v8 = *(_QWORD *)(a1 + 64);
+  v9 = a3 - (_DWORD)v6;
+  LODWORD(v10) = 0;
+  *v4 = 0;
+  KeAcquireSpinLockAtDpcLevel((PKSPIN_LOCK)(v8 + 144));
+  v42 = &v41;
+  v41 = (__int64 *)&v41;
+  v12 = MouseClassDequeueRead(v8);
+  v14 = 0;
+  if ( v12 )
+  {
+    v15 = v12[23];
+    v10 = v9;
+    v16 = *(_DWORD *)(v15 + 8);
+    if ( v9 >= v16 )
+      v10 = v16;
+    *a4 += v10 / 0x18;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      WPP_RECORDER_SF_qqLLqq(WPP_GLOBAL_Control->DeviceExtension, v10 / 0x18, v16, 0);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_qqiL(WPP_GLOBAL_Control->DeviceExtension, (unsigned int)&WPP_RECORDER_INITIALIZED, v16, v14);
+    memmove((void *)v12[3], v6, v10);
+    v12[7] = v10;
+    v13 = 0;
+    *((_DWORD *)v12 + 12) = 0;
+    v17 = (__int64 ***)(v12 + 21);
+    *(_DWORD *)(v15 + 8) = v10;
+    v18 = v42;
+    if ( *v42 != (__int64 *)&v41 )
+LABEL_50:
+      __fastfail(3u);
+    v4 = a4;
+    *v17 = &v41;
+    v17[1] = v18;
+    *v18 = (__int64 *)v17;
+    v42 = (__int64 **)v17;
+  }
+  v19 = &v6[(unsigned int)v10];
+  v20 = v9 - v10;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_qL(WPP_GLOBAL_Control->DeviceExtension, v11, v13, v14);
+  if ( v20 )
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      WPP_RECORDER_SF_qLL(WPP_GLOBAL_Control->DeviceExtension, 24 * *(_DWORD *)(v8 + 84), v13, 54);
+    v21 = *(_DWORD *)(v8 + 136);
+    v22 = v21;
+    if ( v21 >= v20 )
+      v22 = v20;
+    v23 = v21 - *(_DWORD *)(v8 + 112) + *(_DWORD *)(v8 + 104);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      WPP_RECORDER_SF_qLL(WPP_GLOBAL_Control->DeviceExtension, v11, v13, 56);
+    v24 = v22;
+    if ( v22 >= v23 )
+      v24 = v23;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      WPP_RECORDER_SF_qLqq(WPP_GLOBAL_Control->DeviceExtension, v11, v13, 57);
+    memmove(*(void **)(v8 + 112), v19, v24);
+    *(_QWORD *)(v8 + 112) += v24;
+    v27 = &v19[v24];
+    v28 = *(char **)(v8 + 104);
+    v29 = *(char **)(v8 + 112);
+    if ( v29 >= &v28[*(unsigned int *)(v8 + 136)] )
+    {
+      *(_QWORD *)(v8 + 112) = v28;
+      v29 = v28;
+    }
+    if ( v22 != v24 )
+    {
+      v30 = v29;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      {
+        WPP_RECORDER_SF_qLqq(WPP_GLOBAL_Control->DeviceExtension, (_DWORD)WPP_GLOBAL_Control, 0, 58);
+        v30 = *(char **)(v8 + 112);
+      }
+      memmove(v30, v27, v22 - v24);
+      *(_QWORD *)(v8 + 112) += v22 - v24;
+    }
+    *(_DWORD *)(v8 + 84) += v22 / 0x18;
+    *v4 += v22 / 0x18;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      WPP_RECORDER_SF_qlqqd(WPP_GLOBAL_Control->DeviceExtension, v22 / 0x18, v25, v26);
+  }
+  while ( *(_DWORD *)(v8 + 84) )
+  {
+    v31 = MouseClassDequeueRead(v8);
+    v34 = v31;
+    if ( !v31 )
+      break;
+    *((_DWORD *)v31 + 12) = MouseClassReadCopyData(v8, v31, v32, v33);
+    v35 = v42;
+    v36 = (__int64 ***)(v34 + 21);
+    if ( *v42 != (__int64 *)&v41 )
+      goto LABEL_50;
+    v34[22] = v42;
+    *v36 = &v41;
+    *v35 = v36;
+    v42 = (__int64 **)(v34 + 21);
+  }
+  KeReleaseSpinLockFromDpcLevel((PKSPIN_LOCK)(v8 + 144));
+  while ( 1 )
+  {
+    v38 = v41;
+    result = &v41;
+    if ( v41 == (__int64 *)&v41 )
+      break;
+    if ( (__int64 **)v41[1] != &v41 )
+      goto LABEL_50;
+    v40 = (__int64 *)*v41;
+    if ( *(__int64 **)(*v41 + 8) != v41 )
+      goto LABEL_50;
+    v41 = (__int64 *)*v41;
+    v40[1] = (__int64)&v41;
+    IofCompleteRequest((PIRP)(v38 - 21), 6);
+    IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v8 + 32), v38 - 21, 0x20u);
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    LOBYTE(v37) = 5;
+    return (__int64 **)WPP_RECORDER_SF_(WPP_GLOBAL_Control->DeviceExtension, v37, 3LL);
+  }
+  return result;
+}

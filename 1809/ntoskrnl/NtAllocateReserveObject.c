@@ -1,9 +1,9 @@
 /*
- * XREFs of NtAllocateReserveObject @ 0x1406BDB90
+ * XREFs of NtAllocateReserveObject @ 0x1406BDB70
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
  *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
  */

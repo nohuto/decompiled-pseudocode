@@ -4,8 +4,8 @@
  *     WMIInitialize @ 0x1409AFD00 (WMIInitialize.c)
  *     WmipDriverEntry @ 0x1409D4020 (WmipDriverEntry.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x14015F980 (ExInitializeNPagedLookasideListInternal.c)
+ *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x14015F9A0 (ExInitializeNPagedLookasideListInternal.c)
  */
 
 void __fastcall WmipInitializeRegistration(int a1)

@@ -1,27 +1,29 @@
 /*
- * XREFs of UserIsProcessImmersiveAppContainer @ 0x1C003FAA0
+ * XREFs of UserIsProcessImmersiveAppContainer @ 0x1C002BE40
  * Callers:
- *     ?MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z @ 0x1C00350B8 (-MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z.c)
- *     ?vAppContainerOwner@SURFACE@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C003FAF4 (-vAppContainerOwner@SURFACE@@QEAAXPEAU_EPROCESS@@@Z.c)
+ *     ?vAppContainerOwner@SURFACE@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C002BE8C (-vAppContainerOwner@SURFACE@@QEAAXPEAU_EPROCESS@@@Z.c)
+ *     ?MultiUserGreCleanupHmgOwnRemoveAllLocks@@YAXE@Z @ 0x1C013F84C (-MultiUserGreCleanupHmgOwnRemoveAllLocks@@YAXE@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall UserIsProcessImmersiveAppContainer(__int64 a1)
 {
-  __int64 ProcessWin32Process; // rax
+  __int64 result; // rax
   unsigned int v2; // ecx
-  int v4; // edx
+  int v3; // edx
 
-  ProcessWin32Process = PsGetProcessWin32Process(a1);
+  result = PsGetProcessWin32Process(a1);
   v2 = 0;
-  if ( !ProcessWin32Process || !*(_QWORD *)ProcessWin32Process )
-    return 0LL;
-  if ( *(_DWORD *)(ProcessWin32Process + 892) )
+  if ( result )
   {
-    v4 = *(_DWORD *)(ProcessWin32Process + 816);
-    if ( (v4 & 0x30) == 0x10 )
-      return (v4 & 0x200) == 0;
+    if ( *(_DWORD *)(result + 884) )
+    {
+      v3 = *(_DWORD *)(result + 820);
+      if ( (v3 & 0x30) == 0x10 )
+        return (v3 & 0x200) == 0;
+    }
+    return v2;
   }
-  return v2;
+  return result;
 }

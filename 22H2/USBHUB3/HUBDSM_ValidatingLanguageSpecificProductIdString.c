@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_ValidatingLanguageSpecificProductIdString @ 0x1C0020720
+ * XREFs of HUBDSM_ValidatingLanguageSpecificProductIdString @ 0x1C001DD00
  * Callers:
  *     <none>
  * Callees:
- *     HUBDTX_ValidateAndCacheProductIdStringDescriptor @ 0x1C002CA04 (HUBDTX_ValidateAndCacheProductIdStringDescriptor.c)
+ *     HUBDTX_ValidateAndCacheProductIdStringDescriptor @ 0x1C002995C (HUBDTX_ValidateAndCacheProductIdStringDescriptor.c)
  */
 
 __int64 __fastcall HUBDSM_ValidatingLanguageSpecificProductIdString(__int64 a1)

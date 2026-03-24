@@ -1,9 +1,9 @@
 /*
- * XREFs of WerpParseKeyName @ 0x1C0054B28
+ * XREFs of WerpParseKeyName @ 0x1C0051D88
  * Callers:
- *     WerKernelSubmitReport @ 0x1C0053FE0 (WerKernelSubmitReport.c)
+ *     WerKernelSubmitReport @ 0x1C005121C (WerKernelSubmitReport.c)
  * Callees:
- *     WerpGetReverseCharPosition @ 0x1C0054AFC (WerpGetReverseCharPosition.c)
+ *     WerpGetReverseCharPosition @ 0x1C0051D5C (WerpGetReverseCharPosition.c)
  */
 
 __int64 __fastcall WerpParseKeyName(
@@ -42,11 +42,11 @@ __int64 __fastcall WerpParseKeyName(
           0x96u,
           0,
           "WERLIVEKERNELREPORTING:%u: ERROR Could not find \\ in the keyname looking for Report Type\n",
-          433LL);
+          435LL);
       }
       else
       {
-        DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR No report type can be detected\n", 423LL);
+        DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR No report type can be detected\n", 425LL);
       }
     }
     else
@@ -55,7 +55,7 @@ __int64 __fastcall WerpParseKeyName(
         0x96u,
         0,
         "WERLIVEKERNELREPORTING:%u: ERROR Could not find \\ in the keyname looking for Reportid\n",
-        409LL);
+        411LL);
     }
     return (unsigned int)-1073741811;
   }

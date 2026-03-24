@@ -1,10 +1,10 @@
 /*
- * XREFs of ?MKHideMouseCursor@@YAXXZ @ 0x1C005FA20
+ * XREFs of ?MKHideMouseCursor@@YAXXZ @ 0x1C000C3C0
  * Callers:
- *     xxxUpdatePerUserAccessPackSettings @ 0x1C0060150 (xxxUpdatePerUserAccessPackSettings.c)
- *     ?TurnOffMouseKeys@@YAXXZ @ 0x1C01B9960 (-TurnOffMouseKeys@@YAXXZ.c)
+ *     xxxUpdatePerUserAccessPackSettings @ 0x1C000DFA0 (xxxUpdatePerUserAccessPackSettings.c)
+ *     ?TurnOffMouseKeys@@YAXXZ @ 0x1C0183B90 (-TurnOffMouseKeys@@YAXXZ.c)
  * Callees:
- *     ?SetGlobalCursorLevel@@YAXH@Z @ 0x1C00BE010 (-SetGlobalCursorLevel@@YAXH@Z.c)
+ *     ?SetGlobalCursorLevel@@YAXH@Z @ 0x1C00B04A0 (-SetGlobalCursorLevel@@YAXH@Z.c)
  */
 
 void MKHideMouseCursor(void)

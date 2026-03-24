@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CNineGridBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D6850
+ * XREFs of ?IsOfType@CNineGridBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800C93A0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CNineGridBrush::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 111 || a2 == 15 || a2 == 45;
+  return a2 == 111 || a2 == 14 || a2 == 45;
 }

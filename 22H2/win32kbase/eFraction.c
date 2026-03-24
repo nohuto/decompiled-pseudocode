@@ -1,7 +1,7 @@
 /*
- * XREFs of eFraction @ 0x1C000EB28
+ * XREFs of eFraction @ 0x1C00A9718
  * Callers:
- *     efSin @ 0x1C0003A40 (efSin.c)
+ *     efSin @ 0x1C00A49D0 (efSin.c)
  * Callees:
  *     <none>
  */

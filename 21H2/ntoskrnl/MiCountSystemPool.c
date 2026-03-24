@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCountSystemPool @ 0x140352D90
+ * XREFs of MiCountSystemPool @ 0x14030B920
  * Callers:
- *     MiCommitPoolMemory @ 0x1403525F0 (MiCommitPoolMemory.c)
- *     MmFreePoolMemory @ 0x140366DA8 (MmFreePoolMemory.c)
- *     MmFreeSecurePoolMemory @ 0x14059A9B4 (MmFreeSecurePoolMemory.c)
+ *     MmFreePoolMemory @ 0x1402FA848 (MmFreePoolMemory.c)
+ *     MiCommitPoolMemory @ 0x14030B22C (MiCommitPoolMemory.c)
+ *     MmFreeSecurePoolMemory @ 0x140544F08 (MmFreeSecurePoolMemory.c)
  * Callees:
- *     MiFreeExcessSegments @ 0x1402878F0 (MiFreeExcessSegments.c)
+ *     MiFreeExcessSegments @ 0x140314D50 (MiFreeExcessSegments.c)
  */
 
 unsigned __int64 __fastcall MiCountSystemPool(int a1, unsigned __int64 a2, int a3)
@@ -19,27 +19,28 @@ unsigned __int64 __fastcall MiCountSystemPool(int a1, unsigned __int64 a2, int a
   switch ( a1 )
   {
     case 5:
-      v5 = &qword_140C4F048;
+      v5 = &qword_140C4C8C8;
       break;
     case 6:
-      v5 = &qword_140C534A8;
+      v5 = &qword_140C4EF28;
       break;
     case 1:
       result = -(__int64)a2;
-      v8 = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[25];
+      v8 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5];
       v9 = a2;
-      if ( !a3 )
+      if ( a3 != 1 )
         v9 = -(__int64)a2;
-      v5 = (volatile signed __int64 *)(v8 + 176);
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(v8 + 40), v9);
+      v5 = (volatile signed __int64 *)(v8 + 184);
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(v8 + 48), v9);
       break;
     default:
-      v5 = (volatile signed __int64 *)&unk_140C4F050;
+      result = 0LL;
+      v5 = (volatile signed __int64 *)&unk_140C4C8D0;
       if ( a1 != 15 )
         v5 = 0LL;
       break;
   }
-  if ( a3 )
+  if ( a3 == 1 )
   {
     v6 = a2 + _InterlockedExchangeAdd64(v5, a2);
     if ( a1 == 5 )

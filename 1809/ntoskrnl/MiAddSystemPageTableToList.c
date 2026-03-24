@@ -1,7 +1,7 @@
 /*
- * XREFs of MiAddSystemPageTableToList @ 0x14011F208
+ * XREFs of MiAddSystemPageTableToList @ 0x14011F228
  * Callers:
- *     MiDeleteSystemPageTable @ 0x14011F030 (MiDeleteSystemPageTable.c)
+ *     MiDeleteSystemPageTable @ 0x14011F050 (MiDeleteSystemPageTable.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)

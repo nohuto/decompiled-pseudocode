@@ -1,25 +1,25 @@
 /*
- * XREFs of ExpWnfSubscribeNameInstance @ 0x14079A254
+ * XREFs of ExpWnfSubscribeNameInstance @ 0x14060FD38
  * Callers:
- *     ExpWnfSubscribeWnfStateChange @ 0x14079982C (ExpWnfSubscribeWnfStateChange.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x14060EAF4 (ExpWnfSubscribeWnfStateChange.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x14029F350 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140367B10 (ExAllocatePoolWithQuotaTag.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExpWnfNotifyNameSubscribers @ 0x1407938B0 (ExpWnfNotifyNameSubscribers.c)
- *     ExpWnfUpdateSubscription @ 0x14079A690 (ExpWnfUpdateSubscription.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExpWnfUpdateSubscription @ 0x140610160 (ExpWnfUpdateSubscription.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x14061088C (ExpWnfNotifyNameSubscribers.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfSubscribeNameInstance(
-        __int64 a1,
+        unsigned __int64 a1,
         struct _KPROCESS *a2,
         unsigned __int64 a3,
         unsigned __int64 a4,
@@ -51,14 +51,14 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
   struct _EX_RUNDOWN_REF *v30; // rax
   signed __int32 v31; // ecx
   int v32; // eax
-  unsigned int v33; // edx
+  __int64 v33; // rdx
   int v35; // [rsp+50h] [rbp-20h] BYREF
   int v36; // [rsp+54h] [rbp-1Ch] BYREF
   struct _EX_RUNDOWN_REF *v37; // [rsp+58h] [rbp-18h] BYREF
   unsigned __int64 v38; // [rsp+60h] [rbp-10h]
   __int64 v39; // [rsp+68h] [rbp-8h]
 
-  v11 = a2[1].EndPadding[2];
+  v11 = a2[1].EndPadding[7];
   v12 = 0;
   v37 = 0LL;
   v38 = v11;
@@ -67,11 +67,11 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
   v36 = 0;
   if ( a7 == 1 )
   {
-    v15 = KeAbPreAcquire(v11 + 80, 0LL);
+    v15 = KeAbPreAcquire(v11 + 80, 0LL, 0);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v11 + 80), 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx((signed __int64 *)(v11 + 80), 0, v15, v11 + 80);
+      ExfAcquirePushLockSharedEx((unsigned __int64 *)(v11 + 80), v15, v11 + 80);
     if ( v15 )
-      *(_BYTE *)(v15 + 18) = 1;
+      *(_BYTE *)(v15 + 26) |= 1u;
     updated = ExpWnfUpdateSubscription(a1, v11, a3, a4, a6, (__int64)&v37, (__int64)&v35, (__int64)&v36, (__int64)a8);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v11 + 80), 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)(v11 + 80));
@@ -109,14 +109,14 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
       *a9 = v18;
   }
   v20 = (unsigned __int64 *)(v38 + 80);
-  v21 = KeAbPreAcquire(v38 + 80, 0LL);
+  v21 = KeAbPreAcquire(v38 + 80, 0LL, 0);
   v22 = v21;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v20, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v20, v21, (__int64)v20);
+    ExfAcquirePushLockExclusiveEx(v20, v21, (ULONG_PTR)v20);
   if ( v22 )
-    *(_BYTE *)(v22 + 18) = 1;
+    *(_BYTE *)(v22 + 26) |= 1u;
   v23 = (volatile signed __int64 *)(a1 + 112);
-  v24 = KeAbPreAcquire(a1 + 112, 0LL);
+  v24 = KeAbPreAcquire(a1 + 112, 0LL, 0);
   v25 = _interlockedbittestandset64((volatile signed __int32 *)(a1 + 112), 0LL);
   v39 = v24;
   if ( v25 )
@@ -125,7 +125,7 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
     v24 = v39;
   }
   if ( v24 )
-    *(_BYTE *)(v24 + 18) = 1;
+    *(_BYTE *)(v24 + 26) |= 1u;
   if ( *(_QWORD *)(a1 + 48) )
   {
     if ( a7 != 1
@@ -134,9 +134,9 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
       v18[5].Count = (unsigned __int64)a2;
       v18[6].Count = a1;
       v18[2].Count = v19;
-      ExAcquireRundownProtection(v18 + 1);
+      ExAcquireRundownProtection_0(v18 + 1);
       if ( a9 )
-        ExAcquireRundownProtection(v18 + 1);
+        ExAcquireRundownProtection_0(v18 + 1);
       v26 = v18 + 3;
       v27 = v38 + 88;
       v28 = *(struct _EX_RUNDOWN_REF ***)(v38 + 96);
@@ -182,21 +182,21 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
 LABEL_47:
     *a10 = v37;
 LABEL_40:
-    v33 = 0;
+    v33 = 0LL;
     if ( v36 < 0 && _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 164), 0xFFFFFFFF) == 1 )
-      v33 = 8;
+      v33 = 8LL;
     if ( v35 > 0 )
     {
-      v33 |= 2u;
+      v33 = (unsigned int)v33 | 2;
     }
     else if ( v35 < 0 )
     {
-      v33 |= 4u;
+      v33 = (unsigned int)v33 | 4;
     }
-    if ( v33 )
+    if ( (_DWORD)v33 )
     {
       LOBYTE(v12) = a7 != 0;
-      ExpWnfNotifyNameSubscribers(a1, v33, 1, v12);
+      ExpWnfNotifyNameSubscribers(a1, v33, 1LL, v12);
       *a11 = 1;
     }
     return 0LL;

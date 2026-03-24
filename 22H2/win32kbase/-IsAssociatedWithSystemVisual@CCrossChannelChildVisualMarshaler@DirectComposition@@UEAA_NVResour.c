@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsAssociatedWithSystemVisual@CCrossChannelChildVisualMarshaler@DirectComposition@@UEAA_NVResourceHandle@@@Z @ 0x1C000EA20
+ * XREFs of ?IsAssociatedWithSystemVisual@CCrossChannelChildVisualMarshaler@DirectComposition@@UEAA_NVResourceHandle@@@Z @ 0x1C01D4D50
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall DirectComposition::CCrossChannelChildVisualMarshaler::IsAssociatedWithSystemVisual(__int64 a1, int a2)
 {
-  return *(_DWORD *)(a1 + 376) == a2;
+  return *(_DWORD *)(a1 + 368) == a2;
 }

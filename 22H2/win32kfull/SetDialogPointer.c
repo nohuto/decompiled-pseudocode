@@ -1,62 +1,58 @@
 /*
- * XREFs of SetDialogPointer @ 0x1C001F0D4
+ * XREFs of SetDialogPointer @ 0x1C0031720
  * Callers:
- *     NtUserSetDialogPointer @ 0x1C001F010 (NtUserSetDialogPointer.c)
+ *     <none>
  * Callees:
- *     unsafe_cast_fnid_zero_to_PDIALOG @ 0x1C001F1D8 (unsafe_cast_fnid_zero_to_PDIALOG.c)
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??8?$RedirectedFieldfnid@G@tagWND@@QEBAE$$QEAG@Z @ 0x1C0030CE8 (--8-$RedirectedFieldfnid@G@tagWND@@QEBAE$$QEAG@Z.c)
+ *     unsafe_cast_fnid_zero_to_PDIALOG @ 0x1C003185C (unsafe_cast_fnid_zero_to_PDIALOG.c)
+ *     ??9?$RedirectedFieldcbWndServerExtra@I@tagWND@@QEBAEAEBI@Z @ 0x1C0033C1C (--9-$RedirectedFieldcbWndServerExtra@I@tagWND@@QEBAEAEBI@Z.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 __int64 __fastcall SetDialogPointer(__int64 a1, __int64 a2)
 {
-  __int64 *v4; // rsi
-  __int64 v5; // rcx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v7; // r8
-  __int64 v8; // rcx
-  __int64 v9; // rax
-  __int64 v10; // rax
-  __int64 v11; // rcx
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  __int64 v6; // rcx
+  __int64 v8; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v9; // [rsp+58h] [rbp+10h]
+  int v10; // [rsp+60h] [rbp+18h] BYREF
 
-  v4 = (__int64 *)(a1 + 40);
-  v5 = *(_QWORD *)(a1 + 40);
-  if ( *(int *)(v5 + 200) >= 30 && (*(_BYTE *)(v5 + 18) & 4) == 0 )
+  v9 = a2;
+  v8 = a1;
+  v4 = *(_QWORD *)(a1 + 40);
+  if ( *(int *)(v4 + 200) >= 30
+    && (*(_BYTE *)(v4 + 18) & 4) == 0
+    && PsGetCurrentProcessWin32Process(v4) == *(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL)
+    && (*(_DWORD *)(*(_QWORD *)(a1 + 40) + 232LL) & 0x800) == 0 )
   {
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v5);
-    v7 = CurrentProcessWin32Process;
-    if ( CurrentProcessWin32Process )
-      v7 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
-    if ( v7 == *(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL) )
+    v10 = 0;
+    if ( (unsigned __int8)tagWND::RedirectedFieldcbWndServerExtra<unsigned int>::operator!=(a1 + 321, &v10)
+      && (LOWORD(v10) = 0, tagWND::RedirectedFieldfnid<unsigned short>::operator==(a1 + 87, &v10)) )
     {
-      v8 = *v4;
-      if ( (*(_DWORD *)(*v4 + 232) & 0x10) == 0 )
+      LODWORD(v8) = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 68LL);
+    }
+    else
+    {
+      v5 = unsafe_cast_fnid_zero_to_PDIALOG(a1);
+      if ( v5 )
       {
-        if ( !*(_DWORD *)(v8 + 248) || *(_WORD *)(v8 + 42) )
+        *(_QWORD *)(v5 + 8) = a2;
+        if ( a2 )
         {
-          v9 = unsafe_cast_fnid_zero_to_PDIALOG(a1);
-          if ( v9 )
-          {
-            *(_QWORD *)(v9 + 8) = a2;
-            v10 = *v4;
-            if ( a2 )
-            {
-              if ( !*(_WORD *)(v10 + 42) )
-                *(_WORD *)(v10 + 42) = 676;
-              v11 = 1LL;
-            }
-            else
-            {
-              *(_WORD *)(v10 + 42) |= 0x4000u;
-              v11 = 0LL;
-            }
-            SetOrClrWF(v11, a1, 513LL, 1LL);
-          }
+          LOWORD(v8) = 0;
+          if ( tagWND::RedirectedFieldfnid<unsigned short>::operator==(a1 + 87, &v8) )
+            *(_WORD *)(*(_QWORD *)(a1 + 40) + 42LL) = 676;
+          v6 = 1LL;
         }
         else
         {
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 67LL);
+          *(_WORD *)(*(_QWORD *)(a1 + 40) + 42LL) |= 0x4000u;
+          v6 = 0LL;
         }
+        SetOrClrWF(v6, a1, 513LL, 1LL);
       }
     }
   }

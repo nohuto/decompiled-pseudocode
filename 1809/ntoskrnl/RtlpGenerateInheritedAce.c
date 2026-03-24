@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpInheritAcl2 @ 0x14062ED40 (RtlpInheritAcl2.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     RtlpIsDuplicateAce @ 0x14062CBE0 (RtlpIsDuplicateAce.c)
  *     RtlpCopyEffectiveAce @ 0x140630400 (RtlpCopyEffectiveAce.c)
  */

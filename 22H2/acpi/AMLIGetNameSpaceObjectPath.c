@@ -1,57 +1,62 @@
 /*
- * XREFs of AMLIGetNameSpaceObjectPath @ 0x1C00485EC
+ * XREFs of AMLIGetNameSpaceObjectPath @ 0x1C00117C0
  * Callers:
- *     AcpiDiagTraceDeviceReset @ 0x1C0008154 (AcpiDiagTraceDeviceReset.c)
- *     ACPIAmliBuildObjectPathname @ 0x1C000B0E0 (ACPIAmliBuildObjectPathname.c)
+ *     ACPIAmliBuildObjectPathname @ 0x1C00116E4 (ACPIAmliBuildObjectPathname.c)
+ *     AcpiDiagTraceDeviceReset @ 0x1C0049CE8 (AcpiDiagTraceDeviceReset.c)
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     GetObjectPath @ 0x1C004BB90 (GetObjectPath.c)
+ *     GetObjectPathNoLock @ 0x1C00097A0 (GetObjectPathNoLock.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
-__int64 __fastcall AMLIGetNameSpaceObjectPath(_QWORD *a1, void *a2, _DWORD *a3)
+__int64 __fastcall AMLIGetNameSpaceObjectPath(__int64 *a1, void *a2, _DWORD *a3)
 {
-  unsigned int v5; // edi
-  _BYTE *ObjectPath; // rsi
-  __int64 v7; // rbx
-  __int64 v8; // rax
-  __int64 v9; // rdx
+  unsigned int v5; // esi
+  __int64 v6; // rdi
+  KIRQL v7; // bl
+  _QWORD *ObjectPathNoLock; // rdi
+  __int64 v9; // rbx
+  __int64 v10; // rcx
+  __int64 v11; // rdx
 
   v5 = -1073741823;
   if ( a1 )
   {
-    ObjectPath = (_BYTE *)GetObjectPath(*a1);
-    if ( ObjectPath )
+    v6 = *a1;
+    v7 = ExAcquireSpinLockShared(&ACPINamespaceLock);
+    ObjectPathNoLock = GetObjectPathNoLock(v6);
+    ExReleaseSpinLockShared(&ACPINamespaceLock, v7);
+    if ( ObjectPathNoLock )
     {
-      v7 = -1LL;
-      v8 = -1LL;
+      v9 = -1LL;
+      v10 = -1LL;
       do
-        ++v8;
-      while ( ObjectPath[v8] );
+        ++v10;
+      while ( *((_BYTE *)ObjectPathNoLock + v10) );
       if ( a2 )
       {
-        v9 = -1LL;
+        v11 = -1LL;
         do
-          ++v9;
-        while ( ObjectPath[v9] );
-        if ( (unsigned int)*a3 >= (unsigned __int64)(v8 + 1) )
+          ++v11;
+        while ( *((_BYTE *)ObjectPathNoLock + v11) );
+        if ( (unsigned int)*a3 >= (unsigned __int64)(v10 + 1) )
         {
-          memmove(a2, ObjectPath, v9 + 1);
+          memmove(a2, ObjectPathNoLock, v11 + 1);
           v5 = 0;
           do
-            ++v7;
-          while ( ObjectPath[v7] );
-          goto LABEL_15;
+            ++v9;
+          while ( *((_BYTE *)ObjectPathNoLock + v9) );
+          goto LABEL_11;
         }
-        LODWORD(v7) = v9;
+        LODWORD(v9) = v11;
       }
       else
       {
-        LODWORD(v7) = v8;
+        LODWORD(v9) = v10;
       }
       v5 = -1073741789;
-LABEL_15:
-      *a3 = v7 + 1;
-      ExFreePoolWithTag(ObjectPath, 0);
+LABEL_11:
+      *a3 = v9 + 1;
+      ExFreePoolWithTag(ObjectPathNoLock, 0);
     }
   }
   return v5;

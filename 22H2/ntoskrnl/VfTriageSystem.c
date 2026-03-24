@@ -1,16 +1,16 @@
 /*
- * XREFs of VfTriageSystem @ 0x140B6AC28
+ * XREFs of VfTriageSystem @ 0x140A6FCE4
  * Callers:
- *     ViInitSystemPhase0 @ 0x140B6A9C4 (ViInitSystemPhase0.c)
+ *     ViInitSystemPhase0 @ 0x140A6FAB8 (ViInitSystemPhase0.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     ViFindTriageDriverTargets @ 0x140B981A0 (ViFindTriageDriverTargets.c)
- *     ViFindTriageRule @ 0x140B98220 (ViFindTriageRule.c)
- *     ViMakeVerifierSettings @ 0x140B982C4 (ViMakeVerifierSettings.c)
- *     ViTriageSameDriversFromDump @ 0x140B983B4 (ViTriageSameDriversFromDump.c)
- *     ViValidateTriageRules @ 0x140B98470 (ViValidateTriageRules.c)
- *     MmTriageActiveInLastCrash @ 0x140B9A874 (MmTriageActiveInLastCrash.c)
- *     TriageGetBugcheckData @ 0x140B9CFE0 (TriageGetBugcheckData.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     MmTriageActiveInLastCrash @ 0x140A9228C (MmTriageActiveInLastCrash.c)
+ *     ViFindTriageDriverTargets @ 0x140A93A6C (ViFindTriageDriverTargets.c)
+ *     ViFindTriageRule @ 0x140A93AEC (ViFindTriageRule.c)
+ *     ViMakeVerifierSettings @ 0x140A93B90 (ViMakeVerifierSettings.c)
+ *     ViTriageSameDriversFromDump @ 0x140A93C80 (ViTriageSameDriversFromDump.c)
+ *     ViValidateTriageRules @ 0x140A93D3C (ViValidateTriageRules.c)
+ *     TriageGetBugcheckData @ 0x140A95C78 (TriageGetBugcheckData.c)
  */
 
 __int64 __fastcall VfTriageSystem(__int64 a1)
@@ -56,7 +56,7 @@ __int64 __fastcall VfTriageSystem(__int64 a1)
     DbgPrintEx(0x5Du, 3u, "CRASH TRIAGE: null loader extension.\n");
     return 0LL;
   }
-  if ( *(_DWORD *)v5 < 0xF28u )
+  if ( *(_DWORD *)v5 < 0xE38u )
   {
     DbgPrintEx(0x5Du, 3u, "CRASH TRIAGE: unexpected loader extension size.\n");
     return 0LL;
@@ -98,8 +98,8 @@ __int64 __fastcall VfTriageSystem(__int64 a1)
     *(_DWORD *)&v12[24],
     *(_DWORD *)&v12[32]);
   ViTriageCrashData = *(_OWORD *)v12;
-  qword_140C37300 = *(_QWORD *)&v12[32];
-  xmmword_140C372F0 = *(_OWORD *)&v12[16];
+  qword_140C1D0C0 = *(_QWORD *)&v12[32];
+  xmmword_140C1D0B0 = *(_OWORD *)&v12[16];
   if ( v8 )
   {
     if ( (unsigned int)MmTriageActiveInLastCrash(a1) == 1 )

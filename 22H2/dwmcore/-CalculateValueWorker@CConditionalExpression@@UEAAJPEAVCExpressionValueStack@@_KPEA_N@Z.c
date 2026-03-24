@@ -1,18 +1,16 @@
 /*
- * XREFs of ?CalculateValueWorker@CConditionalExpression@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180227AF0
+ * XREFs of ?CalculateValueWorker@CConditionalExpression@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1801BD510
  * Callers:
  *     <none>
  * Callees:
- *     ?PushConstant@CExpressionValueStack@@QEAAJAEBVCExpressionValue@@@Z @ 0x1800BD9F0 (-PushConstant@CExpressionValueStack@@QEAAJAEBVCExpressionValue@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_14978362@@@details@wil@@QEAA_NXZ @ 0x180119B04 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_14978362@@@details@wil@@QEAA_NXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??1CExpressionValue@@QEAA@XZ @ 0x18021737C (--1CExpressionValue@@QEAA@XZ.c)
- *     ?AddStackValueToSum@CConditionalExpression@@AEAAJPEAVCExpressionValue@@PEAVCExpressionValueStack@@@Z @ 0x18022775C (-AddStackValueToSum@CConditionalExpression@@AEAAJPEAVCExpressionValue@@PEAVCExpressionValueStack.c)
- *     ?CalculateConditionValue@CConditionalExpression@@AEAAJIPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1802279EC (-CalculateConditionValue@CConditionalExpression@@AEAAJIPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?IsAnyConditionSatisfied@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180228104 (-IsAnyConditionSatisfied@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PushConstant@CExpressionValueStack@@QEAAJAEBVCExpressionValue@@@Z @ 0x1800A9CF0 (-PushConstant@CExpressionValueStack@@QEAAJAEBVCExpressionValue@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?AddStackValueToSum@CConditionalExpression@@AEAAJPEAVCExpressionValue@@PEAVCExpressionValueStack@@@Z @ 0x1801BD18C (-AddStackValueToSum@CConditionalExpression@@AEAAJPEAVCExpressionValue@@PEAVCExpressionValueStack.c)
+ *     ?CalculateConditionValue@CConditionalExpression@@AEAAJIPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1801BD424 (-CalculateConditionValue@CConditionalExpression@@AEAAJIPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?IsAnyConditionSatisfied@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1801BDAA4 (-IsAnyConditionSatisfied@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  */
 
 __int64 __fastcall CConditionalExpression::CalculateValueWorker(
@@ -24,182 +22,190 @@ __int64 __fastcall CConditionalExpression::CalculateValueWorker(
   unsigned int v4; // r15d
   unsigned int v9; // ebx
   int v10; // ecx
-  char v11; // r13
+  _QWORD *v11; // rdi
   __int64 v12; // rax
   int v13; // eax
   __int64 v14; // rcx
-  __int64 v15; // rcx
+  char v15; // di
   __int64 v16; // rcx
-  CConditionalExpression *v17; // rcx
-  __int64 v18; // rcx
-  int IsAnyConditionSatisfied; // eax
+  int v17; // eax
+  CConditionalExpression *v18; // rcx
+  int v19; // eax
   __int64 v20; // rcx
-  __int64 v21; // rax
+  int v21; // eax
   __int64 v22; // rcx
-  int v23; // eax
-  __int64 v24; // rcx
+  __int64 v23; // rcx
+  int v24; // eax
   __int64 v25; // rcx
-  int v26; // eax
-  __int64 v27; // rcx
-  unsigned int v29; // [rsp+20h] [rbp-69h]
-  bool v30; // [rsp+30h] [rbp-59h] BYREF
-  _BYTE v31[64]; // [rsp+40h] [rbp-49h] BYREF
-  __int64 v32; // [rsp+80h] [rbp-9h]
-  int v33; // [rsp+88h] [rbp-1h]
-  char v34; // [rsp+8Ch] [rbp+3h]
+  __int64 v26; // rax
+  _QWORD *v27; // rcx
+  int IsAnyConditionSatisfied; // eax
+  __int64 v29; // rcx
+  __int64 v30; // rax
+  __int64 v31; // rcx
+  int v32; // eax
+  __int64 v33; // rcx
+  __int64 v34; // rcx
+  int v35; // eax
+  __int64 v36; // rcx
+  char v38; // [rsp+30h] [rbp-59h]
+  bool v39; // [rsp+31h] [rbp-58h] BYREF
+  _BYTE v40[64]; // [rsp+40h] [rbp-49h] BYREF
+  _QWORD *v41; // [rsp+80h] [rbp-9h]
+  int v42; // [rsp+88h] [rbp-1h]
+  char v43; // [rsp+8Ch] [rbp+3h]
 
   v4 = 0;
   *a4 = 0;
   v9 = 0;
-  v10 = *((_DWORD *)this + 94) - 1;
-  if ( !v10 )
+  v10 = *((_DWORD *)this + 88) - 1;
+  if ( v10 )
+  {
+    if ( v10 == 1 )
+    {
+      memset_0(v40, 0, sizeof(v40));
+      v11 = 0LL;
+      v12 = (__int64)(*((_QWORD *)this + 41) - *((_QWORD *)this + 40)) >> 4;
+      v41 = 0LL;
+      v42 = 18;
+      v43 = 0;
+      v38 = 1;
+      if ( v12 )
+      {
+        do
+        {
+          v13 = CConditionalExpression::CalculateConditionValue(this, v4, a2, a3, &v39);
+          v9 = v13;
+          if ( v13 < 0 )
+          {
+            MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x120u, 0LL);
+            goto LABEL_23;
+          }
+          if ( v39 )
+          {
+            v15 = 0;
+            v38 = 0;
+            v16 = *(_QWORD *)(*((_QWORD *)this + 40) + 16LL * v4 + 8);
+            v17 = (*(__int64 (__fastcall **)(__int64, struct CExpressionValueStack *, unsigned __int64, bool *))(*(_QWORD *)v16 + 256LL))(
+                    v16,
+                    a2,
+                    a3,
+                    a4);
+            v9 = v17;
+            if ( v17 < 0 )
+            {
+              MilInstrumentationCheckHR_MaybeFailFast((__int64)v18, 0LL, 0, v17, 0x127u, 0LL);
+              goto LABEL_23;
+            }
+            v19 = CConditionalExpression::AddStackValueToSum(v18, (struct CExpressionValue *)v40, a2);
+            v9 = v19;
+            if ( v19 < 0 )
+            {
+              MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x128u, 0LL);
+              goto LABEL_23;
+            }
+          }
+          else
+          {
+            v15 = v38;
+          }
+          ++v4;
+        }
+        while ( v4 < (unsigned __int64)((__int64)(*((_QWORD *)this + 41) - *((_QWORD *)this + 40)) >> 4) );
+        if ( v15 )
+        {
+          v11 = v41;
+          goto LABEL_17;
+        }
+        v21 = CExpressionValueStack::PushConstant(a2, (const struct CExpressionValue *)v40);
+        v9 = v21;
+        if ( v21 >= 0 )
+        {
+          v11 = v41;
+          goto LABEL_20;
+        }
+        MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x13Cu, 0LL);
+LABEL_23:
+        v27 = v41;
+        if ( v41 )
+        {
+          v26 = *v41;
+          goto LABEL_25;
+        }
+      }
+      else
+      {
+LABEL_17:
+        v23 = *((_QWORD *)this + 43);
+        if ( v23 )
+        {
+          v24 = (*(__int64 (__fastcall **)(__int64, struct CExpressionValueStack *, unsigned __int64, bool *))(*(_QWORD *)v23 + 256LL))(
+                  v23,
+                  a2,
+                  a3,
+                  a4);
+          v9 = v24;
+          if ( v24 < 0 )
+            MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v24, 0x131u, 0LL);
+        }
+        else
+        {
+          v9 = 1;
+        }
+LABEL_20:
+        if ( v11 )
+        {
+          v26 = *v11;
+          v27 = v11;
+LABEL_25:
+          (*(void (__fastcall **)(_QWORD *))(v26 + 16))(v27);
+        }
+      }
+    }
+  }
+  else
   {
     IsAnyConditionSatisfied = CConditionalExpression::IsAnyConditionSatisfied(this, a2, a3, 0LL);
     v9 = IsAnyConditionSatisfied;
     if ( IsAnyConditionSatisfied < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, IsAnyConditionSatisfied, 0xF6u, 0LL);
-      return v9;
-    }
-    v21 = *((int *)this + 95);
-    if ( (int)v21 < 0 )
-    {
-      v25 = *((_QWORD *)this + 46);
-      if ( !v25 )
-        return 1;
-      v26 = (*(__int64 (__fastcall **)(__int64, struct CExpressionValueStack *, unsigned __int64, bool *))(*(_QWORD *)v25 + 256LL))(
-              v25,
-              a2,
-              a3,
-              a4);
-      v9 = v26;
-      if ( v26 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0xFEu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v29, 0LL, 0, IsAnyConditionSatisfied, 0xF5u, 0LL);
     }
     else
     {
-      v22 = *(_QWORD *)(*((_QWORD *)this + 43) + 16 * v21 + 8);
-      v23 = (*(__int64 (__fastcall **)(__int64, struct CExpressionValueStack *, unsigned __int64, bool *))(*(_QWORD *)v22 + 256LL))(
-              v22,
-              a2,
-              a3,
-              a4);
-      v9 = v23;
-      if ( v23 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v23, 0xFAu, 0LL);
+      v30 = *((int *)this + 89);
+      if ( (int)v30 < 0 )
+      {
+        v34 = *((_QWORD *)this + 43);
+        if ( v34 )
+        {
+          v35 = (*(__int64 (__fastcall **)(__int64, struct CExpressionValueStack *, unsigned __int64, bool *))(*(_QWORD *)v34 + 256LL))(
+                  v34,
+                  a2,
+                  a3,
+                  a4);
+          v9 = v35;
+          if ( v35 < 0 )
+            MilInstrumentationCheckHR_MaybeFailFast(v36, 0LL, 0, v35, 0xFDu, 0LL);
+        }
+        else
+        {
+          return 1;
+        }
+      }
+      else
+      {
+        v31 = *(_QWORD *)(*((_QWORD *)this + 40) + 16 * v30 + 8);
+        v32 = (*(__int64 (__fastcall **)(__int64, struct CExpressionValueStack *, unsigned __int64, bool *))(*(_QWORD *)v31 + 256LL))(
+                v31,
+                a2,
+                a3,
+                a4);
+        v9 = v32;
+        if ( v32 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(v33, 0LL, 0, v32, 0xF9u, 0LL);
+      }
     }
-    return v9;
   }
-  if ( v10 == 1 )
-  {
-    memset_0(v31, 0, sizeof(v31));
-    v11 = 1;
-    v12 = (__int64)(*((_QWORD *)this + 44) - *((_QWORD *)this + 43)) >> 4;
-    v32 = 0LL;
-    v33 = 18;
-    v34 = 0;
-    if ( v12 )
-    {
-      do
-      {
-        v13 = CConditionalExpression::CalculateConditionValue(this, v4, a2, a3, &v30);
-        v9 = v13;
-        if ( v13 < 0 )
-        {
-          v29 = 289;
-          goto LABEL_25;
-        }
-        if ( v30 )
-        {
-          v11 = 0;
-          v15 = *(_QWORD *)(*((_QWORD *)this + 43) + 16LL * v4 + 8);
-          v9 = (*(__int64 (__fastcall **)(__int64, struct CExpressionValueStack *, unsigned __int64, bool *))(*(_QWORD *)v15 + 256LL))(
-                 v15,
-                 a2,
-                 a3,
-                 a4);
-          if ( (v9 & 0x80000000) != 0 )
-          {
-            MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v9, 0x128u, 0LL);
-            goto LABEL_26;
-          }
-          if ( wil::details::FeatureImpl<__WilFeatureTraits_Feature_14978362>::__private_IsEnabled(`wil::Feature<__WilFeatureTraits_Feature_14978362>::GetImpl'::`2'::impl) )
-          {
-            if ( v9 != 1 )
-            {
-              v13 = CConditionalExpression::AddStackValueToSum(v17, (struct CExpressionValue *)v31, a2);
-              v9 = v13;
-              if ( v13 < 0 )
-              {
-                v29 = 307;
-                goto LABEL_25;
-              }
-            }
-          }
-          else
-          {
-            v13 = CConditionalExpression::AddStackValueToSum(v17, (struct CExpressionValue *)v31, a2);
-            v9 = v13;
-            if ( v13 < 0 )
-            {
-              v29 = 312;
-              goto LABEL_25;
-            }
-          }
-        }
-        ++v4;
-      }
-      while ( v4 < (unsigned __int64)((__int64)(*((_QWORD *)this + 44) - *((_QWORD *)this + 43)) >> 4) );
-      if ( v11 )
-        goto LABEL_27;
-      if ( wil::details::FeatureImpl<__WilFeatureTraits_Feature_14978362>::__private_IsEnabled(`wil::Feature<__WilFeatureTraits_Feature_14978362>::GetImpl'::`2'::impl) )
-      {
-        if ( !v34 )
-          goto LABEL_30;
-        v13 = CExpressionValueStack::PushConstant(a2, (const struct CExpressionValue *)v31);
-        v9 = v13;
-        if ( v13 < 0 )
-        {
-          v29 = 337;
-          goto LABEL_25;
-        }
-        goto LABEL_26;
-      }
-      v13 = CExpressionValueStack::PushConstant(a2, (const struct CExpressionValue *)v31);
-      v9 = v13;
-      if ( v13 >= 0 )
-        goto LABEL_26;
-      v29 = 346;
-    }
-    else
-    {
-LABEL_27:
-      v18 = *((_QWORD *)this + 46);
-      if ( !v18 )
-      {
-LABEL_30:
-        v9 = 1;
-        goto LABEL_26;
-      }
-      v13 = (*(__int64 (__fastcall **)(__int64, struct CExpressionValueStack *, unsigned __int64, bool *))(*(_QWORD *)v18 + 256LL))(
-              v18,
-              a2,
-              a3,
-              a4);
-      v9 = v13;
-      if ( v13 >= 0 )
-      {
-LABEL_26:
-        CExpressionValue::~CExpressionValue((CExpressionValue *)v31);
-        return v9;
-      }
-      v29 = 322;
-    }
-LABEL_25:
-    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, v29, 0LL);
-    goto LABEL_26;
-  }
-  if ( wil::details::FeatureImpl<__WilFeatureTraits_Feature_14978362>::__private_IsEnabled(`wil::Feature<__WilFeatureTraits_Feature_14978362>::GetImpl'::`2'::impl) )
-    return 1;
   return v9;
 }

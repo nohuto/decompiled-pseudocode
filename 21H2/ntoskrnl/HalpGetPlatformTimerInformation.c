@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpGetPlatformTimerInformation @ 0x140258810
+ * XREFs of HalpGetPlatformTimerInformation @ 0x1402D0144
  * Callers:
- *     HaliQuerySystemInformation @ 0x140A47990 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x14098FEF0 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

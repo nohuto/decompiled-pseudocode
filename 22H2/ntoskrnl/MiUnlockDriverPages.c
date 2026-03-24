@@ -1,69 +1,52 @@
 /*
- * XREFs of MiUnlockDriverPages @ 0x140875FFC
+ * XREFs of MiUnlockDriverPages @ 0x1408C4E10
  * Callers:
- *     MiUnlockAndFreeDvPatchImage @ 0x140641234 (MiUnlockAndFreeDvPatchImage.c)
- *     MmWriteSystemImageTracepoint @ 0x1406433DC (MmWriteSystemImageTracepoint.c)
- *     MiCompleteSecureDriverLoad @ 0x140885D58 (MiCompleteSecureDriverLoad.c)
- *     MiUnlockEntireDriver @ 0x140A345B0 (MiUnlockEntireDriver.c)
- *     MiApplyDriverHotPatch @ 0x140A348E8 (MiApplyDriverHotPatch.c)
- *     MiApplySingleSessionPatch @ 0x140A36110 (MiApplySingleSessionPatch.c)
- *     MiUnapplyDriverHotPatch @ 0x140A3BDD8 (MiUnapplyDriverHotPatch.c)
- *     MmReapplyBootPatchImports @ 0x140B750B4 (MmReapplyBootPatchImports.c)
+ *     MmWriteSystemImageTracepoint @ 0x14053F638 (MmWriteSystemImageTracepoint.c)
+ *     MiMarkKernelImageCfgBits @ 0x140772E64 (MiMarkKernelImageCfgBits.c)
+ *     MiApplyDriverHotPatch @ 0x1408C8E04 (MiApplyDriverHotPatch.c)
+ *     MiUnapplyDriverHotPatch @ 0x1408CE6F0 (MiUnapplyDriverHotPatch.c)
+ *     MiUnlockEntireDriver @ 0x1408D0DC4 (MiUnlockEntireDriver.c)
  * Callees:
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     RtlFindSetBitsEx @ 0x140340B10 (RtlFindSetBitsEx.c)
- *     MiUnlockCodePage @ 0x140367338 (MiUnlockCodePage.c)
- *     KeReservePrivilegedPages @ 0x1403D6A90 (KeReservePrivilegedPages.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlFindSetBitsEx @ 0x1402288D0 (RtlFindSetBitsEx.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     KeReservePrivilegedPages @ 0x140394DA0 (KeReservePrivilegedPages.c)
+ *     MiUnlockCodePage @ 0x1403A0950 (MiUnlockCodePage.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiUnlockDriverPages(__int64 *a1)
+void __fastcall MiUnlockDriverPages(unsigned __int64 *a1)
 {
-  void *v2; // rcx
-  void *v3; // rcx
-  void *v4; // rcx
-  unsigned __int64 v5; // rdi
+  unsigned __int64 v2; // rdi
   __int64 PteAddress; // r14
+  unsigned __int64 v4; // r8
   unsigned __int64 SetBits; // rax
-  signed __int64 **v8; // rdi
-  unsigned __int64 v9; // rbp
+  unsigned __int64 v6; // rsi
+  void *v7; // rcx
 
-  v2 = (void *)a1[7];
-  if ( v2 )
+  if ( a1[4] )
   {
-    ExFreePoolWithTag(v2, 0);
-    a1[7] = 0LL;
-  }
-  v3 = (void *)a1[9];
-  if ( v3 )
-  {
-    ExFreePoolWithTag(v3, 0);
-    a1[9] = 0LL;
-  }
-  v4 = (void *)a1[11];
-  if ( v4 )
-  {
-    ExFreePoolWithTag(v4, 0);
-    a1[11] = 0LL;
-  }
-  if ( a1[5] )
-  {
-    v5 = *a1;
-    if ( (a1[12] & 1) != 0 )
+    v2 = *a1;
+    if ( (a1[7] & 1) != 0 )
       KeReservePrivilegedPages();
-    PteAddress = MiGetPteAddress(*(_QWORD *)(v5 + 48));
-    SetBits = RtlFindSetBitsEx((unsigned __int64 *)a1 + 4, 1uLL, 0LL);
-    v8 = (signed __int64 **)(a1 + 5);
+    PteAddress = MiGetPteAddress(*(_QWORD *)(v2 + 48));
+    v4 = 0LL;
     while ( 1 )
     {
-      v9 = SetBits;
+      SetBits = RtlFindSetBitsEx(a1 + 3, 1uLL, v4);
+      v6 = SetBits;
       if ( SetBits == -1LL )
         break;
-      MiUnlockCodePage(PteAddress + 8 * SetBits, PteAddress + 8 * SetBits, (*((_DWORD *)a1 + 24) >> 1) & 1);
-      _bittestandreset64(*v8, v9);
-      SetBits = RtlFindSetBitsEx((unsigned __int64 *)a1 + 4, 1uLL, v9);
+      MiUnlockCodePage(PteAddress + 8 * SetBits, PteAddress + 8 * SetBits, (*((_DWORD *)a1 + 14) >> 1) & 1);
+      v4 = v6;
+      _bittestandreset64((signed __int64 *)a1[4], v6);
     }
-    ExFreePoolWithTag(*v8, 0);
-    *v8 = 0LL;
+    ExFreePoolWithTag((PVOID)a1[4], 0);
+    a1[4] = 0LL;
+    v7 = (void *)a1[6];
+    if ( v7 )
+    {
+      ExFreePoolWithTag(v7, 0);
+      a1[6] = 0LL;
+    }
   }
 }

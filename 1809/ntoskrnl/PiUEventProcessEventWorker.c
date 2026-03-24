@@ -9,9 +9,9 @@
  *     PiUEventDereferenceEventEntry @ 0x14058EAD8 (PiUEventDereferenceEventEntry.c)
  *     PiUEventProcessBroadcastNotifications @ 0x14058EB9C (PiUEventProcessBroadcastNotifications.c)
  *     PiUEventNotifyTargetDeviceChange @ 0x14058F668 (PiUEventNotifyTargetDeviceChange.c)
- *     PiUEventNotifyDeviceInstanceChange @ 0x1406FEEF4 (PiUEventNotifyDeviceInstanceChange.c)
- *     PiUEventNotifyDeviceInstancePropertyChange @ 0x14070EC84 (PiUEventNotifyDeviceInstancePropertyChange.c)
- *     PiUEventNotifyDeviceInterfaceChange @ 0x14071006C (PiUEventNotifyDeviceInterfaceChange.c)
+ *     PiUEventNotifyDeviceInstanceChange @ 0x1406FEED4 (PiUEventNotifyDeviceInstanceChange.c)
+ *     PiUEventNotifyDeviceInstancePropertyChange @ 0x14070EC64 (PiUEventNotifyDeviceInstancePropertyChange.c)
+ *     PiUEventNotifyDeviceInterfaceChange @ 0x14071004C (PiUEventNotifyDeviceInterfaceChange.c)
  */
 
 void __fastcall PiUEventProcessEventWorker(PVOID P)

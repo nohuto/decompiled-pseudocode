@@ -1,10 +1,10 @@
 /*
- * XREFs of AddBGRMapCache @ 0x1C025E564
+ * XREFs of AddBGRMapCache @ 0x1C02616D8
  * Callers:
- *     CreateDyesColorMappingTable @ 0x1C0093DC8 (CreateDyesColorMappingTable.c)
+ *     CreateDyesColorMappingTable @ 0x1C001B8B0 (CreateDyesColorMappingTable.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
- *     TrimBGRMapCache @ 0x1C025F768 (TrimBGRMapCache.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     TrimBGRMapCache @ 0x1C02628D8 (TrimBGRMapCache.c)
  */
 
 __int64 __fastcall AddBGRMapCache(__int64 a1, int a2)
@@ -19,13 +19,13 @@ __int64 __fastcall AddBGRMapCache(__int64 a1, int a2)
   __int64 v11; // rax
 
   v4 = 1;
-  EngAcquireSemaphore(qword_1C0336428);
-  if ( dword_1C0336448 > 5 && HIDWORD(qword_1C033644C) )
+  EngAcquireSemaphore(qword_1C033AF88);
+  if ( dword_1C033AFA8 > 5 && HIDWORD(qword_1C033AFAC) )
     TrimBGRMapCache();
-  if ( dword_1C0336448 >= (int)qword_1C033644C )
+  if ( dword_1C033AFA8 >= (int)qword_1C033AFAC )
   {
-    v5 = qword_1C033644C + 10;
-    if ( (int)qword_1C033644C + 10 >= (unsigned int)qword_1C033644C )
+    v5 = qword_1C033AFAC + 10;
+    if ( (int)qword_1C033AFAC + 10 >= (unsigned int)qword_1C033AFAC )
     {
       v6 = 16LL * v5;
       if ( v6 <= 0xFFFFFFFF )
@@ -37,19 +37,19 @@ __int64 __fastcall AddBGRMapCache(__int64 a1, int a2)
           v9 = Src;
           if ( Src )
           {
-            memmove(v7, Src, 16LL * dword_1C0336448);
+            memmove(v7, Src, 16LL * dword_1C033AFA8);
             EngFreeMem(v9);
           }
           Src = v8;
-          LODWORD(qword_1C033644C) = v5;
+          LODWORD(qword_1C033AFAC) = v5;
         }
       }
     }
   }
   v10 = Src;
-  if ( Src && dword_1C0336448 < (int)qword_1C033644C )
+  if ( Src && dword_1C033AFA8 < (int)qword_1C033AFAC )
   {
-    v11 = 2LL * dword_1C0336448++;
+    v11 = 2LL * dword_1C033AFA8++;
     *((_QWORD *)Src + v11) = a1;
     v10[2 * v11 + 3] = a2;
     v10[2 * v11 + 2] = 1;
@@ -58,6 +58,6 @@ __int64 __fastcall AddBGRMapCache(__int64 a1, int a2)
   {
     v4 = 0;
   }
-  EngReleaseSemaphore(qword_1C0336428);
+  EngReleaseSemaphore(qword_1C033AF88);
   return v4;
 }

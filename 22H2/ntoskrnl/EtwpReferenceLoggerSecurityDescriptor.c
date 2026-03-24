@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpReferenceLoggerSecurityDescriptor @ 0x1406BDB60
+ * XREFs of EtwpReferenceLoggerSecurityDescriptor @ 0x1406BD5D0
  * Callers:
- *     EtwpCheckLoggerControlAccess @ 0x1406BDB0C (EtwpCheckLoggerControlAccess.c)
- *     EtwQueryPerformanceTraceInformation @ 0x140860054 (EtwQueryPerformanceTraceInformation.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1406BBBBC (EtwpCheckLoggerControlAccess.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x140937EBC (EtwQueryPerformanceTraceInformation.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     ObDereferenceSecurityDescriptor @ 0x140728AC0 (ObDereferenceSecurityDescriptor.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ObDereferenceSecurityDescriptor @ 0x1406D8460 (ObDereferenceSecurityDescriptor.c)
  */
 
 unsigned __int64 __fastcall EtwpReferenceLoggerSecurityDescriptor(__int64 a1)
@@ -21,13 +21,13 @@ unsigned __int64 __fastcall EtwpReferenceLoggerSecurityDescriptor(__int64 a1)
   signed __int64 v8; // rtt
   struct _KTHREAD *CurrentThread; // rax
 
-  _m_prefetchw((const void *)(a1 + 784));
-  v2 = *(_QWORD *)(a1 + 784);
+  _m_prefetchw((const void *)(a1 + 800));
+  v2 = *(_QWORD *)(a1 + 800);
   if ( (v2 & 0xF) != 0 )
   {
     do
     {
-      v3 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 784), v2 - 1, v2);
+      v3 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 800), v2 - 1, v2);
       if ( v2 == v3 )
         break;
       v2 = v3;
@@ -42,12 +42,12 @@ unsigned __int64 __fastcall EtwpReferenceLoggerSecurityDescriptor(__int64 a1)
     {
       if ( _InterlockedExchangeAdd64((volatile signed __int64 *)(v5 - 24), 0xFuLL) <= 0 )
         __fastfail(0xEu);
-      _m_prefetchw((const void *)(a1 + 784));
-      v7 = *(_QWORD *)(a1 + 784);
+      _m_prefetchw((const void *)(a1 + 800));
+      v7 = *(_QWORD *)(a1 + 800);
       while ( (unsigned __int64)(v7 & 0xF) + 15 <= 0xF && v5 == (v7 & 0xFFFFFFFFFFFFFFF0uLL) )
       {
         v8 = v7;
-        v7 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 784), v7 + 15, v7);
+        v7 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 800), v7 + 15, v7);
         if ( v8 == v7 )
           return v5;
       }
@@ -59,7 +59,7 @@ unsigned __int64 __fastcall EtwpReferenceLoggerSecurityDescriptor(__int64 a1)
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquirePushLockSharedEx((ULONG_PTR)&EtwpSecurityLock, 0LL);
-    v5 = *(_QWORD *)(a1 + 784) & 0xFFFFFFFFFFFFFFF0uLL;
+    v5 = *(_QWORD *)(a1 + 800) & 0xFFFFFFFFFFFFFFF0uLL;
     if ( _InterlockedExchangeAdd64((volatile signed __int64 *)(v5 - 24), 1uLL) <= 0 )
       __fastfail(0xEu);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&EtwpSecurityLock, 0LL, 17LL) != 17 )

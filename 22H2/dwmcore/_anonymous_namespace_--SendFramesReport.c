@@ -1,557 +1,588 @@
 /*
- * XREFs of _anonymous_namespace_::SendFramesReport @ 0x18010BCB0
+ * XREFs of _anonymous_namespace_::SendFramesReport @ 0x18004B9C4
  * Callers:
- *     _anonymous_namespace_::SendFramesReports @ 0x18010B6B0 (_anonymous_namespace_--SendFramesReports.c)
+ *     _anonymous_namespace_::SendFramesReports @ 0x1800D3830 (_anonymous_namespace_--SendFramesReports.c)
  * Callees:
- *     std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void___::_Buyheadnode_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______ @ 0x180036FB0 (std--_Tree_node_std--pair__anonymous_namespace_--AnimationId_const__unsigned_int__void___--_Buyh.c)
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800861C0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Get_size_of_n@$0DA@@std@@YA_K_K@Z @ 0x1800B2194 (--$_Get_size_of_n@$0DA@@std@@YA_K_K@Z.c)
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@AEAAXXZ @ 0x1800F05D8 (-_Tidy@-$vector@EV-$allocator@E@std@@@std@@AEAAXXZ.c)
- *     std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_______::_Erase_tree_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const____void_______ @ 0x18010B8B0 (std--_Tree_val_std--_Tree_simple_types_std--pair__anonymous_namespace_--AnimationId_ea_18010B8B0.c)
- *     ??$_Try_emplace@AEB_K$$V@?$map@_KIU?$less@_K@std@@V?$allocator@U?$pair@$$CB_KI@std@@@2@@std@@AEAA?AU?$pair@PEAU?$_Tree_node@U?$pair@$$CB_KI@std@@PEAX@std@@_N@1@AEB_K@Z @ 0x18010B984 (--$_Try_emplace@AEB_K$$V@-$map@_KIU-$less@_K@std@@V-$allocator@U-$pair@$$CB_KI@std@@@2@@std@@AEA.c)
- *     ??$_Insert_range@PEAD@?$vector@DV?$allocator@D@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@D@std@@@std@@@1@PEAD1Uforward_iterator_tag@1@@Z @ 0x18010BA54 (--$_Insert_range@PEAD@-$vector@DV-$allocator@D@std@@@std@@AEAAXV-$_Vector_const_iterator@V-$_Vec.c)
- *     _anonymous_namespace_::GlobalResourceCountersEncoder::Serialize @ 0x18010BB8C (_anonymous_namespace_--GlobalResourceCountersEncoder--Serialize.c)
- *     _anonymous_namespace_::PackedStringArrayBuilder::Append @ 0x18010C7F4 (_anonymous_namespace_--PackedStringArrayBuilder--Append.c)
- *     _anonymous_namespace_::ProcessAttributionResourceCountersEncoder::Serialize @ 0x18010C894 (_anonymous_namespace_--ProcessAttributionResourceCountersEncoder--Serialize.c)
- *     ?EncodeStringsList@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$set@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U?$less@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@@2@@Z @ 0x18010C9DC (-EncodeStringsList@@YA-AV-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@AEBV-$set@.c)
- *     _anonymous_namespace_::SequenceEncoder::Serialize @ 0x18010CCF8 (_anonymous_namespace_--SequenceEncoder--Serialize.c)
- *     ?AppendVarInt@Base853Encoder@@QEAAXI@Z @ 0x18010D554 (-AppendVarInt@Base853Encoder@@QEAAXI@Z.c)
- *     ?EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ @ 0x18010D608 (-EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ.c)
- *     ?EncodeBlock@Base853Encoder@@AEAAXXZ @ 0x18010D664 (-EncodeBlock@Base853Encoder@@AEAAXXZ.c)
- *     ??$_Emplace_reallocate@E@?$vector@EV?$allocator@E@std@@@std@@QEAAPEAEQEAE$$QEAE@Z @ 0x18010D81C (--$_Emplace_reallocate@E@-$vector@EV-$allocator@E@std@@@std@@QEAAPEAEQEAE$$QEAE@Z.c)
- *     ??$_Emplace_reallocate@D@?$vector@DV?$allocator@D@std@@@std@@QEAAPEADQEAD$$QEAD@Z @ 0x18010D8E0 (--$_Emplace_reallocate@D@-$vector@DV-$allocator@D@std@@@std@@QEAAPEADQEAD$$QEAD@Z.c)
- *     ??E?$_Tree_unchecked_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@U_Iterator_base0@2@@std@@QEAAAEAV01@XZ @ 0x18010DCC0 (--E-$_Tree_unchecked_const_iterator@V-$_Tree_val@U-$_Tree_simple_types@V-$basic_string@GU-$char_.c)
- *     ??$_Try_emplace@PEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@$$V@?$map@PEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@IU?$less@PEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@@2@@std@@AEAA?AU?$pair@PEAU?$_Tree_node@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@PEAX@std@@_N@1@$$QEAPEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@1@@Z @ 0x18010DD14 (--$_Try_emplace@PEBV-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@$$V@-$map@PEBV-.c)
- *     ??$_Find_lower_bound@PEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@?$_Tree@V?$_Tmap_traits@PEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@IU?$less@PEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@@2@$0A@@std@@@std@@IEBA?AU?$_Tree_find_result@PEAU?$_Tree_node@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@PEAX@std@@@1@AEBQEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@1@@Z @ 0x18010DDD4 (--$_Find_lower_bound@PEBV-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@@-$_Tree@V.c)
- *     ??0?$_Tree_temp_node_alloc@V?$allocator@U?$_Tree_node@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@PEAX@std@@@std@@@std@@QEAA@AEAV?$allocator@U?$_Tree_node@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@PEAX@std@@@1@@Z @ 0x18010DE94 (--0-$_Tree_temp_node_alloc@V-$allocator@U-$_Tree_node@U-$pair@QEBV-$basic_string@GU-$char_traits.c)
- *     ?_Insert_node@?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@@std@@@std@@QEAAPEAU?$_Tree_node@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@PEAX@2@U?$_Tree_id@PEAU?$_Tree_node@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@PEAX@std@@@2@QEAU32@@Z @ 0x18010DECC (-_Insert_node@-$_Tree_val@U-$_Tree_simple_types@U-$pair@QEBV-$basic_string@GU-$char_traits@G@std.c)
- *     ?_Check_grow_by_1@?$_Tree@V?$_Tmap_traits@$$CBUD2D_VECTOR_2F@@UEdgeData@?$CConvexPolygonEdgeMap@USinkRoutingInfo@CCpuClipAntialiasSink@@@@UCompareEdgeDirection@3@V?$allocator@U?$pair@$$CBUD2D_VECTOR_2F@@UEdgeData@?$CConvexPolygonEdgeMap@USinkRoutingInfo@CCpuClipAntialiasSink@@@@@std@@@std@@$0A@@std@@@std@@IEAAXXZ @ 0x18010DFB4 (-_Check_grow_by_1@-$_Tree@V-$_Tmap_traits@$$CBUD2D_VECTOR_2F@@UEdgeData@-$CConvexPolygonEdgeMap@.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByRef@$0BA@@@U2@U?$_tlgWrapSz@D@@U_tlgWrapperPtrSize@@U5@U5@U4@U4@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByRef@$0BA@@@4AEBU?$_tlgWrapSz@D@@AEBU_tlgWrapperPtrSize@@7766@Z @ 0x18010E23C (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByRef@$0BA@@@U2@U-$_.c)
- *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@$$CB_KPEAUBufferStream@BamoImpl@Microsoft@@@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_KPEAUBufferStream@BamoImpl@Microsoft@@@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@U?$pair@$$CB_KPEAUBufferStream@BamoImpl@Microsoft@@@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@$$CB_KPEAUBufferStream@BamoImpl@Microsoft@@@std@@PEAX@1@@Z @ 0x18010E404 (--$_Erase_tree@V-$allocator@U-$_Tree_node@U-$pair@$$CB_KPEAUBufferStream@BamoImpl@Microsoft@@@st.c)
- *     _anonymous_namespace_::QpcToFileTimeAndGetCurrentFileTime @ 0x18010E460 (_anonymous_namespace_--QpcToFileTimeAndGetCurrentFileTime.c)
- *     std::map__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int_____::_Try_emplace__anonymous_namespace_::AnimationId_const_&_ @ 0x18010E530 (std--map__anonymous_namespace_--AnimationId_unsigned_int_A0x155a666c--AnimationId--_ea_18010E530.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_______::_Erase_tree_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const____void_______ @ 0x1800290B0 (std--_Tree_val_std--_Tree_simple_types_std--pair__anonymous_namespace_--AnimationId_const__std--.c)
+ *     ??$_Try_emplace@AEBQEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@$$V@?$map@PEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@IU?$less@PEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@@2@@std@@QEAA?AU?$pair@V?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@@std@@@std@@@std@@_N@1@AEBQEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@1@@Z @ 0x18004823C (--$_Try_emplace@AEBQEBV-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@$$V@-$map@PE.c)
+ *     ??$_Insert_hint@AEAU?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@PEAU?$_Tree_node@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@PEAX@2@@?$_Tree@V?$_Tmap_traits@PEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@IU?$less@PEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@@2@$0A@@std@@@std@@IEAA?AV?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@@std@@@std@@@1@V?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@@std@@@std@@@1@AEAU?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@1@PEAU?$_Tree_node@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@PEAX@1@@Z @ 0x1800482A4 (--$_Insert_hint@AEAU-$pair@QEBV-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@I@st.c)
+ *     ??$_Insert_range@PEAD@?$vector@DV?$allocator@D@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@D@std@@@std@@@1@PEAD1Uforward_iterator_tag@1@@Z @ 0x180049758 (--$_Insert_range@PEAD@-$vector@DV-$allocator@D@std@@@std@@AEAAXV-$_Vector_const_iterator@V-$_Vec.c)
+ *     ??$emplace_hint@AEBUpiecewise_construct_t@std@@V?$tuple@AEB_K@2@V?$tuple@$$V@2@@?$_Tree@V?$_Tmap_traits@_KIU?$less@_K@std@@V?$allocator@U?$pair@$$CB_KI@std@@@2@$0A@@std@@@std@@QEAA?AV?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_KI@std@@@std@@@std@@@1@V?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_KI@std@@@std@@@std@@@1@AEBUpiecewise_construct_t@1@$$QEAV?$tuple@AEB_K@1@$$QEAV?$tuple@$$V@1@@Z @ 0x180049898 (--$emplace_hint@AEBUpiecewise_construct_t@std@@V-$tuple@AEB_K@2@V-$tuple@$$V@2@@-$_Tree@V-$_Tmap.c)
+ *     ??$_Try_emplace@AEB_K$$V@?$map@_KIU?$less@_K@std@@V?$allocator@U?$pair@$$CB_KI@std@@@2@@std@@QEAA?AU?$pair@V?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_KI@std@@@std@@@std@@@std@@_N@1@AEB_K@Z @ 0x18004A0FC (--$_Try_emplace@AEB_K$$V@-$map@_KIU-$less@_K@std@@V-$allocator@U-$pair@$$CB_KI@std@@@2@@std@@QEA.c)
+ *     ??$_Emplace_reallocate@D@?$vector@DV?$allocator@D@std@@@std@@QEAAPEADQEAD$$QEAD@Z @ 0x18004AC8C (--$_Emplace_reallocate@D@-$vector@DV-$allocator@D@std@@@std@@QEAAPEADQEAD$$QEAD@Z.c)
+ *     _anonymous_namespace_::GlobalResourceCountersEncoder::Serialize @ 0x18004B8A0 (_anonymous_namespace_--GlobalResourceCountersEncoder--Serialize.c)
+ *     _anonymous_namespace_::PackedStringArrayBuilder::Append @ 0x18004C35C (_anonymous_namespace_--PackedStringArrayBuilder--Append.c)
+ *     _anonymous_namespace_::ProcessAttributionResourceCountersEncoder::Serialize @ 0x18004C4C8 (_anonymous_namespace_--ProcessAttributionResourceCountersEncoder--Serialize.c)
+ *     ?EncodeStringsList@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$set@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U?$less@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@@2@@Z @ 0x18004C610 (-EncodeStringsList@@YA-AV-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@AEBV-$set@.c)
+ *     _anonymous_namespace_::SequenceEncoder::Serialize @ 0x18004C8A4 (_anonymous_namespace_--SequenceEncoder--Serialize.c)
+ *     ?AppendVarInt@Base853Encoder@@QEAAXI@Z @ 0x18004D0E4 (-AppendVarInt@Base853Encoder@@QEAAXI@Z.c)
+ *     ?EncodeBlock@Base853Encoder@@AEAAXXZ @ 0x18004D1AC (-EncodeBlock@Base853Encoder@@AEAAXXZ.c)
+ *     ?EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ @ 0x18004D3E8 (-EnsureZeroesAreSerialized@Base853Encoder@@AEAAXXZ.c)
+ *     ??$_Lbound@_K@?$_Tree@V?$_Tmap_traits@_KIU?$less@_K@std@@V?$allocator@U?$pair@$$CB_KI@std@@@2@$0A@@std@@@std@@IEBAPEAU?$_Tree_node@U?$pair@$$CB_KI@std@@PEAX@1@AEB_K@Z @ 0x18004D47C (--$_Lbound@_K@-$_Tree@V-$_Tmap_traits@_KIU-$less@_K@std@@V-$allocator@U-$pair@$$CB_KI@std@@@2@$0.c)
+ *     std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void___::_Buyheadnode_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______ @ 0x18004FF48 (std--_Tree_node_std--pair__anonymous_namespace_--AnimationId_const__unsigned_int__void___--_Buyh.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050D58 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     _anonymous_namespace_::QpcToFileTimeAndGetCurrentFileTime @ 0x1800B0AB8 (_anonymous_namespace_--QpcToFileTimeAndGetCurrentFileTime.c)
+ *     _tlgKeywordOn @ 0x1800B24A4 (_tlgKeywordOn.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     std::map__anonymous_namespace_::AnimationId_unsigned_int_A0xd209ef2d::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int_____::_Try_emplace__anonymous_namespace_::AnimationId_const_&_ @ 0x1800CFC74 (std--map__anonymous_namespace_--AnimationId_unsigned_int_A0xd209ef2d--AnimationId--LessThan_std-.c)
+ *     ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@AEAAXXZ @ 0x1800D42BC (-_Tidy@-$vector@EV-$allocator@E@std@@@std@@AEAAXXZ.c)
+ *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@$$CB_KPEAUBufferStream@BamoImpl@Microsoft@@@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_KPEAUBufferStream@BamoImpl@Microsoft@@@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@U?$pair@$$CB_KPEAUBufferStream@BamoImpl@Microsoft@@@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@$$CB_KPEAUBufferStream@BamoImpl@Microsoft@@@std@@PEAX@1@@Z @ 0x1800D46B4 (--$_Erase_tree@V-$allocator@U-$_Tree_node@U-$pair@$$CB_KPEAUBufferStream@BamoImpl@Microsoft@@@st.c)
+ *     ??E?$_Tree_unchecked_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@U_Iterator_base0@2@@std@@QEAAAEAV01@XZ @ 0x1800D5B3C (--E-$_Tree_unchecked_const_iterator@V-$_Tree_val@U-$_Tree_simple_types@V-$basic_string@GU-$char_.c)
+ *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@QEBV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I@std@@PEAX@1@@Z @ 0x1800D75B4 (--$_Erase_tree@V-$allocator@U-$_Tree_node@U-$pair@QEBV-$basic_string@GU-$char_traits@G@std@@V-$a.c)
+ *     ?_Tidy_deallocate@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAAXXZ @ 0x1800D8DEC (-_Tidy_deallocate@-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@AEAAXXZ.c)
+ *     _anonymous_namespace_::PackedStringArrayBuilder::PackedStringArrayBuilder @ 0x1800DB020 (_anonymous_namespace_--PackedStringArrayBuilder--PackedStringArrayBuilder.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByRef@$0BA@@@U2@U?$_tlgWrapSz@D@@U_tlgWrapperPtrSize@@U5@U5@U4@U4@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByRef@$0BA@@@4AEBU?$_tlgWrapSz@D@@AEBU_tlgWrapperPtrSize@@7766@Z @ 0x180151A74 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByRef@$0BA@@@U2@U-$_.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
-void __fastcall anonymous_namespace_::SendFramesReport(__int64 *a1)
+__int64 __fastcall anonymous_namespace_::SendFramesReport(_QWORD *a1)
 {
-  SIZE_T size_of; // rax
-  _QWORD *v3; // rax
-  _BYTE *v4; // r14
-  int v5; // ebx
-  SIZE_T v6; // rax
-  _QWORD *v7; // rax
-  __int64 v8; // rax
-  int v9; // r15d
-  _BYTE *v10; // rsi
-  __int64 **v11; // r13
-  __int64 **i; // rdi
-  __int64 *v13; // rcx
-  unsigned int v14; // ebx
-  __int64 v15; // rax
-  _BYTE *v16; // rsi
-  _BYTE *v17; // rsi
-  _BYTE *v18; // rsi
-  unsigned int v19; // ebx
-  _BYTE *v20; // rsi
-  _BYTE *v21; // rsi
-  _BYTE *v22; // rsi
-  _BYTE *v23; // rsi
+  __int64 v2; // rax
+  __int16 *v3; // r12
+  _BYTE *v4; // rsi
+  _BYTE *v5; // r14
+  int v6; // r13d
+  __int64 *v7; // r15
+  __int64 v8; // rdi
+  _QWORD *v9; // rdi
+  _QWORD *v10; // rcx
+  unsigned __int64 v11; // rcx
+  unsigned __int64 *v12; // rbx
+  __int64 v13; // rax
+  __int64 v14; // rax
+  _QWORD *v15; // r13
+  int v16; // edi
+  __int64 v17; // rdx
+  _QWORD **v18; // r15
+  _QWORD **v19; // r12
+  _QWORD *v20; // rax
+  unsigned int v21; // ebx
+  __int64 v22; // rax
+  unsigned __int64 v23; // r9
   _BYTE *v24; // rsi
   _BYTE *v25; // rsi
   _BYTE *v26; // rsi
-  _BYTE *v27; // rsi
+  unsigned int v27; // ebx
   _BYTE *v28; // rsi
-  unsigned int v29; // ebx
+  _BYTE *v29; // rsi
   _BYTE *v30; // rsi
-  unsigned int v31; // ebx
-  char *v32; // rsi
-  void **v33; // rax
-  void **v34; // r9
-  void **v35; // r8
-  _BYTE *v36; // r9
-  __int64 v37; // rsi
-  unsigned __int64 v38; // r10
-  __int64 inserted; // rax
-  __int64 v40; // rdx
-  int v41; // r13d
-  __int64 v42; // rax
-  __int64 *k; // rbx
-  __int64 v44; // rax
-  unsigned __int64 v45; // r10
+  _BYTE *v31; // rsi
+  _BYTE *v32; // rsi
+  _BYTE *v33; // rsi
+  _BYTE *v34; // rsi
+  _BYTE *v35; // rsi
+  _BYTE *v36; // rsi
+  unsigned int v37; // ebx
+  _BYTE *v38; // rsi
+  unsigned int v39; // ebx
+  _BYTE *v40; // rsi
+  _BYTE *v41; // rax
+  _QWORD *v42; // r9
+  _QWORD *v43; // r8
+  __int64 v44; // r9
+  _BYTE *v45; // rsi
   __int64 v46; // rax
-  unsigned int v47; // edx
-  __int64 **v48; // rax
-  __int64 *j; // rax
-  void *v50; // rbx
-  __int64 v51; // r8
-  __int128 v52; // xmm0
-  __int64 v53; // rdx
-  __int64 v54; // rdi
-  __int64 m; // rbx
-  void **v56; // rax
+  int v47; // r15d
+  __int64 v48; // rax
+  __int64 *v49; // r13
+  __int64 *j; // rbx
+  _QWORD *v51; // r13
+  __int64 v52; // rdi
+  __int64 k; // rbx
+  __int64 *v54; // rdi
+  __int64 *v55; // rbx
+  __int64 v56; // rax
+  _BYTE *v57; // rax
   DWORD CurrentProcessId; // eax
-  void *v58; // rbx
-  void **v59; // rax
-  __int64 v60; // rdx
-  int v61; // ecx
-  void **v62; // rax
-  int v63; // esi
-  __int64 v64; // rcx
-  void **v65; // rax
-  __int64 v66; // rax
-  void *v67; // rdi
-  __int64 v68; // r8
-  __int128 v69; // xmm0
-  __int64 *v70; // rcx
+  __int64 v60; // rax
+  unsigned int v61; // edx
+  __int64 **v62; // rax
+  __int64 *i; // rax
+  __int64 *v64; // rcx
   signed int LastError; // eax
+  _QWORD *v66; // rax
+  _QWORD *v67; // rax
+  int v68; // edx
+  __int64 v69; // rcx
+  _QWORD *v70; // rax
+  __int64 v71; // rax
   char v72[8]; // [rsp+88h] [rbp-80h] BYREF
-  __int128 v73; // [rsp+90h] [rbp-78h] BYREF
-  _BYTE *v74; // [rsp+A0h] [rbp-68h]
-  __int64 v75; // [rsp+A8h] [rbp-60h] BYREF
-  void *v76[2]; // [rsp+B0h] [rbp-58h] BYREF
-  __int16 v77; // [rsp+C0h] [rbp-48h] BYREF
-  __int64 v78; // [rsp+C8h] [rbp-40h] BYREF
-  _BYTE v79[24]; // [rsp+D0h] [rbp-38h] BYREF
-  __int64 v80; // [rsp+E8h] [rbp-20h]
-  _QWORD *v81; // [rsp+F0h] [rbp-18h] BYREF
-  __int64 v82; // [rsp+F8h] [rbp-10h]
-  DWORD pSessionId; // [rsp+100h] [rbp-8h] BYREF
-  __int64 v84; // [rsp+108h] [rbp+0h] BYREF
-  __int64 v85; // [rsp+110h] [rbp+8h] BYREF
-  __int64 v86; // [rsp+118h] [rbp+10h]
-  __int128 v87; // [rsp+128h] [rbp+20h] BYREF
-  __int64 v88; // [rsp+138h] [rbp+30h]
-  char v89[8]; // [rsp+148h] [rbp+40h] BYREF
-  void *v90[2]; // [rsp+150h] [rbp+48h] BYREF
-  void *v91; // [rsp+160h] [rbp+58h] BYREF
-  int v92; // [rsp+168h] [rbp+60h]
-  _QWORD v93[5]; // [rsp+170h] [rbp+68h] BYREF
-  __int64 v94; // [rsp+198h] [rbp+90h] BYREF
-  int v95; // [rsp+1A0h] [rbp+98h]
-  void *v96[2]; // [rsp+1A8h] [rbp+A0h] BYREF
-  __int64 v97; // [rsp+1B8h] [rbp+B0h]
-  unsigned __int64 v98; // [rsp+1C0h] [rbp+B8h]
-  void *v99[2]; // [rsp+1C8h] [rbp+C0h] BYREF
-  __int64 v100; // [rsp+1D8h] [rbp+D0h]
-  unsigned __int64 v101; // [rsp+1E0h] [rbp+D8h]
-  void *v102[3]; // [rsp+1E8h] [rbp+E0h] BYREF
-  unsigned __int64 v103; // [rsp+200h] [rbp+F8h]
-  void *retaddr; // [rsp+240h] [rbp+138h]
+  __int16 *v73; // [rsp+90h] [rbp-78h] BYREF
+  _BYTE *v74; // [rsp+98h] [rbp-70h]
+  _BYTE *v75; // [rsp+A0h] [rbp-68h]
+  _QWORD *v76; // [rsp+A8h] [rbp-60h] BYREF
+  _QWORD *v77; // [rsp+B0h] [rbp-58h]
+  __int16 v78; // [rsp+B8h] [rbp-50h] BYREF
+  unsigned __int64 *v79; // [rsp+C0h] [rbp-48h] BYREF
+  __int64 *v80; // [rsp+C8h] [rbp-40h] BYREF
+  __int64 v81; // [rsp+D0h] [rbp-38h] BYREF
+  __int64 v82; // [rsp+D8h] [rbp-30h]
+  __int64 *v83[2]; // [rsp+E0h] [rbp-28h] BYREF
+  _QWORD *v84; // [rsp+F0h] [rbp-18h]
+  DWORD pSessionId; // [rsp+F8h] [rbp-10h] BYREF
+  _QWORD *v86; // [rsp+100h] [rbp-8h] BYREF
+  __int64 v87; // [rsp+108h] [rbp+0h]
+  int v88; // [rsp+110h] [rbp+8h]
+  int v89; // [rsp+118h] [rbp+10h] BYREF
+  __int64 v90; // [rsp+120h] [rbp+18h] BYREF
+  __int16 v91; // [rsp+128h] [rbp+20h]
+  __int64 v92; // [rsp+138h] [rbp+30h] BYREF
+  char v93[8]; // [rsp+140h] [rbp+38h] BYREF
+  _QWORD v94[2]; // [rsp+148h] [rbp+40h] BYREF
+  __int64 v95; // [rsp+158h] [rbp+50h] BYREF
+  int v96; // [rsp+160h] [rbp+58h]
+  __int16 *v97; // [rsp+168h] [rbp+60h] BYREF
+  int v98; // [rsp+170h] [rbp+68h]
+  _QWORD v99[3]; // [rsp+178h] [rbp+70h] BYREF
+  _QWORD v100[2]; // [rsp+190h] [rbp+88h] BYREF
+  __int64 v101; // [rsp+1A0h] [rbp+98h]
+  unsigned __int64 v102; // [rsp+1A8h] [rbp+A0h]
+  _QWORD v103[2]; // [rsp+1B0h] [rbp+A8h] BYREF
+  __m128i si128; // [rsp+1C0h] [rbp+B8h]
+  _QWORD v105[4]; // [rsp+1D0h] [rbp+C8h] BYREF
+  void *retaddr; // [rsp+220h] [rbp+118h]
 
-  v98 = 15LL;
-  v96[0] = 0LL;
-  v97 = 0LL;
+  v84 = a1;
+  v101 = 0LL;
+  v102 = 15LL;
+  LOBYTE(v100[0]) = 0;
   v82 = 0LL;
-  size_of = std::_Get_size_of_n<48>(1uLL);
-  v3 = (_QWORD *)std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
+  v2 = std::_Allocate<16,std::_Default_allocate_traits,0>(0x30uLL);
+  v73 = 0LL;
+  v3 = 0LL;
   v74 = 0LL;
   v4 = 0LL;
-  v73 = 0LL;
-  *v3 = v3;
-  v5 = 0;
-  v3[1] = v3;
-  v3[2] = v3;
-  *((_WORD *)v3 + 12) = 257;
-  v81 = v3;
-  v76[1] = 0LL;
-  v6 = std::_Get_size_of_n<48>(1uLL);
-  v7 = (_QWORD *)std::_Allocate<16,std::_Default_allocate_traits,0>(v6);
-  *v7 = v7;
-  v7[1] = v7;
-  v7[2] = v7;
+  v75 = 0LL;
+  *(_QWORD *)v2 = v2;
+  v5 = 0LL;
+  *(_QWORD *)(v2 + 8) = v2;
+  v6 = 0;
+  *(_QWORD *)(v2 + 16) = v2;
+  *(_WORD *)(v2 + 24) = 257;
+  v81 = v2;
+  v83[1] = 0LL;
+  v7 = (__int64 *)std::_Allocate<16,std::_Default_allocate_traits,0>(0x30uLL);
+  *v7 = (__int64)v7;
+  v7[1] = (__int64)v7;
+  v7[2] = (__int64)v7;
   *((_WORD *)v7 + 12) = 257;
-  v76[0] = v7;
-  v8 = **(_QWORD **)(*a1 + 160);
-  v75 = v8;
-  while ( !*(_BYTE *)(v8 + 25) )
+  v8 = *a1;
+  v83[0] = v7;
+  v9 = *(_QWORD **)(v8 + 160);
+  v10 = (_QWORD *)*v9;
+  v76 = (_QWORD *)*v9;
+  while ( v10 != v9 )
   {
-    v78 = v8 + 32;
-    *(_DWORD *)(*(_QWORD *)std::map<std::wstring const *,unsigned int>::_Try_emplace<std::wstring const *,>(
-                             v76,
-                             &v87,
-                             &v78)
-              + 40LL) = v5++;
-    std::_Tree_unchecked_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::wstring>>,std::_Iterator_base0>::operator++(&v75);
-    v8 = v75;
-  }
-  v9 = 0;
-  v10 = (_BYTE *)*((_QWORD *)&v73 + 1);
-  v11 = *(__int64 ***)(*a1 + 120);
-  for ( i = *(__int64 ***)(*a1 + 112); i != v11; ++i )
-  {
-    v13 = *i;
-    v14 = *((_DWORD *)*i + 26);
-    v75 = **i;
-    v78 = v13[12];
-    v15 = std::map<unsigned __int64,unsigned int>::_Try_emplace<unsigned __int64 const &,>(
-            (__int64 *)&v81,
-            (__int64)&v91);
-    v72[0] = v14;
-    *(_DWORD *)(*(_QWORD *)v15 + 40LL) = v9++;
-    if ( v10 == v4 )
+    v11 = (unsigned __int64)(v10 + 4);
+    v12 = (unsigned __int64 *)v7;
+    v77 = (_QWORD *)v11;
+    v13 = v7[1];
+    if ( *(_BYTE *)(v13 + 25) )
+      goto LABEL_9;
+    do
     {
-      std::vector<char>::_Emplace_reallocate<char>(&v73, v10, v72);
-      v4 = v74;
-      v16 = (_BYTE *)*((_QWORD *)&v73 + 1);
-    }
-    else
-    {
-      *v10 = v14;
-      v16 = v10 + 1;
-      *((_QWORD *)&v73 + 1) = v16;
-    }
-    v72[0] = BYTE1(v14);
-    if ( v16 == v4 )
-    {
-      std::vector<char>::_Emplace_reallocate<char>(&v73, v16, v72);
-      v4 = v74;
-      v17 = (_BYTE *)*((_QWORD *)&v73 + 1);
-    }
-    else
-    {
-      *v16 = BYTE1(v14);
-      v17 = v16 + 1;
-      *((_QWORD *)&v73 + 1) = v17;
-    }
-    v72[0] = BYTE2(v14);
-    if ( v17 == v4 )
-    {
-      std::vector<char>::_Emplace_reallocate<char>(&v73, v17, v72);
-      v4 = v74;
-      v18 = (_BYTE *)*((_QWORD *)&v73 + 1);
-    }
-    else
-    {
-      *v17 = BYTE2(v14);
-      v18 = v17 + 1;
-      *((_QWORD *)&v73 + 1) = v18;
-    }
-    v19 = HIBYTE(v14);
-    v72[0] = v19;
-    if ( v18 == v4 )
-    {
-      std::vector<char>::_Emplace_reallocate<char>(&v73, v18, v72);
-      v4 = v74;
-      v20 = (_BYTE *)*((_QWORD *)&v73 + 1);
-    }
-    else
-    {
-      *v18 = v19;
-      v20 = v18 + 1;
-      *((_QWORD *)&v73 + 1) = v20;
-    }
-    v72[0] = v75;
-    if ( v20 == v4 )
-    {
-      std::vector<char>::_Emplace_reallocate<char>(&v73, v20, v72);
-      v4 = v74;
-      v21 = (_BYTE *)*((_QWORD *)&v73 + 1);
-    }
-    else
-    {
-      *v20 = v75;
-      v21 = v20 + 1;
-      *((_QWORD *)&v73 + 1) = v21;
-    }
-    v72[0] = BYTE1(v75);
-    if ( v21 == v4 )
-    {
-      std::vector<char>::_Emplace_reallocate<char>(&v73, v21, v72);
-      v4 = v74;
-      v22 = (_BYTE *)*((_QWORD *)&v73 + 1);
-    }
-    else
-    {
-      *v21 = BYTE1(v75);
-      v22 = v21 + 1;
-      *((_QWORD *)&v73 + 1) = v22;
-    }
-    v72[0] = BYTE2(v75);
-    if ( v22 == v4 )
-    {
-      std::vector<char>::_Emplace_reallocate<char>(&v73, v22, v72);
-      v4 = v74;
-      v23 = (_BYTE *)*((_QWORD *)&v73 + 1);
-    }
-    else
-    {
-      *v22 = BYTE2(v75);
-      v23 = v22 + 1;
-      *((_QWORD *)&v73 + 1) = v23;
-    }
-    v72[0] = BYTE3(v75);
-    if ( v23 == v4 )
-    {
-      std::vector<char>::_Emplace_reallocate<char>(&v73, v23, v72);
-      v4 = v74;
-      v24 = (_BYTE *)*((_QWORD *)&v73 + 1);
-    }
-    else
-    {
-      *v23 = BYTE3(v75);
-      v24 = v23 + 1;
-      *((_QWORD *)&v73 + 1) = v24;
-    }
-    v72[0] = BYTE4(v75);
-    if ( v24 == v4 )
-    {
-      std::vector<char>::_Emplace_reallocate<char>(&v73, v24, v72);
-      v4 = v74;
-      v25 = (_BYTE *)*((_QWORD *)&v73 + 1);
-    }
-    else
-    {
-      *v24 = BYTE4(v75);
-      v25 = v24 + 1;
-      *((_QWORD *)&v73 + 1) = v25;
-    }
-    v72[0] = BYTE5(v75);
-    if ( v25 == v4 )
-    {
-      std::vector<char>::_Emplace_reallocate<char>(&v73, v25, v72);
-      v4 = v74;
-      v26 = (_BYTE *)*((_QWORD *)&v73 + 1);
-    }
-    else
-    {
-      *v25 = BYTE5(v75);
-      v26 = v25 + 1;
-      *((_QWORD *)&v73 + 1) = v26;
-    }
-    v72[0] = BYTE6(v75);
-    if ( v26 == v4 )
-    {
-      std::vector<char>::_Emplace_reallocate<char>(&v73, v26, v72);
-      v4 = v74;
-      v27 = (_BYTE *)*((_QWORD *)&v73 + 1);
-    }
-    else
-    {
-      *v26 = BYTE6(v75);
-      v27 = v26 + 1;
-      *((_QWORD *)&v73 + 1) = v27;
-    }
-    v72[0] = HIBYTE(v75);
-    if ( v27 == v4 )
-    {
-      std::vector<char>::_Emplace_reallocate<char>(&v73, v27, v72);
-      v4 = v74;
-      v28 = (_BYTE *)*((_QWORD *)&v73 + 1);
-    }
-    else
-    {
-      *v27 = HIBYTE(v75);
-      v28 = v27 + 1;
-      *((_QWORD *)&v73 + 1) = v28;
-    }
-    if ( v78 )
-    {
-      std::_Tree<std::_Tmap_traits<std::wstring const *,unsigned int,std::less<std::wstring const *>,std::allocator<std::pair<std::wstring const * const,unsigned int>>,0>>::_Find_lower_bound<std::wstring const *>(
-        v76,
-        v79,
-        &v78);
-      inserted = *(_QWORD *)&v79[16];
-      if ( *(_BYTE *)(*(_QWORD *)&v79[16] + 25LL) || v38 < *(_QWORD *)(*(_QWORD *)&v79[16] + 32LL) )
+      if ( *(_QWORD *)(v13 + 32) < v11 )
       {
-        std::_Tree<std::_Tmap_traits<D2D_VECTOR_2F const,CConvexPolygonEdgeMap<CCpuClipAntialiasSink::SinkRoutingInfo>::EdgeData,CConvexPolygonEdgeMap<CCpuClipAntialiasSink::SinkRoutingInfo>::CompareEdgeDirection,std::allocator<std::pair<D2D_VECTOR_2F const,CConvexPolygonEdgeMap<CCpuClipAntialiasSink::SinkRoutingInfo>::EdgeData>>,0>>::_Check_grow_by_1(v76);
-        v50 = v76[0];
-        std::_Tree_temp_node_alloc<std::allocator<std::_Tree_node<std::pair<std::wstring const * const,unsigned int>,void *>>>::_Tree_temp_node_alloc<std::allocator<std::_Tree_node<std::pair<std::wstring const * const,unsigned int>,void *>>>(
-          &v85,
-          v76);
-        v51 = v86;
-        v52 = *(_OWORD *)v79;
-        *(_QWORD *)(v86 + 32) = v78;
-        *(_DWORD *)(v51 + 40) = 0;
-        *(_QWORD *)v51 = v50;
-        *(_QWORD *)(v51 + 8) = v50;
-        *(_QWORD *)(v51 + 16) = v50;
-        *(_WORD *)(v51 + 24) = 0;
-        v86 = 0LL;
-        v87 = v52;
-        inserted = std::_Tree_val<std::_Tree_simple_types<std::pair<std::wstring const * const,unsigned int>>>::_Insert_node(
-                     v76,
-                     &v87);
+        v13 = *(_QWORD *)(v13 + 16);
       }
-      v29 = *(_DWORD *)(inserted + 40) + 1;
-    }
-    else
-    {
-      v29 = 0;
-    }
-    v72[0] = v29;
-    if ( v28 == v4 )
-    {
-      std::vector<char>::_Emplace_reallocate<char>(&v73, v28, v72);
-      v4 = v74;
-      v30 = (_BYTE *)*((_QWORD *)&v73 + 1);
-    }
-    else
-    {
-      *v28 = v29;
-      v30 = v28 + 1;
-      *((_QWORD *)&v73 + 1) = v30;
-    }
-    v31 = v29 >> 8;
-    v72[0] = v31;
-    if ( v30 == v4 )
-    {
-      std::vector<char>::_Emplace_reallocate<char>(&v73, v30, v72);
-      v32 = (char *)*((_QWORD *)&v73 + 1);
-    }
-    else
-    {
-      *v30 = v31;
-      v32 = v30 + 1;
-      *((_QWORD *)&v73 + 1) = v32;
-    }
-    v33 = v96;
-    if ( v98 >= 0x10 )
-      v33 = (void **)v96[0];
-    v97 = 0LL;
-    *(_BYTE *)v33 = 0;
-    anonymous_namespace_::ProcessAttributionResourceCountersEncoder::Serialize(*i + 1, v96);
-    v34 = v96;
-    v35 = v96;
-    if ( v98 >= 0x10 )
-      v34 = (void **)v96[0];
-    v36 = (char *)v34 + v97;
-    if ( v98 >= 0x10 )
-      v35 = (void **)v96[0];
-    std::vector<char>::_Insert_range<char *>((__int64)&v73, v32, v35, v36);
-    v37 = *((_QWORD *)&v73 + 1);
-    v4 = v74;
-    v72[0] = 0;
-    if ( *((_BYTE **)&v73 + 1) == v74 )
-    {
-      std::vector<char>::_Emplace_reallocate<char>(&v73, *((_QWORD *)&v73 + 1), v72);
-      v4 = v74;
-      v10 = (_BYTE *)*((_QWORD *)&v73 + 1);
-    }
-    else
-    {
-      **((_BYTE **)&v73 + 1) = 0;
-      v10 = (_BYTE *)(v37 + 1);
-      *((_QWORD *)&v73 + 1) = v10;
-    }
-  }
-  v40 = *a1 + 160;
-  v77 = v82;
-  EncodeStringsList(v102, v40);
-  v90[1] = 0LL;
-  v90[0] = (void *)std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void___::_Buyheadnode_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______();
-  v99[0] = 0LL;
-  *(_QWORD *)v79 = v99;
-  v41 = 0;
-  v42 = *a1;
-  v100 = 0LL;
-  v101 = 15LL;
-  *(_QWORD *)&v79[8] = 0LL;
-  *(_DWORD *)&v79[16] = 0;
-  Base853Encoder::AppendVarInt((Base853Encoder *)v79, *(_DWORD *)(v42 + 152));
-  k = **(__int64 ***)(*a1 + 144);
-  while ( !*((_BYTE *)k + 25) )
-  {
-    v44 = std::map<unsigned __int64,unsigned int>::_Try_emplace<unsigned __int64 const &,>(
-            (__int64 *)&v81,
-            (__int64)&v91);
-    Base853Encoder::AppendVarInt((Base853Encoder *)v79, *(_DWORD *)(*(_QWORD *)v44 + 40LL));
-    Base853Encoder::AppendVarInt((Base853Encoder *)v79, *((_DWORD *)k + 10));
-    v75 = k[6];
-    if ( v75 )
-    {
-      std::_Tree<std::_Tmap_traits<std::wstring const *,unsigned int,std::less<std::wstring const *>,std::allocator<std::pair<std::wstring const * const,unsigned int>>,0>>::_Find_lower_bound<std::wstring const *>(
-        v76,
-        &v87,
-        &v75);
-      v46 = v88;
-      if ( *(_BYTE *)(v88 + 25) || v45 < *(_QWORD *)(v88 + 32) )
+      else
       {
-        std::_Tree<std::_Tmap_traits<D2D_VECTOR_2F const,CConvexPolygonEdgeMap<CCpuClipAntialiasSink::SinkRoutingInfo>::EdgeData,CConvexPolygonEdgeMap<CCpuClipAntialiasSink::SinkRoutingInfo>::CompareEdgeDirection,std::allocator<std::pair<D2D_VECTOR_2F const,CConvexPolygonEdgeMap<CCpuClipAntialiasSink::SinkRoutingInfo>::EdgeData>>,0>>::_Check_grow_by_1(v76);
-        v67 = v76[0];
-        std::_Tree_temp_node_alloc<std::allocator<std::_Tree_node<std::pair<std::wstring const * const,unsigned int>,void *>>>::_Tree_temp_node_alloc<std::allocator<std::_Tree_node<std::pair<std::wstring const * const,unsigned int>,void *>>>(
-          &v85,
-          v76);
-        v68 = v86;
-        v69 = v87;
-        *(_QWORD *)(v86 + 32) = v75;
-        *(_DWORD *)(v68 + 40) = 0;
-        *(_QWORD *)v68 = v67;
-        *(_QWORD *)(v68 + 8) = v67;
-        *(_QWORD *)(v68 + 16) = v67;
-        *(_WORD *)(v68 + 24) = 0;
-        v86 = 0LL;
-        v87 = v69;
-        v46 = std::_Tree_val<std::_Tree_simple_types<std::pair<std::wstring const * const,unsigned int>>>::_Insert_node(
-                v76,
-                &v87);
+        v12 = (unsigned __int64 *)v13;
+        v13 = *(_QWORD *)v13;
       }
-      v47 = *(_DWORD *)(v46 + 40) + 1;
+    }
+    while ( !*(_BYTE *)(v13 + 25) );
+    if ( v12 == (unsigned __int64 *)v7 || v11 < v12[4] )
+    {
+LABEL_9:
+      v14 = std::_Allocate<16,std::_Default_allocate_traits,0>(0x30uLL);
+      *(_QWORD *)(v14 + 32) = v77;
+      *(_DWORD *)(v14 + 40) = 0;
+      *(_QWORD *)v14 = v7;
+      *(_QWORD *)(v14 + 8) = v7;
+      *(_QWORD *)(v14 + 16) = v7;
+      *(_WORD *)(v14 + 24) = 0;
+      std::_Tree<std::_Tmap_traits<std::wstring const *,unsigned int,std::less<std::wstring const *>,std::allocator<std::pair<std::wstring const * const,unsigned int>>,0>>::_Insert_hint<std::pair<std::wstring const * const,unsigned int> &,std::_Tree_node<std::pair<std::wstring const * const,unsigned int>,void *> *>(
+        (__int64)v83,
+        &v79,
+        v12,
+        (unsigned __int64 *)(v14 + 32),
+        v14);
+      v12 = v79;
+    }
+    *((_DWORD *)v12 + 10) = v6++;
+    std::_Tree_unchecked_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::wstring>>,std::_Iterator_base0>::operator++(&v76);
+    v7 = v83[0];
+    v10 = v76;
+  }
+  v15 = v84;
+  v16 = 0;
+  v17 = *v84;
+  v18 = *(_QWORD ***)(*v84 + 112LL);
+  if ( v18 != *(_QWORD ***)(*v84 + 120LL) )
+  {
+    v19 = *(_QWORD ***)(*v84 + 120LL);
+    do
+    {
+      v20 = *v18;
+      v21 = *((_DWORD *)*v18 + 26);
+      v76 = (_QWORD *)**v18;
+      v77 = (_QWORD *)v20[12];
+      v22 = std::_Tree<std::_Tmap_traits<unsigned __int64,unsigned int,std::less<unsigned __int64>,std::allocator<std::pair<unsigned __int64 const,unsigned int>>,0>>::_Lbound<unsigned __int64>(
+              &v81,
+              &v76);
+      if ( v22 == v81 || v23 < *(_QWORD *)(v22 + 32) )
+      {
+        v79 = (unsigned __int64 *)&v76;
+        v22 = *std::_Tree<std::_Tmap_traits<unsigned __int64,unsigned int,std::less<unsigned __int64>,std::allocator<std::pair<unsigned __int64 const,unsigned int>>,0>>::emplace_hint<std::piecewise_construct_t const &,std::tuple<unsigned __int64 const &>,std::tuple<>>(
+                 &v81,
+                 &v92,
+                 (_QWORD *)v22,
+                 v23,
+                 &v79);
+      }
+      *(_DWORD *)(v22 + 40) = v16++;
+      LODWORD(v79) = v16;
+      v72[0] = v21;
+      if ( v5 == v4 )
+      {
+        std::vector<char>::_Emplace_reallocate<char>((const void **)&v73, v4, v72);
+        v5 = v75;
+        v24 = v74;
+      }
+      else
+      {
+        *v4 = v21;
+        v24 = v4 + 1;
+        v74 = v24;
+      }
+      v72[0] = BYTE1(v21);
+      if ( v5 == v24 )
+      {
+        std::vector<char>::_Emplace_reallocate<char>((const void **)&v73, v24, v72);
+        v5 = v75;
+        v25 = v74;
+      }
+      else
+      {
+        *v24 = BYTE1(v21);
+        v25 = v24 + 1;
+        v74 = v25;
+      }
+      v72[0] = BYTE2(v21);
+      if ( v5 == v25 )
+      {
+        std::vector<char>::_Emplace_reallocate<char>((const void **)&v73, v25, v72);
+        v5 = v75;
+        v26 = v74;
+      }
+      else
+      {
+        *v25 = BYTE2(v21);
+        v26 = v25 + 1;
+        v74 = v26;
+      }
+      v27 = HIBYTE(v21);
+      v72[0] = v27;
+      if ( v5 == v26 )
+      {
+        std::vector<char>::_Emplace_reallocate<char>((const void **)&v73, v26, v72);
+        v5 = v75;
+        v28 = v74;
+      }
+      else
+      {
+        *v26 = v27;
+        v28 = v26 + 1;
+        v74 = v28;
+      }
+      v72[0] = (char)v76;
+      if ( v5 == v28 )
+      {
+        std::vector<char>::_Emplace_reallocate<char>((const void **)&v73, v28, v72);
+        v5 = v75;
+        v29 = v74;
+      }
+      else
+      {
+        *v28 = (_BYTE)v76;
+        v29 = v28 + 1;
+        v74 = v29;
+      }
+      v72[0] = BYTE1(v76);
+      if ( v5 == v29 )
+      {
+        std::vector<char>::_Emplace_reallocate<char>((const void **)&v73, v29, v72);
+        v5 = v75;
+        v30 = v74;
+      }
+      else
+      {
+        *v29 = BYTE1(v76);
+        v30 = v29 + 1;
+        v74 = v30;
+      }
+      v72[0] = BYTE2(v76);
+      if ( v5 == v30 )
+      {
+        std::vector<char>::_Emplace_reallocate<char>((const void **)&v73, v30, v72);
+        v5 = v75;
+        v31 = v74;
+      }
+      else
+      {
+        *v30 = BYTE2(v76);
+        v31 = v30 + 1;
+        v74 = v31;
+      }
+      v72[0] = BYTE3(v76);
+      if ( v5 == v31 )
+      {
+        std::vector<char>::_Emplace_reallocate<char>((const void **)&v73, v31, v72);
+        v5 = v75;
+        v32 = v74;
+      }
+      else
+      {
+        *v31 = BYTE3(v76);
+        v32 = v31 + 1;
+        v74 = v32;
+      }
+      v72[0] = BYTE4(v76);
+      if ( v5 == v32 )
+      {
+        std::vector<char>::_Emplace_reallocate<char>((const void **)&v73, v32, v72);
+        v5 = v75;
+        v33 = v74;
+      }
+      else
+      {
+        *v32 = BYTE4(v76);
+        v33 = v32 + 1;
+        v74 = v33;
+      }
+      v72[0] = BYTE5(v76);
+      if ( v5 == v33 )
+      {
+        std::vector<char>::_Emplace_reallocate<char>((const void **)&v73, v33, v72);
+        v5 = v75;
+        v34 = v74;
+      }
+      else
+      {
+        *v33 = BYTE5(v76);
+        v34 = v33 + 1;
+        v74 = v34;
+      }
+      v72[0] = BYTE6(v76);
+      if ( v5 == v34 )
+      {
+        std::vector<char>::_Emplace_reallocate<char>((const void **)&v73, v34, v72);
+        v5 = v75;
+        v35 = v74;
+      }
+      else
+      {
+        *v34 = BYTE6(v76);
+        v35 = v34 + 1;
+        v74 = v35;
+      }
+      v72[0] = HIBYTE(v76);
+      if ( v5 == v35 )
+      {
+        std::vector<char>::_Emplace_reallocate<char>((const void **)&v73, v35, v72);
+        v5 = v75;
+        v36 = v74;
+      }
+      else
+      {
+        *v35 = HIBYTE(v76);
+        v36 = v35 + 1;
+        v74 = v36;
+      }
+      if ( v77 )
+      {
+        v54 = v83[0];
+        v55 = v83[0];
+        v56 = v83[0][1];
+        if ( *(_BYTE *)(v56 + 25) )
+          goto LABEL_81;
+        do
+        {
+          if ( *(_QWORD *)(v56 + 32) < (unsigned __int64)v77 )
+          {
+            v56 = *(_QWORD *)(v56 + 16);
+          }
+          else
+          {
+            v55 = (__int64 *)v56;
+            v56 = *(_QWORD *)v56;
+          }
+        }
+        while ( !*(_BYTE *)(v56 + 25) );
+        if ( v55 == v83[0] || (unsigned __int64)v77 < v55[4] )
+        {
+LABEL_81:
+          v60 = std::_Allocate<16,std::_Default_allocate_traits,0>(0x30uLL);
+          *(_QWORD *)(v60 + 32) = v77;
+          *(_DWORD *)(v60 + 40) = 0;
+          *(_QWORD *)v60 = v54;
+          *(_QWORD *)(v60 + 8) = v54;
+          *(_QWORD *)(v60 + 16) = v54;
+          *(_WORD *)(v60 + 24) = 0;
+          std::_Tree<std::_Tmap_traits<std::wstring const *,unsigned int,std::less<std::wstring const *>,std::allocator<std::pair<std::wstring const * const,unsigned int>>,0>>::_Insert_hint<std::pair<std::wstring const * const,unsigned int> &,std::_Tree_node<std::pair<std::wstring const * const,unsigned int>,void *> *>(
+            (__int64)v83,
+            &v80,
+            v55,
+            (unsigned __int64 *)(v60 + 32),
+            v60);
+          v55 = v80;
+        }
+        v16 = (int)v79;
+        v37 = *((_DWORD *)v55 + 10) + 1;
+      }
+      else
+      {
+        v37 = 0;
+      }
+      v72[0] = v37;
+      if ( v5 == v36 )
+      {
+        std::vector<char>::_Emplace_reallocate<char>((const void **)&v73, v36, v72);
+        v5 = v75;
+        v38 = v74;
+      }
+      else
+      {
+        *v36 = v37;
+        v38 = v36 + 1;
+        v74 = v38;
+      }
+      v39 = v37 >> 8;
+      v72[0] = v39;
+      if ( v5 == v38 )
+      {
+        std::vector<char>::_Emplace_reallocate<char>((const void **)&v73, v38, v72);
+        v40 = v74;
+      }
+      else
+      {
+        *v38 = v39;
+        v40 = v38 + 1;
+        v74 = v40;
+      }
+      v41 = v100;
+      if ( v102 >= 0x10 )
+        v41 = (_BYTE *)v100[0];
+      v101 = 0LL;
+      *v41 = 0;
+      anonymous_namespace_::ProcessAttributionResourceCountersEncoder::Serialize(*v18 + 1, v100);
+      v42 = v100;
+      v43 = v100;
+      if ( v102 >= 0x10 )
+        v42 = (_QWORD *)v100[0];
+      v44 = (__int64)v42 + v101;
+      if ( v102 >= 0x10 )
+        v43 = (_QWORD *)v100[0];
+      std::vector<char>::_Insert_range<char *>((__int64)&v73, v40, v43, v44);
+      v5 = v75;
+      v45 = v74;
+      v72[0] = 0;
+      if ( v75 == v74 )
+      {
+        std::vector<char>::_Emplace_reallocate<char>((const void **)&v73, v74, v72);
+        v5 = v75;
+        v4 = v74;
+      }
+      else
+      {
+        *v74 = 0;
+        v4 = v45 + 1;
+        v74 = v4;
+      }
+      ++v18;
+    }
+    while ( v18 != v19 );
+    v17 = *v15;
+    v3 = v73;
+  }
+  v78 = v82;
+  EncodeStringsList(v105, v17 + 160);
+  v94[1] = 0LL;
+  v46 = std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void___::_Buyheadnode_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______();
+  v87 = 0LL;
+  v47 = 0;
+  v94[0] = v46;
+  v86 = v103;
+  v48 = *v15;
+  si128 = _mm_load_si128((const __m128i *)&_xmm);
+  LOBYTE(v103[0]) = 0;
+  v88 = 0;
+  Base853Encoder::AppendVarInt((Base853Encoder *)&v86, *(_DWORD *)(v48 + 152));
+  v49 = *(__int64 **)(*v15 + 144LL);
+  j = (__int64 *)*v49;
+  while ( j != v49 )
+  {
+    std::map<unsigned __int64,unsigned int>::_Try_emplace<unsigned __int64 const &,>(
+      (__int64)&v81,
+      (__int64)&v73,
+      (__int64)(j + 4));
+    Base853Encoder::AppendVarInt((Base853Encoder *)&v86, *((_DWORD *)v73 + 10));
+    Base853Encoder::AppendVarInt((Base853Encoder *)&v86, *((_DWORD *)j + 10));
+    v80 = (__int64 *)j[6];
+    if ( v80 )
+    {
+      std::map<std::wstring const *,unsigned int>::_Try_emplace<std::wstring const * const &,>(v83, (__int64)&v97, &v80);
+      v61 = *((_DWORD *)v97 + 10) + 1;
     }
     else
     {
-      v47 = 0;
+      v61 = 0;
     }
-    Base853Encoder::AppendVarInt((Base853Encoder *)v79, v47);
-    *(_DWORD *)(*(_QWORD *)std::map__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int_____::_Try_emplace__anonymous_namespace_::AnimationId_const___(
-                             v89,
-                             &v94,
-                             k + 4)
-              + 48LL) = v41++;
-    v48 = (__int64 **)k[2];
-    if ( *((_BYTE *)v48 + 25) )
+    Base853Encoder::AppendVarInt((Base853Encoder *)&v86, v61);
+    std::map__anonymous_namespace_::AnimationId_unsigned_int_A0xd209ef2d::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int_____::_Try_emplace__anonymous_namespace_::AnimationId_const___(
+      v93,
+      &v95,
+      j + 4);
+    *(_DWORD *)(v95 + 48) = v47++;
+    v62 = (__int64 **)j[2];
+    if ( *((_BYTE *)v62 + 25) )
     {
-      for ( j = (__int64 *)k[1]; !*((_BYTE *)j + 25) && k == (__int64 *)j[2]; j = (__int64 *)j[1] )
-        k = j;
-      k = j;
+      for ( i = (__int64 *)j[1]; !*((_BYTE *)i + 25) && j == (__int64 *)i[2]; i = (__int64 *)i[1] )
+        j = i;
+      j = i;
     }
     else
     {
-      v70 = *v48;
-      for ( k = (__int64 *)k[2]; !*((_BYTE *)v70 + 25); v70 = (__int64 *)*v70 )
-        k = v70;
+      v64 = *v62;
+      for ( j = (__int64 *)j[2]; !*((_BYTE *)v64 + 25); v64 = (__int64 *)*v64 )
+        j = v64;
     }
   }
-  Base853Encoder::EnsureZeroesAreSerialized((Base853Encoder *)v79);
-  if ( *(_DWORD *)&v79[12] )
-    Base853Encoder::EncodeBlock((Base853Encoder *)v79);
-  *(_DWORD *)v79 = 0;
-  v80 = 0LL;
-  v72[0] = 0;
-  *(_OWORD *)&v79[8] = 0LL;
-  std::vector<unsigned char>::_Emplace_reallocate<unsigned char>(&v79[8], 0LL, v72);
-  v53 = *(_QWORD *)&v79[16];
-  v72[0] = 0;
-  if ( *(_QWORD *)&v79[16] == v80 )
+  Base853Encoder::EnsureZeroesAreSerialized((Base853Encoder *)&v86);
+  v51 = v84;
+  if ( HIDWORD(v87) )
+    Base853Encoder::EncodeBlock((Base853Encoder *)&v86);
+  anonymous_namespace_::PackedStringArrayBuilder::PackedStringArrayBuilder(&v89);
+  v52 = *(_QWORD *)(*v51 + 24LL);
+  for ( k = *(_QWORD *)(*v51 + 16LL); ; k += 480LL )
   {
-    std::vector<unsigned char>::_Emplace_reallocate<unsigned char>(&v79[8], *(_QWORD *)&v79[16], v72);
-  }
-  else
-  {
-    **(_BYTE **)&v79[16] = 0;
-    *(_QWORD *)&v79[16] = v53 + 1;
-  }
-  v54 = *(_QWORD *)(*a1 + 24);
-  for ( m = *(_QWORD *)(*a1 + 16); ; m += 480LL )
-  {
-    v97 = 0LL;
-    v56 = v96;
-    if ( m == v54 )
+    v101 = 0LL;
+    v57 = v100;
+    if ( k == v52 )
       break;
-    if ( v98 >= 0x10 )
-      v56 = (void **)v96[0];
-    *(_BYTE *)v56 = 0;
-    anonymous_namespace_::SequenceEncoder::Serialize(m, &v81, v89, v96);
-    anonymous_namespace_::PackedStringArrayBuilder::Append(v79, v96);
+    if ( v102 >= 0x10 )
+      v57 = (_BYTE *)v100[0];
+    *v57 = 0;
+    anonymous_namespace_::SequenceEncoder::Serialize(k, &v81, v93, v100);
+    anonymous_namespace_::PackedStringArrayBuilder::Append(&v89, v100);
   }
-  if ( v98 >= 0x10 )
-    v56 = (void **)v96[0];
-  *(_BYTE *)v56 = 0;
-  anonymous_namespace_::GlobalResourceCountersEncoder::Serialize((unsigned int *)(*a1 + 40), (__int64)v96);
-  anonymous_namespace_::QpcToFileTimeAndGetCurrentFileTime(*(_QWORD *)(*(_QWORD *)(*a1 + 16) + 464LL), &v84, v93);
+  if ( v102 >= 0x10 )
+    v57 = (_BYTE *)v100[0];
+  *v57 = 0;
+  anonymous_namespace_::GlobalResourceCountersEncoder::Serialize((unsigned int *)(*v51 + 40LL), (__int64)v100);
+  anonymous_namespace_::QpcToFileTimeAndGetCurrentFileTime(*(_QWORD *)(*(_QWORD *)(*v51 + 16LL) + 464LL), &v80, v99);
   CurrentProcessId = GetCurrentProcessId();
   if ( !ProcessIdToSessionId(CurrentProcessId, &pSessionId) )
   {
@@ -562,71 +593,60 @@ void __fastcall anonymous_namespace_::SendFramesReport(__int64 *a1)
       LastError = -2003304445;
     ModuleFailFastForHRESULT((unsigned int)LastError, retaddr);
   }
-  v58 = (void *)v73;
-  if ( (unsigned int)dword_1803E3B40 > 5 && tlgKeywordOn((__int64)&dword_1803E3B40, 0x400000000000LL) )
+  if ( (unsigned int)dword_180344EF0 > 5 && (unsigned __int8)tlgKeywordOn(&dword_180344EF0, 0x400000000000LL) )
   {
-    v59 = v99;
-    v60 = *(_QWORD *)&v79[8];
-    if ( v101 >= 0x10 )
-      v59 = (void **)v99[0];
-    v61 = *(_DWORD *)v79;
-    v93[1] = v59;
-    v62 = v102;
-    if ( v103 >= 0x10 )
-      v62 = (void **)v102[0];
-    v63 = (_DWORD)v10 - (_DWORD)v58;
-    v93[2] = v62;
-    **(_BYTE **)&v79[8] = v79[0];
-    v64 = (unsigned int)(v61 >> 8);
-    v95 = (unsigned __int16)(*(_WORD *)&v79[16] - v60);
-    *(_QWORD *)&v87 = &v77;
-    v65 = v96;
-    *(_BYTE *)(v60 + 1) = v64;
-    v94 = v60;
-    if ( v98 >= 0x10 )
-      v65 = (void **)v96[0];
-    v93[3] = v65;
-    v93[4] = v84;
-    v66 = *a1 + 176;
-    v91 = v58;
+    v66 = v103;
+    if ( si128.m128i_i64[1] >= 0x10uLL )
+      v66 = (_QWORD *)v103[0];
     v84 = v66;
-    LODWORD(v78) = pSessionId;
-    v85 = v93[0];
-    v92 = v63;
-    DWORD2(v87) = 2;
-    LODWORD(v75) = 0;
+    v67 = v105;
+    if ( v105[3] >= 0x10uLL )
+      v67 = (_QWORD *)v105[0];
+    v77 = v67;
+    v97 = v3;
+    v98 = (_DWORD)v4 - (_DWORD)v3;
+    LODWORD(v74) = 2;
+    *(_WORD *)v90 = v89;
+    v68 = (unsigned __int16)(v91 - v90);
+    *(_BYTE *)v90 = v89;
+    v69 = (unsigned int)(v89 >> 8);
+    v96 = v68;
+    *(_BYTE *)(v90 + 1) = BYTE1(v89);
+    v95 = v90;
+    v73 = &v78;
+    v70 = v100;
+    if ( v102 >= 0x10 )
+      v70 = (_QWORD *)v100[0];
+    v99[1] = v70;
+    v99[2] = v80;
+    v71 = *v51 + 176LL;
+    LODWORD(v76) = 0;
+    v80 = (__int64 *)v71;
+    LODWORD(v79) = pSessionId;
+    v92 = v99[0];
     _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByRef<16>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperPtrSize,_tlgWrapperPtrSize,_tlgWrapperPtrSize,_tlgWrapSz<char>,_tlgWrapSz<char>>(
-      v64,
-      &unk_18037F182);
+      v69,
+      &unk_1802E38B1);
   }
-  std::vector<unsigned char>::_Tidy((__int64)&v79[8]);
-  if ( v101 >= 0x10 )
-    std::_Deallocate<16,0>(v99[0], v101 + 1);
-  v100 = 0LL;
-  LOBYTE(v99[0]) = 0;
-  v101 = 15LL;
+  std::vector<unsigned char>::_Tidy(&v90);
+  std::string::_Tidy_deallocate(v103);
   std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const_______::_Erase_tree_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__std::basic_string_unsigned_short_std::char_traits_unsigned_short__std::allocator_unsigned_short____const____void_______(
-    (__int64)v90,
-    (__int64)v90,
-    *((_QWORD *)v90[0] + 1));
-  std::_Deallocate<16,0>(v90[0], 0x38uLL);
-  if ( v103 >= 0x10 )
-    std::_Deallocate<16,0>(v102[0], v103 + 1);
-  v102[2] = 0LL;
-  v103 = 15LL;
-  LOBYTE(v102[0]) = 0;
-  std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned __int64 const,Microsoft::BamoImpl::BufferStream *>>>::_Erase_tree<std::allocator<std::_Tree_node<std::pair<unsigned __int64 const,Microsoft::BamoImpl::BufferStream *>,void *>>>(
-    v76,
-    v76,
-    *((_QWORD *)v76[0] + 1));
-  std::_Deallocate<16,0>(v76[0], 0x30uLL);
-  if ( v58 )
-    std::_Deallocate<16,0>(v58, v4 - (_BYTE *)v58);
+    (__int64)v94,
+    (__int64)v94,
+    *(__int64 **)(v94[0] + 8LL));
+  std::_Deallocate<16,0>(v94[0], 56LL);
+  std::string::_Tidy_deallocate(v105);
+  std::_Tree_val<std::_Tree_simple_types<std::pair<std::wstring const * const,unsigned int>>>::_Erase_tree<std::allocator<std::_Tree_node<std::pair<std::wstring const * const,unsigned int>,void *>>>(
+    v83,
+    v83,
+    v83[0][1]);
+  std::_Deallocate<16,0>(v83[0], 48LL);
+  if ( v3 )
+    std::_Deallocate<16,0>(v3, v5 - (_BYTE *)v3);
   std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned __int64 const,Microsoft::BamoImpl::BufferStream *>>>::_Erase_tree<std::allocator<std::_Tree_node<std::pair<unsigned __int64 const,Microsoft::BamoImpl::BufferStream *>,void *>>>(
     &v81,
     &v81,
-    v81[1]);
-  std::_Deallocate<16,0>(v81, 0x30uLL);
-  if ( v98 >= 0x10 )
-    std::_Deallocate<16,0>(v96[0], v98 + 1);
+    *(_QWORD *)(v81 + 8));
+  std::_Deallocate<16,0>(v81, 48LL);
+  return std::string::_Tidy_deallocate(v100);
 }

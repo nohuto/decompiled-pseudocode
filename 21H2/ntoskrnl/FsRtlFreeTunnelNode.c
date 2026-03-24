@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlFreeTunnelNode @ 0x14021D8B4
+ * XREFs of FsRtlFreeTunnelNode @ 0x14029FF6C
  * Callers:
- *     FsRtlRemoveNodeFromTunnel @ 0x14021D754 (FsRtlRemoveNodeFromTunnel.c)
- *     FsRtlAddToTunnelCacheEx @ 0x140694B30 (FsRtlAddToTunnelCacheEx.c)
+ *     FsRtlRemoveNodeFromTunnel @ 0x14029FE0C (FsRtlRemoveNodeFromTunnel.c)
+ *     FsRtlAddToTunnelCacheEx @ 0x140688B60 (FsRtlAddToTunnelCacheEx.c)
  * Callees:
- *     ExFreeToPagedLookasideList @ 0x140203D50 (ExFreeToPagedLookasideList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall FsRtlFreeTunnelNode(char *Entry, __int64 *a2)
@@ -30,6 +30,6 @@ void __fastcall FsRtlFreeTunnelNode(char *Entry, __int64 *a2)
   }
   else
   {
-    ExFreeToPagedLookasideList(&TunnelLookasideList, Entry);
+    ExFreeToNPagedLookasideList(&TunnelLookasideList, Entry);
   }
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of GreUnlockDisplayDevice @ 0x1C006FE80
+ * XREFs of GreUnlockDisplayDevice @ 0x1C00110F0
  * Callers:
- *     ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C006FB60 (-DxLddmCleanupAtProcessDestroy@@YAXK@Z.c)
- *     GreSuspendDirectDraw @ 0x1C0074F80 (GreSuspendDirectDraw.c)
- *     ?DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z @ 0x1C0075534 (-DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z.c)
- *     DrvNotifyModeChangeStartStop @ 0x1C0078988 (DrvNotifyModeChangeStartStop.c)
- *     DxgkEngReleaseWin32kAndPDEVLocks @ 0x1C0079000 (DxgkEngReleaseWin32kAndPDEVLocks.c)
+ *     DxgkEngReleaseWin32kAndPDEVLocks @ 0x1C0010550 (DxgkEngReleaseWin32kAndPDEVLocks.c)
+ *     ?DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z @ 0x1C00106D8 (-DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z.c)
+ *     GreSuspendDirectDraw @ 0x1C0010790 (GreSuspendDirectDraw.c)
+ *     DrvNotifyModeChangeStartStop @ 0x1C00109B0 (DrvNotifyModeChangeStartStop.c)
+ *     ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C0010D28 (-DxLddmCleanupAtProcessDestroy@@YAXK@Z.c)
  * Callees:
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C00826F0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0079AF0 (EtwTraceGreLockReleaseSemaphore.c)
  */
 
 __int64 __fastcall GreUnlockDisplayDevice(__int64 a1)

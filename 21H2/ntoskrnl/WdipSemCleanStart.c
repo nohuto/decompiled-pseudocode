@@ -1,17 +1,17 @@
 /*
- * XREFs of WdipSemCleanStart @ 0x14083F570
+ * XREFs of WdipSemCleanStart @ 0x14079905C
  * Callers:
- *     WdipSemInitialize @ 0x14083F51C (WdipSemInitialize.c)
- *     WdipSemUpdate @ 0x1409DA758 (WdipSemUpdate.c)
+ *     WdipSemInitialize @ 0x140799008 (WdipSemInitialize.c)
+ *     WdipSemUpdate @ 0x14092FB54 (WdipSemUpdate.c)
  * Callees:
- *     WdipSemGetLoggerIds @ 0x1406E6CB0 (WdipSemGetLoggerIds.c)
- *     WdipSemCleanupGroupPolicy @ 0x14083F5DC (WdipSemCleanupGroupPolicy.c)
- *     WdipSemStartTimeoutCheck @ 0x14083F5FC (WdipSemStartTimeoutCheck.c)
- *     WdipSemLoadGroupPolicy @ 0x14083F704 (WdipSemLoadGroupPolicy.c)
- *     WdipSemLoadConfigInfo @ 0x14083F75C (WdipSemLoadConfigInfo.c)
- *     WdipSemEnableSemProvider @ 0x14083F84C (WdipSemEnableSemProvider.c)
- *     WdipSemLoadScenarioTable @ 0x14083FE80 (WdipSemLoadScenarioTable.c)
- *     WdipSemShutdown @ 0x1409DA868 (WdipSemShutdown.c)
+ *     WdipSemGetLoggerIds @ 0x14078978C (WdipSemGetLoggerIds.c)
+ *     WdipSemCleanupGroupPolicy @ 0x1407990C8 (WdipSemCleanupGroupPolicy.c)
+ *     WdipSemStartTimeoutCheck @ 0x1407990E8 (WdipSemStartTimeoutCheck.c)
+ *     WdipSemLoadGroupPolicy @ 0x1407991F0 (WdipSemLoadGroupPolicy.c)
+ *     WdipSemLoadConfigInfo @ 0x140799248 (WdipSemLoadConfigInfo.c)
+ *     WdipSemEnableSemProvider @ 0x140799338 (WdipSemEnableSemProvider.c)
+ *     WdipSemLoadScenarioTable @ 0x140799978 (WdipSemLoadScenarioTable.c)
+ *     WdipSemShutdown @ 0x14092FE10 (WdipSemShutdown.c)
  */
 
 __int64 WdipSemCleanStart()

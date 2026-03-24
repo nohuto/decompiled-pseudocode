@@ -1,7 +1,7 @@
 /*
- * XREFs of RIMIsButtonCapsEqual @ 0x1C0194378
+ * XREFs of RIMIsButtonCapsEqual @ 0x1C015ED08
  * Callers:
- *     RIMValidateAllCollectionUsages @ 0x1C0195A6C (RIMValidateAllCollectionUsages.c)
+ *     RIMValidateAllCollectionUsages @ 0x1C015FDC8 (RIMValidateAllCollectionUsages.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of ?Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z @ 0x1802BC8F4
+ * XREFs of ?Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z @ 0x180219ACC
  * Callers:
- *     ?CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x1802BBB40 (-CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z.c)
- *     ?CopyPixelsHelper@CFormatConverter@@AEAAJHHIIIIPEAEII0@Z @ 0x1802BBFA4 (-CopyPixelsHelper@CFormatConverter@@AEAAJHHIIIIPEAEII0@Z.c)
+ *     ?CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x180218DE0 (-CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z.c)
+ *     ?CopyPixelsHelper@CFormatConverter@@AEAAJHHIIIIPEAEII0@Z @ 0x1802191E0 (-CopyPixelsHelper@CFormatConverter@@AEAAJHHIIIIPEAEII0@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?UpdatePipelinePointers@CScanPipeline@@IEAAXPEAXPEBX@Z @ 0x1802BC974 (-UpdatePipelinePointers@CScanPipeline@@IEAAXPEAXPEBX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?UpdatePipelinePointers@CScanPipeline@@IEAAXPEAXPEBX@Z @ 0x180219B44 (-UpdatePipelinePointers@CScanPipeline@@IEAAXPEAXPEBX@Z.c)
  */
 
 void __fastcall CScanPipeline::Run(CScanPipeline *this, void *a2, const void *a3, int a4, int a5, int a6)
 {
   char *v6; // rsi
-  void (__fastcall **v8)(char *, __int64); // rdi
-  int i; // ebx
+  int v8; // edi
+  void (__fastcall **i)(char *, __int64); // rbx
 
   if ( a4 )
   {
@@ -21,11 +21,11 @@ void __fastcall CScanPipeline::Run(CScanPipeline *this, void *a2, const void *a3
     *((_DWORD *)this + 131) = a6;
     *((_DWORD *)this + 132) = a4;
     CScanPipeline::UpdatePipelinePointers(this, a2, a3);
-    v8 = (void (__fastcall **)(char *, __int64))*((_QWORD *)this + 1);
-    for ( i = *((_DWORD *)this + 8); i; --i )
+    v8 = *((_DWORD *)this + 8);
+    for ( i = (void (__fastcall **)(char *, __int64))*((_QWORD *)this + 1); v8; --v8 )
     {
-      (*v8)(v6, (__int64)(v8 + 1));
-      v8 += 6;
+      (*i)(v6, (__int64)(i + 1));
+      i += 6;
     }
   }
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCMCaptureInterfaceAliasInputData @ 0x1406D5794
+ * XREFs of PiCMCaptureInterfaceAliasInputData @ 0x1406D5774
  * Callers:
- *     PiCMGetDeviceInterfaceAlias @ 0x1406D5104 (PiCMGetDeviceInterfaceAlias.c)
+ *     PiCMGetDeviceInterfaceAlias @ 0x1406D50E4 (PiCMGetDeviceInterfaceAlias.c)
  * Callees:
  *     PiControlFreeUserModeCallersBuffer @ 0x140006AF0 (PiControlFreeUserModeCallersBuffer.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PiControlMakeUserModeCallersCopy @ 0x140597F3C (PiControlMakeUserModeCallersCopy.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMCaptureInterfaceAliasInputData(unsigned __int64 a1, unsigned int a2, int a3, char *a4)

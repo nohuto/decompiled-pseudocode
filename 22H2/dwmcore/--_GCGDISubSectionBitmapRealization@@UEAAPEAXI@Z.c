@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCGDISubSectionBitmapRealization@@UEAAPEAXI@Z @ 0x1802B0BE0
+ * XREFs of ??_GCGDISubSectionBitmapRealization@@UEAAPEAXI@Z @ 0x180262B00
  * Callers:
  *     <none>
  * Callees:
- *     ??1CSectionBitmapRealization@@MEAA@XZ @ 0x1800F570C (--1CSectionBitmapRealization@@MEAA@XZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ??1CSectionBitmapRealization@@MEAA@XZ @ 0x18003138C (--1CSectionBitmapRealization@@MEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
  */
 
 CGDISubSectionBitmapRealization *__fastcall CGDISubSectionBitmapRealization::`scalar deleting destructor'(

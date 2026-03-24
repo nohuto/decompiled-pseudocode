@@ -1,7 +1,7 @@
 /*
- * XREFs of AMLIReferenceHandleEx @ 0x1C0048A78
+ * XREFs of AMLIReferenceHandleEx @ 0x1C006364C
  * Callers:
- *     AcpiArblibAllocateArbiterInstance @ 0x1C007CB74 (AcpiArblibAllocateArbiterInstance.c)
+ *     AcpiArblibAllocateArbiterInstance @ 0x1C00ACD30 (AcpiArblibAllocateArbiterInstance.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@ __int64 __fastcall AMLIReferenceHandleEx(__int64 a1)
 {
   __int64 result; // rax
 
-  dword_1C006F938 = 0;
+  dword_1C0082908 = 0;
   result = (unsigned int)gdwfAMLI;
   pszDest = 0;
   if ( (gdwfAMLI & 4) != 0 )

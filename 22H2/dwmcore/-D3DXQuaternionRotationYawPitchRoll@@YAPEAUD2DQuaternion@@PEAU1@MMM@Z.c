@@ -1,11 +1,11 @@
 /*
- * XREFs of ?D3DXQuaternionRotationYawPitchRoll@@YAPEAUD2DQuaternion@@PEAU1@MMM@Z @ 0x18027E758
+ * XREFs of ?D3DXQuaternionRotationYawPitchRoll@@YAPEAUD2DQuaternion@@PEAU1@MMM@Z @ 0x18021DA10
  * Callers:
- *     ?Matrix4x4FromYawPitchRoll@CExpressionValueStack@@QEAAJXZ @ 0x18026001C (-Matrix4x4FromYawPitchRoll@CExpressionValueStack@@QEAAJXZ.c)
- *     ?QuaternionFromYawPitchRoll@CExpressionValueStack@@QEAAJXZ @ 0x180261780 (-QuaternionFromYawPitchRoll@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?Matrix4x4FromYawPitchRoll@CExpressionValueStack@@QEAAJXZ @ 0x1801FF374 (-Matrix4x4FromYawPitchRoll@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?QuaternionFromYawPitchRoll@CExpressionValueStack@@QEAAJXZ @ 0x180200748 (-QuaternionFromYawPitchRoll@CExpressionValueStack@@QEAAJXZ.c)
  * Callees:
- *     cosf_0 @ 0x18011B8A8 (cosf_0.c)
- *     sinf_0 @ 0x18011B944 (sinf_0.c)
+ *     cosf_0 @ 0x1800F3F93 (cosf_0.c)
+ *     sinf_0 @ 0x1800F3FCF (sinf_0.c)
  */
 
 struct D2DQuaternion *__fastcall D3DXQuaternionRotationYawPitchRoll(

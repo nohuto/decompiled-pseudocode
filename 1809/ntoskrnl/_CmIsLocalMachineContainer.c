@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmIsLocalMachineContainer @ 0x1406DB4C0
+ * XREFs of _CmIsLocalMachineContainer @ 0x1406DB4A0
  * Callers:
  *     PiDcHandleCustomDeviceEvent @ 0x14058FC40 (PiDcHandleCustomDeviceEvent.c)
- *     _CmGetDeviceContainerMappedProperty @ 0x1406EA1C4 (_CmGetDeviceContainerMappedProperty.c)
+ *     _CmGetDeviceContainerMappedProperty @ 0x1406EA1A4 (_CmGetDeviceContainerMappedProperty.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
  *     _CmGetDeviceRegProp @ 0x1405C699C (_CmGetDeviceRegProp.c)
  */
 

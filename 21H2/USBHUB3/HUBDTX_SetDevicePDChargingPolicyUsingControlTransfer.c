@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBDTX_SetDevicePDChargingPolicyUsingControlTransfer @ 0x1C002AD00
+ * XREFs of HUBDTX_SetDevicePDChargingPolicyUsingControlTransfer @ 0x1C002A620
  * Callers:
- *     HUBDSM_SettingDevicePDChargingPolicy @ 0x1C001E400 (HUBDSM_SettingDevicePDChargingPolicy.c)
+ *     HUBDSM_SettingDevicePDChargingPolicy @ 0x1C001DEC0 (HUBDSM_SettingDevicePDChargingPolicy.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBSM_AddEvent @ 0x1C000B3FC (HUBSM_AddEvent.c)
- *     HUBMISC_ControlTransfer @ 0x1C002FA0C (HUBMISC_ControlTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000AFFC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
  */
 
 __int64 __fastcall HUBDTX_SetDevicePDChargingPolicyUsingControlTransfer(__int64 a1)
@@ -37,8 +37,8 @@ __int64 __fastcall HUBDTX_SetDevicePDChargingPolicyUsingControlTransfer(__int64 
         *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
         2u,
         5u,
-        0x68u,
-        (__int64)&WPP_54051f9f773a359161ccd48cdf39bc09_Traceguids,
+        0x67u,
+        (__int64)&WPP_dca96bb6076339a37c8cec63799f607f_Traceguids,
         v3);
     }
     return HUBSM_AddEvent(a1 + 504, 4004);

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Optimize@?$CWatermarkStack@M$01$01$09@@QEAAXXZ @ 0x1800C5728
+ * XREFs of ?Optimize@?$CWatermarkStack@M$01$01$09@@QEAAXXZ @ 0x18008E4EC
  * Callers:
- *     ?PreCompute@CPreComputeContext@@IEAAJPEAVCVisualTree@@@Z @ 0x1800C4FF8 (-PreCompute@CPreComputeContext@@IEAAJPEAVCVisualTree@@@Z.c)
+ *     ?PreCompute@CPreComputeContext@@IEAAJPEAVCDirtyRegion@@@Z @ 0x18008D730 (-PreCompute@CPreComputeContext@@IEAAJPEAVCDirtyRegion@@@Z.c)
  * Callees:
- *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x180048AEC (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x1800421E0 (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CWatermarkStack<float,2,2,10>::Optimize(__int64 a1)
@@ -26,7 +26,7 @@ void __fastcall CWatermarkStack<float,2,2,10>::Optimize(__int64 a1)
     v3 = 0;
     if ( (unsigned __int64)(3 * v4) > 0xFFFFFFFF )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(0xFFFFFFFFLL, 0LL, 0, -2147024362, 0x106u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(0xFFFFFFFFLL, 0LL, 0, -2147024362, 0xEEu, 0LL);
     }
     else if ( (unsigned int)(3 * v4) <= *(_DWORD *)(a1 + 4) )
     {
@@ -40,7 +40,7 @@ void __fastcall CWatermarkStack<float,2,2,10>::Optimize(__int64 a1)
       }
       else
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x116u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0xFEu, 0LL);
       }
     }
     *(_DWORD *)(a1 + 24) = 0;

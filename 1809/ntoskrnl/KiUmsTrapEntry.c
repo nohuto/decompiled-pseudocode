@@ -1,12 +1,12 @@
 /*
- * XREFs of KiUmsTrapEntry @ 0x1401D0A80
+ * XREFs of KiUmsTrapEntry @ 0x1401D0B80
  * Callers:
- *     KiBoundFault @ 0x1401C9140 (KiBoundFault.c)
- *     KiInvalidOpcodeFault @ 0x1401C97C0 (KiInvalidOpcodeFault.c)
- *     KiPageFault @ 0x1401CB400 (KiPageFault.c)
- *     KxMcheckAlternateReturn @ 0x1401CC900 (KxMcheckAlternateReturn.c)
+ *     KiBoundFault @ 0x1401C9240 (KiBoundFault.c)
+ *     KiInvalidOpcodeFault @ 0x1401C98C0 (KiInvalidOpcodeFault.c)
+ *     KiPageFault @ 0x1401CB500 (KiPageFault.c)
+ *     KxMcheckAlternateReturn @ 0x1401CCA00 (KxMcheckAlternateReturn.c)
  * Callees:
- *     KiSwapToUmsThread @ 0x140845790 (KiSwapToUmsThread.c)
+ *     KiSwapToUmsThread @ 0x140845770 (KiSwapToUmsThread.c)
  */
 
 __int64 __fastcall KiUmsTrapEntry(__int64 a1)

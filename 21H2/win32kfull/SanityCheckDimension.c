@@ -1,7 +1,7 @@
 /*
- * XREFs of SanityCheckDimension @ 0x1C0093250
+ * XREFs of SanityCheckDimension @ 0x1C001AD38
  * Callers:
- *     HT_HalftoneBitmap @ 0x1C0092FAC (HT_HalftoneBitmap.c)
+ *     HT_HalftoneBitmap @ 0x1C001AA8C (HT_HalftoneBitmap.c)
  * Callees:
  *     <none>
  */

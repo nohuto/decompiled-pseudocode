@@ -1,7 +1,7 @@
 /*
- * XREFs of Simulator_GetSiblingNode @ 0x1C004934C
+ * XREFs of Simulator_GetSiblingNode @ 0x1C0063C7C
  * Callers:
- *     Simulator_CallbackWorker @ 0x1C0048FD0 (Simulator_CallbackWorker.c)
+ *     Simulator_CallbackWorker @ 0x1C0063910 (Simulator_CallbackWorker.c)
  * Callees:
  *     <none>
  */

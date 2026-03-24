@@ -1,26 +1,26 @@
 /*
- * XREFs of ACPIIoctlAsyncEvalControlMethod @ 0x1C002F488
+ * XREFs of ACPIIoctlAsyncEvalControlMethod @ 0x1C00572F4
  * Callers:
- *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
- *     ACPIThermalDeviceControl @ 0x1C0040430 (ACPIThermalDeviceControl.c)
- *     ACPIProcessorDeviceControl @ 0x1C008C580 (ACPIProcessorDeviceControl.c)
+ *     ACPIIrpDispatchDeviceControl @ 0x1C000B8A0 (ACPIIrpDispatchDeviceControl.c)
+ *     ACPIThermalDeviceControl @ 0x1C0012510 (ACPIThermalDeviceControl.c)
+ *     ACPIProcessorDeviceControl @ 0x1C009A990 (ACPIProcessorDeviceControl.c)
  * Callees:
- *     ACPIIoctlEvalPostProcessingV2 @ 0x1C000449A (ACPIIoctlEvalPostProcessingV2.c)
- *     ACPIIoctlEvalPostProcessingV1 @ 0x1C002FDA4 (ACPIIoctlEvalPostProcessingV1.c)
- *     ACPIIoctlEvalPreProcessingV1 @ 0x1C002FE78 (ACPIIoctlEvalPreProcessingV1.c)
- *     ACPIIoctlEvalPreProcessingV1Ex @ 0x1C00301B4 (ACPIIoctlEvalPreProcessingV1Ex.c)
- *     ACPIIoctlEvalPreProcessingV2 @ 0x1C00304F4 (ACPIIoctlEvalPreProcessingV2.c)
- *     ACPIIoctlEvalPreProcessingV2Ex @ 0x1C0030834 (ACPIIoctlEvalPreProcessingV2Ex.c)
- *     AcpiIoctlCleanupArgumentObjects @ 0x1C00319E8 (AcpiIoctlCleanupArgumentObjects.c)
- *     AMLIAsyncEvalObject @ 0x1C0047908 (AMLIAsyncEvalObject.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     FreeDataBuffs @ 0x1C004B52C (FreeDataBuffs.c)
+ *     FreeDataBuffs @ 0x1C0003350 (FreeDataBuffs.c)
+ *     ACPIIoctlEvalPreProcessingV1 @ 0x1C000B5F4 (ACPIIoctlEvalPreProcessingV1.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIIoctlEvalPostProcessingV1 @ 0x1C000BD98 (ACPIIoctlEvalPostProcessingV1.c)
+ *     AcpiIoctlCleanupArgumentObjects @ 0x1C000C248 (AcpiIoctlCleanupArgumentObjects.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     ACPIIoctlEvalPreProcessingV1Ex @ 0x1C0029BB4 (ACPIIoctlEvalPreProcessingV1Ex.c)
+ *     ACPIIoctlEvalPostProcessingV2 @ 0x1C005789C (ACPIIoctlEvalPostProcessingV2.c)
+ *     ACPIIoctlEvalPreProcessingV2 @ 0x1C0057978 (ACPIIoctlEvalPreProcessingV2.c)
+ *     ACPIIoctlEvalPreProcessingV2Ex @ 0x1C0057CE8 (ACPIIoctlEvalPreProcessingV2Ex.c)
  */
 
 __int64 __fastcall ACPIIoctlAsyncEvalControlMethod(ULONG_PTR a1, IRP *a2, __int64 a3)
 {
   int v3; // esi
-  __int64 v4; // r13
+  __int64 *v4; // r13
   void *v5; // r15
   PVOID v6; // rdi
   unsigned int v7; // r12d
@@ -31,8 +31,8 @@ __int64 __fastcall ACPIIoctlAsyncEvalControlMethod(ULONG_PTR a1, IRP *a2, __int6
   int v13; // esi
   int v14; // esi
   int v15; // esi
-  char v16; // r8
-  int v17; // eax
+  int v16; // eax
+  char v17; // r8
   __int64 v18; // [rsp+40h] [rbp-10h] BYREF
   __int64 v19; // [rsp+48h] [rbp-8h] BYREF
   __int64 v20; // [rsp+A0h] [rbp+50h] BYREF
@@ -50,32 +50,24 @@ __int64 __fastcall ACPIIoctlAsyncEvalControlMethod(ULONG_PTR a1, IRP *a2, __int6
   switch ( v3 )
   {
     case 3325952:
-      v9 = ACPIIoctlEvalPreProcessingV1(a1, (__int64)&v18, (__int64)&P, (__int64)&v19, (__int64)&v20);
+      v9 = ACPIIoctlEvalPreProcessingV1(a1, (__int64)a2, a3, NonPagedPoolNx, &v18, &P, &v19, (unsigned int *)&v20);
       break;
     case 3325980:
       v9 = ACPIIoctlEvalPreProcessingV1Ex(
              a1,
-             (_DWORD)a2,
+             (__int64)a2,
              a3,
-             64,
-             (__int64)&v18,
-             (__int64)&P,
-             (__int64)&v19,
-             (__int64)&v20);
+             NonPagedPoolNx,
+             &v18,
+             &P,
+             (unsigned int **)&v19,
+             (unsigned int *)&v20);
       break;
     case 3326016:
       v9 = ACPIIoctlEvalPreProcessingV2(a1, (__int64)&v18, (__int64)&P, (__int64)&v19, (__int64)&v20);
       break;
     case 3326024:
-      v9 = ACPIIoctlEvalPreProcessingV2Ex(
-             a1,
-             (_DWORD)a2,
-             a3,
-             64,
-             (__int64)&v18,
-             (__int64)&P,
-             (__int64)&v19,
-             (__int64)&v20);
+      v9 = ACPIIoctlEvalPreProcessingV2Ex(a1, a2, a3, 512LL, &v18, &P, &v19, &v20);
       break;
     default:
       goto LABEL_11;
@@ -84,21 +76,15 @@ __int64 __fastcall ACPIIoctlAsyncEvalControlMethod(ULONG_PTR a1, IRP *a2, __int6
   v10 = v9;
   if ( v9 < 0 )
     goto LABEL_27;
-  v4 = v18;
+  v4 = (__int64 *)v18;
   v5 = (void *)v19;
   v7 = v20;
 LABEL_11:
-  v10 = AMLIAsyncEvalObject(
-          v4,
-          (_DWORD)v6,
-          v7,
-          (_DWORD)v5,
-          (__int64)&ACPIIoctlAsyncEvalControlMethodCompletion,
-          (__int64)a2);
-  AMLIDereferenceHandleEx(v4);
+  v10 = AMLIAsyncEvalObject(v4, (__int64)v6, v7, v5, &ACPIIoctlAsyncEvalControlMethodCompletion, a2);
+  AMLIDereferenceHandleEx((__int64)v4);
   if ( v5 )
   {
-    AcpiIoctlCleanupArgumentObjects(v5, v7);
+    AcpiIoctlCleanupArgumentObjects((__int64)v5, v7);
     ExFreePoolWithTag(v5, 0x41706341u);
   }
   result = 259LL;
@@ -118,29 +104,29 @@ LABEL_11:
             if ( v15 != 8 )
             {
 LABEL_26:
-              dword_1C006F938 = 0;
+              dword_1C0082908 = 0;
               pszDest = 0;
-              FreeDataBuffs(v6, 1LL);
+              FreeDataBuffs((__int64)v6, 1u);
               goto LABEL_27;
             }
-            v16 = 1;
+            LOBYTE(v11) = 1;
           }
           else
           {
-            v16 = 0;
+            v11 = 0LL;
           }
-          v17 = ACPIIoctlEvalPostProcessingV2(a2, (__int64)v6, v16);
+          v16 = ACPIIoctlEvalPostProcessingV2(a2, v6, v11);
 LABEL_25:
-          v10 = v17;
+          v10 = v16;
           goto LABEL_26;
         }
-        LOBYTE(v11) = 1;
+        v17 = 1;
       }
       else
       {
-        v11 = 0LL;
+        v17 = 0;
       }
-      v17 = ACPIIoctlEvalPostProcessingV1(a2, v6, v11);
+      v16 = ACPIIoctlEvalPostProcessingV1(a2, (__int64)v6, v17);
       goto LABEL_25;
     }
 LABEL_27:

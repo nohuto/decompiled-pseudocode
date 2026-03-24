@@ -1,13 +1,13 @@
 /*
- * XREFs of IopCreatePassiveInterruptRealtimeThreads @ 0x140859AD4
+ * XREFs of IopCreatePassiveInterruptRealtimeThreads @ 0x1407C9674
  * Callers:
- *     IopInitializePassiveInterruptServices @ 0x140B27838 (IopInitializePassiveInterruptServices.c)
+ *     IopInitializePassiveInterruptServices @ 0x140A6D460 (IopInitializePassiveInterruptServices.c)
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x14028FD20 (KeSetActualBasePriorityThread.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     PsCreateSystemThreadEx @ 0x1406F0360 (PsCreateSystemThreadEx.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall IopCreatePassiveInterruptRealtimeThreads(void *a1)
@@ -24,8 +24,8 @@ __int64 __fastcall IopCreatePassiveInterruptRealtimeThreads(void *a1)
   HANDLE Handle; // [rsp+98h] [rbp+18h] BYREF
 
   Object = a1;
-  v7 = 0;
   v1 = 0;
+  v7 = 0;
   Handle = 0LL;
   v5 = 0LL;
   v4 = 0x30uLL;
@@ -36,7 +36,7 @@ __int64 __fastcall IopCreatePassiveInterruptRealtimeThreads(void *a1)
   while ( 1 )
   {
     result = PsCreateSystemThreadEx(
-               (int)&Handle,
+               (__int64)&Handle,
                0x1FFFFF,
                &v4,
                0LL,
@@ -52,8 +52,8 @@ __int64 __fastcall IopCreatePassiveInterruptRealtimeThreads(void *a1)
     ZwClose(Handle);
     if ( v3 >= 0 )
     {
-      KeSetActualBasePriorityThread((ULONG_PTR)Object, (unsigned __int8)PassiveInterruptRealtimeWorkerPriority);
-      ObfDereferenceObject(Object);
+      KeSetActualBasePriorityThread((__int64)Object, (unsigned __int8)PassiveInterruptRealtimeWorkerPriority);
+      HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     }
     if ( ++v1 >= (unsigned int)(unsigned __int8)PassiveInterruptRealtimeWorkerCount )
       return 0LL;

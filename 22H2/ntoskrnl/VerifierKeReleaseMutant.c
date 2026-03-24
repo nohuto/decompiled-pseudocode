@@ -1,12 +1,21 @@
 /*
- * XREFs of VerifierKeReleaseMutant @ 0x140AD6660
+ * XREFs of VerifierKeReleaseMutant @ 0x1409DB240
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C659C (VfUtilCheckKernelAddress.c)
+ *     VfDeadlockReleaseResource @ 0x1409DE348 (VfDeadlockReleaseResource.c)
  */
 
-__int64 VerifierKeReleaseMutant()
+__int64 __fastcall VerifierKeReleaseMutant(ULONG_PTR a1, unsigned int a2, char a3, char a4)
 {
-  return ((__int64 (*)(void))pXdvKeReleaseMutant)();
+  __int64 v8; // r9
+  __int64 v9; // r8
+
+  VfUtilCheckKernelAddress(a1, 0x38uLL);
+  VfDeadlockReleaseResource(a1);
+  LOBYTE(v8) = a4;
+  LOBYTE(v9) = a3;
+  return ((__int64 (__fastcall *)(ULONG_PTR, _QWORD, __int64, __int64))pXdvKeReleaseMutant)(a1, a2, v9, v8);
 }

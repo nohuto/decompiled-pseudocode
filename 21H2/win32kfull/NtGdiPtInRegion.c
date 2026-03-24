@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiPtInRegion @ 0x1C0159630
+ * XREFs of NtGdiPtInRegion @ 0x1C0165F50
  * Callers:
  *     <none>
  * Callees:

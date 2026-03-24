@@ -1,8 +1,8 @@
 /*
- * XREFs of KeZeroSinglePage @ 0x1401C08D0
+ * XREFs of KeZeroSinglePage @ 0x1401C08F0
  * Callers:
  *     MiZeroCfgSystemWideBitmapWorker @ 0x140080940 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiValidateSectionCreate @ 0x140652E30 (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x140652E10 (MiValidateSectionCreate.c)
  *     ViGrowPoolAllocation @ 0x140925A34 (ViGrowPoolAllocation.c)
  *     MxMarkActiveDriverBits @ 0x1409B8D60 (MxMarkActiveDriverBits.c)
  * Callees:

@@ -1,27 +1,25 @@
 /*
- * XREFs of EtwpBuildNotificationPacket @ 0x1406F2158
+ * XREFs of EtwpBuildNotificationPacket @ 0x1406E16DC
  * Callers:
- *     EtwpCalculateUpdateNotification @ 0x1407900EC (EtwpCalculateUpdateNotification.c)
- *     EtwpEnableGuid @ 0x14079028C (EtwpEnableGuid.c)
- *     EtwpNotifyDisallowedGuidChange @ 0x1409E448C (EtwpNotifyDisallowedGuidChange.c)
- *     SendCaptureStateNotificationsWorker @ 0x1409EC340 (SendCaptureStateNotificationsWorker.c)
+ *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
+ *     EtwpCalculateUpdateNotification @ 0x1406E4530 (EtwpCalculateUpdateNotification.c)
+ *     EtwpDisallowedGuidAddition @ 0x140933C04 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x140933EEC (EtwpDisallowedGuidRemoval.c)
+ *     SendCaptureStateNotificationsWorker @ 0x14093F940 (SendCaptureStateNotificationsWorker.c)
  * Callees:
- *     EtwpAllocDataBlock @ 0x1406F21DC (EtwpAllocDataBlock.c)
- *     EtwpGetSchematizedFilterSize @ 0x140796390 (EtwpGetSchematizedFilterSize.c)
- *     EtwpCopySchematizedFilters @ 0x1409F4FB4 (EtwpCopySchematizedFilters.c)
+ *     EtwpGetSchematizedFilterSize @ 0x1405EBEB8 (EtwpGetSchematizedFilterSize.c)
+ *     EtwpAllocDataBlock @ 0x1406E1760 (EtwpAllocDataBlock.c)
+ *     EtwpCopySchematizedFilters @ 0x140940A84 (EtwpCopySchematizedFilters.c)
  */
 
-__int64 __fastcall EtwpBuildNotificationPacket(__int64 a1, _OWORD *a2, char a3, _QWORD *a4)
+__int64 __fastcall EtwpBuildNotificationPacket(__int64 a1, _OWORD *a2, unsigned __int8 a3, _QWORD *a4)
 {
-  _OWORD *v4; // rbx
   int SchematizedFilterSize; // eax
   int v7; // ebp
   int v8; // edi
   int v10; // r14d
 
-  v4 = a2;
-  LOBYTE(a2) = a3;
-  SchematizedFilterSize = EtwpGetSchematizedFilterSize(a1, a2);
+  SchematizedFilterSize = EtwpGetSchematizedFilterSize(a1, a3);
   v7 = SchematizedFilterSize;
   if ( SchematizedFilterSize )
   {
@@ -29,16 +27,16 @@ __int64 __fastcall EtwpBuildNotificationPacket(__int64 a1, _OWORD *a2, char a3, 
     v8 = EtwpAllocDataBlock((unsigned int)(SchematizedFilterSize + 136), 0LL);
     if ( v8 >= 0 )
     {
-      if ( v4 )
+      if ( a2 )
       {
-        MEMORY[0] = *v4;
-        MEMORY[0x10] = v4[1];
-        MEMORY[0x20] = v4[2];
-        MEMORY[0x30] = v4[3];
-        MEMORY[0x40] = v4[4];
-        MEMORY[0x50] = v4[5];
-        MEMORY[0x60] = v4[6];
-        MEMORY[0x70] = *((_QWORD *)v4 + 14);
+        MEMORY[0] = *a2;
+        MEMORY[0x10] = a2[1];
+        MEMORY[0x20] = a2[2];
+        MEMORY[0x30] = a2[3];
+        MEMORY[0x40] = a2[4];
+        MEMORY[0x50] = a2[5];
+        MEMORY[0x60] = a2[6];
+        MEMORY[0x70] = *((_QWORD *)a2 + 14);
       }
       MEMORY[0x74] = 1;
       MEMORY[8] = 1;
@@ -50,9 +48,9 @@ __int64 __fastcall EtwpBuildNotificationPacket(__int64 a1, _OWORD *a2, char a3, 
       EtwpCopySchematizedFilters((void *)0x88);
     }
   }
-  else if ( v4 )
+  else if ( a2 )
   {
-    return (unsigned int)EtwpAllocDataBlock(*((unsigned int *)v4 + 1), v4);
+    return (unsigned int)EtwpAllocDataBlock(*((unsigned int *)a2 + 1), a2);
   }
   else
   {

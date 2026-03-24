@@ -1,19 +1,18 @@
 /*
- * XREFs of IoFillDumpHeader @ 0x140551F78
+ * XREFs of IoFillDumpHeader @ 0x140501AF8
  * Callers:
- *     IoWritePristineTriageDump @ 0x140553968 (IoWritePristineTriageDump.c)
- *     IopConstructInMemoryDumpHeader @ 0x140554244 (IopConstructInMemoryDumpHeader.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x1405554B0 (IopWriteCapsuleTriageDumpToFirmware.c)
- *     KeInitializeCrashDumpHeader @ 0x140555F30 (KeInitializeCrashDumpHeader.c)
- *     DbgkpTriageDumpFillHeaders @ 0x14092C440 (DbgkpTriageDumpFillHeaders.c)
- *     IopLiveDumpEndMirroringCallback @ 0x140A66300 (IopLiveDumpEndMirroringCallback.c)
+ *     IopConstructInMemoryDumpHeader @ 0x140503C00 (IopConstructInMemoryDumpHeader.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x140504C0C (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     KeInitializeCrashDumpHeader @ 0x140505690 (KeInitializeCrashDumpHeader.c)
+ *     DbgkpTriageDumpFillHeaders @ 0x140889A00 (DbgkpTriageDumpFillHeaders.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1409ABEE0 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     RtlGetNtProductType @ 0x140245CC0 (RtlGetNtProductType.c)
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MmGetPhysicalMemoryRanges @ 0x140852550 (MmGetPhysicalMemoryRanges.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     RtlGetNtProductType @ 0x1402C2020 (RtlGetNtProductType.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MmGetPhysicalMemoryRanges @ 0x1407CCDF0 (MmGetPhysicalMemoryRanges.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoFillDumpHeader(
@@ -33,8 +32,8 @@ __int64 __fastcall IoFillDumpHeader(
   PPHYSICAL_MEMORY_RANGE PhysicalMemoryRanges; // rax
   PPHYSICAL_MEMORY_RANGE v15; // r8
   __int64 v16; // rdi
-  _LARGE_INTEGER *p_NumberOfBytes; // rdx
-  _LARGE_INTEGER NumberOfBytes; // rcx
+  LARGE_INTEGER *p_NumberOfBytes; // rdx
+  LARGE_INTEGER NumberOfBytes; // rcx
   __int64 v19; // r9
   signed __int64 v20; // rcx
   unsigned __int64 QuadPart; // rax
@@ -62,7 +61,6 @@ __int64 __fastcall IoFillDumpHeader(
   else
     v12 = __readcr3();
   *((_QWORD *)a1 + 2) = v12 & 0xFFFFFFFFFFFFF000uLL;
-  *((_BYTE *)a1 + 4174) = 4;
   a1[12] = 34404;
   a1[998] = a2;
   *((_QWORD *)a1 + 3) = MmPfnDatabase;
@@ -134,7 +132,5 @@ LABEL_25:
   result = MEMORY[0xFFFFF780000002C4];
   a1[1044] = 0;
   a1[1045] = result;
-  if ( VslVsmEnabled )
-    a1[1044] = 2048;
   return result;
 }

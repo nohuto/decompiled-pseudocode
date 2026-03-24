@@ -1,22 +1,23 @@
 /*
- * XREFs of ?CreateAndCacheBitmap@CD2DBitmapCache@@IEAAJU_LUID@@PEAPEAVCSecondaryD2DBitmap@@@Z @ 0x1800ED6AC
+ * XREFs of ?CreateAndCacheBitmap@CD2DBitmapCache@@IEAAJU_LUID@@PEAPEAVCSecondaryD2DBitmap@@@Z @ 0x18003AECC
  * Callers:
- *     ?GetBitmapInternal@CD2DBitmapCache@@IEAAJU_LUID@@VDisplayId@@_NPEAPEAVID2DBitmap@@@Z @ 0x180033E90 (-GetBitmapInternal@CD2DBitmapCache@@IEAAJU_LUID@@VDisplayId@@_NPEAPEAVID2DBitmap@@@Z.c)
+ *     ?GetBitmapInternal@CD2DBitmapCache@@IEAAJU_LUID@@VDisplayId@@_NPEAPEAVID2DBitmap@@@Z @ 0x180064170 (-GetBitmapInternal@CD2DBitmapCache@@IEAAJU_LUID@@VDisplayId@@_NPEAPEAVID2DBitmap@@@Z.c)
  * Callees:
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180034B30 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18003D734 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F334 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??0CCachedBitmap@CD2DBitmapCache@@QEAA@PEAVIDeviceResourceNotify@@PEAVCSecondaryD2DBitmap@@@Z @ 0x1800ED8F8 (--0CCachedBitmap@CD2DBitmapCache@@QEAA@PEAVIDeviceResourceNotify@@PEAVCSecondaryD2DBitmap@@@Z.c)
- *     ??$_Emplace_reallocate@V?$unique_ptr@VCCachedBitmap@CD2DBitmapCache@@U?$default_delete@VCCachedBitmap@CD2DBitmapCache@@@std@@@std@@@?$vector@V?$unique_ptr@VCCachedBitmap@CD2DBitmapCache@@U?$default_delete@VCCachedBitmap@CD2DBitmapCache@@@std@@@std@@V?$allocator@V?$unique_ptr@VCCachedBitmap@CD2DBitmapCache@@U?$default_delete@VCCachedBitmap@CD2DBitmapCache@@@std@@@std@@@2@@std@@QEAAPEAV?$unique_ptr@VCCachedBitmap@CD2DBitmapCache@@U?$default_delete@VCCachedBitmap@CD2DBitmapCache@@@std@@@1@QEAV21@$$QEAV21@@Z @ 0x1800ED960 (--$_Emplace_reallocate@V-$unique_ptr@VCCachedBitmap@CD2DBitmapCache@@U-$default_delete@VCCachedB.c)
- *     ?CreateSecondaryD2DBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@PEAPEAVCSecondaryD2DBitmap@@@Z @ 0x1800EDA8C (-CreateSecondaryD2DBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo.c)
- *     ??1CCachedBitmap@CD2DBitmapCache@@QEAA@XZ @ 0x1800F9A30 (--1CCachedBitmap@CD2DBitmapCache@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
- *     _Init_thread_footer @ 0x18010F9C0 (_Init_thread_footer.c)
- *     _Init_thread_header @ 0x18010FA28 (_Init_thread_header.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?CreateSecondaryD2DBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@PEAPEAVCSecondaryD2DBitmap@@@Z @ 0x18003966C (-CreateSecondaryD2DBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo.c)
+ *     ??$_Emplace_reallocate@V?$unique_ptr@VCCachedBitmap@CD2DBitmapCache@@U?$default_delete@VCCachedBitmap@CD2DBitmapCache@@@std@@@std@@@?$vector@V?$unique_ptr@VCCachedBitmap@CD2DBitmapCache@@U?$default_delete@VCCachedBitmap@CD2DBitmapCache@@@std@@@std@@V?$allocator@V?$unique_ptr@VCCachedBitmap@CD2DBitmapCache@@U?$default_delete@VCCachedBitmap@CD2DBitmapCache@@@std@@@std@@@2@@std@@QEAAPEAV?$unique_ptr@VCCachedBitmap@CD2DBitmapCache@@U?$default_delete@VCCachedBitmap@CD2DBitmapCache@@@std@@@1@QEAV21@$$QEAV21@@Z @ 0x18003B100 (--$_Emplace_reallocate@V-$unique_ptr@VCCachedBitmap@CD2DBitmapCache@@U-$default_delete@VCCachedB.c)
+ *     ??0CCachedBitmap@CD2DBitmapCache@@QEAA@PEAVIDeviceResourceNotify@@PEAVCSecondaryD2DBitmap@@@Z @ 0x18003B268 (--0CCachedBitmap@CD2DBitmapCache@@QEAA@PEAVIDeviceResourceNotify@@PEAVCSecondaryD2DBitmap@@@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ?RemoveResourceNotifier@CD2DResource@@UEAAXPEBVIDeviceResourceNotify@@@Z @ 0x180048078 (-RemoveResourceNotifier@CD2DResource@@UEAAXPEBVIDeviceResourceNotify@@@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18005F710 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?reset@?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18005FFF0 (-reset@-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180060020 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _Init_thread_footer @ 0x1800E7650 (_Init_thread_footer.c)
+ *     _Init_thread_header @ 0x1800E76B8 (_Init_thread_header.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD2DBitmapCache::CreateAndCacheBitmap(
@@ -24,127 +25,139 @@ __int64 __fastcall CD2DBitmapCache::CreateAndCacheBitmap(
         struct _LUID a2,
         struct CSecondaryD2DBitmap **a3)
 {
-  CD2DBitmapCache::CCachedBitmap *v3; // rbx
-  CD2DBitmapCache::CCachedBitmap *v6; // rdi
+  CRenderTargetBitmap *v3; // rsi
+  struct CSecondaryD2DBitmap *v7; // rdi
+  CDeviceManager *v8; // rcx
   int Device; // eax
-  __int64 v8; // rcx
-  unsigned int v9; // r15d
-  __int64 v10; // rbx
-  __int64 (__fastcall ***v11)(_QWORD, _BYTE *); // rcx
-  const struct PixelFormatInfo *v12; // rbx
-  const struct D2D_SIZE_U *v13; // rax
-  const struct CResourceTag *v14; // rdx
-  int v15; // eax
-  __int64 v16; // rcx
-  CD2DBitmapCache::CCachedBitmap *v17; // rax
-  __int64 v18; // rcx
-  CD2DBitmapCache::CCachedBitmap *v19; // rax
-  CD2DBitmapCache::CCachedBitmap **v20; // rdx
-  struct CSecondaryD2DBitmap *v21; // rax
-  CD2DBitmapCache::CCachedBitmap *v23; // [rsp+30h] [rbp-30h] BYREF
-  CD3DDevice *v24; // [rsp+38h] [rbp-28h] BYREF
-  _BYTE v25[8]; // [rsp+40h] [rbp-20h] BYREF
-  _BYTE v26[16]; // [rsp+48h] [rbp-18h] BYREF
+  unsigned int v10; // ecx
+  CD3DDevice *v11; // rbx
+  unsigned int v12; // r14d
+  __int64 v13; // rsi
+  __int64 (__fastcall ***v14)(_QWORD, _BYTE *); // rcx
+  const struct PixelFormatInfo *v15; // rsi
+  const struct D2D_SIZE_U *v16; // rax
+  const struct CResourceTag *v17; // rdx
+  int v18; // eax
+  unsigned int v19; // ecx
+  CD2DBitmapCache::CCachedBitmap *v20; // rax
+  unsigned int v21; // ecx
+  CD2DBitmapCache::CCachedBitmap **v22; // rdx
+  struct CSecondaryD2DBitmap *v23; // rax
+  __int64 v25; // rcx
+  CRenderTargetBitmap *v26; // rcx
+  struct CSecondaryD2DBitmap *v27; // [rsp+30h] [rbp-30h] BYREF
+  CD3DDevice *v28; // [rsp+38h] [rbp-28h] BYREF
+  _BYTE v29[16]; // [rsp+40h] [rbp-20h] BYREF
 
   v3 = 0LL;
   *a3 = 0LL;
-  v24 = 0LL;
-  v23 = 0LL;
-  v6 = 0LL;
-  Device = CDeviceManager::GetDevice((CDeviceManager *)&g_DeviceManager, a2, &v24);
-  v9 = Device;
+  v28 = 0LL;
+  v27 = 0LL;
+  v7 = 0LL;
+  wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset(&v28);
+  Device = CDeviceManager::GetDevice(v8, a2, &v28);
+  v11 = v28;
+  v12 = Device;
   if ( Device < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, Device, 0xCFu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, Device, 0xCFu, 0LL);
   }
   else
   {
-    v10 = *((_QWORD *)NtCurrentTeb()->ThreadLocalStoragePointer + (unsigned int)tls_index);
-    if ( dword_1803EA0C8 > *(_DWORD *)(v10 + 4) )
+    v13 = *((_QWORD *)NtCurrentTeb()->ThreadLocalStoragePointer + (unsigned int)tls_index);
+    if ( dword_18034B188 > *(_DWORD *)(v13 + 4) )
     {
-      Init_thread_header(&dword_1803EA0C8);
-      if ( dword_1803EA0C8 == -1 )
+      Init_thread_header(&dword_18034B188);
+      if ( dword_18034B188 == -1 )
       {
-        dword_1803EA0D8 = 24;
-        qword_1803EA0D0 = (__int64)"DWM Sysmem Source Bitmap";
-        Init_thread_footer(&dword_1803EA0C8);
+        dword_18034B198 = 24;
+        qword_18034B190 = (__int64)"DWM Sysmem Source Bitmap";
+        Init_thread_footer(&dword_18034B188);
       }
     }
-    if ( dword_1803EA0E0 > *(_DWORD *)(v10 + 4) )
+    if ( dword_18034B1A0 > *(_DWORD *)(v13 + 4) )
     {
-      Init_thread_header(&dword_1803EA0E0);
-      if ( dword_1803EA0E0 == -1 )
+      Init_thread_header(&dword_18034B1A0);
+      if ( dword_18034B1A0 == -1 )
       {
-        dword_1803EA0F0 = 23;
-        qword_1803EA0E8 = (__int64)"DWM Cross-Device Bitmap";
-        Init_thread_footer(&dword_1803EA0E0);
+        dword_18034B1B0 = 23;
+        qword_18034B1A8 = (__int64)"DWM Cross-Device Bitmap";
+        Init_thread_footer(&dword_18034B1A0);
       }
     }
-    v11 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(*((_QWORD *)this + 3)
+    v14 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(*((_QWORD *)this + 3)
                                                     + 8LL
                                                     + *(int *)(*(_QWORD *)(*((_QWORD *)this + 3) + 8LL) + 8LL));
-    v12 = (const struct PixelFormatInfo *)(**v11)(v11, v26);
-    v13 = (const struct D2D_SIZE_U *)(***((__int64 (__fastcall ****)(_QWORD, _BYTE *))this + 3))(
+    v15 = (const struct PixelFormatInfo *)(**v14)(v14, v29);
+    v16 = (const struct D2D_SIZE_U *)(***((__int64 (__fastcall ****)(_QWORD, CD3DDevice **))this + 3))(
                                        *((_QWORD *)this + 3),
-                                       v25);
-    v14 = (const struct CResourceTag *)off_1803E3658[0];
+                                       &v28);
+    v17 = (const struct CResourceTag *)off_1803449D0[0];
     if ( *((_QWORD *)this + 4) )
-      v14 = off_1803E3660;
-    v15 = CD3DDevice::CreateSecondaryD2DBitmap(v24, v14, v13, v12, &v23);
-    v9 = v15;
-    if ( v15 < 0 )
+      v17 = off_1803449D8;
+    v18 = CD3DDevice::CreateSecondaryD2DBitmap(v11, v17, v16, v15, &v27);
+    v12 = v18;
+    if ( v18 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0xD7u, 0LL);
-      v3 = v23;
+      MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0xD7u, 0LL);
+      v3 = v27;
     }
     else
     {
-      v17 = (CD2DBitmapCache::CCachedBitmap *)DefaultHeap::Alloc(0x10uLL);
-      v3 = v23;
-      if ( v17
-        && (v19 = (CD2DBitmapCache::CCachedBitmap *)CD2DBitmapCache::CCachedBitmap::CCachedBitmap(
-                                                      v17,
-                                                      (CD2DBitmapCache *)((char *)this
-                                                                        + *(int *)(*((_QWORD *)this + 2) + 4LL)
-                                                                        + 16),
-                                                      v23),
-            v23 = v19,
-            (v6 = v19) != 0LL) )
+      v20 = (CD2DBitmapCache::CCachedBitmap *)DefaultHeap::Alloc(0x10uLL);
+      v3 = v27;
+      if ( v20 )
+        v20 = (CD2DBitmapCache::CCachedBitmap *)CD2DBitmapCache::CCachedBitmap::CCachedBitmap(
+                                                  v20,
+                                                  (CD2DBitmapCache *)((char *)this
+                                                                    + *(int *)(*((_QWORD *)this + 2) + 4LL)
+                                                                    + 16),
+                                                  v27);
+      v27 = v20;
+      v7 = v20;
+      if ( v20 )
       {
-        v20 = (CD2DBitmapCache::CCachedBitmap **)*((_QWORD *)this + 7);
-        if ( v20 == *((CD2DBitmapCache::CCachedBitmap ***)this + 8) )
+        v22 = (CD2DBitmapCache::CCachedBitmap **)*((_QWORD *)this + 7);
+        if ( *((CD2DBitmapCache::CCachedBitmap ***)this + 8) == v22 )
         {
           std::vector<std::unique_ptr<CD2DBitmapCache::CCachedBitmap>>::_Emplace_reallocate<std::unique_ptr<CD2DBitmapCache::CCachedBitmap>>(
             (char *)this + 48,
-            v20,
-            &v23);
-          v6 = v23;
+            v22,
+            &v27);
+          v7 = v27;
         }
         else
         {
-          v6 = 0LL;
-          *v20 = v19;
+          v7 = 0LL;
+          *v22 = v20;
           *((_QWORD *)this + 7) += 8LL;
         }
-        v21 = v3;
+        v23 = v3;
         v3 = 0LL;
-        *a3 = v21;
+        *a3 = v23;
       }
       else
       {
-        v9 = -2147024882;
-        MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, -2147024882, 0xDAu, 0LL);
+        v12 = -2147024882;
+        MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, -2147024882, 0xDAu, 0LL);
       }
     }
   }
-  if ( v24 )
-    CD3DDevice::Release(v24);
-  if ( v6 )
+  if ( v11 )
+    CD3DDevice::Release(v11);
+  if ( v7 )
   {
-    CD2DBitmapCache::CCachedBitmap::~CCachedBitmap(v6);
-    operator delete(v6, 0x10uLL);
+    v25 = *((_QWORD *)v7 + 1);
+    if ( v25 )
+    {
+      CD2DResource::RemoveResourceNotifier((CD2DResource *)(v25 + 104), *(const struct IDeviceResourceNotify **)v7);
+      v26 = (CRenderTargetBitmap *)*((_QWORD *)v7 + 1);
+      if ( v26 )
+        CRenderTargetBitmap::Release(v26);
+    }
+    operator delete(v7, 0x10uLL);
   }
   if ( v3 )
-    CMILRefCountBaseT<IUnknown>::InternalRelease((volatile signed __int32 *)v3);
-  return v9;
+    CRenderTargetBitmap::Release(v3);
+  return v12;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of KeDebugWriteEnclaveMemory @ 0x140843A68
+ * XREFs of KeDebugWriteEnclaveMemory @ 0x140843A48
  * Callers:
- *     MiDbgReadWriteEnclave @ 0x140859EDC (MiDbgReadWriteEnclave.c)
- *     MiDbgReadWriteEnclaveUnaligned @ 0x140859FC8 (MiDbgReadWriteEnclaveUnaligned.c)
+ *     MiDbgReadWriteEnclave @ 0x140859EBC (MiDbgReadWriteEnclave.c)
+ *     MiDbgReadWriteEnclaveUnaligned @ 0x140859FA8 (MiDbgReadWriteEnclaveUnaligned.c)
  * Callees:
- *     KiEncls @ 0x1401BCC80 (KiEncls.c)
+ *     KiEncls @ 0x1401BCCA0 (KiEncls.c)
  */
 
 __int64 __fastcall KeDebugWriteEnclaveMemory(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)

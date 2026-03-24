@@ -1,58 +1,65 @@
 /*
- * XREFs of ?Discard@CCompositionToken@@UEAAXXZ @ 0x1C0012230
+ * XREFs of ?Discard@CCompositionToken@@UEAAXXZ @ 0x1C0017FE0
  * Callers:
  *     <none>
  * Callees:
- *     ?UpdateDirtyRegions@CCompositionToken@@QEAAJXZ @ 0x1C00015B4 (-UpdateDirtyRegions@CCompositionToken@@QEAAJXZ.c)
- *     DxgkGetWin32kImportTable @ 0x1C001166C (DxgkGetWin32kImportTable.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     DxgkGetWin32kImportTable @ 0x1C0016CC8 (DxgkGetWin32kImportTable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?UpdateDirtyRegions@CCompositionToken@@QEAAJXZ @ 0x1C0064594 (-UpdateDirtyRegions@CCompositionToken@@QEAAJXZ.c)
  */
 
-void __fastcall CCompositionToken::Discard(CCompositionToken *this)
+void __fastcall CCompositionToken::Discard(CCompositionToken *this, __int64 a2)
 {
-  int v1; // eax
+  int v2; // eax
   __int64 Win32kImportTable; // rax
-  char *v4; // rcx
-  unsigned int v5; // edi
-  __int64 v6; // rsi
-  void (__fastcall ***v7)(_QWORD); // rcx
+  char *v5; // rcx
+  unsigned int v6; // edi
+  char *v7; // rax
+  __int64 v8; // rsi
+  void (__fastcall ***v9)(_QWORD); // rdx
 
-  v1 = *((_DWORD *)this + 6);
-  if ( v1 < 3 )
+  v2 = *((_DWORD *)this + 6);
+  if ( v2 < 3 )
   {
-    if ( !v1 && *((_QWORD *)this + 8) )
+    if ( !v2 && *((_QWORD *)this + 10) )
     {
-      Win32kImportTable = DxgkGetWin32kImportTable();
-      (*(void (__fastcall **)(_QWORD, __int64))(Win32kImportTable + 48))(*((_QWORD *)this + 8), 1LL);
+      Win32kImportTable = DxgkGetWin32kImportTable((__int64)this, a2);
+      (*(void (__fastcall **)(_QWORD, __int64))(Win32kImportTable + 32))(*((_QWORD *)this + 10), 1LL);
     }
     CCompositionToken::UpdateDirtyRegions((CCompositionToken *)((char *)this - 8));
   }
-  v4 = (char *)*((_QWORD *)this + 6);
-  if ( v4 )
+  v5 = (char *)*((_QWORD *)this + 8);
+  if ( v5 )
   {
-    v5 = 0;
-    if ( !*((_DWORD *)this + 14) )
-      goto LABEL_14;
-    do
+    v6 = 0;
+    if ( *((_DWORD *)this + 18) )
     {
-      v6 = 32LL * v5;
-      v7 = *(void (__fastcall ****)(_QWORD))&v4[v6 + 24];
-      if ( v7 )
-        (**v7)(v7);
-      v4 = (char *)*((_QWORD *)this + 6);
-      if ( *(_QWORD *)&v4[v6 + 8] )
+      do
       {
-        ObfDereferenceObject(*(PVOID *)&v4[v6 + 8]);
-        v4 = (char *)*((_QWORD *)this + 6);
+        v7 = v5;
+        v8 = 32LL * v6;
+        v9 = *(void (__fastcall ****)(_QWORD))&v5[v8 + 24];
+        if ( v9 )
+        {
+          (**v9)(*(_QWORD *)&v5[v8 + 24]);
+          v5 = (char *)*((_QWORD *)this + 8);
+          v7 = v5;
+        }
+        if ( *(_QWORD *)&v7[v8 + 8] )
+        {
+          ObfDereferenceObject(*(PVOID *)&v7[v8 + 8]);
+          v5 = (char *)*((_QWORD *)this + 8);
+          v7 = v5;
+        }
+        ++v6;
       }
-      ++v5;
+      while ( v6 < *((_DWORD *)this + 18) );
+      v5 = v7;
     }
-    while ( v5 < *((_DWORD *)this + 14) );
-    if ( v4 )
-LABEL_14:
-      ExFreePoolWithTag(v4, 0);
-    *((_QWORD *)this + 6) = 0LL;
+    if ( v5 )
+      ExFreePoolWithTag(v5, 0);
+    *((_QWORD *)this + 8) = 0LL;
   }
-  *((_DWORD *)this + 14) = 0;
+  *((_DWORD *)this + 18) = 0;
   *((_DWORD *)this + 6) = 6;
 }

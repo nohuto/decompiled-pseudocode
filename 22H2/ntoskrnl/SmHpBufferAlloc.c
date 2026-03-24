@@ -1,73 +1,72 @@
 /*
- * XREFs of SmHpBufferAlloc @ 0x1405CA1A4
+ * XREFs of SmHpBufferAlloc @ 0x14031B5A4
  * Callers:
- *     SmHpChunkAlloc @ 0x1405CA5CC (SmHpChunkAlloc.c)
+ *     SmHpChunkAlloc @ 0x140264D2C (SmHpChunkAlloc.c)
  * Callees:
- *     SmBinaryArrayGrow @ 0x1405CA03C (SmBinaryArrayGrow.c)
- *     SmHpBufferUpdateFullness @ 0x1405CA480 (SmHpBufferUpdateFullness.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     SmHpBufferUpdateFullness @ 0x140264DB8 (SmHpBufferUpdateFullness.c)
+ *     SmBinaryArrayGrow @ 0x14031B6D0 (SmBinaryArrayGrow.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-char *__fastcall SmHpBufferAlloc(_DWORD *a1)
+__int64 __fastcall SmHpBufferAlloc(_DWORD *a1)
 {
-  _QWORD *Pool2; // rsi
-  char *v3; // rbx
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  unsigned int v6; // edx
-  _WORD *v7; // r9
-  __int64 v8; // r8
-  _WORD *v9; // rdx
+  _QWORD *PoolWithTag; // rsi
+  __int64 v3; // rdx
+  __int64 v4; // rbx
+  _WORD *v5; // r9
+  __int16 v6; // r8
+  _WORD *v7; // rdx
   unsigned __int64 i; // rcx
+  __int64 v10; // rcx
 
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 4096LL, 1111715187LL);
-  if ( !Pool2 )
-    goto LABEL_2;
-  v4 = (unsigned int)a1[136];
-  if ( (_DWORD)v4 != -1 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x1000uLL, 0x42436D73u);
+  if ( !PoolWithTag )
+    return 0LL;
+  v3 = (unsigned int)a1[136];
+  if ( (_DWORD)v3 == -1 )
   {
-    _BitScanReverse((unsigned int *)&v5, v4);
-    v3 = (char *)(*(_QWORD *)&a1[2 * v5] + 16 * (v4 ^ (unsigned int)(1 << v5)));
-    a1[136] = *((_DWORD *)v3 + 2);
-    goto LABEL_8;
-  }
-  v6 = a1[64];
-  if ( v6 > a1[65] )
-  {
-LABEL_2:
-    v3 = 0LL;
-    goto LABEL_12;
-  }
-  v3 = SmBinaryArrayGrow((__int64)a1, v6);
-  if ( v3 )
-  {
-    LODWORD(v4) = a1[64];
-    a1[64] = v4 + 1;
-LABEL_8:
-    v7 = v3 + 8;
-    *(_OWORD *)Pool2 = 0LL;
-    Pool2[2] = 0LL;
-    v8 = 0LL;
-    *((_DWORD *)Pool2 + 4) = v4;
-    Pool2[1] = Pool2;
-    *Pool2 = Pool2;
-    *((_QWORD *)v3 + 1) = 0LL;
-    *(_QWORD *)v3 = Pool2;
-    v9 = (_WORD *)((char *)Pool2 + (unsigned int)a1[70]);
-    for ( i = (unsigned __int64)v9 + (unsigned int)a1[68]; i <= (unsigned __int64)(Pool2 + 512); i += (unsigned int)a1[68] )
+    if ( a1[64] > a1[65] )
     {
-      LOWORD(v8) = v8 + 1;
-      *v7 = (_WORD)v9 - (_WORD)Pool2;
-      v7 = v9;
-      v9 = (_WORD *)i;
+      v4 = 0LL;
+      goto LABEL_10;
     }
-    *v7 = -1;
-    SmHpBufferUpdateFullness(a1, v3, v8);
-    Pool2 = 0LL;
+    v4 = SmBinaryArrayGrow(a1);
+    if ( !v4 )
+      goto LABEL_10;
+    LODWORD(v3) = a1[64];
+    a1[64] = v3 + 1;
   }
-LABEL_12:
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
-  return v3;
+  else
+  {
+    _BitScanReverse((unsigned int *)&v10, v3);
+    v4 = *(_QWORD *)&a1[2 * v10] + 16 * (v3 ^ (unsigned int)(1 << v10));
+    a1[136] = *(_DWORD *)(v4 + 8);
+  }
+  v5 = (_WORD *)(v4 + 8);
+  *(_OWORD *)PoolWithTag = 0LL;
+  PoolWithTag[2] = 0LL;
+  v6 = 0;
+  *((_DWORD *)PoolWithTag + 4) = v3;
+  PoolWithTag[1] = PoolWithTag;
+  *PoolWithTag = PoolWithTag;
+  *(_QWORD *)(v4 + 8) = 0LL;
+  *(_QWORD *)v4 = PoolWithTag;
+  v7 = (_WORD *)((char *)PoolWithTag + (unsigned int)a1[70]);
+  for ( i = (unsigned __int64)v7 + (unsigned int)a1[68];
+        i <= (unsigned __int64)(PoolWithTag + 512);
+        i += (unsigned int)a1[68] )
+  {
+    ++v6;
+    *v5 = (_WORD)v7 - (_WORD)PoolWithTag;
+    v5 = v7;
+    v7 = (_WORD *)i;
+  }
+  *v5 = -1;
+  SmHpBufferUpdateFullness((__int64)a1, v4, v6);
+  PoolWithTag = 0LL;
+LABEL_10:
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
+  return v4;
 }

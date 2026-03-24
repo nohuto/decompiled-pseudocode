@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GTF_InitWorkset@MonDescParser@@YAXPEAU_GTF_WORKSET@1@@Z @ 0x1C001ED8C
+ * XREFs of ?GTF_InitWorkset@MonDescParser@@YAXPEAU_GTF_WORKSET@1@@Z @ 0x1C001F730
  * Callers:
- *     ?GTF_UsingVerticalRefreshFrequency_Stage1@MonDescParser@@YAXJJJJJPEAU_GTF_WORKSET@1@@Z @ 0x1C001EB0C (-GTF_UsingVerticalRefreshFrequency_Stage1@MonDescParser@@YAXJJJJJPEAU_GTF_WORKSET@1@@Z.c)
+ *     ?GTF_UsingVerticalRefreshFrequency_Stage1@MonDescParser@@YAXJJJJJPEAU_GTF_WORKSET@1@@Z @ 0x1C001F4B0 (-GTF_UsingVerticalRefreshFrequency_Stage1@MonDescParser@@YAXJJJJJPEAU_GTF_WORKSET@1@@Z.c)
  * Callees:
  *     <none>
  */

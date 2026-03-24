@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDeleteEmptySubsections @ 0x140246A0C
+ * XREFs of MiDeleteEmptySubsections @ 0x1402BD5BC
  * Callers:
- *     MiDereferenceSegmentThread @ 0x1403CBBF0 (MiDereferenceSegmentThread.c)
+ *     MiDereferenceSegmentThread @ 0x1403BD430 (MiDereferenceSegmentThread.c)
  * Callees:
- *     MiUpdateSystemProtoPtesTree @ 0x14026EA80 (MiUpdateSystemProtoPtesTree.c)
- *     MiReduceUnusedSubsectionCount @ 0x14026EFD0 (MiReduceUnusedSubsectionCount.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140356250 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x1402F8260 (MiUpdateSystemProtoPtesTree.c)
+ *     MiReduceUnusedSubsectionCount @ 0x1402F8B90 (MiReduceUnusedSubsectionCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiDeleteEmptySubsections(__int64 a1)
@@ -51,12 +51,12 @@ __int64 __fastcall MiDeleteEmptySubsections(__int64 a1)
       break;
     v7 = v6 - 10;
     v8 = *(v6 - 10);
-    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(v8 + 72) )
+    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v8 + 72)) )
     {
       if ( (*((_BYTE *)v7 + 34) & 8) != 0 )
       {
         v9 = (void *)v7[1];
-        MiUpdateSystemProtoPtesTree(v7 + 15, 0LL);
+        MiUpdateSystemProtoPtesTree(v7 + 14, 0LL);
         v7[1] = 0LL;
         v10 = v7 + 10;
         v11 = v7[10];

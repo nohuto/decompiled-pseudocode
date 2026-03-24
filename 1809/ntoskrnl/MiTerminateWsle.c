@@ -2,7 +2,7 @@
  * XREFs of MiTerminateWsle @ 0x14007ACA0
  * Callers:
  *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)
- *     MiRemoveSystemImagePage @ 0x14012C09C (MiRemoveSystemImagePage.c)
+ *     MiRemoveSystemImagePage @ 0x14012C0BC (MiRemoveSystemImagePage.c)
  * Callees:
  *     MiUnlockWsle @ 0x14001A18C (MiUnlockWsle.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)

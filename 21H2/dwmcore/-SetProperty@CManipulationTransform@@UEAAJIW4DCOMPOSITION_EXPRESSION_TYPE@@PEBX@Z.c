@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetProperty@CManipulationTransform@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800E9200
+ * XREFs of ?SetProperty@CManipulationTransform@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800CF4B0
  * Callers:
- *     ?ProcessSetComponents@CManipulationTransform@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATIONTRANSFORM_SETCOMPONENTS@@@Z @ 0x1800E907C (-ProcessSetComponents@CManipulationTransform@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATIO.c)
+ *     ?ProcessSetComponents@CManipulationTransform@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATIONTRANSFORM_SETCOMPONENTS@@@Z @ 0x1800CF324 (-ProcessSetComponents@CManipulationTransform@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATIO.c)
  * Callees:
- *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800443B0 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x1800485B4 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800375A0 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180065B20 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
  */
 
 __int64 __fastcall CManipulationTransform::SetProperty(CResource *a1, int a2, int a3, __int64 a4)
@@ -22,13 +22,13 @@ __int64 __fastcall CManipulationTransform::SetProperty(CResource *a1, int a2, in
     switch ( a2 )
     {
       case 1:
-        v6 = 172LL;
+        v6 = 164LL;
         break;
       case 2:
-        v6 = 184LL;
+        v6 = 176LL;
         break;
       case 3:
-        v6 = 196LL;
+        v6 = 188LL;
         break;
       default:
         goto LABEL_17;
@@ -36,14 +36,14 @@ __int64 __fastcall CManipulationTransform::SetProperty(CResource *a1, int a2, in
   }
   else
   {
-    v6 = 160LL;
+    v6 = 152LL;
   }
   v7 = (char *)a1 + v6;
   if ( !(CResource *)((char *)a1 + v6) )
   {
 LABEL_17:
     v9 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0LL, -2147024809, 0xE8u);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, 0xE8u, 0LL);
     return v9;
   }
   v8 = *(_QWORD *)v7 - *(_QWORD *)a4;
@@ -53,7 +53,7 @@ LABEL_17:
   {
     *(_QWORD *)v7 = *(_QWORD *)a4;
     *((_DWORD *)v7 + 2) = *(_DWORD *)(a4 + 8);
-    *((_BYTE *)a1 + 272) = 1;
+    *((_BYTE *)a1 + 264) = 1;
     CResource::NotifyOnChanged((__int64)a1, 0, 0LL);
     CResource::InvalidateAnimationSources(a1, a2);
     CResource::InvalidateAnimationSources(a1, 4);

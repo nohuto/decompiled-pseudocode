@@ -1,20 +1,19 @@
 /*
- * XREFs of IopSetTypeSpecificFoExtension @ 0x140302850
+ * XREFs of IopSetTypeSpecificFoExtension @ 0x14030F6A4
  * Callers:
- *     IopGetSetSpecificExtension @ 0x140301568 (IopGetSetSpecificExtension.c)
- *     IoSetOplockPrivateFoExt @ 0x1403024C8 (IoSetOplockPrivateFoExt.c)
- *     IoSetOplockKeyContext @ 0x1403CEAD8 (IoSetOplockKeyContext.c)
- *     IoSetShadowFileInformation @ 0x140557210 (IoSetShadowFileInformation.c)
- *     IopSymlinkSetFoExtension @ 0x140881820 (IopSymlinkSetFoExtension.c)
- *     IopSetFileObjectIosbRange @ 0x140945FE8 (IopSetFileObjectIosbRange.c)
- *     IopSetFileMemoryPartitionInformation @ 0x140947B7C (IopSetFileMemoryPartitionInformation.c)
+ *     IoSetOplockPrivateFoExt @ 0x140206248 (IoSetOplockPrivateFoExt.c)
+ *     IopGetSetSpecificExtension @ 0x1402D7298 (IopGetSetSpecificExtension.c)
+ *     IoSetOplockKeyContext @ 0x140390744 (IoSetOplockKeyContext.c)
+ *     IopSymlinkSetFoExtension @ 0x14067FE4C (IopSymlinkSetFoExtension.c)
+ *     IopSetFileObjectIosbRange @ 0x140892864 (IopSetFileObjectIosbRange.c)
+ *     IopSetFileMemoryPartitionInformation @ 0x14089433C (IopSetFileMemoryPartitionInformation.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall IopSetTypeSpecificFoExtension(__int64 a1, unsigned int a2, signed __int64 a3)
 {
-  if ( a2 > 9 )
+  if ( a2 > 8 )
     return 3221225485LL;
   else
     return _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8LL * (int)a2 + 8), a3, 0LL) != 0

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlDuplicateCmResourceList @ 0x1C00BB1B0
+ * XREFs of RtlDuplicateCmResourceList @ 0x1C00BB1F0
  * Callers:
- *     ACPIRootIrpStartDevice @ 0x1C00BB260 (ACPIRootIrpStartDevice.c)
+ *     ACPIRootIrpStartDevice @ 0x1C00BB2A0 (ACPIRootIrpStartDevice.c)
  * Callees:
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
-void *__fastcall RtlDuplicateCmResourceList(__int64 a1, unsigned int *a2)
+PVOID __fastcall RtlDuplicateCmResourceList(__int64 a1, unsigned int *a2)
 {
   unsigned int v2; // r9d
   unsigned int v3; // r8d
@@ -17,8 +17,8 @@ void *__fastcall RtlDuplicateCmResourceList(__int64 a1, unsigned int *a2)
   unsigned int v9; // eax
   unsigned int v10; // r10d
   unsigned int v11; // esi
-  void *Pool2; // rax
-  void *v13; // rbx
+  PVOID PoolWithTag; // rax
+  PVOID v13; // rbx
 
   v2 = *a2;
   v3 = 0;
@@ -53,9 +53,9 @@ void *__fastcall RtlDuplicateCmResourceList(__int64 a1, unsigned int *a2)
     while ( v3 < v2 );
   }
   v11 = v5;
-  Pool2 = (void *)ExAllocatePool2(64LL, v5, 1383097153LL);
-  v13 = Pool2;
-  if ( Pool2 )
-    memmove(Pool2, a2, v11);
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v5, 0x52706341u);
+  v13 = PoolWithTag;
+  if ( PoolWithTag )
+    memmove(PoolWithTag, a2, v11);
   return v13;
 }

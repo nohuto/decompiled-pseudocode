@@ -1,70 +1,55 @@
 /*
- * XREFs of ?GetFrameRate@CDebugFrameCounter@@QEAAIXZ @ 0x1801F2E90
+ * XREFs of ?GetFrameRate@CDebugFrameCounter@@QEAAIXZ @ 0x1801629DC
  * Callers:
- *     ?RenderDebugFrameCounter@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x1801E7C3C (-RenderDebugFrameCounter@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?RenderDebugFrameCounter@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x180184BC8 (-RenderDebugFrameCounter@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@@Z.c)
  * Callees:
- *     ?GetFrameCountInternal@CDebugFrameCounter@@IEAAIXZ @ 0x1801F2E5C (-GetFrameCountInternal@CDebugFrameCounter@@IEAAIXZ.c)
+ *     ?GetFrameCountInternal@CDebugFrameCounter@@IEAAIXZ @ 0x1801629A8 (-GetFrameCountInternal@CDebugFrameCounter@@IEAAIXZ.c)
  */
 
 __int64 __fastcall CDebugFrameCounter::GetFrameRate(CDebugFrameCounter *this)
 {
-  int FrameCountInternal; // eax
-  __int64 v2; // r10
+  int FrameCountInternal; // ebx
+  int *v2; // r10
   unsigned int v3; // r9d
-  __int64 v4; // rcx
-  unsigned int v5; // r11d
-  int v6; // ebx
-  float v7; // xmm0_4
-  __int64 v8; // rax
-  float v9; // xmm1_4
+  unsigned int v4; // r11d
+  float v5; // xmm1_4
   __int64 result; // rax
-  __m128 v11; // xmm2
-  float v12; // xmm1_4
-  __m128 v13; // xmm2
-  float v14; // [rsp+30h] [rbp+8h]
-  float v15; // [rsp+30h] [rbp+8h]
+  __m128 v7; // xmm2
+  float v8; // xmm1_4
+  __m128 v9; // xmm2
+  float v10; // [rsp+30h] [rbp+8h]
+  float v11; // [rsp+30h] [rbp+8h]
 
   FrameCountInternal = CDebugFrameCounter::GetFrameCountInternal(this);
-  v3 = *(_DWORD *)(v2 + 4144);
-  v4 = *(_QWORD *)(v2 + 4136);
-  v5 = *(_DWORD *)(v2 + 4148) - v3;
-  v6 = FrameCountInternal;
-  if ( v3 > *(_DWORD *)(v2 + 4148) )
-    v5 += 60;
-  if ( v4 < 0 )
+  v3 = v2[1040];
+  v4 = v2[1041] - v3;
+  if ( v3 > v2[1041] )
+    v4 += 60;
+  v5 = (float)v2[1038] / (float)v2[1039];
+  if ( COERCE_UNSIGNED_INT(fabs(v5)) > 0x497FFFF0 )
   {
-    v8 = *(_QWORD *)(v2 + 4136) & 1LL | (*(_QWORD *)(v2 + 4136) >> 1);
-    v7 = (float)(int)v8 + (float)(int)v8;
+    v7 = 0LL;
+    v7.m128_f32[0] = (float)(int)v5 - v5;
+    result = (int)v5 - _mm_cmple_ss(v7, (__m128)LODWORD(FLOAT_N0_5)).m128_u32[0];
   }
   else
   {
-    v7 = (float)(int)v4;
+    v10 = v5 + 6291456.25;
+    result = (unsigned int)((int)(LODWORD(v10) << 10) >> 11);
   }
-  v9 = (float)(int)g_qpcFrequency.LowPart / v7;
-  if ( COERCE_UNSIGNED_INT(fabs(v9)) > 0x497FFFF0 )
+  if ( v4 )
   {
-    v11 = 0LL;
-    v11.m128_f32[0] = (float)(int)v9 - v9;
-    result = (int)v9 - _mm_cmple_ss(v11, (__m128)LODWORD(FLOAT_N0_5)).m128_u32[0];
-  }
-  else
-  {
-    v14 = v9 + 6291456.25;
-    result = (unsigned int)((int)(LODWORD(v14) << 10) >> 11);
-  }
-  if ( v5 )
-  {
-    v12 = (float)(v6 * result) / (float)(int)(v5 + v6);
-    if ( COERCE_UNSIGNED_INT(fabs(v12)) > 0x497FFFF0 )
+    v8 = (float)(FrameCountInternal * result) / (float)(int)(v4 + FrameCountInternal);
+    if ( COERCE_UNSIGNED_INT(fabs(v8)) > 0x497FFFF0 )
     {
-      v13 = 0LL;
-      v13.m128_f32[0] = (float)(int)v12 - v12;
-      return (int)v12 - _mm_cmple_ss(v13, (__m128)LODWORD(FLOAT_N0_5)).m128_u32[0];
+      v9 = 0LL;
+      v9.m128_f32[0] = (float)(int)v8 - v8;
+      return (int)v8 - _mm_cmple_ss(v9, (__m128)LODWORD(FLOAT_N0_5)).m128_u32[0];
     }
     else
     {
-      v15 = v12 + 6291456.25;
-      return (unsigned int)((int)(LODWORD(v15) << 10) >> 11);
+      v11 = v8 + 6291456.25;
+      return (unsigned int)((int)(LODWORD(v11) << 10) >> 11);
     }
   }
   return result;

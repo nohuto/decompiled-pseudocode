@@ -1,20 +1,19 @@
 /*
- * XREFs of ?RequestAsyncMonitorEventCallout@ADAPTER_DISPLAY@@QEAAJIW4MONITOR_EVENT@@_KEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02C2338
+ * XREFs of ?RequestAsyncMonitorEventCallout@ADAPTER_DISPLAY@@QEAAJIW4MONITOR_EVENT@@_KEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C021451C
  * Callers:
- *     ?_MonitorEventHandler@VIDPN_MGR@@SAJPEAXI0W4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01F3C90 (-_MonitorEventHandler@VIDPN_MGR@@SAJPEAXI0W4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXG.c)
+ *     ?_MonitorEventHandler@VIDPN_MGR@@SAJPEAXI0W4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C017A940 (-_MonitorEventHandler@VIDPN_MGR@@SAJPEAXI0W4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXG.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C0019DE4 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01B32DC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
- *     ??0DISPLAY_CALLOUT_ENTRY@@QEAA@AEBU_LUID@@IW4MONITOR_EVENT@@_KEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0308E84 (--0DISPLAY_CALLOUT_ENTRY@@QEAA@AEBU_LUID@@IW4MONITOR_EVENT@@_KEPEAU_DXGK_DISPLAY_SCENARIO_CONTEX.c)
- *     ?SubmitSingleEntry@DXGDISPLAYCALLOUTQUEUE@@QEAAJPEAUDISPLAY_CALLOUT_ENTRY@@_K@Z @ 0x1C030CFCC (-SubmitSingleEntry@DXGDISPLAYCALLOUTQUEUE@@QEAAJPEAUDISPLAY_CALLOUT_ENTRY@@_K@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C000D178 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C013AB0C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     ??0DISPLAY_CALLOUT_ENTRY@@QEAA@AEBU_LUID@@IW4MONITOR_EVENT@@_KEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02680A0 (--0DISPLAY_CALLOUT_ENTRY@@QEAA@AEBU_LUID@@IW4MONITOR_EVENT@@_KEPEAU_DXGK_DISPLAY_SCENARIO_CONTEX.c)
+ *     ?SubmitSingleEntry@DXGDISPLAYCALLOUTQUEUE@@QEAAJPEAUDISPLAY_CALLOUT_ENTRY@@_K@Z @ 0x1C026BE18 (-SubmitSingleEntry@DXGDISPLAYCALLOUTQUEUE@@QEAAJPEAUDISPLAY_CALLOUT_ENTRY@@_K@Z.c)
  */
 
 __int64 __fastcall ADAPTER_DISPLAY::RequestAsyncMonitorEventCallout(
@@ -25,111 +24,108 @@ __int64 __fastcall ADAPTER_DISPLAY::RequestAsyncMonitorEventCallout(
         char a5,
         __int64 a6)
 {
-  __int64 v10; // r9
-  __int64 v11; // rax
-  struct DISPLAY_CALLOUT_ENTRY *v12; // rbx
-  __int64 v13; // rdx
-  __int64 v14; // rax
-  unsigned int v15; // ebx
-  struct DISPLAY_CALLOUT_ENTRY **v16; // rcx
-  DXGADAPTER *v17; // rcx
-  struct _LUID *v18; // rdx
-  __int64 v19; // r11
-  int v21; // [rsp+28h] [rbp-A1h]
-  unsigned __int64 v22; // [rsp+50h] [rbp-79h] BYREF
-  _BYTE v23[24]; // [rsp+58h] [rbp-71h] BYREF
-  _QWORD v24[5]; // [rsp+70h] [rbp-59h] BYREF
-  int v25; // [rsp+98h] [rbp-31h]
-  int v26; // [rsp+9Ch] [rbp-2Dh]
-  int v27; // [rsp+A0h] [rbp-29h]
-  int v28; // [rsp+A4h] [rbp-25h]
-  unsigned int v29; // [rsp+A8h] [rbp-21h]
-  unsigned int v30; // [rsp+ACh] [rbp-1Dh]
-  __int64 v31; // [rsp+B0h] [rbp-19h]
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  PVOID v13; // rax
+  struct DISPLAY_CALLOUT_ENTRY *v14; // rbx
+  __int64 v15; // rdx
+  __int64 v16; // rax
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  __int64 v21; // rax
+  struct _LUID *v22; // rdx
+  unsigned int v23; // ebx
+  struct DISPLAY_CALLOUT_ENTRY **v24; // rcx
+  DXGADAPTER *v25; // rcx
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  struct DXGGLOBAL *Global; // rax
+  unsigned __int64 v30; // [rsp+40h] [rbp-69h] BYREF
+  _BYTE v31[24]; // [rsp+48h] [rbp-61h] BYREF
+  _QWORD v32[5]; // [rsp+60h] [rbp-49h] BYREF
+  int v33; // [rsp+88h] [rbp-21h]
+  int v34; // [rsp+8Ch] [rbp-1Dh]
+  int v35; // [rsp+90h] [rbp-19h]
+  int v36; // [rsp+94h] [rbp-15h]
+  unsigned int v37; // [rsp+98h] [rbp-11h]
+  unsigned int v38; // [rsp+9Ch] [rbp-Dh]
+  __int64 v39; // [rsp+A0h] [rbp-9h]
 
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(a1 + 16)) )
   {
-    WdLogSingleEntry1(1LL, 8756LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceSharedOwner()", 8756LL, 0LL, 0LL, 0LL, 0LL);
+    v12 = WdLogNewEntry5_WdAssertion(v11, v10);
+    *(_QWORD *)(v12 + 24) = 8629LL;
+    WdLogEvent5_WdAssertion(v12);
   }
-  memset(&v24[1], 0, 24);
-  v26 = 0;
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v23, (struct DXGFASTMUTEX *const)(a1 + 536), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v23);
-  v11 = operator new[](0x88uLL, 0x4B677844u, 256LL, v10);
-  if ( v11 )
-  {
-    LOBYTE(v21) = a5;
-    v12 = (struct DISPLAY_CALLOUT_ENTRY *)DISPLAY_CALLOUT_ENTRY::DISPLAY_CALLOUT_ENTRY(
-                                            v11,
-                                            *(_QWORD *)(a1 + 16) + 404LL,
+  memset(&v32[1], 0, 24);
+  v34 = 0;
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v31, (struct DXGFASTMUTEX *const)(a1 + 464), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v31);
+  v13 = operator new[](0x88uLL, 0x4B677844u, PagedPool);
+  if ( v13 )
+    v14 = (struct DISPLAY_CALLOUT_ENTRY *)DISPLAY_CALLOUT_ENTRY::DISPLAY_CALLOUT_ENTRY(
+                                            v13,
+                                            *(_QWORD *)(a1 + 16) + 316LL,
                                             a2,
                                             a3,
                                             a4,
-                                            v21,
+                                            a5,
                                             a6);
-  }
   else
+    v14 = 0LL;
+  v15 = *(_QWORD *)(a1 + 16);
+  v16 = *(_QWORD *)(v15 + 316);
+  v33 = 0;
+  v32[4] = 0LL;
+  v32[0] = 0x480000001ELL;
+  v35 = 46;
+  v37 = a2;
+  v38 = a3;
+  v39 = v16;
+  *(_OWORD *)&v32[1] = 0LL;
+  if ( v14 )
   {
-    v12 = 0LL;
-  }
-  v13 = *(_QWORD *)(a1 + 16);
-  v22 = 0LL;
-  v14 = *(_QWORD *)(v13 + 404);
-  v31 = v14;
-  v24[0] = 0x480000001ELL;
-  v25 = 0;
-  v24[4] = 0LL;
-  v27 = 46;
-  v29 = a2;
-  v30 = a3;
-  *(_OWORD *)&v24[1] = 0LL;
-  if ( v12 )
-  {
-    v24[3] = 0LL;
-    v28 = v14;
-    DXGADAPTER::IsAdapterSessionized((DXGADAPTER *)v13, (struct _LUID *)v13, 0LL, &v22);
-    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v24, v22);
-    if ( *(_BYTE *)(a1 + 584) )
+    v30 = 0LL;
+    v32[3] = 0LL;
+    v36 = v16;
+    DXGADAPTER::IsAdapterSessionized((DXGADAPTER *)v15, (struct _LUID *)v15, 0LL, &v30);
+    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v32, v30);
+    if ( *(_BYTE *)(a1 + 504) )
     {
-      v16 = *(struct DISPLAY_CALLOUT_ENTRY ***)(a1 + 600);
-      if ( *v16 != (struct DISPLAY_CALLOUT_ENTRY *)(a1 + 592) )
+      v24 = *(struct DISPLAY_CALLOUT_ENTRY ***)(a1 + 520);
+      if ( *v24 != (struct DISPLAY_CALLOUT_ENTRY *)(a1 + 512) )
         __fastfail(3u);
-      *(_QWORD *)v12 = a1 + 592;
-      *((_QWORD *)v12 + 1) = v16;
-      *v16 = v12;
-      *(_QWORD *)(a1 + 600) = v12;
-      v15 = 0;
+      *(_QWORD *)v14 = a1 + 512;
+      *((_QWORD *)v14 + 1) = v24;
+      *v24 = v14;
+      *(_QWORD *)(a1 + 520) = v14;
+      v23 = 0;
     }
     else
     {
-      DXGGLOBAL_GetGlobal();
-      v17 = *(DXGADAPTER **)(a1 + 16);
-      v22 = 0LL;
-      DXGADAPTER::IsAdapterSessionized(v17, v18, 0LL, &v22);
-      v15 = DXGDISPLAYCALLOUTQUEUE::SubmitSingleEntry((DXGDISPLAYCALLOUTQUEUE *)(v19 + 1872), v12, v22);
+      v25 = *(DXGADAPTER **)(a1 + 16);
+      v30 = 0LL;
+      DXGADAPTER::IsAdapterSessionized(v25, v22, 0LL, &v30);
+      Global = DXGGLOBAL::GetGlobal(v27, v26);
+      v23 = DXGDISPLAYCALLOUTQUEUE::SubmitSingleEntry((struct DXGGLOBAL *)((char *)Global + 1704), v14, v30);
     }
   }
   else
   {
-    v28 = -1073741801;
-    v24[3] = 0LL;
-    DXGADAPTER::IsAdapterSessionized((DXGADAPTER *)v13, (struct _LUID *)v13, 0LL, &v22);
-    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v24, v22);
-    WdLogSingleEntry1(6LL, 8781LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"Failed to allocate memory for monitor event callout.",
-      8781LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    v15 = -1073741801;
+    v36 = -1073741801;
+    v30 = 0LL;
+    v32[3] = 0LL;
+    DXGADAPTER::IsAdapterSessionized((DXGADAPTER *)v15, (struct _LUID *)v15, 0LL, &v30);
+    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v32, v30);
+    v21 = WdLogNewEntry5_WdLowResource(v18, v17, v19, v20);
+    *(_QWORD *)(v21 + 24) = 8654LL;
+    WdLogEvent5_WdLowResource(v21);
+    v23 = -1073741801;
   }
-  if ( v23[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v23);
-  return v15;
+  if ( v31[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v31, (__int64)v22);
+  return v23;
 }

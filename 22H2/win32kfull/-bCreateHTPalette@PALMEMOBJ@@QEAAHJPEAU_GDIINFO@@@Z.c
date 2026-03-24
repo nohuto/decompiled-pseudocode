@@ -1,175 +1,168 @@
 /*
- * XREFs of ?bCreateHTPalette@PALMEMOBJ@@QEAAHJPEAU_GDIINFO@@@Z @ 0x1C0056810
+ * XREFs of ?bCreateHTPalette@PALMEMOBJ@@QEAAHJPEAU_GDIINFO@@@Z @ 0x1C0112E2C
  * Callers:
- *     ?bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z @ 0x1C005640C (-bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z.c)
- *     EngHTBlt @ 0x1C02DECB0 (EngHTBlt.c)
+ *     EngHTBlt @ 0x1C0019E98 (EngHTBlt.c)
+ *     ?bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z @ 0x1C0111F38 (-bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     HT_Get8BPPMaskPalette @ 0x1C02501A0 (HT_Get8BPPMaskPalette.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     HT_Get8BPPMaskPalette @ 0x1C0154C20 (HT_Get8BPPMaskPalette.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 _BOOL8 __fastcall PALMEMOBJ::bCreateHTPalette(PALMEMOBJ *this, int a2, struct _GDIINFO *a3)
 {
-  ULONG ulPrimaryOrder; // r9d
-  unsigned int v6; // eax
-  int v7; // r8d
-  int v8; // ecx
+  ULONG ulPrimaryOrder; // r10d
+  unsigned int v6; // r8d
+  int v7; // ecx
+  int v8; // r9d
   unsigned int v9; // edx
-  unsigned int v10; // r8d
+  unsigned int v10; // eax
   int v12; // r12d
   int v13; // edx
   int v14; // edx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  LONG v17; // r15d
-  struct tagPALETTEENTRY *v18; // rax
-  struct tagPALETTEENTRY *v19; // rdi
-  ULONG v20; // r8d
+  LONG v15; // r15d
+  struct tagPALETTEENTRY *v16; // rax
+  struct tagPALETTEENTRY *v17; // rdi
+  ULONG v18; // r8d
   __int64 i; // rdx
-  char v22; // cl
+  char v20; // cl
   __int64 j; // rdx
-  char v24; // cl
+  char v22; // cl
   __int64 k; // rdx
-  char v26; // cl
+  char v24; // cl
   __int64 m; // rax
-  _OWORD v28[2]; // [rsp+50h] [rbp-30h] BYREF
+  _OWORD v26[2]; // [rsp+50h] [rbp-30h] BYREF
 
   if ( (unsigned int)(a2 - 5) <= 2 )
   {
     ulPrimaryOrder = a3->ulPrimaryOrder;
     v6 = 31;
-    v7 = 992;
     if ( a2 != 5 )
-    {
       v6 = 255;
-      v7 = 65280;
-    }
+    v7 = 992;
     v8 = 31744;
     if ( a2 != 5 )
+    {
+      v7 = 65280;
       v8 = 16711680;
+    }
     v9 = v7;
-    if ( (ulPrimaryOrder & 1) != 0 )
+    if ( (ulPrimaryOrder & 1) == 0 )
     {
       v9 = v6;
       v6 = v7;
     }
     if ( (ulPrimaryOrder & 2) != 0 )
     {
-      v10 = v9;
-      v9 = v8;
+      v10 = v6;
+      v6 = v8;
     }
     else
     {
       v10 = v8;
       if ( (ulPrimaryOrder & 4) != 0 )
       {
-        v10 = v6;
-        v6 = v8;
+        v10 = v9;
+        v9 = v8;
       }
     }
-    return PALMEMOBJ::bCreatePalette(this, 2u, 0, 0LL, v10, v9, v6, 0x100200u, 1) != 0;
+    return PALMEMOBJ::bCreatePalette(this, 2u, 0, 0LL, v10, v6, v9, 0x100200u, 1) != 0;
   }
   v12 = 0;
-  if ( a2 )
+  if ( !a2 )
   {
-    v13 = a2 - 2;
-    if ( !v13 )
-      goto LABEL_24;
-    v14 = v13 - 1;
-    if ( !v14 )
+    v17 = (struct tagPALETTEENTRY *)&apalMono;
+    v15 = 2;
+    if ( (a3->flHTFlags & 0x100) != 0 )
     {
-      v17 = 16;
-      v19 = (struct tagPALETTEENTRY *)&unk_1C03293E0;
-      goto LABEL_40;
+      v17 = (struct tagPALETTEENTRY *)v26;
+      *(_QWORD *)&v26[0] = 0xFFFFFFLL;
     }
+    goto LABEL_21;
+  }
+  v13 = a2 - 2;
+  if ( !v13 )
+    goto LABEL_28;
+  v14 = v13 - 1;
+  if ( v14 )
+  {
     if ( v14 == 1 )
     {
-      v17 = HT_Get8BPPMaskPalette(
+      v15 = HT_Get8BPPMaskPalette(
               0LL,
               a3->flHTFlags & 8,
               HIBYTE(a3->flHTFlags),
               a3->ciDevice.RedGamma,
               a3->ciDevice.GreenGamma,
               a3->ciDevice.BlueGamma);
-      if ( !(4 * v17) )
-        return 0LL;
-      v18 = (struct tagPALETTEENTRY *)Win32AllocPool((unsigned int)(4 * v17), 1818316871LL, v15, v16);
-      v19 = v18;
-      if ( !v18 )
+      v16 = (struct tagPALETTEENTRY *)PALLOCMEM2((unsigned int)(4 * v15), 1818316871LL, 0);
+      v17 = v16;
+      if ( !v16 )
         return 0LL;
       if ( (a3->flHTFlags & 0x400) != 0 )
-        *v18 = (struct tagPALETTEENTRY)809650002;
+        *v16 = (struct tagPALETTEENTRY)809650002;
       else
-        *v18 = 0;
+        *v16 = 0;
       HT_Get8BPPMaskPalette(
-        v18,
+        v16,
         a3->flHTFlags & 8,
         HIBYTE(a3->flHTFlags),
         a3->ciDevice.RedGamma,
         a3->ciDevice.GreenGamma,
         a3->ciDevice.BlueGamma);
       v12 = 1;
+      goto LABEL_21;
     }
-    else
+LABEL_28:
+    v18 = a3->ulPrimaryOrder;
+    v15 = 8;
+    v17 = (struct tagPALETTEENTRY *)v26;
+    v26[0] = *(_OWORD *)&apal3BPP;
+    v26[1] = xmmword_1C0334E40;
+    if ( (v18 & 1) != 0 )
     {
-LABEL_24:
-      v20 = a3->ulPrimaryOrder;
-      v17 = 8;
-      v19 = (struct tagPALETTEENTRY *)v28;
-      v28[0] = xmmword_1C03293B8;
-      v28[1] = xmmword_1C03293C8;
-      if ( (v20 & 1) != 0 )
+      for ( i = 1LL; i < 7; ++i )
       {
-        for ( i = 1LL; i < 7; ++i )
-        {
-          v22 = *((_BYTE *)v28 + 4 * i + 1);
-          *((_BYTE *)v28 + 4 * i + 1) = *((_BYTE *)v28 + 4 * i + 2);
-          *((_BYTE *)v28 + 4 * i + 2) = v22;
-        }
-      }
-      if ( (v20 & 2) != 0 )
-      {
-        for ( j = 1LL; j < 7; ++j )
-        {
-          v24 = *((_BYTE *)v28 + 4 * j);
-          *((_BYTE *)v28 + 4 * j) = *((_BYTE *)v28 + 4 * j + 1);
-          *((_BYTE *)v28 + 4 * j + 1) = v24;
-        }
-      }
-      else if ( (v20 & 4) != 0 )
-      {
-        for ( k = 1LL; k < 7; ++k )
-        {
-          v26 = *((_BYTE *)v28 + 4 * k);
-          *((_BYTE *)v28 + 4 * k) = *((_BYTE *)v28 + 4 * k + 2);
-          *((_BYTE *)v28 + 4 * k + 2) = v26;
-        }
-      }
-      if ( (a3->flHTFlags & 0x100) != 0 )
-      {
-        for ( m = 0LL; m < 2; ++m )
-          v28[m] = _mm_xor_si128(_mm_load_si128((const __m128i *)&_xmm), _mm_loadu_si128((const __m128i *)&v28[m]));
+        v20 = *((_BYTE *)v26 + 4 * i + 1);
+        *((_BYTE *)v26 + 4 * i + 1) = *((_BYTE *)v26 + 4 * i + 2);
+        *((_BYTE *)v26 + 4 * i + 2) = v20;
       }
     }
-  }
-  else
-  {
-    v19 = (struct tagPALETTEENTRY *)&unk_1C03293D8;
-    v17 = 2;
+    if ( (v18 & 2) != 0 )
+    {
+      for ( j = 1LL; j < 7; ++j )
+      {
+        v22 = *((_BYTE *)v26 + 4 * j);
+        *((_BYTE *)v26 + 4 * j) = *((_BYTE *)v26 + 4 * j + 1);
+        *((_BYTE *)v26 + 4 * j + 1) = v22;
+      }
+    }
+    else if ( (v18 & 4) != 0 )
+    {
+      for ( k = 1LL; k < 7; ++k )
+      {
+        v24 = *((_BYTE *)v26 + 4 * k);
+        *((_BYTE *)v26 + 4 * k) = *((_BYTE *)v26 + 4 * k + 2);
+        *((_BYTE *)v26 + 4 * k + 2) = v24;
+      }
+    }
     if ( (a3->flHTFlags & 0x100) != 0 )
     {
-      v19 = (struct tagPALETTEENTRY *)v28;
-      *(_QWORD *)&v28[0] = 0xFFFFFFLL;
+      for ( m = 0LL; m < 2; ++m )
+        v26[m] = _mm_xor_si128(_mm_loadu_si128((const __m128i *)&v26[m]), (__m128i)_xmm);
     }
+    goto LABEL_21;
   }
-LABEL_40:
-  if ( !PALMEMOBJ::bCreatePalette(this, 1u, v17, (const unsigned int *)&v19->peRed, 0, 0, 0, 0x100400u, 1) )
+  v15 = 16;
+  v17 = (struct tagPALETTEENTRY *)&apalVGA;
+LABEL_21:
+  if ( PALMEMOBJ::bCreatePalette(this, 1u, v15, (const unsigned int *)&v17->peRed, 0, 0, 0, 0x100400u, 1) )
   {
     if ( v12 )
-      Win32FreePool(v19);
-    return 0LL;
+      Win32FreePool(v17);
+    return 1LL;
   }
   if ( v12 )
-    Win32FreePool(v19);
-  return 1LL;
+    Win32FreePool(v17);
+  return 0LL;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of BgpConsoleDisplayCharacter @ 0x140AF24C0
+ * XREFs of BgpConsoleDisplayCharacter @ 0x1409F67B0
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwReleaseLock @ 0x140384860 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403848B0 (BgpFwAcquireLock.c)
- *     BgpDisplayCharacterEx @ 0x140671CA4 (BgpDisplayCharacterEx.c)
- *     AnFwFadeCompletion @ 0x140AEDF7C (AnFwFadeCompletion.c)
+ *     BgpFwReleaseLock @ 0x14039BBA8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039BBF8 (BgpFwAcquireLock.c)
+ *     BgpDisplayCharacterEx @ 0x1405C4314 (BgpDisplayCharacterEx.c)
+ *     AnFwFadeCompletion @ 0x1409F21B4 (AnFwFadeCompletion.c)
  */
 
 __int64 __fastcall BgpConsoleDisplayCharacter(unsigned __int16 a1, unsigned int a2, unsigned int a3, int a4, int a5)
 {
-  __int64 v6; // rsi
-  __int64 v7; // r12
+  __int64 v6; // r12
+  __int64 v7; // rsi
   __int64 v9; // rbx
   int v10; // esi
   __int64 v11; // rcx
@@ -24,14 +24,14 @@ __int64 __fastcall BgpConsoleDisplayCharacter(unsigned __int16 a1, unsigned int 
   v6 = a3;
   v7 = a2;
   BgpFwAcquireLock();
-  v9 = qword_140CF7BA0;
-  if ( qword_140CF7BA0 )
+  v9 = qword_140CDB158;
+  if ( qword_140CDB158 )
   {
-    if ( (*(_DWORD *)(qword_140CF7BA0 + 8) & 0x10000) != 0 )
+    if ( (*(_DWORD *)(qword_140CDB158 + 8) & 0x10000) != 0 )
     {
       AnFwFadeCompletion();
-      v9 = qword_140CF7BA0;
-      *(_DWORD *)(qword_140CF7BA0 + 8) &= ~0x10000u;
+      v9 = qword_140CDB158;
+      *(_DWORD *)(qword_140CDB158 + 8) &= ~0x10000u;
     }
     v11 = v6 + 25 * v7;
     v12 = 3 * v11;
@@ -47,7 +47,7 @@ __int64 __fastcall BgpConsoleDisplayCharacter(unsigned __int16 a1, unsigned int 
               a1,
               *(__int64 **)(v9 + 40),
               *(_DWORD *)(v9 + 60) + *(_DWORD *)(v9 + 48) * (int)v7,
-              *(_DWORD *)(v9 + 64) + *(_DWORD *)(v9 + 52) * (int)v6,
+              *(_DWORD *)(v9 + 64) + (int)v6 * *(_DWORD *)(v9 + 52),
               a5,
               a4,
               v16,

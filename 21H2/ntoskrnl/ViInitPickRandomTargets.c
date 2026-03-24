@@ -1,10 +1,10 @@
 /*
- * XREFs of ViInitPickRandomTargets @ 0x140B27D40
+ * XREFs of ViInitPickRandomTargets @ 0x140A6FC9C
  * Callers:
- *     ViInitSystemPhase0 @ 0x140B27B30 (ViInitSystemPhase0.c)
+ *     ViInitSystemPhase0 @ 0x140A6FAB8 (ViInitSystemPhase0.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     VfRandomGetNumber @ 0x140A819C8 (VfRandomGetNumber.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     VfRandomGetNumber @ 0x1409C6290 (VfRandomGetNumber.c)
  */
 
 __int64 ViInitPickRandomTargets()
@@ -30,13 +30,13 @@ __int64 ViInitPickRandomTargets()
     v2 = ViExpectedDriversCount + 2;
     if ( (unsigned int)(ViExpectedDriversCount + 2) > 0x200 )
       v2 = 512;
-    qword_140D576E8 = (__int64)&VfRandomTargetsBitMap;
+    qword_140D4A1F8 = (__int64)&VfRandomTargetsBitMap;
     v3 = 2 * (int)result > (unsigned int)ViExpectedDriversCount;
     memset(&VfRandomTargetsBitMap, 0, 0x40uLL);
     for ( i = 0; i < VfRandomVerifiedDrivers; ++i )
     {
       Number = VfRandomGetNumber(1u, v2 - 1);
-      if ( _bittest((const signed __int32 *)qword_140D576E8, Number) )
+      if ( _bittest((const signed __int32 *)qword_140D4A1F8, Number) )
       {
         if ( v3 )
         {
@@ -50,19 +50,19 @@ __int64 ViInitPickRandomTargets()
             v6 = (v6 + 1) % v2;
             if ( !v6 )
               v6 = 1;
-            if ( !_bittest((const signed __int32 *)qword_140D576E8, v6) )
+            if ( !_bittest((const signed __int32 *)qword_140D4A1F8, v6) )
               break;
             if ( v6 == Number )
               goto LABEL_20;
           }
-          _bittestandset((signed __int32 *)qword_140D576E8, v6);
+          _bittestandset((signed __int32 *)qword_140D4A1F8, v6);
           if ( v6 == Number )
             break;
         }
       }
       else
       {
-        _bittestandset((signed __int32 *)qword_140D576E8, Number);
+        _bittestandset((signed __int32 *)qword_140D4A1F8, Number);
       }
     }
 LABEL_20:

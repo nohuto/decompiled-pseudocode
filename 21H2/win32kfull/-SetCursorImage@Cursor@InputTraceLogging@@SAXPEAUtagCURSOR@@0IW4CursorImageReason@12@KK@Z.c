@@ -1,12 +1,11 @@
 /*
- * XREFs of ?SetCursorImage@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@0IW4CursorImageReason@12@KK@Z @ 0x1C00B2F40
+ * XREFs of ?SetCursorImage@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@0IW4CursorImageReason@12@KK@Z @ 0x1C002A6C8
  * Callers:
- *     zzzUpdateCursorImage @ 0x1C00734A0 (zzzUpdateCursorImage.c)
- *     ?SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z @ 0x1C00B2D30 (-SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z.c)
+ *     ?SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z @ 0x1C002A4E0 (-SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z.c)
+ *     zzzUpdateCursorImage @ 0x1C0080F20 (zzzUpdateCursorImage.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C00CD6B0 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U2@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U3@U3@U2@U2@U2@U3@U3@U3@U3@U2@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@4AEBU?$_tlgWrapperByVal@$03@@55555444555545@Z @ 0x1C01CEFA8 (--$Write@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$07@@U2@U-$_tlgWrapperByVal@$03@@U3@U3@U3@U3@U3.c)
- *     ?CursorToString@InputTraceLogging@@CAPEBDPEAUtagCURSOR@@@Z @ 0x1C01CF744 (-CursorToString@InputTraceLogging@@CAPEBDPEAUtagCURSOR@@@Z.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U2@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U3@U3@U2@U2@U2@U3@U3@U3@U3@U2@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@4AEBU?$_tlgWrapperByVal@$03@@55555444555545@Z @ 0x1C01D35EC (--$Write@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$07@@U2@U-$_tlgWrapperByVal@$03@@U3@U3@U3@U3@U3.c)
+ *     ?CursorToString@InputTraceLogging@@CAPEBDPEAUtagCURSOR@@@Z @ 0x1C01D3DA4 (-CursorToString@InputTraceLogging@@CAPEBDPEAUtagCURSOR@@@Z.c)
  */
 
 _UNKNOWN **__fastcall InputTraceLogging::Cursor::SetCursorImage(
@@ -18,133 +17,139 @@ _UNKNOWN **__fastcall InputTraceLogging::Cursor::SetCursorImage(
         int a6)
 {
   _UNKNOWN **result; // rax
-  int v11; // ecx
-  int v12; // ebx
-  int v13; // ebx
-  int v14; // ebx
-  int v15; // ebx
-  int v16; // ebx
-  const char *v17; // rax
-  int v18; // [rsp+C8h] [rbp-80h] BYREF
-  int v19; // [rsp+CCh] [rbp-7Ch] BYREF
-  int v20; // [rsp+D0h] [rbp-78h] BYREF
-  int v21; // [rsp+D4h] [rbp-74h] BYREF
-  int v22; // [rsp+D8h] [rbp-70h] BYREF
-  int v23; // [rsp+DCh] [rbp-6Ch] BYREF
-  int v24; // [rsp+E0h] [rbp-68h] BYREF
-  int v25; // [rsp+E4h] [rbp-64h] BYREF
-  int v26; // [rsp+E8h] [rbp-60h] BYREF
-  int v27; // [rsp+ECh] [rbp-5Ch] BYREF
-  int v28; // [rsp+F0h] [rbp-58h] BYREF
-  __int64 v29; // [rsp+F8h] [rbp-50h] BYREF
-  __int64 v30; // [rsp+100h] [rbp-48h] BYREF
-  __int64 v31; // [rsp+108h] [rbp-40h] BYREF
-  __int64 v32; // [rsp+110h] [rbp-38h] BYREF
-  __int64 v33; // [rsp+118h] [rbp-30h] BYREF
-  __int64 v34; // [rsp+120h] [rbp-28h] BYREF
-  __int64 v35; // [rsp+128h] [rbp-20h] BYREF
-  __int64 v36; // [rsp+130h] [rbp-18h] BYREF
-  _UNKNOWN *retaddr; // [rsp+140h] [rbp-8h] BYREF
+  int v11; // edi
+  int *v12; // rax
+  __int64 v13; // rdx
+  int v14; // ecx
+  int v15; // esi
+  int v16; // esi
+  int v17; // esi
+  int v18; // esi
+  int v19; // esi
+  const char *v20; // rax
+  int v21; // [rsp+C8h] [rbp-80h] BYREF
+  int v22; // [rsp+CCh] [rbp-7Ch] BYREF
+  int v23; // [rsp+D0h] [rbp-78h] BYREF
+  int v24; // [rsp+D4h] [rbp-74h] BYREF
+  int v25; // [rsp+D8h] [rbp-70h] BYREF
+  int v26; // [rsp+DCh] [rbp-6Ch] BYREF
+  int v27; // [rsp+E0h] [rbp-68h] BYREF
+  int v28; // [rsp+E4h] [rbp-64h] BYREF
+  int v29; // [rsp+E8h] [rbp-60h] BYREF
+  int v30; // [rsp+ECh] [rbp-5Ch] BYREF
+  int v31; // [rsp+F0h] [rbp-58h] BYREF
+  __int64 v32; // [rsp+F8h] [rbp-50h] BYREF
+  __int64 v33; // [rsp+100h] [rbp-48h] BYREF
+  __int64 v34; // [rsp+108h] [rbp-40h] BYREF
+  __int64 v35; // [rsp+110h] [rbp-38h] BYREF
+  __int64 v36; // [rsp+118h] [rbp-30h] BYREF
+  __int64 v37; // [rsp+120h] [rbp-28h] BYREF
+  __int64 v38; // [rsp+128h] [rbp-20h] BYREF
+  __int64 v39; // [rsp+130h] [rbp-18h] BYREF
+  _UNKNOWN *retaddr; // [rsp+150h] [rbp+8h] BYREF
 
   result = &retaddr;
-  if ( (unsigned int)dword_1C032BE20 > 4 )
+  if ( (unsigned int)dword_1C0330B20 > 4 && (qword_1C0330B30 & 8) != 0 )
   {
-    result = (_UNKNOWN **)tlgKeywordOn(&dword_1C032BE20, 8LL);
-    if ( (_BYTE)result )
+    result = (_UNKNOWN **)(qword_1C0330B38 & 8);
+    if ( result == (_UNKNOWN **)qword_1C0330B38 )
     {
-      v18 = *(_DWORD *)UPDWORDPointer(8232LL);
-      v19 = a6;
-      v20 = a5;
-      v29 = gpqCursor;
-      v21 = a3;
       v11 = *(_DWORD *)UPDWORDPointer(8232LL);
-      v30 = *(_QWORD *)(a1 + 104);
-      v31 = *(_QWORD *)(a1 + 96);
-      v32 = *(_QWORD *)(a1 + 88);
-      v23 = *(__int16 *)(a1 + 86);
-      v24 = *(__int16 *)(a1 + 84);
-      v25 = *(_DWORD *)(a1 + 144) >> 1;
-      v26 = *(_DWORD *)(a1 + 140);
-      v27 = *(_DWORD *)(a1 + 80);
-      v28 = *(_DWORD *)(a1 + 76);
-      v33 = *(_QWORD *)(a1 + 48);
-      v22 = v11;
-      v34 = a1 & -(__int64)(v33 != 0);
+      v12 = (int *)UPDWORDPointer(8232LL);
+      v13 = *(_QWORD *)(a1 + 48);
+      v14 = *v12;
+      v22 = a6;
+      v23 = a5;
+      v33 = *(_QWORD *)(a1 + 104);
+      v34 = *(_QWORD *)(a1 + 96);
+      v35 = *(_QWORD *)(a1 + 88);
+      v26 = *(__int16 *)(a1 + 86);
+      v27 = *(__int16 *)(a1 + 84);
+      v28 = *(_DWORD *)(a1 + 144) >> 1;
+      v29 = *(_DWORD *)(a1 + 140);
+      v30 = *(_DWORD *)(a1 + 80);
+      v31 = *(_DWORD *)(a1 + 76);
+      v36 = v13;
+      v21 = v11;
+      v32 = gpqCursor;
+      v24 = a3;
+      v25 = v14;
+      v37 = a1 & -(__int64)(v13 != 0);
       if ( a4 )
       {
-        v12 = a4 - 1;
-        if ( v12 )
+        v15 = a4 - 1;
+        if ( v15 )
         {
-          v13 = v12 - 1;
-          if ( v13 )
+          v16 = v15 - 1;
+          if ( v16 )
           {
-            v14 = v13 - 1;
-            if ( v14 )
+            v17 = v16 - 1;
+            if ( v17 )
             {
-              v15 = v14 - 1;
-              if ( v15 )
+              v18 = v17 - 1;
+              if ( v18 )
               {
-                v16 = v15 - 1;
-                if ( v16 )
+                v19 = v18 - 1;
+                if ( v19 )
                 {
-                  if ( v16 == 1 )
-                    v17 = "ExplicitSetPointer";
+                  if ( v19 == 1 )
+                    v20 = "ExplicitSetPointer";
                   else
-                    v17 = "UNKNOWN";
+                    v20 = "UNKNOWN";
                 }
                 else
                 {
-                  v17 = "SizeChange";
+                  v20 = "SizeChange";
                 }
               }
               else
               {
-                v17 = "HiddenByQueue";
+                v20 = "HiddenByQueue";
               }
             }
             else
             {
-              v17 = "SetFromQueue";
+              v20 = "SetFromQueue";
             }
           }
           else
           {
-            v17 = "ForceAppStarting";
+            v20 = "ForceAppStarting";
           }
         }
         else
         {
-          v17 = "ForceAutoRun";
+          v20 = "ForceAutoRun";
         }
       }
       else
       {
-        v17 = "HiddenByForeground";
+        v20 = "HiddenByForeground";
       }
-      v35 = (__int64)v17;
-      v36 = (__int64)InputTraceLogging::CursorToString(a2);
+      v38 = (__int64)v20;
+      v39 = (__int64)InputTraceLogging::CursorToString(a2);
       return (_UNKNOWN **)_tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
-                            (int)&dword_1C032BE20,
-                            (int)&dword_1C02EDF4D,
+                            (int)&dword_1C0330B20,
+                            (int)&dword_1C02F151D,
+                            (__int64)&v39,
+                            (__int64)&v38,
+                            (__int64)&v37,
                             (__int64)&v36,
-                            (__int64)&v35,
-                            (__int64)&v34,
-                            (__int64)&v33,
+                            (__int64)&v31,
+                            (__int64)&v30,
+                            (__int64)&v29,
                             (__int64)&v28,
                             (__int64)&v27,
                             (__int64)&v26,
+                            (__int64)&v35,
+                            (__int64)&v34,
+                            (__int64)&v33,
                             (__int64)&v25,
                             (__int64)&v24,
                             (__int64)&v23,
-                            (__int64)&v32,
-                            (__int64)&v31,
-                            (__int64)&v30,
                             (__int64)&v22,
-                            (__int64)&v21,
-                            (__int64)&v20,
-                            (__int64)&v19,
-                            (__int64)&v29,
-                            (__int64)&v18);
+                            (__int64)&v32,
+                            (__int64)&v21);
     }
   }
   return result;

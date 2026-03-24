@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryOpenSubKeys @ 0x14041D2C0
+ * XREFs of ZwQueryOpenSubKeys @ 0x1403FC500
  * Callers:
  *     <none>
  * Callees:

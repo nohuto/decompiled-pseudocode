@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDqObjectManagerInit @ 0x14085D1F8
+ * XREFs of PiDqObjectManagerInit @ 0x1407A3174
  * Callers:
- *     PiDqInit @ 0x140B2B1C0 (PiDqInit.c)
+ *     PiDqInit @ 0x140A51FA0 (PiDqInit.c)
  * Callees:
- *     KeInitializeGuardedMutex @ 0x1402E0710 (KeInitializeGuardedMutex.c)
- *     ExInitializeResourceLite @ 0x14030F740 (ExInitializeResourceLite.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
+ *     KeInitializeGuardedMutex @ 0x1402EE570 (KeInitializeGuardedMutex.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-char (__fastcall *__fastcall PiDqObjectManagerInit(PERESOURCE Resource, int a2))(PERESOURCE Resource)
+_QWORD *(__fastcall *__fastcall PiDqObjectManagerInit(PERESOURCE Resource, int a2))(PERESOURCE Resource)
 {
-  char (__fastcall *result)(PERESOURCE); // rax
+  _QWORD *(__fastcall *result)(PERESOURCE); // rax
 
   memset(Resource, 0, 0xF0uLL);
   *(_DWORD *)&Resource[2].ActiveCount = a2;

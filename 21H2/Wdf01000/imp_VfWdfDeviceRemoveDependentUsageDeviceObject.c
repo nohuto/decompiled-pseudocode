@@ -1,9 +1,9 @@
 /*
- * XREFs of imp_VfWdfDeviceRemoveDependentUsageDeviceObject @ 0x1C00C0FF0
+ * XREFs of imp_VfWdfDeviceRemoveDependentUsageDeviceObject @ 0x1C00C0020
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall imp_VfWdfDeviceRemoveDependentUsageDeviceObject(

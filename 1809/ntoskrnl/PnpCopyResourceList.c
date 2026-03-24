@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpCopyResourceList @ 0x14083AA24
+ * XREFs of PnpCopyResourceList @ 0x14083AA04
  * Callers:
- *     PiUpdateDeviceResourceLists @ 0x140841658 (PiUpdateDeviceResourceLists.c)
+ *     PiUpdateDeviceResourceLists @ 0x140841638 (PiUpdateDeviceResourceLists.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PnpDetermineResourceListSize @ 0x1406FBAAC (PnpDetermineResourceListSize.c)
+ *     PnpDetermineResourceListSize @ 0x1406FBA8C (PnpDetermineResourceListSize.c)
  */
 
 PVOID __fastcall PnpCopyResourceList(_DWORD *Src)

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?PrepareIncrementalUpdateForUser@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@@Z @ 0x1C0080494
+ * XREFs of ?PrepareIncrementalUpdateForUser@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@@Z @ 0x1C006CC18
  * Callers:
- *     ?ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z @ 0x1C007C744 (-ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z.c)
+ *     ?ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z @ 0x1C006ACF4 (-ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z.c)
  * Callees:
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?Release@CFlipResource@@QEAAKXZ @ 0x1C007BF68 (-Release@CFlipResource@@QEAAKXZ.c)
- *     ?CommitPendingUpdates@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C007F8B4 (-CommitPendingUpdates@CEndpointResourceStateManager@@QEAAXXZ.c)
- *     ?GetSerializedUpdate@CResourceStateUpdateSerializer@@QEAAXPEAVCFlipPresentUpdate@@@Z @ 0x1C007FA2C (-GetSerializedUpdate@CResourceStateUpdateSerializer@@QEAAXPEAVCFlipPresentUpdate@@@Z.c)
- *     ?IncreaseAddedBufferSize@CResourceStateUpdateSerializer@@QEAAJII@Z @ 0x1C007FABC (-IncreaseAddedBufferSize@CResourceStateUpdateSerializer@@QEAAJII@Z.c)
- *     ?IncreaseAddedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z @ 0x1C007FAF0 (-IncreaseAddedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z.c)
- *     ?IncreaseUpdatedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z @ 0x1C007FB24 (-IncreaseUpdatedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z.c)
- *     ?Allocate@CResourceStateUpdateSerializer@@QEAAJK@Z @ 0x1C008198C (-Allocate@CResourceStateUpdateSerializer@@QEAAJK@Z.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     ?Release@CFlipResource@@QEAAKXZ @ 0x1C006BCB8 (-Release@CFlipResource@@QEAAKXZ.c)
+ *     ?CommitPendingUpdates@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C006C514 (-CommitPendingUpdates@CEndpointResourceStateManager@@QEAAXXZ.c)
+ *     ?GetSerializedUpdate@CResourceStateUpdateSerializer@@QEAAXPEAVCFlipPresentUpdate@@@Z @ 0x1C006C71C (-GetSerializedUpdate@CResourceStateUpdateSerializer@@QEAAXPEAVCFlipPresentUpdate@@@Z.c)
+ *     ?IncreaseAddedBufferSize@CResourceStateUpdateSerializer@@QEAAJII@Z @ 0x1C006C7AC (-IncreaseAddedBufferSize@CResourceStateUpdateSerializer@@QEAAJII@Z.c)
+ *     ?IncreaseAddedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z @ 0x1C006C7E0 (-IncreaseAddedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z.c)
+ *     ?IncreaseUpdatedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z @ 0x1C006C814 (-IncreaseUpdatedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z.c)
+ *     ?Allocate@CResourceStateUpdateSerializer@@QEAAJK@Z @ 0x1C006EC0C (-Allocate@CResourceStateUpdateSerializer@@QEAAJK@Z.c)
  */
 
 __int64 __fastcall CEndpointResourceStateManager::PrepareIncrementalUpdateForUser(
@@ -18,7 +18,7 @@ __int64 __fastcall CEndpointResourceStateManager::PrepareIncrementalUpdateForUse
         struct CFlipPresentUpdate *a2)
 {
   CEndpointResourceStateManager *v2; // r9
-  int v3; // r11d
+  unsigned int v3; // r11d
   CEndpointResourceStateManager *v4; // r13
   signed int v5; // esi
   unsigned int v6; // r8d
@@ -37,7 +37,7 @@ __int64 __fastcall CEndpointResourceStateManager::PrepareIncrementalUpdateForUse
   __int64 v19; // rcx
   __int64 v20; // rax
   __int64 v21; // rax
-  int v22; // r8d
+  unsigned int v22; // r8d
   int v23; // eax
   CEndpointResourceStateManager *v24; // rdi
   _DWORD *v25; // r12
@@ -101,9 +101,11 @@ __int64 __fastcall CEndpointResourceStateManager::PrepareIncrementalUpdateForUse
   int v84; // [rsp+78h] [rbp-11h]
   char *v85; // [rsp+88h] [rbp-1h]
   char *v86; // [rsp+90h] [rbp+7h]
+  struct CFlipPresentUpdate *v88; // [rsp+F8h] [rbp+6Fh]
   _DWORD *v89; // [rsp+100h] [rbp+77h]
   int v90; // [rsp+108h] [rbp+7Fh]
 
+  v88 = a2;
   v2 = *this;
   v3 = 0;
   P = 0LL;
@@ -153,9 +155,58 @@ __int64 __fastcall CEndpointResourceStateManager::PrepareIncrementalUpdateForUse
   v14 = (char **)((char *)v4 + 16);
   v15 = (char **)*((_QWORD *)v4 + 2);
   v86 = (char *)v4 + 16;
-  while ( v5 >= 0 )
+  if ( v5 >= 0 )
   {
-    if ( v15 == v14 )
+    do
+    {
+      if ( v15 == v14 )
+        break;
+      v16 = (__int64)(v15 + 3);
+      if ( !v15 )
+        v16 = 32LL;
+      if ( (*(_BYTE *)v16 & 1) != 0 )
+      {
+        v17 = (__int64)(v15 + 2);
+        v18 = v3;
+        if ( !v15 )
+          v17 = 24LL;
+        v19 = *(_QWORD *)(*(_QWORD *)v17 + 32LL);
+        if ( v19 )
+          v18 = *(_DWORD *)(v19 + 32);
+        v5 = CResourceStateUpdateSerializer::IncreaseAddedContentSize((CResourceStateUpdateSerializer *)&P, 0x18u, v18);
+      }
+      if ( v5 >= 0 )
+      {
+        v20 = (__int64)(v15 + 6);
+        if ( !v15 )
+          v20 = 56LL;
+        if ( (*(_BYTE *)v20 & 1) != 0 )
+        {
+          v21 = (__int64)(v15 + 4);
+          v22 = v3;
+          if ( !v15 )
+            v21 = 40LL;
+          if ( *(_QWORD *)v21 )
+            v22 = *(_DWORD *)(*(_QWORD *)v21 + 32LL);
+          v5 = CResourceStateUpdateSerializer::IncreaseUpdatedContentSize(
+                 (CResourceStateUpdateSerializer *)&P,
+                 (__int64)a2,
+                 v22);
+        }
+        if ( v5 >= 0 && (*(_BYTE *)v16 & 2) != 0 )
+        {
+          a2 = (struct CFlipPresentUpdate *)HIDWORD(v83);
+          v23 = -1;
+          if ( (unsigned int)(HIDWORD(v83) + 16) >= HIDWORD(v83) )
+            v23 = HIDWORD(v83) + 16;
+          v5 = (unsigned int)(HIDWORD(v83) + 16) < HIDWORD(v83) ? 0xC0000095 : 0;
+          HIDWORD(v83) = v23;
+        }
+      }
+      v15 = (char **)*v15;
+    }
+    while ( v5 >= 0 );
+    if ( v5 >= 0 )
     {
       v90 = CResourceStateUpdateSerializer::Allocate((CResourceStateUpdateSerializer *)&P, 0x75754346u);
       v5 = v90;
@@ -289,7 +340,7 @@ __int64 __fastcall CEndpointResourceStateManager::PrepareIncrementalUpdateForUse
               }
               v41[24] |= 4u;
             }
-            if ( (v41[56] & 1) != 0 )
+            if ( (v41[48] & 1) != 0 )
             {
               v57 = *((_QWORD *)v41 + 4);
               v58 = 0;
@@ -343,7 +394,7 @@ __int64 __fastcall CEndpointResourceStateManager::PrepareIncrementalUpdateForUse
                 CFlipResource::Release(v70);
                 *((_QWORD *)v41 + 5) = 0LL;
               }
-              v41[56] |= 2u;
+              v41[48] |= 2u;
             }
             if ( (v41[24] & 2) != 0 )
             {
@@ -362,53 +413,10 @@ __int64 __fastcall CEndpointResourceStateManager::PrepareIncrementalUpdateForUse
           v5 = v90;
           v4 = (CEndpointResourceStateManager *)this;
         }
-        CResourceStateUpdateSerializer::GetSerializedUpdate((CResourceStateUpdateSerializer *)&P, a2);
+        CResourceStateUpdateSerializer::GetSerializedUpdate((CResourceStateUpdateSerializer *)&P, v88);
         CEndpointResourceStateManager::CommitPendingUpdates(v4);
       }
-      break;
     }
-    v16 = (__int64)(v15 + 3);
-    if ( !v15 )
-      v16 = 32LL;
-    if ( (*(_BYTE *)v16 & 1) != 0 )
-    {
-      v17 = (__int64)(v15 + 2);
-      v18 = v3;
-      if ( !v15 )
-        v17 = 24LL;
-      v19 = *(_QWORD *)(*(_QWORD *)v17 + 32LL);
-      if ( v19 )
-        v18 = *(_DWORD *)(v19 + 32);
-      v5 = CResourceStateUpdateSerializer::IncreaseAddedContentSize((CResourceStateUpdateSerializer *)&P, 0x18u, v18);
-    }
-    if ( v5 >= 0 )
-    {
-      v20 = (__int64)(v15 + 7);
-      if ( !v15 )
-        v20 = 64LL;
-      if ( (*(_BYTE *)v20 & 1) == 0 )
-        goto LABEL_36;
-      v21 = (__int64)(v15 + 4);
-      v22 = v3;
-      if ( !v15 )
-        v21 = 40LL;
-      if ( *(_QWORD *)v21 )
-        v22 = *(_DWORD *)(*(_QWORD *)v21 + 32LL);
-      v5 = CResourceStateUpdateSerializer::IncreaseUpdatedContentSize((CResourceStateUpdateSerializer *)&P, 0x20u, v22);
-      if ( v5 >= 0 )
-      {
-LABEL_36:
-        if ( (*(_BYTE *)v16 & 2) != 0 )
-        {
-          v23 = -1;
-          if ( (unsigned int)(HIDWORD(v83) + 16) >= HIDWORD(v83) )
-            v23 = HIDWORD(v83) + 16;
-          v5 = (unsigned int)(HIDWORD(v83) + 16) < HIDWORD(v83) ? 0xC0000095 : 0;
-          HIDWORD(v83) = v23;
-        }
-      }
-    }
-    v15 = (char **)*v15;
   }
   if ( P )
     ExFreePoolWithTag(P, 0);

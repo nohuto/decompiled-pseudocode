@@ -1,5 +1,5 @@
 /*
- * XREFs of PoGetSystemWake @ 0x140178300
+ * XREFs of PoGetSystemWake @ 0x140178320
  * Callers:
  *     <none>
  * Callees:

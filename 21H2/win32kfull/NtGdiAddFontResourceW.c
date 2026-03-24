@@ -1,14 +1,14 @@
 /*
- * XREFs of NtGdiAddFontResourceW @ 0x1C00F9360
+ * XREFs of NtGdiAddFontResourceW @ 0x1C010E740
  * Callers:
  *     <none>
  * Callees:
- *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C001C5FC (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
- *     GreAddFontResourceWInternal @ 0x1C00F9550 (GreAddFontResourceWInternal.c)
- *     ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C00F9694 (-bCheckAndCapThePath@@YAHPEAGPEBGKK@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z @ 0x1C02AC728 (-ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z.c)
+ *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C009B8E4 (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     GreAddFontResourceWInternal @ 0x1C010E924 (GreAddFontResourceWInternal.c)
+ *     ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C010EA68 (-bCheckAndCapThePath@@YAHPEAGPEBGKK@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z @ 0x1C02ADFBC (-ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z.c)
  */
 
 __int64 __fastcall NtGdiAddFontResourceW(
@@ -25,17 +25,18 @@ __int64 __fastcall NtGdiAddFontResourceW(
   int v12; // r15d
   __int64 v13; // rdx
   __int64 v14; // rcx
-  size_t v16; // [rsp+30h] [rbp-188h]
-  _DWORD v18[20]; // [rsp+80h] [rbp-138h] BYREF
-  unsigned __int16 v19[80]; // [rsp+D0h] [rbp-E8h] BYREF
+  __int64 v15; // r8
+  size_t v17; // [rsp+30h] [rbp-188h]
+  _DWORD v19[20]; // [rsp+80h] [rbp-138h] BYREF
+  unsigned __int16 v20[80]; // [rsp+D0h] [rbp-E8h] BYREF
 
   v9 = a6;
   v10 = 0LL;
   v11 = 0;
-  memset(v18, 0, 0x48uLL);
+  memset(v19, 0, 0x48uLL);
   v12 = 0;
   if ( UmfdHostLifeTimeManager::WaitForSessionRasterizerInitialization() < 0
-    || a4 == 0x80000000 && PsGetCurrentProcess(v14, v13) != gpepCSRSS )
+    || a4 == 0x80000000 && PsGetCurrentProcess(v14, v13, v15) != gpepCSRSS )
   {
     return 0LL;
   }
@@ -50,19 +51,19 @@ __int64 __fastcall NtGdiAddFontResourceW(
     }
     else
     {
-      v10 = v19;
+      v10 = v20;
     }
     if ( v10 )
       v11 = bCheckAndCapThePath(v10, a1, a2, a3);
   }
   if ( v11 && a6 )
   {
-    if ( ProbeAndReadDesignVector((struct tagDESIGNVECTOR *)v18, a6) )
+    if ( ProbeAndReadDesignVector((struct tagDESIGNVECTOR *)v19, a6) )
     {
-      if ( v18[1] )
+      if ( v19[1] )
       {
-        v9 = (struct tagDESIGNVECTOR *)v18;
-        v12 = 4 * v18[1] + 8;
+        v9 = (struct tagDESIGNVECTOR *)v19;
+        v12 = 4 * v19[1] + 8;
       }
       else
       {
@@ -76,12 +77,12 @@ __int64 __fastcall NtGdiAddFontResourceW(
   }
   if ( v11 )
   {
-    LODWORD(v16) = v12;
-    v11 = GreAddFontResourceWInternal(v10, a2, a3, a4, a5, v9, v16);
+    LODWORD(v17) = v12;
+    v11 = GreAddFontResourceWInternal(v10, a2, a3, a4, a5, v9, v17);
   }
   if ( v10 )
   {
-    if ( v10 != v19 )
+    if ( v10 != v20 )
       FreeTmpBuffer(v10);
   }
   return v11;

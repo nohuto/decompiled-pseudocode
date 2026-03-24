@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkpWerAllocateNonpagedPool @ 0x14053C568
+ * XREFs of DbgkpWerAllocateNonpagedPool @ 0x1404EE908
  * Callers:
- *     DbgkpWerInitializeDeferredLiveDump @ 0x14093BBC4 (DbgkpWerInitializeDeferredLiveDump.c)
+ *     DbgkpWerInitializeDeferredLiveDump @ 0x1408893F8 (DbgkpWerInitializeDeferredLiveDump.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 DbgkpWerAllocateNonpagedPool()
+PVOID DbgkpWerAllocateNonpagedPool()
 {
-  return ExAllocatePool2(64LL, 32LL, 1466393156LL);
+  return ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x57676244u);
 }

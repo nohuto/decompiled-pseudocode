@@ -1,13 +1,13 @@
 /*
- * XREFs of IoRegisterShutdownNotification @ 0x140751860
+ * XREFs of IoRegisterShutdownNotification @ 0x140751840
  * Callers:
  *     RawInitialize @ 0x1409D3DD0 (RawInitialize.c)
  *     WmipDriverEntry @ 0x1409D4020 (WmipDriverEntry.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     IopInterlockedInsertHeadList @ 0x14018BFDC (IopInterlockedInsertHeadList.c)
+ *     IopInterlockedInsertHeadList @ 0x14018BFFC (IopInterlockedInsertHeadList.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     IopLogAuditIoRegisterNotificationEvent @ 0x1407518D4 (IopLogAuditIoRegisterNotificationEvent.c)
+ *     IopLogAuditIoRegisterNotificationEvent @ 0x1407518B4 (IopLogAuditIoRegisterNotificationEvent.c)
  */
 
 NTSTATUS __stdcall IoRegisterShutdownNotification(PDEVICE_OBJECT DeviceObject)

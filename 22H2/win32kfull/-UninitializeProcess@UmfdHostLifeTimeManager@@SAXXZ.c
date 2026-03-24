@@ -1,42 +1,33 @@
 /*
- * XREFs of ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00A5158
+ * XREFs of ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F3398
  * Callers:
- *     UmfdUninitializeProcess @ 0x1C00A5070 (UmfdUninitializeProcess.c)
+ *     UmfdUninitializeProcess @ 0x1C00F3380 (UmfdUninitializeProcess.c)
  * Callees:
- *     ??0AutoExclusiveUmfdLookupLock@@QEAA@XZ @ 0x1C007EE40 (--0AutoExclusiveUmfdLookupLock@@QEAA@XZ.c)
- *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C0080520 (--1PUSHLOCKEX@@QEAA@XZ.c)
- *     ?UmfdZombifyAllUmfdFonts@@YAXXZ @ 0x1C0086ACC (-UmfdZombifyAllUmfdFonts@@YAXXZ.c)
- *     ?UmfdGetServerPort@@YAPEAXW4FontDriverType@@@Z @ 0x1C00A5A04 (-UmfdGetServerPort@@YAPEAXW4FontDriverType@@@Z.c)
- *     ??0UmfdHostExclusiveReadyLock@UmfdHostLifeTimeManager@@QEAA@XZ @ 0x1C00A5A38 (--0UmfdHostExclusiveReadyLock@UmfdHostLifeTimeManager@@QEAA@XZ.c)
- *     ?UmfdCancelServerOutstandingRequests@@YAJPEAX@Z @ 0x1C00A5A70 (-UmfdCancelServerOutstandingRequests@@YAJPEAX@Z.c)
- *     ?UnreferenceUmfdHostWithNoLock@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C00A5CD0 (-UnreferenceUmfdHostWithNoLock@UmfdHostLifeTimeManager@@CAXXZ.c)
- *     ?ReleaseUmfdFileviewWithNoLock@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C00A5D18 (-ReleaseUmfdFileviewWithNoLock@UmfdHostLifeTimeManager@@CAXXZ.c)
- *     ?Enumerate@CPointerHashTable@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z @ 0x1C00A602C (-Enumerate@CPointerHashTable@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00BCDE8 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00BCE1C (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ?UmfdZombifyAllUmfdFonts@@YAXXZ @ 0x1C00F3498 (-UmfdZombifyAllUmfdFonts@@YAXXZ.c)
+ *     ?ReleaseUmfdFileviewWithNoLock@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C00F4268 (-ReleaseUmfdFileviewWithNoLock@UmfdHostLifeTimeManager@@CAXXZ.c)
+ *     ?UmfdCancelServerOutstandingRequests@@YAJPEAX@Z @ 0x1C00F4448 (-UmfdCancelServerOutstandingRequests@@YAJPEAX@Z.c)
+ *     ?UmfdGetServerPort@@YAPEAXW4FontDriverType@@@Z @ 0x1C00F447C (-UmfdGetServerPort@@YAPEAXW4FontDriverType@@@Z.c)
+ *     ?UnreferenceUmfdHostWithNoLock@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C00F449C (-UnreferenceUmfdHostWithNoLock@UmfdHostLifeTimeManager@@CAXXZ.c)
+ *     ?Enumerate@CPointerHashTable@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z @ 0x1C00F4814 (-Enumerate@CPointerHashTable@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z.c)
  */
 
-void __fastcall UmfdHostLifeTimeManager::UninitializeProcess(__int64 a1)
+void UmfdHostLifeTimeManager::UninitializeProcess(void)
 {
-  __int64 v1; // rsi
-  __int64 v2; // rcx
   unsigned int i; // ebx
   void *ServerPort; // rax
-  __int64 v5; // rcx
-  __int64 v6; // rdi
-  __int64 v7; // rbx
-  void (*v8)(void *, void *, void *); // rdx
-  void *v9; // r8
-  Gre::Base *v10; // rcx
-  char v11; // [rsp+30h] [rbp+8h] BYREF
+  PVOID v2; // rbx
+  char v3; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  if ( !KeReadStateEvent(*(PRKEVENT *)(v1 + 23552)) )
+  if ( !KeReadStateEvent(UmfdHostLifeTimeManager::s_SessionRasterizerInitializedEvent) )
   {
-    KeSetEvent(*(PRKEVENT *)(v1 + 23552), 0, 0);
+    KeSetEvent(UmfdHostLifeTimeManager::s_SessionRasterizerInitializedEvent, 0, 0);
     if ( gpidLogon )
       PostWinlogonMessage(3LL, 4LL);
   }
-  UmfdHostLifeTimeManager::UmfdHostExclusiveReadyLock::UmfdHostExclusiveReadyLock((UmfdHostLifeTimeManager::UmfdHostExclusiveReadyLock *)&v11);
-  *(_BYTE *)(*(_QWORD *)(SGDGetSessionState(v2) + 32) + 23536LL) = 0;
+  PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v3, (struct _EX_PUSH_LOCK *)&UmfdHostLifeTimeManager::s_ReadyLock);
+  UmfdHostLifeTimeManager::s_Ready = 0;
   UmfdHostLifeTimeManager::UnreferenceUmfdHostWithNoLock();
   for ( i = 0; i < 4; ++i )
   {
@@ -44,20 +35,22 @@ void __fastcall UmfdHostLifeTimeManager::UninitializeProcess(__int64 a1)
     if ( ServerPort )
       UmfdCancelServerOutstandingRequests(ServerPort);
   }
-  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v11);
-  v6 = *(_QWORD *)(SGDGetSessionState(v5) + 40);
-  if ( *(_QWORD *)v6 )
+  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v3);
+  if ( UmfdAllocation::s_allocationLookup )
   {
-    v7 = *(_QWORD *)(v6 + 8);
+    v2 = UmfdAllocation::s_allocationLookupLock;
     KeEnterCriticalRegion();
-    ExAcquirePushLockExclusiveEx(v7, 0LL);
-    NSInstrumentation::CPointerHashTable::Enumerate(*(NSInstrumentation::CPointerHashTable **)v6, v8, v9);
-    ExReleasePushLockExclusiveEx(v7, 0LL);
+    ExAcquirePushLockExclusiveEx(v2, 0LL);
+    NSInstrumentation::CPointerHashTable::Enumerate(
+      (NSInstrumentation::CPointerHashTable *)UmfdAllocation::s_allocationLookup,
+      (void (*)(void *, void *, void *))UmfdAllocation::_RemoveAllocationFromLookup,
+      0LL);
+    ExReleasePushLockExclusiveEx(v2, 0LL);
     KeLeaveCriticalRegion();
   }
-  AutoExclusiveUmfdLookupLock::AutoExclusiveUmfdLookupLock((AutoExclusiveUmfdLookupLock *)&v11);
+  PUSHLOCKEX::PUSHLOCKEX((PUSHLOCKEX *)&v3, (struct _EX_PUSH_LOCK *)&UmfdLookupPushLock);
   UmfdHostLifeTimeManager::ReleaseUmfdFileviewWithNoLock();
-  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v11);
-  UmfdZombifyAllUmfdFonts(v10);
-  *(_BYTE *)(v1 + 23537) = 0;
+  PUSHLOCKEX::~PUSHLOCKEX((PUSHLOCKEX *)&v3);
+  UmfdZombifyAllUmfdFonts();
+  UmfdHostLifeTimeManager::s_Launched = 0;
 }

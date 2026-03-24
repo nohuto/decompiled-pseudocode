@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1400E3648
+ * XREFs of ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1400E3668
  * Callers:
- *     SmProcessCreateRequest @ 0x14066AE14 (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x14066ADF4 (SmProcessCreateRequest.c)
  * Callees:
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1400E2B80 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
- *     SmKmStoreHelperStart @ 0x1400E3A54 (SmKmStoreHelperStart.c)
- *     ?SmStWorkerThreadStartThread@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z @ 0x1400E3AE0 (-SmStWorkerThreadStartThread@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z.c)
- *     SmAcquireReleaseCharges @ 0x1400E3CE4 (SmAcquireReleaseCharges.c)
- *     SmFpPreAllocate @ 0x14018E5E8 (SmFpPreAllocate.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1400E2BA0 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     SmKmStoreHelperStart @ 0x1400E3A74 (SmKmStoreHelperStart.c)
+ *     ?SmStWorkerThreadStartThread@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z @ 0x1400E3B00 (-SmStWorkerThreadStartThread@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z.c)
+ *     SmAcquireReleaseCharges @ 0x1400E3D04 (SmAcquireReleaseCharges.c)
+ *     SmFpPreAllocate @ 0x14018E608 (SmFpPreAllocate.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     SmKmFileInfoDuplicate @ 0x1408ACA08 (SmKmFileInfoDuplicate.c)
- *     SmKmFileInfoInit @ 0x1408ACC48 (SmKmFileInfoInit.c)
+ *     SmKmFileInfoDuplicate @ 0x1408AC9E8 (SmKmFileInfoDuplicate.c)
+ *     SmKmFileInfoInit @ 0x1408ACC28 (SmKmFileInfoInit.c)
  */
 
 int __fastcall SMKM_STORE<SM_TRAITS>::SmStStart(__int64 a1, int **a2)

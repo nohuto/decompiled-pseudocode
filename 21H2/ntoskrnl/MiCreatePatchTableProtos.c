@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreatePatchTableProtos @ 0x140972D10
+ * XREFs of MiCreatePatchTableProtos @ 0x1408C98E8
  * Callers:
- *     MmLoadSystemImageEx @ 0x14075FC44 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiLockPagedRange @ 0x1406C2718 (MiLockPagedRange.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiLockPagedRange @ 0x140727860 (MiLockPagedRange.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void *MiCreatePatchTableProtos()
@@ -15,7 +15,7 @@ void *MiCreatePatchTableProtos()
   PVOID Pool; // rax
   void *v2; // rbx
 
-  v0 = 8LL * (((unsigned int)dword_140C4F478 >> 12) + ((dword_140C4F478 & 0xFFF) != 0));
+  v0 = 8LL * (((unsigned int)dword_140C4CCB0 >> 12) + ((dword_140C4CCB0 & 0xFFF) != 0));
   Pool = MiAllocatePool(274, v0, 0x74536D4Du);
   v2 = Pool;
   if ( !Pool )

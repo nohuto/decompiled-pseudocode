@@ -1,21 +1,21 @@
 /*
- * XREFs of Usbh_PCE_QueueDriverReset_Action @ 0x1C000CF9C
+ * XREFs of Usbh_PCE_QueueDriverReset_Action @ 0x1C00131B0
  * Callers:
- *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0007840 (UsbhDispatch_PortChangeQueueEventEx.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhSignalSyncDeviceResetPdo @ 0x1C000F168 (UsbhSignalSyncDeviceResetPdo.c)
- *     UsbhInsertQueuePortChangeObject @ 0x1C00128D0 (UsbhInsertQueuePortChangeObject.c)
- *     UsbhLockPcqWithTag @ 0x1C001D1A0 (UsbhLockPcqWithTag.c)
- *     UsbhLogSignalDriverResetEvent @ 0x1C001E030 (UsbhLogSignalDriverResetEvent.c)
- *     UsbhHubQueueProcessChangeWorker @ 0x1C001F098 (UsbhHubQueueProcessChangeWorker.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_dd @ 0x1C002DDB8 (WPP_RECORDER_SF_dd.c)
- *     WPP_RECORDER_SF_dq @ 0x1C002DFC0 (WPP_RECORDER_SF_dq.c)
- *     UsbhSetPcqEventStatus @ 0x1C00348C0 (UsbhSetPcqEventStatus.c)
- *     UsbhUnlockPcqWithTag @ 0x1C0034A70 (UsbhUnlockPcqWithTag.c)
- *     WPP_RECORDER_SF_dc @ 0x1C0035C4C (WPP_RECORDER_SF_dc.c)
+ *     UsbhInsertQueuePortChangeObject @ 0x1C000B870 (UsbhInsertQueuePortChangeObject.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhSignalSyncDeviceResetPdo @ 0x1C001518C (UsbhSignalSyncDeviceResetPdo.c)
+ *     UsbhLogSignalDriverResetEvent @ 0x1C00180B8 (UsbhLogSignalDriverResetEvent.c)
+ *     UsbhLockPcqWithTag @ 0x1C001AE80 (UsbhLockPcqWithTag.c)
+ *     UsbhHubQueueProcessChangeWorker @ 0x1C001CA78 (UsbhHubQueueProcessChangeWorker.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C002F194 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002F39C (WPP_RECORDER_SF_dq.c)
+ *     UsbhSetPcqEventStatus @ 0x1C0035C24 (UsbhSetPcqEventStatus.c)
+ *     UsbhUnlockPcqWithTag @ 0x1C0035D2C (UsbhUnlockPcqWithTag.c)
+ *     WPP_RECORDER_SF_dc @ 0x1C0036F08 (WPP_RECORDER_SF_dc.c)
  */
 
 __int64 Usbh_PCE_QueueDriverReset_Action(__int64 a1, __int64 a2, char a3, ...)
@@ -106,7 +106,7 @@ LABEL_16:
         case 2:
           Log(a1, 512, 825585714, v8, *(unsigned __int16 *)(a2 + 4));
           v13 = v33;
-          if ( (int)UsbhInsertQueuePortChangeObject(a1, (unsigned __int16)v9, (unsigned int)va, v32, v33) >= 0 )
+          if ( (int)UsbhInsertQueuePortChangeObject(a1, v9, (unsigned int *)va, v32, v33) >= 0 )
           {
             if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
               && LOWORD(WPP_GLOBAL_Control->DeviceType) )
@@ -165,7 +165,7 @@ LABEL_25:
               v9);
           }
           v22 = v33;
-          if ( (int)UsbhInsertQueuePortChangeObject(a1, (unsigned __int16)v9, (unsigned int)va, v32, v33) < 0 )
+          if ( (int)UsbhInsertQueuePortChangeObject(a1, v9, (unsigned int *)va, v32, v33) < 0 )
           {
             UsbhSignalSyncDeviceResetPdo(a1, v22, 3221225473LL);
             if ( (unsigned int)UsbhLogSignalDriverResetEvent(a1, a2) )
@@ -190,7 +190,7 @@ LABEL_21:
               v9);
           }
           v13 = v33;
-          if ( (int)UsbhInsertQueuePortChangeObject(a1, (unsigned __int16)v9, (unsigned int)va, v32, v33) >= 0 )
+          if ( (int)UsbhInsertQueuePortChangeObject(a1, v9, (unsigned int *)va, v32, v33) >= 0 )
             goto LABEL_44;
           goto LABEL_25;
       }

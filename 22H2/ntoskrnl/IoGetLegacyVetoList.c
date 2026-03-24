@@ -1,17 +1,17 @@
 /*
- * XREFs of IoGetLegacyVetoList @ 0x1407A8E70
+ * XREFs of IoGetLegacyVetoList @ 0x1406F44A0
  * Callers:
- *     PopFilterCapabilities @ 0x1407A8C44 (PopFilterCapabilities.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140867948 (PnpProcessQueryRemoveAndEject.c)
- *     PnprLegacyDeviceDriversPresent @ 0x1409665C4 (PnprLegacyDeviceDriversPresent.c)
- *     ExpQueryLegacyDriverInformation @ 0x1409F6E8C (ExpQueryLegacyDriverInformation.c)
+ *     PopFilterCapabilities @ 0x1406F4274 (PopFilterCapabilities.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140749CC4 (PnpProcessQueryRemoveAndEject.c)
+ *     PnprLegacyDeviceDriversPresent @ 0x1408ADE44 (PnprLegacyDeviceDriversPresent.c)
+ *     ExpQueryLegacyDriverInformation @ 0x14094AC64 (ExpQueryLegacyDriverInformation.c)
  * Callees:
- *     IopGetLegacyVetoListDrivers @ 0x1406C2444 (IopGetLegacyVetoListDrivers.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
- *     IopGetLegacyVetoListDeviceNode @ 0x1407A9028 (IopGetLegacyVetoListDeviceNode.c)
- *     IopAppendLegacyVeto @ 0x14096C704 (IopAppendLegacyVeto.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
+ *     IopGetLegacyVetoListDrivers @ 0x1406DA720 (IopGetLegacyVetoListDrivers.c)
+ *     IopGetLegacyVetoListDeviceNode @ 0x1406F4560 (IopGetLegacyVetoListDeviceNode.c)
+ *     IopAppendLegacyVeto @ 0x1408B2368 (IopAppendLegacyVeto.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoGetLegacyVetoList(PVOID *a1, _DWORD *a2)
@@ -19,7 +19,7 @@ __int64 __fastcall IoGetLegacyVetoList(PVOID *a1, _DWORD *a2)
   bool v4; // zf
   __int64 result; // rax
   _DWORD v6[2]; // [rsp+20h] [rbp-30h] BYREF
-  const WCHAR *v7; // [rsp+28h] [rbp-28h]
+  const wchar_t *v7; // [rsp+28h] [rbp-28h]
   PVOID *v8; // [rsp+30h] [rbp-20h] BYREF
   int v9; // [rsp+38h] [rbp-18h]
   int v10; // [rsp+3Ch] [rbp-14h]
@@ -56,7 +56,7 @@ __int64 __fastcall IoGetLegacyVetoList(PVOID *a1, _DWORD *a2)
   if ( *a2 && a1 )
   {
     v6[0] = 0x20000;
-    v7 = &word_1408882A0;
+    v7 = &word_1407D7A40;
     IopAppendLegacyVeto(&v8, v6);
     result = v13;
   }

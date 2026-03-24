@@ -1,10 +1,10 @@
 /*
- * XREFs of IopVerifierExAllocatePool_3 @ 0x1402862F8
+ * XREFs of IopVerifierExAllocatePool_3 @ 0x1402863F8
  * Callers:
- *     IopErrorLogThread @ 0x14070C3B0 (IopErrorLogThread.c)
- *     IopErrorLogQueueRequest @ 0x140821154 (IopErrorLogQueueRequest.c)
+ *     IopErrorLogThread @ 0x14070C390 (IopErrorLogThread.c)
+ *     IopErrorLogQueueRequest @ 0x140821134 (IopErrorLogQueueRequest.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x1400FD810 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

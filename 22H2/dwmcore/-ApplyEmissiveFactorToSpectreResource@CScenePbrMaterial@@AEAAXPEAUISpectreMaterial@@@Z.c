@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ApplyEmissiveFactorToSpectreResource@CScenePbrMaterial@@AEAAXPEAUISpectreMaterial@@@Z @ 0x1802505E4
+ * XREFs of ?ApplyEmissiveFactorToSpectreResource@CScenePbrMaterial@@AEAAXPEAUISpectreMaterial@@@Z @ 0x1801EADB4
  * Callers:
- *     ?IntializeSpectreResource@CScenePbrMaterial@@MEAAXPEAUISpectreMaterial@@PEA_N@Z @ 0x18025076C (-IntializeSpectreResource@CScenePbrMaterial@@MEAAXPEAUISpectreMaterial@@PEA_N@Z.c)
- *     ?OnEmissiveFactorChanged@CScenePbrMaterial@@QEAAXXZ @ 0x1802509A8 (-OnEmissiveFactorChanged@CScenePbrMaterial@@QEAAXXZ.c)
+ *     ?ApplyAllPropertiesToSpectreResource@CScenePbrMaterial@@MEAAXPEAUISpectreMaterial@@@Z @ 0x1801EAD00 (-ApplyAllPropertiesToSpectreResource@CScenePbrMaterial@@MEAAXPEAUISpectreMaterial@@@Z.c)
+ *     ?OnEmissiveFactorChanged@CScenePbrMaterial@@QEAAXXZ @ 0x1801EB130 (-OnEmissiveFactorChanged@CScenePbrMaterial@@QEAAXXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CScenePbrMaterial::ApplyEmissiveFactorToSpectreResource(
@@ -17,8 +17,8 @@ void __fastcall CScenePbrMaterial::ApplyEmissiveFactorToSpectreResource(
   __int64 v4; // [rsp+20h] [rbp-28h] BYREF
   int v5; // [rsp+28h] [rbp-20h]
 
-  v2 = *((_QWORD *)this + 12);
-  v5 = *((_DWORD *)this + 26);
+  v2 = *((_QWORD *)this + 11);
+  v5 = *((_DWORD *)this + 24);
   v3 = *(_QWORD *)a2;
   v4 = v2;
   (*(void (__fastcall **)(struct ISpectreMaterial *, __int64 *))(v3 + 48))(a2, &v4);

@@ -1,10 +1,10 @@
 /*
- * XREFs of PsGetEffectiveContainerId @ 0x14033D560
+ * XREFs of PsGetEffectiveContainerId @ 0x14030E400
  * Callers:
- *     NtQueryInformationThread @ 0x14079FBE0 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x1405FB940 (NtQueryInformationThread.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     PsGetWorkOnBehalfThread @ 0x1402B68E4 (PsGetWorkOnBehalfThread.c)
+ *     PsGetWorkOnBehalfThread @ 0x14020558C (PsGetWorkOnBehalfThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
  */
 
 __int64 __fastcall PsGetEffectiveContainerId(int a1, struct _KTHREAD *a2, __int64 a3)
@@ -36,11 +36,11 @@ __int64 __fastcall PsGetEffectiveContainerId(int a1, struct _KTHREAD *a2, __int6
     }
     else
     {
-      v9 = a2->Process[1].Affinity.StaticBitmap[16];
+      v9 = a2->Process[1].Affinity.Bitmap[16];
     }
     if ( !v9 )
     {
-LABEL_9:
+LABEL_13:
       if ( v14 )
         ObfDereferenceObjectWithTag(v8, 0x746C6644u);
       return 0LL;
@@ -50,26 +50,26 @@ LABEL_9:
       v10 = a1 - 2;
       if ( !v10 )
       {
-        v11 = *(_QWORD *)(v9 + 1024);
-LABEL_14:
+        v11 = *(_QWORD *)(v9 + 832);
+LABEL_12:
         if ( !v11 )
-          goto LABEL_9;
-        v13 = *(_OWORD *)(v11 + 1456);
-        goto LABEL_22;
+          goto LABEL_13;
+        v13 = *(_OWORD *)(v11 + 1240);
+        goto LABEL_21;
       }
       v12 = v10 - 1;
       if ( !v12 )
       {
-        v11 = *(_QWORD *)(v9 + 1032);
-        goto LABEL_14;
+        v11 = *(_QWORD *)(v9 + 840);
+        goto LABEL_12;
       }
       if ( v12 != 1 )
-        goto LABEL_9;
+        goto LABEL_13;
     }
-    v13 = *(_OWORD *)(v9 + 1456);
-LABEL_22:
+    v13 = *(_OWORD *)(v9 + 1240);
+LABEL_21:
     *(_OWORD *)a3 = v13;
-    goto LABEL_9;
+    goto LABEL_13;
   }
   return 3221225712LL;
 }

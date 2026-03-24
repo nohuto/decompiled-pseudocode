@@ -7,13 +7,13 @@
  *     NtAlpcDeleteSecurityContext @ 0x140618B00 (NtAlpcDeleteSecurityContext.c)
  *     NtAlpcDeletePortSection @ 0x14061C3E0 (NtAlpcDeletePortSection.c)
  *     AlpcpLookupMessage @ 0x140636970 (AlpcpLookupMessage.c)
- *     NtAlpcRevokeSecurityContext @ 0x14084A160 (NtAlpcRevokeSecurityContext.c)
- *     NtAlpcDeleteResourceReserve @ 0x14084B0B0 (NtAlpcDeleteResourceReserve.c)
+ *     NtAlpcRevokeSecurityContext @ 0x14084A140 (NtAlpcRevokeSecurityContext.c)
+ *     NtAlpcDeleteResourceReserve @ 0x14084B090 (NtAlpcDeleteResourceReserve.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x14012F2E0 (ExfAcquireReleasePushLockExclusive.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x14012F300 (ExfAcquireReleasePushLockExclusive.c)
  *     AlpcpReferenceBlob @ 0x140618428 (AlpcpReferenceBlob.c)
  */
 

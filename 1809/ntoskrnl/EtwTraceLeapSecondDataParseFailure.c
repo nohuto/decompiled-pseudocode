@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceLeapSecondDataParseFailure @ 0x1408B7C5C
+ * XREFs of EtwTraceLeapSecondDataParseFailure @ 0x1408B7C3C
  * Callers:
- *     ExpReadLeapSecondData @ 0x1407342FC (ExpReadLeapSecondData.c)
+ *     ExpReadLeapSecondData @ 0x1407342DC (ExpReadLeapSecondData.c)
  *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTraceLeapSecondDataParseFailure(int a1)
@@ -28,7 +28,7 @@ void __fastcall EtwTraceLeapSecondDataParseFailure(int a1)
     v5 = &v2;
     v2 = v1;
     v6 = 4;
-    TlgWrite(&stru_1404002D0, &unk_140372ED4, 0LL, 0LL, 3u, &pData);
+    TlgWrite(&stru_1404002D0, &unk_1403734FF, 0LL, 0LL, 3u, &pData);
   }
   if ( EtwKernelProvRegHandle )
   {

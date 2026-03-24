@@ -1,5 +1,5 @@
 /*
- * XREFs of ESM_CheckingIfEndpointShouldBeReconfiguredAfterStop @ 0x1C000D070
+ * XREFs of ESM_CheckingIfEndpointShouldBeReconfiguredAfterStop @ 0x1C000F320
  * Callers:
  *     <none>
  * Callees:

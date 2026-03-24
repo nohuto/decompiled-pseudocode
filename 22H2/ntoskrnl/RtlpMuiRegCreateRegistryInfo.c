@@ -1,18 +1,24 @@
 /*
- * XREFs of RtlpMuiRegCreateRegistryInfo @ 0x1408470C0
+ * XREFs of RtlpMuiRegCreateRegistryInfo @ 0x140790178
  * Callers:
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A1214 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A8028 (RtlpMuiRegCreateKernelRegistryInfo.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _DWORD *RtlpMuiRegCreateRegistryInfo()
 {
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v1; // rbx
   _DWORD *result; // rax
 
-  result = (_DWORD *)ExAllocatePool2(256LL, 168LL, 1920232557LL);
-  if ( !result )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0xA8uLL, 0x72746C6Du);
+  v1 = PoolWithTag;
+  if ( !PoolWithTag )
     return 0LL;
-  *result |= 0x400u;
+  memset(PoolWithTag + 1, 0, 0xA4uLL);
+  result = v1;
+  *v1 = 1024;
   return result;
 }

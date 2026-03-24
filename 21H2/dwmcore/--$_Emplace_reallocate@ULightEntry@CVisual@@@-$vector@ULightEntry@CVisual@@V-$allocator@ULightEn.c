@@ -1,96 +1,94 @@
 /*
- * XREFs of ??$_Emplace_reallocate@ULightEntry@CVisual@@@?$vector@ULightEntry@CVisual@@V?$allocator@ULightEntry@CVisual@@@std@@@std@@QEAAPEAULightEntry@CVisual@@QEAU23@$$QEAU23@@Z @ 0x18001534C
+ * XREFs of ??$_Emplace_reallocate@ULightEntry@CVisual@@@?$vector@ULightEntry@CVisual@@V?$allocator@ULightEntry@CVisual@@@std@@@std@@QEAAPEAULightEntry@CVisual@@QEAU23@$$QEAU23@@Z @ 0x1800C15A4
  * Callers:
- *     ?AddLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@_N@Z @ 0x180015218 (-AddLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@_N@Z.c)
+ *     ?AddLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@_N@Z @ 0x1800C1418 (-AddLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@_N@Z.c)
  * Callees:
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
- *     ??$_Get_size_of_n@$0BA@@std@@YA_K_K@Z @ 0x1800B6FA0 (--$_Get_size_of_n@$0BA@@std@@YA_K_K@Z.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800D7338 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050B88 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ?_Change_array@?$vector@U_D3DCOLORVALUE@@V?$allocator@U_D3DCOLORVALUE@@@std@@@std@@AEAAXQEAU_D3DCOLORVALUE@@_K1@Z @ 0x180063754 (-_Change_array@-$vector@U_D3DCOLORVALUE@@V-$allocator@U_D3DCOLORVALUE@@@std@@@std@@AEAAXQEAU_D3D.c)
  */
 
-char *__fastcall std::vector<CVisual::LightEntry>::_Emplace_reallocate<CVisual::LightEntry>(
-        _QWORD *a1,
-        char *a2,
+unsigned __int64 __fastcall std::vector<CVisual::LightEntry>::_Emplace_reallocate<CVisual::LightEntry>(
+        __int64 *a1,
+        __int128 *a2,
         _OWORD *a3)
 {
-  __int64 v3; // rdi
-  unsigned __int64 v4; // r15
-  __int64 v6; // rbp
-  char *v7; // rbx
-  unsigned __int64 v9; // rbp
-  unsigned __int64 v10; // rcx
-  unsigned __int64 v11; // rdx
-  SIZE_T size_of; // rax
+  unsigned __int64 v4; // r14
+  __int64 v5; // rax
+  __int128 *v6; // rbx
+  unsigned __int64 v8; // rbp
+  unsigned __int64 v9; // rcx
+  unsigned __int64 v10; // rdx
+  unsigned __int64 v11; // rsi
+  SIZE_T v12; // rcx
   _OWORD *v13; // rax
-  _OWORD *v14; // r14
-  char *v15; // r15
-  char *v16; // rdx
-  char *v17; // rcx
-  char *result; // rax
-  __int128 v19; // xmm0
+  unsigned __int64 v14; // r14
+  __int64 v15; // r10
+  __int128 *v16; // rdx
+  __int128 *v17; // rcx
+  _OWORD *v18; // r8
   __int128 v20; // xmm0
-  signed __int64 v21; // rax
+  __int128 v21; // xmm0
+  unsigned __int64 v22; // rcx
 
-  v3 = 0xFFFFFFFFFFFFFFFLL;
-  v4 = (unsigned __int64)&a2[-*a1];
-  v6 = (__int64)(a1[1] - *a1) >> 4;
-  v7 = a2;
-  if ( v6 == 0xFFFFFFFFFFFFFFFLL )
-    std::_Xlength_error("vector too long");
-  v9 = v6 + 1;
-  v10 = (__int64)(a1[2] - *a1) >> 4;
-  v11 = v10 >> 1;
-  if ( v10 <= 0xFFFFFFFFFFFFFFFLL - (v10 >> 1) )
+  v4 = (unsigned __int64)a2 - *a1;
+  v5 = (a1[1] - *a1) >> 4;
+  v6 = a2;
+  if ( v5 == 0xFFFFFFFFFFFFFFFLL )
+    std::_Xlength_error("vector<T> too long");
+  v8 = v5 + 1;
+  v9 = (a1[2] - *a1) >> 4;
+  v10 = v9 >> 1;
+  if ( v9 > 0xFFFFFFFFFFFFFFFLL - (v9 >> 1) )
   {
-    v3 = v11 + v10;
-    if ( v11 + v10 < v9 )
-      v3 = v9;
+    v11 = v5 + 1;
   }
-  size_of = std::_Get_size_of_n<16>(v3);
-  v13 = (_OWORD *)std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
-  v14 = v13;
-  v15 = (char *)v13 + (v4 & 0xFFFFFFFFFFFFFFF0uLL);
-  *(_OWORD *)v15 = *a3;
-  v16 = (char *)a1[1];
-  v17 = (char *)*a1;
-  if ( v7 == v16 )
+  else
   {
+    v11 = v10 + v9;
+    if ( v10 + v9 < v8 )
+      v11 = v5 + 1;
+  }
+  v12 = 16 * v11;
+  if ( v11 > 0xFFFFFFFFFFFFFFFLL )
+    v12 = -1LL;
+  v13 = (_OWORD *)std::_Allocate<16,std::_Default_allocate_traits,0>(v12);
+  v14 = v4 & 0xFFFFFFFFFFFFFFF0uLL;
+  v15 = (__int64)v13;
+  *(_OWORD *)((char *)v13 + v14) = *a3;
+  v16 = (__int128 *)a1[1];
+  v17 = (__int128 *)*a1;
+  if ( v6 == v16 )
+  {
+    v18 = v13;
     while ( v17 != v16 )
     {
-      v19 = *(_OWORD *)v17;
-      v17 += 16;
-      *v13++ = v19;
+      v20 = *v17++;
+      *v18++ = v20;
     }
   }
   else
   {
-    if ( v17 != v7 )
+    if ( v17 != v6 )
     {
       do
       {
-        v20 = *(_OWORD *)v17;
-        v17 += 16;
-        *v13++ = v20;
+        v21 = *v17++;
+        *v13++ = v21;
       }
-      while ( v17 != v7 );
-      v16 = (char *)a1[1];
+      while ( v17 != v6 );
+      v16 = (__int128 *)a1[1];
     }
-    if ( v7 != v16 )
+    if ( v6 != v16 )
     {
-      v21 = v15 - v7;
+      v22 = v15 + v14 - (_QWORD)v6;
       do
       {
-        *(_OWORD *)&v7[v21 + 16] = *(_OWORD *)v7;
-        v7 += 16;
+        *(__int128 *)((char *)v6 + v22 + 16) = *v6;
+        ++v6;
       }
-      while ( v7 != v16 );
+      while ( v6 != v16 );
     }
   }
-  if ( *a1 )
-    std::_Deallocate<16,0>(*a1, (a1[2] - *a1) & 0xFFFFFFFFFFFFFFF0uLL);
-  result = v15;
-  *a1 = v14;
-  a1[1] = &v14[v9];
-  a1[2] = &v14[v3];
-  return result;
+  std::vector<_D3DCOLORVALUE>::_Change_array(a1, v15, v8, v11);
+  return v14 + *a1;
 }

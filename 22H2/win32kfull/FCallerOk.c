@@ -1,7 +1,8 @@
 /*
- * XREFs of FCallerOk @ 0x1C022D438
+ * XREFs of FCallerOk @ 0x1C00FB0AC
  * Callers:
- *     ?xxxSetWindowWord@@YAGPEAUtagWND@@HG@Z @ 0x1C022CF04 (-xxxSetWindowWord@@YAGPEAUtagWND@@HG@Z.c)
+ *     xxxSetWindowLong @ 0x1C00FACB8 (xxxSetWindowLong.c)
+ *     ?xxxSetWindowWord@@YAGPEAUtagWND@@HG@Z @ 0x1C015B99C (-xxxSetWindowWord@@YAGPEAUtagWND@@HG@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,14 +12,14 @@ __int64 __fastcall FCallerOk(__int64 a1)
   __int64 v2; // rcx
   HANDLE ThreadProcessId; // rax
   __int64 v4; // rcx
-  HANDLE v5; // rax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  unsigned int v10; // ebx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  unsigned int v8; // ebx
   __int64 CurrentProcess; // rax
-  __int64 v12; // rdx
-  __int64 v13; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  HANDLE v13; // rax
 
   v2 = *(_QWORD *)(a1 + 16);
   if ( (*(_DWORD *)(v2 + 488) & 0xC) != 0 && (*(_DWORD *)(gptiCurrent + 488LL) & 0xC) == 0 )
@@ -27,20 +28,20 @@ __int64 __fastcall FCallerOk(__int64 a1)
   v4 = gpidLogon;
   if ( ThreadProcessId == (HANDLE)gpidLogon )
   {
-    v5 = PsGetThreadProcessId((PETHREAD)*gptiCurrent);
+    v13 = PsGetThreadProcessId((PETHREAD)*gptiCurrent);
     v4 = gpidLogon;
-    if ( v5 != (HANDLE)gpidLogon )
+    if ( v13 != (HANDLE)gpidLogon )
       return 0LL;
   }
-  v10 = 0;
+  v8 = 0;
   if ( (unsigned __int8)Enforced(v4) )
     return 1LL;
-  CurrentProcess = PsGetCurrentProcess(v8, v7, v9);
+  CurrentProcess = PsGetCurrentProcess(v6, v5, v7);
   if ( (unsigned int)IsProcessDwm(CurrentProcess) )
     return 1LL;
-  v12 = *(_QWORD *)(gptiCurrent + 424LL);
-  v13 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL);
-  if ( *(_DWORD *)(v12 + 772) == *(_DWORD *)(v13 + 772) )
-    return *(_DWORD *)(v12 + 776) == *(_DWORD *)(v13 + 776);
-  return v10;
+  v11 = *(_QWORD *)(gptiCurrent + 424LL);
+  v12 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL);
+  if ( *(_DWORD *)(v11 + 780) == *(_DWORD *)(v12 + 780) )
+    return *(_DWORD *)(v11 + 784) == *(_DWORD *)(v12 + 784);
+  return v8;
 }

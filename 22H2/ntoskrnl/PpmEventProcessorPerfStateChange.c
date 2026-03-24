@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventProcessorPerfStateChange @ 0x14034EDD0
+ * XREFs of PpmEventProcessorPerfStateChange @ 0x140398788
  * Callers:
- *     PpmPerfArbitratorApplyProcessorState @ 0x14034EB90 (PpmPerfArbitratorApplyProcessorState.c)
- *     PpmPerfApplyHiddenProcessorState @ 0x14058D06C (PpmPerfApplyHiddenProcessorState.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x1403985A4 (PpmPerfArbitratorApplyProcessorState.c)
+ *     PpmPerfApplyHiddenProcessorState @ 0x14056E5EC (PpmPerfApplyHiddenProcessorState.c)
  * Callees:
- *     PpmEventGetEventDescriptorAndProcessorId @ 0x1402575B0 (PpmEventGetEventDescriptorAndProcessorId.c)
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     PpmEventGetEventDescriptorAndProcessorId @ 0x1403988CC (PpmEventGetEventDescriptorAndProcessorId.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventProcessorPerfStateChange(__int64 a1, int a2, int a3)
@@ -50,9 +50,9 @@ char __fastcall PpmEventProcessorPerfStateChange(__int64 a1, int a2, int a3)
   v9 = 0;
   EventDescriptorAndProcessorId = (const EVENT_DESCRIPTOR *)PpmEventGetEventDescriptorAndProcessorId(
                                                               a1,
-                                                              (__int64)&PPM_ETW_PROCESSOR_PERF_STATE_CHANGE,
-                                                              (__int64)&PPM_ETW_PROCESSOR_PERF_STATE_CHANGE_HV,
-                                                              (__int64)&v9,
+                                                              (unsigned int)&PPM_ETW_PROCESSOR_PERF_STATE_CHANGE,
+                                                              (unsigned int)&PPM_ETW_PROCESSOR_PERF_STATE_CHANGE_HV,
+                                                              (unsigned int)&v9,
                                                               (__int64)v16);
   v5 = EventDescriptorAndProcessorId;
   if ( PpmEtwRegistered )

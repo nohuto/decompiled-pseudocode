@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CLightStack@@QEAA@XZ @ 0x180053050
+ * XREFs of ??0CLightStack@@QEAA@XZ @ 0x18003EAD4
  * Callers:
- *     ??0CPreComputeContext@@QEAA@XZ @ 0x1800308A0 (--0CPreComputeContext@@QEAA@XZ.c)
- *     ??0CDrawingContext@@IEAA@XZ @ 0x180052CC0 (--0CDrawingContext@@IEAA@XZ.c)
- *     ??0COcclusionContext@@QEAA@XZ @ 0x1800642CC (--0COcclusionContext@@QEAA@XZ.c)
+ *     ??0CDrawingContext@@AEAA@XZ @ 0x18003E508 (--0CDrawingContext@@AEAA@XZ.c)
+ *     ??0COcclusionContext@@QEAA@XZ @ 0x18003E900 (--0COcclusionContext@@QEAA@XZ.c)
+ *     ??0CPreComputeContext@@IEAA@PEAVCVisualTree@@@Z @ 0x18004460C (--0CPreComputeContext@@IEAA@PEAVCVisualTree@@@Z.c)
  * Callees:
  *     <none>
  */

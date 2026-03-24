@@ -1,33 +1,31 @@
 /*
- * XREFs of ?ValidUmpdHdev@@YAPEAUHDEV__@@PEAU1@@Z @ 0x1C02C743C
+ * XREFs of ?ValidUmpdHdev@@YAPEAUHDEV__@@PEAU1@@Z @ 0x1C015A9C4
  * Callers:
- *     NtGdiEngAssociateSurface @ 0x1C02C8850 (NtGdiEngAssociateSurface.c)
- *     NtGdiGetDhpdev @ 0x1C02CD0D0 (NtGdiGetDhpdev.c)
+ *     NtGdiEngAssociateSurface @ 0x1C015A6B0 (NtGdiEngAssociateSurface.c)
+ *     NtGdiGetDhpdev @ 0x1C02B47B0 (NtGdiGetDhpdev.c)
  * Callees:
  *     <none>
  */
 
-__int64 *__fastcall ValidUmpdHdev(Gre::Base *a1)
+struct PDEV *__fastcall ValidUmpdHdev(HDEV a1)
 {
-  struct Gre::Base::SESSION_GLOBALS *v3; // rsi
-  __int64 *i; // rbx
-  __int64 *v5; // [rsp+30h] [rbp+8h] BYREF
+  struct PDEV *i; // rbx
+  struct PDEV *v4; // [rsp+30h] [rbp+8h] BYREF
 
   if ( !a1 )
     return 0LL;
-  v3 = Gre::Base::Globals(a1);
-  GreAcquireSemaphore(*((_QWORD *)v3 + 1));
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDriverMgmt", *((_QWORD *)v3 + 1), 16LL);
-  for ( i = (__int64 *)*((_QWORD *)v3 + 760); i; i = (__int64 *)*i )
+  GreAcquireSemaphore(ghsemDriverMgmt);
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDriverMgmt", ghsemDriverMgmt, 13LL);
+  for ( i = gppdevList; i; i = *(struct PDEV **)i )
   {
-    v5 = i;
-    if ( (i[5] & 0x8000) != 0 && (Gre::Base *)i[2] == a1 )
+    v4 = i;
+    if ( (*((_DWORD *)i + 10) & 0x8000) != 0 && *((HDEV *)i + 2) == a1 )
     {
-      PDEVOBJ::vReferencePdev((PDEVOBJ *)&v5);
+      PDEVOBJ::vReferencePdev((PDEVOBJ *)&v4);
       break;
     }
   }
-  EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDriverMgmt");
-  GreReleaseSemaphoreInternal(*((_QWORD *)v3 + 1));
+  EtwTraceGreLockReleaseSemaphore(L"ghsemDriverMgmt", ghsemDriverMgmt);
+  GreReleaseSemaphoreInternal(ghsemDriverMgmt);
   return i;
 }

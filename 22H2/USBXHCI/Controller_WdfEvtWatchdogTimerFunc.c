@@ -1,127 +1,88 @@
 /*
- * XREFs of Controller_WdfEvtWatchdogTimerFunc @ 0x1C0005010
+ * XREFs of Controller_WdfEvtWatchdogTimerFunc @ 0x1C0009E10
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0005BEC (WPP_RECORDER_SF_.c)
- *     Controller_LowerAndTrackIrql @ 0x1C00074EC (Controller_LowerAndTrackIrql.c)
- *     Controller_RaiseAndTrackIrql @ 0x1C0007588 (Controller_RaiseAndTrackIrql.c)
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
- *     WPP_RECORDER_SF_q @ 0x1C001431C (WPP_RECORDER_SF_q.c)
- *     WPP_RECORDER_SF_D @ 0x1C0018114 (WPP_RECORDER_SF_D.c)
- *     Controller_ReportFatalErrorEx @ 0x1C001EBDC (Controller_ReportFatalErrorEx.c)
- *     Etw_ReportControllerHealthWithPortInfo @ 0x1C001F858 (Etw_ReportControllerHealthWithPortInfo.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033674 (Controller_HwVerifierBreakIfEnabled.c)
- *     Controller_SetControllerGone @ 0x1C00346AC (Controller_SetControllerGone.c)
- *     WPP_RECORDER_SF_sds @ 0x1C0037920 (WPP_RECORDER_SF_sds.c)
- *     Register_ReadSecureMmio @ 0x1C003ED08 (Register_ReadSecureMmio.c)
- *     XilCoreCommonBuffer_FreeUnusedResources @ 0x1C0052C68 (XilCoreCommonBuffer_FreeUnusedResources.c)
- *     MicrosoftTelemetryAssertTriggeredMsgKM @ 0x1C00532B4 (MicrosoftTelemetryAssertTriggeredMsgKM.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     RootHub_DetectLinkErrorState @ 0x1C001A2AC (RootHub_DetectLinkErrorState.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
+ *     Controller_SetControllerGone @ 0x1C0032D48 (Controller_SetControllerGone.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
+ *     Register_ReadSecureMmio @ 0x1C003CAB8 (Register_ReadSecureMmio.c)
+ *     Etw_ReportControllerHealthWithPortInfo @ 0x1C004825C (Etw_ReportControllerHealthWithPortInfo.c)
+ *     XilCoreCommonBuffer_FreeUnusedResources @ 0x1C004FF48 (XilCoreCommonBuffer_FreeUnusedResources.c)
  */
 
-KIRQL __fastcall Controller_WdfEvtWatchdogTimerFunc(__int64 a1)
+__int64 __fastcall Controller_WdfEvtWatchdogTimerFunc(__int64 a1)
 {
   __int64 v2; // rax
-  __int64 v3; // rsi
+  __int64 v3; // rbp
   _QWORD *v4; // rax
-  __int64 v5; // rcx
-  unsigned int v6; // r12d
+  char v5; // bl
+  __int64 v6; // rcx
   int *v7; // rdx
   int v8; // eax
   int v9; // edx
-  int v10; // r8d
-  __int64 v11; // rdi
-  unsigned int v12; // r15d
-  unsigned int v13; // eax
-  __int64 v14; // rbx
-  __int64 v15; // r12
-  __int64 v16; // r13
-  char v17; // r14
-  int *v18; // rbx
-  __int64 v19; // rcx
-  __int64 v20; // rbp
-  __int64 v21; // rsi
-  int v22; // edx
-  int v23; // r8d
-  int v24; // r9d
-  int v25; // eax
-  __int64 v26; // rax
-  __int64 v27; // rbx
-  char v28; // si
-  int v29; // edx
-  int v30; // r8d
-  int v31; // r9d
-  int v32; // edx
-  __int64 v33; // r9
-  __int16 v34; // ax
-  __int64 v35; // rbx
-  unsigned int v36; // eax
-  int v37; // ecx
-  __int64 v38; // rbx
-  char v39; // cl
-  unsigned __int32 v40; // ecx
-  int v41; // eax
-  __int64 v42; // rsi
-  int v43; // edx
-  int v44; // r8d
-  int v45; // r9d
-  __int64 v46; // rdx
-  __int64 v47; // rdi
-  __int64 *v48; // rbx
-  unsigned int v49; // r15d
-  unsigned int v50; // eax
-  unsigned int v51; // edx
-  __int64 *v52; // rax
-  __int64 *v53; // r8
-  __int64 **v54; // rcx
-  _QWORD *v55; // rax
-  __int64 v56; // r8
-  _QWORD *v57; // rcx
-  __int64 *v58; // rcx
-  __int64 **v59; // rax
-  unsigned int v60; // r8d
-  KIRQL v61; // dl
-  KSPIN_LOCK *v62; // rcx
-  KIRQL result; // al
-  int v64; // [rsp+20h] [rbp-78h]
-  int v65; // [rsp+40h] [rbp-58h] BYREF
-  int v66; // [rsp+44h] [rbp-54h] BYREF
-  unsigned int v67; // [rsp+48h] [rbp-50h]
-  __int64 v68; // [rsp+50h] [rbp-48h]
-  int v69[2]; // [rsp+58h] [rbp-40h]
-  char v70; // [rsp+A8h] [rbp+10h]
-  char v71; // [rsp+B0h] [rbp+18h]
-  int v72; // [rsp+B8h] [rbp+20h] BYREF
+  int v10; // ecx
+  int v11; // r8d
+  int v12; // r9d
+  unsigned __int32 v13; // ecx
+  __int64 v14; // rcx
+  __int64 v15; // r13
+  __int64 v16; // rdx
+  unsigned int i; // ebx
+  __int64 v18; // rdi
+  __int64 *v19; // r12
+  unsigned int v20; // r14d
+  bool v21; // bl
+  __int64 result; // rax
+  int v23; // edx
+  int v24; // r8d
+  unsigned int v25; // eax
+  unsigned int v26; // edx
+  __int64 *v27; // rax
+  __int64 *v28; // r8
+  __int64 **v29; // rcx
+  _QWORD *v30; // rax
+  __int64 v31; // r8
+  _QWORD *v32; // rcx
+  __int64 *v33; // rcx
+  __int64 **v34; // rax
+  unsigned int v35; // r8d
+  int v36; // [rsp+20h] [rbp-48h]
+  __int64 v37; // [rsp+78h] [rbp+10h] BYREF
 
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 2568))(WdfDriverGlobals, a1);
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          v2,
-         off_1C0063428);
-  v68 = v3;
+         off_1C0060428);
   ++*(_DWORD *)(v3 + 400);
   v4 = (_QWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                    WdfDriverGlobals,
                    a1,
-                   off_1C0063068);
-  if ( (__int64)(MEMORY[0xFFFFF78000000014] - *v4) < 864000000000LL )
+                   off_1C0060068);
+  if ( (__int64)(MEMORY[0xFFFFF78000000014] - *v4) >= 864000000000LL )
   {
-    v71 = 0;
+    v5 = 1;
+    *v4 = MEMORY[0xFFFFF78000000014];
   }
   else
   {
-    v71 = 1;
-    *v4 = MEMORY[0xFFFFF78000000014];
+    v5 = 0;
   }
-  v5 = *(_QWORD *)(v3 + 88);
-  v6 = 0;
-  v7 = (int *)(*(_QWORD *)(v5 + 32) + 4LL);
-  if ( *(_BYTE *)(*(_QWORD *)(v5 + 8) + 601LL) )
+  v6 = *(_QWORD *)(v3 + 88);
+  v7 = (int *)(*(_QWORD *)(v6 + 32) + 4LL);
+  if ( *(_BYTE *)(*(_QWORD *)(v6 + 8) + 553LL) )
   {
-    v65 = 0;
-    Register_ReadSecureMmio(v5, (int)v7, 2, 1, &v65);
-    v8 = v65;
+    LODWORD(v37) = 0;
+    Register_ReadSecureMmio(v6, (int)v7, 2, 1, &v37);
+    v8 = v37;
   }
   else
   {
@@ -136,472 +97,255 @@ KIRQL __fastcall Controller_WdfEvtWatchdogTimerFunc(__int64 a1)
         *(_QWORD *)(v3 + 72),
         (_DWORD)v7,
         4,
-        273,
-        (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids);
+        268,
+        (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
     }
     LOBYTE(v7) = 1;
     Controller_SetControllerGone(v3, v7);
-    goto LABEL_20;
+    goto LABEL_43;
   }
   if ( (v8 & 4) != 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v7) = 1;
-      WPP_RECORDER_SF_D(
+      WPP_RECORDER_SF_d(
         *(_QWORD *)(v3 + 72),
         (_DWORD)v7,
         4,
-        274,
-        (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids,
+        269,
+        (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
         v8);
     }
     Controller_HwVerifierBreakIfEnabled(v3, 0, 0, 2, (__int64)"Controller reported Host System Error", 0LL, 0LL);
-    v10 = 4097;
-LABEL_19:
-    Controller_ReportFatalErrorEx(v3, 2, v10, 0, 0LL, 0LL, 0LL, 0LL);
-LABEL_20:
-    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v9) = 1;
-      WPP_RECORDER_SF_(*(_QWORD *)(v3 + 72), v9, 4, 172, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids);
-    }
-    goto LABEL_139;
+    v24 = 4097;
+    goto LABEL_42;
   }
   if ( (v8 & 0x1000) != 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v7) = 1;
-      WPP_RECORDER_SF_D(
+      WPP_RECORDER_SF_d(
         *(_QWORD *)(v3 + 72),
         (_DWORD)v7,
         4,
-        275,
-        (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids,
+        270,
+        (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids,
         v8);
     }
     Controller_HwVerifierBreakIfEnabled(v3, 0, 0, 4, (__int64)"Controller reported Host Controller Error", 0LL, 0LL);
-    v10 = 4098;
-    goto LABEL_19;
-  }
-  v11 = *(_QWORD *)(v3 + 152);
-  v72 = 0;
-  v12 = 1;
-  v70 = 0;
-  v13 = *(_DWORD *)(v11 + 16);
-  *(_QWORD *)v69 = *(_QWORD *)(*(_QWORD *)(v11 + 8) + 88LL);
-  v67 = v13;
-  if ( v13 )
-  {
-    while ( 1 )
+    v24 = 4098;
+LABEL_42:
+    Controller_ReportFatalError(v3, 2, v24, 0, 0LL, 0LL, 0LL);
+LABEL_43:
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v14 = v12 - 1;
-      v15 = 120 * v14;
-      v16 = 120 * v14 + *(_QWORD *)(v11 + 48);
-      if ( *(_BYTE *)(v16 + 13) == 2 )
-      {
-LABEL_72:
-        v39 = v70;
-        goto LABEL_73;
-      }
-      v17 = 0;
-      v18 = (int *)(*(_QWORD *)(v11 + 40) + 16 * v14);
-      if ( KeGetCurrentIrql() == 2 )
-      {
-        v19 = *(_QWORD *)(v11 + 8);
-        if ( *(_BYTE *)(v19 + 601) )
-        {
-          Controller_LowerAndTrackIrql(v19);
-          v17 = 1;
-        }
-      }
-      v20 = *(_QWORD *)(v11 + 48);
-      v21 = *(_QWORD *)(v20 + v15 + 24);
-      if ( *(_DWORD *)v21 == 1 )
-      {
-        if ( KeGetCurrentIrql() )
-        {
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_SF_sds(
-              WPP_GLOBAL_Control->DeviceExtension,
-              v22,
-              v23,
-              v24,
-              v64,
-              (__int64)"onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\dynamiclock.c",
-              88,
-              (__int64)"Code Path Requires Passive Level");
-          if ( !KdRefreshDebuggerNotPresent() )
-            __debugbreak();
-        }
-        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD))(WdfFunctions_01023 + 2504))(
-          WdfDriverGlobals,
-          *(_QWORD *)(v21 + 8),
-          0LL);
-      }
-      else
-      {
-        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01023 + 2528))(
-          WdfDriverGlobals,
-          *(_QWORD *)(v21 + 8));
-      }
-      *(_BYTE *)(v20 + v15 + 32) = v17;
-      if ( *(_BYTE *)(*(_QWORD *)(*(_QWORD *)v69 + 8LL) + 601LL) )
-      {
-        v66 = 0;
-        Register_ReadSecureMmio(v69[0], (int)v18, 2, 1, &v66);
-        v25 = v66;
-      }
-      else
-      {
-        v25 = *v18;
-      }
-      v72 = v25;
-      v26 = *(_QWORD *)(v11 + 48);
-      v27 = *(_QWORD *)(v15 + v26 + 24);
-      v28 = *(_BYTE *)(v15 + v26 + 32);
-      *(_BYTE *)(v15 + v26 + 32) = 0;
-      if ( *(_DWORD *)v27 == 1 )
-      {
-        if ( KeGetCurrentIrql() )
-        {
-          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_SF_sds(
-              WPP_GLOBAL_Control->DeviceExtension,
-              v29,
-              v30,
-              v31,
-              v64,
-              (__int64)"onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\dynamiclock.c",
-              107,
-              (__int64)"Code Path Requires Passive Level");
-          if ( !KdRefreshDebuggerNotPresent() )
-            __debugbreak();
-        }
-        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01023 + 2512))(
-          WdfDriverGlobals,
-          *(_QWORD *)(v27 + 8));
-      }
-      else
-      {
-        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01023 + 2536))(
-          WdfDriverGlobals,
-          *(_QWORD *)(v27 + 8));
-      }
-      if ( v28 )
-        Controller_RaiseAndTrackIrql(*(_QWORD *)(v11 + 8));
-      v34 = v72;
-      v35 = v15 + *(_QWORD *)(v11 + 48);
-      if ( (v72 & 0x1E0) == 0x140 )
-      {
-        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v32) = 2;
-          WPP_RECORDER_SF_D(
-            *(_QWORD *)(*(_QWORD *)(v11 + 8) + 72LL),
-            v32,
-            11,
-            262,
-            (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-            v72);
-        }
-        if ( (_mm_srli_si128(*(__m128i *)(*(_QWORD *)(v11 + 8) + 336LL), 8).m128i_u64[0] & 0x8000) != 0 )
-          MicrosoftTelemetryAssertTriggeredMsgKM("Unexpected link state in COMPLIANCE_MODE when disabled in hardware");
-        if ( ++*(_DWORD *)(v35 + 88) == 3 && !*(_BYTE *)(v35 + 96) )
-        {
-          Etw_ReportControllerHealthWithPortInfo(*(_QWORD *)(v11 + 8), v12, &v72, 0LL);
-          *(_BYTE *)(v35 + 96) = 1;
-        }
-        v36 = *(_DWORD *)(v35 + 88);
-        if ( v36 <= 0x18 )
-        {
-          v37 = 17043456;
-          if ( _bittest(&v37, v36) )
-            goto LABEL_68;
-        }
-        v34 = v72;
-      }
-      else if ( *(_DWORD *)(v35 + 88) )
-      {
-        LOBYTE(v33) = 1;
-        Etw_ReportControllerHealthWithPortInfo(*(_QWORD *)(v11 + 8), v12, &v72, v33);
-        *(_DWORD *)(v35 + 88) = 0;
-        *(_BYTE *)(v35 + 96) = 0;
-        *(_BYTE *)(v35 + 104) = 0;
-        v34 = v72;
-      }
-      v38 = v15 + *(_QWORD *)(v11 + 48);
-      if ( (v34 & 0x1E0) != 0xC0 || !*(_DWORD *)(v38 + 108) )
-      {
-        if ( *(_DWORD *)(v38 + 92) )
-        {
-          LOBYTE(v33) = 1;
-          Etw_ReportControllerHealthWithPortInfo(*(_QWORD *)(v11 + 8), v12, &v72, v33);
-          v39 = v70;
-          v6 = 0;
-          *(_DWORD *)(v38 + 92) = 0;
-          *(_BYTE *)(v38 + 96) = 0;
-          *(_BYTE *)(v38 + 104) = 0;
-        }
-        else
-        {
-          v39 = v70;
-          v6 = 0;
-        }
-        goto LABEL_74;
-      }
-      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LOBYTE(v32) = 2;
-        WPP_RECORDER_SF_D(
-          *(_QWORD *)(*(_QWORD *)(v11 + 8) + 72LL),
-          v32,
-          11,
-          263,
-          (__int64)&WPP_60a997f3b28234a4d1c27687c5bd6445_Traceguids,
-          v34);
-      }
-      ++*(_DWORD *)(v38 + 92);
-      if ( !*(_BYTE *)(v38 + 96) )
-      {
-        Etw_ReportControllerHealthWithPortInfo(*(_QWORD *)(v11 + 8), v12, &v72, 0LL);
-        *(_BYTE *)(v38 + 96) = 1;
-      }
-      if ( *(_DWORD *)(v38 + 92) > 3u )
-        goto LABEL_72;
-LABEL_68:
-      v39 = 1;
-      _InterlockedExchange((volatile __int32 *)(v16 + 100), 1);
-      *(_BYTE *)(v16 + 104) = 1;
-      v70 = 1;
-LABEL_73:
-      v6 = 0;
-LABEL_74:
-      if ( ++v12 > v67 )
-      {
-        if ( v39 == 1 )
-          ((void (__fastcall *)(__int64, _QWORD))qword_1C0064810)(UcxDriverGlobals, *(_QWORD *)v11);
-        v3 = v68;
-        break;
-      }
+      LOBYTE(v23) = 1;
+      WPP_RECORDER_SF_(*(_QWORD *)(v3 + 72), v23, 4, 169, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
     }
+    goto LABEL_26;
   }
-  if ( v71 && *(_BYTE *)(v3 + 472) )
+  RootHub_DetectLinkErrorState(*(_QWORD *)(v3 + 152));
+  if ( v5 && *(_BYTE *)(v3 + 472) )
   {
-    Etw_ReportControllerHealthWithPortInfo(v3, 0LL, 0LL, 0LL);
-    ++*(_DWORD *)(v3 + 564);
+    LOBYTE(v36) = 0;
+    Etw_ReportControllerHealthWithPortInfo(v10, v3, 0, 0, v36);
     *(_BYTE *)(v3 + 472) = 0;
   }
-  v40 = _InterlockedCompareExchange((volatile signed __int32 *)(v3 + 856), 0, 0);
-  if ( !v40 || *(_DWORD *)(v3 + 400) % v40 )
+  v13 = _InterlockedCompareExchange((volatile signed __int32 *)(v3 + 800), 0, 0);
+  if ( !v13 || (v9 = *(_DWORD *)(v3 + 400) % v13) != 0 )
   {
-    v41 = *(_DWORD *)(v3 + 412) + 1;
-    *(_DWORD *)(v3 + 412) = v41;
-    if ( v41 == 60 )
+    if ( ++*(_DWORD *)(v3 + 412) == 60 )
     {
       *(_QWORD *)(v3 + 408) = 0LL;
       *(_DWORD *)(v3 + 404) = 0;
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_SF_(*(_QWORD *)(v3 + 72), 4, 4, 176, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids);
+        WPP_RECORDER_SF_(*(_QWORD *)(v3 + 72), 4, 4, 173, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
     }
-    v42 = *(_QWORD *)(v3 + 120);
-    if ( v42 )
+    v14 = *(_QWORD *)(v3 + 120);
+    v37 = v14;
+    if ( v14 )
     {
-      if ( *(_BYTE *)(*(_QWORD *)v42 + 601LL) && KeGetCurrentIrql() )
+      if ( *(_BYTE *)(*(_QWORD *)v14 + 553LL) && KeGetCurrentIrql() )
       {
         if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_SF_sds(
-            WPP_GLOBAL_Control->DeviceExtension,
-            v43,
-            v44,
-            v45,
-            v64,
-            (__int64)"onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\commonbuffer.c",
-            147,
-            (__int64)"Code Path Requires Passive Level");
+          WPP_RECORDER_SF_sds(WPP_GLOBAL_Control->DeviceExtension, v9, v11, v12);
         if ( !KdRefreshDebuggerNotPresent() )
           __debugbreak();
+        v14 = v37;
       }
-      if ( !KeGetCurrentIrql() || *(_QWORD *)(v42 + 72) )
+      if ( !KeGetCurrentIrql() || *(_QWORD *)(v14 + 72) )
       {
-        *(_BYTE *)(v42 + 113) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v42 + 104));
-        v47 = v42 + 124;
-        do
+        v15 = v14 + 88;
+        *(_BYTE *)(v14 + 113) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v14 + 104));
+        for ( i = 0; i < 2; ++i )
         {
+          v18 = v15 + ((unsigned __int64)i << 6);
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
             && LOWORD(WPP_GLOBAL_Control->DeviceType) )
           {
-            LOBYTE(v46) = 5;
+            LOBYTE(v16) = 5;
             WPP_RECORDER_SF_dd(
-              *(_QWORD *)(*(_QWORD *)(v42 + 96) + 72LL),
-              v46,
+              *(_QWORD *)(*(_QWORD *)(v15 + 8) + 72LL),
+              v16,
               8,
               25,
-              (__int64)&WPP_eecfbef36d1a35cfffa7ec1ff8c060f3_Traceguids,
-              v6,
-              *(_DWORD *)(v47 + 24));
+              (__int64)&WPP_a84c20f32b9f317edc0159cb83ba05a2_Traceguids,
+              i,
+              *(_DWORD *)(v18 + 60));
           }
-          v48 = *(__int64 **)(v47 + 44);
-          v49 = *(_DWORD *)(v47 + 16);
-          if ( v48 != (__int64 *)(v47 + 44) )
+          v19 = *(__int64 **)(v18 + 80);
+          v20 = *(_DWORD *)(v18 + 52);
+          if ( v19 != (__int64 *)(v18 + 80) )
           {
-            while ( *(_DWORD *)(v47 + 24) > v49 )
+            while ( *(_DWORD *)(v18 + 60) > v20 )
             {
-              if ( *((_BYTE *)v48 + 16) )
+              if ( *((_BYTE *)v19 + 16) )
               {
                 if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
                   && LOWORD(WPP_GLOBAL_Control->DeviceType) )
                 {
-                  LOBYTE(v46) = 5;
-                  WPP_RECORDER_SF_q(
-                    *(_QWORD *)(*(_QWORD *)(v42 + 96) + 72LL),
-                    v46,
+                  LOBYTE(v16) = 5;
+                  WPP_RECORDER_SF_i(
+                    *(_QWORD *)(*(_QWORD *)(v15 + 8) + 72LL),
+                    v16,
                     8,
                     22,
-                    (__int64)&WPP_eecfbef36d1a35cfffa7ec1ff8c060f3_Traceguids,
-                    (char)v48);
+                    (__int64)&WPP_a84c20f32b9f317edc0159cb83ba05a2_Traceguids,
+                    (char)v19);
                 }
-                v50 = *(_DWORD *)v47;
-                v51 = 0;
-                if ( *(_DWORD *)v47 )
+                v25 = *(_DWORD *)(v18 + 36);
+                v26 = 0;
+                if ( v25 )
                 {
                   while ( 1 )
                   {
-                    v52 = &v48[11 * v51 + 4];
-                    v53 = (__int64 *)*v52;
-                    if ( *(__int64 **)(*v52 + 8) != v52 )
+                    v27 = &v19[11 * v26 + 4];
+                    v28 = (__int64 *)*v27;
+                    if ( *(__int64 **)(*v27 + 8) != v27 )
                       break;
-                    v54 = (__int64 **)v52[1];
-                    if ( *v54 != v52 )
+                    v29 = (__int64 **)v27[1];
+                    if ( *v29 != v27 )
                       break;
-                    *v54 = v53;
-                    v53[1] = (__int64)v54;
-                    v52[1] = (__int64)v52;
-                    *v52 = (__int64)v52;
-                    v55 = v52 + 6;
-                    v56 = *v55;
-                    if ( *(_QWORD **)(*v55 + 8LL) != v55 )
+                    *v29 = v28;
+                    v28[1] = (__int64)v29;
+                    v27[1] = (__int64)v27;
+                    *v27 = (__int64)v27;
+                    v30 = v27 + 6;
+                    v31 = *v30;
+                    if ( *(_QWORD **)(*v30 + 8LL) != v30 )
                       break;
-                    v57 = (_QWORD *)v55[1];
-                    if ( (_QWORD *)*v57 != v55 )
+                    v32 = (_QWORD *)v30[1];
+                    if ( (_QWORD *)*v32 != v30 )
                       break;
-                    *v57 = v56;
-                    ++v51;
-                    *(_QWORD *)(v56 + 8) = v57;
-                    v55[1] = v55;
-                    *v55 = v55;
-                    v50 = *(_DWORD *)v47;
-                    if ( v51 >= *(_DWORD *)v47 )
-                      goto LABEL_114;
+                    *v32 = v31;
+                    ++v26;
+                    *(_QWORD *)(v31 + 8) = v32;
+                    v30[1] = v30;
+                    *v30 = v30;
+                    v25 = *(_DWORD *)(v18 + 36);
+                    if ( v26 >= v25 )
+                      goto LABEL_67;
                   }
-LABEL_134:
+LABEL_82:
                   __fastfail(3u);
                 }
-LABEL_114:
-                *(_DWORD *)(v47 + 24) -= v50;
-                *(_DWORD *)(v47 + 20) -= v50;
-                v58 = (__int64 *)*v48;
-                if ( *(__int64 **)(*v48 + 8) != v48 )
-                  goto LABEL_134;
-                v59 = (__int64 **)v48[1];
-                if ( *v59 != v48 )
-                  goto LABEL_134;
-                *v59 = v58;
-                v58[1] = (__int64)v59;
-                v46 = *(_QWORD *)(v42 + 280);
-                if ( *(_QWORD *)v46 != v42 + 272 )
-                  goto LABEL_134;
-                *v48 = v42 + 272;
-                v48[1] = v46;
-                *(_QWORD *)v46 = v48;
-                *(_QWORD *)(v42 + 280) = v48;
-                v48 = v58;
-                ++*(_DWORD *)(v42 + 264);
+LABEL_67:
+                *(_DWORD *)(v18 + 60) -= v25;
+                *(_DWORD *)(v18 + 56) -= v25;
+                v33 = (__int64 *)*v19;
+                if ( *(__int64 **)(*v19 + 8) != v19 )
+                  goto LABEL_82;
+                v34 = (__int64 **)v19[1];
+                if ( *v34 != v19 )
+                  goto LABEL_82;
+                *v34 = v33;
+                v33[1] = (__int64)v34;
+                v16 = *(_QWORD *)(v15 + 192);
+                if ( *(_QWORD *)v16 != v15 + 184 )
+                  goto LABEL_82;
+                *v19 = v15 + 184;
+                v19[1] = v16;
+                *(_QWORD *)v16 = v19;
+                *(_QWORD *)(v15 + 192) = v19;
+                v19 = v33;
+                ++*(_DWORD *)(v15 + 176);
               }
               else
               {
-                v60 = *(_DWORD *)v47;
-                LODWORD(v46) = 0;
-                if ( *(_DWORD *)v47 )
+                v35 = *(_DWORD *)(v18 + 36);
+                LODWORD(v16) = 0;
+                if ( v35 )
                 {
                   do
                   {
-                    if ( v48[11 * (unsigned int)v46 + 13] )
+                    if ( v19[11 * (unsigned int)v16 + 13] )
                       break;
-                    LODWORD(v46) = v46 + 1;
+                    LODWORD(v16) = v16 + 1;
                   }
-                  while ( (unsigned int)v46 < v60 );
+                  while ( (unsigned int)v16 < v35 );
                 }
-                if ( (_DWORD)v46 == v60 )
+                if ( (_DWORD)v16 == v35 )
                 {
                   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
                     && LOWORD(WPP_GLOBAL_Control->DeviceType) )
                   {
-                    LOBYTE(v46) = 5;
-                    WPP_RECORDER_SF_q(
-                      *(_QWORD *)(*(_QWORD *)(v42 + 96) + 72LL),
-                      v46,
+                    LOBYTE(v16) = 5;
+                    WPP_RECORDER_SF_i(
+                      *(_QWORD *)(*(_QWORD *)(v15 + 8) + 72LL),
+                      v16,
                       8,
                       23,
-                      (__int64)&WPP_eecfbef36d1a35cfffa7ec1ff8c060f3_Traceguids,
-                      (char)v48);
+                      (__int64)&WPP_a84c20f32b9f317edc0159cb83ba05a2_Traceguids,
+                      (char)v19);
                   }
-                  *((_BYTE *)v48 + 16) = 1;
-                  --*(_DWORD *)(v42 + 292);
+                  *((_BYTE *)v19 + 16) = 1;
+                  --*(_DWORD *)(v15 + 204);
                 }
-                v48 = (__int64 *)*v48;
+                v19 = (__int64 *)*v19;
               }
-              if ( v48 == (__int64 *)(v47 + 44) )
+              if ( v19 == (__int64 *)(v18 + 80) )
                 break;
             }
           }
           if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
             && LOWORD(WPP_GLOBAL_Control->DeviceType) )
           {
-            LOBYTE(v46) = 5;
+            LOBYTE(v16) = 5;
             WPP_RECORDER_SF_dd(
-              *(_QWORD *)(*(_QWORD *)(v42 + 96) + 72LL),
-              v46,
+              *(_QWORD *)(*(_QWORD *)(v15 + 8) + 72LL),
+              v16,
               8,
               26,
-              (__int64)&WPP_eecfbef36d1a35cfffa7ec1ff8c060f3_Traceguids,
-              v6,
-              *(_DWORD *)(v47 + 24));
+              (__int64)&WPP_a84c20f32b9f317edc0159cb83ba05a2_Traceguids,
+              i,
+              *(_DWORD *)(v18 + 60));
           }
-          ++v6;
-          v47 += 64LL;
         }
-        while ( v6 < 2 );
-        v61 = *(_BYTE *)(v42 + 113);
-        v62 = (KSPIN_LOCK *)(v42 + 104);
-        if ( *(_QWORD *)(v42 + 272) == v42 + 272 )
+        v21 = *(_QWORD *)(v15 + 184) != v15 + 184;
+        KeReleaseSpinLock((PKSPIN_LOCK)(v15 + 16), *(_BYTE *)(v15 + 25));
+        if ( v21 )
         {
-          KeReleaseSpinLock(v62, v61);
-        }
-        else
-        {
-          KeReleaseSpinLock(v62, v61);
           if ( KeGetCurrentIrql() )
             (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01023 + 3040))(
               WdfDriverGlobals,
-              *(_QWORD *)(v42 + 72));
+              *(_QWORD *)(v37 + 72));
           else
-            XilCoreCommonBuffer_FreeUnusedResources(v42 + 88);
+            XilCoreCommonBuffer_FreeUnusedResources(v15);
         }
       }
     }
-    v3 = v68;
   }
   else
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*(_QWORD *)(v3 + 72), 4, 4, 173, (__int64)&WPP_ac07559723993fb37d1c33c002d3118e_Traceguids);
-    Controller_ReportFatalErrorEx(v3, 2, 4159, 0, 0LL, 0LL, 0LL, 0LL);
+      WPP_RECORDER_SF_(*(_QWORD *)(v3 + 72), 4, 4, 170, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids);
+    Controller_ReportFatalError(v3, 2, 4159, 0, 0LL, 0LL, 0LL);
   }
-LABEL_139:
+LABEL_26:
   result = KeGetCurrentIrql();
-  if ( !result )
+  if ( !(_BYTE)result )
     return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, __int64))(WdfFunctions_01023 + 2552))(
              WdfDriverGlobals,
              *(_QWORD *)(v3 + 360),

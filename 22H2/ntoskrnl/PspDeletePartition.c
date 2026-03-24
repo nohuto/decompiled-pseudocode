@@ -1,19 +1,21 @@
 /*
- * XREFs of PspDeletePartition @ 0x1409B6720
+ * XREFs of PspDeletePartition @ 0x14090D0A0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     PspRemovePartitionFromGlobalList @ 0x1405A6658 (PspRemovePartitionFromGlobalList.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     PspRemovePartitionFromGlobalList @ 0x14058425C (PspRemovePartitionFromGlobalList.c)
  */
 
-void __fastcall PspDeletePartition(ULONG_PTR BugCheckParameter2)
+__int64 __fastcall PspDeletePartition(ULONG_PTR BugCheckParameter2)
 {
   ULONG_PTR v1; // r9
+  __int64 result; // rax
 
-  v1 = *(_QWORD *)(BugCheckParameter2 + 32);
+  v1 = *(_QWORD *)(BugCheckParameter2 + 24);
   if ( v1 )
     KeBugCheckEx(0x18Eu, 0LL, BugCheckParameter2, v1, 0LL);
-  if ( *(_QWORD *)(BugCheckParameter2 + 48) )
-    PspRemovePartitionFromGlobalList(BugCheckParameter2);
+  if ( *(_QWORD *)(BugCheckParameter2 + 40) )
+    return PspRemovePartitionFromGlobalList(BugCheckParameter2);
+  return result;
 }

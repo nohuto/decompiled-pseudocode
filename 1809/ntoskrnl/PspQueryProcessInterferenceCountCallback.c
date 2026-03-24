@@ -1,5 +1,5 @@
 /*
- * XREFs of PspQueryProcessInterferenceCountCallback @ 0x140889F60
+ * XREFs of PspQueryProcessInterferenceCountCallback @ 0x140889F40
  * Callers:
  *     <none>
  * Callees:

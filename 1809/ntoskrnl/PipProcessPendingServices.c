@@ -4,9 +4,9 @@
  *     PipProcessPendingOperations @ 0x1409C8B20 (PipProcessPendingOperations.c)
  * Callees:
  *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegCloseKey @ 0x14073C35C (_PnpCtxRegCloseKey.c)
- *     _PnpCtxRegOpenKey @ 0x14073C374 (_PnpCtxRegOpenKey.c)
- *     PipProcessPendingObjects @ 0x1409F6000 (PipProcessPendingObjects.c)
+ *     _PnpCtxRegCloseKey @ 0x14073C33C (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14073C354 (_PnpCtxRegOpenKey.c)
+ *     PipProcessPendingObjects @ 0x1409F6010 (PipProcessPendingObjects.c)
  */
 
 __int64 PipProcessPendingServices()

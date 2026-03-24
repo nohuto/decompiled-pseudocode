@@ -1,48 +1,39 @@
 /*
- * XREFs of ?SetRootVisual@CCachedVisualImage@@IEAAJPEAVCVisual@@@Z @ 0x180217C88
+ * XREFs of ?SetRootVisual@CCachedVisualImage@@IEAAJPEAVCVisual@@@Z @ 0x1801AB96C
  * Callers:
- *     ?SetForDCompSnapshot@CCachedVisualImage@@IEAAJPEAVCVisual@@AEBUD2D_SIZE_U@@_N@Z @ 0x180217A84 (-SetForDCompSnapshot@CCachedVisualImage@@IEAAJPEAVCVisual@@AEBUD2D_SIZE_U@@_N@Z.c)
- *     ?EnsureCachedVisualImage@CVisualBitmap@@AEAAJXZ @ 0x18021F104 (-EnsureCachedVisualImage@CVisualBitmap@@AEAAJXZ.c)
+ *     ?SetForDCompSnapshot@CCachedVisualImage@@IEAAJPEAVCVisual@@AEBUD2D_SIZE_U@@_N@Z @ 0x1801AB7D4 (-SetForDCompSnapshot@CCachedVisualImage@@IEAAJPEAVCVisual@@AEBUD2D_SIZE_U@@_N@Z.c)
  * Callees:
- *     ?MarkAllTargetsDirty@CCachedVisualImage@@QEAAXXZ @ 0x18003A714 (-MarkAllTargetsDirty@CCachedVisualImage@@QEAAXXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180037460 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D9B0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?reset@?$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800D0818 (-reset@-$com_ptr_t@UID3D11ShaderResourceView@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?MarkAllTargetsDirty@CCachedVisualImage@@IEAAXXZ @ 0x1800D3BB8 (-MarkAllTargetsDirty@CCachedVisualImage@@IEAAXXZ.c)
  */
 
 __int64 __fastcall CCachedVisualImage::SetRootVisual(CCachedVisualImage *this, struct CVisual *a2)
 {
   unsigned int v2; // edi
-  __int64 v5; // rax
-  int v6; // eax
-  __int64 v7; // rcx
-  int v8; // eax
-  __int64 v9; // rcx
+  int v5; // eax
+  __int64 v6; // rcx
 
   v2 = 0;
-  if ( !*((_BYTE *)this + 1776) )
+  if ( !*((_BYTE *)this + 1800) )
   {
-    (*(void (__fastcall **)(CCachedVisualImage *))(*(_QWORD *)this + 192LL))(this);
-    v5 = *(_QWORD *)this;
-    *((_QWORD *)this + 18) = a2;
-    v6 = (*(__int64 (__fastcall **)(CCachedVisualImage *))(v5 + 184))(this);
-    v2 = v6;
-    if ( v6 < 0 )
+    CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 17));
+    *((_QWORD *)this + 17) = 0LL;
+    wil::com_ptr_t<ID3D11ShaderResourceView,wil::err_returncode_policy>::reset((__int64 *)this + 22);
+    *((_QWORD *)this + 17) = a2;
+    v5 = CResource::RegisterNotifier(this, a2);
+    v2 = v5;
+    if ( v5 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x2E9u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0x2C9u, 0LL);
     }
     else
     {
-      v8 = (*(__int64 (__fastcall **)(CCachedVisualImage *))(*(_QWORD *)this + 224LL))(this);
-      v2 = v8;
-      if ( v8 < 0 )
-      {
-        MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x2EBu, 0LL);
-      }
-      else
-      {
-        CCachedVisualImage::MarkAllTargetsDirty(this);
-        (*(void (__fastcall **)(CCachedVisualImage *, _QWORD, _QWORD))(*(_QWORD *)this + 72LL))(this, 0LL, 0LL);
-      }
+      CCachedVisualImage::MarkAllTargetsDirty(this);
+      CResource::NotifyOnChanged((__int64)this, 0, 0LL);
     }
   }
   return v2;

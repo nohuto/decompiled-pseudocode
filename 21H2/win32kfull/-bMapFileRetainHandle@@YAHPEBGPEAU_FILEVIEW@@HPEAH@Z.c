@@ -1,14 +1,14 @@
 /*
- * XREFs of ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C00E2C80
+ * XREFs of ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C00E6104
  * Callers:
- *     InitFNTCache @ 0x1C00E2390 (InitFNTCache.c)
- *     bInitCacheTable @ 0x1C0285D80 (bInitCacheTable.c)
- *     bReAllocCacheFile @ 0x1C0285EFC (bReAllocCacheFile.c)
+ *     InitFNTCache @ 0x1C00E56F0 (InitFNTCache.c)
+ *     bInitCacheTable @ 0x1C0288E4C (bInitCacheTable.c)
+ *     bReAllocCacheFile @ 0x1C0288FC8 (bReAllocCacheFile.c)
  * Callees:
- *     ?bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C000D29C (-bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
- *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C000D7F0 (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
- *     ?hGetHandleFromFilePath@@YAPEAXPEBGH@Z @ 0x1C000FD58 (-hGetHandleFromFilePath@@YAPEAXPEBGH@Z.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?hGetHandleFromFilePath@@YAPEAXPEBGH@Z @ 0x1C00A8600 (-hGetHandleFromFilePath@@YAPEAXPEBGH@Z.c)
+ *     ?bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C00A871C (-bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
+ *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C00A8CFC (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 void *__fastcall bMapFileRetainHandle(const unsigned __int16 *a1, struct _FILEVIEW *a2, int a3, int *a4)
@@ -31,7 +31,7 @@ void *__fastcall bMapFileRetainHandle(const unsigned __int16 *a1, struct _FILEVI
   {
     if ( (unsigned int)bCreateSectionFromHandle(
                          v6,
-                         L"\\SystemRoot\\system32\\FNTCACHE.DAT",
+                         (WCHAR *)L"\\SystemRoot\\system32\\FNTCACHE.DAT",
                          (struct _FILEVIEW *)MappedBase,
                          a3,
                          0LL,

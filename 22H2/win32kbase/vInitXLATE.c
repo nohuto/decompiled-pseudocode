@@ -1,31 +1,30 @@
 /*
- * XREFs of vInitXLATE @ 0x1C02DD540
+ * XREFs of vInitXLATE @ 0x1C029992C
  * Callers:
- *     InitializeGre @ 0x1C02DB800 (InitializeGre.c)
+ *     InitializeGre @ 0x1C02990FC (InitializeGre.c)
  * Callees:
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
-__int64 __fastcall vInitXLATE(__int64 a1)
+__int64 vInitXLATE()
 {
-  __int64 v1; // rdi
+  _DWORD *v0; // rcx
   __int64 result; // rax
-  _DWORD *v3; // rdi
 
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  memset((void *)(v1 + 6632), 0, 0x100uLL);
-  memset((void *)(v1 + 6896), 0, 0x458uLL);
-  *(_DWORD *)(v1 + 6908) = 256;
-  *(_DWORD *)(v1 + 6900) = 1;
-  *(_DWORD *)(v1 + 6896) = 1;
-  *(_QWORD *)(v1 + 6912) = v1 + 6980;
+  memset(&xlateTable, 0, 0x100uLL);
+  memset(&xloIdent, 0, 0x458uLL);
+  dword_1C02502AC = 256;
+  xloIdent = 1;
+  v0 = &unk_1C02502F8;
+  dword_1C02502A4 = 1;
+  qword_1C02502B0 = (__int64)&unk_1C02502F4;
   LODWORD(result) = 0;
-  *(_DWORD *)(v1 + 6932) = -2;
-  v3 = (_DWORD *)(v1 + 6984);
+  dword_1C02502E8 = 0;
+  dword_1C02502C4 = -2;
   do
   {
     result = (unsigned int)(result + 1);
-    *v3++ = result;
+    *v0++ = result;
   }
   while ( (unsigned int)result < 0xFF );
   return result;

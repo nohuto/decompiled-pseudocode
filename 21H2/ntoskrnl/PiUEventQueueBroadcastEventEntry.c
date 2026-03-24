@@ -1,21 +1,21 @@
 /*
- * XREFs of PiUEventQueueBroadcastEventEntry @ 0x1406DF01C
+ * XREFs of PiUEventQueueBroadcastEventEntry @ 0x14076C2EC
  * Callers:
- *     PiUEventProcessBroadcastNotifications @ 0x14078AF40 (PiUEventProcessBroadcastNotifications.c)
+ *     PiUEventProcessBroadcastNotifications @ 0x1406E63A0 (PiUEventProcessBroadcastNotifications.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall PiUEventQueueBroadcastEventEntry(__int64 a1)
 {
   PVOID *v2; // rsi
   __int64 *v3; // rax
-  struct _WORK_QUEUE_ITEM *Pool2; // rax
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
   PVOID *v5; // rdi
   int v6; // ecx
   char *v7; // rcx
@@ -68,23 +68,23 @@ LABEL_12:
     while ( v5 != &PiUEventBroadcastEventQueue );
   }
   *(_BYTE *)(a1 + 16) = 1;
-  v3 = (__int64 *)qword_140C46788;
-  if ( *(PVOID **)qword_140C46788 != &PiUEventBroadcastEventQueue )
+  v3 = (__int64 *)qword_140C44F38;
+  if ( *(PVOID **)qword_140C44F38 != &PiUEventBroadcastEventQueue )
     __fastfail(3u);
   *(_QWORD *)a1 = &PiUEventBroadcastEventQueue;
   *(_QWORD *)(a1 + 8) = v3;
   *v3 = a1;
-  qword_140C46788 = a1;
+  qword_140C44F38 = a1;
   KeReleaseGuardedMutex(&PiUEventBroadcastEventQueueLock);
   if ( v2 == &PiUEventBroadcastEventQueue )
   {
-    Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(64LL, 32LL, 1500540496LL);
-    if ( Pool2 )
+    PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x59706E50u);
+    if ( PoolWithTag )
     {
-      Pool2->List.Flink = 0LL;
-      Pool2->WorkerRoutine = (void (__fastcall *)(void *))PiUEventBroadcastEventWorker;
-      Pool2->Parameter = Pool2;
-      ExQueueWorkItem(Pool2, BackgroundWorkQueue);
+      PoolWithTag->List.Flink = 0LL;
+      PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))PiUEventBroadcastEventWorker;
+      PoolWithTag->Parameter = PoolWithTag;
+      ExQueueWorkItem(PoolWithTag, BackgroundWorkQueue);
     }
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionPostKeyboardInputMessage @ 0x1C023E044
+ * XREFs of EditionPostKeyboardInputMessage @ 0x1C01FC250
  * Callers:
- *     ApiSetEditionPostKeyboardInputMessage @ 0x1C020A7D4 (ApiSetEditionPostKeyboardInputMessage.c)
+ *     ApiSetEditionPostKeyboardInputMessage @ 0x1C01CD2F0 (ApiSetEditionPostKeyboardInputMessage.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall EditionPostKeyboardInputMessage(
@@ -17,9 +17,9 @@ __int64 __fastcall EditionPostKeyboardInputMessage(
 {
   __int64 v8; // rdx
 
-  if ( !qword_1C029D7C0 )
+  if ( !qword_1C0258B68 )
     return 3221225659LL;
   v8 = a7;
   LOBYTE(v8) = a2;
-  return ((__int64 (__fastcall *)(_QWORD, __int64, _QWORD))qword_1C029D7C0)(a1, v8, 0LL);
+  return ((__int64 (__fastcall *)(_QWORD, __int64, _QWORD))qword_1C0258B68)(a1, v8, 0LL);
 }

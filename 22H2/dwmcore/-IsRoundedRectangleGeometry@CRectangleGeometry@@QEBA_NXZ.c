@@ -1,26 +1,30 @@
 /*
- * XREFs of ?IsRoundedRectangleGeometry@CRectangleGeometry@@QEBA_NXZ @ 0x180018F18
+ * XREFs of ?IsRoundedRectangleGeometry@CRectangleGeometry@@QEBA_NXZ @ 0x18001A230
  * Callers:
- *     ?TryDrawCommandAsDrawList@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntryBuilder@@IV?$span@$$CBE$0?0@gsl@@PEA_N@Z @ 0x180095390 (-TryDrawCommandAsDrawList@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawLi.c)
- *     ?EnsureSpawner@CParticleEmitterVisual@@IEAAJXZ @ 0x18024510C (-EnsureSpawner@CParticleEmitterVisual@@IEAAJXZ.c)
+ *     ?TryDrawCommandAsDrawList@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawListEntryBuilder@@_NIV?$span@$$CBE$0?0@gsl@@PEA_N@Z @ 0x180069D3C (-TryDrawCommandAsDrawList@CRenderData@@AEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@PEAVCDrawLi.c)
+ *     ?EnsureSpawner@CParticleEmitterVisual@@IEAAJXZ @ 0x1801DFB34 (-EnsureSpawner@CParticleEmitterVisual@@IEAAJXZ.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall CRectangleGeometry::IsRoundedRectangleGeometry(CRectangleGeometry *this)
+char __fastcall CRectangleGeometry::IsRoundedRectangleGeometry(CRectangleGeometry *this)
 {
   char v1; // dl
-  bool result; // al
+  char result; // al
 
-  v1 = 1;
-  result = *((float *)this + 40) > 0.0 && *((float *)this + 41) > 0.0;
-  if ( !*((_BYTE *)this + 196) )
+  v1 = 0;
+  if ( *((float *)this + 38) > 0.0 || (result = 0, *((float *)this + 39) > 0.0) )
+    result = 1;
+  if ( !*((_BYTE *)this + 184) )
   {
-    if ( (*((float *)this + 42) <= 0.0 || *((float *)this + 43) <= 0.0)
-      && (*((float *)this + 46) <= 0.0 || *((float *)this + 47) <= 0.0)
-      && (*((float *)this + 44) <= 0.0 || *((float *)this + 45) <= 0.0) )
+    if ( *((float *)this + 40) > 0.0
+      || *((float *)this + 41) > 0.0
+      || *((float *)this + 42) > 0.0
+      || *((float *)this + 43) > 0.0
+      || *((float *)this + 44) > 0.0
+      || *((float *)this + 45) > 0.0 )
     {
-      v1 = 0;
+      v1 = 1;
     }
     return v1 | result;
   }

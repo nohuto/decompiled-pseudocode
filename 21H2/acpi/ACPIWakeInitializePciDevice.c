@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIWakeInitializePciDevice @ 0x1C0004FC0
+ * XREFs of ACPIWakeInitializePciDevice @ 0x1C002B720
  * Callers:
- *     ACPIFilterIrpStartDeviceWorker @ 0x1C0090FD0 (ACPIFilterIrpStartDeviceWorker.c)
+ *     ACPIFilterIrpStartDeviceWorker @ 0x1C00A0FD0 (ACPIFilterIrpStartDeviceWorker.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ACPIWakeInitializePciDevice(ULONG_PTR a1)
@@ -27,23 +27,23 @@ __int64 __fastcall ACPIWakeInitializePciDevice(ULONG_PTR a1)
     if ( PciPmeInterfaceInstantiated )
     {
       (*((void (__fastcall **)(_QWORD, char *, _BYTE *, char *))PciPmeInterface + 4))(
-        *(_QWORD *)(DeviceExtension + 784),
+        *(_QWORD *)(DeviceExtension + 744),
         &v5,
         v4,
         &v7);
       if ( v5 == 1 )
       {
-        (*((void (__fastcall **)(_QWORD, char *))PciPmeInterface + 7))(*(_QWORD *)(DeviceExtension + 784), &v6);
+        (*((void (__fastcall **)(_QWORD, char *))PciPmeInterface + 7))(*(_QWORD *)(DeviceExtension + 744), &v6);
         if ( v6 == 1 )
         {
           _InterlockedOr64((volatile signed __int64 *)(DeviceExtension + 8), 0x800000000000000uLL);
           if ( v7 )
           {
-            (*((void (__fastcall **)(_QWORD, _QWORD))PciPmeInterface + 6))(*(_QWORD *)(DeviceExtension + 784), 0LL);
+            (*((void (__fastcall **)(_QWORD, _QWORD))PciPmeInterface + 6))(*(_QWORD *)(DeviceExtension + 744), 0LL);
           }
           else if ( v4[0] )
           {
-            (*((void (__fastcall **)(_QWORD))PciPmeInterface + 5))(*(_QWORD *)(DeviceExtension + 784));
+            (*((void (__fastcall **)(_QWORD))PciPmeInterface + 5))(*(_QWORD *)(DeviceExtension + 744));
           }
         }
       }

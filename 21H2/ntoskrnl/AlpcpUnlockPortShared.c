@@ -1,13 +1,14 @@
 /*
- * XREFs of AlpcpUnlockPortShared @ 0x140966390
+ * XREFs of AlpcpUnlockPortShared @ 0x1408C24F0
  * Callers:
- *     AlpcpReceiveMessagePort @ 0x1407A8B00 (AlpcpReceiveMessagePort.c)
+ *     AlpcpReceiveMessagePort @ 0x1405E8BC0 (AlpcpReceiveMessagePort.c)
+ *     AlpcpPortQueryServerInfo @ 0x1408C3100 (AlpcpPortQueryServerInfo.c)
  * Callees:
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
  */
 
-__int64 __fastcall AlpcpUnlockPortShared(__int64 a1)
+char __fastcall AlpcpUnlockPortShared(__int64 a1)
 {
   signed __int64 *v1; // rbx
 

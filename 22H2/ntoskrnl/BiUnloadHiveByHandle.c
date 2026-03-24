@@ -1,32 +1,32 @@
 /*
- * XREFs of BiUnloadHiveByHandle @ 0x140A5D574
+ * XREFs of BiUnloadHiveByHandle @ 0x14077926C
  * Callers:
- *     BiCloseStore @ 0x140804B8C (BiCloseStore.c)
- *     BiCleanupLoadedStores @ 0x14080A164 (BiCleanupLoadedStores.c)
- *     BcdForciblyUnloadStore @ 0x140A5C300 (BcdForciblyUnloadStore.c)
+ *     BcdForciblyUnloadStore @ 0x1407791D8 (BcdForciblyUnloadStore.c)
+ *     BiCloseStore @ 0x140781C00 (BiCloseStore.c)
+ *     BiCleanupLoadedStores @ 0x140781FA8 (BiCleanupLoadedStores.c)
  * Callees:
- *     BiCloseKey @ 0x1408077DC (BiCloseKey.c)
- *     BiGetRegistryValue @ 0x1408079C4 (BiGetRegistryValue.c)
- *     BiUnloadHiveByName @ 0x140A5D60C (BiUnloadHiveByName.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     BiUnloadHiveByName @ 0x140779304 (BiUnloadHiveByName.c)
+ *     BiGetRegistryValue @ 0x140783CF8 (BiGetRegistryValue.c)
+ *     BiCloseKey @ 0x14078448C (BiCloseKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BiUnloadHiveByHandle(void *a1, char a2)
+__int64 __fastcall BiUnloadHiveByHandle(__int64 a1, char a2)
 {
   int RegistryValue; // edi
   __int64 v5; // r8
-  unsigned int v7; // ebx
+  unsigned int v6; // ebx
   unsigned int v8; // [rsp+50h] [rbp+18h] BYREF
   PVOID P; // [rsp+58h] [rbp+20h] BYREF
 
   v8 = 0;
   P = 0LL;
-  RegistryValue = BiGetRegistryValue((__int64)a1, L"KeyName", L"Description", 1u, &P, &v8);
+  RegistryValue = BiGetRegistryValue(a1, L"KeyName", L"Description", 1LL, &P, &v8);
   BiCloseKey(a1);
   if ( RegistryValue < 0 )
     return (unsigned int)RegistryValue;
   LOBYTE(v5) = a2;
-  v7 = BiUnloadHiveByName(P, v8, v5);
+  v6 = BiUnloadHiveByName(P, v8, v5);
   ExFreePoolWithTag(P, 0x4B444342u);
-  return v7;
+  return v6;
 }

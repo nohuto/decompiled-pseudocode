@@ -1,34 +1,35 @@
 /*
- * XREFs of IopAllocateIrpCleanup @ 0x1409441F4
+ * XREFs of IopAllocateIrpCleanup @ 0x140890EA4
  * Callers:
- *     NtSetInformationFile @ 0x1402A6AD0 (NtSetInformationFile.c)
- *     NtQueryVolumeInformationFile @ 0x140686AF0 (NtQueryVolumeInformationFile.c)
- *     IopGetSetSecurityObject @ 0x14069C1D0 (IopGetSetSecurityObject.c)
- *     IopXxxControlFile @ 0x1406E5590 (IopXxxControlFile.c)
- *     NtQueryInformationFile @ 0x1407250E0 (NtQueryInformationFile.c)
- *     IopQueryXxxInformation @ 0x14075D79C (IopQueryXxxInformation.c)
- *     NtLockFile @ 0x1407659A0 (NtLockFile.c)
- *     BuildQueryDirectoryIrp @ 0x140765DB0 (BuildQueryDirectoryIrp.c)
- *     NtUnlockFile @ 0x1407B5080 (NtUnlockFile.c)
- *     NtQueryEaFile @ 0x1407CA550 (NtQueryEaFile.c)
- *     NtNotifyChangeDirectoryFileEx @ 0x1407CC120 (NtNotifyChangeDirectoryFileEx.c)
- *     NtReadFileScatter @ 0x1407E75F0 (NtReadFileScatter.c)
- *     NtWriteFileGather @ 0x1407E8870 (NtWriteFileGather.c)
- *     NtSetVolumeInformationFile @ 0x140881DA0 (NtSetVolumeInformationFile.c)
- *     IoSetInformation @ 0x1408836C0 (IoSetInformation.c)
- *     IopSetEaOrQuotaInformationFile @ 0x140945B70 (IopSetEaOrQuotaInformationFile.c)
- *     NtSetEaFile @ 0x14094AD10 (NtSetEaFile.c)
- *     NtQueryQuotaInformationFile @ 0x14094B320 (NtQueryQuotaInformationFile.c)
+ *     NtSetInformationFile @ 0x1402D2A20 (NtSetInformationFile.c)
+ *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
+ *     IopQueryXxxInformation @ 0x140633A38 (IopQueryXxxInformation.c)
+ *     IopXxxControlFile @ 0x14064B730 (IopXxxControlFile.c)
+ *     NtLockFile @ 0x140655E20 (NtLockFile.c)
+ *     NtUnlockFile @ 0x140674110 (NtUnlockFile.c)
+ *     NtFlushBuffersFileEx @ 0x14067D120 (NtFlushBuffersFileEx.c)
+ *     NtReadFileScatter @ 0x14067E2A0 (NtReadFileScatter.c)
+ *     NtWriteFileGather @ 0x14067EA40 (NtWriteFileGather.c)
+ *     NtQueryEaFile @ 0x14067F740 (NtQueryEaFile.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x140691690 (NtNotifyChangeDirectoryFileEx.c)
+ *     IopGetSetSecurityObject @ 0x1406C8520 (IopGetSetSecurityObject.c)
+ *     BuildQueryDirectoryIrp @ 0x1406C8A70 (BuildQueryDirectoryIrp.c)
+ *     NtQueryVolumeInformationFile @ 0x1406C9680 (NtQueryVolumeInformationFile.c)
+ *     NtSetEaFile @ 0x140731000 (NtSetEaFile.c)
+ *     NtSetVolumeInformationFile @ 0x14076C940 (NtSetVolumeInformationFile.c)
+ *     IoSetInformation @ 0x14077BFD0 (IoSetInformation.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x1408923FC (IopSetEaOrQuotaInformationFile.c)
+ *     NtQueryQuotaInformationFile @ 0x140895B90 (NtQueryQuotaInformationFile.c)
  * Callees:
- *     IopReleaseFileObjectLock @ 0x1402314E0 (IopReleaseFileObjectLock.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     IopReleaseFileObjectLock @ 0x1402CDEE0 (IopReleaseFileObjectLock.c)
  */
 
-LONG_PTR __fastcall IopAllocateIrpCleanup(volatile __int32 *Object, PVOID a2)
+void __fastcall IopAllocateIrpCleanup(PADAPTER_OBJECT DmaAdapter, PADAPTER_OBJECT a2)
 {
   if ( a2 )
-    ObfDereferenceObject(a2);
-  if ( (Object[20] & 2) != 0 )
-    IopReleaseFileObjectLock(Object);
-  return ObfDereferenceObject((PVOID)Object);
+    HalPutDmaAdapter(a2);
+  if ( (*(_DWORD *)&DmaAdapter[5].Version & 2) != 0 )
+    IopReleaseFileObjectLock(DmaAdapter);
+  HalPutDmaAdapter(DmaAdapter);
 }

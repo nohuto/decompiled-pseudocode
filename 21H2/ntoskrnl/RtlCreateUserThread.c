@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCreateUserThread @ 0x1409B5BB0
+ * XREFs of RtlCreateUserThread @ 0x14090FFC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpCreateUserThreadEx @ 0x14074F4F0 (RtlpCreateUserThreadEx.c)
+ *     RtlpCreateUserThreadEx @ 0x14067F1E0 (RtlpCreateUserThreadEx.c)
  */
 
 __int64 __fastcall RtlCreateUserThread(

@@ -1,12 +1,12 @@
 /*
- * XREFs of Simulator_TestNotify @ 0x1C0049990
+ * XREFs of Simulator_TestNotify @ 0x1C00642C0
  * Callers:
- *     Simulator_NotifyNamespaceCollision @ 0x1C00493C0 (Simulator_NotifyNamespaceCollision.c)
- *     Simulator_Pre_AsyncEvalObject @ 0x1C004961C (Simulator_Pre_AsyncEvalObject.c)
- *     Simulator_Pre_EvalNameSpaceObject @ 0x1C0049718 (Simulator_Pre_EvalNameSpaceObject.c)
- *     Simulator_Pre_RegEventHandler @ 0x1C00497EC (Simulator_Pre_RegEventHandler.c)
- *     Simulator_RefreshTree @ 0x1C0049890 (Simulator_RefreshTree.c)
- *     Simulator_NotifyTablesAreLoaded @ 0x1C00AB370 (Simulator_NotifyTablesAreLoaded.c)
+ *     Simulator_NotifyNamespaceCollision @ 0x1C0063CF0 (Simulator_NotifyNamespaceCollision.c)
+ *     Simulator_Pre_AsyncEvalObject @ 0x1C0063F4C (Simulator_Pre_AsyncEvalObject.c)
+ *     Simulator_Pre_EvalNameSpaceObject @ 0x1C0064048 (Simulator_Pre_EvalNameSpaceObject.c)
+ *     Simulator_Pre_RegEventHandler @ 0x1C006411C (Simulator_Pre_RegEventHandler.c)
+ *     Simulator_RefreshTree @ 0x1C00641C0 (Simulator_RefreshTree.c)
+ *     Simulator_NotifyTablesAreLoaded @ 0x1C00C06CC (Simulator_NotifyTablesAreLoaded.c)
  * Callees:
  *     <none>
  */

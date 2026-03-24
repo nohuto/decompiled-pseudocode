@@ -1,27 +1,25 @@
 /*
- * XREFs of PfpPrefetchSharedConflictNotifyEnd @ 0x140661FA0
+ * XREFs of PfpPrefetchSharedConflictNotifyEnd @ 0x1408DFBF0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     KeAbPostReleaseEx @ 0x140353BB0 (KeAbPostReleaseEx.c)
- *     PfpPrefetchSharedDeref @ 0x1406AE46C (PfpPrefetchSharedDeref.c)
+ *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     PfpPrefetchSharedDeref @ 0x1406C6C38 (PfpPrefetchSharedDeref.c)
  */
 
-__int64 __fastcall PfpPrefetchSharedConflictNotifyEnd(ULONG_PTR *a1, unsigned __int64 a2)
+void __fastcall PfpPrefetchSharedConflictNotifyEnd(volatile signed __int64 *a1, ULONG_PTR a2)
 {
   ULONG_PTR *v4; // rbx
-  __int64 result; // rax
 
   if ( a2 )
   {
-    v4 = a1;
+    v4 = (ULONG_PTR *)a1;
     if ( !a1 )
       v4 = &PfGlobals;
-    KeAbPreAcquire((__int64)v4, a2);
-    result = KeAbPostReleaseEx((ULONG_PTR)v4, a2);
+    KeAbPreAcquire((ULONG_PTR)v4, a2, 0);
+    KeAbPostReleaseEx((ULONG_PTR)v4, a2);
   }
   if ( a1 )
-    return PfpPrefetchSharedDeref(a1);
-  return result;
+    PfpPrefetchSharedDeref(a1);
 }

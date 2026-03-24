@@ -1,96 +1,94 @@
 /*
- * XREFs of CmpClearKeyAccessBits @ 0x1406BF110
+ * XREFs of CmpClearKeyAccessBits @ 0x1406A961C
  * Callers:
- *     CmpReorganizeHive @ 0x14068B1C8 (CmpReorganizeHive.c)
+ *     CmpReorganizeHive @ 0x140720AB8 (CmpReorganizeHive.c)
  * Callees:
- *     CmpFindSubKeyByNumber @ 0x1406BF278 (CmpFindSubKeyByNumber.c)
- *     CmpLogClearAccessBitsEvent @ 0x1406BF344 (CmpLogClearAccessBitsEvent.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     HvpMarkCellDirty @ 0x14071F300 (HvpMarkCellDirty.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByNumber @ 0x1405F34E0 (CmpFindSubKeyByNumber.c)
+ *     CmpLogClearAccessBitsEvent @ 0x1406A9784 (CmpLogClearAccessBitsEvent.c)
+ *     HvpMarkCellDirty @ 0x140708420 (HvpMarkCellDirty.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmpClearKeyAccessBits(ULONG_PTR BugCheckParameter3, __int64 a2)
+__int64 __fastcall CmpClearKeyAccessBits(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   _QWORD *PoolWithTag; // rsi
-  __int64 v4; // r14
-  unsigned int v5; // ecx
-  unsigned int v6; // r13d
-  __int64 CellFlat; // rax
-  __int64 v8; // r15
-  int SubKeyByNumber; // edi
-  _DWORD v11[4]; // [rsp+20h] [rbp-10h] BYREF
-  int v13; // [rsp+88h] [rbp+58h]
+  __int64 v5; // rbp
+  unsigned int v6; // ecx
+  int v7; // r12d
+  unsigned int v8; // r14d
+  __int64 v9; // rax
+  __int64 v10; // rbx
+  unsigned int v11; // r8d
+  int SubKeyByNumber; // ebx
+  unsigned int v14; // [rsp+70h] [rbp+18h] BYREF
+  int v15; // [rsp+78h] [rbp+20h] BYREF
+  int v16; // [rsp+7Ch] [rbp+24h]
 
-  v11[0] = -1;
-  v11[1] = 0;
+  v14 = 0;
+  v16 = 0;
+  v15 = -1;
   PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x317A6D43u);
   if ( !PoolWithTag )
     return 3221225626LL;
-  v4 = 0LL;
-  v5 = *(_DWORD *)(*(_QWORD *)(BugCheckParameter3 + 64) + 36LL);
-  *PoolWithTag = v5;
-  if ( v5 == -1 )
+  v5 = 0LL;
+  v6 = *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 36LL);
+  *PoolWithTag = v6;
+  if ( v6 == -1 )
   {
     SubKeyByNumber = 0;
-    goto LABEL_19;
   }
-  v6 = 0;
-  v13 = *(_DWORD *)(BugCheckParameter3 + 104);
-  while ( 1 )
-  {
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      CellFlat = HvpGetCellFlat(BugCheckParameter3, LODWORD(PoolWithTag[v4]));
-    else
-      CellFlat = HvpGetCellPaged(BugCheckParameter3);
-    v8 = CellFlat;
-    if ( !CellFlat )
-    {
-      SubKeyByNumber = -1073741670;
-      goto LABEL_19;
-    }
-    if ( *(_BYTE *)(CellFlat + 12) )
-    {
-      SubKeyByNumber = HvpMarkCellDirty(BugCheckParameter3, LODWORD(PoolWithTag[v4]));
-      if ( SubKeyByNumber < 0 )
-        goto LABEL_17;
-      *(_BYTE *)(v8 + 12) = 0;
-      ++v6;
-    }
-    if ( HIDWORD(PoolWithTag[v4]) >= *(_DWORD *)(v8 + 20) )
-      break;
-    if ( (_DWORD)v4 == 511 )
-      goto LABEL_10;
-    SubKeyByNumber = CmpFindSubKeyByNumber(BugCheckParameter3);
-    if ( SubKeyByNumber < 0 )
-      goto LABEL_17;
-    ++HIDWORD(PoolWithTag[v4]);
-    v4 = (unsigned int)(v4 + 1);
-    PoolWithTag[v4] = 0LL;
-LABEL_11:
-    if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(BugCheckParameter3, v11);
-    else
-      HvpReleaseCellPaged(BugCheckParameter3, v11);
-  }
-  if ( (_DWORD)v4 )
-  {
-LABEL_10:
-    v4 = (unsigned int)(v4 - 1);
-    goto LABEL_11;
-  }
-  CmpLogClearAccessBitsEvent(a2, v6, (unsigned int)(*(_DWORD *)(BugCheckParameter3 + 104) - v13) >> 3);
-  SubKeyByNumber = 0;
-LABEL_17:
-  if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(BugCheckParameter3, v11);
   else
-    HvpReleaseCellPaged(BugCheckParameter3, v11);
-LABEL_19:
+  {
+    v7 = *(_DWORD *)(BugCheckParameter2 + 104);
+    v8 = 0;
+    while ( 1 )
+    {
+      v9 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, int *))(BugCheckParameter2 + 8))(
+             BugCheckParameter2,
+             LODWORD(PoolWithTag[v5]),
+             &v15);
+      v10 = v9;
+      if ( !v9 )
+        break;
+      if ( *(_BYTE *)(v9 + 12) )
+      {
+        if ( !(unsigned __int8)HvpMarkCellDirty(BugCheckParameter2, LODWORD(PoolWithTag[v5])) )
+        {
+          SubKeyByNumber = -1073741670;
+          goto LABEL_14;
+        }
+        *(_BYTE *)(v10 + 12) = 0;
+        ++v8;
+      }
+      v11 = HIDWORD(PoolWithTag[v5]);
+      if ( v11 >= *(_DWORD *)(v10 + 20) || (_DWORD)v5 == 511 )
+      {
+        if ( !(_DWORD)v5 )
+        {
+          CmpLogClearAccessBitsEvent(a2, v8, (unsigned int)(*(_DWORD *)(BugCheckParameter2 + 104) - v7) >> 3);
+          SubKeyByNumber = 0;
+LABEL_14:
+          (*(void (__fastcall **)(ULONG_PTR, int *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v15);
+          goto LABEL_15;
+        }
+        v5 = (unsigned int)(v5 - 1);
+      }
+      else
+      {
+        SubKeyByNumber = CmpFindSubKeyByNumber(BugCheckParameter2, (_DWORD *)v10, v11, &v14);
+        if ( SubKeyByNumber < 0 )
+          goto LABEL_14;
+        ++HIDWORD(PoolWithTag[v5]);
+        v5 = (unsigned int)(v5 + 1);
+        PoolWithTag[v5] = v14;
+      }
+      (*(void (__fastcall **)(ULONG_PTR, int *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v15);
+    }
+    SubKeyByNumber = -1073741670;
+  }
+LABEL_15:
   ExFreePoolWithTag(PoolWithTag, 0);
   return (unsigned int)SubKeyByNumber;
 }

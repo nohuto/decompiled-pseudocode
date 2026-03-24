@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlpNewSecurityObject @ 0x14062D630
  * Callers:
- *     SeAssignSecurityEx2 @ 0x1400A8F10 (SeAssignSecurityEx2.c)
+ *     SeAssignSecurityEx2 @ 0x1400A8F30 (SeAssignSecurityEx2.c)
  *     SeAssignSecurity @ 0x1405AD0F0 (SeAssignSecurity.c)
  *     RtlpNewSecurityObject @ 0x14062D630 (RtlpNewSecurityObject.c)
  * Callees:
@@ -10,15 +10,15 @@
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
- *     RtlFindAceByType @ 0x1400A8F90 (RtlFindAceByType.c)
- *     SepLocateTokenTrustLevel @ 0x1400A8FE4 (SepLocateTokenTrustLevel.c)
- *     SepLocateTokenIntegrity @ 0x1400A902C (SepLocateTokenIntegrity.c)
- *     RtlSidDominates @ 0x1400A9210 (RtlSidDominates.c)
- *     RtlSubAuthoritySid @ 0x1400DCAD0 (RtlSubAuthoritySid.c)
- *     RtlpValidTrustSubjectContext @ 0x14016CA9C (RtlpValidTrustSubjectContext.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlFindAceByType @ 0x1400A8FB0 (RtlFindAceByType.c)
+ *     SepLocateTokenTrustLevel @ 0x1400A9004 (SepLocateTokenTrustLevel.c)
+ *     SepLocateTokenIntegrity @ 0x1400A904C (SepLocateTokenIntegrity.c)
+ *     RtlSidDominates @ 0x1400A9230 (RtlSidDominates.c)
+ *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
+ *     RtlpValidTrustSubjectContext @ 0x14016CABC (RtlpValidTrustSubjectContext.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
@@ -30,10 +30,10 @@
  *     RtlpApplyAclToObject @ 0x14062F630 (RtlpApplyAclToObject.c)
  *     RtlpCombineAcls @ 0x14062F700 (RtlpCombineAcls.c)
  *     RtlAddMandatoryAce @ 0x1406308A0 (RtlAddMandatoryAce.c)
- *     SepValidOwnerSubjectContext @ 0x1406A52EC (SepValidOwnerSubjectContext.c)
- *     RtlAddProcessTrustLabelAce @ 0x140727950 (RtlAddProcessTrustLabelAce.c)
- *     RtlpComputeMergedAcl @ 0x1408944FC (RtlpComputeMergedAcl.c)
- *     RtlpCreateServerAcl @ 0x140894920 (RtlpCreateServerAcl.c)
+ *     SepValidOwnerSubjectContext @ 0x1406A52CC (SepValidOwnerSubjectContext.c)
+ *     RtlAddProcessTrustLabelAce @ 0x140727930 (RtlAddProcessTrustLabelAce.c)
+ *     RtlpComputeMergedAcl @ 0x1408944DC (RtlpComputeMergedAcl.c)
+ *     RtlpCreateServerAcl @ 0x140894900 (RtlpCreateServerAcl.c)
  */
 
 __int64 __fastcall RtlpNewSecurityObject(

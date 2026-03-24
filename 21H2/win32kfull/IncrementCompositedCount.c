@@ -1,11 +1,11 @@
 /*
- * XREFs of IncrementCompositedCount @ 0x1C01E25D4
+ * XREFs of IncrementCompositedCount @ 0x1C01E7F40
  * Callers:
- *     SetRedirectedWindow @ 0x1C001F9FC (SetRedirectedWindow.c)
- *     SetVisible @ 0x1C001FE88 (SetVisible.c)
- *     ?IncComposited@@YAXPEAUtagWND@@@Z @ 0x1C0239040 (-IncComposited@@YAXPEAUtagWND@@@Z.c)
+ *     SetVisible @ 0x1C004BD40 (SetVisible.c)
+ *     SetRedirectedWindow @ 0x1C00BD1BC (SetRedirectedWindow.c)
+ *     ?IncComposited@@YAXPEAUtagWND@@@Z @ 0x1C023DC70 (-IncComposited@@YAXPEAUtagWND@@@Z.c)
  * Callees:
- *     _SetSystemTimer @ 0x1C00C2F28 (_SetSystemTimer.c)
+ *     _SetSystemTimer @ 0x1C002CAB8 (_SetSystemTimer.c)
  */
 
 __int64 __fastcall IncrementCompositedCount(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall IncrementCompositedCount(__int64 a1)
   if ( (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 31LL) & 0x10) != 0 )
   {
     if ( !g_cVisibleComposited++ )
-      SetSystemTimer(gTermIO[1], 65525LL, 0x64u, (__int64)xxxSystemTimerProc, 1);
+      SetSystemTimer(gTermIO[1], 65525, 100, (int)xxxSystemTimerProc, 1);
     return 1;
   }
   return v1;

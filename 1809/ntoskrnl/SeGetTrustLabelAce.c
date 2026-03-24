@@ -1,12 +1,12 @@
 /*
- * XREFs of SeGetTrustLabelAce @ 0x1400AA930
+ * XREFs of SeGetTrustLabelAce @ 0x1400AA950
  * Callers:
- *     SepTrustLevelCheck @ 0x1400AA8B8 (SepTrustLevelCheck.c)
- *     SepVerifyDesktopAppxImage @ 0x1402FEF10 (SepVerifyDesktopAppxImage.c)
+ *     SepTrustLevelCheck @ 0x1400AA8D8 (SepTrustLevelCheck.c)
+ *     SepVerifyDesktopAppxImage @ 0x1402FF010 (SepVerifyDesktopAppxImage.c)
  *     MiAllowImageMap @ 0x1405F48B8 (MiAllowImageMap.c)
  *     SeAdjustAccessStateForAccessConstraints @ 0x140631880 (SeAdjustAccessStateForAccessConstraints.c)
  *     SeShouldCheckForAccessRightsFromParent @ 0x1406319B0 (SeShouldCheckForAccessRightsFromParent.c)
- *     SepAdjustAccessStateForConstraints @ 0x1407056DC (SepAdjustAccessStateForConstraints.c)
+ *     SepAdjustAccessStateForConstraints @ 0x1407056BC (SepAdjustAccessStateForConstraints.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiDeleteBootRange @ 0x1401810E0
+ * XREFs of MiDeleteBootRange @ 0x140181100
  * Callers:
- *     MmFreeBootRegistry @ 0x1407366F8 (MmFreeBootRegistry.c)
+ *     MmFreeBootRegistry @ 0x1407366D8 (MmFreeBootRegistry.c)
  *     MmFreeLoaderBlock @ 0x1409C5164 (MmFreeLoaderBlock.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
@@ -16,8 +16,8 @@
  *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 unsigned __int64 __fastcall MiDeleteBootRange(unsigned __int64 a1, unsigned __int64 a2, int a3)

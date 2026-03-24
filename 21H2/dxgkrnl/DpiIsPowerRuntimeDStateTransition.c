@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiIsPowerRuntimeDStateTransition @ 0x1C01B45A0
+ * XREFs of DpiIsPowerRuntimeDStateTransition @ 0x1C0121ADC
  * Callers:
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01B445C (DpiAcquireCoreSyncAccessSafe.c)
- *     DpiFdoSetAdapterPowerState @ 0x1C01EFEE0 (DpiFdoSetAdapterPowerState.c)
- *     DpiFdoHandleDevicePower @ 0x1C01F0950 (DpiFdoHandleDevicePower.c)
- *     DpiPowerArbiterThread @ 0x1C0217840 (DpiPowerArbiterThread.c)
- *     DpiLdaPowerDownAllAdaptersInChain @ 0x1C0396530 (DpiLdaPowerDownAllAdaptersInChain.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C01219AC (DpiAcquireCoreSyncAccessSafe.c)
+ *     DpiFdoSetAdapterPowerState @ 0x1C0176470 (DpiFdoSetAdapterPowerState.c)
+ *     DpiFdoHandleDevicePower @ 0x1C01771F0 (DpiFdoHandleDevicePower.c)
+ *     DpiPowerArbiterThread @ 0x1C019D6B0 (DpiPowerArbiterThread.c)
+ *     DpiLdaPowerDownAllAdaptersInChain @ 0x1C02D7EAC (DpiLdaPowerDownAllAdaptersInChain.c)
  * Callees:
  *     <none>
  */

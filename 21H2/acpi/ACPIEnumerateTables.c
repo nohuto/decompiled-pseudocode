@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIEnumerateTables @ 0x1C00A0698
+ * XREFs of ACPIEnumerateTables @ 0x1C00A2E40
  * Callers:
- *     ACPIEnumMapTableHandler @ 0x1C0001990 (ACPIEnumMapTableHandler.c)
+ *     ACPIEnumMapTableHandler @ 0x1C0002940 (ACPIEnumMapTableHandler.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ACPIEnumerateTables(_DWORD *a1, unsigned int *a2)
@@ -59,7 +59,7 @@ __int64 __fastcall ACPIEnumerateTables(_DWORD *a1, unsigned int *a2)
         4u,
         6u,
         0x1Eu,
-        (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids);
+        (__int64)&WPP_46b15d9ca9c23528b9d260ad71f05863_Traceguids);
     return (unsigned int)-1072431079;
   }
   return v4;

@@ -1,21 +1,21 @@
 /*
- * XREFs of PoSetThermalPassiveCooling @ 0x140982DA0
+ * XREFs of PoSetThermalPassiveCooling @ 0x1408E2A60
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     PopPropogateCoolingChange @ 0x140586D90 (PopPropogateCoolingChange.c)
- *     PoGetThermalRequestSupport @ 0x140860FB0 (PoGetThermalRequestSupport.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x14098B070 (PopThermalUpdatePassiveTimeTracking.c)
- *     PopDiagTraceThermalRequestPassiveUpdate @ 0x140991ED4 (PopDiagTraceThermalRequestPassiveUpdate.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     PopPropogateCoolingChange @ 0x1403C95B4 (PopPropogateCoolingChange.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140778578 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PoGetThermalRequestSupport @ 0x1407C8130 (PoGetThermalRequestSupport.c)
+ *     PopDiagTraceThermalRequestPassiveUpdate @ 0x1408EBAE0 (PopDiagTraceThermalRequestPassiveUpdate.c)
  */
 
 __int64 __fastcall PoSetThermalPassiveCooling(__int64 a1, unsigned __int8 a2)
 {
   unsigned int v4; // ebx
   __int64 v5; // r14
-  __int64 v6; // rdx
+  unsigned __int8 v6; // dl
 
   v4 = 0;
   if ( PoGetThermalRequestSupport(a1, 0) )
@@ -26,8 +26,8 @@ __int64 __fastcall PoSetThermalPassiveCooling(__int64 a1, unsigned __int8 a2)
       PopAcquireRwLockExclusive(v5 + 32);
       if ( *(_BYTE *)(a1 + 18) )
       {
-        LOBYTE(v6) = *(_BYTE *)(a1 + 16);
-        if ( (_BYTE)v6 != a2 )
+        v6 = *(_BYTE *)(a1 + 16);
+        if ( v6 != a2 )
         {
           PopThermalUpdatePassiveTimeTracking(a1 + 40, v6);
           *(_BYTE *)(a1 + 16) = a2;
@@ -39,7 +39,7 @@ __int64 __fastcall PoSetThermalPassiveCooling(__int64 a1, unsigned __int8 a2)
       {
         v4 = -1073741431;
       }
-      PopReleaseRwLock((__int64 *)(v5 + 32));
+      PopReleaseRwLock(v5 + 32);
     }
     else
     {

@@ -1,9 +1,9 @@
 /*
- * XREFs of GreFlush @ 0x1C00278A0
+ * XREFs of GreFlush @ 0x1C0082E40
  * Callers:
  *     <none>
  * Callees:
- *     ?vSynchronizeDriver@@YAXK@Z @ 0x1C00278BC (-vSynchronizeDriver@@YAXK@Z.c)
+ *     ?vSynchronizeDriver@@YAXK@Z @ 0x1C0082E5C (-vSynchronizeDriver@@YAXK@Z.c)
  */
 
 void GreFlush()

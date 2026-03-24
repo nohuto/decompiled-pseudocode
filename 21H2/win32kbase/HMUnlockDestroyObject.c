@@ -1,20 +1,22 @@
 /*
- * XREFs of HMUnlockDestroyObject @ 0x1C00D0300
+ * XREFs of HMUnlockDestroyObject @ 0x1C0007E90
  * Callers:
  *     <none>
  * Callees:
- *     HMUnlockObject @ 0x1C0038FB0 (HMUnlockObject.c)
- *     ?HMMarkObjectDestroyWorker@@YAHPEAX@Z @ 0x1C004E6D0 (-HMMarkObjectDestroyWorker@@YAHPEAX@Z.c)
+ *     ?HMMarkObjectDestroyWorker@@YAHPEAX@Z @ 0x1C0008348 (-HMMarkObjectDestroyWorker@@YAHPEAX@Z.c)
+ *     ??0?$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ @ 0x1C0031C90 (--0-$CLockDomainSharedAllowAllRecursion@VDLT_HANDLEMANAGER@@@@QEAA@XZ.c)
+ *     HMUnlockObjectWorker @ 0x1C0045770 (HMUnlockObjectWorker.c)
  */
 
-__int64 __fastcall HMUnlockDestroyObject(_DWORD *a1)
+void *__fastcall HMUnlockDestroyObject(void *a1)
 {
-  __int64 v1; // rcx
+  _BYTE v3[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( a1[2] == 1 )
+  CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>::CLockDomainSharedAllowAllRecursion<DLT_HANDLEMANAGER>(v3);
+  if ( *((_DWORD *)a1 + 2) == 1 )
   {
     HMMarkObjectDestroyWorker(a1);
-    return HMUnlockObject(v1);
+    return (void *)HMUnlockObjectWorker();
   }
-  return (__int64)a1;
+  return a1;
 }

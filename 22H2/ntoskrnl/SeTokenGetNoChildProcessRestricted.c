@@ -1,12 +1,12 @@
 /*
- * XREFs of SeTokenGetNoChildProcessRestricted @ 0x1402265FC
+ * XREFs of SeTokenGetNoChildProcessRestricted @ 0x140251258
  * Callers:
- *     SeSubProcessToken @ 0x1406B71F8 (SeSubProcessToken.c)
- *     PspGetNoChildProcessRestrictedPolicy @ 0x1407EA400 (PspGetNoChildProcessRestrictedPolicy.c)
+ *     SeSubProcessToken @ 0x140603E44 (SeSubProcessToken.c)
+ *     PspGetNoChildProcessRestrictedPolicy @ 0x1406A5360 (PspGetNoChildProcessRestrictedPolicy.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
  */
 
 bool __fastcall SeTokenGetNoChildProcessRestricted(__int64 a1, bool *a2, bool *a3, bool *a4)
@@ -20,7 +20,7 @@ bool __fastcall SeTokenGetNoChildProcessRestricted(__int64 a1, bool *a2, bool *a
   ExAcquireResourceSharedLite(*(PERESOURCE *)(a1 + 48), 1u);
   v9 = *(_DWORD *)(a1 + 200);
   ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
-  KeLeaveCriticalRegionThread(KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   *a2 = (v9 & 0x80000) != 0;
   result = (v9 & 0x100000) != 0;
   *a3 = result;

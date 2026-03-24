@@ -1,5 +1,5 @@
 /*
- * XREFs of VfXdvExcludeParseRegistryString @ 0x1409F8AF4
+ * XREFs of VfXdvExcludeParseRegistryString @ 0x1409F8B04
  * Callers:
  *     VfInitBootDriversLoaded @ 0x1409B7610 (VfInitBootDriversLoaded.c)
  * Callees:
@@ -92,13 +92,13 @@ int VfXdvExcludeParseRegistryString()
             if ( Entry )
             {
               VfDriverLock();
-              v9 = (_QWORD *)qword_14040D2B8;
-              if ( *(__int64 **)qword_14040D2B8 != &VfXdvExcludedDriversList )
+              v9 = (_QWORD *)qword_14040D298;
+              if ( *(__int64 **)qword_14040D298 != &VfXdvExcludedDriversList )
                 __fastfail(3u);
               *v8 = &VfXdvExcludedDriversList;
               v8[1] = v9;
               *v9 = v8;
-              qword_14040D2B8 = (__int64)v8;
+              qword_14040D298 = (__int64)v8;
               LODWORD(Entry) = VfDriverUnlock();
             }
           }

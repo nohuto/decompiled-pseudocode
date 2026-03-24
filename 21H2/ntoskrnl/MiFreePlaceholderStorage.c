@@ -1,27 +1,26 @@
 /*
- * XREFs of MiFreePlaceholderStorage @ 0x1406EBA90
+ * XREFs of MiFreePlaceholderStorage @ 0x1406C3E08
  * Callers:
- *     MiMapViewOfDataSection @ 0x1406FB4D0 (MiMapViewOfDataSection.c)
- *     MiInitializePartialVad @ 0x14079D7A8 (MiInitializePartialVad.c)
- *     MiDeleteNewlyCreatedPartialVads @ 0x14097ECFC (MiDeleteNewlyCreatedPartialVads.c)
- *     MiAllocateChildVads @ 0x1409800F4 (MiAllocateChildVads.c)
- *     MiDeletePartialCloneVads @ 0x140980B94 (MiDeletePartialCloneVads.c)
+ *     MiDeletePartialVad @ 0x1402FD8DC (MiDeletePartialVad.c)
+ *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
+ *     MiAllocateChildVads @ 0x1408D8A90 (MiAllocateChildVads.c)
+ *     MiDeletePartialCloneVads @ 0x1408D9528 (MiDeletePartialCloneVads.c)
  * Callees:
- *     MiGetVadWakeList @ 0x14030E280 (MiGetVadWakeList.c)
- *     MiFreePlaceholderVadEvent @ 0x14097EFF0 (MiFreePlaceholderVadEvent.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiGetVadWakeList @ 0x140318020 (MiGetVadWakeList.c)
+ *     MiFreePlaceholderVadEvent @ 0x1408D8468 (MiFreePlaceholderVadEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiFreePlaceholderStorage(__int64 a1)
+void __fastcall MiFreePlaceholderStorage(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  unsigned __int64 VadWakeList; // rax
-  void *v2; // rbx
+  __int64 *VadWakeList; // rax
+  __int64 *v5; // rbx
 
-  VadWakeList = MiGetVadWakeList(a1, 128);
-  v2 = (void *)VadWakeList;
+  VadWakeList = MiGetVadWakeList(a1, 128, a3, a4);
+  v5 = VadWakeList;
   if ( VadWakeList )
   {
     MiFreePlaceholderVadEvent(VadWakeList);
-    ExFreePoolWithTag(v2, 0);
+    ExFreePoolWithTag(v5, 0);
   }
 }

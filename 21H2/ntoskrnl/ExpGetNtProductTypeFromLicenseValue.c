@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpGetNtProductTypeFromLicenseValue @ 0x140845800
+ * XREFs of ExpGetNtProductTypeFromLicenseValue @ 0x140798D18
  * Callers:
- *     ExpWatchProductTypeInitialization @ 0x140B1CC84 (ExpWatchProductTypeInitialization.c)
+ *     ExpWatchProductTypeInitialization @ 0x140A41C04 (ExpWatchProductTypeInitialization.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     NtQueryLicenseValue @ 0x1406A0140 (NtQueryLicenseValue.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     NtQueryLicenseValue @ 0x140720160 (NtQueryLicenseValue.c)
  */
 
 char __fastcall ExpGetNtProductTypeFromLicenseValue(__int64 a1)

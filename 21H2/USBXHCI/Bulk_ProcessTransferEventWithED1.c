@@ -1,29 +1,29 @@
 /*
- * XREFs of Bulk_ProcessTransferEventWithED1 @ 0x1C000E0D4
+ * XREFs of Bulk_ProcessTransferEventWithED1 @ 0x1C000BEB4
  * Callers:
- *     Endpoint_TransferEventHandler @ 0x1C0003980 (Endpoint_TransferEventHandler.c)
- *     Bulk_EP_TransferEventHandler @ 0x1C000E0B0 (Bulk_EP_TransferEventHandler.c)
- *     TR_TransferEventHandler @ 0x1C003FED4 (TR_TransferEventHandler.c)
+ *     Endpoint_TransferEventHandler @ 0x1C0006860 (Endpoint_TransferEventHandler.c)
+ *     Bulk_EP_TransferEventHandler @ 0x1C000BE90 (Bulk_EP_TransferEventHandler.c)
+ *     TR_TransferEventHandler @ 0x1C003F6C0 (TR_TransferEventHandler.c)
  * Callees:
- *     ESM_AddEvent @ 0x1C0005174 (ESM_AddEvent.c)
- *     Endpoint_HaltedCompletionCode @ 0x1C0006D5C (Endpoint_HaltedCompletionCode.c)
- *     WPP_RECORDER_SF_DDDD @ 0x1C000B300 (WPP_RECORDER_SF_DDDD.c)
- *     Bulk_ProcessTransferEventWithStoppedCompletion @ 0x1C000B3F8 (Bulk_ProcessTransferEventWithStoppedCompletion.c)
- *     Bulk_FindStage @ 0x1C000B5B0 (Bulk_FindStage.c)
- *     StageQueue_Release @ 0x1C000E344 (StageQueue_Release.c)
- *     TR_ReleaseSegments @ 0x1C000E380 (TR_ReleaseSegments.c)
- *     Bulk_Transfer_CompleteCancelable @ 0x1C000E3C8 (Bulk_Transfer_CompleteCancelable.c)
- *     Bulk_MapTransfers @ 0x1C000E85C (Bulk_MapTransfers.c)
- *     Bulk_Stage_FreeScatterGatherList @ 0x1C000F744 (Bulk_Stage_FreeScatterGatherList.c)
- *     WPP_RECORDER_SF_DDDqqq @ 0x1C000F794 (WPP_RECORDER_SF_DDDqqq.c)
- *     WPP_RECORDER_SF_DDDqLDDi @ 0x1C000F880 (WPP_RECORDER_SF_DDDqLDDi.c)
- *     Bulk_ValidateStagePointer @ 0x1C000F994 (Bulk_ValidateStagePointer.c)
- *     memmove @ 0x1C0019A00 (memmove.c)
- *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031C54 (Controller_HwVerifierBreakIfEnabled.c)
- *     Controller_ReportFatalError @ 0x1C0032C20 (Controller_ReportFatalError.c)
- *     WPP_RECORDER_SF_DDDDD @ 0x1C003FF60 (WPP_RECORDER_SF_DDDDD.c)
- *     Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C0044A5C (Bulk_ProcessTransferEventWithHaltedCompletion.c)
- *     WPP_RECORDER_SF_DDDi @ 0x1C00453DC (WPP_RECORDER_SF_DDDi.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     Bulk_FindStage @ 0x1C000BD10 (Bulk_FindStage.c)
+ *     Bulk_Transfer_CompleteCancelable @ 0x1C000C124 (Bulk_Transfer_CompleteCancelable.c)
+ *     Bulk_ValidateStagePointer @ 0x1C000C22C (Bulk_ValidateStagePointer.c)
+ *     StageQueue_Release @ 0x1C000C574 (StageQueue_Release.c)
+ *     TR_ReleaseSegments @ 0x1C000C5AC (TR_ReleaseSegments.c)
+ *     Bulk_MapTransfers @ 0x1C000CC18 (Bulk_MapTransfers.c)
+ *     Bulk_Stage_FreeScatterGatherList @ 0x1C000DBA8 (Bulk_Stage_FreeScatterGatherList.c)
+ *     Endpoint_HaltedCompletionCode @ 0x1C000DE20 (Endpoint_HaltedCompletionCode.c)
+ *     WPP_RECORDER_SF_DDDqqq @ 0x1C000DE80 (WPP_RECORDER_SF_DDDqqq.c)
+ *     WPP_RECORDER_SF_DDDqLDDi @ 0x1C000DF6C (WPP_RECORDER_SF_DDDqLDDi.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C000E080 (WPP_RECORDER_SF_dddd.c)
+ *     Bulk_ProcessTransferEventWithStoppedCompletion @ 0x1C000E178 (Bulk_ProcessTransferEventWithStoppedCompletion.c)
+ *     memmove @ 0x1C001B000 (memmove.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0031CC4 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_ReportFatalError @ 0x1C0032BA0 (Controller_ReportFatalError.c)
+ *     WPP_RECORDER_SF_DDDDD @ 0x1C003F810 (WPP_RECORDER_SF_DDDDD.c)
+ *     Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C004445C (Bulk_ProcessTransferEventWithHaltedCompletion.c)
+ *     WPP_RECORDER_SF_DDDi @ 0x1C0044F20 (WPP_RECORDER_SF_DDDi.c)
  */
 
 char __fastcall Bulk_ProcessTransferEventWithED1(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -53,15 +53,12 @@ char __fastcall Bulk_ProcessTransferEventWithED1(__int64 a1, __int64 a2, __int64
   __int64 v28; // rdx
   __int64 v29; // rcx
   int v30; // [rsp+20h] [rbp-88h]
-  __int64 v31; // [rsp+28h] [rbp-80h]
-  __int64 v32; // [rsp+30h] [rbp-78h]
-  __int64 v33; // [rsp+38h] [rbp-70h]
-  __int64 v34; // [rsp+40h] [rbp-68h]
-  unsigned int v35; // [rsp+B8h] [rbp+10h] BYREF
-  __int64 v36; // [rsp+C0h] [rbp+18h] BYREF
+  char v31; // [rsp+40h] [rbp-68h]
+  int v32; // [rsp+B8h] [rbp+10h] BYREF
+  __int64 v33; // [rsp+C0h] [rbp+18h] BYREF
 
   v4 = *(_QWORD *)a1 & 0xFFFFFFFFFFFFFFFCuLL;
-  v36 = 0LL;
+  v33 = 0LL;
   v5 = 0;
   v6 = a2;
   v8 = 0;
@@ -71,14 +68,11 @@ char __fastcall Bulk_ProcessTransferEventWithED1(__int64 a1, __int64 a2, __int64
     v6 = *(_QWORD *)(*(_QWORD *)v4 + 56LL);
 LABEL_4:
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      HIDWORD(v34) = HIDWORD(a1);
       WPP_RECORDER_SF_DDDqLDDi(
         *(_QWORD *)(*(_QWORD *)(v6 + 56) + 80LL),
         *(unsigned __int8 *)(a1 + 15),
         *(unsigned __int8 *)(a1 + 11),
         *(_DWORD *)(a1 + 8) & 0xFFFFFF);
-    }
     v10 = *(_DWORD *)(v4 + 40);
     v11 = *(_DWORD *)(a1 + 8) & 0xFFFFFF;
     if ( v11 > v10 )
@@ -110,24 +104,22 @@ LABEL_4:
         *(_QWORD *)(v9 + 24),
         v9,
         v4);
-    if ( Endpoint_HaltedCompletionCode(*(__m128i ***)(v6 + 56), *(unsigned __int8 *)(a1 + 11)) )
+    if ( (unsigned __int8)Endpoint_HaltedCompletionCode(*(_QWORD *)(v6 + 56), *(unsigned __int8 *)(a1 + 11)) )
     {
       if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LODWORD(v34) = v12;
-        LODWORD(v33) = *(_DWORD *)(v6 + 64);
-        LODWORD(v32) = *(_DWORD *)(v13 + 144);
-        LODWORD(v31) = *(unsigned __int8 *)(*(_QWORD *)(v6 + 48) + 135LL);
-        WPP_RECORDER_SF_DDDD(
+        v31 = v12;
+        LOBYTE(v12) = 2;
+        WPP_RECORDER_SF_dddd(
           *(_QWORD *)(v13 + 80),
-          2u,
-          0xEu,
-          0x3Au,
+          v12,
+          14,
+          58,
           (__int64)&WPP_f900c8e8530d3ebbc4303e7a1e3d0cbe_Traceguids,
-          v31,
-          v32,
-          v33,
-          v34);
+          *(_BYTE *)(*(_QWORD *)(v6 + 48) + 135LL),
+          *(_DWORD *)(v13 + 144),
+          *(_DWORD *)(v6 + 64),
+          v31);
         LOBYTE(v12) = *(_BYTE *)(a1 + 11);
       }
       Bulk_ProcessTransferEventWithHaltedCompletion(v6, v4, (unsigned __int8)v12, v11);
@@ -182,11 +174,11 @@ LABEL_4:
     }
     v20 = *(_QWORD *)(v4 + 96);
     v21 = 16LL * *(unsigned int *)(v4 + 104);
-    v35 = 0;
+    v32 = 0;
     v22 = *(_QWORD *)(v20 + 24) + v21;
     *(_BYTE *)(v6 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v6 + 96));
-    if ( Bulk_FindStage(v6, v22, &v36, &v35) && v36 == v4 )
-      Bulk_ProcessTransferEventWithStoppedCompletion(v6, v4, *(unsigned __int8 *)(a1 + 11), v11, v35);
+    if ( Bulk_FindStage(v6, v22, &v33, &v32) && v33 == v4 )
+      Bulk_ProcessTransferEventWithStoppedCompletion(v6, v4, *(unsigned __int8 *)(a1 + 11), v11, v32);
     *(_DWORD *)(v6 + 324) |= 8u;
     KeReleaseSpinLock((PKSPIN_LOCK)(v6 + 96), *(_BYTE *)(v6 + 104));
     v23 = *(_QWORD **)(v6 + 56);

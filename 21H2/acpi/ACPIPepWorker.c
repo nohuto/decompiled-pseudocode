@@ -1,36 +1,70 @@
 /*
- * XREFs of ACPIPepWorker @ 0x1C00B06E0
+ * XREFs of ACPIPepWorker @ 0x1C00B1420
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     ACPIPepGetNextPlatformNotification @ 0x1C00B03B4 (ACPIPepGetNextPlatformNotification.c)
- *     ACPIPepPlatformEntryExitNotify @ 0x1C00B044C (ACPIPepPlatformEntryExitNotify.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ACPIPepPlatformEntryExitNotify @ 0x1C00B1188 (ACPIPepPlatformEntryExitNotify.c)
  */
 
 void __fastcall ACPIPepWorker(__int64 a1, char a2)
 {
-  struct _FAST_MUTEX *v2; // rdi
-  int v5; // esi
-  int v6; // eax
-  char v7[4]; // [rsp+30h] [rbp-28h] BYREF
-  unsigned int v8; // [rsp+34h] [rbp-24h] BYREF
-  __int128 InputBuffer; // [rsp+38h] [rbp-20h] BYREF
+  struct _FAST_MUTEX *v2; // rsi
+  int v5; // ecx
+  char v6; // bp
+  int v7; // eax
+  int v8; // ecx
+  int v9; // ecx
+  unsigned int v10; // edi
+  int v11; // eax
+  __int128 InputBuffer; // [rsp+30h] [rbp-38h] BYREF
 
-  v8 = 0;
   v2 = (struct _FAST_MUTEX *)(a1 + 184);
-  v7[0] = 0;
   InputBuffer = 0LL;
 LABEL_2:
   ExAcquireFastMutex(v2);
-  while ( ACPIPepGetNextPlatformNotification(a1, &v8, v7) )
+  while ( 1 )
   {
-    v5 = v8;
-    v6 = *(_DWORD *)(a1 + 244);
-    if ( _bittest(&v6, v8) )
+    v5 = *(_DWORD *)(a1 + 248);
+    if ( v5 == *(_DWORD *)(a1 + 252) )
+      break;
+    if ( v5 >= *(_DWORD *)(a1 + 252) )
+    {
+      v6 = 0;
+      v7 = v5 - 1;
+    }
+    else
+    {
+      ++v5;
+      v6 = 1;
+      v7 = v5;
+    }
+    *(_DWORD *)(a1 + 248) = v7;
+    v8 = v5 - 1;
+    if ( v8 )
+    {
+      v9 = v8 - 1;
+      if ( v9 )
+      {
+        if ( v9 == 1 )
+          v10 = 0;
+        else
+          v10 = -1;
+      }
+      else
+      {
+        v10 = 2;
+      }
+    }
+    else
+    {
+      v10 = 1;
+    }
+    v11 = *(_DWORD *)(a1 + 244);
+    if ( _bittest(&v11, v10) )
     {
       ExReleaseFastMutex(v2);
-      ACPIPepPlatformEntryExitNotify(a1, v5, v7[0]);
+      ACPIPepPlatformEntryExitNotify(a1, v10, v6);
       goto LABEL_2;
     }
   }

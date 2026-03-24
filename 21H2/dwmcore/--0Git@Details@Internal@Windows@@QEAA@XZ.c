@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0Git@Details@Internal@Windows@@QEAA@XZ @ 0x18010008C
+ * XREFs of ??0Git@Details@Internal@Windows@@QEAA@XZ @ 0x1800E6B74
  * Callers:
- *     Windows::Internal::Details::_dynamic_initializer_for___git__ @ 0x180003E60 (Windows--Internal--Details--_dynamic_initializer_for___git__.c)
+ *     Windows::Internal::Details::_dynamic_initializer_for___git__ @ 0x1800036A0 (Windows--Internal--Details--_dynamic_initializer_for___git__.c)
  * Callees:
  *     <none>
  */
@@ -12,6 +12,6 @@ int *__fastcall Windows::Internal::Details::Git::Git(Windows::Internal::Details:
 
   Windows::Internal::Details::_git = 0;
   result = &Windows::Internal::Details::_git;
-  qword_1803D35A8 = 0LL;
+  qword_180347580 = 0LL;
   return result;
 }

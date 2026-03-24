@@ -1,15 +1,15 @@
 /*
- * XREFs of PspRemoveProperty @ 0x14010F06C
+ * XREFs of PspRemoveProperty @ 0x14010F08C
  * Callers:
- *     PsSetThreadProperty @ 0x14010F140 (PsSetThreadProperty.c)
- *     PsSetJobProperty @ 0x1402E9B00 (PsSetJobProperty.c)
+ *     PsSetThreadProperty @ 0x14010F160 (PsSetThreadProperty.c)
+ *     PsSetJobProperty @ 0x1402E9C00 (PsSetJobProperty.c)
  *     PspEmptyPropertySet @ 0x1405F7DBC (PspEmptyPropertySet.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     PspFindPropertySetEntry @ 0x14010F4BC (PspFindPropertySetEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     PspFindPropertySetEntry @ 0x14010F4DC (PspFindPropertySetEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

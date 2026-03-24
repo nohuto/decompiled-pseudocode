@@ -1,16 +1,16 @@
 /*
- * XREFs of PoEnergyContextCleanup @ 0x1407E0DC4
+ * XREFs of PoEnergyContextCleanup @ 0x140613CAC
  * Callers:
- *     PspProcessDelete @ 0x1407E0F30 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x1406136C0 (PspProcessDelete.c)
  * Callees:
- *     RtlTimelineBitmapUpdateRange @ 0x140238BF8 (RtlTimelineBitmapUpdateRange.c)
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     KeQueryTimelineBitmapTime @ 0x1402F614C (KeQueryTimelineBitmapTime.c)
- *     RtlStateDurationCapture @ 0x140360EE4 (RtlStateDurationCapture.c)
- *     PopEtAppIdDereference @ 0x140674FE4 (PopEtAppIdDereference.c)
- *     RtlInternEntryDereference @ 0x140675014 (RtlInternEntryDereference.c)
- *     PopEtEnumEnergyTrackers @ 0x1406819CC (PopEtEnumEnergyTrackers.c)
+ *     KeQueryTimelineBitmapTime @ 0x140205720 (KeQueryTimelineBitmapTime.c)
+ *     RtlStateDurationCapture @ 0x140253584 (RtlStateDurationCapture.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     RtlTimelineBitmapUpdateRange @ 0x1402ADF84 (RtlTimelineBitmapUpdateRange.c)
+ *     PopEtAppIdDereference @ 0x140699444 (PopEtAppIdDereference.c)
+ *     RtlInternEntryDereference @ 0x140699474 (RtlInternEntryDereference.c)
+ *     PopEtEnumEnergyTrackers @ 0x1406A74DC (PopEtEnumEnergyTrackers.c)
  */
 
 void __fastcall PoEnergyContextCleanup(__int64 a1)
@@ -24,59 +24,67 @@ void __fastcall PoEnergyContextCleanup(__int64 a1)
   unsigned int v8; // r8d
   __int64 *v9; // rcx
   __int64 v10; // rcx
-  __int64 v11; // rcx
-  __int64 v12; // rdx
-  _DWORD v13[2]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v14; // [rsp+28h] [rbp-30h]
-  __int64 v15; // [rsp+30h] [rbp-28h]
-  _QWORD *v16; // [rsp+38h] [rbp-20h]
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  __int64 v14; // rcx
+  __int64 v15; // rdx
+  int v16; // [rsp+20h] [rbp-38h] BYREF
+  int v17; // [rsp+24h] [rbp-34h]
+  __int64 v18; // [rsp+28h] [rbp-30h]
+  __int64 v19; // [rsp+30h] [rbp-28h]
+  _QWORD *v20; // [rsp+38h] [rbp-20h]
 
   v1 = *(_QWORD **)(a1 + 2280);
-  if ( !v1 )
-    return;
-  v3 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-  v4 = 0LL;
-  TimelineBitmapTime = KeQueryTimelineBitmapTime();
-  v6 = 3LL;
-  do
+  v17 = 0;
+  v19 = 0LL;
+  if ( v1 )
   {
-    v8 = RtlStateDurationCapture((__int64)&v1[v4 + 13], &v1[v4 + 13], v3);
-    if ( v7 == v1 + 13 )
+    v3 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+    v4 = 0LL;
+    TimelineBitmapTime = KeQueryTimelineBitmapTime();
+    v6 = 3LL;
+    do
     {
-      v9 = v1 + 38;
+      v8 = RtlStateDurationCapture((__int64)&v1[v4 + 13], &v1[v4 + 13], v3);
+      if ( v7 == v1 + 13 )
+      {
+        v9 = v1 + 38;
+      }
+      else if ( v7 == v1 + 14 )
+      {
+        v9 = v1 + 39;
+      }
+      else
+      {
+        v9 = 0LL;
+      }
+      if ( v9 && v8 )
+        RtlTimelineBitmapUpdateRange(v9, TimelineBitmapTime - (v8 >> 12), TimelineBitmapTime);
+      ++v4;
+      --v6;
     }
-    else
+    while ( v6 );
+    RtlStateDurationCapture((__int64)(v1 + 52), v1 + 52, v3);
+    v17 = 0;
+    v19 = 0LL;
+    v16 = 4;
+    v20 = v1;
+    v18 = a1;
+    PopAcquireRwLockExclusive((ULONG_PTR)(v1 + 54));
+    PopEtEnumEnergyTrackers(v10, &v16);
+    PopReleaseRwLock((ULONG_PTR)(v1 + 54));
+    v14 = v1[56];
+    if ( v14 )
     {
-      if ( v7 != v1 + 14 )
-        goto LABEL_10;
-      v9 = v1 + 39;
+      PopEtAppIdDereference(v14, v11, v12, v13);
+      v1[56] = 0LL;
     }
-    if ( v9 && v8 )
-      RtlTimelineBitmapUpdateRange(v9, TimelineBitmapTime - (v8 >> 12), TimelineBitmapTime);
-LABEL_10:
-    ++v4;
-    --v6;
-  }
-  while ( v6 );
-  RtlStateDurationCapture((__int64)(v1 + 52), v1 + 52, v3);
-  v13[1] = 0;
-  v15 = 0LL;
-  v13[0] = 4;
-  v16 = v1;
-  v14 = a1;
-  PopAcquireRwLockExclusive((ULONG_PTR)(v1 + 54));
-  PopEtEnumEnergyTrackers(v10, (__int64)v13);
-  PopReleaseRwLock((ULONG_PTR)(v1 + 54));
-  v11 = v1[56];
-  if ( v11 )
-  {
-    PopEtAppIdDereference(v11);
-    v1[56] = 0LL;
-  }
-  v12 = v1[57];
-  if ( v12 )
-  {
-    RtlInternEntryDereference(PopEtGlobals + 56, v12);
-    v1[57] = 0LL;
+    v15 = v1[57];
+    if ( v15 )
+    {
+      RtlInternEntryDereference(PopEtGlobals + 56, v15);
+      v1[57] = 0LL;
+    }
   }
 }

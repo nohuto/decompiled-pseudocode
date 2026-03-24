@@ -1,10 +1,10 @@
 /*
- * XREFs of Isoch_Transfer_CompleteStaleStages @ 0x1C0043454
+ * XREFs of Isoch_Transfer_CompleteStaleStages @ 0x1C0042A48
  * Callers:
- *     Isoch_ProcessTransferEventWithED0 @ 0x1C000AB84 (Isoch_ProcessTransferEventWithED0.c)
+ *     Isoch_ProcessTransferEventWithED0 @ 0x1C0041F88 (Isoch_ProcessTransferEventWithED0.c)
  * Callees:
- *     Isoch_Stage_CompleteTD @ 0x1C00070C0 (Isoch_Stage_CompleteTD.c)
- *     StageQueue_ForwardScanGetNextStage @ 0x1C000FA58 (StageQueue_ForwardScanGetNextStage.c)
+ *     Isoch_Stage_CompleteTD @ 0x1C00021E0 (Isoch_Stage_CompleteTD.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C000C530 (StageQueue_ForwardScanGetNextStage.c)
  */
 
 unsigned __int8 *__fastcall Isoch_Transfer_CompleteStaleStages(__int64 a1, _BYTE *a2, unsigned __int8 *a3)

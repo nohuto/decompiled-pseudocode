@@ -1,8 +1,8 @@
 /*
- * XREFs of SmcStorePlacementGet @ 0x1408AF500
+ * XREFs of SmcStorePlacementGet @ 0x1408AF4E0
  * Callers:
- *     SmcStoreResize @ 0x1408AF61C (SmcStoreResize.c)
- *     SmcStoreSlotReserve @ 0x1408AF9F4 (SmcStoreSlotReserve.c)
+ *     SmcStoreResize @ 0x1408AF5FC (SmcStoreResize.c)
+ *     SmcStoreSlotReserve @ 0x1408AF9D4 (SmcStoreSlotReserve.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     RtlFindSetBits @ 0x14008BE50 (RtlFindSetBits.c)

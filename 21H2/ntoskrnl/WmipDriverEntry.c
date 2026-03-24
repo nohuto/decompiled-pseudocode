@@ -1,20 +1,20 @@
 /*
- * XREFs of WmipDriverEntry @ 0x140B22C40
+ * XREFs of WmipDriverEntry @ 0x140A69AA0
  * Callers:
  *     <none>
  * Callees:
- *     KiInitializeMutant @ 0x140261ADC (KiInitializeMutant.c)
- *     RtlInitAnsiString @ 0x1402A07B0 (RtlInitAnsiString.c)
- *     IoDeleteDevice @ 0x1402D3820 (IoDeleteDevice.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     IoCreateSymbolicLink @ 0x1406C4C40 (IoCreateSymbolicLink.c)
- *     IoWMIRegistrationControl @ 0x1406C8220 (IoWMIRegistrationControl.c)
- *     IoCreateDevice @ 0x14074ED50 (IoCreateDevice.c)
- *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
- *     IoRegisterShutdownNotification @ 0x14084DF00 (IoRegisterShutdownNotification.c)
- *     WmipInitializeSecurity @ 0x140B22DD4 (WmipInitializeSecurity.c)
- *     WmipInitializeDataStructs @ 0x140B2305C (WmipInitializeDataStructs.c)
- *     WmipInitializeRegistration @ 0x140B231D8 (WmipInitializeRegistration.c)
+ *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     KeInitializeMutex @ 0x1402ED1A0 (KeInitializeMutex.c)
+ *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     IoCreateDevice @ 0x14071B4E0 (IoCreateDevice.c)
+ *     IoWMIRegistrationControl @ 0x140754F30 (IoWMIRegistrationControl.c)
+ *     IoCreateSymbolicLink @ 0x14076DC20 (IoCreateSymbolicLink.c)
+ *     IoRegisterShutdownNotification @ 0x1407BE1E0 (IoRegisterShutdownNotification.c)
+ *     WmipInitializeSecurity @ 0x140A69C2C (WmipInitializeSecurity.c)
+ *     WmipInitializeDataStructs @ 0x140A69EBC (WmipInitializeDataStructs.c)
+ *     WmipInitializeRegistration @ 0x140A6A038 (WmipInitializeRegistration.c)
  */
 
 NTSTATUS __fastcall WmipDriverEntry(PDRIVER_OBJECT DriverObject)
@@ -29,7 +29,7 @@ NTSTATUS __fastcall WmipDriverEntry(PDRIVER_OBJECT DriverObject)
   DeviceName = 0LL;
   SymbolicLinkName = 0LL;
   DestinationString = 0LL;
-  KiInitializeMutant((__int64)&WmipSMMutex, 0, 1, 0);
+  KeInitializeMutex(&WmipSMMutex, 0);
   WmipInitializeRegistration(0LL, v2);
   WmipEventWorkQueueItem.Parameter = 0LL;
   WmipEventWorkQueueItem.List.Flink = 0LL;

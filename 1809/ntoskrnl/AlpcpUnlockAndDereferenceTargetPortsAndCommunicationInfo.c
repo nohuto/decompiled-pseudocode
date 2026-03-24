@@ -1,5 +1,5 @@
 /*
- * XREFs of AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406BCE10
+ * XREFs of AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406BCDF0
  * Callers:
  *     AlpcpDispatchCloseMessage @ 0x1406141D8 (AlpcpDispatchCloseMessage.c)
  *     AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x140614368 (AlpcpReferenceAndLockTargetPortsAndCommunicationInfo.c)

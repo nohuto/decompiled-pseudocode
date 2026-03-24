@@ -1,9 +1,9 @@
 /*
- * XREFs of USBHUB_BugCheckSavePortArrayData @ 0x1C00412A0
+ * XREFs of USBHUB_BugCheckSavePortArrayData @ 0x1C0042540
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 void __fastcall USBHUB_BugCheckSavePortArrayData(

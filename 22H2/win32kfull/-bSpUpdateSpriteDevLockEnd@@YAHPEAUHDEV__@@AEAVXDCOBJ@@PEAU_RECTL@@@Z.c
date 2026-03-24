@@ -1,73 +1,71 @@
 /*
- * XREFs of ?bSpUpdateSpriteDevLockEnd@@YAHPEAUHDEV__@@AEAVXDCOBJ@@PEAU_RECTL@@@Z @ 0x1C027ED90
+ * XREFs of ?bSpUpdateSpriteDevLockEnd@@YAHPEAUHDEV__@@AEAVXDCOBJ@@PEAU_RECTL@@@Z @ 0x1C0165178
  * Callers:
- *     ?GdiUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@@Z @ 0x1C0137A34 (-GdiUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ?GdiUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@@Z @ 0x1C0165014 (-GdiUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@@Z.c)
  * Callees:
- *     ?pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C001D7AC (-pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
- *     ?bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPEAU_RECTL@@@Z @ 0x1C00F4380 (-bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPE.c)
- *     ?pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX_N@Z @ 0x1C027F53C (-pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX_N@Z.c)
+ *     ?bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPEAU_RECTL@@@Z @ 0x1C00EF73C (-bSpUpdateSprite@@YAHPEAVSPRITE@@PEAUHDC__@@PEAU_POINTL@@PEAUtagSIZE@@12KPEAU_BLENDFUNCTION@@KPE.c)
+ *     ?pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C00F0050 (-pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
+ *     ?pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C0281748 (-pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
  */
 
 __int64 __fastcall bSpUpdateSpriteDevLockEnd(_DWORD *a1, HDC **a2, struct _RECTL *a3)
 {
   unsigned int v3; // ebx
-  HDC *v7; // r9
-  HDEV v8; // rdi
-  int v9; // r10d
-  const struct _SPRITESTATE *v10; // rcx
+  unsigned int v6; // edi
+  HDEV v7; // rsi
+  int v8; // r10d
+  const struct _SPRITESTATE *v9; // rcx
+  struct tagSIZE v10; // rax
   HWND v11; // rdx
-  int v12; // r9d
-  int v13; // r10d
-  struct _METASPRITE *MetaSprite; // r15
-  __int64 v15; // rsi
   struct SPRITE *Sprite; // rcx
-  HDC *v17; // r9
-  struct _POINTL v18; // [rsp+80h] [rbp+8h] BYREF
-  struct tagSIZE v19; // [rsp+98h] [rbp+20h] BYREF
+  HDC *v13; // r9
+  int v15; // r10d
+  struct _METASPRITE *MetaSprite; // r12
+  unsigned int v17; // r14d
+  struct tagSIZE v18; // [rsp+80h] [rbp+8h] BYREF
 
   v3 = 0;
-  if ( (a1[10] & 0x400) != 0 )
-    return 0LL;
-  v7 = *a2;
-  v8 = (HDEV)(a1 + 20);
-  v18 = 0LL;
-  v9 = a1[35];
-  v10 = (const struct _SPRITESTATE *)(a1 + 20);
-  v11 = (HWND)v7[59];
-  v19 = (struct tagSIZE)v7[64];
-  if ( v9 )
+  v6 = 0;
+  if ( (a1[10] & 0x400) == 0 )
   {
-    MetaSprite = pSpGetMetaSprite(v10, v11, 0LL, 0);
-    if ( MetaSprite )
+    v7 = (HDEV)(a1 + 22);
+    v8 = a1[37];
+    v9 = (const struct _SPRITESTATE *)(a1 + 22);
+    v10 = (struct tagSIZE)(*a2)[64];
+    v11 = (HWND)(*a2)[59];
+    v18 = v10;
+    if ( v8 )
     {
-      v15 = 0LL;
-      v3 = v12 + 1;
-      if ( v13 )
+      MetaSprite = pSpGetMetaSprite(v9, v11, 0LL);
+      if ( MetaSprite )
       {
-        do
+        v6 = 1;
+        v17 = 0;
+        if ( v15 )
         {
-          v3 &= bSpUpdateSprite(
-                  *((struct SPRITE **)MetaSprite + v15 + 3),
-                  0LL,
-                  0LL,
-                  &v19,
-                  **a2,
-                  &v18,
-                  0,
-                  0LL,
-                  0x40200000u,
-                  a3);
-          v15 = (unsigned int)(v15 + 1);
+          do
+            v6 &= bSpUpdateSprite(
+                    *((struct SPRITE **)MetaSprite + v17++ + 3),
+                    0LL,
+                    0LL,
+                    &v18,
+                    **a2,
+                    &gptlZero,
+                    0,
+                    0LL,
+                    0x40200000u,
+                    a3);
+          while ( v17 < *((_DWORD *)v7 + 15) );
         }
-        while ( (unsigned int)v15 < *((_DWORD *)v8 + 15) );
       }
     }
-  }
-  else
-  {
-    Sprite = pSpGetSprite(v10, v11, 0LL);
-    if ( Sprite )
-      return (unsigned int)bSpUpdateSprite(Sprite, 0LL, 0LL, &v19, *v17, &v18, 0, 0LL, 0x40200000u, a3);
+    else
+    {
+      Sprite = pSpGetSprite(v9, v11, 0LL);
+      if ( Sprite )
+        return (unsigned int)bSpUpdateSprite(Sprite, 0LL, 0LL, &v18, *v13, &gptlZero, 0, 0LL, 0x40200000u, a3);
+    }
+    return v6;
   }
   return v3;
 }

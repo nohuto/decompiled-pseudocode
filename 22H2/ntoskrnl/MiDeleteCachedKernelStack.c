@@ -1,26 +1,21 @@
 /*
- * XREFs of MiDeleteCachedKernelStack @ 0x14021EB84
+ * XREFs of MiDeleteCachedKernelStack @ 0x14033B6EC
  * Callers:
- *     MiAdjustCachedStacks @ 0x14021E8DC (MiAdjustCachedStacks.c)
- *     MiPruneCachedStackList @ 0x14021EB20 (MiPruneCachedStackList.c)
- *     MiEmptyKernelStackCache @ 0x140644800 (MiEmptyKernelStackCache.c)
+ *     MiAdjustCachedStacks @ 0x14033B548 (MiAdjustCachedStacks.c)
+ *     MiEmptyKernelStackCache @ 0x1403CFBA4 (MiEmptyKernelStackCache.c)
  * Callees:
- *     MiDeleteKernelStack @ 0x140283870 (MiDeleteKernelStack.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     MiDeleteKernelStack @ 0x14033B750 (MiDeleteKernelStack.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDeleteCachedKernelStack(__int64 a1)
 {
-  ULONG_PTR v1; // r9
-  ULONG_PTR v2; // rcx
-  __int64 v3; // rdx
+  ULONG_PTR v1; // rcx
+  ULONG_PTR v2; // r9
 
-  v1 = *(_QWORD *)(a1 - 16);
-  v2 = a1 - 4080;
-  if ( v1 != (qword_140C699D0 ^ v2) )
-    KeBugCheckEx(0x1Au, 0x3472uLL, v2, v1, qword_140C699D0 ^ v2);
-  v3 = 8LL;
-  if ( *(_DWORD *)(v2 + 4088) != 2 )
-    v3 = 0LL;
-  return MiDeleteKernelStack(((v2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, v3);
+  v1 = a1 - 4080;
+  v2 = *(_QWORD *)(v1 + 4064);
+  if ( v2 != (v1 ^ qword_140C4EEC8) )
+    KeBugCheckEx(0x1Au, 0x3472uLL, v1, v2, v1 ^ qword_140C4EEC8);
+  return MiDeleteKernelStack(((v1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, 0LL);
 }

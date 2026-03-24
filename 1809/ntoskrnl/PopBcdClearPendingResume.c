@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBcdClearPendingResume @ 0x140710FC8
+ * XREFs of PopBcdClearPendingResume @ 0x140710FA8
  * Callers:
- *     PopFreeHiberContext @ 0x1406DFFC0 (PopFreeHiberContext.c)
- *     PoInitHiberServices @ 0x140745CB0 (PoInitHiberServices.c)
+ *     PopFreeHiberContext @ 0x1406DFFA0 (PopFreeHiberContext.c)
+ *     PoInitHiberServices @ 0x140745C90 (PoInitHiberServices.c)
  * Callees:
- *     BcdFlushStore @ 0x1406E25D4 (BcdFlushStore.c)
- *     BiDeleteElement @ 0x1407125BC (BiDeleteElement.c)
- *     BcdOpenObject @ 0x140712E44 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140712FC0 (BcdCloseObject.c)
+ *     BcdFlushStore @ 0x1406E25B4 (BcdFlushStore.c)
+ *     BiDeleteElement @ 0x14071259C (BiDeleteElement.c)
+ *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140712FA0 (BcdCloseObject.c)
  */
 
 __int64 __fastcall PopBcdClearPendingResume(__int64 a1)

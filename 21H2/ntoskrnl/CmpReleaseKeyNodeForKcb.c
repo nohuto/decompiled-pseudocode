@@ -1,20 +1,18 @@
 /*
- * XREFs of CmpReleaseKeyNodeForKcb @ 0x140881426
+ * XREFs of CmpReleaseKeyNodeForKcb @ 0x140863E04
  * Callers:
- *     CmRenameKey @ 0x140912608 (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x140913964 (CmSetKeyFlags.c)
+ *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
+ *     CmDeleteKey @ 0x14066B9F4 (CmDeleteKey.c)
+ *     CmpSetKeySecurity @ 0x14066DF0C (CmpSetKeySecurity.c)
+ *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpAssignKeySecurity @ 0x1407D0450 (CmpAssignKeySecurity.c)
+ *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x14086DC78 (CmSetKeyFlags.c)
  * Callees:
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall CmpReleaseKeyNodeForKcb(__int64 a1, unsigned int *a2)
+__int64 __fastcall CmpReleaseKeyNodeForKcb(__int64 a1)
 {
-  __int64 v2; // rcx
-
-  v2 = *(_QWORD *)(a1 + 32);
-  if ( (*(_BYTE *)(v2 + 140) & 1) != 0 )
-    return HvpReleaseCellFlat(v2, a2);
-  else
-    return HvpReleaseCellPaged(v2, a2);
+  return (*(__int64 (**)(void))(*(_QWORD *)(a1 + 32) + 16LL))();
 }

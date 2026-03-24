@@ -1,12 +1,12 @@
 /*
- * XREFs of DeleteMetricsFont @ 0x1C00C7520
+ * XREFs of DeleteMetricsFont @ 0x1C00E2290
  * Callers:
- *     GetScaledLogFontForDpi @ 0x1C0063C80 (GetScaledLogFontForDpi.c)
- *     InvalidateKMDpiMetricsCacheDPIMETRICS @ 0x1C00C6CC4 (InvalidateKMDpiMetricsCacheDPIMETRICS.c)
- *     ?ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z @ 0x1C00C74E8 (-ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z.c)
- *     ?EnsureServerInfoForDpi@@YAXPEAUtagDPISERVERINFO@@H@Z @ 0x1C01E489C (-EnsureServerInfoForDpi@@YAXPEAUtagDPISERVERINFO@@H@Z.c)
+ *     GetScaledLogFontForDpi @ 0x1C0047AC4 (GetScaledLogFontForDpi.c)
+ *     ?ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z @ 0x1C00E2258 (-ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z.c)
+ *     InvalidateKMDpiMetricsCacheDPIMETRICS @ 0x1C00E2998 (InvalidateKMDpiMetricsCacheDPIMETRICS.c)
+ *     ?EnsureServerInfoForDpi@@YAXPEAUtagDPISERVERINFO@@H@Z @ 0x1C01EA10C (-EnsureServerInfoForDpi@@YAXPEAUtagDPISERVERINFO@@H@Z.c)
  * Callees:
- *     GreMarkDeletableFont @ 0x1C00C5A20 (GreMarkDeletableFont.c)
+ *     GreMarkDeletableFont @ 0x1C00E43C4 (GreMarkDeletableFont.c)
  */
 
 __int64 __fastcall DeleteMetricsFont(struct HLFONT__ *a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of vSrcTranCopyS4D32 @ 0x1C00D9710
+ * XREFs of vSrcTranCopyS4D32 @ 0x1C00D1040
  * Callers:
  *     <none>
  * Callees:
@@ -112,7 +112,7 @@ __int64 __fastcall vSrcTranCopyS4D32(
   v12 = a3;
   v15 = *(_QWORD *)(a11 + 128);
   if ( !v15 )
-    v15 = *(_QWORD *)(*(_QWORD *)(a11 + 48) + 1776LL);
+    v15 = *(_QWORD *)(*(_QWORD *)(a11 + 48) + 1808LL);
   v16 = *(_DWORD *)(v15 + 24);
   if ( (v16 & 2) != 0 )
   {
@@ -188,21 +188,21 @@ __int64 __fastcall vSrcTranCopyS4D32(
             v75 = *v28;
             v76 = (*v28 & v99) >> v98;
             v77 = 4LL * v74;
-            v78 = (char *)&unk_1C02E43F0;
+            v78 = (char *)&unk_1C02E63F0;
             if ( (int)(v102 - v76) >= 0 )
-              v78 = (char *)&unk_1C02E4430;
+              v78 = (char *)&unk_1C02E6430;
             v79 = *(_DWORD *)&v78[v77];
-            v80 = (char *)&unk_1C02E43F0;
+            v80 = (char *)&unk_1C02E63F0;
             v81 = v99 & (((v76 << 16) + (v102 - v76) * v79) >> 16 << v98);
             v82 = (v75 & v91) >> v89;
             if ( (int)(v92 - v82) >= 0 )
-              v80 = (char *)&unk_1C02E4430;
+              v80 = (char *)&unk_1C02E6430;
             v83 = *(_DWORD *)&v80[v77];
-            v84 = (char *)&unk_1C02E43F0;
+            v84 = (char *)&unk_1C02E63F0;
             v85 = v91 & (((v82 << 16) + (v92 - v82) * v83) >> 16 << v89) | v81;
             v86 = (v75 & v20) >> v32;
             if ( (int)(v93 - v86) >= 0 )
-              v84 = (char *)&unk_1C02E4430;
+              v84 = (char *)&unk_1C02E6430;
             v87 = *(_DWORD *)&v84[v77];
             v29 = v100;
             *v28 = v20 & (((v86 << 16) + (v93 - v86) * v87) >> 16 << v32) | v85;
@@ -230,19 +230,19 @@ __int64 __fastcall vSrcTranCopyS4D32(
               v42 = *v34;
               v43 = (*v34 & v99) >> v98;
               v44 = 4LL * v38;
-              v45 = &unk_1C02E43F0;
+              v45 = &unk_1C02E63F0;
               if ( (int)(v102 - v43) >= 0 )
-                v45 = &unk_1C02E4430;
+                v45 = &unk_1C02E6430;
               v46 = v99 & (((v43 << 16) + (v102 - v43) * v45[v38]) >> 16 << v98);
               v47 = (v42 & v91) >> v89;
-              v48 = (char *)&unk_1C02E43F0;
+              v48 = (char *)&unk_1C02E63F0;
               if ( (int)(v92 - v47) >= 0 )
-                v48 = (char *)&unk_1C02E4430;
+                v48 = (char *)&unk_1C02E6430;
               v49 = v91 & (((v47 << 16) + (v92 - v47) * *(_DWORD *)&v48[v44]) >> 16 << v89) | v46;
               v50 = (v42 & v90) >> v103;
-              v51 = (char *)&unk_1C02E43F0;
+              v51 = (char *)&unk_1C02E63F0;
               if ( (int)(v93 - v50) >= 0 )
-                v51 = (char *)&unk_1C02E4430;
+                v51 = (char *)&unk_1C02E6430;
               v35 = v103;
               v40 = v90 & (((v50 << 16) + (v93 - v50) * *(_DWORD *)&v51[v44]) >> 16 << v103) | v49;
             }
@@ -261,20 +261,20 @@ __int64 __fastcall vSrcTranCopyS4D32(
               v52 = v34[1];
               v53 = (v52 & v99) >> v98;
               v54 = 4LL * v39;
-              v55 = &unk_1C02E43F0;
+              v55 = &unk_1C02E63F0;
               if ( (int)(v102 - v53) >= 0 )
-                v55 = &unk_1C02E4430;
+                v55 = &unk_1C02E6430;
               v56 = v99 & (((v53 << 16) + (v102 - v53) * v55[v39]) >> 16 << v98);
               v57 = (v52 & v91) >> v89;
-              v58 = (char *)&unk_1C02E43F0;
+              v58 = (char *)&unk_1C02E63F0;
               if ( (int)(v92 - v57) >= 0 )
-                v58 = (char *)&unk_1C02E4430;
+                v58 = (char *)&unk_1C02E6430;
               v59 = (v57 << 16) + (v92 - v57) * *(_DWORD *)&v58[v54];
               v60 = (v52 & v20) >> v35;
               v61 = v91 & (HIWORD(v59) << v89) | v56;
-              v62 = (char *)&unk_1C02E43F0;
+              v62 = (char *)&unk_1C02E63F0;
               if ( (int)(v93 - v60) >= 0 )
-                v62 = (char *)&unk_1C02E4430;
+                v62 = (char *)&unk_1C02E6430;
               v41 = v20 & (((v60 << 16) + (v93 - v60) * *(_DWORD *)&v62[v54]) >> 16 << v35) | v61;
             }
             v34[1] = v41;
@@ -303,19 +303,19 @@ __int64 __fastcall vSrcTranCopyS4D32(
             v64 = *v34;
             v65 = (*v34 & v99) >> v98;
             v66 = 4LL * v63;
-            v67 = &unk_1C02E43F0;
+            v67 = &unk_1C02E63F0;
             if ( (int)(v102 - v65) >= 0 )
-              v67 = &unk_1C02E4430;
+              v67 = &unk_1C02E6430;
             v68 = v99 & (((v65 << 16) + (v102 - v65) * v67[v63]) >> 16 << v98);
             v69 = (v64 & v91) >> v89;
-            v70 = (char *)&unk_1C02E43F0;
+            v70 = (char *)&unk_1C02E63F0;
             if ( (int)(v92 - v69) >= 0 )
-              v70 = (char *)&unk_1C02E4430;
+              v70 = (char *)&unk_1C02E6430;
             v71 = v91 & (((v69 << 16) + (v92 - v69) * *(_DWORD *)&v70[v66]) >> 16 << v89) | v68;
             v72 = (v64 & v20) >> v32;
-            v73 = (char *)&unk_1C02E43F0;
+            v73 = (char *)&unk_1C02E63F0;
             if ( (int)(v93 - v72) >= 0 )
-              v73 = (char *)&unk_1C02E4430;
+              v73 = (char *)&unk_1C02E6430;
             *v34 = v20 & (((v72 << 16) + (v93 - v72) * *(_DWORD *)&v73[v66]) >> 16 << v32) | v71;
           }
         }

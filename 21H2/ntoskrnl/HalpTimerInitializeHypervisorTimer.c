@@ -1,19 +1,20 @@
 /*
- * XREFs of HalpTimerInitializeHypervisorTimer @ 0x1403BACF8
+ * XREFs of HalpTimerInitializeHypervisorTimer @ 0x1403A8104
  * Callers:
- *     HalpTimerInitSystem @ 0x1403BB0A0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403A85B0 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpInterruptApplyOverrides @ 0x140252258 (HalpInterruptApplyOverrides.c)
- *     HalpInterruptGsiToLine @ 0x140252380 (HalpInterruptGsiToLine.c)
- *     HalpTimerEnableHypervisorTimer @ 0x1403916B0 (HalpTimerEnableHypervisorTimer.c)
- *     HalpFindTimer @ 0x1403ACEFC (HalpFindTimer.c)
- *     HalpIsPartitionCpuManager @ 0x1403BAEA4 (HalpIsPartitionCpuManager.c)
- *     HalpTimerInitialize @ 0x1403BC620 (HalpTimerInitialize.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpInterruptSetRemappedLineState @ 0x14050850C (HalpInterruptSetRemappedLineState.c)
- *     HalpTimerTestHypervisorTimer @ 0x14050E088 (HalpTimerTestHypervisorTimer.c)
- *     HalpHvBuildDeviceId @ 0x140A616F8 (HalpHvBuildDeviceId.c)
+ *     HalpInterruptLookupController @ 0x140378D00 (HalpInterruptLookupController.c)
+ *     HalpInterruptApplyOverrides @ 0x140378E24 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptGsiToLine @ 0x140378F5C (HalpInterruptGsiToLine.c)
+ *     HalpTimerEnableHypervisorTimer @ 0x14038698C (HalpTimerEnableHypervisorTimer.c)
+ *     HalpFindTimer @ 0x14039D458 (HalpFindTimer.c)
+ *     HalpIsPartitionCpuManager @ 0x1403A81EC (HalpIsPartitionCpuManager.c)
+ *     HalpTimerInitialize @ 0x1403AA034 (HalpTimerInitialize.c)
+ *     HalpInterruptSetRemappedLineStateInternal @ 0x1403CB7B4 (HalpInterruptSetRemappedLineStateInternal.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpTimerTestHypervisorTimer @ 0x1404C1B2C (HalpTimerTestHypervisorTimer.c)
+ *     HalpHvBuildDeviceId @ 0x1409A70C8 (HalpHvBuildDeviceId.c)
  */
 
 void __fastcall HalpTimerInitializeHypervisorTimer(__int64 a1, __int64 a2)
@@ -30,25 +31,26 @@ void __fastcall HalpTimerInitializeHypervisorTimer(__int64 a1, __int64 a2)
   int v16; // eax
   unsigned int v17; // eax
   unsigned int v18; // eax
-  _BYTE v19[8]; // [rsp+38h] [rbp-39h] BYREF
-  __int64 v20; // [rsp+40h] [rbp-31h] BYREF
-  int v21; // [rsp+48h] [rbp-29h] BYREF
-  int v22; // [rsp+4Ch] [rbp-25h] BYREF
-  unsigned __int64 v23; // [rsp+50h] [rbp-21h] BYREF
-  _DWORD v24[6]; // [rsp+58h] [rbp-19h] BYREF
-  __int64 v25; // [rsp+70h] [rbp-1h]
-  __int64 v26; // [rsp+78h] [rbp+7h]
-  __int64 v27; // [rsp+80h] [rbp+Fh]
-  __int64 v28; // [rsp+88h] [rbp+17h]
-  __int128 v29; // [rsp+90h] [rbp+1Fh] BYREF
+  ULONG_PTR *v19; // rax
+  _BYTE v20[8]; // [rsp+38h] [rbp-39h] BYREF
+  __int64 v21; // [rsp+40h] [rbp-31h] BYREF
+  int v22; // [rsp+48h] [rbp-29h] BYREF
+  int v23; // [rsp+4Ch] [rbp-25h] BYREF
+  unsigned __int64 v24; // [rsp+50h] [rbp-21h] BYREF
+  _DWORD v25[6]; // [rsp+58h] [rbp-19h] BYREF
+  __int64 v26; // [rsp+70h] [rbp-1h]
+  __int64 v27; // [rsp+78h] [rbp+7h]
+  __int64 v28; // [rsp+80h] [rbp+Fh]
+  __int64 v29; // [rsp+88h] [rbp+17h]
+  __int128 v30; // [rsp+90h] [rbp+1Fh] BYREF
 
-  v23 = 0LL;
-  v29 = 0LL;
-  v20 = 0LL;
-  v19[0] = 0;
+  v24 = 0LL;
+  v30 = 0LL;
+  v21 = 0LL;
+  v20[0] = 0;
   if ( (unsigned __int8)HalpIsPartitionCpuManager(a1, a2) )
   {
-    if ( qword_140C4C4C0 )
+    if ( qword_140C4A1C0 )
     {
       _RAX = 1073741830LL;
       __asm { cpuid }
@@ -62,7 +64,7 @@ void __fastcall HalpTimerInitializeHypervisorTimer(__int64 a1, __int64 a2)
           {
             *(_DWORD *)(v8 + 184) |= 4u;
             HalpHypervisorHpet = v8;
-            v9 = HalpTimerTestHypervisorTimer(v8, v19);
+            v9 = HalpTimerTestHypervisorTimer(v8, v20);
             HalpHypervisorHpet = 0LL;
             if ( v9 >= 0 )
             {
@@ -70,16 +72,16 @@ void __fastcall HalpTimerInitializeHypervisorTimer(__int64 a1, __int64 a2)
               v12 = *(unsigned int **)(v8 + 72);
               v13 = 1;
               v14 = 0;
-              if ( v19[0] )
+              if ( v20[0] )
               {
-                HalpHvBuildDeviceId(v10, *(_QWORD *)(v8 + 288) + 8LL, 0LL, &v23);
+                HalpHvBuildDeviceId(v10, *(_QWORD *)(v8 + 288) + 8LL, 0LL, &v24);
               }
               else
               {
                 v16 = *(_DWORD *)(v8 + 224);
                 if ( (v16 & 0x200) != 0 )
                 {
-                  if ( (int)HalpInterruptGsiToLine(*(unsigned int *)(v8 + 88), &v20) < 0 )
+                  if ( (int)HalpInterruptGsiToLine(*(unsigned int *)(v8 + 88), &v21) < 0 )
                     return;
                   v11 = *((_BYTE *)v12 + 4);
                 }
@@ -88,57 +90,63 @@ void __fastcall HalpTimerInitializeHypervisorTimer(__int64 a1, __int64 a2)
                   v17 = *(_DWORD *)(v8 + 84);
                   if ( v17 >= 8 )
                   {
-                    LODWORD(v20) = 45057;
+                    LODWORD(v21) = 45057;
                     v17 -= 8;
                   }
                   else
                   {
-                    LODWORD(v20) = 45056;
+                    LODWORD(v21) = 45056;
                   }
-                  HIDWORD(v20) = v17;
+                  HIDWORD(v21) = v17;
                 }
-                v21 = *(_DWORD *)(v8 + 96);
-                v22 = *(_DWORD *)(v8 + 92);
-                HalpInterruptApplyOverrides(&v20, &v22, &v21);
-                v13 = v21;
-                v14 = v22;
-                v23 = 0x8000000000000000uLL;
-                LOBYTE(v23) = v20;
+                v22 = *(_DWORD *)(v8 + 96);
+                v23 = *(_DWORD *)(v8 + 92);
+                HalpInterruptApplyOverrides((unsigned int *)&v21, &v23, &v22);
+                v13 = v22;
+                v14 = v23;
+                v24 = 0x8000000000000000uLL;
+                LOBYTE(v24) = v21;
               }
               LOBYTE(v15) = v11;
-              if ( (int)((__int64 (__fastcall *)(_QWORD, _QWORD, unsigned __int64, __int64, __int128 *))qword_140C4C4C0)(
+              if ( (int)((__int64 (__fastcall *)(_QWORD, _QWORD, unsigned __int64, __int64, __int128 *))qword_140C4A1C0)(
                           *((_QWORD *)v12 + 3),
                           *v12,
-                          v23,
+                          v24,
                           v15,
-                          &v29) >= 0 )
+                          &v30) >= 0 )
               {
-                if ( v19[0] )
+                if ( v20[0] )
                 {
                   *(_DWORD *)(v8 + 236) = 0;
-                  *(_DWORD *)(v8 + 232) = DWORD2(v29);
-                  *(_QWORD *)(v8 + 240) = HIDWORD(v29);
+                  *(_DWORD *)(v8 + 232) = DWORD2(v30);
+                  *(_QWORD *)(v8 + 240) = HIDWORD(v30);
                   v18 = *(_DWORD *)(v8 + 184) | 0x10;
-LABEL_24:
+LABEL_26:
                   HalpHypervisorHpet = v8;
                   *(_DWORD *)(v8 + 184) = v18 | 0x40;
                   HalpTimerEnableHypervisorTimer();
                   return;
                 }
-                v24[4] = -1;
-                v26 = *((_QWORD *)&v29 + 1);
-                v24[1] = 0;
-                v25 = 8LL;
-                v27 = 0LL;
-                v28 = 212LL;
-                v24[0] = v14;
-                v24[2] = v13;
-                v24[3] = 0;
-                v24[5] = 1;
-                if ( (int)HalpInterruptSetRemappedLineState(&v20, v24) >= 0 )
+                v25[4] = -1;
+                v27 = *((_QWORD *)&v30 + 1);
+                v25[1] = 0;
+                v26 = 8LL;
+                v28 = 0LL;
+                v29 = 251LL;
+                v25[0] = v14;
+                v25[2] = v13;
+                v25[3] = 0;
+                v25[5] = 1;
+                v19 = HalpInterruptLookupController(v21);
+                if ( !v19 )
+                {
+                  HalpInterruptLastProblem = 17;
+                  return;
+                }
+                if ( (int)HalpInterruptSetRemappedLineStateInternal(v19, &v21, v25) >= 0 )
                 {
                   v18 = *(_DWORD *)(v8 + 184) & 0xFFFFFFEF;
-                  goto LABEL_24;
+                  goto LABEL_26;
                 }
               }
             }

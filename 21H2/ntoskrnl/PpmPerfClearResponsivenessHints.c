@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmPerfClearResponsivenessHints @ 0x1403B3E0C
+ * XREFs of PpmPerfClearResponsivenessHints @ 0x1403C1BBC
  * Callers:
- *     PpmCheckReInit @ 0x14081A3AC (PpmCheckReInit.c)
+ *     PpmCheckReInit @ 0x1407BA7E4 (PpmCheckReInit.c)
  * Callees:
  *     <none>
  */
@@ -17,11 +17,11 @@ __int64 PpmPerfClearResponsivenessHints()
   for ( i = PpmPerfDomainHead; (__int64 *)i != &PpmPerfDomainHead; i = *(_QWORD *)i )
   {
     v1 = 0;
-    for ( *(_BYTE *)(i + 516) = 0; v1 < *(_DWORD *)(i + 296); *(_BYTE *)(v3 + result + 60) = 0 )
+    for ( *(_BYTE *)(i + 372) = 0; v1 < *(_DWORD *)(i + 200); *(_BYTE *)(v3 + result + 60) = 0 )
     {
       v2 = v1++;
       v3 = 136 * v2;
-      result = *(_QWORD *)(i + 312);
+      result = *(_QWORD *)(i + 216);
     }
   }
   return result;

@@ -6,11 +6,11 @@
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
  *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeInitializeDpc @ 0x1400A56D0 (KeInitializeDpc.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E70 (KeSetSystemGroupAffinityThread.c)
- *     IopLiveDumpTraceSystemQuiesceStart @ 0x1402860FC (IopLiveDumpTraceSystemQuiesceStart.c)
+ *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
+ *     IopLiveDumpTraceSystemQuiesceStart @ 0x1402861FC (IopLiveDumpTraceSystemQuiesceStart.c)
  *     IopLiveDumpInitiateCorralStateChange @ 0x140578D24 (IopLiveDumpInitiateCorralStateChange.c)
- *     IopLiveDumpLockPages @ 0x140820390 (IopLiveDumpLockPages.c)
+ *     IopLiveDumpLockPages @ 0x140820370 (IopLiveDumpLockPages.c)
  */
 
 __int64 __fastcall IopLiveDumpCorralProcessors(char *DeferredContext)

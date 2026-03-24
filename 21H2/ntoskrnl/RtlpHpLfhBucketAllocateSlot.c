@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlpHpLfhBucketAllocateSlot @ 0x140370898
+ * XREFs of RtlpHpLfhBucketAllocateSlot @ 0x140394ACC
  * Callers:
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x14037039C (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x1402BFFB8 (RtlpHpLfhBucketUpdateAffinityMapping.c)
  * Callees:
- *     RtlpHpLfhOwnerInitialize @ 0x140371BFC (RtlpHpLfhOwnerInitialize.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     RtlpHpLfhOwnerInitialize @ 0x1402A6D90 (RtlpHpLfhOwnerInitialize.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-void *__fastcall RtlpHpLfhBucketAllocateSlot(unsigned __int64 a1, __int64 a2, unsigned int a3)
+__int64 __fastcall RtlpHpLfhBucketAllocateSlot(unsigned __int64 a1, __int64 a2, int a3)
 {
-  void *v6; // rax
-  void *v7; // rbx
+  void *v5; // rax
+  __int64 v6; // rbx
 
-  v6 = (void *)((__int64 (__fastcall *)(_QWORD, __int64))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 40)))(
+  v5 = (void *)((__int64 (__fastcall *)(_QWORD, __int64))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 40)))(
                  *(_QWORD *)a1,
                  ((((unsigned int)RtlpHpLfhPerfFlags >> 10) & 1) + 1LL) << 6);
-  v7 = v6;
-  if ( v6 )
+  v6 = (__int64)v5;
+  if ( v5 )
   {
-    memset(v6, 0, 0x40uLL);
-    RtlpHpLfhOwnerInitialize(v7, *(unsigned __int8 *)(a2 + 1), a3, a1);
+    memset(v5, 0, 0x40uLL);
+    RtlpHpLfhOwnerInitialize(v6, *(_BYTE *)(a2 + 1), a3);
   }
-  return v7;
+  return v6;
 }

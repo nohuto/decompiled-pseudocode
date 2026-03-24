@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ConfirmFrame@CApplicationChannel@DirectComposition@@UEAAXXZ @ 0x1C00CB130
+ * XREFs of ?ConfirmFrame@CApplicationChannel@DirectComposition@@UEAAXXZ @ 0x1C00BBF30
  * Callers:
  *     <none>
  * Callees:
@@ -11,6 +11,6 @@ void __fastcall DirectComposition::CApplicationChannel::ConfirmFrame(DirectCompo
   int v1; // eax
 
   v1 = *((_DWORD *)this + 95);
-  *((_DWORD *)this + 420) = 0;
+  *((_DWORD *)this + 164) = 0;
   *((_DWORD *)this + 96) = v1;
 }

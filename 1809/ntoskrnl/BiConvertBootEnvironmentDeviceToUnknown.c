@@ -1,11 +1,11 @@
 /*
- * XREFs of BiConvertBootEnvironmentDeviceToUnknown @ 0x1408F15E8
+ * XREFs of BiConvertBootEnvironmentDeviceToUnknown @ 0x1408F15C8
  * Callers:
- *     BiConvertBootEnvironmentDeviceToNt @ 0x140711BE4 (BiConvertBootEnvironmentDeviceToNt.c)
- *     BiConvertRegistryDataToElement @ 0x1407140E8 (BiConvertRegistryDataToElement.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140711BC4 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiConvertRegistryDataToElement @ 0x1407140C8 (BiConvertRegistryDataToElement.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

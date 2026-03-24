@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiGetStats @ 0x1C0159610
+ * XREFs of NtGdiGetStats @ 0x1C0165F30
  * Callers:
  *     <none>
  * Callees:

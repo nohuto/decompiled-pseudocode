@@ -1,22 +1,21 @@
 /*
- * XREFs of ExpReleaseFastMutexContended @ 0x1402BBF30
+ * XREFs of ExpReleaseFastMutexContended @ 0x140271D9C
  * Callers:
- *     KeReleaseGuardedMutex @ 0x1402284E0 (KeReleaseGuardedMutex.c)
- *     FsRtlReleaseHeaderMutex @ 0x1402301C0 (FsRtlReleaseHeaderMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     CcUnpinFileDataEx @ 0x14025D6F0 (CcUnpinFileDataEx.c)
- *     CcPinFileData @ 0x140263770 (CcPinFileData.c)
- *     CcSetDirtyInMask @ 0x1402C8FC0 (CcSetDirtyInMask.c)
- *     CcSetDirtyPinnedData @ 0x1402FC580 (CcSetDirtyPinnedData.c)
- *     FsRtlCheckOplockEx2 @ 0x1402FD950 (FsRtlCheckOplockEx2.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     FsRtlAcquireEofLock @ 0x140304790 (FsRtlAcquireEofLock.c)
- *     FsRtlReleaseEofLock @ 0x140328600 (FsRtlReleaseEofLock.c)
- *     CmpDeleteKeyObject @ 0x1406DB3F0 (CmpDeleteKeyObject.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7F40 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     FsRtlReleaseEofLock @ 0x14026F300 (FsRtlReleaseEofLock.c)
+ *     CcUnpinFileDataEx @ 0x140274CB0 (CcUnpinFileDataEx.c)
+ *     CcSetDirtyPinnedData @ 0x140279990 (CcSetDirtyPinnedData.c)
+ *     CcPinFileData @ 0x14029FCC0 (CcPinFileData.c)
+ *     CcSetDirtyInMask @ 0x1402B6B00 (CcSetDirtyInMask.c)
+ *     FsRtlReleaseHeaderMutex @ 0x1402C9230 (FsRtlReleaseHeaderMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     FsRtlCheckOplockEx2 @ 0x1402D44D0 (FsRtlCheckOplockEx2.c)
+ *     FsRtlAcquireEofLock @ 0x1402EE090 (FsRtlAcquireEofLock.c)
+ *     ExReleaseFastMutexUnsafeAndLeaveCriticalRegion @ 0x1402F7650 (ExReleaseFastMutexUnsafeAndLeaveCriticalRegion.c)
+ *     CmpPerformSingleKcbCacheLookup @ 0x1406405D0 (CmpPerformSingleKcbCacheLookup.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140648D30 (CmpDereferenceKeyControlBlock.c)
  * Callees:
- *     KeSetEventBoostPriorityEx @ 0x1402BBFA0 (KeSetEventBoostPriorityEx.c)
+ *     KeSetEventBoostPriorityEx @ 0x140271E08 (KeSetEventBoostPriorityEx.c)
  */
 
 __int64 __fastcall ExpReleaseFastMutexContended(volatile signed __int32 *a1, signed __int32 a2)

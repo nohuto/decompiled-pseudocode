@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmValidateDeviceContainerName @ 0x1406EA994
+ * XREFs of _CmValidateDeviceContainerName @ 0x1406EA974
  * Callers:
- *     _PnpDispatchDeviceContainer @ 0x1406EA070 (_PnpDispatchDeviceContainer.c)
- *     _CmGetDeviceContainerRegKeyPath @ 0x1406EA5C8 (_CmGetDeviceContainerRegKeyPath.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x1406EA68C (_CmGetDeviceContainerIdFromBase.c)
- *     _CmContainerListGenericObjectCallback @ 0x14075D0A0 (_CmContainerListGenericObjectCallback.c)
+ *     _PnpDispatchDeviceContainer @ 0x1406EA050 (_PnpDispatchDeviceContainer.c)
+ *     _CmGetDeviceContainerRegKeyPath @ 0x1406EA5A8 (_CmGetDeviceContainerRegKeyPath.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x1406EA66C (_CmGetDeviceContainerIdFromBase.c)
+ *     _CmContainerListGenericObjectCallback @ 0x14075D080 (_CmContainerListGenericObjectCallback.c)
  * Callees:
- *     wcscmp @ 0x1401976E0 (wcscmp.c)
+ *     wcscmp @ 0x140197700 (wcscmp.c)
  *     _PnpIsValidGuidString @ 0x14059A534 (_PnpIsValidGuidString.c)
  */
 

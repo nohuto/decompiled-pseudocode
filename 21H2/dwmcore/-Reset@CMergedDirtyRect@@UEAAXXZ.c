@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Reset@CMergedDirtyRect@@UEAAXXZ @ 0x1800FB0E0
+ * XREFs of ?Reset@CMergedDirtyRect@@UEAAXXZ @ 0x1800E2840
  * Callers:
  *     <none>
  * Callees:

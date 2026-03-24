@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmNotifySessionPowerRequestDeleted @ 0x1409A4608
+ * XREFs of TtmNotifySessionPowerRequestDeleted @ 0x1408FEC24
  * Callers:
- *     PopPowerRequestDelete @ 0x1407A6CA0 (PopPowerRequestDelete.c)
+ *     PopNotifySessionUserPowerRequestDeleted @ 0x1406F6064 (PopNotifySessionUserPowerRequestDeleted.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     TtmpAcquireSessionById @ 0x1409A4FE0 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x1409A83F4 (TtmiLogError.c)
- *     TtmiLogSessionPowerRequestDeleted @ 0x1409A9BCC (TtmiLogSessionPowerRequestDeleted.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     TtmpAcquireSessionById @ 0x1408FF640 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x140902B14 (TtmiLogError.c)
+ *     TtmiLogSessionPowerRequestDeleted @ 0x140904150 (TtmiLogSessionPowerRequestDeleted.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall TtmNotifySessionPowerRequestDeleted(unsigned int a1, int a2)
@@ -30,51 +30,52 @@ void __fastcall TtmNotifySessionPowerRequestDeleted(unsigned int a1, int a2)
   v6 = v12;
   if ( v4 >= 0 )
   {
-    if ( *(_DWORD *)(v12 + 272) )
-    {
-      v7 = *(_DWORD *)(v12 + 276) >> 5;
-      v8 = -1LL << (*(_DWORD *)(v12 + 276) & 0x1F);
-      v9 = 1;
-      v12 = v8 & v3;
-      v5 = 37
-         * ((unsigned __int8)((v8 & v3) >> 48)
+    if ( !*(_DWORD *)(v12 + 272) )
+      goto LABEL_12;
+    v7 = *(_DWORD *)(v12 + 276) >> 5;
+    v8 = -1LL << (*(_DWORD *)(v12 + 276) & 0x1F);
+    v9 = 1;
+    v12 = v8 & v3;
+    v5 = 37
+       * ((unsigned __int8)((v8 & v3) >> 48)
+        + 37
+        * ((unsigned __int8)((unsigned __int16)((v8 & v3) >> 32) >> 8)
+         + 37
+         * ((unsigned __int8)((v8 & v3) >> 32)
           + 37
-          * ((unsigned __int8)((unsigned __int16)((v8 & v3) >> 32) >> 8)
+          * ((((unsigned int)v8 & (unsigned int)v3) >> 24)
            + 37
-           * ((unsigned __int8)((v8 & v3) >> 32)
+           * ((unsigned __int8)(((unsigned int)v8 & (unsigned int)v3) >> 16)
             + 37
-            * ((((unsigned int)v8 & (unsigned int)v3) >> 24)
-             + 37
-             * ((unsigned __int8)(((unsigned int)v8 & (unsigned int)v3) >> 16)
-              + 37
-              * ((unsigned __int8)((unsigned __int16)(v8 & v3) >> 8) + 37 * ((unsigned __int8)(v8 & v3) + 11623883LL)))))));
-      for ( i = (_QWORD *)(*(_QWORD *)(v6 + 280) + 8 * (((_DWORD)v5 + ((v8 & v3) >> 56)) & (unsigned int)(v7 - 1)));
-            ;
-            i = (_QWORD *)*i )
+            * ((unsigned __int8)((unsigned __int16)(v8 & v3) >> 8) + 37 * ((unsigned __int8)(v8 & v3) + 11623883LL)))))));
+    for ( i = (_QWORD *)(*(_QWORD *)(v6 + 280) + 8 * (((_DWORD)v5 + ((v8 & v3) >> 56)) & (unsigned int)(v7 - 1)));
+          ;
+          i = (_QWORD *)*i )
+    {
+      v11 = (_QWORD *)*i;
+      if ( (*i & 1) != 0 )
+        break;
+      if ( (v8 & v11[1]) == (v8 & v3) )
       {
-        v11 = (_QWORD *)*i;
-        if ( (*i & 1) != 0 )
-          break;
-        if ( (v8 & v11[1]) == (v8 & v3) )
-        {
-          *i = *v11;
-          --*(_DWORD *)(v6 + 272);
-          *v11 |= 0x8000000000000002uLL;
-          if ( !v11 )
-            break;
-          ExFreePoolWithTag(v11, 0x52507454u);
-          goto LABEL_11;
-        }
+        *i = *v11;
+        --*(_DWORD *)(v6 + 272);
+        *v11 |= 0x8000000000000002uLL;
+        goto LABEL_10;
       }
     }
-    v9 = 0;
-LABEL_11:
+    v11 = 0LL;
+LABEL_10:
+    if ( v11 )
+      ExFreePoolWithTag(v11, 0x52507454u);
+    else
+LABEL_12:
+      v9 = 0;
     LOBYTE(v5) = v9;
     TtmiLogSessionPowerRequestDeleted(a1, (unsigned int)v3, v5);
   }
   else
   {
-    TtmiLogError("TtmNotifySessionPowerRequestDeleted", 3662LL, (unsigned int)v4, -1LL);
+    TtmiLogError("TtmNotifySessionPowerRequestDeleted", 3666LL, (unsigned int)v4, -1LL);
   }
   if ( v6 )
   {

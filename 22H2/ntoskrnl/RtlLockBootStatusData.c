@@ -1,28 +1,26 @@
 /*
- * XREFs of RtlLockBootStatusData @ 0x1407EF310
+ * XREFs of RtlLockBootStatusData @ 0x14077F470
  * Callers:
- *     PopBootStatGet @ 0x1407ECA68 (PopBootStatGet.c)
- *     PopBootStatSet @ 0x1407EEFF8 (PopBootStatSet.c)
- *     PoClearTransitionMarker @ 0x1408030CC (PoClearTransitionMarker.c)
- *     CmCompleteRegistryInitialization @ 0x14080CEA0 (CmCompleteRegistryInitialization.c)
- *     PopBootStatCheckIntegrity @ 0x14084E3B0 (PopBootStatCheckIntegrity.c)
- *     PopBootStatRestoreDefaults @ 0x140997160 (PopBootStatRestoreDefaults.c)
+ *     PopBootStatSet @ 0x14077F168 (PopBootStatSet.c)
+ *     CmCompleteRegistryInitialization @ 0x14079A330 (CmCompleteRegistryInitialization.c)
+ *     PoClearTransitionMarker @ 0x14079A638 (PoClearTransitionMarker.c)
+ *     PopBootStatGet @ 0x1407C18F0 (PopBootStatGet.c)
+ *     PopBootStatCheckIntegrity @ 0x1408F2344 (PopBootStatCheckIntegrity.c)
+ *     PopBootStatRestoreDefaults @ 0x1408F2588 (PopBootStatRestoreDefaults.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     RtlInitializeBootStatDataCache @ 0x1403A9534 (RtlInitializeBootStatDataCache.c)
- *     RtlpGetBootStatusPath @ 0x1403C5CB4 (RtlpGetBootStatusPath.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlpGetBootStatusPath @ 0x140399114 (RtlpGetBootStatusPath.c)
+ *     RtlInitializeBootStatDataCache @ 0x1403C7D94 (RtlInitializeBootStatDataCache.c)
+ *     RtlpAcquireBootStatusLock @ 0x1403F7D04 (RtlpAcquireBootStatusLock.c)
+ *     RtlpReleaseBootStatusLock @ 0x1403F7D34 (RtlpReleaseBootStatusLock.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlLockBootStatusData(HANDLE *a1)
 {
-  NTSTATUS v2; // esi
-  struct _KTHREAD *CurrentThread; // rax
+  WCHAR *v1; // rdi
+  NTSTATUS v3; // esi
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-50h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
@@ -31,58 +29,57 @@ __int64 __fastcall RtlLockBootStatusData(HANDLE *a1)
   PCWSTR SourceString; // [rsp+B8h] [rbp+38h] BYREF
 
   FileHandle = 0LL;
+  v1 = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   SourceString = 0LL;
-  memset(&ObjectAttributes, 0, 44);
-  DestinationString = 0LL;
+  v3 = 0;
   v8 = 0;
-  v2 = 0;
+  DestinationString = 0LL;
   IoStatusBlock = 0LL;
-  CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&RtlpBootStatHandleLock, 0LL);
+  RtlpAcquireBootStatusLock();
   ++BootStatReferenceCount;
   if ( BootStatFileHandleAcquired )
   {
     if ( a1 )
     {
       *a1 = BootStatFileHandle;
-      goto LABEL_7;
+      goto LABEL_10;
     }
-    goto LABEL_14;
+    goto LABEL_4;
   }
   RtlpGetBootStatusPath(&SourceString, &v8);
+  v1 = (WCHAR *)SourceString;
   RtlInitUnicodeString(&DestinationString, SourceString);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
   ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 704;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  v2 = ZwOpenFile(&FileHandle, 0x12019Fu, &ObjectAttributes, &IoStatusBlock, 1u, 0x20u);
-  if ( v2 >= 0 )
+  v3 = ZwOpenFile(&FileHandle, 0x12019Fu, &ObjectAttributes, &IoStatusBlock, 1u, 0x20u);
+  if ( v3 < 0 )
+  {
+    BootStatFileHandle = 0LL;
+    BootStatReferenceCount = 0;
+    BootStatFileHandleAcquired = 0;
+    if ( a1 )
+      *a1 = 0LL;
+  }
+  else
   {
     BootStatFileHandle = FileHandle;
     BootStatFileHandleAcquired = 1;
     RtlInitializeBootStatDataCache();
-    if ( a1 )
+    if ( !a1 )
     {
-      *a1 = FileHandle;
-      goto LABEL_7;
+LABEL_4:
+      BootStatKeepHandleOpen = 1;
+      goto LABEL_10;
     }
-LABEL_14:
-    BootStatKeepHandleOpen = 1;
-    goto LABEL_7;
+    *a1 = FileHandle;
   }
-  BootStatFileHandle = 0LL;
-  BootStatReferenceCount = 0;
-  BootStatFileHandleAcquired = 0;
-  if ( a1 )
-    *a1 = 0LL;
-LABEL_7:
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&RtlpBootStatHandleLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&RtlpBootStatHandleLock);
-  KeAbPostRelease((ULONG_PTR)&RtlpBootStatHandleLock);
-  KeLeaveCriticalRegion();
+LABEL_10:
+  RtlpReleaseBootStatusLock();
   if ( v8 )
-    ExFreePoolWithTag((PVOID)SourceString, 0);
-  return (unsigned int)v2;
+    ExFreePoolWithTag(v1, 0);
+  return (unsigned int)v3;
 }

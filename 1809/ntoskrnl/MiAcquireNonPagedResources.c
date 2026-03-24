@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAcquireNonPagedResources @ 0x14013DA0C
+ * XREFs of MiAcquireNonPagedResources @ 0x14013DA2C
  * Callers:
- *     MiCreateUltraThreadContextHelper @ 0x14013CB2C (MiCreateUltraThreadContextHelper.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x1402A7310 (MmMarkPhysicalMemoryAsBad.c)
- *     MiIdealClusterPage @ 0x1402C6B14 (MiIdealClusterPage.c)
- *     MiAllocateProcessShadow @ 0x1406D1B0C (MiAllocateProcessShadow.c)
- *     MiAllocatePartitionPhysicalPages @ 0x14085FE84 (MiAllocatePartitionPhysicalPages.c)
+ *     MiCreateUltraThreadContextHelper @ 0x14013CB4C (MiCreateUltraThreadContextHelper.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1402A7410 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiIdealClusterPage @ 0x1402C6C14 (MiIdealClusterPage.c)
+ *     MiAllocateProcessShadow @ 0x1406D1AEC (MiAllocateProcessShadow.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x14085FE64 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)

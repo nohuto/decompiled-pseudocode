@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ExtractFaultDomainIds@SC_DEVICE@@AEAAJXZ @ 0x140676938
+ * XREFs of ?ExtractFaultDomainIds@SC_DEVICE@@AEAAJXZ @ 0x1405C8CB8
  * Callers:
- *     ?SaveStorageProperty@SC_DEVICE@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x140676BC0 (-SaveStorageProperty@SC_DEVICE@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z.c)
+ *     ?SaveStorageProperty@SC_DEVICE@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x1405C8F40 (-SaveStorageProperty@SC_DEVICE@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z.c)
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall SC_DEVICE::ExtractFaultDomainIds(SC_DEVICE *this)
@@ -13,7 +13,7 @@ __int64 __fastcall SC_DEVICE::ExtractFaultDomainIds(SC_DEVICE *this)
   unsigned int v3; // eax
 
   memset((char *)this + 88, 0, 0x40uLL);
-  v2 = *((_QWORD *)this + 22);
+  v2 = *((_QWORD *)this + 21);
   if ( v2 )
   {
     v3 = 4;

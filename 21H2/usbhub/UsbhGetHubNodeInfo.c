@@ -1,17 +1,17 @@
 /*
- * XREFs of UsbhGetHubNodeInfo @ 0x1C0048AC8
+ * XREFs of UsbhGetHubNodeInfo @ 0x1C0049E58
  * Callers:
- *     UsbhQueryWmiDataBlock @ 0x1C00493C0 (UsbhQueryWmiDataBlock.c)
+ *     UsbhQueryWmiDataBlock @ 0x1C004A770 (UsbhQueryWmiDataBlock.c)
  * Callees:
- *     UsbhUnlatchPdo @ 0x1C0002650 (UsbhUnlatchPdo.c)
- *     UsbhDerefPdoDeviceHandle @ 0x1C0003470 (UsbhDerefPdoDeviceHandle.c)
- *     UsbhRefPdoDeviceHandle @ 0x1C00036C0 (UsbhRefPdoDeviceHandle.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhLatchPdo @ 0x1C000F240 (UsbhLatchPdo.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
- *     memset @ 0x1C001F800 (memset.c)
- *     UsbhGetDeviceInformationEx @ 0x1C003D708 (UsbhGetDeviceInformationEx.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhRefPdoDeviceHandle @ 0x1C0015C80 (UsbhRefPdoDeviceHandle.c)
+ *     UsbhDerefPdoDeviceHandle @ 0x1C0016670 (UsbhDerefPdoDeviceHandle.c)
+ *     UsbhLatchPdo @ 0x1C0016B5C (UsbhLatchPdo.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
+ *     UsbhUnlatchPdo @ 0x1C00171A0 (UsbhUnlatchPdo.c)
+ *     memset @ 0x1C001E180 (memset.c)
+ *     UsbhGetDeviceInformationEx @ 0x1C003E8E8 (UsbhGetDeviceInformationEx.c)
  */
 
 __int64 __fastcall UsbhGetHubNodeInfo(__int64 a1, _DWORD *a2, unsigned int a3, unsigned int *a4)

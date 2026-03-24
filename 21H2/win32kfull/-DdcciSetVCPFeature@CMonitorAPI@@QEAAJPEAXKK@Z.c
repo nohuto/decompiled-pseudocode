@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DdcciSetVCPFeature@CMonitorAPI@@QEAAJPEAXKK@Z @ 0x1C026F6E0
+ * XREFs of ?DdcciSetVCPFeature@CMonitorAPI@@QEAAJPEAXKK@Z @ 0x1C0271AC4
  * Callers:
- *     NtGdiDDCCISetVCPFeature @ 0x1C026FFD0 (NtGdiDDCCISetVCPFeature.c)
+ *     NtGdiDDCCISetVCPFeature @ 0x1C02723D0 (NtGdiDDCCISetVCPFeature.c)
  * Callees:
- *     ?DdcciSetVCPFeature@CPhysicalMonitorHandle@@QEAAJKK@Z @ 0x1C026F778 (-DdcciSetVCPFeature@CPhysicalMonitorHandle@@QEAAJKK@Z.c)
- *     ?GetHandleObject@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysicalMonitorHandle@@@Z @ 0x1C026F9D4 (-GetHandleObject@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysi.c)
+ *     ?DdcciSetVCPFeature@CPhysicalMonitorHandle@@QEAAJKK@Z @ 0x1C0271B5C (-DdcciSetVCPFeature@CPhysicalMonitorHandle@@QEAAJKK@Z.c)
+ *     ?GetHandleObject@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysicalMonitorHandle@@@Z @ 0x1C0271DB4 (-GetHandleObject@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysi.c)
  */
 
 __int64 __fastcall CMonitorAPI::DdcciSetVCPFeature(CMonitorAPI *this, void *a2, unsigned int a3, unsigned int a4)
@@ -15,8 +15,8 @@ __int64 __fastcall CMonitorAPI::DdcciSetVCPFeature(CMonitorAPI *this, void *a2, 
   CPhysicalMonitorHandle *v11; // [rsp+40h] [rbp+8h] BYREF
 
   v11 = this;
-  v4 = (char *)P;
-  OPM::CAutoMutex::CAutoMutex((OPM::CAutoMutex *)v10, (struct OPM::CMutex *)P);
+  v4 = (char *)qword_1C033B068;
+  OPM::CAutoMutex::CAutoMutex((OPM::CAutoMutex *)v10, (struct OPM::CMutex *)qword_1C033B068);
   v11 = 0LL;
   HandleObject = OPM::CMonitorHandleTable<CPhysicalMonitorHandle,void *>::GetHandleObject(v4 + 8, a2, &v11);
   if ( HandleObject >= 0 )

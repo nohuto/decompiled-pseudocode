@@ -1,10 +1,10 @@
 /*
- * XREFs of IopSymlinkFreeRelatedMountPointChain @ 0x1406ABE34
+ * XREFs of IopSymlinkFreeRelatedMountPointChain @ 0x1406ABE14
  * Callers:
  *     IopSymlinkPropagateToExtensionIfNeeded @ 0x140639F90 (IopSymlinkPropagateToExtensionIfNeeded.c)
- *     IopSymlinkUpdateECP @ 0x1406ABCD0 (IopSymlinkUpdateECP.c)
- *     IopSymlinkCleanupECP @ 0x1406ABE20 (IopSymlinkCleanupECP.c)
- *     IopSymlinkRememberJunction @ 0x1406ABE78 (IopSymlinkRememberJunction.c)
+ *     IopSymlinkUpdateECP @ 0x1406ABCB0 (IopSymlinkUpdateECP.c)
+ *     IopSymlinkCleanupECP @ 0x1406ABE00 (IopSymlinkCleanupECP.c)
+ *     IopSymlinkRememberJunction @ 0x1406ABE58 (IopSymlinkRememberJunction.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?MarkImmersiveProcess@@YAXPEAUtagPROCESSINFO@@PEAXW4_PROCESS_IMMERSIVE_TYPE@@@Z @ 0x1C00A8AFC
+ * XREFs of ?MarkImmersiveProcess@@YAXPEAUtagPROCESSINFO@@PEAXW4_PROCESS_IMMERSIVE_TYPE@@@Z @ 0x1C0095A10
  * Callers:
- *     xxxInitProcessInfo @ 0x1C00C7AC8 (xxxInitProcessInfo.c)
+ *     xxxInitProcessInfo @ 0x1C00B88C4 (xxxInitProcessInfo.c)
  * Callees:
  *     <none>
  */

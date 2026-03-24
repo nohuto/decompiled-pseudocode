@@ -1,23 +1,23 @@
 /*
- * XREFs of SepLogLpacAccessFailure @ 0x140374F38
+ * XREFs of SepLogLpacAccessFailure @ 0x140596228
  * Callers:
- *     SeAccessCheckWithHint @ 0x1402F9CF0 (SeAccessCheckWithHint.c)
- *     SeAccessCheckByType @ 0x1402FBEC0 (SeAccessCheckByType.c)
- *     SepCommonAccessCheckEx @ 0x140383ABC (SepCommonAccessCheckEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x140722B40 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14027CAB0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SeAccessCheckWithHintWithAdminlessChecks @ 0x14034DCE0 (SeAccessCheckWithHintWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     SepGetStackTraceHash @ 0x140374FC8 (SepGetStackTraceHash.c)
- *     memset @ 0x140435E00 (memset.c)
- *     EtwTraceLpacAccessFailure @ 0x1407F6600 (EtwTraceLpacAccessFailure.c)
- *     DbgkQueueUserExceptionReport @ 0x14092972C (DbgkQueueUserExceptionReport.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SepGetStackTraceHash @ 0x140596110 (SepGetStackTraceHash.c)
+ *     DbgkQueueUserExceptionReport @ 0x140886810 (DbgkQueueUserExceptionReport.c)
+ *     EtwTraceLpacAccessFailure @ 0x14093FF54 (EtwTraceLpacAccessFailure.c)
  */
 
 __int64 SepLogLpacAccessFailure()
 {
-  unsigned int v0; // ebx
+  ULONG v0; // ebx
   unsigned __int8 v1; // di
   _QWORD v3[19]; // [rsp+28h] [rbp-49h] BYREF
-  unsigned int v4; // [rsp+D8h] [rbp+67h] BYREF
+  ULONG v4; // [rsp+D8h] [rbp+67h] BYREF
 
   v4 = 0;
   if ( KeGetCurrentIrql() >= 2u || (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 )
@@ -30,7 +30,7 @@ __int64 SepLogLpacAccessFailure()
     return 3221226326LL;
   if ( SeLpacEnableWatsonThrottling )
   {
-    if ( _interlockedbittestandset(&dword_140D04948[(unsigned __int64)v1 >> 5], v1 & 0x1F) )
+    if ( _interlockedbittestandset(&dword_140CFA3B0[(unsigned __int64)v1 >> 5], v1 & 0x1F) )
       return 0LL;
     v0 = v4;
   }
@@ -40,5 +40,5 @@ __int64 SepLogLpacAccessFailure()
   v3[0] = 3221226505LL;
   LODWORD(v3[3]) = 2;
   v3[4] = 43LL;
-  return DbgkQueueUserExceptionReport(KeGetCurrentThread());
+  return DbgkQueueUserExceptionReport((PADAPTER_OBJECT)KeGetCurrentThread());
 }

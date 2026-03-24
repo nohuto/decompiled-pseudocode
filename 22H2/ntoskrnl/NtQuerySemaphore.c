@@ -1,11 +1,11 @@
 /*
- * XREFs of NtQuerySemaphore @ 0x140A01680
+ * XREFs of NtQuerySemaphore @ 0x140956B60
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtQuerySemaphore(HANDLE Handle, int a2, unsigned __int64 a3, int a4, unsigned __int64 a5)
@@ -52,7 +52,7 @@ __int64 __fastcall NtQuerySemaphore(HANDLE Handle, int a2, unsigned __int64 a3, 
   {
     v14 = *((_DWORD *)Object + 1);
     v15 = *((_DWORD *)Object + 6);
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     if ( PreviousMode )
     {
       *(_DWORD *)a3 = v14;

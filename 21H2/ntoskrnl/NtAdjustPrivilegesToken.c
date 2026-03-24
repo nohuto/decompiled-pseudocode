@@ -1,18 +1,18 @@
 /*
- * XREFs of NtAdjustPrivilegesToken @ 0x14079DC50
+ * XREFs of NtAdjustPrivilegesToken @ 0x140607D30
  * Callers:
- *     RtlpSysVolTakeOwnership @ 0x1409BB4D8 (RtlpSysVolTakeOwnership.c)
+ *     RtlpSysVolTakeOwnership @ 0x140915E88 (RtlpSysVolTakeOwnership.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     SeReleaseLuidAndAttributesArray @ 0x1406651C8 (SeReleaseLuidAndAttributesArray.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     SepAdjustPrivileges @ 0x14079E024 (SepAdjustPrivileges.c)
- *     SeCaptureLuidAndAttributesArray @ 0x14079E674 (SeCaptureLuidAndAttributesArray.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     SeReleaseLuidAndAttributesArray @ 0x1405DD318 (SeReleaseLuidAndAttributesArray.c)
+ *     SepAdjustPrivileges @ 0x140608110 (SepAdjustPrivileges.c)
+ *     SeCaptureLuidAndAttributesArray @ 0x14060855C (SeCaptureLuidAndAttributesArray.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtAdjustPrivilegesToken(
@@ -150,8 +150,8 @@ LABEL_18:
     {
       _InterlockedOr(v24, 0);
       ExReleaseResourceLite(v17[6]);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-      ObfDereferenceObject(v30);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      HalPutDmaAdapter((PADAPTER_OBJECT)v30);
       if ( v33 )
         SeReleaseLuidAndAttributesArray((void *)v33, PreviousMode);
       return -1073741789;
@@ -184,8 +184,8 @@ LABEL_18:
         v20[7] = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
       _InterlockedOr(v24, 0);
       ExReleaseResourceLite(v17[6]);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-      ObfDereferenceObject(v30);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      HalPutDmaAdapter((PADAPTER_OBJECT)v30);
       if ( v33 )
         SeReleaseLuidAndAttributesArray((void *)v33, PreviousMode);
       return v34;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vLoadAndConvert8ToBGRA@@YAXPEAKPEAEJJPEAU_XLATEOBJ@@@Z @ 0x1C02C4520
+ * XREFs of ?vLoadAndConvert8ToBGRA@@YAXPEAKPEAEJJPEAU_XLATEOBJ@@@Z @ 0x1C02C5CF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,23 +8,32 @@
 
 void __fastcall vLoadAndConvert8ToBGRA(unsigned int *a1, unsigned __int8 *a2, int a3, int a4, struct _XLATEOBJ *a5)
 {
-  unsigned __int8 *v6; // r8
-  unsigned __int8 *v7; // r9
-  __int64 v8; // rax
+  __int64 v6; // rbx
+  __int64 v7; // r9
+  unsigned __int8 *v8; // r8
+  __int64 v9; // rax
   ULONG cEntries; // ecx
 
   if ( (a5->flXlate & 2) != 0 )
   {
-    v6 = &a2[a3];
-    v7 = &v6[a4];
-    while ( v6 != v7 )
+    v6 = a4;
+    v7 = 0LL;
+    v8 = &a2[a3];
+    if ( v8 > &v8[v6] )
+      v6 = 0LL;
+    if ( v6 )
     {
-      v8 = *v6;
-      cEntries = a5->cEntries;
-      if ( (unsigned int)v8 > cEntries )
-        v8 = (unsigned int)v8 % cEntries;
-      *a1++ = *(&a5[3].cEntries + v8) | 0xFF000000;
-      ++v6;
+      do
+      {
+        v9 = *v8;
+        cEntries = a5->cEntries;
+        if ( (unsigned int)v9 > cEntries )
+          v9 = (unsigned int)v9 % cEntries;
+        ++v8;
+        ++v7;
+        *a1++ = *(&a5[3].cEntries + v9) | 0xFF000000;
+      }
+      while ( v7 != v6 );
     }
   }
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetOpacity@CHolographicExclusiveMode@@UEAAMXZ @ 0x1802A8150
+ * XREFs of ?GetOpacity@CHolographicExclusiveMode@@UEAAMXZ @ 0x180256770
  * Callers:
  *     <none>
  * Callees:

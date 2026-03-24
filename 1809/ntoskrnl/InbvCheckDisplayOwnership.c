@@ -1,9 +1,9 @@
 /*
- * XREFs of InbvCheckDisplayOwnership @ 0x14027D210
+ * XREFs of InbvCheckDisplayOwnership @ 0x14027D310
  * Callers:
- *     InbvRotateGuiBootDisplay @ 0x14027D4E0 (InbvRotateGuiBootDisplay.c)
+ *     InbvRotateGuiBootDisplay @ 0x14027D5E0 (InbvRotateGuiBootDisplay.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 char InbvCheckDisplayOwnership()

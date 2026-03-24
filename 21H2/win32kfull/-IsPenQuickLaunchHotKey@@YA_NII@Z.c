@@ -1,7 +1,8 @@
 /*
- * XREFs of ?IsPenQuickLaunchHotKey@@YA_NII@Z @ 0x1C0004E54
+ * XREFs of ?IsPenQuickLaunchHotKey@@YA_NII@Z @ 0x1C0105CC8
  * Callers:
- *     xxxDoHotKeyStuff @ 0x1C00F6330 (xxxDoHotKeyStuff.c)
+ *     xxxDoHotKeyStuff @ 0x1C01052A0 (xxxDoHotKeyStuff.c)
+ *     ?IsPenQuickLaunchAndShouldBeDisabled@@YA_NII@Z @ 0x1C0105C5C (-IsPenQuickLaunchAndShouldBeDisabled@@YA_NII@Z.c)
  * Callees:
  *     <none>
  */

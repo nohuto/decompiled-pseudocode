@@ -1,19 +1,19 @@
 /*
- * XREFs of MiReleaseDriverPtes @ 0x14070E05C
+ * XREFs of MiReleaseDriverPtes @ 0x14070E03C
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
- *     MiReturnSystemImageAddress @ 0x14070E020 (MiReturnSystemImageAddress.c)
- *     MmUnmapLockedRestartPages @ 0x14084C730 (MmUnmapLockedRestartPages.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
+ *     MiReturnSystemImageAddress @ 0x14070E000 (MiReturnSystemImageAddress.c)
+ *     MmUnmapLockedRestartPages @ 0x14084C710 (MmUnmapLockedRestartPages.c)
  *     MiGetNewAddressForBootImage @ 0x1409B85F4 (MiGetNewAddressForBootImage.c)
- *     MiReleaseNewAddressForBootImage @ 0x1409F773C (MiReleaseNewAddressForBootImage.c)
+ *     MiReleaseNewAddressForBootImage @ 0x1409F774C (MiReleaseNewAddressForBootImage.c)
  * Callees:
  *     RtlNumberOfSetBits @ 0x14000F440 (RtlNumberOfSetBits.c)
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
- *     MiUnlockDriverMappings @ 0x1400F5F88 (MiUnlockDriverMappings.c)
- *     MiLockDriverMappings @ 0x1400F6188 (MiLockDriverMappings.c)
- *     RtlAreBitsSet @ 0x14011F430 (RtlAreBitsSet.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MiUnlockDriverMappings @ 0x1400F5FA8 (MiUnlockDriverMappings.c)
+ *     MiLockDriverMappings @ 0x1400F61A8 (MiLockDriverMappings.c)
+ *     RtlAreBitsSet @ 0x14011F450 (RtlAreBitsSet.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

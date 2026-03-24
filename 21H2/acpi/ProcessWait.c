@@ -1,10 +1,10 @@
 /*
- * XREFs of ProcessWait @ 0x1C002D500
+ * XREFs of ProcessWait @ 0x1C006A6A0
  * Callers:
  *     <none>
  * Callees:
- *     HeapFree @ 0x1C0018DD0 (HeapFree.c)
- *     IsCompatableDSDTRevision @ 0x1C0019BAC (IsCompatableDSDTRevision.c)
+ *     HeapFree @ 0x1C0001F3C (HeapFree.c)
+ *     IsCompatableDSDTRevision @ 0x1C00022D4 (IsCompatableDSDTRevision.c)
  */
 
 __int64 __fastcall ProcessWait(__int64 a1, __int64 a2, unsigned int a3)

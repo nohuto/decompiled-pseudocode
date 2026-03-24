@@ -1,17 +1,17 @@
 /*
- * XREFs of SepLocateTokenTrustLevel @ 0x1400A8FE4
+ * XREFs of SepLocateTokenTrustLevel @ 0x1400A9004
  * Callers:
  *     SeAccessCheckWithHintWithAdminlessChecks @ 0x1400516C0 (SeAccessCheckWithHintWithAdminlessChecks.c)
- *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6A4 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6C4 (SepCommonAccessCheckExWithAdminlessChecks.c)
  *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  *     RtlpSetSecurityObject @ 0x1405CA240 (RtlpSetSecurityObject.c)
  *     RtlpNewSecurityObject @ 0x14062D630 (RtlpNewSecurityObject.c)
  *     SeAdjustAccessStateForAccessConstraints @ 0x140631880 (SeAdjustAccessStateForAccessConstraints.c)
  *     SeShouldCheckForAccessRightsFromParent @ 0x1406319B0 (SeShouldCheckForAccessRightsFromParent.c)
- *     SepAdjustAccessStateForConstraints @ 0x1407056DC (SepAdjustAccessStateForConstraints.c)
- *     SepGetDefaultsSubjectContext @ 0x1408A02B4 (SepGetDefaultsSubjectContext.c)
+ *     SepAdjustAccessStateForConstraints @ 0x1407056BC (SepAdjustAccessStateForConstraints.c)
+ *     SepGetDefaultsSubjectContext @ 0x1408A0294 (SepGetDefaultsSubjectContext.c)
  * Callees:
- *     RtlSidDominatesForTrust @ 0x1400AD180 (RtlSidDominatesForTrust.c)
+ *     RtlSidDominatesForTrust @ 0x1400AD1A0 (RtlSidDominatesForTrust.c)
  */
 
 __int64 __fastcall SepLocateTokenTrustLevel(__int64 *a1)

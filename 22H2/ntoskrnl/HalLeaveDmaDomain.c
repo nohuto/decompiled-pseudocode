@@ -1,9 +1,9 @@
 /*
- * XREFs of HalLeaveDmaDomain @ 0x140512440
+ * XREFs of HalLeaveDmaDomain @ 0x1404C4900
  * Callers:
  *     <none>
  * Callees:
- *     HalpLeaveDmaDomain @ 0x140512E14 (HalpLeaveDmaDomain.c)
+ *     HalpLeaveDmaDomain @ 0x1404C4DEC (HalpLeaveDmaDomain.c)
  */
 
 __int64 __fastcall HalLeaveDmaDomain(__int64 a1)
@@ -12,12 +12,12 @@ __int64 __fastcall HalLeaveDmaDomain(__int64 a1)
 
   if ( !a1 )
     return 3221225485LL;
-  v2 = *(_QWORD *)(a1 + 512);
+  v2 = *(_QWORD *)(a1 + 504);
   if ( !v2 )
     return 3221225473LL;
   if ( *(_BYTE *)(v2 + 33) )
     return 3221225488LL;
-  if ( *(_BYTE *)(a1 + 524) && *(_QWORD *)(v2 + 56) )
+  if ( *(_BYTE *)(a1 + 516) && *(_QWORD *)(v2 + 72) )
     return 3221225473LL;
   else
     return HalpLeaveDmaDomain(a1);

@@ -1,62 +1,48 @@
 /*
- * XREFs of bInitFontTables @ 0x1C03B4BD0
+ * XREFs of bInitFontTables @ 0x1C0393A40
  * Callers:
  *     <none>
  * Callees:
- *     ??0FHMEMOBJ@@QEAA@PEAPEAU_FONTHASH@@W4_FONTHASHTYPE@@I@Z @ 0x1C00B49F8 (--0FHMEMOBJ@@QEAA@PEAPEAU_FONTHASH@@W4_FONTHASHTYPE@@I@Z.c)
- *     ?pAllocateAndInitializePFT@@YAPEAVPFT@@I@Z @ 0x1C00B4AC8 (-pAllocateAndInitializePFT@@YAPEAVPFT@@I@Z.c)
- *     vQueryRegistryForNumberOfBuckets @ 0x1C03B4D04 (vQueryRegistryForNumberOfBuckets.c)
+ *     ??0FHMEMOBJ@@QEAA@PEAPEAU_FONTHASH@@W4_FONTHASHTYPE@@I@Z @ 0x1C012DEAC (--0FHMEMOBJ@@QEAA@PEAPEAU_FONTHASH@@W4_FONTHASHTYPE@@I@Z.c)
+ *     ?pAllocateAndInitializePFT@@YAPEAVPFT@@I@Z @ 0x1C012DF68 (-pAllocateAndInitializePFT@@YAPEAVPFT@@I@Z.c)
+ *     vQueryRegistryForNumberOfBuckets @ 0x1C0393B4C (vQueryRegistryForNumberOfBuckets.c)
  */
 
-__int64 __fastcall bInitFontTables(Gre::Base *a1)
+// write access to const memory has been detected, the output may be wrong!
+__int64 bInitFontTables()
 {
-  unsigned int v1; // ebx
-  struct Gre::Base::SESSION_GLOBALS *v2; // rbp
-  __int64 v3; // rcx
-  _QWORD *v4; // rdi
-  struct PFT *v5; // rax
-  struct PFT *v6; // rax
-  __int64 Semaphore; // rax
-  __int64 v8; // rax
-  __int64 v9; // rax
-  _BYTE v11[24]; // [rsp+20h] [rbp-18h] BYREF
-  unsigned int v12; // [rsp+40h] [rbp+8h] BYREF
-  unsigned int v13; // [rsp+48h] [rbp+10h] BYREF
+  unsigned int v0; // ebx
+  _BYTE v2[24]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v3; // [rsp+40h] [rbp+8h] BYREF
+  unsigned int v4; // [rsp+48h] [rbp+10h] BYREF
 
-  v1 = 0;
-  v12 = 0;
-  v13 = 0;
-  v2 = Gre::Base::Globals(a1);
-  v4 = *(_QWORD **)(SGDGetSessionState(v3) + 32);
-  vQueryRegistryForNumberOfBuckets(&v12, &v13);
-  v5 = pAllocateAndInitializePFT(v12);
-  v4[2534] = v5;
-  if ( v5 )
+  v0 = 0;
+  v3 = 0;
+  v4 = 0;
+  vQueryRegistryForNumberOfBuckets(&v3, &v4);
+  gpPFTPublic = (struct _FONTHASH **)pAllocateAndInitializePFT(v3);
+  if ( gpPFTPublic )
   {
-    v6 = pAllocateAndInitializePFT(v13);
-    v4[2535] = v6;
-    if ( v6 )
+    gpPFTDevice = pAllocateAndInitializePFT(v4);
+    if ( gpPFTDevice )
     {
-      Semaphore = GreCreateSemaphore();
-      *((_QWORD *)v2 + 6) = Semaphore;
-      if ( Semaphore )
+      ghsemPublicPFT = GreCreateSemaphore();
+      if ( ghsemPublicPFT )
       {
-        v8 = GreCreateSemaphore();
-        v4[2955] = v8;
-        if ( v8 )
+        ghsemGlyphSet = GreCreateSemaphore();
+        if ( ghsemGlyphSet )
         {
-          v9 = GreCreateSemaphore();
-          v4[2925] = v9;
-          if ( v9 )
+          ghsemPrintKView = GreCreateSemaphore();
+          if ( ghsemPrintKView )
           {
-            v1 = 1;
-            FHMEMOBJ::FHMEMOBJ((__int64)v11, (_QWORD *)(v4[2534] + 8LL), 0, v12);
-            FHMEMOBJ::FHMEMOBJ((__int64)v11, (_QWORD *)v4[2534], 1, v12);
-            FHMEMOBJ::FHMEMOBJ((__int64)v11, (_QWORD *)(v4[2534] + 16LL), 2, v12);
+            v0 = 1;
+            FHMEMOBJ::FHMEMOBJ((__int64)v2, gpPFTPublic + 1, 0, v3);
+            FHMEMOBJ::FHMEMOBJ((__int64)v2, gpPFTPublic, 1, v3);
+            FHMEMOBJ::FHMEMOBJ((__int64)v2, gpPFTPublic + 2, 2, v3);
           }
         }
       }
     }
   }
-  return v1;
+  return v0;
 }

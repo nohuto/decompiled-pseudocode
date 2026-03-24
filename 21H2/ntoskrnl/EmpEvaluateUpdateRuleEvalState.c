@@ -1,21 +1,21 @@
 /*
- * XREFs of EmpEvaluateUpdateRuleEvalState @ 0x1403B450C
+ * XREFs of EmpEvaluateUpdateRuleEvalState @ 0x1403C52F4
  * Callers:
- *     EmpUpdateRuleState @ 0x1402DCC34 (EmpUpdateRuleState.c)
+ *     EmpUpdateRuleState @ 0x140281BC4 (EmpUpdateRuleState.c)
  * Callees:
- *     EmpEvaluateTargetRule @ 0x1402DC420 (EmpEvaluateTargetRule.c)
- *     EmpEvaluatePermuteRuleEntries @ 0x1403B45BC (EmpEvaluatePermuteRuleEntries.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     EmpEvaluateTargetRule @ 0x140373ED8 (EmpEvaluateTargetRule.c)
+ *     EmpEvaluatePermuteRuleEntries @ 0x1403C53A4 (EmpEvaluatePermuteRuleEntries.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EmpEvaluateUpdateRuleEvalState(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx
   int v3; // r15d
-  char *Pool2; // rdi
-  __int64 v7; // rsi
+  char *PoolWithTag; // rsi
+  __int64 v7; // rdi
   unsigned int v8; // ebp
   __int64 v9; // rcx
   _QWORD **v10; // rax
@@ -27,7 +27,7 @@ void __fastcall EmpEvaluateUpdateRuleEvalState(__int64 a1, __int64 a2)
 
   v2 = *(_QWORD *)(a1 + 8);
   v3 = 0;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   v7 = *(unsigned int *)(v2 + 48);
   if ( *(_BYTE *)(v2 + 20) )
   {
@@ -37,26 +37,26 @@ void __fastcall EmpEvaluateUpdateRuleEvalState(__int64 a1, __int64 a2)
       v9 = *(_QWORD *)(v2 + 56);
       do
       {
-        v10 = (_QWORD **)(*(_QWORD *)&Pool2[v9] + 56LL);
+        v10 = (_QWORD **)(*(_QWORD *)&PoolWithTag[v9] + 56LL);
         v11 = *v10;
         while ( v11 != v10 )
         {
-          ((void (__fastcall *)(_QWORD, _QWORD))*(v11 - 2))(*(_QWORD *)&Pool2[*(_QWORD *)(v2 + 56)], *(v11 - 1));
+          ((void (__fastcall *)(_QWORD, _QWORD))*(v11 - 2))(*(_QWORD *)&PoolWithTag[*(_QWORD *)(v2 + 56)], *(v11 - 1));
           v9 = *(_QWORD *)(v2 + 56);
           v11 = (_QWORD *)*v11;
-          v10 = (_QWORD **)(*(_QWORD *)&Pool2[v9] + 56LL);
+          v10 = (_QWORD **)(*(_QWORD *)&PoolWithTag[v9] + 56LL);
         }
-        if ( *(_QWORD *)(*(_QWORD *)&Pool2[v9] + 40LL) == *(_QWORD *)&Pool2[v9] + 40LL )
+        if ( *(_QWORD *)(*(_QWORD *)&PoolWithTag[v9] + 40LL) == *(_QWORD *)&PoolWithTag[v9] + 40LL )
         {
           *(_DWORD *)(v2 + 16) = 0;
           return;
         }
         ++v8;
-        Pool2 += 8;
+        PoolWithTag += 8;
       }
       while ( v8 < (unsigned int)v7 );
-      Pool2 = (char *)ExAllocatePool2(256LL, 8 * v7, 1986350405LL);
-      if ( Pool2 )
+      PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 8 * v7, 0x76654D45u);
+      if ( PoolWithTag )
       {
         for ( i = 0LL; (unsigned int)i < *(_DWORD *)(v2 + 48); i = (unsigned int)(i + 1) )
         {
@@ -69,7 +69,7 @@ void __fastcall EmpEvaluateUpdateRuleEvalState(__int64 a1, __int64 a2)
     }
     else
     {
-      while ( (unsigned int)EmpEvaluateTargetRule(a1, (__int64)Pool2, v7) != 2 )
+      while ( (unsigned int)EmpEvaluateTargetRule(a1, (__int64)PoolWithTag, v7) != 2 )
       {
         if ( (unsigned __int8)EmpEvaluatePermuteRuleEntries(v2, (unsigned int)v7, a2, 0LL) )
           goto LABEL_5;
@@ -80,7 +80,7 @@ LABEL_20:
           v15 = v7;
           do
           {
-            *(_QWORD *)&Pool2[v14] = *(_QWORD *)(*(_QWORD *)(v14 + *(_QWORD *)(v2 + 56)) + 32LL) - 16LL;
+            *(_QWORD *)&PoolWithTag[v14] = *(_QWORD *)(*(_QWORD *)(v14 + *(_QWORD *)(v2 + 56)) + 32LL) - 16LL;
             v14 += 8LL;
             --v15;
           }
@@ -90,8 +90,8 @@ LABEL_20:
       v3 = 2;
 LABEL_5:
       *(_DWORD *)(v2 + 16) = v3;
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0x76654D45u);
+      if ( PoolWithTag )
+        ExFreePoolWithTag(PoolWithTag, 0x76654D45u);
     }
   }
   else

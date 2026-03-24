@@ -1,153 +1,149 @@
 /*
- * XREFs of NVMeSetIoQueueCountCompletion @ 0x1C000DFE0
+ * XREFs of NVMeSetIoQueueCountCompletion @ 0x1C001BA60
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
  */
 
 char __fastcall NVMeSetIoQueueCountCompletion(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdx
-  _WORD *v3; // r8
-  __int64 v4; // r9
+  __int64 v3; // r9
   __int64 SrbExtension; // r10
-  __int64 v6; // r11
+  __int16 *v5; // r11
+  __int64 v6; // r8
   __int64 v7; // rax
-  unsigned __int16 v8; // ax
-  unsigned int v9; // edi
-  int v10; // ebx
-  unsigned __int16 v11; // dx
-  unsigned __int16 v12; // cx
-  unsigned __int16 v13; // r8
-  char v14; // cl
-  unsigned __int16 v15; // ax
-  int v16; // ebx
-  unsigned int v17; // ecx
-  int v18; // r8d
+  char v8; // r8
+  unsigned __int16 v9; // ax
+  unsigned int v10; // esi
+  int v11; // edi
+  unsigned __int16 v12; // bx
+  __int16 v13; // bp
+  unsigned __int16 v14; // dx
+  unsigned int v15; // edi
+  unsigned int v16; // ecx
+  bool v17; // cf
+  unsigned __int16 v18; // ax
   int v19; // eax
   unsigned int v20; // edx
 
   SrbExtension = GetSrbExtension(a2);
-  if ( !v3 || (LOBYTE(v7) = *(_BYTE *)(v2 + 3), (_BYTE)v7 == 14) )
+  if ( !v6 || (LOBYTE(v7) = *(_BYTE *)(v2 + 3), (_BYTE)v7 == 14) )
   {
-    v7 = *(_QWORD *)(v4 + 952);
+    v7 = *(_QWORD *)(v3 + 936);
     *(_QWORD *)(v7 + 4232) = 0LL;
+    goto LABEL_55;
+  }
+  v8 = *(_BYTE *)(v3 + 16);
+  if ( (_BYTE)v7 != 1 || v8 )
+  {
+    v14 = 1;
+    LOWORD(v16) = 1;
   }
   else
   {
-    if ( (_BYTE)v7 != 1 || *(_BYTE *)(v4 + 20) )
+    v9 = *(_WORD *)(v3 + 256);
+    v10 = *(_DWORD *)(v3 + 124);
+    v11 = *(unsigned __int16 *)(v3 + 218);
+    v12 = v9 - 1;
+    if ( v9 <= 1u )
+      v12 = 1;
+    *(_WORD *)(v3 + 818) = *v5 + 1;
+    *(_WORD *)(v3 + 820) = v5[1] + 1;
+    v13 = *v5;
+    v14 = *v5 + 1;
+    if ( v10 )
     {
-      v13 = 1;
-      v11 = 1;
+      if ( v14 < v10 + v11 )
+      {
+        if ( (unsigned __int16)*(_DWORD *)v5 >= v10 )
+          v13 = v10;
+        *(_WORD *)(v3 + 822) = v13;
+        v14 = *v5 - v13 + 1;
+      }
+      else
+      {
+        *(_WORD *)(v3 + 822) = v10;
+      }
+      if ( v14 >= (unsigned __int16)v11 )
+        v14 = v11;
+      v15 = (unsigned __int16)v5[1];
+      v16 = (unsigned __int16)(v15 + 1);
+      LODWORD(v7) = v10 + v12;
+      if ( v16 < (unsigned int)v7 )
+      {
+        if ( v15 >= v10 )
+          LOWORD(v15) = v10;
+        *(_WORD *)(v3 + 822) = v15;
+        LOWORD(v7) = v5[1] - v15 + 1;
+        if ( (unsigned __int16)v7 >= v12 )
+          LOWORD(v7) = v12;
+        LOWORD(v16) = v7;
+        goto LABEL_29;
+      }
+      *(_WORD *)(v3 + 822) = v10;
+      v17 = (unsigned __int16)v16 < v12;
     }
     else
     {
-      v8 = *(_WORD *)(v4 + 272);
-      v9 = *(_DWORD *)(v4 + 132);
-      v10 = *(unsigned __int16 *)(v4 + 234);
-      v11 = v8 - 1;
-      if ( v8 <= 1u )
-        v11 = 1;
-      *(_WORD *)(v4 + 834) = *v3 + 1;
-      *(_WORD *)(v4 + 836) = v3[1] + 1;
-      v12 = *v3 + 1;
-      if ( v9 )
-      {
-        v13 = *v3 + 1;
-        if ( v12 < v9 + v10 )
-        {
-          if ( (unsigned int)(unsigned __int16)*(_DWORD *)v6 + 1 >= v9 )
-            v13 = v9;
-          *(_WORD *)(v4 + 838) = v13;
-          if ( (unsigned __int16)(*(_WORD *)v6 - v13 + 1) < (unsigned __int16)v10 )
-            LOWORD(v10) = *(_WORD *)v6 - v13 + 1;
-          v13 = v10;
-        }
-        else
-        {
-          *(_WORD *)(v4 + 838) = v9;
-          if ( v12 >= (unsigned __int16)v10 )
-            v13 = v10;
-        }
-        v16 = *(unsigned __int16 *)(v6 + 2);
-        v17 = (unsigned __int16)(v16 + 1);
-        LODWORD(v7) = v9 + v11;
-        if ( v17 < (unsigned int)v7 )
-        {
-          if ( v16 + 1 >= v9 )
-            LOWORD(v17) = v9;
-          *(_WORD *)(v4 + 838) = v17;
-          LOWORD(v7) = *(_WORD *)(v6 + 2) - v17 + 1;
-          if ( (unsigned __int16)v7 < v11 )
-            v11 = *(_WORD *)(v6 + 2) - v17 + 1;
-        }
-        else
-        {
-          *(_WORD *)(v4 + 838) = v9;
-          if ( (unsigned __int16)v17 < v11 )
-            v11 = v16 + 1;
-        }
-      }
-      else
-      {
-        if ( v12 >= (unsigned __int16)v10 )
-          v12 = v10;
-        LOWORD(v7) = v3[1] + 1;
-        v13 = v12;
-        if ( (unsigned __int16)v7 < v11 )
-          v11 = v7;
-      }
+      LOWORD(v7) = v5[1] + 1;
+      LOWORD(v16) = v7;
+      if ( v14 >= (unsigned __int16)v11 )
+        v14 = v11;
+      v17 = (unsigned __int16)v7 < v12;
     }
-    v14 = *(_BYTE *)(v4 + 20);
-    if ( !v14 )
-    {
-      v15 = *(_WORD *)(v4 + 48);
-      if ( v15 && v13 >= v15 )
-        v13 = *(_WORD *)(v4 + 48);
-      LOWORD(v7) = *(_WORD *)(v4 + 50);
-      if ( (_WORD)v7 && v11 >= (unsigned __int16)v7 )
-        v11 = *(_WORD *)(v4 + 50);
-      if ( v11 > v13 )
-        v11 = v13;
-    }
-    if ( *(_QWORD *)(SrbExtension + 4232) )
-    {
-      if ( v13 >= *(_WORD *)(v4 + 304) )
-        v13 = *(_WORD *)(v4 + 304);
-      LOWORD(v7) = *(_WORD *)(v4 + 306);
-      if ( v11 >= (unsigned __int16)v7 )
-        v11 = *(_WORD *)(v4 + 306);
-    }
-    *(_WORD *)(v4 + 304) = v13;
-    *(_WORD *)(v4 + 306) = v11;
-    if ( !v14 && *(_BYTE *)(v4 + 3832) )
-    {
-      v18 = *(unsigned __int16 *)(v4 + 306);
-      v19 = *(_DWORD *)(v4 + 3844);
-      v20 = v18 * *(_DWORD *)(v4 + 3836) / 0x64u;
-      *(_WORD *)(v4 + 308) = v20;
-      if ( (v19 & 0x80u) == 0 )
-      {
-        LOWORD(v7) = v20;
-        if ( (_WORD)v18 && (_WORD)v20 == (_WORD)v18 )
-        {
-          LOWORD(v7) = v20 - 1;
-          *(_WORD *)(v4 + 308) = v20 - 1;
-        }
-      }
-      else
-      {
-        *(_WORD *)(v4 + 308) = v18;
-        LOWORD(v7) = v18;
-      }
-      if ( (_WORD)v7 )
-        *(_WORD *)(v4 + 304) = v18;
-      else
-        *(_BYTE *)(v4 + 3832) = 0;
-    }
-    *(_QWORD *)(SrbExtension + 4232) = 0LL;
+    if ( !v17 )
+      LOWORD(v16) = v12;
   }
+LABEL_29:
+  if ( !v8 )
+  {
+    v18 = *(_WORD *)(v3 + 40);
+    if ( v18 && v14 >= v18 )
+      v14 = *(_WORD *)(v3 + 40);
+    LOWORD(v7) = *(_WORD *)(v3 + 42);
+    if ( (_WORD)v7 && (unsigned __int16)v16 >= (unsigned __int16)v7 )
+      LOWORD(v16) = *(_WORD *)(v3 + 42);
+    if ( (unsigned __int16)v16 > v14 )
+      LOWORD(v16) = v14;
+  }
+  if ( *(_QWORD *)(SrbExtension + 4232) )
+  {
+    if ( v14 >= *(_WORD *)(v3 + 288) )
+      v14 = *(_WORD *)(v3 + 288);
+    LOWORD(v7) = *(_WORD *)(v3 + 290);
+    if ( (unsigned __int16)v16 >= (unsigned __int16)v7 )
+      LOWORD(v16) = *(_WORD *)(v3 + 290);
+  }
+  *(_WORD *)(v3 + 288) = v14;
+  *(_WORD *)(v3 + 290) = v16;
+  if ( !*(_BYTE *)(v3 + 16) && *(_BYTE *)(v3 + 3816) )
+  {
+    v19 = *(_DWORD *)(v3 + 3828);
+    v20 = (unsigned int)(unsigned __int16)v16 * *(_DWORD *)(v3 + 3820) / 0x64;
+    *(_WORD *)(v3 + 292) = v20;
+    if ( (v19 & 0x80u) == 0 )
+    {
+      LOWORD(v7) = v20;
+      if ( (_WORD)v16 && (_WORD)v20 == (_WORD)v16 )
+      {
+        LOWORD(v7) = v20 - 1;
+        *(_WORD *)(v3 + 292) = v20 - 1;
+      }
+    }
+    else
+    {
+      *(_WORD *)(v3 + 292) = v16;
+      LOWORD(v7) = v16;
+    }
+    if ( (_WORD)v7 )
+      *(_WORD *)(v3 + 288) = v16;
+    else
+      *(_BYTE *)(v3 + 3816) = 0;
+  }
+  *(_QWORD *)(SrbExtension + 4232) = 0LL;
+LABEL_55:
   *(_BYTE *)(SrbExtension + 4253) |= 8u;
   return v7;
 }

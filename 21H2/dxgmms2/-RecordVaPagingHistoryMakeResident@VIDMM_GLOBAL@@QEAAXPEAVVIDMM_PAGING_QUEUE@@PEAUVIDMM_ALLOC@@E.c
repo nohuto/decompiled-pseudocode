@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RecordVaPagingHistoryMakeResident@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_ALLOC@@E_K@Z @ 0x1C00E34AC
+ * XREFs of ?RecordVaPagingHistoryMakeResident@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PAGING_QUEUE@@PEAUVIDMM_ALLOC@@E_K@Z @ 0x1C00BE15C
  * Callers:
- *     ?CommitAllocationList@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PAGING_QUEUE@@PEAPEAUVIDMM_ALLOC@@_KPEA_K@Z @ 0x1C0086CEC (-CommitAllocationList@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PAGING_QUEUE@@PEAPEAUVIDMM_ALLOC@@_KPEA_K@Z.c)
+ *     ?CommitAllocationList@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PAGING_QUEUE@@PEAPEAUVIDMM_ALLOC@@_KPEA_K@Z @ 0x1C0067154 (-CommitAllocationList@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PAGING_QUEUE@@PEAPEAUVIDMM_ALLOC@@_KPEA_K@Z.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1C0001904 (--3@YAXPEAX@Z.c)
- *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002E04 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001618 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002230 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::RecordVaPagingHistoryMakeResident(
@@ -14,21 +14,21 @@ void __fastcall VIDMM_GLOBAL::RecordVaPagingHistoryMakeResident(
         char a4,
         unsigned __int64 a5)
 {
-  __int64 v9; // rbx
+  _BYTE *v9; // rbx
   __int64 v10; // rax
   void *v11; // rcx
   __int64 v12; // rax
 
   if ( *((_QWORD *)this + 5123) )
   {
-    v9 = operator new(48LL, 0x32356956u, 256LL);
+    v9 = operator new[](0x30uLL, 0x32356956u, PagedPool);
     if ( v9 )
     {
       KeEnterCriticalRegion();
       ExAcquirePushLockExclusiveEx((char *)this + 41000, 0LL);
       *((_QWORD *)this + 5126) = KeGetCurrentThread();
       v10 = *((unsigned int *)this + 10248);
-      if ( (_DWORD)v10 == dword_1C006E41C )
+      if ( (_DWORD)v10 == dword_1C00503AC )
       {
         *((_DWORD *)this + 10248) = 0;
         v10 = 0LL;
@@ -36,15 +36,15 @@ void __fastcall VIDMM_GLOBAL::RecordVaPagingHistoryMakeResident(
       v11 = *(void **)(*((_QWORD *)this + 5123) + 24 * v10 + 16);
       if ( v11 )
         operator delete(v11);
-      *(_BYTE *)(v9 + 32) = a4;
-      *(_QWORD *)(v9 + 8) = a2;
-      *(_QWORD *)(v9 + 16) = a3;
-      *(_QWORD *)(v9 + 40) = a5 & -(__int64)(a4 != 0);
+      v9[32] = a4;
+      *((_QWORD *)v9 + 1) = a2;
+      *((_QWORD *)v9 + 2) = a3;
+      *((_QWORD *)v9 + 5) = a5 & -(__int64)(a4 != 0);
       v12 = *((_QWORD *)a3 + 2);
       if ( v12 )
         v12 = *(_QWORD *)(v12 + 32);
       *(_QWORD *)v9 = 0LL;
-      *(_QWORD *)(v9 + 24) = v12;
+      *((_QWORD *)v9 + 3) = v12;
       if ( a2 )
         *(_QWORD *)v9 = **(_QWORD **)(*((_QWORD *)a2 + 17) + 8LL);
       *(_QWORD *)(*((_QWORD *)this + 5123) + 24LL * *((unsigned int *)this + 10248)) = MEMORY[0xFFFFF78000000014];

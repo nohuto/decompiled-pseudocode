@@ -1,77 +1,78 @@
 /*
- * XREFs of xxxLW_LoadFonts @ 0x1C0088F60
+ * XREFs of xxxLW_LoadFonts @ 0x1C00E6120
  * Callers:
- *     UserOnGreTextReady @ 0x1C0088E50 (UserOnGreTextReady.c)
- *     NtUserLW_LoadFonts @ 0x1C0088F20 (NtUserLW_LoadFonts.c)
+ *     UserOnGreTextReady @ 0x1C00E5F8C (UserOnGreTextReady.c)
  * Callees:
- *     xxxAddFontResourceW @ 0x1C0089044 (xxxAddFontResourceW.c)
- *     ?xxxLoadUserAndNetworkFonts@@YAXXZ @ 0x1C0089090 (-xxxLoadUserAndNetworkFonts@@YAXXZ.c)
- *     ?xxxLoadPermanentFonts@@YAHXZ @ 0x1C00891E8 (-xxxLoadPermanentFonts@@YAHXZ.c)
- *     EngCloseFNTCache @ 0x1C0089CDC (EngCloseFNTCache.c)
- *     ClientLoadLocalT1Fonts @ 0x1C0089D50 (ClientLoadLocalT1Fonts.c)
- *     ?GetCount@AtomicExecutionCheck@@SAIXZ @ 0x1C0089E68 (-GetCount@AtomicExecutionCheck@@SAIXZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C01110BC (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     xxxAddFontResourceW @ 0x1C0021D64 (xxxAddFontResourceW.c)
+ *     ?xxxLoadUserAndNetworkFonts@@YAXXZ @ 0x1C0025D38 (-xxxLoadUserAndNetworkFonts@@YAXXZ.c)
+ *     ?xxxLoadPermanentFonts@@YAHXZ @ 0x1C0025E90 (-xxxLoadPermanentFonts@@YAHXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C009B854 (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     EngCloseFNTCache @ 0x1C00E61F0 (EngCloseFNTCache.c)
+ *     ClientLoadLocalT1Fonts @ 0x1C00E6368 (ClientLoadLocalT1Fonts.c)
  */
 
-__int64 __fastcall xxxLW_LoadFonts(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall xxxLW_LoadFonts(__int64 a1)
 {
-  int v4; // edi
-  Gre::Base *v5; // rcx
-  unsigned int v7; // edi
-  unsigned int Count; // eax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  union _LARGE_INTEGER Interval; // [rsp+68h] [rbp+10h] BYREF
+  int v1; // edi
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  const unsigned __int16 *v4; // r8
+  const unsigned __int16 *v5; // r9
+  unsigned int v6; // edi
+  union _LARGE_INTEGER Interval; // [rsp+48h] [rbp+10h] BYREF
 
-  v4 = a1;
-  UserSessionSwitchLeaveCrit(a1, a2, a3, a4);
-  if ( (int)UmfdHostLifeTimeManager::WaitForSessionRasterizerInitialization() < 0 )
+  v1 = a1;
+  UserSessionSwitchLeaveCrit(a1);
+  if ( UmfdHostLifeTimeManager::WaitForSessionRasterizerInitialization() < 0 )
   {
-    EnterCrit(1LL, 0LL);
+    EnterCrit(0LL, 1LL);
     return 0LL;
   }
   else
   {
-    EnterCrit(1LL, 0LL);
-    if ( v4 )
+    EnterCrit(0LL, 1LL);
+    if ( v1 )
     {
       Interval.QuadPart = 0LL;
-      v7 = 0;
-      while ( !gbPermanentFontsLoaded )
+      v6 = 0;
+      if ( gbPermanentFontsLoaded )
       {
-        if ( gbNonServiceSession && v7 >= 0x960 )
-          goto LABEL_11;
-        Count = AtomicExecutionCheck::GetCount();
-        if ( Count )
-        {
-          if ( (gdwExtraInstrumentations & 1) != 0 )
-            KeBugCheckEx(0x160u, Count, 0LL, 0LL, 0LL);
-          DbgkWerCaptureLiveKernelDump(L"NTUSER", 400LL, 37LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
-        }
-        UserSessionSwitchLeaveCrit(v10, v9, v11, v12);
-        Interval.QuadPart = -2500000LL;
-        KeDelayExecutionThread(0, 0, &Interval);
-        EnterCrit(1LL, 0LL);
-        ++v7;
+LABEL_8:
+        xxxLoadUserAndNetworkFonts(v3, v2, v4, v5);
       }
-      xxxLoadUserAndNetworkFonts();
-LABEL_11:
+      else
+      {
+        while ( !gbNonServiceSession || v6 < 0x960 )
+        {
+          if ( gdwInAtomicOperation )
+          {
+            v3 = gdwExtraInstrumentations;
+            if ( (gdwExtraInstrumentations & 1) != 0 )
+              KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+          }
+          UserSessionSwitchLeaveCrit(v3);
+          Interval.QuadPart = -2500000LL;
+          KeDelayExecutionThread(0, 0, &Interval);
+          EnterCrit(0LL, 1LL);
+          ++v6;
+          if ( gbPermanentFontsLoaded )
+            goto LABEL_8;
+        }
+      }
       gbNetworkFontsLoaded = 1;
     }
     else
     {
-      xxxAddFontResourceW(L"marlett.ttf");
+      xxxAddFontResourceW(L"marlett.ttf", 1, 0LL);
       if ( (unsigned int)xxxLoadPermanentFonts() && !gbPermanentT1FontsLoaded )
       {
         if ( gbPermanentFontsLoaded )
         {
           ClientLoadLocalT1Fonts();
           gbPermanentT1FontsLoaded = 1;
-          Interval = *(union _LARGE_INTEGER *)((char *)Gre::Base::Globals(v5) + 64);
-          ((void (__fastcall *)(_QWORD))GreAcquireSemaphore)((union _LARGE_INTEGER)Interval.QuadPart);
+          Interval.QuadPart = ghsemFntCache;
+          GreAcquireSemaphore(ghsemFntCache);
           EngCloseFNTCache();
           SEMOBJ::vUnlock((SEMOBJ *)&Interval);
         }

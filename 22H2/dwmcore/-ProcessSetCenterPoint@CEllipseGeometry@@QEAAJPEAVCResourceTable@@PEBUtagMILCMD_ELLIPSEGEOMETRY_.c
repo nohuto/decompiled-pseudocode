@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ProcessSetCenterPoint@CEllipseGeometry@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ELLIPSEGEOMETRY_SETCENTERPOINT@@@Z @ 0x18022BA64
+ * XREFs of ?ProcessSetCenterPoint@CEllipseGeometry@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ELLIPSEGEOMETRY_SETCENTERPOINT@@@Z @ 0x1801C00C4
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -11,8 +11,8 @@ __int64 __fastcall CEllipseGeometry::ProcessSetCenterPoint(
         struct CResourceTable *a2,
         const struct tagMILCMD_ELLIPSEGEOMETRY_SETCENTERPOINT *a3)
 {
-  return ((__int64 (__fastcall *)(char *, void *, char *))xmmword_1803E4900)(
-           (char *)this + SDWORD2(xmmword_1803E4900),
+  return ((__int64 (__fastcall *)(char *, void *, char *))xmmword_180346130)(
+           (char *)this + SDWORD2(xmmword_180346130),
            &CEllipseGeometry::sc_CenterPoint,
            (char *)a3 + 8);
 }

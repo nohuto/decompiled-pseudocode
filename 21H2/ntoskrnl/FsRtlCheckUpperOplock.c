@@ -1,30 +1,24 @@
 /*
- * XREFs of FsRtlCheckUpperOplock @ 0x14092E2F0
+ * XREFs of FsRtlCheckUpperOplock @ 0x14088B8B0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpOplockBreakToII @ 0x14024A5B4 (FsRtlpOplockBreakToII.c)
- *     FsRtlpOplockBreakToNone @ 0x140256F58 (FsRtlpOplockBreakToNone.c)
- *     FsRtlpComputeShareableOplockState @ 0x1402A2DE8 (FsRtlpComputeShareableOplockState.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402A4E10 (FsRtlpOplockBreakByCacheFlags.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x140542AEC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
- *     FsRtlpOplockUpperLowerCompatible @ 0x14071CAB0 (FsRtlpOplockUpperLowerCompatible.c)
+ *     FsRtlpComputeShareableOplockState @ 0x140206150 (FsRtlpComputeShareableOplockState.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     FsRtlpOplockBreakToII @ 0x1402C4AAC (FsRtlpOplockBreakToII.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x140354E00 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockBreakToNone @ 0x14036D3C8 (FsRtlpOplockBreakToNone.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1404F0B4C (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpOplockUpperLowerCompatible @ 0x1405EA118 (FsRtlpOplockUpperLowerCompatible.c)
  */
 
-__int64 __fastcall FsRtlCheckUpperOplock(
-        __int64 *a1,
-        char a2,
-        __int64 a3,
-        __int64 a4,
-        void (__fastcall *a5)(__int64, __int64),
-        unsigned int a6)
+__int64 __fastcall FsRtlCheckUpperOplock(__int64 **a1, char a2, __int64 a3, __int64 a4, __int64 a5, unsigned int a6)
 {
   int v7; // r15d
-  __int64 v8; // rsi
+  __int64 *v8; // rsi
   bool v9; // r14
   int v10; // edi
   unsigned int v11; // ebx
@@ -33,20 +27,20 @@ __int64 __fastcall FsRtlCheckUpperOplock(
   __int16 v14; // r10
   char v15; // al
   int v16; // r10d
-  void (__fastcall *v17)(__int64, __int64); // r15
+  __int64 v17; // r15
   bool v18; // zf
   __int64 v19; // r14
   unsigned int v20; // eax
-  __int64 v22; // [rsp+20h] [rbp-F8h]
-  __int64 v23; // [rsp+20h] [rbp-F8h]
-  char v24; // [rsp+80h] [rbp-98h] BYREF
-  char v25; // [rsp+81h] [rbp-97h]
-  unsigned __int8 v26; // [rsp+82h] [rbp-96h]
-  int v27; // [rsp+84h] [rbp-94h]
-  __int64 v28; // [rsp+88h] [rbp-90h]
-  void (__fastcall *v29)(__int64, __int64); // [rsp+90h] [rbp-88h]
-  __int64 v30; // [rsp+98h] [rbp-80h]
-  _BYTE v31[72]; // [rsp+A0h] [rbp-78h] BYREF
+  __int64 v22; // [rsp+20h] [rbp-E8h]
+  __int64 v23; // [rsp+20h] [rbp-E8h]
+  char v24; // [rsp+70h] [rbp-98h] BYREF
+  char v25; // [rsp+71h] [rbp-97h]
+  unsigned __int8 v26; // [rsp+72h] [rbp-96h]
+  int v27; // [rsp+74h] [rbp-94h]
+  __int64 v28; // [rsp+78h] [rbp-90h]
+  __int64 v29; // [rsp+80h] [rbp-88h]
+  __int64 *v30; // [rsp+88h] [rbp-80h]
+  _BYTE v31[72]; // [rsp+90h] [rbp-78h] BYREF
 
   v28 = a4;
   v29 = a5;
@@ -62,9 +56,9 @@ __int64 __fastcall FsRtlCheckUpperOplock(
   v11 = 0;
   if ( !v30 )
     return v11;
-  ExAcquireFastMutexUnsafe(*(PFAST_MUTEX *)(v30 + 152));
+  ExAcquireFastMutexUnsafe((PFAST_MUTEX)v30[19]);
   v24 = 1;
-  v12 = *(_DWORD *)(v30 + 144);
+  v12 = *((_DWORD *)v30 + 36);
   if ( v12 != 1 )
   {
     if ( (a6 & 0x20000) != 0 )
@@ -76,7 +70,7 @@ __int64 __fastcall FsRtlCheckUpperOplock(
       }
       else
       {
-        for ( i = *(__int64 **)(v30 + 40); i != (__int64 *)(v30 + 40); i = (__int64 *)*i )
+        for ( i = (__int64 *)v30[5]; i != v30 + 5; i = (__int64 *)*i )
         {
           if ( *(_DWORD *)(i[2] + 24) == 590400 )
           {
@@ -84,7 +78,7 @@ __int64 __fastcall FsRtlCheckUpperOplock(
             FsRtlpRemoveAndCompleteReadOnlyIrp((_QWORD *)*i, 0, 0x1000u);
           }
         }
-        FsRtlpComputeShareableOplockState(v30);
+        FsRtlpComputeShareableOplockState((__int64)v30);
       }
       goto LABEL_36;
     }
@@ -139,18 +133,16 @@ LABEL_27:
         if ( !v15 )
         {
 LABEL_32:
-          if ( !v11 && (*(_DWORD *)(v8 + 144) & v10) != 0 )
+          if ( !v11 && ((_DWORD)v8[18] & v10) != 0 )
           {
             LODWORD(v22) = 0;
             v11 = FsRtlpOplockBreakByCacheFlags(
-                    v8,
+                    (__int64)v8,
                     (__int64)v31,
                     0LL,
                     a6 | v26,
                     v22,
                     v10,
-                    0LL,
-                    0LL,
                     a3,
                     v19,
                     v17,
@@ -164,14 +156,12 @@ LABEL_32:
             {
               LODWORD(v23) = 0;
               v11 = FsRtlpOplockBreakByCacheFlags(
-                      v8,
+                      (__int64)v8,
                       (__int64)v31,
                       0LL,
                       a6,
                       v23,
                       0x2000,
-                      0LL,
-                      0LL,
                       a3,
                       v19,
                       v17,
@@ -185,7 +175,7 @@ LABEL_32:
           }
           goto LABEL_36;
         }
-        v20 = FsRtlpOplockBreakToNone(v30, (__int64)v31, 0LL, a6, v22, a3, v28, v29, 0LL, 0LL, 0LL, &v24, 0LL);
+        v20 = FsRtlpOplockBreakToNone((__int64)v30, (__int64)v31, 0LL, a6, v22, a3, v28, v29, 0LL, 0LL, 0LL, &v24, 0LL);
       }
       else
       {
@@ -198,6 +188,6 @@ LABEL_32:
   }
 LABEL_36:
   if ( v24 )
-    ExReleaseFastMutexUnsafe(*(PFAST_MUTEX *)(v8 + 152));
+    ExReleaseFastMutexUnsafe((PFAST_MUTEX)v8[19]);
   return v11;
 }

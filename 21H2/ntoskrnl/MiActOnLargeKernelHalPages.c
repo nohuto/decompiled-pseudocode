@@ -1,13 +1,13 @@
 /*
- * XREFs of MiActOnLargeKernelHalPages @ 0x14082BA68
+ * XREFs of MiActOnLargeKernelHalPages @ 0x1407A19EC
  * Callers:
- *     MiProtectSystemImage @ 0x14082B6F0 (MiProtectSystemImage.c)
- *     MiCreateSlabAllocationsFromKernelHal @ 0x140B06C30 (MiCreateSlabAllocationsFromKernelHal.c)
- *     MiInitializeBootLoadedDriverPfns @ 0x140B1A054 (MiInitializeBootLoadedDriverPfns.c)
+ *     MiProtectSystemImage @ 0x1407A168C (MiProtectSystemImage.c)
+ *     MiCreateSlabAllocationsFromKernelHal @ 0x140A504E4 (MiCreateSlabAllocationsFromKernelHal.c)
+ *     MiInitializeBootLoadedDriverPfns @ 0x140A65FFC (MiInitializeBootLoadedDriverPfns.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140281450 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiActOnLargeKernelHalPages(__int64 a1, __int64 (__fastcall *a2)(unsigned __int64, __int64))

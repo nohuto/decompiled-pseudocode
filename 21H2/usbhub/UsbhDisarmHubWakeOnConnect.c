@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhDisarmHubWakeOnConnect @ 0x1C003B5DC
+ * XREFs of UsbhDisarmHubWakeOnConnect @ 0x1C003C90C
  * Callers:
- *     UsbhSshSuspendHub @ 0x1C00063E0 (UsbhSshSuspendHub.c)
- *     UsbhFdoSetPowerDx_Action @ 0x1C0009A20 (UsbhFdoSetPowerDx_Action.c)
+ *     UsbhSshSuspendHub @ 0x1C000D970 (UsbhSshSuspendHub.c)
+ *     UsbhFdoSetPowerDx_Action @ 0x1C000F880 (UsbhFdoSetPowerDx_Action.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhDisarmHubForWakeDetect @ 0x1C001D300 (UsbhDisarmHubForWakeDetect.c)
- *     UsbhSetHubRemoteWake @ 0x1C002CF94 (UsbhSetHubRemoteWake.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhDisarmHubForWakeDetect @ 0x1C001B180 (UsbhDisarmHubForWakeDetect.c)
+ *     UsbhSetHubRemoteWake @ 0x1C002E394 (UsbhSetHubRemoteWake.c)
  */
 
 void __fastcall UsbhDisarmHubWakeOnConnect(__int64 a1)

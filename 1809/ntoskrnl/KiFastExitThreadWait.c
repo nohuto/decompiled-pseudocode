@@ -1,18 +1,18 @@
 /*
- * XREFs of KiFastExitThreadWait @ 0x1400F9D8C
+ * XREFs of KiFastExitThreadWait @ 0x1400F9DAC
  * Callers:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     KeRemoveQueueEx @ 0x140058D60 (KeRemoveQueueEx.c)
  *     KeWaitForAlertByThreadId @ 0x14008B060 (KeWaitForAlertByThreadId.c)
- *     KeRemovePriQueue @ 0x1400B6180 (KeRemovePriQueue.c)
- *     KeWaitForGate @ 0x1400FA2E4 (KeWaitForGate.c)
- *     KiWaitForAllObjects @ 0x1400FA408 (KiWaitForAllObjects.c)
+ *     KeRemovePriQueue @ 0x1400B61A0 (KeRemovePriQueue.c)
+ *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
+ *     KiWaitForAllObjects @ 0x1400FA428 (KiWaitForAllObjects.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiExitThreadWait @ 0x1400F9E70 (KiExitThreadWait.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiExitThreadWait @ 0x1400F9E90 (KiExitThreadWait.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiFastExitThreadWait(__int64 a1, __int64 a2, __int64 a3)

@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpComputeEpilogueOffset @ 0x1403F2BC8
+ * XREFs of RtlpComputeEpilogueOffset @ 0x1403EB464
  * Callers:
- *     CmpLazyFlushDpcRoutine @ 0x1403657A0 (CmpLazyFlushDpcRoutine.c)
- *     ExpTimerDpcRoutine @ 0x140369870 (ExpTimerDpcRoutine.c)
- *     PopThermalZoneDpc @ 0x1403CC560 (PopThermalZoneDpc.c)
- *     ExpTimeRefreshDpcRoutine @ 0x1403CC640 (ExpTimeRefreshDpcRoutine.c)
- *     IopTimerDispatch @ 0x140555D40 (IopTimerDispatch.c)
- *     FsRtlTruncateSmallMcb @ 0x14066D000 (FsRtlTruncateSmallMcb.c)
+ *     PopThermalZoneDpc @ 0x1402010F0 (PopThermalZoneDpc.c)
+ *     ExpTimeRefreshDpcRoutine @ 0x1402F3120 (ExpTimeRefreshDpcRoutine.c)
+ *     CmpLazyFlushDpcRoutine @ 0x140324440 (CmpLazyFlushDpcRoutine.c)
+ *     ExpTimerDpcRoutine @ 0x140327160 (ExpTimerDpcRoutine.c)
+ *     IopTimerDispatch @ 0x140500DB0 (IopTimerDispatch.c)
+ *     FsRtlTruncateSmallMcb @ 0x1405BF600 (FsRtlTruncateSmallMcb.c)
  * Callees:
- *     KeExitRetpoline @ 0x14034BADC (KeExitRetpoline.c)
- *     sub_140B131A0 @ 0x140B131A0 (sub_140B131A0.c)
- *     KeGuardDispatchICall @ 0x140B147A0 (KeGuardDispatchICall.c)
+ *     KeExitRetpoline @ 0x1402F35B4 (KeExitRetpoline.c)
+ *     sub_140A0FD10 @ 0x140A0FD10 (sub_140A0FD10.c)
+ *     KeGuardDispatchICall @ 0x140A11330 (KeGuardDispatchICall.c)
  */
 
 __int64 __fastcall RtlpComputeEpilogueOffset(__int64 a1, _QWORD *a2, unsigned __int64 a3)
@@ -45,6 +45,6 @@ __int64 __fastcall RtlpComputeEpilogueOffset(__int64 a1, _QWORD *a2, unsigned __
     KeExitRetpoline(v6, a2, a3);
   else
     _mm_lfence();
-  sub_140B131A0(a1, v3, 0LL, 0LL);
+  sub_140A0FD10(a1, v3, 0LL, 0LL);
   return ((__int64 (__fastcall *)(_QWORD *, __int64))v3[34])(v3 + 243, 1LL);
 }

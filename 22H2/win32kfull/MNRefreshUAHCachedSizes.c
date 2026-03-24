@@ -1,10 +1,10 @@
 /*
- * XREFs of MNRefreshUAHCachedSizes @ 0x1C02385C8
+ * XREFs of MNRefreshUAHCachedSizes @ 0x1C010259C
  * Callers:
- *     xxxMNOpenHierarchy @ 0x1C0218BF0 (xxxMNOpenHierarchy.c)
- *     MNClearCachedPopupSizes @ 0x1C0238548 (MNClearCachedPopupSizes.c)
+ *     MNClearCachedPopupSizes @ 0x1C010251C (MNClearCachedPopupSizes.c)
+ *     xxxMNOpenHierarchy @ 0x1C02394F8 (xxxMNOpenHierarchy.c)
  * Callees:
- *     MNUpdateUAHMaxPopupWidths @ 0x1C0238618 (MNUpdateUAHMaxPopupWidths.c)
+ *     MNUpdateUAHMaxPopupWidths @ 0x1C01025EC (MNUpdateUAHMaxPopupWidths.c)
  */
 
 __int64 __fastcall MNRefreshUAHCachedSizes(__int64 a1)

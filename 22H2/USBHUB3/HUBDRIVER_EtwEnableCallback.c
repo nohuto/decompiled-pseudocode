@@ -1,14 +1,14 @@
 /*
- * XREFs of HUBDRIVER_EtwEnableCallback @ 0x1C0076368
+ * XREFs of HUBDRIVER_EtwEnableCallback @ 0x1C0072FA8
  * Callers:
- *     McGenControlCallbackV2 @ 0x1C0001560 (McGenControlCallbackV2.c)
+ *     McGenControlCallbackV2 @ 0x1C0001130 (McGenControlCallbackV2.c)
  * Callees:
- *     McTemplateK0_EtwWriteTransfer @ 0x1C000174C (McTemplateK0_EtwWriteTransfer.c)
- *     McTemplateK0ppuq_EtwWriteTransfer @ 0x1C0001C10 (McTemplateK0ppuq_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0044810 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
- *     HUBDRIVER_EtwRundownHub @ 0x1C007585C (HUBDRIVER_EtwRundownHub.c)
- *     HUBDRIVER_EtwRundownUsbDevice @ 0x1C0075D58 (HUBDRIVER_EtwRundownUsbDevice.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C000131C (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0ppuq_EtwWriteTransfer @ 0x1C00017E0 (McTemplateK0ppuq_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     HUBDRIVER_EtwRundownHub @ 0x1C0072540 (HUBDRIVER_EtwRundownHub.c)
+ *     HUBDRIVER_EtwRundownUsbDevice @ 0x1C0072970 (HUBDRIVER_EtwRundownUsbDevice.c)
  */
 
 __int64 __fastcall HUBDRIVER_EtwEnableCallback(__int64 a1, int a2)
@@ -30,7 +30,7 @@ __int64 __fastcall HUBDRIVER_EtwEnableCallback(__int64 a1, int a2)
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, WDFDRIVER__ *, void *))(WdfFunctions_01015 + 1616))(
          WdfDriverGlobals,
          WdfDriverGlobals->Driver,
-         off_1C00691E8);
+         off_1C00661C0);
   (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD))(WdfFunctions_01015 + 2504))(
     WdfDriverGlobals,
     *(_QWORD *)(v3 + 32),
@@ -39,7 +39,7 @@ __int64 __fastcall HUBDRIVER_EtwEnableCallback(__int64 a1, int a2)
   {
     _InterlockedOr((volatile signed __int32 *)(v3 + 4), 0x1000u);
     EtwActivityIdControl(3u, &ActivityId);
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 1) != 0 )
+    if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink & 1) != 0 )
       McTemplateK0_EtwWriteTransfer(v4, &USBHUB3_ETW_EVENT_RUNDOWN_START, &ActivityId);
     for ( i = *(_QWORD *)(v3 + 16); ; i = *(_QWORD *)(v11 + 2432) )
     {
@@ -65,8 +65,8 @@ __int64 __fastcall HUBDRIVER_EtwEnableCallback(__int64 a1, int a2)
           v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                  WdfDriverGlobals,
                  v9,
-                 off_1C0069170);
-          if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 1) != 0 )
+                 off_1C0066148);
+          if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink & 1) != 0 )
           {
             LODWORD(v14) = *(_DWORD *)(v7 + 28);
             LOBYTE(v13) = *(_BYTE *)(v11 + 160);
@@ -89,7 +89,7 @@ __int64 __fastcall HUBDRIVER_EtwEnableCallback(__int64 a1, int a2)
         WdfDriverGlobals,
         *(_QWORD *)(v11 + 16));
     }
-    if ( (WPP_MAIN_CB.Queue.Wcb.NumberOfChannels & 1) != 0 )
+    if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink & 1) != 0 )
       McTemplateK0_EtwWriteTransfer(v4, &USBHUB3_ETW_EVENT_RUNDOWN_COMPLETE, &ActivityId);
   }
   else if ( !a2 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of WdInstrDestroyInstruction @ 0x14052CC78
+ * XREFs of WdInstrDestroyInstruction @ 0x1404DE5DC
  * Callers:
- *     HalpWdatExecuteActionBeforeInitialize @ 0x140521F54 (HalpWdatExecuteActionBeforeInitialize.c)
+ *     HalpWdatExecuteActionBeforeInitialize @ 0x1404D4C34 (HalpWdatExecuteActionBeforeInitialize.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     WdHwDestroyHardwareRegister @ 0x14052CB50 (WdHwDestroyHardwareRegister.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     WdHwDestroyHardwareRegister @ 0x1404DE4B4 (WdHwDestroyHardwareRegister.c)
  */
 
 void *__fastcall WdInstrDestroyInstruction(void *a1)

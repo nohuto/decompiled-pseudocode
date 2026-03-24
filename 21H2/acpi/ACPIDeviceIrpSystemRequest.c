@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIDeviceIrpSystemRequest @ 0x1C004FAD4
+ * XREFs of ACPIDeviceIrpSystemRequest @ 0x1C0050A08
  * Callers:
- *     ACPIRootIrpSetPower @ 0x1C005FEA0 (ACPIRootIrpSetPower.c)
+ *     ACPIRootIrpSetPower @ 0x1C005F0A0 (ACPIRootIrpSetPower.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     ACPIDeviceInitializePowerRequest @ 0x1C0008B20 (ACPIDeviceInitializePowerRequest.c)
- *     WPP_RECORDER_SF_qdqss @ 0x1C000D718 (WPP_RECORDER_SF_qdqss.c)
- *     ACPIDeviceIrpForwardRequest @ 0x1C0030A70 (ACPIDeviceIrpForwardRequest.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDeviceIrpForwardRequest @ 0x1C000CEC0 (ACPIDeviceIrpForwardRequest.c)
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001C9E4 (ACPIDeviceInitializePowerRequest.c)
+ *     WPP_RECORDER_SF_qdqss @ 0x1C001E11C (WPP_RECORDER_SF_qdqss.c)
  */
 
 __int64 __fastcall ACPIDeviceIrpSystemRequest(ULONG_PTR a1, IRP *a2)
@@ -33,17 +33,17 @@ __int64 __fastcall ACPIDeviceIrpSystemRequest(ULONG_PTR a1, IRP *a2)
   if ( v8 == 5 && (v7 == 2 || (unsigned int)(v7 - 3) <= 1) )
     v8 = (CurrentStackLocation->Parameters.Read.Length >> 8) & 0xF;
   v9 = 0;
-  v10 = (const char *)&unk_1C006FB8B;
-  v11 = (const char *)&unk_1C006FB8B;
+  v10 = (const char *)&unk_1C00701BA;
+  v11 = (const char *)&unk_1C00701BA;
   if ( DeviceExtension )
   {
     v12 = *(_QWORD *)(DeviceExtension + 8);
     v9 = v5;
     if ( (v12 & 0x200000000000LL) != 0 )
     {
-      v10 = *(const char **)(v5 + 608);
+      v10 = *(const char **)(v5 + 568);
       if ( (v12 & 0x400000000000LL) != 0 )
-        v11 = *(const char **)(v5 + 616);
+        v11 = *(const char **)(v5 + 576);
     }
   }
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
@@ -57,7 +57,7 @@ __int64 __fastcall ACPIDeviceIrpSystemRequest(ULONG_PTR a1, IRP *a2)
       (__int64)v11,
       0xAu,
       0x21u,
-      (__int64)&WPP_a8f7cd0141bb322231380cc24ac7ac02_Traceguids,
+      (__int64)&WPP_095c070a05c4368bad966ca54a81e920_Traceguids,
       (char)a2,
       v13,
       v9,

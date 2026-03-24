@@ -1,24 +1,24 @@
 /*
- * XREFs of PiDevCfgResetDeviceDriverSettings @ 0x14095FC00
+ * XREFs of PiDevCfgResetDeviceDriverSettings @ 0x1407308D4
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x14087AC04 (PiDevCfgConfigureDevice.c)
- *     PpDevCfgProcessDeviceReset @ 0x14096346C (PpDevCfgProcessDeviceReset.c)
+ *     PpDevCfgProcessDeviceReset @ 0x140730680 (PpDevCfgProcessDeviceReset.c)
+ *     PiDevCfgConfigureDevice @ 0x14073F2C0 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     _PnpOpenObjectRegKey @ 0x1406CFA10 (_PnpOpenObjectRegKey.c)
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     PnpIsNullGuid @ 0x140786D44 (PnpIsNullGuid.c)
- *     _RegRtlDeleteTreeInternal @ 0x14086B738 (_RegRtlDeleteTreeInternal.c)
- *     PiDevCfgSetObjectProperty @ 0x14087BC10 (PiDevCfgSetObjectProperty.c)
- *     PiDevCfgResetDeviceKeys @ 0x140960044 (PiDevCfgResetDeviceKeys.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     PnpIsNullGuid @ 0x140634DDC (PnpIsNullGuid.c)
+ *     _PnpOpenObjectRegKey @ 0x1406B0644 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     RtlStringFromGUIDEx @ 0x1406F35C8 (RtlStringFromGUIDEx.c)
+ *     PiDevCfgResetDeviceKeys @ 0x140730BC8 (PiDevCfgResetDeviceKeys.c)
+ *     PiDevCfgSetObjectProperty @ 0x14074178C (PiDevCfgSetObjectProperty.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140765F94 (_RegRtlDeleteTreeInternal.c)
  */
 
 __int64 __fastcall PiDevCfgResetDeviceDriverSettings(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, __int64 a5)
@@ -29,19 +29,19 @@ __int64 __fastcall PiDevCfgResetDeviceDriverSettings(__int64 a1, __int64 a2, _QW
   __int64 v10; // r12
   int v11; // r15d
   _QWORD *v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // rcx
-  bool v15; // zf
-  __int64 v16; // rax
+  __int64 v13; // rax
+  bool v14; // zf
+  const WCHAR *v15; // rdx
+  NTSTATUS v16; // ebx
   const WCHAR *v17; // rdx
-  NTSTATUS v18; // ebx
-  const WCHAR *v19; // rdx
-  HANDLE v20; // rbx
-  __int64 v21; // rax
-  __int64 v22; // r8
+  __int64 v18; // rax
+  __int64 v19; // r8
+  __int64 v20; // rbx
+  __int64 v22; // rcx
   __int64 v23; // rcx
-  int v24; // eax
-  __int64 v25; // rbx
+  HANDLE v24; // rbx
+  __int64 v25; // rcx
+  int v26; // eax
   int v27; // [rsp+28h] [rbp-D8h]
   HANDLE Handle; // [rsp+60h] [rbp-A0h] BYREF
   int v29; // [rsp+68h] [rbp-98h] BYREF
@@ -56,12 +56,12 @@ __int64 __fastcall PiDevCfgResetDeviceDriverSettings(__int64 a1, __int64 a2, _QW
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+C8h] [rbp-38h] BYREF
   __int128 Source2; // [rsp+F8h] [rbp-8h] BYREF
 
-  v5 = (__int64 *)&off_140D53EA0;
+  v5 = (__int64 *)&off_140D2DB70;
   v35 = a4;
   v30 = a1;
   Handle = 0LL;
   KeyHandle = 0LL;
-  v8 = 19LL;
+  v8 = 17LL;
   *(_QWORD *)&UnicodeString.Length = 0LL;
   Source2 = 0LL;
   UnicodeString.Buffer = 0LL;
@@ -71,18 +71,7 @@ __int64 __fastcall PiDevCfgResetDeviceDriverSettings(__int64 a1, __int64 a2, _QW
   v31 = 0;
   do
   {
-    PiDevCfgSetObjectProperty(
-      *(__int64 *)&PiPnpRtlCtx,
-      (_DWORD *)a2,
-      *(const WCHAR **)(a2 + 8),
-      1,
-      *(_QWORD *)(a2 + 16),
-      v27,
-      *v5++,
-      0,
-      0LL,
-      0,
-      0);
+    PiDevCfgSetObjectProperty(PiPnpRtlCtx, a2, *(_QWORD *)(a2 + 8), 1, *(_QWORD *)(a2 + 16), v27, *v5++, 0, 0LL, 0, 0);
     --v8;
   }
   while ( v8 );
@@ -102,7 +91,7 @@ __int64 __fastcall PiDevCfgResetDeviceDriverSettings(__int64 a1, __int64 a2, _QW
   {
     Source2 = 0LL;
   }
-  v9 = &off_140A7A508;
+  v9 = &off_140985D58;
   v10 = 2LL;
   v11 = 0;
   do
@@ -111,30 +100,30 @@ __int64 __fastcall PiDevCfgResetDeviceDriverSettings(__int64 a1, __int64 a2, _QW
     if ( !v12 )
     {
       if ( !*v9 || PnpIsNullGuid(&Source2) )
-        goto LABEL_36;
-      v16 = *(_QWORD *)&(*v9)->Data1 - Source2;
-      if ( !v16 )
-        v16 = *(_QWORD *)(*v9)->Data4 - *((_QWORD *)&Source2 + 1);
-      v15 = v16 == 0;
-      goto LABEL_21;
+        goto LABEL_24;
+      v13 = *(_QWORD *)&(*v9)->Data1 - Source2;
+      if ( !v13 )
+        v13 = *(_QWORD *)(*v9)->Data4 - *((_QWORD *)&Source2 + 1);
+      v14 = v13 == 0;
+      goto LABEL_12;
     }
     if ( !a3 )
-      goto LABEL_12;
-    v13 = *v12 - *a3;
+      goto LABEL_38;
+    v22 = *v12 - *a3;
     if ( *v12 == *a3 )
-      v13 = v12[1] - a3[1];
-    if ( v13 )
+      v22 = v12[1] - a3[1];
+    if ( v22 )
     {
-LABEL_12:
+LABEL_38:
       if ( !a5 )
-        goto LABEL_36;
-      v14 = *v12 - *(_QWORD *)a5;
+        goto LABEL_24;
+      v23 = *v12 - *(_QWORD *)a5;
       if ( *v12 == *(_QWORD *)a5 )
-        v14 = v12[1] - *(_QWORD *)(a5 + 8);
-      v15 = v14 == 0;
-LABEL_21:
-      if ( !v15 )
-        goto LABEL_36;
+        v23 = v12[1] - *(_QWORD *)(a5 + 8);
+      v14 = v23 == 0;
+LABEL_12:
+      if ( !v14 )
+        goto LABEL_24;
     }
     if ( (int)CmOpenDeviceRegKey(
                 *(__int64 *)&PiPnpRtlCtx,
@@ -145,79 +134,76 @@ LABEL_21:
                 1,
                 (__int64)&Handle,
                 0LL) < 0 )
-      goto LABEL_36;
-    v17 = (const WCHAR *)v9[2];
-    if ( v17 )
+      goto LABEL_24;
+    v15 = (const WCHAR *)v9[2];
+    if ( v15 )
     {
-      RtlInitUnicodeString(&DestinationString, v17);
+      RtlInitUnicodeString(&DestinationString, v15);
       ObjectAttributes.RootDirectory = Handle;
       *(_QWORD *)&ObjectAttributes.Length = 48LL;
       ObjectAttributes.ObjectName = &DestinationString;
       *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
       KeyHandle = 0LL;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-      v18 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
+      v16 = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
       ZwClose(Handle);
-      if ( v18 < 0 )
-        goto LABEL_36;
+      if ( v16 < 0 )
+        goto LABEL_24;
       Handle = KeyHandle;
     }
-    v19 = (const WCHAR *)v9[3];
-    if ( v19 )
+    v17 = (const WCHAR *)v9[3];
+    if ( v17 )
     {
-      v20 = Handle;
+      v24 = Handle;
       ValueName = 0LL;
-      if ( RtlInitUnicodeStringEx(&ValueName, v19) >= 0 )
-        ZwDeleteValueKey(v20, &ValueName);
+      if ( RtlInitUnicodeStringEx(&ValueName, v17) >= 0 )
+        ZwDeleteValueKey(v24, &ValueName);
     }
     else if ( v9[2] )
     {
-      if ( *(_QWORD *)&PiPnpRtlCtx && (v21 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
-        v22 = *(_QWORD *)(v21 + 8);
+      if ( *(_QWORD *)&PiPnpRtlCtx && (v18 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
+        v19 = *(_QWORD *)(v18 + 8);
       else
-        v22 = 0LL;
-      RegRtlDeleteTreeInternal(Handle, 0LL, v22, 0);
+        v19 = 0LL;
+      RegRtlDeleteTreeInternal(Handle, 0LL, v19, 0LL);
     }
     ZwClose(Handle);
-LABEL_36:
+LABEL_24:
     v9 += 5;
     --v10;
   }
   while ( v10 );
   if ( !a5 )
-  {
-    v25 = v30;
-    goto LABEL_47;
-  }
+    goto LABEL_26;
   if ( !a3 )
-    goto LABEL_42;
-  v23 = *(_QWORD *)a5 - *a3;
+    goto LABEL_49;
+  v25 = *(_QWORD *)a5 - *a3;
   if ( *(_QWORD *)a5 == *a3 )
-    v23 = *(_QWORD *)(a5 + 8) - a3[1];
-  if ( !v23 )
+    v25 = *(_QWORD *)(a5 + 8) - a3[1];
+  if ( v25 )
   {
-    v25 = v30;
-LABEL_50:
-    if ( v35 )
-      v11 = PiDevCfgResetDeviceKeys(v25, a2, v35);
-  }
-  else
-  {
-LABEL_42:
+LABEL_49:
     v11 = RtlStringFromGUIDEx((unsigned int *)a5, (__int64)&UnicodeString, 1);
     if ( v11 >= 0 )
     {
-      v24 = PnpOpenObjectRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)UnicodeString.Buffer, 2u, 131097, 0, (__int64)&v33);
-      v25 = v30;
-      if ( v24 < 0 || (v11 = PiDevCfgResetDeviceKeys(v30, a2, v33), v11 >= 0) )
-      {
-LABEL_47:
-        if ( a3 )
-          goto LABEL_50;
-      }
+      v26 = PnpOpenObjectRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)UnicodeString.Buffer, 2u, 131097, 0, (__int64)&v33);
+      v20 = v30;
+      if ( v26 < 0 )
+        goto LABEL_27;
+      v11 = PiDevCfgResetDeviceKeys(v30, a2, v33);
+      if ( v11 >= 0 )
+        goto LABEL_27;
     }
   }
-  RtlFreeUnicodeString(&UnicodeString);
+  else
+  {
+LABEL_26:
+    v20 = v30;
+LABEL_27:
+    if ( a3 && v35 )
+      v11 = PiDevCfgResetDeviceKeys(v20, a2, v35);
+  }
+  RtlFreeAnsiString(&UnicodeString);
   if ( v33 )
     ZwClose(v33);
   return (unsigned int)v11;

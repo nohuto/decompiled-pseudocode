@@ -1,22 +1,24 @@
 /*
- * XREFs of ACPIThermalBuildConstraints @ 0x1C00956BC
+ * XREFs of ACPIThermalBuildConstraints @ 0x1C0091BD0
  * Callers:
- *     ACPIThermalWorker @ 0x1C00959C0 (ACPIThermalWorker.c)
+ *     ACPIThermalWorker @ 0x1C009AB00 (ACPIThermalWorker.c)
  * Callees:
- *     ACPIThermalActivateConstraint @ 0x1C0003F18 (ACPIThermalActivateConstraint.c)
- *     AMLIEvalNameSpaceObject @ 0x1C000B894 (AMLIEvalNameSpaceObject.c)
- *     AMLIEvalPkgDataElement @ 0x1C0019244 (AMLIEvalPkgDataElement.c)
- *     AMLIFreeDataBuffs @ 0x1C001C758 (AMLIFreeDataBuffs.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     ACPIThermalActivateConstraint @ 0x1C000E3E4 (ACPIThermalActivateConstraint.c)
+ *     AMLIEvalPkgDataElement @ 0x1C000F09C (AMLIEvalPkgDataElement.c)
+ *     AMLIFreeDataBuffs @ 0x1C001D940 (AMLIFreeDataBuffs.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
-__int64 __fastcall ACPIThermalBuildConstraints(__int64 *a1, __int64 a2, char a3, unsigned __int8 a4)
+__int64 __fastcall ACPIThermalBuildConstraints(unsigned __int64 *a1, __int64 a2, char a3, unsigned __int8 a4)
 {
-  int v6; // ebx
-  unsigned int v7; // esi
-  __int64 v8; // r15
-  unsigned int v9; // r14d
-  __int64 Pool2; // rax
+  int v5; // ebx
+  unsigned int v6; // esi
+  __int64 v7; // r15
+  unsigned int v8; // r14d
+  unsigned int v9; // r12d
+  PVOID PoolWithTag; // rax
   __int64 v11; // rdi
   __int128 v13; // [rsp+20h] [rbp-50h] BYREF
   size_t Size[2]; // [rsp+30h] [rbp-40h]
@@ -28,63 +30,65 @@ __int64 __fastcall ACPIThermalBuildConstraints(__int64 *a1, __int64 a2, char a3,
   v17 = 0LL;
   *(_OWORD *)Size = 0LL;
   memset(v16, 0, sizeof(v16));
-  v6 = AMLIEvalNameSpaceObject(a1, (__int64)v16, 0, 0LL, 0LL, 0LL, 0LL);
-  if ( v6 >= 0 )
+  v5 = AMLIEvalNameSpaceObject(a1, (__int64)v16, 0, 0LL, 0LL, 0LL, 0LL);
+  if ( v5 >= 0 )
   {
     if ( WORD1(v16[0]) == 4 )
     {
-      v7 = 0;
-      v8 = *(_QWORD *)(a2 + 200);
-      v9 = *v17;
+      v6 = 0;
+      v7 = *(_QWORD *)(a2 + 200);
+      v8 = *v17;
       if ( *v17 )
       {
         while ( 1 )
         {
-          v6 = AMLIEvalPkgDataElement((__int64)v16, v7, (__int64)&v13);
-          if ( v6 < 0 )
+          v5 = AMLIEvalPkgDataElement((__int64)v16, v6, (__int64)&v13);
+          if ( v5 < 0 )
             goto LABEL_11;
           if ( WORD1(v13) != 2 )
             break;
-          Pool2 = ExAllocatePool2(64LL, (unsigned int)(LODWORD(Size[1]) + 56), 1416651585LL);
-          v11 = Pool2;
-          if ( !Pool2 )
+          v9 = LODWORD(Size[1]) + 56;
+          PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(LODWORD(Size[1]) + 56), 0x54706341u);
+          v11 = (__int64)PoolWithTag;
+          if ( !PoolWithTag )
           {
-            v6 = -1073741670;
+            v5 = -1073741670;
 LABEL_17:
             AMLIFreeDataBuffs((__int64)&v13);
             goto LABEL_11;
           }
-          memmove((void *)(Pool2 + 56), Src, LODWORD(Size[1]));
+          memset(PoolWithTag, 0, v9);
+          memmove((void *)(v11 + 56), Src, LODWORD(Size[1]));
           AMLIFreeDataBuffs((__int64)&v13);
           *(_QWORD *)(v11 + 32) = a2;
-          *(_DWORD *)(v11 + 48) = v7;
+          *(_DWORD *)(v11 + 48) = v6;
           *(_BYTE *)(v11 + 52) = a3;
           *(_BYTE *)(v11 + 54) = a4;
           if ( a3 )
           {
-            *(_BYTE *)(v11 + 53) = *(_BYTE *)(v8 + 96);
+            *(_BYTE *)(v11 + 53) = *(_BYTE *)(v7 + 96);
             *(_BYTE *)(v11 + 55) = 0;
           }
           else
           {
             *(_BYTE *)(v11 + 53) = 100;
-            if ( (unsigned int)a4 >= *(_DWORD *)(v8 + 92) )
+            if ( (unsigned int)a4 >= *(_DWORD *)(v7 + 92) )
               *(_BYTE *)(v11 + 55) = 1;
           }
-          ACPIThermalActivateConstraint((_QWORD *)v11);
-          if ( ++v7 >= v9 )
+          ACPIThermalActivateConstraint(v11);
+          if ( ++v6 >= v8 )
             goto LABEL_11;
         }
-        v6 = -1072431095;
+        v5 = -1072431095;
         goto LABEL_17;
       }
     }
     else
     {
-      v6 = -1072431095;
+      v5 = -1072431095;
     }
 LABEL_11:
     AMLIFreeDataBuffs((__int64)v16);
   }
-  return (unsigned int)v6;
+  return (unsigned int)v5;
 }

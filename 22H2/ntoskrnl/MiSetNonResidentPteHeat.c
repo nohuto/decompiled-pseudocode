@@ -1,19 +1,17 @@
 /*
- * XREFs of MiSetNonResidentPteHeat @ 0x1402D90B0
+ * XREFs of MiSetNonResidentPteHeat @ 0x14023E120
  * Callers:
- *     MmCheckCachedPageStates @ 0x140265200 (MmCheckCachedPageStates.c)
- *     MiUpdatePfnForPrefetchByPte @ 0x140272F60 (MiUpdatePfnForPrefetchByPte.c)
- *     MiDeletePteList @ 0x1402D2450 (MiDeletePteList.c)
- *     MiDeletePteRun @ 0x1402D50F0 (MiDeletePteRun.c)
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiInitializePfn @ 0x1402E1040 (MiInitializePfn.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x140346714 (MiRewriteTrimPteAsDemandZero.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x140347C78 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiInitializeNewPfns @ 0x140375DC0 (MiInitializeNewPfns.c)
- *     MiCanBatchSystemCacheUnmapPages @ 0x14062EB64 (MiCanBatchSystemCacheUnmapPages.c)
- *     MiMakeTransitionHeatBatch @ 0x140654328 (MiMakeTransitionHeatBatch.c)
- *     MiSetActivePfnHeat @ 0x140654928 (MiSetActivePfnHeat.c)
+ *     MiDeletePteList @ 0x140231190 (MiDeletePteList.c)
+ *     MiReservePageFileSpaceForPage @ 0x14023CFD0 (MiReservePageFileSpaceForPage.c)
+ *     MiAllocateKernelStackPages @ 0x14023E170 (MiAllocateKernelStackPages.c)
+ *     MiDecrementAndInsertStandbyPages @ 0x1402ACA70 (MiDecrementAndInsertStandbyPages.c)
+ *     MiDecommitPages @ 0x1402B4EB0 (MiDecommitPages.c)
+ *     MiRestoreTransitionPte @ 0x1402FB620 (MiRestoreTransitionPte.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1403326D0 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x140332EB8 (MiRewriteTrimPteAsDemandZero.c)
+ *     MiTransferSoftwarePte @ 0x1403330E8 (MiTransferSoftwarePte.c)
+ *     MmSetPfnListInfo @ 0x1403733C4 (MmSetPfnListInfo.c)
+ *     MiMakeTransitionHeatBatch @ 0x14055F9B0 (MiMakeTransitionHeatBatch.c)
  * Callees:
  *     <none>
  */

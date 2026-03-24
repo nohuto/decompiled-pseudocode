@@ -1,37 +1,42 @@
 /*
- * XREFs of VfSuspectDriversLoadCallback @ 0x140A9A8F8
+ * XREFs of VfSuspectDriversLoadCallback @ 0x1409D9B98
  * Callers:
- *     VfDriverLoadImage @ 0x140A7C1B8 (VfDriverLoadImage.c)
+ *     VfDriverLoadImage @ 0x1409C2090 (VfDriverLoadImage.c)
  * Callees:
- *     VfTargetDriversAdd @ 0x1402D8104 (VfTargetDriversAdd.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     CarLoadImageHandler @ 0x140602F2C (CarLoadImageHandler.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
- *     VfUtilPrintCheckinString @ 0x140A81E94 (VfUtilPrintCheckinString.c)
- *     VfCheckImageCompliance @ 0x140A82B0C (VfCheckImageCompliance.c)
- *     VfDriverLock @ 0x140A89D58 (VfDriverLock.c)
- *     VfNotifyVerifierExtensions @ 0x140A89F08 (VfNotifyVerifierExtensions.c)
- *     VfThunkApplyThunksCurrentSession @ 0x140A93724 (VfThunkApplyThunksCurrentSession.c)
- *     VfSuspectDriversAllocateEntry @ 0x140A9A588 (VfSuspectDriversAllocateEntry.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     VfTargetDriversAdd @ 0x140371A3C (VfTargetDriversAdd.c)
+ *     VfTargetDriversRemove @ 0x14037E990 (VfTargetDriversRemove.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     VfDriverLock @ 0x1409C25B8 (VfDriverLock.c)
+ *     VfUtilPrintCheckinString @ 0x1409C6900 (VfUtilPrintCheckinString.c)
+ *     VfCheckImageCompliance @ 0x1409C791C (VfCheckImageCompliance.c)
+ *     VfNotifyVerifierExtensions @ 0x1409C8A88 (VfNotifyVerifierExtensions.c)
+ *     VfTargetDriversEnableVerifier @ 0x1409D6D94 (VfTargetDriversEnableVerifier.c)
+ *     VfThunkApplyMandatoryThunks @ 0x1409D8B6C (VfThunkApplyMandatoryThunks.c)
+ *     VfThunkApplyThunks @ 0x1409D8C54 (VfThunkApplyThunks.c)
+ *     VfSuspectDriversAllocateEntry @ 0x1409D9828 (VfSuspectDriversAllocateEntry.c)
  */
 
-LONG __fastcall VfSuspectDriversLoadCallback(__int64 a1, char a2, int a3)
+LONG __fastcall VfSuspectDriversLoadCallback(__int64 a1, __int64 Entry, char a3, int a4, unsigned int a5)
 {
-  int v6; // ebp
-  __int64 i; // rdi
-  __int64 j; // rdi
-  __int64 k; // rdi
-  __int64 *v10; // rax
+  int v9; // esi
+  __int64 i; // r14
+  __int64 j; // r14
+  int v12; // ebp
+  BOOLEAN v13; // al
+  int v14; // eax
+  __int64 *v15; // rax
+  int v16; // eax
   LONG result; // eax
 
-  v6 = 0;
+  v9 = 0;
   VfDriverLock();
   if ( (VfOptionFlags & 1) != 0 )
   {
     for ( i = VfExcludedDriversList; (__int64 *)i != &VfExcludedDriversList; i = *(_QWORD *)i )
     {
       if ( RtlEqualUnicodeString((PCUNICODE_STRING)(i + 16), (PCUNICODE_STRING)(a1 + 88), 1u) )
-        goto LABEL_44;
+        goto LABEL_58;
     }
   }
   if ( (MmVerifyDriverLevel & 0xEF8000) != 0 || (VfRuleClasses & 0x800000000LL) != 0 )
@@ -39,7 +44,7 @@ LONG __fastcall VfSuspectDriversLoadCallback(__int64 a1, char a2, int a3)
     for ( j = VfXdvExcludedDriversList; (__int64 *)j != &VfXdvExcludedDriversList; j = *(_QWORD *)j )
     {
       if ( RtlEqualUnicodeString((PCUNICODE_STRING)(j + 16), (PCUNICODE_STRING)(a1 + 88), 1u) )
-        goto LABEL_44;
+        goto LABEL_58;
     }
   }
   if ( RtlEqualUnicodeString(&VfTcpIpName, (PCUNICODE_STRING)(a1 + 88), 1u) == 1 )
@@ -72,54 +77,100 @@ LONG __fastcall VfSuspectDriversLoadCallback(__int64 a1, char a2, int a3)
     VfKsDllBase = *(_QWORD *)(a1 + 48);
     VfKsSizeOfImage = *(_DWORD *)(a1 + 64);
   }
-  for ( k = VfSuspectDriversList; (__int64 *)k != &VfSuspectDriversList; k = *(_QWORD *)k )
+  if ( a4 || (v9 = VfThunkApplyMandatoryThunks(a1, a5)) != 0 )
   {
-    if ( RtlEqualUnicodeString((PCUNICODE_STRING)(k + 24), (PCUNICODE_STRING)(a1 + 88), 1u) )
+    if ( Entry )
     {
-      if ( !k )
-        goto LABEL_44;
-      goto LABEL_42;
+LABEL_45:
+      v12 = 1;
+LABEL_46:
+      if ( a5 )
+      {
+        if ( v12 )
+          v16 = VfTargetDriversEnableVerifier(*(_QWORD *)(a1 + 48), Entry);
+        else
+          v16 = 1;
+      }
+      else
+      {
+        v16 = VfTargetDriversAdd(*(_QWORD *)(a1 + 48), *(_DWORD *)(a1 + 64), a3, Entry);
+      }
+      if ( v12 || (v9 = 0, KernelVerifier) )
+      {
+        v9 = 0;
+        if ( v16 )
+        {
+          v9 = VfThunkApplyThunks(a1, a5);
+          if ( v9 )
+          {
+            if ( v12 )
+            {
+              VfUtilPrintCheckinString((unsigned __int16 *)(a1 + 88));
+              ++dword_140C2A890;
+              ++*(_DWORD *)(Entry + 16);
+              VfNotifyVerifierExtensions(1, a1);
+              VfCheckImageCompliance(a1);
+            }
+          }
+          else
+          {
+            VfTargetDriversRemove(a1);
+          }
+        }
+      }
+      goto LABEL_58;
     }
-  }
-  if ( KernelVerifier )
-  {
-    if ( !a3 && !ViForceAllDriversSuspect )
-      goto LABEL_44;
-  }
-  else if ( ViVerifyAllDrivers != 1 )
-  {
-    if ( !VfRandomVerifiedDrivers )
-      goto LABEL_44;
-    if ( !_bittest((const signed __int32 *)qword_140D576E8, ++ViLoadedDriversCount) )
-      goto LABEL_44;
-    --VfRandomVerifiedDrivers;
-  }
-  k = VfSuspectDriversAllocateEntry((const void **)(a1 + 88));
-  if ( !k )
-    goto LABEL_44;
-  v10 = (__int64 *)qword_140C1B2C8;
-  if ( *(__int64 **)qword_140C1B2C8 != &VfSuspectDriversList )
-    __fastfail(3u);
-  *(_QWORD *)k = &VfSuspectDriversList;
-  *(_QWORD *)(k + 8) = v10;
-  *v10 = k;
-  qword_140C1B2C8 = k;
+    Entry = VfSuspectDriversList;
+    v12 = 0;
+    while ( (__int64 *)Entry != &VfSuspectDriversList )
+    {
+      v13 = RtlEqualUnicodeString((PCUNICODE_STRING)(Entry + 24), (PCUNICODE_STRING)(a1 + 88), 1u);
+      v12 = v13;
+      if ( v13 )
+        goto LABEL_46;
+      Entry = *(_QWORD *)Entry;
+    }
+    if ( KernelVerifier )
+    {
+      if ( !a4 )
+      {
+        v14 = ViForceAllDriversSuspect;
+        goto LABEL_42;
+      }
+    }
+    else if ( ViVerifyAllDrivers != 1 )
+    {
+      if ( !VfRandomVerifiedDrivers
+        || (++ViLoadedDriversCount, !_bittest((const signed __int32 *)qword_140D4A1F8, ViLoadedDriversCount)) )
+      {
+        v14 = 0;
 LABEL_42:
-  v6 = VfTargetDriversAdd(*(_QWORD *)(a1 + 48), *(_DWORD *)(a1 + 64), a2, k);
-  if ( v6 )
-  {
-    v6 = VfThunkApplyThunksCurrentSession(a1);
-    VfUtilPrintCheckinString((unsigned __int16 *)(a1 + 88), 0);
-    ++dword_140C29FF4;
-    ++*(_DWORD *)(k + 16);
-    CarLoadImageHandler(a1);
-    VfNotifyVerifierExtensions(1, a1);
-    VfCheckImageCompliance(a1);
+        if ( !v14 )
+        {
+          Entry = 0LL;
+          goto LABEL_46;
+        }
+        goto LABEL_38;
+      }
+      --VfRandomVerifiedDrivers;
+    }
+LABEL_38:
+    Entry = (__int64)VfSuspectDriversAllocateEntry((const void **)(a1 + 88));
+    if ( !Entry )
+      goto LABEL_46;
+    v15 = (__int64 *)qword_140C1D298;
+    if ( *(__int64 **)qword_140C1D298 != &VfSuspectDriversList )
+      __fastfail(3u);
+    *(_QWORD *)Entry = &VfSuspectDriversList;
+    *(_QWORD *)(Entry + 8) = v15;
+    *v15 = Entry;
+    qword_140C1D298 = Entry;
+    goto LABEL_45;
   }
-LABEL_44:
+LABEL_58:
   ViDriversLoadLockOwner = 0LL;
   result = KeReleaseMutex(&ViDriversLoadLock, 0);
-  if ( v6 )
+  if ( v9 )
     *(_DWORD *)(a1 + 104) |= 0x2000000u;
   return result;
 }

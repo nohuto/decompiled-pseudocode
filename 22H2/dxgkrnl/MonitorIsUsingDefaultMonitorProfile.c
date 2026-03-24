@@ -1,35 +1,38 @@
 /*
- * XREFs of MonitorIsUsingDefaultMonitorProfile @ 0x1C03C4510
+ * XREFs of MonitorIsUsingDefaultMonitorProfile @ 0x1C02F4540
  * Callers:
- *     ?IsUsingDefaultMonitorProfile@DXGDMM_INTERFACE_V1_IMPL@@YAJQEAXIPEAE@Z @ 0x1C03B58F0 (-IsUsingDefaultMonitorProfile@DXGDMM_INTERFACE_V1_IMPL@@YAJQEAXIPEAE@Z.c)
+ *     ?IsUsingDefaultMonitorProfile@DXGDMM_INTERFACE_V1_IMPL@@YAJQEAXIPEAE@Z @ 0x1C02E3F30 (-IsUsingDefaultMonitorProfile@DXGDMM_INTERFACE_V1_IMPL@@YAJQEAXIPEAE@Z.c)
  * Callees:
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0007198 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009DB4 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
  */
 
-__int64 __fastcall MonitorIsUsingDefaultMonitorProfile(__int64 a1, _BYTE *a2)
+__int64 __fastcall MonitorIsUsingDefaultMonitorProfile(struct HDXGMONITOR__ *a1, bool *a2)
 {
-  __int64 v3; // rbx
-  unsigned int v4; // edi
-  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  __int64 result; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  struct DXGMONITOR *v6; // rdi
+  __int64 v7; // rax
+  struct DXGMONITOR *v8; // [rsp+30h] [rbp+8h] BYREF
 
   if ( !a1 || !a2 )
     return 3221225485LL;
-  MONITOR_MGR::AcquireMonitorShared(&v6, a1);
-  v3 = v6;
-  if ( v6 )
+  v8 = 0LL;
+  result = MONITOR_MGR::_GetMonitorFromHandle(a1, &v8);
+  if ( (int)result >= 0 )
   {
-    *a2 = *(_BYTE *)(*(_QWORD *)(v6 + 232) + 116LL);
-    v4 = 0;
-  }
-  else
-  {
-    v4 = -1073741275;
-    WdLogSingleEntry1(2LL, -1073741275LL);
-  }
-  if ( v3 )
-  {
-    ExReleaseResourceLite((PERESOURCE)(v3 + 24));
+    v6 = v8;
+    if ( !v8 )
+    {
+      v7 = WdLogNewEntry5_WdAssertion(v5, v4);
+      WdLogEvent5_WdAssertion(v7);
+    }
+    KeEnterCriticalRegion();
+    ExAcquireResourceSharedLite((PERESOURCE)((char *)v6 + 296), 1u);
+    *a2 = (*((_DWORD *)v6 + 10) & 8) != 0;
+    ExReleaseResourceLite((PERESOURCE)((char *)v6 + 296));
     KeLeaveCriticalRegion();
+    return 0LL;
   }
-  return v4;
+  return result;
 }

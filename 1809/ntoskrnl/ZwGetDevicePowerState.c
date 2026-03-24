@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwGetDevicePowerState @ 0x1401B9F50
+ * XREFs of ZwGetDevicePowerState @ 0x1401B9F70
  * Callers:
  *     <none>
  * Callees:

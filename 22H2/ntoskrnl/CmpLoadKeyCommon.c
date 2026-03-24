@@ -1,35 +1,36 @@
 /*
- * XREFs of CmpLoadKeyCommon @ 0x1402F659C
+ * XREFs of CmpLoadKeyCommon @ 0x14036102C
  * Callers:
- *     CmLoadKey @ 0x1406957C0 (CmLoadKey.c)
- *     CmLoadAppKey @ 0x140769B50 (CmLoadAppKey.c)
+ *     CmLoadKey @ 0x14069DA54 (CmLoadKey.c)
+ *     CmLoadAppKey @ 0x1406E8CDC (CmLoadAppKey.c)
  * Callees:
- *     CmpRecheckHiveVolumePolicy @ 0x1402F634C (CmpRecheckHiveVolumePolicy.c)
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     CmpJoinClassOfTrust @ 0x14036DBCC (CmpJoinClassOfTrust.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     TmEnableCallbacks @ 0x1403D7E50 (TmEnableCallbacks.c)
- *     CmpInitCmRM @ 0x14068571C (CmpInitCmRM.c)
- *     CmpLinkHiveToMaster @ 0x14068F84C (CmpLinkHiveToMaster.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x1406D9378 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpTrimHive @ 0x14074ED94 (CmpTrimHive.c)
- *     CmpLockHiveListExclusive @ 0x14074EEC4 (CmpLockHiveListExclusive.c)
- *     CmpUnlockHiveList @ 0x140750E48 (CmpUnlockHiveList.c)
- *     UNLOCK_HIVE_LOAD @ 0x140752340 (UNLOCK_HIVE_LOAD.c)
- *     LOCK_HIVE_LOAD @ 0x1407523B8 (LOCK_HIVE_LOAD.c)
- *     CmpFlushHive @ 0x140753398 (CmpFlushHive.c)
- *     CmpLockRegistryFreezeAware @ 0x140753CF8 (CmpLockRegistryFreezeAware.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x140769400 (CmpDereferenceKeyControlBlockUnsafe.c)
- *     CmpVEAddHiveToSIDMappingTable @ 0x1407E43D0 (CmpVEAddHiveToSIDMappingTable.c)
- *     CmpAddToHiveFileList @ 0x1407E53E4 (CmpAddToHiveFileList.c)
- *     CmRmFinalizeRecovery @ 0x1407E8CA8 (CmRmFinalizeRecovery.c)
- *     CmpSetGlobalQuotaAllowed @ 0x1407EB550 (CmpSetGlobalQuotaAllowed.c)
- *     CmpDestroyHive @ 0x140A1CD50 (CmpDestroyHive.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140AF6160 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpDetachFromRegistryProcess @ 0x140AF6230 (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x140AF6250 (CmpAttachToRegistryProcess.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140AF62F0 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
+ *     SetFailureLocation @ 0x14031DB78 (SetFailureLocation.c)
+ *     CmpJoinClassOfTrust @ 0x14032CBB4 (CmpJoinClassOfTrust.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x140361750 (CmpRecheckHiveVolumePolicy.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1405EF620 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpDetachFromRegistryProcess @ 0x1405F613C (CmpDetachFromRegistryProcess.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
+ *     CmpUnlockRegistry @ 0x1406435F0 (CmpUnlockRegistry.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140649D20 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpAddToHiveFileList @ 0x1406A1CFC (CmpAddToHiveFileList.c)
+ *     CmRmFinalizeRecovery @ 0x1406A24AC (CmRmFinalizeRecovery.c)
+ *     CmpVEAddHiveToSIDMappingTable @ 0x1406A4C74 (CmpVEAddHiveToSIDMappingTable.c)
+ *     CmpSetGlobalQuotaAllowed @ 0x1406A68C8 (CmpSetGlobalQuotaAllowed.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406EB3B0 (UNLOCK_HIVE_LOAD.c)
+ *     CmpLockRegistryFreezeAware @ 0x1406EB4E0 (CmpLockRegistryFreezeAware.c)
+ *     LOCK_HIVE_LOAD @ 0x1406EB544 (LOCK_HIVE_LOAD.c)
+ *     CmpInitCmRM @ 0x14070D220 (CmpInitCmRM.c)
+ *     LockShutdownShared @ 0x14071C644 (LockShutdownShared.c)
+ *     CmpLockHiveListExclusive @ 0x14071C674 (CmpLockHiveListExclusive.c)
+ *     CmpUnlockHiveList @ 0x14071C694 (CmpUnlockHiveList.c)
+ *     UnlockShutdown @ 0x14071C6B4 (UnlockShutdown.c)
+ *     CmpTrimHive @ 0x14071C6E0 (CmpTrimHive.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x14071CD1C (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpLinkHiveToMaster @ 0x14071D600 (CmpLinkHiveToMaster.c)
+ *     CmpDestroyHive @ 0x140729DF8 (CmpDestroyHive.c)
  */
 
 __int64 __fastcall CmpLoadKeyCommon(
@@ -38,7 +39,7 @@ __int64 __fastcall CmpLoadKeyCommon(
         __int16 a3,
         __int64 a4,
         __int64 a5,
-        struct _KEVENT *a6,
+        __int64 a6,
         char a7,
         ULONG_PTR *a8,
         char a9,
@@ -49,42 +50,42 @@ __int64 __fastcall CmpLoadKeyCommon(
   int v15; // r14d
   int v16; // eax
   __int64 v17; // rcx
-  int v18; // r9d
-  int v19; // eax
-  __int64 v20; // rcx
-  unsigned int v21; // edi
-  ULONG_PTR v22; // rdi
-  ULONG_PTR *v23; // r12
-  _QWORD *v24; // rcx
-  _QWORD *v25; // rax
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  int v28; // eax
-  __int64 v29; // r8
-  unsigned int v31; // r9d
-  __int64 v32; // rcx
-  int v33; // [rsp+20h] [rbp-99h]
+  unsigned int v18; // edi
+  int v19; // r9d
+  int v20; // eax
+  int v21; // r9d
+  int v22; // eax
+  __int64 v23; // rcx
+  __int64 v24; // rcx
+  ULONG_PTR v25; // rdi
+  ULONG_PTR *v26; // rsi
+  _QWORD *v27; // rcx
+  _QWORD *v28; // rax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  int v32; // [rsp+20h] [rbp-99h]
   ULONG_PTR BugCheckParameter2; // [rsp+68h] [rbp-51h] BYREF
-  ULONG_PTR *v36; // [rsp+70h] [rbp-49h]
-  PRKEVENT Event; // [rsp+78h] [rbp-41h]
-  _OWORD v38[3]; // [rsp+80h] [rbp-39h] BYREF
+  ULONG_PTR *v35; // [rsp+70h] [rbp-49h]
+  __int64 v36; // [rsp+78h] [rbp-41h]
+  _OWORD v37[3]; // [rsp+80h] [rbp-39h] BYREF
 
   *((_DWORD *)P + 40) |= 0x20u;
   v11 = 0LL;
   BugCheckParameter2 = 0LL;
-  Event = a6;
-  v36 = a8;
-  memset(v38, 0, sizeof(v38));
-  *((_QWORD *)P + 521) = KeGetCurrentThread();
+  v36 = a6;
+  v35 = a8;
+  memset(v37, 0, sizeof(v37));
+  *((_QWORD *)P + 526) = KeGetCurrentThread();
   v15 = a3 & 0x10;
   if ( (a3 & 0x10) != 0 )
   {
-    v16 = *((_DWORD *)P + 1028) | 0x20;
-    *((_DWORD *)P + 1028) = v16;
+    v16 = *((_DWORD *)P + 1038) | 0x20;
+    *((_DWORD *)P + 1038) = v16;
     if ( (a3 & 0x20) != 0 )
-      *((_DWORD *)P + 1028) = v16 | 0x40;
+      *((_DWORD *)P + 1038) = v16 | 0x40;
   }
-  *((_DWORD *)P + 1028) |= 1u;
+  *((_DWORD *)P + 1038) |= 1u;
+  LockShutdownShared();
   LOCK_HIVE_LOAD();
   LOBYTE(v17) = 1;
   CmpLockRegistryFreezeAware(v17);
@@ -92,146 +93,143 @@ __int64 __fastcall CmpLoadKeyCommon(
   {
     if ( (unsigned __int8)CmpIsKeyDeletedForKeyBody(a4, 0LL) )
     {
-      v21 = -1073741444;
-      v33 = 16;
-      goto LABEL_37;
-    }
-    LOBYTE(v29) = a7;
-    v28 = CmpJoinClassOfTrust(P, *(_QWORD *)(*(_QWORD *)(a4 + 8) + 32LL), v29);
-    v21 = v28;
-    if ( v28 < 0 )
-    {
-      v33 = 32;
+      v18 = -1073741444;
+      v32 = 16;
+LABEL_8:
+      v19 = v18;
+LABEL_9:
+      SetFailureLocation(a11, 0, 29, v19, v32);
+LABEL_22:
+      CmpUnlockRegistry();
+      UNLOCK_HIVE_LOAD();
+      CmpAttachToRegistryProcess(v37);
+      CmpDestroyHive(P);
+      CmpDetachFromRegistryProcess(v37);
       goto LABEL_39;
     }
-    v28 = CmpVEAddHiveToSIDMappingTable(P, a2);
-    v21 = v28;
-    if ( v28 < 0 )
+    v20 = CmpJoinClassOfTrust((__int64)P, *(_QWORD *)(*(_QWORD *)(a4 + 8) + 32LL), a7);
+    v18 = v20;
+    if ( v20 < 0 )
     {
-      v33 = 48;
-LABEL_39:
-      v31 = v28;
-      goto LABEL_40;
+      v32 = 32;
+LABEL_12:
+      v19 = v20;
+      goto LABEL_9;
+    }
+    v20 = CmpVEAddHiveToSIDMappingTable(P, a2);
+    v18 = v20;
+    if ( v20 < 0 )
+    {
+      v32 = 48;
+      goto LABEL_12;
     }
   }
   if ( a5 )
   {
-    v28 = CmpPerformKeyBodyDeletionCheck(a5, 0LL);
-    v21 = v28;
-    if ( v28 < 0 )
+    v20 = CmpPerformKeyBodyDeletionCheck(a5, 0LL);
+    v18 = v20;
+    if ( v20 < 0 )
     {
-      v33 = 64;
-      goto LABEL_39;
+      v32 = 64;
+      goto LABEL_12;
     }
     v11 = *(_QWORD *)(a5 + 8);
     if ( (*(_DWORD *)(v11 + 184) & 0x40000) == 0 )
     {
-      v21 = -1073741811;
-      v33 = 80;
-LABEL_37:
-      v31 = v21;
-LABEL_40:
-      SetFailureLocation(a11, 0, 29, v31, v33);
-      goto LABEL_30;
+      v18 = -1073741811;
+      v32 = 80;
+      goto LABEL_8;
     }
   }
   CmpUnlockRegistry();
-  LOBYTE(v18) = a9;
-  v19 = CmpLinkHiveToMaster(
+  LOBYTE(v21) = a9;
+  v22 = CmpLinkHiveToMaster(
           a2[2],
           a2[1],
-          (int)P,
-          v18,
+          (_DWORD)P,
+          v21,
           512,
           v15 != 0,
-          Event,
+          v36,
           a2[4],
           v11,
           (__int64)&BugCheckParameter2,
           0,
           a11);
-  v21 = v19;
-  if ( v19 < 0 )
+  v18 = v22;
+  if ( v22 < 0 )
   {
-    SetFailureLocation(a11, 0, 29, v19, 96);
-    LOBYTE(v32) = 1;
-    CmpLockRegistryFreezeAware(v32);
-LABEL_30:
-    CmpUnlockRegistry();
-    UNLOCK_HIVE_LOAD();
-    if ( P )
-    {
-      CmpAttachToRegistryProcess(v38);
-      CmpDestroyHive(P);
-      CmpDetachFromRegistryProcess(v38);
-    }
-    goto LABEL_32;
+    SetFailureLocation(a11, 0, 29, v22, 96);
+    LOBYTE(v24) = 1;
+    CmpLockRegistryFreezeAware(v24);
+    goto LABEL_22;
   }
-  v22 = BugCheckParameter2;
+  v25 = BugCheckParameter2;
   if ( (a3 & 0x800) != 0 )
   {
     CmpReferenceKeyControlBlockUnsafe(BugCheckParameter2);
-    v23 = v36;
-    *v36 = v22;
+    v26 = v35;
+    *v35 = v25;
   }
   else
   {
-    v23 = v36;
+    v26 = v35;
   }
-  LOBYTE(v20) = 1;
-  CmpLockRegistryFreezeAware(v20);
+  LOBYTE(v23) = 1;
+  CmpLockRegistryFreezeAware(v23);
   if ( v15 )
   {
-    CmpReferenceKeyControlBlockUnsafe(*((_QWORD *)P + 367));
-    *v23 = *((_QWORD *)P + 367);
+    CmpReferenceKeyControlBlockUnsafe(*((_QWORD *)P + 366));
+    *v26 = *((_QWORD *)P + 366);
   }
   CmpLockHiveListExclusive();
-  v24 = (_QWORD *)qword_140D54CA0;
-  v25 = P + 1608;
-  if ( *(__int64 **)qword_140D54CA0 != &CmpHiveListHead )
+  v27 = (_QWORD *)qword_140D2E918;
+  v28 = P + 1600;
+  if ( *(__int64 **)qword_140D2E918 != &CmpHiveListHead )
     __fastfail(3u);
-  *v25 = &CmpHiveListHead;
-  *((_QWORD *)P + 202) = v24;
-  *v24 = v25;
-  qword_140D54CA0 = (__int64)(P + 1608);
+  *v28 = &CmpHiveListHead;
+  *((_QWORD *)P + 201) = v27;
+  *v27 = v28;
+  qword_140D2E918 = (__int64)(P + 1600);
   CmpUnlockHiveList();
   CmpUnlockRegistry();
-  CmpAttachToRegistryProcess(v38);
-  CmpRecheckHiveVolumePolicy((__int64)P);
-  CmpDetachFromRegistryProcess(v38);
-  CmpDereferenceKeyControlBlockUnsafe(v22);
+  CmpAttachToRegistryProcess(v37);
+  CmpRecheckHiveVolumePolicy(P);
+  CmpDetachFromRegistryProcess(v37);
+  CmpDereferenceKeyControlBlockUnsafe(v25);
   UNLOCK_HIVE_LOAD();
   if ( (a3 & 0x110) == 0 )
   {
-    LOBYTE(v26) = a10;
-    CmpInitCmRM(P, v26);
-    *((_DWORD *)P + 1028) |= 8u;
+    LOBYTE(v29) = a10;
+    CmpInitCmRM(P, v29);
+    *((_DWORD *)P + 1038) |= 8u;
   }
   if ( a9 )
   {
-    CmpAttachToRegistryProcess(v38);
+    CmpAttachToRegistryProcess(v37);
     CmpFlushHive((ULONG_PTR)P);
-    CmpDetachFromRegistryProcess(v38);
+    CmpDetachFromRegistryProcess(v37);
   }
   if ( !v15 )
     CmpAddToHiveFileList(P);
-  v27 = *((_QWORD *)P + 519);
-  if ( v27 )
+  v30 = *((_QWORD *)P + 524);
+  if ( v30 )
   {
-    TmEnableCallbacks(*(PKRESOURCEMANAGER *)(v27 + 56), CmKtmNotification, *((PVOID *)P + 519));
-    CmRmFinalizeRecovery(*((_QWORD *)P + 519));
+    TmEnableCallbacks(*(PKRESOURCEMANAGER *)(v30 + 56), CmKtmNotification, *((PVOID *)P + 524));
+    CmRmFinalizeRecovery(*((_QWORD *)P + 524));
   }
   CmpTrimHive(P);
   LOCK_HIVE_LOAD();
   *((_DWORD *)P + 40) &= ~0x20u;
-  *((_QWORD *)P + 521) = 0LL;
+  *((_QWORD *)P + 526) = 0LL;
   UNLOCK_HIVE_LOAD();
-  v21 = 0;
-LABEL_32:
+  v18 = 0;
+LABEL_39:
+  UnlockShutdown();
   if ( !CmpProfileLoaded && !CmpWasSetupBoot )
   {
     CmpProfileLoaded = 1;
     CmpSetGlobalQuotaAllowed();
   }
-  return v21;
+  return v18;
 }

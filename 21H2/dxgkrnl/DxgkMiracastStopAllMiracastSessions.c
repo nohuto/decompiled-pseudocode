@@ -1,15 +1,15 @@
 /*
- * XREFs of DxgkMiracastStopAllMiracastSessions @ 0x1C01DAC40
+ * XREFs of DxgkMiracastStopAllMiracastSessions @ 0x1C015EE30
  * Callers:
- *     DxgkSessionDisconnected @ 0x1C01DA900 (DxgkSessionDisconnected.c)
- *     ?DodTerminateIndirectOutput@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C02C0B2C (-DodTerminateIndirectOutput@ADAPTER_DISPLAY@@QEAAJI@Z.c)
- *     DpiMiracastConnectedStandbyDelayWork @ 0x1C038CC60 (DpiMiracastConnectedStandbyDelayWork.c)
- *     DpiMiracastHandlePowerCallback @ 0x1C038D350 (DpiMiracastHandlePowerCallback.c)
+ *     DxgkSessionDisconnected @ 0x1C015EB10 (DxgkSessionDisconnected.c)
+ *     ?DodTerminateIndirectOutput@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C021212C (-DodTerminateIndirectOutput@ADAPTER_DISPLAY@@QEAAJI@Z.c)
+ *     DpiMiracastConnectedStandbyDelayWork @ 0x1C02CDB90 (DpiMiracastConnectedStandbyDelayWork.c)
+ *     DpiMiracastHandlePowerCallback @ 0x1C02CE290 (DpiMiracastHandlePowerCallback.c)
  * Callees:
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C001C320 (-AcquireMiniportListMutex@@YAXXZ.c)
- *     DpiMiracastAddRefMiracastDeviceContext @ 0x1C0060FBC (DpiMiracastAddRefMiracastDeviceContext.c)
- *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C0061CB0 (DpiMiracastReleaseMiracastDeviceContext.c)
- *     DpiMiracastStopMiracastSessionSync @ 0x1C0061EE0 (DpiMiracastStopMiracastSessionSync.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0018FF0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DpiMiracastAddRefMiracastDeviceContext @ 0x1C0053330 (DpiMiracastAddRefMiracastDeviceContext.c)
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C0054050 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C00542A0 (DpiMiracastStopMiracastSessionSync.c)
  */
 
 LONG __fastcall DxgkMiracastStopAllMiracastSessions(char a1, union _LARGE_INTEGER *a2, unsigned int a3)
@@ -23,7 +23,7 @@ LONG __fastcall DxgkMiracastStopAllMiracastSessions(char a1, union _LARGE_INTEGE
   {
     v6 = 0LL;
     AcquireMiniportListMutex();
-    for ( i = qword_1C01308A0; (__int64 *)i != &qword_1C01308A0; i = *(_QWORD *)i )
+    for ( i = qword_1C00B2F18; (__int64 *)i != &qword_1C00B2F18; i = *(_QWORD *)i )
     {
       v6 = (char *)i;
       ExEnterCriticalRegionAndAcquireFastMutexUnsafe(i + 32);
@@ -39,13 +39,13 @@ LONG __fastcall DxgkMiracastStopAllMiracastSessions(char a1, union _LARGE_INTEGE
       ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(i + 32);
     }
     v8 = 0LL;
-    if ( (__int64 *)i != &qword_1C01308A0 )
+    if ( (__int64 *)i != &qword_1C00B2F18 )
       v8 = v6;
-    _InterlockedExchange64(&qword_1C01304D8, 0LL);
+    _InterlockedExchange64(&qword_1C00B2B50, 0LL);
     result = KeReleaseMutex(Mutex, 0);
     if ( !v8 )
       return result;
     DpiMiracastStopMiracastSessionSync(v8, a1, a2, 0LL, a3, 0);
-    DpiMiracastReleaseMiracastDeviceContext((int *)v8, (unsigned int)DxgkMiracastStopAllMiracastSessions);
+    DpiMiracastReleaseMiracastDeviceContext((int *)v8, (__int64)DxgkMiracastStopAllMiracastSessions);
   }
 }

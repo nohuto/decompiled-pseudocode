@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiSaveProcessorControlState @ 0x1401BBEF0 (KiSaveProcessorControlState.c)
- *     RtlCaptureContext @ 0x1401C54D0 (RtlCaptureContext.c)
+ *     KiSaveProcessorControlState @ 0x1401BBF10 (KiSaveProcessorControlState.c)
+ *     RtlCaptureContext @ 0x1401C54F0 (RtlCaptureContext.c)
  *     IopLiveDumpProcessCorralStateChange @ 0x140579558 (IopLiveDumpProcessCorralStateChange.c)
  */
 

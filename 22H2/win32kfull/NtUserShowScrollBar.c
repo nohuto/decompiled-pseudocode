@@ -1,50 +1,46 @@
 /*
- * XREFs of NtUserShowScrollBar @ 0x1C01DEBD0
+ * XREFs of NtUserShowScrollBar @ 0x1C0115A80
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     xxxShowScrollBar @ 0x1C0231FE0 (xxxShowScrollBar.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     xxxShowScrollBar @ 0x1C0115B74 (xxxShowScrollBar.c)
  */
 
 __int64 __fastcall NtUserShowScrollBar(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  unsigned int v9; // ebx
-  struct tagWND *v10; // rdi
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int128 v15; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v16; // [rsp+30h] [rbp-18h]
+  __int64 v5; // rcx
+  unsigned int v6; // ebx
+  struct tagWND *v7; // rdi
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // rcx
+  __int128 v12; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v13; // [rsp+30h] [rbp-18h]
 
-  v15 = 0LL;
-  v16 = 0LL;
-  EnterCrit(0LL, 0LL);
+  v12 = 0LL;
+  v13 = 0LL;
+  EnterCrit(0LL, 1LL);
   v4 = ValidateHwnd(a1);
-  v9 = 0;
-  v10 = (struct tagWND *)v4;
+  v6 = 0;
+  v7 = (struct tagWND *)v4;
   if ( v4 )
   {
-    v6 = *(_QWORD *)(v4 + 40);
-    v5 = (*(_WORD *)(v6 + 42) & 0x2FFFu) - 669;
-    if ( (v5 & 0xFFFFFFFD) != 0 )
+    v5 = *(_QWORD *)(v4 + 40);
+    if ( (((*(_WORD *)(v5 + 42) & 0x2FFF) - 669) & 0xFFFFFFFD) != 0 )
     {
-      *(_QWORD *)&v15 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v15;
-      *((_QWORD *)&v15 + 1) = v4;
+      *(_QWORD *)&v12 = *(_QWORD *)(gptiCurrent + 416LL);
+      *(_QWORD *)(gptiCurrent + 416LL) = &v12;
+      *((_QWORD *)&v12 + 1) = v4;
       HMLockObject(v4);
-      if ( a2 <= 3 )
-        v9 = xxxShowScrollBar(v10);
+      if ( a2 > 3 )
+        UserSetLastError(87LL, v8, v9);
       else
-        UserSetLastError(87);
-      ThreadUnlock1(v12, v11, v13);
+        v6 = xxxShowScrollBar(v7);
+      ThreadUnlock1(v10);
     }
   }
-  UserSessionSwitchLeaveCrit(v6, v5, v7, v8);
-  return v9;
+  UserSessionSwitchLeaveCrit(v5);
+  return v6;
 }

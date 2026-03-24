@@ -1,26 +1,25 @@
 /*
- * XREFs of xxxInternalToUnicode @ 0x1C006BCF0
+ * XREFs of xxxInternalToUnicode @ 0x1C000B170
  * Callers:
- *     xxxToUnicodeEx @ 0x1C0002C10 (xxxToUnicodeEx.c)
+ *     xxxToUnicodeEx @ 0x1C000B060 (xxxToUnicodeEx.c)
  * Callees:
- *     GetModifierBits @ 0x1C00039B0 (GetModifierBits.c)
- *     InternalVkKeyScanEx @ 0x1C0008050 (InternalVkKeyScanEx.c)
- *     WPP_RECORDER_AND_TRACE_SF_hD @ 0x1C00099E0 (WPP_RECORDER_AND_TRACE_SF_hD.c)
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C00462E4 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C00665BC (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     HKLtoPKL @ 0x1C006C150 (HKLtoPKL.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?ComposeDeadKeys@@YAHPEAUtagKL@@PEAUDEADKEY@@GPEAGHIH@Z @ 0x1C01EB5B0 (-ComposeDeadKeys@@YAHPEAUtagKL@@PEAUDEADKEY@@GPEAGHIH@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_hDhD @ 0x1C01EB9D4 (WPP_RECORDER_AND_TRACE_SF_hDhD.c)
- *     ApiSetEditionClientCharToWchar @ 0x1C0205C48 (ApiSetEditionClientCharToWchar.c)
- *     ApiSetEditionMessageBeep @ 0x1C0206DA0 (ApiSetEditionMessageBeep.c)
+ *     InternalVkKeyScanEx @ 0x1C000ACC0 (InternalVkKeyScanEx.c)
+ *     HKLtoPKL @ 0x1C000B4F0 (HKLtoPKL.c)
+ *     GetModifierBits @ 0x1C000B560 (GetModifierBits.c)
+ *     WPP_RECORDER_SF_hD @ 0x1C000B5BC (WPP_RECORDER_SF_hD.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0047F78 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?ComposeDeadKeys@@YAHPEAUtagKL@@PEAUDEADKEY@@GPEAGHIH@Z @ 0x1C01B1850 (-ComposeDeadKeys@@YAHPEAUtagKL@@PEAUDEADKEY@@GPEAGHIH@Z.c)
+ *     WPP_RECORDER_SF_hDhD @ 0x1C01B1A68 (WPP_RECORDER_SF_hDhD.c)
+ *     ApiSetEditionClientCharToWchar @ 0x1C01CAA54 (ApiSetEditionClientCharToWchar.c)
+ *     ApiSetEditionMessageBeep @ 0x1C01CC9A4 (ApiSetEditionMessageBeep.c)
  */
 
 __int64 __fastcall xxxInternalToUnicode(
-        __int64 a1,
-        __int64 a2,
+        unsigned int a1,
+        __int16 a2,
         __int64 a3,
         unsigned __int16 *a4,
         int a5,
@@ -28,660 +27,443 @@ __int64 __fastcall xxxInternalToUnicode(
         int *a7,
         __int64 a8)
 {
-  __int16 v9; // r13
-  unsigned int v10; // esi
-  __int64 v11; // rbx
-  __int64 *ThreadWin32Thread; // rax
-  __int64 v13; // r8
-  __int64 v14; // r9
-  int *v15; // r12
-  int v16; // edi
-  __int64 v17; // rdx
-  __int64 v18; // rax
-  __int64 v19; // rbp
-  __int64 v20; // r15
-  int v21; // r13d
-  int v22; // ebx
+  __int64 ThreadWin32Thread; // rax
+  int *v13; // r9
+  int v14; // esi
+  __int64 v15; // rbp
+  __int64 v16; // rax
+  __int64 v17; // r8
+  __int64 v18; // r15
+  unsigned __int16 v19; // bx
+  int v20; // r13d
+  unsigned __int16 ModifierBits; // ax
+  char v22; // r10
+  _UNKNOWN **v23; // rdx
+  unsigned __int16 v24; // r14
+  __int64 v25; // r9
+  __int64 v26; // rdx
   __int64 result; // rax
-  __int64 v24; // rbp
-  __int64 v25; // rdx
-  __int64 v26; // r8
-  __int64 v27; // r9
-  int ModifierBits; // r14d
-  char v29; // di
-  __int64 v30; // rcx
-  __int64 v31; // r8
-  char *v32; // rbx
-  unsigned __int8 v33; // r9
-  _BYTE *v34; // rcx
-  unsigned __int8 **v35; // rcx
-  __int64 v36; // r9
-  __int64 v37; // rdx
-  __int64 v38; // rbp
-  struct tagKL *v39; // r14
-  struct DEADKEY *v40; // rdx
-  __int16 v41; // ax
-  char v42; // bl
-  __int64 v43; // rdx
-  __int64 v44; // rcx
-  __int64 v45; // r8
-  __int64 v46; // r9
-  __int64 v47; // rdx
-  __int64 v48; // rcx
-  __int64 v49; // r8
-  __int64 v50; // r9
-  __int64 v51; // rdx
-  __int64 v52; // rcx
-  __int64 v53; // r8
-  __int64 v54; // r9
-  __int64 v55; // rdx
-  __int64 v56; // rcx
-  __int64 v57; // r8
-  __int64 v58; // r9
-  __int64 v59; // rdx
-  __int64 v60; // rcx
-  __int64 v61; // r8
-  __int64 v62; // r9
-  __int64 v63; // rdx
-  __int64 v64; // rcx
-  __int64 v65; // r8
-  __int64 v66; // r9
-  unsigned __int16 v67; // ax
-  __int64 v68; // rdx
-  __int64 v69; // rcx
-  __int64 v70; // r8
-  __int64 v71; // r9
-  __int64 v72; // rdx
-  __int64 v73; // rcx
-  __int64 v74; // r8
-  unsigned __int16 v75; // si
-  unsigned int v76; // eax
-  __int64 v77; // rdx
-  __int64 v78; // rcx
-  __int64 v79; // r8
-  __int64 v80; // r9
-  unsigned __int16 v81; // bx
-  __int64 v82; // rdx
-  __int64 v83; // rcx
-  __int64 v84; // r8
-  __int64 v85; // r9
-  __int16 v86; // di
-  __int64 v87; // rdx
-  __int64 v88; // rcx
-  __int64 v89; // r8
-  __int64 v90; // r9
-  __int64 v91; // rdx
-  __int64 v92; // rcx
-  __int64 v93; // r8
-  __int64 v94; // r9
-  __int64 v95; // rax
-  __int64 v96; // rdx
-  __int64 v97; // rcx
-  __int64 v98; // r8
-  __int64 v99; // r9
-  __int64 v100; // rdx
-  __int64 v101; // rcx
-  __int64 v102; // r8
-  __int64 v103; // r9
-  __int64 v104; // rdx
-  __int64 v105; // r9
-  PDEVICE_OBJECT v106; // rcx
-  _UNKNOWN **v107; // r8
-  int v108; // ebp
-  int v109; // ebp
-  __int64 v110; // rdx
-  __int64 v111; // rcx
-  __int64 v112; // r8
-  __int64 v113; // r9
-  __int64 v114; // rax
-  __int64 v115; // rdx
-  __int64 v116; // r8
-  __int64 v117; // r9
-  __int16 v118; // bx
-  __int64 v119; // rdx
-  __int64 v120; // rcx
-  __int64 v121; // r8
-  __int64 v122; // r9
-  __int64 v123; // rdx
-  __int64 v124; // rcx
-  __int64 v125; // r8
-  __int64 v126; // r9
-  __int64 v127; // rax
-  PDEVICE_OBJECT v128; // rcx
-  bool v129; // r15
-  __int64 v130; // rax
-  int v131; // r8d
-  int v132; // edx
-  __int16 v133; // bx
-  __int64 v134; // rdx
-  __int64 v135; // rcx
-  __int64 v136; // r8
-  __int64 v137; // r9
-  bool v138; // bl
-  bool v139; // bp
-  __int64 v140; // rax
-  int v141; // r8d
-  int v142; // edx
-  char v143; // al
-  __int16 v144; // r10
-  unsigned __int16 v145; // dx
-  int v146; // r9d
-  char *v147; // rcx
-  char v148; // al
-  char v149; // dl
-  int v150; // ebp
-  int v151; // ebx
-  unsigned __int16 *v152; // rsi
-  unsigned __int16 v153; // dx
-  int v154; // eax
-  int v155; // [rsp+20h] [rbp-88h]
-  int v156; // [rsp+28h] [rbp-80h]
-  int v157; // [rsp+38h] [rbp-70h]
-  struct tagKL *v158; // [rsp+60h] [rbp-48h]
-  __int64 v159; // [rsp+68h] [rbp-40h]
+  char *v28; // rbx
+  unsigned __int8 v29; // r8
+  __int64 v30; // r8
+  int v31; // ecx
+  __int64 v32; // rsi
+  struct tagKL *v33; // r14
+  struct DEADKEY *v34; // rdx
+  __int16 v35; // ax
+  int v36; // esi
+  __int64 v37; // rcx
+  unsigned int v38; // eax
+  int v39; // edx
+  int v40; // r9d
+  int v41; // esi
+  __int16 v42; // bx
+  char v43; // al
+  char v44; // al
+  int v45; // edx
+  int v46; // ecx
+  __int16 v47; // ax
+  unsigned __int16 v48; // r8
+  char *v49; // rcx
+  char v50; // al
+  char v51; // dl
+  int v52; // esi
+  int v53; // ebx
+  unsigned __int16 *v54; // rdi
+  unsigned __int16 v55; // dx
+  int v56; // eax
+  int v57; // [rsp+20h] [rbp-68h]
+  char v58; // [rsp+28h] [rbp-60h]
+  struct tagKL *v59; // [rsp+58h] [rbp-30h]
 
-  v9 = a2;
-  v10 = a1;
-  if ( !IS_USERCRIT_OWNED_AT_ALL(a1, a2, a3, (__int64)a4) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 151LL);
-  v11 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v11 = *ThreadWin32Thread;
-  v15 = a7;
-  v16 = v9 & 0x8000;
-  *a7 = v16;
-  if ( (_BYTE)v10 == 0xFF )
+  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  v13 = a7;
+  v14 = a2 & 0x8000;
+  v15 = ThreadWin32Thread;
+  *a7 = v14;
+  if ( (_BYTE)a1 == 0xFF )
     return 0LL;
-  v17 = a8;
-  if ( a8 || (v19 = *(_QWORD *)(v11 + 440), (v158 = (struct tagKL *)v19) == 0LL) )
+  if ( a8 || (v17 = *(_QWORD *)(ThreadWin32Thread + 440), (v59 = (struct tagKL *)v17) == 0LL) )
   {
-    v18 = HKLtoPKL(v11, a8);
-    v158 = (struct tagKL *)v18;
-    v19 = v18;
-    if ( !v18 )
+    v16 = HKLtoPKL(ThreadWin32Thread, a8);
+    v59 = (struct tagKL *)v16;
+    v17 = v16;
+    if ( !v16 )
       return 0LL;
-    v20 = *(_QWORD *)(*(_QWORD *)(v18 + 48) + 32LL);
+    v13 = a7;
+    v18 = *(_QWORD *)(*(_QWORD *)(v16 + 48) + 32LL);
   }
   else
   {
-    v20 = *(_QWORD *)(*(_QWORD *)(v19 + 48) + 32LL);
+    v18 = *(_QWORD *)(*(_QWORD *)(v17 + 48) + 32LL);
   }
-  v21 = v9 & 0x1FF;
-  v159 = v20;
-  if ( v16 )
+  v19 = word_1C02510E0;
+  v20 = a2 & 0x1FF;
+  if ( v14 )
   {
-    if ( v10 != 18 )
+    if ( a1 != 18 )
     {
-      v52 = *(unsigned __int16 *)(SGDGetUserSessionState(18LL, v17, v13, v14) + 14164);
-      if ( v10 == (_DWORD)v52 )
-        *(_WORD *)(SGDGetUserSessionState(v52, v51, v53, v54) + 14164) = 0;
-      goto LABEL_10;
+      if ( a1 == (unsigned __int16)word_1C02510E4 )
+        word_1C02510E4 = 0;
+      goto LABEL_9;
     }
-    if ( !*(_WORD *)(SGDGetUserSessionState(18LL, v17, v13, v14) + 14162) )
+    if ( !word_1C02510E0 )
     {
-      if ( *(_BYTE *)(SGDGetUserSessionState(v56, v55, v57, v58) + 14166) )
-        *(_BYTE *)(SGDGetUserSessionState(v60, v59, v61, v62) + 14166) = 0;
-      goto LABEL_10;
+      if ( byte_1C02510E2 )
+        byte_1C02510E2 = 0;
+      goto LABEL_9;
     }
-    if ( *(_BYTE *)(SGDGetUserSessionState(v56, v55, v57, v58) + 14166) != 3 )
+    if ( byte_1C02510E2 == 3 )
+      goto LABEL_63;
+    if ( byte_1C02510E2 )
     {
-      if ( *(_BYTE *)(SGDGetUserSessionState(v64, v63, v65, v66) + 14166)
-        || (v63 = 8LL, (*(_DWORD *)(v11 + 488) & 8) == 0) )
-      {
-        if ( *(_BYTE *)(SGDGetUserSessionState(v64, v63, v65, v66) + 14166) )
-          v75 = *(_WORD *)(v19 + 72);
-        else
-          v75 = NlsOemCodePage;
-        v76 = v75;
-        if ( (unsigned __int16)(v75 - 932) <= 0x12u
-          && (v73 = 393233LL, LOWORD(v76) = v75 - 932, _bittest((const int *)&v73, v76)) )
-        {
-          v78 = *(unsigned __int16 *)(SGDGetUserSessionState(393233LL, v72, v74, 18LL) + 14162);
-          if ( (v78 & 0xFF00) != 0 )
-          {
-            v81 = *(_WORD *)(SGDGetUserSessionState(v78, v77, v79, v80) + 14162);
-            v86 = HIBYTE(v81) | (*(unsigned __int8 *)(SGDGetUserSessionState(v83, v82, v84, v85) + 14162) << 8);
-            *(_WORD *)(SGDGetUserSessionState(v88, v87, v89, v90) + 14162) = v86;
-          }
-          else
-          {
-            v92 = *(unsigned __int16 *)(SGDGetUserSessionState(v78, v77, v79, v80) + 14162);
-            if ( v75 != 932 || (v91 = 161LL, (unsigned __int16)(v92 - 161) > 0x3Eu) )
-            {
-              LOWORD(v92) = v92 - 128;
-              if ( (unsigned __int16)v92 <= 0x7Fu )
-                v75 = 1252;
-            }
-          }
-        }
-        else
-        {
-          *(_BYTE *)(SGDGetUserSessionState(v73, v72, v74, 18LL) + 14163) = 0;
-        }
-        v95 = SGDGetUserSessionState(v92, v91, v93, v94);
-        v67 = ApiSetEditionClientCharToWchar(v75, *(unsigned __int16 *)(v95 + 14162));
-        goto LABEL_89;
-      }
-      *a7 |= 0x4000000u;
-    }
-    v67 = *(_WORD *)(SGDGetUserSessionState(v64, v63, v65, v66) + 14162);
-LABEL_89:
-    *a4 = v67;
-    *(_WORD *)(SGDGetUserSessionState(v69, v68, v70, v71) + 14164) = 0;
-    *(_BYTE *)(SGDGetUserSessionState(v97, v96, v98, v99) + 14166) = 0;
-    *(_WORD *)(SGDGetUserSessionState(v101, v100, v102, v103) + 14162) = 0;
-    result = 1LL;
-    gfInNumpadHexInput &= ~2u;
-    return result;
-  }
-LABEL_10:
-  v22 = *a7;
-  if ( (*a7 & 0x8000) != 0 && (a6 & 2) == 0 )
-    return 0LL;
-  v24 = a3;
-  ModifierBits = (unsigned __int16)GetModifierBits(*(unsigned __int8 ***)v20, a3);
-  v29 = 1;
-  if ( (v22 & 0x8000) == 0 )
-  {
-    v30 = (ModifierBits & 0xFFFFFFF7) - 4;
-    if ( (unsigned int)v30 <= 1 )
-    {
-      v42 = 0;
-      if ( (a6 & 1) != 0 )
-      {
-LABEL_49:
-        *(_WORD *)(SGDGetUserSessionState(v30, v25, v26, v27) + 14164) = 0;
-        *(_BYTE *)(SGDGetUserSessionState(v44, v43, v45, v46) + 14166) = 0;
-        *(_WORD *)(SGDGetUserSessionState(v48, v47, v49, v50) + 14162) = 0;
-        LOWORD(ModifierBits) = ModifierBits & 0xFFFB;
-        gfInNumpadHexInput &= ~2u;
-        goto LABEL_15;
-      }
-      if ( !gfEnableHexNumpad )
-        goto LABEL_47;
-      if ( v21 == 83 )
-      {
-        if ( (gfInNumpadHexInput & 2) != 0 )
-          goto LABEL_49;
-        *(_BYTE *)(SGDGetUserSessionState(v30, v25, v26, v27) + 14166) = 2;
-        gfInNumpadHexInput |= 2u;
-        v106 = WPP_GLOBAL_Control;
-        if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-          || (LOBYTE(v104) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-        {
-          LOBYTE(v104) = 0;
-        }
-        v107 = &WPP_RECORDER_INITIALIZED;
-        LOBYTE(v107) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        if ( !(_BYTE)v104 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_139;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v104,
-          (_DWORD)v107,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          4,
-          7,
-          18,
-          (__int64)&WPP_86ffb410cd2c341fb07928861dacffb1_Traceguids);
-      }
-      else
-      {
-        if ( v21 != 78 )
-        {
-LABEL_47:
-          if ( (unsigned int)(v21 - 71) <= 0xB )
-          {
-            v30 = (unsigned int)(v21 - 71);
-            v108 = aVkNumpad[v30];
-            if ( v108 == 255 )
-              goto LABEL_70;
-            v109 = v108 - 96;
-          }
-          else
-          {
-            if ( (gfInNumpadHexInput & 2) == 0 )
-              goto LABEL_49;
-            if ( v10 < 0x41 )
-            {
-              if ( v10 - 48 > 9 )
-                goto LABEL_49;
-              v109 = v10 - 48;
-            }
-            else
-            {
-              if ( v10 > 0x46 )
-                goto LABEL_49;
-              v109 = v10 - 55;
-            }
-          }
-          if ( v109 < 0 )
-          {
-LABEL_70:
-            v24 = a3;
-            goto LABEL_49;
-          }
-          v111 = *(unsigned __int16 *)(SGDGetUserSessionState(v30, v25, v26, v27) + 14164);
-          if ( (_DWORD)v111 == v10 )
-            return 0LL;
-          v114 = SGDGetUserSessionState(v111, v110, v112, v113);
-          if ( *(_BYTE *)(v114 + 14166) == 2 || *(_BYTE *)(v114 + 14166) == 3 )
-          {
-            v128 = WPP_GLOBAL_Control;
-            if ( WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) != 0
-              && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
-            {
-              v42 = 1;
-            }
-            v129 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            if ( v42 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            {
-              v130 = SGDGetUserSessionState(WPP_GLOBAL_Control, v115, v116, v117);
-              LOBYTE(v131) = v129;
-              LOBYTE(v132) = v42;
-              WPP_RECORDER_AND_TRACE_SF_D(
-                WPP_GLOBAL_Control->AttachedDevice,
-                v132,
-                v131,
-                WPP_MAIN_CB.Queue.ListEntry.Flink,
-                4,
-                7,
-                20,
-                (__int64)&WPP_86ffb410cd2c341fb07928861dacffb1_Traceguids,
-                *(_WORD *)(v130 + 14162));
-            }
-            v133 = v109 + 16 * *(_WORD *)(SGDGetUserSessionState(v128, v115, v116, v117) + 14162);
-            *(_WORD *)(SGDGetUserSessionState(v135, v134, v136, v137) + 14162) = v133;
-            v106 = WPP_GLOBAL_Control;
-            v138 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) != 0
-                && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-            v107 = &WPP_RECORDER_INITIALIZED;
-            v139 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            if ( v138 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            {
-              v140 = SGDGetUserSessionState(WPP_GLOBAL_Control, v104, &WPP_RECORDER_INITIALIZED, v105);
-              LOBYTE(v141) = v139;
-              LOBYTE(v142) = v138;
-              WPP_RECORDER_AND_TRACE_SF_D(
-                WPP_GLOBAL_Control->AttachedDevice,
-                v142,
-                v141,
-                WPP_MAIN_CB.Queue.ListEntry.Flink,
-                4,
-                7,
-                21,
-                (__int64)&WPP_86ffb410cd2c341fb07928861dacffb1_Traceguids,
-                *(_WORD *)(v140 + 14162));
-            }
-            v15 = a7;
-            v20 = v159;
-          }
-          else
-          {
-            v118 = v109
-                 + 10
-                 * *(_WORD *)(SGDGetUserSessionState(
-                                (unsigned int)*(unsigned __int8 *)(v114 + 14166) - 2,
-                                v115,
-                                v116,
-                                v117)
-                            + 14162);
-            *(_WORD *)(SGDGetUserSessionState(v120, v119, v121, v122) + 14162) = v118;
-            v127 = SGDGetUserSessionState(v124, v123, v125, v126);
-            v106 = 0LL;
-            if ( !*(_WORD *)(v127 + 14162) && !v109 )
-              *(_BYTE *)(SGDGetUserSessionState(0LL, v104, v107, v105) + 14166) = 1;
-          }
-          v24 = a3;
-LABEL_139:
-          *(_WORD *)(SGDGetUserSessionState(v106, v104, v107, v105) + 14164) = v10;
-          goto LABEL_15;
-        }
-        if ( (gfInNumpadHexInput & 2) != 0 )
-          goto LABEL_49;
-        *(_BYTE *)(SGDGetUserSessionState(v30, v25, v26, v27) + 14166) = 3;
-        gfInNumpadHexInput |= 2u;
-        v106 = WPP_GLOBAL_Control;
-        if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-          || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-          || (LOBYTE(v104) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-        {
-          LOBYTE(v104) = 0;
-        }
-        v107 = &WPP_RECORDER_INITIALIZED;
-        LOBYTE(v107) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        if ( !(_BYTE)v104 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_139;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v104,
-          (_DWORD)v107,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          4,
-          7,
-          19,
-          (__int64)&WPP_86ffb410cd2c341fb07928861dacffb1_Traceguids);
-      }
-      v15 = a7;
-      goto LABEL_139;
-    }
-  }
-LABEL_15:
-  if ( v10 == 8 && (*(_DWORD *)(v20 + 80) & 4) != 0 )
-  {
-    v143 = *(_BYTE *)(v24 + 40);
-    if ( (v143 & 1) != 0 )
-    {
-      v41 = 8206;
-      goto LABEL_43;
-    }
-    if ( (v143 & 4) != 0 )
-    {
-      v41 = 8207;
-      goto LABEL_43;
-    }
-  }
-  else if ( (_WORD)v10 == 231 && !(_BYTE)v21 )
-  {
-    *a4 = *((_WORD *)gptiCurrent + 441);
-    return 1LL;
-  }
-  v31 = *(_QWORD *)(v20 + 8);
-  if ( !v31 )
-    return 0LL;
-LABEL_20:
-  v32 = *(char **)v31;
-  if ( !*(_QWORD *)v31 )
-    return 0LL;
-  while ( 1 )
-  {
-    if ( !*v32 )
-    {
-      v31 += 16LL;
-      goto LABEL_20;
-    }
-    if ( *v32 == (_BYTE)v10 )
-      break;
-    v32 += *(unsigned __int8 *)(v31 + 9);
-  }
-  v33 = v32[1];
-  v34 = (_BYTE *)(v24 + 5);
-  if ( (v33 & 8) != 0 && (*v34 & 8) != 0 )
-  {
-    LOWORD(ModifierBits) = ModifierBits | 8;
-  }
-  else if ( (((ModifierBits & 0xFFFE) == 0) & v33) != 0 && (*v34 & 2) != 0
-         || (v33 & 4) != 0 && (ModifierBits & 6) == 6 && (*v34 & 2) != 0 )
-  {
-    LOWORD(ModifierBits) = ModifierBits ^ 1;
-  }
-  if ( (v33 & 2) != 0 && (ModifierBits & 0xFFFE) == 0 && (*v34 & 2) != 0 )
-    v32 += *(unsigned __int8 *)(v31 + 9);
-  v35 = *(unsigned __int8 ***)v20;
-  if ( (unsigned __int16)ModifierBits > *(_WORD *)(*(_QWORD *)v20 + 8LL) )
-    return 0LL;
-  _mm_lfence();
-  v36 = *((unsigned __int8 *)v35 + (unsigned __int16)ModifierBits + 10);
-  if ( (_DWORD)v36 == 15 )
-    return 0LL;
-  if ( (unsigned __int16)v36 >= *(unsigned __int8 *)(v31 + 8)
-    || (v37 = *(unsigned __int16 *)&v32[2 * v36 + 2],
-        v38 = *((unsigned __int8 *)v35 + (unsigned __int16)ModifierBits + 10),
-        (_WORD)v37 == 0xF000) )
-  {
-    if ( (((_WORD)ModifierBits - 2) & 0xFFF6) != 0 )
-      return 0LL;
-    if ( v10 - 65 <= 0x19 )
-    {
-      *a4 = v10 & 0x1F;
-      return 1LL;
-    }
-    if ( v10 - 65377 > 0x30 )
-      return 0LL;
-    v41 = InternalVkKeyScanEx(v10, (_QWORD *)v20) & 0x1F;
-    goto LABEL_43;
-  }
-  if ( (_WORD)v37 == 0xF001 )
-  {
-    v39 = v158;
-    v32 += *(unsigned __int8 *)(v31 + 9);
-    v144 = *((_WORD *)v158 + 37);
-    if ( v144 )
-    {
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-        || (LOBYTE(v37) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-      {
-        LOBYTE(v37) = 0;
-      }
-      LOBYTE(v31) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( (_BYTE)v37 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        v146 = *(unsigned __int16 *)&v32[2 * v36 + 2];
-        WPP_RECORDER_AND_TRACE_SF_hDhD(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v37,
-          v31,
-          v146,
-          v155,
-          v156,
-          23,
-          v157,
-          v144,
-          v144,
-          v146,
-          v146);
-      }
-      if ( !qword_1C02960C8 || (qword_1C02960C8(1024LL, v37, v31) & 0x8000) == 0 )
-        goto LABEL_41;
+      v37 = *(unsigned __int16 *)(v17 + 72);
     }
     else
     {
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-        || BYTE1(WPP_GLOBAL_Control->Timer) < 4u )
+      if ( (*(_DWORD *)(v15 + 488) & 8) != 0 )
       {
-        v29 = 0;
+        *v13 = v14 | 0x4000000;
+LABEL_63:
+        *a4 = v19;
+LABEL_76:
+        gfInNumpadHexInput &= ~2u;
+        result = 1LL;
+        word_1C02510E4 = 0;
+        byte_1C02510E2 = 0;
+        word_1C02510E0 = 0;
+        return result;
       }
-      if ( v29 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_AND_TRACE_SF_hD(
-          (__int64)WPP_GLOBAL_Control->AttachedDevice,
-          v29,
-          WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-          v36,
-          v155,
-          v156,
-          0x16u,
-          v157);
+      v37 = NlsOemCodePage;
     }
-    v145 = *(_WORD *)&v32[2 * v38 + 2];
-    *a4 = v145;
-    if ( (*v15 & 0x8000) == 0 && (a6 & 4) == 0 )
-      *((_WORD *)v158 + 37) = v145;
-    return 0xFFFFFFFFLL;
+    v38 = (unsigned __int16)v37;
+    if ( (unsigned __int16)(v37 - 932) <= 0x12u && (v39 = 393233, LOWORD(v38) = v37 - 932, _bittest(&v39, v38)) )
+    {
+      if ( (word_1C02510E0 & 0xFF00) != 0 )
+      {
+        v19 = _byteswap_ushort(word_1C02510E0);
+        word_1C02510E0 = v19;
+      }
+      else if ( ((_WORD)v37 != 932 || (unsigned __int16)(word_1C02510E0 - 161) > 0x3Eu)
+             && (unsigned __int16)(word_1C02510E0 - 128) <= 0x7Fu )
+      {
+        v37 = 1252LL;
+      }
+    }
+    else
+    {
+      HIBYTE(word_1C02510E0) = 0;
+      v19 = word_1C02510E0;
+    }
+    *a4 = ApiSetEditionClientCharToWchar(v37, v19, 932LL, v13);
+    goto LABEL_76;
+  }
+LABEL_9:
+  if ( (v14 & 0x8000) != 0 && (a6 & 2) == 0 )
+    return 0LL;
+  ModifierBits = GetModifierBits(*(_QWORD *)v18, a3, v17, v13);
+  v22 = a6;
+  v23 = &WPP_RECORDER_INITIALIZED;
+  v24 = ModifierBits;
+  if ( !v14 && (ModifierBits & 0xFFF7u) - 4 <= 1 )
+  {
+    if ( (a6 & 1) != 0 )
+    {
+LABEL_58:
+      word_1C02510E4 = 0;
+      v24 = ModifierBits & 0xFFFB;
+      byte_1C02510E2 = 0;
+      gfInNumpadHexInput &= ~2u;
+      word_1C02510E0 = 0;
+      goto LABEL_12;
+    }
+    if ( !gfEnableHexNumpad )
+    {
+LABEL_54:
+      if ( (unsigned int)(v20 - 71) <= 0xB )
+      {
+        v41 = (unsigned __int8)aVkNumpad[v20 - 71];
+        if ( v41 == 255 )
+          goto LABEL_58;
+        v36 = v41 - 96;
+        goto LABEL_57;
+      }
+      if ( (gfInNumpadHexInput & 2) != 0 )
+      {
+        if ( a1 >= 0x41 && a1 <= 0x46 )
+        {
+          v36 = a1 - 55;
+          goto LABEL_57;
+        }
+        if ( a1 >= 0x30 && a1 <= 0x39 )
+        {
+          v36 = a1 - 48;
+          goto LABEL_57;
+        }
+      }
+      v36 = -1;
+LABEL_57:
+      if ( v36 < 0 )
+        goto LABEL_58;
+      if ( (unsigned __int16)word_1C02510E4 == a1 )
+        return 0LL;
+      if ( (unsigned __int8)(byte_1C02510E2 - 2) > 1u )
+      {
+        word_1C02510E0 = v36 + 10 * v19;
+        if ( !word_1C02510E0 )
+        {
+          v43 = byte_1C02510E2;
+          if ( !v36 )
+            v43 = 1;
+          byte_1C02510E2 = v43;
+        }
+      }
+      else
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v23) = 4;
+          WPP_RECORDER_SF_d(
+            WPP_MAIN_CB.Queue.ListEntry.Flink,
+            (_DWORD)v23,
+            16,
+            20,
+            (__int64)&WPP_452ce174e4dd36ee8a008521dfdf54c5_Traceguids,
+            v19);
+          v19 = word_1C02510E0;
+          v23 = &WPP_RECORDER_INITIALIZED;
+        }
+        v42 = v36 + 16 * v19;
+        word_1C02510E0 = v42;
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v23) = 4;
+          WPP_RECORDER_SF_d(
+            WPP_MAIN_CB.Queue.ListEntry.Flink,
+            (_DWORD)v23,
+            16,
+            21,
+            (__int64)&WPP_452ce174e4dd36ee8a008521dfdf54c5_Traceguids,
+            v42);
+        }
+      }
+LABEL_82:
+      v22 = a6;
+      word_1C02510E4 = a1;
+      goto LABEL_12;
+    }
+    if ( v20 == 83 )
+    {
+      if ( (gfInNumpadHexInput & 2) != 0 )
+        goto LABEL_58;
+      byte_1C02510E2 = 2;
+      gfInNumpadHexInput |= 2u;
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        goto LABEL_82;
+      v40 = 18;
+    }
+    else
+    {
+      if ( v20 != 78 )
+        goto LABEL_54;
+      if ( (gfInNumpadHexInput & 2) != 0 )
+        goto LABEL_58;
+      byte_1C02510E2 = 3;
+      gfInNumpadHexInput |= 2u;
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        goto LABEL_82;
+      v40 = 19;
+    }
+    LOBYTE(v23) = 4;
+    WPP_RECORDER_SF_(
+      WPP_MAIN_CB.Queue.ListEntry.Flink,
+      (_DWORD)v23,
+      16,
+      v40,
+      (__int64)&WPP_452ce174e4dd36ee8a008521dfdf54c5_Traceguids);
+    goto LABEL_82;
+  }
+LABEL_12:
+  if ( a1 == 8 && (*(_DWORD *)(v18 + 80) & 4) != 0 )
+  {
+    v25 = a3;
+    v44 = *(_BYTE *)(a3 + 40);
+    if ( (v44 & 1) != 0 )
+    {
+      v35 = 8206;
+      goto LABEL_39;
+    }
+    if ( (v44 & 4) != 0 )
+    {
+      v35 = 8207;
+      goto LABEL_39;
+    }
   }
   else
   {
-    if ( (_WORD)v37 != 0xF002 )
+    if ( (_WORD)a1 == 231 && !(_BYTE)v20 )
     {
-      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-        || (LOBYTE(v36) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-      {
-        LOBYTE(v36) = 0;
-      }
-      if ( (_BYTE)v36 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        WPP_RECORDER_AND_TRACE_SF_hD(
-          (__int64)WPP_GLOBAL_Control->AttachedDevice,
-          v36,
-          WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-          v36,
-          v155,
-          v156,
-          0x18u,
-          v157);
-      v39 = v158;
-LABEL_41:
-      v40 = *(struct DEADKEY **)(v20 + 16);
-      if ( v40 && *((_WORD *)v39 + 37) )
-      {
-        result = ComposeDeadKeys(v39, v40, *(_WORD *)&v32[2 * v38 + 2], a4, a5, a6, *v15 & 0x8000);
-        if ( (_DWORD)result )
-          *v15 |= 0x8000000u;
-        return result;
-      }
-      v41 = *(_WORD *)&v32[2 * v38 + 2];
-LABEL_43:
-      *a4 = v41;
+      *a4 = *((_WORD *)gptiCurrent + 437);
       return 1LL;
     }
-    if ( !*(_WORD *)(v20 + 82) || (v147 = *(char **)(v20 + 88)) == 0LL || (v148 = *v147) == 0 )
-    {
-LABEL_187:
-      ApiSetEditionMessageBeep();
-      return 0LL;
-    }
-    v149 = *v32;
-    v150 = 0;
-    v151 = 0;
-    while ( v148 != v149 || *((_WORD *)v147 + 1) != (_WORD)v36 )
-    {
-      v147 += *(unsigned __int8 *)(v20 + 85);
-      v148 = *v147;
-      if ( !*v147 )
-        goto LABEL_187;
-    }
-    if ( *(_BYTE *)(v20 + 84) )
-    {
-      v152 = (unsigned __int16 *)(v147 + 4);
-      do
-      {
-        if ( v151 >= a5 )
-          break;
-        v153 = *v152;
-        if ( *v152 == 0xF000 )
-          break;
-        if ( *((_WORD *)v158 + 37) )
-        {
-          v154 = ComposeDeadKeys(v158, *(struct DEADKEY **)(v20 + 16), v153, &a4[v151], a5 - v151, a6, *v15 & 0x8000);
-          if ( v154 > 0 )
-            v151 += v154;
-        }
-        else
-        {
-          a4[v151++] = v153;
-        }
-        ++v150;
-        ++v152;
-      }
-      while ( v150 < *(unsigned __int8 *)(v20 + 84) );
-      if ( v151 )
-        *v15 |= 0x8000000u;
-    }
-    return (unsigned int)v151;
+    v25 = a3;
   }
+  v26 = *(_QWORD *)(v18 + 8);
+  if ( !v26 )
+    return 0LL;
+LABEL_19:
+  v28 = *(char **)v26;
+  if ( !*(_QWORD *)v26 )
+    return 0LL;
+  while ( 1 )
+  {
+    if ( !*v28 )
+    {
+      v26 += 16LL;
+      goto LABEL_19;
+    }
+    if ( *v28 == (_BYTE)a1 )
+      break;
+    v28 += *(unsigned __int8 *)(v26 + 9);
+  }
+  v29 = v28[1];
+  if ( (v29 & 8) != 0 && (*(_BYTE *)(v25 + 5) & 8) != 0 )
+  {
+    v24 |= 8u;
+  }
+  else if ( (((v24 & 0xFFFE) == 0) & v29) != 0 && (*(_BYTE *)(v25 + 5) & 2) != 0
+         || (v29 & 4) != 0 && (v24 & 6) == 6 && (*(_BYTE *)(v25 + 5) & 2) != 0 )
+  {
+    v24 ^= 1u;
+  }
+  if ( (v29 & 2) != 0 && (v24 & 0xFFFE) == 0 && (*(_BYTE *)(v25 + 5) & 2) != 0 )
+    v28 += *(unsigned __int8 *)(v26 + 9);
+  if ( v24 > *(_WORD *)(*(_QWORD *)v18 + 8LL) )
+    return 0LL;
+  _mm_lfence();
+  v30 = *(unsigned __int8 *)(v24 + *(_QWORD *)v18 + 10LL);
+  if ( (_DWORD)v30 == 15 )
+    return 0LL;
+  if ( (unsigned __int16)v30 >= *(unsigned __int8 *)(v26 + 8)
+    || (v31 = *(unsigned __int16 *)&v28[2 * v30 + 2],
+        v32 = *(unsigned __int8 *)(v24 + *(_QWORD *)v18 + 10LL),
+        (_WORD)v31 == 0xF000) )
+  {
+    if ( ((v24 - 2) & 0xFFF6) == 0 )
+    {
+      if ( a1 >= 0x41 && a1 <= 0x5A )
+      {
+        *a4 = a1 & 0x1F;
+        return 1LL;
+      }
+      if ( a1 >= 0xFF61 && a1 <= 0xFF91 )
+      {
+        v35 = InternalVkKeyScanEx(a1, (_QWORD *)v18) & 0x1F;
+        goto LABEL_39;
+      }
+    }
+    return 0LL;
+  }
+  if ( (_WORD)v31 == 0xF001 )
+  {
+    v33 = v59;
+    v28 += *(unsigned __int8 *)(v26 + 9);
+    v45 = *((unsigned __int16 *)v59 + 37);
+    if ( (_WORD)v45 )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v46 = *(unsigned __int16 *)&v28[2 * v30 + 2];
+        WPP_RECORDER_SF_hDhD(v46, v45, v30, 23, v57, v45, v45, *(_WORD *)&v28[2 * v30 + 2], v46);
+      }
+      if ( qword_1C0256CC8 )
+        v47 = qword_1C0256CC8(1024LL);
+      else
+        v47 = 0;
+      if ( (v47 & 0x8000) == 0 )
+        goto LABEL_37;
+    }
+    else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v58 = *(_WORD *)&v28[2 * v30 + 2];
+      WPP_RECORDER_SF_hD(v31, v45, v30, 22, v57, v58, v58);
+    }
+    v48 = *(_WORD *)&v28[2 * v32 + 2];
+    *a4 = v48;
+    if ( (*a7 & 0x8000) == 0 && (a6 & 4) == 0 )
+      *((_WORD *)v59 + 37) = v48;
+    return 0xFFFFFFFFLL;
+  }
+  if ( (_WORD)v31 == 0xF002 )
+  {
+    if ( *(_WORD *)(v18 + 82) )
+    {
+      v49 = *(char **)(v18 + 88);
+      if ( v49 )
+      {
+        v50 = *v49;
+        if ( *v49 )
+        {
+          v51 = *v28;
+          v52 = 0;
+          v53 = 0;
+          while ( v50 != v51 || *((_WORD *)v49 + 1) != (_WORD)v30 )
+          {
+            v49 += *(unsigned __int8 *)(v18 + 85);
+            v50 = *v49;
+            if ( !*v49 )
+              goto LABEL_144;
+          }
+          if ( *(_BYTE *)(v18 + 84) )
+          {
+            v54 = (unsigned __int16 *)(v49 + 4);
+            do
+            {
+              if ( v53 >= a5 )
+                break;
+              v55 = *v54;
+              if ( *v54 == 0xF000 )
+                break;
+              if ( *((_WORD *)v59 + 37) )
+              {
+                v56 = ComposeDeadKeys(v59, *(struct DEADKEY **)(v18 + 16), v55, &a4[v53], a5 - v53, v22, *a7 & 0x8000);
+                if ( v56 > 0 )
+                  v53 += v56;
+              }
+              else
+              {
+                a4[v53++] = v55;
+              }
+              ++v52;
+              v22 = a6;
+              ++v54;
+            }
+            while ( v52 < *(unsigned __int8 *)(v18 + 84) );
+            if ( v53 )
+              *a7 |= 0x8000000u;
+          }
+          return (unsigned int)v53;
+        }
+      }
+    }
+LABEL_144:
+    ApiSetEditionMessageBeep();
+    return 0LL;
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_hD(v31, v26, v30, 24, v57, v31, *(_WORD *)&v28[2 * v30 + 2]);
+  v33 = v59;
+LABEL_37:
+  v34 = *(struct DEADKEY **)(v18 + 16);
+  if ( !v34 || !*((_WORD *)v33 + 37) )
+  {
+    v35 = *(_WORD *)&v28[2 * v32 + 2];
+LABEL_39:
+    *a4 = v35;
+    return 1LL;
+  }
+  result = ComposeDeadKeys(v33, v34, *(_WORD *)&v28[2 * v32 + 2], a4, a5, a6, *a7 & 0x8000);
+  if ( (_DWORD)result )
+    *a7 |= 0x8000000u;
+  return result;
 }

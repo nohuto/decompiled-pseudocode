@@ -1,55 +1,55 @@
 /*
- * XREFs of EtwRegisterEventCallback @ 0x1409EC100
+ * XREFs of EtwRegisterEventCallback @ 0x14093CF70
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BC864 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwRegisterEventCallback(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned int v4; // ebx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  unsigned int v7; // r9d
+  unsigned int v5; // ebp
+  unsigned int v6; // ebx
+  __int64 v7; // rcx
   struct _KTHREAD *CurrentThread; // rax
   unsigned int *v9; // rdi
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
 
-  v4 = 0;
-  v6 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 108);
-  if ( !v5 || v5 != qword_140D1F268 )
+  v5 = a1;
+  v6 = 0;
+  v7 = *((_QWORD *)PsGetCurrentServerSiloGlobals(a1, a2) + 108);
+  if ( !a2 || a2 != qword_140CFCB98 )
     return 3221225506LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v9 = EtwpAcquireLoggerContextByLoggerId(v6, v7, 0);
+  v9 = EtwpAcquireLoggerContextByLoggerId(v7, v5, 0);
   if ( v9 )
   {
-    Pool2 = (_QWORD *)ExAllocatePool2(64LL, 16LL, 1131902021LL);
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x10uLL, 0x43777445u);
+    if ( PoolWithTag )
     {
-      Pool2[1] = a3;
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)v9 + 161, (signed __int64)Pool2, 0LL) )
+      PoolWithTag[1] = a3;
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)v9 + 159, (signed __int64)PoolWithTag, 0LL) )
       {
-        v4 = -1073741811;
-        ExFreePoolWithTag(Pool2, 0);
+        v6 = -1073741811;
+        ExFreePoolWithTag(PoolWithTag, 0);
       }
     }
     else
     {
-      v4 = -1073741670;
+      v6 = -1073741670;
     }
     EtwpReleaseLoggerContext(v9, 0);
   }
   else
   {
-    v4 = -1073741162;
+    v6 = -1073741162;
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return v4;
+  return v6;
 }

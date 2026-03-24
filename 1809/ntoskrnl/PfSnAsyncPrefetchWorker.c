@@ -1,26 +1,26 @@
 /*
- * XREFs of PfSnAsyncPrefetchWorker @ 0x140666580
+ * XREFs of PfSnAsyncPrefetchWorker @ 0x140666560
  * Callers:
  *     <none>
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     MmGetDefaultPagePriority @ 0x1400E217C (MmGetDefaultPagePriority.c)
- *     MmGetAvailablePagesBelowPriority @ 0x140137D64 (MmGetAvailablePagesBelowPriority.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     MmGetDefaultPagePriority @ 0x1400E219C (MmGetDefaultPagePriority.c)
+ *     MmGetAvailablePagesBelowPriority @ 0x140137D84 (MmGetAvailablePagesBelowPriority.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PfpPrefetchSharedStart @ 0x14065CDD8 (PfpPrefetchSharedStart.c)
- *     PfSnOpenVolumesForPrefetch @ 0x14065DC6C (PfSnOpenVolumesForPrefetch.c)
- *     PfSnCleanupPrefetchHeader @ 0x1406601AC (PfSnCleanupPrefetchHeader.c)
- *     PfSnAsyncPrefetchStep @ 0x140663A84 (PfSnAsyncPrefetchStep.c)
- *     PfSnAsyncContextCleanup @ 0x140663B34 (PfSnAsyncContextCleanup.c)
- *     PfSnLogAsyncWorker @ 0x14066684C (PfSnLogAsyncWorker.c)
- *     PfSnPreallocatePrefetchHeader @ 0x1406B45FC (PfSnPreallocatePrefetchHeader.c)
- *     PfpPrefetchSharedInitialize @ 0x1406CA630 (PfpPrefetchSharedInitialize.c)
- *     PfSnPowerBoost @ 0x1406CDA5C (PfSnPowerBoost.c)
+ *     PfpPrefetchSharedStart @ 0x14065CDB8 (PfpPrefetchSharedStart.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x14065DC4C (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnCleanupPrefetchHeader @ 0x14066018C (PfSnCleanupPrefetchHeader.c)
+ *     PfSnAsyncPrefetchStep @ 0x140663A64 (PfSnAsyncPrefetchStep.c)
+ *     PfSnAsyncContextCleanup @ 0x140663B14 (PfSnAsyncContextCleanup.c)
+ *     PfSnLogAsyncWorker @ 0x14066682C (PfSnLogAsyncWorker.c)
+ *     PfSnPreallocatePrefetchHeader @ 0x1406B45DC (PfSnPreallocatePrefetchHeader.c)
+ *     PfpPrefetchSharedInitialize @ 0x1406CA610 (PfpPrefetchSharedInitialize.c)
+ *     PfSnPowerBoost @ 0x1406CDA3C (PfSnPowerBoost.c)
  */
 
 void __fastcall PfSnAsyncPrefetchWorker(_QWORD *P)

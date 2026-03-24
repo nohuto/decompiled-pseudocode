@@ -1,19 +1,19 @@
 /*
- * XREFs of MiConvertStaticSubsections @ 0x1402A0DF8
+ * XREFs of MiConvertStaticSubsections @ 0x1402D9368
  * Callers:
- *     MiInsertUnusedSegment @ 0x1402A0B78 (MiInsertUnusedSegment.c)
+ *     MiInsertUnusedSegment @ 0x1402D7D10 (MiInsertUnusedSegment.c)
  * Callees:
- *     MiRemoveViewsFromSection @ 0x14029F7C8 (MiRemoveViewsFromSection.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x14066B504 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     MiRemoveViewsFromSection @ 0x1402955F8 (MiRemoveViewsFromSection.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x14055510C (MiUpdateSubsectionCrossPartitionRefs.c)
  */
 
 __int64 __fastcall MiConvertStaticSubsections(__int64 a1)
 {
   __int64 v1; // rdi
   ULONG_PTR v2; // rbx
-  __int16 v3; // ax
-  int v5; // r8d
+  __int16 v3; // cx
+  unsigned int v5; // r8d
   unsigned __int64 v6; // rdx
 
   v1 = 0LL;
@@ -28,6 +28,7 @@ __int64 __fastcall MiConvertStaticSubsections(__int64 a1)
         if ( (*(_DWORD *)(v2 + 48) & 0x3FFFFFFF) != 0 )
         {
           MiUpdateSubsectionCrossPartitionRefs(v2, 0x3FFFFFFFLL);
+          v3 = *(_WORD *)(v2 + 34);
           v5 = 24;
         }
         else
@@ -35,8 +36,8 @@ __int64 __fastcall MiConvertStaticSubsections(__int64 a1)
           v5 = 4;
         }
         v6 = *(unsigned int *)(v2 + 44);
-        *(_WORD *)(v2 + 34) &= ~1u;
         *(_QWORD *)(v2 + 96) = 1LL;
+        *(_WORD *)(v2 + 34) = v3 & 0xFFFE;
         v1 += MiRemoveViewsFromSection(v2, v6, v5);
       }
       else if ( *(_QWORD *)(v2 + 8) && !*(_QWORD *)(v2 + 96) )

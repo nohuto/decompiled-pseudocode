@@ -1,8 +1,8 @@
 /*
- * XREFs of ApiSetReleaseSchema @ 0x140321D00
+ * XREFs of ApiSetReleaseSchema @ 0x140321E00
  * Callers:
- *     PspSiloLoadApiSets @ 0x140887C78 (PspSiloLoadApiSets.c)
- *     ApiSetLoadSchemaWithExtensions @ 0x1408DD600 (ApiSetLoadSchemaWithExtensions.c)
+ *     PspSiloLoadApiSets @ 0x140887C58 (PspSiloLoadApiSets.c)
+ *     ApiSetLoadSchemaWithExtensions @ 0x1408DD5E0 (ApiSetLoadSchemaWithExtensions.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

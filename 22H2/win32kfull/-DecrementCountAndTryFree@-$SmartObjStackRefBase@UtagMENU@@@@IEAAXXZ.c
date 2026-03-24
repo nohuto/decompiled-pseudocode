@@ -1,13 +1,10 @@
 /*
- * XREFs of ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagMENU@@@@IEAAXXZ @ 0x1C0108994
+ * XREFs of ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagMENU@@@@IEAAXXZ @ 0x1C008AA0C
  * Callers:
- *     _DestroyMenu @ 0x1C0061170 (_DestroyMenu.c)
- *     xxxMNCanClose @ 0x1C00632C4 (xxxMNCanClose.c)
- *     xxxGetSysMenuPtr @ 0x1C006347C (xxxGetSysMenuPtr.c)
- *     xxxInsertMenuItem @ 0x1C00638F0 (xxxInsertMenuItem.c)
- *     MNLookUpItem @ 0x1C006482C (MNLookUpItem.c)
- *     NtUserCreateWindowEx @ 0x1C0091DF0 (NtUserCreateWindowEx.c)
- *     xxxCalcClientRect @ 0x1C010ACC0 (xxxCalcClientRect.c)
+ *     xxxCalcClientRect @ 0x1C004A800 (xxxCalcClientRect.c)
+ *     xxxMNCanClose @ 0x1C00614C0 (xxxMNCanClose.c)
+ *     xxxGetMenuBarInfo @ 0x1C008AA48 (xxxGetMenuBarInfo.c)
+ *     NtUserCreateWindowEx @ 0x1C00BF1E0 (NtUserCreateWindowEx.c)
  * Callees:
  *     <none>
  */

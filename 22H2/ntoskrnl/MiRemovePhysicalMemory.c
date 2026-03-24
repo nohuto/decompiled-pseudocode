@@ -1,256 +1,190 @@
 /*
- * XREFs of MiRemovePhysicalMemory @ 0x140A2CCBC
+ * XREFs of MiRemovePhysicalMemory @ 0x1408C5FDC
  * Callers:
- *     MiDeleteExtentPfns @ 0x14063CAD0 (MiDeleteExtentPfns.c)
- *     MmRemovePhysicalMemory @ 0x140A2D280 (MmRemovePhysicalMemory.c)
- *     MiRemoveMdlPages @ 0x140A2E5AC (MiRemoveMdlPages.c)
- *     MiCreateFileOnlyPfns @ 0x140A33CB8 (MiCreateFileOnlyPfns.c)
- *     MiHotRemovePartitionPageRun @ 0x140A4508C (MiHotRemovePartitionPageRun.c)
+ *     MiDeleteExtentPfns @ 0x1405406C0 (MiDeleteExtentPfns.c)
+ *     MmRemovePhysicalMemory @ 0x1408C63C0 (MmRemovePhysicalMemory.c)
+ *     MiRemoveMdlPages @ 0x1408C6AB0 (MiRemoveMdlPages.c)
+ *     MiAllocateFileExtents @ 0x1408CF560 (MiAllocateFileExtents.c)
+ *     MiHotRemovePartitionPageRun @ 0x1408DB59C (MiHotRemovePartitionPageRun.c)
  * Callees:
- *     MiPartitionIdToPointer @ 0x14020B9E4 (MiPartitionIdToPointer.c)
- *     KePulseEvent @ 0x1402206C0 (KePulseEvent.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiReferencePageRuns @ 0x1403570E0 (MiReferencePageRuns.c)
- *     MiDereferencePageRuns @ 0x1403575C8 (MiDereferencePageRuns.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14036EF4C (MiFlushEntireTbDueToAttributeChange.c)
- *     MiDescribePageRun @ 0x140375ADC (MiDescribePageRun.c)
- *     MiComputeNodeMemory @ 0x1403AC1BC (MiComputeNodeMemory.c)
- *     ZwUpdateWnfStateData @ 0x14041E260 (ZwUpdateWnfStateData.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140551100 (IoUpdateDumpPhysicalRanges.c)
- *     KeConfigureDynamicMemory @ 0x14056EC1C (KeConfigureDynamicMemory.c)
- *     MiInitializeDynamicPfns @ 0x14061AF68 (MiInitializeDynamicPfns.c)
- *     MiLockDynamicMemoryExclusive @ 0x14061B614 (MiLockDynamicMemoryExclusive.c)
- *     MiLockDynamicMemoryNestedExclusive @ 0x14061B734 (MiLockDynamicMemoryNestedExclusive.c)
- *     MiPerformMemoryChange @ 0x14061BB34 (MiPerformMemoryChange.c)
- *     MiPhysicalMemoryEverRemoved @ 0x14061BCD0 (MiPhysicalMemoryEverRemoved.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x14061C01C (MiUnlockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryNestedExclusive @ 0x14061C080 (MiUnlockDynamicMemoryNestedExclusive.c)
- *     MiGetDanglingExtent @ 0x14063D768 (MiGetDanglingExtent.c)
- *     MiGetPfnRemovalRequested @ 0x14064D954 (MiGetPfnRemovalRequested.c)
- *     MiReduceCommitLimits @ 0x1406565CC (MiReduceCommitLimits.c)
- *     MiPartitionDeleteMemoryNode @ 0x14065B1FC (MiPartitionDeleteMemoryNode.c)
- *     MiFlushCacheRange @ 0x140660F6C (MiFlushCacheRange.c)
- *     MiConfigureMemoryRemoval @ 0x140A2C78C (MiConfigureMemoryRemoval.c)
- *     MiHotAddHugeRange @ 0x140A2DEB8 (MiHotAddHugeRange.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiReferencePageRuns @ 0x14022F500 (MiReferencePageRuns.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x140284A0C (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x140303FA4 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140304364 (MiLockDynamicMemoryExclusive.c)
+ *     KePulseEvent @ 0x14033AAD0 (KePulseEvent.c)
+ *     MiDereferencePageRuns @ 0x14037E930 (MiDereferencePageRuns.c)
+ *     MiDescribePageRun @ 0x1403ABD38 (MiDescribePageRun.c)
+ *     ZwUpdateWnfStateData @ 0x1403FD420 (ZwUpdateWnfStateData.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x1405028CC (IoUpdateDumpPhysicalRanges.c)
+ *     KeConfigureDynamicMemory @ 0x140512C88 (KeConfigureDynamicMemory.c)
+ *     MiInitializeDynamicPfns @ 0x14052E4E0 (MiInitializeDynamicPfns.c)
+ *     MiPerformMemoryChange @ 0x14052E978 (MiPerformMemoryChange.c)
+ *     MiGetDanglingExtent @ 0x140541160 (MiGetDanglingExtent.c)
+ *     MiReduceCommitLimits @ 0x14055057C (MiReduceCommitLimits.c)
+ *     MiFlushCacheRange @ 0x140554454 (MiFlushCacheRange.c)
+ *     MiComputeNodeMemory @ 0x1407CCFC0 (MiComputeNodeMemory.c)
+ *     MiConfigureMemoryRemoval @ 0x1408C5B38 (MiConfigureMemoryRemoval.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiRemovePhysicalMemory(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, unsigned int a3)
+__int64 __fastcall MiRemovePhysicalMemory(__int64 BugCheckParameter2, ULONG_PTR a2, unsigned int a3)
 {
-  struct _KTHREAD *CurrentThread; // r13
-  unsigned __int64 DanglingExtent; // rdi
-  __int64 v6; // r15
-  ULONG_PTR v7; // rbx
-  unsigned __int16 *v8; // r12
-  __int64 v9; // rcx
-  int v10; // ebx
-  unsigned __int16 *v11; // rcx
-  ULONG_PTR v13; // rsi
-  int v14; // r15d
-  unsigned __int64 v15; // rcx
-  unsigned __int64 v16; // rdx
-  __int64 v17; // rcx
-  unsigned int *v18; // rax
-  __int64 *i; // r15
-  int v20; // ecx
-  int v21; // eax
-  unsigned __int16 *v22; // rcx
-  unsigned int *v23; // rcx
-  __int64 v24; // rax
-  unsigned int *v25; // [rsp+40h] [rbp-49h] BYREF
-  __int64 v26[3]; // [rsp+48h] [rbp-41h] BYREF
-  char *v27; // [rsp+60h] [rbp-29h] BYREF
-  unsigned int *v28; // [rsp+68h] [rbp-21h]
-  __int64 v29; // [rsp+70h] [rbp-19h]
-  _QWORD v30[13]; // [rsp+78h] [rbp-11h] BYREF
-  ULONG_PTR v31; // [rsp+F8h] [rbp+6Fh] BYREF
-  int v32; // [rsp+100h] [rbp+77h]
-  __int64 v33; // [rsp+108h] [rbp+7Fh]
+  __int64 DanglingExtent; // r14
+  struct _KTHREAD *CurrentThread; // r15
+  int v5; // r13d
+  char v6; // si
+  __int64 v7; // r12
+  int v8; // edi
+  ULONG_PTR v10; // rsi
+  __int64 v11; // r8
+  _DWORD *v12; // r9
+  unsigned int *i; // r13
+  _QWORD *v14; // r15
+  __int64 v15; // rax
+  __int64 v16; // r8
+  _DWORD *v17; // r9
+  int v18; // eax
+  char v19; // r15
+  __int64 v20; // r8
+  _DWORD *v21; // r9
+  unsigned int *v22; // rcx
+  __int64 v23; // rax
+  unsigned int *v24; // [rsp+48h] [rbp-39h] BYREF
+  char *v25; // [rsp+50h] [rbp-31h] BYREF
+  struct _KTHREAD *v26; // [rsp+58h] [rbp-29h]
+  PVOID P[3]; // [rsp+60h] [rbp-21h] BYREF
+  _QWORD v28[12]; // [rsp+78h] [rbp-9h] BYREF
+  ULONG_PTR v29; // [rsp+F0h] [rbp+6Fh] BYREF
+  unsigned int v30; // [rsp+F8h] [rbp+77h]
+  int v31; // [rsp+100h] [rbp+7Fh]
 
-  v31 = a2;
-  v26[1] = (__int64)v26;
-  v26[2] = 0LL;
-  v26[0] = (__int64)v26;
-  CurrentThread = KeGetCurrentThread();
+  v30 = a3;
+  v29 = a2;
   DanglingExtent = BugCheckParameter2;
-  v30[1] = 0LL;
-  v6 = 0LL;
-  v30[4] = 0LL;
-  v7 = 6 * BugCheckParameter2;
+  P[1] = P;
+  P[2] = 0LL;
+  P[0] = P;
+  CurrentThread = KeGetCurrentThread();
+  v5 = a3 & 2;
+  v26 = CurrentThread;
+  v28[1] = 0LL;
+  v6 = a3;
+  v28[4] = 0LL;
+  v24 = 0LL;
+  v7 = 0LL;
   v25 = 0LL;
-  v27 = 0LL;
-  v33 = 0LL;
-  v8 = (unsigned __int16 *)MiPartitionIdToPointer((*(_QWORD *)(48 * BugCheckParameter2 - 0x21FFFFFFFFD8LL) >> 43) & 0x3FF);
-  if ( v8 == MiSystemPartition )
-  {
-    MiLockDynamicMemoryExclusive((__int64)MiSystemPartition, (__int64)CurrentThread);
-  }
-  else
-  {
-    MiLockDynamicMemoryExclusive((__int64)v8, (__int64)CurrentThread);
-    MiLockDynamicMemoryNestedExclusive(v9);
-  }
+  v31 = v5;
   if ( (a3 & 2) != 0 )
   {
-    v10 = 0;
-    if ( (a3 & 0x40) != 0 )
+    v8 = 0;
+    MiLockDynamicMemoryExclusive((__int64)&MiSystemPartition, (__int64)CurrentThread);
+    if ( (v6 & 0x20) != 0 )
     {
-      DanglingExtent = MiGetDanglingExtent(&v31);
-      if ( DanglingExtent == -1LL )
+      DanglingExtent = MiGetDanglingExtent(&v29);
+      if ( DanglingExtent == -1 )
       {
-        if ( v8 == MiSystemPartition )
-        {
-          v11 = MiSystemPartition;
-        }
-        else
-        {
-          MiUnlockDynamicMemoryNestedExclusive();
-          v11 = v8;
-        }
-        MiUnlockDynamicMemoryExclusive((__int64)v11, (__int64)CurrentThread);
+        MiUnlockDynamicMemoryExclusive((__int64)&MiSystemPartition, (__int64)CurrentThread);
         return 0LL;
       }
     }
-    v13 = v31;
-    v14 = a3 & 0x10000;
+    v10 = v29;
+    goto LABEL_20;
   }
-  else
+  v10 = v29;
+  v28[0] = 0LL;
+  v28[3] = v29;
+  v28[2] = BugCheckParameter2;
+  MiLockDynamicMemoryExclusive((__int64)&MiSystemPartition, (__int64)CurrentThread);
+  v8 = MiConfigureMemoryRemoval(&v25, (unsigned int *)MmPhysicalMemoryBlock, v28);
+  if ( v8 < 0 )
   {
-    v30[0] = 0LL;
-    v13 = v31;
-    v32 = a3 & 0x10000;
-    v30[2] = DanglingExtent;
-    v30[3] = v31;
-    if ( (a3 & 0x10000) != 0 )
-    {
-      v15 = 8 * v7 - 0x220000000000LL;
-      v16 = v15 + 48 * v31;
-      while ( v15 < v16 )
-      {
-        if ( MiGetPfnRemovalRequested(v15) )
-        {
-          v10 = -1073740023;
-          goto LABEL_52;
-        }
-        v15 = v17 + 48;
-      }
-    }
-    v10 = MiConfigureMemoryRemoval(&v27, (unsigned int *)MmPhysicalMemoryBlock, v30);
-    if ( v10 < 0 )
-      goto LABEL_52;
-    v29 = DanglingExtent + v13 - 1;
-    v10 = KeConfigureDynamicMemory(DanglingExtent, v29, 2LL);
-    if ( v10 < 0 )
-      goto LABEL_52;
-    v33 = MiReferencePageRuns((__int64)MiSystemPartition, 1u);
-    v6 = v33;
-    if ( !(unsigned int)MiDescribePageRun((__int64)v26, DanglingExtent, v13) )
-    {
-      v10 = -1073741670;
-LABEL_37:
-      KeConfigureDynamicMemory(DanglingExtent, v29, 8LL);
-      goto LABEL_52;
-    }
-    v18 = (unsigned int *)v6;
-    for ( i = (__int64 *)v26[0]; ; i = (__int64 *)*i )
-    {
-      v28 = v18;
-      if ( i == v26 )
-        break;
-      v10 = MiConfigureMemoryRemoval(&v25, v18, i);
-      if ( v28 != (unsigned int *)v33 )
-        ExFreePoolWithTag(v28 - 4, 0);
-      if ( v10 < 0 )
-      {
-        v6 = v33;
-        goto LABEL_37;
-      }
-      v18 = v25;
-    }
-    if ( (a3 & 0x100000) == 0 )
-    {
-      MiReduceCommitLimits(MiSystemPartition, v13, v13);
-      MiReturnCommit((__int64)MiSystemPartition, v13);
-    }
-    MiPerformMemoryChange(DanglingExtent, v13, (void **)&v27, (__int64 *)&v25, a3, (__int64 ***)v26);
-    MiComputeNodeMemory((__int16 *)MiSystemPartition, 1);
-    if ( (a3 & 0x100000) == 0 )
-    {
-      v20 = -1;
-      if ( qword_140C6F790 <= 0xFFFFFFFF )
-        v20 = qword_140C6F790;
-      *(_DWORD *)(MmWriteableSharedUserData + 744) = v20;
-    }
-    v21 = KeConfigureDynamicMemory(DanglingExtent, DanglingExtent + v13 - 1, 4LL);
-    v10 = v21;
-    if ( v21 < 0 )
-      KeBugCheckEx(0x1Au, 0x61A02uLL, DanglingExtent, DanglingExtent + v13, v21);
-    v14 = v32;
+LABEL_30:
+    v19 = v30;
+    goto LABEL_31;
   }
-  MiInitializeDynamicPfns(DanglingExtent, v13, MiSystemPartition, a3, 0LL, 0LL);
-  MiPhysicalMemoryEverRemoved(DanglingExtent, v13, 0);
-  if ( (a3 & 0x20) != 0 )
+  v7 = MiReferencePageRuns((__int64)&MiSystemPartition, 1u, v11, v12);
+  if ( !(unsigned int)MiDescribePageRun((__int64)P, DanglingExtent, v10) )
   {
-    qword_140C6B550 += v13;
-    if ( (unsigned __int64)qword_140C6B550 >= 0x5555 && !byte_140C6B5E4 )
+    v8 = -1073741670;
+    goto LABEL_30;
+  }
+  for ( i = (unsigned int *)v7; ; i = v24 )
+  {
+    v14 = P[0];
+    if ( P[0] == P )
+      break;
+    if ( *((PVOID **)P[0] + 1) != P || (v15 = *(_QWORD *)P[0], *(PVOID *)(*(_QWORD *)P[0] + 8LL) != P[0]) )
+LABEL_40:
+      __fastfail(3u);
+    P[0] = *(PVOID *)P[0];
+    *(_QWORD *)(v15 + 8) = P;
+    v8 = MiConfigureMemoryRemoval(&v24, i, v14);
+    ExFreePoolWithTag(v14, 0);
+    if ( i != (unsigned int *)v7 )
+      ExFreePoolWithTag(i - 4, 0);
+    if ( v8 < 0 )
     {
-      stru_140C6B530.List.Flink = 0LL;
-      stru_140C6B530.WorkerRoutine = (void (__fastcall *)(void *))MiFreeUnusedPfnPages;
-      stru_140C6B530.Parameter = MiSystemPartition;
-      ExQueueWorkItem(&stru_140C6B530, DelayedWorkQueue);
-      byte_140C6B5E4 = 1;
+      v5 = v31;
+      goto LABEL_30;
     }
   }
-  if ( (a3 & 2) == 0 )
+  MiReduceCommitLimits(&MiSystemPartition, v10, v10);
+  MiReturnCommit((__int64)&MiSystemPartition, v10);
+  MiPerformMemoryChange(DanglingExtent, v10, (void **)&v25, (__int64 *)&v24, 0);
+  MiComputeNodeMemory(&MiSystemPartition, 1, v16, v17);
+  v18 = -1;
+  if ( qword_140C52890 <= 0xFFFFFFFF )
+    v18 = qword_140C52890;
+  MEMORY[0xFFFFF780000002E8] = v18;
+  KeConfigureDynamicMemory(DanglingExtent, DanglingExtent + v10 - 1, 2u);
+  v5 = v31;
+LABEL_20:
+  v19 = v30;
+  MiInitializeDynamicPfns(DanglingExtent, v10, (__int16 *)&MiSystemPartition, v30, 0LL, 0LL);
+  qword_140C50DD0 += v10;
+  if ( (unsigned __int64)qword_140C50DD0 >= 0x5555 && !byte_140C50E4C )
   {
-    if ( stru_140C673E8.Header.SignalState && ((unsigned __int8)MiFlags & 0x30u) >= 0x20 )
+    stru_140C50DB0.List.Flink = 0LL;
+    stru_140C50DB0.WorkerRoutine = (void (__fastcall *)(void *))MiFreeUnusedPfnPages;
+    stru_140C50DB0.Parameter = &MiSystemPartition;
+    ExQueueWorkItem(&stru_140C50DB0, DelayedWorkQueue);
+    byte_140C50E4C = 1;
+  }
+  if ( !v5 )
+  {
+    if ( (MiFlags & 0x10000000) != 0 && (MiFlags & 0x30u) >= 0x20 )
       ZwUpdateWnfStateData((__int64)&WNF_MM_PHYSICAL_MEMORY_CHANGE, 0LL);
-    KePulseEvent(qword_140C6B660, 0, 0);
-    if ( v14 )
-    {
-      MiPartitionDeleteMemoryNode((__int64)v8, DanglingExtent, v13);
-      MiHotAddHugeRange((_DWORD)v8, DanglingExtent, v13, 0, 2 - ((a3 & 0x200) != 0), 1);
-    }
-    if ( (a3 & 0x200000) == 0 )
-    {
-      MiFlushEntireTbDueToAttributeChange();
-      MiFlushCacheRange(DanglingExtent, v13);
-    }
+    KePulseEvent(qword_140C50EC8, 0, 0);
+    MiFlushEntireTbDueToAttributeChange();
+    MiFlushCacheRange(DanglingExtent, v10, v20, v21);
   }
-  v6 = v33;
-LABEL_52:
-  if ( v8 == MiSystemPartition )
-  {
-    v22 = MiSystemPartition;
-  }
-  else
-  {
-    MiUnlockDynamicMemoryNestedExclusive();
-    v22 = v8;
-  }
-  MiUnlockDynamicMemoryExclusive((__int64)v22, (__int64)CurrentThread);
-  if ( v27 )
-    ExFreePoolWithTag(v27 - 16, 0);
-  if ( !v25 )
-    goto LABEL_60;
-  v23 = v25 - 4;
+LABEL_31:
+  MiUnlockDynamicMemoryExclusive((__int64)&MiSystemPartition, (__int64)v26);
+  if ( v25 )
+    ExFreePoolWithTag(v25 - 16, 0);
+  if ( !v24 )
+    goto LABEL_36;
+  v22 = v24 - 4;
   while ( 1 )
   {
-    ExFreePoolWithTag(v23, 0);
-LABEL_60:
-    v23 = (unsigned int *)v26[0];
-    if ( (__int64 *)v26[0] == v26 )
+    ExFreePoolWithTag(v22, 0);
+LABEL_36:
+    v22 = (unsigned int *)P[0];
+    if ( P[0] == P )
       break;
-    if ( *(__int64 **)(v26[0] + 8) != v26 || (v24 = *(_QWORD *)v26[0], *(_QWORD *)(*(_QWORD *)v26[0] + 8LL) != v26[0]) )
-      __fastfail(3u);
-    v26[0] = *(_QWORD *)v26[0];
-    *(_QWORD *)(v24 + 8) = v26;
+    if ( *((PVOID **)P[0] + 1) != P )
+      goto LABEL_40;
+    v23 = *(_QWORD *)P[0];
+    if ( *(PVOID *)(*(_QWORD *)P[0] + 8LL) != P[0] )
+      goto LABEL_40;
+    P[0] = *(PVOID *)P[0];
+    *(_QWORD *)(v23 + 8) = P;
   }
-  if ( v6 )
-    MiDereferencePageRuns(v6);
-  if ( v10 >= 0 && (a3 & 0x10) == 0 && (a3 & 0x200002) == 0 )
+  if ( v7 )
+    MiDereferencePageRuns(v7);
+  if ( v8 >= 0 && (v19 & 8) == 0 && !v5 )
     IoUpdateDumpPhysicalRanges();
-  return (unsigned int)v10;
+  return (unsigned int)v8;
 }

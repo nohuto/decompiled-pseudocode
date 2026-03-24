@@ -1,12 +1,12 @@
 /*
- * XREFs of HsaGetDeviceAperture @ 0x140532404
+ * XREFs of HsaGetDeviceAperture @ 0x1404E3784
  * Callers:
- *     HsaAllocateRemappingTableEntry @ 0x140530DE0 (HsaAllocateRemappingTableEntry.c)
- *     HsaFreeRemappingTableEntry @ 0x140532200 (HsaFreeRemappingTableEntry.c)
- *     HsaUpdateRemappingDestination @ 0x140533370 (HsaUpdateRemappingDestination.c)
- *     HsaUpdateRemappingTableEntry @ 0x140533520 (HsaUpdateRemappingTableEntry.c)
+ *     HsaAllocateRemappingTableEntry @ 0x1404E20C0 (HsaAllocateRemappingTableEntry.c)
+ *     HsaFreeRemappingTableEntry @ 0x1404E3590 (HsaFreeRemappingTableEntry.c)
+ *     HsaUpdateRemappingDestination @ 0x1404E4710 (HsaUpdateRemappingDestination.c)
+ *     HsaUpdateRemappingTableEntry @ 0x1404E48C0 (HsaUpdateRemappingTableEntry.c)
  * Callees:
- *     ExtEnvCriticalFailure @ 0x14052266C (ExtEnvCriticalFailure.c)
+ *     ExtEnvCriticalFailure @ 0x1404D539C (ExtEnvCriticalFailure.c)
  */
 
 __int64 __fastcall HsaGetDeviceAperture(__int64 a1)
@@ -21,6 +21,6 @@ __int64 __fastcall HsaGetDeviceAperture(__int64 a1)
   v2 = HsaDeviceApertureRanges[v1];
   result = 0LL;
   if ( v2 )
-    return v2 + 56LL * ((unsigned __int16)a1 >> 9);
+    return v2 + 72LL * ((unsigned __int16)a1 >> 9);
   return result;
 }

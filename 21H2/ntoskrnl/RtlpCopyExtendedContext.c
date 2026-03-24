@@ -1,59 +1,80 @@
 /*
- * XREFs of RtlpCopyExtendedContext @ 0x140294DD8
+ * XREFs of RtlpCopyExtendedContext @ 0x1402768B0
  * Callers:
- *     KiDispatchException @ 0x140299280 (KiDispatchException.c)
- *     RtlCopyExtendedContext @ 0x1405E7C00 (RtlCopyExtendedContext.c)
- *     RtlpReadExtendedContext @ 0x140703290 (RtlpReadExtendedContext.c)
- *     RtlpWriteExtendedContext @ 0x140704E2C (RtlpWriteExtendedContext.c)
+ *     KiDispatchException @ 0x140273320 (KiDispatchException.c)
+ *     RtlpReadExtendedContext @ 0x140648200 (RtlpReadExtendedContext.c)
+ *     RtlpWriteExtendedContext @ 0x140696398 (RtlpWriteExtendedContext.c)
  * Callees:
- *     RtlpCopyXStateChunk @ 0x140246EB8 (RtlpCopyXStateChunk.c)
- *     RtlpCopyLegacyContext @ 0x140294EBC (RtlpCopyLegacyContext.c)
- *     RtlpValidateContextFlags @ 0x140297F80 (RtlpValidateContextFlags.c)
- *     RtlpCopyKernelCetChunk @ 0x1405E7C54 (RtlpCopyKernelCetChunk.c)
+ *     RtlpCopyLegacyContextAmd64 @ 0x140276DB0 (RtlpCopyLegacyContextAmd64.c)
+ *     RtlpCopyLegacyContextX86 @ 0x1402BDAF8 (RtlpCopyLegacyContextX86.c)
+ *     RtlpCopyXStateChunk @ 0x1402C0D08 (RtlpCopyXStateChunk.c)
+ *     RtlpCopyLegacyContextArm @ 0x14058F544 (RtlpCopyLegacyContextArm.c)
+ *     RtlpCopyLegacyContextArm64 @ 0x14058F6A4 (RtlpCopyLegacyContextArm64.c)
  */
 
-__int64 __fastcall RtlpCopyExtendedContext(char a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5, __int64 a6)
+__int64 __fastcall RtlpCopyExtendedContext(
+        unsigned __int8 a1,
+        __int64 a2,
+        __int64 a3,
+        unsigned int a4,
+        __int64 a5,
+        __int64 a6)
 {
+  char v9; // bl
+  __int64 v10; // rsi
+  __int64 v11; // rdi
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // rdx
+  __int64 v15; // r9
   __int64 result; // rax
-  int v11; // ecx
-  __int64 v12; // rbx
-  __int64 v13; // rdi
-  __int64 v14; // rcx
-  __int64 v15; // rdx
-  __int64 v16; // r9
-  __int64 v17; // rdx
-  _DWORD v18[6]; // [rsp+30h] [rbp-18h] BYREF
 
-  v18[0] = 0;
-  result = RtlpValidateContextFlags(a4, v18);
-  if ( (int)result >= 0 )
+  if ( (a4 & 0x27FFFF80) != 0x10000
+    && (a4 & 0x27FFFFA0) != 0x100000
+    && (a4 & 0x7FFFFF0) != 0x200000
+    && (a4 & 0x7FFFFE0) != 0x400000 )
   {
-    v12 = a2;
-    if ( a3 )
-      v12 = a3;
-    v13 = a5;
-    if ( a6 )
-      v13 = a6;
-    if ( (v18[0] & 1) != 0 )
-    {
-      v14 = *(int *)(v12 + 8);
-      v15 = *(int *)(v13 + 8);
-      if ( (_DWORD)v14 != (_DWORD)v15 || *(_DWORD *)(v12 + 12) < *(_DWORD *)(v13 + 12) )
-        return 3221225485LL;
-      v16 = a5 + v15;
-      v17 = v14 + a2;
-      LOBYTE(v14) = a1;
-      RtlpCopyLegacyContext(v14, v17, a4, v16);
-    }
-    if ( (v18[0] & 2) == 0 || (result = RtlpCopyXStateChunk(a1, a2, v12, a5, v13), (int)result >= 0) )
-    {
-      if ( (v18[0] & 4) == 0 )
-        return 0LL;
-      LOBYTE(v11) = a1;
-      result = RtlpCopyKernelCetChunk(v11, a2, v12, a5, v13);
-      if ( (int)result >= 0 )
-        return 0LL;
-    }
+    return 3221225485LL;
   }
+  v9 = 1;
+  if ( (a4 & 0x100040) == 1048640 || (a4 & 0x10040) == 65600 )
+  {
+    if ( !MEMORY[0xFFFFF780000003D8] )
+      return 3221225659LL;
+    v9 = 3;
+  }
+  v10 = a5;
+  v11 = a2;
+  if ( a3 )
+    v11 = a3;
+  if ( a6 )
+    v10 = a6;
+  v12 = *(int *)(v11 + 8);
+  v13 = *(int *)(v10 + 8);
+  if ( (_DWORD)v12 != (_DWORD)v13 || *(_DWORD *)(v11 + 12) < *(_DWORD *)(v10 + 12) )
+    return 3221225485LL;
+  v14 = a2 + v12;
+  v15 = v13 + a5;
+  if ( (a4 & 0x10000) != 0 )
+  {
+    RtlpCopyLegacyContextX86(a1, v14, a4, v15);
+  }
+  else if ( (a4 & 0x100000) != 0 )
+  {
+    RtlpCopyLegacyContextAmd64(a1, v14, a4, v15);
+  }
+  else if ( (a4 & 0x200000) != 0 )
+  {
+    RtlpCopyLegacyContextArm(a1, v14, a4, v15);
+  }
+  else if ( (a4 & 0x400000) != 0 )
+  {
+    RtlpCopyLegacyContextArm64(a1, v14, a4, v15);
+  }
+  if ( (v9 & 2) == 0 )
+    return 0LL;
+  result = RtlpCopyXStateChunk(a1, a2, v11, a5, v10);
+  if ( (int)result >= 0 )
+    return 0LL;
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhAcpiEnumChildren @ 0x1C0028F7C
+ * XREFs of UsbhAcpiEnumChildren @ 0x1C002A2D8
  * Callers:
- *     UsbhGetAcpiPortAttributes @ 0x1C002A8DC (UsbhGetAcpiPortAttributes.c)
+ *     UsbhGetAcpiPortAttributes @ 0x1C002BC50 (UsbhGetAcpiPortAttributes.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
  */
 
 __int64 __fastcall UsbhAcpiEnumChildren(__int64 a1, _DWORD *a2, unsigned int a3)

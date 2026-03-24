@@ -1,14 +1,15 @@
 /*
- * XREFs of ??1CLegacyRemotingSwapChain@@MEAA@XZ @ 0x180109A38
+ * XREFs of ??1CLegacyRemotingSwapChain@@MEAA@XZ @ 0x1800E45BC
  * Callers:
- *     ??_GCLegacyRemotingSwapChain@@MEAAPEAXI@Z @ 0x180109590 (--_GCLegacyRemotingSwapChain@@MEAAPEAXI@Z.c)
+ *     ??_GCLegacyRemotingSwapChain@@MEAAPEAXI@Z @ 0x1800E4580 (--_GCLegacyRemotingSwapChain@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180034B30 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CF54 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DFD90 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180100300 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180060020 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     ??1CDeviceResource@@MEAA@XZ @ 0x18006194C (--1CDeviceResource@@MEAA@XZ.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x18009B594 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5D20 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CLegacyRemotingSwapChain::~CLegacyRemotingSwapChain(CLegacyRemotingSwapChain *this)
@@ -26,23 +27,24 @@ void __fastcall CLegacyRemotingSwapChain::~CLegacyRemotingSwapChain(CLegacyRemot
   __int64 v12; // rcx
   CD3DDevice *v13; // rcx
 
-  *(_QWORD *)this = &CLegacyRemotingSwapChain::`vftable'{for `CMILCOMBaseT<ILegacyRemotingSwapChain>'};
-  *((_QWORD *)this + 3) = &CLegacyRemotingSwapChain::`vftable'{for `CDeviceResource'};
-  *((_QWORD *)this + 8) = &CLegacyRemotingSwapChain::`vftable'{for `IDeviceResourceNotify'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 4LL) + 8) = &CLegacyRemotingSwapChain::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 8LL) + 8) = &CLegacyRemotingSwapChain::`vftable'{for `IPixelFormat'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 1) + 12LL) + 8) = &CLegacyRemotingSwapChain::`vftable'{for `IDeviceResource'};
-  v2 = *(int *)(*((_QWORD *)this + 1) + 4LL);
-  *(_DWORD *)((char *)this + v2 + 4) = v2 - 224;
-  v3 = *(int *)(*((_QWORD *)this + 1) + 8LL);
-  *(_DWORD *)((char *)this + v3 + 4) = v3 - 240;
-  v4 = *(int *)(*((_QWORD *)this + 1) + 12LL);
-  *(_DWORD *)((char *)this + v4 + 4) = v4 - 264;
-  v5 = *((_QWORD *)this + 10);
+  *(_QWORD *)this = &CLegacyRemotingSwapChain::`vftable'{for `CMILCOMBase'};
+  *((_QWORD *)this + 2) = &CLegacyRemotingSwapChain::`vftable'{for `CDeviceResource'};
+  *((_QWORD *)this + 7) = &CLegacyRemotingSwapChain::`vftable'{for `ILegacyRemotingSwapChain'};
+  *((_QWORD *)this + 9) = &CLegacyRemotingSwapChain::`vftable'{for `IDeviceResourceNotify'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 3) + 4LL) + 24) = &CLegacyRemotingSwapChain::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 3) + 8LL) + 24) = &CLegacyRemotingSwapChain::`vftable'{for `IDeviceResource'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 3) + 12LL) + 24) = &CLegacyRemotingSwapChain::`vftable'{for `IPixelFormat'};
+  v2 = *(int *)(*((_QWORD *)this + 3) + 4LL);
+  *(_DWORD *)((char *)this + v2 + 20) = v2 - 208;
+  v3 = *(int *)(*((_QWORD *)this + 3) + 8LL);
+  *(_DWORD *)((char *)this + v3 + 20) = v3 - 224;
+  v4 = *(int *)(*((_QWORD *)this + 3) + 12LL);
+  *(_DWORD *)((char *)this + v4 + 20) = v4 - 248;
+  v5 = *((_QWORD *)this + 11);
   if ( v5 )
   {
     v6 = v5 + 8 + *(int *)(*(_QWORD *)(v5 + 8) + 8LL);
-    (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)v6 + 48LL))(v6, (char *)this + 64);
+    (*(void (__fastcall **)(__int64, char *))(*(_QWORD *)v6 + 48LL))(v6, (char *)this + 72);
   }
   v7 = (void *)*((_QWORD *)this + 26);
   if ( v7 )
@@ -50,25 +52,26 @@ void __fastcall CLegacyRemotingSwapChain::~CLegacyRemotingSwapChain(CLegacyRemot
     CurrentProcess = GetCurrentProcess();
     NtUnmapViewOfSection(CurrentProcess, v7);
   }
-  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)this + 13);
-  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)this + 14);
-  v9 = (HMODULE)*((_QWORD *)this + 12);
+  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((char *)this + 112);
+  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((char *)this + 120);
+  v9 = (HMODULE)*((_QWORD *)this + 13);
   if ( v9 )
     FreeLibrary(v9);
   v10 = (char *)*((_QWORD *)this + 25);
   if ( (unsigned __int64)(v10 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
     CloseHandle(v10);
   FastRegion::CRegion::FreeMemory((void **)this + 16);
-  v11 = *((_QWORD *)this + 14);
+  v11 = *((_QWORD *)this + 15);
   if ( v11 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 16LL))(v11);
-  v12 = *((_QWORD *)this + 13);
+  v12 = *((_QWORD *)this + 14);
   if ( v12 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
-  wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)this + 11);
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)this + 80);
-  v13 = (CD3DDevice *)*((_QWORD *)this + 9);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 12);
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)this + 88);
+  v13 = (CD3DDevice *)*((_QWORD *)this + 10);
   if ( v13 )
     CD3DDevice::Release(v13);
-  CDeviceResource::~CDeviceResource((CLegacyRemotingSwapChain *)((char *)this + 24));
+  CDeviceResource::~CDeviceResource((CLegacyRemotingSwapChain *)((char *)this + 16));
+  *(_QWORD *)this = &CMILCOMBase::`vftable';
 }

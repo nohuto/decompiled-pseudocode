@@ -1,16 +1,16 @@
 /*
- * XREFs of xxxCalcCaptionButton @ 0x1C0242FA8
+ * XREFs of xxxCalcCaptionButton @ 0x1C0247748
  * Callers:
- *     xxxGetTitleBarInfoEx @ 0x1C00CC5FC (xxxGetTitleBarInfoEx.c)
- *     xxxTrackCaptionButton @ 0x1C0243270 (xxxTrackCaptionButton.c)
+ *     xxxGetTitleBarInfoEx @ 0x1C002E528 (xxxGetTitleBarInfoEx.c)
+ *     xxxTrackCaptionButton @ 0x1C0247A10 (xxxTrackCaptionButton.c)
  * Callees:
- *     GetDpiDependentMetric @ 0x1C006718C (GetDpiDependentMetric.c)
- *     xxxMNCanClose @ 0x1C0068094 (xxxMNCanClose.c)
- *     GetWindowBordersForDpi @ 0x1C00BBC00 (GetWindowBordersForDpi.c)
- *     GetWindowDpiLastNotify @ 0x1C00BBEF0 (GetWindowDpiLastNotify.c)
+ *     GetWindowDpiLastNotify @ 0x1C004C6B8 (GetWindowDpiLastNotify.c)
+ *     GetDpiDependentMetric @ 0x1C00614D0 (GetDpiDependentMetric.c)
+ *     xxxMNCanClose @ 0x1C0061560 (xxxMNCanClose.c)
+ *     GetWindowBordersForDpi @ 0x1C00E11A0 (GetWindowBordersForDpi.c)
  */
 
-__int64 __fastcall xxxCalcCaptionButton(_QWORD *a1, int a2, __int16 *a3, _DWORD *a4, int *a5, int a6)
+__int64 __fastcall xxxCalcCaptionButton(__int64 a1, int a2, __int16 *a3, _DWORD *a4, int *a5, int a6)
 {
   __int64 v10; // r8
   int v11; // ecx
@@ -36,23 +36,25 @@ __int64 __fastcall xxxCalcCaptionButton(_QWORD *a1, int a2, __int16 *a3, _DWORD 
   int v32; // [rsp+68h] [rbp+10h]
 
   *a3 = 0;
-  v10 = a1[5];
+  v10 = *(_QWORD *)(a1 + 40);
   v11 = *(_DWORD *)(v10 + 288) & 0xF;
   if ( v11 == 3 )
   {
     WindowDpiLastNotify = (*(_DWORD *)(v10 + 288) >> 8) & 0x1FF;
   }
-  else if ( (*(_DWORD *)(v10 + 232) & 0x400) != 0 )
+  else if ( (*(_DWORD *)(v10 + 232) & 0x8000000) != 0 )
   {
-    WindowDpiLastNotify = GetWindowDpiLastNotify((__int64)a1);
+    WindowDpiLastNotify = GetWindowDpiLastNotify(a1);
   }
-  else if ( !v11 && (v13 = *(_QWORD *)(a1[2] + 456LL)) != 0 && (*(_DWORD *)(**(_QWORD **)(v13 + 8) + 64LL) & 1) != 0 )
+  else if ( !v11
+         && (v13 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 456LL)) != 0
+         && (*(_DWORD *)(**(_QWORD **)(v13 + 8) + 64LL) & 1) != 0 )
   {
     WindowDpiLastNotify = 96;
   }
   else
   {
-    WindowDpiLastNotify = *(unsigned __int16 *)(*(_QWORD *)(a1[2] + 424LL) + 284LL);
+    WindowDpiLastNotify = *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 424LL) + 284LL);
   }
   if ( (*(_BYTE *)(v10 + 31) & 0x20) != 0 )
   {
@@ -66,14 +68,14 @@ __int64 __fastcall xxxCalcCaptionButton(_QWORD *a1, int a2, __int16 *a3, _DWORD 
                             v10,
                             (__int64)a4,
                             WindowDpiLastNotify);
-    v10 = a1[5];
+    v10 = *(_QWORD *)(a1 + 40);
     v14 = -WindowBordersForDpi;
   }
   *a4 = *(_DWORD *)(v10 + 88) - v14;
   a4[2] = v14 + *(_DWORD *)(v10 + 96);
   a4[1] = *(_DWORD *)(v10 + 92) - v14;
   a4[3] = v14 + *(_DWORD *)(v10 + 100);
-  v16 = a1[5];
+  v16 = *(_QWORD *)(a1 + 40);
   v32 = -*(_DWORD *)(v16 + 92);
   v17 = -*(_DWORD *)(v16 + 88);
   v18 = (*(char *)(v16 + 24) >> 7) & 0xB;
@@ -81,7 +83,7 @@ __int64 __fastcall xxxCalcCaptionButton(_QWORD *a1, int a2, __int16 *a3, _DWORD 
   v20 = GetDpiDependentMetric((unsigned int)(v18 + 13), WindowDpiLastNotify);
   if ( a2 != 5 )
   {
-    v22 = a1[5];
+    v22 = *(_QWORD *)(a1 + 40);
     if ( a2 == 2 )
     {
       if ( (*(_BYTE *)(v22 + 30) & 2) == 0 && !a6 )
@@ -89,7 +91,7 @@ __int64 __fastcall xxxCalcCaptionButton(_QWORD *a1, int a2, __int16 *a3, _DWORD 
       LOWORD(v17) = v17 + 2;
       a4[2] += -2 * DpiDependentMetric;
       v23 = a5;
-      if ( (*(_BYTE *)(a1[5] + 31LL) & 0x20) == 0 )
+      if ( (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 31LL) & 0x20) == 0 )
       {
         *a5 = 4;
         v21 = -4064;
@@ -112,7 +114,7 @@ __int64 __fastcall xxxCalcCaptionButton(_QWORD *a1, int a2, __int16 *a3, _DWORD 
         goto LABEL_31;
       a4[2] -= DpiDependentMetric;
       v23 = a5;
-      if ( (*(_BYTE *)(a1[5] + 31LL) & 1) == 0 )
+      if ( (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 31LL) & 1) == 0 )
       {
         *a5 = 14;
         v21 = -4048;
@@ -125,7 +127,7 @@ __int64 __fastcall xxxCalcCaptionButton(_QWORD *a1, int a2, __int16 *a3, _DWORD 
   }
   if ( (unsigned int)xxxMNCanClose(a1) || a6 )
   {
-    *a5 = (*(char *)(a1[5] + 24LL) >> 7) & 0x29;
+    *a5 = (*(char *)(*(_QWORD *)(a1 + 40) + 24LL) >> 7) & 0x29;
     v21 = -4000;
 LABEL_23:
     *a3 = v21;
@@ -147,7 +149,7 @@ LABEL_32:
   *a4 = v25 - 1;
   a4[1] = v24 - 1;
   a4[3] = v20 + v24 + 1;
-  v29 = a1[5];
+  v29 = *(_QWORD *)(a1 + 40);
   if ( (*(_BYTE *)(v29 + 26) & 0x40) != 0 )
   {
     v30 = *(_DWORD *)(v29 + 88) + *(_DWORD *)(v29 + 96) - v28;

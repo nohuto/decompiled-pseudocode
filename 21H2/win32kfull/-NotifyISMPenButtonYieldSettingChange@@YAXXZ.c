@@ -1,7 +1,7 @@
 /*
- * XREFs of ?NotifyISMPenButtonYieldSettingChange@@YAXXZ @ 0x1C01D2398
+ * XREFs of ?NotifyISMPenButtonYieldSettingChange@@YAXXZ @ 0x1C01D65E0
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
  * Callees:
  *     <none>
  */

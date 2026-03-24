@@ -1,25 +1,25 @@
 /*
- * XREFs of UsbhSetEnumerationFailed @ 0x1C004E0C8
+ * XREFs of UsbhSetEnumerationFailed @ 0x1C004F4D8
  * Callers:
- *     UsbhReset2Complete @ 0x1C000A9D0 (UsbhReset2Complete.c)
- *     UsbhReset1Complete @ 0x1C001BA90 (UsbhReset1Complete.c)
- *     UsbhReset1Timeout @ 0x1C004D800 (UsbhReset1Timeout.c)
- *     UsbhReset2Timeout @ 0x1C004DDF0 (UsbhReset2Timeout.c)
+ *     UsbhReset2Complete @ 0x1C0010540 (UsbhReset2Complete.c)
+ *     UsbhReset1Complete @ 0x1C0018F50 (UsbhReset1Complete.c)
+ *     UsbhReset1Timeout @ 0x1C004EC10 (UsbhReset1Timeout.c)
+ *     UsbhReset2Timeout @ 0x1C004F200 (UsbhReset2Timeout.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhSignalSyncDeviceResetPdo @ 0x1C000F168 (UsbhSignalSyncDeviceResetPdo.c)
- *     UsbhReleaseEnumBusLockEx @ 0x1C000FB0C (UsbhReleaseEnumBusLockEx.c)
- *     UsbhIncHubBusy @ 0x1C0011BC0 (UsbhIncHubBusy.c)
- *     UsbhBusConnectPdo @ 0x1C001DE04 (UsbhBusConnectPdo.c)
- *     UsbhSignalDriverResetEvent @ 0x1C001DF64 (UsbhSignalDriverResetEvent.c)
- *     UsbhAcquirePdoStateLock @ 0x1C00312E4 (UsbhAcquirePdoStateLock.c)
- *     UsbhDisablePort @ 0x1C0036D8C (UsbhDisablePort.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
- *     UsbhBusUnlatchPdo @ 0x1C004C104 (UsbhBusUnlatchPdo.c)
- *     UsbhBuildUnknownIds @ 0x1C004F874 (UsbhBuildUnknownIds.c)
- *     UsbhFreeID @ 0x1C004FAE8 (UsbhFreeID.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C00029EC (UsbhReleaseEnumBusLockEx.c)
+ *     UsbhIncHubBusy @ 0x1C0004060 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhSignalSyncDeviceResetPdo @ 0x1C001518C (UsbhSignalSyncDeviceResetPdo.c)
+ *     UsbhBusConnectPdo @ 0x1C0017E8C (UsbhBusConnectPdo.c)
+ *     UsbhSignalDriverResetEvent @ 0x1C0017FEC (UsbhSignalDriverResetEvent.c)
+ *     UsbhAcquirePdoStateLock @ 0x1C001CDA8 (UsbhAcquirePdoStateLock.c)
+ *     UsbhDisablePort @ 0x1C0038040 (UsbhDisablePort.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
+ *     UsbhBusUnlatchPdo @ 0x1C004D510 (UsbhBusUnlatchPdo.c)
+ *     UsbhBuildUnknownIds @ 0x1C0050E08 (UsbhBuildUnknownIds.c)
+ *     UsbhFreeID @ 0x1C0051094 (UsbhFreeID.c)
  */
 
 __int64 __fastcall UsbhSetEnumerationFailed(
@@ -55,19 +55,19 @@ __int64 __fastcall UsbhSetEnumerationFailed(
   v18 = PdoExt(a3);
   Log(a1, 1024, 1701737761, a3, (int)v18[281]);
   *(_DWORD *)(v14 + 136) = 0;
-  WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
+  qword_1C006C500 = 0LL;
   *(_DWORD *)(v14 + 88) = 1734964085;
   v19 = *(_BYTE *)(v14 + 132);
   if ( v20 == 3 )
   {
-    KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v19);
+    KeReleaseSpinLock(&HubG, v19);
     UsbhBusUnlatchPdo(a1, a3, a2, v21, 0LL);
     UsbhSignalSyncDeviceResetPdo(a1, a3, -1073741823);
     UsbhSignalDriverResetEvent(a1, a2);
   }
   else
   {
-    KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v19);
+    KeReleaseSpinLock(&HubG, v19);
     v16[355] |= 0x1000u;
     UsbhBuildUnknownIds(a1, a3);
     *((_QWORD *)v16 + 107) = UsbhIncHubBusy(a1, *(_QWORD *)(a2 + 376), a1, 1430414956, 1);

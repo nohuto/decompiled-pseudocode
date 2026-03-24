@@ -1,748 +1,897 @@
 /*
- * XREFs of xxxSystemParametersInfoWorker @ 0x1C0043D70
+ * XREFs of xxxSystemParametersInfoWorker @ 0x1C00DCFE8
  * Callers:
- *     EditionxxxSystemParametersInfoWorker @ 0x1C0043D50 (EditionxxxSystemParametersInfoWorker.c)
+ *     EditionxxxSystemParametersInfoWorker @ 0x1C00DCFD0 (EditionxxxSystemParametersInfoWorker.c)
  * Callees:
- *     ?IsWDAGContainer@@YAHXZ @ 0x1C0010DB4 (-IsWDAGContainer@@YAHXZ.c)
- *     _SetDoubleClickTime @ 0x1C001C0AC (_SetDoubleClickTime.c)
- *     xxxUpdateSystemIconsFromRegistry @ 0x1C001FD1C (xxxUpdateSystemIconsFromRegistry.c)
- *     ?xxxUpdateSystemCursorsFromRegistry@@YAXPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C002179C (-xxxUpdateSystemCursorsFromRegistry@@YAXPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReaso.c)
- *     ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C0024A88 (-zzzRefreshSizes@CCursorSizes@@QEAAXXZ.c)
- *     GreExtGetObjectW @ 0x1C002E520 (GreExtGetObjectW.c)
- *     xxxInternalInvalidate @ 0x1C0032FD0 (xxxInternalInvalidate.c)
- *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C003D78C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
- *     ?TraceLoggingSPISetMenuDropAlignmentEvent@@YAXHH@Z @ 0x1C003F008 (-TraceLoggingSPISetMenuDropAlignmentEvent@@YAXHH@Z.c)
- *     SetKeyboardRate @ 0x1C0040F24 (SetKeyboardRate.c)
- *     GetDPIMetrics @ 0x1C0041140 (GetDPIMetrics.c)
- *     _tlgKeywordOn @ 0x1C0041D94 (_tlgKeywordOn.c)
- *     CheckWinstaAttributeAccess @ 0x1C00438D0 (CheckWinstaAttributeAccess.c)
- *     ?ArrangementParameterInfo@WindowArrangementSPI@@YA?AW4ParamInfoResult@1@IKPEAX_N1@Z @ 0x1C0043964 (-ArrangementParameterInfo@WindowArrangementSPI@@YA-AW4ParamInfoResult@1@IKPEAX_N1@Z.c)
- *     ReadPointerDeviceSettingsFull @ 0x1C0047820 (ReadPointerDeviceSettingsFull.c)
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0048AB8 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     xxxSetDeskWallpaper @ 0x1C0049544 (xxxSetDeskWallpaper.c)
- *     xxxSendNotifyMessage @ 0x1C004D370 (xxxSendNotifyMessage.c)
- *     SetMouseTrails @ 0x1C005B9A8 (SetMouseTrails.c)
- *     ?SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z @ 0x1C005CFC0 (-SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z.c)
- *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C0061584 (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
- *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0069710 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     ClearKeyboardStates @ 0x1C006CF0C (ClearKeyboardStates.c)
- *     GetEasTimeout @ 0x1C0072954 (GetEasTimeout.c)
- *     GreSetLCDOrientation @ 0x1C0072AE4 (GreSetLCDOrientation.c)
- *     GreSetFontEnumeration @ 0x1C0073E20 (GreSetFontEnumeration.c)
- *     GetKbdLangSwitch @ 0x1C0073E74 (GetKbdLangSwitch.c)
- *     CreateBitmapStrip @ 0x1C0076930 (CreateBitmapStrip.c)
- *     bSetDevDragWidth @ 0x1C00AAC00 (bSetDevDragWidth.c)
- *     ?UpdateDesktopMonitorNavigationOrder@@YAXXZ @ 0x1C00AAC88 (-UpdateDesktopMonitorNavigationOrder@@YAXXZ.c)
- *     GetDPIServerInfo @ 0x1C00AB4C8 (GetDPIServerInfo.c)
- *     GetProcessDpiServerInfo @ 0x1C00AB4FC (GetProcessDpiServerInfo.c)
- *     SetDesktopPattern @ 0x1C00AEAF4 (SetDesktopPattern.c)
- *     ?xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z @ 0x1C00B8E38 (-xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z.c)
- *     LoadWallpaperFilenameFromRegistry @ 0x1C00BA680 (LoadWallpaperFilenameFromRegistry.c)
- *     WPP_RECORDER_AND_TRACE_SF_dddddddd @ 0x1C00BC04C (WPP_RECORDER_AND_TRACE_SF_dddddddd.c)
- *     ?xxxSetIMEShowStatus@@YAHHHPEAH@Z @ 0x1C00BC394 (-xxxSetIMEShowStatus@@YAHHHPEAH@Z.c)
- *     xxxInvalidateWallpaperWindow @ 0x1C00BDD74 (xxxInvalidateWallpaperWindow.c)
- *     ?UpdateCurrent@CTopologyManager@@SAXXZ @ 0x1C00BF568 (-UpdateCurrent@CTopologyManager@@SAXXZ.c)
- *     ?OnWorkAreaChanged@DesktopRecalc@@YAXPEAVCMonitorTopology@@@Z @ 0x1C00BFD54 (-OnWorkAreaChanged@DesktopRecalc@@YAXPEAVCMonitorTopology@@@Z.c)
- *     GetMonitorWorkRect @ 0x1C00C46A8 (GetMonitorWorkRect.c)
- *     GetMonitorRect @ 0x1C00C46EC (GetMonitorRect.c)
- *     _MonitorFromRect @ 0x1C00D0160 (_MonitorFromRect.c)
- *     IntersectRect @ 0x1C00D0330 (IntersectRect.c)
- *     IsWindowUnderActiveLockScreen @ 0x1C00D0A00 (IsWindowUnderActiveLockScreen.c)
- *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C00D3128 (-xxxCallHook@@YAHH_K_JH@Z.c)
- *     PostShellHookMessagesEx @ 0x1C00D3370 (PostShellHookMessagesEx.c)
- *     ?CanForceForeground@@YA_NPEBUtagPROCESSINFO@@@Z @ 0x1C00E3BA4 (-CanForceForeground@@YA_NPEBUtagPROCESSINFO@@@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     xxxWindowEvent @ 0x1C00E71B0 (xxxWindowEvent.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     GetWindowNCMetrics @ 0x1C00F0894 (GetWindowNCMetrics.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?_SwapMouseButton@@YAHH@Z @ 0x1C01BF3D8 (-_SwapMouseButton@@YAHH@Z.c)
- *     GetUserHandedness @ 0x1C01C3210 (GetUserHandedness.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@444444444444@Z @ 0x1C01C7288 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@U2@@.c)
- *     ?NotifyISMPenButtonYieldSettingChange@@YAXXZ @ 0x1C01C74D8 (-NotifyISMPenButtonYieldSettingChange@@YAXXZ.c)
- *     ?SetHighContrastWorker@@YAHPEAUtagINTERNALSETHIGHCONTRAST@@HPEAH@Z @ 0x1C01C7C6C (-SetHighContrastWorker@@YAHPEAUtagINTERNALSETHIGHCONTRAST@@HPEAH@Z.c)
- *     ?SetMouseKeys@@YAHPEAU_UNICODE_STRING@@PEAUtagMOUSEKEYS@@@Z @ 0x1C01C7EBC (-SetMouseKeys@@YAHPEAU_UNICODE_STRING@@PEAUtagMOUSEKEYS@@@Z.c)
- *     ?SetSoundSentry@@YAHPEAU_UNICODE_STRING@@PEAUtagSOUNDSENTRYW@@@Z @ 0x1C01C7FBC (-SetSoundSentry@@YAHPEAU_UNICODE_STRING@@PEAUtagSOUNDSENTRYW@@@Z.c)
- *     ?SetWindowMetricInt@@YAHPEAU_UNICODE_STRING@@GH@Z @ 0x1C01C80BC (-SetWindowMetricInt@@YAHPEAU_UNICODE_STRING@@GH@Z.c)
- *     ?xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C01C83EC (-xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z.c)
- *     EditionxxxBroadcastSPIChange @ 0x1C01C8600 (EditionxxxBroadcastSPIChange.c)
- *     UpdateWinIniInt @ 0x1C01C86A0 (UpdateWinIniInt.c)
- *     WPP_RECORDER_AND_TRACE_SF_Dd @ 0x1C01C8734 (WPP_RECORDER_AND_TRACE_SF_Dd.c)
- *     xxxMetricsRecalc @ 0x1C01C88FC (xxxMetricsRecalc.c)
- *     WritePointerDeviceSettingsFull @ 0x1C01F3ABC (WritePointerDeviceSettingsFull.c)
- *     ?TraceLoggingMouseWheelRoutingModeChange@@YAXK@Z @ 0x1C0201EA8 (-TraceLoggingMouseWheelRoutingModeChange@@YAXK@Z.c)
- *     ?TraceLoggingSPISetDesktopDPIOverrideEvent@@YAXHH@Z @ 0x1C0202340 (-TraceLoggingSPISetDesktopDPIOverrideEvent@@YAXHH@Z.c)
- *     ?TraceLoggingSPISetModernDPIOverrideEvent@@YAXHH@Z @ 0x1C02023BC (-TraceLoggingSPISetModernDPIOverrideEvent@@YAXHH@Z.c)
- *     ?TraceLoggingSPISetPenVisualizationEvent@@YAXKK@Z @ 0x1C0202438 (-TraceLoggingSPISetPenVisualizationEvent@@YAXKK@Z.c)
- *     ?ValidateDesktopRecalcSetting@DesktopRecalcSettings@@YA_NIK@Z @ 0x1C022649C (-ValidateDesktopRecalcSetting@DesktopRecalcSettings@@YA_NIK@Z.c)
- *     ?GetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@@Z @ 0x1C0240A40 (-GetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@@Z.c)
- *     ?SetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@H@Z @ 0x1C0241660 (-SetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@H@Z.c)
- *     GetMonitorMenuRect @ 0x1C024BC74 (GetMonitorMenuRect.c)
- *     DwmAsyncNotifyWindowShadowChange @ 0x1C026D388 (DwmAsyncNotifyWindowShadowChange.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0011430 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?xxxUpdateSystemCursorsFromRegistry@@YAXPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C002509C (-xxxUpdateSystemCursorsFromRegistry@@YAXPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReaso.c)
+ *     xxxUpdateSystemIconsFromRegistry @ 0x1C0025790 (xxxUpdateSystemIconsFromRegistry.c)
+ *     SetDesktopPattern @ 0x1C0026030 (SetDesktopPattern.c)
+ *     GreSetFontEnumeration @ 0x1C0027778 (GreSetFontEnumeration.c)
+ *     SetMouseTrails @ 0x1C0029694 (SetMouseTrails.c)
+ *     SetPointer @ 0x1C002A420 (SetPointer.c)
+ *     ClearKeyboardStates @ 0x1C002A81C (ClearKeyboardStates.c)
+ *     CheckWinstaAttributeAccess @ 0x1C0033350 (CheckWinstaAttributeAccess.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C003D1EC (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     xxxSendNotifyMessage @ 0x1C00402D0 (xxxSendNotifyMessage.c)
+ *     GetMonitorWorkRect @ 0x1C0041390 (GetMonitorWorkRect.c)
+ *     GetMonitorRect @ 0x1C0041D58 (GetMonitorRect.c)
+ *     _MonitorFromRect @ 0x1C0042270 (_MonitorFromRect.c)
+ *     PostShellHookMessagesEx @ 0x1C0043558 (PostShellHookMessagesEx.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C00499CC (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     IsWindowUnderActiveLockScreen @ 0x1C004DE44 (IsWindowUnderActiveLockScreen.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C005B860 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005B960 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     GetDpiDependentMetric @ 0x1C0061430 (GetDpiDependentMetric.c)
+ *     GetDpiForSystem @ 0x1C0063C1C (GetDpiForSystem.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     xxxInternalInvalidate @ 0x1C00724E0 (xxxInternalInvalidate.c)
+ *     IntersectRect @ 0x1C00750C0 (IntersectRect.c)
+ *     xxxWindowEvent @ 0x1C0081440 (xxxWindowEvent.c)
+ *     GreExtGetObjectW @ 0x1C0083078 (GreExtGetObjectW.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BF9A0 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     _SetDoubleClickTime @ 0x1C00DB2A0 (_SetDoubleClickTime.c)
+ *     xxxSetIMEShowStatus @ 0x1C00DB3A4 (xxxSetIMEShowStatus.c)
+ *     ?TraceLoggingSPISetMenuDropAlignmentEvent@@YAXHH@Z @ 0x1C00DB414 (-TraceLoggingSPISetMenuDropAlignmentEvent@@YAXHH@Z.c)
+ *     bSetDevDragWidth @ 0x1C00DB46C (bSetDevDragWidth.c)
+ *     GetEasTimeout @ 0x1C00DBD48 (GetEasTimeout.c)
+ *     SetKeyboardRate @ 0x1C00DBEC4 (SetKeyboardRate.c)
+ *     ?PostWindowArrangementCheck@@YAXK@Z @ 0x1C00DBF58 (-PostWindowArrangementCheck@@YAXK@Z.c)
+ *     ?UpdateThresholdFromMetric@@YAXHPEAH0IEW4_THRESHOLD_SELECTOR@@@Z @ 0x1C00DBFB4 (-UpdateThresholdFromMetric@@YAXHPEAH0IEW4_THRESHOLD_SELECTOR@@@Z.c)
+ *     UpdateDesktopThresholds @ 0x1C00DC020 (UpdateDesktopThresholds.c)
+ *     ReadPointerDeviceSettingsFull @ 0x1C00E0714 (ReadPointerDeviceSettingsFull.c)
+ *     GetWindowNCMetrics @ 0x1C00E0960 (GetWindowNCMetrics.c)
+ *     GetDPIMetrics @ 0x1C00E0A9C (GetDPIMetrics.c)
+ *     GetDPIServerInfo @ 0x1C00E0AC8 (GetDPIServerInfo.c)
+ *     GetProcessDpiServerInfo @ 0x1C00E0AF4 (GetProcessDpiServerInfo.c)
+ *     CreateBitmapStrip @ 0x1C00E2680 (CreateBitmapStrip.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C00E5B10 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     xxxDesktopRecalc @ 0x1C00FFA1C (xxxDesktopRecalc.c)
+ *     xxxSetDeskWallpaper @ 0x1C012E7EC (xxxSetDeskWallpaper.c)
+ *     LoadWallpaperFilenameFromRegistry @ 0x1C012EB48 (LoadWallpaperFilenameFromRegistry.c)
+ *     ?xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z @ 0x1C0131CE0 (-xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z.c)
+ *     GetKbdLangSwitch @ 0x1C01349FC (GetKbdLangSwitch.c)
+ *     xxxInvalidateWallpaperWindow @ 0x1C01368AC (xxxInvalidateWallpaperWindow.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C01668D8 (-zzzRefreshSizes@CCursorSizes@@QEAAXXZ.c)
+ *     ?IsWDAGContainer@@YAHXZ @ 0x1C0166DA8 (-IsWDAGContainer@@YAHXZ.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ?NotifyISMPenButtonYieldSettingChange@@YAXXZ @ 0x1C01D6020 (-NotifyISMPenButtonYieldSettingChange@@YAXXZ.c)
+ *     ?SetHighContrastWorker@@YAHPEAUtagINTERNALSETHIGHCONTRAST@@HPEAH@Z @ 0x1C01D67E8 (-SetHighContrastWorker@@YAHPEAUtagINTERNALSETHIGHCONTRAST@@HPEAH@Z.c)
+ *     ?SetMouseKeys@@YAHPEAU_UNICODE_STRING@@PEAUtagMOUSEKEYS@@@Z @ 0x1C01D6A28 (-SetMouseKeys@@YAHPEAU_UNICODE_STRING@@PEAUtagMOUSEKEYS@@@Z.c)
+ *     ?SetSoundSentry@@YAHPEAU_UNICODE_STRING@@PEAUtagSOUNDSENTRYW@@@Z @ 0x1C01D6B28 (-SetSoundSentry@@YAHPEAU_UNICODE_STRING@@PEAUtagSOUNDSENTRYW@@@Z.c)
+ *     ?SetWindowMetricInt@@YAHPEAU_UNICODE_STRING@@GH@Z @ 0x1C01D6C28 (-SetWindowMetricInt@@YAHPEAU_UNICODE_STRING@@GH@Z.c)
+ *     ?xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C01D6F68 (-xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z.c)
+ *     EditionxxxBroadcastSPIChange @ 0x1C01D7220 (EditionxxxBroadcastSPIChange.c)
+ *     UpdateWinIniInt @ 0x1C01D7540 (UpdateWinIniInt.c)
+ *     xxxMetricsRecalc @ 0x1C01D76D4 (xxxMetricsRecalc.c)
+ *     ?_SwapMouseButton@@YAHH@Z @ 0x1C01E9DE0 (-_SwapMouseButton@@YAHH@Z.c)
+ *     GetUserHandedness @ 0x1C01EE2D0 (GetUserHandedness.c)
+ *     WritePointerDeviceSettingsFull @ 0x1C020967C (WritePointerDeviceSettingsFull.c)
+ *     ?TraceLoggingMouseWheelRoutingModeChange@@YAXK@Z @ 0x1C0224B78 (-TraceLoggingMouseWheelRoutingModeChange@@YAXK@Z.c)
+ *     ?TraceLoggingSPISetDesktopDPIOverrideEvent@@YAXHH@Z @ 0x1C0224EAC (-TraceLoggingSPISetDesktopDPIOverrideEvent@@YAXHH@Z.c)
+ *     ?TraceLoggingSPISetModernDPIOverrideEvent@@YAXHH@Z @ 0x1C0224F2C (-TraceLoggingSPISetModernDPIOverrideEvent@@YAXHH@Z.c)
+ *     ?TraceLoggingSPISetPenVisualizationEvent@@YAXKK@Z @ 0x1C0224FAC (-TraceLoggingSPISetPenVisualizationEvent@@YAXKK@Z.c)
+ *     ?GetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@@Z @ 0x1C0251AB8 (-GetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@@Z.c)
+ *     ?SetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@H@Z @ 0x1C0252948 (-SetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@H@Z.c)
+ *     GetMonitorMenuRect @ 0x1C025D3EC (GetMonitorMenuRect.c)
+ *     DwmAsyncNotifyWindowShadowChange @ 0x1C0274A68 (DwmAsyncNotifyWindowShadowChange.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-__int64 __fastcall xxxSystemParametersInfoWorker(DesktopRecalcSettings *this, unsigned int a2, void *a3, int a4)
+__int64 __fastcall xxxSystemParametersInfoWorker(__int64 a1, unsigned int a2, void *a3, __int16 a4)
 {
-  unsigned int v5; // ebx
-  _QWORD *CurrentProcessWin32Process; // rax
-  __int64 v7; // r8
-  _QWORD *v8; // rdx
-  struct tagWND *v9; // r14
-  int updated; // r12d
-  unsigned int v11; // r13d
-  int v12; // r15d
-  unsigned int PointerDeviceSettingsFull; // esi
-  Gre::Base *v15; // rcx
-  __int64 v16; // r9
-  int v17; // eax
-  __int64 v18; // r10
-  int v19; // edi
-  __int64 v20; // rcx
-  __int64 v21; // rcx
-  __int64 v22; // rdi
-  int v23; // esi
-  int v24; // eax
-  __int64 v25; // rcx
-  __int64 v26; // rax
-  __int64 v27; // rax
-  unsigned __int8 v28; // al
-  int v29; // ebx
-  int v30; // ebx
-  __int64 v31; // rcx
-  __int64 v32; // rcx
-  unsigned int v33; // ebx
-  struct _UNICODE_STRING *v34; // rax
-  struct _UNICODE_STRING *v35; // rdi
+  __int64 v5; // rbx
+  __int64 CurrentProcessWin32Process; // r9
+  int updated; // r15d
+  int v8; // r13d
+  unsigned int v9; // r12d
+  __int64 v10; // rdx
+  unsigned int v11; // r14d
+  __int64 v12; // r8
+  unsigned __int64 v13; // rcx
+  __int64 v14; // rcx
+  __int64 v15; // rcx
+  unsigned __int64 v16; // rax
+  __int64 v17; // rcx
+  int v18; // eax
+  ULONG v19; // r10d
+  unsigned int v20; // ebx
+  unsigned int v21; // edi
+  int v22; // eax
+  int Next; // ecx
+  unsigned int v25; // ebx
+  struct _UNICODE_STRING *v26; // rax
+  struct _UNICODE_STRING *v27; // rdi
   __int64 ProcessDpiServerInfo; // rax
-  unsigned int v37; // ebx
-  unsigned int v38; // r14d
-  __int64 v39; // rcx
-  unsigned int v40; // ebx
-  __int64 v41; // rcx
-  __int64 v42; // rax
-  __int64 v43; // rax
+  __int64 v29; // rcx
+  __int64 v30; // rdi
+  int v31; // r14d
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  __int64 v34; // r8
+  __int64 v35; // r9
+  int v36; // r12d
+  unsigned __int8 v37; // al
+  void *v38; // rcx
+  __int64 ProcessorHistory_high; // rcx
+  int v40; // ecx
   unsigned int DpiForSystem; // eax
-  __int64 v45; // rcx
-  unsigned int v46; // edx
-  __int64 v47; // rax
-  INT v48; // ebx
-  __int64 v49; // rcx
-  __int64 v50; // rax
-  unsigned int v51; // ebx
-  unsigned int v52; // r14d
-  unsigned int v53; // eax
-  __int64 v54; // rcx
-  unsigned int v55; // eax
-  __int64 v56; // rax
-  INT v57; // ebx
-  __int64 v58; // rcx
-  __int64 v59; // rax
-  unsigned int v60; // ebx
-  unsigned int v61; // r14d
-  int v62; // edi
-  int v63; // ecx
-  int v64; // ecx
+  __int64 v42; // rcx
+  int UserHandedness; // eax
+  __int64 v44; // rcx
+  unsigned int v45; // r13d
+  __int64 v46; // rax
+  __int64 v47; // rcx
+  __int64 v48; // rax
+  unsigned int v49; // ebx
+  unsigned int v50; // r13d
+  const wchar_t *v51; // rax
+  __int64 v52; // rax
+  struct tagWND *v53; // rcx
+  __int64 v54; // rbx
+  int v55; // ebx
+  int v56; // eax
+  __int64 v57; // rdx
+  __int64 v58; // r8
+  __int64 v59; // rdx
+  __int64 v60; // r8
+  int v61; // eax
+  int v62; // edx
+  __int64 v63; // rcx
+  unsigned int v64; // r13d
   __int64 v65; // rax
   __int64 v66; // rcx
-  __int64 v67; // rbx
-  __int64 v68; // rbx
-  __int64 v69; // rax
+  __int64 v67; // rax
+  unsigned int v68; // ebx
+  unsigned int v69; // r13d
   __int64 DPIMetrics; // rax
-  bool v71; // zf
-  struct _UNICODE_STRING *v72; // rdi
-  int v73; // ebx
-  _DWORD *v74; // rdx
-  _DWORD *v75; // rbx
-  unsigned int v76; // eax
-  __int64 v77; // rdx
-  __int64 v78; // rcx
-  unsigned int v79; // eax
-  __int64 v80; // rcx
-  __int64 v81; // rax
-  int v82; // eax
-  __int64 v83; // rax
+  char *v71; // r8
+  int v72; // eax
+  struct _UNICODE_STRING *v73; // rdi
+  int v74; // ebx
+  _DWORD *v75; // r9
+  struct tagMOUSEKEYS *v76; // rbx
+  int v77; // r8d
+  unsigned int v78; // r8d
+  struct _UNICODE_STRING *v79; // rdi
+  unsigned int v80; // r9d
+  char *v81; // r8
+  int v82; // ecx
+  int v83; // edx
   __int64 v84; // rax
-  __int128 *v85; // rsi
-  __int64 v86; // rcx
-  DesktopRecalc *v87; // rsi
-  int v88; // edx
-  int v89; // r8d
+  _OWORD *MonitorWorkRect; // rax
+  __int64 v86; // rax
+  int *v87; // r14
+  __int64 v88; // rcx
+  __int64 v89; // r14
   __int64 v90; // rcx
+  __int64 v91; // rbx
   unsigned int CurrentThreadDpiAwarenessContext; // eax
-  __int64 *v92; // r9
-  __int64 v93; // rax
+  __int64 v93; // rdx
   __int64 v94; // rcx
   __int64 DispInfo; // rax
-  struct CMonitorTopology *v96; // rdx
-  int v97; // r8d
-  __int64 v98; // rax
-  __int64 v99; // rax
-  _OWORD *v100; // rdi
-  __int64 v101; // rcx
-  __int64 v102; // rcx
-  unsigned int v103; // eax
-  _DWORD *v104; // rbx
-  int v105; // ecx
-  int v106; // edx
-  struct tagMOUSEKEYS *v107; // rbx
-  int v108; // edx
-  unsigned int v109; // eax
-  int v110; // edx
-  struct _UNICODE_STRING *v111; // rdi
-  __int64 v112; // rcx
-  __int64 v113; // rdi
-  __int64 v114; // rcx
-  __int16 v115; // bx
-  __int64 v116; // rcx
-  _QWORD *v117; // rdx
-  _OWORD *v118; // rax
-  unsigned __int16 *v119; // rcx
-  __int64 v120; // rcx
-  const wchar_t *v121; // r9
-  const wchar_t *v122; // r9
-  struct tagSOUNDSENTRYW *v123; // rbx
-  int v124; // edx
-  unsigned int v125; // eax
-  int v126; // edx
-  struct _UNICODE_STRING *v127; // rdi
-  unsigned int v128; // r14d
-  __int64 v129; // rax
-  __int64 v130; // rdi
-  const wchar_t *v131; // rbx
-  const wchar_t *v132; // r9
-  int v133; // r12d
-  unsigned int v134; // eax
-  _DWORD *v135; // rcx
-  int v136; // ecx
-  InteractiveControlManager *v137; // rax
-  InteractiveControlManager *v138; // rax
-  int v139; // edi
-  int v140; // r8d
-  BOOL v141; // edx
-  int v142; // ecx
+  _DWORD *v96; // rbx
+  unsigned int v97; // eax
+  __int64 v98; // rcx
+  unsigned int v99; // eax
+  __int64 v100; // rcx
+  __int64 v101; // rdx
+  __int64 v102; // r8
+  __int64 v103; // r9
+  const wchar_t *v104; // r9
+  const wchar_t *v105; // r9
+  _QWORD *v106; // r8
+  _OWORD *v107; // rax
+  unsigned __int16 *v108; // rcx
+  struct tagSOUNDSENTRYW *v109; // rbx
+  int v110; // r8d
+  unsigned int v111; // eax
+  int v112; // r8d
+  struct _UNICODE_STRING *v113; // rdi
+  char *v114; // rcx
+  _DWORD *v115; // rdx
+  unsigned int v116; // ebx
+  unsigned int v117; // ecx
+  __int64 v118; // rax
+  int v119; // edx
+  bool v120; // zf
+  __int64 v121; // rax
+  __int64 v122; // rdi
+  const wchar_t *v123; // rbx
+  const wchar_t *v124; // r9
+  int v125; // r15d
+  unsigned int i; // ebx
+  int *v127; // rax
+  unsigned int *v128; // rax
+  unsigned int v129; // ebx
+  int v130; // ecx
+  unsigned int PointerDeviceSettingsFull; // eax
+  unsigned int v132; // ecx
+  __int64 v133; // rax
+  int *v134; // rdi
+  __int64 v135; // rcx
+  __int64 v136; // rcx
+  unsigned int v137; // eax
+  __int64 v138; // rax
+  int v139; // ecx
+  InteractiveControlManager *v140; // rax
+  InteractiveControlManager *v141; // rax
+  __int64 v142; // rax
   __int64 v143; // rcx
-  __int64 v144; // rcx
-  int v145; // eax
+  _DWORD *v144; // rcx
+  int v145; // edi
+  int v146; // r8d
+  int v147; // ecx
+  bool v148; // zf
+  int v149; // ecx
+  int *v150; // rax
+  int v151; // ecx
+  __int64 v152; // rcx
+  int v153; // eax
   unsigned int ProfileValue; // eax
-  unsigned int v147; // r13d
-  int v148; // edx
-  int *v149; // rcx
-  int v150; // eax
-  int v151; // eax
-  __int64 v152; // rdx
-  unsigned __int64 v153; // rcx
-  __int64 v154; // rcx
-  __int64 v155; // rax
-  __int64 v156; // rax
-  void *v157; // rax
-  unsigned int v158; // r8d
-  __int64 v159; // rax
-  __int64 v160; // rbx
-  __int64 v161; // rax
-  unsigned int v162; // r14d
+  unsigned int v155; // edi
+  int v156; // edx
+  unsigned __int64 v157; // rcx
+  int v158; // eax
+  int v159; // eax
+  __int64 v160; // rdx
+  unsigned __int64 v161; // rcx
+  int v162; // ebx
   int v163; // ebx
-  _DWORD *v164; // rax
+  int v164; // ebx
   int v165; // ebx
-  __int64 v166; // rcx
-  unsigned int *v167; // rax
-  bool v168; // r14
-  bool v169; // r15
-  BOOL v170; // ebx
-  int *p_Src; // [rsp+20h] [rbp-488h]
-  int v172; // [rsp+28h] [rbp-480h]
-  unsigned int v173; // [rsp+90h] [rbp-418h]
-  void *Src; // [rsp+98h] [rbp-410h] BYREF
-  int v175; // [rsp+A0h] [rbp-408h] BYREF
-  int v176; // [rsp+A4h] [rbp-404h] BYREF
-  __int64 v177; // [rsp+A8h] [rbp-400h] BYREF
-  __int64 *v178; // [rsp+B0h] [rbp-3F8h] BYREF
-  _QWORD v179[2]; // [rsp+B8h] [rbp-3F0h] BYREF
-  __int128 v180; // [rsp+C8h] [rbp-3E0h] BYREF
-  __int64 v181; // [rsp+D8h] [rbp-3D0h]
-  int v182; // [rsp+E0h] [rbp-3C8h] BYREF
-  _QWORD *v183; // [rsp+E8h] [rbp-3C0h] BYREF
-  int v184; // [rsp+F0h] [rbp-3B8h] BYREF
-  int v185; // [rsp+F8h] [rbp-3B0h] BYREF
-  __int64 v186; // [rsp+100h] [rbp-3A8h] BYREF
-  int v187; // [rsp+108h] [rbp-3A0h] BYREF
-  int v188; // [rsp+10Ch] [rbp-39Ch] BYREF
-  int v189; // [rsp+110h] [rbp-398h] BYREF
-  int v190; // [rsp+114h] [rbp-394h] BYREF
-  int v191; // [rsp+118h] [rbp-390h] BYREF
-  int v192; // [rsp+11Ch] [rbp-38Ch] BYREF
-  __int64 v193; // [rsp+120h] [rbp-388h] BYREF
-  __int128 v194; // [rsp+130h] [rbp-378h]
-  __int128 v195; // [rsp+140h] [rbp-368h]
-  char v196[16]; // [rsp+158h] [rbp-350h] BYREF
-  __int128 v197; // [rsp+168h] [rbp-340h] BYREF
-  __int128 v198; // [rsp+180h] [rbp-328h] BYREF
-  struct tagRECT v199; // [rsp+190h] [rbp-318h] BYREF
-  __int128 v200; // [rsp+1A0h] [rbp-308h]
-  unsigned __int16 v201[40]; // [rsp+1B0h] [rbp-2F8h] BYREF
-  _WORD v202[40]; // [rsp+200h] [rbp-2A8h] BYREF
-  _BYTE v203[528]; // [rsp+250h] [rbp-258h] BYREF
+  __int64 v166; // r8
+  int v167; // ecx
+  unsigned int v168; // edx
+  __int64 v169; // rax
+  struct tagWND *v170; // rcx
+  void *v171; // rax
+  __int64 v172; // rax
+  __int64 v173; // rax
+  unsigned int v174; // r12d
+  int v175; // ebx
+  void *v176; // rax
+  _BYTE *v177; // rax
+  int v178; // ecx
+  BOOL v179; // edx
+  unsigned int v180; // [rsp+40h] [rbp-478h]
+  int v181; // [rsp+44h] [rbp-474h]
+  void *Src; // [rsp+48h] [rbp-470h] BYREF
+  int v183; // [rsp+50h] [rbp-468h] BYREF
+  int v184; // [rsp+54h] [rbp-464h] BYREF
+  unsigned int v185; // [rsp+58h] [rbp-460h]
+  const wchar_t *v186; // [rsp+60h] [rbp-458h] BYREF
+  __int64 v187; // [rsp+68h] [rbp-450h] BYREF
+  __int128 v188; // [rsp+70h] [rbp-448h] BYREF
+  __int64 v189; // [rsp+80h] [rbp-438h]
+  __int64 v190; // [rsp+88h] [rbp-430h] BYREF
+  _DWORD v191[4]; // [rsp+90h] [rbp-428h] BYREF
+  __int128 v192; // [rsp+A0h] [rbp-418h]
+  __int128 v193; // [rsp+B0h] [rbp-408h] BYREF
+  __int64 v194; // [rsp+C0h] [rbp-3F8h]
+  __int128 v195; // [rsp+D0h] [rbp-3E8h] BYREF
+  __int128 v196; // [rsp+E0h] [rbp-3D8h] BYREF
+  __int128 v197; // [rsp+F0h] [rbp-3C8h] BYREF
+  __int128 v198; // [rsp+100h] [rbp-3B8h] BYREF
+  __int128 v199; // [rsp+110h] [rbp-3A8h] BYREF
+  _BYTE v200[16]; // [rsp+120h] [rbp-398h] BYREF
+  __int128 v201; // [rsp+130h] [rbp-388h] BYREF
+  __int128 v202; // [rsp+140h] [rbp-378h] BYREF
+  __int128 v203; // [rsp+150h] [rbp-368h] BYREF
+  __int128 v204; // [rsp+160h] [rbp-358h] BYREF
+  __int128 v205; // [rsp+170h] [rbp-348h] BYREF
+  __int128 v206; // [rsp+180h] [rbp-338h]
+  __int128 v207; // [rsp+190h] [rbp-328h] BYREF
+  int v208; // [rsp+1A0h] [rbp-318h]
+  unsigned int v209; // [rsp+1A4h] [rbp-314h]
+  __int128 v210; // [rsp+1A8h] [rbp-310h]
+  unsigned __int16 v211[40]; // [rsp+1C0h] [rbp-2F8h] BYREF
+  _WORD v212[40]; // [rsp+210h] [rbp-2A8h] BYREF
+  _BYTE v213[528]; // [rsp+260h] [rbp-258h] BYREF
 
-  LODWORD(v179[0]) = a4;
-  v5 = (unsigned int)this;
-  v173 = (unsigned int)this;
-  v185 = (int)this;
+  LOWORD(v185) = a4;
+  v5 = (unsigned int)a1;
+  v180 = a1;
+  LODWORD(v190) = a1;
   Src = a3;
-  CurrentProcessWin32Process = (_QWORD *)PsGetCurrentProcessWin32Process(this);
-  v8 = CurrentProcessWin32Process;
-  v183 = CurrentProcessWin32Process;
-  v9 = 0LL;
-  if ( CurrentProcessWin32Process )
-  {
-    if ( !*CurrentProcessWin32Process )
-      v8 = 0LL;
-    v183 = v8;
-  }
+  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
+  *(_QWORD *)&v201 = CurrentProcessWin32Process;
   updated = 0;
-  v175 = 0;
-  v11 = v179[0] & 1;
-  v12 = (LODWORD(v179[0]) >> 1) & 1;
-  LODWORD(v186) = v12;
-  PointerDeviceSettingsFull = !(v179[0] & 1);
-  v176 = PointerDeviceSettingsFull;
-  LODWORD(v179[0]) = v179[0] & 0x8000;
-  HIDWORD(v177) = 0;
-  v180 = 0LL;
-  v181 = 0LL;
-  v202[0] = 0;
-  switch ( v5 )
+  v183 = 0;
+  v8 = 1;
+  v9 = v185 & 1;
+  v10 = 2LL;
+  v181 = v185 & 2;
+  LODWORD(v186) = v181;
+  v11 = !(v185 & 1);
+  v184 = v11;
+  v12 = (unsigned __int16)v185 & 0x8000;
+  v185 &= 0x8000u;
+  v188 = 0LL;
+  v189 = 0LL;
+  v212[0] = 0;
+  if ( (unsigned int)v5 > 0x50 )
   {
-    case 7u:
-    case 8u:
-    case 0xCu:
-    case 0x27u:
-    case 0x28u:
-    case 0x31u:
-    case 0x3Eu:
-    case 0x3Fu:
-    case 0x5Cu:
-    case 0x61u:
-      goto LABEL_253;
-    case 0x4Fu:
-    case 0x50u:
-    case 0x53u:
-    case 0x54u:
-      *(_DWORD *)Src = 0;
-      return 1LL;
-    case 0x51u:
-    case 0x52u:
-    case 0x55u:
-    case 0x56u:
-      return 1LL;
-    default:
-      v184 = v5 & 1;
-      if ( (v5 & 1) == 0 || v5 != 8193 || *((int *)v8 + 3) < 0 )
-        goto LABEL_12;
-      if ( !CanForceForeground((const struct tagPROCESSINFO *)v8) )
+    if ( (unsigned int)v5 > 0x52 )
+    {
+      if ( (unsigned int)v5 <= 0x54 )
+        goto LABEL_892;
+      if ( (unsigned int)v5 > 0x56 )
       {
-LABEL_253:
-        UserSetLastError(87LL);
-        return 0LL;
+        if ( (_DWORD)v5 == 92 || (_DWORD)v5 == 97 )
+          goto LABEL_5;
+        goto LABEL_11;
       }
-      v8 = v183;
-LABEL_12:
-      v15 = (Gre::Base *)gpepCSRSS;
-      if ( *v8 != gpepCSRSS )
+    }
+    return 1LL;
+  }
+  if ( (unsigned int)v5 >= 0x4F )
+  {
+LABEL_892:
+    *(_DWORD *)Src = 0;
+    return 1LL;
+  }
+  if ( (unsigned int)v5 <= 0x3F )
+  {
+    v13 = 0xC002018000001180uLL;
+    if ( _bittest64((const __int64 *)&v13, v5) )
+      goto LABEL_5;
+  }
+LABEL_11:
+  v15 = gpepCSRSS;
+  if ( *(_QWORD *)CurrentProcessWin32Process != gpepCSRSS )
+  {
+    if ( (unsigned int)v5 <= 0x39 )
+    {
+      if ( (_DWORD)v5 != 57 )
       {
-        if ( v5 > 0x1027 )
+        switch ( (int)v5 )
         {
-LABEL_19:
-          if ( (v5 & 0x3000) == 0 || (v5 & 1) == 0 )
-          {
+          case 2:
+          case 4:
+          case 6:
+          case 11:
+          case 15:
+          case 17:
+          case 19:
+          case 20:
+          case 21:
+          case 23:
+          case 26:
+          case 28:
+          case 29:
+          case 30:
+          case 32:
+          case 33:
+          case 34:
+          case 36:
+          case 37:
+          case 42:
+          case 44:
+          case 46:
+          case 47:
+          case 51:
+          case 53:
+          case 55:
+            goto LABEL_22;
+          case 13:
+          case 24:
+            if ( ((unsigned __int64)Src & 0xFFFFFFFFFFFF0000uLL) != 0 )
+            {
+              LODWORD(v187) = 2;
+              goto LABEL_24;
+            }
+            if ( a2 )
+              goto LABEL_36;
+            return 1LL;
+          default:
+            goto LABEL_35;
+        }
+      }
+      goto LABEL_22;
+    }
+    if ( (unsigned int)v5 > 0x60 )
+    {
+      if ( (_DWORD)v5 == 99
+        || (_DWORD)v5 == 101
+        || (_DWORD)v5 == 103
+        || (_DWORD)v5 == 107
+        || (_DWORD)v5 == 109
+        || (_DWORD)v5 == 119
+        || (_DWORD)v5 == 161
+        || (_DWORD)v5 == 163
+        || (_DWORD)v5 == 4135 )
+      {
+        goto LABEL_22;
+      }
+    }
+    else
+    {
+      v16 = (unsigned int)(v5 - 59);
+      if ( (unsigned int)v16 <= 0x25 )
+      {
+        v17 = 0x21B0075545LL;
+        if ( _bittest64(&v17, v16) )
+        {
 LABEL_22:
-            LODWORD(v177) = 2;
-            if ( RtlAreAllAccessesGranted(*((_DWORD *)v8 + 168), 2u) )
-            {
-              v16 = 1LL;
-              v17 = 1;
-            }
-            else
-            {
-              UserSetLastError(5LL);
-              v17 = 0;
-              v16 = 1LL;
-            }
-            if ( v17 )
-            {
-LABEL_26:
-              v18 = 2LL;
-              v8 = v183;
-              if ( (_DWORD)v177 != 2 )
-                goto LABEL_30;
-              goto LABEL_29;
-            }
-            return 0LL;
-          }
+          v18 = 16;
+          goto LABEL_23;
         }
-        else if ( v5 != 4135 )
-        {
-          switch ( v5 )
-          {
-            case 2u:
-            case 4u:
-            case 6u:
-            case 0xBu:
-            case 0xFu:
-            case 0x11u:
-            case 0x13u:
-            case 0x14u:
-            case 0x15u:
-            case 0x17u:
-            case 0x1Au:
-            case 0x1Cu:
-            case 0x1Du:
-            case 0x1Eu:
-            case 0x20u:
-            case 0x21u:
-            case 0x22u:
-            case 0x24u:
-            case 0x25u:
-            case 0x2Au:
-            case 0x2Cu:
-            case 0x2Eu:
-            case 0x2Fu:
-            case 0x33u:
-            case 0x35u:
-            case 0x37u:
-            case 0x39u:
-            case 0x3Bu:
-            case 0x3Du:
-            case 0x41u:
-            case 0x43u:
-            case 0x45u:
-            case 0x47u:
-            case 0x49u:
-            case 0x4Bu:
-            case 0x4Cu:
-            case 0x4Du:
-            case 0x57u:
-            case 0x58u:
-            case 0x5Au:
-            case 0x5Bu:
-            case 0x60u:
-            case 0x63u:
-            case 0x65u:
-            case 0x67u:
-            case 0x6Bu:
-            case 0x6Du:
-            case 0x77u:
-            case 0xA1u:
-            case 0xA3u:
-              break;
-            case 0xDu:
-            case 0x18u:
-              if ( ((unsigned __int64)Src & 0xFFFFFFFFFFFF0000uLL) != 0 )
-                goto LABEL_22;
-              if ( !a2 )
-                return 1LL;
-              break;
-            default:
-              goto LABEL_19;
-          }
-        }
-        LODWORD(v177) = 16;
-        if ( (unsigned int)CheckWinstaAttributeAccess(16LL) )
-        {
-          v16 = 1LL;
-          goto LABEL_26;
-        }
-        return 0LL;
       }
-      v16 = 1LL;
-      v18 = 2LL;
-LABEL_29:
-      v176 = 1;
-      PointerDeviceSettingsFull = 1;
-LABEL_30:
-      if ( v5 <= 0x1026 )
+    }
+LABEL_35:
+    if ( (v5 & 0x3000) != 0 && (v5 & 1) != 0 )
+    {
+LABEL_36:
+      LODWORD(v187) = 16;
+      goto LABEL_37;
+    }
+    v18 = 2;
+LABEL_23:
+    LODWORD(v187) = v18;
+    if ( v18 == 2 )
+    {
+LABEL_24:
+      if ( !RtlAreAllAccessesGranted(*(_DWORD *)(CurrentProcessWin32Process + 680), 2u) )
       {
-        if ( v5 == 4134 )
+        v14 = 5LL;
+        goto LABEL_439;
+      }
+      goto LABEL_38;
+    }
+LABEL_37:
+    if ( !(unsigned int)CheckWinstaAttributeAccess(16LL) )
+      return 0LL;
+LABEL_38:
+    v10 = 2LL;
+    v19 = 10;
+    v12 = v185;
+    CurrentProcessWin32Process = v201;
+    if ( (_DWORD)v187 != 2 )
+      goto LABEL_43;
+    goto LABEL_42;
+  }
+  v19 = 10;
+LABEL_42:
+  v184 = 1;
+  v11 = 1;
+LABEL_43:
+  if ( (unsigned int)v5 > 0x1026 )
+  {
+    if ( (_DWORD)v5 == 4135 )
+    {
+      if ( (unsigned int)CheckDesktopPolicy(0LL, 112LL) )
+      {
+        v9 = 0;
+        v11 = 0;
+      }
+      if ( v9 )
+      {
+        updated = UpdateWinIniInt(0LL, 4LL, 112LL, a2 != 0);
+        v11 = updated;
+      }
+      if ( v11 )
+        gbBlockSendInputResets = a2 != 0;
+      goto LABEL_68;
+    }
+    if ( (_DWORD)v5 == 8228 )
+    {
+      UserHandedness = GetUserHandedness(v15, 2LL, v12, CurrentProcessWin32Process);
+      goto LABEL_113;
+    }
+    if ( (_DWORD)v5 != 8229 )
+      goto LABEL_771;
+    a2 = 0;
+    if ( (unsigned int)RIMIsDefaultUILanguageRTL(v15, 2LL, v12, CurrentProcessWin32Process) )
+      LOBYTE(a2) = (_DWORD)Src == 0;
+    else
+      LOBYTE(a2) = (_DWORD)Src != 0;
+    goto LABEL_880;
+  }
+  if ( (_DWORD)v5 == 4134 )
+  {
+    v120 = gbBlockSendInputResets == 0;
+    goto LABEL_513;
+  }
+  if ( (unsigned int)v5 <= 0x64 )
+  {
+    if ( (_DWORD)v5 == 100 )
+    {
+      Next = (int)WPP_MAIN_CB.Dpc.DpcListEntry.Next;
+      goto LABEL_75;
+    }
+    if ( (unsigned int)v5 <= 0x2B )
+    {
+      if ( (_DWORD)v5 == 43 )
+      {
+        v75 = Src;
+        *(_DWORD *)Src = 20;
+        v75[1] = *(_DWORD *)(gpsi + 2124LL) - 6;
+        v75[2] = *(_DWORD *)(gpsi + 2084LL) - *(_DWORD *)(gpsi + 2124LL);
+        v75[3] = *(_DWORD *)(gpsi + 2088LL) - *(_DWORD *)(gpsi + 2128LL);
+        v75[4] = *(_DWORD *)(gpsi + 2120LL);
+        goto LABEL_68;
+      }
+      if ( (unsigned int)v5 <= 0x18 )
+      {
+        if ( (_DWORD)v5 == 24 )
         {
-          LOBYTE(v9) = gbBlockSendInputResets != 0;
-          *(_DWORD *)Src = (_DWORD)v9;
-          v19 = v12;
-        }
-        else
-        {
-          switch ( v5 )
+          if ( ((unsigned __int64)Src & 0xFFFFFFFFFFFF0000uLL) == 0 )
           {
-            case 1u:
-              *(_DWORD *)Src = (gdwPUDFlags >> 19) & 1;
-              v19 = v12;
-              goto LABEL_693;
-            case 2u:
-              if ( v11 )
-              {
-                RtlLoadStringOrError(105 - (unsigned int)(a2 != 0), v201);
-                updated = FastUpdateWinIni(0LL, 11LL, 9LL, v201);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              if ( a2 )
-              {
-                gdwPUDFlags |= 0x80000u;
-                v19 = v12;
-                goto LABEL_693;
-              }
-              gdwPUDFlags &= ~0x80000u;
-              goto LABEL_40;
-            case 3u:
-              v21 = *(unsigned int *)(SGDGetUserSessionState(v15) + 15928);
-              *(_DWORD *)Src = v21;
-              *((_DWORD *)Src + 1) = *(_DWORD *)(SGDGetUserSessionState(v21) + 15932);
-              *((_DWORD *)Src + 2) = (unsigned __int8)MouseAccelerationEnabled();
-              v19 = v12;
-              goto LABEL_693;
-            case 4u:
-              if ( !v11 )
-                goto LABEL_69;
-              v22 = CreateProfileUserName(&v180);
-              HIDWORD(v177) = UpdateWinIniInt(v22, 12LL, 10LL, *(unsigned int *)Src);
-              v23 = UpdateWinIniInt(v22, 12LL, 11LL, *((unsigned int *)Src + 1));
-              v24 = UpdateWinIniInt(v22, 12LL, 12LL, *((unsigned int *)Src + 2));
-              LODWORD(v177) = v24;
-              v25 = HIDWORD(v177);
-              if ( !HIDWORD(v177) )
-                goto LABEL_64;
-              if ( v23 && v24 )
-              {
-                updated = 1;
-              }
-              else
-              {
-                v26 = SGDGetUserSessionState(HIDWORD(v177));
-                UpdateWinIniInt(v22, 12LL, 10LL, *(unsigned int *)(v26 + 15928));
-LABEL_64:
-                if ( v23 )
-                {
-                  v27 = SGDGetUserSessionState(v25);
-                  UpdateWinIniInt(v22, 12LL, 11LL, *(unsigned int *)(v27 + 15932));
-                }
-                if ( (_DWORD)v177 )
-                {
-                  v28 = MouseAccelerationEnabled();
-                  UpdateWinIniInt(v22, 12LL, 12LL, v28);
-                }
-              }
-              PointerDeviceSettingsFull = updated;
-              FreeProfileUserName(v22, &v180);
-LABEL_69:
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              v29 = *(_DWORD *)Src;
-              *(_DWORD *)(SGDGetUserSessionState(v15) + 15928) = v29;
-              v30 = *((_DWORD *)Src + 1);
-              *(_DWORD *)(SGDGetUserSessionState(v31) + 15932) = v30;
-              LOBYTE(v32) = *((_DWORD *)Src + 2) != 0;
-              EnableMouseAcceleration(v32);
-              v19 = v12;
-              goto LABEL_693;
-            case 5u:
-              *(_DWORD *)Src = *(_DWORD *)(GetDPIServerInfo(v15, v8, v7, 1LL) + 4);
-              v19 = v12;
-              goto LABEL_693;
-            case 6u:
-              v33 = 1;
-              if ( (int)a2 > 1 )
-                v33 = a2;
-              if ( v33 >= 0x32 )
-                v33 = 50;
-              if ( v33 == (__int64)*(int *)(GetDPIServerInfo(v15, v8, v7, 1LL) + 4) )
-              {
-                PointerDeviceSettingsFull = 1;
-                v19 = v12;
-              }
-              else
-              {
-                v34 = (struct _UNICODE_STRING *)CreateProfileUserName(&v180);
-                v35 = v34;
-                if ( v11 )
-                {
-                  updated = SetWindowMetricInt(v34, 0x88u, v33);
-                  PointerDeviceSettingsFull = updated;
-                }
-                if ( PointerDeviceSettingsFull )
-                {
-                  xxxSetAndDrawNCMetrics(v35, v33, 0LL);
-                  ProcessDpiServerInfo = GetProcessDpiServerInfo();
-                  bSetDevDragWidth(
-                    *(_QWORD *)(gpDispInfo + 40LL),
-                    (unsigned int)(*(_DWORD *)(ProcessDpiServerInfo + 4) + 3));
-                }
-                FreeProfileUserName(v35, &v180);
-                v19 = v12;
-              }
-              goto LABEL_693;
-            case 0xAu:
-              *(_DWORD *)Src = *(_DWORD *)(SGDGetUserSessionState(v15) + 12612) & 0x1F;
-              v19 = v12;
-              goto LABEL_693;
-            case 0xBu:
-              v38 = 31;
-              if ( a2 <= 0x1F )
-                v38 = a2;
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 13LL, 13LL, v38);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              v40 = v38 | *(_DWORD *)(SGDGetUserSessionState(v15) + 12612) & 0xFFFFFFE0;
-              goto LABEL_105;
-            case 0xDu:
-              if ( ((unsigned __int64)Src & 0xFFFFFFFFFFFF0000uLL) != 0 )
-              {
-                DpiForSystem = GetDpiForSystem(v15, v8);
-                *(_DWORD *)Src = GetDpiDependentMetric(18LL, DpiForSystem);
-                v19 = v12;
-                goto LABEL_693;
-              }
-              if ( !a2 )
-                goto LABEL_40;
+            if ( a2 )
+            {
               if ( (W32GetCurrentThreadDpiAwarenessContext(v15) & 0xF) != 0 )
               {
-                v47 = PsGetCurrentProcessWin32Process(v45);
-                if ( v47 && !*(_QWORD *)v47 )
-                  v47 = 0LL;
-                v48 = EngMulDiv(a2, *(unsigned __int16 *)(gpsi + 6998LL), *(unsigned __int16 *)(v47 + 284));
-                v50 = PsGetCurrentProcessWin32Process(v49);
-                if ( v50 && !*(_QWORD *)v50 )
-                  v50 = 0LL;
-                a2 = EngMulDiv(v48, 96, *(unsigned __int16 *)(v50 + 284));
-                v46 = v48;
+                v65 = PsGetCurrentProcessWin32Process(v63);
+                v64 = EngMulDiv(a2, *(unsigned __int16 *)(gpsi + 6998LL), *(unsigned __int16 *)(v65 + 284));
+                v67 = PsGetCurrentProcessWin32Process(v66);
+                a2 = EngMulDiv(v64, 96, *(unsigned __int16 *)(v67 + 284));
               }
               else
               {
-                v46 = EngMulDiv(a2, *(unsigned __int16 *)(gpsi + 6998LL), 96);
+                v64 = EngMulDiv(a2, *(unsigned __int16 *)(gpsi + 6998LL), 96);
               }
-              v51 = *(_DWORD *)(gpsi + 2304LL);
-              if ( v46 > v51 )
-                v51 = v46;
-              v52 = *(_DWORD *)(gpsi + 2424LL);
-              if ( a2 > v52 )
-                v52 = a2;
+              v68 = *(_DWORD *)(gpsi + 2308LL);
+              if ( v64 > v68 )
+                v68 = v64;
+              v69 = *(_DWORD *)(gpsi + 2428LL);
+              if ( a2 > v69 )
+                v69 = a2;
+              if ( v9 )
+              {
+                updated = SetWindowMetricInt(0LL, 0x41u, v68);
+                v11 = updated;
+              }
               if ( v11 )
               {
-                updated = SetWindowMetricInt(0LL, 0x40u, v51);
-                PointerDeviceSettingsFull = updated;
+                SetDpiDepSysMet(19LL, v68);
+                *(_DWORD *)(gpsi + 2480LL) = v69;
               }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              SetDpiDepSysMet(18LL, v51);
-              *(_DWORD *)(gpsi + 2476LL) = v52;
-              v19 = v12;
-              goto LABEL_693;
-            case 0xEu:
-              *(_DWORD *)Src = (int)abs32(giScreenSaveTimeOutMs) / 1000;
-              v19 = v12;
-              goto LABEL_693;
-            case 0xFu:
-              v178 = (__int64 *)giScreenSaveTimeOutMs;
-              if ( gfSwitchInProgress )
-                return 0LL;
-              if ( gdwRITdaemonLockState && !LODWORD(v179[0]) )
-                goto LABEL_223;
-              v62 = 1000 * a2;
-              LODWORD(v177) = v62;
-              v63 = 1000 * GetEasTimeout(v15, v8, v7, 1LL);
-              v182 = v63;
-              if ( v63 )
+            }
+            goto LABEL_68;
+          }
+          DpiForSystem = GetDpiForSystem(v15);
+          v42 = 19LL;
+LABEL_112:
+          UserHandedness = GetDpiDependentMetric(v42, DpiForSystem);
+LABEL_113:
+          *(_DWORD *)Src = UserHandedness;
+          goto LABEL_68;
+        }
+        if ( (unsigned int)v5 <= 0xD )
+        {
+          if ( (_DWORD)v5 != 13 )
+          {
+            if ( (_DWORD)v5 != 1 )
+            {
+              if ( (_DWORD)v5 == 2 )
               {
-                if ( (HIDWORD(v177) = 1, *(int *)v178 > 0) && v63 < v62 || v62 <= 0 )
+                if ( v9 )
                 {
-                  UserSetLastError(1260LL);
-                  v11 = 0;
-                  PointerDeviceSettingsFull = 0;
-                  v176 = 0;
+                  RtlLoadStringOrError(105 - (unsigned int)(a2 != 0), v211, 10LL);
+                  updated = FastUpdateWinIni(0LL, 11LL, 9LL, v211);
+                  v11 = updated;
                 }
-              }
-              if ( !(unsigned int)CheckDesktopPolicy(0LL, 99LL) )
-                goto LABEL_177;
-              if ( !HIDWORD(v177) )
-                goto LABEL_176;
-              LODWORD(v179[0]) = 0;
-              v62 = v177;
-              if ( (unsigned int)FastGetProfileIntFromID(0LL, 4LL, 99LL) )
-              {
-                v64 = 1000 * LODWORD(v179[0]);
-                LODWORD(v179[0]) = v64;
-                if ( v64 )
+                if ( v11 )
                 {
-                  if ( v64 < v182 && *(int *)v178 > 0 && v64 < (int)v177 )
+                  v120 = a2 == 0;
+                  v21 = v180;
+                  if ( v120 )
+                    gdwPUDFlags &= ~0x80000u;
+                  else
+                    gdwPUDFlags |= 0x80000u;
+                  goto LABEL_69;
+                }
+                goto LABEL_68;
+              }
+              if ( (_DWORD)v5 == 3 )
+              {
+                *(_DWORD *)Src = WPP_MAIN_CB.Dpc.DeferredRoutine;
+                ProcessorHistory_high = HIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory);
+                *((_DWORD *)Src + 1) = HIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory);
+                *((_DWORD *)Src + 2) = (unsigned __int8)MouseAccelerationEnabled(
+                                                          ProcessorHistory_high,
+                                                          2LL,
+                                                          v12,
+                                                          CurrentProcessWin32Process);
+                goto LABEL_68;
+              }
+              if ( (_DWORD)v5 != 4 )
+              {
+                if ( (_DWORD)v5 == 5 )
+                {
+                  Next = *(_DWORD *)(GetDPIServerInfo(13LL, 2LL, v12, CurrentProcessWin32Process) + 4);
+                  goto LABEL_75;
+                }
+                if ( (_DWORD)v5 != 6 )
+                {
+                  if ( (_DWORD)v5 != 10 )
                   {
-                    UserSetLastError(1260LL);
-LABEL_176:
-                    v176 = 0;
-                    PointerDeviceSettingsFull = 0;
-                    v11 = 0;
+                    if ( (_DWORD)v5 == 11 )
+                    {
+                      v20 = 31;
+                      if ( a2 <= 0x1F )
+                        v20 = a2;
+                      if ( v9 )
+                      {
+                        updated = UpdateWinIniInt(0LL, 13LL, 13LL, v20);
+                        v11 = updated;
+                      }
+                      if ( v11 )
+                      {
+                        gnKeyboardSpeed = v20 | gnKeyboardSpeed & 0xFFFFFFE0;
+LABEL_67:
+                        SetKeyboardRate();
+                        goto LABEL_68;
+                      }
+                      v22 = v181;
+LABEL_480:
+                      v21 = v180;
+                      goto LABEL_70;
+                    }
+                    goto LABEL_771;
                   }
+                  Next = gnKeyboardSpeed & 0x1F;
+LABEL_75:
+                  *(_DWORD *)Src = Next;
+                  goto LABEL_68;
                 }
+                v25 = 1;
+                if ( (int)a2 > 1 )
+                  v25 = a2;
+                if ( v25 >= 0x32 )
+                  v25 = 50;
+                if ( v25 != (__int64)*(int *)(GetDPIServerInfo(13LL, 2LL, v12, CurrentProcessWin32Process) + 4) )
+                {
+                  v26 = (struct _UNICODE_STRING *)CreateProfileUserName(&v188);
+                  v27 = v26;
+                  if ( v9 )
+                  {
+                    updated = SetWindowMetricInt(v26, 0x88u, v25);
+                    v11 = updated;
+                  }
+                  if ( v11 )
+                  {
+                    xxxSetAndDrawNCMetrics(v27, v25, 0LL);
+                    ProcessDpiServerInfo = GetProcessDpiServerInfo();
+                    bSetDevDragWidth(*(_QWORD *)(gpDispInfo + 40LL), *(_DWORD *)(ProcessDpiServerInfo + 4) + 3);
+                  }
+LABEL_85:
+                  v29 = (__int64)v27;
+LABEL_86:
+                  FreeProfileUserName(v29, &v188);
+                  goto LABEL_68;
+                }
+LABEL_363:
+                v11 = 1;
+                goto LABEL_68;
               }
-LABEL_177:
+              if ( !v9 )
+              {
+LABEL_99:
+                if ( v11 )
+                {
+                  v38 = Src;
+                  LODWORD(WPP_MAIN_CB.Dpc.DeferredRoutine) = *(_DWORD *)Src;
+                  HIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory) = *((_DWORD *)Src + 1);
+                  LOBYTE(v38) = *((_DWORD *)Src + 2) != 0;
+                  EnableMouseAcceleration(v38);
+                }
+                goto LABEL_68;
+              }
+              v30 = CreateProfileUserName(&v188);
+              v185 = UpdateWinIniInt(v30, 12LL, 10LL, *(unsigned int *)Src);
+              v31 = UpdateWinIniInt(v30, 12LL, 11LL, *((unsigned int *)Src + 1));
+              v36 = UpdateWinIniInt(v30, 12LL, 12LL, *((unsigned int *)Src + 2));
+              if ( v185 )
+              {
+                if ( v31 && v36 )
+                {
+                  updated = 1;
+LABEL_98:
+                  v11 = updated;
+                  FreeProfileUserName(v30, &v188);
+                  goto LABEL_99;
+                }
+                UpdateWinIniInt(v30, 12LL, 10LL, LODWORD(WPP_MAIN_CB.Dpc.DeferredRoutine));
+              }
+              if ( v31 )
+                UpdateWinIniInt(v30, 12LL, 11LL, HIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory));
+              if ( v36 )
+              {
+                v37 = MouseAccelerationEnabled(v33, v32, v34, v35);
+                UpdateWinIniInt(v30, 12LL, 12LL, v37);
+              }
+              goto LABEL_98;
+            }
+            v40 = gdwPUDFlags >> 19;
+LABEL_109:
+            Next = v40 & 1;
+            goto LABEL_75;
+          }
+          if ( ((unsigned __int64)Src & 0xFFFFFFFFFFFF0000uLL) == 0 )
+          {
+            if ( a2 )
+            {
+              if ( (W32GetCurrentThreadDpiAwarenessContext(13LL) & 0xF) != 0 )
+              {
+                v46 = PsGetCurrentProcessWin32Process(v44);
+                v45 = EngMulDiv(a2, *(unsigned __int16 *)(gpsi + 6998LL), *(unsigned __int16 *)(v46 + 284));
+                v48 = PsGetCurrentProcessWin32Process(v47);
+                a2 = EngMulDiv(v45, 96, *(unsigned __int16 *)(v48 + 284));
+              }
+              else
+              {
+                v45 = EngMulDiv(a2, *(unsigned __int16 *)(gpsi + 6998LL), 96);
+              }
+              v49 = *(_DWORD *)(gpsi + 2304LL);
+              if ( v45 > v49 )
+                v49 = v45;
+              v50 = *(_DWORD *)(gpsi + 2424LL);
+              if ( a2 > v50 )
+                v50 = a2;
+              if ( v9 )
+              {
+                updated = SetWindowMetricInt(0LL, 0x40u, v49);
+                v11 = updated;
+              }
               if ( v11 )
               {
-                updated = UpdateWinIniInt(0LL, 4LL, 99LL, v62 / 0x3E8u);
-                v175 = updated;
-                PointerDeviceSettingsFull = updated;
-                v176 = updated;
+                SetDpiDepSysMet(18LL, v49);
+                *(_DWORD *)(gpsi + 2476LL) = v50;
               }
-              if ( PointerDeviceSettingsFull )
+            }
+            goto LABEL_68;
+          }
+          DpiForSystem = GetDpiForSystem(13LL);
+          v42 = 18LL;
+          goto LABEL_112;
+        }
+        if ( (_DWORD)v5 == 14 )
+        {
+          v62 = (int)abs32(giScreenSaveTimeOutMs) / 1000;
+          goto LABEL_216;
+        }
+        if ( (_DWORD)v5 != 15 )
+        {
+          if ( (_DWORD)v5 == 16 )
+          {
+            Next = giScreenSaveTimeOutMs > 0;
+            goto LABEL_75;
+          }
+          if ( (_DWORD)v5 != 17 )
+          {
+            if ( (_DWORD)v5 != 20 )
+            {
+              if ( (_DWORD)v5 != 21 )
               {
-                if ( !gbBlockSendInputResets )
+                if ( (_DWORD)v5 != 22 )
                 {
-                  CInputGlobals::UpdateLastInputTime(
-                    gpInputGlobals,
-                    (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
-                   * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64,
-                    7LL);
-                  updated = v175;
-                  PointerDeviceSettingsFull = v176;
+                  if ( (_DWORD)v5 == 23 )
+                  {
+                    if ( v9 )
+                    {
+                      updated = UpdateWinIniInt(0LL, 13LL, 106LL, a2);
+                      v11 = updated;
+                    }
+                    if ( !v11 )
+                      goto LABEL_68;
+                    gnKeyboardSpeed = gnKeyboardSpeed & 0xFFFFFF9F | (32 * a2);
+                    goto LABEL_67;
+                  }
+                  goto LABEL_771;
                 }
-                if ( *(int *)v178 < 0 && !HIDWORD(v177) )
-                  v62 = -v62;
-                *(_DWORD *)v178 = v62;
+                Next = (gnKeyboardSpeed >> 5) & 3;
+                goto LABEL_75;
               }
-              v19 = v12;
-              goto LABEL_693;
-            case 0x10u:
-              LOBYTE(v9) = giScreenSaveTimeOutMs > 0;
-              *(_DWORD *)Src = (_DWORD)v9;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x11u:
-              if ( a2 - 2 <= 0xFFFFFFFC )
+              v186 = (const wchar_t *)Src;
+              if ( a2 == -1 && Src )
+              {
+LABEL_5:
+                v14 = 87LL;
+LABEL_439:
+                UserSetLastError(v14, v10, v12);
                 return 0LL;
-              if ( gdwRITdaemonLockState && !LODWORD(v179[0]) )
-                goto LABEL_223;
-              gbLockConsoleActive = a2 == -1;
-              if ( gfSwitchInProgress )
-                return 0LL;
+              }
+              v27 = (struct _UNICODE_STRING *)CreateProfileUserName(&v188);
+              if ( (unsigned int)CheckDesktopPolicy(v27, 2LL) )
+              {
+                v9 = 0;
+                v11 = 0;
+              }
+              v51 = v186;
+              if ( v9 && v186 )
+              {
+                FastGetProfileStringFromIDW(v27, 4LL, 2LL, &word_1C02E497C, v213, 260, 0);
+                updated = FastUpdateWinIni(v27, 4LL, 2LL, v186);
+                v11 = updated;
+                v51 = v186;
+              }
+              if ( v11 )
+              {
+                if ( !(unsigned int)SetDesktopPattern((__int64)v27, v51) )
+                {
+                  if ( v9 && v186 )
+                    FastUpdateWinIni(v27, 4LL, 2LL, v213);
+                  FreeProfileUserName(v27, &v188);
+                  return 0LL;
+                }
+                xxxSendNotifyMessage(-1LL, 0x15u, 0LL, 0LL, 1);
+                v52 = *(_QWORD *)(gptiCurrent + 456LL);
+                if ( v52 )
+                  v53 = *(struct tagWND **)(*(_QWORD *)(v52 + 8) + 24LL);
+                else
+                  v53 = 0LL;
+                xxxInternalInvalidate(v53, (HRGN)1, 0x10485u);
+              }
+              goto LABEL_85;
+            }
+            v54 = CreateProfileUserName(&v188);
+            if ( (unsigned int)CheckDesktopPolicy(v54, 67LL) )
+            {
+              v9 = 0;
+              v11 = 0;
+            }
+            if ( v9 )
+            {
+              if ( a2 == -1 )
+              {
+                v11 = 1;
+              }
+              else
+              {
+                FastGetProfileStringFromIDW(v54, 4LL, 67LL, &word_1C02E497C, v213, 260, 8);
+                updated = FastUpdateWinIni(v54, 4LL, 67LL, Src);
+                v11 = updated;
+              }
+            }
+            if ( v11 )
+            {
+              if ( (unsigned int)xxxSetDeskWallpaper(v54, Src) )
+              {
+                xxxInvalidateWallpaperWindow();
+              }
+              else
+              {
+                if ( v9 )
+                {
+                  if ( a2 == -1 )
+                    goto LABEL_170;
+                  FastUpdateWinIni(v54, 4LL, 67LL, v213);
+                }
+                v11 = 0;
+                updated = 0;
+              }
+            }
+LABEL_170:
+            v29 = v54;
+            goto LABEL_86;
+          }
+          if ( a2 - 2 <= 0xFFFFFFFC )
+            return 0LL;
+          if ( !gdwRITdemonLockState || (_DWORD)v12 )
+          {
+            gbLockConsoleActive = a2 == -1;
+            if ( !gfSwitchInProgress )
+            {
               if ( (unsigned int)CheckDesktopPolicy(0LL, 100LL) )
               {
+                v9 = 0;
                 v11 = 0;
-                PointerDeviceSettingsFull = 0;
-                v176 = 0;
+                v184 = 0;
               }
-              if ( v11 )
+              if ( v9 )
               {
                 updated = UpdateWinIniInt(0LL, 4LL, 100LL, a2);
-                v175 = updated;
-                PointerDeviceSettingsFull = updated;
-                v176 = updated;
+                v183 = updated;
+                v11 = updated;
+                v184 = updated;
               }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
+              if ( !v11 )
+                goto LABEL_68;
               if ( !gbBlockSendInputResets )
               {
                 CInputGlobals::UpdateLastInputTime(
@@ -750,543 +899,443 @@ LABEL_177:
                   (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
                  * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64,
                   7LL);
-                updated = v175;
-                PointerDeviceSettingsFull = v176;
+                updated = v183;
+                v11 = v184;
               }
-              if ( giScreenSaveTimeOutMs >= 0 )
-                goto LABEL_218;
-              if ( a2 )
-                goto LABEL_219;
               if ( giScreenSaveTimeOutMs < 0 )
-                goto LABEL_40;
-LABEL_218:
+              {
+                if ( a2 )
+                  goto LABEL_186;
+                if ( giScreenSaveTimeOutMs < 0 )
+                  goto LABEL_68;
+              }
               if ( a2 )
-                goto LABEL_40;
-LABEL_219:
+                goto LABEL_68;
+LABEL_186:
               giScreenSaveTimeOutMs = -giScreenSaveTimeOutMs;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x14u:
-              v67 = CreateProfileUserName(&v180);
-              if ( (unsigned int)CheckDesktopPolicy(v67, 67LL) )
-              {
-                v11 = 0;
-                PointerDeviceSettingsFull = 0;
-              }
-              if ( !v11 )
-                goto LABEL_238;
-              if ( a2 == -1 )
-              {
-                PointerDeviceSettingsFull = 1;
-              }
-              else
-              {
-                FastGetProfileStringFromIDW(v67, 4LL, 67LL, &word_1C030D60C, v203, 260, 8);
-                updated = FastUpdateWinIni(v67, 4LL, 67LL, Src);
-                PointerDeviceSettingsFull = updated;
-LABEL_238:
-                if ( !PointerDeviceSettingsFull )
-                  goto LABEL_247;
-              }
-              if ( (unsigned int)xxxSetDeskWallpaper(v67, Src) )
-              {
-                xxxInvalidateWallpaperWindow();
-                goto LABEL_247;
-              }
-              if ( v11 )
-              {
-                if ( a2 == -1 )
-                  goto LABEL_247;
-                FastUpdateWinIni(v67, 4LL, 67LL, v203);
-              }
-              PointerDeviceSettingsFull = 0;
-              updated = 0;
-              goto LABEL_247;
-            case 0x15u:
-              v178 = (__int64 *)Src;
-              if ( a2 == -1 && Src )
-                goto LABEL_253;
-              v68 = CreateProfileUserName(&v180);
-              v186 = v68;
-              if ( (unsigned int)CheckDesktopPolicy(v68, 2LL) )
-              {
-                v11 = 0;
-                PointerDeviceSettingsFull = 0;
-              }
-              if ( v11 && v178 )
-              {
-                FastGetProfileStringFromIDW(v68, 4LL, 2LL, &word_1C030D60C, v203, 260, 0);
-                updated = FastUpdateWinIni(v68, 4LL, 2LL, v178);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_268;
-              if ( !(unsigned int)SetDesktopPattern(v68, v178) )
-              {
-                if ( v11 && v178 )
-                  FastUpdateWinIni(v68, 4LL, 2LL, v203);
-                FreeProfileUserName(v68, &v180);
-                return 0LL;
-              }
-              xxxSendNotifyMessage(-1LL, 21LL, 0LL, 0LL, 1);
-              v69 = *(_QWORD *)(gptiCurrent + 456LL);
-              if ( v69 )
-                v9 = *(struct tagWND **)(*(_QWORD *)(v69 + 8) + 24LL);
-              xxxInternalInvalidate(v9, (HRGN)1, 0x10485u);
-LABEL_268:
-              FreeProfileUserName(v186, &v180);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x16u:
-              *(_DWORD *)Src = (*(int *)(SGDGetUserSessionState(v15) + 12612) >> 5) & 3;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x17u:
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 13LL, 106LL, a2);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              v40 = (32 * a2) | *(_DWORD *)(SGDGetUserSessionState(v15) + 12612) & 0xFFFFFF9F;
-LABEL_105:
-              *(_DWORD *)(SGDGetUserSessionState(v39) + 12612) = v40;
-              v42 = SGDGetUserSessionState(v41);
-              SetKeyboardRate(*(unsigned int *)(v42 + 12612));
-              v19 = v12;
-              goto LABEL_693;
-            case 0x18u:
-              if ( ((unsigned __int64)Src & 0xFFFFFFFFFFFF0000uLL) != 0 )
-              {
-                v53 = GetDpiForSystem(v15, v8);
-                *(_DWORD *)Src = GetDpiDependentMetric(19LL, v53);
-                v19 = v12;
-                goto LABEL_693;
-              }
-              if ( !a2 )
-                goto LABEL_40;
-              if ( (W32GetCurrentThreadDpiAwarenessContext(v15) & 0xF) != 0 )
-              {
-                v56 = PsGetCurrentProcessWin32Process(v54);
-                if ( v56 && !*(_QWORD *)v56 )
-                  v56 = 0LL;
-                v57 = EngMulDiv(a2, *(unsigned __int16 *)(gpsi + 6998LL), *(unsigned __int16 *)(v56 + 284));
-                v59 = PsGetCurrentProcessWin32Process(v58);
-                if ( v59 && !*(_QWORD *)v59 )
-                  v59 = 0LL;
-                a2 = EngMulDiv(v57, 96, *(unsigned __int16 *)(v59 + 284));
-                v55 = v57;
-              }
-              else
-              {
-                v55 = EngMulDiv(a2, *(unsigned __int16 *)(gpsi + 6998LL), 96);
-              }
-              v60 = *(_DWORD *)(gpsi + 2308LL);
-              if ( v55 > v60 )
-                v60 = v55;
-              v61 = *(_DWORD *)(gpsi + 2428LL);
-              if ( a2 > v61 )
-                v61 = a2;
-              if ( v11 )
-              {
-                updated = SetWindowMetricInt(0LL, 0x41u, v60);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              SetDpiDepSysMet(19LL, v60);
-              *(_DWORD *)(gpsi + 2480LL) = v61;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x19u:
-              *(_DWORD *)Src = (gdwPUDFlags >> 21) & 1;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x1Au:
-              if ( v11 )
-              {
-                updated = SetWindowMetricInt(0LL, 0x42u, a2 != 0);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
+              goto LABEL_68;
+            }
+            return 0LL;
+          }
+LABEL_762:
+          v14 = 329LL;
+          goto LABEL_439;
+        }
+        *(_QWORD *)&v201 = giScreenSaveTimeOutMs;
+        if ( gfSwitchInProgress )
+          return 0LL;
+        if ( gdwRITdemonLockState && !(_DWORD)v12 )
+          goto LABEL_762;
+        v55 = 1000 * a2;
+        v56 = 1000 * GetEasTimeout();
+        LODWORD(v187) = v56;
+        if ( v56 )
+        {
+          if ( *(int *)v201 > 0 && v56 < v55 || v55 <= 0 )
+          {
+            UserSetLastError(1260LL, v57, v58);
+            v9 = 0;
+            v11 = 0;
+            v184 = 0;
+          }
+        }
+        else
+        {
+          v8 = 0;
+        }
+        if ( (unsigned int)CheckDesktopPolicy(0LL, 99LL) )
+        {
+          if ( v8 )
+          {
+            v185 = 0;
+            if ( !(unsigned int)FastGetProfileIntFromID(0LL, 4LL, 99LL) )
+              goto LABEL_206;
+            v61 = 1000 * v185;
+            v185 = v61;
+            if ( !v61 || v61 >= (int)v187 || *(int *)v201 <= 0 || v61 >= v55 )
+              goto LABEL_206;
+            UserSetLastError(1260LL, v59, v60);
+          }
+          v184 = 0;
+          v11 = 0;
+          v9 = 0;
+        }
+LABEL_206:
+        if ( v9 )
+        {
+          updated = UpdateWinIniInt(0LL, 4LL, 99LL, v55 / 0x3E8u);
+          v183 = updated;
+          v11 = updated;
+          v184 = updated;
+        }
+        if ( v11 )
+        {
+          if ( !gbBlockSendInputResets )
+          {
+            CInputGlobals::UpdateLastInputTime(
+              gpInputGlobals,
+              (((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
+             * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64,
+              7LL);
+            updated = v183;
+            v11 = v184;
+          }
+          if ( *(int *)v201 < 0 && !v8 )
+            v55 = -1000 * a2;
+          *(_DWORD *)v201 = v55;
+        }
+        goto LABEL_68;
+      }
+      if ( (unsigned int)v5 <= 0x21 )
+      {
+        switch ( (_DWORD)v5 )
+        {
+          case 0x21:
+            if ( v9 )
+            {
+              updated = UpdateWinIniInt(0LL, 12LL, 5LL, a2);
+              v11 = updated;
+            }
+            if ( v11 )
+              _SwapMouseButton(a2 != 0);
+            goto LABEL_68;
+          case 0x19:
+            v40 = gdwPUDFlags >> 21;
+            goto LABEL_109;
+          case 0x1A:
+            if ( v9 )
+            {
+              updated = SetWindowMetricInt(0LL, 0x42u, a2 != 0);
+              v11 = updated;
+            }
+            if ( v11 )
+            {
               if ( a2 )
                 gdwPUDFlags |= 0x200000u;
               else
                 gdwPUDFlags &= ~0x200000u;
               xxxMetricsRecalc(2, 0, 0, 0, 0, 0, 0);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x1Bu:
-              *(_DWORD *)Src = *(_DWORD *)(gpsi + 2056LL);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x1Cu:
-              goto LABEL_682;
-            case 0x1Du:
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 12LL, 97LL, a2);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
+            }
+            goto LABEL_68;
+          case 0x1B:
+            v62 = *(_DWORD *)(gpsi + 2056LL);
+            goto LABEL_216;
+        }
+        if ( (_DWORD)v5 != 28 )
+        {
+          if ( (_DWORD)v5 == 29 )
+          {
+            if ( v9 )
+            {
+              updated = UpdateWinIniInt(0LL, 12LL, 97LL, a2);
+              v11 = updated;
+            }
+            if ( v11 )
               *(_DWORD *)(gpsi + 2040LL) = a2;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x1Eu:
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 12LL, 98LL, a2);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
+            goto LABEL_68;
+          }
+          if ( (_DWORD)v5 == 30 )
+          {
+            if ( v9 )
+            {
+              updated = UpdateWinIniInt(0LL, 12LL, 98LL, a2);
+              v11 = updated;
+            }
+            if ( v11 )
               *(_DWORD *)(gpsi + 2044LL) = a2;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x1Fu:
-              DPIMetrics = GetDPIMetrics((__int64)v15);
-              GreExtGetObjectW(*(HBRUSH *)(DPIMetrics + 64), 92LL, (__int64)Src);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x20u:
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 12LL, 6LL, a2);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
+            goto LABEL_68;
+          }
+          if ( (_DWORD)v5 != 31 )
+          {
+            if ( v9 )
+            {
+              updated = UpdateWinIniInt(0LL, 12LL, 6LL, a2);
+              v11 = updated;
+            }
+            if ( v11 )
               SetDoubleClickTime(a2);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x21u:
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 12LL, 5LL, a2);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              LOBYTE(v9) = a2 != 0;
-              _SwapMouseButton((int)v9);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x22u:
-              if ( Src )
-                v71 = a2 == 92;
-              else
-                v71 = a2 == 0;
-              if ( !v71 )
-                return 0LL;
-              v72 = (struct _UNICODE_STRING *)CreateProfileUserName(&v180);
-              v73 = xxxSetSPIMetrics(v72, v5, Src, v11, &v175);
-              FreeProfileUserName(v72, &v180);
-              updated = v175;
-              if ( !v73 )
-                goto LABEL_304;
-              if ( v11 )
-                PointerDeviceSettingsFull = v175;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x23u:
-              *(_DWORD *)Src = 1;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x24u:
-              goto LABEL_40;
-            case 0x25u:
-              if ( (unsigned int)CheckDesktopPolicy(0LL, 107LL) )
-              {
-                v11 = 0;
-                PointerDeviceSettingsFull = 0;
-              }
-              if ( v11 )
-              {
-                LOBYTE(v9) = a2 == 1;
-                updated = UpdateWinIniInt(0LL, 4LL, 107LL, (unsigned int)v9);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              if ( a2 == 1 )
+            goto LABEL_68;
+          }
+          DPIMetrics = GetDPIMetrics(v15, 2LL, v12, CurrentProcessWin32Process);
+          v71 = (char *)Src;
+          goto LABEL_245;
+        }
+LABEL_880:
+        if ( v9 )
+        {
+          updated = UpdateWinIniInt(0LL, 3LL, 96LL, a2);
+          v11 = updated;
+        }
+        if ( v11 )
+        {
+          v178 = *(_DWORD *)(gpsi + 2056LL);
+          v179 = a2 != 0;
+          *(_DWORD *)(gpsi + 2056LL) = v179;
+          TraceLoggingSPISetMenuDropAlignmentEvent(v178, v179);
+        }
+        goto LABEL_68;
+      }
+      if ( (_DWORD)v5 != 34 )
+      {
+        switch ( (_DWORD)v5 )
+        {
+          case '#':
+            *(_DWORD *)Src = 1;
+            goto LABEL_68;
+          case '$':
+LABEL_68:
+            v21 = v180;
+LABEL_69:
+            v22 = v181;
+            goto LABEL_70;
+          case '%':
+            if ( (unsigned int)CheckDesktopPolicy(0LL, 107LL) )
+            {
+              v9 = 0;
+              v11 = 0;
+            }
+            if ( v9 )
+            {
+              updated = UpdateWinIniInt(0LL, 4LL, 107LL, a2 == 1);
+              v11 = updated;
+            }
+            if ( v11 )
+            {
+              v120 = a2 == 1;
+              v21 = v180;
+              if ( v120 )
                 gdwPUDFlags |= 0x100000u;
               else
                 gdwPUDFlags &= ~0x100000u;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x26u:
-              *(_DWORD *)Src = (gdwPUDFlags >> 20) & 1;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x29u:
-              if ( !Src )
+              goto LABEL_69;
+            }
+            goto LABEL_68;
+          case '&':
+            v40 = gdwPUDFlags >> 20;
+            goto LABEL_109;
+          case ')':
+            if ( Src )
+            {
+              GetWindowNCMetrics(Src, 2LL, v12, CurrentProcessWin32Process);
+              goto LABEL_68;
+            }
+            return 0LL;
+        }
+        if ( (_DWORD)v5 != 42 )
+          goto LABEL_771;
+        goto LABEL_274;
+      }
+      if ( Src )
+      {
+        if ( a2 != 92 )
+          return 0LL;
+      }
+      else if ( a2 )
+      {
+        return 0LL;
+      }
+      v73 = (struct _UNICODE_STRING *)CreateProfileUserName(&v188);
+      v74 = xxxSetSPIMetrics(v73, 0x22u, Src, v9, &v183);
+      FreeProfileUserName(v73, &v188);
+      if ( v74 )
+      {
+        updated = v183;
+        v21 = v180;
+        v22 = v181;
+        if ( v9 )
+          v11 = v183;
+        goto LABEL_70;
+      }
+      v11 = 0;
+LABEL_294:
+      updated = v183;
+      goto LABEL_68;
+    }
+    if ( (unsigned int)v5 <= 0x48 )
+    {
+      if ( (_DWORD)v5 == 72 )
+      {
+        v115 = Src;
+        if ( !Src || a2 != 8 )
+          return 0LL;
+        *(_DWORD *)Src = 8;
+        v115[1] = *((_WORD *)&gdwPUDFlags + 1) & 1;
+        goto LABEL_68;
+      }
+      if ( (unsigned int)v5 <= 0x39 )
+      {
+        switch ( (_DWORD)v5 )
+        {
+          case '9':
+            if ( v9 )
+            {
+              RtlStringCchPrintfW(v211, 0x28uLL, (size_t *)L"%d", a2 == 1);
+              updated = FastWriteProfileStringW(0LL, 20LL, L"On", v211);
+              v11 = updated;
+            }
+            if ( v11 )
+            {
+              if ( a2 == 1 )
+                gdwPUDFlags |= 0x8000u;
+              else
+                gdwPUDFlags &= ~0x8000u;
+              SetAccessEnabledFlag();
+              *(_DWORD *)(gpsi + 2176LL) = (gdwPUDFlags >> 15) & 1;
+            }
+            goto LABEL_68;
+          case ',':
+            goto LABEL_274;
+          case '-':
+            v96 = Src;
+            *(_DWORD *)Src = 108;
+            v97 = GetDpiForSystem(v15);
+            v96[1] = GetDpiDependentMetric(18LL, v97);
+            v99 = GetDpiForSystem(v98);
+            v96[2] = GetDpiDependentMetric(19LL, v99);
+            v100 = (gdwPUDFlags >> 21) & 1;
+            v96[3] = v100;
+            DPIMetrics = GetDPIMetrics(v100, v101, v102, v103);
+            v71 = (char *)(v96 + 4);
+LABEL_245:
+            GreExtGetObjectW(*(HSURF *)(DPIMetrics + 64), 92LL, v71);
+            goto LABEL_68;
+          case '.':
+LABEL_274:
+            v72 = xxxSetSPIMetrics(0LL, v5, Src, v9, &v183);
+            updated = v183;
+            if ( v72 )
+            {
+              if ( v9 )
+                v11 = v183;
+            }
+            else
+            {
+              v11 = 0;
+            }
+            RtlLoadStringOrError(135LL, v212, 40LL);
+            goto LABEL_68;
+          case '/':
+            v201 = 0LL;
+            if ( Src )
+            {
+              if ( *((_DWORD *)Src + 2) < *(_DWORD *)Src || *((_DWORD *)Src + 3) < *((_DWORD *)Src + 1) )
                 return 0LL;
-              GetWindowNCMetrics(Src, v8, v7, 1LL);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x2Au:
-            case 0x2Cu:
-            case 0x2Eu:
-            case 0x49u:
-              v82 = xxxSetSPIMetrics(0LL, v5, Src, v11, &v175);
-              updated = v175;
-              if ( v82 )
+              v86 = MonitorFromRect((struct tagRECT *)Src, 1u, 0);
+            }
+            else
+            {
+              v86 = *(_QWORD *)(GetDispInfo(v15, 2LL) + 96);
+            }
+            v190 = v86;
+            v203 = *GetMonitorRect(&v197, v86);
+            v87 = (int *)&v203;
+            if ( Src )
+              v87 = (int *)Src;
+            if ( !(unsigned int)IntersectRect(&v201, v87, (int *)&v203) || v201 != *(_OWORD *)v87 )
+              goto LABEL_5;
+            v210 = *GetMonitorWorkRect(&v198, v190);
+            if ( v210 != v201 )
+            {
+              v89 = 0LL;
+              if ( a2 )
               {
-                if ( v11 )
-                  PointerDeviceSettingsFull = v175;
+                v89 = SnapshotMonitorRects();
+                if ( !v89 )
+                  return 0LL;
+              }
+              if ( (W32GetCurrentThreadDpiAwarenessContext(v88) & 0xF) != 2
+                && *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456)
+                && (v90 = **(_QWORD **)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456) + 8LL),
+                    (*(_DWORD *)(v90 + 64) & 1) != 0) )
+              {
+                v91 = *(_QWORD *)(v190 + 40);
+                CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(v90);
+                LogicalToPhysicalDPIRect(v91 + 44, &v201, CurrentThreadDpiAwarenessContext, &v190);
               }
               else
               {
-                PointerDeviceSettingsFull = 0;
+                v93 = v190;
+                *(_QWORD *)(*(_QWORD *)(v190 + 40) + 44LL) = v201;
+                *(_DWORD *)(*(_QWORD *)(v93 + 40) + 52LL) = DWORD2(v201);
+                v94 = *(_QWORD *)(v93 + 40);
+                *(_DWORD *)(v94 + 56) = HIDWORD(v201);
               }
-              RtlLoadStringOrError(135LL, v202);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x2Bu:
-              v16 = (__int64)Src;
-              *(_DWORD *)Src = 20;
-              *(_DWORD *)(v16 + 4) = *(_DWORD *)(gpsi + 2124LL) - 6;
-              *(_DWORD *)(v16 + 8) = *(_DWORD *)(gpsi + 2084LL) - *(_DWORD *)(gpsi + 2124LL);
-              *(_DWORD *)(v16 + 12) = *(_DWORD *)(gpsi + 2088LL) - *(_DWORD *)(gpsi + 2128LL);
-              *(_DWORD *)(v16 + 16) = *(_DWORD *)(gpsi + 2120LL);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x2Du:
-              v75 = Src;
-              *(_DWORD *)Src = 108;
-              v76 = GetDpiForSystem(v15, v8);
-              v75[1] = GetDpiDependentMetric(18LL, v76);
-              v79 = GetDpiForSystem(v78, v77);
-              v75[2] = GetDpiDependentMetric(19LL, v79);
-              v80 = (gdwPUDFlags >> 21) & 1;
-              v75[3] = v80;
-              v81 = GetDPIMetrics(v80);
-              GreExtGetObjectW(*(HBRUSH *)(v81 + 64), 92LL, (__int64)(v75 + 4));
-              v19 = v12;
-              goto LABEL_693;
-            case 0x2Fu:
-              v197 = 0LL;
-              if ( Src )
+              DispInfo = GetDispInfo(v94, v93);
+              if ( v190 == *(_QWORD *)(DispInfo + 96) )
+                UpdateDesktopThresholds();
+              if ( a2 )
               {
-                if ( *((_DWORD *)Src + 2) < *(_DWORD *)Src || *((_DWORD *)Src + 3) < *((_DWORD *)Src + 1) )
-                  return 0LL;
-                v84 = MonitorFromRect(Src, 1LL);
+                v193 = 0LL;
+                v194 = 0LL;
+                PushW32ThreadLock(v89, &v193, (__int64)Win32FreePool);
+                xxxDesktopRecalc(*(ShellWindowManagement **)(gptiCurrent + 456LL));
+                PopAndFreeAlwaysW32ThreadLock((__int64)&v193);
               }
-              else
-              {
-                v84 = *(_QWORD *)(GetDispInfo(v15) + 96);
-              }
-              v178 = (__int64 *)v84;
-              v198 = *(_OWORD *)GetMonitorRect(v179, v84);
-              v85 = &v198;
-              if ( Src )
-                v85 = (__int128 *)Src;
-              if ( !(unsigned int)IntersectRect(&v197, v85, &v198) || v197 != *v85 )
-                goto LABEL_253;
-              v199 = *(struct tagRECT *)GetMonitorWorkRect(v196, v178);
-              if ( *(_OWORD *)&v199 != v197 )
-              {
-                _InterlockedIncrement((volatile signed __int32 *)qword_1C035E338);
-                v87 = qword_1C035E338;
-                if ( !qword_1C035E338 )
-                  return 0LL;
-                v175 = 1;
-                if ( (W32GetCurrentThreadDpiAwarenessContext(v86) & 0xF) != 2 )
-                {
-                  if ( *((_QWORD *)PtiCurrentShared() + 57) )
-                  {
-                    v90 = **(_QWORD **)(*((_QWORD *)PtiCurrentShared() + 57) + 8LL);
-                    if ( (*(_DWORD *)(v90 + 64) & 1) != 0 )
-                    {
-                      CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(v90);
-                      LogicalToPhysicalDPIRect(&v197, &v197, CurrentThreadDpiAwarenessContext, &v178);
-                    }
-                  }
-                }
-                v92 = v178;
-                v93 = v178[5];
-                v194 = *(_OWORD *)(v93 + 44);
-                v195 = *(_OWORD *)(v93 + 28);
-                if ( (unsigned int)dword_1C0359080 > 4 && tlgKeywordOn((__int64)&dword_1C0359080, 32LL) )
-                {
-                  LOBYTE(v9) = a2 != 0;
-                  v182 = (int)v9;
-                  v177 = *((_QWORD *)&v197 + 1);
-                  v187 = DWORD1(v197);
-                  v188 = v197;
-                  v189 = HIDWORD(v194);
-                  v190 = DWORD2(v194);
-                  v191 = DWORD1(v194);
-                  v192 = v194;
-                  LODWORD(v183) = HIDWORD(v195);
-                  v184 = DWORD2(v195);
-                  v185 = DWORD1(v195);
-                  LODWORD(v186) = v195;
-                  v193 = *v92;
-                  _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-                    (unsigned int)&dword_1C0359080,
-                    (unsigned int)&unk_1C031BA93,
-                    v89,
-                    (_DWORD)v92,
-                    (__int64)&v193,
-                    (__int64)&v186,
-                    (__int64)&v185,
-                    (__int64)&v184,
-                    (__int64)&v183,
-                    (__int64)&v192,
-                    (__int64)&v191,
-                    (__int64)&v190,
-                    (__int64)&v189,
-                    (__int64)&v188,
-                    (__int64)&v187,
-                    (__int64)&v177,
-                    (__int64)&v177 + 4,
-                    (__int64)&v182);
-                  v92 = v178;
-                }
-                *(_OWORD *)(v92[5] + 44) = v197;
-                LOBYTE(v88) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                           && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) != 0
-                           && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-                if ( (_BYTE)v88 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                {
-                  LOBYTE(v89) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-                  WPP_RECORDER_AND_TRACE_SF_dddddddd(
-                    WPP_GLOBAL_Control->AttachedDevice,
-                    v88,
-                    v89,
-                    (_DWORD)gFullLog,
-                    (_DWORD)p_Src,
-                    7,
-                    10,
-                    (__int64)&WPP_de8dbbd74b6f3353e3dc754537999fe8_Traceguids,
-                    *(_DWORD *)(v178[5] + 44),
-                    *(_DWORD *)(v178[5] + 48),
-                    *(_DWORD *)(v178[5] + 52),
-                    *(_DWORD *)(v178[5] + 56),
-                    v197,
-                    SBYTE4(v197),
-                    SBYTE8(v197),
-                    SBYTE12(v197));
-                }
-                CTopologyManager::UpdateCurrent();
-                DispInfo = GetDispInfo(v94);
-                if ( v178 == *(__int64 **)(DispInfo + 96) && *(_DWORD *)*gpDispInfo )
-                  UpdateDesktopMonitorNavigationOrder();
-                if ( a2 )
-                {
-                  LOBYTE(v96) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                             && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) != 0
-                             && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-                  if ( (_BYTE)v96 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                  {
-                    LOBYTE(v97) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-                    WPP_RECORDER_AND_TRACE_SF_(
-                      WPP_GLOBAL_Control->AttachedDevice,
-                      (_DWORD)v96,
-                      v97,
-                      v16,
-                      4,
-                      7,
-                      11,
-                      (__int64)&WPP_de8dbbd74b6f3353e3dc754537999fe8_Traceguids);
-                  }
-                  DesktopRecalc::OnWorkAreaChanged(v87, v96);
-                }
-                else
-                {
-                  LOBYTE(v96) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                             && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) != 0
-                             && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-                  if ( (_BYTE)v96 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-                  {
-                    LOBYTE(v97) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-                    WPP_RECORDER_AND_TRACE_SF_(
-                      WPP_GLOBAL_Control->AttachedDevice,
-                      (_DWORD)v96,
-                      v97,
-                      v16,
-                      3,
-                      7,
-                      12,
-                      (__int64)&WPP_de8dbbd74b6f3353e3dc754537999fe8_Traceguids);
-                  }
-                }
-                if ( _InterlockedExchangeAdd((volatile signed __int32 *)v87, 0xFFFFFFFF) == 1 )
-                  Win32FreePool(v87);
-                updated = v175;
-              }
-              PointerDeviceSettingsFull = 1;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x30u:
-              v83 = GetDispInfo(v15);
-              *(_OWORD *)Src = *(_OWORD *)GetMonitorWorkRect(&v199, *(_QWORD *)(v83 + 96));
-              v19 = v12;
-              goto LABEL_693;
-            case 0x36u:
-              v104 = Src;
-              if ( a2 && a2 != 28 || !Src || *(_DWORD *)Src != 28 )
-                return 0LL;
-              memmove((char *)Src + 4, (char *)&gMouseKeys + 4, 0x18uLL);
-              v105 = *((_DWORD *)Src + 1) & 0x4CFFFFFF;
-              *((_DWORD *)Src + 1) = v105;
-              if ( gbMKMouseMode )
-              {
-                v105 |= 0x80000000;
-                v104[1] = v105;
-              }
-              v106 = v105 | ((gwMKButtonState & 3) << 24);
-              v104[1] = v106;
-              v104[1] = v106 | ((gwMKCurrentButton & 3) << 28);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x37u:
-              v107 = (struct tagMOUSEKEYS *)Src;
-              if ( a2 && a2 != 28 )
-                return 0LL;
-              if ( !Src )
-                return 0LL;
-              if ( *(_DWORD *)Src != 28 )
-                return 0LL;
-              v108 = *((_DWORD *)Src + 1) & 0x4CFFFFFF;
-              *((_DWORD *)Src + 1) = v108;
-              if ( (unsigned __int8)v108 != v108 )
-                return 0LL;
-              v109 = v108 & 0xFFFFFFFD;
-              v110 = v108 | 2;
-              if ( (HIDWORD(gMouseKeys) & 2) == 0 )
-                v110 = v109;
-              *((_DWORD *)v107 + 1) = v110;
-              if ( (unsigned int)(*((_DWORD *)v107 + 2) - 10) > 0x15E
-                || (unsigned int)(*((_DWORD *)v107 + 3) - 1000) > 0xFA0 )
-              {
-                return 0LL;
-              }
-              if ( v11 )
-              {
-                v111 = (struct _UNICODE_STRING *)CreateProfileUserName(&v180);
-                updated = SetMouseKeys(v111, v107);
-                PointerDeviceSettingsFull = updated;
-                if ( !updated )
-                  SetMouseKeys(v111, gMouseKeys);
-                FreeProfileUserName(v111, &v180);
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              memmove(gMouseKeys, v107, *(unsigned int *)v107);
+              updated = 1;
+            }
+            goto LABEL_363;
+        }
+        if ( (_DWORD)v5 != 48 )
+        {
+          if ( (_DWORD)v5 == 54 )
+          {
+            if ( a2 && a2 != 28 )
+              return 0LL;
+            v81 = (char *)Src;
+            if ( !Src || *(_DWORD *)Src != 28 )
+              return 0LL;
+            *(_OWORD *)((char *)Src + 4) = *(_OWORD *)((char *)&gMouseKeys + 4);
+            *(struct tagMOUSEKEYS **)(v81 + 20) = *(struct tagMOUSEKEYS *const *)((char *)&gMouseKeys + 20);
+            v82 = *((_DWORD *)v81 + 1) & 0x4CFFFFFF;
+            *((_DWORD *)v81 + 1) = v82;
+            if ( gbMKMouseMode )
+            {
+              v82 |= 0x80000000;
+              *((_DWORD *)v81 + 1) = v82;
+            }
+            v83 = v82 | ((gwMKButtonState & 3) << 24);
+            *((_DWORD *)v81 + 1) = v83;
+            *((_DWORD *)v81 + 1) = v83 | ((gwMKCurrentButton & 3) << 28);
+            goto LABEL_68;
+          }
+          if ( (_DWORD)v5 == 55 )
+          {
+            v76 = (struct tagMOUSEKEYS *)Src;
+            if ( a2 && a2 != 28 )
+              return 0LL;
+            if ( !Src )
+              return 0LL;
+            if ( *(_DWORD *)Src != 28 )
+              return 0LL;
+            v77 = *((_DWORD *)Src + 1) & 0x4CFFFFFF;
+            *((_DWORD *)Src + 1) = v77;
+            if ( (unsigned __int8)v77 != v77 )
+              return 0LL;
+            v78 = (HIDWORD(gMouseKeys) & 2) != 0 ? v77 | 2 : v77 & 0xFFFFFFFD;
+            *((_DWORD *)v76 + 1) = v78;
+            if ( (unsigned int)(*((_DWORD *)v76 + 2) - 10) > 0x15E
+              || (unsigned int)(*((_DWORD *)v76 + 3) - 1000) > 0xFA0 )
+            {
+              return 0LL;
+            }
+            if ( v9 )
+            {
+              v79 = (struct _UNICODE_STRING *)CreateProfileUserName(&v188);
+              updated = SetMouseKeys(v79, v76);
+              v11 = updated;
+              if ( !updated )
+                SetMouseKeys(v79, gMouseKeys);
+              FreeProfileUserName(v79, &v188);
+            }
+            if ( v11 )
+            {
+              memmove(gMouseKeys, v76, *(unsigned int *)v76);
               LODWORD(gMouseKeys) = 28;
               CalculateMouseTable();
-              v112 = HIDWORD(gMouseKeys);
-              if ( (v112 & 1) != 0 )
+              v80 = HIDWORD(gMouseKeys);
+              if ( (v80 & 1) != 0 )
               {
-                v113 = SGDGetUserSessionState(v112);
-                v115 = *(_WORD *)(SGDGetUserSessionState(v114) + 13768);
-                LOBYTE(v9) = ((unsigned __int8)(1 << (2 * (*(_WORD *)(SGDGetUserSessionState(v116) + 13768) & 3) + 1)) & *(_BYTE *)(((unsigned __int64)(unsigned __int8)v115 >> 2) + v113 + 13992)) != 0;
-                gbMKMouseMode = ((HIDWORD(gMouseKeys) >> 7) & 1) != (_DWORD)v9;
+                gbMKMouseMode = ((v80 >> 7) & 1) != (((unsigned __int8)(1 << (2 * (gNumLockVk & 3) + 1)) & gafAsyncKeyState[(unsigned __int64)gNumLockVk >> 2]) != 0);
                 MKShowMouseCursor();
               }
               else
@@ -1296,1111 +1345,1167 @@ LABEL_105:
               SetAccessEnabledFlag();
               if ( ((*(_DWORD *)(gptiCurrent + 680LL) | *(_DWORD *)(**(_QWORD **)(gptiCurrent + 464LL) + 16LL)) & 0x800) != 0 )
                 xxxCallHook(11, 3uLL, 0LL, 10);
-              PostShellHookMessagesEx(0xBuLL, 3LL, 0LL);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x38u:
-              *(_DWORD *)Src = (gdwPUDFlags >> 15) & 1;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x39u:
-              if ( v11 )
-              {
-                LOBYTE(v9) = a2 == 1;
-                RtlStringCchPrintfW(v201, 0x28uLL, L"%d", (unsigned int)v9);
-                updated = FastWriteProfileStringW(0LL, 20LL, L"On", v201);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              if ( a2 == 1 )
-                gdwPUDFlags |= 0x8000u;
-              else
-                gdwPUDFlags &= ~0x8000u;
-              SetAccessEnabledFlag();
-              *(_DWORD *)(gpsi + 2176LL) = (gdwPUDFlags >> 15) & 1;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x40u:
-              if ( a2 && a2 != 56 || !Src || *(_DWORD *)Src != 56 )
-                return 0LL;
-              memmove((char *)Src + 4, (char *)&gSoundSentry + 4, 0x34uLL);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x41u:
-              v123 = (struct tagSOUNDSENTRYW *)Src;
-              if ( a2 && a2 != 56 )
-                return 0LL;
-              if ( !Src )
-                return 0LL;
-              if ( *(_DWORD *)Src != 56 )
-                return 0LL;
-              v124 = *((_DWORD *)Src + 1);
-              if ( (v124 & 7) != v124 || *((_DWORD *)Src + 8) > 3u || *((_DWORD *)Src + 2) || *((_DWORD *)Src + 5) )
-                return 0LL;
-              v125 = v124 & 0xFFFFFFFD;
-              v126 = v124 | 2;
-              if ( (HIDWORD(gSoundSentry) & 2) == 0 )
-                v126 = v125;
-              *((_DWORD *)Src + 1) = v126;
-              if ( v11 )
-              {
-                v127 = (struct _UNICODE_STRING *)CreateProfileUserName(&v180);
-                updated = SetSoundSentry(v127, v123);
-                PointerDeviceSettingsFull = updated;
-                if ( !updated )
-                  SetSoundSentry(v127, gSoundSentry);
-                FreeProfileUserName(v127, &v180);
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              memmove(gSoundSentry, v123, *(unsigned int *)v123);
-              LODWORD(gSoundSentry) = 56;
-              SetAccessEnabledFlag();
-              v19 = v12;
-              goto LABEL_693;
-            case 0x42u:
-              v117 = Src;
-              *((_DWORD *)Src + 1) = gHighContrast[1];
-              v118 = (_OWORD *)v117[1];
-              v119 = gHighContrastDefaultScheme;
-              do
-              {
-                *v118 = *(_OWORD *)v119;
-                v118[1] = *((_OWORD *)v119 + 1);
-                v118[2] = *((_OWORD *)v119 + 2);
-                v118[3] = *((_OWORD *)v119 + 3);
-                v118[4] = *((_OWORD *)v119 + 4);
-                v118[5] = *((_OWORD *)v119 + 5);
-                v118[6] = *((_OWORD *)v119 + 6);
-                v118 += 8;
-                *(v118 - 1) = *((_OWORD *)v119 + 7);
-                v119 += 64;
-                --v18;
-              }
-              while ( v18 );
-              v120 = v173;
-              v19 = v12;
-              goto LABEL_694;
-            case 0x43u:
-              updated = SetHighContrastWorker((struct tagINTERNALSETHIGHCONTRAST *)Src, v11, &v176);
-              v19 = v12;
-              PointerDeviceSettingsFull = v176;
-              goto LABEL_693;
-            case 0x44u:
-              *(_DWORD *)Src = (gdwPUDFlags >> 17) & 1;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x45u:
-              if ( v11 )
-              {
-                v121 = L"1";
-                if ( !a2 )
-                  v121 = L"0";
-                updated = FastWriteProfileStringW(0LL, 27LL, L"On", v121);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              if ( a2 )
-                gdwPUDFlags |= 0x20000u;
-              else
+              PostShellHookMessagesEx(0xBu, 3LL, 0LL);
+            }
+            goto LABEL_68;
+          }
+          if ( (_DWORD)v5 != 56 )
+            goto LABEL_771;
+          v40 = gdwPUDFlags >> 15;
+          goto LABEL_109;
+        }
+        v84 = GetDispInfo(v15, 2LL);
+        MonitorWorkRect = GetMonitorWorkRect(&v196, *(_QWORD *)(v84 + 96));
+LABEL_340:
+        *(_OWORD *)Src = *MonitorWorkRect;
+        goto LABEL_68;
+      }
+      switch ( (_DWORD)v5 )
+      {
+        case '@':
+          if ( a2 && a2 != 56 )
+            return 0LL;
+          v114 = (char *)Src;
+          if ( !Src || *(_DWORD *)Src != 56 )
+            return 0LL;
+          *(_OWORD *)((char *)Src + 4) = *(_OWORD *)((char *)&gSoundSentry + 4);
+          *(_OWORD *)(v114 + 20) = *(_OWORD *)((char *)&gSoundSentry + 20);
+          *(_OWORD *)(v114 + 36) = *(_OWORD *)((char *)&gSoundSentry + 36);
+          *((_DWORD *)v114 + 13) = *((_DWORD *)&gSoundSentry + 13);
+          goto LABEL_68;
+        case 'A':
+          v109 = (struct tagSOUNDSENTRYW *)Src;
+          if ( a2 && a2 != 56 )
+            return 0LL;
+          if ( !Src )
+            return 0LL;
+          if ( *(_DWORD *)Src != 56 )
+            return 0LL;
+          v110 = *((_DWORD *)Src + 1);
+          if ( (v110 & 7) != v110 || *((_DWORD *)Src + 8) > 3u || *((_DWORD *)Src + 2) || *((_DWORD *)Src + 5) )
+            return 0LL;
+          v111 = v110 & 0xFFFFFFFD;
+          v112 = v110 | 2;
+          if ( (HIDWORD(gSoundSentry) & 2) == 0 )
+            v112 = v111;
+          *((_DWORD *)Src + 1) = v112;
+          if ( v9 )
+          {
+            v113 = (struct _UNICODE_STRING *)CreateProfileUserName(&v188);
+            updated = SetSoundSentry(v113, v109);
+            v11 = updated;
+            if ( !updated )
+              SetSoundSentry(v113, gSoundSentry);
+            FreeProfileUserName(v113, &v188);
+          }
+          if ( v11 )
+          {
+            memmove(gSoundSentry, v109, *(unsigned int *)v109);
+            LODWORD(gSoundSentry) = 56;
+            SetAccessEnabledFlag();
+          }
+          goto LABEL_68;
+        case 'B':
+          v106 = Src;
+          *((_DWORD *)Src + 1) = gHighContrast[1];
+          v107 = (_OWORD *)v106[1];
+          v108 = gHighContrastDefaultScheme;
+          do
+          {
+            *v107 = *(_OWORD *)v108;
+            v107[1] = *((_OWORD *)v108 + 1);
+            v107[2] = *((_OWORD *)v108 + 2);
+            v107[3] = *((_OWORD *)v108 + 3);
+            v107[4] = *((_OWORD *)v108 + 4);
+            v107[5] = *((_OWORD *)v108 + 5);
+            v107[6] = *((_OWORD *)v108 + 6);
+            v107 += 8;
+            *(v107 - 1) = *((_OWORD *)v108 + 7);
+            v108 += 64;
+            --v10;
+          }
+          while ( v10 );
+          v21 = v180;
+          v22 = v181;
+          goto LABEL_70;
+      }
+      if ( (_DWORD)v5 != 67 )
+      {
+        switch ( (_DWORD)v5 )
+        {
+          case 'D':
+            v40 = gdwPUDFlags >> 17;
+            break;
+          case 'E':
+            if ( v9 )
+            {
+              v105 = L"1";
+              if ( !a2 )
+                v105 = L"0";
+              updated = FastWriteProfileStringW(0LL, 27LL, L"On", v105);
+              v11 = updated;
+            }
+            if ( v11 )
+            {
+              v120 = a2 == 0;
+              v21 = v180;
+              if ( v120 )
                 gdwPUDFlags &= ~0x20000u;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x46u:
-              *(_DWORD *)Src = (gdwPUDFlags >> 18) & 1;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x47u:
-              if ( v11 )
-              {
-                v122 = L"1";
-                if ( !a2 )
-                  v122 = L"0";
-                updated = FastWriteProfileStringW(0LL, 28LL, L"On", v122);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              if ( a2 )
-                gdwPUDFlags |= 0x40000u;
               else
+                gdwPUDFlags |= 0x20000u;
+              goto LABEL_69;
+            }
+            goto LABEL_68;
+          case 'F':
+            v40 = gdwPUDFlags >> 18;
+            break;
+          case 'G':
+            if ( v9 )
+            {
+              v104 = L"1";
+              if ( !a2 )
+                v104 = L"0";
+              updated = FastWriteProfileStringW(0LL, 28LL, L"On", v104);
+              v11 = updated;
+            }
+            if ( v11 )
+            {
+              v120 = a2 == 0;
+              v21 = v180;
+              if ( v120 )
                 gdwPUDFlags &= ~0x40000u;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x48u:
-              v74 = Src;
-              if ( !Src || a2 != 8 )
-                return 0LL;
-              *(_DWORD *)Src = 8;
-              v74[1] = *((_WORD *)&gdwPUDFlags + 1) & 1;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x4Au:
-              *(_DWORD *)Src = (*((_DWORD *)Gre::Base::Globals(v15) + 41) >> 1) & 1;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x4Bu:
-              if ( (unsigned int)CheckDesktopPolicy(0LL, 200LL) )
-              {
-                v11 = 0;
-                PointerDeviceSettingsFull = 0;
-              }
-              v37 = a2 != 0 ? 2 : 0;
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 4LL, 200LL, v37);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              GreSetFontEnumeration(v37 | 4);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x4Cu:
-              if ( (unsigned int)CheckDesktopPolicy(0LL, 198LL) )
-              {
-                v11 = 0;
-                PointerDeviceSettingsFull = 0;
-              }
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 4LL, 198LL, a2);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
+              else
+                gdwPUDFlags |= 0x40000u;
+              goto LABEL_69;
+            }
+            goto LABEL_68;
+          default:
+            goto LABEL_771;
+        }
+        goto LABEL_109;
+      }
+      updated = SetHighContrastWorker((struct tagINTERNALSETHIGHCONTRAST *)Src, v9, &v184);
+LABEL_399:
+      v11 = v184;
+      goto LABEL_68;
+    }
+    if ( (unsigned int)v5 <= 0x5A )
+    {
+      if ( (_DWORD)v5 == 90 )
+      {
+        v118 = HKLtoPKL(gptiCurrent, *(_QWORD *)Src, v12, CurrentProcessWin32Process);
+        if ( !v118 )
+          return 0LL;
+        if ( v11 )
+        {
+          *(_QWORD *)&v192 = gspklBaseLayout;
+          *((_QWORD *)&v192 + 1) = v118;
+          v195 = v192;
+          HMAssignmentLock(&v195);
+        }
+        goto LABEL_68;
+      }
+      if ( (_DWORD)v5 == 73 )
+        goto LABEL_274;
+      if ( (_DWORD)v5 != 74 )
+      {
+        switch ( (_DWORD)v5 )
+        {
+          case 'K':
+            if ( (unsigned int)CheckDesktopPolicy(0LL, 200LL) )
+            {
+              v9 = 0;
+              v11 = 0;
+            }
+            v116 = a2 != 0 ? 2 : 0;
+            if ( v9 )
+            {
+              updated = UpdateWinIniInt(0LL, 4LL, 200LL, v116);
+              v11 = updated;
+            }
+            if ( v11 )
+              GreSetFontEnumeration(v116 | 4);
+            goto LABEL_68;
+          case 'L':
+            if ( (unsigned int)CheckDesktopPolicy(0LL, 198LL) )
+            {
+              v9 = 0;
+              v11 = 0;
+            }
+            if ( v9 )
+            {
+              updated = UpdateWinIniInt(0LL, 4LL, 198LL, a2);
+              v11 = updated;
+            }
+            if ( v11 )
               *(_DWORD *)(gpsi + 2168LL) = a2;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x4Du:
-              if ( (unsigned int)CheckDesktopPolicy(0LL, 199LL) )
-              {
-                v11 = 0;
-                PointerDeviceSettingsFull = 0;
-              }
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 4LL, 199LL, a2);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
+            goto LABEL_68;
+          case 'M':
+            if ( (unsigned int)CheckDesktopPolicy(0LL, 199LL) )
+            {
+              v9 = 0;
+              v11 = 0;
+            }
+            if ( v9 )
+            {
+              updated = UpdateWinIniInt(0LL, 4LL, 199LL, a2);
+              v11 = updated;
+            }
+            if ( v11 )
               *(_DWORD *)(gpsi + 2172LL) = a2;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x57u:
-              v67 = CreateProfileUserName(&v180);
-              xxxUpdateSystemCursorsFromRegistry(v67, 2u);
-              goto LABEL_247;
-            case 0x58u:
-              v67 = CreateProfileUserName(&v180);
-              xxxUpdateSystemIconsFromRegistry(v67);
-              goto LABEL_247;
-            case 0x59u:
-              if ( !gspklBaseLayout )
-              {
-                UserSetLastError(21LL);
-                return 0LL;
-              }
-              *(_QWORD *)Src = *(_QWORD *)(gspklBaseLayout + 40LL);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x5Au:
-              v43 = HKLtoPKL(gptiCurrent, *(_QWORD *)Src, v7, 1LL);
-              if ( !v43 )
-                return 0LL;
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              *(_QWORD *)&v198 = gspklBaseLayout;
-              *((_QWORD *)&v198 + 1) = v43;
-              HMAssignmentLock(&v198, 0LL);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x5Bu:
-              return GetKbdLangSwitch(0LL, v8, v7, 1LL);
-            case 0x5Du:
-              if ( v11 )
-              {
-                RtlStringCchPrintfW(v201, 0x28uLL, L"%d", a2);
-                updated = FastUpdateWinIni(0LL, 12LL, 613LL, v201);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              SetMouseTrails(a2, v8, v7, v16);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x5Eu:
-              if ( *(_DWORD *)(SGDGetUserSessionState(v15) + 15936) )
-                *(_DWORD *)Src = *(_DWORD *)(SGDGetUserSessionState(v20) + 15936) + 1;
-              else
-                *(_DWORD *)Src = *(_DWORD *)(SGDGetUserSessionState(v20) + 15936);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x5Fu:
-              *(_DWORD *)Src = (*(_DWORD *)(gpsi + 7004LL) >> 1) & 1;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x60u:
-              if ( v11 )
-              {
-                LOBYTE(v9) = a2 != 0;
-                updated = UpdateWinIniInt(0LL, 12LL, 7LL, (unsigned int)v9);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_78;
-              if ( a2 )
-              {
-                *(_DWORD *)(gpsi + 7004LL) |= 2u;
-                v19 = v12;
-              }
-              else
-              {
-                *(_DWORD *)(gpsi + 7004LL) &= ~2u;
-LABEL_78:
-                v19 = v12;
-              }
-              goto LABEL_693;
-            case 0x62u:
-              *(_DWORD *)Src = *(_DWORD *)(SGDGetUserSessionState(v15) + 15916);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x63u:
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 12LL, 91LL, a2);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              *(_DWORD *)(SGDGetUserSessionState(v15) + 15916) = a2;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x64u:
-              *(_DWORD *)Src = *(_DWORD *)(SGDGetUserSessionState(v15) + 15920);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x65u:
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 12LL, 92LL, a2);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              *(_DWORD *)(SGDGetUserSessionState(v15) + 15920) = a2;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x66u:
-              *(_DWORD *)Src = *(_DWORD *)(SGDGetUserSessionState(v15) + 15924);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x67u:
-              v128 = 10;
-              if ( a2 >= 0xA )
-                v128 = a2;
-              if ( v128 > 0x7FFFFFFF )
-                v128 = 0x7FFFFFFF;
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 12LL, 93LL, v128);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              *(_DWORD *)(SGDGetUserSessionState(v15) + 15924) = v128;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x6Au:
-              *(_DWORD *)Src = gdtMNDropDown;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x6Bu:
-              if ( (unsigned int)CheckDesktopPolicy(0LL, 94LL) )
-              {
-                v11 = 0;
-                PointerDeviceSettingsFull = 0;
-              }
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 4LL, 94LL, a2);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              gdtMNDropDown = a2;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x6Cu:
-              *(_DWORD *)Src = *(_DWORD *)(gpsi + 4992LL);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x6Du:
-              if ( (unsigned int)CheckDesktopPolicy(0LL, 15LL) )
-              {
-                v11 = 0;
-                PointerDeviceSettingsFull = 0;
-              }
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 4LL, 15LL, a2);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              *(_DWORD *)(gpsi + 4992LL) = a2;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x6Eu:
-              LOBYTE(v9) = *(_DWORD *)(SGDGetUserSessionState(v15) + 13960) != 0;
-              *(_DWORD *)Src = (_DWORD)v9;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x6Fu:
-              LOBYTE(v9) = a2 != 0;
-              PointerDeviceSettingsFull = xxxSetIMEShowStatus((int)v9, v11, &v175);
-              v19 = v12;
-              updated = v175;
-              goto LABEL_693;
-            case 0x70u:
-              *(_DWORD *)Src = GetMouseSensitivity(0LL, v8, v7, 1LL);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x71u:
-              if ( !(unsigned __int8)IsValidMouseSensitivity((unsigned int)Src, v8, v7, 1LL) )
-                return 0LL;
-              if ( v11 )
-              {
-                RtlStringCchPrintfW(v201, 0x28uLL, L"%d", Src);
-                updated = FastUpdateWinIni(0LL, 12LL, 608LL, v201);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              UpdateMouseSensitivity((unsigned int)Src);
-              do
-              {
-                ResetAccelerationCurves((unsigned int)v9);
-                LODWORD(v9) = (_DWORD)v9 + 1;
-              }
-              while ( (unsigned int)v9 < 2 );
-              v19 = v12;
-              goto LABEL_693;
-            case 0x72u:
-              LOBYTE(v9) = gppiScreenSaver != 0LL;
-              *(_DWORD *)Src = (_DWORD)v9;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x73u:
-              if ( g_pWallpaperSettings )
-              {
-                RtlStringCchCopyW(
-                  (unsigned __int16 *)Src,
-                  0x104uLL,
-                  (const unsigned __int16 *)(g_pWallpaperSettings + 4LL));
-                v19 = v12;
-              }
-              else
-              {
-                v67 = CreateProfileUserName(&v180);
-                LoadWallpaperFilenameFromRegistry(v67, Src, 260LL);
-LABEL_247:
-                FreeProfileUserName(v67, &v180);
-                v19 = v12;
-              }
-              goto LABEL_693;
-            case 0x74u:
-              if ( a2 && a2 != 12 || !Src || *(_DWORD *)Src != 12 )
-                return 0LL;
-              memmove((char *)Src + 4, (char *)&gAudioDescription + 4, 8uLL);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x75u:
-              if ( a2 && a2 != 12 || !Src || *(_DWORD *)Src != 12 )
-                return 0LL;
-              if ( v11 )
-              {
-                v129 = CreateProfileUserName(&v180);
-                v130 = v129;
-                v131 = L"1";
-                v132 = L"1";
-                if ( !*((_DWORD *)Src + 1) )
-                  v132 = L"0";
-                v133 = FastWriteProfileStringW(v129, 48LL, L"On", v132);
-                RtlStringCchPrintfW(v201, 0x28uLL, L"%d", *((unsigned int *)Src + 2));
-                updated = FastWriteProfileStringW(v130, 48LL, L"Locale", v201) & v133;
-                PointerDeviceSettingsFull = updated;
-                if ( !updated )
+            goto LABEL_68;
+          case 'W':
+            v54 = CreateProfileUserName(&v188);
+            xxxUpdateSystemCursorsFromRegistry(v54, 2u);
+            break;
+          case 'X':
+            v54 = CreateProfileUserName(&v188);
+            xxxUpdateSystemIconsFromRegistry(v54);
+            break;
+          case 'Y':
+            if ( !gspklBaseLayout )
+            {
+              v14 = 21LL;
+              goto LABEL_439;
+            }
+            *(_QWORD *)Src = *(_QWORD *)(gspklBaseLayout + 40LL);
+            goto LABEL_68;
+          default:
+            goto LABEL_771;
+        }
+        goto LABEL_170;
+      }
+      v117 = gulFontInformation;
+LABEL_463:
+      v40 = v117 >> 1;
+      goto LABEL_109;
+    }
+    switch ( (_DWORD)v5 )
+    {
+      case '[':
+        return GetKbdLangSwitch(0LL);
+      case ']':
+        if ( v9 )
+        {
+          RtlStringCchPrintfW(v211, 0x28uLL, (size_t *)L"%d", a2);
+          updated = FastUpdateWinIni(0LL, 12LL, 613LL, v211);
+          v11 = updated;
+        }
+        if ( v11 )
+          SetMouseTrails(a2);
+        goto LABEL_68;
+      case '^':
+        Next = LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) + 1;
+        if ( !LODWORD(WPP_MAIN_CB.DeviceQueue.Lock) )
+          Next = 0;
+        goto LABEL_75;
+    }
+    if ( (_DWORD)v5 != 95 )
+    {
+      if ( (_DWORD)v5 == 96 )
+      {
+        if ( v9 )
+        {
+          updated = UpdateWinIniInt(0LL, 12LL, 7LL, a2 != 0);
+          v11 = updated;
+        }
+        if ( v11 )
+        {
+          v22 = v181;
+          v120 = a2 == 0;
+          v21 = v180;
+          if ( v120 )
+            *(_DWORD *)(gpsi + 7004LL) &= ~2u;
+          else
+            *(_DWORD *)(gpsi + 7004LL) |= 2u;
+          goto LABEL_70;
+        }
+        goto LABEL_68;
+      }
+      if ( (_DWORD)v5 != 98 )
+      {
+        if ( v9 )
+        {
+          updated = UpdateWinIniInt(0LL, 12LL, 91LL, a2);
+          v11 = updated;
+        }
+        v22 = v181;
+        if ( v11 )
+          *((_DWORD *)&WPP_MAIN_CB.Dpc.0 + 1) = a2;
+        goto LABEL_480;
+      }
+      Next = *((_DWORD *)&WPP_MAIN_CB.Dpc.0 + 1);
+      goto LABEL_75;
+    }
+    v119 = *(_DWORD *)(gpsi + 7004LL) >> 1;
+LABEL_489:
+    v62 = v119 & 1;
+    goto LABEL_216;
+  }
+  if ( (unsigned int)v5 > 0x89 )
+  {
+    if ( (unsigned int)v5 <= 0x9C )
+    {
+      if ( (_DWORD)v5 == 156 )
+        goto LABEL_698;
+      if ( (unsigned int)v5 <= 0x94 )
+      {
+        if ( (_DWORD)v5 != 148 )
+        {
+          switch ( (_DWORD)v5 )
+          {
+            case 0x8A:
+              Next = dword_1C032FBF4;
+              goto LABEL_75;
+            case 0x8B:
+              if ( a2 > *(_DWORD *)(gpDispInfo + 136LL) || a2 < dword_1C032FBF0 || a2 < dword_1C032FBE4 )
+                goto LABEL_68;
+              UpdateThresholdFromMetric(v9, &v183, &v184, 0x16u, a2, 5);
+              goto LABEL_609;
+            case 0x8C:
+              v117 = dword_1C032FBFC;
+              goto LABEL_463;
+            case 0x8D:
+              v129 = 624;
+              v8 = 2;
+              break;
+            case 0x8E:
+              v40 = dword_1C032FBFC >> 2;
+              goto LABEL_109;
+            case 0x8F:
+              v129 = 626;
+              v8 = 4;
+              break;
+            case 0x90:
+              v40 = dword_1C032FBFC >> 3;
+              goto LABEL_109;
+            case 0x91:
+              v129 = 625;
+              v8 = 8;
+              break;
+            default:
+              goto LABEL_771;
+          }
+          goto LABEL_677;
+        }
+        goto LABEL_698;
+      }
+      if ( (_DWORD)v5 != 149 && ((_DWORD)v5 == 150 || (_DWORD)v5 != 151 && ((_DWORD)v5 == 152 || (_DWORD)v5 == 154)) )
+      {
+LABEL_698:
+        PointerDeviceSettingsFull = ReadPointerDeviceSettingsFull(
+                                      (unsigned int)v5,
+                                      Src,
+                                      v12,
+                                      CurrentProcessWin32Process);
+        goto LABEL_699;
+      }
+LABEL_697:
+      updated = WritePointerDeviceSettingsFull((unsigned int)v5, Src, v9, CurrentProcessWin32Process);
+      goto LABEL_68;
+    }
+    if ( (unsigned int)v5 > 0xA6 )
+    {
+      if ( (_DWORD)v5 != 167 )
+      {
+        if ( (_DWORD)v5 == 168 )
+        {
+          Next = gbLockScreenAutoLockActive;
+          goto LABEL_75;
+        }
+        if ( (_DWORD)v5 != 169 )
+        {
+          if ( (_DWORD)v5 != 170 )
+          {
+            switch ( (_DWORD)v5 )
+            {
+              case 0xAB:
+                if ( *(_DWORD *)(CurrentProcessWin32Process + 56) != gpidLogonUI )
+                  return 0LL;
+                gbLockScreenActive = a2 != 0;
+                if ( gbLockScreenActive )
                 {
-                  if ( !HIDWORD(gAudioDescription) )
-                    v131 = L"0";
-                  FastWriteProfileStringW(v130, 48LL, L"On", v131);
-                  RtlStringCchPrintfW(v201, 0x28uLL, L"%d", *((unsigned int *)&gAudioDescription + 2));
-                  FastWriteProfileStringW(v130, 48LL, L"Locale", v201);
+                  if ( !gptiForeground
+                    || (v142 = *(_QWORD *)(gptiForeground + 432LL)) == 0
+                    || (v143 = *(_QWORD *)(v142 + 120)) == 0
+                    || (unsigned int)IsWindowUnderActiveLockScreen(v143) )
+                  {
+                    xxxSetForegroundWindow2(0LL, 0LL, 0);
+                  }
+                  ClearKeyboardStates();
                 }
-                FreeProfileUserName(v130, &v180);
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              memmove(gAudioDescription, Src, *(unsigned int *)Src);
-              LODWORD(gAudioDescription) = 12;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x76u:
-              *(_DWORD *)Src = (*gpsi >> 9) & 1;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x77u:
-              if ( gdwRITdaemonLockState && !LODWORD(v179[0]) )
-                goto LABEL_223;
-              if ( (unsigned int)CheckDesktopPolicy(0LL, 618LL) )
-              {
-                v11 = 0;
-                PointerDeviceSettingsFull = 0;
-                v176 = 0;
-              }
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 4LL, 618LL, a2 != 0);
-                v175 = updated;
-                PointerDeviceSettingsFull = updated;
-                v176 = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              if ( a2 )
-                _InterlockedOr(gpsi, 0x200u);
-              else
-                _InterlockedAnd(gpsi, 0xFFFFFDFF);
-              PointerDeviceSettingsFull = v176;
-              updated = v175;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x78u:
-              *(_DWORD *)Src = gdwHungAppTimeout;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x79u:
-              if ( (unsigned int)CheckDesktopPolicy(0LL, 621LL) )
-              {
-                v11 = 0;
-                PointerDeviceSettingsFull = 0;
-              }
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 4LL, 621LL, a2);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              gdwHungAppTimeout = a2;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x7Au:
-              *(_DWORD *)Src = gdwWaitToKillTimeout;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x7Bu:
-              if ( (unsigned int)CheckDesktopPolicy(0LL, 622LL) )
-              {
-                v11 = 0;
-                PointerDeviceSettingsFull = 0;
-              }
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 4LL, 622LL, a2);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              gdwWaitToKillTimeout = a2;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x7Cu:
-              *(_DWORD *)Src = gdwWaitToKillServiceTimeout;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x7Du:
-              if ( (unsigned int)CheckDesktopPolicy(0LL, 623LL) )
-              {
-                v11 = 0;
-                PointerDeviceSettingsFull = 0;
-              }
-              if ( v11 )
-              {
-                updated = UpdateWinIniInt(0LL, 52LL, 623LL, a2);
-                PointerDeviceSettingsFull = updated;
-              }
-              if ( !PointerDeviceSettingsFull )
-                goto LABEL_40;
-              gdwWaitToKillServiceTimeout = a2;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x7Eu:
-            case 0x7Fu:
-            case 0x80u:
-            case 0x81u:
-            case 0x82u:
-            case 0x83u:
-            case 0x84u:
-            case 0x85u:
-            case 0x86u:
-            case 0x87u:
-            case 0x88u:
-            case 0x89u:
-            case 0x8Au:
-            case 0x8Bu:
-            case 0x8Cu:
-            case 0x8Du:
-            case 0x8Eu:
-            case 0x8Fu:
-            case 0x90u:
-            case 0x91u:
-              v134 = WindowArrangementSPI::ArrangementParameterInfo(
-                       v5,
-                       a2,
-                       (int *)Src,
-                       v11,
-                       PointerDeviceSettingsFull != 0);
-              updated = v134 & 1;
-              PointerDeviceSettingsFull = (v134 >> 1) & 1;
-              v19 = v12;
-              goto LABEL_693;
-            case 0x94u:
-            case 0x96u:
-            case 0x98u:
-            case 0x9Au:
-            case 0x9Cu:
-              PointerDeviceSettingsFull = ReadPointerDeviceSettingsFull(v5, Src, v7, 1LL);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x95u:
-            case 0x97u:
-            case 0x99u:
-            case 0x9Bu:
-            case 0x9Du:
-              updated = WritePointerDeviceSettingsFull(v5, Src, v11, 1LL);
-              v19 = v12;
-              goto LABEL_693;
-            case 0x9Eu:
-            case 0xA5u:
-            case 0xA7u:
-              v199 = 0LL;
-              v200 = 0LL;
-              if ( (int)DrvDisplayConfigGetScaleFactorOverrides(&v199, 1LL) < 0 )
-                return 0LL;
-              if ( a2 == 158 )
-              {
-                *(_DWORD *)Src = DWORD2(v200);
-              }
-              else
-              {
-                v135 = Src;
-                *(_QWORD *)Src = *(_QWORD *)((char *)&v200 + 4);
-                v135[2] = HIDWORD(v200);
-              }
-              v19 = v12;
-              goto LABEL_693;
-            case 0x9Fu:
-            case 0xA6u:
-              if ( a2 + 11 > 0x16 )
-                return 0LL;
-              if ( (unsigned int)CheckDesktopPolicy(0LL, 628LL) )
-              {
-                v11 = 0;
-                PointerDeviceSettingsFull = 0;
-              }
-              if ( !v11 )
-                goto LABEL_40;
-              v199 = 0LL;
-              LODWORD(v200) = 0;
-              DWORD1(v200) = a2;
-              LODWORD(v179[0]) = a2 != 159;
-              if ( (int)DrvDisplayConfigSetScaleFactorOverride(&v199, v179) < 0 )
-              {
-LABEL_304:
-                PointerDeviceSettingsFull = 0;
-                v19 = v12;
-              }
-              else
-              {
-                if ( a2 == 159 )
-                  TraceLoggingSPISetModernDPIOverrideEvent(v136, 159);
-                else
-                  TraceLoggingSPISetDesktopDPIOverrideEvent(v136, a2);
-                PointerDeviceSettingsFull = 1;
-                v19 = v12;
-              }
-              goto LABEL_693;
-            case 0xA0u:
+                GreLddmProcessLockScreen(gbLockScreenActive, v10, v12);
+                goto LABEL_68;
+              case 0xAC:
+                v141 = InteractiveControlManager::Instance();
+                v11 = (int)InteractiveControlManager::GetExternalParameters(
+                             v141,
+                             (struct tagINTERACTIVECTRL_PARAMETERS *)Src) >= 0;
+                goto LABEL_68;
+              case 0xAD:
+                v140 = InteractiveControlManager::Instance();
+                LOBYTE(updated) = (int)InteractiveControlManager::SetExternalParameters(
+                                         v140,
+                                         (struct tagINTERACTIVECTRL_PARAMETERS *)Src,
+                                         v9) >= 0;
+                goto LABEL_68;
+            }
+            goto LABEL_771;
+          }
+          v127 = (int *)gbLockScreenActive;
+LABEL_593:
+          Next = *v127;
+          goto LABEL_75;
+        }
+        if ( gfSwitchInProgress )
+          return 0LL;
+        if ( gdwRITdemonLockState && !(_DWORD)v12 )
+          goto LABEL_762;
+        gbLockScreenAutoLockActive = a2 != 0;
+        if ( !v9 )
+          goto LABEL_68;
+        PointerDeviceSettingsFull = UpdateWinIniInt(0LL, 4LL, 205LL, a2);
+        updated = PointerDeviceSettingsFull;
+LABEL_699:
+        v11 = PointerDeviceSettingsFull;
+        goto LABEL_68;
+      }
+    }
+    else
+    {
+      if ( (_DWORD)v5 == 166 )
+        goto LABEL_731;
+      if ( (_DWORD)v5 == 157 )
+        goto LABEL_697;
+      if ( (_DWORD)v5 != 158 )
+      {
+        if ( (_DWORD)v5 != 159 )
+        {
+          switch ( (_DWORD)v5 )
+          {
+            case 0xA0:
               *(_DWORD *)Src = 6;
-              v19 = v12;
-              goto LABEL_693;
-            case 0xA1u:
-              PointerDeviceSettingsFull = 1;
-              v19 = v12;
-              goto LABEL_693;
-            case 0xA2u:
-              v98 = GetDispInfo(v15);
-              *(_OWORD *)Src = *(_OWORD *)GetMonitorMenuRect(&v199, *(struct tagMONITOR **)(v98 + 96));
-              v19 = v12;
-              goto LABEL_693;
-            case 0xA3u:
-              v198 = 0LL;
+              goto LABEL_68;
+            case 0xA1:
+              goto LABEL_363;
+            case 0xA2:
+              v138 = GetDispInfo(v15, 2LL);
+              MonitorWorkRect = (_OWORD *)GetMonitorMenuRect(v200, *(_QWORD *)(v138 + 96));
+              goto LABEL_340;
+            case 0xA3:
+              v202 = 0LL;
               if ( Src )
               {
                 if ( *((_DWORD *)Src + 2) < *(_DWORD *)Src || *((_DWORD *)Src + 3) < *((_DWORD *)Src + 1) )
                   return 0LL;
-                v99 = MonitorFromRect(Src, 1LL);
+                v133 = MonitorFromRect((struct tagRECT *)Src, 1u, 0);
               }
               else
               {
-                v99 = *(_QWORD *)(GetDispInfo(v15) + 96);
+                v133 = *(_QWORD *)(GetDispInfo(v15, 2LL) + 96);
               }
-              v179[0] = v99;
-              v199 = *(struct tagRECT *)GetMonitorRect(&v199, v99);
-              v100 = &v199;
+              v187 = v133;
+              v204 = *GetMonitorRect(&v199, v133);
+              v134 = (int *)&v204;
               if ( Src )
-                v100 = Src;
-              if ( !(unsigned int)IntersectRect(&v198, v100, &v199) || v198 != *v100 )
-                goto LABEL_253;
-              if ( (W32GetCurrentThreadDpiAwarenessContext(v101) & 0xF) != 2
-                && *((_QWORD *)PtiCurrentShared() + 57)
-                && (v102 = **(_QWORD **)(*((_QWORD *)PtiCurrentShared() + 57) + 8LL), (*(_DWORD *)(v102 + 64) & 1) != 0) )
+                v134 = (int *)Src;
+              if ( !(unsigned int)IntersectRect(&v202, v134, (int *)&v204) || v202 != *(_OWORD *)v134 )
+                goto LABEL_5;
+              if ( (W32GetCurrentThreadDpiAwarenessContext(v135) & 0xF) != 2 )
               {
-                v103 = W32GetCurrentThreadDpiAwarenessContext(v102);
-                LogicalToPhysicalDPIRect(v179[0] + 112LL, &v198, v103, v179);
-                v19 = v12;
-              }
-              else
-              {
-                *(_OWORD *)(v179[0] + 112LL) = v198;
-                v19 = v12;
-              }
-              goto LABEL_693;
-            case 0xA8u:
-              *(_DWORD *)Src = gbLockScreenAutoLockActive;
-              v19 = v12;
-              goto LABEL_693;
-            case 0xA9u:
-              if ( gfSwitchInProgress )
-                return 0LL;
-              if ( gdwRITdaemonLockState && !LODWORD(v179[0]) )
-              {
-LABEL_223:
-                UserSetLastError(329LL);
-                return 0LL;
-              }
-              LOBYTE(v9) = a2 != 0;
-              gbLockScreenAutoLockActive = (int)v9;
-              if ( !v11 )
-                goto LABEL_40;
-              updated = UpdateWinIniInt(0LL, 4LL, 205LL, a2);
-              PointerDeviceSettingsFull = updated;
-              v19 = v12;
-              break;
-            case 0xAAu:
-              *(_DWORD *)Src = gbLockScreenActive;
-              v19 = v12;
-              goto LABEL_693;
-            case 0xABu:
-              if ( *((_DWORD *)v8 + 14) != gpidLogonUI )
-                return 0LL;
-              LOBYTE(v9) = a2 != 0;
-              gbLockScreenActive = (_DWORD)v9;
-              if ( a2 )
-              {
-                if ( !gptiForeground
-                  || (v65 = *(_QWORD *)(gptiForeground + 432LL)) == 0
-                  || (v66 = *(_QWORD *)(v65 + 128)) == 0
-                  || (unsigned int)IsWindowUnderActiveLockScreen(v66, v8, v7, 1LL) )
+                if ( *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456) )
                 {
-                  xxxSetForegroundWindow2(0LL, 0LL, 0LL);
+                  v136 = **(_QWORD **)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 456) + 8LL);
+                  if ( (*(_DWORD *)(v136 + 64) & 1) != 0 )
+                  {
+                    v137 = W32GetCurrentThreadDpiAwarenessContext(v136);
+                    LogicalToPhysicalDPIRect(v187 + 296, &v202, v137, &v187);
+                    goto LABEL_609;
+                  }
                 }
-                ClearKeyboardStates();
+                updated = v183;
+                v11 = v184;
               }
-              GreLddmProcessLockScreen(gbLockScreenActive, v8, v7, v16);
-              v19 = v12;
-              goto LABEL_693;
-            case 0xACu:
-              v137 = InteractiveControlManager::Instance((__int64)v15);
-              PointerDeviceSettingsFull = (int)InteractiveControlManager::GetExternalParameters(
-                                                 v137,
-                                                 (struct tagINTERACTIVECTRL_PARAMETERS *)Src) >= 0;
-              v19 = v12;
-              goto LABEL_693;
-            case 0xADu:
-              v138 = InteractiveControlManager::Instance((__int64)v15);
-              LOBYTE(updated) = (int)InteractiveControlManager::SetExternalParameters(
-                                       v138,
-                                       (struct tagINTERACTIVECTRL_PARAMETERS *)Src,
-                                       v11) >= 0;
-              v19 = v12;
-              goto LABEL_693;
-            default:
-              goto LABEL_589;
+              *(_OWORD *)(v187 + 296) = v202;
+              goto LABEL_68;
           }
+          if ( (_DWORD)v5 != 165 )
+            goto LABEL_771;
+          goto LABEL_710;
         }
-        goto LABEL_693;
-      }
-      switch ( v5 )
-      {
-        case 0x1027u:
-          v170 = a2 != 0;
-          if ( (unsigned int)CheckDesktopPolicy(0LL, 112LL) )
-          {
-            v11 = 0;
-            PointerDeviceSettingsFull = 0;
-          }
-          if ( v11 )
-          {
-            updated = UpdateWinIniInt(0LL, 4LL, 112LL, a2 != 0);
-            PointerDeviceSettingsFull = updated;
-          }
-          v19 = v12;
-          if ( PointerDeviceSettingsFull )
-            gbBlockSendInputResets = v170;
-          goto LABEL_693;
-        case 0x2024u:
-          *(_DWORD *)Src = GetUserHandedness(v15, v8, v7, 1LL);
-          v19 = v12;
-          goto LABEL_693;
-        case 0x2025u:
-          a2 = 0;
-          if ( (unsigned int)RIMIsDefaultUILanguageRTL(v15, v8, v7, 1LL) )
-            LOBYTE(a2) = (_DWORD)Src == 0;
-          else
-            LOBYTE(a2) = (_DWORD)Src != 0;
-LABEL_682:
-          if ( v11 )
-          {
-            updated = UpdateWinIniInt(0LL, 3LL, 96LL, a2);
-            PointerDeviceSettingsFull = updated;
-          }
-          if ( PointerDeviceSettingsFull )
-          {
-            LOBYTE(v9) = a2 != 0;
-            *(_DWORD *)(gpsi + 2056LL) = (_DWORD)v9;
-            TraceLoggingSPISetMenuDropAlignmentEvent();
-            v19 = v12;
-            goto LABEL_693;
-          }
-          goto LABEL_40;
-      }
-LABEL_589:
-      if ( v5 < 0xB2 )
-      {
-        UserSetLastError(1439LL);
-        return 0LL;
-      }
-      v139 = v5 & 0x3000;
-      if ( !v184 )
-      {
-        if ( v139 == 4096 )
+LABEL_731:
+        if ( a2 + 11 > 0x16 )
+          return 0LL;
+        if ( (unsigned int)CheckDesktopPolicy(0LL, 628LL) )
         {
-          v140 = 0;
-          v141 = 0;
-          if ( v5 < 0x103E )
-          {
-            if ( (int)gpdwCPUserPreferencesMask < 0 )
-            {
-              switch ( v5 )
-              {
-                case 0x1008u:
-                case 0x1012u:
-                case 0x1014u:
-                case 0x1018u:
-                case 0x101Au:
-                  v141 = gbDisableAlpha != 0;
-                  break;
-                case 0x100Au:
-                  v140 = (gdwPUDFlags >> 17) & 1;
-                  v141 = v140;
-                  break;
-                case 0x1024u:
-                  if ( gbDisableAlpha || gcOverlays )
-                    v141 = 1;
-                  break;
-                default:
-                  break;
-              }
-            }
-            else if ( v5 != 4096 )
-            {
-              if ( v5 == 4106 )
-              {
-                v140 = 1;
-                v141 = 1;
-              }
-              else if ( v5 != 4108 && v5 != 4124 )
-              {
-                v141 = v5 != 4126;
-              }
-            }
-          }
-          if ( v141 )
-          {
-            *(_DWORD *)Src = v140;
-            v19 = v12;
-          }
-          else if ( v5 == 4158 && gProtocolType && !(unsigned int)IsWDAGContainer() )
-          {
-            LOBYTE(v9) = ((unsigned __int16)gpdwCPUserPreferencesMask & 0x3A0E) != 0;
-            *(_DWORD *)Src = (_DWORD)v9;
-            v19 = v12;
-          }
-          else
-          {
-            v142 = *((_DWORD *)&gpdwCPUserPreferencesMask + ((unsigned __int64)(v5 - 4096) >> 6));
-            LOBYTE(v9) = _bittest(&v142, (unsigned __int8)(((v5 - 4096) >> 1) - 32 * ((v5 - 4096) >> 6)));
-            *(_DWORD *)Src = (_DWORD)v9;
-            v19 = v12;
-          }
-          goto LABEL_693;
+          v9 = 0;
+          v11 = 0;
         }
-        v143 = *(unsigned int *)UPDWORDPointer(v5);
-        *(_DWORD *)Src = v143;
-        if ( v5 == 8204 && !(_DWORD)v143 )
+        if ( !v9 )
+          goto LABEL_68;
+        v207 = 0LL;
+        v208 = 0;
+        v209 = a2;
+        LODWORD(v186) = a2 != 159;
+        if ( (int)DrvDisplayConfigSetScaleFactorOverride(&v207, &v186) < 0 )
         {
-          *(_DWORD *)Src = *(_DWORD *)(*(_QWORD *)(SGDGetSessionState(v143) + 32) + 8584LL);
-          v19 = v12;
-          goto LABEL_693;
+          v11 = 0;
+          goto LABEL_68;
         }
-LABEL_40:
-        v19 = v12;
-        goto LABEL_693;
-      }
-      v144 = CreateProfileUserName(&v180);
-      v178 = (__int64 *)v144;
-      if ( v139 == 4096 )
-      {
-        if ( *((_DWORD *)&gpviCPUserPreferences + 1) == 4 )
-        {
-          v145 = CheckDesktopPolicy(v144, *((_QWORD *)&gpviCPUserPreferences + 1));
-          v144 = (__int64)v178;
-          if ( v145 )
-          {
-            v11 = 0;
-            PointerDeviceSettingsFull = 0;
-          }
-        }
-        if ( v11 )
-        {
-          ProfileValue = FastGetProfileValue(
-                           v144,
-                           *((unsigned int *)&gpviCPUserPreferences + 1),
-                           *((_QWORD *)&gpviCPUserPreferences + 1),
-                           0LL,
-                           v179,
-                           8,
-                           0);
-          memmove((char *)v179 + ProfileValue, (char *)&gpdwCPUserPreferencesMask + ProfileValue, 8LL - ProfileValue);
-          v147 = v5 - 4096;
-          v148 = 1 << (((v5 - 4096) >> 1) - 32 * ((v5 - 4096) >> 6));
-          v149 = (int *)v179 + ((unsigned __int64)(v5 - 4096) >> 6);
-          v150 = *v149;
-          if ( Src )
-            v151 = v148 | v150;
-          else
-            v151 = ~v148 & v150;
-          *v149 = v151;
-          updated = FastWriteProfileValue(
-                      v178,
-                      *((unsigned int *)&gpviCPUserPreferences + 1),
-                      *((_QWORD *)&gpviCPUserPreferences + 1),
-                      3LL);
-          PointerDeviceSettingsFull = updated;
-        }
+        if ( a2 == 159 )
+          TraceLoggingSPISetModernDPIOverrideEvent(v139, 159);
         else
-        {
-          v147 = v5 - 4096;
-        }
-        if ( PointerDeviceSettingsFull )
-        {
-          v152 = (unsigned int)(1 << ((v147 >> 1) - 32 * (v147 >> 6)));
-          v153 = (unsigned __int64)v147 >> 6;
-          if ( Src )
-          {
-            *((_DWORD *)&gpdwCPUserPreferencesMask + v153) |= v152;
-          }
-          else
-          {
-            v152 = (unsigned int)~(_DWORD)v152;
-            *((_DWORD *)&gpdwCPUserPreferencesMask + v153) &= v152;
-          }
-          switch ( v5 )
-          {
-            case 0x1005u:
-              *(_DWORD *)(gpsi + 7004LL) ^= ((unsigned int)gpdwCPUserPreferencesMask ^ *(_DWORD *)(gpsi + 7004LL)) & 4;
-              v19 = v12;
-              break;
-            case 0x1007u:
-              *(_DWORD *)(gpsi + 7004LL) ^= ((unsigned int)gpdwCPUserPreferencesMask ^ *(_DWORD *)(gpsi + 7004LL)) & 8;
-              v19 = v12;
-              break;
-            case 0x1009u:
-              goto LABEL_633;
-            case 0x100Bu:
-              *(_DWORD *)(gpsi + 7004LL) ^= ((unsigned int)gpdwCPUserPreferencesMask ^ *(_DWORD *)(gpsi + 7004LL)) & 0x20;
-              v19 = v12;
-              break;
-            case 0x101Bu:
-              LOBYTE(v153) = 1;
-              SetPointerInternal(v153, 6LL);
-              v19 = v12;
-              break;
-            case 0x1023u:
-              v156 = *(_QWORD *)(gptiCurrent + 456LL);
-              if ( v156 )
-                v9 = *(struct tagWND **)(*(_QWORD *)(v156 + 8) + 24LL);
-              goto LABEL_635;
-            case 0x1025u:
-              v157 = (void *)ReferenceDwmApiPort(v153);
-              DwmAsyncNotifyWindowShadowChange(v157);
-              v19 = v12;
-              break;
-            case 0x103Fu:
-              v154 = *(unsigned int *)(gpsi + 7004LL);
-              *(_DWORD *)(gpsi + 7004LL) = v154 ^ ((unsigned int)gpdwCPUserPreferencesMask ^ *(_DWORD *)(gpsi + 7004LL)) & 0x80000000;
-              LOBYTE(v154) = 1;
-              SetPointerInternal(v154, 6LL);
-LABEL_633:
-              CreateBitmapStrip(v153, v152);
-              v155 = *(_QWORD *)(gptiCurrent + 456LL);
-              if ( v155 )
-                v9 = *(struct tagWND **)(*(_QWORD *)(v155 + 8) + 24LL);
-LABEL_635:
-              xxxInternalInvalidate(v9, (HRGN)1, 0x10485u);
-              v19 = v12;
-              break;
-            case 0x104Fu:
-            case 0x1051u:
-              xxxWindowEvent(0x80000007, 0);
-              v19 = v12;
-              break;
-            case 0x1053u:
-              NotifyISMPenButtonYieldSettingChange();
-              goto LABEL_646;
-            default:
-              goto LABEL_646;
-          }
-        }
-        else
-        {
-LABEL_646:
-          v19 = v12;
-        }
+          TraceLoggingSPISetDesktopDPIOverrideEvent(v139, a2);
+        goto LABEL_363;
       }
-      else
+    }
+LABEL_710:
+    v205 = 0LL;
+    v206 = 0LL;
+    if ( (int)DrvDisplayConfigGetScaleFactorOverrides(&v205, 1LL, v12, CurrentProcessWin32Process) < 0 )
+      return 0LL;
+    v120 = a2 == 158;
+    v21 = v180;
+    if ( !v120 )
+    {
+      v144 = Src;
+      *(_QWORD *)Src = *(_QWORD *)((char *)&v206 + 4);
+      v144[2] = HIDWORD(v206);
+      goto LABEL_69;
+    }
+    v132 = DWORD2(v206);
+    goto LABEL_713;
+  }
+  if ( (_DWORD)v5 == 137 )
+  {
+    if ( a2 > *(_DWORD *)(gpDispInfo + 136LL) || a2 > dword_1C032FBF4 || a2 < gWinArrGlobal[0] )
+      goto LABEL_68;
+    UpdateThresholdFromMetric(v9, &v183, &v184, 0x15u, a2, 4);
+    goto LABEL_609;
+  }
+  if ( (unsigned int)v5 > 0x78 )
+  {
+    if ( (unsigned int)v5 <= 0x81 )
+    {
+      if ( (_DWORD)v5 != 129 )
       {
-        if ( *(_DWORD *)(UPDWORDPointer(v5) + 4) == 4 )
+        switch ( (_DWORD)v5 )
         {
-          v159 = UPDWORDPointer(v5);
-          if ( (unsigned int)CheckDesktopPolicy(v178, *(_QWORD *)(v159 + 8)) )
-          {
-            v11 = 0;
-            PointerDeviceSettingsFull = 0;
-          }
-        }
-        v19 = v12;
-        if ( v11 )
-        {
-          if ( v5 == 8235 || v5 == 8239 )
-          {
-            v19 = 0;
-            if ( !DesktopRecalcSettings::ValidateDesktopRecalcSetting(
-                    (DesktopRecalcSettings *)v5,
-                    (unsigned int)Src,
-                    v158) )
+          case 'y':
+            if ( (unsigned int)CheckDesktopPolicy(0LL, 621LL) )
             {
-              PointerDeviceSettingsFull = 0;
+              v9 = 0;
               v11 = 0;
             }
-          }
-          if ( v11 )
+            if ( v9 )
+            {
+              updated = UpdateWinIniInt(0LL, 4LL, 621LL, a2);
+              v11 = updated;
+            }
+            if ( !v11 )
+              goto LABEL_68;
+            v128 = (unsigned int *)gdwHungAppTimeout;
+            break;
+          case 'z':
+            Next = gdwWaitToKillTimeout;
+            goto LABEL_75;
+          case '{':
+            if ( (unsigned int)CheckDesktopPolicy(0LL, 622LL) )
+            {
+              v9 = 0;
+              v11 = 0;
+            }
+            if ( v9 )
+            {
+              updated = UpdateWinIniInt(0LL, 4LL, 622LL, a2);
+              v11 = updated;
+            }
+            v22 = v181;
+            if ( v11 )
+              gdwWaitToKillTimeout = a2;
+            goto LABEL_480;
+          case '|':
+            v127 = (int *)gdwWaitToKillServiceTimeout;
+            goto LABEL_593;
+          case '}':
+            if ( (unsigned int)CheckDesktopPolicy(0LL, 623LL) )
+            {
+              v9 = 0;
+              v11 = 0;
+            }
+            if ( v9 )
+            {
+              updated = UpdateWinIniInt(0LL, 52LL, 623LL, a2);
+              v11 = updated;
+            }
+            if ( !v11 )
+              goto LABEL_68;
+            v128 = (unsigned int *)gdwWaitToKillServiceTimeout;
+            break;
+          case '~':
+            Next = gWinArrGlobal[0];
+            goto LABEL_75;
+          case '\x7F':
+            if ( a2 > *(_DWORD *)(gpDispInfo + 136LL)
+              || a2 > dword_1C032FBE4
+              || a2 > dword_1C032FBE8
+              || a2 > dword_1C032FBF0 )
+            {
+              goto LABEL_68;
+            }
+            UpdateThresholdFromMetric(v9, &v183, &v184, 0x10u, a2, 0);
+            goto LABEL_609;
+          default:
+            Next = dword_1C032FBE4;
+            goto LABEL_75;
+        }
+        *v128 = a2;
+        goto LABEL_68;
+      }
+      if ( a2 > *(_DWORD *)(gpDispInfo + 136LL) || a2 < gWinArrGlobal[0] || a2 > dword_1C032FBEC || a2 > dword_1C032FBF4 )
+        goto LABEL_68;
+      UpdateThresholdFromMetric(v9, &v183, &v184, 0x11u, a2, 1);
+LABEL_609:
+      updated = v183;
+      goto LABEL_399;
+    }
+    if ( (_DWORD)v5 == 130 )
+    {
+      LOBYTE(v40) = dword_1C032FBFC;
+      goto LABEL_109;
+    }
+    if ( (_DWORD)v5 != 131 )
+    {
+      switch ( (_DWORD)v5 )
+      {
+        case 0x84:
+          Next = dword_1C032FBE8;
+          goto LABEL_75;
+        case 0x85:
+          if ( a2 > *(_DWORD *)(gpDispInfo + 136LL) || a2 > dword_1C032FBEC || a2 < gWinArrGlobal[0] )
+            goto LABEL_68;
+          UpdateThresholdFromMetric(v9, &v183, &v184, 0x13u, a2, 2);
+          break;
+        case 0x86:
+          Next = dword_1C032FBEC;
+          goto LABEL_75;
+        case 0x87:
+          if ( a2 > *(_DWORD *)(gpDispInfo + 136LL) || a2 < dword_1C032FBE8 || a2 < dword_1C032FBE4 )
+            goto LABEL_68;
+          UpdateThresholdFromMetric(v9, &v183, &v184, 0x14u, a2, 3);
+          break;
+        default:
+          Next = dword_1C032FBF0;
+          goto LABEL_75;
+      }
+      goto LABEL_609;
+    }
+    v129 = 18;
+LABEL_677:
+    if ( (unsigned int)CheckDesktopPolicy(0LL, v129) )
+    {
+      v9 = 0;
+      v11 = 0;
+    }
+    if ( v9 )
+    {
+      updated = UpdateWinIniInt(0LL, 4LL, v129, a2);
+      v11 = updated;
+    }
+    if ( v11 )
+    {
+      v130 = dword_1C032FBFC;
+      if ( a2 )
+        dword_1C032FBFC |= v8;
+      else
+        dword_1C032FBFC &= ~v8;
+      PostWindowArrangementCheck(v130);
+    }
+    goto LABEL_68;
+  }
+  if ( (_DWORD)v5 == 120 )
+  {
+    v127 = (int *)gdwHungAppTimeout;
+    goto LABEL_593;
+  }
+  if ( (unsigned int)v5 <= 0x6F )
+  {
+    switch ( (_DWORD)v5 )
+    {
+      case 'o':
+        v11 = xxxSetIMEShowStatus(a2 != 0, v9, &v183);
+        goto LABEL_294;
+      case 'e':
+        if ( v9 )
+        {
+          updated = UpdateWinIniInt(0LL, 12LL, 92LL, a2);
+          v11 = updated;
+        }
+        v22 = v181;
+        if ( v11 )
+          LODWORD(WPP_MAIN_CB.Dpc.DpcListEntry.Next) = a2;
+        goto LABEL_480;
+      case 'f':
+        Next = WPP_MAIN_CB.Dpc.TargetInfoAsUlong;
+        goto LABEL_75;
+      case 'g':
+        if ( a2 >= 0xA )
+          v19 = a2;
+        if ( v19 > 0x7FFFFFFF )
+          v19 = 0x7FFFFFFF;
+        LODWORD(v186) = v19;
+        if ( v9 )
+        {
+          updated = UpdateWinIniInt(0LL, 12LL, 93LL, v19);
+          v11 = updated;
+          v19 = (unsigned int)v186;
+        }
+        v21 = v180;
+        v22 = v181;
+        if ( v11 )
+          WPP_MAIN_CB.Dpc.TargetInfoAsUlong = v19;
+        goto LABEL_70;
+      case 'j':
+        Next = HIDWORD(WPP_MAIN_CB.Dpc.DeferredRoutine);
+        goto LABEL_75;
+      case 'k':
+        if ( (unsigned int)CheckDesktopPolicy(0LL, 94LL) )
+        {
+          v9 = 0;
+          v11 = 0;
+        }
+        if ( v9 )
+        {
+          updated = UpdateWinIniInt(0LL, 4LL, 94LL, a2);
+          v11 = updated;
+        }
+        v22 = v181;
+        if ( v11 )
+          HIDWORD(WPP_MAIN_CB.Dpc.DeferredRoutine) = a2;
+        goto LABEL_480;
+      case 'l':
+        v62 = *(_DWORD *)(gpsi + 4992LL);
+        goto LABEL_216;
+      case 'm':
+        if ( (unsigned int)CheckDesktopPolicy(0LL, 15LL) )
+        {
+          v9 = 0;
+          v11 = 0;
+        }
+        if ( v9 )
+        {
+          updated = UpdateWinIniInt(0LL, 4LL, 15LL, a2);
+          v11 = updated;
+        }
+        if ( v11 )
+          *(_DWORD *)(gpsi + 4992LL) = a2;
+        goto LABEL_68;
+    }
+    if ( (_DWORD)v5 != 110 )
+    {
+LABEL_771:
+      if ( (unsigned int)v5 < 0xB0 )
+      {
+        v14 = 1439LL;
+        goto LABEL_439;
+      }
+      v145 = v5 & 0x3000;
+      if ( (v5 & 1) == 0 )
+      {
+        if ( v145 == 4096 )
+        {
+          v146 = 0;
+          v147 = 0;
+          if ( (unsigned int)v5 >= 0x103E )
+            goto LABEL_797;
+          if ( (int)gpdwCPUserPreferencesMask < 0 )
           {
-            v160 = *(_QWORD *)(UPDWORDPointer(v5) + 8);
-            v161 = UPDWORDPointer(v173);
-            v172 = 4;
-            p_Src = (int *)&Src;
-            updated = FastWriteProfileValue(v178, *(unsigned int *)(v161 + 4), v160, 4LL);
-            PointerDeviceSettingsFull = updated;
-            v5 = v173;
+            switch ( (_DWORD)v5 )
+            {
+              case 0x1008:
+                goto LABEL_795;
+              case 0x100A:
+                v146 = (gdwPUDFlags >> 17) & 1;
+                v147 = v146;
+                goto LABEL_797;
+              case 0x1012:
+              case 0x1014:
+              case 0x1018:
+              case 0x101A:
+LABEL_795:
+                if ( gbDisableAlpha )
+                  v147 = 1;
+                goto LABEL_797;
+            }
+            if ( (_DWORD)v5 != 4132 )
+              goto LABEL_797;
+            if ( !gbDisableAlpha )
+            {
+              v148 = gcOverlays == 0;
+              goto LABEL_792;
+            }
+          }
+          else
+          {
+            if ( (_DWORD)v5 == 4096 )
+              goto LABEL_797;
+            if ( (_DWORD)v5 != 4106 )
+            {
+              if ( (_DWORD)v5 == 4108 || (_DWORD)v5 == 4124 )
+                goto LABEL_797;
+              v148 = (_DWORD)v5 == 4126;
+LABEL_792:
+              if ( !v148 )
+                goto LABEL_793;
+LABEL_797:
+              if ( v147 )
+              {
+                *(_DWORD *)Src = v146;
+                goto LABEL_68;
+              }
+              if ( (_DWORD)v5 == 4158 && gProtocolType && !(unsigned int)IsWDAGContainer() )
+              {
+                v120 = ((unsigned __int16)gpdwCPUserPreferencesMask & 0x3A0E) == 0;
+                goto LABEL_513;
+              }
+              v149 = *((_DWORD *)&gpdwCPUserPreferencesMask + ((unsigned __int64)(unsigned int)(v5 - 4096) >> 6));
+              v62 = _bittest(
+                      &v149,
+                      (unsigned __int8)(((unsigned int)(v5 - 4096) >> 1) - 32 * ((unsigned int)(v5 - 4096) >> 6)));
+LABEL_216:
+              *(_DWORD *)Src = v62;
+              goto LABEL_68;
+            }
+            v146 = 1;
+          }
+LABEL_793:
+          v147 = 1;
+          goto LABEL_797;
+        }
+        v150 = (int *)UPDWORDPointer((unsigned int)v5);
+        v151 = *v150;
+        *(_DWORD *)Src = *v150;
+        if ( (_DWORD)v5 != 8204 )
+          goto LABEL_68;
+        v21 = v180;
+        if ( v151 )
+          goto LABEL_69;
+        v132 = gulGamma;
+LABEL_713:
+        *(_DWORD *)Src = v132;
+        goto LABEL_69;
+      }
+      v152 = CreateProfileUserName(&v188);
+      v186 = (const wchar_t *)v152;
+      if ( v145 != 4096 )
+      {
+        if ( *(_DWORD *)(UPDWORDPointer((unsigned int)v5) + 4) == 4 )
+        {
+          v172 = UPDWORDPointer((unsigned int)v5);
+          if ( (unsigned int)CheckDesktopPolicy(v186, *(_QWORD *)(v172 + 8)) )
+          {
+            v9 = 0;
+            v11 = 0;
           }
         }
-        v162 = *(_DWORD *)UPDWORDPointer(v5);
-        if ( PointerDeviceSettingsFull )
+        if ( v9 )
         {
-          v163 = (int)Src;
-          *(_DWORD *)UPDWORDPointer(v173) = v163;
-          switch ( v173 )
+          v5 = UPDWORDPointer((unsigned int)v5);
+          v173 = UPDWORDPointer(v180);
+          updated = FastWriteProfileValue(v186, *(unsigned int *)(v173 + 4), *(_QWORD *)(v5 + 8), 4LL, &Src, 4);
+          v11 = updated;
+          LODWORD(v5) = v180;
+        }
+        v174 = *(_DWORD *)UPDWORDPointer((unsigned int)v5);
+        if ( v11 )
+        {
+          v175 = (int)Src;
+          v21 = v180;
+          *(_DWORD *)UPDWORDPointer(v180) = v175;
+          switch ( v180 )
           {
-            case 0x2001u:
-              v168 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                  && (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) != 0
-                  && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-              v169 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-              if ( v168 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-              {
-                UPDWORDPointer(v173);
-                WPP_RECORDER_AND_TRACE_SF_Dd(
-                  WPP_GLOBAL_Control->AttachedDevice,
-                  v168,
-                  v169,
-                  (_DWORD)gFullLog,
-                  (_DWORD)p_Src,
-                  v172);
-              }
-              break;
             case 0x2007u:
-              *(_DWORD *)(gpsi + 7008LL) = *(_DWORD *)UPDWORDPointer(v173);
+              *(_DWORD *)(gpsi + 7008LL) = *(_DWORD *)UPDWORDPointer(8199LL);
               break;
             case 0x200Bu:
-              v164 = (_DWORD *)UPDWORDPointer(v173);
-              GreSetFontEnumeration(8 * (*v164 & 2 | 4u));
+              v177 = (_BYTE *)UPDWORDPointer(8203LL);
+              GreSetFontEnumeration(8 * (*v177 & 2 | 4));
               break;
             case 0x200Du:
-              v165 = *(_DWORD *)UPDWORDPointer(v173);
-              *(_DWORD *)(*(_QWORD *)(SGDGetSessionState(v166) + 32) + 8584LL) = v165;
+              gulGamma = *(_DWORD *)UPDWORDPointer(8205LL);
               break;
             case 0x200Fu:
-              if ( *(_DWORD *)UPDWORDPointer(v173) )
-                *(_DWORD *)(gpsi + 2228LL) = *(_DWORD *)UPDWORDPointer(v173);
+              if ( *(_DWORD *)UPDWORDPointer(8207LL) )
+                *(_DWORD *)(gpsi + 2228LL) = *(_DWORD *)UPDWORDPointer(8207LL);
               break;
             case 0x2011u:
-              if ( *(_DWORD *)UPDWORDPointer(v173) )
-                *(_DWORD *)(gpsi + 2232LL) = *(_DWORD *)UPDWORDPointer(v173);
+              if ( *(_DWORD *)UPDWORDPointer(8209LL) )
+                *(_DWORD *)(gpsi + 2232LL) = *(_DWORD *)UPDWORDPointer(8209LL);
               break;
             case 0x2013u:
-              v167 = (unsigned int *)UPDWORDPointer(v173);
-              GreSetLCDOrientation(*v167);
+              v120 = (*(_DWORD *)UPDWORDPointer(8211LL) & 1) == 0;
+              v176 = &unk_1C02E49C0;
+              if ( v120 )
+                v176 = &unk_1C02F45B0;
+              off_1C032A0D0 = v176;
               break;
             case 0x201Du:
               TraceLoggingMouseWheelRoutingModeChange((unsigned int)Src);
               break;
             case 0x201Fu:
-              TraceLoggingSPISetPenVisualizationEvent(v162, (unsigned int)Src);
+              TraceLoggingSPISetPenVisualizationEvent(v174, (unsigned int)Src);
               break;
             case 0x2029u:
               CCursorSizes::zzzRefreshSizes(gpCursorSizes);
               break;
-            default:
-              break;
           }
+          goto LABEL_830;
+        }
+LABEL_829:
+        v21 = v180;
+LABEL_830:
+        FreeProfileUserName(v186, &v188);
+        goto LABEL_69;
+      }
+      if ( *((_DWORD *)&gpviCPUserPreferences + 1) == 4 )
+      {
+        v153 = CheckDesktopPolicy(v152, *((_QWORD *)&gpviCPUserPreferences + 1));
+        v152 = (__int64)v186;
+        if ( v153 )
+        {
+          v9 = 0;
+          v11 = 0;
         }
       }
-      FreeProfileUserName(v178, &v180);
-LABEL_693:
-      v120 = v173;
-LABEL_694:
-      if ( updated )
+      if ( v9 )
       {
-        if ( v19 )
-          EditionxxxBroadcastSPIChange(v120, v202, 1LL, v16);
+        ProfileValue = FastGetProfileValue(
+                         v152,
+                         *((unsigned int *)&gpviCPUserPreferences + 1),
+                         *((_QWORD *)&gpviCPUserPreferences + 1),
+                         0LL,
+                         v191,
+                         8,
+                         0);
+        memmove((char *)v191 + ProfileValue, (char *)&gpdwCPUserPreferencesMask + ProfileValue, 8LL - ProfileValue);
+        v155 = v5 - 4096;
+        v156 = 1 << (((unsigned int)(v5 - 4096) >> 1) - 32 * ((unsigned int)(v5 - 4096) >> 6));
+        v157 = (unsigned __int64)(unsigned int)(v5 - 4096) >> 6;
+        v158 = v191[v157];
+        if ( Src )
+          v159 = v156 | v158;
+        else
+          v159 = ~v156 & v158;
+        v191[v157] = v159;
+        updated = FastWriteProfileValue(
+                    v186,
+                    *((unsigned int *)&gpviCPUserPreferences + 1),
+                    *((_QWORD *)&gpviCPUserPreferences + 1),
+                    3LL,
+                    v191,
+                    8);
+        v11 = updated;
       }
-      return PointerDeviceSettingsFull;
+      else
+      {
+        v155 = v5 - 4096;
+      }
+      if ( !v11 )
+        goto LABEL_829;
+      v160 = (unsigned int)(1 << ((v155 >> 1) - 32 * (v155 >> 6)));
+      v161 = (unsigned __int64)v155 >> 6;
+      if ( Src )
+      {
+        *((_DWORD *)&gpdwCPUserPreferencesMask + v161) |= v160;
+      }
+      else
+      {
+        v160 = (unsigned int)~(_DWORD)v160;
+        *((_DWORD *)&gpdwCPUserPreferencesMask + v161) &= v160;
+      }
+      if ( (unsigned int)v5 <= 0x1023 )
+      {
+        if ( (_DWORD)v5 == 4131 )
+        {
+LABEL_835:
+          v169 = *(_QWORD *)(gptiCurrent + 456LL);
+          if ( v169 )
+            v170 = *(struct tagWND **)(*(_QWORD *)(v169 + 8) + 24LL);
+          else
+            v170 = 0LL;
+          xxxInternalInvalidate(v170, (HRGN)1, 0x10485u);
+          goto LABEL_829;
+        }
+        v162 = v5 - 4101;
+        if ( v162 )
+        {
+          v163 = v162 - 2;
+          if ( v163 )
+          {
+            v164 = v163 - 2;
+            if ( v164 )
+            {
+              v165 = v164 - 2;
+              if ( v165 )
+              {
+                if ( v165 == 16 )
+                  SetPointer(1LL);
+                goto LABEL_829;
+              }
+              v166 = gpsi;
+              v167 = *(_DWORD *)(gpsi + 7004LL);
+              v168 = ((unsigned int)gpdwCPUserPreferencesMask ^ v167) & 0x20;
+              goto LABEL_832;
+            }
+            goto LABEL_847;
+          }
+          v166 = gpsi;
+          v167 = *(_DWORD *)(gpsi + 7004LL);
+          v168 = ((unsigned int)gpdwCPUserPreferencesMask ^ v167) & 8;
+        }
+        else
+        {
+          v166 = gpsi;
+          v167 = *(_DWORD *)(gpsi + 7004LL);
+          v168 = ((unsigned int)gpdwCPUserPreferencesMask ^ v167) & 4;
+        }
+LABEL_832:
+        *(_DWORD *)(v166 + 7004) = v167 ^ v168;
+        goto LABEL_829;
+      }
+      if ( (_DWORD)v5 == 4133 )
+      {
+        v171 = (void *)ReferenceDwmApiPort(0LL, v160);
+        DwmAsyncNotifyWindowShadowChange(v171);
+        goto LABEL_829;
+      }
+      if ( (_DWORD)v5 != 4159 )
+      {
+        if ( (_DWORD)v5 == 4175 || (_DWORD)v5 == 4177 )
+        {
+          xxxWindowEvent(0x80000007, 0LL, v5, Src != 0LL, 0);
+        }
+        else if ( (_DWORD)v5 == 4179 )
+        {
+          NotifyISMPenButtonYieldSettingChange();
+        }
+        goto LABEL_829;
+      }
+      *(_DWORD *)(gpsi + 7004LL) ^= ((unsigned int)gpdwCPUserPreferencesMask ^ *(_DWORD *)(gpsi + 7004LL)) & 0x80000000;
+      SetPointer(1LL);
+LABEL_847:
+      CreateBitmapStrip();
+      goto LABEL_835;
+    }
+    v120 = HIDWORD(WPP_MAIN_CB.Dpc.DpcListEntry.Next) == 0;
+LABEL_513:
+    Next = !v120;
+    goto LABEL_75;
   }
+  switch ( (_DWORD)v5 )
+  {
+    case 'p':
+      UserHandedness = GetMouseSensitivity(0LL, 2LL, v12, CurrentProcessWin32Process);
+      goto LABEL_113;
+    case 'q':
+      if ( !(unsigned __int8)IsValidMouseSensitivity((unsigned int)Src, 2LL, v12, CurrentProcessWin32Process) )
+        return 0LL;
+      if ( v9 )
+      {
+        RtlStringCchPrintfW(v211, 0x28uLL, (size_t *)L"%d", Src);
+        updated = FastUpdateWinIni(0LL, 12LL, 608LL, v211);
+        v11 = updated;
+      }
+      if ( v11 )
+      {
+        UpdateMouseSensitivity((unsigned int)Src);
+        for ( i = 0; i < 2; ++i )
+          ResetAccelerationCurves(i);
+      }
+      goto LABEL_68;
+    case 'r':
+      v120 = gppiScreenSaver == 0LL;
+      goto LABEL_513;
+    case 's':
+      if ( g_pWallpaperSettings )
+      {
+        RtlStringCchCopyW((char *)Src, 260LL, (char *)(g_pWallpaperSettings + 4LL));
+        goto LABEL_68;
+      }
+      v54 = CreateProfileUserName(&v188);
+      LoadWallpaperFilenameFromRegistry(v54, Src, 260LL);
+      goto LABEL_170;
+    case 't':
+      if ( a2 && a2 != 12 || !Src || *(_DWORD *)Src != 12 )
+        return 0LL;
+      *(void **)((char *)Src + 4) = *(void *const *)((char *)&gAudioDescription + 4);
+      goto LABEL_68;
+    case 'u':
+      if ( a2 && a2 != 12 || !Src || *(_DWORD *)Src != 12 )
+        return 0LL;
+      if ( v9 )
+      {
+        v121 = CreateProfileUserName(&v188);
+        v122 = v121;
+        v123 = L"1";
+        v124 = L"1";
+        if ( !*((_DWORD *)Src + 1) )
+          v124 = L"0";
+        v125 = FastWriteProfileStringW(v121, 48LL, L"On", v124);
+        RtlStringCchPrintfW(v211, 0x28uLL, (size_t *)L"%d", *((unsigned int *)Src + 2));
+        updated = FastWriteProfileStringW(v122, 48LL, L"Locale", v211) & v125;
+        v11 = updated;
+        if ( !updated )
+        {
+          if ( !HIDWORD(gAudioDescription) )
+            v123 = L"0";
+          FastWriteProfileStringW(v122, 48LL, L"On", v123);
+          RtlStringCchPrintfW(v211, 0x28uLL, (size_t *)L"%d", *((unsigned int *)&gAudioDescription + 2));
+          FastWriteProfileStringW(v122, 48LL, L"Locale", v211);
+        }
+        FreeProfileUserName(v122, &v188);
+      }
+      if ( v11 )
+      {
+        memmove(gAudioDescription, Src, *(unsigned int *)Src);
+        LODWORD(gAudioDescription) = 12;
+      }
+      goto LABEL_68;
+    case 'v':
+      v119 = *gpsi >> 9;
+      goto LABEL_489;
+  }
+  if ( gdwRITdemonLockState && !(_DWORD)v12 )
+    goto LABEL_762;
+  if ( (unsigned int)CheckDesktopPolicy(0LL, 618LL) )
+  {
+    v9 = 0;
+    v11 = 0;
+    v184 = 0;
+  }
+  if ( v9 )
+  {
+    updated = UpdateWinIniInt(0LL, 4LL, 618LL, a2 != 0);
+    v183 = updated;
+    v11 = updated;
+    v184 = updated;
+  }
+  if ( !v11 )
+    goto LABEL_68;
+  v22 = v181;
+  v120 = a2 == 0;
+  v21 = v180;
+  if ( v120 )
+    _InterlockedAnd(gpsi, 0xFFFFFDFF);
+  else
+    _InterlockedOr(gpsi, 0x200u);
+  updated = v183;
+  v11 = v184;
+LABEL_70:
+  if ( updated )
+  {
+    if ( v22 )
+      EditionxxxBroadcastSPIChange(v21, v212);
+  }
+  return v11;
 }

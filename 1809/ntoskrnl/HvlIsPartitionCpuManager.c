@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlIsPartitionCpuManager @ 0x1401782E0
+ * XREFs of HvlIsPartitionCpuManager @ 0x140178300
  * Callers:
  *     PopInitPlatformSettings @ 0x1409DCD88 (PopInitPlatformSettings.c)
  * Callees:

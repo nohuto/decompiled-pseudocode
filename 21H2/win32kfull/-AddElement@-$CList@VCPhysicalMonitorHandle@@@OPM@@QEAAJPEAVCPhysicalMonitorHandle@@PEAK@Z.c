@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AddElement@?$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAJPEAVCPhysicalMonitorHandle@@PEAK@Z @ 0x1C026E658
+ * XREFs of ?AddElement@?$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAJPEAVCPhysicalMonitorHandle@@PEAK@Z @ 0x1C0270A24
  * Callers:
- *     ?AddHandleToTable@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAVCPhysicalMonitorHandle@@PEAPEAX@Z @ 0x1C026E764 (-AddHandleToTable@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAVCPhysicalMon.c)
+ *     ?AddHandleToTable@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAVCPhysicalMonitorHandle@@PEAPEAX@Z @ 0x1C0270B38 (-AddHandleToTable@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAVCPhysicalMon.c)
  * Callees:
- *     memset @ 0x1C0160540 (memset.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall OPM::CList<CPhysicalMonitorHandle>::AddElement(__int64 a1, __int64 a2, _DWORD *a3)
@@ -13,7 +13,8 @@ __int64 __fastcall OPM::CList<CPhysicalMonitorHandle>::AddElement(__int64 a1, __
   _QWORD *v8; // rsi
   unsigned __int64 v10; // rdx
   __int64 i; // r8
-  __int64 j; // rax
+  __int64 v12; // rax
+  char v13; // cl
 
   v3 = *(_DWORD *)(a1 + 12);
   if ( *(_DWORD *)(a1 + 8) == v3 )
@@ -28,7 +29,7 @@ __int64 __fastcall OPM::CList<CPhysicalMonitorHandle>::AddElement(__int64 a1, __
     {
       LODWORD(v7) = 16;
     }
-    v8 = OPM::OPMAllocateMemory((OPM *)(8LL * (unsigned int)v7), 0x100uLL, (unsigned __int64)a3);
+    v8 = OPM::OPMAllocateMemory((OPM *)(8LL * (unsigned int)v7), 1uLL, (enum _POOL_TYPE)a3);
     if ( !v8 )
       return 3221225495LL;
     v10 = *(unsigned int *)(a1 + 12);
@@ -43,15 +44,21 @@ __int64 __fastcall OPM::CList<CPhysicalMonitorHandle>::AddElement(__int64 a1, __
     *(_QWORD *)a1 = v8;
     *(_DWORD *)(a1 + 12) = v7;
   }
-  for ( j = 0LL; (unsigned int)j < *(_DWORD *)(a1 + 12); j = (unsigned int)(j + 1) )
+  v12 = 0LL;
+  v13 = 0;
+  do
   {
-    if ( !*(_QWORD *)(*(_QWORD *)a1 + 8 * j) )
-    {
-      *(_QWORD *)(*(_QWORD *)a1 + 8 * j) = a2;
-      *a3 = j;
+    if ( (unsigned int)v12 >= *(_DWORD *)(a1 + 12) )
       break;
+    if ( !*(_QWORD *)(*(_QWORD *)a1 + 8 * v12) )
+    {
+      v13 = 1;
+      *(_QWORD *)(*(_QWORD *)a1 + 8 * v12) = a2;
+      *a3 = v12;
     }
+    v12 = (unsigned int)(v12 + 1);
   }
+  while ( !v13 );
   ++*(_DWORD *)(a1 + 8);
   return 0LL;
 }

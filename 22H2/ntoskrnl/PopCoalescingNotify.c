@@ -1,22 +1,21 @@
 /*
- * XREFs of PopCoalescingNotify @ 0x140987090
+ * XREFs of PopCoalescingNotify @ 0x1408E6900
  * Callers:
- *     PopPolicyWorkerThread @ 0x140361740 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x14031E2A0 (PopPolicyWorkerThread.c)
  * Callees:
- *     KeCancelTimer @ 0x140252980 (KeCancelTimer.c)
- *     PopPrintEx @ 0x14032A4CC (PopPrintEx.c)
- *     PopDiagTraceEventNoPayload @ 0x140366FF0 (PopDiagTraceEventNoPayload.c)
- *     PopCoalescingSetTimer @ 0x14058DA10 (PopCoalescingSetTimer.c)
- *     PopEnsureCoalescingWorkerWillRun @ 0x14058DA90 (PopEnsureCoalescingWorkerWillRun.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     KeCancelTimer @ 0x14025FAA0 (KeCancelTimer.c)
+ *     PopDiagTraceEventNoPayload @ 0x1403265D4 (PopDiagTraceEventNoPayload.c)
+ *     PopPrintEx @ 0x140364318 (PopPrintEx.c)
+ *     PopCoalescingSetTimer @ 0x14056EBA4 (PopCoalescingSetTimer.c)
+ *     PopEnsureCoalescingWorkerWillRun @ 0x14056EC30 (PopEnsureCoalescingWorkerWillRun.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopCoalescingNotify(int a1)
 {
   __int64 v1; // rdx
   __int64 v2; // rcx
-  __int64 v3; // r8
 
   PopAcquirePolicyLock(a1);
   if ( (PopCoalescingState & 2) != 0 )
@@ -29,7 +28,7 @@ __int64 __fastcall PopCoalescingNotify(int a1)
     PopCoalescingLastFlushTime = MEMORY[0xFFFFF78000000008];
     PopCoalescingSetTimer();
   }
-  PopReleasePolicyLock(v2, v1, v3);
+  PopReleasePolicyLock(v2, v1);
   if ( KeGetCurrentThread()->WaitBlock[3].SpareLong )
     __fastfail(0x20u);
   return 0LL;

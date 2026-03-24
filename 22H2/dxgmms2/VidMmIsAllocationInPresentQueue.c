@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmIsAllocationInPresentQueue @ 0x1C002D100
+ * XREFs of VidMmIsAllocationInPresentQueue @ 0x1C0022DA0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsAllocationInPresentQueue@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_ALLOC@@PEAI@Z @ 0x1C00E41D0 (-IsAllocationInPresentQueue@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_ALLOC@@PEAI@Z.c)
+ *     ?IsAllocationInPresentQueue@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_ALLOC@@PEAI@Z @ 0x1C00AF61C (-IsAllocationInPresentQueue@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_ALLOC@@PEAI@Z.c)
  */
 
 unsigned __int8 __fastcall VidMmIsAllocationInPresentQueue(

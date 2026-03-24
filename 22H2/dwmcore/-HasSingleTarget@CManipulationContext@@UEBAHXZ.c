@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HasSingleTarget@CManipulationContext@@UEBAHXZ @ 0x1801052B0
+ * XREFs of ?HasSingleTarget@CManipulationContext@@UEBAHXZ @ 0x1800E3180
  * Callers:
  *     <none>
  * Callees:

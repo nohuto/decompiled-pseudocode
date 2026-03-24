@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bReset@DC@@QEAAHXZ @ 0x1C010109C
+ * XREFs of ?bReset@DC@@QEAAHXZ @ 0x1C0019134
  * Callers:
- *     GreBeginGdiRenderingToDxSurface @ 0x1C0100F28 (GreBeginGdiRenderingToDxSurface.c)
+ *     GreBeginGdiRenderingToDxSurface @ 0x1C0017FB8 (GreBeginGdiRenderingToDxSurface.c)
  * Callees:
  *     <none>
  */

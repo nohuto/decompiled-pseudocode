@@ -1,7 +1,7 @@
 /*
- * XREFs of ?FlushAllTemporaryAllocation@VIDMM_GLOBAL@@IEAAXI@Z @ 0x1C00E2F48
+ * XREFs of ?FlushAllTemporaryAllocation@VIDMM_GLOBAL@@IEAAXI@Z @ 0x1C00AE4D0
  * Callers:
- *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C0095820 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
+ *     ?EnableIoMmuIsolation@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00ADB8C (-EnableIoMmuIsolation@VIDMM_GLOBAL@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */
@@ -21,9 +21,9 @@ void __fastcall VIDMM_GLOBAL::FlushAllTemporaryAllocation(VIDMM_GLOBAL *this, in
   v5 = this;
   while ( v4 != v2 )
   {
-    v6 = v4 - 208;
+    v6 = v4 - 224;
     v7 = v4;
-    v8 = *((_DWORD *)v4 - 35);
+    v8 = *((_DWORD *)v4 - 37);
     v4 = *(char **)v4;
     if ( (v8 & 0x3F) == a2 )
     {

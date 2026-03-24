@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SmAsyncReadQueueWorker@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x140394C30
+ * XREFs of ?SmAsyncReadQueueWorker@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x140387D30
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     ?SmStWorkItemQueue@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z @ 0x14037D2EC (-SmStWorkItemQueue@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     ?SmStWorkItemQueue@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z @ 0x1402D9740 (-SmStWorkItemQueue@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM_HDR@@K@Z.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmAsyncReadQueueWorker(__int64 a1)
@@ -25,20 +25,20 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmAsyncReadQueueWorker(__int64 a1)
   unsigned __int64 v11; // rax
   LARGE_INTEGER PerformanceCounter; // rbx
   int i; // r14d
-  KIRQL v14; // al
-  _QWORD *v15; // rcx
-  unsigned __int64 v16; // rdi
-  int v17; // edi
+  unsigned __int64 v14; // rdi
+  _QWORD *v15; // rax
+  int v16; // edi
   __int64 result; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v22; // eax
-  bool v23; // zf
-  unsigned __int8 v24; // al
-  struct _KPRCB *v25; // r10
-  _DWORD *v26; // r9
-  int v27; // eax
+  int v21; // eax
+  bool v22; // zf
+  unsigned __int8 v23; // al
+  struct _KPRCB *v24; // r10
+  _DWORD *v25; // r9
+  int v26; // eax
+  _QWORD *v27; // rax
   unsigned __int8 v28; // al
   struct _KPRCB *v29; // r10
   _DWORD *v30; // r9
@@ -70,10 +70,10 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmAsyncReadQueueWorker(__int64 a1)
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-        v23 = (v22 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v22;
-        if ( v23 )
+        v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+        v22 = (v21 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v21;
+        if ( v22 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
@@ -91,7 +91,6 @@ LABEL_3:
 LABEL_6:
     v14 = KeAcquireSpinLockRaiseToDpc(v6);
     v15 = *(_QWORD **)(v7 + 8);
-    v16 = v14;
     if ( *v15 )
     {
       if ( v15 == (_QWORD *)v7 )
@@ -102,14 +101,15 @@ LABEL_6:
       {
         v1 = *(_QWORD **)v7;
         *(_QWORD *)v7 = **(_QWORD **)v7;
-        if ( v1 == v15 )
+        v27 = *(_QWORD **)(v7 + 8);
+        if ( v1 == v27 )
         {
           *(_QWORD *)v7 = 0LL;
           *(_QWORD *)(v7 + 8) = v7;
         }
         else
         {
-          --*v15;
+          --*v27;
         }
       }
       KxReleaseSpinLock(v6);
@@ -118,19 +118,19 @@ LABEL_6:
         if ( (KiIrqlFlags & 1) != 0 )
         {
           v28 = KeGetCurrentIrql();
-          if ( v28 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v28 >= 2u )
+          if ( v28 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v28 >= 2u )
           {
             v29 = KeGetCurrentPrcb();
             v30 = v29->SchedulerAssist;
-            v31 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));
-            v23 = (v31 & v30[5]) == 0;
+            v31 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
+            v22 = (v31 & v30[5]) == 0;
             v30[5] &= v31;
-            if ( v23 )
+            if ( v22 )
               KiRemoveSystemWorkPriorityKick(v29);
           }
         }
       }
-      __writecr8(v16);
+      __writecr8(v14);
       goto LABEL_3;
     }
     if ( i )
@@ -140,28 +140,28 @@ LABEL_6:
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v24 = KeGetCurrentIrql();
-        if ( v24 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v24 >= 2u )
+        v23 = KeGetCurrentIrql();
+        if ( v23 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v23 >= 2u )
         {
-          v25 = KeGetCurrentPrcb();
-          v26 = v25->SchedulerAssist;
-          v27 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));
-          v23 = (v27 & v26[5]) == 0;
-          v26[5] &= v27;
-          if ( v23 )
-            KiRemoveSystemWorkPriorityKick(v25);
+          v24 = KeGetCurrentPrcb();
+          v25 = v24->SchedulerAssist;
+          v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
+          v22 = (v26 & v25[5]) == 0;
+          v25[5] &= v26;
+          if ( v22 )
+            KiRemoveSystemWorkPriorityKick(v24);
         }
       }
     }
-    __writecr8(v16);
+    __writecr8(v14);
     if ( !PerformanceCounter.QuadPart )
       PerformanceCounter = KeQueryPerformanceCounter(0LL);
-    v17 = 0;
+    v16 = 0;
     while ( *(_DWORD *)(v7 + 16) <= *(_DWORD *)(v7 + 20) )
     {
       if ( **(_QWORD **)(v7 + 8) )
         goto LABEL_6;
-      if ( (++v17 & 0x7F) == 0
+      if ( (++v16 & 0x7F) == 0
         && 1000000
          * (*(_QWORD *)&KeQueryPerformanceCounter(0LL) - PerformanceCounter.QuadPart)
          / PerformanceFrequency.QuadPart >= (unsigned __int64)v5 )
@@ -179,18 +179,18 @@ LABEL_6:
     if ( (KiIrqlFlags & 1) != 0 )
     {
       result = KeGetCurrentIrql();
-      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v16 <= 0xFu && (unsigned __int8)result >= 2u )
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v14 <= 0xFu && (unsigned __int8)result >= 2u )
       {
         v32 = KeGetCurrentPrcb();
-        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v16 + 1));
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
         v33 = v32->SchedulerAssist;
-        v23 = ((unsigned int)result & v33[5]) == 0;
+        v22 = ((unsigned int)result & v33[5]) == 0;
         v33[5] &= result;
-        if ( v23 )
+        if ( v22 )
           result = KiRemoveSystemWorkPriorityKick(v32);
       }
     }
   }
-  __writecr8(v16);
+  __writecr8(v14);
   return result;
 }

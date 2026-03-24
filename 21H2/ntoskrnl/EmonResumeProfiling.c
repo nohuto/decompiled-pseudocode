@@ -1,5 +1,5 @@
 /*
- * XREFs of EmonResumeProfiling @ 0x140521990
+ * XREFs of EmonResumeProfiling @ 0x1404D4700
  * Callers:
  *     <none>
  * Callees:
@@ -8,40 +8,36 @@
 
 unsigned __int64 EmonResumeProfiling()
 {
-  __int64 v0; // r9
+  unsigned int v0; // r8d
   unsigned __int64 result; // rax
-  __int64 v2; // r8
+  __int64 v2; // r9
   unsigned int v3; // ecx
-  unsigned __int64 *v4; // r10
+  int *v4; // r10
   __int64 v5; // r11
   unsigned __int64 v6; // rax
   unsigned int v7; // r11d
-  unsigned __int64 v8; // rdx
-  __int64 v9; // r10
+  unsigned __int64 v8; // r10
+  int *v9; // rdx
 
-  if ( HalpProfileInterface == &DefaultProfileInterface )
-    v0 = HalpCounterStatus;
-  else
-    v0 = HalpCounterStatus + 8LL * HalpNumberOfCounters * KeGetPcr()->Prcb.Number;
+  v0 = 0;
   result = (unsigned int)EmonNumberArchCounters;
-  v2 = 0LL;
+  v2 = EmonCounterStatus + 16LL * EmonNumberCounters * KeGetPcr()->Prcb.Number;
   if ( EmonNumberArchCounters )
   {
     v3 = 390;
-    v4 = (unsigned __int64 *)v0;
-    v2 = (unsigned int)EmonNumberArchCounters;
+    v4 = (int *)v2;
+    v0 = EmonNumberArchCounters;
     v5 = (unsigned int)EmonNumberArchCounters;
     do
     {
-      result = *v4;
-      if ( *(int *)(*v4 + 24) < 2 )
+      if ( *v4 < 2 )
       {
         v6 = __readmsr(v3);
         result = (unsigned int)v6 | 0x400000LL;
         __writemsr(v3, result);
       }
       ++v3;
-      ++v4;
+      v4 += 4;
       --v5;
     }
     while ( v5 );
@@ -50,17 +46,17 @@ unsigned __int64 EmonResumeProfiling()
   {
     v7 = EmonNumberCounters;
     v8 = __readmsr(0x38Fu);
-    if ( (unsigned int)v2 < EmonNumberCounters )
+    if ( v0 < EmonNumberCounters )
     {
-      v9 = v0 + 8 * v2;
+      v9 = (int *)(v2 + 16LL * v0);
       do
       {
-        if ( *(int *)(*(_QWORD *)v9 + 24LL) < 2 )
-          _bittestandset64((__int64 *)&v8, (unsigned int)(v2 - EmonNumberArchCounters + 32));
-        LODWORD(v2) = v2 + 1;
-        v9 += 8LL;
+        if ( *v9 < 2 )
+          _bittestandset64((__int64 *)&v8, v0 - EmonNumberArchCounters + 32);
+        ++v0;
+        v9 += 4;
       }
-      while ( (unsigned int)v2 < v7 );
+      while ( v0 < v7 );
     }
     result = v8;
     __writemsr(0x38Fu, v8);

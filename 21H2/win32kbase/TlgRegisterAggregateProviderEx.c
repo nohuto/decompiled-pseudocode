@@ -1,16 +1,16 @@
 /*
- * XREFs of TlgRegisterAggregateProviderEx @ 0x1C02C80F8
+ * XREFs of TlgRegisterAggregateProviderEx @ 0x1C027F5D8
  * Callers:
- *     Win32kBaseDriverEntry @ 0x1C02E4310 (Win32kBaseDriverEntry.c)
+ *     Win32kBaseDriverEntry @ 0x1C029B770 (Win32kBaseDriverEntry.c)
  * Callees:
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C02C81EC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     CreateTlgAggregateSession @ 0x1C02C8298 (CreateTlgAggregateSession.c)
- *     DestroyAggregateSession @ 0x1C02C8730 (DestroyAggregateSession.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C027F6CC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     CreateTlgAggregateSession @ 0x1C027F76C (CreateTlgAggregateSession.c)
+ *     DestroyAggregateSession @ 0x1C027F9D0 (DestroyAggregateSession.c)
  */
 
-__int64 __fastcall TlgRegisterAggregateProviderEx(_QWORD *CallbackContext)
+__int64 __fastcall TlgRegisterAggregateProviderEx(PVOID CallbackContext)
 {
-  _QWORD *v1; // rdi
+  PVOID v1; // rdi
   __int64 TlgAggregateSession; // rax
   void *v3; // rbx
   int v4; // esi
@@ -30,30 +30,29 @@ __int64 __fastcall TlgRegisterAggregateProviderEx(_QWORD *CallbackContext)
   v4 = TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(v1);
   if ( v4 < 0 )
   {
-    v1[5] = 0LL;
     DestroyAggregateSession(v3);
     return (unsigned int)v4;
   }
   else
   {
-    ExAcquirePushLockExclusiveEx(&unk_1C029A6A8, 0LL);
-    v5 = qword_1C029A6B0;
-    if ( !qword_1C029A6B0 )
+    ExAcquirePushLockExclusiveEx(&unk_1C0255898, 0LL);
+    v5 = qword_1C02558A0;
+    if ( !qword_1C02558A0 )
     {
-      TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C028DB58);
-      v5 = qword_1C029A6B0;
+      TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_1C024A6D8);
+      v5 = qword_1C02558A0;
     }
-    v6 = &qword_1C029A6B0;
+    v6 = &qword_1C02558A0;
     while ( v5 )
     {
-      if ( *(_QWORD **)(v5 + 344) == v1 )
+      if ( *(PVOID *)(v5 + 344) == v1 )
         goto LABEL_8;
       v6 = (__int64 *)(v5 + 352);
       v5 = *(_QWORD *)(v5 + 352);
     }
     *v6 = (__int64)v3;
 LABEL_8:
-    ExReleasePushLockExclusiveEx(&unk_1C029A6A8, 0LL);
+    ExReleasePushLockExclusiveEx(&unk_1C0255898, 0LL);
     return 0LL;
   }
 }

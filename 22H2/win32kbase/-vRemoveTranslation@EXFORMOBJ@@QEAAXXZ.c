@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vRemoveTranslation@EXFORMOBJ@@QEAAXXZ @ 0x1C00AA380
+ * XREFs of ?vRemoveTranslation@EXFORMOBJ@@QEAAXXZ @ 0x1C00933B0
  * Callers:
  *     <none>
  * Callees:

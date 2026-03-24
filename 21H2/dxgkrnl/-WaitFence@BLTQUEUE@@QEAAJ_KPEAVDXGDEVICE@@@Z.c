@@ -1,45 +1,43 @@
 /*
- * XREFs of ?WaitFence@BLTQUEUE@@QEAAJ_KPEAVDXGDEVICE@@@Z @ 0x1C03BF798
+ * XREFs of ?WaitFence@BLTQUEUE@@QEAAJ_KPEAVDXGDEVICE@@@Z @ 0x1C0300510
  * Callers:
- *     ?Blt@BLTENTRY@@QEAAJXZ @ 0x1C03BB35C (-Blt@BLTENTRY@@QEAAJXZ.c)
+ *     ?Blt@BLTENTRY@@QEAAJXZ @ 0x1C02FC944 (-Blt@BLTENTRY@@QEAAJXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?VmBusSendWaitForSyncObjectFromCpu@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@IPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU@@E@Z @ 0x1C037F5E4 (-VmBusSendWaitForSyncObjectFromCpu@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@IPEBU_D3DKMT.c)
+ *     ?VmBusSendWaitForSyncObjectFromCpu@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@IPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU@@E@Z @ 0x1C024DA10 (-VmBusSendWaitForSyncObjectFromCpu@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@IPEBU_D3DKMT.c)
  */
 
 __int64 __fastcall BLTQUEUE::WaitFence(BLTQUEUE *this, __int64 a2, struct DXGDEVICE *a3)
 {
-  struct DXGPROCESS *v3; // rdx
-  int v4; // ebx
-  struct _D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU v6; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v7; // [rsp+98h] [rbp+10h] BYREF
+  D3DKMT_HANDLE v4; // eax
+  struct DXGPROCESS *v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  int v9; // ebx
+  __int64 v10; // rax
+  struct _D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU v12; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v13; // [rsp+78h] [rbp+10h] BYREF
 
-  v7 = a2;
-  v3 = (struct DXGPROCESS *)*((_QWORD *)a3 + 5);
-  *(_OWORD *)&v6.hAsyncEvent = 0LL;
-  v6.FenceValueArray = (const UINT64 *)&v7;
-  v6.hDevice = *((_DWORD *)a3 + 109);
-  v6.ObjectCount = 1;
-  v6.ObjectHandleArray = (const D3DKMT_HANDLE *)((char *)this + 2816);
-  v4 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendWaitForSyncObjectFromCpu(
-         (DXG_GUEST_VIRTUALGPU_VMBUS *)(*(_QWORD *)(*((_QWORD *)a3 + 2) + 16LL) + 4344LL),
-         v3,
-         *((_DWORD *)a3 + 110),
-         &v6,
+  v13 = a2;
+  *(_OWORD *)&v12.hAsyncEvent = 0LL;
+  v12.FenceValueArray = (const UINT64 *)&v13;
+  v4 = *((_DWORD *)a3 + 109);
+  v5 = (struct DXGPROCESS *)*((_QWORD *)a3 + 5);
+  v6 = *((unsigned int *)a3 + 110);
+  v12.hDevice = v4;
+  v12.ObjectCount = 1;
+  v12.ObjectHandleArray = (const D3DKMT_HANDLE *)((char *)this + 2800);
+  v9 = DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendWaitForSyncObjectFromCpu(
+         (DXG_GUEST_VIRTUALGPU_VMBUS *)(*(_QWORD *)(*((_QWORD *)a3 + 2) + 16LL) + 4240LL),
+         v5,
+         v6,
+         &v12,
          1u);
-  if ( v4 < 0 )
+  if ( v9 < 0 )
   {
-    WdLogSingleEntry1(2LL, 564LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"DxgkWaitForSynchronizationObjectFromCpuInternal failed",
-      564LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v10 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v10 + 24) = 564LL;
+    WdLogEvent5_WdError(v10);
   }
-  return (unsigned int)v4;
+  return (unsigned int)v9;
 }

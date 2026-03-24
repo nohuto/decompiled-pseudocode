@@ -1,12 +1,12 @@
 /*
- * XREFs of WdipSemInitializeGlobalState @ 0x140744EDC
+ * XREFs of WdipSemInitializeGlobalState @ 0x140744EBC
  * Callers:
- *     WdipSemInitialize @ 0x140743460 (WdipSemInitialize.c)
- *     WdipSemUpdate @ 0x1408B0BDC (WdipSemUpdate.c)
+ *     WdipSemInitialize @ 0x140743440 (WdipSemInitialize.c)
+ *     WdipSemUpdate @ 0x1408B0BBC (WdipSemUpdate.c)
  * Callees:
- *     InitializeSListHead @ 0x1400F3160 (InitializeSListHead.c)
- *     WdipSemClearFrequentScenarioTable @ 0x140186154 (WdipSemClearFrequentScenarioTable.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
+ *     WdipSemClearFrequentScenarioTable @ 0x140186174 (WdipSemClearFrequentScenarioTable.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 void *WdipSemInitializeGlobalState()
@@ -37,11 +37,11 @@ void *WdipSemInitializeGlobalState()
   while ( v0 );
   memset(WdipSemScenarioTable, 0, 0x208uLL);
   memset(WdipSemProviderTable, 0, 0x2010uLL);
-  qword_14040CF08 = 0LL;
-  qword_14040CF28 = (__int64)&WdipSemEnabledInstanceTable;
+  qword_14040CAC8 = 0LL;
+  qword_14040CAE8 = (__int64)&WdipSemEnabledInstanceTable;
   WdipSemEnabledInstanceTable = (__int64)&WdipSemEnabledInstanceTable;
-  dword_14040CF30 = 0;
-  qword_14040CF38 = 0LL;
+  dword_14040CAF0 = 0;
+  qword_14040CAF8 = 0LL;
   result = WdipSemClearFrequentScenarioTable();
   WdipSemInitialized = 1;
   return result;

@@ -1,14 +1,14 @@
 /*
- * XREFs of GreGetBitmapBitsSize @ 0x1C0029854
+ * XREFs of GreGetBitmapBitsSize @ 0x1C00ABFB4
  * Callers:
- *     NtGdiGetDIBitsInternal @ 0x1C0026E60 (NtGdiGetDIBitsInternal.c)
- *     NtGdiCreateDIBSection @ 0x1C0029440 (NtGdiCreateDIBSection.c)
- *     NtGdiCreateSessionMappedDIBSection @ 0x1C00FC2B0 (NtGdiCreateSessionMappedDIBSection.c)
- *     ?xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z @ 0x1C0219BAC (-xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z.c)
- *     ?GreIcmQueryBrushBitmap@@YAHPEAUHDC__@@PEAUHBRUSH__@@PEAUtagBITMAPINFO@@PEAXPEAK4PEAH@Z @ 0x1C02B4800 (-GreIcmQueryBrushBitmap@@YAHPEAUHDC__@@PEAUHBRUSH__@@PEAUtagBITMAPINFO@@PEAXPEAK4PEAH@Z.c)
- *     NtGdiIcmBrushInfo @ 0x1C02B53C0 (NtGdiIcmBrushInfo.c)
+ *     NtGdiGetDIBitsInternal @ 0x1C007FE00 (NtGdiGetDIBitsInternal.c)
+ *     NtGdiCreateSessionMappedDIBSection @ 0x1C00A97E0 (NtGdiCreateSessionMappedDIBSection.c)
+ *     NtGdiCreateDIBSection @ 0x1C00ABAE0 (NtGdiCreateDIBSection.c)
+ *     ?xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z @ 0x1C021EEB8 (-xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z.c)
+ *     ?GreIcmQueryBrushBitmap@@YAHPEAUHDC__@@PEAUHBRUSH__@@PEAUtagBITMAPINFO@@PEAXPEAK4PEAH@Z @ 0x1C02B65A4 (-GreIcmQueryBrushBitmap@@YAHPEAUHDC__@@PEAUHBRUSH__@@PEAUtagBITMAPINFO@@PEAXPEAK4PEAH@Z.c)
+ *     NtGdiIcmBrushInfo @ 0x1C02B7320 (NtGdiIcmBrushInfo.c)
  * Callees:
- *     ?noOverflowCJSCAN@@YAKKGGK@Z @ 0x1C00298A8 (-noOverflowCJSCAN@@YAKKGGK@Z.c)
+ *     ?noOverflowCJSCAN@@YAKKGGK@Z @ 0x1C00AC008 (-noOverflowCJSCAN@@YAKKGGK@Z.c)
  */
 
 unsigned int __fastcall GreGetBitmapBitsSize(__int64 a1)

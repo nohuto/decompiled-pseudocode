@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetUsedSamplersBitmask@CBrushRenderingEffect@@UEBAIXZ @ 0x180109210
+ * XREFs of ?GetUsedSamplersBitmask@CBrushRenderingEffect@@UEBAIXZ @ 0x1800E3A50
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CBrushRenderingEffect::GetUsedSamplersBitmask(CBrushRenderingEffect *this)
 {
-  return (unsigned int)((1 << *(_DWORD *)(*((_QWORD *)this + 2) + 76LL)) - 1);
+  return (unsigned int)((1 << *(_DWORD *)(*((_QWORD *)this + 2) + 60LL)) - 1);
 }

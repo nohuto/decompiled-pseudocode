@@ -1,11 +1,11 @@
 /*
- * XREFs of EvalPackageElement @ 0x1C0024344
+ * XREFs of EvalPackageElement @ 0x1C001246C
  * Callers:
- *     AMLIEvalPackageElement @ 0x1C0024258 (AMLIEvalPackageElement.c)
- *     Match_32 @ 0x1C006A5F8 (Match_32.c)
- *     Match_64 @ 0x1C006A71C (Match_64.c)
+ *     AMLIEvalPackageElement @ 0x1C0012380 (AMLIEvalPackageElement.c)
+ *     Match_32 @ 0x1C0069AF8 (Match_32.c)
+ *     Match_64 @ 0x1C0069C1C (Match_64.c)
  * Callees:
- *     DupObjData @ 0x1C00169A0 (DupObjData.c)
+ *     DupObjData @ 0x1C000A400 (DupObjData.c)
  */
 
 __int64 __fastcall EvalPackageElement(unsigned int *a1, unsigned int a2, __int64 a3)

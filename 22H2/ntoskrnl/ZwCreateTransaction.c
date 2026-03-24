@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwCreateTransaction @ 0x14041C040
+ * XREFs of ZwCreateTransaction @ 0x1403FB300
  * Callers:
- *     DifZwCreateTransactionWrapper @ 0x1405EF330 (DifZwCreateTransactionWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

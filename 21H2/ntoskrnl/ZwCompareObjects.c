@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCompareObjects @ 0x14041CB00
+ * XREFs of ZwCompareObjects @ 0x1403FB700
  * Callers:
  *     <none>
  * Callees:

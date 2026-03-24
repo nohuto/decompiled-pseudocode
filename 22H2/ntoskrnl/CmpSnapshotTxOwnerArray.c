@@ -1,80 +1,83 @@
 /*
- * XREFs of CmpSnapshotTxOwnerArray @ 0x140A20EA4
+ * XREFs of CmpSnapshotTxOwnerArray @ 0x14087829C
  * Callers:
- *     CmpCreateChild @ 0x1406D1020 (CmpCreateChild.c)
- *     CmSetValueKey @ 0x1406D32F0 (CmSetValueKey.c)
- *     CmpSetKeySecurity @ 0x14070C46C (CmpSetKeySecurity.c)
- *     CmDeleteValueKey @ 0x14070EFD4 (CmDeleteValueKey.c)
- *     CmDeleteKey @ 0x14071009C (CmDeleteKey.c)
+ *     CmSetValueKey @ 0x1406DD4B0 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1406DF334 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x1406E08C4 (CmpCreateChild.c)
+ *     CmDeleteKey @ 0x1406E47E4 (CmDeleteKey.c)
+ *     CmpSetKeySecurity @ 0x1406E6CFC (CmpSetKeySecurity.c)
  * Callees:
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmpSnapshotTxOwnerArray(unsigned int *a1, _DWORD *a2, void ***a3)
+__int64 __fastcall CmpSnapshotTxOwnerArray(__int64 a1, unsigned int *a2, void ***a3)
 {
-  __int64 v3; // rdi
-  __int64 v4; // rbx
-  __int64 v9; // rbp
-  void **Pool2; // rax
+  __int64 v3; // rbx
+  unsigned int v8; // edi
+  __int64 v9; // r12
+  void **PoolWithTag; // rax
   __int64 v11; // r8
-  __int64 v12; // rcx
-  void *v13; // rcx
-  void **v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // rdx
-  void *v17; // rcx
+  void **v12; // rdx
+  __int64 v13; // rcx
+  void *v14; // rcx
+  void **v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // rcx
+  void *v18; // rcx
 
-  v3 = *a1;
-  v4 = 0LL;
-  if ( !(_DWORD)v3 )
+  v3 = 0LL;
+  if ( !*(_DWORD *)a1 )
     return 3221225485LL;
-  LODWORD(v3) = v3 & 0x7FFFFFFF;
+  v8 = *(_DWORD *)a1 & 0x7FFFFFFF;
   *a2 = 0;
-  v9 = (unsigned int)v3;
-  Pool2 = (void **)ExAllocatePool2(256LL, 8 * v3, 909397315LL);
-  *a3 = Pool2;
-  if ( !Pool2 )
+  v9 = v8;
+  PoolWithTag = (void **)ExAllocatePoolWithTag(PagedPool, 8LL * v8, 0x36344D43u);
+  *a3 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  if ( (_DWORD)v3 == 1 )
+  memset(PoolWithTag, 0, 8LL * v8);
+  if ( v8 == 1 )
   {
-    v11 = *((_QWORD *)a1 + 1);
-    v12 = *(_QWORD *)(v11 + 56);
-    if ( (*(_DWORD *)(v12 + 48) & 0x80u) == 0 )
+    v11 = *(_QWORD *)(a1 + 8);
+    v12 = *a3;
+    v13 = *(_QWORD *)(v11 + 56);
+    if ( (*(_DWORD *)(v13 + 48) & 0x80u) == 0 )
     {
-      *Pool2 = *(void **)(v12 + 72);
-      v13 = **a3;
+      *v12 = *(void **)(v13 + 72);
+      v14 = **a3;
     }
     else
     {
-      *Pool2 = *(void **)(v12 + 56);
-      v13 = (void *)(*(_QWORD *)(*(_QWORD *)(v11 + 56) + 56LL) & 0xFFFFFFFFFFFFFFFEuLL);
+      *v12 = *(void **)(v13 + 56);
+      v14 = (void *)(*(_QWORD *)(*(_QWORD *)(v11 + 56) + 56LL) & 0xFFFFFFFFFFFFFFFEuLL);
     }
-    ObfReferenceObject(v13);
+    ObfReferenceObject(v14);
   }
-  else if ( (_DWORD)v3 )
+  else if ( v8 )
   {
     do
     {
-      v14 = *a3;
-      v15 = *(_QWORD *)(v4 * 8 + *((_QWORD *)a1 + 1));
-      v16 = *(_QWORD *)(v15 + 56);
-      if ( (*(_DWORD *)(v16 + 48) & 0x80u) == 0 )
+      v15 = *a3;
+      v16 = *(_QWORD *)(v3 * 8 + *(_QWORD *)(a1 + 8));
+      v17 = *(_QWORD *)(v16 + 56);
+      if ( (*(_DWORD *)(v17 + 48) & 0x80u) == 0 )
       {
-        v14[v4] = *(void **)(v16 + 72);
-        v17 = (*a3)[v4];
+        v15[v3] = *(void **)(v17 + 72);
+        v18 = (*a3)[v3];
       }
       else
       {
-        v14[v4] = *(void **)(v16 + 56);
-        v17 = (void *)(*(_QWORD *)(*(_QWORD *)(v15 + 56) + 56LL) & 0xFFFFFFFFFFFFFFFEuLL);
+        v15[v3] = *(void **)(v17 + 56);
+        v18 = (void *)(*(_QWORD *)(*(_QWORD *)(v16 + 56) + 56LL) & 0xFFFFFFFFFFFFFFFEuLL);
       }
-      ObfReferenceObject(v17);
-      ++v4;
+      ObfReferenceObject(v18);
+      ++v3;
       --v9;
     }
     while ( v9 );
   }
-  *a2 = v3;
+  *a2 = v8;
   return 0LL;
 }

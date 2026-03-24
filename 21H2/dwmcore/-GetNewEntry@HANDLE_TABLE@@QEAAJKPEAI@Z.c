@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z @ 0x1800BD3B4
+ * XREFs of ?GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z @ 0x18005DE74
  * Callers:
- *     ?CreateOrAddRefOnChannel@CHandleTable@@QEAAJPEAVCChannel@@W4MIL_RESOURCE_TYPE@@PEAI@Z @ 0x1800BD8BC (-CreateOrAddRefOnChannel@CHandleTable@@QEAAJPEAVCChannel@@W4MIL_RESOURCE_TYPE@@PEAI@Z.c)
- *     ?DuplicateHandleOnTarget@CHandleTable@@QEAAJIIW4MIL_RESOURCE_TYPE@@PEAVCChannel@@PEAI@Z @ 0x1800D9854 (-DuplicateHandleOnTarget@CHandleTable@@QEAAJIIW4MIL_RESOURCE_TYPE@@PEAVCChannel@@PEAI@Z.c)
- *     ??0CInteraction@@IEAA@PEAVCComposition@@@Z @ 0x1800E0380 (--0CInteraction@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?CreateOrAddRefOnChannel@CHandleTable@@QEAAJPEAVCChannel@@W4MIL_RESOURCE_TYPE@@PEAI@Z @ 0x18005D9D8 (-CreateOrAddRefOnChannel@CHandleTable@@QEAAJPEAVCChannel@@W4MIL_RESOURCE_TYPE@@PEAI@Z.c)
+ *     ?DuplicateHandleOnTarget@CHandleTable@@QEAAJIIW4MIL_RESOURCE_TYPE@@PEAVCChannel@@PEAI@Z @ 0x18005EE38 (-DuplicateHandleOnTarget@CHandleTable@@QEAAJIIW4MIL_RESOURCE_TYPE@@PEAVCChannel@@PEAI@Z.c)
+ *     ??0CInteraction@@IEAA@PEAVCComposition@@@Z @ 0x1800E0C2C (--0CInteraction@@IEAA@PEAVCComposition@@@Z.c)
  * Callees:
- *     ?ResizeToFit@HANDLE_TABLE@@QEAAJI@Z @ 0x18003ADD0 (-ResizeToFit@HANDLE_TABLE@@QEAAJI@Z.c)
- *     ?Resize@HANDLE_TABLE@@AEAAJI@Z @ 0x18003AE24 (-Resize@HANDLE_TABLE@@AEAAJI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ResizeToFit@HANDLE_TABLE@@QEAAJI@Z @ 0x180046154 (-ResizeToFit@HANDLE_TABLE@@QEAAJI@Z.c)
+ *     ?Resize@HANDLE_TABLE@@AEAAJI@Z @ 0x1800461A8 (-Resize@HANDLE_TABLE@@AEAAJI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall HANDLE_TABLE::GetNewEntry(HANDLE_TABLE *this, int a2, unsigned int *a3)
@@ -51,7 +51,7 @@ __int64 __fastcall HANDLE_TABLE::GetNewEntry(HANDLE_TABLE *this, int a2, unsigne
       v4 = v15;
       if ( v15 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0LL, v15, 0x154u);
+        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x154u, 0LL);
         return v4;
       }
       v7 = v9;
@@ -62,7 +62,7 @@ __int64 __fastcall HANDLE_TABLE::GetNewEntry(HANDLE_TABLE *this, int a2, unsigne
   }
   else
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0x11Eu);
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x11Eu, 0LL);
   }
   return v4;
 }

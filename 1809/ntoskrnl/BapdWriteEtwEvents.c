@@ -1,19 +1,19 @@
 /*
- * XREFs of BapdWriteEtwEvents @ 0x1401786E8
+ * XREFs of BapdWriteEtwEvents @ 0x140178708
  * Callers:
- *     BapdpProcessEtwEvents @ 0x140186180 (BapdpProcessEtwEvents.c)
- *     PopBootLoaderTraceProcess @ 0x1406DCF88 (PopBootLoaderTraceProcess.c)
+ *     BapdpProcessEtwEvents @ 0x1401861A0 (BapdpProcessEtwEvents.c)
+ *     PopBootLoaderTraceProcess @ 0x1406DCF68 (PopBootLoaderTraceProcess.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     BapdpParseEventParts @ 0x140178A10 (BapdpParseEventParts.c)
- *     BapdRegisterEtwProvider @ 0x140178AB4 (BapdRegisterEtwProvider.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     BapdpParseEventParts @ 0x140178A30 (BapdpParseEventParts.c)
+ *     BapdRegisterEtwProvider @ 0x140178AD4 (BapdRegisterEtwProvider.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  *     BapdpWriteEventDataToRegistry @ 0x14056F4B0 (BapdpWriteEventDataToRegistry.c)
- *     EtwUnregister @ 0x140707390 (EtwUnregister.c)
- *     EtwSetInformation @ 0x14070BDD0 (EtwSetInformation.c)
+ *     EtwUnregister @ 0x140707370 (EtwUnregister.c)
+ *     EtwSetInformation @ 0x14070BDB0 (EtwSetInformation.c)
  */
 
 __int64 __fastcall BapdWriteEtwEvents(unsigned __int64 a1, __int64 a2)

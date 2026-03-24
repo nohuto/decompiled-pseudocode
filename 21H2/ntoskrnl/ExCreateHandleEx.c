@@ -1,56 +1,59 @@
 /*
- * XREFs of ExCreateHandleEx @ 0x1407A1CE8
+ * XREFs of ExCreateHandleEx @ 0x14062D820
  * Callers:
- *     ObCompleteObjectDuplication @ 0x14066B204 (ObCompleteObjectDuplication.c)
- *     NtCreateJobObject @ 0x140681CB0 (NtCreateJobObject.c)
- *     AlpcpAllocateMessageFunction @ 0x1406C1810 (AlpcpAllocateMessageFunction.c)
- *     RtlpInsertStringAtom @ 0x1406C5878 (RtlpInsertStringAtom.c)
- *     ExCreateHandle @ 0x1407A347C (ExCreateHandle.c)
- *     AlpcpAllocateMessageFromExtendedTables @ 0x140966C80 (AlpcpAllocateMessageFromExtendedTables.c)
+ *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
+ *     ObCompleteObjectDuplication @ 0x14062D640 (ObCompleteObjectDuplication.c)
+ *     PspAllocateThread @ 0x14064B048 (PspAllocateThread.c)
+ *     AlpcpAllocateMessageFunction @ 0x1406A5430 (AlpcpAllocateMessageFunction.c)
+ *     RtlpInsertStringAtom @ 0x1406ACC5C (RtlpInsertStringAtom.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x1408C2DD0 (AlpcpAllocateMessageFromExtendedTables.c)
+ *     ExCreateHandle @ 0x14094C630 (ExCreateHandle.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
- *     ExSetHandleAttributes @ 0x1402F3510 (ExSetHandleAttributes.c)
- *     ExpAllocateHandleTableEntry @ 0x1407A28C0 (ExpAllocateHandleTableEntry.c)
- *     ExpFreeHandleTableEntry @ 0x1407A2BDC (ExpFreeHandleTableEntry.c)
- *     ExpSetHandleExtraInfo @ 0x1409F9244 (ExpSetHandleExtraInfo.c)
- *     ExpUpdateDebugInfo @ 0x1409F92FC (ExpUpdateDebugInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExpFreeHandleTableEntry @ 0x140619DDC (ExpFreeHandleTableEntry.c)
+ *     ExpAllocateHandleTableEntry @ 0x14062D910 (ExpAllocateHandleTableEntry.c)
+ *     ExpSetHandleExtraInfo @ 0x14094CB78 (ExpSetHandleExtraInfo.c)
+ *     ExpUpdateDebugInfo @ 0x14094CE04 (ExpUpdateDebugInfo.c)
  */
 
-__int64 __fastcall ExCreateHandleEx(__int64 a1, __int64 a2, int a3, unsigned int a4, _DWORD *a5)
+__int64 __fastcall ExCreateHandleEx(__int64 a1, __int64 a2, int a3, int a4, _DWORD *a5)
 {
-  struct _KTHREAD *CurrentThread; // r14
-  __int64 v7; // rax
-  __int64 v8; // rbx
-  _QWORD *v9; // rsi
-  __int64 v11; // [rsp+20h] [rbp-10h] BYREF
-  __int64 v12; // [rsp+28h] [rbp-8h]
-  __int64 v13; // [rsp+58h] [rbp+28h] BYREF
+  int v5; // r8d
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 v8; // rax
+  __int64 v9; // rbx
+  _QWORD *v10; // rdi
+  __int64 v12; // [rsp+20h] [rbp-28h]
+  __int64 v13; // [rsp+28h] [rbp-20h]
+  __int64 v14; // [rsp+58h] [rbp+10h] BYREF
 
-  v11 = a2 << 16;
-  v12 = a3 & 0x1FFFFFF;
-  ExSetHandleAttributes((__int64)&v11, a4, 15);
+  v5 = a3 & 0x1FFFFFF;
+  HIDWORD(v13) = 0;
+  if ( (a4 & 8) != 0 )
+    v5 |= 0x2000000u;
   CurrentThread = KeGetCurrentThread();
-  v11 |= 1uLL;
+  LODWORD(v13) = v5;
+  v12 = (a2 << 16) ^ ((a4 << 17) ^ ((_DWORD)a2 << 16)) & 0xE0000 | 1;
   --CurrentThread->KernelApcDisable;
-  v13 = 0LL;
-  v7 = ExpAllocateHandleTableEntry(a1, &v13);
-  v8 = v13;
-  v9 = (_QWORD *)v7;
-  if ( v7 )
+  v14 = 0LL;
+  v8 = ExpAllocateHandleTableEntry(a1, &v14);
+  v9 = v14;
+  v10 = (_QWORD *)v8;
+  if ( v8 )
   {
-    if ( a5 && (*a5 || a5[1]) && (unsigned int)ExpSetHandleExtraInfo(a1, v13, a5) )
+    if ( a5 && (*a5 || a5[1]) && (unsigned int)ExpSetHandleExtraInfo(a1, v14, a5) )
     {
-      ExpFreeHandleTableEntry(a1, v8, v9);
-      v8 = 0LL;
+      ExpFreeHandleTableEntry(a1, v9, (__int64)v10);
+      v9 = 0LL;
     }
     else
     {
       if ( *(_QWORD *)(a1 + 96) )
-        ExpUpdateDebugInfo(a1, CurrentThread, v8, 1LL);
-      v9[1] = v12;
-      *v9 = v11;
+        ExpUpdateDebugInfo(a1, CurrentThread, v9, 1LL);
+      v10[1] = v13;
+      *v10 = v12;
     }
   }
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  return v8;
+  return v9;
 }

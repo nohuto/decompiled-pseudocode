@@ -1,11 +1,11 @@
 /*
- * XREFs of SmStoreDelete @ 0x1409D4850
+ * XREFs of SmStoreDelete @ 0x14092A480
  * Callers:
- *     SmcCacheCleanup @ 0x1409D790C (SmcCacheCleanup.c)
- *     SmcStoreDelete @ 0x1409D82D4 (SmcStoreDelete.c)
+ *     SmcCacheCleanup @ 0x14092D3E8 (SmcCacheCleanup.c)
+ *     SmcStoreDelete @ 0x14092DDB0 (SmcStoreDelete.c)
  * Callees:
- *     ZwSetSystemInformation @ 0x14041EE00 (ZwSetSystemInformation.c)
- *     SmStorePhysicalRequestIssue @ 0x1409D48D8 (SmStorePhysicalRequestIssue.c)
+ *     ZwSetSystemInformation @ 0x1403FD920 (ZwSetSystemInformation.c)
+ *     SmStorePhysicalRequestIssue @ 0x14092A508 (SmStorePhysicalRequestIssue.c)
  */
 
 int *__fastcall SmStoreDelete(int a1, int a2)

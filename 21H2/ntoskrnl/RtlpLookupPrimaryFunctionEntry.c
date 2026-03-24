@@ -1,12 +1,11 @@
 /*
- * XREFs of RtlpLookupPrimaryFunctionEntry @ 0x1403A6AE0
+ * XREFs of RtlpLookupPrimaryFunctionEntry @ 0x1403CF920
  * Callers:
- *     RtlLookupExceptionHandler @ 0x1403A6A44 (RtlLookupExceptionHandler.c)
- *     RtlpSameFunction @ 0x1405EE570 (RtlpSameFunction.c)
- *     CcInitializeBcbProfiler @ 0x140AD6354 (CcInitializeBcbProfiler.c)
+ *     RtlpSameFunction @ 0x140586540 (RtlpSameFunction.c)
+ *     CcInitializeBcbProfiler @ 0x140A1B354 (CcInitializeBcbProfiler.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 _BYTE *__fastcall RtlpLookupPrimaryFunctionEntry(_BYTE *a1, __int64 a2, unsigned __int64 a3)
@@ -31,7 +30,7 @@ _BYTE *__fastcall RtlpLookupPrimaryFunctionEntry(_BYTE *a1, __int64 a2, unsigned
     ++v3;
     a1 = &v4[2 * v7 + 4];
     if ( v3 > 0x20 )
-      RtlRaiseStatus(-1073741569);
+      RtlRaiseStatus(0xC00000FF);
   }
   return a1;
 }

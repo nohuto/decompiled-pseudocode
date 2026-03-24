@@ -1,16 +1,16 @@
 /*
- * XREFs of ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C00A0C7C
+ * XREFs of ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C00E14E0
  * Callers:
- *     EditionGetPointerDeviceConfigurationKey @ 0x1C00A0BA0 (EditionGetPointerDeviceConfigurationKey.c)
- *     ?GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z @ 0x1C00A122C (-GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z.c)
- *     ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C0210AC8 (-GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
- *     ?SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C0210CC4 (-SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
- *     ?SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z @ 0x1C0210E68 (-SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z.c)
+ *     EditionGetPointerDeviceConfigurationKey @ 0x1C00E1410 (EditionGetPointerDeviceConfigurationKey.c)
+ *     ?GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z @ 0x1C00E1B38 (-GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z.c)
+ *     ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C02094DC (-GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ *     ?SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C02096D8 (-SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ *     ?SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z @ 0x1C020987C (-SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z.c)
  * Callees:
- *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C00A0F38 (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
- *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00A1014 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
- *     ?IsTouchpadQuery@@YAHKPEAG@Z @ 0x1C00A11B0 (-IsTouchpadQuery@@YAHKPEAG@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C00E165C (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C00E1864 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     ?IsTouchpadQuery@@YAHKPEAG@Z @ 0x1C00E1ABC (-IsTouchpadQuery@@YAHKPEAG@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall OpenDeviceCfgKey(unsigned int a1, unsigned __int16 *a2, ACCESS_MASK a3, void **a4, int a5)

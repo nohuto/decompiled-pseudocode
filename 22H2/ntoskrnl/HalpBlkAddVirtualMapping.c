@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpBlkAddVirtualMapping @ 0x140B92AA0
+ * XREFs of HalpBlkAddVirtualMapping @ 0x140A8DB4C
  * Callers:
- *     HalpBlkAllocateAndShadowMemory @ 0x140B92BDC (HalpBlkAllocateAndShadowMemory.c)
- *     HalpBlkAllocateShadowCode @ 0x140B92D5C (HalpBlkAllocateShadowCode.c)
- *     HalpBlkShadowApic @ 0x140B92F60 (HalpBlkShadowApic.c)
- *     HalpBlkShadowStartupBlock @ 0x140B92FB4 (HalpBlkShadowStartupBlock.c)
+ *     HalpBlkAllocateAndShadowMemory @ 0x140A8DC88 (HalpBlkAllocateAndShadowMemory.c)
+ *     HalpBlkAllocateShadowCode @ 0x140A8DE08 (HalpBlkAllocateShadowCode.c)
+ *     HalpBlkShadowApic @ 0x140A8E008 (HalpBlkShadowApic.c)
+ *     HalpBlkShadowStartupBlock @ 0x140A8E05C (HalpBlkShadowStartupBlock.c)
  * Callees:
- *     HalpRemapVirtualAddress64 @ 0x14033F590 (HalpRemapVirtualAddress64.c)
- *     HalpBlkAllocatePageTablePage @ 0x140B92CD4 (HalpBlkAllocatePageTablePage.c)
+ *     HalpRemapVirtualAddress64 @ 0x140309668 (HalpRemapVirtualAddress64.c)
+ *     HalpBlkAllocatePageTablePage @ 0x140A8DD80 (HalpBlkAllocatePageTablePage.c)
  */
 
 __int64 __fastcall HalpBlkAddVirtualMapping(__int64 PageTablePage, __int64 a2, unsigned __int64 a3, int a4, int a5)
@@ -56,7 +56,7 @@ __int64 __fastcall HalpBlkAddVirtualMapping(__int64 PageTablePage, __int64 a2, u
         --v20;
       }
       while ( v20 );
-      *(_QWORD *)(v15 + 8 * v16) = v18 ^ (PageTablePage ^ v18) & 0xFFFFFFFFFF000LL;
+      *(_QWORD *)(v15 + 8 * v16) = v18 ^ (PageTablePage ^ v18) & 0xFFFFFFFFF000LL;
     }
     v10 -= 9;
   }

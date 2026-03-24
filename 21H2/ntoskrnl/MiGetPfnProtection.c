@@ -1,42 +1,42 @@
 /*
- * XREFs of MiGetPfnProtection @ 0x1402E9768
+ * XREFs of MiGetPfnProtection @ 0x140270C88
  * Callers:
- *     MiGetWorkingSetInfoList @ 0x1402E67E8 (MiGetWorkingSetInfoList.c)
- *     MiRevokeExecutePte @ 0x1402E96B0 (MiRevokeExecutePte.c)
- *     MiQueryLeafPte @ 0x14045C260 (MiQueryLeafPte.c)
+ *     MiGetWorkingSetInfoList @ 0x14026E89C (MiGetWorkingSetInfoList.c)
+ *     MiRevokeExecutePte @ 0x1403749F0 (MiRevokeExecutePte.c)
+ *     MiQueryLeafPte @ 0x140547020 (MiQueryLeafPte.c)
  * Callees:
- *     MiLocateCloneAddress @ 0x140234F14 (MiLocateCloneAddress.c)
- *     MiGetWsleContents @ 0x14033A410 (MiGetWsleContents.c)
- *     MiGetWsleProtection @ 0x14033A4C0 (MiGetWsleProtection.c)
+ *     MiLocateCloneAddress @ 0x14023EF08 (MiLocateCloneAddress.c)
+ *     MiGetWsleProtection @ 0x140241400 (MiGetWsleProtection.c)
+ *     MiGetWsleContents @ 0x140270D40 (MiGetWsleContents.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
  */
 
-__int64 __fastcall MiGetPfnProtection(__int64 a1, __int64 a2)
+__int64 __fastcall MiGetPfnProtection(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v2; // rdx
-  __int64 v3; // r9
+  unsigned __int8 WsleContents; // al
+  unsigned __int64 v5; // r9
   __int64 result; // rax
-  __int64 v5; // r10
-  unsigned int v6; // r8d
+  unsigned __int64 v7; // r8
   _KPROCESS *Process; // rcx
 
-  LOBYTE(v2) = MiGetWsleContents(a1, a2);
-  result = MiGetWsleProtection(v3, v2);
+  WsleContents = MiGetWsleContents(a1, a2);
+  result = MiGetWsleProtection(v5, WsleContents);
   if ( !(_DWORD)result )
   {
-    v6 = (*(_DWORD *)(v5 + 16) >> 5) & 0x1F;
-    if ( _bittest64((const signed __int64 *)(v5 + 40), 0x28u) || *(__int64 *)(v5 + 8) <= 0 )
+    v7 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE(a3 + 16) >> 5) & 0x1F;
+    if ( (*(_QWORD *)(a3 + 40) & 0x1000000000LL) != 0 || *(__int64 *)(a3 + 8) <= 0 )
     {
       Process = KeGetCurrentThread()->ApcState.Process;
-      if ( Process[1].Affinity.StaticBitmap[12] )
+      if ( Process[1].Affinity.Bitmap[12] )
       {
-        if ( MiLocateCloneAddress((__int64)Process, *(_QWORD *)(v5 + 8) | 0x8000000000000000uLL) )
-          return (unsigned int)MmMakeProtectNotWriteCopy[v6];
+        if ( MiLocateCloneAddress((__int64)Process, *(_QWORD *)(a3 + 8) | 0x8000000000000000uLL) )
+          LODWORD(v7) = MmMakeProtectNotWriteCopy[(unsigned int)v7];
       }
-      return v6;
+      return (unsigned int)v7;
     }
     else
     {
-      return (unsigned int)MmMakeProtectNotWriteCopy[v6];
+      return (unsigned int)MmMakeProtectNotWriteCopy[(unsigned int)v7];
     }
   }
   return result;

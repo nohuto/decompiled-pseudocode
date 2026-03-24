@@ -1,46 +1,48 @@
 /*
- * XREFs of MiSetPfnOwnedAndActive @ 0x14024EA68
+ * XREFs of MiSetPfnOwnedAndActive @ 0x14023BC40
  * Callers:
- *     MiFindContiguousPagesEx @ 0x140277D10 (MiFindContiguousPagesEx.c)
- *     MiFindLargeNodePage @ 0x1403D6C20 (MiFindLargeNodePage.c)
- *     MiRemoveMdlPages @ 0x14096AF9C (MiRemoveMdlPages.c)
+ *     MiAssignNonPagedPoolPte @ 0x14023B9F0 (MiAssignNonPagedPoolPte.c)
+ *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
+ *     MiFindLargeNodePage @ 0x140394ED0 (MiFindLargeNodePage.c)
+ *     MiRemoveMdlPages @ 0x1408C6A60 (MiRemoveMdlPages.c)
  * Callees:
- *     MiChangePageAttribute @ 0x140267E78 (MiChangePageAttribute.c)
- *     MiSwizzleInvalidPte @ 0x1402CCC50 (MiSwizzleInvalidPte.c)
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiChangePageAttribute @ 0x1403041E4 (MiChangePageAttribute.c)
+ *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiSetPfnOwnedAndActive(__int64 a1, char a2, __int64 a3, unsigned int a4, int a5)
+__int64 __fastcall MiSetPfnOwnedAndActive(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, int a5)
 {
+  char v7; // r14
   unsigned __int8 v9; // al
-  __int64 v10; // rdx
-  unsigned int v11; // r8d
-  unsigned __int64 v12; // rdi
+  unsigned int v10; // r8d
+  unsigned __int64 v11; // rdi
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v16; // zf
+  bool v15; // zf
 
-  v9 = MiLockPageInline(a1);
-  v11 = *(unsigned __int8 *)(a1 + 34);
+  v7 = a2;
+  v9 = MiLockPageInline(a1, a2, a3);
+  v10 = *(unsigned __int8 *)(a1 + 34);
   *(_QWORD *)(a1 + 40) &= ~0x8000000000000000uLL;
   *(_QWORD *)a1 = 0LL;
-  v12 = v9;
-  if ( v11 >> 6 != a4 )
+  v11 = v9;
+  if ( v10 >> 6 != a4 )
   {
     MiChangePageAttribute(a1, a4, 1LL);
-    LOBYTE(v11) = *(_BYTE *)(a1 + 34);
+    LOBYTE(v10) = *(_BYTE *)(a1 + 34);
   }
   *(_QWORD *)(a1 + 24) = *(_QWORD *)(a1 + 24) & 0xC000000000000000uLL | 1;
   if ( a5 )
     *(_WORD *)(a1 + 32) = a5;
   *(_QWORD *)(a1 + 8) = a3;
-  *(_BYTE *)(a1 + 34) = v11 & 0xF8 | 6;
-  if ( (a2 & 3) != 0 )
+  *(_BYTE *)(a1 + 34) = v10 & 0xF8 | 6;
+  if ( (v7 & 1) != 0 )
   {
-    *(_QWORD *)(a1 + 40) = *(_QWORD *)(a1 + 40) & 0xFFFFFF0000000000uLL | 0x3FFFFFFFFELL;
-    *(_QWORD *)(a1 + 16) = MiSwizzleInvalidPte(128LL, v10);
+    *(_QWORD *)(a1 + 40) = *(_QWORD *)(a1 + 40) & 0xFFFFFFF000000000uLL | 0xFFFFFFFFDLL;
+    *(_QWORD *)(a1 + 16) = MiSwizzleInvalidPte(128LL);
     *(_QWORD *)(a1 + 8) = 0xFFFFF68000000000uLL;
     *(_QWORD *)(a1 + 24) |= 0x4000000000000000uLL;
   }
@@ -51,18 +53,18 @@ __int64 __fastcall MiSetPfnOwnedAndActive(__int64 a1, char a2, __int64 a3, unsig
     if ( (KiIrqlFlags & 1) != 0 )
     {
       result = KeGetCurrentIrql();
-      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v12 <= 0xFu && (unsigned __int8)result >= 2u )
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v11 <= 0xFu && (unsigned __int8)result >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
-        v16 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
+        v15 = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
-        if ( v16 )
+        if ( v15 )
           result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
   }
-  __writecr8(v12);
+  __writecr8(v11);
   return result;
 }

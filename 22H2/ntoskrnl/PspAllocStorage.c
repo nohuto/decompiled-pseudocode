@@ -1,29 +1,29 @@
 /*
- * XREFs of PspAllocStorage @ 0x1407E6A74
+ * XREFs of PspAllocStorage @ 0x1406A5540
  * Callers:
- *     PspCreateSilo @ 0x1407E6988 (PspCreateSilo.c)
- *     PspInitializeSiloStructures @ 0x140B4CF10 (PspInitializeSiloStructures.c)
+ *     PspCreateSilo @ 0x1405D90DC (PspCreateSilo.c)
+ *     PspInitializeSiloStructures @ 0x140A3BFF4 (PspInitializeSiloStructures.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PspAllocStorage(_QWORD *a1)
 {
-  _QWORD *Pool2; // rax
+  _QWORD *PoolWithTag; // rax
   _QWORD *v3; // rdx
   __int64 v4; // rcx
   __int64 result; // rax
 
-  Pool2 = (_QWORD *)ExAllocatePool2(72LL, 576LL, 1951626064LL);
-  v3 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNxCacheAligned, 0x240uLL, 0x74537350u);
+  v3 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
   v4 = 32LL;
   do
   {
-    *Pool2 = 0LL;
-    Pool2[1] = 0LL;
-    Pool2 += 2;
+    *PoolWithTag = 0LL;
+    PoolWithTag[1] = 0LL;
+    PoolWithTag += 2;
     --v4;
   }
   while ( v4 );

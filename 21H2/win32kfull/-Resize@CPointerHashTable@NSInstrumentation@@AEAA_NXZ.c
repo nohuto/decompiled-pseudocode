@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Resize@CPointerHashTable@NSInstrumentation@@AEAA_NXZ @ 0x1C00DD608
+ * XREFs of ?Resize@CPointerHashTable@NSInstrumentation@@AEAA_NXZ @ 0x1C00D1A64
  * Callers:
- *     ?Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z @ 0x1C00DDDA0 (-Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z.c)
+ *     ?Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z @ 0x1C00D23FC (-Insert@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX0@Z.c)
  * Callees:
- *     ?InsertWithHash@CPointerHashTable@NSInstrumentation@@AEAAX_KPEBX1@Z @ 0x1C00DDEFC (-InsertWithHash@CPointerHashTable@NSInstrumentation@@AEAAX_KPEBX1@Z.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?InsertWithHash@CPointerHashTable@NSInstrumentation@@AEAAX_KPEBX1@Z @ 0x1C00D2554 (-InsertWithHash@CPointerHashTable@NSInstrumentation@@AEAAX_KPEBX1@Z.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 char __fastcall NSInstrumentation::CPointerHashTable::Resize(NSInstrumentation::CPointerHashTable *this)
@@ -12,8 +12,8 @@ char __fastcall NSInstrumentation::CPointerHashTable::Resize(NSInstrumentation::
   __int64 v1; // r15
   __int64 v3; // rsi
   unsigned int v4; // ebp
-  void *Pool2; // rax
-  void *v6; // r12
+  PVOID PoolWithTag; // rax
+  PVOID v6; // r12
   const void **v7; // r14
   const void **v8; // rbx
 
@@ -24,11 +24,11 @@ char __fastcall NSInstrumentation::CPointerHashTable::Resize(NSInstrumentation::
     return 0;
   if ( 16 * (unsigned __int64)v4 > 0xFFFFFFFF )
     return 0;
-  Pool2 = (void *)ExAllocatePool2(262LL, 16LL * v4, 944337749LL);
-  v6 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPoolSession, 16LL * v4, 0x38497355u);
+  v6 = PoolWithTag;
+  if ( !PoolWithTag )
     return 0;
-  memset(Pool2, 0, 16LL * v4);
+  memset(PoolWithTag, 0, 16LL * v4);
   ++*((_DWORD *)this + 11);
   v7 = (const void **)*((_QWORD *)this + 4);
   *((_QWORD *)this + 4) = v6;

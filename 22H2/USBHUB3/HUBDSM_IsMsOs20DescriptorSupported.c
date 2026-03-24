@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_IsMsOs20DescriptorSupported @ 0x1C00226F0
+ * XREFs of HUBDSM_IsMsOs20DescriptorSupported @ 0x1C00200F0
  * Callers:
  *     <none>
  * Callees:

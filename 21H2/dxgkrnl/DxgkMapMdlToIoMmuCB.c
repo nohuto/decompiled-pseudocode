@@ -1,34 +1,18 @@
 /*
- * XREFs of DxgkMapMdlToIoMmuCB @ 0x1C0054AA0
+ * XREFs of DxgkMapMdlToIoMmuCB @ 0x1C0043050
  * Callers:
  *     <none>
  * Callees:
- *     SmmCreatePhysicalObject @ 0x1C001B724 (SmmCreatePhysicalObject.c)
- *     DpiGetSysMmAdapterFromDevice @ 0x1C001BAD0 (DpiGetSysMmAdapterFromDevice.c)
+ *     ?DxgkAllocateMdlMemoryTracker@@YAJQEAXPEAU_MDL@@W4DXG_DRIVER_MEMORY_TRACKER_TYPE@@PEAPEAUDXG_DRIVER_MEMORY_TRACKER@@@Z @ 0x1C00425A8 (-DxgkAllocateMdlMemoryTracker@@YAJQEAXPEAU_MDL@@W4DXG_DRIVER_MEMORY_TRACKER_TYPE@@PEAPEAUDXG_DRI.c)
  */
 
 __int64 __fastcall DxgkMapMdlToIoMmuCB(__int64 a1, __int64 *a2)
 {
-  struct SYSMM_ADAPTER *SysMmAdapterFromDevice; // rax
   __int64 result; // rax
-  __int64 v5; // [rsp+68h] [rbp+10h] BYREF
-  __int64 v6; // [rsp+70h] [rbp+18h] BYREF
-  __int64 v7; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v4; // [rsp+38h] [rbp+10h] BYREF
 
-  v5 = 0LL;
-  SysMmAdapterFromDevice = (struct SYSMM_ADAPTER *)DpiGetSysMmAdapterFromDevice();
-  v6 = *a2;
-  result = SmmCreatePhysicalObject(
-             SysMmAdapterFromDevice,
-             2,
-             *(_DWORD *)(v6 + 40),
-             (int)&v6,
-             3,
-             1,
-             0LL,
-             0,
-             (struct SYSMM_PHYSICAL_OBJECT **)&v5,
-             &v7);
-  a2[1] = v5;
+  v4 = 0LL;
+  result = DxgkAllocateMdlMemoryTracker(a1, *a2, 2, &v4);
+  a2[1] = v4;
   return result;
 }

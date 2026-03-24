@@ -1,524 +1,277 @@
 /*
- * XREFs of RIMVirtCreateHidDesc @ 0x1C0184200
+ * XREFs of RIMVirtCreateHidDesc @ 0x1C0162C3C
  * Callers:
- *     RIMVirtCreateDev @ 0x1C0171148 (RIMVirtCreateDev.c)
+ *     RIMVirtCreateDev @ 0x1C014FC98 (RIMVirtCreateDev.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_qDD @ 0x1C00365D0 (WPP_RECORDER_AND_TRACE_SF_qDD.c)
- *     Win32FreePool @ 0x1C0038570 (Win32FreePool.c)
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00591BC (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C006F118 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
- *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C006FBD8 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_DD @ 0x1C007FC8C (WPP_RECORDER_AND_TRACE_SF_DD.c)
- *     ?DbgPrintWarning@@YAXPEADZZ @ 0x1C0080044 (-DbgPrintWarning@@YAXPEADZZ.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
- *     fromIV_HIDP_CAPS @ 0x1C017EC5C (fromIV_HIDP_CAPS.c)
- *     RIMFreeHidDesc @ 0x1C01810B4 (RIMFreeHidDesc.c)
- *     RIMVirtAllocateHidDesc @ 0x1C0183828 (RIMVirtAllocateHidDesc.c)
- *     WPP_RECORDER_AND_TRACE_SF_DDq @ 0x1C0184D2C (WPP_RECORDER_AND_TRACE_SF_DDq.c)
- *     RIMAllocateAndLinkHidTLCInfo @ 0x1C0191414 (RIMAllocateAndLinkHidTLCInfo.c)
- *     RIMSearchHidTLCInfo @ 0x1C0191A58 (RIMSearchHidTLCInfo.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00487D0 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_qDD @ 0x1C0057570 (WPP_RECORDER_SF_qDD.c)
+ *     RIMFreeHidDesc @ 0x1C0057658 (RIMFreeHidDesc.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0058904 (WPP_RECORDER_SF_DD.c)
+ *     ?DbgPrintWarning@@YAXPEADZZ @ 0x1C0058AB4 (-DbgPrintWarning@@YAXPEADZZ.c)
+ *     Win32AllocPoolNonPaged @ 0x1C005C490 (Win32AllocPoolNonPaged.c)
+ *     ApiSetInkProcessorIsInkDevice @ 0x1C00ABC18 (ApiSetInkProcessorIsInkDevice.c)
+ *     RIMAllocateAndLinkHidTLCInfo @ 0x1C00AC634 (RIMAllocateAndLinkHidTLCInfo.c)
+ *     RIMSearchHidTLCInfo @ 0x1C00AC7AC (RIMSearchHidTLCInfo.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     fromIV_HIDP_CAPS @ 0x1C0160EB4 (fromIV_HIDP_CAPS.c)
+ *     RIMVirtAllocateHidDesc @ 0x1C0162838 (RIMVirtAllocateHidDesc.c)
+ *     WPP_RECORDER_SF_DDq @ 0x1C016319C (WPP_RECORDER_SF_DDq.c)
  */
 
-char *__fastcall RIMVirtCreateHidDesc(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RIMVirtCreateHidDesc(__int64 a1, __int64 a2, __int64 a3)
 {
-  char v3; // si
-  char *HidDesc; // r12
-  int v8; // edx
-  int v9; // r8d
-  NSInstrumentation::CLeakTrackingAllocator *v10; // rbx
-  unsigned __int64 v11; // rdi
-  int v12; // eax
-  __int64 UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64; // rdi
-  _QWORD *Pool2; // rax
-  char v15; // r10
-  unsigned int v16; // r11d
-  bool v17; // zf
-  char v18; // al
-  _OWORD *v19; // rax
-  size_t v20; // r8
-  const void *v21; // rdx
-  char v22; // dl
-  char v23; // dl
-  __int64 v24; // rdx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  __int64 v27; // rcx
-  unsigned __int16 v28; // bx
-  unsigned __int16 v29; // si
-  __int64 v30; // rax
-  char v31; // dl
-  PDEVICE_OBJECT v32; // rcx
-  char v33; // al
-  char v34; // r8
-  unsigned __int16 v35; // r9
-  int v36; // edx
-  _UNKNOWN **v37; // r8
-  __int64 v38; // rdx
-  __int64 v39; // rcx
-  __int64 v40; // r8
-  __int64 v41; // r9
-  char v42; // dl
-  __int64 v43; // rax
-  int v44; // edx
-  __int64 v45; // rbx
-  _UNKNOWN **v46; // r8
-  int v47; // edx
-  _UNKNOWN **v48; // r8
-  char v49; // dl
-  _UNKNOWN **v50; // r8
-  int v52; // [rsp+20h] [rbp-E0h]
-  int v53; // [rsp+28h] [rbp-D8h]
-  __int64 v54; // [rsp+40h] [rbp-C0h]
-  __int64 v55; // [rsp+48h] [rbp-B8h]
-  unsigned int v56; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned __int64 v57; // [rsp+70h] [rbp-90h] BYREF
-  unsigned int *v58; // [rsp+78h] [rbp-88h]
-  unsigned __int64 v59; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v60; // [rsp+88h] [rbp-78h] BYREF
-  PVOID BackTrace[20]; // [rsp+90h] [rbp-70h] BYREF
-  _BYTE v62[64]; // [rsp+130h] [rbp+30h] BYREF
-  _OWORD v63[4]; // [rsp+170h] [rbp+70h] BYREF
-  unsigned __int64 v64; // [rsp+1B0h] [rbp+B0h] BYREF
-  int v65; // [rsp+1B8h] [rbp+B8h]
+  __int64 v4; // r15
+  __int64 HidDesc; // r12
+  int v7; // edx
+  __int128 *v8; // rax
+  size_t v9; // r8
+  const void *v10; // rdx
+  __int128 v11; // xmm2
+  __int128 v12; // xmm1
+  __int128 v13; // xmm0
+  void *v14; // r9
+  unsigned __int16 v15; // si
+  int v16; // edx
+  int v17; // edx
+  unsigned __int16 v18; // di
+  unsigned int v19; // ecx
+  __int64 v20; // rax
+  __int64 v21; // r8
+  int v22; // edx
+  int v23; // r9d
+  __int64 v24; // rbx
+  int v25; // edx
+  int v26; // edx
+  unsigned __int16 v27; // di
+  __int16 v28; // si
+  int v29; // edx
+  _DWORD *v30; // rbx
+  int v31; // r8d
+  int v33; // edx
+  char v34; // [rsp+28h] [rbp-B1h]
+  char v35; // [rsp+30h] [rbp-A9h]
+  __int64 v36; // [rsp+40h] [rbp-99h]
+  __int64 v37; // [rsp+48h] [rbp-91h]
+  int v38; // [rsp+50h] [rbp-89h]
+  _BYTE v39[72]; // [rsp+58h] [rbp-81h] BYREF
+  _OWORD v40[4]; // [rsp+A0h] [rbp-39h] BYREF
+  __int64 v41; // [rsp+E0h] [rbp+7h] BYREF
+  int v42; // [rsp+E8h] [rbp+Fh]
 
-  v3 = 0;
+  v4 = a2;
   HidDesc = 0LL;
-  memset(v63, 0, sizeof(v63));
   if ( (unsigned __int8)(*(_BYTE *)(a2 + 48) - 1) > 1u )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2966);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v56 = 0x20000;
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 3313);
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)gRimLog, a2, 1, 79, (__int64)&WPP_6b998a37b7133a4d231c601f1b883849_Traceguids);
   }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (LOBYTE(v8) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+  v36 = Win32AllocPoolNonPaged(*(unsigned int *)(a3 + 168), 0x70707352u);
+  if ( !v36 )
   {
-    LOBYTE(v8) = 0;
-  }
-  if ( (_BYTE)v8 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v9) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v8,
-      v9,
-      (_DWORD)gRimLog,
-      4,
-      1,
-      89,
-      (__int64)&WPP_ee34c2b37e913f5a3c321c531693c890_Traceguids);
-  }
-  v10 = gpLeakTrackingAllocator;
-  v11 = *(unsigned int *)(a3 + 176);
-  v56 = 1886417746;
-  v60 = 68LL;
-  v12 = *(_DWORD *)gpLeakTrackingAllocator;
-  v59 = v11;
-  if ( v12 )
-  {
-    if ( v12 != 1 )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      if ( v12 != 2 )
-        goto LABEL_141;
-      v57 = 0LL;
-      if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 1886417746, &v57) )
-      {
-        v57 = (unsigned __int64)&v60;
-        v58 = &v56;
-        UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                                                                                           (__int64)v10,
-                                                                                           (__int64)&v57,
-                                                                                           &v59);
-        goto LABEL_30;
-      }
-      if ( v11 < 0x1000 || (v11 & 0xFFF) != 0 )
-      {
-        v11 += 16LL;
-        v3 = v15;
-        v59 = v11;
-      }
-      UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = ExAllocatePool2(68LL, v11, v16);
-      if ( !UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 )
-        goto LABEL_141;
-      _InterlockedAdd64((volatile signed __int64 *)v10 + 16, 1uLL);
-      NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-      if ( v3
-        && (unsigned __int64)(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 & 0xFFF)
-         + 16 < 0x1000 )
-      {
-        if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-               (__int64)v10,
-               (const void *)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64,
-               v57,
-               (struct NSInstrumentation::CBackTrace *)BackTrace) )
-        {
-          UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 += 16LL;
-          goto LABEL_30;
-        }
-      }
-      else if ( NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                  (__int64)v10,
-                  UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64,
-                  v57,
-                  (struct NSInstrumentation::CBackTrace *)BackTrace) )
-      {
-        goto LABEL_33;
-      }
-      _InterlockedAdd64((volatile signed __int64 *)v10 + 17, 1uLL);
-      _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64);
-      goto LABEL_141;
-    }
-    if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x70707352u)
-      || v11 + 16 < v11 )
-    {
-      goto LABEL_141;
-    }
-    Pool2 = (_QWORD *)ExAllocatePool2(v60 & 0xFFFFFFFFFFFFFFFDuLL, v11 + 16, v56);
-    UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = (__int64)Pool2;
-    if ( !Pool2
-      || (_InterlockedAdd64((volatile signed __int64 *)v10 + 14, 1uLL),
-          *Pool2 = 1886417746LL,
-          UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = (__int64)(Pool2 + 2),
-          Pool2 == (_QWORD *)-16LL) )
-    {
-      NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-        *((NSInstrumentation::CPointerHashTable **)v10 + 1),
-        0x70707352uLL);
-    }
-  }
-  else
-  {
-    UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = ExAllocatePool2(
-                                                                                       68LL,
-                                                                                       (unsigned int)v11,
-                                                                                       1886417746LL);
-    if ( UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 )
-      _InterlockedAdd64((volatile signed __int64 *)v10 + 14, 1uLL);
-  }
-LABEL_30:
-  if ( !UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 )
-  {
-LABEL_141:
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-      || (LOBYTE(v8) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 3u) )
-    {
-      LOBYTE(v8) = 0;
-    }
-    v50 = &WPP_RECORDER_INITIALIZED;
-    if ( (_BYTE)v8 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v50) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v8,
-        (_DWORD)v50,
-        (_DWORD)gRimLog,
-        3,
-        1,
-        90,
-        (__int64)&WPP_ee34c2b37e913f5a3c321c531693c890_Traceguids);
+      LOBYTE(v7) = 3;
+      WPP_RECORDER_SF_((_DWORD)gRimLog, v7, 1, 80, (__int64)&WPP_6b998a37b7133a4d231c601f1b883849_Traceguids);
     }
     return HidDesc;
   }
-LABEL_33:
-  v17 = *(_DWORD *)(a3 + 180) == 0;
-  LODWORD(v57) = *(_DWORD *)(a3 + 176);
-  v18 = *(_BYTE *)(a3 + 184);
-  BYTE4(v57) = !v17;
-  BYTE5(v57) = v18;
-  HIWORD(v57) = *(_WORD *)(a3 + 188);
-  LOWORD(v58) = *(_WORD *)(a3 + 192);
-  WORD1(v58) = *(_WORD *)(a3 + 196);
-  v65 = (int)v58;
-  v64 = v57;
-  v19 = (_OWORD *)fromIV_HIDP_CAPS((__int64)v62, a3 + 80);
-  v20 = *(unsigned int *)(a3 + 176);
-  v21 = *(const void **)(a3 + 200);
-  v63[0] = *v19;
-  v63[1] = v19[1];
-  v63[2] = v19[2];
-  v63[3] = v19[3];
-  memmove((void *)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64, v21, v20);
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (v22 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+  LODWORD(v37) = *(_DWORD *)(a3 + 168);
+  BYTE4(v37) = *(_DWORD *)(a3 + 172) != 0;
+  BYTE5(v37) = *(_BYTE *)(a3 + 176);
+  HIWORD(v37) = *(_WORD *)(a3 + 180);
+  LOWORD(v38) = *(_WORD *)(a3 + 184);
+  HIWORD(v38) = *(_WORD *)(a3 + 188);
+  v42 = v38;
+  v41 = v37;
+  v8 = (__int128 *)fromIV_HIDP_CAPS((__int64)v39, a3 + 72);
+  v9 = *(unsigned int *)(a3 + 168);
+  v10 = *(const void **)(a3 + 192);
+  v11 = *v8;
+  v12 = v8[2];
+  v40[1] = v8[1];
+  v13 = v8[3];
+  v40[0] = v11;
+  v40[3] = v13;
+  v40[2] = v12;
+  memmove(v14, v10, v9);
+  v15 = v40[0];
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    v22 = 0;
-  }
-  if ( v22 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_DD(
-      (__int64)WPP_GLOBAL_Control->AttachedDevice,
-      v22,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      (__int64)gRimLog,
-      4u,
-      1u,
-      0x5Bu,
-      (__int64)&WPP_ee34c2b37e913f5a3c321c531693c890_Traceguids,
-      WORD1(v63[0]),
-      LOWORD(v63[0]));
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (v23 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    v23 = 0;
-  }
-  if ( v23 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LODWORD(v55) = WORD4(v63[0]);
-    LODWORD(v54) = WORD2(v63[0]);
-    WPP_RECORDER_AND_TRACE_SF_DD(
-      (__int64)WPP_GLOBAL_Control->AttachedDevice,
-      v23,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      (__int64)gRimLog,
-      4u,
-      1u,
-      0x5Cu,
-      (__int64)&WPP_ee34c2b37e913f5a3c321c531693c890_Traceguids,
-      v54,
-      v55);
-  }
-  DbgPrintWarning("Found (Usage: %x, UsagePage: %x)\n", LOWORD(v63[0]), WORD1(v63[0]));
-  v27 = *(unsigned int *)(a1 + 88);
-  v28 = WORD1(v63[0]);
-  v29 = v63[0];
-  if ( (_DWORD)v27 )
-  {
-    v30 = 0LL;
-    v25 = *(_QWORD *)(a1 + 96);
-    v26 = 1LL;
-    while ( *(_DWORD *)(v25 + 4 * v30) != LODWORD(v63[0]) )
+    v16 = LOWORD(v40[0]);
+    LOBYTE(v16) = 4;
+    WPP_RECORDER_SF_DD(
+      (_DWORD)gRimLog,
+      v16,
+      1,
+      81,
+      (__int64)&WPP_6b998a37b7133a4d231c601f1b883849_Traceguids,
+      SBYTE2(v40[0]),
+      v40[0]);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v30 = (unsigned int)(v30 + 1);
-      if ( (unsigned int)v30 >= (unsigned int)v27 )
-        goto LABEL_52;
+      LOBYTE(v17) = 4;
+      WPP_RECORDER_SF_DD(
+        (_DWORD)gRimLog,
+        v17,
+        1,
+        82,
+        (__int64)&WPP_6b998a37b7133a4d231c601f1b883849_Traceguids,
+        SBYTE4(v40[0]),
+        SBYTE8(v40[0]));
     }
-    *(_DWORD *)(a2 + 184) |= 0x10000u;
   }
-LABEL_52:
-  if ( (*(_DWORD *)(a2 + 184) & 0x10000) == 0 && v28 == 1 )
+  v18 = WORD1(v40[0]);
+  DbgPrintWarning("Found (Usage: %x, UsagePage: %x)\n", v15, WORD1(v40[0]));
+  v19 = *(_DWORD *)(a1 + 88);
+  if ( v19 )
   {
-    v26 = v29;
-    if ( v29 == 1 || v29 == 2 || v29 == 6 || (v27 = (unsigned int)v29 - 7, v29 == 7) || v29 == 128 )
+    v20 = 0LL;
+    v21 = *(_QWORD *)(a1 + 96);
+    while ( *(_WORD *)(v21 + 4 * v20) != v15 || *(_WORD *)(v21 + 4 * v20 + 2) != v18 )
     {
-      v31 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-         && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-         && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      if ( v31 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        LODWORD(v55) = v29;
-        LODWORD(v54) = 1;
-        WPP_RECORDER_AND_TRACE_SF_DD(
-          (__int64)WPP_GLOBAL_Control->AttachedDevice,
-          v31,
-          WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-          (__int64)gRimLog,
-          4u,
-          1u,
-          0x5Du,
-          (__int64)&WPP_ee34c2b37e913f5a3c321c531693c890_Traceguids,
-          v54,
-          v55);
-      }
-      goto LABEL_111;
+      v22 = 1;
+      v20 = (unsigned int)(v20 + 1);
+      if ( (unsigned int)v20 >= v19 )
+        goto LABEL_19;
     }
-LABEL_78:
-    if ( v28 == 1 )
+    *(_DWORD *)(v4 + 184) |= 0x4000u;
+  }
+  v22 = 1;
+LABEL_19:
+  if ( (*(_DWORD *)(v4 + 184) & 0x4000) == 0 && v18 == 1 )
+  {
+    if ( v15 && (v15 <= 2u || v15 > 5u && (v15 <= 7u || v15 == 128)) )
     {
-      v24 = 14LL;
-      if ( v29 == 14 && (*(_DWORD *)(a1 + 84) & 0x10) == 0 )
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v32 = WPP_GLOBAL_Control;
-        v33 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-           && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-           && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-        v34 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        if ( !v33 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          goto LABEL_111;
-        LODWORD(v55) = 14;
-        v35 = 97;
-        LODWORD(v54) = 1;
-LABEL_77:
-        WPP_RECORDER_AND_TRACE_SF_DD(
-          (__int64)v32->AttachedDevice,
-          v33,
-          v34,
-          (__int64)gRimLog,
-          3u,
-          1u,
-          v35,
-          (__int64)&WPP_ee34c2b37e913f5a3c321c531693c890_Traceguids,
-          v54,
-          v55);
-LABEL_111:
-        Win32FreePool((char *)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64);
+LABEL_29:
+        v24 = v36;
+LABEL_30:
+        Win32FreePool(v24);
         return HidDesc;
       }
-    }
-    goto LABEL_89;
-  }
-  if ( v28 != 13 )
-    goto LABEL_78;
-  v24 = 14LL;
-  if ( v29 == 14 )
-  {
-    v32 = WPP_GLOBAL_Control;
-    v33 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-       && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-       && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-    v34 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( !v33 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      goto LABEL_111;
-    LODWORD(v55) = 14;
-    v35 = 96;
-    LODWORD(v54) = 13;
-    goto LABEL_77;
-  }
-LABEL_89:
-  if ( qword_1C0296328
-    && (int)qword_1C0296328(v27, v24, v25, v26) >= 0
-    && qword_1C0296330
-    && (unsigned int)qword_1C0296330(v28, v29, (char *)&v64 + 6, 0LL)
-    && (*(_DWORD *)(a1 + 84) & 4) == 0 )
-  {
-    LOBYTE(v36) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-               && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-               && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-    v37 = &WPP_RECORDER_INITIALIZED;
-    if ( (_BYTE)v36 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v37) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v36,
-        (_DWORD)v37,
+      v35 = v15;
+      v34 = 1;
+      v23 = 83;
+      LOBYTE(v22) = 4;
+LABEL_28:
+      WPP_RECORDER_SF_DD(
         (_DWORD)gRimLog,
-        3,
+        v22,
         1,
-        98,
-        (__int64)&WPP_ee34c2b37e913f5a3c321c531693c890_Traceguids);
+        v23,
+        (__int64)&WPP_6b998a37b7133a4d231c601f1b883849_Traceguids,
+        v34,
+        v35);
+      goto LABEL_29;
     }
-    goto LABEL_111;
+LABEL_37:
+    if ( v15 == 14 && (*(_DWORD *)(a1 + 84) & 0x10) == 0 )
+    {
+      if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        goto LABEL_29;
+      v35 = 14;
+      v23 = 87;
+      v34 = 1;
+LABEL_35:
+      LOBYTE(v22) = 3;
+      goto LABEL_28;
+    }
+    goto LABEL_41;
   }
-  HidDesc = (char *)RIMVirtAllocateHidDesc(
-                      a1,
-                      a2,
-                      UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64,
-                      (unsigned __int16 *)v63,
-                      (__int64)&v64,
-                      a3);
+  if ( v18 != 13 )
+  {
+    if ( v18 != 1 )
+      goto LABEL_41;
+    goto LABEL_37;
+  }
+  if ( v15 == 14 )
+  {
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_29;
+    v35 = 14;
+    v23 = 86;
+    v34 = 13;
+    goto LABEL_35;
+  }
+LABEL_41:
+  if ( (unsigned int)ApiSetInkProcessorIsInkDevice(v18, v15, (__int64)&v41 + 6) && (*(_DWORD *)(a1 + 84) & 4) == 0 )
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v25) = 3;
+      WPP_RECORDER_SF_((_DWORD)gRimLog, v25, 1, 88, (__int64)&WPP_6b998a37b7133a4d231c601f1b883849_Traceguids);
+    }
+    goto LABEL_29;
+  }
+  v24 = v36;
+  HidDesc = RIMVirtAllocateHidDesc(a1, v4, v36, (unsigned __int16 *)v40, (__int64)&v41, a3);
   if ( !HidDesc )
   {
-    v42 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-       && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-       && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-    if ( v42 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LODWORD(v55) = LOWORD(v63[0]);
-      LODWORD(v54) = WORD1(v63[0]);
-      WPP_RECORDER_AND_TRACE_SF_DD(
-        (__int64)WPP_GLOBAL_Control->AttachedDevice,
-        v42,
-        WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-        (__int64)gRimLog,
-        3u,
-        1u,
-        0x63u,
-        (__int64)&WPP_ee34c2b37e913f5a3c321c531693c890_Traceguids,
-        v54,
-        v55);
+      v26 = WORD1(v40[0]);
+      LOBYTE(v26) = 3;
+      WPP_RECORDER_SF_DD(
+        (_DWORD)gRimLog,
+        v26,
+        1,
+        89,
+        (__int64)&WPP_6b998a37b7133a4d231c601f1b883849_Traceguids,
+        SBYTE2(v40[0]),
+        v40[0]);
     }
-    goto LABEL_111;
+    goto LABEL_30;
   }
-  v43 = SGDGetUserSessionState(v39, v38, v40, v41);
-  RIMLOCKExclusiveIfNeeded::RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v59, (struct _KTHREAD **)(v43 + 288));
-  v45 = RIMSearchHidTLCInfo(WORD1(v63[0]), LOWORD(v63[0]));
-  if ( v45 )
+  v27 = v40[0];
+  v28 = WORD1(v40[0]);
+  v30 = RIMSearchHidTLCInfo(SWORD1(v40[0]), v40[0]);
+  if ( v30 )
   {
-    LOBYTE(v44) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-               && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-               && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    v46 = &WPP_RECORDER_INITIALIZED;
-    if ( (_BYTE)v44 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v46) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_DDq(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v44,
-        (_DWORD)v46,
-        WORD1(v63[0]),
-        v52,
-        v53,
-        100,
-        (__int64)&WPP_ee34c2b37e913f5a3c321c531693c890_Traceguids,
-        SBYTE2(v63[0]),
-        v63[0],
-        v45);
-    }
-LABEL_139:
-    ++*(_DWORD *)(v45 + 20);
-    *(_QWORD *)(a2 + 464) = v45;
-    RIMLOCKExclusiveIfNeeded::~RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v59);
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_DDq(
+        v27,
+        v29,
+        v31,
+        90,
+        (__int64)&WPP_6b998a37b7133a4d231c601f1b883849_Traceguids,
+        v28,
+        v27,
+        (char)v30);
+LABEL_51:
+    ++v30[5];
+    *(_QWORD *)(v4 + 472) = v30;
     return HidDesc;
   }
-  v45 = RIMAllocateAndLinkHidTLCInfo(WORD1(v63[0]), LOWORD(v63[0]));
-  if ( v45 )
+  v30 = RIMAllocateAndLinkHidTLCInfo(v28, v27);
+  if ( v30 )
   {
-    v49 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-       && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-       && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( v49 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LODWORD(v55) = WORD1(v63[0]);
-      WPP_RECORDER_AND_TRACE_SF_qDD(
-        (__int64)WPP_GLOBAL_Control->AttachedDevice,
-        v49,
-        WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-        (__int64)gRimLog,
-        4u,
-        1u,
-        0x66u,
-        (__int64)&WPP_ee34c2b37e913f5a3c321c531693c890_Traceguids,
-        v45,
-        v55,
-        LOWORD(v63[0]));
+      LOBYTE(v33) = 4;
+      WPP_RECORDER_SF_qDD(
+        (_DWORD)gRimLog,
+        v33,
+        1,
+        92,
+        (__int64)&WPP_6b998a37b7133a4d231c601f1b883849_Traceguids,
+        (char)v30,
+        v28,
+        v27);
     }
-    goto LABEL_139;
+    goto LABEL_51;
   }
-  LOBYTE(v47) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-             && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-             && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-  v48 = &WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)v47 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v48) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_q(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v47,
-      (_DWORD)v48,
-      (_DWORD)gRimLog,
-      3,
-      1,
-      101,
-      (__int64)&WPP_ee34c2b37e913f5a3c321c531693c890_Traceguids,
-      a1);
+    LOBYTE(v33) = 3;
+    WPP_RECORDER_SF_q((_DWORD)gRimLog, v33, 1, 91, (__int64)&WPP_6b998a37b7133a4d231c601f1b883849_Traceguids, a1);
   }
-  RIMLOCKExclusiveIfNeeded::~RIMLOCKExclusiveIfNeeded((RIMLOCKExclusiveIfNeeded *)&v59);
   RIMFreeHidDesc(HidDesc);
   return 0LL;
 }

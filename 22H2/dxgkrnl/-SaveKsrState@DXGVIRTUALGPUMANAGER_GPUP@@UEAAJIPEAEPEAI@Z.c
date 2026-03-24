@@ -1,12 +1,11 @@
 /*
- * XREFs of ?SaveKsrState@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJIPEAEPEAI@Z @ 0x1C0371AE0
+ * XREFs of ?SaveKsrState@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJIPEAEPEAI@Z @ 0x1C0237E60
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000774C (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0003894 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
  */
 
 __int64 __fastcall DXGVIRTUALGPUMANAGER_GPUP::SaveKsrState(
@@ -15,121 +14,87 @@ __int64 __fastcall DXGVIRTUALGPUMANAGER_GPUP::SaveKsrState(
         unsigned __int8 *a3,
         unsigned int *a4)
 {
-  int v8; // ebx
-  int v9; // ebp
-  unsigned int v10; // r10d
+  unsigned int v8; // ebx
+  int v9; // r10d
+  unsigned int v10; // eax
   unsigned int v11; // edx
-  unsigned int i; // ecx
+  struct _KTHREAD *v12; // r8
   __int64 v13; // r9
-  unsigned int v14; // r8d
-  unsigned __int64 v15; // rdx
-  unsigned int v16; // edi
-  unsigned __int8 *v17; // rdx
-  unsigned int j; // r8d
-  __int64 v19; // r9
-  unsigned __int8 *v20; // r10
-  unsigned int v21; // ebp
-  __int64 v22; // rcx
-  __int64 v23; // rcx
-  _BYTE v25[8]; // [rsp+50h] [rbp-48h] BYREF
-  DXGPUSHLOCK *v26; // [rsp+58h] [rbp-40h]
-  int v27; // [rsp+60h] [rbp-38h]
+  unsigned __int8 *v14; // rdx
+  unsigned int i; // r8d
+  __int64 v16; // r9
+  unsigned __int8 *v17; // r10
+  unsigned int v18; // r11d
+  __int64 v19; // rcx
+  __int64 v20; // rcx
+  _BYTE v22[8]; // [rsp+20h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v23; // [rsp+28h] [rbp-20h]
+  int v24; // [rsp+30h] [rbp-18h]
 
-  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v25, this + 5, 0);
-  DXGPUSHLOCK::AcquireExclusive(v26);
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v22, this + 5, 0);
+  DXGPUSHLOCK::AcquireExclusive(v23);
   v8 = 0;
-  v27 = 2;
+  v24 = 2;
   *a4 = 0;
   v9 = *((_DWORD *)this + 4);
-  if ( !v9 )
-    goto LABEL_21;
-  v10 = *((_DWORD *)this + 3);
-  v11 = 4;
-  for ( i = 0; i < v10; ++i )
+  if ( v9 )
   {
-    v13 = *((_QWORD *)this[3] + i);
-    if ( v13 )
+    v10 = *((_DWORD *)this + 3);
+    v11 = 4;
+    if ( v10 )
     {
-      v14 = v11 + 16;
-      if ( v11 + 16 < v11 )
+      v12 = this[3];
+      v13 = v10;
+      do
       {
-        WdLogSingleEntry1(2LL, -1073741675LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Failed to calculate KSR TotalSize: 0x%I64x",
-          -1073741675LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        v8 = -1073741675;
-        goto LABEL_21;
+        if ( *(_QWORD *)v12 )
+          v11 += 24 * *(_DWORD *)(*(_QWORD *)v12 + 160LL) + 16;
+        v12 = (struct _KTHREAD *)((char *)v12 + 8);
+        --v13;
       }
-      v15 = 24LL * *(unsigned int *)(v13 + 168);
-      if ( v15 > 0xFFFFFFFF || (v11 = v14 + v15, v11 < v14) )
-      {
-        v16 = -1073741675;
-        WdLogSingleEntry1(2LL, -1073741675LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Failed to calculate KSR TotalSize: 0x%I64x",
-          -1073741675LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        goto LABEL_22;
-      }
+      while ( v13 );
     }
-  }
-  if ( !a3 )
-  {
-LABEL_20:
-    *a4 = v11;
-LABEL_21:
-    v16 = v8;
-    goto LABEL_22;
-  }
-  if ( v11 <= a2 )
-  {
-    *(_DWORD *)a3 = v9;
-    v17 = a3 + 4;
-    for ( j = 0; j < *((_DWORD *)this + 3); ++j )
+    if ( a3 )
     {
-      v19 = *((_QWORD *)this[3] + j);
-      if ( v19 )
+      if ( v11 > a2 )
       {
-        v20 = v17;
-        *(_DWORD *)v17 = *(_DWORD *)(v19 + 24);
-        v21 = 0;
-        *((_DWORD *)v17 + 2) = *(_DWORD *)(v19 + 168);
-        v17 += 16;
-        if ( *(_DWORD *)(v19 + 168) )
+        v8 = -1073741789;
+        goto LABEL_18;
+      }
+      *(_DWORD *)a3 = v9;
+      v14 = a3 + 4;
+      for ( i = 0; i < *((_DWORD *)this + 3); ++i )
+      {
+        v16 = *((_QWORD *)this[3] + i);
+        if ( v16 )
         {
-          do
+          v17 = v14;
+          *(_DWORD *)v14 = *(_DWORD *)(v16 + 24);
+          v18 = 0;
+          *((_DWORD *)v14 + 2) = *(_DWORD *)(v16 + 160);
+          v14 += 16;
+          if ( *(_DWORD *)(v16 + 160) )
           {
-            v22 = v21++;
-            v23 = *(_QWORD *)(v19 + 184) + 32 * v22;
-            *((_QWORD *)v17 + 1) = *(_QWORD *)(v23 + 8);
-            *(_DWORD *)v17 = *(_DWORD *)(v23 + 28);
-            *((_DWORD *)v17 + 1) = *(_DWORD *)(v23 + 24);
-            *((_QWORD *)v17 + 2) = *(_QWORD *)(v23 + 16);
-            v17 += 24;
+            do
+            {
+              v19 = v18++;
+              v20 = *(_QWORD *)(v16 + 176) + 32 * v19;
+              *((_QWORD *)v14 + 1) = *(_QWORD *)(v20 + 8);
+              *(_DWORD *)v14 = *(_DWORD *)(v20 + 28);
+              *((_DWORD *)v14 + 1) = *(_DWORD *)(v20 + 24);
+              *((_QWORD *)v14 + 2) = *(_QWORD *)(v20 + 16);
+              v14 += 24;
+            }
+            while ( v18 < *(_DWORD *)(v16 + 160) );
           }
-          while ( v21 < *(_DWORD *)(v19 + 168) );
+          *((_DWORD *)v17 + 3) = (_DWORD)v14 - (_DWORD)v17;
         }
-        *((_DWORD *)v20 + 3) = (_DWORD)v17 - (_DWORD)v20;
       }
+      v11 = (_DWORD)v14 - (_DWORD)a3;
     }
-    v11 = (_DWORD)v17 - (_DWORD)a3;
-    goto LABEL_20;
+    *a4 = v11;
   }
-  v16 = -1073741789;
-LABEL_22:
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v25);
-  return v16;
+LABEL_18:
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v22);
+  return v8;
 }

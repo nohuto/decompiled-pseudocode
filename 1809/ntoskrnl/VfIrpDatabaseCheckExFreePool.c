@@ -3,8 +3,8 @@
  * Callers:
  *     VerifierExFreePoolWithTag @ 0x1409257D0 (VerifierExFreePoolWithTag.c)
  * Callees:
- *     ViIrpDatabaseAcquireLockShared @ 0x14030B50C (ViIrpDatabaseAcquireLockShared.c)
- *     ViIrpDatabaseReleaseLockShared @ 0x14030B590 (ViIrpDatabaseReleaseLockShared.c)
+ *     ViIrpDatabaseAcquireLockShared @ 0x14030B60C (ViIrpDatabaseAcquireLockShared.c)
+ *     ViIrpDatabaseReleaseLockShared @ 0x14030B690 (ViIrpDatabaseReleaseLockShared.c)
  *     VfUtilAddressRangeFitNoLock @ 0x140925FFC (VfUtilAddressRangeFitNoLock.c)
  *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
  *     ViIrpDatabaseFindPointer @ 0x14093E594 (ViIrpDatabaseFindPointer.c)

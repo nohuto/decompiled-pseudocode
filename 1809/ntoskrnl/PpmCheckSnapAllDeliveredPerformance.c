@@ -1,17 +1,17 @@
 /*
  * XREFs of PpmCheckSnapAllDeliveredPerformance @ 0x14005B980
  * Callers:
- *     PpmCheckUpdateDeliveredPerformanceIfTracingEnabled @ 0x140141EE0 (PpmCheckUpdateDeliveredPerformanceIfTracingEnabled.c)
+ *     PpmCheckUpdateDeliveredPerformanceIfTracingEnabled @ 0x140141F00 (PpmCheckUpdateDeliveredPerformanceIfTracingEnabled.c)
  * Callees:
  *     EtwpLevelKeywordEnabled @ 0x14005B930 (EtwpLevelKeywordEnabled.c)
  *     PpmSnapPerformanceAccumulation @ 0x14005BDC0 (PpmSnapPerformanceAccumulation.c)
  *     KiInsertQueueDpc @ 0x1400621B0 (KiInsertQueueDpc.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7900 (KeQueryActiveProcessorCountEx.c)
- *     PpmConvertTime @ 0x1400A7CF4 (PpmConvertTime.c)
- *     EtwWriteEx @ 0x1400CAD40 (EtwWriteEx.c)
- *     KeCopyAffinityEx @ 0x1400EDA90 (KeCopyAffinityEx.c)
- *     PpmPerfCheckForIllegalProcessorThrottle @ 0x1401195F4 (PpmPerfCheckForIllegalProcessorThrottle.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
+ *     PpmConvertTime @ 0x1400A7D14 (PpmConvertTime.c)
+ *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
+ *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
+ *     PpmPerfCheckForIllegalProcessorThrottle @ 0x140119614 (PpmPerfCheckForIllegalProcessorThrottle.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char PpmCheckSnapAllDeliveredPerformance()

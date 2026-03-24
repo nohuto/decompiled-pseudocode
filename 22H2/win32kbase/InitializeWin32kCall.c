@@ -1,40 +1,40 @@
 /*
- * XREFs of InitializeWin32kCall @ 0x1C00A6260
+ * XREFs of InitializeWin32kCall @ 0x1C009C580
  * Callers:
- *     Win32kBaseDriverEntry @ 0x1C02DEBC0 (Win32kBaseDriverEntry.c)
+ *     Win32kBaseDriverEntry @ 0x1C029A770 (Win32kBaseDriverEntry.c)
  * Callees:
- *     ?ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z @ 0x1C00A6310 (-ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z.c)
- *     ?SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z @ 0x1C00A6748 (-SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z.c)
+ *     ?ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z @ 0x1C009C630 (-ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z.c)
+ *     ?SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z @ 0x1C009CBC8 (-SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z.c)
  */
 
-__int64 __fastcall InitializeWin32kCall(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall InitializeWin32kCall(__int64 a1, __int64 a2)
 {
-  int v3; // ebp
+  int v2; // ebp
   __int64 CurrentProcess; // rax
-  int v5; // edi
-  struct _EJOB *v6; // rsi
-  wchar_t ***v7; // rbx
-  void *v9; // [rsp+30h] [rbp+8h] BYREF
+  int v4; // edi
+  struct _EJOB *v5; // rsi
+  wchar_t ***v6; // rbx
+  void *v8; // [rsp+30h] [rbp+8h] BYREF
 
-  v3 = 0;
-  CurrentProcess = PsGetCurrentProcess(a1, a2, a3);
-  v9 = *(void **)(PsGetProcessPeb(CurrentProcess) + 104);
-  v5 = 0;
-  v6 = SetWin32kSilo(&v9);
-  if ( off_1C0288448 )
+  v2 = 0;
+  CurrentProcess = PsGetCurrentProcess(a1, a2);
+  v8 = *(void **)(PsGetProcessPeb(CurrentProcess) + 104);
+  v4 = 0;
+  v5 = SetWin32kSilo(&v8);
+  if ( off_1C02492D8 )
   {
-    v7 = &off_1C0288448;
+    v6 = &off_1C02492D8;
     do
     {
-      v3 = ResolveApiSetHost((struct _Win32kApiSet *)(&Win32kApiSetTable + 3 * v5), v9);
-      if ( v3 < 0 )
+      v2 = ResolveApiSetHost((struct _Win32kApiSet *)(&Win32kApiSetTable + 2 * v4), v8);
+      if ( v2 < 0 )
         break;
-      v7 += 3;
-      ++v5;
+      v6 += 2;
+      ++v4;
     }
-    while ( *v7 );
+    while ( *v6 );
   }
-  if ( v6 )
-    PsDetachSiloFromCurrentThread(v6);
-  return (unsigned int)v3;
+  if ( v5 )
+    PsDetachSiloFromCurrentThread(v5);
+  return (unsigned int)v2;
 }

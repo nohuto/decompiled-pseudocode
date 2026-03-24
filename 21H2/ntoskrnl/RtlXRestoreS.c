@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlXRestoreS @ 0x14022E800
+ * XREFs of RtlXRestoreS @ 0x140381D18
  * Callers:
- *     KxContextToKframes @ 0x14022E3B0 (KxContextToKframes.c)
- *     KeRestoreExtendedAndSupervisorState @ 0x14022E848 (KeRestoreExtendedAndSupervisorState.c)
- *     KeRestoreSupervisorState @ 0x14029B210 (KeRestoreSupervisorState.c)
- *     PspSetContext @ 0x140703FB0 (PspSetContext.c)
+ *     KxContextToKframes @ 0x140279000 (KxContextToKframes.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x1402C2C98 (KeRestoreExtendedAndSupervisorState.c)
+ *     KeRestoreSupervisorState @ 0x140519E60 (KeRestoreSupervisorState.c)
+ *     PspSetContext @ 0x14064A390 (PspSetContext.c)
  * Callees:
- *     RtlXRestore @ 0x14022E984 (RtlXRestore.c)
- *     XRestoreSHelper @ 0x14042AB90 (XRestoreSHelper.c)
+ *     RtlXRestore @ 0x1402C2DBC (RtlXRestore.c)
+ *     XRestoreSHelper @ 0x140408B10 (XRestoreSHelper.c)
  */
 
-__int64 __fastcall RtlXRestoreS(__int64 a1, __int64 a2)
+unsigned __int64 __fastcall RtlXRestoreS(__int64 a1, unsigned __int64 a2)
 {
   if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
     return XRestoreSHelper(a1, a2 & *(_QWORD *)(a1 + 520));
   else
-    return RtlXRestore(a1, a2, a2);
+    return RtlXRestore(a1, a2);
 }

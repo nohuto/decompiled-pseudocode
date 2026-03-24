@@ -1,19 +1,19 @@
 /*
- * XREFs of PiSwDispatch @ 0x1406D7660
+ * XREFs of PiSwDispatch @ 0x1406D7640
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     PiSwIrpInterfacePropertySet @ 0x1406D779C (PiSwIrpInterfacePropertySet.c)
- *     PiSwIrpStartCreate @ 0x1406D7C90 (PiSwIrpStartCreate.c)
- *     PiSwDeviceDereference @ 0x1406D8A30 (PiSwDeviceDereference.c)
- *     PiSwIrpCleanup @ 0x1406D8A68 (PiSwIrpCleanup.c)
- *     PiAuDoesClientHaveAccess @ 0x1406FF7AC (PiAuDoesClientHaveAccess.c)
- *     PiSwIrpPropertySet @ 0x14071D234 (PiSwIrpPropertySet.c)
- *     PiSwIrpInterfaceSetState @ 0x140753E44 (PiSwIrpInterfaceSetState.c)
- *     PiSwIrpInterfaceRegister @ 0x140753FCC (PiSwIrpInterfaceRegister.c)
- *     PiSwIrpSetLifetime @ 0x1407594B8 (PiSwIrpSetLifetime.c)
- *     PiSwIrpGetLifetime @ 0x14076195C (PiSwIrpGetLifetime.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     PiSwIrpInterfacePropertySet @ 0x1406D777C (PiSwIrpInterfacePropertySet.c)
+ *     PiSwIrpStartCreate @ 0x1406D7C70 (PiSwIrpStartCreate.c)
+ *     PiSwDeviceDereference @ 0x1406D8A10 (PiSwDeviceDereference.c)
+ *     PiSwIrpCleanup @ 0x1406D8A48 (PiSwIrpCleanup.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406FF78C (PiAuDoesClientHaveAccess.c)
+ *     PiSwIrpPropertySet @ 0x14071D214 (PiSwIrpPropertySet.c)
+ *     PiSwIrpInterfaceSetState @ 0x140753E24 (PiSwIrpInterfaceSetState.c)
+ *     PiSwIrpInterfaceRegister @ 0x140753FAC (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpSetLifetime @ 0x140759498 (PiSwIrpSetLifetime.c)
+ *     PiSwIrpGetLifetime @ 0x14076193C (PiSwIrpGetLifetime.c)
  */
 
 __int64 __fastcall PiSwDispatch(__int64 a1, IRP *a2)

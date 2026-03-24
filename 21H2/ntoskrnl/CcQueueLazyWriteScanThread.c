@@ -1,29 +1,27 @@
 /*
- * XREFs of CcQueueLazyWriteScanThread @ 0x1403C7DE0
+ * XREFs of CcQueueLazyWriteScanThread @ 0x1403B93A0
  * Callers:
  *     <none>
  * Callees:
- *     CcSetLazyWriteScanQueuedInternal @ 0x14024D09C (CcSetLazyWriteScanQueuedInternal.c)
- *     CcIsLazyWriteScanQueuedInternal @ 0x14024EBCC (CcIsLazyWriteScanQueuedInternal.c)
- *     CcPostWorkQueue @ 0x140275F94 (CcPostWorkQueue.c)
- *     CcDereferencePartition @ 0x140276728 (CcDereferencePartition.c)
- *     CcAllocateWorkQueueEntry @ 0x1402768E4 (CcAllocateWorkQueueEntry.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x14029E260 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeWaitForMultipleObjects @ 0x1402F13C0 (KeWaitForMultipleObjects.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     CcNotifyExternalCachesInternal @ 0x14039ED00 (CcNotifyExternalCachesInternal.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     CcSetLazyWriteScanQueued @ 0x1402C40A4 (CcSetLazyWriteScanQueued.c)
+ *     CcPostWorkQueue @ 0x1402F6130 (CcPostWorkQueue.c)
+ *     CcAllocateWorkQueueEntry @ 0x1402F67D0 (CcAllocateWorkQueueEntry.c)
+ *     CcDereferencePartition @ 0x1402F6D2C (CcDereferencePartition.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140336330 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     CcNotifyExternalCaches @ 0x140392524 (CcNotifyExternalCaches.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall CcQueueLazyWriteScanThread(_QWORD *StartContext)
 {
-  _BYTE *v1; // r13
-  unsigned int v2; // ebx
-  char v4; // r12
+  char *v1; // r12
+  unsigned int v3; // edi
+  char v4; // r15
   char v5; // si
   NTSTATUS v6; // eax
   int v7; // eax
@@ -31,173 +29,183 @@ void __fastcall CcQueueLazyWriteScanThread(_QWORD *StartContext)
   signed __int64 v9; // rax
   unsigned __int64 i; // rcx
   signed __int64 v11; // rtt
-  __int64 v12; // r14
-  int v13; // edx
-  _BYTE *v14; // rcx
+  unsigned __int64 v12; // rsi
+  PSLIST_ENTRY v13; // rcx
+  __int64 v14; // rdx
+  char v15; // al
   unsigned __int64 OldIrql; // rsi
-  __int64 v16; // r8
-  __int64 v17; // r9
-  PSLIST_ENTRY v18; // rcx
-  __int64 v19; // rdx
-  _QWORD *v20; // rdx
-  int v21; // eax
+  int v17; // eax
+  int v18; // eax
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
   int v22; // eax
-  unsigned __int64 v23; // rsi
+  bool v23; // zf
   unsigned __int8 v24; // al
   struct _KPRCB *v25; // r10
   _DWORD *v26; // r9
   int v27; // eax
-  bool v28; // zf
-  unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v32; // eax
   struct _KLOCK_QUEUE_HANDLE WaitBlockArray_8; // [rsp+48h] [rbp-C0h] BYREF
-  PSLIST_ENTRY v34; // [rsp+60h] [rbp-A8h] BYREF
-  PVOID v35; // [rsp+68h] [rbp-A0h]
-  PVOID Object[7]; // [rsp+70h] [rbp-98h] BYREF
-  struct _KWAIT_BLOCK WaitBlockArray; // [rsp+A8h] [rbp-60h] BYREF
+  PSLIST_ENTRY v29; // [rsp+60h] [rbp-A8h] BYREF
+  PVOID Object[6]; // [rsp+68h] [rbp-A0h] BYREF
+  struct _KWAIT_BLOCK WaitBlockArray; // [rsp+98h] [rbp-70h] BYREF
 
-  v34 = 0LL;
-  v35 = StartContext + 158;
-  v1 = StartContext + 115;
-  Object[2] = StartContext + 115;
-  Object[0] = StartContext + 102;
-  v2 = 0;
-  Object[5] = StartContext + 158;
-  Object[1] = StartContext + 105;
-  Object[3] = StartContext + 108;
+  v1 = (char *)(StartContext + 125);
+  v29 = 0LL;
+  Object[5] = StartContext + 125;
+  Object[0] = StartContext + 47;
+  v3 = 0;
+  Object[1] = StartContext + 50;
   v4 = 0;
-  Object[4] = StartContext + 111;
+  Object[2] = StartContext + 53;
+  Object[3] = StartContext + 56;
+  Object[4] = StartContext + 59;
   memset(&WaitBlockArray_8, 0, sizeof(WaitBlockArray_8));
-  while ( 1 )
+LABEL_2:
+  v5 = 0;
+  if ( v4 )
+    CcDereferencePartition((__int64)StartContext);
+  v6 = KeWaitForMultipleObjects(6u, Object, WaitAny, WrFreePage, 0, 0, 0LL, &WaitBlockArray);
+  if ( !v6 )
   {
-    v5 = 0;
-    if ( v4 )
-      CcDereferencePartition((__int64)StartContext);
-    v6 = KeWaitForMultipleObjects(6u, Object, WaitAny, WrFreePage, 0, 0, 0LL, &WaitBlockArray);
-    if ( !v6 )
-    {
-      v2 = 1;
-      v5 = 1;
-      goto LABEL_8;
-    }
-    v7 = v6 - 1;
-    if ( !v7 )
-    {
-      v2 = 2;
-LABEL_23:
-      v5 = 1;
-      goto LABEL_8;
-    }
+    v3 = 1;
+    v5 = 1;
+    goto LABEL_42;
+  }
+  v7 = v6 - 1;
+  if ( v7 )
+  {
     v8 = v7 - 1;
-    if ( v8 )
-      break;
-    v2 = 4;
+    if ( !v8 )
+    {
+      v3 = 4;
+      goto LABEL_8;
+    }
+    v17 = v8 - 1;
+    if ( !v17 )
+    {
+      v3 = 8;
+      goto LABEL_25;
+    }
+    v18 = v17 - 1;
+    if ( !v18 )
+    {
+      v3 = 16;
+      goto LABEL_25;
+    }
+    if ( v18 == 1 )
+      return;
+LABEL_42:
+    if ( !v3 )
+      return;
+    goto LABEL_8;
+  }
+  v3 = 2;
+LABEL_25:
+  v5 = 1;
 LABEL_8:
-    _m_prefetchw(StartContext + 154);
-    v9 = StartContext[154];
-    for ( i = v9 + 1; ; i = v9 + 1 )
+  _m_prefetchw(StartContext + 121);
+  v9 = StartContext[121];
+  for ( i = v9 + 1; i > 1; i = v9 + 1 )
+  {
+    v11 = v9;
+    v9 = _InterlockedCompareExchange64(StartContext + 121, i, v9);
+    if ( v11 == v9 )
     {
-      if ( i <= 1 )
+      v4 = 1;
+      if ( CcNumberOfExternalCaches
+        && (__int64 *)CcExternalCacheList != &CcExternalCacheList
+        && StartContext == *((_QWORD **)PspSystemPartition + 1) )
       {
-        if ( i != 1 )
-          __fastfail(0xEu);
-        KeWaitForSingleObject(v35, Executive, 0, 0, 0LL);
-        return;
+        CcNotifyExternalCaches(v3);
       }
-      v11 = v9;
-      v9 = _InterlockedCompareExchange64(StartContext + 154, i, v9);
-      if ( v11 == v9 )
-        break;
-    }
-    v12 = StartContext[10];
-    v4 = 1;
-    if ( !v12 )
-      KeBugCheckEx(0x34u, 0x7A9uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-    if ( CcNumberOfExternalCaches )
-    {
-      if ( (__int64 *)CcExternalCacheList != &CcExternalCacheList )
+      CcAdjustWriteBehindThreadPoolIfNeeded((__int64)StartContext, v5);
+      KeAcquireInStackQueuedSpinLock(StartContext + 16, &WaitBlockArray_8);
+      if ( v3 <= 2 )
+        goto LABEL_28;
+      if ( v3 == 4 )
       {
-        v20 = (_QWORD *)*((_QWORD *)PspSystemPartition + 1);
-        if ( StartContext == v20 )
-          CcNotifyExternalCachesInternal(v2, (__int64)v20, 0LL);
-      }
-    }
-    CcAdjustWriteBehindThreadPoolIfNeeded((__int64)StartContext, v5);
-    KeAcquireInStackQueuedSpinLock(StartContext + 88, &WaitBlockArray_8);
-    if ( !CcIsLazyWriteScanQueuedInternal(v1, v2) )
-    {
-      CcSetLazyWriteScanQueuedInternal(v14, v13, 1);
-      KeReleaseInStackQueuedSpinLockFromDpcLevel(&WaitBlockArray_8);
-      OldIrql = WaitBlockArray_8.OldIrql;
-      if ( KiIrqlFlags )
-      {
-        if ( (KiIrqlFlags & 1) != 0 )
+        if ( !*((_BYTE *)StartContext + 635) && !*((_BYTE *)StartContext + 634) )
+          goto LABEL_16;
+LABEL_33:
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&WaitBlockArray_8);
+        OldIrql = WaitBlockArray_8.OldIrql;
+        if ( KiIrqlFlags )
         {
-          CurrentIrql = KeGetCurrentIrql();
-          if ( CurrentIrql <= 0xFu && WaitBlockArray_8.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          if ( (KiIrqlFlags & 1) != 0 )
           {
-            CurrentPrcb = KeGetCurrentPrcb();
-            SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v32 = ~(unsigned __int16)(-1LL << (WaitBlockArray_8.OldIrql + 1));
-            v28 = (v32 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v32;
-            if ( v28 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            CurrentIrql = KeGetCurrentIrql();
+            if ( CurrentIrql <= 0xFu && WaitBlockArray_8.OldIrql <= 0xFu && CurrentIrql >= 2u )
+            {
+              CurrentPrcb = KeGetCurrentPrcb();
+              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v22 = ~(unsigned __int16)(-1LL << (WaitBlockArray_8.OldIrql + 1));
+              v23 = (v22 & SchedulerAssist[5]) == 0;
+              SchedulerAssist[5] &= v22;
+              if ( v23 )
+                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            }
           }
         }
+        __writecr8(OldIrql);
+        goto LABEL_2;
       }
-      __writecr8(OldIrql);
-      if ( (int)CcAllocateWorkQueueEntry((__int64)StartContext, 0LL, v12, &v34) >= 0 )
+      if ( v3 == 8 )
       {
-        v18 = v34;
-        v19 = v12 + 72;
-        LOBYTE(v34[8].Next) = 3;
-        LODWORD(v18[1].Next) = v2;
-        if ( v2 != 8 )
-          v19 = v12 + 104;
-        CcPostWorkQueue(v18, v19, v16, v17);
-        continue;
+        v15 = *((_BYTE *)StartContext + 634);
       }
-      ++CcDbgNumberOfFailedWorkQueueEntryAllocations;
-      KeAcquireInStackQueuedSpinLock(StartContext + 88, &WaitBlockArray_8);
-      *((_BYTE *)StartContext + 985) = 0;
-      CcSetLazyWriteScanQueuedInternal(v1, v2, 0);
-    }
-    KeReleaseInStackQueuedSpinLockFromDpcLevel(&WaitBlockArray_8);
-    v23 = WaitBlockArray_8.OldIrql;
-    if ( KiIrqlFlags )
-    {
-      if ( (KiIrqlFlags & 1) != 0 )
+      else
       {
-        v24 = KeGetCurrentIrql();
-        if ( v24 <= 0xFu && WaitBlockArray_8.OldIrql <= 0xFu && v24 >= 2u )
+LABEL_28:
+        if ( !*((_BYTE *)StartContext + 636) && !*((_BYTE *)StartContext + 637) && !*((_BYTE *)StartContext + 638) )
         {
-          v25 = KeGetCurrentPrcb();
-          v26 = v25->SchedulerAssist;
-          v27 = ~(unsigned __int16)(-1LL << (WaitBlockArray_8.OldIrql + 1));
-          v28 = (v27 & v26[5]) == 0;
-          v26[5] &= v27;
-          if ( v28 )
-            KiRemoveSystemWorkPriorityKick(v25);
+LABEL_16:
+          CcSetLazyWriteScanQueued(StartContext, v3, 1);
+          KeReleaseInStackQueuedSpinLockFromDpcLevel(&WaitBlockArray_8);
+          v12 = WaitBlockArray_8.OldIrql;
+          if ( KiIrqlFlags )
+          {
+            if ( (KiIrqlFlags & 1) != 0 )
+            {
+              v24 = KeGetCurrentIrql();
+              if ( v24 <= 0xFu && WaitBlockArray_8.OldIrql <= 0xFu && v24 >= 2u )
+              {
+                v25 = KeGetCurrentPrcb();
+                v26 = v25->SchedulerAssist;
+                v27 = ~(unsigned __int16)(-1LL << (WaitBlockArray_8.OldIrql + 1));
+                v23 = (v27 & v26[5]) == 0;
+                v26[5] &= v27;
+                if ( v23 )
+                  KiRemoveSystemWorkPriorityKick(v25);
+              }
+            }
+          }
+          __writecr8(v12);
+          if ( (int)CcAllocateWorkQueueEntry((__int64)StartContext, &v29) >= 0 )
+          {
+            v13 = v29;
+            v14 = 28LL;
+            *((_BYTE *)&v29[7].Next + 8) = 3;
+            if ( v3 != 8 )
+              v14 = 32LL;
+            LODWORD(v13[1].Next) = v3;
+            CcPostWorkQueue((__int64)v13, (__int64)&StartContext[v14]);
+            goto LABEL_2;
+          }
+          ++CcDbgNumberOfFailedWorkQueueEntryAllocations;
+          KeAcquireInStackQueuedSpinLock(StartContext + 16, &WaitBlockArray_8);
+          *((_BYTE *)StartContext + 632) = 0;
+          CcSetLazyWriteScanQueued(StartContext, v3, 0);
+          goto LABEL_33;
         }
+        v15 = 1;
       }
+      if ( !v15 )
+        goto LABEL_16;
+      goto LABEL_33;
     }
-    __writecr8(v23);
   }
-  v21 = v8 - 1;
-  if ( !v21 )
-  {
-    v2 = 8;
-    goto LABEL_23;
-  }
-  v22 = v21 - 1;
-  if ( !v22 )
-  {
-    v2 = 16;
-    goto LABEL_23;
-  }
-  if ( v22 != 1 && v2 )
-    goto LABEL_8;
+  if ( i != 1 )
+    __fastfail(0xEu);
+  KeWaitForSingleObject(v1, Executive, 0, 0, 0LL);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiYieldPageTableWalk @ 0x140234128
+ * XREFs of MiYieldPageTableWalk @ 0x1402AA514
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x14031A5C0 (MiWalkPageTablesRecursively.c)
+ *     MiWalkPageTablesRecursively @ 0x14020BDA0 (MiWalkPageTablesRecursively.c)
  * Callees:
- *     MiReleaseWalkLocks @ 0x1402341A4 (MiReleaseWalkLocks.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     MiReleaseWalkLocks @ 0x1402AA590 (MiReleaseWalkLocks.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiYieldPageTableWalk(__int64 a1, int a2)
@@ -16,26 +16,26 @@ __int64 __fastcall MiYieldPageTableWalk(__int64 a1, int a2)
   char v8; // r8
 
   v3 = *(__int64 (**)(void))(a1 + 160);
-  v4 = *(_BYTE *)(a1 + 4) | 2;
-  *(_BYTE *)(a1 + 4) = v4;
+  v4 = *(_BYTE *)(a1 + 2) | 2;
+  *(_BYTE *)(a1 + 2) = v4;
   if ( v3 )
   {
     v6 = v3();
-    v4 = *(_BYTE *)(a1 + 4);
+    v4 = *(_BYTE *)(a1 + 2);
     v7 = v6;
   }
   else
   {
     v7 = 0;
-    if ( *(_BYTE *)(a1 + 7) == 17 )
+    if ( *(_BYTE *)(a1 + 6) == 17 )
     {
-      *(_BYTE *)(a1 + 4) = v4 & 0xFD;
+      *(_BYTE *)(a1 + 2) = v4 & 0xFD;
       return 0LL;
     }
   }
   v8 = v4 & 0xFD;
-  *(_BYTE *)(a1 + 4) = v8;
-  if ( (v8 & 1) == 0 && v7 < 4 )
+  *(_BYTE *)(a1 + 2) = v8;
+  if ( (v8 & 1) == 0 && v7 < 3 )
   {
     if ( a2 )
       MiReleaseWalkLocks(a1);

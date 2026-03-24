@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CSpriteVectorShape@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D55E0
+ * XREFs of ?IsOfType@CSpriteVectorShape@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016FB90
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CSpriteVectorShape::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 176 || a2 == 192 || a2 == 45;
+  return a2 == 177 || a2 == 192 || a2 == 45;
 }

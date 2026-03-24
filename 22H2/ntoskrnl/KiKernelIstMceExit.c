@@ -1,7 +1,7 @@
 /*
- * XREFs of KiKernelIstMceExit @ 0x140AF8CC0
+ * XREFs of KiKernelIstMceExit @ 0x140A15CC0
  * Callers:
- *     KiMcheckAbort @ 0x140430280 (KiMcheckAbort.c)
+ *     KiMcheckAbort @ 0x14040E1C0 (KiMcheckAbort.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ void KiKernelIstMceExit()
   v0 = v9;
   if ( (v9 & 1) != 0 )
   {
-    if ( !_interlockedbittestandreset(MK_FP(__GS__, 40984LL), 0) )
+    if ( !_interlockedbittestandreset(MK_FP(__GS__, 36888LL), 0) )
     {
       v4 = __readcr3();
       if ( v4 == v9 )

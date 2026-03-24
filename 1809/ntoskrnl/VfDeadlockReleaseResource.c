@@ -11,12 +11,12 @@
  *     VerifierExReleaseFastMutex @ 0x1409421D0 (VerifierExReleaseFastMutex.c)
  *     VerifierExReleaseFastMutexUnsafe @ 0x140942260 (VerifierExReleaseFastMutexUnsafe.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1400CCC90 (RtlCaptureStackBackTrace.c)
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     VfReportIssueWithOptions @ 0x14030AD18 (VfReportIssueWithOptions.c)
- *     ViLowerIrql @ 0x14030B40C (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x14030B468 (ViRaiseIrqlToDpcLevel.c)
+ *     RtlCaptureStackBackTrace @ 0x1400CCCB0 (RtlCaptureStackBackTrace.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VfReportIssueWithOptions @ 0x14030AE18 (VfReportIssueWithOptions.c)
+ *     ViLowerIrql @ 0x14030B50C (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x14030B568 (ViRaiseIrqlToDpcLevel.c)
  *     ViDeadlockCanProceed @ 0x14093CD18 (ViDeadlockCanProceed.c)
  *     ViDeadlockDetectionLock @ 0x14093D1AC (ViDeadlockDetectionLock.c)
  *     ViDeadlockDetectionUnlock @ 0x14093D1E4 (ViDeadlockDetectionUnlock.c)
@@ -168,7 +168,7 @@ LABEL_17:
                 v4,
                 a1);
               ViDeadlockPreprocessOptions(
-                byte_140405534,
+                byte_140405524,
                 "Releasing two locks in reverse order of their acquire.",
                 4099LL,
                 a1,
@@ -180,7 +180,7 @@ LABEL_17:
                 (ULONG_PTR)a1,
                 *(_QWORD *)(v27[7] + 8),
                 (ULONG_PTR)v4,
-                byte_140405534);
+                byte_140405524);
             }
             while ( (int *)v27[7] != v20 )
             {
@@ -261,10 +261,10 @@ LABEL_42:
       goto LABEL_57;
     }
     ViDeadlockPreprocessOptions(
-      byte_14040553C,
+      byte_14040552C,
       "Releasing lock 0x%p using mismatched API for this lock type.",
       (const void *)0x1009);
-    VfReportIssueWithOptions(0xC4u, 0x1009uLL, (ULONG_PTR)a1, *v20, v8, byte_14040553C);
+    VfReportIssueWithOptions(0xC4u, 0x1009uLL, (ULONG_PTR)a1, *v20, v8, byte_14040552C);
 LABEL_57:
     v36 = v46;
     *(_OWORD *)(v20 + 46) = *(_OWORD *)BackTrace;

@@ -1,33 +1,38 @@
 /*
- * XREFs of DxgkNetDispStartMiracastDisplayDevice @ 0x1C02D2CA0
+ * XREFs of DxgkNetDispStartMiracastDisplayDevice @ 0x1C0224830
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?DxgkNetDispAccessCheck@@YAJPEAVDXGPROCESS@@@Z @ 0x1C0049810 (-DxgkNetDispAccessCheck@@YAJPEAVDXGPROCESS@@@Z.c)
- *     ?IsAllowedToCallMiracast@@YA_NXZ @ 0x1C0049DC8 (-IsAllowedToCallMiracast@@YA_NXZ.c)
- *     DxgkMiracastStartMiracastSession @ 0x1C0063340 (DxgkMiracastStartMiracastSession.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0186AA0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?DxgkNetDispAccessCheck@@YAJPEAVDXGPROCESS@@@Z @ 0x1C003E684 (-DxgkNetDispAccessCheck@@YAJPEAVDXGPROCESS@@@Z.c)
+ *     ?IsAllowedToCallMiracast@@YA_NXZ @ 0x1C003ECC8 (-IsAllowedToCallMiracast@@YA_NXZ.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C0055770 (DxgkMiracastStartMiracastSession.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0115560 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall DxgkNetDispStartMiracastDisplayDevice(_OWORD *a1)
 {
   struct _KEVENT *v2; // rdi
   __int64 v3; // r8
-  __int64 v4; // r9
-  unsigned __int16 *v6; // rcx
-  __int64 v7; // rax
-  unsigned int v8; // ebx
-  __int64 v9; // rdx
+  _OWORD *v5; // rcx
+  __int64 v6; // rax
+  unsigned int v7; // ebx
+  __int64 v8; // rax
   struct DXGPROCESS *Current; // rax
-  __int64 v11; // rax
-  NTSTATUS v12; // eax
-  NTSTATUS v13[4]; // [rsp+50h] [rbp-268h] BYREF
-  unsigned __int16 v14[264]; // [rsp+60h] [rbp-258h] BYREF
-  HANDLE Handle; // [rsp+270h] [rbp-48h]
-  UUID Uuid; // [rsp+278h] [rbp-40h] BYREF
-  __int128 Object; // [rsp+290h] [rbp-28h] BYREF
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  __int64 v13; // rdi
+  __int64 v14; // rax
+  NTSTATUS v15; // eax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  NTSTATUS v19[4]; // [rsp+30h] [rbp-268h] BYREF
+  _DWORD v20[132]; // [rsp+40h] [rbp-258h] BYREF
+  HANDLE Handle; // [rsp+250h] [rbp-48h]
+  UUID Uuid; // [rsp+258h] [rbp-40h] BYREF
+  __int128 Object; // [rsp+270h] [rbp-28h] BYREF
 
   Object = 0LL;
   v2 = 0LL;
@@ -35,40 +40,40 @@ __int64 __fastcall DxgkNetDispStartMiracastDisplayDevice(_OWORD *a1)
     return -2147483640LL;
   if ( (unsigned __int64)a1 >= MmUserProbeAddress )
     a1 = (_OWORD *)MmUserProbeAddress;
-  v6 = v14;
-  v7 = 4LL;
+  v5 = v20;
+  v6 = 4LL;
   do
   {
-    *(_OWORD *)v6 = *a1;
-    *((_OWORD *)v6 + 1) = a1[1];
-    *((_OWORD *)v6 + 2) = a1[2];
-    *((_OWORD *)v6 + 3) = a1[3];
-    *((_OWORD *)v6 + 4) = a1[4];
-    *((_OWORD *)v6 + 5) = a1[5];
-    *((_OWORD *)v6 + 6) = a1[6];
-    v6 += 64;
-    *((_OWORD *)v6 - 1) = a1[7];
+    *v5 = *a1;
+    v5[1] = a1[1];
+    v5[2] = a1[2];
+    v5[3] = a1[3];
+    v5[4] = a1[4];
+    v5[5] = a1[5];
+    v5[6] = a1[6];
+    v5 += 8;
+    *(v5 - 1) = a1[7];
     a1 += 8;
-    --v7;
+    --v6;
   }
-  while ( v7 );
-  *(_OWORD *)v6 = *a1;
-  *((_OWORD *)v6 + 1) = a1[1];
-  *((_QWORD *)v6 + 4) = *((_QWORD *)a1 + 4);
-  if ( *(_DWORD *)v14 == 552 )
+  while ( v6 );
+  *v5 = *a1;
+  v5[1] = a1[1];
+  *((_QWORD *)v5 + 4) = *((_QWORD *)a1 + 4);
+  if ( v20[0] == 552 )
   {
-    Current = DXGPROCESS::GetCurrent((__int64)v6, 128LL, v3, v4);
-    v13[0] = DxgkNetDispAccessCheck(Current);
-    if ( v13[0] >= 0 )
+    Current = DXGPROCESS::GetCurrent((__int64)v5, 128LL);
+    v19[0] = DxgkNetDispAccessCheck(Current);
+    if ( v19[0] >= 0 )
     {
-      v11 = *(_QWORD *)&Uuid.Data1 - Object;
+      v14 = *(_QWORD *)&Uuid.Data1 - Object;
       if ( *(_QWORD *)&Uuid.Data1 == (_QWORD)Object )
-        v11 = *(_QWORD *)Uuid.Data4 - *((_QWORD *)&Object + 1);
-      if ( v11 || (v13[0] = ExUuidCreate(&Uuid), v13[0] >= 0) )
+        v14 = *(_QWORD *)Uuid.Data4 - *((_QWORD *)&Object + 1);
+      if ( v14 || (v19[0] = ExUuidCreate(&Uuid), v19[0] >= 0) )
       {
         if ( Handle
           && (*(_QWORD *)&Object = 0LL,
-              v12 = ObReferenceObjectByHandle(
+              v15 = ObReferenceObjectByHandle(
                       Handle,
                       0x1F0003u,
                       (POBJECT_TYPE)ExEventObjectType,
@@ -76,41 +81,36 @@ __int64 __fastcall DxgkNetDispStartMiracastDisplayDevice(_OWORD *a1)
                       (PVOID *)&Object,
                       0LL),
               v2 = (struct _KEVENT *)Object,
-              v13[0] = v12,
-              v12 < 0) )
+              v19[0] = v15,
+              v15 < 0) )
         {
-          v8 = -2147483640;
-          WdLogSingleEntry1(2LL, Handle);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Caller specified event handle (0x%I64x) is not an valid event handle.",
-            (__int64)Handle,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
+          v7 = -2147483640;
+          v18 = WdLogNewEntry5_WdError(v17, v16);
+          *(_QWORD *)(v18 + 24) = Handle;
+          WdLogEvent5_WdError(v18);
         }
         else
         {
-          return (unsigned int)DxgkMiracastStartMiracastSession(v14, v2, v13);
+          return (unsigned int)DxgkMiracastStartMiracastSession((__int64)v20, v2, v19);
         }
-        return v8;
+        return v7;
       }
-      v9 = -2147483647LL;
+      v13 = -2147483647LL;
     }
     else
     {
-      v9 = -2147483643LL;
+      v13 = -2147483643LL;
     }
-    v8 = v9;
+    v7 = v13;
+    v8 = WdLogNewEntry5_WdWarning(v11, v10, v12);
+    *(_QWORD *)(v8 + 24) = v13;
   }
   else
   {
-    v8 = -2147483640;
-    v9 = -2147483640LL;
+    v7 = -2147483640;
+    v8 = WdLogNewEntry5_WdWarning(v5, 128LL, v3);
+    *(_QWORD *)(v8 + 24) = -2147483640LL;
   }
-  WdLogSingleEntry1(3LL, v9);
-  return v8;
+  WdLogEvent5_WdWarning(v8);
+  return v7;
 }

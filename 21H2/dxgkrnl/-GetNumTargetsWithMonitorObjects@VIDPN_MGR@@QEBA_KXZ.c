@@ -1,28 +1,30 @@
 /*
- * XREFs of ?GetNumTargetsWithMonitorObjects@VIDPN_MGR@@QEBA_KXZ @ 0x1C0029D40
+ * XREFs of ?GetNumTargetsWithMonitorObjects@VIDPN_MGR@@QEBA_KXZ @ 0x1C005C1E0
  * Callers:
- *     ?RecommendFunctionalVidPn@VIDPN_MGR@@QEAAJW4_DXGK_RECOMMENDFUNCTIONALVIDPN_REASON@@QEAXIQEAPEAVDMMVIDPN@@@Z @ 0x1C0216A7C (-RecommendFunctionalVidPn@VIDPN_MGR@@QEAAJW4_DXGK_RECOMMENDFUNCTIONALVIDPN_REASON@@QEAXIQEAPEAVD.c)
+ *     ?RecommendFunctionalVidPn@VIDPN_MGR@@QEAAJW4_DXGK_RECOMMENDFUNCTIONALVIDPN_REASON@@QEAXIQEAPEAVDMMVIDPN@@@Z @ 0x1C02E0148 (-RecommendFunctionalVidPn@VIDPN_MGR@@QEAAJW4_DXGK_RECOMMENDFUNCTIONALVIDPN_REASON@@QEAXIQEAPEAVD.c)
  * Callees:
- *     MonitorGetNumConnectedMonitor @ 0x1C01D47C8 (MonitorGetNumConnectedMonitor.c)
+ *     MonitorGetNumConnectedMonitor @ 0x1C0148DC4 (MonitorGetNumConnectedMonitor.c)
  */
 
-unsigned __int64 __fastcall VIDPN_MGR::GetNumTargetsWithMonitorObjects(VIDPN_MGR *this)
+unsigned __int64 __fastcall VIDPN_MGR::GetNumTargetsWithMonitorObjects(VIDPN_MGR *this, __int64 a2)
 {
-  __int64 v2; // rcx
-  unsigned int v3; // ebx
-  unsigned int v5; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rax
 
-  v5 = 0;
-  v2 = *((_QWORD *)this + 1);
-  v3 = 1;
-  if ( !v2 )
+  v3 = *((_QWORD *)this + 1);
+  if ( !v3 )
   {
-    WdLogSingleEntry0(1LL);
-    v2 = *((_QWORD *)this + 1);
+    v4 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    WdLogEvent5_WdAssertion(v4);
+    v3 = *((_QWORD *)this + 1);
   }
-  if ( (int)MonitorGetNumConnectedMonitor(*(_QWORD *)(v2 + 16), &v5) < 0 )
-    WdLogSingleEntry0(1LL);
-  if ( v5 > 1 )
-    return v5;
-  return v3;
+  if ( (int)MonitorGetNumConnectedMonitor(*(DXGADAPTER **)(v3 + 16)) < 0 )
+  {
+    v7 = WdLogNewEntry5_WdAssertion(v6, v5);
+    WdLogEvent5_WdAssertion(v7);
+  }
+  return 1LL;
 }

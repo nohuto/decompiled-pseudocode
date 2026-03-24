@@ -1,14 +1,14 @@
 /*
- * XREFs of ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C0019BFC
+ * XREFs of ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C000C680
  * Callers:
- *     ?SaveHKCUPathInSessionData@DpiPersistence@@YAJXZ @ 0x1C01D3878 (-SaveHKCUPathInSessionData@DpiPersistence@@YAJXZ.c)
- *     ?SortMonitorSetIdAndAppendHash@DpiPersistence@@YAJPEAU_UNICODE_STRING@@@Z @ 0x1C01D6A40 (-SortMonitorSetIdAndAppendHash@DpiPersistence@@YAJPEAU_UNICODE_STRING@@@Z.c)
- *     ?DeleteRegistryKey@DXGADAPTER@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C02B9F98 (-DeleteRegistryKey@DXGADAPTER@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
- *     ?DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ @ 0x1C02BA328 (-DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ.c)
- *     ?AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@Z @ 0x1C0301DD4 (-AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@.c)
+ *     ?SortMonitorSetIdAndAppendHash@DpiPersistence@@YAJPEAU_UNICODE_STRING@@@Z @ 0x1C0147398 (-SortMonitorSetIdAndAppendHash@DpiPersistence@@YAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?SaveHKCUPathInSessionData@DpiPersistence@@YAJXZ @ 0x1C016EB78 (-SaveHKCUPathInSessionData@DpiPersistence@@YAJXZ.c)
+ *     ?DeleteRegistryKey@DXGADAPTER@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C020B958 (-DeleteRegistryKey@DXGADAPTER@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ @ 0x1C020BC48 (-DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ.c)
+ *     ?AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@Z @ 0x1C02619C8 (-AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@.c)
  * Callees:
- *     RtlUnicodeStringValidateDestWorker @ 0x1C0019CC4 (RtlUnicodeStringValidateDestWorker.c)
- *     RtlUnicodeStringValidateWorker @ 0x1C0019D30 (RtlUnicodeStringValidateWorker.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C000C748 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlUnicodeStringValidateWorker @ 0x1C000C7B4 (RtlUnicodeStringValidateWorker.c)
  */
 
 __int64 __fastcall RtlUnicodeStringCopy(struct _UNICODE_STRING *a1, const struct _UNICODE_STRING *a2)
@@ -16,64 +16,56 @@ __int64 __fastcall RtlUnicodeStringCopy(struct _UNICODE_STRING *a1, const struct
   __int16 v3; // bx
   size_t v5; // rdx
   NTSTATUS v6; // r8d
-  NTSTATUS v7; // eax
-  wchar_t *Buffer; // r9
-  unsigned __int64 v9; // rcx
-  size_t v10; // rdx
-  wchar_t *v11; // r11
-  __int16 v12; // r10
-  size_t v14; // [rsp+20h] [rbp-18h]
-  ULONG v15; // [rsp+28h] [rbp-10h]
-  size_t v16; // [rsp+50h] [rbp+18h] BYREF
-  wchar_t *v17; // [rsp+58h] [rbp+20h] BYREF
+  unsigned __int64 v7; // r10
+  wchar_t *Buffer; // r11
+  size_t v9; // rcx
+  __int16 v10; // dx
+  char *v11; // r9
+  size_t v13; // [rsp+20h] [rbp-18h]
+  ULONG v14; // [rsp+28h] [rbp-10h]
+  size_t v15; // [rsp+50h] [rbp+18h] BYREF
+  wchar_t *v16; // [rsp+58h] [rbp+20h] BYREF
 
   v3 = 0;
-  v17 = 0LL;
   v16 = 0LL;
-  v6 = RtlUnicodeStringValidateDestWorker(a1, &v17, &v16, 0LL, v14, v15);
+  v15 = 0LL;
+  v6 = RtlUnicodeStringValidateDestWorker(a1, &v16, &v15, 0LL, v13, v14);
   if ( v6 >= 0 )
   {
-    v7 = RtlUnicodeStringValidateWorker(a2, v5, v6);
-    v6 = v7;
-    if ( v7 >= 0 && a2 )
+    v6 = RtlUnicodeStringValidateWorker(a2, v5, v6);
+    if ( v6 >= 0 )
     {
-      Buffer = a2->Buffer;
-      v9 = (unsigned __int64)a2->Length >> 1;
-    }
-    else
-    {
-      Buffer = 0LL;
-      v9 = 0LL;
-      if ( v7 < 0 )
+      if ( a2 )
       {
-LABEL_10:
-        a1->Length = 2 * v3;
-        return (unsigned int)v6;
+        Buffer = a2->Buffer;
+        v7 = (unsigned __int64)a2->Length >> 1;
       }
-    }
-    v10 = v16;
-    v6 = 0;
-    v11 = v17;
-    v12 = 0;
-    if ( v16 )
-    {
-      while ( v9 )
+      v9 = v15;
+      v6 = 0;
+      v10 = 0;
+      if ( !v15 )
+        goto LABEL_13;
+      v11 = (char *)((char *)v16 - (char *)Buffer);
+      do
       {
+        if ( !v7 )
+          break;
+        --v7;
+        *(wchar_t *)((char *)Buffer + (_QWORD)v11) = *Buffer;
+        ++v10;
+        ++Buffer;
         --v9;
-        *v11++ = *Buffer++;
-        ++v12;
-        if ( !--v10 )
-          goto LABEL_14;
       }
+      while ( v9 );
+      if ( !v9 )
+      {
+LABEL_13:
+        if ( v7 )
+          v6 = -2147483643;
+      }
+      v3 = v10;
     }
-    else
-    {
-LABEL_14:
-      if ( v9 )
-        v6 = -2147483643;
-    }
-    v3 = v12;
-    goto LABEL_10;
+    a1->Length = 2 * v3;
   }
   return (unsigned int)v6;
 }

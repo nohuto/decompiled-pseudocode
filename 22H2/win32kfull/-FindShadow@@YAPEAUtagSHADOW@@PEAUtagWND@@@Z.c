@@ -1,14 +1,14 @@
 /*
- * XREFs of ?FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z @ 0x1C00A38A4
+ * XREFs of ?FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z @ 0x1C00BBE88
  * Callers:
- *     WindowHasShadow @ 0x1C00A3870 (WindowHasShadow.c)
- *     UpdateWindowMonitor @ 0x1C00D16E0 (UpdateWindowMonitor.c)
- *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0122B94 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
- *     xxxAddShadow @ 0x1C0221654 (xxxAddShadow.c)
- *     xxxUpdateShadowZorder @ 0x1C02219BC (xxxUpdateShadowZorder.c)
- *     zzzCloakShadow @ 0x1C0221AA0 (zzzCloakShadow.c)
- *     zzzMoveShadow @ 0x1C0221B1C (zzzMoveShadow.c)
- *     zzzUpdateShadowAlpha @ 0x1C0221BBC (zzzUpdateShadowAlpha.c)
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C006E8B8 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ *     UpdateWindowMonitor @ 0x1C00701D0 (UpdateWindowMonitor.c)
+ *     WindowHasShadow @ 0x1C00BBE54 (WindowHasShadow.c)
+ *     xxxAddShadow @ 0x1C013D9EC (xxxAddShadow.c)
+ *     zzzUpdateShadowAlpha @ 0x1C013DE6C (zzzUpdateShadowAlpha.c)
+ *     xxxUpdateShadowZorder @ 0x1C023DB48 (xxxUpdateShadowZorder.c)
+ *     zzzCloakShadow @ 0x1C023DC50 (zzzCloakShadow.c)
+ *     zzzMoveShadow @ 0x1C023DCF0 (zzzMoveShadow.c)
  * Callees:
  *     <none>
  */

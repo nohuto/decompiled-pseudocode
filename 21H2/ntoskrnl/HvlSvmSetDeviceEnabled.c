@@ -1,24 +1,23 @@
 /*
- * XREFs of HvlSvmSetDeviceEnabled @ 0x140548F40
+ * XREFs of HvlSvmSetDeviceEnabled @ 0x1404F7210
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x14039DD80 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     HvlpHvToNtStatus @ 0x14054CA70 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlSvmSetDeviceEnabled(int a1, unsigned __int8 a2)
 {
   __int64 v2; // rax
-  _DWORD v4[2]; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v5; // [rsp+48h] [rbp-30h]
-  __int64 v6; // [rsp+50h] [rbp-28h]
+  __int128 v4; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v5; // [rsp+50h] [rbp-28h]
 
-  v4[1] = 0x40000000;
-  v4[0] = a1;
-  v6 = a2;
-  v5 = 1LL;
-  v2 = HvcallFastExtended(196779LL, (__int64)v4, 0x18u, 0LL, 0);
+  v4 = 0LL;
+  *(_QWORD *)((char *)&v4 + 4) = 0x140000000LL;
+  LODWORD(v4) = a1;
+  v5 = a2;
+  v2 = HvcallFastExtended(196779LL, (__int64)&v4, 0x18u, 0, 0);
   return HvlpHvToNtStatus(v2);
 }

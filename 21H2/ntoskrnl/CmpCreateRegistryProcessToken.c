@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpCreateRegistryProcessToken @ 0x1408315A4
+ * XREFs of CmpCreateRegistryProcessToken @ 0x1407C66A4
  * Callers:
- *     CmpInitializeRegistryProcess @ 0x140831BF4 (CmpInitializeRegistryProcess.c)
+ *     CmpInitializeRegistryProcess @ 0x1407C606C (CmpInitializeRegistryProcess.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     CmpAllocateTransientPoolWithTag @ 0x14024AC60 (CmpAllocateTransientPoolWithTag.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     SeQueryInformationToken @ 0x14079F290 (SeQueryInformationToken.c)
- *     SeFilterToken @ 0x140831700 (SeFilterToken.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
+ *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     SeFilterToken @ 0x1407C6800 (SeFilterToken.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpCreateRegistryProcessToken(PACCESS_TOKEN *a1)
 {
-  PACCESS_TOKEN v2; // rdi
+  struct _DMA_ADAPTER *v2; // rdi
   struct _TOKEN_GROUPS *v3; // rsi
-  void *v4; // r14
+  struct _DMA_ADAPTER *v4; // r14
   NTSTATUS v5; // ebx
   struct _LOOKASIDE_LIST_EX *v6; // r9
   char *TransientPoolWithTag; // rax
@@ -28,9 +28,9 @@ __int64 __fastcall CmpCreateRegistryProcessToken(PACCESS_TOKEN *a1)
   TokenInformation = 0LL;
   v2 = 0LL;
   P = 0LL;
-  FilteredToken = 0LL;
   v3 = 0LL;
-  v4 = (void *)PsReferencePrimaryTokenWithTag((__int64)PsInitialSystemProcess, 0x746C6644u);
+  FilteredToken = 0LL;
+  v4 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(PsInitialSystemProcess);
   v5 = SeQueryInformationToken(v4, TokenUser, &TokenInformation);
   if ( v5 >= 0 )
   {
@@ -51,7 +51,7 @@ __int64 __fastcall CmpCreateRegistryProcessToken(PACCESS_TOKEN *a1)
         v5 = SeFilterToken(v4, 1u, v3, 0LL, 0LL, &FilteredToken);
         if ( v5 < 0 )
         {
-          v2 = FilteredToken;
+          v2 = (struct _DMA_ADAPTER *)FilteredToken;
         }
         else
         {
@@ -66,9 +66,9 @@ __int64 __fastcall CmpCreateRegistryProcessToken(PACCESS_TOKEN *a1)
     }
   }
   if ( v4 )
-    ObfDereferenceObject(v4);
+    HalPutDmaAdapter(v4);
   if ( v2 )
-    ObfDereferenceObject(v2);
+    HalPutDmaAdapter(v2);
   if ( TokenInformation )
     ExFreePoolWithTag(TokenInformation, 0);
   if ( P )

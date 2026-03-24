@@ -1,12 +1,12 @@
 /*
- * XREFs of ?MulEscape@@YAKPEAU_SURFOBJ@@KKPEAXK1@Z @ 0x1C02AFBA0
+ * XREFs of ?MulEscape@@YAKPEAU_SURFOBJ@@KKPEAXK1@Z @ 0x1C02A3050
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C015BE3E (-bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
- *     ?bNextSurface@MSURF@@QEAAHXZ @ 0x1C015C1C0 (-bNextSurface@MSURF@@QEAAHXZ.c)
- *     ?Escape@PDEVOBJ@@QEAAKPEAU_SURFOBJ@@KKPEAXK1@Z @ 0x1C02E11B4 (-Escape@PDEVOBJ@@QEAAKPEAU_SURFOBJ@@KKPEAXK1@Z.c)
+ *     ?Escape@PDEVOBJ@@QEAAKPEAU_SURFOBJ@@KKPEAXK1@Z @ 0x1C00A7278 (-Escape@PDEVOBJ@@QEAAKPEAU_SURFOBJ@@KKPEAXK1@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C02A61C0 (-bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?bNextSurface@MSURF@@QEAAHXZ @ 0x1C02A6614 (-bNextSurface@MSURF@@QEAAHXZ.c)
  */
 
 __int64 __fastcall MulEscape(
@@ -37,7 +37,7 @@ __int64 __fastcall MulEscape(
       do
       {
         v16[0] = v18->hdev;
-        if ( *(_QWORD *)(v16[0] + 2856LL) )
+        if ( *(_QWORD *)(v16[0] + 2880LL) )
         {
           v10 = PDEVOBJ::Escape((PDEVOBJ *)v16, v18, a2, a3, a4, a5, a6);
           if ( v10 )
@@ -55,7 +55,7 @@ __int64 __fastcall MulEscape(
     {
       --v12;
       v16[0] = i[6];
-      if ( *(_QWORD *)(v16[0] + 2856LL) )
+      if ( *(_QWORD *)(v16[0] + 2880LL) )
       {
         v14 = PDEVOBJ::Escape((PDEVOBJ *)v16, (struct _SURFOBJ *)i[8], a2, a3, a4, a5, a6);
         if ( v14 )

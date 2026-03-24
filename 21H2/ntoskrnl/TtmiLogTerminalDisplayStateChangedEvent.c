@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogTerminalDisplayStateChangedEvent @ 0x1409AA584
+ * XREFs of TtmiLogTerminalDisplayStateChangedEvent @ 0x140904884
  * Callers:
- *     TtmpWriteDisplayStateChangedEvent @ 0x1409A4084 (TtmpWriteDisplayStateChangedEvent.c)
+ *     TtmpWriteDisplayStateChangedEvent @ 0x1408FE478 (TtmpWriteDisplayStateChangedEvent.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessSessionIdEx @ 0x1402445B0 (PsGetProcessSessionIdEx.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     PsGetProcessSessionIdEx @ 0x1402830D0 (PsGetProcessSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogTerminalDisplayStateChangedEvent(int a1, int a2, int a3)
@@ -33,9 +33,9 @@ char __fastcall TtmiLogTerminalDisplayStateChangedEvent(int a1, int a2, int a3)
   _UNKNOWN *retaddr; // [rsp+C0h] [rbp+5Fh] BYREF
 
   v3 = &retaddr;
-  if ( (unsigned int)dword_140D3B908 > 5 )
+  if ( (unsigned int)dword_140D2D8C8 > 5 )
   {
-    LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140D3B908, 1LL);
+    LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140D2D8C8, 1LL);
     if ( (_BYTE)v3 )
     {
       ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -56,8 +56,8 @@ char __fastcall TtmiLogTerminalDisplayStateChangedEvent(int a1, int a2, int a3)
       v11 = a2;
       v12 = a3;
       LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140D3B908,
-                     (unsigned __int8 *)byte_140032A51,
+                     (__int64)&dword_140D2D8C8,
+                     (unsigned __int8 *)byte_14002AECD,
                      0LL,
                      0LL,
                      6u,

@@ -1,13 +1,13 @@
 /*
- * XREFs of PspTerminatePicoProcess @ 0x1409B2A10
+ * XREFs of PspTerminatePicoProcess @ 0x14090C360
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     PspTerminateProcess @ 0x1407D7E94 (PspTerminateProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     PspTerminateProcess @ 0x1406D9D20 (PspTerminateProcess.c)
  */
 
-__int64 __fastcall PspTerminatePicoProcess(__int64 a1, unsigned int a2)
+__int64 __fastcall PspTerminatePicoProcess(ULONG_PTR a1, unsigned int a2)
 {
   struct _KTHREAD *CurrentThread; // rdi
   unsigned int v3; // ebx
@@ -15,6 +15,6 @@ __int64 __fastcall PspTerminatePicoProcess(__int64 a1, unsigned int a2)
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v3 = PspTerminateProcess(a1, (__int64)CurrentThread, a2, 8);
-  KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread);
   return v3;
 }

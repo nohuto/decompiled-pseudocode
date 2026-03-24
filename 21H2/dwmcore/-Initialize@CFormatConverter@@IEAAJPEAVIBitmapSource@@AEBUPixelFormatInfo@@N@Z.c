@@ -1,15 +1,15 @@
 /*
- * XREFs of ?Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z @ 0x1802AF9F8
+ * XREFs of ?Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z @ 0x180219988
  * Callers:
- *     ?HrConvertBitmap@CFormatConverter@@SAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@PEAPEAV2@@Z @ 0x1802AF868 (-HrConvertBitmap@CFormatConverter@@SAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@PEAPEAV2@@Z.c)
+ *     ?HrConvertBitmap@CFormatConverter@@SAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@PEAPEAV2@@Z @ 0x1802197F8 (-HrConvertBitmap@CFormatConverter@@SAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@PEAPEAV2@@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?IsValidPixelFormatInfo@@YA_NAEBUPixelFormatInfo@@@Z @ 0x18005FF98 (-IsValidPixelFormatInfo@@YA_NAEBUPixelFormatInfo@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?HrCheckDstPixelFormat@CFormatConverter@@IEAAJW4DXGI_FORMAT@@@Z @ 0x1802AF834 (-HrCheckDstPixelFormat@CFormatConverter@@IEAAJW4DXGI_FORMAT@@@Z.c)
- *     ?InitializeForFormatConversion@CScanPipeline@@QEAAJAEBUPixelFormatInfo@@0IE@Z @ 0x1802AFC90 (-InitializeForFormatConversion@CScanPipeline@@QEAAJAEBUPixelFormatInfo@@0IE@Z.c)
+ *     ?IsValidPixelFormatInfo@@YA_NAEBUPixelFormatInfo@@@Z @ 0x180032458 (-IsValidPixelFormatInfo@@YA_NAEBUPixelFormatInfo@@@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E78C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?HrCheckDstPixelFormat@CFormatConverter@@IEAAJW4DXGI_FORMAT@@@Z @ 0x1802197C4 (-HrCheckDstPixelFormat@CFormatConverter@@IEAAJW4DXGI_FORMAT@@@Z.c)
+ *     ?InitializeForFormatConversion@CScanPipeline@@QEAAJAEBUPixelFormatInfo@@0IE@Z @ 0x180219BD0 (-InitializeForFormatConversion@CScanPipeline@@QEAAJAEBUPixelFormatInfo@@0IE@Z.c)
  */
 
 __int64 __fastcall CFormatConverter::Initialize(
@@ -35,16 +35,16 @@ __int64 __fastcall CFormatConverter::Initialize(
   _BYTE v22[16]; // [rsp+38h] [rbp-60h] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+98h] [rbp+0h]
 
-  v21 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 24);
-  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 24));
+  v21 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 32);
+  EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 32));
   v7 = 0;
   if ( !a2 || !IsValidPixelFormatInfo(a3) )
   {
     v10 = 402LL;
     goto LABEL_24;
   }
-  *(_QWORD *)((char *)this + 84) = *(_QWORD *)a3;
-  *((_DWORD *)this + 23) = *((_DWORD *)a3 + 2);
+  *(_QWORD *)((char *)this + 92) = *(_QWORD *)a3;
+  *((_DWORD *)this + 25) = *((_DWORD *)a3 + 2);
   if ( a4 < 0.0 || a4 > 100.0 )
   {
     v10 = 406LL;
@@ -53,8 +53,8 @@ LABEL_24:
     goto LABEL_25;
   }
   v8 = a4;
-  *((float *)this + 26) = v8;
-  if ( *((_QWORD *)this + 8) )
+  *((float *)this + 28) = v8;
+  if ( *((_QWORD *)this + 9) )
   {
     v9 = -2003292412;
     v10 = 413LL;
@@ -63,16 +63,16 @@ LABEL_25:
     goto LABEL_26;
   }
   v11 = (**(__int64 (__fastcall ***)(struct IBitmapSource *, _BYTE *))a2)(a2, v22);
-  *((_QWORD *)this + 9) = *(_QWORD *)v11;
-  *((_DWORD *)this + 20) = *(_DWORD *)(v11 + 8);
-  v13 = *((_DWORD *)this + 18);
+  *((_QWORD *)this + 10) = *(_QWORD *)v11;
+  *((_DWORD *)this + 22) = *(_DWORD *)(v11 + 8);
+  v13 = *((_DWORD *)this + 20);
   if ( v13 != 2 && (v13 <= 9 || v13 > 11 && v13 != 24 && v13 != 28 && v13 != 65 && (unsigned int)(v13 - 87) > 1) )
   {
     v9 = -2003292288;
     v10 = 417LL;
     goto LABEL_25;
   }
-  v14 = CFormatConverter::HrCheckDstPixelFormat(v12, *((_DWORD *)this + 21));
+  v14 = CFormatConverter::HrCheckDstPixelFormat(v12, *((_DWORD *)this + 23));
   v9 = v14;
   if ( v14 < 0 )
   {
@@ -82,15 +82,15 @@ LABEL_26:
     wil::details::in1diag3::Return_Hr(
       retaddr,
       (void *)v10,
-      (int)"onecoreuap\\windows\\dwm\\common\\formatconverter\\formatconverter.cpp",
+      (__int64)"onecoreuap\\windows\\dwm\\common\\formatconverter\\formatconverter.cpp",
       (const char *)v15);
     v7 = v9;
     goto LABEL_27;
   }
   v16 = (*(__int64 (__fastcall **)(struct IBitmapSource *, char *, char *))(*(_QWORD *)a2 + 8LL))(
           a2,
-          (char *)this + 96,
-          (char *)this + 100);
+          (char *)this + 104,
+          (char *)this + 108);
   v9 = v16;
   if ( v16 < 0 )
   {
@@ -99,10 +99,10 @@ LABEL_26:
     goto LABEL_26;
   }
   v17 = CScanPipeline::InitializeForFormatConversion(
-          (CFormatConverter *)((char *)this + 112),
-          (CFormatConverter *)((char *)this + 84),
-          (CFormatConverter *)((char *)this + 72),
-          *((_DWORD *)this + 24),
+          (CFormatConverter *)((char *)this + 120),
+          (CFormatConverter *)((char *)this + 92),
+          (CFormatConverter *)((char *)this + 80),
+          *((_DWORD *)this + 26),
           v20);
   v9 = v17;
   if ( v17 < 0 )
@@ -111,7 +111,7 @@ LABEL_26:
     v10 = 427LL;
     goto LABEL_26;
   }
-  *((_QWORD *)this + 8) = a2;
+  *((_QWORD *)this + 9) = a2;
   v18 = (char *)a2 + *(int *)(*((_QWORD *)a2 + 1) + 4LL) + 8;
   (*(void (__fastcall **)(char *))(*(_QWORD *)v18 + 8LL))(v18);
 LABEL_27:

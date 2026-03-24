@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SetWarpAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0229074
+ * XREFs of ?SetWarpAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C019EC14
  * Callers:
- *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01FC874 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
- *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C02B6644 (-Destroy@DXGADAPTER@@QEAAXXZ.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C018F684 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C020C968 (-Destroy@DXGADAPTER@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -10,15 +10,13 @@
 void __fastcall DXGGLOBAL::SetWarpAdapter(DXGGLOBAL *this, struct DXGADAPTER *a2)
 {
   __int64 v2; // rax
-  _QWORD *v3; // r8
 
-  v2 = *((_QWORD *)this + 121);
-  v3 = (_QWORD *)((char *)this + 952);
-  if ( !v2 || v2 == *v3 )
+  v2 = *((_QWORD *)this + 105);
+  if ( !v2 || v2 == *((_QWORD *)this + 103) )
   {
-    *((_QWORD *)this + 121) = a2;
+    *((_QWORD *)this + 105) = a2;
     if ( a2 )
-      *((_QWORD *)this + 122) = *(_QWORD *)((char *)a2 + 404);
+      *((_QWORD *)this + 106) = *(_QWORD *)((char *)a2 + 316);
   }
-  *v3 = a2;
+  *((_QWORD *)this + 103) = a2;
 }

@@ -1,205 +1,215 @@
 /*
- * XREFs of MiAgePteWorker @ 0x140332670
+ * XREFs of MiAgePteWorker @ 0x140339990
  * Callers:
- *     MiAgePte @ 0x140332110 (MiAgePte.c)
- *     MiAgeWorkingSetEPTCallback @ 0x14045BA70 (MiAgeWorkingSetEPTCallback.c)
- *     MiSimpleAgePte @ 0x140596EA0 (MiSimpleAgePte.c)
- *     MiSimpleAgeWorkingSetEPTCallback @ 0x140596FF0 (MiSimpleAgeWorkingSetEPTCallback.c)
+ *     MiAgePte @ 0x140339440 (MiAgePte.c)
+ *     MiAgeWorkingSetEPTCallback @ 0x14053ABD0 (MiAgeWorkingSetEPTCallback.c)
+ *     MiSimpleAgePte @ 0x14053BCC0 (MiSimpleAgePte.c)
+ *     MiSimpleAgeWorkingSetEPTCallback @ 0x14053BE90 (MiSimpleAgeWorkingSetEPTCallback.c)
  * Callees:
- *     MiFreeWsleList @ 0x1402C1D70 (MiFreeWsleList.c)
- *     MiInsertTbFlushEntry @ 0x1402CF280 (MiInsertTbFlushEntry.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     MiSetVaAgeList @ 0x1403171A0 (MiSetVaAgeList.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x14032F1B0 (MiFlushTbList.c)
- *     MiClearPteAccessed @ 0x140332A80 (MiClearPteAccessed.c)
+ *     MiLockSetPfnPriority @ 0x14028BE6C (MiLockSetPfnPriority.c)
+ *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
+ *     MiFreeWsleList @ 0x140327320 (MiFreeWsleList.c)
+ *     MiSetVaAgeList @ 0x14032D6B0 (MiSetVaAgeList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
+ *     MiClearPteAccessed @ 0x140339E00 (MiClearPteAccessed.c)
+ *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
-void __fastcall MiAgePteWorker(__int64 a1, int a2, unsigned __int64 a3, __int64 a4, __int64 a5, int a6)
+unsigned __int64 __fastcall MiAgePteWorker(
+        __int64 a1,
+        int a2,
+        unsigned __int64 a3,
+        __int64 a4,
+        unsigned int *a5,
+        char a6)
 {
-  __int64 Process; // rdx
-  unsigned __int64 v11; // r8
-  __int64 v12; // r9
-  unsigned __int64 v13; // rbx
-  unsigned __int64 v14; // rcx
-  unsigned __int8 v15; // cl
-  char v16; // si
-  char v17; // al
-  unsigned int v18; // r14d
-  __int64 v19; // rcx
-  unsigned __int8 v20; // r15
-  unsigned __int64 v21; // rcx
-  unsigned __int8 v22; // cl
-  __int64 v23; // rbx
-  char v24; // al
-  BOOL v25; // eax
-  unsigned __int64 v26; // rdx
-  unsigned __int8 v27; // cl
-  __int64 v28; // rax
-  struct _LIST_ENTRY *Flink; // rax
-  char v30; // r8^7
-  __int64 v31; // rax
+  int v6; // esi
+  __int64 v10; // r9
+  unsigned __int64 Flink; // r8
+  unsigned __int64 v12; // rdi
+  unsigned __int8 v13; // dl
+  unsigned __int64 v14; // rdx
+  __int64 v15; // rax
+  char v16; // al
+  __int64 v17; // rbx
+  BOOL v18; // eax
+  unsigned __int64 result; // rax
+  unsigned __int64 v20; // rdx
+  char v21; // al
+  unsigned int v22; // esi
+  unsigned __int8 v23; // dl
+  unsigned __int8 v24; // al
+  unsigned __int8 v25; // r15
+  unsigned __int8 v26; // dl
+  unsigned __int64 v27; // rdx
+  char v28; // r8^7
 
-  Process = 0xFFFFF68000000000uLL;
-  v11 = 0xFFFFF6FB7DBED000uLL;
-  v12 = 0xFFFFF6FB7DBED7F8uLL;
+  v6 = a2;
+  v10 = 0xFFFFF6FB7DBED000uLL;
+  Flink = 0xFFFFF6FB7DBED7F8uLL;
   if ( a3 < 0xFFFFF68000000000uLL || a3 > 0xFFFFF6FFFFFFFFFFuLL )
   {
-    v13 = ((a3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v14 = *(_QWORD *)v13;
-    if ( v13 >= 0xFFFFF6FB7DBED000uLL && v13 <= 0xFFFFF6FB7DBED7F8uLL && (MiFlags & 0xC00000) != 0 )
+    v12 = ((a3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v14 = *(_QWORD *)v12;
+    if ( v12 >= 0xFFFFF6FB7DBED000uLL
+      && v12 <= 0xFFFFF6FB7DBED7F8uLL
+      && (unsigned int)MiPteHasShadow()
+      && (v14 & 1) != 0
+      && ((v14 & 0x20) == 0 || (v14 & 0x42) == 0) )
     {
-      Process = (__int64)KeGetCurrentThread()->ApcState.Process;
-      if ( *(_BYTE *)(Process + 912) != 1 && (v14 & 1) != 0 && ((v14 & 0x20) == 0 || (v14 & 0x42) == 0) )
+      Flink = (unsigned __int64)KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      if ( Flink )
       {
-        Process = (__int64)KeGetCurrentThread()->ApcState.Process;
-        v11 = *(_QWORD *)(Process + 1928);
-        if ( v11 )
-        {
-          v28 = *(_QWORD *)(v11 + 8 * ((v13 >> 3) & 0x1FF));
-          v11 = v14 | 0x20;
-          Process = (unsigned __int8)v28;
-          LOBYTE(Process) = v28 & 0x20;
-          if ( (v28 & 0x20) == 0 )
-            v11 = *(_QWORD *)v13;
-          HIBYTE(v14) = HIBYTE(v11);
-          if ( (v28 & 0x42) != 0 )
-            HIBYTE(v14) = HIBYTE(v11);
-        }
+        v15 = *(_QWORD *)(Flink + 8 * ((v12 >> 3) & 0x1FF));
+        Flink = v14 | 0x20;
+        if ( (v15 & 0x20) == 0 )
+          Flink = v14;
+        HIBYTE(v14) = HIBYTE(Flink);
+        if ( (v15 & 0x42) != 0 )
+          HIBYTE(v14) = HIBYTE(Flink);
       }
     }
-    v15 = HIBYTE(v14) & 0xF;
+    v13 = HIBYTE(v14) & 0xF;
   }
   else
   {
-    v13 = ((a3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v15 = (*(_BYTE *)(48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(v13) >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL) >> 1) & 7;
+    v12 = ((a3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v13 = (*(_BYTE *)(48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(v12) >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL) >> 1) & 7;
   }
-  v16 = a6;
-  if ( (a6 & 1) == 0 )
+  if ( (a6 & 1) != 0 )
   {
-    v17 = *(_BYTE *)(a4 + 35);
-    if ( (v17 & 8) != 0 )
-      v18 = 5;
-    else
-      v18 = v17 & 7;
-    if ( v15 >= 6u )
-      goto LABEL_10;
-    if ( v18 < 5 )
+    if ( (unsigned __int8)(v13 - 1) > 5u )
     {
-      v27 = 6;
+      if ( v13 == 7 )
+      {
+LABEL_23:
+        v17 = 0LL;
+        v18 = 0;
+        if ( (a6 & 2) != 0 )
+          v17 = *((_QWORD *)a5 + 7);
+        else
+          v18 = (a6 & 4) != 0;
+        result = MiClearPteAccessed(a1, a4, v6, v17, dword_140C4E828, v18);
+        if ( (_DWORD)result )
+          ++*((_QWORD *)a5 + 3);
+        if ( v17 )
+        {
+          v20 = qword_140C4DF90;
+          if ( (*(_BYTE *)(v17 + 4) & 2) == 0
+            && *(_DWORD *)v17 == 1
+            && KeGetCurrentThread()->ApcState.Process[2].Affinity.Bitmap[5] )
+          {
+            v20 = -1LL;
+          }
+          result = *(unsigned int *)(v17 + 8);
+          if ( (*(_DWORD *)(v17 + 12) >= (unsigned int)result || *(_BYTE *)(v17 + 5) || *(_QWORD *)(v17 + 16) > v20)
+            && v20 >= 0x400
+            && !*(_BYTE *)(v17 + 5) )
+          {
+            return MiFlushTbList(v17);
+          }
+        }
+        return result;
+      }
     }
     else
     {
-      if ( (*(_DWORD *)a5 & 1) == 0 )
+      MiSetVaAgeList(a1, a3, 1LL, 0);
+    }
+    v16 = *(_BYTE *)(a4 + 35);
+    if ( (v16 & 8) == 0 && (v16 & 7u) < 5 )
+    {
+      MiLockSetPfnPriority(a4, 5LL, Flink, v10);
+      v6 = a2;
+    }
+    goto LABEL_23;
+  }
+  v21 = *(_BYTE *)(a4 + 35);
+  if ( (v21 & 8) != 0 )
+    v22 = 5;
+  else
+    v22 = v21 & 7;
+  if ( v13 < 6u )
+  {
+    if ( v22 < 5 )
+    {
+      v23 = 6;
+LABEL_47:
+      MiSetVaAgeList(a1, a3, 1LL, v23);
+      ++*((_QWORD *)a5 + 2);
+      goto LABEL_48;
+    }
+    if ( (*a5 & 1) != 0 )
+    {
+      v23 = v13 + 1;
+      goto LABEL_47;
+    }
+  }
+LABEL_48:
+  if ( (unsigned int)MI_PFN_IS_PROTO(a4) )
+    v24 = *((_BYTE *)a5 + 5);
+  else
+    v24 = *((_BYTE *)a5 + 4);
+  v25 = v24;
+  if ( !v24 )
+    v25 = 7;
+  if ( (*(_BYTE *)(a1 + 184) & 7) == 3
+    && ((*(_QWORD *)(a4 + 40) >> 60) & 7) == 4
+    && (*(_QWORD *)(a4 + 24) & 0x3FFFFFFFFFFFFFFFLL) == 1
+    && *(_WORD *)(a4 + 32) == 1 )
+  {
+    goto LABEL_75;
+  }
+  result = *a5;
+  if ( (result & 3) != 0 )
+  {
+    if ( a3 < 0xFFFFF68000000000uLL || a3 > 0xFFFFF6FFFFFFFFFFuLL )
+    {
+      v27 = *(_QWORD *)v12;
+      result = 0xFFFFF6FB7DBED000uLL;
+      if ( v12 >= 0xFFFFF6FB7DBED000uLL )
       {
-LABEL_10:
-        v19 = *(_QWORD *)(a4 + 40);
-        if ( v19 >= 0 )
-          v20 = *(_BYTE *)(a5 + 4);
-        else
-          v20 = *(_BYTE *)(a5 + 5);
-        if ( !v20 )
-          v20 = 7;
-        if ( (*(_BYTE *)(a1 + 184) & 7) == 3
-          && (((unsigned __int64)v19 >> 60) & 7) == 4
-          && (*(_QWORD *)(a4 + 24) & 0x3FFFFFFFFFFFFFFFLL) == 1
-          && *(_WORD *)(a4 + 32) == 1 )
+        result = 0xFFFFF6FB7DBED7F8uLL;
+        if ( v12 <= 0xFFFFF6FB7DBED7F8uLL )
         {
-          goto LABEL_56;
-        }
-        if ( (*(_DWORD *)a5 & 3) != 0 )
-        {
-          if ( a3 < 0xFFFFF68000000000uLL || a3 > 0xFFFFF6FFFFFFFFFFuLL )
+          result = MiPteHasShadow();
+          if ( (_DWORD)result )
           {
-            v21 = *(_QWORD *)v13;
-            if ( v13 >= 0xFFFFF6FB7DBED000uLL
-              && v13 <= 0xFFFFF6FB7DBED7F8uLL
-              && (MiFlags & 0xC00000) != 0
-              && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
-              && (v21 & 1) != 0
-              && ((v21 & 0x20) == 0 || (v21 & 0x42) == 0) )
+            if ( (v27 & 1) != 0 && ((v27 & 0x20) == 0 || (v27 & 0x42) == 0) )
             {
-              Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
-              if ( Flink )
+              result = (unsigned __int64)KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+              if ( result )
               {
-                v30 = HIBYTE(*(_QWORD *)v13);
-                v31 = *((_QWORD *)&Flink->Flink + ((v13 >> 3) & 0x1FF));
-                if ( (v31 & 0x20) == 0 )
-                  v30 = HIBYTE(*(_QWORD *)v13);
-                HIBYTE(v21) = v30;
-                if ( (v31 & 0x42) != 0 )
-                  HIBYTE(v21) = v30;
+                v28 = HIBYTE(v27);
+                result = *(_QWORD *)(result + 8 * ((v12 >> 3) & 0x1FF));
+                if ( (result & 0x20) == 0 )
+                  v28 = HIBYTE(v27);
+                HIBYTE(v27) = v28;
+                if ( (result & 0x42) != 0 )
+                  HIBYTE(v27) = v28;
               }
             }
-            v22 = HIBYTE(v21) & 0xF;
-          }
-          else
-          {
-            v22 = (*(_BYTE *)(48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(v13) >> 12) & 0xFFFFFFFFFFLL)
-                            - 0x220000000000LL) >> 1) & 7;
-          }
-          if ( v22 >= v20 || v18 < *(_DWORD *)(a5 + 8) )
-          {
-LABEL_56:
-            ++*(_QWORD *)(a5 + 32);
-            MiInsertTbFlushEntry(a5 + 64, a3, 1LL, 0);
-            if ( *(_DWORD *)(a5 + 76) == *(_DWORD *)(a5 + 72) )
-              MiFreeWsleList(a1, a5 + 64, 0);
           }
         }
-        return;
       }
-      v27 = v15 + 1;
+      v26 = HIBYTE(v27) & 0xF;
     }
-    MiSetVaAgeList(a1, a3, 1u, v27);
-    ++*(_QWORD *)(a5 + 16);
-    goto LABEL_10;
-  }
-  v23 = 0LL;
-  if ( (unsigned __int8)(v15 - 1) <= 5u )
-  {
-    MiSetVaAgeList(a1, a3, 1u, 0);
-LABEL_24:
-    v24 = *(_BYTE *)(a4 + 35);
-    if ( (v24 & 8) == 0 && (v24 & 7u) < 5 )
+    else
     {
-      a6 = 0;
-      while ( _interlockedbittestandset64((volatile signed __int32 *)(a4 + 24), 0x3FuLL) )
-      {
-        do
-          KeYieldProcessorEx(&a6, Process, v11, v12);
-        while ( *(__int64 *)(a4 + 24) < 0 );
-      }
-      *(_BYTE *)(a4 + 35) = *(_BYTE *)(a4 + 35) & 0xF8 | 5;
-      _InterlockedAnd64((volatile signed __int64 *)(a4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+      result = 6 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(v12) >> 12) & 0xFFFFFFFFFLL);
+      v26 = (*(_BYTE *)(8 * result - 0x58000000000LL) >> 1) & 7;
     }
-    goto LABEL_26;
-  }
-  if ( v15 != 7 )
-    goto LABEL_24;
-LABEL_26:
-  v25 = 0;
-  if ( (v16 & 2) != 0 )
-    v23 = *(_QWORD *)(a5 + 56);
-  else
-    v25 = (v16 & 4) != 0;
-  if ( (unsigned int)MiClearPteAccessed(a1, a4, a2, v23, dword_140C52B68, v25) )
-    ++*(_QWORD *)(a5 + 24);
-  if ( v23 )
-  {
-    v26 = qword_140C507D0;
-    if ( (*(_BYTE *)(v23 + 4) & 2) == 0
-      && *(_DWORD *)v23 == 1
-      && KeGetCurrentThread()->ApcState.Process[2].Affinity.StaticBitmap[5] )
+    if ( v26 >= v25 || v22 < a5[2] )
     {
-      v26 = -1LL;
-    }
-    if ( (*(_DWORD *)(v23 + 12) >= *(_DWORD *)(v23 + 8) || *(_BYTE *)(v23 + 5) || *(_QWORD *)(v23 + 16) > v26)
-      && v26 >= 0x400
-      && !*(_BYTE *)(v23 + 5) )
-    {
-      MiFlushTbList(v23);
+LABEL_75:
+      ++*((_QWORD *)a5 + 4);
+      MiInsertTbFlushEntry((__int64)(a5 + 16), a3, 1LL, 0);
+      result = a5[18];
+      if ( a5[19] == (_DWORD)result )
+        return MiFreeWsleList(a1, (__int64)(a5 + 16), 0);
     }
   }
+  return result;
 }

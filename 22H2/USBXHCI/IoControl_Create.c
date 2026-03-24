@@ -1,12 +1,12 @@
 /*
- * XREFs of IoControl_Create @ 0x1C006F950
+ * XREFs of IoControl_Create @ 0x1C006E198
  * Callers:
- *     Controller_WdfEvtDeviceAdd @ 0x1C006FAA0 (Controller_WdfEvtDeviceAdd.c)
+ *     Controller_WdfEvtDeviceAdd @ 0x1C0070440 (Controller_WdfEvtDeviceAdd.c)
  * Callees:
- *     WPP_RECORDER_SF_q @ 0x1C001431C (WPP_RECORDER_SF_q.c)
- *     WPP_RECORDER_SF_d @ 0x1C00184A8 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0020600 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
  */
 
 __int64 __fastcall IoControl_Create(__int64 a1, __int64 a2, _QWORD *a3)
@@ -31,7 +31,7 @@ __int64 __fastcall IoControl_Create(__int64 a1, __int64 a2, _QWORD *a3)
   v13 = 0LL;
   v17[5] = IoControl_WdfEvtIoDeviceControl;
   v14 = 0x100000001LL;
-  v16 = off_1C0063130;
+  v16 = off_1C0060130;
   v12 = 0LL;
   LODWORD(v17[1]) = 2;
   v15 = 0LL;
@@ -57,13 +57,13 @@ __int64 __fastcall IoControl_Create(__int64 a1, __int64 a2, _QWORD *a3)
     v10 = (_QWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
                       WdfDriverGlobals,
                       v18,
-                      off_1C0063130);
+                      off_1C0060130);
     *v10 = v18;
     v10[1] = a2;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
       LOBYTE(v9) = 4;
-      WPP_RECORDER_SF_q(*(_QWORD *)(a2 + 72), v9, 5, 11, (__int64)&WPP_f5d171e210703c9bf22dbf511a7fd9e0_Traceguids, v18);
+      WPP_RECORDER_SF_i(*(_QWORD *)(a2 + 72), v9, 5, 11, (__int64)&WPP_f5d171e210703c9bf22dbf511a7fd9e0_Traceguids, v18);
     }
     *a3 = v10;
   }

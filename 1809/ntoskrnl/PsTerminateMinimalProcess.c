@@ -1,8 +1,8 @@
 /*
- * XREFs of PsTerminateMinimalProcess @ 0x14088B2B4
+ * XREFs of PsTerminateMinimalProcess @ 0x14088B294
  * Callers:
- *     PspTeardownPartition @ 0x14088D450 (PspTeardownPartition.c)
- *     VmTerminateMemoryProcess @ 0x1408B0580 (VmTerminateMemoryProcess.c)
+ *     PspTeardownPartition @ 0x14088D430 (PspTeardownPartition.c)
+ *     VmTerminateMemoryProcess @ 0x1408B0560 (VmTerminateMemoryProcess.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

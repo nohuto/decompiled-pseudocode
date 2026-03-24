@@ -1,11 +1,11 @@
 /*
- * XREFs of AcquireMagInputLock @ 0x1C00FB868
+ * XREFs of AcquireMagInputLock @ 0x1C010FE78
  * Callers:
- *     _SetMagnificationInputTransform @ 0x1C0098370 (_SetMagnificationInputTransform.c)
- *     AddMagnificationOutputTransform @ 0x1C00FB810 (AddMagnificationOutputTransform.c)
- *     TransformForInputMagnification @ 0x1C016A6E0 (TransformForInputMagnification.c)
- *     ApplyMagInputTransform @ 0x1C01CBBD0 (ApplyMagInputTransform.c)
- *     EditionMagnificationMousePosition @ 0x1C02126C0 (EditionMagnificationMousePosition.c)
+ *     _SetMagnificationInputTransform @ 0x1C00EB690 (_SetMagnificationInputTransform.c)
+ *     AddMagnificationOutputTransform @ 0x1C010FE20 (AddMagnificationOutputTransform.c)
+ *     ApplyMagInputTransform @ 0x1C01CF2B0 (ApplyMagInputTransform.c)
+ *     TransformForInputMagnification @ 0x1C01CF690 (TransformForInputMagnification.c)
+ *     EditionMagnificationMousePosition @ 0x1C0213EF0 (EditionMagnificationMousePosition.c)
  * Callees:
  *     <none>
  */

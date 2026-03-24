@@ -1,21 +1,20 @@
 /*
- * XREFs of SeUnregisterLogonSessionTerminatedRoutine @ 0x1409CFD10
+ * XREFs of SeUnregisterLogonSessionTerminatedRoutine @ 0x140923570
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall SeUnregisterLogonSessionTerminatedRoutine(PSE_LOGON_SESSION_TERMINATED_ROUTINE CallbackRoutine)
 {
-  NTSTATUS v1; // ebx
+  NTSTATUS v1; // edi
   struct _KTHREAD *CurrentThread; // rax
-  PSE_LOGON_SESSION_TERMINATED_ROUTINE *v5; // rdi
-  PVOID *v6; // rcx
-  PSE_LOGON_SESSION_TERMINATED_ROUTINE v7; // rax
+  PSE_LOGON_SESSION_TERMINATED_ROUTINE v5; // rbx
+  PVOID *v6; // rdx
 
   v1 = 0;
   if ( !CallbackRoutine )
@@ -23,28 +22,28 @@ NTSTATUS __stdcall SeUnregisterLogonSessionTerminatedRoutine(PSE_LOGON_SESSION_T
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireFastMutexUnsafe(&SepRmNotifyMutex);
-  v5 = (PSE_LOGON_SESSION_TERMINATED_ROUTINE *)SeFileSystemNotifyRoutinesHead;
+  v5 = (PSE_LOGON_SESSION_TERMINATED_ROUTINE)SeFileSystemNotifyRoutinesHead;
   v6 = &SeFileSystemNotifyRoutinesHead;
-  if ( SeFileSystemNotifyRoutinesHead )
+  if ( !SeFileSystemNotifyRoutinesHead )
+    goto LABEL_8;
+  do
   {
-    while ( 1 )
-    {
-      v7 = *v5;
-      if ( v5[1] == CallbackRoutine )
-        break;
-      v6 = (PVOID *)v5;
-      v5 = (PSE_LOGON_SESSION_TERMINATED_ROUTINE *)*v5;
-      if ( !v7 )
-        goto LABEL_6;
-    }
-    *v6 = v7;
+    if ( *((PSE_LOGON_SESSION_TERMINATED_ROUTINE *)v5 + 1) == CallbackRoutine )
+      break;
+    v6 = (PVOID *)v5;
+    v5 = *(PSE_LOGON_SESSION_TERMINATED_ROUTINE *)v5;
+  }
+  while ( v5 );
+  if ( v5 )
+  {
+    *v6 = *(PVOID *)v5;
     ExReleaseFastMutexUnsafe(&SepRmNotifyMutex);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     ExFreePoolWithTag(v5, 0);
   }
   else
   {
-LABEL_6:
+LABEL_8:
     ExReleaseFastMutexUnsafe(&SepRmNotifyMutex);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return -1073741275;

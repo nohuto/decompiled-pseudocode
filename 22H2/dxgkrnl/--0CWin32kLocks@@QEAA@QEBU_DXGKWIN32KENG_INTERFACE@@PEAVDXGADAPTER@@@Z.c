@@ -1,8 +1,8 @@
 /*
- * XREFs of ??0CWin32kLocks@@QEAA@QEBU_DXGKWIN32KENG_INTERFACE@@PEAVDXGADAPTER@@@Z @ 0x1C0025F00
+ * XREFs of ??0CWin32kLocks@@QEAA@QEBU_DXGKWIN32KENG_INTERFACE@@PEAVDXGADAPTER@@@Z @ 0x1C0027A78
  * Callers:
- *     DxgkPresent @ 0x1C01BED90 (DxgkPresent.c)
- *     DxgkSubmitPresentToHwQueue @ 0x1C031E8D0 (DxgkSubmitPresentToHwQueue.c)
+ *     DxgkPresent @ 0x1C010B130 (DxgkPresent.c)
+ *     DxgkSubmitPresentToHwQueue @ 0x1C0272670 (DxgkSubmitPresentToHwQueue.c)
  * Callees:
  *     <none>
  */

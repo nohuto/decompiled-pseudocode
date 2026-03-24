@@ -1,10 +1,10 @@
 /*
- * XREFs of PspIsJobMovable @ 0x1409B2614
+ * XREFs of PspIsJobMovable @ 0x140908FD4
  * Callers:
- *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
- *     PspGetJobAssignmentDisposition @ 0x1406A05A0 (PspGetJobAssignmentDisposition.c)
+ *     PspAssignProcessToJob @ 0x14071E800 (PspAssignProcessToJob.c)
+ *     PspGetJobAssignmentDisposition @ 0x14071FA48 (PspGetJobAssignmentDisposition.c)
  * Callees:
- *     PsIsJobParentImmutable @ 0x14069EDA4 (PsIsJobParentImmutable.c)
+ *     PsIsJobParentImmutable @ 0x14071C620 (PsIsJobParentImmutable.c)
  */
 
 char __fastcall PspIsJobMovable(__int64 a1)
@@ -12,11 +12,11 @@ char __fastcall PspIsJobMovable(__int64 a1)
   __int64 v1; // rcx
   char result; // al
 
-  if ( *(_QWORD *)(a1 + 1784) != a1 )
+  if ( *(_QWORD *)(a1 + 1568) != a1 )
     return 0;
   if ( PsIsJobParentImmutable(a1) )
     return 0;
-  if ( *(_QWORD *)(v1 + 1272) != v1 + 1272 )
+  if ( *(_QWORD *)(v1 + 1056) != v1 + 1056 )
     return 0;
   result = 1;
   if ( *(_DWORD *)(v1 + 216) != 1 || *(_DWORD *)(v1 + 212) != 1 )

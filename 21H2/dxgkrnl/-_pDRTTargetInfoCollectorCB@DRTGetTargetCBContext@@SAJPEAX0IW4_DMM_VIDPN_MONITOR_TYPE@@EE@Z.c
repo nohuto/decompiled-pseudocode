@@ -1,5 +1,5 @@
 /*
- * XREFs of ?_pDRTTargetInfoCollectorCB@DRTGetTargetCBContext@@SAJPEAX0IW4_DMM_VIDPN_MONITOR_TYPE@@EE@Z @ 0x1C03B4A40
+ * XREFs of ?_pDRTTargetInfoCollectorCB@DRTGetTargetCBContext@@SAJPEAX0IW4_DMM_VIDPN_MONITOR_TYPE@@EE@Z @ 0x1C02F30F0
  * Callers:
  *     <none>
  * Callees:
@@ -15,28 +15,40 @@ __int64 __fastcall DRTGetTargetCBContext::_pDRTTargetInfoCollectorCB(
         char a6)
 {
   int v6; // edi
-  __int64 v10; // rdx
+  __int64 v10; // rax
   __int64 v11; // rax
-  __int64 v12; // rcx
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rax
+  __int64 v15; // rcx
 
   v6 = 0;
   if ( !a1 )
-    WdLogSingleEntry0(1LL);
-  if ( !a2 )
-    WdLogSingleEntry0(1LL);
-  if ( a3 == -1 )
-    WdLogSingleEntry0(1LL);
-  v10 = *(_QWORD *)a2;
-  v11 = a2[2];
-  if ( (unsigned int)v11 < *(_DWORD *)(*(_QWORD *)a2 + 16LL) )
   {
-    v12 = 3 * v11;
-    *(_DWORD *)(v10 + 4 * v12 + 20) = a3;
-    LOBYTE(v6) = a5 != 0;
-    *(_DWORD *)(v10 + 4 * v12 + 24) = a4;
-    *(_DWORD *)(v10 + 4 * v12 + 28) = (a6 != 0 ? 2 : 0) | v6;
-    LODWORD(v11) = a2[2];
+    v10 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    WdLogEvent5_WdAssertion(v10);
   }
-  a2[2] = v11 + 1;
+  if ( !a2 )
+  {
+    v11 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v11);
+  }
+  if ( a3 == -1 )
+  {
+    v12 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v12);
+  }
+  v13 = *(_QWORD *)a2;
+  v14 = a2[2];
+  if ( (unsigned int)v14 < *(_DWORD *)(*(_QWORD *)a2 + 16LL) )
+  {
+    v15 = 3 * v14;
+    *(_DWORD *)(v13 + 4 * v15 + 20) = a3;
+    LOBYTE(v6) = a5 != 0;
+    *(_DWORD *)(v13 + 4 * v15 + 24) = a4;
+    *(_DWORD *)(v13 + 4 * v15 + 28) = (a6 != 0 ? 2 : 0) | v6;
+    LODWORD(v14) = a2[2];
+  }
+  a2[2] = v14 + 1;
   return 0LL;
 }

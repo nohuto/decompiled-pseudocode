@@ -1,12 +1,12 @@
 /*
- * XREFs of DxgkWaitForSynchronizationObjectFromCpu @ 0x1C01CD260
+ * XREFs of DxgkWaitForSynchronizationObjectFromCpu @ 0x1C016EB40
  * Callers:
  *     <none>
  * Callees:
- *     ?DxgkWaitForSynchronizationObjectFromCpuInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU@@HPEAX1@Z @ 0x1C01CD280 (-DxgkWaitForSynchronizationObjectFromCpuInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFRO.c)
+ *     ?DxgkWaitForSynchronizationObjectFromCpuInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU@@HPEAX@Z @ 0x1C011AC44 (-DxgkWaitForSynchronizationObjectFromCpuInternal@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFRO.c)
  */
 
-int __fastcall DxgkWaitForSynchronizationObjectFromCpu(const struct _D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU *a1)
+__int64 __fastcall DxgkWaitForSynchronizationObjectFromCpu(struct _D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU *a1)
 {
-  return DxgkWaitForSynchronizationObjectFromCpuInternal(a1, 1, 0LL, 0LL);
+  return DxgkWaitForSynchronizationObjectFromCpuInternal(a1, 1, 0LL);
 }

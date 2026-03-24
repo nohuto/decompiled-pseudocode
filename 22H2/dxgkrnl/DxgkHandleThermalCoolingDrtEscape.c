@@ -1,24 +1,24 @@
 /*
- * XREFs of DxgkHandleThermalCoolingDrtEscape @ 0x1C03A3958
+ * XREFs of DxgkHandleThermalCoolingDrtEscape @ 0x1C02D4BD4
  * Callers:
- *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C0307E5C (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C025FCF4 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
  * Callees:
- *     DpiFdoThermalActiveCooling @ 0x1C03A3180 (DpiFdoThermalActiveCooling.c)
- *     DpiFdoThermalPassiveCooling @ 0x1C03A3300 (DpiFdoThermalPassiveCooling.c)
+ *     DpiFdoThermalActiveCooling @ 0x1C02D43C0 (DpiFdoThermalActiveCooling.c)
+ *     DpiFdoThermalPassiveCooling @ 0x1C02D4550 (DpiFdoThermalPassiveCooling.c)
  */
 
 __int64 __fastcall DxgkHandleThermalCoolingDrtEscape(__int64 a1, __int64 a2)
 {
   __int64 v2; // r10
   int v3; // r8d
-  __int64 v4; // r9
-  int v5; // eax
+  __int64 v4; // rax
+  int v5; // r9d
 
   v2 = *(_QWORD *)(a1 + 64);
   v3 = 0;
   if ( !g_OSTestSigningEnabled )
     return 3221225659LL;
-  v4 = *(_QWORD *)(v2 + 4880);
+  v4 = *(_QWORD *)(v2 + 4936);
   if ( !v4 )
     return 3221225659LL;
   v5 = *(_DWORD *)(a2 + 12);
@@ -37,9 +37,9 @@ __int64 __fastcall DxgkHandleThermalCoolingDrtEscape(__int64 a1, __int64 a2)
   else
   {
     *(_DWORD *)(a2 + 16) = 0;
-    LOBYTE(v3) = *(_QWORD *)(*(_QWORD *)(v2 + 4880) + 48LL) != 0LL;
+    LOBYTE(v3) = *(_QWORD *)(*(_QWORD *)(v2 + 4936) + 48LL) != 0LL;
     *(_DWORD *)(a2 + 16) = v3;
-    *(_DWORD *)(a2 + 16) = v3 | (*(_QWORD *)(*(_QWORD *)(v2 + 4880) + 56LL) != 0LL ? 2 : 0);
+    *(_DWORD *)(a2 + 16) = v3 | (*(_QWORD *)(*(_QWORD *)(v2 + 4936) + 56LL) != 0LL ? 2 : 0);
   }
   return 0LL;
 }

@@ -1,101 +1,117 @@
 /*
- * XREFs of ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C011CD7C
+ * XREFs of ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C016A038
  * Callers:
- *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C0002200 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
- *     ?bPrepareSrcDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@HH@Z @ 0x1C0015780 (-bPrepareSrcDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@HH@Z.c)
- *     GreMaskBlt @ 0x1C001C9BC (GreMaskBlt.c)
- *     GreSetStretchBltMode @ 0x1C00276B0 (GreSetStretchBltMode.c)
- *     GreSetBkColor @ 0x1C0027760 (GreSetBkColor.c)
- *     ?bPrepareTrgDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@H@Z @ 0x1C00A8004 (-bPrepareTrgDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@H@Z.c)
- *     GreRectVisible @ 0x1C00DB850 (GreRectVisible.c)
- *     GreExcludeClipRect @ 0x1C00DBC80 (GreExcludeClipRect.c)
- *     NtGdiPatBlt @ 0x1C00DBEF0 (NtGdiPatBlt.c)
- *     ?GreStretchDIBitsInternalImpl@@YAHPEAUHDC__@@HHHHHHHHAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KKIPEAX@Z @ 0x1C00DF680 (-GreStretchDIBitsInternalImpl@@YAHPEAUHDC__@@HHHHHHHHAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KKIPEAX.c)
- *     GreSelectFont @ 0x1C011BD80 (GreSelectFont.c)
- *     ??0XFERDCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0274E04 (--0XFERDCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ?LookUpWndobjs@@YAHPEAVDCOBJ@@0PEAPEAUHDC__@@H@Z @ 0x1C0276514 (-LookUpWndobjs@@YAHPEAVDCOBJ@@0PEAPEAUHDC__@@H@Z.c)
- *     ??0MDCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C02C1B10 (--0MDCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     GreSetBrushOrg @ 0x1C004558C (GreSetBrushOrg.c)
+ *     GreGetLayout @ 0x1C0045F14 (GreGetLayout.c)
+ *     GreDrawStream @ 0x1C00839D0 (GreDrawStream.c)
+ *     NtGdiAlphaBlend @ 0x1C0085150 (NtGdiAlphaBlend.c)
+ *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z @ 0x1C008C800 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z.c)
+ *     GreGetTextFaceW @ 0x1C0097590 (GreGetTextFaceW.c)
+ *     NtGdiModifyWorldTransform @ 0x1C0098390 (NtGdiModifyWorldTransform.c)
+ *     ulGetFontData @ 0x1C009B358 (ulGetFontData.c)
+ *     GreGetCharSet @ 0x1C009B6E0 (GreGetCharSet.c)
+ *     GreGetOutlineTextMetricsInternalW @ 0x1C009B9F8 (GreGetOutlineTextMetricsInternalW.c)
+ *     GreExtTextOutRect @ 0x1C00AA01C (GreExtTextOutRect.c)
+ *     GrePolyTextOutW @ 0x1C00AA69C (GrePolyTextOutW.c)
+ *     GreExtTextOutWInternal @ 0x1C00AAC5C (GreExtTextOutWInternal.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C00AADE8 (GreCreateCompatibleBitmapInternal.c)
+ *     GreStretchDIBitsInternal @ 0x1C00ADD74 (GreStretchDIBitsInternal.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF240 (GreSetDIBitsToDeviceInternal.c)
+ *     ?bSaveRegion@@YAHAEAVDCOBJ@@J@Z @ 0x1C00B2680 (-bSaveRegion@@YAHAEAVDCOBJ@@J@Z.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2938 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     GreStretchBltInternal @ 0x1C00B49B0 (GreStretchBltInternal.c)
+ *     GreGetAppClipBox @ 0x1C00B670C (GreGetAppClipBox.c)
+ *     ?vLockForDPIScaledClipping@DLODCOBJ@@QEAAXPEAUHDC__@@@Z @ 0x1C00B7D98 (-vLockForDPIScaledClipping@DLODCOBJ@@QEAAXPEAUHDC__@@@Z.c)
+ *     ?bPrepareTrgDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@H@Z @ 0x1C00B8014 (-bPrepareTrgDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@H@Z.c)
+ *     DEVLOCKOBJ_bPrepareTrgDcoWrap @ 0x1C00D5A80 (DEVLOCKOBJ_bPrepareTrgDcoWrap.c)
+ *     GreTransformPoints @ 0x1C00FA30C (GreTransformPoints.c)
+ *     GreGetBoundsRect @ 0x1C00FC608 (GreGetBoundsRect.c)
+ *     ?bPrepareSrcDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@HH@Z @ 0x1C00FF2E8 (-bPrepareSrcDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@HH@Z.c)
+ *     NtGdiSetMetaRgn @ 0x1C0100AA0 (NtGdiSetMetaRgn.c)
+ *     GreMaskBlt @ 0x1C010941C (GreMaskBlt.c)
+ *     NtGdiLineTo @ 0x1C0144E10 (NtGdiLineTo.c)
+ *     NtGdiSetFontXform @ 0x1C014D2F0 (NtGdiSetFontXform.c)
+ *     ??0XFERDCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C027AFCC (--0XFERDCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?LookUpWndobjs@@YAHPEAVDCOBJ@@0PEAPEAUHDC__@@H@Z @ 0x1C027B564 (-LookUpWndobjs@@YAHPEAVDCOBJ@@0PEAPEAUHDC__@@H@Z.c)
+ *     ??0MDCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C02AD964 (--0MDCOBJ@@QEAA@PEAUHDC__@@@Z.c)
  * Callees:
- *     ?vMarkTransformDirty@DC@@QEAAXXZ @ 0x1C0266BBC (-vMarkTransformDirty@DC@@QEAAXXZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CF88C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ?SaveAttributesHelper@XDCOBJ@@AEAAHXZ @ 0x1C013A5E0 (-SaveAttributesHelper@XDCOBJ@@AEAAHXZ.c)
+ *     ?vMarkTransformDirty@DC@@QEAAXXZ @ 0x1C026E600 (-vMarkTransformDirty@DC@@QEAAXXZ.c)
  */
 
 void __fastcall XDCOBJ::vLock(XDCOBJ *this, HDC a2)
 {
   HDC v2; // rax
-  __int64 v4; // rax
-  __int64 *ThreadWin32Thread; // rax
-  __int64 v6; // rax
-  _QWORD *v7; // rax
-  struct UMPDOBJ *v8; // rdx
-  __int64 v9; // rax
-  __int64 v10; // rdx
-  int v11; // ebx
-  struct _DC_ATTR *UserAttr; // rax
+  int v4; // esi
+  __int64 v5; // rax
+  struct _W32THREAD *ThreadWin32Thread; // rax
+  struct UMPDOBJ *ThreadCurrentObj; // rax
+  __int64 v8; // rdx
+  int v9; // ebx
+  __int64 v10; // rcx
 
   v2 = a2;
+  v4 = 1;
   LOBYTE(a2) = 1;
-  v4 = HmgLockEx(v2, a2, *((unsigned int *)this + 3));
-  *(_QWORD *)this = v4;
-  if ( v4 )
+  v5 = HmgLockEx(v2, a2, *((unsigned int *)this + 3));
+  *(_QWORD *)this = v5;
+  if ( v5 )
   {
-    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( ThreadWin32Thread && (v6 = *ThreadWin32Thread) != 0 && (v7 = (_QWORD *)(v6 + 40), (_QWORD *)*v7 != v7) )
-      v8 = (struct UMPDOBJ *)(*v7 - 40LL);
-    else
-      v8 = 0LL;
-    v9 = *(_QWORD *)this;
+    ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+    ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
+    v8 = *(_QWORD *)this;
     if ( *(_WORD *)(*(_QWORD *)this + 12LL) == 1 )
     {
-      *(_QWORD *)(v9 + 2168) = v8;
-      *(_DWORD *)(*(_QWORD *)this + 2176LL) = 0xFFFF;
+      *(_QWORD *)(v8 + 2136) = ThreadCurrentObj;
+      *(_DWORD *)(*(_QWORD *)this + 2144LL) = 0xFFFF;
+      v8 = *(_QWORD *)this;
     }
-    else if ( *(struct UMPDOBJ **)(v9 + 2168) != v8 )
+    else if ( *(struct UMPDOBJ **)(v8 + 2136) != ThreadCurrentObj )
     {
-      XDCOBJ::LogUmpdCallbackStatus(this, v8);
-LABEL_15:
+      XDCOBJ::LogUmpdCallbackStatus(this, ThreadCurrentObj);
+LABEL_10:
       _InterlockedDecrement((volatile signed __int32 *)(*(_QWORD *)this + 12LL));
+LABEL_11:
       *(_QWORD *)this = 0LL;
-      goto LABEL_21;
+      return;
     }
-    v10 = *(_QWORD *)this;
     if ( *((_DWORD *)this + 3) )
     {
-      if ( (*(_DWORD *)(*(_QWORD *)(v10 + 48) + 40LL) & 0x8000) == 0 )
-        goto LABEL_15;
-      v11 = *(_DWORD *)(v10 + 2112);
-      if ( v11 != ((unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC) )
-        goto LABEL_15;
+      if ( (*(_DWORD *)(*(_QWORD *)(v8 + 48) + 40LL) & 0x8000) == 0 )
+        goto LABEL_10;
+      v9 = *(_DWORD *)(v8 + 2120);
+      if ( v9 != ((unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC) )
+        goto LABEL_10;
     }
-    else if ( *(_DWORD *)(v10 + 2112) )
+    else if ( *(_DWORD *)(v8 + 2120) )
     {
-      *(_DWORD *)(v10 + 2112) = 0;
+      *(_DWORD *)(v8 + 2120) = 0;
     }
+    if ( (*(_DWORD *)(*(_QWORD *)this + 44LL) & 2) == 0 )
+    {
+      if ( XDCOBJ::SaveAttributesHelper(this) )
+      {
+        *(_DWORD *)(*(_QWORD *)this + 44LL) |= 2u;
+        *((_DWORD *)this + 2) = 1;
+      }
+      else
+      {
+        v4 = 0;
+      }
+    }
+    v10 = *(_QWORD *)this;
+    if ( !v4 )
+    {
+      _InterlockedDecrement((volatile signed __int32 *)(v10 + 12));
+      goto LABEL_11;
+    }
+    if ( (*(_DWORD *)(v10 + 520) & 4) != 0 )
+      DC::vMarkTransformDirty((DC *)v10);
   }
   else if ( (unsigned __int8)PsIsWin32KFilterAuditEnabled() || (unsigned __int8)PsIsWin32KFilterEnabled() )
   {
     PsGetWin32KFilterSet();
   }
-LABEL_21:
-  if ( !*(_QWORD *)this )
-    return;
-  if ( (*(_DWORD *)(*(_QWORD *)this + 44LL) & 2) == 0 )
-  {
-    if ( !*((_DWORD *)this + 3) )
-    {
-      UserAttr = XDCOBJ::GetUserAttr(this);
-      if ( UserAttr )
-      {
-        if ( !DC::SaveAttributes(*(DC **)this, UserAttr) )
-        {
-          _InterlockedDecrement((volatile signed __int32 *)(*(_QWORD *)this + 12LL));
-          *(_QWORD *)this = 0LL;
-          return;
-        }
-      }
-    }
-    *(_DWORD *)(*(_QWORD *)this + 44LL) |= 2u;
-    *((_DWORD *)this + 2) = 1;
-  }
-  if ( (*(_DWORD *)(*(_QWORD *)this + 520LL) & 4) != 0 )
-    DC::vMarkTransformDirty(*(DC **)this);
 }

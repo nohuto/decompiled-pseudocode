@@ -1,35 +1,35 @@
 /*
- * XREFs of PiControlMakeUserModeCallersCopy @ 0x14077C610
+ * XREFs of PiControlMakeUserModeCallersCopy @ 0x1406356D0
  * Callers:
- *     NtReplacePartitionUnit @ 0x140654720 (NtReplacePartitionUnit.c)
- *     PiCMCaptureRegistryInputData @ 0x1406BAA98 (PiCMCaptureRegistryInputData.c)
- *     PiCMCaptureDeviceListInputData @ 0x1406D035C (PiCMCaptureDeviceListInputData.c)
- *     PiCMCaptureInterfaceAliasInputData @ 0x1406DB910 (PiCMCaptureInterfaceAliasInputData.c)
- *     PiControlQueryDeviceRelations @ 0x1406E3860 (PiControlQueryDeviceRelations.c)
- *     PiControlGetDeviceDepth @ 0x140773A70 (PiControlGetDeviceDepth.c)
- *     PiControlGetPropertyData @ 0x140775140 (PiControlGetPropertyData.c)
- *     PiControlGetRelatedDevice @ 0x1407753A0 (PiControlGetRelatedDevice.c)
- *     PiCMCaptureRegistryPropertyInputData @ 0x1407790D0 (PiCMCaptureRegistryPropertyInputData.c)
- *     PiControlGetSetDeviceStatus @ 0x1407793D0 (PiControlGetSetDeviceStatus.c)
- *     PiControlGetDeviceInterfaceEnabled @ 0x14077BB00 (PiControlGetDeviceInterfaceEnabled.c)
- *     PiCMCapturePropertyInputData @ 0x14077C1C4 (PiCMCapturePropertyInputData.c)
- *     NtPlugPlayControl @ 0x14077C4E0 (NtPlugPlayControl.c)
- *     PiCMCaptureInterfaceListInputData @ 0x1407884B4 (PiCMCaptureInterfaceListInputData.c)
- *     PiCMCaptureObjectInputData @ 0x14078A1A8 (PiCMCaptureObjectInputData.c)
- *     PiCMCaptureCreateDeviceInputData @ 0x140953D38 (PiCMCaptureCreateDeviceInputData.c)
- *     PiCMCaptureRegisterInterfaceInputData @ 0x140954134 (PiCMCaptureRegisterInterfaceInputData.c)
- *     PiControlQueryAndRemoveDevice @ 0x140959330 (PiControlQueryAndRemoveDevice.c)
- *     PiControlQueryConflictList @ 0x140959490 (PiControlQueryConflictList.c)
- *     PiControlStartDevice @ 0x1409596B0 (PiControlStartDevice.c)
+ *     NtReplacePartitionUnit @ 0x1405C9FF0 (NtReplacePartitionUnit.c)
+ *     PiCMCaptureRegistryInputData @ 0x140633C4C (PiCMCaptureRegistryInputData.c)
+ *     PiCMCapturePropertyInputData @ 0x140634DD4 (PiCMCapturePropertyInputData.c)
+ *     PiControlGetDeviceInterfaceEnabled @ 0x140635460 (PiControlGetDeviceInterfaceEnabled.c)
+ *     NtPlugPlayControl @ 0x1406355A0 (NtPlugPlayControl.c)
+ *     PiCMCaptureObjectInputData @ 0x140638B74 (PiCMCaptureObjectInputData.c)
+ *     PiControlGetSetDeviceStatus @ 0x140639930 (PiControlGetSetDeviceStatus.c)
+ *     PiCMCaptureDeviceListInputData @ 0x1406A7294 (PiCMCaptureDeviceListInputData.c)
+ *     PiCMCaptureRegistryPropertyInputData @ 0x1406AADA4 (PiCMCaptureRegistryPropertyInputData.c)
+ *     PiCMCaptureInterfaceListInputData @ 0x1406ACF6C (PiCMCaptureInterfaceListInputData.c)
+ *     PiControlGetPropertyData @ 0x1406ADDA0 (PiControlGetPropertyData.c)
+ *     PiControlGetRelatedDevice @ 0x1406AE010 (PiControlGetRelatedDevice.c)
+ *     PiControlGetDeviceDepth @ 0x1406BD940 (PiControlGetDeviceDepth.c)
+ *     PiCMCaptureInterfaceAliasInputData @ 0x14072B500 (PiCMCaptureInterfaceAliasInputData.c)
+ *     PiCMCaptureCreateDeviceInputData @ 0x1408AEDBC (PiCMCaptureCreateDeviceInputData.c)
+ *     PiCMCaptureRegisterInterfaceInputData @ 0x1408AF140 (PiCMCaptureRegisterInterfaceInputData.c)
+ *     PiControlQueryAndRemoveDevice @ 0x1408B36F0 (PiControlQueryAndRemoveDevice.c)
+ *     PiControlQueryConflictList @ 0x1408B3850 (PiControlQueryConflictList.c)
+ *     PiControlQueryDeviceRelations @ 0x1408B3A70 (PiControlQueryDeviceRelations.c)
+ *     PiControlStartDevice @ 0x1408B3BC0 (PiControlStartDevice.c)
  * Callees:
- *     PiControlCopyUserModeCallersBuffer @ 0x14077C6D4 (PiControlCopyUserModeCallersBuffer.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     PiControlCopyUserModeCallersBuffer @ 0x140637680 (PiControlCopyUserModeCallersBuffer.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiControlMakeUserModeCallersCopy(void **a1, void *a2, unsigned int a3, ULONG a4, char a5, int a6)
 {
-  __int64 Pool2; // rax
+  PVOID PoolWithQuotaTag; // rax
   int v12; // esi
 
   if ( !a5 )
@@ -44,9 +44,9 @@ __int64 __fastcall PiControlMakeUserModeCallersCopy(void **a1, void *a2, unsigne
   }
   if ( a6 )
   {
-    Pool2 = ExAllocatePool2(257LL, a3, 538996816LL);
-    *a1 = (void *)Pool2;
-    if ( !Pool2 )
+    PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, a3, 0x20207050u);
+    *a1 = PoolWithQuotaTag;
+    if ( !PoolWithQuotaTag )
       return 3221225626LL;
   }
   v12 = 0;

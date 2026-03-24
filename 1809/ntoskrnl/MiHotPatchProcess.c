@@ -1,7 +1,7 @@
 /*
- * XREFs of MiHotPatchProcess @ 0x140855624
+ * XREFs of MiHotPatchProcess @ 0x140855604
  * Callers:
- *     MiHotPatchAllProcesses @ 0x1408552A8 (MiHotPatchAllProcesses.c)
+ *     MiHotPatchAllProcesses @ 0x140855288 (MiHotPatchAllProcesses.c)
  * Callees:
  *     MiUnlockVadShared @ 0x14001AF48 (MiUnlockVadShared.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
@@ -12,7 +12,7 @@
  *     MiVadDeleted @ 0x140075560 (MiVadDeleted.c)
  *     MiLockVadShared @ 0x140075570 (MiLockVadShared.c)
  *     MiReferenceVad @ 0x1400755A0 (MiReferenceVad.c)
- *     MiHotPatchImage @ 0x140855350 (MiHotPatchImage.c)
+ *     MiHotPatchImage @ 0x140855330 (MiHotPatchImage.c)
  */
 
 __int64 __fastcall MiHotPatchProcess(struct _EX_RUNDOWN_REF *a1, int a2, int a3)

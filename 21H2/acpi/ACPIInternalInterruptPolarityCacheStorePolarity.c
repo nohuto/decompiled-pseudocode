@@ -1,8 +1,8 @@
 /*
- * XREFs of ACPIInternalInterruptPolarityCacheStorePolarity @ 0x1C00229AC
+ * XREFs of ACPIInternalInterruptPolarityCacheStorePolarity @ 0x1C0016300
  * Callers:
- *     ACPIInternalInterruptPolarityCacheStorePolaritiesFromList @ 0x1C00235A4 (ACPIInternalInterruptPolarityCacheStorePolaritiesFromList.c)
- *     ACPIFilterIrpFilterResourceRequirements @ 0x1C0090CB0 (ACPIFilterIrpFilterResourceRequirements.c)
+ *     ACPIInternalInterruptPolarityCacheStorePolaritiesFromList @ 0x1C0016430 (ACPIInternalInterruptPolarityCacheStorePolaritiesFromList.c)
+ *     ACPIFilterIrpFilterResourceRequirements @ 0x1C009BCA0 (ACPIFilterIrpFilterResourceRequirements.c)
  * Callees:
  *     <none>
  */
@@ -13,13 +13,13 @@ __int64 __fastcall ACPIInternalInterruptPolarityCacheStorePolarity(__int64 a1, i
   __int64 **v6; // rdi
   KIRQL v7; // r14
   __int64 *i; // rax
-  __int64 Pool2; // rax
-  __int64 *v11; // rcx
+  _DWORD *PoolWithTag; // rax
+  __int64 ***v11; // rcx
 
   v3 = 0;
   if ( !gAcpiHonorBiosPolarities )
     return 0LL;
-  v6 = (__int64 **)(a1 + 712);
+  v6 = (__int64 **)(a1 + 672);
   v7 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
   for ( i = *v6; i != (__int64 *)v6; i = (__int64 *)*i )
   {
@@ -30,18 +30,18 @@ __int64 __fastcall ACPIInternalInterruptPolarityCacheStorePolarity(__int64 a1, i
       goto LABEL_7;
     }
   }
-  Pool2 = ExAllocatePool2(64LL, 24LL, 1131438913LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x43706341u);
+  if ( PoolWithTag )
   {
-    *(_DWORD *)(Pool2 + 16) = a2;
-    *(_DWORD *)(Pool2 + 20) = a3;
-    v11 = v6[1];
-    if ( (__int64 **)*v11 != v6 )
+    PoolWithTag[4] = a2;
+    PoolWithTag[5] = a3;
+    v11 = (__int64 ***)v6[1];
+    if ( *v11 != v6 )
       __fastfail(3u);
-    *(_QWORD *)Pool2 = v6;
-    *(_QWORD *)(Pool2 + 8) = v11;
-    *v11 = Pool2;
-    v6[1] = (__int64 *)Pool2;
+    *(_QWORD *)PoolWithTag = v6;
+    *((_QWORD *)PoolWithTag + 1) = v11;
+    *v11 = (__int64 **)PoolWithTag;
+    v6[1] = (__int64 *)PoolWithTag;
   }
   else
   {

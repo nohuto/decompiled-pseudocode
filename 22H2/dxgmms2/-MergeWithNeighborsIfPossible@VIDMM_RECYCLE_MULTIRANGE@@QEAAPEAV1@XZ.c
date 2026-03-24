@@ -1,631 +1,756 @@
 /*
- * XREFs of ?MergeWithNeighborsIfPossible@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAV1@XZ @ 0x1C00A0890
+ * XREFs of ?MergeWithNeighborsIfPossible@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAV1@XZ @ 0x1C007C9B0
  * Callers:
- *     ?IntegrateMultirangeIntoTrees@VIDMM_RECYCLE_HEAP@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C00853FC (-IntegrateMultirangeIntoTrees@VIDMM_RECYCLE_HEAP@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z.c)
+ *     ?IntegrateMultirangeIntoTrees@VIDMM_RECYCLE_HEAP@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C005F0EC (-IntegrateMultirangeIntoTrees@VIDMM_RECYCLE_HEAP@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z.c)
  * Callees:
- *     ?NotifyMultirangeEvent@VIDMM_RECYCLE_BLOCK@@QEAAXW4RangeOp@1@PEAX@Z @ 0x1C0005B40 (-NotifyMultirangeEvent@VIDMM_RECYCLE_BLOCK@@QEAAXW4RangeOp@1@PEAX@Z.c)
- *     ??_GVIDMM_RECYCLE_BLOCK@@QEAAPEAXI@Z @ 0x1C0017578 (--_GVIDMM_RECYCLE_BLOCK@@QEAAPEAXI@Z.c)
- *     ?DestroyMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C009E990 (-DestroyMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z.c)
- *     ?Init@VIDMM_RECYCLE_MULTIRANGE@@QEAAXW4VIDMM_RECYCLE_MULTIRANGE_STATE@@PEAVVIDMM_RECYCLE_BLOCK@@_K2@Z @ 0x1C00A0740 (-Init@VIDMM_RECYCLE_MULTIRANGE@@QEAAXW4VIDMM_RECYCLE_MULTIRANGE_STATE@@PEAVVIDMM_RECYCLE_BLOCK@@.c)
- *     ?RemoveMultirangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C00A1368 (-RemoveMultirangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_.c)
- *     ?MarkAllRangesWithNewOwner@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C00A13F4 (-MarkAllRangesWithNewOwner@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ.c)
- *     ?AddMultirangeToTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C00A1470 (-AddMultirangeToTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTI.c)
- *     ?VidMmCompareForInsertAlignedRange@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z @ 0x1C00B0AB0 (-VidMmCompareForInsertAlignedRange@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z.c)
- *     ?DestroyRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00B2348 (-DestroyRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
+ *     ?NotifyMultirangeEvent@VIDMM_RECYCLE_BLOCK@@QEAAXW4RangeOp@1@PEAX@Z @ 0x1C0005FC8 (-NotifyMultirangeEvent@VIDMM_RECYCLE_BLOCK@@QEAAXW4RangeOp@1@PEAX@Z.c)
+ *     ??_GVIDMM_RECYCLE_BLOCK@@QEAAPEAXI@Z @ 0x1C0015614 (--_GVIDMM_RECYCLE_BLOCK@@QEAAPEAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018AA0 (_guard_dispatch_icall_nop.c)
+ *     ?DestroyMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C0079C88 (-DestroyMultirange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_MULTIRANGE@@@Z.c)
+ *     ?AddMultirangeToTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C0079E00 (-AddMultirangeToTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTI.c)
+ *     ?RemoveMultirangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_MULTIRANGE@@@Z @ 0x1C007A0C8 (-RemoveMultirangeFromTree@VIDMM_RECYCLE_HEAP@@QEAAXW4VIDMM_RECYCLE_HEAP_TREE@@PEAVVIDMM_RECYCLE_.c)
+ *     ?Init@VIDMM_RECYCLE_MULTIRANGE@@QEAAXW4VIDMM_RECYCLE_MULTIRANGE_STATE@@PEAVVIDMM_RECYCLE_BLOCK@@_K2@Z @ 0x1C007D6C0 (-Init@VIDMM_RECYCLE_MULTIRANGE@@QEAAXW4VIDMM_RECYCLE_MULTIRANGE_STATE@@PEAVVIDMM_RECYCLE_BLOCK@@.c)
+ *     ?VidMmCompareForInsertAlignedRange@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z @ 0x1C00850D0 (-VidMmCompareForInsertAlignedRange@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z.c)
+ *     ?MarkAllRangesWithNewOwner@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C0086784 (-MarkAllRangesWithNewOwner@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ.c)
+ *     ?DestroyRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C00871A8 (-DestroyRange@VIDMM_RECYCLE_HEAP_MGR@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
-struct VIDMM_RECYCLE_MULTIRANGE *__fastcall VIDMM_RECYCLE_MULTIRANGE::MergeWithNeighborsIfPossible(_QWORD *Entry)
+struct VIDMM_RECYCLE_MULTIRANGE *__fastcall VIDMM_RECYCLE_MULTIRANGE::MergeWithNeighborsIfPossible(
+        PSLIST_ENTRY ListEntry)
 {
-  _QWORD *v1; // r14
+  struct _SLIST_ENTRY *Next; // r13
   _QWORD *v3; // r9
-  int v4; // ecx
-  _QWORD *v5; // rsi
-  __int64 v6; // rax
-  __int64 v7; // r8
-  int v8; // ecx
-  __int64 v9; // rax
-  _QWORD *v10; // r8
-  _QWORD *v11; // rbx
-  __int64 v12; // rdx
-  int v13; // ecx
-  int v14; // ecx
-  unsigned int v15; // r15d
-  __int64 v16; // r12
-  __int64 v17; // r13
-  void *v18; // rcx
-  __int64 v19; // rbp
-  VIDMM_RECYCLE_BLOCK *v20; // rcx
-  __int64 v21; // rax
+  unsigned int v4; // ecx
+  PSLIST_ENTRY v5; // rbx
+  struct _SLIST_ENTRY *v6; // rax
+  struct _SLIST_ENTRY *v7; // r8
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  _QWORD *v10; // rax
+  __int64 v11; // rax
+  _QWORD *v12; // r8
+  PSLIST_ENTRY v13; // rsi
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  _QWORD *v16; // rax
+  unsigned int v17; // r15d
+  struct _SLIST_ENTRY *v18; // r12
+  struct _SLIST_ENTRY *v19; // rcx
+  __int64 v20; // r14
+  struct _SLIST_ENTRY *v21; // rcx
   __int64 v22; // rax
-  void *v23; // rcx
-  __int64 v24; // rsi
-  VIDMM_RECYCLE_BLOCK *v25; // rcx
-  __int64 v26; // rax
-  __int64 v27; // rax
-  void *v28; // rcx
-  __int64 v29; // rdi
-  VIDMM_RECYCLE_BLOCK *v30; // rcx
-  __int64 v31; // rax
-  __int64 v32; // rax
+  __int64 v23; // rax
+  __int64 v24; // rbp
+  struct _SLIST_ENTRY *v25; // rcx
+  __int64 v26; // rbp
+  struct _SLIST_ENTRY *v27; // rcx
+  __int64 v28; // rax
+  bool v29; // zf
+  __int64 v30; // rax
+  __int64 v31; // rbx
+  struct _SLIST_ENTRY *v32; // rcx
   __int64 v33; // rdi
-  int v34; // eax
+  struct _SLIST_ENTRY *v34; // rcx
   __int64 v35; // rax
-  VIDMM_RECYCLE_MULTIRANGE *v36; // rbx
-  int v37; // edi
-  bool v38; // zf
-  __int64 v40; // rbp
-  __int64 v41; // rcx
-  __int64 v42; // rdi
-  __int64 v43; // rcx
-  __int64 v44; // r12
-  __int64 v45; // r13
-  void *v46; // rcx
-  __int64 v47; // r15
-  _QWORD *v48; // rdi
-  __int64 v49; // rbp
-  VIDMM_RECYCLE_BLOCK *v50; // rcx
-  __int64 v51; // rax
-  __int64 v52; // rax
-  void *v53; // rcx
-  __int64 v54; // rsi
-  VIDMM_RECYCLE_BLOCK *v55; // rcx
-  __int64 v56; // rax
-  __int64 v57; // rax
-  __int64 v58; // rsi
-  int v59; // eax
-  __int64 v60; // rax
-  int v61; // r15d
-  CCHAR LeastSignificantBit; // al
-  __int64 v63; // rax
-  __int64 v64; // rsi
-  __int64 v65; // rcx
-  __int64 v66; // r8
-  __int64 v67; // rcx
-  int v68; // ecx
-  int v69; // ecx
-  __int64 v70; // rcx
-  _QWORD *v71; // rdi
-  __int64 v72; // r8
+  __int64 v36; // rax
+  __int64 v37; // rbx
+  __int64 v38; // rsi
+  int v39; // eax
+  __int64 v40; // rdi
+  __int64 v41; // rax
+  PSLIST_ENTRY v42; // rbx
+  unsigned int v43; // r14d
+  __int64 v45; // r15
+  struct _SLIST_ENTRY *v46; // rbp
+  __int64 v47; // rax
+  __int64 v48; // rdx
+  _QWORD *v49; // rax
+  __int64 v50; // rdx
+  __int64 v51; // rcx
+  struct _SLIST_ENTRY *v52; // rcx
+  struct _SLIST_ENTRY *v53; // rdi
+  __int64 v54; // rax
+  __int64 v55; // rdx
+  _QWORD *v56; // rax
+  struct _SLIST_ENTRY *v57; // rcx
+  __int64 v58; // rax
+  __int64 v59; // r12
+  struct _SLIST_ENTRY *v60; // rcx
+  struct _SLIST_ENTRY *v61; // r15
+  struct _SLIST_ENTRY *v62; // rdi
+  __int64 v63; // r14
+  struct _SLIST_ENTRY *v64; // rcx
+  __int64 v65; // rax
+  __int64 v66; // rax
+  __int64 v67; // rbp
+  struct _SLIST_ENTRY *v68; // rcx
+  __int64 v69; // rbp
+  __int64 v70; // rdx
+  struct _SLIST_ENTRY *v71; // rcx
+  __int64 v72; // rax
   __int64 v73; // rax
-  _QWORD *v74; // rsi
-  struct _RTL_BALANCED_NODE *v75; // rdi
-  struct _RTL_BALANCED_NODE *v76; // rax
-  struct VIDMM_RECYCLE_RANGE *v77; // rdi
-  _QWORD v78[2]; // [rsp+30h] [rbp-58h] BYREF
-  char v79; // [rsp+40h] [rbp-48h]
-  int v80; // [rsp+90h] [rbp+8h]
-  __int64 v81; // [rsp+98h] [rbp+10h]
-  int v82; // [rsp+98h] [rbp+10h]
-  __int64 v83; // [rsp+A0h] [rbp+18h]
+  __int64 v74; // rbx
+  __int64 v75; // rbp
+  int v76; // eax
+  __int64 v77; // rsi
+  __int64 v78; // rax
+  __int64 v79; // rax
+  CCHAR LeastSignificantBit; // al
+  __int64 v81; // rax
+  struct _SLIST_ENTRY *v82; // rsi
+  __int64 v83; // rcx
+  __int64 v84; // r8
+  __int64 v85; // rcx
+  __int64 v86; // rcx
+  _QWORD *v87; // rax
+  __int64 v88; // rcx
+  struct _SLIST_ENTRY *v89; // rdi
+  __int64 v90; // rax
+  __int64 v91; // rdx
+  __int64 v92; // r8
+  __int64 v93; // rax
+  _QWORD *v94; // rax
+  struct _SLIST_ENTRY *v95; // rsi
+  struct _RTL_BALANCED_NODE *v96; // rdi
+  struct _RTL_BALANCED_NODE *v97; // rax
+  struct VIDMM_RECYCLE_RANGE *v98; // rdi
+  _QWORD v99[2]; // [rsp+30h] [rbp-68h] BYREF
+  char v100; // [rsp+40h] [rbp-58h]
+  unsigned int v101; // [rsp+A0h] [rbp+8h]
+  __int64 v102; // [rsp+A8h] [rbp+10h]
+  int v103; // [rsp+A8h] [rbp+10h]
+  struct _SLIST_ENTRY *v104; // [rsp+B0h] [rbp+18h]
+  __int64 v105; // [rsp+B0h] [rbp+18h]
+  __int64 v106; // [rsp+B8h] [rbp+20h]
 
-  v1 = (_QWORD *)Entry[10];
+  Next = ListEntry[5].Next;
   v3 = 0LL;
-  v4 = *((_DWORD *)Entry + 54);
+  v4 = *((_DWORD *)&ListEntry[13].Next + 2);
   v5 = 0LL;
-  v80 = v4;
-  v6 = Entry[8];
-  v7 = *(_QWORD *)(v6 + 128);
-  if ( v7 != *(_QWORD *)(v6 + 72) + 72LL )
-    v3 = (_QWORD *)(v7 - 120);
+  v101 = v4;
+  v6 = ListEntry[4].Next;
+  v7 = v6[8].Next;
+  v8 = *((_QWORD *)&v6[4].Next + 1) + 72LL;
+  if ( v7 != (struct _SLIST_ENTRY *)v8 )
+    v3 = &v7[-8].Next + 1;
   if ( v3 )
   {
     if ( v4 )
     {
-      v8 = v4 - 1;
-      if ( v8 )
+      v9 = v4 - 1;
+      if ( (_DWORD)v9 )
       {
-        if ( v8 == 1 )
+        if ( (_DWORD)v9 == 1 )
         {
-          v5 = (_QWORD *)v3[19];
+          v5 = (PSLIST_ENTRY)v3[19];
         }
         else
         {
-          g_DxgMmsBugcheckExportIndex = 1;
-          WdLogSingleEntry5(0LL, 270LL, 52LL, 10LL, 0LL, 0LL);
+          v10 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v9, v8);
+          v10[3] = 270LL;
+          v10[4] = 52LL;
+          v10[5] = 10LL;
+          v10[6] = 0LL;
+          v10[7] = 0LL;
+          WdLogEvent5_WdCriticalError(v10);
         }
       }
       else
       {
-        v5 = (_QWORD *)v3[18];
+        v5 = (PSLIST_ENTRY)v3[18];
       }
     }
     else
     {
-      v5 = (_QWORD *)v3[17];
+      v5 = (PSLIST_ENTRY)v3[17];
     }
   }
-  v9 = Entry[9];
-  v10 = 0LL;
-  v11 = 0LL;
-  v12 = *(_QWORD *)(v9 + 120);
-  if ( v12 != *(_QWORD *)(v9 + 72) + 72LL )
-    v10 = (_QWORD *)(v12 - 120);
-  if ( v10 )
+  v11 = *((_QWORD *)&ListEntry[4].Next + 1);
+  v12 = 0LL;
+  v13 = 0LL;
+  v14 = *(_QWORD *)(v11 + 120);
+  v15 = *(_QWORD *)(v11 + 72) + 72LL;
+  if ( v14 != v15 )
+    v12 = (_QWORD *)(v14 - 120);
+  if ( v12 )
   {
-    v13 = *((_DWORD *)Entry + 54);
-    if ( v13 )
+    v15 = *((unsigned int *)&ListEntry[13].Next + 2);
+    if ( (_DWORD)v15 )
     {
-      v14 = v13 - 1;
-      if ( v14 )
+      v15 = (unsigned int)(v15 - 1);
+      if ( (_DWORD)v15 )
       {
-        if ( v14 == 1 )
+        if ( (_DWORD)v15 == 1 )
         {
-          v11 = (_QWORD *)v10[19];
+          v13 = (PSLIST_ENTRY)v12[19];
         }
         else
         {
-          g_DxgMmsBugcheckExportIndex = 1;
-          WdLogSingleEntry5(0LL, 270LL, 52LL, 10LL, 0LL, 0LL);
+          v16 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v15, v14);
+          v16[3] = 270LL;
+          v16[4] = 52LL;
+          v16[5] = 10LL;
+          v16[6] = 0LL;
+          v16[7] = 0LL;
+          WdLogEvent5_WdCriticalError(v16);
         }
       }
       else
       {
-        v11 = (_QWORD *)v10[18];
+        v13 = (PSLIST_ENTRY)v12[18];
       }
     }
     else
     {
-      v11 = (_QWORD *)v10[17];
+      v13 = (PSLIST_ENTRY)v12[17];
     }
   }
   if ( v5 )
   {
-    if ( v11 )
+    if ( v13 )
     {
-      v15 = *((_DWORD *)Entry + 22);
-      v16 = v5[8];
-      v17 = v11[9];
-      VIDMM_RECYCLE_HEAP::RemoveMultirangeFromTree(*(_QWORD *)(Entry[10] + 32LL), v15, v5);
-      VIDMM_RECYCLE_HEAP::RemoveMultirangeFromTree(*(_QWORD *)(Entry[10] + 32LL), v15, Entry);
-      VIDMM_RECYCLE_HEAP::RemoveMultirangeFromTree(*(_QWORD *)(Entry[10] + 32LL), v15, v11);
-      v18 = (void *)v5[12];
-      v83 = v5[4];
-      v81 = v11[5];
-      v19 = *(_QWORD *)(v1[4] + 8LL);
-      if ( v18 )
+      v17 = *((_DWORD *)&ListEntry[5].Next + 2);
+      v18 = v5[4].Next;
+      v106 = *((_QWORD *)&v13[4].Next + 1);
+      VIDMM_RECYCLE_HEAP::RemoveMultirangeFromTree((__int64)ListEntry[5].Next[2].Next, v17, (__int64)v5);
+      VIDMM_RECYCLE_HEAP::RemoveMultirangeFromTree((__int64)ListEntry[5].Next[2].Next, v17, (__int64)ListEntry);
+      VIDMM_RECYCLE_HEAP::RemoveMultirangeFromTree((__int64)ListEntry[5].Next[2].Next, v17, (__int64)v13);
+      v19 = v5[6].Next;
+      v104 = v5[2].Next;
+      v102 = *((_QWORD *)&v13[2].Next + 1);
+      v20 = *((_QWORD *)&Next[2].Next->Next + 1);
+      if ( v19 )
       {
-        ExFreePoolWithTag(v18, 0);
-        v5[12] = 0LL;
+        ExFreePoolWithTag(v19, 0);
+        v5[6].Next = 0LL;
       }
-      VIDMM_RECYCLE_BLOCK::NotifyMultirangeEvent(v5[10], 1, (__int64)v5);
-      v20 = (VIDMM_RECYCLE_BLOCK *)v5[10];
-      v21 = *((_QWORD *)v20 + 1) - 1LL;
-      v38 = *(_QWORD *)v20 == 0LL;
-      *((_QWORD *)v20 + 1) = v21;
-      if ( v38 && !v21 )
-        VIDMM_RECYCLE_BLOCK::`scalar deleting destructor'(v20);
-      *((_BYTE *)v5 + 232) = 1;
-      v5[28] = 0LL;
-      v22 = *(unsigned int *)(v19 + 1620);
-      if ( (unsigned int)v22 >= 4 )
+      VIDMM_RECYCLE_BLOCK::NotifyMultirangeEvent((__int64)v5[5].Next, 1, (__int64)v5);
+      v21 = v5[5].Next;
+      v22 = *((_QWORD *)&v21->Next + 1) - 1LL;
+      *((_QWORD *)&v21->Next + 1) = v22;
+      if ( !v21->Next && !v22 )
+        VIDMM_RECYCLE_BLOCK::`scalar deleting destructor'((VIDMM_RECYCLE_BLOCK *)v21);
+      *((_BYTE *)&v5[14].Next + 8) = 1;
+      v5[14].Next = 0LL;
+      v23 = *(unsigned int *)(v20 + 1612);
+      v24 = *(_QWORD *)(v20 + 1320);
+      if ( (unsigned int)v23 >= 4 )
       {
-        ExFreeToLookasideListEx(*(PLOOKASIDE_LIST_EX *)(v19 + 1320), v5);
-      }
-      else
-      {
-        *(_QWORD *)(v19 + 8 * v22 + 1656) = v5;
-        ++*(_DWORD *)(v19 + 1620);
-      }
-      --*(_DWORD *)(v19 + 1688);
-      v23 = (void *)Entry[12];
-      v24 = *(_QWORD *)(v1[4] + 8LL);
-      if ( v23 )
-      {
-        ExFreePoolWithTag(v23, 0);
-        Entry[12] = 0LL;
-      }
-      VIDMM_RECYCLE_BLOCK::NotifyMultirangeEvent(Entry[10], 1, (__int64)Entry);
-      v25 = (VIDMM_RECYCLE_BLOCK *)Entry[10];
-      v26 = *((_QWORD *)v25 + 1) - 1LL;
-      v38 = *(_QWORD *)v25 == 0LL;
-      *((_QWORD *)v25 + 1) = v26;
-      if ( v38 && !v26 )
-        VIDMM_RECYCLE_BLOCK::`scalar deleting destructor'(v25);
-      *((_BYTE *)Entry + 232) = 1;
-      Entry[28] = 0LL;
-      v27 = *(unsigned int *)(v24 + 1620);
-      if ( (unsigned int)v27 >= 4 )
-      {
-        ExFreeToLookasideListEx(*(PLOOKASIDE_LIST_EX *)(v24 + 1320), Entry);
-      }
-      else
-      {
-        *(_QWORD *)(v24 + 8 * v27 + 1656) = Entry;
-        ++*(_DWORD *)(v24 + 1620);
-      }
-      --*(_DWORD *)(v24 + 1688);
-      v28 = (void *)v11[12];
-      v29 = *(_QWORD *)(v1[4] + 8LL);
-      if ( v28 )
-      {
-        ExFreePoolWithTag(v28, 0);
-        v11[12] = 0LL;
-      }
-      VIDMM_RECYCLE_BLOCK::NotifyMultirangeEvent(v11[10], 1, (__int64)v11);
-      v30 = (VIDMM_RECYCLE_BLOCK *)v11[10];
-      v31 = *((_QWORD *)v30 + 1) - 1LL;
-      v38 = *(_QWORD *)v30 == 0LL;
-      *((_QWORD *)v30 + 1) = v31;
-      if ( v38 && !v31 )
-        VIDMM_RECYCLE_BLOCK::`scalar deleting destructor'(v30);
-      *((_BYTE *)v11 + 232) = 1;
-      v11[28] = 0LL;
-      v32 = *(unsigned int *)(v29 + 1620);
-      if ( (unsigned int)v32 >= 4 )
-      {
-        ExFreeToLookasideListEx(*(PLOOKASIDE_LIST_EX *)(v29 + 1320), v11);
-      }
-      else
-      {
-        *(_QWORD *)(v29 + 8 * v32 + 1656) = v11;
-        ++*(_DWORD *)(v29 + 1620);
-      }
-      --*(_DWORD *)(v29 + 1688);
-      v33 = *(_QWORD *)(v1[4] + 8LL);
-      v34 = *(_DWORD *)(v33 + 1620);
-      if ( v34 )
-      {
-        v35 = (unsigned int)(v34 - 1);
-        v36 = *(VIDMM_RECYCLE_MULTIRANGE **)(v33 + 8 * v35 + 1656);
-        *(_QWORD *)(v33 + 8 * v35 + 1656) = 0LL;
-        --*(_DWORD *)(v33 + 1620);
-      }
-      else
-      {
-        v36 = (VIDMM_RECYCLE_MULTIRANGE *)ExAllocateFromLookasideListEx(*(PLOOKASIDE_LIST_EX *)(v33 + 1320));
-      }
-      if ( v36 )
-      {
-        ++*(_DWORD *)(v33 + 1688);
-        v37 = v80;
-        VIDMM_RECYCLE_MULTIRANGE::Init((__int64)v36, v80, (__int64)v1, v83, v81);
-      }
-      else
-      {
-        v37 = v80;
-      }
-      *((_QWORD *)v36 + 8) = v16;
-      *((_QWORD *)v36 + 9) = v17;
-      VIDMM_RECYCLE_MULTIRANGE::MarkAllRangesWithNewOwner(v36);
-      VIDMM_RECYCLE_HEAP::AddMultirangeToTree(v1[4], v15, v36);
-      if ( *v1 != 1LL )
-        return v36;
-      v38 = v37 == 0;
-      goto LABEL_140;
-    }
-    v11 = Entry;
-  }
-  else
-  {
-    if ( !v11 )
-      return (struct VIDMM_RECYCLE_MULTIRANGE *)Entry;
-    v5 = Entry;
-  }
-  v82 = *((_DWORD *)Entry + 22);
-  v40 = *(_QWORD *)(Entry[10] + 32LL);
-  WdLogSingleEntry2(4LL, v5, v82);
-  if ( v82 )
-  {
-    if ( v82 == 1 )
-    {
-      v41 = v40 + 56;
-    }
-    else
-    {
-      if ( v82 != 2 )
-      {
-        g_DxgMmsBugcheckExportIndex = 1;
-        WdLogSingleEntry5(0LL, 270LL, 52LL, 16LL, v82, 0LL);
-        goto LABEL_67;
-      }
-      v41 = v40 + 64;
-    }
-  }
-  else
-  {
-    v41 = v40 + 48;
-  }
-  RtlAvlRemoveNode(v41, v5);
-LABEL_67:
-  *((_DWORD *)v5 + 22) = 3;
-  v42 = *(_QWORD *)(Entry[10] + 32LL);
-  WdLogSingleEntry2(4LL, v11, v82);
-  if ( v82 )
-  {
-    if ( v82 == 1 )
-    {
-      v43 = v42 + 56;
-    }
-    else
-    {
-      if ( v82 != 2 )
-      {
-        g_DxgMmsBugcheckExportIndex = 1;
-        WdLogSingleEntry5(0LL, 270LL, 52LL, 16LL, v82, 0LL);
-        goto LABEL_75;
-      }
-      v43 = v42 + 64;
-    }
-  }
-  else
-  {
-    v43 = v42 + 48;
-  }
-  RtlAvlRemoveNode(v43, v11);
-LABEL_75:
-  v44 = v11[5];
-  v45 = v11[9];
-  *((_DWORD *)v11 + 22) = 3;
-  v46 = (void *)v5[12];
-  v47 = v5[4];
-  v48 = (_QWORD *)v5[8];
-  v49 = *(_QWORD *)(v1[4] + 8LL);
-  if ( v46 )
-  {
-    ExFreePoolWithTag(v46, 0);
-    v5[12] = 0LL;
-  }
-  VIDMM_RECYCLE_BLOCK::NotifyMultirangeEvent(v5[10], 1, (__int64)v5);
-  v50 = (VIDMM_RECYCLE_BLOCK *)v5[10];
-  v51 = *((_QWORD *)v50 + 1) - 1LL;
-  v38 = *(_QWORD *)v50 == 0LL;
-  *((_QWORD *)v50 + 1) = v51;
-  if ( v38 && !v51 )
-    VIDMM_RECYCLE_BLOCK::`scalar deleting destructor'(v50);
-  *((_BYTE *)v5 + 232) = 1;
-  v5[28] = 0LL;
-  v52 = *(unsigned int *)(v49 + 1620);
-  if ( (unsigned int)v52 >= 4 )
-  {
-    ExFreeToLookasideListEx(*(PLOOKASIDE_LIST_EX *)(v49 + 1320), v5);
-  }
-  else
-  {
-    *(_QWORD *)(v49 + 8 * v52 + 1656) = v5;
-    ++*(_DWORD *)(v49 + 1620);
-  }
-  --*(_DWORD *)(v49 + 1688);
-  v53 = (void *)v11[12];
-  v54 = *(_QWORD *)(v1[4] + 8LL);
-  if ( v53 )
-  {
-    ExFreePoolWithTag(v53, 0);
-    v11[12] = 0LL;
-  }
-  VIDMM_RECYCLE_BLOCK::NotifyMultirangeEvent(v11[10], 1, (__int64)v11);
-  v55 = (VIDMM_RECYCLE_BLOCK *)v11[10];
-  v56 = *((_QWORD *)v55 + 1) - 1LL;
-  v38 = *(_QWORD *)v55 == 0LL;
-  *((_QWORD *)v55 + 1) = v56;
-  if ( v38 && !v56 )
-    VIDMM_RECYCLE_BLOCK::`scalar deleting destructor'(v55);
-  *((_BYTE *)v11 + 232) = 1;
-  v11[28] = 0LL;
-  v57 = *(unsigned int *)(v54 + 1620);
-  if ( (unsigned int)v57 >= 4 )
-  {
-    ExFreeToLookasideListEx(*(PLOOKASIDE_LIST_EX *)(v54 + 1320), v11);
-  }
-  else
-  {
-    *(_QWORD *)(v54 + 8 * v57 + 1656) = v11;
-    ++*(_DWORD *)(v54 + 1620);
-  }
-  --*(_DWORD *)(v54 + 1688);
-  v58 = *(_QWORD *)(v1[4] + 8LL);
-  v59 = *(_DWORD *)(v58 + 1620);
-  if ( v59 )
-  {
-    v60 = (unsigned int)(v59 - 1);
-    v36 = *(VIDMM_RECYCLE_MULTIRANGE **)(v58 + 8 * v60 + 1656);
-    *(_QWORD *)(v58 + 8 * v60 + 1656) = 0LL;
-    --*(_DWORD *)(v58 + 1620);
-  }
-  else
-  {
-    v36 = (VIDMM_RECYCLE_MULTIRANGE *)ExAllocateFromLookasideListEx(*(PLOOKASIDE_LIST_EX *)(v58 + 1320));
-  }
-  if ( v36 )
-  {
-    ++*(_DWORD *)(v58 + 1688);
-    WdLogSingleEntry1(4LL, v36);
-    *((_QWORD *)v36 + 4) = v47;
-    *((_QWORD *)v36 + 6) = v47;
-    v61 = v80;
-    *((_DWORD *)v36 + 54) = v80;
-    *((_DWORD *)v36 + 6) = 1;
-    *((_QWORD *)v36 + 8) = 0LL;
-    *((_QWORD *)v36 + 9) = 0LL;
-    *((_QWORD *)v36 + 10) = v1;
-    *((_QWORD *)v36 + 5) = v44;
-    *((_WORD *)v36 + 64) = 0;
-    ++v1[1];
-    LeastSignificantBit = RtlFindLeastSignificantBit(*((_QWORD *)v36 + 4));
-    if ( LeastSignificantBit < 0 )
-      v63 = 0LL;
-    else
-      v63 = 1LL << LeastSignificantBit;
-    *((_QWORD *)v36 + 7) = v63;
-    v64 = *((_QWORD *)v36 + 10);
-    *((_QWORD *)v36 + 11) = 3LL;
-    *((_QWORD *)v36 + 12) = 0LL;
-    *((_QWORD *)v36 + 13) = 0LL;
-    *((_QWORD *)v36 + 14) = 0LL;
-    *((_QWORD *)v36 + 15) = 0LL;
-    *((_BYTE *)v36 + 130) = 0;
-    *((_QWORD *)v36 + 17) = 0LL;
-    *((_QWORD *)v36 + 18) = 0LL;
-    *((_QWORD *)v36 + 24) = 0LL;
-    *((_WORD *)v36 + 76) = 0;
-    *((_QWORD *)v36 + 20) = 0LL;
-    *((_QWORD *)v36 + 21) = 0LL;
-    *((_QWORD *)v36 + 23) = 0LL;
-    *((_QWORD *)v36 + 22) = 0LL;
-    *((_QWORD *)v36 + 25) = 0LL;
-    *((_QWORD *)v36 + 26) = 0LL;
-    *((_BYTE *)v36 + 232) = 0;
-    *((_QWORD *)v36 + 28) = 0LL;
-    v65 = *(_QWORD *)(v64 + 136);
-    if ( v65 )
-    {
-      v66 = *(_QWORD *)(v65 + 24) + 144LL * *(_QWORD *)(v65 + 32);
-      *(_DWORD *)v66 = 0;
-      *(_QWORD *)(v66 + 8) = v36;
-      RtlCaptureStackBackTrace(1u, 0x10u, (PVOID *)(v66 + 16), 0LL);
-      ++*(_QWORD *)(*(_QWORD *)(v64 + 136) + 32LL);
-      v67 = *(_QWORD *)(v64 + 136);
-      if ( *(_QWORD *)(v67 + 32) == *(_QWORD *)(v67 + 48) )
-      {
-        *(_QWORD *)(v67 + 32) = 0LL;
-        *(_BYTE *)(*(_QWORD *)(v64 + 136) + 40LL) = 1;
-      }
-    }
-  }
-  else
-  {
-    v61 = v80;
-  }
-  *((_QWORD *)v36 + 8) = v48;
-  *((_QWORD *)v36 + 9) = v45;
-  while ( 1 )
-  {
-    v68 = *((_DWORD *)v36 + 54);
-    if ( v68 )
-    {
-      v69 = v68 - 1;
-      if ( v69 )
-      {
-        if ( v69 == 1 )
+        ++*(_DWORD *)(v24 + 28);
+        if ( ExQueryDepthSList((PSLIST_HEADER)v24) < *(_WORD *)(v24 + 16) )
         {
-          v48[19] = v36;
+          ExpInterlockedPushEntrySList((PSLIST_HEADER)v24, v5);
         }
         else
         {
-          g_DxgMmsBugcheckExportIndex = 1;
-          WdLogSingleEntry5(0LL, 270LL, 52LL, 10LL, 0LL, 0LL);
+          ++*(_DWORD *)(v24 + 32);
+          (*(void (__fastcall **)(PSLIST_ENTRY, __int64))(v24 + 56))(v5, v24);
         }
       }
       else
       {
-        v48[18] = v36;
+        *(_QWORD *)(v20 + 8 * v23 + 1648) = v5;
+        ++*(_DWORD *)(v20 + 1612);
       }
+      --*(_DWORD *)(v20 + 1680);
+      v25 = ListEntry[6].Next;
+      v26 = *((_QWORD *)&Next[2].Next->Next + 1);
+      if ( v25 )
+      {
+        ExFreePoolWithTag(v25, 0);
+        ListEntry[6].Next = 0LL;
+      }
+      VIDMM_RECYCLE_BLOCK::NotifyMultirangeEvent((__int64)ListEntry[5].Next, 1, (__int64)ListEntry);
+      v27 = ListEntry[5].Next;
+      v28 = *((_QWORD *)&v27->Next + 1) - 1LL;
+      v29 = v27->Next == 0LL;
+      *((_QWORD *)&v27->Next + 1) = v28;
+      if ( v29 && !v28 )
+        VIDMM_RECYCLE_BLOCK::`scalar deleting destructor'((VIDMM_RECYCLE_BLOCK *)v27);
+      *((_BYTE *)&ListEntry[14].Next + 8) = 1;
+      ListEntry[14].Next = 0LL;
+      v30 = *(unsigned int *)(v26 + 1612);
+      v31 = *(_QWORD *)(v26 + 1320);
+      if ( (unsigned int)v30 >= 4 )
+      {
+        ++*(_DWORD *)(v31 + 28);
+        if ( ExQueryDepthSList((PSLIST_HEADER)v31) < *(_WORD *)(v31 + 16) )
+        {
+          ExpInterlockedPushEntrySList((PSLIST_HEADER)v31, ListEntry);
+        }
+        else
+        {
+          ++*(_DWORD *)(v31 + 32);
+          (*(void (__fastcall **)(PSLIST_ENTRY, __int64))(v31 + 56))(ListEntry, v31);
+        }
+      }
+      else
+      {
+        *(_QWORD *)(v26 + 8 * v30 + 1648) = ListEntry;
+        ++*(_DWORD *)(v26 + 1612);
+      }
+      --*(_DWORD *)(v26 + 1680);
+      v32 = v13[6].Next;
+      v33 = *((_QWORD *)&Next[2].Next->Next + 1);
+      if ( v32 )
+      {
+        ExFreePoolWithTag(v32, 0);
+        v13[6].Next = 0LL;
+      }
+      VIDMM_RECYCLE_BLOCK::NotifyMultirangeEvent((__int64)v13[5].Next, 1, (__int64)v13);
+      v34 = v13[5].Next;
+      v35 = *((_QWORD *)&v34->Next + 1) - 1LL;
+      v29 = v34->Next == 0LL;
+      *((_QWORD *)&v34->Next + 1) = v35;
+      if ( v29 && !v35 )
+        VIDMM_RECYCLE_BLOCK::`scalar deleting destructor'((VIDMM_RECYCLE_BLOCK *)v34);
+      *((_BYTE *)&v13[14].Next + 8) = 1;
+      v13[14].Next = 0LL;
+      v36 = *(unsigned int *)(v33 + 1612);
+      v37 = *(_QWORD *)(v33 + 1320);
+      if ( (unsigned int)v36 >= 4 )
+      {
+        ++*(_DWORD *)(v37 + 28);
+        if ( ExQueryDepthSList((PSLIST_HEADER)v37) < *(_WORD *)(v37 + 16) )
+        {
+          ExpInterlockedPushEntrySList((PSLIST_HEADER)v37, v13);
+        }
+        else
+        {
+          ++*(_DWORD *)(v37 + 32);
+          (*(void (__fastcall **)(PSLIST_ENTRY, __int64))(v37 + 56))(v13, v37);
+        }
+      }
+      else
+      {
+        *(_QWORD *)(v33 + 8 * v36 + 1648) = v13;
+        ++*(_DWORD *)(v33 + 1612);
+      }
+      --*(_DWORD *)(v33 + 1680);
+      v38 = *((_QWORD *)&Next[2].Next->Next + 1);
+      v39 = *(_DWORD *)(v38 + 1612);
+      v40 = *(_QWORD *)(v38 + 1320);
+      if ( v39 )
+      {
+        v41 = (unsigned int)(v39 - 1);
+        v42 = *(PSLIST_ENTRY *)(v38 + 8 * v41 + 1648);
+        *(_QWORD *)(v38 + 8 * v41 + 1648) = 0LL;
+        --*(_DWORD *)(v38 + 1612);
+      }
+      else
+      {
+        ++*(_DWORD *)(v40 + 20);
+        v42 = ExpInterlockedPopEntrySList((PSLIST_HEADER)v40);
+        if ( !v42 )
+        {
+          ++*(_DWORD *)(v40 + 24);
+          v42 = (PSLIST_ENTRY)(*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(v40 + 48))(
+                                *(unsigned int *)(v40 + 36),
+                                *(unsigned int *)(v40 + 44),
+                                *(unsigned int *)(v40 + 40),
+                                v40);
+        }
+      }
+      v43 = v101;
+      if ( v42 )
+      {
+        ++*(_DWORD *)(v38 + 1680);
+        VIDMM_RECYCLE_MULTIRANGE::Init(v42, v101, Next, v104, v102);
+      }
+      *((_QWORD *)&v42[4].Next + 1) = v106;
+      v42[4].Next = v18;
+      VIDMM_RECYCLE_MULTIRANGE::MarkAllRangesWithNewOwner((VIDMM_RECYCLE_MULTIRANGE *)v42);
+      VIDMM_RECYCLE_HEAP::AddMultirangeToTree(&Next[2].Next->Next, v17, (__int64)v42);
+      goto LABEL_149;
     }
-    else
-    {
-      v48[17] = v36;
-    }
-    if ( v48 == *((_QWORD **)v36 + 9) )
-      break;
-    v70 = v48[15];
-    if ( v70 == v48[9] + 72LL )
-      v48 = 0LL;
-    else
-      v48 = (_QWORD *)(v70 - 120);
+    v13 = ListEntry;
   }
-  v71 = (_QWORD *)v1[4];
-  WdLogSingleEntry2(4LL, v36, v82);
-  v73 = *((_QWORD *)v36 + 7);
-  v78[0] = *((_QWORD *)v36 + 5) - *((_QWORD *)v36 + 4);
-  v78[1] = v73;
-  v79 = 0;
-  if ( v82 )
+  else
   {
-    if ( v82 == 1 )
+    if ( !v13 )
+      return (struct VIDMM_RECYCLE_MULTIRANGE *)ListEntry;
+    v5 = ListEntry;
+  }
+  v45 = *((int *)&ListEntry[5].Next + 2);
+  v103 = *((_DWORD *)&ListEntry[5].Next + 2);
+  v46 = ListEntry[5].Next[2].Next;
+  v47 = WdLogNewEntry5_WdEvent(v15, v14);
+  *(_QWORD *)(v47 + 24) = v5;
+  *(_QWORD *)(v47 + 32) = v45;
+  WdLogEvent5_WdEvent(v47);
+  if ( (_DWORD)v45 )
+  {
+    if ( (_DWORD)v45 == 1 )
     {
-      v74 = v71 + 7;
-      LOBYTE(v72) = 0;
-      v75 = (struct _RTL_BALANCED_NODE *)v71[7];
-      if ( v75 )
-      {
-        while ( 1 )
-        {
-          while ( (int)VidMmCompareForInsertAlignedRange(v78, v75) >= 0 )
-          {
-            if ( !v75->Children[1] )
-              goto LABEL_121;
-            v75 = v75->Children[1];
-          }
-          if ( !v75->Children[0] )
-            break;
-          v75 = v75->Children[0];
-        }
-LABEL_136:
-        LOBYTE(v72) = 0;
-      }
+      v52 = (struct _SLIST_ENTRY *)((char *)v46 + 56);
     }
     else
     {
-      if ( v82 != 2 )
+      if ( (_DWORD)v45 != 2 )
       {
-        g_DxgMmsBugcheckExportIndex = 1;
-        WdLogSingleEntry5(0LL, 270LL, 52LL, 15LL, v82, 0LL);
-        goto LABEL_138;
+        v49 = (_QWORD *)WdLogNewEntry5_WdCriticalError((unsigned int)(v45 - 1), v48);
+        v49[3] = 270LL;
+        v49[4] = 52LL;
+        v49[5] = 16LL;
+        v49[6] = v45;
+        v49[7] = 0LL;
+        WdLogEvent5_WdCriticalError(v49);
+        goto LABEL_72;
       }
-      v74 = v71 + 8;
-      LOBYTE(v72) = 0;
-      v75 = (struct _RTL_BALANCED_NODE *)v71[8];
-      if ( v75 )
+      v52 = v46 + 4;
+    }
+  }
+  else
+  {
+    v52 = v46 + 3;
+  }
+  RtlAvlRemoveNode(v52, v5);
+LABEL_72:
+  *((_DWORD *)&v5[5].Next + 2) = 3;
+  v53 = ListEntry[5].Next[2].Next;
+  v54 = WdLogNewEntry5_WdEvent(v51, v50);
+  *(_QWORD *)(v54 + 24) = v13;
+  *(_QWORD *)(v54 + 32) = v45;
+  WdLogEvent5_WdEvent(v54);
+  if ( (_DWORD)v45 )
+  {
+    if ( (_DWORD)v45 == 1 )
+    {
+      v57 = (struct _SLIST_ENTRY *)((char *)v53 + 56);
+    }
+    else
+    {
+      if ( (_DWORD)v45 != 2 )
       {
-        while ( 1 )
-        {
-          if ( (int)VidMmCompareForInsertAlignedRange(v78, v75) < 0 )
-          {
-            v76 = v75->Children[0];
-            if ( !v75->Children[0] )
-              goto LABEL_136;
-          }
-          else
-          {
-            v76 = v75->Children[1];
-            if ( !v76 )
-              goto LABEL_121;
-          }
-          v75 = v76;
-        }
+        v56 = (_QWORD *)WdLogNewEntry5_WdCriticalError((unsigned int)(v45 - 1), v55);
+        v56[3] = 270LL;
+        v56[4] = 52LL;
+        v56[5] = 16LL;
+        v56[6] = v45;
+        v56[7] = 0LL;
+        WdLogEvent5_WdCriticalError(v56);
+        goto LABEL_80;
+      }
+      v57 = v53 + 4;
+    }
+  }
+  else
+  {
+    v57 = v53 + 3;
+  }
+  RtlAvlRemoveNode(v57, v13);
+LABEL_80:
+  v58 = *((_QWORD *)&v13[4].Next + 1);
+  v59 = *((_QWORD *)&v13[2].Next + 1);
+  *((_DWORD *)&v13[5].Next + 2) = 3;
+  v60 = v5[6].Next;
+  v61 = v5[2].Next;
+  v62 = v5[4].Next;
+  v105 = v58;
+  v63 = *((_QWORD *)&Next[2].Next->Next + 1);
+  if ( v60 )
+  {
+    ExFreePoolWithTag(v60, 0);
+    v5[6].Next = 0LL;
+  }
+  VIDMM_RECYCLE_BLOCK::NotifyMultirangeEvent((__int64)v5[5].Next, 1, (__int64)v5);
+  v64 = v5[5].Next;
+  v65 = *((_QWORD *)&v64->Next + 1) - 1LL;
+  v29 = v64->Next == 0LL;
+  *((_QWORD *)&v64->Next + 1) = v65;
+  if ( v29 && !v65 )
+    VIDMM_RECYCLE_BLOCK::`scalar deleting destructor'((VIDMM_RECYCLE_BLOCK *)v64);
+  *((_BYTE *)&v5[14].Next + 8) = 1;
+  v5[14].Next = 0LL;
+  v66 = *(unsigned int *)(v63 + 1612);
+  v67 = *(_QWORD *)(v63 + 1320);
+  if ( (unsigned int)v66 >= 4 )
+  {
+    ++*(_DWORD *)(v67 + 28);
+    if ( ExQueryDepthSList((PSLIST_HEADER)v67) < *(_WORD *)(v67 + 16) )
+    {
+      ExpInterlockedPushEntrySList((PSLIST_HEADER)v67, v5);
+    }
+    else
+    {
+      ++*(_DWORD *)(v67 + 32);
+      (*(void (__fastcall **)(PSLIST_ENTRY, __int64))(v67 + 56))(v5, v67);
+    }
+  }
+  else
+  {
+    *(_QWORD *)(v63 + 8 * v66 + 1648) = v5;
+    ++*(_DWORD *)(v63 + 1612);
+  }
+  --*(_DWORD *)(v63 + 1680);
+  v68 = v13[6].Next;
+  v69 = *((_QWORD *)&Next[2].Next->Next + 1);
+  if ( v68 )
+  {
+    ExFreePoolWithTag(v68, 0);
+    v13[6].Next = 0LL;
+  }
+  VIDMM_RECYCLE_BLOCK::NotifyMultirangeEvent((__int64)v13[5].Next, 1, (__int64)v13);
+  v71 = v13[5].Next;
+  v72 = *((_QWORD *)&v71->Next + 1) - 1LL;
+  v29 = v71->Next == 0LL;
+  *((_QWORD *)&v71->Next + 1) = v72;
+  if ( v29 && !v72 )
+    VIDMM_RECYCLE_BLOCK::`scalar deleting destructor'((VIDMM_RECYCLE_BLOCK *)v71);
+  *((_BYTE *)&v13[14].Next + 8) = 1;
+  v13[14].Next = 0LL;
+  v73 = *(unsigned int *)(v69 + 1612);
+  v74 = *(_QWORD *)(v69 + 1320);
+  if ( (unsigned int)v73 >= 4 )
+  {
+    ++*(_DWORD *)(v74 + 28);
+    if ( ExQueryDepthSList((PSLIST_HEADER)v74) < *(_WORD *)(v74 + 16) )
+    {
+      ExpInterlockedPushEntrySList((PSLIST_HEADER)v74, v13);
+    }
+    else
+    {
+      ++*(_DWORD *)(v74 + 32);
+      (*(void (__fastcall **)(PSLIST_ENTRY, __int64))(v74 + 56))(v13, v74);
+    }
+  }
+  else
+  {
+    *(_QWORD *)(v69 + 8 * v73 + 1648) = v13;
+    ++*(_DWORD *)(v69 + 1612);
+  }
+  --*(_DWORD *)(v69 + 1680);
+  v75 = *((_QWORD *)&Next[2].Next->Next + 1);
+  v76 = *(_DWORD *)(v75 + 1612);
+  v77 = *(_QWORD *)(v75 + 1320);
+  if ( v76 )
+  {
+    v78 = (unsigned int)(v76 - 1);
+    v42 = *(PSLIST_ENTRY *)(v75 + 8 * v78 + 1648);
+    *(_QWORD *)(v75 + 8 * v78 + 1648) = 0LL;
+    --*(_DWORD *)(v75 + 1612);
+  }
+  else
+  {
+    ++*(_DWORD *)(v77 + 20);
+    v42 = ExpInterlockedPopEntrySList((PSLIST_HEADER)v77);
+    if ( !v42 )
+    {
+      ++*(_DWORD *)(v77 + 24);
+      v42 = (PSLIST_ENTRY)(*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(v77 + 48))(
+                            *(unsigned int *)(v77 + 36),
+                            *(unsigned int *)(v77 + 44),
+                            *(unsigned int *)(v77 + 40),
+                            v77);
+    }
+  }
+  if ( v42 )
+  {
+    ++*(_DWORD *)(v75 + 1680);
+    v79 = WdLogNewEntry5_WdEvent(v71, v70);
+    *(_QWORD *)(v79 + 24) = v42;
+    WdLogEvent5_WdEvent(v79);
+    v43 = v101;
+    v42[2].Next = v61;
+    v42[4].Next = 0LL;
+    *((_QWORD *)&v42[4].Next + 1) = 0LL;
+    LOWORD(v42[8].Next) = 0;
+    *((_DWORD *)&v42[1].Next + 2) = 1;
+    v42[5].Next = Next;
+    *((_QWORD *)&v42[2].Next + 1) = v59;
+    v42[3].Next = v61;
+    *((_DWORD *)&v42[13].Next + 2) = v101;
+    ++*((_QWORD *)&Next->Next + 1);
+    LeastSignificantBit = RtlFindLeastSignificantBit((ULONGLONG)v42[2].Next);
+    if ( LeastSignificantBit < 0 )
+      v81 = 0LL;
+    else
+      v81 = 1LL << LeastSignificantBit;
+    *((_QWORD *)&v42[3].Next + 1) = v81;
+    v82 = v42[5].Next;
+    *((_QWORD *)&v42[5].Next + 1) = 3LL;
+    v42[6].Next = 0LL;
+    *((_QWORD *)&v42[6].Next + 1) = 0LL;
+    v42[7].Next = 0LL;
+    *((_QWORD *)&v42[7].Next + 1) = 0LL;
+    BYTE2(v42[8].Next) = 0;
+    *((_QWORD *)&v42[8].Next + 1) = 0LL;
+    v42[9].Next = 0LL;
+    v42[12].Next = 0LL;
+    *((_WORD *)&v42[9].Next + 4) = 0;
+    v42[10].Next = 0LL;
+    *((_QWORD *)&v42[10].Next + 1) = 0LL;
+    *((_QWORD *)&v42[11].Next + 1) = 0LL;
+    v42[11].Next = 0LL;
+    *((_QWORD *)&v42[12].Next + 1) = 0LL;
+    v42[13].Next = 0LL;
+    *((_BYTE *)&v42[14].Next + 8) = 0;
+    v42[14].Next = 0LL;
+    v83 = *((_QWORD *)&v82[8].Next + 1);
+    if ( v83 )
+    {
+      v84 = *(_QWORD *)(v83 + 24) + 144LL * *(_QWORD *)(v83 + 32);
+      *(_DWORD *)v84 = 0;
+      *(_QWORD *)(v84 + 8) = v42;
+      RtlCaptureStackBackTrace(1u, 0x10u, (PVOID *)(v84 + 16), 0LL);
+      ++*(_QWORD *)(*((_QWORD *)&v82[8].Next + 1) + 32LL);
+      v85 = *((_QWORD *)&v82[8].Next + 1);
+      if ( *(_QWORD *)(v85 + 32) == *(_QWORD *)(v85 + 48) )
+      {
+        *(_QWORD *)(v85 + 32) = 0LL;
+        *(_BYTE *)(*((_QWORD *)&v82[8].Next + 1) + 40LL) = 1;
       }
     }
   }
   else
   {
-    v74 = v71 + 6;
-    LOBYTE(v72) = 0;
-    v75 = (struct _RTL_BALANCED_NODE *)v71[6];
-    if ( v75 )
-    {
-      while ( 1 )
-      {
-        while ( (int)VidMmCompareForInsertAlignedRange(v78, v75) < 0 )
-        {
-          if ( !v75->Children[0] )
-            goto LABEL_136;
-          v75 = v75->Children[0];
-        }
-        if ( !v75->Children[1] )
-          break;
-        v75 = v75->Children[1];
-      }
-LABEL_121:
-      LOBYTE(v72) = 1;
-    }
+    v43 = v101;
   }
-  RtlAvlInsertNodeEx(v74, v75, v72, v36);
-LABEL_138:
-  *((_DWORD *)v36 + 22) = v82;
-  if ( *v1 == 1LL )
+  *((_QWORD *)&v42[4].Next + 1) = v105;
+  v42[4].Next = v62;
+  while ( 1 )
   {
-    v38 = v61 == 0;
-LABEL_140:
-    if ( v38 )
+    v86 = *((unsigned int *)&v42[13].Next + 2);
+    if ( (_DWORD)v86 )
     {
-      v77 = (struct VIDMM_RECYCLE_RANGE *)*((_QWORD *)v36 + 8);
-      if ( !*((_DWORD *)v77 + 16) )
+      v86 = (unsigned int)(v86 - 1);
+      if ( (_DWORD)v86 )
       {
-        VIDMM_RECYCLE_HEAP::RemoveMultirangeFromTree(v1[4], 2LL, v36);
-        VIDMM_RECYCLE_HEAP_MGR::DestroyMultirange(*(VIDMM_RECYCLE_HEAP_MGR **)(v1[4] + 8LL), v36);
-        VIDMM_RECYCLE_HEAP_MGR::DestroyRange(*(VIDMM_RECYCLE_HEAP_MGR **)(v1[4] + 8LL), v77);
+        if ( (_DWORD)v86 == 1 )
+        {
+          *((_QWORD *)&v62[9].Next + 1) = v42;
+        }
+        else
+        {
+          v87 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v86, v70);
+          v87[3] = 270LL;
+          v87[4] = 52LL;
+          v87[5] = 10LL;
+          v87[6] = 0LL;
+          v87[7] = 0LL;
+          WdLogEvent5_WdCriticalError(v87);
+        }
+      }
+      else
+      {
+        v62[9].Next = v42;
       }
     }
+    else
+    {
+      *((_QWORD *)&v62[8].Next + 1) = v42;
+    }
+    if ( v62 == *(&v42[4].Next + 1) )
+      break;
+    v70 = *((_QWORD *)&v62[7].Next + 1);
+    v88 = *((_QWORD *)&v62[4].Next + 1);
+    v62 = 0LL;
+    if ( v70 != v88 + 72 )
+      v62 = (struct _SLIST_ENTRY *)(v70 - 120);
   }
-  return v36;
+  v89 = Next[2].Next;
+  v90 = WdLogNewEntry5_WdEvent(v86, v70);
+  *(_QWORD *)(v90 + 24) = v42;
+  *(_QWORD *)(v90 + 32) = v103;
+  WdLogEvent5_WdEvent(v90);
+  v93 = *((_QWORD *)&v42[3].Next + 1);
+  v99[0] = *((_QWORD *)&v42[2].Next + 1) - (unsigned __int64)v42[2].Next;
+  v99[1] = v93;
+  v100 = 0;
+  switch ( v103 )
+  {
+    case 0:
+      v95 = v89 + 3;
+      LOBYTE(v92) = 0;
+      v96 = (struct _RTL_BALANCED_NODE *)v89[3].Next;
+      if ( v96 )
+      {
+        while ( 1 )
+        {
+          while ( (int)VidMmCompareForInsertAlignedRange(v99, v96) < 0 )
+          {
+            if ( !v96->Children[0] )
+              goto LABEL_146;
+            v96 = v96->Children[0];
+          }
+          if ( !v96->Children[1] )
+            break;
+          v96 = v96->Children[1];
+        }
+LABEL_131:
+        LOBYTE(v92) = 1;
+      }
+      goto LABEL_147;
+    case 1:
+      v95 = (struct _SLIST_ENTRY *)((char *)v89 + 56);
+      LOBYTE(v92) = 0;
+      v96 = (struct _RTL_BALANCED_NODE *)*((_QWORD *)&v89[3].Next + 1);
+      if ( v96 )
+      {
+        while ( 1 )
+        {
+          while ( (int)VidMmCompareForInsertAlignedRange(v99, v96) >= 0 )
+          {
+            if ( !v96->Children[1] )
+              goto LABEL_131;
+            v96 = v96->Children[1];
+          }
+          if ( !v96->Children[0] )
+            break;
+          v96 = v96->Children[0];
+        }
+LABEL_146:
+        LOBYTE(v92) = 0;
+      }
+      goto LABEL_147;
+    case 2:
+      v95 = v89 + 4;
+      LOBYTE(v92) = 0;
+      v96 = (struct _RTL_BALANCED_NODE *)v89[4].Next;
+      if ( v96 )
+      {
+        while ( 1 )
+        {
+          if ( (int)VidMmCompareForInsertAlignedRange(v99, v96) < 0 )
+          {
+            v97 = v96->Children[0];
+            if ( !v96->Children[0] )
+              goto LABEL_146;
+          }
+          else
+          {
+            v97 = v96->Children[1];
+            if ( !v97 )
+              goto LABEL_131;
+          }
+          v96 = v97;
+        }
+      }
+LABEL_147:
+      RtlAvlInsertNodeEx(v95, v96, v92, v42);
+      goto LABEL_148;
+  }
+  v94 = (_QWORD *)WdLogNewEntry5_WdCriticalError((unsigned int)(v103 - 1), v91);
+  v94[3] = 270LL;
+  v94[4] = 52LL;
+  v94[5] = 15LL;
+  v94[6] = v103;
+  v94[7] = 0LL;
+  WdLogEvent5_WdCriticalError(v94);
+LABEL_148:
+  *((_DWORD *)&v42[5].Next + 2) = v103;
+LABEL_149:
+  if ( Next->Next == (struct _SLIST_ENTRY *)1 && !v43 )
+  {
+    v98 = (struct VIDMM_RECYCLE_RANGE *)v42[4].Next;
+    if ( !*((_DWORD *)v98 + 16) )
+    {
+      VIDMM_RECYCLE_HEAP::RemoveMultirangeFromTree((__int64)Next[2].Next, 2LL, (__int64)v42);
+      VIDMM_RECYCLE_HEAP_MGR::DestroyMultirange(
+        *((VIDMM_RECYCLE_HEAP_MGR **)&Next[2].Next->Next + 1),
+        (struct VIDMM_RECYCLE_MULTIRANGE *)v42);
+      VIDMM_RECYCLE_HEAP_MGR::DestroyRange(*((VIDMM_RECYCLE_HEAP_MGR **)&Next[2].Next->Next + 1), v98);
+    }
+  }
+  return (struct VIDMM_RECYCLE_MULTIRANGE *)v42;
 }

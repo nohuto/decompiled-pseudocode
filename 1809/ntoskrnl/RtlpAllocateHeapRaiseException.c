@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpAllocateHeapRaiseException @ 0x1402F0604
+ * XREFs of RtlpAllocateHeapRaiseException @ 0x1402F0704
  * Callers:
- *     RtlpAllocateHeapInternal @ 0x14011EF94 (RtlpAllocateHeapInternal.c)
+ *     RtlpAllocateHeapInternal @ 0x14011EFB4 (RtlpAllocateHeapInternal.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlRaiseException @ 0x1402ED740 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlRaiseException @ 0x1402ED840 (RtlRaiseException.c)
  */
 
 void __fastcall RtlpAllocateHeapRaiseException(unsigned __int64 a1)

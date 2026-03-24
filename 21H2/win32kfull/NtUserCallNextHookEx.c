@@ -1,18 +1,18 @@
 /*
- * XREFs of NtUserCallNextHookEx @ 0x1C01406C0
+ * XREFs of NtUserCallNextHookEx @ 0x1C0151370
  * Callers:
  *     <none>
  * Callees:
- *     xxxCallNextHookEx @ 0x1C00EA54C (xxxCallNextHookEx.c)
- *     ?NtUserfnHkINLPMSG@@YA_JHK_KPEAUtagMSG@@@Z @ 0x1C014078C (-NtUserfnHkINLPMSG@@YA_JHK_KPEAUtagMSG@@@Z.c)
- *     ?NtUserfnHkINLPKBDLLHOOKSTRUCT@@YA_JK_KPEAUtagKBDLLHOOKSTRUCT@@@Z @ 0x1C016C9A0 (-NtUserfnHkINLPKBDLLHOOKSTRUCT@@YA_JK_KPEAUtagKBDLLHOOKSTRUCT@@@Z.c)
- *     ?NtUserfnHkINLPCBTACTIVATESTRUCT@@YA_JK_KPEAUtagCBTACTIVATESTRUCT@@@Z @ 0x1C01F0A50 (-NtUserfnHkINLPCBTACTIVATESTRUCT@@YA_JK_KPEAUtagCBTACTIVATESTRUCT@@@Z.c)
- *     ?NtUserfnHkINLPCBTCREATESTRUCT@@YA_JI_KPEAUtagCBT_CREATEWNDW@@H@Z @ 0x1C01F0AA8 (-NtUserfnHkINLPCBTCREATESTRUCT@@YA_JI_KPEAUtagCBT_CREATEWNDW@@H@Z.c)
- *     ?NtUserfnHkINLPDEBUGHOOKSTRUCT@@YA_JK_KPEAUtagDEBUGHOOKINFO@@@Z @ 0x1C01F0D18 (-NtUserfnHkINLPDEBUGHOOKSTRUCT@@YA_JK_KPEAUtagDEBUGHOOKINFO@@@Z.c)
- *     ?NtUserfnHkINLPMOUSEHOOKSTRUCTEX@@YA_JK_KPEAUtagMOUSEHOOKSTRUCTEX@@@Z @ 0x1C01F0DE8 (-NtUserfnHkINLPMOUSEHOOKSTRUCTEX@@YA_JK_KPEAUtagMOUSEHOOKSTRUCTEX@@@Z.c)
- *     ?NtUserfnHkINLPMSLLHOOKSTRUCT@@YA_JK_KPEAUtagMSLLHOOKSTRUCT@@@Z @ 0x1C01F0E84 (-NtUserfnHkINLPMSLLHOOKSTRUCT@@YA_JK_KPEAUtagMSLLHOOKSTRUCT@@@Z.c)
- *     ?NtUserfnHkINLPRECT@@YA_JK_KPEAUtagRECT@@@Z @ 0x1C01F0F0C (-NtUserfnHkINLPRECT@@YA_JK_KPEAUtagRECT@@@Z.c)
- *     ?NtUserfnHkOPTINLPEVENTMSG@@YA_JK_KPEAUtagEVENTMSG@@@Z @ 0x1C01F0F84 (-NtUserfnHkOPTINLPEVENTMSG@@YA_JK_KPEAUtagEVENTMSG@@@Z.c)
+ *     xxxCallNextHookEx @ 0x1C0020314 (xxxCallNextHookEx.c)
+ *     ?NtUserfnHkINLPMSG@@YA_JHK_KPEAUtagMSG@@@Z @ 0x1C015143C (-NtUserfnHkINLPMSG@@YA_JHK_KPEAUtagMSG@@@Z.c)
+ *     ?NtUserfnHkINLPCBTACTIVATESTRUCT@@YA_JK_KPEAUtagCBTACTIVATESTRUCT@@@Z @ 0x1C01F6270 (-NtUserfnHkINLPCBTACTIVATESTRUCT@@YA_JK_KPEAUtagCBTACTIVATESTRUCT@@@Z.c)
+ *     ?NtUserfnHkINLPCBTCREATESTRUCT@@YA_JI_KPEAUtagCBT_CREATEWNDW@@H@Z @ 0x1C01F62C8 (-NtUserfnHkINLPCBTCREATESTRUCT@@YA_JI_KPEAUtagCBT_CREATEWNDW@@H@Z.c)
+ *     ?NtUserfnHkINLPDEBUGHOOKSTRUCT@@YA_JK_KPEAUtagDEBUGHOOKINFO@@@Z @ 0x1C01F6560 (-NtUserfnHkINLPDEBUGHOOKSTRUCT@@YA_JK_KPEAUtagDEBUGHOOKINFO@@@Z.c)
+ *     ?NtUserfnHkINLPKBDLLHOOKSTRUCT@@YA_JK_KPEAUtagKBDLLHOOKSTRUCT@@@Z @ 0x1C01F6630 (-NtUserfnHkINLPKBDLLHOOKSTRUCT@@YA_JK_KPEAUtagKBDLLHOOKSTRUCT@@@Z.c)
+ *     ?NtUserfnHkINLPMOUSEHOOKSTRUCTEX@@YA_JK_KPEAUtagMOUSEHOOKSTRUCTEX@@@Z @ 0x1C01F66BC (-NtUserfnHkINLPMOUSEHOOKSTRUCTEX@@YA_JK_KPEAUtagMOUSEHOOKSTRUCTEX@@@Z.c)
+ *     ?NtUserfnHkINLPMSLLHOOKSTRUCT@@YA_JK_KPEAUtagMSLLHOOKSTRUCT@@@Z @ 0x1C01F6720 (-NtUserfnHkINLPMSLLHOOKSTRUCT@@YA_JK_KPEAUtagMSLLHOOKSTRUCT@@@Z.c)
+ *     ?NtUserfnHkINLPRECT@@YA_JK_KPEAUtagRECT@@@Z @ 0x1C01F67A8 (-NtUserfnHkINLPRECT@@YA_JK_KPEAUtagRECT@@@Z.c)
+ *     ?NtUserfnHkOPTINLPEVENTMSG@@YA_JK_KPEAUtagEVENTMSG@@@Z @ 0x1C01F6820 (-NtUserfnHkOPTINLPEVENTMSG@@YA_JK_KPEAUtagEVENTMSG@@@Z.c)
  */
 
 __int64 __fastcall NtUserCallNextHookEx(unsigned int a1, unsigned __int64 a2, struct tagDEBUGHOOKINFO *a3, int a4)
@@ -28,7 +28,7 @@ __int64 __fastcall NtUserCallNextHookEx(unsigned int a1, unsigned __int64 a2, st
   int v17; // ecx
   int v18; // ecx
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v9 = 0LL;
   v10 = *(_QWORD *)(gptiCurrent + 688LL);
   if ( v10 )
@@ -66,17 +66,17 @@ __int64 __fastcall NtUserCallNextHookEx(unsigned int a1, unsigned __int64 a2, st
       v13 = (struct tagRECT *)a3;
       v14 = a2;
       if ( a1 != 5 )
-        goto LABEL_12;
+      {
+LABEL_11:
+        v11 = xxxCallNextHookEx();
+        goto LABEL_6;
+      }
       v15 = 5;
     }
     else
     {
       if ( (_DWORD)v8 == 7 )
-      {
-LABEL_21:
-        v11 = NtUserfnHkINLPMOUSEHOOKSTRUCTEX(a1, a2, a3);
-        goto LABEL_6;
-      }
+        goto LABEL_20;
       if ( (_DWORD)v8 == -1 )
       {
 LABEL_5:
@@ -104,22 +104,20 @@ LABEL_6:
       }
       if ( a1 )
       {
-        switch ( a1 )
+        if ( a1 == 3 )
         {
-          case 3u:
-            v11 = NtUserfnHkINLPCBTCREATESTRUCT(3u, a2, a3, a4);
-            goto LABEL_6;
-          case 5u:
-            v11 = NtUserfnHkINLPCBTACTIVATESTRUCT(5u, a2, a3);
-            goto LABEL_6;
-          case 6u:
-            goto LABEL_21;
+          v11 = NtUserfnHkINLPCBTCREATESTRUCT(3u, a2, a3, a4);
+          goto LABEL_6;
         }
-LABEL_11:
-        v13 = (struct tagRECT *)a3;
-        v14 = a2;
-LABEL_12:
-        v11 = xxxCallNextHookEx(a1, v14, (__int64)v13);
+        if ( a1 == 5 )
+        {
+          v11 = NtUserfnHkINLPCBTACTIVATESTRUCT(5u, a2, a3);
+          goto LABEL_6;
+        }
+        if ( a1 != 6 )
+          goto LABEL_11;
+LABEL_20:
+        v11 = NtUserfnHkINLPMOUSEHOOKSTRUCTEX(a1, a2, a3);
         goto LABEL_6;
       }
       v13 = (struct tagRECT *)a3;

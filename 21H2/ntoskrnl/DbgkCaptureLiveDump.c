@@ -1,206 +1,189 @@
 /*
- * XREFs of DbgkCaptureLiveDump @ 0x14092AC5C
+ * XREFs of DbgkCaptureLiveDump @ 0x140887D1C
  * Callers:
- *     NtSystemDebugControl @ 0x1406DC120 (NtSystemDebugControl.c)
+ *     NtSystemDebugControl @ 0x1407CFC00 (NtSystemDebugControl.c)
  * Callees:
- *     IoThreadToProcess @ 0x1402321F0 (IoThreadToProcess.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     DbgkpLkmdSnapData @ 0x140540280 (DbgkpLkmdSnapData.c)
- *     DbgkpLkmdSnapDataEx @ 0x1405402B4 (DbgkpLkmdSnapDataEx.c)
- *     DbgkpLkmdSnapGlobals @ 0x1405402EC (DbgkpLkmdSnapGlobals.c)
- *     DbgkpLkmdSnapThread @ 0x140540684 (DbgkpLkmdSnapThread.c)
- *     DbgkpLkmdSqmIncrementDword @ 0x1405406E8 (DbgkpLkmdSqmIncrementDword.c)
- *     EtwUnregister @ 0x1406B7470 (EtwUnregister.c)
- *     EtwRegister @ 0x1406D2350 (EtwRegister.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     DbgkpLkmdFireCallbacks @ 0x14092B124 (DbgkpLkmdFireCallbacks.c)
- *     DbgkpLkmdSqmIsOptedIn @ 0x14092B664 (DbgkpLkmdSqmIsOptedIn.c)
- *     DbgkpLkmdSqmStatus @ 0x14092B804 (DbgkpLkmdSqmStatus.c)
- *     DbgkpTriageDumpInitialize @ 0x14092C55C (DbgkpTriageDumpInitialize.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     IoThreadToProcess @ 0x140205700 (IoThreadToProcess.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     DbgkpLkmdSnapData @ 0x1404EE140 (DbgkpLkmdSnapData.c)
+ *     DbgkpLkmdSnapDataEx @ 0x1404EE174 (DbgkpLkmdSnapDataEx.c)
+ *     DbgkpLkmdSnapGlobals @ 0x1404EE1AC (DbgkpLkmdSnapGlobals.c)
+ *     DbgkpLkmdSnapThread @ 0x1404EE544 (DbgkpLkmdSnapThread.c)
+ *     DbgkpLkmdSqmIncrementDword @ 0x1404EE5A8 (DbgkpLkmdSqmIncrementDword.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     EtwUnregister @ 0x1407601D0 (EtwUnregister.c)
+ *     EtwRegister @ 0x140762CB0 (EtwRegister.c)
+ *     DbgkpLkmdFireCallbacks @ 0x140888214 (DbgkpLkmdFireCallbacks.c)
+ *     DbgkpLkmdSqmIsOptedIn @ 0x140888754 (DbgkpLkmdSqmIsOptedIn.c)
+ *     DbgkpLkmdSqmStatus @ 0x1408888F4 (DbgkpLkmdSqmStatus.c)
+ *     DbgkpTriageDumpInitialize @ 0x140889B1C (DbgkpTriageDumpInitialize.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall DbgkCaptureLiveDump(__int64 a1, void *a2, unsigned int a3, __int64 a4)
+__int64 __fastcall DbgkCaptureLiveDump(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
-  REGHANDLE v4; // r15
-  PVOID v5; // r13
-  PEPROCESS v6; // r12
-  _DWORD *v7; // rsi
-  char *PoolWithTag; // rax
-  __int64 v11; // rbx
-  int v12; // r14d
-  _DWORD *v13; // rax
-  __int64 i; // rcx
-  unsigned int v15; // ecx
+  REGHANDLE v7; // rsi
+  struct _DMA_ADAPTER *v8; // r12
+  PEPROCESS v9; // r14
+  _DWORD *PoolWithTag; // rdi
+  int v11; // eax
+  __int64 v12; // r13
+  int v13; // r15d
+  unsigned int i; // ecx
+  __int64 v15; // rax
   __int64 v16; // rax
   __int64 v17; // rcx
-  NTSTATUS v18; // eax
-  PEPROCESS v19; // rax
-  int v20; // eax
+  void *v18; // rcx
+  NTSTATUS v19; // eax
+  int v20; // ecx
   char v21; // al
-  void *v22; // rcx
-  char v24; // [rsp+40h] [rbp-39h]
-  char AccessMode; // [rsp+41h] [rbp-38h]
-  unsigned int v26; // [rsp+44h] [rbp-35h]
-  ULONGLONG RegHandle; // [rsp+48h] [rbp-31h] BYREF
-  PVOID Object; // [rsp+50h] [rbp-29h] BYREF
-  _QWORD *v29; // [rsp+58h] [rbp-21h]
-  __int64 v30; // [rsp+60h] [rbp-19h] BYREF
-  _DWORD *v31; // [rsp+68h] [rbp-11h]
-  __int64 v32; // [rsp+70h] [rbp-9h]
-  __int128 v33; // [rsp+78h] [rbp-1h] BYREF
+  PEPROCESS v22; // rax
+  int v23; // eax
+  char AccessMode; // [rsp+40h] [rbp-C0h]
+  char v26; // [rsp+44h] [rbp-BCh]
+  ULONGLONG RegHandle; // [rsp+48h] [rbp-B8h] BYREF
+  PVOID Object; // [rsp+50h] [rbp-B0h] BYREF
+  _QWORD *v29; // [rsp+58h] [rbp-A8h]
+  __int128 v30; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v31; // [rsp+70h] [rbp-90h]
+  _OWORD v32[646]; // [rsp+80h] [rbp-80h] BYREF
+  __int128 v33; // [rsp+28E0h] [rbp+27E0h] BYREF
 
-  v4 = 0LL;
-  v5 = 0LL;
-  v32 = a4;
-  v6 = 0LL;
-  Object = a2;
+  v31 = a4;
   v7 = 0LL;
-  RegHandle = 0LL;
   AccessMode = KeGetCurrentThread()->PreviousMode;
+  v8 = 0LL;
+  v9 = 0LL;
+  memset(v32, 0, sizeof(v32));
+  PoolWithTag = 0LL;
   v29 = 0LL;
   v33 = 0LL;
+  RegHandle = 0LL;
   v30 = 0LL;
-  LODWORD(v31) = 0;
   if ( !*(_DWORD *)(a1 + 44) || a3 < 0x40000 || (*(_DWORD *)a1 & 0xFFFFFFFE) != 0 )
     return 3221225485LL;
   if ( (unsigned __int8)DbgkpLkmdSqmIsOptedIn() )
   {
-    EtwRegister(&stru_140014F40, 0LL, 0LL, &RegHandle);
-    v4 = RegHandle;
+    EtwRegister(&stru_1400104D8, 0LL, 0LL, &RegHandle);
+    v7 = RegHandle;
     if ( RegHandle )
       DbgkpLkmdSqmIncrementDword(RegHandle, 3292);
   }
-  PoolWithTag = (char *)ExAllocatePoolWithTag((POOL_TYPE)1536, 0x4060uLL, 0x504D444Cu);
-  v11 = (__int64)PoolWithTag;
-  if ( PoolWithTag )
+  memset(&v32[640], 0, 48);
+  v11 = DbgkpTriageDumpInitialize(&v32[640], a2, a3, &v32[643]);
+  v12 = 0LL;
+  v13 = v11;
+  if ( v11 >= 0 )
   {
-    v12 = DbgkpTriageDumpInitialize(PoolWithTag + 0x4000, Object, a3, PoolWithTag + 16432);
-    if ( v12 >= 0 )
+    v13 = (*(__int64 (__fastcall **)(_OWORD *, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))&v32[643])(
+            &v32[640],
+            *(unsigned int *)(a1 + 4),
+            *(_QWORD *)(a1 + 8),
+            *(_QWORD *)(a1 + 16),
+            *(_QWORD *)(a1 + 24),
+            *(_QWORD *)(a1 + 32));
+    if ( v13 >= 0 )
     {
-      v12 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))(v11 + 16432))(
-              v11 + 0x4000,
-              *(unsigned int *)(a1 + 4),
-              *(_QWORD *)(a1 + 8),
-              *(_QWORD *)(a1 + 16),
-              *(_QWORD *)(a1 + 24),
-              *(_QWORD *)(a1 + 32));
-      if ( v12 >= 0 )
+      DbgkpLkmdSnapGlobals((__int64)v32);
+      LODWORD(RegHandle) = 4 * *(_DWORD *)(a1 + 44) + 4;
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)RegHandle, 0x704E534Bu);
+      if ( PoolWithTag )
       {
-        DbgkpLkmdSnapGlobals(v11);
-        LODWORD(RegHandle) = 4 * *(_DWORD *)(a1 + 44) + 4;
-        v13 = ExAllocatePoolWithTag(PagedPool, (unsigned int)RegHandle, 0x704E534Bu);
-        v7 = v13;
-        if ( v13 )
-        {
-          for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 44); i = (unsigned int)(i + 1) )
-            v13[i] = -1073741823;
-          v13[i] = 1112752980;
-        }
-        v15 = 0;
-        v24 = 1;
-        v26 = 0;
-        if ( *(_DWORD *)(a1 + 44) )
-        {
-          do
-          {
-            v16 = *(_QWORD *)(a1 + 48);
-            v17 = *(_DWORD *)(a1 + 40) + v15;
-            v33 = 0xC0000001uLL;
-            Object = 0LL;
-            v18 = ObReferenceObjectByHandle(
-                    *(HANDLE *)(v16 + 8 * v17),
-                    0x1FFFFFu,
-                    (POBJECT_TYPE)PsThreadType,
-                    AccessMode,
-                    &Object,
-                    0LL);
-            v5 = Object;
-            if ( v18 == -1073741790 || (v24 = 0, v18 < 0) )
-            {
-              if ( v7 )
-                v7[v26] = v18;
-              if ( v4 )
-              {
-                LODWORD(v33) = v18;
-                DbgkpLkmdSqmStatus(v4, &v33);
-              }
-              v21 = v24;
-            }
-            else
-            {
-              if ( !v6 )
-              {
-                v19 = IoThreadToProcess((PETHREAD)Object);
-                v6 = v19;
-                if ( v19 )
-                {
-                  ObfReferenceObjectWithTag(v19, 0x4C676244u);
-                  DbgkpLkmdSnapDataEx(v11);
-                }
-              }
-              v20 = DbgkpLkmdSnapThread(v11, a1, (__int64)v5, (__int64)&v33);
-              if ( !v20 )
-                v20 = v33;
-              if ( v7 )
-                v7[v26] = v20;
-              DbgkpLkmdFireCallbacks(v11, 2LL, v5);
-              if ( v4 )
-                DbgkpLkmdSqmStatus(v4, &v33);
-              ObfDereferenceObject(v5);
-              v21 = 0;
-              v5 = 0LL;
-              v24 = 0;
-              if ( (_DWORD)v33 == -1073741670 )
-                goto LABEL_36;
-            }
-            v15 = v26 + 1;
-            v26 = v15;
-          }
-          while ( v15 < *(_DWORD *)(a1 + 44) );
-          if ( v21 )
-            goto LABEL_43;
-LABEL_36:
-          if ( v6 )
-            DbgkpLkmdFireCallbacks(v11, 1LL, v6);
-          LODWORD(v30) = *(_DWORD *)(a1 + 44);
-          v31 = v7;
-          DbgkpLkmdSnapData(v11, (__int64)&v30, 16LL);
-          if ( v7 )
-            DbgkpLkmdSnapData(v11, (__int64)v7, (unsigned int)RegHandle);
-          if ( (int)DbgkpLkmdSnapDataEx(v11) >= 0 )
-            *v29 = &v30;
-          v12 = (*(__int64 (__fastcall **)(__int64, __int64))(v11 + 16472))(v11 + 0x4000, v32);
-        }
-        else
-        {
-LABEL_43:
-          v12 = -1073741790;
-        }
-        if ( v6 )
-          ObfDereferenceObjectWithTag(v6, 0x4C676244u);
-        if ( v5 )
-          ObfDereferenceObject(v5);
+        for ( i = 0; i < *(_DWORD *)(a1 + 44); PoolWithTag[v15] = -1073741823 )
+          v15 = i++;
+        PoolWithTag[i] = 1112752980;
       }
+      v13 = -1073741790;
+      v26 = 1;
+      if ( *(_DWORD *)(a1 + 44) )
+      {
+        while ( 1 )
+        {
+          v16 = *(_QWORD *)(a1 + 48);
+          v17 = (unsigned int)(v12 + *(_DWORD *)(a1 + 40));
+          v33 = 0xC0000001uLL;
+          v18 = *(void **)(v16 + 8 * v17);
+          Object = 0LL;
+          v19 = ObReferenceObjectByHandle(v18, 0x1FFFFFu, (POBJECT_TYPE)PsThreadType, AccessMode, &Object, 0LL);
+          v8 = (struct _DMA_ADAPTER *)Object;
+          v20 = v19;
+          v21 = v26;
+          if ( v20 != -1073741790 )
+            v21 = 0;
+          v26 = v21;
+          if ( v20 >= 0 )
+          {
+            if ( !v9 )
+            {
+              v22 = IoThreadToProcess((PETHREAD)Object);
+              v9 = v22;
+              if ( v22 )
+              {
+                ObfReferenceObjectWithTag(v22, 0x4C676244u);
+                DbgkpLkmdSnapDataEx((__int64)v32);
+              }
+            }
+            v23 = DbgkpLkmdSnapThread((__int64)v32, a1, (__int64)v8, (__int64)&v33);
+            if ( !v23 )
+              v23 = v33;
+            if ( PoolWithTag )
+              PoolWithTag[v12] = v23;
+            DbgkpLkmdFireCallbacks(v32, 2LL, v8);
+            if ( v7 )
+              DbgkpLkmdSqmStatus(v7, &v33);
+            HalPutDmaAdapter(v8);
+            v8 = 0LL;
+            if ( (_DWORD)v33 == -1073741670 )
+            {
+LABEL_32:
+              if ( !v26 )
+              {
+                if ( v9 )
+                  DbgkpLkmdFireCallbacks(v32, 1LL, v9);
+                LODWORD(v30) = *(_DWORD *)(a1 + 44);
+                *((_QWORD *)&v30 + 1) = PoolWithTag;
+                DbgkpLkmdSnapData((__int64)v32, (__int64)&v30, 16LL);
+                if ( PoolWithTag )
+                  DbgkpLkmdSnapData((__int64)v32, (__int64)PoolWithTag, (unsigned int)RegHandle);
+                if ( (int)DbgkpLkmdSnapDataEx((__int64)v32) >= 0 )
+                  *v29 = &v30;
+                v13 = (*((__int64 (__fastcall **)(_OWORD *, __int64))&v32[645] + 1))(&v32[640], v31);
+              }
+              break;
+            }
+          }
+          else
+          {
+            if ( PoolWithTag )
+              PoolWithTag[v12] = v20;
+            if ( v7 )
+            {
+              LODWORD(v33) = v20;
+              DbgkpLkmdSqmStatus(v7, &v33);
+            }
+          }
+          v12 = (unsigned int)(v12 + 1);
+          if ( (unsigned int)v12 >= *(_DWORD *)(a1 + 44) )
+            goto LABEL_32;
+        }
+      }
+      if ( v9 )
+        ObfDereferenceObjectWithTag(v9, 0x4C676244u);
+      if ( v8 )
+        HalPutDmaAdapter(v8);
     }
-    v22 = *(void **)(v11 + 16416);
-    if ( v22 )
-      ExFreePoolWithTag(v22, 0x4D574454u);
-    if ( v7 )
-      ExFreePoolWithTag(v7, 0x704E534Bu);
   }
-  else
-  {
-    v12 = -1073741670;
-  }
-  if ( v4 )
-    EtwUnregister(v4);
-  if ( v11 )
-    ExFreePoolWithTag((PVOID)v11, 0x504D444Cu);
-  return (unsigned int)v12;
+  if ( *(_QWORD *)&v32[642] )
+    ExFreePoolWithTag(*(PVOID *)&v32[642], 0x4D574454u);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x704E534Bu);
+  if ( v7 )
+    EtwUnregister(v7);
+  return (unsigned int)v13;
 }

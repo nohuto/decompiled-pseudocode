@@ -1,12 +1,12 @@
 /*
- * XREFs of ?dtorHelper@RFONTOBJ@@QEAAXXZ @ 0x1C0150EF0
+ * XREFs of ?dtorHelper@RFONTOBJ@@QEAAXXZ @ 0x1C00E7394
  * Callers:
- *     GreGetGlyphOutlineInternal @ 0x1C00196F4 (GreGetGlyphOutlineInternal.c)
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C0032FD0 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
- *     RFONTOBJ_dtorHelperWrap @ 0x1C015F3A0 (RFONTOBJ_dtorHelperWrap.c)
+ *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C0092390 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AF04 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     GreGetGlyphOutlineInternal @ 0x1C009C1E4 (GreGetGlyphOutlineInternal.c)
+ *     RFONTOBJ_dtorHelperWrap @ 0x1C016D420 (RFONTOBJ_dtorHelperWrap.c)
  * Callees:
- *     ?vUnlockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXXZ @ 0x1C0150FC4 (-vUnlockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXXZ.c)
+ *     ?vUnlockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXXZ @ 0x1C00E7C10 (-vUnlockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXXZ.c)
  */
 
 void __fastcall RFONTOBJ::dtorHelper(RFONTOBJ *this)
@@ -16,7 +16,7 @@ void __fastcall RFONTOBJ::dtorHelper(RFONTOBJ *this)
   GreAcquireSemaphore(*(_QWORD *)(*(_QWORD *)this + 848LL));
   v2 = *(_DWORD *)(*(_QWORD *)this + 712LL);
   RFONTOBJ::vUnlockEUDCFontsGlyphCache(this);
-  if ( (v2 & 1) != 0 )
+  if ( (v2 & 0x81) != 0 )
   {
     GreAcquireSemaphore(ghsemEUDC1);
     --gcEUDCCount;

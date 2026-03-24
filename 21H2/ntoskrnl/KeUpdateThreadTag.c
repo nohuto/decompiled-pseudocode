@@ -1,19 +1,19 @@
 /*
- * XREFs of KeUpdateThreadTag @ 0x14035D6A0
+ * XREFs of KeUpdateThreadTag @ 0x14036BF50
  * Callers:
  *     <none>
  * Callees:
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
- *     KeAddProcessorAffinityEx @ 0x140294460 (KeAddProcessorAffinityEx.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiIpiSendPacket @ 0x1402F38C4 (KiIpiSendPacket.c)
- *     KiAcquireThreadStateLock @ 0x140344DD0 (KiAcquireThreadStateLock.c)
- *     KiStartThreadCycleAccumulation @ 0x140345B70 (KiStartThreadCycleAccumulation.c)
- *     KiEndThreadCycleAccumulation @ 0x140345C80 (KiEndThreadCycleAccumulation.c)
- *     KiReleaseThreadStateLock @ 0x14035D0F8 (KiReleaseThreadStateLock.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
+ *     KiEndThreadCycleAccumulation @ 0x14022E080 (KiEndThreadCycleAccumulation.c)
+ *     KiAcquireThreadStateLock @ 0x140230F40 (KiAcquireThreadStateLock.c)
+ *     KiStartThreadCycleAccumulation @ 0x140231260 (KiStartThreadCycleAccumulation.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiIpiSendPacket @ 0x14027AE48 (KiIpiSendPacket.c)
+ *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiReleaseThreadStateLock @ 0x1402EA480 (KiReleaseThreadStateLock.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall KeUpdateThreadTag(__int64 a1, int a2)
@@ -43,11 +43,11 @@ __int64 __fastcall KeUpdateThreadTag(__int64 a1, int a2)
   int v25; // [rsp+30h] [rbp-D0h] BYREF
   struct _KPRCB *v26; // [rsp+38h] [rbp-C8h] BYREF
   volatile signed __int64 *v27; // [rsp+40h] [rbp-C0h] BYREF
-  _DWORD v28[68]; // [rsp+50h] [rbp-B0h] BYREF
-  int v29; // [rsp+1A8h] [rbp+A8h] BYREF
+  _DWORD v28[44]; // [rsp+50h] [rbp-B0h] BYREF
+  int v29; // [rsp+148h] [rbp+48h] BYREF
 
   v29 = a2;
-  memset(v28, 0, 0x108uLL);
+  memset(v28, 0, 0xA8uLL);
   v26 = 0LL;
   v27 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
@@ -98,7 +98,7 @@ __int64 __fastcall KeUpdateThreadTag(__int64 a1, int a2)
       v9 = KeGetCurrentPrcb();
       v26 = v9;
       _disable();
-      KiEndThreadCycleAccumulation((__int64)v9, a1, 0LL, 0LL);
+      KiEndThreadCycleAccumulation((__int64)v9, a1, 0LL);
       v10 = v29;
       if ( v29 )
         _interlockedbittestandset((volatile signed __int32 *)a1, 0x14u);
@@ -110,17 +110,13 @@ __int64 __fastcall KeUpdateThreadTag(__int64 a1, int a2)
     }
     else
     {
-      if ( (unsigned __int8)KiAcquireThreadStateLock(
-                              a1,
-                              (__int64)&v26,
-                              (volatile signed __int32 **)&v27,
-                              (__int64)SchedulerAssist) == 2
+      if ( (unsigned __int8)KiAcquireThreadStateLock(a1, (__int64 *)&v26, (volatile signed __int32 **)&v27) == 2
         || *(_BYTE *)(a1 + 113) )
       {
         v14 = *(_DWORD *)(a1 + 536);
-        v28[0] = 2097153;
-        memset(&v28[1], 0, 0x104uLL);
-        KeAddProcessorAffinityEx((unsigned __int16 *)v28, v14 & 0x7FFFFFFF);
+        v28[0] = 1310721;
+        memset(&v28[1], 0, 0xA4uLL);
+        KeAddProcessorAffinityEx(v28, v14 & 0x7FFFFFFF);
         v15 = KeGetCurrentIrql();
         __writecr8(0xCuLL);
         if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v15 <= 0xFu )

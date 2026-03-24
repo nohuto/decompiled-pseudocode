@@ -1,22 +1,22 @@
 /*
- * XREFs of ?AddDevice@FxDriver@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C001F7C0
+ * XREFs of ?AddDevice@FxDriver@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C0055490
  * Callers:
- *     ?AddDevice@FxDriver@@CAJPEAU_DRIVER_OBJECT@@PEAU_DEVICE_OBJECT@@@Z @ 0x1C001F780 (-AddDevice@FxDriver@@CAJPEAU_DRIVER_OBJECT@@PEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?AddDevice@FxDriver@@CAJPEAU_DRIVER_OBJECT@@PEAU_DEVICE_OBJECT@@@Z @ 0x1C0055450 (-AddDevice@FxDriver@@CAJPEAU_DRIVER_OBJECT@@PEAU_DEVICE_OBJECT@@@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     ??1WDFDEVICE_INIT@@QEAA@XZ @ 0x1C001F8E0 (--1WDFDEVICE_INIT@@QEAA@XZ.c)
- *     ??0WDFDEVICE_INIT@@QEAA@PEAVFxDriver@@@Z @ 0x1C001FA58 (--0WDFDEVICE_INIT@@QEAA@PEAVFxDriver@@@Z.c)
- *     ?DeleteDeviceFromFailedCreate@FxDevice@@QEAAJJE@Z @ 0x1C00301A4 (-DeleteDeviceFromFailedCreate@FxDevice@@QEAAJJE@Z.c)
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ??0WDFDEVICE_INIT@@QEAA@PEAVFxDriver@@@Z @ 0x1C004F934 (--0WDFDEVICE_INIT@@QEAA@PEAVFxDriver@@@Z.c)
+ *     ??1WDFDEVICE_INIT@@QEAA@XZ @ 0x1C004FB14 (--1WDFDEVICE_INIT@@QEAA@XZ.c)
+ *     ?DeleteDeviceFromFailedCreate@FxDevice@@QEAAJJE@Z @ 0x1C0051B3C (-DeleteDeviceFromFailedCreate@FxDevice@@QEAAJJE@Z.c)
  */
 
 __int64 __fastcall FxDriver::AddDevice(FxDriver *this, _DEVICE_OBJECT *PhysicalDeviceObject)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rcx
-  WDFDRIVER__ *ObjectHandleUnchecked; // rbx
+  unsigned __int64 ObjectHandleUnchecked; // rbx
   int (__fastcall *Method)(WDFDRIVER__ *, WDFDEVICE_INIT *); // rax
   FxCallbackLock *m_CallbackLock; // rcx
   int v8; // eax
@@ -34,7 +34,7 @@ __int64 __fastcall FxDriver::AddDevice(FxDriver *this, _DEVICE_OBJECT *PhysicalD
   init.InitType = FxDeviceInitTypeFdo;
   init.CreatedOnStack = 1;
   init.Fdo.PhysicalDevice = PhysicalDeviceObject;
-  ObjectHandleUnchecked = (WDFDRIVER__ *)FxObject::GetObjectHandleUnchecked(this);
+  ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked(this);
   Method = this->m_DriverDeviceAdd.Method;
   if ( Method )
   {
@@ -43,12 +43,9 @@ __int64 __fastcall FxDriver::AddDevice(FxDriver *this, _DEVICE_OBJECT *PhysicalD
     if ( m_CallbackLock )
     {
       m_CallbackLock->Lock(m_CallbackLock, v14);
-      v8 = this->m_DriverDeviceAdd.Method(ObjectHandleUnchecked, &init);
+      Method = this->m_DriverDeviceAdd.Method;
     }
-    else
-    {
-      v8 = Method(ObjectHandleUnchecked, &init);
-    }
+    v8 = Method((WDFDRIVER__ *)ObjectHandleUnchecked, &init);
     v10 = this->m_DriverDeviceAdd.m_CallbackLock;
     v11 = v8;
     if ( v10 )

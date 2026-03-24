@@ -1,11 +1,11 @@
 /*
- * XREFs of AlignRects @ 0x1C00BD1E8
+ * XREFs of AlignRects @ 0x1C0014978
  * Callers:
- *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C001FC24 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
- *     ?DxgkEngAdjustMonitorPosition@@YAHPEAUtagRECT@@II@Z @ 0x1C00BD1D0 (-DxgkEngAdjustMonitorPosition@@YAHPEAUtagRECT@@II@Z.c)
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C00128E8 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ *     ?DxgkEngAdjustMonitorPosition@@YAHPEAUtagRECT@@II@Z @ 0x1C0014960 (-DxgkEngAdjustMonitorPosition@@YAHPEAUtagRECT@@II@Z.c)
  * Callees:
- *     ?RemoveGaps@@YAHPEAUtagRECT@@I@Z @ 0x1C02089A0 (-RemoveGaps@@YAHPEAUtagRECT@@I@Z.c)
- *     ?RemoveOverlaps@@YAXPEAUtagRECT@@I@Z @ 0x1C0208F00 (-RemoveOverlaps@@YAXPEAUtagRECT@@I@Z.c)
+ *     ?RemoveGaps@@YAHPEAUtagRECT@@I@Z @ 0x1C01D18C0 (-RemoveGaps@@YAHPEAUtagRECT@@I@Z.c)
+ *     ?RemoveOverlaps@@YAXPEAUtagRECT@@I@Z @ 0x1C01D1C58 (-RemoveOverlaps@@YAXPEAUtagRECT@@I@Z.c)
  */
 
 __int64 __fastcall AlignRects(struct tagRECT *a1, unsigned int a2, unsigned int a3)

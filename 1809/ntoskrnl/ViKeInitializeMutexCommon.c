@@ -4,7 +4,7 @@
  *     VerifierKeInitializeMutex @ 0x140939AD0 (VerifierKeInitializeMutex.c)
  *     VerifierKeInitializeMutexNoReboot @ 0x140939B00 (VerifierKeInitializeMutexNoReboot.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     VfUtilSynchronizationObjectSanityChecks @ 0x140926400 (VfUtilSynchronizationObjectSanityChecks.c)
  */
 

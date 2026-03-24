@@ -1,26 +1,34 @@
 /*
- * XREFs of _MuiRegAllocArray @ 0x1403A0DCC
+ * XREFs of _MuiRegAllocArray @ 0x1403A8298
  * Callers:
- *     RtlpLoadInstallLanguageFallback @ 0x1408465DC (RtlpLoadInstallLanguageFallback.c)
- *     _RtlpMuiRegValidateInstalled @ 0x1408469D0 (_RtlpMuiRegValidateInstalled.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x140846D08 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
- *     RtlpMuiRegConfigMatchesInstalled @ 0x140A746B4 (RtlpMuiRegConfigMatchesInstalled.c)
- *     RtlpMuiRegLangInfoMatchesSpec @ 0x140A74E48 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x14078F330 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x14078FA88 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x140790254 (RtlpLoadInstallLanguageFallback.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x14098107C (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x140981800 (RtlpMuiRegLangInfoMatchesSpec.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall MuiRegAllocArray(__int64 a1, unsigned int a2)
+PVOID __fastcall MuiRegAllocArray(__int64 a1, unsigned int a2)
 {
-  __int64 result; // rax
-  unsigned __int64 v3; // rcx
+  __int64 v2; // rbx
+  unsigned __int64 v3; // rax
+  unsigned int v4; // esi
+  PVOID PoolWithTag; // rax
+  PVOID v6; // rdi
 
-  result = 0LL;
+  v2 = 0LL;
   v3 = 2LL * a2;
-  if ( v3 <= 0xFFFFFFFF )
+  if ( v3 <= 0xFFFFFFFF && (_DWORD)v3 )
   {
-    if ( (_DWORD)v3 )
-      return ExAllocatePool2(256LL, (unsigned int)v3, 1920232557LL);
+    v4 = 2 * a2;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)v3, 0x72746C6Du);
+    v6 = PoolWithTag;
+    if ( PoolWithTag )
+      memset(PoolWithTag, 0, v4);
+    return v6;
   }
-  return result;
+  return (PVOID)v2;
 }

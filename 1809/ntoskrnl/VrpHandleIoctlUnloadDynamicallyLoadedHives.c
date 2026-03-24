@@ -1,21 +1,21 @@
 /*
- * XREFs of VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1408098D0
+ * XREFs of VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1408098B0
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140807CE0 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x140807CC0 (VrpIoctlDeviceDispatch.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     PsIsThreadInSilo @ 0x1400CC250 (PsIsThreadInSilo.c)
- *     PsGetPermanentSiloContext @ 0x14010A080 (PsGetPermanentSiloContext.c)
- *     ZwUnloadKey2 @ 0x1401BB990 (ZwUnloadKey2.c)
- *     ULongLongMult @ 0x14026D6E8 (ULongLongMult.c)
- *     PsGetJobSilo @ 0x1402EA020 (PsGetJobSilo.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsIsThreadInSilo @ 0x1400CC270 (PsIsThreadInSilo.c)
+ *     PsGetPermanentSiloContext @ 0x14010A0A0 (PsGetPermanentSiloContext.c)
+ *     ZwUnloadKey2 @ 0x1401BB9B0 (ZwUnloadKey2.c)
+ *     ULongLongMult @ 0x14026D7E8 (ULongLongMult.c)
+ *     PsGetJobSilo @ 0x1402EA120 (PsGetJobSilo.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     VrpCleanupNamespace @ 0x1408079D0 (VrpCleanupNamespace.c)
- *     VrpDestroyNamespaceNode @ 0x14080A1BC (VrpDestroyNamespaceNode.c)
+ *     VrpCleanupNamespace @ 0x1408079B0 (VrpCleanupNamespace.c)
+ *     VrpDestroyNamespaceNode @ 0x14080A19C (VrpDestroyNamespaceNode.c)
  */
 
 __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(

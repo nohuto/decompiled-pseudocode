@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhHardResetAddDeviceInit @ 0x1C003C760
+ * XREFs of UsbhHardResetAddDeviceInit @ 0x1C003D940
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
  */
 
 void __fastcall UsbhHardResetAddDeviceInit(__int64 a1)

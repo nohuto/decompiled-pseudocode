@@ -1,91 +1,92 @@
 /*
- * XREFs of WmipGenerateBinaryMofNotification @ 0x14085331C
+ * XREFs of WmipGenerateBinaryMofNotification @ 0x1407D108C
  * Callers:
- *     WmipUpdateDataSource @ 0x140800178 (WmipUpdateDataSource.c)
- *     WmipAddDataSource @ 0x14086A5B0 (WmipAddDataSource.c)
- *     WmipDSCleanup @ 0x140882B20 (WmipDSCleanup.c)
+ *     WmipAddDataSource @ 0x140756098 (WmipAddDataSource.c)
+ *     WmipDSCleanup @ 0x14076C400 (WmipDSCleanup.c)
+ *     WmipUpdateDataSource @ 0x1407C4788 (WmipUpdateDataSource.c)
  * Callees:
- *     RtlStringCbPrintfExW @ 0x140226370 (RtlStringCbPrintfExW.c)
- *     RtlStringCbCopyW @ 0x14022B024 (RtlStringCbCopyW.c)
- *     memset @ 0x140435400 (memset.c)
- *     WmipProcessEvent @ 0x14086B2E0 (WmipProcessEvent.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlStringCbPrintfExW @ 0x14024F030 (RtlStringCbPrintfExW.c)
+ *     RtlStringCbCopyW @ 0x14032E038 (RtlStringCbCopyW.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     WmipProcessEvent @ 0x140757570 (WmipProcessEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall WmipGenerateBinaryMofNotification(__int64 a1, _OWORD *a2)
 {
-  unsigned int v4; // esi
-  int v5; // eax
-  __int64 v6; // rbp
-  __int64 v7; // rbp
-  __int64 v8; // r15
-  char *Pool2; // rax
-  char *v10; // rdi
-  size_t v11; // rbp
-  int v12; // eax
-  _DWORD *v13; // rcx
-  __int64 v14; // rbp
+  unsigned int v4; // r14d
+  _QWORD *v5; // r15
+  int v6; // eax
+  __int64 v7; // rsi
+  __int64 v8; // rsi
+  __int64 v9; // r12
+  char *PoolWithTag; // rax
+  char *v11; // rdi
+  size_t v12; // rsi
+  int v13; // eax
+  __int64 v14; // rsi
   __int64 v15; // [rsp+38h] [rbp-30h]
 
   if ( *(_DWORD *)(a1 + 72) )
   {
     v4 = 0;
+    v5 = (_QWORD *)(a1 + 88);
     do
     {
-      v5 = *(_DWORD *)(a1 + 16);
-      if ( (v5 & 2) != 0 )
+      v6 = *(_DWORD *)(a1 + 16);
+      if ( (v6 & 2) != 0 )
       {
         v14 = -1LL;
-        v8 = v4;
+        v9 = v4;
         do
           ++v14;
         while ( *(_WORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 88) + 8LL * v4) + 2 * v14) );
-        v7 = 2 * v14 + 4;
+        v8 = 2 * v14 + 4;
       }
       else
       {
-        if ( (v5 & 1) == 0 )
+        if ( (v6 & 1) == 0 )
           return;
-        v6 = -1LL;
+        v7 = -1LL;
         do
-          ++v6;
-        while ( *(_WORD *)(*(_QWORD *)(a1 + 88) + 2 * v6 + 4) );
-        v7 = 2 * v6 + 14;
-        v8 = v4;
+          ++v7;
+        while ( *(_WORD *)(*v5 + 2 * v7 + 4) );
+        v8 = 2 * v7 + 14;
+        v9 = v4;
       }
-      Pool2 = (char *)ExAllocatePool2(256LL, v7 + 74, 1885957463LL);
-      v10 = Pool2;
-      if ( Pool2 )
+      PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v8 + 74, 0x70696D57u);
+      v11 = PoolWithTag;
+      if ( PoolWithTag )
       {
-        memset(Pool2, 0, v7 + 74);
-        *(_DWORD *)v10 = v7 + 74;
-        *((_DWORD *)v10 + 1) = 3;
-        *((_QWORD *)v10 + 1) = 1LL;
-        *((_DWORD *)v10 + 11) = 10;
-        *(_OWORD *)(v10 + 24) = *a2;
-        *((_QWORD *)v10 + 2) = MEMORY[0xFFFFF78000000014];
-        *((_DWORD *)v10 + 15) = v7 + 2;
-        v11 = v7 - 2;
-        *((_DWORD *)v10 + 12) = 64;
-        *((_DWORD *)v10 + 14) = 72;
-        *((_WORD *)v10 + 32) = 0;
-        *((_WORD *)v10 + 36) = 0;
-        v12 = *(_DWORD *)(a1 + 16);
-        if ( (v12 & 2) != 0 )
+        memset(PoolWithTag, 0, v8 + 74);
+        *(_DWORD *)v11 = v8 + 74;
+        *((_DWORD *)v11 + 1) = 3;
+        *((_QWORD *)v11 + 1) = 1LL;
+        *((_DWORD *)v11 + 11) = 10;
+        *(_OWORD *)(v11 + 24) = *a2;
+        *((_QWORD *)v11 + 2) = MEMORY[0xFFFFF78000000014];
+        *((_DWORD *)v11 + 15) = v8 + 2;
+        v12 = v8 - 2;
+        *((_DWORD *)v11 + 12) = 64;
+        *((_DWORD *)v11 + 14) = 72;
+        *((_WORD *)v11 + 32) = 0;
+        *((_WORD *)v11 + 36) = 0;
+        v13 = *(_DWORD *)(a1 + 16);
+        if ( (v13 & 2) != 0 )
         {
-          *((_WORD *)v10 + 37) = v11;
-          RtlStringCbCopyW((NTSTRSAFE_PWSTR)v10 + 38, v11, *(NTSTRSAFE_PCWSTR *)(*(_QWORD *)(a1 + 88) + 8 * v8));
+          *((_WORD *)v11 + 37) = v12;
+          RtlStringCbCopyW((NTSTRSAFE_PWSTR)v11 + 38, v12, *(NTSTRSAFE_PCWSTR *)(*v5 + 8 * v9));
         }
-        else if ( (v12 & 1) != 0 )
+        else if ( (v13 & 1) != 0 )
         {
-          v13 = *(_DWORD **)(a1 + 88);
-          LODWORD(v15) = v4 + *v13;
-          RtlStringCbPrintfExW((NTSTRSAFE_PWSTR)v10 + 38, v11, 0LL, 0LL, 0x200u, L"%ws%d", v13 + 1, v15);
-          *((_WORD *)v10 + 37) = v11;
+          LODWORD(v15) = v4 + *(_DWORD *)*v5;
+          RtlStringCbPrintfExW((NTSTRSAFE_PWSTR)v11 + 38, v12, 0LL, 0LL, 0x200u, L"%ws%d", *v5 + 4LL, v15);
+          *((_WORD *)v11 + 37) = v12;
         }
-        WmipProcessEvent(v10);
-        ExFreePoolWithTag(v10, 0);
+        WmipProcessEvent(v11, 1, 0);
+        ExFreePoolWithTag(v11, 0);
+        v5 = (_QWORD *)(a1 + 88);
       }
       ++v4;
     }

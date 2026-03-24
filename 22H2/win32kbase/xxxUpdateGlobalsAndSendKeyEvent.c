@@ -1,29 +1,27 @@
 /*
- * XREFs of xxxUpdateGlobalsAndSendKeyEvent @ 0x1C006B3FC
+ * XREFs of xxxUpdateGlobalsAndSendKeyEvent @ 0x1C004D1F0
  * Callers:
- *     NtMITSynthesizeKeyboardInput @ 0x1C0009460 (NtMITSynthesizeKeyboardInput.c)
- *     xxxKeyEventEx @ 0x1C006A7C8 (xxxKeyEventEx.c)
+ *     xxxKeyEventEx @ 0x1C004CFD0 (xxxKeyEventEx.c)
+ *     NtMITSynthesizeKeyboardInput @ 0x1C012BDD0 (NtMITSynthesizeKeyboardInput.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     GetActiveHKL @ 0x1C006B1A0 (GetActiveHKL.c)
- *     ?HandleLeftRightVKs@CKeyboardProcessor@@SAEE@Z @ 0x1C006B2DC (-HandleLeftRightVKs@CKeyboardProcessor@@SAEE@Z.c)
- *     UpdateKeyLights @ 0x1C006EB00 (UpdateKeyLights.c)
- *     IsKeyboardDelegationEnabledForThread @ 0x1C0070D90 (IsKeyboardDelegationEnabledForThread.c)
- *     UpdateAsyncKeyState @ 0x1C0089620 (UpdateAsyncKeyState.c)
- *     xxxWindowEvent @ 0x1C00C4C0C (xxxWindowEvent.c)
- *     ApiSetEditionIsGpqForegroundAccessibleExplicit @ 0x1C00C9988 (ApiSetEditionIsGpqForegroundAccessibleExplicit.c)
- *     GetKeyboardDelegationTargetQ @ 0x1C00D5540 (GetKeyboardDelegationTargetQ.c)
- *     PtiKbdFromQ @ 0x1C00E5C5E (PtiKbdFromQ.c)
- *     ?DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z @ 0x1C01B5B8C (-DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z.c)
- *     ??$Write@$$V@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2@Z @ 0x1C01E5158 (--$Write@$$V@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESC.c)
- *     ?LowLevelHexNumpad@@YAXGEHG@Z @ 0x1C01E9DB0 (-LowLevelHexNumpad@@YAXGEHG@Z.c)
- *     ApiSetEditionDoHotKeys @ 0x1C0205E5C (ApiSetEditionDoHotKeys.c)
- *     ApiSetEditionHandleAltTab @ 0x1C0206384 (ApiSetEditionHandleAltTab.c)
- *     ApiSetEditionHandleAltTabCancel @ 0x1C020642C (ApiSetEditionHandleAltTabCancel.c)
- *     ApiSetEditionHandleAndPostKeyEvent @ 0x1C02064BC (ApiSetEditionHandleAndPostKeyEvent.c)
- *     ApiSetEditionHandleRawInput @ 0x1C0206660 (ApiSetEditionHandleRawInput.c)
- *     ApiSetEditionIsSAS @ 0x1C0206B2C (ApiSetEditionIsSAS.c)
- *     HasHidTable @ 0x1C02330BC (HasHidTable.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     UpdateAsyncKeyState @ 0x1C004D680 (UpdateAsyncKeyState.c)
+ *     ApiSetEditionDoHotKeys @ 0x1C004D884 (ApiSetEditionDoHotKeys.c)
+ *     ApiSetEditionHandleAltTabCancel @ 0x1C004D978 (ApiSetEditionHandleAltTabCancel.c)
+ *     ?HandleLeftRightVKs@CKeyboardProcessor@@SAEE@Z @ 0x1C004DA8C (-HandleLeftRightVKs@CKeyboardProcessor@@SAEE@Z.c)
+ *     ApiSetEditionHandleAndPostKeyEvent @ 0x1C004DE34 (ApiSetEditionHandleAndPostKeyEvent.c)
+ *     ApiSetEditionHandleRawInput @ 0x1C004E718 (ApiSetEditionHandleRawInput.c)
+ *     ApiSetEditionIsGpqForegroundAccessibleExplicit @ 0x1C004E8C4 (ApiSetEditionIsGpqForegroundAccessibleExplicit.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00902C8 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ApiSetEditionGetActiveHKL @ 0x1C009906C (ApiSetEditionGetActiveHKL.c)
+ *     ApiSetEditionHandleAltTab @ 0x1C00A9DA4 (ApiSetEditionHandleAltTab.c)
+ *     UpdateKeyLights @ 0x1C00B0BA0 (UpdateKeyLights.c)
+ *     ApiSetEditionIsSAS @ 0x1C00C0B44 (ApiSetEditionIsSAS.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z @ 0x1C01A1E64 (-DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z.c)
+ *     ?LowLevelHexNumpad@@YAXGEHG@Z @ 0x1C01AFDC8 (-LowLevelHexNumpad@@YAXGEHG@Z.c)
+ *     PtiKbdFromQ @ 0x1C01B10D8 (PtiKbdFromQ.c)
  */
 
 char __fastcall xxxUpdateGlobalsAndSendKeyEvent(
@@ -34,267 +32,240 @@ char __fastcall xxxUpdateGlobalsAndSendKeyEvent(
         __int64 a5,
         __int64 a6,
         __int16 a7,
-        unsigned __int8 a8,
-        unsigned __int8 a9,
+        unsigned int a8,
+        int a9,
         __int64 a10,
         __int64 *a11,
         __int64 a12)
 {
-  struct tagTHREADINFO *v12; // r13
-  unsigned __int16 v15; // bp
-  int v16; // r14d
-  unsigned __int16 v17; // dx
-  int v18; // edi
-  __int64 v19; // rax
-  __int64 v20; // rbx
-  __int64 v21; // rax
-  int v22; // esi
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  __int64 v29; // r8
-  __int64 v30; // r9
-  __int64 v31; // rax
-  __int64 v32; // rdi
-  __int64 KeyboardDelegationTargetQ; // rax
-  unsigned __int8 v34; // bp
-  __int64 v35; // rax
-  __int64 v36; // rax
-  int v37; // r12d
-  __int64 v38; // rcx
-  int v39; // eax
-  int v40; // edx
-  int v41; // ecx
-  __int64 v42; // rdx
-  __int64 v43; // rcx
-  __int64 v44; // r8
-  __int64 v45; // r9
-  __int64 v46; // rax
-  __int64 v47; // rdx
-  __int64 v48; // rcx
-  __int64 v49; // r8
-  __int64 v50; // r9
-  __int64 v51; // rax
-  __int16 v52; // di
-  __int64 v53; // rax
-  __int64 v54; // rax
-  int v55; // ecx
-  __int16 v57; // [rsp+80h] [rbp-68h]
-  int v58; // [rsp+84h] [rbp-64h]
-  int v59; // [rsp+88h] [rbp-60h] BYREF
-  __int64 v60; // [rsp+90h] [rbp-58h] BYREF
-  _QWORD v61[10]; // [rsp+98h] [rbp-50h] BYREF
-  unsigned __int16 v62; // [rsp+F0h] [rbp+8h]
-  unsigned int v66; // [rsp+140h] [rbp+58h]
+  struct tagTHREADINFO *v12; // rdi
+  int v14; // r14d
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rbx
+  __int64 v18; // rdx
+  unsigned int v19; // esi
+  int v20; // r8d
+  __int64 v21; // rcx
+  __int64 v22; // r8
+  int v23; // r15d
+  int v24; // edx
+  int v25; // ecx
+  int v26; // r8d
+  int v27; // r9d
+  __int64 v28; // rax
+  int v29; // ecx
+  __int16 v30; // di
+  __int16 v31; // dx
+  __int16 v32; // r13
+  __int64 v33; // r8
+  char result; // al
+  unsigned __int8 v35; // r9
+  __int64 v36; // rcx
+  __int64 v37; // rcx
+  int v38; // eax
+  __int16 ActiveHKL; // ax
+  unsigned __int16 v41; // [rsp+82h] [rbp-67h]
+  unsigned int v42; // [rsp+84h] [rbp-65h]
+  int v44; // [rsp+8Ch] [rbp-5Dh]
+  int v45; // [rsp+90h] [rbp-59h] BYREF
+  __int64 v46; // [rsp+98h] [rbp-51h] BYREF
+  __int64 v47; // [rsp+A0h] [rbp-49h]
+  __int64 v48; // [rsp+A8h] [rbp-41h] BYREF
+  __int64 v49; // [rsp+B0h] [rbp-39h]
+  __int64 v50; // [rsp+B8h] [rbp-31h]
+  __int64 v51; // [rsp+C0h] [rbp-29h]
+  struct _EVENT_DATA_DESCRIPTOR v52; // [rsp+C8h] [rbp-21h] BYREF
 
   v12 = gptiCurrent;
-  v15 = a1 & 0x100;
-  v16 = a1 & 0x8000;
-  v62 = a1 & 0x100;
-  v17 = (v16 != 0) + 256;
-  v57 = v17;
-  v18 = v17;
-  v58 = v17;
-  v59 = 0;
+  v49 = a5;
+  v50 = a6;
+  v51 = a12;
+  v14 = a1 & 0x8000;
+  v47 = a4;
+  v41 = a1 & 0x100;
+  v45 = 0;
+  v44 = (unsigned __int16)((v14 != 0) + 256);
   if ( a11 )
-    v19 = *a11;
+    v15 = *a11;
   else
-    v19 = 0LL;
-  v61[0] = v19;
-  v66 = 0;
-  v60 = -1LL;
+    v15 = 0LL;
+  v42 = 0;
+  v48 = v15;
+  v46 = -1LL;
   if ( a8 )
   {
     if ( a10 )
     {
-      v20 = *(_QWORD *)a10;
-      v66 = *(_DWORD *)(a10 + 8);
+      v17 = *(_QWORD *)a10;
+      v42 = *(_DWORD *)(a10 + 8);
     }
     else
     {
-      v21 = *((_QWORD *)gptiCurrent + 53);
-      v20 = *(_QWORD *)(v21 + 888);
-      v66 = *(_DWORD *)(v21 + 12) >> 31;
-      v18 = v17;
+      v16 = *((_QWORD *)gptiCurrent + 53);
+      v17 = *(_QWORD *)(v16 + 880);
+      v42 = *(_DWORD *)(v16 + 12) >> 31;
     }
   }
   else
   {
-    v20 = v60;
+    v17 = v46;
   }
-  v22 = CKeyboardProcessor::HandleLeftRightVKs(a1);
-  if ( (*(_BYTE *)(SGDGetUserSessionState(v24, v23, v25, v26) + 14060) & 0x10) != 0 )
-  {
-    v31 = SGDGetUserSessionState(v28, v27, v29, v30);
-    v27 = 4LL;
-    if ( (*(_BYTE *)(v31 + 14060) & 4) == 0 )
-      v58 = v18 + 4;
-  }
+  v19 = CKeyboardProcessor::HandleLeftRightVKs(a1);
+  v21 = 4LL;
+  if ( (byte_1C024F5E4 & 0x10) != 0 && (byte_1C024F5E4 & 4) == 0 )
+    v44 = v20 + 4;
+  v22 = gptiBlockInput;
   if ( gptiBlockInput && (struct tagTHREADINFO *)gptiBlockInput != v12 )
   {
-    LODWORD(v60) = 0;
-    LOBYTE(v28) = a1;
-    if ( !(unsigned int)ApiSetEditionIsSAS(v28, &v60) )
+    LODWORD(v46) = 0;
+    LOBYTE(v21) = a1;
+    if ( !(unsigned int)ApiSetEditionIsSAS(v21, &v46) )
     {
-      v38 = 2LL;
-LABEL_41:
-      LOBYTE(v39) = InputTraceLogging::Keyboard::DropInput(v38);
-      return v39;
+      v36 = 2LL;
+      return InputTraceLogging::Keyboard::DropInput(v36);
     }
+    v22 = 0LL;
     gptiBlockInput = 0LL;
   }
-  v32 = gpqForeground;
-  if ( gpqForeground )
+  if ( (_BYTE)v19 != (_BYTE)a1 )
   {
-    if ( (unsigned __int8)IsKeyboardDelegationEnabledForThread(*(_QWORD *)(gpqForeground + 104)) )
+    v35 = a1 ^ 1;
+    if ( !v14
+      || (v18 = (unsigned int)(1 << (2 * (v35 & 3))),
+          ((unsigned __int8)v18 & *((_BYTE *)&gafAsyncKeyState + ((unsigned __int64)v35 >> 2))) == 0) )
     {
-      KeyboardDelegationTargetQ = GetKeyboardDelegationTargetQ();
-      if ( KeyboardDelegationTargetQ )
-        v32 = KeyboardDelegationTargetQ;
-    }
-  }
-  if ( (_BYTE)v22 != (_BYTE)a1 )
-  {
-    v34 = a1 ^ 1;
-    if ( !v16
-      || (v35 = SGDGetUserSessionState(v28, v27, v29, v30),
-          v27 = (unsigned int)(1 << (2 * (v34 & 3))),
-          ((unsigned __int8)v27 & *(_BYTE *)(((unsigned __int64)v34 >> 2) + v35 + 13992)) == 0) )
-    {
-      if ( !gptiBlockInput || (struct tagTHREADINFO *)gptiBlockInput == v12 )
+      if ( !v22 || (struct tagTHREADINFO *)v22 == v12 )
       {
-        LOBYTE(v27) = v22;
-        LOBYTE(v29) = v16 != 0;
-        UpdateAsyncKeyState(v32, v27, v29);
-      }
-    }
-    v15 = v62;
-  }
-  LOBYTE(v27) = a1;
-  LOBYTE(v29) = v16 != 0;
-  UpdateAsyncKeyState(v32, v27, v29);
-  if ( gfEnableHexNumpad )
-  {
-    if ( v32 )
-    {
-      v36 = PtiKbdFromQ(v32);
-      if ( !(unsigned int)HasHidTable(v36)
-        || (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(PtiKbdFromQ(v32) + 424) + 848LL) + 100LL) & 0x20) == 0 )
-      {
-        LowLevelHexNumpad(a2, v22, v16, v15);
+        LOBYTE(v18) = v19;
+        LOBYTE(v22) = v14 != 0;
+        UpdateAsyncKeyState(gpqForeground, v18, v22);
       }
     }
   }
-  if ( !v16
-    && ((_BYTE)v22 == 20 || (unsigned __int8)(v22 + 112) <= 1u || (_BYTE)v22 == 21 && (GetActiveHKL() & 0x3FF) == 0x11) )
+  LOBYTE(v18) = a1;
+  LOBYTE(v22) = v14 != 0;
+  UpdateAsyncKeyState(gpqForeground, v18, v22);
+  if ( gfEnableHexNumpad && gpqForeground )
   {
-    UpdateKeyLights(a8);
-    xxxWindowEvent(-2147483642, 0, v22, 0, 0);
+    v37 = ((__int64 (*)(void))PtiKbdFromQ)();
+    v38 = (int)qword_1C0256000;
+    if ( qword_1C0256000 )
+      v38 = qword_1C0256000(v37);
+    if ( !v38 || (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(PtiKbdFromQ(gpqForeground) + 424) + 832LL) + 100LL) & 0x20) == 0 )
+      LowLevelHexNumpad(a2, v19, v14, v41);
+  }
+  if ( !v14 )
+  {
+    if ( (_BYTE)v19 == 20
+      || (unsigned __int8)(v19 + 112) <= 1u
+      || (_BYTE)v19 == 21 && (ActiveHKL = ApiSetEditionGetActiveHKL(), (ActiveHKL & 0x3FF) == 0x11) )
+    {
+      UpdateKeyLights(a8);
+      if ( qword_1C0256128 )
+        qword_1C0256128(2147483654LL, 0LL, v19, 0LL, 0);
+    }
   }
   if ( gptiForeground )
-    v37 = *((_DWORD *)gptiForeground + 221);
+    v23 = *((_DWORD *)gptiForeground + 219);
   else
-    v37 = 0;
-  if ( (unsigned int)ApiSetEditionHandleAltTabCancel(v20, v66, (_DWORD)v12, v16, v22, a8, v37) )
+    v23 = 0;
+  if ( (unsigned int)ApiSetEditionHandleAltTabCancel(v17, v42, (_DWORD)v12, v14, v19, a8, v23) )
   {
-    v38 = 4LL;
-    goto LABEL_41;
+    v36 = 4LL;
+    return InputTraceLogging::Keyboard::DropInput(v36);
   }
-  LOBYTE(v40) = a1;
-  LOBYTE(v41) = v22;
-  v39 = ApiSetEditionDoHotKeys(v41, v40, v16, v37, (__int64)v61, (__int64)&v59);
-  if ( v39 )
+  LOBYTE(v24) = a1;
+  LOBYTE(v25) = v19;
+  if ( !(unsigned int)ApiSetEditionDoHotKeys(v25, v24, v14, v23, (__int64)&v48, (__int64)&v45) )
   {
-    if ( (unsigned int)dword_1C0289810 > 4 )
+    if ( (unsigned int)ApiSetEditionIsGpqForegroundAccessibleExplicit(a8, v12, v17, v42) )
     {
-      LOBYTE(v39) = tlgKeywordOn((__int64)&dword_1C0289810, 0x4000LL);
-      if ( (_BYTE)v39 )
-        LOBYTE(v39) = _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<>(
-                        &dword_1C0289810,
-                        &unk_1C025E223);
-    }
-    return v39;
-  }
-  if ( !(unsigned int)ApiSetEditionIsGpqForegroundAccessibleExplicit(a8, v12, v20, v66) )
-  {
-    v38 = 0LL;
-    goto LABEL_41;
-  }
-  if ( (*(&InputDelegation::CInputDelegationInfo::gInstance + 8) & 1) == 0 )
-  {
-    if ( (a1 & 0x1000) == 0 || (v46 = 0LL, !a8) )
-      v46 = a6;
-    LOBYTE(v45) = a1;
-    LOBYTE(v44) = v22;
-    if ( (unsigned int)ApiSetEditionHandleRawInput(a3, a9, v44, v45, v58, v46, a2, a1, v16, a5) )
-    {
-      v38 = 5LL;
-      goto LABEL_41;
-    }
-  }
-  if ( v59 )
-  {
-    v38 = 6LL;
-    goto LABEL_41;
-  }
-  if ( (*(_BYTE *)(SGDGetUserSessionState(v43, v42, v44, v45) + 13996) & 0x10) == 0
-    || (v51 = SGDGetUserSessionState(v48, v47, v49, v50), v48 = 4LL, (*(_BYTE *)(v51 + 13996) & 4) != 0)
-    || (_BYTE)v22 == 23 )
-  {
-    if ( (_BYTE)v22 == 18 )
-    {
-      if ( v16 )
+      if ( (*(&InputDelegation::CInputDelegationInfo::gInstance + 4) & 1) == 0
+        && ((a1 & 0x1000) == 0 || !a8 ? (v28 = v50) : (v28 = 0LL),
+            LOBYTE(v27) = a1,
+            LOBYTE(v26) = v19,
+            (unsigned int)ApiSetEditionHandleRawInput(a3, a9, v26, v27, v44, v28, a2, a1, v14, v49)) )
       {
-        v54 = SGDGetUserSessionState(v48, v47, v49, v50);
-        LOBYTE(v55) = 18;
-        v52 = v57 + 4;
-        if ( !*(_DWORD *)(v54 + 13816) )
-          v52 = v57;
-        ApiSetEditionHandleAltTab(v55, a2, v62, a3, a4, (__int64)v61, a5, v52);
-        goto LABEL_73;
+        v36 = 5LL;
       }
-      gppiLockSFW = 0LL;
-    }
-    v52 = v57;
-  }
-  else
-  {
-    v62 |= 0x2000u;
-    v52 = v57 + 4;
-    v53 = SGDGetUserSessionState(4LL, v47, v49, v50);
-    if ( (_BYTE)v22 == 18 )
-    {
-      *(_DWORD *)(v53 + 13816) = 1;
-      if ( !v16 )
-        gppiLockSFW = 0LL;
+      else
+      {
+        if ( !v45 )
+        {
+          v29 = 4;
+          if ( (BYTE4(gafAsyncKeyState) & 0x10) == 0 || (BYTE4(gafAsyncKeyState) & 4) != 0 || (_BYTE)v19 == 23 )
+          {
+            v30 = (v14 != 0) + 256;
+            if ( (_BYTE)v19 == 18 )
+            {
+              if ( v14 )
+              {
+                if ( dword_1C02510D8 )
+                  v30 = (v14 != 0) + 260;
+                LOBYTE(v29) = 18;
+                v32 = a2;
+                ApiSetEditionHandleAltTab(v29, a2, v41, a3, v47, (__int64)&v48, v49, v30);
+                v31 = v41;
+                goto LABEL_25;
+              }
+              gppiLockSFW = 0LL;
+            }
+            v31 = v41;
+          }
+          else
+          {
+            v30 = (v14 != 0) + 260;
+            v31 = v41 | 0x2000;
+            if ( (_BYTE)v19 == 18 )
+            {
+              v32 = a2;
+              dword_1C02510D8 = 1;
+              if ( !v14 )
+                gppiLockSFW = 0LL;
+              goto LABEL_25;
+            }
+            dword_1C02510D8 = 0;
+          }
+          v32 = a2;
+LABEL_25:
+          if ( a8 && HIDWORD(v48) == 4 && v50 )
+            v33 = *(unsigned __int16 *)(v50 + 6);
+          else
+            v33 = v47;
+          return ApiSetEditionHandleAndPostKeyEvent(
+                   a8,
+                   v17,
+                   v42,
+                   v14,
+                   v19,
+                   v23,
+                   v32,
+                   a1,
+                   v31,
+                   a7,
+                   (__int64)&v48,
+                   a3,
+                   v49,
+                   v33,
+                   v30,
+                   v51);
+        }
+        v36 = 6LL;
+      }
     }
     else
     {
-      *(_DWORD *)(v53 + 13816) = 0;
+      v36 = 0LL;
     }
+    return InputTraceLogging::Keyboard::DropInput(v36);
   }
-LABEL_73:
-  if ( a8 && HIDWORD(v61[0]) == 4 && a6 )
-    a4 = *(unsigned __int16 *)(a6 + 6);
-  LOBYTE(v39) = ApiSetEditionHandleAndPostKeyEvent(
-                  a8,
-                  v20,
-                  v66,
-                  v16,
-                  v22,
-                  v37,
-                  a2,
-                  a1,
-                  v62,
-                  a7,
-                  (__int64)v61,
-                  a3,
-                  a5,
-                  a4,
-                  v52,
-                  a12);
-  return v39;
+  result = 4;
+  if ( (unsigned int)dword_1C024AA90 > 4 )
+  {
+    result = tlgKeywordOn((__int64)&dword_1C024AA90, 0x4000LL);
+    if ( result )
+      return tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C024AA90, (int)&dword_1C021EF8F, 0, 0, 2u, &v52);
+  }
+  return result;
 }

@@ -1,317 +1,275 @@
 /*
- * XREFs of CmQueryMultipleValueForLayeredKey @ 0x14091210C
+ * XREFs of CmQueryMultipleValueForLayeredKey @ 0x14086C548
  * Callers:
- *     CmQueryMultipleValueKey @ 0x1406B3C34 (CmQueryMultipleValueKey.c)
+ *     CmQueryMultipleValueKey @ 0x140669674 (CmQueryMultipleValueKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     CmpGetKeyNodeForKcb @ 0x14067E828 (CmpGetKeyNodeForKcb.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpIsValueTombstone @ 0x1406C01F4 (CmpIsValueTombstone.c)
- *     CmpLockKcbStackShared @ 0x140721B68 (CmpLockKcbStackShared.c)
- *     CmpUnlockKcbStack @ 0x140721BAC (CmpUnlockKcbStack.c)
- *     CmpGetKcbAtLayerHeight @ 0x140721CE0 (CmpGetKcbAtLayerHeight.c)
- *     CmpFindNameInListWithStatus @ 0x1407221B0 (CmpFindNameInListWithStatus.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1407C05F4 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpGetValueData @ 0x1407C46A0 (CmpGetValueData.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1407C97FC (HvpGetCellContextReinitialize.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140AB43C0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpGetValueData @ 0x1405F8410 (CmpGetValueData.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x140665D30 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpFindNameInListWithStatus @ 0x140665F7C (CmpFindNameInListWithStatus.c)
+ *     CmpGetKeyNodeForKcb @ 0x14066BFD4 (CmpGetKeyNodeForKcb.c)
+ *     CmpIsValueTombstone @ 0x1406B2EA0 (CmpIsValueTombstone.c)
+ *     CmpLockKcbStackShared @ 0x1406FB3E0 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x1406FB440 (CmpUnlockKcbStack.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmQueryMultipleValueForLayeredKey(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
-        __int64 a4,
+        __int64 a3,
+        struct _LOOKASIDE_LIST_EX *a4,
         unsigned int *a5,
         unsigned int *a6)
 {
-  __int64 v7; // rsi
-  __int64 v8; // r13
-  unsigned int v9; // r15d
+  __int64 v6; // rax
+  __int64 v7; // r14
+  __int64 v8; // rsi
+  __int64 v9; // r13
+  void *v10; // r12
+  unsigned int v11; // r15d
   int started; // edi
-  __int64 v11; // rax
-  unsigned int v12; // r12d
-  size_t v13; // rdi
-  unsigned __int16 v14; // cx
-  __int64 v15; // rdx
-  __int16 v16; // r12
-  __int64 KcbAtLayerHeight; // rsi
-  __int16 *v18; // r15
-  char v19; // al
+  __int64 v13; // rax
+  __int64 v14; // rdi
+  unsigned __int16 v15; // cx
+  __int64 v16; // rdx
+  __int16 v17; // ax
+  bool i; // sf
+  __int64 KcbAtLayerHeight; // r14
+  __int16 *v20; // rsi
+  char v21; // al
   __int64 KeyNodeForKcb; // rax
-  __int64 v21; // rcx
-  char v22; // al
-  char v23; // r15
-  ULONG_PTR v24; // rcx
-  __int64 CellFlat; // rax
-  ULONG_PTR v26; // rcx
-  unsigned int v27; // eax
-  unsigned int v28; // edi
-  unsigned int v29; // r12d
-  __int64 v30; // rcx
-  __int64 v31; // rcx
-  __int64 v32; // rcx
-  __int64 v33; // rcx
-  char v35; // [rsp+41h] [rbp-B7h]
-  _WORD BugCheckParameter4[5]; // [rsp+42h] [rbp-B6h] BYREF
-  unsigned int v37; // [rsp+4Ch] [rbp-ACh]
-  __int64 v38; // [rsp+50h] [rbp-A8h] BYREF
-  __int64 v39; // [rsp+58h] [rbp-A0h] BYREF
-  size_t Size; // [rsp+60h] [rbp-98h] BYREF
-  int v41; // [rsp+68h] [rbp-90h]
-  void *Src; // [rsp+70h] [rbp-88h] BYREF
-  _QWORD v43[2]; // [rsp+78h] [rbp-80h] BYREF
-  __int64 v44; // [rsp+88h] [rbp-70h]
-  __int64 v45; // [rsp+90h] [rbp-68h]
-  __int64 v46; // [rsp+98h] [rbp-60h]
-  __int128 v47; // [rsp+A0h] [rbp-58h] BYREF
-  __int128 v48; // [rsp+B0h] [rbp-48h]
+  char v23; // al
+  __int64 v24; // rcx
+  unsigned int v25; // edi
+  unsigned int v26; // edx
+  __int64 v27; // rcx
+  char v29; // [rsp+40h] [rbp-B8h]
+  _BYTE v30[3]; // [rsp+41h] [rbp-B7h] BYREF
+  unsigned int Size; // [rsp+44h] [rbp-B4h] BYREF
+  unsigned int Size_4; // [rsp+48h] [rbp-B0h]
+  unsigned int v33; // [rsp+4Ch] [rbp-ACh] BYREF
+  __int64 v34; // [rsp+50h] [rbp-A8h]
+  void *Src; // [rsp+58h] [rbp-A0h] BYREF
+  int v36; // [rsp+60h] [rbp-98h]
+  __int64 v37; // [rsp+68h] [rbp-90h] BYREF
+  __int64 v38; // [rsp+70h] [rbp-88h] BYREF
+  int v39; // [rsp+78h] [rbp-80h] BYREF
+  __int16 v40; // [rsp+7Ch] [rbp-7Ch]
+  __int16 v41; // [rsp+7Eh] [rbp-7Ah]
+  __int64 v42; // [rsp+80h] [rbp-78h]
+  __int64 v43; // [rsp+88h] [rbp-70h]
+  __int64 v44; // [rsp+90h] [rbp-68h]
+  __int64 v45; // [rsp+98h] [rbp-60h]
+  __int128 v46; // [rsp+A0h] [rbp-58h] BYREF
+  __int128 v47; // [rsp+B0h] [rbp-48h]
+  unsigned int v50; // [rsp+110h] [rbp+18h]
 
-  v38 = 0LL;
-  v43[0] = 0LL;
-  v39 = 0LL;
+  v50 = a3;
+  v6 = *(_QWORD *)(a1 + 8);
+  v46 = 0LL;
   v47 = 0LL;
-  v48 = 0LL;
-  WORD1(v47) = -1;
-  v7 = 0LL;
-  HvpGetCellContextReinitialize(&v38);
-  HvpGetCellContextReinitialize(v43);
+  WORD1(v46) = -1;
+  LOBYTE(v7) = 0;
   v8 = 0LL;
-  v44 = 0LL;
+  v38 = 0xFFFFFFFFLL;
+  v41 = 0;
+  v39 = -1;
+  v40 = 0;
+  v9 = 0LL;
+  v43 = 0LL;
+  v10 = 0LL;
   Src = 0LL;
-  LOBYTE(BugCheckParameter4[0]) = 0;
-  HvpGetCellContextReinitialize(&v39);
-  v9 = 0;
-  *(_DWORD *)&BugCheckParameter4[1] = 0;
-  v37 = 0;
-  v35 = 0;
-  v45 = *(_QWORD *)(a1 + 8);
-  started = CmpStartKcbStackForTopLayerKcb((__int64)&v47, v45);
+  v30[0] = 0;
+  v37 = 0xFFFFFFFFLL;
+  v11 = 0;
+  Size_4 = 0;
+  v29 = 0;
+  v44 = v6;
+  started = CmpStartKcbStackForTopLayerKcb((__int64)&v46, v6, a3, a4);
   if ( started < 0 )
-  {
-    v23 = 0;
-    goto LABEL_69;
-  }
-  CmpLockKcbStackShared((__int64)&v47);
+    goto LABEL_55;
+  CmpLockKcbStackShared((__int64)&v46);
+  v7 = 1LL;
+  v34 = 1LL;
+  v30[1] = 1;
   started = CmpPerformKeyBodyDeletionCheck(a1, 0LL);
   if ( started < 0 )
+    goto LABEL_55;
+  v13 = 0LL;
+LABEL_4:
+  v36 = v13;
+  if ( (unsigned int)v13 < v50 )
   {
-    v23 = 1;
-    goto LABEL_69;
-  }
-  v11 = 0LL;
-  v12 = 0;
-  while ( 2 )
-  {
-    v41 = v11;
-    if ( (unsigned int)v11 >= a3 )
+    v45 = 3 * v13;
+    v14 = *(_QWORD *)(a2 + 24 * v13);
+    v42 = v14;
+    v15 = *(_WORD *)v14;
+    if ( *(_WORD *)v14 )
     {
-      *a5 = v9;
-      if ( a6 )
-        *a6 = v12;
-      v7 = 0LL;
-      v23 = 1;
-      if ( v35 )
-        started = -2147483643;
-      else
-        started = 0;
-      goto LABEL_69;
-    }
-    v46 = 3 * v11;
-    v13 = *(_QWORD *)(a2 + 24 * v11);
-    Size = v13;
-    v14 = *(_WORD *)v13;
-    if ( *(_WORD *)v13 )
-    {
-      v15 = *(_QWORD *)(v13 + 8);
+      v16 = *(_QWORD *)(v14 + 8);
       do
       {
-        if ( *(_WORD *)(v15 + 2 * (((unsigned __int64)v14 - 1) >> 1)) )
+        if ( *(_WORD *)(v16 + 2 * (((unsigned __int64)v15 - v7) >> 1)) )
           break;
-        v14 -= 2;
-        *(_WORD *)v13 = v14;
+        v15 -= 2;
+        *(_WORD *)v14 = v15;
       }
-      while ( v14 );
+      while ( v15 );
     }
-    *(_DWORD *)&BugCheckParameter4[3] = -1;
-    v16 = *(_WORD *)(v45 + 66);
-    if ( v16 < 0 )
-      goto LABEL_37;
-    while ( 1 )
+    v33 = -1;
+    v17 = *(_WORD *)(v44 + 66);
+    for ( i = v17 < 0; ; i = (__int16)(Size - v34) < 0 )
     {
-      KcbAtLayerHeight = CmpGetKcbAtLayerHeight((__int64)&v47, v16);
-      v18 = (__int16 *)(KcbAtLayerHeight + 66);
-      if ( a1 && *v18 == *(unsigned __int16 *)(a1 + 4) )
+      LOWORD(Size) = v17;
+      if ( i )
       {
-        v19 = *(_BYTE *)(KcbAtLayerHeight + 65);
-        if ( !v19 )
-          goto LABEL_17;
-      }
-      else
-      {
-        if ( !*v18 )
-          goto LABEL_17;
-        v19 = *(_BYTE *)(KcbAtLayerHeight + 65);
-      }
-      if ( v19 == 1 )
-        goto LABEL_36;
-LABEL_17:
-      if ( *(_DWORD *)(KcbAtLayerHeight + 40) != -1 )
-        break;
-LABEL_31:
-      if ( --v16 < 0 )
-        goto LABEL_36;
-    }
-    KeyNodeForKcb = CmpGetKeyNodeForKcb(KcbAtLayerHeight, (__int64)v43, 0);
-    started = CmpFindNameInListWithStatus(
-                *(_QWORD *)(KcbAtLayerHeight + 32),
-                (_DWORD *)(KeyNodeForKcb + 36),
-                v13,
-                0,
-                0LL,
-                (__int64)&BugCheckParameter4[3]);
-    v21 = *(_QWORD *)(KcbAtLayerHeight + 32);
-    if ( (*(_BYTE *)(v21 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v21, v43);
-    else
-      HvpReleaseCellPaged(v21, (unsigned int *)v43);
-    if ( started < 0 )
-    {
-      if ( started != -1073741772 )
-        goto LABEL_33;
-      if ( a1 && *v18 == *(unsigned __int16 *)(a1 + 4) )
-      {
-        v22 = *(_BYTE *)(KcbAtLayerHeight + 65);
-        if ( !v22 )
-          goto LABEL_36;
-        goto LABEL_29;
-      }
-      if ( *v18 )
-      {
-        v22 = *(_BYTE *)(KcbAtLayerHeight + 65);
-LABEL_29:
-        if ( v22 )
-          goto LABEL_36;
-      }
-      v13 = Size;
-      goto LABEL_31;
-    }
-    v8 = KcbAtLayerHeight;
-    v44 = KcbAtLayerHeight;
-LABEL_36:
-    v9 = *(_DWORD *)&BugCheckParameter4[1];
-LABEL_37:
-    if ( *(_DWORD *)&BugCheckParameter4[3] != -1 )
-    {
-      v24 = *(_QWORD *)(v8 + 32);
-      if ( (*(_BYTE *)(v24 + 140) & 1) != 0 )
-        CellFlat = HvpGetCellFlat(v24, *(unsigned int *)&BugCheckParameter4[3], &v38);
-      else
-        CellFlat = HvpGetCellPaged(v24, *(unsigned int *)&BugCheckParameter4[3], (unsigned int *)&v38);
-      v7 = CellFlat;
-      v43[1] = CellFlat;
-      if ( CmpIsValueTombstone(*(_QWORD *)(v8 + 32), CellFlat) )
-      {
-        started = -1073741772;
-        goto LABEL_34;
-      }
-      v27 = *(_DWORD *)(v7 + 4);
-      v28 = v27 + 0x80000000;
-      if ( v27 < 0x80000000 )
-        v28 = *(_DWORD *)(v7 + 4);
-      LODWORD(Size) = v28;
-      v9 = (v9 + 7) & 0xFFFFFFF8;
-      *(_DWORD *)&BugCheckParameter4[1] = v9;
-      v29 = (v37 + 7) & 0xFFFFFFF8;
-      if ( v35 || v28 + v9 > *a5 || v28 + v9 < v9 )
-      {
-        v35 = 1;
-      }
-      else
-      {
-        if ( !CmpGetValueData(
-                v26,
-                *(unsigned int *)&BugCheckParameter4[3],
-                v7,
-                (unsigned int *)&Size,
-                (__int64)&Src,
-                (__int64)BugCheckParameter4,
-                &v39) )
+LABEL_33:
+        if ( v33 == -1 )
         {
-          started = -1073741670;
-          goto LABEL_34;
+          started = -1073741772;
+          goto LABEL_54;
         }
-        v28 = Size;
-        memmove((void *)(a4 + v9), Src, (unsigned int)Size);
-        v30 = v46;
-        *(_DWORD *)(a2 + 8 * v46 + 16) = *(_DWORD *)(v7 + 12);
-        *(_DWORD *)(a2 + 8 * v30 + 8) = v28;
-        *(_DWORD *)(a2 + 8 * v30 + 12) = v9;
-        v9 += v28;
-        *(_DWORD *)&BugCheckParameter4[1] = v9;
-        if ( LOBYTE(BugCheckParameter4[0]) )
+        v8 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, __int64 *))(*(_QWORD *)(v9 + 32) + 8LL))(
+               *(_QWORD *)(v9 + 32),
+               v33,
+               &v38);
+        v42 = v8;
+        if ( CmpIsValueTombstone(*(_QWORD *)(v9 + 32), v8) )
         {
-          ExFreePoolWithTag(Src, 0);
+          started = -1073741772;
+          goto LABEL_55;
+        }
+        v25 = *(_DWORD *)(v8 + 4);
+        if ( v25 >= 0x80000000 )
+          v25 += 0x80000000;
+        Size = v25;
+        v11 = (v11 + 7) & 0xFFFFFFF8;
+        v26 = (Size_4 + 7) & 0xFFFFFFF8;
+        Size_4 = v26;
+        if ( v29 || v25 + v11 > *a5 || v25 + v11 < v11 )
+        {
+          v29 = v7;
         }
         else
         {
-          v31 = *(_QWORD *)(v8 + 32);
-          if ( (*(_BYTE *)(v31 + 140) & 1) != 0 )
-            HvpReleaseCellFlat(v31, &v39);
+          if ( !CmpGetValueData(v24, v33, v8, &Size, (__int64)&Src, (__int64)v30, (__int64)&v37) )
+          {
+            started = -1073741670;
+            v10 = Src;
+            goto LABEL_55;
+          }
+          v25 = Size;
+          memmove((char *)a4 + v11, Src, Size);
+          v27 = v45;
+          *(_DWORD *)(a2 + 8 * v45 + 16) = *(_DWORD *)(v8 + 12);
+          *(_DWORD *)(a2 + 8 * v27 + 8) = v25;
+          *(_DWORD *)(a2 + 8 * v27 + 12) = v11;
+          v11 += v25;
+          if ( v30[0] )
+            ExFreePoolWithTag(Src, 0);
           else
-            HvpReleaseCellPaged(v31, (unsigned int *)&v39);
+            (*(void (__fastcall **)(_QWORD, __int64 *))(*(_QWORD *)(v9 + 32) + 16LL))(*(_QWORD *)(v9 + 32), &v37);
+          v10 = 0LL;
+          Src = 0LL;
+          v24 = *(_QWORD *)(v9 + 32);
+          v26 = Size_4;
         }
-        Src = 0LL;
-        v26 = *(_QWORD *)(v8 + 32);
+        Size_4 = v25 + v26;
+        (*(void (__fastcall **)(__int64, __int64 *))(v24 + 16))(v24, &v38);
+        v13 = (unsigned int)(v7 + v36);
+        goto LABEL_4;
       }
-      v12 = v28 + v29;
-      v37 = v12;
-      if ( (*(_BYTE *)(v26 + 140) & 1) != 0 )
-        HvpReleaseCellFlat(v26, &v38);
+      KcbAtLayerHeight = CmpGetKcbAtLayerHeight((__int64)&v46, v17);
+      v20 = (__int16 *)(KcbAtLayerHeight + 66);
+      if ( a1 && *v20 == *(unsigned __int16 *)(a1 + 4) )
+      {
+        v21 = *(_BYTE *)(KcbAtLayerHeight + 65);
+        if ( !v21 )
+          goto LABEL_18;
+      }
       else
-        HvpReleaseCellPaged(v26, (unsigned int *)&v38);
-      v11 = (unsigned int)(v41 + 1);
-      continue;
+      {
+        if ( !*v20 )
+          goto LABEL_18;
+        v21 = *(_BYTE *)(KcbAtLayerHeight + 65);
+      }
+      if ( v21 == (_BYTE)v34 )
+        goto LABEL_32;
+LABEL_18:
+      if ( *(_DWORD *)(KcbAtLayerHeight + 40) == -1 )
+        goto LABEL_29;
+      KeyNodeForKcb = CmpGetKeyNodeForKcb(KcbAtLayerHeight, (__int64)&v39, 0);
+      started = CmpFindNameInListWithStatus(
+                  *(_QWORD *)(KcbAtLayerHeight + 32),
+                  (unsigned int *)(KeyNodeForKcb + 36),
+                  v14,
+                  0,
+                  0LL,
+                  (__int64)&v33);
+      (*(void (__fastcall **)(_QWORD, int *))(*(_QWORD *)(KcbAtLayerHeight + 32) + 16LL))(
+        *(_QWORD *)(KcbAtLayerHeight + 32),
+        &v39);
+      if ( started >= 0 )
+      {
+        v9 = KcbAtLayerHeight;
+        v43 = KcbAtLayerHeight;
+LABEL_32:
+        v7 = v34;
+        goto LABEL_33;
+      }
+      if ( started != -1073741772 )
+      {
+        LOBYTE(v7) = v34;
+        goto LABEL_54;
+      }
+      if ( a1 && *v20 == *(unsigned __int16 *)(a1 + 4) )
+      {
+        v23 = *(_BYTE *)(KcbAtLayerHeight + 65);
+        if ( !v23 )
+          goto LABEL_32;
+LABEL_27:
+        if ( v23 )
+          goto LABEL_32;
+        goto LABEL_28;
+      }
+      if ( *v20 )
+      {
+        v23 = *(_BYTE *)(KcbAtLayerHeight + 65);
+        goto LABEL_27;
+      }
+LABEL_28:
+      v14 = v42;
+LABEL_29:
+      v7 = v34;
+      v17 = Size - v34;
     }
-    break;
   }
-  started = -1073741772;
-LABEL_33:
-  v7 = 0LL;
-LABEL_34:
-  v23 = 1;
-LABEL_69:
-  if ( Src )
+  *a5 = v11;
+  if ( a6 )
+    *a6 = Size_4;
+  started = -2147483643;
+  if ( !v29 )
+    started = 0;
+LABEL_54:
+  v8 = 0LL;
+LABEL_55:
+  if ( v10 )
   {
-    if ( LOBYTE(BugCheckParameter4[0]) )
-    {
-      ExFreePoolWithTag(Src, 0);
-    }
+    if ( v30[0] )
+      ExFreePoolWithTag(v10, 0);
     else
-    {
-      v32 = *(_QWORD *)(v8 + 32);
-      if ( (*(_BYTE *)(v32 + 140) & 1) != 0 )
-        HvpReleaseCellFlat(v32, &v39);
-      else
-        HvpReleaseCellPaged(v32, (unsigned int *)&v39);
-    }
+      (*(void (__fastcall **)(_QWORD, __int64 *))(*(_QWORD *)(v9 + 32) + 16LL))(*(_QWORD *)(v9 + 32), &v37);
   }
-  if ( v7 )
-  {
-    v33 = *(_QWORD *)(v8 + 32);
-    if ( (*(_BYTE *)(v33 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(v33, &v38);
-    else
-      HvpReleaseCellPaged(v33, (unsigned int *)&v38);
-  }
-  if ( v23 )
-    CmpUnlockKcbStack((__int64)&v47);
-  if ( *((_QWORD *)&v48 + 1) )
-    CmSiFreeMemory(*((PPRIVILEGE_SET *)&v48 + 1));
+  if ( v8 )
+    (*(void (__fastcall **)(_QWORD, __int64 *))(*(_QWORD *)(v9 + 32) + 16LL))(*(_QWORD *)(v9 + 32), &v38);
+  if ( (_BYTE)v7 )
+    CmpUnlockKcbStack((__int64)&v46);
+  if ( *((_QWORD *)&v47 + 1) )
+    CmSiFreeMemory(*((PPRIVILEGE_SET *)&v47 + 1));
   return (unsigned int)started;
 }

@@ -1,210 +1,257 @@
 /*
- * XREFs of PiDevCfgQueryIncludedDriverNode @ 0x14094CFE8
+ * XREFs of PiDevCfgQueryIncludedDriverNode @ 0x1408A7648
  * Callers:
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1407455A8 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x14076C27C (PiDevCfgQueryIncludedDriverConfigurations.c)
  * Callees:
- *     PnpDuplicateUnicodeString @ 0x1402D1DA4 (PnpDuplicateUnicodeString.c)
- *     PnpValidateRegistryMultiSz @ 0x14039A190 (PnpValidateRegistryMultiSz.c)
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     PiDevCfgGetDriverConfigurationKeyScope @ 0x140561968 (PiDevCfgGetDriverConfigurationKeyScope.c)
- *     RtlCreateUnicodeString @ 0x14066A0F0 (RtlCreateUnicodeString.c)
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     PiDevCfgGetDriverPackageId @ 0x140745620 (PiDevCfgGetDriverPackageId.c)
- *     PiDevCfgOpenDriverConfiguration @ 0x1407472EC (PiDevCfgOpenDriverConfiguration.c)
- *     PiDevCfgFreeDriverNode @ 0x1407474E4 (PiDevCfgFreeDriverNode.c)
- *     _PnpOpenObjectRegKey @ 0x14077C924 (_PnpOpenObjectRegKey.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     PnpDuplicateUnicodeString @ 0x14036EEA0 (PnpDuplicateUnicodeString.c)
+ *     PnpValidateRegistryMultiSz @ 0x140392E7C (PnpValidateRegistryMultiSz.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PiDevCfgGetDriverConfigurationKeyScope @ 0x14050E0D8 (PiDevCfgGetDriverConfigurationKeyScope.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     _PnpOpenObjectRegKey @ 0x140637864 (_PnpOpenObjectRegKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
+ *     RtlCreateUnicodeString @ 0x1406748C0 (RtlCreateUnicodeString.c)
+ *     PiDevCfgFreeDriverNode @ 0x14073A3E4 (PiDevCfgFreeDriverNode.c)
+ *     PiDevCfgOpenDriverConfiguration @ 0x14073B938 (PiDevCfgOpenDriverConfiguration.c)
+ *     PiDevCfgGetDriverPackageId @ 0x14073C1E8 (PiDevCfgGetDriverPackageId.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgQueryIncludedDriverNode(__int64 a1, const wchar_t *a2, const WCHAR *a3, int a4, __int64 *a5)
 {
-  const WCHAR *v6; // r14
-  int v8; // ebx
-  unsigned int *v9; // r13
+  const WCHAR *v7; // rsi
+  unsigned int *v9; // r15
   int v10; // eax
-  int v11; // eax
+  int v11; // ebx
   int v12; // eax
   int v13; // eax
-  const wchar_t *v14; // rdx
+  int v14; // eax
   int v15; // eax
-  __int64 v16; // rcx
+  char v16; // al
+  __int64 v17; // rcx
   int DriverPackageId; // eax
-  int v18; // eax
   int v19; // eax
-  __int64 v20; // rax
-  __int64 Pool2; // rax
-  __int64 v22; // rsi
-  UNICODE_STRING *v23; // rcx
-  _QWORD *v24; // rax
+  int v20; // eax
+  __int64 v21; // rax
+  PVOID PoolWithTag; // rax
+  __int64 v23; // rdi
+  __int64 v24; // rdx
+  __int64 v25; // r8
   NTSTATUS RegistryValue; // eax
-  wchar_t *i; // rdi
+  wchar_t *i; // rsi
   int v28; // ecx
   char v29; // r14
   int DriverConfigurationKeyScope; // eax
   int v31; // ecx
   int v32; // ecx
   __int64 v33; // rax
-  wchar_t v34; // dx
   HANDLE KeyHandle; // [rsp+40h] [rbp-20h] BYREF
   unsigned int *v36; // [rsp+48h] [rbp-18h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-10h] BYREF
-  HANDLE Handle; // [rsp+A8h] [rbp+48h] BYREF
-  int v39; // [rsp+B8h] [rbp+58h]
+  HANDLE Handle; // [rsp+98h] [rbp+38h] BYREF
 
-  v39 = a4;
   *(_QWORD *)&UnicodeString.Length = 0LL;
-  v6 = a2;
   UnicodeString.Buffer = 0LL;
+  v7 = a2;
   Handle = 0LL;
-  v8 = 0;
   KeyHandle = 0LL;
   v9 = 0LL;
   v36 = 0LL;
   if ( !a2 )
   {
-    v14 = *(const wchar_t **)(a1 + 96);
-    if ( !v14 || wcsicmp(a3, v14) )
+    v15 = PiDevCfgOpenDriverConfiguration(*(void **)(a1 + 16), a3, &KeyHandle);
+    v11 = v15;
+    if ( v15 == -1073741772 )
     {
-      v15 = PiDevCfgOpenDriverConfiguration(*(void **)(a1 + 16), a3, &KeyHandle);
-      v8 = v15;
-      if ( v15 == -1073741772 )
-      {
-        v8 = 0;
-      }
-      else if ( v15 < 0 )
-      {
-        goto LABEL_48;
-      }
+      v11 = 0;
     }
-    if ( KeyHandle )
+    else if ( v15 < 0 )
     {
-      v6 = *(const WCHAR **)(a1 + 48);
-      goto LABEL_19;
+      goto LABEL_73;
     }
-    v6 = *(const WCHAR **)(a1 + 344);
-    if ( v6 )
+    if ( !KeyHandle )
     {
-      if ( *v6 )
+      v7 = *(const WCHAR **)(a1 + 344);
+      if ( !v7 )
+        goto LABEL_24;
+      if ( *v7 )
       {
         while ( 1 )
         {
-          DriverPackageId = PiDevCfgGetDriverPackageId((int)v6, (__int64)&UnicodeString);
-          v8 = DriverPackageId;
+          DriverPackageId = PiDevCfgGetDriverPackageId((__int64)v7, (__int64)&UnicodeString);
+          v11 = DriverPackageId;
           if ( DriverPackageId == -1073741772 )
-            goto LABEL_38;
+            goto LABEL_41;
           if ( DriverPackageId < 0 )
-            goto LABEL_48;
-          v18 = PnpOpenObjectRegKey(
+            goto LABEL_73;
+          v19 = PnpOpenObjectRegKey(
                   *(__int64 *)&PiPnpRtlCtx,
                   (__int64)UnicodeString.Buffer,
                   8u,
                   131097,
                   0,
                   (__int64)&Handle);
-          v8 = v18;
-          if ( v18 == -1073741772 )
-            goto LABEL_38;
-          if ( v18 < 0 )
-            goto LABEL_48;
-          v19 = PiDevCfgOpenDriverConfiguration(Handle, a3, &KeyHandle);
-          v8 = v19;
+          v11 = v19;
+          if ( v19 == -1073741772 )
+            break;
           if ( v19 < 0 )
+            goto LABEL_73;
+          v20 = PiDevCfgOpenDriverConfiguration(Handle, a3, &KeyHandle);
+          v11 = v20;
+          if ( v20 < 0 )
           {
-            if ( v19 != -1073741772 )
-              goto LABEL_48;
+            if ( v20 != -1073741772 )
+              goto LABEL_37;
             ZwClose(Handle);
             Handle = 0LL;
-            RtlFreeUnicodeString(&UnicodeString);
-            v20 = -1LL;
+            RtlFreeAnsiString(&UnicodeString);
+            v21 = -1LL;
             do
-              ++v20;
-            while ( v6[v20] );
-            v6 += v20 + 1;
-            if ( *v6 )
+              ++v21;
+            while ( v7[v21] );
+            v7 += v21 + 1;
+            if ( *v7 )
               continue;
           }
-          goto LABEL_40;
+          goto LABEL_38;
         }
+        v11 = -1073740655;
       }
-      if ( v8 < 0 )
-        goto LABEL_48;
-LABEL_40:
-      if ( KeyHandle )
+LABEL_37:
+      if ( v11 < 0 )
+        goto LABEL_73;
+LABEL_38:
+      if ( !KeyHandle )
       {
-LABEL_41:
-        Pool2 = ExAllocatePool2(256LL, 416LL, 1667526736LL);
-        v22 = Pool2;
-        if ( !Pool2 )
-          goto LABEL_42;
-        *(_DWORD *)(Pool2 + 184) = 32;
-        v23 = (UNICODE_STRING *)(Pool2 + 40);
-        v24 = (_QWORD *)(Pool2 + 224);
-        v24[1] = v24;
-        *v24 = v24;
-        *(_QWORD *)(v22 + 216) = v22 + 208;
-        *(_QWORD *)(v22 + 208) = v22 + 208;
-        *(_QWORD *)(v22 + 376) = v22 + 368;
-        *(_QWORD *)(v22 + 368) = v22 + 368;
-        if ( RtlCreateUnicodeString(v23, v6)
-          && PnpDuplicateUnicodeString(v22 + 56, (__int64)&UnicodeString)
-          && RtlCreateUnicodeString((PUNICODE_STRING)(v22 + 88), a3) )
+LABEL_24:
+        v11 = -1073740654;
+        goto LABEL_75;
+      }
+      goto LABEL_39;
+    }
+    v7 = *(const WCHAR **)(a1 + 48);
+    goto LABEL_17;
+  }
+  if ( !wcsicmp(a2, *(const wchar_t **)(a1 + 48)) )
+  {
+    v10 = PiDevCfgOpenDriverConfiguration(*(void **)(a1 + 16), a3, &KeyHandle);
+    v11 = v10;
+    if ( v10 != -1073741772 )
+    {
+      if ( v10 < 0 )
+        goto LABEL_73;
+LABEL_17:
+      v16 = PnpDuplicateUnicodeString((__int64)&UnicodeString, a1 + 56);
+      v17 = 0LL;
+      if ( !v16 )
+      {
+LABEL_40:
+        v11 = -1073741670;
+        goto LABEL_73;
+      }
+      if ( *(_QWORD *)&PiPnpRtlCtx )
+        v17 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL);
+      v14 = SysCtxRegOpenKey(v17, *(_QWORD *)(a1 + 16), 0LL, 0, 0x20019u, (__int64)&Handle);
+      v11 = v14;
+      goto LABEL_21;
+    }
+LABEL_11:
+    v11 = -1073740654;
+    goto LABEL_73;
+  }
+  v12 = PiDevCfgGetDriverPackageId((__int64)v7, (__int64)&UnicodeString);
+  v11 = v12;
+  if ( v12 != -1073741772 )
+  {
+    if ( v12 < 0 )
+      goto LABEL_73;
+    v13 = PnpOpenObjectRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)UnicodeString.Buffer, 8u, 131097, 0, (__int64)&Handle);
+    v11 = v13;
+    if ( v13 != -1073741772 )
+    {
+      if ( v13 < 0 )
+        goto LABEL_73;
+      v14 = PiDevCfgOpenDriverConfiguration(Handle, a3, &KeyHandle);
+      v11 = v14;
+      if ( v14 != -1073741772 )
+      {
+LABEL_21:
+        if ( v14 < 0 )
+          goto LABEL_73;
+LABEL_39:
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1A0uLL, 0x63647050u);
+        v23 = (__int64)PoolWithTag;
+        if ( !PoolWithTag )
+          goto LABEL_40;
+        memset(PoolWithTag, 0, 0x1A0uLL);
+        *(_DWORD *)(v23 + 184) = 32;
+        *(_QWORD *)(v23 + 232) = v23 + 224;
+        *(_QWORD *)(v23 + 224) = v23 + 224;
+        *(_QWORD *)(v23 + 216) = v23 + 208;
+        *(_QWORD *)(v23 + 208) = v23 + 208;
+        *(_QWORD *)(v23 + 376) = v23 + 368;
+        *(_QWORD *)(v23 + 368) = v23 + 368;
+        if ( RtlCreateUnicodeString((PUNICODE_STRING)(v23 + 40), v7)
+          && PnpDuplicateUnicodeString(v23 + 56, (__int64)&UnicodeString)
+          && RtlCreateUnicodeString((PUNICODE_STRING)(v23 + 88), a3) )
         {
-          *(_DWORD *)(v22 + 104) = v39;
+          *(_DWORD *)(v23 + 104) = a4;
           RegistryValue = IopGetRegistryValue(KeyHandle, L"IncludeScope", 0, &v36);
           v9 = v36;
-          v8 = RegistryValue;
+          v11 = RegistryValue;
           if ( RegistryValue == -1073741772 )
           {
-            v8 = 0;
-LABEL_77:
-            *(_QWORD *)(v22 + 16) = Handle;
-            *(_QWORD *)(v22 + 32) = KeyHandle;
+            v11 = 0;
+LABEL_68:
+            *(_QWORD *)(v23 + 16) = Handle;
+            *(_QWORD *)(v23 + 32) = KeyHandle;
             Handle = 0LL;
             KeyHandle = 0LL;
-            *a5 = v22;
-            goto LABEL_46;
+            *a5 = v23;
+            v23 = 0LL;
+            goto LABEL_69;
           }
           if ( RegistryValue >= 0 )
           {
             if ( !PnpValidateRegistryMultiSz(v36) )
             {
-              v8 = -1073741823;
-              goto LABEL_45;
+              v11 = -1073741823;
+              goto LABEL_69;
             }
             for ( i = (wchar_t *)((char *)v9 + v9[2]); ; i += v33 + 1 )
             {
-              v34 = *i;
-              if ( !*i )
-                goto LABEL_77;
+              v24 = *i;
+              if ( !(_WORD)v24 )
+                goto LABEL_68;
               v28 = *i - 42;
               if ( *i == 42 )
                 v28 = i[1];
               if ( !v28 )
               {
-                *(_DWORD *)(v22 + 104) = -1;
-                goto LABEL_77;
+                *(_DWORD *)(v23 + 104) = -1;
+                goto LABEL_68;
               }
               v29 = 1;
-              if ( v34 != 43 )
+              if ( (_WORD)v24 != 43 )
               {
-                if ( v34 != 45 )
-                  goto LABEL_68;
+                if ( (_WORD)v24 != 45 )
+                  goto LABEL_59;
                 v29 = 0;
               }
               ++i;
-LABEL_68:
+LABEL_59:
               DriverConfigurationKeyScope = PiDevCfgGetDriverConfigurationKeyScope(i);
-              v31 = *(_DWORD *)(v22 + 104);
+              v31 = *(_DWORD *)(v23 + 104);
               if ( v29 )
                 v32 = DriverConfigurationKeyScope | v31;
               else
                 v32 = ~DriverConfigurationKeyScope & v31;
-              *(_DWORD *)(v22 + 104) = v32;
               v33 = -1LL;
+              *(_DWORD *)(v23 + 104) = v32;
               do
                 ++v33;
               while ( i[v33] );
@@ -213,81 +260,26 @@ LABEL_68:
         }
         else
         {
-          v8 = -1073741670;
+          v11 = -1073741670;
         }
-LABEL_45:
-        PiDevCfgFreeDriverNode((char *)v22);
-LABEL_46:
+LABEL_69:
+        if ( v23 )
+          PiDevCfgFreeDriverNode(v23, v24, v25);
         if ( v9 )
           ExFreePoolWithTag(v9, 0);
-        goto LABEL_48;
+        goto LABEL_73;
       }
+      goto LABEL_11;
     }
-    v8 = -1073740654;
-    goto LABEL_50;
   }
-  if ( wcsicmp(a2, *(const wchar_t **)(a1 + 48)) )
-  {
-    v11 = PiDevCfgGetDriverPackageId((int)v6, (__int64)&UnicodeString);
-    v8 = v11;
-    if ( v11 != -1073741772 )
-    {
-      if ( v11 < 0 )
-        goto LABEL_48;
-      v12 = PnpOpenObjectRegKey(
-              *(__int64 *)&PiPnpRtlCtx,
-              (__int64)UnicodeString.Buffer,
-              8u,
-              131097,
-              0,
-              (__int64)&Handle);
-      v8 = v12;
-      if ( v12 != -1073741772 )
-      {
-        if ( v12 < 0 )
-          goto LABEL_48;
-        v13 = PiDevCfgOpenDriverConfiguration(Handle, a3, &KeyHandle);
-        v8 = v13;
-        if ( v13 != -1073741772 )
-        {
-LABEL_23:
-          if ( v13 < 0 )
-            goto LABEL_48;
-          goto LABEL_41;
-        }
-LABEL_11:
-        v8 = -1073740654;
-        goto LABEL_48;
-      }
-    }
-LABEL_38:
-    v8 = -1073740655;
-    goto LABEL_48;
-  }
-  v10 = PiDevCfgOpenDriverConfiguration(*(void **)(a1 + 16), a3, &KeyHandle);
-  v8 = v10;
-  if ( v10 == -1073741772 )
-    goto LABEL_11;
-  if ( v10 < 0 )
-    goto LABEL_48;
-LABEL_19:
-  if ( PnpDuplicateUnicodeString((__int64)&UnicodeString, a1 + 56) )
-  {
-    v16 = 0LL;
-    if ( *(_QWORD *)&PiPnpRtlCtx )
-      v16 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL);
-    v13 = SysCtxRegOpenKey(v16, *(_QWORD *)(a1 + 16), 0LL, 0, 0x20019u, (__int64)&Handle);
-    v8 = v13;
-    goto LABEL_23;
-  }
-LABEL_42:
-  v8 = -1073741670;
-LABEL_48:
+LABEL_41:
+  v11 = -1073740655;
+LABEL_73:
   if ( KeyHandle )
     ZwClose(KeyHandle);
-LABEL_50:
+LABEL_75:
   if ( Handle )
     ZwClose(Handle);
-  RtlFreeUnicodeString(&UnicodeString);
-  return (unsigned int)v8;
+  RtlFreeAnsiString(&UnicodeString);
+  return (unsigned int)v11;
 }

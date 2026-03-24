@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionInputExtensibilityCallout @ 0x1C01C57D0
+ * XREFs of EditionInputExtensibilityCallout @ 0x1C01F07A0
  * Callers:
  *     <none>
  * Callees:
- *     xxxClientCallDevCallbackSimple @ 0x1C02114B0 (xxxClientCallDevCallbackSimple.c)
+ *     xxxClientCallDevCallbackSimple @ 0x1C023161C (xxxClientCallDevCallbackSimple.c)
  */
 
 __int64 __fastcall EditionInputExtensibilityCallout(__int64 a1, __int64 a2)

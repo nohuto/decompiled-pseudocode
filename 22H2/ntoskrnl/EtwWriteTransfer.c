@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwWriteTransfer @ 0x14034DC10
+ * XREFs of EtwWriteTransfer @ 0x14025D530
  * Callers:
- *     FlushEventEntryList @ 0x1408802E8 (FlushEventEntryList.c)
+ *     FlushEventEntryList @ 0x140735B18 (FlushEventEntryList.c)
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
  */
 
 NTSTATUS __stdcall EtwWriteTransfer(

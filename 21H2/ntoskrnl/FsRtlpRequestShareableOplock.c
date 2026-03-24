@@ -1,34 +1,34 @@
 /*
- * XREFs of FsRtlpRequestShareableOplock @ 0x1402A2490
+ * XREFs of FsRtlpRequestShareableOplock @ 0x1402057F0
  * Callers:
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x14039F3B0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpGrantAnyOplockFromExclusive @ 0x140542834 (FsRtlpGrantAnyOplockFromExclusive.c)
- *     FsRtlpOplockFsctrlInternal @ 0x14071C610 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403930CC (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpGrantAnyOplockFromExclusive @ 0x1404F08A0 (FsRtlpGrantAnyOplockFromExclusive.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1405EA170 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     FsRtlpClearOwner @ 0x140240DB4 (FsRtlpClearOwner.c)
- *     FsRtlpCancelOplockRHIrp @ 0x14024E6F0 (FsRtlpCancelOplockRHIrp.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x14024E884 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
- *     _tlgWriteAgg @ 0x1402A1A20 (_tlgWriteAgg.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     FsRtlpComputeShareableOplockState @ 0x1402A2DE8 (FsRtlpComputeShareableOplockState.c)
- *     FsRtlpOplockEnqueueRH @ 0x1402A2E8C (FsRtlpOplockEnqueueRH.c)
- *     FsRtlpOplockDequeueRH @ 0x1402A386C (FsRtlpOplockDequeueRH.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
- *     FsRtlpCallerIsAtomicRequestor @ 0x1402A3F9C (FsRtlpCallerIsAtomicRequestor.c)
- *     FsRtlpOplockKeysEqual @ 0x1402A6AB0 (FsRtlpOplockKeysEqual.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     MmDoesFileHaveUserWritableReferences @ 0x14030F1E0 (MmDoesFileHaveUserWritableReferences.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1404173E4 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlpCancelReadOnlyOplockIrp @ 0x14054268C (FsRtlpCancelReadOnlyOplockIrp.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x140542AEC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
- *     FsRtlpAllocateOplock @ 0x1406BE148 (FsRtlpAllocateOplock.c)
- *     FsRtlpOplockUpperLowerCompatible @ 0x14071CAB0 (FsRtlpOplockUpperLowerCompatible.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     FsRtlpComputeShareableOplockState @ 0x140206150 (FsRtlpComputeShareableOplockState.c)
+ *     FsRtlpOplockEnqueueRH @ 0x140206224 (FsRtlpOplockEnqueueRH.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     MmDoesFileHaveUserWritableReferences @ 0x14029F8B0 (MmDoesFileHaveUserWritableReferences.c)
+ *     FsRtlpCancelOplockRHIrp @ 0x1402AD9F0 (FsRtlpCancelOplockRHIrp.c)
+ *     FsRtlpCallerIsAtomicRequestor @ 0x1402B9EF0 (FsRtlpCallerIsAtomicRequestor.c)
+ *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
+ *     FsRtlpOplockKeysEqual @ 0x140355AE0 (FsRtlpOplockKeysEqual.c)
+ *     FsRtlpOplockDequeueRH @ 0x140356AA0 (FsRtlpOplockDequeueRH.c)
+ *     FsRtlpClearOwner @ 0x140375278 (FsRtlpClearOwner.c)
+ *     _tlgWriteAgg @ 0x140375E94 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0B48 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpCancelReadOnlyOplockIrp @ 0x1404F06F8 (FsRtlpCancelReadOnlyOplockIrp.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1404F0B4C (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1404F0C4C (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpOplockUpperLowerCompatible @ 0x1405EA118 (FsRtlpOplockUpperLowerCompatible.c)
+ *     FsRtlpAllocateOplock @ 0x1406A6478 (FsRtlpAllocateOplock.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall FsRtlpRequestShareableOplock(
@@ -36,7 +36,7 @@ __int64 __fastcall FsRtlpRequestShareableOplock(
         __int64 a2,
         __int64 a3,
         unsigned int a4,
-        __int64 a5,
+        _QWORD *a5,
         char a6,
         char a7,
         unsigned int a8)
@@ -50,14 +50,14 @@ __int64 __fastcall FsRtlpRequestShareableOplock(
   _QWORD *v17; // rbx
   __int64 v18; // rcx
   _QWORD *v19; // rax
-  __int64 *i; // rsi
-  __int64 *v21; // rcx
+  _QWORD *i; // rsi
+  void *v21; // rcx
   _QWORD *v22; // rsi
   __int64 v23; // rcx
   _QWORD *v24; // rax
   SECTION_OBJECT_POINTERS *v25; // rcx
   __int64 v26; // rax
-  __int64 v27; // r8
+  int v27; // r8d
   int v28; // ecx
   int v29; // eax
   int v30; // eax
@@ -69,44 +69,48 @@ __int64 __fastcall FsRtlpRequestShareableOplock(
   _QWORD *v36; // rax
   _QWORD *v37; // rcx
   __int64 v38; // rdx
-  int v39; // eax
+  __int64 v39; // rdx
   int v40; // eax
-  int v41; // ecx
-  int v42; // eax
-  _QWORD *v43; // rbx
+  int v41; // eax
+  int v42; // ecx
+  int v43; // eax
+  _QWORD *v44; // rbx
   _QWORD *j; // rbx
-  int v45; // eax
+  int v46; // eax
   __int64 *k; // rbx
-  __int64 v47; // rdx
-  _QWORD *v48; // rax
-  _QWORD *v49; // rcx
-  __int64 v50; // rdx
+  __int64 v48; // rdx
+  _QWORD *v49; // rax
+  _QWORD *v50; // rcx
   __int64 v51; // rdx
-  char v53; // [rsp+44h] [rbp-E4h]
-  PVOID P; // [rsp+48h] [rbp-E0h] BYREF
-  unsigned int v55; // [rsp+50h] [rbp-D8h] BYREF
-  __int64 v56; // [rsp+58h] [rbp-D0h] BYREF
-  PFAST_MUTEX FastMutex; // [rsp+60h] [rbp-C8h]
-  __int64 v58; // [rsp+68h] [rbp-C0h] BYREF
-  __int64 v59; // [rsp+70h] [rbp-B8h] BYREF
-  struct _KTHREAD *CurrentThread; // [rsp+78h] [rbp-B0h]
-  struct _EVENT_DATA_DESCRIPTOR v61; // [rsp+80h] [rbp-A8h] BYREF
-  __int64 *v62; // [rsp+A0h] [rbp-88h]
-  __int64 v63; // [rsp+A8h] [rbp-80h]
-  int *v64; // [rsp+B0h] [rbp-78h]
-  __int64 v65; // [rsp+B8h] [rbp-70h]
-  __int64 *v66; // [rsp+C0h] [rbp-68h]
-  __int64 v67; // [rsp+C8h] [rbp-60h]
-  __int64 *v68; // [rsp+D0h] [rbp-58h]
-  __int64 v69; // [rsp+D8h] [rbp-50h]
+  __int64 v52; // rdx
+  char v54; // [rsp+44h] [rbp-104h]
+  PVOID P; // [rsp+48h] [rbp-100h] BYREF
+  unsigned int v56; // [rsp+50h] [rbp-F8h] BYREF
+  __int64 v57; // [rsp+58h] [rbp-F0h] BYREF
+  PFAST_MUTEX FastMutex; // [rsp+60h] [rbp-E8h]
+  __int64 v59; // [rsp+68h] [rbp-E0h] BYREF
+  __int64 v60; // [rsp+70h] [rbp-D8h] BYREF
+  _QWORD *v61; // [rsp+78h] [rbp-D0h]
+  struct _KTHREAD *CurrentThread; // [rsp+80h] [rbp-C8h]
+  __int64 v63; // [rsp+88h] [rbp-C0h]
+  __int64 v64; // [rsp+90h] [rbp-B8h]
+  struct _EVENT_DATA_DESCRIPTOR v65; // [rsp+A0h] [rbp-A8h] BYREF
+  __int64 *v66; // [rsp+C0h] [rbp-88h]
+  __int64 v67; // [rsp+C8h] [rbp-80h]
+  int *v68; // [rsp+D0h] [rbp-78h]
+  __int64 v69; // [rsp+D8h] [rbp-70h]
+  __int64 *v70; // [rsp+E0h] [rbp-68h]
+  __int64 v71; // [rsp+E8h] [rbp-60h]
+  __int64 *v72; // [rsp+F0h] [rbp-58h]
+  __int64 v73; // [rsp+F8h] [rbp-50h]
 
   v10 = a2;
-  v56 = a2;
-  v58 = a5;
+  v57 = a2;
+  v61 = a5;
   v12 = 0;
   P = 0LL;
   FastMutex = 0LL;
-  v53 = 0;
+  v54 = 0;
   v13 = 0;
   Oplock = *a1;
   if ( !*a1 )
@@ -119,7 +123,7 @@ __int64 __fastcall FsRtlpRequestShareableOplock(
   {
     FastMutex = *(PFAST_MUTEX *)(Oplock + 152);
     ExAcquireFastMutexUnsafe(FastMutex);
-    v53 = 1;
+    v54 = 1;
   }
   if ( (*(_DWORD *)(Oplock + 144) & 0x10000) != 0
     && *(_BYTE *)v10 == 13
@@ -138,7 +142,7 @@ __int64 __fastcall FsRtlpRequestShareableOplock(
       if ( *(_QWORD *)(Oplock + 120) == Oplock + 120 )
         *(_DWORD *)(Oplock + 144) &= 0xFFFCFFFF;
       if ( v17[5] )
-        FsRtlpClearOwner(Oplock, (__int64)v17);
+        FsRtlpClearOwner(Oplock, v17);
       ExFreePoolWithTag(v17, 0);
       P = 0LL;
       FsRtlpComputeShareableOplockState(Oplock);
@@ -149,12 +153,12 @@ LABEL_145:
       IofCompleteRequest((PIRP)a3, 1);
       goto LABEL_146;
     }
-    for ( i = *(__int64 **)(Oplock + 88); i != (__int64 *)(Oplock + 88); i = (__int64 *)*i )
+    for ( i = *(_QWORD **)(Oplock + 88); i != (_QWORD *)(Oplock + 88); i = (_QWORD *)*i )
     {
       v21 = i;
       if ( !*((_BYTE *)i + 53) || a4 != 12288 )
       {
-        i = (__int64 *)i[1];
+        i = (_QWORD *)i[1];
         FsRtlpRemoveAndCompleteWaitingIrp(v21);
       }
     }
@@ -169,11 +173,11 @@ LABEL_145:
     if ( *(_QWORD *)(Oplock + 120) == Oplock + 120 )
       *(_DWORD *)(Oplock + 144) &= 0xFFFCFFFF;
     if ( v22[5] )
-      FsRtlpClearOwner(Oplock, (__int64)v22);
+      FsRtlpClearOwner(Oplock, v22);
     ExFreePoolWithTag(v22, 0);
     P = 0LL;
     FsRtlpComputeShareableOplockState(Oplock);
-    v10 = v56;
+    v10 = v57;
     v15 = a7;
   }
   if ( !(unsigned __int8)FsRtlpOplockUpperLowerCompatible(a4, a8) )
@@ -193,21 +197,21 @@ LABEL_145:
         v26 = *(_QWORD *)(a3 + 24);
         *(_DWORD *)(v26 + 8) = 0;
         *(_DWORD *)(v26 + 12) |= 4u;
-        if ( (unsigned int)dword_140C038D8 > 5 && tlgKeywordOn((__int64)&dword_140C038D8, 0x400000000000LL) )
+        if ( (unsigned int)dword_140C021A0 > 5 && (unsigned __int8)tlgKeywordOn(&dword_140C021A0, 0x400000000000LL) )
         {
           v59 = 1LL;
-          v62 = &v59;
-          v63 = 8LL;
-          v55 = a4;
-          v64 = (int *)&v55;
-          v65 = 4LL;
-          LODWORD(v56) = *(_DWORD *)(Oplock + 144);
-          v66 = &v56;
-          v67 = 4LL;
-          v58 = 0x1000000LL;
-          v68 = &v58;
-          v69 = 8LL;
-          tlgWriteAgg((__int64)&dword_140C038D8, (unsigned __int8 *)&byte_14002AA68, v27, 6u, &v61);
+          v66 = &v59;
+          v67 = 8LL;
+          v56 = a4;
+          v68 = (int *)&v56;
+          v69 = 4LL;
+          LODWORD(v57) = *(_DWORD *)(Oplock + 144);
+          v70 = &v57;
+          v71 = 4LL;
+          v60 = 0x1000000LL;
+          v72 = &v60;
+          v73 = 8LL;
+          tlgWriteAgg((int)&dword_140C021A0, (int)&byte_1400244F5, v27, 6, &v65);
         }
         goto LABEL_144;
       }
@@ -225,11 +229,11 @@ LABEL_44:
   }
   if ( a4 == 16 )
   {
-    v39 = *(_DWORD *)(Oplock + 144);
-    if ( (v39 & 1) == 0 )
+    v40 = *(_DWORD *)(Oplock + 144);
+    if ( (v40 & 1) == 0 )
     {
-      v40 = v39 & 0x1F0FFDF;
-      if ( v40 != 16 && v40 != 4096 && v40 != 4112 )
+      v41 = v40 & 0x1F0FFDF;
+      if ( v41 != 16 && v41 != 4096 && v41 != 4112 )
         goto LABEL_144;
     }
     goto LABEL_105;
@@ -239,33 +243,33 @@ LABEL_44:
 LABEL_105:
     if ( !v15 )
     {
-      v41 = *(_DWORD *)(Oplock + 144);
-      if ( (v41 & 1) == 0 )
+      v42 = *(_DWORD *)(Oplock + 144);
+      if ( (v42 & 1) == 0 )
       {
-        v42 = v41 & 0x1F0FFDF;
-        if ( (v41 & 0x1F0FFDF) != 0x10
-          && v42 != 4096
-          && v42 != 4112
-          && v42 != 12288
-          && v42 != 45056
-          && v42 != 1060864
-          && v42 != 8400896
-          && (v41 & 0x10000) == 0 )
+        v43 = v42 & 0x1F0FFDF;
+        if ( (v42 & 0x1F0FFDF) != 0x10
+          && v43 != 4096
+          && v43 != 4112
+          && v43 != 12288
+          && v43 != 45056
+          && v43 != 1060864
+          && v43 != 8400896
+          && (v42 & 0x10000) == 0 )
         {
           goto LABEL_144;
         }
       }
-      v43 = *(_QWORD **)(Oplock + 56);
-      if ( v43 != (_QWORD *)(Oplock + 56) )
+      v44 = *(_QWORD **)(Oplock + 56);
+      if ( v44 != (_QWORD *)(Oplock + 56) )
         goto LABEL_118;
       if ( *(_QWORD *)(Oplock + 72) != Oplock + 72 )
       {
-        while ( v43 != (_QWORD *)(Oplock + 56) )
+        while ( v44 != (_QWORD *)(Oplock + 56) )
         {
 LABEL_118:
-          if ( (unsigned __int8)FsRtlpOplockKeysEqual(*(_QWORD *)(v10 + 48), v43[3], 0LL) )
+          if ( (unsigned __int8)FsRtlpOplockKeysEqual(*(_QWORD *)(v10 + 48), v44[3], 0LL) )
             goto LABEL_144;
-          v43 = (_QWORD *)*v43;
+          v44 = (_QWORD *)*v44;
         }
         for ( j = *(_QWORD **)(Oplock + 72); j != (_QWORD *)(Oplock + 72); j = (_QWORD *)*j )
         {
@@ -273,14 +277,14 @@ LABEL_118:
             goto LABEL_144;
         }
       }
-      v45 = *(_DWORD *)(Oplock + 144) & 0x1F0FFDF;
-      if ( v45 == 16 || v45 == 4096 || v45 == 4112 || v45 == 45056 )
+      v46 = *(_DWORD *)(Oplock + 144) & 0x1F0FFDF;
+      if ( v46 == 16 || v46 == 4096 || v46 == 4112 || v46 == 45056 )
       {
         for ( k = *(__int64 **)(Oplock + 40); k != (__int64 *)(Oplock + 40); k = (__int64 *)*k )
         {
-          v47 = k[2];
-          if ( (*(_DWORD *)(v47 + 24) == 590400 || *(_QWORD *)(v47 + 48) != *(_QWORD *)(v10 + 48))
-            && (unsigned __int8)FsRtlpOplockKeysEqual(*(_QWORD *)(v10 + 48), *(_QWORD *)(v47 + 48), 0LL) )
+          v48 = k[2];
+          if ( (*(_DWORD *)(v48 + 24) == 590400 || *(_QWORD *)(v48 + 48) != *(_QWORD *)(v10 + 48))
+            && (unsigned __int8)FsRtlpOplockKeysEqual(*(_QWORD *)(v10 + 48), *(_QWORD *)(v48 + 48), 0LL) )
           {
             FsRtlpRemoveAndCompleteReadOnlyIrp(*(_QWORD *)k[1], 533LL, a4 & 0x7000);
             break;
@@ -288,17 +292,18 @@ LABEL_118:
         }
       }
     }
-    *(_BYTE *)(*(_QWORD *)(a3 + 184) + 3LL) |= 1u;
+    v64 = *(_QWORD *)(a3 + 184);
+    *(_BYTE *)(v64 + 3) |= 1u;
     *(_DWORD *)(a3 + 48) = 0;
-    v48 = (_QWORD *)(a3 + 168);
-    v49 = (_QWORD *)(Oplock + 40);
-    v50 = *(_QWORD *)(Oplock + 40);
-    if ( *(_QWORD *)(v50 + 8) != Oplock + 40 )
+    v49 = (_QWORD *)(a3 + 168);
+    v50 = (_QWORD *)(Oplock + 40);
+    v51 = *(_QWORD *)(Oplock + 40);
+    if ( *(_QWORD *)(v51 + 8) != Oplock + 40 )
       __fastfail(3u);
-    *v48 = v50;
-    *(_QWORD *)(a3 + 176) = v49;
-    *(_QWORD *)(v50 + 8) = v48;
-    *v49 = v48;
+    *v49 = v51;
+    *(_QWORD *)(a3 + 176) = v50;
+    *(_QWORD *)(v51 + 8) = v49;
+    *v50 = v49;
     *(_QWORD *)(a3 + 56) = Oplock;
     FsRtlpComputeShareableOplockState(Oplock);
     if ( a6 )
@@ -306,8 +311,8 @@ LABEL_118:
     *(_BYTE *)(a3 + 69) = KeAcquireQueuedSpinLock(7uLL);
     if ( *(_BYTE *)(a3 + 68) )
     {
-      LOBYTE(v51) = 1;
-      FsRtlpCancelReadOnlyOplockIrp(a3, v51);
+      LOBYTE(v52) = 1;
+      FsRtlpCancelReadOnlyOplockIrp(a3, v52);
     }
     else
     {
@@ -393,8 +398,8 @@ LABEL_143:
       }
     }
   }
-  v34 = (_QWORD *)v58;
-  *(_QWORD *)(*(_QWORD *)v58 + 32LL) = KeGetCurrentThread()->ApcState.Process;
+  v34 = v61;
+  *(_QWORD *)(*v61 + 32LL) = KeGetCurrentThread()->ApcState.Process;
   *(_QWORD *)(*v34 + 24LL) = *(_QWORD *)(v10 + 48);
   v35 = FsRtlpOplockEnqueueRH(Oplock + 56, *v34);
   v12 = v35;
@@ -419,7 +424,8 @@ LABEL_143:
       *(_QWORD *)(*v34 + 40LL) = CurrentThread;
       ObfReferenceObjectWithTag(*(PVOID *)(*v34 + 40LL), 0x746C6644u);
       *(_QWORD *)(*v34 + 16LL) = a3;
-      *(_BYTE *)(*(_QWORD *)(a3 + 184) + 3LL) |= 1u;
+      v63 = *(_QWORD *)(a3 + 184);
+      *(_BYTE *)(v63 + 3) |= 1u;
       v12 = 259;
       *(_DWORD *)(a3 + 48) = 0;
       *(_QWORD *)(a3 + 56) = Oplock;
@@ -429,9 +435,14 @@ LABEL_143:
       if ( *(_BYTE *)(a3 + 68) )
       {
         if ( a6 && a7 )
-          FsRtlpCancelOplockRHIrp(a3, 1, 0);
+        {
+          LOBYTE(v39) = 1;
+          FsRtlpCancelOplockRHIrp(a3, v39);
+        }
         else
-          FsRtlpCancelOplockRHIrp(a3, 1, 1);
+        {
+          FsRtlpCancelOplockRHIrp(a3, 1LL);
+        }
       }
       else
       {
@@ -451,7 +462,7 @@ LABEL_143:
     IofCompleteRequest((PIRP)a3, 1);
   }
 LABEL_146:
-  if ( v53 && a4 != 0x10000 )
+  if ( v54 && a4 != 0x10000 )
     ExReleaseFastMutexUnsafe(FastMutex);
   return v12;
 }

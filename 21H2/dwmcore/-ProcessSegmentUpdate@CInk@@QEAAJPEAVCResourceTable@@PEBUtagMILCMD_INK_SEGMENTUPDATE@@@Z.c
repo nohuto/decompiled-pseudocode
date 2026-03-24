@@ -1,13 +1,12 @@
 /*
- * XREFs of ?ProcessSegmentUpdate@CInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INK_SEGMENTUPDATE@@@Z @ 0x180218044
+ * XREFs of ?ProcessSegmentUpdate@CInk@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INK_SEGMENTUPDATE@@@Z @ 0x1801C5980
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A325C (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??$ReleaseInterface@UID2D1Ink@@@@YAXAEAPEAUID2D1Ink@@@Z @ 0x1802174DC (--$ReleaseInterface@UID2D1Ink@@@@YAXAEAPEAUID2D1Ink@@@Z.c)
- *     ??$ReleaseInterface@UID2D1InkStyle@@@@YAXAEAPEAUID2D1InkStyle@@@Z @ 0x180217518 (--$ReleaseInterface@UID2D1InkStyle@@@@YAXAEAPEAUID2D1InkStyle@@@Z.c)
- *     ?GetID2D1InkAndInkStyle@CD2DInk@@QEAAJPEAPEAUID2D1Ink@@PEAPEAUID2D1InkStyle@@@Z @ 0x180217C38 (-GetID2D1InkAndInkStyle@CD2DInk@@QEAAJPEAPEAUID2D1Ink@@PEAPEAUID2D1InkStyle@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z @ 0x1800C186C (--$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetID2D1InkAndInkStyle@CD2DInk@@QEAAJPEAPEAUID2D1Ink@@PEAPEAUID2D1InkStyle@@@Z @ 0x1801C55EC (-GetID2D1InkAndInkStyle@CD2DInk@@QEAAJPEAPEAUID2D1Ink@@PEAPEAUID2D1InkStyle@@@Z.c)
  */
 
 __int64 __fastcall CInk::ProcessSegmentUpdate(
@@ -49,7 +48,7 @@ __int64 __fastcall CInk::ProcessSegmentUpdate(
   v6 = 0LL;
   v7 = *((unsigned int *)a3 + 2);
   v8 = 0;
-  v9 = *((_QWORD *)this + 16);
+  v9 = *((_QWORD *)this + 15);
   v10 = 0;
   v31 = 0LL;
   DWORD2(v28) = v3;
@@ -67,13 +66,13 @@ __int64 __fastcall CInk::ProcessSegmentUpdate(
   *(_OWORD *)(v9 + 4 * v12) = v28;
   *(_OWORD *)(v9 + 4 * v12 + 16) = v29;
   *(_DWORD *)(v9 + 4 * v12 + 32) = v30;
-  v14 = (__int64)(*((_QWORD *)this + 12) - *((_QWORD *)this + 11)) >> 3;
+  v14 = (__int64)(*((_QWORD *)this + 11) - *((_QWORD *)this + 10)) >> 3;
   if ( (_DWORD)v14 )
   {
     v15 = 0LL;
     while ( 1 )
     {
-      ID2D1InkAndInkStyle = CD2DInk::GetID2D1InkAndInkStyle(*(CD2DInk **)(v15 + *((_QWORD *)this + 11)), &v32, &v31);
+      ID2D1InkAndInkStyle = CD2DInk::GetID2D1InkAndInkStyle(*(CD2DInk **)(v15 + *((_QWORD *)this + 10)), &v32, &v31);
       v8 = ID2D1InkAndInkStyle;
       if ( ID2D1InkAndInkStyle < 0 )
         break;
@@ -88,12 +87,12 @@ __int64 __fastcall CInk::ProcessSegmentUpdate(
         v23 = (*(__int64 (__fastcall **)(struct ID2D1Ink *, __int64, __int64, __int64))(v22 + 64))(
                 v6,
                 v19,
-                *((_QWORD *)this + 16) + v20,
+                *((_QWORD *)this + 15) + v20,
                 1LL);
         v8 = v23;
         if ( v23 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0LL, v23, 0xCFu);
+          MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, v23, 0xCFu, 0LL);
           goto LABEL_12;
         }
       }
@@ -101,17 +100,17 @@ __int64 __fastcall CInk::ProcessSegmentUpdate(
       {
         v25 = (*(__int64 (__fastcall **)(struct ID2D1Ink *, __int64, __int64))(v22 + 48))(
                 v6,
-                v20 + *((_QWORD *)this + 16),
+                v20 + *((_QWORD *)this + 15),
                 1LL);
         v8 = v25;
         if ( v25 < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0LL, v25, 0xD6u);
+          MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v25, 0xD6u, 0LL);
           goto LABEL_12;
         }
       }
-      ReleaseInterface<ID2D1Ink>((__int64 *)&v32);
-      ReleaseInterface<ID2D1InkStyle>((__int64 *)&v31);
+      ReleaseInterface<CResource>((__int64 *)&v32);
+      ReleaseInterface<CResource>((__int64 *)&v31);
       ++v10;
       v15 += 8LL;
       if ( v10 >= (unsigned int)v14 )
@@ -120,7 +119,7 @@ __int64 __fastcall CInk::ProcessSegmentUpdate(
         goto LABEL_11;
       }
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0LL, ID2D1InkAndInkStyle, 0xCAu);
+    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, ID2D1InkAndInkStyle, 0xCAu, 0LL);
     v6 = v32;
   }
   else

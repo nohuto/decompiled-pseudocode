@@ -1,43 +1,34 @@
 /*
- * XREFs of IommupHvDismissPageFault @ 0x140524A98
+ * XREFs of IommupHvDismissPageFault @ 0x1404D9DF0
  * Callers:
- *     IommuProcessPageRequestQueue @ 0x1405231C0 (IommuProcessPageRequestQueue.c)
+ *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall IommupHvDismissPageFault(int a1, __int64 a2, __int16 a3, int a4, __int64 a5, __int64 a6)
+__int64 __fastcall IommupHvDismissPageFault(__int64 a1, ULONG_PTR *a2, int a3)
 {
-  __int64 v7; // rcx
+  ULONG_PTR v3; // rcx
+  unsigned __int64 v5; // rax
   __int64 result; // rax
-  __int64 v9; // [rsp+30h] [rbp-38h] BYREF
-  ULONG_PTR BugCheckParameter3; // [rsp+38h] [rbp-30h]
-  ULONG_PTR BugCheckParameter4; // [rsp+40h] [rbp-28h]
-  __int64 v12; // [rsp+48h] [rbp-20h]
 
-  BugCheckParameter4 = 0LL;
-  v12 = 0LL;
-  v9 = a2;
-  v7 = a3 & 0x1FF;
-  if ( a1 != -1 )
-    v7 = ((unsigned int)v7 ^ (a1 << 11)) & 0x7FFFF800 ^ (unsigned __int64)v7 | 0x400;
-  BugCheckParameter3 = v7 | 0x8000000000000000uLL;
-  if ( a4 >= 0 )
+  v3 = a2[4];
+  a2[4] = v3 | 0x8000000000000000uLL;
+  if ( a3 >= 0 )
   {
-    if ( a6 && !IommupHvGpaAlwaysValid )
-    {
-      BugCheckParameter3 = v7 | 0xC000000000000000uLL;
-      BugCheckParameter4 = a6 & 0xF | a5 & 0xFFFFFFFFFFFFF000uLL;
-    }
+    if ( IommupHvGpaAlwaysValid )
+      goto LABEL_6;
+    v5 = 0xC000000000000000uLL;
   }
   else
   {
-    BugCheckParameter3 = v7 | 0xA000000000000000uLL;
+    v5 = 0xA000000000000000uLL;
   }
-  result = ((__int64 (__fastcall *)(__int64, __int64 *))qword_140C626A0)(1LL, &v9);
+  a2[4] = v5 | v3;
+LABEL_6:
+  result = ((__int64 (__fastcall *)(__int64, ULONG_PTR *))qword_140C4A320)(1LL, a2);
   if ( (int)result < 0 )
-    KeBugCheckEx(0x159u, 0x3102uLL, (int)result, BugCheckParameter3, BugCheckParameter4);
+    KeBugCheckEx(0x159u, 0x3102uLL, (int)result, (ULONG_PTR)a2, *a2);
   return result;
 }

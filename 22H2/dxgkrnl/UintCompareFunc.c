@@ -1,5 +1,5 @@
 /*
- * XREFs of UintCompareFunc @ 0x1C02285E0
+ * XREFs of UintCompareFunc @ 0x1C0210780
  * Callers:
  *     <none>
  * Callees:
@@ -8,8 +8,8 @@
 
 __int64 __fastcall UintCompareFunc(_DWORD *a1, _DWORD *a2)
 {
-  if ( *a1 < *a2 )
-    return 0xFFFFFFFFLL;
-  else
+  if ( *a1 >= *a2 )
     return *a1 > *a2;
+  else
+    return 0xFFFFFFFFLL;
 }

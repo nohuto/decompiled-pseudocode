@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpTraceLastBranchRecord @ 0x140469446
+ * XREFs of EtwpTraceLastBranchRecord @ 0x1405B01F4
  * Callers:
- *     EtwpLogKernelEvent @ 0x140233C80 (EtwpLogKernelEvent.c)
- *     EtwpLogContextSwapEvent @ 0x140388190 (EtwpLogContextSwapEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x14038C540 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogKernelEvent @ 0x1402D0790 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1403A993C (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x1403A9C30 (EtwpLogContextSwapEvent.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140233C80 (EtwpLogKernelEvent.c)
- *     KeQueryCurrentStackInformation @ 0x14034E3B0 (KeQueryCurrentStackInformation.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeGetCurrentStackPointer @ 0x14041EA70 (KeGetCurrentStackPointer.c)
- *     RtlpInterlockedPopEntrySList @ 0x1404287F0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     _alloca_probe @ 0x140429450 (_alloca_probe.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     EtwpLogKernelEvent @ 0x1402D0790 (EtwpLogKernelEvent.c)
+ *     KeQueryCurrentStackInformation @ 0x140340240 (KeQueryCurrentStackInformation.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeGetCurrentStackPointer @ 0x1403FDC50 (KeGetCurrentStackPointer.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     _alloca_probe @ 0x140407B20 (_alloca_probe.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall EtwpTraceLastBranchRecord(__int64 a1, _QWORD *a2, _KTHREAD *a3, int a4)
@@ -33,7 +33,7 @@ void __fastcall EtwpTraceLastBranchRecord(__int64 a1, _QWORD *a2, _KTHREAD *a3, 
   unsigned int v20; // [rsp+28h] [rbp-8h]
   unsigned int v21; // [rsp+30h] [rbp+0h] BYREF
   int v22; // [rsp+34h] [rbp+4h] BYREF
-  char *v23; // [rsp+38h] [rbp+8h] BYREF
+  struct _KPRCB *v23; // [rsp+38h] [rbp+8h] BYREF
   unsigned __int64 v24; // [rsp+40h] [rbp+10h] BYREF
   __int128 v25; // [rsp+48h] [rbp+18h] BYREF
   __int128 v26; // [rsp+58h] [rbp+28h]
@@ -58,7 +58,7 @@ void __fastcall EtwpTraceLastBranchRecord(__int64 a1, _QWORD *a2, _KTHREAD *a3, 
   {
     if ( !a3 )
       v6 = CurrentThread;
-    if ( KeQueryCurrentStackInformation(&v21, &v23, &v24) )
+    if ( KeQueryCurrentStackInformation((char *)&v21, &v23, &v24) )
     {
       if ( v21 > 9 || (v9 = 929, !_bittest(&v9, v21)) )
       {
@@ -67,7 +67,7 @@ void __fastcall EtwpTraceLastBranchRecord(__int64 a1, _QWORD *a2, _KTHREAD *a3, 
         v12 = RtlpInterlockedPopEntrySList(&EtwpLastBranchLookAsideList);
         if ( !v12 || (v13 = (unsigned int *)&v12[1], v12 == (PSLIST_ENTRY)-16LL) )
         {
-          if ( KeGetCurrentStackPointer() - v23 <= (unsigned __int64)(v11 + 3632) )
+          if ( KeGetCurrentStackPointer() - (char *)v23 <= (unsigned __int64)(v11 + 3632) )
             return;
           v14 = v11 + 15;
           if ( v11 + 15 <= (unsigned __int64)(unsigned int)v11 )
@@ -76,14 +76,14 @@ void __fastcall EtwpTraceLastBranchRecord(__int64 a1, _QWORD *a2, _KTHREAD *a3, 
           v10 = 1;
           v13 = &v21;
         }
-        if ( ((int (__fastcall *)(_QWORD, unsigned int *, int *))off_140C01D98[0])((unsigned int)v11, v13, &v22) >= 0
+        if ( ((int (__fastcall *)(_QWORD, unsigned int *, int *))off_140C00988[0])((unsigned int)v11, v13, &v22) >= 0
           && v22 )
         {
-          v16 = *(_QWORD *)(a1 + 1096);
+          v16 = *(_QWORD *)(a1 + 1080);
           DWORD2(v25) = v6[1].CycleTime;
           HIDWORD(v25) = v6[1].CurrentRunTime;
           *(_QWORD *)&v25 = *a2;
-          v17 = *(_QWORD *)(a1 + 1024);
+          v17 = *(_QWORD *)(a1 + 1008);
           v20 = a4 & 0xFFFFE600 | 2;
           v18 = *(_DWORD *)(v17 + 4);
           v30 = 0;

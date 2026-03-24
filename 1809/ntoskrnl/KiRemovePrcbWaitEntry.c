@@ -1,10 +1,10 @@
 /*
- * XREFs of KiRemovePrcbWaitEntry @ 0x1400ACBF0
+ * XREFs of KiRemovePrcbWaitEntry @ 0x1400ACC10
  * Callers:
- *     KiWakeQueueWaiter @ 0x1400AC9F0 (KiWakeQueueWaiter.c)
+ *     KiWakeQueueWaiter @ 0x1400ACA10 (KiWakeQueueWaiter.c)
  * Callees:
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KiRemovePrcbWaitEntry(_QWORD *a1, __int64 a2, __int64 a3)

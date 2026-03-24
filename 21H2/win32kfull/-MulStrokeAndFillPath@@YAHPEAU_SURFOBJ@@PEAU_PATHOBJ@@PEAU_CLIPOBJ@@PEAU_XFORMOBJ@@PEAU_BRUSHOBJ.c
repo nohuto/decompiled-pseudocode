@@ -1,19 +1,19 @@
 /*
- * XREFs of ?MulStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@4PEAU_POINTL@@KK@Z @ 0x1C02A2950
+ * XREFs of ?MulStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@4PEAU_POINTL@@KK@Z @ 0x1C02A4BD0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ??0MULTISURF@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C016EF76 (--0MULTISURF@@QEAA@PEAU_SURFOBJ@@@Z.c)
- *     ?StoreElement@MULTIBRUSH@@QEAAXJ@Z @ 0x1C016FBC8 (-StoreElement@MULTIBRUSH@@QEAAXJ@Z.c)
- *     ?bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C016FC5C (-bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
- *     ??1MULTISURF@@QEAA@XZ @ 0x1C027BB90 (--1MULTISURF@@QEAA@XZ.c)
- *     EngStrokeAndFillPath @ 0x1C02856C0 (EngStrokeAndFillPath.c)
- *     ??0MULTIBRUSH@@QEAA@PEAU_BRUSHOBJ@@JPEAU_VDEV@@PEAU_SURFOBJ@@H@Z @ 0x1C029FBD8 (--0MULTIBRUSH@@QEAA@PEAU_BRUSHOBJ@@JPEAU_VDEV@@PEAU_SURFOBJ@@H@Z.c)
- *     ?IsMetaDevBitmapForMirroring@@YAHPEAU_SURFOBJ@@@Z @ 0x1C029FE80 (-IsMetaDevBitmapForMirroring@@YAHPEAU_SURFOBJ@@@Z.c)
- *     ?LoadElement@MULTIBRUSH@@QEAAXPEAU_DISPSURF@@PEAVSURFACE@@@Z @ 0x1C029FEC0 (-LoadElement@MULTIBRUSH@@QEAAXPEAU_DISPSURF@@PEAVSURFACE@@@Z.c)
- *     ?bNextSurface@MSURF@@QEAAHXZ @ 0x1C02A4670 (-bNextSurface@MSURF@@QEAAHXZ.c)
- *     OffStrokeAndFillPath @ 0x1C02C7BF4 (OffStrokeAndFillPath.c)
+ *     OffStrokeAndFillPath @ 0x1C01421E0 (OffStrokeAndFillPath.c)
+ *     EngStrokeAndFillPath @ 0x1C014C2B0 (EngStrokeAndFillPath.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ??1MULTISURF@@QEAA@XZ @ 0x1C027E020 (--1MULTISURF@@QEAA@XZ.c)
+ *     ??0MULTIBRUSH@@QEAA@PEAU_BRUSHOBJ@@JPEAU_VDEV@@PEAU_SURFOBJ@@H@Z @ 0x1C02A10D0 (--0MULTIBRUSH@@QEAA@PEAU_BRUSHOBJ@@JPEAU_VDEV@@PEAU_SURFOBJ@@H@Z.c)
+ *     ??0MULTISURF@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C02A1320 (--0MULTISURF@@QEAA@PEAU_SURFOBJ@@@Z.c)
+ *     ?IsMetaDevBitmapForMirroring@@YAHPEAU_SURFOBJ@@@Z @ 0x1C02A14D0 (-IsMetaDevBitmapForMirroring@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     ?LoadElement@MULTIBRUSH@@QEAAXPEAU_DISPSURF@@PEAVSURFACE@@@Z @ 0x1C02A1510 (-LoadElement@MULTIBRUSH@@QEAAXPEAU_DISPSURF@@PEAVSURFACE@@@Z.c)
+ *     ?StoreElement@MULTIBRUSH@@QEAAXJ@Z @ 0x1C02A5B24 (-StoreElement@MULTIBRUSH@@QEAAXJ@Z.c)
+ *     ?bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C02A67F0 (-bFindSurface@MSURF@@QEAAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?bNextSurface@MSURF@@QEAAHXZ @ 0x1C02A6C44 (-bNextSurface@MSURF@@QEAAHXZ.c)
  */
 
 __int64 __fastcall MulStrokeAndFillPath(
@@ -37,11 +37,11 @@ __int64 __fastcall MulStrokeAndFillPath(
   BOOL (__stdcall *v18)(SURFOBJ *, PATHOBJ *, CLIPOBJ *, XFORMOBJ *, BRUSHOBJ *, LINEATTRS *, BRUSHOBJ *, POINTL *, MIX, FLONG); // rcx
   _DWORD v22[12]; // [rsp+88h] [rbp-78h] BYREF
   _DWORD v23[14]; // [rsp+B8h] [rbp-48h] BYREF
-  __int64 **v24[7]; // [rsp+F0h] [rbp-10h] BYREF
+  _BYTE v24[56]; // [rsp+F0h] [rbp-10h] BYREF
   struct _DISPSURF *v25; // [rsp+128h] [rbp+28h]
-  __int64 v26; // [rsp+130h] [rbp+30h]
-  __int64 v27; // [rsp+138h] [rbp+38h]
-  __int64 v28; // [rsp+140h] [rbp+40h]
+  SURFOBJ *v26; // [rsp+130h] [rbp+30h]
+  CLIPOBJ *v27; // [rsp+138h] [rbp+38h]
+  int *v28; // [rsp+140h] [rbp+40h]
   _BYTE v29[88]; // [rsp+150h] [rbp+50h] BYREF
   SURFOBJ *pso; // [rsp+1A8h] [rbp+A8h]
   struct _RECTFX prectfx; // [rsp+1C0h] [rbp+C0h] BYREF
@@ -81,18 +81,18 @@ __int64 __fastcall MulStrokeAndFillPath(
       v32.top = prectfx.yTop >> 4;
       v32.right = (prectfx.xRight >> 4) + 2;
       v32.bottom = (prectfx.yBottom >> 4) + 2;
-      for ( i = MSURF::bFindSurface(v24, a1, a3, &v32); i; i = MSURF::bNextSurface((MSURF *)v24) )
+      for ( i = MSURF::bFindSurface((MSURF *)v24, a1, a3, &v32); i; i = MSURF::bNextSurface((MSURF *)v24) )
       {
         plineattrs->elStyleState = v14;
         PATHOBJ_vEnumStart(ppo);
-        MULTIBRUSH::LoadElement((MULTIBRUSH *)v22, v25, (struct SURFACE *)(v26 - 24));
-        MULTIBRUSH::LoadElement((MULTIBRUSH *)v23, v25, (struct SURFACE *)(v26 - 24));
-        if ( (*(_DWORD *)(v26 + 88) & 0x80u) == 0 )
+        MULTIBRUSH::LoadElement((MULTIBRUSH *)v22, v25, (struct SURFACE *)&v26[-1].pvScan0);
+        MULTIBRUSH::LoadElement((MULTIBRUSH *)v23, v25, (struct SURFACE *)&v26[-1].pvScan0);
+        if ( (LODWORD(v26[1].hsurf) & 0x80u) == 0 )
           v18 = EngStrokeAndFillPath;
         else
-          v18 = *(BOOL (__stdcall **)(SURFOBJ *, PATHOBJ *, CLIPOBJ *, XFORMOBJ *, BRUSHOBJ *, LINEATTRS *, BRUSHOBJ *, POINTL *, MIX, FLONG))(*((_QWORD *)v25 + 7) + 2792LL);
+          v18 = *(BOOL (__stdcall **)(SURFOBJ *, PATHOBJ *, CLIPOBJ *, XFORMOBJ *, BRUSHOBJ *, LINEATTRS *, BRUSHOBJ *, POINTL *, MIX, FLONG))(*((_QWORD *)v25 + 7) + 2816LL);
         v13 &= OffStrokeAndFillPath(
-                 v18,
+                 (__int64 (__fastcall *)(SURFOBJ *, struct _PATHOBJ *, CLIPOBJ *, XFORMOBJ *, BRUSHOBJ *, LINEATTRS *, BRUSHOBJ *, POINTL *, MIX, FLONG))v18,
                  v28,
                  v26,
                  ppo,

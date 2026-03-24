@@ -1,8 +1,8 @@
 /*
- * XREFs of BgkpTryEnableConsole @ 0x14016F968
+ * XREFs of BgkpTryEnableConsole @ 0x14016F988
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x14016EAC0 (BgkNotifyDisplayOwnershipChange.c)
- *     BgkInitialize @ 0x1409FB8D0 (BgkInitialize.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14016EAE0 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkInitialize @ 0x1409FB8E0 (BgkInitialize.c)
  * Callees:
  *     <none>
  */

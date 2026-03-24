@@ -1,151 +1,110 @@
 /*
- * XREFs of NtSaveMergedKeys @ 0x14090F9B0
+ * XREFs of NtSaveMergedKeys @ 0x1408697A0
  * Callers:
  *     <none>
  * Callees:
- *     CmCleanupThreadInfo @ 0x14022EA30 (CmCleanupThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x1402ACD00 (CmpIsRegistryLockAcquired.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     CmpInitializeThreadInfo @ 0x140347770 (CmpInitializeThreadInfo.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     IoConvertFileHandleToKernelHandle @ 0x14065CA50 (IoConvertFileHandleToKernelHandle.c)
- *     CmCheckNoTxContext @ 0x14067DE4C (CmCheckNoTxContext.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     CmPostCallbackNotification @ 0x1407C04B4 (CmPostCallbackNotification.c)
- *     CmpCallCallBacks @ 0x1407C0568 (CmpCallCallBacks.c)
- *     CmSaveMergedKeys @ 0x14090CFF8 (CmSaveMergedKeys.c)
- *     CmpReleaseShutdownRundown @ 0x140AB42A0 (CmpReleaseShutdownRundown.c)
- *     CmpAttachToRegistryProcess @ 0x140AB4550 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140AB4580 (CmpDetachFromRegistryProcess.c)
- *     CmObReferenceObjectByHandle @ 0x140AB4630 (CmObReferenceObjectByHandle.c)
- *     CmpAcquireShutdownRundown @ 0x140AB46D0 (CmpAcquireShutdownRundown.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwSaveMergedKeys @ 0x1403FD460 (ZwSaveMergedKeys.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     CmObReferenceObjectByHandle @ 0x14066461C (CmObReferenceObjectByHandle.c)
+ *     CmConvertHandleToKernelHandle @ 0x14066F224 (CmConvertHandleToKernelHandle.c)
+ *     CmCheckNoTxContext @ 0x14066F600 (CmCheckNoTxContext.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x14072A4C0 (IoConvertFileHandleToKernelHandle.c)
+ *     CmSaveMergedKeys @ 0x14087CA90 (CmSaveMergedKeys.c)
  */
 
-__int64 __fastcall NtSaveMergedKeys(__int64 a1, __int64 a2, void *a3)
+__int64 __fastcall NtSaveMergedKeys(void *a1, void *a2, void *a3)
 {
-  void *v3; // rsi
-  void *v4; // r14
-  void *v5; // rdi
-  char v7; // r13
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  signed int v10; // ebx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  KPROCESSOR_MODE PreviousMode; // r15
-  int v15; // r9d
-  int v17; // r9d
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v19; // r8
-  int v20; // eax
-  void *v21; // [rsp+30h] [rbp-99h] BYREF
-  void *v22; // [rsp+38h] [rbp-91h] BYREF
-  void *v23; // [rsp+40h] [rbp-89h] BYREF
-  _QWORD v24[2]; // [rsp+48h] [rbp-81h] BYREF
-  __int64 v25; // [rsp+58h] [rbp-71h]
-  __int64 v26; // [rsp+60h] [rbp-69h]
-  __int128 v27; // [rsp+68h] [rbp-61h] BYREF
-  __int128 v28; // [rsp+78h] [rbp-51h] BYREF
-  __int128 v29; // [rsp+88h] [rbp-41h]
-  __int128 v30; // [rsp+98h] [rbp-31h]
-  __int64 v31; // [rsp+A8h] [rbp-21h]
-  _OWORD v32[3]; // [rsp+B0h] [rbp-19h] BYREF
+  int v7; // ebx
+  KPROCESSOR_MODE PreviousMode; // di
+  void *v9; // rdx
+  __int64 v10; // r8
+  void *v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  _DWORD *v15; // r9
+  PADAPTER_OBJECT DmaAdapter; // [rsp+30h] [rbp-29h] BYREF
+  PADAPTER_OBJECT v18; // [rsp+38h] [rbp-21h] BYREF
+  struct _DMA_ADAPTER Handle; // [rsp+40h] [rbp-19h] BYREF
+  HANDLE v20; // [rsp+50h] [rbp-9h] BYREF
+  _OWORD v21[3]; // [rsp+58h] [rbp-1h] BYREF
 
-  v25 = a1;
-  v26 = a2;
-  v3 = 0LL;
-  v31 = 0LL;
-  v4 = 0LL;
-  v22 = 0LL;
-  v5 = 0LL;
-  v23 = 0LL;
-  v27 = 0LL;
-  v21 = 0LL;
-  memset(v32, 0, sizeof(v32));
-  v7 = 0;
-  v28 = 0LL;
-  v29 = 0LL;
-  v30 = 0LL;
-  CmpInitializeThreadInfo((__int64)&v27);
-  v24[0] = v24;
-  v24[1] = v24;
-  if ( !(unsigned __int8)CmpAcquireShutdownRundown(v24, v8, v9) )
+  Handle.DmaOperations = 0LL;
+  v20 = 0LL;
+  v18 = 0LL;
+  DmaAdapter = 0LL;
+  *(_QWORD *)&Handle.Version = 0LL;
+  memset(v21, 0, sizeof(v21));
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
   {
-    v10 = -1073741431;
-    goto LABEL_14;
-  }
-  v10 = CmCheckNoTxContext();
-  if ( v10 >= 0 )
-  {
-    PreviousMode = KeGetCurrentThread()->PreviousMode;
-    if ( !SeSinglePrivilegeCheck(SeBackupPrivilege, PreviousMode) )
+    v7 = CmCheckNoTxContext();
+    if ( v7 >= 0 )
     {
-      v10 = -1073741727;
-LABEL_6:
-      v5 = v21;
-      v4 = v23;
-      v3 = v22;
-      goto LABEL_7;
-    }
-    LOBYTE(v15) = PreviousMode;
-    v10 = CmObReferenceObjectByHandle(v25, 0, v13, v15, (__int64)&v22, 0LL);
-    if ( v10 < 0 )
-      goto LABEL_6;
-    LOBYTE(v17) = PreviousMode;
-    v10 = CmObReferenceObjectByHandle(v26, 0, v13, v17, (__int64)&v23, 0LL);
-    if ( v10 < 0 )
-      goto LABEL_6;
-    if ( PreviousMode == 1 )
-    {
-      v10 = IoConvertFileHandleToKernelHandle(a3, 1, 2u, 0, &v21);
-      if ( v10 < 0 )
-        goto LABEL_6;
-    }
-    else
-    {
-      v21 = a3;
-    }
-    CurrentThread = KeGetCurrentThread();
-    --CurrentThread->KernelApcDisable;
-    v3 = v22;
-    v4 = v23;
-    v5 = v21;
-    if ( CmpCallBackCount && !CmpIsRegistryLockAcquired() )
-    {
-      *(_QWORD *)&v29 = v3;
-      *((_QWORD *)&v29 + 1) = v4;
-      *((_QWORD *)&v28 + 1) = v5;
-      v20 = CmpCallCallBacks(0x31u, (__int64)&v28, v19, 0x32u, 0LL, (__int64)v24);
-      v10 = v20;
-      if ( v20 < 0 )
+      PreviousMode = KeGetCurrentThread()->PreviousMode;
+      if ( SeSinglePrivilegeCheck(SeBackupPrivilege, PreviousMode) )
       {
-        if ( v20 == -1073740541 )
-          v10 = 0;
-LABEL_29:
-        KeLeaveCriticalRegion();
-        goto LABEL_7;
+        if ( PreviousMode )
+        {
+          v7 = CmConvertHandleToKernelHandle(a1, v9, PreviousMode, 0, &v20);
+          if ( v7 >= 0 )
+          {
+            v7 = CmConvertHandleToKernelHandle(a2, v11, PreviousMode, 0, (PHANDLE)&Handle.DmaOperations);
+            if ( v7 >= 0 )
+            {
+              v7 = IoConvertFileHandleToKernelHandle(a3, PreviousMode, 2u, 0, &Handle);
+              if ( v7 >= 0 )
+                v7 = ZwSaveMergedKeys((__int64)v20, (__int64)Handle.DmaOperations);
+            }
+          }
+        }
+        else
+        {
+          v7 = CmObReferenceObjectByHandle(a1, 0, v10, 0, &v18, 0LL);
+          if ( v7 >= 0 )
+          {
+            v7 = CmObReferenceObjectByHandle(a2, 0, v12, 0, &DmaAdapter, 0LL);
+            if ( v7 >= 0 )
+            {
+              CmpAttachToRegistryProcess((__int64)v21, v13, v14, v15);
+              v7 = CmSaveMergedKeys(v18, DmaAdapter, a3, 0LL);
+              KiUnstackDetachProcess((__int64)v21, 0);
+            }
+          }
+        }
       }
-      v7 = 1;
+      else
+      {
+        v7 = -1073741727;
+      }
     }
-    CmpAttachToRegistryProcess(v32);
-    v10 = CmSaveMergedKeys((__int64)v3, (__int64)v4, (__int64)v5);
-    CmpDetachFromRegistryProcess(v32);
-    if ( v7 )
-      v10 = CmPostCallbackNotification(0x32u, 0LL, v10, (__int64)&v28, v24);
-    goto LABEL_29;
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    if ( DmaAdapter )
+      HalPutDmaAdapter(DmaAdapter);
+    if ( v18 )
+      HalPutDmaAdapter(v18);
+    if ( *(_QWORD *)&Handle.Version )
+      ZwClose(*(HANDLE *)&Handle.Version);
   }
-LABEL_7:
-  CmpReleaseShutdownRundown(v12, v11, v13);
-  if ( v4 )
-    ObfDereferenceObject(v4);
-  if ( v3 )
-    ObfDereferenceObject(v3);
-  if ( v5 && v5 != a3 )
-    ZwClose(v5);
-LABEL_14:
-  CmCleanupThreadInfo((__int64 *)&v27);
-  return (unsigned int)v10;
+  else
+  {
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    v7 = -1073741431;
+  }
+  if ( Handle.DmaOperations )
+    ZwClose(Handle.DmaOperations);
+  if ( v20 )
+    ZwClose(v20);
+  return (unsigned int)v7;
 }

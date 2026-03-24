@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IsOfType@CLegacyStereoRenderTarget@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A1480
+ * XREFs of ?IsOfType@CLegacyStereoRenderTarget@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F910
  * Callers:
  *     <none>
  * Callees:
- *     ?IsOfType@CLegacyRenderTarget@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800F7D70 (-IsOfType@CLegacyRenderTarget@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?IsOfType@CLegacyRenderTarget@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800DFA50 (-IsOfType@CLegacyRenderTarget@@MEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 char __fastcall CLegacyStereoRenderTarget::IsOfType(__int64 a1, int a2)

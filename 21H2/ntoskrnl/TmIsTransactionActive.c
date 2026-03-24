@@ -1,5 +1,5 @@
 /*
- * XREFs of TmIsTransactionActive @ 0x1403E0000
+ * XREFs of TmIsTransactionActive @ 0x1403D0D00
  * Callers:
  *     <none>
  * Callees:

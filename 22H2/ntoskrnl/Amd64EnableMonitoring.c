@@ -1,115 +1,81 @@
 /*
- * XREFs of Amd64EnableMonitoring @ 0x140529210
+ * XREFs of Amd64EnableMonitoring @ 0x1404DD860
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeCheckProcessorAffinityEx @ 0x140257240 (KeCheckProcessorAffinityEx.c)
- *     HalpGetProfileDescriptor @ 0x14037BB90 (HalpGetProfileDescriptor.c)
- *     HalpAcquireHighLevelLock @ 0x14037D1C8 (HalpAcquireHighLevelLock.c)
- *     Amd64AllocateCounter @ 0x140528BA8 (Amd64AllocateCounter.c)
- *     Amd64ConfigureCounter @ 0x140528FD0 (Amd64ConfigureCounter.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     HalpGetProfileDescriptor @ 0x140377DE8 (HalpGetProfileDescriptor.c)
+ *     HalpAcquireHighLevelLock @ 0x140378990 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     Amd64AllocateCounter @ 0x1404DD668 (Amd64AllocateCounter.c)
+ *     Amd64ConfigureCounter @ 0x1404DD74C (Amd64ConfigureCounter.c)
  */
 
-__int64 __fastcall Amd64EnableMonitoring(signed __int32 a1, int a2, _DWORD *a3, _DWORD *a4, _DWORD *a5)
+__int64 __fastcall Amd64EnableMonitoring(int a1, int a2, int *a3)
 {
-  unsigned __int64 v9; // rbp
-  __int64 v10; // rdx
+  unsigned __int64 v6; // rdi
+  __int64 v7; // rcx
   int ProfileDescriptor; // ebx
-  __int64 v12; // rdi
-  int v13; // r8d
-  unsigned int v14; // edx
-  unsigned int v15; // eax
-  unsigned int v16; // ecx
-  unsigned int v17; // r10d
-  int v18; // ecx
+  _DWORD *v9; // rsi
+  int v10; // ecx
+  char v11; // al
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v22; // eax
-  bool v23; // zf
-  char v25[4]; // [rsp+30h] [rbp-28h] BYREF
-  unsigned int v26; // [rsp+34h] [rbp-24h] BYREF
-  __int64 v27[4]; // [rsp+38h] [rbp-20h] BYREF
+  int v15; // eax
+  bool v16; // zf
+  _DWORD *v18; // [rsp+38h] [rbp-20h] BYREF
+  int v19; // [rsp+78h] [rbp+20h] BYREF
 
-  v26 = 0;
-  v27[0] = 0LL;
-  v25[0] = 0;
-  v9 = HalpAcquireHighLevelLock(&HalpProfileSourceDescriptorListLock);
-  ProfileDescriptor = HalpGetProfileDescriptor(a2, v10, v27);
+  v18 = 0LL;
+  v19 = 0;
+  v6 = HalpAcquireHighLevelLock(&Amd64ProfileSourceDescriptorListLock);
+  ProfileDescriptor = HalpGetProfileDescriptor(a2, (_QWORD **)&Amd64ProfileSourceDescriptorListHead, &v18);
   if ( ProfileDescriptor >= 0 )
   {
-    v12 = v27[0];
-    if ( !(unsigned int)KeCheckProcessorAffinityEx((unsigned __int16 *)(v27[0] + 32), KeGetPcr()->Prcb.Number) )
+    LODWORD(v7) = KeGetPcr()->Prcb.Number;
+    v9 = v18;
+    if ( ((*(_QWORD *)&v18[2 * ((unsigned int)KiProcessorIndexToNumberMappingTable[v7] >> 6) + 10] >> (KiProcessorIndexToNumberMappingTable[v7] & 0x3F)) & 1) != 0 )
     {
-      ProfileDescriptor = -1073741637;
-      goto LABEL_21;
-    }
-    if ( v12 && *(_DWORD *)v12 == 32 && a1 == 1 )
-    {
-      *a4 = -1;
-      *a5 = -1073741591;
-      *a3 = 2;
-LABEL_8:
-      ProfileDescriptor = 0;
-      goto LABEL_21;
-    }
-    ProfileDescriptor = Amd64AllocateCounter(a1, v12, &v26, v25);
-    if ( ProfileDescriptor < 0 )
-      goto LABEL_21;
-    v13 = Amd64NumberDataFabricCounters;
-    v14 = Amd64NumberCoreCounters;
-    v15 = Amd64NumberDataFabricCounters + Amd64NumberCoreCounters;
-    if ( v25[0] )
-    {
-      v16 = v26;
-      *a4 = v26;
-      if ( v16 < v15 )
+      ProfileDescriptor = Amd64AllocateCounter(a1, v18, &v19);
+      if ( ProfileDescriptor >= 0 )
       {
-        if ( v16 >= v14 )
-          v16 = v16 - v14 + 6;
+        v10 = v19;
+        if ( a1 )
+        {
+          v11 = 0;
+          *a3 = v19;
+        }
+        else
+        {
+          v11 = 1;
+        }
+        Amd64ConfigureCounter(v10, 1, v9[6], v9[52], v11);
       }
-      else
-      {
-        v16 = v16 - v13 - v14 + 10;
-      }
-      *a5 = v16;
-      *a3 = *(_DWORD *)(v12 + 316);
-      goto LABEL_8;
-    }
-    v17 = v26;
-    *a4 = v26;
-    v18 = v17;
-    if ( v17 < v15 )
-    {
-      if ( v17 >= v14 )
-        v18 = v17 - v14 + 6;
     }
     else
     {
-      v18 = v17 - v13 - v14 + 10;
+      ProfileDescriptor = -1073741637;
     }
-    *a5 = v18;
-    *a3 = *(_DWORD *)(v12 + 316);
-    Amd64ConfigureCounter(v17, 1, *(unsigned int *)(v12 + 24), *(_QWORD *)(v12 + 304), a1 == 0);
   }
-LABEL_21:
-  KxReleaseSpinLock((volatile signed __int64 *)&HalpProfileSourceDescriptorListLock);
+  KxReleaseSpinLock(&Amd64ProfileSourceDescriptorListLock);
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-      v23 = (v22 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v22;
-      if ( v23 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v16 = (v15 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v15;
+        if ( v16 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
-  __writecr8(v9);
+  __writecr8(v6);
   return (unsigned int)ProfileDescriptor;
 }

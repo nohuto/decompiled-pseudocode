@@ -1,36 +1,32 @@
 /*
- * XREFs of ?_GetOverflowTopology@CCD_RECENT_TOPOLOGY_RETRIEVER@@AEAAPEAVCCD_TOPOLOGY@@G@Z @ 0x1C0182AE8
+ * XREFs of ?_GetOverflowTopology@CCD_RECENT_TOPOLOGY_RETRIEVER@@AEAAPEAVCCD_TOPOLOGY@@G@Z @ 0x1C0141E74
  * Callers:
- *     ?_FindTopologySetIdDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@PEAX@Z @ 0x1C0182540 (-_FindTopologySetIdDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIP.c)
+ *     ?_FindTopologySetIdDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@PEAX@Z @ 0x1C0141B10 (-_FindTopologySetIdDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIP.c)
  * Callees:
- *     ?Reserve@CCD_TOPOLOGY@@QEAAGG@Z @ 0x1C0180C44 (-Reserve@CCD_TOPOLOGY@@QEAAGG@Z.c)
+ *     ?Reserve@CCD_TOPOLOGY@@QEAAGG@Z @ 0x1C013DEF0 (-Reserve@CCD_TOPOLOGY@@QEAAGG@Z.c)
  */
 
 struct CCD_TOPOLOGY *__fastcall CCD_RECENT_TOPOLOGY_RETRIEVER::_GetOverflowTopology(
         CCD_RECENT_TOPOLOGY_RETRIEVER *this,
-        unsigned __int16 a2,
-        __int64 a3,
-        __int64 a4)
+        unsigned __int16 a2)
 {
-  __int64 v4; // rdi
-  __int64 v5; // rax
-  unsigned __int16 v6; // ax
-  char *v8; // rbx
+  __int64 v2; // rdi
+  __int64 v3; // rax
+  unsigned __int16 v4; // ax
+  char *v6; // rbx
 
-  v4 = 0LL;
-  v5 = *(_QWORD *)(*(_QWORD *)this + 64LL);
-  if ( v5 )
-    v6 = *(_WORD *)(v5 + 22);
+  v2 = 0LL;
+  v3 = *(_QWORD *)(*(_QWORD *)this + 64LL);
+  if ( v3 )
+    v4 = *(_WORD *)(v3 + 22);
   else
-    v6 = 0;
-  if ( a2 <= v6 )
+    v4 = 0;
+  if ( a2 <= v4 )
     return *(struct CCD_TOPOLOGY **)this;
-  v8 = (char *)this + 80;
+  v6 = (char *)this + 80;
   if ( (unsigned __int16)(a2 + 16) <= (unsigned __int16)CCD_TOPOLOGY::Reserve(
                                                           (CCD_RECENT_TOPOLOGY_RETRIEVER *)((char *)this + 80),
-                                                          (unsigned __int16)(a2 + 16),
-                                                          a3,
-                                                          a4) )
-    return (struct CCD_TOPOLOGY *)v8;
-  return (struct CCD_TOPOLOGY *)v4;
+                                                          (unsigned __int16)(a2 + 16)) )
+    return (struct CCD_TOPOLOGY *)v6;
+  return (struct CCD_TOPOLOGY *)v2;
 }

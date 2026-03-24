@@ -1,19 +1,12 @@
 /*
- * XREFs of ACPIFilterIrpQueryPnpDeviceState @ 0x1C0086520
+ * XREFs of ACPIFilterIrpQueryPnpDeviceState @ 0x1C0098700
  * Callers:
  *     <none>
  * Callees:
- *     ACPIIrpSetPagableCompletionRoutineAndForward @ 0x1C007BFA8 (ACPIIrpSetPagableCompletionRoutineAndForward.c)
+ *     ACPIIrpSetPagableCompletionRoutineAndForward @ 0x1C009872C (ACPIIrpSetPagableCompletionRoutineAndForward.c)
  */
 
-__int64 __fastcall ACPIFilterIrpQueryPnpDeviceState(struct _DEVICE_OBJECT *a1, IRP *a2, __int64 a3, __int64 a4)
+__int64 __fastcall ACPIFilterIrpQueryPnpDeviceState(struct _DEVICE_OBJECT *a1, IRP *a2)
 {
-  return ACPIIrpSetPagableCompletionRoutineAndForward(
-           a1,
-           a2,
-           (__int64)ACPIBusAndFilterIrpQueryPnpDeviceState,
-           a4,
-           1,
-           1,
-           0);
+  return ACPIIrpSetPagableCompletionRoutineAndForward(a1, a2, 1, 1, 0);
 }

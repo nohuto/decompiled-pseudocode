@@ -1,45 +1,45 @@
 /*
- * XREFs of ?NotifyChannelSuspended@DXGVMBUSCHANNEL@@QEAAXXZ @ 0x1C0366C6C
+ * XREFs of ?NotifyChannelSuspended@DXGVMBUSCHANNEL@@QEAAXXZ @ 0x1C02B3CF0
  * Callers:
- *     ProcessChannelSuspended @ 0x1C03673D0 (ProcessChannelSuspended.c)
+ *     ProcessChannelSuspended @ 0x1C02B4430 (ProcessChannelSuspended.c)
  * Callees:
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000860C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008694 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall DXGVMBUSCHANNEL::NotifyChannelSuspended(DXGVMBUSCHANNEL *this, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall DXGVMBUSCHANNEL::NotifyChannelSuspended(PRKEVENT *this, __int64 a2)
 {
-  DXGVMBUSCHANNEL *v5; // rdi
-  DXGVMBUSCHANNEL *v6; // rcx
-  __int64 v7; // rax
-  bool v8; // zf
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  PRKEVENT *v6; // rdi
+  PRKEVENT v7; // rcx
+  __int64 v8; // rax
   _BYTE v9[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2, a3, a4) + 24) = this;
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v9, (DXGVMBUSCHANNEL *)((char *)this + 72), 1);
+  *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2) + 24) = this;
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v9, (struct DXGFASTMUTEX *const)(this + 9), 1);
   DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v9);
-  v5 = (DXGVMBUSCHANNEL *)*((_QWORD *)this + 6);
-  while ( v5 != (DXGVMBUSCHANNEL *)((char *)this + 48) )
+  v6 = (PRKEVENT *)this[6];
+  while ( v6 != this + 6 )
   {
-    v6 = v5;
-    v5 = *(DXGVMBUSCHANNEL **)v5;
-    v7 = (__int64)v6 + 120;
-    if ( !v6 )
-      v7 = 136LL;
-    (*(void (__fastcall **)(_QWORD))(**(_QWORD **)v7 + 32LL))(*(_QWORD *)v7);
+    v7 = v6[14];
+    v6 = (PRKEVENT *)*v6;
+    (*(void (__fastcall **)(PRKEVENT))(*(_QWORD *)&v7->Header.Lock + 32LL))(v7);
   }
   if ( v9[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v9);
-  v8 = *((_QWORD *)this + 4) == 0LL;
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v9, v3);
   *((_BYTE *)this + 25) = 1;
-  if ( !v8 )
+  if ( this[4] )
   {
     if ( *((_BYTE *)this + 26) )
     {
-      WdLogSingleEntry1(3LL, this);
-      KeSetEvent(*((PRKEVENT *)this + 4), 0, 0);
+      v8 = WdLogNewEntry5_WdWarning(v4, v3, v5);
+      *(_QWORD *)(v8 + 24) = this;
+      WdLogEvent5_WdWarning(v8);
+      KeSetEvent(this[4], 0, 0);
     }
   }
 }

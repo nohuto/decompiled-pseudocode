@@ -1,10 +1,10 @@
 /*
- * XREFs of IopConstructInMemoryDumpHeader @ 0x140280FDC
+ * XREFs of IopConstructInMemoryDumpHeader @ 0x1402810DC
  * Callers:
- *     IopInitializeOfflineCrashDump @ 0x140180C60 (IopInitializeOfflineCrashDump.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140280428 (IoUpdateDumpPhysicalRanges.c)
+ *     IopInitializeOfflineCrashDump @ 0x140180C80 (IopInitializeOfflineCrashDump.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x140280528 (IoUpdateDumpPhysicalRanges.c)
  * Callees:
- *     IoFillDumpHeader @ 0x14027F4D4 (IoFillDumpHeader.c)
+ *     IoFillDumpHeader @ 0x14027F5D4 (IoFillDumpHeader.c)
  */
 
 __int64 IopConstructInMemoryDumpHeader()

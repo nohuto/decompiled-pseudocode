@@ -1,16 +1,16 @@
 /*
- * XREFs of PnprCopyReservedMapping @ 0x140562A80
+ * XREFs of PnprCopyReservedMapping @ 0x14050F140
  * Callers:
- *     PnprRecopyMirrorPages @ 0x14056322C (PnprRecopyMirrorPages.c)
+ *     PnprRecopyMirrorPages @ 0x14050F8EC (PnprRecopyMirrorPages.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     MiGetContainingPageTable @ 0x14033AC10 (MiGetContainingPageTable.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x1403D7610 (MmMapLockedPagesWithReservedMapping.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PnprGetPageDestination @ 0x140562E40 (PnprGetPageDestination.c)
- *     MmUnmapReservedMapping @ 0x1405858A0 (MmUnmapReservedMapping.c)
+ *     MiGetContainingPageTable @ 0x14023E450 (MiGetContainingPageTable.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403C8A70 (MmMapLockedPagesWithReservedMapping.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PnprGetPageDestination @ 0x14050F4FC (PnprGetPageDestination.c)
+ *     MmUnmapReservedMapping @ 0x140531C90 (MmUnmapReservedMapping.c)
  */
 
 __int64 PnprCopyReservedMapping()
@@ -23,7 +23,7 @@ __int64 PnprCopyReservedMapping()
   PHYSICAL_ADDRESS PhysicalAddress; // rbx
   unsigned __int64 v6; // rsi
   unsigned __int64 v7; // r12
-  unsigned __int64 ContainingPageTable; // rbx
+  __int64 ContainingPageTable; // rbx
   unsigned __int64 v9; // rbx
   __int64 v10; // rcx
   __int64 v11; // rax
@@ -35,7 +35,7 @@ __int64 PnprCopyReservedMapping()
   __int64 v17; // rcx
   unsigned __int64 v18; // rsi
   unsigned __int64 v19; // r12
-  unsigned __int64 v20; // rbx
+  __int64 v20; // rbx
   unsigned __int64 v21; // rbx
   __int64 v22; // rcx
   __int64 v23; // rax
@@ -138,13 +138,14 @@ __int64 PnprCopyReservedMapping()
   v24 = *(_QWORD *)(v1 + 8 * v2);
   v25 = v4;
   *(_DWORD *)(v24 + 40) = v4 << 13;
+  v26 = v4;
   *(_QWORD *)v24 = 0LL;
   *(_WORD *)(v24 + 10) = 0;
-  v26 = 8LL * v4;
   *(_QWORD *)(v24 + 32) = 0LL;
   *(_DWORD *)(v24 + 44) = 0;
   *(_WORD *)(v24 + 8) = 8 * (2 * v4 + 6);
   v27 = (char *)(*(_QWORD *)(v1 + 8 * v2) + 48LL);
+  v26 *= 8LL;
   memmove(v27, Src, v26);
   memmove(&v27[v26], v35, v26);
   *(_WORD *)(*(_QWORD *)(v1 + 8 * v2) + 10LL) |= *(_WORD *)(v1 + 8 * v2 + 16);
@@ -159,13 +160,13 @@ __int64 PnprCopyReservedMapping()
     return 0LL;
   }
   v29 = PnprContext;
-  v30 = *(_DWORD *)(PnprContext + 33272);
+  v30 = *(_DWORD *)(PnprContext + 20984);
   if ( !v30 )
-    v30 = 5980;
-  *(_DWORD *)(PnprContext + 33272) = v30;
-  v31 = *(_DWORD *)(v29 + 33276);
+    v30 = 5974;
+  *(_DWORD *)(PnprContext + 20984) = v30;
+  v31 = *(_DWORD *)(v29 + 20988);
   if ( !v31 )
     v31 = 10;
-  *(_DWORD *)(v29 + 33276) = v31;
+  *(_DWORD *)(v29 + 20988) = v31;
   return 3221225626LL;
 }

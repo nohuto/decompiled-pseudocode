@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlCreateRetpolineRelocationInformation @ 0x140235150
+ * XREFs of RtlCreateRetpolineRelocationInformation @ 0x14035ED68
  * Callers:
- *     MiCreateRetpolineRelocationInformation @ 0x1406ACFF0 (MiCreateRetpolineRelocationInformation.c)
+ *     MiCreateRetpolineRelocationInformation @ 0x140713C88 (MiCreateRetpolineRelocationInformation.c)
  * Callees:
- *     RtlpCopyRetpolineRelocationBlockEntryArray @ 0x1402353E4 (RtlpCopyRetpolineRelocationBlockEntryArray.c)
- *     RtlSizeOfRetpolineRelocationEntry @ 0x14023548C (RtlSizeOfRetpolineRelocationEntry.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlSizeOfRetpolineIndirectFixup @ 0x14045F1E0 (RtlSizeOfRetpolineIndirectFixup.c)
+ *     RtlpCopyRetpolineRelocationBlockEntryArray @ 0x14035EFE4 (RtlpCopyRetpolineRelocationBlockEntryArray.c)
+ *     RtlSizeOfRetpolineRelocationEntry @ 0x14035F08C (RtlSizeOfRetpolineRelocationEntry.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlSizeOfRetpolineIndirectFixup @ 0x140590288 (RtlSizeOfRetpolineIndirectFixup.c)
  */
 
 __int64 __fastcall RtlCreateRetpolineRelocationInformation(
@@ -33,17 +33,17 @@ __int64 __fastcall RtlCreateRetpolineRelocationInformation(
   unsigned __int64 v21; // r10
   _DWORD *v22; // rdx
   unsigned __int64 v23; // r11
-  __int64 v24; // rax
-  int v25; // r15d
-  int v26; // r14d
-  unsigned int v27; // ebx
-  char *v28; // rdi
+  int v24; // r15d
+  int v25; // r14d
+  unsigned int v26; // ebx
+  __int64 v28; // rax
   char *v29; // rdi
-  _WORD *v30; // r10
-  __int16 v31; // r11
-  char *v32; // rdx
-  unsigned __int64 v33; // r8
-  char *v34; // r9
+  char *v30; // rdi
+  _WORD *v31; // r10
+  __int16 v32; // r11
+  char *v33; // rdx
+  unsigned __int64 v34; // r8
+  char *v35; // r9
   unsigned int v36; // eax
   __int64 v37; // rax
   __int64 v38; // rax
@@ -114,120 +114,120 @@ __int64 __fastcall RtlCreateRetpolineRelocationInformation(
     {
       if ( (unsigned __int64)v18 < v19 && *v18 == v16 )
       {
-        v24 = (unsigned int)v18[1];
+        v28 = (unsigned int)v18[1];
         v44 = v18;
-        v18 = (_DWORD *)((char *)v18 + v24);
-        v25 = v24 - 8;
+        v18 = (_DWORD *)((char *)v18 + v28);
+        v24 = v28 - 8;
       }
       else
       {
         v44 = 0LL;
-        v25 = 0;
+        v24 = 0;
       }
-      LODWORD(a7) = v25;
+      LODWORD(a7) = v24;
       if ( (unsigned __int64)v20 < v21 && *v20 == v16 )
       {
         v37 = (unsigned int)v20[1];
         v45 = v20;
         v20 = (_DWORD *)((char *)v20 + v37);
-        v26 = v37 - 8;
+        v25 = v37 - 8;
       }
       else
       {
         v45 = 0LL;
-        v26 = 0;
+        v25 = 0;
       }
-      LODWORD(v51) = v26;
+      LODWORD(v51) = v25;
       if ( (unsigned __int64)v22 < v23 && *v22 == v16 )
       {
         v38 = (unsigned int)v22[1];
         v46 = v22;
         v22 = (_DWORD *)((char *)v22 + v38);
         v43 = v22;
-        v27 = v38 - 8;
+        v26 = v38 - 8;
       }
       else
       {
-        v27 = 0;
+        v26 = 0;
       }
-      v41 = v27;
-      if ( v17 || v25 || v26 || v27 )
+      v41 = v26;
+      if ( v17 || v24 || v25 || v26 )
       {
-        v28 = a6;
+        v29 = a6;
         *((_WORD *)a6 + 3) = v17;
         if ( v17 )
         {
           v36 = RtlSizeOfRetpolineRelocationEntry(v17);
-          memmove(v28 + 8, v15, v36);
+          memmove(v29 + 8, v15, v36);
         }
-        v15 = v28 + 12;
-        v29 = v28 + 12;
-        if ( v25 )
+        v15 = v29 + 12;
+        v30 = v29 + 12;
+        if ( v24 )
         {
           RtlpCopyRetpolineRelocationBlockEntryArray(v15, (__int64)&a7);
-          LOWORD(v25) = a7;
-          v29 += (unsigned int)a7;
+          LOWORD(v24) = a7;
+          v30 += (unsigned int)a7;
+        }
+        if ( v25 )
+        {
+          RtlpCopyRetpolineRelocationBlockEntryArray(v30, (__int64)&v51);
+          LOWORD(v25) = v51;
+          v30 += (unsigned int)v51;
         }
         if ( v26 )
         {
-          RtlpCopyRetpolineRelocationBlockEntryArray(v29, (__int64)&v51);
-          LOWORD(v26) = v51;
-          v29 += (unsigned int)v51;
+          RtlpCopyRetpolineRelocationBlockEntryArray(v30, (__int64)&v41);
+          LOWORD(v26) = v41;
+          v30 += v41;
         }
-        if ( v27 )
-        {
-          RtlpCopyRetpolineRelocationBlockEntryArray(v29, (__int64)&v41);
-          LOWORD(v27) = v41;
-          v29 += v41;
-        }
-        v30 = a6;
-        a6 = v29;
-        *v30 = v25;
-        v30[1] = v26;
-        v30[2] = v27;
-        v31 = 4095;
-        v32 = (char *)v30 + (unsigned __int16)v25 + (unsigned __int16)v26 + 12;
-        v33 = (unsigned __int64)v30 + (unsigned __int16)v25 + 12;
-        v34 = &v32[(unsigned __int16)v27];
-        while ( (unsigned __int64)v15 < v33 )
+        v31 = a6;
+        a6 = v30;
+        *v31 = v24;
+        v31[1] = v25;
+        v31[2] = v26;
+        v32 = 4095;
+        v33 = (char *)v31 + (unsigned __int16)v24 + (unsigned __int16)v25 + 12;
+        v34 = (unsigned __int64)v31 + (unsigned __int16)v24 + 12;
+        v35 = &v33[(unsigned __int16)v26];
+        while ( (unsigned __int64)v15 < v34 )
         {
           if ( (*(_DWORD *)v15 & 0xFFFu) + 12 > 0x1000 )
           {
             v17 = 3;
-            goto LABEL_34;
+            goto LABEL_39;
           }
           v15 += 4;
         }
-        while ( v33 < (unsigned __int64)v32 )
+        while ( v34 < (unsigned __int64)v33 )
         {
-          v39 = RtlSizeOfRetpolineIndirectFixup(v33);
-          if ( (unsigned int)(unsigned __int16)(v31 & *(_WORD *)v40) + v39 > 0x1000 )
+          v39 = RtlSizeOfRetpolineIndirectFixup(v34);
+          if ( (unsigned int)(unsigned __int16)(v32 & *(_WORD *)v40) + v39 > 0x1000 )
           {
             v17 = 4;
             v15 = v40;
-            goto LABEL_34;
+            goto LABEL_39;
           }
-          v33 = (unsigned __int64)(v40 + 2);
+          v34 = (unsigned __int64)(v40 + 2);
         }
         while ( 1 )
         {
-          if ( v32 >= v34 )
+          if ( v33 >= v35 )
           {
             v17 = 0;
             v15 = 0LL;
-            goto LABEL_34;
+            goto LABEL_39;
           }
-          if ( (unsigned int)(unsigned __int16)(v31 & *(_WORD *)v32) + 6 > 0x1000 )
+          if ( (unsigned int)(unsigned __int16)(v32 & *(_WORD *)v33) + 6 > 0x1000 )
             break;
-          v32 += 2;
+          v33 += 2;
         }
         v17 = 5;
-        v15 = v32;
-LABEL_34:
+        v15 = v33;
+LABEL_39:
         v16 = v42;
         v19 = v47;
         v23 = v49;
-        *((_QWORD *)a8 + ((unsigned __int64)v42 >> 12)) = v30;
+        *((_QWORD *)a8 + ((unsigned __int64)v42 >> 12)) = v31;
         v22 = v43;
         v21 = v48;
       }

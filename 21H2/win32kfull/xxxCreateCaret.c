@@ -1,18 +1,18 @@
 /*
- * XREFs of xxxCreateCaret @ 0x1C00C6204
+ * XREFs of xxxCreateCaret @ 0x1C0113DC4
  * Callers:
- *     NtUserCreateCaret @ 0x1C00C6120 (NtUserCreateCaret.c)
- *     xxxSBWndProc @ 0x1C02420E0 (xxxSBWndProc.c)
+ *     NtUserCreateCaret @ 0x1C0113CE0 (NtUserCreateCaret.c)
+ *     xxxSBWndProc @ 0x1C0246160 (xxxSBWndProc.c)
  * Callees:
- *     GreExtGetObjectW @ 0x1C0027B74 (GreExtGetObjectW.c)
- *     zzzEndDeferWinEventNotify @ 0x1C0048944 (zzzEndDeferWinEventNotify.c)
- *     xxxWindowEvent @ 0x1C0073AB0 (xxxWindowEvent.c)
- *     IsWindowBeingDestroyed @ 0x1C0083884 (IsWindowBeingDestroyed.c)
- *     zzzInternalDestroyCaret @ 0x1C00C32D8 (zzzInternalDestroyCaret.c)
+ *     IsWindowBeingDestroyed @ 0x1C00388DC (IsWindowBeingDestroyed.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C006DF44 (zzzEndDeferWinEventNotify.c)
+ *     xxxWindowEvent @ 0x1C00814D0 (xxxWindowEvent.c)
+ *     GreExtGetObjectW @ 0x1C0083108 (GreExtGetObjectW.c)
+ *     zzzInternalDestroyCaret @ 0x1C0113F30 (zzzInternalDestroyCaret.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-__int64 __fastcall xxxCreateCaret(struct tagWND *a1, HBRUSH a2, int a3, int a4)
+__int64 __fastcall xxxCreateCaret(__int64 a1, HSURF a2, int a3, int a4)
 {
   __int64 v8; // rbx
   unsigned int v9; // eax
@@ -24,7 +24,7 @@ __int64 __fastcall xxxCreateCaret(struct tagWND *a1, HBRUSH a2, int a3, int a4)
 
   memset(v15, 0, sizeof(v15));
   v8 = *(_QWORD *)(gptiCurrent + 432LL);
-  if ( *(_QWORD *)(*((_QWORD *)a1 + 2) + 432LL) != v8 || (unsigned int)IsWindowBeingDestroyed((__int64)a1) )
+  if ( *(_QWORD *)(*(_QWORD *)(a1 + 16) + 432LL) != v8 || (unsigned int)IsWindowBeingDestroyed(a1) )
     return 0LL;
   ++gdwDeferWinEvent;
   if ( *(_QWORD *)(v8 + 296) )
@@ -34,7 +34,7 @@ __int64 __fastcall xxxCreateCaret(struct tagWND *a1, HBRUSH a2, int a3, int a4)
   }
   v14[1] = a1;
   v14[0] = v8 + 296;
-  HMAssignmentLock(v14, 0LL);
+  HMAssignmentLock(v14);
   v9 = *(_DWORD *)(v8 + 304) & 0xFFFFFFFE;
   *(_DWORD *)(v8 + 308) = 1;
   *(_DWORD *)(v8 + 304) = v9 | 2;
@@ -57,6 +57,6 @@ __int64 __fastcall xxxCreateCaret(struct tagWND *a1, HBRUSH a2, int a3, int a4)
   *(_DWORD *)(v8 + 324) = v12;
   *(_DWORD *)(v8 + 328) = v11;
   zzzEndDeferWinEventNotify();
-  xxxWindowEvent(0x8000u, a1, -8, 0, 0);
+  xxxWindowEvent(0x8000u, (struct tagWND *)a1, -8, 0, 0);
   return 1LL;
 }

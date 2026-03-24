@@ -1,50 +1,49 @@
 /*
- * XREFs of RtlSidDominatesForTrust @ 0x1402F8A20
+ * XREFs of RtlSidDominatesForTrust @ 0x14027DDE0
  * Callers:
- *     SepLocateTokenTrustLevel @ 0x140232910 (SepLocateTokenTrustLevel.c)
- *     RtlpValidTrustSubjectContext @ 0x14025ACE4 (RtlpValidTrustSubjectContext.c)
- *     SepTrustLevelCheck @ 0x1402F9614 (SepTrustLevelCheck.c)
- *     SeAccessCheckWithHint @ 0x1402F9CF0 (SeAccessCheckWithHint.c)
- *     SeCreateClientSecurityFromSubjectContextEx @ 0x1405F5070 (SeCreateClientSecurityFromSubjectContextEx.c)
- *     SeIsTokenAssignableToProcess @ 0x140695160 (SeIsTokenAssignableToProcess.c)
- *     SepAdjustAccessStateForConstraints @ 0x1406B539C (SepAdjustAccessStateForConstraints.c)
- *     SeCreateClientSecurityFromSubjectContext @ 0x1406DF7F0 (SeCreateClientSecurityFromSubjectContext.c)
- *     SeTokenCanImpersonate @ 0x1407AFBE0 (SeTokenCanImpersonate.c)
- *     SeShouldCheckForAccessRightsFromParent @ 0x1407B3CD0 (SeShouldCheckForAccessRightsFromParent.c)
- *     SeAdjustAccessStateForAccessConstraints @ 0x1407B4BA0 (SeAdjustAccessStateForAccessConstraints.c)
+ *     SepReferenceTokenUsingPseudoHandle @ 0x14027DC90 (SepReferenceTokenUsingPseudoHandle.c)
+ *     SepTrustLevelCheck @ 0x14027E310 (SepTrustLevelCheck.c)
+ *     SepLocateTokenTrustLevel @ 0x1402AAB88 (SepLocateTokenTrustLevel.c)
+ *     RtlpValidTrustSubjectContext @ 0x1402D1560 (RtlpValidTrustSubjectContext.c)
+ *     SeAccessCheckWithHintWithAdminlessChecks @ 0x14034DCE0 (SeAccessCheckWithHintWithAdminlessChecks.c)
+ *     SeCreateClientSecurityFromSubjectContextEx @ 0x1405970C0 (SeCreateClientSecurityFromSubjectContextEx.c)
+ *     SeTokenCanImpersonate @ 0x14065B420 (SeTokenCanImpersonate.c)
+ *     SeShouldCheckForAccessRightsFromParent @ 0x14065C780 (SeShouldCheckForAccessRightsFromParent.c)
+ *     SeAdjustAccessStateForAccessConstraints @ 0x14065EFE0 (SeAdjustAccessStateForAccessConstraints.c)
+ *     SeCreateClientSecurityFromSubjectContext @ 0x1406BE420 (SeCreateClientSecurityFromSubjectContext.c)
+ *     SeIsTokenAssignableToProcess @ 0x14071694C (SeIsTokenAssignableToProcess.c)
+ *     SepAdjustAccessStateForConstraints @ 0x14076EFC0 (SepAdjustAccessStateForConstraints.c)
  * Callees:
- *     RtlIsValidProcessTrustLabelSid @ 0x1402324B4 (RtlIsValidProcessTrustLabelSid.c)
+ *     RtlIsValidProcessTrustLabelSid @ 0x14027E770 (RtlIsValidProcessTrustLabelSid.c)
  */
 
 __int64 __fastcall RtlSidDominatesForTrust(__int64 a1, __int64 a2, _BYTE *a3)
 {
-  _BYTE *v3; // r9
-  __int64 v4; // r10
+  __int64 v3; // r9
+  __int64 v5; // r9
   __int64 v6; // r10
-  __int64 v7; // r11
 
   *a3 = 0;
-  v3 = a3;
-  v4 = a2;
-  if ( a1 && !RtlIsValidProcessTrustLabelSid(a1) )
+  v3 = a2;
+  if ( a1 && !(unsigned __int8)RtlIsValidProcessTrustLabelSid(a1, a2, a3, a2) )
     return 3221225485LL;
-  if ( !v4 )
+  if ( !v3 )
   {
 LABEL_3:
-    *v3 = 1;
+    *a3 = 1;
     return 0LL;
   }
-  if ( !RtlIsValidProcessTrustLabelSid(v4) )
+  if ( !(unsigned __int8)RtlIsValidProcessTrustLabelSid(v3, a2, a3, v3) )
     return 3221225485LL;
-  if ( v7 )
+  if ( v6 )
   {
-    if ( *(_DWORD *)(v7 + 8) >= *(_DWORD *)(v6 + 8) && *(_DWORD *)(v7 + 12) >= *(_DWORD *)(v6 + 12) )
+    if ( *(_DWORD *)(v6 + 8) >= *(_DWORD *)(v5 + 8) && *(_DWORD *)(v6 + 12) >= *(_DWORD *)(v5 + 12) )
       goto LABEL_3;
   }
-  else if ( !*(_DWORD *)(v6 + 8) )
+  else if ( !*(_DWORD *)(v5 + 8) )
   {
     goto LABEL_3;
   }
-  *v3 = 0;
+  *a3 = 0;
   return 0LL;
 }

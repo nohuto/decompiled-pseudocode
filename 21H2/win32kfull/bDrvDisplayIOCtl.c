@@ -1,11 +1,11 @@
 /*
- * XREFs of bDrvDisplayIOCtl @ 0x1C02BF1E0
+ * XREFs of bDrvDisplayIOCtl @ 0x1C02C0848
  * Callers:
- *     CtxDisplayIOCtl @ 0x1C021FADC (CtxDisplayIOCtl.c)
+ *     CtxDisplayIOCtl @ 0x1C0226264 (CtxDisplayIOCtl.c)
  * Callees:
- *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0154B2C (--1SEMOBJEX@@QEAA@XZ.c)
- *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0154C08 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0163AF4 (--1SEMOBJEX@@QEAA@XZ.c)
+ *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0163BD0 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall bDrvDisplayIOCtl(__int64 a1, __int64 a2, unsigned int a3)
@@ -28,7 +28,7 @@ __int64 __fastcall bDrvDisplayIOCtl(__int64 a1, __int64 a2, unsigned int a3)
       2u,
       ghsemDCVisRgn,
       3u,
-      *(HSEMAPHORE *)(a1 + 56),
+      *(HSEMAPHORE *)(a1 + 64),
       4u,
       ghsemSprite,
       5u,
@@ -36,9 +36,9 @@ __int64 __fastcall bDrvDisplayIOCtl(__int64 a1, __int64 a2, unsigned int a3)
       6u);
     GreAcquireSemaphore(v11[6]);
     EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemDevLock()", v11[6], 11LL);
-    PDEVOBJ::vSync((PDEVOBJ *)&v11, (struct _SURFOBJ *)((v11[316] + 24LL) & -(__int64)(v11[316] != 0LL)), 0LL, 0);
+    PDEVOBJ::vSync((PDEVOBJ *)&v11, (struct _SURFOBJ *)((v11[319] + 24LL) & -(__int64)(v11[319] != 0LL)), 0LL, 0);
     v6 = v11;
-    v7 = (__int64 (__fastcall *)(__int64, _QWORD))v11[417];
+    v7 = (__int64 (__fastcall *)(__int64, _QWORD))v11[420];
     if ( v7 )
     {
       v8 = v7(a2, a3);

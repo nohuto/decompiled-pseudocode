@@ -1,9 +1,9 @@
 /*
- * XREFs of IoctlSetProtocolInfoProcess @ 0x1C001BE78
+ * XREFs of IoctlSetProtocolInfoProcess @ 0x1C00135F0
  * Callers:
- *     IoctlToNVMe @ 0x1C0002DE0 (IoctlToNVMe.c)
+ *     IoctlToNVMe @ 0x1C0002660 (IoctlToNVMe.c)
  * Callees:
- *     SetProtocolInfoFeatureData @ 0x1C002111C (SetProtocolInfoFeatureData.c)
+ *     SetProtocolInfoFeatureData @ 0x1C001744C (SetProtocolInfoFeatureData.c)
  */
 
 __int64 __fastcall IoctlSetProtocolInfoProcess(__int64 a1, __int64 a2)

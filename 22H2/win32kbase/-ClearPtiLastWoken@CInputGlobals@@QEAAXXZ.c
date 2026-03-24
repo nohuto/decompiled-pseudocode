@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ClearPtiLastWoken@CInputGlobals@@QEAAXXZ @ 0x1C000E230
+ * XREFs of ?ClearPtiLastWoken@CInputGlobals@@QEAAXXZ @ 0x1C0005A60
  * Callers:
- *     xxxDestroyThreadInfo @ 0x1C0051264 (xxxDestroyThreadInfo.c)
+ *     xxxDestroyThreadInfo @ 0x1C0040420 (xxxDestroyThreadInfo.c)
  * Callees:
- *     RIMLockExclusive @ 0x1C0055140 (RIMLockExclusive.c)
+ *     RIMLockExclusive @ 0x1C0042360 (RIMLockExclusive.c)
  */
 
-void __fastcall CInputGlobals::ClearPtiLastWoken(CInputGlobals *this)
+void __fastcall CInputGlobals::ClearPtiLastWoken(CInputGlobals *this, __int64 a2)
 {
-  RIMLockExclusive(this);
+  RIMLockExclusive(this, a2);
   *((_QWORD *)this + 11) = 0LL;
   *((_BYTE *)this + 96) = 0;
   *((_QWORD *)this + 1) = 0LL;

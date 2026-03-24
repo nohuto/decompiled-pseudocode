@@ -1,32 +1,31 @@
 /*
- * XREFs of ?NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z @ 0x1C02C7270
+ * XREFs of ?NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z @ 0x1C02B1370
  * Callers:
- *     NtGdiSTROBJ_bEnum @ 0x1C02CD880 (NtGdiSTROBJ_bEnum.c)
- *     NtGdiSTROBJ_bEnumPositionsOnly @ 0x1C02CD8A0 (NtGdiSTROBJ_bEnumPositionsOnly.c)
+ *     NtGdiSTROBJ_bEnum @ 0x1C02B4F40 (NtGdiSTROBJ_bEnum.c)
+ *     NtGdiSTROBJ_bEnumPositionsOnly @ 0x1C02B4F60 (NtGdiSTROBJ_bEnumPositionsOnly.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C013E01C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C0299658 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
- *     ??$GetDDIOBJ@U_STROBJ@@@UMPDOBJ@@QEAAPEAU_STROBJ@@PEAU1@@Z @ 0x1C02C6CF4 (--$GetDDIOBJ@U_STROBJ@@@UMPDOBJ@@QEAAPEAU_STROBJ@@PEAU1@@Z.c)
- *     STROBJ_bEnum @ 0x1C02DBBE0 (STROBJ_bEnum.c)
- *     STROBJ_bEnumPositionsOnly @ 0x1C02DBCE0 (STROBJ_bEnumPositionsOnly.c)
+ *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C001DE74 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     STROBJ_bEnum @ 0x1C00CCDA0 (STROBJ_bEnum.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00CF88C (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ??$GetDDIOBJ@U_STROBJ@@@UMPDOBJ@@QEAAPEAU_STROBJ@@PEAU1@@Z @ 0x1C013D724 (--$GetDDIOBJ@U_STROBJ@@@UMPDOBJ@@QEAAPEAU_STROBJ@@PEAU1@@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     STROBJ_bEnumPositionsOnly @ 0x1C02BE8F0 (STROBJ_bEnumPositionsOnly.c)
  */
 
 __int64 __fastcall NtGdiSTROBJ_bEnumInternal(struct _STROBJ *a1, unsigned int *a2, struct _GLYPHPOS **a3, int a4)
 {
   struct _W32THREAD *ThreadWin32Thread; // rax
   struct UMPDOBJ *ThreadCurrentObj; // rax
-  UMPDOBJ *v10; // r15
-  _DWORD *v11; // rbx
-  STROBJ *v12; // rax
-  unsigned int v13; // eax
-  unsigned int v14; // r14d
-  __int64 v15; // rsi
-  char *v16; // rax
-  struct _GLYPHPOS *v17; // r15
+  UMPDOBJ *v10; // rbx
+  STROBJ *v11; // rax
+  unsigned int v12; // eax
+  unsigned int v13; // r14d
+  __int64 v14; // rsi
+  struct _GLYPHPOS *v15; // rax
+  struct _GLYPHPOS *v16; // r15
   GLYPHDEF **p_pgdf; // rax
-  __int64 v19; // rcx
+  __int64 v18; // rcx
   ULONG pc; // [rsp+20h] [rbp-38h] BYREF
   PGLYPHPOS ppgpos[6]; // [rsp+28h] [rbp-30h] BYREF
 
@@ -35,43 +34,39 @@ __int64 __fastcall NtGdiSTROBJ_bEnumInternal(struct _STROBJ *a1, unsigned int *a
   ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
   v10 = ThreadCurrentObj;
-  v11 = (_DWORD *)((char *)ThreadCurrentObj + 436);
-  if ( ThreadCurrentObj )
-    ++*v11;
-  ppgpos[2] = (PGLYPHPOS)((char *)ThreadCurrentObj + 436);
+  ppgpos[2] = (PGLYPHPOS)ThreadCurrentObj;
   if ( !ThreadCurrentObj )
     return 0xFFFFFFFFLL;
-  v12 = (STROBJ *)UMPDOBJ::GetDDIOBJ<_STROBJ>((__int64)ThreadCurrentObj, (__int64)a1);
-  if ( !v12
-    || (!a4 ? (v13 = STROBJ_bEnum(v12, &pc, ppgpos)) : (v13 = STROBJ_bEnumPositionsOnly(v12, &pc, ppgpos)),
-        (v14 = v13, v13 == -1)
-     || (v15 = pc, pc > 0x1A0AAA)
-     || (v16 = UMPDOBJ::_AllocUserMem(v10, 24 * pc, 0),
-         v17 = (struct _GLYPHPOS *)v16,
-         (ppgpos[1] = (PGLYPHPOS)v16) == 0LL)) )
+  ++*((_DWORD *)ThreadCurrentObj + 105);
+  v11 = (STROBJ *)UMPDOBJ::GetDDIOBJ<_STROBJ>((__int64)ThreadCurrentObj, (__int64)a1);
+  if ( !v11
+    || (!a4 ? (v12 = STROBJ_bEnum(v11, &pc, ppgpos)) : (v12 = STROBJ_bEnumPositionsOnly(v11, &pc, ppgpos)),
+        (v13 = v12, v12 == -1)
+     || (v14 = pc, pc > 0x1A0AAA)
+     || (v15 = (struct _GLYPHPOS *)UMPDOBJ::_AllocUserMem(v10, 24 * pc, 0), v16 = v15, (ppgpos[1] = v15) == 0LL)) )
   {
-    --*v11;
+    --*((_DWORD *)v10 + 105);
     return 0xFFFFFFFFLL;
   }
-  memmove(v16, ppgpos[0], 24 * v15);
+  memmove(v15, ppgpos[0], 24 * v14);
   if ( (unsigned __int64)a3 >= MmUserProbeAddress )
     a3 = (struct _GLYPHPOS **)MmUserProbeAddress;
-  *a3 = v17;
+  *a3 = v16;
   if ( (unsigned __int64)a2 >= MmUserProbeAddress )
     a2 = (unsigned int *)MmUserProbeAddress;
-  *a2 = v15;
-  if ( (_DWORD)v15 )
+  *a2 = v14;
+  if ( (_DWORD)v14 )
   {
-    p_pgdf = &v17->pgdf;
-    v19 = (unsigned int)v15;
+    p_pgdf = &v16->pgdf;
+    v18 = (unsigned int)v14;
     do
     {
       *p_pgdf = 0LL;
       p_pgdf += 3;
-      --v19;
+      --v18;
     }
-    while ( v19 );
+    while ( v18 );
   }
-  --*v11;
-  return v14;
+  --*((_DWORD *)v10 + 105);
+  return v13;
 }

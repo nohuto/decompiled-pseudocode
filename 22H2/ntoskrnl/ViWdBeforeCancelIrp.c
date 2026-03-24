@@ -1,19 +1,19 @@
 /*
- * XREFs of ViWdBeforeCancelIrp @ 0x140ADF23C
+ * XREFs of ViWdBeforeCancelIrp @ 0x1409E0DC0
  * Callers:
- *     IovCancelIrp @ 0x140AC2448 (IovCancelIrp.c)
+ *     IovCancelIrp @ 0x1409C4F6C (IovCancelIrp.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     ViWdInsertSortIrp @ 0x140ADF2E8 (ViWdInsertSortIrp.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     ViWdInsertSortIrp @ 0x1409E0E6C (ViWdInsertSortIrp.c)
  */
 
 void __fastcall ViWdBeforeCancelIrp(__int64 *a1)
 {
   __int16 v1; // di
   unsigned int v3; // esi
-  __int64 *v4; // rdx
-  __int64 **v5; // rax
+  __int64 *v4; // rax
+  __int64 **v5; // rcx
 
   v1 = VfWdCancelTimeoutTicks;
   if ( VfWdCancelTimeoutTicks )
@@ -26,7 +26,7 @@ void __fastcall ViWdBeforeCancelIrp(__int64 *a1)
       if ( *((_DWORD *)a1 + 6) <= v3 )
       {
 LABEL_8:
-        KxReleaseSpinLock((volatile signed __int64 *)&VfWdIrpListLock);
+        KxReleaseSpinLock(&VfWdIrpListLock);
         return;
       }
       v4 = (__int64 *)*a1;

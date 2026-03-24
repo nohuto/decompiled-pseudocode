@@ -1,10 +1,10 @@
 /*
- * XREFs of ?InitializeSegmentGroupState@VIDMM_GLOBAL@@QEAAXIPEAUVIDMM_SEGMENT_GROUP_STATE@@_K@Z @ 0x1C00B1A50
+ * XREFs of ?InitializeSegmentGroupState@VIDMM_GLOBAL@@QEAAXIPEAUVIDMM_SEGMENT_GROUP_STATE@@_K@Z @ 0x1C00978EC
  * Callers:
- *     ?CalculatePartitionAdapterBudgets@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_PARTITION@@PEAUVIDMM_PARTITION_ADAPTER_INFO@@@Z @ 0x1C001C938 (-CalculatePartitionAdapterBudgets@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_PARTITION@@PEAUVIDMM_PARTITION_AD.c)
- *     ?InitSegments@VIDMM_GLOBAL@@QEAAJIPEAUVIDMM_PHYSICAL_ADAPTER@@PEAUDXGK_SEGMENTDESCRIPTOR_INTERNAL@@@Z @ 0x1C00B1F08 (-InitSegments@VIDMM_GLOBAL@@QEAAJIPEAUVIDMM_PHYSICAL_ADAPTER@@PEAUDXGK_SEGMENTDESCRIPTOR_INTERNA.c)
+ *     ?CalculatePartitionAdapterBudgets@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_PARTITION@@PEAUVIDMM_PARTITION_ADAPTER_INFO@@@Z @ 0x1C0017544 (-CalculatePartitionAdapterBudgets@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_PARTITION@@PEAUVIDMM_PARTITION_AD.c)
+ *     ?InitSegments@VIDMM_GLOBAL@@QEAAJIPEAUVIDMM_PHYSICAL_ADAPTER@@PEAUDXGK_SEGMENTDESCRIPTOR_INTERNAL@@PEA_K@Z @ 0x1C0097CC0 (-InitSegments@VIDMM_GLOBAL@@QEAAJIPEAUVIDMM_PHYSICAL_ADAPTER@@PEAUDXGK_SEGMENTDESCRIPTOR_INTERNA.c)
  * Callees:
- *     ?GetGpuMmuCaps@ADAPTER_RENDER@@QEBAPEBUDXGADAPTER_GPUMMUCAPS@@I@Z @ 0x1C00020F8 (-GetGpuMmuCaps@ADAPTER_RENDER@@QEBAPEBUDXGADAPTER_GPUMMUCAPS@@I@Z.c)
+ *     ?GetGpuMmuCaps@ADAPTER_RENDER@@QEBAPEBUDXGADAPTER_GPUMMUCAPS@@I@Z @ 0x1C0001C88 (-GetGpuMmuCaps@ADAPTER_RENDER@@QEBAPEBUDXGADAPTER_GPUMMUCAPS@@I@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::InitializeSegmentGroupState(
@@ -42,7 +42,7 @@ void __fastcall VIDMM_GLOBAL::InitializeSegmentGroupState(
   unsigned __int64 v33; // rax
 
   v6 = 0LL;
-  v8 = *((_QWORD *)this + 5028) + 1584LL * a2;
+  v8 = *((_QWORD *)this + 5027) + 1584LL * a2;
   if ( a4 )
     v6 = (*(_BYTE *)(v8 + 437) & 8) != 0;
   *(_DWORD *)a3 = v6;
@@ -52,19 +52,19 @@ void __fastcall VIDMM_GLOBAL::InitializeSegmentGroupState(
     v10 = *(_QWORD *)(v8 + 8 * v6);
   if ( a4 )
   {
-    v11 = dword_1C006E490;
+    v11 = dword_1C0050420;
     v12 = 0x20000000;
   }
   else
   {
-    v11 = dword_1C006E48C;
-    v12 = qword_1C006E498;
+    v11 = dword_1C005041C;
+    v12 = qword_1C0050428;
   }
   v13 = v10 * v11 / 0x64;
   if ( v13 >= v12 )
     LODWORD(v13) = v12;
-  v14 = v10 * (unsigned int)dword_1C006E494;
-  v15 = qword_1C006E4A0;
+  v14 = v10 * (unsigned int)dword_1C0050424;
+  v15 = qword_1C0050430;
   *((_QWORD *)a3 + 1) = v10;
   v16 = (_QWORD *)((char *)a3 + 48);
   v17 = v14 / 0x64;

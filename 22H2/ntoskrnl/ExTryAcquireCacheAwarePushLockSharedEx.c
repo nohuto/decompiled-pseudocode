@@ -1,45 +1,36 @@
 /*
- * XREFs of ExTryAcquireCacheAwarePushLockSharedEx @ 0x140609AC0
+ * XREFs of ExTryAcquireCacheAwarePushLockSharedEx @ 0x1405B3EB0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostReleaseEx @ 0x1402BD4C0 (KeAbPostReleaseEx.c)
- *     ExfTryAcquirePushLockSharedEx @ 0x14032F93C (ExfTryAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     ExfTryAcquirePushLockShared @ 0x1402E0E80 (ExfTryAcquirePushLockShared.c)
+ *     KeAbPostReleaseEx @ 0x1402E3DB0 (KeAbPostReleaseEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-volatile signed __int64 *__fastcall ExTryAcquireCacheAwarePushLockSharedEx(
+unsigned __int64 __fastcall ExTryAcquireCacheAwarePushLockSharedEx(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter1)
 {
-  volatile signed __int64 *v3; // rbx
-  ULONG_PTR v4; // r11
-  char v5; // al
+  volatile signed __int64 *v3; // rbp
+  unsigned __int64 v4; // rdi
+  bool v5; // bl
 
-  if ( (BugCheckParameter1 & 0xFFFFFFF8) != 0 )
+  if ( (BugCheckParameter1 & 0xFFFFFFFC) != 0 )
     KeBugCheckEx(0x152u, (unsigned int)BugCheckParameter1, BugCheckParameter2, 0LL, 0LL);
   v3 = *(volatile signed __int64 **)(BugCheckParameter2 + 8LL * (KeGetPcr()->Prcb.Number & 0x1F));
   if ( (BugCheckParameter1 & 2) != 0 )
     v4 = 0LL;
   else
-    v4 = KeAbPreAcquire(BugCheckParameter2, 0LL);
-  if ( !_InterlockedCompareExchange64(v3, 17LL, 0LL)
-    || (v5 = ExfTryAcquirePushLockSharedEx((signed __int64 *)v3, 2)) != 0 )
-  {
-    v5 = 1;
-  }
-  if ( !v4 )
+    v4 = KeAbPreAcquire(BugCheckParameter2, 0LL, 1LL);
+  v5 = !_InterlockedCompareExchange64(v3, 17LL, 0LL) || ExfTryAcquirePushLockShared((unsigned __int64 *)v3);
+  if ( v4 )
   {
     if ( v5 )
-      return v3;
-    return 0LL;
+      *(_BYTE *)(v4 + 26) |= 1u;
+    else
+      KeAbPostReleaseEx(BugCheckParameter2, v4);
   }
-  if ( !v5 )
-  {
-    KeAbPostReleaseEx(BugCheckParameter2, v4);
-    return 0LL;
-  }
-  *(_BYTE *)(v4 + 18) = 1;
-  return v3;
+  return (unsigned __int64)v3 & -(__int64)v5;
 }

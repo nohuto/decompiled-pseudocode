@@ -1,15 +1,15 @@
 /*
- * XREFs of MmPageEntireDriver @ 0x140653990
+ * XREFs of MmPageEntireDriver @ 0x140653970
  * Callers:
  *     <none>
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
  *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiLookupDataTableEntry @ 0x1400DA570 (MiLookupDataTableEntry.c)
- *     MiSetPagingOfDriver @ 0x1400DADDC (MiSetPagingOfDriver.c)
- *     KeFlushQueuedDpcs @ 0x1400DBE30 (KeFlushQueuedDpcs.c)
- *     MiCancelPhase0Locking @ 0x140653B2C (MiCancelPhase0Locking.c)
+ *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
+ *     MiSetPagingOfDriver @ 0x1400DADFC (MiSetPagingOfDriver.c)
+ *     KeFlushQueuedDpcs @ 0x1400DBE50 (KeFlushQueuedDpcs.c)
+ *     MiCancelPhase0Locking @ 0x140653B0C (MiCancelPhase0Locking.c)
  */
 
 PVOID __stdcall MmPageEntireDriver(PVOID AddressWithinSection)

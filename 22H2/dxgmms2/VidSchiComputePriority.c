@@ -1,7 +1,7 @@
 /*
- * XREFs of VidSchiComputePriority @ 0x1C00909F0
+ * XREFs of VidSchiComputePriority @ 0x1C007F90C
  * Callers:
- *     VidSchSetPriorityContext @ 0x1C0090960 (VidSchSetPriorityContext.c)
+ *     VidSchSetPriorityContext @ 0x1C007F880 (VidSchSetPriorityContext.c)
  * Callees:
  *     <none>
  */
@@ -14,30 +14,32 @@ __int64 __fastcall VidSchiComputePriority(__int64 a1, int a2, int a3, char a4, _
   unsigned int v11; // eax
 
   v8 = *(_QWORD *)(*(_QWORD *)(a1 + 96) + 24LL);
-  if ( (*(_DWORD *)(v8 + 2536) & 2) != 0 )
+  if ( (*(_DWORD *)(v8 + 2448) & 2) != 0 )
   {
     *a5 = KeQueryPriorityThread(KeGetCurrentThread());
-    return 0LL;
   }
-  v9 = 7;
-  if ( a2 <= 7 )
+  else
   {
-    v9 = a2;
-    if ( a2 < -7 )
-      v9 = -7;
-  }
-  v10 = *(_QWORD *)(*(_QWORD *)(a1 + 104) + 40LL);
-  v11 = dword_1C0054EDC[15 * *(int *)(v10 + 24) + v9];
-  *a5 = v11;
-  if ( v11 < 0x1E
-    || a3
-    || *(_BYTE *)(v10 + 2633)
-    || (*(_DWORD *)(*(_QWORD *)(v10 + 8) + 424LL) & 2) != 0
-    || SeSinglePrivilegeCheck((LUID)14LL, 1) )
-  {
-    if ( (*(_DWORD *)(v8 + 2536) & 0x400) != 0 && (a4 & 1) != 0 && *a5 < 0x10u )
+    v9 = 7;
+    if ( a2 <= 7 )
+    {
+      v9 = a2;
+      if ( a2 < -7 )
+        v9 = -7;
+    }
+    v10 = *(_QWORD *)(*(_QWORD *)(a1 + 104) + 40LL);
+    v11 = dword_1C004316C[15 * *(int *)(v10 + 16) + v9];
+    *a5 = v11;
+    if ( v11 >= 0x1E
+      && !a3
+      && !*(_BYTE *)(v10 + 2625)
+      && !*(_BYTE *)(*(_QWORD *)(v10 + 8) + 345LL)
+      && !SeSinglePrivilegeCheck((LUID)14LL, 1) )
+    {
+      return 3221225506LL;
+    }
+    if ( (a4 & 1) != 0 && (*(_DWORD *)(v8 + 2448) & 0x400) != 0 && *a5 < 0x10u )
       *a5 = 16;
-    return 0LL;
   }
-  return 3221225506LL;
+  return 0LL;
 }

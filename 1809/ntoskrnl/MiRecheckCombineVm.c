@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRecheckCombineVm @ 0x14013EED4
+ * XREFs of MiRecheckCombineVm @ 0x14013EEF4
  * Callers:
- *     MiConvertStandbyToProto @ 0x14013EA30 (MiConvertStandbyToProto.c)
+ *     MiConvertStandbyToProto @ 0x14013EA50 (MiConvertStandbyToProto.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiGetTopLevelPfn @ 0x140083820 (MiGetTopLevelPfn.c)
- *     MiCombineCandidate @ 0x1400B26B0 (MiCombineCandidate.c)
+ *     MiCombineCandidate @ 0x1400B26D0 (MiCombineCandidate.c)
  */
 
 _BOOL8 __fastcall MiRecheckCombineVm(__int64 *a1, char a2, __int64 a3, char *a4)

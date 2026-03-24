@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGenerateSecureCookie @ 0x1408636D0
+ * XREFs of MiGenerateSecureCookie @ 0x1407D3188
  * Callers:
- *     MiInitSystem @ 0x140B47C18 (MiInitSystem.c)
+ *     MiInitializeVadSecuring @ 0x140A92310 (MiInitializeVadSecuring.c)
  * Callees:
- *     ExGenRandom @ 0x1403173F0 (ExGenRandom.c)
+ *     ExGenRandom @ 0x14022C200 (ExGenRandom.c)
  */
 
 __int64 MiGenerateSecureCookie()
@@ -14,7 +14,7 @@ __int64 MiGenerateSecureCookie()
   unsigned __int64 v3; // rdi
 
   CurrentPrcb = KeGetCurrentPrcb();
-  v1 = CurrentPrcb->InterruptTime ^ CurrentPrcb->KeSystemCalls ^ MEMORY[0xFFFFF78000000018] ^ (__rdtsc() >> 4) ^ ((unsigned __int64)MEMORY[0xFFFFF78000000014] << 32);
+  v1 = CurrentPrcb->KeSystemCalls ^ CurrentPrcb->InterruptTime ^ MEMORY[0xFFFFF78000000018] ^ __rdtsc() ^ ((unsigned __int64)MEMORY[0xFFFFF78000000014] << 32);
   v2 = (unsigned __int64)(unsigned int)ExGenRandom(0) << 32;
   v3 = (v2 | (unsigned int)ExGenRandom(0)) ^ v1;
   if ( !v3 )

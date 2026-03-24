@@ -3,14 +3,14 @@
  * Callers:
  *     SepCreateTokenEx @ 0x14001366C (SepCreateTokenEx.c)
  *     SepCopyAnonymousTokenAndSetSilo @ 0x1405828D0 (SepCopyAnonymousTokenAndSetSilo.c)
- *     SeCopyClientToken @ 0x140649E94 (SeCopyClientToken.c)
- *     NtDuplicateToken @ 0x14064A030 (NtDuplicateToken.c)
- *     SeSubProcessToken @ 0x14064EA6C (SeSubProcessToken.c)
- *     NtCreateLowBoxToken @ 0x140654F90 (NtCreateLowBoxToken.c)
- *     NtFilterToken @ 0x1406C6B80 (NtFilterToken.c)
- *     SeFilterToken @ 0x140757A90 (SeFilterToken.c)
+ *     SeCopyClientToken @ 0x140649E74 (SeCopyClientToken.c)
+ *     NtDuplicateToken @ 0x14064A010 (NtDuplicateToken.c)
+ *     SeSubProcessToken @ 0x14064EA4C (SeSubProcessToken.c)
+ *     NtCreateLowBoxToken @ 0x140654F70 (NtCreateLowBoxToken.c)
+ *     NtFilterToken @ 0x1406C6B60 (NtFilterToken.c)
+ *     SeFilterToken @ 0x140757A70 (SeFilterToken.c)
  * Callees:
- *     SepSetProcessTrustLabelAceForToken @ 0x1401B6D70 (SepSetProcessTrustLabelAceForToken.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1401B6D90 (SepSetProcessTrustLabelAceForToken.c)
  *     SepAppendAceToTokenObjectAcl @ 0x1405C9190 (SepAppendAceToTokenObjectAcl.c)
  */
 

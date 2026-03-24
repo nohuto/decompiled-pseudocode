@@ -1,14 +1,14 @@
 /*
- * XREFs of UsbhGetPortStatus @ 0x1C002C190
+ * XREFs of UsbhGetPortStatus @ 0x1C002D5B4
  * Callers:
- *     UsbhSuspendPort @ 0x1C000D884 (UsbhSuspendPort.c)
+ *     UsbhSuspendPort @ 0x1C00138BC (UsbhSuspendPort.c)
  * Callees:
- *     UsbhSyncSendCommand @ 0x1C0019810 (UsbhSyncSendCommand.c)
+ *     UsbhSyncSendCommand @ 0x1C000A740 (UsbhSyncSendCommand.c)
  */
 
 __int64 __fastcall UsbhGetPortStatus(__int64 a1, __int16 a2, _DWORD *a3, _DWORD *a4)
 {
-  __int64 Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   void *v9; // rbx
   unsigned int v10; // edi
   int v12; // [rsp+20h] [rbp-38h]
@@ -19,21 +19,22 @@ __int64 __fastcall UsbhGetPortStatus(__int64 a1, __int16 a2, _DWORD *a3, _DWORD 
   __int16 v17; // [rsp+3Eh] [rbp-1Ah]
 
   v13 = 0;
-  Pool2 = ExAllocatePool2(64LL, 10LL, 1112885333LL);
-  v9 = (void *)Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(SHIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory), 0xAuLL, 0x42554855u);
+  v9 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_WORD *)(Pool2 + 6) = a2;
-    *(_DWORD *)Pool2 = 0;
-    *a3 = 0;
-    *(_WORD *)(Pool2 + 4) = 4;
+    *((_BYTE *)PoolWithTag + 9) = 0;
+    *((_WORD *)PoolWithTag + 3) = a2;
+    *((_WORD *)PoolWithTag + 2) = 4;
+    *PoolWithTag = 0;
     v14[0] = -93;
-    *(_BYTE *)(Pool2 + 8) = 0;
+    *((_BYTE *)PoolWithTag + 8) = 0;
     v14[1] = 0;
     v15 = 0;
     v16 = a2;
-    v17 = *(_WORD *)(Pool2 + 4);
-    v10 = UsbhSyncSendCommand(a1, (__int64)v14, Pool2, (_WORD *)(Pool2 + 4), v12, &v13);
+    v17 = *((_WORD *)PoolWithTag + 2);
+    *a3 = 0;
+    v10 = UsbhSyncSendCommand(a1, (__int64)v14, (__int64)PoolWithTag, (_WORD *)PoolWithTag + 2, v12, &v13);
     if ( a4 )
       *a4 = v13;
     ExFreePoolWithTag(v9, 0);

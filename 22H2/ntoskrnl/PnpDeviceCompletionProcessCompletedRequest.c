@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpDeviceCompletionProcessCompletedRequest @ 0x1407955BC
+ * XREFs of PnpDeviceCompletionProcessCompletedRequest @ 0x140742F90
  * Callers:
- *     PnpDeviceCompletionProcessCompletedRequests @ 0x1406CBCD8 (PnpDeviceCompletionProcessCompletedRequests.c)
- *     PnpStartDeviceNode @ 0x1407939E0 (PnpStartDeviceNode.c)
- *     PipEnumerateDevice @ 0x14079528C (PipEnumerateDevice.c)
+ *     PnpStartDeviceNode @ 0x14073A3A4 (PnpStartDeviceNode.c)
+ *     PnpDeviceCompletionProcessCompletedRequests @ 0x14073DCBC (PnpDeviceCompletionProcessCompletedRequests.c)
+ *     PipEnumerateDevice @ 0x1407432C8 (PipEnumerateDevice.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14022AEA4 (PipSetDevNodeState.c)
- *     PnpDeviceCompletionRequestDestroy @ 0x140322824 (PnpDeviceCompletionRequestDestroy.c)
- *     PoFxIdleDevice @ 0x140322D9C (PoFxIdleDevice.c)
- *     PipUpdatePostStartCharacteristics @ 0x140367860 (PipUpdatePostStartCharacteristics.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _PnpSetObjectProperty @ 0x14079708C (_PnpSetObjectProperty.c)
- *     PiSwProcessParentStartIrp @ 0x1407E13C8 (PiSwProcessParentStartIrp.c)
+ *     PnpDeviceCompletionRequestDestroy @ 0x14036EDA4 (PnpDeviceCompletionRequestDestroy.c)
+ *     PipSetDevNodeState @ 0x14036EEA8 (PipSetDevNodeState.c)
+ *     PoFxIdleDevice @ 0x14036EFF4 (PoFxIdleDevice.c)
+ *     PipUpdatePostStartCharacteristics @ 0x14037E79C (PipUpdatePostStartCharacteristics.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _PnpSetObjectProperty @ 0x1407420C4 (_PnpSetObjectProperty.c)
+ *     PiSwProcessParentStartIrp @ 0x14076D458 (PiSwProcessParentStartIrp.c)
  */
 
 __int64 __fastcall PnpDeviceCompletionProcessCompletedRequest(__int64 a1)
@@ -26,13 +26,14 @@ __int64 __fastcall PnpDeviceCompletionProcessCompletedRequest(__int64 a1)
   if ( *(int *)(a1 + 40) >= 0 )
   {
     v3 = *(_DWORD *)(a1 + 32);
-    if ( v3 == 776 || v3 == 781 )
+    if ( v3 == 774 || v3 == 779 )
     {
       PipUpdatePostStartCharacteristics(*(_QWORD *)(v2 + 32));
       PnpSetObjectProperty(
-        PiPnpRtlCtx,
+        *(__int64 *)&PiPnpRtlCtx,
         *(_QWORD *)(v2 + 48),
-        1,
+        1u,
+        0LL,
         0LL,
         (__int64)&DEVPKEY_Device_DriverProblemDesc,
         0,
@@ -42,7 +43,7 @@ __int64 __fastcall PnpDeviceCompletionProcessCompletedRequest(__int64 a1)
       PiSwProcessParentStartIrp(*(PDEVICE_OBJECT *)(v2 + 32));
     }
   }
-  if ( *(_DWORD *)(a1 + 32) == 783 )
+  if ( *(_DWORD *)(a1 + 32) == 781 )
   {
     if ( (*(_DWORD *)(v2 + 704) & 0x80u) == 0 )
       KeBugCheckEx(0xCAu, 0xDuLL, v2, 0x80uLL, 0LL);

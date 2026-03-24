@@ -1,20 +1,18 @@
 /*
- * XREFs of ??_GFxDeviceBase@@MEAAPEAXI@Z @ 0x1C0066E70
+ * XREFs of ??_GFxDeviceBase@@MEAAPEAXI@Z @ 0x1C004CDA0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxDeviceBase@@MEAA@XZ @ 0x1C002BAE4 (--1FxDeviceBase@@MEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxDeviceBase@@MEAA@XZ @ 0x1C004D508 (--1FxDeviceBase@@MEAA@XZ.c)
  */
 
-FxDeviceBase *__fastcall FxDeviceBase::`scalar deleting destructor'(FxDeviceBase *this, unsigned int a2)
+FxDeviceBase *__fastcall FxDeviceBase::`scalar deleting destructor'(FxDeviceBase *this, char a2)
 {
-  char v2; // bl
   FxDeviceBase *v4; // rcx
 
-  v2 = a2;
-  FxDeviceBase::~FxDeviceBase(this, a2);
-  if ( (v2 & 1) != 0 )
+  FxDeviceBase::~FxDeviceBase(this);
+  if ( (a2 & 1) != 0 )
   {
     v4 = (FxDeviceBase *)((char *)this - 48);
     if ( SLOBYTE(this->m_ObjectFlags) >= 0 )

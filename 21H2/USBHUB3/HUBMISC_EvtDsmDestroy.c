@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBMISC_EvtDsmDestroy @ 0x1C002F270
+ * XREFs of HUBMISC_EvtDsmDestroy @ 0x1C002EBD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBMISC_EvtDsmDestroy(__int64 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall HUBMISC_EvtDsmDestroy(__int64 a1)
   v1 = (_QWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
                    WdfDriverGlobals,
                    a1,
-                   off_1C00670D0);
+                   off_1C00660A8);
   v2 = v1;
   if ( v1[187] )
   {
@@ -42,7 +42,12 @@ __int64 __fastcall HUBMISC_EvtDsmDestroy(__int64 a1)
   v3 = (PVOID *)v2[330];
   if ( v3 )
   {
-    if ( !*v3 || (ExFreePoolWithTag(*v3, 0x68334855u), (v3 = (PVOID *)v2[330]) != 0LL) )
+    if ( *v3 )
+    {
+      ExFreePoolWithTag(*v3, 0x68334855u);
+      v3 = (PVOID *)v2[330];
+    }
+    if ( v3 )
       ExFreePoolWithTag(v3, 0x68334855u);
   }
   v4 = (void *)v2[269];
@@ -102,7 +107,7 @@ __int64 __fastcall HUBMISC_EvtDsmDestroy(__int64 a1)
       WdfDriverGlobals,
       v2[31],
       "DSM Tag",
-      7272LL,
+      7169LL,
       "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
     v2[31] = 0LL;
   }
@@ -114,7 +119,7 @@ __int64 __fastcall HUBMISC_EvtDsmDestroy(__int64 a1)
       WdfDriverGlobals,
       v2[52],
       "DSM Tag",
-      7272LL,
+      7169LL,
       "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
     v2[52] = 0LL;
   }
@@ -132,7 +137,7 @@ __int64 __fastcall HUBMISC_EvtDsmDestroy(__int64 a1)
       WdfDriverGlobals,
       v2[302],
       "DSM Tag",
-      7272LL,
+      7169LL,
       "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
     v2[302] = 0LL;
   }
@@ -143,7 +148,7 @@ __int64 __fastcall HUBMISC_EvtDsmDestroy(__int64 a1)
       WdfDriverGlobals,
       v2[54],
       "DSM Tag",
-      7272LL,
+      7169LL,
       "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
     v2[54] = 0LL;
   }
@@ -152,6 +157,6 @@ __int64 __fastcall HUBMISC_EvtDsmDestroy(__int64 a1)
            WdfDriverGlobals,
            v19,
            "DSM Create Tag",
-           7358LL,
+           7255LL,
            "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
 }

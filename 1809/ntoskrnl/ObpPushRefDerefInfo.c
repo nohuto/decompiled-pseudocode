@@ -1,17 +1,17 @@
 /*
- * XREFs of ObpPushRefDerefInfo @ 0x1408633D4
+ * XREFs of ObpPushRefDerefInfo @ 0x1408633B4
  * Callers:
- *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
- *     ObpPushStackInfoQueue @ 0x140863560 (ObpPushStackInfoQueue.c)
+ *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
+ *     ObpPushStackInfoQueue @ 0x140863540 (ObpPushStackInfoQueue.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
- *     ObpGetObjectRefInfo @ 0x140862ED0 (ObpGetObjectRefInfo.c)
- *     ObpGetTraceIndex @ 0x140862FE8 (ObpGetTraceIndex.c)
- *     ObpRefillWorkItemFreeList @ 0x1408635E4 (ObpRefillWorkItemFreeList.c)
+ *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
+ *     ObpGetObjectRefInfo @ 0x140862EB0 (ObpGetObjectRefInfo.c)
+ *     ObpGetTraceIndex @ 0x140862FC8 (ObpGetTraceIndex.c)
+ *     ObpRefillWorkItemFreeList @ 0x1408635C4 (ObpRefillWorkItemFreeList.c)
  */
 
 __int64 __fastcall ObpPushRefDerefInfo(

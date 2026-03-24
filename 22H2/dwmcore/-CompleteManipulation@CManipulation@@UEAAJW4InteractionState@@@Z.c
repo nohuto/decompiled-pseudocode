@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CompleteManipulation@CManipulation@@UEAAJW4InteractionState@@@Z @ 0x18020D960
+ * XREFs of ?CompleteManipulation@CManipulation@@UEAAJW4InteractionState@@@Z @ 0x1801D3DE0
  * Callers:
  *     <none>
  * Callees:
- *     ?_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z @ 0x18020F1BC (-_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z.c)
- *     ?_UpdateCaptureState@CManipulation@@AEAAX_N@Z @ 0x18020F764 (-_UpdateCaptureState@CManipulation@@AEAAX_N@Z.c)
+ *     ?_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z @ 0x1801D5538 (-_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z.c)
+ *     ?_UpdateCaptureState@CManipulation@@AEAAX_N@Z @ 0x1801D5AD4 (-_UpdateCaptureState@CManipulation@@AEAAX_N@Z.c)
  */
 
 __int64 __fastcall CManipulation::CompleteManipulation(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall CManipulation::CompleteManipulation(__int64 a1)
   int v5; // r10d
   int v7; // [rsp+28h] [rbp-10h]
 
-  CManipulation::_UpdateCaptureState((CManipulation *)(a1 - 72), 0);
+  CManipulation::_UpdateCaptureState((CManipulation *)(a1 - 64), 0);
   if ( *(_DWORD *)(v3 + 164) != v5 )
   {
     *(_QWORD *)(v3 + 20) = _mm_unpacklo_ps((__m128)0LL, (__m128)0LL).m128_u64[0];

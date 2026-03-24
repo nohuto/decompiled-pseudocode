@@ -1,7 +1,7 @@
 /*
- * XREFs of ?IsIntelFullDesktopClipRequired@@YA_NI@Z @ 0x1801039C8
+ * XREFs of ?IsIntelFullDesktopClipRequired@@YA_NI@Z @ 0x1800EC0B4
  * Callers:
- *     ?OnSwapChainCreated@COverlayContext@@QEAAJXZ @ 0x18001DB98 (-OnSwapChainCreated@COverlayContext@@QEAAJXZ.c)
+ *     ?OnSwapChainCreated@COverlayContext@@QEAAJXZ @ 0x1800252B8 (-OnSwapChainCreated@COverlayContext@@QEAAJXZ.c)
  * Callees:
  *     <none>
  */

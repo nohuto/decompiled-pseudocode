@@ -1,30 +1,44 @@
 /*
- * XREFs of ?Create@CSceneResourceManager@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x18002FB58
+ * XREFs of ?Create@CSceneResourceManager@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x1800B6980
  * Callers:
- *     ?Initialize@CComposition@@MEAAJXZ @ 0x18002E810 (-Initialize@CComposition@@MEAAJXZ.c)
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800B48A0 (-Initialize@CComposition@@MEAAJXZ.c)
  * Callees:
- *     ??0CSceneResourceManager@@AEAA@PEAVCComposition@@@Z @ 0x18002FBA8 (--0CSceneResourceManager@@AEAA@PEAVCComposition@@@Z.c)
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18004F61C (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F358 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
  */
 
 __int64 __fastcall CSceneResourceManager::Create(struct CComposition *a1, struct CSceneResourceManager **a2)
 {
-  CSceneResourceManager *v4; // rax
-  unsigned int v5; // ecx
-  struct CSceneResourceManager *v6; // rax
-  unsigned int v7; // ebx
+  struct CSceneResourceManager *v4; // rax
+  const unsigned int *v5; // rcx
+  unsigned int v6; // ebx
 
-  v4 = (CSceneResourceManager *)DefaultHeap::AllocClear(0x58uLL);
-  if ( v4 && (v6 = CSceneResourceManager::CSceneResourceManager(v4, a1)) != 0LL )
+  v4 = (struct CSceneResourceManager *)DefaultHeap::AllocClear(0x48uLL);
+  if ( v4 )
   {
-    *a2 = v6;
+    *((_QWORD *)v4 + 1) = a1;
+    v5 = &CSceneResourceManager::`vftable';
+    *(_QWORD *)v4 = &CSceneResourceManager::`vftable';
+    *((_QWORD *)v4 + 2) = 0LL;
+    *((_QWORD *)v4 + 3) = 0LL;
+    *((_QWORD *)v4 + 4) = 0LL;
+    *((_QWORD *)v4 + 5) = 0LL;
+    *((_QWORD *)v4 + 6) = 0LL;
+    *((_QWORD *)v4 + 7) = 0LL;
+  }
+  else
+  {
+    v4 = 0LL;
+  }
+  if ( v4 )
+  {
+    *a2 = v4;
     return 0;
   }
   else
   {
-    v7 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2147024882, 0x18u, 0LL);
+    v6 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v5, 0LL, 0, -2147024882, 0x14u, 0LL);
   }
-  return v7;
+  return v6;
 }

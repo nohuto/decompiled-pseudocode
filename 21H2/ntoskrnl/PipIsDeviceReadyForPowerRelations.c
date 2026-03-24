@@ -1,8 +1,9 @@
 /*
- * XREFs of PipIsDeviceReadyForPowerRelations @ 0x14076BDD4
+ * XREFs of PipIsDeviceReadyForPowerRelations @ 0x14074B750
  * Callers:
- *     PipProcessRebuildPowerRelationsQueue @ 0x14076BC20 (PipProcessRebuildPowerRelationsQueue.c)
- *     PipAddtoRebuildPowerRelationsQueue @ 0x14076BD4C (PipAddtoRebuildPowerRelationsQueue.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x14074B56C (PipProcessRebuildPowerRelationsQueue.c)
+ *     PipAddtoRebuildPowerRelationsQueue @ 0x14074B6C4 (PipAddtoRebuildPowerRelationsQueue.c)
+ *     PipCheckIfAllProvidersHaveDevnodes @ 0x14074CAE0 (PipCheckIfAllProvidersHaveDevnodes.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +19,7 @@ bool __fastcall PipIsDeviceReadyForPowerRelations(__int64 a1)
     v1 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
     if ( v1 )
     {
-      if ( (unsigned int)(*(_DWORD *)(v1 + 300) - 769) > 1 )
+      if ( *(_DWORD *)(v1 + 300) != 769 )
         return 1;
     }
   }

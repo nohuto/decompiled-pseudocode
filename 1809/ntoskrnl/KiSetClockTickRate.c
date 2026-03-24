@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSetClockTickRate @ 0x1400FCDB4
+ * XREFs of KiSetClockTickRate @ 0x1400FCDD4
  * Callers:
- *     KiSetClockIntervalToMinimumRequested @ 0x1400FCCF0 (KiSetClockIntervalToMinimumRequested.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x1400FCD10 (KiSetClockIntervalToMinimumRequested.c)
  * Callees:
- *     KiEventClockStateChange @ 0x1400FCF14 (KiEventClockStateChange.c)
- *     KiSetPendingTick @ 0x1400FCF54 (KiSetPendingTick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     KiEventClockStateChange @ 0x1400FCF34 (KiEventClockStateChange.c)
+ *     KiSetPendingTick @ 0x1400FCF74 (KiSetPendingTick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiSetClockTickRate(unsigned int a1, char a2)

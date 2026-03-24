@@ -1,19 +1,19 @@
 /*
- * XREFs of KdPowerTransitionEx @ 0x14028C100
+ * XREFs of KdPowerTransitionEx @ 0x14028C200
  * Callers:
  *     PpmIdleExecuteTransition @ 0x14005DC80 (PpmIdleExecuteTransition.c)
  *     PpmExitCoordinatedIdle @ 0x14005F330 (PpmExitCoordinatedIdle.c)
- *     KdDisableDebuggerWithLock @ 0x1401936C4 (KdDisableDebuggerWithLock.c)
- *     KdEnableDebuggerWithLock @ 0x14028BF1C (KdEnableDebuggerWithLock.c)
- *     KdPowerTransition @ 0x14028C0E0 (KdPowerTransition.c)
- *     PopFxDebuggerPowerCriticalTransitionCallback @ 0x1402E51A0 (PopFxDebuggerPowerCriticalTransitionCallback.c)
+ *     KdDisableDebuggerWithLock @ 0x1401936E4 (KdDisableDebuggerWithLock.c)
+ *     KdEnableDebuggerWithLock @ 0x14028C01C (KdEnableDebuggerWithLock.c)
+ *     KdPowerTransition @ 0x14028C1E0 (KdPowerTransition.c)
+ *     PopFxDebuggerPowerCriticalTransitionCallback @ 0x1402E52A0 (PopFxDebuggerPowerCriticalTransitionCallback.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeGetEffectiveIrql @ 0x1400CAAB0 (KeGetEffectiveIrql.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PpmCancelExitLatencyTrace @ 0x1402D3A70 (PpmCancelExitLatencyTrace.c)
+ *     KeGetEffectiveIrql @ 0x1400CAAD0 (KeGetEffectiveIrql.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PpmCancelExitLatencyTrace @ 0x1402D3B70 (PpmCancelExitLatencyTrace.c)
  */
 
 __int64 __fastcall KdPowerTransitionEx(int a1, char a2)

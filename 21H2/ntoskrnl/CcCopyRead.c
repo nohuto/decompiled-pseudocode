@@ -1,9 +1,9 @@
 /*
- * XREFs of CcCopyRead @ 0x1406E8490
+ * XREFs of CcCopyRead @ 0x1406C1B70
  * Callers:
  *     <none>
  * Callees:
- *     CcCopyReadEx @ 0x14032A8C0 (CcCopyReadEx.c)
+ *     CcCopyReadEx @ 0x140320720 (CcCopyReadEx.c)
  */
 
 BOOLEAN __stdcall CcCopyRead(

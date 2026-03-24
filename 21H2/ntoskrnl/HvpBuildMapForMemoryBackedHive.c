@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpBuildMapForMemoryBackedHive @ 0x1408410FC
+ * XREFs of HvpBuildMapForMemoryBackedHive @ 0x1407B1EFC
  * Callers:
- *     HvHiveStartMemoryBacked @ 0x14068F7C4 (HvHiveStartMemoryBacked.c)
+ *     HvHiveStartMemoryBacked @ 0x14076FE14 (HvHiveStartMemoryBacked.c)
  * Callees:
- *     SetFailureLocation @ 0x14020A890 (SetFailureLocation.c)
- *     CmpClaimGlobalQuota @ 0x14068B144 (CmpClaimGlobalQuota.c)
- *     HvpEnlistFreeCells @ 0x14068C700 (HvpEnlistFreeCells.c)
- *     HvpValidateLoadedBin @ 0x14068C7E0 (HvpValidateLoadedBin.c)
- *     HvpPointMapEntriesToBuffer @ 0x14068CEA0 (HvpPointMapEntriesToBuffer.c)
- *     HvpInitMap @ 0x14068E154 (HvpInitMap.c)
+ *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
+ *     HvpEnlistFreeCells @ 0x140709B00 (HvpEnlistFreeCells.c)
+ *     HvpValidateLoadedBin @ 0x140709BE4 (HvpValidateLoadedBin.c)
+ *     CmpClaimGlobalQuota @ 0x140720E44 (CmpClaimGlobalQuota.c)
+ *     HvpPointMapEntriesToBuffer @ 0x14072305C (HvpPointMapEntriesToBuffer.c)
+ *     HvpInitMap @ 0x140723F9C (HvpInitMap.c)
  */
 
 __int64 __fastcall HvpBuildMapForMemoryBackedHive(ULONG_PTR BugCheckParameter2, __int64 a2, int a3)
@@ -37,10 +37,10 @@ __int64 __fastcall HvpBuildMapForMemoryBackedHive(ULONG_PTR BugCheckParameter2, 
     v10 = (_DWORD *)(a2 + v8);
     if ( !HvpValidateLoadedBin(v10, v8, v9) )
     {
-      if ( (a3 & 0x20000) != 0 || !BYTE3(NlsMbOemCodePageTag) && (CmpBootType & 6) == 0 )
+      if ( (a3 & 0x20000) != 0 || !BYTE3(NlsMbCodePageTag) && (CmpBootType & 6) == 0 )
       {
         inited = -1073741492;
-        SetFailureLocation(v3, 0, 4, 0xC000014C, 0);
+        SetFailureLocation(v3, 0, 4, -1073741492, 0);
         goto LABEL_20;
       }
       *v10 = 1852400232;
@@ -48,12 +48,12 @@ __int64 __fastcall HvpBuildMapForMemoryBackedHive(ULONG_PTR BugCheckParameter2, 
       v10[2] = 4096;
       v6 = 1;
       *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 4088LL) |= 4u;
-      SetFailureLocation(v3, 1, 4, 0x40000009u, 0);
+      SetFailureLocation(v3, 1, 4, 1073741833, 0);
     }
     if ( !CmpClaimGlobalQuota((unsigned int)v10[2], v11) )
     {
       inited = -1073741670;
-      SetFailureLocation(v3, 0, 4, 0xC000009A, 0x10u);
+      SetFailureLocation(v3, 0, 4, -1073741670, 16);
 LABEL_20:
       *(_DWORD *)(v3 + 296) = v9;
       *(_DWORD *)(v3 + 300) = v8;
@@ -68,7 +68,7 @@ LABEL_20:
       if ( v12 >= 0 )
         goto LABEL_9;
       inited = -1073741492;
-      SetFailureLocation(v3, 0, 4, 0xC000014C, 0x20u);
+      SetFailureLocation(v3, 0, 4, -1073741492, 32);
       *(_DWORD *)(v3 + 296) = v10[2];
       *(_DWORD *)(v3 + 300) = v10[1];
 LABEL_22:

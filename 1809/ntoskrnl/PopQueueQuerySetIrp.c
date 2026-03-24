@@ -1,18 +1,18 @@
 /*
- * XREFs of PopQueueQuerySetIrp @ 0x140172A6C
+ * XREFs of PopQueueQuerySetIrp @ 0x140172A8C
  * Callers:
- *     PopRequestPowerIrp @ 0x140172540 (PopRequestPowerIrp.c)
+ *     PopRequestPowerIrp @ 0x140172560 (PopRequestPowerIrp.c)
  *     PopNotifyDevice @ 0x140568C68 (PopNotifyDevice.c)
  * Callees:
  *     PopDeepSleepSetDisengageReason @ 0x140004DF8 (PopDeepSleepSetDisengageReason.c)
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     IofCallDriver @ 0x1400B8DD0 (IofCallDriver.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     PopEnableIrpWatchdog @ 0x140172C2C (PopEnableIrpWatchdog.c)
- *     PopDiagTraceIrpStart @ 0x140172D00 (PopDiagTraceIrpStart.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     PopEnableIrpWatchdog @ 0x140172C4C (PopEnableIrpWatchdog.c)
+ *     PopDiagTraceIrpStart @ 0x140172D20 (PopDiagTraceIrpStart.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS __fastcall PopQueueQuerySetIrp(PIRP Irp)

@@ -1,15 +1,15 @@
 /*
- * XREFs of VfAvlEnumerateNodes @ 0x140ADD2A4
+ * XREFs of VfAvlEnumerateNodes @ 0x1409E0668
  * Callers:
- *     ViTargetFreeContiguousMemory @ 0x140ACCAC0 (ViTargetFreeContiguousMemory.c)
- *     ViTargetWMIDeregister @ 0x140ACCEB8 (ViTargetWMIDeregister.c)
- *     VfSuspectDriversGetVerifierInformation @ 0x140ADB44C (VfSuspectDriversGetVerifierInformation.c)
+ *     ViTargetFreeContiguousMemory @ 0x1409D73F4 (ViTargetFreeContiguousMemory.c)
+ *     ViTargetWMIDeregister @ 0x1409D77FC (ViTargetWMIDeregister.c)
+ *     VfSuspectDriversGetVerifierInformation @ 0x1409D98F0 (VfSuspectDriversGetVerifierInformation.c)
  * Callees:
- *     ViAvlReleaseTableLockFromDpcLevel @ 0x14020A484 (ViAvlReleaseTableLockFromDpcLevel.c)
- *     ViAvlRaiseIrqlSafe @ 0x14020A4B8 (ViAvlRaiseIrqlSafe.c)
- *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x14020A4F0 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
- *     RtlEnumerateGenericTableAvl @ 0x1403710D0 (RtlEnumerateGenericTableAvl.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     RtlEnumerateGenericTableAvl @ 0x140323010 (RtlEnumerateGenericTableAvl.c)
+ *     ViAvlReleaseTableLockFromDpcLevel @ 0x1403723EC (ViAvlReleaseTableLockFromDpcLevel.c)
+ *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x140372420 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
+ *     ViAvlRaiseIrqlSafe @ 0x14037247C (ViAvlRaiseIrqlSafe.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall VfAvlEnumerateNodes(__int64 a1, __int64 a2, unsigned int (__fastcall *a3)(PVOID, __int64), __int64 a4)
@@ -21,19 +21,19 @@ void __fastcall VfAvlEnumerateNodes(__int64 a1, __int64 a2, unsigned int (__fast
   PVOID v11; // rax
 
   ViAvlRaiseIrqlSafe(a2);
-  v7 = dword_140C37338;
+  v7 = dword_140C1D058;
   for ( i = 0LL; (unsigned int)i < v7; i = (unsigned int)(i + 1) )
   {
     v9 = 192 * i;
-    ViAvlAcquireTableLockAtDpcLevelSafe(192 * i + qword_140C37330, a2);
+    ViAvlAcquireTableLockAtDpcLevelSafe(192 * i + qword_140C1D050, a2);
     for ( j = 1; ; j = 0 )
     {
-      v11 = RtlEnumerateGenericTableAvl((PRTL_AVL_TABLE)(v9 + qword_140C37330), j);
+      v11 = RtlEnumerateGenericTableAvl((PRTL_AVL_TABLE)(v9 + qword_140C1D050), j);
       if ( !v11 )
         break;
       if ( !a3(v11, a4) )
         return;
     }
-    ViAvlReleaseTableLockFromDpcLevel(v9 + qword_140C37330, a2);
+    ViAvlReleaseTableLockFromDpcLevel(v9 + qword_140C1D050, a2);
   }
 }

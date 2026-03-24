@@ -1,11 +1,11 @@
 /*
- * XREFs of PoTraceForceIdleStateChange @ 0x1405D0C70
+ * XREFs of PoTraceForceIdleStateChange @ 0x14056FDE0
  * Callers:
- *     KiSetForceIdleState @ 0x14057A5A8 (KiSetForceIdleState.c)
+ *     KiSetForceIdleState @ 0x1405237A0 (KiSetForceIdleState.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall PoTraceForceIdleStateChange(int a1, int a2)

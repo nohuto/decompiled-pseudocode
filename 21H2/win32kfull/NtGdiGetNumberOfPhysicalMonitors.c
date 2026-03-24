@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGdiGetNumberOfPhysicalMonitors @ 0x1C0121D20
+ * XREFs of NtGdiGetNumberOfPhysicalMonitors @ 0x1C01366D0
  * Callers:
  *     <none>
  * Callees:

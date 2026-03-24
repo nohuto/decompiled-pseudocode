@@ -1,8 +1,8 @@
 /*
- * XREFs of MiCancelPhase0Locking @ 0x140653B2C
+ * XREFs of MiCancelPhase0Locking @ 0x140653B0C
  * Callers:
- *     MmPageEntireDriver @ 0x140653990 (MmPageEntireDriver.c)
- *     MmResetDriverPaging @ 0x140653F40 (MmResetDriverPaging.c)
+ *     MmPageEntireDriver @ 0x140653970 (MmPageEntireDriver.c)
+ *     MmResetDriverPaging @ 0x140653F20 (MmResetDriverPaging.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)

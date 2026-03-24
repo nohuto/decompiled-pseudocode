@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGetComparisonRanks @ 0x140253F34
+ * XREFs of KiGetComparisonRanks @ 0x1402C4E9C
  * Callers:
- *     KiDirectSwitchThread @ 0x14020F360 (KiDirectSwitchThread.c)
- *     KiEvaluateGroupSchedulingPreemption @ 0x1403424A0 (KiEvaluateGroupSchedulingPreemption.c)
+ *     KiEvaluateGroupSchedulingPreemption @ 0x14024C6A0 (KiEvaluateGroupSchedulingPreemption.c)
+ *     KiDirectSwitchThread @ 0x14024C840 (KiDirectSwitchThread.c)
  * Callees:
  *     <none>
  */
@@ -15,8 +15,8 @@ __int64 __fastcall KiGetComparisonRanks(__int64 a1, __int64 a2, _DWORD *a3, unsi
   unsigned __int8 v9; // r11
   char v10; // r8
   unsigned __int8 v11; // r9
-  __int64 v12; // rax
-  __int64 i; // rcx
+  __int64 v12; // r9
+  __int64 v13; // r11
   unsigned int v14; // eax
   unsigned int v15; // eax
 
@@ -61,21 +61,26 @@ __int64 __fastcall KiGetComparisonRanks(__int64 a1, __int64 a2, _DWORD *a3, unsi
   if ( v6 != a2 )
   {
     v12 = *(_QWORD *)(v6 + 408);
-    for ( i = *(_QWORD *)(a2 + 408); v12 != i; i = *(_QWORD *)(i + 408) )
+    v10 = 0;
+    v13 = *(_QWORD *)(a2 + 408);
+    if ( v12 == v13 )
+    {
+LABEL_8:
+      v7 = *(_DWORD *)(a2 + 116);
+      result = *(unsigned int *)(v6 + 116);
+      goto LABEL_3;
+    }
+    do
     {
       v6 = v12;
-      a2 = i;
+      a2 = v13;
       v12 = *(_QWORD *)(v12 + 408);
+      v13 = *(_QWORD *)(v13 + 408);
     }
-    goto LABEL_9;
+    while ( v12 != v13 );
   }
   if ( !v10 )
-  {
-LABEL_9:
-    v7 = *(_DWORD *)(a2 + 116);
-    result = *(unsigned int *)(v6 + 116);
-    goto LABEL_3;
-  }
+    goto LABEL_8;
   if ( v10 <= 0 )
     result = 0LL;
   else

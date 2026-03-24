@@ -1,14 +1,14 @@
 /*
- * XREFs of MiBitmapsCachedEntryLengthChanged @ 0x1402E2738
+ * XREFs of MiBitmapsCachedEntryLengthChanged @ 0x140268308
  * Callers:
- *     MiInvalidatePageFileBitmapsCache @ 0x14025FB48 (MiInvalidatePageFileBitmapsCache.c)
- *     MiCoalescePageFileBitmapsCache @ 0x1402E22B0 (MiCoalescePageFileBitmapsCache.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x140267EB0 (MiCoalescePageFileBitmapsCache.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x14026ABE0 (MiInvalidatePageFileBitmapsCache.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x14034D8D0 (RtlRbRemoveNode.c)
- *     RtlRbInsertNodeEx @ 0x14034E6B0 (RtlRbInsertNodeEx.c)
+ *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x140340AE0 (RtlRbRemoveNode.c)
  */
 
-void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *a2, int a3)
+void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *a2, __int64 a3)
 {
   char v3; // bl
   unsigned __int64 *v4; // rdi
@@ -17,16 +17,16 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
   _QWORD *v8; // rdx
   unsigned int v9; // eax
   unsigned int v10; // ecx
-  __int64 v11; // rsi
-  __int64 v12; // r8
-  unsigned __int64 v13; // rdx
-  unsigned __int64 v14; // rax
-  unsigned __int64 v15; // rcx
+  unsigned __int64 v11; // rcx
   unsigned __int64 j; // r9
+  __int64 v13; // rsi
+  __int64 v14; // r8
+  unsigned __int64 v15; // rdx
+  unsigned __int64 v16; // rax
 
   v3 = 0;
   v4 = a2;
-  if ( a3 )
+  if ( (_DWORD)a3 )
   {
     v6 = a2[1];
     if ( v6 )
@@ -56,7 +56,7 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
   else
   {
     v6 = *a2;
-    v15 = (unsigned __int64)a2;
+    v11 = (unsigned __int64)a2;
     if ( *a2 )
     {
       for ( ; *(_QWORD *)(v6 + 8); v6 = *(_QWORD *)(v6 + 8) )
@@ -67,9 +67,9 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
       for ( j = a2[2]; ; j = *(_QWORD *)(v6 + 16) )
       {
         v6 = j & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( !v6 || *(_QWORD *)(v6 + 8) == v15 )
+        if ( !v6 || *(_QWORD *)(v6 + 8) == v11 )
           break;
-        v15 = v6;
+        v11 = v6;
       }
     }
     if ( !v6 )
@@ -77,7 +77,7 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
   }
   v9 = *(_DWORD *)(v6 + 52);
   v10 = *((_DWORD *)v4 + 13);
-  if ( a3 )
+  if ( (_DWORD)a3 )
   {
     if ( v9 > v10 )
       return;
@@ -86,52 +86,52 @@ void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *
   {
     return;
   }
-  v11 = a1 + 144;
-  RtlRbRemoveNode(v11, v4);
-  v13 = *(_QWORD *)v11;
-  if ( (*(_BYTE *)(v11 + 8) & 1) != 0 )
+  v13 = a1 + 144;
+  RtlRbRemoveNode(v13, v4, a3, v6);
+  v15 = *(_QWORD *)v13;
+  if ( (*(_BYTE *)(v13 + 8) & 1) != 0 )
   {
-    if ( v13 )
-      v13 ^= v11;
+    if ( v15 )
+      v15 ^= v13;
     else
-      v13 = 0LL;
+      v15 = 0LL;
   }
-  if ( v13 )
+  if ( v15 )
   {
-    v12 = *((unsigned int *)v4 + 13);
+    v14 = *((unsigned int *)v4 + 13);
     while ( 1 )
     {
-      if ( v4[6] < *(_QWORD *)(v13 + 48) )
+      if ( v4[6] < *(_QWORD *)(v15 + 48) )
       {
-        v14 = *(_QWORD *)v13;
-        if ( (*(_BYTE *)(v11 + 8) & 1) != 0 )
+        v16 = *(_QWORD *)v15;
+        if ( (*(_BYTE *)(v13 + 8) & 1) != 0 )
         {
-          if ( !v14 )
+          if ( !v16 )
             break;
-          v14 ^= v13;
+          v16 ^= v15;
         }
-        if ( !v14 )
+        if ( !v16 )
           break;
       }
       else
       {
-        v14 = *(_QWORD *)(v13 + 8);
-        if ( (*(_BYTE *)(v11 + 8) & 1) != 0 )
+        v16 = *(_QWORD *)(v15 + 8);
+        if ( (*(_BYTE *)(v13 + 8) & 1) != 0 )
         {
-          if ( !v14 )
-            goto LABEL_28;
-          v14 ^= v13;
+          if ( !v16 )
+            goto LABEL_38;
+          v16 ^= v15;
         }
-        if ( !v14 )
+        if ( !v16 )
         {
-LABEL_28:
+LABEL_38:
           v3 = 1;
           break;
         }
       }
-      v13 = v14;
+      v15 = v16;
     }
   }
-  LOBYTE(v12) = v3;
-  RtlRbInsertNodeEx(v11, v13, v12, v4);
+  LOBYTE(v14) = v3;
+  RtlRbInsertNodeEx(v13, v15, v14, v4);
 }

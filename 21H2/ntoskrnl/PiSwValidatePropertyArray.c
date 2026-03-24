@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwValidatePropertyArray @ 0x14076E6B4
+ * XREFs of PiSwValidatePropertyArray @ 0x14074E6FC
  * Callers:
- *     PiSwIrpPropertySet @ 0x140762C04 (PiSwIrpPropertySet.c)
- *     PiSwIrpInterfaceRegister @ 0x14076308C (PiSwIrpInterfaceRegister.c)
- *     PiSwValidateCreateData @ 0x140767820 (PiSwValidateCreateData.c)
- *     PiSwIrpInterfacePropertySet @ 0x14084F808 (PiSwIrpInterfacePropertySet.c)
+ *     PiSwIrpInterfaceRegister @ 0x14074D118 (PiSwIrpInterfaceRegister.c)
+ *     PiSwValidateCreateData @ 0x14074E444 (PiSwValidateCreateData.c)
+ *     PiSwIrpPropertySet @ 0x14078A5A4 (PiSwIrpPropertySet.c)
+ *     PiSwIrpInterfacePropertySet @ 0x1407BD244 (PiSwIrpInterfacePropertySet.c)
  * Callees:
- *     _PnpValidatePropertyData @ 0x140771CD0 (_PnpValidatePropertyData.c)
+ *     _PnpValidatePropertyData @ 0x14063A2BC (_PnpValidatePropertyData.c)
  */
 
 __int64 __fastcall PiSwValidatePropertyArray(__int64 a1, unsigned int a2)
@@ -21,7 +21,7 @@ __int64 __fastcall PiSwValidatePropertyArray(__int64 a1, unsigned int a2)
   {
     for ( i = a1 + 32; !*(_DWORD *)(i - 12); i += 48LL )
     {
-      result = PnpValidatePropertyData(*(PSECURITY_DESCRIPTOR *)(i + 8), *(_DWORD *)(i + 4));
+      result = PnpValidatePropertyData(*(__int64 **)(i + 8), *(_DWORD *)(i + 4), *(_DWORD *)i);
       if ( (int)result < 0 )
         break;
       if ( ++v3 >= a2 )

@@ -1,33 +1,32 @@
 /*
- * XREFs of NtUserFrostCrashedWindow @ 0x1C01CFAD0
+ * XREFs of NtUserFrostCrashedWindow @ 0x1C01F86F0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?xxxFrostCrashedWindow@@YAPEAUHWND__@@PEAUtagWND@@PEAU1@@Z @ 0x1C01F4680 (-xxxFrostCrashedWindow@@YAPEAUHWND__@@PEAUtagWND@@PEAU1@@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     xxxFrostCrashedWindow @ 0x1C0209BF4 (xxxFrostCrashedWindow.c)
  */
 
-HWND __fastcall NtUserFrostCrashedWindow(__int64 a1, HWND a2, __int64 a3)
+__int64 __fastcall NtUserFrostCrashedWindow(__int64 a1, __int64 a2)
 {
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  HWND v10; // rbx
-  struct tagWND *v11; // rsi
+  __int64 v4; // rax
+  __int64 v5; // rcx
+  __int64 v6; // rbx
+  __int64 v7; // rsi
+  __int64 v8; // rdx
+  __int64 v9; // r8
 
-  EnterSharedCrit(a1, a2, a3);
-  v5 = ValidateHwnd(a1);
-  v10 = 0LL;
-  v11 = (struct tagWND *)v5;
-  if ( v5 )
+  EnterSharedCrit(0LL, 1LL);
+  v4 = ValidateHwnd(a1);
+  v6 = 0LL;
+  v7 = v4;
+  if ( v4 )
   {
     if ( !a2 || ValidateHwnd(a2) )
-      v10 = xxxFrostCrashedWindow(v11, a2);
+      v6 = xxxFrostCrashedWindow(v7, a2);
     else
-      UserSetLastError(1400);
+      UserSetLastError(1400LL, v8, v9);
   }
-  UserSessionSwitchLeaveCrit(v7, v6, v8, v9);
-  return v10;
+  UserSessionSwitchLeaveCrit(v5);
+  return v6;
 }

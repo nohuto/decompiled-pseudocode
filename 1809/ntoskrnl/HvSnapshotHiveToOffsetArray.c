@@ -1,11 +1,11 @@
 /*
- * XREFs of HvSnapshotHiveToOffsetArray @ 0x140805D00
+ * XREFs of HvSnapshotHiveToOffsetArray @ 0x140805CE0
  * Callers:
- *     CmpFlushBackupHive @ 0x1407F4070 (CmpFlushBackupHive.c)
- *     CmDumpKey @ 0x1408011B8 (CmDumpKey.c)
+ *     CmpFlushBackupHive @ 0x1407F4050 (CmpFlushBackupHive.c)
+ *     CmDumpKey @ 0x140801198 (CmDumpKey.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     HvpHeaderCheckSum @ 0x1405A64F0 (HvpHeaderCheckSum.c)

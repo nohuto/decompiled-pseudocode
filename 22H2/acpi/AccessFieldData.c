@@ -1,76 +1,90 @@
 /*
- * XREFs of AccessFieldData @ 0x1C0051AF8
+ * XREFs of AccessFieldData @ 0x1C0031E7C
  * Callers:
- *     WriteFieldObj @ 0x1C0006080 (WriteFieldObj.c)
- *     ReadFieldObj @ 0x1C0052CD0 (ReadFieldObj.c)
+ *     ReadFieldObj @ 0x1C0001400 (ReadFieldObj.c)
+ *     WriteFieldObj @ 0x1C0024580 (WriteFieldObj.c)
  * Callees:
- *     GetFieldUnitRegionObj @ 0x1C004B964 (GetFieldUnitRegionObj.c)
- *     DereferenceObjectEx @ 0x1C004F6C8 (DereferenceObjectEx.c)
- *     AccessBaseField @ 0x1C00517D0 (AccessBaseField.c)
- *     PushAccFieldObj @ 0x1C0052608 (PushAccFieldObj.c)
- *     PushPreserveWriteObj @ 0x1C0052714 (PushPreserveWriteObj.c)
- *     ReadBuffField @ 0x1C0052A34 (ReadBuffField.c)
- *     WriteBuffField @ 0x1C0052FDC (WriteBuffField.c)
+ *     AccessBaseField @ 0x1C0001970 (AccessBaseField.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     PushPreserveWriteObj @ 0x1C0024300 (PushPreserveWriteObj.c)
+ *     ReadBuffField @ 0x1C00244E8 (ReadBuffField.c)
+ *     GetFieldUnitRegionObj @ 0x1C00248F8 (GetFieldUnitRegionObj.c)
+ *     WriteBuffField @ 0x1C0024994 (WriteBuffField.c)
+ *     PushAccFieldObj @ 0x1C0024C10 (PushAccFieldObj.c)
  */
 
-__int64 __fastcall AccessFieldData(__int64 a1, __int64 a2, unsigned int *a3, unsigned int *a4, char a5)
+__int64 __fastcall AccessFieldData(struct _SLIST_ENTRY *a1, __int64 a2, unsigned int *a3, __int64 *a4, char a5)
 {
   __int64 v5; // rbx
   __int64 v9; // rdx
   __int64 *v11; // rcx
   __int64 v12; // r8
   __int64 (__fastcall *v13)(__int64, __int64, unsigned int); // rdx
-  __int64 v14; // rcx
-  unsigned int v15; // r10d
-  int v16; // edx
-  unsigned int v17; // ecx
+  struct _SLIST_ENTRY *v14; // rcx
+  unsigned int v15; // r11d
+  unsigned int v16; // edx
+  int v17; // eax
+  __int64 v18; // r9
+  char v19; // r10
+  char v20; // cl
   unsigned int FieldUnitRegionObj; // edi
-  __int64 v20; // [rsp+58h] [rbp+10h] BYREF
+  unsigned int v23; // [rsp+20h] [rbp-28h]
+  unsigned __int64 v24; // [rsp+58h] [rbp+10h] BYREF
 
   v5 = 0LL;
   if ( *(_WORD *)(a2 + 2) == 14 )
   {
     v9 = *(_QWORD *)(a2 + 32);
     if ( a5 )
-      return (unsigned int)ReadBuffField(a1, v9);
+      return (unsigned int)ReadBuffField((__int64)a1, v9, a3, a4);
     else
-      return (unsigned int)WriteBuffField(a1, v9, a3, *(_QWORD *)a4);
+      return (unsigned int)WriteBuffField((__int64)a1, v9, a3);
   }
   v11 = *(__int64 **)(a2 + 32);
-  v20 = 0LL;
+  v24 = 0LL;
   if ( *(_WORD *)(*v11 + 66) == 132 )
   {
     v12 = *(_QWORD *)(*v11 + 96);
     if ( a5 )
     {
-      v13 = (__int64 (__fastcall *)(__int64, __int64, unsigned int))ReadFieldObj;
+      v13 = ReadFieldObj;
       v14 = a1;
     }
     else
     {
       v15 = a3[3];
-      LOBYTE(v16) = 1;
-      v17 = (v15 & 0xF) - 1;
-      if ( v17 > 3 || (v16 = 1 << v17, 8 * (1 << v17) < 64) )
-        v5 = 1LL << (8 * (unsigned __int8)v16);
+      v16 = (v15 & 0xF) - 1;
+      v17 = 1 << ((a3[3] & 0xF) - 1);
+      v18 = ~((((1LL << a3[2]) & -(__int64)(a3[2] < 0x40)) - 1) << a3[1]);
+      v19 = v17;
+      if ( v16 > 3 )
+        v17 = 1;
+      if ( 8 * v17 < 64 )
+      {
+        v20 = 1;
+        if ( v16 <= 3 )
+          v20 = v19;
+        v5 = 1LL << (8 * v20);
+      }
       v14 = a1;
-      if ( ((v5 - 1) & ~((((1LL << a3[2]) & -(__int64)(a3[2] < 0x40)) - 1) << a3[1])) != 0 && (v15 & 0x60) == 0 )
-        return (unsigned int)PushPreserveWriteObj(a1, *(_QWORD *)(v12 + 8) + 64LL, *(_QWORD *)a4);
+      if ( ((v5 - 1) & v18) != 0 && (v15 & 0x60) == 0 )
+        return (unsigned int)PushPreserveWriteObj(a1, *(_QWORD *)(v12 + 8) + 64LL, *a4, v18);
       v13 = WriteFieldObj;
     }
     return (unsigned int)PushAccFieldObj(
                            v14,
-                           v13,
+                           (__int64)v13,
                            *(_QWORD *)(v12 + 8) + 64LL,
                            *(_QWORD *)(*(_QWORD *)(v12 + 8) + 96LL) + 8LL,
-                           a4,
-                           4);
+                           (__int64)a4,
+                           4u);
   }
-  FieldUnitRegionObj = GetFieldUnitRegionObj(v11, &v20);
-  if ( !FieldUnitRegionObj && v20 )
+  FieldUnitRegionObj = GetFieldUnitRegionObj(v11, (__int64 *)&v24);
+  if ( !FieldUnitRegionObj && v24 )
   {
-    FieldUnitRegionObj = AccessBaseField(a1, v20, a3, a4, a5);
-    DereferenceObjectEx(v20);
+    LOBYTE(v23) = a5;
+    FieldUnitRegionObj = AccessBaseField((__int64)a1, v24, a3, a4, v23);
+    DereferenceObjectEx(v24);
   }
   return FieldUnitRegionObj;
 }

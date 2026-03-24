@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bSupportsPassthroughImage@XDCOBJ@@QEAAHK@Z @ 0x1C02BFB00
+ * XREFs of ?bSupportsPassthroughImage@XDCOBJ@@QEAAHK@Z @ 0x1C02C1168
  * Callers:
- *     GreStretchDIBitsInternal @ 0x1C0029B2C (GreStretchDIBitsInternal.c)
- *     GreSetDIBitsToDeviceInternal @ 0x1C002E3F0 (GreSetDIBitsToDeviceInternal.c)
+ *     GreStretchDIBitsInternal @ 0x1C00AE0CC (GreStretchDIBitsInternal.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF5A0 (GreSetDIBitsToDeviceInternal.c)
  * Callees:
- *     ?bSupportsJPEG@XDCOBJ@@QEAAHXZ @ 0x1C013DFAC (-bSupportsJPEG@XDCOBJ@@QEAAHXZ.c)
+ *     ?bSupportsJPEG@XDCOBJ@@QEAAHXZ @ 0x1C015A224 (-bSupportsJPEG@XDCOBJ@@QEAAHXZ.c)
  */
 
 __int64 __fastcall XDCOBJ::bSupportsPassthroughImage(XDCOBJ *this, int a2)

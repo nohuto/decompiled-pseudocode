@@ -1,18 +1,17 @@
 /*
- * XREFs of ??1CChannel@DirectComposition@@MEAA@XZ @ 0x1C0022540
+ * XREFs of ??1CChannel@DirectComposition@@MEAA@XZ @ 0x1C005AD98
  * Callers:
- *     ??1CApplicationChannel@DirectComposition@@MEAA@XZ @ 0x1C0021980 (--1CApplicationChannel@DirectComposition@@MEAA@XZ.c)
- *     ??_GCChannel@DirectComposition@@MEAAPEAXI@Z @ 0x1C020BB10 (--_GCChannel@DirectComposition@@MEAAPEAXI@Z.c)
+ *     ??1CApplicationChannel@DirectComposition@@MEAA@XZ @ 0x1C005AB6C (--1CApplicationChannel@DirectComposition@@MEAA@XZ.c)
+ *     ??_GCChannel@DirectComposition@@MEAAPEAXI@Z @ 0x1C01D3FD0 (--_GCChannel@DirectComposition@@MEAAPEAXI@Z.c)
  * Callees:
- *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C002602C (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C005D370 (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
  */
 
 void __fastcall DirectComposition::CChannel::~CChannel(DirectComposition::CChannel *this)
 {
   bool v1; // zf
   struct _ERESOURCE *v3; // rcx
-  void *v4; // rdx
 
   v1 = (*((_BYTE *)this + 48) & 1) == 0;
   *(_QWORD *)this = &DirectComposition::CChannel::`vftable';
@@ -22,8 +21,6 @@ void __fastcall DirectComposition::CChannel::~CChannel(DirectComposition::CChann
   if ( v3 )
   {
     ExDeleteResourceLite(v3);
-    v4 = (void *)*((_QWORD *)this + 4);
-    if ( v4 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v4);
+    Win32FreePool(*((_QWORD *)this + 4));
   }
 }

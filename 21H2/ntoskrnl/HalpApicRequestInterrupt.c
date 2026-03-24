@@ -1,81 +1,74 @@
 /*
- * XREFs of HalpApicRequestInterrupt @ 0x14021C8B0
+ * XREFs of HalpApicRequestInterrupt @ 0x14028F950
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpApicRequestInterrupt(__int64 a1, __int64 a2, __m128i *a3, unsigned int a4, _DWORD *a5)
 {
-  char v5; // r14
+  char v5; // r15
   __m128i *v7; // rsi
   bool v8; // zf
   unsigned int v9; // ebx
   unsigned int v10; // edi
   int v11; // ebx
-  __int32 v12; // ebx
-  int v13; // ecx
+  int v12; // ecx
+  __int64 v14; // xmm0_8
   int v15; // ecx
-  __int64 v16; // xmm0_8
+  int v16; // ecx
   int v17; // ecx
-  int v18; // ecx
-  int v19; // ecx
-  unsigned int v20; // ecx
-  unsigned int v21; // ecx
-  unsigned int v22; // eax
+  unsigned int v18; // ecx
+  unsigned int v19; // ecx
+  unsigned int v20; // eax
+  int v21; // ecx
+  int v22; // ecx
   int v23; // ecx
-  int v24; // ecx
-  __m128i v25; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v26; // [rsp+30h] [rbp-38h]
+  __m128i v24; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v25; // [rsp+30h] [rbp-38h]
 
   v5 = 0;
-  LODWORD(v26) = 0;
+  v25 = 0LL;
   v7 = a3;
   v8 = *a5 == -1;
-  v25 = 0LL;
+  v24 = 0LL;
   if ( !v8 )
     return 3221225485LL;
   if ( *(_DWORD *)(a2 + 4) != -10 )
   {
-    v16 = a3[1].m128i_i64[0];
-    v17 = _mm_cvtsi128_si32(*a3);
-    v25 = *a3;
-    v26 = v16;
-    v18 = v17 - 4;
-    if ( v18 )
+    v14 = a3[1].m128i_i64[0];
+    v15 = _mm_cvtsi128_si32(*a3);
+    v24 = *a3;
+    v25 = v14;
+    v16 = v15 - 4;
+    if ( v16 )
     {
-      v19 = v18 - 1;
-      if ( v19 )
+      v17 = v16 - 1;
+      if ( v17 )
       {
-        if ( v19 != 1 )
+        if ( v17 != 1 )
           return 3221225485LL;
-        _BitScanForward(&v20, v25.m128i_u32[3]);
-        v25.m128i_i32[3] = 1 << v20;
+        _BitScanForward(&v18, v24.m128i_u32[3]);
+        v24.m128i_i32[3] = 1 << v18;
       }
       else
       {
-        _BitScanForward(&v21, v25.m128i_u32[2]);
-        v25.m128i_i32[2] = 1 << v21;
+        _BitScanForward(&v19, v24.m128i_u32[2]);
+        v24.m128i_i32[2] = 1 << v19;
       }
     }
-    v7 = &v25;
+    v7 = &v24;
   }
   v9 = 0;
   v10 = (unsigned __int8)a4;
   switch ( v7->m128i_i32[0] )
   {
-    case 6:
+    case 5:
+      v11 = v7->m128i_i32[2];
       v10 = (unsigned __int8)a4 | 0x800;
-      v12 = v7->m128i_i32[2];
-      if ( !HalpApicX2Mode )
-      {
-        v11 = v7->m128i_i32[3] & 0xF | (16 * v12);
-LABEL_12:
-        v9 = v11 << 24;
-        break;
-      }
-      v9 = (unsigned __int16)v7->m128i_i32[3] | (v12 << 16);
+LABEL_5:
+      v9 = v11 << 24;
       break;
     case 1:
       v10 = (unsigned __int8)a4 | 0x80000;
@@ -88,12 +81,12 @@ LABEL_12:
       v10 = (unsigned __int8)a4 | 0x40000;
       break;
     case 4:
-      v22 = v7->m128i_u32[2];
-      v9 = v22;
+      v20 = v7->m128i_u32[2];
+      v9 = v20;
       if ( !HalpApicX2Mode )
       {
-        v9 = v22 << 24;
-        if ( v22 != -1
+        v9 = v20 << 24;
+        if ( v20 != -1
           && HalpApicValidateSelfIpi
           && (unsigned int)((__int64 (__fastcall *)(__int64))HalpApicRead)(32LL) >> 24 == v7->m128i_i32[2] )
         {
@@ -101,42 +94,49 @@ LABEL_12:
         }
       }
       break;
-    case 5:
-      v11 = v7->m128i_i32[2];
+    case 6:
       v10 = (unsigned __int8)a4 | 0x800;
-      goto LABEL_12;
+      if ( !HalpApicX2Mode )
+      {
+        v11 = (16 * v7->m128i_i32[2]) | v7->m128i_i32[3] & 0xF;
+        goto LABEL_5;
+      }
+      v9 = (unsigned __int16)v7->m128i_i32[3] | (v7->m128i_i32[2] << 16);
+      break;
     default:
       return 3221225485LL;
   }
-  v13 = a5[1];
-  if ( v13 == 1 )
-    goto LABEL_14;
-  v15 = v13 - 2;
-  if ( !v15 )
+  v12 = a5[1];
+  if ( v12 == 1 )
+    goto LABEL_7;
+  v21 = v12 - 2;
+  if ( v21 )
   {
-    v10 |= 0x400u;
-    goto LABEL_14;
-  }
-  v23 = v15 - 1;
-  if ( v23 )
-  {
-    v24 = v23 - 1;
-    if ( v24 )
+    v22 = v21 - 1;
+    if ( v22 )
     {
-      if ( v24 == 3 )
+      v23 = v22 - 1;
+      if ( v23 )
       {
-        v10 |= 0x500u;
-        goto LABEL_14;
+        if ( v23 == 3 )
+        {
+          v10 |= 0x500u;
+          goto LABEL_7;
+        }
+        return 3221225485LL;
       }
-      return 3221225485LL;
+      v10 |= 0x700u;
     }
-    v10 |= 0x700u;
+    else
+    {
+      v10 |= 0x200u;
+    }
   }
   else
   {
-    v10 |= 0x200u;
+    v10 |= 0x400u;
   }
-LABEL_14:
+LABEL_7:
   ((void (__fastcall *)(_QWORD, _QWORD))HalpApicWriteCommand)(v9, v10);
   if ( v5 && a5[1] == 1 )
   {

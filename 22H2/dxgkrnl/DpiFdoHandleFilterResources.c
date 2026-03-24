@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiFdoHandleFilterResources @ 0x1C0225600
+ * XREFs of DpiFdoHandleFilterResources @ 0x1C019CC80
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1C0028340 (memmove.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     DpiDisableInterruptResources @ 0x1C039A5B8 (DpiDisableInterruptResources.c)
+ *     memmove @ 0x1C0028D00 (memmove.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     DpiDisableInterruptResources @ 0x1C02C8268 (DpiDisableInterruptResources.c)
  */
 
 __int64 __fastcall DpiFdoHandleFilterResources(__int64 a1, IRP *a2)
@@ -13,17 +13,24 @@ __int64 __fastcall DpiFdoHandleFilterResources(__int64 a1, IRP *a2)
   __int64 v2; // rdi
   IRP *v4; // rbp
   __int64 v5; // r15
+  __int64 v6; // rdx
+  __int64 v7; // rcx
   __int64 Status; // rbx
   unsigned int *Information; // rsi
-  unsigned int v9; // edi
-  _OWORD *Pool2; // rax
-  _OWORD *v11; // r14
-  unsigned int *v12; // r15
-  unsigned int v13; // r12d
-  __int128 v14; // xmm1
-  unsigned int *v15; // rdi
-  unsigned int *v16; // rcx
-  __int64 v17; // rcx
+  unsigned int v11; // edi
+  _OWORD *PoolWithTag; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  _OWORD *v17; // r14
+  unsigned int *v18; // r15
+  unsigned int v19; // r12d
+  unsigned int *v20; // rdi
+  unsigned int *v21; // rcx
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
 
   v2 = *(_QWORD *)(a1 + 64);
   v4 = a2;
@@ -35,74 +42,80 @@ __int64 __fastcall DpiFdoHandleFilterResources(__int64 a1, IRP *a2)
     Information = (unsigned int *)v4->IoStatus.Information;
     if ( !*(_QWORD *)(v5 + 184) )
       DpiDisableInterruptResources(v4->IoStatus.Information);
-    if ( *(_BYTE *)(v2 + 1156) != 1 )
+    if ( *(_BYTE *)(v2 + 1155) != 1 )
     {
-      WdLogSingleEntry1(4LL, a1);
+      v23 = WdLogNewEntry5_WdEvent(v7, v6);
+      *(_QWORD *)(v23 + 24) = a1;
+      WdLogEvent5_WdEvent(v23);
       goto LABEL_3;
     }
-    v9 = *Information + 96 * Information[7];
-    if ( v9 < *Information )
+    v7 = *Information;
+    v11 = v7 + 96 * Information[7];
+    if ( v11 < (unsigned int)v7 )
       goto LABEL_15;
-    Pool2 = (_OWORD *)ExAllocatePool2(256LL, v9, 1953656900LL);
-    v11 = Pool2;
-    if ( !Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v11, 0x74727044u);
+    v17 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      Status = -1073741801LL;
-      v17 = 6LL;
-      goto LABEL_17;
-    }
-    memset(Pool2, 0, v9);
-    v12 = Information + 8;
-    v13 = 0;
-    v14 = *((_OWORD *)Information + 1);
-    *v11 = *(_OWORD *)Information;
-    v11[1] = v14;
-    *(_DWORD *)v11 = v9;
-    v15 = (unsigned int *)(v11 + 2);
-    if ( Information[7] )
-    {
-      do
+      memset(PoolWithTag, 0, v11);
+      v18 = Information + 8;
+      v19 = 0;
+      *v17 = *(_OWORD *)Information;
+      v17[1] = *((_OWORD *)Information + 1);
+      *(_DWORD *)v17 = v11;
+      v20 = (unsigned int *)(v17 + 2);
+      if ( Information[7] )
       {
-        memmove(v15, v12, 32LL * v12[1] + 8);
-        ++v13;
-        v16 = &v15[8 * v15[1]];
-        *((_WORD *)v16 + 4) = 257;
-        *((_BYTE *)v16 + 10) = 3;
-        *((_WORD *)v16 + 6) = 1;
-        v16[4] = 12;
-        v16[5] = 1;
-        *((_QWORD *)v16 + 3) = 944LL;
-        *((_QWORD *)v16 + 4) = 955LL;
-        *((_WORD *)v16 + 20) = 257;
-        *((_BYTE *)v16 + 42) = 3;
-        *((_WORD *)v16 + 22) = 1;
-        v16[12] = 32;
-        v16[13] = 1;
-        *((_QWORD *)v16 + 7) = 960LL;
-        *((_QWORD *)v16 + 8) = 991LL;
-        *((_WORD *)v16 + 36) = 769;
-        *((_BYTE *)v16 + 74) = 3;
-        *((_WORD *)v16 + 38) = 0;
-        v16[20] = 0x20000;
-        v16[21] = 1;
-        *((_QWORD *)v16 + 11) = 655360LL;
-        *((_QWORD *)v16 + 12) = 786431LL;
-        v15[1] += 3;
-        v12 += 8 * v12[1] + 2;
-        v15 += 8 * v15[1] + 2;
+        do
+        {
+          memmove(v20, v18, 32LL * v18[1] + 8);
+          ++v19;
+          v21 = &v20[8 * v20[1]];
+          *((_WORD *)v21 + 4) = 257;
+          *((_BYTE *)v21 + 10) = 3;
+          *((_WORD *)v21 + 6) = 1;
+          v21[4] = 12;
+          v21[5] = 1;
+          *((_QWORD *)v21 + 3) = 944LL;
+          *((_QWORD *)v21 + 4) = 955LL;
+          *((_WORD *)v21 + 20) = 257;
+          *((_BYTE *)v21 + 42) = 3;
+          *((_WORD *)v21 + 22) = 1;
+          v21[12] = 32;
+          v21[13] = 1;
+          *((_QWORD *)v21 + 7) = 960LL;
+          *((_QWORD *)v21 + 8) = 991LL;
+          *((_WORD *)v21 + 36) = 769;
+          *((_BYTE *)v21 + 74) = 3;
+          *((_WORD *)v21 + 38) = 0;
+          v21[20] = 0x20000;
+          v21[21] = 1;
+          *((_QWORD *)v21 + 11) = 655360LL;
+          *((_QWORD *)v21 + 12) = 786431LL;
+          v20[1] += 3;
+          v18 += 8 * v18[1] + 2;
+          v20 += 8 * v20[1] + 2;
+        }
+        while ( v19 < Information[7] );
+        v4 = a2;
       }
-      while ( v13 < Information[7] );
-      v4 = a2;
+      ExFreePoolWithTag(Information, 0);
+      v4->IoStatus.Information = (ULONG_PTR)v17;
     }
-    ExFreePoolWithTag(Information, 0);
-    v4->IoStatus.Information = (ULONG_PTR)v11;
+    else
+    {
+      LODWORD(Status) = -1073741801;
+      v24 = WdLogNewEntry5_WdLowResource(v14, v13, v15, v16);
+      *(_QWORD *)(v24 + 24) = -1073741801LL;
+      WdLogEvent5_WdLowResource(v24);
+    }
   }
-  else if ( !*(_BYTE *)(v2 + 480) && !*(_BYTE *)(v2 + 2695) && !*(_BYTE *)(v2 + 1159) )
+  else if ( !*(_BYTE *)(v2 + 480) && !*(_BYTE *)(v2 + 2695) && !*(_BYTE *)(v2 + 1158) )
   {
 LABEL_15:
-    v17 = 2LL;
-LABEL_17:
-    WdLogSingleEntry1(v17, Status);
+    v22 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v22 + 24) = Status;
+    WdLogEvent5_WdError(v22);
   }
 LABEL_3:
   v4->IoStatus.Status = Status;

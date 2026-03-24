@@ -1,20 +1,19 @@
 /*
- * XREFs of MiSetPageTablePfnBuddy @ 0x14036C868
+ * XREFs of MiSetPageTablePfnBuddy @ 0x1402E5B84
  * Callers:
- *     KiInSwapProcesses @ 0x14021119C (KiInSwapProcesses.c)
- *     MiInitializeSystemPageTable @ 0x14027C784 (MiInitializeSystemPageTable.c)
- *     MiCreatePfnTemplate @ 0x1403B770C (MiCreatePfnTemplate.c)
- *     MiMakeOutswappedPageResident @ 0x1405803C8 (MiMakeOutswappedPageResident.c)
- *     MiAllocateTopLevelPage @ 0x1407F1AF8 (MiAllocateTopLevelPage.c)
- *     MiInitSystem @ 0x140B07C00 (MiInitSystem.c)
- *     MiInitializeBootProcess @ 0x140B0A508 (MiInitializeBootProcess.c)
- *     MxInsertEnclaveBootPages @ 0x140B5273C (MxInsertEnclaveBootPages.c)
+ *     KiInSwapProcesses @ 0x14024A538 (KiInSwapProcesses.c)
+ *     MiInitializeUnusablePfns @ 0x1403B0FE0 (MiInitializeUnusablePfns.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BAC0 (MiMakeOutswappedPageResident.c)
+ *     MiAllocateTopLevelPage @ 0x1406D0824 (MiAllocateTopLevelPage.c)
+ *     MiMapNewSession @ 0x14078708C (MiMapNewSession.c)
+ *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitializeBootProcess @ 0x140A57868 (MiInitializeBootProcess.c)
  * Callees:
- *     MiLockPageInline @ 0x1402F2700 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiSetPageTablePfnBuddy(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall MiSetPageTablePfnBuddy(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int8 v5; // bl
   __int64 result; // rax
@@ -24,10 +23,10 @@ __int64 __fastcall MiSetPageTablePfnBuddy(__int64 a1, __int64 a2, int a3)
   int v10; // eax
   bool v11; // zf
 
-  if ( a3 )
+  if ( (_DWORD)a3 )
     v5 = 17;
   else
-    v5 = MiLockPageInline(a1);
+    v5 = MiLockPageInline(a1, a2, a3);
   result = 0xFFFFFFFFFFE0000LL;
   *(_QWORD *)a1 ^= (*(_QWORD *)a1 ^ (a2 << 13)) & 0xFFFFFFFFFFE0000LL;
   if ( v5 != 17 )

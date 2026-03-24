@@ -1,11 +1,11 @@
 /*
- * XREFs of AMLICreateOverrideObjectDep @ 0x1C004A940
+ * XREFs of AMLICreateOverrideObjectDep @ 0x1C0064D04
  * Callers:
- *     AMLIAddNextNamespaceOverrideObject @ 0x1C004A554 (AMLIAddNextNamespaceOverrideObject.c)
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C006498C (AMLIAddNextNamespaceOverrideObject.c)
  * Callees:
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     FreeObjData @ 0x1C004B564 (FreeObjData.c)
- *     NewObjData @ 0x1C004C1BC (NewObjData.c)
+ *     FreeObjData @ 0x1C00033D0 (FreeObjData.c)
+ *     NewObjData @ 0x1C000A9E8 (NewObjData.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
  */
 
 __int64 __fastcall AMLICreateOverrideObjectDep(_BYTE *Src, unsigned int a2, __int64 a3)
@@ -16,17 +16,17 @@ __int64 __fastcall AMLICreateOverrideObjectDep(_BYTE *Src, unsigned int a2, __in
   unsigned int i; // ecx
   _BYTE *v9; // rdx
   __int64 v10; // rax
-  unsigned int *v11; // rax
-  unsigned int *v12; // r15
+  _DWORD *v11; // rax
+  _DWORD *v12; // r15
   __int64 v13; // rdi
   unsigned int *v14; // r14
   __int64 v15; // rax
   void *v16; // rax
   __int128 v17; // xmm1
-  unsigned int *v18; // xmm0_8
+  _DWORD *v18; // xmm0_8
   __int128 v20; // [rsp+20h] [rbp-48h] BYREF
   __int128 v21; // [rsp+30h] [rbp-38h]
-  unsigned int *v22; // [rsp+40h] [rbp-28h]
+  _DWORD *v22; // [rsp+40h] [rbp-28h]
 
   v3 = 0;
   v4 = 0;
@@ -53,7 +53,7 @@ __int64 __fastcall AMLICreateOverrideObjectDep(_BYTE *Src, unsigned int a2, __in
     }
     WORD1(v20) = 4;
     DWORD2(v21) = 40 * v4 + 48;
-    v11 = (unsigned int *)NewObjData(gpheapGlobal, &v20);
+    v11 = (_DWORD *)NewObjData((struct _SLIST_ENTRY *)gpheapGlobal, (__int64)&v20);
     v22 = v11;
     v12 = v11;
     if ( v11 )
@@ -71,7 +71,7 @@ __int64 __fastcall AMLICreateOverrideObjectDep(_BYTE *Src, unsigned int a2, __in
             ++v15;
           while ( v7[v15] );
           *v14 = v15 + 1;
-          v16 = (void *)NewObjData(gpheapGlobal, v14 - 6);
+          v16 = (void *)NewObjData((struct _SLIST_ENTRY *)gpheapGlobal, (__int64)(v14 - 6));
           *((_QWORD *)v14 + 1) = v16;
           if ( !v16 )
             break;
@@ -86,9 +86,9 @@ __int64 __fastcall AMLICreateOverrideObjectDep(_BYTE *Src, unsigned int a2, __in
         while ( (_DWORD)v13 )
         {
           v13 = (unsigned int)(v13 - 1);
-          FreeObjData(&v12[8 * v13 + 2 + 2 * (unsigned int)v13]);
+          FreeObjData((__int64)&v12[8 * v13 + 2 + 2 * (unsigned int)v13]);
         }
-        FreeObjData(&v20);
+        FreeObjData((__int64)&v20);
       }
       else
       {

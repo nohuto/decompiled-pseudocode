@@ -1,40 +1,20 @@
 /*
- * XREFs of ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C0011690
+ * XREFs of ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C0016E50
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0043074 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     <none>
  */
 
-struct DXGGLOBAL *DXGGLOBAL_GetGlobal(void)
+struct DXGGLOBAL *__fastcall DXGGLOBAL_GetGlobal(__int64 a1, __int64 a2)
 {
-  struct DXGGLOBAL *result; // rax
-  int v1; // edx
-  int v2; // ecx
-  int v3; // r8d
+  __int64 v3; // rax
 
-  result = *(struct DXGGLOBAL **)&DXGGLOBAL::m_pGlobal;
-  if ( !*(_QWORD *)&DXGGLOBAL::m_pGlobal )
+  if ( !DXGGLOBAL::m_pGlobal )
   {
-    WdLogSingleEntry1(1LL, 2407LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(
-          v2,
-          v1,
-          v3,
-          0,
-          2,
-          -1,
-          (__int64)L"m_pGlobal != NULL",
-          2407LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-    }
-    return *(struct DXGGLOBAL **)&DXGGLOBAL::m_pGlobal;
+    v3 = WdLogNewEntry5_WdAssertion(a1, a2);
+    *(_QWORD *)(v3 + 24) = 2238LL;
+    WdLogEvent5_WdAssertion(v3);
   }
-  return result;
+  return (struct DXGGLOBAL *)DXGGLOBAL::m_pGlobal;
 }

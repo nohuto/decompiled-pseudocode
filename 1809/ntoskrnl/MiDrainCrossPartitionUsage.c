@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDrainCrossPartitionUsage @ 0x1402D1624
+ * XREFs of MiDrainCrossPartitionUsage @ 0x1402D1724
  * Callers:
- *     MiDeletePartition @ 0x1402B4440 (MiDeletePartition.c)
+ *     MiDeletePartition @ 0x1402B4540 (MiDeletePartition.c)
  * Callees:
  *     ExWaitForRundownProtectionReleaseCacheAware @ 0x14000E780 (ExWaitForRundownProtectionReleaseCacheAware.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     MiDecrementControlAreaCount @ 0x140094E14 (MiDecrementControlAreaCount.c)
- *     KeResetEvent @ 0x1400B8A80 (KeResetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     CcExitPartition @ 0x14026B4B0 (CcExitPartition.c)
- *     MiMakeUnusedSegmentDeleteOnClose @ 0x1402A26C0 (MiMakeUnusedSegmentDeleteOnClose.c)
- *     MiDecrementCloneHeaderCount @ 0x1402C9668 (MiDecrementCloneHeaderCount.c)
+ *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcExitPartition @ 0x14026B5B0 (CcExitPartition.c)
+ *     MiMakeUnusedSegmentDeleteOnClose @ 0x1402A27C0 (MiMakeUnusedSegmentDeleteOnClose.c)
+ *     MiDecrementCloneHeaderCount @ 0x1402C9768 (MiDecrementCloneHeaderCount.c)
  */
 
 void __fastcall MiDrainCrossPartitionUsage(__int64 a1)

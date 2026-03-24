@@ -1,37 +1,35 @@
 /*
- * XREFs of SmAcquireReleaseCharges @ 0x14034350C
+ * XREFs of SmAcquireReleaseCharges @ 0x14026C810
  * Callers:
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1403428E8 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140342E58 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
- *     SmFpCleanup @ 0x140343E28 (SmFpCleanup.c)
- *     SmFpPreAllocate @ 0x1403A6478 (SmFpPreAllocate.c)
- *     SmKmAllocateMdlForLock @ 0x1403A6694 (SmKmAllocateMdlForLock.c)
- *     SmFpAllocate @ 0x14046592E (SmFpAllocate.c)
- *     SmFpFree @ 0x140465A48 (SmFpFree.c)
- *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1405C1098 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
- *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1405C2484 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
- *     SmKmFreeMdlForLock @ 0x1405CB590 (SmKmFreeMdlForLock.c)
+ *     SmFpFree @ 0x1402686A4 (SmFpFree.c)
+ *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x14026C418 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
+ *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x14026C5E0 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
+ *     SmFpAllocate @ 0x1403130C8 (SmFpAllocate.c)
+ *     SmKmAllocateMdlForLock @ 0x140313600 (SmKmAllocateMdlForLock.c)
+ *     SmKmFreeMdlForLock @ 0x14032AEC8 (SmKmFreeMdlForLock.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14034E538 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmFpCleanup @ 0x14034F6F8 (SmFpCleanup.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140353D08 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     SmFpPreAllocate @ 0x1403C8964 (SmFpPreAllocate.c)
  * Callees:
- *     MmChargeResources @ 0x140343560 (MmChargeResources.c)
- *     MmReleaseResourceCharge @ 0x140344D68 (MmReleaseResourceCharge.c)
+ *     MmChargeResources @ 0x14026C85C (MmChargeResources.c)
+ *     MmReleaseResourceCharge @ 0x14026C8EC (MmReleaseResourceCharge.c)
  */
 
-__int64 __fastcall SmAcquireReleaseCharges(__int64 a1, unsigned __int64 a2, char a3, int a4)
+__int64 __fastcall SmAcquireReleaseCharges(unsigned __int64 a1, char a2, int a3)
 {
-  __int64 v4; // rcx
-  unsigned __int64 v5; // rdx
-  unsigned int v6; // ebx
-  unsigned int v7; // r10d
+  unsigned __int64 v3; // rcx
+  unsigned int v4; // ebx
+  unsigned int v5; // r9d
 
-  v4 = *(_QWORD *)(a1 + 1936);
-  v5 = a2 >> 12;
-  v6 = 1;
-  v7 = a3 & 1 | 2;
-  if ( (a3 & 2) == 0 )
-    v7 = a3 & 1;
-  if ( a4 )
-    MmReleaseResourceCharge(v4, v5, v7, 0LL);
+  v3 = a1 >> 12;
+  v4 = 1;
+  v5 = a2 & 1 | 2;
+  if ( (a2 & 2) == 0 )
+    v5 = a2 & 1;
+  if ( a3 )
+    MmReleaseResourceCharge(v3, v5, 0LL);
   else
-    return (unsigned int)MmChargeResources(v4, v5, v7);
-  return v6;
+    return (unsigned int)MmChargeResources(v3, v5);
+  return v4;
 }

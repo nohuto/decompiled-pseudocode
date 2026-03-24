@@ -1,5 +1,5 @@
 /*
- * XREFs of PfSnQueueEnablePrefetcherTimer @ 0x140763674
+ * XREFs of PfSnQueueEnablePrefetcherTimer @ 0x140763654
  * Callers:
  *     PfSnBeginBootPhase @ 0x14056F13C (PfSnBeginBootPhase.c)
  * Callees:

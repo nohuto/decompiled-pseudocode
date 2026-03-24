@@ -4,7 +4,7 @@
  *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
  * Callees:
  *     KiFastReadyThread @ 0x1400A2C58 (KiFastReadyThread.c)
- *     KiInSwapSingleProcess @ 0x14010C9A0 (KiInSwapSingleProcess.c)
+ *     KiInSwapSingleProcess @ 0x14010C9C0 (KiInSwapSingleProcess.c)
  */
 
 __int64 __fastcall KeReadyThread(__int64 a1)

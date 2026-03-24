@@ -1,11 +1,12 @@
 /*
- * XREFs of CheckHandleFlag @ 0x1C009B760
+ * XREFs of CheckHandleFlag @ 0x1C00666B8
  * Callers:
- *     _GetUserObjectInformation @ 0x1C0093DC4 (_GetUserObjectInformation.c)
- *     OkayToCloseWindowStation @ 0x1C009B640 (OkayToCloseWindowStation.c)
- *     OkayToCloseDesktop @ 0x1C009B6D0 (OkayToCloseDesktop.c)
+ *     OkayToCloseWindowStation @ 0x1C0065D10 (OkayToCloseWindowStation.c)
+ *     OkayToCloseDesktop @ 0x1C0065D90 (OkayToCloseDesktop.c)
+ *     zzzSetDesktop @ 0x1C0065E20 (zzzSetDesktop.c)
+ *     _GetUserObjectInformation @ 0x1C0069D04 (_GetUserObjectInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CheckHandleFlag(PRKPROCESS PROCESS, __int64 a2, __int64 a3, __int64 a4)
@@ -16,7 +17,6 @@ __int64 __fastcall CheckHandleFlag(PRKPROCESS PROCESS, __int64 a2, __int64 a3, _
   unsigned int v8; // esi
   __int64 v9; // rcx
   __int64 ProcessWin32Process; // rax
-  __int64 v11; // rdx
   struct _KAPC_STATE ApcState; // [rsp+20h] [rbp-58h] BYREF
 
   v4 = a2;
@@ -38,11 +38,12 @@ __int64 __fastcall CheckHandleFlag(PRKPROCESS PROCESS, __int64 a2, __int64 a3, _
   {
     ProcessWin32Process = PsGetCurrentProcessWin32Process(v9);
   }
-  v11 = ProcessWin32Process;
-  if ( ProcessWin32Process )
-    v11 = -(__int64)(*(_QWORD *)ProcessWin32Process != 0LL) & ProcessWin32Process;
-  if ( v11 && v8 < *(_DWORD *)(v11 + 712) && _bittest64(*(const signed __int64 **)(v11 + 720), v8) )
+  if ( ProcessWin32Process
+    && v8 < *(_DWORD *)(ProcessWin32Process + 720)
+    && _bittest64(*(const signed __int64 **)(ProcessWin32Process + 728), v8) )
+  {
     v6 = 1;
+  }
   if ( v7 )
     KeUnstackDetachProcess(&ApcState);
   LeaveHandleFlagsCrit();

@@ -6,13 +6,13 @@
  *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
  *     MiConvertPrivateToProto @ 0x140082EB0 (MiConvertPrivateToProto.c)
  *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
- *     MiUpdatePrefetchPriority @ 0x1400B71A0 (MiUpdatePrefetchPriority.c)
- *     MiConvertStandbyToProto @ 0x14013EA30 (MiConvertStandbyToProto.c)
- *     MiDeprioritizeVirtualAddresses @ 0x1402AB5BC (MiDeprioritizeVirtualAddresses.c)
+ *     MiUpdatePrefetchPriority @ 0x1400B71C0 (MiUpdatePrefetchPriority.c)
+ *     MiConvertStandbyToProto @ 0x14013EA50 (MiConvertStandbyToProto.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x1402AB6BC (MiDeprioritizeVirtualAddresses.c)
  * Callees:
  *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiRelinkStandbyPage @ 0x1400F0A18 (MiRelinkStandbyPage.c)
- *     MiIsPteInStore @ 0x1401417E8 (MiIsPteInStore.c)
+ *     MiRelinkStandbyPage @ 0x1400F0A38 (MiRelinkStandbyPage.c)
+ *     MiIsPteInStore @ 0x140141808 (MiIsPteInStore.c)
  */
 
 char __fastcall MiUpdatePfnPriority(__int64 a1)

@@ -1,31 +1,31 @@
 /*
- * XREFs of RtlDestroyAtomTable @ 0x14069EB40
+ * XREFs of RtlDestroyAtomTable @ 0x1406860C0
  * Callers:
- *     RtlDereferenceAtomTable @ 0x14036E810 (RtlDereferenceAtomTable.c)
+ *     RtlDereferenceAtomTable @ 0x14031579C (RtlDereferenceAtomTable.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ExpFreeHandleTable @ 0x14068AC1C (ExpFreeHandleTable.c)
- *     ExpRemoveHandleTable @ 0x14068EB88 (ExpRemoveHandleTable.c)
- *     RtlpFreeAtom @ 0x14069EC78 (RtlpFreeAtom.c)
- *     RtlpLockAtomTable @ 0x140718140 (RtlpLockAtomTable.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     ExpFreeHandleTable @ 0x140604378 (ExpFreeHandleTable.c)
+ *     ExpRemoveHandleTable @ 0x140604524 (ExpRemoveHandleTable.c)
+ *     RtlpLockAtomTable @ 0x14061BE34 (RtlpLockAtomTable.c)
+ *     RtlpFreeAtom @ 0x1406862EC (RtlpFreeAtom.c)
  */
 
 __int64 __fastcall RtlDestroyAtomTable(__int64 a1)
 {
-  unsigned int v2; // r12d
+  unsigned int v2; // ebp
   _QWORD **i; // r14
   _QWORD *v4; // rsi
   _QWORD *v5; // r15
   _QWORD *v6; // rbx
-  _QWORD **v8; // rbp
+  _QWORD **v8; // r12
   _QWORD *v9; // rcx
   _QWORD *v10; // rax
 
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4), 0xFFFFFFFF) != 1 )
     return 0LL;
-  if ( (unsigned __int8)RtlpLockAtomTable() )
+  if ( RtlpLockAtomTable((_DWORD *)a1) )
   {
     v2 = 0;
     for ( i = (_QWORD **)(a1 + 32); v2 < *(_DWORD *)(a1 + 28); ++v2 )

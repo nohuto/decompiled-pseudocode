@@ -1,5 +1,5 @@
 /*
- * XREFs of LeaveRenderCrit @ 0x1C00C5850
+ * XREFs of LeaveRenderCrit @ 0x1C001C7E0
  * Callers:
  *     <none>
  * Callees:
@@ -8,8 +8,6 @@
 
 __int64 LeaveRenderCrit()
 {
-  __int64 v0; // rcx
-
   ExReleaseResourceAndLeaveCriticalRegion(gpresRender);
-  return PsLeavePriorityRegion(v0);
+  return PsLeavePriorityRegion();
 }

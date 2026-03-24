@@ -1,9 +1,9 @@
 /*
- * XREFs of _dynamic_initializer_for__CPointerDeviceCache::s_deviceCache__ @ 0x180001270
+ * XREFs of _dynamic_initializer_for__CPointerDeviceCache::s_deviceCache__ @ 0x1800035D0
  * Callers:
  *     <none>
  * Callees:
- *     ??0?$map@PEAXUDEVICE_INFO@@U?$less@PEAX@std@@V?$allocator@U?$pair@QEAXUDEVICE_INFO@@@std@@@3@@std@@QEAA@XZ @ 0x1800F65E0 (--0-$map@PEAXUDEVICE_INFO@@U-$less@PEAX@std@@V-$allocator@U-$pair@QEAXUDEVICE_INFO@@@std@@@3@@st.c)
+ *     ??0?$map@PEAXUDEVICE_INFO@@U?$less@PEAX@std@@V?$allocator@U?$pair@QEAXUDEVICE_INFO@@@std@@@3@@std@@QEAA@XZ @ 0x1800DE220 (--0-$map@PEAXUDEVICE_INFO@@U-$less@PEAX@std@@V-$allocator@U-$pair@QEAXUDEVICE_INFO@@@std@@@3@@st.c)
  */
 
 int dynamic_initializer_for__CPointerDeviceCache::s_deviceCache__()

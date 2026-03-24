@@ -1,12 +1,20 @@
 /*
- * XREFs of VerifierObfReferenceObject @ 0x140AE6070
+ * XREFs of VerifierObfReferenceObject @ 0x1409E7E00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C659C (VfUtilCheckKernelAddress.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D0D64 (VerifierBugCheckIfAppropriate.c)
  */
 
-__int64 VerifierObfReferenceObject()
+__int64 __fastcall VerifierObfReferenceObject(ULONG_PTR BugCheckParameter2)
 {
-  return ((__int64 (*)(void))pXdvObfReferenceObject)();
+  __int64 v2; // rbx
+
+  VfUtilCheckKernelAddress(BugCheckParameter2, 8uLL);
+  v2 = ((__int64 (__fastcall *)(ULONG_PTR))pXdvObfReferenceObject)(BugCheckParameter2);
+  if ( v2 == 1 && (MmVerifierData & 0x800) != 0 )
+    VerifierBugCheckIfAppropriate(0xC4u, 0x3FuLL, BugCheckParameter2, 1uLL, 0LL);
+  return v2;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of ?vDeleteIcmDIBs@BRUSH@@QEAAXXZ @ 0x1C0096FB8
+ * XREFs of ?vDeleteIcmDIBs@BRUSH@@QEAAXXZ @ 0x1C0082384
  * Callers:
- *     bDeleteBrush @ 0x1C00C82E0 (bDeleteBrush.c)
+ *     bDeleteBrush @ 0x1C001C340 (bDeleteBrush.c)
  * Callees:
- *     bDeleteSurface @ 0x1C0019110 (bDeleteSurface.c)
- *     ?vDec_cRef@SURFACE@@QEAAXXZ @ 0x1C001E824 (-vDec_cRef@SURFACE@@QEAAXXZ.c)
- *     ??1SURFREF@@QEAA@XZ @ 0x1C001F08C (--1SURFREF@@QEAA@XZ.c)
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0063C24 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     bDeleteSurface @ 0x1C001BA00 (bDeleteSurface.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C001C608 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ?vDec_cRef@SURFACE@@QEAAXXZ @ 0x1C002A988 (-vDec_cRef@SURFACE@@QEAAXXZ.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C002B724 (--1SURFREF@@QEAA@XZ.c)
  */
 
 void __fastcall BRUSH::vDeleteIcmDIBs(BRUSH *this)
 {
   __int64 v1; // rbx
-  __int64 v2; // rsi
-  int v3; // edi
+  __int64 v2; // rdi
+  int v3; // esi
   _BYTE v4[32]; // [rsp+20h] [rbp-38h] BYREF
   SURFACE *v5; // [rsp+40h] [rbp-18h]
 
@@ -35,9 +35,7 @@ void __fastcall BRUSH::vDeleteIcmDIBs(BRUSH *this)
       SURFREF::~SURFREF((SURFREF *)v4);
       if ( v3 )
         bDeleteSurface(*(_QWORD *)(v1 + 8));
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        (char *)v1);
+      Win32FreePool(v1);
       v1 = v2;
     }
     while ( v2 );

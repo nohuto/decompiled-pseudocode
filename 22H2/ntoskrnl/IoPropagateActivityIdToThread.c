@@ -1,21 +1,25 @@
 /*
- * XREFs of IoPropagateActivityIdToThread @ 0x140290120
+ * XREFs of IoPropagateActivityIdToThread @ 0x1402E6390
  * Callers:
  *     <none>
  * Callees:
- *     IopIrpHasExtensionType @ 0x140290158 (IopIrpHasExtensionType.c)
- *     IoGetActivityIdIrp @ 0x1403267F0 (IoGetActivityIdIrp.c)
+ *     IopIrpHasExtensionType @ 0x1402E6690 (IopIrpHasExtensionType.c)
+ *     IoGetActivityIdIrp @ 0x1402E6C30 (IoGetActivityIdIrp.c)
  */
 
-__int64 __fastcall IoPropagateActivityIdToThread(__int64 a1, struct _LIST_ENTRY *a2, struct _LIST_ENTRY **a3)
+__int64 __fastcall IoPropagateActivityIdToThread(
+        __int64 a1,
+        struct _LIST_ENTRY *a2,
+        struct _LIST_ENTRY **a3,
+        __int64 a4)
 {
-  __int64 v5; // rcx
+  __int64 v6; // rcx
   struct _KTHREAD *CurrentThread; // rcx
   struct _LIST_ENTRY *Flink; // rax
 
-  if ( !(unsigned __int8)IopIrpHasExtensionType(a1, 0LL) )
+  if ( !(unsigned __int8)IopIrpHasExtensionType(a1, 0LL, a3, a4) )
     return 3221226021LL;
-  IoGetActivityIdIrp(v5, a2);
+  IoGetActivityIdIrp(v6, a2);
   CurrentThread = KeGetCurrentThread();
   Flink = CurrentThread[1].WaitBlock[1].WaitListEntry.Flink;
   CurrentThread[1].WaitBlock[1].WaitListEntry.Flink = a2;

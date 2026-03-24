@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipProcessWmiRegInfo @ 0x14086ABDC
+ * XREFs of WmipProcessWmiRegInfo @ 0x140756728
  * Callers:
- *     WmipRegisterOrUpdateDS @ 0x14086A494 (WmipRegisterOrUpdateDS.c)
+ *     WmipRegisterOrUpdateDS @ 0x140755F7C (WmipRegisterOrUpdateDS.c)
  * Callees:
- *     WmipUpdateDataSource @ 0x140800178 (WmipUpdateDataSource.c)
- *     WmipAddDataSource @ 0x14086A5B0 (WmipAddDataSource.c)
- *     WmipValidateWmiRegInfoString @ 0x14086ACE4 (WmipValidateWmiRegInfoString.c)
+ *     WmipAddDataSource @ 0x140756098 (WmipAddDataSource.c)
+ *     WmipValidateWmiRegInfoString @ 0x140756830 (WmipValidateWmiRegInfoString.c)
+ *     WmipUpdateDataSource @ 0x1407C4788 (WmipUpdateDataSource.c)
  */
 
 __int64 __fastcall WmipProcessWmiRegInfo(__int64 a1, unsigned int *a2, unsigned int a3, char a4)
@@ -19,13 +19,13 @@ __int64 __fastcall WmipProcessWmiRegInfo(__int64 a1, unsigned int *a2, unsigned 
   int updated; // eax
   int v13; // eax
   __int64 v14; // rax
-  unsigned __int16 *v16; // [rsp+30h] [rbp-28h] BYREF
-  unsigned __int16 *v17; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v16[5]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v17; // [rsp+68h] [rbp+10h] BYREF
 
   v4 = 0;
   v6 = a3;
   v7 = a2;
-  v16 = 0LL;
+  v16[0] = 0LL;
   v9 = 0;
   v17 = 0LL;
   if ( *a2 > a3 )
@@ -37,7 +37,7 @@ LABEL_17:
   {
     while ( 1 )
     {
-      v11 = WmipValidateWmiRegInfoString(v7, v6, v7[2], &v16);
+      v11 = WmipValidateWmiRegInfoString(v7, v6, v7[2], v16);
       if ( v11 < 0 )
         break;
       v11 = WmipValidateWmiRegInfoString(v7, v10, v7[3], &v17);
@@ -46,9 +46,9 @@ LABEL_17:
       if ( 32 * v7[4] + 24 > v6 )
         goto LABEL_17;
       if ( a4 )
-        updated = WmipUpdateDataSource(a1, (__int64)v7, v6);
+        updated = WmipUpdateDataSource(a1, v7, v6);
       else
-        updated = WmipAddDataSource(a1, (__int64)v7, v6, v16, v17);
+        updated = WmipAddDataSource(a1, (__int64)v7, v6, v16[0], v17);
       v11 = updated;
       v13 = v9 + 1;
       if ( v11 < 0 )

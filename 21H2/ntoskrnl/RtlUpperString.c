@@ -1,33 +1,31 @@
 /*
- * XREFs of RtlUpperString @ 0x1406A56F0
+ * XREFs of RtlUpperString @ 0x1405EE430
  * Callers:
  *     <none>
  * Callees:
- *     RtlpIsUtf8Process @ 0x1407CDA20 (RtlpIsUtf8Process.c)
+ *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
  */
 
 void __stdcall RtlUpperString(PSTRING DestinationString, const STRING *SourceString)
 {
-  int MaximumLength; // ebp
-  char *Buffer; // rsi
-  char *v4; // rdi
+  int Length; // ebp
+  char *Buffer; // rdi
+  char *v4; // rsi
   char v5; // bl
-  char v6; // cl
 
-  MaximumLength = DestinationString->MaximumLength;
-  Buffer = SourceString->Buffer;
-  v4 = DestinationString->Buffer;
-  if ( SourceString->Length <= (unsigned __int16)MaximumLength )
-    MaximumLength = SourceString->Length;
-  for ( DestinationString->Length = MaximumLength; MaximumLength; --MaximumLength )
+  Length = SourceString->Length;
+  Buffer = DestinationString->Buffer;
+  v4 = SourceString->Buffer;
+  if ( (unsigned __int16)Length > DestinationString->MaximumLength )
+    Length = DestinationString->MaximumLength;
+  for ( DestinationString->Length = Length; Length; --Length )
   {
-    v5 = *Buffer;
+    v5 = *v4;
     RtlpIsUtf8Process(0LL);
+    if ( (unsigned __int8)(v5 - 97) <= 0x19u )
+      v5 ^= 0x20u;
+    *Buffer = v5;
     ++v4;
-    v6 = v5 ^ 0x20;
     ++Buffer;
-    if ( (unsigned __int8)(v5 - 97) > 0x19u )
-      v6 = v5;
-    *(v4 - 1) = v6;
   }
 }

@@ -1,33 +1,32 @@
 /*
- * XREFs of HalpDmaFreeLa @ 0x140504358
+ * XREFs of HalpDmaFreeLa @ 0x1404B78F8
  * Callers:
- *     HalFlushAdapterBuffersEx @ 0x140516D80 (HalFlushAdapterBuffersEx.c)
- *     IoFlushAdapterBuffersV3 @ 0x140517BAC (IoFlushAdapterBuffersV3.c)
+ *     HalFlushAdapterBuffersEx @ 0x1403A2D30 (HalFlushAdapterBuffersEx.c)
+ *     IoFlushAdapterBuffersV3 @ 0x1404CA910 (IoFlushAdapterBuffersV3.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x140504DAC (HalpDmaReturnEmergencyLogicalAddressResources.c)
+ *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x1404B8368 (HalpDmaReturnEmergencyLogicalAddressResources.c)
+ *     HalpDomainLaDelete @ 0x1404C4DF4 (HalpDomainLaDelete.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9334 (HalpIommuDomainUnmapLogicalRange.c)
  */
 
-__int64 __fastcall HalpDmaFreeLa(__int64 a1, __int64 *a2)
+__int64 __fastcall HalpDmaFreeLa(__int64 a1, ULONG_PTR a2)
 {
-  __int64 v3; // rbx
+  __int64 v2; // rsi
   __int64 result; // rax
-  __int128 *v5; // rdx
-  __int128 v6; // [rsp+20h] [rbp-18h] BYREF
+  __int128 *i; // rdx
+  __int128 v7; // [rsp+20h] [rbp-18h] BYREF
 
-  v3 = *a2;
-  v6 = *(_OWORD *)(a1 + 248);
-  ((void (__fastcall *)(__int64 *))qword_140C4BE08)(a2);
-  if ( v3 == *(_QWORD *)(a1 + 552) )
+  v2 = *(_QWORD *)(a1 + 504);
+  v7 = *(_OWORD *)(a1 + 248);
+  HalpIommuDomainUnmapLogicalRange(*(_QWORD *)(v2 + 40), a2);
+  if ( a2 == *(_QWORD *)(a1 + 552) )
     return HalpDmaReturnEmergencyLogicalAddressResources((PDMA_ADAPTER)a1);
   result = 0LL;
-  v5 = &v6;
-  while ( !*(_QWORD *)v5 || v3 != *(_QWORD *)(*(_QWORD *)v5 + 24LL) )
+  for ( i = &v7; !*(_QWORD *)i || a2 != *(_QWORD *)(*(_QWORD *)i + 24LL); i = (__int128 *)((char *)i + 8) )
   {
     result = (unsigned int)(result + 1);
-    v5 = (__int128 *)((char *)v5 + 8);
     if ( (unsigned int)result >= 2 )
-      return ((__int64 (__fastcall *)(__int64, __int128 *))qword_140C4BDF8)(v3, v5);
+      return HalpDomainLaDelete(v2, a2);
   }
   return result;
 }

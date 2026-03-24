@@ -1,9 +1,11 @@
 /*
- * XREFs of __scrt_stub_for_acrt_uninitialize_critical @ 0x180103380
+ * XREFs of __scrt_stub_for_acrt_uninitialize_critical @ 0x1800E944C
  * Callers:
- *     __scrt_dllmain_uninitialize_critical @ 0x18010099C (__scrt_dllmain_uninitialize_critical.c)
- *     __scrt_initialize_crt @ 0x1801009B8 (__scrt_initialize_crt.c)
- *     __scrt_uninitialize_crt @ 0x180100B68 (__scrt_uninitialize_crt.c)
+ *     __scrt_dllmain_crt_thread_attach @ 0x1800E7078 (__scrt_dllmain_crt_thread_attach.c)
+ *     __scrt_dllmain_crt_thread_detach @ 0x1800E70A8 (__scrt_dllmain_crt_thread_detach.c)
+ *     __scrt_dllmain_uninitialize_critical @ 0x1800E7164 (__scrt_dllmain_uninitialize_critical.c)
+ *     __scrt_initialize_crt @ 0x1800E7180 (__scrt_initialize_crt.c)
+ *     __scrt_uninitialize_crt @ 0x1800E7354 (__scrt_uninitialize_crt.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCombineWorkingSetTail @ 0x1405B60A0
+ * XREFs of MiCombineWorkingSetTail @ 0x14055CE00
  * Callers:
- *     MiCombinePte @ 0x1405B5BA0 (MiCombinePte.c)
+ *     MiCombinePte @ 0x14055C900 (MiCombinePte.c)
  * Callees:
- *     MiReleaseWalkLocks @ 0x1402341A4 (MiReleaseWalkLocks.c)
- *     MiProcessCrcList @ 0x1406F2C30 (MiProcessCrcList.c)
+ *     MiReleaseWalkLocks @ 0x1402AA590 (MiReleaseWalkLocks.c)
+ *     MiProcessCrcList @ 0x140726B20 (MiProcessCrcList.c)
  */
 
 __int64 __fastcall MiCombineWorkingSetTail(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall MiCombineWorkingSetTail(__int64 a1)
       v1[3],
       v1[4],
       v1[1],
-      *(unsigned __int16 *)(*(_QWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor] + 192) + 138LL));
+      *(unsigned __int16 *)(*(_QWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor] + 192) + 146LL));
     v1[1] = 0LL;
   }
   return 0LL;

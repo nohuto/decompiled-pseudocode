@@ -1,13 +1,13 @@
 /*
- * XREFs of ACPIAmliEvaluatePcch @ 0x1C008F5E4
+ * XREFs of ACPIAmliEvaluatePcch @ 0x1C0098400
  * Callers:
- *     ACPIPccLegacyInitialize @ 0x1C008F4C8 (ACPIPccLegacyInitialize.c)
+ *     ACPIPccLegacyInitialize @ 0x1C00982D0 (ACPIPccLegacyInitialize.c)
  * Callees:
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     AMLIEvalNameSpaceObject @ 0x1C000B894 (AMLIEvalNameSpaceObject.c)
- *     AMLIFreeDataBuffs @ 0x1C001C758 (AMLIFreeDataBuffs.c)
- *     AcpiParseGenRegDesc @ 0x1C00AB990 (AcpiParseGenRegDesc.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     AMLIFreeDataBuffs @ 0x1C001D940 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
+ *     AcpiParseGenRegDesc @ 0x1C00ACC90 (AcpiParseGenRegDesc.c)
  */
 
 __int64 __fastcall ACPIAmliEvaluatePcch(__int64 *a1, __int64 a2, __int64 a3, _QWORD *a4, _QWORD *a5)
@@ -29,11 +29,11 @@ __int64 __fastcall ACPIAmliEvaluatePcch(__int64 *a1, __int64 a2, __int64 a3, _QW
   {
     v19 = 0LL;
     memset(v18, 0, sizeof(v18));
-    v9 = AMLIEvalNameSpaceObject(v8, (__int64)v18, 0, 0LL);
+    v9 = AMLIEvalNameSpaceObject((unsigned __int64 *)v8, (__int64)v18, 0, 0LL);
     if ( v9 < 0 )
     {
 LABEL_18:
-      AMLIDereferenceHandleEx((volatile signed __int32 *)v8);
+      AMLIDereferenceHandleEx((__int64)v8);
       return (unsigned int)v9;
     }
     if ( WORD1(v18[0]) == 4 )

@@ -1,18 +1,18 @@
 /*
- * XREFs of ?cjGetLogicalColorSpace@@YAHPEAXH0@Z @ 0x1C02CEB8C
+ * XREFs of ?cjGetLogicalColorSpace@@YAHPEAXH0@Z @ 0x1C02B5DCC
  * Callers:
- *     GreExtGetObjectW @ 0x1C002E520 (GreExtGetObjectW.c)
+ *     GreExtGetObjectW @ 0x1C0083078 (GreExtGetObjectW.c)
  * Callees:
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0048AB8 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ??0COLORSPACEREF@@QEAA@PEAUHCOLORSPACE__@@@Z @ 0x1C02CE3F0 (--0COLORSPACEREF@@QEAA@PEAUHCOLORSPACE__@@@Z.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C00499CC (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0COLORSPACEREF@@QEAA@PEAUHCOLORSPACE__@@@Z @ 0x1C02B55F0 (--0COLORSPACEREF@@QEAA@PEAUHCOLORSPACE__@@@Z.c)
  */
 
 __int64 __fastcall cjGetLogicalColorSpace(HCOLORSPACE a1, unsigned int a2, char *a3)
 {
   unsigned int v3; // edi
-  __int64 v6; // rcx
-  size_t *v7; // r8
+  __int64 v6; // r8
+  __int64 v7; // rdx
   __int64 v8; // rcx
   _BYTE v10[32]; // [rsp+20h] [rbp-38h] BYREF
   __int64 v11; // [rsp+40h] [rbp-18h]
@@ -24,7 +24,6 @@ __int64 __fastcall cjGetLogicalColorSpace(HCOLORSPACE a1, unsigned int a2, char 
     v6 = v11;
     if ( v11 )
     {
-      v7 = (size_t *)(v11 + 92);
       *(_DWORD *)a3 = *(_DWORD *)(v11 + 24);
       *((_DWORD *)a3 + 1) = *(_DWORD *)(v6 + 28);
       *((_DWORD *)a3 + 2) = *(_DWORD *)(v6 + 32);
@@ -36,7 +35,7 @@ __int64 __fastcall cjGetLogicalColorSpace(HCOLORSPACE a1, unsigned int a2, char 
       *((_DWORD *)a3 + 14) = *(_DWORD *)(v6 + 80);
       *((_DWORD *)a3 + 15) = *(_DWORD *)(v6 + 84);
       *((_DWORD *)a3 + 16) = *(_DWORD *)(v6 + 88);
-      RtlStringCchCopyW((unsigned __int16 *)a3 + 34, 0x104uLL, v7);
+      RtlStringCchCopyW(a3 + 68, 260LL, (char *)(v6 + 92));
       v8 = v11;
       v3 = 592;
       if ( a2 < 0x250 )
@@ -44,7 +43,7 @@ __int64 __fastcall cjGetLogicalColorSpace(HCOLORSPACE a1, unsigned int a2, char 
       else
         *((_DWORD *)a3 + 147) = *(_DWORD *)(v11 + 612);
       if ( v8 )
-        DEC_SHARE_REF_CNT(v8);
+        DEC_SHARE_REF_CNT(v8, v7);
     }
     UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v10);
   }

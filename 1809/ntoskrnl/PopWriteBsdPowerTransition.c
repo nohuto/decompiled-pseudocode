@@ -1,22 +1,22 @@
 /*
- * XREFs of PopWriteBsdPowerTransition @ 0x14071C488
+ * XREFs of PopWriteBsdPowerTransition @ 0x14071C468
  * Callers:
- *     PopSetSleepMarker @ 0x1406DD1DC (PopSetSleepMarker.c)
- *     NtInitiatePowerAction @ 0x1406DDEF0 (NtInitiatePowerAction.c)
- *     PopClearSystemShutdownMarker @ 0x1406E021C (PopClearSystemShutdownMarker.c)
- *     PopClearSleepMarker @ 0x1406E0294 (PopClearSleepMarker.c)
- *     PopClearUserShutdownMarkerWorker @ 0x1406E27D0 (PopClearUserShutdownMarkerWorker.c)
- *     PopSetUserShutdownMarkerWorker @ 0x1406E2810 (PopSetUserShutdownMarkerWorker.c)
- *     PopBatteryApplyCompositeState @ 0x14071A168 (PopBatteryApplyCompositeState.c)
- *     PopUpdateConsoleDisplayState @ 0x14071C278 (PopUpdateConsoleDisplayState.c)
- *     PopClearConnectedStandbyMarker @ 0x140865EE8 (PopClearConnectedStandbyMarker.c)
- *     PopRecordLidState @ 0x140865FA8 (PopRecordLidState.c)
- *     PopSetCleanShutdownMarker @ 0x14086629C (PopSetCleanShutdownMarker.c)
- *     PopSetConnectedStandbyMarker @ 0x1408662D0 (PopSetConnectedStandbyMarker.c)
- *     PdcPoRecordButton @ 0x14086EDE0 (PdcPoRecordButton.c)
+ *     PopSetSleepMarker @ 0x1406DD1BC (PopSetSleepMarker.c)
+ *     NtInitiatePowerAction @ 0x1406DDED0 (NtInitiatePowerAction.c)
+ *     PopClearSystemShutdownMarker @ 0x1406E01FC (PopClearSystemShutdownMarker.c)
+ *     PopClearSleepMarker @ 0x1406E0274 (PopClearSleepMarker.c)
+ *     PopClearUserShutdownMarkerWorker @ 0x1406E27B0 (PopClearUserShutdownMarkerWorker.c)
+ *     PopSetUserShutdownMarkerWorker @ 0x1406E27F0 (PopSetUserShutdownMarkerWorker.c)
+ *     PopBatteryApplyCompositeState @ 0x14071A148 (PopBatteryApplyCompositeState.c)
+ *     PopUpdateConsoleDisplayState @ 0x14071C258 (PopUpdateConsoleDisplayState.c)
+ *     PopClearConnectedStandbyMarker @ 0x140865EC8 (PopClearConnectedStandbyMarker.c)
+ *     PopRecordLidState @ 0x140865F88 (PopRecordLidState.c)
+ *     PopSetCleanShutdownMarker @ 0x14086627C (PopSetCleanShutdownMarker.c)
+ *     PopSetConnectedStandbyMarker @ 0x1408662B0 (PopSetConnectedStandbyMarker.c)
+ *     PdcPoRecordButton @ 0x14086EDC0 (PdcPoRecordButton.c)
  * Callees:
- *     RtlComputeCrc32 @ 0x14015B4F0 (RtlComputeCrc32.c)
- *     RtlpSystemBootStatusRequest @ 0x14071C4F4 (RtlpSystemBootStatusRequest.c)
+ *     RtlComputeCrc32 @ 0x14015B510 (RtlComputeCrc32.c)
+ *     RtlpSystemBootStatusRequest @ 0x14071C4D4 (RtlpSystemBootStatusRequest.c)
  */
 
 __int64 PopWriteBsdPowerTransition()

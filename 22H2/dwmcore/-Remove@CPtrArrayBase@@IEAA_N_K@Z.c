@@ -1,66 +1,60 @@
 /*
- * XREFs of ?Remove@CPtrArrayBase@@IEAA_N_K@Z @ 0x1800D62C4
+ * XREFs of ?Remove@CPtrArrayBase@@IEAA_N_K@Z @ 0x1800C18FC
  * Callers:
- *     ?AddLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@_N@Z @ 0x180011D74 (-AddLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@_N@Z.c)
- *     ?RemoveLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@@Z @ 0x1800128F4 (-RemoveLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@@Z.c)
- *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800235AC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
- *     ?RemoveChild@CVisual@@IEAAXPEAV1@@Z @ 0x1800986EC (-RemoveChild@CVisual@@IEAAXPEAV1@@Z.c)
- *     ?RemoveAllLights@CVisual@@AEAAXXZ @ 0x18009A30C (-RemoveAllLights@CVisual@@AEAAXXZ.c)
- *     ??1CVisual@@MEAA@XZ @ 0x18009A7CC (--1CVisual@@MEAA@XZ.c)
- *     ?RemoveAllSharedLights@CVisual@@AEAAJW4LightBehavior@@@Z @ 0x180211788 (-RemoveAllSharedLights@CVisual@@AEAAJW4LightBehavior@@@Z.c)
- *     ??1CLinearGradientLegacyMilBrush@@MEAA@XZ @ 0x18021E454 (--1CLinearGradientLegacyMilBrush@@MEAA@XZ.c)
- *     ?Draw@CLinearGradientLegacyMilBrush@@QEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@AEBUMilRectF@@@Z @ 0x18021E5CC (-Draw@CLinearGradientLegacyMilBrush@@QEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@AEBUMi.c)
- *     ??1CProjectedShadow@@MEAA@XZ @ 0x180248C20 (--1CProjectedShadow@@MEAA@XZ.c)
+ *     ??1CProjectedShadow@@MEAA@XZ @ 0x18001CEF4 (--1CProjectedShadow@@MEAA@XZ.c)
+ *     ?RemoveLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@@Z @ 0x18002998C (-RemoveLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800450D0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?RemoveChild@CVisual@@IEAAXPEAV1@_N@Z @ 0x18009F340 (-RemoveChild@CVisual@@IEAAXPEAV1@_N@Z.c)
+ *     ?RemoveAllLights@CVisual@@AEAAXXZ @ 0x18009FCE4 (-RemoveAllLights@CVisual@@AEAAXXZ.c)
+ *     ??1CWindowBackgroundTreatment@@UEAA@XZ @ 0x1800C0B1C (--1CWindowBackgroundTreatment@@UEAA@XZ.c)
+ *     ?AddLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@_N@Z @ 0x1800C1268 (-AddLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@_N@Z.c)
+ *     ?RemoveAllSharedLights@CVisual@@AEAAJW4LightBehavior@@@Z @ 0x1800CD504 (-RemoveAllSharedLights@CVisual@@AEAAJW4LightBehavior@@@Z.c)
+ *     ?RemoveHwndBitmap@CWindowManager@@QEAAJPEAVCHwndBitmap@@@Z @ 0x1801790EC (-RemoveHwndBitmap@CWindowManager@@QEAAJPEAVCHwndBitmap@@@Z.c)
  * Callees:
- *     ?RemoveAt@CPtrArrayBase@@IEAAX_K0@Z @ 0x1800D633C (-RemoveAt@CPtrArrayBase@@IEAAX_K0@Z.c)
+ *     ?RemoveAt@CPtrArrayBase@@IEAAX_K@Z @ 0x1800C1974 (-RemoveAt@CPtrArrayBase@@IEAAX_K@Z.c)
  */
 
-char __fastcall CPtrArrayBase::Remove(CPtrArrayBase *this, unsigned __int64 *a2)
+bool __fastcall CPtrArrayBase::Remove(CPtrArrayBase *this, __int64 a2)
 {
-  __int64 v2; // rax
+  unsigned __int64 *v4; // r10
   unsigned __int64 v5; // r8
-  unsigned __int64 *v6; // rax
-  char v7; // cl
-  unsigned __int64 v9; // rdx
-  __int64 v10; // r10
+  bool result; // al
+  unsigned int v7; // ecx
+  __int64 v8; // rdx
 
-  v2 = *(_QWORD *)this;
+  v4 = (unsigned __int64 *)(*(_QWORD *)this & 0xFFFFFFFFFFFFFFFCuLL);
   if ( (*(_QWORD *)this & 2) != 0 )
-  {
-    v6 = (unsigned __int64 *)(v2 & 0xFFFFFFFFFFFFFFFCuLL);
-    v5 = *v6;
-  }
+    v5 = *v4;
   else
-  {
     v5 = *(_QWORD *)this & 1LL;
-    v6 = (unsigned __int64 *)(v2 & 0xFFFFFFFFFFFFFFFCuLL);
-  }
-  v7 = 0;
-  if ( v5 == 1 )
+  result = 0;
+  if ( v5 )
   {
-    if ( a2 == v6 )
+    if ( v5 == 1 )
     {
-      *(_QWORD *)this = 0LL;
-      return 1;
+      if ( a2 == (*(_QWORD *)this & 0xFFFFFFFFFFFFFFFCuLL) )
+      {
+        *(_QWORD *)this = 0LL;
+        return 1;
+      }
+    }
+    else
+    {
+      v7 = 0;
+      v8 = 0LL;
+      do
+      {
+        if ( a2 == v4[v8 + 2] )
+          break;
+        v8 = ++v7;
+      }
+      while ( v7 < v5 );
+      if ( v7 < v5 )
+      {
+        CPtrArrayBase::RemoveAt(this, v7);
+        return 1;
+      }
     }
   }
-  else if ( v5 )
-  {
-    v9 = 0LL;
-    v10 = 0LL;
-    do
-    {
-      if ( a2 == (unsigned __int64 *)v6[v10 + 2] )
-        break;
-      v9 = (unsigned int)(v9 + 1);
-      v10 = (unsigned int)v9;
-    }
-    while ( (unsigned int)v9 < v5 );
-    if ( v9 < v5 )
-    {
-      CPtrArrayBase::RemoveAt(this, v9, 1uLL);
-      return 1;
-    }
-  }
-  return v7;
+  return result;
 }

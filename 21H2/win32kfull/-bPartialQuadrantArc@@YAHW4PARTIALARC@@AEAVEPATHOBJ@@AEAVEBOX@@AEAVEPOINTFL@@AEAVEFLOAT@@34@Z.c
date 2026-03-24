@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bPartialQuadrantArc@@YAHW4PARTIALARC@@AEAVEPATHOBJ@@AEAVEBOX@@AEAVEPOINTFL@@AEAVEFLOAT@@34@Z @ 0x1C02AF65C
+ * XREFs of ?bPartialQuadrantArc@@YAHW4PARTIALARC@@AEAVEPATHOBJ@@AEAVEBOX@@AEAVEPOINTFL@@AEAVEFLOAT@@34@Z @ 0x1C02B0A48
  * Callers:
- *     ?bPartialArc@@YAHW4PARTIALARC@@AEAVEPATHOBJ@@AEAVEBOX@@AEAVEPOINTFL@@JAEAVEFLOAT@@3J4J@Z @ 0x1C02AF3B8 (-bPartialArc@@YAHW4PARTIALARC@@AEAVEPATHOBJ@@AEAVEBOX@@AEAVEPOINTFL@@JAEAVEFLOAT@@3J4J@Z.c)
+ *     ?bPartialArc@@YAHW4PARTIALARC@@AEAVEPATHOBJ@@AEAVEBOX@@AEAVEPOINTFL@@JAEAVEFLOAT@@3J4J@Z @ 0x1C02B07A4 (-bPartialArc@@YAHW4PARTIALARC@@AEAVEPATHOBJ@@AEAVEBOX@@AEAVEPOINTFL@@JAEAVEFLOAT@@3J4J@Z.c)
  * Callees:
- *     ?vAbs@EFLOAT@@QEAAXXZ @ 0x1C00162A0 (-vAbs@EFLOAT@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?ptlXform@EBOX@@QEAA?AU_POINTL@@AEAVEPOINTFL@@@Z @ 0x1C02AF910 (-ptlXform@EBOX@@QEAA-AU_POINTL@@AEAVEPOINTFL@@@Z.c)
+ *     ?vAbs@EFLOAT@@QEAAXXZ @ 0x1C009E9A4 (-vAbs@EFLOAT@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?ptlXform@EBOX@@QEAA?AU_POINTL@@AEAVEPOINTFL@@@Z @ 0x1C02B0D04 (-ptlXform@EBOX@@QEAA-AU_POINTL@@AEAVEPOINTFL@@@Z.c)
  */
 
 __int64 __fastcall bPartialQuadrantArc(int a1, EPATHOBJ *a2, EBOX *a3, float *a4, float *a5, float *a6)
@@ -17,8 +17,8 @@ __int64 __fastcall bPartialQuadrantArc(int a1, EPATHOBJ *a2, EBOX *a3, float *a4
   float v14; // xmm1_4
   float v15; // xmm6_4
   float v16; // xmm7_4
-  float v17; // xmm1_4
-  float v18; // xmm3_4
+  float v17; // xmm3_4
+  float v18; // xmm1_4
   float v19; // xmm5_4
   float v20; // xmm4_4
   float v21; // xmm3_4
@@ -52,12 +52,12 @@ __int64 __fastcall bPartialQuadrantArc(int a1, EPATHOBJ *a2, EBOX *a3, float *a4
     LODWORD(v30) = efCos((unsigned int)_mm_cvtsi128_si32(v13));
     EFLOAT::vAbs((EFLOAT *)&v30);
     v17 = *(float *)&v30;
-    v18 = *(float *)&v30;
+    v18 = *(float *)&v30 + FP_1_0;
     v30 = *(_QWORD *)a4;
     v19 = (float)(v32 - v15) / *(float *)&v31;
     v20 = (float)(v33 - v16) / *(float *)&v31;
+    v21 = (float)(v17 * FP_4DIV3) / v18;
     v31 = v30;
-    v21 = (float)(v18 * FP_4DIV3) / (float)(v17 + FP_1_0);
     v22 = v19 * v21;
     v23 = v20 * v21;
     *(float *)&v30 = (float)((float)(FP_1_0 - v21) * *(float *)&v30) + v22;

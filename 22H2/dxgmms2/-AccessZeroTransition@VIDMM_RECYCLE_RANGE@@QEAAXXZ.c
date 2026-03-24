@@ -1,29 +1,34 @@
 /*
- * XREFs of ?AccessZeroTransition@VIDMM_RECYCLE_RANGE@@QEAAXXZ @ 0x1C00A1C68
+ * XREFs of ?AccessZeroTransition@VIDMM_RECYCLE_RANGE@@QEAAXXZ @ 0x1C0075738
  * Callers:
- *     ?ZeroIfNeeded@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C009EA34 (-ZeroIfNeeded@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ.c)
- *     ?Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C00A17C0 (-Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SE.c)
- *     ?MarkNoZeroNeed@VIDMM_RECYCLE_HEAP_MGR@@UEAAXPEAX@Z @ 0x1C00C43C0 (-MarkNoZeroNeed@VIDMM_RECYCLE_HEAP_MGR@@UEAAXPEAX@Z.c)
+ *     ?ZeroIfNeeded@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C00754EC (-ZeroIfNeeded@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ.c)
+ *     ?ZeroIfNeeded@VIDMM_RECYCLE_HEAP_MGR@@UEAAXPEAX@Z @ 0x1C0075560 (-ZeroIfNeeded@VIDMM_RECYCLE_HEAP_MGR@@UEAAXPEAX@Z.c)
+ *     ?MarkNoZeroNeed@VIDMM_RECYCLE_HEAP_MGR@@UEAAXPEAX@Z @ 0x1C0088160 (-MarkNoZeroNeed@VIDMM_RECYCLE_HEAP_MGR@@UEAAXPEAX@Z.c)
  * Callees:
  *     <none>
  */
 
-// write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_RECYCLE_RANGE::AccessZeroTransition(VIDMM_RECYCLE_RANGE *this)
 {
-  int v1; // edx
+  __int64 v1; // rdx
   int v2; // edx
+  _QWORD *v3; // rax
 
-  v1 = *((_DWORD *)this + 20);
-  if ( v1 )
+  v1 = *((unsigned int *)this + 20);
+  if ( (_DWORD)v1 )
   {
     v2 = v1 - 1;
     if ( !v2 || v2 == 2 )
       *((_DWORD *)this + 20) = 2;
   }
-  else if ( dword_1C0076490 && g_IsInternalRelease )
+  else if ( dword_1C00503E0 && g_IsInternalRelease )
   {
-    g_DxgMmsBugcheckExportIndex = 1;
-    WdLogSingleEntry5(0LL, 270LL, 9LL, 0LL, 0LL, 0LL);
+    v3 = (_QWORD *)WdLogNewEntry5_WdCriticalError(this, v1);
+    v3[5] = 0LL;
+    v3[6] = 0LL;
+    v3[7] = 0LL;
+    v3[3] = 270LL;
+    v3[4] = 9LL;
+    WdLogEvent5_WdCriticalError(v3);
   }
 }

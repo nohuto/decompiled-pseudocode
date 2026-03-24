@@ -3,9 +3,9 @@
  * Callers:
  *     RtlpHpFreeHeap @ 0x140007BC0 (RtlpHpFreeHeap.c)
  *     RtlpHpGetOwnerHeap @ 0x14000E6C0 (RtlpHpGetOwnerHeap.c)
- *     RtlpHpSizeHeapInternal @ 0x1400BEB80 (RtlpHpSizeHeapInternal.c)
- *     RtlpHpMetadataCommit @ 0x1401920EC (RtlpHpMetadataCommit.c)
- *     RtlpHpExtrasSetPresent @ 0x1402FC98C (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpSizeHeapInternal @ 0x1400BEBA0 (RtlpHpSizeHeapInternal.c)
+ *     RtlpHpMetadataCommit @ 0x14019210C (RtlpHpMetadataCommit.c)
+ *     RtlpHpExtrasSetPresent @ 0x1402FCA8C (RtlpHpExtrasSetPresent.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  * Callees:
  *     <none>

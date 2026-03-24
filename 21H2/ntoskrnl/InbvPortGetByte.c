@@ -1,10 +1,10 @@
 /*
- * XREFs of InbvPortGetByte @ 0x1406543F8
+ * XREFs of InbvPortGetByte @ 0x1405C9CD4
  * Callers:
- *     HdlspDispatch @ 0x140AA8ED0 (HdlspDispatch.c)
- *     HdlspGetLine @ 0x140AA9660 (HdlspGetLine.c)
+ *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
+ *     HdlspGetLine @ 0x1409EF5F8 (HdlspGetLine.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall InbvPortGetByte(unsigned int a1, _BYTE *a2)

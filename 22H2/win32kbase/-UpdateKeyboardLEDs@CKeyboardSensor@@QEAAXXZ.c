@@ -1,399 +1,393 @@
 /*
- * XREFs of ?UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ @ 0x1C006F340
+ * XREFs of ?UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ @ 0x1C0049F30
  * Callers:
- *     UpdateKeyLights @ 0x1C006EB00 (UpdateKeyLights.c)
- *     ?WaitAndDispatch@LegacyInputDispatcher@@QEAAJXZ @ 0x1C006F160 (-WaitAndDispatch@LegacyInputDispatcher@@QEAAJXZ.c)
+ *     ?WaitAndDispatch@LegacyInputDispatcher@@QEAAJXZ @ 0x1C004A4C0 (-WaitAndDispatch@LegacyInputDispatcher@@QEAAJXZ.c)
+ *     UpdateKeyLights @ 0x1C00B0BA0 (UpdateKeyLights.c)
  * Callees:
- *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C0048330 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C004F0F4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
- *     HMUnlockObject @ 0x1C0056D70 (HMUnlockObject.c)
- *     ??1RIMDropAndReAcquireSyncLock@@QEAA@XZ @ 0x1C006EC64 (--1RIMDropAndReAcquireSyncLock@@QEAA@XZ.c)
- *     ??0RIMDropAndReAcquireSyncLock@@QEAA@PEAURawInputManagerObject@@@Z @ 0x1C006EC9C (--0RIMDropAndReAcquireSyncLock@@QEAA@PEAURawInputManagerObject@@@Z.c)
- *     ??0CInpLockSharedIfNeeded@@QEAA@AEAUCInpPushLock@@@Z @ 0x1C006EE40 (--0CInpLockSharedIfNeeded@@QEAA@AEAUCInpPushLock@@@Z.c)
- *     RIMDeviceIoControl @ 0x1C0070F20 (RIMDeviceIoControl.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00919C0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DC98 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
- *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C016DD4C (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
- *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C016E29C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
- *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C016E668 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
- *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C016F5EC (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
- *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C016FA8C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     ??0CInpLockSharedIfNeeded@@QEAA@AEAUCInpPushLock@@@Z @ 0x1C000C9A8 (--0CInpLockSharedIfNeeded@@QEAA@AEAUCInpPushLock@@@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     Win32AllocPool @ 0x1C002C2D0 (Win32AllocPool.c)
+ *     HMUnlockObject @ 0x1C002EA10 (HMUnlockObject.c)
+ *     EtwTraceAcquiredExclusiveUserCrit @ 0x1C0030200 (EtwTraceAcquiredExclusiveUserCrit.c)
+ *     IsThreadCrossSessionAttached @ 0x1C0031470 (IsThreadCrossSessionAttached.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C0031520 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     ?LockExclusive@tagDomLock@@QEBAXXZ @ 0x1C003B070 (-LockExclusive@tagDomLock@@QEBAXXZ.c)
+ *     ?ExecutingOnSensorHostingThread@CBaseInput@@QEBA_NXZ @ 0x1C0046904 (-ExecutingOnSensorHostingThread@CBaseInput@@QEBA_NXZ.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     RIMDeviceIoControl @ 0x1C0052E70 (RIMDeviceIoControl.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00902C8 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ApiSetEditionUpdateRemoteLights @ 0x1C00B2688 (ApiSetEditionUpdateRemoteLights.c)
+ *     ??0RIMDropAndReAcquireSyncLock@@QEAA@PEAURawInputManagerObject@@@Z @ 0x1C00B6120 (--0RIMDropAndReAcquireSyncLock@@QEAA@PEAURawInputManagerObject@@@Z.c)
+ *     ??1RIMDropAndReAcquireSyncLock@@QEAA@XZ @ 0x1C00B7040 (--1RIMDropAndReAcquireSyncLock@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 void __fastcall CKeyboardSensor::UpdateKeyboardLEDs(CKeyboardSensor *this)
 {
   __int64 v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  struct _KTHREAD *CurrentThread; // rdx
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rcx
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // r9
-  __int64 v18; // rax
-  int v19; // ebx
-  __int16 v20; // di
+  char v3; // r12
+  struct RawInputManagerObject *v4; // rdx
+  __int64 v5; // r13
+  __int64 v6; // rdi
+  struct DEVICEINFO *i; // rcx
+  __int64 v8; // rsi
+  int v9; // r14d
+  int v10; // r15d
+  int v11; // r12d
+  __int64 v12; // rbx
+  int v13; // esi
+  __int64 v14; // rcx
+  LARGE_INTEGER *CurrentThreadWin32Thread; // rbx
+  struct tagTHREADINFO *v16; // rbx
+  struct tagTHREADINFO **v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  PVOID CurrentProcess; // rax
   __int64 v21; // rdx
   __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // r9
-  __int64 v25; // rax
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  __int64 v29; // r9
-  int v30; // ebx
-  __int64 v31; // rdx
-  __int64 v32; // rcx
-  __int64 v33; // r8
-  __int64 v34; // r9
-  __int64 v35; // rdx
-  __int64 v36; // rcx
-  __int64 v37; // r8
-  __int64 v38; // r9
-  __int64 v39; // rax
-  int v40; // ebx
-  __int64 v41; // rdx
-  __int64 v42; // rcx
-  __int64 v43; // r8
-  __int64 v44; // r9
-  __int64 v45; // rax
-  int v46; // ebx
-  __int64 v47; // rdx
-  __int64 v48; // rcx
-  __int64 v49; // r8
-  __int64 v50; // r9
-  __int64 v51; // rax
-  struct RawInputManagerObject *v52; // rdx
-  __int64 v53; // rdx
-  __int64 v54; // rcx
-  __int64 v55; // r8
-  __int64 v56; // r9
-  __int64 v57; // r15
-  __int64 v58; // rdx
-  __int64 i; // rcx
-  __int64 v60; // r8
-  __int64 v61; // r9
-  NSInstrumentation::CLeakTrackingAllocator *v62; // rbx
-  unsigned __int64 v63; // rdi
-  int v64; // eax
-  _QWORD *UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64; // rdi
-  _QWORD *v66; // rax
-  unsigned int v67; // edx
-  __int64 v68; // r10
-  char v69; // r12
-  _QWORD *v70; // r14
-  int v71; // edi
-  int v72; // r12d
-  int v73; // eax
-  int v74; // r13d
-  struct _IO_STATUS_BLOCK *v75; // rbx
-  __int64 v76; // rdx
-  __int64 v77; // rcx
-  __int64 v78; // r8
-  __int64 v79; // r9
-  int v80; // eax
-  struct _IO_STATUS_BLOCK *v81; // rbx
-  __int64 v82; // rdx
-  __int64 v83; // rcx
-  __int64 v84; // r8
-  __int64 v85; // r9
-  int v86; // eax
-  struct _IO_STATUS_BLOCK *v87; // rbx
-  __int64 v88; // rdx
-  __int64 v89; // rcx
-  __int64 v90; // r8
-  __int64 v91; // r9
-  int v92; // eax
-  struct tagTHREADINFO *v93; // rax
-  __int64 v94; // rcx
+  __int64 v23; // r9
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  struct _KTHREAD *CurrentThread; // rdi
+  __int64 v27; // rbx
+  __int64 v28; // rcx
+  __int64 *ThreadWin32Thread; // rax
   __int64 CurrentProcessWin32Process; // rax
-  __int64 v96; // rax
-  __int64 *v97; // rbx
-  SIZE_T Length; // [rsp+30h] [rbp-D0h]
-  __int64 Pool2; // [rsp+60h] [rbp-A0h]
-  unsigned __int64 v100; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v101; // [rsp+70h] [rbp-90h] BYREF
-  unsigned __int64 v102; // [rsp+78h] [rbp-88h] BYREF
-  int v103[2]; // [rsp+80h] [rbp-80h]
-  PVOID v104; // [rsp+88h] [rbp-78h] BYREF
-  _QWORD v105[2]; // [rsp+90h] [rbp-70h] BYREF
-  __int64 v106; // [rsp+A0h] [rbp-60h] BYREF
-  char v107; // [rsp+A8h] [rbp-58h]
-  PVOID BackTrace[26]; // [rsp+B0h] [rbp-50h] BYREF
-  unsigned int v109; // [rsp+190h] [rbp+90h]
-  int v110; // [rsp+190h] [rbp+90h]
-  __int64 v111; // [rsp+198h] [rbp+98h] BYREF
-  __int64 v112; // [rsp+1A0h] [rbp+A0h] BYREF
-  int v113; // [rsp+1A8h] [rbp+A8h]
+  PERESOURCE *DomainLockRef; // rbx
+  __int64 *v32; // rsi
+  __int64 v33; // rdx
+  __int64 v34; // rax
+  int ProcessSessionId; // ebx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v37; // rdx
+  __int64 v38; // rax
+  __int64 v39; // r8
+  __int64 v40; // r9
+  __int64 v41; // r8
+  __int64 v42; // r9
+  __int64 v43; // rax
+  PERESOURCE *v44; // rdi
+  SIZE_T Length; // [rsp+38h] [rbp-D0h]
+  int v46; // [rsp+68h] [rbp-A0h] BYREF
+  int v47; // [rsp+6Ch] [rbp-9Ch] BYREF
+  int v48; // [rsp+70h] [rbp-98h] BYREF
+  int v49; // [rsp+74h] [rbp-94h] BYREF
+  __int64 v50; // [rsp+78h] [rbp-90h] BYREF
+  _BYTE v51[8]; // [rsp+80h] [rbp-88h] BYREF
+  __int64 v52; // [rsp+88h] [rbp-80h] BYREF
+  char v53; // [rsp+90h] [rbp-78h]
+  __int64 v54; // [rsp+98h] [rbp-70h]
+  unsigned __int8 v55; // [rsp+A0h] [rbp-68h]
+  GUID ActivityId; // [rsp+A4h] [rbp-64h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v57; // [rsp+B8h] [rbp-50h] BYREF
+  int *v58; // [rsp+D8h] [rbp-30h]
+  __int64 v59; // [rsp+E0h] [rbp-28h]
+  struct _EVENT_DATA_DESCRIPTOR v60; // [rsp+E8h] [rbp-20h] BYREF
+  int *v61; // [rsp+108h] [rbp+0h]
+  __int64 v62; // [rsp+110h] [rbp+8h]
+  struct _EVENT_DATA_DESCRIPTOR v63; // [rsp+118h] [rbp+10h] BYREF
+  __int64 *v64; // [rsp+138h] [rbp+30h]
+  __int64 v65; // [rsp+140h] [rbp+38h]
 
-  if ( *((_DWORD *)this + 335) != (unsigned int)PsGetCurrentThreadId() )
-    return;
-  CurrentThread = KeGetCurrentThread();
-  if ( *(struct _KTHREAD **)(*((_QWORD *)this + 157) + 8LL) == CurrentThread )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 153LL);
-  if ( !*(_DWORD *)(SGDGetUserSessionState(v2, CurrentThread, v3, v4) + 12616) )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 154LL);
-  v9 = *((_QWORD *)this + 2);
-  if ( !v9
-    || *((_QWORD *)this + 1) == -1LL
-    || *(struct _KTHREAD **)(v9 + 40) != KeGetCurrentThread()
-    || !*((_QWORD *)this + 160) )
+  if ( CBaseInput::ExecutingOnSensorHostingThread(this) )
   {
-    return;
-  }
-  v113 = gbNonServiceSession;
-  v109 = *(_DWORD *)(SGDGetUserSessionState(v9, v6, v7, v8) + 12616);
-  v13 = SGDGetUserSessionState(v109, v10, v11, v12);
-  *(_DWORD *)(v13 + 12616) &= 0xFFFFFFF8;
-  v18 = SGDGetUserSessionState(v15, v14, v16, v17);
-  v19 = *(_DWORD *)(v18 + 12604);
-  v20 = *(_WORD *)(v18 + 12608);
-  v25 = SGDGetUserSessionState(v22, v21, v23, v24);
-  *(_DWORD *)(v25 + 12684) = v19;
-  *(_WORD *)(v25 + 12688) = v20;
-  v30 = *(_DWORD *)(SGDGetUserSessionState(v27, v26, v28, v29) + 12596);
-  *(_DWORD *)(SGDGetUserSessionState(v32, v31, v33, v34) + 12680) = v30;
-  v39 = SGDGetUserSessionState(v36, v35, v37, v38);
-  v40 = *(_DWORD *)(v39 + 13984);
-  v111 = *(_QWORD *)(v39 + 13976);
-  v45 = SGDGetUserSessionState(v42, v41, v43, v44);
-  *(_QWORD *)(v45 + 12692) = v111;
-  *(_DWORD *)(v45 + 12700) = v40;
-  v46 = dword_1C0290268;
-  v111 = gRemoteClientKeyboardType;
-  v51 = SGDGetUserSessionState(v48, v47, v49, v50);
-  *(_QWORD *)(v51 + 12704) = v111;
-  *(_DWORD *)(v51 + 12712) = v46;
-  v52 = (struct RawInputManagerObject *)*((_QWORD *)this + 2);
-  *(_QWORD *)v103 = *((_QWORD *)this + 1);
-  RIMDropAndReAcquireSyncLock::RIMDropAndReAcquireSyncLock((RIMDropAndReAcquireSyncLock *)&v104, v52);
-  UserSessionSwitchLeaveCrit(v54, v53, v55, v56);
-  v57 = 0LL;
-  CInpLockSharedIfNeeded::CInpLockSharedIfNeeded((CInpLockSharedIfNeeded *)&v106, *((struct CInpPushLock **)this + 157));
-  v62 = gpLeakTrackingAllocator;
-  v63 = 16LL * *((_QWORD *)this + 160);
-  LODWORD(v111) = 1885947971;
-  v64 = *(_DWORD *)gpLeakTrackingAllocator;
-  v101 = 260LL;
-  v102 = v63;
-  if ( !v64 )
-  {
-    Pool2 = ExAllocatePool2(260LL, v63, 1885947971LL);
-    UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = (_QWORD *)Pool2;
-    if ( Pool2 )
-      _InterlockedIncrement64((volatile signed __int64 *)v62 + 14);
-    goto LABEL_30;
-  }
-  if ( v64 != 1 )
-  {
-    if ( v64 == 2 )
+    if ( (struct _KTHREAD *)qword_1C0254508 == KeGetCurrentThread() )
     {
-      v100 = 0LL;
-      if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(gpLeakTrackingAllocator, 0x70694843u, &v100) )
+      v46 = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 151LL);
+    }
+    if ( !gdwUpdateKeyboard )
+    {
+      v46 = 0x20000;
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 152LL);
+    }
+    v2 = *((_QWORD *)this + 2);
+    if ( v2 )
+    {
+      if ( *((_QWORD *)this + 1) != -1LL
+        && *(struct _KTHREAD **)(v2 + 40) == KeGetCurrentThread()
+        && *((_QWORD *)this + 155) )
       {
-        v105[0] = &v101;
-        v105[1] = &v111;
-        UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = (_QWORD *)NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64___(
-                                                                                                     (__int64)v62,
-                                                                                                     (__int64)v105,
-                                                                                                     &v102);
-        Pool2 = (__int64)UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64;
-        goto LABEL_30;
-      }
-      v69 = 0;
-      if ( v63 < 0x1000 || (v63 & 0xFFF) != 0 )
-      {
-        v63 += 16LL;
-        v69 = 1;
-        v102 = v63;
-      }
-      Pool2 = ExAllocatePool2(v68, v63, v67);
-      UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = (_QWORD *)Pool2;
-      if ( Pool2 )
-      {
-        _InterlockedIncrement64((volatile signed __int64 *)v62 + 16);
-        NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
-        if ( v69 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
+        v3 = gdwUpdateKeyboard;
+        v47 = gbNonServiceSession;
+        *(_QWORD *)&qword_1C02507B0 = gKbdImeStatus;
+        gdwUpdateKeyboard &= 0xFFFFFFF8;
+        dword_1C02507A4 = gktp;
+        word_1C02507A8 = word_1C0254AA0;
+        dword_1C02507A0 = gklp;
+        dword_1C02507B8 = dword_1C0254A98;
+        v4 = (struct RawInputManagerObject *)*((_QWORD *)this + 2);
+        v5 = *((_QWORD *)this + 1);
+        dword_1C02507C8 = dword_1C024EE50;
+        qword_1C02507C0 = gRemoteClientKeyboardType;
+        RIMDropAndReAcquireSyncLock::RIMDropAndReAcquireSyncLock((RIMDropAndReAcquireSyncLock *)v51, v4);
+        UserSessionSwitchLeaveCrit();
+        v6 = 0LL;
+        CInpLockSharedIfNeeded::CInpLockSharedIfNeeded(
+          (CInpLockSharedIfNeeded *)&v52,
+          (struct CInpPushLock *)&CBaseInput::_sLock);
+        v50 = Win32AllocPool(16LL * *((_QWORD *)this + 155), 0x70694843u);
+        v8 = v50;
+        if ( v50 )
         {
-          if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
-                                  v62,
-                                  Pool2,
-                                  v100,
-                                  BackTrace) )
+          for ( i = CBaseInput::_spDevList; i; i = (struct DEVICEINFO *)*((_QWORD *)i + 7) )
           {
-            UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = (_QWORD *)(Pool2 + 16);
-            Pool2 += 16LL;
-            goto LABEL_30;
+            if ( *((_BYTE *)i + 48) == 1 && *((_QWORD *)i + 28) && *((_QWORD *)i + 29) )
+            {
+              if ( (unsigned __int64)(unsigned int)v6 >= *((_QWORD *)this + 155) )
+              {
+                v46 = 0x20000;
+                MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 217LL);
+                break;
+              }
+              v33 = 2LL * (unsigned int)v6;
+              v6 = (unsigned int)(v6 + 1);
+              *(_QWORD *)(v8 + 8 * v33) = *((_QWORD *)i + 2);
+              *(_WORD *)(v8 + 8 * v33 + 8) = *((_WORD *)i + 232);
+            }
           }
         }
-        else if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
-                                     v62,
-                                     Pool2,
-                                     v100,
-                                     BackTrace) )
+        if ( !v53 )
         {
-          goto LABEL_33;
+          ExReleasePushLockSharedEx(v52, 0LL);
+          KeLeaveCriticalRegion();
         }
-        _InterlockedIncrement64((volatile signed __int64 *)v62 + 17);
-        _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
-      }
-    }
-LABEL_43:
-    Pool2 = 0LL;
-    UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = 0LL;
-    goto LABEL_44;
-  }
-  if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x70694843u)
-    || v63 + 16 < v63 )
-  {
-    goto LABEL_43;
-  }
-  v66 = (_QWORD *)ExAllocatePool2(v101 & 0xFFFFFFFFFFFFFFFDuLL, v63 + 16, (unsigned int)v111);
-  Pool2 = (__int64)v66;
-  UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = v66;
-  if ( !v66
-    || (_InterlockedIncrement64((volatile signed __int64 *)v62 + 14),
-        UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = v66 + 2,
-        *v66 = 1885947971LL,
-        Pool2 = (__int64)(v66 + 2),
-        v66 == (_QWORD *)-16LL) )
-  {
-    NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
-      *((NSInstrumentation::CPointerHashTable **)v62 + 1),
-      (const void *)0x70694843);
-  }
-LABEL_30:
-  if ( UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 )
-  {
-LABEL_33:
-    for ( i = **((_QWORD **)this + 158); i; i = *(_QWORD *)(i + 56) )
-    {
-      if ( *(_BYTE *)(i + 48) == 1 && *(_QWORD *)(i + 224) && *(_QWORD *)(i + 232) )
-      {
-        if ( (unsigned __int64)(unsigned int)v57 >= *((_QWORD *)this + 160) )
+        if ( (_DWORD)v6 )
         {
-          LODWORD(v112) = 0x20000;
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 219LL);
-          break;
+          v9 = v3 & 1;
+          v10 = v3 & 2;
+          v11 = v3 & 4;
+          v12 = v8;
+          i = 0LL;
+          v13 = v47;
+          do
+          {
+            v46 = 0;
+            if ( v9 )
+            {
+              LODWORD(Length) = 0;
+              RIMDeviceIoControl(
+                v5,
+                *(_QWORD *)v12,
+                720900,
+                (int)&dword_1C02507A4,
+                6u,
+                0LL,
+                Length,
+                (__int64)&v46,
+                &giosbKbdControl,
+                1,
+                0,
+                0);
+              i = 0LL;
+            }
+            if ( v10 )
+            {
+              LODWORD(Length) = 0;
+              RIMDeviceIoControl(
+                v5,
+                *(_QWORD *)v12,
+                720904,
+                (int)&dword_1C02507A0,
+                4u,
+                0LL,
+                Length,
+                (__int64)&v46,
+                &giosbKbdControl,
+                1,
+                0,
+                0);
+              i = 0LL;
+            }
+            if ( v11
+              && (*(_BYTE *)(v12 + 8) == 7 && *(_BYTE *)(v12 + 9) == 82 || v13 && qword_1C02507C0 == 0x2000200000007LL) )
+            {
+              v37 = *(_QWORD *)v12;
+              LODWORD(Length) = 0;
+              v47 = 0;
+              RIMDeviceIoControl(
+                v5,
+                v37,
+                724996,
+                (int)&qword_1C02507B0,
+                0xCu,
+                0LL,
+                Length,
+                (__int64)&v47,
+                &giosbKbdControl,
+                1,
+                0,
+                0);
+              i = 0LL;
+            }
+            v12 += 16LL;
+            --v6;
+          }
+          while ( v6 );
+          v8 = v50;
         }
-        v58 = 2LL * (unsigned int)v57;
-        v57 = (unsigned int)(v57 + 1);
-        UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64[v58] = *(_QWORD *)(i + 16);
-        LOWORD(UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64[v58 + 1]) = *(_WORD *)(i + 456);
-      }
-    }
-  }
-LABEL_44:
-  if ( !v107 )
-  {
-    ExReleasePushLockSharedEx(v106, 0LL);
-    KeLeaveCriticalRegion();
-  }
-  if ( (_DWORD)v57 )
-  {
-    v70 = UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64;
-    v71 = v103[0];
-    v72 = v109 & 1;
-    v73 = v109 & 4;
-    v74 = v109 & 2;
-    v110 = v73;
-    while ( 1 )
-    {
-      LODWORD(v112) = 0;
-      if ( v72 )
-      {
-        v75 = (struct _IO_STATUS_BLOCK *)(SGDGetUserSessionState(i, v58, v60, v61) + 12624);
-        v80 = SGDGetUserSessionState(v77, v76, v78, v79);
-        LODWORD(Length) = 0;
-        RIMDeviceIoControl(v71, *v70, 720900, v80 + 12684, 6u, 0LL, Length, (__int64)&v112, v75, 1, 0, 0);
-        v73 = v110;
-      }
-      if ( v74 )
-      {
-        v81 = (struct _IO_STATUS_BLOCK *)(SGDGetUserSessionState(i, v58, v60, v61) + 12624);
-        v86 = SGDGetUserSessionState(v83, v82, v84, v85);
-        LODWORD(Length) = 0;
-        RIMDeviceIoControl(v71, *v70, 720904, v86 + 12680, 4u, 0LL, Length, (__int64)&v112, v81, 1, 0, 0);
-        v73 = v110;
-      }
-      if ( !v73 )
-        goto LABEL_60;
-      if ( *((_BYTE *)v70 + 8) == 7 && *((_BYTE *)v70 + 9) == 82 )
-        goto LABEL_58;
-      if ( v113 )
-        break;
-LABEL_60:
-      v70 += 2;
-      if ( !--v57 )
-      {
-        UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 = (_QWORD *)Pool2;
-        goto LABEL_62;
-      }
-    }
-    if ( *(_DWORD *)(SGDGetUserSessionState(i, v58, v60, v61) + 12704) == 7
-      && *(_DWORD *)(SGDGetUserSessionState(i, v58, v60, v61) + 12708) == 131074 )
-    {
-LABEL_58:
-      LODWORD(v112) = 0;
-      v87 = (struct _IO_STATUS_BLOCK *)(SGDGetUserSessionState(i, v58, v60, v61) + 12624);
-      v92 = SGDGetUserSessionState(v89, v88, v90, v91);
-      LODWORD(Length) = 0;
-      RIMDeviceIoControl(v71, *v70, 724996, v92 + 12692, 0xCu, 0LL, Length, (__int64)&v112, v87, 1, 0, 0);
-    }
-    v73 = v110;
-    goto LABEL_60;
-  }
-LABEL_62:
-  if ( UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      gpLeakTrackingAllocator,
-      UntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64);
-  v93 = (struct tagTHREADINFO *)PrivateAPI::_anonymous_namespace_::EnterCritInternal(0LL, v58, v60, v61);
-  gptiCurrent = v93;
-  if ( v93 )
-  {
-    *((_DWORD *)v93 + 387) = 1;
-    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v94);
-    if ( CurrentProcessWin32Process )
-    {
-      if ( *(_QWORD *)CurrentProcessWin32Process
-        && (*(_DWORD *)(CurrentProcessWin32Process + 12) & 0x8000) != 0
-        && (*((_DWORD *)gptiCurrent + 122) & 0x1000000) != 0
-        && (*((_DWORD *)gptiCurrent + 318) & 0x80u) == 0 )
-      {
+        if ( v8 )
+          Win32FreePool(v8);
+        CurrentThreadWin32Thread = (LARGE_INTEGER *)PsGetCurrentThreadWin32Thread(i);
+        if ( CurrentThreadWin32Thread )
+          CurrentThreadWin32Thread[1] = KeQueryPerformanceCounter(0LL);
+        ActivityId = 0LL;
+        if ( InputTraceLogging::Perf::s_userCritLoggingEnabled )
+        {
+          v55 = 1;
+          v38 = PsGetCurrentThreadWin32Thread(v14);
+          v54 = v38;
+          if ( v38 && (*(int *)(v38 + 24) > 0 || *(_DWORD *)(v54 + 48)) )
+          {
+            EtwActivityIdControl(3u, &ActivityId);
+            if ( (unsigned int)dword_1C024AA90 > 6 )
+            {
+              if ( (unsigned __int8)tlgKeywordOn(&dword_1C024AA90, 0x2000LL, v39, v40) )
+              {
+                v48 = v55;
+                v59 = 4LL;
+                v58 = &v48;
+                tlgWriteTransfer_EtwWriteTransfer(
+                  (int)&dword_1C024AA90,
+                  (int)&dword_1C0217FD7,
+                  (int)&ActivityId,
+                  0,
+                  3u,
+                  &v57);
+              }
+            }
+          }
+        }
+        else
+        {
+          v54 = 0LL;
+        }
+        v16 = 0LL;
         while ( 1 )
         {
-          v97 = (__int64 *)gpSharedUserCritDeferredUnlockListHead;
-          if ( !gpSharedUserCritDeferredUnlockListHead )
+          v17 = (struct tagTHREADINFO **)ExEnterCriticalRegionAndAcquireResourceExclusive(gpresUser);
+          if ( v17 )
+            v16 = *v17;
+          CurrentProcess = (PVOID)PsGetCurrentProcess(v19, v18);
+          if ( CurrentProcess )
+          {
+            if ( CurrentProcess == g_pepDwm )
+              break;
+          }
+          if ( (PVOID)PsGetCurrentProcess(v22, v21) == gpepCSRSS && v16 != (struct tagTHREADINFO *)gptiTSRequest
+            || gbDITInHitTest != 1
+            || v16 == gptiRit )
+          {
             break;
-          gpSharedUserCritDeferredUnlockListHead = (struct tagKERNELHANDLETABLEENTRY *)*((_QWORD *)gpSharedUserCritDeferredUnlockListHead
-                                                                                       + 2);
-          v96 = *v97;
-          v97[2] = 0LL;
-          if ( !*(_DWORD *)(v96 + 8) )
-            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 4237LL);
-          HMUnlockObject(*v97);
+          }
+          ++gcDITHitTestWaiters;
+          ExReleaseResourceAndLeaveCriticalRegion(gpresUser);
+          KeWaitForSingleObject(gpsemDITHitTestWaiters, UserRequest, 0, 0, 0LL);
         }
+        if ( InputTraceLogging::Perf::s_userCritLoggingEnabled
+          && v54
+          && (*(_DWORD *)(v54 + 48) || *(int *)(v54 + 24) > 0) )
+        {
+          *(_DWORD *)(v54 + 44) = 1;
+          *(GUID *)(v54 + 28) = ActivityId;
+          if ( (unsigned int)dword_1C024AA90 > 6 )
+          {
+            if ( (unsigned __int8)tlgKeywordOn(&dword_1C024AA90, 0x2000LL, (unsigned int)dword_1C024AA90, v23) )
+            {
+              v49 = v55;
+              v62 = 4LL;
+              v61 = &v49;
+              tlgWriteTransfer_EtwWriteTransfer(
+                (int)&dword_1C024AA90,
+                (int)&dword_1C0217F80,
+                (int)&ActivityId,
+                0,
+                3u,
+                &v60);
+              v41 = (unsigned int)dword_1C024AA90;
+            }
+            if ( (unsigned int)v41 > 6 && (unsigned __int8)tlgKeywordOn(&dword_1C024AA90, 0x2000LL, v41, v42) )
+            {
+              LODWORD(v50) = v55;
+              v65 = 4LL;
+              v64 = &v50;
+              tlgWriteTransfer_EtwWriteTransfer(
+                (int)&dword_1C024AA90,
+                (int)&dword_1C0217FAD,
+                (int)&ActivityId,
+                0,
+                3u,
+                &v63);
+            }
+          }
+        }
+        EtwTraceAcquiredExclusiveUserCrit();
+        gptiCurrent = v16;
+        gbValidateHandleForIL = 1;
+        if ( !(unsigned __int8)KeIsAttachedProcess()
+          || (v34 = PsGetCurrentProcess(v25, v24),
+              ProcessSessionId = PsGetProcessSessionIdEx(v34),
+              CurrentThreadProcess = PsGetCurrentThreadProcess(),
+              ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+        {
+          CurrentThread = KeGetCurrentThread();
+          v27 = 0LL;
+          if ( !IsThreadCrossSessionAttached() )
+          {
+            ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+            if ( ThreadWin32Thread )
+              v27 = *ThreadWin32Thread;
+          }
+          CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v28);
+          if ( v27
+            && CurrentProcessWin32Process
+            && (*(_DWORD *)(v27 + 488) & 0x1000000) != 0
+            && (*(_DWORD *)(v27 + 1232) & 0x80u) == 0
+            && (*(_DWORD *)(CurrentProcessWin32Process + 12) & 0x8000) != 0 )
+          {
+            DomainLockRef = (PERESOURCE *)GetDomainLockRef(12);
+            if ( DomainLockRef == (PERESOURCE *)&gDomainDummyLock )
+            {
+              v46 = 0x20000;
+              MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 408LL);
+            }
+            if ( ExIsResourceAcquiredExclusiveLite(*DomainLockRef) == 1 )
+            {
+              v46 = 0x20000;
+              MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1293LL);
+            }
+            ExEnterCriticalRegionAndAcquireResourceExclusive(*DomainLockRef);
+            while ( 1 )
+            {
+              v32 = (__int64 *)gpducstulHead;
+              if ( !gpducstulHead )
+                break;
+              gpducstulHead = (struct tagKERNELHANDLETABLEENTRY *)*((_QWORD *)gpducstulHead + 2);
+              v43 = *v32;
+              v32[2] = 0LL;
+              if ( !*(_DWORD *)(v43 + 8) )
+              {
+                v46 = 0x20000;
+                MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 4307LL);
+              }
+              v44 = (PERESOURCE *)GetDomainLockRef(12);
+              if ( v44 == (PERESOURCE *)&gDomainDummyLock )
+              {
+                v47 = 0x20000;
+                MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 490LL);
+              }
+              ExReleaseResourceAndLeaveCriticalRegion(*v44);
+              HMUnlockObject(*v32);
+              tagDomLock::LockExclusive(v44);
+            }
+            ExReleaseResourceAndLeaveCriticalRegion(*DomainLockRef);
+          }
+        }
+        ApiSetEditionUpdateRemoteLights();
+        RIMDropAndReAcquireSyncLock::~RIMDropAndReAcquireSyncLock((RIMDropAndReAcquireSyncLock *)v51);
       }
     }
   }
-  if ( qword_1C0296810 && (int)qword_1C0296810() >= 0 )
-  {
-    if ( qword_1C0296818 )
-      qword_1C0296818();
-  }
-  RIMDropAndReAcquireSyncLock::~RIMDropAndReAcquireSyncLock(&v104);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtFlushProcessWriteBuffers @ 0x1400ECFC0
+ * XREFs of NtFlushProcessWriteBuffers @ 0x1400ECFE0
  * Callers:
  *     <none>
  * Callees:
- *     KeFlushProcessWriteBuffers @ 0x1400ECFD8 (KeFlushProcessWriteBuffers.c)
+ *     KeFlushProcessWriteBuffers @ 0x1400ECFF8 (KeFlushProcessWriteBuffers.c)
  */
 
 __int64 NtFlushProcessWriteBuffers()

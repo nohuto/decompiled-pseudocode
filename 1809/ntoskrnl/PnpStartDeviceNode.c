@@ -1,25 +1,25 @@
 /*
- * XREFs of PnpStartDeviceNode @ 0x1406EBA7C
+ * XREFs of PnpStartDeviceNode @ 0x1406EBA5C
  * Callers:
- *     PipProcessStartPhase1 @ 0x1406EBCD0 (PipProcessStartPhase1.c)
- *     PnpReallocateResources @ 0x14083B374 (PnpReallocateResources.c)
- *     PipProcessRestartPhase1 @ 0x140841780 (PipProcessRestartPhase1.c)
+ *     PipProcessStartPhase1 @ 0x1406EBCB0 (PipProcessStartPhase1.c)
+ *     PnpReallocateResources @ 0x14083B354 (PnpReallocateResources.c)
+ *     PipProcessRestartPhase1 @ 0x140841760 (PipProcessRestartPhase1.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E50 (KeInitializeEvent.c)
- *     PnpDiagnosticTraceObject @ 0x1400F5268 (PnpDiagnosticTraceObject.c)
- *     PipSetDevNodeState @ 0x140159DB8 (PipSetDevNodeState.c)
- *     PnpDeviceCompletionQueueRemoveCompletedRequest @ 0x140159FE0 (PnpDeviceCompletionQueueRemoveCompletedRequest.c)
- *     PnpDeviceCompletionQueueAddDispatchedRequest @ 0x14015A2A8 (PnpDeviceCompletionQueueAddDispatchedRequest.c)
- *     PnpStartDevice @ 0x14015A490 (PnpStartDevice.c)
- *     PpMarkDeviceStackExtensionFlag @ 0x14015FDA0 (PpMarkDeviceStackExtensionFlag.c)
- *     PnpTraceStartDevice @ 0x140160068 (PnpTraceStartDevice.c)
- *     PipUpdatePostStartCharacteristics @ 0x140160378 (PipUpdatePostStartCharacteristics.c)
- *     _PnpSetObjectProperty @ 0x1406E5644 (_PnpSetObjectProperty.c)
- *     PnpDeviceCompletionProcessCompletedRequest @ 0x1406E7E44 (PnpDeviceCompletionProcessCompletedRequest.c)
- *     PnpDeviceCompletionRequestCreate @ 0x1406E80B0 (PnpDeviceCompletionRequestCreate.c)
- *     PiSwProcessParentStartIrp @ 0x1406EB9FC (PiSwProcessParentStartIrp.c)
- *     IopGetSessionIdFromPDO @ 0x1406EBC54 (IopGetSessionIdFromPDO.c)
+ *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     PnpDiagnosticTraceObject @ 0x1400F5288 (PnpDiagnosticTraceObject.c)
+ *     PipSetDevNodeState @ 0x140159DD8 (PipSetDevNodeState.c)
+ *     PnpDeviceCompletionQueueRemoveCompletedRequest @ 0x14015A000 (PnpDeviceCompletionQueueRemoveCompletedRequest.c)
+ *     PnpDeviceCompletionQueueAddDispatchedRequest @ 0x14015A2C8 (PnpDeviceCompletionQueueAddDispatchedRequest.c)
+ *     PnpStartDevice @ 0x14015A4B0 (PnpStartDevice.c)
+ *     PpMarkDeviceStackExtensionFlag @ 0x14015FDC0 (PpMarkDeviceStackExtensionFlag.c)
+ *     PnpTraceStartDevice @ 0x140160088 (PnpTraceStartDevice.c)
+ *     PipUpdatePostStartCharacteristics @ 0x140160398 (PipUpdatePostStartCharacteristics.c)
+ *     _PnpSetObjectProperty @ 0x1406E5624 (_PnpSetObjectProperty.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x1406E7E24 (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PnpDeviceCompletionRequestCreate @ 0x1406E8090 (PnpDeviceCompletionRequestCreate.c)
+ *     PiSwProcessParentStartIrp @ 0x1406EB9DC (PiSwProcessParentStartIrp.c)
+ *     IopGetSessionIdFromPDO @ 0x1406EBC34 (IopGetSessionIdFromPDO.c)
  */
 
 __int64 __fastcall PnpStartDeviceNode(__int64 a1, int a2, int a3)

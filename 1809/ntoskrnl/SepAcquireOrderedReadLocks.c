@@ -3,7 +3,7 @@
  * Callers:
  *     NtCompareTokens @ 0x1405B9A30 (NtCompareTokens.c)
  *     SeTokenCanImpersonate @ 0x1406380E0 (SeTokenCanImpersonate.c)
- *     SepIsSiblingTokenByPointer @ 0x1406B9354 (SepIsSiblingTokenByPointer.c)
+ *     SepIsSiblingTokenByPointer @ 0x1406B9334 (SepIsSiblingTokenByPointer.c)
  * Callees:
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetPositionVelocity@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x1802556E8
+ * XREFs of ?GetPositionVelocity@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x180204EA0
  * Callers:
- *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x1802196D8 (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
- *     ?GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x18021AD4C (-GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
+ *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x1801C85BC (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
+ *     ?GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1801C9980 (-GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
  * Callees:
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180177B90 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1800E9464 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
  */
 
 __int64 __fastcall CScrollPositionKeyframeAnimation::GetPositionVelocity(
@@ -16,20 +16,26 @@ __int64 __fastcall CScrollPositionKeyframeAnimation::GetPositionVelocity(
   int v4; // eax
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
-  if ( !*(_BYTE *)(a1 + 740) )
+  if ( !*(_BYTE *)(a1 + 716) )
+  {
     wil::details::in1diag3::_FailFast_Unexpected(
       retaddr,
-      208LL,
+      (void *)0xD0,
       (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\scrollpositionkeyframeanimation.cpp",
       a4);
-  if ( *(_DWORD *)(a1 + 736) != 52 )
+    __debugbreak();
+  }
+  if ( *(_DWORD *)(a1 + 712) != 52 )
+  {
     wil::details::in1diag3::_FailFast_Unexpected(
       retaddr,
-      209LL,
+      (void *)0xD1,
       (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\scrollpositionkeyframeanimation.cpp",
       a4);
-  v4 = *(_DWORD *)(a1 + 672);
-  *(_QWORD *)a2 = *(_QWORD *)(a1 + 664);
+    __debugbreak();
+  }
+  v4 = *(_DWORD *)(a1 + 648);
+  *(_QWORD *)a2 = *(_QWORD *)(a1 + 640);
   *(_DWORD *)(a2 + 8) = v4;
   return a2;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of IopPerfCompleteRequest @ 0x140559770
+ * XREFs of IopPerfCompleteRequest @ 0x140508094
  * Callers:
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     IovCompleteRequest @ 0x140A805EC (IovCompleteRequest.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     IovCompleteRequest @ 0x1409C4FA0 (IovCompleteRequest.c)
  * Callees:
- *     IopFreeIrpExtension @ 0x14020B888 (IopFreeIrpExtension.c)
- *     IopIrpHasExtensionType @ 0x14020C0F0 (IopIrpHasExtensionType.c)
- *     IopfCompleteRequest @ 0x1402B59D0 (IopfCompleteRequest.c)
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     IopProcessIoTracking @ 0x140559C3C (IopProcessIoTracking.c)
+ *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     IopFreeIrpExtension @ 0x1402ED7A0 (IopFreeIrpExtension.c)
+ *     IopIrpHasExtensionType @ 0x1402EDEC0 (IopIrpHasExtensionType.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IopProcessIoTracking @ 0x14050855C (IopProcessIoTracking.c)
  */
 
 void __fastcall IopPerfCompleteRequest(__int64 BugCheckParameter1, unsigned __int8 a2)
@@ -85,7 +85,7 @@ void __fastcall IopPerfCompleteRequest(__int64 BugCheckParameter1, unsigned __in
         v20 = v12;
         v21 = v19;
         v22 = 20;
-        EtwTraceKernelEvent((__int64)&v21, 1u, 0x20000010u, 0x134u, 0x401802u);
+        EtwTraceKernelEvent((int)&v21, 1, 0x20000010u, 308, 4200450);
         if ( !v8 )
         {
 LABEL_19:
@@ -95,7 +95,7 @@ LABEL_19:
           v17 = BugCheckParameter1;
           v18 = v12;
           v25 = 12;
-          EtwTraceKernelEvent((__int64)&v24, 1u, 0x20000010u, 0x135u, 0x401802u);
+          EtwTraceKernelEvent((int)&v24, 1, 0x20000010u, 309, 4200450);
           return;
         }
         v13 = *(int *)(BugCheckParameter1 + 48) < 0;

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMarkPxeAsShadowed @ 0x140376BF4
+ * XREFs of MiMarkPxeAsShadowed @ 0x1403B57F4
  * Callers:
- *     MiInitializeShadowPageTable @ 0x140820480 (MiInitializeShadowPageTable.c)
+ *     MiInitializeShadowPageTable @ 0x1407A0798 (MiInitializeShadowPageTable.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiMarkPxeAsShadowed(unsigned int a1)
@@ -16,29 +16,30 @@ __int64 __fastcall MiMarkPxeAsShadowed(unsigned int a1)
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v6; // zf
-  struct _KLOCK_QUEUE_HANDLE v7; // [rsp+30h] [rbp-28h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
 
-  memset(&v7, 0, sizeof(v7));
+  memset(&LockHandle, 0, sizeof(LockHandle));
   v1 = ((a1 >> 3) & 0x1FF) - 256;
-  KeAcquireInStackQueuedSpinLock(&qword_140C698C0, &v7);
-  *((_BYTE *)qword_140C67084 + ((unsigned __int64)v1 >> 3)) |= 1 << (v1 & 7);
-  result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v7);
-  OldIrql = v7.OldIrql;
+  KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
+  _bittestandset((signed __int32 *)qword_140C4E27C, v1);
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  result = (unsigned int)KiIrqlFlags;
+  OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && v7.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (v7.OldIrql + 1));
-      v6 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v6 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v6 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v6 )
+          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);

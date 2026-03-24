@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CExpressionMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C022AC50
+ * XREFs of ?SetRemarshalingFlags@CExpressionMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01EAD50
  * Callers:
  *     <none>
  * Callees:
- *     ?SetRemarshalingFlags@CBaseExpressionMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C022AD80 (-SetRemarshalingFlags@CBaseExpressionMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CBaseExpressionMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01EAEA0 (-SetRemarshalingFlags@CBaseExpressionMarshaler@DirectComposition@@MEAA_NXZ.c)
  */
 
 char __fastcall DirectComposition::CExpressionMarshaler::SetRemarshalingFlags(
@@ -11,12 +11,12 @@ char __fastcall DirectComposition::CExpressionMarshaler::SetRemarshalingFlags(
 {
   char v1; // bl
 
-  *((_DWORD *)this + 4) &= ~0x800u;
+  *((_DWORD *)this + 4) &= ~0x400u;
   v1 = 0;
-  *((_DWORD *)this + 53) = 0;
-  *((_DWORD *)this + 57) = 0;
+  *((_DWORD *)this + 51) = 0;
+  *((_DWORD *)this + 55) = 0;
   if ( DirectComposition::CBaseExpressionMarshaler::SetRemarshalingFlags(this)
-    || *((_QWORD *)this + 17) && *((_QWORD *)this + 19) )
+    || *((_QWORD *)this + 16) && *((_QWORD *)this + 18) )
   {
     return 1;
   }

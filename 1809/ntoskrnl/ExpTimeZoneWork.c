@@ -1,5 +1,5 @@
 /*
- * XREFs of ExpTimeZoneWork @ 0x1408CD1D0
+ * XREFs of ExpTimeZoneWork @ 0x1408CD1B0
  * Callers:
  *     <none>
  * Callees:
@@ -7,8 +7,8 @@
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     PsIsHostSilo @ 0x1400B8A60 (PsIsHostSilo.c)
- *     ZwSetSystemTime @ 0x1401BB610 (ZwSetSystemTime.c)
+ *     PsIsHostSilo @ 0x1400B8A80 (PsIsHostSilo.c)
+ *     ZwSetSystemTime @ 0x1401BB630 (ZwSetSystemTime.c)
  */
 
 char __fastcall ExpTimeZoneWork(struct _LIST_ENTRY *Object)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?IncComposited@@YAXPEAUtagWND@@@Z @ 0x1C0220630
+ * XREFs of ?IncComposited@@YAXPEAUtagWND@@@Z @ 0x1C023D6B0
  * Callers:
  *     <none>
  * Callees:
- *     IncrementCompositedCount @ 0x1C0005ADC (IncrementCompositedCount.c)
+ *     IncrementCompositedCount @ 0x1C01E7980 (IncrementCompositedCount.c)
  */
 
 void __fastcall IncComposited(struct tagWND *a1)

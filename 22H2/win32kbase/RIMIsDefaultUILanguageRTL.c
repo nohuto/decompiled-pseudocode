@@ -1,7 +1,7 @@
 /*
- * XREFs of RIMIsDefaultUILanguageRTL @ 0x1C00C44A0
+ * XREFs of RIMIsDefaultUILanguageRTL @ 0x1C00B7E00
  * Callers:
- *     UnpackPenSettings @ 0x1C01E9A30 (UnpackPenSettings.c)
+ *     UnpackPenSettings @ 0x1C01AFA20 (UnpackPenSettings.c)
  * Callees:
  *     <none>
  */
@@ -9,59 +9,30 @@
 _BOOL8 RIMIsDefaultUILanguageRTL()
 {
   unsigned int v0; // ecx
-  unsigned int v1; // ecx
   unsigned int v2; // ecx
   unsigned int v3; // ecx
   unsigned int v4; // ecx
-  bool v5; // zf
-  unsigned int v7; // ecx
-  unsigned int v8; // ecx
-  unsigned int v9; // ecx
-  unsigned int v10; // ecx
   LANGID LanguageId; // [rsp+30h] [rbp+8h] BYREF
 
   LanguageId = 0;
   if ( ZwQueryDefaultUILanguage(&LanguageId) < 0 )
     return 0LL;
   v0 = LanguageId & 0x3FF;
-  if ( v0 > 0x5A )
+  if ( v0 > 0x63 )
   {
-    v7 = v0 - 99;
-    if ( !v7 )
-      return 1LL;
-    v8 = v7 - 2;
-    if ( !v8 )
-      return 1LL;
-    v9 = v8 - 27;
-    if ( !v9 )
-      return 1LL;
-    v10 = v9 - 12;
-    if ( !v10 )
-      return 1LL;
-    v5 = v10 == 6;
-  }
-  else
-  {
-    if ( v0 == 90 )
-      return 1LL;
-    v1 = v0 - 1;
-    if ( !v1 )
-      return 1LL;
-    v2 = v1 - 12;
+    v2 = v0 - 101;
     if ( !v2 )
       return 1LL;
-    v3 = v2 - 19;
+    v3 = v2 - 27;
     if ( !v3 )
       return 1LL;
-    v4 = v3 - 9;
-    if ( !v4 )
+    v4 = v3 - 12;
+    if ( !v4 || v4 == 6 )
       return 1LL;
-    v5 = v4 == 48;
   }
-  return v5
-      || LanguageId == 2118
-      || LanguageId == 2128
-      || LanguageId == 2144
-      || LanguageId == 31814
-      || LanguageId == 31824;
+  else if ( v0 == 99 || v0 == 1 || v0 == 13 || v0 == 32 || v0 == 41 || v0 > 0x58 && v0 <= 0x5A )
+  {
+    return 1LL;
+  }
+  return LanguageId == 2118 || LanguageId == 2128 || LanguageId == 2144 || LanguageId == 31814 || LanguageId == 31824;
 }

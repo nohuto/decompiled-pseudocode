@@ -1,52 +1,49 @@
 /*
- * XREFs of ?UpdateDeviceRect@CZOrderedRect@@QEAAXPEBVCMILMatrix@@@Z @ 0x1800D6998
+ * XREFs of ?UpdateDeviceRect@CZOrderedRect@@QEAAXPEBVCMILMatrix@@@Z @ 0x1800C3B4C
  * Callers:
- *     ?SetDeviceTransform@CArrayBasedCoverageSet@@QEAAXPEBVCMILMatrix@@@Z @ 0x1800D6948 (-SetDeviceTransform@CArrayBasedCoverageSet@@QEAAXPEBVCMILMatrix@@@Z.c)
- *     ?Add@CArrayBasedCoverageSet@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@HPEBVCMILMatrix@@@Z @ 0x1801E0B94 (-Add@CArrayBasedCoverageSet@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UN.c)
+ *     ?SetDeviceTransform@CArrayBasedCoverageSet@@QEAAXPEBVCMILMatrix@@@Z @ 0x1800C3A50 (-SetDeviceTransform@CArrayBasedCoverageSet@@QEAAXPEBVCMILMatrix@@@Z.c)
+ *     ?AddAntiOccluderRect@CArrayBasedCoverageSet@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@HPEBVCMILMatrix@@@Z @ 0x1800C3AD8 (-AddAntiOccluderRect@CArrayBasedCoverageSet@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilP.c)
+ *     ??0CZOrderedRect@@QEAA@AEBUMilRectF@@HPEBVCMILMatrix@@@Z @ 0x180194870 (--0CZOrderedRect@@QEAA@AEBUMilRectF@@HPEBVCMILMatrix@@@Z.c)
  * Callees:
- *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800AE500 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     _o_ceilf_0 @ 0x1801018BC (_o_ceilf_0.c)
- *     floorf @ 0x1801018F8 (floorf.c)
+ *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800869D0 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     ceilf_0 @ 0x1800F4757 (ceilf_0.c)
+ *     floorf_0 @ 0x1800F476F (floorf_0.c)
  */
 
-void __fastcall CZOrderedRect::UpdateDeviceRect(
-        CZOrderedRect *this,
-        const struct CMILMatrix *a2,
-        __int64 a3,
-        __int64 a4)
+void __fastcall CZOrderedRect::UpdateDeviceRect(CZOrderedRect *this, const struct CMILMatrix *a2)
 {
-  float *v6; // rdx
-  float v7; // xmm1_4
-  float v8; // xmm8_4
-  float v9; // xmm7_4
-  float v10; // xmm6_4
+  float *v4; // rdx
+  float v5; // xmm1_4
+  float v6; // xmm8_4
+  float v7; // xmm7_4
+  float v8; // xmm6_4
 
-  v6 = (float *)((char *)this + 20);
+  v4 = (float *)((char *)this + 20);
   if ( a2 )
   {
-    CMILMatrix::Transform2DBoundsHelper<0>((__int64)a2, (__int64)v6, (float *)this, a4);
-    v7 = *(float *)this;
-    v8 = *((float *)this + 1);
-    v9 = *((float *)this + 2);
-    v10 = *((float *)this + 3);
+    CMILMatrix::Transform2DBoundsHelper<0>(a2, (__int64)v4, (float *)this);
+    v5 = *(float *)this;
+    v6 = *((float *)this + 1);
+    v7 = *((float *)this + 2);
+    v8 = *((float *)this + 3);
   }
   else
   {
-    v7 = *v6;
-    v8 = *((float *)this + 6);
-    v9 = *((float *)this + 7);
-    v10 = *((float *)this + 8);
+    v5 = *v4;
+    v6 = *((float *)this + 6);
+    v7 = *((float *)this + 7);
+    v8 = *((float *)this + 8);
   }
+  if ( COERCE_FLOAT(LODWORD(v5) & _xmm) < 8388608.0 )
+    v5 = (float)(int)ceilf_0(v5);
+  *(float *)this = v5;
+  if ( COERCE_FLOAT(LODWORD(v6) & _xmm) < 8388608.0 )
+    v6 = (float)(int)ceilf_0(v6);
+  *((float *)this + 1) = v6;
   if ( COERCE_FLOAT(LODWORD(v7) & _xmm) < 8388608.0 )
-    v7 = (float)(int)o_ceilf_0(v7);
-  *(float *)this = v7;
+    v7 = (float)(int)floorf_0(v7);
+  *((float *)this + 2) = v7;
   if ( COERCE_FLOAT(LODWORD(v8) & _xmm) < 8388608.0 )
-    v8 = (float)(int)o_ceilf_0(v8);
-  *((float *)this + 1) = v8;
-  if ( COERCE_FLOAT(LODWORD(v9) & _xmm) < 8388608.0 )
-    v9 = (float)(int)floorf(v9);
-  *((float *)this + 2) = v9;
-  if ( COERCE_FLOAT(LODWORD(v10) & _xmm) < 8388608.0 )
-    v10 = (float)(int)floorf(v10);
-  *((float *)this + 3) = v10;
+    v8 = (float)(int)floorf_0(v8);
+  *((float *)this + 3) = v8;
 }

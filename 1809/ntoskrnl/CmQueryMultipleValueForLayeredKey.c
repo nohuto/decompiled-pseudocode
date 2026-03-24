@@ -1,12 +1,12 @@
 /*
- * XREFs of CmQueryMultipleValueForLayeredKey @ 0x1407ED64C
+ * XREFs of CmQueryMultipleValueForLayeredKey @ 0x1407ED62C
  * Callers:
  *     CmQueryMultipleValueKey @ 0x1405D0194 (CmQueryMultipleValueKey.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpGetKeyNodeForKcb @ 0x1405AA400 (CmpGetKeyNodeForKcb.c)
  *     CmpStartKcbStackForTopLayerKcb @ 0x1405CBDE0 (CmpStartKcbStackForTopLayerKcb.c)
@@ -14,9 +14,9 @@
  *     CmpGetValueData @ 0x1405D20A0 (CmpGetValueData.c)
  *     CmpPerformKeyBodyDeletionCheck @ 0x1405D68BC (CmpPerformKeyBodyDeletionCheck.c)
  *     CmpGetKcbAtLayerHeight @ 0x1405D8AC0 (CmpGetKcbAtLayerHeight.c)
- *     CmpLockKcbStackShared @ 0x140644050 (CmpLockKcbStackShared.c)
- *     CmpUnlockKcbStack @ 0x1406440E0 (CmpUnlockKcbStack.c)
- *     CmpIsValueTombstone @ 0x1406CDC28 (CmpIsValueTombstone.c)
+ *     CmpLockKcbStackShared @ 0x140644030 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x1406440C0 (CmpUnlockKcbStack.c)
+ *     CmpIsValueTombstone @ 0x1406CDC08 (CmpIsValueTombstone.c)
  */
 
 __int64 __fastcall CmQueryMultipleValueForLayeredKey(

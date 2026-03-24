@@ -1,34 +1,27 @@
 /*
- * XREFs of ?MilCompositionEngine_Uninitialize@@YAJPEAUHMIL_CONNECTION__@@@Z @ 0x180191E40
+ * XREFs of ?MilCompositionEngine_Uninitialize@@YAJPEAUHMIL_CONNECTION__@@@Z @ 0x18014EF60
  * Callers:
  *     <none>
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ??_GCInternalMilCmdConnection@@UEAAPEAXI@Z @ 0x180191DF0 (--_GCInternalMilCmdConnection@@UEAAPEAXI@Z.c)
- *     ?Disconnect@CConnection@@QEAAXXZ @ 0x180193CEC (-Disconnect@CConnection@@QEAAXXZ.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800520D0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Disconnect@CConnection@@QEAAXXZ @ 0x18014F32C (-Disconnect@CConnection@@QEAAXXZ.c)
  */
 
-__int64 __fastcall MilCompositionEngine_Uninitialize(struct HMIL_CONNECTION__ *a1)
+__int64 __fastcall MilCompositionEngine_Uninitialize(struct HMIL_CONNECTION__ *this)
 {
-  CInternalMilCmdConnection *v1; // rcx
-  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  unsigned int v1; // edi
 
-  if ( a1 && g_pConnection == a1 )
+  v1 = 0;
+  if ( this )
   {
-    CConnection::Disconnect(g_pConnection);
-    v1 = g_pConnection;
-    g_pConnection = 0LL;
-    if ( v1 )
-      CInternalMilCmdConnection::`scalar deleting destructor'(v1, 1);
-    return 0LL;
+    CConnection::Disconnect(this);
+    CDrawListEntry::Release(this);
   }
   else
   {
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x3E,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\exportsg.cpp",
-      (const char *)0x80070057LL);
-    return 2147942487LL;
+    v1 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0, -2147024809, 0x43u, 0LL);
   }
+  return v1;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwSetProcessTelemetryCoverage @ 0x1406D435C
+ * XREFs of EtwSetProcessTelemetryCoverage @ 0x140771BB8
  * Callers:
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
  * Callees:
- *     EtwpCoverageRecordAtHighIrql @ 0x1406310E4 (EtwpCoverageRecordAtHighIrql.c)
- *     EtwpCoverageEnsureUserModeView @ 0x1406D43E8 (EtwpCoverageEnsureUserModeView.c)
- *     EtwpCoverageRecord @ 0x1406D45B4 (EtwpCoverageRecord.c)
- *     EtwpCoverageEnsureContext @ 0x14085A124 (EtwpCoverageEnsureContext.c)
- *     EtwpCoverageCheckCP @ 0x1409E512C (EtwpCoverageCheckCP.c)
- *     EtwpCoverageReset @ 0x1409E52D0 (EtwpCoverageReset.c)
- *     EtwpCoverageResetCP @ 0x1409E54B0 (EtwpCoverageResetCP.c)
- *     EtwpCoverageUserIsAdmin @ 0x1409E57B8 (EtwpCoverageUserIsAdmin.c)
+ *     EtwpCoverageRecordAtHighIrql @ 0x1405A69F4 (EtwpCoverageRecordAtHighIrql.c)
+ *     EtwpCoverageRecord @ 0x1406B5CE4 (EtwpCoverageRecord.c)
+ *     EtwpCoverageEnsureUserModeView @ 0x140771C44 (EtwpCoverageEnsureUserModeView.c)
+ *     EtwpCoverageEnsureContext @ 0x1407CA03C (EtwpCoverageEnsureContext.c)
+ *     EtwpCoverageCheckCP @ 0x140934F68 (EtwpCoverageCheckCP.c)
+ *     EtwpCoverageReset @ 0x140935274 (EtwpCoverageReset.c)
+ *     EtwpCoverageResetCP @ 0x140935454 (EtwpCoverageResetCP.c)
+ *     EtwpCoverageUserIsAdmin @ 0x140935758 (EtwpCoverageUserIsAdmin.c)
  */
 
 __int64 __fastcall EtwSetProcessTelemetryCoverage(_KPROCESS *a1, __int64 a2)
@@ -34,7 +34,7 @@ __int64 __fastcall EtwSetProcessTelemetryCoverage(_KPROCESS *a1, __int64 a2)
       v4 = *(_DWORD *)(a2 + 12);
       if ( v4 < 0xFFFFFF00 )
       {
-        EtwpCoverageRecord(EtwpCoverageContext, a2);
+        EtwpCoverageRecord((int **)EtwpCoverageContext, a2);
         result = EtwpCoverageEnsureUserModeView(v3);
         if ( (int)result < 0 )
           return result;

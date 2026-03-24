@@ -1,11 +1,11 @@
 /*
- * XREFs of ?SetSDRBoost@CLegacySwapChain@@UEAAXM@Z @ 0x18029BAA0
+ * XREFs of ?SetSDRBoost@CLegacySwapChain@@UEAAXM@Z @ 0x18024A39C
  * Callers:
- *     ?SetSDRBoost@CLegacySwapChain@@$4PPPPPPPM@A@EAAXM@Z @ 0x18011FC60 (-SetSDRBoost@CLegacySwapChain@@$4PPPPPPPM@A@EAAXM@Z.c)
- *     ?SetSDRBoost@CLegacyStereoSwapChain@@UEAAXM@Z @ 0x1802A07B4 (-SetSDRBoost@CLegacyStereoSwapChain@@UEAAXM@Z.c)
- *     ?SetSDRBoost@CConversionSwapChain@@UEAAXM@Z @ 0x1802A2EB8 (-SetSDRBoost@CConversionSwapChain@@UEAAXM@Z.c)
+ *     ?SetSDRBoost@CLegacySwapChain@@$4PPPPPPPM@A@EAAXM@Z @ 0x1800F6F40 (-SetSDRBoost@CLegacySwapChain@@$4PPPPPPPM@A@EAAXM@Z.c)
+ *     ?SetSDRBoost@CLegacyStereoSwapChain@@UEAAXM@Z @ 0x18024DCA8 (-SetSDRBoost@CLegacyStereoSwapChain@@UEAAXM@Z.c)
+ *     ?SetSDRBoost@CConversionSwapChain@@UEAAXM@Z @ 0x18024FED0 (-SetSDRBoost@CConversionSwapChain@@UEAAXM@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CLegacySwapChain::SetSDRBoost(CLegacySwapChain *this, float a2)
@@ -13,10 +13,10 @@ void __fastcall CLegacySwapChain::SetSDRBoost(CLegacySwapChain *this, float a2)
   __int64 v2; // rdx
   __int64 v3; // rcx
 
-  if ( *((float *)this - 82) != a2 )
+  if ( *((float *)this - 48) != a2 )
   {
-    v2 = *((_QWORD *)this - 38);
-    *((float *)this - 82) = a2;
+    v2 = *((_QWORD *)this - 34);
+    *((float *)this - 48) = a2;
     if ( v2 )
     {
       v3 = v2 + 8 + *(int *)(*(_QWORD *)(v2 + 8) + 24LL);

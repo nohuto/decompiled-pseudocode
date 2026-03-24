@@ -1,11 +1,12 @@
 /*
- * XREFs of ?SetOrAppendRectangles@?$CRegionGeometryGeneratedT@VCRegionGeometry@@VCGeometry@@@@AEAAJAEBV?$span@$$CBUtagRECT@@$0?0@gsl@@_N@Z @ 0x1800A7654
+ * XREFs of ?SetOrAppendRectangles@?$CRegionGeometryGeneratedT@VCRegionGeometry@@VCGeometry@@@@AEAAJAEBV?$span@$$CBUtagRECT@@$0?0@gsl@@_N@Z @ 0x1800CA1B8
  * Callers:
- *     ?AppendRectangles@?$CRegionGeometryGeneratedT@VCRegionGeometry@@VCGeometry@@@@QEAAJAEBV?$span@$$CBUtagRECT@@$0?0@gsl@@@Z @ 0x1801C3F18 (-AppendRectangles@-$CRegionGeometryGeneratedT@VCRegionGeometry@@VCGeometry@@@@QEAAJAEBV-$span@$$.c)
- *     ?SetRectangles@?$CRegionGeometryGeneratedT@VCRegionGeometry@@VCGeometry@@@@QEAAJAEBV?$span@$$CBUtagRECT@@$0?0@gsl@@@Z @ 0x1801C97E0 (-SetRectangles@-$CRegionGeometryGeneratedT@VCRegionGeometry@@VCGeometry@@@@QEAAJAEBV-$span@$$CBU.c)
+ *     ?ProcessLegacyRegionGeometryUpdateCommand@@YAJPEAVCRegionGeometry@@PEAVCChannelContext@@PEBUtagMILCMD_REGIONGEOMETRY@@PEBXI@Z @ 0x1800D2D54 (-ProcessLegacyRegionGeometryUpdateCommand@@YAJPEAVCRegionGeometry@@PEAVCChannelContext@@PEBUtagM.c)
+ *     ?AppendRectangles@?$CRegionGeometryGeneratedT@VCRegionGeometry@@VCGeometry@@@@QEAAJAEBV?$span@$$CBUtagRECT@@$0?0@gsl@@@Z @ 0x18016DEEC (-AppendRectangles@-$CRegionGeometryGeneratedT@VCRegionGeometry@@VCGeometry@@@@QEAAJAEBV-$span@$$.c)
+ *     ?SetRectangles@?$CRegionGeometryGeneratedT@VCRegionGeometry@@VCGeometry@@@@QEAAJAEBV?$span@$$CBUtagRECT@@$0?0@gsl@@@Z @ 0x180172D38 (-SetRectangles@-$CRegionGeometryGeneratedT@VCRegionGeometry@@VCGeometry@@@@QEAAJAEBV-$span@$$CBU.c)
  * Callees:
- *     ?OnRectanglesChanged@CRegionGeometry@@QEAAXXZ @ 0x1800A76A4 (-OnRectanglesChanged@CRegionGeometry@@QEAAXXZ.c)
- *     ??$_Insert_range@PEBUtagRECT@@@?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@UtagRECT@@@std@@@std@@@1@PEBUtagRECT@@1Uforward_iterator_tag@1@@Z @ 0x1800A7708 (--$_Insert_range@PEBUtagRECT@@@-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@AEAAXV-$_Ve.c)
+ *     ?OnRectanglesChanged@CRegionGeometry@@QEAAXXZ @ 0x1800CA208 (-OnRectanglesChanged@CRegionGeometry@@QEAAXXZ.c)
+ *     ??$_Insert_range@PEBUtagRECT@@@?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@UtagRECT@@@std@@@std@@@1@PEBUtagRECT@@1Uforward_iterator_tag@1@@Z @ 0x1800CA260 (--$_Insert_range@PEBUtagRECT@@@-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@AEAAXV-$_Ve.c)
  */
 
 __int64 __fastcall CRegionGeometryGeneratedT<CRegionGeometry,CGeometry>::SetOrAppendRectangles(
@@ -15,10 +16,10 @@ __int64 __fastcall CRegionGeometryGeneratedT<CRegionGeometry,CGeometry>::SetOrAp
 {
   _QWORD *v4; // rcx
 
-  v4 = (_QWORD *)((char *)this + 144);
+  v4 = (_QWORD *)((char *)this + 136);
   if ( !a3 )
     v4[1] = *v4;
-  std::vector<tagRECT>::_Insert_range<tagRECT const *>(v4, *((_QWORD *)this + 19), a2[1], a2[1] + 16LL * *a2);
+  std::vector<tagRECT>::_Insert_range<tagRECT const *>(v4, *((_QWORD *)this + 18), a2[1], a2[1] + 16LL * *a2);
   CRegionGeometry::OnRectanglesChanged(this);
   return 0LL;
 }

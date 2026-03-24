@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpAddRemoveRMLogContainer @ 0x1407F8C58
+ * XREFs of CmpAddRemoveRMLogContainer @ 0x1407F8C38
  * Callers:
- *     CmpTransWriteLog @ 0x1406F7EB8 (CmpTransWriteLog.c)
+ *     CmpTransWriteLog @ 0x1406F7E98 (CmpTransWriteLog.c)
  * Callees:
  *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     CmpQueryNameString @ 0x140683674 (CmpQueryNameString.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x140706594 (CmpAddRemoveContainerToCLFSLog.c)
+ *     CmpQueryNameString @ 0x140683654 (CmpQueryNameString.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x140706574 (CmpAddRemoveContainerToCLFSLog.c)
  */
 
 __int64 __fastcall CmpAddRemoveRMLogContainer(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of BiEnumerateBootEntries @ 0x1408F3484
+ * XREFs of BiEnumerateBootEntries @ 0x1408F3464
  * Callers:
- *     BiBuildIdentifierList @ 0x1408F2488 (BiBuildIdentifierList.c)
+ *     BiBuildIdentifierList @ 0x1408F2468 (BiBuildIdentifierList.c)
  * Callees:
- *     ZwEnumerateBootEntries @ 0x1401B9C70 (ZwEnumerateBootEntries.c)
+ *     ZwEnumerateBootEntries @ 0x1401B9C90 (ZwEnumerateBootEntries.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiReleasePrivilege @ 0x1407114C4 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x140711514 (BiAcquirePrivilege.c)
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
+ *     BiReleasePrivilege @ 0x1407114A4 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x1407114F4 (BiAcquirePrivilege.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
  */
 
 __int64 __fastcall BiEnumerateBootEntries(_QWORD *a1, _DWORD *a2)

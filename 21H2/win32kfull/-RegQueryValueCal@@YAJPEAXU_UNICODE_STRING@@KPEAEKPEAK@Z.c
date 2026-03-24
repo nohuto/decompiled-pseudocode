@@ -1,9 +1,9 @@
 /*
- * XREFs of ?RegQueryValueCal@@YAJPEAXU_UNICODE_STRING@@KPEAEKPEAK@Z @ 0x1C01CB670
+ * XREFs of ?RegQueryValueCal@@YAJPEAXU_UNICODE_STRING@@KPEAEKPEAK@Z @ 0x1C01CED48
  * Callers:
- *     ?ReadCalibrationDataImp@@YAJU_UNICODE_STRING@@0PEAKPEAPEAE@Z @ 0x1C01CAF74 (-ReadCalibrationDataImp@@YAJU_UNICODE_STRING@@0PEAKPEAPEAE@Z.c)
+ *     ?ReadCalibrationDataImp@@YAJU_UNICODE_STRING@@0PEAKPEAPEAE@Z @ 0x1C01CE650 (-ReadCalibrationDataImp@@YAJU_UNICODE_STRING@@0PEAKPEAPEAE@Z.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall RegQueryValueCal(
@@ -33,7 +33,7 @@ __int64 __fastcall RegQueryValueCal(
     else
     {
       ResultLength = a5 + 12;
-      v12 = (_DWORD *)Win32AllocPoolZInit(a5 + 12, 2020635477LL);
+      v12 = (_DWORD *)Win32AllocPool(a5 + 12, 2020635477LL);
       if ( v12 )
       {
         v10 = ZwQueryValueKey(KeyHandle, ValueName, KeyValuePartialInformation, v12, ResultLength, &ResultLength);

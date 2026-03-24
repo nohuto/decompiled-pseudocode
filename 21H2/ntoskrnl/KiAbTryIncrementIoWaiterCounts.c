@@ -1,41 +1,51 @@
 /*
- * XREFs of KiAbTryIncrementIoWaiterCounts @ 0x14033E1B0
+ * XREFs of KiAbTryIncrementIoWaiterCounts @ 0x1402F2738
  * Callers:
- *     KiAbProcessContextSwitch @ 0x1402B4EC0 (KiAbProcessContextSwitch.c)
- *     KiAbProcessThreadLocks @ 0x1403591D8 (KiAbProcessThreadLocks.c)
- *     KiAbForceProcessLockEntry @ 0x14039C4BC (KiAbForceProcessLockEntry.c)
+ *     KiAbProcessThreadLocks @ 0x1402F10C4 (KiAbProcessThreadLocks.c)
+ *     KiAbProcessContextSwitch @ 0x140347C50 (KiAbProcessContextSwitch.c)
+ *     KiAbForceProcessLockEntry @ 0x14038FA84 (KiAbForceProcessLockEntry.c)
  * Callees:
- *     PsGetIoPriorityThread @ 0x14033D760 (PsGetIoPriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
  */
 
 __int64 __fastcall KiAbTryIncrementIoWaiterCounts(unsigned __int8 *a1, __int64 a2)
 {
-  unsigned __int8 v3; // dl
   _BYTE *v4; // r11
-  unsigned int v6; // r10d
-  unsigned __int8 *v7; // r8
+  unsigned __int8 v5; // cl
+  unsigned int v7; // r10d
+  unsigned __int8 *v8; // r8
+  int IoPriorityThread; // eax
 
-  if ( !a1[17] )
+  if ( (a1[25] & 1) == 0 )
     return 0LL;
-  v3 = a1[19];
-  v4 = a1 + 19;
-  if ( (v3 & 6) == 6 )
+  v4 = a1 + 27;
+  v5 = a1[27];
+  if ( (v5 & 6) == 6 )
     return 0LL;
-  v6 = 0;
-  v7 = &a1[-96 * a1[16]];
-  if ( (v3 & 2) == 0 && ((int)PsGetIoPriorityThread((__int64)(v7 - 1696)) >= 2 || *((_DWORD *)v7 - 64) != v6) )
+  v7 = 0;
+  v8 = &a1[-16 * a1[24]];
+  if ( (v5 & 2) == 0 )
   {
-    ++*(_BYTE *)(a2 + 92);
-    *v4 |= 2u;
-    if ( *(_BYTE *)(a2 + 92) == 1 )
-      v6 = 1;
+    IoPriorityThread = PsGetIoPriorityThread((__int64)v8);
+    if ( IoPriorityThread >= 2 )
+      goto LABEL_6;
+    if ( *((_DWORD *)v8 + 340) != v7 )
+      IoPriorityThread = 2;
+    if ( IoPriorityThread >= 2 )
+    {
+LABEL_6:
+      *(_WORD *)(a2 + 90) ^= (*(_WORD *)(a2 + 90) ^ (*(_WORD *)(a2 + 90) + 2)) & 0x1FE;
+      *v4 |= 2u;
+      if ( (*(_WORD *)(a2 + 90) & 0x1FE) == 2 )
+        v7 = 1;
+    }
   }
-  if ( (*v4 & 4) == 0 && (!*((_DWORD *)v7 - 62) || *((_DWORD *)v7 - 63)) )
+  if ( (*v4 & 4) == 0 && (!*((_DWORD *)v8 + 342) || *((_DWORD *)v8 + 341)) )
   {
-    *(_DWORD *)(a2 + 92) ^= ((unsigned __int16)*(_DWORD *)(a2 + 92) ^ (unsigned __int16)(*(_DWORD *)(a2 + 92) + 256)) & 0x7F00;
+    *(_WORD *)(a2 + 90) += 512;
     *v4 |= 4u;
-    if ( (*(_DWORD *)(a2 + 92) & 0x7F00) == 0x100 )
-      v6 |= 2u;
+    if ( (*(_WORD *)(a2 + 90) & 0xFE00) == 0x200 )
+      v7 |= 2u;
   }
-  return v6;
+  return v7;
 }

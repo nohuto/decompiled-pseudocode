@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140159D00
+ * XREFs of PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140159D20
  * Callers:
- *     PnpDeviceCompletionRoutine @ 0x140159BA0 (PnpDeviceCompletionRoutine.c)
- *     PipEnumerateDevice @ 0x1406E7F30 (PipEnumerateDevice.c)
+ *     PnpDeviceCompletionRoutine @ 0x140159BC0 (PnpDeviceCompletionRoutine.c)
+ *     PipEnumerateDevice @ 0x1406E7F10 (PipEnumerateDevice.c)
  * Callees:
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseSemaphoreEx @ 0x1400D2950 (KeReleaseSemaphoreEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeReleaseSemaphoreEx @ 0x1400D2970 (KeReleaseSemaphoreEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PnpDeviceCompletionQueueDispatchedEntryCompleted(__int64 a1, _QWORD *a2)

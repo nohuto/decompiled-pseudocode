@@ -1,16 +1,16 @@
 /*
- * XREFs of TtmiSessionTerminalListWorker @ 0x1409A3450
+ * XREFs of TtmiSessionTerminalListWorker @ 0x1408FD930
  * Callers:
- *     TtmpSessionWorker @ 0x1409A5C10 (TtmpSessionWorker.c)
+ *     TtmpSessionWorker @ 0x140900030 (TtmpSessionWorker.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     TtmiEvacuateDevices @ 0x1409A1D08 (TtmiEvacuateDevices.c)
- *     TtmpUpdateTerminalState @ 0x1409A3E48 (TtmpUpdateTerminalState.c)
- *     TtmpWriteDisplayStateChangedEvent @ 0x1409A4084 (TtmpWriteDisplayStateChangedEvent.c)
- *     TtmiPurgeSessionPowerRequestEntries @ 0x1409A4C38 (TtmiPurgeSessionPowerRequestEntries.c)
- *     TtmiUpdateActiveTerminalCount @ 0x1409A50A0 (TtmiUpdateActiveTerminalCount.c)
- *     TtmpDereferenceSessionMaybeLast @ 0x1409A5540 (TtmpDereferenceSessionMaybeLast.c)
- *     TtmiLogTerminalCleanup @ 0x1409AA334 (TtmiLogTerminalCleanup.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     TtmiEvacuateDevices @ 0x1408FC2A8 (TtmiEvacuateDevices.c)
+ *     TtmpUpdateTerminalState @ 0x1408FE2DC (TtmpUpdateTerminalState.c)
+ *     TtmpWriteDisplayStateChangedEvent @ 0x1408FE478 (TtmpWriteDisplayStateChangedEvent.c)
+ *     TtmiPurgeSessionPowerRequestEntries @ 0x1408FF024 (TtmiPurgeSessionPowerRequestEntries.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x1408FF490 (TtmiUpdateActiveTerminalCount.c)
+ *     TtmpDereferenceSessionMaybeLast @ 0x1408FF940 (TtmpDereferenceSessionMaybeLast.c)
+ *     TtmiLogTerminalCleanup @ 0x140904634 (TtmiLogTerminalCleanup.c)
  */
 
 void __fastcall TtmiSessionTerminalListWorker(unsigned int *a1, char *a2, _BYTE *a3)
@@ -20,22 +20,22 @@ void __fastcall TtmiSessionTerminalListWorker(unsigned int *a1, char *a2, _BYTE 
   char v5; // bp
   char v9; // r10
   unsigned int *v10; // r14
-  unsigned int *v11; // rsi
+  struct _DMA_ADAPTER *v11; // rsi
   unsigned int v12; // eax
   __int64 v13; // rdx
-  void ***v14; // rax
+  struct _DMA_ADAPTER ***v14; // rax
   bool v15; // zf
   char v16; // dl
   char v17; // al
-  _QWORD *v18; // rax
-  void **v19; // rcx
+  struct _DMA_ADAPTER *v18; // rax
+  struct _DMA_ADAPTER **v19; // rcx
   unsigned int v20; // eax
   unsigned int *i; // rcx
   __int64 v22; // rdx
   char v23; // [rsp+70h] [rbp+8h] BYREF
   char v24; // [rsp+78h] [rbp+10h] BYREF
-  unsigned int v25; // [rsp+80h] [rbp+18h]
-  void ***v26; // [rsp+88h] [rbp+20h]
+  unsigned int DmaOperations_high; // [rsp+80h] [rbp+18h]
+  struct _DMA_ADAPTER ***v26; // [rsp+88h] [rbp+20h]
 
   v3 = a1 + 10;
   v24 = 0;
@@ -50,16 +50,16 @@ void __fastcall TtmiSessionTerminalListWorker(unsigned int *a1, char *a2, _BYTE 
     do
     {
       v10 = v4 + 9;
-      v11 = v4;
+      v11 = (struct _DMA_ADAPTER *)v4;
       v12 = v4[9];
       if ( ((unsigned __int8)v12 & (unsigned __int8)v9) != 0 )
       {
         v13 = *a1;
-        v14 = (void ***)(v4 + 2);
+        v14 = (struct _DMA_ADAPTER ***)(v4 + 2);
         v4 = (unsigned int *)*((_QWORD *)v4 + 1);
         v26 = v14;
-        v25 = v11[7];
-        TtmiLogTerminalCleanup(v11, v13, v25);
+        DmaOperations_high = HIDWORD(v11[1].DmaOperations);
+        TtmiLogTerminalCleanup(v11, v13, DmaOperations_high);
         if ( (*v10 & 0x10) != 0 )
         {
           v15 = (unsigned __int8)TtmiUpdateActiveTerminalCount(a1, 0LL, 26LL) == 0;
@@ -71,23 +71,23 @@ void __fastcall TtmiSessionTerminalListWorker(unsigned int *a1, char *a2, _BYTE 
         {
           v17 = 1;
         }
-        if ( v11[8] )
+        if ( *(_DWORD *)&v11[2].Version )
           v5 = v17;
         if ( TtmiEvacuateDevices((__int64)a1, (__int64)v11) )
           *a3 = 1;
-        v18 = *(_QWORD **)v11;
-        if ( *(unsigned int **)(*(_QWORD *)v11 + 8LL) != v11 || (v19 = *v26, **v26 != v11) )
+        v18 = *(struct _DMA_ADAPTER **)&v11->Version;
+        if ( *(struct _DMA_ADAPTER **)(*(_QWORD *)&v11->Version + 8LL) != v11 || (v19 = *v26, **v26 != v11) )
           __fastfail(3u);
         *v19 = v18;
-        v18[1] = v19;
-        *((_QWORD *)v11 + 2) = 0LL;
+        v18->DmaOperations = (_DMA_OPERATIONS *)v19;
+        *(_QWORD *)&v11[1].Version = 0LL;
         TtmpDereferenceSessionMaybeLast(a1);
-        _bittestandreset(*((signed __int32 **)a1 + 8), v25);
+        _bittestandreset(*((signed __int32 **)a1 + 8), DmaOperations_high);
         v20 = *v10;
-        *((_QWORD *)v11 + 2) = 0LL;
-        v11[6] = 1417180244;
+        *(_QWORD *)&v11[1].Version = 0LL;
+        LODWORD(v11[1].DmaOperations) = 1417180244;
         *v10 = v20 & 0xFFFFFFFC | 2;
-        ObfDereferenceObject(v11);
+        HalPutDmaAdapter(v11);
         v9 = 1;
       }
       else if ( (v12 & 4) != 0 )

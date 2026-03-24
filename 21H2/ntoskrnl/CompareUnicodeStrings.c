@@ -1,92 +1,86 @@
 /*
- * XREFs of CompareUnicodeStrings @ 0x14069498C
+ * XREFs of CompareUnicodeStrings @ 0x1406939E8
  * Callers:
- *     RtlInsertUnicodePrefix @ 0x140694730 (RtlInsertUnicodePrefix.c)
- *     RtlFindUnicodePrefix @ 0x140694880 (RtlFindUnicodePrefix.c)
+ *     RtlInsertUnicodePrefix @ 0x140693770 (RtlInsertUnicodePrefix.c)
+ *     RtlFindUnicodePrefix @ 0x1406938D0 (RtlFindUnicodePrefix.c)
  * Callees:
- *     NLS_UPCASE @ 0x1403477B0 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
  */
 
-__int64 __fastcall CompareUnicodeStrings(__int64 a1, unsigned __int16 *a2)
+__int64 __fastcall CompareUnicodeStrings(unsigned __int16 *a1, unsigned __int16 *a2, unsigned int a3)
 {
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned __int16 *v4; // rdx
-  unsigned int v5; // r8d
-  __int64 v6; // rdi
-  __int64 v7; // r13
-  unsigned int v8; // esi
-  unsigned int v9; // r14d
-  unsigned __int16 v10; // r11
-  unsigned __int16 v11; // bx
-  unsigned int v12; // r10d
-  unsigned __int16 *v13; // r15
-  unsigned __int16 *v14; // r12
+  __int64 v4; // rbx
+  unsigned int v6; // edi
+  unsigned int v7; // ebp
+  unsigned __int16 v8; // r10
+  unsigned __int16 v9; // r11
+  unsigned int v10; // r9d
+  unsigned __int16 *v11; // r14
+  unsigned __int16 *v12; // r15
+  unsigned __int16 v13; // r11
+  __int64 v15; // rcx
 
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  v6 = *v4 >> 1;
-  v7 = CurrentServerSiloGlobals[154];
-  v8 = *a2 >> 1;
-  if ( (_DWORD)v6 == 1 && **((_WORD **)v4 + 1) == 92 && v8 > 1 && **((_WORD **)a2 + 1) == 92 )
+  v4 = *a1 >> 1;
+  v6 = *a2 >> 1;
+  if ( (_DWORD)v4 == 1 && **((_WORD **)a1 + 1) == 92 && v6 > 1 && **((_WORD **)a2 + 1) == 92 )
     return 1LL;
-  v9 = *v4 >> 1;
-  if ( (unsigned int)v6 >= v8 )
-    v9 = *a2 >> 1;
-  if ( v5 > v9 )
-    v5 = v9;
+  v7 = *a1 >> 1;
+  if ( (unsigned int)v4 >= v6 )
+    v7 = *a2 >> 1;
+  if ( a3 > v7 )
+    a3 = v7;
+  v8 = 0;
+  v9 = 0;
   v10 = 0;
-  v11 = 0;
-  v12 = 0;
-  if ( v5 )
+  if ( a3 )
   {
-    while ( 1 )
+    v15 = *((_QWORD *)a1 + 1);
+    do
     {
-      v10 = *(_WORD *)(*((_QWORD *)v4 + 1) + 2LL * v12);
-      v11 = *(_WORD *)(*((_QWORD *)a2 + 1) + 2LL * v12);
-      if ( v10 != v11 )
+      v8 = *(_WORD *)(v15 + 2LL * v10);
+      v9 = *(_WORD *)(*((_QWORD *)a2 + 1) + 2LL * v10);
+      if ( v8 != v9 )
         break;
-      if ( ++v12 >= v5 )
-        goto LABEL_7;
+      ++v10;
     }
-LABEL_11:
-    if ( v12 >= v9 )
-      goto LABEL_20;
-    goto LABEL_12;
+    while ( v10 < a3 );
   }
-LABEL_7:
-  if ( v12 != v5 )
-    goto LABEL_11;
-  v13 = (unsigned __int16 *)(*((_QWORD *)v4 + 1) + 2LL * v12);
-  v14 = (unsigned __int16 *)(*((_QWORD *)a2 + 1) + 2LL * v12);
-  if ( v12 >= v9 )
-    goto LABEL_20;
-  while ( 1 )
+  if ( v10 == a3 )
   {
-    v10 = *v13++;
-    v11 = *v14++;
-    if ( v10 != v11 )
+    v11 = (unsigned __int16 *)(*((_QWORD *)a1 + 1) + 2LL * v10);
+    v12 = (unsigned __int16 *)(*((_QWORD *)a2 + 1) + 2LL * v10);
+    if ( v10 >= v7 )
+      goto LABEL_19;
+    do
     {
-      NLS_UPCASE(v7, v10);
-      v11 = NLS_UPCASE(v7, v11);
-      if ( v10 != v11 )
-        break;
+      v8 = *v11++;
+      v9 = *v12++;
+      if ( v8 != v9 )
+      {
+        NLS_UPCASE(v8);
+        v9 = NLS_UPCASE(v13);
+        if ( v8 != v9 )
+          break;
+      }
+      ++v10;
     }
-    if ( ++v12 >= v9 )
-      goto LABEL_11;
+    while ( v10 < v7 );
   }
-LABEL_12:
-  if ( v10 == 92 )
-    return 0LL;
-  if ( v11 == 92 )
-    return 3LL;
-  if ( v10 < v11 )
-    return 0LL;
-  if ( v10 > v11 )
-    return 3LL;
-LABEL_20:
-  if ( (unsigned int)v6 < v8 )
-    return *(_WORD *)(*((_QWORD *)a2 + 1) + 2 * v6) == 92;
-  if ( (unsigned int)v6 > v8 )
+  if ( v10 < v7 )
+  {
+    if ( v8 == 92 )
+      return 0LL;
+    if ( v9 == 92 )
+      return 3LL;
+    if ( v8 < v9 )
+      return 0LL;
+    if ( v8 > v9 )
+      return 3LL;
+  }
+LABEL_19:
+  if ( (unsigned int)v4 < v6 )
+    return *(_WORD *)(*((_QWORD *)a2 + 1) + 2 * v4) == 92;
+  if ( (unsigned int)v4 > v6 )
     return 3LL;
   return 2LL;
 }

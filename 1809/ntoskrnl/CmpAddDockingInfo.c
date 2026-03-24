@@ -2,7 +2,7 @@
  * XREFs of CmpAddDockingInfo @ 0x1409C1B6C
  * Callers:
  *     CmpCreateHardwareProfiles @ 0x1409C172C (CmpCreateHardwareProfiles.c)
- *     CmpAddAliasEntry @ 0x1409F3728 (CmpAddAliasEntry.c)
+ *     CmpAddAliasEntry @ 0x1409F3730 (CmpAddAliasEntry.c)
  * Callees:
  *     NtSetValueKey @ 0x1405CC8E0 (NtSetValueKey.c)
  */

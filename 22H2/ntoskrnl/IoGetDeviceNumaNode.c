@@ -1,27 +1,23 @@
 /*
- * XREFs of IoGetDeviceNumaNode @ 0x140864350
+ * XREFs of IoGetDeviceNumaNode @ 0x1407735D0
  * Callers:
- *     IopGetNumaNodeInformation @ 0x14094B170 (IopGetNumaNodeInformation.c)
+ *     IopGetNumaNodeInformation @ 0x1408958F8 (IopGetNumaNodeInformation.c)
  * Callees:
- *     KeQueryHighestNodeNumber @ 0x14033CA40 (KeQueryHighestNodeNumber.c)
+ *     KeQueryHighestNodeNumber @ 0x1403544C0 (KeQueryHighestNodeNumber.c)
  */
 
 NTSTATUS __stdcall IoGetDeviceNumaNode(PDEVICE_OBJECT Pdo, PUSHORT NodeNumber)
 {
-  struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rax
-  _DWORD *DeviceNode; // rdx
-  _WORD *v5; // rcx
+  PVOID DeviceNode; // rcx
 
   if ( !Pdo )
     return -1073741811;
-  DeviceObjectExtension = Pdo->DeviceObjectExtension;
-  DeviceNode = DeviceObjectExtension->DeviceNode;
-  if ( !DeviceNode || (DeviceNode[99] & 0x20000) != 0 )
+  DeviceNode = Pdo->DeviceObjectExtension->DeviceNode;
+  if ( !DeviceNode || (*((_DWORD *)DeviceNode + 99) & 0x20000) != 0 )
     return -1073741811;
-  v5 = DeviceObjectExtension->DeviceNode;
-  if ( *((_DWORD *)v5 + 165) <= 0xFFFFFFFD )
+  if ( *((_DWORD *)DeviceNode + 165) <= 0xFFFFFFFD )
   {
-    *NodeNumber = v5[330];
+    *NodeNumber = *((_WORD *)DeviceNode + 330);
     return 0;
   }
   if ( !KeQueryHighestNodeNumber() )

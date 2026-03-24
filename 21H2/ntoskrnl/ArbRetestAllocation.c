@@ -1,16 +1,16 @@
 /*
- * XREFs of ArbRetestAllocation @ 0x14090B860
+ * XREFs of ArbRetestAllocation @ 0x140867550
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlDeleteOwnersRanges @ 0x140839700 (RtlDeleteOwnersRanges.c)
- *     RtlFreeRangeList @ 0x1408397E0 (RtlFreeRangeList.c)
- *     ArbpBuildAlternative @ 0x140839D70 (ArbpBuildAlternative.c)
- *     RtlCopyRangeList @ 0x14083A400 (RtlCopyRangeList.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlCopyRangeList @ 0x140761200 (RtlCopyRangeList.c)
+ *     RtlDeleteOwnersRanges @ 0x1407614B0 (RtlDeleteOwnersRanges.c)
+ *     RtlFreeRangeList @ 0x140761590 (RtlFreeRangeList.c)
+ *     ArbpBuildAlternative @ 0x1407B4000 (ArbpBuildAlternative.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ArbRetestAllocation(__int64 a1, __int64 ***a2)
@@ -42,7 +42,7 @@ __int64 __fastcall ArbRetestAllocation(__int64 a1, __int64 ***a2)
     if ( v5 >= 0 )
       goto LABEL_8;
 LABEL_17:
-    RtlFreeRangeList(*(_QWORD *)(a1 + 48));
+    RtlFreeRangeList(*(_QWORD **)(a1 + 48));
     return (unsigned int)v5;
   }
   v5 = RtlCopyRangeList(*(_QWORD *)(a1 + 48), *(__int64 **)(a1 + 40));

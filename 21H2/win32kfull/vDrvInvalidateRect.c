@@ -1,11 +1,11 @@
 /*
- * XREFs of vDrvInvalidateRect @ 0x1C02BF970
+ * XREFs of vDrvInvalidateRect @ 0x1C02C0FD8
  * Callers:
- *     RemoteRedrawRectangle @ 0x1C0211BD4 (RemoteRedrawRectangle.c)
+ *     RemoteRedrawRectangle @ 0x1C021E58C (RemoteRedrawRectangle.c)
  * Callees:
- *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0154B2C (--1SEMOBJEX@@QEAA@XZ.c)
- *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0154C08 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0163AF4 (--1SEMOBJEX@@QEAA@XZ.c)
+ *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0163BD0 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall vDrvInvalidateRect(__int64 a1, __int64 a2)
@@ -28,7 +28,7 @@ void __fastcall vDrvInvalidateRect(__int64 a1, __int64 a2)
         2u,
         ghsemDCVisRgn,
         3u,
-        *(HSEMAPHORE *)(a1 + 56),
+        *(HSEMAPHORE *)(a1 + 64),
         4u,
         ghsemSprite,
         5u,
@@ -36,9 +36,9 @@ void __fastcall vDrvInvalidateRect(__int64 a1, __int64 a2)
         6u);
       GreAcquireSemaphore(v6[6]);
       EtwTraceGreLockAcquireSemaphoreExclusive(L"po.hsemDevLock()", v6[6], 11LL);
-      PDEVOBJ::vSync((PDEVOBJ *)&v6, (struct _SURFOBJ *)((v6[316] + 24LL) & -(__int64)(v6[316] != 0LL)), 0LL, 0);
+      PDEVOBJ::vSync((PDEVOBJ *)&v6, (struct _SURFOBJ *)((v6[319] + 24LL) & -(__int64)(v6[319] != 0LL)), 0LL, 0);
       v3 = v6;
-      v4 = (void (__fastcall *)(__int64))v6[415];
+      v4 = (void (__fastcall *)(__int64))v6[418];
       if ( v4 )
       {
         v4(a2);

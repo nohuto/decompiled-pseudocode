@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDcFreeGenericTableEntry @ 0x140949430
+ * XREFs of PiDcFreeGenericTableEntry @ 0x1408A3630
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDcFreeGenericTableEntry(struct _RTL_AVL_TABLE *Table, PVOID Buffer)

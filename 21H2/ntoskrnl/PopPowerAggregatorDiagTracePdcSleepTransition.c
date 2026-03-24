@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerAggregatorDiagTracePdcSleepTransition @ 0x1409A0730
+ * XREFs of PopPowerAggregatorDiagTracePdcSleepTransition @ 0x1408FA478
  * Callers:
- *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x140995D54 (PopPowerAggregatorNotifyPdcSleepTransition.c)
+ *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x1408EE678 (PopPowerAggregatorNotifyPdcSleepTransition.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PopPowerAggregatorDiagTraceEvent @ 0x1407F274C (PopPowerAggregatorDiagTraceEvent.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PopPowerAggregatorDiagTraceEvent @ 0x140776334 (PopPowerAggregatorDiagTraceEvent.c)
  */
 
 void __fastcall PopPowerAggregatorDiagTracePdcSleepTransition(

@@ -1,12 +1,12 @@
 /*
- * XREFs of IoWMIExecuteMethod @ 0x1409DB8B0
+ * XREFs of IoWMIExecuteMethod @ 0x140930E80
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     WmipQuerySetExecuteSI @ 0x14078362C (WmipQuerySetExecuteSI.c)
- *     WmipAllocateSingleInstanceWnode @ 0x1409DC140 (WmipAllocateSingleInstanceWnode.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     WmipQuerySetExecuteSI @ 0x140757270 (WmipQuerySetExecuteSI.c)
+ *     WmipAllocateSingleInstanceWnode @ 0x140931710 (WmipAllocateSingleInstanceWnode.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoWMIExecuteMethod(
@@ -69,7 +69,14 @@ NTSTATUS __stdcall IoWMIExecuteMethod(
     memmove(v18 + 1, InstanceName->Buffer, InstanceName->Length);
     memmove((char *)v13 + *((unsigned int *)v13 + 15), InOutBuffer, InBufferSize);
     LODWORD(v25) = *(_DWORD *)v13;
-    SetExecuteSI = WmipQuerySetExecuteSI(DataBlockObject, 0LL, 0, 9u, (__int64)v13, v16, (unsigned int *)&v25);
+    SetExecuteSI = WmipQuerySetExecuteSI(
+                     (PADAPTER_OBJECT)DataBlockObject,
+                     0LL,
+                     0,
+                     9u,
+                     (__int64)v13,
+                     v16,
+                     (unsigned int *)&v25);
     if ( SetExecuteSI >= 0 )
     {
       if ( (*((_DWORD *)v13 + 11) & 0x20) != 0 )

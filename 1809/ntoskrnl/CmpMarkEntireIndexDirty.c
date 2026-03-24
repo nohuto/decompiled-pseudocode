@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpMarkEntireIndexDirty @ 0x1407FFCA4
+ * XREFs of CmpMarkEntireIndexDirty @ 0x1407FFC84
  * Callers:
- *     CmRenameKey @ 0x1407EDB14 (CmRenameKey.c)
- *     CmpLightWeightDuplicateParentLists @ 0x140803F4C (CmpLightWeightDuplicateParentLists.c)
+ *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
+ *     CmpLightWeightDuplicateParentLists @ 0x140803F2C (CmpLightWeightDuplicateParentLists.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
  */
 

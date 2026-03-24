@@ -1,34 +1,36 @@
 /*
- * XREFs of ?GetUnoptimizedBounds@CDirtyRegion@@IEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@XZ @ 0x1800D3744
+ * XREFs of ?GetUnoptimizedBounds@CDirtyRegion@@IEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@XZ @ 0x1800C4A6C
  * Callers:
- *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180091060 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18008A040 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
  * Callees:
- *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x1800C9E90 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
+ *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x18006BE00 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
+ *     ?GetUnoptimizedDirtyRects@CDirtyRegion@@IEBA?AV?$span@$$CBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0?0@gsl@@XZ @ 0x1800C4AD4 (-GetUnoptimizedDirtyRects@CDirtyRegion@@IEBA-AV-$span@$$CBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@.c)
  */
 
-float *__fastcall CDirtyRegion::GetUnoptimizedBounds(__int64 a1, float *a2)
+__int64 __fastcall CDirtyRegion::GetUnoptimizedBounds(__int64 a1, __int64 a2)
 {
-  float *v2; // r11
   float *v3; // rdx
-  float *v4; // rbx
+  float *v4; // r9
   __int64 v5; // rdx
+  __int64 v7; // [rsp+20h] [rbp-18h] BYREF
+  float *v8; // [rsp+28h] [rbp-10h]
 
-  v2 = a2;
   *(_QWORD *)a2 = 0LL;
-  *((_QWORD *)a2 + 1) = 0LL;
-  if ( *(_BYTE *)(a1 + 4424) )
+  *(_QWORD *)(a2 + 8) = 0LL;
+  if ( *(_BYTE *)(a1 + 4456) )
   {
     *(_OWORD *)a2 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcInfinite;
   }
   else
   {
-    v3 = (float *)(a1 + 1568);
-    v4 = (float *)(a1 + 1696);
+    CDirtyRegion::GetUnoptimizedDirtyRects(a1, &v7);
+    v3 = v8;
+    v4 = &v8[4 * v7];
     while ( v3 != v4 )
     {
-      TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe(v2, v3);
+      TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::UnionUnsafe((float *)a2, v3);
       v3 = (float *)(v5 + 16);
     }
   }
-  return v2;
+  return a2;
 }

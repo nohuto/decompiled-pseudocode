@@ -1,115 +1,150 @@
 /*
- * XREFs of DxgkReleaseSessionModeChangeLock @ 0x1C019D2BC
+ * XREFs of DxgkReleaseSessionModeChangeLock @ 0x1C0120374
  * Callers:
- *     ??1DXGSESSIONMODECHANGELOCK@@QEAA@XZ @ 0x1C0007158 (--1DXGSESSIONMODECHANGELOCK@@QEAA@XZ.c)
- *     ?DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z @ 0x1C0168160 (-DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z.c)
- *     DxgkUseAdapterViewInCurrentSession @ 0x1C017ADDC (DxgkUseAdapterViewInCurrentSession.c)
- *     ?RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z @ 0x1C017D4B8 (-RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z.c)
- *     ?RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z @ 0x1C01827B0 (-RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z.c)
- *     DxgkDisplayOnOff @ 0x1C0186080 (DxgkDisplayOnOff.c)
- *     ?DxgkCddDisable@@YAJIII@Z @ 0x1C0187F00 (-DxgkCddDisable@@YAJIII@Z.c)
- *     ?SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAGS@@PEBQEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0188C5C (-SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAG.c)
- *     DxgkGetAdapterDeviceDesc @ 0x1C019BA70 (DxgkGetAdapterDeviceDesc.c)
- *     DxgkGetDisplayModeList @ 0x1C01A7B20 (DxgkGetDisplayModeList.c)
- *     DpiGdoDispatchInternalIoctl @ 0x1C01AAA60 (DpiGdoDispatchInternalIoctl.c)
- *     ?DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEAPEBIIU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEBIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C01B8EF0 (-DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEA.c)
- *     DxgkUpdateGdiInfo @ 0x1C01DABA0 (DxgkUpdateGdiInfo.c)
- *     DxgkGetVirtualRefreshRateInfo @ 0x1C01DC820 (DxgkGetVirtualRefreshRateInfo.c)
- *     ?FinalizeTopology@CCD_TOPOLOGY@@QEAAJXZ @ 0x1C01DFF88 (-FinalizeTopology@CCD_TOPOLOGY@@QEAAJXZ.c)
- *     ?RetrieveAllPaths@CCD_TOPOLOGY@@QEAAJPEAG@Z @ 0x1C01E86A0 (-RetrieveAllPaths@CCD_TOPOLOGY@@QEAAJPEAG@Z.c)
- *     ?ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01E8D34 (-ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     DxgkGetDpiOverrideForSource @ 0x1C01E9C60 (DxgkGetDpiOverrideForSource.c)
- *     ?DxgkSetPointerShape@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@IIHHH@Z @ 0x1C01F2650 (-DxgkSetPointerShape@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@IIHH.c)
- *     ?DxgkCddGetDisplayModeList@@YAJQEAXPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z @ 0x1C02DE490 (-DxgkCddGetDisplayModeList@@YAJQEAXPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z.c)
- *     ?DxgkReleaseVidPnSourceOwnerAndRestartCdds@@YAXPEAVDXGDEVICE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C02EA660 (-DxgkReleaseVidPnSourceOwnerAndRestartCdds@@YAXPEAVDXGDEVICE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT.c)
- *     ?DxgkpAdapterCheckStereoMode@@YAJU_LUID@@IPEAE1@Z @ 0x1C02FA4C4 (-DxgkpAdapterCheckStereoMode@@YAJU_LUID@@IPEAE1@Z.c)
- *     ?DrtTestUpdateRegistryForNewOverride@@YAJU_LUID@@IH@Z @ 0x1C0302AA8 (-DrtTestUpdateRegistryForNewOverride@@YAJU_LUID@@IH@Z.c)
- *     DxgkUpdateDpiInfoForNewOverride @ 0x1C03033A0 (DxgkUpdateDpiInfoForNewOverride.c)
- *     ?HdrPowerPolicyChangeCallout@DXGGLOBAL@@QEAAXXZ @ 0x1C031361C (-HdrPowerPolicyChangeCallout@DXGGLOBAL@@QEAAXXZ.c)
- *     ?DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HHH@Z @ 0x1C0338AF0 (-DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HHH@Z.c)
- *     DxgkRedrawCursorForPostCompositon @ 0x1C033A948 (DxgkRedrawCursorForPostCompositon.c)
+ *     ??1DXGSESSIONMODECHANGELOCK@@QEAA@XZ @ 0x1C000A39C (--1DXGSESSIONMODECHANGELOCK@@QEAA@XZ.c)
+ *     ?DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z @ 0x1C00DE810 (-DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z.c)
+ *     DxgkDisplayOnOff @ 0x1C00DFF10 (DxgkDisplayOnOff.c)
+ *     ?FinalizeTopology@CCD_TOPOLOGY@@QEAAJXZ @ 0x1C00E34F4 (-FinalizeTopology@CCD_TOPOLOGY@@QEAAJXZ.c)
+ *     ?SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAGS@@PEBQEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00E3A58 (-SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAG.c)
+ *     ?DxgkCddDisable@@YAJIII@Z @ 0x1C00E68A0 (-DxgkCddDisable@@YAJIII@Z.c)
+ *     ?DxgkCddSetGammaRamp@@YAJQEAXIPEBU_D3DDDI_GAMMA_RAMP_RGB256x3x16@@@Z @ 0x1C00E73E0 (-DxgkCddSetGammaRamp@@YAJQEAXIPEBU_D3DDDI_GAMMA_RAMP_RGB256x3x16@@@Z.c)
+ *     ?DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEAPEBIIU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEBIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0112FB0 (-DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEA.c)
+ *     DxgkGetAdapterDeviceDesc @ 0x1C011EB60 (DxgkGetAdapterDeviceDesc.c)
+ *     ?DxgkSetPointerShape@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@IIHH@Z @ 0x1C011FCA0 (-DxgkSetPointerShape@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@PEBU_DXGKARG_SETPOINTERSHAPE@@IIHH.c)
+ *     DpiGdoDispatchInternalIoctl @ 0x1C012D8F0 (DpiGdoDispatchInternalIoctl.c)
+ *     ?RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z @ 0x1C013A304 (-RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z.c)
+ *     ?RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z @ 0x1C013F8EC (-RetrievePersisted@CCD_TOPOLOGY@@QEAAJIPEAG@Z.c)
+ *     ?ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0149090 (-ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?DxgkCddGetDisplayModeList@@YAJQEAXPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z @ 0x1C014E110 (-DxgkCddGetDisplayModeList@@YAJQEAXPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z.c)
+ *     DxgkUpdateGdiInfo @ 0x1C014E780 (DxgkUpdateGdiInfo.c)
+ *     ?DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z @ 0x1C014ECAC (-DxgkSetPointerPosition@@YAJQEAXPEBU_DXGKARG_SETPOINTERPOSITION@@HH@Z.c)
+ *     DxgkUseAdapterViewInCurrentSession @ 0x1C016463C (DxgkUseAdapterViewInCurrentSession.c)
+ *     DxgkPreSessionDisconnected @ 0x1C0169DB0 (DxgkPreSessionDisconnected.c)
+ *     DxgkSessionConnected @ 0x1C0169F90 (DxgkSessionConnected.c)
+ *     ?RetrieveAllPaths@CCD_TOPOLOGY@@QEAAJPEAG@Z @ 0x1C016BF30 (-RetrieveAllPaths@CCD_TOPOLOGY@@QEAAJPEAG@Z.c)
+ *     DxgkGetDpiOverrideForSource @ 0x1C016D220 (DxgkGetDpiOverrideForSource.c)
+ *     DxgkGetDisplayModeList @ 0x1C016FC30 (DxgkGetDisplayModeList.c)
+ *     DxgkSessionReconnected @ 0x1C0177A30 (DxgkSessionReconnected.c)
+ *     ?DxgkReleaseVidPnSourceOwnerAndRestartCdds@@YAXPEAVDXGDEVICE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0255090 (-DxgkReleaseVidPnSourceOwnerAndRestartCdds@@YAXPEAVDXGDEVICE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT.c)
+ *     ?HdrPowerPolicyChangeCallout@DXGGLOBAL@@QEAAXXZ @ 0x1C026A5A8 (-HdrPowerPolicyChangeCallout@DXGGLOBAL@@QEAAXXZ.c)
+ *     DxgkRedrawCursorForPostCompositon @ 0x1C027E7F8 (DxgkRedrawCursorForPostCompositon.c)
+ *     ?DrtTestUpdateRegistryForNewOverride@@YAJU_LUID@@IH@Z @ 0x1C02A97F0 (-DrtTestUpdateRegistryForNewOverride@@YAJU_LUID@@IH@Z.c)
+ *     DxgkUpdateDpiInfoForNewOverride @ 0x1C02A9EC0 (DxgkUpdateDpiInfoForNewOverride.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000B020 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ??1DXGSYNCOBJECTMUTEX@@QEAA@XZ @ 0x1C0015690 (--1DXGSYNCOBJECTMUTEX@@QEAA@XZ.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0003700 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x1C00038D4 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
  */
 
-void DxgkReleaseSessionModeChangeLock()
+void __fastcall DxgkReleaseSessionModeChangeLock(__int64 a1, __int64 a2)
 {
-  __int64 v0; // rcx
-  __int64 v1; // rbx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rbx
+  __int64 v5; // rdx
   __int64 CurrentProcessSessionId; // rdi
-  __int64 v3; // rax
-  DXGFASTMUTEX *v4; // rbx
-  __int64 v5; // rdi
-  __int64 v7; // rcx
-  DXGFASTMUTEX *v8; // [rsp+50h] [rbp-18h] BYREF
-  char v9; // [rsp+58h] [rbp-10h]
+  struct _KTHREAD *CurrentThread; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rbx
+  DXGFASTMUTEX *v11; // rdi
+  int v12; // eax
+  int v13; // eax
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
+  DXGFASTMUTEX *v21; // [rsp+20h] [rbp-18h] BYREF
+  char v22; // [rsp+28h] [rbp-10h]
 
-  v1 = *((_QWORD *)DXGGLOBAL::GetGlobal() + 118);
-  if ( !v1 )
-    goto LABEL_20;
-  v9 = 0;
-  CurrentProcessSessionId = (unsigned int)PsGetCurrentProcessSessionId(v0);
-  v8 = (DXGFASTMUTEX *)(v1 + 88);
-  if ( v1 == -88 )
+  v4 = *((_QWORD *)DXGGLOBAL::GetGlobal(a1, a2) + 102);
+  if ( !v4 )
+    goto LABEL_21;
+  v22 = 0;
+  CurrentProcessSessionId = (unsigned int)PsGetCurrentProcessSessionId(v3, v2);
+  v21 = (DXGFASTMUTEX *)(v4 + 80);
+  if ( v4 == -80 )
   {
-    WdLogSingleEntry1(1LL, 592LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_pMutex != NULL", 592LL, 0LL, 0LL, 0LL, 0LL);
+    v15 = WdLogNewEntry5_WdAssertion(0LL, v5);
+    *(_QWORD *)(v15 + 24) = 762LL;
+    WdLogEvent5_WdAssertion(v15);
   }
-  if ( *((struct _KTHREAD **)v8 + 3) == KeGetCurrentThread() )
+  CurrentThread = KeGetCurrentThread();
+  if ( *((struct _KTHREAD **)v21 + 2) == CurrentThread )
   {
-    WdLogSingleEntry1(1LL, 599LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"!m_pMutex->IsOwner()", 599LL, 0LL, 0LL, 0LL, 0LL);
+    v16 = WdLogNewEntry5_WdAssertion(CurrentThread, v5);
+    *(_QWORD *)(v16 + 24) = 769LL;
+    WdLogEvent5_WdAssertion(v16);
   }
-  DXGFASTMUTEX::Acquire(v8);
-  v9 = 1;
-  if ( (unsigned int)CurrentProcessSessionId >= *(_DWORD *)(v1 + 80) )
+  if ( v22 )
   {
-    DXGSYNCOBJECTMUTEX::~DXGSYNCOBJECTMUTEX((DXGSYNCOBJECTMUTEX *)&v8);
-    v5 = 0LL;
+    v17 = WdLogNewEntry5_WdCriticalError(CurrentThread, v5);
+    *(_QWORD *)(v17 + 40) = &v21;
+    *(_QWORD *)(v17 + 24) = 275LL;
+    *(_QWORD *)(v17 + 32) = 4LL;
+    *(_OWORD *)(v17 + 48) = 0LL;
+    WdLogEvent5_WdCriticalError(v17);
   }
-  else
+  DXGFASTMUTEX::Acquire(v21);
+  v22 = 1;
+  if ( (unsigned int)CurrentProcessSessionId >= *(_DWORD *)(v4 + 72) )
   {
-    _mm_lfence();
-    v3 = *(_QWORD *)(v1 + 48);
-    v4 = v8;
-    v5 = *(_QWORD *)(v3 + 8 * CurrentProcessSessionId);
-    v9 = 0;
-    if ( *((struct _KTHREAD **)v8 + 3) != KeGetCurrentThread() )
-      WdLogSingleEntry5(0LL, 275LL, 4LL, v8, 0LL, 0LL);
-    if ( *((int *)v4 + 8) <= 0 )
+    DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)&v21);
+LABEL_21:
+    v10 = 0LL;
+    goto LABEL_16;
+  }
+  _mm_lfence();
+  v10 = *(_QWORD *)(*(_QWORD *)(v4 + 40) + 8 * CurrentProcessSessionId);
+  v11 = v21;
+  v22 = 0;
+  if ( *((struct _KTHREAD **)v21 + 2) != KeGetCurrentThread() )
+  {
+    v18 = WdLogNewEntry5_WdCriticalError(v9, v8);
+    *(_QWORD *)(v18 + 24) = 275LL;
+    *(_QWORD *)(v18 + 32) = 4LL;
+    *(_QWORD *)(v18 + 40) = v11;
+    *(_OWORD *)(v18 + 48) = 0LL;
+    WdLogEvent5_WdCriticalError(v18);
+  }
+  v12 = *((_DWORD *)v11 + 6);
+  if ( v12 <= 0 )
+  {
+    v19 = WdLogNewEntry5_WdAssertion(v9, v8);
+    *(_QWORD *)(v19 + 24) = 705LL;
+    WdLogEvent5_WdAssertion(v19);
+    v12 = *((_DWORD *)v11 + 6);
+  }
+  v13 = v12 - 1;
+  *((_DWORD *)v11 + 6) = v13;
+  if ( !v13 )
+  {
+    *((_QWORD *)v11 + 2) = 0LL;
+    ExReleasePushLockExclusiveEx(v11, 0LL);
+  }
+  KeLeaveCriticalRegion();
+LABEL_16:
+  if ( v10 )
+  {
+    v14 = v10 + 18528;
+    if ( *(struct _KTHREAD **)(v10 + 18536) == KeGetCurrentThread() )
     {
-      WdLogSingleEntry1(1LL, 535LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_OwnerAcquireCount > 0", 535LL, 0LL, 0LL, 0LL, 0LL);
-    }
-    if ( (*((_DWORD *)v4 + 8))-- == 1 )
-    {
-      *((_QWORD *)v4 + 3) = 0LL;
-      ExReleasePushLockExclusiveEx((char *)v4 + 8, 0LL);
-    }
-    KeLeaveCriticalRegion();
-  }
-  if ( v5 )
-  {
-    v7 = v5 + 18544;
-    if ( *(struct _KTHREAD **)(v5 + 18552) == KeGetCurrentThread() )
-    {
-      *(_QWORD *)(v5 + 18552) = 0LL;
-      ExReleasePushLockExclusiveEx(v7, 0LL);
+      *(_QWORD *)(v10 + 18536) = 0LL;
+      ExReleasePushLockExclusiveEx(v14, 0LL);
     }
     else
     {
-      _InterlockedDecrement((volatile signed __int32 *)(v5 + 18560));
-      ExReleasePushLockSharedEx(v7, 0LL);
+      ExReleasePushLockSharedEx(v14, 0LL);
     }
     KeLeaveCriticalRegion();
   }
   else
   {
-LABEL_20:
-    WdLogSingleEntry1(1LL, 363LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pSessionData != NULL", 363LL, 0LL, 0LL, 0LL, 0LL);
+    v20 = WdLogNewEntry5_WdAssertion(v3, v2);
+    *(_QWORD *)(v20 + 24) = 352LL;
+    WdLogEvent5_WdAssertion(v20);
   }
 }

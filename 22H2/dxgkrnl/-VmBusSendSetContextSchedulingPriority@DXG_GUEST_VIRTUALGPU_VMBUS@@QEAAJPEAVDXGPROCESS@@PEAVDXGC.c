@@ -1,14 +1,11 @@
 /*
- * XREFs of ?VmBusSendSetContextSchedulingPriority@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGCONTEXT@@HE@Z @ 0x1C038DD24
+ * XREFs of ?VmBusSendSetContextSchedulingPriority@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGCONTEXT@@HE@Z @ 0x1C024C3B0
  * Callers:
- *     DxgkSetContextInProcessSchedulingPriority @ 0x1C018A6D0 (DxgkSetContextInProcessSchedulingPriority.c)
- *     DxgkSetContextSchedulingPriority @ 0x1C02F2510 (DxgkSetContextSchedulingPriority.c)
+ *     DxgkSetContextSchedulingPriority @ 0x1C00E4D80 (DxgkSetContextSchedulingPriority.c)
+ *     DxgkSetContextInProcessSchedulingPriority @ 0x1C00ECA80 (DxgkSetContextInProcessSchedulingPriority.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ??1DXGVMBUSMESSAGE@@QEAA@XZ @ 0x1C005BE64 (--1DXGVMBUSMESSAGE@@QEAA@XZ.c)
- *     ?GetHostProcess@DXGPROCESS@@QEAAIXZ @ 0x1C0344C50 (-GetHostProcess@DXGPROCESS@@QEAAIXZ.c)
- *     ?InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z @ 0x1C0375CA8 (-InitializeMessage@DXGVMBUSMESSAGE@@QEAAXPEAUDXG_VMBUS_CHANNEL_BASE@@IPEAI11@Z.c)
- *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C038FFC4 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPE.c)
+ *     ?VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C024DD40 (-VmBusSendSyncMessageStatusReturn@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAUDXGKVMB_COMMAND_BASE@@IPEAU_M.c)
+ *     ?GetHostProcess@DXGPROCESS@@QEAAIXZ @ 0x1C02857F4 (-GetHostProcess@DXGPROCESS@@QEAAIXZ.c)
  */
 
 __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSetContextSchedulingPriority(
@@ -18,35 +15,21 @@ __int64 __fastcall DXG_GUEST_VIRTUALGPU_VMBUS::VmBusSendSetContextSchedulingPrio
         int a4,
         unsigned __int8 a5)
 {
-  struct DXGKVMB_COMMAND_BASE *v9; // rbx
-  unsigned int v10; // ebx
-  int HostProcess; // eax
-  struct _MDL *v13; // [rsp+20h] [rbp-158h]
-  struct DXGKVMB_COMMAND_BASE *v14[2]; // [rsp+30h] [rbp-148h] BYREF
-  unsigned int v15; // [rsp+40h] [rbp-138h]
+  struct _MDL *v8; // r9
+  __int64 v10; // [rsp+20h] [rbp-38h] BYREF
+  unsigned int HostProcess; // [rsp+28h] [rbp-30h]
+  int v12; // [rsp+2Ch] [rbp-2Ch]
+  int v13; // [rsp+30h] [rbp-28h]
+  int v14; // [rsp+38h] [rbp-20h]
+  int v15; // [rsp+3Ch] [rbp-1Ch]
+  unsigned __int8 v16; // [rsp+40h] [rbp-18h]
 
-  v15 = 0;
-  *(_OWORD *)v14 = 0LL;
-  DXGVMBUSMESSAGE::InitializeMessage((DXGVMBUSMESSAGE *)v14, this, 0x28u, 0LL, 0LL, 0LL);
-  v9 = v14[0];
-  if ( v14[0] )
-  {
-    HostProcess = DXGPROCESS::GetHostProcess(a2);
-    *(_QWORD *)v9 = 0LL;
-    *((_DWORD *)v9 + 5) = 0;
-    *((_BYTE *)v9 + 12) = 0;
-    *((_DWORD *)v9 + 3) &= 0x1FFu;
-    *((_DWORD *)v9 + 2) = HostProcess;
-    *((_DWORD *)v9 + 4) = 33;
-    *((_DWORD *)v9 + 6) = *((_DWORD *)a3 + 7);
-    *((_BYTE *)v9 + 32) = a5;
-    *((_DWORD *)v9 + 7) = a4;
-    v10 = DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(this, (unsigned __int8 *)v14[1], v14[0], v15, v13);
-  }
-  else
-  {
-    v10 = -1073741801;
-  }
-  DXGVMBUSMESSAGE::~DXGVMBUSMESSAGE((DXGVMBUSMESSAGE *)v14);
-  return v10;
+  v10 = 0LL;
+  v12 = 0;
+  HostProcess = DXGPROCESS::GetHostProcess(a2);
+  v14 = *((_DWORD *)a3 + 7);
+  v16 = a5;
+  v13 = 33;
+  v15 = a4;
+  return DXG_VMBUS_CHANNEL_BASE::VmBusSendSyncMessageStatusReturn(this, (struct DXGKVMB_COMMAND_BASE *)&v10, 0x28u, v8);
 }

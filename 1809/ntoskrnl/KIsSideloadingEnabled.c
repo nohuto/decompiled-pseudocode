@@ -1,11 +1,11 @@
 /*
- * XREFs of KIsSideloadingEnabled @ 0x1408DDBB4
+ * XREFs of KIsSideloadingEnabled @ 0x1408DDB94
  * Callers:
- *     SepIsLockedDown @ 0x14089B6FC (SepIsLockedDown.c)
+ *     SepIsLockedDown @ 0x14089B6DC (SepIsLockedDown.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     ZwQueryLicenseValue @ 0x1401BAAF0 (ZwQueryLicenseValue.c)
- *     KIsUnlockSettingEnabled @ 0x1406C30F0 (KIsUnlockSettingEnabled.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     ZwQueryLicenseValue @ 0x1401BAB10 (ZwQueryLicenseValue.c)
+ *     KIsUnlockSettingEnabled @ 0x1406C30D0 (KIsUnlockSettingEnabled.c)
  */
 
 __int64 __fastcall KIsSideloadingEnabled(_BYTE *a1)

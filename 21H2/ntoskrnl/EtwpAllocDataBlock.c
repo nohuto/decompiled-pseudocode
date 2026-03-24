@@ -1,22 +1,23 @@
 /*
- * XREFs of EtwpAllocDataBlock @ 0x1406F21DC
+ * XREFs of EtwpAllocDataBlock @ 0x1406E1760
  * Callers:
- *     EtwpNotifyGuid @ 0x1406EF64C (EtwpNotifyGuid.c)
- *     EtwpQueueReply @ 0x1406F20E8 (EtwpQueueReply.c)
- *     EtwpBuildNotificationPacket @ 0x1406F2158 (EtwpBuildNotificationPacket.c)
- *     EtwpEnableGuid @ 0x14079028C (EtwpEnableGuid.c)
- *     EtwpClearSessionAndUnreferenceEntry @ 0x140797054 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpQueueReply @ 0x1406BB3D0 (EtwpQueueReply.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x1406E1144 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpBuildNotificationPacket @ 0x1406E16DC (EtwpBuildNotificationPacket.c)
+ *     EtwpNotifyGuid @ 0x1406E1804 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpAllocDataBlock(size_t Size, void *Src, _QWORD *a3)
 {
   unsigned int v3; // ebx
   unsigned int v6; // ebp
-  _DWORD *Pool2; // rax
-  _DWORD *v8; // rsi
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v8; // rdi
 
   v3 = 0;
   *a3 = 0LL;
@@ -27,12 +28,14 @@ __int64 __fastcall EtwpAllocDataBlock(size_t Size, void *Src, _QWORD *a3)
   else
   {
     v6 = Size;
-    Pool2 = (_DWORD *)ExAllocatePool2(256LL, (unsigned int)Size, 1148679237LL);
-    v8 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)Size, 0x44777445u);
+    v8 = PoolWithTag;
+    if ( PoolWithTag )
     {
       if ( Src )
-        memmove(Pool2, Src, v6);
+        memmove(PoolWithTag, Src, v6);
+      else
+        memset(PoolWithTag, 0, v6);
       v8[2] = 1;
       *a3 = v8;
     }

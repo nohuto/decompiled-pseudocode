@@ -1,49 +1,57 @@
 /*
- * XREFs of ?inv_cmap@@YAXHPEAURGBX@@HPEAKPEAE@Z @ 0x1C00DACDC
+ * XREFs of ?inv_cmap@@YAXHPEAURGBX@@HPEAKPEAE@Z @ 0x1C00D45A0
  * Callers:
- *     ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C00DABB8 (-MakeITable@@YAHPEAEPEAURGBX@@H@Z.c)
+ *     ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C00D4474 (-MakeITable@@YAHPEAEPEAURGBX@@H@Z.c)
  * Callees:
- *     ?redloop@@YAHXZ @ 0x1C00DAE7C (-redloop@@YAHXZ.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?redloop@@YAHXZ @ 0x1C00D4738 (-redloop@@YAHXZ.c)
  */
 
 void __fastcall inv_cmap(int a1, struct RGBX *a2, __int64 a3, unsigned int *a4, unsigned __int8 *a5)
 {
-  int v8; // ebp
-  unsigned int v9; // r11d
-  unsigned int v10; // r10d
-  unsigned int v11; // r9d
-  __int64 v12; // rbx
-  __int64 v13; // rcx
+  int v6; // ebp
+  unsigned int *v7; // rdi
+  __int64 i; // rcx
+  unsigned int v11; // r10d
+  unsigned int v12; // r9d
+  unsigned int v13; // r8d
+  __int64 v14; // r11
+  __int64 v15; // rcx
 
-  dword_1C0336068 = 8;
-  dword_1C0336070 = 32;
-  dword_1C0336060 = 32;
-  dword_1C033606C = 64;
-  dword_1C0336064 = 1024;
-  memset(a4, -1, 0x20000uLL);
-  v8 = 0;
-  for ( dword_1C0336074 = 0; v8 < a1; dword_1C0336074 = v8 )
+  dword_1C033AEA8 = 8;
+  dword_1C033AEB0 = 32;
+  v6 = 0;
+  dword_1C033AEA0 = 32;
+  dword_1C033AEAC = 64;
+  dword_1C033AEA4 = 1024;
+  v7 = a4;
+  dword_1C033AEB4 = 0;
+  for ( i = 0x8000LL; i; --i )
+    *v7++ = -1;
+  if ( a1 > 0 )
   {
-    v9 = *((unsigned __int8 *)a2 + 4 * v8);
-    v10 = *((unsigned __int8 *)a2 + 4 * v8 + 1);
-    v11 = *((unsigned __int8 *)a2 + 4 * v8 + 2);
-    v12 = v11 >> 3;
-    dword_1C0336014 = v9 >> 3;
-    dword_1C0336010 = v10 >> 3;
-    dword_1C033600C = v12;
-    dword_1C033601C = v9 - 8 * (v9 >> 3) - 4;
-    dword_1C0336018 = v10 - 8 * (v10 >> 3) - 4;
-    dword_1C033602C = 16 * (8 * (v9 >> 3) + 8 - v9);
-    dword_1C0336028 = 16 * (8 * (v10 >> 3) + 8 - v10);
-    dword_1C0336024 = 16 * (8 * v12 + 8 - v11);
-    dword_1C0336020 = dword_1C0336018 * dword_1C0336018
-                    + (v11 - 8 * v12 - 4) * (v11 - 8 * v12 - 4)
-                    + dword_1C033601C * dword_1C033601C;
-    v13 = v12 + 32 * (v10 >> 3) + (unsigned __int64)(v9 >> 3 << 10);
-    qword_1C0336040 = (__int64)&a4[v13];
-    qword_1C0336058 = (__int64)&a5[v13];
-    redloop();
-    ++v8;
+    do
+    {
+      v11 = *((unsigned __int8 *)a2 + 4 * v6);
+      v12 = *((unsigned __int8 *)a2 + 4 * v6 + 1);
+      v13 = *((unsigned __int8 *)a2 + 4 * v6 + 2);
+      v14 = v13 >> 3;
+      dword_1C033AE54 = v11 >> 3;
+      dword_1C033AE50 = v12 >> 3;
+      dword_1C033AE5C = v11 - 8 * (v11 >> 3) - 4;
+      dword_1C033AE4C = v14;
+      dword_1C033AE58 = v12 - 8 * (v12 >> 3) - 4;
+      dword_1C033AE6C = 16 * (8 * (v11 >> 3) + 8 - v11);
+      dword_1C033AE68 = 16 * (8 * (v12 >> 3) + 8 - v12);
+      dword_1C033AE60 = dword_1C033AE58 * dword_1C033AE58
+                      + (v13 - 8 * v14 - 4) * (v13 - 8 * v14 - 4)
+                      + dword_1C033AE5C * dword_1C033AE5C;
+      dword_1C033AE64 = 16 * (8 * v14 + 8 - v13);
+      v15 = v14 + 32 * (v12 >> 3) + (unsigned __int64)(v11 >> 3 << 10);
+      qword_1C033AE80 = (__int64)&a4[v15];
+      qword_1C033AE98 = (__int64)&a5[v15];
+      redloop();
+      dword_1C033AEB4 = ++v6;
+    }
+    while ( v6 < a1 );
   }
 }

@@ -1,12 +1,17 @@
 /*
- * XREFs of ?IsPrimaryMonitor@CDDisplayRenderTarget@@UEBA_NXZ @ 0x1801C5960
+ * XREFs of ?IsPrimaryMonitor@CDDisplayRenderTarget@@UEBA_NXZ @ 0x18016F870
  * Callers:
- *     <none>
+ *     ?Present@CDDisplayRenderTarget@@UEAAJ_N@Z @ 0x18018C380 (-Present@CDDisplayRenderTarget@@UEAAJ_N@Z.c)
  * Callees:
  *     <none>
  */
 
 bool __fastcall CDDisplayRenderTarget::IsPrimaryMonitor(CDDisplayRenderTarget *this)
 {
-  return *((float *)this + 4505) == 0.0 && *((float *)this + 4506) == 0.0;
+  bool result; // al
+
+  result = 0;
+  if ( !*((_DWORD *)this + 4532) )
+    return *((_DWORD *)this + 4533) == 0;
+  return result;
 }

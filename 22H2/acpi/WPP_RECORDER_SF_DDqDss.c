@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_DDqDss @ 0x1C005E1E8
+ * XREFs of WPP_RECORDER_SF_DDqDss @ 0x1C000F150
  * Callers:
- *     ProcessorpFindAffinitizedIdtEntries @ 0x1C009B1B8 (ProcessorpFindAffinitizedIdtEntries.c)
+ *     ProcessorpFindAffinitizedIdtEntries @ 0x1C0093160 (ProcessorpFindAffinitizedIdtEntries.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_DDqDss(
@@ -19,57 +19,57 @@ __int64 __fastcall WPP_RECORDER_SF_DDqDss(
         const char *a10,
         const char *a11)
 {
-  const char *v11; // rsi
-  __int64 v12; // rdi
+  __int64 v11; // rdi
+  __int64 v12; // rsi
   __int64 v13; // rbx
-  __int64 v15; // rdx
-  __int64 v16; // rdx
-  const char *v17; // r8
+  __int64 v15; // rax
+  __int64 v17; // rcx
   __int64 v18; // rcx
-  __int64 v19; // rcx
-  const char *v20; // rax
-  __int64 v21; // rax
+  const char *v19; // r8
+  __int64 v20; // rdx
+  __int64 v21; // rdx
+  const char *v22; // rax
   int v23; // [rsp+20h] [rbp-88h]
 
-  v11 = a10;
-  v12 = (__int64)a11;
+  v11 = (__int64)a11;
+  v12 = (__int64)a10;
   v13 = -1LL;
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80000) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
   {
     if ( a11 )
     {
-      v15 = -1LL;
+      v17 = -1LL;
       do
-        ++v15;
-      while ( a11[v15] );
-      v16 = v15 + 1;
+        ++v17;
+      while ( a11[v17] );
+      v18 = v17 + 1;
     }
     else
     {
-      v16 = 5LL;
+      v18 = 5LL;
     }
-    v17 = a11;
+    v19 = a11;
     if ( !a11 )
-      v17 = "NULL";
+      v19 = "NULL";
     if ( a10 )
     {
-      v18 = -1LL;
+      v20 = -1LL;
       do
-        ++v18;
-      while ( a10[v18] );
-      v19 = v18 + 1;
+        ++v20;
+      while ( a10[v20] );
+      v21 = v20 + 1;
     }
     else
     {
-      v19 = 5LL;
+      v21 = 5LL;
     }
-    v20 = a10;
+    v22 = a10;
     if ( !a10 )
-      v20 = "NULL";
+      v22 = "NULL";
     ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, char *, __int64, char *, __int64, char *, __int64, char *, __int64, const char *, __int64, const char *, __int64, _QWORD))pfnWppTraceMessage)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_8676c2cce616384aea43def24ed881e9_Traceguids,
+      &WPP_3a81a75478543d9133d658d0ebd9234d_Traceguids,
       11LL,
       &a6,
       4LL,
@@ -79,41 +79,25 @@ __int64 __fastcall WPP_RECORDER_SF_DDqDss(
       8LL,
       &a9,
       4LL,
-      v20,
+      v22,
+      v21,
       v19,
-      v17,
-      v16,
+      v18,
       0LL);
-  }
-  if ( v12 )
-  {
-    v21 = -1LL;
-    do
-      ++v21;
-    while ( *(_BYTE *)(v12 + v21) );
   }
   if ( v11 )
   {
+    v15 = -1LL;
+    do
+      ++v15;
+    while ( *(_BYTE *)(v11 + v15) );
+  }
+  if ( v12 )
+  {
     do
       ++v13;
-    while ( v11[v13] );
+    while ( *(_BYTE *)(v12 + v13) );
   }
-  if ( !v11 )
-    v11 = "NULL";
   LOWORD(v23) = 11;
-  return WppAutoLogTrace(
-           a1,
-           4LL,
-           20LL,
-           &WPP_8676c2cce616384aea43def24ed881e9_Traceguids,
-           v23,
-           &a6,
-           4LL,
-           &a7,
-           4LL,
-           &a8,
-           8LL,
-           &a9,
-           4LL,
-           v11);
+  return WppAutoLogTrace(a1, 4LL, 20LL, &WPP_3a81a75478543d9133d658d0ebd9234d_Traceguids, v23, &a6, 4LL, &a7);
 }

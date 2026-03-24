@@ -1,246 +1,323 @@
 /*
- * XREFs of ?DmmRemovePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IE@Z @ 0x1C039CA5C
+ * XREFs of ?DmmRemovePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IE@Z @ 0x1C02DE764
  * Callers:
- *     ?DxgkCddDisable@@YAJIII@Z @ 0x1C01C1110 (-DxgkCddDisable@@YAJIII@Z.c)
+ *     ?DxgkCddDisable@@YAJIII@Z @ 0x1C00E1F50 (-DxgkCddDisable@@YAJIII@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C000F13C (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?reset@?$auto_rc@VDMMVIDPN@@@@QEAAXPEAVDMMVIDPN@@@Z @ 0x1C000FBD8 (-reset@-$auto_rc@VDMMVIDPN@@@@QEAAXPEAVDMMVIDPN@@@Z.c)
- *     ?PinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C00109BC (-PinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z.c)
- *     ?UnpinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJXZ @ 0x1C0010B6C (-UnpinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJXZ.c)
- *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C0010B98 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?GetPrimaryPath@ADAPTER_DISPLAY@@QEBAXPEAI0PEAW4_DXGK_PRIMARY_TARGET_TYPE@@@Z @ 0x1C0046CB0 (-GetPrimaryPath@ADAPTER_DISPLAY@@QEBAXPEAI0PEAW4_DXGK_PRIMARY_TARGET_TYPE@@@Z.c)
- *     ?CreateClientVidPnFromLastClientCommitedVidPn@VIDPN_MGR@@QEAAJPEAV?$auto_rc@VDMMVIDPN@@@@@Z @ 0x1C01A62D4 (-CreateClientVidPnFromLastClientCommitedVidPn@VIDPN_MGR@@QEAAJPEAV-$auto_rc@VDMMVIDPN@@@@@Z.c)
- *     ??0ApplyPermissionWithinThisScope@@IEAA@QEAVProtectableFromChange@@EW4ActionPermission_T@1@E_KE@Z @ 0x1C01A80EC (--0ApplyPermissionWithinThisScope@@IEAA@QEAVProtectableFromChange@@EW4ActionPermission_T@1@E_KE@.c)
- *     ??1ApplyPermissionWithinThisScope@@IEAA@XZ @ 0x1C01A8214 (--1ApplyPermissionWithinThisScope@@IEAA@XZ.c)
- *     ?EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z @ 0x1C01AA388 (-EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z.c)
- *     ?RemovePath@DMMVIDPNTOPOLOGY@@QEAAJIIPEAPEAVDMMVIDPNPRESENTPATH@@@Z @ 0x1C01B0B38 (-RemovePath@DMMVIDPNTOPOLOGY@@QEAAJIIPEAPEAVDMMVIDPNPRESENTPATH@@@Z.c)
- *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C01B85D0 (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
- *     ?SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z @ 0x1C01C69E4 (-SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z.c)
- *     ?DestroyCddAllocations@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@I@Z @ 0x1C01C77B4 (-DestroyCddAllocations@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@I@Z.c)
- *     ?CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z @ 0x1C01E3518 (-CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?PinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C0005D64 (-PinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z.c)
+ *     ?UnpinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJXZ @ 0x1C0007EB4 (-UnpinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJXZ.c)
+ *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C0007EE0 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00081AC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?reset@?$auto_rc@VDMMVIDPN@@@@QEAAXPEAVDMMVIDPN@@@Z @ 0x1C00085F4 (-reset@-$auto_rc@VDMMVIDPN@@@@QEAAXPEAVDMMVIDPN@@@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?GetPrimaryPath@ADAPTER_DISPLAY@@QEBAXPEAI0PEAW4_DXGK_PRIMARY_TARGET_TYPE@@@Z @ 0x1C001A4C0 (-GetPrimaryPath@ADAPTER_DISPLAY@@QEBAXPEAI0PEAW4_DXGK_PRIMARY_TARGET_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ??0ApplyPermissionWithinThisScope@@IEAA@QEAVProtectableFromChange@@EW4ActionPermission_T@1@E_KE@Z @ 0x1C01115B0 (--0ApplyPermissionWithinThisScope@@IEAA@QEAVProtectableFromChange@@EW4ActionPermission_T@1@E_KE@.c)
+ *     ??1ApplyPermissionWithinThisScope@@IEAA@XZ @ 0x1C01116D8 (--1ApplyPermissionWithinThisScope@@IEAA@XZ.c)
+ *     ?EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z @ 0x1C0124D74 (-EnumPathTargetsFromSource@DMMVIDPNTOPOLOGY@@QEBAJI_KPEAI@Z.c)
+ *     ?CreateClientVidPnFromLastClientCommitedVidPn@VIDPN_MGR@@QEAAJPEAV?$auto_rc@VDMMVIDPN@@@@@Z @ 0x1C0125B70 (-CreateClientVidPnFromLastClientCommitedVidPn@VIDPN_MGR@@QEAAJPEAV-$auto_rc@VDMMVIDPN@@@@@Z.c)
+ *     ?RemovePath@DMMVIDPNTOPOLOGY@@QEAAJIIPEAPEAVDMMVIDPNPRESENTPATH@@@Z @ 0x1C013BC8C (-RemovePath@DMMVIDPNTOPOLOGY@@QEAAJIIPEAPEAVDMMVIDPNPRESENTPATH@@@Z.c)
+ *     ?SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z @ 0x1C013F584 (-SetVidPnSourceVisibility@ADAPTER_DISPLAY@@QEAAJIEIE@Z.c)
+ *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C013FB1C (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
+ *     ?DestroyCddAllocations@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@I@Z @ 0x1C014BF2C (-DestroyCddAllocations@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@I@Z.c)
+ *     ?CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z @ 0x1C016A298 (-CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z.c)
  */
 
 __int64 __fastcall DmmRemovePathsFromVidPnSource(struct DXGDEVICE *a1, unsigned int a2, char a3)
 {
   __int64 v3; // rdi
   __int64 v5; // rsi
-  VIDPN_MGR *v6; // r13
-  __int64 v7; // r9
-  ADAPTER_DISPLAY *v8; // rcx
-  unsigned int v9; // eax
-  unsigned int v10; // r13d
-  char v11; // bl
-  unsigned int i; // r14d
-  int v13; // eax
-  unsigned int v14; // r14d
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  struct VIDPN_MGR *v9; // rbx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r9
+  __int64 v16; // rax
+  ADAPTER_DISPLAY *v17; // rcx
+  unsigned int v18; // eax
+  unsigned int v19; // ebx
+  char v20; // r13
+  unsigned int i; // r15d
+  int v22; // eax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  int v25; // r14d
+  __int64 v26; // rax
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // rax
+  __int64 v30; // rdx
+  __int64 v31; // rcx
   struct DMMVIDPNPRESENTPATH *Path; // r14
-  enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING v16; // eax
-  int v17; // eax
-  VIDPN_MGR *v18; // r13
-  bool v19; // zf
-  struct DMMVIDPN *v20; // rbx
-  int v21; // eax
-  ADAPTER_DISPLAY *v22; // rbx
-  int v23; // eax
+  __int64 v33; // rax
+  enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING v34; // eax
+  __int64 v35; // rax
+  __int64 v36; // rdx
+  __int64 v37; // rcx
+  __int64 v38; // rax
+  int v39; // eax
+  __int64 v40; // rdx
+  __int64 v41; // rcx
+  __int64 v42; // r13
+  _QWORD *v43; // rax
+  __int64 v44; // rdx
+  __int64 v45; // rcx
+  __int64 v46; // rax
+  struct DMMVIDPN *v47; // rbx
+  struct DXGDEVICE *v48; // r13
+  VIDPN_MGR *v49; // r15
+  int v50; // eax
+  __int64 v51; // rdx
+  __int64 v52; // rcx
+  __int64 v53; // r8
+  __int64 v54; // r14
+  _QWORD *v55; // rax
+  ADAPTER_DISPLAY *v56; // r14
+  int v57; // eax
   int ClientCommittedVidPnRef; // eax
-  __int64 v25; // rdx
-  __int64 v26; // rcx
-  __int64 v27; // r14
-  _QWORD *v28; // rax
-  int v29; // eax
-  __int64 v30; // r8
-  __int64 v31; // r8
-  int v32; // eax
-  __int64 v33; // rdx
-  __int64 v34; // rbx
-  __int64 v36; // [rsp+20h] [rbp-E0h]
-  _BYTE v37[4]; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned int v38; // [rsp+54h] [rbp-ACh] BYREF
-  unsigned int v39; // [rsp+58h] [rbp-A8h]
-  enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING v40; // [rsp+5Ch] [rbp-A4h] BYREF
-  unsigned int v41; // [rsp+60h] [rbp-A0h] BYREF
-  struct DMMVIDPN *v42; // [rsp+68h] [rbp-98h] BYREF
-  DMMVIDPNTOPOLOGY *v43; // [rsp+70h] [rbp-90h]
-  ADAPTER_DISPLAY *v44; // [rsp+78h] [rbp-88h]
-  struct DXGDEVICE *v45; // [rsp+80h] [rbp-80h]
-  _BYTE v46[8]; // [rsp+88h] [rbp-78h] BYREF
-  VIDPN_MGR *v47; // [rsp+90h] [rbp-70h]
-  __int64 v48; // [rsp+98h] [rbp-68h] BYREF
-  _BYTE v49[32]; // [rsp+A0h] [rbp-60h] BYREF
-  _DWORD v50[68]; // [rsp+C0h] [rbp-40h] BYREF
+  __int64 v59; // rdx
+  __int64 v60; // rcx
+  __int64 v61; // r8
+  __int64 v62; // r9
+  __int64 v63; // r14
+  _QWORD *v64; // rax
+  int v65; // eax
+  __int64 v66; // rdx
+  __int64 v67; // rcx
+  __int64 v68; // rbx
+  _QWORD *v69; // rax
+  __int64 v70; // r8
+  __int64 v71; // r8
+  int v72; // eax
+  __int64 v73; // rdx
+  __int64 v74; // rcx
+  __int64 v75; // r8
+  __int64 v76; // r9
+  __int64 v77; // rbx
+  _QWORD *v78; // rax
+  __int64 v79; // rdx
+  __int64 v81; // [rsp+20h] [rbp-E0h]
+  _BYTE v82[4]; // [rsp+50h] [rbp-B0h] BYREF
+  enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING v83; // [rsp+54h] [rbp-ACh] BYREF
+  unsigned int v84; // [rsp+58h] [rbp-A8h] BYREF
+  unsigned int v85; // [rsp+5Ch] [rbp-A4h] BYREF
+  struct DMMVIDPN *v86; // [rsp+60h] [rbp-A0h] BYREF
+  DMMVIDPNTOPOLOGY *v87; // [rsp+68h] [rbp-98h]
+  ADAPTER_DISPLAY *v88; // [rsp+70h] [rbp-90h]
+  VIDPN_MGR *v89; // [rsp+78h] [rbp-88h]
+  struct DXGDEVICE *v90; // [rsp+80h] [rbp-80h]
+  _BYTE v91[8]; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v92; // [rsp+90h] [rbp-70h] BYREF
+  _BYTE v93[24]; // [rsp+98h] [rbp-68h] BYREF
+  _DWORD v94[64]; // [rsp+B0h] [rbp-50h] BYREF
 
   v3 = *((_QWORD *)a1 + 231);
-  v45 = a1;
+  v90 = a1;
   v5 = a2;
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner((PERESOURCE *)v3) )
-    WdLogSingleEntry0(1LL);
-  v44 = *(ADAPTER_DISPLAY **)(v3 + 2792);
-  v47 = (VIDPN_MGR *)*((_QWORD *)v44 + 13);
-  v6 = v47;
-  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v48, (__int64)v47);
-  WdLogSingleEntry2(7LL, v5, v47);
-  v42 = 0LL;
-  if ( (int)VIDPN_MGR::CreateClientVidPnFromLastClientCommitedVidPn(v47, (__int64 *)&v42) < 0 )
   {
-    WdLogSingleEntry1(2LL, v6);
-    goto LABEL_49;
+    v8 = WdLogNewEntry5_WdAssertion(v7, v6);
+    WdLogEvent5_WdAssertion(v8);
   }
-  v43 = (struct DMMVIDPN *)((char *)v42 + 96);
+  v88 = *(ADAPTER_DISPLAY **)(v3 + 2696);
+  v89 = (VIDPN_MGR *)*((_QWORD *)v88 + 11);
+  v9 = v89;
+  EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v92, (__int64)v89);
+  v12 = WdLogNewEntry5_WdDmmEvent(v11, v10);
+  *(_QWORD *)(v12 + 24) = v5;
+  *(_QWORD *)(v12 + 32) = v9;
+  WdLogEvent5_WdDmmEvent(v12);
+  v86 = 0LL;
+  if ( (int)VIDPN_MGR::CreateClientVidPnFromLastClientCommitedVidPn(v9, (__int64 *)&v86) < 0 )
+  {
+    v16 = WdLogNewEntry5_WdError(v14, v13);
+    *(_QWORD *)(v16 + 24) = v9;
+    WdLogEvent5_WdError(v16);
+    goto LABEL_50;
+  }
+  v87 = (struct DMMVIDPN *)((char *)v86 + 96);
   ApplyPermissionWithinThisScope::ApplyPermissionWithinThisScope(
-    (__int64)v49,
-    (__int64)v42 + 152,
+    (__int64)v93,
+    ((unsigned __int64)v86 + 152) & -(__int64)((struct DMMVIDPN *)((char *)v86 + 96) != 0LL),
     2u,
-    v7,
-    v36,
-    *((_QWORD *)v42 + 17));
-  v38 = -1;
+    v15,
+    v81,
+    *((_QWORD *)v86 + 17));
+  v84 = -1;
   if ( a3 )
   {
-    v8 = *(ADAPTER_DISPLAY **)(v3 + 2792);
-    v41 = 0;
-    ADAPTER_DISPLAY::GetPrimaryPath(v8, &v41, &v38, (enum _DXGK_PRIMARY_TARGET_TYPE *)v46);
-    v9 = v38;
-    if ( v41 != (_DWORD)v5 )
-      v9 = -1;
-    v38 = v9;
+    v17 = *(ADAPTER_DISPLAY **)(v3 + 2696);
+    v85 = 0;
+    ADAPTER_DISPLAY::GetPrimaryPath(v17, &v85, &v84, (enum _DXGK_PRIMARY_TARGET_TYPE *)v91);
+    v18 = v84;
+    if ( v85 != (_DWORD)v5 )
+      v18 = -1;
+    v84 = v18;
   }
-  v10 = v38;
-  v11 = 0;
-  for ( i = 0; ; i = v14 + 1 )
+  v19 = v84;
+  v20 = 0;
+  for ( i = 0; ; ++i )
   {
-    v39 = i;
-    v40 = -1;
-    v13 = DMMVIDPNTOPOLOGY::EnumPathTargetsFromSource((DMMVIDPNTOPOLOGY **)v43, v5, i, (unsigned int *)&v40);
-    if ( v13 < 0 )
+    v83 = -1;
+    v22 = DMMVIDPNTOPOLOGY::EnumPathTargetsFromSource((char **)v87, (unsigned int)v5, i, (unsigned int *)&v83);
+    v25 = v22;
+    if ( v22 < 0 )
     {
-      if ( v13 == -1071774919 )
+      if ( v22 == -1071774919 )
         break;
-      WdLogSingleEntry0(1LL);
+      v26 = WdLogNewEntry5_WdAssertion(v24, v23);
+      WdLogEvent5_WdAssertion(v26);
     }
-    if ( v40 == -1 )
+    if ( v25 == -1071774919 || v83 == -1 )
       break;
-    if ( v40 == v10 )
+    if ( v83 == v19 )
     {
-      Path = DMMVIDPNTOPOLOGY::FindPath(v43, v5, v40);
+      Path = DMMVIDPNTOPOLOGY::FindPath(v87, v5, v83);
       if ( !Path )
-        WdLogSingleEntry0(1LL);
-      v16 = *((_DWORD *)Path + 28);
-      v40 = v16;
-      if ( v16 == D3DKMDT_VPPS_UNPINNED )
       {
-        WdLogSingleEntry1(1LL, 13930LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"ScalingMode != D3DKMDT_VPPS_UNPINNED",
-          13930LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-LABEL_23:
-        if ( (*((_DWORD *)Path + 30) & 4) != 0 )
+        v33 = WdLogNewEntry5_WdAssertion(v31, v30);
+        WdLogEvent5_WdAssertion(v33);
+      }
+      v34 = *((_DWORD *)Path + 28);
+      v83 = v34;
+      if ( v34 == D3DKMDT_VPPS_UNPINNED )
+      {
+        v35 = WdLogNewEntry5_WdAssertion(v31, v30);
+        *(_QWORD *)(v35 + 24) = 13670LL;
+        WdLogEvent5_WdAssertion(v35);
+        v34 = v83;
+      }
+      if ( ((v34 - 1) & 0xFFFFFFFD) != 0 && (*((_DWORD *)Path + 30) & 4) != 0 )
+      {
+        if ( (int)DMMVIDPNPRESENTPATH::UnpinContentScaling(Path) < 0 )
         {
-          if ( (int)DMMVIDPNPRESENTPATH::UnpinContentScaling(Path) < 0 )
-            WdLogSingleEntry0(1LL);
-          v17 = DMMVIDPNPRESENTPATH::PinContentScaling(Path, D3DKMDT_VPPS_STRETCHED);
-          if ( v17 < 0 )
-          {
-            WdLogSingleEntry3(2LL, v5, v3, v17);
-            if ( (int)DMMVIDPNPRESENTPATH::PinContentScaling(Path, v40) < 0 )
-              WdLogSingleEntry0(1LL);
-          }
-          v11 = 1;
+          v38 = WdLogNewEntry5_WdAssertion(v37, v36);
+          WdLogEvent5_WdAssertion(v38);
         }
+        v39 = DMMVIDPNPRESENTPATH::PinContentScaling(Path, 3LL);
+        v42 = v39;
+        if ( v39 < 0 )
+        {
+          v43 = (_QWORD *)WdLogNewEntry5_WdError(v41, v40);
+          v43[3] = v5;
+          v43[4] = v3;
+          v43[5] = v42;
+          WdLogEvent5_WdError(v43);
+          if ( (int)DMMVIDPNPRESENTPATH::PinContentScaling(Path, (unsigned int)v83) < 0 )
+          {
+            v46 = WdLogNewEntry5_WdAssertion(v45, v44);
+            WdLogEvent5_WdAssertion(v46);
+          }
+        }
+        v20 = 1;
       }
-      else if ( ((v16 - 1) & 0xFFFFFFFD) != 0 )
-      {
-        goto LABEL_23;
-      }
-      v14 = v39;
-      continue;
     }
-    if ( (int)DMMVIDPNTOPOLOGY::RemovePath(v43, v5, v40, 0LL) < 0 )
-      WdLogSingleEntry0(1LL);
-    v11 = 1;
-    v14 = i - 1;
+    else
+    {
+      if ( (int)DMMVIDPNTOPOLOGY::RemovePath(v87, (unsigned int)v5, v83, 0LL) < 0 )
+      {
+        v29 = WdLogNewEntry5_WdAssertion(v28, v27);
+        WdLogEvent5_WdAssertion(v29);
+      }
+      v20 = 1;
+      --i;
+    }
   }
-  v18 = v47;
-  v19 = v11 == 0;
-  v20 = v42;
-  if ( v19 )
-    goto LABEL_38;
-  memset(v50, 0, 0x104uLL);
-  v37[0] = 0;
-  v21 = VIDPN_MGR::SetTimingsFromVidPn(v47, 0, 1u, v42, (struct D3DKMT_VIDPN_SOURCE_MASKS *)v50, v37, 0, v45, 0LL);
-  if ( v21 < 0 )
+  v47 = v86;
+  if ( !v20 )
   {
-    WdLogSingleEntry2(3LL, v20, v21);
-    goto LABEL_35;
+    v49 = v89;
+    v48 = v90;
+    goto LABEL_39;
   }
-  v23 = v50[21];
-  if ( !_bittest(&v23, v5) )
+  memset(v94, 0, sizeof(v94));
+  v48 = v90;
+  v49 = v89;
+  v82[0] = 0;
+  v50 = VIDPN_MGR::SetTimingsFromVidPn(
+          v89,
+          0LL,
+          1u,
+          (__int64)v86,
+          (struct D3DKMT_VIDPN_SOURCE_MASKS *)v94,
+          v82,
+          0,
+          v90,
+          0LL);
+  v54 = v50;
+  if ( v50 >= 0 )
   {
-LABEL_38:
-    ClientCommittedVidPnRef = VIDPN_MGR::CacheLastClientCommittedVidPnRef(v18, v20);
-    v27 = ClientCommittedVidPnRef;
+    v57 = v94[20];
+    if ( _bittest(&v57, v5) )
+    {
+      v55 = (_QWORD *)WdLogNewEntry5_WdWarning(v52, v51, v53);
+      v55[4] = v5;
+      v55[5] = -1071774970LL;
+      goto LABEL_35;
+    }
+LABEL_39:
+    ClientCommittedVidPnRef = VIDPN_MGR::CacheLastClientCommittedVidPnRef(v49, v47);
+    v63 = ClientCommittedVidPnRef;
     if ( ClientCommittedVidPnRef < 0 )
     {
-      v28 = (_QWORD *)WdLogNewEntry5_WdTrace(v26, v25);
-      v28[3] = v20;
-      v28[4] = v3;
-      v28[5] = v27;
+      v64 = (_QWORD *)WdLogNewEntry5_WdTrace(v60, v59, v61, v62);
+      v64[3] = v47;
+      v64[4] = v3;
+      v64[5] = v63;
     }
-    v22 = v44;
-    v29 = ADAPTER_DISPLAY::DestroyCddAllocations(v44, v45, v5);
-    if ( v29 < 0 )
-      WdLogSingleEntry3(2LL, v5, v3, v29);
+    v56 = v88;
+    v65 = ADAPTER_DISPLAY::DestroyCddAllocations((PERESOURCE **)v88, v48, v5);
+    v68 = v65;
+    if ( v65 < 0 )
+    {
+      v69 = (_QWORD *)WdLogNewEntry5_WdError(v67, v66);
+      v69[3] = v5;
+      v69[4] = v3;
+      v69[5] = v68;
+      WdLogEvent5_WdError(v69);
+    }
+    goto LABEL_43;
   }
-  else
-  {
-    WdLogSingleEntry3(3LL, v20, v5, -1071774970LL);
+  v55 = (_QWORD *)WdLogNewEntry5_WdWarning(v52, v51, v53);
+  v55[4] = v54;
 LABEL_35:
-    v22 = v44;
-  }
-  v30 = *(_QWORD *)(v3 + 2800);
-  if ( v30 )
+  v55[3] = v47;
+  WdLogEvent5_WdWarning(v55);
+  v56 = v88;
+LABEL_43:
+  v70 = *(_QWORD *)(v3 + 2704);
+  if ( v70 )
   {
-    (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(v30 + 624) + 8LL) + 880LL))(
-      *(_QWORD *)(v30 + 632),
+    (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(v70 + 616) + 8LL) + 880LL))(
+      *(_QWORD *)(v70 + 624),
       (unsigned int)v5);
   }
   else
   {
-    v31 = *((_QWORD *)v22 + 56);
-    if ( v31 )
-      _InterlockedExchange((volatile __int32 *)(2920 * v5 + *(_QWORD *)(v31 + 8) + 960), 0);
+    v71 = *((_QWORD *)v56 + 49);
+    if ( v71 )
+      _InterlockedExchange((volatile __int32 *)(2904 * v5 + *(_QWORD *)(v71 + 8) + 944), 0);
   }
-  v32 = ADAPTER_DISPLAY::SetVidPnSourceVisibility(v22, v5, 0, 256, 0);
-  if ( v32 < 0 )
+  v72 = ADAPTER_DISPLAY::SetVidPnSourceVisibility(v56, (unsigned int)v5, 0, 256, 0);
+  v77 = v72;
+  if ( v72 < 0 )
   {
-    v34 = v32;
-    WdLogSingleEntry3(2LL, v5, v3, v32);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to reset VidPn source visibility on VidPn source 0x%I64x on adapter 0x%I64x (Status = 0x%I64x).",
-      v5,
-      v3,
-      v34,
-      0LL,
-      0LL);
+    v78 = (_QWORD *)WdLogNewEntry5_WdError(v74, v73);
+    v78[3] = v5;
+    v78[4] = v3;
+    v78[5] = v77;
+    WdLogEvent5_WdError(v78);
   }
-  ApplyPermissionWithinThisScope::~ApplyPermissionWithinThisScope((ApplyPermissionWithinThisScope *)v49, v33);
-LABEL_49:
-  auto_rc<DMMVIDPN>::reset((__int64 *)&v42, 0LL);
-  DXGFASTMUTEX::Release((struct _KTHREAD **)(v48 + 40));
+  ApplyPermissionWithinThisScope::~ApplyPermissionWithinThisScope((ApplyPermissionWithinThisScope *)v93, v73, v75, v76);
+LABEL_50:
+  auto_rc<DMMVIDPN>::reset((__int64 *)&v86, 0LL);
+  DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v92 + 40), v79);
   return 0LL;
 }

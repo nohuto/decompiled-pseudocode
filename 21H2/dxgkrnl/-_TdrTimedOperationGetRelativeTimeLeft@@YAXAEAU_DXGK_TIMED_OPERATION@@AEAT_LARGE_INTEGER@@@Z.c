@@ -1,8 +1,8 @@
 /*
- * XREFs of ?_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z @ 0x1C00526A4
+ * XREFs of ?_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z @ 0x1C00451B4
  * Callers:
- *     TdrTimedOperationDelay @ 0x1C00528F0 (TdrTimedOperationDelay.c)
- *     TdrTimedOperationWaitForSingleObject @ 0x1C0307060 (TdrTimedOperationWaitForSingleObject.c)
+ *     TdrTimedOperationDelay @ 0x1C0045400 (TdrTimedOperationDelay.c)
+ *     TdrTimedOperationWaitForSingleObject @ 0x1C0266790 (TdrTimedOperationWaitForSingleObject.c)
  * Callees:
  *     <none>
  */

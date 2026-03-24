@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Dispose@FxDmaEnabler@@UEAAEXZ @ 0x1C00554E0
+ * XREFs of ?Dispose@FxDmaEnabler@@UEAAEXZ @ 0x1C0031DA0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?ReleaseResources@FxDmaEnabler@@AEAAXXZ @ 0x1C005562C (-ReleaseResources@FxDmaEnabler@@AEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseResources@FxDmaEnabler@@AEAAXXZ @ 0x1C003258C (-ReleaseResources@FxDmaEnabler@@AEAAXXZ.c)
  */
 
 unsigned __int8 __fastcall FxDmaEnabler::Dispose(FxDmaEnabler *this)

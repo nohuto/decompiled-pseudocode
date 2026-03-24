@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerMeasureAllProcessorFrequencies @ 0x14050F964
+ * XREFs of HalpTimerMeasureAllProcessorFrequencies @ 0x1404C3544
  * Callers:
- *     HalpTimerInitSystem @ 0x1403BB0A0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403A85B0 (HalpTimerInitSystem.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     KeIpiGenericCall @ 0x1403B4600 (KeIpiGenericCall.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     KeIpiGenericCall @ 0x1403A4B20 (KeIpiGenericCall.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 ULONG_PTR HalpTimerMeasureAllProcessorFrequencies()

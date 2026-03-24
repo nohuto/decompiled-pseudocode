@@ -1,5 +1,5 @@
 /*
- * XREFs of NtSaveMergedKeys @ 0x1407EA980
+ * XREFs of NtSaveMergedKeys @ 0x1407EA960
  * Callers:
  *     <none>
  * Callees:
@@ -7,19 +7,19 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwSaveMergedKeys @ 0x1401BB110 (ZwSaveMergedKeys.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwSaveMergedKeys @ 0x1401BB130 (ZwSaveMergedKeys.c)
  *     CmConvertHandleToKernelHandle @ 0x1405B77C0 (CmConvertHandleToKernelHandle.c)
  *     CmCheckNoTxContext @ 0x1405B7B6C (CmCheckNoTxContext.c)
  *     CmObReferenceObjectByHandle @ 0x1405CD4CC (CmObReferenceObjectByHandle.c)
  *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     CmSaveMergedKeys @ 0x14080231C (CmSaveMergedKeys.c)
- *     IoConvertFileHandleToKernelHandle @ 0x14081C020 (IoConvertFileHandleToKernelHandle.c)
+ *     CmSaveMergedKeys @ 0x1408022FC (CmSaveMergedKeys.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x14081C000 (IoConvertFileHandleToKernelHandle.c)
  */
 
 NTSTATUS __stdcall NtSaveMergedKeys(HANDLE HighPrecedenceKeyHandle, HANDLE LowPrecedenceKeyHandle, HANDLE FileHandle)

@@ -1,28 +1,29 @@
 /*
- * XREFs of MiMakeTransitionPte @ 0x1402E4D28
+ * XREFs of MiMakeTransitionPte @ 0x14032E9B0
  * Callers:
- *     MmOutSwapProcess @ 0x140211108 (MmOutSwapProcess.c)
- *     MiConvertStandbyToProto @ 0x140227490 (MiConvertStandbyToProto.c)
- *     MiExclusiveInsertPfnChainInList @ 0x14022DBD4 (MiExclusiveInsertPfnChainInList.c)
- *     MiMakeVaRangeNoAccess @ 0x14024D7F4 (MiMakeVaRangeNoAccess.c)
- *     MiOutPageSingleKernelStack @ 0x1402704A0 (MiOutPageSingleKernelStack.c)
- *     MiTrimSystemImagePages @ 0x1402D92AC (MiTrimSystemImagePages.c)
- *     MiInitializeTransitionPfn @ 0x1402E4724 (MiInitializeTransitionPfn.c)
- *     MiCreateDecayPfn @ 0x1402E48A0 (MiCreateDecayPfn.c)
- *     MiDecayNodeNowEmpty @ 0x1402E4BF0 (MiDecayNodeNowEmpty.c)
- *     MiCompletePrivateZeroFault @ 0x140321F70 (MiCompletePrivateZeroFault.c)
- *     MiSharedInsertPfnChainInList @ 0x140338DB0 (MiSharedInsertPfnChainInList.c)
- *     MmProtectPool @ 0x140367190 (MmProtectPool.c)
- *     MiUnlinkProtectedStandbyPfn @ 0x14038EF10 (MiUnlinkProtectedStandbyPfn.c)
- *     MiInitializeNewPfns @ 0x1403B790C (MiInitializeNewPfns.c)
- *     MiMakeOutswappedPageResident @ 0x1405803C8 (MiMakeOutswappedPageResident.c)
- *     MmProtectMdlSystemAddress @ 0x140585D50 (MmProtectMdlSystemAddress.c)
- *     MiSwitchToTransition @ 0x1405954F4 (MiSwitchToTransition.c)
- *     MmMapHotPatchTablePage @ 0x1405A3E3C (MmMapHotPatchTablePage.c)
- *     MiProtectAweRegion @ 0x1405ABD20 (MiProtectAweRegion.c)
- *     MiBuildForkPageTable @ 0x1405B85F8 (MiBuildForkPageTable.c)
- *     MiDuplicateCloneLeaf @ 0x1405BA864 (MiDuplicateCloneLeaf.c)
- *     MmFreeLoaderBlock @ 0x140B190F0 (MmFreeLoaderBlock.c)
+ *     MiCompletePrivateZeroFault @ 0x140210850 (MiCompletePrivateZeroFault.c)
+ *     MmOutSwapProcess @ 0x14024A494 (MmOutSwapProcess.c)
+ *     MiInitializeTransitionPfn @ 0x14026E22C (MiInitializeTransitionPfn.c)
+ *     MiDeleteParentDecayNode @ 0x1402AB77C (MiDeleteParentDecayNode.c)
+ *     MiCreateDecayPfn @ 0x1402AECD8 (MiCreateDecayPfn.c)
+ *     MiTrimSystemImagePages @ 0x1402BE540 (MiTrimSystemImagePages.c)
+ *     MiMakeVaRangeNoAccess @ 0x1402C8854 (MiMakeVaRangeNoAccess.c)
+ *     MiOutPageSingleKernelStack @ 0x1402D5A60 (MiOutPageSingleKernelStack.c)
+ *     MiInsertProtectedStandbyPage @ 0x140329470 (MiInsertProtectedStandbyPage.c)
+ *     MiDecrementAndInsertStandbyPages @ 0x14032C3E0 (MiDecrementAndInsertStandbyPages.c)
+ *     MmProtectPool @ 0x140362D68 (MmProtectPool.c)
+ *     MiConvertStandbyToProto @ 0x140366F78 (MiConvertStandbyToProto.c)
+ *     MiInitializeUnusablePfns @ 0x1403B0FE0 (MiInitializeUnusablePfns.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BAC0 (MiMakeOutswappedPageResident.c)
+ *     MmProtectMdlSystemAddress @ 0x1405321B0 (MmProtectMdlSystemAddress.c)
+ *     MiSwitchToTransition @ 0x140539F14 (MiSwitchToTransition.c)
+ *     MiClearDriverHotPatchPtes @ 0x14053E428 (MiClearDriverHotPatchPtes.c)
+ *     MmMapHotPatchTablePage @ 0x14053F4B0 (MmMapHotPatchTablePage.c)
+ *     MiProtectAweRegion @ 0x14054D364 (MiProtectAweRegion.c)
+ *     MiBuildForkPageTable @ 0x140557FCC (MiBuildForkPageTable.c)
+ *     MiDuplicateCloneLeaf @ 0x14055A234 (MiDuplicateCloneLeaf.c)
+ *     MiMakeProtoTransition @ 0x14055C768 (MiMakeProtoTransition.c)
+ *     MmFreeLoaderBlock @ 0x140A4C7D0 (MmFreeLoaderBlock.c)
  * Callees:
  *     <none>
  */
@@ -31,13 +32,12 @@ __int64 __fastcall MiMakeTransitionPte(__int64 a1, char a2)
 {
   __int64 v2; // rcx
 
-  v2 = 32 * (a2 & 0x1F | ((a1 & 0xFFFFFFFFFFLL) << 7) | 0x40);
-  if ( qword_140C50780 )
+  v2 = 32 * (a2 & 0x1F | ((a1 & 0xFFFFFFFFFLL) << 7) | 0x40);
+  if ( qword_140C4DF40 )
   {
-    if ( (qword_140C50780 & v2) != 0 )
-      return v2 | 0x10;
-    else
-      return qword_140C50780 | v2;
+    if ( (qword_140C4DF40 & v2) == 0 )
+      return v2 | qword_140C4DF40;
+    return v2 | 0x10;
   }
   return v2;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of imp_WdfRequestStopAcknowledge @ 0x1C000F170
+ * XREFs of imp_WdfRequestStopAcknowledge @ 0x1C0019F50
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0005610 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
- *     ?Vf_VerifyStopAcknowledge@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00C7BD8 (-Vf_VerifyStopAcknowledge@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?Vf_VerifyStopAcknowledge@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00C6AE8 (-Vf_VerifyStopAcknowledge@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
  */
 
 void __fastcall imp_WdfRequestStopAcknowledge(
@@ -14,12 +14,21 @@ void __fastcall imp_WdfRequestStopAcknowledge(
 {
   FxRequest *v4; // rbx
   _FX_DRIVER_GLOBALS *m_Globals; // rdx
+  int v6; // eax
   FxRequest *pRequest; // [rsp+30h] [rbp+8h] BYREF
 
   pRequest = 0LL;
-  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], (unsigned __int64)Request, 0x1008u, (void **)&pRequest);
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Request,
+    0x1008u,
+    (void **)&pRequest);
   v4 = pRequest;
   m_Globals = pRequest->m_Globals;
-  if ( !m_Globals->FxVerifierOn || FxRequest::Vf_VerifyStopAcknowledge(pRequest, m_Globals, Requeue) >= 0 )
+  if ( m_Globals->FxVerifierOn )
+    v6 = FxRequest::Vf_VerifyStopAcknowledge(pRequest, m_Globals, Requeue);
+  else
+    v6 = 0;
+  if ( v6 >= 0 )
     v4->m_PowerStopState = (Requeue != 0) + 1;
 }

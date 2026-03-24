@@ -1,58 +1,48 @@
 /*
- * XREFs of CmpVEExecuteOpenLogic @ 0x1407C64A0
+ * XREFs of CmpVEExecuteOpenLogic @ 0x140654F90
  * Callers:
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     CmpFindPathByNameEx @ 0x140657398 (CmpFindPathByNameEx.c)
- *     CmpIsSystemEntity @ 0x1406B67A0 (CmpIsSystemEntity.c)
- *     HvpGetCellFlat @ 0x1406BF400 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1406BF450 (HvpReleaseCellFlat.c)
- *     CmpIsKeyDeleted @ 0x14071A6D4 (CmpIsKeyDeleted.c)
- *     CmpUnblockHiveWrites @ 0x14071A730 (CmpUnblockHiveWrites.c)
- *     CmpBlockHiveWrites @ 0x14071B99C (CmpBlockHiveWrites.c)
- *     HvpMarkCellDirty @ 0x14071F300 (HvpMarkCellDirty.c)
- *     CmpLockKcbExclusive @ 0x1407C0854 (CmpLockKcbExclusive.c)
- *     HvpReleaseCellPaged @ 0x1407C97C0 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1407C97FC (HvpGetCellContextReinitialize.c)
- *     HvpGetCellPaged @ 0x1407C9820 (HvpGetCellPaged.c)
- *     CmVirtualKCBToRealPath @ 0x140916454 (CmVirtualKCBToRealPath.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     CmpUnlockKcb @ 0x140AB4300 (CmpUnlockKcb.c)
- *     CmpAttachToRegistryProcess @ 0x140AB4550 (CmpAttachToRegistryProcess.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpFindPathByNameEx @ 0x1405CC874 (CmpFindPathByNameEx.c)
+ *     CmpLockKcbExclusive @ 0x1405EC35C (CmpLockKcbExclusive.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     CmpIsSystemEntity @ 0x140656AF0 (CmpIsSystemEntity.c)
+ *     CmpUnblockHiveWrites @ 0x14066FDA8 (CmpUnblockHiveWrites.c)
+ *     CmpBlockHiveWrites @ 0x14066FE50 (CmpBlockHiveWrites.c)
+ *     CmpIsKeyDeleted @ 0x140670F30 (CmpIsKeyDeleted.c)
+ *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
+ *     HvpMarkCellDirty @ 0x140708420 (HvpMarkCellDirty.c)
+ *     CmVirtualKCBToRealPath @ 0x14086FAD8 (CmVirtualKCBToRealPath.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall CmpVEExecuteOpenLogic(
-        __int64 a1,
-        _DWORD *a2,
-        char a3,
-        __int64 a4,
-        char a5,
-        struct _SECURITY_SUBJECT_CONTEXT *a6)
+__int64 __fastcall CmpVEExecuteOpenLogic(ULONG_PTR a1, _DWORD *a2, char a3, __int64 a4, unsigned __int8 a5, __int64 a6)
 {
   int v10; // ebx
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  _DWORD *v14; // r9
   char PathByName; // bl
-  void *v13; // rcx
-  ULONG_PTR v14; // rbp
-  __int64 CellFlat; // rax
-  __int64 v16; // r14
-  __int64 v17; // rcx
-  unsigned int v18; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v19; // [rsp+38h] [rbp-40h] BYREF
-  volatile signed __int32 *v20; // [rsp+40h] [rbp-38h] BYREF
-  ULONG_PTR v21; // [rsp+48h] [rbp-30h] BYREF
+  void *v16; // rcx
+  __int64 v17; // rbp
+  __int64 v18; // rbx
+  unsigned int v19; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v20; // [rsp+38h] [rbp-40h] BYREF
+  __int64 v21; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v22; // [rsp+48h] [rbp-30h] BYREF
   PVOID P[2]; // [rsp+50h] [rbp-28h] BYREF
 
-  v18 = 0;
+  v19 = 0;
+  v22 = 0LL;
   v21 = 0LL;
-  v19 = 0LL;
-  v20 = 0LL;
   *(_OWORD *)P = 0LL;
   RtlInitUnicodeString((PUNICODE_STRING)P, 0LL);
-  HvpGetCellContextReinitialize(&v19);
+  v20 = 0xFFFFFFFFLL;
   if ( CmpVEEnabled )
   {
     if ( (a2[6] & 0x10) != 0 )
@@ -67,7 +57,7 @@ __int64 __fastcall CmpVEExecuteOpenLogic(
     {
       if ( (*(_DWORD *)(a1 + 8) & 0x7FE00000u) > 0xA00000 )
       {
-        if ( CmpIsSystemEntity(a5, a6, a2 + 4) )
+        if ( (unsigned __int8)CmpIsSystemEntity(a5, a6, a2 + 4) )
         {
           v10 = -1073741199;
         }
@@ -79,66 +69,64 @@ __int64 __fastcall CmpVEExecuteOpenLogic(
         {
           if ( (a2[40] & 1) == 0 )
           {
-            CmpAttachToRegistryProcess(a2 + 42);
+            CmpAttachToRegistryProcess((__int64)(a2 + 42), v12, v13, v14);
             a2[40] |= 1u;
           }
           v10 = CmVirtualKCBToRealPath(a1, P);
           if ( v10 >= 0 )
           {
-            v10 = CmpBlockHiveWrites(0LL, 16, &v20);
+            v10 = CmpBlockHiveWrites(0LL, 16LL, &v21);
             if ( v10 < 0 )
             {
-              if ( v20 )
-                CmpUnblockHiveWrites(0LL, 16, v20);
+              if ( v21 )
+                CmpUnblockHiveWrites(0LL);
             }
             else
             {
-              PathByName = CmpFindPathByNameEx(0LL, (__m128i *)P, 0LL, 16, &v18, &v21);
-              CmpUnblockHiveWrites(0LL, 16, v20);
+              PathByName = CmpFindPathByNameEx(0LL, (__m128i *)P, 0LL, 16, &v19, &v22);
+              CmpUnblockHiveWrites(0LL);
               if ( PathByName )
               {
-                v13 = *(void **)(a4 + 8);
-                if ( v13 )
-                  ExFreePoolWithTag(v13, 0);
+                v16 = *(void **)(a4 + 8);
+                if ( v16 )
+                  ExFreePoolWithTag(v16, 0);
                 *(_OWORD *)a4 = *(_OWORD *)P;
                 RtlInitUnicodeString((PUNICODE_STRING)P, 0LL);
                 *a2 |= 8u;
                 v10 = 260;
               }
-              else if ( a3 || (CmpUnlockKcb(a1), CmpLockKcbExclusive(a1), !CmpIsKeyDeleted(a1, 0LL)) )
+              else if ( a3 || (CmpUnlockKcb(a1), CmpLockKcbExclusive(a1), !(unsigned __int8)CmpIsKeyDeleted(a1, 0LL)) )
               {
                 ExAcquirePushLockSharedEx(*(_QWORD *)(a1 + 32) + 72LL, 0LL);
-                v14 = *(_QWORD *)(a1 + 32);
-                if ( (*(_BYTE *)(v14 + 140) & 1) != 0 )
-                  CellFlat = HvpGetCellFlat(v14, *(unsigned int *)(a1 + 40), &v19);
-                else
-                  CellFlat = HvpGetCellPaged(v14);
-                v16 = CellFlat;
-                if ( CellFlat )
+                v17 = *(_QWORD *)(a1 + 32);
+                v18 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64 *))(v17 + 8))(
+                        v17,
+                        *(unsigned int *)(a1 + 40),
+                        &v20);
+                if ( v18 )
                 {
-                  v10 = HvpMarkCellDirty(*(_QWORD *)(a1 + 32), *(unsigned int *)(a1 + 40), 1);
-                  if ( v10 >= 0 )
+                  if ( (unsigned __int8)HvpMarkCellDirty(*(_QWORD *)(a1 + 32), *(unsigned int *)(a1 + 40)) )
                   {
-                    *(_WORD *)(v16 + 2) |= 0x100u;
+                    *(_WORD *)(v18 + 2) |= 0x100u;
                     *(_WORD *)(a1 + 186) |= 0x100u;
                     *a2 |= 8u;
                     v10 = 260;
                   }
-                  v17 = *(_QWORD *)(a1 + 32);
-                  if ( (*(_BYTE *)(v17 + 140) & 1) != 0 )
-                    HvpReleaseCellFlat(v17, &v19);
                   else
-                    HvpReleaseCellPaged(v17, &v19);
+                  {
+                    v10 = -1073741443;
+                  }
+                  (*(void (__fastcall **)(_QWORD, __int64 *))(*(_QWORD *)(a1 + 32) + 16LL))(*(_QWORD *)(a1 + 32), &v20);
                 }
                 else
                 {
                   v10 = -1073741670;
                 }
-                if ( v14 )
+                if ( v17 )
                 {
-                  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v14 + 72), 0LL, 17LL) != 17 )
-                    ExfReleasePushLockShared((signed __int64 *)(v14 + 72));
-                  KeAbPostRelease(v14 + 72);
+                  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v17 + 72), 0LL, 17LL) != 17 )
+                    ExfReleasePushLockShared((signed __int64 *)(v17 + 72));
+                  KeAbPostRelease(v17 + 72);
                 }
               }
               else

@@ -1,20 +1,19 @@
 /*
- * XREFs of ObpFreeWorkItemBlock @ 0x14097CC6C
+ * XREFs of ObpFreeWorkItemBlock @ 0x1408DE614
  * Callers:
- *     ObpPushStackInfoQueue @ 0x14097D3E0 (ObpPushStackInfoQueue.c)
+ *     ObpPushStackInfoQueue @ 0x1408DED50 (ObpPushStackInfoQueue.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 char __fastcall ObpFreeWorkItemBlock(struct _SLIST_ENTRY *P)
 {
   struct _KTHREAD *CurrentThread; // rax
-  struct _KTHREAD *v3; // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
@@ -26,12 +25,5 @@ char __fastcall ObpFreeWorkItemBlock(struct _SLIST_ENTRY *P)
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ObpStackTraceLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&ObpStackTraceLock);
   KeAbPostRelease((ULONG_PTR)&ObpStackTraceLock);
-  v3 = KeGetCurrentThread();
-  if ( v3->SpecialApcDisable++ == -1 )
-  {
-    v3 = (struct _KTHREAD *)((char *)v3 + 152);
-    if ( *(struct _KTHREAD **)&v3->Header.Lock != v3 )
-      LOBYTE(v3) = KiCheckForKernelApcDelivery();
-  }
-  return (char)v3;
+  return KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of IsSAS @ 0x1C00F6904
+ * XREFs of IsSAS @ 0x1C0105958
  * Callers:
- *     EditionKeyEventLLHook @ 0x1C00EA4C0 (EditionKeyEventLLHook.c)
- *     EditionDoHotKeys @ 0x1C00F62E0 (EditionDoHotKeys.c)
- *     xxxDoHotKeyStuff @ 0x1C00F6330 (xxxDoHotKeyStuff.c)
- *     EditionIsSAS @ 0x1C0207C10 (EditionIsSAS.c)
+ *     EditionKeyEventLLHook @ 0x1C0020240 (EditionKeyEventLLHook.c)
+ *     EditionDoHotKeys @ 0x1C0105250 (EditionDoHotKeys.c)
+ *     xxxDoHotKeyStuff @ 0x1C01052A0 (xxxDoHotKeyStuff.c)
+ *     EditionIsSAS @ 0x1C01621C0 (EditionIsSAS.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBDSM_DisarmingDeviceForWakeOnD0Entry @ 0x1C0021AD0
+ * XREFs of HUBDSM_DisarmingDeviceForWakeOnD0Entry @ 0x1C0021680
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_CompleteWaitWake @ 0x1C0019FC4 (HUBPDO_CompleteWaitWake.c)
- *     HUBDTX_DisarmDeviceForWakeUsingControlTransfer @ 0x1C0027F44 (HUBDTX_DisarmDeviceForWakeUsingControlTransfer.c)
+ *     HUBPDO_CompleteWaitWake @ 0x1C0019A74 (HUBPDO_CompleteWaitWake.c)
+ *     HUBDTX_DisarmDeviceForWakeUsingControlTransfer @ 0x1C0027A94 (HUBDTX_DisarmDeviceForWakeUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBDSM_DisarmingDeviceForWakeOnD0Entry(__int64 a1)

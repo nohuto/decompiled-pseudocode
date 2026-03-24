@@ -1,25 +1,25 @@
 /*
- * XREFs of UsbhIoctlCyclePort @ 0x1C003DB64
+ * XREFs of UsbhIoctlCyclePort @ 0x1C003ED54
  * Callers:
- *     UsbhFdoDeviceControl @ 0x1C0029C60 (UsbhFdoDeviceControl.c)
+ *     UsbhFdoDeviceControl @ 0x1C002AFB0 (UsbhFdoDeviceControl.c)
  * Callees:
- *     UsbhUnlatchPdo @ 0x1C0002650 (UsbhUnlatchPdo.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhLatchPdo @ 0x1C000F240 (UsbhLatchPdo.c)
- *     UsbhDecHubBusy @ 0x1C0010740 (UsbhDecHubBusy.c)
- *     UsbhIncHubBusy @ 0x1C0011BC0 (UsbhIncHubBusy.c)
- *     Usb_Disconnected @ 0x1C0028F5C (Usb_Disconnected.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     UsbhCycleDevicePort @ 0x1C003681C (UsbhCycleDevicePort.c)
- *     UsbhAcquireApiLock @ 0x1C003D610 (UsbhAcquireApiLock.c)
- *     UsbhIoctlTraceOutput @ 0x1C0040730 (UsbhIoctlTraceOutput.c)
- *     UsbhIoctlValidateParameters @ 0x1C0040958 (UsbhIoctlValidateParameters.c)
- *     UsbhReleaseApiLock @ 0x1C0040CE8 (UsbhReleaseApiLock.c)
- *     UsbhVerifyCallerIsAdmin @ 0x1C0040D50 (UsbhVerifyCallerIsAdmin.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
- *     UsbhUpdateUxdSettings @ 0x1C005A420 (UsbhUpdateUxdSettings.c)
+ *     UsbhDecHubBusy @ 0x1C0003610 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0004060 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhLatchPdo @ 0x1C0016B5C (UsbhLatchPdo.c)
+ *     UsbhUnlatchPdo @ 0x1C00171A0 (UsbhUnlatchPdo.c)
+ *     Usb_Disconnected @ 0x1C001CEB4 (Usb_Disconnected.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     UsbhCycleDevicePort @ 0x1C0037B3C (UsbhCycleDevicePort.c)
+ *     UsbhAcquireApiLock @ 0x1C003E7F0 (UsbhAcquireApiLock.c)
+ *     UsbhIoctlTraceOutput @ 0x1C004193C (UsbhIoctlTraceOutput.c)
+ *     UsbhIoctlValidateParameters @ 0x1C0041B64 (UsbhIoctlValidateParameters.c)
+ *     UsbhReleaseApiLock @ 0x1C0041F04 (UsbhReleaseApiLock.c)
+ *     UsbhVerifyCallerIsAdmin @ 0x1C0041F6C (UsbhVerifyCallerIsAdmin.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
+ *     UsbhUpdateUxdSettings @ 0x1C005BAE4 (UsbhUpdateUxdSettings.c)
  */
 
 __int64 __fastcall UsbhIoctlCyclePort(__int64 a1, PIRP Irp)
@@ -36,14 +36,15 @@ __int64 __fastcall UsbhIoctlCyclePort(__int64 a1, PIRP Irp)
   int v13; // eax
   __int64 v14; // rdx
   __int64 v16; // [rsp+28h] [rbp-70h]
-  int v17; // [rsp+50h] [rbp-48h] BYREF
-  int v18; // [rsp+54h] [rbp-44h] BYREF
-  char v19; // [rsp+A8h] [rbp+10h] BYREF
-  char v20; // [rsp+B8h] [rbp+20h] BYREF
+  int v17; // [rsp+48h] [rbp-50h]
+  int v18; // [rsp+50h] [rbp-48h] BYREF
+  int v19; // [rsp+54h] [rbp-44h] BYREF
+  char v20; // [rsp+A8h] [rbp+10h] BYREF
+  char v21; // [rsp+B8h] [rbp+20h] BYREF
 
+  v21 = 0;
+  v18 = 0;
   v20 = 0;
-  v17 = 0;
-  v19 = 0;
   v4 = 0;
   Log(a1, 32, 1768898097, (__int64)Irp, 0LL);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
@@ -54,13 +55,13 @@ __int64 __fastcall UsbhIoctlCyclePort(__int64 a1, PIRP Irp)
       0xFu,
       (__int64)&WPP_1cc12751aa963e921be10b52612de601_Traceguids);
   MasterIrp = Irp->AssociatedIrp.MasterIrp;
-  v18 = 7;
+  v19 = 7;
   Log(a1, 32, 1768898098, (__int64)Irp, (__int64)MasterIrp);
   v6 = FdoExt(a1);
   v7 = (_QWORD *)UsbhIncHubBusy(a1, (__int64)(v6 + 434), (__int64)Irp, 1430414185, 1);
   if ( v7 )
   {
-    v8 = UsbhAcquireApiLock(a1, 0xF00D0002, &v20);
+    v8 = UsbhAcquireApiLock(a1, 0xF00D0002, &v21);
     if ( (v8 & 0xC0000000) != 0xC0000000 )
     {
       v8 = UsbhIoctlValidateParameters(a1, 4, 8);
@@ -72,11 +73,11 @@ __int64 __fastcall UsbhIoctlCyclePort(__int64 a1, PIRP Irp)
           IsAdmin = UsbhVerifyCallerIsAdmin();
           LOBYTE(v11) = 1;
           v12 = IsAdmin;
-          UsbhUpdateUxdSettings(a1, v9, v11, &v19);
-          if ( LODWORD(WPP_MAIN_CB.Dpc.ProcessorHistory) || v19 || v12 )
+          UsbhUpdateUxdSettings(a1, v9, v11, &v20);
+          if ( dword_1C006C4F8 || v20 || v12 )
           {
-            v13 = UsbhCycleDevicePort(a1, v9, &v17);
-            v4 = v17;
+            v13 = UsbhCycleDevicePort(a1, v9, &v18);
+            v4 = v18;
             v8 = v13;
           }
           else
@@ -113,8 +114,11 @@ __int64 __fastcall UsbhIoctlCyclePort(__int64 a1, PIRP Irp)
       v16);
   }
   if ( (v8 & 0xC0000000) == 0xC0000000 && !Usb_Disconnected(v8) )
-    UsbhException(a1, 0, 91, (int)&v18, 4, v8, 0, usbfile_ioctl_c, 384, 0);
-  if ( v20 )
+  {
+    LOBYTE(v17) = 0;
+    UsbhException(a1, 0, 91, (int)&v19, 4, v8, 0, usbfile_ioctl_c, 384, v17);
+  }
+  if ( v21 )
     UsbhReleaseApiLock(a1, 4027383810LL);
   UsbhIoctlTraceOutput(a1, Irp);
   FdoExt(a1);

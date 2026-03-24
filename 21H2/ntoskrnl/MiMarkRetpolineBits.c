@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMarkRetpolineBits @ 0x140970C6C
+ * XREFs of MiMarkRetpolineBits @ 0x1408D0CB4
  * Callers:
- *     MiMarkKernelImageRetpolineBits @ 0x140970C20 (MiMarkKernelImageRetpolineBits.c)
- *     MiReloadBootLoadedDrivers @ 0x140B04F8C (MiReloadBootLoadedDrivers.c)
- *     MiInitializeRetpoline @ 0x140B0A4A8 (MiInitializeRetpoline.c)
- *     MmMarkHypercallPageRetpolineBit @ 0x140B5210C (MmMarkHypercallPageRetpolineBit.c)
+ *     MiMarkKernelImageRetpolineBits @ 0x1408D0C68 (MiMarkKernelImageRetpolineBits.c)
+ *     MiReloadBootLoadedDrivers @ 0x140A4F9F0 (MiReloadBootLoadedDrivers.c)
+ *     MiInitializeRetpoline @ 0x140A56538 (MiInitializeRetpoline.c)
+ *     MmMarkHypercallPageRetpolineBit @ 0x140A925BC (MmMarkHypercallPageRetpolineBit.c)
  * Callees:
- *     RtlAreBitsClearEx @ 0x14022C900 (RtlAreBitsClearEx.c)
- *     MiSplitBitmapPages @ 0x140246420 (MiSplitBitmapPages.c)
- *     RtlSetBitsEx @ 0x14030B740 (RtlSetBitsEx.c)
- *     RtlClearBitsEx @ 0x14030BB30 (RtlClearBitsEx.c)
- *     MiAddressToRetpolineBit @ 0x140419298 (MiAddressToRetpolineBit.c)
+ *     MiSplitBitmapPages @ 0x1402B40F0 (MiSplitBitmapPages.c)
+ *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
+ *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
+ *     RtlAreBitsClearEx @ 0x140348F90 (RtlAreBitsClearEx.c)
+ *     MiAddressToRetpolineBit @ 0x140543FEC (MiAddressToRetpolineBit.c)
  */
 
 __int64 __fastcall MiMarkRetpolineBits(__int64 a1)
@@ -27,15 +27,15 @@ __int64 __fastcall MiMarkRetpolineBits(__int64 a1)
   v4 = MiAddressToRetpolineBit((v3 + v1 + 0xFFFF) & 0xFFFFFFFFFFFF0000uLL);
   v5 = v4;
   v6 = v4 - v2;
-  if ( v7 || RtlAreBitsClearEx((__int64)&qword_140C4F410, v2, v4 - v2) )
+  if ( v7 || RtlAreBitsClearEx((__int64)&qword_140C4CC58, v2, v4 - v2) )
   {
-    if ( !(unsigned int)MiSplitBitmapPages(5, (unsigned __int64)qword_140C4F418 + (v2 >> 3), v5 + (v2 & 7) - v2) )
+    if ( !(unsigned int)MiSplitBitmapPages(5, (unsigned __int64)qword_140C4CC60 + (v2 >> 3), v5 + (v2 & 7) - v2) )
       return 3221225495LL;
-    RtlSetBitsEx((__int64)&qword_140C4F410, v2, v6);
+    RtlSetBitsEx((__int64)&qword_140C4CC58, v2, v6);
   }
   else
   {
-    RtlClearBitsEx((__int64)&qword_140C4F410, v2, v6);
+    RtlClearBitsEx((__int64)&qword_140C4CC58, v2, v6);
   }
   return 0LL;
 }

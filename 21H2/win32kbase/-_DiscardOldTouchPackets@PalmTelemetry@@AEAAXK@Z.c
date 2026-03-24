@@ -1,34 +1,32 @@
 /*
- * XREFs of ?_DiscardOldTouchPackets@PalmTelemetry@@AEAAXK@Z @ 0x1C01B7340
+ * XREFs of ?_DiscardOldTouchPackets@PalmTelemetry@@AEAAXK@Z @ 0x1C0180BE0
  * Callers:
- *     ?_ProcessPenPacket@PalmTelemetry@@AEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@K@Z @ 0x1C01B73E0 (-_ProcessPenPacket@PalmTelemetry@@AEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@K@Z.c)
+ *     ?_ProcessPenPacket@PalmTelemetry@@AEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@K@Z @ 0x1C0180C98 (-_ProcessPenPacket@PalmTelemetry@@AEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@K@Z.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-void __fastcall PalmTelemetry::_DiscardOldTouchPackets(PalmTelemetry *this, __int64 a2, __int64 a3)
+void __fastcall PalmTelemetry::_DiscardOldTouchPackets(PalmTelemetry *this, int a2)
 {
-  int v3; // ebx
-  int v4; // esi
-  unsigned int v6; // r8d
-  __int64 v7; // r9
+  int v2; // ebx
+  unsigned int v5; // r8d
+  __int64 v6; // r9
 
-  v3 = 0;
-  v4 = a2;
+  v2 = 0;
   if ( *(_DWORD *)this )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(this, a2, a3);
-  v6 = *((_DWORD *)this + 3);
-  if ( v6 )
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 161);
+  v5 = *((_DWORD *)this + 3);
+  if ( v5 )
   {
     while ( 1 )
     {
-      v7 = (*((_DWORD *)this + 6) - v3 + v6 - 1) % 0x1AA;
-      if ( (unsigned int)(v4 - *((_DWORD *)this + 6 * v7 + 525)) > 0x1F4 )
+      v6 = (*((_DWORD *)this + 6) - v2 + v5 - 1) % 0x1AA;
+      if ( (unsigned int)(a2 - *((_DWORD *)this + 6 * v6 + 525)) > 0x1F4 )
         break;
-      if ( ++v3 >= v6 )
+      if ( ++v2 >= v5 )
         return;
     }
-    *((_DWORD *)this + 3) = v3;
-    *((_DWORD *)this + 6) = ((int)v7 + 1) % 0x1AAu;
+    *((_DWORD *)this + 3) = v2;
+    *((_DWORD *)this + 6) = ((int)v6 + 1) % 0x1AAu;
   }
 }

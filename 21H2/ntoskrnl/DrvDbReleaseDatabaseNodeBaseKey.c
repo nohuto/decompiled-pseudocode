@@ -1,15 +1,15 @@
 /*
- * XREFs of DrvDbReleaseDatabaseNodeBaseKey @ 0x140782BB0
+ * XREFs of DrvDbReleaseDatabaseNodeBaseKey @ 0x1406405FC
  * Callers:
- *     DrvDbOpenObjectRegKey @ 0x1407827F0 (DrvDbOpenObjectRegKey.c)
- *     DrvDbDeleteObjectRegKey @ 0x140A2DA0C (DrvDbDeleteObjectRegKey.c)
- *     DrvDbGetObjectList @ 0x140A2EF0C (DrvDbGetObjectList.c)
+ *     DrvDbOpenObjectRegKey @ 0x140640410 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x14097CC44 (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbGetObjectList @ 0x14097DF1C (DrvDbGetObjectList.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     DrvDbUnloadDatabaseNode @ 0x1406C59F0 (DrvDbUnloadDatabaseNode.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     DrvDbUnloadDatabaseNode @ 0x14063E670 (DrvDbUnloadDatabaseNode.c)
  */
 
 __int64 __fastcall DrvDbReleaseDatabaseNodeBaseKey(__int64 a1, __int64 a2, __int64 a3, void *a4)
@@ -20,14 +20,14 @@ __int64 __fastcall DrvDbReleaseDatabaseNodeBaseKey(__int64 a1, __int64 a2, __int
   CurrentThread = KeGetCurrentThread();
   v5 = 0;
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceExclusiveLite(*(PERESOURCE *)(a2 + 152), 1u);
-  if ( (*(_DWORD *)(a2 + 64) & 2) == 0 )
+  ExAcquireResourceExclusiveLite(*(PERESOURCE *)(a2 + 144), 1u);
+  if ( (*(_DWORD *)(a2 + 56) & 2) == 0 )
   {
     v5 = ZwClose(a4);
     if ( v5 >= 0 )
       v5 = DrvDbUnloadDatabaseNode(a1, a2);
   }
-  ExReleaseResourceLite(*(PERESOURCE *)(a2 + 152));
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  ExReleaseResourceLite(*(PERESOURCE *)(a2 + 144));
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)v5;
 }

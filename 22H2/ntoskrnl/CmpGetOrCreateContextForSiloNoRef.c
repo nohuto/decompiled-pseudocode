@@ -1,57 +1,56 @@
 /*
- * XREFs of CmpGetOrCreateContextForSiloNoRef @ 0x14077AC4C
+ * XREFs of CmpGetOrCreateContextForSiloNoRef @ 0x140660BCC
  * Callers:
- *     CmInitSiloNamespace @ 0x14077D2D8 (CmInitSiloNamespace.c)
- *     CmInitServerSiloState @ 0x14080EBB4 (CmInitServerSiloState.c)
+ *     CmInitSiloNamespace @ 0x1405D2580 (CmInitSiloNamespace.c)
+ *     CmInitServerSiloState @ 0x1407A5B58 (CmInitServerSiloState.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     PsGetPermanentSiloContext @ 0x14031C660 (PsGetPermanentSiloContext.c)
- *     CmpAllocateSiloContext @ 0x14077CE84 (CmpAllocateSiloContext.c)
- *     PsInsertPermanentSiloContextEx @ 0x14077CF6C (PsInsertPermanentSiloContextEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x1402EDF20 (PsGetPermanentSiloContext.c)
+ *     PsInsertPermanentSiloContextEx @ 0x140660CE4 (PsInsertPermanentSiloContextEx.c)
+ *     CmpAllocateSiloContext @ 0x140660F20 (CmpAllocateSiloContext.c)
  */
 
 __int64 __fastcall CmpGetOrCreateContextForSiloNoRef(__int64 a1, _QWORD *a2)
 {
   int v4; // eax
   PVOID v5; // rdi
-  unsigned int v6; // ebx
-  int inserted; // eax
-  unsigned __int64 v9; // [rsp+50h] [rbp+18h] BYREF
+  int inserted; // ebx
+  unsigned __int64 v8; // [rsp+50h] [rbp+18h] BYREF
   PVOID Object; // [rsp+58h] [rbp+20h] BYREF
 
   Object = 0LL;
-  v9 = 0LL;
-  PsGetPermanentSiloContext(a1, CmpSiloContextSlot, &v9);
-  if ( v9 )
+  v8 = 0LL;
+  PsGetPermanentSiloContext(a1, CmpSiloContextSlot, &v8);
+  if ( v8 )
   {
-    v6 = 0;
-    *a2 = v9;
-    return v6;
+    inserted = 0;
+    *a2 = v8;
+    return (unsigned int)inserted;
   }
   v4 = CmpAllocateSiloContext(a1, &Object);
   v5 = Object;
-  v6 = v4;
+  inserted = v4;
   if ( v4 >= 0 )
   {
     inserted = PsInsertPermanentSiloContextEx(a1, (unsigned int)CmpSiloContextSlot, Object, 0LL);
-    v6 = inserted;
     if ( inserted >= 0 )
-    {
-      *a2 = v5;
-LABEL_5:
-      v6 = 0;
-      goto LABEL_7;
-    }
+      inserted = 0;
     if ( inserted == -1073741637 )
     {
-      v9 = 0LL;
-      PsGetPermanentSiloContext(a1, CmpSiloContextSlot, &v9);
-      *a2 = v9;
-      goto LABEL_5;
+      v8 = 0LL;
+      PsGetPermanentSiloContext(a1, CmpSiloContextSlot, &v8);
+      *a2 = v8;
     }
+    else
+    {
+      if ( inserted < 0 )
+        goto LABEL_9;
+      *a2 = v5;
+    }
+    inserted = 0;
   }
-LABEL_7:
+LABEL_9:
   if ( v5 )
     ObfDereferenceObjectWithTag(v5, 0x20314D43u);
-  return v6;
+  return (unsigned int)inserted;
 }

@@ -1,51 +1,52 @@
 /*
- * XREFs of SdbReadDWORDTag @ 0x140755968
+ * XREFs of SdbReadDWORDTag @ 0x140759584
  * Callers:
- *     SdbpCheckApplicationTypeAttributes @ 0x14066DE54 (SdbpCheckApplicationTypeAttributes.c)
- *     KsepDbGetDriverShimsInternal @ 0x140694B7C (KsepDbGetDriverShimsInternal.c)
- *     SdbGetDatabaseEdition @ 0x140695518 (SdbGetDatabaseEdition.c)
- *     InitOnceScanIndexes @ 0x140757010 (InitOnceScanIndexes.c)
- *     SdbpCheckAllAttributes @ 0x140757C04 (SdbpCheckAllAttributes.c)
- *     SdbpGetExeEntryFlags @ 0x14084F0CC (SdbpGetExeEntryFlags.c)
- *     KsepDbGetShimInfo @ 0x140856450 (KsepDbGetShimInfo.c)
- *     KsepDbReadKData @ 0x140976F88 (KsepDbReadKData.c)
- *     SdbQueryDataExTagID @ 0x140A4EFF8 (SdbQueryDataExTagID.c)
- *     SdbpCheckOSKind @ 0x140A508C0 (SdbpCheckOSKind.c)
- *     SdbpCheckRuntimePlatform @ 0x140A50990 (SdbpCheckRuntimePlatform.c)
- *     SdbpGetDeviceDWORD @ 0x140A50E88 (SdbpGetDeviceDWORD.c)
- *     SdbpGetMatchingTextAttributes @ 0x140A50ED8 (SdbpGetMatchingTextAttributes.c)
- *     SdbpGetRegistryMatchingAttributes @ 0x140A51104 (SdbpGetRegistryMatchingAttributes.c)
- *     SdbMergeIsEntryUpdated @ 0x140A5374C (SdbMergeIsEntryUpdated.c)
+ *     SdbpCheckApplicationTypeAttributes @ 0x1403F8D90 (SdbpCheckApplicationTypeAttributes.c)
+ *     SdbGetDatabaseEdition @ 0x140755CA0 (SdbGetDatabaseEdition.c)
+ *     KsepDbGetDriverShimsInternal @ 0x14075867C (KsepDbGetDriverShimsInternal.c)
+ *     InitOnceScanIndexes @ 0x1407597B0 (InitOnceScanIndexes.c)
+ *     SdbpCheckAllAttributes @ 0x1407B243C (SdbpCheckAllAttributes.c)
+ *     SdbQueryDataExTagID @ 0x1407C1F28 (SdbQueryDataExTagID.c)
+ *     SdbpGetExeEntryFlags @ 0x1407C2320 (SdbpGetExeEntryFlags.c)
+ *     KsepDbGetShimInfo @ 0x1408BF86C (KsepDbGetShimInfo.c)
+ *     KsepDbReadKData @ 0x1408BFCA0 (KsepDbReadKData.c)
+ *     SdbpCheckOSKind @ 0x1409655E0 (SdbpCheckOSKind.c)
+ *     SdbpCheckPackageAttributes @ 0x140965630 (SdbpCheckPackageAttributes.c)
+ *     SdbpCheckRuntimePlatform @ 0x140965890 (SdbpCheckRuntimePlatform.c)
+ *     SdbpGetDeviceDWORD @ 0x1409659A8 (SdbpGetDeviceDWORD.c)
+ *     SdbpGetMatchingTextAttributes @ 0x1409659F8 (SdbpGetMatchingTextAttributes.c)
+ *     SdbpGetRegistryMatchingAttributes @ 0x140965C24 (SdbpGetRegistryMatchingAttributes.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpReadTagData @ 0x1407579AC (SdbpReadTagData.c)
- *     SdbGetTagFromTagID @ 0x140758190 (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbpReadTagData @ 0x140759730 (SdbpReadTagData.c)
+ *     SdbGetTagFromTagID @ 0x140759BE4 (SdbGetTagFromTagID.c)
  */
 
-__int64 __fastcall SdbReadDWORDTag(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall SdbReadDWORDTag(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v3; // edi
-  unsigned int v4; // ebx
-  __int64 v6; // r8
-  int v7; // eax
-  unsigned int v8; // ecx
-  unsigned int v10; // [rsp+50h] [rbp+18h] BYREF
+  unsigned int v4; // edi
+  unsigned int v5; // ebx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  int v9; // eax
+  unsigned int v10; // ecx
+  unsigned int v12; // [rsp+50h] [rbp+18h] BYREF
 
-  v3 = a3;
-  v10 = a3;
-  v4 = a2;
-  if ( (SdbGetTagFromTagID(a1, a2, a3) & 0xF000) == 0x4000 )
+  v4 = a3;
+  v12 = a3;
+  v5 = a2;
+  if ( (SdbGetTagFromTagID(a1, a2, a3, a4) & 0xF000) == 0x4000 )
   {
-    v7 = SdbpReadTagData(a1, v4, &v10, 4LL);
-    v8 = v10;
-    if ( !v7 )
-      return v3;
-    return v8;
+    v9 = SdbpReadTagData(a1, v5, &v12, 4LL);
+    v10 = v12;
+    if ( !v9 )
+      return v4;
+    return v10;
   }
   else
   {
-    SdbGetTagFromTagID(a1, v4, v6);
+    SdbGetTagFromTagID(a1, v5, v7, v8);
     AslLogCallPrintf(1LL);
-    return v3;
+    return v4;
   }
 }

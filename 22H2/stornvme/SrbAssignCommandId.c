@@ -1,7 +1,7 @@
 /*
- * XREFs of SrbAssignCommandId @ 0x1C0025394
+ * XREFs of SrbAssignCommandId @ 0x1C001CAA4
  * Callers:
- *     ProcessMultipleCommandsInSpecificQueue @ 0x1C0024800 (ProcessMultipleCommandsInSpecificQueue.c)
+ *     ProcessMultipleCommandsInSpecificQueue @ 0x1C001C584 (ProcessMultipleCommandsInSpecificQueue.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ char __fastcall SrbAssignCommandId(__int64 a1, __int64 a2, unsigned __int16 a3)
   unsigned __int16 *v6; // r10
   unsigned __int16 *v7; // r11
   unsigned __int16 *v8; // r9
-  __int64 *v9; // rbx
+  _QWORD *v9; // rbx
   __int64 v10; // rax
   __int64 v11; // rcx
   __int64 v12; // rax
@@ -20,31 +20,26 @@ char __fastcall SrbAssignCommandId(__int64 a1, __int64 a2, unsigned __int16 a3)
   int v14; // edx
   unsigned __int16 v15; // cx
   unsigned __int16 v16; // dx
-  unsigned __int16 v17; // dx
-  __int64 v18; // rbx
-  unsigned __int16 v19; // cx
   char result; // al
-  unsigned __int16 v21; // ax
-  bool v22; // zf
 
   if ( a3 )
   {
     v10 = a3;
-    v5 = *(_WORD *)(a1 + 334);
+    v5 = *(_WORD *)(a1 + 286);
     v11 = 136 * v10;
-    v12 = *(_QWORD *)(a1 + 872);
+    v12 = *(_QWORD *)(a1 + 776);
     v6 = (unsigned __int16 *)(v11 + v12 - 92);
     v7 = (unsigned __int16 *)(v11 + v12 - 88);
-    v9 = (__int64 *)(v11 + v12 - 104);
+    v9 = (_QWORD *)(v11 + v12 - 104);
     v8 = (unsigned __int16 *)(v11 + v12 - 90);
   }
   else
   {
-    v5 = *(_WORD *)(a1 + 332);
-    v6 = (unsigned __int16 *)(a1 + 388);
-    v7 = (unsigned __int16 *)(a1 + 392);
-    v8 = (unsigned __int16 *)(a1 + 390);
-    v9 = (__int64 *)(a1 + 376);
+    v5 = *(_WORD *)(a1 + 284);
+    v6 = (unsigned __int16 *)(a1 + 340);
+    v7 = (unsigned __int16 *)(a1 + 344);
+    v8 = (unsigned __int16 *)(a1 + 342);
+    v9 = (_QWORD *)(a1 + 328);
   }
   v13 = *v6;
   v14 = *v8;
@@ -56,48 +51,39 @@ char __fastcall SrbAssignCommandId(__int64 a1, __int64 a2, unsigned __int16 a3)
   v15 = *v7;
   if ( *v7 < v5 )
   {
-    while ( 1 )
+    do
     {
       v16 = v15 + 1;
       if ( !*(_QWORD *)(*v9 + 16LL * v15) )
-        break;
+        goto LABEL_19;
       ++v15;
-      if ( v16 >= v5 )
-        goto LABEL_12;
     }
-    v21 = v15;
-    v22 = v16 == v5;
-    *v7 = v16;
-    goto LABEL_22;
+    while ( v16 < v5 );
   }
-LABEL_12:
-  v17 = 0;
+  v15 = 0;
   if ( !*v7 )
   {
-LABEL_16:
+LABEL_15:
     if ( *v6 )
       v5 = *v6;
     *v6 = v5 - 1;
     return 0;
   }
-  v18 = *v9;
   while ( 1 )
   {
-    v19 = v17 + 1;
-    if ( !*(_QWORD *)(v18 + 16LL * v17) )
+    v16 = v15 + 1;
+    if ( !*(_QWORD *)(*v9 + 16LL * v15) )
       break;
-    ++v17;
-    if ( v19 >= *v7 )
-      goto LABEL_16;
+    ++v15;
+    if ( v16 >= *v7 )
+      goto LABEL_15;
   }
-  v21 = v17;
-  v22 = v19 == v5;
-  *v7 = v19;
-LABEL_22:
-  if ( v22 )
+LABEL_19:
+  *v7 = v16;
+  if ( v16 == v5 )
     *v7 = 0;
-  *(_WORD *)(a2 + 4246) = v21;
-  result = 1;
   *(_WORD *)(a2 + 4248) = v13;
+  result = 1;
+  *(_WORD *)(a2 + 4246) = v15;
   return result;
 }

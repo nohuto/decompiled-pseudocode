@@ -1,16 +1,16 @@
 /*
- * XREFs of MmGetSectionInformation @ 0x14066D870
+ * XREFs of MmGetSectionInformation @ 0x14066D850
  * Callers:
  *     AlpcpMapLegacyPortView @ 0x14061CCE4 (AlpcpMapLegacyPortView.c)
- *     PspAllocateProcess @ 0x14064BCD8 (PspAllocateProcess.c)
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
- *     NtQuerySection @ 0x1406B6100 (NtQuerySection.c)
- *     PspLocateSystemDll @ 0x14075615C (PspLocateSystemDll.c)
- *     DbgkpSendErrorMessage @ 0x140810DEC (DbgkpSendErrorMessage.c)
+ *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     NtQuerySection @ 0x1406B60E0 (NtQuerySection.c)
+ *     PspLocateSystemDll @ 0x14075613C (PspLocateSystemDll.c)
+ *     DbgkpSendErrorMessage @ 0x140810DCC (DbgkpSendErrorMessage.c)
  * Callees:
  *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
  *     MiAweControlArea @ 0x140077E6C (MiAweControlArea.c)
- *     MiGetControlAreaLoadConfig @ 0x1400D94F4 (MiGetControlAreaLoadConfig.c)
+ *     MiGetControlAreaLoadConfig @ 0x1400D9514 (MiGetControlAreaLoadConfig.c)
  */
 
 __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2)

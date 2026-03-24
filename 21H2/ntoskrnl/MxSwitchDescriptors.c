@@ -1,106 +1,82 @@
 /*
- * XREFs of MxSwitchDescriptors @ 0x140B51D98
+ * XREFs of MxSwitchDescriptors @ 0x140A9304C
  * Callers:
- *     MxGetNextPage @ 0x140AF65CC (MxGetNextPage.c)
+ *     MxGetNextPage @ 0x140A44EE4 (MxGetNextPage.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
- *     MiFindHighestDescriptorByNode @ 0x14057F840 (MiFindHighestDescriptorByNode.c)
- *     MiInitializeBootMemoryDescriptor @ 0x140AF66DC (MiInitializeBootMemoryDescriptor.c)
+ *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     MiInitializeBootMemoryDescriptor @ 0x140A44FE0 (MiInitializeBootMemoryDescriptor.c)
  */
 
-__int64 *__fastcall MxSwitchDescriptors(unsigned int a1)
+unsigned __int64 *__fastcall MxSwitchDescriptors(unsigned int a1)
 {
-  unsigned __int64 v1; // rdi
-  __int64 v2; // r12
-  __int64 *v3; // r15
-  unsigned __int64 v4; // rbp
-  unsigned int v5; // ebx
-  unsigned __int64 HighestDescriptorByNode; // rsi
-  unsigned int v7; // ecx
-  int v8; // eax
-  unsigned __int64 v9; // rax
-  unsigned __int64 v10; // rcx
+  __int64 v1; // r15
+  unsigned __int64 v2; // rbx
+  __int64 v3; // rbp
+  unsigned __int64 *v4; // rsi
+  unsigned __int64 v5; // rdi
+  int v6; // eax
+  unsigned int v7; // eax
+  __int64 *v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  unsigned __int64 *result; // rax
 
-  v1 = a1;
-  if ( !MxBootDescriptorAnyNodeBitMap )
-  {
-    MxBootDescriptorAnyNodeBitMap = 64;
-    qword_140D686E8 = (__int64)&MxBootDescriptorAnyNodeBuffer;
-  }
-  v2 = KeLoaderBlock_0;
-  v3 = &MxBootFreeDescriptor[5 * a1];
+  v1 = KeLoaderBlock_0;
+  v2 = a1;
+  v3 = KeLoaderBlock_0 + 32;
+  v4 = (unsigned __int64 *)&qword_140D5BD60[5 * a1];
+  v5 = v4[4];
   while ( 2 )
   {
-    v4 = 0LL;
-    v5 = (unsigned __int16)KeNumberNodes;
-    if ( !_bittest64((const signed __int64 *)qword_140D686E8, v1) )
-      v5 = v1;
-    HighestDescriptorByNode = (unsigned __int64)MiFindHighestDescriptorByNode(v2, v5);
-    if ( !HighestDescriptorByNode )
+    if ( !v5 )
     {
-      v7 = (unsigned __int16)KeNumberNodes;
-      if ( v5 == (unsigned __int16)KeNumberNodes )
-        return 0LL;
-      v5 = (unsigned __int16)KeNumberNodes;
-      _bittestandset((signed __int32 *)qword_140D686E8, v1);
-      HighestDescriptorByNode = (unsigned __int64)MiFindHighestDescriptorByNode(v2, v7);
-      if ( !HighestDescriptorByNode )
-        return 0LL;
+      v5 = *(_QWORD *)(v1 + 40);
+      goto LABEL_14;
     }
-    do
+    while ( 1 )
     {
-      v8 = *(_DWORD *)(HighestDescriptorByNode + 24);
-      if ( v8 == 2 || v8 == 24 )
+      v5 = *(_QWORD *)(v5 + 8);
+LABEL_14:
+      if ( v5 == v3 )
+        break;
+      v6 = *(_DWORD *)(v5 + 16);
+      if ( v6 == 2 || v6 == 24 )
       {
-        if ( *((_DWORD *)MiSearchNumaNodeTable(*(_QWORD *)(HighestDescriptorByNode + 32)) + 2) == (_DWORD)v1
-          || _bittest64((const signed __int64 *)qword_140D686E8, v1) )
+        v7 = 0;
+        if ( KeNumberNodes )
         {
-          v4 = HighestDescriptorByNode;
-          goto LABEL_29;
+          v8 = qword_140D5B380;
+          do
+          {
+            if ( v5 == *v8 )
+              break;
+            ++v7;
+            v8 += 5;
+          }
+          while ( v7 < (unsigned __int16)KeNumberNodes );
         }
-        if ( !v4 )
-          v4 = HighestDescriptorByNode;
-      }
-      v9 = *(_QWORD *)HighestDescriptorByNode;
-      v10 = HighestDescriptorByNode;
-      if ( *(_QWORD *)HighestDescriptorByNode )
-      {
-        while ( 1 )
+        if ( v7 >= (unsigned __int16)KeNumberNodes )
         {
-          HighestDescriptorByNode = v9;
-          if ( !*(_QWORD *)(v9 + 8) )
-            break;
-          v9 = *(_QWORD *)(v9 + 8);
-        }
-      }
-      else
-      {
-        while ( 1 )
-        {
-          HighestDescriptorByNode = *(_QWORD *)(HighestDescriptorByNode + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-          if ( !HighestDescriptorByNode || *(_QWORD *)(HighestDescriptorByNode + 8) == v10 )
-            break;
-          v10 = HighestDescriptorByNode;
+          if ( *((_DWORD *)MiSearchNumaNodeTable(*(_QWORD *)(v5 + 24)) + 2) == (_DWORD)v2
+            || (v9 = MxBootDescriptorAnyNode, _bittest64(&v9, v2)) )
+          {
+            MiInitializeBootMemoryDescriptor(v4, v5, *(_QWORD *)(v5 + 24), *(_QWORD *)(v5 + 32));
+            *(_DWORD *)(v5 + 16) |= 0x40000000u;
+            result = v4;
+            MxFreeDescriptor[v2] = (__int64)v4;
+            return result;
+          }
         }
       }
     }
-    while ( HighestDescriptorByNode );
-    _bittestandset((signed __int32 *)qword_140D686E8, v1);
-    if ( v4 )
+    v10 = MxBootDescriptorAnyNode;
+    if ( !_bittest64(&v10, v2) )
     {
-LABEL_29:
-      MiInitializeBootMemoryDescriptor(
-        (unsigned __int64 *)&MxBootFreeDescriptor[5 * v1],
-        v4,
-        *(_QWORD *)(v4 + 32),
-        *(_QWORD *)(v4 + 40));
-      *(_DWORD *)(v4 + 24) |= 0x40000000u;
-      return &MxBootFreeDescriptor[5 * v1];
-    }
-    if ( v5 != (unsigned __int16)KeNumberNodes )
+      v4[4] = 0LL;
+      MxBootDescriptorAnyNode = v10 | (1LL << v2);
+      v5 = 0LL;
       continue;
-    break;
+    }
+    return 0LL;
   }
-  v3[4] = 0LL;
-  return 0LL;
 }

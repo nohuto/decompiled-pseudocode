@@ -1,15 +1,15 @@
 /*
- * XREFs of PfpUpdateRepurposedByPrefetch @ 0x1407E0768
+ * XREFs of PfpUpdateRepurposedByPrefetch @ 0x1406C9C7C
  * Callers:
- *     PfpVolumePrefetchMetadata @ 0x1406AE644 (PfpVolumePrefetchMetadata.c)
- *     PfpPrefetchDirectoryStream @ 0x1406AEA14 (PfpPrefetchDirectoryStream.c)
- *     PfpPrefetchFilesTrickle @ 0x1407E0408 (PfpPrefetchFilesTrickle.c)
- *     PfpPrefetchPrivatePages @ 0x140987430 (PfpPrefetchPrivatePages.c)
+ *     PfpVolumePrefetchMetadata @ 0x1406C71A4 (PfpVolumePrefetchMetadata.c)
+ *     PfpPrefetchDirectoryStream @ 0x1406C7550 (PfpPrefetchDirectoryStream.c)
+ *     PfpPrefetchFilesTrickle @ 0x1406C9930 (PfpPrefetchFilesTrickle.c)
+ *     PfpPrefetchPrivatePages @ 0x1407100D0 (PfpPrefetchPrivatePages.c)
  * Callees:
- *     MmQueryMemoryListInformation @ 0x140360AC0 (MmQueryMemoryListInformation.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PfpGetPageListCount @ 0x1407E0884 (PfpGetPageListCount.c)
+ *     MmQueryMemoryListInformation @ 0x1402D4240 (MmQueryMemoryListInformation.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PfpGetPageListCount @ 0x1406C9D98 (PfpGetPageListCount.c)
  */
 
 _OWORD *__fastcall PfpUpdateRepurposedByPrefetch(_OWORD *a1, unsigned __int64 a2)
@@ -26,7 +26,7 @@ _OWORD *__fastcall PfpUpdateRepurposedByPrefetch(_OWORD *a1, unsigned __int64 a2
   __int128 v13; // xmm1
   __int128 v14; // xmm0
   __int128 v15; // xmm1
-  _OWORD *v16; // rdi
+  _OWORD *v16; // rbx
   __int128 v17; // xmm0
   __int128 v18; // xmm1
   __int64 v19; // [rsp+30h] [rbp-D8h] BYREF
@@ -38,10 +38,10 @@ _OWORD *__fastcall PfpUpdateRepurposedByPrefetch(_OWORD *a1, unsigned __int64 a2
   PfpGetPageListCount((char *)a1 + 104, 0LL);
   PageListCount = PfpGetPageListCount((char *)&v20[6] + 8, 0LL);
   v7 = PageListCount - v6;
-  if ( v7 > a2 )
-    v7 = a2;
-  if ( v7 )
-    _InterlockedExchangeAdd64(&qword_140C54670, v7);
+  if ( v7 <= a2 )
+    a2 = v7;
+  if ( a2 )
+    _InterlockedExchangeAdd64(&qword_140C50430, a2);
   result = v20;
   v9 = v20[1];
   *a1 = v20[0];

@@ -1,93 +1,238 @@
 /*
- * XREFs of ChangeAcquireResourceType @ 0x1C00B84C0
+ * XREFs of ChangeAcquireResourceType @ 0x1C0007820
  * Callers:
- *     NtUserGetKeyState @ 0x1C004E960 (NtUserGetKeyState.c)
+ *     NtUserGetKeyState @ 0x1C0006DA0 (NtUserGetKeyState.c)
  * Callees:
- *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C0045E80 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
- *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00462A0 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
- *     W32GetCurrentThread @ 0x1C0046320 (W32GetCurrentThread.c)
- *     PrivateAPI::_anonymous_namespace_::IsValidGuiContext @ 0x1C0048218 (PrivateAPI--_anonymous_namespace_--IsValidGuiContext.c)
- *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C0048330 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
- *     ?GetCount@AtomicExecutionCheck@@SAIXZ @ 0x1C004FAF0 (-GetCount@AtomicExecutionCheck@@SAIXZ.c)
- *     EtwTraceReleaseUserCrit @ 0x1C0053D40 (EtwTraceReleaseUserCrit.c)
- *     HMUnlockObject @ 0x1C0056D70 (HMUnlockObject.c)
- *     DestroyExclusiveUserCritDeferredUnlockList @ 0x1C0088180 (DestroyExclusiveUserCritDeferredUnlockList.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     HMUnlockObject @ 0x1C002EA10 (HMUnlockObject.c)
+ *     EtwTraceAcquiredExclusiveUserCrit @ 0x1C0030200 (EtwTraceAcquiredExclusiveUserCrit.c)
+ *     IsThreadCrossSessionAttached @ 0x1C0031470 (IsThreadCrossSessionAttached.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C0031520 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     EtwTraceReleaseUserCrit @ 0x1C0037134 (EtwTraceReleaseUserCrit.c)
+ *     ?LockExclusive@tagDomLock@@QEBAXXZ @ 0x1C003B070 (-LockExclusive@tagDomLock@@QEBAXXZ.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00902C8 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-char __fastcall ChangeAcquireResourceType(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void ChangeAcquireResourceType()
 {
-  unsigned int Count; // eax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
+  LARGE_INTEGER *v0; // rbx
+  struct tagTHREADINFO *v1; // r14
+  struct tagTHREADINFO **v2; // rax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  PVOID CurrentProcess; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
   __int64 v8; // r9
   __int64 v9; // rdx
   __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  struct tagTHREADINFO *v17; // rax
-  __int64 v18; // rcx
-  struct tagTHREADINFO *v19; // rdi
-  __int64 v20; // rax
-  __int64 *v21; // rbx
+  struct _KTHREAD *CurrentThread; // rdi
+  __int64 v12; // rbx
+  __int64 *ThreadWin32Thread; // rax
+  __int64 CurrentProcessWin32Process; // rax
+  PERESOURCE *DomainLockRef; // rbx
+  struct tagKERNELHANDLETABLEENTRY *v16; // rsi
+  __int64 v17; // rax
+  int ProcessSessionId; // ebx
+  __int64 CurrentThreadProcess; // rax
+  __int64 CurrentThreadWin32Thread; // rax
+  __int64 v21; // r8
+  __int64 v22; // r9
+  __int64 v23; // rbx
+  int v24; // eax
+  __int64 v25; // rax
+  __int64 v26; // r8
+  __int64 v27; // r9
+  __int64 v28; // r8
+  __int64 v29; // r9
+  __int64 v30; // rax
+  PERESOURCE *v31; // rdi
+  int v32; // [rsp+40h] [rbp-C8h] BYREF
+  int v33; // [rsp+44h] [rbp-C4h] BYREF
+  int v34; // [rsp+48h] [rbp-C0h] BYREF
+  PERESOURCE *v35; // [rsp+58h] [rbp-B0h]
+  __int64 v36; // [rsp+60h] [rbp-A8h]
+  unsigned __int8 ActivityId_4; // [rsp+68h] [rbp-A0h]
+  GUID ActivityId_8; // [rsp+6Ch] [rbp-9Ch] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v39; // [rsp+80h] [rbp-88h] BYREF
+  int *v40; // [rsp+A0h] [rbp-68h]
+  __int64 v41; // [rsp+A8h] [rbp-60h]
+  struct _EVENT_DATA_DESCRIPTOR v42; // [rsp+B0h] [rbp-58h] BYREF
+  int *v43; // [rsp+D0h] [rbp-38h]
+  __int64 v44; // [rsp+D8h] [rbp-30h]
+  struct _EVENT_DATA_DESCRIPTOR v45; // [rsp+E0h] [rbp-28h] BYREF
+  int *v46; // [rsp+100h] [rbp-8h]
+  __int64 v47; // [rsp+108h] [rbp+0h]
+  struct _EVENT_DATA_DESCRIPTOR v48; // [rsp+110h] [rbp+8h] BYREF
 
-  if ( qword_1C0296058 )
-    qword_1C0296058();
-  if ( IS_USERCRIT_OWNED_EXCLUSIVE(a1, a2, a3, a4) )
+  if ( qword_1C0256C48 )
+    qword_1C0256C48();
+  if ( (_DWORD)gdwInAtomicOperation )
   {
-    if ( gcInHMDestroyUnlockedObjectWorker )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTellMeIf", 0x20000LL, 1170LL);
-    if ( gphePrimaryDestroyTarget )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1178LL);
-    if ( gcDeferredDestroyTargets > gcSecondaryDestroyTargets )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1184LL);
-    gcInHMDestroyUnlockedObjectWorker = 0;
-    gphePrimaryDestroyTarget = 0LL;
-    DestroyExclusiveUserCritDeferredUnlockList();
-  }
-  Count = AtomicExecutionCheck::GetCount();
-  if ( Count )
-  {
-    if ( (gdwExtraInstrumentations & 1) != 0 )
-      KeBugCheckEx(0x160u, Count, 0LL, 0LL, 0LL);
-    DbgkWerCaptureLiveKernelDump(L"NTUSER", 400LL, 37LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
-  }
-  if ( gptiCurrent && W32GetCurrentThread() )
-    *((_DWORD *)PtiCurrentShared() + 387) = 0;
-  gptiCurrent = 0LL;
-  EtwTraceReleaseUserCrit(v6, v5, v7, v8);
-  v13 = SGDGetUserSessionState(v10, v9, v11, v12);
-  ExReleaseResourceAndLeaveCriticalRegion(*(PERESOURCE *)(v13 + 8));
-  v17 = (struct tagTHREADINFO *)PrivateAPI::_anonymous_namespace_::EnterCritInternal(0LL, v14, v15, v16);
-  gptiCurrent = v17;
-  v19 = v17;
-  if ( v17 )
-  {
-    *((_DWORD *)v17 + 387) = 1;
-    LOBYTE(v17) = PrivateAPI::_anonymous_namespace_::IsValidGuiContext(v18);
-    if ( (_BYTE)v17 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1359LL);
+    if ( (_DWORD)gdwInAtomicOperation )
     {
-      while ( 1 )
+      if ( (gdwExtraInstrumentations & 1) != 0 )
+        KeBugCheckEx(0x160u, (unsigned int)gdwInAtomicOperation, 0LL, 0LL, 0LL);
+    }
+  }
+  gptiCurrent = 0LL;
+  gbValidateHandleForIL = 0;
+  if ( InputTraceLogging::Perf::s_userCritLoggingEnabled )
+  {
+    CurrentThreadWin32Thread = PsGetCurrentThreadWin32Thread();
+    v23 = CurrentThreadWin32Thread;
+    if ( CurrentThreadWin32Thread )
+    {
+      v24 = *(_DWORD *)(CurrentThreadWin32Thread + 24);
+      if ( (*(_DWORD *)(v23 + 44) || *(_DWORD *)(v23 + 48) || v24 > 0)
+        && (unsigned int)dword_1C024AA90 > 6
+        && (unsigned __int8)tlgKeywordOn(&dword_1C024AA90, 0x2000LL, v21, v22) )
       {
-        v21 = (__int64 *)gpSharedUserCritDeferredUnlockListHead;
-        if ( !gpSharedUserCritDeferredUnlockListHead )
-          break;
-        gpSharedUserCritDeferredUnlockListHead = (struct tagKERNELHANDLETABLEENTRY *)*((_QWORD *)gpSharedUserCritDeferredUnlockListHead
-                                                                                     + 2);
-        v20 = *v21;
-        v21[2] = 0LL;
-        if ( !*(_DWORD *)(v20 + 8) )
-          MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 4237LL);
-        LOBYTE(v17) = HMUnlockObject(*v21);
+        tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C024AA90, (int)&dword_1C0217F61, v23 + 28, 0, 2u, &v48);
+      }
+      *(_DWORD *)(v23 + 44) = 0;
+      *(_OWORD *)(v23 + 28) = 0LL;
+    }
+  }
+  EtwTraceReleaseUserCrit();
+  ExReleaseResourceAndLeaveCriticalRegion(gpresUser);
+  v0 = (LARGE_INTEGER *)PsGetCurrentThreadWin32Thread();
+  if ( v0 )
+    v0[1] = KeQueryPerformanceCounter(0LL);
+  ActivityId_8 = 0LL;
+  if ( InputTraceLogging::Perf::s_userCritLoggingEnabled )
+  {
+    ActivityId_4 = 1;
+    v25 = PsGetCurrentThreadWin32Thread();
+    v36 = v25;
+    if ( v25 && (*(int *)(v25 + 24) > 0 || *(_DWORD *)(v36 + 48)) )
+    {
+      EtwActivityIdControl(3u, &ActivityId_8);
+      if ( (unsigned int)dword_1C024AA90 > 6 )
+      {
+        if ( (unsigned __int8)tlgKeywordOn(&dword_1C024AA90, 0x2000LL, v26, v27) )
+        {
+          v32 = ActivityId_4;
+          v41 = 4LL;
+          v40 = &v32;
+          tlgWriteTransfer_EtwWriteTransfer(
+            (int)&dword_1C024AA90,
+            (int)&dword_1C0217FD7,
+            (int)&ActivityId_8,
+            0,
+            3u,
+            &v39);
+        }
       }
     }
   }
-  gptiCurrent = v19;
-  return (char)v17;
+  else
+  {
+    v36 = 0LL;
+  }
+  v1 = 0LL;
+  while ( 1 )
+  {
+    v2 = (struct tagTHREADINFO **)ExEnterCriticalRegionAndAcquireResourceExclusive(gpresUser);
+    if ( v2 )
+      v1 = *v2;
+    CurrentProcess = (PVOID)PsGetCurrentProcess(v4, v3);
+    if ( CurrentProcess )
+    {
+      if ( CurrentProcess == g_pepDwm )
+        break;
+    }
+    if ( (PVOID)PsGetCurrentProcess(v7, v6) == gpepCSRSS && v1 != (struct tagTHREADINFO *)gptiTSRequest
+      || gbDITInHitTest != 1
+      || v1 == gptiRit )
+    {
+      break;
+    }
+    ++gcDITHitTestWaiters;
+    ExReleaseResourceAndLeaveCriticalRegion(gpresUser);
+    KeWaitForSingleObject(gpsemDITHitTestWaiters, UserRequest, 0, 0, 0LL);
+  }
+  if ( InputTraceLogging::Perf::s_userCritLoggingEnabled && v36 && (*(_DWORD *)(v36 + 48) || *(int *)(v36 + 24) > 0) )
+  {
+    *(_DWORD *)(v36 + 44) = 1;
+    *(GUID *)(v36 + 28) = ActivityId_8;
+    if ( (unsigned int)dword_1C024AA90 > 6 )
+    {
+      if ( (unsigned __int8)tlgKeywordOn(&dword_1C024AA90, 0x2000LL, (unsigned int)dword_1C024AA90, v8) )
+      {
+        v33 = ActivityId_4;
+        v44 = 4LL;
+        v43 = &v33;
+        tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C024AA90, (int)&dword_1C0217F80, (int)&ActivityId_8, 0, 3u, &v42);
+        v28 = (unsigned int)dword_1C024AA90;
+      }
+      if ( (unsigned int)v28 > 6 && (unsigned __int8)tlgKeywordOn(&dword_1C024AA90, 0x2000LL, v28, v29) )
+      {
+        v34 = ActivityId_4;
+        v47 = 4LL;
+        v46 = &v34;
+        tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C024AA90, (int)&dword_1C0217FAD, (int)&ActivityId_8, 0, 3u, &v45);
+      }
+    }
+  }
+  EtwTraceAcquiredExclusiveUserCrit();
+  gptiCurrent = v1;
+  gbValidateHandleForIL = 1;
+  if ( !(unsigned __int8)KeIsAttachedProcess()
+    || (v17 = PsGetCurrentProcess(v10, v9),
+        ProcessSessionId = PsGetProcessSessionIdEx(v17),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    CurrentThread = KeGetCurrentThread();
+    v12 = 0LL;
+    if ( !(unsigned int)IsThreadCrossSessionAttached() )
+    {
+      ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+      if ( ThreadWin32Thread )
+        v12 = *ThreadWin32Thread;
+    }
+    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process();
+    if ( v12
+      && CurrentProcessWin32Process
+      && (*(_DWORD *)(v12 + 488) & 0x1000000) != 0
+      && (*(_DWORD *)(v12 + 1232) & 0x80u) == 0
+      && (*(_DWORD *)(CurrentProcessWin32Process + 12) & 0x8000) != 0 )
+    {
+      DomainLockRef = (PERESOURCE *)GetDomainLockRef(12LL);
+      v35 = DomainLockRef;
+      if ( DomainLockRef == (PERESOURCE *)&gDomainDummyLock )
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 408LL);
+      if ( ExIsResourceAcquiredExclusiveLite(*DomainLockRef) == 1 )
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1293LL);
+      ExEnterCriticalRegionAndAcquireResourceExclusive(*DomainLockRef);
+      v16 = gpducstulHead;
+      if ( gpducstulHead )
+      {
+        do
+        {
+          gpducstulHead = (struct tagKERNELHANDLETABLEENTRY *)*((_QWORD *)v16 + 2);
+          v30 = *(_QWORD *)v16;
+          *((_QWORD *)v16 + 2) = 0LL;
+          if ( !*(_DWORD *)(v30 + 8) )
+            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 4307LL);
+          v31 = (PERESOURCE *)GetDomainLockRef(12LL);
+          if ( v31 == (PERESOURCE *)&gDomainDummyLock )
+            MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 490LL);
+          ExReleaseResourceAndLeaveCriticalRegion(*v31);
+          HMUnlockObject(*(_QWORD *)v16);
+          tagDomLock::LockExclusive((tagDomLock *)v31);
+          v16 = gpducstulHead;
+        }
+        while ( gpducstulHead );
+        DomainLockRef = v35;
+      }
+      ExReleaseResourceAndLeaveCriticalRegion(*DomainLockRef);
+    }
+  }
+  gptiCurrent = v1;
 }

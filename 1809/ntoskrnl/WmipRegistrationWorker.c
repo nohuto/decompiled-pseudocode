@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipRegistrationWorker @ 0x1406C6270
+ * XREFs of WmipRegistrationWorker @ 0x1406C6250
  * Callers:
  *     <none>
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     WmipUnreferenceRegEntry @ 0x14008DB30 (WmipUnreferenceRegEntry.c)
- *     IoControlPnpDeviceActionQueue @ 0x140135350 (IoControlPnpDeviceActionQueue.c)
+ *     IoControlPnpDeviceActionQueue @ 0x140135370 (IoControlPnpDeviceActionQueue.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WmipRegisterOrUpdateDS @ 0x1406C9988 (WmipRegisterOrUpdateDS.c)
+ *     WmipRegisterOrUpdateDS @ 0x1406C9968 (WmipRegisterOrUpdateDS.c)
  */
 
 __int64 WmipRegistrationWorker()

@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionIsHotKey @ 0x1C01E5BC0
+ * XREFs of EditionIsHotKey @ 0x1C01EAF70
  * Callers:
  *     <none>
  * Callees:
- *     IsHotKey @ 0x1C00F6854 (IsHotKey.c)
+ *     IsHotKey @ 0x1C0105878 (IsHotKey.c)
  */
 
 _BOOL8 __fastcall EditionIsHotKey(int a1, int a2)

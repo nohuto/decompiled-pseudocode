@@ -1,76 +1,75 @@
 /*
- * XREFs of ?_GetTopologySetIdByClass@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@AEAAPEAVCCD_SET_STRING_ID@@W4CCD_TOPOLOGY_CLASS@@_N@Z @ 0x1C01B803C
+ * XREFs of ?_GetTopologySetIdByClass@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@AEAAPEAVCCD_SET_STRING_ID@@W4CCD_TOPOLOGY_CLASS@@_N@Z @ 0x1C0137B84
  * Callers:
- *     ?GetRecentTopologySetId@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@QEAAPEBVCCD_SET_STRING_ID@@W4CCD_TOPOLOGY_CLASS@@@Z @ 0x1C01B7FB8 (-GetRecentTopologySetId@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@QEAAPEBVCCD_SET_STRING_ID@@W4CCD_TOP.c)
- *     ?SetRecentTopologySetId@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@QEAAJAEBVCCD_SET_STRING_ID@@W4CCD_TOPOLOGY_CLASS@@@Z @ 0x1C01BB308 (-SetRecentTopologySetId@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@QEAAJAEBVCCD_SET_STRING_ID@@W4CCD_TO.c)
+ *     ?GetRecentTopologySetId@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@QEAAPEBVCCD_SET_STRING_ID@@W4CCD_TOPOLOGY_CLASS@@@Z @ 0x1C0137AF4 (-GetRecentTopologySetId@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@QEAAPEBVCCD_SET_STRING_ID@@W4CCD_TOP.c)
+ *     ?SetRecentTopologySetId@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@QEAAJAEBVCCD_SET_STRING_ID@@W4CCD_TOPOLOGY_CLASS@@@Z @ 0x1C0167604 (-SetRecentTopologySetId@CONNECTED_SET_DESCRIPTOR@CCD_STORE@@QEAAJAEBVCCD_SET_STRING_ID@@W4CCD_TO.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
-__int64 __fastcall CCD_STORE::CONNECTED_SET_DESCRIPTOR::_GetTopologySetIdByClass(__int64 a1, int a2, char a3)
+char *__fastcall CCD_STORE::CONNECTED_SET_DESCRIPTOR::_GetTopologySetIdByClass(__int64 a1, __int64 a2, char a3)
 {
   __int64 v3; // rsi
-  __int64 v6; // r9
-  __int64 v7; // rbx
-  __int64 result; // rax
+  __int64 v6; // rbx
+  char *result; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int64 v12; // rax
+  _QWORD *v13; // rax
 
-  v3 = a2;
-  v6 = (unsigned int)(a2 - 1);
-  if ( a2 == 1 )
+  v3 = (int)a2;
+  switch ( (_DWORD)a2 )
   {
-    v7 = 56LL;
-  }
-  else
-  {
-    v6 = (unsigned int)(a2 - 2);
-    if ( a2 == 2 )
-    {
-      v7 = 64LL;
-    }
-    else
-    {
-      v6 = (unsigned int)(a2 - 4);
-      if ( a2 == 4 )
+    case 1:
+      v6 = 56LL;
+      break;
+    case 2:
+      v6 = 64LL;
+      break;
+    case 4:
+      v6 = 72LL;
+      break;
+    case 8:
+      v6 = 80LL;
+      break;
+    default:
+      if ( (_DWORD)a2 != 15 )
       {
-        v7 = 72LL;
+        v12 = WdLogNewEntry5_WdAssertion(a1, a2);
+        *(_QWORD *)(v12 + 24) = v3;
+        WdLogEvent5_WdAssertion(v12);
       }
-      else
-      {
-        v6 = (unsigned int)(a2 - 8);
-        if ( a2 == 8 )
-        {
-          v7 = 80LL;
-        }
-        else
-        {
-          if ( a2 != 15 )
-            WdLogSingleEntry1(1LL, a2);
-          v7 = 88LL;
-        }
-      }
-    }
+      v6 = 88LL;
+      break;
   }
-  result = *(_QWORD *)(v7 + a1);
+  result = *(char **)(v6 + a1);
   if ( !result && a3 )
   {
-    result = operator new[](0x38uLL, 0x63644356u, 256LL, v6);
+    result = (char *)operator new[](0x38uLL, 0x63644356u, PagedPool);
     if ( result )
     {
       *(_DWORD *)result = 0;
       *(_OWORD *)(result + 8) = 0LL;
-      *(_QWORD *)(result + 24) = 0LL;
-      *(_WORD *)(result + 32) = 0;
+      *((_QWORD *)result + 3) = 0LL;
+      *((_WORD *)result + 16) = 0;
       *(_OWORD *)(result + 40) = 0LL;
     }
     else
     {
       result = 0LL;
     }
-    *(_QWORD *)(v7 + a1) = result;
+    *(_QWORD *)(v6 + a1) = result;
     if ( !result )
     {
-      WdLogSingleEntry4(6LL, 56LL, v3, a1, *(_QWORD *)(a1 + 96));
-      return *(_QWORD *)(v7 + a1);
+      v13 = (_QWORD *)WdLogNewEntry5_WdLowResource(v9, v8, v10, v11);
+      v13[3] = 56LL;
+      v13[4] = v3;
+      v13[5] = a1;
+      v13[6] = *(_QWORD *)(a1 + 96);
+      WdLogEvent5_WdLowResource(v13);
+      return *(char **)(v6 + a1);
     }
   }
   return result;

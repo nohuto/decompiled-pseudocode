@@ -1,53 +1,24 @@
 /*
- * XREFs of ?OnDirectStartDeviceClassNotification@CBaseInput@@AEAAJXZ @ 0x1C00D3340
+ * XREFs of ?OnDirectStartDeviceClassNotification@CBaseInput@@AEAAJXZ @ 0x1C00C40C0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetCount@AtomicExecutionCheck@@SAIXZ @ 0x1C0029C98 (-GetCount@AtomicExecutionCheck@@SAIXZ.c)
- *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C0043BF0 (WPP_RECORDER_AND_TRACE_SF_D.c)
- *     RIMDirectStartDeviceClassNotifications @ 0x1C00D3390 (RIMDirectStartDeviceClassNotifications.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0046B08 (WPP_RECORDER_SF_d.c)
+ *     RIMDirectStartDeviceClassNotifications @ 0x1C00C4100 (RIMDirectStartDeviceClassNotifications.c)
  */
 
 __int64 __fastcall CBaseInput::OnDirectStartDeviceClassNotification(CBaseInput *this)
 {
-  unsigned int Count; // eax
-  char v3; // bl
-  int v4; // edx
-  int started; // edi
-  int v6; // r8d
+  int v1; // edx
+  int started; // ebx
 
-  Count = AtomicExecutionCheck::GetCount();
-  v3 = 1;
-  if ( Count )
-  {
-    if ( (gdwExtraInstrumentations & 1) != 0 )
-      KeBugCheckEx(0x160u, Count, 0LL, 0LL, 0LL);
-    DbgkWerCaptureLiveKernelDump(L"NTUSER", 400LL, 37LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
-  }
+  if ( (_DWORD)gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, (unsigned int)gdwInAtomicOperation, 0LL, 0LL, 0LL);
   started = RIMDirectStartDeviceClassNotifications(*((_QWORD *)this + 1), gpWin32kDriverObject);
-  if ( started < 0 )
+  if ( started < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) == 0
-      || BYTE1(WPP_GLOBAL_Control->Timer) < 2u )
-    {
-      v3 = 0;
-    }
-    if ( v3 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      LOBYTE(v4) = v3;
-      LOBYTE(v6) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_D(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v4,
-        v6,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        2,
-        3,
-        16,
-        (__int64)&WPP_b99049c1e8dc304ebad6fe568d7717f2_Traceguids,
-        started);
-    }
+    LOBYTE(v1) = 2;
+    WPP_RECORDER_SF_d((_DWORD)gBaseLog, v1, 3, 14, (__int64)&WPP_f3c7c3b8e3c935fa60aa5d5f3732d730_Traceguids, started);
   }
   return (unsigned int)started;
 }

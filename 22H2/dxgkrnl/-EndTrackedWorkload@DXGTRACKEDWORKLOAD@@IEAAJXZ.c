@@ -1,103 +1,94 @@
 /*
- * XREFs of ?EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ @ 0x1C035DFA0
+ * XREFs of ?EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ @ 0x1C02BCD10
  * Callers:
- *     ?UpdateTrackedWorkload@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEBU_D3DKMT_UPDATETRACKEDWORKLOAD@@_K@Z @ 0x1C035F028 (-UpdateTrackedWorkload@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEBU_D3DKMT_UPDATETRACKEDWORKLOAD.c)
+ *     ?UpdateTrackedWorkload@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEBU_D3DKMT_UPDATETRACKEDWORKLOAD@@_K@Z @ 0x1C02BD83C (-UpdateTrackedWorkload@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEBU_D3DKMT_UPDATETRACKEDWORKLOAD.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     McTemplateK0pqqqqq_EtwWriteTransfer @ 0x1C004832C (McTemplateK0pqqqqq_EtwWriteTransfer.c)
- *     ?GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z @ 0x1C0089018 (-GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z.c)
- *     ?Scale@RollingStats@@QEAAXN@Z @ 0x1C0089240 (-Scale@RollingStats@@QEAAXN@Z.c)
- *     ?SetEffectivePowerLevel@TrackedWorkloadMonitor@@QEAAXI_N@Z @ 0x1C0089284 (-SetEffectivePowerLevel@TrackedWorkloadMonitor@@QEAAXI_N@Z.c)
- *     ?DdiSetTrackedWorkloadPowerLevel@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_SETTRACKEDWORKLOADPOWERLEVEL@@@Z @ 0x1C02CC2B8 (-DdiSetTrackedWorkloadPowerLevel@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_SETTRACKEDWORKLOADPOWERLE.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     Feature_TrackedWorkloadDirectDeadline__private_ReportDeviceUsage @ 0x1C002826C (Feature_TrackedWorkloadDirectDeadline__private_ReportDeviceUsage.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C003A3F8 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     ?GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z @ 0x1C006F008 (-GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z.c)
+ *     ?Scale@RollingStats@@QEAAXN@Z @ 0x1C006F1F0 (-Scale@RollingStats@@QEAAXN@Z.c)
+ *     ?SetEffectivePowerLevel@TrackedWorkloadMonitor@@QEAAXI_N@Z @ 0x1C006F234 (-SetEffectivePowerLevel@TrackedWorkloadMonitor@@QEAAXI_N@Z.c)
+ *     ?DdiSetTrackedWorkloadPowerLevel@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_SETTRACKEDWORKLOADPOWERLEVEL@@@Z @ 0x1C021F974 (-DdiSetTrackedWorkloadPowerLevel@ADAPTER_RENDER@@QEAAJPEAXPEAU_DXGKARG_SETTRACKEDWORKLOADPOWERLE.c)
  */
 
 __int64 __fastcall DXGTRACKEDWORKLOAD::EndTrackedWorkload(DXGTRACKEDWORKLOAD *this)
 {
-  unsigned int v1; // r14d
-  TrackedWorkloadMonitor *v3; // rcx
-  __int64 v4; // rdi
-  signed int v5; // r12d
-  unsigned int v6; // r15d
-  UINT v7; // ecx
-  UINT EffectivePowerLevel; // esi
-  __int64 v9; // rdx
-  int v10; // eax
-  __int64 v11; // r8
-  __int64 v13; // [rsp+20h] [rbp-60h]
-  __int64 v14; // [rsp+28h] [rbp-58h]
-  __int64 v15; // [rsp+30h] [rbp-50h]
-  __int64 v16; // [rsp+38h] [rbp-48h]
-  __int64 v17; // [rsp+40h] [rbp-40h]
-  unsigned int v18; // [rsp+50h] [rbp-30h] BYREF
-  unsigned int v19; // [rsp+54h] [rbp-2Ch] BYREF
-  RollingStats *v20; // [rsp+58h] [rbp-28h]
-  TrackedWorkloadMonitor *v21; // [rsp+60h] [rbp-20h]
-  _DXGKARG_SETTRACKEDWORKLOADPOWERLEVEL v22; // [rsp+68h] [rbp-18h] BYREF
+  unsigned int v1; // esi
+  __int64 v3; // rbx
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  unsigned int v6; // r14d
+  signed int v7; // r15d
+  __int64 v8; // rbx
+  int v9; // eax
+  __int64 v10; // rdx
+  __int64 v11; // rax
+  __int64 v13; // [rsp+20h] [rbp-30h]
+  __int64 v14; // [rsp+28h] [rbp-28h]
+  unsigned int v15; // [rsp+30h] [rbp-20h] BYREF
+  unsigned int v16; // [rsp+34h] [rbp-1Ch] BYREF
+  _DXGKARG_SETTRACKEDWORKLOADPOWERLEVEL v17; // [rsp+38h] [rbp-18h] BYREF
 
   v1 = 0;
-  v3 = (DXGTRACKEDWORKLOAD *)((char *)this + 328);
-  v18 = 0;
-  LODWORD(v4) = 0;
-  v5 = 0;
-  v19 = 0;
-  v21 = v3;
-  v20 = (DXGTRACKEDWORKLOAD *)((char *)this + 232);
-  v6 = 0;
-  if ( !DXGTRACKEDWORKLOAD::m_enableBypassPowerLevel )
+  LODWORD(v3) = 0;
+  Feature_TrackedWorkloadDirectDeadline__private_ReportDeviceUsage();
+  v16 = 0;
+  v15 = 0;
+  if ( TrackedWorkloadMonitor::GetTargetPowerLevel(
+         (DXGTRACKEDWORKLOAD *)((char *)this + 328),
+         (DXGTRACKEDWORKLOAD *)((char *)this + 232),
+         &v16,
+         &v15) )
   {
-    if ( !TrackedWorkloadMonitor::GetTargetPowerLevel(v3, (DXGTRACKEDWORKLOAD *)((char *)this + 232), &v18, &v19) )
-      return (unsigned int)v4;
-    v5 = v18;
-    v6 = v19;
-  }
-  v7 = v6;
-  *(_QWORD *)&v22.EffectivePowerLevel = 0LL;
-  if ( DXGTRACKEDWORKLOAD::m_enableBypassPowerLevel )
-    v7 = DXGTRACKEDWORKLOAD::m_bypassPowerLevel;
-  EffectivePowerLevel = 1;
-  v22.PowerLevel = v7;
-  if ( *((_DWORD *)this + 270) )
-  {
-    while ( 1 )
+    v6 = v15;
+    v7 = v16;
+    v17.PowerLevel = v15;
+    *(_QWORD *)&v17.EffectivePowerLevel = 0LL;
+    if ( *((_DWORD *)this + 268) )
     {
-      v9 = *((_QWORD *)this + v1 + 71);
-      v10 = ADAPTER_RENDER::DdiSetTrackedWorkloadPowerLevel(
-              *(ADAPTER_RENDER **)(*(_QWORD *)(v9 + 16) + 16LL),
-              *(void **)(v9 + 184),
-              &v22);
-      v4 = v10;
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
+      while ( 1 )
       {
-        LODWORD(v17) = v10;
-        LODWORD(v16) = v22.EffectivePowerLevel;
-        LODWORD(v15) = v6;
-        LODWORD(v14) = v5;
-        LODWORD(v13) = v1;
-        McTemplateK0pqqqqq_EtwWriteTransfer(
-          v22.EffectivePowerLevel,
-          &TrackedWorkloadSetPowerLevel,
-          v11,
-          this,
-          v13,
-          v14,
-          v15,
-          v16,
-          v17);
+        v8 = *((_QWORD *)this + v1 + 70);
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x1000000) != 0 )
+        {
+          LODWORD(v14) = v6;
+          LODWORD(v13) = v7;
+          McTemplateK0pqq_EtwWriteTransfer(v4, &TrackedWorkloadSetPowerLevel, v5, *(_QWORD *)(v8 + 184), v13, v14);
+        }
+        v9 = ADAPTER_RENDER::DdiSetTrackedWorkloadPowerLevel(
+               *(ADAPTER_RENDER **)(*(_QWORD *)(v8 + 16) + 16LL),
+               *(void **)(v8 + 184),
+               &v17);
+        v3 = v9;
+        if ( v9 < 0 )
+          break;
+        if ( ++v1 >= *((_DWORD *)this + 268) )
+          goto LABEL_7;
       }
-      if ( (int)v4 < 0 )
-        break;
-      if ( EffectivePowerLevel <= v22.EffectivePowerLevel )
-        EffectivePowerLevel = v22.EffectivePowerLevel;
-      if ( ++v1 >= *((_DWORD *)this + 270) )
-        goto LABEL_13;
+      v11 = WdLogNewEntry5_WdWarning(v4, v10, v5);
+      *(_QWORD *)(v11 + 32) = 1710LL;
     }
-    WdLogSingleEntry2(3LL, v4, 1983LL);
+    else
+    {
+LABEL_7:
+      if ( v17.EffectivePowerLevel )
+      {
+        TrackedWorkloadMonitor::SetEffectivePowerLevel(
+          (DXGTRACKEDWORKLOAD *)((char *)this + 328),
+          v17.EffectivePowerLevel,
+          v17.Flags & 1);
+        RollingStats::Scale(
+          (DXGTRACKEDWORKLOAD *)((char *)this + 232),
+          (double)v7 / (double)(int)v17.EffectivePowerLevel);
+        return (unsigned int)v3;
+      }
+      v3 = -1073741823LL;
+      v11 = WdLogNewEntry5_WdWarning(v4, 0LL, v5);
+      *(_QWORD *)(v11 + 32) = 1719LL;
+    }
+    *(_QWORD *)(v11 + 24) = v3;
+    WdLogEvent5_WdWarning(v11);
   }
-  else
-  {
-LABEL_13:
-    TrackedWorkloadMonitor::SetEffectivePowerLevel(v21, EffectivePowerLevel, 0);
-    RollingStats::Scale(v20, (double)v5 / (double)(int)EffectivePowerLevel);
-  }
-  return (unsigned int)v4;
+  return (unsigned int)v3;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of KzLowerIrql @ 0x14023E470
+ * XREFs of KzLowerIrql @ 0x1402BC3E0
  * Callers:
- *     KiVirtualizationException @ 0x140431440 (KiVirtualizationException.c)
+ *     KiVirtualizationException @ 0x14040F200 (KiVirtualizationException.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __stdcall KzLowerIrql(KIRQL NewIrql)
 {
   unsigned __int64 v1; // rbx
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v5; // eax
@@ -18,16 +18,19 @@ void __stdcall KzLowerIrql(KIRQL NewIrql)
   v1 = NewIrql;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v5 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v1 + 1));
-      v6 = (v5 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v5;
-      if ( v6 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && NewIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v5 = ~(unsigned __int16)(-1LL << (NewIrql + 1));
+        v6 = (v5 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v5;
+        if ( v6 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(v1);

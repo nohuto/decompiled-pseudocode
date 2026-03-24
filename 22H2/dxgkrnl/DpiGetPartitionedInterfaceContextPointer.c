@@ -1,26 +1,38 @@
 /*
- * XREFs of DpiGetPartitionedInterfaceContextPointer @ 0x1C03A3474
+ * XREFs of DpiGetPartitionedInterfaceContextPointer @ 0x1C02D46D8
  * Callers:
- *     DpiFdoHandleQueryFlexibleIovInterface @ 0x1C03A27E0 (DpiFdoHandleQueryFlexibleIovInterface.c)
- *     DpiFdoHandleQueryPartitioningDeviceInterface @ 0x1C03A2B90 (DpiFdoHandleQueryPartitioningDeviceInterface.c)
- *     DpiFdoHandleQuerySrIovInterface @ 0x1C03A2D20 (DpiFdoHandleQuerySrIovInterface.c)
+ *     DpiFdoHandleQueryFlexibleIovInterface @ 0x1C02D3940 (DpiFdoHandleQueryFlexibleIovInterface.c)
+ *     DpiFdoHandleQueryPartitioningDeviceInterface @ 0x1C02D3D40 (DpiFdoHandleQueryPartitioningDeviceInterface.c)
+ *     DpiFdoHandleQuerySrIovInterface @ 0x1C02D3F00 (DpiFdoHandleQuerySrIovInterface.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall DpiGetPartitionedInterfaceContextPointer(__int64 a1, __int64 a2)
+__int64 __fastcall DpiGetPartitionedInterfaceContextPointer(__int64 a1, unsigned __int16 *a2)
 {
-  __int64 v4; // r8
-  bool v5; // zf
+  unsigned int v2; // r9d
+  unsigned int v4; // r8d
+  __int64 v5; // r10
+  bool v6; // zf
   __int64 result; // rax
-  struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
-  DestinationString = 0LL;
-  RtlInitUnicodeString(&DestinationString, L"\\GPUPARAV");
-  LOBYTE(v4) = 1;
-  v5 = RtlFindUnicodeSubstring(a2, &DestinationString, v4) == 0;
-  result = a1 + 5416;
-  if ( v5 )
-    return a1 + 5384;
+  v2 = *a2 >> 1;
+  v4 = 0;
+  if ( !v2 )
+    return a1 + 5440;
+  v5 = *((_QWORD *)a2 + 1);
+  do
+  {
+    if ( !*(_WORD *)(v5 + 2LL * v4) )
+      break;
+    ++v4;
+  }
+  while ( v4 < v2 );
+  if ( v4 < 9 )
+    return a1 + 5440;
+  v6 = RtlCompareUnicodeStrings((PCWCH)(v5 + 2LL * (v4 - 9)), 9uLL, L"\\GPUPARAV", 9uLL, 1u) == 0;
+  result = a1 + 5472;
+  if ( !v6 )
+    return a1 + 5440;
   return result;
 }

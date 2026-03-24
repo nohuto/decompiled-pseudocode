@@ -1,7 +1,7 @@
 /*
- * XREFs of ??_ECCompositionToken@@UEAAPEAXI@Z @ 0x1C00758E4
+ * XREFs of ??_ECCompositionToken@@UEAAPEAXI@Z @ 0x1C0063FF8
  * Callers:
- *     ??_ECCompositionToken@@W7EAAPEAXI@Z @ 0x1C002D550 (--_ECCompositionToken@@W7EAAPEAXI@Z.c)
+ *     ??_ECCompositionToken@@W7EAAPEAXI@Z @ 0x1C0029330 (--_ECCompositionToken@@W7EAAPEAXI@Z.c)
  * Callees:
  *     <none>
  */

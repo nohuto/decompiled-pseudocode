@@ -1,9 +1,9 @@
 /*
- * XREFs of _lambda_42f186421c331d4d68df43a01bbfc838_::operator() @ 0x1C013FD78
+ * XREFs of _lambda_42f186421c331d4d68df43a01bbfc838_::operator() @ 0x1C016C170
  * Callers:
- *     ?UmfdZombifyAllUmfdFonts@@YAXXZ @ 0x1C0086ACC (-UmfdZombifyAllUmfdFonts@@YAXXZ.c)
+ *     ?UmfdZombifyAllUmfdFonts@@YAXXZ @ 0x1C00F3498 (-UmfdZombifyAllUmfdFonts@@YAXXZ.c)
  * Callees:
- *     ?SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z @ 0x1C013E750 (-SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z.c)
+ *     ?SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z @ 0x1C016A260 (-SkipInvalidPff@@YAPEAVPFF@@PEAV1@@Z.c)
  */
 
 void __fastcall lambda_42f186421c331d4d68df43a01bbfc838_::operator()(__int64 a1, __int64 a2)

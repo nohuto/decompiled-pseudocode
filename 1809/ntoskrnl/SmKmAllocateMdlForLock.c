@@ -1,10 +1,10 @@
 /*
- * XREFs of SmKmAllocateMdlForLock @ 0x140173F94
+ * XREFs of SmKmAllocateMdlForLock @ 0x140173FB4
  * Callers:
- *     SmFpAllocate @ 0x14014BA54 (SmFpAllocate.c)
- *     SmFpPreAllocate @ 0x14018E5E8 (SmFpPreAllocate.c)
+ *     SmFpAllocate @ 0x14014BA74 (SmFpAllocate.c)
+ *     SmFpPreAllocate @ 0x14018E608 (SmFpPreAllocate.c)
  * Callees:
- *     SmAcquireReleaseCharges @ 0x1400E3CE4 (SmAcquireReleaseCharges.c)
+ *     SmAcquireReleaseCharges @ 0x1400E3D04 (SmAcquireReleaseCharges.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

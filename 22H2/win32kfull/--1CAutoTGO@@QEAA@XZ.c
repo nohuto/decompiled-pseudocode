@@ -1,9 +1,12 @@
 /*
- * XREFs of ??1CAutoTGO@@QEAA@XZ @ 0x1C013EE24
+ * XREFs of ??1CAutoTGO@@QEAA@XZ @ 0x1C011F940
  * Callers:
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     ??1SURFFAKEOBJ@@QEAA@XZ @ 0x1C013EF70 (--1SURFFAKEOBJ@@QEAA@XZ.c)
- *     ?DoFontManagement@@YAKAEAVDCOBJ@@KKPEAXK1AEBUTag@RFONTOBJ@@@Z @ 0x1C0274F74 (-DoFontManagement@@YAKAEAVDCOBJ@@KKPEAXK1AEBUTag@RFONTOBJ@@@Z.c)
+ *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C008AF30 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
+ *     ??1UMPDSURFOBJ@@QEAA@XZ @ 0x1C0137A1C (--1UMPDSURFOBJ@@QEAA@XZ.c)
+ *     ??1SURFFAKEOBJ@@QEAA@XZ @ 0x1C016AB40 (--1SURFFAKEOBJ@@QEAA@XZ.c)
+ *     ?DoFontManagement@@YAKAEAVDCOBJ@@KKPEAXK1@Z @ 0x1C027B154 (-DoFontManagement@@YAKAEAVDCOBJ@@KKPEAXK1@Z.c)
+ *     NtGdiEngCheckAbort @ 0x1C02B20E0 (NtGdiEngCheckAbort.c)
+ *     NtGdiPATHOBJ_vEnumStartClipLines @ 0x1C02B4CB0 (NtGdiPATHOBJ_vEnumStartClipLines.c)
  * Callees:
  *     <none>
  */

@@ -1,8 +1,8 @@
 /*
- * XREFs of _MapCmDevicePropertyToRegValue @ 0x1402DF64C
+ * XREFs of _MapCmDevicePropertyToRegValue @ 0x14026586C
  * Callers:
- *     _CmSetDeviceRegPropWorker @ 0x14076FF88 (_CmSetDeviceRegPropWorker.c)
- *     _CmGetDeviceRegPropWorker @ 0x14077CF10 (_CmGetDeviceRegPropWorker.c)
+ *     _CmGetDeviceRegPropWorker @ 0x1406415EC (_CmGetDeviceRegPropWorker.c)
+ *     _CmSetDeviceRegPropWorker @ 0x140744178 (_CmSetDeviceRegPropWorker.c)
  * Callees:
  *     <none>
  */
@@ -49,16 +49,16 @@ const wchar_t *__fastcall MapCmDevicePropertyToRegValue(__int64 a1, int a2)
     {
       if ( a2 == 27 )
         return L"Exclusive";
-      v10 = a2 - 17;
-      if ( !v10 )
+      v5 = a2 - 17;
+      if ( !v5 )
         return L"UINumber";
-      v11 = v10 - 1;
-      if ( !v11 )
+      v6 = v5 - 1;
+      if ( !v6 )
         return L"UpperFilters";
-      v12 = v11 - 1;
-      if ( !v12 )
+      v7 = v6 - 1;
+      if ( !v7 )
         return L"LowerFilters";
-      v18 = v12 - 5;
+      v18 = v7 - 5;
       if ( !v18 )
         return L"Security";
       if ( v18 == 2 )
@@ -70,19 +70,19 @@ const wchar_t *__fastcall MapCmDevicePropertyToRegValue(__int64 a1, int a2)
     return L"Capabilities";
   if ( a2 > 9 )
   {
-    v5 = a2 - 10;
-    if ( !v5 )
-      return L"Driver";
-    v6 = v5 - 1;
-    if ( !v6 )
-      return L"ConfigFlags";
-    v8 = v6 - 1;
+    v8 = a2 - 10;
     if ( !v8 )
+      return L"Driver";
+    v11 = v8 - 1;
+    if ( !v11 )
+      return L"ConfigFlags";
+    v12 = v11 - 1;
+    if ( !v12 )
       return L"Mfg";
-    v9 = v8 - 1;
-    if ( !v9 )
+    v13 = v12 - 1;
+    if ( !v13 )
       return L"FriendlyName";
-    if ( v9 == 1 )
+    if ( v13 == 1 )
       return L"LocationInformation";
     return 0LL;
   }
@@ -94,13 +94,13 @@ const wchar_t *__fastcall MapCmDevicePropertyToRegValue(__int64 a1, int a2)
   v3 = v2 - 1;
   if ( !v3 )
     return L"HardwareID";
-  v7 = v3 - 1;
-  if ( !v7 )
+  v9 = v3 - 1;
+  if ( !v9 )
     return L"CompatibleIDs";
-  v13 = v7 - 2;
-  if ( !v13 )
+  v10 = v9 - 2;
+  if ( !v10 )
     return L"Service";
-  if ( v13 != 3 )
+  if ( v10 != 3 )
     return 0LL;
   return L"Class";
 }

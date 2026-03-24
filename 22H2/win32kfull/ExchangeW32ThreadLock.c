@@ -1,12 +1,12 @@
 /*
- * XREFs of ExchangeW32ThreadLock @ 0x1C0062148
+ * XREFs of ExchangeW32ThreadLock @ 0x1C003EC8C
  * Callers:
- *     LockExchangeW32Thread @ 0x1C0016D9C (LockExchangeW32Thread.c)
- *     ?xxxSystemBroadcastMessage@@YAXI_K_JIPEATtagBROADCASTMSG@@HI@Z @ 0x1C0060E90 (-xxxSystemBroadcastMessage@@YAXI_K_JIPEATtagBROADCASTMSG@@HI@Z.c)
- *     xxxSendMessageBSM @ 0x1C0061FF0 (xxxSendMessageBSM.c)
- *     xxxDoPaint @ 0x1C008BD2C (xxxDoPaint.c)
+ *     LockExchangeW32Thread @ 0x1C0007B10 (LockExchangeW32Thread.c)
+ *     xxxSendMessageBSM @ 0x1C003EB40 (xxxSendMessageBSM.c)
+ *     xxxDoPaint @ 0x1C0053408 (xxxDoPaint.c)
+ *     ?xxxSystemBroadcastMessage@@YAXI_K_JIPEATtagBROADCASTMSG@@HI@Z @ 0x1C012D100 (-xxxSystemBroadcastMessage@@YAXI_K_JIPEATtagBROADCASTMSG@@HI@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ExchangeW32ThreadLock(__int64 a1, __int64 a2)

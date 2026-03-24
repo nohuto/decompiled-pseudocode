@@ -1,14 +1,13 @@
 /*
- * XREFs of ?VmBusExecuteCommandInProcessContext@@YAEPEAUDXGADAPTER_VMBUS_PACKET@@P6AE0@Z@Z @ 0x1C036CEEC
+ * XREFs of ?VmBusExecuteCommandInProcessContext@@YAEPEAUDXGADAPTER_VMBUS_PACKET@@P6AE0@Z@Z @ 0x1C0240C34
  * Callers:
- *     ?VmBusProcessPacket@@YAXPEAX@Z @ 0x1C0372240 (-VmBusProcessPacket@@YAXPEAX@Z.c)
+ *     ?VmBusProcessPacket@@YAXPEAX@Z @ 0x1C0244BE0 (-VmBusProcessPacket@@YAXPEAX@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C000FB18 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ??0CEnsureCurrentDxgProcess@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C00465B8 (--0CEnsureCurrentDxgProcess@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00044A0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C00073EC (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ??0CEnsureCurrentDxgProcess@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C003BB58 (--0CEnsureCurrentDxgProcess@@QEAA@PEAVDXGPROCESS@@@Z.c)
  */
 
 char __fastcall VmBusExecuteCommandInProcessContext(
@@ -16,123 +15,108 @@ char __fastcall VmBusExecuteCommandInProcessContext(
         __int64 (__fastcall *a2)(struct DXGADAPTER_VMBUS_PACKET *))
 {
   __int64 v2; // rbp
-  __int64 v3; // rdi
-  char v6; // r15
-  BOOLEAN v7; // r14
-  __int64 v8; // rax
-  __int64 v9; // r8
-  int v10; // ecx
-  struct _EX_RUNDOWN_REF *v11; // rbx
-  unsigned __int64 v12; // rax
+  _DWORD *v3; // rdi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  char v8; // r15
+  BOOLEAN v9; // r14
+  __int64 v10; // rax
+  __int64 v11; // r8
+  int v12; // ecx
   __int64 v13; // rcx
-  __int64 v14; // rdi
-  __int64 v16; // [rsp+50h] [rbp-98h] BYREF
-  __int64 v17; // [rsp+58h] [rbp-90h]
-  _BYTE v18[24]; // [rsp+60h] [rbp-88h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+78h] [rbp-70h] BYREF
+  __int64 v14; // rcx
+  struct _EX_RUNDOWN_REF *v15; // rbx
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  unsigned __int64 v18; // rax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rdi
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v25; // [rsp+20h] [rbp-88h] BYREF
+  __int64 v26; // [rsp+28h] [rbp-80h]
+  _BYTE v27[24]; // [rsp+30h] [rbp-78h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+48h] [rbp-60h] BYREF
 
-  v2 = *((_QWORD *)a1 + 12);
-  v3 = *((_QWORD *)a1 + 17);
+  v2 = *((_QWORD *)a1 + 7);
+  v3 = (_DWORD *)*((_QWORD *)a1 + 10);
   memset(&ApcState, 0, sizeof(ApcState));
   KeStackAttachProcess(*(PRKPROCESS *)(v2 + 56), &ApcState);
-  v6 = 0;
-  v7 = 0;
-  if ( *(_DWORD *)(v3 + 8) )
+  v8 = 0;
+  v9 = 0;
+  if ( v3[2] )
   {
-    DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v18, (struct DXGPROCESS *)v2);
-    v8 = (*(_DWORD *)(v3 + 8) >> 6) & 0xFFFFFF;
-    if ( (unsigned int)v8 < *(_DWORD *)(v2 + 296) )
+    DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v27, (struct _KTHREAD **)v2);
+    v10 = (v3[2] >> 6) & 0xFFFFFF;
+    if ( (unsigned int)v10 < *(_DWORD *)(v2 + 256) )
     {
-      v9 = *(_QWORD *)(v2 + 280);
-      v10 = *(_DWORD *)(v9 + 16 * v8 + 8);
-      if ( ((*(_DWORD *)(v3 + 8) >> 25) & 0x60) == (*(_BYTE *)(v9 + 16 * v8 + 8) & 0x60)
-        && (v10 & 0x2000) == 0
-        && (v10 & 0x1F) != 0 )
+      v11 = *(_QWORD *)(v2 + 240);
+      v12 = *(_DWORD *)(v11 + 16 * v10 + 8);
+      if ( ((v3[2] >> 25) & 0x60) == (*(_BYTE *)(v11 + 16 * v10 + 8) & 0x60) && (v12 & 0x2000) == 0 && (v12 & 0x1F) != 0 )
       {
-        if ( (v10 & 0x1F) == 0xC )
+        v13 = v12 & 0x1F;
+        if ( (_BYTE)v13 == 12 )
         {
-          v11 = *(struct _EX_RUNDOWN_REF **)(v9 + 16LL * (unsigned int)v8);
-          if ( !v11 )
-            goto LABEL_12;
-          v7 = ExAcquireRundownProtection(v11 + 30);
-          if ( v7 )
-            goto LABEL_12;
-          WdLogSingleEntry2(2LL, *(unsigned int *)(v3 + 8), 308LL);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed to acquire process rundown protection: 0x%I64x",
-            *(unsigned int *)(v3 + 8),
-            308LL,
-            0LL,
-            0LL,
-            0LL);
+          v15 = *(struct _EX_RUNDOWN_REF **)(v11 + 16LL * (unsigned int)v10);
+          if ( !v15 )
+            goto LABEL_13;
+          v9 = ExAcquireRundownProtection(v15 + 25);
+          if ( v9 )
+            goto LABEL_13;
+          v14 = WdLogNewEntry5_WdError(v17, v16);
+          *(_QWORD *)(v14 + 24) = (unsigned int)v3[2];
+          *(_QWORD *)(v14 + 32) = 206LL;
         }
         else
         {
-          WdLogSingleEntry1(2LL, 267LL);
-          DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 267LL, 0LL, 0LL, 0LL, 0LL);
+          v14 = WdLogNewEntry5_WdError(v13, (v3[2] >> 25) & 0x60);
+          *(_QWORD *)(v14 + 24) = 316LL;
         }
+        WdLogEvent5_WdError(v14);
       }
     }
-    v11 = 0LL;
-LABEL_12:
-    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v18);
-    goto LABEL_17;
+    v15 = 0LL;
+LABEL_13:
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v27);
+    goto LABEL_18;
   }
-  if ( *(_BYTE *)(v3 + 12) )
-    goto LABEL_25;
-  v12 = *(int *)(v3 + 16);
-  if ( (unsigned int)v12 > 0x30 )
-    goto LABEL_25;
-  v13 = 0x1000000000104LL;
-  if ( !_bittest64(&v13, v12) )
-    goto LABEL_25;
-  v11 = (struct _EX_RUNDOWN_REF *)*((_QWORD *)a1 + 12);
-LABEL_17:
-  if ( !v11 )
-  {
-LABEL_25:
-    WdLogSingleEntry1(2LL, *(unsigned int *)(v3 + 8));
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid process handle specified: 0x%I64x",
-      *(unsigned int *)(v3 + 8),
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+  if ( v3[3] )
     goto LABEL_26;
-  }
-  CEnsureCurrentDxgProcess::CEnsureCurrentDxgProcess((CEnsureCurrentDxgProcess *)&v16, (struct DXGPROCESS *)v11);
-  v14 = v17;
-  if ( v17 )
+  v18 = (int)v3[4];
+  if ( (unsigned int)v18 > 0x30 )
+    goto LABEL_26;
+  v7 = 0x1000000000104LL;
+  if ( !_bittest64(&v7, v18) )
+    goto LABEL_26;
+  v15 = (struct _EX_RUNDOWN_REF *)*((_QWORD *)a1 + 7);
+LABEL_18:
+  if ( !v15 )
   {
-    *((_QWORD *)a1 + 11) = v11;
-    v6 = a2(a1);
+LABEL_26:
+    v23 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v23 + 24) = (unsigned int)v3[2];
+    WdLogEvent5_WdError(v23);
+    goto LABEL_27;
+  }
+  CEnsureCurrentDxgProcess::CEnsureCurrentDxgProcess((CEnsureCurrentDxgProcess *)&v25, (struct DXGPROCESS *)v15);
+  v21 = v26;
+  if ( v26 )
+  {
+    *((_QWORD *)a1 + 6) = v15;
+    v8 = a2(a1);
   }
   else
   {
-    WdLogSingleEntry1(2LL, 342LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Setting current DXGPROCESS failed",
-      342LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v22 = WdLogNewEntry5_WdError(v20, v19);
+    *(_QWORD *)(v22 + 24) = 240LL;
+    WdLogEvent5_WdError(v22);
   }
-  if ( v14 )
-    *(_QWORD *)(v14 + 24) = v16;
-  if ( v7 )
-    ExReleaseRundownProtection(v11 + 30);
-LABEL_26:
+  if ( v21 )
+    *(_QWORD *)(v21 + 8) = v25;
+  if ( v9 )
+    ExReleaseRundownProtection(v15 + 25);
+LABEL_27:
   KeUnstackDetachProcess(&ApcState);
-  return v6;
+  return v8;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEtGetProcessSidAndPackageIdentity @ 0x14069F4EC
+ * XREFs of PopEtGetProcessSidAndPackageIdentity @ 0x14069F4CC
  * Callers:
- *     PopEtGetProcessAppId @ 0x14069EC08 (PopEtGetProcessAppId.c)
+ *     PopEtGetProcessAppId @ 0x14069EBE8 (PopEtGetProcessAppId.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
- *     RtlQueryPackageIdentity @ 0x1400A5010 (RtlQueryPackageIdentity.c)
+ *     RtlQueryPackageIdentity @ 0x1400A5030 (RtlQueryPackageIdentity.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
  *     SeQueryUserSidToken @ 0x1406102AC (SeQueryUserSidToken.c)
  *     PsQueryProcessAttributesByToken @ 0x140625960 (PsQueryProcessAttributesByToken.c)

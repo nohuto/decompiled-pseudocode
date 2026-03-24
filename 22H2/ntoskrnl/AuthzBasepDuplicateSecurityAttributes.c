@@ -1,53 +1,51 @@
 /*
- * XREFs of AuthzBasepDuplicateSecurityAttributes @ 0x140225390
+ * XREFs of AuthzBasepDuplicateSecurityAttributes @ 0x1402D6890
  * Callers:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14022C948 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SepGetAnonymousToken @ 0x140370BA8 (SepGetAnonymousToken.c)
- *     SepValidateAndCopyGlobalEntry @ 0x1405B95BC (SepValidateAndCopyGlobalEntry.c)
- *     SepDuplicateToken @ 0x140729BF0 (SepDuplicateToken.c)
- *     SepFilterToken @ 0x1407F2180 (SepFilterToken.c)
- *     SepDuplicateClaimAttributes @ 0x1409D14F4 (SepDuplicateClaimAttributes.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14024E0D0 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepGetAnonymousToken @ 0x14035F51C (SepGetAnonymousToken.c)
+ *     SepValidateAndCopyGlobalEntry @ 0x14059792C (SepValidateAndCopyGlobalEntry.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     SepDuplicateToken @ 0x140651490 (SepDuplicateToken.c)
+ *     SepDuplicateClaimAttributes @ 0x1409250C0 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     AuthzBasepAllocateSecurityAttribute @ 0x140225650 (AuthzBasepAllocateSecurityAttribute.c)
- *     AuthzBasepFinaliseSecurityAttributesList @ 0x1402256E0 (AuthzBasepFinaliseSecurityAttributesList.c)
- *     AuthzBasepAllocateSecurityAttributeValue @ 0x14022586C (AuthzBasepAllocateSecurityAttributeValue.c)
- *     AuthzBasepAddSecurityAttributeValueToLists @ 0x1402258D8 (AuthzBasepAddSecurityAttributeValueToLists.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     AuthzBasepAddSecurityAttributeValueToLists @ 0x1402504DC (AuthzBasepAddSecurityAttributeValueToLists.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     AuthzBasepAllocateSecurityAttribute @ 0x1402D6B00 (AuthzBasepAllocateSecurityAttribute.c)
+ *     AuthzBasepFinaliseSecurityAttributesList @ 0x1402D6BD0 (AuthzBasepFinaliseSecurityAttributesList.c)
+ *     AuthzBasepAllocateSecurityAttributeValue @ 0x1402D6E54 (AuthzBasepAllocateSecurityAttributeValue.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AuthzBasepDuplicateSecurityAttributes(__int64 a1, _QWORD *a2, char a3)
 {
   __int64 *v3; // r14
   __int64 *v4; // r12
-  unsigned int v5; // ebx
-  char v6; // di
+  unsigned int v5; // edi
+  char v6; // bl
   _QWORD *v7; // r13
   __int64 SecurityAttribute; // rax
   __int64 v9; // rsi
   int v10; // ecx
-  _QWORD *v11; // rax
-  __int64 *i; // rdi
-  __int64 v13; // rcx
-  _QWORD *Pool2; // rax
+  _QWORD *v11; // rcx
+  __int64 *v12; // rdi
+  POOL_TYPE v13; // ecx
+  _QWORD *PoolWithTag; // rax
   _QWORD *v15; // rbx
   _QWORD *v16; // rax
   __int64 *v18; // rdi
   __int64 SecurityAttributeValue; // rax
   __int64 v20; // rbx
   _QWORD *v21; // rax
-  __int64 *v22; // rdi
+  __int64 *v22; // rbx
   __int64 v23; // rax
-  __int64 v24; // rbx
-  __int64 v25; // r9
-  __int64 *v26; // rbx
-  __int64 v27; // rax
-  __int64 v28; // rbp
-  void *v29; // rcx
-  unsigned int v30; // eax
-  __int64 v31; // r9
+  __int64 v24; // rbp
+  void *v25; // rcx
+  unsigned int v26; // eax
+  __int64 *v27; // rbx
+  __int64 v28; // rax
+  __int64 v29; // rbp
 
   v3 = *(__int64 **)(a1 + 8);
   v4 = (__int64 *)(a1 + 8);
@@ -64,10 +62,10 @@ LABEL_20:
   {
     if ( v6 && (*((_DWORD *)v3 + 13) & 1) != 0 )
       goto LABEL_18;
-    SecurityAttribute = AuthzBasepAllocateSecurityAttribute((PCUNICODE_STRING)v3 + 2);
+    SecurityAttribute = AuthzBasepAllocateSecurityAttribute(v3 + 4);
     v9 = SecurityAttribute;
     if ( !SecurityAttribute )
-      goto LABEL_38;
+      goto LABEL_34;
     v10 = *((_DWORD *)v3 + 13);
     *(_DWORD *)(SecurityAttribute + 52) = v10;
     if ( v6 && (*((_DWORD *)v3 + 13) & 0x80u) != 0 )
@@ -81,42 +79,47 @@ LABEL_20:
 LABEL_45:
         __fastfail(3u);
       *v11 = v7 + 4;
-      *(_QWORD *)(v9 + 24) = a2;
+      *(_QWORD *)(SecurityAttribute + 24) = a2;
       *a2 = v11;
       v7[5] = v11;
-      *(_DWORD *)(v9 + 56) |= 2u;
+      *(_DWORD *)(SecurityAttribute + 56) |= 2u;
       ++*((_DWORD *)v7 + 6);
     }
     if ( *((_WORD *)v3 + 24) != 2 )
       break;
 LABEL_9:
-    for ( i = (__int64 *)v3[9]; i != v3 + 9; i = (__int64 *)*i )
+    v12 = (__int64 *)v3[9];
+    if ( v12 != v3 + 9 )
     {
-      v13 = 256LL;
-      if ( KeGetCurrentIrql() >= 2u )
-        v13 = 64LL;
-      Pool2 = (_QWORD *)ExAllocatePool2(v13, 64LL, 1950442835LL);
-      v15 = Pool2;
-      if ( !Pool2 )
-        goto LABEL_38;
-      memset(Pool2, 0, 0x40uLL);
-      v15[5] = i[5];
-      if ( (v15[4] & 2) == 0 )
+      while ( 1 )
       {
-        a2 = *(_QWORD **)(v9 + 104);
-        v16 = v15 + 2;
-        if ( *a2 != v9 + 96 )
-          goto LABEL_45;
-        *v16 = v9 + 96;
-        v15[3] = a2;
-        *a2 = v16;
-        *(_QWORD *)(v9 + 104) = v16;
-        *((_DWORD *)v15 + 8) |= 2u;
-        ++*(_DWORD *)(v9 + 88);
+        v13 = PagedPool;
+        if ( KeGetCurrentIrql() >= 2u )
+          v13 = NonPagedPoolNx;
+        PoolWithTag = ExAllocatePoolWithTag(v13, 0x40uLL, 0x74416553u);
+        v15 = PoolWithTag;
+        if ( !PoolWithTag )
+          goto LABEL_34;
+        memset(PoolWithTag, 0, 0x40uLL);
+        v15[5] = v12[5];
+        if ( (v15[4] & 2) == 0 )
+        {
+          a2 = *(_QWORD **)(v9 + 104);
+          v16 = v15 + 2;
+          if ( *a2 != v9 + 96 )
+            goto LABEL_45;
+          *v16 = v9 + 96;
+          v15[3] = a2;
+          *a2 = v16;
+          *(_QWORD *)(v9 + 104) = v16;
+          *((_DWORD *)v15 + 8) |= 2u;
+          ++*(_DWORD *)(v9 + 88);
+        }
+        v12 = (__int64 *)*v12;
+        if ( v12 == v3 + 9 )
+          goto LABEL_17;
       }
     }
-LABEL_17:
-    v6 = a3;
 LABEL_18:
     v3 = (__int64 *)*v3;
     if ( v3 == v4 )
@@ -133,13 +136,13 @@ LABEL_18:
     case 3:
       v18 = (__int64 *)v3[9];
       if ( v18 == v3 + 9 )
-        goto LABEL_17;
+        goto LABEL_18;
       while ( 1 )
       {
         SecurityAttributeValue = AuthzBasepAllocateSecurityAttributeValue(*((unsigned __int16 *)v18 + 20));
         v20 = SecurityAttributeValue;
         if ( !SecurityAttributeValue )
-          goto LABEL_38;
+          goto LABEL_34;
         *(_WORD *)(SecurityAttributeValue + 40) = 0;
         *(_WORD *)(SecurityAttributeValue + 42) = *((_WORD *)v18 + 20);
         *(_QWORD *)(SecurityAttributeValue + 48) = SecurityAttributeValue + 64;
@@ -162,55 +165,57 @@ LABEL_18:
           goto LABEL_17;
       }
     case 4:
-      v26 = (__int64 *)v3[9];
-      if ( v26 == v3 + 9 )
+      v22 = (__int64 *)v3[9];
+      if ( v22 == v3 + 9 )
         goto LABEL_17;
       while ( 1 )
       {
-        v27 = AuthzBasepAllocateSecurityAttributeValue(*((unsigned __int16 *)v26 + 24));
-        v28 = v27;
-        if ( !v27 )
-          goto LABEL_38;
-        v29 = (void *)(v27 + 64);
-        *(_QWORD *)(v27 + 40) = v26[5];
-        v30 = *((unsigned __int16 *)v26 + 24);
-        *(_WORD *)(v28 + 48) = v30;
-        *(_QWORD *)(v28 + 56) = v28 + 64;
-        memmove(v29, (const void *)v26[7], v30);
-        LOBYTE(v31) = 1;
-        AuthzBasepAddSecurityAttributeValueToLists(v9, v28, 0LL, v31);
-        v26 = (__int64 *)*v26;
-        if ( v26 == v3 + 9 )
+        v23 = AuthzBasepAllocateSecurityAttributeValue(*((unsigned __int16 *)v22 + 24));
+        v24 = v23;
+        if ( !v23 )
+          goto LABEL_34;
+        v25 = (void *)(v23 + 64);
+        *(_QWORD *)(v23 + 40) = v22[5];
+        v26 = *((unsigned __int16 *)v22 + 24);
+        *(_WORD *)(v24 + 48) = v26;
+        *(_QWORD *)(v24 + 56) = v24 + 64;
+        memmove(v25, (const void *)v22[7], v26);
+        AuthzBasepAddSecurityAttributeValueToLists(v9, v24, 0, 1);
+        v22 = (__int64 *)*v22;
+        if ( v22 == v3 + 9 )
           goto LABEL_17;
       }
     case 5:
     case 0x10:
-      v22 = (__int64 *)v3[9];
-      if ( v22 == v3 + 9 )
+      v27 = (__int64 *)v3[9];
+      if ( v27 == v3 + 9 )
         goto LABEL_17;
       break;
     default:
       v5 = -1073741811;
-      goto LABEL_39;
+      goto LABEL_35;
   }
   while ( 1 )
   {
-    v23 = AuthzBasepAllocateSecurityAttributeValue(*((unsigned int *)v22 + 12));
-    v24 = v23;
-    if ( !v23 )
+    v28 = AuthzBasepAllocateSecurityAttributeValue(*((unsigned int *)v27 + 12));
+    v29 = v28;
+    if ( !v28 )
       break;
-    *(_QWORD *)(v23 + 40) = v23 + 64;
-    *(_DWORD *)(v23 + 48) = *((_DWORD *)v22 + 12);
-    memmove((void *)(v23 + 64), (const void *)v22[5], *((unsigned int *)v22 + 12));
-    LOBYTE(v25) = 1;
-    AuthzBasepAddSecurityAttributeValueToLists(v9, v24, 0LL, v25);
-    v22 = (__int64 *)*v22;
-    if ( v22 == v3 + 9 )
-      goto LABEL_17;
+    *(_QWORD *)(v28 + 40) = v28 + 64;
+    *(_DWORD *)(v28 + 48) = *((_DWORD *)v27 + 12);
+    memmove((void *)(v28 + 64), (const void *)v27[5], *((unsigned int *)v27 + 12));
+    AuthzBasepAddSecurityAttributeValueToLists(v9, v29, 0, 1);
+    v27 = (__int64 *)*v27;
+    if ( v27 == v3 + 9 )
+    {
+LABEL_17:
+      v6 = a3;
+      goto LABEL_18;
+    }
   }
-LABEL_38:
+LABEL_34:
   v5 = -1073741670;
-LABEL_39:
+LABEL_35:
   LOBYTE(a2) = 0;
 LABEL_21:
   AuthzBasepFinaliseSecurityAttributesList(v7, a2);

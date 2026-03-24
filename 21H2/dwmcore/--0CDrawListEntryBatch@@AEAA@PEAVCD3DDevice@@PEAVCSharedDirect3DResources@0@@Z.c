@@ -1,11 +1,9 @@
 /*
- * XREFs of ??0CDrawListEntryBatch@@AEAA@PEAVCD3DDevice@@PEAVCSharedDirect3DResources@0@@Z @ 0x1800F8F40
+ * XREFs of ??0CDrawListEntryBatch@@AEAA@PEAVCD3DDevice@@PEAVCSharedDirect3DResources@0@@Z @ 0x18002B384
  * Callers:
- *     ?Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z @ 0x1800B1970 (-Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z.c)
- *     ?OpenDrawListEntryBatch@CDrawListBatchManager@@IEAAJPEAVIDeviceTarget@@PEAPEAVCDrawListEntryBatch@@@Z @ 0x1801EBF58 (-OpenDrawListEntryBatch@CDrawListBatchManager@@IEAAJPEAVIDeviceTarget@@PEAPEAVCDrawListEntryBatc.c)
+ *     ?OpenDrawListEntryBatch@CDrawListBatchManager@@IEAAJPEAPEAVCDrawListEntryBatch@@@Z @ 0x18002B210 (-OpenDrawListEntryBatch@CDrawListBatchManager@@IEAAJPEAPEAVCDrawListEntryBatch@@@Z.c)
  * Callees:
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x1800B6F20 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180050B88 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
  */
 
 CDrawListEntryBatch *__fastcall CDrawListEntryBatch::CDrawListEntryBatch(
@@ -13,28 +11,30 @@ CDrawListEntryBatch *__fastcall CDrawListEntryBatch::CDrawListEntryBatch(
         struct CD3DDevice *a2,
         struct CDrawListEntryBatch::CSharedDirect3DResources *a3)
 {
-  _QWORD *v4; // rax
+  _QWORD *v4; // rbx
+  _QWORD *v5; // rax
 
-  *((_DWORD *)this + 4) = 0;
   *((_QWORD *)this + 4) = 0LL;
   *((_QWORD *)this + 5) = 0LL;
   *(_QWORD *)this = &CDrawListEntryBatch::`vftable'{for `ID2D1PrivateCompositorRenderer'};
-  *((_QWORD *)this + 1) = &CDrawListEntryBatch::`vftable'{for `CMILRefCountBaseT<IMILRefCount>'};
+  *((_QWORD *)this + 1) = &CDrawListEntryBatch::`vftable'{for `CMILRefCountBase'};
   *((_DWORD *)this + 12) = -1;
-  *((_QWORD *)this + 3) = a2;
-  *((_DWORD *)this + 20) = 0;
   *((_DWORD *)this + 13) = -1;
-  *((_QWORD *)this + 13) = a3;
+  *((_DWORD *)this + 4) = 0;
+  *((_QWORD *)this + 3) = a2;
+  *((_DWORD *)this + 19) = 1065353216;
+  *((_QWORD *)this + 10) = a3;
   if ( a3 )
-    CMILRefCountImpl::AddReference((struct CDrawListEntryBatch::CSharedDirect3DResources *)((char *)a3 + 8));
+    _InterlockedIncrement((volatile signed __int32 *)a3 + 2);
+  v4 = (_QWORD *)((char *)this + 88);
+  *((_QWORD *)this + 11) = 0LL;
+  *((_QWORD *)this + 12) = 0LL;
+  *((_QWORD *)this + 13) = 0LL;
   *((_QWORD *)this + 14) = 0LL;
   *((_QWORD *)this + 15) = 0LL;
-  *((_QWORD *)this + 16) = 0LL;
-  *((_QWORD *)this + 17) = 0LL;
-  *((_QWORD *)this + 18) = 0LL;
-  v4 = (_QWORD *)std::_Allocate<16,std::_Default_allocate_traits,0>(0x10uLL);
-  v4[1] = 0LL;
-  *((_QWORD *)this + 14) = v4;
-  *v4 = (char *)this + 112;
+  v5 = (_QWORD *)std::_Allocate<16,std::_Default_allocate_traits,0>(0x10uLL);
+  v5[1] = 0LL;
+  *v4 = v5;
+  *v5 = v4;
   return this;
 }

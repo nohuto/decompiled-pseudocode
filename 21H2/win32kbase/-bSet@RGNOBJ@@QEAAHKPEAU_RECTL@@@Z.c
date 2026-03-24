@@ -1,119 +1,71 @@
 /*
- * XREFs of ?bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z @ 0x1C003353C
+ * XREFs of ?bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z @ 0x1C0022824
  * Callers:
- *     GreExtCreateRegion @ 0x1C00311B0 (GreExtCreateRegion.c)
- *     ?bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z @ 0x1C003353C (-bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z.c)
+ *     ?bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z @ 0x1C0022824 (-bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z.c)
+ *     GreExtCreateRegion @ 0x1C0022DA0 (GreExtCreateRegion.c)
  * Callees:
- *     ?vSwap@RGNOBJ@@QEAAXPEAV1@@Z @ 0x1C00233C0 (-vSwap@RGNOBJ@@QEAAXPEAV1@@Z.c)
- *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C0023C00 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
- *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C0024160 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
- *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C0024B20 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
- *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C0025A8C (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
- *     ?AllocateRegion@RGNMEMOBJ@@SAPEAVREGION@@K@Z @ 0x1C0025B30 (-AllocateRegion@RGNMEMOBJ@@SAPEAVREGION@@K@Z.c)
- *     ?vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z @ 0x1C0027BB0 (-vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z.c)
- *     ?bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z @ 0x1C003353C (-bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z.c)
+ *     ?bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z @ 0x1C0022824 (-bSet@RGNOBJ@@QEAAHKPEAU_RECTL@@@Z.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C002B038 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     ?vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C002B750 (-vPushThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C002B874 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vSwap@RGNOBJ@@QEAAXPEAV1@@Z @ 0x1C002BDC0 (-vSwap@RGNOBJ@@QEAAXPEAV1@@Z.c)
+ *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C0032A50 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
+ *     ?vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z @ 0x1C00348E0 (-vSet@RGNOBJ@@QEAAXPEAU_RECTL@@@Z.c)
  */
 
 __int64 __fastcall RGNOBJ::bSet(RGNOBJ *this, unsigned int a2, struct _RECTL *a3)
 {
-  __int64 v3; // rdi
-  struct REGION *Region; // rax
-  struct REGION *v7; // rdx
-  unsigned int v8; // esi
-  __int64 v9; // rax
-  struct _RECTL *v10; // rax
-  struct REGION *v11; // rax
-  struct REGION *v12; // rcx
-  __int64 v13; // rax
-  _QWORD *v14; // rax
-  int v15; // r14d
+  __int64 v4; // rdi
+  unsigned int v6; // esi
+  int v7; // r14d
   int right; // ecx
   LONG top; // edx
   LONG bottom; // r8d
-  unsigned int v20; // r14d
-  unsigned int v21; // edi
-  struct REGION *v22; // [rsp+20h] [rbp-30h] BYREF
-  int v23; // [rsp+28h] [rbp-28h]
-  struct _RECTL *v24; // [rsp+30h] [rbp-20h] BYREF
-  int v25; // [rsp+38h] [rbp-18h]
-  __int64 v26; // [rsp+40h] [rbp-10h] BYREF
-  int v27; // [rsp+48h] [rbp-8h]
+  unsigned int v12; // r14d
+  unsigned int v13; // edi
+  __int64 v14; // [rsp+20h] [rbp-30h] BYREF
+  int v15; // [rsp+28h] [rbp-28h]
+  __int64 v16; // [rsp+30h] [rbp-20h] BYREF
+  int v17; // [rsp+38h] [rbp-18h]
+  __int64 v18; // [rsp+40h] [rbp-10h] BYREF
+  int v19; // [rsp+48h] [rbp-8h]
 
-  v3 = a2;
-  v25 = 0;
-  Region = RGNMEMOBJ::AllocateRegion(0x70u);
-  v24 = (struct _RECTL *)Region;
-  v7 = Region;
-  v8 = 1;
-  if ( Region )
-  {
-    *((_DWORD *)Region + 20) = 16;
-    *((_DWORD *)Region + 21) = 1;
-    *((_QWORD *)Region + 12) = 0LL;
-    *((_QWORD *)Region + 13) = 0LL;
-    v9 = *((_QWORD *)Region + 11);
-    *(_DWORD *)v9 = 0;
-    *(_DWORD *)(v9 + 4) = 0x80000000;
-    *(_QWORD *)(v9 + 8) = 0x7FFFFFFFLL;
-    *((_QWORD *)v7 + 5) = v9 + 16;
-    v24[1].right = 112;
-    v24[2].left = 0;
-    v24[1].bottom = 0;
-    v24[2].top = 0;
-    v10 = v24 + 3;
-    *(_QWORD *)&v24[3].right = v24 + 3;
-    *(_QWORD *)&v10->left = v10;
-  }
-  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v24);
-  v23 = 0;
-  v11 = RGNMEMOBJ::AllocateRegion(0x70u);
-  v22 = v11;
-  v12 = v11;
-  if ( v11 )
-  {
-    *((_DWORD *)v11 + 20) = 16;
-    *((_DWORD *)v11 + 21) = 1;
-    *((_QWORD *)v11 + 12) = 0LL;
-    *((_QWORD *)v11 + 13) = 0LL;
-    v13 = *((_QWORD *)v11 + 11);
-    *(_DWORD *)v13 = 0;
-    *(_DWORD *)(v13 + 4) = 0x80000000;
-    *(_QWORD *)(v13 + 8) = 0x7FFFFFFFLL;
-    *((_QWORD *)v12 + 5) = v13 + 16;
-    *((_DWORD *)v22 + 6) = 112;
-    *((_DWORD *)v22 + 8) = 0;
-    *((_DWORD *)v22 + 7) = 0;
-    *((_DWORD *)v22 + 9) = 0;
-    v14 = (_QWORD *)((char *)v22 + 48);
-    *((_QWORD *)v22 + 7) = (char *)v22 + 48;
-    *v14 = v14;
-  }
-  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v22);
-  if ( !v24 || !v22 )
-    goto LABEL_25;
-  if ( (unsigned int)v3 >= 0x14 )
-  {
-    v27 = 0;
-    RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v26, 0x70u);
-    RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v26);
-    v20 = (unsigned int)v3 >> 1;
-    v21 = v3 - ((unsigned int)v3 >> 1);
-    if ( v26
-      && (unsigned int)RGNOBJ::bSet((RGNOBJ *)&v24, v20, a3)
-      && (unsigned int)RGNOBJ::bSet((RGNOBJ *)&v22, v21, &a3[v20]) )
-    {
-      RGNOBJ::iCombine((RGNOBJ *)&v26, (struct RGNOBJ *)&v22, (struct RGNOBJ *)&v24, 2);
-      RGNOBJ::vSwap(this, (struct RGNOBJ *)&v26);
-      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v26);
-      goto LABEL_18;
-    }
-    RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v26);
-LABEL_25:
-    v8 = 0;
-    goto LABEL_18;
-  }
+  v16 = 0LL;
+  v17 = 0;
+  v4 = a2;
+  RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v16, 0x70u);
+  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v16);
+  v14 = 0LL;
   v15 = 0;
-  if ( (_DWORD)v3 )
+  RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v14, 0x70u);
+  RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v14);
+  if ( !v16 || !v14 )
+    goto LABEL_21;
+  v6 = 1;
+  if ( (unsigned int)v4 >= 0x14 )
+  {
+    v18 = 0LL;
+    v19 = 0;
+    RGNMEMOBJ::vInitialize((RGNMEMOBJ *)&v18, 0x70u);
+    RGNMEMOBJ::vPushThreadGuardedObject((RGNMEMOBJ *)&v18);
+    v12 = (unsigned int)v4 >> 1;
+    v13 = v4 - ((unsigned int)v4 >> 1);
+    if ( v18
+      && (unsigned int)RGNOBJ::bSet((RGNOBJ *)&v16, v12, a3)
+      && (unsigned int)RGNOBJ::bSet((RGNOBJ *)&v14, v13, &a3[v12]) )
+    {
+      RGNOBJ::iCombine((RGNOBJ *)&v18, (struct RGNOBJ *)&v14, (struct RGNOBJ *)&v16, 2);
+      RGNOBJ::vSwap(this, (struct RGNOBJ *)&v18);
+      RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v18);
+      goto LABEL_14;
+    }
+    RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v18);
+LABEL_21:
+    v6 = 0;
+    goto LABEL_14;
+  }
+  v7 = 0;
+  if ( (_DWORD)v4 )
   {
     do
     {
@@ -124,26 +76,26 @@ LABEL_25:
         bottom = a3->bottom;
         if ( top < bottom && a3->left >= -134217728 && right <= 0x7FFFFFF && top >= -134217728 && bottom <= 0x7FFFFFF )
         {
-          if ( v15 )
+          if ( v7 )
           {
-            RGNOBJ::vSet(&v24, a3);
-            RGNOBJ::iCombine((RGNOBJ *)&v22, this, (struct RGNOBJ *)&v24, 2);
-            RGNOBJ::vSwap(this, (struct RGNOBJ *)&v22);
+            RGNOBJ::vSet((RGNOBJ *)&v16, a3);
+            RGNOBJ::iCombine((RGNOBJ *)&v14, this, (struct RGNOBJ *)&v16, 2);
+            RGNOBJ::vSwap(this, (struct RGNOBJ *)&v14);
           }
           else
           {
-            RGNOBJ::vSet((struct _RECTL **)this, a3);
-            v15 = 1;
+            RGNOBJ::vSet(this, a3);
+            v7 = 1;
           }
         }
       }
       ++a3;
-      --v3;
+      --v4;
     }
-    while ( v3 );
+    while ( v4 );
   }
-LABEL_18:
-  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v22);
-  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v24);
-  return v8;
+LABEL_14:
+  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v14);
+  RGNMEMOBJTMP::~RGNMEMOBJTMP((RGNMEMOBJTMP *)&v16);
+  return v6;
 }

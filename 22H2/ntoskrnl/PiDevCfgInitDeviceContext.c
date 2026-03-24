@@ -1,42 +1,40 @@
 /*
- * XREFs of PiDevCfgInitDeviceContext @ 0x14087CCD8
+ * XREFs of PiDevCfgInitDeviceContext @ 0x140737ED8
  * Callers:
- *     PpDevCfgProcessDeviceOperations @ 0x1407D94D0 (PpDevCfgProcessDeviceOperations.c)
- *     PiDevCfgProcessDeviceCallback @ 0x1408446E0 (PiDevCfgProcessDeviceCallback.c)
- *     PiDevCfgProcessDevice @ 0x14087A6C0 (PiDevCfgProcessDevice.c)
- *     PiDevCfgInitDeviceCallback @ 0x14095E5A0 (PiDevCfgInitDeviceCallback.c)
- *     PpDevCfgCheckDeviceNeedsUpdate @ 0x140962938 (PpDevCfgCheckDeviceNeedsUpdate.c)
- *     PpDevCfgProcessDeviceClass @ 0x1409629AC (PpDevCfgProcessDeviceClass.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x140962D24 (PpDevCfgProcessDeviceExtensions.c)
- *     PpDevCfgProcessDeviceReset @ 0x14096346C (PpDevCfgProcessDeviceReset.c)
+ *     PpDevCfgProcessDeviceClass @ 0x140730310 (PpDevCfgProcessDeviceClass.c)
+ *     PpDevCfgProcessDeviceReset @ 0x140730680 (PpDevCfgProcessDeviceReset.c)
+ *     PiDevCfgProcessDevice @ 0x140736238 (PiDevCfgProcessDevice.c)
+ *     PpDevCfgProcessDeviceOperations @ 0x140736760 (PpDevCfgProcessDeviceOperations.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x1407BE4D0 (PiDevCfgProcessDeviceCallback.c)
+ *     PiDevCfgInitDeviceCallback @ 0x1408A6990 (PiDevCfgInitDeviceCallback.c)
+ *     PpDevCfgCheckDeviceNeedsUpdate @ 0x1408AA8C8 (PpDevCfgCheckDeviceNeedsUpdate.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x1408AA93C (PpDevCfgProcessDeviceExtensions.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     PiDevCfgFreeDeviceContext @ 0x1407D95B0 (PiDevCfgFreeDeviceContext.c)
- *     PiDevCfgQueryObjectProperties @ 0x14086D134 (PiDevCfgQueryObjectProperties.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     PiDevCfgFreeDeviceContext @ 0x14073683C (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1407392E4 (PiDevCfgQueryObjectProperties.c)
  */
 
-__int64 __fastcall PiDevCfgInitDeviceContext(__int64 a1, void *a2, __int64 *a3)
+__int64 __fastcall PiDevCfgInitDeviceContext(__int64 a1, __int64 a2, _QWORD *a3)
 {
-  void **v6; // rdi
-  _BYTE *v7; // rcx
-  __int64 v8; // r9
-  DEVPROPKEY **v9; // rdx
-  __int64 *v10; // r8
-  __int64 v11; // rax
+  _BYTE *v6; // rcx
+  __int64 v7; // r9
+  DEVPROPKEY **v8; // rdx
+  _QWORD *v9; // r8
+  __int64 v10; // rax
   int ObjectProperties; // ebp
-  unsigned int v13; // edi
-  int *v14; // rsi
-  _BYTE v16[128]; // [rsp+40h] [rbp-A8h] BYREF
+  unsigned int v12; // edi
+  int *v13; // rsi
+  _BYTE v15[128]; // [rsp+40h] [rbp-A8h] BYREF
 
   memset(a3, 0, 0x48uLL);
   a3[1] = a1;
-  v6 = (void **)(a3 + 2);
   if ( a2 )
   {
-    *v6 = a2;
+    a3[2] = a2;
   }
   else
   {
@@ -49,35 +47,35 @@ LABEL_13:
     }
     *(_DWORD *)a3 |= 0x80000000;
   }
-  memset(v16, 0, 0x78uLL);
-  v7 = &v16[8];
-  v8 = 3LL;
-  v9 = &off_140D53778;
-  v10 = a3 + 3;
+  memset(v15, 0, 0x78uLL);
+  v6 = &v15[8];
+  v7 = 3LL;
+  v8 = off_140D2D758;
+  v9 = a3 + 3;
   do
   {
-    v11 = (__int64)*v9++;
-    *((_QWORD *)v7 + 1) = v10;
-    v10 += 2;
-    *((_QWORD *)v7 - 1) = v11;
-    *(_DWORD *)v7 = 8210;
-    *((_DWORD *)v7 + 5) = 6;
-    v7 += 40;
-    --v8;
+    v10 = (__int64)*v8++;
+    *((_QWORD *)v6 + 1) = v9;
+    v9 += 2;
+    *((_QWORD *)v6 - 1) = v10;
+    *(_DWORD *)v6 = 8210;
+    *((_DWORD *)v6 + 5) = 6;
+    v6 += 40;
+    --v7;
   }
-  while ( v8 );
-  ObjectProperties = PiDevCfgQueryObjectProperties((__int64)v7, a3[1], 1u, *v6, (__int64)v16, 3u);
+  while ( v7 );
+  ObjectProperties = PiDevCfgQueryObjectProperties((_DWORD)v6, a3[1], 1, a3[2], (__int64)v15, 3);
   if ( ObjectProperties < 0 )
     goto LABEL_13;
-  v13 = 0;
-  v14 = (int *)&v16[32];
+  v12 = 0;
+  v13 = (int *)&v15[32];
   do
   {
-    if ( *v14 < 0 )
-      RtlInitUnicodeString((PUNICODE_STRING)&a3[2 * v13 + 3], 0LL);
-    ++v13;
-    v14 += 10;
+    if ( *v13 < 0 )
+      RtlInitUnicodeString((PUNICODE_STRING)&a3[2 * v12 + 3], 0LL);
+    ++v12;
+    v13 += 10;
   }
-  while ( v13 < 3 );
+  while ( v12 < 3 );
   return (unsigned int)ObjectProperties;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpRegisterCallbackInternal @ 0x14075F0E8
+ * XREFs of CmpRegisterCallbackInternal @ 0x14075F0C8
  * Callers:
- *     CmRegisterCallback @ 0x14075F0C0 (CmRegisterCallback.c)
- *     CmRegisterCallbackEx @ 0x1407EADA0 (CmRegisterCallbackEx.c)
- *     VrpIncrementSiloCount @ 0x140807C08 (VrpIncrementSiloCount.c)
+ *     CmRegisterCallback @ 0x14075F0A0 (CmRegisterCallback.c)
+ *     CmRegisterCallbackEx @ 0x1407EAD80 (CmRegisterCallbackEx.c)
+ *     VrpIncrementSiloCount @ 0x140807BE8 (VrpIncrementSiloCount.c)
  * Callees:
- *     CmCleanupThreadInfo @ 0x1401B2F1C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F5C (CmpInitializeThreadInfo.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpInsertCallbackInListByAltitude @ 0x14075F21C (CmpInsertCallbackInListByAltitude.c)
+ *     CmpInsertCallbackInListByAltitude @ 0x14075F1FC (CmpInsertCallbackInListByAltitude.c)
  */
 
 __int64 __fastcall CmpRegisterCallbackInternal(

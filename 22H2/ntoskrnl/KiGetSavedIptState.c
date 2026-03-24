@@ -1,10 +1,11 @@
 /*
- * XREFs of KiGetSavedIptState @ 0x140572A80
+ * XREFs of KiGetSavedIptState @ 0x14051A110
  * Callers:
  *     <none>
  * Callees:
- *     KiGetSavedSupervisorState @ 0x140572B50 (KiGetSavedSupervisorState.c)
- *     RtlLocateSupervisorFeature @ 0x1405AFAE0 (RtlLocateSupervisorFeature.c)
+ *     KiGetSavedSupervisorState @ 0x14051A1C0 (KiGetSavedSupervisorState.c)
+ *     KiXSavesManagesIpt @ 0x14051A544 (KiXSavesManagesIpt.c)
+ *     RtlLocateSupervisorFeature @ 0x14058CF00 (RtlLocateSupervisorFeature.c)
  */
 
 __int64 __fastcall KiGetSavedIptState(__int64 a1, _QWORD *a2, _DWORD *a3)
@@ -19,7 +20,7 @@ __int64 __fastcall KiGetSavedIptState(__int64 a1, _QWORD *a2, _DWORD *a3)
   result = KiGetSavedSupervisorState(a1, &v7);
   if ( (int)result >= 0 )
   {
-    if ( (_bittest64(&KeEnabledSupervisorXStateFeatures, 8u) & _bittest64(&KeFeatureBits, 0x17u)) != 0 )
+    if ( (unsigned __int8)KiXSavesManagesIpt() )
     {
       *a2 = RtlLocateSupervisorFeature(v7, 8LL, a3);
     }

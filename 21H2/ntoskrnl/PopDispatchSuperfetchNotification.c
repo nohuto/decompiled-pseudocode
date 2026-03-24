@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDispatchSuperfetchNotification @ 0x1407FFE58
+ * XREFs of PopDispatchSuperfetchNotification @ 0x1407765E4
  * Callers:
- *     PopIssueActionRequest @ 0x1407FF888 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x140775A08 (PopIssueActionRequest.c)
  * Callees:
- *     PopDiagTraceEventNoPayload @ 0x140256CA0 (PopDiagTraceEventNoPayload.c)
- *     PfPowerActionNotify @ 0x140A49250 (PfPowerActionNotify.c)
- *     PopCheckpointSystemSleep @ 0x140A4B974 (PopCheckpointSystemSleep.c)
+ *     PopDiagTraceSuperfetchNotification @ 0x1407765B8 (PopDiagTraceSuperfetchNotification.c)
+ *     PfPowerActionNotify @ 0x1409909B4 (PfPowerActionNotify.c)
+ *     PopCheckpointSystemSleep @ 0x140993484 (PopCheckpointSystemSleep.c)
  */
 
 __int64 PopDispatchSuperfetchNotification()
 {
-  PopDiagTraceEventNoPayload(&POP_ETW_EVENT_SUPERFETCH_START);
+  PopDiagTraceSuperfetchNotification(1);
   PopCheckpointSystemSleep(6LL);
   PfPowerActionNotify(1LL);
-  PopDiagTraceEventNoPayload(&POP_ETW_EVENT_SUPERFETCH_STOP);
+  PopDiagTraceSuperfetchNotification(0);
   return PopCheckpointSystemSleep(7LL);
 }

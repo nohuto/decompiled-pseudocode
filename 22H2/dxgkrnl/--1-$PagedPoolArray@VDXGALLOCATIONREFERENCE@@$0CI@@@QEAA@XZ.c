@@ -1,25 +1,25 @@
 /*
- * XREFs of ??1?$PagedPoolArray@VDXGALLOCATIONREFERENCE@@$0CI@@@QEAA@XZ @ 0x1C0337878
+ * XREFs of ??1?$PagedPoolArray@VDXGALLOCATIONREFERENCE@@$0CI@@@QEAA@XZ @ 0x1C027CF94
  * Callers:
- *     ?DxgkMakeResidentInternal@@YAJPEAUD3DDDI_MAKERESIDENT@@HPEAD@Z @ 0x1C01C4F60 (-DxgkMakeResidentInternal@@YAJPEAUD3DDDI_MAKERESIDENT@@HPEAD@Z.c)
+ *     ?DxgkMakeResidentInternal@@YAJPEAUD3DDDI_MAKERESIDENT@@HPEAD@Z @ 0x1C0154250 (-DxgkMakeResidentInternal@@YAJPEAUD3DDDI_MAKERESIDENT@@HPEAD@Z.c)
  * Callees:
- *     ??_EDXGALLOCATIONREFERENCE@@QEAAPEAXI@Z @ 0x1C0047980 (--_EDXGALLOCATIONREFERENCE@@QEAAPEAXI@Z.c)
- *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C01CB650 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C001C8A8 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ??_EDXGALLOCATIONREFERENCE@@QEAAPEAXI@Z @ 0x1C003F674 (--_EDXGALLOCATIONREFERENCE@@QEAAPEAXI@Z.c)
  */
 
-void __fastcall PagedPoolArray<DXGALLOCATIONREFERENCE,40>::~PagedPoolArray<DXGALLOCATIONREFERENCE,40>(__int64 a1)
+void __fastcall PagedPoolArray<DXGALLOCATIONREFERENCE,40>::~PagedPoolArray<DXGALLOCATIONREFERENCE,40>(
+        DXGALLOCATIONREFERENCE **a1)
 {
+  char *v1; // rbx
   DXGALLOCATIONREFERENCE *v2; // rcx
-  unsigned int i; // ebx
 
-  v2 = *(DXGALLOCATIONREFERENCE **)a1;
-  if ( v2 == (DXGALLOCATIONREFERENCE *)(a1 + 8) )
-  {
-    for ( i = 0; i < *(_DWORD *)(a1 + 328); ++i )
-      DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((struct _EX_RUNDOWN_REF **)(*(_QWORD *)a1 + 8LL * i));
-  }
-  else if ( v2 )
-  {
+  v1 = (char *)(a1 + 1);
+  v2 = *a1;
+  if ( v2 != (DXGALLOCATIONREFERENCE *)v1 && v2 )
     DXGALLOCATIONREFERENCE::`vector deleting destructor'(v2);
-  }
+  `vector destructor iterator'(
+    v1,
+    8LL,
+    40LL,
+    (void (__fastcall *)(char *))DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GCTokenManager@@AEAAPEAXI@Z @ 0x1C0002790
+ * XREFs of ??_GCTokenManager@@AEAAPEAXI@Z @ 0x1C00176C0
  * Callers:
- *     ?Release@CTokenManager@@UEAAJXZ @ 0x1C0002760 (-Release@CTokenManager@@UEAAJXZ.c)
- *     CreateTokenManagerSessionGlobal @ 0x1C0002D64 (CreateTokenManagerSessionGlobal.c)
+ *     CreateTokenManagerSessionGlobal @ 0x1C0012E58 (CreateTokenManagerSessionGlobal.c)
+ *     ?Release@CTokenManager@@UEAAJXZ @ 0x1C0017690 (-Release@CTokenManager@@UEAAJXZ.c)
  * Callees:
- *     ??1CTokenManager@@AEAA@XZ @ 0x1C0002B3C (--1CTokenManager@@AEAA@XZ.c)
+ *     ??1CTokenManager@@AEAA@XZ @ 0x1C0012C1C (--1CTokenManager@@AEAA@XZ.c)
  */
 
 CTokenManager *__fastcall CTokenManager::`scalar deleting destructor'(CTokenManager *P)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RemoveDependentCachedTreatment@CWindowBackgroundTreatment@@QEAAXPEBVCCachedWindowBackgroundTreatment@@@Z @ 0x18000BB5C
+ * XREFs of ?RemoveDependentCachedTreatment@CWindowBackgroundTreatment@@QEAAXPEBVCCachedWindowBackgroundTreatment@@@Z @ 0x180011CF0
  * Callers:
- *     ??1CCachedWindowBackgroundTreatment@@EEAA@XZ @ 0x18000A54C (--1CCachedWindowBackgroundTreatment@@EEAA@XZ.c)
- *     ?Update@CCachedWindowBackgroundTreatment@@QEAAJPEAVCWindowBackgroundTreatment@@PEAVIBitmapRealization@@AEBVCMILMatrix@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@AEBU_D3DCOLORVALUE@@@Z @ 0x18000B214 (-Update@CCachedWindowBackgroundTreatment@@QEAAJPEAVCWindowBackgroundTreatment@@PEAVIBitmapRealiz.c)
+ *     ??1CCachedWindowBackgroundTreatment@@UEAA@XZ @ 0x1800103CC (--1CCachedWindowBackgroundTreatment@@UEAA@XZ.c)
+ *     ?Update@CCachedWindowBackgroundTreatment@@QEAAJPEAVCWindowBackgroundTreatment@@PEAVIBitmapRealization@@AEBVCMILMatrix@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@AEBU_D3DCOLORVALUE@@@Z @ 0x1800118B0 (-Update@CCachedWindowBackgroundTreatment@@QEAAJPEAVCWindowBackgroundTreatment@@PEAVIBitmapRealiz.c)
  * Callees:
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
  */
 
 void __fastcall CWindowBackgroundTreatment::RemoveDependentCachedTreatment(
@@ -12,23 +12,14 @@ void __fastcall CWindowBackgroundTreatment::RemoveDependentCachedTreatment(
         const struct CCachedWindowBackgroundTreatment *a2)
 {
   const struct CCachedWindowBackgroundTreatment **v2; // r8
-  const struct CCachedWindowBackgroundTreatment **v4; // rcx
-  const struct CCachedWindowBackgroundTreatment **v6; // rdx
+  const struct CCachedWindowBackgroundTreatment **i; // rcx
 
-  v2 = (const struct CCachedWindowBackgroundTreatment **)*((_QWORD *)this + 42);
-  v4 = (const struct CCachedWindowBackgroundTreatment **)*((_QWORD *)this + 41);
-  if ( v4 != v2 )
+  v2 = (const struct CCachedWindowBackgroundTreatment **)*((_QWORD *)this + 49);
+  for ( i = (const struct CCachedWindowBackgroundTreatment **)*((_QWORD *)this + 48); i != v2 && *i != a2; ++i )
+    ;
+  if ( i != v2 )
   {
-    while ( 1 )
-    {
-      v6 = v4 + 1;
-      if ( *v4 == a2 )
-        break;
-      ++v4;
-      if ( v6 == v2 )
-        return;
-    }
-    memmove_0(v4, v6, (char *)v2 - (char *)v6);
-    *((_QWORD *)this + 42) -= 8LL;
+    memmove_0(i, i + 1, (char *)v2 - (char *)(i + 1));
+    *((_QWORD *)this + 49) -= 8LL;
   }
 }

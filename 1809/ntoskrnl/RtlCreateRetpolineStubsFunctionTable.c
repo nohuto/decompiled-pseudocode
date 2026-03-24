@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCreateRetpolineStubsFunctionTable @ 0x1402F6810
+ * XREFs of RtlCreateRetpolineStubsFunctionTable @ 0x1402F6910
  * Callers:
  *     MiInitializeRetpoline @ 0x1409DEFC8 (MiInitializeRetpoline.c)
  * Callees:
- *     RtlCalculateUnwindInfoSizeForRetpoline @ 0x1402F66F8 (RtlCalculateUnwindInfoSizeForRetpoline.c)
- *     RtlpGetRetpolineStubsFunctionTable @ 0x1402F6900 (RtlpGetRetpolineStubsFunctionTable.c)
+ *     RtlCalculateUnwindInfoSizeForRetpoline @ 0x1402F67F8 (RtlCalculateUnwindInfoSizeForRetpoline.c)
+ *     RtlpGetRetpolineStubsFunctionTable @ 0x1402F6A00 (RtlpGetRetpolineStubsFunctionTable.c)
  */
 
 __int64 __fastcall RtlCreateRetpolineStubsFunctionTable(__int64 a1, _DWORD *a2, int a3)

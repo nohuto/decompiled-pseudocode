@@ -1,27 +1,25 @@
 /*
- * XREFs of ROT_DIV @ 0x1C02FE078
+ * XREFs of ROT_DIV @ 0x1C02D5468
  * Callers:
- *     ?bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z @ 0x1C02FE124 (-bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z.c)
+ *     ?bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z @ 0x1C02D54FC (-bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall ROT_DIV(__int64 *a1, __int64 a2, __int64 a3)
 {
-  __int64 v3; // r10
   __int64 result; // rax
-  __int64 v5; // rdx
+  __int64 v4; // rdx
 
-  v3 = a2 / a3;
-  *a1 = a2 / a3;
   result = a2 / a3;
-  v5 = a2 % a3;
-  a1[1] = v5;
-  if ( v5 < 0 )
+  v4 = a2 % a3;
+  *a1 = result;
+  a1[1] = v4;
+  if ( v4 < 0 )
   {
-    *a1 = v3 - 1;
-    result = v5 + a3;
-    a1[1] = v5 + a3;
+    *a1 = result - 1;
+    result = v4 + a3;
+    a1[1] = v4 + a3;
   }
   return result;
 }

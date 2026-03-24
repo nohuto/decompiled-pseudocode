@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpMergeFilteredResourceRequirementsList @ 0x140760204
+ * XREFs of PnpMergeFilteredResourceRequirementsList @ 0x1407601E4
  * Callers:
- *     IopQueryDeviceResources @ 0x1406FB514 (IopQueryDeviceResources.c)
+ *     IopQueryDeviceResources @ 0x1406FB4F4 (IopQueryDeviceResources.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

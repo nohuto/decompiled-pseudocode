@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlNumberOfRunsInLargeMcb @ 0x140459950
+ * XREFs of FsRtlNumberOfRunsInLargeMcb @ 0x1404EF2C0
  * Callers:
- *     FsRtlNumberOfRunsInMcb @ 0x140541450 (FsRtlNumberOfRunsInMcb.c)
+ *     FsRtlNumberOfRunsInMcb @ 0x1404EF300 (FsRtlNumberOfRunsInMcb.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
  */
 
 ULONG __stdcall FsRtlNumberOfRunsInLargeMcb(PLARGE_MCB Mcb)

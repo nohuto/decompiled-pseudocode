@@ -1,11 +1,9 @@
 /*
- * XREFs of CopyObjData @ 0x1C000A900
+ * XREFs of CopyObjData @ 0x1C0022864
  * Callers:
- *     ParseArgObj @ 0x1C00083D4 (ParseArgObj.c)
- *     ReadObject @ 0x1C000A950 (ReadObject.c)
- *     ParsePackage @ 0x1C0012D00 (ParsePackage.c)
- *     ParseScope @ 0x1C0014A90 (ParseScope.c)
- *     ParseLocalObj @ 0x1C002CB68 (ParseLocalObj.c)
+ *     ParseScope @ 0x1C0008890 (ParseScope.c)
+ *     ParseArgObj @ 0x1C00227E4 (ParseArgObj.c)
+ *     ParseLocalObj @ 0x1C00232CC (ParseLocalObj.c)
  * Callees:
  *     <none>
  */

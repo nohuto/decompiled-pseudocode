@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpTryConvertSharedToExclusiveLite @ 0x14063D600
+ * XREFs of ExpTryConvertSharedToExclusiveLite @ 0x1405B57D4
  * Callers:
- *     ExTryConvertSharedToExclusiveLite @ 0x14063D2FC (ExTryConvertSharedToExclusiveLite.c)
+ *     ExTryConvertSharedToExclusiveLite @ 0x1405B54DC (ExTryConvertSharedToExclusiveLite.c)
  * Callees:
- *     ExpFindCurrentThread @ 0x14021CD50 (ExpFindCurrentThread.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExpTryUpgradeResource @ 0x140641F38 (ExpTryUpgradeResource.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExpFindCurrentThread @ 0x14034DA50 (ExpFindCurrentThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpTryUpgradeResource @ 0x1405B9B58 (ExpTryUpgradeResource.c)
  */
 
 char ExpTryConvertSharedToExclusiveLite()
@@ -30,8 +30,8 @@ char ExpTryConvertSharedToExclusiveLite()
   v1 = ExpTryUpgradeResource(&CmpRegistryLock);
   if ( v1 )
   {
-    v2 = (CurrentThread & 3) != 0 ? 0 : *(unsigned __int8 *)(CurrentThread + 1120);
-    v3 = ExpFindCurrentThread((__int64)&CmpRegistryLock, CurrentThread, (__int64)&LockHandle, 0, 0, v2);
+    v2 = (CurrentThread & 3) != 0 ? 0 : *(unsigned __int8 *)(CurrentThread + 1032);
+    v3 = ExpFindCurrentThread((__int64)&CmpRegistryLock, CurrentThread, &LockHandle, 0, 0, v2);
     if ( v3 != &CmpRegistryLock + 6 )
     {
       *((_OWORD *)&CmpRegistryLock + 3) = *(_OWORD *)v3;

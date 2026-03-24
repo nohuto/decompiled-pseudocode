@@ -1,18 +1,18 @@
 /*
- * XREFs of SepGetLowBoxNumberEntry @ 0x14065C260
+ * XREFs of SepGetLowBoxNumberEntry @ 0x14065C240
  * Callers:
- *     SepSetTokenLowboxNumber @ 0x14065C104 (SepSetTokenLowboxNumber.c)
+ *     SepSetTokenLowboxNumber @ 0x14065C0E4 (SepSetTokenLowboxNumber.c)
  * Callees:
  *     RtlNumberOfSetBits @ 0x14000F440 (RtlNumberOfSetBits.c)
  *     RtlClearAllBits @ 0x14000FA60 (RtlClearAllBits.c)
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     RtlFindClearBitsAndSet @ 0x1400D95C0 (RtlFindClearBitsAndSet.c)
- *     RtlInsertEntryHashTable @ 0x1400D9CA0 (RtlInsertEntryHashTable.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
+ *     RtlInsertEntryHashTable @ 0x1400D9CC0 (RtlInsertEntryHashTable.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlCopySid @ 0x1406491B0 (RtlCopySid.c)
- *     SepFindMatchingLowBoxNumberEntry @ 0x14065C384 (SepFindMatchingLowBoxNumberEntry.c)
+ *     RtlCopySid @ 0x140649190 (RtlCopySid.c)
+ *     SepFindMatchingLowBoxNumberEntry @ 0x14065C364 (SepFindMatchingLowBoxNumberEntry.c)
  */
 
 __int64 __fastcall SepGetLowBoxNumberEntry(__int64 a1, unsigned __int8 *a2, _QWORD *a3)

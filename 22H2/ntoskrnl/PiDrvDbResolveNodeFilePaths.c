@@ -1,31 +1,31 @@
 /*
- * XREFs of PiDrvDbResolveNodeFilePaths @ 0x140814158
+ * XREFs of PiDrvDbResolveNodeFilePaths @ 0x1408B79AC
  * Callers:
- *     PiDrvDbSetupNodeHive @ 0x140813EF8 (PiDrvDbSetupNodeHive.c)
+ *     PiDrvDbSetupNodeHive @ 0x1408B7EB4 (PiDrvDbSetupNodeHive.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     CmIsStateSeparationEnabled @ 0x140367128 (CmIsStateSeparationEnabled.c)
- *     RtlUnicodeStringPrintf @ 0x1403C448C (RtlUnicodeStringPrintf.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1406CEDD0 (_SysCtxRegOpenKey.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1407C7520 (ExpAllocateStringRoutine.c)
- *     RtlCreateUnicodeString @ 0x1407FB710 (RtlCreateUnicodeString.c)
- *     PiDrvDbGetNodeSystemRoot @ 0x140815288 (PiDrvDbGetNodeSystemRoot.c)
- *     PiDrvDbResolveFilePathKeyValues @ 0x140815520 (PiDrvDbResolveFilePathKeyValues.c)
+ *     CmIsStateSeparationEnabled @ 0x140323318 (CmIsStateSeparationEnabled.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintf @ 0x14036E45C (RtlUnicodeStringPrintf.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExpAllocateStringRoutine @ 0x140685CE0 (ExpAllocateStringRoutine.c)
+ *     _SysCtxRegOpenKey @ 0x1406BB48C (_SysCtxRegOpenKey.c)
+ *     RtlCreateUnicodeString @ 0x1406ED6B0 (RtlCreateUnicodeString.c)
+ *     PiDrvDbGetNodeSystemRoot @ 0x1408B5F64 (PiDrvDbGetNodeSystemRoot.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x1408B7208 (PiDrvDbResolveFilePathKeyValues.c)
  */
 
 __int64 __fastcall PiDrvDbResolveNodeFilePaths(__int64 a1, __int64 a2)
 {
   unsigned int v4; // edi
-  int v5; // eax
-  NTSTATUS v6; // ebx
-  int v8; // ecx
+  int v5; // ebx
+  int v6; // eax
+  int v7; // ecx
+  unsigned int v8; // eax
   int NodeSystemRoot; // eax
-  __int64 v10; // r9
-  unsigned int v11; // eax
+  const UNICODE_STRING *v10; // r9
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v13; // [rsp+70h] [rbp+30h] BYREF
+  const UNICODE_STRING *v13; // [rsp+70h] [rbp+30h] BYREF
   HANDLE Handle; // [rsp+80h] [rbp+40h] BYREF
 
   Handle = 0LL;
@@ -34,52 +34,52 @@ __int64 __fastcall PiDrvDbResolveNodeFilePaths(__int64 a1, __int64 a2)
   RtlInitUnicodeString(&DestinationString, 0LL);
   v4 = 1;
   if ( (*(_DWORD *)(a1 + 492) & 1) == 0
-    || (v5 = SysCtxRegOpenKey(0LL, a2, (__int64)L"Setup\\ResolveFilePaths", 0, 0x20019u, (__int64)&Handle),
-        v6 = v5,
-        v5 == -1073741772) )
+    || (v6 = SysCtxRegOpenKey(0LL, a2, (__int64)L"Setup\\ResolveFilePaths", 0, 0x20019u, (__int64)&Handle),
+        v5 = v6,
+        v6 == -1073741772) )
   {
-    v6 = 0;
-    goto LABEL_4;
+    v5 = 0;
+    goto LABEL_18;
   }
-  if ( v5 >= 0 )
+  if ( v6 >= 0 )
   {
-    v8 = *(_DWORD *)(a1 + 64);
-    if ( (v8 & 1) == 0 && CmIsStateSeparationEnabled() )
+    v7 = *(_DWORD *)(a1 + 64);
+    if ( (v7 & 1) == 0 && CmIsStateSeparationEnabled() )
       v4 = 3;
-    if ( (v8 & 8) != 0 )
+    if ( (v7 & 8) == 0 )
     {
-      v11 = *(unsigned __int16 *)(a1 + 18) + 38;
-      if ( v11 > 0xFFFE )
+      if ( !RtlCreateUnicodeString(&DestinationString, L"\\SystemRoot") )
       {
-        v6 = -2147483643;
-        goto LABEL_4;
+LABEL_10:
+        v5 = -1073741670;
+        goto LABEL_18;
       }
-      DestinationString.Length = 0;
-      DestinationString.MaximumLength = v11;
-      DestinationString.Buffer = (wchar_t *)ExpAllocateStringRoutine(v11);
-      if ( DestinationString.Buffer )
-      {
-        v6 = RtlUnicodeStringPrintf(&DestinationString, L"%ws\\%wZ", L"\\DriverStore\\Nodes", a1 + 16);
-        if ( v6 < 0 )
-          goto LABEL_4;
-        goto LABEL_11;
-      }
-    }
-    else if ( RtlCreateUnicodeString(&DestinationString, L"\\SystemRoot") )
-    {
-LABEL_11:
+LABEL_15:
       NodeSystemRoot = PiDrvDbGetNodeSystemRoot(a1, &v13);
       v10 = v13;
       if ( NodeSystemRoot < 0 )
         v10 = 0LL;
-      v6 = PiDrvDbResolveFilePathKeyValues(a2, v4, &DestinationString, v10);
-      goto LABEL_4;
+      v5 = PiDrvDbResolveFilePathKeyValues(a2, v4, &DestinationString, v10);
+      goto LABEL_18;
     }
-    v6 = -1073741670;
+    v8 = *(unsigned __int16 *)(a1 + 18) + 28;
+    if ( v8 > 0xFFFE )
+    {
+      v5 = -2147483643;
+      goto LABEL_18;
+    }
+    DestinationString.Length = 0;
+    DestinationString.MaximumLength = v8;
+    DestinationString.Buffer = (wchar_t *)ExpAllocateStringRoutine(v8);
+    if ( !DestinationString.Buffer )
+      goto LABEL_10;
+    v5 = RtlUnicodeStringPrintf(&DestinationString, L"%ws\\%wZ", L"\\DriverStores", a1 + 16);
+    if ( v5 >= 0 )
+      goto LABEL_15;
   }
-LABEL_4:
-  RtlFreeUnicodeString(&DestinationString);
+LABEL_18:
+  RtlFreeAnsiString(&DestinationString);
   if ( Handle )
     ZwClose(Handle);
-  return (unsigned int)v6;
+  return (unsigned int)v5;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PipHardwareConfigGetIndex @ 0x140813170
+ * XREFs of PipHardwareConfigGetIndex @ 0x1407AC5A4
  * Callers:
- *     IopInitializeBootDrivers @ 0x140B405B4 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _RegRtlQueryValue @ 0x1406CE918 (_RegRtlQueryValue.c)
- *     PipHardwareConfigOpenKey @ 0x140813018 (PipHardwareConfigOpenKey.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _RegRtlQueryValue @ 0x1406BB0F8 (_RegRtlQueryValue.c)
+ *     PipHardwareConfigOpenKey @ 0x1407AC760 (PipHardwareConfigOpenKey.c)
  */
 
 __int64 __fastcall PipHardwareConfigGetIndex(__int64 a1, void *a2)
@@ -20,7 +20,7 @@ __int64 __fastcall PipHardwareConfigGetIndex(__int64 a1, void *a2)
   Handle = 0LL;
   if ( a2 )
   {
-    v3 = PipHardwareConfigOpenKey(a1, 0x20019u, &Handle);
+    v3 = PipHardwareConfigOpenKey(a1, 131097LL, &Handle);
     if ( v3 >= 0 )
     {
       LODWORD(v5) = 4;

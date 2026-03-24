@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlLargeIntegerToChar @ 0x140710EC0
+ * XREFs of RtlLargeIntegerToChar @ 0x1406F6B50
  * Callers:
- *     RtlInt64ToUnicodeString @ 0x140710E10 (RtlInt64ToUnicodeString.c)
+ *     RtlInt64ToUnicodeString @ 0x1406F6870 (RtlInt64ToUnicodeString.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall RtlLargeIntegerToChar(unsigned __int64 *a1, unsigned __int64 a2, int a3, char *a4)
@@ -13,14 +13,15 @@ __int64 __fastcall RtlLargeIntegerToChar(unsigned __int64 *a1, unsigned __int64 
   int v6; // r9d
   int v7; // r10d
   char *v8; // r14
-  unsigned __int64 v9; // r8
-  unsigned int v10; // eax
+  unsigned __int64 v9; // rax
+  unsigned int v10; // r8d
   int v11; // esp
   __int64 v12; // rsi
   bool v13; // cc
-  unsigned __int64 v15; // r9
-  size_t v16; // rbx
-  char v17; // [rsp+61h] [rbp-37h] BYREF
+  unsigned __int64 v15; // r8
+  unsigned __int64 v16; // rtt
+  size_t v17; // rbx
+  char v18; // [rsp+61h] [rbp-37h] BYREF
 
   if ( (_DWORD)a2 )
   {
@@ -53,7 +54,7 @@ LABEL_4:
   v6 = 0;
   v7 = 0;
 LABEL_5:
-  v8 = &v17;
+  v8 = &v18;
   v9 = *a1;
   if ( v6 )
   {
@@ -70,9 +71,10 @@ LABEL_5:
     v15 = (unsigned int)a2;
     do
     {
-      a2 = v9 % v15;
+      v16 = v9;
       v9 /= v15;
-      *--v8 = *((_BYTE *)RtlpIntegerChars + (unsigned int)a2);
+      a2 = v16 % v15;
+      *--v8 = *((_BYTE *)RtlpIntegerChars + (unsigned int)(v16 % v15));
     }
     while ( v9 );
   }
@@ -83,11 +85,11 @@ LABEL_5:
   v13 = (int)v12 <= a3;
   if ( (int)v12 < a3 )
   {
-    v16 = (unsigned int)(a3 - v12);
+    v17 = (unsigned int)(a3 - v12);
     LOBYTE(a2) = 48;
-    memset(a4, a2, v16);
+    memset(a4, a2, v17);
     a3 = v12;
-    a4 += v16;
+    a4 += v17;
 LABEL_8:
     v13 = (int)v12 <= a3;
   }

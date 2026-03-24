@@ -1,18 +1,17 @@
 /*
- * XREFs of TelemetryData_pCreateDumpFile @ 0x1C007B024
+ * XREFs of TelemetryData_pCreateDumpFile @ 0x1C0077854
  * Callers:
- *     TelemetryData_pWriteDumpFile @ 0x1C007B6A0 (TelemetryData_pWriteDumpFile.c)
+ *     TelemetryData_pWriteDumpFile @ 0x1C0077EC8 (TelemetryData_pWriteDumpFile.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x1C001C750 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
+ *     RtlStringCbPrintfW @ 0x1C00156DC (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
  */
 
 __int64 __fastcall TelemetryData_pCreateDumpFile(__int64 a1, void **a2)
 {
-  NTSTATUS v4; // edi
-  int v5; // esi
-  _WORD *v6; // rbx
-  const wchar_t *v7; // r8
+  int v4; // edi
+  NTSTATUS v5; // ebx
+  const wchar_t *v6; // r8
   PLARGE_INTEGER AllocationSize; // [rsp+20h] [rbp-A9h]
   ULONG FileAttributes[2]; // [rsp+28h] [rbp-A1h]
   __int64 ShareAccess; // [rsp+30h] [rbp-99h]
@@ -27,19 +26,18 @@ __int64 __fastcall TelemetryData_pCreateDumpFile(__int64 a1, void **a2)
   _TIME_FIELDS TimeFields; // [rsp+D0h] [rbp+7h] BYREF
 
   TimeFields = 0LL;
-  v4 = -1073741823;
+  v4 = 0;
+  v5 = -1073741823;
   LocalTime.QuadPart = 0LL;
   SystemTime.QuadPart = MEMORY[0xFFFFF78000000014];
   ExSystemTimeToLocalTime(&SystemTime, &LocalTime);
   RtlTimeToTimeFields(&LocalTime, &TimeFields);
-  v5 = 0;
-  v6 = (_WORD *)(a1 + 736);
   while ( 1 )
   {
-    v7 = L"%ws-%04u%02u%02u-%02u%02u-%02u.dmp";
-    if ( !v5 )
-      v7 = L"%ws-%04u%02u%02u-%02u%02u.dmp";
-    LODWORD(EaBuffer) = v5;
+    v6 = L"%ws-%04u%02u%02u-%02u%02u-%02u.dmp";
+    if ( !v4 )
+      v6 = L"%ws-%04u%02u%02u-%02u%02u.dmp";
+    LODWORD(EaBuffer) = v4;
     LODWORD(CreateOptions) = TimeFields.Minute;
     LODWORD(Disposition) = TimeFields.Hour;
     LODWORD(ShareAccess) = TimeFields.Day;
@@ -48,7 +46,7 @@ __int64 __fastcall TelemetryData_pCreateDumpFile(__int64 a1, void **a2)
     if ( RtlStringCbPrintfW(
            (NTSTRSAFE_PWSTR)(a1 + 656),
            0x50uLL,
-           v7,
+           v6,
            a1 + 624,
            AllocationSize,
            *(_QWORD *)FileAttributes,
@@ -57,7 +55,6 @@ __int64 __fastcall TelemetryData_pCreateDumpFile(__int64 a1, void **a2)
            CreateOptions,
            EaBuffer) < 0 )
       break;
-    v6 = (_WORD *)(a1 + 736);
     if ( RtlStringCbPrintfW((NTSTRSAFE_PWSTR)(a1 + 736), 0x208uLL, L"%ws\\%ws\\%ws", a1 + 104, a1 + 624, a1 + 656) >= 0 )
     {
       DestinationString = 0LL;
@@ -70,7 +67,7 @@ __int64 __fastcall TelemetryData_pCreateDumpFile(__int64 a1, void **a2)
       ObjectAttributes.Attributes = 576;
       ObjectAttributes.ObjectName = &DestinationString;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-      v4 = IoCreateFile(
+      v5 = IoCreateFile(
              a2,
              0x120116u,
              &ObjectAttributes,
@@ -85,17 +82,17 @@ __int64 __fastcall TelemetryData_pCreateDumpFile(__int64 a1, void **a2)
              CreateFileTypeNone,
              0LL,
              0x100u);
-      if ( v4 >= 0 )
-        return (unsigned int)v4;
-      if ( (unsigned int)++v5 <= 0xA )
+      if ( v5 >= 0 )
+        return (unsigned int)v5;
+      if ( (unsigned int)++v4 <= 0xA )
         continue;
     }
-    goto LABEL_11;
+    goto LABEL_10;
   }
   *(_WORD *)(a1 + 656) = 0;
-  v4 = -1073741823;
-LABEL_11:
-  *v6 = 0;
+  v5 = -1073741823;
+LABEL_10:
+  *(_WORD *)(a1 + 736) = 0;
   *a2 = 0LL;
-  return (unsigned int)v4;
+  return (unsigned int)v5;
 }

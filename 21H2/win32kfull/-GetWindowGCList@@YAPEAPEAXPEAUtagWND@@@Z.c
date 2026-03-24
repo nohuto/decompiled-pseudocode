@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetWindowGCList@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C0116C88
+ * XREFs of ?GetWindowGCList@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C012B754
  * Callers:
- *     ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C01168D0 (-_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z.c)
- *     GetGestureConfigSettings @ 0x1C0221144 (GetGestureConfigSettings.c)
+ *     ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C012B390 (-_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z.c)
+ *     GetGestureConfigSettings @ 0x1C0227648 (GetGestureConfigSettings.c)
  * Callees:
- *     VWPLGetData @ 0x1C00A76BC (VWPLGetData.c)
+ *     VWPLGetData @ 0x1C003FAB8 (VWPLGetData.c)
  */
 
 void **__fastcall GetWindowGCList(struct tagWND *a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SetBufferProperty@CSnapshotMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0223E00
+ * XREFs of ?SetBufferProperty@CSnapshotMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E9E20
  * Callers:
  *     <none>
  * Callees:
- *     memcmp @ 0x1C00D6840 (memcmp.c)
+ *     memcmp @ 0x1C00CE910 (memcmp.c)
  */
 
 __int64 __fastcall DirectComposition::CSnapshotMarshaler::SetBufferProperty(

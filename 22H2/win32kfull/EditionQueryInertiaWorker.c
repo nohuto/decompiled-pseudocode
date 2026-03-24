@@ -1,56 +1,40 @@
 /*
- * XREFs of EditionQueryInertiaWorker @ 0x1C01F7790
+ * XREFs of EditionQueryInertiaWorker @ 0x1C0217D50
  * Callers:
  *     <none>
  * Callees:
- *     ?IsCompositionInputWindow@@YAHPEBUtagWND@@@Z @ 0x1C0121FB0 (-IsCompositionInputWindow@@YAHPEBUtagWND@@@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C01410D8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     ?DCEHitTestWindow@@YA_NPEBUtagRECT@@PEBU_D3DMATRIX@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C01513E8 (-DCEHitTestWindow@@YA_NPEBUtagRECT@@PEBU_D3DMATRIX@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z.c)
- *     ?DCEPtInRect@@YA_NPEBUtagRECT@@UtagPOINT@@@Z @ 0x1C0151814 (-DCEPtInRect@@YA_NPEBUtagRECT@@UtagPOINT@@@Z.c)
+ *     ?IsCompositionInputWindow@@YAHPEBUtagWND@@@Z @ 0x1C006B87C (-IsCompositionInputWindow@@YAHPEBUtagWND@@@Z.c)
+ *     DCEPtInRect @ 0x1C00FB848 (DCEPtInRect.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C016D990 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     DCEHitTestWindow @ 0x1C01E4674 (DCEHitTestWindow.c)
  */
 
-__int64 __fastcall EditionQueryInertiaWorker(struct tagPOINT a1, __int64 a2)
+__int64 __fastcall EditionQueryInertiaWorker(unsigned __int64 a1, __int64 a2)
 {
-  unsigned int v4; // edi
+  __int64 v4; // rdi
   __int64 v5; // rdx
-  const struct tagWND *v6; // rsi
-  __int64 v7; // r8
-  __int64 v8; // r9
-  const struct _D3DMATRIX *v9; // rdx
-  const struct tagRECT *v10; // rcx
-  struct tagPOINT v12; // [rsp+38h] [rbp+10h] BYREF
+  int *v6; // rcx
+  unsigned __int64 v9; // [rsp+38h] [rbp+10h] BYREF
 
-  v4 = 0;
-  v6 = (const struct tagWND *)ValidateHwnd(*(_QWORD *)(a2 + 120));
+  v4 = ValidateHwnd(*(_QWORD *)(a2 + 120));
   if ( (*(_DWORD *)(a2 + 184) & 4) != 0 )
   {
-    v12 = a1;
-    if ( !DCEHitTestWindow((const struct tagRECT *)(a2 + 40), (const struct _D3DMATRIX *)(a2 + 56), &v12, 0LL) )
+    v9 = a1;
+    if ( !(unsigned int)DCEHitTestWindow((int *)(a2 + 40), a2 + 56, (int *)&v9, 0LL) )
       return 0LL;
   }
-  if ( v6 && !(unsigned int)IsCompositionInputWindow(v6, v5, v7, v8) )
-    goto LABEL_16;
-  if ( (*(_DWORD *)(a2 + 184) & 4) == 0 )
+  if ( (!v4 || (unsigned int)IsCompositionInputWindow((const struct tagWND *)v4)) && (*(_DWORD *)(a2 + 184) & 4) == 0 )
   {
-    v12.x = 0x20000;
+    LODWORD(v9) = 0x20000;
     MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 147);
   }
-  if ( v6 )
-  {
-LABEL_16:
-    if ( !(unsigned int)IsCompositionInputWindow(v6, v5, v7, v8) )
-    {
-      v9 = (const struct _D3DMATRIX *)*((_QWORD *)v6 + 27);
-      v10 = (const struct tagRECT *)(*((_QWORD *)v6 + 5) + 88LL);
-      v12 = a1;
-      if ( !v9 )
-      {
-        LOBYTE(v4) = DCEPtInRect(v10, a1);
-        return v4;
-      }
-      if ( !DCEHitTestWindow(v10, v9, &v12, 0LL) )
-        return 0LL;
-    }
-  }
-  return 1LL;
+  if ( !v4 || (unsigned int)IsCompositionInputWindow((const struct tagWND *)v4) )
+    return 1LL;
+  v5 = *(_QWORD *)(v4 + 216);
+  v6 = (int *)(*(_QWORD *)(v4 + 40) + 88LL);
+  v9 = a1;
+  if ( v5 ? DCEHitTestWindow(v6, v5, (int *)&v9, 0LL) : DCEPtInRect(v6, a1) )
+    return 1LL;
+  else
+    return 0LL;
 }

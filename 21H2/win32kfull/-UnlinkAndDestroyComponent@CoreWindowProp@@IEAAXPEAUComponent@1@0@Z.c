@@ -1,10 +1,10 @@
 /*
- * XREFs of ?UnlinkAndDestroyComponent@CoreWindowProp@@IEAAXPEAUComponent@1@0@Z @ 0x1C0238EDC
+ * XREFs of ?UnlinkAndDestroyComponent@CoreWindowProp@@IEAAXPEAUComponent@1@0@Z @ 0x1C023DBD0
  * Callers:
- *     ?Delete@CoreWindowProp@@UEAAXXZ @ 0x1C0238C70 (-Delete@CoreWindowProp@@UEAAXXZ.c)
- *     ?RemoveComponentInternal@CoreWindowProp@@KAJPEAUtagWND@@0@Z @ 0x1C0238E50 (-RemoveComponentInternal@CoreWindowProp@@KAJPEAUtagWND@@0@Z.c)
+ *     ?Delete@CoreWindowProp@@UEAAXXZ @ 0x1C0135910 (-Delete@CoreWindowProp@@UEAAXXZ.c)
+ *     ?RemoveComponentInternal@CoreWindowProp@@KAJPEAUtagWND@@0@Z @ 0x1C023DB3C (-RemoveComponentInternal@CoreWindowProp@@KAJPEAUtagWND@@0@Z.c)
  * Callees:
- *     ??$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z @ 0x1C00821A8 (--$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z.c)
+ *     ??$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z @ 0x1C006B788 (--$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z.c)
  */
 
 void __fastcall CoreWindowProp::UnlinkAndDestroyComponent(
@@ -22,13 +22,13 @@ void __fastcall CoreWindowProp::UnlinkAndDestroyComponent(
     if ( a3 )
       *(_QWORD *)a3 = v3;
     else
-      *((_QWORD *)this + 5) = v3;
+      *((_QWORD *)this + 4) = v3;
     v6 = *((_QWORD *)a2 + 1);
     v7 = 0LL;
     if ( CWindowProp::GetProp<CoreWindowProp>(v6, &v7) )
-      *(_QWORD *)(v7 + 32) = 0LL;
+      *(_QWORD *)(v7 + 24) = 0LL;
     *((_QWORD *)a2 + 1) = 0LL;
-    --*((_DWORD *)this + 12);
+    --*((_DWORD *)this + 10);
     Win32FreePool(a2);
   }
 }

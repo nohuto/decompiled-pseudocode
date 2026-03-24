@@ -5,10 +5,10 @@
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA50 (ZwUpdateWnfStateData.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
  *     PopMarshalSettingValues @ 0x1405897D8 (PopMarshalSettingValues.c)
- *     PopFreeRegistration @ 0x1406E1508 (PopFreeRegistration.c)
+ *     PopFreeRegistration @ 0x1406E14E8 (PopFreeRegistration.c)
  */
 
 struct _KTHREAD *__fastcall PopDispatchNotificationsToList(__int64 **a1)

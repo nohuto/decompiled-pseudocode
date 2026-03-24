@@ -1,82 +1,90 @@
 /*
- * XREFs of DxgGetHandleParentCB @ 0x1C02EEC00
+ * XREFs of DxgGetHandleParentCB @ 0x1C0257DC0
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0007894 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
- *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
- *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C000B474 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
- *     ??0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z @ 0x1C01C5980 (--0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z.c)
- *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C01CB650 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0005230 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C0005848 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
+ *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0008F14 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C0107C00 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ *     ??0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z @ 0x1C0109380 (--0DXGALLOCATIONREFERENCE@@QEAA@PEAVDXGALLOCATION@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
 __int64 __fastcall DxgGetHandleParentCB(unsigned int a1)
 {
   __int64 v1; // rbx
-  __int64 v2; // rcx
-  struct DXGPROCESS *Current; // rdi
-  unsigned int v4; // edx
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // r8
   __int64 v5; // r9
-  __int64 v6; // r8
-  int v7; // edx
-  int v8; // edx
-  struct _EX_RUNDOWN_REF *v9; // rdx
+  struct DXGPROCESS *Current; // rdi
+  unsigned int v7; // edx
+  __int64 v8; // r9
+  __int64 v9; // r8
+  int v10; // edx
+  __int64 v11; // r8
+  __int64 v12; // rdx
+  __int64 v13; // rax
+  struct _EX_RUNDOWN_REF *v14; // rdx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
   ULONG_PTR Count; // rcx
-  unsigned int v11; // ebx
-  struct _EX_RUNDOWN_REF *v13; // [rsp+50h] [rbp-68h] BYREF
-  _BYTE v14[24]; // [rsp+58h] [rbp-60h] BYREF
-  _BYTE v15[8]; // [rsp+70h] [rbp-48h] BYREF
-  struct _KAPC_STATE ApcState; // [rsp+78h] [rbp-40h] BYREF
+  unsigned int v19; // ebx
+  __int64 v20; // rax
+  struct _EX_RUNDOWN_REF *v22; // [rsp+20h] [rbp-68h] BYREF
+  _BYTE v23[24]; // [rsp+28h] [rbp-60h] BYREF
+  _BYTE v24[8]; // [rsp+40h] [rbp-48h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+48h] [rbp-40h] BYREF
 
   v1 = a1;
-  DXGVALIDATIONPROCESSREATTACH::DXGVALIDATIONPROCESSREATTACH((DXGVALIDATIONPROCESSREATTACH *)v15);
-  Current = DXGPROCESS::GetCurrent(v2);
-  DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v14, Current);
-  v4 = ((unsigned int)v1 >> 6) & 0xFFFFFF;
-  if ( v4 >= *((_DWORD *)Current + 74) )
+  DXGVALIDATIONPROCESSREATTACH::DXGVALIDATIONPROCESSREATTACH((DXGVALIDATIONPROCESSREATTACH *)v24);
+  Current = DXGPROCESS::GetCurrent(v3, v2, v4, v5);
+  DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v23, (struct _KTHREAD **)Current);
+  v7 = ((unsigned int)v1 >> 6) & 0xFFFFFF;
+  if ( v7 >= *((_DWORD *)Current + 64) )
     goto LABEL_7;
-  v5 = *((_QWORD *)Current + 35);
-  v6 = 2LL * v4;
-  v7 = *(_DWORD *)(v5 + 16LL * v4 + 8);
-  if ( (((unsigned int)v1 >> 25) & 0x60) != (v7 & 0x60) )
+  v8 = *((_QWORD *)Current + 30);
+  v9 = v7;
+  v10 = *(_DWORD *)(v8 + 16LL * v7 + 8);
+  if ( (((unsigned int)v1 >> 25) & 0x60) != (v10 & 0x60) || (v10 & 0x2000) != 0 || (v10 & 0x1F) == 0 )
     goto LABEL_7;
-  if ( (v7 & 0x2000) != 0 )
-    goto LABEL_7;
-  v8 = v7 & 0x1F;
-  if ( !v8 )
-    goto LABEL_7;
-  if ( v8 != 5 )
+  v11 = 2 * v9;
+  v12 = v10 & 0x1F;
+  if ( (_BYTE)v12 != 5 )
   {
-    WdLogSingleEntry1(2LL, 316LL);
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)L"Handle type mismatch", 316LL, 0LL, 0LL, 0LL, 0LL);
+    v13 = WdLogNewEntry5_WdError(((unsigned int)v1 >> 25) & 0x60, v12);
+    *(_QWORD *)(v13 + 24) = 316LL;
+    WdLogEvent5_WdError(v13);
 LABEL_7:
-    v9 = 0LL;
+    v14 = 0LL;
     goto LABEL_8;
   }
-  v9 = *(struct _EX_RUNDOWN_REF **)(v5 + 8 * v6);
+  v14 = *(struct _EX_RUNDOWN_REF **)(v8 + 8 * v11);
 LABEL_8:
-  DXGALLOCATIONREFERENCE::DXGALLOCATIONREFERENCE((DXGALLOCATIONREFERENCE *)&v13, v9);
-  if ( v13 )
+  DXGALLOCATIONREFERENCE::DXGALLOCATIONREFERENCE((DXGALLOCATIONREFERENCE *)&v22, v14);
+  if ( v22 )
   {
-    Count = v13[5].Count;
+    Count = v22[5].Count;
     if ( Count )
     {
-      v11 = *(_DWORD *)(Count + 16);
+      v19 = *(_DWORD *)(Count + 16);
       goto LABEL_14;
     }
   }
   else
   {
-    WdLogSingleEntry1(3LL, v1);
+    v20 = WdLogNewEntry5_WdWarning(v16, v15, v17);
+    *(_QWORD *)(v20 + 24) = v1;
+    WdLogEvent5_WdWarning(v20);
   }
-  v11 = 0;
+  v19 = 0;
 LABEL_14:
-  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v13);
-  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v14);
-  if ( v15[0] )
+  DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE(&v22, v15);
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v23);
+  if ( v24[0] )
     KeUnstackDetachProcess(&ApcState);
-  return v11;
+  return v19;
 }

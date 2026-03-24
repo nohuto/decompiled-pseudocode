@@ -1,63 +1,59 @@
 /*
- * XREFs of ?ulGetNearestFromPalentryNoExactMatchFirst@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@@Z @ 0x1C0157EB0
+ * XREFs of ?ulGetNearestFromPalentryNoExactMatchFirst@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@@Z @ 0x1C0068090
  * Callers:
- *     ?ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z @ 0x1C0089200 (-ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z.c)
- *     ulGetNearestIndexFromColorref @ 0x1C009B700 (ulGetNearestIndexFromColorref.c)
- *     ?ulGetNearestFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@K@Z @ 0x1C016CE84 (-ulGetNearestFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@K@Z.c)
+ *     ?ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z @ 0x1C0067EB0 (-ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z.c)
+ *     ?ulGetNearestFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@K@Z @ 0x1C0086E70 (-ulGetNearestFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@K@Z.c)
  * Callees:
- *     ?ulGetMatchFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@@Z @ 0x1C0157E88 (-ulGetMatchFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@@Z.c)
+ *     ?ulGetMatchFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@@Z @ 0x1C013EA6C (-ulGetMatchFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@@Z.c)
  */
 
-unsigned int __fastcall XEPALOBJ::ulGetNearestFromPalentryNoExactMatchFirst(ULONG_PTR *this, struct tagPALETTEENTRY a2)
+unsigned int __fastcall XEPALOBJ::ulGetNearestFromPalentryNoExactMatchFirst(XEPALOBJ *this, struct tagPALETTEENTRY a2)
 {
-  BYTE peRed; // bl
-  unsigned __int8 *v5; // rdi
-  __int64 v6; // rax
-  unsigned __int8 *v7; // rdx
-  __int64 v8; // rcx
-  ULONG_PTR v9; // rax
-  unsigned __int8 *v10; // r10
+  __int64 v2; // r8
+  __int64 v3; // rax
+  unsigned __int8 *v4; // rcx
+  unsigned __int8 *v5; // r8
+  unsigned __int8 *v6; // rbx
+  unsigned __int8 *v7; // r11
+  unsigned int v8; // r10d
+  unsigned __int8 *v9; // r15
+  unsigned __int8 *v10; // r14
   unsigned int v11; // r9d
-  unsigned __int8 *v12; // rsi
-  unsigned __int8 *v13; // r15
-  unsigned __int8 *v14; // r12
-  unsigned int v15; // r8d
 
-  peRed = a2.peRed;
-  if ( !*(_DWORD *)(*this + 28) )
+  v2 = *(_QWORD *)this;
+  v3 = *(unsigned int *)(*(_QWORD *)this + 28LL);
+  if ( !(_DWORD)v3 )
     return XEPALOBJ::ulGetMatchFromPalentry(this, a2);
-  v5 = 0LL;
-  v6 = SGDGetSessionState(this);
-  v7 = (unsigned __int8 *)&unk_1C0263C10;
-  v8 = *(_QWORD *)(v6 + 24);
-  v9 = *this;
-  if ( *this != *(_QWORD *)(v8 + 6000) )
-    v7 = *(unsigned __int8 **)(v9 + 112);
-  v10 = v7;
-  v11 = 196608;
-  v12 = &v7[4 * *(unsigned int *)(v9 + 28)];
+  v4 = 0LL;
+  if ( (struct PALETTE *)v2 == ppalDefault )
+    v5 = (unsigned __int8 *)&aPalDefaultVGA;
+  else
+    v5 = *(unsigned __int8 **)(v2 + 112);
+  v6 = &v5[4 * v3];
+  v7 = v5;
+  v8 = 196608;
   do
   {
-    v13 = v7;
-    v14 = v5;
-    v15 = *(_DWORD *)(*(_QWORD *)(v8 + 3944) + 4 * (*v7 - (unsigned __int64)peRed))
-        + *(_DWORD *)(*(_QWORD *)(v8 + 3944) + 4 * (v7[1] - (unsigned __int64)a2.peGreen))
-        + *(_DWORD *)(*(_QWORD *)(v8 + 3944) + 4 * (v7[2] - (unsigned __int64)a2.peBlue));
-    if ( v15 < v11 )
+    v9 = v4;
+    v10 = v5;
+    v11 = *(_DWORD *)(*(_QWORD *)&pArrayOfSquares.peRed + 4 * (*v5 - (unsigned __int64)a2.peRed))
+        + *(_DWORD *)(*(_QWORD *)&pArrayOfSquares.peRed + 4 * (v5[1] - (unsigned __int64)a2.peGreen))
+        + *(_DWORD *)(*(_QWORD *)&pArrayOfSquares.peRed + 4 * (v5[2] - (unsigned __int64)a2.peBlue));
+    if ( v11 < v8 )
     {
-      v5 = v7;
-      if ( !v15 )
+      v4 = v5;
+      if ( !v11 )
         break;
     }
-    v7 += 4;
-    v5 = v13;
-    if ( v15 >= v11 )
+    v5 += 4;
+    v4 = v10;
+    if ( v11 >= v8 )
     {
-      v15 = v11;
-      v5 = v14;
+      v11 = v8;
+      v4 = v9;
     }
-    v11 = v15;
+    v8 = v11;
   }
-  while ( v7 < v12 );
-  return (v5 - v10) >> 2;
+  while ( v5 < v6 );
+  return (v4 - v7) >> 2;
 }

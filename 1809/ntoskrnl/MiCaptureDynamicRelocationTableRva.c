@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCaptureDynamicRelocationTableRva @ 0x14074BA6C
+ * XREFs of MiCaptureDynamicRelocationTableRva @ 0x14074BA4C
  * Callers:
- *     MiParseImageLoadConfig @ 0x1406508FC (MiParseImageLoadConfig.c)
+ *     MiParseImageLoadConfig @ 0x1406508DC (MiParseImageLoadConfig.c)
  *     MiApplyDynamicRelocations @ 0x1409D2650 (MiApplyDynamicRelocations.c)
  * Callees:
  *     RtlImageNtHeaderEx @ 0x14009D860 (RtlImageNtHeaderEx.c)

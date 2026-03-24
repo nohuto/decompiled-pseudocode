@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwPrePrepareEnlistment @ 0x14041DEC0
+ * XREFs of ZwPrePrepareEnlistment @ 0x1403FCA40
  * Callers:
- *     DifZwPrePrepareEnlistmentWrapper @ 0x1406232E0 (DifZwPrePrepareEnlistmentWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

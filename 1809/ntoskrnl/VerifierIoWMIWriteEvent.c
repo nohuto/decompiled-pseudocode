@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     WmiVerifierCopyEvent @ 0x14030DE88 (WmiVerifierCopyEvent.c)
- *     WmiVerifierTakeEventOwnership @ 0x14030DEE0 (WmiVerifierTakeEventOwnership.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     WmiVerifierCopyEvent @ 0x14030DF88 (WmiVerifierCopyEvent.c)
+ *     WmiVerifierTakeEventOwnership @ 0x14030DFE0 (WmiVerifierTakeEventOwnership.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

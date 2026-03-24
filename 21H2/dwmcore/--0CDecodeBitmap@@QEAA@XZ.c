@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CDecodeBitmap@@QEAA@XZ @ 0x180014730
+ * XREFs of ??0CDecodeBitmap@@QEAA@XZ @ 0x18001DFC4
  * Callers:
- *     ?CreateAndAddSwapChainBuffers@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@I@Z @ 0x180066804 (-CreateAndAddSwapChainBuffers@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRI.c)
+ *     ?CreateAndAddSwapChainBuffers@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SWAPCHAIN_REALIZATION_INFO@@@Z @ 0x180038B38 (-CreateAndAddSwapChainBuffers@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRI.c)
  * Callees:
- *     ??0CRenderTargetBitmap@@IEAA@_N@Z @ 0x180067244 (--0CRenderTargetBitmap@@IEAA@_N@Z.c)
+ *     ??0CRenderTargetBitmap@@IEAA@_N@Z @ 0x18006120C (--0CRenderTargetBitmap@@IEAA@_N@Z.c)
  */
 
 CDecodeBitmap *__fastcall CDecodeBitmap::CDecodeBitmap(CDecodeBitmap *this)
@@ -17,7 +17,7 @@ CDecodeBitmap *__fastcall CDecodeBitmap::CDecodeBitmap(CDecodeBitmap *this)
   *((_QWORD *)this + 29) = &CD2DBitmap::`vbtable'{for `IPixelFormat'};
   *((_QWORD *)this + 32) = &CRenderTargetBitmap::`vbtable'{for `IBitmapRealization'};
   CRenderTargetBitmap::CRenderTargetBitmap(this, 0);
-  *(_QWORD *)this = &CDecodeBitmap::`vftable'{for `CMILCOMBaseT<IUnknown>'};
+  *(_QWORD *)this = &CDecodeBitmap::`vftable'{for `CMILCOMBase'};
   *((_QWORD *)this + 10) = &CDecodeBitmap::`vftable';
   *((_QWORD *)this + 15) = &CDecodeBitmap::`vftable'{for `IRenderTargetBitmap'};
   *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 2) + 4LL) + 16) = &CDecodeBitmap::`vftable'{for `IDeviceResourceNotify'};

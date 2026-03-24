@@ -1,17 +1,17 @@
 /*
- * XREFs of MiIsVaRangeAvailable @ 0x1406AF7FC
+ * XREFs of MiIsVaRangeAvailable @ 0x14061DFF8
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiReserveUserMemory @ 0x14071F450 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1407202F0 (MiMapViewOfDataSection.c)
- *     MiMapLockedPagesInUserSpace @ 0x140748A84 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x140A30D50 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateEnclaveVad @ 0x140A3CCF8 (MiAllocateEnclaveVad.c)
+ *     MiMapViewOfImageSection @ 0x14061D2D0 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x140637BF0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x140639820 (MiMapViewOfDataSection.c)
+ *     MiMapLockedPagesInUserSpace @ 0x14076ACC0 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407C33C8 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x1408D1EA8 (MiAllocateEnclaveVad.c)
  * Callees:
- *     MiCheckForConflictingVadExistence @ 0x140214E40 (MiCheckForConflictingVadExistence.c)
+ *     MiCheckForConflictingVadExistence @ 0x14025A8AC (MiCheckForConflictingVadExistence.c)
  */
 
-__int64 __fastcall MiIsVaRangeAvailable(
+_BOOL8 __fastcall MiIsVaRangeAvailable(
         __int64 a1,
         unsigned __int64 a2,
         __int64 a3,
@@ -19,11 +19,11 @@ __int64 __fastcall MiIsVaRangeAvailable(
         unsigned __int64 a5)
 {
   unsigned __int64 v5; // r8
-  unsigned int v6; // r11d
 
   v5 = a2 + a3 - 1;
-  if ( a2 < 0x10000 && !*(_QWORD *)(a1 + 2240) || a2 < a4 || v5 > a5 || v5 <= a2 )
-    return 0LL;
-  LOBYTE(v6) = !MiCheckForConflictingVadExistence();
-  return v6;
+  return (a2 >= 0x10000 || *(_QWORD *)(a1 + 2240))
+      && a2 >= a4
+      && v5 <= a5
+      && v5 > a2
+      && !MiCheckForConflictingVadExistence();
 }

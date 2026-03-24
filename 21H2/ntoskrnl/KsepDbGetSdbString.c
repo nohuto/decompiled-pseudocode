@@ -1,18 +1,18 @@
 /*
- * XREFs of KsepDbGetSdbString @ 0x140963878
+ * XREFs of KsepDbGetSdbString @ 0x1408BF7E8
  * Callers:
- *     KsepDbGetDriverShimsInternal @ 0x14075C380 (KsepDbGetDriverShimsInternal.c)
- *     KsepDbGetShimInfo @ 0x1409638AC (KsepDbGetShimInfo.c)
+ *     KsepDbGetDriverShimsInternal @ 0x140758E8C (KsepDbGetDriverShimsInternal.c)
+ *     KsepDbGetShimInfo @ 0x1408BF81C (KsepDbGetShimInfo.c)
  * Callees:
- *     KsepStringDuplicate @ 0x14075C924 (KsepStringDuplicate.c)
- *     SdbGetStringTagPtr @ 0x140842A24 (SdbGetStringTagPtr.c)
+ *     SdbGetStringTagPtr @ 0x140756580 (SdbGetStringTagPtr.c)
+ *     KsepStringDuplicate @ 0x14075B274 (KsepStringDuplicate.c)
  */
 
-__int64 __fastcall KsepDbGetSdbString(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall KsepDbGetSdbString(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _WORD *StringTagPtr; // rax
 
-  StringTagPtr = (_WORD *)SdbGetStringTagPtr(a1, a2);
+  StringTagPtr = (_WORD *)SdbGetStringTagPtr(a1, a2, a3, a4);
   if ( StringTagPtr )
     return KsepStringDuplicate(a3, StringTagPtr);
   else

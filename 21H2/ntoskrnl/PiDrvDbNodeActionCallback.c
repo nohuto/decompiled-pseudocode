@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDrvDbNodeActionCallback @ 0x1407D4DD0
+ * XREFs of PiDrvDbNodeActionCallback @ 0x140629F10
  * Callers:
  *     <none>
  * Callees:
- *     PiDrvDbLoadNode @ 0x1407D4E34 (PiDrvDbLoadNode.c)
- *     PiDrvDbUnloadNode @ 0x1407D4F98 (PiDrvDbUnloadNode.c)
+ *     PiDrvDbUnloadNode @ 0x140629E58 (PiDrvDbUnloadNode.c)
+ *     PiDrvDbLoadNode @ 0x140629F74 (PiDrvDbLoadNode.c)
  */
 
-__int64 __fastcall PiDrvDbNodeActionCallback(__int64 a1, __int64 a2, int a3, int a4, _QWORD *a5, __int64 a6)
+__int64 __fastcall PiDrvDbNodeActionCallback(__int64 a1, __int64 a2, int a3, int a4, _QWORD **a5, __int64 a6)
 {
   unsigned int v6; // ecx
   int v7; // r8d
@@ -18,9 +18,9 @@ __int64 __fastcall PiDrvDbNodeActionCallback(__int64 a1, __int64 a2, int a3, int
   v7 = a3 - 1;
   if ( !v7 )
   {
-    if ( a4 == 1 )
-      return (unsigned int)PiDrvDbLoadNode(a6, *a5);
-    return v6;
+    if ( a4 != 1 )
+      return v6;
+    return (unsigned int)PiDrvDbLoadNode(a6, *a5);
   }
   if ( v7 != 1 )
     return (unsigned int)-1073741822;

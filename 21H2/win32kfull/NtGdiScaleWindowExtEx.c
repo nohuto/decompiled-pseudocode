@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiScaleWindowExtEx @ 0x1C02AE730
+ * XREFs of NtGdiScaleWindowExtEx @ 0x1C0161670
  * Callers:
  *     <none>
  * Callees:
- *     GreScaleWindowExtEx @ 0x1C02B57DC (GreScaleWindowExtEx.c)
+ *     GreScaleWindowExtEx @ 0x1C01616B8 (GreScaleWindowExtEx.c)
  */
 
 __int64 __fastcall NtGdiScaleWindowExtEx(HDC a1, __int64 a2, __int64 a3, __int64 a4, int a5, ULONG64 a6)

@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgkpWerDeferredWriteRoutine @ 0x14093BAA0
+ * XREFs of DbgkpWerDeferredWriteRoutine @ 0x1408892D0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KiSetTimerEx @ 0x140252700 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x140252980 (KeCancelTimer.c)
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     DbgkpWerCleanupContext @ 0x140883C94 (DbgkpWerCleanupContext.c)
- *     IoWriteDeferredLiveDumpData @ 0x14094C374 (IoWriteDeferredLiveDumpData.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x14025FAA0 (KeCancelTimer.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     DbgkpWerCleanupContext @ 0x1408890F0 (DbgkpWerCleanupContext.c)
+ *     IoWriteDeferredLiveDumpData @ 0x140896A70 (IoWriteDeferredLiveDumpData.c)
  */
 
 _QWORD *__fastcall DbgkpWerDeferredWriteRoutine(__int64 a1)
@@ -21,17 +21,17 @@ _QWORD *__fastcall DbgkpWerDeferredWriteRoutine(__int64 a1)
   DbgPrintEx(5u, 3u, "DBGK: DbgkpWerDeferredWriteRoutine entered, context 0x%p\n", (const void *)a1);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v3 = *(struct _KTIMER **)(*(_QWORD *)(a1 + 120) + 16LL);
+  v3 = *(struct _KTIMER **)(*(_QWORD *)(a1 + 128) + 16LL);
   if ( v3 )
     KiSetTimerEx((__int64)v3, -10000000LL * DbgkpWerDeferredWriteTimeoutSeconds, 0, 0, 0LL);
-  v4 = IoWriteDeferredLiveDumpData(*(PVOID *)(a1 + 128));
+  v4 = IoWriteDeferredLiveDumpData(*(PVOID *)(a1 + 136));
   KeCancelTimer(v3);
-  *(_QWORD *)(a1 + 128) = 0LL;
+  *(_QWORD *)(a1 + 136) = 0LL;
   if ( v4 >= 0 )
   {
-    v5 = WerLiveKernelSubmitReport(*(_QWORD *)(a1 + 96), 0LL);
+    v5 = WerLiveKernelSubmitReport(*(_QWORD *)(a1 + 104), 0LL);
     if ( v5 >= 0 )
-      *(_DWORD *)(a1 + 104) |= 1u;
+      *(_DWORD *)(a1 + 112) |= 1u;
     else
       DbgPrintEx(
         5u,

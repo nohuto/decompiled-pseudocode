@@ -1,18 +1,18 @@
 /*
- * XREFs of Endpoint_OnCancelSetDequeuePointer @ 0x1C000C0DC
+ * XREFs of Endpoint_OnCancelSetDequeuePointer @ 0x1C00100F4
  * Callers:
- *     ESM_UpdatingTransferRingDequeuePointers @ 0x1C000C0A0 (ESM_UpdatingTransferRingDequeuePointers.c)
+ *     ESM_UpdatingTransferRingDequeuePointers @ 0x1C000FB60 (ESM_UpdatingTransferRingDequeuePointers.c)
  * Callees:
- *     Command_SendCommand @ 0x1C0003D94 (Command_SendCommand.c)
- *     Endpoint_GetDequeuePointer @ 0x1C0004B68 (Endpoint_GetDequeuePointer.c)
- *     WPP_RECORDER_SF_dddi @ 0x1C000C1FC (WPP_RECORDER_SF_dddi.c)
- *     Endpoint_InitializeTransferRing @ 0x1C0010180 (Endpoint_InitializeTransferRing.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     Endpoint_IsTransferRingEmpty @ 0x1C00389CC (Endpoint_IsTransferRingEmpty.c)
- *     Endpoint_StreamsOnCancelSetDequeuePointerComplete @ 0x1C003A6DC (Endpoint_StreamsOnCancelSetDequeuePointerComplete.c)
+ *     Command_SendCommand @ 0x1C0006C80 (Command_SendCommand.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C0008334 (Endpoint_GetDequeuePointer.c)
+ *     WPP_RECORDER_SF_dddi @ 0x1C0010214 (WPP_RECORDER_SF_dddi.c)
+ *     Endpoint_InitializeTransferRing @ 0x1C00102D0 (Endpoint_InitializeTransferRing.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Endpoint_IsTransferRingEmpty @ 0x1C003874C (Endpoint_IsTransferRingEmpty.c)
+ *     Endpoint_StreamsOnCancelSetDequeuePointerComplete @ 0x1C003A330 (Endpoint_StreamsOnCancelSetDequeuePointerComplete.c)
  */
 
-__int64 __fastcall Endpoint_OnCancelSetDequeuePointer(__int64 a1, unsigned int a2)
+char __fastcall Endpoint_OnCancelSetDequeuePointer(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rbp
   __int64 v5; // rbx

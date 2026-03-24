@@ -1,15 +1,15 @@
 /*
- * XREFs of CmSnapshotRMTxArray @ 0x140694788
+ * XREFs of CmSnapshotRMTxArray @ 0x140694768
  * Callers:
  *     CmpTryToRundownHive @ 0x14000FCAC (CmpTryToRundownHive.c)
- *     CmpPerformUnloadKey @ 0x1406923B0 (CmpPerformUnloadKey.c)
+ *     CmpPerformUnloadKey @ 0x140692390 (CmpPerformUnloadKey.c)
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     CmListGetNextElement @ 0x1406948E0 (CmListGetNextElement.c)
- *     CmpAddEnlistmentToRollbackPacket @ 0x1407F85E8 (CmpAddEnlistmentToRollbackPacket.c)
- *     CmpReserveRollbackPacketSpace @ 0x1407F8A10 (CmpReserveRollbackPacketSpace.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
+ *     CmpAddEnlistmentToRollbackPacket @ 0x1407F85C8 (CmpAddEnlistmentToRollbackPacket.c)
+ *     CmpReserveRollbackPacketSpace @ 0x1407F89F0 (CmpReserveRollbackPacketSpace.c)
  */
 
 __int64 __fastcall CmSnapshotRMTxArray(__int64 a1, _DWORD *a2)

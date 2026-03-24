@@ -1,143 +1,147 @@
 /*
- * XREFs of IoSetDumpRange @ 0x140550E80
+ * XREFs of IoSetDumpRange @ 0x140502650
  * Callers:
- *     IopAddPageDumpRange @ 0x140551FE8 (IopAddPageDumpRange.c)
+ *     IopAddPageDumpRange @ 0x1405033D8 (IopAddPageDumpRange.c)
+ *     IoSetDumpRangeForPartialKernelDump @ 0x14050B6C0 (IoSetDumpRangeForPartialKernelDump.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     MmIsAddressValidEx @ 0x1402E5FB0 (MmIsAddressValidEx.c)
- *     IopAddPageToPageMap @ 0x1405521D0 (IopAddPageToPageMap.c)
+ *     MmIsAddressValidEx @ 0x14028CB70 (MmIsAddressValidEx.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     IopAddPageToPageMap @ 0x1405035C0 (IopAddPageToPageMap.c)
  */
 
 __int64 __fastcall IoSetDumpRange(__int64 a1, char *a2, unsigned __int64 a3, int a4)
 {
-  int v4; // ebp
   int v5; // eax
-  unsigned __int64 v6; // r14
+  unsigned __int64 v6; // rbp
   char *v7; // rdi
+  unsigned __int64 v9; // r9
+  unsigned int v10; // eax
+  unsigned int v11; // r8d
+  unsigned int v12; // r9d
+  _QWORD *v13; // rdx
+  unsigned __int64 v14; // rcx
+  unsigned int v15; // r9d
+  _QWORD *v16; // rdx
+  unsigned __int64 v17; // rcx
+  char v18; // si
   PHYSICAL_ADDRESS PhysicalAddress; // rax
-  __int64 v10; // rcx
-  PHYSICAL_ADDRESS v11; // rdi
-  __int64 v12; // rdx
-  char v13; // al
-  __int64 v14; // r8
-  unsigned int v15; // r8d
-  unsigned int v16; // r9d
-  _QWORD *v17; // rdx
-  unsigned __int64 v18; // rcx
-  unsigned int v19; // r9d
-  _QWORD *v20; // rdx
-  unsigned __int64 v21; // rcx
-  char v22; // bp
-  PHYSICAL_ADDRESS v23; // rax
-  int v24; // eax
+  int v20; // eax
 
-  v4 = a4;
   v5 = a4 & 0xF;
   v6 = a3;
   v7 = a2;
   if ( v5 == 1 )
   {
-    PhysicalAddress = MmGetPhysicalAddress(a2);
-    v10 = *(_QWORD *)(a1 + 24);
-    v11 = PhysicalAddress;
-    v12 = *(_QWORD *)(a1 + 16);
-    v13 = *(_BYTE *)(a1 + 40) & 1;
-    v14 = *(_QWORD *)(a1 + 32);
-    v7 = (char *)((unsigned __int64)v11.QuadPart >> 12);
-    v4 = 0;
+    v9 = (unsigned __int64)MmGetPhysicalAddress(a2).QuadPart >> 12;
+    v10 = IopAddPageToPageMap(
+            *(_QWORD *)(a1 + 24),
+            *(_QWORD *)(a1 + 16),
+            *(_QWORD *)(a1 + 32),
+            v9,
+            v6,
+            *(_BYTE *)(a1 + 40) & 1,
+            0);
 LABEL_20:
-    v15 = IopAddPageToPageMap(v10, v12, v14, (_DWORD)v7, v6, v13, v4);
-    if ( v15 != -1073741503 )
-      return v15;
-  }
-  else if ( v5 == 2 )
-  {
-    v15 = -1073741503;
-    v16 = 0;
-    if ( *(_DWORD *)MmPhysicalMemoryBlock )
-    {
-      v17 = (char *)MmPhysicalMemoryBlock + 24;
-      do
-      {
-        v18 = *(v17 - 1);
-        if ( v18 > (unsigned __int64)v7 )
-          break;
-        if ( *v17 + v18 > (unsigned __int64)v7 )
-        {
-          if ( v6 > *((_QWORD *)MmPhysicalMemoryBlock + 2 * v16 + 2)
-                  + *((_QWORD *)MmPhysicalMemoryBlock + 2 * v16 + 3)
-                  - (_QWORD)v7 )
-            break;
-LABEL_19:
-          v14 = *(_QWORD *)(a1 + 32);
-          v12 = *(_QWORD *)(a1 + 16);
-          v13 = *(_BYTE *)(a1 + 40) & 1;
-          v10 = *(_QWORD *)(a1 + 24);
-          goto LABEL_20;
-        }
-        ++v16;
-        v17 += 2;
-      }
-      while ( v16 < *(_DWORD *)MmPhysicalMemoryBlock );
-    }
-    if ( SpecialMemoryRanges )
-    {
-      v19 = 0;
-      if ( *(_DWORD *)SpecialMemoryRanges )
-      {
-        v20 = (_QWORD *)(SpecialMemoryRanges + 24);
-        do
-        {
-          v21 = *(v20 - 1);
-          if ( v21 > (unsigned __int64)v7 )
-            break;
-          if ( *v20 + v21 > (unsigned __int64)v7 )
-          {
-            if ( v6 > *(_QWORD *)(SpecialMemoryRanges + 16LL * v19 + 16)
-                    + *(_QWORD *)(SpecialMemoryRanges + 16LL * v19 + 24)
-                    - (_QWORD)v7 )
-              break;
-            goto LABEL_19;
-          }
-          ++v19;
-          v20 += 2;
-        }
-        while ( v19 < *(_DWORD *)SpecialMemoryRanges );
-      }
-    }
+    v11 = v10;
   }
   else
   {
-    v22 = 1;
+    if ( v5 == 2 )
+    {
+      v11 = -1073741503;
+      v12 = 0;
+      if ( *(_DWORD *)MmPhysicalMemoryBlock )
+      {
+        v13 = (char *)MmPhysicalMemoryBlock + 24;
+        do
+        {
+          v14 = *(v13 - 1);
+          if ( v14 > (unsigned __int64)v7 )
+            break;
+          if ( *v13 + v14 > (unsigned __int64)v7 )
+          {
+            if ( v6 > *((_QWORD *)MmPhysicalMemoryBlock + 2 * v12 + 2)
+                    + *((_QWORD *)MmPhysicalMemoryBlock + 2 * v12 + 3)
+                    - (_QWORD)v7 )
+              break;
+LABEL_19:
+            v10 = IopAddPageToPageMap(
+                    *(_QWORD *)(a1 + 24),
+                    *(_QWORD *)(a1 + 16),
+                    *(_QWORD *)(a1 + 32),
+                    (_DWORD)v7,
+                    v6,
+                    *(_BYTE *)(a1 + 40) & 1,
+                    a4);
+            goto LABEL_20;
+          }
+          ++v12;
+          v13 += 2;
+        }
+        while ( v12 < *(_DWORD *)MmPhysicalMemoryBlock );
+      }
+      if ( SpecialMemoryRanges )
+      {
+        v15 = 0;
+        if ( *(_DWORD *)SpecialMemoryRanges )
+        {
+          v16 = (_QWORD *)(SpecialMemoryRanges + 24);
+          while ( 1 )
+          {
+            v17 = *(v16 - 1);
+            if ( v17 > (unsigned __int64)v7 )
+              break;
+            if ( *v16 + v17 > (unsigned __int64)v7 )
+            {
+              if ( v6 > *(_QWORD *)(SpecialMemoryRanges + 16LL * v15 + 16)
+                      + *(_QWORD *)(SpecialMemoryRanges + 16LL * v15 + 24)
+                      - (_QWORD)v7 )
+                goto LABEL_30;
+              goto LABEL_19;
+            }
+            ++v15;
+            v16 += 2;
+            if ( v15 >= *(_DWORD *)SpecialMemoryRanges )
+              goto LABEL_30;
+          }
+        }
+      }
+      goto LABEL_30;
+    }
+    v18 = 1;
     if ( !a3 )
       return 0;
     do
     {
       if ( MmIsAddressValidEx((__int64)v7) )
       {
-        v23 = MmGetPhysicalAddress(v7);
-        v24 = IopAddPageToPageMap(
+        PhysicalAddress = MmGetPhysicalAddress(v7);
+        v20 = IopAddPageToPageMap(
                 *(_QWORD *)(a1 + 24),
                 *(_QWORD *)(a1 + 16),
                 *(_QWORD *)(a1 + 32),
-                (unsigned __int64)v23.QuadPart >> 12,
+                (unsigned __int64)PhysicalAddress.QuadPart >> 12,
                 1LL,
                 *(_BYTE *)(a1 + 40) & 1,
                 0);
-        if ( v24 == -1073741789 )
+        if ( v20 == -1073741789 )
           return 3221225507LL;
-        if ( v24 < 0 )
-          v22 = 0;
+        if ( v20 < 0 )
+          v18 = 0;
       }
       v7 += 4096;
       --v6;
     }
     while ( v6 );
-    if ( v22 == 1 )
+    if ( v18 == 1 )
       return 0;
-    v15 = -1073741503;
+    v11 = -1073741503;
   }
-  if ( (*(_DWORD *)(a1 + 40) & 1) != 0 )
-    return 0;
-  return v15;
+  if ( v11 == -1073741503 )
+  {
+LABEL_30:
+    if ( (*(_BYTE *)(a1 + 40) & 1) != 0 )
+      return 0;
+  }
+  return v11;
 }

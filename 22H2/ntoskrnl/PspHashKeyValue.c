@@ -1,8 +1,8 @@
 /*
- * XREFs of PspHashKeyValue @ 0x1407F8E04
+ * XREFs of PspHashKeyValue @ 0x140690B48
  * Callers:
- *     PspLookupProcessQuotaBlock @ 0x1407F8D08 (PspLookupProcessQuotaBlock.c)
- *     PspRemoveQuotaBlock @ 0x1409AE13C (PspRemoveQuotaBlock.c)
+ *     PspLookupProcessQuotaBlock @ 0x140690A4C (PspLookupProcessQuotaBlock.c)
+ *     PspRemoveQuotaBlock @ 0x1409073F8 (PspRemoveQuotaBlock.c)
  * Callees:
  *     <none>
  */

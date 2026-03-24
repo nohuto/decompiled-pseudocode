@@ -1,17 +1,17 @@
 /*
- * XREFs of ?GetETMFontManagement@@YAHAEAVRFONTOBJ@@VPDEVOBJ@@PEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK4@Z @ 0x1C012F58C
+ * XREFs of ?GetETMFontManagement@@YAHAEAVRFONTOBJ@@VPDEVOBJ@@PEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK4@Z @ 0x1C01405BC
  * Callers:
- *     NtGdiGetETM @ 0x1C012F660 (NtGdiGetETM.c)
+ *     NtGdiGetETM @ 0x1C013F9C0 (NtGdiGetETM.c)
  * Callees:
- *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C012AA04 (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
- *     ?UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z @ 0x1C012ABD8 (-UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?FontManagement@PFFOBJ@@QEAAHPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z @ 0x1C02C1354 (-FontManagement@PFFOBJ@@QEAAHPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z.c)
+ *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C013CB7C (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
+ *     ?UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z @ 0x1C013CD54 (-UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?FontManagement@PFFOBJ@@QEAAHPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z @ 0x1C02C29C0 (-FontManagement@PFFOBJ@@QEAAHPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z.c)
  */
 
 __int64 __fastcall GetETMFontManagement(
         struct RFONTOBJ *a1,
-        __int64 a2,
+        struct PDEV *a2,
         struct _SURFOBJ *a3,
         __int64 a4,
         __int64 a5,
@@ -42,7 +42,7 @@ __int64 __fastcall GetETMFontManagement(
   v24 = a7;
   v11 = 0;
   v20 = 0;
-  v12 = *(_DWORD *)(a2 + 40);
+  v12 = *((_DWORD *)a2 + 10);
   v21 = 0;
   v22 = v25;
   v14 = 0;
@@ -59,7 +59,7 @@ __int64 __fastcall GetETMFontManagement(
     v9 = v22;
   }
   v17 = *(_QWORD *)a1;
-  if ( a2 != qword_1C033BDF8 || v17 && *(_DWORD *)(*(_QWORD *)(v17 + 24) + 8LL) == 3 )
+  if ( a2 != qword_1C0341AF0 || v17 && *(_DWORD *)(*(_QWORD *)(v17 + 24) + 8LL) == 3 )
   {
     v24 = *(void **)(v17 + 128);
     v14 = PFFOBJ::FontManagement((PFFOBJ *)&v24, v16, 0LL, 8u, 4u, v8, 0, 0LL);

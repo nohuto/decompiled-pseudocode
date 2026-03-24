@@ -1,139 +1,146 @@
 /*
- * XREFs of PnpGetResourceRequirementsForAssignTable @ 0x14078FD74
+ * XREFs of PnpGetResourceRequirementsForAssignTable @ 0x14074F8BC
  * Callers:
- *     PnpAllocateResources @ 0x14078F9D4 (PnpAllocateResources.c)
- *     PnpReallocateResources @ 0x14096D5F8 (PnpReallocateResources.c)
- *     PnpQueryRebalanceWorker @ 0x14096E748 (PnpQueryRebalanceWorker.c)
+ *     PnpAllocateResources @ 0x14074F4D8 (PnpAllocateResources.c)
+ *     PnpReallocateResources @ 0x1408B31B0 (PnpReallocateResources.c)
+ *     PnpQueryRebalanceWorker @ 0x1408B85C8 (PnpQueryRebalanceWorker.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     IopQueryDeviceResources @ 0x140790134 (IopQueryDeviceResources.c)
- *     PipClearDevNodeFlags @ 0x14079856C (PipClearDevNodeFlags.c)
- *     PnpFreeResourceRequirementsForAssignTable @ 0x1408187CC (PnpFreeResourceRequirementsForAssignTable.c)
- *     PnpFilterResourceRequirementsList @ 0x140818B80 (PnpFilterResourceRequirementsList.c)
- *     IopResourceRequirementsListToReqList @ 0x140819FE8 (IopResourceRequirementsListToReqList.c)
- *     IopRearrangeReqList @ 0x1408541EC (IopRearrangeReqList.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     PipClearDevNodeFlags @ 0x140742F14 (PipClearDevNodeFlags.c)
+ *     IopQueryDeviceResources @ 0x14074FC5C (IopQueryDeviceResources.c)
+ *     IopRearrangeReqList @ 0x1407506EC (IopRearrangeReqList.c)
+ *     IopResourceRequirementsListToReqList @ 0x140751044 (IopResourceRequirementsListToReqList.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140752800 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     PnpFilterResourceRequirementsList @ 0x1407ADC1C (PnpFilterResourceRequirementsList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PnpGetResourceRequirementsForAssignTable(unsigned __int64 a1, unsigned __int64 a2, _DWORD *a3)
+__int64 __fastcall PnpGetResourceRequirementsForAssignTable(unsigned __int64 a1, unsigned __int64 a2, int *a3)
 {
-  unsigned __int64 v5; // rbx
-  int v6; // eax
-  _QWORD *v7; // rbp
-  __int64 v8; // rax
-  __int64 v9; // rdi
-  __int64 v10; // rcx
-  int v11; // eax
-  void *v13; // rcx
-  int v14; // esi
-  __int64 v15; // rdi
-  unsigned int v16; // ecx
-  unsigned int v17; // eax
-  void *v18; // rcx
-  int v19; // [rsp+60h] [rbp+8h] BYREF
-  int v20; // [rsp+68h] [rbp+10h]
-  __int64 v21; // [rsp+70h] [rbp+18h]
+  int v3; // edi
+  unsigned __int64 v6; // rbx
+  int v7; // eax
+  _QWORD *v8; // r12
+  __int64 v9; // rax
+  __int64 v10; // rsi
+  __int64 v11; // rcx
+  int v12; // eax
+  void *v14; // rcx
+  int v15; // ebp
+  __int64 v16; // rsi
+  __int64 v17; // r8
+  __int64 v18; // r9
+  unsigned int v19; // ecx
+  unsigned int v20; // eax
+  void *v21; // rcx
+  int v22; // [rsp+60h] [rbp+8h] BYREF
+  int v23; // [rsp+68h] [rbp+10h]
+  __int64 v24; // [rsp+70h] [rbp+18h]
 
-  v19 = 0;
-  v20 = 0;
-  v21 = 0LL;
+  v3 = 0;
+  v22 = 0;
+  v23 = 0;
+  v24 = 0LL;
   *a3 = 0;
   if ( a1 < a2 )
   {
-    v5 = a1 + 24;
+    v6 = a1 + 24;
     while ( 1 )
     {
-      v6 = *(_DWORD *)(v5 - 16);
-      v7 = (_QWORD *)(v5 + 8);
-      *(_QWORD *)(v5 + 8) = 0LL;
-      if ( (v6 & 0x20) == 0 )
+      v7 = *(_DWORD *)(v6 - 16);
+      v8 = (_QWORD *)(v6 + 8);
+      *(_QWORD *)(v6 + 8) = 0LL;
+      if ( (v7 & 0x20) == 0 )
         break;
 LABEL_13:
-      v5 += 64LL;
-      if ( v5 - 24 >= a2 )
-        return *a3 == 0 ? 0xC0000001 : 0;
-    }
-    *(_QWORD *)(v5 + 16) = 0LL;
-    v8 = *(_QWORD *)(v5 - 24);
-    *(_QWORD *)(v5 + 24) = 0LL;
-    if ( v8 )
-      v9 = *(_QWORD *)(*(_QWORD *)(v8 + 312) + 40LL);
-    else
-      v9 = 0LL;
-    ExAcquireFastMutex(&PiResourceListLock);
-    if ( (*(_DWORD *)(v9 + 396) & 0x400) != 0 )
-    {
-      v18 = *(void **)(v9 + 440);
-      if ( v18 )
+      v6 += 64LL;
+      if ( v6 - 24 >= a2 )
       {
-        ExFreePoolWithTag(v18, 0);
-        *(_QWORD *)(v9 + 440) = 0LL;
-        PipClearDevNodeFlags(v9, 512LL);
-        *(_DWORD *)(v5 - 16) |= 0x400u;
+        v3 = *a3;
+        return v3 == 0 ? 0xC0000001 : 0;
       }
     }
-    ExReleaseFastMutex(&PiResourceListLock);
-    if ( !*(_QWORD *)v5 )
+    *(_QWORD *)(v6 + 16) = 0LL;
+    v9 = *(_QWORD *)(v6 - 24);
+    *(_QWORD *)(v6 + 24) = 0LL;
+    if ( v9 )
+      v10 = *(_QWORD *)(*(_QWORD *)(v9 + 312) + 40LL);
+    else
+      v10 = 0LL;
+    ExAcquireFastMutex(&PiResourceListLock);
+    if ( (*(_DWORD *)(v10 + 396) & 0x400) != 0 )
     {
-      v10 = *(_QWORD *)(v9 + 440);
-      if ( !v10 || (*(_DWORD *)(v9 + 396) & 0x200) != 0 )
+      v21 = *(void **)(v10 + 440);
+      if ( v21 )
       {
-        v11 = IopQueryDeviceResources(*(_QWORD *)(v5 - 24), 1LL, v5, &v19);
-        if ( v11 < 0 || !*(_QWORD *)v5 )
+        ExFreePoolWithTag(v21, 0);
+        *(_QWORD *)(v10 + 440) = 0LL;
+        PipClearDevNodeFlags(v10, 512);
+        *(_DWORD *)(v6 - 16) |= 0x400u;
+      }
+    }
+    KeReleaseGuardedMutex(&PiResourceListLock);
+    if ( !*(_QWORD *)v6 )
+    {
+      v11 = *(_QWORD *)(v10 + 440);
+      if ( !v11 || (*(_DWORD *)(v10 + 396) & 0x200) != 0 )
+      {
+        v12 = IopQueryDeviceResources(*(_QWORD *)(v6 - 24), 1LL, v6, &v22);
+        if ( v12 < 0 || !*(_QWORD *)v6 )
         {
-          *(_DWORD *)(v5 + 32) = v11;
+          *(_DWORD *)(v6 + 32) = v12;
 LABEL_12:
-          *(_DWORD *)(v5 - 16) |= 0x20u;
+          *(_DWORD *)(v6 - 16) |= 0x20u;
           goto LABEL_13;
         }
         ExAcquireFastMutex(&PiResourceListLock);
-        v13 = *(void **)(v9 + 440);
-        if ( v13 )
+        v14 = *(void **)(v10 + 440);
+        if ( v14 )
         {
-          ExFreePoolWithTag(v13, 0);
-          PipClearDevNodeFlags(v9, 512LL);
+          ExFreePoolWithTag(v14, 0);
+          PipClearDevNodeFlags(v10, 512);
         }
-        *(_QWORD *)(v9 + 440) = *(_QWORD *)v5;
-        ExReleaseFastMutex(&PiResourceListLock);
+        *(_QWORD *)(v10 + 440) = *(_QWORD *)v6;
+        KeReleaseGuardedMutex(&PiResourceListLock);
       }
       else
       {
-        *(_QWORD *)v5 = v10;
-        *(_DWORD *)(v5 - 12) = 4;
+        *(_QWORD *)v6 = v11;
+        *(_DWORD *)(v6 - 12) = 4;
       }
     }
-    if ( (*(_DWORD *)(v5 - 16) & 0x200) != 0 )
+    if ( (*(_DWORD *)(v6 - 16) & 0x200) != 0 )
     {
-      if ( (int)PnpFilterResourceRequirementsList(*(void **)v5) >= 0 && v21 )
-        *(_QWORD *)v5 = v21;
+      if ( (int)PnpFilterResourceRequirementsList(*(void **)v6) >= 0 && v24 )
+        *(_QWORD *)v6 = v24;
       else
-        *(_DWORD *)(v5 - 16) &= ~0x200u;
+        *(_DWORD *)(v6 - 16) &= ~0x200u;
     }
-    v14 = IopResourceRequirementsListToReqList(v5 - 24, v5 + 8);
-    if ( v14 >= 0 )
+    v15 = IopResourceRequirementsListToReqList(v6 - 24, v6 + 8);
+    if ( v15 >= 0 )
     {
-      v15 = *v7;
-      if ( *v7 )
+      v16 = *v8;
+      if ( *v8 )
       {
-        IopRearrangeReqList(*v7);
-        if ( *(_QWORD *)(v15 + 24) )
+        IopRearrangeReqList(*v8);
+        if ( *(_QWORD *)(v16 + 24) )
         {
-          v16 = *(_DWORD *)(v15 + 32);
-          v17 = 0;
-          *(_DWORD *)(v5 + 32) = v14;
-          if ( v16 >= 3 )
-            v17 = v16;
+          v19 = *(_DWORD *)(v16 + 32);
+          v20 = 0;
+          *(_DWORD *)(v6 + 32) = v15;
+          if ( v19 >= 3 )
+            v20 = v19;
           ++*a3;
-          *(_DWORD *)(v5 - 8) = v17;
+          *(_DWORD *)(v6 - 8) = v20;
           goto LABEL_13;
         }
-        PnpFreeResourceRequirementsForAssignTable(v5 - 24, v5 + 40);
-        v14 = -1073741438;
+        PnpFreeResourceRequirementsForAssignTable(v6 - 24, v6 + 40, v17, v18);
+        v15 = -1073741438;
       }
     }
-    *(_DWORD *)(v5 + 32) = v14;
+    *(_DWORD *)(v6 + 32) = v15;
     goto LABEL_12;
   }
-  return *a3 == 0 ? 0xC0000001 : 0;
+  return v3 == 0 ? 0xC0000001 : 0;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMapPatchTable @ 0x140A3A2D0
+ * XREFs of MiMapPatchTable @ 0x1408CCA68
  * Callers:
- *     MiMapSystemImage @ 0x140695E88 (MiMapSystemImage.c)
+ *     MiMapSystemImage @ 0x14075C8B4 (MiMapSystemImage.c)
  * Callees:
- *     MiMakePrototypePteDirect @ 0x140213D00 (MiMakePrototypePteDirect.c)
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
+ *     MiMakePrototypePteDirect @ 0x14027D390 (MiMakePrototypePteDirect.c)
+ *     MiGetPteAddress @ 0x140298780 (MiGetPteAddress.c)
+ *     MiPteInShadowRange @ 0x1402C9180 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x14030E10C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14030E16C (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiMapPatchTable(unsigned __int64 a1, __int64 a2)
@@ -21,7 +21,7 @@ __int64 __fastcall MiMapPatchTable(unsigned __int64 a1, __int64 a2)
   __int64 v9; // r8
   bool v10; // zf
 
-  v3 = ((unsigned int)dword_140C6997C >> 12) + ((dword_140C6997C & 0xFFF) != 0);
+  v3 = ((unsigned int)dword_140C4CCB0 >> 12) + ((dword_140C4CCB0 & 0xFFF) != 0);
   PteAddress = MiGetPteAddress(a1);
   v5 = (_QWORD *)PteAddress;
   if ( v3 )
@@ -33,10 +33,10 @@ __int64 __fastcall MiMapPatchTable(unsigned __int64 a1, __int64 a2)
       v8 = 0;
       if ( MiPteInShadowRange((unsigned __int64)v5) )
       {
-        if ( MiPteHasShadow() )
+        if ( (unsigned int)MiPteHasShadow() )
         {
           v8 = 1;
-          if ( !HIBYTE(word_140C66DFC) )
+          if ( !HIBYTE(word_140C4E008) )
           {
             v10 = (PrototypePteDirect & 1) == 0;
             goto LABEL_9;

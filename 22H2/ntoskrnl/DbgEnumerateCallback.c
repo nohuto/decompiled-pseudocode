@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgEnumerateCallback @ 0x1403D68B0
+ * XREFs of DbgEnumerateCallback @ 0x140394CD0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025ABF0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14029CF60 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
  */
 
 __int64 __fastcall DbgEnumerateCallback(_UNKNOWN ****a1)
@@ -25,7 +25,7 @@ __int64 __fastcall DbgEnumerateCallback(_UNKNOWN ****a1)
   v5 = 0LL;
   while ( v4 != &RtlpDebugPrintCallbackList )
   {
-    if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)v4 - 2) )
+    if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)v4 - 2) )
     {
       v5 = (__int64)*(v4 - 1);
       *a1 = (_UNKNOWN ***)v4;
@@ -35,6 +35,6 @@ __int64 __fastcall DbgEnumerateCallback(_UNKNOWN ****a1)
   }
   ExReleaseSpinLockSharedFromDpcLevel(&RtlpDebugPrintCallbackLock);
   if ( v3 )
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v3 - 16));
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(v3 - 16));
   return v5;
 }

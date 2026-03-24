@@ -1,70 +1,118 @@
 /*
- * XREFs of IopCallDriverReference @ 0x1402A7820
+ * XREFs of IopCallDriverReference @ 0x14022B670
  * Callers:
- *     NtSetInformationFile @ 0x1402A6AD0 (NtSetInformationFile.c)
- *     IopSynchronousServiceTail @ 0x1406E3F40 (IopSynchronousServiceTail.c)
+ *     NtSetInformationFile @ 0x1402D2A20 (NtSetInformationFile.c)
+ *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     IoGetIoPriorityHint @ 0x1402A7940 (IoGetIoPriorityHint.c)
- *     IopSetIrpPriorityHintFromFileObject @ 0x1402A7980 (IopSetIrpPriorityHintFromFileObject.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8BC0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     ObpIncrPointerCount @ 0x14021BF80 (ObpIncrPointerCount.c)
+ *     PsGetBaseIoPriorityThread @ 0x14022BA70 (PsGetBaseIoPriorityThread.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402C2A00 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ObpPushStackInfo @ 0x140564C68 (ObpPushStackInfo.c)
  */
 
-__int64 __fastcall IopCallDriverReference(PDEVICE_OBJECT DeviceObject, PIRP Irp, char a3, void *a4, int a5)
+__int64 __fastcall IopCallDriverReference(PDEVICE_OBJECT DeviceObject, PIRP Irp, char a3, _QWORD *a4, int a5)
 {
   __int64 v9; // rax
-  unsigned int v10; // ebx
-  PETHREAD Thread; // rcx
+  int v10; // edx
+  int BaseIoPriorityThread; // eax
+  __int64 v12; // r8
+  ULONG v13; // ecx
+  int v14; // eax
+  ULONG v15; // eax
+  int v16; // eax
+  int v17; // eax
+  __int64 v18; // rdx
+  unsigned int v19; // edi
+  PETHREAD v21; // rcx
   ULONG Flags; // eax
+  PETHREAD Thread; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  struct _LIST_ENTRY *Flink; // rdi
-  __int128 v16; // [rsp+20h] [rbp-48h] BYREF
+  struct _LIST_ENTRY *Flink; // rbx
+  __int128 v26; // [rsp+20h] [rbp-48h] BYREF
 
   if ( !a3 )
-    ObfReferenceObjectWithTag(a4, 0x746C6644u);
-  IopSetIrpPriorityHintFromFileObject(a4, Irp);
-  if ( IoGetIoPriorityHint(Irp) < IoPriorityNormal )
   {
-    if ( Irp->RequestorMode
-      || (Thread = Irp->Tail.Overlay.Thread) != 0LL
-      && ((Thread->MiscFlags & 0x400) != 0 || (*((_DWORD *)&Thread[1].SwapListEntry + 3) & 0x80u) != 0) )
-    {
-      if ( a5 )
-      {
-        if ( a5 == 1 )
-          ++IoLowPriorityWriteOperationCount;
-      }
-      else
-      {
-        ++IoLowPriorityReadOperationCount;
-      }
-    }
-    else
+    if ( ObpTraceFlags )
+      ObpPushStackInfo((_DWORD)a4 - 48);
+    ObpIncrPointerCount(a4 - 6);
+  }
+  v9 = a4[26];
+  v10 = 2;
+  if ( v9 && *(_DWORD *)(v9 + 80) )
+  {
+    v13 = Irp->Flags & 0xFFF1FFFF;
+    Irp->Flags = v13;
+    v14 = *(_DWORD *)(v9 + 80) << 17;
+  }
+  else
+  {
+    BaseIoPriorityThread = PsGetBaseIoPriorityThread(KeGetCurrentThread());
+    if ( BaseIoPriorityThread < v10 && (struct _KTHREAD *)v12 == KeGetCurrentThread() && *(_DWORD *)(v12 + 1360) )
+      BaseIoPriorityThread = v10;
+    v13 = Irp->Flags & 0xFFF1FFFF;
+    v14 = (BaseIoPriorityThread << 17) + 0x20000;
+  }
+  v15 = v13 | v14;
+  Irp->Flags = v15;
+  v16 = (v15 >> 17) & 7;
+  if ( !v16 )
+  {
+    v17 = v10;
+LABEL_7:
+    v10 = v17;
+    goto LABEL_8;
+  }
+  v17 = v16 - 1;
+  if ( v17 >= v10 )
+    goto LABEL_7;
+  Thread = Irp->Tail.Overlay.Thread;
+  if ( !Thread || !LODWORD(Thread[1].Timer.TimerListEntry.Flink) )
+    goto LABEL_7;
+LABEL_8:
+  if ( !Irp->RequestorMode )
+  {
+    if ( v10 >= 2 )
+      goto LABEL_10;
+    v21 = Irp->Tail.Overlay.Thread;
+    if ( !v21 || (v21->MiscFlags & 0x400) == 0 && (*((_DWORD *)&v21[1].SwapListEntry + 3) & 0x80u) == 0 )
     {
       Flags = Irp->Flags;
       ++IoKernelIssuedIoBoostedCount;
       Irp->Flags = Flags & 0xFFF1FFFF | 0x60000;
+      goto LABEL_10;
     }
   }
-  if ( (Irp->AllocationFlags & 0x80u) == 0
-    && (v9 = *((_QWORD *)&Irp->Tail.CompletionKey + 10)) != 0
-    && (*(_BYTE *)v9 & 2) != 0 )
+  if ( v10 < 2 )
   {
-    v16 = 0LL;
-    v16 = *(_OWORD *)(v9 + 24);
+    if ( a5 )
+    {
+      if ( a5 == 1 )
+        ++IoLowPriorityWriteOperationCount;
+    }
+    else
+    {
+      ++IoLowPriorityReadOperationCount;
+    }
+  }
+LABEL_10:
+  if ( (Irp->AllocationFlags & 0x80u) == 0
+    && (v18 = *((_QWORD *)&Irp->Tail.CompletionKey + 10)) != 0
+    && (*(_BYTE *)v18 & 2) != 0 )
+  {
+    v26 = *(_OWORD *)(v18 + 24);
     CurrentThread = KeGetCurrentThread();
     Flink = CurrentThread[1].WaitBlock[1].WaitListEntry.Flink;
-    CurrentThread[1].WaitBlock[1].WaitListEntry.Flink = (struct _LIST_ENTRY *)&v16;
-    v10 = IofCallDriver(DeviceObject, Irp);
+    CurrentThread[1].WaitBlock[1].WaitListEntry.Flink = (struct _LIST_ENTRY *)&v26;
+    v19 = IofCallDriver(DeviceObject, Irp);
     KeGetCurrentThread()[1].WaitBlock[1].WaitListEntry.Flink = Flink;
   }
   else
   {
-    v10 = IofCallDriver(DeviceObject, Irp);
+    v19 = IofCallDriver(DeviceObject, Irp);
   }
   if ( !a3 )
     ObDereferenceObjectDeferDeleteWithTag(a4, 0x746C6644u);
-  return v10;
+  return v19;
 }

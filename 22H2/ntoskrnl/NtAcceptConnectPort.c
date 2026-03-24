@@ -1,19 +1,19 @@
 /*
- * XREFs of NtAcceptConnectPort @ 0x1407E12C0
+ * XREFs of NtAcceptConnectPort @ 0x14069B0F0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     AlpcpAcceptConnectPort @ 0x1407169EC (AlpcpAcceptConnectPort.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
  */
 
 __int64 __fastcall NtAcceptConnectPort(
         unsigned __int64 a1,
         void *a2,
-        __int128 *a3,
+        unsigned __int64 a3,
         char a4,
-        __m128i *a5,
-        unsigned __int64 a6)
+        _BYTE *a5,
+        _OWORD *a6)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v7; // ebx

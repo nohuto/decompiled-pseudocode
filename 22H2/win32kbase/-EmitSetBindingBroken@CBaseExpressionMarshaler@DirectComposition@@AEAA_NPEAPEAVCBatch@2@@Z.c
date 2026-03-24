@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitSetBindingBroken@CBaseExpressionMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C002A3C4
+ * XREFs of ?EmitSetBindingBroken@CBaseExpressionMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061490
  * Callers:
- *     ?EmitUpdateCommands@CBaseExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C002A2A0 (-EmitUpdateCommands@CBaseExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CBaseExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061380 (-EmitUpdateCommands@CBaseExpressionMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CBaseExpressionMarshaler::EmitSetBindingBroken(
@@ -24,8 +24,8 @@ char __fastcall DirectComposition::CBaseExpressionMarshaler::EmitSetBindingBroke
       *(_DWORD *)v6 = 16;
       *(_QWORD *)(v5 + 4) = 0LL;
       *((_DWORD *)v5 + 3) = 0;
-      *((_DWORD *)v5 + 1) = 22;
-      *((_DWORD *)v5 + 2) = *((_DWORD *)this + 8);
+      *((_DWORD *)v5 + 1) = 24;
+      *((_DWORD *)v5 + 2) = *((_DWORD *)this + 6);
       v5[12] = (*((_BYTE *)this + 120) & 8) != 0;
       *((_DWORD *)this + 4) |= 0x100u;
     }

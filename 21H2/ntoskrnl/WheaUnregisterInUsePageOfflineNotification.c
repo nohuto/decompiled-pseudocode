@@ -1,13 +1,13 @@
 /*
- * XREFs of WheaUnregisterInUsePageOfflineNotification @ 0x140A08F00
+ * XREFs of WheaUnregisterInUsePageOfflineNotification @ 0x14095D5A0
  * Callers:
- *     HvlUnregisterWheaErrorNotification @ 0x140931030 (HvlUnregisterWheaErrorNotification.c)
+ *     HvlUnregisterWheaErrorNotification @ 0x14088E5F0 (HvlUnregisterWheaErrorNotification.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall WheaUnregisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OFFLINE_NOTIFY Callback)
@@ -23,13 +23,13 @@ NTSTATUS __stdcall WheaUnregisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OF
   v1 = 0;
   if ( WheapInUsePageOfflineNotifyInit != 1 )
     return -1073741823;
-  v4 = KeAbPreAcquire((__int64)&WheapInUsePageOfflineNotifyLock, 0LL);
+  v4 = KeAbPreAcquire((ULONG_PTR)&WheapInUsePageOfflineNotifyLock, 0LL, 0);
   v5 = _interlockedbittestandset64((volatile signed __int32 *)&WheapInUsePageOfflineNotifyLock, 0LL);
   v6 = v4;
   if ( v5 )
-    ExfAcquirePushLockExclusiveEx(&WheapInUsePageOfflineNotifyLock, v4, (__int64)&WheapInUsePageOfflineNotifyLock);
+    ExfAcquirePushLockExclusiveEx(&WheapInUsePageOfflineNotifyLock, v4, (ULONG_PTR)&WheapInUsePageOfflineNotifyLock);
   if ( v6 )
-    *(_BYTE *)(v6 + 18) = 1;
+    *(_BYTE *)(v6 + 26) |= 1u;
   v7 = (PFN_IN_USE_PAGE_OFFLINE_NOTIFY *)WheapInUsePageOfflineNotifyList;
   if ( WheapInUsePageOfflineNotifyList != &WheapInUsePageOfflineNotifyList )
   {

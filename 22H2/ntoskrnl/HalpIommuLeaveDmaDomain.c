@@ -1,78 +1,58 @@
 /*
- * XREFs of HalpIommuLeaveDmaDomain @ 0x140518574
+ * XREFs of HalpIommuLeaveDmaDomain @ 0x1404C98D4
  * Callers:
- *     HalpIommuBlockDevice @ 0x1405178F0 (HalpIommuBlockDevice.c)
- *     IommuDomainAttachDeviceEx @ 0x1405259D0 (IommuDomainAttachDeviceEx.c)
- *     IommuDomainDetachDevice @ 0x140525C50 (IommuDomainDetachDevice.c)
- *     IommuDomainDetachDeviceEx @ 0x140525E10 (IommuDomainDetachDeviceEx.c)
+ *     HalJoinDmaDomain @ 0x1403C6AE0 (HalJoinDmaDomain.c)
+ *     HalpLeaveDmaDomain @ 0x1404C4DEC (HalpLeaveDmaDomain.c)
+ *     HalpIommuBlockDevice @ 0x1404C8DA0 (HalpIommuBlockDevice.c)
+ *     IommuDomainDetachDevice @ 0x1404DA530 (IommuDomainDetachDevice.c)
  * Callees:
- *     HalpIommuGetHardwareDomain @ 0x1403A8F5C (HalpIommuGetHardwareDomain.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpIommuAttachDeviceDomain @ 0x1405153BC (HalpIommuAttachDeviceDomain.c)
- *     HalpIommuDereferenceHardwareDomain @ 0x140517BAC (HalpIommuDereferenceHardwareDomain.c)
- *     HalpIommuIsInPermanentPassthrough @ 0x1405183E0 (HalpIommuIsInPermanentPassthrough.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpIommuDereferenceHardwareDomain @ 0x1404C904C (HalpIommuDereferenceHardwareDomain.c)
+ *     HalpIommuGetHardwareDomain @ 0x1404C9534 (HalpIommuGetHardwareDomain.c)
+ *     HalpIommuAttachDeviceDomain @ 0x1404CBB90 (HalpIommuAttachDeviceDomain.c)
  */
 
-__int64 __fastcall HalpIommuLeaveDmaDomain(__int64 a1, ULONG_PTR a2)
+__int64 __fastcall HalpIommuLeaveDmaDomain(_QWORD *a1, ULONG_PTR a2)
 {
-  int v4; // eax
-  int v5; // ebx
-  __int64 v6; // rcx
+  int v4; // ebx
   __int64 result; // rax
-  __int64 v8; // rbp
-  __int64 v9; // [rsp+60h] [rbp+18h] BYREF
-  _QWORD *v10; // [rsp+68h] [rbp+20h] BYREF
+  __int64 v6; // [rsp+50h] [rbp+8h] BYREF
+  _QWORD *v7; // [rsp+58h] [rbp+10h] BYREF
 
-  v9 = 0LL;
-  v10 = 0LL;
+  v6 = 0LL;
+  v7 = 0LL;
   if ( HalpHvIommu )
   {
-    v4 = ((__int64 (__fastcall *)(_QWORD))qword_140C62718)(*(_QWORD *)(a1 + 32));
-    v5 = v4;
-    if ( (_WORD)v4 != 118 )
-    {
-      if ( v4 < 0 )
-        KeBugCheckEx(0x1D9u, 2uLL, v4, a2, 0LL);
-      goto LABEL_18;
-    }
-LABEL_6:
-    v5 = 0;
-LABEL_18:
-    *(_QWORD *)(a1 + 24) = 0LL;
-    return (unsigned int)v5;
+    v4 = ((__int64 (__fastcall *)(_QWORD))qword_140C4A380)(a1[3]);
+    if ( (_WORD)v4 == 118 )
+      v4 = 0;
+    if ( v4 < 0 )
+      KeBugCheckEx(0x1D9u, 2uLL, v4, a2, 0LL);
+    return (unsigned int)v4;
   }
-  if ( HalpIommuIsInPermanentPassthrough(a1, a2) )
-    goto LABEL_6;
-  result = HalpIommuGetHardwareDomain(a2, *(_QWORD *)(v6 + 32), 0, 0, 0, (__int64 *)&v10);
-  v5 = result;
+  result = HalpIommuGetHardwareDomain(a2, a1[1], 0, 0, (__int64 *)&v7);
+  v4 = result;
   if ( (int)result < 0 )
     return result;
-  if ( HalpIommuSecurityPolicy != 1 || !*(_BYTE *)(a1 + 80) )
+  if ( HalpIommuSecurityPolicy != 1 || !*((_BYTE *)a1 + 16) )
   {
-    v8 = *(_QWORD *)(a1 + 40);
     if ( !HalpHvIommu )
-    {
-      (*(void (__fastcall **)(_QWORD, __int64, _QWORD))(*(_QWORD *)(a1 + 32) + 128LL))(
-        *(_QWORD *)(*(_QWORD *)(a1 + 32) + 16LL),
-        v8,
-        0LL);
-      *(_QWORD *)(v8 + 16) = 0LL;
-    }
-LABEL_15:
-    if ( v10 )
-      HalpIommuDereferenceHardwareDomain(a2, v10);
-    if ( v5 < 0 )
-      return (unsigned int)v5;
-    goto LABEL_18;
+      (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(a1[1] + 120LL))(*(_QWORD *)(a1[1] + 16LL), *a1, 0LL);
+    goto LABEL_14;
   }
-  result = HalpIommuGetHardwareDomain(HalpIommuBypassDomain, *(_QWORD *)(a1 + 32), 0, 0, 0, &v9);
+  result = HalpIommuGetHardwareDomain(HalpIommuBypassDomain, a1[1], 0, 0, &v6);
   if ( (int)result >= 0 )
   {
-    result = HalpIommuAttachDeviceDomain(*(_QWORD *)(a1 + 32), *(_QWORD *)(a1 + 40), v9 + 32);
-    v5 = result;
+    result = HalpIommuAttachDeviceDomain(a1[1], *a1, v6 + 32);
+    v4 = result;
     if ( (int)result >= 0 )
-      goto LABEL_15;
+    {
+LABEL_14:
+      if ( v7 )
+        HalpIommuDereferenceHardwareDomain(a2, v7);
+      return (unsigned int)v4;
+    }
   }
   return result;
 }

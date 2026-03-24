@@ -1,30 +1,30 @@
 /*
- * XREFs of RtlStringCbCopyW @ 0x14022B024
+ * XREFs of RtlStringCbCopyW @ 0x14032E038
  * Callers:
- *     RtlpGetNameFromLangInfoNode @ 0x1403A1174 (RtlpGetNameFromLangInfoNode.c)
- *     RtlpAllowsLowBoxAccess @ 0x1403AC540 (RtlpAllowsLowBoxAccess.c)
- *     PopIdleWakeFinalizeWakeSource @ 0x14059D738 (PopIdleWakeFinalizeWakeSource.c)
- *     SeSetLearningModeObjectInformation @ 0x1405B845C (SeSetLearningModeObjectInformation.c)
- *     WmipInsertStaticNames @ 0x1406C8104 (WmipInsertStaticNames.c)
- *     PnpAllocatePWSTR @ 0x1406CCCEC (PnpAllocatePWSTR.c)
- *     WmipEnumerateMofResources @ 0x1407D6DB0 (WmipEnumerateMofResources.c)
- *     PiDcHandleCustomDeviceEvent @ 0x1407DB41C (PiDcHandleCustomDeviceEvent.c)
- *     PopPowerInformationInternal @ 0x1407ED5EC (PopPowerInformationInternal.c)
- *     WmipAddMofResource @ 0x1408111EC (WmipAddMofResource.c)
- *     PiSwIrpStartCreateWorker @ 0x14081B5CC (PiSwIrpStartCreateWorker.c)
- *     PiSwCompleteCreate @ 0x14081BD64 (PiSwCompleteCreate.c)
- *     PiSwIrpInterfaceRegister @ 0x14081D314 (PiSwIrpInterfaceRegister.c)
- *     PfSnParametersRead @ 0x1408482F8 (PfSnParametersRead.c)
- *     WmipGenerateBinaryMofNotification @ 0x14085331C (WmipGenerateBinaryMofNotification.c)
- *     PiSwFindSwDevice @ 0x14086A40C (PiSwFindSwDevice.c)
- *     PipMakeGloballyUniqueId @ 0x140870EF0 (PipMakeGloballyUniqueId.c)
- *     DbgkSendSystemDllMessages @ 0x140936E84 (DbgkSendSystemDllMessages.c)
- *     PiDcResetChildDeviceContainerCallback @ 0x14095B2E0 (PiDcResetChildDeviceContainerCallback.c)
- *     WmipIncludeStaticNames @ 0x1409E0A34 (WmipIncludeStaticNames.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x1409EA738 (EtwTimLogRedirectionTrustPolicy.c)
- *     ExpressionConvertToString @ 0x140A6E9C8 (ExpressionConvertToString.c)
- *     MfgInitSystem @ 0x140B76340 (MfgInitSystem.c)
- *     ViMakeVerifierSettings @ 0x140B982C4 (ViMakeVerifierSettings.c)
+ *     RtlpAllowsLowBoxAccess @ 0x1403204C8 (RtlpAllowsLowBoxAccess.c)
+ *     SeSetLearningModeObjectInformation @ 0x140345990 (SeSetLearningModeObjectInformation.c)
+ *     RtlpGetNameFromLangInfoNode @ 0x1403A7F7C (RtlpGetNameFromLangInfoNode.c)
+ *     PopIdleWakeFinalizeWakeSource @ 0x14057B3B8 (PopIdleWakeFinalizeWakeSource.c)
+ *     EtwTimLogRedirectionTrustPolicy @ 0x1405D09D0 (EtwTimLogRedirectionTrustPolicy.c)
+ *     WmipEnumerateMofResources @ 0x14068B7E0 (WmipEnumerateMofResources.c)
+ *     PnpAllocatePWSTR @ 0x1406B0F08 (PnpAllocatePWSTR.c)
+ *     WmipInsertStaticNames @ 0x1406B1C50 (WmipInsertStaticNames.c)
+ *     PopPowerInformationInternal @ 0x1406F1BE4 (PopPowerInformationInternal.c)
+ *     PiDcHandleCustomDeviceEvent @ 0x14071B508 (PiDcHandleCustomDeviceEvent.c)
+ *     PiSwFindSwDevice @ 0x14074BD68 (PiSwFindSwDevice.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074CF08 (PiSwIrpStartCreateWorker.c)
+ *     PiSwCompleteCreate @ 0x14074DC58 (PiSwCompleteCreate.c)
+ *     PipMakeGloballyUniqueId @ 0x14076BBCC (PipMakeGloballyUniqueId.c)
+ *     PiSwIrpInterfaceRegister @ 0x14076E344 (PiSwIrpInterfaceRegister.c)
+ *     WmipAddMofResource @ 0x1407BEADC (WmipAddMofResource.c)
+ *     PfSnParametersRead @ 0x1407BFAB4 (PfSnParametersRead.c)
+ *     WmipGenerateBinaryMofNotification @ 0x1407D108C (WmipGenerateBinaryMofNotification.c)
+ *     DbgkSendSystemDllMessages @ 0x14088452C (DbgkSendSystemDllMessages.c)
+ *     PiDcResetChildDeviceContainerCallback @ 0x1408A36C0 (PiDcResetChildDeviceContainerCallback.c)
+ *     WmipIncludeStaticNames @ 0x14093282C (WmipIncludeStaticNames.c)
+ *     ExpressionConvertToString @ 0x14097F860 (ExpressionConvertToString.c)
+ *     MfgInitSystem @ 0x140A73924 (MfgInitSystem.c)
+ *     ViMakeVerifierSettings @ 0x140A93B90 (ViMakeVerifierSettings.c)
  * Callees:
  *     <none>
  */
@@ -32,39 +32,44 @@
 NTSTATUS __stdcall RtlStringCbCopyW(NTSTRSAFE_PWSTR pszDest, size_t cbDest, NTSTRSAFE_PCWSTR pszSrc)
 {
   size_t v3; // rdx
-  size_t v4; // r9
-  signed __int64 v5; // r10
-  wchar_t v6; // ax
-  NTSTRSAFE_PWSTR v7; // rax
-  NTSTATUS result; // eax
+  NTSTATUS v4; // r9d
+  size_t v5; // r10
+  signed __int64 v6; // r8
+  wchar_t v7; // ax
+  NTSTRSAFE_PWSTR v8; // rax
 
   v3 = cbDest >> 1;
+  v4 = 0;
   if ( v3 - 1 > 0x7FFFFFFE )
+    v4 = -1073741811;
+  if ( v4 < 0 )
   {
-    result = -1073741811;
     if ( v3 )
       *pszDest = 0;
   }
   else
   {
-    v4 = 2147483646 - v3;
-    v5 = (char *)pszSrc - (char *)pszDest;
-    do
-    {
-      if ( !(v4 + v3) )
-        break;
-      v6 = *(NTSTRSAFE_PWSTR)((char *)pszDest + v5);
-      if ( !v6 )
-        break;
-      *pszDest++ = v6;
-      --v3;
-    }
-    while ( v3 );
-    v7 = pszDest - 1;
     if ( v3 )
-      v7 = pszDest;
-    *v7 = 0;
-    return v3 == 0 ? 0x80000005 : 0;
+    {
+      v5 = 2147483646 - v3;
+      v6 = (char *)pszSrc - (char *)pszDest;
+      do
+      {
+        if ( !(v5 + v3) )
+          break;
+        v7 = *(NTSTRSAFE_PWSTR)((char *)pszDest + v6);
+        if ( !v7 )
+          break;
+        *pszDest++ = v7;
+        --v3;
+      }
+      while ( v3 );
+    }
+    v8 = pszDest - 1;
+    if ( v3 )
+      v8 = pszDest;
+    v4 = v3 == 0 ? 0x80000005 : 0;
+    *v8 = 0;
   }
-  return result;
+  return v4;
 }

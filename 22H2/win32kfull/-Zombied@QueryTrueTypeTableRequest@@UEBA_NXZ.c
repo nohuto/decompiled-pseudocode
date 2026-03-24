@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Zombied@QueryTrueTypeTableRequest@@UEBA_NXZ @ 0x1C0131B30
+ * XREFs of ?Zombied@QueryTrueTypeTableRequest@@UEBA_NXZ @ 0x1C0137D50
  * Callers:
  *     <none>
  * Callees:

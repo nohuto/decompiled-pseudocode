@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpSegPageRangeCountCommittedPages @ 0x140353B40
+ * XREFs of RtlpHpSegPageRangeCountCommittedPages @ 0x14030A8F0
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x140350070 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegPageRangeSplit @ 0x1405F31D8 (RtlpHpSegPageRangeSplit.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x1403099F0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeSplit @ 0x140594FA4 (RtlpHpSegPageRangeSplit.c)
  * Callees:
  *     <none>
  */
@@ -11,8 +11,8 @@ __int64 __fastcall RtlpHpSegPageRangeCountCommittedPages(__int64 a1, unsigned __
 {
   int v3; // ecx
   int v4; // r9d
-  unsigned __int64 v5; // r11
-  int v6; // r10d
+  unsigned __int64 v5; // r10
+  int v6; // r11d
 
   v3 = 0;
   v4 = 0;
@@ -20,17 +20,17 @@ __int64 __fastcall RtlpHpSegPageRangeCountCommittedPages(__int64 a1, unsigned __
   v6 = 0;
   if ( a2 >= v5 )
     return 0LL;
-  if ( a3 < 2uLL )
-    goto LABEL_5;
-  do
+  if ( ((32LL * a3 + 31) & 0xFFFFFFFFFFFFFFE0uLL) >= 0x40 )
   {
-    v3 += *(unsigned __int8 *)(a2 + 25);
-    v4 += *(unsigned __int8 *)(a2 + 57);
-    a2 += 64LL;
+    do
+    {
+      v3 += *(unsigned __int8 *)(a2 + 25);
+      v4 += *(unsigned __int8 *)(a2 + 57);
+      a2 += 64LL;
+    }
+    while ( a2 < v5 - 32 );
   }
-  while ( a2 < v5 - 32 );
   if ( a2 < v5 )
-LABEL_5:
     v6 = *(unsigned __int8 *)(a2 + 25);
   return (unsigned int)(v6 + v4 + v3);
 }

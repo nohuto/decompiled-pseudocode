@@ -1,15 +1,14 @@
 /*
- * XREFs of ACPIIrpSetPagableCompletionRoutineAndForward @ 0x1C007BFA8
+ * XREFs of ACPIIrpSetPagableCompletionRoutineAndForward @ 0x1C009872C
  * Callers:
- *     ACPIBusIrpDeviceEnumerated @ 0x1C007E490 (ACPIBusIrpDeviceEnumerated.c)
- *     ACPIFilterIrpEject @ 0x1C0085A70 (ACPIFilterIrpEject.c)
- *     ACPIFilterIrpQueryCapabilities @ 0x1C0085EE0 (ACPIFilterIrpQueryCapabilities.c)
- *     ACPIFilterIrpQueryId @ 0x1C0085F10 (ACPIFilterIrpQueryId.c)
- *     ACPIFilterIrpQueryInterface @ 0x1C0086170 (ACPIFilterIrpQueryInterface.c)
- *     ACPIFilterIrpQueryPnpDeviceState @ 0x1C0086520 (ACPIFilterIrpQueryPnpDeviceState.c)
- *     ACPIFilterIrpSetLock @ 0x1C0086780 (ACPIFilterIrpSetLock.c)
+ *     ACPIFilterIrpQueryPnpDeviceState @ 0x1C0098700 (ACPIFilterIrpQueryPnpDeviceState.c)
+ *     ACPIFilterIrpQueryInterface @ 0x1C0099170 (ACPIFilterIrpQueryInterface.c)
+ *     ACPIBusIrpDeviceEnumerated @ 0x1C0099770 (ACPIBusIrpDeviceEnumerated.c)
+ *     ACPIFilterIrpQueryId @ 0x1C00A26D0 (ACPIFilterIrpQueryId.c)
+ *     ACPIFilterIrpEject @ 0x1C00AF8A0 (ACPIFilterIrpEject.c)
+ *     ACPIFilterIrpSetLock @ 0x1C00AFB00 (ACPIFilterIrpSetLock.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
  */
 
 __int64 __fastcall ACPIIrpSetPagableCompletionRoutineAndForward(
@@ -22,46 +21,46 @@ __int64 __fastcall ACPIIrpSetPagableCompletionRoutineAndForward(
         char a7)
 {
   __int64 DeviceExtension; // rbp
-  _QWORD *Pool2; // rbx
+  _QWORD *PoolWithTag; // rbx
   PIO_WORKITEM WorkItem; // rcx
   _IO_STACK_LOCATION *CurrentStackLocation; // rax
-  _IO_STACK_LOCATION *v15; // rax
+  _IO_STACK_LOCATION *v14; // rax
 
   DeviceExtension = ACPIInternalGetDeviceExtension((ULONG_PTR)DeviceObject);
-  Pool2 = (_QWORD *)ExAllocatePool2(64LL, 48LL, 1232102209LL);
-  if ( !Pool2 )
-    goto LABEL_2;
-  WorkItem = IoAllocateWorkItem(DeviceObject);
-  if ( !WorkItem )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x49706341u);
+  if ( PoolWithTag )
   {
-    ExFreePoolWithTag(Pool2, 0);
-LABEL_2:
-    Irp->IoStatus.Status = -1073741670;
-    IofCompleteRequest(Irp, 0);
-    return 3221225626LL;
+    WorkItem = IoAllocateWorkItem(DeviceObject);
+    if ( WorkItem )
+    {
+      PoolWithTag[5] = 0LL;
+      *((_BYTE *)PoolWithTag + 24) = a5;
+      *((_BYTE *)PoolWithTag + 25) = a6;
+      *((_BYTE *)PoolWithTag + 26) = a7;
+      PoolWithTag[2] = a3;
+      *PoolWithTag = DeviceObject;
+      *((_BYTE *)PoolWithTag + 27) = 0;
+      PoolWithTag[1] = Irp;
+      PoolWithTag[4] = WorkItem;
+      _InterlockedIncrement((volatile signed __int32 *)(DeviceExtension + 688));
+      CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
+      *(_OWORD *)&CurrentStackLocation[-1].MajorFunction = *(_OWORD *)&CurrentStackLocation->MajorFunction;
+      *(_OWORD *)&CurrentStackLocation[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&CurrentStackLocation->Parameters.NotifyDirectoryEx.CompletionFilter;
+      *(_OWORD *)(&CurrentStackLocation[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&CurrentStackLocation->Parameters.SetQuota
+                                                                                 + 6);
+      CurrentStackLocation[-1].FileObject = CurrentStackLocation->FileObject;
+      CurrentStackLocation[-1].Control = 0;
+      v14 = Irp->Tail.Overlay.CurrentStackLocation;
+      v14[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))ACPIIrpGenericFilterCompletionHandler;
+      v14[-1].Context = PoolWithTag;
+      v14[-1].Control = -32;
+      Irp->Tail.Overlay.CurrentStackLocation->Control |= 1u;
+      IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 736), Irp);
+      return 259LL;
+    }
+    ExFreePoolWithTag(PoolWithTag, 0);
   }
-  Pool2[5] = 0LL;
-  *((_BYTE *)Pool2 + 24) = a5;
-  *((_BYTE *)Pool2 + 25) = a6;
-  *((_BYTE *)Pool2 + 26) = a7;
-  Pool2[2] = a3;
-  *Pool2 = DeviceObject;
-  *((_BYTE *)Pool2 + 27) = 0;
-  Pool2[1] = Irp;
-  Pool2[4] = WorkItem;
-  _InterlockedIncrement((volatile signed __int32 *)(DeviceExtension + 728));
-  CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
-  *(_OWORD *)&CurrentStackLocation[-1].MajorFunction = *(_OWORD *)&CurrentStackLocation->MajorFunction;
-  *(_OWORD *)&CurrentStackLocation[-1].Parameters.NotifyDirectoryEx.CompletionFilter = *(_OWORD *)&CurrentStackLocation->Parameters.NotifyDirectoryEx.CompletionFilter;
-  *(_OWORD *)(&CurrentStackLocation[-1].Parameters.SetQuota + 6) = *(_OWORD *)(&CurrentStackLocation->Parameters.SetQuota
-                                                                             + 6);
-  CurrentStackLocation[-1].FileObject = CurrentStackLocation->FileObject;
-  CurrentStackLocation[-1].Control = 0;
-  v15 = Irp->Tail.Overlay.CurrentStackLocation;
-  v15[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))ACPIIrpGenericFilterCompletionHandler;
-  v15[-1].Context = Pool2;
-  v15[-1].Control = -32;
-  Irp->Tail.Overlay.CurrentStackLocation->Control |= 1u;
-  IofCallDriver(*(PDEVICE_OBJECT *)(DeviceExtension + 776), Irp);
-  return 259LL;
+  Irp->IoStatus.Status = -1073741670;
+  IofCompleteRequest(Irp, 0);
+  return 3221225626LL;
 }

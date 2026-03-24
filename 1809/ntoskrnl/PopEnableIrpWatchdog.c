@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEnableIrpWatchdog @ 0x140172C2C
+ * XREFs of PopEnableIrpWatchdog @ 0x140172C4C
  * Callers:
- *     PopDequeueQuerySetIrp @ 0x140171064 (PopDequeueQuerySetIrp.c)
- *     PopQueueQuerySetIrp @ 0x140172A6C (PopQueueQuerySetIrp.c)
+ *     PopDequeueQuerySetIrp @ 0x140171084 (PopDequeueQuerySetIrp.c)
+ *     PopQueueQuerySetIrp @ 0x140172A8C (PopQueueQuerySetIrp.c)
  * Callees:
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
  *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     PopComputeWatchdogTimeout @ 0x140172CC8 (PopComputeWatchdogTimeout.c)
+ *     PopComputeWatchdogTimeout @ 0x140172CE8 (PopComputeWatchdogTimeout.c)
  */
 
 __int64 __fastcall PopEnableIrpWatchdog(__int64 a1)

@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlInitializeExtendedContext @ 0x14030D1D0
+ * XREFs of RtlInitializeExtendedContext @ 0x14033F500
  * Callers:
- *     RtlUnwindEx @ 0x1402A4C20 (RtlUnwindEx.c)
- *     KiContinuePreviousModeUser @ 0x14030D004 (KiContinuePreviousModeUser.c)
- *     KyRaiseException @ 0x140578B80 (KyRaiseException.c)
- *     KiUnwindUserSspForApcContextCopyBypass @ 0x1405807A4 (KiUnwindUserSspForApcContextCopyBypass.c)
- *     PspSetContextThreadInternal @ 0x140770B00 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x140770CE4 (PspGetContextThreadInternal.c)
- *     PspWow64GetContextThread @ 0x1407A069C (PspWow64GetContextThread.c)
- *     PspWow64SetContextThread @ 0x1407A0968 (PspWow64SetContextThread.c)
- *     PspSetContextState @ 0x1409B81E8 (PspSetContextState.c)
+ *     KiRaiseException @ 0x140521DD0 (KiRaiseException.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x1405250D4 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     PspWow64SetContextThread @ 0x14067A140 (PspWow64SetContextThread.c)
+ *     PspWow64GetContextThread @ 0x14067A4EC (PspWow64GetContextThread.c)
+ *     PspInitializeThunkContext @ 0x1406C07E0 (PspInitializeThunkContext.c)
+ *     PspSetContextThreadInternal @ 0x1406C0A5C (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1406C0C14 (PspGetContextThreadInternal.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x14090E894 (PspDisassociateUmsThreadFromPrimary.c)
+ *     PspSetContextState @ 0x14090F1F4 (PspSetContextState.c)
  * Callees:
- *     RtlInitializeExtendedContext2 @ 0x14030D6A0 (RtlInitializeExtendedContext2.c)
- *     RtlpValidateContextFlags @ 0x14030D860 (RtlpValidateContextFlags.c)
+ *     RtlpValidateContextFlags @ 0x14033FD40 (RtlpValidateContextFlags.c)
+ *     RtlInitializeExtendedContext2 @ 0x14033FFD0 (RtlInitializeExtendedContext2.c)
  */
 
 __int64 __fastcall RtlInitializeExtendedContext(__int64 a1, unsigned int a2, __int64 a3)

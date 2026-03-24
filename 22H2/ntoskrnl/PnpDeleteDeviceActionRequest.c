@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpDeleteDeviceActionRequest @ 0x1403595E0
+ * XREFs of PnpDeleteDeviceActionRequest @ 0x140370050
  * Callers:
- *     PnpDeviceActionWorker @ 0x140358E30 (PnpDeviceActionWorker.c)
- *     PnpRemoveDeviceActionRequests @ 0x1403D5EE0 (PnpRemoveDeviceActionRequests.c)
- *     PnpRemoveDeviceActionRequestFromQueue @ 0x1405626FC (PnpRemoveDeviceActionRequestFromQueue.c)
- *     PiControlGetSetDeviceStatus @ 0x1406CBDD0 (PiControlGetSetDeviceStatus.c)
- *     PiQueueDeviceRequest @ 0x14096DF98 (PiQueueDeviceRequest.c)
+ *     PnpDeviceActionWorker @ 0x14036F9F0 (PnpDeviceActionWorker.c)
+ *     PnpRemoveDeviceActionRequests @ 0x140380A94 (PnpRemoveDeviceActionRequests.c)
+ *     PnpRemoveDeviceActionRequestFromQueue @ 0x14050E770 (PnpRemoveDeviceActionRequestFromQueue.c)
+ *     PiControlGetSetDeviceStatus @ 0x1406B2710 (PiControlGetSetDeviceStatus.c)
+ *     PiQueueDeviceRequest @ 0x14072F6CC (PiQueueDeviceRequest.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpDeleteDeviceActionRequest(volatile signed __int32 *a1)

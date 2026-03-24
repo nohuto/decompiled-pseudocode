@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCovSampCaptureKernelStack @ 0x140603428
+ * XREFs of EtwpCovSampCaptureKernelStack @ 0x1405AECB8
  * Callers:
- *     EtwpCovSampCaptureSample @ 0x140603790 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureSample @ 0x1405AF118 (EtwpCovSampCaptureSample.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x140227780 (RtlWalkFrameChain.c)
- *     KeQueryCurrentStackInformation @ 0x14034E3B0 (KeQueryCurrentStackInformation.c)
- *     EtwpCovSampCaptureBufferOptimizeIP @ 0x140469924 (EtwpCovSampCaptureBufferOptimizeIP.c)
+ *     RtlWalkFrameChain @ 0x14021CE70 (RtlWalkFrameChain.c)
+ *     KeQueryCurrentStackInformation @ 0x140340240 (KeQueryCurrentStackInformation.c)
+ *     EtwpCovSampCaptureBufferOptimizeIP @ 0x1405AE5BC (EtwpCovSampCaptureBufferOptimizeIP.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureKernelStack(__int64 a1, unsigned int a2)
@@ -19,7 +19,7 @@ __int64 __fastcall EtwpCovSampCaptureKernelStack(__int64 a1, unsigned int a2)
   unsigned int v10; // ebp
   int v11; // eax
   ULONG v12; // eax
-  char *v14; // [rsp+20h] [rbp-28h] BYREF
+  struct _KPRCB *v14; // [rsp+20h] [rbp-28h] BYREF
   unsigned int v15; // [rsp+60h] [rbp+18h] BYREF
   unsigned __int64 v16; // [rsp+68h] [rbp+20h] BYREF
 
@@ -27,7 +27,7 @@ __int64 __fastcall EtwpCovSampCaptureKernelStack(__int64 a1, unsigned int a2)
   v16 = 0LL;
   v14 = 0LL;
   v15 = 0;
-  if ( !KeQueryCurrentStackInformation(&v15, &v14, &v16) )
+  if ( !KeQueryCurrentStackInformation((char *)&v15, &v14, &v16) )
     return (unsigned int)-1073741637;
   if ( v15 <= 9 && (v5 = 929, _bittest(&v5, v15)) )
   {

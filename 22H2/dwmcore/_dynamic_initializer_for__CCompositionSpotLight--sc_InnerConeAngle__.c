@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CCompositionSpotLight::sc_InnerConeAngle__ @ 0x180002290
+ * XREFs of _dynamic_initializer_for__CCompositionSpotLight::sc_InnerConeAngle__ @ 0x180001E10
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CCompositionSpotLight::sc_InnerConeAngle__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E41A0 = (unsigned __int64)CCompositionSpotLight::SetInnerConeAngle;
-  qword_1803E41B0 = v1;
+  xmmword_1803458E8 = (unsigned __int64)CCompositionSpotLight::SetInnerConeAngle;
+  qword_1803458F8 = v1;
   return result;
 }

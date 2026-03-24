@@ -1,49 +1,41 @@
 /*
- * XREFs of HvlpSetupPageListIteration @ 0x14054A418
+ * XREFs of HvlpSetupPageListIteration @ 0x1404FB44C
  * Callers:
- *     HvlpMarkHypervisorPagesForHibernation @ 0x1405471B4 (HvlpMarkHypervisorPagesForHibernation.c)
- *     HvlAddPagesCallbackRoutine @ 0x1405473C0 (HvlAddPagesCallbackRoutine.c)
- *     HvlpGetEncryptedDataFromHypervisor @ 0x140547D58 (HvlpGetEncryptedDataFromHypervisor.c)
- *     HvlpStartSecurePageListIteration @ 0x14054A4AC (HvlpStartSecurePageListIteration.c)
+ *     HvlpStartPageListIteration @ 0x1404FB4CC (HvlpStartPageListIteration.c)
+ *     HvlpStartSecurePageListIteration @ 0x1404FB4F4 (HvlpStartSecurePageListIteration.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
  */
 
-__int16 *__fastcall HvlpSetupPageListIteration(int a1, char a2)
+int *__fastcall HvlpSetupPageListIteration(int a1, char a2)
 {
-  __int16 *v3; // rbx
-  __int16 *v4; // rcx
-  __int16 *result; // rax
+  int *v3; // rbx
+  PVOID v4; // rcx
+  PVOID v5; // rax
+  int *result; // rax
 
   v3 = &HvlpIteratorCrashdump;
   if ( !a1 )
     v3 = &HvlpIteratorHibernate;
-  *(_DWORD *)v3 = 0;
-  *((_BYTE *)v3 + 4) = 0;
+  *v3 = 0;
   if ( a1 == 1 )
   {
-    v4 = (__int16 *)HvlpFallbackScratchPage;
-    result = (__int16 *)HvlpHibernateScratchPage;
+    v4 = HvlpFallbackScratchPage;
+    v5 = HvlpHibernateScratchPage;
   }
   else
   {
-    v4 = (__int16 *)HvlpHibernateScratchPage;
-    result = (__int16 *)HvlpFallbackScratchPage;
+    v4 = HvlpHibernateScratchPage;
+    v5 = HvlpFallbackScratchPage;
   }
-  if ( v4 )
-  {
-    *((_QWORD *)v3 + 1) = v4;
-LABEL_8:
-    *((PHYSICAL_ADDRESS *)v3 + 2) = MmGetPhysicalAddress(v4);
-    *((_BYTE *)v3 + 3) = a2 & 1;
-    *((_BYTE *)v3 + 4) = (a2 & 2) != 0;
-    result = v3;
-    *((_BYTE *)v3 + 2) = 1;
-    return result;
-  }
-  *((_QWORD *)v3 + 1) = result;
-  v4 = result;
-  if ( result )
-    goto LABEL_8;
+  if ( !v4 )
+    v4 = v5;
+  *((_QWORD *)v3 + 1) = v4;
+  if ( !v4 )
+    return 0LL;
+  *((PHYSICAL_ADDRESS *)v3 + 2) = MmGetPhysicalAddress(v4);
+  result = v3;
+  *((_BYTE *)v3 + 3) = a2;
+  *((_BYTE *)v3 + 2) = 1;
   return result;
 }

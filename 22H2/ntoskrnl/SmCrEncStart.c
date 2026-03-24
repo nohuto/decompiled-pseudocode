@@ -1,16 +1,16 @@
 /*
- * XREFs of SmCrEncStart @ 0x1409DA8DC
+ * XREFs of SmCrEncStart @ 0x14092D180
  * Callers:
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1403435F0 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x140353074 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
  * Callees:
- *     SSHSupportAllocateNonPaged @ 0x14032D1C0 (SSHSupportAllocateNonPaged.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     SmCrGenRandom @ 0x1405CDD1C (SmCrGenRandom.c)
- *     BCryptGetProperty @ 0x1407623F0 (BCryptGetProperty.c)
- *     BCryptOpenAlgorithmProvider @ 0x140812F54 (BCryptOpenAlgorithmProvider.c)
- *     BCryptGenerateSymmetricKey @ 0x1409C9034 (BCryptGenerateSymmetricKey.c)
- *     BCryptSetProperty @ 0x1409C915C (BCryptSetProperty.c)
+ *     SSHSupportAllocateNonPaged @ 0x140322FE4 (SSHSupportAllocateNonPaged.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     SmCrGenRandom @ 0x1405A0090 (SmCrGenRandom.c)
+ *     BCryptGetProperty @ 0x14066795C (BCryptGetProperty.c)
+ *     BCryptOpenAlgorithmProvider @ 0x1407AC4E0 (BCryptOpenAlgorithmProvider.c)
+ *     BCryptGenerateSymmetricKey @ 0x14091C2B8 (BCryptGenerateSymmetricKey.c)
+ *     BCryptSetProperty @ 0x14091C3E0 (BCryptSetProperty.c)
  */
 
 NTSTATUS __fastcall SmCrEncStart(__int64 a1, const void *a2, unsigned int a3)
@@ -19,13 +19,13 @@ NTSTATUS __fastcall SmCrEncStart(__int64 a1, const void *a2, unsigned int a3)
   NTSTATUS result; // eax
   ULONG v7; // r9d
   _DWORD *v8; // rdi
-  void *NonPaged; // rax
+  PVOID NonPaged; // rax
   __int64 v10; // r8
   ULONG v11; // r9d
-  __int64 v12; // rcx
-  void *v13; // rax
+  SIZE_T v12; // rcx
+  PVOID v13; // rax
   ULONG v14; // r9d
-  void *v15; // rax
+  PVOID v15; // rax
   ULONG pcbResult; // [rsp+20h] [rbp-38h]
   ULONG cbSecret; // [rsp+28h] [rbp-30h]
   ULONG cbSecreta; // [rsp+28h] [rbp-30h]
@@ -49,7 +49,7 @@ NTSTATUS __fastcall SmCrEncStart(__int64 a1, const void *a2, unsigned int a3)
       }
       else
       {
-        NonPaged = (void *)SSHSupportAllocateNonPaged((unsigned int)v4, 0x52436D73u);
+        NonPaged = SSHSupportAllocateNonPaged((unsigned int)v4, 0x52436D73u);
         *(_QWORD *)(a1 + 16) = NonPaged;
         if ( !NonPaged )
           return -1073741670;
@@ -65,7 +65,7 @@ NTSTATUS __fastcall SmCrEncStart(__int64 a1, const void *a2, unsigned int a3)
         }
         v12 = (unsigned int)*v8;
         *(_DWORD *)(a1 + 24) = v4;
-        v13 = (void *)SSHSupportAllocateNonPaged(v12, 0x52436D73u);
+        v13 = SSHSupportAllocateNonPaged(v12, 0x52436D73u);
         *(_QWORD *)(a1 + 48) = v13;
         if ( !v13 )
           return -1073741670;
@@ -73,7 +73,7 @@ NTSTATUS __fastcall SmCrEncStart(__int64 a1, const void *a2, unsigned int a3)
         result = BCryptGetProperty(*(BCRYPT_HANDLE *)a1, L"ObjectLength", (PUCHAR)&pbOutput, v14, &dwFlags, cbSecreta);
         if ( result >= 0 )
         {
-          v15 = (void *)SSHSupportAllocateNonPaged(pbOutput, 0x52436D73u);
+          v15 = SSHSupportAllocateNonPaged(pbOutput, 0x52436D73u);
           *(_QWORD *)(a1 + 40) = v15;
           if ( !v15 )
             return -1073741670;

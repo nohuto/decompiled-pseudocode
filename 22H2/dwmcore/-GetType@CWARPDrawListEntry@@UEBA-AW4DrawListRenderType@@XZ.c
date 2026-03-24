@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetType@CWARPDrawListEntry@@UEBA?AW4DrawListRenderType@@XZ @ 0x180106D80
+ * XREFs of ?GetType@CWARPDrawListEntry@@UEBA?AW4DrawListRenderType@@XZ @ 0x1800E1D50
  * Callers:
  *     <none>
  * Callees:

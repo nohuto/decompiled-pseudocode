@@ -1,29 +1,29 @@
 /*
- * XREFs of KseDriverUnloadImage @ 0x140697128
+ * XREFs of KseDriverUnloadImage @ 0x140772BB4
  * Callers:
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x140209EA8 (KsepPoolFreePaged.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MmIsSessionAddress @ 0x1402BC7B0 (MmIsSessionAddress.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KsepLogInfo @ 0x140374700 (KsepLogInfo.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KsepDebugPrint @ 0x140580D64 (KsepDebugPrint.c)
- *     RtlAssert @ 0x1405AA150 (RtlAssert.c)
- *     KsepIsModuleShimmed @ 0x1406941F4 (KsepIsModuleShimmed.c)
- *     KsepDbFreeDriverShims @ 0x140694D3C (KsepDbFreeDriverShims.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     MmIsSessionAddress @ 0x1402C9800 (MmIsSessionAddress.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     KsepPoolFreePaged @ 0x140371F04 (KsepPoolFreePaged.c)
+ *     KsepLogInfo @ 0x140371F88 (KsepLogInfo.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KsepDebugPrint @ 0x140526E28 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x140588750 (RtlAssert.c)
+ *     KsepDbFreeDriverShims @ 0x140758720 (KsepDbFreeDriverShims.c)
+ *     KsepIsModuleShimmed @ 0x14075B0C8 (KsepIsModuleShimmed.c)
  */
 
 __int64 __fastcall KseDriverUnloadImage(__int64 a1)
 {
-  __int64 v2; // rbx
+  unsigned __int64 v2; // rbx
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v5; // rdi
-  __int64 v6; // rsi
+  __int64 v6; // rbp
   unsigned int *v7; // r14
   unsigned int v8; // eax
   __int64 v9; // rdx
@@ -35,13 +35,13 @@ __int64 __fastcall KseDriverUnloadImage(__int64 a1)
   int v15; // ecx
   __int64 *v16; // rcx
   __int64 **v17; // rax
-  __int64 v18; // rdx
-  _QWORD *v19; // rax
+  __int64 v18; // rax
+  _QWORD *v19; // rdx
   unsigned int v20; // edx
   __int64 v21; // rdi
   __int64 v22; // rsi
   __int64 v23; // rbx
-  void *v24; // rcx
+  struct _DMA_ADAPTER *v24; // rcx
   __int64 v25; // rax
   void *v26; // rbx
   __int64 v27; // rax
@@ -50,7 +50,7 @@ __int64 __fastcall KseDriverUnloadImage(__int64 a1)
   v28 = 0LL;
   if ( !a1 )
     return 3221225485LL;
-  if ( dword_140C64E34 != 2 )
+  if ( dword_140C505E4 != 2 )
     return 3221225659LL;
   if ( (KseEngine & 1) != 0 )
     return 3221225659LL;
@@ -61,7 +61,7 @@ __int64 __fastcall KseDriverUnloadImage(__int64 a1)
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C64E60, 0LL);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C50610, 0LL);
     v5 = (_QWORD *)v28;
     v6 = 0LL;
     v7 = (unsigned int *)(v28 + 24);
@@ -91,10 +91,10 @@ __int64 __fastcall KseDriverUnloadImage(__int64 a1)
         if ( !*((_DWORD *)v12 + 6) )
         {
           v13 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140C40844[2 * v13] = -1073740768;
-          KsepHistoryErrors[2 * v13] = 460180;
+          dword_140C2AB04[2 * v13] = -1073740768;
+          KsepHistoryErrors[2 * v13] = 460173;
           if ( (KsepDebugFlag & 4) != 0 )
-            RtlAssert("RegisteredShim->RefCount > 0", "minkernel\\ntos\\kshim\\kseloader.c", 0x594u, 0LL);
+            RtlAssert("RegisteredShim->RefCount > 0", "minkernel\\ntos\\kshim\\kseloader.c", 0x58Du, 0LL);
         }
         v14 = *((_DWORD *)v12 + 7);
         v15 = *((_DWORD *)v12 + 6) - 1;
@@ -121,9 +121,9 @@ LABEL_43:
       __fastfail(3u);
     *v19 = v18;
     *(_QWORD *)(v18 + 8) = v19;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C64E60, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C64E60);
-    KeAbPostRelease((ULONG_PTR)&qword_140C64E60);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C50610, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140C50610);
+    KeAbPostRelease((ULONG_PTR)&qword_140C50610);
     KeLeaveCriticalRegion();
     v20 = *v7;
     v21 = 0LL;
@@ -133,18 +133,21 @@ LABEL_43:
       do
       {
         v23 = *(_QWORD *)(*(_QWORD *)(v22 + 32) + 80 * v21 + 72);
-        v24 = *(void **)(v23 + 32);
+        v24 = *(struct _DMA_ADAPTER **)(v23 + 32);
         if ( v24 )
-          ObfDereferenceObject(v24);
+          HalPutDmaAdapter(v24);
         if ( (*(_DWORD *)(v23 + 28) & 4) != 0 && !*(_DWORD *)(v23 + 24) )
         {
           KsepPoolFreePaged((void *)v23);
           v25 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryMessagesIndex, 1u) + 1) & 0x3F;
           HIDWORD(KsepHistoryMessages[v25]) = 0;
-          LODWORD(KsepHistoryMessages[v25]) = 460237;
+          LODWORD(KsepHistoryMessages[v25]) = 460230;
           if ( (KsepDebugFlag & 1) != 0 )
             KsepDebugPrint(5LL, "KSE: Cleaned up dangling shim object [0x%08X] (unregistered while refcount >0)\n", v23);
-          KsepLogInfo(5, "KSE: Cleaned up dangling shim object [0x%08X] (unregistered while refcount >0)\n", v23);
+          KsepLogInfo(
+            5LL,
+            (__int64)"KSE: Cleaned up dangling shim object [0x%08X] (unregistered while refcount >0)\n",
+            v23);
         }
         v20 = *v7;
         v21 = (unsigned int)(v21 + 1);
@@ -156,10 +159,10 @@ LABEL_43:
     KsepPoolFreePaged(v26);
     v27 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryMessagesIndex, 1u) + 1) & 0x3F;
     HIDWORD(KsepHistoryMessages[v27]) = 0;
-    LODWORD(KsepHistoryMessages[v27]) = 460245;
+    LODWORD(KsepHistoryMessages[v27]) = 460238;
     if ( (KsepDebugFlag & 1) != 0 )
       KsepDebugPrint(5LL, "KSE: Shimmed driver unload notification processed\n");
-    KsepLogInfo(5, "KSE: Shimmed driver unload notification processed\n");
+    KsepLogInfo(5LL, (__int64)"KSE: Shimmed driver unload notification processed\n");
   }
   return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AddArc@CPathData@@EEAAXPEBUD2D1_ARC_SEGMENT@@@Z @ 0x18026F9F0
+ * XREFs of ?AddArc@CPathData@@EEAAXPEBUD2D1_ARC_SEGMENT@@@Z @ 0x180220960
  * Callers:
  *     <none>
  * Callees:
- *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x1801138DE (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
- *     ?AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z @ 0x18026FCC4 (-AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z.c)
+ *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x1801B5DF8 (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
+ *     ?AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z @ 0x180220C34 (-AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z.c)
  */
 
 void __fastcall CPathData::AddArc(CPathData *this, const struct D2D1_ARC_SEGMENT *a2)
@@ -13,7 +13,7 @@ void __fastcall CPathData::AddArc(CPathData *this, const struct D2D1_ARC_SEGMENT
   FLOAT width; // xmm1_4
   bool v6; // zf
   FLOAT rotationAngle; // xmm1_4
-  char v8[8]; // [rsp+20h] [rbp-28h] BYREF
+  _BYTE v8[8]; // [rsp+20h] [rbp-28h] BYREF
   D2D1_POINT_2F v9; // [rsp+28h] [rbp-20h]
   FLOAT v10; // [rsp+30h] [rbp-18h]
   FLOAT height; // [rsp+34h] [rbp-14h]
@@ -30,5 +30,5 @@ void __fastcall CPathData::AddArc(CPathData *this, const struct D2D1_ARC_SEGMENT
   v9 = point;
   height = a2->size.height;
   v12 = rotationAngle;
-  CPathData::AppendSegment(this, (struct Path::Segment *)v8);
+  CPathData::AppendSegment((CPathData *)((char *)this - 16), (struct Path::Segment *)v8);
 }

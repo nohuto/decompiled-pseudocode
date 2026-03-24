@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpApicStartProcessor @ 0x1403AF840
+ * XREFs of HalpApicStartProcessor @ 0x1403A6180
  * Callers:
  *     <none>
  * Callees:
- *     KeStallExecutionProcessor @ 0x1402C3000 (KeStallExecutionProcessor.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeStallExecutionProcessor @ 0x14022A1F0 (KeStallExecutionProcessor.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpApicStartProcessor(__int64 a1, unsigned int a2, __int64 a3, int a4)

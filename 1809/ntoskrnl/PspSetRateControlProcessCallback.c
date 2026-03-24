@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetRateControlProcessCallback @ 0x14088AA00
+ * XREFs of PspSetRateControlProcessCallback @ 0x14088A9E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PspSetRateControlProcessCallback(__int64 a1, __int64 a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpLbrInitialize @ 0x140A550E0
+ * XREFs of HalpLbrInitialize @ 0x14099B704
  * Callers:
- *     HalpInitializeProfiling @ 0x140A54FB4 (HalpInitializeProfiling.c)
+ *     HalpInitializeProfiling @ 0x14099B5DC (HalpInitializeProfiling.c)
  * Callees:
- *     HalpGetCpuInfo @ 0x1403AAE80 (HalpGetCpuInfo.c)
- *     HalpIsHvPresent @ 0x1403B37F0 (HalpIsHvPresent.c)
- *     HviGetHypervisorFeatures @ 0x1403BF8B0 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     HalpGetCpuInfo @ 0x1403A0F70 (HalpGetCpuInfo.c)
+ *     HalpIsHvPresent @ 0x1403A1FD8 (HalpIsHvPresent.c)
+ *     HviGetHypervisorFeatures @ 0x1403AE200 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char HalpLbrInitialize()
@@ -121,14 +121,14 @@ LABEL_10:
     }
 LABEL_15:
     HalpLbrIsInitialized = 1;
-    off_140C01FD8[0] = (__int64 (__fastcall *)())HalpLbrCaptureStack;
-    off_140C01FE0[0] = (__int64 (__fastcall *)())HalpLbrClearStack;
-    off_140C01FE8[0] = (__int64 (__fastcall *)())HalpLbrConfigureRecording;
-    off_140C01FF0[0] = (__int64 (__fastcall *)())HalpLbrGetInformation;
-    off_140C01FF8[0] = (__int64 (__fastcall *)())HalpLbrResumeRecording;
-    off_140C02000[0] = (__int64 (__fastcall *)())HalpLbrStartRecording;
+    off_140C00988[0] = (__int64 (__fastcall *)())HalpLbrCaptureStack;
+    off_140C00990[0] = (__int64 (__fastcall *)())HalpLbrClearStack;
+    off_140C00998[0] = (__int64 (__fastcall *)())HalpLbrConfigureRecording;
+    off_140C009A0[0] = (__int64 (__fastcall *)())HalpLbrGetInformation;
+    off_140C009A8[0] = (__int64 (__fastcall *)())HalpLbrResumeRecording;
+    off_140C009B0[0] = (__int64 (__fastcall *)())HalpLbrStartRecording;
     _RAX = HalpLbrStopRecording;
-    off_140C02008[0] = (__int64 (__fastcall *)())HalpLbrStopRecording;
+    off_140C009B8[0] = (__int64 (__fastcall *)())HalpLbrStopRecording;
   }
   return (char)_RAX;
 }

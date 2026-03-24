@@ -1,9 +1,9 @@
 /*
- * XREFs of RIMRegisterForDeviceClassNotifications @ 0x1C00C08A0
+ * XREFs of RIMRegisterForDeviceClassNotifications @ 0x1C005632C
  * Callers:
- *     RIMDiscoverDevicesOfInputType @ 0x1C0044B20 (RIMDiscoverDevicesOfInputType.c)
+ *     RIMDiscoverDevicesOfInputType @ 0x1C0052D04 (RIMDiscoverDevicesOfInputType.c)
  * Callees:
- *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0241334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE6A8 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
 NTSTATUS __fastcall RIMRegisterForDeviceClassNotifications(
@@ -16,7 +16,7 @@ NTSTATUS __fastcall RIMRegisterForDeviceClassNotifications(
         PVOID *NotificationEntry)
 {
   if ( !a4 )
-    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3);
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 1505LL);
   return IoRegisterPlugPlayNotification(
            EventCategoryDeviceInterfaceChange,
            1u,

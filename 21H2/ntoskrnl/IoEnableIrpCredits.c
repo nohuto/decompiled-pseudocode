@@ -1,11 +1,11 @@
 /*
- * XREFs of IoEnableIrpCredits @ 0x1409339DC
+ * XREFs of IoEnableIrpCredits @ 0x140890D68
  * Callers:
- *     PspInitializeQuotaBlock @ 0x14085DE38 (PspInitializeQuotaBlock.c)
+ *     PspInitializeQuotaBlock @ 0x1407CE7D4 (PspInitializeQuotaBlock.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     KeSynchronizeWithDynamicProcessors @ 0x1406C3EEC (KeSynchronizeWithDynamicProcessors.c)
- *     IopQueryProcessorInitValues @ 0x140863C68 (IopQueryProcessorInitValues.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     KeSynchronizeWithDynamicProcessors @ 0x1406A91D4 (KeSynchronizeWithDynamicProcessors.c)
+ *     IopQueryProcessorInitValues @ 0x1407D3AAC (IopQueryProcessorInitValues.c)
  */
 
 ULONG IoEnableIrpCredits()

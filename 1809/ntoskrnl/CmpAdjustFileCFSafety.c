@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpAdjustFileCFSafety @ 0x1401B3254
+ * XREFs of CmpAdjustFileCFSafety @ 0x1401B3274
  * Callers:
  *     CmpRecheckHiveVolumePolicy @ 0x14000EDFC (CmpRecheckHiveVolumePolicy.c)
  *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
  *     CmpCmdHiveClose @ 0x1405AFA08 (CmpCmdHiveClose.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x1401B8390 (ZwQueryInformationFile.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     RtlIsCloudFilesPlaceholder @ 0x1402F4AA0 (RtlIsCloudFilesPlaceholder.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x1401B83B0 (ZwQueryInformationFile.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     RtlIsCloudFilesPlaceholder @ 0x1402F4BA0 (RtlIsCloudFilesPlaceholder.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     FsRtlSetKernelEaFile @ 0x1406C7EF0 (FsRtlSetKernelEaFile.c)
+ *     FsRtlSetKernelEaFile @ 0x1406C7ED0 (FsRtlSetKernelEaFile.c)
  */
 
 __int64 __fastcall CmpAdjustFileCFSafety(HANDLE FileHandle, char a2)

@@ -1,30 +1,22 @@
 /*
- * XREFs of CmpStartSiloKeyLockTracker @ 0x14080EC28
+ * XREFs of CmpStartSiloKeyLockTracker @ 0x1407A5BA0
  * Callers:
- *     CmInitServerSiloState @ 0x14080EBB4 (CmInitServerSiloState.c)
+ *     CmInitServerSiloState @ 0x1407A5B58 (CmInitServerSiloState.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402BD800 (ExfReleasePushLock.c)
- *     CmpLockSiloKeyLockTrackerExclusive @ 0x140849504 (CmpLockSiloKeyLockTrackerExclusive.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
  */
 
-__int64 __fastcall CmpStartSiloKeyLockTracker(signed __int64 *BugCheckParameter2)
+__int64 __fastcall CmpStartSiloKeyLockTracker(ULONG_PTR BugCheckParameter2)
 {
-  signed __int64 v2; // rax
-  signed __int64 v3; // rcx
-  signed __int64 v4; // rtt
+  struct _KTHREAD *CurrentThread; // rax
 
-  CmpLockSiloKeyLockTrackerExclusive();
-  *((_DWORD *)BugCheckParameter2 + 2) |= 1u;
-  _m_prefetchw(BugCheckParameter2);
-  v2 = *BugCheckParameter2;
-  v3 = *BugCheckParameter2 - 16;
-  if ( (*BugCheckParameter2 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-    v3 = 0LL;
-  if ( (v2 & 2) != 0 || (v4 = *BugCheckParameter2, v4 != _InterlockedCompareExchange64(BugCheckParameter2, v3, v2)) )
-    ExfReleasePushLock(BugCheckParameter2);
-  KeAbPostRelease((ULONG_PTR)BugCheckParameter2);
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  ExAcquirePushLockExclusiveEx(BugCheckParameter2, 0LL);
+  *(_DWORD *)(BugCheckParameter2 + 8) |= 1u;
+  ExReleasePushLockEx(BugCheckParameter2, 0LL);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return 0LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoRaiseHardError @ 0x140AD0130
+ * XREFs of VerifierIoRaiseHardError @ 0x1409D2D20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierIoRaiseHardError()

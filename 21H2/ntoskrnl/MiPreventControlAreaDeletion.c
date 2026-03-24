@@ -1,60 +1,59 @@
 /*
- * XREFs of MiPreventControlAreaDeletion @ 0x14023F8E8
+ * XREFs of MiPreventControlAreaDeletion @ 0x1402EE728
  * Callers:
- *     MiTrimSharedPage @ 0x14023F658 (MiTrimSharedPage.c)
- *     MiLocateSharedPageViews @ 0x14059854C (MiLocateSharedPageViews.c)
- *     MiPurgeBadFileOnlyPages @ 0x1405A032C (MiPurgeBadFileOnlyPages.c)
+ *     MiTrimSharedPage @ 0x1402EEA08 (MiTrimSharedPage.c)
+ *     MiPurgeBadFileOnlyPages @ 0x1405418F0 (MiPurgeBadFileOnlyPages.c)
  * Callees:
- *     MiReferenceSubsection @ 0x140286D4C (MiReferenceSubsection.c)
- *     MiRemoveUnusedSegment @ 0x140287A2C (MiRemoveUnusedSegment.c)
- *     MiBuildWakeList @ 0x140287B04 (MiBuildWakeList.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403105C0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReferenceSubsection @ 0x14031555C (MiReferenceSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveUnusedSegment @ 0x1403573A8 (MiRemoveUnusedSegment.c)
+ *     MiBuildWakeList @ 0x140357480 (MiBuildWakeList.c)
  */
 
-__int64 __fastcall MiPreventControlAreaDeletion(__int64 a1, __int64 *a2, __int64 *a3)
+__int64 __fastcall MiPreventControlAreaDeletion(__int64 a1, int a2, __int64 *a3, __int64 *a4)
 {
-  __int64 v5; // rbx
-  __int64 v6; // rbx
-  __int64 v7; // rdi
-  volatile LONG *v8; // rbp
-  int v9; // ecx
-  __int64 v10; // rax
+  __int64 v7; // rbx
+  __int64 v8; // rbx
+  __int64 v9; // rdi
+  volatile LONG *v10; // rbp
+  int v11; // ecx
+  __int64 v12; // rax
 
+  *a4 = 0LL;
   *a3 = 0LL;
-  *a2 = 0LL;
-  v5 = *(_QWORD *)(a1 + 16);
-  if ( qword_140C50780 && (v5 & 0x10) == 0 )
-    v5 &= ~qword_140C50780;
-  v6 = v5 >> 16;
-  if ( (*(_BYTE *)(v6 + 34) & 2) == 0 )
+  v7 = *(_QWORD *)(a1 + 16);
+  if ( qword_140C4DF40 && (v7 & 0x10) == 0 )
+    v7 &= ~qword_140C4DF40;
+  v8 = v7 >> 16;
+  if ( (*(_BYTE *)(v8 + 34) & 2) == 0 )
   {
-    v7 = *(_QWORD *)v6;
-    v8 = (volatile LONG *)(*(_QWORD *)v6 + 72LL);
-    ExAcquireSpinLockExclusiveAtDpcLevel(v8);
-    v9 = *(_DWORD *)(v7 + 56);
-    if ( !(v9 & 1 | ((v9 & 2) != 0)) )
+    v9 = *(_QWORD *)v8;
+    v10 = (volatile LONG *)(*(_QWORD *)v8 + 72LL);
+    ExAcquireSpinLockExclusiveAtDpcLevel(v10);
+    v11 = *(_DWORD *)(v9 + 56);
+    if ( !(v11 & 1 | ((v11 & 2) != 0)) )
     {
-      if ( (v9 & 0x20) != 0 )
-      {
-LABEL_7:
-        v10 = MiBuildWakeList(v7, 4LL);
-        ++*(_DWORD *)(v7 + 76);
-        *a3 = v10;
-        MiRemoveUnusedSegment(v7);
-LABEL_8:
-        ExReleaseSpinLockExclusiveFromDpcLevel(v8);
-        return v7;
-      }
-      if ( (*(_BYTE *)(v6 + 34) & 1) == 0 && *(_QWORD *)(v6 + 8) && !*(_DWORD *)(v6 + 108) )
-      {
-        MiReferenceSubsection(v6, 0LL);
-        *a2 = v6;
+      if ( (v11 & 0x20) != 0 )
         goto LABEL_7;
+      if ( (*(_BYTE *)(v8 + 34) & 1) == 0 && (a2 != 1 || !*(_DWORD *)(v8 + 108)) )
+      {
+        MiReferenceSubsection(v8, 0LL);
+        *a3 = v8;
+LABEL_7:
+        v12 = MiBuildWakeList(v9, 4LL);
+        ++*(_DWORD *)(v9 + 76);
+        *a4 = v12;
+        MiRemoveUnusedSegment(v9);
+        if ( a2 == 1 )
+          *(_DWORD *)(v9 + 56) |= 4u;
+        goto LABEL_9;
       }
     }
-    v7 = 0LL;
-    goto LABEL_8;
+    v9 = 0LL;
+LABEL_9:
+    ExReleaseSpinLockExclusiveFromDpcLevel(v10);
+    return v9;
   }
   return 0LL;
 }

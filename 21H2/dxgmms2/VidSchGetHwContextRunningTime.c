@@ -1,5 +1,5 @@
 /*
- * XREFs of VidSchGetHwContextRunningTime @ 0x1C00A74A0
+ * XREFs of VidSchGetHwContextRunningTime @ 0x1C008B920
  * Callers:
  *     <none>
  * Callees:

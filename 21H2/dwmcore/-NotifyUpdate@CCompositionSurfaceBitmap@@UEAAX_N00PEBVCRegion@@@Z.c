@@ -1,5 +1,5 @@
 /*
- * XREFs of ?NotifyUpdate@CCompositionSurfaceBitmap@@UEAAX_N00PEBVCRegion@@@Z @ 0x180044090
+ * XREFs of ?NotifyUpdate@CCompositionSurfaceBitmap@@UEAAX_N00PEBVCRegion@@@Z @ 0x180037570
  * Callers:
  *     <none>
  * Callees:
@@ -21,5 +21,5 @@ void __fastcall CCompositionSurfaceBitmap::NotifyUpdate(
     v5 = 1LL;
     *((_QWORD *)this + 3) = a5;
   }
-  CResource::NotifyOnChanged((char *)this - 88, v5, (char *)this - 88);
+  CResource::NotifyOnChanged((char *)this - 80, v5, (char *)this - 80);
 }

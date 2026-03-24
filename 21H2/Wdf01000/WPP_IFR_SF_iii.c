@@ -1,10 +1,10 @@
 /*
- * XREFs of WPP_IFR_SF_iii @ 0x1C0071CE0
+ * XREFs of WPP_IFR_SF_iii @ 0x1C0060B40
  * Callers:
- *     IsLoggingEnabledAndNeeded @ 0x1C002C030 (IsLoggingEnabledAndNeeded.c)
+ *     IsLoggingEnabledAndNeeded @ 0x1C0060018 (IsLoggingEnabledAndNeeded.c)
  * Callees:
- *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
- *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ *     FxIFR @ 0x1C000AA90 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0039BF8 (FxWmiTraceMessage.c)
  */
 
 void __fastcall WPP_IFR_SF_iii(

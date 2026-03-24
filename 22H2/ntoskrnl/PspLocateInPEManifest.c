@@ -1,43 +1,41 @@
 /*
- * XREFs of PspLocateInPEManifest @ 0x1407A2F50
+ * XREFs of PspLocateInPEManifest @ 0x140670BDC
  * Callers:
- *     PspSetupUserProcessAddressSpace @ 0x1407A176C (PspSetupUserProcessAddressSpace.c)
+ *     PspSetupUserProcessAddressSpace @ 0x140611BDC (PspSetupUserProcessAddressSpace.c)
  * Callees:
- *     LdrResSearchResource @ 0x14075A150 (LdrResSearchResource.c)
- *     MmCheckImageMapping @ 0x1407A5E30 (MmCheckImageMapping.c)
+ *     MmCheckImageMapping @ 0x140670B98 (MmCheckImageMapping.c)
+ *     LdrResSearchResource @ 0x140670CE0 (LdrResSearchResource.c)
  */
 
 __int64 __fastcall PspLocateInPEManifest(__int64 a1, __int64 a2)
 {
-  bool v2; // zf
-  ULONGLONG v4; // r10
+  __int64 v2; // rax
+  __int64 v4; // r10
   __int64 result; // rax
   int v6; // eax
   __int16 v7; // ax
-  _QWORD v8[5]; // [rsp+40h] [rbp-28h] BYREF
-  char v9; // [rsp+70h] [rbp+8h] BYREF
+  int v8; // r10d
+  _QWORD v9[5]; // [rsp+40h] [rbp-28h] BYREF
   unsigned __int64 v10; // [rsp+80h] [rbp+18h] BYREF
 
-  v2 = *(_QWORD *)(a1 + 1408) == 0LL;
+  v2 = *(_QWORD *)(a1 + 1408);
   v4 = *(_QWORD *)(a1 + 1312);
-  v9 = 0;
-  if ( !v2 )
+  if ( v2 )
   {
-    v7 = *(_WORD *)(a1 + 2412);
+    v7 = *(_WORD *)(v2 + 8);
     if ( v7 == 332 || v7 == 452 )
     {
-      result = MmCheckImageMapping(a1, &v9);
+      result = MmCheckImageMapping(a1);
       if ( (int)result < 0 )
         return result;
-      if ( !v9 )
-        v4 |= 1uLL;
+      LODWORD(v4) = v8 | 1;
     }
   }
-  v8[2] = 0LL;
+  v9[2] = 0LL;
   v10 = 0LL;
-  v8[0] = 24LL;
-  v8[1] = 1LL;
-  result = LdrResSearchResource(v4, v8, 3u, 48, (unsigned int **)(a2 + 304), (__int64 *)&v10, 0LL, 0LL);
+  v9[0] = 24LL;
+  v9[1] = 1LL;
+  result = LdrResSearchResource(v4, (unsigned int)v9, 3, 48, a2 + 304, (__int64)&v10, 0LL, 0LL);
   if ( (int)result >= 0 )
   {
     v6 = v10;

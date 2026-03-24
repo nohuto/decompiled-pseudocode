@@ -1,15 +1,15 @@
 /*
- * XREFs of ?ProcessQFrameNode@CTouchProcessor@@QEAAXPEAUCPointerQFrame@@PEBUCPointerInputFrame@@PEAUCPointerInfoNode@@@Z @ 0x1C01D288C
+ * XREFs of ?ProcessQFrameNode@CTouchProcessor@@QEAAXPEAUCPointerQFrame@@PEBUCPointerInputFrame@@PEAUCPointerInfoNode@@@Z @ 0x1C019A464
  * Callers:
- *     ?EndQFrameNodeDeferment@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@PEAUCPointerInfoNode@@PEAUCPointerInputFrame@@_K@Z @ 0x1C01C54CC (-EndQFrameNodeDeferment@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@PEAUCPointerInfoNode@@PEAUCPoi.c)
- *     ?PopulateReferencedInputFrame@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@PEAU2@KPEAURIMCOMPLETEFRAME@@@Z @ 0x1C01CFD24 (-PopulateReferencedInputFrame@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@PEAU2@KPEAURIMCOMPLET.c)
- *     ?SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAXPEAUTELEMETRY_POINTER_FRAME_TIMES@@H@Z @ 0x1C01D45E8 (-SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAXPEAUTELEMETRY_POINTER_FRAME_TIMES@@H.c)
+ *     ?EndQFrameNodeDeferment@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@PEAUCPointerInfoNode@@PEAUCPointerInputFrame@@_K@Z @ 0x1C018E174 (-EndQFrameNodeDeferment@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@PEAUCPointerInfoNode@@PEAUCPoi.c)
+ *     ?PopulateReferencedInputFrame@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@PEAU2@KPEAURIMCOMPLETEFRAME@@@Z @ 0x1C0198498 (-PopulateReferencedInputFrame@CTouchProcessor@@QEAAPEBUCPointerInputFrame@@PEAU2@KPEAURIMCOMPLET.c)
+ *     ?SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAX@Z @ 0x1C019BC9C (-SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAX@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAUtagQMSG@@PEAUCPointerQFrame@@PEAW4CPointerCoalesce@@@Z @ 0x1C01BEA8C (-CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@.c)
- *     ?IsForManipulationThread@CPointerInfoNode@@QEBAHXZ @ 0x1C01CE088 (-IsForManipulationThread@CPointerInfoNode@@QEBAHXZ.c)
- *     ?ProcessEnterLeave@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@PEAUCPointerInfoNode@@@Z @ 0x1C01D0D94 (-ProcessEnterLeave@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@PEAUCPointerInfoNode@@@Z.c)
- *     ?TrackCoalesceOnArrival@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@W4CPointerCoalesce@@@Z @ 0x1C01D7FC4 (-TrackCoalesceOnArrival@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@W4CPointerCoalesce@@@Z.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     ?CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAUtagQMSG@@PEAUCPointerQFrame@@PEAW4CPointerCoalesce@@@Z @ 0x1C0188B24 (-CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@.c)
+ *     ?IsForManipulationThread@CPointerInfoNode@@QEBAHXZ @ 0x1C0196890 (-IsForManipulationThread@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?ProcessEnterLeave@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@PEAUCPointerInfoNode@@@Z @ 0x1C0199310 (-ProcessEnterLeave@CTouchProcessor@@IEAAHPEBUCPointerInputFrame@@PEAUCPointerInfoNode@@@Z.c)
+ *     ?TrackCoalesceOnArrival@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@W4CPointerCoalesce@@@Z @ 0x1C019F334 (-TrackCoalesceOnArrival@CTouchProcessor@@AEAAXPEAUCPointerQFrame@@W4CPointerCoalesce@@@Z.c)
  */
 
 void __fastcall CTouchProcessor::ProcessQFrameNode(
@@ -18,123 +18,95 @@ void __fastcall CTouchProcessor::ProcessQFrameNode(
         const struct CPointerInputFrame *a3,
         struct CPointerInfoNode *a4)
 {
-  const struct CPointerInputFrame *v5; // rbp
-  struct CPointerQFrame *v6; // rdi
-  char v8; // bl
-  BOOL v9; // eax
-  int v10; // edx
-  __int16 v11; // r8
-  int v12; // esi
-  unsigned int v13; // eax
-  __int64 v14; // rcx
-  int v15; // eax
-  int v16; // edx
-  __int64 v17; // rcx
-  const int *v18; // r8
-  unsigned int v19; // [rsp+78h] [rbp+10h] BYREF
+  void *v8; // rdx
+  CPointerInfoNode *v9; // rcx
+  int v10; // esi
+  unsigned int v11; // eax
+  __int64 v12; // rcx
+  int v13; // eax
+  int v14; // edx
+  __int64 v15; // rcx
+  unsigned int v16; // [rsp+58h] [rbp+10h] BYREF
 
-  v5 = a3;
-  v6 = a2;
-  v8 = 1;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  v8 = &WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
   {
-    LOBYTE(a2) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
-    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
-  {
-    LOBYTE(a3) = 0;
-  }
-  if ( (_BYTE)a2 || (_BYTE)a3 )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      (_DWORD)a2,
-      (_DWORD)a3,
+    LOBYTE(v8) = 5;
+    WPP_RECORDER_SF_(
       WPP_GLOBAL_Control->DeviceExtension,
-      5,
+      (_DWORD)v8,
       7,
-      69,
-      (__int64)&WPP_d3dee7beffef3928cf2f9a2bdffe19dc_Traceguids);
-  v9 = CPointerInfoNode::IsForManipulationThread(a4);
-  if ( !v9 || (v12 = 1, (*((_DWORD *)a4 + 1) & 0x200) != 0) )
-    v12 = 0;
-  if ( (v10 || v9 && (v11 & 0x400) != 0) && !v12 )
-    CTouchProcessor::ProcessEnterLeave(this, v5, a4);
-  v13 = *((_DWORD *)v6 + 35);
-  v14 = v13;
-  if ( (v13 & 1) != 0 && v12 )
-  {
-    v14 = v13 & 0xFFFFFFFE;
-    *((_DWORD *)v6 + 36) = 22;
-    *((_DWORD *)v6 + 35) = v14;
+      71,
+      (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
   }
-  if ( (v14 & 1) != 0 )
+  if ( !CPointerInfoNode::IsForManipulationThread(a4) || (v10 = 1, (*((_DWORD *)a4 + 1) & 0x200) != 0) )
+    v10 = 0;
+  if ( ((*(_DWORD *)a4 & 4) == 0 && a3 || CPointerInfoNode::IsForManipulationThread(v9)) && !v10 )
+    CTouchProcessor::ProcessEnterLeave(this, a3, a4);
+  v11 = *((_DWORD *)a2 + 35);
+  v12 = v11;
+  if ( (v11 & 1) != 0 && v10 )
+  {
+    v12 = v11 & 0xFFFFFFFE;
+    *((_DWORD *)a2 + 36) = 22;
+    *((_DWORD *)a2 + 35) = v12;
+  }
+  if ( (v12 & 1) != 0 )
   {
     if ( (*(_DWORD *)a4 & 1) == 0 )
     {
-      CTouchProcessor::TrackCoalesceOnArrival(v14, v6, 2LL);
-      *((_DWORD *)v6 + 35) &= ~1u;
-      v14 = *((unsigned int *)v6 + 35);
+      CTouchProcessor::TrackCoalesceOnArrival(v12, a2, 2LL);
+      *((_DWORD *)a2 + 35) &= ~1u;
+      v12 = *((unsigned int *)a2 + 35);
     }
-    if ( (v14 & 1) != 0 )
+    if ( (v12 & 1) != 0 )
     {
-      v15 = *(_DWORD *)a4;
-      if ( (*(_DWORD *)a4 & 8) != 0 || (v15 & 0x10) != 0 || (v15 & 0x40) != 0 || (v15 & 0x20) != 0 )
+      v13 = *(_DWORD *)a4;
+      if ( (*(_DWORD *)a4 & 8) != 0 || (v13 & 0x10) != 0 || (v13 & 0x40) != 0 || (v13 & 0x20) != 0 )
       {
-        CTouchProcessor::TrackCoalesceOnArrival(v14, v6, 16LL);
-        *((_DWORD *)v6 + 35) &= ~1u;
-        v14 = *((unsigned int *)v6 + 35);
+        CTouchProcessor::TrackCoalesceOnArrival(v12, a2, 16LL);
+        *((_DWORD *)a2 + 35) &= ~1u;
+        v12 = *((unsigned int *)a2 + 35);
       }
     }
   }
-  v16 = v14;
-  if ( (v14 & 8) == 0 && (*(_DWORD *)a4 & 0x100000) != 0 && !v12 )
+  v14 = v12;
+  if ( (v12 & 8) == 0 && (*(_DWORD *)a4 & 0x100000) != 0 && !v10 )
   {
-    CTouchProcessor::TrackCoalesceOnArrival(v14, v6, 9LL);
-    *((_DWORD *)v6 + 35) |= 8u;
-    v16 = *((_DWORD *)v6 + 35);
+    CTouchProcessor::TrackCoalesceOnArrival(v12, a2, 9LL);
+    *((_DWORD *)a2 + 35) |= 8u;
+    v14 = *((_DWORD *)a2 + 35);
   }
-  if ( (v16 & 1) == 0 || (v16 & 8) != 0 )
+  if ( (v14 & 1) == 0 || (v14 & 8) != 0 )
   {
-    v16 &= ~2u;
-    *((_DWORD *)v6 + 35) = v16;
+    v14 &= ~2u;
+    *((_DWORD *)a2 + 35) = v14;
   }
-  if ( (v16 & 2) != 0 )
+  if ( (v14 & 2) != 0 )
   {
-    v19 = 1;
-    *((_DWORD *)v6 + 35) ^= (*((_DWORD *)v6 + 35) ^ (2
+    v16 = 1;
+    *((_DWORD *)a2 + 35) ^= (*((_DWORD *)a2 + 35) ^ (2
                                                    * CTouchProcessor::CanCoalesceNodeWithPrevious(
                                                        this,
-                                                       v5,
+                                                       a3,
                                                        a4,
                                                        0LL,
-                                                       v6,
-                                                       (enum CPointerCoalesce *)&v19))) & 2;
-    if ( (*((_DWORD *)v6 + 35) & 2) == 0 )
-      CTouchProcessor::TrackCoalesceOnArrival(v17, v6, v19);
+                                                       a2,
+                                                       (enum CPointerCoalesce *)&v16))) & 2;
+    if ( (*((_DWORD *)a2 + 35) & 2) == 0 )
+      CTouchProcessor::TrackCoalesceOnArrival(v15, a2, v16);
   }
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
-    || (LOBYTE(v16) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v16) = 0;
-  }
-  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
-    v8 = 0;
-  if ( (_BYTE)v16 || v8 )
-  {
-    v18 = &WPP_d3dee7beffef3928cf2f9a2bdffe19dc_Traceguids;
-    LOBYTE(v18) = v8;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v16,
-      (_DWORD)v18,
-      WPP_GLOBAL_Control->DeviceExtension,
-      5,
-      7,
-      70,
-      (__int64)&WPP_d3dee7beffef3928cf2f9a2bdffe19dc_Traceguids);
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    {
+      LOBYTE(v14) = 5;
+      WPP_RECORDER_SF_(
+        WPP_GLOBAL_Control->DeviceExtension,
+        v14,
+        7,
+        72,
+        (__int64)&WPP_4ea2b35ef3aa38c2c6a59c3c8ae69e8c_Traceguids);
+    }
   }
 }

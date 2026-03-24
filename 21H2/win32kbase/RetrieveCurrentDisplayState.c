@@ -1,8 +1,8 @@
 /*
- * XREFs of RetrieveCurrentDisplayState @ 0x1C007E83C
+ * XREFs of RetrieveCurrentDisplayState @ 0x1C00C47B4
  * Callers:
- *     SetProtocolType @ 0x1C007E790 (SetProtocolType.c)
- *     Win32kBaseDriverEntry @ 0x1C02E4310 (Win32kBaseDriverEntry.c)
+ *     SetProtocolType @ 0x1C00787D0 (SetProtocolType.c)
+ *     Win32kBaseDriverEntry @ 0x1C029B770 (Win32kBaseDriverEntry.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ NTSTATUS RetrieveCurrentDisplayState()
   v2 = result;
   if ( result < 0 )
   {
-    dword_1C0296F70 = 0;
+    dword_1C02521A0 = 0;
   }
   else
   {
@@ -30,7 +30,7 @@ NTSTATUS RetrieveCurrentDisplayState()
     if ( *(_BYTE *)gpbInHiberBoot )
       v3 = 0;
     v4 = v3 == 0;
-    dword_1C0296F70 = v3;
+    dword_1C02521A0 = v3;
     result = v2;
     LOBYTE(v0) = !v4;
   }

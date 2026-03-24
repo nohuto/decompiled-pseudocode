@@ -1,40 +1,40 @@
 /*
- * XREFs of GetMiPInputTransform @ 0x1C0150DE0
+ * XREFs of GetMiPInputTransform @ 0x1C01E1760
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ?GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z @ 0x1C0153928 (-GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     ?GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z @ 0x1C01F506C (-GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z.c)
  */
 
-__int64 __fastcall GetMiPInputTransform(__int64 a1, unsigned __int64 *a2)
+__int64 __fastcall GetMiPInputTransform(__int64 a1, unsigned __int64 *a2, __int64 a3)
 {
-  __int64 v4; // rcx
-  InputTransform *v5; // rax
-  __int64 v6; // rcx
-  int v7; // ecx
-  struct tagINPUT_TRANSFORM *v9; // [rsp+20h] [rbp-18h]
-  char v10; // [rsp+28h] [rbp-10h]
-  __int64 v11; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v5; // rcx
+  InputTransform *v6; // r10
+  __int64 v7; // rax
+  __int64 v8; // rcx
+  struct tagINPUT_TRANSFORM *v10; // [rsp+20h] [rbp-38h]
+  char v11; // [rsp+28h] [rbp-30h]
+  __int64 v12; // [rsp+60h] [rbp+8h] BYREF
 
-  v4 = *(_QWORD *)(a1 + 1352);
-  if ( !v4 || (*(_DWORD *)v4 & 1) == 0 || (v5 = (InputTransform *)ValidateHwnd(*(_QWORD *)(v4 + 48))) == 0LL )
+  v5 = *(_QWORD *)(a1 + 1280);
+  if ( !v5 || (*(_DWORD *)v5 & 1) == 0 || (v6 = (InputTransform *)ValidateHwnd(*(_QWORD *)(v5 + 48))) == 0LL )
   {
 LABEL_8:
-    v7 = 87;
+    v8 = 87LL;
     goto LABEL_9;
   }
-  v6 = *(_QWORD *)(a1 + 1352);
-  if ( (*(_DWORD *)(v6 + 36) & 0x400000) != 0 )
+  v7 = *(_QWORD *)(a1 + 1280);
+  if ( (*(_DWORD *)(v7 + 36) & 0x400000) != 0 )
   {
-    v11 = *(_QWORD *)(v6 + 104);
-    LOBYTE(v9) = 1;
-    if ( (unsigned int)InputTransform::GetTransformList(v5, (struct tagWND *)1, (unsigned int)&v11, a2, v9, v10) )
+    v12 = *(_QWORD *)(v7 + 104);
+    LOBYTE(v10) = 1;
+    if ( (unsigned int)InputTransform::GetTransformList(v6, (struct tagWND *)1, (unsigned int)&v12, a2, v10, v11) )
       return 1LL;
     goto LABEL_8;
   }
-  v7 = 232;
+  v8 = 232LL;
 LABEL_9:
-  UserSetLastError(v7);
+  UserSetLastError(v8, (__int64)a2, a3);
   return 0LL;
 }

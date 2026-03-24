@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CColorBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00B0210
+ * XREFs of ?SetBufferProperty@CColorBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0098CB0
  * Callers:
  *     <none>
  * Callees:
@@ -23,7 +23,7 @@ __int64 __fastcall DirectComposition::CColorBrushMarshaler::SetBufferProperty(
     return 3221225485LL;
   v7 = *a4;
   *((_DWORD *)this + 4) |= 0x20u;
-  *((_OWORD *)this + 5) = v7;
+  *(_OWORD *)((char *)this + 72) = v7;
   *a6 = 1;
   return result;
 }

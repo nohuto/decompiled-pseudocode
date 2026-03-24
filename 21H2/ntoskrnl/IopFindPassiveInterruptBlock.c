@@ -1,17 +1,17 @@
 /*
- * XREFs of IopFindPassiveInterruptBlock @ 0x1405609F8
+ * XREFs of IopFindPassiveInterruptBlock @ 0x14050D3A8
  * Callers:
- *     IoProcessPassiveInterrupts @ 0x140560798 (IoProcessPassiveInterrupts.c)
- *     IopAllocatePassiveInterruptBlock @ 0x1409466AC (IopAllocatePassiveInterruptBlock.c)
- *     IopDestroyPassiveInterruptBlock @ 0x1409467F8 (IopDestroyPassiveInterruptBlock.c)
+ *     IoProcessPassiveInterrupts @ 0x14050D054 (IoProcessPassiveInterrupts.c)
+ *     IopAllocatePassiveInterruptBlock @ 0x1408A1540 (IopAllocatePassiveInterruptBlock.c)
+ *     IopDestroyPassiveInterruptBlock @ 0x1408A16A0 (IopDestroyPassiveInterruptBlock.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     IopAcquireGlobalPassiveInterruptListLock @ 0x140459E52 (IopAcquireGlobalPassiveInterruptListLock.c)
- *     IopFindPassiveInterruptBlockLocked @ 0x140459F42 (IopFindPassiveInterruptBlockLocked.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopAcquireGlobalPassiveInterruptListLock @ 0x14050D13C (IopAcquireGlobalPassiveInterruptListLock.c)
+ *     IopFindPassiveInterruptBlockLocked @ 0x14050D45C (IopFindPassiveInterruptBlockLocked.c)
  */
 
-__int64 __fastcall IopFindPassiveInterruptBlock(int a1)
+__int64 __fastcall IopFindPassiveInterruptBlock(unsigned int a1)
 {
   __int64 PassiveInterruptBlockLocked; // rdi
   unsigned __int8 CurrentIrql; // cl

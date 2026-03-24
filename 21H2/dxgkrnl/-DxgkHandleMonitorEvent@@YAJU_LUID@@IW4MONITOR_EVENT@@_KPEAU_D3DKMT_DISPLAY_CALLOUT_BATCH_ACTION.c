@@ -1,160 +1,162 @@
 /*
- * XREFs of ?DxgkHandleMonitorEvent@@YAJU_LUID@@IW4MONITOR_EVENT@@_KPEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION@@@Z @ 0x1C02F07A8
+ * XREFs of ?DxgkHandleMonitorEvent@@YAJU_LUID@@IW4MONITOR_EVENT@@_KPEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION@@@Z @ 0x1C0295B68
  * Callers:
- *     DxgkPollDisplayChildrenInternal @ 0x1C02D31C0 (DxgkPollDisplayChildrenInternal.c)
- *     DxgkProcessDisplayCalloutBatch @ 0x1C02F3490 (DxgkProcessDisplayCalloutBatch.c)
+ *     DxgkPollDisplayChildrenInternal @ 0x1C0224D30 (DxgkPollDisplayChildrenInternal.c)
+ *     DxgkProcessDisplayCalloutBatch @ 0x1C02981D0 (DxgkProcessDisplayCalloutBatch.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C000BD00 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     ?ExtendExistingHPDPeriod@RAPID_HPD_MANAGER@@QEAAXW4RAPID_HPD_EXTENSION@@U_LUID@@@Z @ 0x1C0058354 (-ExtendExistingHPDPeriod@RAPID_HPD_MANAGER@@QEAAXW4RAPID_HPD_EXTENSION@@U_LUID@@@Z.c)
- *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C01A442C (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01B32DC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
- *     ??0MONITORSCOUNT_CALLBACK_CONTEXT@@QEAA@XZ @ 0x1C01DB094 (--0MONITORSCOUNT_CALLBACK_CONTEXT@@QEAA@XZ.c)
- *     ?DxgIsRemoteSessionUsingWddmMonitors@@YAHXZ @ 0x1C01DB11C (-DxgIsRemoteSessionUsingWddmMonitors@@YAHXZ.c)
- *     DxgkSetPresenterViewMode @ 0x1C01E89D0 (DxgkSetPresenterViewMode.c)
- *     ?HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F0FB0 (-HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEA.c)
- *     ?HandleMonitorDepartureCase@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F20A0 (-HandleMonitorDepartureCase@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@.c)
- *     ?HandleRapidHPDAction@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02F254C (-HandleRapidHPDAction@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IPEAU_DXGK_DISPLAY_SCEN.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004130 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C011F70C (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
+ *     ?DxgIsRemoteSessionUsingWddmMonitors@@YAHXZ @ 0x1C01340B4 (-DxgIsRemoteSessionUsingWddmMonitors@@YAHXZ.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C013AB0C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     ??0MONITORSCOUNT_CALLBACK_CONTEXT@@QEAA@XZ @ 0x1C015F288 (--0MONITORSCOUNT_CALLBACK_CONTEXT@@QEAA@XZ.c)
+ *     DxgkSetPresenterViewMode @ 0x1C016E530 (DxgkSetPresenterViewMode.c)
+ *     ?HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C029624C (-HandleMonitorArrival@@YAJPEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEA.c)
+ *     ?HandleMonitorDepartureCase@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@@_KPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0296F98 (-HandleMonitorDepartureCase@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IW4MONITOR_EVENT@.c)
+ *     ?HandleRapidHPDAction@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0297434 (-HandleRapidHPDAction@@YAJQEAUMONITORSCOUNT_CALLBACK_CONTEXT@@AEBU_LUID@@IPEAU_DXGK_DISPLAY_SCEN.c)
  */
 
-__int64 __fastcall DxgkHandleMonitorEvent(struct _LUID a1, unsigned int a2, unsigned int a3, __int64 a4, __int64 a5)
+__int64 __fastcall DxgkHandleMonitorEvent(struct _LUID a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5)
 {
-  int v8; // r14d
+  unsigned int v7; // r12d
+  unsigned int v8; // r14d
   __int64 v9; // rdx
   __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  struct DXGGLOBAL *Global; // rax
-  bool v14; // zf
-  int v15; // eax
-  DXGGLOBAL *v16; // rax
-  struct DXGADAPTER *v17; // rax
-  char v18; // r8
-  char v19; // r8
+  int v11; // eax
+  bool v12; // zf
+  __int64 v13; // rax
+  __int64 v14; // rcx
+  DXGGLOBAL *Global; // rax
+  struct DXGADAPTER *v16; // rax
+  char v17; // dl
   unsigned int CurrentProcessSessionId; // eax
-  struct _LUID v22; // [rsp+50h] [rbp-91h] BYREF
-  int v23; // [rsp+58h] [rbp-89h] BYREF
-  int v24; // [rsp+5Ch] [rbp-85h]
-  int v25; // [rsp+60h] [rbp-81h]
-  char v26; // [rsp+70h] [rbp-71h]
-  char v27; // [rsp+72h] [rbp-6Fh]
-  char v28; // [rsp+73h] [rbp-6Eh]
-  char v29; // [rsp+74h] [rbp-6Dh]
-  char v30; // [rsp+75h] [rbp-6Ch]
-  char v31; // [rsp+77h] [rbp-6Ah]
-  int v32; // [rsp+78h] [rbp-69h]
-  unsigned __int64 v33; // [rsp+80h] [rbp-61h] BYREF
-  _DWORD v34[2]; // [rsp+90h] [rbp-51h] BYREF
-  __int128 v35; // [rsp+98h] [rbp-49h]
-  __int64 v36; // [rsp+A8h] [rbp-39h]
-  __int64 v37; // [rsp+B0h] [rbp-31h]
-  int v38; // [rsp+B8h] [rbp-29h]
-  int v39; // [rsp+BCh] [rbp-25h]
-  unsigned int v40; // [rsp+C0h] [rbp-21h]
-  unsigned int v41; // [rsp+C4h] [rbp-1Dh]
-  __int64 v42; // [rsp+C8h] [rbp-19h]
-  struct _LUID v43; // [rsp+D0h] [rbp-11h]
-  unsigned int v44; // [rsp+D8h] [rbp-9h]
-  int v45; // [rsp+DCh] [rbp-5h]
-  int v46; // [rsp+E0h] [rbp-1h]
-  int v47; // [rsp+E4h] [rbp+3h]
-  int v48; // [rsp+E8h] [rbp+7h]
-  int v49; // [rsp+ECh] [rbp+Bh]
+  struct _LUID v20; // [rsp+30h] [rbp-91h] BYREF
+  int v21; // [rsp+38h] [rbp-89h] BYREF
+  int v22; // [rsp+3Ch] [rbp-85h]
+  int v23; // [rsp+40h] [rbp-81h]
+  char v24; // [rsp+50h] [rbp-71h]
+  __int16 v25; // [rsp+51h] [rbp-70h]
+  char v26; // [rsp+53h] [rbp-6Eh]
+  char v27; // [rsp+54h] [rbp-6Dh]
+  char v28; // [rsp+55h] [rbp-6Ch]
+  char v29; // [rsp+57h] [rbp-6Ah]
+  int v30; // [rsp+58h] [rbp-69h]
+  unsigned __int64 v31; // [rsp+60h] [rbp-61h] BYREF
+  _DWORD v32[2]; // [rsp+70h] [rbp-51h] BYREF
+  __int128 v33; // [rsp+78h] [rbp-49h]
+  __int64 v34; // [rsp+88h] [rbp-39h]
+  __int64 v35; // [rsp+90h] [rbp-31h]
+  int v36; // [rsp+98h] [rbp-29h]
+  int v37; // [rsp+9Ch] [rbp-25h]
+  unsigned int v38; // [rsp+A0h] [rbp-21h]
+  unsigned int v39; // [rsp+A4h] [rbp-1Dh]
+  __int64 v40; // [rsp+A8h] [rbp-19h]
+  struct _LUID v41; // [rsp+B0h] [rbp-11h]
+  unsigned int v42; // [rsp+B8h] [rbp-9h]
+  int v43; // [rsp+BCh] [rbp-5h]
+  unsigned int v44; // [rsp+C0h] [rbp-1h]
+  int v45; // [rsp+C4h] [rbp+3h]
+  int v46; // [rsp+C8h] [rbp+7h]
+  int v47; // [rsp+CCh] [rbp+Bh]
 
-  v22 = a1;
+  v20 = a1;
+  v7 = a2;
   v8 = 0;
-  MONITORSCOUNT_CALLBACK_CONTEXT::MONITORSCOUNT_CALLBACK_CONTEXT((MONITORSCOUNT_CALLBACK_CONTEXT *)&v23);
-  *(_BYTE *)a5 |= 2u;
+  MONITORSCOUNT_CALLBACK_CONTEXT::MONITORSCOUNT_CALLBACK_CONTEXT((MONITORSCOUNT_CALLBACK_CONTEXT *)&v21, a2);
+  if ( a3 == 11 )
+    v25 = 0;
+  else
+    *(_BYTE *)a5 |= 2u;
   if ( !a3 && (a4 == 2 || a4 == 5) || a3 == 1 && a4 == 1 )
-    goto LABEL_8;
+    goto LABEL_11;
   if ( a3 == 10 )
   {
     if ( a4 == 2 )
     {
-LABEL_8:
-      DxgkSetPresenterViewMode(0, 0);
-      v8 = HandleMonitorDepartureCase(&v23, &v22, a2, a3, a4, a5 + 24);
-      Global = DXGGLOBAL_GetGlobal();
-      RAPID_HPD_MANAGER::ExtendExistingHPDPeriod((__int64)Global + 305224, 1u, *(_QWORD *)&v22);
-      goto LABEL_23;
+LABEL_11:
+      DxgkSetPresenterViewMode(0LL, 0LL);
+      v11 = HandleMonitorDepartureCase(&v21, &v20, v7, a3, a4, a5 + 24);
+      goto LABEL_25;
     }
-    v14 = a4 == 1;
+    v12 = a4 == 1;
   }
   else
   {
     if ( !a3 && ((a4 - 1) & 0xFFFFFFFFFFFFFFFCuLL) == 0 && a4 != 2 || a3 == 1 && !a4 )
-      goto LABEL_21;
-    v14 = a3 == 3;
+      goto LABEL_24;
+    v12 = a3 == 3;
   }
-  if ( v14 )
+  if ( v12 )
   {
-LABEL_21:
-    DxgkSetPresenterViewMode(0, 0);
-    v15 = HandleMonitorArrival(&v23, &v22, a2, a3, a4, a5 + 24);
-LABEL_22:
-    v8 = v15;
-LABEL_23:
-    if ( v8 < 0 )
-      goto LABEL_35;
-    goto LABEL_24;
+LABEL_24:
+    DxgkSetPresenterViewMode(0LL, 0LL);
+    v11 = HandleMonitorArrival(&v21, &v20, v7, a3, a4, a5 + 24);
+    goto LABEL_25;
   }
   if ( a3 == 6 )
   {
     if ( a4 )
     {
-      WdLogSingleEntry1(1LL, 4350LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"i_Parameter == (ULONG_PTR) 0", 4350LL, 0LL, 0LL, 0LL, 0LL);
+      v13 = WdLogNewEntry5_WdAssertion(v10, v9);
+      *(_QWORD *)(v13 + 24) = 4329LL;
+      WdLogEvent5_WdAssertion(v13);
     }
-    v15 = HandleRapidHPDAction(
-            (struct MONITORSCOUNT_CALLBACK_CONTEXT *const)&v23,
-            &v22,
-            a2,
+    v11 = HandleRapidHPDAction(
+            (struct MONITORSCOUNT_CALLBACK_CONTEXT *const)&v21,
+            &v20,
+            v7,
             (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)(a5 + 24));
-    goto LABEL_22;
+LABEL_25:
+    v8 = v11;
+    if ( v11 < 0 )
+      goto LABEL_38;
   }
-LABEL_24:
-  if ( !(unsigned int)DxgIsRemoteSessionUsingWddmMonitors(v10, v9, v11, v12) && !v24 )
+  if ( !(unsigned int)DxgIsRemoteSessionUsingWddmMonitors(v10, v9) && !v22 )
   {
-    v16 = DXGGLOBAL_GetGlobal();
-    v17 = DXGGLOBAL::ReferenceAdapterByLuid(v16, v22, &v33);
-    if ( v17 )
+    Global = DXGGLOBAL::GetGlobal(v14, v9);
+    v16 = DXGGLOBAL::ReferenceAdapterByLuid(Global, v20, &v31);
+    if ( v16 )
     {
-      *(_BYTE *)a5 ^= (*(_BYTE *)a5 ^ (*(_BYTE *)a5 | (16 * *(_BYTE *)(*((_QWORD *)v17 + 349) + 24LL)))) & 0x10;
-      DXGADAPTER::ReleaseReference(v17);
+      *(_BYTE *)a5 ^= (*(_BYTE *)a5 ^ (*(_BYTE *)a5 | (16 * *((_BYTE *)v16 + 2576)))) & 0x10;
+      DXGADAPTER::ReleaseReference(v16);
     }
   }
-  if ( a3 || a4 != 1 )
-    v18 = 0;
+  if ( (!a3 || a3 == 11) && a4 == 1 )
+    v17 = 32;
   else
-    v18 = 32;
-  v19 = *(_BYTE *)a5 | v18 & 0x20;
-  v14 = v26 == 0;
-  *(_BYTE *)a5 = v19;
-  if ( v14 )
+    v17 = 0;
+  LOBYTE(v9) = *(_BYTE *)a5 | v17 & 0x20;
+  v12 = v24 == 0;
+  *(_BYTE *)a5 = v9;
+  if ( v12 )
+  {
     *(_BYTE *)(a5 + 1) = *(_BYTE *)(a5 + 1) & 0xFE | (a3 == 9);
+  }
   else
-    *(_BYTE *)a5 = (v31 != 0 ? 0x40 : 0) | (v19 ^ (v19 ^ ((v27 != 0 ? 4 : 0) | v19)) & 4) & 0xBF | (v30 != 0 ? 8 : 0);
-LABEL_35:
-  v38 = 0;
-  v37 = 0LL;
-  v39 = 0;
-  v36 = 0LL;
-  v34[0] = 2;
-  v34[1] = 96;
-  v41 = a3;
-  v43 = v22;
-  v45 = v32;
-  v47 = v23;
-  v48 = v25;
-  v49 = v24;
+  {
+    LOBYTE(v9) = (v29 != 0 ? 0x40 : 0) | (v9 ^ (v9 ^ (v9 | (HIBYTE(v25) != 0 ? 4 : 0))) & 4) & 0xBF | (v28 != 0 ? 8 : 0);
+    *(_BYTE *)a5 = v9;
+  }
+LABEL_38:
+  v36 = 0;
   v35 = 0LL;
-  v40 = v27 & 1 | (4 * (v28 & 1 | (2 * (v29 & 1))));
-  v42 = a4;
-  v44 = a2;
-  v46 = v8;
-  CurrentProcessSessionId = PsGetCurrentProcessSessionId(v40);
-  DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v34, CurrentProcessSessionId);
-  return (unsigned int)v8;
+  v37 = 0;
+  v34 = 0LL;
+  v32[0] = 2;
+  v32[1] = 96;
+  v39 = a3;
+  v41 = v20;
+  v43 = v30;
+  v45 = v21;
+  v46 = v23;
+  v47 = v22;
+  v33 = 0LL;
+  v38 = HIBYTE(v25) & 1 | (4 * (v26 & 1 | (2 * (v27 & 1))));
+  v40 = a4;
+  v42 = v7;
+  v44 = v8;
+  CurrentProcessSessionId = PsGetCurrentProcessSessionId(v38, v9);
+  DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v32, CurrentProcessSessionId);
+  return v8;
 }

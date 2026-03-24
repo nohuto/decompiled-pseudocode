@@ -1,12 +1,12 @@
 /*
- * XREFs of IoFreeDumpRange @ 0x14027FD30
+ * XREFs of IoFreeDumpRange @ 0x14027FE30
  * Callers:
- *     IopRemovePageDumpRange @ 0x140281880 (IopRemovePageDumpRange.c)
+ *     IopRemovePageDumpRange @ 0x140281980 (IopRemovePageDumpRange.c)
  *     IopLiveDumpCallRemovePagesCallbacks @ 0x140578168 (IopLiveDumpCallRemovePagesCallbacks.c)
  * Callees:
  *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
- *     MmGetPhysicalAddress @ 0x1401210B0 (MmGetPhysicalAddress.c)
- *     IopRemovePageFromPageMap @ 0x140281960 (IopRemovePageFromPageMap.c)
+ *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
+ *     IopRemovePageFromPageMap @ 0x140281A60 (IopRemovePageFromPageMap.c)
  */
 
 __int64 __fastcall IoFreeDumpRange(__int64 a1, char *a2, __int64 a3, int a4)

@@ -1,809 +1,713 @@
 /*
- * XREFs of ?PreSubgraph@CHitTestContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18004B9C0
+ * XREFs of ?PreSubgraph@CHitTestContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18009E540
  * Callers:
- *     ??$WalkSubtree@VCHitTestContext@@@CVisualTreeIterator@@QEAAJPEBVCVisual@@0PEAVCHitTestContext@@W4WalkReason@@@Z @ 0x18004B424 (--$WalkSubtree@VCHitTestContext@@@CVisualTreeIterator@@QEAAJPEBVCVisual@@0PEAVCHitTestContext@@W.c)
+ *     ??$WalkSubtree@VCHitTestContext@@@CVisualTreeIterator@@QEAAJPEBVCVisual@@PEAVCHitTestContext@@W4WalkReason@@@Z @ 0x18009DED0 (--$WalkSubtree@VCHitTestContext@@@CVisualTreeIterator@@QEAAJPEBVCVisual@@PEAVCHitTestContext@@W4.c)
  * Callees:
- *     ?AdjustInputTypeForInteraction@CHitTestContext@@AEBA?AW4InputType@@W42@PEBVCInteraction@@@Z @ 0x180032220 (-AdjustInputTypeForInteraction@CHitTestContext@@AEBA-AW4InputType@@W42@PEBVCInteraction@@@Z.c)
- *     ?InteractionMatchesHitTest@CHitTestContext@@AEBA_NW4InputType@@PEBVCInteraction@@@Z @ 0x180032268 (-InteractionMatchesHitTest@CHitTestContext@@AEBA_NW4InputType@@PEBVCInteraction@@@Z.c)
- *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x180048AEC (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
- *     ?GetWorldTransform@CTreeData@@IEBAXPEAVCMILMatrix@@PEA_N0@Z @ 0x18004C494 (-GetWorldTransform@CTreeData@@IEBAXPEAVCMILMatrix@@PEA_N0@Z.c)
- *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180061790 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
- *     ??$Transform3DBoundsHelper@$00@CMILMatrix@@AEBAXAEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@AEAV1@@Z @ 0x18006DA50 (--$Transform3DBoundsHelper@$00@CMILMatrix@@AEBAXAEBV-$TMil3DRect@MV-$TMilRect_@MUMilRectF@@UMil3.c)
- *     ?CalcTransform@CVisual@@QEBAXPEBVCVisualTree@@PEBVCMILMatrix@@PEA_NPEAV3@3@Z @ 0x1800707C0 (-CalcTransform@CVisual@@QEBAXPEBVCVisualTree@@PEBVCMILMatrix@@PEA_NPEAV3@3@Z.c)
- *     ?FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z @ 0x180088B84 (-FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ @ 0x18008A5BC (-GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ.c)
- *     ?UpdateWorldTransform@CVisual@@AEBA_NPEBVCVisualTree@@PEAVCTreeData@@_NPEBV3@@Z @ 0x18008A61C (-UpdateWorldTransform@CVisual@@AEBA_NPEBVCVisualTree@@PEAVCTreeData@@_NPEBV3@@Z.c)
- *     ?GetBspPolygonList@CVisual@@QEBAPEAV?$DynArray@PEAVCPolygon@@$0A@@@XZ @ 0x18009A3DC (-GetBspPolygonList@CVisual@@QEBAPEAV-$DynArray@PEAVCPolygon@@$0A@@@XZ.c)
- *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x18009A6B4 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
- *     ?GetCount@CPtrArrayBase@@IEBA_KXZ @ 0x1800AA890 (-GetCount@CPtrArrayBase@@IEBA_KXZ.c)
- *     ?Push@CMatrixStack@@QEAAJPEBVCMILMatrix@@_N@Z @ 0x1800B262C (-Push@CMatrixStack@@QEAAJPEBVCMILMatrix@@_N@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetEffectInternal@CVisual@@QEBAPEAVCEffect@@XZ @ 0x1800C3C54 (-GetEffectInternal@CVisual@@QEBAPEAVCEffect@@XZ.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800DC518 (-Release@CShapePtr@@QEAAXXZ.c)
- *     ?FillContainsPoint@CShapePtr@@QEBAJAEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800DF748 (-FillContainsPoint@CShapePtr@@QEBAJAEBUD2D_POINT_2F@@PEA_N@Z.c)
- *     ?GetPointInLocalSpace@CHitTestContext@@SA_NAEBUD2D_POINT_2F@@AEBVCMILMatrix@@PEAU2@@Z @ 0x1800E0678 (-GetPointInLocalSpace@CHitTestContext@@SA_NAEBUD2D_POINT_2F@@AEBVCMILMatrix@@PEAU2@@Z.c)
- *     ?PushHoverPointer@CInteraction@@QEBAXAEBUD2D_POINT_2F@@@Z @ 0x1800F2408 (-PushHoverPointer@CInteraction@@QEBAXAEBUD2D_POINT_2F@@@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?BspHitTest@CHitTestContext@@AEAAJAEBVCMILMatrix@@PEAVCPolygon@@@Z @ 0x1801B0FD0 (-BspHitTest@CHitTestContext@@AEAAJAEBVCMILMatrix@@PEAVCPolygon@@@Z.c)
- *     ?InputTransparencyEvaluation@DWM@InputTraceLogging@@SAXPEBVCInteraction@@_N@Z @ 0x1801B110C (-InputTransparencyEvaluation@DWM@InputTraceLogging@@SAXPEBVCInteraction@@_N@Z.c)
- *     ?GetBspPolygonListCount@CVisual@@IEBAIXZ @ 0x180210B94 (-GetBspPolygonListCount@CVisual@@IEBAIXZ.c)
- *     ?HasBspPolygonList@CVisual@@IEBA_NXZ @ 0x1802110E8 (-HasBspPolygonList@CVisual@@IEBA_NXZ.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?Push@CMatrixStack@@QEAAJPEBVCMILMatrix@@_N@Z @ 0x18003F508 (-Push@CMatrixStack@@QEAAJPEBVCMILMatrix@@_N@Z.c)
+ *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x1800421E0 (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?FillContainsPoint@CShapePtr@@QEBAJAEBUD2D_POINT_2F@@PEA_N@Z @ 0x180068FB8 (-FillContainsPoint@CShapePtr@@QEBAJAEBUD2D_POINT_2F@@PEA_N@Z.c)
+ *     ?GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ @ 0x18007AA60 (-GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ.c)
+ *     ?CalcCpuClippingTransform@CVisual@@QEAAXW4Enum@CpuClippingMode@@PEBVCVisualTree@@PEBVCMILMatrix@@PEA_NPEAV5@4@Z @ 0x1800818F0 (-CalcCpuClippingTransform@CVisual@@QEAAXW4Enum@CpuClippingMode@@PEBVCVisualTree@@PEBVCMILMatrix@.c)
+ *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180087AD0 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?GetBspPolygonList@CVisual@@QEBAPEAV?$DynArray@PEAVCPolygon@@$0A@@@XZ @ 0x18009F93C (-GetBspPolygonList@CVisual@@QEBAPEAV-$DynArray@PEAVCPolygon@@$0A@@@XZ.c)
+ *     ?GetEffectInternal@CVisual@@QEBAPEAVCEffect@@XZ @ 0x1800A0088 (-GetEffectInternal@CVisual@@QEBAPEAVCEffect@@XZ.c)
+ *     ?UpdateWorldTransform@CVisual@@AEAAJPEBVCVisualTree@@PEAVCTreeData@@_NPEBV3@@Z @ 0x1800A0248 (-UpdateWorldTransform@CVisual@@AEAAJPEBVCVisualTree@@PEAVCTreeData@@_NPEBV3@@Z.c)
+ *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x1800A0360 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
+ *     ??$Transform3DBoundsHelper@$00@CMILMatrix@@AEBAXAEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@AEAV1@@Z @ 0x1800A8340 (--$Transform3DBoundsHelper@$00@CMILMatrix@@AEBAXAEBV-$TMil3DRect@MV-$TMilRect_@MUMilRectF@@UMil3.c)
+ *     ?FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z @ 0x1800BA3C0 (-FindTreeData@CVisual@@QEBAPEAVCTreeData@@PEBVCVisualTree@@@Z.c)
+ *     ?GetCount@CPtrArrayBase@@IEBA_KXZ @ 0x1800C13A8 (-GetCount@CPtrArrayBase@@IEBA_KXZ.c)
+ *     ?FindSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@AEBAII@Z @ 0x1800C64BC (-FindSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@AEBAII@Z.c)
+ *     ?GetPointInLocalSpace@CHitTestContext@@SA_NAEBUD2D_POINT_2F@@AEBVCMILMatrix@@PEAU2@@Z @ 0x1800C7068 (-GetPointInLocalSpace@CHitTestContext@@SA_NAEBUD2D_POINT_2F@@AEBVCMILMatrix@@PEAU2@@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C876C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     ?PushHoverPointer@CInteraction@@QEBAXAEBUD2D_POINT_2F@@@Z @ 0x1800CEE78 (-PushHoverPointer@CInteraction@@QEBAXAEBUD2D_POINT_2F@@@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memcpy_0 @ 0x1800F400B (memcpy_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?GetBspPolygonListCount@CVisual@@IEBAIXZ @ 0x1801AD654 (-GetBspPolygonListCount@CVisual@@IEBAIXZ.c)
+ *     ?HasBspPolygonList@CVisual@@IEBA_NXZ @ 0x1801ADD30 (-HasBspPolygonList@CVisual@@IEBA_NXZ.c)
+ *     ?BspHitTest@CHitTestContext@@AEAAJAEBVCMILMatrix@@PEAVCPolygon@@@Z @ 0x18022897C (-BspHitTest@CHitTestContext@@AEAAJAEBVCMILMatrix@@PEAVCPolygon@@@Z.c)
  */
 
 __int64 __fastcall CHitTestContext::PreSubgraph(CHitTestContext *this, const struct CVisualTree *a2, bool *a3)
 {
-  __int64 v3; // r13
-  struct _LIST_ENTRY **p_Blink; // rbx
-  __int64 v5; // rdi
+  __int64 v3; // rdi
+  __int64 v4; // r13
+  struct _LIST_ENTRY *v5; // rbx
   __int64 v7; // rax
-  unsigned int v10; // r12d
-  __int64 v11; // rax
-  __int128 *v12; // rax
-  int v13; // r15d
-  __int64 v14; // rax
-  void *v15; // rbx
-  unsigned int v16; // eax
-  unsigned int v17; // eax
-  _QWORD *v18; // r15
-  _DWORD *v19; // r8
-  bool v20; // zf
-  char v21; // bl
-  bool v22; // al
-  __int64 v23; // rdx
-  struct _LIST_ENTRY *v24; // rcx
-  struct _LIST_ENTRY **v25; // rbx
-  struct CTreeData *v26; // r13
-  _DWORD *v27; // r8
-  struct _LIST_ENTRY **v28; // rdx
-  CVisual *v29; // r12
-  unsigned __int64 v30; // rax
-  struct D2D_POINT_2F v31; // rcx
-  int v32; // eax
-  __int128 v33; // xmm0
-  __int64 v34; // r12
-  struct CTreeData *v35; // r13
-  __int64 v36; // rax
-  __int64 v37; // rdx
-  struct _LIST_ENTRY *v38; // rcx
-  struct CTreeData *v39; // rbx
-  _DWORD *v40; // r8
-  struct _LIST_ENTRY **v41; // rdx
-  unsigned __int64 v42; // rax
-  float v43; // xmm1_4
-  float v44; // xmm1_4
-  _DWORD *v45; // r8
-  char v46; // r15
-  bool v47; // r13
-  CGeometry *v48; // rcx
-  __int64 v50; // rax
-  _BYTE *v51; // rdx
-  __int64 i; // rcx
-  __int64 *v53; // rax
-  __int64 v54; // rax
-  __int64 v55; // rax
-  _BYTE *v56; // rdx
-  __int64 m; // rcx
-  _QWORD *v58; // rax
-  CInteraction *v59; // rax
-  struct _LIST_ENTRY *v60; // rax
-  struct _LIST_ENTRY v61; // xmm1
-  struct _LIST_ENTRY v62; // xmm0
-  struct _LIST_ENTRY v63; // xmm1
-  int v64; // eax
-  int ShapeData; // eax
-  unsigned int v66; // ecx
-  int v67; // eax
-  unsigned int v68; // ecx
-  __int128 v69; // xmm1
-  _BYTE *v70; // r10
-  unsigned int j; // r9d
-  _QWORD **v72; // rcx
-  _QWORD *v73; // rcx
-  _BYTE *v74; // r10
-  unsigned int k; // r9d
-  _QWORD **v76; // rcx
-  _QWORD *v77; // rcx
-  struct CEffect *EffectInternal; // rbx
-  struct CEffect *v79; // rax
-  unsigned int v80; // r13d
-  int v81; // eax
-  unsigned int v82; // ecx
-  unsigned __int64 v83; // rax
-  struct D2D_POINT_2F v84; // rbx
+  __int64 v9; // rsi
   struct _LIST_ENTRY *TreeDataListHead; // rax
   struct _LIST_ENTRY *Flink; // rcx
-  HANDLE ProcessHeap; // rax
+  __int64 v12; // rcx
+  __int64 v13; // rdx
+  int v14; // r15d
+  __int64 v15; // rcx
+  unsigned int v16; // eax
+  unsigned __int64 v17; // r14
+  int v18; // eax
+  __int64 v19; // rcx
+  unsigned __int64 v20; // rax
+  void *v21; // rbx
+  unsigned int v22; // eax
+  struct CTreeData *v23; // r15
+  unsigned int v24; // eax
+  struct CEffect *EffectInternal; // rbx
   struct CTreeData *TreeData; // rax
-  struct CInteraction *InteractionInternal; // rbx
-  unsigned int v90; // eax
-  unsigned int v91; // r13d
-  struct _LIST_ENTRY *v92; // rax
-  unsigned int v93; // ecx
-  struct _LIST_ENTRY *v94; // rax
-  struct _LIST_ENTRY *v95; // rcx
-  struct _LIST_ENTRY *v96; // rax
-  struct _LIST_ENTRY *v97; // rcx
-  struct _LIST_ENTRY *v98; // rax
-  unsigned int v99; // ecx
-  struct _LIST_ENTRY *v100; // rax
-  struct _LIST_ENTRY *v101; // rcx
-  struct _LIST_ENTRY *v102; // rax
-  struct _LIST_ENTRY *v103; // rcx
-  CInteraction *v104; // rax
-  __int64 v105; // rbx
+  __int64 v27; // rdx
+  int v28; // r14d
+  bool v29; // bl
+  void *v30; // rbx
+  HANDLE ProcessHeap; // rax
+  struct CEffect *v32; // rax
+  bool v33; // al
+  CGeometry *v34; // rax
+  __int64 v35; // rcx
+  _OWORD *v36; // r13
+  int v37; // r14d
+  unsigned __int8 (__fastcall *v38)(__int64); // rax
+  struct _LIST_ENTRY *v39; // rcx
+  struct _LIST_ENTRY *v40; // rbx
+  struct _LIST_ENTRY *v41; // rcx
+  unsigned int Slot; // eax
+  __int64 v43; // r10
+  __int64 v44; // rcx
+  _QWORD **v45; // rdx
+  struct _LIST_ENTRY *v46; // rax
+  CVisual *v47; // rax
+  CVisual *v48; // r13
+  struct _LIST_ENTRY *v49; // rax
+  unsigned __int64 v50; // rax
+  int updated; // eax
+  __int128 v52; // xmm1
+  __int128 v53; // xmm1
+  struct _LIST_ENTRY *v54; // rax
+  struct _LIST_ENTRY v55; // xmm1
+  struct _LIST_ENTRY v56; // xmm0
+  struct _LIST_ENTRY v57; // xmm1
+  int v58; // eax
+  int v59; // eax
+  __int128 v60; // xmm1
+  __int128 v61; // xmm0
+  __int128 v62; // xmm1
+  __int64 v63; // rcx
+  unsigned int ShapeData; // ebx
+  __int64 result; // rax
+  __int64 v66; // rax
+  CVisual **v67; // r13
+  int v68; // r14d
+  struct _LIST_ENTRY *v69; // rcx
+  struct _LIST_ENTRY *v70; // rbx
+  struct _LIST_ENTRY *v71; // rcx
+  unsigned int v72; // eax
+  __int64 v73; // r10
+  __int64 v74; // rcx
+  _QWORD **v75; // rdx
+  struct _LIST_ENTRY *v76; // rax
+  CVisual *v77; // rax
+  CVisual *v78; // r13
+  struct _LIST_ENTRY *v79; // rax
+  unsigned __int64 v80; // rax
+  int v81; // eax
+  __int64 v82; // rcx
+  float v83; // xmm1_4
+  float v84; // xmm1_4
+  unsigned int v85; // eax
+  __int64 v86; // r10
+  __int64 v87; // rcx
+  _QWORD *v88; // rdx
+  bool v89; // r15
+  int v90; // r14d
+  int v91; // r14d
+  CGeometry *v92; // rcx
+  __int64 v93; // rcx
+  __int64 v94; // rcx
+  CInteraction *v95; // rax
+  CInteraction *InteractionInternal; // rax
+  char v97; // r14
   _QWORD *BspPolygonList; // rax
-  int v107; // eax
-  unsigned int v108; // ecx
-  bool v109; // [rsp+30h] [rbp-D0h] BYREF
-  char v110; // [rsp+31h] [rbp-CFh]
-  struct D2D_POINT_2F v111; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v112; // [rsp+40h] [rbp-C0h]
-  bool *v113; // [rsp+48h] [rbp-B8h]
-  CGeometry *v114; // [rsp+50h] [rbp-B0h] BYREF
-  char v115; // [rsp+58h] [rbp-A8h]
-  struct _LIST_ENTRY **v116; // [rsp+60h] [rbp-A0h]
-  _OWORD v117[4]; // [rsp+70h] [rbp-90h] BYREF
-  int v118; // [rsp+B0h] [rbp-50h]
-  _BYTE v119[64]; // [rsp+C0h] [rbp-40h] BYREF
-  int v120; // [rsp+100h] [rbp+0h]
-  _BYTE v121[64]; // [rsp+110h] [rbp+10h] BYREF
-  int v122; // [rsp+150h] [rbp+50h]
-  __int128 v123; // [rsp+160h] [rbp+60h]
-  __int64 v124; // [rsp+170h] [rbp+70h]
-  void *retaddr; // [rsp+1B8h] [rbp+B8h]
+  int v99; // eax
+  __int64 v100; // rcx
+  bool *v101; // rcx
+  bool v102; // [rsp+40h] [rbp-C0h] BYREF
+  char v103; // [rsp+41h] [rbp-BFh]
+  void *lpMem; // [rsp+48h] [rbp-B8h] BYREF
+  bool *v105; // [rsp+50h] [rbp-B0h]
+  CGeometry *v106; // [rsp+58h] [rbp-A8h] BYREF
+  char v107; // [rsp+60h] [rbp-A0h]
+  struct _LIST_ENTRY *v108; // [rsp+68h] [rbp-98h]
+  _OWORD v109[4]; // [rsp+80h] [rbp-80h] BYREF
+  int Blink; // [rsp+C0h] [rbp-40h]
+  _OWORD v111[4]; // [rsp+D0h] [rbp-30h] BYREF
+  int v112; // [rsp+110h] [rbp+10h]
+  _BYTE v113[64]; // [rsp+120h] [rbp+20h] BYREF
+  int v114; // [rsp+160h] [rbp+60h]
+  __int128 v115; // [rsp+170h] [rbp+70h] BYREF
+  __int64 v116; // [rsp+180h] [rbp+80h]
 
-  v3 = *((_QWORD *)this + 3);
-  p_Blink = 0LL;
-  v5 = *((_QWORD *)this + 2);
+  v3 = *((_QWORD *)this + 2);
+  v4 = *((_QWORD *)this + 3);
+  v5 = 0LL;
+  v108 = 0LL;
   v7 = *(_QWORD *)a2;
-  v112 = v3;
-  v116 = 0LL;
-  v10 = 0;
-  v113 = a3;
-  if ( (*(unsigned __int8 (__fastcall **)(const struct CVisualTree *))(v7 + 184))(a2) )
+  v105 = a3;
+  v9 = (__int64)a2;
+  if ( (*(unsigned __int8 (__fastcall **)(const struct CVisualTree *))(v7 + 200))(a2) )
   {
-    p_Blink = (struct _LIST_ENTRY **)(v5 + 336);
+    v5 = (struct _LIST_ENTRY *)(v3 + 320);
+LABEL_9:
+    v108 = v5;
+    goto LABEL_10;
   }
-  else
+  TreeDataListHead = CVisual::GetTreeDataListHead((CVisual *)v3);
+  if ( TreeDataListHead )
   {
-    TreeDataListHead = CVisual::GetTreeDataListHead((CVisual *)v5);
-    if ( !TreeDataListHead )
-      goto LABEL_4;
     Flink = TreeDataListHead->Flink;
-    if ( TreeDataListHead->Flink == TreeDataListHead )
-      goto LABEL_4;
-    while ( (const struct CVisualTree *)Flink[2].Flink != a2 )
+    if ( TreeDataListHead->Flink != TreeDataListHead )
     {
-      Flink = Flink->Flink;
-      if ( Flink == TreeDataListHead )
-        goto LABEL_4;
-    }
-    p_Blink = &Flink[-23].Blink;
-  }
-  v116 = p_Blink;
-LABEL_4:
-  v11 = *((_QWORD *)a2 + 8);
-  if ( v5 == v11 )
-  {
-    if ( v11 )
-      v12 = (__int128 *)((char *)a2 + 72);
-    else
-      v12 = &TMil3DRect<float,TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
-  }
-  else
-  {
-    v12 = (__int128 *)(v5 + 148);
-  }
-  v123 = *v12;
-  v124 = *((_QWORD *)v12 + 2);
-  *(_BYTE *)(v5 + 101) &= ~1u;
-  *((_BYTE *)p_Blink + 360) = 0;
-  *a3 = 1;
-  v13 = *(_DWORD *)(v5 + 208);
-  if ( v13 == -1 )
-    goto LABEL_13;
-  v14 = *((unsigned int *)this + 45);
-  v15 = 0LL;
-  v111 = 0LL;
-  if ( *((_DWORD *)this + 44) != (_DWORD)v14 )
-    goto LABEL_8;
-  v80 = 2 * v14;
-  if ( (unsigned __int64)(2 * v14) > 0xFFFFFFFF )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(0xFFFFFFFF, 0LL, 0, -2147024362, 0x64u, 0LL);
-    v3 = v112;
-  }
-  else
-  {
-    if ( v80 <= 0x40 )
-      v80 = 64;
-    v81 = HrMalloc(4uLL, v80, (void **)&v111);
-    if ( v81 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v82, 0LL, 0, v81, 0x6Bu, 0LL);
-    }
-    else
-    {
-      v83 = 4LL * *((unsigned int *)this + 44);
-      if ( v83 <= 0xFFFFFFFF )
+      while ( Flink[2].Flink != (struct _LIST_ENTRY *)v9 )
       {
-        v84 = v111;
-        memcpy_0(*(void **)&v111, *((const void **)this + 24), (unsigned int)v83);
-        operator delete(*((void **)this + 24));
-        *((struct D2D_POINT_2F *)this + 24) = v84;
-        v15 = 0LL;
-        *((_DWORD *)this + 45) = v80;
-        v3 = v112;
-LABEL_8:
-        *(_DWORD *)(*((_QWORD *)this + 24) + 4LL * *((unsigned int *)this + 44)) = v13;
-        v16 = *((_DWORD *)this + 50);
-        if ( v16 <= ++*((_DWORD *)this + 44) )
-          v16 = *((_DWORD *)this + 44);
-        *((_DWORD *)this + 50) = v16;
-        goto LABEL_11;
+        Flink = Flink->Flink;
+        if ( Flink == TreeDataListHead )
+          goto LABEL_10;
       }
-      MilInstrumentationCheckHR_MaybeFailFast(0xFFFFFFFF, 0LL, 0, -2147024362, 0x6Du, 0LL);
+      v5 = Flink - 18;
+      goto LABEL_9;
     }
-    v15 = (void *)v111;
-    v3 = v112;
   }
-LABEL_11:
-  if ( v15 )
+LABEL_10:
+  v12 = v9 + 64;
+  v13 = 0xFFFFFFFFLL;
+  if ( v3 != *(_QWORD *)(v9 + 56) )
+    v12 = v3 + 140;
+  v115 = *(_OWORD *)v12;
+  v116 = *(_QWORD *)(v12 + 16);
+  *(_BYTE *)(v3 + 93) &= ~4u;
+  LOBYTE(v5[18].Flink) &= ~1u;
+  *a3 = 1;
+  v14 = *(_DWORD *)(v3 + 200);
+  if ( v14 == -1 )
+    goto LABEL_23;
+  v15 = *((unsigned int *)this + 37);
+  v16 = *((_DWORD *)this + 36);
+  lpMem = 0LL;
+  if ( v16 != (_DWORD)v15 )
+    goto LABEL_20;
+  v17 = 2LL * (unsigned int)v15;
+  if ( v17 <= 0xFFFFFFFF )
   {
-    ProcessHeap = GetProcessHeap();
-    HeapFree(ProcessHeap, 0, v15);
+    if ( (unsigned int)v17 <= 0x40 )
+      LODWORD(v17) = 64;
+    v18 = HrMalloc(4uLL, (unsigned int)v17, &lpMem);
+    if ( v18 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x53u, 0LL);
+    }
+    else
+    {
+      v20 = 4LL * *((unsigned int *)this + 36);
+      if ( v20 <= 0xFFFFFFFF )
+      {
+        v21 = lpMem;
+        memcpy_0(lpMem, *((const void **)this + 20), (unsigned int)v20);
+        operator delete(*((void **)this + 20));
+        v16 = *((_DWORD *)this + 36);
+        *((_QWORD *)this + 20) = v21;
+        *((_DWORD *)this + 37) = v17;
+LABEL_20:
+        *(_DWORD *)(*((_QWORD *)this + 20) + 4LL * v16) = v14;
+        v22 = *((_DWORD *)this + 42);
+        if ( v22 <= ++*((_DWORD *)this + 36) )
+          v22 = *((_DWORD *)this + 36);
+        *((_DWORD *)this + 42) = v22;
+LABEL_23:
+        v23 = 0LL;
+        goto LABEL_24;
+      }
+      MilInstrumentationCheckHR_MaybeFailFast(0xFFFFFFFFLL, 0LL, 0, -2147024362, 0x55u, 0LL);
+    }
+    v30 = lpMem;
+    if ( lpMem )
+    {
+      ProcessHeap = GetProcessHeap();
+      HeapFree(ProcessHeap, 0, v30);
+    }
+    goto LABEL_23;
   }
-LABEL_13:
-  v17 = *((float *)&v124 + 1) <= *(float *)&v124;
-  if ( *((float *)&v123 + 2) <= *(float *)&v123 )
-    ++v17;
-  if ( *((float *)&v123 + 3) <= *((float *)&v123 + 1) )
-    ++v17;
-  if ( v17 > 1 || (*(_BYTE *)(v5 + 101) & 0x20) != 0 )
-    goto LABEL_85;
-  if ( !*(_DWORD *)(v5 + 108) && (**(_DWORD **)(v5 + 232) & 0x400000) != 0 )
+  v23 = 0LL;
+  MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, -2147024362, 0x4Cu, 0LL);
+LABEL_24:
+  v24 = *((float *)&v116 + 1) <= *(float *)&v116;
+  if ( *((float *)&v115 + 2) <= *(float *)&v115 )
+    ++v24;
+  if ( *((float *)&v115 + 3) <= *((float *)&v115 + 1) )
+    ++v24;
+  if ( v24 > 1 || *(char *)(v3 + 93) < 0 )
+    goto LABEL_198;
+  if ( !*(_DWORD *)(v3 + 100) && (**(_DWORD **)(v3 + 224) & 0x400000) != 0 )
   {
-    EffectInternal = CVisual::GetEffectInternal((CVisual *)v5);
+    EffectInternal = CVisual::GetEffectInternal((CVisual *)v3);
     if ( !(*(unsigned __int8 (__fastcall **)(struct CEffect *, __int64))(*(_QWORD *)EffectInternal + 56LL))(
             EffectInternal,
-            187LL) )
+            186LL) )
     {
       if ( !(*(unsigned __int8 (__fastcall **)(struct CEffect *, __int64))(*(_QWORD *)EffectInternal + 56LL))(
               EffectInternal,
-              58LL) )
-        goto LABEL_21;
-      EffectInternal = (struct CEffect *)*((_QWORD *)EffectInternal + 11);
+              56LL) )
+        goto LABEL_36;
+      EffectInternal = (struct CEffect *)*((_QWORD *)EffectInternal + 10);
     }
     if ( EffectInternal )
     {
-LABEL_85:
-      *v113 = 0;
-      return v10;
+LABEL_198:
+      result = 0LL;
+      *v105 = 0;
+      return result;
     }
   }
-LABEL_21:
-  v18 = (_QWORD *)(v5 + 232);
-  if ( !(*(unsigned __int8 (__fastcall **)(const struct CVisualTree *))(*(_QWORD *)a2 + 184LL))(a2) )
+LABEL_36:
+  if ( !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v9 + 200LL))(v9, v13) )
   {
-    TreeData = CVisual::FindTreeData((CVisual *)v5, a2);
+    TreeData = CVisual::FindTreeData((CVisual *)v3, (const struct CVisualTree *)v9);
     if ( TreeData )
     {
-      if ( *((_QWORD *)TreeData + 32) == *(_QWORD *)(*(_QWORD *)(*((_QWORD *)TreeData + 33) + 16LL) + 496LL) )
-        goto LABEL_85;
-    }
-  }
-  v19 = (_DWORD *)*v18;
-  if ( (*(_DWORD *)*v18 & 0x800000) != 0 )
-  {
-    v50 = (unsigned int)v19[1];
-    v51 = v19 + 2;
-    for ( i = 0LL; (unsigned int)i < (unsigned int)v50; ++v51 )
-    {
-      if ( *v51 == 9 )
-        break;
-      i = (unsigned int)(i + 1);
-    }
-    v53 = (unsigned int)i >= (unsigned int)v50
-        ? 0LL
-        : (__int64 *)((char *)v19 + 8 * i - (((_BYTE)v50 + 15) & 7) + v50 + 15);
-    v54 = *v53;
-    if ( v54 )
-    {
-      if ( (*(_BYTE *)(v54 + 192) & 8) != 0 )
-      {
-        InteractionInternal = CVisual::GetInteractionInternal((CVisual *)v5);
-        v90 = CHitTestContext::AdjustInputTypeForInteraction(
-                (__int64)this,
-                *((_DWORD *)this + 24),
-                (__int64)InteractionInternal);
-        v91 = v90;
-        if ( (*((_DWORD *)this + 24) == 2
-           || *((_DWORD *)this + 24) == 3
-           || *((_DWORD *)this + 24) == 4
-           || (unsigned int)(*((_DWORD *)this + 24) - 5) <= 1)
-          && (*(unsigned int (__fastcall **)(__int64, _QWORD, _QWORD))(*((_QWORD *)InteractionInternal + 8) + 80LL))(
-               (__int64)InteractionInternal + 64,
-               v90,
-               0LL)
-          && CHitTestContext::InteractionMatchesHitTest((__int64)this, v91, (__int64)InteractionInternal) )
-        {
-          InputTraceLogging::DWM::InputTransparencyEvaluation(InteractionInternal, 1);
-        }
-        else
-        {
-          InputTraceLogging::DWM::InputTransparencyEvaluation(InteractionInternal, 0);
-          if ( *((_BYTE *)this + 128) || *((_DWORD *)this + 24) != 2 || (*((_BYTE *)InteractionInternal + 192) & 3) == 0 )
-          {
-            *v113 = 0;
-            return v10;
-          }
-          if ( !*((_QWORD *)this + 15) )
-            *((_QWORD *)this + 15) = v5;
-        }
-        v3 = v112;
-      }
-    }
-  }
-  if ( !*v113 )
-    return v10;
-  v20 = *(_DWORD *)(v5 + 108) == 1;
-  v118 = 0;
-  v120 = 0;
-  v21 = v20;
-  if ( v3 && *(_DWORD *)(v3 + 108) == 1 )
-    LOBYTE(v10) = 1;
-  v22 = 1;
-  if ( !(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v5 + 216LL))(v5) )
-  {
-    if ( (*(_DWORD *)*v18 & 0x400000) == 0
-      || (v79 = CVisual::GetEffectInternal((CVisual *)v5),
-          !(*(unsigned __int8 (__fastcall **)(struct CEffect *, __int64))(*(_QWORD *)v79 + 56LL))(v79, 61LL)) )
-    {
-      v22 = 0;
-    }
-  }
-  if ( !v21 )
-    goto LABEL_33;
-  if ( (_BYTE)v10 )
-  {
-    if ( !v22 )
-    {
-LABEL_33:
-      v110 = 0;
-      goto LABEL_34;
-    }
-  }
-  else if ( !(unsigned int)CPtrArrayBase::GetCount((CPtrArrayBase *)(v5 + 80)) )
-  {
-    goto LABEL_33;
-  }
-  v110 = 1;
-LABEL_34:
-  v114 = (CGeometry *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v5 + 208LL))(v5);
-  if ( v114 )
-    v111 = (struct D2D_POINT_2F)v119;
-  else
-    v111 = 0LL;
-  if ( (*(unsigned __int8 (__fastcall **)(const struct CVisualTree *))(*(_QWORD *)a2 + 184LL))(a2) )
-  {
-    v25 = (struct _LIST_ENTRY **)(v5 + 336);
-  }
-  else
-  {
-    v92 = CVisual::GetTreeDataListHead((CVisual *)v5);
-    if ( !v92 )
-      goto LABEL_198;
-    v24 = v92->Flink;
-    if ( v92->Flink == v92 )
-      goto LABEL_198;
-    while ( 1 )
-    {
-      v25 = &v24[-23].Blink;
-      if ( (const struct CVisualTree *)v24[2].Flink == a2 )
-        break;
-      v24 = v24->Flink;
-      if ( v24 == v92 )
+      v27 = 0LL;
+      if ( g_pComposition )
+        v27 = *((_QWORD *)g_pComposition + 44);
+      if ( *((_BYTE *)TreeData + 18) && *((_QWORD *)TreeData + 35) == v27 )
         goto LABEL_198;
     }
   }
-  if ( !v25 )
+  v28 = *(_DWORD *)(v3 + 100);
+  Blink = 0;
+  v114 = 0;
+  v29 = v4 && *(_DWORD *)(v4 + 100) == 1;
+  v33 = 1;
+  if ( !(*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v3 + 232LL))(v3) )
   {
-LABEL_198:
-    v10 = -2003292412;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v24, 0LL, 0, -2003292412, 0x6AEu, 0LL);
-    MilInstrumentationCheckHR_MaybeFailFast(v93, 0LL, 0, -2003292412, 0x89u, 0LL);
-    return v10;
+    if ( (**(_DWORD **)(v3 + 224) & 0x400000) == 0
+      || (v32 = CVisual::GetEffectInternal((CVisual *)v3),
+          !(*(unsigned __int8 (__fastcall **)(struct CEffect *, __int64))(*(_QWORD *)v32 + 56LL))(v32, 59LL)) )
+    {
+      v33 = 0;
+    }
   }
-  v26 = 0LL;
-  LOBYTE(v23) = 0;
-  if ( v5 == *((_QWORD *)a2 + 8) )
-    goto LABEL_88;
-  v27 = (_DWORD *)*v18;
-  if ( (*(_DWORD *)*v18 & 0x1000000) != 0 )
+  if ( v28 != 1 )
+    goto LABEL_59;
+  if ( v29 )
   {
-    v23 = (unsigned int)v27[1];
-    v70 = v27 + 2;
-    for ( j = 0; j < (unsigned int)v23; ++v70 )
-    {
-      if ( *v70 == 8 )
-        break;
-      ++j;
-    }
-    if ( j >= (unsigned int)v23 )
-    {
-      v72 = 0LL;
-    }
-    else
-    {
-      v23 += 15LL;
-      v72 = (_QWORD **)((char *)v27 + 8LL * j - (v23 & 7) + v23);
-    }
-    v73 = *v72;
-    if ( v73 )
-      v26 = (struct CTreeData *)(*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)*v73 + 184LL))(*v73);
+    if ( !v33 )
+      goto LABEL_59;
   }
-  if ( (*(unsigned __int8 (__fastcall **)(const struct CVisualTree *, __int64))(*(_QWORD *)a2 + 184LL))(a2, v23) )
+  else if ( !(unsigned int)CPtrArrayBase::GetCount((CPtrArrayBase *)(v3 + 72)) )
   {
-    v28 = (struct _LIST_ENTRY **)(v5 + 336);
+LABEL_59:
+    v103 = 0;
+    goto LABEL_60;
+  }
+  v103 = 1;
+LABEL_60:
+  v34 = (CGeometry *)(*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v3 + 224LL))(v3);
+  v35 = *(_QWORD *)v9;
+  v36 = v113;
+  v106 = v34;
+  v37 = -2003292412;
+  if ( !v34 )
+    v36 = 0LL;
+  v38 = *(unsigned __int8 (__fastcall **)(__int64))(v35 + 200);
+  lpMem = v36;
+  if ( v38(v9) )
+  {
+    v40 = (struct _LIST_ENTRY *)(v3 + 320);
   }
   else
   {
-    v94 = CVisual::GetTreeDataListHead((CVisual *)v5);
-    if ( !v94 )
-      goto LABEL_46;
-    v95 = v94->Flink;
-    if ( v94->Flink == v94 )
-      goto LABEL_46;
+    v46 = CVisual::GetTreeDataListHead((CVisual *)v3);
+    if ( !v46 )
+      goto LABEL_111;
+    v39 = v46->Flink;
+    if ( v46->Flink == v46 )
+      goto LABEL_111;
     while ( 1 )
     {
-      v28 = &v95[-23].Blink;
-      if ( (const struct CVisualTree *)v95[2].Flink == a2 )
+      v40 = v39 - 18;
+      if ( v39[2].Flink == (struct _LIST_ENTRY *)v9 )
         break;
-      v95 = v95->Flink;
-      if ( v95 == v94 )
-        goto LABEL_46;
+      v39 = v39->Flink;
+      if ( v39 == v46 )
+        goto LABEL_111;
     }
   }
-  if ( v28 && v28[32] != v28[33][1].Flink[31].Flink && v26 )
+  if ( !v40 )
+    goto LABEL_111;
+  v37 = 0;
+  v102 = 0;
+  if ( v3 == *(_QWORD *)(v9 + 56) )
+    goto LABEL_95;
+  v41 = 0LL;
+  if ( g_pComposition )
+    v41 = (struct _LIST_ENTRY *)*((_QWORD *)g_pComposition + 44);
+  if ( (!BYTE2(v40[1].Flink) || v40[17].Blink != v41)
+    && (**(_DWORD **)(v3 + 224) & 0x1000000) != 0
+    && ((Slot = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(*(_QWORD *)(v3 + 224), 8LL),
+         v44 = *(unsigned int *)(v43 + 4),
+         Slot >= (unsigned int)v44)
+      ? (v45 = 0LL)
+      : (v45 = (_QWORD **)(v44 + 15 + v43 + 8LL * Slot - (((_BYTE)v44 + 15) & 7))),
+        *v45 && (v47 = (CVisual *)(*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)**v45 + 200LL))(**v45)) != 0LL) )
   {
-    v26 = CVisual::FindTreeData(v26, a2);
-    LOBYTE(v23) = 1;
-    goto LABEL_49;
-  }
-LABEL_46:
-  v29 = *(CVisual **)(v5 + 88);
-  v26 = 0LL;
-  if ( (*(unsigned __int8 (__fastcall **)(const struct CVisualTree *))(*(_QWORD *)a2 + 184LL))(a2) )
-  {
-    v26 = (CVisual *)((char *)v29 + 336);
+    v102 = 1;
+    v23 = CVisual::FindTreeData(v47, (const struct CVisualTree *)v9);
   }
   else
   {
-    v96 = CVisual::GetTreeDataListHead(v29);
-    if ( v96 )
+    v48 = *(CVisual **)(v3 + 80);
+    v23 = 0LL;
+    if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v9 + 200LL))(v9) )
     {
-      v97 = v96->Flink;
-      if ( v96->Flink != v96 )
+      v23 = (CVisual *)((char *)v48 + 320);
+    }
+    else
+    {
+      v49 = CVisual::GetTreeDataListHead(v48);
+      if ( v49 )
       {
-        while ( (const struct CVisualTree *)v97[2].Flink != a2 )
+        v39 = v49->Flink;
+        if ( v49->Flink != v49 )
         {
-          v97 = v97->Flink;
-          if ( v97 == v96 )
-            goto LABEL_48;
+          while ( v39[2].Flink != (struct _LIST_ENTRY *)v9 )
+          {
+            v39 = v39->Flink;
+            if ( v39 == v49 )
+              goto LABEL_92;
+          }
+          v23 = (struct CTreeData *)&v39[-18];
         }
-        v26 = (struct CTreeData *)&v97[-23].Blink;
       }
     }
+LABEL_92:
+    v36 = lpMem;
   }
-LABEL_48:
-  LOBYTE(v23) = 0;
-LABEL_49:
-  if ( v26 )
+  if ( !v23 )
+LABEL_95:
+    v50 = 1LL;
+  else
+    v50 = *((_QWORD *)v23 + 15);
+  if ( v40[7].Blink >= (struct _LIST_ENTRY *)v50 )
   {
-    v30 = *((_QWORD *)v26 + 31);
-    goto LABEL_51;
+    v23 = 0LL;
   }
-LABEL_88:
-  v30 = 0LL;
-  if ( g_pComposition )
-    v30 = *((_QWORD *)g_pComposition + 62);
-LABEL_51:
-  if ( (unsigned __int64)v25[31] < v30 )
-    CVisual::UpdateWorldTransform((CVisual *)v5, a2, (struct CTreeData *)v25, v23, v26);
-  if ( !v25[31] )
-    ModuleFailFastForHRESULT(2291674884LL, retaddr);
-  v31 = v111;
-  v32 = *((_DWORD *)v25 + 88);
-  v117[0] = *((_OWORD *)v25 + 18);
-  v118 = v32;
-  v33 = *((_OWORD *)v25 + 20);
-  v117[1] = *((_OWORD *)v25 + 19);
-  v117[2] = v33;
-  v117[3] = *((_OWORD *)v25 + 21);
-  if ( v111 )
+  else
   {
-    v60 = v25[34];
-    if ( v60 )
+    updated = CVisual::UpdateWorldTransform(
+                (CVisual *)v3,
+                (const struct CVisualTree *)v9,
+                (struct CTreeData *)v40,
+                v102,
+                v23);
+    v23 = 0LL;
+    v37 = updated;
+    if ( updated < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)v39, 0LL, 0, updated, 0x7B0u, 0LL);
+  }
+  if ( v37 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v39, 0LL, 0, v37, 0x6FAu, 0LL);
+  }
+  else
+  {
+    if ( !v40[7].Blink )
     {
-      v61 = v60[1];
-      *(struct _LIST_ENTRY *)*(_QWORD *)&v111 = *v60;
-      v62 = v60[2];
-      *(struct _LIST_ENTRY *)(*(_QWORD *)&v31 + 16LL) = v61;
-      v63 = v60[3];
-      v64 = (int)v60[4].Flink;
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)v39, 0LL, 0, -2003292412, 0x69u, 0LL);
+      v37 = -2003292412;
+      MilInstrumentationCheckHR_MaybeFailFast(v63, 0LL, 0, -2003292412, 0x6FFu, 0LL);
+      ShapeData = -2003292412;
+LABEL_108:
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)v39, 0LL, 0, v37, 0x61u, 0LL);
+      return ShapeData;
+    }
+    Blink = (int)v40[6].Blink;
+    v52 = *(_OWORD *)&v40[3].Blink;
+    v109[0] = *(struct _LIST_ENTRY *)((char *)v40 + 40);
+    v109[1] = v52;
+    v53 = *(_OWORD *)&v40[5].Blink;
+    v109[2] = *(struct _LIST_ENTRY *)((char *)v40 + 72);
+    v109[3] = v53;
+    if ( v36 )
+    {
+      v54 = v40[7].Flink;
+      if ( v54 )
+      {
+        v37 = 0;
+        v55 = v54[1];
+        *v36 = *v54;
+        v56 = v54[2];
+        v36[1] = v55;
+        v57 = v54[3];
+        v58 = (int)v54[4].Flink;
+        v36[2] = v56;
+        v36[3] = v57;
+        *((_DWORD *)v36 + 16) = v58;
+        goto LABEL_111;
+      }
+      v59 = (int)v40[6].Blink;
+      v60 = *(_OWORD *)&v40[3].Blink;
+      *v36 = *(_OWORD *)&v40[2].Blink;
+      v61 = *(_OWORD *)&v40[4].Blink;
+      v36[1] = v60;
+      v62 = *(_OWORD *)&v40[5].Blink;
+      v36[2] = v61;
+      v36[3] = v62;
+      *((_DWORD *)v36 + 16) = v59;
+    }
+    v37 = 0;
+  }
+LABEL_111:
+  ShapeData = v37;
+  if ( v37 < 0 )
+    goto LABEL_108;
+  if ( v3 != *(_QWORD *)(v9 + 56) )
+  {
+    v66 = *(_QWORD *)v9;
+    v67 = *(CVisual ***)(v3 + 80);
+    v68 = -2003292412;
+    v112 = 0;
+    lpMem = v67;
+    if ( (*(unsigned __int8 (__fastcall **)(__int64))(v66 + 200))(v9) )
+    {
+      v70 = (struct _LIST_ENTRY *)(v67 + 40);
     }
     else
     {
-      v64 = *((_DWORD *)v25 + 88);
-      v69 = *((_OWORD *)v25 + 19);
-      *(_OWORD *)*(_QWORD *)&v111 = *((_OWORD *)v25 + 18);
-      v62 = (struct _LIST_ENTRY)*((_OWORD *)v25 + 20);
-      *(_OWORD *)(*(_QWORD *)&v31 + 16LL) = v69;
-      v63 = (struct _LIST_ENTRY)*((_OWORD *)v25 + 21);
-    }
-    *(struct _LIST_ENTRY *)(*(_QWORD *)&v31 + 32LL) = v62;
-    *(struct _LIST_ENTRY *)(*(_QWORD *)&v31 + 48LL) = v63;
-    *(_DWORD *)(*(_QWORD *)&v31 + 64LL) = v64;
-  }
-  v10 = 0;
-  if ( v5 != *((_QWORD *)a2 + 8) )
-  {
-    v34 = *(_QWORD *)(v5 + 88);
-    v35 = 0LL;
-    v36 = *(_QWORD *)a2;
-    v122 = 0;
-    if ( (*(unsigned __int8 (__fastcall **)(const struct CVisualTree *, __int64))(v36 + 184))(a2, v23) )
-    {
-      v39 = (struct CTreeData *)(v34 + 336);
-    }
-    else
-    {
-      v98 = CVisual::GetTreeDataListHead((CVisual *)v34);
-      if ( !v98 )
-        goto LABEL_215;
-      v38 = v98->Flink;
-      if ( v98->Flink == v98 )
-        goto LABEL_215;
+      v76 = CVisual::GetTreeDataListHead((CVisual *)v67);
+      if ( !v76 )
+        goto LABEL_154;
+      v69 = v76->Flink;
+      if ( v76->Flink == v76 )
+        goto LABEL_154;
       while ( 1 )
       {
-        v39 = (struct CTreeData *)&v38[-23].Blink;
-        if ( (const struct CVisualTree *)v38[2].Flink == a2 )
+        v70 = v69 - 18;
+        if ( v69[2].Flink == (struct _LIST_ENTRY *)v9 )
           break;
-        v38 = v38->Flink;
-        if ( v38 == v98 )
-          goto LABEL_215;
+        v69 = v69->Flink;
+        if ( v69 == v76 )
+          goto LABEL_154;
       }
     }
-    if ( v39 )
+    if ( v70 )
     {
-      LOBYTE(v37) = 0;
-      v109 = 0;
-      if ( v34 == *((_QWORD *)a2 + 8) )
-        goto LABEL_90;
-      v40 = *(_DWORD **)(v34 + 232);
-      if ( (*v40 & 0x1000000) != 0 )
+      v68 = 0;
+      v102 = 0;
+      if ( v67 == *(CVisual ***)(v9 + 56) )
+        goto LABEL_144;
+      v71 = 0LL;
+      if ( g_pComposition )
+        v71 = (struct _LIST_ENTRY *)*((_QWORD *)g_pComposition + 44);
+      if ( (!BYTE2(v70[1].Flink) || v70[17].Blink != v71)
+        && (*(_DWORD *)v67[28] & 0x1000000) != 0
+        && ((v72 = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(v67[28], 8LL),
+             v74 = *(unsigned int *)(v73 + 4),
+             v72 >= (unsigned int)v74)
+          ? (v75 = 0LL)
+          : (v75 = (_QWORD **)(v74 + 15 + v73 + 8LL * v72 - (((_BYTE)v74 + 15) & 7))),
+            *v75 && (v77 = (CVisual *)(*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)**v75 + 200LL))(**v75)) != 0LL) )
       {
-        v37 = (unsigned int)v40[1];
-        v74 = v40 + 2;
-        for ( k = 0; k < (unsigned int)v37; ++v74 )
+        v102 = 1;
+        v23 = CVisual::FindTreeData(v77, (const struct CVisualTree *)v9);
+      }
+      else
+      {
+        v78 = v67[10];
+        v23 = 0LL;
+        if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v9 + 200LL))(v9) )
         {
-          if ( *v74 == 8 )
-            break;
-          ++k;
-        }
-        if ( k >= (unsigned int)v37 )
-        {
-          v76 = 0LL;
+          v23 = (CVisual *)((char *)v78 + 320);
         }
         else
         {
-          v37 += 15LL;
-          v76 = (_QWORD **)((char *)v40 + 8LL * k - (v37 & 7) + v37);
-        }
-        v77 = *v76;
-        if ( v77 )
-          v35 = (struct CTreeData *)(*(__int64 (__fastcall **)(_QWORD))(*(_QWORD *)*v77 + 184LL))(*v77);
-      }
-      if ( (*(unsigned __int8 (__fastcall **)(const struct CVisualTree *, __int64))(*(_QWORD *)a2 + 184LL))(a2, v37) )
-      {
-        v41 = (struct _LIST_ENTRY **)(v34 + 336);
-      }
-      else
-      {
-        v100 = CVisual::GetTreeDataListHead((CVisual *)v34);
-        if ( !v100 )
-          goto LABEL_66;
-        v101 = v100->Flink;
-        if ( v100->Flink == v100 )
-          goto LABEL_66;
-        while ( 1 )
-        {
-          v41 = &v101[-23].Blink;
-          if ( (const struct CVisualTree *)v101[2].Flink == a2 )
-            break;
-          v101 = v101->Flink;
-          if ( v101 == v100 )
-            goto LABEL_66;
-        }
-      }
-      if ( v41 && v41[32] != v41[33][1].Flink[31].Flink && v35 )
-      {
-        v35 = CVisual::FindTreeData(v35, a2);
-        LOBYTE(v37) = 1;
-        goto LABEL_69;
-      }
-LABEL_66:
-      v35 = 0LL;
-      v111 = *(struct D2D_POINT_2F *)(v34 + 88);
-      if ( (*(unsigned __int8 (__fastcall **)(const struct CVisualTree *))(*(_QWORD *)a2 + 184LL))(a2) )
-      {
-        v35 = (struct CTreeData *)(*(_QWORD *)&v111 + 336LL);
-      }
-      else
-      {
-        v102 = CVisual::GetTreeDataListHead(*(CVisual **)&v111);
-        if ( v102 )
-        {
-          v103 = v102->Flink;
-          if ( v102->Flink != v102 )
+          v79 = CVisual::GetTreeDataListHead(v78);
+          if ( v79 )
           {
-            while ( (const struct CVisualTree *)v103[2].Flink != a2 )
+            v69 = v79->Flink;
+            if ( v79->Flink != v79 )
             {
-              v103 = v103->Flink;
-              if ( v103 == v102 )
-                goto LABEL_68;
+              while ( v69[2].Flink != (struct _LIST_ENTRY *)v9 )
+              {
+                v69 = v69->Flink;
+                if ( v69 == v79 )
+                  goto LABEL_141;
+              }
+              v23 = (struct CTreeData *)&v69[-18];
             }
-            v35 = (struct CTreeData *)&v103[-23].Blink;
           }
         }
+LABEL_141:
+        v67 = (CVisual **)lpMem;
       }
-LABEL_68:
-      LOBYTE(v37) = 0;
-LABEL_69:
-      if ( v35 )
+      if ( !v23 )
+LABEL_144:
+        v80 = 1LL;
+      else
+        v80 = *((_QWORD *)v23 + 15);
+      if ( v70[7].Blink < (struct _LIST_ENTRY *)v80 )
       {
-        v42 = *((_QWORD *)v35 + 31);
-LABEL_71:
-        if ( *((_QWORD *)v39 + 31) < v42 )
-          CVisual::UpdateWorldTransform((CVisual *)v34, a2, v39, v37, v35);
-        CTreeData::GetWorldTransform(v39, (struct CMILMatrix *)v121, &v109, 0LL);
-        v10 = 0;
-        CMILMatrix::Transform3DBoundsHelper<1>((CMILMatrix *)v121);
-        goto LABEL_74;
+        v81 = CVisual::UpdateWorldTransform(
+                (CVisual *)v67,
+                (const struct CVisualTree *)v9,
+                (struct CTreeData *)v70,
+                v102,
+                v23);
+        v68 = v81;
+        if ( v81 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast((__int64)v69, 0LL, 0, v81, 0x7B0u, 0LL);
       }
-LABEL_90:
-      v42 = 0LL;
-      if ( g_pComposition )
-        v42 = *((_QWORD *)g_pComposition + 62);
-      goto LABEL_71;
+      if ( v68 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast((__int64)v69, 0LL, 0, v68, 0x6FAu, 0LL);
+      }
+      else
+      {
+        if ( !v70[7].Blink )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast((__int64)v69, 0LL, 0, -2003292412, 0x69u, 0LL);
+          v68 = -2003292412;
+          MilInstrumentationCheckHR_MaybeFailFast(v82, 0LL, 0, -2003292412, 0x6FFu, 0LL);
+          ShapeData = -2003292412;
+          goto LABEL_152;
+        }
+        v68 = 0;
+        v111[0] = *(struct _LIST_ENTRY *)((char *)v70 + 40);
+        v111[1] = *(struct _LIST_ENTRY *)((char *)v70 + 56);
+        v111[2] = *(struct _LIST_ENTRY *)((char *)v70 + 72);
+        v111[3] = *(struct _LIST_ENTRY *)((char *)v70 + 88);
+        v112 = (int)v70[6].Blink;
+      }
     }
-LABEL_215:
-    v10 = -2003292412;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v38, 0LL, 0, -2003292412, 0x6AEu, 0LL);
-    MilInstrumentationCheckHR_MaybeFailFast(v99, 0LL, 0, -2003292412, 0x91u, 0LL);
-    return v10;
+LABEL_154:
+    ShapeData = v68;
+    if ( v68 >= 0 )
+    {
+      CMILMatrix::Transform3DBoundsHelper<1>(v111, &v115, &v115);
+      goto LABEL_156;
+    }
+LABEL_152:
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v69, 0LL, 0, v68, 0x69u, 0LL);
+    return ShapeData;
   }
-LABEL_74:
-  v43 = *((float *)this + 22);
-  if ( v43 < *(float *)&v123
-    || *((float *)&v123 + 2) <= v43
-    || (v44 = *((float *)this + 23), v44 < *((float *)&v123 + 1))
-    || *((float *)&v123 + 3) <= v44 )
+LABEL_156:
+  v83 = *((float *)this + 22);
+  if ( v83 < *(float *)&v115
+    || *((float *)&v115 + 2) <= v83
+    || (v84 = *((float *)this + 23), v84 < *((float *)&v115 + 1))
+    || *((float *)&v115 + 3) <= v84 )
   {
-    if ( v110 )
-      return v10;
-    goto LABEL_83;
+    v101 = v105;
+    v97 = v103;
+    goto LABEL_195;
   }
-  v45 = (_DWORD *)*v18;
-  if ( (*(_DWORD *)*v18 & 0x800000) == 0 )
-    goto LABEL_79;
-  v55 = (unsigned int)v45[1];
-  v56 = v45 + 2;
-  for ( m = 0LL; (unsigned int)m < (unsigned int)v55; ++v56 )
+  v89 = 0;
+  if ( (**(_DWORD **)(v3 + 224) & 0x800000) != 0 )
   {
-    if ( *v56 == 9 )
-      break;
-    m = (unsigned int)(m + 1);
+    v85 = CSparseAlignedStorage<8,8>::AllocatedStorage::FindSlot(*(_QWORD *)(v3 + 224), 9LL);
+    v87 = *(unsigned int *)(v86 + 4);
+    v88 = v85 >= (unsigned int)v87 ? 0LL : (_QWORD *)(v87 + 15 + v86 + 8LL * v85 - (((_BYTE)v87 + 15) & 7));
+    if ( *v88 && *((_QWORD *)CVisual::GetInteractionInternal((CVisual *)v3) + 34) )
+      v89 = 1;
   }
-  v58 = (unsigned int)m >= (unsigned int)v55
-      ? 0LL
-      : (_QWORD *)((char *)v45 + 8 * m - (((_BYTE)v55 + 15) & 7) + v55 + 15);
-  if ( *v58 && *((_QWORD *)CVisual::GetInteractionInternal((CVisual *)v5) + 35) )
-    v46 = 1;
-  else
-LABEL_79:
-    v46 = 0;
-  v47 = (*((_BYTE *)this + 240) & 2) != 0;
-  *(_BYTE *)(v5 + 101) |= 1u;
-  v48 = v114;
-  if ( !v114 )
+  v90 = *((_DWORD *)this + 52);
+  *(_BYTE *)(v3 + 93) |= 4u;
+  v91 = v90 & 2;
+  v92 = v106;
+  if ( !v106 )
   {
-    if ( v46
-      && v47
+    if ( v89
+      && v91
       && CHitTestContext::GetPointInLocalSpace(
            (const struct D2D_POINT_2F *)this + 11,
-           (const struct CMILMatrix *)v117,
-           &v111) )
+           (const struct CMILMatrix *)v109,
+           (struct D2D_POINT_2F *)&lpMem) )
     {
-      v59 = CVisual::GetInteractionInternal((CVisual *)v5);
-      CInteraction::PushHoverPointer(v59, &v111);
+      InteractionInternal = CVisual::GetInteractionInternal((CVisual *)v3);
+      CInteraction::PushHoverPointer(InteractionInternal, (const struct D2D_POINT_2F *)&lpMem);
     }
-    goto LABEL_82;
+    goto LABEL_185;
   }
-  v114 = 0LL;
-  v115 = 0;
-  ShapeData = CGeometry::GetShapeData(v48, (const struct D2D_SIZE_F *)(v5 + 140), (struct CShapePtr *)&v114);
-  v10 = ShapeData;
-  if ( ShapeData < 0 )
+  v106 = 0LL;
+  v107 = 0;
+  ShapeData = CGeometry::GetShapeData(v92, (const struct D2D_SIZE_F *)(v3 + 132), (struct CShapePtr *)&v106);
+  if ( (ShapeData & 0x80000000) != 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v66, 0LL, 0, ShapeData, 0xA7u, 0LL);
-    goto LABEL_233;
+    MilInstrumentationCheckHR_MaybeFailFast(v93, 0LL, 0, ShapeData, 0x7Fu, 0LL);
+    goto LABEL_180;
   }
-  if ( v114
+  if ( v106
     && CHitTestContext::GetPointInLocalSpace(
          (const struct D2D_POINT_2F *)this + 11,
-         (const struct CMILMatrix *)v119,
-         &v111) )
+         (const struct CMILMatrix *)v113,
+         (struct D2D_POINT_2F *)&lpMem) )
   {
-    v67 = CShapePtr::FillContainsPoint((CShapePtr *)&v114, &v111, &v109);
-    v10 = v67;
-    if ( v67 >= 0 )
+    ShapeData = CShapePtr::FillContainsPoint(&v106, (const struct D2D_POINT_2F *)&lpMem, &v102);
+    if ( (ShapeData & 0x80000000) == 0 )
     {
-      *(_BYTE *)(v5 + 101) ^= (*(_BYTE *)(v5 + 101) ^ v109) & 1;
-      if ( (*(_BYTE *)(v5 + 101) & 1) != 0 && v46 && v47 )
+      *(_BYTE *)(v3 + 93) ^= (*(_BYTE *)(v3 + 93) ^ (4 * v102)) & 4;
+      if ( (*(_BYTE *)(v3 + 93) & 4) != 0 && v89 && v91 )
       {
-        v104 = CVisual::GetInteractionInternal((CVisual *)v5);
-        CInteraction::PushHoverPointer(v104, &v111);
+        v95 = CVisual::GetInteractionInternal((CVisual *)v3);
+        CInteraction::PushHoverPointer(v95, (const struct D2D_POINT_2F *)&lpMem);
       }
-      goto LABEL_121;
+      goto LABEL_177;
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v68, 0LL, 0, v67, 0xAFu, 0LL);
-LABEL_233:
-    CShapePtr::Release((CShapePtr *)&v114);
-    return v10;
+    MilInstrumentationCheckHR_MaybeFailFast(v94, 0LL, 0, ShapeData, 0x87u, 0LL);
+LABEL_180:
+    CShapePtr::Release((CShapePtr *)&v106);
+    return ShapeData;
   }
-LABEL_121:
-  CShapePtr::Release((CShapePtr *)&v114);
-LABEL_82:
-  if ( !v110 )
+LABEL_177:
+  CShapePtr::Release((CShapePtr *)&v106);
+LABEL_185:
+  v97 = v103;
+  if ( v103 )
   {
-LABEL_83:
-    *v113 = *(_BYTE *)(v5 + 101) & 1;
-    return v10;
-  }
-  if ( CVisual::HasBspPolygonList((CVisual *)v5) && (*(_BYTE *)(v5 + 101) & 1) != 0 )
-  {
-    v120 = 0;
-    v109 = 0;
-    CVisual::CalcTransform((CVisual *)v5, a2, 0LL, &v109, (struct CMILMatrix *)v119, 0LL);
-    CMatrixStack::Push((CHitTestContext *)((char *)this + 208), (const struct CMILMatrix *)v119, 0);
-    *((_BYTE *)v116 + 360) = 1;
-    LODWORD(v105) = CVisual::GetBspPolygonListCount((CVisual *)v5);
-    if ( (_DWORD)v105 )
+    if ( CVisual::HasBspPolygonList((CVisual *)v3) && (*(_BYTE *)(v3 + 93) & 4) != 0 )
     {
-      while ( !*((_QWORD *)this + 14) )
+      v114 = 0;
+      v102 = 0;
+      CVisual::CalcCpuClippingTransform(v3, 5, v9, 0LL, &v102, (CMILMatrix *)v113, 0LL);
+      CMatrixStack::Push((CHitTestContext *)((char *)this + 176), (const struct CMILMatrix *)v113, 0);
+      LOBYTE(v108[18].Flink) |= 1u;
+      LODWORD(v9) = CVisual::GetBspPolygonListCount((CVisual *)v3);
+      if ( (_DWORD)v9 )
       {
-        v105 = (unsigned int)(v105 - 1);
-        BspPolygonList = (_QWORD *)CVisual::GetBspPolygonList(v5);
-        v107 = CHitTestContext::BspHitTest(
-                 this,
-                 (const struct CMILMatrix *)v117,
-                 *(struct CPolygon **)(*BspPolygonList + 8 * v105));
-        v10 = v107;
-        if ( v107 < 0 )
+        while ( !*((_QWORD *)this + 14) )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v108, 0LL, 0, v107, 0xD6u, 0LL);
-          return v10;
+          v9 = (unsigned int)(v9 - 1);
+          BspPolygonList = (_QWORD *)CVisual::GetBspPolygonList(v3);
+          v99 = CHitTestContext::BspHitTest(
+                  this,
+                  (const struct CMILMatrix *)v109,
+                  *(struct CPolygon **)(*BspPolygonList + 8 * v9));
+          ShapeData = v99;
+          if ( v99 < 0 )
+          {
+            MilInstrumentationCheckHR_MaybeFailFast(v100, 0LL, 0, v99, 0xAEu, 0LL);
+            return ShapeData;
+          }
+          if ( !(_DWORD)v9 )
+            break;
         }
-        if ( !(_DWORD)v105 )
-          break;
       }
     }
+    v101 = v105;
+    *v105 = 0;
+LABEL_195:
+    if ( !v97 )
+    {
+      *v101 = (*(_BYTE *)(v3 + 93) & 4) != 0;
+      return ShapeData;
+    }
+    return ShapeData;
   }
-  *v113 = 0;
-  return v10;
+  *v105 = (*(_BYTE *)(v3 + 93) & 4) != 0;
+  return ShapeData;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpSetMark @ 0x1409E386C
+ * XREFs of EtwpSetMark @ 0x1409373DC
  * Callers:
- *     NtTraceEvent @ 0x1402FE320 (NtTraceEvent.c)
- *     EtwpLogRefSetAutoMark @ 0x1409EA6C0 (EtwpLogRefSetAutoMark.c)
+ *     NtTraceEvent @ 0x14025CC60 (NtTraceEvent.c)
+ *     EtwpLogRefSetAutoMark @ 0x14093DE54 (EtwpLogRefSetAutoMark.c)
  * Callees:
- *     EtwpLogSystemEventUnsafe @ 0x1403AB658 (EtwpLogSystemEventUnsafe.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MmEmptyAllWorkingSets @ 0x140597560 (MmEmptyAllWorkingSets.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     MmIdentifyPhysicalMemory @ 0x14096B768 (MmIdentifyPhysicalMemory.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1403AEB1C (EtwpLogSystemEventUnsafe.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MmEmptyAllWorkingSets @ 0x14053C804 (MmEmptyAllWorkingSets.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     MmIdentifyPhysicalMemory @ 0x1408C70B8 (MmIdentifyPhysicalMemory.c)
  */
 
 __int64 __fastcall EtwpSetMark(__int64 a1, int *a2, unsigned int a3, char a4, KPROCESSOR_MODE PreviousMode)
@@ -57,17 +57,17 @@ __int64 __fastcall EtwpSetMark(__int64 a1, int *a2, unsigned int a3, char a4, KP
       v16 = 2;
       v17 = 0;
       EtwpLogSystemEventUnsafe(
-        *(_QWORD *)(a1 + 1096),
+        *(_QWORD *)(a1 + 1080),
         (__int64)&v12,
         KeGetCurrentThread(),
         *(_DWORD *)a1,
         2u,
-        0xF22u,
+        3874,
         0x3100u,
         PreviousMode,
         v11);
       if ( v9 )
-        MmIdentifyPhysicalMemory(*(_QWORD *)(a1 + 1096), *(_DWORD *)a1, 0x275u, 1);
+        MmIdentifyPhysicalMemory(*(_QWORD *)(a1 + 1080), *(_DWORD *)a1, 629LL, (_DWORD *)1);
     }
     else
     {

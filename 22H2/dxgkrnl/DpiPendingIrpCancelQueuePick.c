@@ -1,28 +1,26 @@
 /*
- * XREFs of DpiPendingIrpCancelQueuePick @ 0x1C0023CF0
+ * XREFs of DpiPendingIrpCancelQueuePick @ 0x1C0052DC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-struct _LIST_ENTRY **__fastcall DpiPendingIrpCancelQueuePick(PIO_CSQ Csq, PIRP Irp, struct _LIST_ENTRY **PeekContext)
+PIO_CSQ_PEEK_NEXT_IRP *__fastcall DpiPendingIrpCancelQueuePick(PIO_CSQ Csq, PIRP Irp, PIO_CSQ_PEEK_NEXT_IRP *PeekContext)
 {
-  struct _LIST_ENTRY **v3; // rcx
-  struct _LIST_ENTRY *Flink; // rax
+  struct _IO_CSQ *Flink; // rax
 
-  v3 = (struct _LIST_ENTRY **)&Csq[1];
   if ( Irp )
-    Flink = Irp->Tail.Overlay.ListEntry.Flink;
+    Flink = (struct _IO_CSQ *)Irp->Tail.Overlay.ListEntry.Flink;
   else
-    Flink = *v3;
+    Flink = *(struct _IO_CSQ **)&Csq[1].Type;
   while ( 1 )
   {
-    if ( Flink == (struct _LIST_ENTRY *)v3 )
+    if ( Flink == &Csq[1] )
       return 0LL;
-    if ( PeekContext == &Flink[-11].Blink || !PeekContext )
+    if ( PeekContext == &Flink[-3].CsqPeekNextIrp || !PeekContext )
       break;
-    Flink = Flink->Flink;
+    Flink = *(struct _IO_CSQ **)&Flink->Type;
   }
-  return &Flink[-11].Blink;
+  return &Flink[-3].CsqPeekNextIrp;
 }

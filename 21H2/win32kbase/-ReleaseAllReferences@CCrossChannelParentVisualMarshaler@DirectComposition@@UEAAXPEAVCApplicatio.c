@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseAllReferences@CCrossChannelParentVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0007EE0
+ * XREFs of ?ReleaseAllReferences@CCrossChannelParentVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F81E0
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseAllReferences@CVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00942D0 (-ReleaseAllReferences@CVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z.c)
+ *     ?ReleaseAllReferences@CVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0086670 (-ReleaseAllReferences@CVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z.c)
  */
 
 void __fastcall DirectComposition::CCrossChannelParentVisualMarshaler::ReleaseAllReferences(
@@ -13,11 +13,11 @@ void __fastcall DirectComposition::CCrossChannelParentVisualMarshaler::ReleaseAl
   _QWORD *v4; // rdx
 
   DirectComposition::CVisualMarshaler::ReleaseAllReferences(this, a2);
-  v4 = (_QWORD *)*((_QWORD *)this + 48);
+  v4 = (_QWORD *)*((_QWORD *)this + 46);
   if ( v4 )
   {
     *v4 = *((_QWORD *)a2 + 49);
     *((_QWORD *)a2 + 49) = v4;
-    *((_QWORD *)this + 48) = 0LL;
+    *((_QWORD *)this + 46) = 0LL;
   }
 }

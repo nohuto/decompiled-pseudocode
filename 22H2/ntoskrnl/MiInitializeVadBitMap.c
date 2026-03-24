@@ -1,35 +1,48 @@
 /*
- * XREFs of MiInitializeVadBitMap @ 0x1406B2CE4
+ * XREFs of MiInitializeVadBitMap @ 0x1406FBDC4
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406B2A9C (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x1406FBB04 (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     MiInitializeVadCellBitMap @ 0x1406B2D54 (MiInitializeVadCellBitMap.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x140294EE0 (UNLOCK_ADDRESS_SPACE.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14029590C (LOCK_ADDRESS_SPACE.c)
+ *     MiExpandVadBitMap @ 0x1406FBEB0 (MiExpandVadBitMap.c)
  */
 
-__int64 MiInitializeVadBitMap()
+__int64 __fastcall MiInitializeVadBitMap(int a1)
 {
-  int v0; // edx
-  unsigned __int64 v1; // rdi
-  _KPROCESS *Process; // rcx
-  __int64 v3; // rbx
-  unsigned __int64 *v4; // rsi
+  struct _KTHREAD *CurrentThread; // r15
+  unsigned int v2; // edi
+  __int64 v4; // r14
+  __int64 Process; // r13
+  __int64 v6; // rbp
+  __int64 *i; // rsi
+  unsigned __int64 v8; // rcx
+  int v9; // ebx
 
-  v0 = 0;
-  v1 = 0LL;
-  Process = KeGetCurrentThread()->ApcState.Process;
-  v3 = Process[1].ActiveProcessors.StaticBitmap[28] + 48;
-  v4 = (unsigned __int64 *)(Process[1].ActiveProcessors.StaticBitmap[28] + 264);
-  if ( *v4 )
+  CurrentThread = KeGetCurrentThread();
+  v2 = 0;
+  v4 = 0LL;
+  Process = (__int64)CurrentThread->ApcState.Process;
+  v6 = *(_QWORD *)(Process + 1680);
+  if ( *(_QWORD *)(v6 + 264) )
   {
-    do
+    for ( i = (__int64 *)(v6 + 64); ; i += 9 )
     {
-      v0 = MiInitializeVadCellBitMap(v3, 0LL);
-      if ( v0 < 0 )
+      v8 = (unsigned __int64)i[6] >> 15 << 12;
+      *i = i[6] & 0x7FFF;
+      *(i - 1) = qword_140C4E360 + 4 * (v8 >> 2);
+      if ( a1 == 1 )
+        *(i - 2) = 0LL;
+      LOCK_ADDRESS_SPACE((__int64)CurrentThread, Process);
+      v9 = MiExpandVadBitMap(i - 2, 1LL);
+      i[2] = *i;
+      UNLOCK_ADDRESS_SPACE((__int64)CurrentThread, Process);
+      if ( !v9 )
         break;
-      ++v1;
-      v3 += 72LL;
+      if ( (unsigned __int64)++v4 >= *(_QWORD *)(v6 + 264) )
+        return v2;
     }
-    while ( v1 < *v4 );
+    return (unsigned int)-1073741801;
   }
-  return (unsigned int)v0;
+  return v2;
 }

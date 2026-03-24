@@ -1,59 +1,55 @@
 /*
- * XREFs of PspRevertContainerImpersonation @ 0x1402A86B0
+ * XREFs of PspRevertContainerImpersonation @ 0x14021FAE0
  * Callers:
- *     NtRevertContainerImpersonation @ 0x140246140 (NtRevertContainerImpersonation.c)
- *     PsImpersonateContainerOfThread @ 0x14030F330 (PsImpersonateContainerOfThread.c)
- *     NtSetInformationThread @ 0x14072EC80 (NtSetInformationThread.c)
- *     PspExitThread @ 0x1407A0088 (PspExitThread.c)
+ *     PsImpersonateContainerOfThread @ 0x14021BC90 (PsImpersonateContainerOfThread.c)
+ *     IopProcessWorkItem @ 0x1402EF050 (IopProcessWorkItem.c)
+ *     NtRevertContainerImpersonation @ 0x140581E20 (NtRevertContainerImpersonation.c)
+ *     PspExitThread @ 0x14064A838 (PspExitThread.c)
+ *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExpAcquireSpinLockExclusive @ 0x14030F870 (ExpAcquireSpinLockExclusive.c)
- *     KeClearSystemPriority @ 0x140344640 (KeClearSystemPriority.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x140345AA0 (KiUpdateTotalCyclesCurrentThread.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1403494F0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140461A66 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpAcquireSpinLockExclusive @ 0x14021D170 (ExpAcquireSpinLockExclusive.c)
+ *     EtwTraceThreadWorkOnBehalfUpdate @ 0x14021FCD0 (EtwTraceThreadWorkOnBehalfUpdate.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14022F8C0 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KeClearSystemPriority @ 0x14022FFB0 (KeClearSystemPriority.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140342370 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5BA8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5D8C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
-__int64 __fastcall PspRevertContainerImpersonation(ULONG_PTR BugCheckParameter1)
+__int64 __fastcall PspRevertContainerImpersonation(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  _DWORD *v1; // rdi
-  unsigned __int8 v4; // si
-  REGHANDLE v5; // rbx
+  void *v4; // rdi
+  unsigned __int8 v7; // si
+  struct _KPRCB *v8; // rcx
+  _DWORD *v9; // rdx
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // rsi
-  struct _KPRCB *v8; // r14
-  _DWORD *v9; // rcx
-  struct _KPRCB *v10; // rcx
-  _DWORD *v11; // rdx
-  _DWORD *SchedulerAssist; // r9
+  struct _KPRCB *v12; // r14
   _DWORD *v13; // rcx
-  _DWORD *v14; // rcx
-  int v15; // eax
-  int v16; // eax
-  int v17; // eax
-  int v18; // eax
-  struct _KPRCB *v19; // rcx
-  _DWORD *v20; // rdx
-  bool v21; // zf
-  _DWORD *v22; // r9
-  unsigned __int8 v23; // al
-  struct _KPRCB *v24; // r9
-  _DWORD *v25; // r8
+  struct _KPRCB *v14; // rcx
+  _DWORD *v15; // rdx
+  _DWORD *v16; // rcx
+  _DWORD *v17; // rcx
+  _DWORD *SchedulerAssist; // r9
+  int v19; // eax
+  int v20; // eax
+  int v21; // eax
+  int v22; // eax
+  struct _KPRCB *v23; // rcx
+  _DWORD *v24; // rdx
+  bool v25; // zf
   int v26; // eax
-  int v27; // [rsp+40h] [rbp-68h] BYREF
-  int v28; // [rsp+44h] [rbp-64h] BYREF
-  int v29; // [rsp+48h] [rbp-60h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-58h] BYREF
-  int *v31; // [rsp+60h] [rbp-48h]
-  __int64 v32; // [rsp+68h] [rbp-40h]
+  unsigned __int8 v27; // al
+  struct _KPRCB *v28; // r9
+  _DWORD *v29; // r8
+  int v30; // eax
+  void *retaddr; // [rsp+48h] [rbp+0h]
+  int v32; // [rsp+50h] [rbp+8h] BYREF
 
-  v1 = *(_DWORD **)(BugCheckParameter1 + 1552);
-  if ( !v1 )
+  v4 = *(void **)(BugCheckParameter1 + 1472);
+  if ( !v4 )
     return 3221225473LL;
   if ( (*(_DWORD *)(BugCheckParameter1 + 120) & 0x200) != 0 )
   {
@@ -68,45 +64,45 @@ __int64 __fastcall PspRevertContainerImpersonation(ULONG_PTR BugCheckParameter1)
     _disable();
     KiUpdateTotalCyclesCurrentThread(CurrentPrcb, BugCheckParameter1, 0LL);
     _enable();
-    v8 = KeGetCurrentPrcb();
-    v27 = 0;
-    v9 = v8->SchedulerAssist;
-    if ( v9 )
+    v12 = KeGetCurrentPrcb();
+    v32 = 0;
+    v13 = v12->SchedulerAssist;
+    if ( v13 )
     {
-      if ( v8->NestingLevel <= 1u )
+      if ( v12->NestingLevel <= 1u )
       {
-        v15 = v9[6];
-        v9[6] = v15 + 1;
-        if ( v15 == -1 )
-LABEL_26:
-          KiRemoveSystemWorkPriorityKick(v8);
+        v19 = v13[6];
+        v13[6] = v19 + 1;
+        if ( v19 == -1 )
+LABEL_27:
+          KiRemoveSystemWorkPriorityKick(v12);
       }
     }
     while ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentPrcb->PrcbLock, 0LL) )
     {
-      v13 = v8->SchedulerAssist;
-      if ( v13 )
+      v16 = v12->SchedulerAssist;
+      if ( v16 )
       {
-        if ( v8->NestingLevel <= 1u )
+        if ( v12->NestingLevel <= 1u )
         {
-          v16 = v13[6] - 1;
-          v13[6] = v16;
-          if ( !v16 )
-            KiRemoveSystemWorkPriorityKick(v8);
+          v20 = v16[6] - 1;
+          v16[6] = v20;
+          if ( !v20 )
+            KiRemoveSystemWorkPriorityKick(v12);
         }
       }
       do
-        KeYieldProcessorEx(&v27);
+        KeYieldProcessorEx(&v32);
       while ( CurrentPrcb->PrcbLock );
-      v14 = v8->SchedulerAssist;
-      if ( v14 )
+      v17 = v12->SchedulerAssist;
+      if ( v17 )
       {
-        if ( v8->NestingLevel <= 1u )
+        if ( v12->NestingLevel <= 1u )
         {
-          v17 = v14[6];
-          v14[6] = v17 + 1;
-          if ( v17 == -1 )
-            goto LABEL_26;
+          v21 = v17[6];
+          v17[6] = v21 + 1;
+          if ( v21 == -1 )
+            goto LABEL_27;
         }
       }
     }
@@ -114,75 +110,81 @@ LABEL_26:
     *(_QWORD *)(BugCheckParameter1 + 104) = 0LL;
     _interlockedbittestandreset((volatile signed __int32 *)(BugCheckParameter1 + 120), 9u);
     _InterlockedAnd64((volatile signed __int64 *)&CurrentPrcb->PrcbLock, 0LL);
-    v10 = KeGetCurrentPrcb();
-    v11 = v10->SchedulerAssist;
-    if ( v11 )
+    v14 = KeGetCurrentPrcb();
+    v15 = v14->SchedulerAssist;
+    if ( v15 )
     {
-      if ( v10->NestingLevel <= 1u )
+      if ( v14->NestingLevel <= 1u )
       {
-        v18 = v11[6] - 1;
-        v11[6] = v18;
-        if ( !v18 )
-          KiRemoveSystemWorkPriorityKick(v10);
+        v22 = v15[6] - 1;
+        v15[6] = v22;
+        if ( !v22 )
+          KiRemoveSystemWorkPriorityKick(v14);
       }
     }
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
       {
-        v19 = KeGetCurrentPrcb();
-        v20 = v19->SchedulerAssist;
-        v21 = (v20[5] & 0xFFFF0001) == 0;
-        v20[5] &= 0xFFFF0001;
-        if ( v21 )
-          KiRemoveSystemWorkPriorityKick(v19);
+        v23 = KeGetCurrentPrcb();
+        v24 = v23->SchedulerAssist;
+        v25 = (v24[5] & 0xFFFF0001) == 0;
+        v24[5] &= 0xFFFF0001;
+        if ( v25 )
+          KiRemoveSystemWorkPriorityKick(v23);
       }
     }
     __writecr8(0LL);
   }
-  v4 = KeGetCurrentIrql();
+  v7 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v4 <= 0xFu )
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v7 <= 0xFu )
   {
-    v22 = KeGetCurrentPrcb()->SchedulerAssist;
-    v22[5] |= (-1 << (v4 + 1)) & 4;
+    a4 = KeGetCurrentPrcb()->SchedulerAssist;
+    a3 = (-1 << (v7 + 1)) & 4u | a4[5];
+    a4[5] = a3;
   }
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
-    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&PspThreadWorkOnBehalfLock, v4);
+    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&PspThreadWorkOnBehalfLock, v7);
   else
-    ExpAcquireSpinLockExclusive(&PspThreadWorkOnBehalfLock, v4);
-  *(_QWORD *)(BugCheckParameter1 + 1552) = 0LL;
+    ExpAcquireSpinLockExclusive(&PspThreadWorkOnBehalfLock, v7, a3, (__int64)a4);
+  *(_QWORD *)(BugCheckParameter1 + 1472) = 0LL;
   KeClearSystemPriority(BugCheckParameter1);
-  ExReleaseSpinLockExclusiveFromDpcLevel(&PspThreadWorkOnBehalfLock);
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
+    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&PspThreadWorkOnBehalfLock, retaddr);
+  else
+    PspThreadWorkOnBehalfLock = 0;
+  v8 = KeGetCurrentPrcb();
+  v9 = v8->SchedulerAssist;
+  if ( v9 )
+  {
+    if ( v8->NestingLevel <= 1u )
+    {
+      v26 = v9[6] - 1;
+      v9[6] = v26;
+      if ( !v26 )
+        KiRemoveSystemWorkPriorityKick(v8);
+    }
+  }
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v23 = KeGetCurrentIrql();
-      if ( v23 <= 0xFu && v4 <= 0xFu && v23 >= 2u )
+      v27 = KeGetCurrentIrql();
+      if ( v27 <= 0xFu && v7 <= 0xFu && v27 >= 2u )
       {
-        v24 = KeGetCurrentPrcb();
-        v25 = v24->SchedulerAssist;
-        v26 = ~(unsigned __int16)(-1LL << (v4 + 1));
-        v21 = (v26 & v25[5]) == 0;
-        v25[5] &= v26;
-        if ( v21 )
-          KiRemoveSystemWorkPriorityKick(v24);
+        v28 = KeGetCurrentPrcb();
+        v29 = v28->SchedulerAssist;
+        v30 = ~(unsigned __int16)(-1LL << (v7 + 1));
+        v25 = (v30 & v29[5]) == 0;
+        v29[5] &= v30;
+        if ( v25 )
+          KiRemoveSystemWorkPriorityKick(v28);
       }
     }
   }
-  __writecr8(v4);
-  v5 = EtwpPsProvRegHandle;
-  if ( EtwEventEnabled(EtwpPsProvRegHandle, &ThreadWorkOnBehalfUpdate) )
-  {
-    v28 = v1[308];
-    *(_QWORD *)&UserData.Size = 4LL;
-    UserData.Ptr = (ULONGLONG)&v28;
-    v29 = 0;
-    v31 = &v29;
-    v32 = 4LL;
-    EtwWriteEx(v5, &ThreadWorkOnBehalfUpdate, 0LL, 1u, 0LL, 0LL, 2u, &UserData);
-  }
-  ObDereferenceObjectDeferDeleteWithTag(v1, 0x746E6F43u);
+  __writecr8(v7);
+  EtwTraceThreadWorkOnBehalfUpdate(v4, 0LL);
+  ObDereferenceObjectDeferDeleteWithTag(v4, 0x746E6F43u);
   return 0LL;
 }

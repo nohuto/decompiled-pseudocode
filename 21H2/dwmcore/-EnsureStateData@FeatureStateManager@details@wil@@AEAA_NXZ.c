@@ -1,44 +1,49 @@
 /*
- * XREFs of ?EnsureStateData@FeatureStateManager@details@wil@@AEAA_NXZ @ 0x180028A14
+ * XREFs of ?EnsureStateData@FeatureStateManager@details@wil@@AEAA_NXZ @ 0x1800AFB90
  * Callers:
- *     ?RecordFeatureUsage@FeatureStateManager@details@wil@@QEAAXIW4wil_details_ServiceReportingKind@@_K@Z @ 0x180028634 (-RecordFeatureUsage@FeatureStateManager@details@wil@@QEAAXIW4wil_details_ServiceReportingKind@@_.c)
- *     ?SubscribeToUsageFlush@FeatureStateManager@details@wil@@QEAAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@P6AXPEAX@Z@Z @ 0x180029E88 (-SubscribeToUsageFlush@FeatureStateManager@details@wil@@QEAAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRI.c)
- *     ?FlushUsage@FeatureStateManager@details@wil@@QEAAXXZ @ 0x180177BB4 (-FlushUsage@FeatureStateManager@details@wil@@QEAAXXZ.c)
+ *     ?SubscribeToUsageFlush@FeatureStateManager@details@wil@@QEAAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@P6AXPEAX@Z@Z @ 0x1800AE0B0 (-SubscribeToUsageFlush@FeatureStateManager@details@wil@@QEAAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRI.c)
+ *     ?RecordFeatureUsage@FeatureStateManager@details@wil@@QEAAXIW4wil_details_ServiceReportingKind@@_K@Z @ 0x1800AF9B4 (-RecordFeatureUsage@FeatureStateManager@details@wil@@QEAAXIW4wil_details_ServiceReportingKind@@_.c)
+ *     ?FlushUsage@FeatureStateManager@details@wil@@QEAAXXZ @ 0x18014D344 (-FlushUsage@FeatureStateManager@details@wil@@QEAAXXZ.c)
  * Callees:
- *     ?Acquire@?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@SAJPEBDPEAPEAV123@@Z @ 0x1800261C4 (-Acquire@-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@SAJPEBDP.c)
- *     ??1?$unique_storage@U?$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1?ReleaseSRWLockExclusive@@YAX0@ZU?$integral_constant@_K$00@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x18002890C (--1-$unique_storage@U-$resource_policy@PEAU_RTL_SRWLOCK@@P6AXPEAU1@@Z$1-ReleaseSRWLockExclusive@.c)
+ *     ?Acquire@?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@SAJPEBDPEAPEAV123@@Z @ 0x1800B00D8 (-Acquire@-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@SAJPEBDP.c)
+ *     ??0last_error_context@wil@@QEAA@XZ @ 0x18014CEB8 (--0last_error_context@wil@@QEAA@XZ.c)
+ *     ??1last_error_context@wil@@QEAA@XZ @ 0x18014CF8C (--1last_error_context@wil@@QEAA@XZ.c)
  */
 
 bool __fastcall wil::details::FeatureStateManager::EnsureStateData(RTL_SRWLOCK *this)
 {
-  PVOID Ptr; // rax
-  bool v3; // zf
-  __int64 v5; // rcx
-  __int64 v6; // rsi
-  RTL_SRWLOCK *v7; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v2; // rdi
+  PVOID Ptr; // rcx
+  void *v5; // [rsp+30h] [rbp+8h] BYREF
+  char v6; // [rsp+38h] [rbp+10h] BYREF
 
-  Ptr = this[3].Ptr;
-  v3 = Ptr == 0LL;
-  if ( !Ptr )
+  if ( !this[3].Ptr )
   {
-    if ( !this[2].Ptr )
+    wil::last_error_context::last_error_context((wil::last_error_context *)&v6);
+    if ( this[3].Ptr )
     {
-      v5 = (__int64)this[1].Ptr;
-      v7 = 0LL;
-      if ( (int)wil::details_abi::ProcessLocalStorageData<wil::details_abi::FeatureStateData>::Acquire(v5, (void **)&v7) >= 0
-        && !this[2].Ptr )
-      {
-        this[2].Ptr = v7;
-      }
+      v2 = 0LL;
     }
-    v6 = ((__int64)this[2].Ptr + 32) & -(__int64)(this[2].Ptr != 0LL);
+    else
+    {
+      if ( !this[2].Ptr )
+      {
+        Ptr = this[1].Ptr;
+        v5 = 0LL;
+        if ( (int)wil::details_abi::ProcessLocalStorageData<wil::details_abi::FeatureStateData>::Acquire(Ptr, &v5) >= 0
+          && !this[2].Ptr )
+        {
+          this[2].Ptr = v5;
+        }
+      }
+      v2 = ((__int64)this[2].Ptr + 32) & -(__int64)(this[2].Ptr != 0LL);
+    }
     AcquireSRWLockExclusive(this + 4);
-    v3 = this[3].Ptr == 0LL;
-    v7 = this + 4;
-    if ( v3 )
-      this[3].Ptr = (PVOID)v6;
-    wil::details::unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockExclusive(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<_RTL_SRWLOCK *,void (*)(_RTL_SRWLOCK *),&void ReleaseSRWLockExclusive(_RTL_SRWLOCK *),wistd::integral_constant<unsigned __int64,1>,_RTL_SRWLOCK *,_RTL_SRWLOCK *,0,std::nullptr_t>>(&v7);
-    v3 = this[3].Ptr == 0LL;
+    if ( !this[3].Ptr )
+      this[3].Ptr = (PVOID)v2;
+    if ( this != (RTL_SRWLOCK *)-32LL )
+      ReleaseSRWLockExclusive(this + 4);
+    wil::last_error_context::~last_error_context((wil::last_error_context *)&v6);
   }
-  return !v3;
+  return this[3].Ptr != 0LL;
 }

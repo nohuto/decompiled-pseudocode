@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpDmaTranslationEntryToIndex @ 0x1403CE020
+ * XREFs of HalpDmaTranslationEntryToIndex @ 0x1403BBF78
  * Callers:
- *     HalpDmaCommitContiguousMapBuffers @ 0x1403CDDB0 (HalpDmaCommitContiguousMapBuffers.c)
- *     HalpDmaReturnToContiguousPool @ 0x140457862 (HalpDmaReturnToContiguousPool.c)
+ *     HalpDmaCommitContiguousMapBuffers @ 0x1403BBD0C (HalpDmaCommitContiguousMapBuffers.c)
+ *     HalpDmaReturnToContiguousPool @ 0x1404C8014 (HalpDmaReturnToContiguousPool.c)
  * Callees:
  *     <none>
  */
@@ -12,6 +12,7 @@ __int64 __fastcall HalpDmaTranslationEntryToIndex(__int64 a1, unsigned __int64 a
   __int64 *v3; // r9
   int v4; // r10d
   unsigned __int64 v5; // r11
+  unsigned __int64 v6; // rdx
 
   v3 = *(__int64 **)(a1 + 40);
   v4 = 0;
@@ -27,5 +28,6 @@ __int64 __fastcall HalpDmaTranslationEntryToIndex(__int64 a1, unsigned __int64 a
   }
   if ( a3 )
     *a3 = v3;
-  return v4 + 954437177 * (unsigned int)((__int64)(a2 - v5) >> 3);
+  v6 = (__int64)((unsigned __int128)((__int64)(a2 - v5) * (__int128)0xE38E38E38E38E39LL) >> 64) >> 2;
+  return v4 + (unsigned int)v6 + (v6 >> 63);
 }

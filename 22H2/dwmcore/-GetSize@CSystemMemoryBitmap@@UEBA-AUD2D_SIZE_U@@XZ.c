@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSize@CSystemMemoryBitmap@@UEBA?AUD2D_SIZE_U@@XZ @ 0x1801067B0
+ * XREFs of ?GetSize@CSystemMemoryBitmap@@UEBA?AUD2D_SIZE_U@@XZ @ 0x1800E23E0
  * Callers:
  *     <none>
  * Callees:
@@ -8,7 +8,7 @@
 
 struct D2D_SIZE_U __fastcall CSystemMemoryBitmap::GetSize(CSystemMemoryBitmap *this, _DWORD *a2)
 {
-  *a2 = *((_DWORD *)this - 8);
-  a2[1] = *((_DWORD *)this - 7);
+  *a2 = *((_DWORD *)this - 14);
+  a2[1] = *((_DWORD *)this - 13);
   return (struct D2D_SIZE_U)a2;
 }

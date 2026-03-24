@@ -1,29 +1,29 @@
 /*
- * XREFs of AlpcpDispatchNewMessage @ 0x1407AA950
+ * XREFs of AlpcpDispatchNewMessage @ 0x1405E5250
  * Callers:
- *     AlpcpDispatchMessage @ 0x140666C64 (AlpcpDispatchMessage.c)
- *     AlpcpSendMessage @ 0x1407A9ED0 (AlpcpSendMessage.c)
+ *     AlpcpDispatchMessage @ 0x1405E1004 (AlpcpDispatchMessage.c)
+ *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x1402240B0 (ObReferenceObjectSafe.c)
- *     PsGetProcessJob @ 0x140249460 (PsGetProcessJob.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     PsGetJobEffectiveFreezeCount @ 0x1405E0448 (PsGetJobEffectiveFreezeCount.c)
- *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x14074D458 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
- *     AlpcpUnlockMessage @ 0x1407A7628 (AlpcpUnlockMessage.c)
- *     AlpcpCompleteDispatchMessage @ 0x1407AACC0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpSetOwnerPortMessage @ 0x1407AB750 (AlpcpSetOwnerPortMessage.c)
+ *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
+ *     PsGetProcessJob @ 0x1402BD520 (PsGetProcessJob.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     PsGetJobEffectiveFreezeCount @ 0x140581378 (PsGetJobEffectiveFreezeCount.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1405E55B0 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpSetOwnerPortMessage @ 0x1405E6040 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x1406B5104 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
  */
 
 __int64 __fastcall AlpcpDispatchNewMessage(__int64 *a1)
 {
   __int64 v1; // rbp
-  ULONG_PTR v2; // rsi
-  int v4; // r13d
+  int v2; // eax
+  ULONG_PTR v4; // rsi
   __int64 *v5; // r14
-  struct _KTHREAD *CurrentThread; // r12
+  struct _KTHREAD *CurrentThread; // r13
   int v7; // ebx
   int v8; // ebx
   __int64 v9; // rbx
@@ -31,16 +31,20 @@ __int64 __fastcall AlpcpDispatchNewMessage(__int64 *a1)
   __int64 v11; // rcx
   __int64 ProcessJob; // rax
   __int16 v14; // cx
-  __int16 v15; // cx
+  int v15; // eax
+  __int16 v16; // cx
+  unsigned int v17; // eax
+  int v18; // [rsp+60h] [rbp+8h]
 
   v1 = *a1;
-  v2 = a1[1];
-  v4 = *((_DWORD *)a1 + 12);
+  v2 = *((_DWORD *)a1 + 12);
+  v4 = a1[1];
   a1[4] = 0LL;
   a1[3] = 0LL;
   a1[5] = 0LL;
   v5 = *(__int64 **)(v1 + 16);
   CurrentThread = KeGetCurrentThread();
+  v18 = v2;
   v7 = (*(_DWORD *)(v1 + 416) >> 1) & 3;
   ExAcquirePushLockSharedEx((ULONG_PTR)(v5 - 2), 0LL);
   v8 = v7 - 1;
@@ -69,9 +73,9 @@ LABEL_7:
       ExfReleasePushLockShared(v5 - 2);
     KeAbPostRelease((ULONG_PTR)(v5 - 2));
     if ( v9 )
-      ObfDereferenceObject((PVOID)v9);
+      HalPutDmaAdapter((PADAPTER_OBJECT)v9);
     if ( v10 )
-      ObfDereferenceObject((PVOID)v10);
+      HalPutDmaAdapter((PADAPTER_OBJECT)v10);
     goto LABEL_49;
   }
   ExAcquirePushLockSharedEx(v9 + 352, 0LL);
@@ -81,9 +85,9 @@ LABEL_7:
     || (*(_DWORD *)(v10 + 416) & 0x20) != 0
     || (*(_DWORD *)(v1 + 416) & 0x20) != 0 && (*(_DWORD *)(v1 + 256) & 0x1000) == 0 )
   {
-    AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo((__int64)v5, (signed __int64 *)v9, (signed __int64 *)v10);
+    AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo(v5, v9, v10);
 LABEL_49:
-    AlpcpUnlockMessage(v2);
+    AlpcpUnlockMessage(v4);
     return 3221225527LL;
   }
   if ( (*(_DWORD *)(*a1 + 256) & 0x800000) != 0
@@ -93,67 +97,69 @@ LABEL_49:
     && (ProcessJob = PsGetProcessJob(v11)) != 0
     && (unsigned int)PsGetJobEffectiveFreezeCount(ProcessJob) )
   {
-    AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo((__int64)v5, (signed __int64 *)v9, (signed __int64 *)v10);
-    AlpcpUnlockMessage(v2);
+    AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo(v5, v9, v10);
+    AlpcpUnlockMessage(v4);
     return 3221225526LL;
   }
   else if ( (*(_DWORD *)(v9 + 256) & 0x20000) != 0 )
   {
     if ( (unsigned __int64)*((unsigned __int16 *)a1 + 26) <= *(_QWORD *)(v9 + 272) )
     {
-      *(_QWORD *)(v2 + 200) = 0LL;
-      *(_WORD *)(v2 + 242) = *((_WORD *)a1 + 26);
-      *(_WORD *)(v2 + 240) = *((_WORD *)a1 + 26) - 40;
+      *(_QWORD *)(v4 + 200) = 0LL;
+      *(_WORD *)(v4 + 242) = *((_WORD *)a1 + 26);
+      *(_WORD *)(v4 + 240) = *((_WORD *)a1 + 26) - 40;
       v14 = *((_WORD *)a1 + 27);
-      *(_WORD *)(v2 + 244) = v14;
-      *(_WORD *)(v2 + 246) = *((_WORD *)a1 + 28);
-      *(_OWORD *)(v2 + 248) = *(_OWORD *)&CurrentThread[1].CycleTime;
-      if ( (v4 & 0x10000) != 0 )
+      *(_WORD *)(v4 + 244) = v14;
+      *(_WORD *)(v4 + 246) = *((_WORD *)a1 + 28);
+      v15 = *(_DWORD *)(v4 + 40);
+      *(_OWORD *)(v4 + 248) = *(_OWORD *)&CurrentThread[1].CycleTime;
+      if ( (v18 & 0x10000) != 0 )
       {
-        *(_DWORD *)(v2 + 40) |= 0x200u;
-        v15 = v14 & 0xDFFF;
+        v16 = v14 & 0xDFFF;
+        v17 = v15 | 0x200;
       }
       else
       {
-        *(_DWORD *)(v2 + 40) &= ~0x200u;
-        v15 = v14 | 0x2000;
+        v16 = v14 | 0x2000;
+        v17 = v15 & 0xFFFFFDFF;
       }
-      *(_WORD *)(v2 + 244) = v15;
-      AlpcpSetOwnerPortMessage(v2, v1);
-      *(_DWORD *)(v2 + 44) = _InterlockedIncrement((volatile signed __int32 *)(v10 + 400));
-      *(_QWORD *)(v2 + 120) = *(_QWORD *)(v10 + 56);
-      *(_QWORD *)(v2 + 184) = v5;
-      *(_QWORD *)(v2 + 192) = *v5;
+      *(_DWORD *)(v4 + 40) = v17;
+      *(_WORD *)(v4 + 244) = v16;
+      AlpcpSetOwnerPortMessage(v4, v1);
+      *(_DWORD *)(v4 + 44) = _InterlockedIncrement((volatile signed __int32 *)(v10 + 400));
+      *(_QWORD *)(v4 + 120) = *(_QWORD *)(v10 + 56);
+      *(_QWORD *)(v4 + 184) = v5;
+      *(_QWORD *)(v4 + 192) = *v5;
       if ( v10 != v9 )
       {
         if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v10 + 352), 0LL, 17LL) != 17 )
           ExfReleasePushLockShared((signed __int64 *)(v10 + 352));
         KeAbPostRelease(v10 + 352);
       }
-      if ( (v4 & 0x20000) != 0 )
+      if ( (v18 & 0x20000) != 0 )
       {
-        *(_DWORD *)(v2 + 40) &= ~0x100u;
-        *(_WORD *)(v2 - 30) += 2;
-        *(_QWORD *)(v2 + 32) = CurrentThread;
-        _InterlockedExchange64((volatile __int64 *)&CurrentThread[1].RelativeTimerBias, v2);
+        *(_DWORD *)(v4 + 40) &= ~0x100u;
+        *(_WORD *)(v4 - 30) += 2;
+        *(_QWORD *)(v4 + 32) = CurrentThread;
+        _InterlockedExchange64((volatile __int64 *)&CurrentThread[1].RelativeTimerBias, v4);
       }
       a1[4] = v9;
       a1[2] = (__int64)v5;
       AlpcpCompleteDispatchMessage(a1);
-      ObfDereferenceObject((PVOID)v10);
+      HalPutDmaAdapter((PADAPTER_OBJECT)v10);
       return 0LL;
     }
     else
     {
-      AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo((__int64)v5, (signed __int64 *)v9, (signed __int64 *)v10);
-      AlpcpUnlockMessage(v2);
+      AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo(v5, v9, v10);
+      AlpcpUnlockMessage(v4);
       return 3221225507LL;
     }
   }
   else
   {
-    AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo((__int64)v5, (signed __int64 *)v9, (signed __int64 *)v10);
-    AlpcpUnlockMessage(v2);
+    AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo(v5, v9, v10);
+    AlpcpUnlockMessage(v4);
     return 3221227271LL;
   }
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of _ungetwc_nolock @ 0x1403EABA8
+ * XREFs of _ungetwc_nolock @ 0x1403DB8CC
  * Callers:
- *     ReadString_0 @ 0x1403E9C2C (ReadString_0.c)
- *     _winput_s @ 0x1403EA0E8 (_winput_s.c)
+ *     ReadString_0 @ 0x1403DA938 (ReadString_0.c)
+ *     _winput_s @ 0x1403DAE08 (_winput_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
  */
 
 wint_t __cdecl ungetwc_nolock(wint_t Ch, FILE *File)
 {
   int flag; // r9d
   char *ptr; // rax
-  wint_t *v5; // r10
+  char *v5; // rax
   int v6; // eax
 
   if ( !File )
@@ -31,19 +31,19 @@ wint_t __cdecl ungetwc_nolock(wint_t Ch, FILE *File)
       return -1;
     ptr = File->_base + 2;
   }
-  v5 = (wint_t *)(ptr - 2);
-  File->_ptr = ptr - 2;
+  v5 = ptr - 2;
+  File->_ptr = v5;
   if ( (flag & 0x40) != 0 )
   {
-    if ( *v5 != Ch )
+    if ( *(_WORD *)v5 != Ch )
     {
-      File->_ptr = ptr;
+      File->_ptr = v5 + 2;
       return -1;
     }
   }
   else
   {
-    *v5 = Ch;
+    *(_WORD *)v5 = Ch;
   }
   v6 = File->_flag;
   File->_cnt += 2;

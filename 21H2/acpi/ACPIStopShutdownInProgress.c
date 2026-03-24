@@ -1,8 +1,8 @@
 /*
- * XREFs of ACPIStopShutdownInProgress @ 0x1C005FFD8
+ * XREFs of ACPIStopShutdownInProgress @ 0x1C005F1E8
  * Callers:
- *     ACPINotifyOsShutdownWorker @ 0x1C005F8A0 (ACPINotifyOsShutdownWorker.c)
- *     AcpiShutdownNotificationTimerWorkItem @ 0x1C0060070 (AcpiShutdownNotificationTimerWorkItem.c)
+ *     ACPINotifyOsShutdownWorker @ 0x1C005EA80 (ACPINotifyOsShutdownWorker.c)
+ *     AcpiShutdownNotificationTimerWorkItem @ 0x1C005F280 (AcpiShutdownNotificationTimerWorkItem.c)
  * Callees:
  *     <none>
  */

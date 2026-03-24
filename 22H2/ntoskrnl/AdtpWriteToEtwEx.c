@@ -1,15 +1,15 @@
 /*
- * XREFs of AdtpWriteToEtwEx @ 0x14066FBB0
+ * XREFs of AdtpWriteToEtwEx @ 0x1405C20A4
  * Callers:
- *     SeAuditPlugAndPlay @ 0x1409CABF8 (SeAuditPlugAndPlay.c)
+ *     SeAuditPlugAndPlay @ 0x14091DEC8 (SeAuditPlugAndPlay.c)
  * Callees:
- *     EtwWriteKMSecurityEvent @ 0x140399294 (EtwWriteKMSecurityEvent.c)
- *     AdtpPackageParameters @ 0x140399314 (AdtpPackageParameters.c)
- *     AdtpCleanupParameterAllocations @ 0x14039985C (AdtpCleanupParameterAllocations.c)
- *     AdtpNormalizeAuditInfoHelper @ 0x1403A3814 (AdtpNormalizeAuditInfoHelper.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     AdtpGetCategoryAndSubCategoryId @ 0x14083EE6C (AdtpGetCategoryAndSubCategoryId.c)
+ *     AdtpCleanupParameterAllocations @ 0x1403C0224 (AdtpCleanupParameterAllocations.c)
+ *     EtwWriteKMSecurityEvent @ 0x1403C0274 (EtwWriteKMSecurityEvent.c)
+ *     AdtpPackageParameters @ 0x1403C0314 (AdtpPackageParameters.c)
+ *     AdtpNormalizeAuditInfoHelper @ 0x1403C64DC (AdtpNormalizeAuditInfoHelper.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     AdtpGetCategoryAndSubCategoryId @ 0x1407B91E8 (AdtpGetCategoryAndSubCategoryId.c)
  */
 
 __int64 __fastcall AdtpWriteToEtwEx(__int64 a1, _BYTE *a2)
@@ -18,74 +18,78 @@ __int64 __fastcall AdtpWriteToEtwEx(__int64 a1, _BYTE *a2)
   int v5; // edi
   __int16 v6; // r15
   __int64 v7; // rcx
-  __int16 v8; // dx
+  __int64 v8; // rdx
   unsigned __int64 v9; // rax
   unsigned __int16 v10; // cx
   char *v11; // rax
-  __int64 v12; // rdx
-  unsigned __int16 v14[2]; // [rsp+40h] [rbp-C0h] BYREF
-  int v15; // [rsp+44h] [rbp-BCh] BYREF
-  int v16; // [rsp+48h] [rbp-B8h] BYREF
-  __int128 v17; // [rsp+50h] [rbp-B0h]
-  _BYTE v18[320]; // [rsp+60h] [rbp-A0h] BYREF
-  PVOID v19; // [rsp+1A0h] [rbp+A0h] BYREF
-  char v20; // [rsp+1A8h] [rbp+A8h] BYREF
-  _OWORD v21[3]; // [rsp+4A0h] [rbp+3A0h] BYREF
-  _BYTE v22[2048]; // [rsp+4D0h] [rbp+3D0h] BYREF
+  unsigned __int16 v13[2]; // [rsp+40h] [rbp-C0h] BYREF
+  int v14; // [rsp+44h] [rbp-BCh] BYREF
+  int v15; // [rsp+48h] [rbp-B8h] BYREF
+  unsigned __int16 v16; // [rsp+50h] [rbp-B0h] BYREF
+  char v17; // [rsp+52h] [rbp-AEh]
+  __int16 v18; // [rsp+53h] [rbp-ADh]
+  char v19; // [rsp+55h] [rbp-ABh]
+  __int16 v20; // [rsp+56h] [rbp-AAh]
+  unsigned __int64 v21; // [rsp+58h] [rbp-A8h]
+  _BYTE v22[320]; // [rsp+60h] [rbp-A0h] BYREF
+  ULONG_PTR v23; // [rsp+1A0h] [rbp+A0h] BYREF
+  char v24; // [rsp+1A8h] [rbp+A8h] BYREF
+  _OWORD v25[3]; // [rsp+4A0h] [rbp+3A0h] BYREF
+  _BYTE v26[2048]; // [rsp+4D0h] [rbp+3D0h] BYREF
 
   v4 = 0;
-  v14[0] = 0;
-  v17 = 0LL;
+  v13[0] = 0;
+  memset(v26, 0, sizeof(v26));
   memset(v22, 0, sizeof(v22));
-  memset(v18, 0, sizeof(v18));
   *a2 = 0;
-  memset(v21, 0, sizeof(v21));
+  memset(v25, 0, sizeof(v25));
   AdtpNormalizeAuditInfoHelper(0LL, a1);
   if ( !*(_QWORD *)(a1 + 56) )
   {
     v5 = -1073741811;
 LABEL_17:
-    v10 = v14[0];
+    v10 = v13[0];
     goto LABEL_18;
   }
   v6 = *(_WORD *)(a1 + 22);
-  v5 = AdtpPackageParameters(0LL, a1, 2, (__int64)v22, (__int64)v18, (__int64)&v19, v14, (__int64)v21);
+  v5 = AdtpPackageParameters(0LL, a1, 2, (__int64)v26, (__int64)v22, (__int64)&v23, v13, (__int64)v25);
   if ( v5 < 0 )
     goto LABEL_17;
   if ( *(_WORD *)(a1 + 20)
-    && (v7 = *(unsigned __int16 *)(a1 + 20), v15 = 0, v16 = 0, (int)AdtpGetCategoryAndSubCategoryId(v7, &v15, &v16) >= 0) )
+    && (v7 = *(unsigned __int16 *)(a1 + 20), v14 = 0, v15 = 0, (int)AdtpGetCategoryAndSubCategoryId(v7, &v14, &v15) >= 0) )
   {
-    v8 = v16 + (((_WORD)v15 + 48) << 8);
+    v8 = (unsigned __int16)(v14 + 48) << 8;
+    LOWORD(v8) = v15 + (((_WORD)v14 + 48) << 8);
   }
   else
   {
-    v8 = -256;
+    v8 = 65280LL;
   }
-  LOWORD(v17) = *(_WORD *)(a1 + 4);
-  BYTE2(v17) = *(_BYTE *)(a1 + 8);
+  v16 = *(_WORD *)(a1 + 4);
+  v17 = *(_BYTE *)(a1 + 8);
   v9 = 0x8020000000000000uLL;
   if ( v6 != 8 )
     v9 = 0x8010000000000000uLL;
-  *(_WORD *)((char *)&v17 + 3) = 10;
-  v10 = v14[0];
-  WORD3(v17) = v8;
-  BYTE5(v17) = 0;
-  *((_QWORD *)&v17 + 1) = v9;
-  if ( !v14[0] )
+  v18 = 10;
+  v10 = v13[0];
+  v20 = v8;
+  v19 = 0;
+  v21 = v9;
+  if ( !v13[0] )
     goto LABEL_15;
-  v11 = &v20;
-  v12 = v14[0];
+  v11 = &v24;
+  v8 = v13[0];
   do
   {
     v4 += *(_DWORD *)v11;
     v11 += 16;
-    --v12;
+    --v8;
   }
-  while ( v12 );
+  while ( v8 );
   if ( v4 <= 0xDC00 )
   {
 LABEL_15:
-    v5 = EtwWriteKMSecurityEvent();
+    v5 = EtwWriteKMSecurityEvent(&v16, v8, v13[0], (unsigned __int64)&v23 & -(__int64)(v13[0] != 0));
     if ( v5 == -1073741058 )
       *a2 = 1;
     goto LABEL_17;
@@ -93,6 +97,6 @@ LABEL_15:
   *a2 = 1;
   v5 = -2147483643;
 LABEL_18:
-  AdtpCleanupParameterAllocations(v21, &v19, v10);
+  AdtpCleanupParameterAllocations(v25, &v23, v10);
   return (unsigned int)v5;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpRealtimeSendEmptyMarker @ 0x1406EF9E0
+ * XREFs of EtwpRealtimeSendEmptyMarker @ 0x1406E0C94
  * Callers:
- *     EtwpFlushActiveBuffers @ 0x14079885C (EtwpFlushActiveBuffers.c)
+ *     EtwpFlushActiveBuffers @ 0x140643C10 (EtwpFlushActiveBuffers.c)
  * Callees:
- *     EtwpInitializeBufferHeader @ 0x1402619C4 (EtwpInitializeBufferHeader.c)
- *     EtwpResetBufferHeader @ 0x1402E1C2C (EtwpResetBufferHeader.c)
- *     memset @ 0x140435E00 (memset.c)
- *     EtwpRealtimeSaveBuffer @ 0x1406ED114 (EtwpRealtimeSaveBuffer.c)
- *     EtwpRealtimeDeliverBuffer @ 0x140798E18 (EtwpRealtimeDeliverBuffer.c)
+ *     EtwpResetBufferHeader @ 0x140266374 (EtwpResetBufferHeader.c)
+ *     EtwpInitializeBufferHeader @ 0x1402ED46C (EtwpInitializeBufferHeader.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x140645D0C (EtwpRealtimeDeliverBuffer.c)
+ *     EtwpRealtimeSaveBuffer @ 0x1406BEE5C (EtwpRealtimeSaveBuffer.c)
  */
 
 __int64 __fastcall EtwpRealtimeSendEmptyMarker(__int64 a1)
@@ -20,19 +20,19 @@ __int64 __fastcall EtwpRealtimeSendEmptyMarker(__int64 a1)
   EtwpInitializeBufferHeader((__int16 *)a1, v4);
   LOWORD(v4[13]) &= ~0x100u;
   EtwpResetBufferHeader((__int64)v4, 6);
-  v2 = *(_DWORD *)(a1 + 344) == 0;
-  result = 1LL;
+  v2 = *(_DWORD *)(a1 + 360) == 0;
   LOWORD(v4[13]) = 1;
   v4[11] = 3;
   v4[12] = 72;
-  if ( v2 || (result = EtwpRealtimeDeliverBuffer(a1, v4), (int)result < 0) )
+  if ( v2 )
+    result = 3221225473LL;
+  else
+    result = EtwpRealtimeDeliverBuffer(a1, (__int64)v4);
+  if ( (int)result < 0 && (*(_DWORD *)(a1 + 12) & 0x10000000) == 0 )
   {
-    if ( !_bittest((const signed __int32 *)(a1 + 12), 0x1Cu) )
-    {
-      result = *(unsigned int *)(a1 + 816);
-      if ( (result & 0x10000000) == 0 )
-        return EtwpRealtimeSaveBuffer(a1, (__int64)v4);
-    }
+    result = *(unsigned int *)(a1 + 832);
+    if ( (result & 0x10000000) == 0 )
+      return EtwpRealtimeSaveBuffer(a1, (__int64)v4);
   }
   return result;
 }

@@ -1,23 +1,28 @@
 /*
- * XREFs of VrpAllocateKeyContext @ 0x14068EECC
+ * XREFs of VrpAllocateKeyContext @ 0x1405D5A24
  * Callers:
- *     VrpPostOpenOrCreate @ 0x14068DF0C (VrpPostOpenOrCreate.c)
- *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A578 (VrpHandleIoctlInitializeJobForVreg.c)
- *     VrpPreLoadKey @ 0x14077A954 (VrpPreLoadKey.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x1405D268C (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpPostOpenOrCreate @ 0x1405D4420 (VrpPostOpenOrCreate.c)
+ *     VrpPreLoadKey @ 0x1408833DC (VrpPreLoadKey.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall VrpAllocateKeyContext(PVOID Object)
+_OWORD *__fastcall VrpAllocateKeyContext(PVOID Object)
 {
-  __int64 Pool2; // rbx
+  _OWORD *PoolWithTag; // rax
+  _OWORD *v3; // rbx
 
-  Pool2 = ExAllocatePool2(256LL, 48LL, 1734693462LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x30uLL, 0x67655256u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
+    *PoolWithTag = 0LL;
+    PoolWithTag[1] = 0LL;
+    PoolWithTag[2] = 0LL;
     ObfReferenceObjectWithTag(Object, 0x67655256u);
-    *(_QWORD *)(Pool2 + 40) = Object;
+    *((_QWORD *)v3 + 5) = Object;
   }
-  return Pool2;
+  return v3;
 }

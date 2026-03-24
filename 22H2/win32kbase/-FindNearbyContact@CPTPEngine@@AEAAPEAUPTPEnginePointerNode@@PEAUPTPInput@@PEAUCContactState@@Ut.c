@@ -1,7 +1,7 @@
 /*
- * XREFs of ?FindNearbyContact@CPTPEngine@@AEAAPEAUPTPEnginePointerNode@@PEAUPTPInput@@PEAUCContactState@@UtagPOINT@@K@Z @ 0x1C02017CC
+ * XREFs of ?FindNearbyContact@CPTPEngine@@AEAAPEAUPTPEnginePointerNode@@PEAUPTPInput@@PEAUCContactState@@UtagPOINT@@K@Z @ 0x1C01C5E28
  * Callers:
- *     ?DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z @ 0x1C02008C8 (-DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z.c)
+ *     ?DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z @ 0x1C01C50D4 (-DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -27,9 +27,9 @@ struct PTPEnginePointerNode *__fastcall CPTPEngine::FindNearbyContact(
   v9 = *((_DWORD *)this + 4);
   while ( 1 )
   {
-    v10 = (CPTPEngine *)((char *)this + 400 * (*((_DWORD *)v6 + 1) % v9) + 1208);
+    v10 = (CPTPEngine *)((char *)this + 392 * (*((_DWORD *)v6 + 1) % v9) + 1160);
     if ( v10 != a3
-      && (*(_DWORD *)v10 & 0x20000000) != 0
+      && (*(_DWORD *)v10 & 0x8000000) != 0
       && (int)((HIDWORD(*((_QWORD *)v6 + 5)) - a4.y) * (HIDWORD(*((_QWORD *)v6 + 5)) - a4.y)
              + (*((_QWORD *)v6 + 5) - a4.x) * (*((_QWORD *)v6 + 5) - a4.x)) <= (unsigned __int64)(a5 * a5) )
     {

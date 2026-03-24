@@ -1,33 +1,41 @@
 /*
- * XREFs of IopFindSystemDevice @ 0x14093FBBC
+ * XREFs of IopFindSystemDevice @ 0x14089B014
  * Callers:
- *     IoQuerySystemDeviceName @ 0x1406CDACC (IoQuerySystemDeviceName.c)
+ *     IoQuerySystemDeviceName @ 0x1406B367C (IoQuerySystemDeviceName.c)
  * Callees:
- *     SiGetSystemDeviceName @ 0x1406CE7A8 (SiGetSystemDeviceName.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     SiGetSystemDeviceName @ 0x1406B4A08 (SiGetSystemDeviceName.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopFindSystemDevice(__int64 a1, _QWORD *a2)
 {
   int SystemDeviceName; // eax
   int v4; // ebx
-  void *Pool2; // rax
+  PVOID PoolWithTag; // rax
   void *v6; // rdi
-  unsigned int v8; // [rsp+30h] [rbp+8h] BYREF
-  int v9; // [rsp+34h] [rbp+Ch]
+  unsigned int NumberOfBytes; // [rsp+30h] [rbp+8h] BYREF
+  int NumberOfBytes_4; // [rsp+34h] [rbp+Ch]
 
-  v9 = HIDWORD(a1);
-  v8 = 0;
-  SystemDeviceName = SiGetSystemDeviceName((__int64 (__fastcall *)(_QWORD, void **))SiGetSystemDisk, 0LL, 0, &v8);
+  NumberOfBytes_4 = HIDWORD(a1);
+  NumberOfBytes = 0;
+  SystemDeviceName = SiGetSystemDeviceName(
+                       (__int64 (__fastcall *)(_QWORD, void **))SiGetSystemDisk,
+                       0LL,
+                       0,
+                       &NumberOfBytes);
   v4 = SystemDeviceName;
   if ( SystemDeviceName == -1073741789 )
   {
-    Pool2 = (void *)ExAllocatePool2(256LL, v8, 1146318665LL);
-    v6 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, NumberOfBytes, 0x44536F49u);
+    v6 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      v4 = SiGetSystemDeviceName((__int64 (__fastcall *)(_QWORD, void **))SiGetSystemDisk, Pool2, v8, &v8);
+      v4 = SiGetSystemDeviceName(
+             (__int64 (__fastcall *)(_QWORD, void **))SiGetSystemDisk,
+             PoolWithTag,
+             NumberOfBytes,
+             &NumberOfBytes);
       if ( v4 >= 0 )
         *a2 = v6;
       else

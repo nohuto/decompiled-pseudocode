@@ -1,113 +1,123 @@
 /*
- * XREFs of PpmCheckInitProcessors @ 0x14082FE14
+ * XREFs of PpmCheckInitProcessors @ 0x1407BA2D8
  * Callers:
- *     PpmReapplyPerfPolicy @ 0x14082E210 (PpmReapplyPerfPolicy.c)
- *     PopNewProcessorCallback @ 0x1409804D0 (PopNewProcessorCallback.c)
- *     PoInitSystem @ 0x140B50B30 (PoInitSystem.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BAEC0 (PpmReapplyPerfPolicy.c)
+ *     PopNewProcessorCallback @ 0x1408E0EF0 (PopNewProcessorCallback.c)
+ *     PoInitSystem @ 0x140A3ED78 (PoInitSystem.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140255050 (KeIsEmptyAffinityEx.c)
- *     PpmConvertTime @ 0x1402553F0 (PpmConvertTime.c)
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     PopExecuteOnTargetProcessors @ 0x1402BFAEC (PopExecuteOnTargetProcessors.c)
- *     KiOrAffinityEx @ 0x1402C2A80 (KiOrAffinityEx.c)
- *     PpmReleaseLock @ 0x14032C0A0 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C0F0 (PpmAcquireLock.c)
- *     KiSubtractAffinityEx @ 0x14033D63C (KiSubtractAffinityEx.c)
- *     PpmParkRegisterParking @ 0x14038FD40 (PpmParkRegisterParking.c)
- *     PpmCheckApplyParkConstraints @ 0x1403914DC (PpmCheckApplyParkConstraints.c)
- *     KeQueryActiveProcessorAffinity2 @ 0x140391BF0 (KeQueryActiveProcessorAffinity2.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     HvlIsRootPowerSchedulerQosPresent @ 0x14053F9A0 (HvlIsRootPowerSchedulerQosPresent.c)
- *     PpmUpdateProcessorPolicy @ 0x14082E300 (PpmUpdateProcessorPolicy.c)
- *     PpmCheckReInit @ 0x14082E63C (PpmCheckReInit.c)
- *     PpmAllocatePerfCheck @ 0x140830B64 (PpmAllocatePerfCheck.c)
- *     PpmReinitializeHeteroEngine @ 0x140830CF8 (PpmReinitializeHeteroEngine.c)
+ *     KeIsEmptyAffinityEx @ 0x140228520 (KeIsEmptyAffinityEx.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     PpmReleaseLock @ 0x14022A470 (PpmReleaseLock.c)
+ *     KeSubtractAffinityEx @ 0x14022AFE0 (KeSubtractAffinityEx.c)
+ *     KeOrAffinityEx @ 0x14022B1C0 (KeOrAffinityEx.c)
+ *     PopExecuteOnTargetProcessors @ 0x1403447EC (PopExecuteOnTargetProcessors.c)
+ *     PpmConvertTime @ 0x14034523C (PpmConvertTime.c)
+ *     PpmAcquireLock @ 0x14034AA84 (PpmAcquireLock.c)
+ *     PpmParkRegisterParking @ 0x1403C10C0 (PpmParkRegisterParking.c)
+ *     PpmCheckApplyParkConstraints @ 0x1403C1CA8 (PpmCheckApplyParkConstraints.c)
+ *     KeQueryActiveProcessorAffinity @ 0x1403C2090 (KeQueryActiveProcessorAffinity.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HvlIsRootPowerSchedulerQosPresent @ 0x1404F17EC (HvlIsRootPowerSchedulerQosPresent.c)
+ *     PpmUpdateProcessorPolicy @ 0x14078C7D0 (PpmUpdateProcessorPolicy.c)
+ *     PpmReinitializeHeteroEngine @ 0x1407BA2A8 (PpmReinitializeHeteroEngine.c)
+ *     PpmAllocatePerfCheck @ 0x1407BAE54 (PpmAllocatePerfCheck.c)
+ *     PpmCheckReInit @ 0x1407BAFA4 (PpmCheckReInit.c)
  */
 
-void __fastcall PpmCheckInitProcessors(int a1, int a2)
+char __fastcall PpmCheckInitProcessors(int a1)
 {
   __int64 Prcb; // rax
-  __int64 v5; // rax
-  unsigned int v6; // edx
-  unsigned __int64 v7; // rax
-  __int64 v8; // r11
-  __int64 v9; // rcx
-  unsigned int v10; // [rsp+20h] [rbp-E0h] BYREF
-  unsigned int v11; // [rsp+24h] [rbp-DCh] BYREF
-  unsigned __int16 *v12[2]; // [rsp+28h] [rbp-D8h] BYREF
-  __int16 v13; // [rsp+38h] [rbp-C8h]
-  int v14; // [rsp+3Ah] [rbp-C6h]
-  __int16 v15; // [rsp+3Eh] [rbp-C2h]
-  unsigned __int16 *v16[2]; // [rsp+40h] [rbp-C0h] BYREF
-  __int16 v17; // [rsp+50h] [rbp-B0h]
-  int v18; // [rsp+52h] [rbp-AEh]
-  __int16 v19; // [rsp+56h] [rbp-AAh]
-  _QWORD v20[34]; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v3; // rdx
+  unsigned __int64 FeatureBits; // rcx
+  struct _KPRCB *CurrentPrcb; // rax
+  __int64 v6; // rax
+  unsigned int v7; // edx
+  int v9; // [rsp+28h] [rbp-E0h] BYREF
+  unsigned int v10; // [rsp+2Ch] [rbp-DCh] BYREF
+  __int64 v11; // [rsp+30h] [rbp-D8h] BYREF
+  unsigned __int16 *v12[2]; // [rsp+38h] [rbp-D0h] BYREF
+  __int16 v13; // [rsp+48h] [rbp-C0h]
+  int v14; // [rsp+4Ah] [rbp-BEh]
+  __int16 v15; // [rsp+4Eh] [rbp-BAh]
+  unsigned __int16 *v16[2]; // [rsp+50h] [rbp-B8h] BYREF
+  _WORD v17[4]; // [rsp+60h] [rbp-A8h]
+  _QWORD v18[22]; // [rsp+68h] [rbp-A0h] BYREF
+  unsigned __int16 v19[88]; // [rsp+118h] [rbp+10h] BYREF
 
+  memset(v19, 0, 0xA8uLL);
   v14 = 0;
   v15 = 0;
-  v11 = 0;
   v10 = 0;
-  LODWORD(v20[0]) = 2097153;
-  memset((char *)v20 + 4, 0, 0x104uLL);
-  if ( a1
-    || (PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock),
-        KeQueryActiveProcessorAffinity2((__int64)v20),
-        (unsigned __int8)KiSubtractAffinityEx((unsigned __int16 *)v20, (char *)&PpmCheckRegistered, v20, WORD1(v20[0]))) )
+  memset(v18, 0, 0xA8uLL);
+  v9 = 0;
+  if ( a1 )
   {
-    KiOrAffinityEx((char *)&PpmCheckRegistered, v20, &PpmCheckRegistered, word_140C0BE62);
-    if ( !(unsigned int)KeIsEmptyAffinityEx(v20) )
-    {
-      v12[1] = (unsigned __int16 *)v20[1];
-      v12[0] = (unsigned __int16 *)v20;
-      v13 = 0;
-      while ( !(unsigned int)KeEnumerateNextProcessor(&v11, v12) )
-      {
-        Prcb = KeGetPrcb(v11);
-        PpmAllocatePerfCheck(Prcb + 33968);
-      }
-      PopExecuteOnTargetProcessors((__int64)v20, (__int64)PpmCheckProcessorInit, 0LL, 0LL);
-    }
-    if ( !(unsigned int)KeIsEmptyAffinityEx(v20) || a2 )
-      PpmParkRegisterParking();
-    if ( _bittest64((const signed __int64 *)&KeGetCurrentPrcb()->FeatureBits, 0x27u) )
-    {
-      PpmAllowedActions |= 0x400u;
-      v10 |= 0x400u;
-      PpmUpdateProcessorPolicy(&v10, 0LL);
-    }
-    PpmCheckReInit();
-    PpmCheckApplyParkConstraints();
-    v18 = 0;
-    v19 = 0;
-    v10 = 0;
-    if ( KeGetCurrentPrcb()->PowerState.Hypervisor == ProcHypervisorPresent
-      && HvlIsRootPowerSchedulerQosPresent()
-      && !PpmPerfVmQosSupported )
-    {
-      PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
-      v16[1] = (unsigned __int16 *)qword_140C0BE68[0];
-      v17 = 0;
-      v16[0] = (unsigned __int16 *)&PpmCheckRegistered;
-      while ( !(unsigned int)KeEnumerateNextProcessor(&v10, v16) )
-      {
-        v5 = KeGetPrcb(v10);
-        v6 = PpmPerfQosTransitionHysteresisOverride;
-        if ( PpmPerfQosTransitionHysteresisOverride == -1 )
-          v6 = PpmPerfQosTransitionHysteresis;
-        v7 = PpmConvertTime(v6, 0xF4240uLL, 1000000LL * *(unsigned int *)(v5 + 68));
-        *(_QWORD *)(v8 + 34104) = v7;
-      }
-      PpmPerfQosManageIdleProcessors = 0;
-      LOBYTE(v9) = 1;
-      PpmPerfVmQosSupported = 1;
-      PpmReinitializeHeteroEngine(v9, 0LL);
-    }
+    LODWORD(v18[0]) = 1310721;
+    memset((char *)v18 + 4, 0, 0xA4uLL);
   }
   else
   {
-    PpmReleaseLock(&PpmPerfPolicyLock);
+    PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
+    KeQueryActiveProcessorAffinity((__int64)v19);
+    if ( !(unsigned __int8)KeSubtractAffinityEx(v19, (unsigned __int16 *)PpmCheckRegistered, v18) )
+    {
+      LOBYTE(CurrentPrcb) = PpmReleaseLock(&PpmPerfPolicyLock);
+      return (char)CurrentPrcb;
+    }
   }
+  KeOrAffinityEx((unsigned __int16 *)PpmCheckRegistered, (unsigned __int16 *)v18, PpmCheckRegistered);
+  if ( !(unsigned int)KeIsEmptyAffinityEx(v18) )
+  {
+    v12[1] = (unsigned __int16 *)v18[1];
+    v12[0] = (unsigned __int16 *)v18;
+    v13 = 0;
+    while ( !(unsigned int)KeEnumerateNextProcessor(&v10, v12) )
+    {
+      Prcb = KeGetPrcb(v10);
+      PpmAllocatePerfCheck(Prcb + 33128);
+    }
+    PopExecuteOnTargetProcessors((__int64)v18, (__int64)PpmCheckProcessorInit, 0LL, 0LL);
+  }
+  PpmParkRegisterParking();
+  FeatureBits = KeGetCurrentPrcb()->FeatureBits;
+  if ( (FeatureBits & 0x8000000000LL) != 0 )
+  {
+    PpmAllowedActions |= 0x400u;
+    v9 |= 0x400u;
+    PpmUpdateProcessorPolicy(&v9, 0LL);
+  }
+  PpmCheckReInit(FeatureBits, v3);
+  PpmCheckApplyParkConstraints();
+  CurrentPrcb = KeGetCurrentPrcb();
+  *(_DWORD *)&v17[1] = 0;
+  v17[3] = 0;
+  LODWORD(v11) = 0;
+  if ( CurrentPrcb->PowerState.Hypervisor == ProcHypervisorPresent )
+  {
+    LOBYTE(CurrentPrcb) = HvlIsRootPowerSchedulerQosPresent();
+    if ( (_BYTE)CurrentPrcb )
+    {
+      if ( !PpmPerfVmQosSupported )
+      {
+        PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
+        v16[1] = (unsigned __int16 *)qword_140C113D8[0];
+        v17[0] = 0;
+        v16[0] = (unsigned __int16 *)PpmCheckRegistered;
+        while ( !(unsigned int)KeEnumerateNextProcessor(&v11, v16) )
+        {
+          v6 = KeGetPrcb(v11);
+          v7 = PpmPerfQosTransitionHysteresisOverride;
+          if ( PpmPerfQosTransitionHysteresisOverride == -1 )
+            v7 = PpmPerfQosTransitionHysteresis;
+          *(_QWORD *)(v6 + 33256) = PpmConvertTime(v7, 1000000LL, 1000000LL * *(unsigned int *)(v6 + 68));
+        }
+        PpmPerfQosManageIdleProcessors = 0;
+        PpmPerfVmQosSupported = 1;
+        LOBYTE(CurrentPrcb) = PpmReinitializeHeteroEngine(1);
+      }
+    }
+  }
+  return (char)CurrentPrcb;
 }

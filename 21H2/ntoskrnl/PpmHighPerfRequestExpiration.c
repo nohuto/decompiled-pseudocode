@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmHighPerfRequestExpiration @ 0x1403B68E0
+ * XREFs of PpmHighPerfRequestExpiration @ 0x1403A7630
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopPowerRequestReferenceRelease @ 0x140369FDC (PopPowerRequestReferenceRelease.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     PoClearPowerRequestInternal @ 0x140281F9C (PoClearPowerRequestInternal.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 PpmHighPerfRequestExpiration()
@@ -22,7 +22,7 @@ __int64 PpmHighPerfRequestExpiration()
   if ( MEMORY[0xFFFFF78000000008] >= (unsigned __int64)PpmHighPerfDeferredEndTime )
   {
     for ( i = 0; i < PpmHighPerfDeferredEndCount; ++i )
-      PopPowerRequestReferenceRelease(PpmHighPerfPowerRequest, 4u);
+      PoClearPowerRequestInternal(PpmHighPerfPowerRequest, 4u);
     PpmHighPerfDeferredEndCount = 0;
   }
   KxReleaseSpinLock(&PpmHighPerfRequestLock);

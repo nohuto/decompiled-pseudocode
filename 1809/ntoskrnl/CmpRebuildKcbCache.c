@@ -2,13 +2,13 @@
  * XREFs of CmpRebuildKcbCache @ 0x1405A8F78
  * Callers:
  *     CmpTransMgrFreeVolatileData @ 0x1405A9000 (CmpTransMgrFreeVolatileData.c)
- *     CmpSaveBootControlSet @ 0x1407E88F0 (CmpSaveBootControlSet.c)
- *     CmpSyncKcbCacheForHive @ 0x1407F39C0 (CmpSyncKcbCacheForHive.c)
- *     CmpCommitDiscardReplacePost @ 0x1407F9A80 (CmpCommitDiscardReplacePost.c)
- *     CmpCloneHwProfile @ 0x1407FB5FC (CmpCloneHwProfile.c)
- *     CmpRefreshHive @ 0x140802DCC (CmpRefreshHive.c)
+ *     CmpSaveBootControlSet @ 0x1407E88D0 (CmpSaveBootControlSet.c)
+ *     CmpSyncKcbCacheForHive @ 0x1407F39A0 (CmpSyncKcbCacheForHive.c)
+ *     CmpCommitDiscardReplacePost @ 0x1407F9A60 (CmpCommitDiscardReplacePost.c)
+ *     CmpCloneHwProfile @ 0x1407FB5DC (CmpCloneHwProfile.c)
+ *     CmpRefreshHive @ 0x140802DAC (CmpRefreshHive.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpRebuildKcbCacheFromNode @ 0x1405AC984 (CmpRebuildKcbCacheFromNode.c)
  */
 

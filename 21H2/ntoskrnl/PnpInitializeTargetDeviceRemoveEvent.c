@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpInitializeTargetDeviceRemoveEvent @ 0x1407673E8
+ * XREFs of PnpInitializeTargetDeviceRemoveEvent @ 0x14073913C
  * Callers:
- *     PnpSetTargetDeviceRemove @ 0x14076729C (PnpSetTargetDeviceRemove.c)
- *     PnpShutdownDevices @ 0x1409404FC (PnpShutdownDevices.c)
+ *     PnpSetTargetDeviceRemove @ 0x140738FD4 (PnpSetTargetDeviceRemove.c)
+ *     PnpShutdownDevices @ 0x14089B94C (PnpShutdownDevices.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 void *__fastcall PnpInitializeTargetDeviceRemoveEvent(

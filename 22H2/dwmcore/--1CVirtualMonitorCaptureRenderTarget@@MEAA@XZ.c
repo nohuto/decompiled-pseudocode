@@ -1,40 +1,39 @@
 /*
- * XREFs of ??1CVirtualMonitorCaptureRenderTarget@@MEAA@XZ @ 0x1801EE3EC
+ * XREFs of ??1CVirtualMonitorCaptureRenderTarget@@MEAA@XZ @ 0x1801882EC
  * Callers:
- *     ??_ECVirtualMonitorCaptureRenderTarget@@MEAAPEAXI@Z @ 0x1801C3D50 (--_ECVirtualMonitorCaptureRenderTarget@@MEAAPEAXI@Z.c)
+ *     ??_ECVirtualMonitorCaptureRenderTarget@@MEAAPEAXI@Z @ 0x18016DD90 (--_ECVirtualMonitorCaptureRenderTarget@@MEAAPEAXI@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@VClipPlaneInfoRef@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18000DB6C (--1-$com_ptr_t@VClipPlaneInfoRef@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078A28 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CVirtualMonitorCaptureRenderTarget::~CVirtualMonitorCaptureRenderTarget(
         CVirtualMonitorCaptureRenderTarget *this)
 {
-  __int64 *v2; // rdi
+  __int64 v2; // rcx
   __int64 v3; // rcx
   __int64 v4; // rcx
   __int64 v5; // rcx
-  CResource *v6; // rcx
+  __int64 v6; // rcx
 
   *(_QWORD *)this = &CVirtualMonitorCaptureRenderTarget::`vftable'{for `COffScreenRenderTarget'};
-  *((_QWORD *)this + 9) = &CIndirectSwapchainRenderTarget::`vftable'{for `IVisualTreeClient'};
-  *((_QWORD *)this + 233) = &CCaptureRenderTarget::`vftable'{for `IDeviceResourceNotify'};
-  v2 = (__int64 *)((char *)this + 2128);
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 10) + 4LL) + 80) = &CVirtualMonitorCaptureRenderTarget::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 10) + 8LL) + 80) = &CVirtualMonitorCaptureRenderTarget::`vftable'{for `IPixelFormat'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 10) + 12LL) + 80) = &CVirtualMonitorCaptureRenderTarget::`vftable'{for `IRenderTarget'};
-  v3 = *(int *)(*((_QWORD *)this + 10) + 4LL);
-  *(_DWORD *)((char *)this + v3 + 76) = v3 - 2072;
-  v4 = *(int *)(*((_QWORD *)this + 10) + 8LL);
-  *(_DWORD *)((char *)this + v4 + 76) = v4 - 2088;
-  v5 = *(int *)(*((_QWORD *)this + 10) + 12LL);
-  *(_DWORD *)((char *)this + v5 + 76) = v5 - 2112;
-  if ( *v2 )
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)*v2 + 16LL))(*v2);
-  wil::com_ptr_t<ClipPlaneInfoRef,wil::err_returncode_policy>::~com_ptr_t<ClipPlaneInfoRef,wil::err_returncode_policy>(v2);
-  v6 = (CResource *)*((_QWORD *)this + 258);
-  if ( v6 )
-    CResource::InternalRelease(v6);
+  *((_QWORD *)this + 8) = &CIndirectSwapchainRenderTarget::`vftable'{for `IVisualTreeClient'};
+  *((_QWORD *)this + 235) = &CVirtualMonitorCaptureRenderTarget::`vftable'{for `IDeviceResourceNotify'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 4LL) + 72) = &CVirtualMonitorCaptureRenderTarget::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 8LL) + 72) = &CVirtualMonitorCaptureRenderTarget::`vftable'{for `IPixelFormat'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 12LL) + 72) = &CVirtualMonitorCaptureRenderTarget::`vftable'{for `IRenderTarget'};
+  v2 = *(int *)(*((_QWORD *)this + 9) + 4LL);
+  *(_DWORD *)((char *)this + v2 + 68) = v2 - 2096;
+  v3 = *(int *)(*((_QWORD *)this + 9) + 8LL);
+  *(_DWORD *)((char *)this + v3 + 68) = v3 - 2112;
+  v4 = *(int *)(*((_QWORD *)this + 9) + 12LL);
+  *(_DWORD *)((char *)this + v4 + 68) = v4 - 2136;
+  v5 = *((_QWORD *)this + 268);
+  if ( v5 )
+  {
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+    v6 = *((_QWORD *)this + 268);
+    if ( v6 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 8LL))(v6);
+  }
   CCaptureRenderTarget::~CCaptureRenderTarget(this);
 }

@@ -1,63 +1,101 @@
 /*
- * XREFs of ACPIDevicePowerProcessPhase1DeviceSubPhase2 @ 0x1C001F390
+ * XREFs of ACPIDevicePowerProcessPhase1DeviceSubPhase2 @ 0x1C002ECE0
  * Callers:
  *     <none>
  * Callees:
- *     ACPIDeviceCompleteGenericPhase @ 0x1C001C560 (ACPIDeviceCompleteGenericPhase.c)
- *     WPP_RECORDER_SF_qLdqss @ 0x1C0022C98 (WPP_RECORDER_SF_qLdqss.c)
- *     AMLIAsyncEvalObject @ 0x1C0047908 (AMLIAsyncEvalObject.c)
+ *     AMLIAsyncEvalObject @ 0x1C001467C (AMLIAsyncEvalObject.c)
+ *     WPP_RECORDER_SF_qLdqss @ 0x1C001D964 (WPP_RECORDER_SF_qLdqss.c)
+ *     ACPIDeviceCompleteGenericPhase @ 0x1C001FEE0 (ACPIDeviceCompleteGenericPhase.c)
  */
 
 __int64 __fastcall ACPIDevicePowerProcessPhase1DeviceSubPhase2(__int64 a1)
 {
-  __int64 v1; // rbx
-  __int64 v2; // rax
-  int v4; // ebp
-  __int64 v5; // r14
-  __int64 v6; // rdx
-  void *v7; // r8
+  _QWORD *v1; // rbx
+  char v2; // si
+  __int64 v3; // rax
+  unsigned int v5; // ebp
+  __int64 *v6; // r14
+  const char *v7; // rcx
+  __int64 v8; // r8
+  const char *v9; // rdx
+  __int64 v10; // r9
   __int64 result; // rax
-  int v9; // r8d
-  void *v10; // rdx
-  __int64 v11; // r9
+  unsigned int v12; // eax
+  __int64 v13; // rdx
+  const char *v14; // rcx
+  const char *v15; // r8
+  int v16; // [rsp+20h] [rbp-48h]
 
-  v1 = *(_QWORD *)(a1 + 40);
-  v2 = *(int *)(a1 + 104);
-  v4 = 0;
+  v1 = *(_QWORD **)(a1 + 40);
+  v2 = 0;
+  v3 = *(int *)(a1 + 104);
+  v5 = 0;
   *(_DWORD *)(a1 + 212) = 5;
-  v5 = *(_QWORD *)(v1 + 8 * v2 + 456);
-  if ( !v5 )
+  v6 = (__int64 *)v1[v3 + 52];
+  if ( !v6 )
   {
-    v9 = 0;
-    v10 = &unk_1C00622D0;
+    v7 = (const char *)&unk_1C00701BA;
+    v8 = 0LL;
+    v9 = (const char *)&unk_1C00701BA;
     if ( v1 )
     {
-      v11 = *(_QWORD *)(v1 + 8);
-      v9 = v1;
-      if ( (v11 & 0x200000000000LL) != 0 && (v11 & 0x400000000000LL) != 0 )
-        v10 = *(void **)(v1 + 616);
+      v10 = v1[1];
+      v8 = (__int64)v1;
+      if ( (v10 & 0x200000000000LL) != 0 )
+      {
+        v7 = (const char *)v1[71];
+        if ( (v10 & 0x400000000000LL) != 0 )
+          v9 = (const char *)v1[72];
+      }
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_qLdqss(WPP_GLOBAL_Control->DeviceExtension, (_DWORD)v10, v9, 58);
-    goto LABEL_16;
-  }
-  *(_DWORD *)(a1 + 56) |= 0x1000000u;
-  v4 = AMLIAsyncEvalObject(v5, 0, 0, 0, (__int64)ACPIDeviceCompleteGenericPhase, a1);
-  v7 = &unk_1C00622D0;
-  if ( v1 )
-  {
-    v6 = *(_QWORD *)(v1 + 8);
-    if ( (v6 & 0x200000000000LL) != 0 && (v6 & 0x400000000000LL) != 0 )
-      v7 = *(void **)(v1 + 616);
-  }
-  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_SF_qLdqss(WPP_GLOBAL_Control->DeviceExtension, v6, (_DWORD)v7, 57);
-  result = 259LL;
-  if ( v4 != 259 )
-  {
-LABEL_16:
-    ACPIDeviceCompleteGenericPhase(v5, v4, 0LL, a1);
+      WPP_RECORDER_SF_qLdqss(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        (__int64)v9,
+        v8,
+        0x3Au,
+        v16,
+        a1,
+        0,
+        5,
+        v8,
+        v7,
+        v9);
+LABEL_8:
+    ACPIDeviceCompleteGenericPhase((__int64)v6, v5, 0LL, a1);
     return 0LL;
   }
+  *(_DWORD *)(a1 + 56) |= 0x1000000u;
+  v12 = AMLIAsyncEvalObject(v6, 0LL, 0, 0LL);
+  v14 = (const char *)&unk_1C00701BA;
+  v5 = v12;
+  v15 = (const char *)&unk_1C00701BA;
+  if ( v1 )
+  {
+    v13 = v1[1];
+    v2 = (char)v1;
+    if ( (v13 & 0x200000000000LL) != 0 )
+    {
+      v14 = (const char *)v1[71];
+      if ( (v13 & 0x400000000000LL) != 0 )
+        v15 = (const char *)v1[72];
+    }
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qLdqss(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      v13,
+      (__int64)v15,
+      0x39u,
+      (int)ACPIDeviceCompleteGenericPhase,
+      a1,
+      v12,
+      *(_DWORD *)(a1 + 212),
+      v2,
+      v14,
+      v15);
+  result = 259LL;
+  if ( v5 != 259 )
+    goto LABEL_8;
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerStartProfileInterrupt @ 0x14050A734
+ * XREFs of HalpTimerStartProfileInterrupt @ 0x1404C1988
  * Callers:
- *     DefaultEnableMonitoring @ 0x14050C9B0 (DefaultEnableMonitoring.c)
+ *     DefaultEnableMonitoring @ 0x1404BE630 (DefaultEnableMonitoring.c)
  * Callees:
- *     HalpSetTimer @ 0x140337740 (HalpSetTimer.c)
+ *     HalpSetTimer @ 0x14024DCEC (HalpSetTimer.c)
  */
 
 __int64 HalpTimerStartProfileInterrupt()
@@ -19,7 +19,7 @@ __int64 HalpTimerStartProfileInterrupt()
     return 3221225865LL;
   Number = KeGetPcr()->Prcb.Number;
   if ( (*(_DWORD *)(HalpProfileTimer + 224) & 1) == 0 && Number
-    || (v0 = HalpSetTimer(HalpProfileTimer, 2, *(unsigned int *)(32LL * Number + HalpProfileData + 24) + 1LL, 1, &v3),
+    || (v0 = HalpSetTimer(HalpProfileTimer, 2u, *(unsigned int *)(32LL * Number + HalpProfileData + 24) + 1LL, 1, &v3),
         v0 >= 0) )
   {
     HalpProfilingActive = 1;

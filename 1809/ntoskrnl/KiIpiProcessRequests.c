@@ -1,13 +1,13 @@
 /*
- * XREFs of KiIpiProcessRequests @ 0x140103ED0
+ * XREFs of KiIpiProcessRequests @ 0x140103EF0
  * Callers:
- *     KiIpiInterruptSubDispatch @ 0x1401C3EA0 (KiIpiInterruptSubDispatch.c)
+ *     KiIpiInterruptSubDispatch @ 0x1401C3EC0 (KiIpiInterruptSubDispatch.c)
  * Callees:
- *     EtwGetKernelTraceTimestamp @ 0x14010E900 (EtwGetKernelTraceTimestamp.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiSetUserTbFlushPending @ 0x1401BD110 (KiSetUserTbFlushPending.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PerfInfoLogIpi @ 0x1403121E0 (PerfInfoLogIpi.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiSetUserTbFlushPending @ 0x1401BD130 (KiSetUserTbFlushPending.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PerfInfoLogIpi @ 0x1403122E0 (PerfInfoLogIpi.c)
  */
 
 __int64 KiIpiProcessRequests()

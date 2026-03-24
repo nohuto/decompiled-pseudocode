@@ -1,7 +1,7 @@
 /*
- * XREFs of ?bRotationOrMirroring@EXFORMOBJ@@QEBAHXZ @ 0x1C0270484
+ * XREFs of ?bRotationOrMirroring@EXFORMOBJ@@QEBAHXZ @ 0x1C01569F8
  * Callers:
- *     NtGdiTransparentBlt @ 0x1C0297970 (NtGdiTransparentBlt.c)
+ *     NtGdiTransparentBlt @ 0x1C0155C50 (NtGdiTransparentBlt.c)
  * Callees:
  *     <none>
  */

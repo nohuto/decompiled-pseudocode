@@ -1,14 +1,14 @@
 /*
- * XREFs of KiTraceLogNmiCallback @ 0x140961170
+ * XREFs of KiTraceLogNmiCallback @ 0x1408BB27C
  * Callers:
- *     KeRegisterNmiCallback @ 0x14056A870 (KeRegisterNmiCallback.c)
+ *     KeRegisterNmiCallback @ 0x140514910 (KeRegisterNmiCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14020A9C4 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 void __fastcall KiTraceLogNmiCallback(unsigned __int64 a1)
@@ -72,9 +72,9 @@ void __fastcall KiTraceLogNmiCallback(unsigned __int64 a1)
         break;
       }
     }
-    if ( (unsigned int)dword_140C02FD0 > 5 )
+    if ( (unsigned int)dword_140C01A70 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_140C02FD0, 0x400000000000LL) )
+      if ( tlgKeywordOn((__int64)&dword_140C01A70, 0x400000000000LL) )
       {
         v17 = 0;
         v19[1] = 0;
@@ -107,8 +107,8 @@ void __fastcall KiTraceLogNmiCallback(unsigned __int64 a1)
         v13 = a1;
         *(_QWORD *)&DestinationString_8.Length = 0x1000000LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C02FD0,
-          (unsigned __int8 *)byte_14002C63D,
+          (__int64)&dword_140C01A70,
+          (unsigned __int8 *)word_1400258DA,
           0LL,
           0LL,
           0xAu,

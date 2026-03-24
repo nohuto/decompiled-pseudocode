@@ -1,9 +1,9 @@
 /*
- * XREFs of SignalASLEvent @ 0x1C0026A00
+ * XREFs of SignalASLEvent @ 0x1C0068798
  * Callers:
- *     ResetSignal @ 0x1C0026970 (ResetSignal.c)
+ *     ResetSignal @ 0x1C0068A00 (ResetSignal.c)
  * Callees:
- *     DequeueAndReadyContext @ 0x1C0026C94 (DequeueAndReadyContext.c)
+ *     DequeueAndReadyContext @ 0x1C0029B50 (DequeueAndReadyContext.c)
  */
 
 void __fastcall SignalASLEvent(__int64 a1)
@@ -11,7 +11,7 @@ void __fastcall SignalASLEvent(__int64 a1)
   KIRQL v2; // si
 
   v2 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 24));
-  if ( !DequeueAndReadyContext(a1 + 8) )
+  if ( !DequeueAndReadyContext((struct _SLIST_ENTRY **)(a1 + 8)) )
     ++*(_DWORD *)a1;
   KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 24), v2);
 }

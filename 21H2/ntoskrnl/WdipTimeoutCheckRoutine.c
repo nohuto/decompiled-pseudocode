@@ -1,25 +1,25 @@
 /*
- * XREFs of WdipTimeoutCheckRoutine @ 0x1406D9E90
+ * XREFs of WdipTimeoutCheckRoutine @ 0x1406B5FF0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleasePushLockEx @ 0x1402AD0A0 (ExReleasePushLockEx.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     ExSetTimer @ 0x1402D5750 (ExSetTimer.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     WdipSemMarkNextTimedOutInstanceForDeletion @ 0x1406D9F40 (WdipSemMarkNextTimedOutInstanceForDeletion.c)
- *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1406D9FC8 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
- *     WdipSemDeleteTransitionalInstance @ 0x1408150FC (WdipSemDeleteTransitionalInstance.c)
- *     WdipSemDisableContextProviders @ 0x140815FD0 (WdipSemDisableContextProviders.c)
- *     WdipSemLogTimeoutInformation @ 0x1409DAEE4 (WdipSemLogTimeoutInformation.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExSetTimer @ 0x140280070 (ExSetTimer.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     WdipSemMarkNextTimedOutInstanceForDeletion @ 0x1406B60A0 (WdipSemMarkNextTimedOutInstanceForDeletion.c)
+ *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1406B6128 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
+ *     WdipSemDeleteTransitionalInstance @ 0x140788720 (WdipSemDeleteTransitionalInstance.c)
+ *     WdipSemDisableContextProviders @ 0x140789900 (WdipSemDisableContextProviders.c)
+ *     WdipSemLogTimeoutInformation @ 0x1409304B0 (WdipSemLogTimeoutInformation.c)
  */
 
-__int64 WdipTimeoutCheckRoutine()
+_BOOL8 WdipTimeoutCheckRoutine()
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v1; // rdx
   __int64 TimedOutInstanceForDeletion; // rdi
-  signed __int64 v3; // rbx
+  __int64 v3; // rbx
   __int64 v5; // rbx
   __int64 v6; // rax
   __int64 v7; // rcx
@@ -47,6 +47,6 @@ __int64 WdipTimeoutCheckRoutine()
   }
   v3 = WdipSemOneSecond * (WdipSemTimeoutValue / 0xAu);
   ExReleasePushLockEx((ULONG_PTR)&WdipSemPushLock, 0LL);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return ExSetTimer(WdipTimeoutTimer, v3, 0LL, (__int64)&WdipTimeoutTimerParameters);
 }

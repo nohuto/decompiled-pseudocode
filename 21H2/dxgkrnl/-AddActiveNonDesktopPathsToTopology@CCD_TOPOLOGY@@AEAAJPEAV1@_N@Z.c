@@ -1,16 +1,16 @@
 /*
- * XREFs of ?AddActiveNonDesktopPathsToTopology@CCD_TOPOLOGY@@AEAAJPEAV1@_N@Z @ 0x1C01C0964
+ * XREFs of ?AddActiveNonDesktopPathsToTopology@CCD_TOPOLOGY@@AEAAJPEAV1@_N@Z @ 0x1C01639B0
  * Callers:
- *     ?ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01C07FC (-ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
- *     ?Functionalize@CCD_TOPOLOGY@@QEAAJI_N@Z @ 0x1C01C08BC (-Functionalize@CCD_TOPOLOGY@@QEAAJI_N@Z.c)
+ *     ?ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0163848 (-ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?Functionalize@CCD_TOPOLOGY@@QEAAJI_N@Z @ 0x1C0163908 (-Functionalize@CCD_TOPOLOGY@@QEAAJI_N@Z.c)
  * Callees:
- *     ?RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z @ 0x1C01AB974 (-RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z.c)
- *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C01ABE88 (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
- *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C01ADE34 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
- *     ?Reserve@CCD_TOPOLOGY@@QEAAGG@Z @ 0x1C01ADEA8 (-Reserve@CCD_TOPOLOGY@@QEAAGG@Z.c)
- *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C01AEBD8 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
- *     ?AddPathDescriptor@CCD_TOPOLOGY@@QEAAJAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@PEAPEAU2@@Z @ 0x1C01E3CF4 (-AddPathDescriptor@CCD_TOPOLOGY@@QEAAJAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@PEAPEAU2@@Z.c)
- *     ?CopyTopology@CCD_TOPOLOGY@@AEAAJPEBV1@@Z @ 0x1C03A9208 (-CopyTopology@CCD_TOPOLOGY@@AEAAJPEBV1@@Z.c)
+ *     ?RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z @ 0x1C0131E04 (-RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z.c)
+ *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C013527C (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C0135980 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
+ *     ?Reserve@CCD_TOPOLOGY@@QEAAGG@Z @ 0x1C01359F0 (-Reserve@CCD_TOPOLOGY@@QEAAGG@Z.c)
+ *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C0136844 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
+ *     ?AddPathDescriptor@CCD_TOPOLOGY@@QEAAJAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@PEAPEAU2@@Z @ 0x1C0169C9C (-AddPathDescriptor@CCD_TOPOLOGY@@QEAAJAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@PEAPEAU2@@Z.c)
+ *     ?CopyTopology@CCD_TOPOLOGY@@AEAAJPEBV1@@Z @ 0x1C02EA7E8 (-CopyTopology@CCD_TOPOLOGY@@AEAAJPEBV1@@Z.c)
  */
 
 __int64 __fastcall CCD_TOPOLOGY::AddActiveNonDesktopPathsToTopology(
@@ -20,140 +20,170 @@ __int64 __fastcall CCD_TOPOLOGY::AddActiveNonDesktopPathsToTopology(
 {
   __int64 v6; // r8
   __int64 v7; // r9
-  unsigned __int16 v8; // bx
-  int v9; // eax
-  __int64 v10; // rbx
-  unsigned __int16 v11; // di
-  __int64 v13; // rdx
-  __int64 v14; // rax
-  unsigned __int16 v15; // bx
-  unsigned __int16 v16; // ax
-  int v17; // esi
-  __int64 v18; // rax
-  int v19; // eax
-  unsigned int j; // esi
-  unsigned __int16 v21; // cx
+  int v8; // esi
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  int v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // rbx
+  unsigned __int16 v17; // di
+  __int16 v18; // cx
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
+  int v23; // ecx
+  unsigned __int16 v24; // bx
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  __int64 v28; // r9
+  __int64 v29; // rcx
+  __int64 v30; // rax
+  int v31; // eax
+  __int64 v32; // rdx
+  __int64 v33; // rcx
+  unsigned int i; // esi
+  unsigned __int16 v35; // cx
   const struct D3DKMT_PATHMODALITY_DESCRIPTOR *PathDescriptor; // rax
-  int v23; // ebx
-  int v24; // ebx
-  int v25; // ebx
-  int v26; // ebx
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v27; // rax
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v28; // rax
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v29; // rax
-  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v30; // rax
-  struct D3DKMT_PATHMODALITY_DESCRIPTOR **v31; // r8
-  int v32; // eax
-  __int64 v33; // rax
-  _BYTE v34[64]; // [rsp+30h] [rbp-39h] BYREF
-  __int64 v35; // [rsp+70h] [rbp+7h]
-  int v36; // [rsp+84h] [rbp+1Bh]
-  unsigned __int16 i; // [rsp+E8h] [rbp+7Fh] BYREF
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v37; // rbx
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v38; // rbx
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v39; // rbx
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v40; // rbx
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v41; // rax
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v42; // rax
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v43; // rax
+  const struct D3DKMT_PATHMODALITY_DESCRIPTOR *v44; // rax
+  struct D3DKMT_PATHMODALITY_DESCRIPTOR **v45; // r8
+  int v46; // eax
+  __int64 v47; // rdx
+  __int64 v48; // rcx
+  _QWORD *v49; // rax
+  __int64 v50; // rcx
+  _BYTE v51[64]; // [rsp+38h] [rbp-29h] BYREF
+  __int64 v52; // [rsp+78h] [rbp+17h]
+  int v53; // [rsp+8Ch] [rbp+2Bh]
+  unsigned __int16 v54; // [rsp+E0h] [rbp+7Fh] BYREF
 
-  CCD_TOPOLOGY::CCD_TOPOLOGY((CCD_TOPOLOGY *)v34, 8u, 0);
-  v36 |= 4u;
+  CCD_TOPOLOGY::CCD_TOPOLOGY((CCD_TOPOLOGY *)v51, 8u, 0);
+  v53 |= 4u;
   v8 = 1;
-  for ( i = 1; ; v8 = i )
+  v54 = 1;
+  while ( (unsigned __int16)CCD_TOPOLOGY::Reserve((CCD_TOPOLOGY *)v51, (unsigned __int16)v8, v6, v7) >= (unsigned __int16)v8 )
   {
-    if ( (unsigned __int16)CCD_TOPOLOGY::Reserve((CCD_TOPOLOGY *)v34, v8, v6, v7) < v8 )
-    {
-      WdLogSingleEntry2(6LL, v8, this);
-      LODWORD(v10) = -1073741801;
-      goto LABEL_10;
-    }
-    v9 = CCD_TOPOLOGY::RetrieveActive((CCD_TOPOLOGY *)v34, 0, a3, 1, &i);
-    LODWORD(v10) = v9;
-    if ( v9 != -1073741789 )
-      break;
+    v13 = CCD_TOPOLOGY::RetrieveActive((CCD_TOPOLOGY *)v51, 0, a3, 1, &v54);
+    v8 = v54;
+    LODWORD(v16) = v13;
+    if ( v13 != -1073741789 )
+      goto LABEL_4;
   }
-  v11 = 0;
-  if ( v9 < 0 )
+  v20 = WdLogNewEntry5_WdLowResource(v10, v9, v11, v12);
+  *(_QWORD *)(v20 + 24) = (unsigned __int16)v8;
+  *(_QWORD *)(v20 + 32) = this;
+  WdLogEvent5_WdLowResource(v20);
+  LODWORD(v16) = -1073741801;
+LABEL_4:
+  v17 = 0;
+  if ( (int)v16 < 0 )
   {
-LABEL_10:
-    v13 = (int)v10;
-LABEL_20:
-    WdLogSingleEntry1(2LL, v13);
-    goto LABEL_8;
+    v21 = WdLogNewEntry5_WdError(v15, v14);
+    *(_QWORD *)(v21 + 24) = (int)v16;
+LABEL_25:
+    WdLogEvent5_WdError(v21);
+    goto LABEL_9;
   }
-  if ( !v35 || !*(_WORD *)(v35 + 20) )
+  if ( v52 )
+    v18 = *(_WORD *)(v52 + 20);
+  else
+    v18 = 0;
+  if ( !v18 )
   {
-    LODWORD(v10) = 255;
-    goto LABEL_8;
+    LODWORD(v16) = 255;
+    goto LABEL_9;
   }
   *((_DWORD *)a2 + 21) |= 1u;
-  v14 = *((_QWORD *)this + 8);
-  if ( v14 )
-  {
-    v15 = *(_WORD *)(v14 + 20);
-    v16 = v15;
-  }
+  v22 = *((_QWORD *)this + 8);
+  if ( v22 )
+    v23 = *(unsigned __int16 *)(v22 + 20);
   else
+    v23 = 0;
+  if ( v22 )
+    v24 = *(_WORD *)(v22 + 20);
+  else
+    v24 = 0;
+  v26 = (unsigned __int16)CCD_TOPOLOGY::Reserve(a2, (unsigned int)(v8 + v23), v6, v7);
+  if ( (unsigned int)v26 < (unsigned __int16)v8 + (unsigned int)v24 )
   {
-    v15 = 0;
-    v16 = 0;
+    v29 = WdLogNewEntry5_WdLowResource(v26, v25, v27, v28);
+    *(_QWORD *)(v29 + 24) = this;
+    v30 = *((_QWORD *)this + 8);
+    if ( v30 )
+      v17 = *(_WORD *)(v30 + 20);
+    *(_QWORD *)(v29 + 32) = (unsigned __int16)v8 + (unsigned int)v17;
+    WdLogEvent5_WdLowResource(v29);
+    LODWORD(v16) = -1073741801;
+    goto LABEL_9;
   }
-  v17 = i;
-  if ( (unsigned __int16)CCD_TOPOLOGY::Reserve(a2, (unsigned __int16)(i + v16), v6, v7) < v17 + (unsigned int)v15 )
+  v31 = CCD_TOPOLOGY::CopyTopology(a2, this);
+  v16 = v31;
+  if ( v31 < 0 )
   {
-    v18 = *((_QWORD *)this + 8);
-    if ( v18 )
-      v11 = *(_WORD *)(v18 + 20);
-    WdLogSingleEntry2(6LL, this, v17 + (unsigned int)v11);
-    LODWORD(v10) = -1073741801;
-    goto LABEL_8;
+    v21 = WdLogNewEntry5_WdError(v33, v32);
+    *(_QWORD *)(v21 + 24) = v16;
+    goto LABEL_25;
   }
-  v19 = CCD_TOPOLOGY::CopyTopology(a2, this);
-  LODWORD(v10) = v19;
-  if ( v19 < 0 )
+  for ( i = 0; ; ++i )
   {
-    v13 = v19;
-    goto LABEL_20;
-  }
-  for ( j = 0; ; ++j )
-  {
-    v21 = v35 ? *(_WORD *)(v35 + 20) : 0;
-    if ( j >= v21 )
+    v35 = v52 ? *(_WORD *)(v52 + 20) : 0;
+    if ( i >= v35 )
       break;
-    if ( (*(_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j) & 0x100LL) != 0 )
+    if ( (*(_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i) & 0x100LL) != 0 )
     {
-      PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j);
+      PathDescriptor = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i);
       *((_QWORD *)PathDescriptor + 1) |= 0x100uLL;
-      v23 = *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j) + 24);
-      *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j) + 38) = v23;
-      v24 = *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j) + 25);
-      *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j) + 39) = v24;
-      *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j) + 43) = 0;
-      *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j) + 42) = 0;
-      v25 = *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j) + 25);
-      *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j) + 45) = v25;
-      v26 = *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j) + 24);
-      *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j) + 44) = v26;
-      v27 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j);
-      *(_QWORD *)v27 |= 0x820000uLL;
+      v37 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i);
+      *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i) + 38) = *((_DWORD *)v37 + 24);
+      v38 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i);
+      *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i) + 39) = *((_DWORD *)v38 + 25);
+      *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i) + 43) = 0;
+      *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i) + 42) = 0;
+      v39 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i);
+      *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i) + 45) = *((_DWORD *)v39 + 25);
+      v40 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i);
+      *((_DWORD *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i) + 44) = *((_DWORD *)v40 + 24);
+      v41 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i);
+      *(_QWORD *)v41 |= 0x820000uLL;
     }
-    if ( (*(_BYTE *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j) & 0x87) != 0 )
+    if ( (*(_BYTE *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i) & 0x87) != 0 )
     {
-      v28 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j);
-      *((_QWORD *)v28 + 1) |= 0x87uLL;
+      v42 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i);
+      *((_QWORD *)v42 + 1) |= 0x87uLL;
     }
-    if ( (*(_BYTE *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j) & 2) != 0 )
+    if ( (*(_BYTE *)CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i) & 2) != 0 )
     {
-      v29 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j);
-      *((_QWORD *)v29 + 1) |= 2uLL;
+      v43 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i);
+      *((_QWORD *)v43 + 1) |= 2uLL;
     }
-    v30 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v34, j);
-    v32 = CCD_TOPOLOGY::AddPathDescriptor(a2, v30, v31);
-    v10 = v32;
-    if ( v32 < 0 )
+    v44 = CCD_TOPOLOGY::GetPathDescriptor((CCD_TOPOLOGY *)v51, i);
+    v46 = CCD_TOPOLOGY::AddPathDescriptor(a2, v44, v45);
+    v16 = v46;
+    if ( v46 < 0 )
     {
-      v33 = *((_QWORD *)a2 + 8);
-      if ( v33 )
-        v11 = *(_WORD *)(v33 + 20);
-      WdLogSingleEntry4(1LL, v10, j, this, v11);
+      v49 = (_QWORD *)WdLogNewEntry5_WdAssertion(v48, v47);
+      v49[3] = v16;
+      v49[4] = i;
+      v49[5] = this;
+      v50 = *((_QWORD *)a2 + 8);
+      if ( v50 )
+        v17 = *(_WORD *)(v50 + 20);
+      v49[6] = v17;
+      WdLogEvent5_WdAssertion(v49);
       break;
     }
   }
-LABEL_8:
-  CCD_TOPOLOGY::~CCD_TOPOLOGY((CCD_TOPOLOGY *)v34);
-  return (unsigned int)v10;
+LABEL_9:
+  CCD_TOPOLOGY::~CCD_TOPOLOGY((CCD_TOPOLOGY *)v51);
+  return (unsigned int)v16;
 }

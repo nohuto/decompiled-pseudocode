@@ -1,7 +1,7 @@
 /*
- * XREFs of SharedFree @ 0x1C0132130
+ * XREFs of SharedFree @ 0x1C0093DD0
  * Callers:
- *     <none>
+ *     HMFreeObject @ 0x1C0009390 (HMFreeObject.c)
  * Callees:
  *     <none>
  */

@@ -1,39 +1,52 @@
 /*
- * XREFs of ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C0092E30
+ * XREFs of ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C001A8F0
  * Callers:
- *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C0009E08 (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
- *     ?EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C0091710 (-EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
- *     EngHTBlt @ 0x1C009247C (EngHTBlt.c)
- *     ?bDisableHalftone@PDEVOBJ@@QEAAHXZ @ 0x1C010BC88 (-bDisableHalftone@PDEVOBJ@@QEAAHXZ.c)
- *     ?bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ @ 0x1C013CE28 (-bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ.c)
- *     GreCreateHalftonePalette @ 0x1C02B5EAC (GreCreateHalftonePalette.c)
+ *     ?EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C0019280 (-EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
+ *     ?bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ @ 0x1C0019A70 (-bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ.c)
+ *     EngHTBlt @ 0x1C0019F38 (EngHTBlt.c)
+ *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C00CFD3C (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
+ *     ?bDisableHalftone@PDEVOBJ@@QEAAHXZ @ 0x1C0120B78 (-bDisableHalftone@PDEVOBJ@@QEAAHXZ.c)
+ *     GreCreateHalftonePalette @ 0x1C02B7D9C (GreCreateHalftonePalette.c)
  * Callees:
- *     HT_DestroyDeviceHalftoneInfo @ 0x1C010BD78 (HT_DestroyDeviceHalftoneInfo.c)
+ *     HT_DestroyDeviceHalftoneInfo @ 0x1C0120C68 (HT_DestroyDeviceHalftoneInfo.c)
  */
 
 void *__fastcall PDEVOBJ::pDevHTInfo(PDEVOBJ *this)
 {
+  struct _KTHREAD *CurrentThread; // rsi
   __int64 *ThreadWin32Thread; // rax
-  __int64 v3; // rbx
-  _QWORD *v5; // rdi
+  __int64 v4; // rbx
+  _QWORD *v6; // rdi
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 CurrentThreadProcess; // rax
 
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( !ThreadWin32Thread )
-    return *(void **)(*(_QWORD *)this + 1504LL);
-  v3 = *ThreadWin32Thread;
-  if ( !*ThreadWin32Thread || !*(_DWORD *)(v3 + 104) && !*(_DWORD *)(v3 + 108) )
-    return *(void **)(*(_QWORD *)this + 1504LL);
-  if ( !PDEVOBJ::bAllowShareAccess(this) )
-    return *(void **)(*(_QWORD *)this + 1504LL);
-  if ( *(_DWORD *)(v3 + 296) != gcModeChanges )
+  CurrentThread = KeGetCurrentThread();
+  if ( (unsigned __int8)KeIsAttachedProcess() )
   {
-    v5 = *(_QWORD **)(v3 + 288);
-    if ( v5 )
+    CurrentProcess = PsGetCurrentProcess();
+    ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess);
+    CurrentThreadProcess = PsGetCurrentThreadProcess();
+    if ( ProcessSessionId != (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess) )
+      return *(void **)(*(_QWORD *)this + 1512LL);
+  }
+  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+  if ( !ThreadWin32Thread )
+    return *(void **)(*(_QWORD *)this + 1512LL);
+  v4 = *ThreadWin32Thread;
+  if ( !*ThreadWin32Thread || !*(_DWORD *)(v4 + 104) && !*(_DWORD *)(v4 + 108) )
+    return *(void **)(*(_QWORD *)this + 1512LL);
+  if ( !PDEVOBJ::bAllowShareAccess(this) )
+    return *(void **)(*(_QWORD *)this + 1512LL);
+  if ( *(_DWORD *)(v4 + 296) != gcModeChanges )
+  {
+    v6 = *(_QWORD **)(v4 + 288);
+    if ( v6 )
     {
-      bDeletePalette(*v5, 0LL, 0LL);
-      HT_DestroyDeviceHalftoneInfo(v5);
-      *(_QWORD *)(v3 + 288) = 0LL;
+      bDeletePalette(*v6, 0LL, 0LL);
+      HT_DestroyDeviceHalftoneInfo(v6);
+      *(_QWORD *)(v4 + 288) = 0LL;
     }
   }
-  return *(void **)(v3 + 288);
+  return *(void **)(v4 + 288);
 }

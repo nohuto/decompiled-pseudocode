@@ -1,44 +1,42 @@
 /*
- * XREFs of ?SetState@CHolographicComposition@@UEAAJJ@Z @ 0x1802A7A00
+ * XREFs of ?SetState@CHolographicComposition@@UEAAJJ@Z @ 0x180256040
  * Callers:
- *     ?ProcessCreate@CHolographicComposition@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICCOMPOSITION_CREATE@@@Z @ 0x1802A7928 (-ProcessCreate@CHolographicComposition@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICCOMPOS.c)
+ *     ?ProcessCreate@CHolographicComposition@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICCOMPOSITION_CREATE@@@Z @ 0x180255F78 (-ProcessCreate@CHolographicComposition@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICCOMPOS.c)
  * Callees:
- *     ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x180098C90 (-ShouldNotify@CNotificationResource@@IEBA_NXZ.c)
- *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B76D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x18006645C (-ShouldNotify@CNotificationResource@@IEBA_NXZ.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801643CC (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
  */
 
 __int64 __fastcall CHolographicComposition::SetState(CHolographicComposition *this)
 {
   __int64 v1; // r9
-  int v2; // r11d
-  __int64 v3; // rax
-  __int64 v4; // r10
-  unsigned int v5; // ecx
-  int v6; // eax
-  int v8; // [rsp+20h] [rbp-38h]
-  __int64 v9; // [rsp+30h] [rbp-28h]
-  _QWORD v10[3]; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v2; // rax
+  __int64 v3; // r10
+  unsigned int v4; // ecx
+  int v5; // eax
+  _QWORD v7[3]; // [rsp+40h] [rbp-18h] BYREF
   wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+0h]
 
-  if ( CNotificationResource::ShouldNotify((CHolographicComposition *)((char *)this - 72)) )
+  if ( CNotificationResource::ShouldNotify((CHolographicComposition *)((char *)this - 64)) )
   {
-    v3 = *(_QWORD *)(v1 - 24);
-    v4 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v1 + 8) + 1240LL) + 40LL);
-    if ( v3 )
-      v5 = *(_DWORD *)(v3 + 76);
+    v2 = *(_QWORD *)(v1 - 16);
+    v3 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v1 + 8) + 1080LL) + 48LL);
+    if ( v2 )
+      v4 = *(_DWORD *)(v2 + 68);
     else
-      v5 = 0;
-    v10[0] = v5;
-    LODWORD(v9) = v2;
-    v10[1] = *(unsigned int *)(v1 - 8);
-    v6 = CoreUICallSend(v4, v10, 2LL, 9LL, 0, &unk_18033C47C, v9);
-    if ( v6 < 0 )
+      v4 = 0;
+    v7[0] = v4;
+    v7[1] = *(unsigned int *)(v1 - 8);
+    v5 = CoreUICallSend(v3, v7, 2LL, 6LL, 0, &unk_1802CE741);
+    if ( v5 < 0 )
+    {
       wil::details::in1diag3::FailFast_Hr(
         retaddr,
-        149LL,
+        (void *)0x95,
         (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\holographic\\holographiccomposition.cpp",
-        (const char *)(unsigned int)v6,
-        v8);
+        (const char *)(unsigned int)v5);
+      __debugbreak();
+    }
   }
   return 0LL;
 }

@@ -1,17 +1,18 @@
 /*
- * XREFs of InternalRawAccessOpRegionHandler @ 0x1C0039CE0
+ * XREFs of InternalRawAccessOpRegionHandler @ 0x1C005CA50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0001E80 (memmove.c)
- *     ACPIInternalGetDeviceFromNSOBJ @ 0x1C00035BC (ACPIInternalGetDeviceFromNSOBJ.c)
- *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_qq @ 0x1C00249A0 (WPP_RECORDER_SF_qq.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIGetParent @ 0x1C0048744 (AMLIGetParent.c)
- *     GetFieldUnitRegionObj @ 0x1C004B964 (GetFieldUnitRegionObj.c)
- *     DereferenceObjectEx @ 0x1C004F6C8 (DereferenceObjectEx.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     DereferenceObjectEx @ 0x1C0003DA4 (DereferenceObjectEx.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C000EA0C (WPP_RECORDER_SF_qq.c)
+ *     AMLIGetParent @ 0x1C001B348 (AMLIGetParent.c)
+ *     GetFieldUnitRegionObj @ 0x1C00248F8 (GetFieldUnitRegionObj.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     ACPIInternalGetDeviceFromNSOBJ @ 0x1C0056ECC (ACPIInternalGetDeviceFromNSOBJ.c)
  */
 
 __int64 __fastcall InternalRawAccessOpRegionHandler(
@@ -25,45 +26,42 @@ __int64 __fastcall InternalRawAccessOpRegionHandler(
 {
   __int64 v7; // rbx
   int FieldUnitRegionObj; // ebp
-  __int64 v11; // rdx
-  __int64 v12; // r12
-  int v13; // edx
-  __int64 v14; // r13
-  int v15; // eax
-  bool v16; // zf
-  _DWORD *v17; // r14
-  unsigned int v18; // ebp
-  __int64 Pool2; // rax
-  __int64 v20; // r8
-  _QWORD *v21; // rbx
-  size_t v23; // r8
-  PVOID v24; // rbp
-  int v25; // edx
-  unsigned int v26; // edi
-  int v27; // [rsp+40h] [rbp-58h] BYREF
-  __int64 v28; // [rsp+48h] [rbp-50h] BYREF
+  unsigned __int64 v11; // rdx
+  __int64 v12; // r15
+  __int64 v13; // r12
+  int v14; // eax
+  unsigned int v15; // ebp
+  char *PoolWithTag; // rax
+  char *v17; // rbx
+  __int64 v19; // r8
+  unsigned int v20; // eax
+  PVOID v21; // rbp
+  unsigned int v22; // edi
+  __int64 v23; // [rsp+28h] [rbp-70h]
+  int v24; // [rsp+40h] [rbp-58h] BYREF
+  unsigned __int64 v25; // [rsp+48h] [rbp-50h] BYREF
   PVOID Object[9]; // [rsp+50h] [rbp-48h] BYREF
 
   Object[0] = 0LL;
   v7 = 0LL;
-  v28 = 0LL;
-  dword_1C006F938 = 0;
+  v25 = 0LL;
+  dword_1C0082908 = 0;
   pszDest = 0;
-  FieldUnitRegionObj = GetFieldUnitRegionObj(a3, &v28);
+  FieldUnitRegionObj = GetFieldUnitRegionObj((__int64 *)a3, (__int64 *)&v25);
   if ( FieldUnitRegionObj >= 0 )
   {
-    v11 = v28;
-    if ( v28 )
+    v11 = v25;
+    if ( v25 )
     {
-      v7 = v28 + 120;
-      dword_1C006F938 = 0;
+      v7 = v25 + 120;
+      dword_1C0082908 = 0;
       pszDest = 0;
       if ( (gdwfAMLI & 4) != 0 )
       {
-        _InterlockedAdd((volatile signed __int32 *)(v28 + 128), 1u);
-        v11 = v28;
+        _InterlockedAdd((volatile signed __int32 *)(v25 + 128), 1u);
+        v11 = v25;
       }
-      DereferenceObjectEx(v11, v11);
+      DereferenceObjectEx(v11);
     }
   }
   if ( FieldUnitRegionObj || !v7 )
@@ -71,85 +69,81 @@ __int64 __fastcall InternalRawAccessOpRegionHandler(
   v12 = AMLIGetParent(v7);
   AMLIDereferenceHandleEx(v7);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-  {
-    LOBYTE(v13) = 4;
     WPP_RECORDER_SF_qq(
-      WPP_GLOBAL_Control->DeviceExtension,
-      v13,
-      3,
-      10,
-      (__int64)&WPP_46f050f87a9c3f86e1bf3d4ff5286087_Traceguids,
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      4u,
+      3u,
+      0xAu,
+      (__int64)&WPP_f6167ec5c23d3e6afd934d9207ac58f7_Traceguids,
       a3,
       v12);
-  }
   if ( !a5 || !*(_QWORD *)(a5 + 16) )
     return 3221225473LL;
   if ( *(_WORD *)(a4 + 2) == 1 )
   {
-    v14 = a4 + 16;
-    v15 = 8;
+    v13 = a4 + 16;
+    v14 = 8;
   }
   else
   {
-    v14 = *(_QWORD *)(a4 + 32);
-    v15 = *(_DWORD *)(a4 + 24);
+    v13 = *(_QWORD *)(a4 + 32);
+    v14 = *(_DWORD *)(a4 + 24);
   }
-  v16 = *(_DWORD *)(a3 + 28) == 0;
-  v17 = (_DWORD *)(a3 + 36);
-  v27 = v15;
-  if ( v16 || (v18 = *v17 + 56, v18 <= 0x40) )
-    v18 = 64;
-  Pool2 = ExAllocatePool2(64LL, v18, 1332765505LL);
-  v21 = (_QWORD *)Pool2;
-  if ( !Pool2 )
+  v24 = v14;
+  if ( !*(_DWORD *)(a3 + 28) || (v15 = *(_DWORD *)(a3 + 36) + 56, v15 <= 0x40) )
+    v15 = 64;
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v15, 0x4F706341u);
+  v17 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  *(_DWORD *)(Pool2 + 4) = v18;
-  *(_DWORD *)Pool2 = 1;
-  *(_BYTE *)(Pool2 + 8) = a1;
-  *(_BYTE *)(Pool2 + 9) = *(_BYTE *)(a3 + 20) & 0xF;
-  *(_BYTE *)(Pool2 + 12) = (*(_DWORD *)(a3 + 20) >> 4) & 6;
-  *(_BYTE *)(Pool2 + 10) = BYTE1(*(_DWORD *)(a3 + 20));
-  *(_QWORD *)(Pool2 + 16) = a2;
-  *(_DWORD *)(Pool2 + 24) = *(_DWORD *)(a3 + 8);
-  *(_DWORD *)(Pool2 + 28) = *(_DWORD *)(a3 + 12);
-  *(_DWORD *)(Pool2 + 32) = *(_DWORD *)(a3 + 16);
-  *(_BYTE *)(Pool2 + 11) = *(_BYTE *)(a3 + 24);
+  memset(PoolWithTag, 0, v15);
+  v17[8] = a1;
+  *(_DWORD *)v17 = 1;
+  *((_DWORD *)v17 + 1) = v15;
+  v17[9] = *(_BYTE *)(a3 + 20) & 0xF;
+  v17[12] = (*(_DWORD *)(a3 + 20) >> 4) & 6;
+  v17[10] = BYTE1(*(_DWORD *)(a3 + 20));
+  *((_QWORD *)v17 + 2) = a2;
+  *((_DWORD *)v17 + 6) = *(_DWORD *)(a3 + 8);
+  *((_DWORD *)v17 + 7) = *(_DWORD *)(a3 + 12);
+  *((_DWORD *)v17 + 8) = *(_DWORD *)(a3 + 16);
+  v17[11] = *(_BYTE *)(a3 + 24);
   if ( *(_DWORD *)(a3 + 28) )
   {
-    *(_DWORD *)(Pool2 + 48) = *(_DWORD *)(a3 + 32);
-    v23 = (unsigned int)*v17;
-    *(_DWORD *)(Pool2 + 52) = *v17;
-    memmove((void *)(Pool2 + 56), (const void *)(a3 + 40), v23);
+    *((_DWORD *)v17 + 12) = *(_DWORD *)(a3 + 32);
+    v20 = *(_DWORD *)(a3 + 36);
+    *((_DWORD *)v17 + 13) = v20;
+    memmove(v17 + 56, (const void *)(a3 + 40), v20);
   }
-  ACPIInternalGetDeviceFromNSOBJ(v12, Object, v20, 0LL);
-  v24 = Object[0];
-  v21[5] = Object[0];
-  v26 = (*(__int64 (__fastcall **)(_QWORD *, __int64, int *, _QWORD, __int64, __int64))(a5 + 16))(
-          v21,
-          v14,
-          &v27,
+  ACPIInternalGetDeviceFromNSOBJ(v12, Object, v19, 0LL);
+  v21 = Object[0];
+  *((PVOID *)v17 + 5) = Object[0];
+  v22 = (*(__int64 (__fastcall **)(char *, __int64, int *, _QWORD, __int64, __int64))(a5 + 16))(
+          v17,
+          v13,
+          &v24,
           *(_QWORD *)(a5 + 24),
           a6,
           a7);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v25) = 4;
-    WPP_RECORDER_SF_d(
-      WPP_GLOBAL_Control->DeviceExtension,
-      v25,
-      3,
-      11,
-      (__int64)&WPP_46f050f87a9c3f86e1bf3d4ff5286087_Traceguids,
-      v26);
+    LODWORD(v23) = v22;
+    WPP_RECORDER_SF_D(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      4u,
+      3u,
+      0xBu,
+      (__int64)&WPP_f6167ec5c23d3e6afd934d9207ac58f7_Traceguids,
+      v23);
   }
-  if ( v24 )
-    ObfDereferenceObject(v24);
-  if ( v26 == -1073741789 )
+  if ( v21 )
+    ObfDereferenceObject(v21);
+  if ( v22 == -1073741789 )
   {
+    *(_DWORD *)(a4 + 16) = v24;
     *(_WORD *)(a4 + 2) = 1;
-    *(_DWORD *)(a4 + 16) = v27;
   }
-  ExFreePoolWithTag(v21, 0x4F706341u);
+  ExFreePoolWithTag(v17, 0x4F706341u);
   AMLIDereferenceHandleEx(v12);
-  return v26;
+  return v22;
 }

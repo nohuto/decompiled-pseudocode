@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ulSimulateSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A4A00
+ * XREFs of ?ulSimulateSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A6FE0
  * Callers:
- *     ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A1E80 (-MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
+ *     ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C02A40E0 (-MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ulSimulateSaveScreenBits(struct _SURFOBJ *a1, int a2, SURFOBJ *a3, struct _RECTL *a4)
@@ -32,7 +32,7 @@ __int64 __fastcall ulSimulateSaveScreenBits(struct _SURFOBJ *a1, int a2, SURFOBJ
       if ( !a1 )
         p_hsurf = 112LL;
       if ( (*(_DWORD *)p_hsurf & 0x400) != 0 )
-        (*((void (__fastcall **)(struct _SURFOBJ *, SURFOBJ *, _QWORD, _QWORD, struct _RECTL *, __int64 *))hdev + 352))(
+        (*((void (__fastcall **)(struct _SURFOBJ *, SURFOBJ *, _QWORD, _QWORD, struct _RECTL *, __int64 *))hdev + 355))(
           a1,
           a3,
           0LL,
@@ -56,7 +56,7 @@ __int64 __fastcall ulSimulateSaveScreenBits(struct _SURFOBJ *a1, int a2, SURFOBJ
   {
     v8 = a4->right - a4->left;
     v9 = a4->bottom - a4->top;
-    v10 = (__int64 (__fastcall *)(DHPDEV, unsigned __int64, _QWORD))*((_QWORD *)hdev + 343);
+    v10 = (__int64 (__fastcall *)(DHPDEV, unsigned __int64, _QWORD))*((_QWORD *)hdev + 346);
     if ( !v10
       || (Bitmap = (HBITMAP)v10(a1->dhpdev, __PAIR64__(v9, v8), a1->iBitmapFormat)) == 0LL
       || (_DWORD)Bitmap == -1 )
@@ -72,7 +72,7 @@ __int64 __fastcall ulSimulateSaveScreenBits(struct _SURFOBJ *a1, int a2, SURFOBJ
       v18[2] = v8;
       v18[3] = v9;
       if ( ((__int64)v12[1].hsurf & 0x400) != 0 )
-        (*((void (__fastcall **)(SURFOBJ *, struct _SURFOBJ *, _QWORD, _QWORD, _DWORD *, struct _RECTL *))hdev + 352))(
+        (*((void (__fastcall **)(SURFOBJ *, struct _SURFOBJ *, _QWORD, _QWORD, _DWORD *, struct _RECTL *))hdev + 355))(
           v12,
           a1,
           0LL,

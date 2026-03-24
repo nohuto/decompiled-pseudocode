@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z @ 0x1C022CB18
+ * XREFs of ?ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z @ 0x1C0247850
  * Callers:
- *     zzzComposeDesktop @ 0x1C0058DA4 (zzzComposeDesktop.c)
- *     SetDisplayAffinity @ 0x1C022CDDC (SetDisplayAffinity.c)
+ *     zzzComposeDesktop @ 0x1C00EC528 (zzzComposeDesktop.c)
+ *     SetDisplayAffinity @ 0x1C0247B60 (SetDisplayAffinity.c)
  * Callees:
- *     BuildHwndList @ 0x1C00D2540 (BuildHwndList.c)
- *     FreeHwndList @ 0x1C00D2E50 (FreeHwndList.c)
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
- *     ?Add@?$CDynamicArray@PEAUtagWND@@$0HHHAHDFF@@@QEAAJAEBQEAUtagWND@@@Z @ 0x1C022CADC (-Add@-$CDynamicArray@PEAUtagWND@@$0HHHAHDFF@@@QEAAJAEBQEAUtagWND@@@Z.c)
- *     ?ProtectWindowBitmap@@YAHPEAUtagWND@@K@Z @ 0x1C022CD44 (-ProtectWindowBitmap@@YAHPEAUtagWND@@K@Z.c)
+ *     BuildHwndList @ 0x1C006CAC0 (BuildHwndList.c)
+ *     FreeHwndList @ 0x1C006DA20 (FreeHwndList.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     ?Add@?$CDynamicArray@PEAUtagWND@@$0HHHAHDFF@@@QEAAJAEBQEAUtagWND@@@Z @ 0x1C0247814 (-Add@-$CDynamicArray@PEAUtagWND@@$0HHHAHDFF@@@QEAAJAEBQEAUtagWND@@@Z.c)
+ *     ?ProtectWindowBitmap@@YAHPEAUtagWND@@K@Z @ 0x1C0247A74 (-ProtectWindowBitmap@@YAHPEAUtagWND@@K@Z.c)
  */
 
 __int64 __fastcall ChangeWindowTreeProtection(struct tagWND *a1, unsigned int a2)
@@ -19,81 +19,90 @@ __int64 __fastcall ChangeWindowTreeProtection(struct tagWND *a1, unsigned int a2
   __int64 v7; // rdi
   __int64 v8; // rsi
   __int64 v9; // rax
-  _QWORD *i; // rbx
+  unsigned __int64 *i; // rbx
   __int64 v11; // rax
   __int64 v12; // rcx
-  __int64 v13; // rbx
-  char *v14; // rdi
-  struct tagWND **v15; // rsi
-  char *v17; // [rsp+20h] [rbp-10h] BYREF
-  unsigned int v18; // [rsp+28h] [rbp-8h]
-  int v19; // [rsp+2Ch] [rbp-4h]
-  struct tagWND *v20; // [rsp+60h] [rbp+30h] BYREF
-  __int64 v21; // [rsp+70h] [rbp+40h] BYREF
+  unsigned int v13; // esi
+  __int64 v14; // rbx
+  struct tagWND **v15; // rdi
+  struct tagWND **v16; // rsi
+  struct tagWND **v18; // [rsp+20h] [rbp-10h] BYREF
+  unsigned int v19; // [rsp+28h] [rbp-8h]
+  int v20; // [rsp+2Ch] [rbp-4h]
+  struct tagWND *v21; // [rsp+70h] [rbp+40h] BYREF
+  __int64 v22; // [rsp+80h] [rbp+50h] BYREF
 
-  v20 = a1;
+  v21 = a1;
   v3 = 0;
-  v5 = BuildHwndList(a1, (const struct tagWND *)1, 0LL, 1LL);
+  v5 = BuildHwndList(a1, 1, 0LL);
   if ( v5 )
   {
-    v17 = 0LL;
-    v18 = 0;
+    v18 = 0LL;
     v19 = 0;
-    if ( (int)CDynamicArray<tagWND *,2003858261>::Add((__int64)&v17, &v20) >= 0 )
+    v20 = 0;
+    if ( (int)CDynamicArray<tagWND *,2003858261>::Add((__int64)&v18, &v21) >= 0 )
     {
       v6 = *((_QWORD *)a1 + 2);
       v7 = 0LL;
       v8 = *(_QWORD *)(v6 + 424);
-      if ( a1 == *(struct tagWND **)(v6 + 1432) )
+      if ( a1 == *(struct tagWND **)(v6 + 1392) )
       {
-        v9 = *(_QWORD *)(v6 + 1440);
+        v9 = *(_QWORD *)(v6 + 1400);
         if ( v9 )
           v7 = *(_QWORD *)(*(_QWORD *)(v9 + 16) + 424LL);
       }
-      for ( i = (_QWORD *)((char *)v5 + 32); *i != 1LL; ++i )
+      for ( i = (unsigned __int64 *)((char *)v5 + 32); *i != 1; ++i )
       {
         v11 = HMValidateHandleNoSecure(*i, 1);
-        v21 = v11;
+        v22 = v11;
         if ( v11 && (*(_BYTE *)(*(_QWORD *)(v11 + 40) + 27LL) & 0x20) != 0 )
         {
           v12 = *(_QWORD *)(*(_QWORD *)(v11 + 16) + 424LL);
           if ( (a2 & 1) != 0 && v12 != v8 && v12 != v7 )
-            goto LABEL_24;
-          if ( (int)CDynamicArray<tagWND *,2003858261>::Add((__int64)&v17, &v21) < 0 )
-            goto LABEL_24;
+            goto LABEL_25;
+          if ( (int)CDynamicArray<tagWND *,2003858261>::Add((__int64)&v18, &v22) < 0 )
+            goto LABEL_25;
         }
       }
     }
-    v13 = 0LL;
+    v13 = v19;
+    v14 = 0LL;
     v3 = 1;
-    if ( v18 )
+    if ( v19 )
     {
-      v14 = v17;
+      v15 = v18;
       while ( 1 )
       {
-        v15 = (struct tagWND **)&v14[8 * v13];
-        if ( !(unsigned int)ProtectWindowBitmap(*v15, a2) )
+        if ( !(unsigned int)ProtectWindowBitmap(v15[v14], a2) )
         {
           v3 = 0;
           if ( (a2 & 1) != 0 )
             break;
         }
-        v13 = (unsigned int)(v13 + 1);
-        if ( (unsigned int)v13 >= v18 )
-          goto LABEL_25;
+        v14 = (unsigned int)(v14 + 1);
+        if ( (unsigned int)v14 >= v13 )
+          goto LABEL_26;
       }
-      for ( ; (_DWORD)v13; LODWORD(v13) = v13 - 1 )
-        ProtectWindowBitmap(*--v15, 0);
+      if ( (_DWORD)v14 )
+      {
+        v16 = &v15[v14];
+        do
+        {
+          ProtectWindowBitmap(*--v16, 0);
+          LODWORD(v14) = v14 - 1;
+        }
+        while ( (_DWORD)v14 );
+      }
     }
     else
     {
-LABEL_24:
-      v14 = v17;
-    }
 LABEL_25:
+      v15 = v18;
+    }
+LABEL_26:
     FreeHwndList(v5);
-    if ( v14 )
-      Win32FreePool(v14);
+    if ( v15 )
+      Win32FreePool(v15);
   }
   return v3;
 }

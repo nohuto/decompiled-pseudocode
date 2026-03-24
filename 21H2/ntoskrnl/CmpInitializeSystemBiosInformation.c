@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpInitializeSystemBiosInformation @ 0x140B4DE9C
+ * XREFs of CmpInitializeSystemBiosInformation @ 0x140A8E8C0
  * Callers:
- *     CmpInitializeMachineDependentConfiguration @ 0x140B17304 (CmpInitializeMachineDependentConfiguration.c)
+ *     CmpInitializeMachineDependentConfiguration @ 0x140A58C04 (CmpInitializeMachineDependentConfiguration.c)
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwCreateKey @ 0x14041BB00 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041C360 (ZwSetValueKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
- *     CmpBuildRegMultiSz @ 0x140B4DC48 (CmpBuildRegMultiSz.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmpBuildRegMultiSz @ 0x140A8E670 (CmpBuildRegMultiSz.c)
  */
 
 void __fastcall CmpInitializeSystemBiosInformation(__int64 a1)
@@ -30,19 +30,19 @@ void __fastcall CmpInitializeSystemBiosInformation(__int64 a1)
 
   v1 = *(_QWORD *)(a1 + 240);
   KeyHandle = (HANDLE)-1LL;
-  memset(&ObjectAttributes, 0, 44);
-  v2 = *(unsigned __int16 *)(v1 + 2752);
-  v3 = *(unsigned __int16 *)(v1 + 2768);
-  v4 = *(unsigned __int16 *)(v1 + 2784);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  v2 = *(unsigned __int16 *)(v1 + 2720);
+  v3 = *(unsigned __int16 *)(v1 + 2736);
+  v4 = *(unsigned __int16 *)(v1 + 2752);
   PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v3 + v4 + v2 + 8, 0x20204D43u);
   v7 = PoolWithTag;
   if ( PoolWithTag )
   {
-    v8 = *(const void **)(v1 + 2760);
+    v8 = *(const void **)(v1 + 2728);
     v13 = 0;
     CmpBuildRegMultiSz((__int64)PoolWithTag, v6, &v13, v8, v2);
-    CmpBuildRegMultiSz((__int64)v7, v9, &v13, *(const void **)(v1 + 2776), v3);
-    CmpBuildRegMultiSz((__int64)v7, v10, &v13, *(const void **)(v1 + 2792), v4);
+    CmpBuildRegMultiSz((__int64)v7, v9, &v13, *(const void **)(v1 + 2744), v3);
+    CmpBuildRegMultiSz((__int64)v7, v10, &v13, *(const void **)(v1 + 2760), v4);
     v11 = v13;
     *(_WORD *)&v7[v13] = 0;
     ObjectAttributes.Length = 48;

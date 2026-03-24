@@ -1,11 +1,11 @@
 /*
- * XREFs of AcpiDiagTraceAmliWatchdogTimeout @ 0x1C0047F28
+ * XREFs of AcpiDiagTraceAmliWatchdogTimeout @ 0x1C004985C
  * Callers:
- *     AmliWatchdogTimeoutAction @ 0x1C0064394 (AmliWatchdogTimeoutAction.c)
+ *     AmliWatchdogTimeoutAction @ 0x1C0063064 (AmliWatchdogTimeoutAction.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0023FBC (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0023FEC (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C000FB50 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C000FB80 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
  */
 
 void AcpiDiagTraceAmliWatchdogTimeout()
@@ -25,7 +25,7 @@ void AcpiDiagTraceAmliWatchdogTimeout()
   int *v12; // [rsp+90h] [rbp+37h]
   __int64 v13; // [rsp+98h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_1C007E0E8 > 5 && tlgKeywordOn((__int64)&dword_1C007E0E8) )
+  if ( (unsigned int)dword_1C007F0E8 > 5 && tlgKeywordOn((__int64)&dword_1C007F0E8) )
   {
     v2 = v1 - *(_QWORD *)(v0 + 456);
     v6 = v9;
@@ -39,6 +39,6 @@ void AcpiDiagTraceAmliWatchdogTimeout()
     v9[1] = 0;
     v11 = 4LL;
     v13 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C007E0E8, (unsigned __int8 *)dword_1C0071F89, v0, v2, 6u, &v5);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C007F0E8, (unsigned __int8 *)dword_1C0072691, v0, v2, 6u, &v5);
   }
 }

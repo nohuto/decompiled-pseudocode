@@ -1,42 +1,42 @@
 /*
- * XREFs of ?AddMultipleAndSet@?$DynArray@UConditionalBasicBlock@@$00@@QEAAJPEFBUConditionalBasicBlock@@I@Z @ 0x180027220
+ * XREFs of ?AddMultipleAndSet@?$DynArray@UConditionalBasicBlock@@$00@@QEAAJPEFBUConditionalBasicBlock@@I@Z @ 0x1801C0AA8
  * Callers:
- *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800BDA50 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18005A610 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
  * Callees:
- *     ?AddMultipleAndSet@?$DynArrayImpl@$00@@IEAAJIIPEBX@Z @ 0x18002727C (-AddMultipleAndSet@-$DynArrayImpl@$00@@IEAAJIIPEBX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$00@@IEAAJIIPEBX@Z @ 0x1800368F8 (-AddMultipleAndSet@-$DynArrayImpl@$00@@IEAAJIIPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall DynArray<ConditionalBasicBlock,1>::AddMultipleAndSet(__int64 a1, _QWORD *a2)
 {
-  unsigned int v2; // eax
+  __int64 v2; // rax
   unsigned int v3; // r9d
   unsigned int v4; // ebx
-  int v6; // eax
-  unsigned int v7; // ecx
+  int v5; // eax
+  __int64 v6; // rcx
 
-  v2 = *(_DWORD *)(a1 + 24);
+  v2 = *(unsigned int *)(a1 + 24);
   v3 = v2 + 1;
-  if ( v2 + 1 < v2 )
-  {
-    v4 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024362, 0xB5u, 0LL);
-  }
-  else
+  if ( (int)v2 + 1 >= (unsigned int)v2 )
   {
     v4 = 0;
     if ( v3 > *(_DWORD *)(a1 + 20) )
     {
-      v6 = DynArrayImpl<1>::AddMultipleAndSet(a1, 8LL, a1, a2);
-      v4 = v6;
-      if ( v6 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0xC0u, 0LL);
+      v5 = DynArrayImpl<1>::AddMultipleAndSet(a1, 8u, a1, a2);
+      v4 = v5;
+      if ( v5 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v5, 0xC0u, 0LL);
     }
     else
     {
-      *(_QWORD *)(*(_QWORD *)a1 + 8LL * v2) = *a2;
+      *(_QWORD *)(*(_QWORD *)a1 + 8 * v2) = *a2;
       *(_DWORD *)(a1 + 24) = v3;
     }
+  }
+  else
+  {
+    v4 = -2147024362;
+    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024362, 0xB5u, 0LL);
   }
   return v4;
 }

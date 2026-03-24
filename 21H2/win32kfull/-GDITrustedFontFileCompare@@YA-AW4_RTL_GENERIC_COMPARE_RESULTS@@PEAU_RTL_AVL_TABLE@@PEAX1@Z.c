@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GDITrustedFontFileCompare@@YA?AW4_RTL_GENERIC_COMPARE_RESULTS@@PEAU_RTL_AVL_TABLE@@PEAX1@Z @ 0x1C0288E60
+ * XREFs of ?GDITrustedFontFileCompare@@YA?AW4_RTL_GENERIC_COMPARE_RESULTS@@PEAU_RTL_AVL_TABLE@@PEAX1@Z @ 0x1C028B210
  * Callers:
  *     <none>
  * Callees:

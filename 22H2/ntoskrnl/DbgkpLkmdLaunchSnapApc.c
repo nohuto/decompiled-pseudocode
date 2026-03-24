@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgkpLkmdLaunchSnapApc @ 0x14093AF24
+ * XREFs of DbgkpLkmdLaunchSnapApc @ 0x1408883A4
  * Callers:
- *     DbgkpLkmdSnapThread @ 0x14053C0A4 (DbgkpLkmdSnapThread.c)
+ *     DbgkpLkmdSnapThread @ 0x1404EE484 (DbgkpLkmdSnapThread.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     KeInitializeApc @ 0x1402BE6A0 (KeInitializeApc.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140AAFC80 (ExAllocatePoolWithTag.c)
+ *     KeInsertQueueApc @ 0x14025F120 (KeInsertQueueApc.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     KeInitializeApc @ 0x140341E70 (KeInitializeApc.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall DbgkpLkmdLaunchSnapApc(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -20,7 +20,7 @@ __int64 __fastcall DbgkpLkmdLaunchSnapApc(__int64 a1, __int64 a2, __int64 a3, __
   unsigned int v13; // ebx
   LARGE_INTEGER Timeout; // [rsp+40h] [rbp-28h] BYREF
 
-  PoolWithTag = (char *)ExAllocatePoolWithTag((POOL_TYPE)1536, 0x90uLL, 0x704E534Bu);
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x90uLL, 0x704E534Bu);
   v9 = PoolWithTag;
   if ( !PoolWithTag )
     return 3221225495LL;
@@ -32,7 +32,7 @@ __int64 __fastcall DbgkpLkmdLaunchSnapApc(__int64 a1, __int64 a2, __int64 a3, __
   *((_QWORD *)PoolWithTag + 14) = a4;
   KeInitializeEvent((PRKEVENT)PoolWithTag + 5, NotificationEvent, 0);
   KeInitializeApc((__int64)v9, a3, 0, (__int64)DbgkpLkmdSnapThreadApc, 0LL, 0LL, 0, 0LL);
-  if ( (unsigned __int8)KeInsertQueueApc((__int64)v9, (__int64)v9, v11, 2u) )
+  if ( KeInsertQueueApc((__int64)v9, (__int64)v9, (__int64)v11, 2) )
   {
     Timeout.QuadPart = -50000000LL;
     while ( 1 )

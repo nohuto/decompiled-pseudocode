@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vNextEvent@LINER@@QEAAXXZ @ 0x1C0130BD0
+ * XREFs of ?vNextEvent@LINER@@QEAAXXZ @ 0x1C0140AAC
  * Callers:
- *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C01309F0 (-bWiden@WIDENER@@IEAAHXZ.c)
+ *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C01408C8 (-bWiden@WIDENER@@IEAAHXZ.c)
  * Callees:
- *     ?vNextPoint@LINER@@AEAAXXZ @ 0x1C0130CB0 (-vNextPoint@LINER@@AEAAXXZ.c)
+ *     ?vNextPoint@LINER@@AEAAXXZ @ 0x1C0140B8C (-vNextPoint@LINER@@AEAAXXZ.c)
  */
 
 void __fastcall LINER::vNextEvent(LINER *this)

@@ -1,35 +1,31 @@
 /*
- * XREFs of HalpArmAcpiWakeAlarm @ 0x140934EF0
+ * XREFs of HalpArmAcpiWakeAlarm @ 0x140778D88
  * Callers:
- *     HaliSetWakeAlarm @ 0x140A965C0 (HaliSetWakeAlarm.c)
+ *     HaliSetWakeAlarm @ 0x1409987C0 (HaliSetWakeAlarm.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     HalpGetDynamicDevicePointer @ 0x140933974 (HalpGetDynamicDevicePointer.c)
- *     HalpCallWakeAlarmDriver @ 0x140934FAC (HalpCallWakeAlarmDriver.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     HalpGetDynamicDevicePointer @ 0x140778DD4 (HalpGetDynamicDevicePointer.c)
+ *     HalpCallWakeAlarmDriver @ 0x1408662B0 (HalpCallWakeAlarmDriver.c)
  */
 
-__int64 __fastcall HalpArmAcpiWakeAlarm(__int64 a1)
+__int64 HalpArmAcpiWakeAlarm()
 {
-  int DynamicDevicePointer; // ebx
-  PVOID Object; // [rsp+40h] [rbp+18h] BYREF
+  struct _DEVICE_OBJECT *DynamicDevicePointer; // rax
+  unsigned int v1; // ebx
+  struct _DEVICE_OBJECT *v2; // rdi
 
-  Object = 0LL;
-  DynamicDevicePointer = HalpGetDynamicDevicePointer(a1, &Object);
-  if ( DynamicDevicePointer >= 0 )
+  DynamicDevicePointer = (struct _DEVICE_OBJECT *)HalpGetDynamicDevicePointer();
+  v1 = 0;
+  v2 = DynamicDevicePointer;
+  if ( !DynamicDevicePointer )
+    return 3221225473LL;
+  if ( (int)HalpCallWakeAlarmDriver(DynamicDevicePointer) < 0
+    || (int)HalpCallWakeAlarmDriver(v2) < 0
+    || (int)HalpCallWakeAlarmDriver(v2) < 0
+    || (int)HalpCallWakeAlarmDriver(v2) < 0 )
   {
-    if ( (int)HalpCallWakeAlarmDriver((PDEVICE_OBJECT)Object) < 0
-      || (int)HalpCallWakeAlarmDriver((PDEVICE_OBJECT)Object) < 0
-      || (int)HalpCallWakeAlarmDriver((PDEVICE_OBJECT)Object) < 0
-      || (int)HalpCallWakeAlarmDriver((PDEVICE_OBJECT)Object) < 0 )
-    {
-      DynamicDevicePointer = -1073741823;
-    }
-    else
-    {
-      DynamicDevicePointer = 0;
-    }
+    v1 = -1073741823;
   }
-  if ( Object )
-    ObfDereferenceObject(Object);
-  return (unsigned int)DynamicDevicePointer;
+  HalPutDmaAdapter((PADAPTER_OBJECT)v2);
+  return v1;
 }

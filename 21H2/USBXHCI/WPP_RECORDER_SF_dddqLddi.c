@@ -1,12 +1,12 @@
 /*
- * XREFs of WPP_RECORDER_SF_DDDqLDDi @ 0x1C000F880
+ * XREFs of WPP_RECORDER_SF_dddqLddi @ 0x1C000E32C
  * Callers:
- *     Bulk_ProcessTransferEventWithED1 @ 0x1C000E0D4 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DBF8 (Bulk_ProcessTransferEventWithED0.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 WPP_RECORDER_SF_DDDqLDDi(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __int64 a5, ...)
+__int64 WPP_RECORDER_SF_dddqLddi(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __int64 a5, ...)
 {
   int v7; // [rsp+28h] [rbp-81h]
   __int64 v8; // [rsp+F0h] [rbp+47h] BYREF
@@ -47,11 +47,11 @@ __int64 WPP_RECORDER_SF_DDDqLDDi(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __
   va_copy(va7, va6);
   v20 = va_arg(va7, _QWORD);
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x2000) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
-    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))WPP_MAIN_CB.Reserved)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
       &WPP_f900c8e8530d3ebbc4303e7a1e3d0cbe_Traceguids,
-      55LL,
+      51LL,
       (__int64 *)va,
       4LL,
       (__int64 *)va1,
@@ -69,7 +69,7 @@ __int64 WPP_RECORDER_SF_DDDqLDDi(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __
       va7,
       8LL,
       0LL);
-  LOWORD(v7) = 55;
+  LOWORD(v7) = 51;
   return WppAutoLogTrace(
            a1,
            4LL,
@@ -82,5 +82,15 @@ __int64 WPP_RECORDER_SF_DDDqLDDi(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __
            4LL,
            (__int64 *)va2,
            4LL,
-           (__int64 *)va3);
+           (__int64 *)va3,
+           8LL,
+           (__int64 *)va4,
+           4LL,
+           (__int64 *)va5,
+           4LL,
+           (__int64 *)va6,
+           4LL,
+           va7,
+           8LL,
+           0LL);
 }

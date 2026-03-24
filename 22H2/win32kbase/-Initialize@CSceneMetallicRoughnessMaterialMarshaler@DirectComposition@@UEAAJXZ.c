@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CSceneMetallicRoughnessMaterialMarshaler@DirectComposition@@UEAAJXZ @ 0x1C021CC70
+ * XREFs of ?Initialize@CSceneMetallicRoughnessMaterialMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01DBFA0
  * Callers:
  *     <none>
  * Callees:

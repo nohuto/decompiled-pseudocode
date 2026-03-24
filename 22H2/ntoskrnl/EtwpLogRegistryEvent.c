@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpLogRegistryEvent @ 0x1408A736C
+ * XREFs of EtwpLogRegistryEvent @ 0x140936F54
  * Callers:
- *     EtwpTraceRegistry @ 0x1408A76A0 (EtwpTraceRegistry.c)
+ *     EtwpTraceRegistry @ 0x140937920 (EtwpTraceRegistry.c)
  * Callees:
- *     EtwpLogSystemEventUnsafe @ 0x14038C540 (EtwpLogSystemEventUnsafe.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1403A993C (EtwpLogSystemEventUnsafe.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-__int64 __fastcall EtwpLogRegistryEvent(
+_QWORD *__fastcall EtwpLogRegistryEvent(
         unsigned int a1,
         unsigned __int8 a2,
         unsigned int a3,
@@ -18,7 +18,7 @@ __int64 __fastcall EtwpLogRegistryEvent(
 {
   __int16 v8; // r10
   unsigned int v9; // edx
-  unsigned __int16 v10; // r10
+  __int16 v10; // r10
   __int64 v11; // rcx
   int v12; // eax
   __int64 v13; // rax

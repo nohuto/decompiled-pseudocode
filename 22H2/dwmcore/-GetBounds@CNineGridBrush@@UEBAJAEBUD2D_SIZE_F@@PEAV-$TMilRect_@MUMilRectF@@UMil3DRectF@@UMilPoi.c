@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetBounds@CNineGridBrush@@UEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800EF760
+ * XREFs of ?GetBounds@CNineGridBrush@@UEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180018AA0
  * Callers:
- *     ?GetBounds@CNineGridBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18011E160 (-GetBounds@CNineGridBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRe.c)
+ *     ?GetBounds@CNineGridBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800F6100 (-GetBounds@CNineGridBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRe.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CNineGridBrush::GetBounds(__int64 a1, __int64 a2, _DWORD *a3)
@@ -13,13 +13,13 @@ __int64 __fastcall CNineGridBrush::GetBounds(__int64 a1, __int64 a2, _DWORD *a3)
   unsigned int v4; // ebx
   __int64 (__fastcall ***v5)(_QWORD); // rcx
   int v6; // eax
-  __int64 v7; // rcx
+  unsigned int v7; // ecx
 
   v3 = *(_QWORD *)(a1 - 96);
   v4 = 0;
   if ( v3 )
   {
-    v5 = (__int64 (__fastcall ***)(_QWORD))(v3 + 64 + *(int *)(*(_QWORD *)(v3 + 64) + 8LL));
+    v5 = (__int64 (__fastcall ***)(_QWORD))(v3 + 56 + *(int *)(*(_QWORD *)(v3 + 56) + 8LL));
     v6 = (**v5)(v5);
     v4 = v6;
     if ( v6 < 0 )

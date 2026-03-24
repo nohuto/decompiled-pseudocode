@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpBlkInitializeVirtualAddressSpace @ 0x140B92ECC
+ * XREFs of HalpBlkInitializeVirtualAddressSpace @ 0x140A8DF74
  * Callers:
- *     HalpBlkInitSystem @ 0x140B4C628 (HalpBlkInitSystem.c)
+ *     HalpBlkInitSystem @ 0x140A44A4C (HalpBlkInitSystem.c)
  * Callees:
- *     HalpMap @ 0x14037E878 (HalpMap.c)
- *     HalpBlkAllocatePageTablePage @ 0x140B92CD4 (HalpBlkAllocatePageTablePage.c)
- *     HalpBlkAllocateShadowCode @ 0x140B92D5C (HalpBlkAllocateShadowCode.c)
- *     HalpBlkAllocateShadowData @ 0x140B92E34 (HalpBlkAllocateShadowData.c)
- *     HalpBlkShadowApic @ 0x140B92F60 (HalpBlkShadowApic.c)
- *     HalpBlkShadowStartupBlock @ 0x140B92FB4 (HalpBlkShadowStartupBlock.c)
+ *     HalpMap @ 0x1403BB2D8 (HalpMap.c)
+ *     HalpBlkAllocatePageTablePage @ 0x140A8DD80 (HalpBlkAllocatePageTablePage.c)
+ *     HalpBlkAllocateShadowCode @ 0x140A8DE08 (HalpBlkAllocateShadowCode.c)
+ *     HalpBlkAllocateShadowData @ 0x140A8DEE0 (HalpBlkAllocateShadowData.c)
+ *     HalpBlkShadowApic @ 0x140A8E008 (HalpBlkShadowApic.c)
+ *     HalpBlkShadowStartupBlock @ 0x140A8E05C (HalpBlkShadowStartupBlock.c)
  */
 
 __int64 HalpBlkInitializeVirtualAddressSpace()

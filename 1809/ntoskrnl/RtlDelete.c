@@ -5,9 +5,9 @@
  *     FsRtlFastUnlockSingleShared @ 0x14008C1C8 (FsRtlFastUnlockSingleShared.c)
  *     FsRtlFastUnlockSingleExclusive @ 0x14008C4D0 (FsRtlFastUnlockSingleExclusive.c)
  *     RtlDeleteElementGenericTable @ 0x14008F550 (RtlDeleteElementGenericTable.c)
- *     FsRtlPrivateFastUnlockAll @ 0x14012EC44 (FsRtlPrivateFastUnlockAll.c)
- *     RtlRemoveUnicodePrefix @ 0x1406C4240 (RtlRemoveUnicodePrefix.c)
- *     PfxRemovePrefix @ 0x1408923F0 (PfxRemovePrefix.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x14012EC64 (FsRtlPrivateFastUnlockAll.c)
+ *     RtlRemoveUnicodePrefix @ 0x1406C4220 (RtlRemoveUnicodePrefix.c)
+ *     PfxRemovePrefix @ 0x1408923D0 (PfxRemovePrefix.c)
  * Callees:
  *     SwapSplayLinks @ 0x140014544 (SwapSplayLinks.c)
  *     RtlSubtreePredecessor @ 0x140014690 (RtlSubtreePredecessor.c)

@@ -1,8 +1,7 @@
 /*
- * XREFs of PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x140597A5C
+ * XREFs of PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x1405782FC
  * Callers:
- *     PpmCheckComputeHeteroResponse @ 0x140596500 (PpmCheckComputeHeteroResponse.c)
- *     PpmHeteroComputeUnparkCount @ 0x1405971F0 (PpmHeteroComputeUnparkCount.c)
+ *     PpmCheckComputeHeteroResponse @ 0x140577B50 (PpmCheckComputeHeteroResponse.c)
  * Callees:
  *     <none>
  */

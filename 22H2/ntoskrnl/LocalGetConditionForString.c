@@ -1,427 +1,408 @@
 /*
- * XREFs of LocalGetConditionForString @ 0x1409D49C4
+ * XREFs of LocalGetConditionForString @ 0x140927F44
  * Callers:
- *     LocalGetAclForString @ 0x14069C8EC (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x1407877AC (LocalGetAclForString.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     iswspace @ 0x1403D9B70 (iswspace.c)
- *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
- *     AppendCondition @ 0x1409D2CE4 (AppendCondition.c)
- *     FreeOperandValue @ 0x1409D3168 (FreeOperandValue.c)
- *     GetConditionToken @ 0x1409D3458 (GetConditionToken.c)
- *     GetOperandValue @ 0x1409D367C (GetOperandValue.c)
- *     GetOperatorIndexByToken @ 0x1409D3DF0 (GetOperatorIndexByToken.c)
- *     IsArrayType @ 0x1409D48B0 (IsArrayType.c)
- *     IsValueSizeFixed @ 0x1409D4974 (IsValueSizeFixed.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     iswspace @ 0x1403D2150 (iswspace.c)
+ *     SddlpAlloc @ 0x1406ED338 (SddlpAlloc.c)
+ *     GetOperatorIndexByToken @ 0x1406ED73C (GetOperatorIndexByToken.c)
+ *     AppendCondition @ 0x140926C84 (AppendCondition.c)
+ *     FreeOperandValue @ 0x140927044 (FreeOperandValue.c)
+ *     GetConditionToken @ 0x140927334 (GetConditionToken.c)
+ *     GetOperandValue @ 0x140927554 (GetOperandValue.c)
+ *     IsValueSizeFixed @ 0x140927F14 (IsValueSizeFixed.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall LocalGetConditionForString(wint_t *a1, __int64 a2, const void **a3, unsigned int *a4)
 {
   unsigned int *v4; // r14
-  const void **v5; // r12
-  wint_t *v6; // r13
+  const void **v5; // r15
+  wint_t *v6; // r12
   int v7; // esi
-  unsigned int appended; // ebx
+  unsigned int OperandValue; // ebx
   unsigned int v9; // edi
-  int v10; // r15d
+  int v10; // r13d
   __int64 v11; // rax
   unsigned int v12; // eax
   unsigned int v13; // ecx
-  unsigned __int64 v14; // rax
-  _DWORD *v15; // rax
-  __int64 v16; // rax
+  __int64 v14; // rax
+  size_t v15; // rcx
+  unsigned __int64 v16; // rax
+  _DWORD *v17; // rax
+  __int64 v18; // rax
   char ConditionToken; // al
-  unsigned int v18; // r10d
-  char v19; // r12
-  __int64 v20; // rax
-  __int64 v21; // r14
-  char v22; // di
-  unsigned int *v23; // r12
-  char v24; // al
-  int OperatorIndexByToken; // eax
-  char v26; // r10
-  int v27; // eax
-  char v28; // r10
-  __int64 v29; // r8
-  char v30; // r11
-  int v31; // eax
-  char v32; // r10
+  unsigned int v20; // r10d
+  char v21; // r15
+  __int64 v22; // rax
+  __int64 v23; // r14
+  char v24; // r15
+  char v25; // al
+  int v26; // eax
+  char v27; // r10
+  int v28; // eax
+  char v29; // r10
+  __int64 v30; // r8
+  char v31; // r11
+  int v32; // eax
   char v33; // r10
-  __int64 v34; // r8
+  char v34; // r10
   __int64 v35; // r8
-  int v36; // r9d
-  __int64 v37; // rax
-  char v38; // cl
-  int v39; // eax
-  int v40; // r9d
-  __int64 v41; // rax
-  __int64 v42; // r8
-  int v43; // eax
-  __int64 v44; // r8
-  int v45; // r9d
-  char v46; // cl
+  __int64 v36; // r8
+  int v37; // r9d
+  __int64 v38; // rax
+  char v39; // cl
+  int v40; // eax
+  int v41; // r9d
+  __int64 v42; // rax
+  __int64 v43; // r8
+  int OperatorIndexByToken; // eax
+  __int64 v45; // r8
+  int v46; // r9d
   char v47; // cl
-  char *v48; // r9
-  __int64 v49; // rdi
-  char v50; // al
-  size_t Size; // [rsp+20h] [rbp-E0h]
-  size_t Sizea; // [rsp+20h] [rbp-E0h]
-  int v54; // [rsp+50h] [rbp-B0h] BYREF
-  int v55[2]; // [rsp+58h] [rbp-A8h]
-  char v56; // [rsp+60h] [rbp-A0h]
-  int v57[2]; // [rsp+68h] [rbp-98h]
-  int v58[2]; // [rsp+70h] [rbp-90h] BYREF
-  unsigned int v59; // [rsp+78h] [rbp-88h] BYREF
+  char v48; // cl
+  char *v49; // rdx
+  unsigned int v50; // eax
+  __int64 v51; // rdi
+  char v52; // al
+  char v54; // [rsp+50h] [rbp-B0h] BYREF
+  char v55; // [rsp+51h] [rbp-AFh]
+  char v56; // [rsp+52h] [rbp-AEh]
+  const void **v57; // [rsp+58h] [rbp-A8h]
+  char v58; // [rsp+60h] [rbp-A0h]
+  unsigned int *v59; // [rsp+68h] [rbp-98h]
+  unsigned int v60[2]; // [rsp+70h] [rbp-90h] BYREF
+  unsigned int v61; // [rsp+78h] [rbp-88h] BYREF
   PVOID P; // [rsp+80h] [rbp-80h] BYREF
-  _QWORD v61[33]; // [rsp+88h] [rbp-78h]
+  _QWORD v63[33]; // [rsp+88h] [rbp-78h] BYREF
 
-  *(_QWORD *)v57 = a4;
-  *(_QWORD *)v55 = a3;
+  v59 = a4;
+  v57 = a3;
   v4 = a4;
-  v61[0] = a2;
+  v63[0] = a2;
   v5 = a3;
-  LOWORD(v54) = 0;
-  v59 = 0;
+  v55 = 0;
   v6 = a1;
-  P = 0LL;
+  v61 = 0;
   v7 = 0;
-  v56 = 0;
-  appended = 0;
+  P = 0LL;
+  OperandValue = 0;
+  v58 = 0;
   v9 = 0;
+  v56 = 0;
   v10 = 0;
-  if ( a1 && a2 && a3 && a4 )
+  if ( !a1 || !a2 || !a3 || !a4 )
+    return 87LL;
+  *a3 = 0LL;
+  v11 = -1LL;
+  *a4 = 0;
+  do
+    ++v11;
+  while ( a1[v11] );
+  if ( (unsigned int)v11 < 3 || *a1 != 40 )
   {
-    *a3 = 0LL;
-    v11 = -1LL;
-    *a4 = 0;
-    do
-      ++v11;
-    while ( a1[v11] );
-    if ( (unsigned int)v11 >= 3 && *a1 == 40 )
+    OperandValue = 1336;
+    goto LABEL_128;
+  }
+  v12 = v11 + 1;
+  v13 = -1;
+  if ( v12 )
+    v13 = v12;
+  *a4 = v13;
+  if ( !v12 )
+    goto LABEL_13;
+  v14 = v13;
+  v15 = 0xFFFFFFFFLL;
+  v16 = 2 * v14;
+  if ( v16 <= 0xFFFFFFFF )
+    v15 = (unsigned int)v16;
+  *a4 = v15;
+  if ( v16 > 0xFFFFFFFF )
+  {
+LABEL_13:
+    OperandValue = 534;
+    goto LABEL_124;
+  }
+  v17 = SddlpAlloc(v15);
+  *v5 = v17;
+  if ( !v17 )
+  {
+    OperandValue = 8;
+    goto LABEL_124;
+  }
+  *v17 = 2020897377;
+  v60[0] = 4;
+  while ( 1 )
+  {
+    if ( !*v6 )
+      goto LABEL_110;
+    if ( iswspace(*v6) )
     {
-      v12 = v11 + 1;
-      v13 = -1;
-      if ( v12 )
-        v13 = v12;
-      *a4 = v13;
-      if ( v12 )
+      v18 = 2LL;
+      goto LABEL_108;
+    }
+    if ( v7 == 255 )
+    {
+      OperandValue = 1001;
+      goto LABEL_124;
+    }
+    ConditionToken = GetConditionToken(v6, &v61);
+    v20 = 0;
+    v21 = ConditionToken;
+    if ( !ConditionToken )
+    {
+      if ( (v9 & 0xFFFFFFFC) != 0 || v9 == 2 || v10 == 3 )
+        goto LABEL_116;
+      if ( !v10 )
       {
-        v14 = 2LL * v13;
-        if ( v14 <= 0xFFFFFFFF )
+        v10 = 5;
+        if ( !v7 )
+          goto LABEL_94;
+        v43 = v7 - 1;
+        if ( v7 - 1 < 0 )
+          goto LABEL_94;
+        while ( 1 )
         {
-          *a4 = v14;
-          v15 = SddlpAlloc((unsigned int)v14);
-          *v5 = v15;
-          if ( !v15 )
-          {
-            appended = 8;
-            goto LABEL_126;
-          }
-          *v15 = 2020897377;
-          v58[0] = 4;
+          v55 = *((_BYTE *)&v63[1] + v43);
+          OperatorIndexByToken = GetOperatorIndexByToken(v55);
+          if ( OperatorIndexByToken != -1 )
+            break;
+          --v46;
+          v43 = v45 - 1;
+          if ( v43 < 0 )
+            goto LABEL_93;
+        }
+        v47 = *((_BYTE *)&Operators + 24 * OperatorIndexByToken + 8);
+        if ( (unsigned __int8)(v47 + 119) > 3u
+          && (unsigned __int8)(v47 + 112) > 3u
+          && BYTE1((&Operators)[3 * OperatorIndexByToken + 1]) != (_BYTE)v20 )
+        {
+          v10 = 4;
+        }
+        if ( v47 == -121 || v47 == -115 )
+          v56 = 1;
+LABEL_93:
+        if ( v46 < 0 )
+LABEL_94:
+          v10 = 4;
+      }
+      v9 = v10;
+      OperandValue = GetOperandValue(v6, v10 == 4, v20, (__int64 *)&P, &v61, v20, v20, v20, v20);
+      if ( OperandValue )
+        goto LABEL_123;
+      if ( v56 )
+      {
+        v56 = 0;
+        v48 = *((_BYTE *)P + 1);
+        if ( ((v48 + 7) & 0xFC) == 0 && v48 != -6 )
+        {
+LABEL_116:
+          OperandValue = 1336;
+          goto LABEL_123;
+        }
+      }
+      v5 = v57;
+      OperandValue = AppendCondition(v57, v4, v60, (char *)P + 1, 1u);
+      if ( OperandValue )
+        goto LABEL_124;
+      if ( !IsValueSizeFixed(*((_BYTE *)P + 1)) )
+      {
+        OperandValue = AppendCondition(v5, v4, v60, v49 + 4, 4u);
+        if ( OperandValue )
+          goto LABEL_124;
+        v49 = (char *)P;
+      }
+      v50 = *((_DWORD *)v49 + 1);
+      if ( v50 )
+      {
+        OperandValue = AppendCondition(v5, v4, v60, *((const void **)v49 + 1), v50);
+        if ( OperandValue )
+          goto LABEL_124;
+        v49 = (char *)P;
+      }
+      FreeOperandValue(v49);
+      P = 0LL;
+      v10 = 3;
+      goto LABEL_107;
+    }
+    if ( ConditionToken == -2 )
+    {
+      if ( (v9 & 0xFFFFFFFC) != 0 || v9 == 2 )
+        goto LABEL_116;
+      v22 = v7;
+      v9 = 1;
+      ++v7;
+      *((_BYTE *)&v63[1] + v22) = v21;
+      goto LABEL_76;
+    }
+    v23 = v7;
+    if ( ConditionToken == -1 )
+    {
+      if ( !v7 || v9 == 3 || v9 == 1 )
+        break;
+      v24 = *((_BYTE *)v63 + v7 + 7);
+      v58 = v24 == -2;
+      while ( 1 )
+      {
+        v25 = *((_BYTE *)v63 + v23-- + 7);
+        --v7;
+        v55 = v25;
+        v54 = v25;
+        if ( v25 == -2 )
+          break;
+        OperandValue = AppendCondition(v57, v59, v60, &v54, 1u);
+        if ( OperandValue )
+          goto LABEL_118;
+        if ( !v23 )
+        {
+          v55 = v54;
+          if ( v54 != -2 )
+            goto LABEL_117;
+          break;
+        }
+      }
+      if ( !v7 )
+      {
+        v6 += v61;
+LABEL_110:
+        v4 = v59;
+        v51 = v7;
+        if ( v7 )
+        {
+          v5 = v57;
           while ( 1 )
           {
-            if ( !*v6 )
-            {
-LABEL_107:
-              v4 = *(unsigned int **)v57;
-              v49 = v7;
-              if ( v7 )
-              {
-                v5 = *(const void ***)v55;
-                while ( 1 )
-                {
-                  v50 = *((_BYTE *)v61 + v49-- + 7);
-                  LOBYTE(v54) = v50;
-                  if ( v50 == -2 )
-                    break;
-                  LODWORD(Size) = 1;
-                  appended = AppendCondition(v5, v4, (unsigned int *)v58, &v54, Size);
-                  if ( appended )
-                    goto LABEL_126;
-                  if ( !v49 )
-                    goto LABEL_123;
-                }
-                appended = 1336;
-              }
-LABEL_123:
-              *v4 = v58[0];
-              *(_QWORD *)v61[0] = v6;
-              goto LABEL_115;
-            }
-            if ( iswspace(*v6) )
-            {
-              v16 = 2LL;
-              goto LABEL_105;
-            }
-            if ( v7 == 255 )
-            {
-              appended = 1001;
-              goto LABEL_126;
-            }
-            ConditionToken = GetConditionToken(v6, &v59);
-            v18 = 0;
-            v19 = ConditionToken;
-            if ( !ConditionToken )
+            v52 = *((_BYTE *)v63 + v51-- + 7);
+            v54 = v52;
+            if ( v52 == -2 )
               break;
-            if ( ConditionToken == -2 )
-            {
-              if ( (v9 & 0xFFFFFFFC) != 0 || v9 == 2 )
-                goto LABEL_114;
-              v20 = v7;
-              v9 = 1;
-              ++v7;
-              *((_BYTE *)&v61[1] + v20) = v19;
-            }
-            else
-            {
-              v21 = v7;
-              if ( ConditionToken == -1 )
-              {
-                if ( !v7 || v9 == 3 || v9 == 1 )
-                {
-LABEL_119:
-                  appended = 1336;
-LABEL_120:
-                  v4 = *(unsigned int **)v57;
-                }
-                else
-                {
-                  v22 = *((_BYTE *)v61 + v7 + 7);
-                  v23 = *(unsigned int **)v57;
-                  v56 = v22 == -2;
-                  while ( 1 )
-                  {
-                    v24 = *((_BYTE *)v61 + v21-- + 7);
-                    --v7;
-                    LOBYTE(v54) = v24;
-                    if ( v24 == -2 )
-                      break;
-                    LODWORD(Size) = 1;
-                    appended = AppendCondition(*(const void ***)v55, v23, (unsigned int *)v58, &v54, Size);
-                    if ( appended )
-                      goto LABEL_118;
-                    if ( !v21 )
-                    {
-                      if ( (_BYTE)v54 != 0xFE )
-                        goto LABEL_117;
-                      break;
-                    }
-                  }
-                  if ( !v7 )
-                  {
-                    v6 += v59;
-                    goto LABEL_107;
-                  }
-                  OperatorIndexByToken = GetOperatorIndexByToken(*((_BYTE *)v61 + v7 + 7));
-                  if ( OperatorIndexByToken == -1
-                    || v22 == -2
-                    || *((_BYTE *)&Operators + 24 * OperatorIndexByToken + 19) == v26
-                    || *((_BYTE *)&Operators + 24 * OperatorIndexByToken + 8) == 0xA2 )
-                  {
-                    v9 = 2;
-                    v4 = v23;
-                    goto LABEL_72;
-                  }
-LABEL_117:
-                  appended = 1336;
-LABEL_118:
-                  v4 = v23;
-                }
-LABEL_115:
-                v5 = *(const void ***)v55;
-                goto LABEL_126;
-              }
-              v27 = GetOperatorIndexByToken(ConditionToken);
-              v29 = 3LL * v27;
-              v58[1] = *((_DWORD *)&Operators + 6 * v27 + 3);
-              if ( *((_BYTE *)&Operators + 24 * v27 + 18) != v28 && v9 != 4 && (v9 != 2 || v56 == v28) )
-                goto LABEL_119;
-              v30 = (char)(&Operators)[3 * v27 + 1];
-              if ( v30 )
-              {
-                if ( v9 > 1 )
-                {
-                  if ( v9 != 3 )
-                    goto LABEL_119;
-                  v31 = GetOperatorIndexByToken(*((_BYTE *)v61 + v7 + 7));
-                  if ( *((_BYTE *)&Operators + 24 * v31 + 19) != v32 )
-                    goto LABEL_119;
-                }
-              }
-              v33 = *((_BYTE *)&Operators + 8 * v29 + 19);
-              if ( !v33 && (v9 & 0xFFFFFFFC) == 0 && v9 != 2 )
-                goto LABEL_119;
-              if ( (unsigned int)(v10 - 4) <= 1 )
-                goto LABEL_119;
-              if ( v7 )
-              {
-                if ( v33 )
-                {
-                  v34 = v7 - 1;
-                  if ( v7 - 1 >= 0 )
-                  {
-                    while ( (unsigned int)GetOperatorIndexByToken(*((_BYTE *)&v61[1] + v34)) == -1 )
-                    {
-                      v34 = v35 - 1;
-                      if ( v34 < 0 )
-                        goto LABEL_60;
-                    }
-                    v37 = 3LL * (int)GetOperatorIndexByToken(*((_BYTE *)&v61[1] + v36));
-                    if ( *((_BYTE *)&Operators + 8 * v37 + 19) )
-                    {
-                      if ( *((_BYTE *)&Operators + 8 * v37 + 8) != 0xA2 )
-                        goto LABEL_119;
-                    }
-                  }
-                }
-              }
-LABEL_60:
-              if ( v30 || !v33 )
-                v10 = 0;
-              else
-                v10 = 5;
-              if ( v7 )
-              {
-                while ( 1 )
-                {
-                  v38 = *((_BYTE *)v61 + v21 + 7);
-                  if ( v38 == -2 )
-                    break;
-                  LOBYTE(v54) = *((_BYTE *)v61 + v21 + 7);
-                  v39 = GetOperatorIndexByToken(v38);
-                  if ( v40 > *((_DWORD *)&Operators + 6 * v39 + 3) )
-                    break;
-                  --v7;
-                  LODWORD(Size) = 1;
-                  --v21;
-                  appended = AppendCondition(
-                               *(const void ***)v55,
-                               *(unsigned int **)v57,
-                               (unsigned int *)v58,
-                               &v54,
-                               Size);
-                  if ( appended )
-                    goto LABEL_120;
-                  if ( !v21 )
-                    goto LABEL_71;
-                }
-                v41 = v7++;
-                *((_BYTE *)&v61[1] + v41) = v19;
-              }
-LABEL_71:
-              v4 = *(unsigned int **)v57;
-              v9 = 3;
-            }
-LABEL_72:
-            v5 = *(const void ***)v55;
-LABEL_104:
-            v16 = 2LL * v59;
-LABEL_105:
-            v6 = (wint_t *)((char *)v6 + v16);
+            OperandValue = AppendCondition(v5, v4, v60, &v54, 1u);
+            if ( OperandValue )
+              goto LABEL_124;
+            if ( !v51 )
+              goto LABEL_122;
           }
-          if ( (v9 & 0xFFFFFFFC) != 0 || v9 == 2 || v10 == 3 )
-            goto LABEL_114;
-          if ( !v10 )
-          {
-            v10 = 5;
-            if ( !v7 )
-            {
-              v9 = 4;
-              v10 = 4;
-              goto LABEL_92;
-            }
-            v42 = v7 - 1;
-            if ( v7 - 1 < 0 )
-              goto LABEL_90;
-            while ( 1 )
-            {
-              LOBYTE(v54) = *((_BYTE *)&v61[1] + v42);
-              v43 = GetOperatorIndexByToken(v54);
-              if ( v43 != -1 )
-                break;
-              --v45;
-              v42 = v44 - 1;
-              if ( v42 < 0 )
-                goto LABEL_89;
-            }
-            v46 = *((_BYTE *)&Operators + 24 * v43 + 8);
-            if ( (unsigned __int8)(v46 + 119) > 3u
-              && (unsigned __int8)(v46 + 112) > 3u
-              && BYTE1((&Operators)[3 * v43 + 1]) != (_BYTE)v18 )
-            {
-              v10 = 4;
-            }
-            if ( v46 == -121 || v46 == -115 )
-              BYTE1(v54) = 1;
-LABEL_89:
-            if ( v45 < 0 )
-LABEL_90:
-              v10 = 4;
-          }
-          v9 = v10;
-LABEL_92:
-          appended = GetOperandValue(v6, v10 == 4, v18, (__int64 *)&P, &v59, v18, v18, v18, v18);
-          if ( appended )
-            goto LABEL_115;
-          if ( BYTE1(v54) )
-          {
-            BYTE1(v54) = 0;
-            v47 = *((_BYTE *)P + 1);
-            if ( ((v47 + 7) & 0xFC) == 0 && v47 != -6 )
-            {
-LABEL_114:
-              appended = 1336;
-              goto LABEL_115;
-            }
-          }
-          v5 = *(const void ***)v55;
-          LODWORD(Sizea) = 1;
-          appended = AppendCondition(*(const void ***)v55, v4, (unsigned int *)v58, (char *)P + 1, Sizea);
-          if ( appended )
-            goto LABEL_126;
-          if ( !IsValueSizeFixed(*((_BYTE *)P + 1)) )
-          {
-            LODWORD(Size) = 4;
-            appended = AppendCondition(v5, v4, (unsigned int *)v58, v48 + 4, Size);
-            if ( appended )
-              goto LABEL_126;
-            v48 = (char *)P;
-          }
-          if ( *((_DWORD *)v48 + 1) )
-          {
-            LODWORD(Size) = *((_DWORD *)v48 + 1);
-            appended = AppendCondition(v5, v4, (unsigned int *)v58, *((const void **)v48 + 1), Size);
-            if ( appended )
-              goto LABEL_126;
-            v48 = (char *)P;
-          }
-          FreeOperandValue(v48);
-          P = 0LL;
-          v10 = 3;
-          goto LABEL_104;
+          OperandValue = 1336;
         }
-        *a4 = -1;
+LABEL_122:
+        *v4 = v60[0];
+        *(_QWORD *)v63[0] = v6;
+        goto LABEL_123;
       }
-      appended = 534;
-LABEL_126:
-      if ( P )
-        FreeOperandValue(P);
-      if ( *v4 != 4 && !appended )
-        return appended;
+      v26 = GetOperatorIndexByToken(*((_BYTE *)v63 + v7 + 7));
+      if ( v26 != -1
+        && v24 != -2
+        && *((_BYTE *)&Operators + 24 * v26 + 19) != v27
+        && *((_BYTE *)&Operators + 24 * v26 + 8) != 0xA2 )
+      {
+        break;
+      }
+      v9 = 2;
+      goto LABEL_75;
     }
-    else
+    v28 = GetOperatorIndexByToken(ConditionToken);
+    v30 = 3LL * v28;
+    v60[1] = *((_DWORD *)&Operators + 6 * v28 + 3);
+    if ( *((_BYTE *)&Operators + 24 * v28 + 18) != v29 && v9 != 4 && (v9 != 2 || v58 == v29) )
+      break;
+    v31 = (char)(&Operators)[3 * v28 + 1];
+    if ( v31 )
     {
-      appended = 1336;
+      if ( v9 > 1 )
+      {
+        if ( v9 != 3 )
+          break;
+        v32 = GetOperatorIndexByToken(*((_BYTE *)v63 + v7 + 7));
+        if ( *((_BYTE *)&Operators + 24 * v32 + 19) != v33 )
+          break;
+      }
     }
+    v34 = *((_BYTE *)&Operators + 8 * v30 + 19);
+    if ( !v34 && (v9 & 0xFFFFFFFC) == 0 && v9 != 2 )
+      break;
+    if ( (unsigned int)(v10 - 4) <= 1 )
+      break;
+    if ( v7 )
+    {
+      if ( v34 )
+      {
+        v35 = v7 - 1;
+        if ( v7 - 1 >= 0 )
+        {
+          while ( (unsigned int)GetOperatorIndexByToken(*((_BYTE *)&v63[1] + v35)) == -1 )
+          {
+            v35 = v36 - 1;
+            if ( v35 < 0 )
+              goto LABEL_63;
+          }
+          v38 = 3LL * (int)GetOperatorIndexByToken(*((_BYTE *)&v63[1] + v37));
+          if ( *((_BYTE *)&Operators + 8 * v38 + 19) )
+          {
+            if ( *((_BYTE *)&Operators + 8 * v38 + 8) != 0xA2 )
+              break;
+          }
+        }
+      }
+    }
+LABEL_63:
+    if ( v31 || !v34 )
+      v10 = 0;
+    else
+      v10 = 5;
+    if ( v7 )
+    {
+      while ( 1 )
+      {
+        v39 = *((_BYTE *)v63 + v23 + 7);
+        if ( v39 == -2 )
+          break;
+        v55 = *((_BYTE *)v63 + v23 + 7);
+        v54 = v39;
+        v40 = GetOperatorIndexByToken(v39);
+        if ( v41 > *((_DWORD *)&Operators + 6 * v40 + 3) )
+          break;
+        --v7;
+        --v23;
+        OperandValue = AppendCondition(v57, v59, v60, &v54, 1u);
+        if ( OperandValue )
+          goto LABEL_118;
+        v55 = v54;
+        if ( !v23 )
+          goto LABEL_74;
+      }
+      v42 = v7++;
+      *((_BYTE *)&v63[1] + v42) = v21;
+    }
+LABEL_74:
+    v9 = 3;
+LABEL_75:
+    v4 = v59;
+LABEL_76:
+    v5 = v57;
+LABEL_107:
+    v18 = 2LL * v61;
+LABEL_108:
+    v6 = (wint_t *)((char *)v6 + v18);
+  }
+LABEL_117:
+  OperandValue = 1336;
+LABEL_118:
+  v4 = v59;
+LABEL_123:
+  v5 = v57;
+LABEL_124:
+  if ( P )
+    FreeOperandValue(P);
+  if ( *v4 == 4 || OperandValue )
+  {
+LABEL_128:
     if ( *v5 )
     {
       ExFreePoolWithTag((PVOID)*v5, 0);
       *v5 = 0LL;
       *v4 = 0;
     }
-    return appended;
   }
-  return 87LL;
+  return OperandValue;
 }

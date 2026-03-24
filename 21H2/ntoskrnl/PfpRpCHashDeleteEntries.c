@@ -1,20 +1,20 @@
 /*
- * XREFs of PfpRpCHashDeleteEntries @ 0x1406AF880
+ * XREFs of PfpRpCHashDeleteEntries @ 0x1406DD16C
  * Callers:
- *     PfpRpControlRequestUpdate @ 0x1406ADBC8 (PfpRpControlRequestUpdate.c)
+ *     PfpRpControlRequestUpdate @ 0x1406DCD5C (PfpRpControlRequestUpdate.c)
  * Callees:
- *     ExfAcquireReleasePushLockExclusive @ 0x14024BA7C (ExfAcquireReleasePushLockExclusive.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x1402C3044 (ExfAcquireReleasePushLockExclusive.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfpRpCHashDeleteEntries(__int64 a1, __int64 a2, signed __int64 *a3, unsigned int a4, __int64 a5)
@@ -38,21 +38,22 @@ __int64 __fastcall PfpRpCHashDeleteEntries(__int64 a1, __int64 a2, signed __int6
   __int64 v23; // r8
   struct _KTHREAD *v24; // rax
   unsigned int v26; // ecx
-  _QWORD *v27; // rax
+  char *v27; // rax
   __int64 v28; // r9
   __int64 v29; // rdx
   __int64 i; // rax
   __int64 v31; // r9
-  signed __int32 v32[8]; // [rsp+0h] [rbp-88h] BYREF
-  int v33; // [rsp+20h] [rbp-68h]
-  __int64 Pool2; // [rsp+28h] [rbp-60h]
-  volatile signed __int64 *v35; // [rsp+30h] [rbp-58h]
-  PVOID P[2]; // [rsp+38h] [rbp-50h]
-  __int64 v37; // [rsp+48h] [rbp-40h]
-  int v38; // [rsp+90h] [rbp+8h]
-  __int64 v39; // [rsp+90h] [rbp+8h]
-  char v40; // [rsp+98h] [rbp+10h]
-  char *v41; // [rsp+98h] [rbp+10h]
+  signed __int32 v32[8]; // [rsp+0h] [rbp-A8h] BYREF
+  char *PoolWithTag; // [rsp+20h] [rbp-88h]
+  char *v34; // [rsp+28h] [rbp-80h]
+  volatile signed __int64 *v35; // [rsp+30h] [rbp-78h]
+  int v36; // [rsp+40h] [rbp-68h]
+  int v37; // [rsp+48h] [rbp-60h]
+  PVOID P[2]; // [rsp+50h] [rbp-58h]
+  __int64 v39; // [rsp+60h] [rbp-48h]
+  char v40; // [rsp+B0h] [rbp+8h]
+  __int64 v41; // [rsp+B0h] [rbp+8h]
+  char v42; // [rsp+B8h] [rbp+10h]
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -63,9 +64,9 @@ __int64 __fastcall PfpRpCHashDeleteEntries(__int64 a1, __int64 a2, signed __int6
   v10 = *(_DWORD *)(a2 + 12) << *(_DWORD *)(a2 + 8);
   if ( v10 )
   {
-    Pool2 = ExAllocatePool2(256LL, v10, 1212376656LL);
-    v11 = (void *)Pool2;
-    if ( Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v10, 0x48436650u);
+    v11 = PoolWithTag;
+    if ( PoolWithTag )
     {
       v12 = KeGetCurrentThread();
       --v12->KernelApcDisable;
@@ -73,7 +74,7 @@ __int64 __fastcall PfpRpCHashDeleteEntries(__int64 a1, __int64 a2, signed __int6
       v13 = -1;
       v14 = *(_QWORD *)(a2 + 16);
       *(_OWORD *)P = *(_OWORD *)a2;
-      v37 = v14;
+      v39 = v14;
       v40 = _mm_cvtsi128_si32(_mm_srli_si128(*(__m128i *)P, 8));
       v15 = 1 << v40;
       v16 = -1;
@@ -90,7 +91,7 @@ __int64 __fastcall PfpRpCHashDeleteEntries(__int64 a1, __int64 a2, signed __int6
       v18 = v16 + 1;
       if ( ((v15 - 1) & v15) == 0 )
         v18 = v16;
-      v33 = v18;
+      v42 = v18;
       v19 = v10 >> v18;
       if ( ((v19 - 1) & v19) != 0 )
       {
@@ -98,11 +99,12 @@ __int64 __fastcall PfpRpCHashDeleteEntries(__int64 a1, __int64 a2, signed __int6
           ++v13;
         v19 = 1 << v13;
       }
-      v38 = 0;
+      v37 = 0;
+      v36 = v18;
       memset(v11, 0, (unsigned __int64)v19 << v18);
       v20 = (char *)P[0];
       v21 = (char *)P[0] + ((unsigned __int64)HIDWORD(P[1]) << v40);
-      v41 = v21;
+      v34 = v21;
       if ( P[0] < v21 )
       {
         v22 = 0;
@@ -111,36 +113,40 @@ __int64 __fastcall PfpRpCHashDeleteEntries(__int64 a1, __int64 a2, signed __int6
           v23 = *(_QWORD *)v20;
           if ( *(_QWORD *)v20 )
           {
-            if ( a5 && (v26 = 0, a4) )
+            if ( !a5 )
+              goto LABEL_26;
+            v26 = 0;
+            if ( !a4 )
+              goto LABEL_26;
+            do
             {
-              while ( *(_QWORD *)(a5 + 8LL * v26) != v23 )
-              {
-                if ( ++v26 >= a4 )
-                  goto LABEL_25;
-              }
+              if ( *(_QWORD *)(a5 + 8LL * v26) == v23 )
+                break;
+              ++v26;
             }
-            else
+            while ( v26 < a4 );
+            if ( v26 >= a4 )
             {
-LABEL_25:
+LABEL_26:
               if ( v19 )
               {
                 v28 = v19 - 1;
                 v29 = 0LL;
-                v39 = *(_QWORD *)v20;
+                v41 = *(_QWORD *)v20;
                 for ( i = 37
-                        * (BYTE6(v39)
+                        * (BYTE6(v41)
                          + 37
-                         * (BYTE5(v39)
+                         * (BYTE5(v41)
                           + 37
-                          * (BYTE4(v39)
+                          * (BYTE4(v41)
                            + 37
-                           * (BYTE3(v39) + 37
-                                         * (BYTE2(v39) + 37 * (BYTE1(v39) + 37 * ((unsigned __int8)v23 + 11623883)))))))
-                        + (unsigned int)HIBYTE(v39); ; i = v19 - 1 )
+                           * (BYTE3(v41) + 37
+                                         * (BYTE2(v41) + 37 * (BYTE1(v41) + 37 * ((unsigned __int8)v23 + 11623883)))))))
+                        + (unsigned int)HIBYTE(v41); ; i = v19 - 1 )
                 {
                   v31 = i & v28;
-                  v27 = (_QWORD *)(Pool2 + (v31 << v33));
-                  if ( !*v27 || *v27 == v23 )
+                  v27 = &PoolWithTag[v31 << v42];
+                  if ( !*(_QWORD *)v27 || *(_QWORD *)v27 == v23 )
                     break;
                   if ( !v29 )
                   {
@@ -156,18 +162,17 @@ LABEL_25:
                 v27 = 0LL;
               }
               memmove(v27, v20, v15);
-              v21 = v41;
-              ++v22;
+              v21 = v34;
+              v37 = ++v22;
             }
           }
           v20 += v15;
         }
         while ( v20 < v21 );
-        v38 = v22;
         v8 = v35;
       }
-      *(_QWORD *)a2 = Pool2;
-      *(_DWORD *)(a2 + 16) = v38;
+      *(_QWORD *)a2 = PoolWithTag;
+      *(_DWORD *)(a2 + 16) = v37;
       if ( _InterlockedCompareExchange64(a3, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared(a3);
       KeAbPostRelease((ULONG_PTR)a3);
@@ -177,7 +182,7 @@ LABEL_25:
       _InterlockedOr(v32, 0);
       if ( (*a3 & 1) != 0 )
         ExfAcquireReleasePushLockExclusive((ULONG_PTR)a3);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       ExFreePoolWithTag(P[0], 0);
     }
     else

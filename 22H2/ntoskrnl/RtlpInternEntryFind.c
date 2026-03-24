@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpInternEntryFind @ 0x1407B33F0
+ * XREFs of RtlpInternEntryFind @ 0x14067CA30
  * Callers:
- *     RtlInternTableIntern @ 0x1407B1B4C (RtlInternTableIntern.c)
+ *     RtlInternTableIntern @ 0x14067C6E0 (RtlInternTableIntern.c)
  * Callees:
- *     RtlpInternEntryMatch @ 0x1407B38B4 (RtlpInternEntryMatch.c)
+ *     RtlpInternEntryMatch @ 0x14067CE08 (RtlpInternEntryMatch.c)
  */
 
 __int64 __fastcall RtlpInternEntryFind(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -13,9 +13,9 @@ __int64 __fastcall RtlpInternEntryFind(__int64 a1, __int64 a2, __int64 a3, __int
   __int64 v9; // rbp
   __int64 v10; // rbx
   __int64 v11; // rsi
-  signed __int64 v13; // rax
+  signed __int64 v12; // rax
   unsigned __int64 i; // rcx
-  signed __int64 v15; // rtt
+  signed __int64 v14; // rtt
   __int64 v16; // [rsp+50h] [rbp+8h]
 
   v4 = *(_DWORD *)(a1 + 4);
@@ -24,11 +24,12 @@ __int64 __fastcall RtlpInternEntryFind(__int64 a1, __int64 a2, __int64 a3, __int
   v10 = 0LL;
   v11 = a3 & v9;
   v16 = a3 & v9;
-LABEL_2:
-  if ( v10 )
-    goto LABEL_5;
-  if ( v4 >> 5 )
+  while ( 1 )
   {
+    if ( v10 )
+      goto LABEL_5;
+    if ( !(v4 >> 5) )
+      return v6;
     v10 = *(_QWORD *)(a1 + 8)
         + 8LL
         * ((37
@@ -46,27 +47,26 @@ LABEL_5:
       if ( (v10 & 1) != 0 )
         break;
       if ( v11 == (v9 & *(_QWORD *)(v10 + 8)) )
+        goto LABEL_7;
+    }
+    v10 = 0LL;
+LABEL_7:
+    if ( !v10 )
+      return v6;
+    if ( (unsigned __int8)RtlpInternEntryMatch(v10, a2, a4) )
+    {
+      _m_prefetchw((const void *)(v10 + 16));
+      v12 = *(_QWORD *)(v10 + 16);
+      for ( i = v12 + 1; i > 1; i = v12 + 1 )
       {
-        if ( !v10 )
-          return v6;
-        if ( (unsigned __int8)RtlpInternEntryMatch(v10, a2, a4) )
-        {
-          _m_prefetchw((const void *)(v10 + 16));
-          v13 = *(_QWORD *)(v10 + 16);
-          for ( i = v13 + 1; i > 1; i = v13 + 1 )
-          {
-            v15 = v13;
-            v13 = _InterlockedCompareExchange64((volatile signed __int64 *)(v10 + 16), i, v13);
-            if ( v15 == v13 )
-              return v10;
-          }
-          if ( i != 1 )
-            __fastfail(0xEu);
-          return v6;
-        }
-        goto LABEL_2;
+        v14 = v12;
+        v12 = _InterlockedCompareExchange64((volatile signed __int64 *)(v10 + 16), i, v12);
+        if ( v14 == v12 )
+          return v10;
       }
+      if ( i != 1 )
+        __fastfail(0xEu);
+      return v6;
     }
   }
-  return v6;
 }

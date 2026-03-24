@@ -1,86 +1,86 @@
 /*
- * XREFs of CompareUnicodeStrings @ 0x14079F030
+ * XREFs of CompareUnicodeStrings @ 0x140677E28
  * Callers:
- *     RtlInsertUnicodePrefix @ 0x14079EDE0 (RtlInsertUnicodePrefix.c)
- *     RtlFindUnicodePrefix @ 0x14079EF20 (RtlFindUnicodePrefix.c)
+ *     RtlInsertUnicodePrefix @ 0x140677BB0 (RtlInsertUnicodePrefix.c)
+ *     RtlFindUnicodePrefix @ 0x140677D10 (RtlFindUnicodePrefix.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D330 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x140206AB0 (NLS_UPCASE.c)
  */
 
-__int64 __fastcall CompareUnicodeStrings(__int64 a1, unsigned __int16 *a2)
+__int64 __fastcall CompareUnicodeStrings(unsigned __int16 *a1, unsigned __int16 *a2, unsigned int a3)
 {
-  _QWORD *CurrentServerSiloGlobals; // rax
-  unsigned __int16 *v4; // rdx
-  unsigned int v5; // r8d
-  __int64 v6; // rbx
-  __int64 v7; // r13
-  unsigned int v8; // edi
-  unsigned int v9; // esi
-  unsigned int v10; // r12d
-  unsigned __int16 v11; // r10
-  unsigned __int16 v12; // r11
-  unsigned int i; // r9d
-  unsigned __int16 *v14; // r14
-  unsigned __int16 *v15; // r15
-  unsigned __int16 v16; // r11
+  __int64 v4; // rbx
+  unsigned int v6; // edi
+  unsigned int v7; // ebp
+  unsigned __int16 v8; // r10
+  unsigned __int16 v9; // r11
+  unsigned int v10; // r9d
+  unsigned __int16 *v11; // r14
+  unsigned __int16 *v12; // r15
+  unsigned __int16 v13; // r11
+  __int64 v15; // rcx
 
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-  v6 = *v4 >> 1;
-  v7 = CurrentServerSiloGlobals[154];
-  v8 = *a2 >> 1;
-  if ( (_DWORD)v6 == 1 && **((_WORD **)v4 + 1) == 92 && v8 > 1 && **((_WORD **)a2 + 1) == 92 )
+  v4 = *a1 >> 1;
+  v6 = *a2 >> 1;
+  if ( (_DWORD)v4 == 1 && **((_WORD **)a1 + 1) == 92 && v6 > 1 && **((_WORD **)a2 + 1) == 92 )
     return 1LL;
-  v9 = *v4 >> 1;
-  if ( (unsigned int)v6 >= v8 )
-    v9 = *a2 >> 1;
-  if ( v5 > v9 )
-    v5 = v9;
+  v7 = *a1 >> 1;
+  if ( (unsigned int)v4 >= v6 )
+    v7 = *a2 >> 1;
+  if ( a3 > v7 )
+    a3 = v7;
+  v8 = 0;
+  v9 = 0;
   v10 = 0;
-  v11 = 0;
-  v12 = 0;
-  for ( i = 0; i < v5; ++i )
+  if ( a3 )
   {
-    v11 = *(_WORD *)(*((_QWORD *)v4 + 1) + 2LL * i);
-    v12 = *(_WORD *)(*((_QWORD *)a2 + 1) + 2LL * i);
-    if ( v11 != v12 )
-      break;
+    v15 = *((_QWORD *)a1 + 1);
+    do
+    {
+      v8 = *(_WORD *)(v15 + 2LL * v10);
+      v9 = *(_WORD *)(*((_QWORD *)a2 + 1) + 2LL * v10);
+      if ( v8 != v9 )
+        break;
+      ++v10;
+    }
+    while ( v10 < a3 );
   }
-  if ( i == v5 )
+  if ( v10 == a3 )
   {
-    v14 = (unsigned __int16 *)(*((_QWORD *)v4 + 1) + 2LL * i);
-    v15 = (unsigned __int16 *)(*((_QWORD *)a2 + 1) + 2LL * i);
-    if ( i >= v9 )
+    v11 = (unsigned __int16 *)(*((_QWORD *)a1 + 1) + 2LL * v10);
+    v12 = (unsigned __int16 *)(*((_QWORD *)a2 + 1) + 2LL * v10);
+    if ( v10 >= v7 )
       goto LABEL_19;
     do
     {
-      v11 = *v14++;
-      v12 = *v15++;
-      if ( v11 != v12 )
+      v8 = *v11++;
+      v9 = *v12++;
+      if ( v8 != v9 )
       {
-        NLS_UPCASE(v7, v11);
-        v12 = NLS_UPCASE(v7, v16);
-        if ( v11 != v12 )
+        NLS_UPCASE(v8);
+        v9 = NLS_UPCASE(v13);
+        if ( v8 != v9 )
           break;
       }
-      ++i;
+      ++v10;
     }
-    while ( i < v9 );
+    while ( v10 < v7 );
   }
-  if ( i < v9 )
+  if ( v10 < v7 )
   {
-    if ( v11 == 92 )
+    if ( v8 == 92 )
       return 0LL;
-    if ( v12 == 92 )
+    if ( v9 == 92 )
       return 3LL;
-    if ( v11 < v12 )
+    if ( v8 < v9 )
       return 0LL;
-    if ( v11 > v12 )
+    if ( v8 > v9 )
       return 3LL;
   }
 LABEL_19:
-  if ( v8 <= (unsigned int)v6 )
-    return (unsigned int)(v8 < (unsigned int)v6) + 2;
-  LOBYTE(v10) = *(_WORD *)(*((_QWORD *)a2 + 1) + 2 * v6) == 92;
-  return v10;
+  if ( (unsigned int)v4 < v6 )
+    return *(_WORD *)(*((_QWORD *)a2 + 1) + 2 * v4) == 92;
+  if ( (unsigned int)v4 > v6 )
+    return 3LL;
+  return 2LL;
 }

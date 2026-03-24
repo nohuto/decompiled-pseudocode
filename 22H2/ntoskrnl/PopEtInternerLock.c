@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEtInternerLock @ 0x1407DB670
+ * XREFs of PopEtInternerLock @ 0x140695BC0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
  */
 
 struct _KTHREAD *__fastcall PopEtInternerLock(__int64 a1, char a2)

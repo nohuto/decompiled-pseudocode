@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x1402D6094
+ * XREFs of PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x140281660
  * Callers:
- *     PopDeepSleepSetDisengageReason @ 0x1402D5F7C (PopDeepSleepSetDisengageReason.c)
- *     PopDeepSleepClearDisengageReason @ 0x1402D6004 (PopDeepSleepClearDisengageReason.c)
+ *     PopDeepSleepSetDisengageReason @ 0x140281548 (PopDeepSleepSetDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1402815D0 (PopDeepSleepClearDisengageReason.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x1405D7930 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
- *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x1405D7A4C (PopDeepSleepResiliencyPhaseAccountingEnd.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x140577810 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
+ *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x14057792C (PopDeepSleepResiliencyPhaseAccountingEnd.c)
  */
 
 __int64 __fastcall PopDeepSleepResiliencyPhaseAccountingUpdate(int a1, char a2)
@@ -19,63 +19,66 @@ __int64 __fastcall PopDeepSleepResiliencyPhaseAccountingUpdate(int a1, char a2)
   unsigned int v5; // ebx
   int v6; // esi
   KIRQL v7; // al
-  __int16 v8; // bp
-  unsigned __int64 v9; // r14
+  __int16 v8; // r14
+  unsigned __int64 v9; // rbp
   __int64 result; // rax
   LARGE_INTEGER PerformanceCounter; // rax
-  __int64 v12; // rdx
+  LARGE_INTEGER v12; // rdx
+  char *v13; // rcx
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v15; // zf
+  bool v16; // zf
 
   v2 = a1;
   v3 = 0;
   v5 = 0;
   v6 = 1 << a1;
   v7 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
-  v8 = dword_140C2251C;
+  v8 = dword_140C2317C;
   v9 = v7;
-  if ( (v6 & dword_140C2251C) != 0 )
+  if ( (v6 & dword_140C2317C) != 0 )
   {
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
-    v12 = v6 & 3;
+    v13 = &PopCsResiliencyStats[8 * v2];
+    if ( !a2 )
+    {
+      *(_QWORD *)&PopCsResiliencyStats[8 * v2 + 240] += PerformanceCounter.QuadPart - *((_QWORD *)v13 + 20);
+      PerformanceCounter.QuadPart = 0LL;
+    }
+    *((LARGE_INTEGER *)v13 + 20) = PerformanceCounter;
     if ( a2 )
     {
-      *(LARGE_INTEGER *)&PopCsResiliencyStats[8 * v2 + 160] = PerformanceCounter;
       if ( (v6 & 3) != 0 )
       {
         if ( (v8 & 0x40) != 0 )
           v5 = 64;
-        if ( (v8 & 0x7BC) != 0 )
-          v5 |= 0x7BCu;
+        if ( (v8 & 0x3BC) != 0 )
+          v5 |= 0x3BCu;
       }
-      else if ( (v6 & 0x40) != 0 && (v8 & 0x7BC) != 0 )
+      else if ( (v6 & 0x40) != 0 && (v8 & 0x3BC) != 0 )
       {
-        v5 = 1980;
+        v5 = 956;
       }
-      LOBYTE(v12) = 1;
-      PopDeepSleepResiliencyPhaseAccountingEnd(v5, v12, PopCsResiliencyStats);
+      LOBYTE(v12.LowPart) = 1;
+      ((void (__fastcall *)(_QWORD, _QWORD))PopDeepSleepResiliencyPhaseAccountingEnd)(v5, (LARGE_INTEGER)v12.QuadPart);
     }
     else
     {
-      *(_QWORD *)&PopCsResiliencyStats[8 * v2 + 248] += PerformanceCounter.QuadPart
-                                                      - *(_QWORD *)&PopCsResiliencyStats[8 * v2 + 160];
-      *(_QWORD *)&PopCsResiliencyStats[8 * v2 + 160] = 0LL;
       if ( (v6 & 3) != 0 )
       {
         if ( (PopDeepSleepDisengageReasonMask & 3) == 0 )
         {
           v3 = 64;
           if ( (PopDeepSleepDisengageReasonMask & 0x40) == 0 )
-            v3 = 2044;
+            v3 = 1020;
         }
       }
       else if ( (v6 & 0x40) != 0 && (PopDeepSleepDisengageReasonMask & 0x40) == 0 )
       {
-        v3 = 1980;
+        v3 = 956;
       }
-      LOBYTE(v12) = 1;
-      PopDeepSleepResiliencyPhaseAccountingBegin(v3, v12, PopCsResiliencyStats);
+      LOBYTE(v12.LowPart) = 1;
+      ((void (__fastcall *)(_QWORD, _QWORD))PopDeepSleepResiliencyPhaseAccountingBegin)(v3, (LARGE_INTEGER)v12.QuadPart);
     }
   }
   KxReleaseSpinLock(&PopCsResiliencyStatsLock);
@@ -90,9 +93,9 @@ __int64 __fastcall PopDeepSleepResiliencyPhaseAccountingUpdate(int a1, char a2)
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
         result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-        v15 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        v16 = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
-        if ( v15 )
+        if ( v16 )
           result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }

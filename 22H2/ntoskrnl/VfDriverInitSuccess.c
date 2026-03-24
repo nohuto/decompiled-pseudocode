@@ -1,17 +1,16 @@
 /*
- * XREFs of VfDriverInitSuccess @ 0x140ABE430
+ * XREFs of VfDriverInitSuccess @ 0x1409C27BC
  * Callers:
- *     MmCallDllInitialize @ 0x1408133E0 (MmCallDllInitialize.c)
- *     PnpInitializeBootStartDriver @ 0x140B41100 (PnpInitializeBootStartDriver.c)
+ *     MmCallDllInitialize @ 0x1407AC8D0 (MmCallDllInitialize.c)
+ *     PnpInitializeBootStartDriver @ 0x140A5E4B4 (PnpInitializeBootStartDriver.c)
  * Callees:
- *     ViDriverReApplyVerifierForAll @ 0x140ACB934 (ViDriverReApplyVerifierForAll.c)
+ *     ViDriverReApplyVerifierForAll @ 0x1409C8B18 (ViDriverReApplyVerifierForAll.c)
  */
 
 __int64 __fastcall VfDriverInitSuccess(int a1, __int64 a2)
 {
   __int64 result; // rax
 
-  result = 0LL;
   if ( ViActiveVerifierThunks != a1 )
     return ViDriverReApplyVerifierForAll(a2);
   return result;

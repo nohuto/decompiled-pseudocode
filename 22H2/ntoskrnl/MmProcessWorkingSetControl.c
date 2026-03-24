@@ -1,21 +1,21 @@
 /*
- * XREFs of MmProcessWorkingSetControl @ 0x140A43584
+ * XREFs of MmProcessWorkingSetControl @ 0x140689770
  * Callers:
- *     NtSetInformationProcess @ 0x140774A50 (NtSetInformationProcess.c)
- *     VmpPauseResumeNotify @ 0x1409DD3C4 (VmpPauseResumeNotify.c)
+ *     NtSetInformationProcess @ 0x140657B40 (NtSetInformationProcess.c)
+ *     VmpPauseResumeNotify @ 0x14092F744 (VmpPauseResumeNotify.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D620 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9E0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     MiEmptyWorkingSet @ 0x14061C0F8 (MiEmptyWorkingSet.c)
- *     MiEmptyWorkingSetPrivatePagesByVa @ 0x14061C114 (MiEmptyWorkingSetPrivatePagesByVa.c)
- *     MiLogWsEmptyControl @ 0x140652AD0 (MiLogWsEmptyControl.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     PsSwapProcessWorkingSet @ 0x1409AE75C (PsSwapProcessWorkingSet.c)
- *     SmStoreCompressionStart @ 0x1409D78D8 (SmStoreCompressionStart.c)
- *     SmStoreCompressionStop @ 0x1409D7978 (SmStoreCompressionStop.c)
+ *     KiUnstackDetachProcess @ 0x140206FC0 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14025BB40 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x140317C38 (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiLogWsEmptyControl @ 0x140317F80 (MiLogWsEmptyControl.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MiEmptyWorkingSet @ 0x14053040C (MiEmptyWorkingSet.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14063E320 (ObpReferenceObjectByHandleWithTag.c)
+ *     SmStoreCompressionStop @ 0x14068999C (SmStoreCompressionStop.c)
+ *     SmStoreCompressionStart @ 0x140689A80 (SmStoreCompressionStart.c)
+ *     PsSwapProcessWorkingSet @ 0x140907A30 (PsSwapProcessWorkingSet.c)
  */
 
 __int64 __fastcall MmProcessWorkingSetControl(
@@ -24,29 +24,32 @@ __int64 __fastcall MmProcessWorkingSetControl(
         unsigned int a3,
         KPROCESSOR_MODE a4)
 {
+  unsigned int v6; // edi
   __int64 result; // rax
-  _KPROCESS *v7; // rsi
-  unsigned int v8; // ebx
-  unsigned int v9; // eax
-  int v10; // r12d
-  char v11; // dl
-  __int64 v12; // [rsp+40h] [rbp-98h]
-  unsigned int v13; // [rsp+48h] [rbp-90h]
+  _DWORD *v8; // r9
+  _KPROCESS *v9; // r14
+  int v10; // r15d
+  unsigned int v11; // ebx
+  unsigned int v12; // eax
+  char v13; // dl
+  __int64 v14; // [rsp+40h] [rbp-98h]
+  int v15; // [rsp+48h] [rbp-90h]
   PVOID Object[2]; // [rsp+50h] [rbp-88h] BYREF
-  $115DCDF994C6370D29323EAB0E0C9502 v15; // [rsp+60h] [rbp-78h] BYREF
+  _OWORD v17[3]; // [rsp+60h] [rbp-78h] BYREF
 
   Object[1] = (PVOID)BugCheckParameter1;
+  v6 = 0;
   Object[0] = 0LL;
-  memset(&v15, 0, sizeof(v15));
+  memset(v17, 0, sizeof(v17));
   if ( a3 < 0xC )
     return 3221225476LL;
-  v12 = *a2;
-  v13 = *((_DWORD *)a2 + 2);
+  v14 = *a2;
+  v15 = *((_DWORD *)a2 + 2);
   if ( (unsigned int)*a2 != 3 )
     return 3221225561LL;
-  if ( HIDWORD(v12) >= 2 )
+  if ( HIDWORD(v14) >= 2 )
     return 3221225485LL;
-  if ( !HIDWORD(v12) && !SeSinglePrivilegeCheck(SeDebugPrivilege, a4) )
+  if ( !HIDWORD(v14) && !SeSinglePrivilegeCheck(SeDebugPrivilege, a4) )
     return 3221225569LL;
   result = ObpReferenceObjectByHandleWithTag(
              BugCheckParameter1,
@@ -59,7 +62,7 @@ __int64 __fastcall MmProcessWorkingSetControl(
              0LL);
   if ( (int)result >= 0 )
   {
-    v7 = (_KPROCESS *)Object[0];
+    v9 = (_KPROCESS *)Object[0];
     if ( KeGetCurrentThread()->ApcState.Process == Object[0] )
     {
       LODWORD(Object[0]) = 0;
@@ -67,49 +70,54 @@ __int64 __fastcall MmProcessWorkingSetControl(
     else
     {
       LODWORD(Object[0]) = 1;
-      KiStackAttachProcess(v7, 0, (__int64)&v15);
+      KiStackAttachProcess(v9, 0LL, (__int64)v17, v8);
     }
-    if ( HIDWORD(v12) )
+    if ( HIDWORD(v14) )
     {
-      if ( (v13 & 0xFFFFFFC0) != 0 )
-        goto LABEL_16;
-      if ( (v13 & 1) == ((v13 & 2) == 0) || (v13 & 8) != 0 && (v13 & 2) == 0 || (v13 & 0x10) != 0 && (v13 & 8) == 0 )
+      if ( (v15 & 0xFFFFFFC0) == 0 )
       {
-        v8 = -1073741637;
-        goto LABEL_34;
+        if ( ((v15 & 0x20) == 0 || !a4)
+          && (v15 & 1) != ((v15 & 2) == 0)
+          && ((v15 & 8) == 0 || (v15 & 2) != 0)
+          && ((v15 & 0x10) == 0 || (v15 & 8) != 0) )
+        {
+          MiLogWsEmptyControl((__int64)&v9[1].ActiveProcessorsPadding[6]);
+          v10 = (v15 & 0x20) != 0 ? 4 : 0;
+          if ( (v15 & 1) != 0 )
+          {
+            if ( (v15 & 8) != 0 )
+              SmStoreCompressionStart();
+            v11 = MiEmptyWorkingSetPrivatePagesByVa((__int64)&v9[1].ActiveProcessorsPadding[6], v10);
+            if ( (v15 & 8) != 0 )
+            {
+              LOBYTE(v6) = (v15 & 0x10) != 0;
+              SmStoreCompressionStop(v6);
+            }
+            goto LABEL_20;
+          }
+          v13 = v10 | 1;
+          if ( (v15 & 4) == 0 )
+            v13 = (v15 & 0x20) != 0 ? 4 : 0;
+          v12 = MiEmptyWorkingSet((__int64)&v9[1].ActiveProcessorsPadding[6], v13);
+          goto LABEL_40;
+        }
+        v11 = -1073741637;
+LABEL_20:
+        if ( LODWORD(Object[0]) == 1 )
+          KiUnstackDetachProcess((__int64)v17, 0);
+        ObfDereferenceObjectWithTag(v9, 0x73576D4Du);
+        return v11;
       }
-      MiLogWsEmptyControl((__int64)&v7[1].ActiveProcessors.StaticBitmap[26]);
-      v10 = (v13 >> 3) & 4;
-      if ( (v13 & 1) != 0 )
-      {
-        if ( (v13 & 8) != 0 )
-          SmStoreCompressionStart();
-        v8 = MiEmptyWorkingSetPrivatePagesByVa((__int64)&v7[1].ActiveProcessors.StaticBitmap[26], v10);
-        if ( (v13 & 8) != 0 )
-          SmStoreCompressionStop((v13 & 0x10) != 0);
-        goto LABEL_34;
-      }
-      v11 = v10 | 1;
-      if ( (v13 & 4) == 0 )
-        v11 = (v13 >> 3) & 4;
-      v9 = MiEmptyWorkingSet((__int64)&v7[1].ActiveProcessors.StaticBitmap[26], v11);
     }
-    else
+    else if ( (v15 & 0xFFFFFFFE) == 0 )
     {
-      if ( (v13 & 0xFFFFFFFE) != 0 )
-      {
-LABEL_16:
-        v8 = -1073741811;
-LABEL_34:
-        if ( LODWORD(Object[0]) )
-          KiUnstackDetachProcess(&v15);
-        ObfDereferenceObjectWithTag(v7, 0x73576D4Du);
-        return v8;
-      }
-      v9 = PsSwapProcessWorkingSet(v7, (v13 & 1) == 0);
+      v12 = PsSwapProcessWorkingSet(v9);
+LABEL_40:
+      v11 = v12;
+      goto LABEL_20;
     }
-    v8 = v9;
-    goto LABEL_34;
+    v11 = -1073741811;
+    goto LABEL_20;
   }
   return result;
 }

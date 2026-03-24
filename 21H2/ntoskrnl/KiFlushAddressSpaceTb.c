@@ -1,17 +1,19 @@
 /*
- * XREFs of KiFlushAddressSpaceTb @ 0x14039D960
+ * XREFs of KiFlushAddressSpaceTb @ 0x1403901AC
  * Callers:
- *     KeFlushTb @ 0x1402F391C (KeFlushTb.c)
- *     KeFlushEntireTb @ 0x1403C39C0 (KeFlushEntireTb.c)
+ *     KeFlushTb @ 0x140230120 (KeFlushTb.c)
+ *     KeFlushEntireTb @ 0x1403B70F0 (KeFlushEntireTb.c)
  * Callees:
- *     KxSetTimeStampBusy @ 0x140240404 (KxSetTimeStampBusy.c)
- *     HvlFlushAddressSpaceTb @ 0x14039DA34 (HvlFlushAddressSpaceTb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxSetTimeStampBusy @ 0x14024A678 (KxSetTimeStampBusy.c)
+ *     HvlpFastFlushAddressSpaceTb @ 0x140390290 (HvlpFastFlushAddressSpaceTb.c)
+ *     HvlFlushAddressSpaceTb @ 0x1403903EC (HvlFlushAddressSpaceTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlpSlowFlushAddressSpaceTb @ 0x1404FB064 (HvlpSlowFlushAddressSpaceTb.c)
  */
 
 __int64 __fastcall KiFlushAddressSpaceTb(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
-  char v4; // si
+  char v4; // di
   unsigned __int8 CurrentIrql; // bl
   __int64 v6; // r8
   __int64 result; // rax
@@ -35,7 +37,10 @@ __int64 __fastcall KiFlushAddressSpaceTb(__int64 a1, __int64 a2, __int64 a3, cha
   if ( KxSetTimeStampBusy(&KiTbFlushTimeStamp) )
   {
     LOBYTE(v6) = v4;
-    HvlFlushAddressSpaceTb(0LL, 0LL, v6);
+    if ( (HvlEnlightenments & 0x80u) == 0 )
+      HvlpSlowFlushAddressSpaceTb(0LL, 0LL, v6);
+    else
+      HvlpFastFlushAddressSpaceTb(0LL, 0LL, v6);
     _InterlockedIncrement(&KiTbFlushTimeStamp);
   }
   if ( KiIrqlFlags )

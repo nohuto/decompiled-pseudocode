@@ -1,115 +1,117 @@
 /*
- * XREFs of IoQueuesFreeResources @ 0x1C000AE84
+ * XREFs of IoQueuesFreeResources @ 0x1C000C684
  * Callers:
- *     IoQueuesCreation @ 0x1C000A6A8 (IoQueuesCreation.c)
- *     IoQueuesCreationAsync @ 0x1C000A834 (IoQueuesCreationAsync.c)
- *     NVMeControllerRemove @ 0x1C000E23C (NVMeControllerRemove.c)
- *     NVMeControllerStop @ 0x1C000EC50 (NVMeControllerStop.c)
+ *     IoQueuesCreation @ 0x1C000BFD8 (IoQueuesCreation.c)
+ *     IoQueuesCreationAsync @ 0x1C000C15C (IoQueuesCreationAsync.c)
+ *     NVMeControllerRemove @ 0x1C000E434 (NVMeControllerRemove.c)
+ *     NVMeControllerStop @ 0x1C000E85C (NVMeControllerStop.c)
  * Callees:
- *     NVMeFreeDmaBuffer @ 0x1C000EEA4 (NVMeFreeDmaBuffer.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
  */
 
-__int64 __fastcall IoQueuesFreeResources(__int64 a1)
+__int64 __fastcall IoQueuesFreeResources(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v2; // edi
+  unsigned int v5; // edi
   __int64 result; // rax
-  unsigned __int16 v4; // si
-  __int64 v5; // rbp
-  __int64 v6; // r8
   unsigned __int16 v7; // si
-  __int64 v8; // r14
-  __int64 v9; // rdi
-  __int64 v10; // rax
-  unsigned int i; // ebp
-  __int64 v12; // r8
+  __int64 v8; // rbp
+  __int64 *v9; // r8
+  unsigned __int16 v10; // si
+  __int64 v11; // r14
+  __int64 v12; // rdi
   __int64 v13; // rax
-  __int64 v14; // r8
+  unsigned int i; // ebp
   __int64 v15; // r8
   __int64 v16; // r8
   __int64 v17; // r8
-  __int64 v18; // r8
-  __int64 v19; // r8
 
-  v2 = 16 * *(unsigned __int16 *)(a1 + 334);
-  result = *(unsigned __int16 *)(a1 + 334) << 6;
-  if ( !*(_BYTE *)(a1 + 20) )
+  v5 = 16 * *(unsigned __int16 *)(a1 + 286);
+  result = *(unsigned __int16 *)(a1 + 286) << 6;
+  if ( !*(_BYTE *)(a1 + 16) )
   {
-    if ( *(_QWORD *)(a1 + 872) )
-    {
-      v4 = 0;
-      if ( *(_WORD *)(a1 + 336) )
-      {
-        v5 = (unsigned int)result;
-        do
-        {
-          v6 = *(_QWORD *)(a1 + 872) + 136LL * v4;
-          NVMeFreeDmaBuffer(a1, v5, v6, *(_QWORD *)(v6 + 8));
-          ++v4;
-        }
-        while ( v4 < *(_WORD *)(a1 + 336) );
-      }
-    }
-    if ( *(_QWORD *)(a1 + 880) )
+    if ( *(_QWORD *)(a1 + 776) )
     {
       v7 = 0;
-      if ( *(_WORD *)(a1 + 338) )
+      if ( *(_WORD *)(a1 + 288) )
       {
-        v8 = v2;
+        v8 = (unsigned int)result;
         do
         {
-          v9 = 392LL * v7;
-          v10 = *(_QWORD *)(a1 + 880);
-          if ( *(_BYTE *)(v9 + v10 + 248) && *(_QWORD *)(v9 + v10 + 256) )
+          v9 = (__int64 *)(*(_QWORD *)(a1 + 776) + 136LL * v7);
+          result = NVMeFreeDmaBuffer(a1, v8, v9, v9[1]);
+          ++v7;
+        }
+        while ( v7 < *(_WORD *)(a1 + 288) );
+      }
+    }
+    if ( *(_QWORD *)(a1 + 784) )
+    {
+      v10 = 0;
+      if ( *(_WORD *)(a1 + 290) )
+      {
+        v11 = v5;
+        do
+        {
+          v12 = 344LL * v10;
+          v13 = *(_QWORD *)(a1 + 784);
+          if ( *(_BYTE *)(v12 + v13 + 200) && *(_QWORD *)(v12 + v13 + 208) )
           {
             for ( i = 0;
-                  i < *(unsigned __int16 *)(a1 + 242);
+                  i < *(unsigned __int16 *)(a1 + 218);
                   StorPortExtendedFunction(
                     91LL,
                     a1,
-                    *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 880) + v9 + 256) + 8LL * i++)) )
+                    *(_QWORD *)(*(_QWORD *)(v12 + *(_QWORD *)(a1 + 784) + 208) + 8LL * i++),
+                    1LL) )
             {
               ;
             }
-            v12 = *(_QWORD *)(*(_QWORD *)(a1 + 880) + v9 + 256);
-            if ( v12 )
-              StorPortExtendedFunction(1LL, a1, v12);
+            v13 = *(_QWORD *)(a1 + 784);
+            v15 = *(_QWORD *)(v12 + v13 + 208);
+            if ( v15 )
+            {
+              StorPortExtendedFunction(1LL, a1, v15, a4);
+              v13 = *(_QWORD *)(a1 + 784);
+            }
           }
-          NVMeFreeDmaBuffer(a1, v8, v9 + *(_QWORD *)(a1 + 880), *(_QWORD *)(v9 + *(_QWORD *)(a1 + 880) + 8));
-          ++v7;
+          result = NVMeFreeDmaBuffer(a1, v11, (__int64 *)(v12 + v13), *(_QWORD *)(v12 + v13 + 8));
+          ++v10;
         }
-        while ( v7 < *(_WORD *)(a1 + 338) );
+        while ( v10 < *(_WORD *)(a1 + 290) );
       }
     }
-    v13 = *(_QWORD *)(a1 + 872);
-    if ( v13 )
+    v16 = *(_QWORD *)(a1 + 776);
+    if ( v16 )
     {
-      v14 = *(_QWORD *)(v13 + 24);
-      if ( v14 )
-        StorPortExtendedFunction(1LL, a1, v14);
-      v15 = *(_QWORD *)(*(_QWORD *)(a1 + 872) + 32LL);
-      if ( v15 )
-        StorPortExtendedFunction(1LL, a1, v15);
-      v16 = *(_QWORD *)(a1 + 872);
+      if ( *(_QWORD *)(v16 + 24) )
+      {
+        StorPortExtendedFunction(1LL, a1, *(_QWORD *)(v16 + 24), a4);
+        v16 = *(_QWORD *)(a1 + 776);
+      }
+      result = *(_QWORD *)(v16 + 32);
+      if ( result )
+      {
+        result = StorPortExtendedFunction(1LL, a1, *(_QWORD *)(v16 + 32), a4);
+        v16 = *(_QWORD *)(a1 + 776);
+      }
       if ( v16 )
-        StorPortExtendedFunction(1LL, a1, v16);
+        result = StorPortExtendedFunction(1LL, a1, v16, a4);
     }
-    result = *(_QWORD *)(a1 + 880);
-    if ( result )
+    v17 = *(_QWORD *)(a1 + 784);
+    if ( v17 )
     {
-      v17 = *(_QWORD *)(result + 192);
+      result = *(_QWORD *)(v17 + 192);
+      if ( result )
+      {
+        result = StorPortExtendedFunction(1LL, a1, *(_QWORD *)(v17 + 192), a4);
+        v17 = *(_QWORD *)(a1 + 784);
+      }
       if ( v17 )
-        StorPortExtendedFunction(1LL, a1, v17);
-      result = *(_QWORD *)(a1 + 880);
-      v18 = *(_QWORD *)(result + 224);
-      if ( v18 )
-        result = StorPortExtendedFunction(1LL, a1, v18);
-      v19 = *(_QWORD *)(a1 + 880);
-      if ( v19 )
-        result = StorPortExtendedFunction(1LL, a1, v19);
+        result = StorPortExtendedFunction(1LL, a1, v17, a4);
     }
   }
-  *(_QWORD *)(a1 + 880) = 0LL;
-  *(_QWORD *)(a1 + 872) = 0LL;
-  *(_DWORD *)(a1 + 336) = 0;
+  *(_QWORD *)(a1 + 784) = 0LL;
+  *(_QWORD *)(a1 + 776) = 0LL;
+  *(_DWORD *)(a1 + 288) = 0;
   return result;
 }

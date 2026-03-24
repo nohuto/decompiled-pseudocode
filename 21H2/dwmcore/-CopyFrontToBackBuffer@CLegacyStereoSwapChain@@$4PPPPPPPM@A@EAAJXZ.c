@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CopyFrontToBackBuffer@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAJXZ @ 0x180109D90
+ * XREFs of ?CopyFrontToBackBuffer@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAJXZ @ 0x1800F7970
  * Callers:
  *     <none>
  * Callees:

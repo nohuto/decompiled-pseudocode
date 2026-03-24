@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AlphaMultiply_64bppABGRFloat@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802B1770
+ * XREFs of ?AlphaMultiply_64bppABGRFloat@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x18021B720
  * Callers:
  *     <none>
  * Callees:
- *     ??BCFloat16@@QEAAMXZ @ 0x1802A8200 (--BCFloat16@@QEAAMXZ.c)
+ *     ??BCFloat16@@QEAAMXZ @ 0x18021A75C (--BCFloat16@@QEAAMXZ.c)
  */
 
 void __fastcall AlphaMultiply_64bppABGRFloat(const struct PipelineParams *a1, const struct ScanOpParams *a2)
@@ -76,10 +76,10 @@ void __fastcall AlphaMultiply_64bppABGRFloat(const struct PipelineParams *a1, co
     {
       --v2;
       v4 = CFloat16::operator float(v3);
-      if ( v4 != CFloat16::operator float((unsigned __int16 *)&word_1803D2720) )
+      if ( v4 != CFloat16::operator float((unsigned __int16 *)&word_1803467A0) )
       {
         v5 = CFloat16::operator float(v3);
-        if ( v5 != CFloat16::operator float(word_1803D3A00) )
+        if ( v5 != CFloat16::operator float(word_180347800) )
         {
           v60 = (float)*v6;
           v7 = LODWORD(v60) & 0x7FFFFFFF;

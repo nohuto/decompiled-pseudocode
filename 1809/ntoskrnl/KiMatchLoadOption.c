@@ -3,8 +3,8 @@
  * Callers:
  *     KiParseLoadOptions @ 0x14057385C (KiParseLoadOptions.c)
  * Callees:
- *     strstr @ 0x140194EA0 (strstr.c)
- *     _atoi64 @ 0x140194F00 (_atoi64.c)
+ *     strstr @ 0x140194EC0 (strstr.c)
+ *     _atoi64 @ 0x140194F20 (_atoi64.c)
  */
 
 char __fastcall KiMatchLoadOption(const char *a1, const char *a2, __int64 a3, __int64 *a4)

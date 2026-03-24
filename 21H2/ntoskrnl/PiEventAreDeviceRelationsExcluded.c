@@ -1,7 +1,8 @@
 /*
- * XREFs of PiEventAreDeviceRelationsExcluded @ 0x1407654EC
+ * XREFs of PiEventAreDeviceRelationsExcluded @ 0x1407394CC
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1407655BC (PnpProcessQueryRemoveAndEject.c)
+ *     PiProcessQueryAndCancelRemoval @ 0x1407324EC (PiProcessQueryAndCancelRemoval.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
  *     <none>
  */

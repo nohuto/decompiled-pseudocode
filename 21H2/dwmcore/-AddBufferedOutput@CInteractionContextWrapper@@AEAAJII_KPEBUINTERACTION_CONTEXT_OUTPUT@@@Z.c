@@ -1,15 +1,15 @@
 /*
- * XREFs of ?AddBufferedOutput@CInteractionContextWrapper@@AEAAJII_KPEBUINTERACTION_CONTEXT_OUTPUT@@@Z @ 0x180272C10
+ * XREFs of ?AddBufferedOutput@CInteractionContextWrapper@@AEAAJII_KPEBUINTERACTION_CONTEXT_OUTPUT@@@Z @ 0x18022FE74
  * Callers:
- *     ?InteractionContextCallback@CInteractionContextWrapper@@AEAAXPEBUINTERACTION_CONTEXT_OUTPUT@@@Z @ 0x180273984 (-InteractionContextCallback@CInteractionContextWrapper@@AEAAXPEBUINTERACTION_CONTEXT_OUTPUT@@@Z.c)
+ *     ?InteractionContextCallback@CInteractionContextWrapper@@AEAAXPEBUINTERACTION_CONTEXT_OUTPUT@@@Z @ 0x180230C1C (-InteractionContextCallback@CInteractionContextWrapper@@AEAAXPEBUINTERACTION_CONTEXT_OUTPUT@@@Z.c)
  * Callees:
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18004F61C (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     memset_0 @ 0x1801019AC (memset_0.c)
- *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
- *     ?Add@?$CArray@PEAVCBufferedOutputPointer@@V?$CArrayEqualHelper@PEAVCBufferedOutputPointer@@@@@@QEAAHAEBQEAVCBufferedOutputPointer@@@Z @ 0x180272B4C (-Add@-$CArray@PEAVCBufferedOutputPointer@@V-$CArrayEqualHelper@PEAVCBufferedOutputPointer@@@@@@Q.c)
- *     ?BoundBufferedOutput@CInteractionContextWrapper@@AEAAX_K@Z @ 0x180272D38 (-BoundBufferedOutput@CInteractionContextWrapper@@AEAAX_K@Z.c)
- *     ?FindBufferedOutputPointer@CInteractionContextWrapper@@AEBAPEAVCBufferedOutputPointer@@I@Z @ 0x180273368 (-FindBufferedOutputPointer@CInteractionContextWrapper@@AEBAPEAVCBufferedOutputPointer@@I@Z.c)
- *     ?Insert@?$CQueue@PEAVCBufferedInteractionOutput@@@@AEAAJ_NPEAVCBufferedInteractionOutput@@@Z @ 0x1802738B0 (-Insert@-$CQueue@PEAVCBufferedInteractionOutput@@@@AEAAJ_NPEAVCBufferedInteractionOutput@@@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F358 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     memset_0 @ 0x1800E821C (memset_0.c)
+ *     ModuleFailFastForHRESULT @ 0x18020FB94 (ModuleFailFastForHRESULT.c)
+ *     ?Add@?$CArray@PEAVCBufferedOutputPointer@@V?$CArrayEqualHelper@PEAVCBufferedOutputPointer@@@@@@QEAAHAEBQEAVCBufferedOutputPointer@@@Z @ 0x18022FDB0 (-Add@-$CArray@PEAVCBufferedOutputPointer@@V-$CArrayEqualHelper@PEAVCBufferedOutputPointer@@@@@@Q.c)
+ *     ?BoundBufferedOutput@CInteractionContextWrapper@@AEAAX_K@Z @ 0x18022FFDC (-BoundBufferedOutput@CInteractionContextWrapper@@AEAAX_K@Z.c)
+ *     ?FindBufferedOutputPointer@CInteractionContextWrapper@@AEBAPEAVCBufferedOutputPointer@@I@Z @ 0x1802305E8 (-FindBufferedOutputPointer@CInteractionContextWrapper@@AEBAPEAVCBufferedOutputPointer@@I@Z.c)
+ *     ?Insert@?$CQueue@PEAVCBufferedInteractionOutput@@@@AEAAJ_NPEAVCBufferedInteractionOutput@@@Z @ 0x180230B40 (-Insert@-$CQueue@PEAVCBufferedInteractionOutput@@@@AEAAJ_NPEAVCBufferedInteractionOutput@@@Z.c)
  */
 
 __int64 __fastcall CInteractionContextWrapper::AddBufferedOutput(
@@ -45,7 +45,7 @@ __int64 __fastcall CInteractionContextWrapper::AddBufferedOutput(
     *(_OWORD *)(v11 + 11) = *((_OWORD *)a5 + 2);
     *(_OWORD *)(v11 + 15) = *((_OWORD *)a5 + 3);
     *(_OWORD *)(v11 + 19) = *((_OWORD *)a5 + 4);
-    v9 = CQueue<CBufferedInteractionOutput *>::Insert(this + 67, v12, v11);
+    v9 = CQueue<CBufferedInteractionOutput *>::Insert(this + 68, v12, v11);
   }
   if ( !CInteractionContextWrapper::FindBufferedOutputPointer((CInteractionContextWrapper *)this, a2) )
   {
@@ -55,7 +55,7 @@ __int64 __fastcall CInteractionContextWrapper::AddBufferedOutput(
     v13[4] = 0;
     v15 = v13;
     *(_DWORD *)v13 = a2;
-    CArray<CBufferedOutputPointer *,CArrayEqualHelper<CBufferedOutputPointer *>>::Add(this + 75, &v15);
+    CArray<CBufferedOutputPointer *,CArrayEqualHelper<CBufferedOutputPointer *>>::Add(this + 76, &v15);
   }
   return v9;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z @ 0x1C0155234
+ * XREFs of ?vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z @ 0x1C02845D0
  * Callers:
- *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00B7030 (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C00F0D0C (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
  * Callees:
- *     ?INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z @ 0x1C0031174 (-INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z.c)
- *     ?pSpFindInZ@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z @ 0x1C01177BC (-pSpFindInZ@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z.c)
- *     ?vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0155820 (-vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
- *     ?cSpSubtract@@YAKPEBU_RECTL@@0PEAU1@@Z @ 0x1C01569BC (-cSpSubtract@@YAKPEBU_RECTL@@0PEAU1@@Z.c)
- *     ?vUnlock@SINGLEREADERLOCK@@QEAAXXZ @ 0x1C0156B48 (-vUnlock@SINGLEREADERLOCK@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z @ 0x1C00987C0 (-INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z.c)
+ *     ?pSpFindInZ@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z @ 0x1C010DE10 (-pSpFindInZ@@YAPEAVSPRITE@@PEAV1@PEAU_RECTL@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?cSpSubtract@@YAKPEBU_RECTL@@0PEAU1@@Z @ 0x1C02817F4 (-cSpSubtract@@YAKPEBU_RECTL@@0PEAU1@@Z.c)
+ *     ?vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0283974 (-vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?vUnlock@SINGLEREADERLOCK@@QEAAXXZ @ 0x1C02855AC (-vUnlock@SINGLEREADERLOCK@@QEAAXXZ.c)
  */
 
 void __fastcall vSpSmallUnderlayCopy(
@@ -29,18 +29,18 @@ void __fastcall vSpSmallUnderlayCopy(
   int v15; // eax
   struct _POINTL *v16; // rsi
   struct _RECTL *v17; // rdi
-  unsigned int v18; // r13d
+  int v18; // r13d
   int v19; // ebx
   struct SPRITE *i; // rcx
-  struct SPRITE *v21; // rax
-  struct SPRITE *v22; // rsi
-  int v23; // r15d
-  PVOID *v24; // rbx
-  int v25; // eax
-  __int64 v26; // rax
-  __int64 v27; // rdi
-  struct _SURFOBJ *v28; // r9
-  int v29; // ecx
+  int v21; // r15d
+  PVOID *v22; // rbx
+  int v23; // eax
+  __int64 v24; // rax
+  __int64 v25; // rdi
+  struct _SURFOBJ *v26; // r9
+  int v27; // ecx
+  struct SPRITE *v28; // rax
+  struct SPRITE *v29; // rsi
   struct _RECTL v32; // [rsp+58h] [rbp-89h] BYREF
   struct _POINTL v33; // [rsp+68h] [rbp-79h] BYREF
   int v34; // [rsp+70h] [rbp-71h]
@@ -96,54 +96,54 @@ void __fastcall vSpSmallUnderlayCopy(
     do
       vSpReadFromScreen((struct _SPRITESTATE *)v9, v16, a3, &v37[v19++]);
     while ( v19 != v18 );
-    for ( i = *(struct SPRITE **)(v9 + 8); ; i = (struct SPRITE *)*((_QWORD *)v22 + 3) )
+    for ( i = *(struct SPRITE **)(v9 + 8); ; i = (struct SPRITE *)*((_QWORD *)v29 + 3) )
     {
-      v21 = pSpFindInZ(i, v17);
-      v22 = v21;
-      if ( !v21 )
+      v28 = pSpFindInZ(i, v17);
+      v29 = v28;
+      if ( !v28 )
         break;
-      if ( v21 != a1 )
+      if ( v28 != a1 )
       {
-        v23 = 0;
+        v21 = 0;
         do
         {
-          if ( bIntersect(&v37[v23], (const struct _RECTL *)v22 + 5, &v36) )
+          if ( bIntersect(&v37[v21], (const struct _RECTL *)v29 + 5, &v36) )
           {
-            v24 = 0LL;
+            v22 = 0LL;
             if ( a3 )
             {
-              v25 = (int)a3[1].hsurf;
-              if ( (v25 & 0x80004000) != 0 && (v25 & 0x200) == 0 )
+              v23 = (int)a3[1].hsurf;
+              if ( (v23 & 0x80004000) != 0 && (v23 & 0x200) == 0 )
               {
-                v24 = &a3[-1].pvScan0;
+                v22 = &a3[-1].pvScan0;
                 GreLockDisplayDevice(a3->hdev);
               }
             }
-            v26 = *((_QWORD *)v22 + 20);
-            v27 = 0LL;
-            v28 = (struct _SURFOBJ *)v26;
-            if ( v26 )
+            v24 = *((_QWORD *)v29 + 20);
+            v25 = 0LL;
+            v26 = (struct _SURFOBJ *)v24;
+            if ( v24 )
             {
-              v29 = *(_DWORD *)(v26 + 88);
-              if ( (v29 & 0x80004000) != 0 && (v29 & 0x200) == 0 )
+              v27 = *(_DWORD *)(v24 + 88);
+              if ( (v27 & 0x80004000) != 0 && (v27 & 0x200) == 0 )
               {
-                v27 = v26 - 24;
-                GreLockDisplayDevice(*(_QWORD *)(v26 - 24 + 48));
-                v28 = (struct _SURFOBJ *)*((_QWORD *)v22 + 20);
+                v25 = v24 - 24;
+                GreLockDisplayDevice(*(_QWORD *)(v24 - 24 + 48));
+                v26 = (struct _SURFOBJ *)*((_QWORD *)v29 + 20);
               }
             }
-            INVOKEOFFCOPYBITS(a2, a3, (struct _POINTL *)v22 + 21, v28, 0LL, 0LL, &v36, (struct _POINTL *)&v36);
-            if ( v27 )
-              GreUnlockDisplayDevice(*(_QWORD *)(v27 + 48));
-            if ( v24 )
-              GreUnlockDisplayDevice(v24[6]);
+            INVOKEOFFCOPYBITS(a2, a3, (struct _POINTL *)v29 + 21, v26, 0LL, 0LL, &v36, (struct _POINTL *)&v36);
+            if ( v25 )
+              GreUnlockDisplayDevice(*(_QWORD *)(v25 + 48));
+            if ( v22 )
+              GreUnlockDisplayDevice(v22[6]);
           }
-          ++v23;
+          ++v21;
         }
-        while ( v23 != v18 );
+        while ( v21 != v18 );
         v17 = a8;
       }
-      SINGLEREADERLOCK::vUnlock((struct SPRITE *)((char *)v22 + 248));
+      SINGLEREADERLOCK::vUnlock((struct SPRITE *)((char *)v29 + 248));
     }
   }
 }

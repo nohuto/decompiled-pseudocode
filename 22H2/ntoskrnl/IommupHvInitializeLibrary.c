@@ -1,144 +1,126 @@
 /*
- * XREFs of IommupHvInitializeLibrary @ 0x140B93694
+ * XREFs of IommupHvInitializeLibrary @ 0x140A8D764
  * Callers:
- *     IommuInitializeLibrary @ 0x1403B5BD8 (IommuInitializeLibrary.c)
+ *     IommuInitializeLibrary @ 0x1403B38B8 (IommuInitializeLibrary.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BDC0 (MmGetPhysicalAddress.c)
- *     HalpInterruptSetIdtEntry @ 0x14037D8C0 (HalpInterruptSetIdtEntry.c)
- *     MmAllocateContiguousNodeMemory @ 0x1403B95C0 (MmAllocateContiguousNodeMemory.c)
- *     MmFreeContiguousMemory @ 0x1403C2FA0 (MmFreeContiguousMemory.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1402E7FF0 (MmAllocateContiguousNodeMemory.c)
+ *     MmFreeContiguousMemory @ 0x1402E9070 (MmFreeContiguousMemory.c)
+ *     MmGetPhysicalAddress @ 0x140301020 (MmGetPhysicalAddress.c)
+ *     HalpInterruptSetIdtEntry @ 0x1403A1FAC (HalpInterruptSetIdtEntry.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 IommupHvInitializeLibrary()
 {
-  unsigned int v0; // r12d
-  __int64 v1; // rsi
-  PVOID *v2; // r14
-  int v3; // ebp
-  char v4; // al
-  int v5; // r15d
-  __int64 Pool2; // rax
-  unsigned int v8; // r13d
-  _QWORD *v9; // rax
+  int v0; // r14d
+  int v1; // ebp
+  __int64 v2; // rsi
+  char *PoolWithTag; // rax
+  char *v4; // r15
+  __int64 v6; // r9
+  unsigned int v7; // r13d
+  _QWORD *v8; // r12
   char *ContiguousNodeMemory; // rax
   PHYSICAL_ADDRESS PhysicalAddress; // rax
-  char *v12; // rax
-  __int64 v13; // rdx
+  char *v11; // rax
+  __int64 v12; // rdx
   unsigned int i; // edi
-  PVOID *v15; // rdi
-  _QWORD *v16; // [rsp+30h] [rbp-48h]
-  __int128 v17; // [rsp+38h] [rbp-40h] BYREF
-  __int64 v18; // [rsp+48h] [rbp-30h]
+  PVOID *v14; // rdi
+  unsigned int v15; // [rsp+30h] [rbp-48h]
+  __int128 v16; // [rsp+38h] [rbp-40h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-30h]
 
+  v15 = 0;
+  v16 = 0LL;
   v17 = 0LL;
-  v18 = 0LL;
   v0 = 0;
-  LODWORD(v1) = 0;
-  v2 = 0LL;
-  v3 = 0;
-  if ( qword_140C62658 )
+  if ( !qword_140C4A2D8 )
+    return 3221225659LL;
+  qword_140C4A2D8(&v16);
+  if ( (v16 & 1) == 0 )
+    return 3221225659LL;
+  v1 = DWORD2(v16);
+  if ( HIDWORD(v17) && HIDWORD(v17) < DWORD2(v16) )
+    v1 = HIDWORD(v17);
+  v2 = v17;
+  if ( !(_DWORD)v17 )
+    v2 = 1LL;
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)((_DWORD)v2 << 6), 0x496C6148u);
+  v4 = PoolWithTag;
+  if ( !PoolWithTag )
+    return 3221225626LL;
+  memset(PoolWithTag, 0, (unsigned int)((_DWORD)v2 << 6));
+  v7 = 0;
+  if ( (_DWORD)v2 )
   {
-    qword_140C62658(&v17);
-    v4 = v17;
-    if ( (v17 & 1) != 0 || HalpHvParaVirtIommuDomain && (v17 & 4) != 0 )
+    v8 = v4 + 16;
+    while ( 1 )
     {
-      v5 = DWORD2(v17);
-      if ( HIDWORD(v18) && HIDWORD(v18) < DWORD2(v17) )
-        v5 = HIDWORD(v18);
-      if ( (v17 & 1) != 0 )
-      {
-        v1 = v18;
-        if ( !(_DWORD)v18 )
-          v1 = 1LL;
-        Pool2 = ExAllocatePool2(64LL, (unsigned int)((_DWORD)v1 << 6), 0x496C6148u);
-        v2 = (PVOID *)Pool2;
-        if ( !Pool2 )
-          return 3221225626LL;
-        v8 = 0;
-        if ( (_DWORD)v1 )
-        {
-          v9 = (_QWORD *)(Pool2 + 16);
-          v16 = v9;
-          while ( 1 )
-          {
-            *((_DWORD *)v9 - 4) = v8;
-            ContiguousNodeMemory = (char *)MmAllocateContiguousNodeMemory(0x2000LL, 0, -1, 0, 4, 0x80000000);
-            *(v16 - 1) = ContiguousNodeMemory;
-            if ( !ContiguousNodeMemory )
-              break;
-            *v16 = ContiguousNodeMemory + 4096;
-            PhysicalAddress = MmGetPhysicalAddress(ContiguousNodeMemory);
-            v3 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD))qword_140C626A8)(
-                   v8,
-                   128LL,
-                   (PHYSICAL_ADDRESS)PhysicalAddress.QuadPart,
-                   206LL,
-                   0);
-            if ( v3 < 0 )
-              goto LABEL_32;
-            v9 = v16 + 8;
-            ++v0;
-            ++v8;
-            v16 += 8;
-            if ( v8 >= (unsigned int)v1 )
-              goto LABEL_20;
-          }
-          v3 = -1073741670;
-LABEL_32:
-          for ( i = 0; i < v0; ++i )
-            ((void (__fastcall *)(_QWORD))qword_140C626B0)(i);
-          v15 = v2 + 1;
-          do
-          {
-            if ( *v15 )
-              MmFreeContiguousMemory(*v15);
-            v15 += 8;
-            --v1;
-          }
-          while ( v1 );
-          ExFreePoolWithTag(v2, 0x496C6148u);
-          return (unsigned int)v3;
-        }
-LABEL_20:
-        v4 = v17;
-      }
-      if ( (v4 & 1) != 0 )
-        IommupHvSvmEnabled = 1;
-      if ( HalpHvParaVirtIommuDomain && (v4 & 4) != 0 )
-      {
-        IommupHvPasidEnabled = 1;
-        IommupHvPasidInitialDomainId = _InterlockedIncrement(&HalpIommuDomainId);
-      }
-      IommupHvMaximumAsids = v5;
-      if ( IommupHvSvmEnabled )
-      {
-        IommupHvPageRequestQueueCount = v1;
-        IommupHvPageRequestQueues = (__int64)v2;
-        if ( (_DWORD)v1 )
-        {
-          v12 = (char *)(v2 + 4);
-          v13 = (unsigned int)v1;
-          do
-          {
-            *((_QWORD *)v12 - 1) = 0LL;
-            *(_QWORD *)v12 = 0LL;
-            *((_DWORD *)v12 + 2) = 0;
-            *((_QWORD *)v12 + 3) = 0LL;
-            *((_QWORD *)v12 + 2) = IommupHvGetPageFault;
-            v12 += 64;
-            --v13;
-          }
-          while ( v13 );
-        }
-        HalpInterruptSetIdtEntry(0xCEu, (int)IommupHvInterruptRoutine, 12, 1LL, -1LL);
-      }
-      IommupHvGlobalPushLock = 0LL;
-      return (unsigned int)v3;
+      *((_DWORD *)v8 - 4) = v7;
+      ContiguousNodeMemory = (char *)MmAllocateContiguousNodeMemory(0x2000, 0LL, -1LL, 0, 4u, 0x80000000);
+      *(v8 - 1) = ContiguousNodeMemory;
+      if ( !ContiguousNodeMemory )
+        break;
+      *v8 = ContiguousNodeMemory + 4096;
+      PhysicalAddress = MmGetPhysicalAddress(ContiguousNodeMemory);
+      v0 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _DWORD))qword_140C4A328)(
+             v7,
+             102LL,
+             (PHYSICAL_ADDRESS)PhysicalAddress.QuadPart,
+             206LL,
+             0);
+      if ( v0 < 0 )
+        goto LABEL_20;
+      ++v15;
+      ++v7;
+      v8 += 8;
+      if ( v7 >= (unsigned int)v2 )
+        goto LABEL_15;
     }
+    v0 = -1073741670;
+LABEL_20:
+    for ( i = 0; i < v15; ++i )
+      ((void (__fastcall *)(_QWORD))qword_140C4A330)(i);
+    v14 = (PVOID *)(v4 + 8);
+    do
+    {
+      if ( *v14 )
+        MmFreeContiguousMemory(*v14);
+      v14 += 8;
+      --v2;
+    }
+    while ( v2 );
+    ExFreePoolWithTag(v4, 0x496C6148u);
   }
-  return 3221225659LL;
+  else
+  {
+LABEL_15:
+    IommupHvSvmEnabled = 1;
+    IommupHvMaximumAsids = v1;
+    IommupHvPageRequestQueueCount = v2;
+    IommupHvPageRequestQueues = (__int64)v4;
+    if ( (_DWORD)v2 )
+    {
+      v11 = v4 + 32;
+      v12 = (unsigned int)v2;
+      do
+      {
+        *((_QWORD *)v11 - 1) = 0LL;
+        *(_QWORD *)v11 = 0LL;
+        *((_DWORD *)v11 + 2) = 0;
+        *((_QWORD *)v11 + 2) = IommupHvGetPageFault;
+        *((_QWORD *)v11 + 3) = IommupHvDismissPageFault;
+        *((_DWORD *)v11 + 3) = 40;
+        v11 += 64;
+        --v12;
+      }
+      while ( v12 );
+    }
+    HalpInterruptSetIdtEntry(0xCEu, (int)IommupHvInterruptRoutine, 12, v6, -1LL);
+  }
+  return (unsigned int)v0;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpTimeToTimeFields @ 0x14015DA14
+ * XREFs of RtlpTimeToTimeFields @ 0x14015DA34
  * Callers:
- *     RtlTimeToTimeFields @ 0x14015DA00 (RtlTimeToTimeFields.c)
- *     WheaInitializeRecordHeader @ 0x140320650 (WheaInitializeRecordHeader.c)
+ *     RtlTimeToTimeFields @ 0x14015DA20 (RtlTimeToTimeFields.c)
+ *     WheaInitializeRecordHeader @ 0x140320750 (WheaInitializeRecordHeader.c)
  *     GetBootSystemTime @ 0x1409D1C24 (GetBootSystemTime.c)
  * Callees:
- *     RtlpTimeToTimeFieldsNoLeapSeconds @ 0x14015DAE0 (RtlpTimeToTimeFieldsNoLeapSeconds.c)
+ *     RtlpTimeToTimeFieldsNoLeapSeconds @ 0x14015DB00 (RtlpTimeToTimeFieldsNoLeapSeconds.c)
  */
 
 __int16 __fastcall RtlpTimeToTimeFields(__int64 *a1, _OWORD *a2, __int64 a3)

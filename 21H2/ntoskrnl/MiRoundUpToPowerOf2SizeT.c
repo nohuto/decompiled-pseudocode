@@ -1,7 +1,7 @@
 /*
- * XREFs of MiRoundUpToPowerOf2SizeT @ 0x1405C3380
+ * XREFs of MiRoundUpToPowerOf2SizeT @ 0x14055BECC
  * Callers:
- *     MiMapSystemImageWithLargePage @ 0x14098325C (MiMapSystemImageWithLargePage.c)
+ *     MiMapSystemImageWithLargePage @ 0x1408DA3D0 (MiMapSystemImageWithLargePage.c)
  * Callees:
  *     <none>
  */

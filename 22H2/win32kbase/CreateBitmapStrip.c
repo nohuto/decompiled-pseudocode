@@ -1,17 +1,17 @@
 /*
- * XREFs of CreateBitmapStrip @ 0x1C00D60FC
+ * XREFs of CreateBitmapStrip @ 0x1C00B75BC
  * Callers:
- *     xxxResetDisplayDevice @ 0x1C00138D0 (xxxResetDisplayDevice.c)
+ *     xxxResetDisplayDevice @ 0x1C0077600 (xxxResetDisplayDevice.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (*CreateBitmapStrip())(void)
 {
   __int64 (*result)(void); // rax
 
-  result = qword_1C0295F70;
-  if ( qword_1C0295F70 )
-    return (__int64 (*)(void))qword_1C0295F70();
+  result = qword_1C0256B60;
+  if ( qword_1C0256B60 )
+    return (__int64 (*)(void))qword_1C0256B60();
   return result;
 }

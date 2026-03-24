@@ -1,35 +1,25 @@
 /*
- * XREFs of GreReferenceObject @ 0x1C0026D68
+ * XREFs of GreReferenceObject @ 0x1C00659E0
  * Callers:
- *     CreateOrGetRedirectionBitmap @ 0x1C001F528 (CreateOrGetRedirectionBitmap.c)
- *     ?_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z @ 0x1C0026768 (-_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z.c)
- *     ?OwnsSurfaceCleanup@SFMLOGICALSURFACE@@QEAAPEAVSURFACE@@PEAUHLSURF__@@H@Z @ 0x1C00829B0 (-OwnsSurfaceCleanup@SFMLOGICALSURFACE@@QEAAPEAVSURFACE@@PEAUHLSURF__@@H@Z.c)
+ *     ?OwnsSurfaceCleanup@SFMLOGICALSURFACE@@QEAAPEAVSURFACE@@PEAUHLSURF__@@H@Z @ 0x1C0015C38 (-OwnsSurfaceCleanup@SFMLOGICALSURFACE@@QEAAPEAVSURFACE@@PEAUHLSURF__@@H@Z.c)
+ *     ?_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z @ 0x1C00654F4 (-_SetCursorIconData@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@K@Z.c)
+ *     CreateOrGetRedirectionBitmap @ 0x1C00BF148 (CreateOrGetRedirectionBitmap.c)
  * Callees:
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0028338 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C015D384 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C0082FC8 (--1SURFREF@@QEAA@XZ.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C008393C (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ?bValid@SURFREF@@QEBAHXZ @ 0x1C026D1C4 (-bValid@SURFREF@@QEBAHXZ.c)
+ *     ?vKeepIt@SURFREF@@QEAAXXZ @ 0x1C02736B0 (-vKeepIt@SURFREF@@QEAAXXZ.c)
  */
 
 __int64 __fastcall GreReferenceObject(HSURF a1)
 {
-  __int64 v1; // rcx
-  unsigned int v2; // ebx
-  _BYTE v4[32]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v5; // [rsp+40h] [rbp-18h]
+  int v1; // ebx
+  _BYTE v3[56]; // [rsp+20h] [rbp-38h] BYREF
 
-  SURFREF::SURFREF((SURFREF *)v4, a1);
-  v1 = v5;
-  if ( v5 )
-  {
-    INC_SHARE_REF_CNT();
-    v1 = v5;
-    v2 = 0;
-  }
-  else
-  {
-    v2 = -1073741816;
-  }
+  SURFREF::SURFREF((SURFREF *)v3, a1);
+  v1 = SURFREF::bValid((SURFREF *)v3);
   if ( v1 )
-    DEC_SHARE_REF_CNT(v1);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v4);
-  return v2;
+    SURFREF::vKeepIt((SURFREF *)v3);
+  SURFREF::~SURFREF((SURFREF *)v3);
+  return v1 == 0 ? 0xC0000008 : 0;
 }

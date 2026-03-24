@@ -1,15 +1,15 @@
 /*
- * XREFs of ACPITableUnload @ 0x1C003F810
+ * XREFs of ACPITableUnload @ 0x1C005FA70
  * Callers:
  *     <none>
  * Callees:
- *     ACPIBuildScheduleDpc @ 0x1C0013794 (ACPIBuildScheduleDpc.c)
- *     ACPIBuildSpecialSynchronizationRequest @ 0x1C00137D8 (ACPIBuildSpecialSynchronizationRequest.c)
- *     ACPIFlushQueuesUnload @ 0x1C0014558 (ACPIFlushQueuesUnload.c)
- *     ACPIDevicePowerFlushQueue @ 0x1C001EADC (ACPIDevicePowerFlushQueue.c)
- *     ACPIGpeBuildEventMasks @ 0x1C002BE64 (ACPIGpeBuildEventMasks.c)
- *     ACPIGpeClearEventMasks @ 0x1C002C0F8 (ACPIGpeClearEventMasks.c)
- *     ACPIBuildFlushQueue @ 0x1C007D43C (ACPIBuildFlushQueue.c)
+ *     ACPIGpeBuildEventMasks @ 0x1C001718C (ACPIGpeBuildEventMasks.c)
+ *     ACPIDevicePowerFlushQueue @ 0x1C001C6E0 (ACPIDevicePowerFlushQueue.c)
+ *     ACPIBuildSpecialSynchronizationRequest @ 0x1C001C75C (ACPIBuildSpecialSynchronizationRequest.c)
+ *     ACPIBuildScheduleDpc @ 0x1C001E54C (ACPIBuildScheduleDpc.c)
+ *     ACPIGpeClearEventMasks @ 0x1C0025C40 (ACPIGpeClearEventMasks.c)
+ *     ACPIFlushQueuesUnload @ 0x1C004C8A8 (ACPIFlushQueuesUnload.c)
+ *     ACPIBuildFlushQueue @ 0x1C009E358 (ACPIBuildFlushQueue.c)
  */
 
 __int64 __fastcall ACPITableUnload(__int64 a1, int a2, __int64 a3)
@@ -33,12 +33,12 @@ __int64 __fastcall ACPITableUnload(__int64 a1, int a2, __int64 a3)
         ACPIGpeClearEventMasks();
       if ( a3 )
       {
-        return (unsigned int)ACPIFlushQueuesUnload(RootDeviceExtension, a3, 1);
+        return (unsigned int)ACPIFlushQueuesUnload((_QWORD *)RootDeviceExtension, a3, 1);
       }
       else
       {
         ACPIBuildFlushQueue(RootDeviceExtension, 0LL);
-        ACPIDevicePowerFlushQueue((_QWORD *)RootDeviceExtension);
+        ACPIDevicePowerFlushQueue(RootDeviceExtension);
       }
     }
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenDirectoryObject @ 0x14068C940
+ * XREFs of NtOpenDirectoryObject @ 0x140677420
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x14068C9D0 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x1406CEA10 (ObOpenObjectByName.c)
  */
 
 __int64 __fastcall NtOpenDirectoryObject(_QWORD *a1, int a2, int a3)

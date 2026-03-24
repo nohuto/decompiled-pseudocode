@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetAffinityInterrupt @ 0x1403DEAB0
+ * XREFs of IoGetAffinityInterrupt @ 0x140381DC0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetProcessorNumberFromIndex @ 0x1402949F0 (KeGetProcessorNumberFromIndex.c)
+ *     KeGetProcessorNumberFromIndex @ 0x1402754F0 (KeGetProcessorNumberFromIndex.c)
  */
 
 NTSTATUS __stdcall IoGetAffinityInterrupt(PKINTERRUPT InterruptObject, PGROUP_AFFINITY GroupAffinity)

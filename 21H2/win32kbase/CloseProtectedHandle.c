@@ -1,10 +1,10 @@
 /*
- * XREFs of CloseProtectedHandle @ 0x1C008F4B0
+ * XREFs of CloseProtectedHandle @ 0x1C0046DF8
  * Callers:
- *     DestroyProcessInfo @ 0x1C00188FC (DestroyProcessInfo.c)
- *     xxxCreateThreadInfo @ 0x1C003911C (xxxCreateThreadInfo.c)
+ *     xxxCreateThreadInfo @ 0x1C003D918 (xxxCreateThreadInfo.c)
+ *     DestroyProcessInfo @ 0x1C0045950 (DestroyProcessInfo.c)
  * Callees:
- *     SetHandleFlag @ 0x1C008F4F0 (SetHandleFlag.c)
+ *     SetHandleFlag @ 0x1C0046E40 (SetHandleFlag.c)
  */
 
 NTSTATUS __fastcall CloseProtectedHandle(HANDLE Handle)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReclaimUnusedUltraMdlMaps @ 0x14021DA38
+ * XREFs of MiReclaimUnusedUltraMdlMaps @ 0x14033AC50
  * Callers:
- *     MiWorkingSetManager @ 0x14021D610 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x14033BC70 (MiWorkingSetManager.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiDeleteUltraMapContext @ 0x1402E92DC (MiDeleteUltraMapContext.c)
- *     RtlpInterlockedPopEntrySList @ 0x1404287F0 (RtlpInterlockedPopEntrySList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiDeleteUltraMapContext @ 0x140357B94 (MiDeleteUltraMapContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 MiReclaimUnusedUltraMdlMaps()
@@ -38,9 +38,9 @@ __int64 MiReclaimUnusedUltraMdlMaps()
       v4 = (unsigned __int64)v2 << 9;
       do
       {
-        while ( *(_WORD *)(v4 + qword_140C68638) > 2u )
+        while ( *(_WORD *)(v4 + qword_140C4EC38) > 2u )
         {
-          v5 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(qword_140C68638 + ((8LL * v2 + v3) << 6)));
+          v5 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(qword_140C4EC38 + ((8LL * v2 + v3) << 6)));
           v6 = v5;
           if ( !v5 )
             break;
@@ -58,25 +58,26 @@ __int64 MiReclaimUnusedUltraMdlMaps()
     while ( v2 < (unsigned __int16)KeNumberNodes );
     if ( v1 )
     {
-      KeAcquireInStackQueuedSpinLock(&qword_140C685F0, &LockHandle);
-      dword_140C68630 -= v1;
-      result = KxReleaseQueuedSpinLock(&LockHandle);
+      KeAcquireInStackQueuedSpinLock(&qword_140C4EBF0, &LockHandle);
+      dword_140C4EC30 -= v1;
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+      result = (unsigned int)KiIrqlFlags;
       OldIrql = LockHandle.OldIrql;
       if ( KiIrqlFlags )
       {
-        result = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
-          && (unsigned __int8)result <= 0xFu
-          && LockHandle.OldIrql <= 0xFu
-          && (unsigned __int8)result >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v10 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= result;
-          if ( v10 )
-            result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          result = KeGetCurrentIrql();
+          if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
+          {
+            CurrentPrcb = KeGetCurrentPrcb();
+            SchedulerAssist = CurrentPrcb->SchedulerAssist;
+            result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+            v10 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= result;
+            if ( v10 )
+              result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
         }
       }
       __writecr8(OldIrql);

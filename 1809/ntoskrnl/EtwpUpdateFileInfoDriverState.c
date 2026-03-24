@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpUpdateFileInfoDriverState @ 0x1406C5BD8
+ * XREFs of EtwpUpdateFileInfoDriverState @ 0x1406C5BB8
  * Callers:
- *     EtwpEnableKernelTrace @ 0x1406C57B0 (EtwpEnableKernelTrace.c)
- *     EtwpDisableKernelTrace @ 0x1406C5A4C (EtwpDisableKernelTrace.c)
+ *     EtwpEnableKernelTrace @ 0x1406C5790 (EtwpEnableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x1406C5A2C (EtwpDisableKernelTrace.c)
  *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     WmiQueryTraceProviderCount @ 0x14018DEB4 (WmiQueryTraceProviderCount.c)
- *     ZwLoadDriver @ 0x1401BA150 (ZwLoadDriver.c)
- *     ZwUnloadDriver @ 0x1401BB950 (ZwUnloadDriver.c)
- *     EtwpUpdateFileInfoDriverRegistration @ 0x1406C5C64 (EtwpUpdateFileInfoDriverRegistration.c)
- *     WmiTraceRundownNotify @ 0x140753C1C (WmiTraceRundownNotify.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     WmiQueryTraceProviderCount @ 0x14018DED4 (WmiQueryTraceProviderCount.c)
+ *     ZwLoadDriver @ 0x1401BA170 (ZwLoadDriver.c)
+ *     ZwUnloadDriver @ 0x1401BB970 (ZwUnloadDriver.c)
+ *     EtwpUpdateFileInfoDriverRegistration @ 0x1406C5C44 (EtwpUpdateFileInfoDriverRegistration.c)
+ *     WmiTraceRundownNotify @ 0x140753BFC (WmiTraceRundownNotify.c)
  */
 
 __int64 __fastcall EtwpUpdateFileInfoDriverState(_DWORD *a1, _DWORD *a2, int a3, _QWORD *a4, unsigned int a5)
@@ -25,14 +25,14 @@ __int64 __fastcall EtwpUpdateFileInfoDriverState(_DWORD *a1, _DWORD *a2, int a3,
   {
     if ( !a1 || (*a1 & 0x6000200) == 0 )
     {
-      if ( dword_1404DC3EC )
+      if ( dword_1404DC3E4 )
         WmiTraceRundownNotify(*a4, a5);
       EtwpUpdateFileInfoDriverRegistration(0LL);
-      if ( dword_1404DC3EC )
+      if ( dword_1404DC3E4 )
       {
         RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\FileInfo");
         ZwUnloadDriver(&DestinationString);
-        dword_1404DC3EC = 0;
+        dword_1404DC3E4 = 0;
       }
     }
 LABEL_8:
@@ -48,7 +48,7 @@ LABEL_8:
     v8 = ZwLoadDriver(&DestinationString);
     if ( (int)(v8 + 0x80000000) >= 0 && v8 != -1073741554 )
       return (unsigned int)-1073741204;
-    dword_1404DC3EC = 1;
+    dword_1404DC3E4 = 1;
     v5 = 1;
   }
   updated = EtwpUpdateFileInfoDriverRegistration(1LL);
@@ -59,7 +59,7 @@ LABEL_9:
   {
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\FileInfo");
     ZwUnloadDriver(&DestinationString);
-    dword_1404DC3EC = 0;
+    dword_1404DC3E4 = 0;
   }
   return (unsigned int)updated;
 }

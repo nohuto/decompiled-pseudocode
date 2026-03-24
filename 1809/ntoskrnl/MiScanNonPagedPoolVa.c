@@ -1,16 +1,16 @@
 /*
- * XREFs of MiScanNonPagedPoolVa @ 0x1401635C0
+ * XREFs of MiScanNonPagedPoolVa @ 0x1401635E0
  * Callers:
- *     MiFindContiguousMemoryInPool @ 0x1401625B4 (MiFindContiguousMemoryInPool.c)
- *     MiFindNonPagedPoolVa @ 0x14016349C (MiFindNonPagedPoolVa.c)
- *     MiRemoveFreePoolMemoryFromDump @ 0x1402AC710 (MiRemoveFreePoolMemoryFromDump.c)
- *     MiScrubNonPagedPool @ 0x14084F0F8 (MiScrubNonPagedPool.c)
+ *     MiFindContiguousMemoryInPool @ 0x1401625D4 (MiFindContiguousMemoryInPool.c)
+ *     MiFindNonPagedPoolVa @ 0x1401634BC (MiFindNonPagedPoolVa.c)
+ *     MiRemoveFreePoolMemoryFromDump @ 0x1402AC810 (MiRemoveFreePoolMemoryFromDump.c)
+ *     MiScrubNonPagedPool @ 0x14084F0D8 (MiScrubNonPagedPool.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     RtlFindNextForwardRunClearCappedEx @ 0x14015B100 (RtlFindNextForwardRunClearCappedEx.c)
- *     MiScanLeafNonPagedPool @ 0x1401637D0 (MiScanLeafNonPagedPool.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     RtlFindNextForwardRunClearCappedEx @ 0x14015B120 (RtlFindNextForwardRunClearCappedEx.c)
+ *     MiScanLeafNonPagedPool @ 0x1401637F0 (MiScanLeafNonPagedPool.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiScanNonPagedPoolVa(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

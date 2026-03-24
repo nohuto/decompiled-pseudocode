@@ -1,14 +1,14 @@
 /*
- * XREFs of xxxTrackBox @ 0x1C022B3F0
+ * XREFs of xxxTrackBox @ 0x1C0246580
  * Callers:
- *     ?xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C02292D0 (-xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C02443D0 (-xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z.c)
  * Callees:
- *     _SetSystemTimer @ 0x1C0006474 (_SetSystemTimer.c)
- *     PtInRect @ 0x1C00D0A58 (PtInRect.c)
- *     ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C02291DC (-RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z.c)
- *     ?xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z @ 0x1C02293C0 (-xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z.c)
- *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C0229B1C (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
- *     xxxEndScroll @ 0x1C022A170 (xxxEndScroll.c)
+ *     _SetSystemTimer @ 0x1C002CA18 (_SetSystemTimer.c)
+ *     PtInRect @ 0x1C004DE1C (PtInRect.c)
+ *     ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C02442D8 (-RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z.c)
+ *     ?xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z @ 0x1C02444C0 (-xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z.c)
+ *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C0244C54 (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
+ *     xxxEndScroll @ 0x1C0245344 (xxxEndScroll.c)
  */
 
 void __fastcall xxxTrackBox(struct tagWND *a1, int a2, __int64 a3, int a4)
@@ -65,7 +65,7 @@ LABEL_17:
           v15 = *(struct tagWND **)(v7 + 24);
           *(_QWORD *)(v7 + 64) = v14;
           if ( v15 )
-            xxxDoScroll(*(struct tagWND **)(v7 + 16), v15, *(unsigned int *)(v7 + 56), 0LL, (*(_DWORD *)v7 >> 1) & 1);
+            xxxDoScroll(*(struct _LARGE_STRING ***)(v7 + 16), v15, *(_DWORD *)(v7 + 56), 0, (*(_DWORD *)v7 >> 1) & 1);
         }
       }
       goto LABEL_17;

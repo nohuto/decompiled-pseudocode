@@ -1,13 +1,12 @@
 /*
- * XREFs of HalpDmaRemoveWcb @ 0x140504CA8
+ * XREFs of HalpDmaRemoveWcb @ 0x1404B8264
  * Callers:
- *     HalCancelAdapterChannel @ 0x140511600 (HalCancelAdapterChannel.c)
- *     HalCancelAdapterChannelDmaThin @ 0x1405157F0 (HalCancelAdapterChannelDmaThin.c)
- *     HalCancelAdapterChannelDmarThin @ 0x140515FD0 (HalCancelAdapterChannelDmarThin.c)
+ *     HalCancelAdapterChannel @ 0x1404C5EC0 (HalCancelAdapterChannel.c)
+ *     HalCancelAdapterChannelThin @ 0x1404CACE0 (HalCancelAdapterChannelThin.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall HalpDmaRemoveWcb(__int64 a1, _QWORD *a2)

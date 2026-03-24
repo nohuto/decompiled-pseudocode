@@ -1,48 +1,40 @@
 /*
- * XREFs of GreConfirmWindowResizeCommit @ 0x1C0267488
+ * XREFs of GreConfirmWindowResizeCommit @ 0x1C026ECAC
  * Callers:
- *     NtUserConfirmResizeCommit @ 0x1C01CDEA0 (NtUserConfirmResizeCommit.c)
+ *     NtUserConfirmResizeCommit @ 0x1C01F70E0 (NtUserConfirmResizeCommit.c)
  * Callees:
- *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00C89F8 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
- *     IsDwmActive @ 0x1C00D4B60 (IsDwmActive.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00BE028 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
  */
 
-__int64 __fastcall GreConfirmWindowResizeCommit(Gre::Base *a1)
+__int64 __fastcall GreConfirmWindowResizeCommit(HWND a1)
 {
-  unsigned int v2; // edi
-  struct Gre::Base::SESSION_GLOBALS *v3; // rbx
-  Gre::Base *v4; // rcx
-  Gre::Base *v5; // rcx
-  _BYTE v7[32]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v8; // [rsp+40h] [rbp-18h]
-  __int64 v9; // [rsp+68h] [rbp+10h] BYREF
+  unsigned int v2; // ebx
+  _BYTE v4[32]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v5; // [rsp+40h] [rbp-18h]
+  __int64 v6; // [rsp+68h] [rbp+10h] BYREF
 
   v2 = 0;
-  v3 = Gre::Base::Globals(a1);
-  v9 = *((_QWORD *)v3 + 15);
-  GreAcquireSemaphore(v9);
-  if ( IsDwmActive(v4) )
+  v6 = ghsemGreLock;
+  GreAcquireSemaphore(ghsemGreLock);
+  if ( g_pDwmState )
   {
-    GreAcquireSemaphore(*((_QWORD *)v3 + 9));
-    EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDwmState", *((_QWORD *)v3 + 9), 7LL);
-    if ( IsDwmActive(v5) )
+    GreAcquireSemaphore(ghsemDwmState);
+    EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDwmState", ghsemDwmState, 7LL);
+    DWMSPRITEREF::DWMSPRITEREF((DWMSPRITEREF *)v4, a1);
+    if ( v5 )
     {
-      DWMSPRITEREF::DWMSPRITEREF((DWMSPRITEREF *)v7, (HWND)a1);
-      if ( v8 )
-      {
-        *(_DWORD *)(v8 + 124) = 0;
-        v2 = 1;
-        if ( v8 )
-          _InterlockedDecrement((volatile signed __int32 *)(v8 + 12));
-      }
-      v8 = 0LL;
-      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v7);
+      *(_DWORD *)(v5 + 124) = 0;
+      v2 = 1;
+      if ( v5 )
+        _InterlockedDecrement((volatile signed __int32 *)(v5 + 12));
     }
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDwmState");
-    GreReleaseSemaphoreInternal(*((_QWORD *)v3 + 9));
+    v5 = 0LL;
+    UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v4);
+    EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
+    GreReleaseSemaphoreInternal(ghsemDwmState);
   }
-  SEMOBJ::vUnlock((SEMOBJ *)&v9);
+  SEMOBJ::vUnlock((SEMOBJ *)&v6);
   return v2;
 }

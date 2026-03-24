@@ -1,12 +1,12 @@
 /*
- * XREFs of ?FntCacheAllocate@UmfdFontCacheEntry@@SA_NPEAEIIW4FontDriverType@@@Z @ 0x1C03071C8
+ * XREFs of ?FntCacheAllocate@UmfdFontCacheEntry@@SA_NPEAEIIW4FontDriverType@@@Z @ 0x1C02DED78
  * Callers:
- *     UmfdDispatchEscape @ 0x1C0076FE0 (UmfdDispatchEscape.c)
+ *     UmfdDispatchEscape @ 0x1C00A76B0 (UmfdDispatchEscape.c)
  * Callees:
- *     ?Win32ProbeForRead@@YAXPEAX_KK@Z @ 0x1C008D92C (-Win32ProbeForRead@@YAXPEAX_KK@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     EngFntCacheAllocInternal @ 0x1C028A3EC (EngFntCacheAllocInternal.c)
- *     EngFntCacheFault @ 0x1C028A510 (EngFntCacheFault.c)
+ *     ?Win32ProbeForRead@@YAXPEAX_KK@Z @ 0x1C00D233C (-Win32ProbeForRead@@YAXPEAX_KK@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     EngFntCacheAllocInternal @ 0x1C0288ADC (EngFntCacheAllocInternal.c)
+ *     EngFntCacheFault @ 0x1C0288BD0 (EngFntCacheFault.c)
  */
 
 char __fastcall UmfdFontCacheEntry::FntCacheAllocate(char *a1, unsigned int a2, unsigned int a3, int a4)

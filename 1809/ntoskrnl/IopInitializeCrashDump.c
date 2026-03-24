@@ -1,17 +1,17 @@
 /*
- * XREFs of IopInitializeCrashDump @ 0x14074D054
+ * XREFs of IopInitializeCrashDump @ 0x14074D034
  * Callers:
- *     IoConfigureCrashDump @ 0x14018848C (IoConfigureCrashDump.c)
- *     IoInitializeCrashDump @ 0x14074CFC0 (IoInitializeCrashDump.c)
+ *     IoConfigureCrashDump @ 0x1401884AC (IoConfigureCrashDump.c)
+ *     IoInitializeCrashDump @ 0x14074CFA0 (IoInitializeCrashDump.c)
  *     IopInitCrashDumpRegCallback @ 0x1409D2F70 (IopInitCrashDumpRegCallback.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IopLoadCrashdumpDriver @ 0x14017815C (IopLoadCrashdumpDriver.c)
- *     SecureDump_GetSecureDumpSettings @ 0x1401885A8 (SecureDump_GetSecureDumpSettings.c)
- *     IopReadDumpRegistry @ 0x1401885F4 (IopReadDumpRegistry.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     IopLoadCrashdumpDriver @ 0x14017817C (IopLoadCrashdumpDriver.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x1401885C8 (SecureDump_GetSecureDumpSettings.c)
+ *     IopReadDumpRegistry @ 0x140188614 (IopReadDumpRegistry.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x14071DEA0 (FsRtlIssueFileNotificationFsctl.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x14071DE80 (FsRtlIssueFileNotificationFsctl.c)
  */
 
 char __fastcall IopInitializeCrashDump(unsigned int *Handle, __int128 *a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Create@CD2DResourceManager@@SAJPEAVCD2DContext@@PEAPEAV1@@Z @ 0x1800229BC
+ * XREFs of ?Create@CD2DResourceManager@@SAJPEAVCD2DContext@@PEAPEAV1@@Z @ 0x18002D16C
  * Callers:
- *     ?InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDevice3@@@Z @ 0x1800222A8 (-InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDevice3@@@Z.c)
+ *     ?InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDeviceDWM@@@Z @ 0x18002C424 (-InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDeviceDWM@@@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
  */
 
 __int64 __fastcall CD2DResourceManager::Create(struct CD2DContext *a1, struct CD2DResourceManager **a2)
@@ -21,11 +21,10 @@ __int64 __fastcall CD2DResourceManager::Create(struct CD2DContext *a1, struct CD
     *((_QWORD *)v5 + 3) = a1;
     *((_QWORD *)v5 + 1) = v5;
     *(_QWORD *)v5 = v5;
-    *a2 = (struct CD2DResourceManager *)v5;
   }
-  else
+  *a2 = (struct CD2DResourceManager *)v5;
+  if ( !v5 )
   {
-    *a2 = 0LL;
     v3 = -2147024882;
     MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2147024882, 0xFu, 0LL);
   }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?_Create@FxMemoryBufferFromPool@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@W4_POOL_TYPE@@K_KPEAPEAVFxMemoryObject@@@Z @ 0x1C000FBCC
+ * XREFs of ?_Create@FxMemoryBufferFromPool@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@W4_POOL_TYPE@@K_KPEAPEAVFxMemoryObject@@@Z @ 0x1C0055CD0
  * Callers:
- *     ?_Create@FxMemoryObject@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@W4_POOL_TYPE@@K_KPEAPEAV1@@Z @ 0x1C0005FF8 (-_Create@FxMemoryObject@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@W4_POOL_TYPE@@K_.c)
+ *     ?_Create@FxMemoryObject@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@W4_POOL_TYPE@@K_KPEAPEAV1@@Z @ 0x1C0004E44 (-_Create@FxMemoryObject@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@W4_POOL_TYPE@@K_.c)
  * Callees:
- *     ?FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C0006B70 (-FxObjectHandleAllocCommon@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@UFxPoolTypeOrPoolFlags@@_KKPEAU_WDF_OB.c)
- *     ?FxIsPagedPoolType@@YAEW4_POOL_TYPE@@@Z @ 0x1C000FDA8 (-FxIsPagedPoolType@@YAEW4_POOL_TYPE@@@Z.c)
- *     ??0FxMemoryObject@@IEAA@PEAU_FX_DRIVER_GLOBALS@@G_K@Z @ 0x1C001275C (--0FxMemoryObject@@IEAA@PEAU_FX_DRIVER_GLOBALS@@G_K@Z.c)
- *     ?_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C002D504 (-_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
- *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0032F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?FxIsPagedPoolType@@YAEW4_POOL_TYPE@@@Z @ 0x1C0004E28 (-FxIsPagedPoolType@@YAEW4_POOL_TYPE@@@Z.c)
+ *     ??0FxMemoryObject@@IEAA@PEAU_FX_DRIVER_GLOBALS@@G_K@Z @ 0x1C000514C (--0FxMemoryObject@@IEAA@PEAU_FX_DRIVER_GLOBALS@@G_K@Z.c)
+ *     ?FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x1C000BF84 (-FxObjectHandleAlloc@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@W4_POOL_TYPE@@_KKPEAU_WDF_OBJECT_ATTRIBUTES@.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C004DC40 (-_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
+ *     ?ClearEvtCallbacks@FxObject@@QEAAXXZ @ 0x1C0059F1C (-ClearEvtCallbacks@FxObject@@QEAAXXZ.c)
  */
 
 __int64 __fastcall FxMemoryBufferFromPool::_Create(
@@ -20,66 +20,52 @@ __int64 __fastcall FxMemoryBufferFromPool::_Create(
         FxMemoryObject **Buffer)
 {
   _WDF_OBJECT_ATTRIBUTES *v10; // rdx
-  unsigned __int8 IsPagedPoolType; // r14
-  FxDeviceBase *v12; // rbp
+  bool IsPagedPoolType; // r14
+  FxDeviceBase *v12; // rsi
   FxMemoryObject *v13; // rax
   FxMemoryObject *v14; // rbx
-  SIZE_T v15; // rax
+  SIZE_T v16; // rax
   FxMemoryObject_vtbl *PoolWithTag; // rax
-  FxMemoryObject *v18; // rax
-  FxPoolTypeOrPoolFlags v19; // [rsp+40h] [rbp-28h] BYREF
 
   IsPagedPoolType = FxIsPagedPoolType(PoolType);
-  if ( IsPagedPoolType && (v12 = FxDeviceBase::_SearchForDevice(FxDriverGlobals, v10)) != 0LL )
+  if ( IsPagedPoolType )
+    v12 = FxDeviceBase::_SearchForDevice(FxDriverGlobals, v10);
+  else
+    v12 = 0LL;
+  v13 = (FxMemoryObject *)FxObjectHandleAlloc(
+                            FxDriverGlobals,
+                            ExDefaultNonPagedPoolType,
+                            0x80uLL,
+                            0,
+                            Attributes,
+                            0,
+                            FxObjectTypeExternal);
+  v14 = v13;
+  if ( v12 )
   {
-    *(_QWORD *)&v19.UsePoolType = 0LL;
-    v19.u.PoolFlags = 64LL;
-    v13 = (FxMemoryObject *)FxObjectHandleAllocCommon(
-                              FxDriverGlobals,
-                              &v19,
-                              0x80uLL,
-                              0,
-                              Attributes,
-                              0,
-                              FxObjectTypeExternal);
-    v14 = v13;
     if ( v13 )
     {
       FxMemoryObject::FxMemoryObject(v13, FxDriverGlobals, 0x80u, BufferSize);
-      v14[1].FxObject::__vftable = 0LL;
-      v14->FxObject::__vftable = (FxMemoryObject_vtbl *)FxMemoryPagedBufferFromPool::`vftable'{for `FxObject'};
-      v14->IFxMemory::__vftable = (IFxMemory_vtbl *)FxMemoryBufferFromPool::`vftable'{for `IFxMemory'};
       v14->m_DeviceBase = v12;
+      v14->FxObject::__vftable = (FxMemoryObject_vtbl *)FxMemoryPagedBufferFromPool::`vftable'{for `FxObject'};
+LABEL_9:
+      v14[1].FxObject::__vftable = 0LL;
+      v14->IFxMemory::__vftable = (IFxMemory_vtbl *)FxMemoryBufferFromPool::`vftable'{for `IFxMemory'};
+      goto LABEL_11;
     }
-    else
-    {
-      v14 = 0LL;
-    }
-    if ( !v14 )
-      return 3221225626LL;
   }
-  else
+  else if ( v13 )
   {
-    *(_QWORD *)&v19.UsePoolType = 0LL;
-    v19.u.PoolFlags = 64LL;
-    v18 = (FxMemoryObject *)FxObjectHandleAllocCommon(
-                              FxDriverGlobals,
-                              &v19,
-                              0x80uLL,
-                              0,
-                              Attributes,
-                              0,
-                              FxObjectTypeExternal);
-    v14 = v18;
-    if ( !v18 )
-      return 3221225626LL;
-    FxMemoryObject::FxMemoryObject(v18, FxDriverGlobals, 0x80u, BufferSize);
-    v14[1].FxObject::__vftable = 0LL;
+    FxMemoryObject::FxMemoryObject(v13, FxDriverGlobals, 0x80u, BufferSize);
     v14->FxObject::__vftable = (FxMemoryObject_vtbl *)FxMemoryPagedBufferFromPool::`vftable'{for `FxObject'};
-    v14->IFxMemory::__vftable = (IFxMemory_vtbl *)FxMemoryBufferFromPool::`vftable'{for `IFxMemory'};
+    goto LABEL_9;
   }
-  v15 = v14->GetBufferSize(&v14->IFxMemory);
-  PoolWithTag = (FxMemoryObject_vtbl *)ExAllocatePoolWithTag(PoolType, v15, PoolTag);
+  v14 = 0LL;
+LABEL_11:
+  if ( !v14 )
+    return 3221225626LL;
+  v16 = v14->GetBufferSize(&v14->IFxMemory);
+  PoolWithTag = (FxMemoryObject_vtbl *)ExAllocatePoolWithTag(PoolType, v16, PoolTag);
   v14[1].FxObject::__vftable = PoolWithTag;
   if ( !PoolWithTag )
   {

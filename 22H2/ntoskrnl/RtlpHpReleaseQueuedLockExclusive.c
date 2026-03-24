@@ -1,82 +1,134 @@
 /*
- * XREFs of RtlpHpReleaseQueuedLockExclusive @ 0x140289AC0
+ * XREFs of RtlpHpReleaseQueuedLockExclusive @ 0x1402BC110
  * Callers:
- *     RtlpHpVsContextMultiAlloc @ 0x140249D90 (RtlpHpVsContextMultiAlloc.c)
- *     RtlpHpVsContextAllocateInternal @ 0x14024A090 (RtlpHpVsContextAllocateInternal.c)
- *     RtlpHpVsChunkSplit @ 0x14024A460 (RtlpHpVsChunkSplit.c)
- *     RtlpHpAllocateHeap @ 0x14024D400 (RtlpHpAllocateHeap.c)
- *     RtlpHpVsChunkFree @ 0x14024D5E0 (RtlpHpVsChunkFree.c)
- *     RtlpHpVsContextFreeList @ 0x14024EDD0 (RtlpHpVsContextFreeList.c)
- *     RtlpHpFreeHeap @ 0x1402AC490 (RtlpHpFreeHeap.c)
- *     ExAllocateHeapPool @ 0x1402AD2B0 (ExAllocateHeapPool.c)
- *     RtlpHpVsContextAllocate @ 0x14034C5B4 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x14021BB50 (RtlpHpVsSubsegmentCommitPages.c)
+ *     ExAllocateHeapPool @ 0x1402BC8A0 (ExAllocateHeapPool.c)
+ *     RtlpHpVsContextFreeList @ 0x1402BF0B0 (RtlpHpVsContextFreeList.c)
+ *     RtlpHpVsContextFreeInternal @ 0x1402BF150 (RtlpHpVsContextFreeInternal.c)
+ *     RtlpHpVsChunkDecommit @ 0x1402BF280 (RtlpHpVsChunkDecommit.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x1402BF450 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsChunkSplit @ 0x1402BF820 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsContextAllocate @ 0x1402FED24 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpVsContextMultiAlloc @ 0x140303964 (RtlpHpVsContextMultiAlloc.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B12C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiCheckForKernelApcDelivery @ 0x14024A050 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x1402CB3F0 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x1402CB550 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x1402E5430 (KiAbEntryRemoveFromTree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-int __fastcall RtlpHpReleaseQueuedLockExclusive(int a1, __int64 a2)
+__int64 __fastcall RtlpHpReleaseQueuedLockExclusive(int a1, __int64 a2)
 {
-  _DWORD *v3; // rcx
-  unsigned __int64 v4; // rsi
-  $C71981A45BEB2B45F82C232A7085991E *v5; // rax
-  volatile signed __int64 *v6; // rdi
+  ULONG_PTR v2; // rdi
+  struct _KTHREAD *CurrentThread; // rsi
+  ULONG_PTR SessionId; // r9
+  unsigned __int8 v6; // r12
   __int64 v7; // rdx
   __int64 v8; // r8
-  __int64 v9; // r9
-  struct _KTHREAD *CurrentThread; // rcx
-  bool v11; // zf
-  unsigned __int8 CurrentIrql; // cl
+  bool v9; // zf
+  __int64 v10; // rcx
+  __int64 v11; // rbp
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 result; // rax
+  unsigned __int64 v15; // rsi
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v15; // edx
-  void *retaddr; // [rsp+28h] [rbp+0h]
+  int v18; // edx
 
+  v2 = *(_QWORD *)(a2 + 8);
   if ( a1 )
   {
-    v3 = *(_DWORD **)(a2 + 8);
-    v4 = *(unsigned __int8 *)(a2 + 16);
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
-      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v3, retaddr);
-    else
-      *v3 = 0;
-    LODWORD(v5) = KiIrqlFlags;
+    v15 = *(unsigned __int8 *)(a2 + 16);
+    ExReleaseSpinLockExclusiveFromDpcLevel(*(PEX_SPIN_LOCK *)(a2 + 8));
+    result = (unsigned int)KiIrqlFlags;
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v5 = ($C71981A45BEB2B45F82C232A7085991E *)(-1LL << ((unsigned __int8)v4 + 1));
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v15 = ~(unsigned __int16)v5;
-        v11 = (v15 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v15;
-        if ( v11 )
-          LODWORD(v5) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KeGetCurrentIrql();
+        if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v15 <= 0xFu && (unsigned __int8)result >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          result = -1LL << ((unsigned __int8)v15 + 1);
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v18 = ~(unsigned __int16)result;
+          v9 = (v18 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v18;
+          if ( v9 )
+            result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
-    __writecr8(v4);
+    __writecr8(v15);
     *(_QWORD *)(a2 + 8) = 0LL;
   }
   else
   {
-    v6 = *(volatile signed __int64 **)(a2 + 8);
-    if ( (_InterlockedExchangeAdd64(v6, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v6);
-    LODWORD(v5) = KeAbPostRelease((ULONG_PTR)v6);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)v2);
     CurrentThread = KeGetCurrentThread();
-    v11 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v11 )
+    if ( (unsigned int)MiGetSystemRegionType(v2) == 1 )
+      SessionId = (unsigned int)MmGetSessionIdEx(CurrentThread->ApcState.Process);
+    else
+      SessionId = 0xFFFFFFFFLL;
+    --CurrentThread->SpecialApcDisable;
+    v6 = ++CurrentThread->AbAllocationRegionCount;
+    LODWORD(v7) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+    v8 = v2 & 0x7FFFFFFFFFFFFFFCLL;
+    v9 = !_BitScanReverse((unsigned int *)&v10, v7);
+    if ( v9 )
+      goto LABEL_25;
+    while ( 1 )
     {
-      v5 = &CurrentThread->152;
-      if ( ($C71981A45BEB2B45F82C232A7085991E *)v5->ApcState.ApcListHead[0].Flink != v5 )
-        LODWORD(v5) = KiCheckForKernelApcDelivery(CurrentThread, v7, v8, v9);
+      v11 = (__int64)&CurrentThread->LockEntries[v10];
+      v7 = ~(1 << v10) & (unsigned int)v7;
+      if ( (*(_BYTE *)(v11 + 26) & 1) != 0
+        && (*(_DWORD *)(v11 + 32) & 1) == 0
+        && (*(_QWORD *)(v11 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v8
+        && *(_DWORD *)(v11 + 40) == (_DWORD)SessionId )
+      {
+        *(_BYTE *)(v11 + 26) &= ~1u;
+        if ( *(_QWORD *)(v11 + 32) )
+          break;
+      }
+      v9 = !_BitScanReverse((unsigned int *)&v10, v7);
+      if ( v9 )
+        goto LABEL_25;
     }
+    if ( !v11 )
+    {
+LABEL_25:
+      if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
+        KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v2, SessionId, 0LL);
+    }
+    else
+    {
+      *(_BYTE *)(v11 + 32) |= 2u;
+      if ( *(__int64 *)(v11 + 32) < 0 )
+        KiAbEntryRemoveFromTree(v11, v7, v8);
+      *(_DWORD *)(v11 + 88) &= 0xFFFE0000;
+      *(_BYTE *)(v11 + 25) &= ~1u;
+      *(_QWORD *)(v11 + 32) = 0LL;
+      v12 = (signed __int64)(v11 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+      if ( v6 == 1 )
+        CurrentThread->AbEntrySummary |= 1 << v12;
+      else
+        _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v12);
+    }
+    --CurrentThread->AbAllocationRegionCount;
+    KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
+    v9 = CurrentThread->SpecialApcDisable++ == -1;
+    if ( v9 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery(v13);
+    result = KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
     *(_QWORD *)(a2 + 8) = 0LL;
   }
-  return (int)v5;
+  return result;
 }

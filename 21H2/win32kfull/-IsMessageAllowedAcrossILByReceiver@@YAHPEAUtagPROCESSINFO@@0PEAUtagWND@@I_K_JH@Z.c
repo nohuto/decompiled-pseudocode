@@ -1,18 +1,18 @@
 /*
- * XREFs of ?IsMessageAllowedAcrossILByReceiver@@YAHPEAUtagPROCESSINFO@@0PEAUtagWND@@I_K_JH@Z @ 0x1C00A75A0
+ * XREFs of ?IsMessageAllowedAcrossILByReceiver@@YAHPEAUtagPROCESSINFO@@0PEAUtagWND@@I_K_JH@Z @ 0x1C003F99C
  * Callers:
- *     xxxInterSendMsgEx @ 0x1C00517B0 (xxxInterSendMsgEx.c)
- *     NtUserPostMessage @ 0x1C0054740 (NtUserPostMessage.c)
- *     ?xxxWrapRealDefWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C00673C0 (-xxxWrapRealDefWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
- *     xxxRealDefWindowProc @ 0x1C0067528 (xxxRealDefWindowProc.c)
- *     _PostTransformableMessageIL @ 0x1C00A735C (_PostTransformableMessageIL.c)
- *     NtUserPostThreadMessage @ 0x1C00AAB70 (NtUserPostThreadMessage.c)
- *     ?CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z @ 0x1C0119178 (-CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z.c)
- *     _PostMessageCheckIL @ 0x1C01DD244 (_PostMessageCheckIL.c)
+ *     _PostTransformableMessageIL @ 0x1C003F750 (_PostTransformableMessageIL.c)
+ *     ?xxxWrapRealDefWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C0049D50 (-xxxWrapRealDefWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ *     xxxRealDefWindowProc @ 0x1C0049EC8 (xxxRealDefWindowProc.c)
+ *     NtUserPostMessage @ 0x1C00546A0 (NtUserPostMessage.c)
+ *     xxxInterSendMsgEx @ 0x1C005A2F0 (xxxInterSendMsgEx.c)
+ *     NtUserPostThreadMessage @ 0x1C00DA640 (NtUserPostThreadMessage.c)
+ *     ?CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z @ 0x1C0129398 (-CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z.c)
+ *     _PostMessageCheckIL @ 0x1C01E27B8 (_PostMessageCheckIL.c)
  * Callees:
- *     ?GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C00A767C (-GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z.c)
- *     MSGSQMAddMessage @ 0x1C00A770C (MSGSQMAddMessage.c)
- *     ?IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z @ 0x1C00FA678 (-IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z.c)
+ *     ?GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C003FA78 (-GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z.c)
+ *     MSGSQMAddMessage @ 0x1C003FB08 (MSGSQMAddMessage.c)
+ *     ?IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z @ 0x1C010C174 (-IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z.c)
  */
 
 __int64 __fastcall IsMessageAllowedAcrossILByReceiver(

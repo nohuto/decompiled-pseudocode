@@ -1,19 +1,21 @@
 /*
- * XREFs of TtmNotifySessionPowerRequestPresent @ 0x1409A4780
+ * XREFs of TtmNotifySessionPowerRequestPresent @ 0x1408FEDA0
  * Callers:
- *     PopPowerRequestNotifyTtmSessionInitialized @ 0x140981800 (PopPowerRequestNotifyTtmSessionInitialized.c)
- *     PopPowerRequestNotifyUserSessionAttributed @ 0x1409818C4 (PopPowerRequestNotifyUserSessionAttributed.c)
+ *     PopNotifySessionUserPowerRequestAttributed @ 0x1408E1980 (PopNotifySessionUserPowerRequestAttributed.c)
+ *     PopNotifySessionUserPowerRequestsPresent @ 0x1408E1A44 (PopNotifySessionUserPowerRequestsPresent.c)
  * Callees:
- *     TtmpInsertPowerRequestToSession @ 0x1409A5518 (TtmpInsertPowerRequestToSession.c)
- *     TtmpUpdatePowerRequestAttribute @ 0x1409A5ECC (TtmpUpdatePowerRequestAttribute.c)
- *     TtmiLogSessionPowerRequestAcknowledged @ 0x1409A99BC (TtmiLogSessionPowerRequestAcknowledged.c)
+ *     TtmpInsertPowerRequestToSession @ 0x1408FFB98 (TtmpInsertPowerRequestToSession.c)
+ *     TtmpUpdatePowerRequestAttribute @ 0x140900570 (TtmpUpdatePowerRequestAttribute.c)
+ *     TtmiLogSessionPowerRequestAcknowledged @ 0x140903F3C (TtmiLogSessionPowerRequestAcknowledged.c)
  */
 
-__int64 __fastcall TtmNotifySessionPowerRequestPresent(int a1, int a2, int a3, int a4, __int64 a5, __int64 a6, char a7)
+__int64 __fastcall TtmNotifySessionPowerRequestPresent(int a1, int a2, int a3, int a4, __int64 a5, int a6, char a7)
 {
+  char updated; // al
+
   if ( a7 )
-    TtmpUpdatePowerRequestAttribute(a1, a2, a3, a4, a5);
+    updated = TtmpUpdatePowerRequestAttribute(a1, a2, a3, a4, a5, a6);
   else
-    TtmpInsertPowerRequestToSession(a1, a2, a3, a4, a5);
-  return TtmiLogSessionPowerRequestAcknowledged(a1, a2, a3, a4, a5);
+    updated = TtmpInsertPowerRequestToSession(a1, a2, a3, a4, a5, a6);
+  return TtmiLogSessionPowerRequestAcknowledged(a1, a2, a3, a4, a5, a6, a7, updated);
 }

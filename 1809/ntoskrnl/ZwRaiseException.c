@@ -1,9 +1,9 @@
 /*
- * XREFs of ZwRaiseException @ 0x1401BAD50
+ * XREFs of ZwRaiseException @ 0x1401BAD70
  * Callers:
  *     RtlUnwindEx @ 0x14009DF30 (RtlUnwindEx.c)
- *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
- *     RtlRaiseException @ 0x1402ED740 (RtlRaiseException.c)
+ *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     RtlRaiseException @ 0x1402ED840 (RtlRaiseException.c)
  * Callees:
  *     <none>
  */

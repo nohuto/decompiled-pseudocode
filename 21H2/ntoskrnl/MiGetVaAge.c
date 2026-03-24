@@ -1,49 +1,79 @@
 /*
- * XREFs of MiGetVaAge @ 0x140274D80
+ * XREFs of MiGetVaAge @ 0x1403090F0
  * Callers:
- *     MiUpdateWsleAge @ 0x14024501C (MiUpdateWsleAge.c)
- *     MI_WSLE_LOG_ACCESS @ 0x140274D10 (MI_WSLE_LOG_ACCESS.c)
- *     MiActOnPte @ 0x14033E970 (MiActOnPte.c)
- *     MiTrimPte @ 0x1403731C0 (MiTrimPte.c)
- *     MiResetAccessBitPteWorker @ 0x1403C49DC (MiResetAccessBitPteWorker.c)
- *     MiUpdateOldPte @ 0x14045BDA0 (MiUpdateOldPte.c)
- *     MiSimpleAgePte @ 0x140596EA0 (MiSimpleAgePte.c)
+ *     MiActOnPte @ 0x14023C5F0 (MiActOnPte.c)
+ *     MiUpdateWsleAge @ 0x1402BEC28 (MiUpdateWsleAge.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x140309080 (MI_WSLE_LOG_ACCESS.c)
+ *     MiResetAccessBitPte @ 0x14039B7F0 (MiResetAccessBitPte.c)
+ *     MiResetAccessBitPteWorker @ 0x14053BA80 (MiResetAccessBitPteWorker.c)
+ *     MiSimpleAgePte @ 0x14053BCC0 (MiSimpleAgePte.c)
+ *     MiUpdateOldPte @ 0x14053C5B0 (MiUpdateOldPte.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
  */
 
 char __fastcall MiGetVaAge(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // r8
   __int64 v3; // rcx
+  unsigned __int64 v5; // rdx
+  unsigned __int64 v6; // rdi
+  unsigned __int64 v7; // rbx
+  struct _LIST_ENTRY *v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rax
   struct _LIST_ENTRY *Flink; // rax
-  __int64 v6; // rax
-  char v7; // r8^7
+  __int64 v12; // rax
+  char v13; // r8^7
 
-  if ( a2 >= 0xFFFFF68000000000uLL && a2 <= 0xFFFFF6FFFFFFFFFFuLL )
-    return (*(_BYTE *)(48
-                     * (((unsigned __int64)MI_READ_PTE_LOCK_FREE(((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) >> 12) & 0xFFFFFFFFFFLL)
-                     - 0x220000000000LL) >> 1) & 7;
-  v2 = ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v3 = *(_QWORD *)v2;
-  if ( v2 >= 0xFFFFF6FB7DBED000uLL
-    && v2 <= 0xFFFFF6FB7DBED7F8uLL
-    && (MiFlags & 0xC00000) != 0
-    && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
-    && (v3 & 1) != 0
-    && ((v3 & 0x20) == 0 || (v3 & 0x42) == 0) )
+  if ( a2 < 0xFFFFF68000000000uLL || a2 > 0xFFFFF6FFFFFFFFFFuLL )
   {
-    Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
-    if ( Flink )
+    v2 = ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v3 = *(_QWORD *)v2;
+    if ( v2 >= 0xFFFFF6FB7DBED000uLL
+      && v2 <= 0xFFFFF6FB7DBED7F8uLL
+      && (MiFlags & 0xC00000) != 0
+      && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+      && (v3 & 1) != 0
+      && ((v3 & 0x20) == 0 || (v3 & 0x42) == 0) )
     {
-      v6 = *((_QWORD *)&Flink->Flink + ((v2 >> 3) & 0x1FF));
-      v7 = HIBYTE(*(_QWORD *)v2);
-      if ( (v6 & 0x20) == 0 )
-        v7 = HIBYTE(v3);
-      HIBYTE(v3) = v7;
-      if ( (v6 & 0x42) != 0 )
-        HIBYTE(v3) = v7;
+      Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      if ( Flink )
+      {
+        v12 = *((_QWORD *)&Flink->Flink + ((v2 >> 3) & 0x1FF));
+        v13 = HIBYTE(*(_QWORD *)v2);
+        if ( (v12 & 0x20) == 0 )
+          v13 = HIBYTE(v3);
+        HIBYTE(v3) = v13;
+        if ( (v12 & 0x42) != 0 )
+          HIBYTE(v3) = v13;
+      }
     }
+    return HIBYTE(v3) & 0xF;
   }
-  return HIBYTE(v3) & 0xF;
+  else
+  {
+    v5 = a2 >> 9;
+    v6 = (v5 & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v7 = *(_QWORD *)v6;
+    if ( (unsigned int)MiPteInShadowRange(v6, v5)
+      && (MiFlags & 0xC00000) != 0
+      && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+      && (v7 & 1) != 0
+      && ((v7 & 0x20) == 0 || (v7 & 0x42) == 0) )
+    {
+      v8 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      if ( v8 )
+      {
+        v9 = v7 | 0x20;
+        v10 = *((_QWORD *)&v8->Flink + ((v6 >> 3) & 0x1FF));
+        if ( (v10 & 0x20) == 0 )
+          v9 = v7;
+        v7 = v9;
+        if ( (v10 & 0x42) != 0 )
+          v7 = v9 | 0x42;
+      }
+    }
+    return (*(_BYTE *)(48 * ((v7 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL) >> 1) & 7;
+  }
 }

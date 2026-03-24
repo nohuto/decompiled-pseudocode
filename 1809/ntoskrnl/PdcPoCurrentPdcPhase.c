@@ -1,27 +1,27 @@
 /*
- * XREFs of PdcPoCurrentPdcPhase @ 0x1402DE160
+ * XREFs of PdcPoCurrentPdcPhase @ 0x1402DE260
  * Callers:
  *     <none>
  * Callees:
- *     PpmConvertTime @ 0x1400A7CF4 (PpmConvertTime.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     PopFxPauseDeviceAccounting @ 0x1402D891C (PopFxPauseDeviceAccounting.c)
- *     PopFxResumeDeviceAccounting @ 0x1402D9398 (PopFxResumeDeviceAccounting.c)
- *     PopCalculateIdleInformation @ 0x1402DEEA8 (PopCalculateIdleInformation.c)
- *     PopCalculateTotalHwDripsResidency @ 0x1402DEFBC (PopCalculateTotalHwDripsResidency.c)
- *     PopDiagTraceCsResiliencyEnter @ 0x1402DFBC4 (PopDiagTraceCsResiliencyEnter.c)
- *     PopDiagTraceCsResiliencyExit @ 0x1402DFCBC (PopDiagTraceCsResiliencyExit.c)
- *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x1402E3850 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
- *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x1402E3950 (PopDeepSleepResiliencyPhaseAccountingEnd.c)
- *     PopCurrentPowerStatePrecise @ 0x14071C1B0 (PopCurrentPowerStatePrecise.c)
- *     PopPowerRequestNotifyStandbyStateChanged @ 0x1408665A8 (PopPowerRequestNotifyStandbyStateChanged.c)
- *     PopGetEnergyCounter @ 0x14086DB48 (PopGetEnergyCounter.c)
- *     PopPdcQueryActivationStats @ 0x14086F38C (PopPdcQueryActivationStats.c)
- *     PopDiagTraceCsResiliencyStats @ 0x140871C40 (PopDiagTraceCsResiliencyStats.c)
- *     PopIdleCsStateChanged @ 0x140877724 (PopIdleCsStateChanged.c)
- *     PopStatsNotifyPowerRequestDamPhase @ 0x14087B210 (PopStatsNotifyPowerRequestDamPhase.c)
- *     PopStatsNotifyPowerRequestLpePhase @ 0x14087B28C (PopStatsNotifyPowerRequestLpePhase.c)
+ *     PpmConvertTime @ 0x1400A7D14 (PpmConvertTime.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     PopFxPauseDeviceAccounting @ 0x1402D8A1C (PopFxPauseDeviceAccounting.c)
+ *     PopFxResumeDeviceAccounting @ 0x1402D9498 (PopFxResumeDeviceAccounting.c)
+ *     PopCalculateIdleInformation @ 0x1402DEFA8 (PopCalculateIdleInformation.c)
+ *     PopCalculateTotalHwDripsResidency @ 0x1402DF0BC (PopCalculateTotalHwDripsResidency.c)
+ *     PopDiagTraceCsResiliencyEnter @ 0x1402DFCC4 (PopDiagTraceCsResiliencyEnter.c)
+ *     PopDiagTraceCsResiliencyExit @ 0x1402DFDBC (PopDiagTraceCsResiliencyExit.c)
+ *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x1402E3950 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
+ *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x1402E3A50 (PopDeepSleepResiliencyPhaseAccountingEnd.c)
+ *     PopCurrentPowerStatePrecise @ 0x14071C190 (PopCurrentPowerStatePrecise.c)
+ *     PopPowerRequestNotifyStandbyStateChanged @ 0x140866588 (PopPowerRequestNotifyStandbyStateChanged.c)
+ *     PopGetEnergyCounter @ 0x14086DB28 (PopGetEnergyCounter.c)
+ *     PopPdcQueryActivationStats @ 0x14086F36C (PopPdcQueryActivationStats.c)
+ *     PopDiagTraceCsResiliencyStats @ 0x140871C20 (PopDiagTraceCsResiliencyStats.c)
+ *     PopIdleCsStateChanged @ 0x140877704 (PopIdleCsStateChanged.c)
+ *     PopStatsNotifyPowerRequestDamPhase @ 0x14087B1F0 (PopStatsNotifyPowerRequestDamPhase.c)
+ *     PopStatsNotifyPowerRequestLpePhase @ 0x14087B26C (PopStatsNotifyPowerRequestLpePhase.c)
  */
 
 __int64 __fastcall PdcPoCurrentPdcPhase(int a1, unsigned __int8 a2)

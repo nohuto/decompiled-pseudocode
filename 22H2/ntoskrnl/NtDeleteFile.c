@@ -1,13 +1,13 @@
 /*
- * XREFs of NtDeleteFile @ 0x140874800
+ * XREFs of NtDeleteFile @ 0x14077CB50
  * Callers:
- *     DifNtDeleteFileWrapper @ 0x1405E8040 (DifNtDeleteFileWrapper.c)
+ *     <none>
  * Callees:
- *     PsGetCurrentSilo @ 0x14022E220 (PsGetCurrentSilo.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObOpenObjectByNameEx @ 0x1406ED090 (ObOpenObjectByNameEx.c)
- *     IopCleanupExtraCreateParameters @ 0x1407BF710 (IopCleanupExtraCreateParameters.c)
+ *     PsGetCurrentSilo @ 0x140345940 (PsGetCurrentSilo.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IopCleanupExtraCreateParameters @ 0x1406A6714 (IopCleanupExtraCreateParameters.c)
+ *     ObOpenObjectByNameEx @ 0x1406CEA90 (ObOpenObjectByNameEx.c)
  */
 
 __int64 __fastcall NtDeleteFile(__int64 a1)
@@ -39,11 +39,11 @@ __int64 __fastcall NtDeleteFile(__int64 a1)
   __incgsdword(0x2EE4u);
   v4 = ObOpenObjectByNameEx(
          a1,
-         (__int64)IoFileObjectType,
+         (struct _OBJECT_TYPE *)IoFileObjectType,
          PreviousMode,
          0LL,
-         0x10000,
-         (int)v7,
+         0x10000u,
+         (__int64)v7,
          *(__int64 *)&v7[12],
          &v6);
   IopCleanupExtraCreateParameters((__int64)v7);

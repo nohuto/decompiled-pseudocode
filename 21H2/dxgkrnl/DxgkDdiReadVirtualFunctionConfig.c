@@ -1,10 +1,10 @@
 /*
- * XREFs of DxgkDdiReadVirtualFunctionConfig @ 0x1C035A15C
+ * XREFs of DxgkDdiReadVirtualFunctionConfig @ 0x1C0231858
  * Callers:
- *     ?DpiDdiReadVirtualFunctionConfig@@YAJPEAX0GKK@Z @ 0x1C0065940 (-DpiDdiReadVirtualFunctionConfig@@YAJPEAX0GKK@Z.c)
+ *     ?DpiDdiReadVirtualFunctionConfig@@YAJPEAX0GKK@Z @ 0x1C0058CE0 (-DpiDdiReadVirtualFunctionConfig@@YAJPEAX0GKK@Z.c)
  * Callees:
- *     ?ReadVirtualFunctionConfig@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_READVIRTUALFUNCTIONCONFIG@@@Z @ 0x1C0358680 (-ReadVirtualFunctionConfig@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_READVIRTUAL.c)
- *     ?VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ @ 0x1C0358FC8 (-VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?ReadVirtualFunctionConfig@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_READVIRTUALFUNCTIONCONFIG@@@Z @ 0x1C02305D8 (-ReadVirtualFunctionConfig@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_READVIRTUAL.c)
+ *     ?VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ @ 0x1C0230C38 (-VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ.c)
  */
 
 __int64 __fastcall DxgkDdiReadVirtualFunctionConfig(
@@ -25,7 +25,7 @@ __int64 __fastcall DxgkDdiReadVirtualFunctionConfig(
   int v17; // [rsp+50h] [rbp-18h]
   int v18; // [rsp+54h] [rbp-14h]
 
-  v7 = a1[350];
+  v7 = a1[338];
   v18 = 0;
   v14 = a3;
   v8 = a4;

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiWsSwapPageFileNumber @ 0x1400E4E28
+ * XREFs of MiWsSwapPageFileNumber @ 0x1400E4E48
  * Callers:
- *     MiFindBestOutswapPagefile @ 0x1400E4D8C (MiFindBestOutswapPagefile.c)
- *     MiContractWsSwapPageFileWorker @ 0x1402CB5E0 (MiContractWsSwapPageFileWorker.c)
- *     MiContractWsSwapPageFile @ 0x14066B7A4 (MiContractWsSwapPageFile.c)
+ *     MiFindBestOutswapPagefile @ 0x1400E4DAC (MiFindBestOutswapPagefile.c)
+ *     MiContractWsSwapPageFileWorker @ 0x1402CB6E0 (MiContractWsSwapPageFileWorker.c)
+ *     MiContractWsSwapPageFile @ 0x14066B784 (MiContractWsSwapPageFile.c)
  * Callees:
  *     <none>
  */

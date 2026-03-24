@@ -1,10 +1,10 @@
 /*
- * XREFs of XilCoreCommand_AllocateResources @ 0x1C0015E9C
+ * XREFs of XilCoreCommand_AllocateResources @ 0x1C0015B4C
  * Callers:
- *     XilCommand_AllocateResources @ 0x1C0015E4C (XilCommand_AllocateResources.c)
+ *     XilCommand_AllocateResources @ 0x1C0015AFC (XilCommand_AllocateResources.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C000A588 (WPP_RECORDER_SF_.c)
- *     CommonBuffer_AcquireBuffer @ 0x1C000FA9C (CommonBuffer_AcquireBuffer.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000A0B8 (WPP_RECORDER_SF_.c)
+ *     CommonBuffer_AcquireBuffer @ 0x1C000E440 (CommonBuffer_AcquireBuffer.c)
  */
 
 __int64 __fastcall XilCoreCommand_AllocateResources(__int64 a1)

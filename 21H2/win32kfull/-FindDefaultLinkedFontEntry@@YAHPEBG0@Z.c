@@ -1,9 +1,9 @@
 /*
- * XREFs of ?FindDefaultLinkedFontEntry@@YAHPEBG0@Z @ 0x1C02957D4
+ * XREFs of ?FindDefaultLinkedFontEntry@@YAHPEBG0@Z @ 0x1C0297CF0
  * Callers:
- *     ?bLoadFontFileTable@PFFMEMOBJ@@QEAAHPEBGKPEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z @ 0x1C000D8E4 (-bLoadFontFileTable@PFFMEMOBJ@@QEAAHPEBGKPEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z.c)
+ *     ?bLoadFontFileTable@PFFMEMOBJ@@QEAAHPEBGKPEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z @ 0x1C00A3B30 (-bLoadFontFileTable@PFFMEMOBJ@@QEAAHPEBGKPEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z.c)
  * Callees:
- *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0014ED0 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0064CBC (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
  */
 
 __int64 __fastcall FindDefaultLinkedFontEntry(wchar_t *Str1, char *a2)
@@ -12,7 +12,7 @@ __int64 __fastcall FindDefaultLinkedFontEntry(wchar_t *Str1, char *a2)
   unsigned int v3; // edi
   __int64 v6; // rsi
 
-  v2 = &unk_1C032FE0C;
+  v2 = &unk_1C0334ABC;
   v3 = 0;
   while ( 1 )
   {

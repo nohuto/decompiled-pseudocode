@@ -1,5 +1,5 @@
 /*
- * XREFs of NtUserAlterWindowStyle @ 0x1C011FDA0
+ * XREFs of NtUserAlterWindowStyle @ 0x1C0131720
  * Callers:
  *     <none>
  * Callees:
@@ -14,7 +14,7 @@ __int64 __fastcall NtUserAlterWindowStyle(__int64 a1, int a2, int a3)
   __int64 v9; // rsi
   __int64 CurrentProcessWin32Process; // rax
 
-  EnterCrit(0LL, 0LL);
+  EnterCrit(0LL, 1LL);
   v6 = ValidateHwnd(a1);
   v8 = 0LL;
   v9 = v6;

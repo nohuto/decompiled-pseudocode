@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlEnoughStackSpaceForStackCapture @ 0x1405E47F4
+ * XREFs of RtlEnoughStackSpaceForStackCapture @ 0x140585CC4
  * Callers:
- *     IovpLogStackTrace @ 0x140A80FC8 (IovpLogStackTrace.c)
- *     ViPtLogStackTrace @ 0x140A9DFBC (ViPtLogStackTrace.c)
+ *     IovpLogStackTrace @ 0x1409C5978 (IovpLogStackTrace.c)
+ *     ViPoolLogStackTrace @ 0x1409E0398 (ViPoolLogStackTrace.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x1402AB970 (RtlpGetStackLimits.c)
- *     KeGetCurrentStackPointer @ 0x14041FAB0 (KeGetCurrentStackPointer.c)
+ *     RtlpGetStackLimits @ 0x140350450 (RtlpGetStackLimits.c)
+ *     KeGetCurrentStackPointer @ 0x1403FE5D0 (KeGetCurrentStackPointer.c)
  */
 
 __int64 RtlEnoughStackSpaceForStackCapture()

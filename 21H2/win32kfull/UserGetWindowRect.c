@@ -1,13 +1,13 @@
 /*
- * XREFs of UserGetWindowRect @ 0x1C0084E98
+ * XREFs of UserGetWindowRect @ 0x1C011F708
  * Callers:
- *     GreUpdateSpriteClipRgn @ 0x1C0084B9C (GreUpdateSpriteClipRgn.c)
- *     DxgkEngGetWindowRect @ 0x1C0122DF0 (DxgkEngGetWindowRect.c)
+ *     GreUpdateSpriteClipRgn @ 0x1C00BA4D8 (GreUpdateSpriteClipRgn.c)
+ *     DxgkEngGetWindowRect @ 0x1C011F6F0 (DxgkEngGetWindowRect.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
  */
 
-__int64 __fastcall UserGetWindowRect(int a1, _OWORD *a2)
+__int64 __fastcall UserGetWindowRect(unsigned __int64 a1, _OWORD *a2)
 {
   __int64 result; // rax
   __int64 v4; // rcx

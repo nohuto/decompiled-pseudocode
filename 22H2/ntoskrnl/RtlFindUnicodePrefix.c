@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlFindUnicodePrefix @ 0x14079EF20
+ * XREFs of RtlFindUnicodePrefix @ 0x140677D10
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x140327CF0 (RtlSplay.c)
- *     CompareUnicodeStrings @ 0x14079F030 (CompareUnicodeStrings.c)
- *     ComputeUnicodeNameLength @ 0x14079F198 (ComputeUnicodeNameLength.c)
+ *     RtlSplay @ 0x1402D9F50 (RtlSplay.c)
+ *     CompareUnicodeStrings @ 0x140677E28 (CompareUnicodeStrings.c)
+ *     ComputeUnicodeNameLength @ 0x140677F68 (ComputeUnicodeNameLength.c)
  */
 
 PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlFindUnicodePrefix(
@@ -19,8 +19,8 @@ PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlFindUnicodePrefix(
   RTL_SPLAY_LINKS *i; // rsi
   UNICODE_PREFIX_TABLE_ENTRY *v10; // r14
   int v11; // eax
-  UNICODE_PREFIX_TABLE_ENTRY *v12; // rbx
-  struct _UNICODE_PREFIX_TABLE_ENTRY *v13; // rbx
+  struct _UNICODE_PREFIX_TABLE_ENTRY *v12; // rbx
+  UNICODE_PREFIX_TABLE_ENTRY *v13; // rbx
 
   NextPrefixTree = PrefixTable->NextPrefixTree;
   v4 = PrefixTable;
@@ -55,26 +55,26 @@ LABEL_16:
   }
   if ( CaseInsensitiveIndex )
   {
-    v12 = (UNICODE_PREFIX_TABLE_ENTRY *)&i[-1];
-    while ( (unsigned int)CompareUnicodeStrings(v12->Prefix, FullName, CaseInsensitiveIndex) - 1 > 1 )
+    v13 = (UNICODE_PREFIX_TABLE_ENTRY *)&i[-1];
+    while ( (unsigned int)CompareUnicodeStrings(v13->Prefix, FullName, CaseInsensitiveIndex) - 1 > 1 )
     {
-      v12 = v12->CaseMatch;
-      if ( v12 == v10 )
+      v13 = v13->CaseMatch;
+      if ( v13 == v10 )
         goto LABEL_16;
     }
-    return v12;
+    return v13;
   }
   else
   {
     if ( v10->NodeTypeCode == 2050 )
     {
-      v13 = NextPrefixTree->NextPrefixTree;
+      v12 = NextPrefixTree->NextPrefixTree;
       NextPrefixTree->NextPrefixTree = 0LL;
       NextPrefixTree->NodeTypeCode = 2050;
       v10 = (UNICODE_PREFIX_TABLE_ENTRY *)&RtlSplay(i)[-1];
       v10->NodeTypeCode = 2049;
       v4->NextPrefixTree = v10;
-      v10->NextPrefixTree = v13;
+      v10->NextPrefixTree = v12;
     }
     return v10;
   }

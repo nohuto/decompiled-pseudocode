@@ -1,9 +1,9 @@
 /*
- * XREFs of ??1EPATHOBJGC@@QEAA@XZ @ 0x1C00D3288
+ * XREFs of ??1EPATHOBJGC@@QEAA@XZ @ 0x1C00CC058
  * Callers:
- *     ??$vGarbageCollectObject@VEPATHOBJGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00D3054 (--$vGarbageCollectObject@VEPATHOBJGC@@@@YAXPEAUHOBJ__@@@Z.c)
+ *     ??$vGarbageCollectObject@VEPATHOBJGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00CBD5C (--$vGarbageCollectObject@VEPATHOBJGC@@@@YAXPEAUHOBJ__@@@Z.c)
  * Callees:
- *     ?vUnlock@EPATHOBJ@@QEAAXXZ @ 0x1C0154170 (-vUnlock@EPATHOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@EPATHOBJ@@QEAAXXZ @ 0x1C0023350 (-vUnlock@EPATHOBJ@@QEAAXXZ.c)
  */
 
 void __fastcall EPATHOBJGC::~EPATHOBJGC(EPATHOBJGC *this)

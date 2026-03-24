@@ -1,8 +1,8 @@
 /*
- * XREFs of ?WriteEncoded8@@YAHEPEAEIPEBE@Z @ 0x1C02EDA38
+ * XREFs of ?WriteEncoded8@@YAHEPEAEIPEBE@Z @ 0x1C02CB82C
  * Callers:
- *     EncodeRLE8 @ 0x1C02EEF60 (EncodeRLE8.c)
- *     EncodeRLE4 @ 0x1C02F0E8C (EncodeRLE4.c)
+ *     EncodeRLE8 @ 0x1C02CC82C (EncodeRLE8.c)
+ *     EncodeRLE4 @ 0x1C02CE394 (EncodeRLE4.c)
  * Callees:
  *     <none>
  */

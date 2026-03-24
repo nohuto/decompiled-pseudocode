@@ -1,32 +1,33 @@
 /*
- * XREFs of PpmApplyProfile @ 0x14099D500
+ * XREFs of PpmApplyProfile @ 0x1408F5AFC
  * Callers:
- *     PdcPoPpmApplyProfile @ 0x1408823C0 (PdcPoPpmApplyProfile.c)
+ *     PdcPoPpmApplyProfile @ 0x1408EF930 (PdcPoPpmApplyProfile.c)
  * Callees:
- *     PpmReleaseLock @ 0x140224C00 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140224E90 (PpmAcquireLock.c)
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PpmCompareAndApplyPolicySettings @ 0x14099788C (PpmCompareAndApplyPolicySettings.c)
- *     PpmEventTraceProfileChange @ 0x14099B848 (PpmEventTraceProfileChange.c)
- *     PpmEndProfileAccumulation @ 0x14099D79C (PpmEndProfileAccumulation.c)
- *     PpmPostProcessMediaBuffering @ 0x14099D834 (PpmPostProcessMediaBuffering.c)
+ *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x1408F07C0 (PpmCompareAndApplyPolicySettings.c)
+ *     PpmEventTraceProfileChange @ 0x1408F3FB8 (PpmEventTraceProfileChange.c)
+ *     PpmEndProfileAccumulation @ 0x1408F5D6C (PpmEndProfileAccumulation.c)
+ *     PpmPostProcessMediaBuffering @ 0x1408F5E28 (PpmPostProcessMediaBuffering.c)
  */
 
-void __fastcall PpmApplyProfile(__int64 *a1)
+LONG __fastcall PpmApplyProfile(__int64 *a1)
 {
   __int64 v1; // r14
   __int64 v3; // rbx
   __int64 *v4; // rbp
   __int64 *v5; // rsi
   __int64 *v6; // rax
-  __int64 v7; // rax
-  __int64 *v8; // r9
-  __int64 v9; // r8
-  __int64 v10; // rcx
-  __int64 v11; // [rsp+40h] [rbp+8h] BYREF
+  LONG result; // eax
+  __int64 v8; // rax
+  __int64 *v9; // r9
+  __int64 v10; // r8
+  __int64 v11; // rcx
+  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = dword_140C232CC;
+  v1 = dword_140C23E8C;
   v3 = 0LL;
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
   PopAcquireRwLockExclusive((ULONG_PTR)&PpmIdlePolicyLock);
@@ -44,37 +45,39 @@ void __fastcall PpmApplyProfile(__int64 *a1)
   if ( PpmCurrentProfile == v5 )
   {
     PopReleaseRwLock((ULONG_PTR)&PpmIdlePolicyLock);
-    PpmReleaseLock(&PpmPerfPolicyLock);
+    return PpmReleaseLock(&PpmPerfPolicyLock);
   }
   else
   {
-    v7 = PpmEndProfileAccumulation(PpmCurrentProfile, MEMORY[0xFFFFF78000000008]);
-    v9 = 2LL;
+    v8 = PpmEndProfileAccumulation(PpmCurrentProfile, MEMORY[0xFFFFF78000000008]);
+    v10 = 2LL;
     *((_DWORD *)v5 + 7) |= 2u;
     *((_DWORD *)v4 + 7) &= ~2u;
     PpmCurrentProfile = v5;
-    v10 = 0LL;
-    v5[1073] = v7;
+    v11 = 0LL;
+    v5[689] = v8;
     do
     {
-      if ( v5 != v8 )
-        v3 |= v5[534 * v1 + 5 + v10];
-      if ( v4 != v8 )
-        v3 |= v4[534 * v1 + 5 + v10];
-      ++v10;
-      --v9;
+      if ( v5 != v9 )
+        v3 |= v5[342 * v1 + 5 + v11];
+      if ( v4 != v9 )
+        v3 |= v4[342 * v1 + 5 + v11];
+      ++v11;
+      --v10;
     }
-    while ( v9 );
-    v11 = v3 & 0x3CFFFFD8030FC0LL;
-    PpmCompareAndApplyPolicySettings(&v11, (__int64)&v4[534 * v1 + 5], (__int64)&v5[534 * v1 + 5]);
+    while ( v10 );
+    v12 = v3 & 0x1CFFFFD8030FC0LL;
+    PpmCompareAndApplyPolicySettings(&v12, (__int64)&v4[342 * v1 + 5], (__int64)&v5[342 * v1 + 5]);
     PpmEventTraceProfileChange((__int64)v4, (__int64)v5);
+    result = PpmLowPowerProfile;
     if ( PpmLowPowerProfile )
     {
       if ( v4 == (__int64 *)PpmLowPowerProfile )
       {
         PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
-        PpmPostProcessMediaBuffering();
+        return PpmPostProcessMediaBuffering();
       }
     }
   }
+  return result;
 }

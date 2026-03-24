@@ -1,12 +1,12 @@
 /*
- * XREFs of VmSetThreadSchedulerAssist @ 0x140465ED0
+ * XREFs of VmSetThreadSchedulerAssist @ 0x1405A26D0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetThreadSchedulerAssist @ 0x14056D2BC (KeSetThreadSchedulerAssist.c)
+ *     KeSetThreadSchedulerAssist @ 0x14051E508 (KeSetThreadSchedulerAssist.c)
  */
 
-__int64 __fastcall VmSetThreadSchedulerAssist(ULONG_PTR a1)
+char __fastcall VmSetThreadSchedulerAssist(struct _KTHREAD *a1, void *a2, __int64 a3, _DWORD *a4)
 {
-  return KeSetThreadSchedulerAssist(a1);
+  return KeSetThreadSchedulerAssist(a1, a2, a3, a4);
 }

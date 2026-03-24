@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEnableWmiInterface @ 0x140758650
+ * XREFs of PpmEnableWmiInterface @ 0x140758630
  * Callers:
- *     PopNewProcessorCallback @ 0x140865CC0 (PopNewProcessorCallback.c)
+ *     PopNewProcessorCallback @ 0x140865CA0 (PopNewProcessorCallback.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
- *     KeGetPrcb @ 0x1400A62A4 (KeGetPrcb.c)
- *     KeQueryGroupAffinity @ 0x1400F3660 (KeQueryGroupAffinity.c)
- *     IoWMIRegistrationControl @ 0x1406B8F20 (IoWMIRegistrationControl.c)
+ *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     KeQueryGroupAffinity @ 0x1400F3680 (KeQueryGroupAffinity.c)
+ *     IoWMIRegistrationControl @ 0x1406B8F00 (IoWMIRegistrationControl.c)
  */
 
 int PpmEnableWmiInterface()

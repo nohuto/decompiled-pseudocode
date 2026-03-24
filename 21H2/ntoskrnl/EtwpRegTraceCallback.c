@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpRegTraceCallback @ 0x1409E5BF0
+ * XREFs of EtwpRegTraceCallback @ 0x14093B320
  * Callers:
  *     <none>
  * Callees:
- *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     CmCallbackGetKeyObjectID @ 0x1408812B0 (CmCallbackGetKeyObjectID.c)
- *     EtwpCapturePreviousRegistryData @ 0x1409E5A54 (EtwpCapturePreviousRegistryData.c)
- *     EtwpCaptureRegistryData @ 0x1409E5B58 (EtwpCaptureRegistryData.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     CmCallbackGetKeyObjectID @ 0x140869A70 (CmCallbackGetKeyObjectID.c)
+ *     EtwpCapturePreviousRegistryData @ 0x14093B184 (EtwpCapturePreviousRegistryData.c)
+ *     EtwpCaptureRegistryData @ 0x14093B288 (EtwpCaptureRegistryData.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRegTraceCallback(PVOID CallbackContext, PVOID Argument1, int *Argument2)
@@ -341,7 +341,7 @@ LABEL_53:
         *(&UserData.Ptr + v44) = (ULONGLONG)&v66;
         *((_QWORD *)&UserData.Size + v44) = 4LL;
       }
-      if ( v38 )
+      if ( v38 == 1 )
       {
         if ( v6 )
         {

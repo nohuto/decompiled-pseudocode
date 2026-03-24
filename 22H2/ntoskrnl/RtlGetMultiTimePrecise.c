@@ -1,15 +1,13 @@
 /*
- * XREFs of RtlGetMultiTimePrecise @ 0x140364430
+ * XREFs of RtlGetMultiTimePrecise @ 0x14035F9E0
  * Callers:
- *     RtlConvertHostPerfCounterToPerfCounter @ 0x1405A75B0 (RtlConvertHostPerfCounterToPerfCounter.c)
- *     EtwpGetTimeStampAndQpcDelta @ 0x140601134 (EtwpGetTimeStampAndQpcDelta.c)
- *     EtwpInitializeTimeStamp @ 0x1407DC230 (EtwpInitializeTimeStamp.c)
- *     EtwpInitializeBootTimeStamps @ 0x140B74FDC (EtwpInitializeBootTimeStamps.c)
- *     EtwpFixBootSystemTime @ 0x140B984E0 (EtwpFixBootSystemTime.c)
+ *     EtwpGetTimeStampAndQpcDelta @ 0x1405AB6E4 (EtwpGetTimeStampAndQpcDelta.c)
+ *     EtwpInitializeTimeStamp @ 0x140711604 (EtwpInitializeTimeStamp.c)
+ *     EtwpInitialize @ 0x140A41844 (EtwpInitialize.c)
  * Callees:
- *     RtlBeginReadTickLock @ 0x1402BFD64 (RtlBeginReadTickLock.c)
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     HvlGetSharedPageVa @ 0x140364604 (HvlGetSharedPageVa.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     RtlBeginReadTickLock @ 0x14035D0C0 (RtlBeginReadTickLock.c)
+ *     HvlGetSharedPageVa @ 0x14035FBB0 (HvlGetSharedPageVa.c)
  */
 
 __int64 __fastcall RtlGetMultiTimePrecise(LARGE_INTEGER *a1, int a2, int *a3)
@@ -19,18 +17,20 @@ __int64 __fastcall RtlGetMultiTimePrecise(LARGE_INTEGER *a1, int a2, int *a3)
   __int64 v5; // rbp
   char v6; // r13
   int v7; // r14d
-  __int64 SharedPageVa; // r15
+  __int64 SharedPageVa; // r12
   __int64 v9; // r14
   LARGE_INTEGER PerformanceCounter; // rdx
   int v11; // edi
   LONGLONG v12; // rdx
-  __int64 v14; // [rsp+20h] [rbp-78h]
-  __int64 v15; // [rsp+28h] [rbp-70h]
-  unsigned __int64 v16; // [rsp+30h] [rbp-68h]
-  unsigned __int64 v17; // [rsp+38h] [rbp-60h]
-  __int64 v18; // [rsp+40h] [rbp-58h]
-  __int64 TickLock; // [rsp+48h] [rbp-50h]
+  __int64 v14; // [rsp+28h] [rbp-80h]
+  __int64 v15; // [rsp+30h] [rbp-78h]
+  unsigned __int64 v16; // [rsp+38h] [rbp-70h]
+  unsigned __int64 v17; // [rsp+40h] [rbp-68h]
+  __int64 v18; // [rsp+48h] [rbp-60h]
+  __int64 TickLock; // [rsp+50h] [rbp-58h]
+  char v21; // [rsp+B8h] [rbp+10h]
 
+  v21 = a2;
   v3 = 0LL;
   v4 = a2;
   v16 = 0LL;
@@ -80,7 +80,7 @@ __int64 __fastcall RtlGetMultiTimePrecise(LARGE_INTEGER *a1, int a2, int *a3)
       _mm_pause();
     }
     v11 = 0;
-    if ( (v4 & 1) != 0 )
+    if ( (v21 & 1) != 0 )
     {
       *a1 = PerformanceCounter;
       v11 = 1;

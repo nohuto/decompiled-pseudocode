@@ -3,7 +3,7 @@
  * Callers:
  *     PnpInsertEventInQueue @ 0x14058FED8 (PnpInsertEventInQueue.c)
  *     IopMountVolume @ 0x1405A2E64 (IopMountVolume.c)
- *     IoRegisterFsRegistrationChangeMountAware @ 0x14075BF80 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x14075BF60 (IoRegisterFsRegistrationChangeMountAware.c)
  * Callees:
  *     <none>
  */

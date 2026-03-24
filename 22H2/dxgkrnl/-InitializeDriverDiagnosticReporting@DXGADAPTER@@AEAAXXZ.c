@@ -1,45 +1,45 @@
 /*
- * XREFs of ?InitializeDriverDiagnosticReporting@DXGADAPTER@@AEAAXXZ @ 0x1C01F8DA0
+ * XREFs of ?InitializeDriverDiagnosticReporting@DXGADAPTER@@AEAAXXZ @ 0x1C0191D50
  * Callers:
- *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01FC874 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C018F684 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
  * Callees:
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     ?UpdateDiagnosticReporting@DXGADAPTER@@QEAAJPEAU_ADAPTER_UPDATE_DIAGNOSTIC_REPORTING@1@@Z @ 0x1C02BABB8 (-UpdateDiagnosticReporting@DXGADAPTER@@QEAAJPEAU_ADAPTER_UPDATE_DIAGNOSTIC_REPORTING@1@@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?UpdateDiagnosticReporting@DXGADAPTER@@QEAAJPEAU_ADAPTER_UPDATE_DIAGNOSTIC_REPORTING@1@@Z @ 0x1C02108D8 (-UpdateDiagnosticReporting@DXGADAPTER@@QEAAJPEAU_ADAPTER_UPDATE_DIAGNOSTIC_REPORTING@1@@Z.c)
  */
 
-void __fastcall DXGADAPTER::InitializeDriverDiagnosticReporting(DXGADAPTER *this)
+void __fastcall DXGADAPTER::InitializeDriverDiagnosticReporting(DXGADAPTER *this, __int64 a2)
 {
   struct DXGGLOBAL *Global; // rax
-  unsigned int v3; // ebx
-  _DWORD *v4; // rdi
-  __int128 v5; // [rsp+20h] [rbp-10h] BYREF
+  unsigned int v4; // ebx
+  _DWORD *v5; // rdi
+  __int128 v6; // [rsp+20h] [rbp-10h] BYREF
 
-  Global = DXGGLOBAL::GetGlobal();
-  *(_QWORD *)((char *)this + 4620) = 0LL;
-  *(_QWORD *)((char *)this + 4628) = -1LL;
-  v3 = 0;
-  v4 = (_DWORD *)((char *)Global + 304540);
-  v5 = 0LL;
+  Global = DXGGLOBAL::GetGlobal((__int64)this, a2);
+  *((_QWORD *)this + 548) = 0LL;
+  *((_QWORD *)this + 549) = -1LL;
+  v4 = 0;
+  v5 = (_DWORD *)((char *)Global + 304372);
+  v6 = 0LL;
   do
   {
-    DWORD1(v5) = *v4;
-    if ( DWORD1(v5) )
+    DWORD1(v6) = *v5;
+    if ( DWORD1(v6) )
     {
-      if ( v3 )
+      if ( v4 )
       {
-        LODWORD(v5) = v5 | 2;
-        DWORD2(v5) |= 0xFFFFFFFE;
+        LODWORD(v6) = v6 | 2;
+        DWORD2(v6) |= 0xFFFFFFFE;
       }
       else
       {
-        LODWORD(v5) = v5 | 1;
-        DWORD2(v5) |= 0xFFFFFFFC;
+        LODWORD(v6) = v6 | 1;
+        DWORD2(v6) |= 0xFFFFFFFC;
       }
-      HIDWORD(v5) = v3;
-      DXGADAPTER::UpdateDiagnosticReporting(this, (struct DXGADAPTER::_ADAPTER_UPDATE_DIAGNOSTIC_REPORTING *)&v5);
+      HIDWORD(v6) = v4;
+      DXGADAPTER::UpdateDiagnosticReporting(this, (struct DXGADAPTER::_ADAPTER_UPDATE_DIAGNOSTIC_REPORTING *)&v6);
     }
-    ++v3;
     ++v4;
+    ++v5;
   }
-  while ( v3 < 2 );
+  while ( v4 < 2 );
 }

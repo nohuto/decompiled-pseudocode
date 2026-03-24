@@ -1,103 +1,135 @@
 /*
- * XREFs of EtwTraceAcquiredSharedUserCrit @ 0x1C0053C40
+ * XREFs of EtwTraceAcquiredSharedUserCrit @ 0x1C0039290
  * Callers:
- *     NtUserVkKeyScanEx @ 0x1C0007F80 (NtUserVkKeyScanEx.c)
- *     NtUserSetProcessLaunchForegroundPolicy @ 0x1C0009C90 (NtUserSetProcessLaunchForegroundPolicy.c)
- *     UserGetDesktopIdForCurrentThread @ 0x1C000D804 (UserGetDesktopIdForCurrentThread.c)
- *     DxgkEngAcquireWin32kAndPDEVLocks @ 0x1C0019C80 (DxgkEngAcquireWin32kAndPDEVLocks.c)
- *     NtUserEnumDisplayDevices @ 0x1C0023AB0 (NtUserEnumDisplayDevices.c)
- *     GreGetDCPoint @ 0x1C003B970 (GreGetDCPoint.c)
- *     ReferenceDwmApiPort @ 0x1C0047A70 (ReferenceDwmApiPort.c)
- *     NtUserReleaseDC @ 0x1C004C8C0 (NtUserReleaseDC.c)
- *     EnterSharedCrit @ 0x1C004CD30 (EnterSharedCrit.c)
- *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C004CDAC (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
- *     NtUserGetDC @ 0x1C004D400 (NtUserGetDC.c)
- *     ?NtUserEnumDisplaySettingsShared@@YAJPEAU_UNICODE_STRING@@KPEAU_devicemodeW@@K@Z @ 0x1C005C7A8 (-NtUserEnumDisplaySettingsShared@@YAJPEAU_UNICODE_STRING@@KPEAU_devicemodeW@@K@Z.c)
- *     DrvGetCurrentDpiInfo @ 0x1C005DDB8 (DrvGetCurrentDpiInfo.c)
- *     NtUserGetKeyboardLayout @ 0x1C0069A60 (NtUserGetKeyboardLayout.c)
- *     NtUserMapVirtualKeyEx @ 0x1C006BAD0 (NtUserMapVirtualKeyEx.c)
- *     UserEnterUserCritSecShared @ 0x1C00A7C40 (UserEnterUserCritSecShared.c)
- *     UserReleaseDC @ 0x1C00AAFB0 (UserReleaseDC.c)
- *     NtMITGetCursorUpdateHandle @ 0x1C00AB130 (NtMITGetCursorUpdateHandle.c)
- *     NtUserCheckProcessSession @ 0x1C00AB380 (NtUserCheckProcessSession.c)
- *     NtUserGetDoubleClickTime @ 0x1C00AFC30 (NtUserGetDoubleClickTime.c)
- *     NtUserGetProcessDpiAwarenessContext @ 0x1C00B04C0 (NtUserGetProcessDpiAwarenessContext.c)
- *     ?DxgkEngEnterUserCrit@@YAXH@Z @ 0x1C00B44F0 (-DxgkEngEnterUserCrit@@YAXH@Z.c)
- *     NtMITSetLastInputRecipient @ 0x1C0142180 (NtMITSetLastInputRecipient.c)
- *     NtUserGetKeyboardType @ 0x1C0144AD0 (NtUserGetKeyboardType.c)
- *     NtUserGetMinuserIdForBaseWindow @ 0x1C0144B50 (NtUserGetMinuserIdForBaseWindow.c)
- *     NtUserGetSystemDpiForProcess @ 0x1C0145F10 (NtUserGetSystemDpiForProcess.c)
- *     NtUserIsMouseInPointerEnabled @ 0x1C0149820 (NtUserIsMouseInPointerEnabled.c)
- *     UserGetWindowThreadProcessId @ 0x1C014F3B0 (UserGetWindowThreadProcessId.c)
- *     W32pLkmdDataCollectionCallback @ 0x1C0150960 (W32pLkmdDataCollectionCallback.c)
- *     ?ivOnChildPartitionConnected@@YAXPEBXUCONTAINER_ID@@@Z @ 0x1C01EE3A0 (-ivOnChildPartitionConnected@@YAXPEBXUCONTAINER_ID@@@Z.c)
+ *     GreGetDCPoint @ 0x1C00722C0 (GreGetDCPoint.c)
+ *     ?DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z @ 0x1C00CAF28 (-DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z.c)
+ *     NtUserCreateActivationGroup @ 0x1C012D590 (NtUserCreateActivationGroup.c)
  * Callees:
- *     IsEtwUserCritEnabled @ 0x1C0053DF0 (IsEtwUserCritEnabled.c)
- *     ?getInstance@UserCritTelemetry@@SAAEAV1@XZ @ 0x1C0053FD0 (-getInstance@UserCritTelemetry@@SAAEAV1@XZ.c)
- *     ?UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z @ 0x1C005408C (-UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z.c)
- *     McTemplateK0xqx_EtwWriteTransfer @ 0x1C013ED44 (McTemplateK0xqx_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     McTemplateK0xqx_EtwWriteTransfer @ 0x1C0127794 (McTemplateK0xqx_EtwWriteTransfer.c)
  */
 
-char __fastcall EtwTraceAcquiredSharedUserCrit(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 EtwTraceAcquiredSharedUserCrit()
 {
-  __int64 CurrentThreadWin32Thread; // rax
-  __int64 v5; // rdi
-  LARGE_INTEGER PerformanceCounter; // rbp
-  LONGLONG v7; // rsi
-  struct UserCritTelemetry *Instance; // rax
-  int v9; // r8d
+  __int64 result; // rax
+  __int64 v1; // rbx
+  LARGE_INTEGER PerformanceCounter; // rsi
+  int v3; // r8d
+  LONGLONG v4; // rdi
+  unsigned __int64 v5; // rbp
+  unsigned __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 *v8; // rcx
+  bool v9; // zf
+  __int64 v10; // [rsp+30h] [rbp-98h] BYREF
+  __int64 v11; // [rsp+38h] [rbp-90h]
+  __int64 v12; // [rsp+40h] [rbp-88h]
+  __int64 v13; // [rsp+48h] [rbp-80h]
+  __int64 v14; // [rsp+50h] [rbp-78h]
+  __int64 v15; // [rsp+58h] [rbp-70h]
+  __int64 v16; // [rsp+60h] [rbp-68h]
+  __int64 v17; // [rsp+68h] [rbp-60h]
+  __int64 v18; // [rsp+70h] [rbp-58h]
+  __int64 v19; // [rsp+78h] [rbp-50h]
+  __int64 v20; // [rsp+80h] [rbp-48h]
+  __int64 v21; // [rsp+88h] [rbp-40h]
+  __int64 v22; // [rsp+90h] [rbp-38h]
+  __int64 v23; // [rsp+98h] [rbp-30h]
+  __int64 v24; // [rsp+A0h] [rbp-28h]
 
-  LODWORD(CurrentThreadWin32Thread) = IsEtwUserCritEnabled(a1, a2, a3, a4);
-  if ( (_DWORD)CurrentThreadWin32Thread )
+  result = PsGetCurrentThreadWin32Thread();
+  v1 = result;
+  if ( result )
   {
-    CurrentThreadWin32Thread = PsGetCurrentThreadWin32Thread();
-    v5 = CurrentThreadWin32Thread;
-    if ( CurrentThreadWin32Thread )
+    PerformanceCounter = KeQueryPerformanceCounter(0LL);
+    v4 = PerformanceCounter.QuadPart - *(_QWORD *)(v1 + 8);
+    if ( (dword_1C0250F10 & 1) == 0 )
     {
-      PerformanceCounter = KeQueryPerformanceCounter(0LL);
-      v7 = PerformanceCounter.QuadPart - *(_QWORD *)(v5 + 8);
-      Instance = UserCritTelemetry::getInstance();
-      LOBYTE(CurrentThreadWin32Thread) = UserCritTelemetry::UpdateUserCritInfo(Instance, v7, 1LL);
-      *(LARGE_INTEGER *)(v5 + 8) = PerformanceCounter;
-      if ( ((__int64)WPP_MAIN_CB.DeviceObjectExtension & 0x200000010000000LL) != 0 )
-      {
-        LOBYTE(CurrentThreadWin32Thread) = byte_1C0283068 - 1;
-        if ( (unsigned __int8)(byte_1C0283068 - 1) > 2u && (qword_1C0283050 & 0x200000010000000LL) != 0 )
-        {
-          LOBYTE(CurrentThreadWin32Thread) = 0;
-          if ( (qword_1C0283058 & 0x200000010000000LL) == qword_1C0283058 )
-          {
-            LOBYTE(CurrentThreadWin32Thread) = BYTE2(Microsoft_Windows_Win32kEnableBits);
-            if ( (Microsoft_Windows_Win32kEnableBits & 0x800000) != 0 )
-              LOBYTE(CurrentThreadWin32Thread) = McTemplateK0xqx_EtwWriteTransfer(
-                                                   gullUserCritAcquireToken,
-                                                   (unsigned int)&AcquiredSharedUserCritEvent,
-                                                   v9,
-                                                   v7,
-                                                   1000000 * v7 / gliQpcFreq.QuadPart,
-                                                   gullUserCritAcquireToken);
-          }
-        }
-      }
-      if ( v7 >= (__int64)WPP_MAIN_CB.DeviceLock.Header.WaitListHead.Blink )
-      {
-        LOBYTE(CurrentThreadWin32Thread) = LOBYTE(PerformanceCounter.LowPart)
-                                         - W32KEtwUserCritAcquireDelayShLastTelemetryQPC;
-        if ( PerformanceCounter.QuadPart - W32KEtwUserCritAcquireDelayShLastTelemetryQPC >= W32KEtwUserCritTelemetryThrottleQPC )
-        {
-          if ( (Microsoft_Windows_Win32kEnableBits & 0x1000000000LL) != 0 )
-            LOBYTE(CurrentThreadWin32Thread) = McTemplateK0xqx_EtwWriteTransfer(
-                                                 gullUserCritAcquireToken,
-                                                 (unsigned int)&AcquiredSharedUserCritTelemetryEvent,
-                                                 v9,
-                                                 v7,
-                                                 1000 * v7 / gliQpcFreq.QuadPart,
-                                                 gullUserCritAcquireToken);
-          _InterlockedExchange64(&W32KEtwUserCritAcquireDelayShLastTelemetryQPC, PerformanceCounter.QuadPart);
-        }
-      }
-      *(_QWORD *)(v5 + 16) = _InterlockedIncrement64(&gullUserCritAcquireToken);
+      dword_1C0250F10 |= 1u;
+      memset(qword_1C0250F20, 0, 0x198uLL);
+      qword_1C02510B8 = 0LL;
+      qword_1C02510C0 = 0LL;
     }
+    v5 = 1000000 * v4;
+    v10 = 10LL;
+    v11 = 25LL;
+    v12 = 50LL;
+    v13 = 100LL;
+    v14 = 250LL;
+    v15 = 500LL;
+    v16 = 1000LL;
+    v17 = 2500LL;
+    v18 = 5000LL;
+    v19 = 10000LL;
+    v20 = 25000LL;
+    v21 = 50000LL;
+    v22 = 100000LL;
+    v23 = 200000LL;
+    v24 = -1LL;
+    if ( gliQpcFreq.QuadPart == 10000000 )
+      v6 = v5 / 0x989680;
+    else
+      v6 = v5 / gliQpcFreq.QuadPart;
+    v7 = 0LL;
+    v8 = &v10;
+    while ( v6 > *v8 )
+    {
+      v7 = (unsigned int)(v7 + 1);
+      ++v8;
+      if ( (unsigned int)v7 >= 0xF )
+        goto LABEL_9;
+    }
+    _InterlockedIncrement64(&qword_1C0250F20[v7 + 15]);
+LABEL_9:
+    _InterlockedExchangeAdd64((_QWORD *)&xmmword_1C0251088 + 1, v6);
+    _InterlockedIncrement64((volatile signed __int64 *)&xmmword_1C02510A8);
+    v9 = (W32kEtwEnabledKeyword & 0x200000010000000LL) == 0;
+    *(LARGE_INTEGER *)(v1 + 8) = PerformanceCounter;
+    if ( !v9
+      && (unsigned __int8)(byte_1C0249748 - 1) > 2u
+      && (qword_1C0249730 & 0x200000010000000LL) != 0
+      && (qword_1C0249738 & 0x200000010000000LL) == qword_1C0249738
+      && (Microsoft_Windows_Win32kEnableBits & 0x800000) != 0 )
+    {
+      McTemplateK0xqx_EtwWriteTransfer(
+        (_DWORD)v8,
+        (unsigned int)&AcquiredSharedUserCritEvent,
+        v3,
+        v4,
+        0,
+        gullUserCritAcquireToken,
+        v10,
+        v11,
+        v12,
+        v13,
+        v14,
+        v15,
+        v16,
+        v17,
+        v18,
+        v19,
+        v20,
+        v21,
+        v22,
+        v23,
+        v24);
+    }
+    if ( v4 >= W32kEtwUserCritAcquireDelayTimeoutQPC
+      && PerformanceCounter.QuadPart - W32KEtwUserCritAcquireDelayShLastTelemetryQPC >= W32KEtwUserCritTelemetryThrottleQPC )
+    {
+      if ( (Microsoft_Windows_Win32kEnableBits & 0x1000000000LL) != 0 )
+        McTemplateK0xqx_EtwWriteTransfer(
+          (_DWORD)gullUserCritAcquireToken,
+          (unsigned int)&AcquiredSharedUserCritTelemetryEvent,
+          v3,
+          v4,
+          (__int64)v5 / gliQpcFreq.QuadPart,
+          gullUserCritAcquireToken);
+      _InterlockedExchange64(&W32KEtwUserCritAcquireDelayShLastTelemetryQPC, PerformanceCounter.QuadPart);
+    }
+    result = _InterlockedIncrement64((volatile signed __int64 *)&gullUserCritAcquireToken);
+    *(_QWORD *)(v1 + 16) = result;
   }
-  return CurrentThreadWin32Thread;
+  return result;
 }

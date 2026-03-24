@@ -1,13 +1,13 @@
 /*
- * XREFs of GreDwmShutdown @ 0x1C011FFD8
+ * XREFs of GreDwmShutdown @ 0x1C0134404
  * Callers:
- *     xxxDwmStopRedirection @ 0x1C0098410 (xxxDwmStopRedirection.c)
- *     zzzDwmStartRedirection @ 0x1C0098F14 (zzzDwmStartRedirection.c)
+ *     zzzDwmStartRedirection @ 0x1C00E977C (zzzDwmStartRedirection.c)
+ *     xxxDwmStopRedirection @ 0x1C00E9970 (xxxDwmStopRedirection.c)
  * Callees:
- *     ?SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z @ 0x1C0080944 (-SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z.c)
- *     ?ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z @ 0x1C0086D14 (-ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z.c)
- *     ?LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z @ 0x1C0089970 (-LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z.c)
- *     ?vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z @ 0x1C0090A60 (-vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z.c)
+ *     ?LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z @ 0x1C0015600 (-LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z.c)
+ *     ?ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z @ 0x1C0015774 (-ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z.c)
+ *     ?SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z @ 0x1C0015DF8 (-SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z.c)
+ *     ?vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z @ 0x1C0018F78 (-vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
@@ -34,7 +34,7 @@ __int64 __fastcall GreDwmShutdown(__int64 a1)
     GreSfmDwmShutdown();
     SpRenderHint((struct PDEVOBJ *)&v12, 0x10001u, 0LL, 0LL);
     vAccNotify(
-      (struct _SURFOBJ *)((*(_QWORD *)(a1 + 2528) + 24LL) & -(__int64)(*(_QWORD *)(a1 + 2528) != 0LL)),
+      (struct _SURFOBJ *)((*(_QWORD *)(a1 + 2552) + 24LL) & -(__int64)(*(_QWORD *)(a1 + 2552) != 0LL)),
       6u,
       0LL);
     GreDeleteObject(*((_QWORD *)g_pDwmState + 23));

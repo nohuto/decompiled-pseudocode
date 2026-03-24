@@ -1,10 +1,10 @@
 /*
- * XREFs of ?AreSupportedStretchFactors@COverlayContext@@AEBA_NPEAVISwapChainRealization@@AEBUtagRECT@@1_N@Z @ 0x18000852C
+ * XREFs of ?AreSupportedStretchFactors@COverlayContext@@AEBA_NPEAVISwapChainRealization@@AEBUtagRECT@@1_N@Z @ 0x18017A254
  * Callers:
- *     ?IsCandidateOverlayCompatbile@COverlayContext@@AEBA_NPEAVCVisual@@PEBVCCompositionSurfaceInfo@@PEAVISwapChainRealization@@AEBUDXGI_MULTIPLANE_OVERLAY_ATTRIBUTES@@W4DXGI_MODE_ROTATION@@I_N@Z @ 0x1800083EC (-IsCandidateOverlayCompatbile@COverlayContext@@AEBA_NPEAVCVisual@@PEBVCCompositionSurfaceInfo@@P.c)
+ *     ?IsCandidateOverlayCompatbile@COverlayContext@@AEBA_NPEAVCVisual@@PEBVCCompositionSurfaceInfo@@PEAVISwapChainRealization@@AEBUDXGI_MULTIPLANE_OVERLAY_ATTRIBUTES@@W4DXGI_MODE_ROTATION@@I_N@Z @ 0x18017C41C (-IsCandidateOverlayCompatbile@COverlayContext@@AEBA_NPEAVCVisual@@PEBVCCompositionSurfaceInfo@@P.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     McTemplateU0xq_EventWriteTransfer @ 0x180111E98 (McTemplateU0xq_EventWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     McTemplateU0xq_EventWriteTransfer @ 0x180152CC4 (McTemplateU0xq_EventWriteTransfer.c)
  */
 
 char __fastcall COverlayContext::AreSupportedStretchFactors(
@@ -22,7 +22,7 @@ char __fastcall COverlayContext::AreSupportedStretchFactors(
   float v10; // xmm2_4
   float v11; // xmm2_4
   float v12; // xmm3_4
-  _QWORD *v14; // rax
+  _QWORD *v13; // rax
   char v15; // [rsp+30h] [rbp+8h] BYREF
 
   v5 = 0;
@@ -37,16 +37,16 @@ char __fastcall COverlayContext::AreSupportedStretchFactors(
     v6 = v7;
   LODWORD(v11) = COERCE_UNSIGNED_INT(v10 / (float)v9) & _xmm;
   LODWORD(v12) = COERCE_UNSIGNED_INT((float)(a4->bottom - a4->top) / (float)v6) & _xmm;
-  if ( *((float *)this + 15) >= fmaxf(v11, v12) && fminf(v11, v12) >= *((float *)this + 16) )
+  if ( *((float *)this + 16) >= fmaxf(v11, v12) && fminf(v11, v12) >= *((float *)this + 17) )
     return 1;
-  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x400) != 0 )
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
   {
-    v14 = (_QWORD *)(*(__int64 (__fastcall **)(struct ISwapChainRealization *, char *))(*(_QWORD *)a2 + 40LL))(a2, &v15);
+    v13 = (_QWORD *)(*(__int64 (__fastcall **)(struct ISwapChainRealization *, char *))(*(_QWORD *)a2 + 32LL))(a2, &v15);
     McTemplateU0xq_EventWriteTransfer(
-      *(unsigned int *)v14,
+      *(unsigned int *)v13,
       &EVTDESC_DISPLAYSURFACE_REJECTCANDIDATE,
-      *(unsigned int *)v14 | (unsigned __int64)((__int64)(int)HIDWORD(*v14) << 32),
-      4LL);
+      *(unsigned int *)v13 | (unsigned __int64)((__int64)(int)HIDWORD(*v13) << 32),
+      4);
   }
   return v5;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopNetArmDsEvaluationTimer @ 0x140996614
+ * XREFs of PopNetArmDsEvaluationTimer @ 0x1408F1BF4
  * Callers:
- *     PdcPoNetworkResiliency @ 0x1409979E0 (PdcPoNetworkResiliency.c)
+ *     PdcPoNetworkResiliency @ 0x1408EF8E0 (PdcPoNetworkResiliency.c)
  * Callees:
- *     KeSetTimer2 @ 0x140250130 (KeSetTimer2.c)
+ *     KeSetTimer2 @ 0x14022BEC0 (KeSetTimer2.c)
  */
 
 _BOOL8 PopNetArmDsEvaluationTimer()
@@ -13,7 +13,7 @@ _BOOL8 PopNetArmDsEvaluationTimer()
 
   v0 = 0LL;
   v1 = 10000000LL * (unsigned int)PopStandbyConnectivityGracePeriod;
-  if ( MEMORY[0xFFFFF78000000008] < (unsigned __int64)(qword_140CF7CC8 + v1) )
-    v0 = v1 + qword_140CF7CC8 - MEMORY[0xFFFFF78000000008];
+  if ( MEMORY[0xFFFFF78000000008] < (unsigned __int64)(qword_140C4FF08 + v1) )
+    v0 = v1 + qword_140C4FF08 - MEMORY[0xFFFFF78000000008];
   return KeSetTimer2((__int64)&PopNetEvaluationTimer, -v0, 0LL, 0LL);
 }

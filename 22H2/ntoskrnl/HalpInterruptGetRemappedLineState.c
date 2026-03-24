@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpInterruptGetRemappedLineState @ 0x14031F9EC
+ * XREFs of HalpInterruptGetRemappedLineState @ 0x1404BB660
  * Callers:
- *     HalpInterruptSetRemappedDestination @ 0x14031F928 (HalpInterruptSetRemappedDestination.c)
+ *     HalpInterruptSetRemappedDestination @ 0x1404BB718 (HalpInterruptSetRemappedDestination.c)
  * Callees:
- *     HalpInterruptFindControllerAndLineState @ 0x14031FC08 (HalpInterruptFindControllerAndLineState.c)
+ *     HalpInterruptFindControllerAndLineState @ 0x1404BB584 (HalpInterruptFindControllerAndLineState.c)
  */
 
-__int64 __fastcall HalpInterruptGetRemappedLineState(unsigned int *a1, _DWORD *a2, _QWORD *a3, __int64 a4)
+__int64 __fastcall HalpInterruptGetRemappedLineState(unsigned int *a1, _DWORD *a2, ULONG_PTR **a3, __int64 a4)
 {
-  int v5; // eax
   __int64 result; // rax
+  int v6; // eax
   _OWORD *v7; // rcx
   _OWORD *v8; // [rsp+38h] [rbp+10h] BYREF
 
@@ -23,13 +23,13 @@ __int64 __fastcall HalpInterruptGetRemappedLineState(unsigned int *a1, _DWORD *a
       *(_OWORD *)(a4 + 32) = 0LL;
       *(_QWORD *)(a4 + 48) = 0LL;
       *(_DWORD *)a4 = a2[3];
-      v5 = a2[4];
+      v6 = a2[4];
       *(_DWORD *)(a4 + 16) = -1;
-      *(_DWORD *)(a4 + 8) = v5;
+      *(_DWORD *)(a4 + 8) = v6;
       *(_DWORD *)(a4 + 12) = 16;
       *(_DWORD *)(a4 + 20) = 1;
       *(_DWORD *)(a4 + 48) = a2[1];
-      *a3 = HalpInterruptController;
+      *a3 = (ULONG_PTR *)HalpInterruptController;
       return 0LL;
     }
     else

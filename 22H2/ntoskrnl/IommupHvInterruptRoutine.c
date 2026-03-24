@@ -1,9 +1,9 @@
 /*
- * XREFs of IommupHvInterruptRoutine @ 0x140525020
+ * XREFs of IommupHvInterruptRoutine @ 0x1404DA100
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 char IommupHvInterruptRoutine()

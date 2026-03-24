@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CSceneMetallicRoughnessMaterialMarshaler@DirectComposition@@UEAAJXZ @ 0x1C02259C0
+ * XREFs of ?Initialize@CSceneMetallicRoughnessMaterialMarshaler@DirectComposition@@UEAAJXZ @ 0x1C01DC070
  * Callers:
  *     <none>
  * Callees:
@@ -9,17 +9,17 @@
 __int64 __fastcall DirectComposition::CSceneMetallicRoughnessMaterialMarshaler::Initialize(
         DirectComposition::CSceneMetallicRoughnessMaterialMarshaler *this)
 {
-  *((_QWORD *)this + 8) = 1056964608LL;
-  *((_QWORD *)this + 10) = 0LL;
-  *((_DWORD *)this + 22) = 0;
-  *((_BYTE *)this + 92) = 0;
-  *((_DWORD *)this + 26) = 1065353216;
-  *((_DWORD *)this + 30) = 1065353216;
+  *((_QWORD *)this + 7) = 1056964608LL;
+  *((_QWORD *)this + 9) = 0LL;
+  *((_DWORD *)this + 20) = 0;
+  *((_BYTE *)this + 84) = 0;
+  *((_DWORD *)this + 24) = 1065353216;
+  *((_DWORD *)this + 28) = 1065353216;
+  *((_DWORD *)this + 32) = 1065353216;
+  *((_DWORD *)this + 33) = 1065353216;
   *((_DWORD *)this + 34) = 1065353216;
   *((_DWORD *)this + 35) = 1065353216;
   *((_DWORD *)this + 36) = 1065353216;
-  *((_DWORD *)this + 37) = 1065353216;
-  *((_DWORD *)this + 38) = 1065353216;
-  *((_DWORD *)this + 42) = 1065353216;
+  *((_DWORD *)this + 40) = 1065353216;
   return 0LL;
 }

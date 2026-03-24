@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpBusTypeGuidGetIndex @ 0x1406DAC04
+ * XREFs of PnpBusTypeGuidGetIndex @ 0x1406DABE4
  * Callers:
- *     PnpQueryBusInformation @ 0x1407007D8 (PnpQueryBusInformation.c)
+ *     PnpQueryBusInformation @ 0x1407007B8 (PnpQueryBusInformation.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,80 +1,83 @@
 /*
- * XREFs of HalConfigureAdapterChannel @ 0x140516030
+ * XREFs of HalConfigureAdapterChannel @ 0x1404CDF10
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalConfigureAdapterChannel(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v3; // rdi
+  __int64 (__fastcall *v7)(_QWORD, _QWORD, _QWORD, __int64); // rax
   unsigned __int8 CurrentIrql; // bl
-  char v9; // r14
-  unsigned __int64 v10; // rdx
+  char v10; // r14
+  unsigned __int64 v11; // rcx
   _DWORD *SchedulerAssist; // r10
-  int v12; // r8d
-  volatile signed __int64 *v13; // rsi
-  unsigned int v14; // edi
-  unsigned __int8 v15; // cl
+  KSPIN_LOCK *v13; // rsi
+  unsigned int v14; // eax
+  unsigned int v15; // edi
+  unsigned __int8 v16; // cl
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v17; // r8
-  int v18; // eax
-  bool v19; // zf
+  _DWORD *v18; // r8
+  int v19; // eax
+  bool v20; // zf
 
-  v3 = *(_QWORD *)(a1 + 368);
-  if ( !*(_QWORD *)(v3 + 112) )
+  v3 = *(_QWORD *)(a1 + 360);
+  v7 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(v3 + 112);
+  if ( !v7 )
     return 3221225474LL;
   CurrentIrql = KeGetCurrentIrql();
-  v9 = 0;
+  v10 = 0;
   if ( CurrentIrql == 15 )
   {
-    v13 = (volatile signed __int64 *)(v3 + 168);
+    v13 = (KSPIN_LOCK *)(v3 + 168);
+    v14 = v7(*(_QWORD *)(v3 + 64), *(unsigned int *)(a1 + 372), a2, a3);
   }
   else
   {
-    v10 = *(unsigned __int8 *)(v3 + 176);
+    v11 = *(unsigned __int8 *)(v3 + 176);
     CurrentIrql = KeGetCurrentIrql();
-    __writecr8(v10);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v10 - 2) <= 0xDu )
+    __writecr8(v11);
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v11 - 2) <= 0xDu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      if ( CurrentIrql == (_BYTE)v10 )
-        v12 = 1 << v10;
-      else
-        v12 = (-1LL << (CurrentIrql + 1)) & ((1LL << ((unsigned __int8)v10 + 1)) - 1) & 0xFFFFFFFC;
-      SchedulerAssist[5] |= v12;
+      SchedulerAssist[5] |= (-1LL << (CurrentIrql + 1)) & ((1LL << ((unsigned __int8)v11 + 1)) - 1) & 0xFFFFFFFC;
     }
-    v13 = (volatile signed __int64 *)(v3 + 168);
+    v13 = (KSPIN_LOCK *)(v3 + 168);
     KxAcquireSpinLock((PKSPIN_LOCK)(v3 + 168));
-    v9 = 1;
+    v10 = 1;
+    v14 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(v3 + 112))(
+            *(_QWORD *)(v3 + 64),
+            *(unsigned int *)(a1 + 372),
+            a2,
+            a3);
   }
-  v14 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, __int64))(v3 + 112))(
-          *(_QWORD *)(v3 + 64),
-          *(unsigned int *)(a1 + 380),
-          a2,
-          a3);
-  if ( v9 )
+  v15 = v14;
+  if ( v10 )
   {
     KxReleaseSpinLock(v13);
     if ( KiIrqlFlags )
     {
-      v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v17 = CurrentPrcb->SchedulerAssist;
-        v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v19 = (v18 & v17[5]) == 0;
-        v17[5] &= v18;
-        if ( v19 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v16 = KeGetCurrentIrql();
+        if ( v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          v18 = CurrentPrcb->SchedulerAssist;
+          v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v20 = (v19 & v18[5]) == 0;
+          v18[5] &= v19;
+          if ( v20 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(CurrentIrql);
   }
-  return v14;
+  return v15;
 }

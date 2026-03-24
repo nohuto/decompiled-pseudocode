@@ -1,23 +1,26 @@
 /*
- * XREFs of ?Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801C53B8
+ * XREFs of ?Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EE078
  * Callers:
- *     ?Render@CCaptureRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x180106930 (-Render@CCaptureRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?Render@CVirtualMonitorCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801C6124 (-Render@CVirtualMonitorCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CVirtualMonitorCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800EE1E8 (-Render@CVirtualMonitorCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?Render@CCaptureRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800F57C0 (-Render@CCaptureRenderTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801C1768 (-Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
- *     ?EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z @ 0x1801C47C4 (-EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z.c)
- *     ?GetCurrentFrameBuffer@CCaptureRenderTarget@@IEAAPEAUIDXGIResource@@XZ @ 0x1801C4B6C (-GetCurrentFrameBuffer@CCaptureRenderTarget@@IEAAPEAUIDXGIResource@@XZ.c)
- *     ?GetD3DDeviceNoRef@CDeviceManager@CCaptureRenderTarget@@QEAAPEAVCD3DDevice@@AEBU_LUID@@PEAUIFlipProducer@@@Z @ 0x1801C4B90 (-GetD3DDeviceNoRef@CDeviceManager@CCaptureRenderTarget@@QEAAPEAVCD3DDevice@@AEBU_LUID@@PEAUIFlip.c)
- *     ?RenderAdditionalTopmostContent@CCaptureRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x1801C5564 (-RenderAdditionalTopmostContent@CCaptureRenderTarget@@IEAAJPEAVCDrawingContext@@@Z.c)
- *     ?TryTargetNextBuffer@CCaptureRenderTarget@@IEAAJXZ @ 0x1801C5904 (-TryTargetNextBuffer@CCaptureRenderTarget@@IEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1800ED26C (-Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z @ 0x1800EDBCC (-EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z.c)
+ *     ?GetD3DDeviceNoRef@CCaptureRenderTarget@@IEAAPEAVCD3DDevice@@XZ @ 0x1800EDF08 (-GetD3DDeviceNoRef@CCaptureRenderTarget@@IEAAPEAVCD3DDevice@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrentFrameBuffer@CCaptureRenderTarget@@IEAAPEAUIDXGIResource@@XZ @ 0x180187B84 (-GetCurrentFrameBuffer@CCaptureRenderTarget@@IEAAPEAUIDXGIResource@@XZ.c)
+ *     ?TryTargetNextBuffer@CCaptureRenderTarget@@IEAAJXZ @ 0x180188478 (-TryTargetNextBuffer@CCaptureRenderTarget@@IEAAJXZ.c)
  */
 
-__int64 __fastcall CCaptureRenderTarget::Render(LARGE_INTEGER *this, struct CDrawingContext *a2, char a3, bool *a4)
+__int64 __fastcall CCaptureRenderTarget::Render(
+        CCaptureRenderTarget *this,
+        struct CDrawingContext *a2,
+        char a3,
+        bool *a4)
 {
   unsigned int v4; // ebx
-  LARGE_INTEGER v7; // rcx
+  __int64 v7; // rcx
   int v10; // eax
   __int64 v11; // rcx
   struct CD3DDevice *D3DDeviceNoRef; // rax
@@ -29,66 +32,49 @@ __int64 __fastcall CCaptureRenderTarget::Render(LARGE_INTEGER *this, struct CDra
   __int64 v18; // r8
   int v19; // eax
   __int64 v20; // rcx
-  int v21; // eax
-  __int64 v22; // rcx
-  char v24; // [rsp+50h] [rbp+8h] BYREF
+  char v22; // [rsp+50h] [rbp+8h] BYREF
 
   v4 = 0;
   *a4 = 0;
-  v7 = this[-18];
-  v24 = 0;
-  if ( v7.QuadPart
-    && (v10 = (*(__int64 (__fastcall **)(LARGE_INTEGER, char *))(*(_QWORD *)v7.QuadPart + 24LL))(v7, &v24),
-        v4 = v10,
-        v10 < 0) )
+  v7 = *((_QWORD *)this - 20);
+  v22 = 0;
+  if ( v7 && (v10 = (*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)v7 + 24LL))(v7, &v22), v4 = v10, v10 < 0) )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0LL, v10, 0x20Au);
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x1E9u, 0LL);
   }
   else
   {
-    D3DDeviceNoRef = CCaptureRenderTarget::CDeviceManager::GetD3DDeviceNoRef(
-                       (struct CD3DDevice **)&this[-29],
-                       (const struct _LUID *)&this[-28],
-                       (struct IFlipProducer *)this[-18].QuadPart);
+    D3DDeviceNoRef = CCaptureRenderTarget::GetD3DDeviceNoRef((CCaptureRenderTarget *)((char *)this - 2136));
     if ( D3DDeviceNoRef
-      && this[-251].QuadPart
-      && ((this[-11].QuadPart - this[-12].QuadPart) & 0xFFFFFFFFFFFFFFF8uLL) != 0
-      && this[-18].QuadPart
-      && LOBYTE(this[-26].LowPart)
-      && v24 )
+      && *((_QWORD *)this - 17)
+      && ((*((_QWORD *)this - 12) - *((_QWORD *)this - 13)) & 0xFFFFFFFFFFFFFFF8uLL) != 0
+      && *((_QWORD *)this - 20)
+      && *((_BYTE *)this - 224)
+      && v22 )
     {
-      v14 = CCaptureRenderTarget::EnsureResources((CCaptureRenderTarget *)&this[-263], D3DDeviceNoRef, v13);
+      v14 = CCaptureRenderTarget::EnsureResources((CCaptureRenderTarget *)((char *)this - 2136), D3DDeviceNoRef, v13);
       v4 = v14;
       if ( v14 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0LL, v14, 0x218u);
+        MilInstrumentationCheckHR_MaybeFailFast(v15, 0LL, 0, v14, 0x1F7u, 0LL);
       }
       else
       {
-        Buffer = CCaptureRenderTarget::TryTargetNextBuffer((CCaptureRenderTarget *)&this[-263]);
+        Buffer = CCaptureRenderTarget::TryTargetNextBuffer((CCaptureRenderTarget *)((char *)this - 2136));
         v4 = Buffer;
         if ( Buffer < 0 )
         {
-          MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0LL, Buffer, 0x21Bu);
+          MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, Buffer, 0x1FAu, 0LL);
         }
-        else if ( CCaptureRenderTarget::GetCurrentFrameBuffer((CCaptureRenderTarget *)&this[-263]) )
+        else if ( CCaptureRenderTarget::GetCurrentFrameBuffer((CCaptureRenderTarget *)((char *)this - 2136)) )
         {
           LOBYTE(v18) = a3;
-          v19 = COffScreenRenderTarget::Render(this - 24, a2, v18, a4);
+          v19 = COffScreenRenderTarget::Render((CCaptureRenderTarget *)((char *)this - 208), a2, v18, a4);
           v4 = v19;
           if ( v19 < 0 )
-          {
-            MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0LL, v19, 0x220u);
-          }
+            MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, v19, 0x1FFu, 0LL);
           else
-          {
-            v21 = CCaptureRenderTarget::RenderAdditionalTopmostContent((CCaptureRenderTarget *)&this[-263], a2);
-            v4 = v21;
-            if ( v21 < 0 )
-              MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0LL, v21, 0x221u);
-            else
-              *a4 = 1;
-          }
+            *a4 = 1;
         }
       }
     }

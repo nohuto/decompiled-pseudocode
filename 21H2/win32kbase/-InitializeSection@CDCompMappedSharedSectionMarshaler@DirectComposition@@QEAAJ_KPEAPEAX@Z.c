@@ -1,9 +1,9 @@
 /*
- * XREFs of ?InitializeSection@CDCompMappedSharedSectionMarshaler@DirectComposition@@QEAAJ_KPEAPEAX@Z @ 0x1C00866B8
+ * XREFs of ?InitializeSection@CDCompMappedSharedSectionMarshaler@DirectComposition@@QEAAJ_KPEAPEAX@Z @ 0x1C009E954
  * Callers:
- *     ?CreateAndBindSharedSection@CApplicationChannel@DirectComposition@@QEAAJI_KPEAPEAX@Z @ 0x1C008451C (-CreateAndBindSharedSection@CApplicationChannel@DirectComposition@@QEAAJI_KPEAPEAX@Z.c)
+ *     ?CreateAndBindSharedSection@CApplicationChannel@DirectComposition@@QEAAJI_KPEAPEAX@Z @ 0x1C009E8AC (-CreateAndBindSharedSection@CApplicationChannel@DirectComposition@@QEAAJI_KPEAPEAX@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DirectComposition::CDCompMappedSharedSectionMarshaler::InitializeSection(
@@ -19,7 +19,7 @@ __int64 __fastcall DirectComposition::CDCompMappedSharedSectionMarshaler::Initia
   PVOID Object; // [rsp+88h] [rbp+20h] BYREF
 
   Handle = 0LL;
-  if ( *((_QWORD *)this + 8) )
+  if ( *((_QWORD *)this + 7) )
   {
     return (unsigned int)-1073741811;
   }
@@ -46,8 +46,8 @@ __int64 __fastcall DirectComposition::CDCompMappedSharedSectionMarshaler::Initia
     else
     {
       *a3 = v10;
-      *((_QWORD *)this + 9) = a2;
-      *((_QWORD *)this + 8) = v7;
+      *((_QWORD *)this + 8) = a2;
+      *((_QWORD *)this + 7) = v7;
     }
     if ( Handle )
       ObCloseHandle(Handle, 0);

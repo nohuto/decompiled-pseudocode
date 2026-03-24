@@ -1,5 +1,5 @@
 /*
- * XREFs of ?HitTest@CVectorShape@@$4PPPPPPPM@HA@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x18011C9E0
+ * XREFs of ?HitTest@CVectorShape@@$4PPPPPPPM@HA@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800F4990
  * Callers:
  *     <none>
  * Callees:

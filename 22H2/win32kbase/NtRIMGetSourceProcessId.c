@@ -1,12 +1,16 @@
 /*
- * XREFs of NtRIMGetSourceProcessId @ 0x1C0174EB0
+ * XREFs of NtRIMGetSourceProcessId @ 0x1C0153820
  * Callers:
  *     <none>
  * Callees:
- *     RIMGetSourceProcessId @ 0x1C0178CC0 (RIMGetSourceProcessId.c)
+ *     ApiSetEditionIsUsermodeRIMAccessAllowed @ 0x1C0056718 (ApiSetEditionIsUsermodeRIMAccessAllowed.c)
+ *     RIMGetSourceProcessId @ 0x1C0156BD0 (RIMGetSourceProcessId.c)
  */
 
-__int64 NtRIMGetSourceProcessId()
+__int64 __fastcall NtRIMGetSourceProcessId(__int64 a1, __int64 a2, __int64 a3)
 {
-  return RIMGetSourceProcessId();
+  if ( (unsigned int)ApiSetEditionIsUsermodeRIMAccessAllowed() )
+    return RIMGetSourceProcessId(a1, a2, a3);
+  else
+    return 3221225506LL;
 }

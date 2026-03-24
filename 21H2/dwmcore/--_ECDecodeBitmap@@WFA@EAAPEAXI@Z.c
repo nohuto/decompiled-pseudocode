@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_ECDecodeBitmap@@WFA@EAAPEAXI@Z @ 0x18010C8D0
+ * XREFs of ??_ECDecodeBitmap@@WFA@EAAPEAXI@Z @ 0x1800F9300
  * Callers:
  *     <none>
  * Callees:

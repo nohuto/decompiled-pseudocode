@@ -1,162 +1,83 @@
 /*
- * XREFs of ?DrawBox@@YAHPEAUHDC__@@PEAUtagRECT@@I@Z @ 0x1C0027824
+ * XREFs of ?DrawBox@@YAHPEAUHDC__@@PEAUtagRECT@@I@Z @ 0x1C0043940
  * Callers:
- *     DrawFrameControl @ 0x1C01197C0 (DrawFrameControl.c)
+ *     DrawFrameControl @ 0x1C0045B98 (DrawFrameControl.c)
  * Callees:
- *     ?FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z @ 0x1C00247BC (-FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z.c)
- *     GreSetBkColor @ 0x1C0027760 (GreSetBkColor.c)
- *     GreSetTextColor @ 0x1C0027D58 (GreSetTextColor.c)
- *     FillRect @ 0x1C0028BEC (FillRect.c)
- *     GrePolyPatBlt @ 0x1C0029770 (GrePolyPatBlt.c)
- *     GreExtTextOutW @ 0x1C00A1DB0 (GreExtTextOutW.c)
- *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C00F8AA8 (--1EUDCCountRegion@@QEAA@XZ.c)
- *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C00FA9A0 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
- *     ?GreExtTextOutWInternal@@YAHPEAUHDC__@@HHIPEAUtagRECT@@PEAGHPEAHPEAXKW4EntryPoint@RFONTOBJ@@@Z @ 0x1C0119504 (-GreExtTextOutWInternal@@YAHPEAUHDC__@@HHIPEAUtagRECT@@PEAGHPEAHPEAXKW4EntryPoint@RFONTOBJ@@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     GreSetTextColor @ 0x1C0044578 (GreSetTextColor.c)
+ *     GreSetBkColor @ 0x1C0044600 (GreSetBkColor.c)
+ *     FillRect @ 0x1C0045694 (FillRect.c)
+ *     GrePolyPatBlt @ 0x1C00456F4 (GrePolyPatBlt.c)
+ *     GreExtTextOutWInternal @ 0x1C00AAC5C (GreExtTextOutWInternal.c)
+ *     ?FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z @ 0x1C011B78C (-FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall DrawBox(HDC a1, struct tagRECT *a2, __int16 a3)
 {
-  const wchar_t *v3; // r14
+  unsigned __int16 *v3; // r14
   int v5; // r15d
-  int v8; // eax
-  unsigned int v9; // ebx
-  const wchar_t *v10; // rax
+  const wchar_t *v8; // rax
   LONG top; // r9d
-  int v12; // r10d
-  int v13; // eax
-  int v14; // ecx
-  unsigned int v15; // r12d
-  unsigned int v16; // r13d
-  const unsigned __int16 *v17; // r14
-  __int64 i; // r15
-  const unsigned __int16 *v19; // rbx
-  __int64 v20; // rcx
-  __int64 v21; // rax
-  __int64 v22; // rcx
-  __int64 v23; // rax
-  __int64 v24; // rdx
-  HBRUSH *v26; // r8
-  int v27; // ebx
-  int v28; // [rsp+20h] [rbp-A9h]
-  unsigned int v29; // [rsp+60h] [rbp-69h]
-  int v30; // [rsp+64h] [rbp-65h]
-  int v31; // [rsp+68h] [rbp-61h]
-  _DWORD v32[4]; // [rsp+70h] [rbp-59h] BYREF
-  __int64 v33; // [rsp+80h] [rbp-49h]
-  _BYTE v34[48]; // [rsp+A0h] [rbp-29h] BYREF
-  unsigned int v35; // [rsp+D0h] [rbp+7h]
-  __int64 v36; // [rsp+D4h] [rbp+Bh]
-  __int64 v37; // [rsp+DCh] [rbp+13h]
+  int v10; // r10d
+  int v11; // eax
+  int v12; // ecx
+  int v13; // r12d
+  int v14; // r13d
+  unsigned __int16 *v15; // r14
+  __int64 i; // rbx
+  HBRUSH *v18; // r8
+  int v19; // [rsp+20h] [rbp-49h]
 
   v3 = L"nmlkji";
   v5 = a3 & 0x708;
   if ( (a3 & 2) != 0 )
   {
-    v26 = (HBRUSH *)ghbrWhite;
-    v9 = 0;
-    v37 = 0LL;
-    v36 = 0LL;
-    v35 = 0;
-    goto LABEL_22;
+    v18 = (HBRUSH *)ghbrWhite;
+    goto LABEL_16;
   }
-  if ( (a3 & 0xC000) != 0 )
-  {
-    v8 = *(_DWORD *)(gpsi + 4592LL);
-    LODWORD(v37) = v8;
-    HIDWORD(v36) = v8;
-    LODWORD(v36) = v8;
-  }
-  else
-  {
-    LODWORD(v36) = *(_DWORD *)(gpsi + 4656LL);
-    HIDWORD(v36) = *(_DWORD *)(gpsi + 4652LL);
-    LODWORD(v37) = *(_DWORD *)(gpsi + 4648LL);
-    v8 = *(_DWORD *)(gpsi + 4632LL);
-  }
-  HIDWORD(v37) = v8;
-  if ( (a3 & 0x300) != 0 )
-  {
-    v9 = *(_DWORD *)(gpsi + 4628LL);
-  }
-  else if ( v5 == 1032 )
-  {
-    v9 = *(_DWORD *)(gpsi + 4648LL);
-  }
-  else
-  {
-    v9 = *(_DWORD *)(gpsi + 4588LL);
-  }
-  v35 = v9;
   if ( (a3 & 1) != 0 )
   {
-    v26 = (HBRUSH *)ghbrBlack;
-LABEL_22:
-    FillRect(a1, a2, *v26);
-    goto LABEL_10;
+    v18 = (HBRUSH *)ghbrBlack;
+LABEL_16:
+    FillRect(a1, a2, *v18);
+    goto LABEL_6;
   }
-  v10 = L"gfedcb";
+  v8 = L"gfedcb";
   if ( (a3 & 4) != 0 )
-    v10 = L"nmlkji";
-  v3 = v10;
-LABEL_10:
+    v8 = L"nmlkji";
+  v3 = (unsigned __int16 *)v8;
+LABEL_6:
   top = a2->top;
-  v12 = a2->bottom - top;
-  v13 = a2->right - a2->left;
-  v31 = v12;
-  v30 = v13;
-  v14 = v13;
-  if ( v13 >= v12 )
-    v14 = a2->bottom - top;
-  v15 = a2->left + (v13 - v14) / 2;
-  v16 = top + (v12 - v14) / 2;
+  v10 = a2->bottom - top;
+  v11 = a2->right - a2->left;
+  v12 = v11;
+  if ( v11 >= v10 )
+    v12 = a2->bottom - top;
+  v13 = a2->left + (v11 - v12) / 2;
+  v14 = top + (v10 - v12) / 2;
   if ( v5 == 1032 && (*(_WORD *)(gpsi + 6996LL) < 8u || *(_DWORD *)(gpsi + 4648LL) == 0xFFFFFF) )
   {
-    v27 = GreSetBkColor(a1, *(_DWORD *)(gpsi + 4648LL));
-    v29 = GreSetTextColor(a1, *(unsigned int *)(gpsi + 4628LL));
-    v32[2] = v30;
-    v32[3] = v31;
-    v32[0] = v15;
-    v32[1] = v16;
-    v33 = *(_QWORD *)(gpsi + 4944LL);
-    GrePolyPatBlt(a1, v28);
-    GreSetBkColor(a1, v27);
+    GreSetBkColor(a1);
+    GreSetTextColor(a1);
+    GrePolyPatBlt(a1);
+    GreSetBkColor(a1);
   }
   else
   {
-    v29 = GreSetTextColor(a1, v9);
-    GreExtTextOutW((_DWORD)a1, v15, v16, 0, 0LL, (__int64)v3, 1);
+    GreSetTextColor(a1);
+    GreExtTextOutWInternal(a1, v13, v14, 0, 0LL, v3, 1, 0LL, 0LL, 0);
   }
-  v17 = v3 + 1;
+  v15 = v3 + 1;
   for ( i = 1LL; i < 5; ++i )
   {
-    GreSetTextColor(a1, *(&v35 + i));
-    v19 = v17++;
-    v21 = SGDGetSessionState(v20);
-    EUDCCountRegion::EUDCCountRegion((EUDCCountRegion *)v34, *(struct Gre::Full::SESSION_GLOBALS **)(v21 + 32));
-    v23 = SGDGetSessionState(v22);
-    EUDCCountRegion::EUDCCountRegion((EUDCCountRegion *)v32, *(struct Gre::Full::SESSION_GLOBALS **)(v23 + 32));
-    GreExtTextOutWInternal(a1, v15, v16, 0LL, 0LL, v19, 1, 0LL, 0LL, 0, 1025);
-    EUDCCountRegion::~EUDCCountRegion((EUDCCountRegion *)v32);
-    EUDCCountRegion::~EUDCCountRegion((EUDCCountRegion *)v34);
+    GreSetTextColor(a1);
+    GreExtTextOutWInternal(a1, v13, v14, 0, 0LL, v15++, 1, 0LL, 0LL, 0);
   }
   if ( (a3 & 0x400) != 0 )
   {
-    if ( (a3 & 0x108) != 0 )
-    {
-      v24 = *(unsigned int *)(gpsi + 4632LL);
-    }
-    else if ( (a3 & 0x1000) != 0 )
-    {
-      v24 = *(unsigned int *)(gpsi + 4672LL);
-    }
-    else
-    {
-      v24 = *(unsigned int *)(gpsi + 4600LL);
-    }
-    GreSetTextColor(a1, v24);
-    FlipUserTextOutW(a1, v15, v16, v17);
+    GreSetTextColor(a1);
+    FlipUserTextOutW(a1, v13, v14, v15, v19);
   }
-  GreSetTextColor(a1, v29);
+  GreSetTextColor(a1);
   return 1LL;
 }

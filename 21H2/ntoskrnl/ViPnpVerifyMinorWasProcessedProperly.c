@@ -1,16 +1,16 @@
 /*
- * XREFs of ViPnpVerifyMinorWasProcessedProperly @ 0x140AA66E0
+ * XREFs of ViPnpVerifyMinorWasProcessedProperly @ 0x1409E3040
  * Callers:
- *     VfPnpVerifyIrpStackDownward @ 0x140AA6270 (VfPnpVerifyIrpStackDownward.c)
- *     VfPnpVerifyIrpStackUpward @ 0x140AA6400 (VfPnpVerifyIrpStackUpward.c)
+ *     VfPnpVerifyIrpStackDownward @ 0x1409E2BE0 (VfPnpVerifyIrpStackDownward.c)
+ *     VfPnpVerifyIrpStackUpward @ 0x1409E2D70 (VfPnpVerifyIrpStackUpward.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     MmIsNonPagedSystemAddressValid @ 0x14045BA00 (MmIsNonPagedSystemAddressValid.c)
- *     IovUtilMarkDeviceObject @ 0x1405FFA00 (IovUtilMarkDeviceObject.c)
- *     ViErrorReport1 @ 0x1405FFB44 (ViErrorReport1.c)
- *     ViErrorReport10 @ 0x1405FFBC8 (ViErrorReport10.c)
- *     IovUtilGetBottomDeviceObjectWithTag @ 0x140A92010 (IovUtilGetBottomDeviceObjectWithTag.c)
- *     IovUtilIsDeviceObjectMarked @ 0x140A92124 (IovUtilIsDeviceObjectMarked.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x140536B90 (MmIsNonPagedSystemAddressValid.c)
+ *     IovUtilMarkDeviceObject @ 0x1405A1D7C (IovUtilMarkDeviceObject.c)
+ *     ViErrorReport10 @ 0x1405A1F9C (ViErrorReport10.c)
+ *     IovUtilGetBottomDeviceObjectWithTag @ 0x1409D6938 (IovUtilGetBottomDeviceObjectWithTag.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x1409D6A4C (IovUtilIsDeviceObjectMarked.c)
+ *     VfErrorReport1 @ 0x1409D8008 (VfErrorReport1.c)
  */
 
 char __fastcall ViPnpVerifyMinorWasProcessedProperly(__int64 a1, __int64 a2, int a3, int a4, const void *a5, int a6)
@@ -49,7 +49,7 @@ LABEL_41:
       return IsDeviceObjectMarked;
     v14 = 536;
 LABEL_44:
-    LOBYTE(IsDeviceObjectMarked) = ViErrorReport1(v14, a5, (const void *)a1);
+    LOBYTE(IsDeviceObjectMarked) = VfErrorReport1(v14, a5, (const void *)a1);
     return IsDeviceObjectMarked;
   }
   if ( (unsigned __int8)IsDeviceObjectMarked <= 1u )
@@ -79,7 +79,7 @@ LABEL_32:
     {
       v9 = 536;
 LABEL_16:
-      ViErrorReport1(v9, a5, (const void *)a1);
+      VfErrorReport1(v9, a5, (const void *)a1);
     }
   }
   else

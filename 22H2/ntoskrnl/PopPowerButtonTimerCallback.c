@@ -1,20 +1,20 @@
 /*
- * XREFs of PopPowerButtonTimerCallback @ 0x140599110
+ * XREFs of PopPowerButtonTimerCallback @ 0x140578720
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140251490 (KxAcquireSpinLock.c)
- *     PopQueueWorkItem @ 0x14032CB04 (PopQueueWorkItem.c)
+ *     KxAcquireSpinLock @ 0x140229570 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     PopQueueWorkItem @ 0x14032CC74 (PopQueueWorkItem.c)
  */
 
-__int64 __fastcall PopPowerButtonTimerCallback(__int64 a1, int a2)
+void __fastcall PopPowerButtonTimerCallback(__int64 a1, int a2)
 {
   KxAcquireSpinLock(&PopPowerButtonHold);
-  if ( (xmmword_140C3A1B8 & 1) != 0 && DWORD1(xmmword_140C3A1B8) == a2 )
+  if ( (qword_140C208B8 & 1) != 0 && HIDWORD(qword_140C208B8) == a2 )
   {
-    LODWORD(xmmword_140C3A1B8) = xmmword_140C3A1B8 & 1 | ((xmmword_140C3A1B8 & 0xFFFFFFFE) + 2000);
-    PopQueueWorkItem((__int64)&unk_140C3A190, CriticalWorkQueue);
+    LODWORD(qword_140C208B8) = qword_140C208B8 & 1 | ((qword_140C208B8 & 0xFFFFFFFE) + 2000);
+    PopQueueWorkItem((__int64)&unk_140C20890, CriticalWorkQueue);
   }
-  return KxReleaseSpinLock((volatile signed __int64 *)&PopPowerButtonHold);
+  KxReleaseSpinLock(&PopPowerButtonHold);
 }

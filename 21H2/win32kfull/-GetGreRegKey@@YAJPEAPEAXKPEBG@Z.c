@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetGreRegKey@@YAJPEAPEAXKPEBG@Z @ 0x1C00E2700
+ * XREFs of ?GetGreRegKey@@YAJPEAPEAXKPEBG@Z @ 0x1C00E5A58
  * Callers:
- *     vGetJpn98FixPitch @ 0x1C00E21D0 (vGetJpn98FixPitch.c)
- *     InitFNTCache @ 0x1C00E2390 (InitFNTCache.c)
- *     QueryFontReg @ 0x1C00E2630 (QueryFontReg.c)
- *     InitializeDefaultFamilyFonts @ 0x1C039087C (InitializeDefaultFamilyFonts.c)
+ *     InitFNTCache @ 0x1C00E56F0 (InitFNTCache.c)
+ *     QueryFontReg @ 0x1C00E5988 (QueryFontReg.c)
+ *     vGetJpn98FixPitch @ 0x1C00E5AE0 (vGetJpn98FixPitch.c)
+ *     InitializeDefaultFamilyFonts @ 0x1C03938B0 (InitializeDefaultFamilyFonts.c)
  * Callees:
  *     <none>
  */

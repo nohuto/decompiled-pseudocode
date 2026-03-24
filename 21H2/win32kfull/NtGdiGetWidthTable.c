@@ -1,15 +1,15 @@
 /*
- * XREFs of NtGdiGetWidthTable @ 0x1C0019440
+ * XREFs of NtGdiGetWidthTable @ 0x1C009CC30
  * Callers:
  *     <none>
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C0019ED8 (--1RFONTOBJ@@QEAA@XZ.c)
- *     ?bGetWidthData@RFONTOBJ@@QEAAHPEAU_WIDTHDATA@@AEAVXDCOBJ@@@Z @ 0x1C0019F70 (-bGetWidthData@RFONTOBJ@@QEAAHPEAU_WIDTHDATA@@AEAVXDCOBJ@@@Z.c)
- *     ?bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z @ 0x1C001A598 (-bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z.c)
- *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C00364E0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003FC30 (--1DCOBJ@@QEAA@XZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0041DDC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     ?bGetWidthData@RFONTOBJ@@QEAAHPEAU_WIDTHDATA@@AEAVXDCOBJ@@@Z @ 0x1C00642C4 (-bGetWidthData@RFONTOBJ@@QEAAHPEAU_WIDTHDATA@@AEAVXDCOBJ@@@Z.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C0093AC0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
+ *     ?bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z @ 0x1C0098FC0 (-bGetWidthTable@RFONTOBJ@@QEAAHAEAVXDCOBJ@@KPEAGK1@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AF04 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C00B2BF0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C00B2C98 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall NtGdiGetWidthTable(
@@ -28,22 +28,22 @@ __int64 __fastcall NtGdiGetWidthTable(
   unsigned __int16 *v13; // r15
   size_t v14; // r8
   int v15; // edx
-  _BYTE *v16; // rdx
-  _DWORD *v17; // rdx
-  unsigned __int16 v19; // dx
-  __int64 v20; // rcx
-  unsigned __int16 *v21; // rdi
-  __int64 v22; // [rsp+30h] [rbp-88h] BYREF
-  unsigned __int16 *v23; // [rsp+38h] [rbp-80h]
-  unsigned __int16 *v24; // [rsp+40h] [rbp-78h]
-  __int128 v25; // [rsp+48h] [rbp-70h] BYREF
-  _QWORD v26[7]; // [rsp+58h] [rbp-60h] BYREF
+  unsigned __int16 v16; // dx
+  __int64 v17; // rcx
+  unsigned __int16 *v18; // rdi
+  _BYTE *v19; // rdx
+  _DWORD *v20; // rdx
+  __int64 v22; // [rsp+38h] [rbp-80h] BYREF
+  unsigned __int16 *v23; // [rsp+40h] [rbp-78h]
+  unsigned __int16 *v24; // [rsp+48h] [rbp-70h]
+  __int128 v25; // [rsp+50h] [rbp-68h] BYREF
+  _QWORD v26[6]; // [rsp+60h] [rbp-58h] BYREF
 
   v7 = a4;
   WidthTable = -1;
   DCOBJ::DCOBJ((DCOBJ *)v26, a1);
   if ( !(_DWORD)v7 || !v26[0] )
-    goto LABEL_35;
+    goto LABEL_41;
   v25 = 0LL;
   v11 = 0;
   v12 = 0LL;
@@ -78,20 +78,20 @@ __int64 __fastcall NtGdiGetWidthTable(
     if ( (unsigned int)RFONTOBJ::bInit((RFONTOBJ *)&v22, (struct XDCOBJ *)v26, 0, 2u) )
       GreAcquireSemaphore(*(_QWORD *)(v22 + 504));
     if ( !v22 )
-      goto LABEL_22;
+      goto LABEL_28;
     v11 = *(_DWORD *)(v22 + 716);
     if ( *(_DWORD *)(v22 + 344) >= 0xFFFu )
-      goto LABEL_22;
+      goto LABEL_28;
     v15 = *(_DWORD *)(v22 + 312);
     if ( v15 )
     {
-      v19 = 16 * v15;
-      v20 = (unsigned int)v7;
-      v21 = v12;
-      while ( v20 )
+      v16 = 16 * v15;
+      v17 = (unsigned int)v7;
+      v18 = v12;
+      while ( v17 )
       {
-        *v21++ = v19;
-        --v20;
+        *v18++ = v16;
+        --v17;
       }
       WidthTable = 1;
     }
@@ -100,16 +100,16 @@ __int64 __fastcall NtGdiGetWidthTable(
       WidthTable = RFONTOBJ::bGetWidthTable((RFONTOBJ *)&v22, (struct XDCOBJ *)v26, a2, v13, v7, v12);
       if ( WidthTable == -1 )
       {
-LABEL_22:
+LABEL_28:
         RFONTOBJ::~RFONTOBJ((RFONTOBJ *)&v22);
-        goto LABEL_23;
+        goto LABEL_29;
       }
     }
     if ( !(unsigned int)RFONTOBJ::bGetWidthData((RFONTOBJ *)&v22, (struct _WIDTHDATA *)&v25, (struct XDCOBJ *)v26) )
       WidthTable = -1;
-    goto LABEL_22;
+    goto LABEL_28;
   }
-LABEL_23:
+LABEL_29:
   if ( WidthTable != -1 )
   {
     ProbeForWrite(Address, 2LL * (unsigned int)v7, 2u);
@@ -118,21 +118,21 @@ LABEL_23:
     {
       if ( (a6 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v16 = (_BYTE *)a6;
+      v19 = (_BYTE *)a6;
       if ( a6 >= MmUserProbeAddress )
-        v16 = (_BYTE *)MmUserProbeAddress;
-      *v16 = *v16;
-      v16[15] = v16[15];
+        v19 = (_BYTE *)MmUserProbeAddress;
+      *v19 = *v19;
+      v19[15] = v19[15];
       *(_OWORD *)a6 = v25;
     }
-    v17 = (_DWORD *)a7;
+    v20 = (_DWORD *)a7;
     if ( a7 >= MmUserProbeAddress )
-      v17 = (_DWORD *)MmUserProbeAddress;
-    *v17 = v11;
+      v20 = (_DWORD *)MmUserProbeAddress;
+    *v20 = v11;
   }
   if ( v12 )
     FreeTmpBuffer(v12);
-LABEL_35:
+LABEL_41:
   DCOBJ::~DCOBJ((DCOBJ *)v26);
   return WidthTable;
 }

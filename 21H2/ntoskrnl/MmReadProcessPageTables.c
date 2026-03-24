@@ -1,12 +1,12 @@
 /*
- * XREFs of MmReadProcessPageTables @ 0x1405A6AE4
+ * XREFs of MmReadProcessPageTables @ 0x140547E00
  * Callers:
- *     KiMonitorCacheErrata @ 0x140577D00 (KiMonitorCacheErrata.c)
+ *     KiMonitorCacheErrata @ 0x140522290 (KiMonitorCacheErrata.c)
  * Callees:
- *     MiMakeValidPte @ 0x1402CBD10 (MiMakeValidPte.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KeFlushSingleCurrentTb @ 0x1403AD304 (KeFlushSingleCurrentTb.c)
- *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x1404619C0 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
+ *     KeFlushSingleCurrentTb @ 0x140389ED8 (KeFlushSingleCurrentTb.c)
+ *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x1405B5B00 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
  */
 
 __int64 __fastcall MmReadProcessPageTables(__int64 a1)
@@ -35,7 +35,7 @@ __int64 __fastcall MmReadProcessPageTables(__int64 a1)
   CurrentPrcb = KeGetCurrentPrcb();
   v3 = ValidPte;
   __wbinvd();
-  result = ExTryAcquireSpinLockSharedAtDpcLevel(&dword_140C55048);
+  result = ExTryAcquireSpinLockSharedAtDpcLevel(&dword_140C50E48);
   v5 = 0;
   if ( (_DWORD)result )
   {
@@ -49,8 +49,8 @@ __int64 __fastcall MmReadProcessPageTables(__int64 a1)
       while ( 1 )
       {
         v10 = v9[2 * v5 + 2];
-        v11 = 48 * v10 - 0x220000000000LL;
-        v12 = 48 * (v10 + v9[2 * v5 + 3]) - 0x220000000000LL;
+        v11 = 48 * v10 - 0x58000000000LL;
+        v12 = 48 * (v10 + v9[2 * v5 + 3]) - 0x58000000000LL;
         if ( v11 < v12 )
           break;
 LABEL_17:
@@ -70,11 +70,11 @@ LABEL_17:
             {
               v15 = *(_QWORD *)(v11 + 40);
               if ( ((v15 >> 60) & 7) != 1
-                && (v15 & 0x10000000000LL) == 0
-                && (v15 & 0xFFFFFFFFFFLL) != 0x3FFFFFFFFELL
+                && (v15 & 0x1000000000LL) == 0
+                && (v15 & 0xFFFFFFFFFLL) != 0xFFFFFFFFDLL
                 && (*(_BYTE *)(v11 + 34) & 0xC0) == 0x40 )
               {
-                v3 ^= (v3 ^ (0xAAAAAAAAAAAAB000uLL * ((__int64)(v11 + 0x220000000000LL) >> 4))) & 0xFFFFFFFFFF000LL;
+                v3 ^= (v3 ^ (((__int64)(v11 + 0x58000000000LL) / 48) << 12)) & 0xFFFFFFFFF000LL;
                 _InterlockedExchange64(v7, v3);
                 KeFlushSingleCurrentTb(v6, 0);
                 v16 = v6;
@@ -86,10 +86,10 @@ LABEL_17:
                 }
                 while ( v17 );
                 v18 = KiCacheErrataMonitor;
-                v19 = 2LL * CurrentPrcb->Number;
+                v19 = CurrentPrcb->Number + 16LL;
                 CurrentPrcb->ClockKeepAlive = 1;
-                _InterlockedExchange64((volatile __int64 *)(v18 + 8 * v19 + 360), -1LL);
-                if ( (*(_QWORD *)(v18 + 16LL * *(unsigned int *)(a1 + 36) + 360) & CurrentPrcb->GroupSetMember) != 0 )
+                _InterlockedExchange64((volatile __int64 *)(v18 + 16 * v19), -1LL);
+                if ( (*(_QWORD *)(v18 + 16 * (*(unsigned int *)(a1 + 36) + 16LL)) & CurrentPrcb->GroupSetMember) != 0 )
                   break;
               }
             }
@@ -103,7 +103,7 @@ LABEL_17:
 LABEL_18:
     _InterlockedExchange64(v7, v8);
     KeFlushSingleCurrentTb(v6, 0);
-    ExReleaseSpinLockSharedFromDpcLevel(&dword_140C55048);
+    ExReleaseSpinLockSharedFromDpcLevel(&dword_140C50E48);
     return 1LL;
   }
   return result;

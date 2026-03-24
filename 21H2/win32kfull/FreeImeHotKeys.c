@@ -1,17 +1,17 @@
 /*
- * XREFs of FreeImeHotKeys @ 0x1C011F1C0
+ * XREFs of FreeImeHotKeys @ 0x1C0133D50
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-struct _tagIMEHOTKEYOBJ **FreeImeHotKeys()
+__int64 *FreeImeHotKeys()
 {
-  struct _tagIMEHOTKEYOBJ **result; // rax
-  struct _tagIMEHOTKEYOBJ *v1; // rbx
+  __int64 *result; // rax
+  __int64 v1; // rbx
 
-  result = (struct _tagIMEHOTKEYOBJ **)gpImeHotKeyListHeader;
+  result = (__int64 *)gpImeHotKeyListHeader;
   if ( gpImeHotKeyListHeader )
   {
     do
@@ -19,7 +19,7 @@ struct _tagIMEHOTKEYOBJ **FreeImeHotKeys()
       v1 = *result;
       Win32FreePool(result);
       gpImeHotKeyListHeader = v1;
-      result = (struct _tagIMEHOTKEYOBJ **)v1;
+      result = (__int64 *)v1;
     }
     while ( v1 );
   }

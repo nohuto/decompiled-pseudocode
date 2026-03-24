@@ -1,38 +1,32 @@
 /*
- * XREFs of HalpTimerDetermineValidTimerPairReadLatency @ 0x14037AE28
+ * XREFs of HalpTimerDetermineValidTimerPairReadLatency @ 0x1403B0E4C
  * Callers:
- *     HalpTimerMeasureFrequencies @ 0x14037A528 (HalpTimerMeasureFrequencies.c)
- *     HalpTimerMeasureProcessorsWorker @ 0x14050C760 (HalpTimerMeasureProcessorsWorker.c)
+ *     HalpTimerMeasureFrequencies @ 0x1403B0A68 (HalpTimerMeasureFrequencies.c)
+ *     HalpTimerMeasureProcessorsWorker @ 0x1404C3500 (HalpTimerMeasureProcessorsWorker.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3240 (KeQueryPerformanceCounter.c)
- *     HalpTimerGetInternalData @ 0x1402C4540 (HalpTimerGetInternalData.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x14022A3A0 (HalpTimerGetInternalData.c)
+ *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
+ *     HalpProcessorFence @ 0x1403F9340 (HalpProcessorFence.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpTimerDetermineValidTimerPairReadLatency(__int64 a1, __int64 a2)
 {
-  unsigned int v4; // esi
-  __int64 v5; // rbp
-  unsigned __int64 v6; // rax
-  unsigned __int64 v7; // r14
-  unsigned __int64 v8; // rdx
+  unsigned int v4; // ebp
+  __int64 v5; // r14
+  unsigned __int64 v6; // r15
   __int64 InternalData; // rax
-  unsigned __int64 v10; // rax
-  __int64 v11; // rax
-  unsigned __int64 v12; // rax
-  unsigned __int64 v13; // rax
-  unsigned __int64 v14; // rcx
-  unsigned __int64 v15; // rax
+  __int64 v8; // rax
+  unsigned __int64 v9; // rbx
+  unsigned __int64 v10; // rbx
 
   v4 = -1;
   v5 = 25LL;
   do
   {
-    v6 = __readcr2();
-    __writecr2(v6);
-    v7 = __rdtsc();
-    v8 = __readcr2();
-    __writecr2(v8);
+    HalpProcessorFence();
+    v6 = __rdtsc();
+    HalpProcessorFence();
     if ( a1 == HalpPerformanceCounter && HalpTimerFrequenciesMeasured )
     {
       KeQueryPerformanceCounter(0LL);
@@ -42,28 +36,25 @@ __int64 __fastcall HalpTimerDetermineValidTimerPairReadLatency(__int64 a1, __int
       InternalData = HalpTimerGetInternalData(a1);
       (*(void (__fastcall **)(__int64))(a1 + 112))(InternalData);
     }
-    v10 = __readcr2();
-    __writecr2(v10);
+    HalpProcessorFence();
     if ( a2 == HalpPerformanceCounter && HalpTimerFrequenciesMeasured )
     {
       KeQueryPerformanceCounter(0LL);
     }
     else
     {
-      v11 = HalpTimerGetInternalData(a2);
-      (*(void (__fastcall **)(__int64))(a2 + 112))(v11);
+      v8 = HalpTimerGetInternalData(a2);
+      (*(void (__fastcall **)(__int64))(a2 + 112))(v8);
     }
-    v12 = __readcr2();
-    __writecr2(v12);
-    v13 = __rdtsc();
-    v14 = __readcr2();
-    __writecr2(v14);
-    v15 = (((unsigned __int64)HIDWORD(v13) << 32) | (unsigned int)v13) - v7;
-    if ( v15 >= v4 )
-      LODWORD(v15) = v4;
-    v4 = v15;
+    HalpProcessorFence();
+    v9 = __rdtsc();
+    HalpProcessorFence();
+    v10 = v9 - v6;
+    if ( v10 >= v4 )
+      LODWORD(v10) = v4;
+    v4 = v10;
     --v5;
   }
   while ( v5 );
-  return (unsigned int)(4 * v15);
+  return (unsigned int)(4 * v10);
 }

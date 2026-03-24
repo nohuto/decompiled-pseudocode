@@ -1,15 +1,15 @@
 /*
- * XREFs of ArbAddMmConfigRangeAsBootReserved @ 0x140737C00
+ * XREFs of ArbAddMmConfigRangeAsBootReserved @ 0x140737BE0
  * Callers:
- *     IopMemInitialize @ 0x1407379D8 (IopMemInitialize.c)
+ *     IopMemInitialize @ 0x1407379B8 (IopMemInitialize.c)
  * Callees:
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlAddRange @ 0x140738710 (RtlAddRange.c)
- *     ArbpGetRegistryValue @ 0x1407399E4 (ArbpGetRegistryValue.c)
+ *     RtlAddRange @ 0x1407386F0 (RtlAddRange.c)
+ *     ArbpGetRegistryValue @ 0x1407399C4 (ArbpGetRegistryValue.c)
  */
 
 NTSTATUS __fastcall ArbAddMmConfigRangeAsBootReserved(__int64 a1, struct _RTL_RANGE_LIST *a2)

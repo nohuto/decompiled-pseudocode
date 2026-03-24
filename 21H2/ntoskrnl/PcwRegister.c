@@ -1,12 +1,13 @@
 /*
- * XREFs of PcwRegister @ 0x1408114C0
+ * XREFs of PcwRegister @ 0x1407818E0
  * Callers:
- *     ExpRegisterCounterSet @ 0x14085BA10 (ExpRegisterCounterSet.c)
+ *     ExpPcwHostCallback @ 0x1407CC410 (ExpPcwHostCallback.c)
+ *     EtwRegisterCounters @ 0x1407CC618 (EtwRegisterCounters.c)
  * Callees:
- *     ExReleaseExtensionTable @ 0x1403614E0 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x1403614FC (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExpPcwDisabledStatus @ 0x140A029F8 (ExpPcwDisabledStatus.c)
+ *     ExReleaseExtensionTable @ 0x14029F2DC (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExpPcwDisabledStatus @ 0x140956CB8 (ExpPcwDisabledStatus.c)
  */
 
 NTSTATUS __stdcall PcwRegister(PPCW_REGISTRATION *Registration, PPCW_REGISTRATION_INFORMATION Info)

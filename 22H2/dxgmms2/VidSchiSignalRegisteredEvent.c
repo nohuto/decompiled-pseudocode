@@ -1,17 +1,17 @@
 /*
- * XREFs of VidSchiSignalRegisteredEvent @ 0x1C00140B4
+ * XREFs of VidSchiSignalRegisteredEvent @ 0x1C0013678
  * Callers:
- *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C00091C0 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
- *     VidSchiProcessDpcPreemptedPacket @ 0x1C00138CC (VidSchiProcessDpcPreemptedPacket.c)
- *     VidSchiProcessDpcSystemRequest @ 0x1C0013CC4 (VidSchiProcessDpcSystemRequest.c)
- *     ?VidSchiFreeCompletedHwQueuePacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001CB0C (-VidSchiFreeCompletedHwQueuePacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
- *     VidSchiFlushPendingTokenList @ 0x1C003A7F0 (VidSchiFlushPendingTokenList.c)
- *     ?VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z @ 0x1C00416F4 (-VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z.c)
- *     ?VidSchiRundownHardwareContext@@YAXPEAVHwQueueStagingList@@PEAUVIDSCH_HW_CONTEXT@@@Z @ 0x1C0042BB8 (-VidSchiRundownHardwareContext@@YAXPEAVHwQueueStagingList@@PEAUVIDSCH_HW_CONTEXT@@@Z.c)
- *     VidSchiProcessSuspendContextCompletedDpc @ 0x1C0045DA4 (VidSchiProcessSuspendContextCompletedDpc.c)
- *     VidSchiSuspendResumeHwContext @ 0x1C0046604 (VidSchiSuspendResumeHwContext.c)
- *     VidSchiDiscardQueuePacket @ 0x1C0105C98 (VidSchiDiscardQueuePacket.c)
- *     VidSchUnreferenceDmaBuffer @ 0x1C0108D7C (VidSchUnreferenceDmaBuffer.c)
+ *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C000A0C0 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
+ *     VidSchiProcessDpcPreemptedPacket @ 0x1C0012EAC (VidSchiProcessDpcPreemptedPacket.c)
+ *     VidSchiProcessDpcSystemRequest @ 0x1C0013290 (VidSchiProcessDpcSystemRequest.c)
+ *     VidSchiFlushPendingTokenList @ 0x1C002FA78 (VidSchiFlushPendingTokenList.c)
+ *     ?VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0036548 (-VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     ?VidSchiFreeCompletedHwQueuePacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C0037870 (-VidSchiFreeCompletedHwQueuePacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     ?VidSchiRundownHardwareContext@@YAXPEAVHwQueueStagingList@@PEAUVIDSCH_HW_CONTEXT@@@Z @ 0x1C00382F4 (-VidSchiRundownHardwareContext@@YAXPEAVHwQueueStagingList@@PEAUVIDSCH_HW_CONTEXT@@@Z.c)
+ *     VidSchiProcessSuspendContextCompletedDpc @ 0x1C003B7FC (VidSchiProcessSuspendContextCompletedDpc.c)
+ *     VidSchiSuspendResumeHwContext @ 0x1C003C148 (VidSchiSuspendResumeHwContext.c)
+ *     VidSchiDiscardQueuePacket @ 0x1C00CE4DC (VidSchiDiscardQueuePacket.c)
+ *     VidSchUnreferenceDmaBuffer @ 0x1C00D1B60 (VidSchUnreferenceDmaBuffer.c)
  * Callees:
  *     <none>
  */
@@ -23,24 +23,25 @@ void __fastcall VidSchiSignalRegisteredEvent(__int64 a1, struct _KEVENT **a2)
   int Flink; // ecx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
   v4 = KfRaiseIrql(2u);
-  KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(a1 + 1744), &LockHandle);
+  KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(a1 + 1728), &LockHandle);
   for ( i = *a2; i != (struct _KEVENT *)a2; i = *(struct _KEVENT **)&i->Header.Lock )
   {
     if ( LODWORD(i->Header.WaitListHead.Blink) == 4 )
     {
-      if ( *(_DWORD *)(*(_QWORD *)&i[1].Header.Lock + 4LL * LODWORD(i[1].Header.WaitListHead.Blink) + 1444) < *(_DWORD *)(*(_QWORD *)&i[1].Header.Lock + 244LL) )
-        goto LABEL_10;
-    }
-    else if ( ((__int64)i[1].Header.WaitListHead.Flink & 0x10) == 0
-           || (Flink = (int)i[1].Header.WaitListHead.Blink->Flink, (HIDWORD(i[5].Header.WaitListHead.Blink) = Flink) == 0) )
-    {
-LABEL_10:
+      if ( *(_DWORD *)(*(_QWORD *)&i[1].Header.Lock + 4LL * LODWORD(i[1].Header.WaitListHead.Blink) + 1444) >= *(_DWORD *)(*(_QWORD *)&i[1].Header.Lock + 244LL) )
+        continue;
+LABEL_6:
       ++i[5].Header.LockNV;
       KeSetEvent(i + 4, 0, 0);
       continue;
     }
+    if ( ((__int64)i[1].Header.WaitListHead.Flink & 0x10) == 0 )
+      goto LABEL_6;
+    Flink = (int)i[1].Header.WaitListHead.Blink->Flink;
+    HIDWORD(i[5].Header.WaitListHead.Blink) = Flink;
+    if ( !Flink )
+      goto LABEL_6;
   }
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   KeLowerIrql(v4);

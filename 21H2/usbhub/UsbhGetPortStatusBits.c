@@ -1,8 +1,8 @@
 /*
- * XREFs of UsbhGetPortStatusBits @ 0x1C0037C98
+ * XREFs of UsbhGetPortStatusBits @ 0x1C0038F70
  * Callers:
- *     UsbhHubSyncSuspendPortEvent @ 0x1C00334E8 (UsbhHubSyncSuspendPortEvent.c)
- *     UsbhPortResumeTimeout @ 0x1C0038490 (UsbhPortResumeTimeout.c)
+ *     UsbhHubSyncSuspendPortEvent @ 0x1C003484C (UsbhHubSyncSuspendPortEvent.c)
+ *     UsbhPortResumeTimeout @ 0x1C0039760 (UsbhPortResumeTimeout.c)
  * Callees:
  *     <none>
  */

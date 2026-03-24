@@ -1,23 +1,23 @@
 /*
- * XREFs of DbgkpSendApiMessage @ 0x140810BD4
+ * XREFs of DbgkpSendApiMessage @ 0x140810BB4
  * Callers:
- *     DbgkPostModuleMessage @ 0x14026D7C4 (DbgkPostModuleMessage.c)
+ *     DbgkPostModuleMessage @ 0x14026D8C4 (DbgkPostModuleMessage.c)
  *     DbgkCreateThread @ 0x1405F7028 (DbgkCreateThread.c)
- *     DbgkMapViewOfSection @ 0x14067749C (DbgkMapViewOfSection.c)
- *     DbgkUnMapViewOfSection @ 0x1406B739C (DbgkUnMapViewOfSection.c)
- *     DbgkForwardException @ 0x1406D68FC (DbgkForwardException.c)
- *     DbgkCreateMinimalProcess @ 0x140757838 (DbgkCreateMinimalProcess.c)
- *     DbgkSendSystemDllMessages @ 0x14080E4AC (DbgkSendSystemDllMessages.c)
- *     DbgkCreateMinimalThread @ 0x1408113CC (DbgkCreateMinimalThread.c)
- *     DbgkExitProcess @ 0x140811468 (DbgkExitProcess.c)
- *     DbgkExitThread @ 0x140811510 (DbgkExitThread.c)
+ *     DbgkMapViewOfSection @ 0x14067747C (DbgkMapViewOfSection.c)
+ *     DbgkUnMapViewOfSection @ 0x1406B737C (DbgkUnMapViewOfSection.c)
+ *     DbgkForwardException @ 0x1406D68DC (DbgkForwardException.c)
+ *     DbgkCreateMinimalProcess @ 0x140757818 (DbgkCreateMinimalProcess.c)
+ *     DbgkSendSystemDllMessages @ 0x14080E48C (DbgkSendSystemDllMessages.c)
+ *     DbgkCreateMinimalThread @ 0x1408113AC (DbgkCreateMinimalThread.c)
+ *     DbgkExitProcess @ 0x140811448 (DbgkExitProcess.c)
+ *     DbgkExitThread @ 0x1408114F0 (DbgkExitThread.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     ZwFlushInstructionCache @ 0x1401B9DB0 (ZwFlushInstructionCache.c)
- *     EtwTraceDebuggerEvent @ 0x14030FAF0 (EtwTraceDebuggerEvent.c)
- *     PsThawProcess @ 0x14067E324 (PsThawProcess.c)
- *     DbgkpQueueMessage @ 0x14080F424 (DbgkpQueueMessage.c)
- *     DbgkpSuspendProcess @ 0x140811704 (DbgkpSuspendProcess.c)
+ *     ZwFlushInstructionCache @ 0x1401B9DD0 (ZwFlushInstructionCache.c)
+ *     EtwTraceDebuggerEvent @ 0x14030FBF0 (EtwTraceDebuggerEvent.c)
+ *     PsThawProcess @ 0x14067E304 (PsThawProcess.c)
+ *     DbgkpQueueMessage @ 0x14080F404 (DbgkpQueueMessage.c)
+ *     DbgkpSuspendProcess @ 0x1408116E4 (DbgkpSuspendProcess.c)
  */
 
 __int64 __fastcall DbgkpSendApiMessage(_KPROCESS *Object, char a2, __int64 a3)

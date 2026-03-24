@@ -1,26 +1,22 @@
 /*
- * XREFs of ?xxxTA_AccelerateMenu@@YAIQEAUtagWND@@AEBV?$SmartObjStackRef@UtagMENU@@@@IQEAPEAUHMENU__@@@Z @ 0x1C014F628
+ * XREFs of ?xxxTA_AccelerateMenu@@YAIQEAUtagWND@@AEBV?$SmartObjStackRef@UtagMENU@@@@IQEAPEAUHMENU__@@@Z @ 0x1C015C5BC
  * Callers:
- *     xxxTranslateAccelerator @ 0x1C00FBF34 (xxxTranslateAccelerator.c)
+ *     xxxTranslateAccelerator @ 0x1C010B478 (xxxTranslateAccelerator.c)
  * Callees:
- *     xxxSendTransformableMessageTimeout @ 0x1C0050D70 (xxxSendTransformableMessageTimeout.c)
- *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C0066A74 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
- *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0067394 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
- *     MNLookUpItem @ 0x1C0067EE0 (MNLookUpItem.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00685A0 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00E7BF4 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
- *     ?UT_FindTopLevelMenuIndex@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@I@Z @ 0x1C014F6C0 (-UT_FindTopLevelMenuIndex@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@I@Z.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C0059990 (xxxSendTransformableMessageTimeout.c)
+ *     MNLookUpItem @ 0x1C0061BA0 (MNLookUpItem.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0078B40 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A9DC (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE4E0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C010139C (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     ?UT_FindTopLevelMenuIndex@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@I@Z @ 0x1C015C654 (-UT_FindTopLevelMenuIndex@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@I@Z.c)
  */
 
-__int64 __fastcall xxxTA_AccelerateMenu(
-        unsigned __int64 *BugCheckParameter2,
-        __int64 **a2,
-        unsigned int a3,
-        unsigned __int64 *a4)
+__int64 __fastcall xxxTA_AccelerateMenu(unsigned __int64 a1, __int64 **a2, unsigned int a3, unsigned __int64 *a4)
 {
   __int64 v8; // rcx
   unsigned int TopLevelMenuIndex; // eax
-  __int64 v10; // rbp
+  struct _LARGE_STRING *v10; // rbp
   unsigned int v11; // esi
   unsigned __int64 *v13; // r8
   unsigned __int64 v14; // r8
@@ -30,19 +26,18 @@ __int64 __fastcall xxxTA_AccelerateMenu(
   int v18; // edi
   __int64 v19; // rax
   __int64 v20; // rcx
-  _QWORD *v21; // rax
-  _QWORD *v22; // rbx
-  __int64 v23; // [rsp+50h] [rbp-38h] BYREF
-  _QWORD v24[2]; // [rsp+58h] [rbp-30h] BYREF
-  __int64 v25; // [rsp+68h] [rbp-20h]
+  _QWORD *v21; // rbx
+  __int64 v22; // [rsp+50h] [rbp-38h] BYREF
+  _QWORD v23[2]; // [rsp+58h] [rbp-30h] BYREF
+  __int64 v24; // [rsp+68h] [rbp-20h]
 
-  SmartObjStackRefBase<tagMENU>::Init(v24, 0LL);
-  v25 = 0LL;
-  v23 = 0LL;
+  SmartObjStackRefBase<tagMENU>::Init(v23, 0LL);
+  v24 = 0LL;
+  v22 = 0LL;
   if ( SmartObjStackRef<tagMENU>::operator==((__int64)a2) )
     goto LABEL_3;
   TopLevelMenuIndex = UT_FindTopLevelMenuIndex(v8, a3);
-  v10 = TopLevelMenuIndex;
+  v10 = (struct _LARGE_STRING *)TopLevelMenuIndex;
   if ( TopLevelMenuIndex == -1 )
     goto LABEL_3;
   v13 = (unsigned __int64 *)a2[2];
@@ -51,7 +46,7 @@ __int64 __fastcall xxxTA_AccelerateMenu(
     v13 = (unsigned __int64 *)**a2;
   v14 = *v13;
   _InterlockedAdd(&glSendMessage, 1u);
-  xxxSendTransformableMessageTimeout(BugCheckParameter2, 0x116u, v14, 0LL, 0, 0, 0LL, 1, 1);
+  xxxSendTransformableMessageTimeout(a1, 0x116u, v14, 0LL, 0, 0, 0LL, 1, 1);
   if ( (unsigned int)v10 >= *(_DWORD *)(*(_QWORD *)(**a2 + 40) + 44LL) )
     goto LABEL_3;
   v15 = (_QWORD *)(*(_QWORD *)(**a2 + 88) + 96LL * (int)v10);
@@ -61,7 +56,7 @@ __int64 __fastcall xxxTA_AccelerateMenu(
     v17 = *v16;
     *a4 = v17;
     _InterlockedAdd(&glSendMessage, 1u);
-    xxxSendTransformableMessageTimeout(BugCheckParameter2, 0x117u, v17, v10, 0, 0, 0LL, 1, 1);
+    xxxSendTransformableMessageTimeout(a1, 0x117u, v17, v10, 0, 0, 0LL, 1, 1);
     if ( (unsigned int)v10 >= *(_DWORD *)(*(_QWORD *)(**a2 + 40) + 44LL) )
     {
 LABEL_3:
@@ -75,22 +70,20 @@ LABEL_3:
   {
     v18 = 0;
   }
-  v19 = v25;
-  if ( !v25 )
-    v19 = *(_QWORD *)v24[0];
+  v19 = v24;
+  if ( !v24 )
+    v19 = *(_QWORD *)v23[0];
   v20 = (__int64)a2[2];
-  v23 = v19;
+  v22 = v19;
   if ( !v20 )
     v20 = **a2;
-  v21 = MNLookUpItem(v20, a3, 0, &v23);
-  v25 = 0LL;
-  v22 = v21;
-  SmartObjStackRefBase<tagMENU>::operator=((__int64)v24, v23);
-  if ( !v22 )
+  v21 = MNLookUpItem(v20, a3, 0, &v22);
+  SmartObjStackRefBase<tagMENU>::operator=(v23, v22);
+  if ( !v21 )
     goto LABEL_3;
-  if ( (*(_DWORD *)(*v22 + 4LL) & 3) != 0 || v18 )
+  if ( (*(_DWORD *)(*v21 + 4LL) & 3) != 0 || v18 )
     v11 = 3;
 LABEL_4:
-  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v24);
+  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v23);
   return v11;
 }

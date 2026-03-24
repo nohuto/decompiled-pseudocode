@@ -1,25 +1,22 @@
 /*
- * XREFs of ?vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C02815EC
+ * XREFs of ?vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0283344
  * Callers:
- *     ?vSpBigUnderlayCopy@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C028033C (-vSpBigUnderlayCopy@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
- *     ?vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z @ 0x1C028250C (-vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z.c)
- *     vSpUnTearDownSprites @ 0x1C02844F0 (vSpUnTearDownSprites.c)
+ *     ?vSpBigUnderlayCopy@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0282240 (-vSpBigUnderlayCopy@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z @ 0x1C0283FA0 (-vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z.c)
+ *     vSpUnTearDownSprites @ 0x1C0285DA0 (vSpUnTearDownSprites.c)
  * Callees:
- *     ?bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z @ 0x1C001ACB0 (-bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z.c)
- *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C001EF80 (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
- *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C0030084 (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
- *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00311EC (-bEmpty@ERECTL@@QEBAHXZ.c)
- *     ??1SURFREF@@QEAA@XZ @ 0x1C0087EAC (--1SURFREF@@QEAA@XZ.c)
- *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00FA390 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
- *     ?OffCopyBitsInternal@@YAHP6AHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z40401234@Z @ 0x1C015D38E (-OffCopyBitsInternal@@YAHP6AHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL.c)
- *     ??1EXLATEOBJ@@QEAA@XZ @ 0x1C0264DD4 (--1EXLATEOBJ@@QEAA@XZ.c)
- *     ??1ECLIPOBJTMPIFNEEDED@@QEAA@XZ @ 0x1C0279AAC (--1ECLIPOBJTMPIFNEEDED@@QEAA@XZ.c)
- *     ??1NEEDDDILOCK@@QEAA@XZ @ 0x1C0279B48 (--1NEEDDDILOCK@@QEAA@XZ.c)
- *     ?bConcurrent@@YAHPEAU_SPRITESTATE@@@Z @ 0x1C027D4BC (-bConcurrent@@YAHPEAU_SPRITESTATE@@@Z.c)
- *     ?vSetup@ECLIPOBJTMPIFNEEDED@@QEAAXHPEAVREGION@@AEAVERECTL@@H@Z @ 0x1C027FFE0 (-vSetup@ECLIPOBJTMPIFNEEDED@@QEAAXHPEAVREGION@@AEAVERECTL@@H@Z.c)
+ *     ??0SURFREF@@QEAA@PEAUHSURF__@@@Z @ 0x1C00838AC (--0SURFREF@@QEAA@PEAUHSURF__@@@Z.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0084E50 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C00B12D0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C00B565C (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     ?bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z @ 0x1C010F18C (-bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     ??1ECLIPOBJTMPIFNEEDED@@QEAA@XZ @ 0x1C0164400 (--1ECLIPOBJTMPIFNEEDED@@QEAA@XZ.c)
+ *     ?vSetup@ECLIPOBJTMPIFNEEDED@@QEAAXHPEAVREGION@@AEAVERECTL@@H@Z @ 0x1C01644D4 (-vSetup@ECLIPOBJTMPIFNEEDED@@QEAAXHPEAVREGION@@AEAVERECTL@@H@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?bConcurrent@@YAHPEAU_SPRITESTATE@@@Z @ 0x1C027FA90 (-bConcurrent@@YAHPEAU_SPRITESTATE@@@Z.c)
+ *     OffCopyBits @ 0x1C02C84D8 (OffCopyBits.c)
  */
 
 void __fastcall vSpReadFromScreen(struct _SPRITESTATE *a1, struct _POINTL *a2, struct _SURFOBJ *a3, struct _RECTL *a4)
@@ -30,58 +27,52 @@ void __fastcall vSpReadFromScreen(struct _SPRITESTATE *a1, struct _POINTL *a2, s
   int v10; // eax
   int hsurf; // eax
   __int64 v12; // rsi
-  struct _XLATEOBJ *v13; // r12
-  __int64 v14; // rbx
-  struct Gre::Base::SESSION_GLOBALS *v15; // r13
-  __int64 v16; // rdi
-  HSURF v17; // rdx
-  int (*v18)(struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *); // rbx
+  POINTL *v13; // r12
+  __int64 v14; // r15
+  __int64 v15; // rdx
+  __int64 v16; // rbx
+  __int64 v17; // rdi
+  __int64 v18; // rdx
+  BOOL (__stdcall *v19)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *); // rbx
   HDEV hdev; // rax
-  struct _XLATEOBJ *v20; // [rsp+60h] [rbp-A0h] BYREF
-  PVOID *p_pvScan0; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v22; // [rsp+70h] [rbp-90h] BYREF
-  struct _CLIPOBJ *v23; // [rsp+78h] [rbp-88h]
-  struct _POINTL *v24; // [rsp+80h] [rbp-80h]
-  __int64 v25; // [rsp+88h] [rbp-78h] BYREF
-  struct _RECTL *v26; // [rsp+90h] [rbp-70h]
-  struct _POINTL *v27; // [rsp+98h] [rbp-68h]
-  _BYTE v28[32]; // [rsp+A0h] [rbp-60h] BYREF
-  __int64 v29; // [rsp+C0h] [rbp-40h]
-  _BYTE v30[4]; // [rsp+D0h] [rbp-30h] BYREF
-  _BYTE v31[52]; // [rsp+D4h] [rbp-2Ch] BYREF
-  __int64 v32; // [rsp+108h] [rbp+8h]
-  __int64 v33; // [rsp+120h] [rbp+20h]
-  int v34; // [rsp+128h] [rbp+28h]
-  int v35; // [rsp+150h] [rbp+50h]
-  __int64 v36; // [rsp+160h] [rbp+60h]
-  int v37; // [rsp+168h] [rbp+68h]
+  __int64 v21; // [rsp+60h] [rbp-A0h] BYREF
+  struct _CLIPOBJ *v22; // [rsp+68h] [rbp-98h]
+  PVOID *p_pvScan0; // [rsp+70h] [rbp-90h]
+  __int64 v24; // [rsp+78h] [rbp-88h]
+  int v25[2]; // [rsp+80h] [rbp-80h]
+  _BYTE v26[32]; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v27; // [rsp+A8h] [rbp-58h]
+  REGION *v28[11]; // [rsp+B0h] [rbp-50h] BYREF
+  int v29; // [rsp+108h] [rbp+8h]
+  int v30; // [rsp+130h] [rbp+30h]
+  __int64 v31; // [rsp+140h] [rbp+40h]
+  int v32; // [rsp+148h] [rbp+48h]
 
   v4 = (struct REGION *)*((_QWORD *)a1 + 129);
-  v26 = a4;
-  v27 = a2;
-  v33 = 0LL;
-  v34 = 0;
-  v35 = 1;
-  v36 = 0LL;
-  v32 = 0LL;
-  v37 = 0;
-  v23 = 0LL;
+  *(_QWORD *)v25 = a2;
+  v28[10] = 0LL;
+  v29 = 0;
+  v31 = 0LL;
+  v30 = 1;
+  v28[7] = 0LL;
+  v32 = 0;
+  v22 = 0LL;
   if ( v4 )
   {
     v8 = bConcurrent(a1);
-    ECLIPOBJTMPIFNEEDED::vSetup((ECLIPOBJTMPIFNEEDED *)v30, v8, v4, (struct ERECTL *)a4, 0);
-    if ( ERECTL::bEmpty((ERECTL *)v31) )
-      goto LABEL_67;
-    v23 = (struct _CLIPOBJ *)v30;
+    ECLIPOBJTMPIFNEEDED::vSetup((ECLIPOBJTMPIFNEEDED *)v28, v8, v4, (struct ERECTL *)a4, 0);
+    if ( ERECTL::bEmpty((ERECTL *)((char *)v28 + 4)) )
+      goto LABEL_65;
+    v22 = (struct _CLIPOBJ *)v28;
   }
   v9 = *((_QWORD *)a1 + 4);
-  v22 = 0LL;
+  v24 = 0LL;
   if ( v9 )
   {
     v10 = *(_DWORD *)(v9 + 88);
     if ( (v10 & 0x80004000) != 0 && (v10 & 0x200) == 0 )
     {
-      v22 = v9 - 24;
+      v24 = v9 - 24;
       GreLockDisplayDevice(*(_QWORD *)(v9 - 24 + 48));
     }
   }
@@ -96,64 +87,56 @@ void __fastcall vSpReadFromScreen(struct _SPRITESTATE *a1, struct _POINTL *a2, s
     }
   }
   v12 = *((_QWORD *)a1 + 4);
-  v13 = 0LL;
-  v20 = 0LL;
-  v25 = 0LL;
-  v24 = (struct _POINTL *)&v25;
-  if ( ((v12 - 24) & -(__int64)(v12 != 0)) == 0 )
-    goto LABEL_13;
-  v14 = *(_QWORD *)(((v12 - 24) & -(__int64)(v12 != 0)) + 0x30);
-  v15 = Gre::Base::Globals((Gre::Base *)(v12 - 24));
-  if ( (*(_DWORD *)(((v12 - 24) & -(__int64)(v12 != 0)) + 0x70) & 0x80000) != 0 )
+  v13 = &gptlZero;
+  v21 = 0LL;
+  v14 = 0LL;
+  v15 = (v12 - 24) & ((unsigned __int128)-(__int128)(unsigned __int64)v12 >> 64);
+  if ( !v15 )
+    goto LABEL_61;
+  if ( (*(_DWORD *)(((v12 - 24) & ((unsigned __int128)-(__int128)(unsigned __int64)v12 >> 64)) + 0x70) & 0x80000) == 0
+    || (v16 = *(_QWORD *)(((v12 - 24) & ((unsigned __int128)-(__int128)(unsigned __int64)v12 >> 64)) + 0x30),
+        v17 = *(_QWORD *)(v16 + 24),
+        v16 == v17) )
   {
-    v16 = *(_QWORD *)(v14 + 24);
-    if ( v14 != v16 )
+    if ( ((__int64)a3[1].hsurf & 0x400) == 0 && *(_QWORD *)(v12 + 24) )
     {
-      v17 = *(HSURF *)(((v12 - 24) & -(__int64)(v12 != 0)) + 0x90);
-      v24 = (struct _POINTL *)(v14 + 2560);
-      SURFREF::SURFREF((SURFREF *)v28, v17);
-      if ( !v29 )
+      if ( *(_WORD *)(v12 + 76) != 1 )
       {
-        SURFREF::~SURFREF((SURFREF *)v28);
-LABEL_13:
-        EXLATEOBJ::vAltUnlock((Gre::Base **)&v20);
-LABEL_14:
-        NEEDDDILOCK::~NEEDDDILOCK((NEEDDDILOCK *)&p_pvScan0);
-        NEEDDDILOCK::~NEEDDDILOCK((NEEDDDILOCK *)&v22);
-        goto LABEL_67;
+LABEL_40:
+        if ( (*(_DWORD *)(v12 + 88) & 0x400) != 0 )
+        {
+          hdev = *(HDEV *)(v12 + 24);
+LABEL_58:
+          v19 = (BOOL (__stdcall *)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))*((_QWORD *)hdev + 165);
+          goto LABEL_60;
+        }
+        goto LABEL_59;
       }
-      if ( !(unsigned int)EXLATEOBJ::bInitXlateObj(
-                            (Gre::Base *)&v20,
-                            0LL,
-                            0,
-                            *(_QWORD *)(v16 + 1776),
-                            *(_QWORD *)(v14 + 1776),
-                            *((_QWORD *)v15 + 750),
-                            *((_QWORD *)v15 + 750),
-                            0,
-                            0,
-                            0,
-                            0x2000) )
+      if ( !bAllowShareAccess((struct _SURFOBJ *)v12)
+        || !W32GetThreadWin32Thread((__int64)KeGetCurrentThread())
+        || !*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280)
+        || !*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
+        && !*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108)
+        || (*(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 20LL) & 0x400) == 0 )
       {
-        if ( v29 )
-          DEC_SHARE_REF_CNT(v29);
-        UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v28);
-        EXLATEOBJ::~EXLATEOBJ((Gre::Base **)&v20);
-        goto LABEL_14;
+        if ( *(_WORD *)(v12 + 76) == 1
+          && bAllowShareAccess((struct _SURFOBJ *)v12)
+          && W32GetThreadWin32Thread((__int64)KeGetCurrentThread())
+          && *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280)
+          && (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
+           || *(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108)) )
+        {
+          goto LABEL_59;
+        }
+        goto LABEL_40;
       }
-      v13 = v20;
-      v12 = v29 + 24;
-      if ( !v29 )
-        v12 = 0LL;
-      v18 = *(int (**)(struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *))(v16 + 2816);
-      if ( v29 )
-        DEC_SHARE_REF_CNT(v29);
-      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v28);
-      goto LABEL_63;
+LABEL_49:
+      v19 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280)
+                                                                                                 + 80LL);
+LABEL_60:
+      OffCopyBits((int)v19, v25[0], (int)a3, (int)v13, v12, v22, v14, (__int64)a4, (__int64)a4);
+      goto LABEL_61;
     }
-  }
-  if ( _bittest((const signed __int32 *)&a3[1].hsurf, 0xAu) || !*(_QWORD *)(v12 + 24) )
-  {
     if ( a3->iType == 1 )
     {
       if ( bAllowShareAccess(a3)
@@ -161,11 +144,9 @@ LABEL_14:
         && *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280)
         && (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
          || *(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108))
-        && _bittest(
-             (const signed __int32 *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 20LL),
-             0xAu) )
+        && (*(_DWORD *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 20LL) & 0x400) != 0 )
       {
-        goto LABEL_52;
+        goto LABEL_49;
       }
       if ( a3->iType == 1
         && bAllowShareAccess(a3)
@@ -174,59 +155,57 @@ LABEL_14:
         && (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
          || *(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108)) )
       {
-        goto LABEL_62;
+        goto LABEL_59;
       }
     }
-    if ( _bittest((const signed __int32 *)&a3[1].hsurf, 0xAu) )
+    if ( ((__int64)a3[1].hsurf & 0x400) != 0 )
     {
       hdev = a3->hdev;
-      goto LABEL_61;
+      goto LABEL_58;
     }
-LABEL_62:
-    v18 = EngCopyBits;
-    goto LABEL_63;
+LABEL_59:
+    v19 = EngCopyBits;
+    goto LABEL_60;
   }
-  if ( *(_WORD *)(v12 + 76) != 1 )
+  LODWORD(v13) = v16 + 2584;
+  SURFREF::SURFREF(
+    (SURFREF *)v26,
+    *(HSURF *)(((v12 - 24) & ((unsigned __int128)-(__int128)(unsigned __int64)v12 >> 64)) + 0x90));
+  v12 = 0LL;
+  if ( v27 )
   {
-LABEL_43:
-    if ( _bittest((const signed __int32 *)(v12 + 88), 0xAu) )
+    if ( (unsigned int)EXLATEOBJ::bInitXlateObj(
+                         &v21,
+                         0LL,
+                         0,
+                         *(_QWORD *)(v17 + 1808),
+                         *(_QWORD *)(v16 + 1808),
+                         (__int64)ppalDefault,
+                         (__int64)ppalDefault,
+                         0,
+                         0,
+                         0,
+                         0x2000) )
     {
-      hdev = *(HDEV *)(v12 + 24);
+      v14 = v21;
+      if ( v27 )
+        v12 = v27 + 24;
+      v19 = *(BOOL (__stdcall **)(SURFOBJ *, SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *))(v17 + 2840);
+      if ( v27 )
+        DEC_SHARE_REF_CNT(v27, v18);
+      UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v26);
+      goto LABEL_60;
+    }
+    if ( v27 )
+      DEC_SHARE_REF_CNT(v27, v18);
+  }
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v26);
 LABEL_61:
-      v18 = (int (*)(struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *))*((_QWORD *)hdev + 164);
-      goto LABEL_63;
-    }
-    goto LABEL_62;
-  }
-  if ( !bAllowShareAccess((struct _SURFOBJ *)v12)
-    || !W32GetThreadWin32Thread((__int64)KeGetCurrentThread())
-    || !*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280)
-    || !*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
-    && !*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108)
-    || !_bittest(
-          (const signed __int32 *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 20LL),
-          0xAu) )
-  {
-    if ( *(_WORD *)(v12 + 76) == 1
-      && bAllowShareAccess((struct _SURFOBJ *)v12)
-      && W32GetThreadWin32Thread((__int64)KeGetCurrentThread())
-      && *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280)
-      && (*(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 104)
-       || *(_DWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 108)) )
-    {
-      goto LABEL_62;
-    }
-    goto LABEL_43;
-  }
-LABEL_52:
-  v18 = *(int (**)(struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _POINTL *))(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 280) + 80LL);
-LABEL_63:
-  OffCopyBitsInternal(v18, v27, a3, v24, (struct _SURFOBJ *)v12, v23, v13, v26, (struct _POINTL *)v26);
-  EXLATEOBJ::vAltUnlock((Gre::Base **)&v20);
+  EXLATEOBJ::vAltUnlock((EXLATEOBJ *)&v21, v15);
   if ( p_pvScan0 )
     GreUnlockDisplayDevice(p_pvScan0[6]);
-  if ( v22 )
-    GreUnlockDisplayDevice(*(_QWORD *)(v22 + 48));
-LABEL_67:
-  ECLIPOBJTMPIFNEEDED::~ECLIPOBJTMPIFNEEDED((ECLIPOBJTMPIFNEEDED *)v30);
+  if ( v24 )
+    GreUnlockDisplayDevice(*(_QWORD *)(v24 + 48));
+LABEL_65:
+  ECLIPOBJTMPIFNEEDED::~ECLIPOBJTMPIFNEEDED(v28);
 }

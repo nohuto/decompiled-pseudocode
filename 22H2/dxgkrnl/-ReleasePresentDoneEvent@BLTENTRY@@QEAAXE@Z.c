@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleasePresentDoneEvent@BLTENTRY@@QEAAXE@Z @ 0x1C03D3680
+ * XREFs of ?ReleasePresentDoneEvent@BLTENTRY@@QEAAXE@Z @ 0x1C02FF670
  * Callers:
- *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C01D3F70 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
- *     ?Cleanup@BLTENTRY@@QEAAXE@Z @ 0x1C03D0C34 (-Cleanup@BLTENTRY@@QEAAXE@Z.c)
- *     ?DiscardPendingPresent@BLTQUEUE@@AEAAXXZ @ 0x1C03D1940 (-DiscardPendingPresent@BLTQUEUE@@AEAAXXZ.c)
+ *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C015D654 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
+ *     ?Cleanup@BLTENTRY@@QEAAXE@Z @ 0x1C02FCF98 (-Cleanup@BLTENTRY@@QEAAXE@Z.c)
+ *     ?DiscardPendingPresent@BLTQUEUE@@AEAAXXZ @ 0x1C02FDAF0 (-DiscardPendingPresent@BLTQUEUE@@AEAAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -16,8 +16,11 @@ void __fastcall BLTENTRY::ReleasePresentDoneEvent(BLTENTRY *this, char a2)
   if ( v3 )
   {
     if ( a2 )
+    {
       KeSetEvent(v3, 0, 0);
-    ObfDereferenceObject(*((PVOID *)this + 6));
+      v3 = (struct _KEVENT *)*((_QWORD *)this + 6);
+    }
+    ObfDereferenceObject(v3);
     *((_QWORD *)this + 6) = 0LL;
   }
 }

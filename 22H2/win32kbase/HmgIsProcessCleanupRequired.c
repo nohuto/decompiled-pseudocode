@@ -1,9 +1,9 @@
 /*
- * XREFs of HmgIsProcessCleanupRequired @ 0x1C00A4C60
+ * XREFs of HmgIsProcessCleanupRequired @ 0x1C00C9D48
  * Callers:
- *     ?MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z @ 0x1C00350B8 (-MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z.c)
- *     ?vGarbageCollectObjects@@YAXXZ @ 0x1C0035EF8 (-vGarbageCollectObjects@@YAXXZ.c)
- *     HmgIsProcessCleanupRequiredByW32Pid @ 0x1C00A4C10 (HmgIsProcessCleanupRequiredByW32Pid.c)
+ *     HmgIsProcessCleanupRequiredByW32Pid @ 0x1C00C9D64 (HmgIsProcessCleanupRequiredByW32Pid.c)
+ *     ?vGarbageCollectObjects@@YAXXZ @ 0x1C00CC098 (-vGarbageCollectObjects@@YAXXZ.c)
+ *     ?MultiUserGreCleanupHmgOwnRemoveAllLocks@@YAXE@Z @ 0x1C013F84C (-MultiUserGreCleanupHmgOwnRemoveAllLocks@@YAXE@Z.c)
  * Callees:
  *     <none>
  */

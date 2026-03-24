@@ -1,30 +1,27 @@
 /*
- * XREFs of ClientLoadLocalT1Fonts @ 0x1C00EF424
+ * XREFs of ClientLoadLocalT1Fonts @ 0x1C00E66B8
  * Callers:
- *     xxxLW_LoadFonts @ 0x1C00EE740 (xxxLW_LoadFonts.c)
+ *     xxxLW_LoadFonts @ 0x1C00E6470 (xxxLW_LoadFonts.c)
  * Callees:
- *     ?GetCount@AtomicExecutionCheck@@SAIXZ @ 0x1C00EF5D4 (-GetCount@AtomicExecutionCheck@@SAIXZ.c)
+ *     <none>
  */
 
-__int64 ClientLoadLocalT1Fonts()
+__int64 __fastcall ClientLoadLocalT1Fonts(__int64 a1)
 {
-  unsigned int Count; // eax
-  __int64 v1; // rcx
-  int v3; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v4; // [rsp+68h] [rbp+10h] BYREF
+  int v2; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v3; // [rsp+48h] [rbp+10h] BYREF
 
-  v4 = 0LL;
-  v3 = 0;
-  Count = AtomicExecutionCheck::GetCount();
-  if ( Count )
+  v3 = 0LL;
+  v2 = 0;
+  if ( gdwInAtomicOperation )
   {
+    a1 = gdwExtraInstrumentations;
     if ( (gdwExtraInstrumentations & 1) != 0 )
-      KeBugCheckEx(0x160u, Count, 0LL, 0LL, 0LL);
-    DbgkWerCaptureLiveKernelDump(L"NTUSER", 400LL, 37LL, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
+      KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
   }
-  UserSessionSwitchLeaveCrit(v1);
+  UserSessionSwitchLeaveCrit(a1);
   EtwTraceBeginCallback(77LL);
-  KeUserModeCallback(77LL, 0LL, 0LL, &v4, &v3);
+  KeUserModeCallback(77LL, 0LL, 0LL, &v3, &v2);
   EtwTraceEndCallback(77LL);
-  return EnterCrit(1LL, 0LL);
+  return EnterCrit(0LL, 1LL);
 }

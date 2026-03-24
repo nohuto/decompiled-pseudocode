@@ -1,7 +1,7 @@
 /*
- * XREFs of USBDInternal_BuildAndSendQueryInterfaceSynchronously @ 0x1C0040290
+ * XREFs of USBDInternal_BuildAndSendQueryInterfaceSynchronously @ 0x1C003F6B8
  * Callers:
- *     USBD_CreateHandle @ 0x1C0040A4C (USBD_CreateHandle.c)
+ *     USBD_CreateHandle @ 0x1C003FE80 (USBD_CreateHandle.c)
  * Callees:
  *     <none>
  */

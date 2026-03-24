@@ -1,187 +1,160 @@
 /*
- * XREFs of ExAcquireResourceSharedLite @ 0x14023D660
+ * XREFs of ExAcquireResourceSharedLite @ 0x1402CC670
  * Callers:
- *     MiLookupDataTableEntry @ 0x1402136C0 (MiLookupDataTableEntry.c)
- *     SeTokenGetNoChildProcessRestricted @ 0x1402265FC (SeTokenGetNoChildProcessRestricted.c)
- *     SepCanTokenMatchAllPackageSid @ 0x14022C7BC (SepCanTokenMatchAllPackageSid.c)
- *     SeSecurityAttributePresent @ 0x140297AC0 (SeSecurityAttributePresent.c)
- *     SeAccessCheckByType @ 0x1402B3A90 (SeAccessCheckByType.c)
- *     SepTrustLevelCheck @ 0x1402B5B78 (SepTrustLevelCheck.c)
- *     SepFilterCheck @ 0x1402B5C70 (SepFilterCheck.c)
- *     LdrpKrnGetDataTableEntry @ 0x1402F7214 (LdrpKrnGetDataTableEntry.c)
- *     SepAcquireOrderedReadLocks @ 0x1403566CC (SepAcquireOrderedReadLocks.c)
- *     IopCreateSecurityCheck @ 0x14035A14C (IopCreateSecurityCheck.c)
- *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x14035B7A4 (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
- *     SeTokenGetRedirectionTrustPolicy @ 0x140364E6C (SeTokenGetRedirectionTrustPolicy.c)
- *     MiDeleteBootRange @ 0x14038E378 (MiDeleteBootRange.c)
- *     MmVerifyCallbackFunctionCheckFlags @ 0x14039FC2C (MmVerifyCallbackFunctionCheckFlags.c)
- *     FsRtlpDedupChangeEventsControlCallbackV2 @ 0x14053EF80 (FsRtlpDedupChangeEventsControlCallbackV2.c)
- *     FsRtlpTieringHeatEventsControlCallbackV2 @ 0x14053F240 (FsRtlpTieringHeatEventsControlCallbackV2.c)
- *     IoFillTriageDumpBuffer @ 0x14054FF70 (IoFillTriageDumpBuffer.c)
- *     KeCapturePersistentThreadState @ 0x140554360 (KeCapturePersistentThreadState.c)
- *     SepExamineGlobalSaclEx @ 0x1405B8F4C (SepExamineGlobalSaclEx.c)
- *     SeTokenIsNoChildProcessRestrictionEnforced @ 0x1405B9288 (SeTokenIsNoChildProcessRestrictionEnforced.c)
- *     VfDriverRemoveAllDifVerification @ 0x1405CEF30 (VfDriverRemoveAllDifVerification.c)
- *     DifExAcquireResourceSharedLiteWrapper @ 0x1405D7260 (DifExAcquireResourceSharedLiteWrapper.c)
- *     MmLockRegistryRecoverySections @ 0x14061A8F8 (MmLockRegistryRecoverySections.c)
- *     PipGenerateContainerID @ 0x1406850A8 (PipGenerateContainerID.c)
- *     IoOpenDeviceRegistryKey @ 0x140687CA0 (IoOpenDeviceRegistryKey.c)
- *     IopGetSetSecurityObject @ 0x14069C1D0 (IopGetSetSecurityObject.c)
- *     IopSetDeviceSecurityDescriptor @ 0x14069E6A4 (IopSetDeviceSecurityDescriptor.c)
- *     PspQueryJobHierarchyAccountingInformation @ 0x1406A2AC0 (PspQueryJobHierarchyAccountingInformation.c)
- *     PspChargeJobWakeCounter @ 0x1406A3A44 (PspChargeJobWakeCounter.c)
- *     PspLockJobShared @ 0x1406A3C40 (PspLockJobShared.c)
- *     PspLockRootJobShared @ 0x1406A3C6C (PspLockRootJobShared.c)
- *     MiLogPinDriverAddress @ 0x1406ACDB8 (MiLogPinDriverAddress.c)
- *     MmIsDriverVerifyingByAddress @ 0x1406AD520 (MmIsDriverVerifyingByAddress.c)
- *     SeQuerySecurityAttributesToken @ 0x1406B7A00 (SeQuerySecurityAttributesToken.c)
- *     SeIsTokenAssignableToProcess @ 0x1406BA488 (SeIsTokenAssignableToProcess.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1406C10C0 (SepAccessCheckAndAuditAlarm.c)
- *     SeLockSubjectContext @ 0x1406C3220 (SeLockSubjectContext.c)
- *     SepValidOwnerSubjectContext @ 0x1406C79E4 (SepValidOwnerSubjectContext.c)
- *     PiGetRelatedDevice @ 0x1406C9298 (PiGetRelatedDevice.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1406C9A08 (PnpAcquireDependencyRelationsLock.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
- *     PiDmGetObject @ 0x1406D81D0 (PiDmGetObject.c)
- *     ObpCreateHandle @ 0x1406E45C0 (ObpCreateHandle.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
- *     IopMountVolume @ 0x140701598 (IopMountVolume.c)
- *     SeQueryUserSidToken @ 0x140714EB0 (SeQueryUserSidToken.c)
- *     SeQueryInformationToken @ 0x140719710 (SeQueryInformationToken.c)
- *     SeQuerySessionIdToken @ 0x14071A0D0 (SeQuerySessionIdToken.c)
- *     EtwpGetSidExtendedHeaderItem @ 0x14071D550 (EtwpGetSidExtendedHeaderItem.c)
- *     NtQuerySecurityAttributesToken @ 0x140726550 (NtQuerySecurityAttributesToken.c)
- *     SepDuplicateToken @ 0x140729BF0 (SepDuplicateToken.c)
- *     RtlpNewSecurityObject @ 0x14072A470 (RtlpNewSecurityObject.c)
- *     RtlpSetSecurityObject @ 0x14072BDE0 (RtlpSetSecurityObject.c)
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
- *     NtQueryInformationToken @ 0x140730A90 (NtQueryInformationToken.c)
- *     NtSetInformationThread @ 0x140733AB0 (NtSetInformationThread.c)
- *     NtDuplicateToken @ 0x1407358C0 (NtDuplicateToken.c)
- *     AlpcpExposeTokenAttribute @ 0x14073C740 (AlpcpExposeTokenAttribute.c)
- *     PspInsertThread @ 0x14073F3AC (PspInsertThread.c)
- *     SeQuerySessionIdTokenEx @ 0x1407422E0 (SeQuerySessionIdTokenEx.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x14077EDF0 (ExpGetSystemFirmwareTableInformation.c)
- *     PiPnpRtlObjectEventWorker @ 0x1407889E0 (PiPnpRtlObjectEventWorker.c)
- *     PiPnpRtlEndOperation @ 0x140788CDC (PiPnpRtlEndOperation.c)
- *     PiPnpRtlCacheObjectBaseKey @ 0x140789868 (PiPnpRtlCacheObjectBaseKey.c)
- *     PiPnpRtlGetCurrentOperation @ 0x140789970 (PiPnpRtlGetCurrentOperation.c)
- *     PiQueryAndAllocateBootResources @ 0x14078FF34 (PiQueryAndAllocateBootResources.c)
- *     PiQueryResourceRequirements @ 0x140790854 (PiQueryResourceRequirements.c)
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
- *     PiUpdateDevicePanel @ 0x140799150 (PiUpdateDevicePanel.c)
- *     PipProcessStartPhase3 @ 0x14079BED4 (PipProcessStartPhase3.c)
- *     WmipGetSMBiosTableData @ 0x1407ABD0C (WmipGetSMBiosTableData.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x1407B4A78 (FsRtlAcquireFileForCcFlushEx.c)
- *     PiCreateDeviceInstanceKey @ 0x1407D7B78 (PiCreateDeviceInstanceKey.c)
- *     SeQueryServerSiloToken @ 0x1407DEF60 (SeQueryServerSiloToken.c)
- *     PspSetProcessPriorityClass @ 0x1407E3DE0 (PspSetProcessPriorityClass.c)
- *     NtSetInformationToken @ 0x1407EFA00 (NtSetInformationToken.c)
- *     SepFilterToken @ 0x1407F2180 (SepFilterToken.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407FA618 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDmEnumObjectsWithCallback @ 0x1407FBAF0 (PiDmEnumObjectsWithCallback.c)
- *     IoCreateDriver @ 0x140812780 (IoCreateDriver.c)
- *     IopWriteAllocatedResourcesToRegistry @ 0x1408186D4 (IopWriteAllocatedResourcesToRegistry.c)
- *     MmEnumerateSystemImages @ 0x140828110 (MmEnumerateSystemImages.c)
- *     SepGetLogonSessionAccountInfo @ 0x14083F23C (SepGetLogonSessionAccountInfo.c)
- *     FsRtlCopyWrite @ 0x1408509C0 (FsRtlCopyWrite.c)
- *     PnpDriverLoadingFailed @ 0x140862E64 (PnpDriverLoadingFailed.c)
- *     IopReleaseDeviceResources @ 0x140869C4C (IopReleaseDeviceResources.c)
- *     PipMakeGloballyUniqueId @ 0x140870EF0 (PipMakeGloballyUniqueId.c)
- *     IopInvalidateVolumesForDevice @ 0x140882338 (IopInvalidateVolumesForDevice.c)
- *     PspValidateJobAffinityState @ 0x140884DF8 (PspValidateJobAffinityState.c)
- *     RtlPcToFilePath @ 0x1408A6570 (RtlPcToFilePath.c)
- *     SepRmGlobalSaclFind @ 0x1408A6A92 (SepRmGlobalSaclFind.c)
- *     SeExamineGlobalSacl @ 0x1408A6BEA (SeExamineGlobalSacl.c)
- *     FsRtlCopyRead @ 0x14093CE10 (FsRtlCopyRead.c)
- *     FsRtlMdlReadDev @ 0x14093D400 (FsRtlMdlReadDev.c)
- *     FsRtlPrepareMdlWriteDev @ 0x14093D660 (FsRtlPrepareMdlWriteDev.c)
- *     IopInitializeBootLogging @ 0x140944EF8 (IopInitializeBootLogging.c)
- *     PnpShutdownDevices @ 0x1409522AC (PnpShutdownDevices.c)
- *     PiPnpRtlEnsureObjectCached @ 0x14095A234 (PiPnpRtlEnsureObjectCached.c)
- *     PiDmGetObjectCount @ 0x14095ADC0 (PiDmGetObjectCount.c)
- *     PsSwapProcessWorkingSet @ 0x1409AE75C (PsSwapProcessWorkingSet.c)
- *     PspSetProcessAffinitySafe @ 0x1409AF970 (PspSetProcessAffinitySafe.c)
- *     SeSetSessionIdTokenWithLinked @ 0x1409C9710 (SeSetSessionIdTokenWithLinked.c)
- *     SepIdAssignableAsGroup @ 0x1409CDD48 (SepIdAssignableAsGroup.c)
- *     SeGetTokenControlInformation @ 0x1409CF2A0 (SeGetTokenControlInformation.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x1409D24D4 (SeMaximumAuditMaskFromGlobalSacl.c)
- *     WmipFindSMBiosStructure @ 0x1409DF7BC (WmipFindSMBiosStructure.c)
- *     NtMapCMFModule @ 0x140A032C0 (NtMapCMFModule.c)
- *     MmGetSectionRange @ 0x140A306E8 (MmGetSectionRange.c)
- *     VfDriverApplyDifVerification @ 0x140ACB2D8 (VfDriverApplyDifVerification.c)
- *     VfDriverEnableVerifier @ 0x140ACB498 (VfDriverEnableVerifier.c)
- *     VfDriverEnableVerifierForAll @ 0x140ACB618 (VfDriverEnableVerifierForAll.c)
- *     VfDriverRemoveDifVerification @ 0x140ACB778 (VfDriverRemoveDifVerification.c)
- *     CmpLockRegistry @ 0x140AF64A0 (CmpLockRegistry.c)
- *     VslRegisterBootDrivers @ 0x140B73A00 (VslRegisterBootDrivers.c)
- *     ExpPrmInitialization @ 0x140B7580C (ExpPrmInitialization.c)
+ *     IopCreateSecurityCheck @ 0x140201880 (IopCreateSecurityCheck.c)
+ *     SepCanTokenMatchAllPackageSid @ 0x14024DF44 (SepCanTokenMatchAllPackageSid.c)
+ *     SeTokenGetNoChildProcessRestricted @ 0x140251258 (SeTokenGetNoChildProcessRestricted.c)
+ *     SepFilterCheck @ 0x1402CF460 (SepFilterCheck.c)
+ *     LdrpKrnGetDataTableEntry @ 0x1403018A0 (LdrpKrnGetDataTableEntry.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x140345AC0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepTrustLevelCheck @ 0x140347320 (SepTrustLevelCheck.c)
+ *     MiLookupDataTableEntry @ 0x140358CCC (MiLookupDataTableEntry.c)
+ *     SepAcquireOrderedReadLocks @ 0x14035F408 (SepAcquireOrderedReadLocks.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x1403AF0C0 (MmVerifyCallbackFunctionCheckFlags.c)
+ *     MiDeleteBootRange @ 0x1403B4B18 (MiDeleteBootRange.c)
+ *     McGenControlCallbackV2 @ 0x1403C5D70 (McGenControlCallbackV2.c)
+ *     SeTokenGetRedirectionTrustPolicy @ 0x1403F8600 (SeTokenGetRedirectionTrustPolicy.c)
+ *     IoFillTriageDumpBuffer @ 0x140501A40 (IoFillTriageDumpBuffer.c)
+ *     KeCapturePersistentThreadState @ 0x140504CC0 (KeCapturePersistentThreadState.c)
+ *     SepExamineGlobalSaclEx @ 0x140596E68 (SepExamineGlobalSaclEx.c)
+ *     SeTokenIsNoChildProcessRestrictionEnforced @ 0x140597198 (SeTokenIsNoChildProcessRestrictionEnforced.c)
+ *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x140597720 (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     AlpcpExposeTokenAttribute @ 0x1405E8850 (AlpcpExposeTokenAttribute.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x1405EC7E0 (CmpCheckOpenAccessOnKeyBody.c)
+ *     CmEnumerateValueKey @ 0x1405F4EF0 (CmEnumerateValueKey.c)
+ *     CmQueryValueKey @ 0x1405F7700 (CmQueryValueKey.c)
+ *     SeQuerySecurityAttributesToken @ 0x140600F90 (SeQuerySecurityAttributesToken.c)
+ *     NtQuerySecurityAttributesToken @ 0x1406011C0 (NtQuerySecurityAttributesToken.c)
+ *     SepValidLabelSubjectContext @ 0x140607E9C (SepValidLabelSubjectContext.c)
+ *     PspQueryJobHierarchyAccountingInformation @ 0x140617BCC (PspQueryJobHierarchyAccountingInformation.c)
+ *     PspChargeJobWakeCounter @ 0x140618278 (PspChargeJobWakeCounter.c)
+ *     PspLockJobShared @ 0x140618BFC (PspLockJobShared.c)
+ *     PspLockRootJobShared @ 0x140618CD4 (PspLockRootJobShared.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406265D0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     SeLockSubjectContext @ 0x140643550 (SeLockSubjectContext.c)
+ *     CmpLockRegistry @ 0x140643630 (CmpLockRegistry.c)
+ *     ObpCreateHandle @ 0x140643C70 (ObpCreateHandle.c)
+ *     NtSetInformationThread @ 0x14064A5A0 (NtSetInformationThread.c)
+ *     RtlpNewSecurityObject @ 0x14064CD10 (RtlpNewSecurityObject.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
+ *     SepDuplicateToken @ 0x140651490 (SepDuplicateToken.c)
+ *     NtDuplicateToken @ 0x1406527E0 (NtDuplicateToken.c)
+ *     SeQueryUserSidToken @ 0x1406544B4 (SeQueryUserSidToken.c)
+ *     IopMountVolume @ 0x14065E0D0 (IopMountVolume.c)
+ *     WmipGetSMBiosTableData @ 0x14065FBBC (WmipGetSMBiosTableData.c)
+ *     SeQuerySessionIdToken @ 0x1406773C0 (SeQuerySessionIdToken.c)
+ *     SepValidOwnerSubjectContext @ 0x1406816CC (SepValidOwnerSubjectContext.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x14069061C (ExpGetSystemFirmwareTableInformation.c)
+ *     PiGetRelatedDevice @ 0x140691104 (PiGetRelatedDevice.c)
+ *     SeQueryServerSiloToken @ 0x140693660 (SeQueryServerSiloToken.c)
+ *     PspSetProcessPriorityClass @ 0x140696F40 (PspSetProcessPriorityClass.c)
+ *     PspValidateJobAffinityState @ 0x1406998FC (PspValidateJobAffinityState.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1406A7660 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiPnpRtlEndOperation @ 0x1406ACCB8 (PiPnpRtlEndOperation.c)
+ *     SeQuerySessionIdTokenEx @ 0x1406AD220 (SeQuerySessionIdTokenEx.c)
+ *     PiDmEnumObjectsWithCallback @ 0x1406ADEC8 (PiDmEnumObjectsWithCallback.c)
+ *     PiDmGetObject @ 0x1406AF84C (PiDmGetObject.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x1406B004C (PiPnpRtlCacheObjectBaseKey.c)
+ *     PiPnpRtlGetCurrentOperation @ 0x1406B015C (PiPnpRtlGetCurrentOperation.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406B29FC (PnpAcquireDependencyRelationsLock.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
+ *     PnpGetDevicePropertyData @ 0x1406B2EF8 (PnpGetDevicePropertyData.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x1406BFFC4 (FsRtlAcquireFileForCcFlushEx.c)
+ *     PspInsertThread @ 0x1406C1DE8 (PspInsertThread.c)
+ *     IopGetSetSecurityObject @ 0x1406C8520 (IopGetSetSecurityObject.c)
+ *     SeQueryInformationToken @ 0x1406CF990 (SeQueryInformationToken.c)
+ *     NtQueryInformationToken @ 0x1406D0BB0 (NtQueryInformationToken.c)
+ *     NtSetInformationToken @ 0x1406ED790 (NtSetInformationToken.c)
+ *     SeIsTokenAssignableToProcess @ 0x14070DAF4 (SeIsTokenAssignableToProcess.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
+ *     PiUpdateDevicePanel @ 0x140744734 (PiUpdateDevicePanel.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1407464B0 (PiPnpRtlObjectEventWorker.c)
+ *     PipProcessStartPhase3 @ 0x140747010 (PipProcessStartPhase3.c)
+ *     PiCreateDeviceInstanceKey @ 0x140748FB4 (PiCreateDeviceInstanceKey.c)
+ *     IopReleaseDeviceResources @ 0x14074B5CC (IopReleaseDeviceResources.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x14074EE3C (IopWriteAllocatedResourcesToRegistry.c)
+ *     PiQueryAndAllocateBootResources @ 0x14074FA7C (PiQueryAndAllocateBootResources.c)
+ *     PiQueryResourceRequirements @ 0x140750384 (PiQueryResourceRequirements.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x14076A88C (IopSetDeviceSecurityDescriptor.c)
+ *     PipMakeGloballyUniqueId @ 0x14076BBCC (PipMakeGloballyUniqueId.c)
+ *     PipGenerateContainerID @ 0x14076DBF8 (PipGenerateContainerID.c)
+ *     IopInvalidateVolumesForDevice @ 0x14077B720 (IopInvalidateVolumesForDevice.c)
+ *     MmEnumerateSystemImages @ 0x140792C70 (MmEnumerateSystemImages.c)
+ *     IoCreateDriver @ 0x1407A5330 (IoCreateDriver.c)
+ *     MiLogPinDriverAddress @ 0x1407B6A44 (MiLogPinDriverAddress.c)
+ *     SepGetLogonSessionAccountInfo @ 0x1407B95BC (SepGetLogonSessionAccountInfo.c)
+ *     MmIsDriverVerifyingByAddress @ 0x1407D2AF0 (MmIsDriverVerifyingByAddress.c)
+ *     PnpDriverLoadingFailed @ 0x1407D2B70 (PnpDriverLoadingFailed.c)
+ *     FsRtlCopyRead @ 0x14088A660 (FsRtlCopyRead.c)
+ *     FsRtlCopyWrite @ 0x14088A8E0 (FsRtlCopyWrite.c)
+ *     FsRtlMdlReadDev @ 0x14088B0A0 (FsRtlMdlReadDev.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x14088B300 (FsRtlPrepareMdlWriteDev.c)
+ *     IopInitializeBootLogging @ 0x140891768 (IopInitializeBootLogging.c)
+ *     PnpShutdownDevices @ 0x14089B99C (PnpShutdownDevices.c)
+ *     PnpGetDeviceInstancePropertyData @ 0x1408A0D80 (PnpGetDeviceInstancePropertyData.c)
+ *     PnpGetDeviceInterfacePropertyData @ 0x1408A29B0 (PnpGetDeviceInterfacePropertyData.c)
+ *     PiPnpRtlEnsureObjectCached @ 0x1408A31CC (PiPnpRtlEnsureObjectCached.c)
+ *     PiDmGetObjectCount @ 0x1408A34DC (PiDmGetObjectCount.c)
+ *     KiTraceLogNmiCallback @ 0x1408BB2CC (KiTraceLogNmiCallback.c)
+ *     MmGetSectionRange @ 0x1408C8238 (MmGetSectionRange.c)
+ *     PsSwapProcessWorkingSet @ 0x140907A30 (PsSwapProcessWorkingSet.c)
+ *     PspSetProcessAffinitySafe @ 0x140908614 (PspSetProcessAffinitySafe.c)
+ *     RtlPcToFilePath @ 0x140919250 (RtlPcToFilePath.c)
+ *     SeSetSessionIdTokenWithLinked @ 0x14091C990 (SeSetSessionIdTokenWithLinked.c)
+ *     SepIdAssignableAsGroup @ 0x140921118 (SepIdAssignableAsGroup.c)
+ *     SeGetTokenControlInformation @ 0x140922B34 (SeGetTokenControlInformation.c)
+ *     SeExamineGlobalSacl @ 0x140924A68 (SeExamineGlobalSacl.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x140924B88 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SepRmGlobalSaclFind @ 0x140924C40 (SepRmGlobalSaclFind.c)
+ *     WmipFindSMBiosStructure @ 0x140931848 (WmipFindSMBiosStructure.c)
+ *     NtMapCMFModule @ 0x140959B70 (NtMapCMFModule.c)
+ *     VfDriverEnableVerifier @ 0x1409C8630 (VfDriverEnableVerifier.c)
+ *     VfDriverEnableVerifierForAll @ 0x1409C87C8 (VfDriverEnableVerifierForAll.c)
  * Callees:
- *     ExpAcquireResourceSharedLite @ 0x14023DDA0 (ExpAcquireResourceSharedLite.c)
- *     ExpFastResourceLegacyAcquireShared @ 0x1403C8284 (ExpFastResourceLegacyAcquireShared.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     ExpAcquireResourceSharedLite @ 0x1402CC770 (ExpAcquireResourceSharedLite.c)
+ *     ExAcquireFastResourceShared @ 0x14038EC80 (ExAcquireFastResourceShared.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x14038F46C (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __stdcall ExAcquireResourceSharedLite(PERESOURCE Resource, BOOLEAN Wait)
 {
-  __int64 Flag; // r8
-  unsigned __int8 v5; // r9
-  unsigned __int8 CurrentIrql; // cl
-  struct _KTHREAD *CurrentThread; // rdx
-  unsigned __int8 v9; // cl
-  struct _KTHREAD *v10; // rdx
+  PERESOURCE v2; // rbx
+  __int16 v4; // ax
+  unsigned __int8 CurrentIrql; // dl
+  struct _KTHREAD *CurrentThread; // r8
+  void *OwnerEntryForLegacyShim; // rsi
+  BOOLEAN v9; // bl
 
-  Flag = Resource->Flag;
-  v5 = (Wait == 0) + 1;
-  if ( FeatureFastResource2 )
+  v2 = Resource;
+  LOBYTE(Resource) = (Wait == 0) + 1;
+  if ( (v2->Flag & 0x41) == 1 )
+    KeBugCheckEx(0x1C6u, 0xFuLL, (ULONG_PTR)v2, 0LL, 0LL);
+  v4 = v2->Flag & 1;
+  if ( v4 )
   {
-    if ( (Flag & 0x41) != 1 )
+    CurrentIrql = KeGetCurrentIrql();
+    CurrentThread = KeGetCurrentThread();
+    if ( CurrentIrql > (unsigned __int8)Resource )
+      KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, (unsigned __int8)Resource, 0LL);
+    if ( CurrentIrql >= 2u )
     {
-      if ( (Flag & 1) == 0 )
-        return ExpAcquireResourceSharedLite(Resource, Wait, Flag, v5);
-      CurrentIrql = KeGetCurrentIrql();
-      CurrentThread = KeGetCurrentThread();
-      if ( CurrentIrql > v5 )
-        KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, v5, 0LL);
-      if ( CurrentIrql < 2u || (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) == 0 )
-      {
-        if ( (CurrentThread->ApcState.InProgressFlags & 2) == 0 )
-        {
-          if ( CurrentIrql || (CurrentThread->MiscFlags & 0x400) != 0 || CurrentThread->WaitBlock[3].SpareLong )
-          {
-            Flag = Resource->Flag;
-            goto LABEL_12;
-          }
-LABEL_30:
-          KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
-        }
-LABEL_29:
-        KeBugCheckEx(0x1C6u, 6uLL, 0LL, 0LL, 0LL);
-      }
-LABEL_28:
-      KeBugCheckEx(0x1C6u, 5uLL, 0LL, 0LL, 0LL);
+      LODWORD(Resource) = KeGetPcr()->Prcb.DpcRequestSummary;
+      if ( ((unsigned int)Resource & 0x10001) != 0 )
+        KeBugCheckEx(0x1C6u, 5uLL, 0LL, 0LL, 0LL);
     }
-LABEL_26:
-    KeBugCheckEx(0x1C6u, 0xFuLL, (ULONG_PTR)Resource, 0LL, 0LL);
+    if ( (CurrentThread->ApcState.InProgressFlags & 2) != 0 )
+      KeBugCheckEx(0x1C6u, 6uLL, 0LL, 0LL, 0LL);
+    if ( !CurrentIrql && (CurrentThread->MiscFlags & 0x400) == 0 && !CurrentThread->WaitBlock[3].SpareLong )
+      KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
   }
-  if ( (Flag & 0x41) == 1 )
-    goto LABEL_26;
-  Flag = (unsigned __int16)Flag;
-  if ( (Flag & 1) != 0 )
-  {
-    v9 = KeGetCurrentIrql();
-    v10 = KeGetCurrentThread();
-    if ( v9 > v5 )
-      KeBugCheckEx(0x1C6u, 0LL, v9, v5, 0LL);
-    if ( v9 >= 2u && (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 )
-      goto LABEL_28;
-    if ( (v10->ApcState.InProgressFlags & 2) != 0 )
-      goto LABEL_29;
-    if ( !v9 && (v10->MiscFlags & 0x400) == 0 && !v10->WaitBlock[3].SpareLong )
-      goto LABEL_30;
-  }
-LABEL_12:
-  if ( (Flag & 1) != 0 )
-    return ExpFastResourceLegacyAcquireShared((ULONG_PTR)Resource);
-  return ExpAcquireResourceSharedLite(Resource, Wait, Flag, v5);
+  if ( !v4 )
+    return ExpAcquireResourceSharedLite(v2, Wait);
+  OwnerEntryForLegacyShim = (void *)ExpAllocateOwnerEntryForLegacyShim(Resource);
+  v9 = ExAcquireFastResourceShared((ULONG_PTR)v2, (ULONG_PTR)OwnerEntryForLegacyShim);
+  if ( !v9 )
+    ExFreePoolWithTag(OwnerEntryForLegacyShim, 0);
+  return v9;
 }

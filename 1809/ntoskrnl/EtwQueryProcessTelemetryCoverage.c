@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwQueryProcessTelemetryCoverage @ 0x1408B6690
+ * XREFs of EtwQueryProcessTelemetryCoverage @ 0x1408B6670
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB90 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     EtwpCoverageUserIsAdmin @ 0x1406E26D4 (EtwpCoverageUserIsAdmin.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     EtwpCoverageUserIsAdmin @ 0x1406E26B4 (EtwpCoverageUserIsAdmin.c)
  */
 
 __int64 __fastcall EtwQueryProcessTelemetryCoverage(_KPROCESS *a1, char *a2, unsigned int a3, unsigned int *a4)

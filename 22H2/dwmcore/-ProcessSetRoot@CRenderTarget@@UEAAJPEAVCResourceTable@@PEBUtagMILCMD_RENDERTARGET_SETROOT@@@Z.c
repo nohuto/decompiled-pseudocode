@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ProcessSetRoot@CRenderTarget@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERTARGET_SETROOT@@@Z @ 0x1801E6F40
+ * XREFs of ?ProcessSetRoot@CRenderTarget@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERTARGET_SETROOT@@@Z @ 0x180182D60
  * Callers:
- *     ?ProcessSetRoot@CRemoteAppRenderTarget@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERTARGET_SETROOT@@@Z @ 0x1801EB270 (-ProcessSetRoot@CRemoteAppRenderTarget@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERTARGET_SETR.c)
+ *     <none>
  * Callees:
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x18009EFC0 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetRootVisual@CRenderTarget@@QEAAJPEAVCVisual@@@Z @ 0x1801E6FBC (-SetRootVisual@CRenderTarget@@QEAAJPEAVCVisual@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3484 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRenderTarget::ProcessSetRoot(
@@ -13,18 +13,24 @@ __int64 __fastcall CRenderTarget::ProcessSetRoot(
         struct CResourceTable *a2,
         const struct tagMILCMD_RENDERTARGET_SETROOT *a3)
 {
-  struct CVisual *Resource; // rax
-  unsigned int v5; // edx
+  unsigned int v3; // eax
+  struct CResourceTable *v4; // r9
+  __int64 Resource; // rdx
   __int64 v7; // rcx
   unsigned int v8; // ebx
   int v9; // eax
   __int64 v10; // rcx
 
+  v3 = *((_DWORD *)a3 + 2);
+  v4 = a2;
   Resource = 0LL;
-  v5 = *((_DWORD *)a3 + 2);
-  if ( !v5 || (Resource = (struct CVisual *)CResourceTable::GetResource((__int64)a2, v5, 0xC4u)) != 0LL )
+  if ( !v3 || (Resource = CResourceTable::GetResource((__int64)v4, v3, 0xC3u)) != 0 )
   {
-    v9 = CRenderTarget::SetRootVisual(this, Resource);
+    v9 = (*(__int64 (__fastcall **)(CRenderTarget *, __int64, const struct tagMILCMD_RENDERTARGET_SETROOT *, struct CResourceTable *))(*(_QWORD *)this + 240LL))(
+           this,
+           Resource,
+           a3,
+           v4);
     v8 = v9;
     if ( v9 < 0 )
       MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x2Au, 0LL);

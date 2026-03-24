@@ -1,17 +1,17 @@
 /*
- * XREFs of BiUnloadHiveByName @ 0x1406E1860
+ * XREFs of BiUnloadHiveByName @ 0x1406E1840
  * Callers:
- *     BiUnloadHiveByHandle @ 0x1406E17D0 (BiUnloadHiveByHandle.c)
- *     BiAddStoreFromFile @ 0x14071103C (BiAddStoreFromFile.c)
+ *     BiUnloadHiveByHandle @ 0x1406E17B0 (BiUnloadHiveByHandle.c)
+ *     BiAddStoreFromFile @ 0x14071101C (BiAddStoreFromFile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     swprintf_s @ 0x14019A340 (swprintf_s.c)
- *     ZwUnloadKey @ 0x1401BB970 (ZwUnloadKey.c)
- *     ZwUnloadKey2 @ 0x1401BB990 (ZwUnloadKey2.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     swprintf_s @ 0x14019A360 (swprintf_s.c)
+ *     ZwUnloadKey @ 0x1401BB990 (ZwUnloadKey.c)
+ *     ZwUnloadKey2 @ 0x1401BB9B0 (ZwUnloadKey2.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiReleasePrivilege @ 0x1407114C4 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x140711514 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x1407114A4 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x1407114F4 (BiAcquirePrivilege.c)
  */
 
 __int64 __fastcall BiUnloadHiveByName(__int64 a1, int a2, char a3)

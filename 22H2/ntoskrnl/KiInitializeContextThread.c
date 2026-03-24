@@ -1,141 +1,152 @@
 /*
- * XREFs of KiInitializeContextThread @ 0x1402BE71C
+ * XREFs of KiInitializeContextThread @ 0x140341B1C
  * Callers:
- *     KiStartIdleThread @ 0x140382F64 (KiStartIdleThread.c)
- *     KeInitThread @ 0x140A875D0 (KeInitThread.c)
+ *     KeInitThread @ 0x14098FD94 (KeInitThread.c)
  * Callees:
- *     KiSetSwitchingNpxState @ 0x1402BEA2C (KiSetSwitchingNpxState.c)
- *     KxContextToKframes @ 0x14033F640 (KxContextToKframes.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlLocateExtendedFeature2 @ 0x140463BE0 (RtlLocateExtendedFeature2.c)
- *     RtlLocateSupervisorFeature @ 0x1405AFAE0 (RtlLocateSupervisorFeature.c)
+ *     KiSetSwitchingNpxState @ 0x140341DD4 (KiSetSwitchingNpxState.c)
+ *     KxContextToKframes @ 0x140342010 (KxContextToKframes.c)
+ *     RtlLocateExtendedFeature2 @ 0x140380F40 (RtlLocateExtendedFeature2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlLocateSupervisorFeature @ 0x14058CF00 (RtlLocateSupervisorFeature.c)
  */
 
-__int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2)
+__int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
-  __int64 v2; // rbx
-  _OWORD *ExtendedFeature2; // rbp
-  unsigned __int64 v5; // rdi
-  unsigned __int64 v7; // r14
-  unsigned int v8; // r15d
-  _QWORD *v9; // r14
-  __int64 v10; // rdx
+  __int64 v5; // rbx
+  unsigned __int64 v7; // rdi
+  _QWORD *v8; // rsi
+  __int64 v9; // rdx
+  _OWORD *v10; // r14
   __int64 v11; // rdx
-  _OWORD *v12; // rcx
-  _OWORD *v13; // rax
+  _OWORD *v12; // rax
+  _OWORD *v13; // rcx
   __int128 v14; // xmm1
-  _QWORD *v15; // rbx
-  _QWORD *v16; // r13
-  __int64 v17; // r11
+  __int128 v15; // xmm0
+  __int128 v16; // xmm1
+  __int128 v17; // xmm0
+  __int128 v18; // xmm1
+  __int128 v19; // xmm0
+  __int128 v20; // xmm1
+  unsigned __int64 v21; // r12
+  __int128 v22; // xmm1
+  _QWORD *v23; // rbx
+  unsigned __int64 v24; // r15
+  __int128 v25; // xmm0
+  __int128 v26; // xmm1
+  __int128 v27; // xmm0
   __int64 result; // rax
-  _QWORD *v19; // [rsp+30h] [rbp-528h]
-  __int64 v20; // [rsp+38h] [rbp-520h]
-  _BYTE v21[48]; // [rsp+40h] [rbp-518h] BYREF
-  int v22; // [rsp+70h] [rbp-4E8h]
-  __int16 v23; // [rsp+78h] [rbp-4E0h]
-  __int16 v24; // [rsp+82h] [rbp-4D6h]
+  unsigned __int64 v29; // rdx
+  __int64 ExtendedFeature2; // rax
+  _BYTE v34[48]; // [rsp+50h] [rbp-508h] BYREF
+  int v35; // [rsp+80h] [rbp-4D8h]
+  __int16 v36; // [rsp+88h] [rbp-4D0h]
+  __int16 v37; // [rsp+92h] [rbp-4C6h]
 
-  v2 = *(_QWORD *)(a1 + 40);
-  ExtendedFeature2 = 0LL;
-  v5 = (v2 - (unsigned int)KiXSaveAreaLength) & 0xFFFFFFFFFFFFFFC0uLL;
-  v7 = v5;
-  if ( (_DWORD)KiIptSaveAreaLength )
-    *(_QWORD *)(a1 + 1112) = v5 + MEMORY[0xFFFFF78000000718];
-  v8 = MEMORY[0xFFFFF780000003D8] & ~(unsigned int)*(_QWORD *)(a1 + 1064) & 0x40000;
-  if ( v8 )
-    v5 = *(_QWORD *)(a1 + 96);
-  v9 = (_QWORD *)(v7 - 80);
-  memset(v9, 0, v2 - (_QWORD)v9);
-  *v9 = v2;
-  v9[1] = v2 - (unsigned int)KeKernelStackSize;
-  *(_DWORD *)(v5 + 24) = 8064;
-  v20 = *(_QWORD *)(a2 + 32);
-  if ( v20 )
+  v5 = *(_QWORD *)(a1 + 40);
+  v7 = (v5 - (unsigned int)KiXSaveAreaLength) & 0xFFFFFFFFFFFFFFC0uLL;
+  v8 = (_QWORD *)(v7 - 48);
+  memset((void *)(v7 - 48), 0, v5 - (v7 - 48));
+  *v8 = v5;
+  v10 = 0LL;
+  v8[1] = v5 - (unsigned int)KeKernelStackSize;
+  *(_DWORD *)(v7 + 24) = 8064;
+  if ( a5 )
   {
     v11 = 9LL;
-    v12 = v21;
-    v13 = *(_OWORD **)(a2 + 32);
+    v12 = (_OWORD *)a5;
+    v13 = v34;
     do
     {
-      *v12 = *v13;
-      v12[1] = v13[1];
-      v12[2] = v13[2];
-      v12[3] = v13[3];
-      v12[4] = v13[4];
-      v12[5] = v13[5];
-      v12[6] = v13[6];
+      v14 = v12[1];
+      *v13 = *v12;
+      v15 = v12[2];
+      v13[1] = v14;
+      v16 = v12[3];
+      v13[2] = v15;
+      v17 = v12[4];
+      v13[3] = v16;
+      v18 = v12[5];
+      v13[4] = v17;
+      v19 = v12[6];
+      v13[5] = v18;
+      v20 = v12[7];
       v12 += 8;
-      v14 = v13[7];
+      v13[6] = v19;
       v13 += 8;
-      *(v12 - 1) = v14;
+      *(v13 - 1) = v20;
       --v11;
     }
     while ( v11 );
-    *v12 = *v13;
-    v12[1] = v13[1];
-    v12[2] = v13[2];
-    v12[3] = v13[3];
-    v12[4] = v13[4];
-    v22 = v22 & 6 | 0x100001;
-    v15 = v9 - 90;
-    v19 = v9 - 50;
-    v23 = 51;
-    v16 = v9 - 98;
-    v24 = 43;
-    memset(v9 - 90, 0, 0x140uLL);
-    memset(v9 - 50, 0, 0x190uLL);
-    *((_BYTE *)v9 - 357) = 1;
-    KxContextToKframes((_DWORD)v9 - 400, (_DWORD)v9 - 720, (unsigned int)v21, v22, 1);
-    *v15 = *(_QWORD *)(a2 + 24);
-    v15[1] = *(_QWORD *)(a2 + 16);
-    v15[2] = *(_QWORD *)(a2 + 8);
-    v15[39] = &KiStartUserThreadReturn;
-    *(v9 - 91) = &KiStartUserThread;
-    *(_WORD *)v5 = 639;
-    *((_DWORD *)v9 - 89) = 8064;
+    v21 = v7 - 448;
+    v22 = v12[1];
+    v23 = (_QWORD *)(v7 - 768);
+    *v13 = *v12;
+    v24 = v7 - 832;
+    v25 = v12[2];
+    v13[1] = v22;
+    v26 = v12[3];
+    v13[2] = v25;
+    v27 = v12[4];
+    v13[3] = v26;
+    v13[4] = v27;
+    v35 = v35 & 6 | 0x100001;
+    v36 = 51;
+    v37 = 43;
+    memset((void *)(v7 - 768), 0, 0x140uLL);
+    memset((void *)(v7 - 448), 0, 0x190uLL);
+    *(_BYTE *)(v21 + 43) = 1;
+    KxContextToKframes(v7 - 448, v7 - 768, (unsigned int)v34, v35, 1);
+    *v23 = a4;
+    v23[1] = a3;
+    v23[2] = a2;
+    v23[39] = &KiStartUserThreadReturn;
+    *(_QWORD *)(v7 - 832 + 56) = &KiStartUserThread;
+    *(_WORD *)v7 = 639;
+    *(_DWORD *)(v21 + 44) = 8064;
     if ( (KeFeatureBits & 0x800000) != 0 )
-      *(_QWORD *)(v5 + 512) = 1LL;
-    KiSetSwitchingNpxState(a1, 0LL, v8);
-    v17 = v20;
-    *(_BYTE *)(a1 + 562) = 1;
+      *(_QWORD *)(v7 + 512) = 1LL;
+    LOBYTE(v9) = 0;
   }
   else
   {
-    v16 = v9 - 14;
-    *(v9 - 6) = *(_QWORD *)(a2 + 24);
-    LOBYTE(v10) = 1;
-    *(v9 - 5) = *(_QWORD *)(a2 + 16);
-    *(v9 - 4) = *(_QWORD *)(a2 + 8);
-    *(v9 - 7) = KxStartSystemThread;
-    v19 = 0LL;
-    *(v9 - 1) = 0LL;
-    KiSetSwitchingNpxState(a1, v10, v8);
-    *(_BYTE *)(a1 + 562) = (*(_BYTE *)(a2 + 60) & 0x10) != 0;
+    v24 = v7 - 160;
+    *(_QWORD *)(v7 - 96) = a4;
+    v21 = 0LL;
+    LOBYTE(v9) = 1;
+    *(_QWORD *)(v7 - 88) = a3;
+    *(_QWORD *)(v7 - 80) = a2;
+    *(_QWORD *)(v7 - 160 + 56) = KxStartSystemThread;
+    *(_QWORD *)(v7 - 56) = 0LL;
   }
-  result = (__int64)(v19 + 16);
-  *((_BYTE *)v16 + 40) = 1;
-  v16[6] = v19 + 16;
+  *(_BYTE *)(a1 + 562) = KiSetSwitchingNpxState(a1, v9);
+  result = v21 + 128;
+  *(_BYTE *)(v24 + 40) = 1;
+  *(_QWORD *)(v24 + 48) = v21 + 128;
   if ( MEMORY[0xFFFFF780000003D8] )
   {
     result = MEMORY[0xFFFFF780000003EC];
     if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
     {
-      result = 0x8000000000000003uLL;
-      *(_QWORD *)(v5 + 520) = 0x8000000000000003uLL;
+      v29 = 0x8000000000000003uLL;
+      *(_QWORD *)(v7 + 520) = 0x8000000000000003uLL;
       if ( (*(_DWORD *)(a1 + 116) & 0x100000) != 0 )
       {
-        if ( (*(_DWORD *)(v17 + 48) & 0x100040) == 0x100040 )
-          ExtendedFeature2 = (_OWORD *)RtlLocateExtendedFeature2(v17 + 1232, 11LL, 0xFFFFF780000003D8uLL);
-        *(_QWORD *)(v5 + 512) |= 0x800uLL;
-        *(_QWORD *)(v5 + 520) |= 0x800uLL;
-        result = RtlLocateSupervisorFeature(v5 + 512, 11LL, 0LL);
-        *(_OWORD *)result = *ExtendedFeature2;
+        if ( (*(_DWORD *)(a5 + 48) & 0x100040) == 0x100040 )
+        {
+          ExtendedFeature2 = RtlLocateExtendedFeature2(a5 + 1232, 11LL, 0xFFFFF780000003D8uLL);
+          v29 = *(_QWORD *)(v7 + 520);
+          v10 = (_OWORD *)ExtendedFeature2;
+        }
+        *(_QWORD *)(v7 + 512) |= 0x800uLL;
+        *(_QWORD *)(v7 + 520) = v29 | 0x800;
+        result = RtlLocateSupervisorFeature(v7 + 512, 11LL, 0LL);
+        *(_OWORD *)result = *v10;
       }
     }
   }
-  *(_QWORD *)(a1 + 40) = v9;
-  *(_QWORD *)(a1 + 88) = v16;
-  *(_QWORD *)(a1 + 96) = v5;
+  *(_QWORD *)(a1 + 40) = v8;
+  *(_QWORD *)(a1 + 88) = v24;
+  *(_QWORD *)(a1 + 96) = v7;
   return result;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CopyPixels@CColorKeyBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x1802A8460
+ * XREFs of ?CopyPixels@CColorKeyBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x180267A30
  * Callers:
  *     <none>
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18001C320 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z @ 0x18006E7CC (-CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024DE8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z @ 0x18003BD98 (-CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CColorKeyBitmap::CopyPixels(
@@ -49,7 +49,7 @@ __int64 __fastcall CColorKeyBitmap::CopyPixels(
   v10 = v8;
   if ( v8 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, v8, 0x6Du);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, 0x6Du, 0LL);
   }
   else
   {
@@ -57,7 +57,7 @@ __int64 __fastcall CColorKeyBitmap::CopyPixels(
     v10 = v11;
     if ( v11 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0LL, v11, 0x70u);
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x70u, 0LL);
     }
     else
     {
@@ -68,7 +68,7 @@ __int64 __fastcall CColorKeyBitmap::CopyPixels(
       v10 = v13;
       if ( v13 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0LL, v13, 0x74u);
+        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x74u, 0LL);
       }
       else
       {
@@ -81,7 +81,7 @@ __int64 __fastcall CColorKeyBitmap::CopyPixels(
         v21 = CBitmap::CopyPixelsHelper(*v20, v19, v18, v17, v16, Src, a3, v27, v29);
         v10 = v21;
         if ( v21 < 0 )
-          MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0LL, v21, 0x7Fu);
+          MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, v21, 0x7Fu, 0LL);
       }
     }
   }

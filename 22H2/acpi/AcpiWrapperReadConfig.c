@@ -1,9 +1,9 @@
 /*
- * XREFs of AcpiWrapperReadConfig @ 0x1C0001810
+ * XREFs of AcpiWrapperReadConfig @ 0x1C00020A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall AcpiWrapperReadConfig(__int64 a1, __int64 a2)

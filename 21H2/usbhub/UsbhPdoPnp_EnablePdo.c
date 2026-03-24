@@ -1,15 +1,15 @@
 /*
- * XREFs of UsbhPdoPnp_EnablePdo @ 0x1C00548CC
+ * XREFs of UsbhPdoPnp_EnablePdo @ 0x1C0055F5C
  * Callers:
- *     UsbhPdoPnp_QueryId @ 0x1C0054FF0 (UsbhPdoPnp_QueryId.c)
- *     UsbhPdoPnp_StartDevice @ 0x1C0055CA0 (UsbhPdoPnp_StartDevice.c)
+ *     UsbhPdoPnp_QueryId @ 0x1C0056680 (UsbhPdoPnp_QueryId.c)
+ *     UsbhPdoPnp_StartDevice @ 0x1C0057340 (UsbhPdoPnp_StartDevice.c)
  * Callees:
- *     UsbhSyncResetDeviceInternal @ 0x1C0003078 (UsbhSyncResetDeviceInternal.c)
- *     UsbhSshSetPortsBusyState @ 0x1C0005CA0 (UsbhSshSetPortsBusyState.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     Usb_Disconnected @ 0x1C0028F5C (Usb_Disconnected.c)
- *     UsbhSetPdo_AllowIo @ 0x1C003CE78 (UsbhSetPdo_AllowIo.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     UsbhSshSetPortsBusyState @ 0x1C000FE00 (UsbhSshSetPortsBusyState.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C00162A8 (UsbhSyncResetDeviceInternal.c)
+ *     Usb_Disconnected @ 0x1C001CEB4 (Usb_Disconnected.c)
+ *     UsbhSetPdo_AllowIo @ 0x1C003E058 (UsbhSetPdo_AllowIo.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 __int64 __fastcall UsbhPdoPnp_EnablePdo(__int64 a1)

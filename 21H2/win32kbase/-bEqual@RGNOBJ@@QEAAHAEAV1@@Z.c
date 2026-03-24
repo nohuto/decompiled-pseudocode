@@ -1,10 +1,10 @@
 /*
- * XREFs of ?bEqual@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C00982C0
+ * XREFs of ?bEqual@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C0093E10
  * Callers:
- *     ?GreEqualRgn@@YAHAEAVRGNOBJAPI@@0@Z @ 0x1C009829C (-GreEqualRgn@@YAHAEAVRGNOBJAPI@@0@Z.c)
- *     EngUpdateDeviceSurface @ 0x1C016EED0 (EngUpdateDeviceSurface.c)
+ *     ?GreEqualRgn@@YAHAEAVRGNOBJAPI@@0@Z @ 0x1C0093DEC (-GreEqualRgn@@YAHAEAVRGNOBJAPI@@0@Z.c)
+ *     EngUpdateDeviceSurface @ 0x1C0141FB0 (EngUpdateDeviceSurface.c)
  * Callees:
- *     memcmp @ 0x1C00DD6E0 (memcmp.c)
+ *     memcmp @ 0x1C00CE7B0 (memcmp.c)
  */
 
 __int64 __fastcall RGNOBJ::bEqual(RGNOBJ *this, struct RGNOBJ *a2)

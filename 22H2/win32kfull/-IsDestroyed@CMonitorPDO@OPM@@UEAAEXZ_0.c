@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsDestroyed@CMonitorPDO@OPM@@UEAAEXZ_0 @ 0x1C0138890
+ * XREFs of ?IsDestroyed@CMonitorPDO@OPM@@UEAAEXZ_0 @ 0x1C01659C0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmAsyncUnpinAllocation @ 0x1C001A3D0
+ * XREFs of VidMmAsyncUnpinAllocation @ 0x1C0022CE0
  * Callers:
  *     <none>
  * Callees:
- *     ?AsyncUnpinAllocation@VIDMM_GLOBAL@@QEAAJPEAVDXGALLOCATION@@@Z @ 0x1C00A92A0 (-AsyncUnpinAllocation@VIDMM_GLOBAL@@QEAAJPEAVDXGALLOCATION@@@Z.c)
+ *     ?AsyncUnpinAllocation@VIDMM_GLOBAL@@QEAAJPEAVDXGALLOCATION@@@Z @ 0x1C00ADD94 (-AsyncUnpinAllocation@VIDMM_GLOBAL@@QEAAJPEAVDXGALLOCATION@@@Z.c)
  */
 
 __int64 __fastcall VidMmAsyncUnpinAllocation(VIDMM_GLOBAL *a1, struct DXGALLOCATION *a2)

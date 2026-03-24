@@ -1,44 +1,46 @@
 /*
- * XREFs of PoFxNotifySurprisePowerOn @ 0x140588040
+ * XREFs of PoFxNotifySurprisePowerOn @ 0x14038B410
  * Callers:
- *     DifPoFxNotifySurprisePowerOnWrapper @ 0x1405E9760 (DifPoFxNotifySurprisePowerOnWrapper.c)
+ *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     PopFxLockDevice @ 0x14028D064 (PopFxLockDevice.c)
- *     PopDirectedDripsStartDisengageTimer @ 0x1405870BC (PopDirectedDripsStartDisengageTimer.c)
- *     PopPepSurprisePowerOn @ 0x14059FE50 (PopPepSurprisePowerOn.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     PopFxLockDevice @ 0x140370AE4 (PopFxLockDevice.c)
+ *     PopPepSurprisePowerOn @ 0x14038B498 (PopPepSurprisePowerOn.c)
+ *     PopDirectedDripsStartDisengageTimer @ 0x140568A8C (PopDirectedDripsStartDisengageTimer.c)
  */
 
 int __fastcall PoFxNotifySurprisePowerOn(__int64 a1)
 {
-  __int64 *v1; // rbx
-  __int64 v2; // rdi
-  __int64 v3; // rax
-  __int64 v4; // rsi
-  __int64 v5; // rdx
+  __int64 v1; // rbx
+  __int64 v2; // rax
+  __int64 v3; // rdi
+  __int64 v4; // rcx
 
-  v1 = (__int64 *)(a1 + 312);
-  v2 = a1;
+  v1 = a1;
   if ( a1 )
-    a1 = *(_QWORD *)(*v1 + 40);
-  v3 = PopFxLockDevice(a1, 1);
-  v4 = v3;
-  if ( v3 )
+    a1 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
+  v2 = PopFxLockDevice(a1, 1);
+  v3 = v2;
+  if ( v2 )
   {
-    LODWORD(v3) = PopPepSurprisePowerOn(*(_QWORD *)(v3 + 56));
-    if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v4 + 244), 0xFFFFFFFF) == 1 )
-      LODWORD(v3) = KeSetEvent((PRKEVENT)(v4 + 248), 0, 0);
-    if ( v2 )
+    LODWORD(v2) = PopPepSurprisePowerOn(*(_QWORD *)(v2 + 56));
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v3 + 244), 0xFFFFFFFF) == 1 )
+      LODWORD(v2) = KeSetEvent((PRKEVENT)(v3 + 248), 0, 0);
+    if ( v1 )
     {
-      v3 = *v1;
-      v5 = *(_QWORD *)(*v1 + 40);
-      if ( v5 )
-      {
-        LODWORD(v3) = *(_DWORD *)(v5 + 760);
-        if ( (v3 & 0x30000) != 0 )
-          LODWORD(v3) = PopDirectedDripsStartDisengageTimer(1);
-      }
+      v2 = *(_QWORD *)(v1 + 312);
+      v4 = *(_QWORD *)(v2 + 40);
+    }
+    else
+    {
+      v4 = 0LL;
+    }
+    if ( v4 )
+    {
+      LODWORD(v2) = *(_DWORD *)(v4 + 760);
+      if ( (v2 & 0x30000) != 0 )
+        LODWORD(v2) = PopDirectedDripsStartDisengageTimer(1LL);
     }
   }
-  return v3;
+  return v2;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of Simulator_PauseInterpreter @ 0x1C00650DC
+ * XREFs of Simulator_PauseInterpreter @ 0x1C0063E5C
  * Callers:
- *     Simulator_CallbackWorker @ 0x1C0064B90 (Simulator_CallbackWorker.c)
+ *     Simulator_CallbackWorker @ 0x1C0063910 (Simulator_CallbackWorker.c)
  * Callees:
- *     AMLIPauseInterpreter @ 0x1C00647E0 (AMLIPauseInterpreter.c)
+ *     AMLIPauseInterpreter @ 0x1C006355C (AMLIPauseInterpreter.c)
  */
 
 __int64 Simulator_PauseInterpreter()
 {
-  struct _KEVENT *Pool2; // rax
+  struct _KEVENT *PoolWithTag; // rax
   struct _KEVENT *v1; // rbx
   unsigned int Lock; // edi
 
-  Pool2 = (struct _KEVENT *)ExAllocatePool2(64LL, 64LL, 1145131841LL);
-  v1 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (struct _KEVENT *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x44415341u);
+  v1 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    KeInitializeEvent(Pool2, NotificationEvent, 0);
+    KeInitializeEvent(PoolWithTag, NotificationEvent, 0);
     v1[2].Header.WaitListHead.Flink = (_LIST_ENTRY *)v1;
     v1[1].Header.WaitListHead.Blink = &v1[1].Header.WaitListHead;
     *(_QWORD *)&v1[2].Header.Lock = Simulator_PauseInterpreterCallback;

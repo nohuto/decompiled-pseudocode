@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetMonitorDescription@CMonitorAPI@@QEAAJPEAXKPEAG@Z @ 0x1C0269ECC
+ * XREFs of ?GetMonitorDescription@CMonitorAPI@@QEAAJPEAXKPEAG@Z @ 0x1C0271850
  * Callers:
- *     NtGdiGetPhysicalMonitorDescription @ 0x1C026A640 (NtGdiGetPhysicalMonitorDescription.c)
+ *     NtGdiGetPhysicalMonitorDescription @ 0x1C0271E10 (NtGdiGetPhysicalMonitorDescription.c)
  * Callees:
- *     ?GetHandleObject@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysicalMonitorHandle@@@Z @ 0x1C0269E50 (-GetHandleObject@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysi.c)
- *     ?GetMonitorDescription@CPhysicalMonitorHandle@@QEAAJKPEAG@Z @ 0x1C0269F5C (-GetMonitorDescription@CPhysicalMonitorHandle@@QEAAJKPEAG@Z.c)
+ *     ?GetHandleObject@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysicalMonitorHandle@@@Z @ 0x1C02717D4 (-GetHandleObject@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysi.c)
+ *     ?GetMonitorDescription@CPhysicalMonitorHandle@@QEAAJKPEAG@Z @ 0x1C02718E8 (-GetMonitorDescription@CPhysicalMonitorHandle@@QEAAJKPEAG@Z.c)
  */
 
 __int64 __fastcall CMonitorAPI::GetMonitorDescription(
@@ -13,13 +13,16 @@ __int64 __fastcall CMonitorAPI::GetMonitorDescription(
         unsigned int a3,
         unsigned __int16 *a4)
 {
+  PVOID v4; // rbx
   int HandleObject; // ebx
   _BYTE v10[24]; // [rsp+20h] [rbp-18h] BYREF
   CPhysicalMonitorHandle *v11; // [rsp+40h] [rbp+8h] BYREF
 
-  OPM::CAutoMutex::CAutoMutex((OPM::CAutoMutex *)v10, this);
+  v11 = this;
+  v4 = qword_1C033A068;
+  OPM::CAutoMutex::CAutoMutex((OPM::CAutoMutex *)v10, (struct OPM::CMutex *)qword_1C033A068);
   v11 = 0LL;
-  HandleObject = OPM::CMonitorHandleTable<CPhysicalMonitorHandle,void *>::GetHandleObject((__int64)this + 8, a2, &v11);
+  HandleObject = OPM::CMonitorHandleTable<CPhysicalMonitorHandle,void *>::GetHandleObject((__int64)v4 + 8, a2, &v11);
   if ( HandleObject >= 0 )
     HandleObject = CPhysicalMonitorHandle::GetMonitorDescription(v11, a3, a4);
   OPM::CAutoMutex::~CAutoMutex((OPM::CAutoMutex *)v10);

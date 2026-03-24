@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Push@?$CWatermarkStack@UHeatMapOptions@CComposition@@$01$01$01@@QEAAJAEBUHeatMapOptions@CComposition@@@Z @ 0x1801B2F20
+ * XREFs of ?Push@?$CWatermarkStack@UHeatMapOptions@CComposition@@$01$01$01@@QEAAJAEBUHeatMapOptions@CComposition@@@Z @ 0x180177AD0
  * Callers:
- *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18009FA80 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18007B940 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
  * Callees:
- *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x1800438FC (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     memcpy_0 @ 0x18010517F (memcpy_0.c)
+ *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x180042320 (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     memcpy_0 @ 0x1800F47DB (memcpy_0.c)
  */
 
 __int64 __fastcall CWatermarkStack<CComposition::HeatMapOptions,2,2,2>::Push(unsigned int *a1, __int64 a2)
@@ -33,7 +33,7 @@ __int64 __fastcall CWatermarkStack<CComposition::HeatMapOptions,2,2,2>::Push(uns
   if ( v6 > 0xFFFFFFFF )
   {
     v9 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0LL, -2147024362, 0x64u);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024362, 0x4Cu, 0LL);
     goto LABEL_11;
   }
   if ( (unsigned int)v6 <= 2 )
@@ -42,21 +42,21 @@ __int64 __fastcall CWatermarkStack<CComposition::HeatMapOptions,2,2,2>::Push(uns
   v9 = v7;
   if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, v7, 0x6Bu);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x53u, 0LL);
     goto LABEL_14;
   }
   v10 = 24LL * *a1;
   if ( v10 > 0xFFFFFFFF )
   {
     v9 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, -2147024362, 0x6Du);
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2147024362, 0x55u, 0LL);
 LABEL_14:
     v3 = v16;
     goto LABEL_11;
   }
   v11 = v16;
   memcpy_0(v16, *((const void **)a1 + 2), (unsigned int)v10);
-  DefaultHeap::Free(*((void **)a1 + 2));
+  operator delete(*((void **)a1 + 2));
   v2 = *a1;
   *((_QWORD *)a1 + 2) = v11;
   a1[1] = v6;
@@ -72,6 +72,6 @@ LABEL_8:
   v9 = 0;
   a1[6] = v14;
 LABEL_11:
-  DefaultHeap::Free(v3);
+  operator delete(v3);
   return v9;
 }

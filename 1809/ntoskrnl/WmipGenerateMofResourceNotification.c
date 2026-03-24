@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipGenerateMofResourceNotification @ 0x140758410
+ * XREFs of WmipGenerateMofResourceNotification @ 0x1407583F0
  * Callers:
- *     WmipAddDataSource @ 0x1407075F0 (WmipAddDataSource.c)
- *     WmipMRCleanup @ 0x1407583A0 (WmipMRCleanup.c)
+ *     WmipAddDataSource @ 0x1407075D0 (WmipAddDataSource.c)
+ *     WmipMRCleanup @ 0x140758380 (WmipMRCleanup.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WmipProcessEvent @ 0x14068F1CC (WmipProcessEvent.c)
+ *     WmipProcessEvent @ 0x14068F1AC (WmipProcessEvent.c)
  */
 
 void __fastcall WmipGenerateMofResourceNotification(_WORD *Src, _WORD *a2, _OWORD *a3, int a4)

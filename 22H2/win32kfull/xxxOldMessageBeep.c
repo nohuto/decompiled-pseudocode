@@ -1,26 +1,32 @@
 /*
- * XREFs of xxxOldMessageBeep @ 0x1C01F6E18
+ * XREFs of xxxOldMessageBeep @ 0x1C0213B68
  * Callers:
- *     xxxMessageBeep @ 0x1C01F6D88 (xxxMessageBeep.c)
+ *     xxxMessageBeep @ 0x1C015D220 (xxxMessageBeep.c)
  * Callees:
- *     xxxSoundSentry @ 0x1C01F6208 (xxxSoundSentry.c)
- *     ?xxxUserBeep@@YAHKK_N@Z @ 0x1C01F902C (-xxxUserBeep@@YAHKK_N@Z.c)
+ *     xxxSoundSentry @ 0x1C015D2B0 (xxxSoundSentry.c)
+ *     UserBeep @ 0x1C02196B8 (UserBeep.c)
  */
 
-__int64 __fastcall xxxOldMessageBeep(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall xxxOldMessageBeep(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned int v4; // ebx
+  unsigned int v3; // ebx
 
   if ( (gdwPUDFlags & 0x80000) != 0 )
   {
-    UserSessionSwitchLeaveCrit(a1, a2, a3, a4);
-    v4 = xxxUserBeep(0x1B8u, 0x7Du, 1);
-    EnterCrit(1LL, 0LL);
-    return v4;
+    if ( gdwInAtomicOperation )
+    {
+      a1 = gdwExtraInstrumentations;
+      if ( (gdwExtraInstrumentations & 1) != 0 )
+        KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+    }
+    UserSessionSwitchLeaveCrit(a1);
+    v3 = UserBeep(440LL, 125LL);
+    EnterCrit(0LL, 1LL);
+    return v3;
   }
   else
   {
-    xxxSoundSentry();
+    xxxSoundSentry(a1, a2, a3);
     return 1LL;
   }
 }

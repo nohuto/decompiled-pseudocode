@@ -1,5 +1,5 @@
 /*
- * XREFs of ?MarkInvalid@CSynchronizationInfo@DirectComposition@@MEAAXXZ @ 0x1C00C9DB0
+ * XREFs of ?MarkInvalid@CSynchronizationInfo@DirectComposition@@MEAAXXZ @ 0x1C00BC130
  * Callers:
  *     <none>
  * Callees:

@@ -1,39 +1,57 @@
 /*
- * XREFs of BmlDoesTargetModeSupportWireFormat @ 0x1C016C564
+ * XREFs of BmlDoesTargetModeSupportWireFormat @ 0x1C00E5B8C
  * Callers:
- *     ?BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDMMVIDPN@@@Z @ 0x1C016F150 (-BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDM.c)
- *     BmlCompareTargetModesWithConstraint @ 0x1C01762D4 (BmlCompareTargetModesWithConstraint.c)
- *     BmlDoesTargetModeObeyConstraint @ 0x1C017793C (BmlDoesTargetModeObeyConstraint.c)
+ *     ?BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDMMVIDPN@@@Z @ 0x1C014273C (-BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDM.c)
+ *     BmlDoesTargetModeObeyConstraint @ 0x1C0144804 (BmlDoesTargetModeObeyConstraint.c)
+ *     BmlCompareTargetModesWithConstraint @ 0x1C0144AC8 (BmlCompareTargetModesWithConstraint.c)
  * Callees:
- *     ?GetContainer@?$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ @ 0x1C0014680 (-GetContainer@-$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ.c)
- *     ?UsingSetTimingsFromVidPn@DXGADAPTER@@QEBAEXZ @ 0x1C0172110 (-UsingSetTimingsFromVidPn@DXGADAPTER@@QEBAEXZ.c)
+ *     ?GetContainer@?$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ @ 0x1C0018EB8 (-GetContainer@-$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ.c)
+ *     ?UsingSetTimingsFromVidPn@DXGADAPTER@@QEBAEXZ @ 0x1C00E5C14 (-UsingSetTimingsFromVidPn@DXGADAPTER@@QEBAEXZ.c)
  */
 
-bool __fastcall BmlDoesTargetModeSupportWireFormat(__int64 a1, int a2)
+bool __fastcall BmlDoesTargetModeSupportWireFormat(__int64 a1, __int64 a2)
 {
-  unsigned int v2; // ebx
-  char v3; // si
-  __int64 v6; // rbp
-  __int64 v7; // rbp
-  unsigned __int8 v8; // dl
+  __int64 v2; // rax
+  int v3; // edi
+  unsigned int v4; // ebx
+  __int64 v6; // rsi
+  __int64 v7; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // rsi
+  __int64 v10; // rcx
+  char v11; // dl
+  __int64 v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // rax
 
-  v2 = *(_DWORD *)(a1 + 128);
-  v3 = 0;
-  if ( !*(_QWORD *)(a1 + 40) )
-    WdLogSingleEntry0(1LL);
-  v6 = *(_QWORD *)(*(_QWORD *)(a1 + 40) + 112LL);
-  if ( !*(_QWORD *)(v6 + 40) )
-    WdLogSingleEntry0(1LL);
-  v7 = *(_QWORD *)(ContainedBy<DMMVIDPN>::GetContainer(*(_QWORD *)(v6 + 40) + 64LL) + 48);
-  if ( !*(_QWORD *)(v7 + 8) )
-    WdLogSingleEntry0(1LL);
-  if ( !DXGADAPTER::UsingSetTimingsFromVidPn(*(DXGADAPTER **)(*(_QWORD *)(v7 + 8) + 16LL)) )
-    return (v8 & 0x3F) == 2;
-  if ( (v8 & (unsigned __int8)(v2 >> 2) & 0x3F) != 0
-    || ((a2 & v2 | ((a2 & v2 | ((a2 & v2) >> 6)) >> 6)) & 0x3F00) != 0
-    || (a2 & v2) >= 0x4000000 )
+  v2 = *(_QWORD *)(a1 + 40);
+  v3 = a2;
+  v4 = *(_DWORD *)(a1 + 128);
+  if ( !v2 )
   {
-    return 1;
+    v13 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v13);
+    v2 = *(_QWORD *)(a1 + 40);
   }
-  return v3;
+  v6 = *(_QWORD *)(v2 + 112);
+  v7 = *(_QWORD *)(v6 + 40);
+  if ( !v7 )
+  {
+    v14 = WdLogNewEntry5_WdAssertion(0LL, a2);
+    WdLogEvent5_WdAssertion(v14);
+    v7 = *(_QWORD *)(v6 + 40);
+  }
+  v9 = *(_QWORD *)(ContainedBy<DMMVIDPN>::GetContainer(v7 + 64, a2) + 48);
+  v10 = *(_QWORD *)(v9 + 8);
+  if ( !v10 )
+  {
+    v15 = WdLogNewEntry5_WdAssertion(0LL, v8);
+    WdLogEvent5_WdAssertion(v15);
+    v10 = *(_QWORD *)(v9 + 8);
+  }
+  if ( DXGADAPTER::UsingSetTimingsFromVidPn(*(DXGADAPTER **)(v10 + 16)) )
+    return (v3 & v4) >= 0x4000000
+        || (((unsigned __int8)(v11 & (v4 >> 2)) | (unsigned __int8)((unsigned __int16)(v3 & v4 | ((v3 & v4 | ((v3 & v4) >> 6)) >> 6)) >> 8)) & 0x3F) != 0;
+  else
+    return (v11 & 0x3F) == 2;
 }

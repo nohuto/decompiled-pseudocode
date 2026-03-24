@@ -1,14 +1,13 @@
 /*
- * XREFs of UserGetRedirectedWindowOrigin @ 0x1C0020420
+ * XREFs of UserGetRedirectedWindowOrigin @ 0x1C004C450
  * Callers:
- *     xxxSetLayeredWindow @ 0x1C0082DD4 (xxxSetLayeredWindow.c)
- *     GreGetRandomRgn @ 0x1C014B3A0 (GreGetRandomRgn.c)
- *     GetDCOrgOnScreen @ 0x1C014C0D4 (GetDCOrgOnScreen.c)
- *     ?GreGetRandomRgn_Unpatched@@YAHPEAUHDC__@@PEAUHRGN__@@H@Z @ 0x1C015F058 (-GreGetRandomRgn_Unpatched@@YAHPEAUHDC__@@PEAUHRGN__@@H@Z.c)
- *     DxgkEngBltViaGDI @ 0x1C02745B0 (DxgkEngBltViaGDI.c)
+ *     xxxSetLayeredWindow @ 0x1C0035DC0 (xxxSetLayeredWindow.c)
+ *     GetDCOrgOnScreen @ 0x1C0042B50 (GetDCOrgOnScreen.c)
+ *     GreGetRandomRgn @ 0x1C0042BB0 (GreGetRandomRgn.c)
+ *     DxgkEngBltViaGDI @ 0x1C0276D30 (DxgkEngBltViaGDI.c)
  * Callees:
- *     IsDesktopWindow @ 0x1C00205C0 (IsDesktopWindow.c)
- *     GetStyleWindow @ 0x1C004CDA0 (GetStyleWindow.c)
+ *     IsDesktopWindow @ 0x1C004C5F0 (IsDesktopWindow.c)
+ *     GetStyleWindow @ 0x1C0071560 (GetStyleWindow.c)
  */
 
 __int64 __fastcall UserGetRedirectedWindowOrigin(__int64 a1, __int64 a2)

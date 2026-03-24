@@ -3,10 +3,10 @@
  * Callers:
  *     KiAbProcessThreadLocks @ 0x140023C40 (KiAbProcessThreadLocks.c)
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
- *     KiAbForceProcessLockEntry @ 0x140166160 (KiAbForceProcessLockEntry.c)
+ *     KiAbForceProcessLockEntry @ 0x140166180 (KiAbForceProcessLockEntry.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x1400BDDD0 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
  */
 
 __int64 __fastcall KiAbEntryUpdateWaiterTreePosition(__int64 a1, __int64 a2)

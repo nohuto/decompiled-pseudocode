@@ -1,10 +1,9 @@
 /*
- * XREFs of ?ReleaseDirtyRegionAnnotationBuffers@CDirtyRegionAnnotationAllocationSet@@AEAAXXZ @ 0x1800DCDA0
+ * XREFs of ?ReleaseDirtyRegionAnnotationBuffers@CDirtyRegionAnnotationAllocationSet@@AEAAXXZ @ 0x1800D9E58
  * Callers:
- *     ??1CVisualTree@@UEAA@XZ @ 0x18003B4F4 (--1CVisualTree@@UEAA@XZ.c)
- *     ?ClearDirtyRegionAnnotationLists@CDirtyRegion@@AEAAXXZ @ 0x1800DCD48 (-ClearDirtyRegionAnnotationLists@CDirtyRegion@@AEAAXXZ.c)
+ *     ??1CVisualTree@@UEAA@XZ @ 0x180044154 (--1CVisualTree@@UEAA@XZ.c)
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
  */
 
 void __fastcall CDirtyRegionAnnotationAllocationSet::ReleaseDirtyRegionAnnotationBuffers(
@@ -17,7 +16,7 @@ void __fastcall CDirtyRegionAnnotationAllocationSet::ReleaseDirtyRegionAnnotatio
 
   v2 = *((_QWORD *)this + 1);
   if ( *(CDirtyRegionAnnotationAllocationSet **)v2 != this || (v3 = *(_QWORD **)(v2 + 8), *v3 != v2) )
-LABEL_8:
+LABEL_6:
     __fastfail(3u);
   *((_QWORD *)this + 1) = v3;
   *v3 = this;
@@ -27,12 +26,12 @@ LABEL_8:
     if ( *(CDirtyRegionAnnotationAllocationSet **)this == this )
       break;
     if ( v4[1] != this )
-      goto LABEL_8;
+      goto LABEL_6;
     v5 = *v4;
     if ( *((CDirtyRegionAnnotationAllocationSet ***)*v4 + 1) != v4 )
-      goto LABEL_8;
+      goto LABEL_6;
     *(_QWORD *)this = v5;
     *((_QWORD *)v5 + 1) = this;
-    operator delete(v4, 0x610uLL);
+    operator delete(v4);
   }
 }

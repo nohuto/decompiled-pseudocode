@@ -1,16 +1,17 @@
 /*
- * XREFs of ??_ECWindowOcclusionInfo@@UEAAPEAXI@Z @ 0x1800DD240
+ * XREFs of ??_ECWindowOcclusionInfo@@UEAAPEAXI@Z @ 0x1800CB520
  * Callers:
  *     <none>
  * Callees:
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
  */
 
 CWindowOcclusionInfo *__fastcall CWindowOcclusionInfo::`vector deleting destructor'(
         CWindowOcclusionInfo *this,
         char a2)
 {
+  *(_QWORD *)this = &COcclusionInfo::`vftable';
   if ( (a2 & 1) != 0 )
-    operator delete(this, 0x38uLL);
+    operator delete(this);
   return this;
 }

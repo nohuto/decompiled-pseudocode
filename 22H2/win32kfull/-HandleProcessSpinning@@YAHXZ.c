@@ -1,9 +1,10 @@
 /*
- * XREFs of ?HandleProcessSpinning@@YAHXZ @ 0x1C012A770
+ * XREFs of ?HandleProcessSpinning@@YAHXZ @ 0x1C00579E0
  * Callers:
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     ?UpdateProcessPriorityForSpinning@PriorityBoost@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C0038EF0 (-UpdateProcessPriorityForSpinning@PriorityBoost@@YAXPEAUtagTHREADINFO@@@Z.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
  */
 
 __int64 HandleProcessSpinning(void)
@@ -28,7 +29,7 @@ __int64 HandleProcessSpinning(void)
     if ( (v4 & 0x400) == 0 )
     {
       *(_DWORD *)(gptiCurrent + 488LL) = v4 | 0x400;
-      ForegroundBoost::UpdateProcessPriorityForSpinning(gptiCurrent, (struct tagTHREADINFO *)v1);
+      PriorityBoost::UpdateProcessPriorityForSpinning(gptiCurrent, (struct tagTHREADINFO *)v1);
     }
   }
   return 1LL;

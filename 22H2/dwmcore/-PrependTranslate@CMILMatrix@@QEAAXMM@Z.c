@@ -1,38 +1,25 @@
 /*
- * XREFs of ?PrependTranslate@CMILMatrix@@QEAAXMM@Z @ 0x180270638
+ * XREFs of ?PrependTranslate@CMILMatrix@@QEAAXMM@Z @ 0x1802110BC
  * Callers:
- *     ?GetRealization@CSkewTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x180251C30 (-GetRealization@CSkewTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z.c)
+ *     ?GetRealization@CSkewTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x1801F5020 (-GetRealization@CSkewTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z.c)
  * Callees:
- *     ??$IsAffine@$00@CMILMatrix@@AEBA_N_N@Z @ 0x18005B6E0 (--$IsAffine@$00@CMILMatrix@@AEBA_N_N@Z.c)
+ *     <none>
  */
 
 void __fastcall CMILMatrix::PrependTranslate(CMILMatrix *this, float a2, float a3)
 {
-  float v4; // xmm2_4
-  float v5; // xmm0_4
-  float v6; // xmm1_4
-  __int64 v7; // r11
-  float v8; // xmm5_4
-  float v9; // xmm5_4
+  float *v3; // rax
+  __int64 v4; // rdx
 
-  if ( COERCE_FLOAT(LODWORD(a2) & _xmm) >= 0.000081380211 || COERCE_FLOAT(LODWORD(a3) & _xmm) >= 0.000081380211 )
+  v3 = (float *)((char *)this + 48);
+  v4 = 4LL;
+  do
   {
-    v4 = (float)(a2 * *((float *)this + 1)) + (float)(a3 * *((float *)this + 5));
-    v5 = a3 * *((float *)this + 6);
-    *((float *)this + 12) = (float)((float)(a3 * *((float *)this + 4)) + (float)(a2 * *(float *)this))
-                          + *((float *)this + 12);
-    v6 = (float)(a2 * *((float *)this + 2)) + v5;
-    *((float *)this + 13) = v4 + *((float *)this + 13);
-    *((float *)this + 14) = v6 + *((float *)this + 14);
-    if ( CMILMatrix::IsAffine<1>((__int64)this, 1) )
-    {
-      *(_BYTE *)(v7 + 64) &= 0xFCu;
-    }
-    else
-    {
-      v9 = v8 * *(float *)(v7 + 12);
-      *(_DWORD *)(v7 + 64) = 0;
-      *(float *)(v7 + 60) = (float)(v9 + (float)(a3 * *(float *)(v7 + 28))) + *(float *)(v7 + 60);
-    }
+    *v3 = (float)((float)(a2 * *(v3 - 12)) + (float)(a3 * *(v3 - 8))) + *v3;
+    ++v3;
+    --v4;
   }
+  while ( v4 );
+  *((_BYTE *)this + 64) &= 0xFCu;
+  *((_BYTE *)this + 65) &= 0x3Fu;
 }

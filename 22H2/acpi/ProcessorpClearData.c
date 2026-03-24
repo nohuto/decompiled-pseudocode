@@ -1,48 +1,49 @@
 /*
- * XREFs of ProcessorpClearData @ 0x1C009B0A8
+ * XREFs of ProcessorpClearData @ 0x1C0094850
  * Callers:
- *     ProcessorCopyData @ 0x1C009A974 (ProcessorCopyData.c)
- *     IrqArbBootAllocation @ 0x1C009CFA0 (IrqArbBootAllocation.c)
- *     IrqArbCommitAllocation @ 0x1C009D050 (IrqArbCommitAllocation.c)
- *     IrqArbpPrepareForTestOrConflict @ 0x1C009E4E0 (IrqArbpPrepareForTestOrConflict.c)
- *     IrqArbpQueryConflictIsa @ 0x1C009E550 (IrqArbpQueryConflictIsa.c)
+ *     IrqArbpPrepareForTestOrConflict @ 0x1C0092350 (IrqArbpPrepareForTestOrConflict.c)
+ *     IrqArbCommitAllocation @ 0x1C0093900 (IrqArbCommitAllocation.c)
+ *     IrqArbBootAllocation @ 0x1C00942E0 (IrqArbBootAllocation.c)
+ *     ProcessorCopyData @ 0x1C00944E0 (ProcessorCopyData.c)
+ *     IrqArbpQueryConflictIsa @ 0x1C00B752C (IrqArbpQueryConflictIsa.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall ProcessorpClearData(int a1)
 {
-  __int64 v1; // rbx
+  ULONG v2; // edi
   struct _RTL_RANGE_LIST *v3; // rsi
-  _QWORD *UserData; // rdi
-  __int64 v5; // rdx
-  struct _RANGE_LIST_ITERATOR Iterator; // [rsp+20h] [rbp-20h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+68h] [rbp+28h] BYREF
-  PRTL_RANGE Range; // [rsp+70h] [rbp+30h] BYREF
+  PRTL_RANGE i; // rax
+  _QWORD *UserData; // rbx
+  __int64 v6; // rcx
+  struct _RANGE_LIST_ITERATOR Iterator; // [rsp+20h] [rbp-38h] BYREF
+  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+68h] [rbp+10h] BYREF
+  PRTL_RANGE Range; // [rsp+70h] [rbp+18h] BYREF
 
   Range = 0LL;
-  ProcNumber = 0;
-  v1 = 0LL;
+  v2 = 0;
   memset(&Iterator, 0, sizeof(Iterator));
+  ProcNumber = 0;
   if ( ProcessorInstanceCount )
   {
     do
     {
-      v3 = (struct _RTL_RANGE_LIST *)*((_QWORD *)ProcessorByNtNumber + v1);
+      v3 = (struct _RTL_RANGE_LIST *)*((_QWORD *)ProcessorByNtNumber + v2);
       if ( v3 )
       {
         if ( a1 )
           ++v3;
         RtlGetFirstRange(v3, &Iterator, &Range);
-        while ( Range )
+        for ( i = Range; Range; i = Range )
         {
-          UserData = Range->UserData;
+          UserData = i->UserData;
           if ( UserData )
           {
-            KeGetProcessorNumberFromIndex(v1, &ProcNumber);
-            v5 = *UserData & ~(1LL << ProcNumber.Number);
-            *UserData = v5;
-            if ( !v5 )
+            KeGetProcessorNumberFromIndex(v2, &ProcNumber);
+            v6 = *UserData & ~(1LL << ProcNumber.Number);
+            *UserData = v6;
+            if ( !v6 )
               ExFreePoolWithTag(UserData, 0);
             Range->UserData = 0LL;
           }
@@ -50,8 +51,8 @@ void __fastcall ProcessorpClearData(int a1)
         }
         RtlFreeRangeList(v3);
       }
-      v1 = (unsigned int)(v1 + 1);
+      ++v2;
     }
-    while ( (unsigned int)v1 < ProcessorInstanceCount );
+    while ( v2 < ProcessorInstanceCount );
   }
 }

@@ -1,23 +1,22 @@
 /*
- * XREFs of ?Get@?$CCachedData@VBLTENTRY@@$02@@QEAAPEAVBLTENTRY@@K@Z @ 0x1C006DE4C
+ * XREFs of ?Get@?$CCachedData@VBLTENTRY@@$02@@QEAAPEAVBLTENTRY@@K@Z @ 0x1C005EE2C
  * Callers:
- *     ?SetQueuedPresentLimit@BLTQUEUE@@QEAAXI@Z @ 0x1C03D40D4 (-SetQueuedPresentLimit@BLTQUEUE@@QEAAXI@Z.c)
+ *     ?SetQueuedPresentLimit@BLTQUEUE@@QEAAXI@Z @ 0x1C02FFE58 (-SetQueuedPresentLimit@BLTQUEUE@@QEAAXI@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0014F54 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
- *     ??_EBLTENTRY@@QEAAPEAXI@Z @ 0x1C006DE08 (--_EBLTENTRY@@QEAAPEAXI@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0019DC8 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ??_EBLTENTRY@@QEAAPEAXI@Z @ 0x1C005EDE8 (--_EBLTENTRY@@QEAAPEAXI@Z.c)
  */
 
 BLTENTRY *__fastcall CCachedData<BLTENTRY,3>::Get(__int64 a1, unsigned int a2)
 {
   unsigned __int64 v2; // rsi
-  BLTENTRY *result; // rax
   BLTENTRY *v5; // rcx
-  __int64 v6; // rbx
+  char *v6; // rdi
   __int64 v7; // rax
   bool v8; // cf
-  unsigned __int64 v9; // rax
-  __int64 v10; // rax
+  SIZE_T v9; // rax
+  char *v10; // rax
 
   v2 = a2;
   if ( a2 <= 3 )
@@ -35,15 +34,14 @@ BLTENTRY *__fastcall CCachedData<BLTENTRY,3>::Get(__int64 a1, unsigned int a2)
   v9 = v7 + 8;
   if ( v8 )
     v9 = -1LL;
-  v10 = operator new[](v9, 0x4B677844u, 256LL);
+  v10 = (char *)operator new[](v9, 0x4B677844u, PagedPool);
   if ( v10 )
   {
     v6 = v10 + 8;
     *(_QWORD *)v10 = v2;
-    `vector constructor iterator'((char *)(v10 + 8), 576LL, v2, (void (__fastcall *)(char *))BLTENTRY::BLTENTRY);
+    `vector constructor iterator'(v10 + 8, 576LL, v2, (void (__fastcall *)(char *))BLTENTRY::BLTENTRY);
   }
   *(_QWORD *)(a1 + 1728) = v6;
-  result = (BLTENTRY *)v6;
-  *(_DWORD *)(a1 + 1736) = v6 != 0 ? v2 : 0;
-  return result;
+  *(_DWORD *)(a1 + 1736) = v6 != 0LL ? v2 : 0;
+  return *(BLTENTRY **)(a1 + 1728);
 }

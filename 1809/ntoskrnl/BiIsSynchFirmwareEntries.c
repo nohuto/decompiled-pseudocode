@@ -1,8 +1,8 @@
 /*
- * XREFs of BiIsSynchFirmwareEntries @ 0x14016E66C
+ * XREFs of BiIsSynchFirmwareEntries @ 0x14016E68C
  * Callers:
- *     BcdForciblyUnloadStore @ 0x1406E173C (BcdForciblyUnloadStore.c)
- *     BcdCloseStore @ 0x140711A28 (BcdCloseStore.c)
+ *     BcdForciblyUnloadStore @ 0x1406E171C (BcdForciblyUnloadStore.c)
+ *     BcdCloseStore @ 0x140711A08 (BcdCloseStore.c)
  * Callees:
  *     <none>
  */

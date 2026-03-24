@@ -1,30 +1,28 @@
 /*
- * XREFs of ?Create@CExcludeVisualReference@@SAJPEAVCVisual@@PEAPEAV1@@Z @ 0x18010AFF8
+ * XREFs of ?Create@CExcludeVisualReference@@SAJPEAVCVisual@@PEAPEAV1@@Z @ 0x1800E4D4C
  * Callers:
- *     ?AddCursorVisual@CComposition@@QEAAJPEAVCVisual@@@Z @ 0x18010AF30 (-AddCursorVisual@CComposition@@QEAAJPEAVCVisual@@@Z.c)
- *     ?AddVisual@CVisualGroup@@IEAAJPEAVCVisual@@@Z @ 0x180218014 (-AddVisual@CVisualGroup@@IEAAJPEAVCVisual@@@Z.c)
- *     ?AppendVisuals@CVisualGroup@@QEAAJV?$span@PEAVCVisual@@$0?0@gsl@@@Z @ 0x180218114 (-AppendVisuals@CVisualGroup@@QEAAJV-$span@PEAVCVisual@@$0-0@gsl@@@Z.c)
+ *     ?AddVisual@CVisualGroup@@IEAAJPEAVCVisual@@@Z @ 0x1800E4B1C (-AddVisual@CVisualGroup@@IEAAJPEAVCVisual@@@Z.c)
+ *     ?InitializeVisualGroupData@CVisualGroup@@AEAAJPEAPEAVCVisual@@I0I@Z @ 0x1801ABDD8 (-InitializeVisualGroupData@CVisualGroup@@AEAAJPEAPEAVCVisual@@I0I@Z.c)
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Create@?$CWeakReference@VCVisual@@@@SAJPEAVCVisual@@PEAPEAV1@@Z @ 0x1800E8C04 (-Create@-$CWeakReference@VCVisual@@@@SAJPEAVCVisual@@PEAPEAV1@@Z.c)
- *     ?reset@?$com_ptr_t@V?$CWeakReference@VCVisual@@@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800F4038 (-reset@-$com_ptr_t@V-$CWeakReference@VCVisual@@@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ??_GCExcludeVisualReference@@QEAAPEAXI@Z @ 0x1801B468C (--_GCExcludeVisualReference@@QEAAPEAXI@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Initialize@CExcludeVisualReference@@IEAAJPEAVCVisual@@@Z @ 0x1800E07D8 (-Initialize@CExcludeVisualReference@@IEAAJPEAVCVisual@@@Z.c)
+ *     ??1CExcludeVisualReference@@QEAA@XZ @ 0x1800E4E34 (--1CExcludeVisualReference@@QEAA@XZ.c)
  */
 
-__int64 __fastcall CExcludeVisualReference::Create(struct CVisual *a1, struct CWeakResourceReference ***a2)
+__int64 __fastcall CExcludeVisualReference::Create(struct CVisual *a1, struct CExcludeVisualReference **a2)
 {
   char *v4; // rax
   __int64 v5; // rcx
-  struct CWeakResourceReference **v6; // rbx
+  CExcludeVisualReference *v6; // rbx
   int v7; // eax
   __int64 v8; // rcx
   unsigned int v9; // edi
-  unsigned int v11; // edx
 
   *a2 = 0LL;
   v4 = (char *)DefaultHeap::Alloc(0x18uLL);
-  v6 = (struct CWeakResourceReference **)v4;
+  v6 = (CExcludeVisualReference *)v4;
   if ( v4 )
   {
     *(_WORD *)(v4 + 21) = 0;
@@ -33,13 +31,20 @@ __int64 __fastcall CExcludeVisualReference::Create(struct CVisual *a1, struct CW
     *((_QWORD *)v4 + 1) = 0LL;
     *((_DWORD *)v4 + 4) = 0;
     v4[20] = 0;
-    wil::com_ptr_t<CWeakReference<CVisual>,wil::err_returncode_policy>::reset((__int64 *)v4 + 1);
-    v7 = CWeakReference<CVisual>::Create(a1, v6 + 1);
+  }
+  else
+  {
+    v6 = 0LL;
+  }
+  if ( v6 )
+  {
+    v7 = CExcludeVisualReference::Initialize(v6, a1);
     v9 = v7;
     if ( v7 < 0 )
     {
       MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x17u, 0LL);
-      CExcludeVisualReference::`scalar deleting destructor'((CExcludeVisualReference *)v6, v11);
+      CExcludeVisualReference::~CExcludeVisualReference(v6);
+      operator delete(v6);
     }
     else
     {

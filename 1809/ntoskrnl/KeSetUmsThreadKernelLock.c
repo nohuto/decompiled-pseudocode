@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSetUmsThreadKernelLock @ 0x140845488
+ * XREFs of KeSetUmsThreadKernelLock @ 0x140845468
  * Callers:
  *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
- *     PspUmsInitThread @ 0x14088AD2C (PspUmsInitThread.c)
- *     PspUmsUnInitThread @ 0x14088AE74 (PspUmsUnInitThread.c)
- *     PspRundownUmsThreadForApcDelivery @ 0x14088F16C (PspRundownUmsThreadForApcDelivery.c)
+ *     PspUmsInitThread @ 0x14088AD0C (PspUmsInitThread.c)
+ *     PspUmsUnInitThread @ 0x14088AE54 (PspUmsUnInitThread.c)
+ *     PspRundownUmsThreadForApcDelivery @ 0x14088F14C (PspRundownUmsThreadForApcDelivery.c)
  * Callees:
  *     <none>
  */

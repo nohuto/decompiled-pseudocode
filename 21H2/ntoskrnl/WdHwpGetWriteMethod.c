@@ -1,7 +1,7 @@
 /*
- * XREFs of WdHwpGetWriteMethod @ 0x14052CC08
+ * XREFs of WdHwpGetWriteMethod @ 0x1404DE56C
  * Callers:
- *     WdHwCreateHardwareRegister @ 0x14052CA64 (WdHwCreateHardwareRegister.c)
+ *     WdHwCreateHardwareRegister @ 0x1404DE3C8 (WdHwCreateHardwareRegister.c)
  * Callees:
  *     <none>
  */

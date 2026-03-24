@@ -1,7 +1,7 @@
 /*
- * XREFs of AcpiIrqLibEjectArbiterInterface @ 0x1C00A1890
+ * XREFs of AcpiIrqLibEjectArbiterInterface @ 0x1C009885C
  * Callers:
- *     ACPIRootIrpQueryInterface @ 0x1C0091E90 (ACPIRootIrpQueryInterface.c)
+ *     ACPIRootIrpQueryInterface @ 0x1C0098F50 (ACPIRootIrpQueryInterface.c)
  * Callees:
  *     <none>
  */

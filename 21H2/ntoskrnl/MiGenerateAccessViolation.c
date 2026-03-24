@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGenerateAccessViolation @ 0x1405A7258
+ * XREFs of MiGenerateAccessViolation @ 0x140548560
  * Callers:
- *     MiRaisedIrqlFault @ 0x1402307A0 (MiRaisedIrqlFault.c)
- *     MiSystemFault @ 0x140279590 (MiSystemFault.c)
- *     MiCheckSystemPageTables @ 0x140279D30 (MiCheckSystemPageTables.c)
+ *     MiRaisedIrqlFault @ 0x1402A2AFC (MiRaisedIrqlFault.c)
+ *     MiSystemFault @ 0x140311400 (MiSystemFault.c)
+ *     MiCheckSystemPageTables @ 0x140311BC0 (MiCheckSystemPageTables.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     MiDeterminePoolType @ 0x140366FB0 (MiDeterminePoolType.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     MiDeterminePoolType @ 0x1402FAD9C (MiDeterminePoolType.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-_BOOL8 __fastcall MiGenerateAccessViolation(unsigned __int64 *a1)
+_BOOL8 __fastcall MiGenerateAccessViolation(__int64 *a1)
 {
   unsigned __int64 v1; // rsi
   _QWORD **v2; // rdi
@@ -27,33 +27,33 @@ _BOOL8 __fastcall MiGenerateAccessViolation(unsigned __int64 *a1)
   v1 = *a1;
   if ( (unsigned int)MiDeterminePoolType(*a1) == 32 )
     return 0LL;
-  v2 = (_QWORD **)&unk_140C4F080;
-  v3 = ExAcquireSpinLockShared(&dword_140C4F078);
+  v2 = (_QWORD **)&unk_140C4C900;
+  v3 = ExAcquireSpinLockShared(&dword_140C4C8F8);
   while ( 1 )
   {
     v4 = *v2;
     while ( v4 )
     {
-      if ( v1 <= v4[4] )
+      if ( v1 > v4[4] )
+      {
+        v4 = (_QWORD *)v4[1];
+      }
+      else
       {
         if ( v1 >= v4[3] )
           goto LABEL_14;
         v4 = (_QWORD *)*v4;
       }
-      else
-      {
-        v4 = (_QWORD *)v4[1];
-      }
     }
-    if ( v2 != (_QWORD **)&unk_140C4F080 )
+    if ( v2 != (_QWORD **)&unk_140C4C900 )
       break;
     Process = KeGetCurrentThread()->ApcState.Process;
     if ( (Process[1].DirectoryTableBase & 0x1000000000000LL) == 0 )
       break;
-    v2 = (_QWORD **)(Process[1].Affinity.StaticBitmap[25] + 840);
+    v2 = (_QWORD **)(Process[1].AffinityPadding[5] + 1008);
   }
 LABEL_14:
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4F078);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4C8F8);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

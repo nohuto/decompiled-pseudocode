@@ -1,10 +1,10 @@
 /*
- * XREFs of IoTransferActivityId @ 0x1403C29E0
+ * XREFs of IoTransferActivityId @ 0x140398C60
  * Callers:
  *     <none>
  * Callees:
- *     EtwWriteEx @ 0x1402580C0 (EtwWriteEx.c)
- *     IopIsActivityTracingEventEnabled @ 0x1403C2A18 (IopIsActivityTracingEventEnabled.c)
+ *     EtwWriteEx @ 0x14025D570 (EtwWriteEx.c)
+ *     IopIsActivityTracingEventEnabled @ 0x140398C98 (IopIsActivityTracingEventEnabled.c)
  */
 
 NTSTATUS __fastcall IoTransferActivityId(LPCGUID ActivityId, LPCGUID RelatedActivityId)

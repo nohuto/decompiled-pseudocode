@@ -1,9 +1,9 @@
 /*
- * XREFs of LinkNodeFindByName @ 0x1C0099398
+ * XREFs of LinkNodeFindByName @ 0x1C00B67D8
  * Callers:
- *     PcisuppGetRoutingInfo @ 0x1C0099C7C (PcisuppGetRoutingInfo.c)
+ *     PcisuppGetRoutingInfo @ 0x1C0094D70 (PcisuppGetRoutingInfo.c)
  * Callees:
- *     ACPIAmliBuildObjectPathname @ 0x1C000B0E0 (ACPIAmliBuildObjectPathname.c)
+ *     ACPIAmliBuildObjectPathname @ 0x1C00116E4 (ACPIAmliBuildObjectPathname.c)
  */
 
 __int64 __fastcall LinkNodeFindByName(const char *a1, __int64 *a2)
@@ -20,9 +20,9 @@ __int64 __fastcall LinkNodeFindByName(const char *a1, __int64 *a2)
   {
     if ( &LinkNodeListHead == i )
       return 3221226021LL;
-    v6 = *(_QWORD *)(v2 + 600);
+    v6 = *(_QWORD *)(v2 + 560);
     P = 0LL;
-    result = ACPIAmliBuildObjectPathname(v6, &P, 0);
+    result = ACPIAmliBuildObjectPathname(v6, (char **)&P, 0);
     if ( (int)result < 0 )
       return result;
     v8 = P;

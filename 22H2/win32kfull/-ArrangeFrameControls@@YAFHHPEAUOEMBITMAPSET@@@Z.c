@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ArrangeFrameControls@@YAFHHPEAUOEMBITMAPSET@@@Z @ 0x1C009A714
+ * XREFs of ?ArrangeFrameControls@@YAFHHPEAUOEMBITMAPSET@@@Z @ 0x1C01072F0
  * Callers:
- *     ?EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z @ 0x1C009A5D8 (-EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z.c)
+ *     ?EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z @ 0x1C010716C (-EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z.c)
  * Callees:
  *     <none>
  */
@@ -42,15 +42,15 @@ __int64 __fastcall ArrangeFrameControls(int a1, int a2, struct OEMBITMAPSET *a3)
       v14 = 0;
       if ( v11 <= a1 )
         v14 = v4;
+      v4 = (unsigned __int16)v14;
       if ( a2 )
       {
         *v7 = v13;
         v7[1] = v6;
       }
-      v4 = (unsigned __int16)v7[3];
+      if ( v14 < (__int16)v7[3] )
+        LOWORD(v4) = v7[3];
       v5 = v9 + v13;
-      if ( v14 >= (__int16)v4 )
-        LOWORD(v4) = v14;
     }
     v7 += 4;
     --v8;

@@ -1,113 +1,113 @@
 /*
- * XREFs of PspReferenceCidTableEntry @ 0x1406FB260
+ * XREFs of PspReferenceCidTableEntry @ 0x140625E70
  * Callers:
- *     PsLookupProcessByProcessId @ 0x1406FA420 (PsLookupProcessByProcessId.c)
- *     PsLookupThreadByThreadId @ 0x1406FAFC0 (PsLookupThreadByThreadId.c)
+ *     PsLookupThreadByThreadId @ 0x140625A50 (PsLookupThreadByThreadId.c)
+ *     PsLookupProcessByProcessId @ 0x140625CA0 (PsLookupProcessByProcessId.c)
+ *     PspThreadFromTicket @ 0x140625D50 (PspThreadFromTicket.c)
  * Callees:
- *     ExSlowReplenishHandleTableEntry @ 0x14022EEB0 (ExSlowReplenishHandleTableEntry.c)
- *     ExGetHandlePointer @ 0x14022F740 (ExGetHandlePointer.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExLockHandleTableEntry @ 0x1402BEAA4 (ExLockHandleTableEntry.c)
- *     ExfUnblockPushLock @ 0x140411A50 (ExfUnblockPushLock.c)
- *     ObpPushStackInfo @ 0x140582C68 (ObpPushStackInfo.c)
- *     ExpLookupHandleTableEntry @ 0x1406E69E0 (ExpLookupHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x1407BAC40 (ExpBlockOnLockedHandleEntry.c)
+ *     ExSlowReplenishHandleTableEntry @ 0x1402C8E90 (ExSlowReplenishHandleTableEntry.c)
+ *     ExLockHandleTableEntry @ 0x1402C8EF0 (ExLockHandleTableEntry.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExfUnblockPushLock @ 0x1403F8BE0 (ExfUnblockPushLock.c)
+ *     ObpPushStackInfo @ 0x140564C68 (ObpPushStackInfo.c)
+ *     ExpLookupHandleTableEntry @ 0x14063E910 (ExpLookupHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140665448 (ExpBlockOnLockedHandleEntry.c)
  */
 
-unsigned __int64 __fastcall PspReferenceCidTableEntry(__int64 a1, char a2)
+struct _DMA_ADAPTER *__fastcall PspReferenceCidTableEntry(__int64 a1, char a2)
 {
-  __int64 *v3; // rax
-  __int64 *v4; // rdi
-  __int64 v5; // rbp
+  signed __int64 *v3; // rax
+  signed __int64 *v4; // rsi
+  __int64 v5; // r14
   signed __int64 v6; // rcx
-  unsigned __int64 v7; // r8
+  __int64 v7; // rdi
   unsigned __int128 v8; // rt0
   unsigned __int8 v9; // tt
   unsigned __int64 v10; // rax
-  _BYTE *v11; // rax
-  unsigned __int64 HandlePointer; // rbx
-  int v14; // ebp
-  bool v15; // zf
-  __int64 v16; // r8
-  signed __int64 v17; // rax
-  signed __int64 v18; // rtt
-  __int64 v19; // rcx
-  volatile __int64 *v20; // rcx
-  unsigned __int64 v21; // rax
-  signed __int32 v22[8]; // [rsp+0h] [rbp-48h] BYREF
-  _OWORD v23[2]; // [rsp+20h] [rbp-28h] BYREF
+  struct _DMA_ADAPTER *v11; // rdi
+  int v13; // ebx
+  bool v14; // zf
+  __int64 v15; // r8
+  signed __int64 v16; // rax
+  signed __int64 v17; // rtt
+  __int64 v18; // rcx
+  volatile __int64 *v19; // rcx
+  unsigned __int64 v20; // rax
+  signed __int32 v21[8]; // [rsp+0h] [rbp-48h] BYREF
+  unsigned __int128 v22; // [rsp+20h] [rbp-28h]
+  __int128 v23; // [rsp+30h] [rbp-18h]
 
   if ( (a1 & 0x3FC) == 0 )
     return 0LL;
-  v3 = (__int64 *)ExpLookupHandleTableEntry((unsigned int *)PspCidTable, a1);
+  v3 = (signed __int64 *)ExpLookupHandleTableEntry(PspCidTable, a1);
   v4 = v3;
   if ( !v3 )
     return 0LL;
   v5 = PspCidTable;
   _m_prefetchw(v3);
+  *(_QWORD *)&v22 = *v3;
   v6 = v3[1];
-  *(_QWORD *)&v23[0] = *v3;
-  v7 = *(_QWORD *)&v23[0];
-  *((_QWORD *)&v23[0] + 1) = v6;
-  if ( (*(_QWORD *)&v23[0] & 0x1FFFELL) == 0 )
+  *((_QWORD *)&v22 + 1) = v6;
+  v7 = v22;
+  if ( (v22 & 0x1FFFE) == 0 )
   {
 LABEL_10:
-    v14 = 0;
+    v13 = 0;
     if ( !ExLockHandleTableEntry(PspCidTable, v4) )
       return 0LL;
-    HandlePointer = ExGetHandlePointer(v4);
-    if ( (*(_BYTE *)HandlePointer & 0x7F) == a2 )
+    v11 = (struct _DMA_ADAPTER *)((*v4 >> 16) & 0xFFFFFFFFFFFFFFF0uLL);
+    if ( (v11->Version & 0x7F) == a2 )
     {
       if ( a2 == 3 )
-        v15 = (*(_DWORD *)(HandlePointer + 1124) & 0x400000C) == 0x4000000;
+        v14 = (*(_DWORD *)(((*v4 >> 16) & 0xFFFFFFFFFFFFFFF0uLL) + 0x464) & 0x400000C) == 0x4000000;
       else
-        v15 = (*(_DWORD *)(HandlePointer + 1376) & 3) == 2;
-      if ( v15 )
-        v14 = ExSlowReplenishHandleTableEntry((unsigned __int64 *)v4);
-      v16 = (unsigned int)(v14 + 1);
-      _m_prefetchw((const void *)(HandlePointer - 48));
-      v17 = *(_QWORD *)(HandlePointer - 48);
-      if ( v17 )
+        v14 = (*(_DWORD *)(((*v4 >> 16) & 0xFFFFFFFFFFFFFFF0uLL) + 0x510) & 3) == 2;
+      if ( v14 )
+        v13 = ExSlowReplenishHandleTableEntry((unsigned __int64 *)v4);
+      v15 = (unsigned int)(v13 + 1);
+      _m_prefetchw(&v11[-3]);
+      v16 = *(_QWORD *)&v11[-3].Version;
+      if ( v16 )
       {
         while ( 1 )
         {
-          v18 = v17;
-          v17 = _InterlockedCompareExchange64((volatile signed __int64 *)(HandlePointer - 48), v16 + v17, v17);
-          if ( v18 == v17 )
+          v17 = v16;
+          v16 = _InterlockedCompareExchange64((volatile signed __int64 *)&v11[-3], v15 + v16, v16);
+          if ( v17 == v16 )
             break;
-          if ( !v17 )
-            goto LABEL_25;
+          if ( !v16 )
+            goto LABEL_27;
         }
         if ( ObpTraceFlags )
-          ObpPushStackInfo(HandlePointer - 48, 1, v16, 0x746C6644u);
+          ObpPushStackInfo((__int64)&v11[-3], 1, v15, 0x746C6644u);
 LABEL_20:
-        v19 = PspCidTable;
+        v18 = PspCidTable;
         _InterlockedExchangeAdd64(v4, 1uLL);
-        v20 = (volatile __int64 *)(v19 + 48);
-        _InterlockedOr(v22, 0);
-        if ( *v20 )
-          ExfUnblockPushLock(v20, 0LL);
-        return HandlePointer;
+        v19 = (volatile __int64 *)(v18 + 48);
+        _InterlockedOr(v21, 0);
+        if ( *v19 )
+          ExfUnblockPushLock(v19, 0LL);
+        return v11;
       }
-LABEL_25:
-      v21 = *v4 & 0xFFFFFFFFFFFE0001uLL;
-      v23[1] = v21;
-      *v4 = v21;
+LABEL_27:
+      v20 = *v4 & 0xFFFFFFFFFFFE0001uLL;
+      v23 = v20;
+      *v4 = v20;
     }
-    HandlePointer = 0LL;
+    v11 = 0LL;
     goto LABEL_20;
   }
   while ( 1 )
   {
     if ( (v7 & 1) == 0 )
     {
-      ExpBlockOnLockedHandleEntry(v5, v4, v7);
+      ExpBlockOnLockedHandleEntry(v5, v4);
       _m_prefetchw(v4);
       v6 = v4[1];
-      *(_QWORD *)&v23[0] = *v4;
-      v7 = *(_QWORD *)&v23[0];
-      *((_QWORD *)&v23[0] + 1) = v6;
-      goto LABEL_27;
+      *(_QWORD *)&v22 = *v4;
+      v7 = v22;
+      *((_QWORD *)&v22 + 1) = v6;
+      goto LABEL_25;
     }
     *(_QWORD *)&v8 = v7;
     *((_QWORD *)&v8 + 1) = v6;
@@ -115,19 +115,18 @@ LABEL_25:
     v6 = v8 >> 64;
     v10 = v8;
     v7 = v8;
-    v23[0] = v8;
+    v22 = v8;
     if ( v9 )
       break;
-LABEL_27:
+LABEL_25:
     if ( (v7 & 0x1FFFE) == 0 )
       goto LABEL_10;
   }
   if ( (unsigned __int16)(v10 >> 1) == 16 )
-    *(_QWORD *)&v23[0] = ((unsigned int)v7 ^ (2 * (unsigned int)(v10 >> 1) - 2)) & 0x1FFFE ^ v7;
-  v11 = (_BYTE *)ExGetHandlePointer((__int64 *)v23);
-  HandlePointer = (unsigned __int64)v11;
-  if ( (*v11 & 0x7F) == a2 )
-    return HandlePointer;
-  ObfDereferenceObject(v11);
+    v7 = ((unsigned int)v7 ^ (2 * (unsigned int)(v10 >> 1) - 2)) & 0x1FFFE ^ (unsigned __int64)v7;
+  v11 = (struct _DMA_ADAPTER *)((v7 >> 16) & 0xFFFFFFFFFFFFFFF0uLL);
+  if ( (v11->Version & 0x7F) == a2 )
+    return v11;
+  HalPutDmaAdapter(v11);
   return 0LL;
 }

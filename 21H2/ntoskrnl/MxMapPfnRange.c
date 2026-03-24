@@ -1,11 +1,11 @@
 /*
- * XREFs of MxMapPfnRange @ 0x140AF5F74
+ * XREFs of MxMapPfnRange @ 0x140A448EC
  * Callers:
- *     MiCreateSparsePfnDatabase @ 0x140AF5D1C (MiCreateSparsePfnDatabase.c)
+ *     MiCreateSparsePfnDatabase @ 0x140A44718 (MiCreateSparsePfnDatabase.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x1402C1550 (MiSearchNumaNodeTable.c)
- *     MiRestrictRangeToNode @ 0x1403B7A10 (MiRestrictRangeToNode.c)
- *     MxMapVa @ 0x140AF61F4 (MxMapVa.c)
+ *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     MiRestrictRangeToNode @ 0x1403B14C0 (MiRestrictRangeToNode.c)
+ *     MxMapVa @ 0x140A44B6C (MxMapVa.c)
  */
 
 __int64 __fastcall MxMapPfnRange(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, int a3)
@@ -37,19 +37,19 @@ __int64 __fastcall MxMapPfnRange(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, int
   v23 = 0LL;
   v4 = a2;
   v5 = BugCheckParameter2;
-  v6 = 48 * BugCheckParameter2 - 0x220000000000LL;
+  v6 = 48 * BugCheckParameter2 - 0x58000000000LL;
   if ( v6 == (v6 & 0xFFFFFFFFFFE00000uLL) )
     v7 = 0LL;
   else
     v7 = ((v6 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   if ( a2 == -1LL
-    || 48 * (BugCheckParameter2 + a2) - 0x220000000000LL == ((48 * (BugCheckParameter2 + a2) - 0x220000000000LL) & 0xFFFFFFFFFFE00000uLL) )
+    || 48 * (BugCheckParameter2 + a2) - 0x58000000000LL == ((48 * (BugCheckParameter2 + a2) - 0x58000000000LL) & 0xFFFFFFFFFFE00000uLL) )
   {
     v8 = 0LL;
   }
   else
   {
-    v8 = (((48 * (BugCheckParameter2 + a2) - 0x220000000001LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v8 = (((48 * (BugCheckParameter2 + a2) - 0x58000000001LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   }
   v21 = v7;
   v22 = v8;
@@ -67,10 +67,10 @@ __int64 __fastcall MxMapPfnRange(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, int
     {
       v9 = MiRestrictRangeToNode(v5, v4);
       v4 -= v9;
-      v10 = 48 * (v5 + v9) - 0x220000000000LL;
+      v10 = 48 * (v5 + v9) - 0x58000000000LL;
     }
     v19 = *((_DWORD *)MiSearchNumaNodeTable(v5) + 2);
-    v11 = ((48 * v5 - 0x220000000000LL) >> 9) & 0x7FFFFFFFF8LL;
+    v11 = ((48 * v5 - 0x58000000000LL) >> 9) & 0x7FFFFFFFF8LL;
     v5 += v9;
     v12 = v11 - 0x98000000000LL;
     v13 = (((unsigned __int64)(v10 - 1) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;

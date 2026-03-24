@@ -1,13 +1,13 @@
 /*
- * XREFs of MmCanThreadFault @ 0x1400CC1D4
+ * XREFs of MmCanThreadFault @ 0x1400CC1F4
  * Callers:
- *     EtwpEventWriteFull @ 0x1400C84C0 (EtwpEventWriteFull.c)
- *     RtlWalkFrameChain @ 0x1400CCBB0 (RtlWalkFrameChain.c)
- *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
- *     EtwpStackTraceDispatcher @ 0x14030F41C (EtwpStackTraceDispatcher.c)
- *     EtwpCovSampSafeForUserAddressCapture @ 0x140317398 (EtwpCovSampSafeForUserAddressCapture.c)
+ *     EtwpEventWriteFull @ 0x1400C84E0 (EtwpEventWriteFull.c)
+ *     RtlWalkFrameChain @ 0x1400CCBD0 (RtlWalkFrameChain.c)
+ *     ObpPushStackInfo @ 0x1402D3068 (ObpPushStackInfo.c)
+ *     EtwpStackTraceDispatcher @ 0x14030F51C (EtwpStackTraceDispatcher.c)
+ *     EtwpCovSampSafeForUserAddressCapture @ 0x140317498 (EtwpCovSampSafeForUserAddressCapture.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x1400CAAB0 (KeGetEffectiveIrql.c)
+ *     KeGetEffectiveIrql @ 0x1400CAAD0 (KeGetEffectiveIrql.c)
  */
 
 _BOOL8 MmCanThreadFault()

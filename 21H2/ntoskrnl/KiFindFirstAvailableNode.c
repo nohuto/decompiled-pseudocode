@@ -1,29 +1,30 @@
 /*
- * XREFs of KiFindFirstAvailableNode @ 0x1403C1F24
+ * XREFs of KiFindFirstAvailableNode @ 0x1403B5D7C
  * Callers:
- *     KiQueryProcessorNode @ 0x1403C1A84 (KiQueryProcessorNode.c)
+ *     KiQueryProcessorNode @ 0x1403B5C9C (KiQueryProcessorNode.c)
  * Callees:
- *     KiIsNodeFull @ 0x1403C1F9C (KiIsNodeFull.c)
+ *     KiIsNodeFull @ 0x1403B5DDC (KiIsNodeFull.c)
  */
 
-__int64 __fastcall KiFindFirstAvailableNode(unsigned __int16 *a1)
+__int64 KiFindFirstAvailableNode()
 {
-  unsigned __int16 v1; // di
-  unsigned __int16 v3; // bx
-  __int64 v4; // rcx
+  unsigned __int16 v0; // r10
+  unsigned __int16 v1; // r9
+  __int64 v2; // rcx
+  unsigned __int16 *v3; // r11
 
-  v1 = KeNumberNodes;
-  v3 = 0;
+  v0 = KeNumberNodes;
+  v1 = 0;
   if ( !KeNumberNodes )
     return 3221226021LL;
   while ( 1 )
   {
-    v4 = KeNodeBlock[v3];
-    if ( (*(_BYTE *)(v4 + 10) & 2) != 0 && !(unsigned __int8)KiIsNodeFull(v4) )
+    v2 = KeNodeBlock[v1];
+    if ( (*(_BYTE *)(v2 + 181) & 2) != 0 && !(unsigned __int8)KiIsNodeFull(v2) )
       break;
-    if ( ++v3 >= v1 )
+    if ( ++v1 >= v0 )
       return 3221226021LL;
   }
-  *a1 = v3;
+  *v3 = v1;
   return 0LL;
 }

@@ -1,18 +1,16 @@
 /*
- * XREFs of GetProcessImageFileName @ 0x1C000F848
+ * XREFs of GetProcessImageFileName @ 0x1C0001218
  * Callers:
- *     GetProcessImageFilename @ 0x1C000F798 (GetProcessImageFilename.c)
- *     ?LogFontLoadAttempt@@YAXPEAXW4_W32KFontSourceType@@PEBGH@Z @ 0x1C026AB10 (-LogFontLoadAttempt@@YAXPEAXW4_W32KFontSourceType@@PEBGH@Z.c)
+ *     GetProcessImageFilename @ 0x1C0001168 (GetProcessImageFilename.c)
+ *     ?LogFontLoadAttempt@@YAXPEAXW4_W32KFontSourceType@@PEBGH@Z @ 0x1C0272288 (-LogFontLoadAttempt@@YAXPEAXW4_W32KFontSourceType@@PEBGH@Z.c)
  * Callees:
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 void *__fastcall GetProcessImageFileName(HANDLE ProcessHandle)
 {
   void *v1; // rbx
   void *v3; // rax
-  __int64 v4; // rdx
-  __int64 v5; // r8
   ULONG ProcessInformationLength; // [rsp+48h] [rbp+10h] BYREF
 
   v1 = 0LL;
@@ -24,10 +22,10 @@ void *__fastcall GetProcessImageFileName(HANDLE ProcessHandle)
     v1 = v3;
     if ( v3 )
     {
-      memset_0(v3, 0, ProcessInformationLength + 2LL);
+      memset(v3, 0, ProcessInformationLength + 2LL);
       if ( ZwQueryInformationProcess(ProcessHandle, ProcessImageFileNameWin32, v1, ProcessInformationLength, 0LL) < 0 )
       {
-        FreeTmpBuffer(v1, v4, v5);
+        FreeTmpBuffer(v1);
         return 0LL;
       }
     }

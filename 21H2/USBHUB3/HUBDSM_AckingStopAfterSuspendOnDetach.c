@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_AckingStopAfterSuspendOnDetach @ 0x1C001C9C0
+ * XREFs of HUBDSM_AckingStopAfterSuspendOnDetach @ 0x1C001C480
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_AckStopAfterSuspend @ 0x1C00108A8 (HUBMUX_AckStopAfterSuspend.c)
+ *     HUBMUX_AckStopAfterSuspend @ 0x1C0010490 (HUBMUX_AckStopAfterSuspend.c)
  */
 
 __int64 __fastcall HUBDSM_AckingStopAfterSuspendOnDetach(__int64 a1)

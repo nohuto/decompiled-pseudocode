@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetRemarshalingFlags@CParticleAttractorMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0228460
+ * XREFs of ?SetRemarshalingFlags@CParticleAttractorMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C01DF050
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ char __fastcall DirectComposition::CParticleAttractorMarshaler::SetRemarshalingF
   float v1; // xmm0_4
   int v2; // eax
 
-  v1 = *((float *)this + 19);
+  v1 = *((float *)this + 17);
   v2 = *((_DWORD *)this + 4) | 0x20;
   *((_DWORD *)this + 4) = v2;
   if ( v1 != 0.0 )
@@ -20,7 +20,7 @@ char __fastcall DirectComposition::CParticleAttractorMarshaler::SetRemarshalingF
     v2 |= 0x40u;
     *((_DWORD *)this + 4) = v2;
   }
-  if ( *((float *)this + 20) != 0.0 )
+  if ( *((float *)this + 18) != 0.0 )
     *((_DWORD *)this + 4) = v2 | 0x80;
   return 1;
 }

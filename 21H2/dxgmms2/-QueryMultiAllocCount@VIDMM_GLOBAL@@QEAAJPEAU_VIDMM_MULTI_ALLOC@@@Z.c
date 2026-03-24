@@ -1,7 +1,7 @@
 /*
- * XREFs of ?QueryMultiAllocCount@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C00D9210
+ * XREFs of ?QueryMultiAllocCount@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C00B2B4C
  * Callers:
- *     VidMmQueryMultiAllocCount @ 0x1C0019050 (VidMmQueryMultiAllocCount.c)
+ *     VidMmQueryMultiAllocCount @ 0x1C00162C0 (VidMmQueryMultiAllocCount.c)
  * Callees:
  *     <none>
  */

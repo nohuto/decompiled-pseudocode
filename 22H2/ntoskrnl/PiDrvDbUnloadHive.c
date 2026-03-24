@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDrvDbUnloadHive @ 0x1408676EC
+ * XREFs of PiDrvDbUnloadHive @ 0x140725F28
  * Callers:
- *     PiDrvDbSetupNodeHive @ 0x140813EF8 (PiDrvDbSetupNodeHive.c)
- *     PiDrvDbLoadNodeWorkerCallback @ 0x140867450 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140725C90 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PiDrvDbSetupNodeHive @ 0x1408B7EB4 (PiDrvDbSetupNodeHive.c)
  * Callees:
- *     ZwUnloadKey2 @ 0x14041E1A0 (ZwUnloadKey2.c)
- *     ZwUnloadKeyEx @ 0x14041E1C0 (ZwUnloadKeyEx.c)
+ *     ZwUnloadKey2 @ 0x1403FD360 (ZwUnloadKey2.c)
+ *     ZwUnloadKeyEx @ 0x1403FD380 (ZwUnloadKeyEx.c)
  */
 
 __int64 __fastcall PiDrvDbUnloadHive(__int64 a1, __int64 a2)

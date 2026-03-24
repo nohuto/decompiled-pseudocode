@@ -1,9 +1,9 @@
 /*
- * XREFs of ?vPaintPathEnum@@YAXPEAU_RECTL@@KPEAX@Z @ 0x1C014EA30
+ * XREFs of ?vPaintPathEnum@@YAXPEAU_RECTL@@KPEAX@Z @ 0x1C015E280
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall vPaintPathEnum(struct _RECTL *a1, __int64 a2, _QWORD *a3)

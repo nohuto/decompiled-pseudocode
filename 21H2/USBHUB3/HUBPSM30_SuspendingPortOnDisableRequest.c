@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPSM30_SuspendingPortOnDisableRequest @ 0x1C0012860
+ * XREFs of HUBPSM30_SuspendingPortOnDisableRequest @ 0x1C0012360
  * Callers:
  *     <none>
  * Callees:
- *     HUBHTX_Suspend30PortUsingControlTransfer @ 0x1C0004678 (HUBHTX_Suspend30PortUsingControlTransfer.c)
+ *     HUBHTX_Suspend30PortUsingControlTransfer @ 0x1C00044BC (HUBHTX_Suspend30PortUsingControlTransfer.c)
  */
 
 __int64 __fastcall HUBPSM30_SuspendingPortOnDisableRequest(__int64 a1)

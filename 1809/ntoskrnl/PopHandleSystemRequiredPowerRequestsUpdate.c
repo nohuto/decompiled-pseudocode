@@ -4,8 +4,8 @@
  *     PopHandleConvergedPowerRequestUpdate @ 0x140589D88 (PopHandleConvergedPowerRequestUpdate.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
  *     PopCheckResiliencyScenarios @ 0x140589E14 (PopCheckResiliencyScenarios.c)
@@ -33,12 +33,12 @@ void __fastcall PopHandleSystemRequiredPowerRequestsUpdate(int a1)
   PopAcquirePolicyLock();
   KeAcquireInStackQueuedSpinLock(&PopPowerRequestSpinLock, &LockHandle);
   if ( PopPowerRequestAttributes[4 * v1] <= 0 )
-    v3 = ~v2 & dword_140417644;
+    v3 = ~v2 & dword_140417664;
   else
-    v3 = v2 | dword_140417644;
-  dword_140417644 = v3;
+    v3 = v2 | dword_140417664;
+  dword_140417664 = v3;
   if ( !v3 )
-    dword_140417660 = dword_140417628;
+    dword_140417680 = dword_140417648;
   KxReleaseQueuedSpinLock(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && LockHandle.OldIrql < 2u )

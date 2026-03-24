@@ -1,5 +1,5 @@
 /*
- * XREFs of SetTouchInputStatus @ 0x1C00D8840
+ * XREFs of SetTouchInputStatus @ 0x1C01278A0
  * Callers:
  *     <none>
  * Callees:

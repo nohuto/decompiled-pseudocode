@@ -1,36 +1,23 @@
 /*
- * XREFs of KiSetPriorityBoost @ 0x1403079D8
+ * XREFs of KiSetPriorityBoost @ 0x140315DB0
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14023A2B0 (KiDeferredReadySingleThread.c)
- *     KiQuantumEnd @ 0x1402486D0 (KiQuantumEnd.c)
- *     KiPrepareReadyThreadForRescheduling @ 0x1402BD220 (KiPrepareReadyThreadForRescheduling.c)
- *     KiNormalPriorityReadyScan @ 0x140306CC0 (KiNormalPriorityReadyScan.c)
- *     KeSetPriorityBoost @ 0x140307860 (KeSetPriorityBoost.c)
+ *     KiQuantumEnd @ 0x140257550 (KiQuantumEnd.c)
+ *     KiPrepareReadyThreadForRescheduling @ 0x14035BA40 (KiPrepareReadyThreadForRescheduling.c)
  * Callees:
- *     KiSetPriorityThread @ 0x1402B05A0 (KiSetPriorityThread.c)
- *     KiUpdateThreadPriority @ 0x140307A60 (KiUpdateThreadPriority.c)
+ *     KiSetPriorityThread @ 0x14022FC10 (KiSetPriorityThread.c)
+ *     KiUpdateThreadPriority @ 0x1402307C0 (KiUpdateThreadPriority.c)
+ *     KiSetLockOwnershipQuantum @ 0x140315E08 (KiSetLockOwnershipQuantum.c)
  */
 
-unsigned __int64 __fastcall KiSetPriorityBoost(
-        unsigned __int64 a1,
-        __int64 a2,
-        char a3,
-        unsigned __int64 a4,
-        unsigned int a5)
+__int64 __fastcall KiSetPriorityBoost(__int64 a1, _KTHREAD *a2, char a3, __int64 a4)
 {
-  unsigned __int64 v7; // rax
-  unsigned __int64 result; // rax
+  _SINGLE_LIST_ENTRY *v6; // r8
 
-  *(_BYTE *)(a2 + 564) += 16 * (a3 - *(_BYTE *)(a2 + 195));
+  a2->PriorityDecrement += 16 * (a3 - a2->Priority);
+  v6 = (_SINGLE_LIST_ENTRY *)(unsigned int)a3;
   if ( a1 )
-    KiSetPriorityThread(a2, a1, a3);
+    KiSetPriorityThread(a2, a1, (unsigned __int8)v6);
   else
-    KiUpdateThreadPriority(0, a2, a2, a3, 0);
-  v7 = *(_QWORD *)(a2 + 32);
-  if ( a4 > v7 || (result = v7 - a4, result < a5) )
-  {
-    result = a5 + a4;
-    *(_QWORD *)(a2 + 32) = result;
-  }
-  return result;
+    KiUpdateThreadPriority(0LL, (__int64)a2, v6, 0);
+  return KiSetLockOwnershipQuantum(a2, a4);
 }

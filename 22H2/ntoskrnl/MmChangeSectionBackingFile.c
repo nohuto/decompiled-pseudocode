@@ -1,86 +1,128 @@
 /*
- * XREFs of MmChangeSectionBackingFile @ 0x14035E968
+ * XREFs of MmChangeSectionBackingFile @ 0x14031C484
  * Callers:
- *     FsRtlChangeBackingFileObject @ 0x1403D6100 (FsRtlChangeBackingFileObject.c)
- *     MiShareExistingControlArea @ 0x140723D4C (MiShareExistingControlArea.c)
+ *     FsRtlChangeBackingFileObject @ 0x140394790 (FsRtlChangeBackingFileObject.c)
+ *     MiShareExistingControlArea @ 0x14065547C (MiShareExistingControlArea.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x1402100E8 (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ObFastReplaceObject @ 0x14029A458 (ObFastReplaceObject.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8BC0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfReferenceObjectWithTag @ 0x140205660 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1402610E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ObFastReplaceObject @ 0x140277500 (ObFastReplaceObject.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402C2A00 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmChangeSectionBackingFile(_QWORD *a1, _QWORD *a2, int a3)
 {
-  void *v4; // rdi
-  __int64 v5; // rax
-  __int64 v6; // rbx
-  volatile __int64 *v7; // rcx
-  int v8; // edx
-  KIRQL v9; // bl
+  int v5; // esi
+  KIRQL v6; // al
+  __int64 *v7; // rdi
+  unsigned __int64 v8; // rbx
+  __int64 v9; // rdi
+  volatile __int64 *v10; // rcx
+  unsigned __int64 v11; // rsi
+  void *v12; // rcx
+  int v13; // r8d
+  volatile LONG *v14; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v14; // eax
-  bool v15; // zf
-  KIRQL v16; // [rsp+40h] [rbp+18h] BYREF
+  int v19; // eax
+  bool v20; // zf
+  unsigned __int8 v21; // al
+  struct _KPRCB *v22; // r9
+  int v23; // eax
+  _DWORD *v24; // r8
 
-  v16 = 0;
-  v4 = a1;
-  if ( (a3 & 0xFFFFFFFC) == 0 && a3 != 3 )
+  if ( (a3 & 0xFFFFFFFC) != 0 || a3 == 3 )
+    return 3221225713LL;
+  if ( a1 && a1[5] != a2[5] )
+    return 3221225712LL;
+  v5 = a3 & 1;
+  while ( 1 )
   {
-    if ( a1 && a1[5] != a2[5] )
-      return 3221225712LL;
-    v5 = MiLockSectionControlArea((_QWORD *)a2[5], a3 & 1, &v16);
-    v6 = v5;
-    if ( !v5 )
-      return 0LL;
-    if ( (*(_DWORD *)(v5 + 56) & 1) == 0 )
-    {
-      v7 = (volatile __int64 *)(v5 + 64);
-      if ( !v4 )
-      {
-        v4 = (void *)(*v7 & 0xFFFFFFFFFFFFFFF0uLL);
-        if ( !v4 )
-          goto LABEL_9;
-        goto LABEL_8;
-      }
-      if ( (void *)(*v7 & 0xFFFFFFFFFFFFFFF0uLL) == v4 )
-      {
-LABEL_8:
-        ObFastReplaceObject(v7, (__int64)a2);
-        ObfReferenceObjectWithTag(a2, 0x746C6644u);
-        ObDereferenceObjectDeferDeleteWithTag(v4, 0x746C6644u);
-      }
-    }
-LABEL_9:
-    v8 = *(_DWORD *)(v6 + 56);
-    if ( (v8 & 0x200) != 0 && ((__int64)KeGetCurrentThread()[1].Queue & 0x40) == 0 )
-      *(_DWORD *)(v6 + 56) = v8 & 0xFFFFFDFF;
-    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v6 + 72));
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
-    {
-      v9 = v16;
-      if ( v16 <= 0xFu && CurrentIrql >= 2u )
-      {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v9 = v16;
-        v14 = ~(unsigned __int16)(-1LL << (v16 + 1));
-        v15 = (v14 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v14;
-        if ( v15 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-      }
-    }
+    v6 = ExAcquireSpinLockExclusive(&dword_140C4C980);
+    v7 = (__int64 *)a2[5];
+    v8 = v6;
+    if ( v5 )
+      v9 = *v7;
     else
+      v9 = v7[2];
+    if ( !v9 )
     {
-      v9 = v16;
+      v14 = &dword_140C4C980;
+      goto LABEL_18;
     }
-    __writecr8(v9);
-    return 0LL;
+    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v9 + 72)) )
+      break;
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+          v20 = (v19 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v19;
+          if ( v20 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
+      }
+    }
+    __writecr8(v8);
   }
-  return 3221225713LL;
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+  if ( (*(_DWORD *)(v9 + 56) & 1) == 0 )
+  {
+    v10 = (volatile __int64 *)(v9 + 64);
+    if ( a1 )
+    {
+      if ( (_QWORD *)(*v10 & 0xFFFFFFFFFFFFFFF0uLL) != a1 )
+        goto LABEL_14;
+      ObFastReplaceObject(v10, (ULONG_PTR)a2);
+      ObfReferenceObjectWithTag(a2, 0x746C6644u);
+      v12 = a1;
+      goto LABEL_13;
+    }
+    v11 = *v10 & 0xFFFFFFFFFFFFFFF0uLL;
+    if ( v11 )
+    {
+      ObFastReplaceObject(v10, (ULONG_PTR)a2);
+      ObfReferenceObjectWithTag(a2, 0x746C6644u);
+      v12 = (void *)v11;
+LABEL_13:
+      ObDereferenceObjectDeferDeleteWithTag(v12, 0x746C6644u);
+    }
+  }
+LABEL_14:
+  v13 = *(_DWORD *)(v9 + 56);
+  if ( (v13 & 0x200) != 0 && ((__int64)KeGetCurrentThread()[1].Queue & 0x40) == 0 )
+    *(_DWORD *)(v9 + 56) = v13 & 0xFFFFFDFF;
+  v14 = (volatile LONG *)(v9 + 72);
+LABEL_18:
+  ExReleaseSpinLockExclusiveFromDpcLevel(v14);
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      v21 = KeGetCurrentIrql();
+      if ( v21 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v21 >= 2u )
+      {
+        v22 = KeGetCurrentPrcb();
+        v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
+        v24 = v22->SchedulerAssist;
+        v20 = (v23 & v24[5]) == 0;
+        v24[5] &= v23;
+        if ( v20 )
+          KiRemoveSystemWorkPriorityKick(v22);
+      }
+    }
+  }
+  __writecr8(v8);
+  return 0LL;
 }

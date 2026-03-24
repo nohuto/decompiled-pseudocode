@@ -1,128 +1,130 @@
 /*
- * XREFs of DxgkRemoveSurfaceFromSwapChain @ 0x1C034F6A0
+ * XREFs of DxgkRemoveSurfaceFromSwapChain @ 0x1C02AF030
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
- *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
- *     McTemplateK0pqqpq_EtwWriteTransfer @ 0x1C005B624 (McTemplateK0pqqpq_EtwWriteTransfer.c)
- *     ??0DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@PEAVDXGSWAPCHAIN@@_ND@Z @ 0x1C0349848 (--0DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@PEAVDXGSWAPCHAIN@@_ND@Z.c)
- *     ??1DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@XZ @ 0x1C03498B8 (--1DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@XZ.c)
- *     ?Acquire@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAJPEAPEAVDXGDEVICE@@_N@Z @ 0x1C03498EC (-Acquire@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAJPEAPEAVDXGDEVICE@@_N@Z.c)
- *     ?RemoveSurface@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_REMOVESURFACEFROMSWAPCHAIN@@@Z @ 0x1C034C654 (-RemoveSurface@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_REMOVESURFACEFROMSWAPCHAIN@@@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002CE8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0006318 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024B10 (McTemplateK0q_EtwWriteTransfer.c)
+ *     McTemplateK0pqqpq_EtwWriteTransfer @ 0x1C004C46C (McTemplateK0pqqpq_EtwWriteTransfer.c)
+ *     ??0DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@PEAVDXGSWAPCHAIN@@_ND@Z @ 0x1C02A9B28 (--0DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@PEAVDXGSWAPCHAIN@@_ND@Z.c)
+ *     ??1DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@XZ @ 0x1C02A9B98 (--1DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@XZ.c)
+ *     ?Acquire@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAJPEAPEAVDXGDEVICE@@_N@Z @ 0x1C02A9BCC (-Acquire@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAJPEAPEAVDXGDEVICE@@_N@Z.c)
+ *     ?RemoveSurface@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_REMOVESURFACEFROMSWAPCHAIN@@@Z @ 0x1C02AC5BC (-RemoveSurface@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_REMOVESURFACEFROMSWAPCHAIN@@@Z.c)
  */
 
 __int64 __fastcall DxgkRemoveSurfaceFromSwapChain(__int64 a1, __int64 a2, __int64 a3)
 {
   struct _D3DKMT_REMOVESURFACEFROMSWAPCHAIN *v3; // rbx
+  __int64 v4; // rdx
   BOOL bProducer; // edi
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  NTSTATUS v8; // eax
-  unsigned int v9; // ebx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  bool v12; // sf
-  struct _KTHREAD ***v13; // rsi
-  struct DXGSWAPCHAIN *v14; // r14
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  PVOID *Object; // [rsp+20h] [rbp-128h]
-  POBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+28h] [rbp-120h]
-  int v19; // [rsp+50h] [rbp-F8h] BYREF
-  __int64 v20; // [rsp+58h] [rbp-F0h]
-  char v21; // [rsp+60h] [rbp-E8h]
-  PVOID v22; // [rsp+68h] [rbp-E0h] BYREF
-  struct DXGDEVICE *v23; // [rsp+70h] [rbp-D8h] BYREF
-  struct _D3DKMT_REMOVESURFACEFROMSWAPCHAIN Handle; // [rsp+78h] [rbp-D0h] BYREF
-  _BYTE v25[128]; // [rsp+A0h] [rbp-A8h] BYREF
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  HANDLE hNtSwapChain; // rsi
+  NTSTATUS v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // rbx
+  __int64 v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  struct _KTHREAD ***v21; // rsi
+  struct DXGSWAPCHAIN *v22; // r14
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  PVOID *Object; // [rsp+20h] [rbp-F8h]
+  __int64 v26; // [rsp+28h] [rbp-F0h]
+  __int64 v27; // [rsp+40h] [rbp-D8h] BYREF
+  __int64 v28; // [rsp+48h] [rbp-D0h]
+  char v29; // [rsp+50h] [rbp-C8h]
+  PVOID v30; // [rsp+58h] [rbp-C0h] BYREF
+  struct _D3DKMT_REMOVESURFACEFROMSWAPCHAIN Handle; // [rsp+60h] [rbp-B8h] BYREF
+  _BYTE v32[128]; // [rsp+80h] [rbp-98h] BYREF
 
   v3 = (struct _D3DKMT_REMOVESURFACEFROMSWAPCHAIN *)a1;
-  v19 = -1;
-  v20 = 0LL;
-  if ( (qword_1C012F870 & 2) != 0 )
+  LODWORD(v27) = -1;
+  v28 = 0LL;
+  if ( (qword_1C00B19B0 & 2) != 0 )
   {
-    v21 = 1;
-    v19 = 2200;
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    v29 = 1;
+    LODWORD(v27) = 2200;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
       McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2200);
   }
   else
   {
-    v21 = 0;
+    v29 = 0;
   }
-  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v19, 2200);
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v27, 2200LL);
   if ( (unsigned __int64)v3 >= MmUserProbeAddress )
     v3 = (struct _D3DKMT_REMOVESURFACEFROMSWAPCHAIN *)MmUserProbeAddress;
   Handle = *v3;
   bProducer = Handle.bProducer;
   if ( Handle.bProducer )
   {
-    v22 = 0LL;
-    v8 = ObReferenceObjectByHandle(Handle.hNtSwapChain, 0x20000u, g_pDxgkSharedSwapChainObjectType, 1, &v22, 0LL);
-    v9 = v8;
-    if ( v8 >= 0 )
+    v30 = 0LL;
+    hNtSwapChain = Handle.hNtSwapChain;
+    v12 = ObReferenceObjectByHandle(Handle.hNtSwapChain, 0x20000u, g_pDxgkSharedSwapChainObjectType, 1, &v30, 0LL);
+    v16 = v12;
+    if ( v12 >= 0 )
     {
-      v13 = (struct _KTHREAD ***)v22;
-      v14 = *(struct DXGSWAPCHAIN **)v22;
-      v23 = 0LL;
-      DXGSWAPCHAINLOCKWITHDEVICE::DXGSWAPCHAINLOCKWITHDEVICE((DXGSWAPCHAINLOCKWITHDEVICE *)v25, v14, 1, 1);
-      v9 = DXGSWAPCHAINLOCKWITHDEVICE::Acquire((DXGSWAPCHAINLOCKWITHDEVICE *)v25, &v23, 1);
-      if ( (v9 & 0x80000000) == 0 )
-        v9 = DXGSWAPCHAIN::RemoveSurface(*v13, &Handle);
-      ObfDereferenceObject(v13);
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x1000000000LL) != 0 )
+      v21 = (struct _KTHREAD ***)v30;
+      v22 = *(struct DXGSWAPCHAIN **)v30;
+      v30 = 0LL;
+      DXGSWAPCHAINLOCKWITHDEVICE::DXGSWAPCHAINLOCKWITHDEVICE((DXGSWAPCHAINLOCKWITHDEVICE *)v32, v22, 1, 1);
+      LODWORD(v16) = DXGSWAPCHAINLOCKWITHDEVICE::Acquire(
+                       (DXGSWAPCHAINLOCKWITHDEVICE *)v32,
+                       (struct DXGDEVICE **)&v30,
+                       1);
+      if ( (int)v16 >= 0 )
+        LODWORD(v16) = DXGSWAPCHAIN::RemoveSurface(*v21, &Handle);
+      ObfDereferenceObject(v21);
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100000000LL) != 0 )
       {
-        LODWORD(HandleInformation) = bProducer;
-        LODWORD(Object) = v9;
+        LODWORD(v26) = bProducer;
+        LODWORD(Object) = v16;
         McTemplateK0pqqpq_EtwWriteTransfer(
-          v15,
+          v23,
           &EventIndirectSwapChainRemoveSurface,
-          v16,
-          v14,
+          v24,
+          v22,
           Object,
-          HandleInformation,
+          v26,
           Handle.hNtSurfaceHandle,
-          Handle.BufferIdx);
+          Handle.BufferIdx,
+          v27,
+          v28);
       }
-      DXGSWAPCHAINLOCKWITHDEVICE::~DXGSWAPCHAINLOCKWITHDEVICE((DXGSWAPCHAINLOCKWITHDEVICE *)v25);
-      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v19);
-      if ( !v21 )
-        return v9;
-      v12 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
+      DXGSWAPCHAINLOCKWITHDEVICE::~DXGSWAPCHAINLOCKWITHDEVICE((DXGSWAPCHAINLOCKWITHDEVICE *)v32);
     }
     else
     {
-      WdLogSingleEntry2(3LL, Handle.hNtSwapChain, v8);
-      DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v19);
-      if ( !v21 )
-        return v9;
-      LOBYTE(v10) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
-      v12 = (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0;
+      v17 = WdLogNewEntry5_WdWarning(v14, v13, v15);
+      *(_QWORD *)(v17 + 24) = hNtSwapChain;
+      *(_QWORD *)(v17 + 32) = v16;
+      WdLogEvent5_WdWarning(v17);
     }
-    if ( v12 )
-      McTemplateK0q_EtwWriteTransfer(v10, &EventProfilerExit, v11, v19);
-    return v9;
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v27, v18);
+    if ( v29 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v19, &EventProfilerExit, v20, v27);
+    return (unsigned int)v16;
   }
-  WdLogSingleEntry1(2LL, 946LL);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"RemoveSurface is not allowed for consumer",
-    946LL,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v19);
-  if ( v21 )
+  else
   {
-    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
-      McTemplateK0q_EtwWriteTransfer(v5, &EventProfilerExit, v6, v19);
+    v6 = WdLogNewEntry5_WdError(MmUserProbeAddress, v4);
+    *(_QWORD *)(v6 + 24) = 947LL;
+    WdLogEvent5_WdError(v6);
+    DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v27, v7);
+    if ( v29 )
+    {
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+        McTemplateK0q_EtwWriteTransfer(v8, &EventProfilerExit, v9, v27);
+    }
+    return 3221225485LL;
   }
-  return 3221225485LL;
 }

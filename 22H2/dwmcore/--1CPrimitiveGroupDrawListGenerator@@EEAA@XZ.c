@@ -1,48 +1,54 @@
 /*
- * XREFs of ??1CPrimitiveGroupDrawListGenerator@@EEAA@XZ @ 0x18001018C
+ * XREFs of ??1CPrimitiveGroupDrawListGenerator@@EEAA@XZ @ 0x18006317C
  * Callers:
- *     ??_GCPrimitiveGroupDrawListGenerator@@EEAAPEAXI@Z @ 0x180010150 (--_GCPrimitiveGroupDrawListGenerator@@EEAAPEAXI@Z.c)
+ *     ??_GCPrimitiveGroupDrawListGenerator@@EEAAPEAXI@Z @ 0x180063140 (--_GCPrimitiveGroupDrawListGenerator@@EEAAPEAXI@Z.c)
  * Callees:
- *     ??_GCPrimitiveBuffer@@QEAAPEAXI@Z @ 0x1800116B0 (--_GCPrimitiveBuffer@@QEAAPEAXI@Z.c)
- *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1800EED38 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
- *     ??_V@YAXPEAX_K@Z @ 0x18010FB60 (--_V@YAXPEAX_K@Z.c)
- *     ??_GCRegion@@QEAAPEAXI@Z @ 0x1801C3900 (--_GCRegion@@QEAAPEAXI@Z.c)
+ *     ??_GCRegion@@QEAAPEAXI@Z @ 0x18002B3F4 (--_GCRegion@@QEAAPEAXI@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x180094D90 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ??_V@YAXPEAX_K@Z @ 0x1800E7884 (--_V@YAXPEAX_K@Z.c)
  */
 
 void __fastcall CPrimitiveGroupDrawListGenerator::~CPrimitiveGroupDrawListGenerator(
-        CPrimitiveGroupDrawListGenerator *this,
-        unsigned int a2)
+        CPrimitiveGroupDrawListGenerator *this)
 {
-  CPrimitiveBuffer *v3; // rcx
-  CPrimitiveBuffer *v4; // rcx
-  CRegion *v5; // rcx
+  void **v1; // rbx
+  void **v3; // rbx
+  CRegion *v4; // rcx
+  char *v5; // rcx
   char *v6; // rcx
-  char *v7; // rcx
+  char *v7; // rbx
   char *v8; // rbx
-  char *v9; // rbx
 
+  v1 = (void **)*((_QWORD *)this + 2);
   *(_QWORD *)this = &CPrimitiveGroupDrawListGenerator::`vftable';
-  v3 = (CPrimitiveBuffer *)*((_QWORD *)this + 2);
+  if ( v1 )
+  {
+    operator delete(*v1);
+    operator delete(v1);
+  }
+  v3 = (void **)*((_QWORD *)this + 3);
   if ( v3 )
-    CPrimitiveBuffer::`scalar deleting destructor'(v3, a2);
-  v4 = (CPrimitiveBuffer *)*((_QWORD *)this + 3);
+  {
+    operator delete(*v3);
+    operator delete(v3);
+  }
+  v4 = (CRegion *)*((_QWORD *)this + 15);
   if ( v4 )
-    CPrimitiveBuffer::`scalar deleting destructor'(v4, a2);
-  v5 = (CRegion *)*((_QWORD *)this + 12);
+    CRegion::`scalar deleting destructor'(v4, 1);
+  v5 = (char *)*((_QWORD *)this + 14);
   if ( v5 )
-    CRegion::`scalar deleting destructor'(v5, 1u);
-  v6 = (char *)*((_QWORD *)this + 11);
+  {
+    v8 = v5 - 8;
+    `vector destructor iterator'(v5, 0x30uLL, *((_QWORD *)v5 - 1), (void (*)(void *))CDrawListBitmap::~CDrawListBitmap);
+    operator delete[](v8, 48LL * *(_QWORD *)v8 + 8);
+  }
+  v6 = (char *)*((_QWORD *)this + 13);
   if ( v6 )
   {
-    v9 = v6 - 8;
-    `vector destructor iterator'(v6, 0x18uLL, *((_QWORD *)v6 - 1), (void (*)(void *))CDrawListBitmap::~CDrawListBitmap);
-    operator delete[](v9);
-  }
-  v7 = (char *)*((_QWORD *)this + 10);
-  if ( v7 )
-  {
-    v8 = v7 - 8;
-    `vector destructor iterator'(v7, 0x18uLL, *((_QWORD *)v7 - 1), (void (*)(void *))CDrawListBitmap::~CDrawListBitmap);
-    operator delete[](v8);
+    v7 = v6 - 8;
+    `vector destructor iterator'(v6, 0x30uLL, *((_QWORD *)v6 - 1), (void (*)(void *))CDrawListBitmap::~CDrawListBitmap);
+    operator delete[](v7, 48LL * *(_QWORD *)v7 + 8);
   }
 }

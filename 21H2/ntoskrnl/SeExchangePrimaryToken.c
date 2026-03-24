@@ -1,137 +1,131 @@
 /*
- * XREFs of SeExchangePrimaryToken @ 0x140847260
+ * XREFs of SeExchangePrimaryToken @ 0x1407BBC44
  * Callers:
- *     PspAssignPrimaryToken @ 0x140847028 (PspAssignPrimaryToken.c)
+ *     PspAssignPrimaryToken @ 0x1407BBA40 (PspAssignPrimaryToken.c)
  * Callees:
- *     SepSetTrustLevelForProcessToken @ 0x140205A98 (SepSetTrustLevelForProcessToken.c)
- *     ObFastReplaceObject @ 0x140276A48 (ObFastReplaceObject.c)
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     MmGetSessionObjectById @ 0x1402DF7D8 (MmGetSessionObjectById.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     MmGetSessionId @ 0x140300B40 (MmGetSessionId.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     SepSetTokenSessionById @ 0x140672524 (SepSetTokenSessionById.c)
- *     SepSetTokenLowboxNumber @ 0x1406965F4 (SepSetTokenLowboxNumber.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x1406AB17C (SepDereferenceLowBoxNumberEntry.c)
- *     SeAuditingWithTokenForSubcategory @ 0x14079D560 (SeAuditingWithTokenForSubcategory.c)
- *     SepAuditAssignPrimaryToken @ 0x140847400 (SepAuditAssignPrimaryToken.c)
+ *     MmGetSessionObjectById @ 0x140206364 (MmGetSessionObjectById.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     SepSetTrustLevelForProcessToken @ 0x140251758 (SepSetTrustLevelForProcessToken.c)
+ *     MmGetSessionId @ 0x140253550 (MmGetSessionId.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObFastReplaceObject @ 0x1402F6E80 (ObFastReplaceObject.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     SepSetTokenSessionById @ 0x140604300 (SepSetTokenSessionById.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x140608730 (SeAuditingWithTokenForSubcategory.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x1406E7EBC (SepDereferenceLowBoxNumberEntry.c)
+ *     SepSetTokenLowboxNumber @ 0x140717F5C (SepSetTokenLowboxNumber.c)
+ *     SepAuditAssignPrimaryToken @ 0x1407BBDE4 (SepAuditAssignPrimaryToken.c)
  */
 
-__int64 __fastcall SeExchangePrimaryToken(__int64 a1, __int64 a2, unsigned __int64 *a3)
+__int64 __fastcall SeExchangePrimaryToken(__int64 a1, ULONG_PTR a2, ULONG_PTR *a3)
 {
   bool v4; // zf
-  void *SessionObjectById; // rdi
+  struct _DMA_ADAPTER *SessionObjectById; // rdi
   unsigned int SessionId; // eax
   __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  unsigned int v12; // eax
+  unsigned int v10; // eax
   struct _KTHREAD *CurrentThread; // rcx
-  unsigned int v14; // ebp
-  __int64 v15; // r8
-  int v16; // r14d
-  unsigned __int64 v17; // rbx
-  struct _KTHREAD *v18; // rax
+  unsigned int v12; // ebp
+  int v13; // r14d
+  ULONG_PTR v14; // rbx
+  struct _KTHREAD *v15; // rax
   __int64 result; // rax
-  PVOID v20; // rcx
-  unsigned int v21; // ecx
-  __int64 v22; // r8
-  __int64 v23; // rdx
-  signed __int32 v24[8]; // [rsp+0h] [rbp-58h] BYREF
-  char v25; // [rsp+68h] [rbp+10h] BYREF
-  PVOID Object; // [rsp+78h] [rbp+20h] BYREF
+  struct _DMA_ADAPTER *v17; // rcx
+  unsigned int v18; // ecx
+  __int64 v19; // rdx
+  signed __int32 v20[8]; // [rsp+0h] [rbp-58h] BYREF
+  char v21; // [rsp+68h] [rbp+10h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+78h] [rbp+20h] BYREF
 
   v4 = *(_DWORD *)(a2 + 192) == 1;
-  Object = 0LL;
+  DmaAdapter = 0LL;
   SessionObjectById = 0LL;
-  v25 = 0;
+  v21 = 0;
   if ( !v4 )
     return 3221225640LL;
   SessionId = MmGetSessionIdEx(a1);
   if ( SessionId != -1 && !SeTokenDoesNotTrackSessionObject )
-    SessionObjectById = MmGetSessionObjectById(SessionId, v9, v10, v11);
-  v12 = MmGetSessionId(a1);
+    SessionObjectById = (struct _DMA_ADAPTER *)MmGetSessionObjectById(SessionId, v9);
+  v10 = MmGetSessionId(a1);
   CurrentThread = KeGetCurrentThread();
-  v14 = v12;
+  v12 = v10;
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(*(PERESOURCE *)(a2 + 48), 1u);
-  _InterlockedOr(v24, 0);
+  _InterlockedOr(v20, 0);
   if ( *(_BYTE *)(a2 + 204) )
   {
-    _InterlockedOr(v24, 0);
+    _InterlockedOr(v20, 0);
     ExReleaseResourceLite(*(PERESOURCE *)(a2 + 48));
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( SessionObjectById )
-      ObfDereferenceObject(SessionObjectById);
+      HalPutDmaAdapter(SessionObjectById);
     return 3221225771LL;
   }
   else
   {
     *(_BYTE *)(a2 + 204) = 1;
-    v16 = SepSetTrustLevelForProcessToken(a2, a1, &v25);
-    if ( v16 < 0 )
+    v13 = SepSetTrustLevelForProcessToken(a2, a1, &v21);
+    if ( v13 < 0 )
     {
-      _InterlockedOr(v24, 0);
+      _InterlockedOr(v20, 0);
       ExReleaseResourceLite(*(PERESOURCE *)(a2 + 48));
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       if ( !SessionObjectById )
-        return (unsigned int)v16;
-      v20 = SessionObjectById;
+        return (unsigned int)v13;
+      v17 = SessionObjectById;
 LABEL_21:
-      ObfDereferenceObject(v20);
-      return (unsigned int)v16;
+      HalPutDmaAdapter(v17);
+      return (unsigned int)v13;
     }
     if ( (*(_DWORD *)(a2 + 200) & 0x4000) != 0 )
     {
-      v21 = *(_DWORD *)(a2 + 120);
-      if ( v21 != v14 )
+      v18 = *(_DWORD *)(a2 + 120);
+      if ( v18 != v12 )
       {
-        SepDereferenceLowBoxNumberEntry(v21, *(_QWORD *)(a2 + 1080));
+        SepDereferenceLowBoxNumberEntry(v18, *(_QWORD *)(a2 + 1080));
         *(_QWORD *)(a2 + 1080) = 0LL;
-        LOBYTE(v22) = 1;
-        SepSetTokenSessionById(a2, v14, v22, (__int64)SessionObjectById, &Object);
-        v23 = *(_QWORD *)(a2 + 784);
-        *(_DWORD *)(a2 + 120) = v14;
-        v16 = SepSetTokenLowboxNumber(a2, v23);
-        if ( v16 < 0 )
+        SepSetTokenSessionById(a2, v12, 1, (__int64)SessionObjectById, &DmaAdapter);
+        v19 = *(_QWORD *)(a2 + 784);
+        *(_DWORD *)(a2 + 120) = v12;
+        v13 = SepSetTokenLowboxNumber(a2, v19);
+        if ( v13 < 0 )
         {
-          _InterlockedOr(v24, 0);
+          _InterlockedOr(v20, 0);
           ExReleaseResourceLite(*(PERESOURCE *)(a2 + 48));
-          KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-          v20 = Object;
-          if ( !Object )
-            return (unsigned int)v16;
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          v17 = DmaAdapter;
+          if ( !DmaAdapter )
+            return (unsigned int)v13;
           goto LABEL_21;
         }
       }
     }
-    LOBYTE(v15) = 1;
-    SepSetTokenSessionById(a2, v14, v15, (__int64)SessionObjectById, &Object);
-    *(_DWORD *)(a2 + 120) = v14;
-    _InterlockedOr(v24, 0);
+    SepSetTokenSessionById(a2, v12, 1, (__int64)SessionObjectById, &DmaAdapter);
+    *(_DWORD *)(a2 + 120) = v12;
+    _InterlockedOr(v20, 0);
     ExReleaseResourceLite(*(PERESOURCE *)(a2 + 48));
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-    if ( Object )
-      ObfDereferenceObject(Object);
-    if ( SeAuditingWithTokenForSubcategory(133, 0LL) )
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    if ( DmaAdapter )
+      HalPutDmaAdapter(DmaAdapter);
+    if ( SeAuditingWithTokenForSubcategory(134, 0LL) )
       SepAuditAssignPrimaryToken(a1, a2);
     ObfReferenceObject((PVOID)a2);
-    v17 = ObFastReplaceObject((volatile __int64 *)(a1 + 1208), a2);
-    if ( v17 )
+    v14 = ObFastReplaceObject((volatile __int64 *)(a1 + 1208), a2);
+    if ( v14 )
     {
-      v18 = KeGetCurrentThread();
-      --v18->KernelApcDisable;
-      ExAcquireResourceExclusiveLite(*(PERESOURCE *)(v17 + 48), 1u);
-      _InterlockedOr(v24, 0);
-      *(_BYTE *)(v17 + 204) = 0;
-      _InterlockedOr(v24, 0);
-      ExReleaseResourceLite(*(PERESOURCE *)(v17 + 48));
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      v15 = KeGetCurrentThread();
+      --v15->KernelApcDisable;
+      ExAcquireResourceExclusiveLite(*(PERESOURCE *)(v14 + 48), 1u);
+      _InterlockedOr(v20, 0);
+      *(_BYTE *)(v14 + 204) = 0;
+      _InterlockedOr(v20, 0);
+      ExReleaseResourceLite(*(PERESOURCE *)(v14 + 48));
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       result = 0LL;
-      *a3 = v17;
+      *a3 = v14;
     }
     else
     {

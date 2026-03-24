@@ -1,11 +1,11 @@
 /*
- * XREFs of SepRemoveDisabledGroupsAndPrivileges @ 0x1406A26A8
+ * XREFs of SepRemoveDisabledGroupsAndPrivileges @ 0x1405DA360
  * Callers:
- *     SepFilterToken @ 0x14078E3F0 (SepFilterToken.c)
+ *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
  * Callees:
- *     SepTokenPrivilegeCount @ 0x14022B1D0 (SepTokenPrivilegeCount.c)
- *     SepSidInSidAndAttributes @ 0x1406A28A8 (SepSidInSidAndAttributes.c)
- *     RtlIsElevatedRid @ 0x14079FAF0 (RtlIsElevatedRid.c)
+ *     SepTokenPrivilegeCount @ 0x140202A20 (SepTokenPrivilegeCount.c)
+ *     SepSidInSidAndAttributes @ 0x1405DA558 (SepSidInSidAndAttributes.c)
+ *     RtlIsElevatedRid @ 0x1406744C0 (RtlIsElevatedRid.c)
  */
 
 char __fastcall SepRemoveDisabledGroupsAndPrivileges(
@@ -16,22 +16,23 @@ char __fastcall SepRemoveDisabledGroupsAndPrivileges(
         unsigned int a5,
         _DWORD *a6)
 {
-  unsigned int v6; // edi
+  unsigned int v6; // esi
   char v7; // r12
-  char v8; // bp
-  unsigned int v9; // esi
+  char v8; // r14
+  unsigned int v9; // edi
   __int64 v13; // r9
-  __int64 v14; // r14
-  int v15; // r11d
-  __int64 v17; // rdi
-  __int64 v19; // r8
-  unsigned __int64 v20; // r8
-  unsigned __int64 v21; // rax
-  unsigned __int64 v22; // rdx
-  int v23; // r10d
-  unsigned int v24; // [rsp+70h] [rbp+18h]
+  char v14; // cl
+  __int64 v15; // rsi
+  int v16; // r11d
+  __int64 v18; // rbp
+  unsigned __int64 v19; // r8
+  unsigned __int64 v20; // rax
+  unsigned __int64 v21; // rdx
+  __int64 v23; // r8
+  int v24; // r10d
+  unsigned int v25; // [rsp+70h] [rbp+18h]
 
-  v24 = a3;
+  v25 = a3;
   v6 = 0;
   v7 = 0;
   v8 = 0;
@@ -41,36 +42,36 @@ char __fastcall SepRemoveDisabledGroupsAndPrivileges(
     while ( 1 )
     {
       v13 = *(_QWORD *)(a1 + 152);
-      v14 = 16LL * v9;
-      if ( (*(_DWORD *)(v14 + v13 + 8) & 0x30) == 0
-        && (unsigned __int8)SepSidInSidAndAttributes(a4, (unsigned int)a3, a3, *(_QWORD *)(v14 + v13)) )
-      {
+      v14 = 0;
+      v15 = 16LL * v9;
+      if ( (*(_DWORD *)(v15 + v13 + 8) & 0x30) == 0 )
+        v14 = SepSidInSidAndAttributes(a4, (unsigned int)a3, a3, *(_QWORD *)(v15 + v13));
+      if ( v14 )
         goto LABEL_14;
-      }
-      if ( (a2 & 4) != 0 && (unsigned __int8)RtlIsElevatedRid(v14 + *(_QWORD *)(a1 + 152)) )
+      if ( (a2 & 4) != 0 && (unsigned __int8)RtlIsElevatedRid(v15 + *(_QWORD *)(a1 + 152)) )
         break;
-LABEL_5:
-      a3 = v24;
+LABEL_6:
+      a3 = v25;
       if ( ++v9 >= *(_DWORD *)(a1 + 124) )
       {
         v6 = 0;
-        goto LABEL_7;
+        goto LABEL_8;
       }
     }
     v7 = 1;
 LABEL_14:
-    v17 = 2LL * v9;
+    v18 = 2LL * v9;
     v8 = 1;
-    *(_DWORD *)(*(_QWORD *)(a1 + 152) + 8 * v17 + 8) &= 0xFFFFFFF0;
-    *(_DWORD *)(*(_QWORD *)(a1 + 152) + 8 * v17 + 8) |= 0x10u;
+    *(_DWORD *)(*(_QWORD *)(a1 + 152) + 8 * v18 + 8) &= 0xFFFFFFF0;
+    *(_DWORD *)(*(_QWORD *)(a1 + 152) + 8 * v18 + 8) |= 0x10u;
     *(_DWORD *)(a1 + 200) |= 0x800u;
     if ( v9 == *(_DWORD *)(a1 + 144) )
       *(_DWORD *)(a1 + 144) = 0;
-    goto LABEL_5;
+    goto LABEL_6;
   }
-LABEL_7:
-  v15 = *(_DWORD *)(a1 + 200) & 0x800;
-  if ( !v15 )
+LABEL_8:
+  v16 = *(_DWORD *)(a1 + 200) & 0x800;
+  if ( !v16 )
     v6 = SepTokenPrivilegeCount(a1);
   if ( (a2 & 1) != 0 )
   {
@@ -84,18 +85,18 @@ LABEL_7:
     if ( (a2 & 4) != 0 )
     {
       v8 = 1;
-      v20 = 0x602880000LL;
+      v19 = 0x602880000LL;
       if ( !v7 )
-        v20 = 0xFFFFFFEEDFE9F97BuLL;
-      v21 = v20 & *(_QWORD *)(a1 + 72);
-      v22 = v20 & *(_QWORD *)(a1 + 64);
-      *(_QWORD *)(a1 + 80) &= v20;
-      *(_QWORD *)(a1 + 64) = v22;
-      *(_QWORD *)(a1 + 72) = v21;
+        v19 = 0xFFFFFFEEDFE9F97BuLL;
+      v20 = v19 & *(_QWORD *)(a1 + 72);
+      v21 = v19 & *(_QWORD *)(a1 + 64);
+      *(_QWORD *)(a1 + 80) &= v19;
+      *(_QWORD *)(a1 + 64) = v21;
+      *(_QWORD *)(a1 + 72) = v20;
     }
     if ( a5 )
     {
-      v19 = a5;
+      v23 = a5;
       do
       {
         if ( (unsigned int)(*a6 - 2) <= 0x22 )
@@ -104,12 +105,12 @@ LABEL_7:
           *(_QWORD *)(a1 + 64) &= ~(1LL << *a6);
         }
         a6 += 3;
-        --v19;
+        --v23;
       }
-      while ( v19 );
+      while ( v23 );
     }
   }
-  if ( !v15 && (unsigned int)SepTokenPrivilegeCount(a1) < v6 )
-    *(_DWORD *)(a1 + 200) = v23 | 0x800;
+  if ( !v16 && (unsigned int)SepTokenPrivilegeCount(a1) < v6 )
+    *(_DWORD *)(a1 + 200) = v24 | 0x800;
   return v8;
 }

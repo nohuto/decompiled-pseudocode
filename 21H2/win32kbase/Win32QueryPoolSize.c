@@ -1,5 +1,5 @@
 /*
- * XREFs of Win32QueryPoolSize @ 0x1C01672A0
+ * XREFs of Win32QueryPoolSize @ 0x1C0139B20
  * Callers:
  *     <none>
  * Callees:

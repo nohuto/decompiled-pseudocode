@@ -1,7 +1,7 @@
 /*
- * XREFs of RIMEnsureUsageWithinLogicalBoundary @ 0x1C01AD874
+ * XREFs of RIMEnsureUsageWithinLogicalBoundary @ 0x1C01782D4
  * Callers:
- *     rimExtractPointerDeviceUsages @ 0x1C01B00C4 (rimExtractPointerDeviceUsages.c)
+ *     rimExtractPointerDeviceUsages @ 0x1C017AA10 (rimExtractPointerDeviceUsages.c)
  * Callees:
  *     <none>
  */
@@ -15,13 +15,13 @@ __int64 __fastcall RIMEnsureUsageWithinLogicalBoundary(__int64 a1)
   __int64 result; // rax
 
   v1 = *(_DWORD *)(a1 + 32);
+  v2 = *(_DWORD *)(a1 + 52);
   if ( v1 >= 0 )
   {
     v4 = *(_DWORD *)(a1 + 52);
   }
   else
   {
-    v2 = *(_DWORD *)(a1 + 52);
     v3 = 1 << (*(_WORD *)(a1 + 56) - 1);
     if ( (v3 & v2) != 0 )
       v4 = v2 | -v3;

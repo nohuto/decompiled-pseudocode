@@ -1,36 +1,35 @@
 /*
- * XREFs of ?PurgeStateSettingEntriesFromLayer@CBatchOptimizer@@AEAAXH@Z @ 0x18000D650
+ * XREFs of ?PurgeStateSettingEntriesFromLayer@CBatchOptimizer@@AEAAXH@Z @ 0x180011EF8
  * Callers:
- *     ?TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z @ 0x18000D700 (-TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z.c)
- *     ?ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z @ 0x18008E890 (-ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z.c)
+ *     ?TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z @ 0x180011F8C (-TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z.c)
+ *     ?ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z @ 0x1800C058C (-ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z.c)
  * Callees:
- *     ?DiscardEntries@CBatchOptimizer@@CAXPEAVCDrawListBatchManager@@AEBV?$span@PEAVCBatchCommand@@$0?0@gsl@@@Z @ 0x18000DA60 (-DiscardEntries@CBatchOptimizer@@CAXPEAVCDrawListBatchManager@@AEBV-$span@PEAVCBatchCommand@@$0-.c)
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x1800255BC (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x1801B1FB0 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?DiscardEntries@CBatchOptimizer@@CAXPEAVCDrawListEntryBatch@@AEBV?$span@PEAVCBaseDrawListEntry@@$0?0@gsl@@@Z @ 0x1800122F4 (-DiscardEntries@CBatchOptimizer@@CAXPEAVCDrawListEntryBatch@@AEBV-$span@PEAVCBaseDrawListEntry@@.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CBatchOptimizer::PurgeStateSettingEntriesFromLayer(CBatchOptimizer *this, int a2)
 {
+  __int64 v2; // rdx
   _DWORD *v3; // rbx
   int v4; // eax
-  __int64 v5; // rsi
-  gsl::details *v6; // rcx
-  _QWORD v7[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v5; // rdi
+  _QWORD v6[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v3 = (_DWORD *)((char *)this + 520 * *((int *)this + a2 + 12));
+  v2 = *((int *)this + a2 + 12);
+  v3 = (_DWORD *)((char *)this + 520 * v2);
   v4 = v3[24] - v3[25];
   if ( v4 )
   {
     v5 = v4;
-    gsl::details::extent_type<-1>::extent_type<-1>(v7, v4);
-    v7[1] = v3 + 30;
-    if ( v7[0] == -1LL || v3 == (_DWORD *)-120LL && v7[0] )
+    v6[0] = v4;
+    if ( v4 < 0 || (v6[1] = v3 + 30, v3 == (_DWORD *)-120LL) )
     {
-      gsl::details::terminate(v6);
-      JUMPOUT(0x18000D6F7LL);
+      ((void (__fastcall *)(CBatchOptimizer *, __int64))`gsl::details::get_terminate_handler'::`2'::handler)(this, v2);
+      __debugbreak();
     }
-    CBatchOptimizer::DiscardEntries(*((_QWORD *)this + 1), v7);
+    CBatchOptimizer::DiscardEntries(*(_QWORD *)(*((_QWORD *)this + 1) + 168LL), v6);
     memmove_0(v3 + 30, &v3[2 * v5 + 30], 8LL * (unsigned int)v3[25]);
     v3[24] = v3[25];
   }

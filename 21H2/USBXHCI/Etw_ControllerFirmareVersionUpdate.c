@@ -1,10 +1,10 @@
 /*
- * XREFs of Etw_ControllerFirmareVersionUpdate @ 0x1C0048204
+ * XREFs of Etw_ControllerFirmareVersionUpdate @ 0x1C0047F70
  * Callers:
- *     Command_D0EntryPostInterruptsEnabled @ 0x1C0014DE4 (Command_D0EntryPostInterruptsEnabled.c)
- *     Register_ParseCapabilityRegister @ 0x1C0070B8C (Register_ParseCapabilityRegister.c)
+ *     Command_D0EntryPostInterruptsEnabled @ 0x1C0014C14 (Command_D0EntryPostInterruptsEnabled.c)
+ *     Register_ParseCapabilityRegister @ 0x1C006FA80 (Register_ParseCapabilityRegister.c)
  * Callees:
- *     McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer @ 0x1C0048F38 (McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer @ 0x1C0048D00 (McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall Etw_ControllerFirmareVersionUpdate(__int64 a1, __int64 a2)

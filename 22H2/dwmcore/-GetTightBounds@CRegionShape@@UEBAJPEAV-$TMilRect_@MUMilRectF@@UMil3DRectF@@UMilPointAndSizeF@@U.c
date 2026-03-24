@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetTightBounds@CRegionShape@@UEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x1800C6BC0
+ * XREFs of ?GetTightBounds@CRegionShape@@UEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x1800BB390
  * Callers:
  *     <none>
  * Callees:
- *     ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x1800622B0 (--$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ.c)
- *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800C2F90 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x180083CA0 (--$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ.c)
+ *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x180086EA0 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
  */
 
 __int64 __fastcall CRegionShape::GetTightBounds(__int64 a1, __int64 a2, __int64 a3)
@@ -15,8 +15,8 @@ __int64 __fastcall CRegionShape::GetTightBounds(__int64 a1, __int64 a2, __int64 
   __m128i v7; // xmm3
   float v8; // xmm1_4
   __int64 result; // rax
-  struct MilRectF *v10; // r9
-  CMILMatrix *v11; // r10
+  CMILMatrix *v10; // rcx
+  float *v11; // r9
 
   v4 = *(int **)(a1 + 16);
   v5 = *v4;
@@ -32,7 +32,7 @@ __int64 __fastcall CRegionShape::GetTightBounds(__int64 a1, __int64 a2, __int64 
     if ( a3 )
     {
       if ( !CMILMatrix::IsIdentity<0>(a3) )
-        CMILMatrix::Transform2DBoundsHelper<0>(v11, v10, (float *)v10);
+        CMILMatrix::Transform2DBoundsHelper<0>(v10, (__int64)v11, v11);
     }
     return 0LL;
   }

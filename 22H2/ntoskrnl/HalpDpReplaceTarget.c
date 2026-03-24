@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDpReplaceTarget @ 0x140A97B30
+ * XREFs of HalpDpReplaceTarget @ 0x1409A8A90
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpDpOfflineProcessorForReplace @ 0x140A97458 (HalpDpOfflineProcessorForReplace.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalpDpOfflineProcessorForReplace @ 0x1409A83BC (HalpDpOfflineProcessorForReplace.c)
  */
 
 __int64 __fastcall HalpDpReplaceTarget(__int64 a1)
@@ -23,10 +23,10 @@ __int64 __fastcall HalpDpReplaceTarget(__int64 a1)
   v5 = v1 + 1;
   while ( v4 < v5 )
   {
-    if ( (++v3 & dword_140C6257C) != 0 || !qword_140C62580 )
+    if ( (++v3 & dword_140C4A1FC) != 0 || !qword_140C4A200 )
       _mm_pause();
     else
-      qword_140C62580(v3);
+      qword_140C4A200(v3);
     v4 = *(_DWORD *)(a1 + 48);
   }
   if ( !*(_BYTE *)(a1 + 68) )
@@ -38,10 +38,10 @@ __int64 __fastcall HalpDpReplaceTarget(__int64 a1)
     result = *(unsigned int *)(a1 + 52);
     if ( (int)result >= v5 )
       break;
-    if ( (++v6 & dword_140C6257C) != 0 || !qword_140C62580 )
+    if ( (++v6 & dword_140C4A1FC) != 0 || !qword_140C4A200 )
       _mm_pause();
     else
-      qword_140C62580(v6);
+      qword_140C4A200(v6);
   }
   return result;
 }

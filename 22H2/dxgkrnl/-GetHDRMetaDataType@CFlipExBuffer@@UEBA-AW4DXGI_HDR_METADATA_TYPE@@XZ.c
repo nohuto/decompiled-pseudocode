@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetHDRMetaDataType@CFlipExBuffer@@UEBA?AW4DXGI_HDR_METADATA_TYPE@@XZ @ 0x1C001A2A0
+ * XREFs of ?GetHDRMetaDataType@CFlipExBuffer@@UEBA?AW4DXGI_HDR_METADATA_TYPE@@XZ @ 0x1C001BAA0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CFlipExBuffer::GetHDRMetaDataType(__int64 a1)
 {
-  return *(unsigned int *)(a1 + 376);
+  return *(unsigned int *)(a1 + 344);
 }

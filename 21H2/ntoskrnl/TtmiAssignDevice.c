@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmiAssignDevice @ 0x1409A1BAC
+ * XREFs of TtmiAssignDevice @ 0x1408FC14C
  * Callers:
- *     TtmpDispatchAssignDevice @ 0x1409A666C (TtmpDispatchAssignDevice.c)
+ *     TtmpDispatchAssignDevice @ 0x140900A94 (TtmpDispatchAssignDevice.c)
  * Callees:
- *     TtmpFindDeviceByDeviceId @ 0x1409A2774 (TtmpFindDeviceByDeviceId.c)
- *     TtmpPublishDeviceEvent @ 0x1409A29D4 (TtmpPublishDeviceEvent.c)
- *     TtmiScheduleSessionWorker @ 0x1409A4D70 (TtmiScheduleSessionWorker.c)
- *     TtmiLogDeviceToTerminalAssigned @ 0x1409A8178 (TtmiLogDeviceToTerminalAssigned.c)
- *     TtmiLogError @ 0x1409A8628 (TtmiLogError.c)
+ *     TtmpFindDeviceByDeviceId @ 0x1408FCD14 (TtmpFindDeviceByDeviceId.c)
+ *     TtmpPublishDeviceEvent @ 0x1408FCF70 (TtmpPublishDeviceEvent.c)
+ *     TtmiScheduleSessionWorker @ 0x1408FF140 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogDeviceToTerminalAssigned @ 0x140902614 (TtmiLogDeviceToTerminalAssigned.c)
+ *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmiAssignDevice(__int64 a1, __int64 a2, unsigned int a3)
@@ -33,7 +33,7 @@ __int64 __fastcall TtmiAssignDevice(__int64 a1, __int64 a2, unsigned int a3)
   else
   {
     v4 = -1073741275;
-    TtmiLogError("TtmiAssignDevice", 1125LL, 0xFFFFFFFFLL, 3221226021LL);
+    TtmiLogError("TtmiAssignDevice", 1126LL, 0xFFFFFFFFLL, 3221226021LL);
   }
   return v4;
 }

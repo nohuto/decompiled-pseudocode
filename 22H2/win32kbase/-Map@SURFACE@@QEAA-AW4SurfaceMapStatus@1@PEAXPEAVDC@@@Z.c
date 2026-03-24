@@ -1,180 +1,165 @@
 /*
- * XREFs of ?Map@SURFACE@@QEAA?AW4SurfaceMapStatus@1@PEAXPEAVDC@@@Z @ 0x1C008F8D0
+ * XREFs of ?Map@SURFACE@@QEAA?AW4SurfaceMapStatus@1@PEAXPEAVDC@@@Z @ 0x1C007AB20
  * Callers:
- *     ?bMap@SURFREFVIEW@@QEAAHPEAU_SURFOBJ@@@Z @ 0x1C008F880 (-bMap@SURFREFVIEW@@QEAAHPEAU_SURFOBJ@@@Z.c)
+ *     ?bMap@SURFREFVIEW@@QEAAHPEAU_SURFOBJ@@@Z @ 0x1C007AAD0 (-bMap@SURFREFVIEW@@QEAAHPEAU_SURFOBJ@@@Z.c)
  * Callees:
- *     EtwTraceGreLockReleaseSemaphore @ 0x1C0042EC0 (EtwTraceGreLockReleaseSemaphore.c)
- *     W32GetThreadWin32Thread @ 0x1C0046340 (W32GetThreadWin32Thread.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C0048150 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?MapKernelSectionForUserMapping@@YAJPEAXPEAU_EPROCESS@@_KPEAPEAX@Z @ 0x1C008FC1C (-MapKernelSectionForUserMapping@@YAJPEAXPEAU_EPROCESS@@_KPEAPEAX@Z.c)
- *     ?vUnlockSimple@W32PIDLOCK@@QEAAXXZ @ 0x1C009CDBC (-vUnlockSimple@W32PIDLOCK@@QEAAXXZ.c)
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C016BCC0 (McTemplateK0pz_EtwWriteTransfer.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C0039FC4 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?MapKernelSectionForUserMapping@@YAJPEAXPEAU_EPROCESS@@_KPEAPEAX@Z @ 0x1C007AE1C (-MapKernelSectionForUserMapping@@YAJPEAXPEAU_EPROCESS@@_KPEAPEAX@Z.c)
+ *     ?vUnlockSimple@W32PIDLOCK@@QEAAXXZ @ 0x1C007B044 (-vUnlockSimple@W32PIDLOCK@@QEAAXXZ.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C007B1D0 (EtwTraceGreLockReleaseSemaphore.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C014CD50 (McTemplateK0pz_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall SURFACE::Map(__int64 a1)
 {
-  unsigned int v2; // ebp
-  __int64 v4; // rsi
-  unsigned int v5; // ebx
-  int v6; // eax
-  __int64 v7; // rcx
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  struct _ERESOURCE *v10; // rbx
-  __int64 CurrentProcessWin32Process; // rax
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  _QWORD *v14; // rcx
-  __int64 v15; // rcx
-  int v16; // r8d
-  struct _ERESOURCE *v17; // rbx
-  _QWORD *v18; // rax
-  __int64 v19; // rdx
-  int v20; // eax
-  unsigned int v21; // ebx
+  unsigned int *v2; // r14
+  unsigned int v3; // ebx
+  unsigned int v4; // eax
+  int v5; // eax
+  __int64 v6; // rcx
+  struct _ERESOURCE *v7; // rbx
+  __int64 v8; // rsi
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  int v11; // r8d
+  unsigned int v12; // edi
+  int v14; // eax
+  _QWORD *v15; // rbx
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  __int64 v18; // rcx
+  unsigned int v19; // ebx
+  void *v20; // rsi
   struct _EPROCESS *CurrentProcess; // rax
-  __int64 v23; // rax
-  __int64 v24; // rax
-  _QWORD *v25; // rcx
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // rax
-  char *v29; // rdx
-  __int64 v30; // rcx
-  PERESOURCE v31; // [rsp+60h] [rbp+8h] BYREF
-  void *v32; // [rsp+78h] [rbp+20h] BYREF
+  bool v22; // zf
+  char *v23; // rdx
+  _QWORD *v24; // rax
+  _QWORD *v25; // rdx
+  __int64 v26; // rcx
+  HSEMAPHORE v27; // [rsp+60h] [rbp+8h] BYREF
+  void *v28; // [rsp+78h] [rbp+20h] BYREF
 
-  v32 = 0LL;
-  v2 = 1;
-  if ( !*(_QWORD *)(a1 + 248) && (*(_DWORD *)(a1 + 116) & 1) == 0
-    || !_bittest16((const signed __int16 *)(a1 + 102), 0xBu) )
-  {
+  v28 = 0LL;
+  if ( !*(_QWORD *)(a1 + 248) && (*(_DWORD *)(a1 + 116) & 1) == 0 || (*(_WORD *)(a1 + 102) & 0x800) == 0 )
     return 0LL;
-  }
-  v4 = a1 + 272;
-  v5 = (unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC;
-  while ( 1 )
-  {
-    KeWaitForSingleObject((PVOID)(*(_QWORD *)(v4 + 40) + 64LL), UserRequest, 0, 0, 0LL);
-    if ( !*(_DWORD *)v4 || *(_DWORD *)v4 == v5 )
-      break;
-    v30 = *(_QWORD *)(v4 + 40);
-    ++*(_DWORD *)(v4 + 4);
-    KeReleaseMutex((PRKMUTEX)(v30 + 64), 0);
-    KeWaitForSingleObject(*(PVOID *)(v4 + 40), UserRequest, 0, 0, 0LL);
-  }
-  v6 = *(_DWORD *)(v4 + 8) + 1;
-  *(_DWORD *)v4 = v5;
-  *(_DWORD *)(v4 + 8) = v6;
-  if ( v6 > *(_DWORD *)(v4 + 12) )
-    *(_DWORD *)(v4 + 12) = v6;
-  KeReleaseMutex((PRKMUTEX)(*(_QWORD *)(v4 + 40) + 64LL), 0);
+  v2 = (unsigned int *)(a1 + 272);
+  v3 = (unsigned int)PsGetCurrentProcessId() & 0xFFFFFFFC;
   KeWaitForSingleObject((PVOID)(*(_QWORD *)(a1 + 312) + 64LL), UserRequest, 0, 0, 0LL);
-  v10 = *(struct _ERESOURCE **)(*(_QWORD *)(SGDGetSessionState(v7) + 24) + 104LL);
-  v31 = v10;
-  if ( v10 )
+  v4 = *(_DWORD *)(a1 + 272);
+  if ( v4 )
   {
-    PsEnterPriorityRegion(v9, v8);
-    ExEnterCriticalRegionAndAcquireResourceExclusive(v10);
+    do
+    {
+      if ( v4 == v3 )
+        break;
+      v26 = *(_QWORD *)(a1 + 312);
+      ++*(_DWORD *)(a1 + 276);
+      KeReleaseMutex((PRKMUTEX)(v26 + 64), 0);
+      KeWaitForSingleObject(*(PVOID *)(a1 + 312), UserRequest, 0, 0, 0LL);
+      KeWaitForSingleObject((PVOID)(*(_QWORD *)(a1 + 312) + 64LL), UserRequest, 0, 0, 0LL);
+      v4 = *v2;
+    }
+    while ( *v2 );
   }
-  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v9);
-  if ( CurrentProcessWin32Process )
+  v5 = ++*(_DWORD *)(a1 + 280);
+  *v2 = v3;
+  if ( v5 > *(_DWORD *)(a1 + 284) )
+    *(_DWORD *)(a1 + 284) = v5;
+  KeReleaseMutex((PRKMUTEX)(*(_QWORD *)(a1 + 312) + 64LL), 0);
+  KeWaitForSingleObject((PVOID)(*(_QWORD *)(a1 + 312) + 64LL), UserRequest, 0, 0, 0LL);
+  v7 = (struct _ERESOURCE *)ghsemMapRot;
+  v27 = ghsemMapRot;
+  if ( ghsemMapRot )
   {
-    v12 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
-    CurrentProcessWin32Process &= v12;
+    PsEnterPriorityRegion(v6);
+    ExEnterCriticalRegionAndAcquireResourceExclusive(v7);
   }
-  v14 = *(_QWORD **)(a1 + 264);
-  if ( v14 != (_QWORD *)CurrentProcessWin32Process )
+  v8 = *(_QWORD *)(a1 + 264);
+  if ( v8 == PsGetCurrentProcessWin32Process(v6) )
   {
-    if ( v14 )
+    if ( v7 )
     {
-      v18 = (_QWORD *)(a1 + 528);
-      v19 = *(_QWORD *)(a1 + 528);
-      if ( *(_QWORD *)(v19 + 8) != a1 + 528 )
-        goto LABEL_43;
-      v14 = *(_QWORD **)(a1 + 536);
-      if ( (_QWORD *)*v14 != v18 )
-        goto LABEL_43;
-      *v14 = v19;
-      *(_QWORD *)(v19 + 8) = v14;
-      *(_QWORD *)(a1 + 536) = a1 + 528;
-      *v18 = v18;
-      v12 = *(_QWORD *)(a1 + 72);
-      if ( v12 )
-        MmUnmapViewOfSection(**(_QWORD **)(a1 + 264));
+      if ( gbLockEtw && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
+        McTemplateK0pz_EtwWriteTransfer(v10, (unsigned int)&LockRelease, v11, (_DWORD)v7, (__int64)L"hsem");
+      ExReleaseResourceAndLeaveCriticalRegion(v7);
+      PsLeavePriorityRegion();
+      v7 = 0LL;
     }
-    v20 = *(_DWORD *)(a1 + 116) & 1;
-    if ( !v20 )
+    v12 = 1;
+    goto LABEL_14;
+  }
+  if ( *(_QWORD *)(a1 + 264) )
+  {
+    v24 = (_QWORD *)(a1 + 528);
+    v10 = *(_QWORD *)(a1 + 528);
+    if ( *(_QWORD *)(v10 + 8) != a1 + 528 )
+      goto LABEL_35;
+    v25 = *(_QWORD **)(a1 + 536);
+    if ( (_QWORD *)*v25 != v24 )
+      goto LABEL_35;
+    *v25 = v10;
+    *(_QWORD *)(v10 + 8) = v25;
+    *(_QWORD *)(a1 + 536) = a1 + 528;
+    *v24 = v24;
+    v9 = *(_QWORD *)(a1 + 72);
+    if ( v9 )
+      MmUnmapViewOfSection(**(_QWORD **)(a1 + 264));
+  }
+  v14 = *(_DWORD *)(a1 + 116) & 1;
+  if ( !v14 )
+  {
+    *(_QWORD *)(a1 + 72) = 0LL;
+    *(_QWORD *)(a1 + 80) = 0LL;
+  }
+  *(_QWORD *)(a1 + 264) = 0LL;
+  *(_QWORD *)(a1 + 256) = 0LL;
+  if ( v14
+    || (v19 = *(_DWORD *)(a1 + 64),
+        v20 = *(void **)(a1 + 248),
+        CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(v10, v9),
+        MapKernelSectionForUserMapping(v20, CurrentProcess, v19, &v28),
+        v28) )
+  {
+    v15 = (_QWORD *)(a1 + 528);
+    v16 = PsGetCurrentProcessWin32Process(v10) + 224;
+    v17 = *(_QWORD *)v16;
+    if ( *(_QWORD *)(*(_QWORD *)v16 + 8LL) == v16 )
     {
-      *(_QWORD *)(a1 + 72) = 0LL;
-      *(_QWORD *)(a1 + 80) = 0LL;
-    }
-    *(_QWORD *)(a1 + 264) = 0LL;
-    *(_QWORD *)(a1 + 256) = 0LL;
-    if ( !v20 )
-    {
-      v21 = *(_DWORD *)(a1 + 64);
-      CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(v14, v12, v13);
-      MapKernelSectionForUserMapping(*(void **)(a1 + 248), CurrentProcess, v21, &v32);
-      if ( !v32 )
-      {
-        SEMOBJ::vUnlock(&v31);
-        KeReleaseMutex((PRKMUTEX)(*(_QWORD *)(a1 + 312) + 64LL), 0);
-        W32PIDLOCK::vUnlockSimple((W32PIDLOCK *)v4);
-        v17 = v31;
-        v2 = 2;
-LABEL_17:
-        if ( v17 )
-        {
-          EtwTraceGreLockReleaseSemaphore((__int64)L"hsem", (int)v17);
-          ExReleaseResourceAndLeaveCriticalRegion(v17);
-          PsLeavePriorityRegion();
-        }
-        return v2;
-      }
-    }
-    v23 = PsGetCurrentProcessWin32Process(v14);
-    if ( v23 )
-      v23 &= -(__int64)(*(_QWORD *)v23 != 0LL);
-    v24 = v23 + 224;
-    v25 = (_QWORD *)(a1 + 528);
-    v26 = *(_QWORD *)v24;
-    if ( *(_QWORD *)(*(_QWORD *)v24 + 8LL) == v24 )
-    {
-      *v25 = v26;
-      *(_QWORD *)(a1 + 536) = v24;
-      *(_QWORD *)(v26 + 8) = v25;
-      *(_QWORD *)v24 = v25;
+      *v15 = v17;
+      *(_QWORD *)(a1 + 536) = v16;
+      *(_QWORD *)(v17 + 8) = v15;
+      *(_QWORD *)v16 = v15;
       *(_QWORD *)(a1 + 256) = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-      v28 = PsGetCurrentProcessWin32Process(v27);
-      if ( v28 )
-        v28 &= -(__int64)(*(_QWORD *)v28 != 0LL);
-      *(_QWORD *)(a1 + 264) = v28;
+      *(_QWORD *)(a1 + 264) = PsGetCurrentProcessWin32Process(v18);
       if ( (*(_DWORD *)(a1 + 116) & 1) == 0 )
       {
-        v29 = (char *)v32;
-        *(_QWORD *)(a1 + 72) = v32;
-        if ( (*(_BYTE *)(a1 + 102) & 1) != 0 )
-          *(_QWORD *)(a1 + 80) = v29;
+        v22 = (*(_BYTE *)(a1 + 102) & 1) == 0;
+        v23 = (char *)v28;
+        *(_QWORD *)(a1 + 72) = v28;
+        if ( v22 )
+          *(_QWORD *)(a1 + 80) = &v23[*(_DWORD *)(a1 + 64) + *(_DWORD *)(a1 + 88)];
         else
-          *(_QWORD *)(a1 + 80) = &v29[*(_DWORD *)(a1 + 64) + *(_DWORD *)(a1 + 88)];
+          *(_QWORD *)(a1 + 80) = v23;
       }
-      SEMOBJ::vUnlock(&v31);
-      SEMOBJ::vUnlock(&v31);
+      SEMOBJ::vUnlock((PERESOURCE *)&v27);
+      SEMOBJ::vUnlock((PERESOURCE *)&v27);
       return 0LL;
     }
-LABEL_43:
+LABEL_35:
     __fastfail(3u);
   }
-  if ( v10 )
+  SEMOBJ::vUnlock((PERESOURCE *)&v27);
+  KeReleaseMutex((PRKMUTEX)(*(_QWORD *)(a1 + 312) + 64LL), 0);
+  W32PIDLOCK::vUnlockSimple((W32PIDLOCK *)(a1 + 272));
+  v7 = (struct _ERESOURCE *)v27;
+  v12 = 2;
+LABEL_14:
+  if ( v7 )
   {
-    v15 = *(_QWORD *)(SGDGetSessionState(v14) + 24);
-    if ( *(_DWORD *)(v15 + 180) && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
-      McTemplateK0pz_EtwWriteTransfer(v15, (unsigned int)&LockRelease, v16, (_DWORD)v10, (__int64)L"hsem");
-    ExReleaseResourceAndLeaveCriticalRegion(v10);
+    EtwTraceGreLockReleaseSemaphore(L"hsem", v7);
+    ExReleaseResourceAndLeaveCriticalRegion(v7);
     PsLeavePriorityRegion();
-    v17 = 0LL;
-    goto LABEL_17;
   }
-  return v2;
+  return v12;
 }

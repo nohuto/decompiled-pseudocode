@@ -1,75 +1,96 @@
 /*
- * XREFs of ?NotifySharedPowerGraphicsRemoving@DXGGLOBAL@@QEAAXQEAX@Z @ 0x1C030AD3C
+ * XREFs of ?NotifySharedPowerGraphicsRemoving@DXGGLOBAL@@QEAAXQEAX@Z @ 0x1C026A1B0
  * Callers:
- *     ?Stop@DXGADAPTER@@QEAAXEE@Z @ 0x1C02BE1F8 (-Stop@DXGADAPTER@@QEAAXEE@Z.c)
+ *     ?Stop@DXGADAPTER@@QEAAXEE@Z @ 0x1C020F7B4 (-Stop@DXGADAPTER@@QEAAXEE@Z.c)
  * Callees:
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ??_G?$DXGNODELIST@VDXGGLOBAL@@VDXGSHAREDPOWERINUSELISTOBJECT@@@@AEAAPEAXI@Z @ 0x1C00536FC (--_G-$DXGNODELIST@VDXGGLOBAL@@VDXGSHAREDPOWERINUSELISTOBJECT@@@@AEAAPEAXI@Z.c)
- *     ??_GDXGSHAREDPOWERREGISTRATIONOBJECT@@IEAAPEAXI@Z @ 0x1C00537E4 (--_GDXGSHAREDPOWERREGISTRATIONOBJECT@@IEAAPEAXI@Z.c)
- *     ?RemoveListObjectFromSharedPowerList@DXGGLOBAL@@QEAAXPEAVDXGSHAREDPOWERREGISTRATIONOBJECT@@@Z @ 0x1C0053FF0 (-RemoveListObjectFromSharedPowerList@DXGGLOBAL@@QEAAXPEAVDXGSHAREDPOWERREGISTRATIONOBJECT@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0002824 (--3@YAXPEAX@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002B1C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ??_G?$DXGNODELIST@VDXGGLOBAL@@VDXGSHAREDPOWERINUSELISTOBJECT@@@@AEAAPEAXI@Z @ 0x1C00463E4 (--_G-$DXGNODELIST@VDXGGLOBAL@@VDXGSHAREDPOWERINUSELISTOBJECT@@@@AEAAPEAXI@Z.c)
+ *     ?RemoveListObjectFromSharedPowerList@DXGGLOBAL@@QEAAXPEAVDXGSHAREDPOWERREGISTRATIONOBJECT@@@Z @ 0x1C0046C54 (-RemoveListObjectFromSharedPowerList@DXGGLOBAL@@QEAAXPEAVDXGSHAREDPOWERREGISTRATIONOBJECT@@@Z.c)
+ *     ??1DXGSHAREDPOWERINUSELISTOBJECT@@IEAA@XZ @ 0x1C0268858 (--1DXGSHAREDPOWERINUSELISTOBJECT@@IEAA@XZ.c)
  */
 
-void __fastcall DXGGLOBAL::NotifySharedPowerGraphicsRemoving(DXGGLOBAL *this, void *const a2)
+void __fastcall DXGGLOBAL::NotifySharedPowerGraphicsRemoving(
+        DXGGLOBAL *this,
+        struct DXGSHAREDPOWERREGISTRATIONOBJECT *a2)
 {
   char *v2; // rbp
-  DXGGLOBAL *v5; // rdi
-  DXGGLOBAL *v6; // rbx
-  __int64 CurrentIrql; // rsi
-  KIRQL v8; // al
-  DXGSHAREDPOWERINUSELISTOBJECT **v9; // r15
-  DXGSHAREDPOWERINUSELISTOBJECT *v10; // rsi
-  DXGSHAREDPOWERINUSELISTOBJECT *v11; // rcx
-  DXGSHAREDPOWERINUSELISTOBJECT **v12; // rax
-  DXGSHAREDPOWERINUSELISTOBJECT **v13; // rdx
-  _QWORD *v14; // rcx
+  struct DXGSHAREDPOWERREGISTRATIONOBJECT *v4; // r15
+  struct DXGSHAREDPOWERREGISTRATIONOBJECT **v5; // rbx
+  struct DXGSHAREDPOWERREGISTRATIONOBJECT ***v6; // r14
+  unsigned __int8 CurrentIrql; // di
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  _QWORD *v10; // rax
+  unsigned __int8 v11; // cl
+  PVOID **v12; // r13
+  DXGSHAREDPOWERINUSELISTOBJECT **v13; // r15
+  DXGSHAREDPOWERINUSELISTOBJECT *v14; // rdi
+  DXGSHAREDPOWERINUSELISTOBJECT *v15; // rcx
+  DXGSHAREDPOWERINUSELISTOBJECT *v16; // rdx
+  DXGSHAREDPOWERINUSELISTOBJECT **v17; // rax
+  void *v18; // rcx
+  __int64 v19; // rdx
+  void *v20; // rcx
 
-  v2 = (char *)this + 1824;
-  DXGPUSHLOCK::AcquireExclusive((DXGGLOBAL *)((char *)this + 1824));
-  v5 = (DXGGLOBAL *)*((_QWORD *)this + 232);
-  while ( 1 )
+  v2 = (char *)this + 1656;
+  v4 = a2;
+  DXGPUSHLOCK::AcquireExclusive((DXGGLOBAL *)((char *)this + 1656));
+  v5 = (struct DXGSHAREDPOWERREGISTRATIONOBJECT **)*((_QWORD *)this + 211);
+  while ( v5 != (struct DXGSHAREDPOWERREGISTRATIONOBJECT **)((char *)this + 1688) )
   {
-    v6 = 0LL;
-    if ( v5 != (DXGGLOBAL *)((char *)this + 1856) )
-      v6 = v5;
-    if ( !v6 )
+    v6 = (struct DXGSHAREDPOWERREGISTRATIONOBJECT ***)v5;
+    if ( !v5 )
       break;
-    if ( *((void *const *)v6 + 4) == a2 )
+    if ( v5[4] == v4 )
     {
       CurrentIrql = KeGetCurrentIrql();
-      (*((void (__fastcall **)(void *const, _QWORD))v6 + 6))(a2, *((_QWORD *)v6 + 3));
-      if ( (_BYTE)CurrentIrql != KeGetCurrentIrql() )
+      ((void (__fastcall *)(struct DXGSHAREDPOWERREGISTRATIONOBJECT *, struct DXGSHAREDPOWERREGISTRATIONOBJECT *))v5[6])(
+        v4,
+        v5[3]);
+      if ( CurrentIrql != KeGetCurrentIrql() )
       {
-        v8 = KeGetCurrentIrql();
-        WdLogSingleEntry5(0LL, 275LL, 16LL, this, CurrentIrql, v8);
+        v10 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v9, v8);
+        v10[3] = 275LL;
+        v10[4] = 16LL;
+        v10[5] = this;
+        v10[6] = CurrentIrql;
+        v11 = KeGetCurrentIrql();
+        v10[7] = v11;
+        WdLogEvent5_WdCriticalError(v10);
       }
-      v9 = (DXGSHAREDPOWERINUSELISTOBJECT **)*((_QWORD *)v6 + 8);
-      v10 = *v9;
-      while ( v10 != (DXGSHAREDPOWERINUSELISTOBJECT *)v9 )
+      v12 = (PVOID **)(v5 + 8);
+      v13 = (DXGSHAREDPOWERINUSELISTOBJECT **)v5[8];
+      v14 = *v13;
+      while ( 1 )
       {
-        v11 = v10;
-        if ( !v10 )
+        v15 = v14;
+        if ( v14 == (DXGSHAREDPOWERINUSELISTOBJECT *)v13 || !v14 )
           break;
-        v12 = *(DXGSHAREDPOWERINUSELISTOBJECT ***)v10;
-        v10 = (DXGSHAREDPOWERINUSELISTOBJECT *)v12;
-        if ( v12[1] != v11 || (v13 = (DXGSHAREDPOWERINUSELISTOBJECT **)*((_QWORD *)v11 + 1), *v13 != v11) )
+        v16 = *(DXGSHAREDPOWERINUSELISTOBJECT **)v14;
+        v14 = *(DXGSHAREDPOWERINUSELISTOBJECT **)v14;
+        if ( *(DXGSHAREDPOWERINUSELISTOBJECT **)(*(_QWORD *)v15 + 8LL) != v15
+          || (v17 = (DXGSHAREDPOWERINUSELISTOBJECT **)*((_QWORD *)v15 + 1), *v17 != v15) )
+        {
           __fastfail(3u);
-        *v13 = (DXGSHAREDPOWERINUSELISTOBJECT *)v12;
-        v12[1] = (DXGSHAREDPOWERINUSELISTOBJECT *)v13;
-        DXGSHAREDPOWERREGISTRATIONOBJECT::`scalar deleting destructor'(v11);
+        }
+        *v17 = v16;
+        *((_QWORD *)v16 + 1) = v17;
+        DXGSHAREDPOWERINUSELISTOBJECT::~DXGSHAREDPOWERINUSELISTOBJECT(v15);
+        operator delete(v18);
       }
-      v5 = *(DXGGLOBAL **)v5;
-      DXGGLOBAL::RemoveListObjectFromSharedPowerList(
-        (KSPIN_LOCK *)this,
-        (struct DXGSHAREDPOWERREGISTRATIONOBJECT ***)v6);
-      v14 = (_QWORD *)*((_QWORD *)v6 + 8);
-      if ( v14 )
-        DXGNODELIST<DXGGLOBAL,DXGSHAREDPOWERINUSELISTOBJECT>::`scalar deleting destructor'(v14);
-      DXGSHAREDPOWERREGISTRATIONOBJECT::`scalar deleting destructor'(v6);
+      v5 = (struct DXGSHAREDPOWERREGISTRATIONOBJECT **)*v5;
+      DXGGLOBAL::RemoveListObjectFromSharedPowerList((KSPIN_LOCK *)this, v6);
+      if ( *v12 )
+        DXGNODELIST<DXGGLOBAL,DXGSHAREDPOWERINUSELISTOBJECT>::`scalar deleting destructor'(*v12, v19);
+      DXGSHAREDPOWERINUSELISTOBJECT::~DXGSHAREDPOWERINUSELISTOBJECT((DXGSHAREDPOWERINUSELISTOBJECT *)v6);
+      operator delete(v20);
+      v4 = a2;
     }
     else
     {
-      v5 = *(DXGGLOBAL **)v5;
+      v5 = (struct DXGSHAREDPOWERREGISTRATIONOBJECT **)*v5;
     }
   }
   *((_QWORD *)v2 + 1) = 0LL;

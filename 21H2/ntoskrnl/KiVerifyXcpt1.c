@@ -1,10 +1,10 @@
 /*
- * XREFs of KiVerifyXcpt1 @ 0x140B19A20
+ * XREFs of KiVerifyXcpt1 @ 0x140A66380
  * Callers:
  *     <none>
  * Callees:
- *     _local_unwind @ 0x1403E0F50 (_local_unwind.c)
- *     KiVerifyXcptFilter @ 0x140B19F5C (KiVerifyXcptFilter.c)
+ *     _local_unwind @ 0x1403D1B90 (_local_unwind.c)
+ *     KiVerifyXcptFilter @ 0x140A668BC (KiVerifyXcptFilter.c)
  */
 
 __int64 __fastcall KiVerifyXcpt1(__int64 a1)

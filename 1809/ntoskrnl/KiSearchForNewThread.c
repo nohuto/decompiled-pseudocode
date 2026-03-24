@@ -2,19 +2,19 @@
  * XREFs of KiSearchForNewThread @ 0x140056AE0
  * Callers:
  *     KiSwapThread @ 0x140056210 (KiSwapThread.c)
- *     KiIdleSchedule @ 0x1400D1C30 (KiIdleSchedule.c)
+ *     KiIdleSchedule @ 0x1400D1C50 (KiIdleSchedule.c)
  * Callees:
  *     KiSearchForNewThreadOnProcessor @ 0x1400570B0 (KiSearchForNewThreadOnProcessor.c)
  *     KiSelectReadyThread @ 0x140057A20 (KiSelectReadyThread.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiDeferredReadyThread @ 0x1400C3370 (KiDeferredReadyThread.c)
- *     KiIsThreadRankNonZero @ 0x1400D1460 (KiIsThreadRankNonZero.c)
- *     KiSetProcessorIdle @ 0x1400D7324 (KiSetProcessorIdle.c)
- *     KiSelectThreadFromSchedulingGroup @ 0x140116DC8 (KiSelectThreadFromSchedulingGroup.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetThreadState @ 0x1401B4B6C (KiSetThreadState.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B7C (KiUpdatePriorityMatrixThreadState.c)
- *     KiSetSchedulerAssistPriority @ 0x14029952C (KiSetSchedulerAssistPriority.c)
+ *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
+ *     KiIsThreadRankNonZero @ 0x1400D1480 (KiIsThreadRankNonZero.c)
+ *     KiSetProcessorIdle @ 0x1400D7344 (KiSetProcessorIdle.c)
+ *     KiSelectThreadFromSchedulingGroup @ 0x140116DE8 (KiSelectThreadFromSchedulingGroup.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetThreadState @ 0x1401B4B8C (KiSetThreadState.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
+ *     KiSetSchedulerAssistPriority @ 0x14029962C (KiSetSchedulerAssistPriority.c)
  */
 
 __int64 __fastcall KiSearchForNewThread(__int64 a1, char a2)

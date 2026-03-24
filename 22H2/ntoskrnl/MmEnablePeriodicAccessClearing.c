@@ -1,10 +1,10 @@
 /*
- * XREFs of MmEnablePeriodicAccessClearing @ 0x140A88A18
+ * XREFs of MmEnablePeriodicAccessClearing @ 0x1409904F8
  * Callers:
- *     PfTAccessTracingCleanup @ 0x140A874E0 (PfTAccessTracingCleanup.c)
- *     PfTAccessTracingStart @ 0x140A88964 (PfTAccessTracingStart.c)
+ *     PfTAccessTracingStart @ 0x140990448 (PfTAccessTracingStart.c)
+ *     PfTAccessTracingCleanup @ 0x14099A9EC (PfTAccessTracingCleanup.c)
  * Callees:
- *     PsGetNextPartition @ 0x14036A720 (PsGetNextPartition.c)
+ *     PsGetNextPartition @ 0x140303EF8 (PsGetNextPartition.c)
  */
 
 _QWORD *__fastcall MmEnablePeriodicAccessClearing(char a1)
@@ -19,7 +19,7 @@ _QWORD *__fastcall MmEnablePeriodicAccessClearing(char a1)
     if ( !result )
       break;
     v2 = result;
-    *(_BYTE *)(*(_QWORD *)(*result + 16920LL) + 55LL) = a1;
+    *(_BYTE *)(*(_QWORD *)(*result + 6848LL) + 55LL) = a1;
   }
   return result;
 }

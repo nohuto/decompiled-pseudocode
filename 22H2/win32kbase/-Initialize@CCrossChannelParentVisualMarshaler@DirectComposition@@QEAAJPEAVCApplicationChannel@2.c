@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Initialize@CCrossChannelParentVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@VResourceHandle@@I@Z @ 0x1C00087C8
+ * XREFs of ?Initialize@CCrossChannelParentVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@VResourceHandle@@I@Z @ 0x1C0002B98
  * Callers:
- *     ?CompleteAddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIIIVResourceHandle@@HI0@Z @ 0x1C00085E0 (-CompleteAddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIIIVResourceHand.c)
+ *     ?CompleteAddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIIIVResourceHandle@@HI0@Z @ 0x1C000295C (-CompleteAddCrossChannelVisualChild@CApplicationChannel@DirectComposition@@QEAAJIIIVResourceHand.c)
  * Callees:
- *     ?ReferenceSystemResource@CConnection@DirectComposition@@QEAAXVResourceHandle@@@Z @ 0x1C0029000 (-ReferenceSystemResource@CConnection@DirectComposition@@QEAAXVResourceHandle@@@Z.c)
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?Initialize@CVisualMarshaler@DirectComposition@@UEAAJXZ @ 0x1C009CCD0 (-Initialize@CVisualMarshaler@DirectComposition@@UEAAJXZ.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C002A9C0 (Win32AllocPoolWithQuotaZInit.c)
+ *     ?ReferenceSystemResource@CConnection@DirectComposition@@QEAAXVResourceHandle@@@Z @ 0x1C006050C (-ReferenceSystemResource@CConnection@DirectComposition@@QEAAXVResourceHandle@@@Z.c)
+ *     ?Initialize@CVisualMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0090F60 (-Initialize@CVisualMarshaler@DirectComposition@@UEAAJXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CCrossChannelParentVisualMarshaler::Initialize(
@@ -14,32 +14,30 @@ __int64 __fastcall DirectComposition::CCrossChannelParentVisualMarshaler::Initia
         unsigned int a3,
         int a4)
 {
-  unsigned __int64 v8; // rdx
-  NSInstrumentation::CLeakTrackingAllocator *v9; // rcx
-  int v10; // esi
-  _DWORD *QuotaZInit; // rax
+  int v8; // esi
+  __int64 v9; // rax
 
-  v10 = DirectComposition::CVisualMarshaler::Initialize((DirectComposition::CVisualMarshaler *)a1);
-  if ( v10 >= 0 )
+  v8 = DirectComposition::CVisualMarshaler::Initialize((DirectComposition::CVisualMarshaler *)a1);
+  if ( v8 >= 0 )
   {
     *(_DWORD *)(a1 + 16) |= 0x2000002u;
-    v10 = 0;
+    v8 = 0;
     *(_DWORD *)(a1 + 104) = 1065353216;
     *(_DWORD *)(a1 + 108) = 1065353216;
-    QuotaZInit = NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(v9, v8, 0x10uLL, 0x76634344u);
-    if ( QuotaZInit )
-      QuotaZInit[2] = 0;
-    *(_QWORD *)(a1 + 376) = QuotaZInit;
-    if ( QuotaZInit )
+    v9 = Win32AllocPoolWithQuotaZInit(0x10uLL);
+    if ( v9 )
+      *(_DWORD *)(v9 + 8) = 0;
+    *(_QWORD *)(a1 + 368) = v9;
+    if ( v9 )
     {
       DirectComposition::CConnection::ReferenceSystemResource(*(_QWORD *)(a2 + 40), a3);
-      *(_DWORD *)(*(_QWORD *)(a1 + 376) + 12LL) = a4;
-      *(_DWORD *)(*(_QWORD *)(a1 + 376) + 8LL) = a3;
+      *(_DWORD *)(*(_QWORD *)(a1 + 368) + 12LL) = a4;
+      *(_DWORD *)(*(_QWORD *)(a1 + 368) + 8LL) = a3;
     }
     else
     {
       return (unsigned int)-1073741801;
     }
   }
-  return (unsigned int)v10;
+  return (unsigned int)v8;
 }

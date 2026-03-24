@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpAllocateHeapRaiseException @ 0x1405E8980
+ * XREFs of RtlpAllocateHeapRaiseException @ 0x140589408
  * Callers:
- *     RtlpAllocateHeapInternal @ 0x1403718A8 (RtlpAllocateHeapInternal.c)
+ *     RtlpAllocateHeapInternal @ 0x1402A6388 (RtlpAllocateHeapInternal.c)
  * Callees:
- *     RtlRaiseException @ 0x140294A60 (RtlRaiseException.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     RtlRaiseException @ 0x140274220 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall RtlpAllocateHeapRaiseException(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall RtlpAllocateHeapRaiseException(__int64 a1)
   memset(v6, 0, 0x98uLL);
   LODWORD(v6[3]) = 1;
   return RtlRaiseException(
-           (ULONG_PTR)v6,
+           (__int64)v6,
            v2,
            v3,
            v4,

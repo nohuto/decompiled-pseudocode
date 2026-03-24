@@ -1,8 +1,8 @@
 /*
- * XREFs of ?bInit@DDA_CLIPLINE@@QEAAHPEAU_POINTFIX@@0@Z @ 0x1C0143FCC
+ * XREFs of ?bInit@DDA_CLIPLINE@@QEAAHPEAU_POINTFIX@@0@Z @ 0x1C014B900
  * Callers:
- *     ?vUpdateCosmeticStyleState@EPATHOBJ@@QEAAXPEAVSURFACE@@PEAU_LINEATTRS@@@Z @ 0x1C0143480 (-vUpdateCosmeticStyleState@EPATHOBJ@@QEAAXPEAVSURFACE@@PEAU_LINEATTRS@@@Z.c)
- *     ?bEnumStartLine@XCLIPOBJ@@QEAAHK@Z @ 0x1C0143E74 (-bEnumStartLine@XCLIPOBJ@@QEAAHK@Z.c)
+ *     ?bEnumStartLine@XCLIPOBJ@@QEAAHK@Z @ 0x1C014B7A8 (-bEnumStartLine@XCLIPOBJ@@QEAAHK@Z.c)
+ *     ?vUpdateCosmeticStyleState@EPATHOBJ@@QEAAXPEAVSURFACE@@PEAU_LINEATTRS@@@Z @ 0x1C014BF08 (-vUpdateCosmeticStyleState@EPATHOBJ@@QEAAXPEAVSURFACE@@PEAU_LINEATTRS@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -23,10 +23,10 @@ __int64 __fastcall DDA_CLIPLINE::bInit(DDA_CLIPLINE *this, struct _POINTFIX *a2,
   int v16; // r15d
   int v17; // eax
   int v18; // edi
-  signed __int64 v19; // rsi
-  __int64 v20; // rsi
+  signed __int64 v19; // rbp
+  __int64 v20; // rbp
   char v21; // r8
-  unsigned int v22; // ebp
+  unsigned int v22; // esi
   int v23; // r14d
   signed int v24; // r9d
   int v25; // r8d

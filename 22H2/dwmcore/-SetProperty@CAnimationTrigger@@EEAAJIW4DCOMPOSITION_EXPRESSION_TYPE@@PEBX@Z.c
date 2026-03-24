@@ -1,44 +1,42 @@
 /*
- * XREFs of ?SetProperty@CAnimationTrigger@@EEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x18001F480
+ * XREFs of ?SetProperty@CAnimationTrigger@@EEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801B6710
  * Callers:
  *     <none>
  * Callees:
- *     ?TransitionTrue@CAnimationTrigger@@AEAAXXZ @ 0x18001F4DC (-TransitionTrue@CAnimationTrigger@@AEAAXXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?TransitionTrue@CAnimationTrigger@@AEAAXXZ @ 0x1801B6784 (-TransitionTrue@CAnimationTrigger@@AEAAXXZ.c)
  */
 
 __int64 __fastcall CAnimationTrigger::SetProperty(CAnimationTrigger *a1, int a2, int a3, _BYTE *a4)
 {
-  unsigned int v5; // ebx
-  char v6; // cl
-  unsigned int v8; // [rsp+20h] [rbp-18h]
+  unsigned int v4; // ebx
+  unsigned int v6; // [rsp+20h] [rbp-18h]
 
-  v5 = 0;
+  v4 = 0;
   if ( a3 != 17 )
   {
-    v8 = 74;
-LABEL_9:
-    v5 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)a1, 0LL, 0, -2147024809, v8, 0LL);
-    return v5;
+    v6 = 65;
+LABEL_5:
+    v4 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, v6, 0LL);
+    return v4;
   }
   if ( a2 )
   {
-    v8 = 69;
-    goto LABEL_9;
+    v6 = 60;
+    goto LABEL_5;
   }
-  v6 = *((_BYTE *)a1 + 128);
-  if ( *a4 != (v6 & 1) )
+  if ( *a4 != *((_BYTE *)a1 + 104) )
   {
     if ( *a4 )
     {
-      *((_BYTE *)a1 + 128) = v6 | 1;
+      *((_BYTE *)a1 + 104) = 1;
       CAnimationTrigger::TransitionTrue(a1);
     }
     else
     {
-      *((_BYTE *)a1 + 128) = v6 & 0xFE;
+      *((_BYTE *)a1 + 104) = 0;
     }
   }
-  return v5;
+  return v4;
 }

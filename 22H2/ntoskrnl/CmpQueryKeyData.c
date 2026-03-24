@@ -1,54 +1,40 @@
 /*
- * XREFs of CmpQueryKeyData @ 0x1406D6304
+ * XREFs of CmpQueryKeyData @ 0x1406E346C
  * Callers:
- *     CmQueryKey @ 0x1406D7280 (CmQueryKey.c)
+ *     CmQueryKey @ 0x1405F5810 (CmQueryKey.c)
  * Callees:
- *     CmpQueryKeyDataFromCache @ 0x1406D5060 (CmpQueryKeyDataFromCache.c)
- *     CmpQueryKeyDataFromNode @ 0x1406DAB00 (CmpQueryKeyDataFromNode.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpQueryKeyDataFromCache @ 0x1406E354C (CmpQueryKeyDataFromCache.c)
+ *     CmpQueryKeyDataFromNode @ 0x1406E3910 (CmpQueryKeyDataFromNode.c)
  */
 
-__int64 __fastcall CmpQueryKeyData(__int64 a1, int a2, __int64 a3, unsigned int a4, _DWORD *a5, __int64 a6)
+__int64 __fastcall CmpQueryKeyData(__int64 a1, int a2, int a3, int a4, __int64 a5, __int64 a6)
 {
-  unsigned int v8; // ebx
-  ULONG_PTR v10; // rdx
-  ULONG_PTR v11; // rcx
-  __int64 CellFlat; // rax
-  unsigned int KeyDataFromNode; // eax
-  __int64 v14; // rcx
-  _DWORD v15[6]; // [rsp+40h] [rbp-18h] BYREF
+  unsigned int KeyDataFromNode; // ebx
+  __int64 v12; // rax
+  _DWORD v13[6]; // [rsp+40h] [rbp-18h] BYREF
 
-  v15[0] = -1;
-  v15[1] = 0;
+  v13[0] = -1;
+  v13[1] = 0;
   if ( a2 == 4 )
   {
     return (unsigned int)CmpQueryKeyDataFromCache(a1, 4, a3, a4, a5, a6);
   }
   else
   {
-    v10 = *(unsigned int *)(a1 + 40);
-    v11 = *(_QWORD *)(a1 + 32);
-    if ( (*(_BYTE *)(v11 + 140) & 1) != 0 )
-      CellFlat = HvpGetCellFlat(v11, v10);
-    else
-      CellFlat = HvpGetCellPaged(v11);
-    if ( CellFlat )
+    v12 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _DWORD *))(*(_QWORD *)(a1 + 32) + 8LL))(
+            *(_QWORD *)(a1 + 32),
+            *(unsigned int *)(a1 + 40),
+            v13);
+    if ( v12 )
     {
-      KeyDataFromNode = CmpQueryKeyDataFromNode(*(_QWORD *)(a1 + 32), a4, (__int64)a5, a1, a6);
-      v14 = *(_QWORD *)(a1 + 32);
-      v8 = KeyDataFromNode;
-      if ( (*(_BYTE *)(v14 + 140) & 1) != 0 )
-        HvpReleaseCellFlat(v14, v15);
-      else
-        HvpReleaseCellPaged(v14, v15);
+      KeyDataFromNode = CmpQueryKeyDataFromNode(*(_QWORD *)(a1 + 32), v12, a2, a3, a4, a5, a1, a6);
+      (*(void (__fastcall **)(_QWORD, _DWORD *))(*(_QWORD *)(a1 + 32) + 16LL))(*(_QWORD *)(a1 + 32), v13);
     }
     else
     {
       return (unsigned int)-1073741670;
     }
   }
-  return v8;
+  return KeyDataFromNode;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpiBiosPortFixedToIoDescriptor @ 0x1C00B348C
+ * XREFs of PnpiBiosPortFixedToIoDescriptor @ 0x1C00B4084
  * Callers:
- *     PnpBiosResourcesToNtResources @ 0x1C009832C (PnpBiosResourcesToNtResources.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
  * Callees:
- *     PnpiUpdateResourceList @ 0x1C0098B40 (PnpiUpdateResourceList.c)
+ *     PnpiUpdateResourceList @ 0x1C009D638 (PnpiUpdateResourceList.c)
  */
 
 __int64 __fastcall PnpiBiosPortFixedToIoDescriptor(__int64 a1, __int64 a2, unsigned int a3, char a4)
@@ -15,7 +15,7 @@ __int64 __fastcall PnpiBiosPortFixedToIoDescriptor(__int64 a1, __int64 a2, unsig
   v7 = 0LL;
   if ( (a4 & 1) == 0 && *(_BYTE *)(a1 + 3) )
   {
-    result = PnpiUpdateResourceList(a2 + 8LL * a3, &v7);
+    result = PnpiUpdateResourceList((const void **)(a2 + 8LL * a3), &v7);
     if ( (int)result < 0 )
       return result;
     v6 = v7;

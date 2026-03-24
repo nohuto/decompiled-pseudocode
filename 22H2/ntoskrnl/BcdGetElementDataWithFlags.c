@@ -1,33 +1,32 @@
 /*
- * XREFs of BcdGetElementDataWithFlags @ 0x14080723C
+ * XREFs of BcdGetElementDataWithFlags @ 0x1407840C0
  * Callers:
- *     BcdGetElementData @ 0x1408043C0 (BcdGetElementData.c)
- *     PopBcdEstablishResumeObject @ 0x140804514 (PopBcdEstablishResumeObject.c)
- *     PopBcdSetDefaultResumeObjectElements @ 0x140804DD8 (PopBcdSetDefaultResumeObjectElements.c)
- *     PopBcdReadElement @ 0x140805418 (PopBcdReadElement.c)
- *     BiUpdateBcdObject @ 0x140806888 (BiUpdateBcdObject.c)
- *     BiBuildIdentifierList @ 0x140806BE8 (BiBuildIdentifierList.c)
- *     PopAdaptiveGetSystemInitiatedRebootTargetBootEntry @ 0x14099B870 (PopAdaptiveGetSystemInitiatedRebootTargetBootEntry.c)
- *     SepSecureBootUpdateBcdDataForRule @ 0x1409D0EA4 (SepSecureBootUpdateBcdDataForRule.c)
- *     BiGetDefaultBootEntryIdentifier @ 0x140A5C764 (BiGetDefaultBootEntryIdentifier.c)
- *     BiGetElement @ 0x140A5C9A0 (BiGetElement.c)
+ *     PopBcdEstablishResumeObject @ 0x140782180 (PopBcdEstablishResumeObject.c)
+ *     PopBcdSetDefaultResumeObjectElements @ 0x140782DF4 (PopBcdSetDefaultResumeObjectElements.c)
+ *     PopBcdReadElement @ 0x14078336C (PopBcdReadElement.c)
+ *     SepSecureBootUpdateBcdDataForRule @ 0x1409246A4 (SepSecureBootUpdateBcdDataForRule.c)
+ *     BiGetDefaultBootEntryIdentifier @ 0x14096F218 (BiGetDefaultBootEntryIdentifier.c)
+ *     BcdGetElementData @ 0x14096F478 (BcdGetElementData.c)
+ *     BiGetElement @ 0x14096F590 (BiGetElement.c)
+ *     BiBuildIdentifierList @ 0x140970978 (BiBuildIdentifierList.c)
+ *     BiUpdateBcdObject @ 0x140972EE0 (BiUpdateBcdObject.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     BiIsOfflineHandle @ 0x140374424 (BiIsOfflineHandle.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _ultow_s @ 0x1403DE190 (_ultow_s.c)
- *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     BiOpenKey @ 0x140807650 (BiOpenKey.c)
- *     BiCloseKey @ 0x1408077DC (BiCloseKey.c)
- *     BiGetRegistryValue @ 0x1408079C4 (BiGetRegistryValue.c)
- *     BiLogMessage @ 0x140807BA0 (BiLogMessage.c)
- *     BiAcquireBcdSyncMutant @ 0x140807BB4 (BiAcquireBcdSyncMutant.c)
- *     BiReleaseBcdSyncMutant @ 0x140807C5C (BiReleaseBcdSyncMutant.c)
- *     BiGetObjectIdentifier @ 0x140807CE0 (BiGetObjectIdentifier.c)
- *     BiConvertElementFormatToValueType @ 0x140807E7C (BiConvertElementFormatToValueType.c)
- *     BiConvertRegistryDataToElement @ 0x140807EB4 (BiConvertRegistryDataToElement.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     BiIsOfflineHandle @ 0x14039AE9C (BiIsOfflineHandle.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _ultow_s @ 0x1403D6600 (_ultow_s.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x1406F35C8 (RtlStringFromGUIDEx.c)
+ *     BiGetRegistryValue @ 0x140783CF8 (BiGetRegistryValue.c)
+ *     BiOpenKey @ 0x140784304 (BiOpenKey.c)
+ *     BiCloseKey @ 0x14078448C (BiCloseKey.c)
+ *     BiReleaseBcdSyncMutant @ 0x140784674 (BiReleaseBcdSyncMutant.c)
+ *     BiGetObjectIdentifier @ 0x14078469C (BiGetObjectIdentifier.c)
+ *     BiAcquireBcdSyncMutant @ 0x140784838 (BiAcquireBcdSyncMutant.c)
+ *     BiConvertElementFormatToValueType @ 0x140784A50 (BiConvertElementFormatToValueType.c)
+ *     BiLogMessage @ 0x140784C9C (BiLogMessage.c)
+ *     BiConvertRegistryDataToElement @ 0x140784CB0 (BiConvertRegistryDataToElement.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BcdGetElementDataWithFlags(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, _DWORD *a5)
@@ -40,7 +39,7 @@ __int64 __fastcall BcdGetElementDataWithFlags(__int64 a1, unsigned int a2, __int
   int v11; // eax
   unsigned int v12; // ebx
   int v13; // eax
-  unsigned int v14; // eax
+  int v14; // eax
   int RegistryValue; // eax
   PVOID v16; // r15
   __int64 v17; // rcx
@@ -144,7 +143,7 @@ __int64 __fastcall BcdGetElementDataWithFlags(__int64 a1, unsigned int a2, __int
         v7 = v22;
       }
     }
-    RtlFreeUnicodeString(&DestinationString);
+    RtlFreeAnsiString(&DestinationString);
     if ( v9 )
       BiCloseKey(v9);
     if ( v25 )

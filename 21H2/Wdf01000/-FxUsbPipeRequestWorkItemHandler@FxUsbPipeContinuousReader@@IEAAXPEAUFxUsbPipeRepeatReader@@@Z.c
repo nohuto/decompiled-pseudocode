@@ -1,20 +1,20 @@
 /*
- * XREFs of ?FxUsbPipeRequestWorkItemHandler@FxUsbPipeContinuousReader@@IEAAXPEAUFxUsbPipeRepeatReader@@@Z @ 0x1C0079D58
+ * XREFs of ?FxUsbPipeRequestWorkItemHandler@FxUsbPipeContinuousReader@@IEAAXPEAUFxUsbPipeRepeatReader@@@Z @ 0x1C006D218
  * Callers:
- *     ?_FxUsbPipeRequestWorkItemThunk@FxUsbPipeContinuousReader@@KAXPEAX@Z @ 0x1C007AEA0 (-_FxUsbPipeRequestWorkItemThunk@FxUsbPipeContinuousReader@@KAXPEAX@Z.c)
+ *     ?_FxUsbPipeRequestWorkItemThunk@FxUsbPipeContinuousReader@@KAXPEAX@Z @ 0x1C006E420 (-_FxUsbPipeRequestWorkItemThunk@FxUsbPipeContinuousReader@@KAXPEAX@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0019824 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
- *     ?GetStatus@FxRequest@@QEAAJXZ @ 0x1C0068740 (-GetStatus@FxRequest@@QEAAJXZ.c)
- *     ?CancelRepeaters@FxUsbPipeContinuousReader@@QEAAXXZ @ 0x1C0079658 (-CancelRepeaters@FxUsbPipeContinuousReader@@QEAAXXZ.c)
- *     ?Reset@FxUsbPipe@@QEAAJXZ @ 0x1C007A6DC (-Reset@FxUsbPipe@@QEAAJXZ.c)
- *     ?ResubmitRepeater@FxUsbPipeContinuousReader@@QEAAKPEAUFxUsbPipeRepeatReader@@PEAJ@Z @ 0x1C007A7B0 (-ResubmitRepeater@FxUsbPipeContinuousReader@@QEAAKPEAUFxUsbPipeRepeatReader@@PEAJ@Z.c)
- *     ?GetPortStatus@FxUsbDevice@@IEAAJPEAK@Z @ 0x1C007CF98 (-GetPortStatus@FxUsbDevice@@IEAAJPEAK@Z.c)
- *     ?IsConnected@FxUsbDevice@@QEAAJXZ @ 0x1C007D10C (-IsConnected@FxUsbDevice@@QEAAJXZ.c)
- *     ?Reset@FxUsbDevice@@QEAAJXZ @ 0x1C0080068 (-Reset@FxUsbDevice@@QEAAJXZ.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C00150E8 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?GetStatus@FxRequest@@QEAAJXZ @ 0x1C004EE70 (-GetStatus@FxRequest@@QEAAJXZ.c)
+ *     ?CancelRepeaters@FxUsbPipeContinuousReader@@QEAAXXZ @ 0x1C006CAC8 (-CancelRepeaters@FxUsbPipeContinuousReader@@QEAAXXZ.c)
+ *     ?Reset@FxUsbPipe@@QEAAJXZ @ 0x1C006DBE0 (-Reset@FxUsbPipe@@QEAAJXZ.c)
+ *     ?ResubmitRepeater@FxUsbPipeContinuousReader@@QEAAKPEAUFxUsbPipeRepeatReader@@PEAJ@Z @ 0x1C006DCB4 (-ResubmitRepeater@FxUsbPipeContinuousReader@@QEAAKPEAUFxUsbPipeRepeatReader@@PEAJ@Z.c)
+ *     ?GetPortStatus@FxUsbDevice@@IEAAJPEAK@Z @ 0x1C00707FC (-GetPortStatus@FxUsbDevice@@IEAAJPEAK@Z.c)
+ *     ?IsConnected@FxUsbDevice@@QEAAJXZ @ 0x1C0070970 (-IsConnected@FxUsbDevice@@QEAAJXZ.c)
+ *     ?Reset@FxUsbDevice@@QEAAJXZ @ 0x1C00737FC (-Reset@FxUsbDevice@@QEAAJXZ.c)
  */
 
 void __fastcall FxUsbPipeContinuousReader::FxUsbPipeRequestWorkItemHandler(
@@ -29,14 +29,14 @@ void __fastcall FxUsbPipeContinuousReader::FxUsbPipeRequestWorkItemHandler(
   int v9; // r15d
   WDFMEMORY__ *Buffer; // rcx
   int v11; // ebx
-  FxUsbDevice *m_UsbDevice; // rbp
+  unsigned __int8 v12; // r8
   FxUsbPipe *v13; // rcx
+  FxUsbDevice *m_UsbDevice; // rbp
+  FxUsbPipe *v15; // rcx
   WDFUSBPIPE__ *ObjectHandleUnchecked; // rax
-  unsigned __int8 v15; // al
-  unsigned __int8 v16; // r8
-  FxUsbPipe *v17; // rcx
-  int v18; // ebx
-  unsigned int v19; // edx
+  unsigned __int8 v17; // al
+  unsigned int v18; // edx
+  int v19; // ebx
   bool IsVersionGreaterThanOrEqualTo; // al
   FxUsbDevice *v21; // rcx
   unsigned __int8 v22; // dl
@@ -59,48 +59,55 @@ void __fastcall FxUsbPipeContinuousReader::FxUsbPipeRequestWorkItemHandler(
   else
     v11 = 0;
   FxUsbPipeContinuousReader::CancelRepeaters(this);
-  m_UsbDevice = this->m_Pipe->m_UsbDevice;
-  if ( !this->m_ReadersFailedCallback
-    || (v13 = this->m_Pipe,
-        this->m_WorkItemThread = KeGetCurrentThread(),
-        ObjectHandleUnchecked = (WDFUSBPIPE__ *)FxObject::GetObjectHandleUnchecked(v13),
-        v15 = this->m_ReadersFailedCallback(ObjectHandleUnchecked, v9, v11),
-        v17 = this->m_Pipe,
-        this->m_WorkItemThread = 0LL,
-        v15) )
+  v13 = this->m_Pipe;
+  m_UsbDevice = v13->m_UsbDevice;
+  if ( this->m_ReadersFailedCallback )
   {
-    status = FxUsbDevice::IsConnected(m_UsbDevice);
-    v18 = status;
-    if ( status >= 0 )
-    {
-      IsVersionGreaterThanOrEqualTo = _FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(m_Globals, v19, 9u);
-      v21 = m_UsbDevice;
-      if ( IsVersionGreaterThanOrEqualTo )
-      {
-        PortStatus = 0;
-        if ( FxUsbDevice::GetPortStatus(m_UsbDevice, &PortStatus) < 0 || (PortStatus & 1) != 0 )
-        {
-          FxUsbPipe::Reset(this->m_Pipe);
-          goto LABEL_13;
-        }
-        v21 = m_UsbDevice;
-      }
-      status = FxUsbDevice::Reset(v21);
-      v18 = status;
-    }
-LABEL_13:
-    v17 = this->m_Pipe;
-    goto LABEL_14;
+    v15 = this->m_Pipe;
+    this->m_WorkItemThread = KeGetCurrentThread();
+    ObjectHandleUnchecked = (WDFUSBPIPE__ *)FxObject::GetObjectHandleUnchecked(v15);
+    v17 = this->m_ReadersFailedCallback(ObjectHandleUnchecked, v9, v11);
+    v13 = this->m_Pipe;
+    this->m_WorkItemThread = 0LL;
   }
-  v18 = -1073741823;
-  status = -1073741823;
+  else
+  {
+    v17 = 1;
+  }
+  if ( !v17 )
+  {
+    v19 = -1073741823;
+    status = -1073741823;
+    goto LABEL_17;
+  }
+  status = FxUsbDevice::IsConnected(m_UsbDevice);
+  v19 = status;
+  if ( status >= 0 )
+  {
+    IsVersionGreaterThanOrEqualTo = _FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(m_Globals, v18, 9u);
+    v21 = m_UsbDevice;
+    if ( IsVersionGreaterThanOrEqualTo )
+    {
+      PortStatus = 0;
+      if ( FxUsbDevice::GetPortStatus(m_UsbDevice, &PortStatus) < 0 || (PortStatus & 1) != 0 )
+      {
+        FxUsbPipe::Reset(this->m_Pipe);
+        goto LABEL_14;
+      }
+      v21 = m_UsbDevice;
+    }
+    status = FxUsbDevice::Reset(v21);
+    v19 = status;
+  }
 LABEL_14:
-  FxNonPagedObject::Lock(v17, &irql, v16);
+  v13 = this->m_Pipe;
+LABEL_17:
+  FxNonPagedObject::Lock(v13, &irql, v12);
   v22 = irql;
   v23 = this->m_Pipe;
   this->m_WorkItemQueued = 0;
   FxNonPagedObject::Unlock(v23, v22, v24);
-  if ( v18 >= 0 )
+  if ( v19 >= 0 )
   {
     this->m_NumFailedReaders = 0;
     if ( this->m_NumReaders )

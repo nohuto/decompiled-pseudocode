@@ -1,10 +1,8 @@
 /*
- * XREFs of IoGetIoPriorityHint @ 0x1402A7940
+ * XREFs of IoGetIoPriorityHint @ 0x1402547C0
  * Callers:
- *     IopCallDriverReference @ 0x1402A7820 (IopCallDriverReference.c)
- *     IoRetrievePriorityInfo @ 0x140332710 (IoRetrievePriorityInfo.c)
- *     IopSynchronousServiceTail @ 0x1406E3F40 (IopSynchronousServiceTail.c)
- *     NtQueryInformationFile @ 0x1407250E0 (NtQueryInformationFile.c)
+ *     IoRetrievePriorityInfo @ 0x140256230 (IoRetrievePriorityInfo.c)
+ *     IopSynchronousServiceTail @ 0x14064C4A0 (IopSynchronousServiceTail.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +10,7 @@
 IO_PRIORITY_HINT __stdcall IoGetIoPriorityHint(PIRP Irp)
 {
   IO_PRIORITY_HINT result; // eax
-  PETHREAD Thread; // r8
+  PETHREAD Thread; // rdx
 
   if ( ((Irp->Flags >> 17) & 7) == 0 )
     return 2;

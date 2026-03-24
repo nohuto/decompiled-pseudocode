@@ -1,21 +1,21 @@
 /*
- * XREFs of MiProcessVmAccessedInfo @ 0x14045BBD4
+ * XREFs of MiProcessVmAccessedInfo @ 0x14053B930
  * Callers:
- *     MiAgeWorkingSetTail @ 0x1402F3AD0 (MiAgeWorkingSetTail.c)
- *     MiTrimWorkingSetTail @ 0x1403737D0 (MiTrimWorkingSetTail.c)
- *     MiResetAccessBitsTail @ 0x1403CA3D0 (MiResetAccessBitsTail.c)
- *     MiSimpleAgeWorkingSetTail @ 0x14045BD30 (MiSimpleAgeWorkingSetTail.c)
- *     MiUpdateOldWorkingSetPagesTail @ 0x14045BF60 (MiUpdateOldWorkingSetPagesTail.c)
+ *     MiAgeWorkingSetTail @ 0x14022E460 (MiAgeWorkingSetTail.c)
+ *     MiTrimWorkingSetTail @ 0x140267250 (MiTrimWorkingSetTail.c)
+ *     MiResetAccessBitsTail @ 0x14039D580 (MiResetAccessBitsTail.c)
+ *     MiSimpleAgeWorkingSetTail @ 0x14053BFD0 (MiSimpleAgeWorkingSetTail.c)
+ *     MiUpdateOldWorkingSetPagesTail @ 0x14053C780 (MiUpdateOldWorkingSetPagesTail.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetWsleContents @ 0x14033A410 (MiGetWsleContents.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     MiGetWsleContents @ 0x140270D40 (MiGetWsleContents.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall MiProcessVmAccessedInfo(
         __int64 a1,
         _DWORD *a2,
-        __int64 (__fastcall *a3)(__int64, _QWORD *, unsigned __int64, unsigned __int64, __int64),
+        __int64 (__fastcall *a3)(__int64, _QWORD *, __int64, unsigned __int64, __int64),
         __int64 a4)
 {
   __int64 v4; // rax
@@ -23,6 +23,7 @@ char __fastcall MiProcessVmAccessedInfo(
   unsigned __int64 v10; // rbp
   unsigned __int64 v11; // r14
   __int64 v12; // rcx
+  __int64 v13; // r8
 
   v4 = (unsigned int)*a2;
   v5 = a2 + 2;
@@ -33,10 +34,14 @@ char __fastcall MiProcessVmAccessedInfo(
     LOBYTE(v4) = MI_READ_PTE_LOCK_FREE(((v11 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
     if ( (v4 & 1) != 0 )
     {
-      LOBYTE(v4) = (MiGetWsleContents(v12, v11) & 0xF) - 8;
-      if ( (unsigned __int8)v4 > 2u && ((v11 >> 9) & 0x7FFFFFFFF8LL) != 0x98000000000LL )
+      LOBYTE(v4) = MiGetWsleContents(v12, v11);
+      v13 = 0LL;
+      LOBYTE(v4) = (v4 & 0xF) - 8;
+      if ( (unsigned __int8)v4 > 2u )
+        v13 = ((v11 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+      if ( v13 )
       {
-        LODWORD(v4) = a3(a1, v5, ((v11 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, v11, a4);
+        LODWORD(v4) = a3(a1, v5, v13, v11, a4);
         if ( (_DWORD)v4 )
           break;
       }

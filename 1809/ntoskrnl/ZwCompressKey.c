@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCompressKey @ 0x1401B9510
+ * XREFs of ZwCompressKey @ 0x1401B9530
  * Callers:
  *     <none>
  * Callees:

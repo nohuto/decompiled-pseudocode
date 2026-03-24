@@ -1,538 +1,459 @@
 /*
- * XREFs of NtTraceControl @ 0x140725C40
+ * XREFs of NtTraceControl @ 0x1405EAF60
  * Callers:
- *     PerfDiagpProxyWorker @ 0x14083D420 (PerfDiagpProxyWorker.c)
- *     PerfDiagpUpdatePerfDiagLoggerEnableFlags @ 0x14083D668 (PerfDiagpUpdatePerfDiagLoggerEnableFlags.c)
- *     PerfDiagpSaveActiveDCLLogFileName @ 0x1409DDA60 (PerfDiagpSaveActiveDCLLogFileName.c)
+ *     PerfDiagpProxyWorker @ 0x1407970B0 (PerfDiagpProxyWorker.c)
+ *     PerfDiagpUpdatePerfDiagLoggerEnableFlags @ 0x1407972F8 (PerfDiagpUpdatePerfDiagLoggerEnableFlags.c)
+ *     PerfDiagpSaveActiveDCLLogFileName @ 0x14092FC18 (PerfDiagpSaveActiveDCLLogFileName.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x140228144 (EtwpQueryUsedProcessorCount.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     PsGetCurrentThreadProcessId @ 0x1402AF870 (PsGetCurrentThreadProcessId.c)
- *     EtwpCreateActivityId @ 0x1403497B0 (EtwpCreateActivityId.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     WdiUpdateSem @ 0x1405FB878 (WdiUpdateSem.c)
- *     EtwpGetPmcOwnership @ 0x1405FC08C (EtwpGetPmcOwnership.c)
- *     EtwpGetPmcSessions @ 0x1405FC234 (EtwpGetPmcSessions.c)
- *     EtwpTransitionToRealtime @ 0x1405FF618 (EtwpTransitionToRealtime.c)
- *     EtwpGetCompressionSettings @ 0x140602968 (EtwpGetCompressionSettings.c)
- *     EtwpSetCompressionSettings @ 0x140602BC8 (EtwpSetCompressionSettings.c)
- *     EtwpRealtimeDisconnectConsumerByHandle @ 0x140682094 (EtwpRealtimeDisconnectConsumerByHandle.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpSetProviderTraitsUm @ 0x1406BE3A0 (EtwpSetProviderTraitsUm.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpRegisterUMProvider @ 0x1406BF260 (EtwpRegisterUMProvider.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     EtwpReceiveReplyDataBlock @ 0x14077F2E0 (EtwpReceiveReplyDataBlock.c)
- *     EtwpSendReplyDataBlock @ 0x14077F44C (EtwpSendReplyDataBlock.c)
- *     EtwpNotifyGuid @ 0x14077FEF8 (EtwpNotifyGuid.c)
- *     EtwpAddNotificationEvent @ 0x140780168 (EtwpAddNotificationEvent.c)
- *     EtwpEnableGuid @ 0x140780210 (EtwpEnableGuid.c)
- *     EtwpReceiveNotification @ 0x140781B4C (EtwpReceiveNotification.c)
- *     EtwpStartTrace @ 0x1407E5360 (EtwpStartTrace.c)
- *     WdiDispatchControl @ 0x1407E59AC (WdiDispatchControl.c)
- *     EtwpRealtimeConnect @ 0x1407F5B64 (EtwpRealtimeConnect.c)
- *     EtwpFlushTrace @ 0x1407F6068 (EtwpFlushTrace.c)
- *     EtwpUpdateTrace @ 0x1407F8630 (EtwpUpdateTrace.c)
- *     EtwpStopTrace @ 0x1407F8938 (EtwpStopTrace.c)
- *     EtwpQueryTrace @ 0x1407F8FD4 (EtwpQueryTrace.c)
- *     EtwpValidateLoggerInfo @ 0x1407F90BC (EtwpValidateLoggerInfo.c)
- *     EtwpGetTraceGuidInfo @ 0x140853498 (EtwpGetTraceGuidInfo.c)
- *     EtwpTrackProviderBinary @ 0x14085B0E0 (EtwpTrackProviderBinary.c)
- *     EtwpGetGuidList @ 0x1408A7776 (EtwpGetGuidList.c)
- *     EtwpGetTraceGroupInfo @ 0x1408A7852 (EtwpGetTraceGroupInfo.c)
- *     EtwpUpdateDisallowList @ 0x1409E79A8 (EtwpUpdateDisallowList.c)
- *     EtwpEnumerateTraceGuids @ 0x1409E7C38 (EtwpEnumerateTraceGuids.c)
- *     EtwpGetDisallowList @ 0x1409E7D78 (EtwpGetDisallowList.c)
- *     EtwpGetTraceGuidList @ 0x1409E7E54 (EtwpGetTraceGuidList.c)
- *     EtwpUseDescriptorTypeUm @ 0x1409E7F50 (EtwpUseDescriptorTypeUm.c)
- *     EtwpIncrementTraceFile @ 0x1409E7FE0 (EtwpIncrementTraceFile.c)
- *     EtwpQueryReferenceTime @ 0x1409E80CC (EtwpQueryReferenceTime.c)
- *     EtwpGetPrivateSessionTraceHandle @ 0x1409EC694 (EtwpGetPrivateSessionTraceHandle.c)
- *     EtwpQuerySessionDemuxObject @ 0x1409EC890 (EtwpQuerySessionDemuxObject.c)
- *     EtwpRegisterPrivateSession @ 0x1409EC90C (EtwpRegisterPrivateSession.c)
- *     EtwpUpdatePeriodicCaptureState @ 0x1409ECBC8 (EtwpUpdatePeriodicCaptureState.c)
- *     EtwpSetProviderBinaryTracking @ 0x1409F549C (EtwpSetProviderBinaryTracking.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PsGetCurrentThreadProcessId @ 0x1402D2070 (PsGetCurrentThreadProcessId.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     EtwpCreateActivityId @ 0x140308F08 (EtwpCreateActivityId.c)
+ *     PtrToUlong @ 0x140321160 (PtrToUlong.c)
+ *     EtwpTransitionToRealtime @ 0x1403F8718 (EtwpTransitionToRealtime.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     WdiUpdateSem @ 0x1405A5530 (WdiUpdateSem.c)
+ *     EtwpGetCurrentSiloState @ 0x1405AA664 (EtwpGetCurrentSiloState.c)
+ *     EtwpGetCompressionSettings @ 0x1405AD2D4 (EtwpGetCompressionSettings.c)
+ *     EtwpSetCompressionSettings @ 0x1405AD7A4 (EtwpSetCompressionSettings.c)
+ *     EtwpRegisterUMGuid @ 0x1405EBAF0 (EtwpRegisterUMGuid.c)
+ *     EtwpRealtimeDisconnectConsumerByHandle @ 0x14069B834 (EtwpRealtimeDisconnectConsumerByHandle.c)
+ *     EtwpRealtimeConnect @ 0x14069B8B8 (EtwpRealtimeConnect.c)
+ *     EtwpSendReplyDataBlock @ 0x14069E628 (EtwpSendReplyDataBlock.c)
+ *     EtwpTrackProviderBinary @ 0x1406A2A08 (EtwpTrackProviderBinary.c)
+ *     EtwpReceiveReplyDataBlock @ 0x1406A3D70 (EtwpReceiveReplyDataBlock.c)
+ *     EtwpSetProviderTraitsUm @ 0x1406BBE50 (EtwpSetProviderTraitsUm.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     EtwpStartTrace @ 0x140710EBC (EtwpStartTrace.c)
+ *     EtwpFlushTrace @ 0x140710F3C (EtwpFlushTrace.c)
+ *     EtwpStopTrace @ 0x14071185C (EtwpStopTrace.c)
+ *     EtwpQueryTrace @ 0x1407126B8 (EtwpQueryTrace.c)
+ *     EtwpValidateUserModeLoggerInfo @ 0x140712880 (EtwpValidateUserModeLoggerInfo.c)
+ *     EtwpNotifyGuid @ 0x1407150A4 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x140715CA4 (EtwpEnableGuid.c)
+ *     EtwpAddNotificationEvent @ 0x140717CB4 (EtwpAddNotificationEvent.c)
+ *     EtwpReceiveNotification @ 0x14071802C (EtwpReceiveNotification.c)
+ *     EtwpEnumerateTraceGuids @ 0x14072B948 (EtwpEnumerateTraceGuids.c)
+ *     EtwpGetTraceGuidInfo @ 0x14072EB7C (EtwpGetTraceGuidInfo.c)
+ *     WdiDispatchControl @ 0x1407891E0 (WdiDispatchControl.c)
+ *     EtwpUpdateTrace @ 0x140791BF8 (EtwpUpdateTrace.c)
+ *     EtwpRegisterSecurityProvider @ 0x1407D5180 (EtwpRegisterSecurityProvider.c)
+ *     EtwpUpdateDisallowList @ 0x140934430 (EtwpUpdateDisallowList.c)
+ *     EtwpGetDisallowList @ 0x1409346C8 (EtwpGetDisallowList.c)
+ *     EtwpGetTraceGroupInfo @ 0x1409347A4 (EtwpGetTraceGroupInfo.c)
+ *     EtwpGetTraceGroupList @ 0x140934A18 (EtwpGetTraceGroupList.c)
+ *     EtwpGetTraceGuidList @ 0x140934AB8 (EtwpGetTraceGuidList.c)
+ *     EtwpUseDescriptorTypeUm @ 0x140934BA4 (EtwpUseDescriptorTypeUm.c)
+ *     EtwpIncrementTraceFile @ 0x140934C34 (EtwpIncrementTraceFile.c)
+ *     EtwpQueryReferenceTime @ 0x140934D20 (EtwpQueryReferenceTime.c)
+ *     EtwpGetPrivateSessionTraceHandle @ 0x14093F200 (EtwpGetPrivateSessionTraceHandle.c)
+ *     EtwpQuerySessionDemuxObject @ 0x14093F37C (EtwpQuerySessionDemuxObject.c)
+ *     EtwpRegisterPrivateSession @ 0x14093F3F8 (EtwpRegisterPrivateSession.c)
+ *     EtwpUpdatePeriodicCaptureState @ 0x14093F6B4 (EtwpUpdatePeriodicCaptureState.c)
+ *     EtwpSetProviderBinaryTracking @ 0x140940E90 (EtwpSetProviderBinaryTracking.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtTraceControl(
-        unsigned int a1,
+        __int64 a1,
         unsigned int *a2,
         unsigned int a3,
-        volatile signed __int64 *a4,
-        SIZE_T Length,
-        unsigned __int64 a6)
+        volatile void *a4,
+        unsigned int Length,
+        _DWORD *a6)
 {
-  unsigned __int64 v6; // rbx
-  _QWORD *Pool2; // r13
-  unsigned __int64 v8; // rdx
-  volatile void *v9; // r9
-  unsigned int v10; // r10d
-  unsigned int v11; // r11d
-  int Trace; // edi
-  unsigned int v13; // r14d
-  char v14; // r8
-  _DWORD *v15; // rsi
-  __int64 v16; // rcx
-  int v17; // eax
-  unsigned int v18; // r15d
-  unsigned int v19; // r12d
-  volatile signed __int64 *v20; // rcx
-  __int64 v21; // rcx
-  int updated; // eax
-  unsigned int v24; // eax
-  unsigned __int64 v25; // r8
-  __int64 v26; // rdx
+  unsigned int v7; // r14d
+  _QWORD *v8; // rdi
+  _QWORD *v9; // rsi
+  char PreviousMode; // bl
+  __int64 v11; // rdx
+  unsigned __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 CurrentSiloState; // r15
+  unsigned int v15; // r13d
+  int v16; // eax
+  __int64 v17; // rbx
+  int v18; // eax
+  unsigned int v19; // r14d
+  unsigned int v20; // ebx
+  SIZE_T v21; // rdx
+  _QWORD *PoolWithQuotaTag; // rax
+  __int64 v23; // r9
+  __int64 v25; // rax
+  void *v26; // rcx
+  unsigned __int64 v27; // rbx
   __int64 v28; // rcx
-  int v29; // eax
-  unsigned int v30; // edx
-  unsigned int *v31; // rax
-  unsigned int *v32; // r14
-  void *v33; // rcx
-  unsigned int v34; // edx
-  _QWORD *v35; // r9
-  __int64 v36; // r8
-  __int64 v37; // rdx
-  char *v38; // rcx
-  int v39; // [rsp+30h] [rbp-68h] BYREF
-  unsigned int Size; // [rsp+34h] [rbp-64h] BYREF
-  int Size_4; // [rsp+38h] [rbp-60h]
-  __int64 v42; // [rsp+40h] [rbp-58h]
-  _QWORD *v43; // [rsp+48h] [rbp-50h]
-  void *v44; // [rsp+50h] [rbp-48h]
-  __int64 v45; // [rsp+58h] [rbp-40h]
+  unsigned int v29; // edx
+  __int64 v30; // r8
+  __int64 v31; // rdx
+  __int64 v32; // rax
+  _DWORD *v33; // rcx
+  __int64 v34; // rdx
+  _WORD v36[2]; // [rsp+30h] [rbp-68h] BYREF
+  unsigned int v37; // [rsp+34h] [rbp-64h]
+  size_t Size; // [rsp+38h] [rbp-60h] BYREF
+  int v39; // [rsp+40h] [rbp-58h]
+  void *Src; // [rsp+48h] [rbp-50h]
+  __int64 v41; // [rsp+50h] [rbp-48h]
+  __int64 v42; // [rsp+58h] [rbp-40h]
 
-  v6 = a1;
-  Pool2 = 0LL;
-  v43 = 0LL;
-  Size = 0;
-  v42 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 108);
-  Trace = v11;
-  Size_4 = v11;
-  LOBYTE(v13) = 0;
-  if ( v14 )
+  v7 = a1;
+  v37 = a1;
+  v8 = 0LL;
+  v9 = 0LL;
+  Src = 0LL;
+  LODWORD(Size) = 0;
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  CurrentSiloState = EtwpGetCurrentSiloState(a1, (__int64)a2);
+  LOBYTE(v15) = 0;
+  if ( PreviousMode )
   {
-    v13 = (unsigned int)v6 >> 31;
-    LODWORD(v6) = v6 & 0x7FFFFFFF;
-    if ( !(_BYTE)v13 )
-      v6 = v10;
-    if ( v8 )
+    v15 = v7 >> 31;
+    v16 = v7 & 0x7FFFFFFF;
+    if ( (v7 & 0x80000000) == 0 )
+      v16 = v7;
+    v7 = v16;
+    v37 = v16;
+    v17 = 0x7FFFFFFF0000LL;
+    if ( a2 )
     {
-      if ( a3 && (v8 + a3 > 0x7FFFFFFF0000LL || v8 + a3 < v8) )
-        MEMORY[0x7FFFFFFF0000] = 0;
+      if ( a3 )
+      {
+        v12 = (unsigned __int64)a2 + a3;
+        if ( v12 > 0x7FFFFFFF0000LL || v12 < (unsigned __int64)a2 )
+          MEMORY[0x7FFFFFFF0000] = 0;
+      }
     }
     else
     {
-      a3 = v11;
+      a3 = 0;
     }
-    if ( v9 )
-      ProbeForWrite(v9, (unsigned int)Length, 1u);
+    if ( a4 )
+      ProbeForWrite(a4, Length, 1u);
     else
-      LODWORD(Length) = v11;
-    v15 = (_DWORD *)a6;
+      Length = 0;
     if ( !a6 )
     {
-      Trace = -1073741811;
-      Size_4 = -1073741811;
-      goto LABEL_38;
+      LODWORD(v8) = -1073741811;
+      v39 = -1073741811;
+      goto LABEL_151;
     }
-    v16 = a6;
-    if ( a6 >= 0x7FFFFFFF0000LL )
-      v16 = 0x7FFFFFFF0000LL;
-    *(_DWORD *)v16 = *(_DWORD *)v16;
-    Trace = Size_4;
+    if ( (unsigned __int64)a6 < 0x7FFFFFFF0000LL )
+      v17 = (__int64)a6;
+    *(_DWORD *)v17 = *(_DWORD *)v17;
+  }
+  if ( v7 <= 0x1B && (v18 = 134238208, _bittest(&v18, v7)) )
+  {
+    v19 = Length;
+    v20 = a3;
   }
   else
   {
-    v15 = (_DWORD *)a6;
-  }
-  if ( (unsigned int)v6 <= 0x1B && (v17 = 134238208, _bittest(&v17, v6)) )
-  {
-    v18 = Length;
-    v19 = a3;
-  }
-  else
-  {
-    v19 = a3;
-    v18 = Length;
-    if ( a3 || (_DWORD)Length )
+    v20 = a3;
+    v19 = Length;
+    if ( a3 || Length )
     {
-      if ( a3 > (unsigned int)Length )
-        v24 = a3;
-      else
-        v24 = Length;
-      Pool2 = (_QWORD *)ExAllocatePool2(257LL, v24, 1350005829LL);
-      v43 = Pool2;
-      if ( !Pool2 )
+      v21 = Length;
+      if ( a3 > Length )
+        v21 = a3;
+      PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v21, 0x50777445u);
+      v9 = PoolWithQuotaTag;
+      Src = PoolWithQuotaTag;
+      if ( !PoolWithQuotaTag )
       {
-        Trace = -1073741801;
-        goto LABEL_38;
+        LODWORD(v8) = -1073741801;
+        goto LABEL_151;
       }
+      memset(PoolWithQuotaTag, 0, Length);
       if ( a2 )
-        memmove(Pool2, a2, a3);
+        memmove(v9, a2, a3);
     }
   }
-  if ( (_DWORD)v6 != 12 )
+  switch ( v37 )
   {
-    if ( (_DWORD)v6 == 15 )
-    {
-      if ( v19 != 160 || v18 - 160 > 0xFF60 )
-        goto LABEL_117;
-      updated = EtwpRegisterUMProvider(v42, (__int64)Pool2, v18, v13, &Size);
-LABEL_45:
-      Trace = updated;
-    }
-    else
-    {
-      if ( (_DWORD)v6 == 30 )
+    case 1u:
+    case 2u:
+    case 3u:
+    case 4u:
+    case 5u:
+    case 6u:
+    case 7u:
+      LODWORD(v8) = EtwpValidateUserModeLoggerInfo(v9, v20, v19);
+      if ( (int)v8 >= 0 )
       {
-        if ( v19 == 24 && v18 - 120 <= 0xFF88 )
-        {
-          Trace = EtwpSetProviderTraitsUm((__int64)Pool2, v18, (int)&Size);
-          v20 = a4;
-          goto LABEL_24;
-        }
-LABEL_117:
-        Trace = -1073741811;
-        v20 = a4;
-        goto LABEL_24;
+        if ( (unsigned int)v23 <= 6 )
+          __asm { jmp     rcx }
+        LODWORD(Size) = 176;
       }
-      v25 = 0x140000000uLL;
-      switch ( (int)v6 )
+      goto LABEL_139;
+    case 0xBu:
+      if ( v20 != 96 || v19 != 96 )
+        goto LABEL_61;
+      LODWORD(v8) = EtwpRealtimeConnect(v9);
+      LODWORD(Size) = 96;
+      goto LABEL_139;
+    case 0xCu:
+      if ( v19 != 16 )
+        goto LABEL_61;
+      EtwpCreateActivityId((volatile signed __int64 *)a4);
+      v27 = v37;
+      goto LABEL_140;
+    case 0xDu:
+      if ( v20 != 48 || v19 )
+        goto LABEL_61;
+      LODWORD(v8) = WdiDispatchControl(v9);
+      goto LABEL_139;
+    case 0xEu:
+      if ( v20 != 8 || v19 )
+        goto LABEL_61;
+      LODWORD(v25) = PtrToUlong((const void *)*a2);
+      v41 = v25;
+      LODWORD(v8) = EtwpRealtimeDisconnectConsumerByHandle(v25);
+      goto LABEL_139;
+    case 0xFu:
+      if ( v20 != 160 || v19 - 160 > 0xFF60 )
+        goto LABEL_61;
+      LODWORD(v8) = EtwpRegisterUMGuid(CurrentSiloState, (_DWORD)v9, v19, (unsigned __int8)v15, (__int64)&Size);
+      goto LABEL_139;
+    case 0x10u:
+      if ( v20 || v19 - 72 > 0xFFB8 )
+        goto LABEL_61;
+      LODWORD(v8) = EtwpReceiveNotification(v9);
+      goto LABEL_139;
+    case 0x11u:
+      if ( v20 < 0x48 || v19 != 72 || *((_DWORD *)v9 + 1) != v20 )
+        goto LABEL_61;
+      if ( *(_DWORD *)v9 == 3 )
       {
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 6:
-        case 7:
-          if ( v19 < 0xB0 || v18 < 0xB0 )
-            goto LABEL_119;
-          Trace = EtwpValidateLoggerInfo(Pool2, (unsigned int)(v6 - 1), 0x140000000uLL, v9);
-          if ( Trace < 0 )
-            goto LABEL_69;
-          if ( *(_DWORD *)Pool2 > v19 )
-          {
-LABEL_119:
-            Trace = -1073741306;
-            break;
-          }
-          Trace = 0;
-LABEL_69:
-          if ( Trace < 0 )
-            break;
-          if ( (_DWORD)v6 == 3 )
-          {
-            Trace = EtwpQueryTrace(v42, Pool2);
-          }
-          else if ( (unsigned int)v26 <= 6 )
-          {
-            __asm { jmp     rdx }
-          }
-          Size = 176;
-          v20 = a4;
-          goto LABEL_24;
-        case 11:
-          if ( v19 != 96 || v18 != 96 )
-            goto LABEL_117;
-          Size = 96;
-          Trace = EtwpRealtimeConnect(Pool2);
-          v20 = a4;
-          goto LABEL_24;
-        case 13:
-          if ( v19 != 48 || v18 )
-            goto LABEL_117;
-          Trace = WdiDispatchControl(Pool2);
-          v20 = a4;
-          goto LABEL_24;
-        case 14:
-          if ( v19 != 8 || v18 )
-            goto LABEL_117;
-          v33 = (void *)*a2;
-          v44 = v33;
-          Trace = EtwpRealtimeDisconnectConsumerByHandle(v33);
-          v20 = a4;
-          goto LABEL_24;
-        case 16:
-          if ( v19 || v18 - 72 > 0xFFB8 )
-            goto LABEL_117;
-          Trace = EtwpReceiveNotification(Pool2);
-          v20 = a4;
-          goto LABEL_24;
-        case 17:
-          if ( v19 < 0x48 || v18 != 72 || *((_DWORD *)Pool2 + 1) != v19 )
-            goto LABEL_117;
-          if ( *(_DWORD *)Pool2 == 3 )
-          {
-            if ( v19 < 0x78 )
-              goto LABEL_117;
-            LOBYTE(v25) = 1;
-            updated = EtwpEnableGuid(v42, Pool2, v25);
-            Size = 72;
-          }
-          else
-          {
-            LOBYTE(v25) = 1;
-            updated = EtwpNotifyGuid(v42, Pool2, v25);
-            Size = 72;
-          }
-          goto LABEL_45;
-        case 18:
-          if ( v19 < 0x48 || *((_DWORD *)Pool2 + 1) != v19 )
-            goto LABEL_117;
-          *((_DWORD *)Pool2 + 9) = PsGetCurrentThreadProcessId();
-          Trace = EtwpSendReplyDataBlock(Pool2);
-          v20 = a4;
-          goto LABEL_24;
-        case 19:
-          if ( v19 != 8 )
-            goto LABEL_117;
-          v39 = 0;
-          Trace = EtwpReceiveReplyDataBlock(Pool2);
-          Size = 0;
-          v20 = a4;
-          goto LABEL_24;
-        case 20:
-          if ( v19 || v18 )
-            goto LABEL_117;
-          updated = WdiUpdateSem();
-          goto LABEL_45;
-        case 21:
-          updated = EtwpGetTraceGuidList(v42, Pool2, v18 >> 4, &Size);
-          Size *= 16;
-          goto LABEL_45;
-        case 22:
-          if ( v19 != 16 )
-            goto LABEL_117;
-          Size = v18;
-          Trace = EtwpGetTraceGuidInfo(v42, Pool2, Pool2, &Size);
-          v20 = a4;
-          goto LABEL_24;
-        case 23:
-          Trace = EtwpEnumerateTraceGuids(v42, Pool2, v18 / 0x24, &Size);
-          Size *= 36;
-          break;
-        case 24:
-          if ( v19 || v18 )
-            goto LABEL_117;
-          if ( !*(_DWORD *)(v42 + 4072) )
-          {
-            *(_DWORD *)(v42 + 4072) = PsGetCurrentThreadProcessId();
-            Trace = 0;
-            v20 = a4;
-            goto LABEL_24;
-          }
-          Trace = -1073741790;
-          break;
-        case 25:
-          if ( v19 != 4 || v18 != 16 )
-            goto LABEL_117;
-          updated = EtwpQueryReferenceTime(v42, *(unsigned int *)Pool2, Pool2);
-          Size = 16;
-          goto LABEL_45;
-        case 26:
-          if ( v19 != 8 )
-            goto LABEL_117;
-          Trace = EtwpTrackProviderBinary(v42, Pool2);
-          v20 = a4;
-          goto LABEL_24;
-        case 27:
-          if ( v19 != 4 )
-            goto LABEL_117;
-          v28 = *a2;
-          v45 = v28;
-          if ( !v28 )
-            goto LABEL_117;
-          Trace = EtwpAddNotificationEvent(v28, (unsigned __int8)v13);
-          v20 = a4;
-          goto LABEL_24;
-        case 28:
-          if ( v19 < 8 )
-            goto LABEL_117;
-          v34 = *((_DWORD *)Pool2 + 1);
-          if ( 16LL * v34 + 8 != v19 )
-            goto LABEL_117;
-          v35 = 0LL;
-          if ( v34 )
-            v35 = Pool2 + 1;
-          updated = EtwpUpdateDisallowList(v42, *(unsigned int *)Pool2, v34, v35);
-          goto LABEL_45;
-        case 31:
-          if ( v19 != 16 || v18 )
-            goto LABEL_117;
-          updated = EtwpUseDescriptorTypeUm(Pool2);
-          goto LABEL_45;
-        case 32:
-          updated = EtwpGetGuidList(v42, 2, (_DWORD)Pool2, v18 >> 4, (__int64)&Size);
-          Size *= 16;
-          goto LABEL_45;
-        case 33:
-          if ( v19 != 16 )
-            goto LABEL_117;
-          Size = v18;
-          updated = EtwpGetTraceGroupInfo(v42, Pool2, Pool2, &Size);
-          goto LABEL_45;
-        case 34:
-          if ( v19 != 8 )
-            goto LABEL_117;
-          Size = v18;
-          updated = EtwpGetDisallowList(v42, Pool2, Pool2, &Size);
-          goto LABEL_45;
-        case 35:
-          if ( v19 != 16 || v18 )
-            goto LABEL_117;
-          updated = EtwpSetCompressionSettings((unsigned int *)Pool2);
-          goto LABEL_45;
-        case 36:
-          if ( v19 != 8 || v18 != 16 )
-            goto LABEL_117;
-          Size = 16;
-          updated = EtwpGetCompressionSettings((unsigned __int16 *)Pool2, (unsigned int *)Pool2);
-          goto LABEL_45;
-        case 37:
-          if ( v19 < 0xC )
-            goto LABEL_117;
-          v36 = *((unsigned __int16 *)Pool2 + 4);
-          if ( (unsigned int)v36 > 0x10 )
-          {
-            Trace = -1073741811;
-            break;
-          }
-          v37 = *((unsigned int *)Pool2 + 1);
-          if ( (unsigned int)(v37 - 1) <= 3 )
-          {
-            Trace = -1073741811;
-            break;
-          }
-          if ( (_WORD)v36 )
-          {
-            if ( !(_DWORD)v37 )
-            {
-              Trace = -1073741811;
-              break;
-            }
-          }
-          else if ( (_DWORD)v37 )
-          {
-            goto LABEL_117;
-          }
-          if ( 16 * v36 + 12 != v19 )
-            goto LABEL_117;
-          if ( (_WORD)v36 )
-            v38 = (char *)Pool2 + 12;
-          else
-            v38 = 0LL;
-          updated = EtwpUpdatePeriodicCaptureState(*(unsigned int *)Pool2, v37, v36, v38);
-          goto LABEL_45;
-        case 38:
-          if ( v19 < 8 || (v19 & 7) != 0 || v18 < 2 )
-            goto LABEL_117;
-          LOWORD(v39) = 0;
-          Trace = EtwpGetPrivateSessionTraceHandle(Pool2, v19 >> 3, &v39);
-          if ( !Trace )
-          {
-            Size = 2;
-            *(_WORD *)Pool2 = v39;
-          }
-          break;
-        case 39:
-          if ( v19 < 2 || v18 < 8 )
-            goto LABEL_117;
-          Trace = EtwpRegisterPrivateSession(v42, *(unsigned __int16 *)Pool2, (char *)Pool2 + 4, Pool2);
-          if ( !Trace )
-            Size = 8;
-          break;
-        case 40:
-          if ( v19 < 8 || v18 < 2 )
-            goto LABEL_117;
-          Trace = EtwpQuerySessionDemuxObject(*Pool2, Pool2);
-          if ( !Trace )
-            Size = 2;
-          break;
-        case 41:
-          if ( v19 < 8 )
-            goto LABEL_117;
-          updated = EtwpSetProviderBinaryTracking(v42, *(unsigned int *)Pool2, *((unsigned __int8 *)Pool2 + 4));
-          goto LABEL_45;
-        case 42:
-          if ( v18 < 4 )
-            goto LABEL_117;
-          v29 = *(_DWORD *)(v42 + 16);
-          goto LABEL_84;
-        case 43:
-          if ( v18 < 4 )
-            goto LABEL_117;
-          v29 = *(_DWORD *)((char *)&NlsMbCodePageTag + 6);
-LABEL_84:
-          *(_DWORD *)Pool2 = v29;
-          Size = 4;
-          Trace = 0;
-          v20 = a4;
-          goto LABEL_24;
-        case 44:
-          if ( v19 != 8 || v18 < 4 )
-            goto LABEL_117;
-          v30 = *(unsigned __int16 *)Pool2;
-          if ( v30 == 0xFFFF )
-            v30 = *(unsigned __int8 *)(v42 + 4232);
-          v31 = EtwpAcquireLoggerContextByLoggerId(v42, v30, 0);
-          v32 = v31;
-          if ( v31 )
-          {
-            Size = 4;
-            *(_DWORD *)Pool2 = EtwpQueryUsedProcessorCount((__int64)v31);
-            EtwpReleaseLoggerContext(v32, 0);
-            v20 = a4;
-            goto LABEL_24;
-          }
-          Trace = -1073741811;
-          break;
-        case 45:
-          Size = v18;
-          updated = EtwpGetPmcOwnership(Pool2, &Size);
-          goto LABEL_45;
-        case 46:
-          Size = v18;
-          updated = EtwpGetPmcSessions((__int64)Pool2, &Size);
-          goto LABEL_45;
-        default:
-          Trace = -1073741808;
-          break;
-      }
-    }
-    v20 = a4;
-    goto LABEL_24;
-  }
-  if ( v18 != 16 )
-    goto LABEL_117;
-  Trace = 0;
-  EtwpCreateActivityId(a4);
-LABEL_24:
-  if ( Trace >= 0 )
-  {
-    if ( Size )
-    {
-      if ( Size > v18 )
-      {
-        Trace = -1073741789;
-        Size_4 = -1073741789;
+        if ( v20 < 0x78 )
+          goto LABEL_61;
+        LOBYTE(v13) = 1;
+        LODWORD(v8) = EtwpEnableGuid(CurrentSiloState, v9, v13);
+        LODWORD(Size) = 72;
       }
       else
       {
-        memmove((void *)v20, Pool2, Size);
+        LOBYTE(v13) = 1;
+        LODWORD(v8) = EtwpNotifyGuid(CurrentSiloState, v9, v13);
+        LODWORD(Size) = 72;
       }
-    }
-    *v15 = Size;
+      goto LABEL_139;
+    case 0x12u:
+      if ( v20 < 0x48 || *((_DWORD *)v9 + 1) != v20 )
+        goto LABEL_61;
+      *((_DWORD *)v9 + 9) = PsGetCurrentThreadProcessId();
+      LODWORD(v8) = EtwpSendReplyDataBlock(v9);
+      goto LABEL_139;
+    case 0x13u:
+      if ( v20 != 8 )
+        goto LABEL_61;
+      LODWORD(v8) = EtwpReceiveReplyDataBlock(v9);
+      Size = 0LL;
+      goto LABEL_139;
+    case 0x14u:
+      if ( v20 || v19 )
+        goto LABEL_61;
+      LODWORD(v8) = WdiUpdateSem();
+      goto LABEL_139;
+    case 0x15u:
+      LODWORD(Size) = v19;
+      LODWORD(v8) = EtwpGetTraceGuidList(CurrentSiloState, v9, &Size);
+      goto LABEL_139;
+    case 0x16u:
+      if ( v20 != 16 )
+        goto LABEL_61;
+      LODWORD(Size) = v19;
+      LODWORD(v8) = EtwpGetTraceGuidInfo(CurrentSiloState, v9, v9, &Size);
+      goto LABEL_139;
+    case 0x17u:
+      LODWORD(Size) = v19;
+      LODWORD(v8) = EtwpEnumerateTraceGuids(CurrentSiloState, v9, &Size);
+      goto LABEL_139;
+    case 0x18u:
+      if ( v20 || v19 )
+        goto LABEL_61;
+      LODWORD(v8) = EtwpRegisterSecurityProvider(CurrentSiloState);
+      goto LABEL_139;
+    case 0x19u:
+      if ( v20 != 4 || v19 != 16 )
+        goto LABEL_61;
+      LODWORD(v8) = EtwpQueryReferenceTime(CurrentSiloState, *(unsigned int *)v9, v9);
+      LODWORD(Size) = 16;
+      goto LABEL_139;
+    case 0x1Au:
+      if ( v20 != 8 )
+        goto LABEL_61;
+      LODWORD(v8) = EtwpTrackProviderBinary(CurrentSiloState, v9);
+      goto LABEL_139;
+    case 0x1Bu:
+      if ( v20 != 4 )
+        goto LABEL_61;
+      v28 = *a2;
+      v42 = v28;
+      if ( !v28 )
+        goto LABEL_61;
+      LODWORD(v8) = EtwpAddNotificationEvent(v28, (unsigned __int8)v15);
+      goto LABEL_139;
+    case 0x1Cu:
+      if ( v20 < 8 )
+        goto LABEL_61;
+      v29 = *((_DWORD *)v9 + 1);
+      if ( 16LL * v29 + 8 != v20 )
+        goto LABEL_61;
+      if ( v29 )
+        v8 = v9 + 1;
+      LODWORD(v8) = EtwpUpdateDisallowList(CurrentSiloState, *(unsigned int *)v9, v29, v8);
+      goto LABEL_139;
+    case 0x1Eu:
+      if ( v20 != 24 || v19 - 120 > 0xFF88 )
+        goto LABEL_61;
+      LODWORD(v8) = EtwpSetProviderTraitsUm((_DWORD)v9, v19, (unsigned int)&Size);
+      goto LABEL_139;
+    case 0x1Fu:
+      if ( v20 != 16 || v19 )
+        goto LABEL_61;
+      LODWORD(v8) = EtwpUseDescriptorTypeUm(v9);
+      goto LABEL_139;
+    case 0x20u:
+      LODWORD(Size) = v19;
+      LODWORD(v8) = EtwpGetTraceGroupList(CurrentSiloState, v9, &Size);
+      goto LABEL_139;
+    case 0x21u:
+      if ( v20 != 16 )
+        goto LABEL_61;
+      LODWORD(Size) = v19;
+      LODWORD(v8) = EtwpGetTraceGroupInfo(CurrentSiloState, v9, v9, &Size);
+      goto LABEL_139;
+    case 0x22u:
+      if ( v20 != 8 )
+        goto LABEL_61;
+      LODWORD(Size) = v19;
+      LODWORD(v8) = EtwpGetDisallowList(CurrentSiloState, v9, v9, &Size);
+      goto LABEL_139;
+    case 0x23u:
+      if ( v20 != 16 || v19 )
+        goto LABEL_61;
+      LODWORD(v8) = EtwpSetCompressionSettings((unsigned int *)v9, v11);
+      goto LABEL_139;
+    case 0x24u:
+      if ( v20 != 8 || v19 != 16 )
+        goto LABEL_61;
+      LODWORD(Size) = 16;
+      LODWORD(v8) = EtwpGetCompressionSettings((unsigned __int16 *)v9, (unsigned int *)v9);
+      goto LABEL_139;
+    case 0x25u:
+      if ( v20 < 0xC )
+        goto LABEL_61;
+      v30 = *((unsigned __int16 *)v9 + 4);
+      if ( (unsigned int)v30 > 0x10 )
+      {
+        LODWORD(v8) = -1073741811;
+        goto LABEL_139;
+      }
+      v31 = *((unsigned int *)v9 + 1);
+      if ( (unsigned int)(v31 - 1) <= 3 )
+      {
+        LODWORD(v8) = -1073741811;
+        goto LABEL_139;
+      }
+      if ( (_WORD)v30 )
+      {
+        if ( !(_DWORD)v31 )
+        {
+          LODWORD(v8) = -1073741811;
+          goto LABEL_139;
+        }
+      }
+      else if ( (_DWORD)v31 )
+      {
+LABEL_61:
+        LODWORD(v8) = -1073741811;
+        goto LABEL_139;
+      }
+      if ( 16 * v30 + 12 != v20 )
+        goto LABEL_61;
+      if ( (_WORD)v30 )
+        v8 = (_QWORD *)((char *)v9 + 12);
+      LODWORD(v8) = EtwpUpdatePeriodicCaptureState(*(unsigned int *)v9, v31, v30, v8);
+LABEL_139:
+      v26 = (void *)a4;
+      v27 = v37;
+LABEL_140:
+      if ( (int)v8 < 0 )
+      {
+        v33 = a6;
+      }
+      else
+      {
+        if ( (_DWORD)Size )
+          memmove(v26, v9, (unsigned int)Size);
+        v33 = a6;
+        *a6 = Size;
+      }
+      if ( (_DWORD)v8 == -1073741789 && ((unsigned int)(v27 - 15) <= 1 || (unsigned int)(v27 - 21) <= 1)
+        || (unsigned int)v27 <= 0x28 && (v34 = 0x1D700880000LL, _bittest64(&v34, v27)) )
+      {
+        *v33 = Size;
+      }
+LABEL_151:
+      if ( v9 )
+        ExFreePoolWithTag(v9, 0);
+      return (unsigned int)v8;
+    case 0x26u:
+      if ( v20 < 8 || (v20 & 7) != 0 || v19 < 2 )
+        goto LABEL_61;
+      v36[0] = 0;
+      LODWORD(v8) = EtwpGetPrivateSessionTraceHandle(v9, v20 >> 3, v36);
+      if ( !(_DWORD)v8 )
+      {
+        LODWORD(Size) = 2;
+        *(_WORD *)v9 = v36[0];
+      }
+      goto LABEL_139;
+    case 0x27u:
+      if ( v20 < 2 || v19 < 8 )
+        goto LABEL_61;
+      v32 = EtwpGetCurrentSiloState(v12, v11);
+      LODWORD(v8) = EtwpRegisterPrivateSession(v32, *(unsigned __int16 *)v9, (char *)v9 + 4, v9);
+      if ( !(_DWORD)v8 )
+        LODWORD(Size) = 8;
+      goto LABEL_139;
+    case 0x28u:
+      if ( v20 < 8 || v19 < 2 )
+        goto LABEL_61;
+      LODWORD(v8) = EtwpQuerySessionDemuxObject(*v9, v9);
+      if ( !(_DWORD)v8 )
+        LODWORD(Size) = 2;
+      goto LABEL_139;
+    case 0x29u:
+      if ( v20 < 8 )
+        goto LABEL_61;
+      LODWORD(v8) = EtwpSetProviderBinaryTracking(CurrentSiloState, *(unsigned int *)v9, *((unsigned __int8 *)v9 + 4));
+      goto LABEL_139;
+    case 0x2Au:
+      v27 = v37;
+      v26 = (void *)a4;
+      if ( v19 < 4 )
+        goto LABEL_135;
+      *(_DWORD *)v9 = *(_DWORD *)(CurrentSiloState + 16);
+      LODWORD(Size) = 4;
+      goto LABEL_140;
+    case 0x2Bu:
+      v27 = v37;
+      v26 = (void *)a4;
+      if ( v19 < 4 )
+      {
+LABEL_135:
+        LODWORD(v8) = -1073741811;
+      }
+      else
+      {
+        *(_DWORD *)v9 = EtwpMaxPmcCounter;
+        LODWORD(Size) = 4;
+      }
+      goto LABEL_140;
+    default:
+      LODWORD(v8) = -1073741808;
+      goto LABEL_139;
   }
-  if ( Trace == -1073741789 && ((unsigned int)(v6 - 15) <= 1 || (unsigned int)(v6 - 21) <= 1)
-    || (unsigned int)v6 <= 0x2E && (v21 = 0x41D700880000LL, _bittest64(&v21, v6)) )
-  {
-    *v15 = Size;
-  }
-LABEL_38:
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
-  return (unsigned int)Trace;
 }

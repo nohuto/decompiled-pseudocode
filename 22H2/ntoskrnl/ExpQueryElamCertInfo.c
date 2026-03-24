@@ -1,78 +1,76 @@
 /*
- * XREFs of ExpQueryElamCertInfo @ 0x1409F6B50
+ * XREFs of ExpQueryElamCertInfo @ 0x14094A928
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x14041ABA0 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x14041ABE0 (ZwUnmapViewOfSection.c)
- *     ZwCreateSection @ 0x14041AFE0 (ZwCreateSection.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     FsRtlGetFileSize @ 0x1406AA1A0 (FsRtlGetFileSize.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     SeRegisterElamCertResources @ 0x140813200 (SeRegisterElamCertResources.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140947050 (IoConvertFileHandleToKernelHandle.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402D37D0 (ExAllocatePoolWithQuotaTag.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1403F9F20 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1403F9F60 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x1403FA360 (ZwCreateSection.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     FsRtlGetFileSize @ 0x140702130 (FsRtlGetFileSize.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x14072B380 (IoConvertFileHandleToKernelHandle.c)
+ *     SeRegisterElamCertResources @ 0x1407ABDFC (SeRegisterElamCertResources.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpQueryElamCertInfo(void *a1)
 {
-  PVOID v1; // r14
-  void *v2; // r15
-  NTSTATUS v3; // esi
+  void *v1; // r15
+  int v2; // esi
   HANDLE FileHandle; // r12
+  struct _DMA_ADAPTER *v4; // r14
   LARGE_INTEGER v5; // rbx
-  void *v6; // rax
+  PVOID PoolWithQuotaTag; // rax
   __int64 v7; // rdx
-  PVOID Object; // [rsp+58h] [rbp-90h] BYREF
-  LARGE_INTEGER FileSize; // [rsp+60h] [rbp-88h] BYREF
-  ULONG_PTR ViewSize[4]; // [rsp+68h] [rbp-80h] BYREF
+  PVOID Object; // [rsp+60h] [rbp-88h] BYREF
+  LARGE_INTEGER FileSize; // [rsp+68h] [rbp-80h] BYREF
+  ULONG_PTR ViewSize[3]; // [rsp+70h] [rbp-78h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-60h] BYREF
   PVOID BaseAddress; // [rsp+F8h] [rbp+10h] BYREF
   HANDLE SectionHandle; // [rsp+100h] [rbp+18h] BYREF
   HANDLE Handle; // [rsp+108h] [rbp+20h] BYREF
 
   Handle = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   FileSize.QuadPart = 0LL;
   ViewSize[0] = 0LL;
-  v1 = 0LL;
   SectionHandle = 0LL;
-  v2 = 0LL;
+  v1 = 0LL;
   BaseAddress = 0LL;
-  v3 = IoConvertFileHandleToKernelHandle(a1, KeGetCurrentThread()->PreviousMode, 1, 0, &Handle);
-  if ( v3 >= 0 )
+  v2 = IoConvertFileHandleToKernelHandle(a1, KeGetCurrentThread()->PreviousMode, 1u, 0, (PADAPTER_OBJECT)&Handle);
+  if ( v2 >= 0 )
   {
     Object = 0LL;
     FileHandle = Handle;
-    v3 = ObReferenceObjectByHandle(Handle, 1u, (POBJECT_TYPE)IoFileObjectType, 0, &Object, 0LL);
-    v1 = Object;
-    ViewSize[3] = (ULONG_PTR)Object;
-    if ( v3 >= 0 )
+    v2 = ObReferenceObjectByHandle(Handle, 1u, (POBJECT_TYPE)IoFileObjectType, 0, &Object, 0LL);
+    v4 = (struct _DMA_ADAPTER *)Object;
+    if ( v2 >= 0 )
     {
       if ( *((_BYTE *)Object + 78) || *((_BYTE *)Object + 75) )
       {
-        v3 = -1073741757;
+        v2 = -1073741757;
       }
       else
       {
-        v3 = FsRtlGetFileSize((PFILE_OBJECT)Object, &FileSize);
-        if ( v3 >= 0 )
+        v2 = FsRtlGetFileSize((PFILE_OBJECT)Object, &FileSize);
+        if ( v2 >= 0 )
         {
           ObjectAttributes.Length = 48;
           ObjectAttributes.RootDirectory = 0LL;
           ObjectAttributes.Attributes = 576;
           ObjectAttributes.ObjectName = 0LL;
           *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-          v3 = ZwCreateSection(&SectionHandle, 4u, &ObjectAttributes, 0LL, 2u, 0x8000000u, FileHandle);
-          if ( v3 >= 0 )
+          v2 = ZwCreateSection(&SectionHandle, 4u, &ObjectAttributes, 0LL, 2u, 0x8000000u, FileHandle);
+          if ( v2 >= 0 )
           {
             v5 = FileSize;
             ViewSize[0] = FileSize.QuadPart;
-            v3 = ZwMapViewOfSection(
+            v2 = ZwMapViewOfSection(
                    SectionHandle,
                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                    &BaseAddress,
@@ -83,43 +81,40 @@ __int64 __fastcall ExpQueryElamCertInfo(void *a1)
                    ViewShare,
                    0,
                    2u);
-            if ( v3 >= 0 )
+            if ( v2 >= 0 )
             {
-              if ( qword_140C37A08 )
-                v3 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C37A08)(
+              if ( qword_140C1DB28 )
+                v2 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C1DB28)(
                        0LL,
                        BaseAddress,
                        (LARGE_INTEGER)v5.QuadPart);
               else
-                v3 = -1073741637;
-              if ( v3 >= 0 )
+                v2 = -1073741637;
+              if ( v2 >= 0 )
               {
-                v6 = (void *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))ExAllocatePool2)(
-                               257LL,
-                               (LARGE_INTEGER)v5.QuadPart,
-                               1296124997LL);
-                v2 = v6;
-                ViewSize[2] = (ULONG_PTR)v6;
-                if ( v6 )
+                PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v5.QuadPart, 0x4D414C45u);
+                v1 = PoolWithQuotaTag;
+                ViewSize[2] = (ULONG_PTR)PoolWithQuotaTag;
+                if ( PoolWithQuotaTag )
                 {
-                  memmove(v6, BaseAddress, v5.QuadPart);
-                  if ( qword_140C37A08 )
-                    v3 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C37A08)(
+                  memmove(PoolWithQuotaTag, BaseAddress, v5.QuadPart);
+                  if ( qword_140C1DB28 )
+                    v2 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C1DB28)(
                            0LL,
-                           v2,
+                           v1,
                            (LARGE_INTEGER)v5.QuadPart);
                   else
-                    v3 = -1073741637;
-                  if ( v3 >= 0 )
+                    v2 = -1073741637;
+                  if ( v2 >= 0 )
                   {
-                    v3 = SeRegisterElamCertResources((ULONGLONG)v2, v7, 1);
-                    if ( v3 >= 0 )
-                      v3 = 0;
+                    v2 = SeRegisterElamCertResources((ULONGLONG)v1, v7, 1);
+                    if ( v2 >= 0 )
+                      v2 = 0;
                   }
                 }
                 else
                 {
-                  v3 = -1073741670;
+                  v2 = -1073741670;
                 }
               }
             }
@@ -137,22 +132,23 @@ __int64 __fastcall ExpQueryElamCertInfo(void *a1)
     }
     else
     {
-      v1 = 0LL;
+      v4 = 0LL;
     }
   }
   else
   {
     FileHandle = 0LL;
+    v4 = 0LL;
   }
-  if ( v2 )
-    ExFreePoolWithTag(v2, 0x4D414C45u);
+  if ( v1 )
+    ExFreePoolWithTag(v1, 0x4D414C45u);
   if ( BaseAddress )
     ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
   if ( SectionHandle )
     ZwClose(SectionHandle);
-  if ( v1 )
-    ObfDereferenceObject(v1);
+  if ( v4 )
+    HalPutDmaAdapter(v4);
   if ( FileHandle )
     ZwClose(FileHandle);
-  return (unsigned int)v3;
+  return (unsigned int)v2;
 }

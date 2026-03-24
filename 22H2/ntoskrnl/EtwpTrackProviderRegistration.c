@@ -1,45 +1,41 @@
 /*
- * XREFs of EtwpTrackProviderRegistration @ 0x1406BFBE0
+ * XREFs of EtwpTrackProviderRegistration @ 0x1406BBC60
  * Callers:
- *     EtwpRegisterUMProvider @ 0x1406BF260 (EtwpRegisterUMProvider.c)
- *     EtwpRegisterKMProvider @ 0x14078DDD4 (EtwpRegisterKMProvider.c)
+ *     EtwpRegisterUMGuid @ 0x1405EBAF0 (EtwpRegisterUMGuid.c)
+ *     EtwpRegisterProvider @ 0x140762340 (EtwpRegisterProvider.c)
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259BB0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BED1C (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpProviderArrivalCallback @ 0x14077E16C (EtwpProviderArrivalCallback.c)
+ *     EtwpProviderArrivalCallback @ 0x14068DF0C (EtwpProviderArrivalCallback.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BC864 (EtwpAcquireLoggerContextByLoggerId.c)
  */
 
-void __fastcall EtwpTrackProviderRegistration(__int64 a1)
+__int64 __fastcall EtwpTrackProviderRegistration(__int64 a1)
 {
-  __int16 v1; // ax
+  __int64 result; // rax
   __int64 v3; // r13
-  bool v4; // r15
+  char v4; // r15
   __int64 v5; // r12
   int v6; // ebx
   __int64 v7; // rsi
   __int64 v8; // rbp
-  unsigned int *v9; // rax
-  unsigned int *v10; // r14
-  unsigned int *v11; // rax
-  unsigned int *v12; // rbx
-  unsigned int *v13; // rax
-  unsigned int *v14; // r14
+  __int64 v9; // r14
+  __int64 v10; // rbx
+  __int64 v11; // r14
 
-  v1 = *(_WORD *)(a1 + 98);
+  result = *(unsigned __int16 *)(a1 + 98);
   v3 = *(_QWORD *)(a1 + 32);
-  v4 = (v1 & 1) == 0;
+  v4 = (result & 1) == 0;
   v5 = *(_QWORD *)(v3 + 392);
-  if ( (v1 & 8) != 0 )
+  if ( (result & 8) != 0 )
   {
     if ( (*(_BYTE *)(v3 + 91) & 1) != 0 )
     {
-      v11 = EtwpAcquireLoggerContextByLoggerId(*(_QWORD *)(v3 + 392), *(unsigned __int16 *)(v3 + 88), 0);
-      v12 = v11;
-      if ( v11 )
+      result = EtwpAcquireLoggerContextByLoggerId(*(_QWORD *)(v3 + 392), *(unsigned __int16 *)(v3 + 88), 0LL);
+      v10 = result;
+      if ( result )
       {
-        EtwpProviderArrivalCallback(v11, v4, a1);
-        EtwpReleaseLoggerContext(v12, 0);
+        EtwpProviderArrivalCallback(result, v4, a1);
+        return EtwpReleaseLoggerContext(v10, 0LL);
       }
     }
   }
@@ -52,29 +48,27 @@ void __fastcall EtwpTrackProviderRegistration(__int64 a1)
     {
       if ( ((unsigned __int8)v6 & *(_BYTE *)(a1 + 100)) != 0 )
       {
-        v9 = EtwpAcquireLoggerContextByLoggerId(v5, *(unsigned __int16 *)(v7 + v3 + 134), 0);
-        v10 = v9;
-        if ( v9 )
+        result = EtwpAcquireLoggerContextByLoggerId(v5, *(unsigned __int16 *)(v7 + v3 + 134), 0LL);
+        v9 = result;
+        if ( result )
         {
-          if ( (*(_BYTE *)(a1 + 98) & 0x20) != 0 || (v9[204] & 0x2000000) != 0 )
-            EtwpProviderArrivalCallback(v9, v4, a1);
-          ExReleaseRundownProtectionCacheAwareEx(
-            *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(*((_QWORD *)v10 + 137) + 448LL) + 8LL * *v10),
-            1u);
+          if ( (*(_BYTE *)(a1 + 98) & 0x20) != 0 || (*(_DWORD *)(result + 832) & 0x2000000) != 0 )
+            EtwpProviderArrivalCallback(result, v4, a1);
+          result = EtwpReleaseLoggerContext(v9, 0LL);
         }
       }
       if ( ((unsigned __int8)v6 & *(_BYTE *)(a1 + 102)) != 0 )
       {
-        v13 = EtwpAcquireLoggerContextByLoggerId(
-                EtwpHostSiloState,
-                *(unsigned __int16 *)(*(_QWORD *)(v3 + 400) + v7 + 134),
-                0);
-        v14 = v13;
-        if ( v13 )
+        result = EtwpAcquireLoggerContextByLoggerId(
+                   EtwpHostSiloState,
+                   *(unsigned __int16 *)(*(_QWORD *)(v3 + 400) + v7 + 134),
+                   0LL);
+        v11 = result;
+        if ( result )
         {
-          if ( (*(_BYTE *)(a1 + 98) & 0x20) != 0 || (v13[204] & 0x2000000) != 0 )
-            EtwpProviderArrivalCallback(v13, v4, a1);
-          EtwpReleaseLoggerContext(v14, 0);
+          if ( (*(_BYTE *)(a1 + 98) & 0x20) != 0 || (*(_DWORD *)(result + 832) & 0x2000000) != 0 )
+            EtwpProviderArrivalCallback(result, v4, a1);
+          result = EtwpReleaseLoggerContext(v11, 0LL);
         }
       }
       v6 = __ROL4__(v6, 1);
@@ -83,4 +77,5 @@ void __fastcall EtwpTrackProviderRegistration(__int64 a1)
     }
     while ( v8 );
   }
+  return result;
 }

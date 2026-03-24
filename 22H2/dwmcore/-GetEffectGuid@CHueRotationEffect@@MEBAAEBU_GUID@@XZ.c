@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetEffectGuid@CHueRotationEffect@@MEBAAEBU_GUID@@XZ @ 0x180105CA0
+ * XREFs of ?GetEffectGuid@CHueRotationEffect@@MEBAAEBU_GUID@@XZ @ 0x1800E1EE0
  * Callers:
  *     <none>
  * Callees:

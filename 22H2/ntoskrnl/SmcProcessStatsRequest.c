@@ -1,96 +1,93 @@
 /*
- * XREFs of SmcProcessStatsRequest @ 0x1409D8334
+ * XREFs of SmcProcessStatsRequest @ 0x14092ABC8
  * Callers:
- *     SmQueryStoreInformation @ 0x140842DDC (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x1406A5798 (SmQueryStoreInformation.c)
  * Callees:
- *     SmpGetProcessPartition @ 0x140344590 (SmpGetProcessPartition.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SmcGetCacheStats @ 0x1409DB190 (SmcGetCacheStats.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     SmcGetCacheStats @ 0x14092DA30 (SmcGetCacheStats.c)
  */
 
-__int64 __fastcall SmcProcessStatsRequest(unsigned __int64 a1, int a2, _DWORD *a3, char a4)
+__int64 __fastcall SmcProcessStatsRequest(__int64 a1, unsigned __int64 a2, int a3, _DWORD *a4, char a5)
 {
   int CacheStats; // ecx
-  __int64 v9; // rcx
-  _OWORD *v10; // rax
-  _OWORD *v11; // rcx
-  __int64 v12; // rbx
-  __int64 v13; // rdx
-  __int64 ProcessPartition; // rax
+  __int64 v10; // rcx
+  _OWORD *v11; // rax
+  _OWORD *v12; // rcx
+  __int64 v13; // rbx
+  __int64 v14; // rdx
   _OWORD *v15; // rax
-  _BYTE v17[1136]; // [rsp+20h] [rbp-498h] BYREF
+  _BYTE v17[1136]; // [rsp+20h] [rbp-4A8h] BYREF
 
   memset(v17, 0, 0x468uLL);
-  if ( a2 == 1128 )
+  if ( a3 == 1128 )
   {
-    if ( a4 )
+    if ( a5 )
     {
-      if ( (a1 & 7) != 0 )
+      if ( (a2 & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      v9 = 0x7FFFFFFF0000LL;
-      if ( a1 < 0x7FFFFFFF0000LL )
-        v9 = a1;
-      *(_BYTE *)v9 = *(_BYTE *)v9;
-      *(_BYTE *)(v9 + 1127) = *(_BYTE *)(v9 + 1127);
+      v10 = a2;
+      if ( a2 >= 0x7FFFFFFF0000LL )
+        v10 = 0x7FFFFFFF0000LL;
+      *(_BYTE *)v10 = *(_BYTE *)v10;
+      *(_BYTE *)(v10 + 1127) = *(_BYTE *)(v10 + 1127);
     }
-    v10 = (_OWORD *)a1;
-    v11 = v17;
-    v12 = 8LL;
+    v11 = (_OWORD *)a2;
+    v12 = v17;
     v13 = 8LL;
+    v14 = 8LL;
     do
     {
-      *v11 = *v10;
-      v11[1] = v10[1];
-      v11[2] = v10[2];
-      v11[3] = v10[3];
-      v11[4] = v10[4];
-      v11[5] = v10[5];
-      v11[6] = v10[6];
+      *v12 = *v11;
+      v12[1] = v11[1];
+      v12[2] = v11[2];
+      v12[3] = v11[3];
+      v12[4] = v11[4];
+      v12[5] = v11[5];
+      v12[6] = v11[6];
+      v12 += 8;
+      *(v12 - 1) = v11[7];
       v11 += 8;
-      *(v11 - 1) = v10[7];
-      v10 += 8;
-      --v13;
+      --v14;
     }
-    while ( v13 );
-    *v11 = *v10;
-    v11[1] = v10[1];
-    v11[2] = v10[2];
-    v11[3] = v10[3];
-    v11[4] = v10[4];
-    v11[5] = v10[5];
-    *((_QWORD *)v11 + 12) = *((_QWORD *)v10 + 12);
+    while ( v14 );
+    *v12 = *v11;
+    v12[1] = v11[1];
+    v12[2] = v11[2];
+    v12[3] = v11[3];
+    v12[4] = v11[4];
+    v12[5] = v11[5];
+    *((_QWORD *)v12 + 12) = *((_QWORD *)v11 + 12);
     if ( v17[0] == 3 )
     {
-      ProcessPartition = SmpGetProcessPartition((__int64)KeGetCurrentThread()->ApcState.Process);
-      CacheStats = SmcGetCacheStats(ProcessPartition + 2128, v17);
+      CacheStats = SmcGetCacheStats(a1, v17);
       if ( CacheStats >= 0 )
       {
         v15 = v17;
         do
         {
-          *(_OWORD *)a1 = *v15;
-          *(_OWORD *)(a1 + 16) = v15[1];
-          *(_OWORD *)(a1 + 32) = v15[2];
-          *(_OWORD *)(a1 + 48) = v15[3];
-          *(_OWORD *)(a1 + 64) = v15[4];
-          *(_OWORD *)(a1 + 80) = v15[5];
-          *(_OWORD *)(a1 + 96) = v15[6];
-          a1 += 128LL;
-          *(_OWORD *)(a1 - 16) = v15[7];
+          *(_OWORD *)a2 = *v15;
+          *(_OWORD *)(a2 + 16) = v15[1];
+          *(_OWORD *)(a2 + 32) = v15[2];
+          *(_OWORD *)(a2 + 48) = v15[3];
+          *(_OWORD *)(a2 + 64) = v15[4];
+          *(_OWORD *)(a2 + 80) = v15[5];
+          *(_OWORD *)(a2 + 96) = v15[6];
+          a2 += 128LL;
+          *(_OWORD *)(a2 - 16) = v15[7];
           v15 += 8;
-          --v12;
+          --v13;
         }
-        while ( v12 );
-        *(_OWORD *)a1 = *v15;
-        *(_OWORD *)(a1 + 16) = v15[1];
-        *(_OWORD *)(a1 + 32) = v15[2];
-        *(_OWORD *)(a1 + 48) = v15[3];
-        *(_OWORD *)(a1 + 64) = v15[4];
-        *(_OWORD *)(a1 + 80) = v15[5];
-        *(_QWORD *)(a1 + 96) = *((_QWORD *)v15 + 12);
-        *a3 = 1128;
+        while ( v13 );
+        *(_OWORD *)a2 = *v15;
+        *(_OWORD *)(a2 + 16) = v15[1];
+        *(_OWORD *)(a2 + 32) = v15[2];
+        *(_OWORD *)(a2 + 48) = v15[3];
+        *(_OWORD *)(a2 + 64) = v15[4];
+        *(_OWORD *)(a2 + 80) = v15[5];
+        *(_QWORD *)(a2 + 96) = *((_QWORD *)v15 + 12);
+        *a4 = 1128;
       }
     }
     else

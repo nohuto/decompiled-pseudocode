@@ -3,7 +3,7 @@
  * Callers:
  *     CmpSetKeySecurity @ 0x1405B8548 (CmpSetKeySecurity.c)
  *     NtSetSecurityObject @ 0x1405B9CF0 (NtSetSecurityObject.c)
- *     IoCheckFunctionAccess @ 0x1406F7390 (IoCheckFunctionAccess.c)
+ *     IoCheckFunctionAccess @ 0x1406F7370 (IoCheckFunctionAccess.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,12 @@
 /*
- * XREFs of FsRtlAllocateExtraCreateParameter @ 0x140797F80
+ * XREFs of FsRtlAllocateExtraCreateParameter @ 0x1406446A0
  * Callers:
- *     PspCreateUserProcessEcp @ 0x14066F248 (PspCreateUserProcessEcp.c)
- *     IopSymlinkEnforceEnabledTypes @ 0x1406EACD8 (IopSymlinkEnforceEnabledTypes.c)
- *     FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x14071E5C0 (FsRtlAllocateExtraCreateParameterFromLookasideList.c)
+ *     PspCreateUserProcessEcp @ 0x14060CD84 (PspCreateUserProcessEcp.c)
+ *     FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x140684300 (FsRtlAllocateExtraCreateParameterFromLookasideList.c)
+ *     IopSymlinkEnforceEnabledTypes @ 0x1406C3BA4 (IopSymlinkEnforceEnabledTypes.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall FsRtlAllocateExtraCreateParameter(
@@ -18,8 +19,8 @@ NTSTATUS __stdcall FsRtlAllocateExtraCreateParameter(
 {
   ULONG v6; // ebx
   int v9; // edi
-  unsigned __int64 v10; // rcx
-  __int64 Pool2; // rax
+  POOL_TYPE v10; // ecx
+  char *PoolWithQuotaTag; // rax
   GUID v12; // xmm0
 
   v6 = SizeOfContext + 72;
@@ -27,23 +28,24 @@ NTSTATUS __stdcall FsRtlAllocateExtraCreateParameter(
   if ( SizeOfContext >= 0xFFFFFFB8 )
     return -1073741675;
   v9 = (Flags & 2) != 0 ? 66 : 2;
-  v10 = (-(__int64)((Flags & 2) != 0) & 0xFFFFFFFFFFFFFF40uLL) + 256;
+  v10 = (Flags & 2) != 0 ? NonPagedPoolNx : PagedPool;
   if ( (Flags & 1) != 0 )
-    v10 |= 1uLL;
-  Pool2 = ExAllocatePool2(v10, v6, PoolTag);
-  if ( !Pool2 )
+    PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)(v10 | 8), v6, PoolTag);
+  else
+    PoolWithQuotaTag = (char *)ExAllocatePoolWithTag(v10, v6, PoolTag);
+  if ( !PoolWithQuotaTag )
     return -1073741670;
-  *(_DWORD *)(Pool2 + 4) = 0;
-  *(_QWORD *)(Pool2 + 16) = 0LL;
-  *(_QWORD *)(Pool2 + 8) = 0LL;
-  *(_DWORD *)Pool2 = 1215324997;
+  *((_DWORD *)PoolWithQuotaTag + 1) = 0;
+  *((_QWORD *)PoolWithQuotaTag + 2) = 0LL;
+  *((_QWORD *)PoolWithQuotaTag + 1) = 0LL;
+  *(_DWORD *)PoolWithQuotaTag = 1215324997;
   v12 = *EcpType;
-  *(_QWORD *)(Pool2 + 56) = 0LL;
-  *(_QWORD *)(Pool2 + 64) = 0LL;
-  *(GUID *)(Pool2 + 24) = v12;
-  *(_QWORD *)(Pool2 + 40) = CleanupCallback;
-  *(_DWORD *)(Pool2 + 48) = v9;
-  *(_DWORD *)(Pool2 + 52) = v6;
-  *EcpContext = (PVOID)(Pool2 + 72);
+  *((_QWORD *)PoolWithQuotaTag + 7) = 0LL;
+  *((_QWORD *)PoolWithQuotaTag + 8) = 0LL;
+  *(GUID *)(PoolWithQuotaTag + 24) = v12;
+  *((_QWORD *)PoolWithQuotaTag + 5) = CleanupCallback;
+  *((_DWORD *)PoolWithQuotaTag + 12) = v9;
+  *((_DWORD *)PoolWithQuotaTag + 13) = v6;
+  *EcpContext = PoolWithQuotaTag + 72;
   return 0;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?_GrowListeners@Edgy@@YAHAEAUtagEDGY_DATA@@@Z @ 0x1C0208730
+ * XREFs of ?_GrowListeners@Edgy@@YAHAEAUtagEDGY_DATA@@@Z @ 0x1C02082A4
  * Callers:
- *     ?_AllocListener@Edgy@@YAPEAUtagEDGY_LISTENER@@AEAUtagEDGY_DATA@@PEAXW4tagEDGY_LOCATION@@@Z @ 0x1C0207FB4 (-_AllocListener@Edgy@@YAPEAUtagEDGY_LISTENER@@AEAUtagEDGY_DATA@@PEAXW4tagEDGY_LOCATION@@@Z.c)
+ *     ?_AllocListener@Edgy@@YAPEAUtagEDGY_LISTENER@@AEAUtagEDGY_DATA@@PEAXW4tagEDGY_LOCATION@@@Z @ 0x1C0207B50 (-_AllocListener@Edgy@@YAPEAUtagEDGY_LISTENER@@AEAUtagEDGY_DATA@@PEAXW4tagEDGY_LOCATION@@@Z.c)
  * Callees:
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall Edgy::_GrowListeners(Edgy *this, struct tagEDGY_DATA *a2)
@@ -13,7 +13,7 @@ __int64 __fastcall Edgy::_GrowListeners(Edgy *this, struct tagEDGY_DATA *a2)
   unsigned int v5; // eax
   unsigned int v6; // esi
   void *v7; // rax
-  const void *v8; // rdi
+  void *v8; // rdi
   size_t v9; // r8
 
   v2 = *(_DWORD *)this;
@@ -29,7 +29,7 @@ __int64 __fastcall Edgy::_GrowListeners(Edgy *this, struct tagEDGY_DATA *a2)
     v7 = (void *)Win32AllocPoolZInit(32LL * v4, 1684370261LL);
     if ( v7 )
     {
-      v8 = (const void *)*((_QWORD *)this + 1);
+      v8 = (void *)*((_QWORD *)this + 1);
       v9 = 32LL * *(unsigned int *)this;
       *((_QWORD *)this + 1) = v7;
       *((_DWORD *)this + 1) = v6;

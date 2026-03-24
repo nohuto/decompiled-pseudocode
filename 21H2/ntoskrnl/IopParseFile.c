@@ -1,10 +1,10 @@
 /*
- * XREFs of IopParseFile @ 0x1406B4800
+ * XREFs of IopParseFile @ 0x140697270
  * Callers:
  *     <none>
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
+ *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
  */
 
 __int64 __fastcall IopParseFile(
@@ -13,8 +13,8 @@ __int64 __fastcall IopParseFile(
         __int64 a3,
         __int64 a4,
         int a5,
-        __int64 a6,
-        __int64 a7,
+        PUNICODE_STRING AbsoluteObjectName,
+        PCUNICODE_STRING SourceString,
         __int64 a8,
         __int64 a9,
         __int64 a10,
@@ -26,5 +26,5 @@ __int64 __fastcall IopParseFile(
     return 3221225508LL;
   RelatedDeviceObject = IoGetRelatedDeviceObject(a1);
   *(_QWORD *)(a8 + 40) = a1;
-  return IopParseDevice((ULONG_PTR)RelatedDeviceObject, a5, a6, a7, a8, a9, a10, a11);
+  return IopParseDevice((ULONG_PTR)RelatedDeviceObject, a5, AbsoluteObjectName, SourceString, a8, a9, a10, a11);
 }

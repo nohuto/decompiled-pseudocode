@@ -4,7 +4,7 @@
  *     EtwpFlushBuffer @ 0x1405C1D14 (EtwpFlushBuffer.c)
  * Callees:
  *     EtwpRealtimeDeliverBuffer @ 0x1405C1890 (EtwpRealtimeDeliverBuffer.c)
- *     EtwpRealtimeSaveBuffer @ 0x1406DAAF8 (EtwpRealtimeSaveBuffer.c)
+ *     EtwpRealtimeSaveBuffer @ 0x1406DAAD8 (EtwpRealtimeSaveBuffer.c)
  */
 
 __int64 __fastcall EtwpFlushBufferToRealtime(__int64 a1, __int64 a2, char a3)

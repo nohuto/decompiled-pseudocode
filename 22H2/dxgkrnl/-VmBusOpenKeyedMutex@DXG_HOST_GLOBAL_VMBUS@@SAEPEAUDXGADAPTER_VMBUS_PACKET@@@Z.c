@@ -1,77 +1,64 @@
 /*
- * XREFs of ?VmBusOpenKeyedMutex@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0382280
+ * XREFs of ?VmBusOpenKeyedMutex@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0244910
  * Callers:
  *     <none>
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0054234 (-ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
- *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C005B834 (--$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEA.c)
- *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C005CF54 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
- *     ?Open@DXGKEYEDMUTEX@@QEAAJPEAIPEAXI_N@Z @ 0x1C0350488 (-Open@DXGKEYEDMUTEX@@QEAAJPEAIPEAXI_N@Z.c)
- *     DxgkpAcquireKeyedMutexFromHandle @ 0x1C037355C (DxgkpAcquireKeyedMutexFromHandle.c)
+ *     ??$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C004065C (--$CastToVmBusCommand@UDXGKVMB_COMMAND_DESTROYDEVICE@@@@YAPEAUDXGKVMB_COMMAND_DESTROYDEVICE@@PEA.c)
+ *     ?ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0040F30 (-ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
+ *     ?VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z @ 0x1C00418B0 (-VmBusCompletePacket@@YAXPEAUVMBPACKETCOMPLETION__@@PEAXI@Z.c)
+ *     DxgkpAcquireKeyedMutexFromHandle @ 0x1C0239364 (DxgkpAcquireKeyedMutexFromHandle.c)
+ *     ?Open@DXGKEYEDMUTEX@@QEAAJPEAIPEAXI_N@Z @ 0x1C0291758 (-Open@DXGKEYEDMUTEX@@QEAAJPEAIPEAXI_N@Z.c)
  */
 
 unsigned __int8 __fastcall DXG_HOST_GLOBAL_VMBUS::VmBusOpenKeyedMutex(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
   __int64 v2; // rax
-  __int64 v3; // rbx
-  unsigned int v4; // edx
-  unsigned int v5; // eax
-  __int64 v6; // rbx
-  DXGKEYEDMUTEX *v8; // rax
-  DXGKEYEDMUTEX *v9; // rsi
-  __int64 v10; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  unsigned int *v5; // rdi
+  unsigned int v6; // esi
+  __int64 v7; // rax
+  DXGKEYEDMUTEX *v9; // rax
+  DXGKEYEDMUTEX *v10; // rsi
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  __int64 v14; // [rsp+48h] [rbp+10h] BYREF
 
   v2 = CastToVmBusCommand<DXGKVMB_COMMAND_DESTROYDEVICE>((__int64)a1);
-  v3 = v2;
+  v5 = (unsigned int *)v2;
   if ( !v2 )
     return 0;
-  v4 = *(_DWORD *)(v2 + 28) + 32;
+  v6 = *(_DWORD *)(v2 + 28) + 32;
   if ( *(_DWORD *)(v2 + 28) >= 0xFFFFFFE0 )
     return 0;
-  v5 = *((_DWORD *)a1 + 36);
-  if ( v5 < v4 )
+  if ( *((_DWORD *)a1 + 22) < v6 )
   {
-    v6 = v4;
-    WdLogSingleEntry2(2LL, v5, v4);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Invalid packet size (%u < %u)",
-      *((unsigned int *)a1 + 36),
-      v6,
-      0LL,
-      0LL,
-      0LL);
+    v7 = WdLogNewEntry5_WdError(v4, v3);
+    *(_QWORD *)(v7 + 24) = *((unsigned int *)a1 + 22);
+    *(_QWORD *)(v7 + 32) = v6;
+    WdLogEvent5_WdError(v7);
     return 0;
   }
-  v10 = 0LL;
-  v8 = (DXGKEYEDMUTEX *)DxgkpAcquireKeyedMutexFromHandle(*((struct DXGPROCESS **)a1 + 12), *(_DWORD *)(v3 + 24));
-  v9 = v8;
-  if ( v8 )
+  v14 = 0LL;
+  v9 = (DXGKEYEDMUTEX *)DxgkpAcquireKeyedMutexFromHandle(*((struct _KTHREAD ***)a1 + 7), *(_DWORD *)(v2 + 24));
+  v10 = v9;
+  if ( v9 )
   {
-    HIDWORD(v10) = DXGKEYEDMUTEX::Open(v8, (unsigned int *)&v10, (char *)(v3 + 32), *(_DWORD *)(v3 + 28), 0);
-    if ( v10 < 0 )
+    HIDWORD(v14) = DXGKEYEDMUTEX::Open(v9, (unsigned int *)&v14, v5 + 8, v5[7], 0);
+    if ( v14 < 0 )
     {
-      WdLogSingleEntry2(2LL, *(unsigned int *)(v3 + 24), -1073741811LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to open keyed mutex (0x%I64x), returning 0x%I64x",
-        *(unsigned int *)(v3 + 24),
-        -1073741811LL,
-        0LL,
-        0LL,
-        0LL);
+      v13 = WdLogNewEntry5_WdError(v12, v11);
+      *(_QWORD *)(v13 + 24) = v5[6];
+      *(_QWORD *)(v13 + 32) = -1073741811LL;
+      WdLogEvent5_WdError(v13);
     }
-    DXGKEYEDMUTEX::ReleaseReference(v9);
+    DXGKEYEDMUTEX::ReleaseReference(v10, v11);
   }
   else
   {
-    HIDWORD(v10) = -1073741811;
+    HIDWORD(v14) = -1073741811;
   }
-  VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 16), &v10, 8u);
+  VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)a1 + 9), &v14, 8u);
   return 1;
 }

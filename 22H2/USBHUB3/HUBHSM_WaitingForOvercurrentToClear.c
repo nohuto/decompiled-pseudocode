@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_WaitingForOvercurrentToClear @ 0x1C0009300
+ * XREFs of HUBHSM_WaitingForOvercurrentToClear @ 0x1C0008B30
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_qd @ 0x1C00031FC (WPP_RECORDER_SF_qd.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C0002BC4 (WPP_RECORDER_SF_qd.c)
  */
 
 __int64 __fastcall HUBHSM_WaitingForOvercurrentToClear(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall HUBHSM_WaitingForOvercurrentToClear(__int64 a1)
       2u,
       3u,
       0x39u,
-      (__int64)&WPP_f96a94952a6932bc87af489d3d93d325_Traceguids,
+      (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids,
       v1,
       v3);
   }

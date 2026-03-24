@@ -1,21 +1,21 @@
 /*
- * XREFs of LdrpSearchResourceSection_U @ 0x14067AF10
+ * XREFs of LdrpSearchResourceSection_U @ 0x14067AEF0
  * Callers:
- *     LdrpLoadResourceFromAlternativeModule @ 0x1400F3BCC (LdrpLoadResourceFromAlternativeModule.c)
- *     LdrpGetRcConfig @ 0x1400F3F10 (LdrpGetRcConfig.c)
- *     RtlFindMessage @ 0x14067BDF0 (RtlFindMessage.c)
- *     LdrFindResource_U @ 0x140756B70 (LdrFindResource_U.c)
- *     LdrFindResourceDirectory_U @ 0x140890E70 (LdrFindResourceDirectory_U.c)
- *     LdrFindResourceEx_U @ 0x140890E90 (LdrFindResourceEx_U.c)
- *     RtlLoadString @ 0x140891BB0 (RtlLoadString.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x1400F3BEC (LdrpLoadResourceFromAlternativeModule.c)
+ *     LdrpGetRcConfig @ 0x1400F3F30 (LdrpGetRcConfig.c)
+ *     RtlFindMessage @ 0x14067BDD0 (RtlFindMessage.c)
+ *     LdrFindResource_U @ 0x140756B50 (LdrFindResource_U.c)
+ *     LdrFindResourceDirectory_U @ 0x140890E50 (LdrFindResourceDirectory_U.c)
+ *     LdrFindResourceEx_U @ 0x140890E70 (LdrFindResourceEx_U.c)
+ *     RtlLoadString @ 0x140891B90 (RtlLoadString.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C20 (RtlImageDirectoryEntryToData.c)
- *     LdrpLoadResourceFromAlternativeModule @ 0x1400F3BCC (LdrpLoadResourceFromAlternativeModule.c)
- *     LdrIsResItemExist @ 0x1400F3C98 (LdrIsResItemExist.c)
- *     LdrpGetParentLangId @ 0x140160FA0 (LdrpGetParentLangId.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     LdrpCompareResourceNamesWithValidation @ 0x1401B5E00 (LdrpCompareResourceNamesWithValidation.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x1400F3BEC (LdrpLoadResourceFromAlternativeModule.c)
+ *     LdrIsResItemExist @ 0x1400F3CB8 (LdrIsResItemExist.c)
+ *     LdrpGetParentLangId @ 0x140160FC0 (LdrpGetParentLangId.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     LdrpCompareResourceNamesWithValidation @ 0x1401B5E20 (LdrpCompareResourceNamesWithValidation.c)
  */
 
 __int64 __fastcall LdrpSearchResourceSection_U(char *a1, __int64 *a2, unsigned int a3, int a4, __int64 *a5)

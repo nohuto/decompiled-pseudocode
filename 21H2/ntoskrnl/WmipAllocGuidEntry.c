@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipAllocGuidEntry @ 0x14075DFE4
+ * XREFs of WmipAllocGuidEntry @ 0x140758028
  * Callers:
- *     WmipLinkDataSourceToList @ 0x14075DEAC (WmipLinkDataSourceToList.c)
- *     WmipOpenBlock @ 0x140783428 (WmipOpenBlock.c)
+ *     WmipOpenBlock @ 0x14063F2B8 (WmipOpenBlock.c)
+ *     WmipLinkDataSourceToList @ 0x140757EF0 (WmipLinkDataSourceToList.c)
  * Callees:
- *     WmipAllocEntry @ 0x14075E074 (WmipAllocEntry.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     WmipAllocEntry @ 0x1407580C0 (WmipAllocEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *WmipAllocGuidEntry()
@@ -33,11 +33,10 @@ _QWORD *WmipAllocGuidEntry()
       PoolWithTag[3] = 0LL;
       PoolWithTag[5] = WmipLegacyEtwWorker;
       PoolWithTag[6] = v2;
+      PoolWithTag = 0LL;
     }
-    else
-    {
+    if ( PoolWithTag )
       ExFreePoolWithTag(PoolWithTag, 0x70696D57u);
-    }
   }
   return v0;
 }

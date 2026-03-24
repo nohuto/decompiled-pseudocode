@@ -1,14 +1,14 @@
 /*
- * XREFs of Isoch_MappingLoop @ 0x1C000A6A0
+ * XREFs of Isoch_MappingLoop @ 0x1C0001D7C
  * Callers:
- *     Isoch_MapTransfers @ 0x1C000A788 (Isoch_MapTransfers.c)
+ *     Isoch_MapTransfers @ 0x1C0001D00 (Isoch_MapTransfers.c)
  * Callees:
- *     Isoch_RetrieveNextStage @ 0x1C0007C30 (Isoch_RetrieveNextStage.c)
- *     Isoch_MapStage @ 0x1C0008740 (Isoch_MapStage.c)
- *     Isoch_PrepareStage @ 0x1C0008870 (Isoch_PrepareStage.c)
- *     TR_AttemptStateChange @ 0x1C000A724 (TR_AttemptStateChange.c)
- *     WPP_RECORDER_SF_ddd @ 0x1C0013618 (WPP_RECORDER_SF_ddd.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     TR_AttemptStateChange @ 0x1C0001E00 (TR_AttemptStateChange.c)
+ *     Isoch_RetrieveNextStage @ 0x1C0002D30 (Isoch_RetrieveNextStage.c)
+ *     Isoch_MapStage @ 0x1C0003780 (Isoch_MapStage.c)
+ *     Isoch_PrepareStage @ 0x1C00038C0 (Isoch_PrepareStage.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0015850 (WPP_RECORDER_SF_ddL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Isoch_MappingLoop(_QWORD *a1)
@@ -24,7 +24,7 @@ __int64 __fastcall Isoch_MappingLoop(_QWORD *a1)
     {
       v4 = *(unsigned __int8 *)(a1[6] + 135LL);
       LOBYTE(v4) = 5;
-      WPP_RECORDER_SF_ddd(
+      WPP_RECORDER_SF_ddL(
         *(_QWORD *)(a1[7] + 80LL),
         v4,
         14,
@@ -35,9 +35,9 @@ __int64 __fastcall Isoch_MappingLoop(_QWORD *a1)
         i);
     }
     a1[43] = 0LL;
-    if ( !Isoch_RetrieveNextStage((__int64)a1) )
+    if ( !(unsigned __int8)Isoch_RetrieveNextStage(a1) )
       return TR_AttemptStateChange(a1, 3LL, 2LL);
-    result = Isoch_PrepareStage((__int64)a1);
+    result = Isoch_PrepareStage(a1);
     if ( (_DWORD)result == 1 )
       continue;
     if ( (_DWORD)result == 3 )
@@ -46,7 +46,7 @@ __int64 __fastcall Isoch_MappingLoop(_QWORD *a1)
       break;
     if ( (_DWORD)result == 4 )
       return TR_AttemptStateChange(a1, 3LL, 2LL);
-    result = Isoch_MapStage((__int64)a1);
+    result = Isoch_MapStage(a1);
     if ( (_DWORD)result == 2 )
       return result;
     v5 = a1;

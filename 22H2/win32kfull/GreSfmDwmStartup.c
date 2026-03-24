@@ -1,34 +1,29 @@
 /*
- * XREFs of GreSfmDwmStartup @ 0x1C00B212C
+ * XREFs of GreSfmDwmStartup @ 0x1C000CF88
  * Callers:
- *     GreDwmStartup @ 0x1C00B10F8 (GreDwmStartup.c)
+ *     GreDwmStartup @ 0x1C000CD48 (GreDwmStartup.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GreSfmDwmStartup(Gre::Base *a1)
+__int64 GreSfmDwmStartup()
 {
-  struct Gre::Base::SESSION_GLOBALS *v1; // rbx
-  _QWORD **v2; // rcx
-  _QWORD *v3; // rdx
-  _QWORD *v5; // rax
+  char *v0; // rax
+  char *v1; // rdx
+  char *v3; // rax
 
-  v1 = Gre::Base::Globals(a1);
-  GreAcquireSemaphore(*((_QWORD *)v1 + 9));
-  EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDwmState", *((_QWORD *)v1 + 9), 7LL);
-  v2 = (_QWORD **)(*((_QWORD *)v1 + 809) + 40LL);
-  v3 = *v2;
-  if ( *v2 != v2 )
+  GreAcquireSemaphore(ghsemDwmState);
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"ghsemDwmState", ghsemDwmState, 7LL);
+  v0 = (char *)gpSfmState + 40;
+  v1 = (char *)*((_QWORD *)gpSfmState + 5);
+  while ( v1 != v0 )
   {
-    do
-    {
-      v5 = v3;
-      v3 = (_QWORD *)*v3;
-      if ( !*((_DWORD *)v5 + 54) )
-        *((_DWORD *)v5 + 53) |= 0x10u;
-    }
-    while ( v3 != (_QWORD *)(*((_QWORD *)v1 + 809) + 40LL) );
+    v3 = v1;
+    v1 = *(char **)v1;
+    if ( !*((_DWORD *)v3 + 54) )
+      *((_DWORD *)v3 + 53) |= 0x10u;
+    v0 = (char *)gpSfmState + 40;
   }
-  EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDwmState");
-  return GreReleaseSemaphoreInternal(*((_QWORD *)v1 + 9));
+  EtwTraceGreLockReleaseSemaphore(L"ghsemDwmState", ghsemDwmState);
+  return GreReleaseSemaphoreInternal(ghsemDwmState);
 }

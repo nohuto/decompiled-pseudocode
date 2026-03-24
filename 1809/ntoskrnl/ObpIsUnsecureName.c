@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpIsUnsecureName @ 0x140860C34
+ * XREFs of ObpIsUnsecureName @ 0x140860C14
  * Callers:
  *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
  */
 

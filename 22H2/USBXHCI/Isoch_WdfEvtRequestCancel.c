@@ -1,12 +1,12 @@
 /*
- * XREFs of Isoch_WdfEvtRequestCancel @ 0x1C0045B90
+ * XREFs of Isoch_WdfEvtRequestCancel @ 0x1C0042EF0
  * Callers:
  *     <none>
  * Callees:
- *     ESM_AddEvent @ 0x1C000C418 (ESM_AddEvent.c)
- *     TR_QueueDpcForTransferCompletion @ 0x1C000F2B4 (TR_QueueDpcForTransferCompletion.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_DDi @ 0x1C0041F7C (WPP_RECORDER_SF_DDi.c)
+ *     ESM_AddEvent @ 0x1C0008850 (ESM_AddEvent.c)
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000E954 (TR_QueueDpcForTransferCompletion.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C003FA6C (WPP_RECORDER_SF_DDi.c)
  */
 
 void __fastcall Isoch_WdfEvtRequestCancel(__int64 a1)
@@ -32,7 +32,7 @@ void __fastcall Isoch_WdfEvtRequestCancel(__int64 a1)
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0063090);
+         off_1C0060090);
   v5 = *(_QWORD *)(v4 + 56);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
@@ -44,7 +44,7 @@ void __fastcall Isoch_WdfEvtRequestCancel(__int64 a1)
       v7,
       *(unsigned __int8 *)(*(_QWORD *)(v5 + 48) + 135LL),
       51,
-      (__int64)&WPP_393df0ddb70a3b662b6ac53bc5b55086_Traceguids,
+      (__int64)&WPP_fe7147ca1260387a70ac7753034ead38_Traceguids,
       *(_BYTE *)(*(_QWORD *)(v5 + 48) + 135LL),
       *(_DWORD *)(v6 + 144),
       v1);
@@ -80,7 +80,7 @@ void __fastcall Isoch_WdfEvtRequestCancel(__int64 a1)
     v11 = *(_QWORD *)(v5 + 56);
     _m_prefetchw((const void *)(v11 + 32));
     if ( (_InterlockedOr((volatile signed __int32 *)(v11 + 32), 1u) & 1) == 0 )
-      ESM_AddEvent((KSPIN_LOCK *)(v11 + 296), 130);
+      ESM_AddEvent((KSPIN_LOCK *)(v11 + 288), 130);
   }
   *(_BYTE *)(v5 + 104) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v5 + 96));
   if ( *(_DWORD *)(v4 + 64) == 2 )

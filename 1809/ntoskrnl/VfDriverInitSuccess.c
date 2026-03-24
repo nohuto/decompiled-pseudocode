@@ -1,7 +1,7 @@
 /*
  * XREFs of VfDriverInitSuccess @ 0x140921628
  * Callers:
- *     MmCallDllInitialize @ 0x14071B71C (MmCallDllInitialize.c)
+ *     MmCallDllInitialize @ 0x14071B6FC (MmCallDllInitialize.c)
  *     PnpInitializeBootStartDriver @ 0x1409CB918 (PnpInitializeBootStartDriver.c)
  * Callees:
  *     ViDriverReApplyVerifierForAll @ 0x14092827C (ViDriverReApplyVerifierForAll.c)

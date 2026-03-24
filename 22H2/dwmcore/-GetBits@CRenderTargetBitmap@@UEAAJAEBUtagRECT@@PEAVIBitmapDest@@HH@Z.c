@@ -1,13 +1,13 @@
 /*
- * XREFs of ?GetBits@CRenderTargetBitmap@@UEAAJAEBUtagRECT@@PEAVIBitmapDest@@HH@Z @ 0x1800A5740
+ * XREFs of ?GetBits@CRenderTargetBitmap@@UEAAJAEBUtagRECT@@PEAVIBitmapDest@@HH@Z @ 0x180044840
  * Callers:
- *     ?GetBits@CStereoRenderTargetBitmap@@UEAAJAEBUtagRECT@@PEAVIBitmapDest@@HH@Z @ 0x1802B5EA0 (-GetBits@CStereoRenderTargetBitmap@@UEAAJAEBUtagRECT@@PEAVIBitmapDest@@HH@Z.c)
+ *     <none>
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVIBitmapDest@@HH@Z @ 0x1800A5970 (-CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV-$TMilRect@IUMilR.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVIBitmapDest@@HH@Z @ 0x180044A20 (-CopyTexture2D@CD3DDevice@@QEAAJPEAUID3D11Texture2D@@IAEBUPixelFormatInfo@@AEBV-$TMilRect@IUMilR.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRenderTargetBitmap::GetBits(
@@ -21,19 +21,19 @@ __int64 __fastcall CRenderTargetBitmap::GetBits(
   char *v10; // rcx
   unsigned int right; // ecx
   LONG left; // r8d
-  LONG top; // eax
   unsigned int bottom; // edx
-  __int64 v15; // rax
-  __int64 (__fastcall ***v16)(_QWORD); // rcx
-  int v17; // eax
-  unsigned int v18; // ebx
-  char *v19; // rcx
-  __int64 v20; // rbx
-  __int64 (__fastcall *v21)(char *, __int64, __int64 (__fastcall ****)(_QWORD)); // rdi
-  __int64 v22; // rax
-  char *v23; // rcx
-  struct CD3DDevice *v24; // rdi
-  char *v25; // rcx
+  __int64 v14; // rax
+  __int64 (__fastcall ***v15)(_QWORD); // rcx
+  int v16; // eax
+  unsigned int v17; // ebx
+  char *v18; // rcx
+  __int64 v19; // rbx
+  __int64 (__fastcall *v20)(char *, __int64, __int64 (__fastcall ****)(_QWORD)); // rdi
+  __int64 v21; // rax
+  char *v22; // rcx
+  struct CD3DDevice *v23; // rdi
+  char *v24; // rcx
+  struct PixelFormatInfo *v25; // rbx
   struct ID3D11Texture2D *v26; // rax
   int v28; // r9d
   unsigned int v29; // [rsp+20h] [rbp-41h]
@@ -47,65 +47,62 @@ __int64 __fastcall CRenderTargetBitmap::GetBits(
   v10 = (char *)this + *(int *)(v5 + 20) - 104;
   (**(void (__fastcall ***)(char *, _DWORD *))v10)(v10, v31);
   left = a2->left;
-  if ( a2->left < 0
-    || (top = a2->top, top < 0)
-    || (right = a2->right, right > v31[0])
-    || (bottom = a2->bottom, bottom > v31[1]) )
+  if ( a2->left < 0 || a2->top < 0 || (right = a2->right, right > v31[0]) || (bottom = a2->bottom, bottom > v31[1]) )
   {
-    v18 = -2147024809;
+    v17 = -2147024809;
     v29 = 287;
     goto LABEL_16;
   }
-  v32[2] = a2->right;
-  v32[1] = top;
-  v15 = *((_QWORD *)this - 13);
+  v32[1] = a2->top;
+  v14 = *((_QWORD *)this - 13);
+  v32[2] = right;
   v32[0] = left;
   v32[3] = bottom;
-  v16 = (__int64 (__fastcall ***)(_QWORD))((char *)this + *(int *)(v15 + 12) - 104);
-  v17 = (**v16)(v16);
-  v18 = v17;
-  if ( v17 < 0 )
+  v15 = (__int64 (__fastcall ***)(_QWORD))((char *)this + *(int *)(v14 + 12) - 104);
+  v16 = (**v15)(v15);
+  v17 = v16;
+  if ( v16 < 0 )
   {
     v29 = 268;
     goto LABEL_13;
   }
-  v19 = (char *)this + *(int *)(*((_QWORD *)this - 13) + 12LL) - 104;
-  if ( (*(unsigned __int8 (__fastcall **)(char *))(*(_QWORD *)v19 + 24LL))(v19) )
+  v18 = (char *)this + *(int *)(*((_QWORD *)this - 13) + 12LL) - 104;
+  if ( (*(unsigned __int8 (__fastcall **)(char *))(*(_QWORD *)v18 + 24LL))(v18) )
   {
-    v18 = -2147024891;
+    v17 = -2147024891;
     v29 = 272;
 LABEL_16:
-    v28 = v18;
+    v28 = v17;
     goto LABEL_17;
   }
-  v20 = *(int *)(*((_QWORD *)this - 13) + 20LL);
-  v21 = *(__int64 (__fastcall **)(char *, __int64, __int64 (__fastcall ****)(_QWORD)))(*(_QWORD *)((char *)this
-                                                                                                 + v20
+  v19 = *(int *)(*((_QWORD *)this - 13) + 20LL);
+  v20 = *(__int64 (__fastcall **)(char *, __int64, __int64 (__fastcall ****)(_QWORD)))(*(_QWORD *)((char *)this
+                                                                                                 + v19
                                                                                                  - 104)
                                                                                      + 48LL);
-  v22 = (**(__int64 (__fastcall ***)(CRenderTargetBitmap *, _BYTE *))this)(this, v33);
-  v17 = v21((char *)this + v20 - 104, v22, &v30);
-  v18 = v17;
-  if ( v17 < 0 )
+  v21 = (**(__int64 (__fastcall ***)(CRenderTargetBitmap *, _BYTE *))this)(this, v33);
+  v16 = v20((char *)this + v19 - 104, v21, &v30);
+  v17 = v16;
+  if ( v16 < 0 )
   {
     v29 = 275;
     goto LABEL_13;
   }
-  v23 = (char *)this + *(int *)(*((_QWORD *)this - 13) + 12LL) - 104;
-  v24 = (struct CD3DDevice *)(*(__int64 (__fastcall **)(char *))(*(_QWORD *)v23 + 8LL))(v23);
-  v25 = (char *)this + *(int *)(*((_QWORD *)this - 13) + 16LL) - 104;
-  (**(void (__fastcall ***)(char *, _BYTE *))v25)(v25, v33);
+  v22 = (char *)this + *(int *)(*((_QWORD *)this - 13) + 12LL) - 104;
+  v23 = (struct CD3DDevice *)(*(__int64 (__fastcall **)(char *))(*(_QWORD *)v22 + 8LL))(v22);
+  v24 = (char *)this + *(int *)(*((_QWORD *)this - 13) + 16LL) - 104;
+  v25 = (struct PixelFormatInfo *)(**(__int64 (__fastcall ***)(char *, _BYTE *))v24)(v24, v33);
   v26 = (struct ID3D11Texture2D *)(**v30)(v30);
-  v17 = CD3DDevice::CopyTexture2D(v24, v26, (__int64)v32, (__int64)a3, a4, a5);
-  v18 = v17;
-  if ( v17 < 0 )
+  v16 = CD3DDevice::CopyTexture2D(v23, v26, 0, v25, (__int64)v32, (__int64)a3, a4, a5);
+  v17 = v16;
+  if ( v16 < 0 )
   {
     v29 = 283;
 LABEL_13:
-    v28 = v17;
+    v28 = v16;
 LABEL_17:
     MilInstrumentationCheckHR_MaybeFailFast(right, 0LL, 0, v28, v29, 0LL);
   }
   wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v30);
-  return v18;
+  return v17;
 }

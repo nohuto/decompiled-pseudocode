@@ -1,10 +1,10 @@
 /*
- * XREFs of ExfReleasePushLockExclusive @ 0x1402BD8E0
+ * XREFs of ExfReleasePushLockExclusive @ 0x140271BA0
  * Callers:
- *     ExfAcquireReleasePushLockExclusive @ 0x140201DF4 (ExfAcquireReleasePushLockExclusive.c)
- *     ExfReleasePushLock @ 0x1402BD800 (ExfReleasePushLock.c)
+ *     ExfReleasePushLock @ 0x140271AC0 (ExfReleasePushLock.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x14031C3B4 (ExfAcquireReleasePushLockExclusive.c)
  * Callees:
- *     ExpWakePushLock @ 0x1402BD960 (ExpWakePushLock.c)
+ *     ExpWakePushLock @ 0x140271C20 (ExpWakePushLock.c)
  */
 
 signed __int64 __fastcall ExfReleasePushLockExclusive(volatile signed __int64 *a1)
@@ -28,7 +28,7 @@ signed __int64 __fastcall ExfReleasePushLockExclusive(volatile signed __int64 *a
     }
     while ( v4 != result );
     if ( v2 == 2 )
-      return ExpWakePushLock();
+      return ExpWakePushLock(a1);
   }
   return result;
 }

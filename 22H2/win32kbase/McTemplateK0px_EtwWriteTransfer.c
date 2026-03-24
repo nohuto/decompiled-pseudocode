@@ -1,24 +1,13 @@
 /*
- * XREFs of McTemplateK0px_EtwWriteTransfer @ 0x1C013CEE4
+ * XREFs of McTemplateK0px_EtwWriteTransfer @ 0x1C01264F4
  * Callers:
- *     EtwTraceTransformAgeDecay @ 0x1C000F790 (EtwTraceTransformAgeDecay.c)
- *     EtwDwmSpriteLogicalSurfBindEvent @ 0x1C00B8120 (EtwDwmSpriteLogicalSurfBindEvent.c)
- *     EtwDwmSpriteCreateEvent @ 0x1C00B8CC0 (EtwDwmSpriteCreateEvent.c)
- *     EtwDwmSpriteLogicalSurfUnBindEvent @ 0x1C00B9930 (EtwDwmSpriteLogicalSurfUnBindEvent.c)
- *     EtwDwmSpriteDestroyEvent @ 0x1C00BCAB0 (EtwDwmSpriteDestroyEvent.c)
- *     EtwLogicalSurfPhysSurfBindEvent @ 0x1C00BD160 (EtwLogicalSurfPhysSurfBindEvent.c)
- *     EtwLogicalSurfEnableDirtyNotificationEvent @ 0x1C00BD180 (EtwLogicalSurfEnableDirtyNotificationEvent.c)
- *     EtwLogicalSurfPhysSurfUnbindEvent @ 0x1C00BE7D0 (EtwLogicalSurfPhysSurfUnbindEvent.c)
- *     EtwTraceFlipManagerContentUnbind @ 0x1C01397F0 (EtwTraceFlipManagerContentUnbind.c)
- *     EtwTraceTokenManagerDisableScanoutToken @ 0x1C013B200 (EtwTraceTokenManagerDisableScanoutToken.c)
- *     EtwBindLogicalSurfaceRHEvent @ 0x1C016B560 (EtwBindLogicalSurfaceRHEvent.c)
- *     EtwBindSwapChain @ 0x1C016B590 (EtwBindSwapChain.c)
+ *     EtwTraceTransformAgeDecay @ 0x1C01244F0 (EtwTraceTransformAgeDecay.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C0073658 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C00564F0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
-NTSTATUS McTemplateK0px_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)
+NTSTATUS McTemplateK0px_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-48h] BYREF
   va_list v5; // [rsp+40h] [rbp-38h]
@@ -40,5 +29,5 @@ NTSTATUS McTemplateK0px_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2,
   va_copy(v8, va1);
   v10 = 0;
   v9 = 8;
-  return McGenEventWrite_EtwWriteTransfer(8LL, a2, &W32kControlGuid, 3u, &v4);
+  return McGenEventWrite_EtwWriteTransfer(8LL, &TransformAgeDecay, &W32kControlGuid, 3u, &v4);
 }

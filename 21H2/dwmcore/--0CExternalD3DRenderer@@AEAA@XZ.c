@@ -1,26 +1,24 @@
 /*
- * XREFs of ??0CExternalD3DRenderer@@AEAA@XZ @ 0x1802794F0
+ * XREFs of ??0CExternalD3DRenderer@@AEAA@XZ @ 0x180238D88
  * Callers:
- *     ?Create@CExternalD3DRenderer@@SAJPEAVCD3DDevice@@PEAUIUnknown@@PEAPEAV1@@Z @ 0x180279608 (-Create@CExternalD3DRenderer@@SAJPEAVCD3DDevice@@PEAUIUnknown@@PEAPEAV1@@Z.c)
+ *     ?Create@CExternalD3DRenderer@@SAJPEAVCD3DDevice@@PEAUIUnknown@@PEAPEAV1@@Z @ 0x180238E38 (-Create@CExternalD3DRenderer@@SAJPEAVCD3DDevice@@PEAUIUnknown@@PEAPEAV1@@Z.c)
  * Callees:
- *     ??0CD3DResource@@IEAA@_N@Z @ 0x18003B7E4 (--0CD3DResource@@IEAA@_N@Z.c)
+ *     ??0CD3DResource@@IEAA@_N@Z @ 0x18002C26C (--0CD3DResource@@IEAA@_N@Z.c)
  */
 
 CExternalD3DRenderer *__fastcall CExternalD3DRenderer::CExternalD3DRenderer(CExternalD3DRenderer *this)
 {
-  CExternalD3DRenderer *v1; // r11
-  __int64 v2; // rax
-  __int64 v3; // rcx
+  __int64 v2; // rcx
   CExternalD3DRenderer *result; // rax
 
-  *((_QWORD *)this + 1) = &CExternalD3DRenderer::`vbtable';
+  *((_QWORD *)this + 4) = &CExternalD3DRenderer::`vbtable';
   CD3DResource::CD3DResource(this, 0);
-  v2 = *((_QWORD *)v1 + 1);
-  *(_QWORD *)v1 = &CExternalD3DRenderer::`vftable'{for `IDeviceResource'};
-  *(_QWORD *)((char *)v1 + *(int *)(v2 + 4) + 8) = &CExternalD3DRenderer::`vftable'{for `IUnknown'};
-  v3 = *(int *)(*((_QWORD *)v1 + 1) + 4LL);
-  result = v1;
-  *(_DWORD *)((char *)v1 + v3 + 4) = v3 - 112;
-  *((_QWORD *)v1 + 12) = 0LL;
+  *(_QWORD *)this = &CExternalD3DRenderer::`vftable';
+  *((_QWORD *)this + 3) = &CExternalD3DRenderer::`vftable'{for `IDeviceResource'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 4) + 4LL) + 32) = &CExternalD3DRenderer::`vftable'{for `IUnknown'};
+  v2 = *(int *)(*((_QWORD *)this + 4) + 4LL);
+  result = this;
+  *(_DWORD *)((char *)this + v2 + 28) = v2 - 104;
+  *((_QWORD *)this + 14) = 0LL;
   return result;
 }

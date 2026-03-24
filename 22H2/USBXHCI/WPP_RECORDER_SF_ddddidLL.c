@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_ddddidLL @ 0x1C0009AA0
+ * XREFs of WPP_RECORDER_SF_ddddidLL @ 0x1C0006730
  * Callers:
- *     Interrupter_DeferredWorkProcessor @ 0x1C0008C10 (Interrupter_DeferredWorkProcessor.c)
+ *     Interrupter_DeferredWorkProcessor @ 0x1C0006130 (Interrupter_DeferredWorkProcessor.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_ddddidLL(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
@@ -47,11 +47,11 @@ __int64 WPP_RECORDER_SF_ddddidLL(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
   va_copy(va7, va6);
   v20 = va_arg(va7, _QWORD);
   if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x100) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u )
-    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
+    ((void (__fastcall *)(_DEVICE_OBJECT *, __int64, void *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))WPP_MAIN_CB.Reserved)(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_89e87cee83d7332425398286600bed19_Traceguids,
-      44LL,
+      &WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
+      43LL,
       (__int64 *)va,
       4LL,
       (__int64 *)va1,
@@ -69,12 +69,12 @@ __int64 WPP_RECORDER_SF_ddddidLL(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
       va7,
       4LL,
       0LL);
-  LOWORD(v7) = 44;
+  LOWORD(v7) = 43;
   return WppAutoLogTrace(
            a1,
            4LL,
            9LL,
-           &WPP_89e87cee83d7332425398286600bed19_Traceguids,
+           &WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
            v7,
            (__int64 *)va,
            4LL,

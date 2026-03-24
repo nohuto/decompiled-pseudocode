@@ -1,13 +1,12 @@
 /*
- * XREFs of ExtEnvInitializeSpinLock @ 0x1403B414C
+ * XREFs of ExtEnvInitializeSpinLock @ 0x1404D5474
  * Callers:
- *     IvtAllocateDomain @ 0x1403B4120 (IvtAllocateDomain.c)
- *     HalpVpptTimerRegister @ 0x140509CD4 (HalpVpptTimerRegister.c)
- *     HsaInitializeInterruptRemapping @ 0x140A99188 (HsaInitializeInterruptRemapping.c)
+ *     HalpVpptTimerRegister @ 0x1404C0BD8 (HalpVpptTimerRegister.c)
+ *     HsaInitializeInterruptRemapping @ 0x1409AA588 (HsaInitializeInterruptRemapping.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExtEnvInitializeSpinLock(_QWORD *a1)
@@ -20,29 +19,30 @@ __int64 __fastcall ExtEnvInitializeSpinLock(_QWORD *a1)
   bool v7; // zf
 
   v2 = KeAcquireSpinLockRaiseToDpc(&ExtEnvAllocationLock);
-  v3 = (_QWORD *)qword_140C60318;
-  if ( *(__int64 **)qword_140C60318 != &ExtEnvLockList )
+  v3 = (_QWORD *)qword_140C48E98;
+  if ( *(__int64 **)qword_140C48E98 != &ExtEnvLockList )
     __fastfail(3u);
   *a1 = &ExtEnvLockList;
   a1[1] = v3;
   *v3 = a1;
-  qword_140C60318 = (__int64)a1;
-  result = KxReleaseSpinLock((volatile signed __int64 *)&ExtEnvAllocationLock);
+  qword_140C48E98 = (__int64)a1;
+  KxReleaseSpinLock(&ExtEnvAllocationLock);
+  result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v2 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-      v7 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v7 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v2 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+        v7 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v7 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v2);

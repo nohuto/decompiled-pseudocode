@@ -1,55 +1,50 @@
 /*
- * XREFs of ?ProcessTerminated@OUTPUTDUPL_SESSION_MGR@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C01A946C
+ * XREFs of ?ProcessTerminated@OUTPUTDUPL_SESSION_MGR@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C01234B0
  * Callers:
- *     OutputDuplProcessTerminateForSession @ 0x1C01A93A4 (OutputDuplProcessTerminateForSession.c)
+ *     OutputDuplProcessTerminate @ 0x1C00EA678 (OutputDuplProcessTerminate.c)
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C0123534 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008468 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000AFB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000B020 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0003548 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00038F0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008610 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
  */
 
-void __fastcall OUTPUTDUPL_SESSION_MGR::ProcessTerminated(OUTPUTDUPL_SESSION_MGR *this, struct _EPROCESS *a2)
+void __fastcall OUTPUTDUPL_SESSION_MGR::ProcessTerminated(struct DXGFASTMUTEX *const *this, struct _EPROCESS *a2)
 {
-  __int64 *v4; // rax
-  unsigned int v5; // edx
+  __int64 v4; // rdx
+  unsigned int v5; // r8d
   __int64 v6; // rdi
   unsigned int v7; // eax
   struct _EPROCESS **v8; // rcx
   __int64 v9; // rbx
-  DXGFASTMUTEX *v10; // [rsp+50h] [rbp-18h] BYREF
-  char v11; // [rsp+58h] [rbp-10h]
+  __int64 v10; // rax
+  _BYTE v11[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)&v10, (OUTPUTDUPL_SESSION_MGR *)((char *)this + 8), 0);
-  if ( v11 )
-    WdLogSingleEntry5(0LL, 275LL, 4LL, &v10, 0LL, 0LL);
-  DXGFASTMUTEX::Acquire(v10);
-  v4 = (__int64 *)*((_QWORD *)this + 7);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v11, this[1], 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v11);
   v5 = *((_DWORD *)this + 1);
-  v11 = 1;
-  v6 = *v4;
+  v6 = **((_QWORD **)this + 2);
   v7 = 0;
-  if ( !v5 )
-    goto LABEL_7;
-  v8 = (struct _EPROCESS **)(v6 + 8);
-  while ( a2 != *v8 )
+  if ( v5 )
   {
-    ++v7;
-    v8 += 4;
-    if ( v7 >= v5 )
-      goto LABEL_7;
+    v8 = (struct _EPROCESS **)(v6 + 8);
+    while ( a2 != *v8 )
+    {
+      ++v7;
+      v8 += 4;
+      if ( v7 >= v5 )
+        goto LABEL_5;
+    }
+    v9 = 32LL * v7;
+    if ( *(_DWORD *)(v9 + v6) )
+    {
+      v10 = WdLogNewEntry5_WdAssertion(v8, v4);
+      *(_QWORD *)(v10 + 24) = 4356LL;
+      WdLogEvent5_WdAssertion(v10);
+    }
+    *(_QWORD *)(v9 + v6 + 8) = 0LL;
   }
-  v9 = 32LL * v7;
-  if ( *(_DWORD *)(v9 + v6) )
-  {
-    WdLogSingleEntry1(1LL, 4324LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pProcesses[i].RefCount == 0", 4324LL, 0LL, 0LL, 0LL, 0LL);
-  }
-  *(_QWORD *)(v9 + v6 + 8) = 0LL;
-  if ( v11 )
-  {
-LABEL_7:
-    v11 = 0;
-    DXGFASTMUTEX::Release((struct _KTHREAD **)v10);
-  }
+LABEL_5:
+  if ( v11[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v11, v4);
 }

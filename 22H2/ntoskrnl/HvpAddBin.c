@@ -1,383 +1,374 @@
 /*
- * XREFs of HvpAddBin @ 0x14074F684
+ * XREFs of HvpAddBin @ 0x140721E28
  * Callers:
- *     HvpDoAllocateCell @ 0x14070A4F0 (HvpDoAllocateCell.c)
+ *     HvpDoAllocateCell @ 0x1406564F8 (HvpDoAllocateCell.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140293450 (RtlNumberOfSetBits.c)
- *     HvpGrowDirtyVectors @ 0x1402F5B28 (HvpGrowDirtyVectors.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     HvpViewMapExtendStorage @ 0x140687A54 (HvpViewMapExtendStorage.c)
- *     CmpClaimGlobalQuota @ 0x14070304C (CmpClaimGlobalQuota.c)
- *     CmpReleaseGlobalQuota @ 0x1407099D8 (CmpReleaseGlobalQuota.c)
- *     HvpSetRangeProtection @ 0x140709A04 (HvpSetRangeProtection.c)
- *     HvpProtectBinPartial @ 0x14070B090 (HvpProtectBinPartial.c)
- *     HvpViewMapCOWAndUnsealRange @ 0x14070B20C (HvpViewMapCOWAndUnsealRange.c)
- *     HvpMarkDirty @ 0x140747620 (HvpMarkDirty.c)
- *     CmpDoFileSetSizeEx @ 0x14074D908 (CmpDoFileSetSizeEx.c)
- *     CmpUpdateSystemHiveHysteresis @ 0x14074DA48 (CmpUpdateSystemHiveHysteresis.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x14074FF80 (HvpViewMapPromoteRangeToMapping.c)
- *     HvpPointMapEntriesToBuffer @ 0x1407502DC (HvpPointMapEntriesToBuffer.c)
- *     HvpAdjustHiveFreeDisplay @ 0x1407503A4 (HvpAdjustHiveFreeDisplay.c)
- *     HvpExpandMap @ 0x140750518 (HvpExpandMap.c)
- *     CmpCanGrowHive @ 0x140750668 (CmpCanGrowHive.c)
- *     HvpAllocateBin @ 0x1407506DC (HvpAllocateBin.c)
- *     HvpFreeBin @ 0x1407E9ED8 (HvpFreeBin.c)
- *     HvpViewMapShrinkStorage @ 0x140A1D3A8 (HvpViewMapShrinkStorage.c)
- *     HvpShrinkMap @ 0x140A25BA4 (HvpShrinkMap.c)
- *     HvpGetCellMap @ 0x140AF6280 (HvpGetCellMap.c)
+ *     RtlNumberOfSetBits @ 0x140253090 (RtlNumberOfSetBits.c)
+ *     HvpGrowDirtyVectors @ 0x1403631BC (HvpGrowDirtyVectors.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HvpMarkDirty @ 0x140655BF0 (HvpMarkDirty.c)
+ *     HvpGetCellMap @ 0x140655DC0 (HvpGetCellMap.c)
+ *     CmpReleaseGlobalQuota @ 0x1406574DC (CmpReleaseGlobalQuota.c)
+ *     HvpSetRangeProtection @ 0x140657508 (HvpSetRangeProtection.c)
+ *     CmpClaimGlobalQuota @ 0x140720214 (CmpClaimGlobalQuota.c)
+ *     HvpPointMapEntriesToBuffer @ 0x14072242C (HvpPointMapEntriesToBuffer.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x1407224EC (HvpAdjustHiveFreeDisplay.c)
+ *     HvpExpandMap @ 0x140722660 (HvpExpandMap.c)
+ *     CmpCanGrowHive @ 0x1407227C4 (CmpCanGrowHive.c)
+ *     HvpViewMapCOWAndUnsealRange @ 0x140723150 (HvpViewMapCOWAndUnsealRange.c)
+ *     CmpUpdateSystemHiveHysteresis @ 0x140723D00 (CmpUpdateSystemHiveHysteresis.c)
+ *     HvpProtectBin @ 0x140723D50 (HvpProtectBin.c)
+ *     HvpAllocateBin @ 0x140723D8C (HvpAllocateBin.c)
+ *     CmpDoFileSetSizeEx @ 0x140723DD0 (CmpDoFileSetSizeEx.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x140723F20 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapExtendStorage @ 0x14072425C (HvpViewMapExtendStorage.c)
+ *     HvpFreeBin @ 0x140724FA0 (HvpFreeBin.c)
+ *     HvpViewMapShrinkStorage @ 0x140873678 (HvpViewMapShrinkStorage.c)
+ *     HvpShrinkMap @ 0x140880BB0 (HvpShrinkMap.c)
  */
 
-__int64 __fastcall HvpAddBin(ULONG_PTR BugCheckParameter2, unsigned int a2, unsigned int a3, unsigned int *a4)
+__int64 __fastcall HvpAddBin(ULONG_PTR BugCheckParameter2, unsigned int a2, int a3)
 {
-  __int64 v4; // rsi
-  __int64 v5; // r8
-  unsigned int v6; // edi
+  __int64 v3; // rdi
+  int v4; // r13d
+  unsigned int v5; // ebx
+  unsigned int v7; // r15d
+  __int64 v8; // r8
   ULONG_PTR v9; // r12
-  unsigned int *v10; // rdx
-  __int64 *i; // rbx
-  unsigned int v12; // r15d
-  unsigned int v13; // r15d
-  unsigned int v14; // r12d
-  unsigned int v15; // r13d
-  int Bin; // esi
-  unsigned int *v17; // rbx
-  __int64 v18; // rdx
-  unsigned int v19; // eax
-  char v20; // bl
-  __int64 v21; // r8
-  int v22; // eax
-  _DWORD *v23; // rsi
-  void *v24; // rcx
-  int v25; // eax
-  char v26; // cl
-  unsigned int v28; // ebx
-  signed __int64 v29; // rax
-  __int64 *v30; // rax
-  __int64 **v31; // rcx
-  __int64 v32; // r8
-  unsigned int j; // edi
+  __int64 *i; // r14
+  unsigned int v11; // r15d
+  unsigned int v12; // r12d
+  unsigned int v13; // r13d
+  __int64 v14; // rdx
+  int v15; // eax
+  __int64 v16; // rax
+  signed __int64 v17; // rax
+  char v18; // cl
+  __int64 v19; // rcx
+  __int64 v20; // r9
+  int v21; // eax
+  _DWORD *v22; // rcx
+  void *v23; // rdx
+  int v24; // eax
+  char v25; // dl
+  unsigned int v27; // edx
+  __int64 *v28; // rax
+  __int64 **v29; // rcx
+  int v30; // edi
+  __int64 v31; // r8
   __int64 CellMap; // rax
-  unsigned int v35; // r8d
-  unsigned int v36; // r11d
-  _QWORD *v37; // r10
-  __int64 v38; // rax
-  int v39; // eax
-  _DWORD *v40; // rcx
-  __int64 v41; // rax
-  __int64 *v42; // rax
+  unsigned int v33; // r8d
+  unsigned int v34; // r11d
+  _QWORD *v35; // r10
+  __int64 v36; // rax
+  int v37; // eax
+  _DWORD *v38; // rdx
+  __int64 v39; // rax
+  __int64 *v40; // rax
+  __int64 v41; // rcx
+  __int64 v42; // rdx
   __int64 v43; // rcx
-  __int64 v44; // rdx
-  __int64 v45; // r8
-  __int64 *v46; // rax
-  int v47; // ebx
-  ULONG v48; // eax
-  __int64 v49; // rax
-  char v50; // [rsp+30h] [rbp-48h]
-  char v51; // [rsp+31h] [rbp-47h]
-  char v52; // [rsp+32h] [rbp-46h]
-  unsigned int Size; // [rsp+34h] [rbp-44h]
-  unsigned int *Size_4; // [rsp+38h] [rbp-40h]
-  unsigned int v55; // [rsp+40h] [rbp-38h]
-  void *v56; // [rsp+48h] [rbp-30h] BYREF
-  void *v57; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v58; // [rsp+58h] [rbp-20h]
-  __int64 *v59; // [rsp+60h] [rbp-18h]
-  char v60; // [rsp+C0h] [rbp+48h]
-  char v61; // [rsp+C8h] [rbp+50h]
-  int v63; // [rsp+D0h] [rbp+58h]
+  __int64 v44; // r9
+  int v45; // ebx
+  ULONG v46; // eax
+  __int64 v47; // rax
+  __int64 *v48; // rax
+  char v49; // [rsp+30h] [rbp-48h]
+  unsigned int j; // [rsp+34h] [rbp-44h]
+  size_t Size; // [rsp+38h] [rbp-40h]
+  void *v52; // [rsp+40h] [rbp-38h] BYREF
+  void *v53; // [rsp+48h] [rbp-30h] BYREF
+  __int64 v54; // [rsp+50h] [rbp-28h]
+  __int64 v55; // [rsp+58h] [rbp-20h]
+  __int64 *v56; // [rsp+60h] [rbp-18h]
+  char v57; // [rsp+C0h] [rbp+48h]
+  char v58; // [rsp+C8h] [rbp+50h]
+  char v59; // [rsp+D0h] [rbp+58h]
+  char v60; // [rsp+D8h] [rbp+60h]
 
-  v4 = (int)a3;
-  v5 = 0LL;
-  v6 = (a2 + 4127) & 0xFFFFF000;
-  Size = 0;
-  v52 = 0;
-  v56 = 0LL;
-  v58 = 0LL;
-  v57 = 0LL;
-  v60 = 0;
-  v55 = 0;
-  v61 = 0;
-  if ( v6 <= 0x3000 && v6 - (unsigned __int64)a2 - 32 < 0xE00 )
-    v6 += 4096;
-  v9 = 632 * v4 + BugCheckParameter2 + 888;
-  v10 = (unsigned int *)(632 * v4 + BugCheckParameter2 + 280);
-  v59 = (__int64 *)v9;
-  Size_4 = v10;
-  for ( i = *(__int64 **)v9; i != (__int64 *)v9; i = (__int64 *)*i )
+  v3 = a3;
+  v4 = -1;
+  Size = 0LL;
+  j = -1;
+  v5 = (a2 + 4127) & 0xFFFFF000;
+  v49 = 0;
+  v52 = 0LL;
+  v54 = 0LL;
+  v7 = 0;
+  v53 = 0LL;
+  v59 = 0;
+  v58 = 0;
+  if ( v5 <= 0x3000 && v5 - (unsigned __int64)a2 - 32 < 0xE00 )
+    v5 += 4096;
+  v8 = 632LL * a3;
+  v9 = 632 * v3 + BugCheckParameter2 + 880;
+  v55 = 632 * v3;
+  v56 = (__int64 *)v9;
+  for ( i = *(__int64 **)v9; ; i = (__int64 *)*i )
   {
-    v12 = *((_DWORD *)i + 4);
-    if ( v12 >= v6 && v12 + *((_DWORD *)i + 5) <= *v10 )
+    if ( i == (__int64 *)v9 )
     {
-      if ( !i )
-        goto LABEL_11;
-      v30 = (__int64 *)*i;
-      if ( *(__int64 **)(*i + 8) == i )
-      {
-        v31 = (__int64 **)i[1];
-        if ( *v31 == i )
-        {
-          *v31 = v30;
-          v30[1] = (__int64)v31;
-          v63 = (_DWORD)v4 << 31;
-          Bin = HvpMarkDirty(BugCheckParameter2, ((_DWORD)v4 << 31) + *((_DWORD *)i + 5), *((_DWORD *)i + 4), 0);
-          if ( Bin >= 0 )
-          {
-            v32 = 0LL;
-            for ( j = *((_DWORD *)i + 5) + v63; (unsigned int)v32 < v12; *v37 = v38 )
-            {
-              CellMap = HvpGetCellMap(BugCheckParameter2, (unsigned int)v32 + j);
-              v37 = (_QWORD *)CellMap;
-              if ( !CellMap )
-                KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v36, 0x391uLL);
-              *(_QWORD *)(CellMap + 8) &= ~2uLL;
-              v38 = v35;
-              v32 = v35 + 4096;
-            }
-            (*(void (__fastcall **)(__int64 *, __int64, __int64))(BugCheckParameter2 + 32))(i, 24LL, v32);
-            *a4 = j;
-            return 0;
-          }
-          v46 = *(__int64 **)v9;
-          if ( *(_QWORD *)(*(_QWORD *)v9 + 8LL) == v9 )
-          {
-            *i = (__int64)v46;
-            i[1] = v9;
-            v46[1] = (__int64)i;
-            *(_QWORD *)v9 = i;
-            return (unsigned int)Bin;
-          }
-        }
-      }
-LABEL_79:
-      __fastfail(3u);
+      i = 0LL;
+      goto LABEL_7;
     }
+    v27 = *((_DWORD *)i + 4);
+    if ( v27 >= v5 && v27 + *((_DWORD *)i + 5) <= *(_DWORD *)(v8 + BugCheckParameter2 + 272) )
+      break;
   }
-  Size_4 = (unsigned int *)(632 * v4 + BugCheckParameter2 + 280);
-LABEL_11:
-  v13 = *v10;
-  v14 = *v10;
-  v15 = *v10 + v6;
-  if ( !(_DWORD)v4 && v6 <= 0x40000 && (((v13 + 4096) ^ (v15 + 4095)) & 0xFFFC0000) != 0 )
+  v7 = *((_DWORD *)i + 4);
+LABEL_7:
+  if ( i )
   {
-    v14 = ((v13 + 266239) & 0xFFFC0000) - 4096;
-    v5 = v14 - v13;
-    Size = v14 - v13;
-    v15 = v14 + v6;
+    v28 = (__int64 *)*i;
+    if ( *(__int64 **)(*i + 8) != i )
+      goto LABEL_93;
+    v29 = (__int64 **)i[1];
+    if ( *v29 != i )
+      goto LABEL_93;
+    *v29 = v28;
+    v28[1] = (__int64)v29;
+    v30 = (_DWORD)v3 << 31;
+    if ( HvpMarkDirty(BugCheckParameter2, v30 + *((_DWORD *)i + 5), *((_DWORD *)i + 4), 0) )
+    {
+      v31 = 0LL;
+      v4 = v30 + *((_DWORD *)i + 5);
+      for ( j = v4; (unsigned int)v31 < v7; *v35 = v36 )
+      {
+        CellMap = HvpGetCellMap(BugCheckParameter2, (int)v31 + v4);
+        v35 = (_QWORD *)CellMap;
+        if ( !CellMap )
+          KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v34, 0x267uLL);
+        *(_QWORD *)(CellMap + 8) &= ~2uLL;
+        v36 = v33;
+        v31 = v33 + 4096;
+      }
+    }
+LABEL_55:
+    if ( !i )
+      return j;
+    if ( v4 != -1 )
+    {
+      (*(void (__fastcall **)(__int64 *, __int64, __int64))(BugCheckParameter2 + 32))(i, 24LL, v31);
+      return j;
+    }
+    v48 = *(__int64 **)v9;
+    if ( *(_QWORD *)(*(_QWORD *)v9 + 8LL) == v9 )
+    {
+      *i = (__int64)v48;
+      i[1] = v9;
+      v48[1] = (__int64)i;
+      *(_QWORD *)v9 = i;
+      return j;
+    }
+LABEL_93:
+    __fastfail(3u);
   }
-  if ( v15 < v13 || !(unsigned __int8)CmpCanGrowHive(BugCheckParameter2, v15, v5, 4096LL) )
-    return (unsigned int)-1073741670;
-  Bin = HvpExpandMap(BugCheckParameter2, (unsigned int)v4, v13, v15);
-  if ( Bin >= 0 )
+  v11 = *(_DWORD *)(v8 + BugCheckParameter2 + 272);
+  v12 = v11;
+  v13 = v11 + v5;
+  if ( !(_DWORD)v3 && v5 <= 0x40000 && (((v11 + 4096) ^ (v13 + 4095)) & 0xFFFC0000) != 0 )
   {
-    v17 = Size_4;
-    *Size_4 = v15;
-    Bin = HvpAdjustHiveFreeDisplay(BugCheckParameter2, v15, a3);
-    if ( Bin < 0 )
-    {
-LABEL_81:
-      HvpShrinkMap(BugCheckParameter2, a3, v15, v13);
-      *v17 = v13;
-      if ( v52 )
-      {
-        *(_QWORD *)(BugCheckParameter2 + 96) = *(_QWORD *)(BugCheckParameter2 + 96);
-        *(_DWORD *)(BugCheckParameter2 + 88) = v13 >> 9;
-        v47 = *(_DWORD *)(BugCheckParameter2 + 104);
-        v48 = RtlNumberOfSetBits((PRTL_BITMAP)(BugCheckParameter2 + 88));
-        *(_DWORD *)(BugCheckParameter2 + 104) = v48;
-        _InterlockedExchangeAdd(&CmpDirtySectorCount, v48 - v47);
-        v49 = *(_QWORD *)(BugCheckParameter2 + 120);
-        *(_DWORD *)(BugCheckParameter2 + 112) = v13 >> 9;
-        *(_QWORD *)(BugCheckParameter2 + 120) = v49;
-        *(_DWORD *)(BugCheckParameter2 + 128) = RtlNumberOfSetBits((PRTL_BITMAP)(BugCheckParameter2 + 112));
-      }
-      if ( v61 )
-        HvpViewMapShrinkStorage(BugCheckParameter2 + 224, v13);
-      if ( v56 && !v60 )
-        HvpFreeBin(BugCheckParameter2, v14 - v13, v56);
-      if ( v58 )
-        (*(void (__fastcall **)(__int64, __int64))(BugCheckParameter2 + 32))(v58, 24LL);
-      if ( v57 && !v60 )
-        HvpFreeBin(BugCheckParameter2, v15 - v14, v57);
-      if ( v55 )
-        CmpReleaseGlobalQuota(v55);
-      return (unsigned int)Bin;
-    }
-    v19 = a3;
-    v50 = 1;
-    v51 = 1;
-    if ( a3 )
-    {
-      v20 = 0;
-      goto LABEL_18;
-    }
-    if ( (*(_DWORD *)(BugCheckParameter2 + 160) & 1) == 0 )
-    {
-      Bin = HvpGrowDirtyVectors(BugCheckParameter2, v15);
-      if ( Bin < 0 )
-        goto LABEL_80;
-      v52 = 1;
-    }
-    if ( (*(_DWORD *)(BugCheckParameter2 + 160) & 0x8001) == 0 )
-    {
-      Bin = CmpDoFileSetSizeEx(BugCheckParameter2, 0, v15 + 4096, 1);
-      if ( Bin < 0 )
-        goto LABEL_80;
-      if ( (*(_DWORD *)(BugCheckParameter2 + 4112) & 0x800) != 0 && !*(_DWORD *)(BugCheckParameter2 + 4228) )
-        *(_DWORD *)(BugCheckParameter2 + 4228) = v13;
-    }
-    v50 = 1;
-    v51 = 1;
-    if ( (*(_DWORD *)(BugCheckParameter2 + 160) & 0x20000) == 0 )
-      goto LABEL_39;
-    v18 = 2147479552LL;
-    if ( (*(_DWORD *)(BugCheckParameter2 + 256) & 1) == 0
-      || (v29 = *(_QWORD *)(BugCheckParameter2 + 240) & 0xFFFFFFFFFFFFF000uLL, v29 >= 2147479552) )
-    {
-      LODWORD(v29) = 2147479552;
-    }
-    v50 = 1;
-    v51 = 1;
-    if ( v15 > (int)v29 - 4096 )
-    {
-LABEL_39:
-      v20 = 0;
-LABEL_40:
-      v19 = 0;
-LABEL_18:
-      if ( Size )
-      {
-        if ( v20 )
-        {
-          if ( !CmpClaimGlobalQuota(Size, v18) )
-            goto LABEL_78;
-          v55 = Size;
-          v61 = v20;
-          Bin = HvpViewMapPromoteRangeToMapping(BugCheckParameter2 + 224, v13, Size, &v56);
-          if ( Bin < 0 )
-            goto LABEL_72;
-          v39 = HvpViewMapCOWAndUnsealRange(BugCheckParameter2 + 224, v13, Size);
-        }
-        else
-        {
-          v61 = 0;
-          Bin = HvpAllocateBin(BugCheckParameter2, Size, v19, 808602947, (__int64)&v56);
-          if ( Bin < 0 )
-            goto LABEL_72;
-          v39 = HvpProtectBinPartial(BugCheckParameter2, (__int64)v56, v45, 0, Size, 1);
-        }
-        v61 = v20;
-        Bin = v39;
-        if ( v39 < 0 )
-          goto LABEL_72;
-        memset(v56, 0, Size);
-        v40 = v56;
-        *((_DWORD *)v56 + 7) = 0;
-        v40[1] = v13 & 0x7FFFFFFF;
-        v40[8] = Size - 32;
-        *v40 = 1852400232;
-        v40[2] = Size;
-        v41 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64))(BugCheckParameter2 + 24))(24LL, 0LL, 825380163LL);
-        v58 = v41;
-        if ( !v41 )
-        {
-LABEL_78:
-          Bin = -1073741670;
-          v61 = v20;
-          goto LABEL_72;
-        }
-        *(_DWORD *)(v41 + 16) = Size;
-        *(_DWORD *)(v41 + 20) = v13;
-      }
-      if ( !v20 )
-      {
-        v61 = 0;
-        Bin = HvpAllocateBin(BugCheckParameter2, v6, a3, 909200707, (__int64)&v57);
-        if ( Bin >= 0 )
-        {
-          v22 = HvpProtectBinPartial(BugCheckParameter2, (__int64)v57, v21, 0, v6, 1);
-          goto LABEL_22;
-        }
-        goto LABEL_72;
-      }
-      if ( CmpClaimGlobalQuota(v6, v18) )
-      {
-        v55 += v6;
-        v61 = v20;
-        Bin = HvpViewMapPromoteRangeToMapping(BugCheckParameter2 + 224, v14, v6, &v57);
-        if ( Bin >= 0 )
-        {
-          v22 = HvpViewMapCOWAndUnsealRange(BugCheckParameter2 + 224, v14, v6);
-LABEL_22:
-          v61 = v20;
-          Bin = v22;
-          if ( v22 >= 0 )
-          {
-            v23 = v57;
-            memset(v57, 0, v6);
-            v23[7] = 0;
-            v24 = v56;
-            v23[1] = v14 & 0x7FFFFFFF;
-            v23[8] = v6 - 32;
-            v25 = a3 << 31;
-            *v23 = 1852400232;
-            v23[2] = v6;
-            if ( v24 )
-            {
-              HvpPointMapEntriesToBuffer(BugCheckParameter2, v50, v58);
-              v42 = v59;
-              v43 = *v59;
-              if ( *(__int64 **)(*v59 + 8) != v59 )
-                goto LABEL_79;
-              v44 = v58;
-              *(_QWORD *)v58 = v43;
-              *(_QWORD *)(v44 + 8) = v42;
-              *(_QWORD *)(v43 + 8) = v44;
-              v26 = v50;
-              *v42 = v44;
-              v25 = a3 << 31;
-            }
-            else
-            {
-              v26 = v51;
-            }
-            v14 += v25;
-            HvpPointMapEntriesToBuffer(BugCheckParameter2, v26, 0LL);
-            if ( a3 )
-            {
-LABEL_26:
-              *a4 = v14;
-              return 0;
-            }
-            v28 = v15 - v13;
-            if ( (*(_DWORD *)(BugCheckParameter2 + 160) & 1) != 0
-              || (Bin = HvpMarkDirty(BugCheckParameter2, v13, v28, 0), v61 = v60, Bin >= 0) )
-            {
-              CmpUpdateSystemHiveHysteresis(BugCheckParameter2, v15, v13);
-              HvpSetRangeProtection(BugCheckParameter2, v13, v28, 4);
-              goto LABEL_26;
-            }
-          }
-        }
-LABEL_72:
-        v17 = Size_4;
-        goto LABEL_80;
-      }
-      goto LABEL_78;
-    }
-    Bin = HvpViewMapExtendStorage((__int64 *)(BugCheckParameter2 + 224), v15);
-    if ( Bin >= 0 )
-    {
-      v20 = 1;
-      v50 = 0;
-      v60 = 1;
-      v51 = 0;
-      goto LABEL_40;
-    }
-LABEL_80:
-    HvpAdjustHiveFreeDisplay(BugCheckParameter2, v13, a3);
-    goto LABEL_81;
+    v12 = ((v11 + 266239) & 0xFFFC0000) - 4096;
+    LODWORD(Size) = v12 - v11;
+    v13 = v12 + v5;
   }
-  return (unsigned int)Bin;
+  if ( v13 < v11
+    || !(unsigned __int8)CmpCanGrowHive(BugCheckParameter2, v13)
+    || (int)HvpExpandMap(BugCheckParameter2, (unsigned int)v3, v11, v13) < 0 )
+  {
+    return j;
+  }
+  *(_DWORD *)(v55 + BugCheckParameter2 + 272) = v13;
+  if ( (int)HvpAdjustHiveFreeDisplay(BugCheckParameter2, v13, (unsigned int)v3) < 0 )
+  {
+LABEL_77:
+    HvpShrinkMap(BugCheckParameter2, (unsigned int)v3, v13, v11);
+    *(_DWORD *)(v55 + BugCheckParameter2 + 272) = v11;
+    if ( v49 )
+    {
+      *(_QWORD *)(BugCheckParameter2 + 96) = *(_QWORD *)(BugCheckParameter2 + 96);
+      *(_DWORD *)(BugCheckParameter2 + 88) = v11 >> 9;
+      v45 = *(_DWORD *)(BugCheckParameter2 + 104);
+      v46 = RtlNumberOfSetBits((PRTL_BITMAP)(BugCheckParameter2 + 88));
+      *(_DWORD *)(BugCheckParameter2 + 104) = v46;
+      _InterlockedExchangeAdd(&CmpDirtySectorCount, v46 - v45);
+      v47 = *(_QWORD *)(BugCheckParameter2 + 120);
+      *(_DWORD *)(BugCheckParameter2 + 112) = v11 >> 9;
+      *(_QWORD *)(BugCheckParameter2 + 120) = v47;
+      *(_DWORD *)(BugCheckParameter2 + 128) = RtlNumberOfSetBits((PRTL_BITMAP)(BugCheckParameter2 + 112));
+    }
+    if ( v58 )
+      HvpViewMapShrinkStorage(BugCheckParameter2 + 216, v11);
+    if ( v52 && !v59 )
+      HvpFreeBin(BugCheckParameter2, v12 - v11, v52);
+    if ( v54 )
+      (*(void (__fastcall **)(__int64, __int64))(BugCheckParameter2 + 32))(v54, 24LL);
+    if ( v53 && !v59 )
+      HvpFreeBin(BugCheckParameter2, v13 - v12, v53);
+    if ( !HIDWORD(Size) )
+      return j;
+    CmpReleaseGlobalQuota(HIDWORD(Size));
+    v9 = (ULONG_PTR)v56;
+    v4 = -1;
+    goto LABEL_55;
+  }
+  v57 = 1;
+  v60 = 1;
+  if ( (_DWORD)v3 )
+    goto LABEL_31;
+  v15 = *(_DWORD *)(BugCheckParameter2 + 160);
+  if ( (v15 & 1) == 0 )
+  {
+    if ( (int)HvpGrowDirtyVectors(BugCheckParameter2, v13) < 0 )
+      goto LABEL_76;
+    v15 = *(_DWORD *)(BugCheckParameter2 + 160);
+    v49 = 1;
+  }
+  if ( (v15 & 0x8001) == 0 )
+  {
+    if ( (int)CmpDoFileSetSizeEx(BugCheckParameter2, 0LL, v13 + 4096, 1LL) < 0 )
+      goto LABEL_76;
+    if ( (*(_DWORD *)(BugCheckParameter2 + 4152) & 0x800) != 0 && !*(_DWORD *)(BugCheckParameter2 + 4268) )
+      *(_DWORD *)(BugCheckParameter2 + 4268) = v11;
+  }
+  v57 = 1;
+  v60 = 1;
+  if ( (*(_DWORD *)(BugCheckParameter2 + 160) & 0x20000) == 0 )
+    goto LABEL_31;
+  if ( (*(_DWORD *)(BugCheckParameter2 + 248) & 1) != 0 )
+    v16 = *(_QWORD *)(BugCheckParameter2 + 232);
+  else
+    v16 = 0x7FFFFFFFFFFFFFFFLL;
+  v17 = v16 & 0xFFFFFFFFFFFFF000uLL;
+  v57 = 1;
+  v14 = 2147479552LL;
+  v60 = 1;
+  if ( v17 >= 2147479552 )
+    LODWORD(v17) = 2147479552;
+  if ( v13 > (int)v17 - 4096 )
+  {
+LABEL_31:
+    v18 = 0;
+  }
+  else
+  {
+    if ( (int)HvpViewMapExtendStorage(BugCheckParameter2 + 216, v13) < 0 )
+      goto LABEL_76;
+    v18 = 1;
+    v57 = 0;
+    v59 = 1;
+    v60 = 0;
+  }
+  if ( (_DWORD)Size )
+  {
+    if ( v18 )
+    {
+      v58 = v18;
+      if ( !CmpClaimGlobalQuota((unsigned int)Size, v14) )
+        goto LABEL_76;
+      v58 = v59;
+      HIDWORD(Size) = Size;
+      if ( (int)HvpViewMapPromoteRangeToMapping(BugCheckParameter2 + 216, v11, (unsigned int)Size, &v52) < 0 )
+        goto LABEL_76;
+      v58 = v59;
+      v37 = HvpViewMapCOWAndUnsealRange(BugCheckParameter2 + 216, v11, (unsigned int)Size);
+    }
+    else
+    {
+      v58 = 0;
+      if ( (int)HvpAllocateBin(BugCheckParameter2, Size, v3, 808602947, (__int64)&v52) < 0 )
+        goto LABEL_76;
+      LOBYTE(v44) = 1;
+      v58 = 0;
+      v37 = HvpProtectBin(v43, (unsigned int)Size, v52, v44);
+    }
+    if ( v37 < 0 )
+      goto LABEL_76;
+    memset(v52, 0, (unsigned int)Size);
+    v38 = v52;
+    *((_DWORD *)v52 + 7) = 0;
+    v38[1] = v11 & 0x7FFFFFFF;
+    v38[2] = Size;
+    v38[8] = Size - 32;
+    *v38 = 1852400232;
+    v39 = (*(__int64 (__fastcall **)(__int64, _QWORD, __int64))(BugCheckParameter2 + 24))(24LL, 0LL, 825380163LL);
+    v18 = v59;
+    v14 = v39;
+    v58 = v59;
+    v54 = v39;
+    if ( !v39 )
+      goto LABEL_76;
+    *(_DWORD *)(v39 + 16) = Size;
+    *(_DWORD *)(v39 + 20) = v11;
+  }
+  if ( !v18 )
+  {
+    v58 = 0;
+    if ( (int)HvpAllocateBin(BugCheckParameter2, v5, v3, 909200707, (__int64)&v53) >= 0 )
+    {
+      LOBYTE(v20) = 1;
+      v58 = 0;
+      v21 = HvpProtectBin(v19, v5, v53, v20);
+      goto LABEL_36;
+    }
+LABEL_76:
+    HvpAdjustHiveFreeDisplay(BugCheckParameter2, v11, (unsigned int)v3);
+    goto LABEL_77;
+  }
+  v58 = v18;
+  if ( !CmpClaimGlobalQuota(v5, v14) )
+    goto LABEL_76;
+  HIDWORD(Size) += v5;
+  v58 = v59;
+  if ( (int)HvpViewMapPromoteRangeToMapping(BugCheckParameter2 + 216, v12, v5, &v53) < 0 )
+    goto LABEL_76;
+  v58 = v59;
+  v21 = HvpViewMapCOWAndUnsealRange(BugCheckParameter2 + 216, v12, v5);
+LABEL_36:
+  if ( v21 < 0 )
+    goto LABEL_76;
+  memset(v53, 0, v5);
+  v22 = v53;
+  v23 = v52;
+  *((_DWORD *)v53 + 7) = 0;
+  v22[1] = v12 & 0x7FFFFFFF;
+  v22[8] = v5 - 32;
+  v24 = (_DWORD)v3 << 31;
+  *v22 = 1852400232;
+  v22[2] = v5;
+  if ( v23 )
+  {
+    HvpPointMapEntriesToBuffer(BugCheckParameter2, v57, v54);
+    v40 = v56;
+    v41 = *v56;
+    if ( *(__int64 **)(*v56 + 8) != v56 )
+      goto LABEL_93;
+    v42 = v54;
+    *(_QWORD *)v54 = v41;
+    *(_QWORD *)(v42 + 8) = v40;
+    *(_QWORD *)(v41 + 8) = v42;
+    *v40 = v42;
+    v24 = (_DWORD)v3 << 31;
+    v25 = v57;
+  }
+  else
+  {
+    v25 = v60;
+  }
+  v12 += v24;
+  HvpPointMapEntriesToBuffer(BugCheckParameter2, v25, 0LL);
+  if ( !(_DWORD)v3 )
+  {
+    if ( (*(_DWORD *)(BugCheckParameter2 + 160) & 1) != 0
+      || (v58 = v59, HvpMarkDirty(BugCheckParameter2, v11, v13 - v11, 0)) )
+    {
+      CmpUpdateSystemHiveHysteresis(BugCheckParameter2, v13, v11);
+      HvpSetRangeProtection(BugCheckParameter2, v11, v13 - v11, 4u);
+      return v12;
+    }
+    goto LABEL_76;
+  }
+  return v12;
 }

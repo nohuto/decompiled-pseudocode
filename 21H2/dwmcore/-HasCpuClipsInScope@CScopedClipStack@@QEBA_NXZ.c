@@ -1,8 +1,8 @@
 /*
- * XREFs of ?HasCpuClipsInScope@CScopedClipStack@@QEBA_NXZ @ 0x18008B2AC
+ * XREFs of ?HasCpuClipsInScope@CScopedClipStack@@QEBA_NXZ @ 0x18006BA60
  * Callers:
- *     ?HasAnyWorldAxisAlignedRectangleCpuClipsInScope@CScopedClipStack@@QEBA_NXZ @ 0x18008B268 (-HasAnyWorldAxisAlignedRectangleCpuClipsInScope@CScopedClipStack@@QEBA_NXZ.c)
- *     ?PopCpuClipFromScope@CScopedClipStack@@QEAAXPEA_N@Z @ 0x1801B78E0 (-PopCpuClipFromScope@CScopedClipStack@@QEAAXPEA_N@Z.c)
+ *     ?GetTopGpuClipInScope@CScopedClipStack@@QEBAX_NPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800E02C4 (-GetTopGpuClipInScope@CScopedClipStack@@QEBAX_NPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
+ *     ?HasAnyWorldAxisAlignedRectangleCpuClipsInScope@CScopedClipStack@@QEBA_NXZ @ 0x18018ED68 (-HasAnyWorldAxisAlignedRectangleCpuClipsInScope@CScopedClipStack@@QEBA_NXZ.c)
  * Callees:
  *     <none>
  */
@@ -15,6 +15,6 @@ bool __fastcall CScopedClipStack::HasCpuClipsInScope(CScopedClipStack *this)
   v1 = *((_DWORD *)this + 6);
   v2 = 0;
   if ( v1 )
-    return *(_DWORD *)(88LL * (unsigned int)(v1 - 1) + *(_QWORD *)this + 4) != 0;
+    return *(_DWORD *)(84LL * (unsigned int)(v1 - 1) + *(_QWORD *)this + 4) != 0;
   return v2;
 }

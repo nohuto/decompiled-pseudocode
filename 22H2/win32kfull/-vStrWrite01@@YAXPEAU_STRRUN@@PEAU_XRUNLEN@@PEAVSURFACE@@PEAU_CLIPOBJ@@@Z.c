@@ -1,491 +1,336 @@
 /*
- * XREFs of ?vStrWrite01@@YAXPEAU_STRRUN@@PEAU_XRUNLEN@@PEAVSURFACE@@PEAU_CLIPOBJ@@@Z @ 0x1C0053D40
+ * XREFs of ?vStrWrite01@@YAXPEAU_STRRUN@@PEAU_XRUNLEN@@PEAVSURFACE@@PEAU_CLIPOBJ@@@Z @ 0x1C00CE600
  * Callers:
  *     <none>
  * Callees:
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00541A0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
- *     ?vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z @ 0x1C00542C4 (-vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     ?vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z @ 0x1C00CEAA0 (-vFindScan@XCLIPOBJ@@QEAAXPEAU_RECTL@@J@Z.c)
+ *     ?vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z @ 0x1C00CEB24 (-vFindSegment@XCLIPOBJ@@QEBAXPEAU_RECTL@@JJ@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEBA0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
-void __fastcall vStrWrite01(struct _STRRUN *a1, struct _XRUNLEN *a2, struct SURFACE *a3, struct _CLIPOBJ *a4)
+void __fastcall vStrWrite01(struct _STRRUN *a1, LONG *a2, struct SURFACE *a3, struct _CLIPOBJ *a4)
 {
-  struct _CLIPOBJ *v4; // r13
-  struct SURFACE *v5; // r15
-  struct _XRUNLEN *v7; // r14
-  int v8; // r8d
-  _DWORD *v9; // rdx
-  int v10; // edi
-  _DWORD *v11; // rax
-  LONG bottom; // r10d
-  LONG top; // r12d
-  LONG left; // r11d
-  LONG right; // ebx
-  __int64 v16; // r9
-  struct _XRUNLEN *v17; // rdx
+  int *v4; // rbx
+  XCLIPOBJ *v5; // r15
+  struct _XRUNLEN *v7; // r12
+  __int64 v9; // rsi
+  int v10; // ecx
+  int v11; // r15d
+  int *v12; // r8
+  int *v13; // r10
+  char v14; // dl
+  int v15; // r9d
+  int *v16; // r12
+  __int64 v17; // rsi
   int v18; // eax
-  int v19; // edi
-  _DWORD *v20; // rcx
-  unsigned int v21; // r9d
-  int v22; // r14d
-  char v23; // r8
-  __int64 v24; // r8
-  _DWORD *v25; // r10
+  int v19; // r11d
+  int v20; // edx
+  int v21; // ecx
+  int v22; // r15d
+  __int64 v23; // r9
+  __int64 v24; // r12
+  int v25; // r15d
   int v26; // ecx
-  int *v27; // rsi
-  __int64 v28; // r15
-  __int64 v29; // r12
-  LONG v30; // ecx
-  LONG v31; // edx
-  LONG v32; // ecx
-  LONG v33; // esi
-  _DWORD *v34; // rcx
-  _DWORD *v35; // rcx
-  _DWORD *v36; // r12
-  int *v37; // rsi
-  int v38; // edx
-  int v39; // ebx
-  int *v40; // r13
-  int *v41; // rsi
-  char v42; // r8
-  int v43; // r11d
-  int *v44; // r10
-  __int64 v45; // r9
-  int v46; // eax
-  int v47; // ecx
-  int v48; // ecx
-  __int64 v49; // rdx
-  int v50; // esi
-  __int64 v51; // r15
-  int v52; // ecx
-  int v53; // r8d
-  int v54; // edx
-  struct SURFACE *v55; // r11
-  int v56; // r9d
-  int v57; // r10d
-  int v58; // r8d
-  int v59; // r10d
-  int v60; // edx
-  int v61; // ecx
-  char *v62; // r9
-  int v63; // r12d
-  int v64; // eax
-  size_t v65; // r13
-  char *v66; // rbx
-  int v67; // r10d
-  int v68; // r9d
-  int v69; // r8d
-  int *v70; // rcx
-  int v71; // eax
-  LONG v72; // eax
-  char v73; // [rsp+38h] [rbp-29h]
-  LONG v74; // [rsp+3Ch] [rbp-25h]
-  LONG v75; // [rsp+40h] [rbp-21h]
-  struct _RECTL si128; // [rsp+48h] [rbp-19h] BYREF
-  _DWORD *v77; // [rsp+58h] [rbp-9h]
-  int v78; // [rsp+60h] [rbp-1h]
-  int *v79; // [rsp+68h] [rbp+7h]
-  int v80; // [rsp+70h] [rbp+Fh]
-  int v81; // [rsp+74h] [rbp+13h]
-  struct _XRUNLEN *v82; // [rsp+78h] [rbp+17h]
-  __int64 v83; // [rsp+80h] [rbp+1Fh]
+  int v27; // edx
+  int v28; // r9d
+  int v29; // r11d
+  int v30; // r10d
+  int v31; // r9d
+  int v32; // r8d
+  char *v33; // r9
+  int v34; // esi
+  size_t v35; // r12
+  char *v36; // rbx
+  int v37; // r9d
+  int *v38; // rcx
+  int v39; // r10d
+  int v40; // edx
+  LONG v41; // esi
+  int v42; // r14d
+  __int64 v43; // rcx
+  LONG *v44; // r15
+  LONG v45; // ebx
+  __int64 v46; // rax
+  int v47; // r9d
+  char v48; // r12
+  unsigned int v49; // r12d
+  _DWORD *v50; // rcx
+  int v51; // r14d
+  char v52; // al
+  __int64 v53; // rdx
+  int *v54; // r8
+  int v55; // eax
+  char v56; // [rsp+30h] [rbp-50h]
+  int v57; // [rsp+34h] [rbp-4Ch]
+  LONG v58; // [rsp+34h] [rbp-4Ch]
+  __int64 v59; // [rsp+38h] [rbp-48h]
+  int v60; // [rsp+38h] [rbp-48h]
+  struct _RECTL si128; // [rsp+40h] [rbp-40h] BYREF
+  char *v62; // [rsp+50h] [rbp-30h]
+  int v63; // [rsp+58h] [rbp-28h]
+  __int64 v64; // [rsp+60h] [rbp-20h]
+  int *v65; // [rsp+68h] [rbp-18h]
+  _DWORD *v66; // [rsp+70h] [rbp-10h]
+  __int64 v67; // [rsp+78h] [rbp-8h]
 
-  if ( !a2 )
-    return;
-  v4 = a4;
-  v5 = a3;
-  v7 = (struct _STRRUN *)((char *)a1 + 8);
-  v79 = (int *)((char *)a1 + 8);
-  if ( !a4 )
+  if ( a2 )
   {
-    v36 = (_DWORD *)(*((_QWORD *)a3 + 10) + *(_DWORD *)a1 * *((_DWORD *)a3 + 22));
-    v77 = v36;
-    if ( v7 == a2 )
-      return;
-    v37 = (int *)((char *)a1 + 8);
-    while ( 1 )
+    v4 = (int *)((char *)a1 + 8);
+    v5 = (XCLIPOBJ *)a4;
+    v62 = (char *)a1 + 8;
+    v7 = (struct _XRUNLEN *)a2;
+    if ( a4 )
     {
-      v38 = *v37;
-      v39 = *v37 + v37[1];
-      v40 = &v36[(__int64)*v37 >> 5];
-      v41 = v40;
-      if ( v38 >= v39 )
-        goto LABEL_68;
-      v42 = v38 & 0x1F;
-      v43 = *v40;
-      if ( (unsigned __int64)v40 < *((_QWORD *)v5 + 9) + (unsigned __int64)*((unsigned int *)v5 + 16) )
+      XCLIPOBJ::cEnumStart((XCLIPOBJ *)a4, 0, 0, 4u, 0x64u);
+      v41 = *(_DWORD *)a1;
+      v42 = *((_DWORD *)a1 + 1);
+      si128 = (struct _RECTL)_mm_load_si128((const __m128i *)&_xmm);
+      v58 = v41;
+      XCLIPOBJ::vFindScan(v5, &si128, v41);
+      while ( v42 )
       {
-        v44 = v79 + 2;
-        v45 = v38 & 0x1F;
-        do
+        v60 = --v42;
+        if ( v41 >= si128.top && v41 < si128.bottom )
         {
-          v46 = *v44++;
-          v47 = dword_1C0319790[v45];
-          if ( v46 )
-            v43 |= v47;
-          else
-            v43 &= ~v47;
-          ++v42;
-          ++v45;
-          if ( ++v38 >= v39 )
-            break;
-          if ( (v42 & 0x20) != 0 )
+          v43 = *((_QWORD *)a3 + 10) + v41 * *((_DWORD *)a3 + 22);
+          v67 = v43;
+          if ( v4 != (int *)v7 )
           {
-            *v41 = v43;
-            v42 = 0;
-            v43 = v41[1];
-            ++v41;
-            v45 = 0LL;
-          }
-        }
-        while ( (unsigned __int64)v41 < *((_QWORD *)v5 + 9) + (unsigned __int64)*((unsigned int *)v5 + 16) );
-      }
-      *v41 = v43;
-      if ( *((int *)a1 + 1) <= 1 )
-        goto LABEL_68;
-      v48 = *v79 >> 5;
-      v49 = *v79 & 0x1F;
-      v50 = (*v79 + v79[1]) >> 5;
-      v51 = (*v79 + v79[1]) & 0x1F;
-      if ( v48 != v50 )
-        break;
-      v52 = *v40;
-      v53 = dword_1C03294E0[v49] & ~dword_1C03294E0[v51];
-      v54 = 1;
-      v5 = a3;
-      do
-      {
-        ++v54;
-        v40 = (int *)((char *)v40 + *((int *)a3 + 22));
-        v52 = ~v53 & *v40 | v53 & v52;
-        *v40 = v52;
-      }
-      while ( v54 < *((_DWORD *)a1 + 1) );
-LABEL_68:
-      v37 = &v79[v79[1] + 2];
-      v79 = v37;
-      if ( v37 == (int *)a2 )
-        return;
-    }
-    v55 = a3;
-    if ( (_DWORD)v49 )
-    {
-      v56 = 1;
-      v57 = dword_1C03294E0[v49];
-      v58 = *v40 & v57;
-      v59 = ~v57;
-      do
-      {
-        ++v56;
-        v40 = (int *)((char *)v40 + *((int *)a3 + 22));
-        *v40 = v58 | v59 & *v40;
-        v60 = *((_DWORD *)a1 + 1);
-      }
-      while ( v56 < v60 );
-      v61 = v48 + 1;
-      if ( v61 == v50 )
-      {
-LABEL_86:
-        if ( (_DWORD)v51 )
-        {
-          v67 = dword_1C03294E0[v51];
-          v68 = 1;
-          v5 = a3;
-          v69 = v36[v50] & ~v67;
-          v70 = &v36[v50];
-          if ( v60 > 1 )
-          {
+            v44 = v4;
             do
             {
-              ++v68;
-              v70 = (int *)((char *)v70 + *((int *)a3 + 22));
-              *v70 = v69 | v67 & *v70;
+              v45 = *v44;
+              v46 = (__int64)*v44 >> 5;
+              v47 = *v44 + v44[1];
+              v48 = *v44;
+              v63 = v47;
+              v49 = v48 & 0x1F;
+              v50 = (_DWORD *)(v43 + 4 * v46);
+              v66 = v50;
+              if ( v45 < 0 || v45 >= *((_DWORD *)a3 + 14) )
+              {
+                v52 = 0;
+                v51 = 0;
+              }
+              else
+              {
+                v51 = *v50;
+                v52 = 1;
+              }
+              v56 = v52;
+              if ( v45 < v47 )
+              {
+                v53 = v49;
+                v54 = v44 + 2;
+                v64 = v49;
+                v65 = v44 + 2;
+                do
+                {
+                  if ( v45 < si128.left || v45 >= si128.right )
+                  {
+                    XCLIPOBJ::vFindSegment((XCLIPOBJ *)a4, &si128, v45, v47);
+                    v53 = v64;
+                    v54 = v65;
+                    v47 = v63;
+                    v50 = v66;
+                  }
+                  if ( v45 >= si128.left && v45 < si128.right )
+                  {
+                    v55 = dword_1C02EFA80[v53];
+                    if ( *v54 )
+                      v51 |= v55;
+                    else
+                      v51 &= ~v55;
+                  }
+                  ++v53;
+                  ++v54;
+                  ++v49;
+                  v64 = v53;
+                  ++v45;
+                  v65 = v54;
+                  if ( (v49 & 0x20) != 0 )
+                  {
+                    if ( v56 )
+                      *v50 = v51;
+                    ++v50;
+                    v53 = 0LL;
+                    v49 = 0;
+                    v66 = v50;
+                    v64 = 0LL;
+                    if ( v45 < 0 || v45 >= *((_DWORD *)a3 + 14) )
+                    {
+                      v52 = 0;
+                      v56 = 0;
+                      v51 = 0;
+                    }
+                    else
+                    {
+                      v51 = *v50;
+                      v52 = 1;
+                      v56 = 1;
+                    }
+                  }
+                  else
+                  {
+                    v52 = v56;
+                  }
+                }
+                while ( v45 < v47 );
+              }
+              if ( v52 )
+                *v50 = v51;
+              v7 = (struct _XRUNLEN *)a2;
+              v43 = v67;
+              v44 += v44[1] + 2;
             }
-            while ( v68 < *((_DWORD *)a1 + 1) );
+            while ( v44 != a2 );
+            v41 = v58;
+            v4 = (int *)v62;
+            v5 = (XCLIPOBJ *)a4;
+            v42 = v60;
           }
         }
-        else
+        v58 = ++v41;
+        if ( v41 < si128.top || v41 >= si128.bottom )
+          XCLIPOBJ::vFindScan(v5, &si128, v41);
+      }
+    }
+    else
+    {
+      v9 = *((_QWORD *)a3 + 10) + *(_DWORD *)a1 * *((_DWORD *)a3 + 22);
+      v59 = v9;
+      if ( v4 != a2 )
+      {
+        do
         {
-          v5 = a3;
-        }
-        goto LABEL_68;
-      }
-      v62 = (char *)&v36[v61];
-      v63 = 1;
-      v64 = 4 * (v50 - v61);
-      if ( v60 <= 1 )
-      {
-LABEL_85:
-        v36 = v77;
-        goto LABEL_86;
-      }
-    }
-    else
-    {
-      v62 = (char *)&v36[v48];
-      v63 = 1;
-      v64 = 4 * (v50 - v48);
-    }
-    v65 = v64;
-    do
-    {
-      v66 = &v62[*((int *)v55 + 22)];
-      memmove(v66, v62, v65);
-      v60 = *((_DWORD *)a1 + 1);
-      ++v63;
-      v55 = a3;
-      v62 = v66;
-    }
-    while ( v63 < v60 );
-    goto LABEL_85;
-  }
-  XCLIPOBJ::cEnumStart((XCLIPOBJ *)a4, 0, 0, 4u, 0x64u);
-  v8 = *(_DWORD *)a1;
-  v9 = *(_DWORD **)&v4[3].rclBounds.top;
-  v10 = *((_DWORD *)a1 + 1);
-  si128 = (struct _RECTL)_mm_load_si128((const __m128i *)&_xmm);
-  v78 = v8;
-  if ( v8 < v9[1] )
-  {
-    do
-    {
-      v9 = (_DWORD *)((char *)v9 - (unsigned int)(4 * *(v9 - 1) + 16));
-      *(_QWORD *)&v4[3].rclBounds.top = v9;
-      v71 = v9[1];
-    }
-    while ( v8 < v71 );
-    top = v4->rclBounds.top;
-    left = 0x80000000;
-    bottom = v4->rclBounds.bottom;
-    si128.left = 0x80000000;
-    if ( v71 > top )
-      top = v71;
-    v72 = v9[2];
-    v75 = top;
-    si128.top = top;
-    if ( v72 < bottom )
-      bottom = v72;
-    v74 = bottom;
-    si128.bottom = bottom;
-    if ( top < bottom )
-    {
-      if ( top != 0x80000000 )
-        goto LABEL_12;
-    }
-    else
-    {
-      top = 0x80000000;
-      v75 = 0x80000000;
-      si128.top = 0x80000000;
-    }
-    bottom = 0x80000000;
-    v74 = 0x80000000;
-    si128.bottom = 0x80000000;
-  }
-  else
-  {
-    if ( v8 < v9[2] )
-    {
-      bottom = si128.bottom;
-      top = si128.top;
-      left = si128.left;
-      v74 = si128.bottom;
-    }
-    else
-    {
-      do
-      {
-        v11 = (_DWORD *)((char *)v9 + (unsigned int)(4 * *v9 + 16));
-        *(_QWORD *)&v4[3].rclBounds.top = v11;
-        v9 = v11;
-        bottom = v11[2];
-        v74 = bottom;
-      }
-      while ( v8 >= bottom );
-      top = v11[1];
-      v75 = top;
-      if ( top > v4->rclBounds.top )
-      {
-        si128.top = v11[1];
-      }
-      else
-      {
-        top = v4->rclBounds.top;
-        v75 = top;
-        si128.top = top;
-      }
-      if ( bottom >= v4->rclBounds.bottom )
-      {
-        bottom = v4->rclBounds.bottom;
-        v74 = bottom;
-      }
-      si128.bottom = bottom;
-      left = 0x80000000;
-      si128.left = 0x80000000;
-      if ( top >= bottom )
-      {
-        bottom = 0x7FFFFFFF;
-        v74 = 0x7FFFFFFF;
-        si128.bottom = 0x7FFFFFFF;
-      }
-      else if ( bottom != 0x7FFFFFFF )
-      {
-        goto LABEL_12;
-      }
-      top = 0x7FFFFFFF;
-      si128.top = 0x7FFFFFFF;
-    }
-    v75 = top;
-  }
-LABEL_12:
-  if ( v10 )
-  {
-    right = si128.right;
-    do
-    {
-      v81 = --v10;
-      if ( v8 >= top && v8 < bottom )
-      {
-        v16 = *((_QWORD *)v5 + 10) + *((_DWORD *)v5 + 22) * v8;
-        v83 = v16;
-        if ( v7 != a2 )
-        {
-          v17 = v7;
-          v82 = v7;
-          do
+          v10 = *v4;
+          v11 = *v4 + v4[1];
+          v12 = (int *)(v9 + 4 * ((__int64)*v4 >> 5));
+          v13 = v12;
+          if ( *v4 < v11 )
           {
-            v18 = *(_DWORD *)v17;
-            v19 = *(_DWORD *)v17 + *((_DWORD *)v17 + 1);
-            v20 = (_DWORD *)(v16 + 4 * ((__int64)*(int *)v17 >> 5));
-            v21 = *(_DWORD *)v17 & 0x1F;
-            v77 = v20;
-            if ( v18 < 0 || v18 >= *((_DWORD *)v5 + 14) )
+            v14 = v10 & 0x1F;
+            v15 = *v12;
+            if ( (unsigned __int64)v12 < *((_QWORD *)a3 + 9) + (unsigned __int64)*((unsigned int *)a3 + 16) )
             {
-              v23 = 0;
-              v22 = 0;
-            }
-            else
-            {
-              v22 = *v20;
-              v23 = 1;
-            }
-            v73 = v23;
-            if ( v18 < v19 )
-            {
-              v24 = v21;
-              v25 = (_DWORD *)((char *)v17 + 8);
+              v16 = v4 + 2;
+              v17 = v10 & 0x1F;
               do
               {
-                if ( v18 >= right || v18 < left )
+                v18 = *v16++;
+                v19 = dword_1C02EFA80[v17];
+                if ( v18 )
+                  v15 |= v19;
+                else
+                  v15 &= ~v19;
+                ++v14;
+                ++v17;
+                if ( ++v10 >= v11 )
+                  break;
+                if ( (v14 & 0x20) != 0 )
                 {
-                  v27 = *(int **)&v4[3].rclBounds.top;
-                  v28 = 0LL;
-                  v80 = *v27;
-                  if ( v80 )
+                  *v13 = v15;
+                  v14 = 0;
+                  ++v13;
+                  v17 = 0LL;
+                  v15 = *v13;
+                }
+              }
+              while ( (unsigned __int64)v13 < *((_QWORD *)a3 + 9) + (unsigned __int64)*((unsigned int *)a3 + 16) );
+              v4 = (int *)v62;
+              v9 = v59;
+              v7 = (struct _XRUNLEN *)a2;
+            }
+            *v13 = v15;
+            v20 = *((_DWORD *)a1 + 1);
+            if ( v20 > 1 )
+            {
+              v21 = *v4 >> 5;
+              v22 = *v4 + v4[1];
+              v23 = *v4 & 0x1F;
+              v24 = v22 & 0x1F;
+              v25 = v22 >> 5;
+              v57 = v24;
+              if ( v21 == v25 )
+              {
+                v26 = *v12;
+                v27 = dword_1C02EEED0[v23] & ~dword_1C02EEED0[v24];
+                v28 = 1;
+                do
+                {
+                  v12 = (int *)((char *)v12 + *((int *)a3 + 22));
+                  ++v28;
+                  v26 = *v12 & ~v27 | v27 & v26;
+                  *v12 = v26;
+                }
+                while ( v28 < *((_DWORD *)a1 + 1) );
+              }
+              else
+              {
+                if ( (_DWORD)v23 )
+                {
+                  v29 = 1;
+                  v30 = ~dword_1C02EEED0[v23];
+                  v31 = *v12 & dword_1C02EEED0[v23];
+                  do
                   {
-                    while ( 1 )
-                    {
-                      if ( v18 >= v27[v28 + 3] )
-                      {
-                        v29 = 4LL * (unsigned int)(v28 + 1) + 12;
-                        if ( v18 < *(int *)((char *)v27 + v29) )
-                          break;
-                      }
-                      v28 = (unsigned int)(v28 + 2);
-                      if ( (_DWORD)v28 == v80 )
-                      {
-                        v4 = a4;
-                        goto LABEL_109;
-                      }
-                    }
-                    v30 = v27[v28 + 3];
-                    v4 = a4;
-                    v5 = a3;
-                    v31 = a4->rclBounds.left;
-                    if ( v30 > v31 )
-                      v31 = v30;
-                    v32 = *(int *)((char *)v27 + v29);
-                    v33 = a4->rclBounds.right;
-                    if ( v32 < v33 )
-                      v33 = v32;
-                    if ( v31 < v33 )
-                    {
-                      left = v31;
-                      si128.left = v31;
-                      right = v33;
-                    }
+                    ++v29;
+                    v12 = (int *)((char *)v12 + *((int *)a3 + 22));
+                    *v12 = v31 | v30 & *v12;
+                    v20 = *((_DWORD *)a1 + 1);
                   }
-                  else
+                  while ( v29 < v20 );
+                  ++v21;
+                }
+                v32 = v20;
+                if ( v21 != v25 )
+                {
+                  v33 = (char *)(v9 + 4LL * v21);
+                  v34 = 1;
+                  if ( v20 > 1 )
                   {
-LABEL_109:
-                    v5 = a3;
+                    v35 = 4 * (v25 - v21);
+                    do
+                    {
+                      v36 = &v33[*((int *)a3 + 22)];
+                      memmove(v36, v33, v35);
+                      v32 = *((_DWORD *)a1 + 1);
+                      ++v34;
+                      v33 = v36;
+                    }
+                    while ( v34 < v32 );
+                    v4 = (int *)v62;
+                    LODWORD(v24) = v57;
                   }
                 }
-                if ( v18 >= left && v18 < right )
+                v9 = v59;
+                if ( (_DWORD)v24 )
                 {
-                  v26 = dword_1C0319790[v24];
-                  if ( *v25 )
-                    v22 |= v26;
-                  else
-                    v22 &= ~v26;
-                }
-                ++v21;
-                ++v24;
-                ++v18;
-                ++v25;
-                if ( (v21 & 0x20) != 0 )
-                {
-                  v34 = v77;
-                  if ( v73 )
-                    *v77 = v22;
-                  v35 = v34 + 1;
-                  v21 = 0;
-                  v24 = 0LL;
-                  v77 = v35;
-                  if ( v18 < 0 || v18 >= *((_DWORD *)v5 + 14) )
+                  v37 = 1;
+                  v38 = (int *)(v59 + 4LL * v25);
+                  v39 = dword_1C02EEED0[(unsigned int)v24];
+                  v40 = *v38 & ~v39;
+                  if ( v32 > 1 )
                   {
-                    v73 = 0;
-                    v22 = 0;
-                  }
-                  else
-                  {
-                    v22 = *v35;
-                    v73 = 1;
+                    do
+                    {
+                      ++v37;
+                      v38 = (int *)((char *)v38 + *((int *)a3 + 22));
+                      *v38 = v40 | v39 & *v38;
+                    }
+                    while ( v37 < *((_DWORD *)a1 + 1) );
                   }
                 }
               }
-              while ( v18 < v19 );
-              v17 = v82;
-              v20 = v77;
-              v23 = v73;
-              si128.right = right;
+              v7 = (struct _XRUNLEN *)a2;
             }
-            if ( v23 )
-              *v20 = v22;
-            v16 = v83;
-            v17 = (struct _XRUNLEN *)((char *)v17 + 4 * *((int *)v17 + 1) + 8);
-            v82 = v17;
           }
-          while ( v17 != a2 );
-          v8 = v78;
-          bottom = v74;
-          top = v75;
-          v10 = v81;
-          v7 = (struct _XRUNLEN *)v79;
+          v4 += v4[1] + 2;
+          v62 = (char *)v4;
         }
-      }
-      v78 = ++v8;
-      if ( v8 >= bottom || v8 < top )
-      {
-        XCLIPOBJ::vFindScan((XCLIPOBJ *)v4, &si128, v8);
-        bottom = si128.bottom;
-        top = si128.top;
-        right = si128.right;
-        left = si128.left;
-        v74 = si128.bottom;
-        v75 = si128.top;
+        while ( v4 != (int *)v7 );
       }
     }
-    while ( v10 );
   }
 }

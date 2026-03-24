@@ -1,22 +1,22 @@
 /*
- * XREFs of IoAsynchronousPageWrite @ 0x1403693BC
+ * XREFs of IoAsynchronousPageWrite @ 0x1402E5D7C
  * Callers:
- *     MiGatherMappedPages @ 0x140297C04 (MiGatherMappedPages.c)
- *     MiIssueAsynchronousFlush @ 0x1406360C4 (MiIssueAsynchronousFlush.c)
- *     MiGatherPagefilePages @ 0x14063A1B4 (MiGatherPagefilePages.c)
+ *     MiGatherMappedPages @ 0x140255428 (MiGatherMappedPages.c)
+ *     MiGatherPagefilePages @ 0x1403318B4 (MiGatherPagefilePages.c)
+ *     MiIssueAsynchronousFlush @ 0x14053D228 (MiIssueAsynchronousFlush.c)
  * Callees:
- *     IopQueueThreadIrp @ 0x14022ED80 (IopQueueThreadIrp.c)
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     IopAllocateIrpExReturn @ 0x14022EF90 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14022F530 (IoGetRelatedDeviceObject.c)
- *     IopSetDiskIoAttributionExtension @ 0x140290230 (IopSetDiskIoAttributionExtension.c)
- *     IoSetDiskIoAttributionFromThread @ 0x1402A7B10 (IoSetDiskIoAttributionFromThread.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     IopAllocateBackpocketIrp @ 0x140554A80 (IopAllocateBackpocketIrp.c)
- *     IopAllocateReserveIrp @ 0x140554D18 (IopAllocateReserveIrp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     MmIsFileObjectAPagingFile @ 0x14063BD88 (MmIsFileObjectAPagingFile.c)
- *     StRtlIoStorInfoSetNvCachePriority @ 0x140676EB8 (StRtlIoStorInfoSetNvCachePriority.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14029C670 (IoSetDiskIoAttributionFromThread.c)
+ *     MmIsFileObjectAPagingFile @ 0x14029CAE4 (MmIsFileObjectAPagingFile.c)
+ *     IopQueueThreadIrp @ 0x1402CB9A0 (IopQueueThreadIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x1402D20D0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x1402D21F0 (IopAllocateIrpExReturn.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402E66DC (IopSetDiskIoAttributionExtension.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     IopAllocateBackpocketIrp @ 0x1404FFD50 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x1404FFFF0 (IopAllocateReserveIrp.c)
+ *     StRtlIoStorInfoSetNvCachePriority @ 0x1405C9210 (StRtlIoStorInfoSetNvCachePriority.c)
  */
 
 NTSTATUS __fastcall IoAsynchronousPageWrite(
@@ -34,44 +34,42 @@ NTSTATUS __fastcall IoAsynchronousPageWrite(
 {
   PSECTION_OBJECT_POINTERS SectionObjectPointer; // rax
   PDEVICE_OBJECT RelatedDeviceObject; // rdi
-  __int64 v17; // rdx
   IRP *Irp; // rbx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
   struct _KTHREAD *CurrentThread; // rdx
-  __int64 v21; // rdx
+  __int64 v20; // rdx
   NTSTATUS result; // eax
-  unsigned __int8 CurrentIrql; // bl
-  __int64 v24; // rdx
-  __int64 v25; // rcx
+  __int64 v22; // rdx
+  __int64 v23; // rcx
   __int64 ReserveIrp; // rax
-  unsigned __int8 v27; // al
+  unsigned __int8 CurrentIrql; // bl
+  unsigned __int8 v26; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v30; // eax
-  bool v31; // zf
+  int v29; // eax
+  bool v30; // zf
 
   SectionObjectPointer = a1->SectionObjectPointer;
   if ( SectionObjectPointer && SectionObjectPointer->SharedCacheMap )
   {
-    __incgsdword(0x8474u);
-    __addgsdword(0x8478u, (a2->ByteCount + 4095) >> 12);
+    __incgsdword(0x8134u);
+    __addgsdword(0x8138u, (a2->ByteCount + 4095) >> 12);
   }
   RelatedDeviceObject = IoGetRelatedDeviceObject(a1);
-  LOBYTE(v17) = RelatedDeviceObject->StackSize;
-  Irp = (IRP *)IopAllocateIrpExReturn((__int64)RelatedDeviceObject, v17, 0LL);
+  Irp = (IRP *)IopAllocateIrpExReturn();
   if ( !Irp )
   {
-    if ( (unsigned int)MmIsFileObjectAPagingFile(a1) )
+    if ( (unsigned int)MmIsFileObjectAPagingFile((unsigned __int64)a1) )
     {
       _InterlockedAdd(&IoAsynchronousPageWriteIrpAllocationFailure, 1u);
-      LOBYTE(v24) = RelatedDeviceObject->StackSize;
-      ReserveIrp = IopAllocateReserveIrp(v25, v24, 1LL);
+      LOBYTE(v22) = RelatedDeviceObject->StackSize;
+      ReserveIrp = IopAllocateReserveIrp(v23, v22, 1LL);
     }
     else
     {
       _InterlockedAdd(&IoAsynchronousPageWriteNonPagefileIrpAllocationFailure, 1u);
-      LOBYTE(v24) = RelatedDeviceObject->StackSize;
-      ReserveIrp = IopAllocateBackpocketIrp(RelatedDeviceObject, v24, 0LL);
+      LOBYTE(v22) = RelatedDeviceObject->StackSize;
+      ReserveIrp = IopAllocateBackpocketIrp(RelatedDeviceObject, v22, 0LL);
     }
     Irp = (IRP *)ReserveIrp;
     if ( !ReserveIrp )
@@ -97,14 +95,14 @@ NTSTATUS __fastcall IoAsynchronousPageWrite(
   CurrentStackLocation[-1].FileObject = a1;
   CurrentThread = KeGetCurrentThread();
   if ( a9 )
-    IopSetDiskIoAttributionExtension((__int64)Irp, *(_QWORD *)(a9 + 24), (__int64)CurrentThread, 0);
+    IopSetDiskIoAttributionExtension(Irp, *(_QWORD *)(a9 + 24), CurrentThread, 0LL);
   else
     IoSetDiskIoAttributionFromThread((__int64)Irp, CurrentThread);
   IopQueueThreadIrp((__int64)Irp);
   if ( a7 )
   {
-    LOBYTE(v21) = a7;
-    StRtlIoStorInfoSetNvCachePriority(Irp, v21);
+    LOBYTE(v20) = a7;
+    StRtlIoStorInfoSetNvCachePriority(Irp, v20);
   }
   result = IofCallDriver(RelatedDeviceObject, Irp);
   if ( (result & 0xC0000000) == 0xC0000000 )
@@ -116,16 +114,19 @@ NTSTATUS __fastcall IoAsynchronousPageWrite(
     a4(a5, a10, 0LL);
     if ( KiIrqlFlags )
     {
-      v27 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v30 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v31 = (v30 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v30;
-        if ( v31 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v26 = KeGetCurrentIrql();
+        if ( v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v29 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v30 = (v29 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v29;
+          if ( v30 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
       }
     }
     __writecr8(CurrentIrql);

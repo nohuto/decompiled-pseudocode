@@ -1,18 +1,18 @@
 /*
- * XREFs of BgkDisplayString @ 0x14054ED90
+ * XREFs of BgkDisplayString @ 0x1404FF370
  * Callers:
  *     <none>
  * Callees:
- *     BgkDisplayStringEx @ 0x14054EE44 (BgkDisplayStringEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     BgkDisplayStringEx @ 0x1404FF424 (BgkDisplayStringEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall BgkDisplayString(char *a1)
 {
   char *v1; // rbx
   __int64 v3; // rdi
-  __int64 Pool2; // rax
+  _WORD *PoolWithTag; // rax
   _WORD *v5; // rsi
   int v6; // edx
   _WORD *v7; // rcx
@@ -29,14 +29,14 @@ char __fastcall BgkDisplayString(char *a1)
   do
     ++v3;
   while ( a1[v3] );
-  Pool2 = ExAllocatePool2(64LL, 2LL * (unsigned int)(v3 + 1), 1263093570LL);
-  v5 = (_WORD *)Pool2;
-  if ( !Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 2LL * (unsigned int)(v3 + 1), 0x4B494742u);
+  v5 = PoolWithTag;
+  if ( !PoolWithTag )
     return 0;
   v6 = 0;
   if ( (_DWORD)v3 )
   {
-    v7 = (_WORD *)Pool2;
+    v7 = PoolWithTag;
     v8 = (unsigned int)v3;
     v6 = v3;
     do

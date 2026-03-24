@@ -1,34 +1,33 @@
 /*
- * XREFs of IopDequeueIrpFromThread @ 0x1403489B0
+ * XREFs of IopDequeueIrpFromThread @ 0x140353760
  * Callers:
- *     IopfCompleteRequest @ 0x1402B59D0 (IopfCompleteRequest.c)
- *     IopCompleteRequest @ 0x140347E10 (IopCompleteRequest.c)
- *     IopCopyCompleteReadRequest @ 0x140418160 (IopCopyCompleteReadRequest.c)
- *     IopIoRingCompleteIrp @ 0x140559FA8 (IopIoRingCompleteIrp.c)
- *     IopDeleteFile @ 0x14072B630 (IopDeleteFile.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     IopCloseFile @ 0x14072E9E0 (IopCloseFile.c)
- *     IoCancelFileOpen @ 0x140935F60 (IoCancelFileOpen.c)
+ *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
+ *     IopCompleteRequest @ 0x140342B20 (IopCompleteRequest.c)
+ *     IopCopyCompleteReadRequest @ 0x1403F1A30 (IopCopyCompleteReadRequest.c)
+ *     IopCloseFile @ 0x1406FCA20 (IopCloseFile.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x140703760 (IopDeleteFile.c)
+ *     IoCancelFileOpen @ 0x140893620 (IoCancelFileOpen.c)
  * Callees:
- *     KxWaitForSpinLockAndAcquire @ 0x140211E70 (KxWaitForSpinLockAndAcquire.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireSpinLockInstrumented @ 0x14045A310 (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x14056E8CC (KiReleaseSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403582C0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSpinLockInstrumented @ 0x14051688C (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140516998 (KiReleaseSpinLockInstrumented.c)
  */
 
 _QWORD *__fastcall IopDequeueIrpFromThread(_QWORD *a1)
 {
   __int64 v1; // rbx
-  unsigned __int8 CurrentIrql; // di
-  struct _KPRCB *CurrentPrcb; // r15
+  unsigned __int8 CurrentIrql; // si
+  struct _KPRCB *CurrentPrcb; // r14
   _DWORD *v5; // rcx
   __int64 v6; // rdx
   _QWORD *result; // rax
   _QWORD *v8; // rcx
   struct _KPRCB *v9; // rcx
   _DWORD *v10; // rdx
+  _DWORD *v11; // rcx
   _DWORD *SchedulerAssist; // r9
-  _DWORD *v12; // rcx
   int v13; // eax
   int v14; // eax
   int v15; // eax
@@ -52,7 +51,7 @@ _QWORD *__fastcall IopDequeueIrpFromThread(_QWORD *a1)
     }
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
     {
-      KiAcquireSpinLockInstrumented(v1 + 1496);
+      KiAcquireSpinLockInstrumented(v1 + 1416);
     }
     else
     {
@@ -68,20 +67,20 @@ _QWORD *__fastcall IopDequeueIrpFromThread(_QWORD *a1)
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
-      if ( _interlockedbittestandset64((volatile signed __int32 *)(v1 + 1496), 0LL) )
+      if ( _interlockedbittestandset64((volatile signed __int32 *)(v1 + 1416), 0LL) )
       {
-        v12 = CurrentPrcb->SchedulerAssist;
-        if ( v12 )
+        v11 = CurrentPrcb->SchedulerAssist;
+        if ( v11 )
         {
           if ( CurrentPrcb->NestingLevel <= 1u )
           {
-            v14 = v12[6] - 1;
-            v12[6] = v14;
+            v14 = v11[6] - 1;
+            v11[6] = v14;
             if ( !v14 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
-        KxWaitForSpinLockAndAcquire((volatile signed __int32 *)(v1 + 1496));
+        KxWaitForSpinLockAndAcquire(v1 + 1416);
       }
     }
   }
@@ -97,9 +96,9 @@ _QWORD *__fastcall IopDequeueIrpFromThread(_QWORD *a1)
   if ( v1 )
   {
     if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
-      KiReleaseSpinLockInstrumented(v1 + 1496, retaddr);
+      KiReleaseSpinLockInstrumented(v1 + 1416, retaddr);
     else
-      _InterlockedAnd64((volatile signed __int64 *)(v1 + 1496), 0LL);
+      _InterlockedAnd64((volatile signed __int64 *)(v1 + 1416), 0LL);
     v9 = KeGetCurrentPrcb();
     v10 = v9->SchedulerAssist;
     if ( v10 )

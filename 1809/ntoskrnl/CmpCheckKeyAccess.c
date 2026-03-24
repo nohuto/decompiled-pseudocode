@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCheckKeyAccess @ 0x1407F4844
+ * XREFs of CmpCheckKeyAccess @ 0x1407F4824
  * Callers:
- *     CmpDoAccessCheckOnSubtree @ 0x1407F4F8C (CmpDoAccessCheckOnSubtree.c)
- *     CmRestoreKey @ 0x1408013CC (CmRestoreKey.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x1407F4F6C (CmpDoAccessCheckOnSubtree.c)
+ *     CmRestoreKey @ 0x1408013AC (CmRestoreKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     CmpCheckSecurityCellAccess @ 0x1406C9F4C (CmpCheckSecurityCellAccess.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     CmpCheckSecurityCellAccess @ 0x1406C9F2C (CmpCheckSecurityCellAccess.c)
  */
 
 __int64 __fastcall CmpCheckKeyAccess(__int64 a1, __int64 a2)

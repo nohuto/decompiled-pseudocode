@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkpWerUpdateTriageDumpHeader @ 0x14093BE38
+ * XREFs of DbgkpWerUpdateTriageDumpHeader @ 0x140889774
  * Callers:
- *     DbgkpWerWriteTriageDump @ 0x14093C030 (DbgkpWerWriteTriageDump.c)
+ *     DbgkpWerWriteTriageDump @ 0x140889968 (DbgkpWerWriteTriageDump.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
  */
 
 __int64 __fastcall DbgkpWerUpdateTriageDumpHeader(__int64 a1)
@@ -15,11 +15,11 @@ __int64 __fastcall DbgkpWerUpdateTriageDumpHeader(__int64 a1)
   unsigned __int64 v6; // rcx
   unsigned int v7; // edx
 
-  v1 = *(_DWORD *)(a1 + 84);
-  v3 = *(_DWORD *)(a1 + 144);
+  v1 = *(_DWORD *)(a1 + 96);
+  v3 = *(_DWORD *)(a1 + 152);
   if ( !v1 )
     goto LABEL_5;
-  v4 = *(_DWORD *)(a1 + 168);
+  v4 = *(_DWORD *)(a1 + 176);
   v5 = v3 + 16;
   v6 = 32LL * v4;
   if ( v6 > 0xFFFFFFFF )
@@ -35,7 +35,7 @@ __int64 __fastcall DbgkpWerUpdateTriageDumpHeader(__int64 a1)
       if ( v1 + v7 >= v7 )
       {
 LABEL_5:
-        *(_QWORD *)(*(_QWORD *)(a1 + 136) + 4000LL) = v3;
+        *(_QWORD *)(*(_QWORD *)(a1 + 144) + 4000LL) = v3;
         DbgPrintEx(5u, 3u, "DBGK: Required total aize: 0x%X\n", v3);
         return 0LL;
       }

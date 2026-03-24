@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpFindSubKeyByNumber @ 0x1406B2CA8
+ * XREFs of CmpFindSubKeyByNumber @ 0x1406B2C88
  * Callers:
- *     CmDeleteLayeredKey @ 0x14026CBCC (CmDeleteLayeredKey.c)
- *     CmpClearKeyAccessBits @ 0x1406B2B50 (CmpClearKeyAccessBits.c)
- *     CmpEnumerateLayeredKey @ 0x1407EFDA0 (CmpEnumerateLayeredKey.c)
- *     CmpDoAccessCheckOnSubtree @ 0x1407F4F8C (CmpDoAccessCheckOnSubtree.c)
- *     CmpCopySyncTree2 @ 0x1407FCC24 (CmpCopySyncTree2.c)
- *     CmpPreserveSystemHiveData @ 0x1407FDCE4 (CmpPreserveSystemHiveData.c)
- *     CmpSyncSubKeysAfterDelete @ 0x1407FE968 (CmpSyncSubKeysAfterDelete.c)
- *     CmpMarkAllChildrenDirty @ 0x1407FFBFC (CmpMarkAllChildrenDirty.c)
- *     CmpUpdateParentForEachSon @ 0x140800418 (CmpUpdateParentForEachSon.c)
- *     CmpDeleteTree @ 0x1408034B8 (CmpDeleteTree.c)
+ *     CmDeleteLayeredKey @ 0x14026CCCC (CmDeleteLayeredKey.c)
+ *     CmpClearKeyAccessBits @ 0x1406B2B30 (CmpClearKeyAccessBits.c)
+ *     CmpEnumerateLayeredKey @ 0x1407EFD80 (CmpEnumerateLayeredKey.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x1407F4F6C (CmpDoAccessCheckOnSubtree.c)
+ *     CmpCopySyncTree2 @ 0x1407FCC04 (CmpCopySyncTree2.c)
+ *     CmpPreserveSystemHiveData @ 0x1407FDCC4 (CmpPreserveSystemHiveData.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x1407FE948 (CmpSyncSubKeysAfterDelete.c)
+ *     CmpMarkAllChildrenDirty @ 0x1407FFBDC (CmpMarkAllChildrenDirty.c)
+ *     CmpUpdateParentForEachSon @ 0x1408003F8 (CmpUpdateParentForEachSon.c)
+ *     CmpDeleteTree @ 0x140803498 (CmpDeleteTree.c)
  *     CmSelectQualifiedInstallLanguage @ 0x1409CD3F0 (CmSelectQualifiedInstallLanguage.c)
  *     CmpFindDrivers @ 0x1409CE508 (CmpFindDrivers.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     CmpDoFindSubKeyByNumber @ 0x1405D3470 (CmpDoFindSubKeyByNumber.c)
  */
 

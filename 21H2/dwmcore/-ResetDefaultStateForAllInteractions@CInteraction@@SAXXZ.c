@@ -1,29 +1,31 @@
 /*
- * XREFs of ?ResetDefaultStateForAllInteractions@CInteraction@@SAXXZ @ 0x1801F2E08
+ * XREFs of ?ResetDefaultStateForAllInteractions@CInteraction@@SAXXZ @ 0x1801C6FE8
  * Callers:
- *     ?OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@Z @ 0x18017D688 (-OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@.c)
+ *     ?OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@Z @ 0x180225CE8 (-OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@.c)
  * Callees:
- *     ?ResetDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z @ 0x1801F2D80 (-ResetDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z.c)
+ *     ?ResetDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z @ 0x1801C6F40 (-ResetDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z.c)
  */
 
-void __fastcall CInteraction::ResetDefaultStateForAllInteractions(__int64 a1, char a2)
+void __fastcall CInteraction::ResetDefaultStateForAllInteractions(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  int v2; // ebx
-  __int64 v3; // rdi
+  int v4; // ebx
+  __int64 v5; // rdi
 
-  v2 = 0;
-  if ( dword_1803D3820 > 0 )
+  v4 = 0;
+  if ( dword_18034B4F8 > 0 )
   {
-    v3 = 0LL;
+    v5 = 0LL;
     do
     {
       CInteraction::ResetDefaultInteractionForCurrentMC(
-        *(CInteraction **)((char *)CInteraction::s_DefaultStateLockedInteractions + v3),
-        a2);
-      ++v2;
-      v3 += 8LL;
+        *(CInteraction **)((char *)CInteraction::s_DefaultStateLockedInteractions + v5),
+        0,
+        a3,
+        a4);
+      ++v4;
+      v5 += 8LL;
     }
-    while ( v2 < dword_1803D3820 );
+    while ( v4 < dword_18034B4F8 );
   }
-  CArray<CInteraction *,CArrayEqualHelper<CInteraction *>>::RemoveAll((__int64)&CInteraction::s_DefaultStateLockedInteractions);
+  CArray<CInteraction *,CArrayEqualHelper<CInteraction *>>::RemoveAll();
 }

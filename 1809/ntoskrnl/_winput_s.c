@@ -1,15 +1,15 @@
 /*
- * XREFs of _winput_s @ 0x14019E778
+ * XREFs of _winput_s @ 0x14019E798
  * Callers:
- *     _swinput_s @ 0x14019E6B8 (_swinput_s.c)
+ *     _swinput_s @ 0x14019E6D8 (_swinput_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1401767E0 (xHalTimerWatchdogStop.c)
- *     iswctype @ 0x1401983C8 (iswctype.c)
- *     ReadString_0 @ 0x14019E2C0 (ReadString_0.c)
- *     ReadStringDelimited_0 @ 0x14019E500 (ReadStringDelimited_0.c)
- *     _whiteout @ 0x14019E720 (_whiteout.c)
- *     _fgetwc_nolock @ 0x14019F1F8 (_fgetwc_nolock.c)
- *     _ungetwc_nolock @ 0x14019F240 (_ungetwc_nolock.c)
+ *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
+ *     iswctype @ 0x1401983E8 (iswctype.c)
+ *     ReadString_0 @ 0x14019E2E0 (ReadString_0.c)
+ *     ReadStringDelimited_0 @ 0x14019E520 (ReadStringDelimited_0.c)
+ *     _whiteout @ 0x14019E740 (_whiteout.c)
+ *     _fgetwc_nolock @ 0x14019F218 (_fgetwc_nolock.c)
+ *     _ungetwc_nolock @ 0x14019F260 (_ungetwc_nolock.c)
  */
 
 __int64 __fastcall winput_s(FILE *File, wint_t *a2, __int64 a3)

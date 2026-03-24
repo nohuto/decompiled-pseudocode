@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ProcessUpdate@CCombinedGeometry@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMBINEDGEOMETRY@@@Z @ 0x18000C204
+ * XREFs of ?ProcessUpdate@CCombinedGeometry@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMBINEDGEOMETRY@@@Z @ 0x1801B35D8
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?UnRegisterNotifiers@CCombinedGeometry@@UEAAXXZ @ 0x18000C2E0 (-UnRegisterNotifiers@CCombinedGeometry@@UEAAXXZ.c)
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18004A8DC (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x18009EFC0 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800BC160 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180037460 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D9B0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3484 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?UnRegisterNotifiers@CCombinedGeometry@@UEAAXXZ @ 0x1801B4360 (-UnRegisterNotifiers@CCombinedGeometry@@UEAAXXZ.c)
  */
 
 __int64 __fastcall CCombinedGeometry::ProcessUpdate(
@@ -15,73 +15,76 @@ __int64 __fastcall CCombinedGeometry::ProcessUpdate(
         struct CResourceTable *a2,
         const struct tagMILCMD_COMBINEDGEOMETRY *a3)
 {
-  __int64 v6; // rdx
-  __int64 Resource; // rax
-  unsigned int v8; // ecx
-  __int64 v9; // rdx
-  __int64 v10; // rax
-  unsigned int v11; // ecx
-  int v12; // eax
-  unsigned int v13; // ecx
-  int v14; // edi
-  unsigned int v15; // esi
-  int v16; // eax
-  unsigned int v17; // ecx
-  unsigned int v19; // ecx
+  unsigned int v6; // edx
+  struct CResource *Resource; // rax
+  __int64 v8; // rcx
+  int v9; // edi
+  unsigned int v10; // edx
+  __int64 v11; // rax
+  __int64 v12; // rcx
+  int v13; // eax
+  __int64 v14; // rcx
+  int v15; // eax
+  __int64 v16; // rcx
 
   CCombinedGeometry::UnRegisterNotifiers((CCombinedGeometry *)this);
-  *((_DWORD *)this + 42) = *((_DWORD *)a3 + 2);
-  v6 = *((unsigned int *)a3 + 3);
-  if ( (_DWORD)v6 )
+  *((_DWORD *)this + 40) = *((_DWORD *)a3 + 2);
+  v6 = *((_DWORD *)a3 + 3);
+  if ( v6 )
   {
-    Resource = CResourceTable::GetResource(a2, v6, 67LL);
-    this[22] = (struct CResource *)Resource;
+    Resource = (struct CResource *)CResourceTable::GetResource((__int64)a2, v6, 0x41u);
+    this[21] = Resource;
     if ( !Resource )
     {
-      v15 = -2003303421;
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2003303421, 0x61u, 0LL);
-      goto LABEL_15;
+      v9 = -2003303421;
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2003303421, 0x138u, 0LL);
+LABEL_16:
+      CCombinedGeometry::UnRegisterNotifiers((CCombinedGeometry *)this);
+      goto LABEL_17;
     }
+  }
+  else
+  {
+    this[21] = 0LL;
+    Resource = 0LL;
+  }
+  v10 = *((_DWORD *)a3 + 4);
+  if ( v10 )
+  {
+    v11 = CResourceTable::GetResource((__int64)a2, v10, 0x41u);
+    this[22] = (struct CResource *)v11;
+    if ( !v11 )
+    {
+      v9 = -2003303421;
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, -2003303421, 0x14Au, 0LL);
+      goto LABEL_16;
+    }
+    Resource = this[21];
   }
   else
   {
     this[22] = 0LL;
   }
-  v9 = *((unsigned int *)a3 + 4);
-  if ( (_DWORD)v9 )
+  v13 = CResource::RegisterNotifier((CResource *)this, Resource);
+  v9 = v13;
+  if ( v13 < 0 )
   {
-    v10 = CResourceTable::GetResource(a2, v9, 67LL);
-    this[23] = (struct CResource *)v10;
-    if ( v10 )
-      goto LABEL_5;
-    v15 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, -2003303421, 0x73u, 0LL);
-LABEL_15:
-    CCombinedGeometry::UnRegisterNotifiers((CCombinedGeometry *)this);
-    goto LABEL_7;
+    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x166u, 0LL);
   }
-  this[23] = 0LL;
-LABEL_5:
-  v12 = CResource::RegisterNotifier((CResource *)this, this[22]);
-  v14 = v12;
-  v15 = v12;
-  if ( v12 < 0 )
+  else
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x8Fu, 0LL);
-    goto LABEL_14;
+    v15 = CResource::RegisterNotifier((CResource *)this, this[22]);
+    v9 = v15;
+    if ( v15 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x167u, 0LL);
   }
-  v16 = CResource::RegisterNotifier((CResource *)this, this[23]);
-  v14 = v16;
-  v15 = v16;
-  if ( v16 < 0 )
+  if ( v9 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x90u, 0LL);
-LABEL_14:
-    MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v14, 0x7Cu, 0LL);
-    goto LABEL_15;
+    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v9, 0x153u, 0LL);
+    goto LABEL_16;
   }
-LABEL_7:
+LABEL_17:
   *((_DWORD *)this + 8) |= 1u;
-  CResource::NotifyOnChanged(this, 0LL, 0LL);
-  return v15;
+  CResource::NotifyOnChanged((__int64)this, 0, 0LL);
+  return (unsigned int)v9;
 }

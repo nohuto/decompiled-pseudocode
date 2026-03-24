@@ -1,50 +1,44 @@
 /*
- * XREFs of ?CheckGivenTargetIsPartOfCloneGroup@@YAJPEAVDXGADAPTER@@IPEAE@Z @ 0x1C019B9B4
+ * XREFs of ?CheckGivenTargetIsPartOfCloneGroup@@YAJPEAVDXGADAPTER@@IPEAE@Z @ 0x1C013E9F8
  * Callers:
- *     DxgkDisplayConfigDeviceInfo @ 0x1C01AD190 (DxgkDisplayConfigDeviceInfo.c)
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C0135B50 (DxgkDisplayConfigDeviceInfo.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?GetSessionViewOwner@ADAPTER_DISPLAY@@QEBAPEAVSESSION_VIEW@@I@Z @ 0x1C019D414 (-GetSessionViewOwner@ADAPTER_DISPLAY@@QEBAPEAVSESSION_VIEW@@I@Z.c)
- *     ?DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z @ 0x1C019D5FC (-DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z.c)
- *     ?DmmEnumClientVidPnPathTargetsFromSource@@YAJQEAXI_KQEAI@Z @ 0x1C019D74C (-DmmEnumClientVidPnPathTargetsFromSource@@YAJQEAXI_KQEAI@Z.c)
+ *     ?DmmEnumClientVidPnPathTargetsFromSource@@YAJQEAXI_KQEAI@Z @ 0x1C012F308 (-DmmEnumClientVidPnPathTargetsFromSource@@YAJQEAXI_KQEAI@Z.c)
+ *     ?GetSessionViewOwner@ADAPTER_DISPLAY@@QEBAPEAVSESSION_VIEW@@I@Z @ 0x1C013E304 (-GetSessionViewOwner@ADAPTER_DISPLAY@@QEBAPEAVSESSION_VIEW@@I@Z.c)
+ *     ?DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z @ 0x1C013EA9C (-DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z.c)
  */
 
 __int64 __fastcall CheckGivenTargetIsPartOfCloneGroup(ADAPTER_DISPLAY **a1, unsigned int a2, unsigned __int8 *a3)
 {
-  ADAPTER_DISPLAY *v5; // rax
-  unsigned int v6; // esi
-  int v7; // ebx
-  struct SESSION_VIEW *SessionViewOwner; // rax
-  unsigned int v10; // [rsp+80h] [rbp+18h] BYREF
-  unsigned int v11; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  ADAPTER_DISPLAY *v7; // rax
+  unsigned int v8; // edi
+  int v9; // ebx
+  int **SessionViewOwner; // rax
+  __int64 v12; // rax
+  unsigned int v13; // [rsp+50h] [rbp+18h] BYREF
+  unsigned int v14; // [rsp+58h] [rbp+20h] BYREF
 
-  v10 = 0;
+  v13 = 0;
   *a3 = 0;
-  if ( (int)DmmGetSourceConnectedToTargetInClientVidPn(a1, a2, &v10) < 0 )
+  if ( DmmGetSourceConnectedToTargetInClientVidPn(a1, a2, &v13) < 0 )
     return (unsigned int)-1073741275;
-  v5 = a1[365];
-  v11 = 0;
-  v6 = v10;
-  if ( v10 >= *((_DWORD *)v5 + 24) )
+  v7 = a1[337];
+  v14 = 0;
+  v8 = v13;
+  if ( v13 >= *((_DWORD *)v7 + 20) )
   {
-    WdLogSingleEntry1(1LL, 4839LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"VidPnSourceId < i_pAdapter->GetDisplayCore()->GetNumVidPnSources()",
-      4839LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v12 = WdLogNewEntry5_WdAssertion(v6, v5);
+    *(_QWORD *)(v12 + 24) = 4780LL;
+    WdLogEvent5_WdAssertion(v12);
   }
-  v7 = DmmEnumClientVidPnPathTargetsFromSource(a1, v6, 1uLL, &v11);
-  if ( v7 < 0 || v11 == -1 )
+  v9 = DmmEnumClientVidPnPathTargetsFromSource(a1, v8, 1uLL, &v14);
+  if ( v9 < 0 || v14 == -1 )
   {
-    SessionViewOwner = ADAPTER_DISPLAY::GetSessionViewOwner(a1[365], v6);
+    SessionViewOwner = ADAPTER_DISPLAY::GetSessionViewOwner(a1[337], v8);
     if ( !SessionViewOwner || *((_DWORD *)SessionViewOwner + 10) <= 1u )
-      return (unsigned int)v7;
+      return (unsigned int)v9;
   }
   *a3 = 1;
   return 0LL;

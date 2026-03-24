@@ -1,20 +1,20 @@
 /*
- * XREFs of LocalConvertStringSDToSD_Rev1 @ 0x1406AF7EC
+ * XREFs of LocalConvertStringSDToSD_Rev1 @ 0x1406AF7CC
  * Callers:
- *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x140127FE0 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
+ *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x140128000 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
  *     RtlNtStatusToDosError @ 0x140623EE0 (RtlNtStatusToDosError.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FEB0 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x1406542B0 (RtlSetSaclSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x1406555D0 (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140655630 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x1406AFA30 (RtlAbsoluteToSelfRelativeSD.c)
- *     LocalGetAclForString @ 0x1406AFCAC (LocalGetAclForString.c)
- *     LocalGetSidForString @ 0x1406B02CC (LocalGetSidForString.c)
- *     SddlpAlloc @ 0x1406B0594 (SddlpAlloc.c)
- *     LocalGetSDControlForString @ 0x1406B0840 (LocalGetSDControlForString.c)
+ *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140654290 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x1406555B0 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x140655610 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x1406AFA10 (RtlAbsoluteToSelfRelativeSD.c)
+ *     LocalGetAclForString @ 0x1406AFC8C (LocalGetAclForString.c)
+ *     LocalGetSidForString @ 0x1406B02AC (LocalGetSidForString.c)
+ *     SddlpAlloc @ 0x1406B0574 (SddlpAlloc.c)
+ *     LocalGetSDControlForString @ 0x1406B0820 (LocalGetSDControlForString.c)
  */
 
 __int64 __fastcall LocalConvertStringSDToSD_Rev1(__int64 a1, __int64 a2, __int64 a3, wchar_t *a4, PVOID *a5, ULONG *a6)

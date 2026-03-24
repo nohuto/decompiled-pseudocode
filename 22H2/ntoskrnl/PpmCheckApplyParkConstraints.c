@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmCheckApplyParkConstraints @ 0x1403914DC
+ * XREFs of PpmCheckApplyParkConstraints @ 0x1403C1CA8
  * Callers:
- *     PpmReapplyPerfPolicy @ 0x14082E210 (PpmReapplyPerfPolicy.c)
- *     PpmCheckInitProcessors @ 0x14082FE14 (PpmCheckInitProcessors.c)
- *     PpmParkApplyForcedMask @ 0x140999F04 (PpmParkApplyForcedMask.c)
- *     PpmParkClearForcedMask @ 0x14099A004 (PpmParkClearForcedMask.c)
+ *     PpmCheckInitProcessors @ 0x1407BA2D8 (PpmCheckInitProcessors.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BAEC0 (PpmReapplyPerfPolicy.c)
+ *     PpmParkApplyForcedMask @ 0x1408F92F4 (PpmParkApplyForcedMask.c)
+ *     PpmParkClearForcedMask @ 0x1408F93F4 (PpmParkClearForcedMask.c)
  * Callees:
- *     PpmCheckCustomRun @ 0x14032B45C (PpmCheckCustomRun.c)
+ *     PpmCheckCustomRun @ 0x14037CB48 (PpmCheckCustomRun.c)
  */
 
-void PpmCheckApplyParkConstraints()
+char PpmCheckApplyParkConstraints()
 {
-  PpmCheckCustomRun(4u);
+  return PpmCheckCustomRun(4);
 }

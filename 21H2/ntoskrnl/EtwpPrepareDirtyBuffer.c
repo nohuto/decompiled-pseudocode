@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpPrepareDirtyBuffer @ 0x1402E1CBC
+ * XREFs of EtwpPrepareDirtyBuffer @ 0x1402663DC
  * Callers:
- *     EtwpSwitchBuffer @ 0x1402E1704 (EtwpSwitchBuffer.c)
- *     EtwpFlushActiveBuffers @ 0x14079885C (EtwpFlushActiveBuffers.c)
- *     EtwpBufferingModeFlush @ 0x1409E971C (EtwpBufferingModeFlush.c)
+ *     EtwpSwitchBuffer @ 0x140265E94 (EtwpSwitchBuffer.c)
+ *     EtwpFlushActiveBuffers @ 0x140643C10 (EtwpFlushActiveBuffers.c)
+ *     EtwpBufferingModeFlush @ 0x14093D188 (EtwpBufferingModeFlush.c)
  * Callees:
- *     ObGetCurrentIrql @ 0x140244120 (ObGetCurrentIrql.c)
- *     EtwpEnqueueAvailableBuffer @ 0x1402E1AB0 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpGetLoggerTimeStamp @ 0x1402E1D0C (EtwpGetLoggerTimeStamp.c)
- *     KeInsertQueueDpc @ 0x140345170 (KeInsertQueueDpc.c)
- *     EtwpCompressionDpc @ 0x140634F40 (EtwpCompressionDpc.c)
- *     EtwpReenableCompression @ 0x1406354FC (EtwpReenableCompression.c)
+ *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
+ *     EtwpGetLoggerTimeStamp @ 0x14022CAD8 (EtwpGetLoggerTimeStamp.c)
+ *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x140266230 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpCompressionDpc @ 0x1405ACD50 (EtwpCompressionDpc.c)
+ *     EtwpReenableCompression @ 0x1405AD6C0 (EtwpReenableCompression.c)
  */
 
-char __fastcall EtwpPrepareDirtyBuffer(__int64 a1, __int64 a2)
+char __fastcall EtwpPrepareDirtyBuffer(__int64 a1, LARGE_INTEGER *a2)
 {
   int v2; // eax
-  __int64 LoggerTimeStamp; // rax
+  LARGE_INTEGER LoggerTimeStamp; // rax
 
   v2 = *(_DWORD *)(a1 + 12);
   if ( (v2 & 0x400) != 0 )
@@ -24,31 +24,31 @@ char __fastcall EtwpPrepareDirtyBuffer(__int64 a1, __int64 a2)
     if ( (v2 & 0x4000000) != 0 )
     {
       EtwpEnqueueAvailableBuffer(a1, (unsigned int *)a2, 4u);
-      if ( !*(_DWORD *)(a1 + 1168) && *(_QWORD *)(a1 + 1264) >= 2LL * *(_QWORD *)(a1 + 1272) )
+      if ( !*(_DWORD *)(a1 + 1152) && *(_QWORD *)(a1 + 1248) >= 2LL * *(_QWORD *)(a1 + 1256) )
         EtwpReenableCompression(a1);
-      LODWORD(LoggerTimeStamp) = *(_DWORD *)(a1 + 1168);
-      if ( (_DWORD)LoggerTimeStamp )
+      LoggerTimeStamp.LowPart = *(_DWORD *)(a1 + 1152);
+      if ( LoggerTimeStamp.LowPart )
       {
-        LODWORD(LoggerTimeStamp) = _InterlockedExchange((volatile __int32 *)(a1 + 1136), 2);
-        if ( !(_DWORD)LoggerTimeStamp )
+        LoggerTimeStamp.LowPart = _InterlockedExchange((volatile __int32 *)(a1 + 1120), 2);
+        if ( !LoggerTimeStamp.LowPart )
         {
           if ( ObGetCurrentIrql() > 2u )
-            LOBYTE(LoggerTimeStamp) = KeInsertQueueDpc((PRKDPC)(a1 + 1192), 0LL, 0LL);
+            LOBYTE(LoggerTimeStamp.LowPart) = KeInsertQueueDpc((PRKDPC)(a1 + 1176), 0LL, 0LL);
           else
-            LOBYTE(LoggerTimeStamp) = EtwpCompressionDpc(0LL, a1, 0LL, 0LL);
+            LOBYTE(LoggerTimeStamp.LowPart) = EtwpCompressionDpc(0LL, a1, 0LL, 0LL);
         }
       }
     }
     else
     {
-      LOBYTE(LoggerTimeStamp) = EtwpEnqueueAvailableBuffer(a1, (unsigned int *)a2, 0);
+      LOBYTE(LoggerTimeStamp.LowPart) = EtwpEnqueueAvailableBuffer(a1, (unsigned int *)a2, 0);
     }
   }
   else
   {
-    *(_DWORD *)(a2 + 44) = 3;
-    LoggerTimeStamp = EtwpGetLoggerTimeStamp();
-    *(_QWORD *)(a2 + 16) = LoggerTimeStamp;
+    a2[5].HighPart = 3;
+    LoggerTimeStamp = EtwpGetLoggerTimeStamp(a1);
+    a2[2] = LoggerTimeStamp;
   }
-  return LoggerTimeStamp;
+  return LoggerTimeStamp.LowPart;
 }

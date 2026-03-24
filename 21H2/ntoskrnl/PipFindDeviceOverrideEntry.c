@@ -1,18 +1,18 @@
 /*
- * XREFs of PipFindDeviceOverrideEntry @ 0x14078A988
+ * XREFs of PipFindDeviceOverrideEntry @ 0x1407641FC
  * Callers:
- *     PiQueryRemovableDeviceOverride @ 0x14076AD40 (PiQueryRemovableDeviceOverride.c)
+ *     PiQueryRemovableDeviceOverride @ 0x140763F00 (PiQueryRemovableDeviceOverride.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     IopReplaceSeperatorWithPound @ 0x1406C94F8 (IopReplaceSeperatorWithPound.c)
- *     RtlHashUnicodeString @ 0x14078C240 (RtlHashUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
- *     PipCallbackHasDeviceOverrides @ 0x14093FE38 (PipCallbackHasDeviceOverrides.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     RtlHashUnicodeString @ 0x140636CA0 (RtlHashUnicodeString.c)
+ *     IopReplaceSeperatorWithPound @ 0x1407643AC (IopReplaceSeperatorWithPound.c)
+ *     PipCallbackHasDeviceOverrides @ 0x14089B298 (PipCallbackHasDeviceOverrides.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PipFindDeviceOverrideEntry(_WORD *Src, __int64 a2, __int64 a3, __int64 a4)
@@ -21,25 +21,26 @@ __int64 __fastcall PipFindDeviceOverrideEntry(_WORD *Src, __int64 a2, __int64 a3
   __int64 v6; // rbx
   __int64 v7; // rax
   unsigned int v8; // ebx
-  WCHAR *Pool2; // rax
+  WCHAR *PoolWithTag; // rax
   WCHAR *v10; // rdi
   const WCHAR *v11; // r15
-  NTSTATUS i; // ebx
+  NTSTATUS v12; // ebx
   NTSTATUS v13; // eax
   ULONG v14; // ecx
   const UNICODE_STRING **v15; // r12
-  const UNICODE_STRING *j; // r14
+  const UNICODE_STRING *i; // r14
   __int64 v17; // rax
   HANDLE v19; // rax
-  __int128 v20; // [rsp+20h] [rbp-50h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
-  HANDLE Handle; // [rsp+B0h] [rbp+40h] BYREF
-  HANDLE KeyHandle; // [rsp+B8h] [rbp+48h] BYREF
-  ULONG HashValue; // [rsp+C8h] [rbp+58h] BYREF
-  int v26; // [rsp+CCh] [rbp+5Ch]
+  __int128 v20; // [rsp+28h] [rbp-59h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-49h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-39h] BYREF
+  OBJECT_ATTRIBUTES v23; // [rsp+78h] [rbp-9h] BYREF
+  HANDLE Handle; // [rsp+E8h] [rbp+67h] BYREF
+  HANDLE KeyHandle; // [rsp+F0h] [rbp+6Fh] BYREF
+  ULONG HashValue; // [rsp+100h] [rbp+7Fh] BYREF
+  int v27; // [rsp+104h] [rbp+83h]
 
-  v26 = HIDWORD(a4);
+  v27 = HIDWORD(a4);
   v5 = Src;
   HashValue = 0;
   v20 = 0LL;
@@ -60,77 +61,83 @@ __int64 __fastcall PipFindDeviceOverrideEntry(_WORD *Src, __int64 a2, __int64 a3
     }
     while ( *Src );
     v8 = v6 + 1;
-    Pool2 = (WCHAR *)ExAllocatePool2(256LL, 2LL * v8, 1852403792LL);
-    v10 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, 2LL * v8, 0x6E697050u);
+    v10 = PoolWithTag;
+    if ( PoolWithTag )
     {
-      memmove(Pool2, v5, 2LL * v8);
+      memmove(PoolWithTag, v5, 2LL * v8);
       *((_QWORD *)&v20 + 1) = v10;
       LOWORD(v20) = 2 * v8;
       WORD1(v20) = 2 * v8;
-      IopReplaceSeperatorWithPound((__int64)&v20, (__int16 *)&v20);
+      IopReplaceSeperatorWithPound(&v20, &v20);
       v11 = v10;
-      for ( i = -1073741772; *v11; v11 += v17 + 1 )
+      v12 = -1073741772;
+      if ( *v10 )
       {
-        RtlInitUnicodeString(&DestinationString, v11);
-        v13 = RtlHashUnicodeString(&DestinationString, 1u, 0, &HashValue);
-        v14 = HashValue;
-        i = -1073741772;
-        if ( v13 < 0 )
-          v14 = 0;
-        HashValue = v14;
-        v15 = (const UNICODE_STRING **)(PnpDeviceOverrideHashList + 16LL * (v14 % PnpDeviceOverrideHashListSize));
-        for ( j = *v15; j != (const UNICODE_STRING *)v15; j = *(const UNICODE_STRING **)&j->Length )
-        {
-          if ( RtlEqualUnicodeString(&DestinationString, j + 1, 1u) )
-          {
-            v19 = Handle;
-            if ( !Handle )
-            {
-              LODWORD(v20) = 8781956;
-              *((_QWORD *)&v20 + 1) = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\DeviceOverrides";
-              *(_QWORD *)&ObjectAttributes.Length = 48LL;
-              ObjectAttributes.ObjectName = (PUNICODE_STRING)&v20;
-              *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-              Handle = 0LL;
-              ObjectAttributes.RootDirectory = 0LL;
-              *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-              i = ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes);
-              if ( i < 0 )
-                goto LABEL_15;
-              v19 = Handle;
-            }
-            ObjectAttributes.RootDirectory = v19;
-            *(_QWORD *)&ObjectAttributes.Length = 48LL;
-            ObjectAttributes.ObjectName = &DestinationString;
-            *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-            KeyHandle = 0LL;
-            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-            i = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
-            if ( i >= 0 )
-            {
-              if ( (unsigned __int8)PipCallbackHasDeviceOverrides(KeyHandle, a3) )
-              {
-                ZwClose(KeyHandle);
-                goto LABEL_15;
-              }
-              ZwClose(KeyHandle);
-              i = -1073741772;
-            }
-            break;
-          }
-        }
-        v17 = -1LL;
         do
-          ++v17;
-        while ( v11[v17] );
+        {
+          RtlInitUnicodeString(&DestinationString, v11);
+          v13 = RtlHashUnicodeString(&DestinationString, 1u, 0, &HashValue);
+          v14 = HashValue;
+          v12 = -1073741772;
+          if ( v13 < 0 )
+            v14 = 0;
+          HashValue = v14;
+          v15 = (const UNICODE_STRING **)(PnpDeviceOverrideHashList + 16LL * (v14 % PnpDeviceOverrideHashListSize));
+          for ( i = *v15; i != (const UNICODE_STRING *)v15; i = *(const UNICODE_STRING **)&i->Length )
+          {
+            if ( RtlEqualUnicodeString(&DestinationString, i + 1, 1u) )
+            {
+              v19 = Handle;
+              if ( !Handle )
+              {
+                LODWORD(v20) = 8781956;
+                *((_QWORD *)&v20 + 1) = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\DeviceOverrides";
+                *(_QWORD *)&ObjectAttributes.Length = 48LL;
+                ObjectAttributes.ObjectName = (PUNICODE_STRING)&v20;
+                *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+                Handle = 0LL;
+                ObjectAttributes.RootDirectory = 0LL;
+                *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+                v12 = ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes);
+                if ( v12 < 0 )
+                  goto LABEL_17;
+                v19 = Handle;
+              }
+              v23.RootDirectory = v19;
+              *(_QWORD *)&v23.Length = 48LL;
+              v23.ObjectName = &DestinationString;
+              *(_QWORD *)&v23.Attributes = 576LL;
+              KeyHandle = 0LL;
+              *(_OWORD *)&v23.SecurityDescriptor = 0LL;
+              v12 = ZwOpenKey(&KeyHandle, 0x20019u, &v23);
+              if ( v12 >= 0 )
+              {
+                if ( (unsigned __int8)PipCallbackHasDeviceOverrides(KeyHandle, a3) )
+                  goto LABEL_15;
+                ZwClose(KeyHandle);
+                v12 = -1073741772;
+              }
+              break;
+            }
+          }
+          v17 = -1LL;
+          do
+            ++v17;
+          while ( v11[v17] );
+          v11 += v17 + 1;
+        }
+        while ( *v11 );
+LABEL_15:
+        if ( v12 >= 0 )
+          ZwClose(KeyHandle);
       }
     }
     else
     {
-      i = -1073741670;
+      v12 = -1073741670;
     }
-LABEL_15:
+LABEL_17:
     if ( Handle )
       ZwClose(Handle);
     if ( v10 )
@@ -140,5 +147,5 @@ LABEL_15:
   {
     return (unsigned int)-1073741772;
   }
-  return (unsigned int)i;
+  return (unsigned int)v12;
 }

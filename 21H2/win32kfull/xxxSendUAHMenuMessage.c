@@ -1,23 +1,24 @@
 /*
- * XREFs of xxxSendUAHMenuMessage @ 0x1C00BD2C0
+ * XREFs of xxxSendUAHMenuMessage @ 0x1C0102320
  * Callers:
- *     xxxPaintMenuBar @ 0x1C00BCDEC (xxxPaintMenuBar.c)
- *     xxxMenuDraw @ 0x1C00BD4E0 (xxxMenuDraw.c)
- *     xxxMenuWindowProc @ 0x1C0234200 (xxxMenuWindowProc.c)
- *     xxxMNDrawFullNC @ 0x1C0247E7C (xxxMNDrawFullNC.c)
+ *     xxxMenuDraw @ 0x1C0043708 (xxxMenuDraw.c)
+ *     xxxPaintMenuBar @ 0x1C0102100 (xxxPaintMenuBar.c)
+ *     xxxMenuWindowProc @ 0x1C023BBA0 (xxxMenuWindowProc.c)
+ *     xxxMNDrawFullNC @ 0x1C024CA44 (xxxMNDrawFullNC.c)
  * Callees:
- *     xxxSendMessage @ 0x1C0050D34 (xxxSendMessage.c)
- *     MNInitUAHMenu @ 0x1C00BE950 (MNInitUAHMenu.c)
+ *     MNInitUAHMenu @ 0x1C0044D20 (MNInitUAHMenu.c)
+ *     xxxSendMessage @ 0x1C005D634 (xxxSendMessage.c)
  */
 
-__int64 __fastcall xxxSendUAHMenuMessage(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall xxxSendUAHMenuMessage(__int64 a1, __int64 a2, __int64 *a3, __int64 a4)
 {
-  ULONG_PTR v4; // r11
-  __int128 v6; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v7; // [rsp+30h] [rbp-18h]
+  unsigned int v4; // r10d
+  unsigned __int64 v5; // r11
+  __int128 v7; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v8; // [rsp+30h] [rbp-18h]
 
+  v8 = 0LL;
   v7 = 0LL;
-  v6 = 0LL;
-  MNInitUAHMenu(a3, a4, &v6);
-  return xxxSendMessage(v4);
+  MNInitUAHMenu(a3, a4, (__int64)&v7);
+  return xxxSendMessage(v5, v4, 0LL, (struct _LARGE_STRING *)&v7);
 }

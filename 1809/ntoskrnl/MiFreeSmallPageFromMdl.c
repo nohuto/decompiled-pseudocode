@@ -2,11 +2,11 @@
  * XREFs of MiFreeSmallPageFromMdl @ 0x140029F10
  * Callers:
  *     MiFreeMdlPageRun @ 0x140029DE0 (MiFreeMdlPageRun.c)
- *     MmFreeSecureKernelPages @ 0x1402C3034 (MmFreeSecureKernelPages.c)
+ *     MmFreeSecureKernelPages @ 0x1402C3134 (MmFreeSecureKernelPages.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFreeSmallPageFromMdl(ULONG_PTR BugCheckParameter2, int a2)

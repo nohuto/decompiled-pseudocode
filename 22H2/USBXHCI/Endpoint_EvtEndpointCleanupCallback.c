@@ -1,15 +1,14 @@
 /*
- * XREFs of Endpoint_EvtEndpointCleanupCallback @ 0x1C003A420
+ * XREFs of Endpoint_EvtEndpointCleanupCallback @ 0x1C0038520
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     XilEndpoint_DestroySecureObject @ 0x1C0038F68 (XilEndpoint_DestroySecureObject.c)
- *     XilEndpoint_FreeResources @ 0x1C0039044 (XilEndpoint_FreeResources.c)
- *     XilEndpoint_ReleaseBuffer @ 0x1C0039134 (XilEndpoint_ReleaseBuffer.c)
- *     WPP_RECORDER_SF_ddqqq @ 0x1C003DA44 (WPP_RECORDER_SF_ddqqq.c)
- *     UsbDevice_RemoveEndpointFromDeviceEndpointList @ 0x1C0049824 (UsbDevice_RemoveEndpointFromDeviceEndpointList.c)
- *     Etw_EndpointDelete @ 0x1C004AB80 (Etw_EndpointDelete.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     XilEndpoint_DestroySecureObject @ 0x1C00374CC (XilEndpoint_DestroySecureObject.c)
+ *     XilEndpoint_FreeResources @ 0x1C00375A8 (XilEndpoint_FreeResources.c)
+ *     WPP_RECORDER_SF_ddqqq @ 0x1C003B710 (WPP_RECORDER_SF_ddqqq.c)
+ *     UsbDevice_RemoveEndpointFromDeviceEndpointList @ 0x1C0046EA8 (UsbDevice_RemoveEndpointFromDeviceEndpointList.c)
+ *     Etw_EndpointDelete @ 0x1C0048200 (Etw_EndpointDelete.c)
  */
 
 __int64 __fastcall Endpoint_EvtEndpointCleanupCallback(__int64 a1)
@@ -22,18 +21,17 @@ __int64 __fastcall Endpoint_EvtEndpointCleanupCallback(__int64 a1)
   unsigned int v7; // eax
   __int64 v8; // rcx
   __int64 v9; // rax
-  PIRP *v10; // rax
-  __int64 v11; // rdx
-  __int64 v12; // rcx
+  __int64 v10; // rcx
+  __int64 v11; // rcx
 
   v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C00631A8);
+         off_1C00601A8);
   v3 = v2;
-  v4 = v2 + 1320;
-  if ( *(_BYTE *)(v2 + 1344) )
-    XilEndpoint_DestroySecureObject((__int64 *)(v2 + 1320));
+  v4 = v2 + 1312;
+  if ( *(_BYTE *)(v2 + 1336) )
+    XilEndpoint_DestroySecureObject((__int64 *)(v2 + 1312));
   result = XilEndpoint_FreeResources(v4);
   v6 = *(_QWORD *)(v3 + 24);
   if ( v6 == a1 )
@@ -52,29 +50,25 @@ __int64 __fastcall Endpoint_EvtEndpointCleanupCallback(__int64 a1)
       if ( v3 == *(_QWORD *)(v9 + 8 * v8 + 168) )
         *(_QWORD *)(v9 + 8 * v8 + 168) = 0LL;
     }
-    v10 = *(PIRP **)(v3 + 272);
+    v10 = *(_QWORD *)(v3 + 264);
     if ( v10 )
     {
-      if ( *v10 )
+      if ( *(_QWORD *)v10 )
       {
-        IoFreeIrp(*v10);
-        **(_QWORD **)(v3 + 272) = 0LL;
+        IoFreeIrp(*(PIRP *)v10);
+        **(_QWORD **)(v3 + 264) = 0LL;
+        v10 = *(_QWORD *)(v3 + 264);
       }
-      if ( *(_QWORD *)(*(_QWORD *)(v3 + 272) + 144LL) )
+      if ( *(_QWORD *)(v10 + 144) )
       {
         (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01023 + 1664))(WdfDriverGlobals);
-        *(_QWORD *)(*(_QWORD *)(v3 + 272) + 144LL) = 0LL;
+        *(_QWORD *)(*(_QWORD *)(v3 + 264) + 144LL) = 0LL;
+        v10 = *(_QWORD *)(v3 + 264);
       }
-      ExFreePoolWithTag(*(PVOID *)(v3 + 272), 0x49434858u);
-    }
-    v11 = *(_QWORD *)(v3 + 264);
-    if ( v11 )
-    {
-      XilEndpoint_ReleaseBuffer(v3, v11);
-      *(_QWORD *)(v3 + 264) = 0LL;
+      ExFreePoolWithTag((PVOID)v10, 0x49434858u);
     }
     UsbDevice_RemoveEndpointFromDeviceEndpointList(*(_QWORD *)(v3 + 16), *(_QWORD *)(v3 + 24), v3 + 64);
-    return Etw_EndpointDelete(v12, v3);
+    return Etw_EndpointDelete(v11, v3);
   }
   return result;
 }

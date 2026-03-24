@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0FxDriver@@QEAA@PEAU_DRIVER_OBJECT@@PEAU_WDF_DRIVER_CONFIG@@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00230E8
+ * XREFs of ??0FxDriver@@QEAA@PEAU_DRIVER_OBJECT@@PEAU_WDF_DRIVER_CONFIG@@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0053948
  * Callers:
- *     imp_WdfDriverCreate @ 0x1C0027650 (imp_WdfDriverCreate.c)
+ *     imp_WdfDriverCreate @ 0x1C004BEB0 (imp_WdfDriverCreate.c)
  * Callees:
- *     ??0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0007A14 (--0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     ??0FxCallbackMutexLock@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00257C4 (--0FxCallbackMutexLock@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
- *     memmove @ 0x1C0036E00 (memmove.c)
+ *     ??0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0014298 (--0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     memmove @ 0x1C001D640 (memmove.c)
+ *     ??0FxCallbackMutexLock@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C004D298 (--0FxCallbackMutexLock@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
  */
 
 void __fastcall FxDriver::FxDriver(
@@ -16,7 +16,7 @@ void __fastcall FxDriver::FxDriver(
 {
   size_t Size; // r8
 
-  FxNonPagedObject::FxNonPagedObject(this, (_FX_DRIVER_GLOBALS *)0x1001, 0x170u, FxDriverGlobals);
+  FxNonPagedObject::FxNonPagedObject(this, 0x1001u, 0x168u, FxDriverGlobals);
   this->m_DriverObject.m_DriverObject = ArgDriverObject;
   this->FxNonPagedObject::FxObject::__vftable = (FxDriver_vtbl *)FxDriver::`vftable'{for `FxNonPagedObject'};
   this->IFxHasCallbacks::__vftable = (IFxHasCallbacks_vtbl *)FxDriver::`vftable'{for `IFxHasCallbacks'};
@@ -25,10 +25,9 @@ void __fastcall FxDriver::FxDriver(
   FxCallbackMutexLock::FxCallbackMutexLock(&this->m_CallbackMutexLock, FxDriverGlobals);
   this->m_DriverUnload.Method = 0LL;
   RtlInitUnicodeString(&this->m_RegistryPath, 0LL);
-  this->m_ServiceName = 0LL;
   this->m_ExecutionLevel = WdfExecutionLevelDispatch;
-  Size = 32LL;
   this->m_SynchronizationScope = WdfSynchronizationScopeNone;
+  Size = 32LL;
   this->m_CallbackLockPtr = 0LL;
   this->m_CallbackLockObjectPtr = 0LL;
   this->m_DisposeList = 0LL;

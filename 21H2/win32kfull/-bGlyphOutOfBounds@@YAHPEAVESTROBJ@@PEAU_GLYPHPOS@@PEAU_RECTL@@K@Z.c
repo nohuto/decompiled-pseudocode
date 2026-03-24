@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bGlyphOutOfBounds@@YAHPEAVESTROBJ@@PEAU_GLYPHPOS@@PEAU_RECTL@@K@Z @ 0x1C013A234
+ * XREFs of ?bGlyphOutOfBounds@@YAHPEAVESTROBJ@@PEAU_GLYPHPOS@@PEAU_RECTL@@K@Z @ 0x1C00CD060
  * Callers:
- *     ?STROBJ_bEnumCheckBounds@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@PEAU_RECTL@@@Z @ 0x1C013A078 (-STROBJ_bEnumCheckBounds@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@PEAU_RECTL@@@Z.c)
+ *     ?STROBJ_bEnumCheckBounds@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@PEAU_RECTL@@@Z @ 0x1C00CCE84 (-STROBJ_bEnumCheckBounds@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@PEAU_RECTL@@@Z.c)
  * Callees:
- *     vGetPosInfo @ 0x1C02BDFD0 (vGetPosInfo.c)
+ *     vGetPosInfo @ 0x1C02BF650 (vGetPosInfo.c)
  */
 
 __int64 __fastcall bGlyphOutOfBounds(struct ESTROBJ *a1, struct _GLYPHPOS *a2, struct _RECTL *a3, unsigned int a4)

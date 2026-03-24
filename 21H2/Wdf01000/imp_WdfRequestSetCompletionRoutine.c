@@ -1,10 +1,10 @@
 /*
- * XREFs of imp_WdfRequestSetCompletionRoutine @ 0x1C00021C0
+ * XREFs of imp_WdfRequestSetCompletionRoutine @ 0x1C0003910
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0005DAC (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0003F34 (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
  */
 
 void __fastcall imp_WdfRequestSetCompletionRoutine(
@@ -14,13 +14,13 @@ void __fastcall imp_WdfRequestSetCompletionRoutine(
         FxDeviceBase *CompletionContext)
 {
   __int64 Offset; // r10
-  FxObject *v7; // rax
+  FxObject *v7; // rcx
   FxRequest *pRequest; // [rsp+48h] [rbp+10h] BYREF
 
   LOWORD(Offset) = 0;
   pRequest = 0LL;
   if ( !Request )
-    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], WDF_INVALID_HANDLE, 0LL, 0x1008uLL);
+    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, WDF_INVALID_HANDLE, 0LL, 0x1008uLL);
   v7 = (FxObject *)(~Request & 0xFFFFFFFFFFFFFFF8uLL);
   if ( (Request & 1) != 0 )
   {

@@ -1,30 +1,30 @@
 /*
- * XREFs of PiLastGoodRevertLastKnownDirectory @ 0x140B95930
+ * XREFs of PiLastGoodRevertLastKnownDirectory @ 0x140A908F0
  * Callers:
- *     PpLastGoodDoBootProcessing @ 0x140B6F400 (PpLastGoodDoBootProcessing.c)
+ *     PpLastGoodDoBootProcessing @ 0x140A6EF54 (PpLastGoodDoBootProcessing.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A880 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x14041A900 (ZwEnumerateValueKey.c)
- *     ZwDeleteFile @ 0x14041C1C0 (ZwDeleteFile.c)
- *     ZwDeleteKey @ 0x14041C1E0 (ZwDeleteKey.c)
- *     memset @ 0x140435400 (memset.c)
- *     IopFileUtilClearAttributes @ 0x14096EEB0 (IopFileUtilClearAttributes.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     IopFileUtilWalkDirectoryTreeTopDown @ 0x140B9647C (IopFileUtilWalkDirectoryTreeTopDown.c)
+ *     RtlAppendUnicodeToString @ 0x14032EAB0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x1403F9C80 (ZwEnumerateValueKey.c)
+ *     ZwDeleteFile @ 0x1403FB480 (ZwDeleteFile.c)
+ *     ZwDeleteKey @ 0x1403FB4A0 (ZwDeleteKey.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IopFileUtilClearAttributes @ 0x1408B436C (IopFileUtilClearAttributes.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IopFileUtilWalkDirectoryTreeTopDown @ 0x140A91440 (IopFileUtilWalkDirectoryTreeTopDown.c)
  */
 
 void __fastcall PiLastGoodRevertLastKnownDirectory(__int64 a1, UNICODE_STRING *a2)
 {
   __int64 v4; // rdx
-  __int64 Pool2; // rbx
+  _WORD *PoolWithTag; // rbx
   __int64 v6; // r8
-  ULONG v7; // edx
-  int v8; // edi
+  int v7; // edi
+  ULONG i; // edx
   unsigned int v9; // eax
   _WORD *v10; // rcx
   __int64 v11; // rdx
@@ -41,11 +41,11 @@ void __fastcall PiLastGoodRevertLastKnownDirectory(__int64 a1, UNICODE_STRING *a
   KeyHandle = 0LL;
   Destination = 0LL;
   Source = 0LL;
-  memset(&v16, 0, 44);
+  memset(&v16, 0, sizeof(v16));
   memset(v18, 0, 0x218uLL);
   ResultLength = 0;
-  Pool2 = ExAllocatePool2(256LL, 0x21CuLL, 0x674C7050u);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x21CuLL, 0x674C7050u);
+  if ( PoolWithTag )
   {
     IopFileUtilWalkDirectoryTreeTopDown(a1, v4, v6, a1);
     ObjectAttributes.Length = 48;
@@ -55,19 +55,20 @@ void __fastcall PiLastGoodRevertLastKnownDirectory(__int64 a1, UNICODE_STRING *a
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     if ( ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes) >= 0 )
     {
-      v7 = 0;
-      v8 = 1;
-      while ( ZwEnumerateValueKey(KeyHandle, v7, KeyValueFullInformation, (PVOID)Pool2, 0x21Cu, &ResultLength) >= 0 )
+      v7 = 1;
+      for ( i = 0;
+            ZwEnumerateValueKey(KeyHandle, i, KeyValueFullInformation, PoolWithTag, 0x21Cu, &ResultLength) >= 0;
+            i = v7++ )
       {
         if ( ResultLength
-          && *(_DWORD *)(Pool2 + 4) == 4
-          && *(_DWORD *)(Pool2 + 12) == 4
-          && (unsigned __int8)*(_DWORD *)(*(unsigned int *)(Pool2 + 8) + Pool2) == 1 )
+          && *((_DWORD *)PoolWithTag + 1) == 4
+          && *((_DWORD *)PoolWithTag + 3) == 4
+          && (unsigned __int8)*(_DWORD *)((char *)PoolWithTag + *((unsigned int *)PoolWithTag + 2)) == 1 )
         {
           *(_DWORD *)&Destination.Length = 35127296;
           Destination.Buffer = (wchar_t *)v18;
-          Source.Buffer = (wchar_t *)(Pool2 + 20);
-          Source.Length = *(_WORD *)(Pool2 + 16);
+          Source.Buffer = PoolWithTag + 10;
+          Source.Length = PoolWithTag[8];
           Source.MaximumLength = Source.Length;
           RtlAppendUnicodeToString(&Destination, L"\\SystemRoot\\");
           RtlAppendUnicodeStringToString(&Destination, &Source);
@@ -93,11 +94,10 @@ void __fastcall PiLastGoodRevertLastKnownDirectory(__int64 a1, UNICODE_STRING *a
           v16.Attributes = 576;
           ZwDeleteFile(&v16);
         }
-        v7 = v8++;
       }
       ZwDeleteKey(KeyHandle);
       ZwClose(KeyHandle);
     }
-    ExFreePoolWithTag((PVOID)Pool2, 0x674C7050u);
+    ExFreePoolWithTag(PoolWithTag, 0x674C7050u);
   }
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of DrvDbFindDatabaseNode @ 0x140877BE4
+ * XREFs of DrvDbFindDatabaseNode @ 0x14060258C
  * Callers:
- *     DrvDbSuspendDatabase @ 0x140813A9C (DrvDbSuspendDatabase.c)
- *     DrvDbRegisterDatabase @ 0x140814ED8 (DrvDbRegisterDatabase.c)
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x1408664C0 (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x14086671C (DrvDbOpenDriverDatabaseRegKey.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x140866854 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbDispatchDriverDatabase @ 0x140876610 (DrvDbDispatchDriverDatabase.c)
- *     DrvDbGetObjectDatabaseNode @ 0x1408774E0 (DrvDbGetObjectDatabaseNode.c)
- *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x140A6B75C (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
- *     DrvDbUnregisterDatabase @ 0x140A6D964 (DrvDbUnregisterDatabase.c)
+ *     DrvDbDispatchDriverDatabase @ 0x1406B4C50 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbGetObjectDatabaseNode @ 0x1406B7ADC (DrvDbGetObjectDatabaseNode.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x140727CD0 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x140735700 (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x1407358D4 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbSuspendDatabase @ 0x1407A3C0C (DrvDbSuspendDatabase.c)
+ *     DrvDbRegisterDatabase @ 0x1407A4600 (DrvDbRegisterDatabase.c)
+ *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x14097D3F4 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
+ *     DrvDbUnregisterDatabase @ 0x14097E860 (DrvDbUnregisterDatabase.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall DrvDbFindDatabaseNode(__int64 a1, const WCHAR *a2, const UNICODE_STRING **a3)

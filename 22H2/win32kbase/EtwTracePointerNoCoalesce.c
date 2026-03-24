@@ -1,11 +1,10 @@
 /*
- * XREFs of EtwTracePointerNoCoalesce @ 0x1C013AEF0
+ * XREFs of EtwTracePointerNoCoalesce @ 0x1C0123AE0
  * Callers:
- *     ?DelegateChainingResetAndCoalescePointerMessage@CTouchProcessor@@QEAAH_KHHHI@Z @ 0x1C01C0D30 (-DelegateChainingResetAndCoalescePointerMessage@CTouchProcessor@@QEAAH_KHHHI@Z.c)
- *     ?DelegateCoalescePointerMessage@CTouchProcessor@@QEAAH_KHHHI@Z @ 0x1C01C1080 (-DelegateCoalescePointerMessage@CTouchProcessor@@QEAAH_KHHHI@Z.c)
- *     ?TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z @ 0x1C01D7F3C (-TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z.c)
+ *     ?DelegateCoalescePointerMessage@CTouchProcessor@@QEAAH_KHHHI@Z @ 0x1C018CDC0 (-DelegateCoalescePointerMessage@CTouchProcessor@@QEAAH_KHHHI@Z.c)
+ *     ?TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z @ 0x1C019F35C (-TryCoalesceQFrame@CTouchProcessor@@AEAAXPEAUCPointerInputFrame@@PEBU2@PEBUCPointerQFrame@@@Z.c)
  * Callees:
- *     McTemplateK0hhq_EtwWriteTransfer @ 0x1C013C6E0 (McTemplateK0hhq_EtwWriteTransfer.c)
+ *     McTemplateK0hhq_EtwWriteTransfer @ 0x1C0125824 (McTemplateK0hhq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall EtwTracePointerNoCoalesce(int a1, char a2, int a3, int a4)

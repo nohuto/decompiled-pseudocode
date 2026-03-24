@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetCallbackLockPtr@FxIoQueue@@UEAAPEAVFxCallbackLock@@PEAPEAVFxObject@@@Z @ 0x1C0013A80
+ * XREFs of ?GetCallbackLockPtr@FxIoQueue@@UEAAPEAVFxCallbackLock@@PEAPEAVFxObject@@@Z @ 0x1C00762C0
  * Callers:
  *     <none>
  * Callees:

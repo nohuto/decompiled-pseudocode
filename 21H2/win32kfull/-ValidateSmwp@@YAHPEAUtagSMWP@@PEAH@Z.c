@@ -1,22 +1,27 @@
 /*
- * XREFs of ?ValidateSmwp@@YAHPEAUtagSMWP@@PEAH@Z @ 0x1C0047AA4
+ * XREFs of ?ValidateSmwp@@YAHPEAUtagSMWP@@PEAH@Z @ 0x1C006F664
  * Callers:
- *     xxxEndDeferWindowPosEx @ 0x1C004720C (xxxEndDeferWindowPosEx.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C006EDBC (xxxEndDeferWindowPosEx.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     ?ValidateWindowPos@@YAHPEAUtagCVR@@PEAUtagWND@@@Z @ 0x1C0047B50 (-ValidateWindowPos@@YAHPEAUtagCVR@@PEAUtagWND@@@Z.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     ?ValidateWindowPos@@YAHPEAUtagCVR@@PEAUtagWND@@@Z @ 0x1C006F710 (-ValidateWindowPos@@YAHPEAUtagCVR@@PEAUtagWND@@@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
  */
 
 __int64 __fastcall ValidateSmwp(struct tagSMWP *a1, int *a2)
 {
+  int *v3; // rsi
   __int64 v4; // rax
   struct tagCVR *v5; // rbx
   int v6; // edi
   __int64 v7; // rbp
+  __int64 v8; // rdx
+  __int64 v9; // r8
 
   *a2 = 1;
-  v4 = HMValidateHandleNoSecure(**((_QWORD **)a1 + 5), 1);
+  v3 = a2;
+  LOBYTE(a2) = 1;
+  v4 = HMValidateHandleNoSecure(**((_QWORD **)a1 + 5), a2);
   if ( !v4 )
     return 0LL;
   v5 = (struct tagCVR *)*((_QWORD *)a1 + 5);
@@ -34,10 +39,10 @@ __int64 __fastcall ValidateSmwp(struct tagSMWP *a1, int *a2)
     if ( *(_QWORD *)(_HMObjectFromHandle(*(_QWORD *)v5) + 104) != v7 )
       break;
     if ( (*((_DWORD *)v5 + 8) & 0x2000) != 0 )
-      *a2 = 0;
+      *v3 = 0;
 LABEL_8:
     v5 = (struct tagCVR *)((char *)v5 + 168);
   }
-  UserSetLastError(1441LL);
+  UserSetLastError(1441LL, v8, v9);
   return 0LL;
 }

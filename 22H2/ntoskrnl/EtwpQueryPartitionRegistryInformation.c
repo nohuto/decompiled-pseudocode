@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpQueryPartitionRegistryInformation @ 0x140398B74
+ * XREFs of EtwpQueryPartitionRegistryInformation @ 0x1403AA65C
  * Callers:
- *     EtwpContainerStateWnfCallback @ 0x1405FC010 (EtwpContainerStateWnfCallback.c)
- *     EtwpInitializeSiloState @ 0x14083D0F4 (EtwpInitializeSiloState.c)
+ *     EtwpContainerResumeWnfCallback @ 0x1405AA610 (EtwpContainerResumeWnfCallback.c)
+ *     EtwInitializeSiloState @ 0x140795A88 (EtwInitializeSiloState.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     StringToGuidNoBrackets @ 0x140398DB4 (StringToGuidNoBrackets.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlQueryRegistryValuesEx @ 0x1406C7B10 (RtlQueryRegistryValuesEx.c)
- *     RtlUnicodeToUTF8N @ 0x140758D10 (RtlUnicodeToUTF8N.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     StringToGuidNoBrackets @ 0x1403AA89C (StringToGuidNoBrackets.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlUnicodeToUTF8N @ 0x14069C740 (RtlUnicodeToUTF8N.c)
+ *     RtlQueryRegistryValuesEx @ 0x14069EF80 (RtlQueryRegistryValuesEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpQueryPartitionRegistryInformation(
@@ -27,7 +27,7 @@ __int64 __fastcall EtwpQueryPartitionRegistryInformation(
 {
   NTSTATUS RegistryValues; // ebx
   ULONG v12; // ebx
-  CHAR *Pool2; // rax
+  CHAR *PoolWithTag; // rax
   NTSTATUS v14; // eax
   _WORD v15[2]; // [rsp+30h] [rbp-D0h] BYREF
   ULONG UTF8StringActualByteCount; // [rsp+34h] [rbp-CCh] BYREF
@@ -97,12 +97,15 @@ __int64 __fastcall EtwpQueryPartitionRegistryInformation(
         v12 = UTF8StringActualByteCount;
         if ( UTF8StringActualByteCount < 0xFFFF )
         {
-          Pool2 = (CHAR *)ExAllocatePool2(72LL, UTF8StringActualByteCount, 1635218501LL);
-          *a2 = Pool2;
-          if ( Pool2 )
+          PoolWithTag = (CHAR *)ExAllocatePoolWithTag(
+                                  NonPagedPoolNxCacheAligned,
+                                  UTF8StringActualByteCount,
+                                  0x61777445u);
+          *a2 = PoolWithTag;
+          if ( PoolWithTag )
           {
             v14 = RtlUnicodeToUTF8N(
-                    Pool2,
+                    PoolWithTag,
                     v12,
                     &UTF8StringActualByteCount,
                     UnicodeStringSource[1],
@@ -129,7 +132,7 @@ __int64 __fastcall EtwpQueryPartitionRegistryInformation(
   }
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  RtlFreeUnicodeString((PUNICODE_STRING)UnicodeStringSource);
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString((PUNICODE_STRING)UnicodeStringSource);
+  RtlFreeAnsiString(&UnicodeString);
   return (unsigned int)RegistryValues;
 }

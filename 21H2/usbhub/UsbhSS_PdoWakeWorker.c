@@ -1,41 +1,40 @@
 /*
- * XREFs of UsbhSS_PdoWakeWorker @ 0x1C00023B0
+ * XREFs of UsbhSS_PdoWakeWorker @ 0x1C0016F40
  * Callers:
  *     <none>
  * Callees:
- *     UsbhUnlatchPdo @ 0x1C0002650 (UsbhUnlatchPdo.c)
- *     UsbhSetPdoPowerState @ 0x1C0002CC0 (UsbhSetPdoPowerState.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     UsbhCompletePdoWakeIrp @ 0x1C000F058 (UsbhCompletePdoWakeIrp.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
- *     WPP_RECORDER_SF_dq @ 0x1C002DFC0 (WPP_RECORDER_SF_dq.c)
- *     UsbhReleaseFdoPwrLock @ 0x1C00313A8 (UsbhReleaseFdoPwrLock.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhCompletePdoWakeIrp @ 0x1C001507C (UsbhCompletePdoWakeIrp.c)
+ *     UsbhUnlatchPdo @ 0x1C00171A0 (UsbhUnlatchPdo.c)
+ *     UsbhSetPdoPowerState @ 0x1C0017660 (UsbhSetPdoPowerState.c)
+ *     UsbhAcquireFdoPwrLock @ 0x1C00176F8 (UsbhAcquireFdoPwrLock.c)
+ *     UsbhReleaseFdoPwrLock @ 0x1C0018364 (UsbhReleaseFdoPwrLock.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002F39C (WPP_RECORDER_SF_dq.c)
  */
 
 __int64 __fastcall UsbhSS_PdoWakeWorker(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v5; // r14
-  __int64 v6; // rdi
+  _DWORD *v5; // r14
+  _DWORD *v6; // rdi
   KIRQL v7; // al
   bool v8; // zf
   KIRQL v9; // dl
-  __int64 v10; // rbx
-  KIRQL v11; // al
-  int v12; // ecx
-  int v13; // r8d
-  int v14; // r9d
-  __int64 v15; // rbx
-  KIRQL v16; // dl
-  unsigned __int8 v17; // al
-  int v18; // edx
-  int v19; // r8d
-  char v20; // r10
+  int v10; // ebx
+  int v11; // r8d
+  int v12; // r9d
+  _DWORD *v13; // rbx
+  KIRQL v14; // dl
+  unsigned __int8 v15; // al
+  int v16; // edx
+  int v17; // r8d
+  char v18; // r10
 
   FdoExt(a1);
   v5 = PdoExt(a3);
-  v6 = PdoExt(a3) + 944;
+  v6 = PdoExt(a3) + 236;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
     WPP_RECORDER_SF_d(
       WPP_GLOBAL_Control->DeviceExtension,
@@ -43,58 +42,49 @@ __int64 __fastcall UsbhSS_PdoWakeWorker(__int64 a1, __int64 a2, __int64 a3)
       1,
       10,
       (__int64)&WPP_20a1a4b3b64f3a3fd9fa92029fc64dd2_Traceguids,
-      *(_WORD *)(v5 + 1428));
-  Log(a1, 0x10000, 1936945239, a3, *(unsigned __int16 *)(v5 + 1428));
-  v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels);
-  *(_DWORD *)(v6 + 136) = 1;
-  *(_BYTE *)(v6 + 132) = v7;
-  *(_DWORD *)(v6 + 88) = 2018460752;
-  *(_DWORD *)(v6 + 92) = 12;
-  WPP_MAIN_CB.Dpc.DeferredRoutine = (void (__fastcall *)(_KDPC *, void *, void *, void *))v6;
-  *(_QWORD *)(v6 + 24) = KeGetCurrentThread();
-  v8 = *(_DWORD *)(PdoExt(a3) + 1124) == 3;
-  *(_DWORD *)(v6 + 136) = 0;
-  WPP_MAIN_CB.Dpc.DeferredRoutine = 0LL;
-  *(_DWORD *)(v6 + 88) = 1734964085;
-  v9 = *(_BYTE *)(v6 + 132);
+      *((_WORD *)v5 + 714));
+  Log(a1, 0x10000, 1936945239, a3, *((unsigned __int16 *)v5 + 714));
+  v7 = KeAcquireSpinLockRaiseToDpc(&HubG);
+  v6[34] = 1;
+  *((_BYTE *)v6 + 132) = v7;
+  v6[22] = 2018460752;
+  v6[23] = 12;
+  qword_1C006C500 = (__int64)v6;
+  *((_QWORD *)v6 + 3) = KeGetCurrentThread();
+  v8 = PdoExt(a3)[281] == 3;
+  v6[34] = 0;
+  qword_1C006C500 = 0LL;
+  v6[22] = 1734964085;
+  v9 = *((_BYTE *)v6 + 132);
   if ( v8 )
   {
-    KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v9);
-    v10 = FdoExt(a1);
-    v11 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v10 + 5056));
-    v12 = *(_DWORD *)(v10 + 4172);
-    *(_BYTE *)(v10 + 5064) = v11;
-    *(_DWORD *)(v6 + 40) = v12;
-    *(_DWORD *)(v6 + 44) = 126;
-    *(_DWORD *)(v6 + 32) = 844055622;
-    *(_DWORD *)(v6 + 36) = 1986356311;
-    *(_QWORD *)(v6 + 24) = KeGetCurrentThread();
-    *(_QWORD *)(v10 + 1344) = v6;
-    FdoExt(*(_QWORD *)(v6 + 8));
-    LODWORD(v10) = *(_DWORD *)(FdoExt(*(_QWORD *)(v6 + 8)) + 4172);
-    v14 = *(_DWORD *)(PdoExt(a3) + 1128);
-    if ( (_DWORD)v10 == 201 && (v14 != 1 || (*(_DWORD *)(v5 + 1420) & 4) != 0) )
+    KeReleaseSpinLock(&HubG, v9);
+    UsbhAcquireFdoPwrLock(a1, v6, 126LL, 1986356311LL);
+    FdoExt(*((_QWORD *)v6 + 1));
+    v10 = FdoExt(*((_QWORD *)v6 + 1))[1043];
+    v12 = PdoExt(a3)[282];
+    if ( v10 == 201 && (v12 != 1 || (v5[355] & 4) != 0) )
     {
-      UsbhSetPdoPowerState(v6, a3, v13, v14, 12);
-      v15 = FdoExt(a1);
-      FdoExt(*(_QWORD *)(v6 + 8));
-      *(_DWORD *)(v6 + 32) = 1734964085;
-      v16 = *(_BYTE *)(v15 + 5064);
-      *(_QWORD *)(v15 + 1344) = 0LL;
-      KeReleaseSpinLock((PKSPIN_LOCK)(v15 + 5056), v16);
-      v17 = UsbhCompletePdoWakeIrp(a1, a3, 0LL);
-      Log(a1, 0x10000, 1936938801, v17, a3);
-      if ( v20
+      UsbhSetPdoPowerState((_DWORD)v6, a3, v11, v12, 12);
+      v13 = FdoExt(a1);
+      FdoExt(*((_QWORD *)v6 + 1));
+      v6[8] = 1734964085;
+      v14 = *((_BYTE *)v13 + 5064);
+      *((_QWORD *)v13 + 168) = 0LL;
+      KeReleaseSpinLock((PKSPIN_LOCK)v13 + 632, v14);
+      v15 = UsbhCompletePdoWakeIrp(a1, a3, 0);
+      Log(a1, 0x10000, 1936938801, v15, a3);
+      if ( v18
         && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
         && LOWORD(WPP_GLOBAL_Control->DeviceType) )
       {
         WPP_RECORDER_SF_dq(
           WPP_GLOBAL_Control->DeviceExtension,
-          v18,
-          v19,
+          v16,
+          v17,
           11,
           (__int64)&WPP_20a1a4b3b64f3a3fd9fa92029fc64dd2_Traceguids,
-          *(_WORD *)(v5 + 1428),
+          *((_WORD *)v5 + 714),
           a3);
       }
     }
@@ -105,7 +95,7 @@ __int64 __fastcall UsbhSS_PdoWakeWorker(__int64 a1, __int64 a2, __int64 a3)
   }
   else
   {
-    KeReleaseSpinLock((PKSPIN_LOCK)&WPP_MAIN_CB.Queue.Wcb.NumberOfChannels, v9);
+    KeReleaseSpinLock(&HubG, v9);
   }
   return UsbhUnlatchPdo(a1, a3, 0LL, 1936945239LL);
 }

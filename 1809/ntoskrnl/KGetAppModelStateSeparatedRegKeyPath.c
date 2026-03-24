@@ -1,7 +1,7 @@
 /*
- * XREFs of KGetAppModelStateSeparatedRegKeyPath @ 0x1406C7B78
+ * XREFs of KGetAppModelStateSeparatedRegKeyPath @ 0x1406C7B58
  * Callers:
- *     KIsUnlockSettingEnabled @ 0x1406C30F0 (KIsUnlockSettingEnabled.c)
+ *     KIsUnlockSettingEnabled @ 0x1406C30D0 (KIsUnlockSettingEnabled.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)

@@ -1,77 +1,55 @@
 /*
- * XREFs of ?RenderDataUpdate@CChannel@@UEAAJIPEAUIRenderDataBuilder@@@Z @ 0x180040430
+ * XREFs of ?RenderDataUpdate@CChannel@@UEAAJIPEAUIRenderDataBuilder@@@Z @ 0x18005F270
  * Callers:
  *     <none>
  * Callees:
- *     ?BeginCommand@CChannel@@AEAAJPEAXII@Z @ 0x180043D44 (-BeginCommand@CChannel@@AEAAJPEAXII@Z.c)
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180044038 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004424C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
- *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800443CC (--1CChannelLock@CChannel@@QEAA@XZ.c)
- *     ?GetItemDataWritePointer@CDataStreamWriter@@QEAAJIPEAPEAX@Z @ 0x18004459C (-GetItemDataWritePointer@CDataStreamWriter@@QEAAJIPEAPEAX@Z.c)
- *     ?EndItem@CDataStreamWriter@@QEAAJXZ @ 0x1800BB480 (-EndItem@CDataStreamWriter@@QEAAJXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     memcpy_0 @ 0x18011B998 (memcpy_0.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?EndItem@CDataStreamWriter@@QEAAJXZ @ 0x180038118 (-EndItem@CDataStreamWriter@@QEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?BeginCommand@CChannel@@AEAAJPEAXII@Z @ 0x18005DC2C (-BeginCommand@CChannel@@AEAAJPEAXII@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E530 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?AddItemData@CDataStreamWriter@@QEAAJPEBXI@Z @ 0x1800BF2E0 (-AddItemData@CDataStreamWriter@@QEAAJPEBXI@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CChannel::RenderDataUpdate(CDataStreamWriter **this, unsigned int a2, struct IRenderDataBuilder *a3)
 {
-  unsigned int v6; // r9d
+  int v6; // r9d
   int v7; // eax
-  unsigned int v8; // ebx
-  size_t v9; // rbx
-  const void *v11; // rdi
-  CDataStreamWriter *v12; // rcx
-  int v13; // eax
-  unsigned int v14; // ecx
-  unsigned int v15; // [rsp+20h] [rbp-30h]
-  int v16; // [rsp+30h] [rbp-20h] BYREF
-  size_t Size; // [rsp+34h] [rbp-1Ch]
-  _BYTE v18[16]; // [rsp+40h] [rbp-10h] BYREF
-  wil::details::in1diag3 *retaddr; // [rsp+58h] [rbp+8h]
-  void *v20; // [rsp+70h] [rbp+20h] BYREF
+  __int64 v8; // rcx
+  unsigned int v9; // ebx
+  _DWORD v11[2]; // [rsp+30h] [rbp-18h] BYREF
+  unsigned int v12; // [rsp+38h] [rbp-10h]
+  void *retaddr; // [rsp+48h] [rbp+0h]
+  struct _RTL_CRITICAL_SECTION *v14; // [rsp+50h] [rbp+8h] BYREF
 
-  CChannel::CChannelLock::CChannelLock((CChannel::CChannelLock *)v18, (struct CChannel *)this);
-  CChannel::CheckHandle(this, a2, 145LL);
-  v16 = 334;
-  Size = a2;
+  v14 = (struct _RTL_CRITICAL_SECTION *)(this + 21);
+  EnterCriticalSection((LPCRITICAL_SECTION)(this + 21));
+  CChannel::CheckHandle((__int64)this, a2, 145);
+  v11[0] = 350;
+  v12 = 0;
+  v11[1] = a2;
   if ( a3 )
     v6 = *((_DWORD *)a3 + 10);
   else
     v6 = 0;
-  HIDWORD(Size) = v6;
-  v7 = CChannel::BeginCommand((CChannel *)this, &v16, 0xCu, v6);
-  v8 = v7;
+  v12 = v6;
+  v7 = CChannel::BeginCommand(this, v11, 0xCu, v6);
+  v9 = v7;
   if ( v7 < 0 )
   {
-    wil::details::in1diag3::Return_Hr(
-      retaddr,
-      (void *)0x469,
-      (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\global\\channel.cpp",
-      (const char *)(unsigned int)v7,
-      v15);
-    CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v18);
-    return v8;
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x476u, 0LL);
   }
   else
   {
-    v9 = HIDWORD(Size);
-    if ( HIDWORD(Size) )
+    if ( v12 )
     {
       if ( *((_DWORD *)a3 + 2) )
         ModuleFailFastForHRESULT(2147942487LL, retaddr);
-      v11 = (const void *)*((_QWORD *)a3 + 2);
-      v12 = this[22];
-      v20 = 0LL;
-      v13 = CDataStreamWriter::GetItemDataWritePointer(v12, HIDWORD(Size), &v20);
-      if ( v13 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0xB2u, 0LL);
-      else
-        memcpy_0(v20, v11, v9);
+      CDataStreamWriter::AddItemData(this[20], *((const void **)a3 + 2), v12);
     }
-    CDataStreamWriter::EndItem(this[22]);
-    CChannel::CChannelLock::~CChannelLock((CChannel::CChannelLock *)v18);
-    return 0LL;
+    CDataStreamWriter::EndItem(this[20]);
   }
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v14);
+  return v9;
 }

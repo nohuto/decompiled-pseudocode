@@ -5,12 +5,12 @@
  *     MiInsertInSystemSpace @ 0x1400273C0 (MiInsertInSystemSpace.c)
  *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
  *     MiCreatePrototypePtes @ 0x140095B30 (MiCreatePrototypePtes.c)
- *     MiSessionInsertImage @ 0x14017600C (MiSessionInsertImage.c)
- *     MiUpControlAreaRefs @ 0x1402A3350 (MiUpControlAreaRefs.c)
+ *     MiSessionInsertImage @ 0x14017602C (MiSessionInsertImage.c)
+ *     MiUpControlAreaRefs @ 0x1402A3450 (MiUpControlAreaRefs.c)
  *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiMapImageInSystemSpace @ 0x140650E60 (MiMapImageInSystemSpace.c)
- *     MmLoadSystemImageEx @ 0x140681018 (MmLoadSystemImageEx.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x1408543E8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiMapImageInSystemSpace @ 0x140650E40 (MiMapImageInSystemSpace.c)
+ *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408543C8 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
  *     MiControlAreaExemptFromCrossPartitionCharges @ 0x140077CF0 (MiControlAreaExemptFromCrossPartitionCharges.c)
  */

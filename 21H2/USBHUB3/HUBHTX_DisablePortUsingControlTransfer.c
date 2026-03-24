@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBHTX_DisablePortUsingControlTransfer @ 0x1C0004410
+ * XREFs of HUBHTX_DisablePortUsingControlTransfer @ 0x1C0004254
  * Callers:
- *     HUBPSM20_DisablingPortOnPortCycleWithTimer @ 0x1C0010BB0 (HUBPSM20_DisablingPortOnPortCycleWithTimer.c)
+ *     HUBPSM20_DisablingPortOnPortCycleWithTimer @ 0x1C00107A0 (HUBPSM20_DisablingPortOnPortCycleWithTimer.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     HUBMISC_ControlTransfer @ 0x1C002FA0C (HUBMISC_ControlTransfer.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_ControlTransfer @ 0x1C002F36C (HUBMISC_ControlTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBHTX_DisablePortUsingControlTransfer(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall HUBHTX_DisablePortUsingControlTransfer(__int64 a1)
       4u,
       4u,
       0x32u,
-      (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+      (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
       v3);
   }
   result = HUBMISC_ControlTransfer(
@@ -49,7 +49,7 @@ __int64 __fastcall HUBHTX_DisablePortUsingControlTransfer(__int64 a1)
         2u,
         4u,
         0x33u,
-        (__int64)&WPP_65667e477e4f3bda131abce8e5de791a_Traceguids,
+        (__int64)&WPP_48f9d914ad953e47f49793ea568006bd_Traceguids,
         v4);
     }
     return (*(__int64 (__fastcall **)(__int64, __int64))(a1 + 1240))(a1, 3008LL);

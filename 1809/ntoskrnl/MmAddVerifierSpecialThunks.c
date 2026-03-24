@@ -1,11 +1,11 @@
 /*
- * XREFs of MmAddVerifierSpecialThunks @ 0x14084DA60
+ * XREFs of MmAddVerifierSpecialThunks @ 0x14084DA40
  * Callers:
  *     <none>
  * Callees:
- *     MiLookupDataTableEntry @ 0x1400DA570 (MiLookupDataTableEntry.c)
- *     MmReleaseLoadLock @ 0x140651A40 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A80 (MmAcquireLoadLock.c)
+ *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
+ *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
  *     VfThunkAddSpecialDriverThunks @ 0x1409367A8 (VfThunkAddSpecialDriverThunks.c)
  */
 

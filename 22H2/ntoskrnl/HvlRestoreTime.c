@@ -1,16 +1,16 @@
 /*
- * XREFs of HvlRestoreTime @ 0x1405454F0
+ * XREFs of HvlRestoreTime @ 0x1403F0390
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x1403CBB50 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     HvlpHvToNtStatus @ 0x14045EEB6 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x14038FC00 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     HvlpHvToNtStatus @ 0x1404FA974 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlRestoreTime(int a1, __int64 a2, __int64 a3)
 {
-  unsigned __int16 v4; // ax
+  __int64 v4; // rax
   __int64 v5; // [rsp+40h] [rbp-38h] BYREF
   int v6; // [rsp+48h] [rbp-30h]
   int v7; // [rsp+4Ch] [rbp-2Ch]
@@ -24,6 +24,6 @@ __int64 __fastcall HvlRestoreTime(int a1, __int64 a2, __int64 a3)
   v6 = a1;
   v8 = a2;
   v9 = a3;
-  v4 = HvcallFastExtended(65795LL, (__int64)&v5, 0x20u, 0LL, 0);
+  v4 = HvcallFastExtended(65795LL, (__int64)&v5, 32LL, 0LL, 0);
   return HvlpHvToNtStatus(v4);
 }

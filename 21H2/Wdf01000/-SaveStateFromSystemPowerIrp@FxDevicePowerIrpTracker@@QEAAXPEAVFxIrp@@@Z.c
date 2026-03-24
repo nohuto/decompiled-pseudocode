@@ -1,8 +1,8 @@
 /*
- * XREFs of ?SaveStateFromSystemPowerIrp@FxDevicePowerIrpTracker@@QEAAXPEAVFxIrp@@@Z @ 0x1C000C850
+ * XREFs of ?SaveStateFromSystemPowerIrp@FxDevicePowerIrpTracker@@QEAAXPEAVFxIrp@@@Z @ 0x1C001D3EC
  * Callers:
- *     ?DispatchSystemSetPower@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C000C660 (-DispatchSystemSetPower@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z.c)
- *     ?DispatchSystemSetPower@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C000C9DC (-DispatchSystemSetPower@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z.c)
+ *     ?DispatchSystemSetPower@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C000FE30 (-DispatchSystemSetPower@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z.c)
+ *     ?DispatchSystemSetPower@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C0010F04 (-DispatchSystemSetPower@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -26,21 +26,26 @@ void __fastcall FxDevicePowerIrpTracker::SaveStateFromSystemPowerIrp(FxDevicePow
     v6 = Length >> 12;
   v7 = v6 & 0xF;
   if ( v7 <= 1 )
-    goto LABEL_12;
+  {
+LABEL_8:
+    ShutdownType = PowerActionNone;
+    goto LABEL_9;
+  }
   if ( v7 <= 4 )
   {
     ShutdownType = PowerActionSleep;
-    goto LABEL_7;
   }
-  if ( v7 == 5 )
+  else
   {
+    if ( v7 != 5 )
+    {
+      if ( v7 == 6 )
+        goto LABEL_9;
+      goto LABEL_8;
+    }
     ShutdownType = PowerActionHibernate;
-    goto LABEL_7;
   }
-  if ( v7 != 6 )
-LABEL_12:
-    ShutdownType = PowerActionNone;
-LABEL_7:
+LABEL_9:
   if ( LowPart == 1 )
     this->m_S0PowerAction = ShutdownType;
   else

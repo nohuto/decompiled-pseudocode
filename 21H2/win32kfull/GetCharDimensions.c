@@ -1,92 +1,91 @@
 /*
- * XREFs of GetCharDimensions @ 0x1C00C40F8
+ * XREFs of GetCharDimensions @ 0x1C00E33C8
  * Callers:
- *     ValidateExternalLogFont @ 0x1C00C3544 (ValidateExternalLogFont.c)
- *     xxxSetNCFonts @ 0x1C00C3874 (xxxSetNCFonts.c)
- *     FinalUserInit @ 0x1C00D43C4 (FinalUserInit.c)
- *     ?UserReinitializeStockFonts@@YAXKH@Z @ 0x1C00EF7F8 (-UserReinitializeStockFonts@@YAXKH@Z.c)
- *     CreateScaledFont @ 0x1C01E4B98 (CreateScaledFont.c)
+ *     xxxSetNCFonts @ 0x1C00E2C88 (xxxSetNCFonts.c)
+ *     ValidateExternalLogFont @ 0x1C00E3320 (ValidateExternalLogFont.c)
+ *     ?UserReinitializeStockFonts@@YAXKH@Z @ 0x1C00E5230 (-UserReinitializeStockFonts@@YAXKH@Z.c)
+ *     FinalUserInit @ 0x1C00E5318 (FinalUserInit.c)
+ *     CreateScaledFont @ 0x1C01EA410 (CreateScaledFont.c)
  * Callees:
- *     GetDPIServerInfo @ 0x1C00BA3D4 (GetDPIServerInfo.c)
- *     GreTextInitialized @ 0x1C00C4278 (GreTextInitialized.c)
- *     GreGetTextMetricsW @ 0x1C00C42C4 (GreGetTextMetricsW.c)
- *     GreGetTextExtentW @ 0x1C00C43FC (GreGetTextExtentW.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     GetDPIServerInfo @ 0x1C00E0E18 (GetDPIServerInfo.c)
+ *     GreTextInitialized @ 0x1C00E3548 (GreTextInitialized.c)
+ *     GreGetTextMetricsW @ 0x1C00E3594 (GreGetTextMetricsW.c)
+ *     GreGetTextExtentW @ 0x1C00E36CC (GreGetTextExtentW.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
 __int64 __fastcall GetCharDimensions(HDC a1, __int64 a2, _DWORD *a3)
 {
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  int v8; // r14d
+  __int64 v6; // rcx
+  int v7; // r14d
   int TextMetricsW; // eax
-  __int128 v10; // xmm2
-  __m128i v11; // xmm1
-  __int64 v12; // xmm0_8
-  __int128 v13; // xmm3
-  unsigned int v14; // esi
+  __int128 v9; // xmm2
+  __m128i v10; // xmm1
+  __int64 v11; // xmm0_8
+  __int128 v12; // xmm3
+  unsigned int v13; // esi
   __int64 DPIServerInfo; // rax
-  int v17; // [rsp+38h] [rbp-49h]
-  __m128i v18; // [rsp+48h] [rbp-39h]
-  char v19; // [rsp+6Fh] [rbp-12h]
-  _OWORD v20[5]; // [rsp+78h] [rbp-9h] BYREF
-  struct _POINTL v21; // [rsp+F0h] [rbp+6Fh] BYREF
+  int v16; // [rsp+38h] [rbp-49h]
+  __m128i v17; // [rsp+48h] [rbp-39h]
+  char v18; // [rsp+6Fh] [rbp-12h]
+  _OWORD v19[5]; // [rsp+78h] [rbp-9h] BYREF
+  struct _POINTL v20; // [rsp+F0h] [rbp+6Fh] BYREF
 
-  v8 = GreTextInitialized();
-  if ( !v8 )
+  v7 = GreTextInitialized();
+  if ( !v7 )
     goto LABEL_12;
-  memset(v20, 0, 0x44uLL);
-  TextMetricsW = GreGetTextMetricsW(a1, (struct _TMW_INTERNAL *)v20);
-  v10 = v20[0];
-  v11 = (__m128i)v20[1];
-  v12 = *(_QWORD *)&v20[3];
-  v13 = v20[2];
-  v7 = DWORD2(v20[3]);
-  v19 = BYTE7(v20[3]);
-  v17 = v20[0];
+  memset(v19, 0, 0x44uLL);
+  TextMetricsW = GreGetTextMetricsW(a1, (struct _TMW_INTERNAL *)v19);
+  v9 = v19[0];
+  v10 = (__m128i)v19[1];
+  v11 = *(_QWORD *)&v19[3];
+  v12 = v19[2];
+  v6 = DWORD2(v19[3]);
+  v18 = BYTE7(v19[3]);
+  v16 = v19[0];
   if ( TextMetricsW )
   {
-    v14 = DWORD1(v20[1]);
+    v13 = DWORD1(v19[1]);
   }
   else
   {
 LABEL_12:
-    DPIServerInfo = GetDPIServerInfo(v7, v6);
-    LODWORD(v7) = *(_DWORD *)(DPIServerInfo + 96);
-    v10 = *(_OWORD *)(DPIServerInfo + 40);
-    v12 = *(_QWORD *)(DPIServerInfo + 88);
-    v13 = *(_OWORD *)(DPIServerInfo + 72);
-    v18 = *(__m128i *)(DPIServerInfo + 56);
-    v19 = HIBYTE(v12);
-    v14 = _mm_cvtsi128_si32(_mm_srli_si128(v18, 4));
-    v17 = v10;
-    if ( !v18.m128i_i32[1] )
-      v14 = 8;
-    v18.m128i_i32[1] = v14;
-    v11 = v18;
+    DPIServerInfo = GetDPIServerInfo(v6);
+    LODWORD(v6) = *(_DWORD *)(DPIServerInfo + 96);
+    v9 = *(_OWORD *)(DPIServerInfo + 40);
+    v11 = *(_QWORD *)(DPIServerInfo + 88);
+    v12 = *(_OWORD *)(DPIServerInfo + 72);
+    v17 = *(__m128i *)(DPIServerInfo + 56);
+    v18 = HIBYTE(v11);
+    v13 = _mm_cvtsi128_si32(_mm_srli_si128(v17, 4));
+    v16 = v9;
+    if ( !v17.m128i_i32[1] )
+      v13 = 8;
+    v17.m128i_i32[1] = v13;
+    v10 = v17;
   }
   if ( a2 )
   {
-    *(_OWORD *)a2 = v10;
-    *(__m128i *)(a2 + 16) = v11;
-    *(_OWORD *)(a2 + 32) = v13;
-    *(_QWORD *)(a2 + 48) = v12;
-    *(_DWORD *)(a2 + 56) = v7;
+    *(_OWORD *)a2 = v9;
+    *(__m128i *)(a2 + 16) = v10;
+    *(_OWORD *)(a2 + 32) = v12;
+    *(_QWORD *)(a2 + 48) = v11;
+    *(_DWORD *)(a2 + 56) = v6;
   }
   if ( a3 )
-    *a3 = v17;
-  if ( v8
-    && (v19 & 1) != 0
-    && (v21 = 0LL,
-        (unsigned int)GreGetTextExtentW(a1, L"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", 0x34u, &v21, 1)) )
+    *a3 = v16;
+  if ( v7
+    && (v18 & 1) != 0
+    && (v20 = 0LL,
+        (unsigned int)GreGetTextExtentW(a1, L"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", 0x34u, &v20, 1)) )
   {
-    return (unsigned int)((int)(((int)((unsigned __int64)(1321528399LL * v21.x) >> 32) >> 3)
+    return (unsigned int)((int)(((int)((unsigned __int64)(1321528399LL * v20.x) >> 32) >> 3)
                               + 1
-                              + ((unsigned int)((unsigned __int64)(1321528399LL * v21.x) >> 32) >> 31))
+                              + ((unsigned int)((unsigned __int64)(1321528399LL * v20.x) >> 32) >> 31))
                         / 2);
   }
   else
   {
-    return v14;
+    return v13;
   }
 }

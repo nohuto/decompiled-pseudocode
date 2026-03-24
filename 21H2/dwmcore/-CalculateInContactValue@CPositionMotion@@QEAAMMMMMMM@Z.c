@@ -1,9 +1,9 @@
 /*
- * XREFs of ?CalculateInContactValue@CPositionMotion@@QEAAMMMMMMM@Z @ 0x18025FBC8
+ * XREFs of ?CalculateInContactValue@CPositionMotion@@QEAAMMMMMMM@Z @ 0x18020F340
  * Callers:
- *     ?CalculateInContactValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180255EC0 (-CalculateInContactValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueSt.c)
+ *     ?CalculateInContactValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x1802056A0 (-CalculateInContactValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueSt.c)
  * Callees:
- *     ?AdvanceDeltaDueToScale@CPositionMotion@@AEAAXXZ @ 0x18025FA98 (-AdvanceDeltaDueToScale@CPositionMotion@@AEAAXXZ.c)
+ *     ?AdvanceDeltaDueToScale@CPositionMotion@@AEAAXXZ @ 0x18020F204 (-AdvanceDeltaDueToScale@CPositionMotion@@AEAAXXZ.c)
  */
 
 float __fastcall CPositionMotion::CalculateInContactValue(
@@ -22,13 +22,13 @@ float __fastcall CPositionMotion::CalculateInContactValue(
 
   *((float *)this + 7) = a5;
   *((float *)this + 16) = a2;
-  *((float *)this + 32) = a7;
+  *((float *)this + 42) = a7;
   *((float *)this + 9) = a3;
-  *((float *)this + 30) = a6;
+  *((float *)this + 40) = a6;
   CPositionMotion::AdvanceDeltaDueToScale(this);
-  v8 = *(float *)(v7 + 140) + *(float *)(v7 + 144);
-  *(_DWORD *)(v7 + 148) = *(_DWORD *)(v7 + 120);
+  v8 = *(float *)(v7 + 180) + *(float *)(v7 + 184);
+  *(_DWORD *)(v7 + 188) = *(_DWORD *)(v7 + 160);
   result = v8 + v9;
-  *(float *)(v7 + 144) = result;
+  *(float *)(v7 + 184) = result;
   return result;
 }

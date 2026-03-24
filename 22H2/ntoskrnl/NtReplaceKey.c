@@ -1,168 +1,173 @@
 /*
- * XREFs of NtReplaceKey @ 0x140A0E560
+ * XREFs of NtReplaceKey @ 0x140869190
  * Callers:
  *     <none>
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     CmpInitializeThreadInfo @ 0x14022E660 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E6A0 (CmCleanupThreadInfo.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     CmpIsRegistryLockAcquired @ 0x14022FB70 (CmpIsRegistryLockAcquired.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     CmCheckNoTxContext @ 0x140691C88 (CmCheckNoTxContext.c)
- *     CmPostCallbackNotificationEx @ 0x140691E30 (CmPostCallbackNotificationEx.c)
- *     CmpNameFromAttributes @ 0x140691F04 (CmpNameFromAttributes.c)
- *     CmpCallCallBacksEx @ 0x1406E86A0 (CmpCallCallBacksEx.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     CmReplaceKey @ 0x140A157A4 (CmReplaceKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140AF6008 (CmpReleaseHiveLoadUnloadRundown.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140AF602C (CmpAcquireHiveLoadUnloadRundown.c)
- *     CmObReferenceObjectByHandle @ 0x140AF63D0 (CmObReferenceObjectByHandle.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x1402D0610 (ExIsResourceAcquiredSharedLite.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     CmpCallCallBacksEx @ 0x140640B60 (CmpCallCallBacksEx.c)
+ *     CmPostCallbackNotificationEx @ 0x140645BA0 (CmPostCallbackNotificationEx.c)
+ *     CmObReferenceObjectByHandle @ 0x1406DD40C (CmObReferenceObjectByHandle.c)
+ *     CmpNameFromAttributes @ 0x1406E80BC (CmpNameFromAttributes.c)
+ *     CmCheckNoTxContext @ 0x1406E83F0 (CmCheckNoTxContext.c)
+ *     CmReplaceKey @ 0x14086DA18 (CmReplaceKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtReplaceKey(_OWORD *a1, int a2, _OWORD *a3)
+__int64 __fastcall NtReplaceKey(_OWORD *a1, void *a2, _OWORD *a3)
 {
-  char v6; // si
+  char v3; // si
   char PreviousMode; // di
-  char UnloadRundown; // r13
-  int v9; // ebx
-  __int64 v10; // r9
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v12; // r9
-  int v13; // r8d
-  int v14; // r9d
+  BOOLEAN v9; // r13
+  int v10; // ebx
+  __int64 v11; // r9
+  struct _KTHREAD *v12; // rax
+  __int64 v13; // r9
+  __int64 v14; // r8
   int v15; // eax
-  _QWORD *v16; // rdi
-  int v17; // eax
-  unsigned int v18; // eax
-  char *v19; // rdx
-  ULONG v21; // [rsp+20h] [rbp-E0h]
-  PVOID Object; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v23; // [rsp+48h] [rbp-B8h] BYREF
-  _QWORD v24[2]; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v16; // rdx
+  PADAPTER_OBJECT v17; // rdi
+  int v18; // eax
+  unsigned int v19; // eax
+  int v21; // [rsp+40h] [rbp-C0h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp-B8h] BYREF
+  _QWORD v23[2]; // [rsp+50h] [rbp-B0h] BYREF
   PVOID P[2]; // [rsp+60h] [rbp-A0h] BYREF
-  PVOID v26[2]; // [rsp+70h] [rbp-90h] BYREF
-  __int128 v27; // [rsp+80h] [rbp-80h] BYREF
+  PVOID v25[2]; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v26; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v27; // [rsp+88h] [rbp-78h] BYREF
   __int128 v28; // [rsp+90h] [rbp-70h] BYREF
   __int128 v29; // [rsp+A0h] [rbp-60h]
   __int128 v30; // [rsp+B0h] [rbp-50h]
   struct _EVENT_DATA_DESCRIPTOR v31; // [rsp+C0h] [rbp-40h] BYREF
-  PVOID *p_Object; // [rsp+E0h] [rbp-20h]
+  int *v32; // [rsp+E0h] [rbp-20h]
   __int64 v33; // [rsp+E8h] [rbp-18h]
   __int64 *v34; // [rsp+F0h] [rbp-10h]
   __int64 v35; // [rsp+F8h] [rbp-8h]
+  struct _EVENT_DATA_DESCRIPTOR v36; // [rsp+100h] [rbp+0h] BYREF
+  __int64 *v37; // [rsp+120h] [rbp+20h]
+  __int64 v38; // [rsp+128h] [rbp+28h]
 
-  Object = 0LL;
-  v27 = 0LL;
-  v6 = 0;
+  DmaAdapter = 0LL;
+  v3 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v24[1] = v24;
-  v24[0] = v24;
-  *(_OWORD *)v26 = 0LL;
+  v23[1] = v23;
+  v23[0] = v23;
+  *(_OWORD *)v25 = 0LL;
   *(_OWORD *)P = 0LL;
   v28 = 0LL;
   v29 = 0LL;
   v30 = 0LL;
-  CmpInitializeThreadInfo((__int64)&v27);
-  UnloadRundown = CmpAcquireHiveLoadUnloadRundown();
-  if ( UnloadRundown )
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v9 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+  if ( v9 )
   {
-    v9 = CmCheckNoTxContext();
-    if ( v9 >= 0 )
+    v10 = CmCheckNoTxContext();
+    if ( v10 >= 0 )
     {
       if ( SeSinglePrivilegeCheck(SeRestorePrivilege, PreviousMode) )
       {
-        CurrentThread = KeGetCurrentThread();
-        v6 = 1;
-        --CurrentThread->KernelApcDisable;
-        v9 = CmpNameFromAttributes(a1, PreviousMode, (UNICODE_STRING *)v26, v10);
-        if ( v9 >= 0 )
+        v12 = KeGetCurrentThread();
+        --v12->KernelApcDisable;
+        v3 = 1;
+        v10 = CmpNameFromAttributes(a1, PreviousMode, (UNICODE_STRING *)v25, v11);
+        if ( v10 >= 0 )
         {
-          v9 = CmpNameFromAttributes(a3, PreviousMode, (UNICODE_STRING *)P, v12);
-          if ( v9 >= 0 )
+          v10 = CmpNameFromAttributes(a3, PreviousMode, (UNICODE_STRING *)P, v13);
+          if ( v10 >= 0 )
           {
-            LOBYTE(v14) = PreviousMode;
-            v15 = CmObReferenceObjectByHandle(a2, 0, v13, v14, (__int64)&Object, 0LL);
-            v16 = Object;
-            v9 = v15;
+            v15 = CmObReferenceObjectByHandle(a2, 0, v14, PreviousMode, &DmaAdapter, 0LL);
+            v17 = DmaAdapter;
+            v10 = v15;
             if ( v15 >= 0 )
             {
-              if ( (*(_DWORD *)(*((_QWORD *)Object + 1) + 8LL) & 0x80u) == 0 )
+              if ( (LODWORD(DmaAdapter->DmaOperations->PutDmaAdapter) & 0x80u) == 0 )
               {
                 if ( !CmpCallBackCount
-                  || CmpIsRegistryLockAcquired()
-                  || (*(_QWORD *)&v28 = v16,
+                  || ExIsResourceAcquiredSharedLite((PERESOURCE)&CmpRegistryLock)
+                  || (*(_QWORD *)&v28 = v17,
                       *((_QWORD *)&v28 + 1) = P,
-                      *(_QWORD *)&v29 = v26,
-                      v17 = CmpCallCallBacksEx(0x2Du, &v28, 0LL, 1, 0x2Eu, 0LL, (__int64)v24),
-                      v9 = v17,
-                      v17 >= 0) )
+                      *(_QWORD *)&v29 = v25,
+                      v18 = CmpCallCallBacksEx(0x2Du, (__int64)&v28, 0LL, 1, 0x2Eu, 0LL, (__int64)v23),
+                      v10 = v18,
+                      v18 >= 0) )
                 {
-                  v18 = CmReplaceKey(*(_QWORD *)(v16[1] + 32LL));
-                  v9 = CmPostCallbackNotificationEx(46, (__int64)v16, v18, (__int64)&v28, 0LL, v24);
-                  if ( v9 == -1073740541 )
-                    v9 = 0;
+                  v19 = CmReplaceKey(v17->DmaOperations->AllocateAdapterChannel, v16, v25, P);
+                  v10 = CmPostCallbackNotificationEx(0x2Eu, (__int64)v17, v19, (__int64)&v28, 0LL, v23);
+                  if ( v10 == -1073740541 )
+                    v10 = 0;
                 }
-                else if ( v17 == -1073740541 )
+                else if ( v18 == -1073740541 )
                 {
-                  v9 = 0;
+                  v10 = 0;
                 }
               }
               else
               {
-                v9 = -1073741790;
+                v10 = -1073741790;
               }
             }
-            if ( v16 )
-              ObfDereferenceObject(v16);
+            if ( v17 )
+              HalPutDmaAdapter(v17);
           }
         }
       }
       else
       {
-        v9 = -1073741727;
+        v10 = -1073741727;
       }
     }
   }
   else
   {
-    v9 = -1073741431;
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    v10 = -1073741431;
   }
   if ( P[1] )
     ExFreePoolWithTag(P[1], 0);
-  if ( v26[1] )
-    ExFreePoolWithTag(v26[1], 0);
-  if ( v6 )
+  if ( v25[1] )
+    ExFreePoolWithTag(v25[1], 0);
+  if ( v3 )
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  if ( UnloadRundown )
-    CmpReleaseHiveLoadUnloadRundown();
-  CmCleanupThreadInfo((__int64 *)&v27);
-  if ( v9 >= 0 )
+  if ( v9 )
   {
-    if ( (unsigned int)dword_140C04390 > 5 && tlgKeywordOn((__int64)&dword_140C04390, 0x400000000000LL) )
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  }
+  if ( v10 >= 0 )
+  {
+    if ( (unsigned int)dword_140C02130 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 0x400000000000LL) )
     {
-      v33 = 8LL;
-      p_Object = (PVOID *)&v23;
-      v19 = &byte_140036887;
-      v21 = 3;
-      goto LABEL_35;
+      v27 = 0x1000000LL;
+      v37 = &v27;
+      v38 = 8LL;
+      tlgWriteTransfer_EtwWriteTransfer(
+        (__int64)&dword_140C02130,
+        (unsigned __int8 *)byte_1400228B8,
+        0LL,
+        0LL,
+        3u,
+        &v36);
     }
   }
-  else if ( (unsigned int)dword_140C04390 > 5 && tlgKeywordOn((__int64)&dword_140C04390, 0x400000000000LL) )
+  else if ( (unsigned int)dword_140C02130 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 0x400000000000LL) )
   {
-    LODWORD(Object) = v9;
-    p_Object = &Object;
-    v19 = byte_14003684B;
-    v35 = 8LL;
-    v34 = &v23;
+    v21 = v10;
+    v32 = &v21;
+    v26 = 0x1000000LL;
+    v34 = &v26;
     v33 = 4LL;
-    v21 = 4;
-LABEL_35:
-    v23 = 0x1000000LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04390, (unsigned __int8 *)v19, 0LL, 0LL, v21, &v31);
+    v35 = 8LL;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)&word_1400228EE, 0LL, 0LL, 4u, &v31);
   }
-  return (unsigned int)v9;
+  return (unsigned int)v10;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of PpDevCfgProcessDevices @ 0x140813294
+ * XREFs of PpDevCfgProcessDevices @ 0x1407A36EC
  * Callers:
- *     PnpBootPhaseComplete @ 0x140813690 (PnpBootPhaseComplete.c)
+ *     PnpBootPhaseComplete @ 0x1407A3624 (PnpBootPhaseComplete.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     PnpRequestDeviceAction @ 0x140358A44 (PnpRequestDeviceAction.c)
- *     PpDevNodeUnlockTree @ 0x1406C99AC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9A40 (PpDevNodeLockTree.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     PiPnpRtlEndOperation @ 0x140788CDC (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140788EE0 (PiPnpRtlBeginOperation.c)
- *     _CmGetDeviceStatus @ 0x14079AA78 (_CmGetDeviceStatus.c)
- *     PipForDeviceNodeSubtree @ 0x1407CD688 (PipForDeviceNodeSubtree.c)
- *     PpDeviceRegistration @ 0x1407CFAC4 (PpDeviceRegistration.c)
- *     _CmDeleteDevice @ 0x140A61510 (_CmDeleteDevice.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     PnpRequestDeviceAction @ 0x14036F614 (PnpRequestDeviceAction.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     _CmGetDeviceStatus @ 0x140684C00 (_CmGetDeviceStatus.c)
+ *     PipForDeviceNodeSubtree @ 0x14069B540 (PipForDeviceNodeSubtree.c)
+ *     PiPnpRtlEndOperation @ 0x1406ACCB8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406AD460 (PiPnpRtlBeginOperation.c)
+ *     PpDevNodeUnlockTree @ 0x1406B29A0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406B2A34 (PpDevNodeLockTree.c)
+ *     _CmDeleteDevice @ 0x14072C75C (_CmDeleteDevice.c)
+ *     PpDeviceRegistration @ 0x140748200 (PpDeviceRegistration.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 PpDevCfgProcessDevices()
@@ -50,20 +50,19 @@ __int64 PpDevCfgProcessDevices()
     v0 = (PVOID *)P[0];
     if ( P[0] != P )
     {
-      v2 = PiPnpRtlBeginOperation((__int64 **)&v12);
+      v2 = PiPnpRtlBeginOperation(&v12);
       if ( v2 >= 0 )
       {
         for ( i = (PVOID *)P[0]; i != P; i = (PVOID *)*i )
         {
-          if ( (int)CmGetDeviceStatus(*(__int64 *)&PiPnpRtlCtx, (const WCHAR *)i[3], 0LL, &v9, &v11, &v10, v7) < 0
-            || (v9 & 2) == 0 )
+          if ( (int)CmGetDeviceStatus(PiPnpRtlCtx, (const WCHAR *)i[3], 0, &v9, &v11, &v10, v7) < 0 || (v9 & 2) == 0 )
           {
             PpDevNodeLockTree(3);
             CurrentThread = KeGetCurrentThread();
             --CurrentThread->KernelApcDisable;
             ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
             PpDeviceRegistration((__int64)(i + 2), 0LL, 0LL, 1);
-            if ( (int)CmDeleteDevice(*(_QWORD *)&PiPnpRtlCtx, i[3], 0LL) >= 0 )
+            if ( (int)CmDeleteDevice(*(__int64 *)&PiPnpRtlCtx, (__int64)i[3], 0) >= 0 )
               v1 = 1;
             ExReleaseResourceLite(&PnpRegistryDeviceResource);
             KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
@@ -72,7 +71,7 @@ __int64 PpDevCfgProcessDevices()
         }
         PiPnpRtlEndOperation((PVOID **)v12);
         if ( v1 )
-          PnpRequestDeviceAction(*((PVOID *)IopRootDeviceNode + 4), 8u, 0, 0LL, 0LL, 0LL, 0LL);
+          PnpRequestDeviceAction(*((PVOID *)IopRootDeviceNode + 4), 8, 0, 0LL, 0LL, 0LL, 0LL);
       }
       goto LABEL_18;
     }
@@ -87,7 +86,7 @@ __int64 PpDevCfgProcessDevices()
       __fastfail(3u);
     P[0] = *v0;
     v6[1] = P;
-    RtlFreeUnicodeString((PUNICODE_STRING)v0 + 1);
+    RtlFreeAnsiString((PUNICODE_STRING)v0 + 1);
     ExFreePoolWithTag(v0, 0);
 LABEL_18:
     v0 = (PVOID *)P[0];

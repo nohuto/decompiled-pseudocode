@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapErrorContainsMemorySection @ 0x1406122A8
+ * XREFs of WheapErrorContainsMemorySection @ 0x1405BC834
  * Callers:
- *     WheapPersistPageForMemoryError @ 0x140611038 (WheapPersistPageForMemoryError.c)
+ *     WheapPersistPageForMemoryError @ 0x1405BBA98 (WheapPersistPageForMemoryError.c)
  * Callees:
  *     <none>
  */

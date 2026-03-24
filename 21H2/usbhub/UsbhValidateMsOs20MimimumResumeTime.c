@@ -1,9 +1,9 @@
 /*
- * XREFs of UsbhValidateMsOs20MimimumResumeTime @ 0x1C0052490
+ * XREFs of UsbhValidateMsOs20MimimumResumeTime @ 0x1C0053AE0
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
+ *     Log @ 0x1C000FD80 (Log.c)
  */
 
 char __fastcall UsbhValidateMsOs20MimimumResumeTime(__int64 a1, int *a2, unsigned __int16 *a3)

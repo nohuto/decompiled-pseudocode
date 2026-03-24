@@ -1,11 +1,11 @@
 /*
- * XREFs of ?DispatchBatches@CKernelTransport@@UEAAJPEAVCComposition@@_K@Z @ 0x180060E30
+ * XREFs of ?DispatchBatches@CKernelTransport@@UEAAJPEAVCComposition@@_K@Z @ 0x1800A1150
  * Callers:
  *     <none>
  * Callees:
- *     ?ProcessPartitionCommand@CComposition@@QEAAJPEBUUCE_RDP_HEADER@@PEAI@Z @ 0x180060EC0 (-ProcessPartitionCommand@CComposition@@QEAAJPEBUUCE_RDP_HEADER@@PEAI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     McTemplateU0q_EventWriteTransfer @ 0x180111C2C (McTemplateU0q_EventWriteTransfer.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ProcessPartitionCommand@CComposition@@QEAAJPEBUUCE_RDP_HEADER@@PEAI@Z @ 0x1800A11E0 (-ProcessPartitionCommand@CComposition@@QEAAJPEBUUCE_RDP_HEADER@@PEAI@Z.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180152A24 (McTemplateU0q_EventWriteTransfer.c)
  */
 
 __int64 __fastcall CKernelTransport::DispatchBatches(CKernelTransport *this, struct CComposition *a2, __int64 a3)
@@ -15,8 +15,8 @@ __int64 __fastcall CKernelTransport::DispatchBatches(CKernelTransport *this, str
   int ConnectionBatch; // eax
   struct UCE_RDP_HEADER *v7; // rcx
   struct UCE_RDP_HEADER *i; // rax
-  int v9; // eax
-  unsigned int v10; // ecx
+  int v10; // eax
+  __int64 v11; // rcx
   unsigned int v12; // [rsp+50h] [rbp+8h] BYREF
   __int64 v13; // [rsp+60h] [rbp+18h] BYREF
   struct UCE_RDP_HEADER *v14; // [rsp+68h] [rbp+20h] BYREF
@@ -28,25 +28,25 @@ __int64 __fastcall CKernelTransport::DispatchBatches(CKernelTransport *this, str
   if ( ConnectionBatch < 0 )
   {
     v4 = ConnectionBatch | 0x10000000;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v7, 0LL, 0, ConnectionBatch | 0x10000000, 0xACu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)v7, 0LL, 0, ConnectionBatch | 0x10000000, 0xC2u, 0LL);
   }
   else
   {
     for ( i = v14; i; v14 = i )
     {
       v12 = 0;
-      v9 = CComposition::ProcessPartitionCommand(a2, i, &v12);
-      v4 = v9;
-      if ( v9 < 0 )
+      v10 = CComposition::ProcessPartitionCommand(a2, i, &v12);
+      v4 = v10;
+      if ( v10 < 0 )
       {
-        MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0xB1u, 0LL);
+        MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0xC7u, 0LL);
         return v4;
       }
       v7 = v14;
       v5 += v12;
       i = (struct UCE_RDP_HEADER *)*((_QWORD *)v14 + 1);
     }
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
       McTemplateU0q_EventWriteTransfer(v7, &EVTDESC_NUMBER_OF_COMMANDS_PROCESSED, v5);
   }
   return v4;

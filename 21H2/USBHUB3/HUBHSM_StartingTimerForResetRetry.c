@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHSM_StartingTimerForResetRetry @ 0x1C0008CA0
+ * XREFs of HUBHSM_StartingTimerForResetRetry @ 0x1C0008990
  * Callers:
  *     <none>
  * Callees:

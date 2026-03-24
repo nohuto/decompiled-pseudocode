@@ -1,9 +1,9 @@
 /*
- * XREFs of ulColorRefToRGB @ 0x1C00D0590
+ * XREFs of ulColorRefToRGB @ 0x1C00C0C30
  * Callers:
  *     <none>
  * Callees:
- *     ulIndexToRGB @ 0x1C007F6B0 (ulIndexToRGB.c)
+ *     ulIndexToRGB @ 0x1C0066D70 (ulIndexToRGB.c)
  */
 
 unsigned int __fastcall ulColorRefToRGB(struct _ERESOURCE *a1, __int64 a2, int a3)

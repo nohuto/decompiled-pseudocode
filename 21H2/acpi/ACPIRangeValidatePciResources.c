@@ -1,14 +1,14 @@
 /*
- * XREFs of ACPIRangeValidatePciResources @ 0x1C0028A0C
+ * XREFs of ACPIRangeValidatePciResources @ 0x1C002B280
  * Callers:
- *     ACPIBusIrpQueryResources @ 0x1C00978C0 (ACPIBusIrpQueryResources.c)
- *     ACPIBusIrpQueryResourceRequirements @ 0x1C0097B70 (ACPIBusIrpQueryResourceRequirements.c)
+ *     ACPIBusIrpQueryResources @ 0x1C009C0D0 (ACPIBusIrpQueryResources.c)
+ *     ACPIBusIrpQueryResourceRequirements @ 0x1C009C4B0 (ACPIBusIrpQueryResourceRequirements.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     ACPIRangeValidatePciMemoryResource @ 0x1C0028B9C (ACPIRangeValidatePciMemoryResource.c)
- *     ACPIIgnoreResourceMapValidation @ 0x1C005E754 (ACPIIgnoreResourceMapValidation.c)
- *     WPP_RECORDER_SF_dDDL @ 0x1C005E994 (WPP_RECORDER_SF_dDDL.c)
- *     WPP_RECORDER_SF_diiii @ 0x1C005EEC0 (WPP_RECORDER_SF_diiii.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     ACPIRangeValidatePciMemoryResource @ 0x1C002B410 (ACPIRangeValidatePciMemoryResource.c)
+ *     ACPIIgnoreResourceMapValidation @ 0x1C005DA44 (ACPIIgnoreResourceMapValidation.c)
+ *     WPP_RECORDER_SF_dDDL @ 0x1C005DC8C (WPP_RECORDER_SF_dDDL.c)
+ *     WPP_RECORDER_SF_diiii @ 0x1C005E1B8 (WPP_RECORDER_SF_diiii.c)
  */
 
 void __fastcall ACPIRangeValidatePciResources(
@@ -52,7 +52,7 @@ void __fastcall ACPIRangeValidatePciResources(
         2u,
         0xDu,
         0xFu,
-        (__int64)&WPP_1fd0c010928a3334a25fba642ba00601_Traceguids);
+        (__int64)&WPP_95ceafb9c956380d4634093f153ba036_Traceguids);
     KeBugCheckEx(0xA5u, 2uLL, BugCheckParameter2, 2uLL, 0LL);
   }
   v6 = BugCheckParameter3 + 32;
@@ -222,7 +222,7 @@ void __fastcall ACPIRangeValidatePciResources(
           2u,
           0xDu,
           0x15u,
-          (__int64)&WPP_1fd0c010928a3334a25fba642ba00601_Traceguids);
+          (__int64)&WPP_95ceafb9c956380d4634093f153ba036_Traceguids);
       KeBugCheckEx(0xA5u, 2uLL, BugCheckParameter2, v3, E820Info);
     }
   }

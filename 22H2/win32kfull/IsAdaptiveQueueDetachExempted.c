@@ -1,38 +1,35 @@
 /*
- * XREFs of IsAdaptiveQueueDetachExempted @ 0x1C0006E7C
+ * XREFs of IsAdaptiveQueueDetachExempted @ 0x1C003CDA0
  * Callers:
- *     IsShellFrameHangResilient @ 0x1C0006E08 (IsShellFrameHangResilient.c)
- *     EditionMouseMoveShellResilience @ 0x1C00ACE70 (EditionMouseMoveShellResilience.c)
- *     PostInputMessage @ 0x1C0117268 (PostInputMessage.c)
- *     xxxRealInternalGetMessage @ 0x1C01280D0 (xxxRealInternalGetMessage.c)
- *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01EFC00 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ *     IsShellFrameHangResilient @ 0x1C003CD14 (IsShellFrameHangResilient.c)
+ *     PostInputMessage @ 0x1C00507E0 (PostInputMessage.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055680 (xxxRealInternalGetMessage.c)
+ *     EditionMouseMoveShellResilience @ 0x1C011ABF0 (EditionMouseMoveShellResilience.c)
+ *     xxxMoveSize @ 0x1C02122B4 (xxxMoveSize.c)
  * Callees:
- *     IsIAMThread @ 0x1C003B1AC (IsIAMThread.c)
- *     IsDebuggerAttached @ 0x1C005FB64 (IsDebuggerAttached.c)
+ *     IsDebuggerAttached @ 0x1C003CE18 (IsDebuggerAttached.c)
+ *     IsIAMThread @ 0x1C003CE58 (IsIAMThread.c)
  */
 
-__int64 __fastcall IsAdaptiveQueueDetachExempted(__int64 a1)
+_BOOL8 __fastcall IsAdaptiveQueueDetachExempted(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v1; // rax
-  unsigned int v2; // ebx
-  __int64 v4; // rcx
+  __int64 v3; // rax
   __int64 v5; // rcx
+  __int64 v6; // rcx
+  _BOOL8 result; // rax
 
-  v1 = *(_QWORD *)(a1 + 1432);
-  v2 = 0;
-  if ( !v1 )
-    return 1LL;
-  v4 = *(_QWORD *)(v1 + 112);
-  if ( v4 )
+  v3 = *(_QWORD *)(a1 + 1392);
+  result = 1;
+  if ( v3 )
   {
-    if ( (unsigned int)IsIAMThread(*(_QWORD *)(v4 + 16)) )
-      return 1LL;
+    v5 = *(_QWORD *)(v3 + 112);
+    if ( (!v5 || !(unsigned int)IsIAMThread(*(_QWORD *)(v5 + 16), a2, a3))
+      && !(unsigned int)IsDebuggerAttached(*(_QWORD *)(a1 + 424)) )
+    {
+      v6 = *(_QWORD *)(*(_QWORD *)(a1 + 1392) + 112LL);
+      if ( !v6 || !(unsigned int)IsDebuggerAttached(*(_QWORD *)(*(_QWORD *)(v6 + 16) + 424LL)) )
+        return 0;
+    }
   }
-  if ( (unsigned int)IsDebuggerAttached(*(_QWORD *)(a1 + 424)) )
-    return 1LL;
-  v5 = *(_QWORD *)(*(_QWORD *)(a1 + 1432) + 112LL);
-  if ( !v5 )
-    return 0LL;
-  LOBYTE(v2) = (unsigned int)IsDebuggerAttached(*(_QWORD *)(*(_QWORD *)(v5 + 16) + 424LL)) != 0;
-  return v2;
+  return result;
 }

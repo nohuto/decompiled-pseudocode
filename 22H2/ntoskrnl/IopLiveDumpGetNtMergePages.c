@@ -1,9 +1,9 @@
 /*
- * XREFs of IopLiveDumpGetNtMergePages @ 0x14094E800
+ * XREFs of IopLiveDumpGetNtMergePages @ 0x140898494
  * Callers:
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14094FA08 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x140898EF0 (IopLiveDumpWriteDumpFileWithExtraPages.c)
  * Callees:
- *     IopLiveDumpGetCapturePagesNoLock @ 0x140A9B81C (IopLiveDumpGetCapturePagesNoLock.c)
+ *     IopLiveDumpGetCapturePagesNoLock @ 0x1409AC9C4 (IopLiveDumpGetCapturePagesNoLock.c)
  */
 
 __int64 __fastcall IopLiveDumpGetNtMergePages(__int64 a1, int a2, _QWORD *a3, _DWORD *a4, _QWORD *a5)

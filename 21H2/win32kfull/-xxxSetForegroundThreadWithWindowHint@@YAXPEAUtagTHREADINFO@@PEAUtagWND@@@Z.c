@@ -1,154 +1,142 @@
 /*
- * XREFs of ?xxxSetForegroundThreadWithWindowHint@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z @ 0x1C00A8268
+ * XREFs of ?xxxSetForegroundThreadWithWindowHint@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z @ 0x1C0034BF4
  * Callers:
- *     xxxSetModernAppWindow @ 0x1C0002004 (xxxSetModernAppWindow.c)
- *     xxxSetForegroundThread @ 0x1C00052F0 (xxxSetForegroundThread.c)
- *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C007D36C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
- *     _anonymous_namespace_::xxxSendFocusMessages @ 0x1C00A7DFC (_anonymous_namespace_--xxxSendFocusMessages.c)
+ *     xxxSetModernAppWindow @ 0x1C00058B0 (xxxSetModernAppWindow.c)
+ *     _anonymous_namespace_::xxxSendFocusMessages @ 0x1C0034774 (_anonymous_namespace_--xxxSendFocusMessages.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C003D28C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     xxxSetForegroundThread @ 0x1C01D2BB0 (xxxSetForegroundThread.c)
  * Callees:
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     SetNewForegroundPti @ 0x1C00A87C0 (SetNewForegroundPti.c)
- *     _anonymous_namespace_::NotifyIAMWindowManagementEvent @ 0x1C00A9418 (_anonymous_namespace_--NotifyIAMWindowManagementEvent.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?TransitionForegroundPriority@PriorityBoostCUI@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z @ 0x1C00354F4 (-TransitionForegroundPriority@PriorityBoostCUI@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z.c)
+ *     _anonymous_namespace_::NotifyIAMWindowManagementEvent @ 0x1C003E22C (_anonymous_namespace_--NotifyIAMWindowManagementEvent.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-void __fastcall xxxSetForegroundThreadWithWindowHint(struct tagTHREADINFO *a1, struct tagWND *a2)
+void __fastcall xxxSetForegroundThreadWithWindowHint(struct tagTHREADINFO *this, struct tagWND *a2, struct tagWND *a3)
 {
-  __int64 v2; // r8
-  __int64 v5; // rcx
-  __int64 v6; // rdx
-  __int64 v7; // rax
-  __int64 v8; // rcx
-  __int64 v9; // rcx
-  __int64 v10; // rsi
-  unsigned int ThreadId; // edi
-  unsigned int v12; // eax
-  _QWORD *v13; // rcx
-  __int64 v14; // rdx
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  _OWORD v18[5]; // [rsp+20h] [rbp-39h] BYREF
-  __int128 v19; // [rsp+70h] [rbp+17h] BYREF
-  __int128 v20; // [rsp+80h] [rbp+27h]
-  int v21; // [rsp+90h] [rbp+37h]
+  __int64 v5; // rax
+  __int64 v6; // rcx
+  __int64 v7; // rcx
+  __int64 v8; // rdi
+  _QWORD *v9; // r8
+  unsigned int DLT; // eax
+  __int64 v11; // rdx
+  __int64 ThreadWin32Thread; // rax
+  __int64 v13; // rcx
+  _QWORD v14[3]; // [rsp+20h] [rbp-59h] BYREF
+  _QWORD v15[2]; // [rsp+38h] [rbp-41h] BYREF
+  __int128 v16; // [rsp+48h] [rbp-31h]
+  __int128 v17; // [rsp+58h] [rbp-21h]
+  __int64 v18; // [rsp+68h] [rbp-11h]
+  __int128 v19; // [rsp+70h] [rbp-9h] BYREF
+  __int128 v20; // [rsp+80h] [rbp+7h]
+  __int128 v21; // [rsp+90h] [rbp+17h] BYREF
+  __int128 v22; // [rsp+A0h] [rbp+27h]
+  __int64 v23; // [rsp+B0h] [rbp+37h]
 
-  v2 = gptiForeground;
-  v5 = gptiForeground;
-  if ( a1 == (struct tagTHREADINFO *)gptiForeground )
-    return;
-  if ( a1 )
+  if ( this != (struct tagTHREADINFO *)gptiForeground )
   {
-    if ( gptiForeground && *((_QWORD *)a1 + 53) == *(_QWORD *)(gptiForeground + 424LL) )
-      goto LABEL_23;
-    v6 = *(unsigned int *)(*((_QWORD *)a1 + 53) + 56LL);
-  }
-  else
-  {
-    v6 = 0LL;
-  }
-  if ( gptiForeground )
-    v5 = *(unsigned int *)(*(_QWORD *)(gptiForeground + 424LL) + 56LL);
-  EtwTraceFocusedProcessChange(v5, v6);
-  v19 = 0LL;
-  v21 = 0;
-  v20 = 0LL;
-  if ( (unsigned int)CitProcessForegroundChange(a1, a2, gptiForeground, &v19) )
-  {
-    if ( a1 && (v7 = *((_QWORD *)a1 + 57)) != 0 && *(_QWORD *)(v7 + 280) )
-      DWORD1(v19) = *(_DWORD *)(*((_QWORD *)a1 + 53) + 56LL);
-    else
-      DWORD1(v19) = 0;
-    if ( gptiForeground && (v8 = *(_QWORD *)(gptiForeground + 456LL)) != 0 && *(_QWORD *)(v8 + 280) )
-      LODWORD(v19) = *(_DWORD *)(*(_QWORD *)(gptiForeground + 424LL) + 56LL);
-    else
-      LODWORD(v19) = 0;
-    memset(v18, 0, sizeof(v18));
-    DWORD2(v18[0]) = 8;
-    v18[1] = v19;
-    v18[2] = v20;
-    LODWORD(v18[3]) = v21;
-    anonymous_namespace_::NotifyIAMWindowManagementEvent(v18);
-  }
-  if ( a1 )
-  {
-    ForegroundBoost::SetForegroundPriority(a1, 1LL);
-    *(_QWORD *)(*((_QWORD *)a1 + 53) + 272LL) = PsChargeProcessWakeCounter(**((_QWORD **)a1 + 53), 0LL, 0LL);
-  }
-  if ( !gptiForeground )
-    goto LABEL_51;
-  ForegroundBoost::SetForegroundPriority(gptiForeground, 0LL);
-  v2 = gptiForeground;
-  v9 = *(_QWORD *)(*(_QWORD *)(gptiForeground + 424LL) + 272LL);
-  if ( v9 )
-  {
-    PsReleaseProcessWakeCounter(v9, 1LL);
-    v2 = gptiForeground;
-    *(_QWORD *)(*(_QWORD *)(gptiForeground + 424LL) + 272LL) = 0LL;
-  }
-LABEL_23:
-  if ( !*(_QWORD *)v2 )
-  {
-LABEL_51:
-    v10 = 0LL;
-    goto LABEL_25;
-  }
-  v10 = *(_QWORD *)(*(_QWORD *)v2 + 440LL);
-LABEL_25:
-  if ( a1 )
-    ThreadId = (unsigned int)PsGetThreadId(*(PETHREAD *)a1);
-  else
-    ThreadId = 0;
-  if ( gptiForeground )
-    v12 = (unsigned int)PsGetThreadId((PETHREAD)*gptiForeground);
-  else
-    v12 = 0;
-  EtwTraceFocusChange(v12, ThreadId);
-  v13 = (_QWORD *)gptiForeground;
-  if ( gptiForeground )
-  {
-    if ( !a1 || *(_QWORD *)(gptiForeground + 424LL) != *((_QWORD *)a1 + 53) )
+    if ( !this || !gptiForeground || *((_QWORD *)this + 53) != *(_QWORD *)(gptiForeground + 424LL) )
     {
-      v13 = (_QWORD *)gptiForeground;
-      *(_DWORD *)(*(_QWORD *)(gptiForeground + 424LL) + 1084LL) = (MEMORY[0xFFFFF78000000320]
-                                                                 * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-    }
-    if ( *v13 )
-      DisableDelegation();
-  }
-  SetNewForegroundPti(a1);
-  if ( gSessionId != gServiceSessionId )
-  {
-    memset(v18, 0, 40);
-    if ( gptiForeground )
-    {
-      LODWORD(v18[0]) = *(_DWORD *)(*(_QWORD *)(gptiForeground + 424LL) + 56LL);
-      DWORD1(v18[0]) = (unsigned int)PsGetThreadId((PETHREAD)*gptiForeground);
-      if ( a2 )
-        *(_QWORD *)&v18[1] = *(_QWORD *)a2;
-      else
-        *(_QWORD *)&v18[1] = 0LL;
-    }
-    SendMessageTo(3LL, v18);
-  }
-  if ( gptiForeground )
-  {
-    v14 = *(_QWORD *)(gptiForeground + 440LL);
-    if ( v14 )
-    {
-      if ( (HIDWORD(gpdwCPUserPreferencesMask) & 0x80u) != 0 || !gspklGlobalActive || gspklGlobalActive == v14 )
+      EtwTraceFocusedProcessChange();
+      v19 = 0LL;
+      v20 = 0LL;
+      if ( (unsigned int)CitProcessForegroundChange(this, a2, gptiForeground, &v19) )
       {
-        v19 = 0LL;
-        *(_QWORD *)&v20 = 0LL;
-        ThreadLock(v10, (__int64 *)&v19);
-        xxxChangeForegroundKeyboardTable(v10, *(_QWORD *)(gptiForeground + 440LL));
-        ThreadUnlock1(v16, v15, v17);
+        if ( this && (v5 = *((_QWORD *)this + 57)) != 0 && *(_QWORD *)(v5 + 288) )
+          DWORD1(v19) = *(_DWORD *)(*((_QWORD *)this + 53) + 56LL);
+        else
+          DWORD1(v19) = 0;
+        if ( gptiForeground && (v6 = *(_QWORD *)(gptiForeground + 456LL)) != 0 && *(_QWORD *)(v6 + 288) )
+          LODWORD(v19) = *(_DWORD *)(*(_QWORD *)(gptiForeground + 424LL) + 56LL);
+        else
+          LODWORD(v19) = 0;
+        v15[1] = 9LL;
+        v18 = 0LL;
+        v16 = v19;
+        v15[0] = 0LL;
+        v17 = v20;
+        anonymous_namespace_::NotifyIAMWindowManagementEvent((unsigned int)v15);
+      }
+      if ( this )
+        *(_QWORD *)(*((_QWORD *)this + 53) + 272LL) = PsChargeProcessWakeCounter(
+                                                        **((_QWORD **)this + 53),
+                                                        0LL,
+                                                        0LL,
+                                                        1LL);
+      if ( gptiForeground )
+      {
+        v7 = *(_QWORD *)(*(_QWORD *)(gptiForeground + 424LL) + 272LL);
+        if ( v7 )
+        {
+          PsReleaseProcessWakeCounter(v7, 1LL);
+          *(_QWORD *)(*(_QWORD *)(gptiForeground + 424LL) + 272LL) = 0LL;
+        }
       }
     }
+    PriorityBoostCUI::TransitionForegroundPriority(this, a2, a3);
+    if ( gptiForeground )
+      v8 = *(_QWORD *)(gptiForeground + 440LL);
+    else
+      v8 = 0LL;
+    EtwTraceFocusChange(this);
+    v9 = (_QWORD *)gptiForeground;
+    if ( gptiForeground )
+    {
+      if ( !this || *(_QWORD *)(gptiForeground + 424LL) != *((_QWORD *)this + 53) )
+      {
+        v9 = (_QWORD *)gptiForeground;
+        *(_DWORD *)(*(_QWORD *)(gptiForeground + 424LL) + 1084LL) = (MEMORY[0xFFFFF78000000320]
+                                                                   * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+      }
+      if ( *v9 )
+        DisableDelegation();
+    }
+    DLT = DLT_FOREGROUND::getDLT();
+    GetDomainLockRef(DLT);
+    gptiForeground = this;
+    if ( this && *(_DWORD *)(*((_QWORD *)this + 53) + 56LL) == gpidLogonUI )
+      gfEnableHexNumpad |= 2u;
+    else
+      gfEnableHexNumpad &= ~2u;
+    if ( gSessionId != gServiceSessionId && !gProtocolType )
+    {
+      v23 = 0LL;
+      v21 = 0LL;
+      v22 = 0LL;
+      if ( gptiForeground )
+      {
+        LODWORD(v21) = *(_DWORD *)(*(_QWORD *)(gptiForeground + 424LL) + 56LL);
+        DWORD1(v21) = (unsigned int)PsGetThreadId((PETHREAD)*gptiForeground);
+        if ( a2 )
+          *(_QWORD *)&v22 = *(_QWORD *)a2;
+        else
+          *(_QWORD *)&v22 = 0LL;
+      }
+      SendMessageTo(3LL, &v21);
+    }
+    if ( gptiForeground )
+    {
+      v11 = *(_QWORD *)(gptiForeground + 440LL);
+      if ( v11 )
+      {
+        if ( (HIDWORD(gpdwCPUserPreferencesMask) & 0x80u) != 0 || !gspklGlobalActive || gspklGlobalActive == v11 )
+        {
+          v14[2] = 0LL;
+          ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+          v14[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+          *(_QWORD *)(ThreadWin32Thread + 416) = v14;
+          v14[1] = v8;
+          if ( v8 )
+            HMLockObject(v8);
+          xxxChangeForegroundKeyboardTable(v8, *(_QWORD *)(gptiForeground + 440LL));
+          ThreadUnlock1(v13);
+        }
+      }
+    }
+    gafAsyncKeyStateRecentDown[0] = 0LL;
+    gafAsyncKeyStateRecentDown[1] = 0LL;
+    ++*(_DWORD *)(gpsi + 6988LL);
   }
-  gafAsyncKeyStateRecentDown[0] = 0LL;
-  gafAsyncKeyStateRecentDown[1] = 0LL;
-  ++*(_DWORD *)(gpsi + 6988LL);
 }

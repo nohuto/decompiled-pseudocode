@@ -4,7 +4,7 @@
  *     CmGetSystemDriverList @ 0x1409CC66C (CmGetSystemDriverList.c)
  * Callees:
  *     CmpPerformKeyBodyDeletionCheck @ 0x1405D68BC (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpFindControlSet @ 0x14073D2DC (CmpFindControlSet.c)
+ *     CmpFindControlSet @ 0x14073D2BC (CmpFindControlSet.c)
  */
 
 __int64 __fastcall CmpAcquireSystemDriverHiveContext(__int64 a1)

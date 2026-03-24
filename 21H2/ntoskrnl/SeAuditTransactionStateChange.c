@@ -1,17 +1,17 @@
 /*
- * XREFs of SeAuditTransactionStateChange @ 0x1409C7FD0
+ * XREFs of SeAuditTransactionStateChange @ 0x14091E580
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14023A1C0 (PsGetCurrentThreadProcess.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     SepAdtLogAuditRecord @ 0x1403CD84C (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1407B66E0 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     PsGetCurrentThreadProcess @ 0x1402BDFE0 (PsGetCurrentThreadProcess.c)
+ *     SepAdtLogAuditRecord @ 0x1403C2454 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1406CC938 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall SeAuditTransactionStateChange(GUID *TransactionId, GUID *ResourceManagerId, ULONG NewTransactionState)
@@ -40,7 +40,7 @@ void __stdcall SeAuditTransactionStateChange(GUID *TransactionId, GUID *Resource
   DestinationString[0] = 0LL;
   v6 = (GUID *)&v19;
   Src[0] = 0x137900000003LL;
-  LOWORD(Src[2]) = 116;
+  LOWORD(Src[2]) = 117;
   if ( ResourceManagerId )
     v6 = ResourceManagerId;
   v19 = 0LL;
@@ -59,7 +59,7 @@ void __stdcall SeAuditTransactionStateChange(GUID *TransactionId, GUID *Resource
   v9 = PrimaryToken[3];
   v10 = *ClientToken[19];
   CurrentThreadProcess = PsGetCurrentThreadProcess();
-  if ( (int)PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, DestinationString) < 0
+  if ( (int)PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, (__int64)DestinationString) < 0
     || (v12 = (PVOID *)DestinationString[0]) == 0LL )
   {
     RtlInitUnicodeString((PUNICODE_STRING)&DestinationString[1], L"?");

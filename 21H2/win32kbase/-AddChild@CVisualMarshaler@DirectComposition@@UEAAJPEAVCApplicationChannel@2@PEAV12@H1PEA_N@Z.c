@@ -1,9 +1,9 @@
 /*
- * XREFs of ?AddChild@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@PEAV12@H1PEA_N@Z @ 0x1C009A140
+ * XREFs of ?AddChild@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@PEAV12@H1PEA_N@Z @ 0x1C0086320
  * Callers:
  *     <none>
  * Callees:
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C00DD43C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D47C4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
  */
 
 __int64 __fastcall DirectComposition::CVisualMarshaler::AddChild(
@@ -19,7 +19,7 @@ __int64 __fastcall DirectComposition::CVisualMarshaler::AddChild(
 
   v6 = 0;
   *a6 = 0;
-  if ( *((_QWORD *)a3 + 25) || a5 && *((DirectComposition::CVisualMarshaler **)a5 + 25) != this )
+  if ( *((_QWORD *)a3 + 24) || a5 && *((DirectComposition::CVisualMarshaler **)a5 + 24) != this )
   {
     return (unsigned int)-1073741811;
   }
@@ -29,28 +29,28 @@ __int64 __fastcall DirectComposition::CVisualMarshaler::AddChild(
     {
       if ( a5 )
       {
-        *((_QWORD *)a3 + 24) = *((_QWORD *)a5 + 24);
-        *((_QWORD *)a5 + 24) = a3;
+        *((_QWORD *)a3 + 23) = *((_QWORD *)a5 + 23);
+        *((_QWORD *)a5 + 23) = a3;
       }
       else
       {
-        *((_QWORD *)a3 + 24) = *((_QWORD *)this + 23);
-        *((_QWORD *)this + 23) = a3;
+        *((_QWORD *)a3 + 23) = *((_QWORD *)this + 22);
+        *((_QWORD *)this + 22) = a3;
       }
     }
     else
     {
-      for ( i = (_QWORD *)((char *)this + 184);
+      for ( i = (_QWORD *)((char *)this + 176);
             (struct DirectComposition::CVisualMarshaler *)*i != a5;
-            i = (_QWORD *)(*i + 192LL) )
+            i = (_QWORD *)(*i + 184LL) )
       {
         ;
       }
-      *((_QWORD *)a3 + 24) = a5;
+      *((_QWORD *)a3 + 23) = a5;
       *i = a3;
     }
     DirectComposition::CResourceMarshaler::AddRef(a3);
-    *((_QWORD *)a3 + 25) = this;
+    *((_QWORD *)a3 + 24) = this;
     *((_DWORD *)this + 4) |= 0x4000u;
     *a6 = 1;
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of WdipSemWriteSemFailureEvent @ 0x1409DE61C
+ * XREFs of WdipSemWriteSemFailureEvent @ 0x140930800
  * Callers:
- *     WdipSemEnableScenario @ 0x1407E5A8C (WdipSemEnableScenario.c)
- *     WdipSemDisableScenario @ 0x140831AF8 (WdipSemDisableScenario.c)
+ *     WdipSemDisableScenario @ 0x140789250 (WdipSemDisableScenario.c)
+ *     WdipSemEnableScenario @ 0x1407894DC (WdipSemEnableScenario.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     WdipSemWriteEvent @ 0x1408339AC (WdipSemWriteEvent.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     WdipSemWriteEvent @ 0x1407888FC (WdipSemWriteEvent.c)
  */
 
 NTSTATUS __fastcall WdipSemWriteSemFailureEvent(

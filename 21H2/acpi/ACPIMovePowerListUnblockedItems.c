@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIMovePowerListUnblockedItems @ 0x1C00515FC
+ * XREFs of ACPIMovePowerListUnblockedItems @ 0x1C0052110
  * Callers:
- *     ACPIDevicePowerDpc @ 0x1C000F880 (ACPIDevicePowerDpc.c)
+ *     ACPIDevicePowerDpc @ 0x1C0020030 (ACPIDevicePowerDpc.c)
  * Callees:
- *     ACPIInternalMovePowerList @ 0x1C0002BA8 (ACPIInternalMovePowerList.c)
- *     ACPIIsPowerRequestBlocked @ 0x1C000DEE0 (ACPIIsPowerRequestBlocked.c)
+ *     ACPIInternalMovePowerList @ 0x1C001E594 (ACPIInternalMovePowerList.c)
+ *     ACPIIsPowerRequestBlocked @ 0x1C002942C (ACPIIsPowerRequestBlocked.c)
  */
 
 __int64 *__fastcall ACPIMovePowerListUnblockedItems(__int64 **a1)

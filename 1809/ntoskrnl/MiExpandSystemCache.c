@@ -1,13 +1,13 @@
 /*
- * XREFs of MiExpandSystemCache @ 0x1400F61AC
+ * XREFs of MiExpandSystemCache @ 0x1400F61CC
  * Callers:
- *     MiObtainSystemCacheView @ 0x1400AD200 (MiObtainSystemCacheView.c)
+ *     MiObtainSystemCacheView @ 0x1400AD220 (MiObtainSystemCacheView.c)
  * Callees:
  *     MiMakeZeroedPageTablesEx @ 0x140028584 (MiMakeZeroedPageTablesEx.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     InsertTailListPte @ 0x140079D00 (InsertTailListPte.c)
- *     MiSetSystemCacheReverseMap @ 0x1400F6390 (MiSetSystemCacheReverseMap.c)
- *     MiObtainSystemVa @ 0x1400F6944 (MiObtainSystemVa.c)
+ *     MiSetSystemCacheReverseMap @ 0x1400F63B0 (MiSetSystemCacheReverseMap.c)
+ *     MiObtainSystemVa @ 0x1400F6964 (MiObtainSystemVa.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDesc@CHolographicComposition@@UEAAJPEAUHOLOGRAPHIC_COMPOSITION_DESC@@@Z @ 0x180108890
+ * XREFs of ?GetDesc@CHolographicComposition@@UEAAJPEAUHOLOGRAPHIC_COMPOSITION_DESC@@@Z @ 0x1800E3500
  * Callers:
  *     <none>
  * Callees:

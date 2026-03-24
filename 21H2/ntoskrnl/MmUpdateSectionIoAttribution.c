@@ -1,31 +1,31 @@
 /*
- * XREFs of MmUpdateSectionIoAttribution @ 0x1402535D8
+ * XREFs of MmUpdateSectionIoAttribution @ 0x14028A198
  * Callers:
- *     CcMapAndCopyInToCache @ 0x1402BD970 (CcMapAndCopyInToCache.c)
+ *     CcMapAndCopyInToCache @ 0x140331C70 (CcMapAndCopyInToCache.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x14028494C (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     IoDiskIoAttributionDereference @ 0x140366814 (IoDiskIoAttributionDereference.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockSectionControlArea @ 0x140274944 (MiLockSectionControlArea.c)
+ *     IoDiskIoAttributionDereference @ 0x14028A7B4 (IoDiskIoAttributionDereference.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MmUpdateSectionIoAttribution(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall MmUpdateSectionIoAttribution(_QWORD *a1, unsigned __int64 a2)
 {
   __int64 v3; // rdi
   __int64 result; // rax
   __int64 v5; // rdx
-  unsigned __int8 v6; // bl
+  KIRQL v6; // bl
   __int64 v7; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v11; // eax
   bool v12; // zf
-  unsigned __int8 v13; // [rsp+40h] [rbp+18h] BYREF
+  KIRQL v13; // [rsp+40h] [rbp+18h] BYREF
 
   v13 = 0;
   v3 = 0LL;
-  result = MiLockSectionControlArea(a1, 1LL, &v13);
+  result = MiLockSectionControlArea(a1, 1, &v13);
   v5 = result;
   if ( result )
   {

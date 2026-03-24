@@ -1,7 +1,7 @@
 /*
- * XREFs of WheaUnregisterInUsePageOfflineNotification @ 0x1408DBC70
+ * XREFs of WheaUnregisterInUsePageOfflineNotification @ 0x1408DBC50
  * Callers:
- *     HvlUnregisterWheaErrorNotification @ 0x140817790 (HvlUnregisterWheaErrorNotification.c)
+ *     HvlUnregisterWheaErrorNotification @ 0x140817770 (HvlUnregisterWheaErrorNotification.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)

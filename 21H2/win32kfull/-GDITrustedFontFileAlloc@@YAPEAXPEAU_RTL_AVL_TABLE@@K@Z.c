@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GDITrustedFontFileAlloc@@YAPEAXPEAU_RTL_AVL_TABLE@@K@Z @ 0x1C0288E30
+ * XREFs of ?GDITrustedFontFileAlloc@@YAPEAXPEAU_RTL_AVL_TABLE@@K@Z @ 0x1C028B1E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall GDITrustedFontFileAlloc(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
+PVOID __fastcall GDITrustedFontFileAlloc(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
 {
-  return ExAllocatePool2(258LL, ByteSize, 1717990471LL);
+  return ExAllocatePoolWithTag(PagedPool, ByteSize, 0x66667447u);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?QueryTrackedWorkloadSupport@DXGADAPTER@@QEAAJIW4DXGK_ENGINE_TYPE@@PEAH@Z @ 0x1C02B9570
+ * XREFs of ?QueryTrackedWorkloadSupport@DXGADAPTER@@QEAAJIW4DXGK_ENGINE_TYPE@@PEAH@Z @ 0x1C020F530
  * Callers:
- *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018FB80 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     ?DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C01309C0 (-DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -14,42 +14,39 @@ __int64 __fastcall DXGADAPTER::QueryTrackedWorkloadSupport(
 {
   unsigned int v4; // r10d
   unsigned int v7; // eax
-  unsigned __int16 *v8; // rcx
-  __int64 v9; // rax
-  unsigned int v10; // r9d
-  __int64 v11; // rdx
-  __int64 v12; // r8
+  unsigned __int16 *v8; // rdx
+  unsigned int v9; // r9d
+  __int64 v10; // rcx
+  __int64 v11; // r8
 
   v4 = 0;
   *a4 = 0;
-  if ( *((int *)this + 638) < 0x2000 )
+  if ( *((int *)this + 582) < 0x2000 )
     v7 = 1;
   else
-    v7 = *((_DWORD *)this + 72);
+    v7 = *((_DWORD *)this + 70);
   if ( a2 < v7 )
   {
-    v8 = (unsigned __int16 *)(*((_QWORD *)this + 351) + 344LL * a2);
-    v9 = *((_QWORD *)v8 + 4);
-    if ( v9 )
+    v8 = (unsigned __int16 *)(*((_QWORD *)this + 323) + 360LL * a2);
+    if ( *((_QWORD *)v8 + 4) )
     {
-      v10 = *v8;
+      v9 = *v8;
       if ( *v8 )
       {
-        v11 = 0LL;
+        v10 = 0LL;
         do
         {
-          v12 = v11 + v9;
-          if ( *(_DWORD *)(v11 + v9) == a3 )
+          v11 = *((_QWORD *)v8 + 4);
+          if ( *(_DWORD *)(v10 + v11) == a3 )
           {
-            *a4 = (*(_DWORD *)(v12 + 68) >> 2) & 1;
-            if ( (*(_BYTE *)(v12 + 68) & 4) == 0 )
-              return 0LL;
-            v9 = *((_QWORD *)v8 + 4);
+            *a4 = (*(_DWORD *)(v10 + v11 + 68) >> 2) & 1;
+            if ( (*(_BYTE *)(v10 + v11 + 68) & 4) == 0 )
+              break;
           }
           ++v4;
-          v11 += 74LL;
+          v10 += 74LL;
         }
-        while ( v4 < v10 );
+        while ( v4 < v9 );
       }
     }
   }

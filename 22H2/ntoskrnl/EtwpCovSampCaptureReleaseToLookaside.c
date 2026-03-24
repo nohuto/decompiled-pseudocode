@@ -1,39 +1,38 @@
 /*
- * XREFs of EtwpCovSampCaptureReleaseToLookaside @ 0x140469B2A
+ * XREFs of EtwpCovSampCaptureReleaseToLookaside @ 0x1405AF0A0
  * Callers:
- *     EtwpCovSampCaptureBufferRelease @ 0x14041191C (EtwpCovSampCaptureBufferRelease.c)
- *     EtwpCovSampCaptureApc @ 0x140469710 (EtwpCovSampCaptureApc.c)
- *     EtwpCovSampCaptureBufferQueue @ 0x14046998C (EtwpCovSampCaptureBufferQueue.c)
- *     EtwpCovSampLookasidePop @ 0x140469BA8 (EtwpCovSampLookasidePop.c)
- *     EtwpCovSampCaptureApcRelease @ 0x140602E24 (EtwpCovSampCaptureApcRelease.c)
- *     EtwpCovSampCaptureCancelApcs @ 0x140602E70 (EtwpCovSampCaptureCancelApcs.c)
- *     EtwpCovSampCaptureQueueApc @ 0x1406034F0 (EtwpCovSampCaptureQueueApc.c)
- *     EtwpCovSampCaptureSample @ 0x140603790 (EtwpCovSampCaptureSample.c)
- *     EtwpCovSampCaptureWorkerThread @ 0x1408A8D20 (EtwpCovSampCaptureWorkerThread.c)
+ *     EtwpCovSampCaptureApc @ 0x1405AE360 (EtwpCovSampCaptureApc.c)
+ *     EtwpCovSampCaptureApcRelease @ 0x1405AE48C (EtwpCovSampCaptureApcRelease.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x1405AE6E8 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampCaptureCancelApcs @ 0x1405AE704 (EtwpCovSampCaptureCancelApcs.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x1405AED80 (EtwpCovSampCaptureQueueApc.c)
+ *     EtwpCovSampLookasidePop @ 0x1405AF44C (EtwpCovSampLookasidePop.c)
+ *     EtwpCovSampCaptureWorkerThread @ 0x140942B10 (EtwpCovSampCaptureWorkerThread.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254670 (KiInsertQueueDpc.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428830 (RtlpInterlockedPushEntrySList.c)
+ *     KeInsertQueueDpc @ 0x14021FD00 (KeInsertQueueDpc.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140406FF0 (RtlpInterlockedPushEntrySList.c)
  */
 
-__int64 __fastcall EtwpCovSampCaptureReleaseToLookaside(__int64 a1, __int64 a2, struct _SLIST_ENTRY *a3)
+char __fastcall EtwpCovSampCaptureReleaseToLookaside(__int64 a1, __int64 a2, struct _SLIST_ENTRY *a3)
 {
   __int64 v4; // rbx
-  __int64 result; // rax
+  unsigned __int32 v6; // eax
 
   v4 = *(_QWORD *)(a2 + 32);
   if ( *(_DWORD *)(a2 + 40) )
   {
     RtlpInterlockedPushEntrySList((PSLIST_HEADER)a2, a3);
-    result = *(unsigned int *)(a2 + 40);
-    if ( (_DWORD)result )
-      return result;
+    v6 = *(_DWORD *)(a2 + 40);
+    if ( !v6 )
+LABEL_5:
+      LOBYTE(v6) = KeInsertQueueDpc((PRKDPC)(a1 + 824), 0LL, 0LL);
   }
   else
   {
     RtlpInterlockedPushEntrySList((PSLIST_HEADER)v4, a3);
-    result = (unsigned int)_InterlockedIncrement((volatile signed __int32 *)(v4 + 76));
-    if ( (unsigned int)result < *(_DWORD *)(v4 + 72) )
-      return result;
+    v6 = _InterlockedIncrement((volatile signed __int32 *)(v4 + 76));
+    if ( v6 >= *(_DWORD *)(v4 + 72) )
+      goto LABEL_5;
   }
-  return KiInsertQueueDpc(a1 + 1192, 0LL, 0LL, 0LL, 0);
+  return v6;
 }

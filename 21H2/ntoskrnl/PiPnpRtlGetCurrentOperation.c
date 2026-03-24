@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlGetCurrentOperation @ 0x14077BA10
+ * XREFs of PiPnpRtlGetCurrentOperation @ 0x14063737C
  * Callers:
- *     PiPnpRtlBeginOperation @ 0x140779DC4 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlCacheObjectBaseKey @ 0x14077B908 (PiPnpRtlCacheObjectBaseKey.c)
+ *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x14063726C (PiPnpRtlCacheObjectBaseKey.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B1080 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
  */
 
 __int64 __fastcall PiPnpRtlGetCurrentOperation(__int64 **a1)
@@ -32,7 +32,7 @@ __int64 __fastcall PiPnpRtlGetCurrentOperation(__int64 **a1)
     v4 = 0LL;
   }
   ExReleaseResourceLite(&PiPnpRtlActiveOperationsLock);
-  KeLeaveCriticalRegion();
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v4 )
     *a1 = v4;
   else

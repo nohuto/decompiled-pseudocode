@@ -1,7 +1,7 @@
 /*
- * XREFs of IcGetInputState @ 0x1C002C990
+ * XREFs of IcGetInputState @ 0x1C002DE70
  * Callers:
- *     IrqLibpGetVectorInput @ 0x1C002C8B0 (IrqLibpGetVectorInput.c)
+ *     IrqLibpGetVectorInput @ 0x1C002DD90 (IrqLibpGetVectorInput.c)
  * Callees:
  *     <none>
  */

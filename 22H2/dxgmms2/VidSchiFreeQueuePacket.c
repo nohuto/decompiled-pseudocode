@@ -1,62 +1,107 @@
 /*
- * XREFs of VidSchiFreeQueuePacket @ 0x1C00044A4
+ * XREFs of VidSchiFreeQueuePacket @ 0x1C0011024
  * Callers:
- *     VidSchiUnwaitWaitQueuePacket @ 0x1C00021F0 (VidSchiUnwaitWaitQueuePacket.c)
- *     VidSchWaitForSingleSyncObject @ 0x1C0003B60 (VidSchWaitForSingleSyncObject.c)
- *     VidSchiCreateContextInternal @ 0x1C0003E8C (VidSchiCreateContextInternal.c)
- *     VidSchSignalSyncObjectsFromGpu @ 0x1C0007CC0 (VidSchSignalSyncObjectsFromGpu.c)
- *     VidSchEnqueueCpuEvent @ 0x1C0085AA0 (VidSchEnqueueCpuEvent.c)
- *     VidSchSubmitCommand @ 0x1C00AD620 (VidSchSubmitCommand.c)
+ *     VidSchSignalSyncObjectsFromGpu @ 0x1C0007C30 (VidSchSignalSyncObjectsFromGpu.c)
+ *     VidSchiCreateContextInternal @ 0x1C00106CC (VidSchiCreateContextInternal.c)
+ *     VidSchiUnwaitWaitQueuePacket @ 0x1C0010CF4 (VidSchiUnwaitWaitQueuePacket.c)
+ *     VidSchEnqueueCpuEvent @ 0x1C00CFA50 (VidSchEnqueueCpuEvent.c)
  * Callees:
- *     VidSchiInterlockedRemoveEntryList @ 0x1C00045B8 (VidSchiInterlockedRemoveEntryList.c)
- *     VidSchiInterlockedRemoveHeadListIfExistAndMoreThanSpecified @ 0x1C000463C (VidSchiInterlockedRemoveHeadListIfExistAndMoreThanSpecified.c)
- *     VidSchiInterlockedInsertTailList @ 0x1C00071C0 (VidSchiInterlockedInsertTailList.c)
+ *     VidSchiInterlockedInsertTailList @ 0x1C0007B20 (VidSchiInterlockedInsertTailList.c)
  */
 
-// write access to const memory has been detected, the output may be wrong!
-__int64 __fastcall VidSchiFreeQueuePacket(__int64 a1, __int64 a2)
+void __fastcall VidSchiFreeQueuePacket(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rbp
-  __int64 v5; // rdx
-  __int64 *v6; // rcx
-  __int64 result; // rax
+  __int64 v4; // r15
+  __int64 v5; // rax
+  KSPIN_LOCK *v6; // r15
+  __int64 v7; // rsi
   __int64 v8; // rcx
+  _QWORD *v9; // rax
+  _QWORD *v10; // rax
+  _QWORD **v11; // rsi
+  _QWORD *v12; // rbx
+  _QWORD *v13; // rax
+  _QWORD *v14; // rax
+  _QWORD *v15; // rax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-68h] BYREF
+  struct _KLOCK_QUEUE_HANDLE v17; // [rsp+38h] [rbp-50h] BYREF
+  struct _KLOCK_QUEUE_HANDLE v18; // [rsp+50h] [rbp-38h] BYREF
 
   v4 = *(_QWORD *)(*(_QWORD *)(a1 + 96) + 24LL);
-  if ( !*(_DWORD *)(a2 + 48) )
+  if ( !*(_DWORD *)(a2 + 48) && (*(_QWORD *)(a2 + 608) || *(_QWORD *)(a2 + 264)) )
   {
-    v5 = *(_QWORD *)(a2 + 616);
-    v6 = (__int64 *)(a2 + 264);
-    if ( v5 || *v6 )
-    {
-      v8 = *v6;
-      g_DxgMmsBugcheckExportIndex = 1;
-      result = WdLogSingleEntry5(0LL, 281LL, 2560LL, a2, v5, v8);
-      __debugbreak();
-      goto LABEL_8;
-    }
+    v15 = (_QWORD *)WdLogNewEntry5_WdCriticalError(a1, a2);
+    v15[3] = 281LL;
+    v15[4] = 2560LL;
+    v15[5] = a2;
+    v15[6] = *(_QWORD *)(a2 + 608);
+    v15[7] = *(_QWORD *)(a2 + 264);
+    WdLogEvent5_WdCriticalError(v15);
+    __debugbreak();
+    JUMPOUT(0x1C001FBB8LL);
   }
-  WdLogSingleEntry2(4LL, a2, a1);
+  v5 = WdLogNewEntry5_WdEvent(a1, a2);
+  *(_QWORD *)(v5 + 24) = a2;
+  *(_QWORD *)(v5 + 32) = a1;
+  WdLogEvent5_WdEvent(v5);
   *(_QWORD *)(a2 + 56) = MEMORY[0xFFFFF78000000320];
-  v4 += 1736LL;
+  v6 = (KSPIN_LOCK *)(v4 + 1720);
   *(_DWORD *)(a2 + 52) = 0;
-  VidSchiInterlockedRemoveEntryList(v4, a2 + 8, a1 + 776);
-  VidSchiInterlockedInsertTailList(
-    v4,
-    a1 + ((*(_DWORD *)(a2 + 64) & 0x40) != 0 ? 736LL : 712LL),
-    a2 + 8,
-    a1 + ((*(_DWORD *)(a2 + 64) & 0x40) != 0 ? 752LL : 728LL));
-  result = *(unsigned int *)(a2 + 64);
-  if ( (result & 0x40) == 0 )
+  v7 = a2 + 8;
+  KeAcquireInStackQueuedSpinLock(v6, &LockHandle);
+  v8 = *(_QWORD *)(a2 + 8);
+  if ( *(_QWORD *)(*(_QWORD *)v7 + 8LL) != v7 )
+    goto LABEL_25;
+  v9 = *(_QWORD **)(a2 + 16);
+  if ( *v9 != v7 )
+    goto LABEL_25;
+  *v9 = v8;
+  *(_QWORD *)(v8 + 8) = v9;
+  if ( a1 != -776 )
+    --*(_DWORD *)(a1 + 776);
+  KeReleaseInStackQueuedSpinLock(&LockHandle);
+  if ( (*(_DWORD *)(a2 + 64) & 0x40) != 0 )
   {
+    VidSchiInterlockedInsertTailList(v6, a1 + 736, (_QWORD *)(a2 + 8), (_DWORD *)(a1 + 752));
+    goto LABEL_11;
+  }
+  KeAcquireInStackQueuedSpinLock(v6, &v17);
+  v10 = *(_QWORD **)(a1 + 720);
+  if ( *v10 != a1 + 712 )
+LABEL_25:
+    __fastfail(3u);
+  *(_QWORD *)v7 = a1 + 712;
+  *(_QWORD *)(a2 + 16) = v10;
+  *v10 = v7;
+  *(_QWORD *)(a1 + 720) = v7;
+  if ( a1 != -728 )
+    ++*(_DWORD *)(a1 + 728);
+  KeReleaseInStackQueuedSpinLock(&v17);
+LABEL_11:
+  if ( (*(_DWORD *)(a2 + 64) & 0x40) == 0 )
+  {
+    v11 = (_QWORD **)(a1 + 712);
     while ( 1 )
     {
-      result = VidSchiInterlockedRemoveHeadListIfExistAndMoreThanSpecified(v4, a1 + 712, a1 + 728);
-      if ( !result )
-        break;
-LABEL_8:
-      ExFreePoolWithTag((PVOID)(result - 8), 0);
+      v12 = 0LL;
+      KeAcquireInStackQueuedSpinLock(v6, &v18);
+      v13 = *v11;
+      if ( *v11 != v11 && *(_DWORD *)(a1 + 728) > 0x10u )
+      {
+        v12 = *v11;
+        if ( (_QWORD **)v13[1] != v11 )
+          goto LABEL_25;
+        v14 = (_QWORD *)*v13;
+        if ( (_QWORD *)v14[1] != v12 )
+          goto LABEL_25;
+        *v11 = v14;
+        v14[1] = v11;
+        --*(_DWORD *)(a1 + 728);
+      }
+      KeReleaseInStackQueuedSpinLock(&v18);
+      if ( !v12 )
+        return;
+      ExFreePoolWithTag(v12 - 1, 0);
     }
   }
-  return result;
 }

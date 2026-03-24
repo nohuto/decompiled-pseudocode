@@ -1,16 +1,16 @@
 /*
- * XREFs of ?xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021A050
+ * XREFs of ?xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C021F1E4
  * Callers:
- *     xxxGetClipboardData @ 0x1C014AE38 (xxxGetClipboardData.c)
+ *     xxxGetClipboardData @ 0x1C002D3C8 (xxxGetClipboardData.c)
  * Callees:
- *     HMValidateHandleNoRip @ 0x1C00A3A40 (HMValidateHandleNoRip.c)
- *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C00CD1F0 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
- *     _ConvertMemHandle @ 0x1C014641C (_ConvertMemHandle.c)
- *     ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C014AA2C (-UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z.c)
- *     xxxGetClipboardData @ 0x1C014AE38 (xxxGetClipboardData.c)
- *     ?DIBtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUtagBITMAPINFOHEADER@@K@Z @ 0x1C0219558 (-DIBtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUtagBITMAPINFOHEADER@@K@Z.c)
- *     ?SizeOfDibColorTable@@YAKPEAUtagBITMAPINFOHEADER@@@Z @ 0x1C021981C (-SizeOfDibColorTable@@YAKPEAUtagBITMAPINFOHEADER@@@Z.c)
- *     ?xxxBMPtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@@Z @ 0x1C0219B58 (-xxxBMPtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@@Z.c)
+ *     HMValidateHandleNoRip @ 0x1C0023C6C (HMValidateHandleNoRip.c)
+ *     xxxGetClipboardData @ 0x1C002D3C8 (xxxGetClipboardData.c)
+ *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C002FA10 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
+ *     _ConvertMemHandle @ 0x1C012C040 (_ConvertMemHandle.c)
+ *     ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C015CD28 (-UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z.c)
+ *     ?SizeOfDibColorTable@@YAKPEAUtagBITMAPINFOHEADER@@@Z @ 0x1C015CDEC (-SizeOfDibColorTable@@YAKPEAUtagBITMAPINFOHEADER@@@Z.c)
+ *     ?DIBtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUtagBITMAPINFOHEADER@@K@Z @ 0x1C021EBA0 (-DIBtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUtagBITMAPINFOHEADER@@K@Z.c)
+ *     ?xxxBMPtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@@Z @ 0x1C021EE64 (-xxxBMPtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@@Z.c)
  */
 
 void *__fastcall xxxGetDummyDibV5(struct tagWINDOWSTATION *a1, struct tagGETCLIPBDATA *a2)
@@ -36,7 +36,7 @@ void *__fastcall xxxGetDummyDibV5(struct tagWINDOWSTATION *a1, struct tagGETCLIP
   {
     if ( *((_QWORD *)ClipFormat + 1) != 2LL )
     {
-      ClipboardData = xxxGetClipboardData(a1, 8LL, (__int64)a2);
+      ClipboardData = xxxGetClipboardData(a1, 8u, (__int64)a2);
       if ( ClipboardData )
       {
         v7 = HMValidateHandleNoRip((__int64)ClipboardData, 6);
@@ -81,12 +81,12 @@ LABEL_12:
     return (void *)v2;
   if ( *((_QWORD *)v9 + 1) == 2LL )
     return (void *)v2;
-  v10 = (HSURF)xxxGetClipboardData(a1, 2LL, (__int64)a2);
+  v10 = (HSURF)xxxGetClipboardData(a1, 2u, (__int64)a2);
   if ( !v10 )
     return (void *)v2;
   v11 = 0LL;
   if ( (*(_DWORD *)(gpsi + 7004LL) & 1) == 0
-    || (result = xxxGetClipboardData(a1, 9LL, (__int64)a2), (v11 = (__int64)result) != 0) )
+    || (result = xxxGetClipboardData(a1, 9u, (__int64)a2), (v11 = (__int64)result) != 0) )
   {
     v8 = (struct tagBITMAPINFOHEADER *)xxxBMPtoDIBV5(v10, v11);
     if ( v8 )

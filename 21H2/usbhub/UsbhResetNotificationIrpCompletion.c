@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhResetNotificationIrpCompletion @ 0x1C0043690
+ * XREFs of UsbhResetNotificationIrpCompletion @ 0x1C0044950
  * Callers:
  *     <none>
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     UsbhDispatch_HardResetEvent @ 0x1C001C920 (UsbhDispatch_HardResetEvent.c)
- *     WPP_RECORDER_SF_q @ 0x1C002E090 (WPP_RECORDER_SF_q.c)
- *     UsbhResetNotifyDownstreamHub @ 0x1C0043854 (UsbhResetNotifyDownstreamHub.c)
- *     UsbhException @ 0x1C004A0A8 (UsbhException.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     UsbhDispatch_HardResetEvent @ 0x1C001A550 (UsbhDispatch_HardResetEvent.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002F46C (WPP_RECORDER_SF_q.c)
+ *     UsbhResetNotifyDownstreamHub @ 0x1C0044B0C (UsbhResetNotifyDownstreamHub.c)
+ *     UsbhException @ 0x1C004B478 (UsbhException.c)
  */
 
 __int64 __fastcall UsbhResetNotificationIrpCompletion(
@@ -21,6 +21,7 @@ __int64 __fastcall UsbhResetNotificationIrpCompletion(
   _DWORD *v8; // rax
   IRP *v9; // rbx
   _IO_STACK_LOCATION *CurrentStackLocation; // rax
+  int v12; // [rsp+48h] [rbp-10h]
 
   v6 = FdoExt((__int64)Context);
   v7 = *(_QWORD *)(*((_QWORD *)v6 + 659) + 184LL);
@@ -36,13 +37,14 @@ __int64 __fastcall UsbhResetNotificationIrpCompletion(
         v5,
         3u,
         0x17u,
-        (__int64)&WPP_70750b4e52e537afa0d3aa3795e637f0_Traceguids,
+        (__int64)&WPP_bd192adfbaab37968b6512a601d84f30_Traceguids,
         Context);
     if ( v6[702] == 2 )
     {
       if ( KeGetCurrentIrql() )
       {
-        UsbhException((int)Context, 0, 62, 0, 0, -1073741823, -1073704960, usbfile_pnp_c, 3712, 1);
+        LOBYTE(v12) = 1;
+        UsbhException((int)Context, 0, 62, 0, 0, -1073741823, -1073704960, usbfile_pnp_c, 3723, v12);
       }
       else
       {

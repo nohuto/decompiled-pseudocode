@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Initialize@CMessageConversationHost@@AEAAJXZ @ 0x1800FCFB0
+ * XREFs of ?Initialize@CMessageConversationHost@@AEAAJXZ @ 0x1800B3FB4
  * Callers:
- *     ?Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800FCEE4 (-Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
+ *     ?Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800B3F44 (-Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InitializeServer@CMessageConversationHost@@AEAAJPEAI@Z @ 0x1800FD350 (-InitializeServer@CMessageConversationHost@@AEAAJPEAI@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InitializeServer@CMessageConversationHost@@AEAAJPEAI@Z @ 0x1800B403C (-InitializeServer@CMessageConversationHost@@AEAAJPEAI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CMessageConversationHost::Initialize(CMessageConversationHost *this)
@@ -28,10 +28,10 @@ __int64 __fastcall CMessageConversationHost::Initialize(CMessageConversationHost
   }
   else
   {
-    v5 = (***((__int64 (__fastcall ****)(_QWORD, GUID *, char *))this + 3))(
-           *((_QWORD *)this + 3),
+    v5 = (***((__int64 (__fastcall ****)(_QWORD, GUID *, char *))this + 4))(
+           *((_QWORD *)this + 4),
            &GUID_5e648581_8bf0_4f2a_9f51_28d09a2202d6,
-           (char *)this + 32);
+           (char *)this + 40);
     v4 = v5;
     if ( v5 < 0 )
     {
@@ -40,9 +40,9 @@ __int64 __fastcall CMessageConversationHost::Initialize(CMessageConversationHost
     else
     {
       ConversationHost = CoreUICallCreateConversationHost(
-                           *((_QWORD *)this + 2),
                            *((_QWORD *)this + 3),
-                           (char *)this + 40,
+                           *((_QWORD *)this + 4),
+                           (char *)this + 48,
                            0LL);
       v4 = ConversationHost;
       if ( ConversationHost < 0 )

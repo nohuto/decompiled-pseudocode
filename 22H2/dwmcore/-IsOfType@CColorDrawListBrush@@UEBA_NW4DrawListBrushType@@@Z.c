@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CColorDrawListBrush@@UEBA_NW4DrawListBrushType@@@Z @ 0x18001B370
+ * XREFs of ?IsOfType@CColorDrawListBrush@@UEBA_NW4DrawListBrushType@@@Z @ 0x18001FF10
  * Callers:
  *     <none>
  * Callees:

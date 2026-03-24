@@ -1,25 +1,27 @@
 /*
- * XREFs of NtUserGetUpdateRect @ 0x1C008BA10
+ * XREFs of NtUserGetUpdateRect @ 0x1C01179E0
  * Callers:
  *     <none>
  * Callees:
- *     xxxGetUpdateRect @ 0x1C008BB5C (xxxGetUpdateRect.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005B960 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     xxxGetUpdateRect @ 0x1C0117BC0 (xxxGetUpdateRect.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall NtUserGetUpdateRect(__int64 a1, _OWORD *a2, unsigned int a3)
 {
-  __int64 v6; // rdx
+  int v6; // esi
   __int64 v7; // rcx
-  __int64 v8; // rsi
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rdx
-  ULONG64 v12; // rcx
-  unsigned int UpdateRect; // ebx
-  __int64 v14; // r8
-  unsigned int CurrentThreadDpiAwarenessContext; // eax
+  __int64 v8; // r15
+  ULONG64 v9; // rcx
+  unsigned int UpdateRect; // r14d
+  __int64 v11; // rcx
+  unsigned int v12; // ebx
+  __int64 v13; // rcx
+  int v14; // ebx
+  __int64 v15; // rcx
   __int128 v17; // [rsp+30h] [rbp-58h] BYREF
   __int64 v18; // [rsp+40h] [rbp-48h]
   __int128 v19; // [rsp+50h] [rbp-38h] BYREF
@@ -27,7 +29,8 @@ __int64 __fastcall NtUserGetUpdateRect(__int64 a1, _OWORD *a2, unsigned int a3)
   v19 = 0LL;
   v17 = 0LL;
   v18 = 0LL;
-  EnterCrit(0LL, 0LL);
+  v6 = 1;
+  EnterCrit(0LL, 1LL);
   v8 = ValidateHwnd(a1);
   if ( v8 )
   {
@@ -41,20 +44,37 @@ __int64 __fastcall NtUserGetUpdateRect(__int64 a1, _OWORD *a2, unsigned int a3)
                    a3);
     if ( a2 )
     {
-      CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(v12);
-      if ( (unsigned __int8)ShouldVirtualizeWindowRect(v8, CurrentThreadDpiAwarenessContext) )
-        TransformRectBetweenCoordinateSpaces(&v19, &v19, 0LL, v8);
-      v12 = MmUserProbeAddress;
+      if ( (*(_BYTE *)(*(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 480) + 224LL) & 1) == 0 )
+      {
+        v11 = *(_QWORD *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 480);
+        if ( (*(_BYTE *)(v11 + 224) & 0x20) == 0 )
+        {
+          v12 = *(_DWORD *)(*(_QWORD *)(v8 + 40) + 288LL);
+          if ( (((unsigned __int16)(v12 >> 8) ^ (unsigned __int16)((unsigned int)W32GetCurrentThreadDpiAwarenessContext(v11) >> 8)) & 0x1FF) != 0 )
+            goto LABEL_20;
+          v13 = *(unsigned int *)(*(_QWORD *)(v8 + 40) + 288LL);
+          v14 = (*(_DWORD *)(*(_QWORD *)(v8 + 40) + 288LL) & 0xF) == 2 && (v13 & 0x20000000) != 0;
+          if ( (W32GetCurrentThreadDpiAwarenessContext(v13) & 0xF) != 2
+            || (W32GetCurrentThreadDpiAwarenessContext(v15) & 0x20000000) == 0 )
+          {
+            v6 = 0;
+          }
+          if ( v14 != v6 )
+LABEL_20:
+            TransformRectBetweenCoordinateSpaces(&v19, &v19, 0LL, v8);
+        }
+      }
+      v9 = MmUserProbeAddress;
       if ( (unsigned __int64)a2 >= MmUserProbeAddress )
         a2 = (_OWORD *)MmUserProbeAddress;
       *a2 = v19;
     }
-    ThreadUnlock1(v12, v11, v14);
+    ThreadUnlock1(v9);
   }
   else
   {
     UpdateRect = 0;
   }
-  UserSessionSwitchLeaveCrit(v7, v6, v9, v10);
+  UserSessionSwitchLeaveCrit(v7);
   return UpdateRect;
 }

@@ -1,32 +1,31 @@
 /*
- * XREFs of CmGetSystemDriverList @ 0x140B12C84
+ * XREFs of CmGetSystemDriverList @ 0x140A5F174
  * Callers:
- *     IopInitializeSystemDrivers @ 0x140B110B4 (IopInitializeSystemDrivers.c)
+ *     IopInitializeSystemDrivers @ 0x140A5D754 (IopInitializeSystemDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     CmpInitializeThreadInfo @ 0x140347770 (CmpInitializeThreadInfo.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
- *     ZwOpenDirectoryObject @ 0x14041C260 (ZwOpenDirectoryObject.c)
- *     ZwQueryDirectoryObject @ 0x14041E0A0 (ZwQueryDirectoryObject.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     memset @ 0x140435E00 (memset.c)
- *     CmpLockRegistryExclusive @ 0x14071B6EC (CmpLockRegistryExclusive.c)
- *     RtlEqualUnicodeString @ 0x1407CD6A0 (RtlEqualUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
- *     CmpUnlockRegistry @ 0x140AB4260 (CmpUnlockRegistry.c)
- *     CmpReleaseShutdownRundown @ 0x140AB42A0 (CmpReleaseShutdownRundown.c)
- *     CmpAttachToRegistryProcess @ 0x140AB4550 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140AB4580 (CmpDetachFromRegistryProcess.c)
- *     CmpAcquireShutdownRundown @ 0x140AB46D0 (CmpAcquireShutdownRundown.c)
- *     CmpOpenSystemDriverHiveContext @ 0x140B12AF0 (CmpOpenSystemDriverHiveContext.c)
- *     CmpCloseSystemDriverHiveContext @ 0x140B130E0 (CmpCloseSystemDriverHiveContext.c)
- *     CmpFreeDriverList @ 0x140B13134 (CmpFreeDriverList.c)
- *     CmpAcquireSystemDriverHiveContext @ 0x140B13368 (CmpAcquireSystemDriverHiveContext.c)
- *     CmpSortDriverList @ 0x140B13578 (CmpSortDriverList.c)
- *     CmpFindDrivers @ 0x140B141E0 (CmpFindDrivers.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwOpenDirectoryObject @ 0x1403FAEA0 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x1403FCC20 (ZwQueryDirectoryObject.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmpDetachFromRegistryProcess @ 0x1405F613C (CmpDetachFromRegistryProcess.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     CmpReleaseShutdownRundown @ 0x140655680 (CmpReleaseShutdownRundown.c)
+ *     CmpAcquireShutdownRundown @ 0x140656AB0 (CmpAcquireShutdownRundown.c)
+ *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
+ *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmpCloseSystemDriverHiveContext @ 0x140A5F5A0 (CmpCloseSystemDriverHiveContext.c)
+ *     CmpFreeDriverList @ 0x140A5F5F4 (CmpFreeDriverList.c)
+ *     CmpAcquireSystemDriverHiveContext @ 0x140A60258 (CmpAcquireSystemDriverHiveContext.c)
+ *     CmpSortDriverList @ 0x140A60418 (CmpSortDriverList.c)
+ *     CmpFindDrivers @ 0x140A60F64 (CmpFindDrivers.c)
+ *     CmpOpenSystemDriverHiveContext @ 0x140A61428 (CmpOpenSystemDriverHiveContext.c)
  */
 
 HANDLE *__fastcall CmGetSystemDriverList(__int64 a1)
@@ -49,7 +48,6 @@ HANDLE *__fastcall CmGetSystemDriverList(__int64 a1)
   int v16; // edi
   PVOID **v17; // rdi
   PVOID **v18; // rcx
-  HANDLE *result; // rax
   int v20; // eax
   _DWORD *v21; // rax
   _DWORD *v22; // rbx
@@ -59,56 +57,52 @@ HANDLE *__fastcall CmGetSystemDriverList(__int64 a1)
   PVOID *v26; // rax
   PVOID *v27; // rbx
   PVOID *v28; // rbx
-  int v29; // [rsp+40h] [rbp-C8h]
-  __int64 v30; // [rsp+50h] [rbp-B8h]
-  __int64 v31; // [rsp+60h] [rbp-A8h]
-  __int64 v32[2]; // [rsp+68h] [rbp-A0h] BYREF
+  __int64 v29; // [rsp+48h] [rbp-C0h]
+  __int64 v30; // [rsp+58h] [rbp-B0h]
+  __int64 v31[2]; // [rsp+68h] [rbp-A0h] BYREF
   PVOID P; // [rsp+78h] [rbp-90h] BYREF
   PVOID *p_P; // [rsp+80h] [rbp-88h]
-  __int64 v35; // [rsp+88h] [rbp-80h] BYREF
-  PVOID v36; // [rsp+90h] [rbp-78h] BYREF
-  PVOID *v37; // [rsp+98h] [rbp-70h]
+  __int64 v34; // [rsp+88h] [rbp-80h] BYREF
+  PVOID v35; // [rsp+90h] [rbp-78h] BYREF
+  PVOID *v36; // [rsp+98h] [rbp-70h]
   HANDLE DirectoryHandle; // [rsp+A0h] [rbp-68h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp-60h] BYREF
-  __int64 v40; // [rsp+D8h] [rbp-30h]
+  __int64 v39; // [rsp+D8h] [rbp-30h]
   UNICODE_STRING *PoolWithTag; // [rsp+E0h] [rbp-28h]
   UNICODE_STRING DestinationString; // [rsp+E8h] [rbp-20h] BYREF
-  __int128 v43; // [rsp+F8h] [rbp-10h] BYREF
-  ULONG_PTR v44[8]; // [rsp+108h] [rbp+0h] BYREF
-  _QWORD v45[8]; // [rsp+148h] [rbp+40h] BYREF
-  _OWORD v46[3]; // [rsp+188h] [rbp+80h] BYREF
+  ULONG_PTR v42[8]; // [rsp+F8h] [rbp-10h] BYREF
+  _QWORD v43[8]; // [rsp+138h] [rbp+30h] BYREF
+  _OWORD v44[3]; // [rsp+178h] [rbp+70h] BYREF
 
-  v40 = a1;
+  v39 = a1;
   v1 = a1;
-  v35 = 0LL;
-  v43 = 0LL;
+  v34 = 0LL;
   v2 = 0;
   DestinationString = 0LL;
-  memset(&ObjectAttributes, 0, 44);
-  memset(v46, 0, sizeof(v46));
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   memset(v44, 0, sizeof(v44));
-  LODWORD(v44[7]) = -1;
-  memset(v45, 0, sizeof(v45));
-  LODWORD(v45[7]) = -1;
+  memset(v42, 0, sizeof(v42));
+  LODWORD(v42[7]) = -1;
+  memset(v43, 0, sizeof(v43));
+  LODWORD(v43[7]) = -1;
   p_P = &P;
   DirectoryHandle = 0LL;
   P = &P;
   v3 = 0LL;
+  v36 = &v35;
   v4 = 0LL;
-  v37 = &v36;
   v5 = 0;
+  v35 = &v35;
   v6 = 0;
-  v36 = &v36;
-  CmpInitializeThreadInfo((__int64)&v43);
-  v32[1] = (__int64)v32;
-  v32[0] = (__int64)v32;
-  if ( (int)CmpOpenSystemDriverHiveContext(&CmpSystemHiveNameString, (__int64)v44) >= 0 )
+  v31[1] = (__int64)v31;
+  v31[0] = (__int64)v31;
+  if ( (int)CmpOpenSystemDriverHiveContext(&CmpSystemHiveNameString) >= 0 )
   {
     if ( !CmStateSeparationEnabled
-      || (v20 = CmpOpenSystemDriverHiveContext(&CmpDevicesHiveNameString, (__int64)v45), (int)(v20 + 0x80000000) < 0)
+      || (v20 = CmpOpenSystemDriverHiveContext(&CmpDevicesHiveNameString), (int)(v20 + 0x80000000) < 0)
       || v20 == -1073741772 )
     {
-      RtlInitUnicodeString(&DestinationString, L"\\DriverStore\\Nodes");
+      RtlInitUnicodeString(&DestinationString, L"\\DriverStores");
       ObjectAttributes.Length = 48;
       ObjectAttributes.ObjectName = &DestinationString;
       ObjectAttributes.RootDirectory = 0LL;
@@ -127,12 +121,12 @@ LABEL_12:
             v6 = CmpAcquireShutdownRundown();
             if ( v6 )
             {
-              CmpAttachToRegistryProcess((__int64)v46, v9, v10, v11);
+              CmpAttachToRegistryProcess((__int64)v44, v9, v10, v11);
               v2 = 1;
               CmpLockRegistryExclusive();
               v5 = 1;
-              if ( (int)CmpAcquireSystemDriverHiveContext(v44) >= 0
-                && (!v45[4] || (int)CmpAcquireSystemDriverHiveContext(v45) >= 0) )
+              if ( (int)CmpAcquireSystemDriverHiveContext(v42) >= 0
+                && (!v43[4] || (int)CmpAcquireSystemDriverHiveContext(v43) >= 0) )
               {
                 for ( i = (PVOID *)P; i != &P; i = (PVOID *)*i )
                 {
@@ -148,33 +142,31 @@ LABEL_12:
                     *((_OWORD *)v24 + 1) = *((_OWORD *)i + 1);
                     v24[4] = (PVOID *)i[6];
                     *((_DWORD *)v24 + 10) = *((_DWORD *)i + 14);
-                    v26 = v37;
-                    if ( *v37 != &v36 )
+                    v26 = v36;
+                    if ( *v36 != &v35 )
                       goto LABEL_61;
-                    v25[1] = v37;
-                    *v25 = &v36;
+                    v25[1] = v36;
+                    *v25 = &v35;
                     *v26 = v25;
-                    v37 = (PVOID *)v25;
+                    v36 = (PVOID *)v25;
                   }
                 }
                 if ( (unsigned __int8)CmpFindDrivers(
-                                        v44[6],
-                                        LODWORD(v44[7]),
-                                        (__int64)&v36,
-                                        (int)&v35 + 4,
+                                        v42[6],
                                         (__int64)&v35,
+                                        (int)&v34 + 4,
+                                        (__int64)&v34,
+                                        (__int64)v31,
                                         v29,
-                                        (__int64)v32,
-                                        v30,
                                         v1,
-                                        v31)
-                  && (unsigned __int8)CmpSortDriverList(v44[6]) )
+                                        v30)
+                  && (unsigned __int8)CmpSortDriverList(v42[6]) )
                 {
                   CmpUnlockRegistry();
-                  v13 = (__int64 *)v32[0];
+                  v13 = (__int64 *)v31[0];
                   v14 = 0;
                   v5 = 0;
-                  while ( v13 != v32 )
+                  while ( v13 != v31 )
                   {
                     v13 = (__int64 *)*v13;
                     ++v14;
@@ -182,9 +174,9 @@ LABEL_12:
                   v4 = (HANDLE *)ExAllocatePoolWithTag(NonPagedPoolNx, 8LL * (unsigned int)(v14 + 1), 0x32384D43u);
                   if ( !v4 )
                     KeBugCheckEx(0x67u, 2uLL, 1uLL, 0LL, 0LL);
-                  v15 = v32[0];
+                  v15 = v31[0];
                   v16 = 0;
-                  if ( (__int64 *)v32[0] != v32 )
+                  if ( (__int64 *)v31[0] != v31 )
                   {
                     do
                     {
@@ -197,7 +189,7 @@ LABEL_12:
                         ++v16;
                       v15 = *(_QWORD *)v15;
                     }
-                    while ( (__int64 *)v15 != v32 );
+                    while ( (__int64 *)v15 != v31 );
                     v3 = PoolWithTag;
                   }
                   v4[v16] = 0LL;
@@ -219,7 +211,7 @@ LABEL_12:
                     goto LABEL_29;
                   memset(v21, 0, 0x40uLL);
                   v22[14] = -1;
-                  if ( (int)CmpOpenSystemDriverHiveContext(j, (__int64)v22) >= 0 )
+                  if ( (int)CmpOpenSystemDriverHiveContext(j) >= 0 )
                   {
                     v23 = p_P;
                     if ( *p_P != &P )
@@ -239,7 +231,7 @@ LABEL_61:
               DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)v3);
               if ( DirectoryObject == -2147483622 )
               {
-                v1 = v40;
+                v1 = v39;
                 goto LABEL_12;
               }
             }
@@ -249,17 +241,17 @@ LABEL_61:
     }
   }
 LABEL_29:
-  if ( (__int64 *)v32[0] != v32 )
-    CmpFreeDriverList(v44[6], v32);
+  if ( (__int64 *)v31[0] != v31 )
+    CmpFreeDriverList(v42[6], v31);
   if ( v5 )
     CmpUnlockRegistry();
   if ( v2 )
-    CmpDetachFromRegistryProcess((__int64)v46);
+    CmpDetachFromRegistryProcess((__int64)v44);
   if ( v6 )
     CmpReleaseShutdownRundown();
-  CmpCloseSystemDriverHiveContext(v44);
-  if ( v45[4] )
-    CmpCloseSystemDriverHiveContext(v45);
+  CmpCloseSystemDriverHiveContext(v42);
+  if ( v43[4] )
+    CmpCloseSystemDriverHiveContext(v43);
   if ( DirectoryHandle )
     ZwClose(DirectoryHandle);
   if ( v3 )
@@ -276,8 +268,8 @@ LABEL_29:
     }
     while ( v27 != &P );
   }
-  v18 = (PVOID **)v36;
-  if ( v36 != &v36 )
+  v18 = (PVOID **)v35;
+  if ( v35 != &v35 )
   {
     do
     {
@@ -285,9 +277,7 @@ LABEL_29:
       ExFreePoolWithTag(v18, 0);
       v18 = (PVOID **)v28;
     }
-    while ( v28 != &v36 );
+    while ( v28 != &v35 );
   }
-  result = v4;
-  *(_QWORD *)&KeGetCurrentThread()[1].ResourceIndex = v43;
-  return result;
+  return v4;
 }

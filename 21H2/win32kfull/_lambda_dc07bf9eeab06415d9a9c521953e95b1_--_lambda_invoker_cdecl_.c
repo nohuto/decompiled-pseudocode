@@ -1,15 +1,15 @@
 /*
- * XREFs of _lambda_dc07bf9eeab06415d9a9c521953e95b1_::_lambda_invoker_cdecl_ @ 0x1C00CE180
+ * XREFs of _lambda_dc07bf9eeab06415d9a9c521953e95b1_::_lambda_invoker_cdecl_ @ 0x1C0028250
  * Callers:
  *     <none>
  * Callees:
- *     SkipWindowOnMonitor @ 0x1C00CDFE8 (SkipWindowOnMonitor.c)
- *     ?IsWindowActivateable@@YA_NPEBUtagWND@@@Z @ 0x1C00CE218 (-IsWindowActivateable@@YA_NPEBUtagWND@@@Z.c)
+ *     SkipWindowOnMonitor @ 0x1C00281D0 (SkipWindowOnMonitor.c)
+ *     ?IsWindowActivateable@@YA_NPEBUtagWND@@@Z @ 0x1C00282E8 (-IsWindowActivateable@@YA_NPEBUtagWND@@@Z.c)
  */
 
 bool __fastcall lambda_dc07bf9eeab06415d9a9c521953e95b1_::_lambda_invoker_cdecl_(__int64 a1, _OWORD *a2)
 {
-  struct tagWND *v4; // rcx
+  __int64 v4; // rcx
   __int64 v5; // rdx
   __int128 v6; // [rsp+20h] [rbp-18h]
 
@@ -18,8 +18,8 @@ bool __fastcall lambda_dc07bf9eeab06415d9a9c521953e95b1_::_lambda_invoker_cdecl_
   {
     if ( IsWindowActivateable(*(const struct tagWND **)(gpqForegroundPrev + 128LL)) )
     {
-      v4 = *(struct tagWND **)(gpqForegroundPrev + 128LL);
-      v5 = *((_QWORD *)v4 + 5);
+      v4 = *(_QWORD *)(gpqForegroundPrev + 128LL);
+      v5 = *(_QWORD *)(v4 + 40);
       if ( (*(_BYTE *)(v5 + 20) & 0x20) == 0
         && (*(_BYTE *)(v5 + 31) & 0x20) == 0
         && !(unsigned int)SkipWindowOnMonitor(v4) )

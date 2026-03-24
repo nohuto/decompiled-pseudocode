@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwFlushInstallUILanguage @ 0x1401B9D90
+ * XREFs of ZwFlushInstallUILanguage @ 0x1401B9DB0
  * Callers:
  *     <none>
  * Callees:

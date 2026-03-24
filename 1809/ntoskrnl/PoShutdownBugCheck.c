@@ -1,16 +1,16 @@
 /*
- * XREFs of PoShutdownBugCheck @ 0x14086BEE0
+ * XREFs of PoShutdownBugCheck @ 0x14086BEC0
  * Callers:
  *     ExpSystemErrorHandler2 @ 0x14057E930 (ExpSystemErrorHandler2.c)
- *     PoInitHiberServices @ 0x140745CB0 (PoInitHiberServices.c)
+ *     PoInitHiberServices @ 0x140745C90 (PoInitHiberServices.c)
  * Callees:
  *     PsGetCurrentThreadProcessId @ 0x14004D240 (PsGetCurrentThreadProcessId.c)
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     PsGetCurrentThreadId @ 0x140119BC0 (PsGetCurrentThreadId.c)
- *     IoConfigureCrashDump @ 0x14018848C (IoConfigureCrashDump.c)
- *     ZwInitiatePowerAction @ 0x1401BA0D0 (ZwInitiatePowerAction.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1402D3224 (PopInternalAddToDumpFile.c)
+ *     PsGetCurrentThreadId @ 0x140119BE0 (PsGetCurrentThreadId.c)
+ *     IoConfigureCrashDump @ 0x1401884AC (IoConfigureCrashDump.c)
+ *     ZwInitiatePowerAction @ 0x1401BA0F0 (ZwInitiatePowerAction.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
  */
 
 void __fastcall __noreturn PoShutdownBugCheck(

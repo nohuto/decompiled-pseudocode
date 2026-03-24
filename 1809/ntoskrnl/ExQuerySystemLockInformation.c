@@ -1,13 +1,13 @@
 /*
  * XREFs of ExQuerySystemLockInformation @ 0x14057E5CC
  * Callers:
- *     ExpGetLockInformation @ 0x1408CB8AC (ExpGetLockInformation.c)
+ *     ExpGetLockInformation @ 0x1408CB88C (ExpGetLockInformation.c)
  * Callees:
  *     MmUnlockPagableImageSection @ 0x140097F00 (MmUnlockPagableImageSection.c)
  *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     ExpOwnerEntryToThread @ 0x14010A258 (ExpOwnerEntryToThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpOwnerEntryToThread @ 0x14010A278 (ExpOwnerEntryToThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     MmLockPagableSectionByHandle @ 0x14061F240 (MmLockPagableSectionByHandle.c)
  */
 

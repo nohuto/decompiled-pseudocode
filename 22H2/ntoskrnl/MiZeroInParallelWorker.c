@@ -1,416 +1,194 @@
 /*
- * XREFs of MiZeroInParallelWorker @ 0x1402D1300
+ * XREFs of MiZeroInParallelWorker @ 0x140357570
  * Callers:
- *     MiZeroInParallel @ 0x140304230 (MiZeroInParallel.c)
+ *     MiZeroInParallel @ 0x1403542C0 (MiZeroInParallel.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiGetPfnPageSizeIndex @ 0x1402E88E0 (MiGetPfnPageSizeIndex.c)
- *     MiDeleteUltraThreadContext @ 0x1402E92A4 (MiDeleteUltraThreadContext.c)
- *     MiCreateUltraThreadContext @ 0x1402EC3F0 (MiCreateUltraThreadContext.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     MiDereferencePageChains @ 0x14032F48C (MiDereferencePageChains.c)
- *     MiZeroPhysicalPage @ 0x14033905C (MiZeroPhysicalPage.c)
- *     MiUserPdeOrAbove @ 0x14033C430 (MiUserPdeOrAbove.c)
- *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
- *     KeSignalGate @ 0x14035CCEC (KeSignalGate.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeZeroPages @ 0x140423F80 (KeZeroPages.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiZeroAndConvertPage @ 0x1406500A4 (MiZeroAndConvertPage.c)
+ *     MiReleasePtes @ 0x140245170 (MiReleasePtes.c)
+ *     KeSetPriorityThread @ 0x140257340 (KeSetPriorityThread.c)
+ *     MiZeroAndConvertPage @ 0x14030E7F0 (MiZeroAndConvertPage.c)
+ *     KeSignalGate @ 0x14031BEE0 (KeSignalGate.c)
+ *     MiCreateUltraThreadContext @ 0x14035465C (MiCreateUltraThreadContext.c)
+ *     MiDeleteUltraThreadContext @ 0x140357B5C (MiDeleteUltraThreadContext.c)
+ *     KeSetIdealProcessorThreadEx @ 0x14035C2A8 (KeSetIdealProcessorThreadEx.c)
+ *     MiSetIdealProcessorThread @ 0x14035E380 (MiSetIdealProcessorThread.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     MiZeroWithSystemPtes @ 0x1403F48B8 (MiZeroWithSystemPtes.c)
+ *     MiZeroWithUltraSpace @ 0x1403F4B98 (MiZeroWithUltraSpace.c)
+ *     MiGetPfnPageSizeIndex @ 0x1403F6158 (MiGetPfnPageSizeIndex.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiReserveLowPrioritySystemPtes @ 0x14052A844 (MiReserveLowPrioritySystemPtes.c)
  */
 
-__int64 __fastcall MiZeroInParallelWorker(__int64 a1)
+void __fastcall MiZeroInParallelWorker(PVOID StartContext)
 {
-  __int64 v1; // rsi
-  unsigned int v2; // ebx
-  int v3; // r14d
-  int v4; // edi
-  unsigned int v5; // r8d
-  volatile signed __int32 *v6; // rcx
-  unsigned __int64 v7; // rbp
-  volatile signed __int32 **v8; // rdx
-  __int64 v9; // rcx
-  volatile signed __int32 *v11; // r15
-  __int64 v12; // r8
-  __int64 v13; // rbx
-  unsigned int v14; // r12d
-  unsigned __int64 v15; // r13
-  __int64 v16; // r14
-  unsigned __int64 UltraMapping; // r9
-  int v18; // r8d
-  unsigned __int64 v19; // rdx
-  char v20; // cl
-  int v21; // esi
-  int v22; // esi
-  unsigned __int64 v23; // r15
-  unsigned __int64 v24; // r10
-  __int64 v25; // rdx
-  unsigned __int64 v26; // rbx
-  unsigned __int64 v27; // r11
-  unsigned __int64 LeafVa; // rdi
-  int v29; // r9d
-  int v30; // eax
-  unsigned __int64 v31; // rbx
-  __int64 v32; // rdi
-  unsigned int v33; // esi
-  unsigned __int64 v34; // rdi
-  unsigned __int64 v35; // rbp
-  __int64 v36; // rax
-  unsigned __int64 *v37; // r14
-  unsigned __int64 v38; // rbx
-  __int64 v39; // rdx
-  __int64 v40; // rcx
-  __int64 v41; // r8
-  unsigned __int64 v42; // r14
-  unsigned int v43; // edi
-  unsigned __int64 v44; // rbp
-  __int64 v45; // rax
-  unsigned __int64 v46; // rbx
-  unsigned __int64 *v47; // rsi
-  __int64 v48; // rdx
-  __int64 v49; // rcx
-  __int64 v50; // r8
+  PVOID v1; // r12
+  struct _KTHREAD *CurrentThread; // r14
+  KPRIORITY v3; // r13d
+  __int64 v4; // rbx
+  __int64 v5; // rdi
+  _QWORD *v6; // rbp
+  unsigned __int64 v7; // r15
+  int v8; // esi
+  __int64 v9; // r8
+  _DWORD *v10; // r9
+  unsigned __int64 v11; // r12
+  int v12; // r13d
+  __int64 *v13; // rbx
+  __int64 v14; // rsi
+  __int64 v15; // rdi
+  __int64 v16; // rdx
   unsigned int PfnPageSizeIndex; // eax
-  unsigned __int64 v52; // rcx
-  int v53; // eax
-  unsigned __int64 v54; // rcx
-  unsigned int v55; // esi
-  unsigned __int64 v56; // rbx
-  unsigned __int8 *v57; // rdi
-  int v58; // [rsp+30h] [rbp-128h]
-  int v59; // [rsp+34h] [rbp-124h]
-  int v60; // [rsp+38h] [rbp-120h]
-  unsigned int v61; // [rsp+3Ch] [rbp-11Ch]
-  unsigned int v63; // [rsp+48h] [rbp-110h]
-  volatile signed __int32 *v64; // [rsp+50h] [rbp-108h]
-  __int64 v65; // [rsp+58h] [rbp-100h]
-  __int64 v66; // [rsp+60h] [rbp-F8h]
-  __int64 v67; // [rsp+68h] [rbp-F0h]
-  unsigned __int64 v68; // [rsp+70h] [rbp-E8h]
-  volatile signed __int32 *v69; // [rsp+78h] [rbp-E0h]
-  unsigned __int64 v70; // [rsp+88h] [rbp-D0h]
-  __int128 v71; // [rsp+90h] [rbp-C8h] BYREF
-  _OWORD v72[8]; // [rsp+A0h] [rbp-B8h] BYREF
+  unsigned int v18; // r8d
+  unsigned __int64 v19; // rsi
+  unsigned __int64 v20; // rax
+  _QWORD *v21; // rax
+  __int64 v22; // rax
+  int v23; // [rsp+20h] [rbp-118h]
+  unsigned int v24; // [rsp+24h] [rbp-114h]
+  int v25; // [rsp+28h] [rbp-110h]
+  _QWORD *v26; // [rsp+30h] [rbp-108h]
+  int v27; // [rsp+38h] [rbp-100h]
+  struct _KTHREAD *v28; // [rsp+40h] [rbp-F8h]
+  __int64 v29; // [rsp+48h] [rbp-F0h]
+  __int64 *v30; // [rsp+58h] [rbp-E0h]
+  struct _GROUP_AFFINITY Affinity; // [rsp+70h] [rbp-C8h] BYREF
+  _BYTE v33[128]; // [rsp+80h] [rbp-B8h] BYREF
 
-  v1 = a1;
-  v71 = 0LL;
-  memset(v72, 0, sizeof(v72));
-  v2 = *(_DWORD *)(v1 + 24);
-  v3 = *(_DWORD *)(v1 + 20);
-  v63 = v2;
-  v60 = v3;
-  MiInitializePageColorBase(0LL, (unsigned int)(*(_DWORD *)(v1 + 64) + 1), &v71);
-  v4 = 15;
-  v58 = 15;
-  if ( !(unsigned int)MiCreateUltraThreadContext(v72, &v71, 15LL, 0LL) )
+  v1 = StartContext;
+  memset(v33, 0, sizeof(v33));
+  CurrentThread = KeGetCurrentThread();
+  v3 = -1;
+  v30 = (__int64 *)*((_QWORD *)v1 + 1);
+  v24 = 0;
+  v4 = *v30;
+  v5 = *((unsigned int *)v30 + 4);
+  v27 = *((_DWORD *)v30 + 3);
+  v25 = -1;
+  v28 = CurrentThread;
+  if ( KeGetCurrentIrql() == 2
+    || (void (__fastcall __noreturn *)())CurrentThread[1].ApcState.ApcListHead[0].Blink == KiExecuteDpc )
   {
-    v4 = 0;
-    v58 = 0;
+    CurrentThread = 0LL;
+    v28 = 0LL;
   }
-  v5 = 0;
-  v6 = (volatile signed __int32 *)(v1 + 112);
-  v69 = (volatile signed __int32 *)(v1 + 112);
-  v61 = 0;
-  if ( v2 )
+  else if ( *(_DWORD *)v1 != -1 )
   {
-    v7 = 1LL;
-    while ( 1 )
+    v3 = KeSetPriorityThread(CurrentThread, *(_DWORD *)v1);
+    v25 = v3;
+  }
+  v6 = 0LL;
+  v26 = 0LL;
+  LODWORD(v7) = 0;
+  v8 = (unsigned int)MiCreateUltraThreadContext((__int64)v33, 0, 15) != 0 ? 0xF : 0;
+  v23 = v8;
+  if ( (_DWORD)v5 )
+  {
+    v11 = 0LL;
+    v9 = 3LL;
+    v12 = v8;
+    v13 = (__int64 *)(v4 + 32);
+    v14 = v5;
+    v29 = v5;
+    do
     {
-      v8 = (volatile signed __int32 **)(v6 + 4);
-      if ( *v8 == (volatile signed __int32 *)v8 || *v6 || _InterlockedCompareExchange(v6, 1, 0) )
-        goto LABEL_7;
-      v11 = *v8;
-      v64 = *v8;
-      if ( *v8 != (volatile signed __int32 *)v8 )
-        break;
-LABEL_68:
-      if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v1 + 76), 0xFFFFFFFF) == 1 )
+      if ( !*((_DWORD *)v13 - 8) && _InterlockedIncrement((volatile signed __int32 *)v13 - 8) == 1 )
       {
-        KeSignalGate(v1 + 88, 1LL);
-        goto LABEL_8;
-      }
-LABEL_7:
-      ++v5;
-      v6 += 10;
-      v61 = v5;
-      v69 = v6;
-      if ( v5 >= v2 )
-        goto LABEL_8;
-    }
-    while ( 1 )
-    {
-      v12 = 3LL;
-      v13 = (*((_QWORD *)v11 + 5) >> 40) & 1LL;
-      if ( ((*((_QWORD *)v11 + 5) >> 40) & 1) != 0 )
-      {
-        PfnPageSizeIndex = MiGetPfnPageSizeIndex(v11, v8, 3LL, 0x140000000uLL);
-        v12 = PfnPageSizeIndex;
-        if ( PfnPageSizeIndex == -1 )
+        if ( CurrentThread )
         {
-          v12 = 3LL;
+          Affinity = *(struct _GROUP_AFFINITY *)(v13 - 3);
+          v24 = MiSetIdealProcessorThread(&Affinity);
         }
-        else if ( PfnPageSizeIndex < 3 )
+        v15 = *v13;
+        if ( (__int64 *)*v13 != v13 )
         {
-          v7 = MiLargePageSizes[PfnPageSizeIndex];
-        }
-      }
-      v68 = v7;
-      if ( (unsigned int)v12 <= 2 && (*(_DWORD *)(v1 + 16) & 8) == 0 && *((unsigned __int8 *)v11 + 34) >> 6 != v3 )
-      {
-        MiZeroAndConvertPage((_DWORD)v6, (_DWORD)v11, v12, v3, *(_DWORD *)(v1 + 16));
-        goto LABEL_66;
-      }
-      if ( v4 )
-        break;
-      v55 = 0;
-      v56 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v11 + 0x88000000000LL) >> 4);
-      if ( v7 )
-      {
-        v57 = (unsigned __int8 *)v11 + 34;
-        do
-        {
-          MiZeroPhysicalPage(v6, v56, 0LL, *v57 >> 6);
-          ++v55;
-          v57 += 48;
-          ++v56;
-        }
-        while ( v55 < v7 );
-        goto LABEL_64;
-      }
-LABEL_65:
-      v1 = a1;
-LABEL_66:
-      v11 = *(volatile signed __int32 **)v11;
-      v7 = 1LL;
-      v6 = v69;
-      v64 = v11;
-      *((_QWORD *)v69 + 1) -= v68;
-      v8 = (volatile signed __int32 **)(v69 + 4);
-      if ( v11 == v69 + 4 )
-      {
-        v5 = v61;
-        v2 = v63;
-        goto LABEL_68;
-      }
-    }
-    v14 = 3;
-    v59 = 3;
-    if ( v13 && (v59 = MiGetPfnPageSizeIndex(v11, v8, v12, 0x140000000uLL), v14 = v59, v59 == -1) )
-    {
-      v14 = 3;
-      v59 = 3;
-      v15 = 3LL;
-      v65 = 3LL;
-    }
-    else
-    {
-      v15 = v14;
-      v65 = v14;
-      if ( v14 < 3 )
-      {
-        _mm_lfence();
-        v16 = MiLargePageSizes[v14];
-LABEL_21:
-        v66 = v16;
-        UltraMapping = MiGetUltraMapping(&v72[2 * v15], v14, v16);
-        v70 = UltraMapping;
-        v18 = 4;
-        v19 = 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v11 + 0x88000000000LL) >> 4);
-        v20 = *((_BYTE *)v11 + 34) >> 6;
-        if ( v20 )
-        {
-          if ( v20 == 2 )
-            v18 = 28;
-        }
-        else
-        {
-          v18 = 12;
-        }
-        v21 = -1543503872;
-        if ( v14 > 1 )
-          v21 = -1610612736;
-        v22 = v18 | v21;
-        v67 = ((UltraMapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-        v23 = v67;
-        if ( v15 <= 1 )
-        {
-          v52 = 2 - v15;
           do
           {
-            v23 = ((v23 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-            --v52;
-          }
-          while ( v52 );
-        }
-        v24 = 0x140000000uLL;
-        v25 = (v19 & 0xFFFFFFFFFFLL) << 12;
-        v26 = v25 | MmProtectToPteMask[v22 & 0x1F] & 0xFFF0000000000E7FuLL | 0x21;
-        if ( v23 < 0xFFFFF68000000000uLL || (v27 = 0xFFFFF6FFFFFFFFFFuLL, v23 > 0xFFFFF6FFFFFFFFFFuLL) )
-        {
-          v26 = v25 | MmProtectToPteMask[v22 & 0x1F] & 0xFFF0000000000E7FuLL | 0x121;
-          v29 = v22 & 0x4000000;
-        }
-        else
-        {
-          LeafVa = (__int64)(v23 << 25) >> 16;
-          if ( v23 >= 0xFFFFF6FB40000000uLL && v23 <= 0xFFFFF6FB7FFFFFFFuLL )
-          {
-            if ( v23 == 0xFFFFF6FB7DBEDF68uLL )
-            {
-              v26 = v25 | MmProtectToPteMask[v22 & 0x1F] & 0xFFF0000000000E7FuLL | 0x8000000000000021uLL;
-            }
-            else if ( (v22 & 0x4000000) == 0 )
-            {
-              v26 = v25 & 0x7FFFFFFFFFFFFFFFLL | MmProtectToPteMask[v22 & 0x1F] & 0x7FF0000000000E7FLL | 0x21;
-            }
-            v53 = MiUserPdeOrAbove(v23, v25, 0x7FFFFFFFF8LL);
-            v27 = 0xFFFFF6FFFFFFFFFFuLL;
-            v24 = 0x140000000uLL;
-            if ( v53 )
-              v26 |= 4uLL;
-          }
-          if ( v23 <= 0xFFFFF6BFFFFFFF78uLL )
-            v26 |= 4uLL;
-          v29 = v22 & 0x4000000;
-          if ( (v22 & 0x4000000) != 0 )
-            LeafVa = MiGetLeafVa((__int64)(v23 << 25) >> 16);
-          if ( LeafVa < 0xFFFF800000000000uLL )
-          {
-            v30 = HIBYTE(word_140C66DFC);
-            goto LABEL_41;
-          }
-          if ( *(_BYTE *)(((LeafVa >> 39) & 0x1FF) - 256 + v24 + 13018328) != 1
-            && (LeafVa < 0xFFFFF68000000000uLL || LeafVa > v27) )
-          {
-            if ( LeafVa < qword_140C6A658 || LeafVa > qword_140C67170 )
-              v30 = (unsigned __int8)word_140C66DFC;
+            LODWORD(v16) = 3;
+            if ( (*(_QWORD *)(v15 + 40) & 0x1000000000LL) == 0 )
+              goto LABEL_18;
+            PfnPageSizeIndex = MiGetPfnPageSizeIndex(v15);
+            v16 = PfnPageSizeIndex;
+            if ( PfnPageSizeIndex == -1 )
+              v16 = v18;
+            if ( (unsigned int)v16 < v18 )
+              v19 = MiLargePageSizes[v16];
             else
-              v30 = HIBYTE(word_140C66DFC);
-LABEL_41:
-            if ( v30 )
-              v26 |= 0x100uLL;
-          }
-        }
-        if ( v22 < 0 )
-          v26 |= 0x42uLL;
-        v31 = ((unsigned __int16)v26 ^ (unsigned __int16)((unsigned __int8)word_140C66DFC << 8)) & 0x100 ^ v26;
-        v32 = v31 | 0x80;
-        if ( !v29 )
-          v32 = v31;
-        v33 = 0;
-        v34 = v32 & 0xF0FFFFFFFFFFFFFFuLL | 0xA00000000000000LL;
-        if ( v14 <= 2 )
-        {
-          v35 = *(_QWORD *)(v24 + 8 * v15 + 92152);
-          if ( !v35 )
-            goto LABEL_55;
-        }
-        else
-        {
-          v35 = 1LL;
-        }
-        v36 = 0LL;
-        while ( 1 )
-        {
-          v37 = (unsigned __int64 *)(v23 + 8 * v36);
-          v38 = v34;
-          if ( MiPteInShadowRange((unsigned __int64)v37) )
-          {
-            if ( (unsigned int)MiPteHasShadow(v40, v39, v41) )
+LABEL_18:
+              v19 = 1LL;
+            if ( (unsigned int)v16 > 2 || *(unsigned __int8 *)(v15 + 34) >> 6 == v27 )
             {
-              if ( !HIBYTE(word_140C66DFC) && (v34 & 1) != 0 )
-                v38 = v34 | 0x8000000000000000uLL;
-              *v37 = v38;
-              MiWritePteShadow(v37, v38);
-              goto LABEL_53;
-            }
-            if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
-              && (v34 & 1) != 0 )
-            {
-              v38 = v34 | 0x8000000000000000uLL;
-            }
-          }
-          *v37 = v38;
-LABEL_53:
-          ++v33;
-          v34 ^= (v34 ^ (v34 + 4096)) & 0xFFFFFFFFFF000LL;
-          v36 = v33;
-          if ( v33 >= v35 )
-          {
-            v14 = v59;
-            v15 = v65;
-            v16 = v66;
-LABEL_55:
-            KeZeroPages(v70, v16 << 12);
-            v42 = v67;
-            if ( v15 <= 1 )
-            {
-              v54 = 2 - v15;
-              do
+              if ( v12 )
               {
-                v42 = ((v42 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-                --v54;
+                MiZeroWithUltraSpace(v33, v15);
               }
-              while ( v54 );
-            }
-            v43 = 0;
-            if ( v14 > 2 )
-            {
-              v44 = 1LL;
-              goto LABEL_59;
-            }
-            v44 = MiPtesToSupportLargePageSizes[v15];
-            if ( v44 )
-            {
-LABEL_59:
-              v45 = 0LL;
-              do
+              else
               {
-                v46 = ZeroPte;
-                v47 = (unsigned __int64 *)(v42 + 8 * v45);
-                if ( MiPteInShadowRange((unsigned __int64)v47) )
+                if ( !v6 )
+                  goto LABEL_28;
+                if ( v11 < v19 )
                 {
-                  if ( (unsigned int)MiPteHasShadow(v49, v48, v50) )
-                  {
-                    if ( !HIBYTE(word_140C66DFC) && (ZeroPte & 1) != 0 )
-                      v46 = ZeroPte | 0x8000000000000000uLL;
-                    *v47 = v46;
-                    MiWritePteShadow(v47, v46);
-                    goto LABEL_62;
-                  }
-                  if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
-                    && (ZeroPte & 1) != 0 )
-                  {
-                    v46 = ZeroPte | 0x8000000000000000uLL;
-                  }
+                  MiReleasePtes((__int64)&qword_140C4EF40, v6, v7);
+                  v6 = 0LL;
                 }
-                *v47 = v46;
-LABEL_62:
-                v45 = ++v43;
+                if ( v6 )
+                {
+                  v21 = v26;
+                }
+                else
+                {
+LABEL_28:
+                  v20 = *(v13 - 1);
+                  v7 = v19;
+                  if ( v20 > 0x4000 )
+                    v20 = 0x4000LL;
+                  if ( v20 >= v19 )
+                    v7 = v20;
+                  do
+                  {
+                    v6 = (_QWORD *)MiReserveLowPrioritySystemPtes((unsigned int)v7);
+                    if ( v6 )
+                      break;
+                    v7 = (v7 >> 1) & ~(v19 - 1);
+                  }
+                  while ( v7 >= v19 );
+                  v21 = v6;
+                  v11 = v7;
+                  v26 = v6;
+                }
+                v22 = MiZeroWithSystemPtes(v21, v11, v15);
+                v11 -= v22;
+                v26 += v22;
               }
-              while ( v43 < v44 );
             }
-            v3 = v60;
-            v11 = v64;
-LABEL_64:
-            v4 = v58;
-            goto LABEL_65;
+            else
+            {
+              MiZeroAndConvertPage(v15, v16, v27, *((_DWORD *)v30 + 2));
+            }
+            v15 = *(_QWORD *)v15;
+            *(v13 - 1) -= v19;
           }
+          while ( (__int64 *)v15 != v13 );
+          CurrentThread = v28;
+          v14 = v29;
         }
+        if ( CurrentThread && v24 != -1 )
+          KeSetIdealProcessorThreadEx(KeGetCurrentThread(), v24, 0LL);
+        v9 = 3LL;
       }
+      v13 += 6;
+      v29 = --v14;
     }
-    v16 = 1LL;
-    goto LABEL_21;
+    while ( v14 );
+    v1 = StartContext;
+    v3 = v25;
+    if ( v6 )
+      MiReleasePtes((__int64)&qword_140C4EF40, v6, v7);
+    v8 = v23;
   }
-LABEL_8:
-  if ( v4 )
-    MiDeleteUltraThreadContext(v72);
-  v9 = *(_QWORD *)(v1 + 8);
-  if ( v9 )
-    PsDereferencePartition(v9);
-  return MiDereferencePageChains(v1);
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)v1 + 1, 0xFFFFFFFF) == 1 )
+    KeSignalGate((__int64)v1 + 16, 1LL, v9, v10);
+  if ( v3 != -1 )
+    KeSetPriorityThread(CurrentThread, v3);
+  if ( v8 )
+    MiDeleteUltraThreadContext(v33);
 }

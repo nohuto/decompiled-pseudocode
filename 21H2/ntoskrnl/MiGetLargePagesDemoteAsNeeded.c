@@ -1,13 +1,14 @@
 /*
- * XREFs of MiGetLargePagesDemoteAsNeeded @ 0x1402662A0
+ * XREFs of MiGetLargePagesDemoteAsNeeded @ 0x1403F5870
  * Callers:
- *     MiGetLargePageChain @ 0x140266158 (MiGetLargePageChain.c)
- *     MiTimeSingleLargePageZeroWorker @ 0x1403D452C (MiTimeSingleLargePageZeroWorker.c)
- *     MiFindLargeNodePage @ 0x1403D6C20 (MiFindLargeNodePage.c)
- *     MiGetFastLargePages @ 0x1405C2478 (MiGetFastLargePages.c)
+ *     MiGetLargePageChain @ 0x1402BED44 (MiGetLargePageChain.c)
+ *     MiFindLargeNodePage @ 0x140394ED0 (MiFindLargeNodePage.c)
+ *     MiTimeSingleLargePageZeroWorker @ 0x1403B0728 (MiTimeSingleLargePageZeroWorker.c)
+ *     MiGetFastLargePages @ 0x1403F7B20 (MiGetFastLargePages.c)
  * Callees:
- *     MiGetLargePage @ 0x140267060 (MiGetLargePage.c)
- *     MiUnlinkNodeLargePages @ 0x1402CA5E0 (MiUnlinkNodeLargePages.c)
+ *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
+ *     MiGetLargePage @ 0x140303A34 (MiGetLargePage.c)
+ *     MiGetFreeZeroLargePages @ 0x1403F6914 (MiGetFreeZeroLargePages.c)
  */
 
 __int64 __fastcall MiGetLargePagesDemoteAsNeeded(
@@ -15,90 +16,94 @@ __int64 __fastcall MiGetLargePagesDemoteAsNeeded(
         unsigned int a2,
         unsigned __int64 a3,
         unsigned __int64 a4,
-        __int64 a5,
+        int a5,
         int a6,
-        int a7,
-        int a8)
+        unsigned int a7)
 {
-  int v9; // r10d
-  __int64 v10; // r15
-  int v11; // ebx
-  unsigned int v12; // ebp
-  __int64 v13; // rsi
-  int v14; // ebx
-  int v15; // r12d
-  __int64 *v16; // r13
-  unsigned int v17; // r14d
-  _QWORD *v18; // rsi
-  unsigned __int64 v19; // rcx
-  unsigned int v20; // eax
-  unsigned __int64 v21; // rax
+  int v8; // r10d
+  __int64 v9; // r12
+  int v10; // ebx
+  unsigned int v11; // r14d
+  __int64 v12; // rsi
+  int v13; // r15d
+  __int64 *v14; // r13
+  unsigned int v15; // ebp
+  _QWORD *v16; // rsi
+  unsigned __int64 v17; // rcx
+  unsigned int v18; // eax
+  unsigned __int64 v19; // rax
   __int64 result; // rax
-  int v23; // [rsp+90h] [rbp+8h]
-  unsigned __int64 v24; // [rsp+A0h] [rbp+18h]
-  unsigned __int64 v25; // [rsp+A8h] [rbp+20h]
+  signed __int32 v21; // eax
+  __int64 v22; // r10
+  __int64 v23; // r11
+  __int128 v24; // [rsp+40h] [rbp-48h] BYREF
+  int v25; // [rsp+90h] [rbp+8h]
+  unsigned __int64 v26; // [rsp+A0h] [rbp+18h]
+  unsigned __int64 v27; // [rsp+A8h] [rbp+20h]
 
-  v25 = a4;
-  v24 = a3;
-  v23 = a1;
-  v9 = a1;
-  v10 = *(_QWORD *)(a1 + 16) + 24512LL * a2;
-  if ( !*(_QWORD *)(v10 + 22608) && (_DWORD)InitializationPhase )
+  v27 = a4;
+  v26 = a3;
+  v25 = a1;
+  v8 = a1;
+  v9 = *(_QWORD *)(a1 + 16) + 4544LL * a2;
+  if ( !*(_QWORD *)(v9 + 4176) && (_DWORD)InitializationPhase )
     return 0LL;
-  v11 = a7;
-  v12 = 0;
-  v13 = 0LL;
-  if ( (a7 & 1) == 0 )
-    v11 = a7 | 1;
-  v14 = v11 | 2;
-  v15 = !(a7 & 1) + 1;
+  v10 = a6;
+  v11 = 0;
+  v12 = 0LL;
+  v13 = !(a6 & 1) + 1;
+  if ( (a6 & 1) == 0 )
+    v10 = a6 | 1;
   while ( 1 )
   {
-    v16 = MiLargePageSizes;
-    v17 = 0;
-    v18 = (_QWORD *)(v10 + 16 * (v13 + 1));
+    v14 = MiLargePageSizes;
+    v15 = 0;
+    v16 = (_QWORD *)(v9 + 16 * (v12 + 1));
     do
     {
-      v19 = *v16;
-      v20 = v12;
-      if ( a3 >= *v16 )
+      v17 = *v14;
+      if ( a3 >= *v14 )
       {
-        if ( v19 < a4 )
+        if ( v17 < a4 )
           break;
-        v12 = v17;
-        if ( v20 )
-          v12 = v20;
-        if ( v18[1] || *v18 )
+        v18 = v15;
+        if ( v11 )
+          v18 = v11;
+        v11 = v18;
+        if ( v16[1] || *v16 )
         {
-          if ( a6 )
-            v21 = a3 / v19;
+          if ( a5 )
+            v19 = a3 / v17;
           else
-            LODWORD(v21) = 1;
-          result = MiUnlinkNodeLargePages(v9, a5, v17, v21, a2, 4, a8, v14, 0LL);
+            LODWORD(v19) = 1;
+          result = MiGetFreeZeroLargePages(v8, v15, v19, v10, a2, 0, 4, a7);
           if ( result )
             return result;
-          v9 = v23;
-          a3 = v24;
-          a4 = v25;
+          v8 = v25;
+          a3 = v26;
+          a4 = v27;
         }
       }
-      ++v17;
-      ++v16;
-      v18 += 134;
+      ++v15;
+      ++v14;
+      v16 += 134;
     }
-    while ( v17 < 3 );
-    if ( v12 )
+    while ( v15 < 3 );
+    if ( v11 )
     {
-      result = MiGetLargePage(v9, a5, v12, a2, a8, v14, 0LL);
+      v24 = 0LL;
+      MiInitializePageColorBase(0LL, a2 + 1, (__int64)&v24);
+      v21 = _InterlockedExchangeAdd((volatile signed __int32 *)v24, 1u);
+      result = MiGetLargePage(v22, v11, a7, HIDWORD(v24) | (unsigned int)v21 & DWORD2(v24), v10, v23);
       if ( result )
         return result;
     }
-    if ( !--v15 )
+    if ( !--v13 )
       return 0LL;
-    v9 = v23;
-    v14 &= ~1u;
-    a3 = v24;
-    v13 = 1LL;
-    a4 = v25;
+    v8 = v25;
+    v10 &= ~1u;
+    a3 = v26;
+    v12 = 1LL;
+    a4 = v27;
   }
 }

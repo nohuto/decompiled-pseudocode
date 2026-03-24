@@ -8,8 +8,8 @@
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     SeIsAppContainerOrIdentifyLevelContext @ 0x140588B1C (SeIsAppContainerOrIdentifyLevelContext.c)
  *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     PopClearSpecialRequest @ 0x14086638C (PopClearSpecialRequest.c)
- *     PopSetSpecialRequest @ 0x140866620 (PopSetSpecialRequest.c)
+ *     PopClearSpecialRequest @ 0x14086636C (PopClearSpecialRequest.c)
+ *     PopSetSpecialRequest @ 0x140866600 (PopSetSpecialRequest.c)
  */
 
 __int64 __fastcall PopPowerRequestActionInfo(__int64 a1)

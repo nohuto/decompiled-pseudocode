@@ -1,10 +1,10 @@
 /*
- * XREFs of ?StartFrameFromContainer@RIM@InputTraceLogging@@SAXQEAURIMDEV@@PEBURIMCOMPLETEFRAME@@@Z @ 0x1C019EDEC
+ * XREFs of ?StartFrameFromContainer@RIM@InputTraceLogging@@SAXQEAURIMDEV@@PEBURIMCOMPLETEFRAME@@@Z @ 0x1C0170DFC
  * Callers:
- *     rimGetCompleteFrameFromIVCompleteFrame @ 0x1C01A0A58 (rimGetCompleteFrameFromIVCompleteFrame.c)
+ *     rimGetCompleteFrameFromIVCompleteFrame @ 0x1C017250C (rimGetCompleteFrameFromIVCompleteFrame.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@444@Z @ 0x1C019D6B4 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U2@U2@U2@@-$_tlgWriteTemplate@$$A6.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@444@Z @ 0x1C016F898 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U2@U2@U2@@-$_tlgWriteTemplate@$$A6.c)
  */
 
 void __fastcall InputTraceLogging::RIM::StartFrameFromContainer(
@@ -23,27 +23,27 @@ void __fastcall InputTraceLogging::RIM::StartFrameFromContainer(
   int v11; // [rsp+90h] [rbp+20h] BYREF
   int v12; // [rsp+98h] [rbp+28h] BYREF
 
-  if ( (unsigned int)dword_1C0289810 > 4 )
+  if ( (unsigned int)dword_1C024AA90 > 4 )
   {
-    v2 = tlgKeywordOn((__int64)&dword_1C0289810, 256LL);
+    v2 = tlgKeywordOn((__int64)&dword_1C024AA90, 256LL);
     v5 = 0LL;
     if ( v2 )
     {
       if ( v3 )
-        v6 = *(unsigned __int16 *)(*(_QWORD *)(v3 + 464) + 18LL);
+        v6 = *(unsigned __int16 *)(*(_QWORD *)(v3 + 472) + 18LL);
       else
         v6 = 0;
-      v10 = v6;
       if ( v3 )
-        v5 = *(unsigned __int16 *)(*(_QWORD *)(v3 + 464) + 16LL);
-      v12 = *(_DWORD *)(v4 + 196);
+        v5 = *(unsigned __int16 *)(*(_QWORD *)(v3 + 472) + 16LL);
+      v12 = *(_DWORD *)(v4 + 84);
       v7 = *(_DWORD *)(v4 + 24);
-      v8 = *(_QWORD *)(v4 + 48);
+      v8 = *(_QWORD *)(v4 + 40);
+      v10 = v6;
       v11 = v5;
       v9 = v3;
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
-        (__int64)&dword_1C0289810,
-        byte_1C0259366,
+        (__int64)&dword_1C024AA90,
+        byte_1C021B804,
         v5,
         v3,
         (__int64)&v9,

@@ -1,11 +1,11 @@
 /*
- * XREFs of NtCreateIoCompletion @ 0x1406B8FE0
+ * XREFs of NtCreateIoCompletion @ 0x14069C2D0
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeQueue @ 0x14023E540 (KeInitializeQueue.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14072B3B0 (ObCreateObjectEx.c)
+ *     KeInitializeQueue @ 0x1402B95A0 (KeInitializeQueue.c)
+ *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
  */
 
 __int64 __fastcall NtCreateIoCompletion(__int64 a1, __int64 a2, int a3, ULONG a4)
@@ -38,7 +38,7 @@ __int64 __fastcall NtCreateIoCompletion(__int64 a1, __int64 a2, int a3, ULONG a4
     KeInitializeQueue(Queue, v8);
     *(_QWORD *)&v9[1].Header.Lock = 0LL;
     LOBYTE(v9[1].Header.WaitListHead.Flink) = 0;
-    Object = ObInsertObjectEx(v9, 0LL, 0, 0LL, (__int64)&v11);
+    Object = ObInsertObjectEx((PADAPTER_OBJECT)v9, 0LL, 0, 0LL, (__int64)&v11);
     if ( Object >= 0 )
       *v5 = v11;
   }

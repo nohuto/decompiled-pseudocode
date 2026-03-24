@@ -1,10 +1,10 @@
 /*
- * XREFs of WdInstrExecuteInstruction @ 0x14052CD28
+ * XREFs of WdInstrExecuteInstruction @ 0x1404DE68C
  * Callers:
- *     HalpWdatExecuteActionBeforeInitialize @ 0x140521F54 (HalpWdatExecuteActionBeforeInitialize.c)
- *     WdInstrExecuteAction @ 0x14052CCA8 (WdInstrExecuteAction.c)
+ *     HalpWdatExecuteActionBeforeInitialize @ 0x1404D4C34 (HalpWdatExecuteActionBeforeInitialize.c)
+ *     WdInstrExecuteAction @ 0x1404DE60C (WdInstrExecuteAction.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall WdInstrExecuteInstruction(__int64 a1, int a2, unsigned int *a3)
@@ -19,7 +19,7 @@ __int64 __fastcall WdInstrExecuteInstruction(__int64 a1, int a2, unsigned int *a
 
   v5 = *(_BYTE *)(a1 + 1);
   v6 = 0;
-  switch ( v5 & 0x3F )
+  switch ( v5 & 0x7F )
   {
     case 0:
       if ( a3 )

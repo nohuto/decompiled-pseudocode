@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsNameInUnUpcasedExpression @ 0x14030C3B0
+ * XREFs of RtlIsNameInUnUpcasedExpression @ 0x14024F1E0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpUpcaseUnicodeStringPrivate @ 0x14030C2B0 (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlpIsNameInExpressionPrivate @ 0x14030C470 (RtlpIsNameInExpressionPrivate.c)
- *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x140206970 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlpIsNameInExpressionPrivate @ 0x14024F290 (RtlpIsNameInExpressionPrivate.c)
+ *     RtlRaiseStatus @ 0x1402F1CB0 (RtlRaiseStatus.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall RtlIsNameInUnUpcasedExpression(
@@ -42,8 +42,8 @@ __int64 __fastcall RtlIsNameInUnUpcasedExpression(
   LOBYTE(a4) = 1;
   IsNameInExpressionPrivate = RtlpIsNameInExpressionPrivate((_DWORD)a1, (_DWORD)p_UnicodeString, a3, a4, v4);
   if ( UnicodeString.Buffer )
-    RtlFreeUnicodeString(&UnicodeString);
+    RtlFreeAnsiString(&UnicodeString);
   if ( v11.Buffer )
-    RtlFreeUnicodeString(&v11);
+    RtlFreeAnsiString(&v11);
   return IsNameInExpressionPrivate;
 }

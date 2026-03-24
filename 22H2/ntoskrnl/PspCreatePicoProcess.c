@@ -1,61 +1,58 @@
 /*
- * XREFs of PspCreatePicoProcess @ 0x1409B55A0
+ * XREFs of PspCreatePicoProcess @ 0x14090BD50
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E63B0 (ObpReferenceObjectByHandleWithTag.c)
- *     PsCreateMinimalProcess @ 0x140853DBC (PsCreateMinimalProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockProcessExclusive @ 0x140324DF8 (PspUnlockProcessExclusive.c)
+ *     PspLockProcessExclusive @ 0x14035AE10 (PspLockProcessExclusive.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x14063E2A0 (ObReferenceObjectByHandleWithTag.c)
+ *     PsCreateMinimalProcess @ 0x140798E60 (PsCreateMinimalProcess.c)
  */
 
 __int64 __fastcall PspCreatePicoProcess(__int64 a1, __int64 a2, HANDLE *a3)
 {
-  struct _KTHREAD *CurrentThread; // r12
+  struct _KTHREAD *CurrentThread; // r13
   int v4; // ebx
-  void *v7; // r14
-  int v8; // edi
-  ULONG_PTR v9; // rcx
+  struct _DMA_ADAPTER *v7; // r12
+  NTSTATUS v8; // edi
+  void *v9; // rcx
   int v10; // eax
   int v11; // ecx
   __int64 v12; // rdx
   __int64 v13; // r8
-  PVOID v14; // rsi
+  PVOID v14; // r15
   int v15; // eax
-  HANDLE v16; // rbx
-  char *v17; // r14
-  volatile signed __int64 *v18; // rsi
-  int v19; // r14d
-  PVOID Object; // [rsp+60h] [rbp-10h] BYREF
-  __int64 v22; // [rsp+68h] [rbp-8h] BYREF
-  HANDLE Handle; // [rsp+B0h] [rbp+40h] BYREF
-  HANDLE *v24; // [rsp+C0h] [rbp+50h]
-  PVOID v25; // [rsp+C8h] [rbp+58h] BYREF
+  HANDLE v16; // r14
+  volatile signed __int32 *v17; // rsi
+  int v18; // ebx
+  PVOID v20; // [rsp+50h] [rbp-10h] BYREF
+  PVOID v21; // [rsp+58h] [rbp-8h] BYREF
+  PVOID Object; // [rsp+A0h] [rbp+40h] BYREF
+  HANDLE *v23; // [rsp+B0h] [rbp+50h]
+  HANDLE Handle; // [rsp+B8h] [rbp+58h] BYREF
 
-  v24 = a3;
+  v23 = a3;
   CurrentThread = KeGetCurrentThread();
   v4 = *(_DWORD *)(a1 + 24);
-  v22 = 0LL;
-  v25 = 0LL;
+  v21 = 0LL;
+  Object = 0LL;
   v7 = 0LL;
   Handle = 0LL;
-  Object = 0LL;
+  v20 = 0LL;
   if ( (v4 & 0xFFFFFFF0) != 0 || (v4 & 6) != 0 && (v4 & 1) == 0 || !*(_QWORD *)(a1 + 16) )
     return (unsigned int)-1073741811;
-  v8 = ObpReferenceObjectByHandleWithTag(*(_QWORD *)a1, 128, (__int64)PsProcessType, 0, 0x72437350u, &v25, 0LL, 0LL);
+  v8 = ObReferenceObjectByHandleWithTag(*(HANDLE *)a1, 0x80u, (POBJECT_TYPE)PsProcessType, 0, 0x72437350u, &Object, 0LL);
   if ( v8 < 0 )
     return (unsigned int)v8;
-  v9 = *(_QWORD *)(a1 + 8);
+  v9 = *(void **)(a1 + 8);
   if ( !v9 )
     goto LABEL_10;
-  v8 = ObpReferenceObjectByHandleWithTag(v9, 9, (__int64)SeTokenObjectType, 0, 0x72437350u, &v22, 0LL, 0LL);
+  v8 = ObReferenceObjectByHandleWithTag(v9, 9u, (POBJECT_TYPE)SeTokenObjectType, 0, 0x72437350u, &v21, 0LL);
   if ( v8 >= 0 )
   {
-    v7 = (void *)v22;
+    v7 = (struct _DMA_ADAPTER *)v21;
 LABEL_10:
     v10 = 0;
     if ( (v4 & 1) != 0 )
@@ -74,59 +71,46 @@ LABEL_10:
       v12 = *(_QWORD *)(a2 + 8);
       v13 = *(_QWORD *)(a2 + 16);
     }
-    v14 = v25;
-    v15 = PsCreateMinimalProcess((__int64)v25, v12, v13, 0, v7, v11, 2, *(_QWORD *)(a1 + 16), 0LL, 0LL, &Handle);
+    v14 = Object;
+    v15 = PsCreateMinimalProcess((PEPROCESS)Object, v12, v13, 0, v7, v11, 2, *(_QWORD *)(a1 + 16), 0LL, &Handle);
     v16 = Handle;
     v8 = v15;
     if ( v15 >= 0 )
     {
-      v8 = ObpReferenceObjectByHandleWithTag(
-             (ULONG_PTR)Handle,
-             128,
-             (__int64)PsProcessType,
-             0,
-             0x72437350u,
-             &Object,
-             0LL,
-             0LL);
+      v8 = ObReferenceObjectByHandleWithTag(Handle, 0x80u, (POBJECT_TYPE)PsProcessType, 0, 0x72437350u, &v20, 0LL);
       if ( v8 >= 0 )
       {
-        v17 = (char *)Object;
-        --CurrentThread->KernelApcDisable;
-        v18 = (volatile signed __int64 *)(v17 + 1080);
-        ExAcquirePushLockExclusiveEx((ULONG_PTR)(v17 + 1080), 0LL);
-        if ( (*((_DWORD *)v17 + 281) & 8) != 0 )
+        v17 = (volatile signed __int32 *)v20;
+        PspLockProcessExclusive((__int64)v20, (__int64)CurrentThread);
+        if ( (v17[281] & 8) != 0 )
         {
           v8 = -1073741558;
         }
         else
         {
-          _interlockedbittestandset((volatile signed __int32 *)v17 + 280, 0xAu);
-          *v24 = Handle;
-          Handle = 0LL;
+          _interlockedbittestandset(v17 + 280, 0xAu);
+          v16 = 0LL;
+          v14 = Object;
+          v17 = (volatile signed __int32 *)v20;
+          v7 = (struct _DMA_ADAPTER *)v21;
+          *v23 = Handle;
         }
-        v19 = v8;
-        if ( (_InterlockedExchangeAdd64(v18, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock(v18);
-        KeAbPostRelease((ULONG_PTR)v18);
-        KeLeaveCriticalRegionThread((__int64)CurrentThread);
-        ObfDereferenceObjectWithTag(Object, 0x72437350u);
-        v14 = v25;
+        v18 = v8;
+        PspUnlockProcessExclusive((__int64)v17, (__int64)CurrentThread);
+        ObfDereferenceObjectWithTag((PVOID)v17, 0x72437350u);
         v8 = 0;
-        v16 = Handle;
-        if ( v19 < 0 )
-          v8 = v19;
-        v7 = (void *)v22;
+        if ( v18 < 0 )
+          v8 = v18;
       }
     }
     if ( v16 )
       ZwClose(v16);
     if ( v7 )
       ObfDereferenceObjectWithTag(v7, 0x72437350u);
-    goto LABEL_32;
+    goto LABEL_29;
   }
-  v14 = v25;
-LABEL_32:
+  v14 = Object;
+LABEL_29:
   if ( v14 )
     ObfDereferenceObjectWithTag(v14, 0x72437350u);
   return (unsigned int)v8;

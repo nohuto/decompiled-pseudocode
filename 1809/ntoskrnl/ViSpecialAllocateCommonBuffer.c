@@ -3,9 +3,9 @@
  * Callers:
  *     VfAllocateCommonBuffer @ 0x140929F50 (VfAllocateCommonBuffer.c)
  * Callees:
- *     ExInterlockedInsertHeadList @ 0x14010BEB0 (ExInterlockedInsertHeadList.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     VfUtilDbgPrint @ 0x14030994C (VfUtilDbgPrint.c)
+ *     ExInterlockedInsertHeadList @ 0x14010BED0 (ExInterlockedInsertHeadList.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     VfUtilDbgPrint @ 0x140309A4C (VfUtilDbgPrint.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     ViInitializePadding @ 0x14092E094 (ViInitializePadding.c)

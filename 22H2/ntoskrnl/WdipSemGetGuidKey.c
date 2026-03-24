@@ -1,8 +1,8 @@
 /*
- * XREFs of WdipSemGetGuidKey @ 0x1409DE734
+ * XREFs of WdipSemGetGuidKey @ 0x140930918
  * Callers:
- *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1407DAEF8 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
- *     WdipSemSqmLogTimeoutDataPoints @ 0x1409DEB3C (WdipSemSqmLogTimeoutDataPoints.c)
+ *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1406990E8 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
+ *     WdipSemSqmLogTimeoutDataPoints @ 0x140930D20 (WdipSemSqmLogTimeoutDataPoints.c)
  * Callees:
  *     <none>
  */

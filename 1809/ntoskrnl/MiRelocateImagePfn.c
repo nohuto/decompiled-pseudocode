@@ -3,8 +3,8 @@
  * Callers:
  *     MiValidateInPage @ 0x14002EC10 (MiValidateInPage.c)
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
- *     MiPrivateFixup @ 0x140125E20 (MiPrivateFixup.c)
- *     MiFillPerSessionProtos @ 0x14085C41C (MiFillPerSessionProtos.c)
+ *     MiPrivateFixup @ 0x140125E40 (MiPrivateFixup.c)
+ *     MiFillPerSessionProtos @ 0x14085C3FC (MiFillPerSessionProtos.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
@@ -15,9 +15,9 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KeFlushSingleTb @ 0x1400ECDD4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
+ *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
  *     MiPerformFixups @ 0x1405DFB58 (MiPerformFixups.c)
  */
 

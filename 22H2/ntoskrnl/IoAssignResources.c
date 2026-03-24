@@ -1,11 +1,11 @@
 /*
- * XREFs of IoAssignResources @ 0x140953C30
+ * XREFs of IoAssignResources @ 0x14089D070
  * Callers:
  *     <none>
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     IopLegacyResourceAllocation @ 0x140817DC4 (IopLegacyResourceAllocation.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     IopLegacyResourceAllocation @ 0x140752C64 (IopLegacyResourceAllocation.c)
  */
 
 NTSTATUS __stdcall IoAssignResources(
@@ -21,10 +21,12 @@ NTSTATUS __stdcall IoAssignResources(
   UNICODE_STRING *p_DriverName; // rcx
   char *v11; // rcx
   unsigned __int16 *v12; // rbp
-  _WORD *v13; // rcx
-  __int64 v14; // rax
+  struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rdx
+  _WORD *v14; // rcx
   __int64 v15; // rcx
-  PIO_RESOURCE_REQUIREMENTS_LIST v16; // r9
+  _WORD *v16; // rcx
+  __int64 v17; // rcx
+  PIO_RESOURCE_REQUIREMENTS_LIST v18; // r9
 
   if ( DeviceObject )
   {
@@ -60,28 +62,31 @@ NTSTATUS __stdcall IoAssignResources(
         if ( v11 )
         {
           v12 = (unsigned __int16 *)(v11 + 40);
-          IoAddTriageDumpDataBlock((ULONG)v11, (PVOID)0x388);
+          IoAddTriageDumpDataBlock((ULONG)v11, (PVOID)0x310);
           if ( *v12 )
           {
             IoAddTriageDumpDataBlock((ULONG)v12, (PVOID)2);
             IoAddTriageDumpDataBlock(*((_QWORD *)v12 + 1), (PVOID)*v12);
           }
-          v13 = (char *)DeviceObject->DeviceObjectExtension->DeviceNode + 56;
-          if ( *v13 )
+          DeviceObjectExtension = DeviceObject->DeviceObjectExtension;
+          v14 = (char *)DeviceObjectExtension->DeviceNode + 56;
+          if ( *v14 )
           {
-            IoAddTriageDumpDataBlock((ULONG)v13, (PVOID)2);
+            IoAddTriageDumpDataBlock((ULONG)v14, (PVOID)2);
             IoAddTriageDumpDataBlock(
               *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 8),
               (PVOID)*((unsigned __int16 *)DeviceObject->DeviceObjectExtension->DeviceNode + 28));
+            DeviceObjectExtension = DeviceObject->DeviceObjectExtension;
           }
-          v14 = *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 2);
-          if ( v14 )
+          v15 = *((_QWORD *)DeviceObjectExtension->DeviceNode + 2);
+          if ( v15 )
           {
-            if ( *(_WORD *)(v14 + 56) )
+            v16 = (_WORD *)(v15 + 56);
+            if ( *v16 )
             {
-              IoAddTriageDumpDataBlock(v14 + 56, (PVOID)2);
-              v15 = *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 2);
-              IoAddTriageDumpDataBlock(*(_QWORD *)(v15 + 64), (PVOID)*(unsigned __int16 *)(v15 + 56));
+              IoAddTriageDumpDataBlock((ULONG)v16, (PVOID)2);
+              v17 = *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 2);
+              IoAddTriageDumpDataBlock(*(_QWORD *)(v17 + 64), (PVOID)*(unsigned __int16 *)(v17 + 56));
             }
           }
         }
@@ -89,15 +94,15 @@ NTSTATUS __stdcall IoAssignResources(
       }
     }
   }
-  v16 = RequestedResources;
+  v18 = RequestedResources;
   if ( RequestedResources && (!RequestedResources->AlternativeLists || !RequestedResources->List[0].Count) )
-    v16 = 0LL;
+    v18 = 0LL;
   if ( AllocatedResources )
     *AllocatedResources = 0LL;
   return IopLegacyResourceAllocation(
            2,
            (__int64)DriverObject,
            (__int64)DeviceObject,
-           (__int64)v16,
+           (__int64)v18,
            (const void **)AllocatedResources);
 }

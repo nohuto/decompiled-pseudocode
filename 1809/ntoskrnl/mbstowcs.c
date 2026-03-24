@@ -1,9 +1,9 @@
 /*
- * XREFs of mbstowcs @ 0x140196070
+ * XREFs of mbstowcs @ 0x140196090
  * Callers:
  *     <none>
  * Callees:
- *     _mbstrlen @ 0x1401997EC (_mbstrlen.c)
+ *     _mbstrlen @ 0x14019980C (_mbstrlen.c)
  *     RtlMultiByteToUnicodeN @ 0x1405AAE90 (RtlMultiByteToUnicodeN.c)
  */
 

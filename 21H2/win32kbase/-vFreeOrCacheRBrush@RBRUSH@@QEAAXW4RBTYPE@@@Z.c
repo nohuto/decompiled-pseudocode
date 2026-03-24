@@ -1,24 +1,25 @@
 /*
- * XREFs of ?vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z @ 0x1C00802E0
+ * XREFs of ?vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z @ 0x1C0067560
  * Callers:
- *     ?GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z @ 0x1C0062FA0 (-GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z.c)
- *     ?vRemoveRef@RBRUSH@@QEAAXW4RBTYPE@@@Z @ 0x1C007FC7C (-vRemoveRef@RBRUSH@@QEAAXW4RBTYPE@@@Z.c)
- *     ?vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z @ 0x1C007FCA0 (-vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z.c)
- *     GreSetSolidBrushLight @ 0x1C00989A0 (GreSetSolidBrushLight.c)
- *     ?vDelete@EBRUSHOBJ@@QEAAXXZ @ 0x1C00CB9C0 (-vDelete@EBRUSHOBJ@@QEAAXXZ.c)
+ *     ?GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z @ 0x1C001C830 (-GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z.c)
+ *     ?vRemoveRef@RBRUSH@@QEAAXW4RBTYPE@@@Z @ 0x1C0066EF4 (-vRemoveRef@RBRUSH@@QEAAXW4RBTYPE@@@Z.c)
+ *     ?vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z @ 0x1C0066F20 (-vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z.c)
+ *     GreSetSolidBrushLight @ 0x1C00916C0 (GreSetSolidBrushLight.c)
+ *     ?vDelete@EBRUSHOBJ@@QEAAXXZ @ 0x1C00BCAF0 (-vDelete@EBRUSHOBJ@@QEAAXXZ.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     EngFreeUserMem @ 0x1C00A8740 (EngFreeUserMem.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     EngFreeUserMem @ 0x1C00BB8B0 (EngFreeUserMem.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall RBRUSH::vFreeOrCacheRBrush(char *a1, int a2)
+void __fastcall RBRUSH::vFreeOrCacheRBrush(_DWORD *a1, int a2)
 {
-  char *v2; // rbx
+  __int64 v2; // rbx
   int v3; // esi
-  void **v4; // rdi
+  struct RBRUSH **v4; // rdi
+  int v5; // eax
 
-  v2 = a1;
+  v2 = (__int64)a1;
   if ( a1 < MmSystemRangeStart )
   {
     EngFreeUserMem(a1);
@@ -32,16 +33,16 @@ void __fastcall RBRUSH::vFreeOrCacheRBrush(char *a1, int a2)
     }
     else
     {
-      v3 = *((_DWORD *)a1 + 2);
+      v3 = a1[2];
       v4 = &gpCachedDbrush;
-      if ( v3 && qword_1C029B490 && (int)qword_1C029B490() >= 0 && qword_1C029B498 )
-        qword_1C029B498(v2 + 16);
+      if ( v3 )
+      {
+        v5 = qword_1C0256720 ? qword_1C0256720() : -1073741637;
+        if ( v5 >= 0 && qword_1C0256728 )
+          qword_1C0256728(v2 + 16);
+      }
     }
-    if ( !*v4 && v3 != 1 )
-      v2 = (char *)_InterlockedExchange64((volatile __int64 *)v4, (__int64)v2);
-    if ( v2 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(
-        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-        v2);
+    if ( *v4 || v3 == 1 || (v2 = _InterlockedExchange64((volatile __int64 *)v4, v2)) != 0 )
+      Win32FreePool(v2);
   }
 }

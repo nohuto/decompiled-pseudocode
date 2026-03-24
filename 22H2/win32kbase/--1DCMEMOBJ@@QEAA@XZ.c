@@ -1,11 +1,11 @@
 /*
- * XREFs of ??1DCMEMOBJ@@QEAA@XZ @ 0x1C003BBC0
+ * XREFs of ??1DCMEMOBJ@@QEAA@XZ @ 0x1C003C8A0
  * Callers:
- *     GreCreateDisplayDC @ 0x1C003BFE0 (GreCreateDisplayDC.c)
+ *     GreCreateDisplayDC @ 0x1C003CAC0 (GreCreateDisplayDC.c)
  * Callees:
- *     ??0DCOBJ@@QEAA@XZ @ 0x1C003BC08 (--0DCOBJ@@QEAA@XZ.c)
- *     ??1DCOBJ@@QEAA@XZ @ 0x1C003BD68 (--1DCOBJ@@QEAA@XZ.c)
- *     ?GrepDeleteDCOBJ@@YAHAEAVXDCOBJ@@KPEAH@Z @ 0x1C00AFFC8 (-GrepDeleteDCOBJ@@YAHAEAVXDCOBJ@@KPEAH@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C003C8E8 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@XZ @ 0x1C003C914 (--0DCOBJ@@QEAA@XZ.c)
+ *     ?bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z @ 0x1C003C98C (-bDeleteDCOBJ@@YAHAEAVXDCOBJ@@PEAKPEAH@Z.c)
  */
 
 void __fastcall DCMEMOBJ::~DCMEMOBJ(DCMEMOBJ *this)
@@ -14,6 +14,7 @@ void __fastcall DCMEMOBJ::~DCMEMOBJ(DCMEMOBJ *this)
   bool v3; // zf
   _QWORD v4[7]; // [rsp+20h] [rbp-38h] BYREF
   int v5; // [rsp+60h] [rbp+8h] BYREF
+  unsigned int v6; // [rsp+68h] [rbp+10h] BYREF
 
   if ( *(_QWORD *)this )
   {
@@ -25,7 +26,8 @@ void __fastcall DCMEMOBJ::~DCMEMOBJ(DCMEMOBJ *this)
     if ( v3 )
     {
       v5 = 0;
-      GrepDeleteDCOBJ((struct XDCOBJ *)v4, 0x400000u, &v5);
+      v6 = 0x400000;
+      bDeleteDCOBJ((struct XDCOBJ *)v4, &v6, &v5);
     }
     DCOBJ::~DCOBJ((DCOBJ *)v4);
   }

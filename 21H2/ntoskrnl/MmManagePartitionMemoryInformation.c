@@ -1,247 +1,177 @@
 /*
- * XREFs of MmManagePartitionMemoryInformation @ 0x1407DE98C
+ * XREFs of MmManagePartitionMemoryInformation @ 0x1406922BC
  * Callers:
- *     DifUpdatePluginState @ 0x140604D38 (DifUpdatePluginState.c)
- *     DifGetAvailableSystemPages @ 0x1406289C8 (DifGetAvailableSystemPages.c)
- *     NtManagePartition @ 0x1407DE5F0 (NtManagePartition.c)
+ *     NtManagePartition @ 0x140691E80 (NtManagePartition.c)
+ *     VfUtilGetAvailableSystemPages @ 0x1409C66E0 (VfUtilGetAvailableSystemPages.c)
+ *     VfNotifyDifPlugins @ 0x1409C89A8 (VfNotifyDifPlugins.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     MiQueryMemoryListInformation @ 0x140360C70 (MiQueryMemoryListInformation.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     MiGetNodeHugeRangeCounts @ 0x140586950 (MiGetNodeHugeRangeCounts.c)
- *     MiGetChannelInformation @ 0x1407DECE0 (MiGetChannelInformation.c)
+ *     MiQueryMemoryListInformation @ 0x1402AC41C (MiQueryMemoryListInformation.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     MiGetChannelInformation @ 0x14069256C (MiGetChannelInformation.c)
  */
 
 __int64 __fastcall MmManagePartitionMemoryInformation(ULONG_PTR **a1, __int64 a2)
 {
-  ULONG_PTR *v2; // r13
-  unsigned int v4; // eax
-  unsigned int v5; // edi
-  int v6; // eax
-  unsigned int v7; // ebx
-  unsigned __int64 v8; // r15
-  int v9; // esi
-  __int64 v10; // rax
-  __int64 *v11; // rcx
-  __int64 v12; // rdx
-  unsigned __int64 v13; // rax
+  ULONG_PTR *v2; // r15
+  unsigned int v4; // edx
+  __int64 v5; // rcx
+  __int128 v6; // xmm1
+  __int128 v7; // xmm0
+  __int128 v8; // xmm1
+  __int128 v9; // xmm0
+  __int128 v10; // xmm1
+  __int128 v11; // xmm0
+  __int128 v12; // xmm1
+  unsigned __int64 v13; // rcx
   unsigned __int64 v14; // rax
-  unsigned __int64 v15; // rax
-  unsigned __int64 v16; // rax
-  unsigned __int64 v17; // rax
-  unsigned __int64 v18; // rcx
-  unsigned __int64 v19; // rax
-  unsigned __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  unsigned int v24; // esi
-  __int64 j; // r12
-  char *v26; // rax
-  __int64 v27; // r10
-  _QWORD *v28; // rdx
-  __int64 v29; // r8
-  unsigned __int64 v30; // rcx
-  unsigned int v32; // eax
-  __int64 v33; // r9
-  __int64 v34; // r8
-  __int64 v35; // rax
-  int i; // [rsp+20h] [rbp-E0h]
-  __int64 v37; // [rsp+28h] [rbp-D8h] BYREF
-  __int64 v38; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v39; // [rsp+38h] [rbp-C8h] BYREF
-  unsigned __int64 v40; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned __int64 v41[22]; // [rsp+50h] [rbp-B0h] BYREF
-  char v42[24]; // [rsp+100h] [rbp+0h] BYREF
-  char v43; // [rsp+118h] [rbp+18h] BYREF
+  unsigned int v15; // edi
+  unsigned int v16; // ebx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  __int64 v19; // r10
+  unsigned __int64 v20; // r11
+  __int64 *v21; // r14
+  char *v22; // rax
+  __int64 v23; // rcx
+  __int64 v24; // r11
+  _QWORD *v25; // rcx
+  __int64 v26; // r9
+  unsigned __int64 v27; // rcx
+  unsigned __int64 v29; // [rsp+20h] [rbp-E0h] BYREF
+  unsigned __int64 v30[22]; // [rsp+30h] [rbp-D0h] BYREF
+  _BYTE v31[24]; // [rsp+E0h] [rbp-20h] BYREF
+  char v32; // [rsp+F8h] [rbp-8h] BYREF
 
   v2 = *a1;
-  v40 = 0LL;
-  memset(v41, 0, sizeof(v41));
-  if ( (*(_DWORD *)a2 & 0xFFFFFFFE) == 0 )
+  v29 = 0LL;
+  memset(v30, 0, sizeof(v30));
+  if ( *(_DWORD *)a2 )
+    return 3221225485LL;
+  v4 = *(_DWORD *)(a2 + 4);
+  if ( v4 != -1 && v4 >= (unsigned __int16)KeNumberNodes )
+    return 3221225485LL;
+  if ( *(_DWORD *)(a2 + 8) != -1 )
+    return 3221225485LL;
+  do
   {
-    v4 = *(_DWORD *)(a2 + 4);
-    v5 = (unsigned __int16)KeNumberNodes;
-    if ( (v4 == -1 || v4 < (unsigned __int16)KeNumberNodes) && *(_DWORD *)(a2 + 8) == -1 )
+    if ( v4 == -1 )
     {
-      v6 = 0;
-      v7 = 0;
+      *(_DWORD *)(a2 + 12) = (unsigned __int16)KeNumberNodes;
+      *(_QWORD *)(a2 + 16) = v2[896];
+      v5 = 0LL;
+      *(_QWORD *)(a2 + 24) = v2[933];
+      *(_QWORD *)(a2 + 32) = v2[949];
+      *(_QWORD *)(a2 + 40) = v2[776];
+      if ( v2 == &MiSystemPartition )
+        v5 = qword_140C4E650;
+      *(_QWORD *)(a2 + 224) = v5;
+      MiQueryMemoryListInformation(v2, v30);
+      v6 = *(_OWORD *)&v30[7];
+      *(_OWORD *)(a2 + 88) = *(_OWORD *)&v30[5];
+      v7 = *(_OWORD *)&v30[9];
+      *(_OWORD *)(a2 + 104) = v6;
+      v8 = *(_OWORD *)&v30[11];
+      *(_OWORD *)(a2 + 120) = v7;
+      v9 = *(_OWORD *)&v30[13];
+      *(_OWORD *)(a2 + 136) = v8;
+      v10 = *(_OWORD *)&v30[15];
+      *(_OWORD *)(a2 + 152) = v9;
+      v11 = *(_OWORD *)&v30[17];
+      *(_OWORD *)(a2 + 168) = v10;
+      v12 = *(_OWORD *)&v30[19];
+      *(_OWORD *)(a2 + 184) = v11;
+      *(_OWORD *)(a2 + 200) = v12;
+      *(_QWORD *)(a2 + 216) = v2[777];
+      v13 = *(_QWORD *)(a2 + 32);
+      if ( v13 > *(_QWORD *)(a2 + 216) )
+        *(_QWORD *)(a2 + 216) = v13;
+      v14 = *(_QWORD *)(a2 + 24);
+      if ( *(_QWORD *)(a2 + 40) < v14 )
+        *(_QWORD *)(a2 + 40) = v14;
+      if ( v14 > v13 )
+        *(_QWORD *)(a2 + 24) = v13;
+      v15 = (unsigned __int16)KeNumberNodes;
+      v16 = 0;
+    }
+    else
+    {
+      *(_DWORD *)(a2 + 12) = 0;
+      *(_QWORD *)(a2 + 16) = 0LL;
+      *(_QWORD *)(a2 + 24) = 0LL;
+      *(_QWORD *)(a2 + 32) = 0LL;
+      *(_QWORD *)(a2 + 40) = 0LL;
+      *(_QWORD *)(a2 + 216) = 0LL;
       *(_QWORD *)(a2 + 224) = 0LL;
-      for ( i = 0; ; v6 = i )
+      memset((void *)(a2 + 88), 0, 0x40uLL);
+      memset((void *)(a2 + 152), 0, 0x40uLL);
+      v16 = *(_DWORD *)(a2 + 4);
+      v15 = v16 + 1;
+    }
+    v17 = 0LL;
+    *(_QWORD *)(a2 + 64) = 0LL;
+    v18 = 0LL;
+    *(_QWORD *)(a2 + 72) = 0LL;
+    v19 = 0LL;
+    *(_QWORD *)(a2 + 80) = 0LL;
+    v20 = 0LL;
+    *(_QWORD *)(a2 + 48) = 0LL;
+    if ( v16 < v15 )
+    {
+      v21 = (__int64 *)(v2[2] + 4544LL * v16 + 4176);
+      do
       {
-        v8 = 0LL;
-        v9 = v6;
-        if ( v2 != &MiSystemPartition || (*(_DWORD *)a2 & 1) != 0 )
+        MiGetChannelInformation(v2, v16, v31, &v29);
+        v19 = *(_QWORD *)(a2 + 64);
+        v18 = *(_QWORD *)(a2 + 72);
+        v17 = *(_QWORD *)(a2 + 80);
+        if ( (unsigned int)(v29 / 0x28) )
         {
-          v32 = *(_DWORD *)(a2 + 4);
-          if ( v32 != -1 )
-            goto LABEL_46;
-        }
-        else
-        {
-          v10 = *(unsigned int *)(a2 + 4);
-          if ( (_DWORD)v10 != -1 )
-          {
-            v8 = MiState[v10 + 1506];
-            v32 = *(_DWORD *)(a2 + 4);
-LABEL_46:
-            *(_DWORD *)(a2 + 12) = 0;
-            v5 = v32 + 1;
-            v7 = v32;
-LABEL_47:
-            i = 1;
-LABEL_48:
-            *(_QWORD *)(a2 + 16) = 0LL;
-            *(_QWORD *)(a2 + 24) = 0LL;
-            *(_QWORD *)(a2 + 32) = 0LL;
-            *(_QWORD *)(a2 + 40) = 0LL;
-            *(_QWORD *)(a2 + 216) = 0LL;
-            memset((void *)(a2 + 88), 0, 0x80uLL);
-            goto LABEL_24;
-          }
-          if ( v7 < v5 )
-          {
-            v11 = &MiState[v7 + 1506];
-            v12 = v5 - v7;
-            do
-            {
-              v8 += *v11++;
-              --v12;
-            }
-            while ( v12 );
-          }
-        }
-        *(_DWORD *)(a2 + 12) = (unsigned __int16)KeNumberNodes;
-        if ( (*(_DWORD *)a2 & 1) != 0 )
-          goto LABEL_47;
-        *(_QWORD *)(a2 + 16) = v2[2120];
-        v13 = v2[2157];
-        if ( v13 < v8 )
-          goto LABEL_49;
-        *(_QWORD *)(a2 + 24) = v13 - v8;
-        v14 = v2[2187];
-        if ( v14 < v8 )
-          goto LABEL_49;
-        *(_QWORD *)(a2 + 32) = v14 - v8;
-        v15 = v2[2000];
-        if ( v15 < v8 )
-          goto LABEL_49;
-        *(_QWORD *)(a2 + 40) = v15 - v8;
-        MiQueryMemoryListInformation(v2, v41);
-        memmove((void *)(a2 + 88), &v41[5], 0x40uLL);
-        memmove((void *)(a2 + 152), &v41[13], 0x40uLL);
-        v16 = v2[2001];
-        if ( v16 < v8 )
-          goto LABEL_49;
-        *(_QWORD *)(a2 + 216) = v16 - v8;
-        v17 = *(_QWORD *)(a2 + 216);
-        v18 = *(_QWORD *)(a2 + 32);
-        if ( v18 > v17 )
-          v17 = *(_QWORD *)(a2 + 32);
-        *(_QWORD *)(a2 + 216) = v17;
-        v19 = *(_QWORD *)(a2 + 24);
-        if ( *(_QWORD *)(a2 + 40) < v19 )
-          *(_QWORD *)(a2 + 40) = v19;
-        if ( v19 > v18 )
-          *(_QWORD *)(a2 + 24) = v18;
-        i = v9;
-        if ( v9 )
-          goto LABEL_48;
-        i = 0;
-LABEL_24:
-        *(_QWORD *)(a2 + 64) = 0LL;
-        v20 = 0LL;
-        *(_QWORD *)(a2 + 72) = 0LL;
-        v21 = 0LL;
-        *(_QWORD *)(a2 + 80) = 0LL;
-        v22 = 0LL;
-        *(_QWORD *)(a2 + 48) = 0LL;
-        v23 = 0LL;
-        v24 = v7;
-        for ( j = v2[2] + 24512LL * v7; v24 < v5; j += 24512LL )
-        {
-          if ( (*(_DWORD *)a2 & 1) != 0 )
-          {
-            v37 = 0LL;
-            v38 = 0LL;
-            v39 = 0LL;
-            MiGetNodeHugeRangeCounts(j, &v39, &v37, &v38);
-            v33 = v37;
-            v34 = v38;
-            v35 = v39;
-            *(_QWORD *)(a2 + 80) = 0LL;
-            v23 = *(_QWORD *)(a2 + 64) + (v33 << 18);
-            v22 = *(_QWORD *)(a2 + 72) + (v34 << 18);
-            *(_QWORD *)(a2 + 48) += v35 << 18;
-            *(_QWORD *)(a2 + 64) = v23;
-            v21 = 0LL;
-            *(_QWORD *)(a2 + 72) = v22;
-          }
-          else
-          {
-            MiGetChannelInformation(v2, v24, v42, &v40);
-            v23 = *(_QWORD *)(a2 + 64);
-            v22 = *(_QWORD *)(a2 + 72);
-            v21 = *(_QWORD *)(a2 + 80);
-            if ( (unsigned int)(v40 / 0x28) )
-            {
-              v26 = &v43;
-              v27 = (unsigned int)(v40 / 0x28);
-              do
-              {
-                v23 += *((_QWORD *)v26 - 1);
-                v22 += *(_QWORD *)v26;
-                v21 += *((_QWORD *)v26 + 1);
-                v26 += 40;
-                --v27;
-              }
-              while ( v27 );
-            }
-            *(_QWORD *)(a2 + 64) = v23;
-            *(_QWORD *)(a2 + 72) = v22;
-            *(_QWORD *)(a2 + 80) = v21;
-            *(_QWORD *)(a2 + 48) += *(_QWORD *)(j + 22608);
-          }
-          v20 = *(_QWORD *)(a2 + 48);
-          ++v24;
-        }
-        if ( v2 == &MiSystemPartition )
-        {
-          if ( v20 < v8 )
-            goto LABEL_49;
-          v20 -= v8;
-          *(_QWORD *)(a2 + 48) = v20;
-        }
-        if ( *(_DWORD *)(a2 + 4) == -1 && (*(_DWORD *)a2 & 1) == 0 )
-        {
-          *(_QWORD *)(a2 + 80) = 0LL;
-          v28 = (_QWORD *)(a2 + 88);
-          v21 = 0LL;
-          v29 = 8LL;
+          v22 = &v32;
+          v23 = (unsigned int)(v29 / 0x28);
           do
           {
-            v21 += *v28++;
-            *(_QWORD *)(a2 + 80) = v21;
-            --v29;
+            v19 += *((_QWORD *)v22 - 1);
+            v18 += *(_QWORD *)v22;
+            v17 += *((_QWORD *)v22 + 1);
+            v22 += 40;
+            --v23;
           }
-          while ( v29 );
-          v22 = *(_QWORD *)(a2 + 72);
-          v23 = *(_QWORD *)(a2 + 64);
-          v20 = *(_QWORD *)(a2 + 48);
+          while ( v23 );
         }
-        v30 = v23 + v22 + v21;
-        *(_QWORD *)(a2 + 56) = v30;
-        if ( v30 <= v20 )
-        {
-          *(_DWORD *)(a2 + 232) = *(unsigned __int16 *)v2;
-          return 0LL;
-        }
-LABEL_49:
-        KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&MiOneMillisecond);
+        *(_QWORD *)(a2 + 64) = v19;
+        ++v16;
+        *(_QWORD *)(a2 + 72) = v18;
+        *(_QWORD *)(a2 + 80) = v17;
+        v24 = *v21;
+        v21 += 568;
+        v20 = *(_QWORD *)(a2 + 48) + v24;
+        *(_QWORD *)(a2 + 48) = v20;
       }
+      while ( v16 < v15 );
     }
+    v4 = *(_DWORD *)(a2 + 4);
+    if ( v4 == -1 )
+    {
+      *(_QWORD *)(a2 + 80) = 0LL;
+      v17 = 0LL;
+      v25 = (_QWORD *)(a2 + 88);
+      v26 = 8LL;
+      do
+      {
+        v17 += *v25++;
+        *(_QWORD *)(a2 + 80) = v17;
+        --v26;
+      }
+      while ( v26 );
+      v18 = *(_QWORD *)(a2 + 72);
+      v19 = *(_QWORD *)(a2 + 64);
+      v20 = *(_QWORD *)(a2 + 48);
+    }
+    v27 = v17 + v19 + v18;
+    *(_QWORD *)(a2 + 56) = v27;
   }
-  return 3221225485LL;
+  while ( v27 > v20 );
+  *(_DWORD *)(a2 + 232) = *(unsigned __int16 *)v2;
+  return 0LL;
 }

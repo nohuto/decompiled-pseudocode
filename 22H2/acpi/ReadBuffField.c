@@ -1,15 +1,15 @@
 /*
- * XREFs of ReadBuffField @ 0x1C0052A34
+ * XREFs of ReadBuffField @ 0x1C00244E8
  * Callers:
- *     AccessFieldData @ 0x1C0051AF8 (AccessFieldData.c)
+ *     AccessFieldData @ 0x1C0031E7C (AccessFieldData.c)
  * Callees:
- *     ReadSystemMem @ 0x1C0005CC0 (ReadSystemMem.c)
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
+ *     ReadSystemMem @ 0x1C0024B7C (ReadSystemMem.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
  */
 
-__int64 __fastcall ReadBuffField(__int64 a1, __int64 a2, unsigned int *a3, __int64 *a4)
+__int64 __fastcall ReadBuffField(__int64 a1, __int64 a2, unsigned int *a3, _QWORD *a4)
 {
   unsigned int v5; // esi
   unsigned int v7; // ecx
@@ -22,14 +22,14 @@ __int64 __fastcall ReadBuffField(__int64 a1, __int64 a2, unsigned int *a3, __int
     v9 = 1 << v7;
   if ( *a3 + v9 > *(_DWORD *)(a2 + 8) )
   {
-    LogError(-1072431100);
-    AcpiDiagTraceAmlError(a1, -1072431100);
-    PrintDebugMessage(160, (const void *)*a3, (const void *)*(unsigned int *)(a2 + 8), (const void *)v9, 0LL);
+    LogError(3222536196LL);
+    AcpiDiagTraceAmlError(a1, 3222536196LL);
+    PrintDebugMessage(160, *a3, *(_DWORD *)(a2 + 8), v9, 0LL);
     return (unsigned int)-1072431100;
   }
   else
   {
-    *a4 = ReadSystemMem(*(_QWORD *)a2 + *a3, v9, (((1LL << a3[2]) & -(__int64)(a3[2] < 0x40)) - 1) << a3[1]);
+    *a4 = ReadSystemMem((void *)(*(_QWORD *)a2 + *a3), v9);
   }
   return v5;
 }

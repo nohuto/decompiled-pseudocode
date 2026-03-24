@@ -1,12 +1,11 @@
 /*
- * XREFs of ?xxxSetSensorPresence@CLegacyRotationMgr@@UEAAXH@Z @ 0x1C01CE0F0
+ * XREFs of ?xxxSetSensorPresence@CLegacyRotationMgr@@UEAAXH@Z @ 0x1C01D1D50
  * Callers:
  *     <none>
  * Callees:
- *     _tlgKeywordOn @ 0x1C00CD6B0 (_tlgKeywordOn.c)
- *     ?UpdateAutoRotationRegistrySetting@CLegacyRotationMgr@@AEAAJKPEBGK0@Z @ 0x1C00D12FC (-UpdateAutoRotationRegistrySetting@CLegacyRotationMgr@@AEAAJKPEBGK0@Z.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F027C (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?UpdateAutoRotationRegistrySetting@CLegacyRotationMgr@@AEAAJKPEBGK0@Z @ 0x1C0126D08 (-UpdateAutoRotationRegistrySetting@CLegacyRotationMgr@@AEAAJKPEBGK0@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D21E4 (_tlgWriteTransfer_EtwWriteTransfer.c)
  */
 
 void __fastcall CLegacyRotationMgr::xxxSetSensorPresence(CLegacyRotationMgr *this, int a2)
@@ -24,25 +23,18 @@ void __fastcall CLegacyRotationMgr::xxxSetSensorPresence(CLegacyRotationMgr *thi
               0,
               L"\\Registry\\Machine\\Software\\Microsoft\\Windows\\CurrentVersion\\AutoRotation") >= 0 )
   {
-    dword_1C033196C = a2;
-    if ( !dword_1C033198C )
-      dword_1C033198C = a2 != 0;
-    if ( (unsigned int)dword_1C03263F8 > 5 )
+    dword_1C033660C = a2;
+    if ( !dword_1C033662C )
+      dword_1C033662C = a2 != 0;
+    if ( (unsigned int)dword_1C032B3D8 > 5
+      && (qword_1C032B3E8 & 0x400000000001LL) != 0
+      && (qword_1C032B3F0 & 0x400000000001LL) == qword_1C032B3F0 )
     {
-      if ( tlgKeywordOn((__int64)&dword_1C03263F8, 0x400000000001LL) )
-      {
-        v7 = 0;
-        v5 = &v3;
-        v3 = a2;
-        v6 = 4;
-        tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_1C03263F8,
-          (unsigned __int8 *)dword_1C02EDC86,
-          0LL,
-          0LL,
-          3u,
-          &v4);
-      }
+      v7 = 0;
+      v5 = &v3;
+      v3 = a2;
+      v6 = 4;
+      tlgWriteTransfer_EtwWriteTransfer((int)&dword_1C032B3D8, (int)&dword_1C02F1256, 0, 0, 3u, &v4);
     }
   }
 }

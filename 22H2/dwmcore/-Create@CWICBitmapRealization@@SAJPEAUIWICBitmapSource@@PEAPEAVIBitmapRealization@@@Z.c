@@ -1,18 +1,17 @@
 /*
- * XREFs of ?Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z @ 0x1800A6A7C
+ * XREFs of ?Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z @ 0x18003D1E8
  * Callers:
- *     ?ProcessSource@CBitmapResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BITMAPRESOURCE_SOURCE@@@Z @ 0x1800A69B8 (-ProcessSource@CBitmapResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BITMAPRESOURCE_SOURCE@@@Z.c)
- *     ?EnsureCompositionResources@CCursorState@@QEAAXXZ @ 0x180279FE4 (-EnsureCompositionResources@CCursorState@@QEAAXXZ.c)
+ *     ?ProcessSource@CBitmapResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BITMAPRESOURCE_SOURCE@@@Z @ 0x18003D378 (-ProcessSource@CBitmapResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_BITMAPRESOURCE_SOURCE@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800343B8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x1800343F8 (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ??0CWICBitmapRealization@@QEAA@XZ @ 0x1800A6B6C (--0CWICBitmapRealization@@QEAA@XZ.c)
- *     ?Create@CWICBitmapWrapper@@SAJPEAUIWICBitmapSource@@PEAPEAVID2DBitmapCacheSource@@@Z @ 0x1800A6C18 (-Create@CWICBitmapWrapper@@SAJPEAUIWICBitmapSource@@PEAPEAVID2DBitmapCacheSource@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180024CA8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?Create@CWICBitmapWrapper@@SAJPEAUIWICBitmapSource@@PEAPEAVID2DBitmapCacheSource@@@Z @ 0x18003CF00 (-Create@CWICBitmapWrapper@@SAJPEAUIWICBitmapSource@@PEAPEAVID2DBitmapCacheSource@@@Z.c)
+ *     ??0CWICBitmapRealization@@QEAA@XZ @ 0x18003D2CC (--0CWICBitmapRealization@@QEAA@XZ.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z @ 0x180068DD4 (-InitializeCache@CD2DBitmapCache@@QEAAXPEAVID2DBitmapCacheSource@@@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C07A0 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CWICBitmapRealization::Create(struct IWICBitmapSource *a1, struct IBitmapRealization **a2)
@@ -24,28 +23,27 @@ __int64 __fastcall CWICBitmapRealization::Create(struct IWICBitmapSource *a1, st
   unsigned int v8; // ecx
   CWICBitmapRealization *v9; // rax
   CWICBitmapRealization *v10; // rbx
-  CWICBitmapRealization *v11; // rax
-  CD2DBitmapCache *v12; // rbx
-  __int64 v14; // rcx
-  struct ID2DBitmapCacheSource *v15; // [rsp+40h] [rbp+8h] BYREF
+  CMILCOMBase *v11; // rbx
+  __int64 v13; // rcx
+  struct ID2DBitmapCacheSource *v14; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = 0;
   *a2 = 0LL;
   lpVtbl = a1->lpVtbl;
-  v15 = 0LL;
+  v14 = 0LL;
   if ( ((int (__fastcall *)(struct IWICBitmapSource *, GUID *, struct ID2DBitmapCacheSource **))lpVtbl->QueryInterface)(
          a1,
          &GUID_e3dc98f9_eabc_4e58_bacc_71f136bda5d3,
-         &v15) >= 0 )
+         &v14) >= 0 )
     goto LABEL_5;
-  v6 = v15;
-  v15 = 0LL;
+  v6 = v14;
+  v14 = 0LL;
   if ( v6 )
   {
-    v14 = (__int64)v6 + *(int *)(*((_QWORD *)v6 + 1) + 4LL) + 8;
-    (*(void (__fastcall **)(__int64))(*(_QWORD *)v14 + 16LL))(v14);
+    v13 = (__int64)v6 + *(int *)(*((_QWORD *)v6 + 1) + 4LL) + 8;
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v13 + 16LL))(v13);
   }
-  v7 = CWICBitmapWrapper::Create(a1, &v15);
+  v7 = CWICBitmapWrapper::Create(a1, &v14);
   v2 = v7;
   if ( v7 < 0 )
   {
@@ -60,17 +58,16 @@ LABEL_5:
     {
       memset_0(v9, 0, 0x90uLL);
       v11 = CWICBitmapRealization::CWICBitmapRealization(v10);
-      v12 = v11;
-      if ( v11 )
-        CMILRefCountImpl::AddReference((CWICBitmapRealization *)((char *)v11 + 8));
     }
     else
     {
-      v12 = 0LL;
+      v11 = 0LL;
     }
-    CD2DBitmapCache::InitializeCache(v12, v15);
-    *a2 = (struct IBitmapRealization *)(((unsigned __int64)v12 + 80) & -(__int64)(v12 != 0LL));
+    if ( v11 )
+      CMILCOMBase::InternalAddRef(v11);
+    CD2DBitmapCache::InitializeCache(v11, v14);
+    *a2 = (struct IBitmapRealization *)(((unsigned __int64)v11 + 80) & -(__int64)(v11 != 0LL));
   }
-  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v15);
+  wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>((__int64)&v14);
   return v2;
 }

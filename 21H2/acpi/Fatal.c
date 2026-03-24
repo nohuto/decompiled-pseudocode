@@ -1,10 +1,10 @@
 /*
- * XREFs of Fatal @ 0x1C0069C60
+ * XREFs of Fatal @ 0x1C0068990
  * Callers:
  *     <none>
  * Callees:
- *     ValidateArgTypes @ 0x1C00162B0 (ValidateArgTypes.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     ValidateArgTypes @ 0x1C0009F50 (ValidateArgTypes.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall Fatal(__int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall Fatal(__int64 a1, __int64 a2)
         *(unsigned int *)(*(_QWORD *)(a2 + 80) + 56LL),
         *(unsigned int *)(*(_QWORD *)(a2 + 80) + 96LL),
         a1,
-        qword_1C0082838);
+        qword_1C00831B8);
     return 3222536198LL;
   }
   return result;

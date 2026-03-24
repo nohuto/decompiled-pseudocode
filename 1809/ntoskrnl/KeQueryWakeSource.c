@@ -1,13 +1,13 @@
 /*
- * XREFs of KeQueryWakeSource @ 0x14028EE1C
+ * XREFs of KeQueryWakeSource @ 0x14028EF1C
  * Callers:
  *     PpmIdleExecuteTransition @ 0x14005DC80 (PpmIdleExecuteTransition.c)
  * Callees:
  *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     KiGetPastDueIRTimerInfo @ 0x14029B784 (KiGetPastDueIRTimerInfo.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     KiGetPastDueIRTimerInfo @ 0x14029B884 (KiGetPastDueIRTimerInfo.c)
  */
 
 __int64 __fastcall KeQueryWakeSource(int *a1, _BYTE *a2)

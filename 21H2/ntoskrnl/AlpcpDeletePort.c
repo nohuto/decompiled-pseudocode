@@ -1,38 +1,38 @@
 /*
- * XREFs of AlpcpDeletePort @ 0x14074D800
+ * XREFs of AlpcpDeletePort @ 0x1405E2D20
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     AlpcpFreeCompletionPacketLookaside @ 0x1402D3C34 (AlpcpFreeCompletionPacketLookaside.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     AlpcpDestroyPort @ 0x14074D9EC (AlpcpDestroyPort.c)
- *     AlpcpSendCloseMessage @ 0x14074E73C (AlpcpSendCloseMessage.c)
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
- *     SeDeleteClientSecurity @ 0x1407A8070 (SeDeleteClientSecurity.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpFreeCompletionPacketLookaside @ 0x140287988 (AlpcpFreeCompletionPacketLookaside.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     AlpcpSendCloseMessage @ 0x1405E1FC8 (AlpcpSendCloseMessage.c)
+ *     AlpcpDestroyPort @ 0x1405E2EFC (AlpcpDestroyPort.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
  */
 
-char __fastcall AlpcpDeletePort(__int64 a1)
+_QWORD *__fastcall AlpcpDeletePort(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v3; // rcx
   int v4; // eax
   __int64 v5; // rcx
   __int64 v6; // rsi
-  void *v7; // rcx
+  struct _DMA_ADAPTER *v7; // rcx
   int v8; // ecx
   void *v9; // rcx
-  void *v10; // rcx
+  struct _DMA_ADAPTER *v10; // rcx
   ULONG_PTR v11; // rcx
+  struct _DMA_ADAPTER *v13; // rcx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   if ( (*(_DWORD *)(a1 + 256) & 0x1000) != 0 )
-    AlpcpSendCloseMessage();
+    AlpcpSendCloseMessage(a1);
   v3 = *(_QWORD *)(a1 + 16);
   if ( v3 )
   {
@@ -46,17 +46,17 @@ char __fastcall AlpcpDeletePort(__int64 a1)
       case 4:
         *(_QWORD *)(*(_QWORD *)(a1 + 16) + 16LL) = 0LL;
         v5 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 8LL);
-        goto LABEL_7;
-      case 6:
-        *(_QWORD *)(*(_QWORD *)(a1 + 16) + 8LL) = 0LL;
-        v5 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 16LL);
-LABEL_7:
+LABEL_8:
         if ( v5 )
         {
           *(_QWORD *)(v5 + 424) = 0LL;
           *(_QWORD *)(v5 + 432) = 0LL;
         }
         break;
+      case 6:
+        *(_QWORD *)(*(_QWORD *)(a1 + 16) + 8LL) = 0LL;
+        v5 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 16LL);
+        goto LABEL_8;
     }
     v6 = *(_QWORD *)(a1 + 16);
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v6 - 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
@@ -65,26 +65,30 @@ LABEL_7:
     AlpcpDereferenceBlobEx(*(_QWORD *)(a1 + 16));
     *(_QWORD *)(a1 + 16) = 0LL;
   }
-  v7 = *(void **)(a1 + 32);
+  v7 = *(struct _DMA_ADAPTER **)(a1 + 32);
   if ( v7 )
   {
-    ObfDereferenceObject(v7);
+    HalPutDmaAdapter(v7);
     AlpcpFreeCompletionPacketLookaside(*(KSPIN_LOCK **)(a1 + 48));
   }
   v8 = *(_DWORD *)(a1 + 416);
-  if ( (v8 & 6) == 4 && (v8 & 0x400) == 0 && *(_QWORD *)(a1 + 80) )
-    SeDeleteClientSecurity(a1 + 64);
+  if ( (v8 & 6) == 4 && (v8 & 0x400) == 0 )
+  {
+    v13 = *(struct _DMA_ADAPTER **)(a1 + 80);
+    if ( v13 )
+      HalPutDmaAdapter(v13);
+  }
   v9 = 0LL;
   if ( (*(_QWORD *)(a1 + 24) & 1) == 0 )
     v9 = *(void **)(a1 + 24);
   if ( v9 )
     ObfDereferenceObjectWithTag(v9, 0x63706C41u);
-  v10 = *(void **)(a1 + 368);
+  v10 = *(struct _DMA_ADAPTER **)(a1 + 368);
   if ( v10 )
-    ObfDereferenceObject(v10);
+    HalPutDmaAdapter(v10);
   v11 = _InterlockedExchange64((volatile __int64 *)(a1 + 440), 0LL);
   if ( v11 )
     AlpcpDereferenceBlobEx(v11);
   AlpcpDestroyPort(a1);
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

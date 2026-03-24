@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIntSteerDistributeInterrupts @ 0x140221588
+ * XREFs of KiIntSteerDistributeInterrupts @ 0x140229620
  * Callers:
- *     KeIntSteerPeriodic @ 0x140221460 (KeIntSteerPeriodic.c)
+ *     KeIntSteerPeriodic @ 0x140229440 (KeIntSteerPeriodic.c)
  * Callees:
- *     KiIntSteerUpdateDeviceInterruptMask @ 0x14031FE10 (KiIntSteerUpdateDeviceInterruptMask.c)
- *     KiIntSteerSetDestination @ 0x14031FEC0 (KiIntSteerSetDestination.c)
+ *     KiIntSteerUpdateDeviceInterruptMask @ 0x14031A4E0 (KiIntSteerUpdateDeviceInterruptMask.c)
+ *     KiIntSteerSetDestination @ 0x14031C9EC (KiIntSteerSetDestination.c)
  */
 
 __int64 KiIntSteerDistributeInterrupts()
@@ -12,15 +12,13 @@ __int64 KiIntSteerDistributeInterrupts()
   __int64 v0; // rbx
   __int64 v1; // rdx
   __int64 v2; // rcx
-  __int64 i; // rbx
-  _QWORD *v4; // rdi
-  __int64 v6; // rcx
-  __int64 v7; // rax
-  __int128 v8; // [rsp+20h] [rbp-18h] BYREF
+  __int64 j; // rbx
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  __int128 i; // [rsp+20h] [rbp-18h] BYREF
 
   v0 = KiIntTrackRootList;
-  v8 = 0LL;
-  while ( (__int64 *)v0 != &KiIntTrackRootList )
+  for ( i = 0LL; (__int64 *)v0 != &KiIntTrackRootList; v0 = *(_QWORD *)v0 )
   {
     if ( *(_BYTE *)(v0 + 132) )
     {
@@ -28,35 +26,30 @@ __int64 KiIntSteerDistributeInterrupts()
       v2 = *(_QWORD *)(v0 + 160);
       if ( v1 != v2 )
       {
-        WORD4(v8) = *(_WORD *)(v0 + 184);
-        if ( WORD4(v8) == *(_WORD *)(v0 + 168) )
-          v6 = v1 & ~v2;
+        WORD4(i) = *(_WORD *)(v0 + 184);
+        if ( WORD4(i) == *(_WORD *)(v0 + 168) )
+          v5 = v1 & ~v2;
         else
-          v6 = v1;
-        *(_QWORD *)&v8 = v6;
-        KiIntSteerUpdateDeviceInterruptMask(&v8, 0LL);
+          v5 = v1;
+        *(_QWORD *)&i = v5;
+        KiIntSteerUpdateDeviceInterruptMask(&i, 0LL);
       }
     }
-    v0 = *(_QWORD *)v0;
   }
-  for ( i = KiIntTrackRootList; (__int64 *)i != &KiIntTrackRootList; i = *(_QWORD *)i )
+  for ( j = KiIntTrackRootList; (__int64 *)j != &KiIntTrackRootList; j = *(_QWORD *)j )
   {
-    if ( *(_BYTE *)(i + 132) )
+    if ( *(_BYTE *)(j + 132) && *(_QWORD *)(j + 176) != *(_QWORD *)(j + 160) )
     {
-      v4 = (_QWORD *)(i + 176);
-      if ( *(_QWORD *)(i + 176) != *(_QWORD *)(i + 160) )
-      {
-        KiIntSteerSetDestination(i, i + 176);
-        WORD4(v8) = *(_WORD *)(i + 184);
-        if ( *(_WORD *)(i + 168) == WORD4(v8) )
-          v7 = *(_QWORD *)(i + 160) & ~*v4;
-        else
-          v7 = *(_QWORD *)(i + 160);
-        *(_QWORD *)&v8 = v7;
-        KiIntSteerUpdateDeviceInterruptMask(&v8, 1LL);
-        *(_WORD *)(i + 168) = *(_WORD *)(i + 184);
-        *(_QWORD *)(i + 160) = *v4;
-      }
+      KiIntSteerSetDestination(j, j + 176);
+      WORD4(i) = *(_WORD *)(j + 184);
+      if ( *(_WORD *)(j + 168) == WORD4(i) )
+        v6 = *(_QWORD *)(j + 160) & ~*(_QWORD *)(j + 176);
+      else
+        v6 = *(_QWORD *)(j + 160);
+      *(_QWORD *)&i = v6;
+      KiIntSteerUpdateDeviceInterruptMask(&i, 1LL);
+      *(_WORD *)(j + 168) = *(_WORD *)(j + 184);
+      *(_QWORD *)(j + 160) = *(_QWORD *)(j + 176);
     }
   }
   return 0LL;

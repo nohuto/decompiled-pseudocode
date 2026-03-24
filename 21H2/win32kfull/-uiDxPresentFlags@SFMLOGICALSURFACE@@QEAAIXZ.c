@@ -1,8 +1,8 @@
 /*
- * XREFs of ?uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ @ 0x1C00EDB94
+ * XREFs of ?uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ @ 0x1C0119130
  * Callers:
- *     GreGetDxSharedSurface @ 0x1C00ED940 (GreGetDxSharedSurface.c)
- *     GreGetHwndUpdateIds @ 0x1C026D470 (GreGetHwndUpdateIds.c)
+ *     GreGetDxSharedSurface @ 0x1C0118EDC (GreGetDxSharedSurface.c)
+ *     GreGetHwndUpdateIds @ 0x1C026F750 (GreGetHwndUpdateIds.c)
  * Callees:
  *     <none>
  */

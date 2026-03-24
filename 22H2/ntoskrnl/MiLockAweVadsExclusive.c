@@ -1,13 +1,15 @@
 /*
- * XREFs of MiLockAweVadsExclusive @ 0x14064B0A8
+ * XREFs of MiLockAweVadsExclusive @ 0x14054CF40
  * Callers:
- *     MiCloneVads @ 0x1406632E8 (MiCloneVads.c)
- *     MmSetGraphicsPtes @ 0x140A2EB60 (MmSetGraphicsPtes.c)
- *     MiAweViewInserter @ 0x140A4132C (MiAweViewInserter.c)
- *     MiCreateProcessDefaultAweInfo @ 0x140A41700 (MiCreateProcessDefaultAweInfo.c)
- *     MiRemoveUserPhysicalPagesView @ 0x140A420E8 (MiRemoveUserPhysicalPagesView.c)
+ *     MiFreePhysicalPages @ 0x14054BE84 (MiFreePhysicalPages.c)
+ *     MiCloneVads @ 0x140559268 (MiCloneVads.c)
+ *     MmSetGraphicsPtes @ 0x1408C6F00 (MmSetGraphicsPtes.c)
+ *     MiAweViewInserter @ 0x1408D572C (MiAweViewInserter.c)
+ *     MiCreateProcessDefaultAweInfo @ 0x1408D5B10 (MiCreateProcessDefaultAweInfo.c)
+ *     MiRemoveUserPhysicalPagesView @ 0x1408D649C (MiRemoveUserPhysicalPagesView.c)
+ *     MiScrubProcessPhysicalPages @ 0x1408D6690 (MiScrubProcessPhysicalPages.c)
  * Callees:
- *     ExAcquireAutoExpandPushLockExclusive @ 0x14022F760 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x1402FAF60 (ExAcquireAutoExpandPushLockExclusive.c)
  */
 
 __int64 __fastcall MiLockAweVadsExclusive(__int64 a1)
@@ -16,5 +18,5 @@ __int64 __fastcall MiLockAweVadsExclusive(__int64 a1)
 
   v2 = *(_QWORD *)(*(_QWORD *)(a1 + 184) + 1680LL);
   --*(_WORD *)(a1 + 486);
-  return ExAcquireAutoExpandPushLockExclusive(v2 + 392, 0LL);
+  return ExAcquireAutoExpandPushLockExclusive(v2 + 408, 0LL);
 }

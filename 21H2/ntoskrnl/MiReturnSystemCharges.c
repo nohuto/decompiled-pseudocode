@@ -1,14 +1,13 @@
 /*
- * XREFs of MiReturnSystemCharges @ 0x140229640
+ * XREFs of MiReturnSystemCharges @ 0x1402B9B18
  * Callers:
- *     MiDeleteSessionPdes @ 0x140226A00 (MiDeleteSessionPdes.c)
- *     MiReturnPoolCharges @ 0x140228AA0 (MiReturnPoolCharges.c)
- *     MiDeleteSystemPageTableTail @ 0x140229590 (MiDeleteSystemPageTableTail.c)
- *     MiCleanupPageTablePages @ 0x14026DFF0 (MiCleanupPageTablePages.c)
- *     MiGetPageTablePages @ 0x14027D03C (MiGetPageTablePages.c)
- *     MiDeleteSystemPagableVm @ 0x14027E810 (MiDeleteSystemPagableVm.c)
- *     MiReturnSplitPageCharges @ 0x1403C2A18 (MiReturnSplitPageCharges.c)
- *     MiGetLargePagesForSystemMapping @ 0x14096DAE0 (MiGetLargePagesForSystemMapping.c)
+ *     MiDeleteSystemPageTableTail @ 0x1402B9A70 (MiDeleteSystemPageTableTail.c)
+ *     MiGetPageTablePages @ 0x1402E59A0 (MiGetPageTablePages.c)
+ *     MiCleanupPageTablePages @ 0x1402FD2EC (MiCleanupPageTablePages.c)
+ *     MiDeleteSystemPagableVm @ 0x140305A80 (MiDeleteSystemPagableVm.c)
+ *     MiDeleteSessionPdes @ 0x14038CAC8 (MiDeleteSessionPdes.c)
+ *     MiReturnSplitPageCharges @ 0x1403CED94 (MiReturnSplitPageCharges.c)
+ *     MiGetLargePagesForSystemMapping @ 0x1408C8A44 (MiGetLargePagesForSystemMapping.c)
  * Callees:
  *     <none>
  */
@@ -27,21 +26,21 @@ unsigned __int64 __fastcall MiReturnSystemCharges(__int64 a1, unsigned __int64 a
   switch ( a3 )
   {
     case 1:
-      goto LABEL_17;
+      goto LABEL_15;
     case 2:
       goto LABEL_6;
     case 11:
-LABEL_17:
-      v9 = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[25];
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(v9 + 32), -(__int64)v3);
+LABEL_15:
+      v9 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5];
       _InterlockedExchangeAdd64((volatile signed __int64 *)(v9 + 40), -(__int64)v3);
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(v9 + 48), -(__int64)v3);
       goto LABEL_6;
   }
   v4 = -(__int64)a2;
   if ( a3 == 4 )
-    _InterlockedExchangeAdd64(&qword_140C53558, v4);
+    _InterlockedExchangeAdd64(&qword_140C4EFD8, v4);
   else
-    _InterlockedExchangeAdd64(&qword_140C53540, v4);
+    _InterlockedExchangeAdd64(&qword_140C4EFC0, v4);
 LABEL_6:
   result = (unsigned __int64)&MiSystemPartition;
   if ( (ULONG_PTR *)a1 == &MiSystemPartition )
@@ -80,6 +79,6 @@ LABEL_6:
     }
   }
   if ( v3 )
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 16960), v3);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 7168), v3);
   return result;
 }

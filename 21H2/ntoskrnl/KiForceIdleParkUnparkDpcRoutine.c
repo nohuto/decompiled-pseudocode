@@ -1,9 +1,9 @@
 /*
- * XREFs of KiForceIdleParkUnparkDpcRoutine @ 0x140579F20
+ * XREFs of KiForceIdleParkUnparkDpcRoutine @ 0x1405230D0
  * Callers:
  *     <none>
  * Callees:
- *     KiForceIdleParkUnparkProcessor @ 0x140579F48 (KiForceIdleParkUnparkProcessor.c)
+ *     KiForceIdleParkUnparkProcessor @ 0x1405230F8 (KiForceIdleParkUnparkProcessor.c)
  */
 
 void __fastcall KiForceIdleParkUnparkDpcRoutine(

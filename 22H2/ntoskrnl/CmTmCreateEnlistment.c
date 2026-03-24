@@ -1,9 +1,9 @@
 /*
- * XREFs of CmTmCreateEnlistment @ 0x1406985E4
+ * XREFs of CmTmCreateEnlistment @ 0x140766900
  * Callers:
- *     CmpTransInitializeTransaction @ 0x14069846C (CmpTransInitializeTransaction.c)
+ *     CmpTransInitializeTransaction @ 0x1407666DC (CmpTransInitializeTransaction.c)
  * Callees:
- *     TmCreateEnlistment @ 0x1403D7DF0 (TmCreateEnlistment.c)
+ *     <none>
  */
 
 NTSTATUS __fastcall CmTmCreateEnlistment(HANDLE *a1, struct _KRESOURCEMANAGER *a2, struct _KTRANSACTION *a3, void *a4)

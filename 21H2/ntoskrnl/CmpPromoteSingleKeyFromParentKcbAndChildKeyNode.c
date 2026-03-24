@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140922B20
+ * XREFs of CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140880718
  * Callers:
- *     CmpPromoteSubtree @ 0x14065B6A0 (CmpPromoteSubtree.c)
- *     CmpPartialPromoteSubkeys @ 0x1409224D4 (CmpPartialPromoteSubkeys.c)
+ *     CmpPromoteSubtree @ 0x1407291E8 (CmpPromoteSubtree.c)
+ *     CmpPartialPromoteSubkeys @ 0x1408800C0 (CmpPartialPromoteSubkeys.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x14065AAAC (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
- *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x14065B3DC (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
- *     CmpStartKeyNodeStackFromKcbStack @ 0x14069EDC0 (CmpStartKeyNodeStackFromKcbStack.c)
- *     CmpCleanupKeyNodeStack @ 0x14069F150 (CmpCleanupKeyNodeStack.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14069F1CC (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpInitializeKeyNodeStack @ 0x14069F2B4 (CmpInitializeKeyNodeStack.c)
- *     CmpRebuildKcbCacheFromNode @ 0x14071B4A0 (CmpRebuildKcbCacheFromNode.c)
- *     CmpGetKcbAtLayerHeight @ 0x140721CE0 (CmpGetKcbAtLayerHeight.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x140669FA4 (CmpRebuildKcbCacheFromNode.c)
+ *     CmpCleanupKeyNodeStack @ 0x140699C28 (CmpCleanupKeyNodeStack.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140699C98 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpInitializeKeyNodeStack @ 0x140699D70 (CmpInitializeKeyNodeStack.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x1407292B0 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpStartKeyNodeStackFromKcbStack @ 0x1408766AC (CmpStartKeyNodeStackFromKcbStack.c)
+ *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x14087FF34 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
  */
 
 __int64 __fastcall CmpPromoteSingleKeyFromParentKcbAndChildKeyNode(__int64 a1, __int16 *a2, char a3)
@@ -21,30 +21,31 @@ __int64 __fastcall CmpPromoteSingleKeyFromParentKcbAndChildKeyNode(__int64 a1, _
   char v6; // di
   __int16 v7; // r14
   ULONG_PTR KcbAtLayerHeight; // rsi
+  struct _LOOKASIDE_LIST_EX *v9; // r9
   int started; // ebx
   __int64 EntryAtLayerHeight; // r15
-  __int16 v11; // dx
-  char v13[80]; // [rsp+20h] [rbp-88h] BYREF
+  __int16 v12; // dx
+  __int16 v14[40]; // [rsp+20h] [rbp-88h] BYREF
 
-  memset(v13, 0, 0x4AuLL);
+  memset(v14, 0, sizeof(v14));
   v6 = 0;
-  CmpInitializeKeyNodeStack(v13);
+  CmpInitializeKeyNodeStack((char *)v14);
   v7 = *(_WORD *)(a1 + 2);
   KcbAtLayerHeight = CmpGetKcbAtLayerHeight(a1, v7);
-  started = CmpStartKeyNodeStackFromKcbStack((__int64)v13, a1, 0LL);
+  started = CmpStartKeyNodeStackFromKcbStack((__int64)v14, a1, 0LL, v9);
   if ( started < 0 )
     goto LABEL_11;
-  EntryAtLayerHeight = CmpKeyNodeStackGetEntryAtLayerHeight((__int64)v13, v7);
-  if ( *(_DWORD *)(CmpKeyNodeStackGetEntryAtLayerHeight((__int64)a2, v11) + 8) == -1 )
+  EntryAtLayerHeight = CmpKeyNodeStackGetEntryAtLayerHeight((__int64)v14, v7);
+  if ( *(_DWORD *)(CmpKeyNodeStackGetEntryAtLayerHeight((__int64)a2, v12) + 8) == -1 )
   {
-    started = CmpPartialPromoteSingleKeyFromKeyNodeStacks((__int64)v13, (__int64)a2);
+    started = CmpPartialPromoteSingleKeyFromKeyNodeStacks(v14, (__int64)a2);
     if ( started < 0 )
       goto LABEL_11;
     v6 = 1;
   }
   if ( a3 )
   {
-    started = CmpFullPromoteSingleKeyFromKeyNodeStacks((__int64)v13, a2);
+    started = CmpFullPromoteSingleKeyFromKeyNodeStacks((__int64)v14, a2);
     if ( started < 0 )
       goto LABEL_9;
     v6 = 1;
@@ -57,6 +58,6 @@ LABEL_9:
     CmpRebuildKcbCacheFromNode(KcbAtLayerHeight, *(_QWORD *)(EntryAtLayerHeight + 16), 0LL, 0);
   }
 LABEL_11:
-  CmpCleanupKeyNodeStack((__int64)v13);
+  CmpCleanupKeyNodeStack((__int64)v14);
   return (unsigned int)started;
 }

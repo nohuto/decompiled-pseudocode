@@ -1,11 +1,11 @@
 /*
- * XREFs of IoDeleteSymbolicLink @ 0x140811120
+ * XREFs of IoDeleteSymbolicLink @ 0x1407722B0
  * Callers:
- *     DifIoDeleteSymbolicLinkWrapper @ 0x14060E8A0 (DifIoDeleteSymbolicLinkWrapper.c)
+ *     <none>
  * Callees:
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwMakeTemporaryObject @ 0x14041DA20 (ZwMakeTemporaryObject.c)
- *     ZwOpenSymbolicLinkObject @ 0x14041DDE0 (ZwOpenSymbolicLinkObject.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwMakeTemporaryObject @ 0x1403FC5A0 (ZwMakeTemporaryObject.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1403FC960 (ZwOpenSymbolicLinkObject.c)
  */
 
 NTSTATUS __stdcall IoDeleteSymbolicLink(PUNICODE_STRING SymbolicLinkName)
@@ -14,11 +14,12 @@ NTSTATUS __stdcall IoDeleteSymbolicLink(PUNICODE_STRING SymbolicLinkName)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+20h] [rbp-30h] BYREF
   HANDLE LinkHandle; // [rsp+60h] [rbp+10h] BYREF
 
+  *(&ObjectAttributes.Length + 1) = 0;
   memset(&ObjectAttributes.Attributes + 1, 0, 20);
   LinkHandle = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = SymbolicLinkName;
-  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   TemporaryObject = ZwOpenSymbolicLinkObject(&LinkHandle, 0x10000u, &ObjectAttributes);
   if ( TemporaryObject >= 0 )

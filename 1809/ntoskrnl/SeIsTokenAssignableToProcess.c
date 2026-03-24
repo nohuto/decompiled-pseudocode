@@ -1,19 +1,19 @@
 /*
- * XREFs of SeIsTokenAssignableToProcess @ 0x1406B9118
+ * XREFs of SeIsTokenAssignableToProcess @ 0x1406B90F8
  * Callers:
- *     PspAllocateProcess @ 0x14064BCD8 (PspAllocateProcess.c)
- *     PspAssignPrimaryToken @ 0x140748988 (PspAssignPrimaryToken.c)
+ *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     PspAssignPrimaryToken @ 0x140748968 (PspAssignPrimaryToken.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     SepCopyTokenIntegrity @ 0x140091E20 (SepCopyTokenIntegrity.c)
- *     RtlSidDominates @ 0x1400A9210 (RtlSidDominates.c)
- *     RtlSidDominatesForTrust @ 0x1400AD180 (RtlSidDominatesForTrust.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlSidDominates @ 0x1400A9230 (RtlSidDominates.c)
+ *     RtlSidDominatesForTrust @ 0x1400AD1A0 (RtlSidDominatesForTrust.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
  *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
- *     SepIsChildTokenByPointer @ 0x1406B92C8 (SepIsChildTokenByPointer.c)
- *     SepIsSiblingTokenByPointer @ 0x1406B9354 (SepIsSiblingTokenByPointer.c)
+ *     SepIsChildTokenByPointer @ 0x1406B92A8 (SepIsChildTokenByPointer.c)
+ *     SepIsSiblingTokenByPointer @ 0x1406B9334 (SepIsSiblingTokenByPointer.c)
  */
 
 __int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)

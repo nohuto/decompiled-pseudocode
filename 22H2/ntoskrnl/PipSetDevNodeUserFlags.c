@@ -1,18 +1,16 @@
 /*
- * XREFs of PipSetDevNodeUserFlags @ 0x140790BCC
+ * XREFs of PipSetDevNodeUserFlags @ 0x1407487CC
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1403B6A4C (PnpRemoveLockedDeviceNode.c)
- *     PiProcessQueryDeviceState @ 0x14079379C (PiProcessQueryDeviceState.c)
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
- *     PiDevCfgProcessDevice @ 0x14087A6C0 (PiDevCfgProcessDevice.c)
- *     PnpShutdownDevices @ 0x1409522AC (PnpShutdownDevices.c)
- *     PnpCancelRemoveLockedDeviceNode @ 0x140958FEC (PnpCancelRemoveLockedDeviceNode.c)
- *     PnpQueryRemoveLockedDeviceNode @ 0x1409591E8 (PnpQueryRemoveLockedDeviceNode.c)
- *     PiProcessSetDeviceProblem @ 0x1409596E8 (PiProcessSetDeviceProblem.c)
- *     PnpTrackQueryRemoveDevices @ 0x140964B1C (PnpTrackQueryRemoveDevices.c)
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     PiProcessSetDeviceProblem @ 0x1407318D4 (PiProcessSetDeviceProblem.c)
+ *     PnpQueryRemoveLockedDeviceNode @ 0x14073454C (PnpQueryRemoveLockedDeviceNode.c)
+ *     PnpTrackQueryRemoveDevices @ 0x140734820 (PnpTrackQueryRemoveDevices.c)
+ *     PiDevCfgProcessDevice @ 0x140736238 (PiDevCfgProcessDevice.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
+ *     PiProcessQueryDeviceState @ 0x140745EDC (PiProcessQueryDeviceState.c)
+ *     PnpShutdownDevices @ 0x14089B99C (PnpShutdownDevices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140797720 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1407424E0 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
  */
 
 __int64 __fastcall PipSetDevNodeUserFlags(__int64 a1, int a2)
@@ -21,6 +19,7 @@ __int64 __fastcall PipSetDevNodeUserFlags(__int64 a1, int a2)
   __int64 result; // rax
   __int64 v5; // rdx
   __int64 v6; // rcx
+  __int64 v7; // rcx
 
   v2 = *(_DWORD *)(a1 + 400);
   *(_DWORD *)(a1 + 400) = a2 | v2;
@@ -30,12 +29,17 @@ __int64 __fastcall PipSetDevNodeUserFlags(__int64 a1, int a2)
     v5 = *(_QWORD *)(a1 + 48);
     if ( v5 )
     {
-      PnpRaiseNtPlugPlayDevicePropertyChangeEvent(a1, v5, 11LL);
-      result = *(_DWORD *)(a1 + 400) ^ v2;
-      if ( ((*(_BYTE *)(a1 + 400) ^ (unsigned __int8)v2) & 0x40) != 0 )
-        result = PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v6, *(_QWORD *)(a1 + 48), 29LL);
-      if ( ((*(_BYTE *)(a1 + 400) ^ (unsigned __int8)v2) & 4) != 0 )
-        return PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v6, *(_QWORD *)(a1 + 48), 30LL);
+      PnpRaiseNtPlugPlayDevicePropertyChangeEvent(a1, v5, 11);
+      v6 = *(unsigned int *)(a1 + 400);
+      result = v2 ^ *(_DWORD *)(a1 + 400);
+      if ( (((unsigned __int8)v2 ^ *(_BYTE *)(a1 + 400)) & 0x40) != 0 )
+      {
+        result = PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v6, *(_QWORD *)(a1 + 48), 29);
+        LODWORD(v6) = *(_DWORD *)(a1 + 400);
+      }
+      v7 = v2 ^ (unsigned int)v6;
+      if ( (v7 & 4) != 0 )
+        return PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v7, *(_QWORD *)(a1 + 48), 30);
     }
   }
   return result;

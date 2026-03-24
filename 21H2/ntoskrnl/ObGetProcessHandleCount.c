@@ -1,29 +1,29 @@
 /*
- * XREFs of ObGetProcessHandleCount @ 0x14066C174
+ * XREFs of ObGetProcessHandleCount @ 0x1406B471C
  * Callers:
- *     EtwpPsProvTraceProcess @ 0x14070AFEC (EtwpPsProvTraceProcess.c)
- *     EtwTraceAppStateChange @ 0x140712868 (EtwTraceAppStateChange.c)
- *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
- *     EtwpProcessPerfCtrsRundown @ 0x1409EAFC8 (EtwpProcessPerfCtrsRundown.c)
+ *     EtwpPsProvTraceProcess @ 0x140602CDC (EtwpPsProvTraceProcess.c)
+ *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     EtwTraceAppStateChange @ 0x1406CDBB8 (EtwTraceAppStateChange.c)
+ *     EtwpProcessPerfCtrsRundown @ 0x14093E754 (EtwpProcessPerfCtrsRundown.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     ObReferenceProcessHandleTable @ 0x14066B3D8 (ObReferenceProcessHandleTable.c)
- *     ExHandleTableQuery @ 0x1407B6370 (ExHandleTableQuery.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ObReferenceProcessHandleTable @ 0x1405F57B4 (ObReferenceProcessHandleTable.c)
+ *     ExHandleTableQuery @ 0x140618ED0 (ExHandleTableQuery.c)
  */
 
 __int64 __fastcall ObGetProcessHandleCount(struct _EX_RUNDOWN_REF *a1, _DWORD *a2)
 {
   unsigned int v2; // ebx
-  unsigned __int64 v5; // rax
+  unsigned int *v5; // rax
   unsigned int v7; // [rsp+40h] [rbp+18h] BYREF
 
   v2 = 0;
   v7 = 0;
-  v5 = ObReferenceProcessHandleTable(a1);
+  v5 = (unsigned int *)ObReferenceProcessHandleTable(a1);
   if ( v5 )
   {
     ExHandleTableQuery(v5, &v7, a2);
-    ExReleaseRundownProtection(a1 + 139);
+    ExReleaseRundownProtection_0(a1 + 139);
     return v7;
   }
   else if ( a2 )

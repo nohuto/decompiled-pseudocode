@@ -1,11 +1,11 @@
 /*
- * XREFs of ?IsAllowedToCallMiracast@@YA_NXZ @ 0x1C0049DC8
+ * XREFs of ?IsAllowedToCallMiracast@@YA_NXZ @ 0x1C003ECC8
  * Callers:
- *     DxgkNetDispStartMiracastDisplayDevice @ 0x1C02D2CA0 (DxgkNetDispStartMiracastDisplayDevice.c)
- *     DxgkNetDispStopMiracastDisplayDevice @ 0x1C02D2F10 (DxgkNetDispStopMiracastDisplayDevice.c)
+ *     DxgkNetDispStartMiracastDisplayDevice @ 0x1C0224830 (DxgkNetDispStartMiracastDisplayDevice.c)
+ *     DxgkNetDispStopMiracastDisplayDevice @ 0x1C0224AA0 (DxgkNetDispStopMiracastDisplayDevice.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?OpenThreadToken@@YAJPEAPEAX@Z @ 0x1C004A1D4 (-OpenThreadToken@@YAJPEAPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?OpenThreadToken@@YAJPEAPEAX@Z @ 0x1C003F04C (-OpenThreadToken@@YAJPEAPEAX@Z.c)
  */
 
 char IsAllowedToCallMiracast(void)
@@ -17,20 +17,16 @@ char IsAllowedToCallMiracast(void)
   char v4; // bl
   int v5; // eax
   HANDLE v6; // rsi
-  __int64 v7; // r9
-  PUCHAR v8; // rax
-  __int64 v10; // r9
-  ULONG v11; // eax
-  __int64 v12; // r9
-  void *v13; // rax
-  ULONG *v14; // r15
-  ULONG v15; // ebx
-  PULONG v16; // rax
+  PUCHAR v7; // rax
+  ULONG v9; // eax
+  PVOID v10; // rax
+  ULONG *v11; // r15
+  PULONG v12; // rax
+  ULONG v13; // ecx
   ULONG ReturnLength[6]; // [rsp+30h] [rbp-18h] BYREF
-  ULONG TokenInformationLength; // [rsp+90h] [rbp+48h] BYREF
   HANDLE TokenHandle; // [rsp+98h] [rbp+50h] BYREF
-  int TokenInformation; // [rsp+A0h] [rbp+58h] BYREF
-  int v21; // [rsp+A8h] [rbp+60h]
+  ULONG TokenInformationLength; // [rsp+A0h] [rbp+58h] BYREF
+  int TokenInformation; // [rsp+A8h] [rbp+60h] BYREF
 
   v0 = 0;
   v1 = 0LL;
@@ -48,57 +44,58 @@ char IsAllowedToCallMiracast(void)
     {
       if ( TokenInformation )
       {
-        LODWORD(TokenHandle) = 0;
-        ZwQueryInformationToken(v6, TokenAppContainerSid, 0LL, 0, (PULONG)&TokenHandle);
-        v1 = (PSID *)operator new[]((unsigned int)TokenHandle, 0x4B677844u, 256LL, v10);
-        if ( v1 )
+        TokenInformationLength = 0;
+        ZwQueryInformationToken(v6, TokenAppContainerSid, 0LL, 0, &TokenInformationLength);
+        v4 = 1;
+        v1 = (PSID *)operator new[](TokenInformationLength, 0x4B677844u, PagedPool);
+        if ( !v1
+          || ZwQueryInformationToken(v6, TokenAppContainerSid, v1, TokenInformationLength, &TokenInformationLength) < 0 )
         {
-          if ( ZwQueryInformationToken(v6, TokenAppContainerSid, v1, (ULONG)TokenHandle, (PULONG)&TokenHandle) >= 0 )
+          goto LABEL_6;
+        }
+        v9 = RtlLengthRequiredSid(8u);
+        v10 = operator new[](v9, 0x4B677844u, PagedPool);
+        v3 = v10;
+        if ( v10 && RtlInitializeSid(v10, &IdentifierAuthority, 8u) >= 0 )
+        {
+          LODWORD(TokenHandle) = 0;
+          v11 = (ULONG *)&unk_1C0083AB0;
+          while ( 1 )
           {
-            v11 = RtlLengthRequiredSid(8u);
-            v13 = (void *)operator new[](v11, 0x4B677844u, 256LL, v12);
-            v3 = v13;
-            if ( v13 )
+            do
             {
-              if ( RtlInitializeSid(v13, &IdentifierAuthority, 8u) >= 0 )
-              {
-                v21 = 0;
-                v14 = (ULONG *)&unk_1C00B0B00;
-                while ( 1 )
-                {
-                  do
-                  {
-                    v15 = *v14;
-                    v16 = RtlSubAuthoritySid(v3, v0++);
-                    ++v14;
-                    *v16 = v15;
-                  }
-                  while ( v0 < 8 );
-                  v0 = 0;
-                  if ( RtlEqualSid(*v1, v3) )
-                    goto LABEL_6;
-                  if ( (unsigned int)++v21 >= 6 )
-                  {
-                    v4 = 0;
-                    break;
-                  }
-                }
-              }
+              v12 = RtlSubAuthoritySid(v3, v0);
+              v13 = *v11;
+              ++v0;
+              ++v11;
+              *v12 = v13;
             }
+            while ( v0 < 8 );
+            v0 = 0;
+            if ( RtlEqualSid(*v1, v3) )
+              break;
+            LODWORD(TokenHandle) = (_DWORD)TokenHandle + 1;
+            if ( (unsigned int)TokenHandle >= 6 )
+              goto LABEL_24;
           }
+        }
+        else
+        {
+LABEL_24:
+          v4 = 0;
         }
       }
       else
       {
-        TokenInformationLength = 0;
-        ZwQueryInformationToken(v6, TokenIntegrityLevel, 0LL, 0, &TokenInformationLength);
-        v2 = (PSID *)operator new[](TokenInformationLength, 0x4B677844u, 256LL, v7);
-        if ( ZwQueryInformationToken(v6, TokenIntegrityLevel, v2, TokenInformationLength, &TokenInformationLength) >= 0 )
+        LODWORD(TokenHandle) = 0;
+        ZwQueryInformationToken(v6, TokenIntegrityLevel, 0LL, 0, (PULONG)&TokenHandle);
+        v4 = 1;
+        v2 = (PSID *)operator new[]((unsigned int)TokenHandle, 0x4B677844u, PagedPool);
+        if ( ZwQueryInformationToken(v6, TokenIntegrityLevel, v2, (ULONG)TokenHandle, (PULONG)&TokenHandle) < 0
+          || (v7 = RtlSubAuthorityCountSid(*v2), *RtlSubAuthoritySid(*v2, (unsigned int)*v7 - 1) < 0x1000) )
         {
-          v8 = RtlSubAuthorityCountSid(*v2);
-          if ( *RtlSubAuthoritySid(*v2, (unsigned int)*v8 - 1) >= 0x1000 )
 LABEL_6:
-            v4 = 1;
+          v4 = 0;
         }
       }
     }

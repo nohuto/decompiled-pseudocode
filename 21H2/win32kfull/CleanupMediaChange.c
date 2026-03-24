@@ -1,5 +1,5 @@
 /*
- * XREFs of CleanupMediaChange @ 0x1C01227D0
+ * XREFs of CleanupMediaChange @ 0x1C01370C0
  * Callers:
  *     <none>
  * Callees:

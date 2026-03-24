@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Initialize@CManipulationManager@@IEAAJXZ @ 0x18002C6B8
+ * XREFs of ?Initialize@CManipulationManager@@IEAAJXZ @ 0x1800B5A48
  * Callers:
- *     ?Initialize@CComposition@@MEAAJXZ @ 0x18002E810 (-Initialize@CComposition@@MEAAJXZ.c)
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800B48A0 (-Initialize@CComposition@@MEAAJXZ.c)
  * Callees:
- *     ?SetupMessageCallThreadInfo@CManipulationManager@@IEAAJPEAUIMessageSession@@P6AJPEAXPEBXH@ZPEAUMessageCallThreadInfo@1@@Z @ 0x18002C820 (-SetupMessageCallThreadInfo@CManipulationManager@@IEAAJPEAUIMessageSession@@P6AJPEAXPEBXH@ZPEAUM.c)
- *     ?CreateManipulationThread@CManipulationManager@@IEAAJXZ @ 0x18002C90C (-CreateManipulationThread@CManipulationManager@@IEAAJXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ClearWaitHandles@CManipulationManager@@KAXXZ @ 0x18017C348 (-ClearWaitHandles@CManipulationManager@@KAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetupMessageCallThreadInfo@CManipulationManager@@IEAAJPEAUIMessageSession@@P6AJPEAXPEBXH@ZPEAUMessageCallThreadInfo@1@@Z @ 0x1800B5B9C (-SetupMessageCallThreadInfo@CManipulationManager@@IEAAJPEAUIMessageSession@@P6AJPEAXPEBXH@ZPEAUM.c)
+ *     ?CreateManipulationThread@CManipulationManager@@IEAAJXZ @ 0x1800B5C74 (-CreateManipulationThread@CManipulationManager@@IEAAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?ClearWaitHandles@CManipulationManager@@KAXXZ @ 0x180224AE0 (-ClearWaitHandles@CManipulationManager@@KAXXZ.c)
  */
 
 __int64 __fastcall CManipulationManager::Initialize(CManipulationManager *this)
@@ -17,10 +17,10 @@ __int64 __fastcall CManipulationManager::Initialize(CManipulationManager *this)
   HANDLE EventW; // rax
   struct IMessageSession *v5; // rax
   int ManipulationThread; // eax
-  unsigned int v7; // ecx
+  __int64 v7; // rcx
   struct IMessageSession *v8; // rax
-  int v10; // r9d
-  signed int v11; // eax
+  signed int v10; // eax
+  int v11; // r9d
   signed int LastError; // eax
   unsigned int v13; // [rsp+20h] [rbp-18h]
 
@@ -39,7 +39,7 @@ __int64 __fastcall CManipulationManager::Initialize(CManipulationManager *this)
       v2 = LastError;
       if ( LastError > 0 )
         v2 = (unsigned __int16)LastError | 0x80070000;
-      v13 = 115;
+      v13 = 114;
       goto LABEL_20;
     }
     ++v2;
@@ -50,18 +50,18 @@ __int64 __fastcall CManipulationManager::Initialize(CManipulationManager *this)
   CManipulationManager::s_hManipThreadInitializedWaitEvent = CreateEventW(0LL, 0, 0, 0LL);
   if ( !CManipulationManager::s_hManipThreadInitializedWaitEvent )
   {
-    v11 = GetLastError();
-    v2 = v11;
-    if ( v11 > 0 )
-      v2 = (unsigned __int16)v11 | 0x80070000;
-    v13 = 122;
+    v10 = GetLastError();
+    v2 = v10;
+    if ( v10 > 0 )
+      v2 = (unsigned __int16)v10 | 0x80070000;
+    v13 = 121;
 LABEL_20:
     if ( (v2 & 0x80000000) == 0 )
       v2 = -2003304445;
-    v10 = v2;
+    v11 = v2;
     goto LABEL_23;
   }
-  v5 = (struct IMessageSession *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*((_QWORD *)this + 2) + 656LL) + 112LL))(*(_QWORD *)(*((_QWORD *)this + 2) + 656LL));
+  v5 = (struct IMessageSession *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*((_QWORD *)this + 2) + 504LL) + 88LL))(*(_QWORD *)(*((_QWORD *)this + 2) + 504LL));
   ManipulationThread = CManipulationManager::SetupMessageCallThreadInfo(
                          this,
                          v5,
@@ -70,12 +70,12 @@ LABEL_20:
   v2 = ManipulationThread;
   if ( ManipulationThread < 0 )
   {
-    v13 = 131;
+    v13 = 130;
   }
   else
   {
-    v8 = (struct IMessageSession *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*((_QWORD *)this + 2) + 656LL)
-                                                                     + 112LL))(*(_QWORD *)(*((_QWORD *)this + 2) + 656LL));
+    v8 = (struct IMessageSession *)(*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)(*((_QWORD *)this + 2) + 504LL)
+                                                                     + 88LL))(*(_QWORD *)(*((_QWORD *)this + 2) + 504LL));
     ManipulationThread = CManipulationManager::SetupMessageCallThreadInfo(
                            this,
                            v8,
@@ -84,7 +84,7 @@ LABEL_20:
     v2 = ManipulationThread;
     if ( ManipulationThread < 0 )
     {
-      v13 = 136;
+      v13 = 135;
     }
     else
     {
@@ -92,13 +92,16 @@ LABEL_20:
       v2 = ManipulationThread;
       if ( ManipulationThread >= 0 )
         return v2;
-      v13 = 141;
+      v13 = 140;
     }
   }
-  v10 = ManipulationThread;
+  v11 = ManipulationThread;
 LABEL_23:
-  MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v10, v13, 0LL);
-  CManipulationManager::ClearWaitHandles();
-  _InterlockedCompareExchange(&CManipulationManager::s_bManipThreadInitialized, 0, 1);
+  MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v11, v13, 0LL);
+  if ( (v2 & 0x80000000) != 0 )
+  {
+    CManipulationManager::ClearWaitHandles();
+    _InterlockedCompareExchange(&CManipulationManager::s_bManipThreadInitialized, 0, 1);
+  }
   return v2;
 }

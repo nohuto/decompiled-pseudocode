@@ -1,9 +1,9 @@
 /*
- * XREFs of ExQueryPoolUsage @ 0x14026927C
+ * XREFs of ExQueryPoolUsage @ 0x140272144
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x1406F2420 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x140646800 (ExpQuerySystemPerformanceInformation.c)
  * Callees:
- *     ExHeapQueryPoolUsage @ 0x1402692C0 (ExHeapQueryPoolUsage.c)
+ *     ExHeapQueryPoolUsage @ 0x140272188 (ExHeapQueryPoolUsage.c)
  */
 
 __int64 __fastcall ExQueryPoolUsage(int a1, int a2, int a3, int a4, __int64 a5, __int64 a6, __int64 a7, __int64 a8)

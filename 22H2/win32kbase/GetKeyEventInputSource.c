@@ -1,7 +1,7 @@
 /*
- * XREFs of GetKeyEventInputSource @ 0x1C006B340
+ * XREFs of GetKeyEventInputSource @ 0x1C004DD80
  * Callers:
- *     xxxKeyEventEx @ 0x1C006A7C8 (xxxKeyEventEx.c)
+ *     xxxKeyEventEx @ 0x1C004CFD0 (xxxKeyEventEx.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +25,7 @@ void __fastcall GetKeyEventInputSource(__int64 a1, __int64 a2, __int64 a3, _DWOR
       v4 = *(_DWORD *)(a3 + 8) != 0;
     }
     else if ( UIPrivelegeIsolation::fEnforce && (a1 = *((_QWORD *)gptiCurrent + 53), *(int *)(a1 + 12) < 0)
-           || (PVOID)PsGetCurrentProcess(a1, a2, 0LL) == gpepCSRSS )
+           || (PVOID)PsGetCurrentProcess(a1, a2) == gpepCSRSS )
     {
       v4 = 1;
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of rimHidP_GetUsageValueArray @ 0x1C00E640E
+ * XREFs of rimHidP_GetUsageValueArray @ 0x1C01636DC
  * Callers:
- *     rimExtractPointerDeviceUsages @ 0x1C01B00C4 (rimExtractPointerDeviceUsages.c)
+ *     rimExtractPointerDeviceUsages @ 0x1C017AA10 (rimExtractPointerDeviceUsages.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 int __fastcall rimHidP_GetUsageValueArray(

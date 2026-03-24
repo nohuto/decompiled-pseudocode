@@ -1,38 +1,39 @@
 /*
- * XREFs of ExpWaitForResource @ 0x1403410D0
+ * XREFs of ExpWaitForResource @ 0x1402C2A60
  * Callers:
- *     ExpAcquireResourceExclusiveLite @ 0x14023B4B0 (ExpAcquireResourceExclusiveLite.c)
- *     ExpAcquireResourceSharedLite @ 0x14023DDA0 (ExpAcquireResourceSharedLite.c)
- *     ExpAcquireSharedStarveExclusive @ 0x1402632C0 (ExpAcquireSharedStarveExclusive.c)
- *     ExAcquireSharedWaitForExclusive @ 0x1403C82F0 (ExAcquireSharedWaitForExclusive.c)
- *     ExAcquireFastResourceShared @ 0x1403C8B20 (ExAcquireFastResourceShared.c)
- *     ExAcquireFastResourceSharedStarveExclusive @ 0x1403C9280 (ExAcquireFastResourceSharedStarveExclusive.c)
- *     ExAcquireFastResourceExclusive @ 0x1403C9760 (ExAcquireFastResourceExclusive.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x14029EDE0 (ExpAcquireSharedStarveExclusive.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExpAcquireResourceSharedLite @ 0x1402CC770 (ExpAcquireResourceSharedLite.c)
+ *     ExpAcquireResourceExclusiveLite @ 0x1402CD0C0 (ExpAcquireResourceExclusiveLite.c)
+ *     ExAcquireFastResourceExclusive @ 0x14038E5D0 (ExAcquireFastResourceExclusive.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x14038E9B0 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExAcquireFastResourceShared @ 0x14038EC80 (ExAcquireFastResourceShared.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1405B4CB0 (ExAcquireSharedWaitForExclusive.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     DbgPrintEx @ 0x14032A560 (DbgPrintEx.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     PerfLogExecutiveResourceWait @ 0x140600BF4 (PerfLogExecutiveResourceWait.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     DbgPrintEx @ 0x14037EFD0 (DbgPrintEx.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     PerfLogExecutiveResourceWait @ 0x1405AB198 (PerfLogExecutiveResourceWait.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-NTSTATUS __fastcall ExpWaitForResource(_DWORD *a1, __int64 a2, unsigned int a3, void (__fastcall *a4)(_DWORD *))
+NTSTATUS __fastcall ExpWaitForResource(
+        struct _LIST_ENTRY *a1,
+        __int64 a2,
+        unsigned int a3,
+        void (__fastcall *a4)(struct _LIST_ENTRY *))
 {
-  unsigned int v8; // edi
-  unsigned int v9; // esi
-  _DWORD *v10; // r15
+  unsigned int v8; // r15d
+  unsigned int v9; // r12d
   NTSTATUS result; // eax
-  __int64 Pool2; // rax
-  LARGE_INTEGER Timeout; // [rsp+38h] [rbp-50h] BYREF
-  _DWORD *v14; // [rsp+40h] [rbp-48h]
+  struct _WORK_QUEUE_ITEM *PoolWithTag; // rax
+  LARGE_INTEGER Timeout; // [rsp+38h] [rbp-40h] BYREF
 
-  __incgsdword(0x8A68u);
+  __incgsdword(0x8668u);
   v8 = 0;
   v9 = 0;
-  v10 = a1 + 17;
-  v14 = a1 + 17;
-  ++a1[17];
+  ++HIDWORD(a1[4].Flink);
   Timeout.QuadPart = -5000000LL;
   while ( 1 )
   {
@@ -48,17 +49,17 @@ NTSTATUS __fastcall ExpWaitForResource(_DWORD *a1, __int64 a2, unsigned int a3, 
     {
       v9 = 0;
       DbgPrintEx(0, 0, "Possible deadlock. Use !locks %p to determine the resource owner\n", a1);
-      Pool2 = ExAllocatePool2(64LL, 56LL, 1867801938LL);
-      if ( Pool2 )
+      PoolWithTag = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x6F546552u);
+      if ( PoolWithTag )
       {
-        *(_QWORD *)(Pool2 + 16) = ExpResourceTimeoutCaptureLiveDump;
-        *(_QWORD *)(Pool2 + 24) = Pool2;
-        *(_QWORD *)Pool2 = 0LL;
-        *(_QWORD *)(Pool2 + 32) = KeGetCurrentThread();
-        *(_QWORD *)(Pool2 + 40) = a1;
-        *(_DWORD *)(Pool2 + 48) = *v10;
-        *(_DWORD *)(Pool2 + 52) = ExResourceTimeoutCount;
-        ExQueueWorkItem((PWORK_QUEUE_ITEM)Pool2, DelayedWorkQueue);
+        PoolWithTag->WorkerRoutine = (void (__fastcall *)(void *))ExpResourceTimeoutCaptureLiveDump;
+        PoolWithTag->Parameter = PoolWithTag;
+        PoolWithTag->List.Flink = 0LL;
+        PoolWithTag[1].List.Flink = (struct _LIST_ENTRY *)KeGetCurrentThread();
+        PoolWithTag[1].List.Blink = a1;
+        LODWORD(PoolWithTag[1].WorkerRoutine) = HIDWORD(a1[4].Flink);
+        HIDWORD(PoolWithTag[1].WorkerRoutine) = ExResourceTimeoutCount;
+        ExQueueWorkItem(PoolWithTag, DelayedWorkQueue);
       }
       __debugbreak();
     }

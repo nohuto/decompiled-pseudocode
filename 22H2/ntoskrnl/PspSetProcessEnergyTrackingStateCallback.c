@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetProcessEnergyTrackingStateCallback @ 0x1407EA6B0
+ * XREFs of PspSetProcessEnergyTrackingStateCallback @ 0x1406A47E0
  * Callers:
  *     <none>
  * Callees:
- *     PsUpdateComponentPower @ 0x14020E6C0 (PsUpdateComponentPower.c)
+ *     PsUpdateComponentPower @ 0x1402517F0 (PsUpdateComponentPower.c)
  */
 
 __int64 __fastcall PspSetProcessEnergyTrackingStateCallback(struct _KPROCESS *a1, unsigned __int64 *a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?RegisterClientVersion@_FX_DRIVER_GLOBALS@@QEAAXPEBU_UNICODE_STRING@@@Z @ 0x1C006EFEC
+ * XREFs of ?RegisterClientVersion@_FX_DRIVER_GLOBALS@@QEAAXPEBU_UNICODE_STRING@@@Z @ 0x1C005969C
  * Callers:
- *     FxInitialize @ 0x1C0027E24 (FxInitialize.c)
+ *     FxInitialize @ 0x1C00570B8 (FxInitialize.c)
  * Callees:
- *     WPP_IFR_SF_d @ 0x1C00306F4 (WPP_IFR_SF_d.c)
- *     __security_check_cookie @ 0x1C0035840 (__security_check_cookie.c)
+ *     WPP_IFR_SF_d @ 0x1C000A9D8 (WPP_IFR_SF_d.c)
+ *     __security_check_cookie @ 0x1C001A4F0 (__security_check_cookie.c)
  */
 
 void __fastcall _FX_DRIVER_GLOBALS::RegisterClientVersion(_FX_DRIVER_GLOBALS *this, _UNICODE_STRING *ServiceKeyName)

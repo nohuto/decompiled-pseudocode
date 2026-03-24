@@ -1,5 +1,5 @@
 /*
- * XREFs of ?QueryInterface@BamoDataProviderRegistrarPrincipal@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18011D4C0
+ * XREFs of ?QueryInterface@BamoDataProviderRegistrarPrincipal@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F5080
  * Callers:
  *     <none>
  * Callees:

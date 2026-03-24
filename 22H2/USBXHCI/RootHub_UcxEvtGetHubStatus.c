@@ -1,11 +1,11 @@
 /*
- * XREFs of RootHub_UcxEvtGetHubStatus @ 0x1C00135D0
+ * XREFs of RootHub_UcxEvtGetHubStatus @ 0x1C000EF90
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_DDDDDDDD @ 0x1C0040998 (WPP_RECORDER_SF_DDDDDDDD.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DDDDDDDD @ 0x1C003E404 (WPP_RECORDER_SF_DDDDDDDD.c)
  */
 
 __int64 __fastcall RootHub_UcxEvtGetHubStatus(__int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall RootHub_UcxEvtGetHubStatus(__int64 a1, __int64 a2)
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0063248);
+         off_1C0060248);
   v8 = 0LL;
   memset(v7, 0, sizeof(v7));
   LOWORD(v7[0]) = 40;
@@ -39,7 +39,7 @@ __int64 __fastcall RootHub_UcxEvtGetHubStatus(__int64 a1, __int64 a2)
         *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
         *(unsigned __int8 *)(*((_QWORD *)&v7[0] + 1) + 134LL),
         *(unsigned __int8 *)(*((_QWORD *)&v7[0] + 1) + 133LL),
-        106);
+        104);
     v5 = -1073741820;
   }
   *(_DWORD *)(v4 + 4) = v5;

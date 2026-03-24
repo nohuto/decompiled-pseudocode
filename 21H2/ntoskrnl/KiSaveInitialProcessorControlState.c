@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSaveInitialProcessorControlState @ 0x14041F600
+ * XREFs of KiSaveInitialProcessorControlState @ 0x1403FE120
  * Callers:
- *     KiInitializeBootStructures @ 0x140A57680 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of WMI_AcquireHubName @ 0x1C0085ED8
+ * XREFs of WMI_AcquireHubName @ 0x1C0084268
  * Callers:
- *     WMI_ExecuteMethodUsbWmiStdData @ 0x1C0086570 (WMI_ExecuteMethodUsbWmiStdData.c)
+ *     WMI_ExecuteMethodUsbWmiStdData @ 0x1C0084920 (WMI_ExecuteMethodUsbWmiStdData.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     HUBMISC_StripSymbolicNamePrefix @ 0x1C0030B3C (HUBMISC_StripSymbolicNamePrefix.c)
- *     memmove @ 0x1C0043840 (memmove.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBMISC_StripSymbolicNamePrefix @ 0x1C003049C (HUBMISC_StripSymbolicNamePrefix.c)
+ *     memmove @ 0x1C0042A80 (memmove.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 __int64 __fastcall WMI_AcquireHubName(__int64 a1, unsigned int a2, _DWORD *a3, __int64 a4)
@@ -25,7 +25,7 @@ __int64 __fastcall WMI_AcquireHubName(__int64 a1, unsigned int a2, _DWORD *a3, _
   if ( a2 < 0xA || (v7 = *(unsigned int *)(a4 + 4), (unsigned int)v7 < 0xA) || (unsigned int)v7 > a2 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0xAu, (__int64)&WPP_354a0f7c514c308e6a0f4d9506e11eea_Traceguids);
+      WPP_RECORDER_SF_(*(_QWORD *)(a1 + 2520), 2u, 3u, 0xAu, (__int64)&WPP_03caf6220c95364129c2af37afef0046_Traceguids);
     return (unsigned int)-1073741789;
   }
   else

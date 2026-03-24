@@ -1,236 +1,242 @@
 /*
- * XREFs of NtRenameKey @ 0x14090EF60
+ * XREFs of NtRenameKey @ 0x140868C30
  * Callers:
  *     <none>
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     CmCleanupThreadInfo @ 0x14022EA30 (CmCleanupThreadInfo.c)
- *     CmDoVirtualTest @ 0x14023BD3C (CmDoVirtualTest.c)
- *     CmpIsRegistryLockAcquired @ 0x1402ACD00 (CmpIsRegistryLockAcquired.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeEnterCriticalRegion @ 0x1403468F0 (KeEnterCriticalRegion.c)
- *     CmpInitializeThreadInfo @ 0x140347770 (CmpInitializeThreadInfo.c)
- *     CmpAllocateTransientPoolWithQuotaTag @ 0x140367AF0 (CmpAllocateTransientPoolWithQuotaTag.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     CmpDoesBufferRequireCapturing @ 0x140720224 (CmpDoesBufferRequireCapturing.c)
- *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     CmPostCallbackNotification @ 0x1407C04B4 (CmPostCallbackNotification.c)
- *     CmpCallCallBacks @ 0x1407C0568 (CmpCallCallBacks.c)
- *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     CmRenameKey @ 0x140912608 (CmRenameKey.c)
- *     CmKeyBodyNeedsVirtualImage @ 0x140915D20 (CmKeyBodyNeedsVirtualImage.c)
- *     CmKeyBodyReplicateToVirtual @ 0x14091607C (CmKeyBodyReplicateToVirtual.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
- *     CmpReleaseShutdownRundown @ 0x140AB42A0 (CmpReleaseShutdownRundown.c)
- *     CmpAttachToRegistryProcess @ 0x140AB4550 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140AB4580 (CmpDetachFromRegistryProcess.c)
- *     CmObReferenceObjectByHandle @ 0x140AB4630 (CmObReferenceObjectByHandle.c)
- *     CmpAcquireShutdownRundown @ 0x140AB46D0 (CmpAcquireShutdownRundown.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     CmpAllocateTransientPoolWithQuotaTag @ 0x14027EF58 (CmpAllocateTransientPoolWithQuotaTag.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     CmDoVirtualTest @ 0x1402D1684 (CmDoVirtualTest.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14034FE80 (ExIsResourceAcquiredSharedLite.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     CmpDoesBufferRequireCapturing @ 0x1406645EC (CmpDoesBufferRequireCapturing.c)
+ *     CmObReferenceObjectByHandle @ 0x14066461C (CmObReferenceObjectByHandle.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1406A0A00 (CmKeyBodyReplicateToVirtual.c)
+ *     CmKeyBodyNeedsVirtualImage @ 0x1406C3180 (CmKeyBodyNeedsVirtualImage.c)
+ *     CmpCallCallBacksEx @ 0x1406F3440 (CmpCallCallBacksEx.c)
+ *     CmPostCallbackNotificationEx @ 0x1406F8480 (CmPostCallbackNotificationEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
  */
 
-__int64 __fastcall NtRenameKey(__int64 a1, _OWORD *a2)
+__int64 __fastcall NtRenameKey(void *a1, unsigned __int64 a2)
 {
   char v3; // r13
   int PreviousMode; // r12d
   char v5; // r15
   char v6; // r14
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  unsigned __int64 v10; // rdx
-  __int64 v11; // r8
-  signed int v12; // ebx
-  char v13; // si
-  __int64 v14; // rax
-  unsigned __int64 v15; // rcx
-  unsigned __int16 v16; // bx
-  PPRIVILEGE_SET v17; // rsi
-  __int64 v18; // rcx
-  int v19; // r9d
-  unsigned int v20; // eax
-  int v21; // esi
-  int v22; // r9d
-  __int64 v23; // r8
+  struct _KTHREAD *CurrentThread; // rax
+  signed int v8; // ebx
+  char v9; // si
+  int v10; // eax
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // rdx
+  unsigned __int16 v13; // bx
+  PPRIVILEGE_SET v14; // rsi
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  unsigned int v17; // eax
+  void *v18; // rsi
+  __int64 v19; // rdx
+  __int64 v20; // r8
+  _DWORD *v21; // r9
+  __int64 v22; // r8
+  struct _KTHREAD *v23; // rax
   int v24; // eax
   __int64 v25; // r8
-  PVOID v26; // rcx
-  char v28; // [rsp+33h] [rbp-135h]
-  PVOID Object; // [rsp+38h] [rbp-130h] BYREF
-  void *Src[2]; // [rsp+40h] [rbp-128h] BYREF
-  int v31; // [rsp+50h] [rbp-118h] BYREF
-  int v32; // [rsp+54h] [rbp-114h]
-  PPRIVILEGE_SET Privileges; // [rsp+58h] [rbp-110h]
-  _QWORD v34[2]; // [rsp+60h] [rbp-108h] BYREF
-  int v35; // [rsp+70h] [rbp-F8h]
-  __int64 v36; // [rsp+78h] [rbp-F0h]
-  __int128 v37; // [rsp+80h] [rbp-E8h]
-  __int128 v38; // [rsp+90h] [rbp-D8h] BYREF
-  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+A0h] [rbp-C8h] BYREF
-  _OWORD v40[2]; // [rsp+C0h] [rbp-A8h] BYREF
-  __int64 v41; // [rsp+E0h] [rbp-88h]
-  __int128 v42; // [rsp+F0h] [rbp-78h] BYREF
-  _BYTE v43[48]; // [rsp+100h] [rbp-68h] BYREF
+  unsigned int v27; // [rsp+44h] [rbp-134h]
+  BOOLEAN v28; // [rsp+4Ah] [rbp-12Eh]
+  PADAPTER_OBJECT DmaAdapter[2]; // [rsp+50h] [rbp-128h] BYREF
+  void *Src[2]; // [rsp+60h] [rbp-118h] BYREF
+  int v31; // [rsp+70h] [rbp-108h] BYREF
+  PPRIVILEGE_SET Privileges; // [rsp+78h] [rbp-100h]
+  _QWORD v33[2]; // [rsp+80h] [rbp-F8h] BYREF
+  void *v34; // [rsp+90h] [rbp-E8h]
+  __int128 v35; // [rsp+A0h] [rbp-D8h]
+  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+B0h] [rbp-C8h] BYREF
+  _OWORD v37[2]; // [rsp+D0h] [rbp-A8h] BYREF
+  __int64 v38; // [rsp+F0h] [rbp-88h]
+  __int128 v39; // [rsp+100h] [rbp-78h] BYREF
+  _BYTE v40[48]; // [rsp+110h] [rbp-68h] BYREF
 
-  v36 = a1;
-  v38 = 0LL;
+  v34 = a1;
   *(_OWORD *)Src = 0LL;
-  memset(v43, 0, sizeof(v43));
-  CmpInitializeThreadInfo((__int64)&v38);
+  memset(v40, 0, sizeof(v40));
   v3 = 0;
-  Object = 0LL;
+  DmaAdapter[0] = 0LL;
   Privileges = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v5 = 0;
-  memset(v40, 0, sizeof(v40));
-  v41 = 0LL;
-  v35 = -1;
-  v34[1] = v34;
-  v34[0] = v34;
+  memset(v37, 0, sizeof(v37));
+  v38 = 0LL;
+  v33[1] = v33;
+  v33[0] = v33;
   v31 = 0;
   v6 = 0;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
-  v28 = CmpAcquireShutdownRundown(v8, v7, v9);
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v28 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
   if ( !v28 )
   {
-    v12 = -1073741431;
-    v13 = 0;
-    goto LABEL_42;
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    v8 = -1073741431;
+    v27 = -1073741431;
+    v9 = 0;
+    goto LABEL_43;
   }
-  v11 = 1LL;
   if ( (_BYTE)PreviousMode == 1 )
   {
-    v37 = 0LL;
-    v14 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v14 = (__int64)a2;
-    v10 = *(unsigned int *)v14;
-    LODWORD(v37) = v10;
-    v15 = *(_QWORD *)(v14 + 8);
-    *((_QWORD *)&v37 + 1) = v15;
-    *(_OWORD *)Src = v37;
+    v35 = 0LL;
+    if ( a2 >= 0x7FFFFFFF0000LL )
+      a2 = 0x7FFFFFFF0000LL;
+    v10 = *(_DWORD *)a2;
+    LODWORD(v35) = v10;
+    v11 = *(_QWORD *)(a2 + 8);
+    *((_QWORD *)&v35 + 1) = v11;
+    *(_OWORD *)Src = v35;
     if ( (_WORD)v10 )
     {
-      if ( (v15 & 1) != 0 )
+      if ( (v11 & 1) != 0 )
         ExRaiseDatatypeMisalignment();
-      v10 = v15 + (unsigned __int16)v10;
-      if ( v10 > 0x7FFFFFFF0000LL || v10 < v15 )
+      v12 = v11 + (unsigned __int16)v10;
+      if ( v12 > 0x7FFFFFFF0000LL || v12 < v11 )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
   }
   else
   {
-    *(_OWORD *)Src = *a2;
+    *(_OWORD *)Src = *(_OWORD *)a2;
   }
-  v16 = (unsigned __int16)Src[0];
+  v13 = (unsigned __int16)Src[0];
   if ( (unsigned __int16)(LOWORD(Src[0]) - 1) > 0x1FFu
     || ((__int64)Src[0] & 1) != 0
-    || (v17 = (PPRIVILEGE_SET)Src[1], !*(_WORD *)Src[1]) )
+    || (v14 = (PPRIVILEGE_SET)Src[1], !*(_WORD *)Src[1]) )
   {
-    v12 = -1073741811;
-    v32 = -1073741811;
-    v13 = 0;
-    goto LABEL_42;
+    v8 = -1073741811;
+    v27 = -1073741811;
+    v9 = 0;
+    goto LABEL_43;
   }
   if ( CmpDoesBufferRequireCapturing(PreviousMode, (__int64)Src[1]) )
   {
-    Privileges = (PPRIVILEGE_SET)CmpAllocateTransientPoolWithQuotaTag(v18, LOWORD(Src[0]), 0x426E4D43u);
+    Privileges = (PPRIVILEGE_SET)CmpAllocateTransientPoolWithQuotaTag(v15, LOWORD(Src[0]), 0x426E4D43u);
     if ( !Privileges )
     {
-      v12 = -1073741670;
-      v32 = -1073741670;
-      v13 = 0;
-      goto LABEL_42;
+      v8 = -1073741670;
+      v27 = -1073741670;
+      v9 = 0;
+      goto LABEL_43;
     }
-    v17 = Privileges;
+    v14 = Privileges;
     memmove(Privileges, Src[1], LOWORD(Src[0]));
     Src[1] = Privileges;
-    v16 = (unsigned __int16)Src[0];
+    v13 = (unsigned __int16)Src[0];
     WORD1(Src[0]) = Src[0];
   }
-  v20 = 0;
-  if ( v16 >> 1 )
+  v17 = 0;
+  if ( v13 >> 1 )
   {
-    while ( LOWORD(v17->PrivilegeCount) != 92 )
+    while ( LOWORD(v14->PrivilegeCount) != 92 )
     {
-      ++v20;
-      v17 = (PPRIVILEGE_SET)((char *)v17 + 2);
-      if ( v20 >= v16 >> 1 )
+      ++v17;
+      v14 = (PPRIVILEGE_SET)((char *)v14 + 2);
+      if ( v17 >= v13 >> 1 )
         goto LABEL_22;
     }
-    v12 = -1073741811;
+    v8 = -1073741811;
     goto LABEL_26;
   }
 LABEL_22:
-  LOBYTE(v19) = PreviousMode;
-  v21 = v36;
-  v12 = CmObReferenceObjectByHandle(v36, 131078, v11, v19, (__int64)&Object, 0LL);
-  if ( v12 == -1073741790 )
+  v18 = v34;
+  v8 = CmObReferenceObjectByHandle(v34, 0x20006u, v16, PreviousMode, DmaAdapter, 0LL);
+  v27 = v8;
+  if ( v8 == -1073741790 )
   {
     SeCaptureSubjectContext(&SubjectContext);
     v6 = 1;
     if ( !CmDoVirtualTest((__int64)&SubjectContext, (__int64)&v31) )
       goto LABEL_24;
-    LOBYTE(v22) = PreviousMode;
-    v12 = CmObReferenceObjectByHandle(v21, 131097, v11, v22, (__int64)&Object, 0LL);
-    if ( v12 < 0 )
-      goto LABEL_26;
-    if ( !(unsigned __int8)CmKeyBodyNeedsVirtualImage(Object) )
+    v8 = CmObReferenceObjectByHandle(v18, 0x20019u, v22, PreviousMode, DmaAdapter, 0LL);
+    v27 = v8;
+    if ( v8 < 0 )
+      goto LABEL_27;
+    if ( !CmKeyBodyNeedsVirtualImage((__int64)DmaAdapter[0]) )
     {
 LABEL_24:
-      v12 = -1073741790;
+      v8 = -1073741790;
 LABEL_26:
-      v13 = 0;
-      goto LABEL_42;
+      v27 = v8;
+LABEL_27:
+      v9 = 0;
+      goto LABEL_43;
     }
     v5 = 1;
   }
   v6 = v5;
-  if ( v12 < 0 )
-    goto LABEL_26;
-  KeEnterCriticalRegion();
-  v13 = 1;
-  if ( CmpCallBackCount && !CmpIsRegistryLockAcquired() )
+  if ( v8 < 0 )
+    goto LABEL_27;
+  v23 = KeGetCurrentThread();
+  --v23->KernelApcDisable;
+  v9 = 1;
+  if ( CmpCallBackCount && !ExIsResourceAcquiredSharedLite((PERESOURCE)&CmpRegistryLock) )
   {
-    *(_QWORD *)&v40[0] = Object;
-    *((_QWORD *)&v40[0] + 1) = Src;
-    v24 = CmpCallCallBacks(4u, (__int64)v40, v23, 0x13u, (__int64)Object, (__int64)v34);
-    v12 = v24;
+    *(PADAPTER_OBJECT *)&v37[0] = DmaAdapter[0];
+    *((_QWORD *)&v37[0] + 1) = Src;
+    v24 = CmpCallCallBacksEx(4u, (__int64)v37, 0LL, 1, 0x13u, (__int64)DmaAdapter[0], (__int64)v33);
+    v8 = v24;
     if ( v24 < 0 )
     {
       if ( v24 == -1073740541 )
-        v12 = 0;
-      goto LABEL_42;
+        v8 = 0;
+      v27 = v8;
+      goto LABEL_43;
     }
     v3 = 1;
   }
   if ( !v5
-    || (LOBYTE(v10) = PreviousMode,
-        v12 = CmKeyBodyReplicateToVirtual(&Object, v10, 131078LL, &SubjectContext, &v31),
-        v12 >= 0) )
+    || (v8 = CmKeyBodyReplicateToVirtual((__int64 *)DmaAdapter, PreviousMode, 0x20006u, (__int64)&SubjectContext),
+        v27 = v8,
+        v8 >= 0) )
   {
-    CmpAttachToRegistryProcess(v43);
-    v42 = *(_OWORD *)Src;
+    CmpAttachToRegistryProcess((__int64)v40, v19, v20, v21);
+    v39 = *(_OWORD *)Src;
     LOBYTE(v25) = PreviousMode;
-    v12 = CmRenameKey(Object, &v42, v25);
-    CmpDetachFromRegistryProcess(v43);
+    v8 = CmRenameKey(DmaAdapter[0], &v39, v25);
+    v27 = v8;
+    KiUnstackDetachProcess((__int64)v40, 0);
     v6 = v5;
   }
-LABEL_42:
+LABEL_43:
   if ( v6 )
     SeReleaseSubjectContext(&SubjectContext);
   if ( v3 )
-    v12 = CmPostCallbackNotification(0x13u, (__int64)Object, v12, (__int64)v40, v34);
-  if ( v13 )
-    KeLeaveCriticalRegion();
-  v26 = Object;
-  if ( Object )
-    ObfDereferenceObject(Object);
+  {
+    v8 = CmPostCallbackNotificationEx(0x13u, (__int64)DmaAdapter[0], v8, (__int64)v37, 0LL, v33);
+    v27 = v8;
+  }
+  if ( v9 )
+  {
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    v8 = v27;
+  }
+  if ( DmaAdapter[0] )
+    HalPutDmaAdapter(DmaAdapter[0]);
   if ( Privileges )
     CmSiFreeMemory(Privileges);
   if ( v28 )
-    CmpReleaseShutdownRundown(v26, v10, v11);
-  CmCleanupThreadInfo((__int64 *)&v38);
-  return (unsigned int)v12;
+  {
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    return v27;
+  }
+  return (unsigned int)v8;
 }

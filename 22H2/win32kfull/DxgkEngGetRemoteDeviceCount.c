@@ -1,18 +1,17 @@
 /*
- * XREFs of DxgkEngGetRemoteDeviceCount @ 0x1C026FD80
+ * XREFs of DxgkEngGetRemoteDeviceCount @ 0x1C0277460
  * Callers:
  *     <none>
  * Callees:
- *     ?DrvGetRemoteDeviceCount@@YAIXZ @ 0x1C01336A8 (-DrvGetRemoteDeviceCount@@YAIXZ.c)
+ *     ?DrvGetRemoteDeviceCount@@YAIXZ @ 0x1C0162D10 (-DrvGetRemoteDeviceCount@@YAIXZ.c)
  */
 
-__int64 DxgkEngGetRemoteDeviceCount()
+__int64 __fastcall DxgkEngGetRemoteDeviceCount(__int64 a1, __int64 a2, __int64 a3)
 {
-  Gre::Base *v0; // rcx
   unsigned int RemoteDeviceCount; // ebx
 
-  UserEnterUserCritSec();
-  RemoteDeviceCount = DrvGetRemoteDeviceCount(v0);
+  UserEnterUserCritSec(a1, a2, a3);
+  RemoteDeviceCount = DrvGetRemoteDeviceCount();
   UserLeaveUserCritSec();
   return RemoteDeviceCount;
 }

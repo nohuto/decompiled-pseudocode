@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpUpdateDisallowList @ 0x1409E48B8
+ * XREFs of EtwpUpdateDisallowList @ 0x1409343E0
  * Callers:
- *     NtTraceControl @ 0x1407954F0 (NtTraceControl.c)
- *     EtwStartAutoLogger @ 0x140817CD8 (EtwStartAutoLogger.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
+ *     EtwStartAutoLogger @ 0x14079B594 (EtwStartAutoLogger.c)
  * Callees:
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140797594 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x1407981E8 (EtwpReleaseLoggerContext.c)
- *     EtwpUpdateDisallowedGuids @ 0x1409EDE68 (EtwpUpdateDisallowedGuids.c)
+ *     EtwpReleaseLoggerContext @ 0x140643A38 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140643A84 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpUpdateDisallowedGuids @ 0x14094163C (EtwpUpdateDisallowedGuids.c)
  */
 
 __int64 __fastcall EtwpUpdateDisallowList(__int64 a1, unsigned int a2, unsigned __int16 a3, __int64 a4)
 {
-  __int64 v6; // rax
+  unsigned int *v6; // rax
   unsigned int *v7; // rdi
   unsigned int updated; // ebx
 
   v6 = EtwpAcquireLoggerContextByLoggerId(a1, a2, 0);
-  v7 = (unsigned int *)v6;
+  v7 = v6;
   if ( v6 )
   {
     updated = EtwpUpdateDisallowedGuids(v6, a3, a4);

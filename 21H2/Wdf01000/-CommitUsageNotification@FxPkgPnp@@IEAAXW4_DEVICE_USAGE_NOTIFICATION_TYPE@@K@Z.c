@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CommitUsageNotification@FxPkgPnp@@IEAAXW4_DEVICE_USAGE_NOTIFICATION_TYPE@@K@Z @ 0x1C001CB6C
+ * XREFs of ?CommitUsageNotification@FxPkgPnp@@IEAAXW4_DEVICE_USAGE_NOTIFICATION_TYPE@@K@Z @ 0x1C007FE8C
  * Callers:
- *     ?PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z @ 0x1C001C83C (-PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z.c)
+ *     ?PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z @ 0x1C00810DC (-PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z.c)
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     ?PowerProcessEvent@FxPkgPnp@@QEAAXW4FxPowerEvent@@E@Z @ 0x1C00158AC (-PowerProcessEvent@FxPkgPnp@@QEAAXW4FxPowerEvent@@E@Z.c)
- *     WPP_IFR_SF_dDqq @ 0x1C00894D0 (WPP_IFR_SF_dDqq.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?PowerProcessEvent@FxPkgPnp@@QEAAXW4FxPowerEvent@@E@Z @ 0x1C0011530 (-PowerProcessEvent@FxPkgPnp@@QEAAXW4FxPowerEvent@@E@Z.c)
+ *     WPP_IFR_SF_dDqq @ 0x1C00839D0 (WPP_IFR_SF_dDqq.c)
  */
 
 void __fastcall FxPkgPnp::CommitUsageNotification(
@@ -13,7 +13,7 @@ void __fastcall FxPkgPnp::CommitUsageNotification(
         _DEVICE_USAGE_NOTIFICATION_TYPE Type,
         __int16 OldFlags)
 {
-  _FX_DRIVER_GLOBALS *m_Globals; // rbp
+  _FX_DRIVER_GLOBALS *m_Globals; // rsi
   unsigned int level; // edi
   const void *id; // rax
   unsigned int v9; // r8d
@@ -22,7 +22,7 @@ void __fastcall FxPkgPnp::CommitUsageNotification(
 
   m_Globals = this->m_Globals;
   level = this->m_DeviceBase->m_DeviceObject.m_DeviceObject->Flags;
-  if ( (OldFlags & 0x2000) != 0 && (level & 0x2000) == 0 )
+  if ( (level & 0x2000) == 0 && (OldFlags & 0x2000) != 0 )
     FxPkgPnp::PowerProcessEvent(this, 0x400u, 0);
   if ( (level & 0x2000) != 0 && (OldFlags & 0x2000) == 0 )
     FxPkgPnp::PowerProcessEvent(this, 0x200u, 0);

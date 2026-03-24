@@ -1,45 +1,24 @@
 /*
- * XREFs of MiGetPageForEnclave @ 0x1406480A8
+ * XREFs of MiGetPageForEnclave @ 0x14054A904
  * Callers:
- *     MiAddPagesToEnclave @ 0x140646A80 (MiAddPagesToEnclave.c)
- *     MiCopyPagesIntoEnclave @ 0x140A3D034 (MiCopyPagesIntoEnclave.c)
+ *     MiAddPagesToEnclave @ 0x140549044 (MiAddPagesToEnclave.c)
+ *     MiCopyPagesIntoEnclave @ 0x1408D21D8 (MiCopyPagesIntoEnclave.c)
  * Callees:
- *     MiSetPfnBlink @ 0x1402DF0B0 (MiSetPfnBlink.c)
- *     MiAllocateEnclavePages @ 0x140646E08 (MiAllocateEnclavePages.c)
+ *     MiGetEnclavePage @ 0x14054A618 (MiGetEnclavePage.c)
  */
 
-unsigned __int64 __fastcall MiGetPageForEnclave(__int64 a1, __int64 a2)
+__int64 __fastcall MiGetPageForEnclave(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // r8
-  _QWORD *v3; // rax
-  __int64 EnclavePages; // rax
-  __int64 v6; // rbx
+  _QWORD *v3; // rdx
+  unsigned __int64 v4; // rdx
 
   v2 = *(_QWORD *)(a1 + 104);
-  if ( v2 )
-  {
-    v3 = *(_QWORD **)(a1 + 96);
-    *(_QWORD *)(a1 + 96) = *v3;
-    *(_QWORD *)(a1 + 104) = v2 - 1;
-    return 0xAAAAAAAAAAAAAAABuLL * ((__int64)(v3 + 0x44000000000LL) >> 4);
-  }
-  else
-  {
-    EnclavePages = MiAllocateEnclavePages(
-                     a2,
-                     *(unsigned __int16 *)(*(_QWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor] + 192)
-                                         + 138LL),
-                     0,
-                     1LL);
-    v6 = EnclavePages;
-    if ( EnclavePages )
-    {
-      MiSetPfnBlink(EnclavePages, 0LL, 0);
-      return 0xAAAAAAAAAAAAAAABuLL * ((v6 + 0x220000000000LL) >> 4);
-    }
-    else
-    {
-      return -1LL;
-    }
-  }
+  if ( !v2 )
+    return MiGetEnclavePage(a2, 0);
+  v3 = *(_QWORD **)(a1 + 96);
+  *(_QWORD *)(a1 + 96) = *v3;
+  *(_QWORD *)(a1 + 104) = v2 - 1;
+  v4 = (__int64)((unsigned __int128)((__int64)(v3 + 0xB000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3;
+  return v4 + (v4 >> 63);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of KeQueryWakeSource @ 0x14056A60C
+ * XREFs of KeQueryWakeSource @ 0x1405146AC
  * Callers:
- *     PpmIdleExecuteTransition @ 0x140306100 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x1402224B0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140303490 (RtlGetInterruptTimePrecise.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     memset @ 0x140435E00 (memset.c)
- *     KiGetPastDueIRTimerInfo @ 0x14057AA10 (KiGetPastDueIRTimerInfo.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     KiGetPastDueIRTimerInfo @ 0x140523A74 (KiGetPastDueIRTimerInfo.c)
  */
 
 __int64 __fastcall KeQueryWakeSource(int *a1, _BYTE *a2)
@@ -38,7 +38,7 @@ __int64 __fastcall KeQueryWakeSource(int *a1, _BYTE *a2)
   v22 = 0;
   v23 = 0;
   memset(a2, 0, 0x88uLL);
-  result = ((__int64 (__fastcall *)(unsigned int *, _QWORD))off_140C01F38[0])(&v20, 0LL);
+  result = ((__int64 (__fastcall *)(unsigned int *, _QWORD))off_140C008E8[0])(&v20, 0LL);
   if ( (int)result >= 0 )
   {
     if ( ((v20 - 209) & 0xFFFFFFFD) != 0 )

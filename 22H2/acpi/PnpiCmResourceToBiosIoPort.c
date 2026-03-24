@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpiCmResourceToBiosIoPort @ 0x1C0093394
+ * XREFs of PnpiCmResourceToBiosIoPort @ 0x1C0090BD4
  * Callers:
- *     PnpCmResourcesToBiosResources @ 0x1C0092830 (PnpCmResourcesToBiosResources.c)
+ *     PnpCmResourcesToBiosResources @ 0x1C0090950 (PnpCmResourcesToBiosResources.c)
  * Callees:
  *     <none>
  */
@@ -32,7 +32,7 @@ __int64 __fastcall PnpiCmResourceToBiosIoPort(__int64 a1, __int64 a2)
     *(_BYTE *)(a1 + 6) = 1;
     *(_BYTE *)(a1 + 7) = *(_BYTE *)(i + 12);
     v7 = *(_BYTE *)(a1 + 1);
-    if ( (*(_BYTE *)(i + 2) & 0x10) != 0 )
+    if ( (*(_WORD *)(i + 2) & 0x10) != 0 )
       v7 = 1;
     *(_BYTE *)(a1 + 1) = v7;
     *(_BYTE *)i = 0;

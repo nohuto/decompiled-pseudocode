@@ -1,13 +1,13 @@
 /*
- * XREFs of ?UpdateDelayZoneStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFrame@@W4CDelayZoneTelemetryUpdateState@@UtagRECT@@@Z @ 0x1C01FBF0C
+ * XREFs of ?UpdateDelayZoneStateInfo@DelayZoneTelemetry@@QEAAXW4CPalmRejectState@@W4CDelayZoneTelemetryFrame@@W4CDelayZoneTelemetryUpdateState@@UtagRECT@@@Z @ 0x1C01BD460
  * Callers:
- *     ?AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z @ 0x1C01E5544 (-AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z.c)
- *     ?OnDeviceRemoval@DelayZonePalmRejection@@QEAAXPEAX@Z @ 0x1C01E6364 (-OnDeviceRemoval@DelayZonePalmRejection@@QEAAXPEAX@Z.c)
- *     ?PalmRejectTimerProc@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01E6564 (-PalmRejectTimerProc@DelayZonePalmRejection@@QEAAXXZ.c)
- *     ?RemoveDelayZoneFromList@DelayZonePalmRejection@@QEAA_NK@Z @ 0x1C01E6F44 (-RemoveDelayZoneFromList@DelayZonePalmRejection@@QEAA_NK@Z.c)
+ *     ?AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z @ 0x1C01AC608 (-AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z.c)
+ *     ?OnDeviceRemoval@DelayZonePalmRejection@@QEAAXPEAX@Z @ 0x1C01ACF80 (-OnDeviceRemoval@DelayZonePalmRejection@@QEAAXPEAX@Z.c)
+ *     ?PalmRejectTimerProc@DelayZonePalmRejection@@QEAAXXZ @ 0x1C01AD0D4 (-PalmRejectTimerProc@DelayZonePalmRejection@@QEAAXXZ.c)
+ *     ?RemoveDelayZoneFromList@DelayZonePalmRejection@@QEAA_NK@Z @ 0x1C01AD7C8 (-RemoveDelayZoneFromList@DelayZonePalmRejection@@QEAA_NK@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z @ 0x1C01FC214 (-UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z @ 0x1C01BD77C (-UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z.c)
  */
 
 void __fastcall DelayZoneTelemetry::UpdateDelayZoneStateInfo(
@@ -18,9 +18,9 @@ void __fastcall DelayZoneTelemetry::UpdateDelayZoneStateInfo(
         _DWORD *a5)
 {
   unsigned int v5; // r10d
-  __int64 v9; // r9
+  __int64 v9; // r11
   int v10; // eax
-  __int64 v11; // rdi
+  __int64 v11; // rsi
   int v12; // eax
 
   v5 = *((_DWORD *)a1 + 2);
@@ -38,8 +38,8 @@ void __fastcall DelayZoneTelemetry::UpdateDelayZoneStateInfo(
     *((_DWORD *)a1 + 12 * v9 + 516) = -1;
     *((_DWORD *)a1 + 2 * v11 + 517) = *a5;
     *((_DWORD *)a1 + 2 * v11 + 518) = a5[1];
-    if ( qword_1C02962D0 )
-      v12 = qword_1C02962D0();
+    if ( qword_1C0257060 )
+      v12 = qword_1C0257060();
     else
       v12 = 0;
     *((_DWORD *)a1 + 2 * v11 + 519) = v12;

@@ -1,11 +1,11 @@
 /*
- * XREFs of VidSchiCleanupPacket_PriorityTable @ 0x1C00F6E50
+ * XREFs of VidSchiCleanupPacket_PriorityTable @ 0x1C00D45F8
  * Callers:
- *     VidSchiCleanupQueuedCommand @ 0x1C00445A8 (VidSchiCleanupQueuedCommand.c)
+ *     VidSchiCleanupQueuedCommand @ 0x1C003C8A8 (VidSchiCleanupQueuedCommand.c)
  * Callees:
- *     VidSchiSelectContext @ 0x1C0009E90 (VidSchiSelectContext.c)
- *     VidSchiDrainContextFromWorkerThread @ 0x1C0038950 (VidSchiDrainContextFromWorkerThread.c)
- *     VidSchiProcessPrimariesTerminationList @ 0x1C0039278 (VidSchiProcessPrimariesTerminationList.c)
+ *     VidSchiSelectContext @ 0x1C000B380 (VidSchiSelectContext.c)
+ *     VidSchiDrainContextFromWorkerThread @ 0x1C002F564 (VidSchiDrainContextFromWorkerThread.c)
+ *     VidSchiProcessPrimariesTerminationList @ 0x1C00306A8 (VidSchiProcessPrimariesTerminationList.c)
  */
 
 struct _VIDSCH_CONTEXT *__fastcall VidSchiCleanupPacket_PriorityTable(__int64 a1)

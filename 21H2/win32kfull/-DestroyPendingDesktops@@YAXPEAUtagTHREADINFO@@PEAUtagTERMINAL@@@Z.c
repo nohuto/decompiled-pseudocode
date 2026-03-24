@@ -1,574 +1,423 @@
 /*
- * XREFs of ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C0099B78
+ * XREFs of ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C00D8838
  * Callers:
- *     ?xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C00A4A14 (-xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ *     ?xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C00D9EC4 (-xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
  * Callees:
- *     xxxSetWindowPos @ 0x1C0048A4C (xxxSetWindowPos.c)
- *     PopAndFreeW32ThreadLock @ 0x1C005BDE0 (PopAndFreeW32ThreadLock.c)
- *     xxxDestroyWindow @ 0x1C0062330 (xxxDestroyWindow.c)
- *     _DestroyMenu @ 0x1C0063B20 (_DestroyMenu.c)
- *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C0066A74 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
- *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00685A0 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00788F8 (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0079D94 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     PushW32ThreadLock @ 0x1C007F6F0 (PushW32ThreadLock.c)
- *     WPP_RECORDER_AND_TRACE_SF_qqS @ 0x1C00993A4 (WPP_RECORDER_AND_TRACE_SF_qqS.c)
- *     ?GetDesktopName@@YAPEBGPEAUtagDESKTOP@@@Z @ 0x1C009A420 (-GetDesktopName@@YAPEBGPEAUtagDESKTOP@@@Z.c)
- *     WPP_RECORDER_AND_TRACE_SF_Sq @ 0x1C009A488 (WPP_RECORDER_AND_TRACE_SF_Sq.c)
- *     xxxSetThreadDesktop @ 0x1C00A9A4C (xxxSetThreadDesktop.c)
- *     xxxSwitchDesktop @ 0x1C00B0E54 (xxxSwitchDesktop.c)
- *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00E7BF4 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
- *     DwmAsyncShellWindowChange @ 0x1C00F150C (DwmAsyncShellWindowChange.c)
- *     ?ClearWakeBit@@YAXPEAUtagTHREADINFO@@IH@Z @ 0x1C00FA4E0 (-ClearWakeBit@@YAXPEAUtagTHREADINFO@@IH@Z.c)
- *     UnlockDesktopMenu @ 0x1C011EECC (UnlockDesktopMenu.c)
- *     xxxCleanupMotherDesktopWindow @ 0x1C01226E8 (xxxCleanupMotherDesktopWindow.c)
- *     RemoteDisableScreen @ 0x1C012368C (RemoteDisableScreen.c)
+ *     xxxSwitchDesktop @ 0x1C0029904 (xxxSwitchDesktop.c)
+ *     _DestroyMenu @ 0x1C0048A30 (_DestroyMenu.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004DA78 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_q @ 0x1C004F430 (WPP_RECORDER_SF_q.c)
+ *     xxxSetWindowPos @ 0x1C006BC54 (xxxSetWindowPos.c)
+ *     xxxDestroyWindow @ 0x1C007DCA0 (xxxDestroyWindow.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C008A9DC (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     PushW32ThreadLock @ 0x1C00BFD80 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1890 (PopAndFreeW32ThreadLock.c)
+ *     xxxCleanupMotherDesktopWindow @ 0x1C00D6DA4 (xxxCleanupMotherDesktopWindow.c)
+ *     xxxSetThreadDesktop @ 0x1C00D95C0 (xxxSetThreadDesktop.c)
+ *     ?GetDesktopName@@YAPEBGPEAUtagDESKTOP@@@Z @ 0x1C00DA41C (-GetDesktopName@@YAPEBGPEAUtagDESKTOP@@@Z.c)
+ *     WPP_RECORDER_SF_Sq @ 0x1C00DA560 (WPP_RECORDER_SF_Sq.c)
+ *     ?UnInitializeWindowGroupFunctionality@WindowGroupingFeature@@YAX_K@Z @ 0x1C00DA9F8 (-UnInitializeWindowGroupFunctionality@WindowGroupingFeature@@YAX_K@Z.c)
+ *     WPP_RECORDER_SF_qqS @ 0x1C00DACCC (WPP_RECORDER_SF_qqS.c)
+ *     DwmAsyncShellWindowChange @ 0x1C00EB72C (DwmAsyncShellWindowChange.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00FE4E0 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C010139C (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     RemoteDisableScreen @ 0x1C0128A20 (RemoteDisableScreen.c)
+ *     UnlockDesktopMenu @ 0x1C0136510 (UnlockDesktopMenu.c)
+ *     ?ClearWakeBit@@YAXPEAUtagTHREADINFO@@IH@Z @ 0x1C0166DC8 (-ClearWakeBit@@YAXPEAUtagTHREADINFO@@IH@Z.c)
  */
 
 void __fastcall DestroyPendingDesktops(struct tagTHREADINFO *a1, struct tagTERMINAL *a2)
 {
-  struct tagTERMINAL *v2; // r14
-  struct tagTHREADINFO *v3; // r15
   int v4; // edx
-  int v5; // r8d
-  char *v6; // r12
+  int v5; // ecx
+  char *v6; // rbx
   __int64 v7; // rdi
-  bool v8; // bl
-  bool v9; // si
   const unsigned __int16 *DesktopName; // rax
+  int v9; // edx
+  int v10; // ecx
   int v11; // r8d
-  int v12; // edx
-  __int64 v13; // r13
-  void *v14; // rcx
-  __int64 v15; // rdx
+  __int64 v12; // r14
+  void *v13; // rcx
+  __int64 v14; // rdx
+  int v15; // ecx
   __int64 v16; // r8
-  struct tagTHREADINFO *v17; // rsi
-  _QWORD *i; // rdx
-  _DWORD *v19; // r15
-  __int64 v20; // r12
-  __int64 v21; // r8
-  __int64 v22; // rdx
-  __int64 v23; // rdx
-  __int64 v24; // rdx
-  __int64 v25; // rdx
-  _QWORD *v26; // rax
-  __int64 v27; // rcx
-  _QWORD *v28; // rbx
-  _QWORD *v29; // rbx
-  volatile signed __int32 *v30; // rcx
-  __int64 v31; // r9
-  struct tagDESKTOP *v32; // rbx
-  char v33; // si
-  char v34; // r14
-  const char *v35; // rax
-  __int64 v36; // rbx
-  struct tagWND *v37; // rbx
-  __int64 v38; // rdx
-  __int64 v39; // rcx
-  __int64 v40; // r8
-  int v41; // edx
-  int v42; // r8d
-  int v43; // r9d
-  __int64 v44; // rcx
-  struct tagDESKTOP *v45; // rbx
-  bool v46; // si
-  bool v47; // r14
-  const unsigned __int16 *v48; // rax
-  int v49; // r8d
-  int v50; // edx
-  __int64 v51; // rdx
-  __int64 v52; // rcx
-  PVOID *v53; // rcx
-  PVOID *v54; // rcx
-  PVOID *v55; // rcx
-  PVOID *v56; // rcx
-  void *v57; // rax
-  __int64 v58; // rcx
-  __int64 v59; // rax
-  int v60; // [rsp+28h] [rbp-A9h]
-  int v61; // [rsp+30h] [rbp-A1h]
-  int v62; // [rsp+38h] [rbp-99h]
-  int v63; // [rsp+40h] [rbp-91h]
-  _QWORD v64[2]; // [rsp+68h] [rbp-69h] BYREF
-  PVOID *v65; // [rsp+78h] [rbp-59h]
-  __int128 v66; // [rsp+80h] [rbp-51h] BYREF
-  __int64 v67; // [rsp+90h] [rbp-41h]
-  __int128 v68; // [rsp+98h] [rbp-39h] BYREF
-  __int64 v69; // [rsp+A8h] [rbp-29h]
-  __int128 v70; // [rsp+B0h] [rbp-21h] BYREF
-  __int64 v71; // [rsp+C0h] [rbp-11h]
-  __int128 v72; // [rsp+C8h] [rbp-9h] BYREF
-  __int64 v73; // [rsp+D8h] [rbp+7h]
-  __int128 v74; // [rsp+E0h] [rbp+Fh] BYREF
-  __int64 v75; // [rsp+F0h] [rbp+1Fh]
+  _DWORD *v17; // rsi
+  __int64 v18; // r15
+  unsigned __int64 v19; // rdx
+  WindowGroupingFeature ***v20; // rcx
+  __int64 v21; // rcx
+  _QWORD *v22; // rcx
+  unsigned __int64 v23; // rbx
+  unsigned __int64 v24; // rbx
+  void *v25; // rcx
+  __int64 v26; // rcx
+  __int64 v27; // rax
+  struct tagDESKTOP *v28; // rbx
+  const unsigned __int16 *v29; // rax
+  int v30; // edx
+  int v31; // ecx
+  int v32; // r8d
+  int v33; // r9d
+  __int64 v34; // rbx
+  __int64 v35; // rbx
+  int v36; // edx
+  int v37; // ecx
+  __int64 v38; // rcx
+  _QWORD *j; // rdx
+  __int64 v40; // rcx
+  struct tagDESKTOP *v41; // rbx
+  const unsigned __int16 *v42; // rax
+  int v43; // edx
+  int v44; // ecx
+  int v45; // r8d
+  __int64 v46; // rdx
+  __int64 i; // rcx
+  __int64 v48; // rcx
+  __int64 v49; // rcx
+  __int64 v50; // rcx
+  __int64 v51; // rcx
+  __int64 v52; // rdx
+  void *v53; // rax
+  __int64 v54; // rcx
+  int v55; // [rsp+28h] [rbp-79h]
+  _QWORD v56[2]; // [rsp+48h] [rbp-59h] BYREF
+  __int64 v57; // [rsp+58h] [rbp-49h]
+  __int128 v58; // [rsp+60h] [rbp-41h] BYREF
+  __int64 v59; // [rsp+70h] [rbp-31h]
+  __int128 v60; // [rsp+78h] [rbp-29h] BYREF
+  __int64 v61; // [rsp+88h] [rbp-19h]
+  __int128 v62; // [rsp+90h] [rbp-11h] BYREF
+  __int64 v63; // [rsp+A0h] [rbp-1h]
+  __int128 v64; // [rsp+A8h] [rbp+7h] BYREF
+  __int64 v65; // [rsp+B8h] [rbp+17h]
+  __int128 v66; // [rsp+C0h] [rbp+1Fh] BYREF
+  __int64 v67; // [rsp+D0h] [rbp+2Fh]
 
-  v2 = a2;
-  v3 = a1;
-  SmartObjStackRefBase<tagMENU>::Init(v64, 0LL);
-  v65 = 0LL;
-  v6 = (char *)v2 + 48;
-  v7 = *((_QWORD *)v2 + 6);
-  v75 = 0LL;
-  v73 = 0LL;
+  SmartObjStackRefBase<tagMENU>::Init(v56, 0LL);
+  v57 = 0LL;
+  v6 = (char *)a2 + 48;
+  v7 = *((_QWORD *)a2 + 6);
   v67 = 0LL;
-  v71 = 0LL;
-  v74 = 0LL;
-  v72 = 0LL;
+  v65 = 0LL;
+  v59 = 0LL;
+  v63 = 0LL;
   v66 = 0LL;
-  v70 = 0LL;
-  if ( v7 )
+  v64 = 0LL;
+  v58 = 0LL;
+  v62 = 0LL;
+  while ( v7 )
   {
-    while ( 1 )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v8 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-        && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
-        && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      v9 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( v8 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      DesktopName = GetDesktopName((struct tagDESKTOP *)v7);
+      WPP_RECORDER_SF_Sq(v10, v9, v11, 10, v55, (__int64)DesktopName, v7);
+    }
+    PushW32ThreadLock(v7, &v66, UserDereferenceObject);
+    ObfReferenceObject((PVOID)v7);
+    v12 = *(_QWORD *)(v7 + 40);
+    PushW32ThreadLock(v12, &v64, UserDereferenceObject);
+    v13 = *(void **)(v7 + 40);
+    if ( v13 )
+      ObfReferenceObject(v13);
+    LockObjectAssignment(v6, *(_QWORD *)(v7 + 32));
+    UnlockObjectAssignment(v7 + 32);
+    if ( v7 == grpdeskRitInput )
+    {
+      v60 = 0LL;
+      v61 = 0LL;
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        DesktopName = GetDesktopName((struct tagDESKTOP *)v7);
-        LOBYTE(v11) = v9;
-        LOBYTE(v12) = v8;
-        WPP_RECORDER_AND_TRACE_SF_Sq(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v12,
-          v11,
-          WPP_MAIN_CB.Queue.ListEntry.Flink,
-          v60,
-          v61,
-          10,
-          v63,
-          (__int64)DesktopName,
-          v7);
+        LOBYTE(v14) = 4;
+        WPP_RECORDER_SF_(v15, v14, 8, 11, (__int64)&WPP_4cc55f0eccd63a8558931143e45fab5e_Traceguids);
       }
-      PushW32ThreadLock(v7, &v74, UserDereferenceObject);
-      ObfReferenceObject((PVOID)v7);
-      v13 = *(_QWORD *)(v7 + 40);
-      PushW32ThreadLock(v13, &v72, UserDereferenceObject);
-      v14 = *(void **)(v7 + 40);
-      if ( v14 )
-        ObfReferenceObject(v14);
-      LockObjectAssignment(v6, *(_QWORD *)(v7 + 32));
-      UnlockObjectAssignment(v7 + 32);
-      if ( v7 == grpdeskRitInput )
-        break;
-      v17 = a1;
-      if ( v7 == *((_QWORD *)a1 + 57) )
+      if ( (*(_DWORD *)(v12 + 64) & 1) != 0 )
       {
-        v51 = 0LL;
-        v52 = grpWinStaList;
-        if ( grpWinStaList )
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         {
-          while ( (*(_DWORD *)(v52 + 64) & 0x10) != 0
-               || *(struct tagTERMINAL **)(v52 + 56) != v2
-               || !*(_QWORD *)(v52 + 16) )
+          LOBYTE(v14) = 4;
+          WPP_RECORDER_SF_(v15, v14, 8, 12, (__int64)&WPP_4cc55f0eccd63a8558931143e45fab5e_Traceguids);
+        }
+        if ( gspdeskDisconnect
+          && ((PVOID)v7 == grpdeskLogon || !grpdeskLogon || (*((_DWORD *)grpdeskLogon + 12) & 2) != 0) )
+        {
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
           {
-            v52 = *(_QWORD *)(v52 + 8);
-            if ( !v52 )
-              goto LABEL_153;
+            LOBYTE(v14) = 4;
+            WPP_RECORDER_SF_(v15, v14, 8, 13, (__int64)&WPP_4cc55f0eccd63a8558931143e45fab5e_Traceguids);
           }
-          v51 = *(_QWORD *)(v52 + 16);
+          RemoteDisableScreen(grpdeskRitInput, v14, v16, gbDesktopLocked);
+          goto LABEL_8;
+        }
+        v41 = (struct tagDESKTOP *)grpdeskLogon;
+      }
+      else
+      {
+        v41 = *(struct tagDESKTOP **)(v12 + 16);
+        if ( v41 == (struct tagDESKTOP *)v7 )
+          v41 = *(struct tagDESKTOP **)(v7 + 32);
+        if ( !v41 )
+        {
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LOBYTE(v14) = 4;
+            WPP_RECORDER_SF_(v15, v14, 8, 14, (__int64)&WPP_4cc55f0eccd63a8558931143e45fab5e_Traceguids);
+          }
+          ClearWakeBit(a1, 0x3C07u, 0);
+        }
+      }
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v42 = GetDesktopName(v41);
+        WPP_RECORDER_SF_Sq(v44, v43, v45, 15, v55, (__int64)v42, (char)v41);
+      }
+      PushW32ThreadLock((__int64)v41, &v60, UserDereferenceObject);
+      if ( v41 )
+        ObfReferenceObject(v41);
+      xxxSwitchDesktop(v12, (__int64)v41, 0);
+      PopAndFreeW32ThreadLock((__int64)&v60);
+    }
+    else if ( v7 == *((_QWORD *)a1 + 57) )
+    {
+      v46 = 0LL;
+      for ( i = grpWinStaList; i; i = *(_QWORD *)(i + 8) )
+      {
+        if ( (*(_DWORD *)(i + 64) & 0x10) == 0 && *(struct tagTERMINAL **)(i + 56) == a2 && *(_QWORD *)(i + 16) )
+        {
+          v46 = *(_QWORD *)(i + 16);
           do
           {
-            if ( v51 != v7 )
+            if ( v46 != v7 )
               break;
-            v51 = *(_QWORD *)(v51 + 32);
+            v46 = *(_QWORD *)(v46 + 32);
           }
-          while ( v51 );
-        }
-LABEL_153:
-        xxxSetThreadDesktop(0LL, v51);
-      }
-LABEL_12:
-      if ( v7 == gspdeskShouldBeForeground )
-      {
-        for ( i = *(_QWORD **)(v13 + 16); i && (i == gspdeskDisconnect || i == grpdeskLogon); i = (_QWORD *)i[4] )
-          ;
-        LockObjectAssignment(gspdeskShouldBeForeground, i);
-      }
-      v19 = (_DWORD *)*((_QWORD *)v17 + 57);
-      v20 = *((_QWORD *)v17 + 74);
-      PushW32ThreadLock((__int64)v19, &v70, UserDereferenceObject);
-      if ( v19 )
-        ObfReferenceObject(v19);
-      xxxSetThreadDesktop(0LL, v7);
-      HMAssignmentUnlock(v7 + 88);
-      HMAssignmentUnlock(v7 + 96);
-      HMAssignmentUnlock(v7 + 184);
-      *(_DWORD *)(v7 + 48) &= 0xFFFFFA3F;
-      v22 = *(_QWORD *)(v7 + 56);
-      if ( v22 )
-      {
-        v65 = 0LL;
-        SmartObjStackRefBase<tagMENU>::operator=((__int64)v64, v22);
-        *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v7 + 56) + 40LL) + 40LL) &= ~0x80u;
-        if ( UnlockDesktopMenu(v7 + 56) )
-        {
-          v53 = v65;
-          if ( !v65 )
-            v53 = *(PVOID **)v64[0];
-          DestroyMenu(v53);
+          while ( v46 );
+          break;
         }
       }
-      v23 = *(_QWORD *)(v7 + 64);
-      if ( v23 )
-      {
-        v65 = 0LL;
-        SmartObjStackRefBase<tagMENU>::operator=((__int64)v64, v23);
-        *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v7 + 64) + 40LL) + 40LL) &= ~0x80u;
-        if ( UnlockDesktopMenu(v7 + 64) )
-        {
-          v54 = v65;
-          if ( !v65 )
-            v54 = *(PVOID **)v64[0];
-          DestroyMenu(v54);
-        }
-      }
-      v24 = *(_QWORD *)(v7 + 72);
-      if ( v24 )
-      {
-        v65 = 0LL;
-        SmartObjStackRefBase<tagMENU>::operator=((__int64)v64, v24);
-        if ( UnlockDesktopMenu(v7 + 72) )
-        {
-          v55 = v65;
-          if ( !v65 )
-            v55 = *(PVOID **)v64[0];
-          DestroyMenu(v55);
-        }
-      }
-      v25 = *(_QWORD *)(v7 + 80);
-      if ( v25 )
-      {
-        v65 = 0LL;
-        SmartObjStackRefBase<tagMENU>::operator=((__int64)v64, v25);
-        if ( UnlockDesktopMenu(v7 + 80) )
-        {
-          v56 = v65;
-          if ( !v65 )
-            v56 = *(PVOID **)v64[0];
-          DestroyMenu(v56);
-        }
-      }
-      v26 = *(_QWORD **)(v7 + 8);
-      if ( v26 )
-      {
-        v27 = v26[21];
-        if ( v27 )
-        {
-          if ( (unsigned int)IsWindowDesktopComposed(v27) )
-          {
-            v57 = (void *)ReferenceDwmApiPort();
-            DwmAsyncShellWindowChange(v57);
-          }
-          v58 = *(_QWORD *)(v7 + 8) + 168LL;
-          *(_QWORD *)(**(_QWORD **)(v7 + 8) + 24LL) = 0LL;
-          HMAssignmentUnlock(v58);
-          v26 = *(_QWORD **)(v7 + 8);
-        }
-        if ( v26[23] )
-        {
-          HMAssignmentUnlock(v26 + 23);
-          v26 = *(_QWORD **)(v7 + 8);
-        }
-        if ( v26[24] )
-        {
-          *(_QWORD *)(*v26 + 32LL) = 0LL;
-          HMAssignmentUnlock(v26 + 24);
-          v26 = *(_QWORD **)(v7 + 8);
-        }
-        if ( v26[25] )
-        {
-          *(_QWORD *)(*v26 + 40LL) = 0LL;
-          HMAssignmentUnlock(v26 + 25);
-        }
-      }
-      v28 = *(_QWORD **)(v7 + 104);
-      if ( v28 && HMAssignmentUnlock(v7 + 104) )
-        xxxDestroyWindow(v28);
-      v29 = *(_QWORD **)(v7 + 112);
-      if ( v29 && HMAssignmentUnlock(v7 + 112) )
-        xxxDestroyWindow(v29);
-      v30 = *(volatile signed __int32 **)(v7 + 256);
-      if ( v30 )
-      {
-        if ( _InterlockedExchangeAdd(v30, 0xFFFFFFFF) == 1 )
-          Win32FreePool(v30);
-        *(_QWORD *)(v7 + 256) = 0LL;
-      }
-      v31 = *((_QWORD *)v2 + 1);
-      if ( !v31 || *(_QWORD *)(v31 + 24) != v7 )
-        goto LABEL_50;
-      if ( (*(_DWORD *)v2 & 2) != 0 )
-      {
-        v59 = grpWinStaList;
-        if ( grpWinStaList )
-        {
-          while ( 1 )
-          {
-            v59 = *(_QWORD *)(v59 + 8);
-            if ( !v59 )
-              break;
-            v32 = *(struct tagDESKTOP **)(v59 + 16);
-            if ( v32 )
-              goto LABEL_43;
-          }
-        }
-LABEL_99:
-        if ( v2 == (struct tagTERMINAL *)gTermIO[0] )
-        {
-          LOBYTE(v25) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                     && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
-                     && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-          LOBYTE(v21) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          if ( (_BYTE)v25 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            WPP_RECORDER_AND_TRACE_SF_q(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v25,
-              v21,
-              v31,
-              4,
-              8,
-              16,
-              (__int64)&WPP_d78c2f93cefb39adad771009d44421f9_Traceguids,
-              *((_QWORD *)v2 + 1));
-          xxxCleanupMotherDesktopWindow(v2, v25, v21);
-        }
-        goto LABEL_50;
-      }
-      v32 = *(struct tagDESKTOP **)(v13 + 16);
-      if ( !v32 )
-        goto LABEL_99;
-LABEL_43:
-      v33 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-         && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
-         && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      v34 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( v33 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      {
-        v35 = (const char *)GetDesktopName(v32);
-        WPP_RECORDER_AND_TRACE_SF_qqS(
-          (__int64)WPP_GLOBAL_Control->AttachedDevice,
-          v33,
-          v34,
-          (__int64)WPP_MAIN_CB.Queue.ListEntry.Flink,
-          v60,
-          v61,
-          v62,
-          v63,
-          *((_QWORD *)a2 + 1),
-          (char)v32,
-          v35);
-      }
-      v2 = a2;
-      LockObjectAssignment(*((_QWORD *)a2 + 1) + 24LL, v32);
-      v17 = a1;
-LABEL_50:
-      v36 = *(_QWORD *)(v7 + 8);
-      if ( v36 )
-      {
-        v37 = *(struct tagWND **)(v36 + 24);
-        if ( v37 )
-        {
-          if ( (*(_BYTE *)(*((_QWORD *)v37 + 5) + 31LL) & 0x10) != 0 )
-          {
-            *(_QWORD *)&v66 = *((_QWORD *)v17 + 52);
-            *((_QWORD *)v17 + 52) = &v66;
-            *((_QWORD *)&v66 + 1) = v37;
-            HMLockObject(v37);
-            xxxSetWindowPos(v37, 0LL, 0LL, 0LL, 0, 0, 1183);
-            ThreadUnlock1(v39, v38, v40);
-          }
-          LOBYTE(v25) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                     && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
-                     && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-          if ( (_BYTE)v25 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          {
-            LOBYTE(v21) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-            WPP_RECORDER_AND_TRACE_SF_(
-              WPP_GLOBAL_Control->AttachedDevice,
-              v25,
-              v21,
-              v31,
-              4,
-              8,
-              18,
-              (__int64)&WPP_d78c2f93cefb39adad771009d44421f9_Traceguids);
-          }
-          xxxDestroyWindow(*(_QWORD **)(*(_QWORD *)(v7 + 8) + 24LL));
-          if ( v7 == grpdeskRitInput )
-          {
-            *(_DWORD *)(v7 + 48) |= 1u;
-            LOBYTE(v41) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                       && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
-                       && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-            if ( (_BYTE)v41 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            {
-              LOBYTE(v42) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-              WPP_RECORDER_AND_TRACE_SF_q(
-                WPP_GLOBAL_Control->AttachedDevice,
-                v41,
-                v42,
-                v43,
-                4,
-                8,
-                19,
-                (__int64)&WPP_d78c2f93cefb39adad771009d44421f9_Traceguids,
-                v7);
-            }
-          }
-          else
-          {
-            v44 = *(_QWORD *)(v7 + 8) + 24LL;
-            *(_QWORD *)(**(_QWORD **)(v7 + 8) + 8LL) = 0LL;
-            HMAssignmentUnlock(v44);
-          }
-          *(_DWORD *)(v7 + 48) |= 2u;
-        }
-      }
-      if ( (*(_DWORD *)v2 & 2) == 0 || !v19 || (v19[12] & 6) == 0 )
-        xxxSetThreadDesktop(v20, v19);
-      PopAndFreeW32ThreadLock((__int64)&v70);
-      PopAndFreeW32ThreadLock((__int64)&v72);
-      PopAndFreeW32ThreadLock((__int64)&v74);
-      v3 = a1;
-      v6 = (char *)v2 + 48;
-      v7 = *((_QWORD *)v2 + 6);
-      if ( !v7 )
-        goto LABEL_66;
+      xxxSetThreadDesktop(0LL, v46);
     }
-    v68 = 0LL;
-    v69 = 0LL;
-    LOBYTE(v15) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-               && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80) != 0
-               && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    if ( (_BYTE)v15 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+LABEL_8:
+    if ( v7 == gspdeskShouldBeForeground )
     {
-      LOBYTE(v16) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      WPP_RECORDER_AND_TRACE_SF_(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v15,
-        v16,
-        (unsigned int)&WPP_GLOBAL_Control,
-        4,
-        8,
-        11,
-        (__int64)&WPP_d78c2f93cefb39adad771009d44421f9_Traceguids);
+      for ( j = *(_QWORD **)(v12 + 16); j && (j == gspdeskDisconnect || j == grpdeskLogon); j = (_QWORD *)j[4] )
+        ;
+      LockObjectAssignment(gspdeskShouldBeForeground, j);
     }
-    if ( (*(_DWORD *)(v13 + 64) & 1) != 0 )
+    v17 = (_DWORD *)*((_QWORD *)a1 + 57);
+    v18 = *((_QWORD *)a1 + 74);
+    PushW32ThreadLock((__int64)v17, &v62, UserDereferenceObject);
+    if ( v17 )
+      ObfReferenceObject(v17);
+    xxxSetThreadDesktop(0LL, v7);
+    HMAssignmentUnlock(v7 + 88);
+    HMAssignmentUnlock(v7 + 96);
+    HMAssignmentUnlock(v7 + 184);
+    *(_DWORD *)(v7 + 48) &= 0xFFFFFA3F;
+    if ( *(_QWORD *)(v7 + 56) )
     {
-      LOBYTE(v15) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                 && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80) != 0
-                 && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-      if ( (_BYTE)v15 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      v57 = 0LL;
+      SmartObjStackRefBase<tagMENU>::operator=(v56);
+      *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v7 + 56) + 40LL) + 40LL) &= ~0x80u;
+      if ( UnlockDesktopMenu(v7 + 56) )
       {
-        LOBYTE(v16) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v15,
-          v16,
-          (unsigned int)&WPP_GLOBAL_Control,
-          4,
-          8,
-          12,
-          (__int64)&WPP_d78c2f93cefb39adad771009d44421f9_Traceguids);
+        v48 = v57;
+        if ( !v57 )
+          v48 = *(_QWORD *)v56[0];
+        DestroyMenu(v48);
       }
-      if ( gspdeskDisconnect
-        && ((PVOID)v7 == grpdeskLogon || !grpdeskLogon || (*((_DWORD *)grpdeskLogon + 12) & 2) != 0) )
+    }
+    if ( *(_QWORD *)(v7 + 64) )
+    {
+      v57 = 0LL;
+      SmartObjStackRefBase<tagMENU>::operator=(v56);
+      *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v7 + 64) + 40LL) + 40LL) &= ~0x80u;
+      if ( UnlockDesktopMenu(v7 + 64) )
       {
-        LOBYTE(v15) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                   && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80) != 0
-                   && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-        LOBYTE(v16) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        if ( (_BYTE)v15 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          WPP_RECORDER_AND_TRACE_SF_(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v15,
-            v16,
-            (unsigned int)&WPP_GLOBAL_Control,
-            4,
+        v49 = v57;
+        if ( !v57 )
+          v49 = *(_QWORD *)v56[0];
+        DestroyMenu(v49);
+      }
+    }
+    if ( *(_QWORD *)(v7 + 72) )
+    {
+      v57 = 0LL;
+      SmartObjStackRefBase<tagMENU>::operator=(v56);
+      if ( UnlockDesktopMenu(v7 + 72) )
+      {
+        v50 = v57;
+        if ( !v57 )
+          v50 = *(_QWORD *)v56[0];
+        DestroyMenu(v50);
+      }
+    }
+    v19 = *(_QWORD *)(v7 + 80);
+    if ( v19 )
+    {
+      v57 = 0LL;
+      SmartObjStackRefBase<tagMENU>::operator=(v56);
+      if ( UnlockDesktopMenu(v7 + 80) )
+      {
+        v51 = v57;
+        if ( !v57 )
+          v51 = *(_QWORD *)v56[0];
+        DestroyMenu(v51);
+      }
+    }
+    v20 = *(WindowGroupingFeature ****)(v7 + 8);
+    if ( v20 )
+    {
+      WindowGroupingFeature::UnInitializeWindowGroupFunctionality(**v20, v19);
+      v21 = *(_QWORD *)(v7 + 8);
+      if ( *(struct tagWND **)(v21 + 24) == gspwndFullScreen )
+      {
+        HMAssignmentUnlock(&gspwndFullScreen);
+        v21 = *(_QWORD *)(v7 + 8);
+      }
+      if ( *(_QWORD *)(v21 + 168) )
+      {
+        if ( (unsigned int)IsWindowDesktopComposed(*(_QWORD *)(v21 + 168)) )
+        {
+          v53 = (void *)ReferenceDwmApiPort(**(_QWORD **)(v7 + 8), v52);
+          DwmAsyncShellWindowChange(v53);
+        }
+        v54 = *(_QWORD *)(v7 + 8) + 168LL;
+        *(_QWORD *)(**(_QWORD **)(v7 + 8) + 24LL) = 0LL;
+        HMAssignmentUnlock(v54);
+        v21 = *(_QWORD *)(v7 + 8);
+      }
+      if ( *(_QWORD *)(v21 + 184) )
+      {
+        HMAssignmentUnlock(v21 + 184);
+        v21 = *(_QWORD *)(v7 + 8);
+      }
+      LODWORD(v19) = v21 + 192;
+      if ( *(_QWORD *)(v21 + 192) )
+      {
+        *(_QWORD *)(*(_QWORD *)v21 + 24LL) = 0LL;
+        HMAssignmentUnlock(v21 + 192);
+        v21 = *(_QWORD *)(v7 + 8);
+      }
+      v22 = (_QWORD *)(v21 + 200);
+      if ( *v22 )
+      {
+        *(_QWORD *)(*(v22 - 25) + 40LL) = 0LL;
+        HMAssignmentUnlock(v22);
+      }
+    }
+    v23 = *(_QWORD *)(v7 + 104);
+    if ( v23 && HMAssignmentUnlock(v7 + 104) )
+      xxxDestroyWindow(v23);
+    v24 = *(_QWORD *)(v7 + 112);
+    if ( v24 && HMAssignmentUnlock(v7 + 112) )
+      xxxDestroyWindow(v24);
+    v25 = *(void **)(v7 + 264);
+    if ( v25 )
+    {
+      Win32FreePool(v25);
+      *(_QWORD *)(v7 + 264) = 0LL;
+    }
+    v26 = *((_QWORD *)a2 + 1);
+    if ( !v26 || *(_QWORD *)(v26 + 24) != v7 )
+      goto LABEL_40;
+    if ( (*(_DWORD *)a2 & 2) != 0 )
+    {
+      v27 = grpWinStaList;
+      if ( grpWinStaList )
+      {
+        while ( 1 )
+        {
+          v27 = *(_QWORD *)(v27 + 8);
+          if ( !v27 )
+            break;
+          v28 = *(struct tagDESKTOP **)(v27 + 16);
+          if ( v28 )
+            goto LABEL_37;
+        }
+      }
+LABEL_60:
+      if ( a2 == (struct tagTERMINAL *)gTermIO[0] )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v19) = 4;
+          WPP_RECORDER_SF_q(
+            v26,
+            v19,
             8,
-            13,
-            (__int64)&WPP_d78c2f93cefb39adad771009d44421f9_Traceguids);
-        RemoteDisableScreen(grpdeskRitInput, v15, v16, gbDesktopLocked);
-LABEL_97:
-        v17 = a1;
-        goto LABEL_12;
-      }
-      v45 = (struct tagDESKTOP *)grpdeskLogon;
-    }
-    else
-    {
-      v45 = *(struct tagDESKTOP **)(v13 + 16);
-      if ( v45 == (struct tagDESKTOP *)v7 )
-        v45 = *(struct tagDESKTOP **)(v7 + 32);
-      if ( !v45 )
-      {
-        LOBYTE(v15) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                   && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80) != 0
-                   && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-        if ( (_BYTE)v15 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        {
-          LOBYTE(v16) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-          WPP_RECORDER_AND_TRACE_SF_(
-            WPP_GLOBAL_Control->AttachedDevice,
-            v15,
-            v16,
-            (unsigned int)&WPP_d78c2f93cefb39adad771009d44421f9_Traceguids,
-            4,
-            8,
-            14,
-            (__int64)&WPP_d78c2f93cefb39adad771009d44421f9_Traceguids);
+            16,
+            (__int64)&WPP_4cc55f0eccd63a8558931143e45fab5e_Traceguids,
+            *((_QWORD *)a2 + 1));
         }
-        ClearWakeBit(v3, 0x3C07u, 0);
+        xxxCleanupMotherDesktopWindow((__int64)a2);
+      }
+      goto LABEL_40;
+    }
+    v28 = *(struct tagDESKTOP **)(v12 + 16);
+    if ( !v28 )
+      goto LABEL_60;
+LABEL_37:
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      v29 = GetDesktopName(v28);
+      WPP_RECORDER_SF_qqS(v31, v30, v32, v33, v55, *((_QWORD *)a2 + 1), (char)v28, (__int64)v29);
+    }
+    LockObjectAssignment(*((_QWORD *)a2 + 1) + 24LL, v28);
+LABEL_40:
+    v34 = *(_QWORD *)(v7 + 8);
+    if ( v34 )
+    {
+      v35 = *(_QWORD *)(v34 + 24);
+      if ( v35 )
+      {
+        if ( (*(_BYTE *)(*(_QWORD *)(v35 + 40) + 31LL) & 0x10) != 0 )
+        {
+          *(_QWORD *)&v58 = *((_QWORD *)a1 + 52);
+          *((_QWORD *)a1 + 52) = &v58;
+          *((_QWORD *)&v58 + 1) = v35;
+          HMLockObject(v35);
+          xxxSetWindowPos((struct tagWND *)v35, 0LL, 0LL, 0LL, 0, 0, 1183);
+          ThreadUnlock1(v40);
+        }
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          LOBYTE(v19) = 4;
+          WPP_RECORDER_SF_(v26, v19, 8, 18, (__int64)&WPP_4cc55f0eccd63a8558931143e45fab5e_Traceguids);
+        }
+        xxxDestroyWindow(*(_QWORD *)(*(_QWORD *)(v7 + 8) + 24LL));
+        if ( v7 == grpdeskRitInput )
+        {
+          *(_DWORD *)(v7 + 48) |= 1u;
+          if ( gspwndShouldBeForeground )
+            HMAssignmentUnlock(&gspwndShouldBeForeground);
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            LOBYTE(v36) = 4;
+            WPP_RECORDER_SF_q(v37, v36, 8, 19, (__int64)&WPP_4cc55f0eccd63a8558931143e45fab5e_Traceguids, v7);
+          }
+        }
+        else
+        {
+          v38 = *(_QWORD *)(v7 + 8) + 24LL;
+          *(_QWORD *)(**(_QWORD **)(v7 + 8) + 8LL) = 0LL;
+          HMAssignmentUnlock(v38);
+        }
+        *(_DWORD *)(v7 + 48) |= 2u;
       }
     }
-    v46 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-       && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80) != 0
-       && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    v47 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    if ( v46 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    {
-      v48 = GetDesktopName(v45);
-      LOBYTE(v49) = v47;
-      LOBYTE(v50) = v46;
-      WPP_RECORDER_AND_TRACE_SF_Sq(
-        WPP_GLOBAL_Control->AttachedDevice,
-        v50,
-        v49,
-        WPP_MAIN_CB.Queue.ListEntry.Flink,
-        v60,
-        v61,
-        15,
-        v63,
-        (__int64)v48,
-        (char)v45);
-    }
-    PushW32ThreadLock((__int64)v45, &v68, UserDereferenceObject);
-    if ( v45 )
-      ObfReferenceObject(v45);
-    xxxSwitchDesktop(v13, v45, 0LL, 0LL);
-    PopAndFreeW32ThreadLock((__int64)&v68);
-    v2 = a2;
-    goto LABEL_97;
+    if ( (*(_DWORD *)a2 & 2) == 0 || !v17 || (v17[12] & 6) == 0 )
+      xxxSetThreadDesktop(v18, v17);
+    PopAndFreeW32ThreadLock((__int64)&v62);
+    PopAndFreeW32ThreadLock((__int64)&v64);
+    PopAndFreeW32ThreadLock((__int64)&v66);
+    v6 = (char *)a2 + 48;
+    v7 = *((_QWORD *)a2 + 6);
   }
-LABEL_66:
-  LOBYTE(v4) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80u) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)v4 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v5) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      v4,
-      v5,
-      (unsigned int)&WPP_d78c2f93cefb39adad771009d44421f9_Traceguids,
-      4,
-      8,
-      20,
-      (__int64)&WPP_d78c2f93cefb39adad771009d44421f9_Traceguids);
+    LOBYTE(v4) = 4;
+    WPP_RECORDER_SF_(v5, v4, 8, 20, (__int64)&WPP_4cc55f0eccd63a8558931143e45fab5e_Traceguids);
   }
   KeSetEvent(gpevtDesktopDestroyed, 1, 0);
-  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v64);
+  SmartObjStackRefBase<tagMENU>::~SmartObjStackRefBase<tagMENU>(v56);
 }

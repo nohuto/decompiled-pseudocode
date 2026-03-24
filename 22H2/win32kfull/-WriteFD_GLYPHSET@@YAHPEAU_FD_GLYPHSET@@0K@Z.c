@@ -1,17 +1,17 @@
 /*
- * XREFs of ?WriteFD_GLYPHSET@@YAHPEAU_FD_GLYPHSET@@0K@Z @ 0x1C0098760
+ * XREFs of ?WriteFD_GLYPHSET@@YAHPEAU_FD_GLYPHSET@@0K@Z @ 0x1C00A461C
  * Callers:
- *     ?UmfdEscEngComputeGlyphSet@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00981AC (-UmfdEscEngComputeGlyphSet@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
- *     NtGdiEngComputeGlyphSet @ 0x1C02C8EE0 (NtGdiEngComputeGlyphSet.c)
- *     NtGdiFONTOBJ_pfdg @ 0x1C02CCBC0 (NtGdiFONTOBJ_pfdg.c)
+ *     ?UmfdEscEngComputeGlyphSet@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00A46DC (-UmfdEscEngComputeGlyphSet@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     NtGdiEngComputeGlyphSet @ 0x1C02B2190 (NtGdiEngComputeGlyphSet.c)
+ *     NtGdiFONTOBJ_pfdg @ 0x1C02B4450 (NtGdiFONTOBJ_pfdg.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall WriteFD_GLYPHSET(struct _FD_GLYPHSET *a1, struct _FD_GLYPHSET *a2, ULONG a3)
 {
   ULONG cRuns; // r14d
-  ULONG i; // esi
+  ULONG i; // ebx
   __int64 v7; // rdx
   HGLYPH *v8; // rcx
 

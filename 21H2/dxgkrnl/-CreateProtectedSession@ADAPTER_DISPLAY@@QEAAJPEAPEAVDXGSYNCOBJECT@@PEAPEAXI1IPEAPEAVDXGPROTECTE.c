@@ -1,16 +1,15 @@
 /*
- * XREFs of ?CreateProtectedSession@ADAPTER_DISPLAY@@QEAAJPEAPEAVDXGSYNCOBJECT@@PEAPEAXI1IPEAPEAVDXGPROTECTEDSESSION@@@Z @ 0x1C033963C
+ * XREFs of ?CreateProtectedSession@ADAPTER_DISPLAY@@QEAAJPEAPEAVDXGSYNCOBJECT@@PEAPEAXI1IPEAPEAVDXGPROTECTEDSESSION@@@Z @ 0x1C02881B0
  * Callers:
- *     DxgkCreateProtectedSession @ 0x1C033A220 (DxgkCreateProtectedSession.c)
+ *     DxgkCreateProtectedSession @ 0x1C0288AD0 (DxgkCreateProtectedSession.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??2?$DXGQUOTAALLOCATOR@$0BAA@$0ELGHHIEE@@@SAPEAX_K@Z @ 0x1C00096C0 (--2-$DXGQUOTAALLOCATOR@$0BAA@$0ELGHHIEE@@@SAPEAX_K@Z.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ??0DXGPROTECTEDSESSION@@QEAA@PEAVADAPTER_DISPLAY@@@Z @ 0x1C0057E34 (--0DXGPROTECTEDSESSION@@QEAA@PEAVADAPTER_DISPLAY@@@Z.c)
- *     ??0DXGPROTECTEDSESSIONMUTEX@@QEAA@PEAVADAPTER_DISPLAY@@_N@Z @ 0x1C0057EBC (--0DXGPROTECTEDSESSIONMUTEX@@QEAA@PEAVADAPTER_DISPLAY@@_N@Z.c)
- *     ??_GDXGPROTECTEDSESSION@@QEAAPEAXI@Z @ 0x1C0058130 (--_GDXGPROTECTEDSESSION@@QEAAPEAXI@Z.c)
- *     ?Initialize@DXGPROTECTEDSESSION@@QEAAJPEAPEAVDXGSYNCOBJECT@@PEAPEAXI1I@Z @ 0x1C0339BC0 (-Initialize@DXGPROTECTEDSESSION@@QEAAJPEAPEAVDXGSYNCOBJECT@@PEAPEAXI1I@Z.c)
+ *     ??2?$DXGQUOTAALLOCATOR@$00$0ELGHHIEE@@@SAPEAX_K@Z @ 0x1C000255C (--2-$DXGQUOTAALLOCATOR@$00$0ELGHHIEE@@@SAPEAX_K@Z.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??0DXGPROTECTEDSESSION@@QEAA@PEAVADAPTER_DISPLAY@@@Z @ 0x1C0048C14 (--0DXGPROTECTEDSESSION@@QEAA@PEAVADAPTER_DISPLAY@@@Z.c)
+ *     ??0DXGPROTECTEDSESSIONMUTEX@@QEAA@PEAVADAPTER_DISPLAY@@_N@Z @ 0x1C0048C98 (--0DXGPROTECTEDSESSIONMUTEX@@QEAA@PEAVADAPTER_DISPLAY@@_N@Z.c)
+ *     ??_GDXGPROTECTEDSESSION@@QEAAPEAXI@Z @ 0x1C0048DFC (--_GDXGPROTECTEDSESSION@@QEAAPEAXI@Z.c)
+ *     ?Initialize@DXGPROTECTEDSESSION@@QEAAJPEAPEAVDXGSYNCOBJECT@@PEAPEAXI1I@Z @ 0x1C02885B0 (-Initialize@DXGPROTECTEDSESSION@@QEAAJPEAPEAVDXGSYNCOBJECT@@PEAPEAXI1I@Z.c)
  */
 
 __int64 __fastcall ADAPTER_DISPLAY::CreateProtectedSession(
@@ -23,78 +22,77 @@ __int64 __fastcall ADAPTER_DISPLAY::CreateProtectedSession(
         struct DXGPROTECTEDSESSION **a7)
 {
   __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  DXGPROTECTEDSESSION *v14; // rax
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  __int64 v14; // rax
   DXGPROTECTEDSESSION *v15; // rax
-  struct DXGPROTECTEDSESSION *v16; // rbx
-  int v17; // ebp
-  struct DXGPROTECTEDSESSION **v19; // rax
-  DXGADAPTER *v20; // rcx
-  _BYTE v21[16]; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  DXGPROTECTEDSESSION *v20; // rbx
+  __int64 v21; // rax
+  __int64 v23; // rdx
+  int v24; // ebp
+  __int64 v25; // rdx
+  DXGPROTECTEDSESSION **v26; // rax
+  DXGADAPTER *v27; // rcx
+  bool v28; // zf
+  _BYTE v29[40]; // [rsp+30h] [rbp-28h] BYREF
 
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 854LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"GetAdapter()->IsCoreResourceSharedOwner()",
-      854LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v13 = WdLogNewEntry5_WdAssertion(v12, v11);
+    *(_QWORD *)(v13 + 24) = 854LL;
+    WdLogEvent5_WdAssertion(v13);
   }
   if ( !a7 )
   {
-    WdLogSingleEntry1(1LL, 856LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"ppProtectedSession", 856LL, 0LL, 0LL, 0LL, 0LL);
+    v14 = WdLogNewEntry5_WdAssertion(v12, v11);
+    *(_QWORD *)(v14 + 24) = 856LL;
+    WdLogEvent5_WdAssertion(v14);
   }
   *a7 = 0LL;
-  v14 = (DXGPROTECTEDSESSION *)DXGQUOTAALLOCATOR<256,1265072196>::operator new(160LL, v11, v12, v13);
-  if ( v14 && (v15 = DXGPROTECTEDSESSION::DXGPROTECTEDSESSION(v14, (struct ADAPTER_DISPLAY *)this), (v16 = v15) != 0LL) )
+  v15 = (DXGPROTECTEDSESSION *)DXGQUOTAALLOCATOR<1,1265072196>::operator new(0x98uLL);
+  if ( v15 )
+    v20 = DXGPROTECTEDSESSION::DXGPROTECTEDSESSION(v15, (struct ADAPTER_DISPLAY *)this);
+  else
+    v20 = 0LL;
+  if ( v20 )
   {
-    v17 = DXGPROTECTEDSESSION::Initialize(v15, a2, a3, a4, a5, a6);
-    if ( v17 >= 0 )
+    v24 = DXGPROTECTEDSESSION::Initialize(v20, a2, a3, a4, a5, a6);
+    if ( v24 >= 0 )
     {
       DXGPROTECTEDSESSIONMUTEX::DXGPROTECTEDSESSIONMUTEX(
-        (DXGPROTECTEDSESSIONMUTEX *)v21,
+        (DXGPROTECTEDSESSIONMUTEX *)v29,
         (struct ADAPTER_DISPLAY *)this);
-      v19 = this + 89;
-      v20 = this[89];
-      if ( *((DXGADAPTER ***)v20 + 1) != this + 89 )
+      v26 = this + 77;
+      v27 = this[77];
+      if ( *((DXGADAPTER ***)v27 + 1) != this + 77 )
         __fastfail(3u);
-      *(_QWORD *)v16 = v20;
-      *((_QWORD *)v16 + 1) = v19;
-      *((_QWORD *)v20 + 1) = v16;
-      *v19 = v16;
-      if ( v21[8] )
-        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v21);
+      *(_QWORD *)v20 = v27;
+      *((_QWORD *)v20 + 1) = v26;
+      *((_QWORD *)v27 + 1) = v20;
+      v28 = v29[8] == 0;
+      *v26 = v20;
+      if ( !v28 )
+        DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v29, v25);
       _InterlockedIncrement64((volatile signed __int64 *)this[2] + 3);
-      *a7 = v16;
+      *a7 = v20;
       return 0LL;
     }
     else
     {
-      DXGPROTECTEDSESSION::`scalar deleting destructor'(v16);
-      return (unsigned int)v17;
+      DXGPROTECTEDSESSION::`scalar deleting destructor'((struct DXGSYNCOBJECT **)v20, v23);
+      return (unsigned int)v24;
     }
   }
   else
   {
-    WdLogSingleEntry2(6LL, this, -1073741801LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262145,
-      -1,
-      (__int64)L"ADAPTER_DISPLAY 0x%I64x: Unable to allocate protected session object, returning 0x%I64x",
-      (__int64)this,
-      -1073741801LL,
-      0LL,
-      0LL,
-      0LL);
+    v21 = WdLogNewEntry5_WdLowResource(v17, v16, v18, v19);
+    *(_QWORD *)(v21 + 24) = this;
+    *(_QWORD *)(v21 + 32) = -1073741801LL;
+    WdLogEvent5_WdLowResource(v21);
     return 3221225495LL;
   }
 }

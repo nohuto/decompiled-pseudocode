@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwReplyWaitReceivePort @ 0x14041B8C0
+ * XREFs of ZwReplyWaitReceivePort @ 0x1403FA500
  * Callers:
- *     SepRmCommandServerThread @ 0x14083B300 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x1407AD230 (SepRmCommandServerThread.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpPowerWriteResetCommand @ 0x140506BCC
+ * XREFs of HalpPowerWriteResetCommand @ 0x1404BE25C
  * Callers:
- *     HalpInterruptResetAllProcessors @ 0x140504EAC (HalpInterruptResetAllProcessors.c)
- *     HalpInterruptResetThisProcessor @ 0x140504F50 (HalpInterruptResetThisProcessor.c)
- *     HalReturnToFirmware @ 0x140506A70 (HalReturnToFirmware.c)
+ *     HalpInterruptResetThisProcessor @ 0x1404BC3D0 (HalpInterruptResetThisProcessor.c)
+ *     HalReturnToFirmware @ 0x1404BE0F0 (HalReturnToFirmware.c)
+ *     HalpInterruptResetAllProcessors @ 0x1404D2B2C (HalpInterruptResetAllProcessors.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x1402C3000 (KeStallExecutionProcessor.c)
- *     HalpAcpiPmRegisterWrite @ 0x140362640 (HalpAcpiPmRegisterWrite.c)
- *     HalpMap @ 0x14037E878 (HalpMap.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     HalpMiscIsLegacyPcType @ 0x14050AEF8 (HalpMiscIsLegacyPcType.c)
- *     HalEfiResetSystem @ 0x14050CE00 (HalEfiResetSystem.c)
+ *     KeStallExecutionProcessor @ 0x14022A1F0 (KeStallExecutionProcessor.c)
+ *     HalpAcpiPmRegisterWrite @ 0x14037C1D0 (HalpAcpiPmRegisterWrite.c)
+ *     HalpMiscIsLegacyPcType @ 0x140386324 (HalpMiscIsLegacyPcType.c)
+ *     HalpMap @ 0x1403BB2D8 (HalpMap.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     HalEfiResetSystem @ 0x1404C3AE0 (HalEfiResetSystem.c)
  */
 
 void __fastcall __noreturn HalpPowerWriteResetCommand(int a1, volatile signed __int32 *a2)
@@ -23,7 +23,7 @@ void __fastcall __noreturn HalpPowerWriteResetCommand(int a1, volatile signed __
     HalpRebootHandler();
   if ( !a1 )
   {
-    if ( (unsigned __int8)HalpMiscIsLegacyPcType() )
+    if ( HalpMiscIsLegacyPcType() )
     {
       __outbyte(0x70u, 0xFu);
       __outbyte(0x71u, 0);
@@ -45,9 +45,9 @@ void __fastcall __noreturn HalpPowerWriteResetCommand(int a1, volatile signed __
       v4 = 0LL;
       __writemsr(0x40000003u, 1uLL);
     }
-    if ( byte_140C606E0 )
+    if ( byte_140C49240 )
     {
-      HalpAcpiPmRegisterWrite(8, 0, (__int64)&unk_140C62180, 1u, 0LL);
+      HalpAcpiPmRegisterWrite(8, 0, (__int64)&unk_140C4A080, 1u, 0LL);
       KeStallExecutionProcessor(0x1F4u);
     }
     if ( (HalpPlatformFlags & 2) != 0 )

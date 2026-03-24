@@ -1,17 +1,17 @@
 /*
- * XREFs of IopFastQueryNetworkAttributes @ 0x1409479D8
+ * XREFs of IopFastQueryNetworkAttributes @ 0x140894198
  * Callers:
- *     IoFastQueryNetworkAttributes @ 0x140947420 (IoFastQueryNetworkAttributes.c)
+ *     IoFastQueryNetworkAttributes @ 0x140893BD0 (IoFastQueryNetworkAttributes.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x14022E220 (PsGetCurrentSilo.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObOpenObjectByNameEx @ 0x1406ED090 (ObOpenObjectByNameEx.c)
- *     FsRtlpCleanupEcps @ 0x14073E6E0 (FsRtlpCleanupEcps.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
+ *     PsGetCurrentSilo @ 0x140345940 (PsGetCurrentSilo.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     FsRtlpCleanupEcps @ 0x14060CD20 (FsRtlpCleanupEcps.c)
+ *     ObCloseHandle @ 0x14061AFE0 (ObCloseHandle.c)
+ *     ObOpenObjectByNameEx @ 0x1406CEA90 (ObOpenObjectByNameEx.c)
  */
 
-char __fastcall IopFastQueryNetworkAttributes(__int64 a1, int a2, char a3, int a4, __int64 a5, __int64 a6)
+char __fastcall IopFastQueryNetworkAttributes(__int64 a1, ACCESS_MASK a2, char a3, int a4, __int64 a5, __int64 a6)
 {
   int v10; // ebx
   HANDLE Handle[2]; // [rsp+40h] [rbp-C0h] BYREF
@@ -36,7 +36,15 @@ char __fastcall IopFastQueryNetworkAttributes(__int64 a1, int a2, char a3, int a
   if ( !a3 )
     *(_DWORD *)(a1 + 24) |= 0x200u;
   *(_QWORD *)&v13[12] = PsGetCurrentSilo();
-  v10 = ObOpenObjectByNameEx(a1, (__int64)IoFileObjectType, a3, 0LL, a2, (int)v13, *(__int64 *)&v13[12], Handle);
+  v10 = ObOpenObjectByNameEx(
+          a1,
+          (struct _OBJECT_TYPE *)IoFileObjectType,
+          a3,
+          0LL,
+          a2,
+          (__int64)v13,
+          *(__int64 *)&v13[12],
+          Handle);
   if ( *((_QWORD *)&v13[10] + 1) )
     FsRtlpCleanupEcps(*((struct _ECP_LIST **)&v13[10] + 1));
   if ( LODWORD(v13[2]) == -1096154543 )

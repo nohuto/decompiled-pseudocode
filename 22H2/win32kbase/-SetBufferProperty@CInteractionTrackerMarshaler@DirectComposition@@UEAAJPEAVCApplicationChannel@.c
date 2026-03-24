@@ -1,225 +1,237 @@
 /*
- * XREFs of ?SetBufferProperty@CInteractionTrackerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C02294A0
+ * XREFs of ?SetBufferProperty@CInteractionTrackerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01F0650
  * Callers:
  *     <none>
  * Callees:
- *     ?AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002C184 (-AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z @ 0x1C002EB40 (-LookupResourceMarshaler@CApplicationChannel@DirectComposition@@QEAAPEAVCResourceMarshaler@2@I@Z.c)
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C003019C (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
- *     ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C003175C (-Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     ?IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z @ 0x1C0092B30 (-IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ?GetInertiaModifierMarshalerFlag@CInteractionTrackerMarshaler@DirectComposition@@AEAA?AW4InteractionTrackerMarshalerFlag@12@W4InertiaModifierAxis@@@Z @ 0x1C02292A8 (-GetInertiaModifierMarshalerFlag@CInteractionTrackerMarshaler@DirectComposition@@AEAA-AW4Interac.c)
- *     ?ReleaseManipulationReferences@CInteractionTrackerMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C02293EC (-ReleaseManipulationReferences@CInteractionTrackerMarshaler@DirectComposition@@AEAAXPEAVCApplica.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C002A9C0 (Win32AllocPoolWithQuotaZInit.c)
+ *     Win32AllocPoolWithQuota @ 0x1C002AA40 (Win32AllocPoolWithQuota.c)
+ *     ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C002AAB4 (-Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ @ 0x1C01D46F4 (-AddRef@CResourceMarshaler@DirectComposition@@QEAAKXZ.c)
+ *     ?GetInertiaModifierMarshalerFlag@CInteractionTrackerMarshaler@DirectComposition@@AEAA?AW4InteractionTrackerMarshalerFlag@12@W4InertiaModifierAxis@@@Z @ 0x1C01F0468 (-GetInertiaModifierMarshalerFlag@CInteractionTrackerMarshaler@DirectComposition@@AEAA-AW4Interac.c)
+ *     ?ReleaseManipulationReferences@CInteractionTrackerMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F05AC (-ReleaseManipulationReferences@CInteractionTrackerMarshaler@DirectComposition@@AEAAXPEAVCApplica.c)
  */
 
 __int64 __fastcall DirectComposition::CInteractionTrackerMarshaler::SetBufferProperty(
         DirectComposition::CInteractionTrackerMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
-        _DWORD *a4,
+        _OWORD *a4,
         size_t Size,
         bool *a6)
 {
-  int v6; // ebx
-  struct DirectComposition::CApplicationChannel *v8; // rax
-  int v10; // r8d
+  bool *v6; // r13
+  int v7; // edi
   int v11; // r8d
   int v12; // r8d
   int v13; // r8d
   int v14; // r8d
   int v15; // r8d
-  _QWORD *v16; // rsi
-  unsigned int v17; // ebp
-  int v18; // eax
-  unsigned __int64 v19; // rsi
-  unsigned int v20; // ebp
-  char *v21; // rdx
-  void *QuotaZInit; // rax
+  int v16; // r8d
+  _QWORD *v17; // rsi
+  unsigned int v18; // ebp
+  int v19; // eax
+  unsigned int v20; // esi
+  __int64 v21; // rcx
+  void *v22; // rax
   __int64 v23; // rcx
-  NSInstrumentation::CLeakTrackingAllocator *v24; // rcx
-  unsigned __int64 v25; // rsi
-  __int64 Quota; // rax
-  __int64 i; // rbp
-  struct DirectComposition::CResourceMarshaler *v28; // rax
-  __int64 v29; // r9
-  int v30; // edx
-  struct DirectComposition::CResourceMarshaler *v31; // rax
-  __int64 v32; // r9
+  unsigned __int64 v24; // r12
+  __int64 v25; // rax
+  int v26; // ecx
+  unsigned int v27; // r13d
+  int v28; // ecx
+  unsigned __int64 v29; // rdx
+  __int64 v30; // rbp
+  int v31; // eax
+  unsigned __int64 v32; // rdx
+  __int64 v33; // rbp
   __int64 Src; // [rsp+20h] [rbp-38h] BYREF
-  int v35; // [rsp+28h] [rbp-30h]
+  int v36; // [rsp+28h] [rbp-30h]
 
-  v6 = 0;
-  v8 = a2;
+  v6 = a6;
+  v7 = 0;
   *a6 = 0;
-  v10 = a3 - 21;
-  if ( !v10 )
+  v11 = a3 - 21;
+  if ( v11 )
   {
-    if ( a4 || !*((_DWORD *)this + 90) )
+    v12 = v11 - 20;
+    if ( v12 )
     {
-      if ( Size > 0x1000 || (Size & 7) != 0 )
-        goto LABEL_8;
-      DirectComposition::CInteractionTrackerMarshaler::ReleaseManipulationReferences(this, a2);
-      v25 = Size >> 3;
-      if ( (unsigned int)(Size >> 3) )
+      v13 = v12 - 1;
+      if ( v13 )
       {
-        Quota = NSInstrumentation::CLeakTrackingAllocator::AllocateQuota(
-                  v24,
-                  260LL,
-                  16LL * (unsigned int)v25,
-                  0x72694344u);
-        *((_QWORD *)this + 44) = Quota;
-        if ( Quota )
+        v14 = v13 - 1;
+        if ( v14 )
         {
-          for ( i = 0LL; (unsigned int)i < (unsigned int)v25; i = (unsigned int)(i + 1) )
+          v15 = v14 - 1;
+          if ( v15 )
           {
-            v28 = DirectComposition::CApplicationChannel::LookupResourceMarshaler(a2, a4[2 * i]);
-            if ( !v28 || !DirectComposition::CResourceMarshaler::IsDerivedResourceType(*((_DWORD *)v28 + 9), 105) )
+            v16 = v15 - 21;
+            if ( v16 )
             {
-              v6 = -1073741811;
-              goto LABEL_50;
-            }
-            *(_QWORD *)(*((_QWORD *)this + 44) + 16LL * (unsigned int)i) = v29;
-            DirectComposition::CResourceMarshaler::AddRef(*(DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 44) + 16LL * (unsigned int)i));
-            ++*((_DWORD *)this + 90);
-            v30 = a4[2 * i + 1];
-            if ( v30 )
-            {
-              v31 = DirectComposition::CApplicationChannel::LookupResourceMarshaler(a2, v30);
-              if ( !v31 || !DirectComposition::CResourceMarshaler::IsDerivedResourceType(*((_DWORD *)v31 + 9), 89) )
+              if ( v16 != 1 )
               {
-                v6 = -1073741811;
-                *(_QWORD *)(*((_QWORD *)this + 44) + 16LL * (unsigned int)i + 8) = 0LL;
-                break;
+                v7 = -1073741811;
+                goto LABEL_54;
               }
-              *(_QWORD *)(*((_QWORD *)this + 44) + 16LL * (unsigned int)i + 8) = v32;
-              DirectComposition::CResourceMarshaler::AddRef(*(DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 44) + 16LL * (unsigned int)i + 8));
+              if ( Size == 36 )
+              {
+                *(_OWORD *)((char *)this + 412) = *a4;
+                *(_OWORD *)((char *)this + 428) = a4[1];
+                *((_DWORD *)this + 111) = *((_DWORD *)a4 + 8);
+                *a6 = 1;
+                *((_DWORD *)this + 4) &= ~0x1000000u;
+                return (unsigned int)v7;
+              }
+LABEL_10:
+              v7 = -1073741811;
+              goto LABEL_55;
             }
-            else
+            if ( Size != 12 )
+              goto LABEL_10;
+            v17 = (_QWORD *)((char *)this + 368);
+            v18 = *((_DWORD *)this + 98);
+            v19 = *((_DWORD *)a4 + 2);
+            Src = *(_QWORD *)a4;
+            v36 = v19;
+            v7 = DirectComposition::CDCompDynamicArrayBase::Grow(
+                   (DirectComposition::CInteractionTrackerMarshaler *)((char *)this + 368),
+                   1LL,
+                   0x72694344u);
+            if ( v7 >= 0 )
             {
-              *(_QWORD *)(*((_QWORD *)this + 44) + 16LL * (unsigned int)i + 8) = 0LL;
+              memmove((void *)(*v17 + v17[4] * v18), &Src, v17[4]);
+              *a6 = 1;
             }
+LABEL_54:
+            if ( v7 < 0 )
+              goto LABEL_55;
+            return (unsigned int)v7;
           }
-          if ( v6 >= 0 )
-            goto LABEL_35;
-          goto LABEL_50;
+          v20 = 2;
         }
-        goto LABEL_29;
+        else
+        {
+          v20 = 3;
+        }
+      }
+      else
+      {
+        v20 = 1;
       }
     }
     else
     {
-      DirectComposition::CInteractionTrackerMarshaler::ReleaseManipulationReferences(this, a2);
+      v20 = 0;
     }
-LABEL_35:
-    *a6 = 1;
-    *((_DWORD *)this + 4) &= ~0x800u;
-    return (unsigned int)v6;
-  }
-  v11 = v10 - 20;
-  if ( !v11 )
-  {
-    v19 = Size;
-    if ( Size > 0x1000 || (Size & 3) != 0 )
-      goto LABEL_8;
-    v20 = 0;
-LABEL_26:
-    v21 = (char *)*((_QWORD *)this + v20 + 33);
+    v21 = *((_QWORD *)this + v20 + 33);
     if ( v21 )
     {
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v21);
+      Win32FreePool(v21);
       *((_QWORD *)this + v20 + 33) = 0LL;
     }
-    QuotaZInit = (void *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                           this,
-                           (unsigned __int64)v21,
-                           v19,
-                           0x72694344u);
-    *((_QWORD *)this + v20 + 33) = QuotaZInit;
-    if ( QuotaZInit )
+    v22 = Win32AllocPoolWithQuotaZInit(Size, 0x72694344u);
+    *((_QWORD *)this + v20 + 33) = v22;
+    if ( !v22 )
     {
-      memmove(QuotaZInit, a4, v19);
-      *((_QWORD *)this + v20 + 37) = v19;
-      *((_DWORD *)this + 4) &= ~(unsigned int)DirectComposition::CInteractionTrackerMarshaler::GetInertiaModifierMarshalerFlag(
-                                                v23,
-                                                v20);
-      goto LABEL_31;
+      v7 = -1073741801;
+      goto LABEL_55;
     }
-LABEL_29:
-    v6 = -1073741801;
-    goto LABEL_50;
-  }
-  v12 = v11 - 1;
-  if ( !v12 )
-  {
-    v19 = Size;
-    if ( Size > 0x1000 || (Size & 3) != 0 )
-      goto LABEL_8;
-    v20 = 1;
-    goto LABEL_26;
-  }
-  v13 = v12 - 1;
-  if ( !v13 )
-  {
-    v19 = Size;
-    if ( Size > 0x1000 )
-      goto LABEL_8;
-    v20 = 3;
-    if ( (Size & 3) != 0 )
-      goto LABEL_8;
-    goto LABEL_26;
-  }
-  v14 = v13 - 1;
-  if ( !v14 )
-  {
-    v19 = Size;
-    if ( Size > 0x1000 || (Size & 3) != 0 )
-      goto LABEL_8;
-    v20 = 2;
-    goto LABEL_26;
-  }
-  v15 = v14 - 21;
-  if ( v15 )
-  {
-    if ( v15 == 1 && Size == 36 )
-    {
-      *(_OWORD *)((char *)this + 412) = *(_OWORD *)a4;
-      *(_OWORD *)((char *)this + 428) = *((_OWORD *)a4 + 1);
-      *((_DWORD *)this + 111) = a4[8];
-      *a6 = 1;
-      *((_DWORD *)this + 4) &= ~0x1000000u;
-      return (unsigned int)v6;
-    }
-    goto LABEL_8;
-  }
-  if ( Size != 12 )
-  {
-LABEL_8:
-    v6 = -1073741811;
-    goto LABEL_51;
-  }
-  v16 = (_QWORD *)((char *)this + 368);
-  v17 = *((_DWORD *)this + 98);
-  v18 = a4[2];
-  Src = *(_QWORD *)a4;
-  v35 = v18;
-  v6 = DirectComposition::CDCompDynamicArrayBase::Grow(
-         (DirectComposition::CInteractionTrackerMarshaler *)((char *)this + 368),
-         1LL,
-         0x72694344u);
-  if ( v6 >= 0 )
-  {
-    memmove((void *)(*v16 + v16[4] * v17), &Src, v16[4]);
-LABEL_31:
+    memmove(v22, a4, Size);
+    *((_QWORD *)this + v20 + 37) = Size;
+    *((_DWORD *)this + 4) &= ~(unsigned int)DirectComposition::CInteractionTrackerMarshaler::GetInertiaModifierMarshalerFlag(
+                                              v23,
+                                              v20);
     *a6 = 1;
-    return (unsigned int)v6;
+    return (unsigned int)v7;
   }
+  if ( !a4 && *((_DWORD *)this + 90) )
+  {
+    DirectComposition::CInteractionTrackerMarshaler::ReleaseManipulationReferences(this, a2);
+    *a6 = 1;
+    *((_DWORD *)this + 4) &= ~0x800u;
+    return (unsigned int)v7;
+  }
+  DirectComposition::CInteractionTrackerMarshaler::ReleaseManipulationReferences(this, a2);
+  v24 = Size >> 3;
+  if ( !(unsigned int)(Size >> 3) )
+    goto LABEL_53;
+  v25 = Win32AllocPoolWithQuota(16LL * (unsigned int)v24, 0x72694344u);
+  v26 = 0;
+  *((_QWORD *)this + 44) = v25;
+  if ( !v25 )
+    v26 = -1073741801;
+  v7 = v26;
+  if ( v26 < 0 )
+    goto LABEL_54;
+  v27 = 0;
+  while ( v27 < (unsigned int)v24 )
+  {
+    v28 = *((_DWORD *)a4 + 2 * v27);
+    v29 = (unsigned int)(v28 - 1);
+    if ( v28 && v29 < *((_QWORD *)a2 + 10) )
+    {
+      _mm_lfence();
+      v30 = *(_QWORD *)(v29 * *((_QWORD *)a2 + 11) + *((_QWORD *)a2 + 7));
+    }
+    else
+    {
+      v30 = 0LL;
+    }
+    if ( v30 && (*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v30 + 96LL))(v30, 103LL) )
+    {
+      *(_QWORD *)(*((_QWORD *)this + 44) + 16LL * v27) = v30;
+      DirectComposition::CResourceMarshaler::AddRef(*(DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 44)
+                                                                                              + 16LL * v27));
+      ++*((_DWORD *)this + 90);
+    }
+    else
+    {
+      v7 = -1073741811;
+    }
+    if ( v7 < 0 )
+      goto LABEL_51;
+    v31 = *((_DWORD *)a4 + 2 * v27 + 1);
+    if ( !v31 )
+      goto LABEL_50;
+    v32 = (unsigned int)(v31 - 1);
+    if ( v32 >= *((_QWORD *)a2 + 10) )
+    {
+      v33 = 0LL;
+    }
+    else
+    {
+      _mm_lfence();
+      v33 = *(_QWORD *)(v32 * *((_QWORD *)a2 + 11) + *((_QWORD *)a2 + 7));
+    }
+    if ( !v33 || !(*(unsigned __int8 (__fastcall **)(__int64, __int64))(*(_QWORD *)v33 + 96LL))(v33, 87LL) )
+    {
+      v7 = -1073741811;
 LABEL_50:
-  v8 = a2;
+      *(_QWORD *)(*((_QWORD *)this + 44) + 16LL * v27 + 8) = 0LL;
+      goto LABEL_51;
+    }
+    *(_QWORD *)(*((_QWORD *)this + 44) + 16LL * v27 + 8) = v33;
+    DirectComposition::CResourceMarshaler::AddRef(*(DirectComposition::CResourceMarshaler **)(*((_QWORD *)this + 44)
+                                                                                            + 16LL * v27
+                                                                                            + 8));
 LABEL_51:
+    ++v27;
+    if ( v7 < 0 )
+      break;
+  }
+  v6 = a6;
+  if ( v7 >= 0 )
+  {
+LABEL_53:
+    *v6 = 1;
+    *((_DWORD *)this + 4) &= ~0x800u;
+    goto LABEL_54;
+  }
+LABEL_55:
   if ( *((_QWORD *)this + 44) )
-    DirectComposition::CInteractionTrackerMarshaler::ReleaseManipulationReferences(this, v8);
-  return (unsigned int)v6;
+    DirectComposition::CInteractionTrackerMarshaler::ReleaseManipulationReferences(this, a2);
+  return (unsigned int)v7;
 }

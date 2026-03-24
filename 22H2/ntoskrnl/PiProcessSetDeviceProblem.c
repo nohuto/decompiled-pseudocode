@@ -1,82 +1,81 @@
 /*
- * XREFs of PiProcessSetDeviceProblem @ 0x1409596E8
+ * XREFs of PiProcessSetDeviceProblem @ 0x1407318D4
  * Callers:
- *     PnpDeviceActionWorker @ 0x140358E30 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x14036F9F0 (PnpDeviceActionWorker.c)
  * Callees:
- *     PiPnpRtlEndOperation @ 0x140788CDC (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140788EE0 (PiPnpRtlBeginOperation.c)
- *     PipSetDevNodeUserFlags @ 0x140790BCC (PipSetDevNodeUserFlags.c)
- *     PipSetDevNodeFlags @ 0x140795BDC (PipSetDevNodeFlags.c)
- *     PipSetDevNodeProblem @ 0x1408697BC (PipSetDevNodeProblem.c)
- *     PipIsProblemReadonly @ 0x140959974 (PipIsProblemReadonly.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     PiPnpRtlEndOperation @ 0x1406ACCB8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406AD460 (PiPnpRtlBeginOperation.c)
+ *     PipIsProblemReadonly @ 0x140731C84 (PipIsProblemReadonly.c)
+ *     PipSetDevNodeFlags @ 0x140741ABC (PipSetDevNodeFlags.c)
+ *     PipSetDevNodeUserFlags @ 0x1407487CC (PipSetDevNodeUserFlags.c)
+ *     PipSetDevNodeProblem @ 0x14074C18C (PipSetDevNodeProblem.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiProcessSetDeviceProblem(__int64 a1)
 {
   __int64 v1; // rax
-  _DWORD *v3; // rbp
-  __int64 v4; // rdi
-  unsigned int v5; // r14d
-  unsigned int v6; // edx
-  unsigned int v7; // r9d
-  int v8; // esi
-  int v9; // ecx
-  unsigned int v10; // ebx
-  int v11; // eax
-  int v12; // ecx
+  _DWORD *v2; // rbp
+  __int64 v3; // rbx
+  unsigned int v4; // r14d
+  unsigned int v5; // edx
+  unsigned int v6; // r9d
+  unsigned int v7; // esi
+  int v8; // ecx
+  unsigned int v9; // edi
+  int v10; // eax
+  __int64 v11; // rdx
   PVOID P; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 16);
+  v2 = *(_DWORD **)(a1 + 32);
   P = 0LL;
-  v3 = *(_DWORD **)(a1 + 32);
-  v4 = *(_QWORD *)(*(_QWORD *)(v1 + 312) + 40LL);
-  if ( (unsigned int)(*(_DWORD *)(v4 + 300) - 789) <= 1 )
+  v3 = *(_QWORD *)(*(_QWORD *)(v1 + 312) + 40LL);
+  if ( (unsigned int)(*(_DWORD *)(v3 + 300) - 787) <= 1 )
   {
-    v5 = -1073741738;
+    v4 = -1073741738;
   }
   else
   {
-    v5 = 0;
-    PiPnpRtlBeginOperation((__int64 **)&P);
-    v6 = v3[5];
-    v7 = v3[6];
-    v8 = (v6 >> 18) & 1 | 4;
-    if ( (v6 & 0x100) == 0 )
-      v8 = (v3[5] >> 18) & 1;
-    v9 = (v3[5] >> 1) & 0x4000 | 0x2000;
-    if ( (v6 & 0x400) == 0 )
-      v9 = (v3[5] >> 1) & 0x4000;
-    v10 = v9;
-    if ( v7 == 14 )
+    v4 = 0;
+    PiPnpRtlBeginOperation(&P);
+    v5 = v2[5];
+    v6 = v2[6];
+    v7 = (v5 >> 18) & 1 | 4;
+    if ( (v5 & 0x100) == 0 )
+      v7 = (v2[5] >> 18) & 1;
+    v8 = (v2[5] >> 1) & 0x4000 | 0x2000;
+    if ( (v5 & 0x400) == 0 )
+      v8 = (v2[5] >> 1) & 0x4000;
+    v9 = v8;
+    if ( v6 == 14 )
     {
-      v11 = *(_DWORD *)(v4 + 300);
-      if ( v11 != 772 && v11 != 771 && v11 != 788 )
-        v10 = v9 & 0xFFFFDFFF;
-      v8 |= 4u;
+      v10 = *(_DWORD *)(v3 + 300);
+      if ( v10 != 786 && v10 != 770 )
+        v9 = v8 & 0xFFFFDFFF;
+      v7 |= 4u;
     }
-    if ( !v10 )
-      goto LABEL_19;
-    v12 = *(_DWORD *)(v4 + 300);
-    if ( ((v12 - 771) & 0xFFFFFFEE) == 0
-      && v12 != 787
-      && ((v10 & 0x4000) != 0 || v7 < 0x3A && !(unsigned int)PipIsProblemReadonly(v4, v7)) )
+    if ( !v9 )
     {
-      PipSetDevNodeProblem(v4, v7, v3[8]);
-LABEL_19:
-      PipSetDevNodeFlags(v4, v10);
-      PipSetDevNodeUserFlags(v4, v8);
-      goto LABEL_22;
+      v11 = 0LL;
+      goto LABEL_15;
     }
-    v5 = -1073741584;
+    if ( ((*(_DWORD *)(v3 + 300) - 770) & 0xFFFFFFEF) == 0
+      && ((v9 & 0x4000) != 0 || v6 < 0x3A && !(unsigned int)PipIsProblemReadonly(v3, v6)) )
+    {
+      PipSetDevNodeProblem(v3, v6, (unsigned int)v2[8]);
+      v11 = v9;
+LABEL_15:
+      PipSetDevNodeFlags(v3, v11);
+      PipSetDevNodeUserFlags(v3, v7);
+      goto LABEL_16;
+    }
+    v4 = -1073741584;
   }
-LABEL_22:
-  if ( (v3[7] & 1) != 0 )
-  {
-    ExFreePoolWithTag(v3, 0x55706E50u);
-    *(_QWORD *)(a1 + 32) = 0LL;
-  }
+LABEL_16:
+  if ( (v2[7] & 1) != 0 )
+    ExFreePoolWithTag(v2, 0x55706E50u);
   if ( P )
     PiPnpRtlEndOperation((PVOID **)P);
-  return v5;
+  return v4;
 }

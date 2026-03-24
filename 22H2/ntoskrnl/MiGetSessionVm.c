@@ -1,35 +1,34 @@
 /*
- * XREFs of MiGetSessionVm @ 0x14020B13C
+ * XREFs of MiGetSessionVm @ 0x14029281C
  * Callers:
- *     MiEmptyAccessLogs @ 0x1402005B0 (MiEmptyAccessLogs.c)
- *     MiSessionRemoveImage @ 0x1402009A8 (MiSessionRemoveImage.c)
- *     MiDeleteSessionPdes @ 0x140200FD8 (MiDeleteSessionPdes.c)
- *     MiCountSystemImageCommitment @ 0x14020ABD4 (MiCountSystemImageCommitment.c)
- *     MiSessionInsertImage @ 0x14020AE84 (MiSessionInsertImage.c)
- *     MiInitializeColorBase @ 0x140211FB4 (MiInitializeColorBase.c)
- *     MiProbeAndLockPrepare @ 0x140234D90 (MiProbeAndLockPrepare.c)
- *     MiSystemFault @ 0x140261080 (MiSystemFault.c)
- *     MiCopyOnWrite @ 0x14026FC80 (MiCopyOnWrite.c)
- *     MiLockCode @ 0x140282210 (MiLockCode.c)
- *     MiSetSystemCodeProtection @ 0x1402841F0 (MiSetSystemCodeProtection.c)
- *     MiMakeDriverPagesPrivate @ 0x140291930 (MiMakeDriverPagesPrivate.c)
- *     MmCopyMemory @ 0x1402EDB50 (MmCopyMemory.c)
- *     MiTranslatePageForCopy @ 0x1402EDE44 (MiTranslatePageForCopy.c)
- *     MiTrimSharedPageFromViews @ 0x1402EFC5C (MiTrimSharedPageFromViews.c)
- *     MiLockStealSystemVm @ 0x14039875C (MiLockStealSystemVm.c)
- *     MiReplaceImportEntry @ 0x14062C720 (MiReplaceImportEntry.c)
- *     MmAddRangeToCrashDump @ 0x1406301B0 (MmAddRangeToCrashDump.c)
- *     MiTrimAllSystemPagableMemory @ 0x140635300 (MiTrimAllSystemPagableMemory.c)
- *     MiLockPatchIatForDV @ 0x140640510 (MiLockPatchIatForDV.c)
- *     MiMapRetpolineStubs @ 0x14064074C (MiMapRetpolineStubs.c)
- *     MiUnmapRetpolineStubs @ 0x140641284 (MiUnmapRetpolineStubs.c)
- *     MmPrefetchVirtualMemory @ 0x140681A70 (MmPrefetchVirtualMemory.c)
- *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiApplyRequiredSessionDriverHotPatches @ 0x140696FEC (MiApplyRequiredSessionDriverHotPatches.c)
- *     MiCompleteSecureDriverLoad @ 0x140885D58 (MiCompleteSecureDriverLoad.c)
- *     MiApplyDriverHotPatch @ 0x140A348E8 (MiApplyDriverHotPatch.c)
- *     MiUnapplyDriverHotPatch @ 0x140A3BDD8 (MiUnapplyDriverHotPatch.c)
- *     MiUnmapPatchTable @ 0x140A3C220 (MiUnmapPatchTable.c)
+ *     MiProbeAndLockPrepare @ 0x14020A2B0 (MiProbeAndLockPrepare.c)
+ *     MiCopyOnWrite @ 0x14023EC70 (MiCopyOnWrite.c)
+ *     MiTrimSharedPageFromViews @ 0x1402702C4 (MiTrimSharedPageFromViews.c)
+ *     MiReturnSystemVa @ 0x14027AC68 (MiReturnSystemVa.c)
+ *     MiInsertInSystemSpace @ 0x14027B460 (MiInsertInSystemSpace.c)
+ *     MiInitializeColorBase @ 0x14027DAF8 (MiInitializeColorBase.c)
+ *     MiRemoveFromSystemSpace @ 0x1402854CC (MiRemoveFromSystemSpace.c)
+ *     MiSystemFault @ 0x140291A80 (MiSystemFault.c)
+ *     MiLockCode @ 0x1402A3C40 (MiLockCode.c)
+ *     MiLockStealSystemVm @ 0x1402EB854 (MiLockStealSystemVm.c)
+ *     MmCopyMemory @ 0x14030C030 (MmCopyMemory.c)
+ *     MiTranslatePageForCopy @ 0x14030C534 (MiTranslatePageForCopy.c)
+ *     MiSetSystemCodeProtection @ 0x140357D78 (MiSetSystemCodeProtection.c)
+ *     MiMakeDriverPagesPrivate @ 0x140358454 (MiMakeDriverPagesPrivate.c)
+ *     MmProtectPool @ 0x140362438 (MmProtectPool.c)
+ *     MiSessionRemoveImage @ 0x14038A8F8 (MiSessionRemoveImage.c)
+ *     MiDeleteSessionPdes @ 0x14038C3C8 (MiDeleteSessionPdes.c)
+ *     MiCountSystemImageCommitment @ 0x14039E594 (MiCountSystemImageCommitment.c)
+ *     MiSessionInsertImage @ 0x1403A2274 (MiSessionInsertImage.c)
+ *     MiEmptyAccessLogs @ 0x1403A2D30 (MiEmptyAccessLogs.c)
+ *     MiExceptionForMappedVa @ 0x14052CF68 (MiExceptionForMappedVa.c)
+ *     MmReplaceImportEntry @ 0x14053585C (MmReplaceImportEntry.c)
+ *     MiTrimAllSystemPagableMemory @ 0x14053BF80 (MiTrimAllSystemPagableMemory.c)
+ *     MiUnmapPatchTable @ 0x14053F0DC (MiUnmapPatchTable.c)
+ *     MiMapRetpolineStubs @ 0x140543F7C (MiMapRetpolineStubs.c)
+ *     MiUnmapRetpolineStubs @ 0x140544188 (MiUnmapRetpolineStubs.c)
+ *     MmPrefetchVirtualMemory @ 0x1406FB498 (MmPrefetchVirtualMemory.c)
+ *     MiUnloadSystemImage @ 0x1406FEA98 (MiUnloadSystemImage.c)
  * Callees:
  *     <none>
  */
@@ -38,8 +37,8 @@ unsigned __int64 MiGetSessionVm()
 {
   unsigned __int64 result; // rax
 
-  result = KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[25];
+  result = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5];
   if ( result )
-    result += 192LL;
+    result += 256LL;
   return result;
 }

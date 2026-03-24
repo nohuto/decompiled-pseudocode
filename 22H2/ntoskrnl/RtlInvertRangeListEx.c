@@ -1,63 +1,41 @@
 /*
- * XREFs of RtlInvertRangeListEx @ 0x140816D30
+ * XREFs of RtlInvertRangeListEx @ 0x1407B8120
  * Callers:
- *     RtlInvertRangeList @ 0x140816B40 (RtlInvertRangeList.c)
- *     ArbInitializeRangeList @ 0x1409361E0 (ArbInitializeRangeList.c)
+ *     RtlInvertRangeList @ 0x1407B80F0 (RtlInvertRangeList.c)
+ *     ArbInitializeRangeList @ 0x140867100 (ArbInitializeRangeList.c)
  * Callees:
- *     RtlAddRange @ 0x140816E70 (RtlAddRange.c)
+ *     RtlAddRange @ 0x140763A30 (RtlAddRange.c)
  */
 
-__int64 __fastcall RtlInvertRangeListEx(int a1, __int64 a2, char a3, __int64 a4, __int64 a5)
+__int64 __fastcall RtlInvertRangeListEx(__int64 a1, __int64 a2, char a3, __int64 a4, __int64 a5)
 {
-  unsigned int v6; // ebx
-  __int64 v7; // rbp
-  unsigned __int64 v10; // rdx
-  unsigned __int64 *v11; // rsi
-  unsigned __int64 v12; // rax
-  int v13; // eax
+  unsigned __int64 v7; // rdx
+  unsigned __int64 v10; // rax
+  unsigned __int64 *v11; // rdi
   __int64 result; // rax
 
-  v6 = 0;
-  v7 = a4;
-  v10 = 0LL;
-  if ( *(_DWORD *)(a2 + 20) )
+  v7 = 0LL;
+  if ( !*(_DWORD *)(a2 + 20) )
+    return RtlAddRange(a1, 0LL, 0xFFFFFFFFFFFFFFFFuLL, a3, 0, a4, a5);
+  v10 = *(_QWORD *)a2;
+  while ( 1 )
   {
-    v11 = (unsigned __int64 *)(*(_QWORD *)a2 - 40LL);
-    if ( a2 == *(_QWORD *)a2 )
+    v11 = (unsigned __int64 *)(v10 - 40);
+    if ( a2 == v10 )
+      break;
+    if ( *v11 > v7 )
     {
-      return 0LL;
+      result = RtlAddRange(a1, v7, *v11 - 1, a3, 0, a4, a5);
+      if ( (int)result < 0 )
+        return result;
     }
-    else
-    {
-      while ( 1 )
-      {
-        if ( *v11 > v10 )
-        {
-          LOBYTE(a4) = a3;
-          result = RtlAddRange(a1, v10, (unsigned int)*v11 - 1, a4, 0, v7, a5);
-          if ( (int)result < 0 )
-            break;
-        }
-        v12 = v11[5];
-        v10 = v11[1] + 1;
-        v11 = (unsigned __int64 *)(v12 - 40);
-        if ( a2 == v12 )
-        {
-          if ( !v10 )
-            return 0LL;
-          LOBYTE(a4) = a3;
-          v13 = RtlAddRange(a1, v10, -1, a4, 0, v7, a5);
-          if ( v13 < 0 )
-            return (unsigned int)v13;
-          return v6;
-        }
-      }
-    }
+    v10 = v11[5];
+    v7 = v11[1] + 1;
   }
-  else
-  {
-    LOBYTE(a4) = a3;
-    return RtlAddRange(a1, 0, -1, a4, 0, v7, a5);
-  }
+  if ( !v7 )
+    return 0LL;
+  result = RtlAddRange(a1, v7, 0xFFFFFFFFFFFFFFFFuLL, a3, 0, a4, a5);
+  if ( (int)result >= 0 )
+    return 0LL;
   return result;
 }

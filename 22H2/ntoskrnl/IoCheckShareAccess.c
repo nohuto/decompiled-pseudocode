@@ -1,9 +1,9 @@
 /*
- * XREFs of IoCheckShareAccess @ 0x1407E2120
+ * XREFs of IoCheckShareAccess @ 0x1406A3A20
  * Callers:
- *     DifIoCheckShareAccessWrapper @ 0x1405DDB50 (DifIoCheckShareAccessWrapper.c)
+ *     <none>
  * Callees:
- *     IoCheckLinkShareAccess @ 0x140766580 (IoCheckLinkShareAccess.c)
+ *     IoCheckLinkShareAccess @ 0x1406C7FE0 (IoCheckLinkShareAccess.c)
  */
 
 NTSTATUS __stdcall IoCheckShareAccess(
@@ -13,5 +13,11 @@ NTSTATUS __stdcall IoCheckShareAccess(
         PSHARE_ACCESS ShareAccess,
         BOOLEAN Update)
 {
-  return IoCheckLinkShareAccess(DesiredAccess, DesiredShareAccess, (__int64)FileObject, ShareAccess, 0LL, Update != 0);
+  return IoCheckLinkShareAccess(
+           DesiredAccess,
+           DesiredShareAccess,
+           (_DWORD)FileObject,
+           (_DWORD)ShareAccess,
+           0LL,
+           Update != 0);
 }

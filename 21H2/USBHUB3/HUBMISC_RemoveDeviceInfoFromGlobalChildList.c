@@ -1,12 +1,12 @@
 /*
- * XREFs of HUBMISC_RemoveDeviceInfoFromGlobalChildList @ 0x1C002DC28
+ * XREFs of HUBMISC_RemoveDeviceInfoFromGlobalChildList @ 0x1C002D59C
  * Callers:
- *     HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff @ 0x1C001D070 (HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff.c)
- *     HUBDSM_DeletingEndpointsAndDeviceOnOnCleanup @ 0x1C001D120 (HUBDSM_DeletingEndpointsAndDeviceOnOnCleanup.c)
- *     HUBDSM_RemovingDeviceInfoFromGlobalListOnReportedMissingOnHubStopOnDetach @ 0x1C001D7A0 (HUBDSM_RemovingDeviceInfoFromGlobalListOnReportedMissingOnHubStopOnDetach.c)
- *     HUBDSM_WaitingForPDORemovedOnDetachInConfigured @ 0x1C001E100 (HUBDSM_WaitingForPDORemovedOnDetachInConfigured.c)
- *     HUBDSM_RequestingDeviceCycleInReportingToPnp @ 0x1C00210E0 (HUBDSM_RequestingDeviceCycleInReportingToPnp.c)
- *     HUBPDO_EvtDeviceSurpriseRemoval @ 0x1C007A670 (HUBPDO_EvtDeviceSurpriseRemoval.c)
+ *     HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff @ 0x1C001CB30 (HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff.c)
+ *     HUBDSM_DeletingEndpointsAndDeviceOnOnCleanup @ 0x1C001CBE0 (HUBDSM_DeletingEndpointsAndDeviceOnOnCleanup.c)
+ *     HUBDSM_RemovingDeviceInfoFromGlobalListOnReportedMissingOnHubStopOnDetach @ 0x1C001D260 (HUBDSM_RemovingDeviceInfoFromGlobalListOnReportedMissingOnHubStopOnDetach.c)
+ *     HUBDSM_WaitingForPDORemovedOnDetachInConfigured @ 0x1C001DBC0 (HUBDSM_WaitingForPDORemovedOnDetachInConfigured.c)
+ *     HUBDSM_RequestingDeviceCycleInReportingToPnp @ 0x1C0020CE0 (HUBDSM_RequestingDeviceCycleInReportingToPnp.c)
+ *     HUBPDO_EvtDeviceSurpriseRemoval @ 0x1C0079170 (HUBPDO_EvtDeviceSurpriseRemoval.c)
  * Callees:
  *     <none>
  */

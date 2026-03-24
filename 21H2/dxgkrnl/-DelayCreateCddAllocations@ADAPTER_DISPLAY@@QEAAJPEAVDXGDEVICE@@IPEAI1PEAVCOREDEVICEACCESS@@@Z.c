@@ -1,126 +1,111 @@
 /*
- * XREFs of ?DelayCreateCddAllocations@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@IPEAI1PEAVCOREDEVICEACCESS@@@Z @ 0x1C015A878
+ * XREFs of ?DelayCreateCddAllocations@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@IPEAI1PEAVCOREDEVICEACCESS@@@Z @ 0x1C00DF1F0
  * Callers:
- *     ?DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z @ 0x1C0158B10 (-DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z.c)
- *     DxgkGetSharedPrimaryHandle @ 0x1C02D1520 (DxgkGetSharedPrimaryHandle.c)
- *     ?PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z @ 0x1C02DD990 (-PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z.c)
+ *     ?DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z @ 0x1C00DEAB0 (-DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z.c)
+ *     ?PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z @ 0x1C0196514 (-PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z.c)
+ *     DxgkGetSharedPrimaryHandle @ 0x1C02233E0 (DxgkGetSharedPrimaryHandle.c)
  * Callees:
- *     ?IsCddPrimaryStale@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C0001D3C (-IsCddPrimaryStale@ADAPTER_DISPLAY@@QEBAEI@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?Release@COREDEVICEACCESS@@QEAAXXZ @ 0x1C000EEA8 (-Release@COREDEVICEACCESS@@QEAAXXZ.c)
- *     ?GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z @ 0x1C000F16C (-GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?AcquireExclusive@COREDEVICEACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@PEAD@Z @ 0x1C0013788 (-AcquireExclusive@COREDEVICEACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@PEAD@Z.c)
- *     ?GetVidPnSourceOwnerType@ADAPTER_DISPLAY@@QEBA?AW4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@I@Z @ 0x1C0013B54 (-GetVidPnSourceOwnerType@ADAPTER_DISPLAY@@QEBA-AW4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@I@Z.c)
- *     ?UsingDelayCreateCddAllocation@DXGADAPTER@@QEBAEXZ @ 0x1C001EE1C (-UsingDelayCreateCddAllocation@DXGADAPTER@@QEBAEXZ.c)
- *     ?CreateCddAllocations@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@IAEBU_D3DKMT_DISPLAYMODE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C015A9DC (-CreateCddAllocations@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@IAEBU_D3DKMT_DISPLAYMODE@@PEAVCOREDEV.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Release@COREDEVICEACCESS@@QEAAXXZ @ 0x1C0009C58 (-Release@COREDEVICEACCESS@@QEAAXXZ.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?AcquireExclusive@COREDEVICEACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@PEAD@Z @ 0x1C000BA88 (-AcquireExclusive@COREDEVICEACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@PEAD@Z.c)
+ *     ?GetVidPnSourceOwnerType@ADAPTER_DISPLAY@@QEBA?AW4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@I@Z @ 0x1C000BB90 (-GetVidPnSourceOwnerType@ADAPTER_DISPLAY@@QEBA-AW4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@I@Z.c)
+ *     ?GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z @ 0x1C000D22C (-GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z.c)
+ *     ?IsCddPrimaryStale@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C001A438 (-IsCddPrimaryStale@ADAPTER_DISPLAY@@QEBAEI@Z.c)
+ *     ?CreateCddAllocations@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@IAEBU_D3DKMT_DISPLAYMODE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C014B84C (-CreateCddAllocations@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@IAEBU_D3DKMT_DISPLAYMODE@@PEAVCOREDEV.c)
+ *     ?UsingSetTimingsFromVidPn@DXGADAPTER@@QEBAEXZ @ 0x1C014ECC4 (-UsingSetTimingsFromVidPn@DXGADAPTER@@QEBAEXZ.c)
  */
 
 __int64 __fastcall ADAPTER_DISPLAY::DelayCreateCddAllocations(
-        ADAPTER_DISPLAY *this,
+        DXGADAPTER **this,
         struct DXGDEVICE *a2,
         unsigned int a3,
         unsigned int *a4,
         unsigned int *a5,
         struct COREDEVICEACCESS *a6)
 {
-  __int64 v6; // rsi
-  unsigned int *v7; // r14
-  __int64 v10; // r12
-  __int64 v11; // r15
-  int v12; // eax
-  __int64 v13; // r14
-  ADAPTER_DISPLAY *v14; // rbx
+  __int64 v7; // rsi
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v13; // rax
+  __int64 v14; // rax
+  __int64 v15; // r14
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  int v19; // eax
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // rbx
+  _QWORD *v23; // rax
+  ADAPTER_DISPLAY *v24; // rbx
   const struct _D3DKMT_DISPLAYMODE *DisplayModeInfo; // rax
   int CddAllocations; // eax
-  __int64 v17; // rsi
+  __int64 v27; // rdx
+  __int64 v28; // rcx
 
-  v6 = a3;
-  v7 = a4;
-  if ( a3 >= *((_DWORD *)this + 24) )
+  v7 = a3;
+  if ( a3 >= *((_DWORD *)this + 20) )
   {
-    WdLogSingleEntry1(1LL, 1508LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"VidPnSourceId < m_NumVidPnSources",
-      1508LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v13 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v13 + 24) = 1466LL;
+    WdLogEvent5_WdAssertion(v13);
   }
-  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*((DXGADAPTER **)this + 2)) )
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 1509LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceSharedOwner()", 1509LL, 0LL, 0LL, 0LL, 0LL);
+    v14 = WdLogNewEntry5_WdAssertion(v11, v10);
+    *(_QWORD *)(v14 + 24) = 1467LL;
+    WdLogEvent5_WdAssertion(v14);
   }
-  if ( !DXGADAPTER::UsingDelayCreateCddAllocation(*((DXGADAPTER **)this + 2)) )
+  if ( !DXGADAPTER::UsingSetTimingsFromVidPn(this[2]) )
     return 3221225659LL;
-  v10 = v6;
-  v11 = 4000 * v6;
-  if ( *(_QWORD *)(*((_QWORD *)this + 16) + 4000 * v6 + 88) )
+  v15 = 3968 * v7;
+  if ( *((_QWORD *)this[14] + 496 * v7 + 11) )
   {
-    if ( !ADAPTER_DISPLAY::IsCddPrimaryStale(this, v6) )
+    if ( !ADAPTER_DISPLAY::IsCddPrimaryStale((ADAPTER_DISPLAY *)this, v7) )
       return 3221225659LL;
   }
-  if ( (unsigned int)ADAPTER_DISPLAY::GetVidPnSourceOwnerType(this, v6)
-    && (unsigned int)ADAPTER_DISPLAY::GetVidPnSourceOwnerType(this, v6) != 3 )
+  if ( (unsigned int)ADAPTER_DISPLAY::GetVidPnSourceOwnerType((ADAPTER_DISPLAY *)this, (unsigned int)v7)
+    && (unsigned int)ADAPTER_DISPLAY::GetVidPnSourceOwnerType((ADAPTER_DISPLAY *)this, (unsigned int)v7) != 3 )
   {
     return 3221225659LL;
   }
-  if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*((PERESOURCE **)this + 2)) )
+  if ( !DXGADAPTER::IsCoreResourceExclusiveOwner((PERESOURCE *)this[2]) )
   {
     if ( !a6 )
     {
-      WdLogSingleEntry1(1LL, 1530LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"pCoreAccess != NULL", 1530LL, 0LL, 0LL, 0LL, 0LL);
+      v18 = WdLogNewEntry5_WdAssertion(v17, v16);
+      *(_QWORD *)(v18 + 24) = 1488LL;
+      WdLogEvent5_WdAssertion(v18);
     }
-    COREDEVICEACCESS::Release(a6);
-    v12 = COREDEVICEACCESS::AcquireExclusive((__int64)a6, 1u);
-    v13 = v12;
-    if ( v12 < 0 )
+    COREDEVICEACCESS::Release(a6, v16);
+    v19 = COREDEVICEACCESS::AcquireExclusive((__int64)a6, 1u);
+    v22 = v19;
+    if ( v19 < 0 )
     {
-      WdLogSingleEntry2(2LL, a2, v12);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to acquire device core access exclusive on device 0x%I64x (Status = 0x%I64x).",
-        (__int64)a2,
-        v13,
-        0LL,
-        0LL,
-        0LL);
-      return (unsigned int)v13;
+      v23 = (_QWORD *)WdLogNewEntry5_WdError(v21, v20);
+      v23[3] = a2;
+      v23[4] = v22;
+LABEL_17:
+      WdLogEvent5_WdError(v23);
+      return (unsigned int)v22;
     }
-    v7 = a4;
   }
-  v14 = *(ADAPTER_DISPLAY **)(*((_QWORD *)this + 2) + 2792LL);
-  DisplayModeInfo = (const struct _D3DKMT_DISPLAYMODE *)ADAPTER_DISPLAY::GetDisplayModeInfo(this, v6);
-  CddAllocations = ADAPTER_DISPLAY::CreateCddAllocations(v14, a2, v6, DisplayModeInfo, a6);
-  v17 = CddAllocations;
+  v24 = (ADAPTER_DISPLAY *)*((_QWORD *)this[2] + 337);
+  DisplayModeInfo = (const struct _D3DKMT_DISPLAYMODE *)ADAPTER_DISPLAY::GetDisplayModeInfo(
+                                                          (ADAPTER_DISPLAY *)this,
+                                                          (unsigned int)v7);
+  CddAllocations = ADAPTER_DISPLAY::CreateCddAllocations(v24, a2, v7, DisplayModeInfo, a6);
+  v22 = CddAllocations;
   if ( CddAllocations < 0 )
   {
-    WdLogSingleEntry3(2LL, *((_QWORD *)this + 2), v10, CddAllocations);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to create CDD primary allocations on Adapter 0x%I64x for VidPnSource 0x%I64x, (Status = 0x%I64x).",
-      *((_QWORD *)this + 2),
-      v10,
-      v17,
-      0LL,
-      0LL);
-    return (unsigned int)v17;
+    v23 = (_QWORD *)WdLogNewEntry5_WdError(v28, v27);
+    v23[3] = this[2];
+    v23[4] = v7;
+    v23[5] = v22;
+    goto LABEL_17;
   }
-  else
-  {
-    *v7 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 16) + v11 + 88) + 16LL);
-    *a5 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 16) + v11 + 600) + 16LL);
-    return 0LL;
-  }
+  *a4 = *(_DWORD *)(*(_QWORD *)((char *)this[14] + v15 + 88) + 16LL);
+  *a5 = *(_DWORD *)(*(_QWORD *)((char *)this[14] + v15 + 600) + 16LL);
+  return 0LL;
 }

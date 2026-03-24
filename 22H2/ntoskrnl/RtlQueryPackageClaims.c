@@ -1,31 +1,31 @@
 /*
- * XREFs of RtlQueryPackageClaims @ 0x140226060
+ * XREFs of RtlQueryPackageClaims @ 0x14024EA60
  * Callers:
- *     SepDesktopAppxSubProcessToken @ 0x140225D5C (SepDesktopAppxSubProcessToken.c)
- *     RtlQueryPackageIdentityEx @ 0x140226000 (RtlQueryPackageIdentityEx.c)
- *     AppModelPolicy_GetPolicy_Internal @ 0x1402267E8 (AppModelPolicy_GetPolicy_Internal.c)
- *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x14036E6B8 (SepVerifyDesktopAppPolicyOverrideCaller.c)
+ *     RtlQueryPackageIdentityEx @ 0x14024EDE0 (RtlQueryPackageIdentityEx.c)
+ *     AppModelPolicy_GetPolicy_Internal @ 0x14024FD30 (AppModelPolicy_GetPolicy_Internal.c)
+ *     SepDesktopAppxSubProcessToken @ 0x14024FE28 (SepDesktopAppxSubProcessToken.c)
+ *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x140596390 (SepVerifyDesktopAppPolicyOverrideCaller.c)
  * Callees:
- *     RtlpQueryPackageIdentityAttributes @ 0x1402261E8 (RtlpQueryPackageIdentityAttributes.c)
- *     RtlStringCbPrintfExW @ 0x140226370 (RtlStringCbPrintfExW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlGUIDFromString @ 0x1406CF770 (RtlGUIDFromString.c)
+ *     RtlpQueryPackageIdentityAttributes @ 0x14024CFC8 (RtlpQueryPackageIdentityAttributes.c)
+ *     RtlStringCbPrintfExW @ 0x14024F030 (RtlStringCbPrintfExW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlGUIDFromString @ 0x1406BD650 (RtlGUIDFromString.c)
  */
 
-NTSTATUS __fastcall RtlQueryPackageClaims(
+int __fastcall RtlQueryPackageClaims(
         int a1,
         wchar_t *a2,
         size_t *a3,
         wchar_t *a4,
         size_t *a5,
         GUID *Guid,
-        int a7,
-        __int64 a8)
+        _QWORD *a7,
+        _QWORD *a8)
 {
-  int v12; // edx
-  NTSTATUS result; // eax
-  NTSTATUS v14; // ebx
+  __int64 v12; // rdx
+  int result; // eax
+  int v14; // ebx
   size_t *v15; // rdi
   __int64 v16; // rcx
   NTSTRSAFE_PWSTR ppszDestEnd; // [rsp+40h] [rbp-C0h] BYREF
@@ -38,7 +38,7 @@ NTSTATUS __fastcall RtlQueryPackageClaims(
   v19 = a5;
   memset(v21, 0, sizeof(v21));
   ppszDestEnd = 0LL;
-  result = RtlpQueryPackageIdentityAttributes(a1, v12, (unsigned int)v21, a7, a8);
+  result = RtlpQueryPackageIdentityAttributes(a1, v12, (__int64)v21, a7, a8);
   v14 = result;
   if ( result < 0 )
     return result;

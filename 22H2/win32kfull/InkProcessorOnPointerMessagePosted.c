@@ -1,35 +1,31 @@
 /*
- * XREFs of InkProcessorOnPointerMessagePosted @ 0x1C0156550
+ * XREFs of InkProcessorOnPointerMessagePosted @ 0x1C0220270
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0040C00 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ?OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z @ 0x1C01578B6 (-OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z.c)
- *     ?GetInkProcessor@@YAJPEAPEAVInkProcessor@@@Z @ 0x1C01FE0B4 (-GetInkProcessor@@YAJPEAPEAVInkProcessor@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D1C24 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ?OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z @ 0x1C024F2C8 (-OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z.c)
  */
 
 void __fastcall InkProcessorOnPointerMessagePosted(unsigned int a1, unsigned __int64 a2)
 {
-  int InkProcessor; // eax
-  struct InkProcessor *v5; // [rsp+30h] [rbp-48h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+38h] [rbp-40h] BYREF
-  struct InkProcessor **v7; // [rsp+58h] [rbp-20h]
-  int v8; // [rsp+60h] [rbp-18h]
-  int v9; // [rsp+64h] [rbp-14h]
+  int v2; // [rsp+30h] [rbp-48h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v3; // [rsp+38h] [rbp-40h] BYREF
+  int *v4; // [rsp+58h] [rbp-20h]
+  int v5; // [rsp+60h] [rbp-18h]
+  int v6; // [rsp+64h] [rbp-14h]
 
-  v5 = 0LL;
-  InkProcessor = GetInkProcessor(&v5);
-  if ( InkProcessor >= 0 )
+  if ( InkProcessor::s_pInstance )
   {
-    InkProcessor::OnPointerMessagePosted(v5, a1, a2);
+    InkProcessor::OnPointerMessagePosted(InkProcessor::s_pInstance, a1, a2);
   }
-  else if ( (unsigned int)dword_1C03540E0 > 2 )
+  else if ( (unsigned int)dword_1C032A288 > 2 )
   {
-    v9 = 0;
-    LODWORD(v5) = InkProcessor;
-    v8 = 4;
-    v7 = &v5;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C03540E0, (unsigned __int8 *)dword_1C031C186, 0LL, 0LL, 3u, &v6);
+    v2 = -1073741823;
+    v4 = &v2;
+    v6 &= (unsigned int)InkProcessor::s_pInstance;
+    v5 = 4;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C032A288, (unsigned __int8 *)dword_1C02F1ECC, 0LL, 0LL, 3u, &v3);
   }
 }

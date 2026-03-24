@@ -1,5 +1,5 @@
 /*
- * XREFs of EditionCheckDesktopPolicy @ 0x1C00BE930
+ * XREFs of EditionCheckDesktopPolicy @ 0x1C01372B0
  * Callers:
  *     <none>
  * Callees:

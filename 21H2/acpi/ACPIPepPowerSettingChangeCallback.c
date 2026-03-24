@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIPepPowerSettingChangeCallback @ 0x1C00B0520
+ * XREFs of ACPIPepPowerSettingChangeCallback @ 0x1C00B1260
  * Callers:
  *     <none>
  * Callees:
- *     ACPISetDeviceWorker @ 0x1C00215BC (ACPISetDeviceWorker.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     PepPromoteNextNotificationState @ 0x1C00B0810 (PepPromoteNextNotificationState.c)
+ *     ACPISetDeviceWorker @ 0x1C0013470 (ACPISetDeviceWorker.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     PepPromoteNextNotificationState @ 0x1C00B1574 (PepPromoteNextNotificationState.c)
  */
 
 __int64 __fastcall ACPIPepPowerSettingChangeCallback(

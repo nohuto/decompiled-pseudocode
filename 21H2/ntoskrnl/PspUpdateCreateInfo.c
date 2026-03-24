@@ -1,18 +1,18 @@
 /*
- * XREFs of PspUpdateCreateInfo @ 0x14066EFE8
+ * XREFs of PspUpdateCreateInfo @ 0x14060CB24
  * Callers:
- *     NtCreateUserProcess @ 0x14066D650 (NtCreateUserProcess.c)
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
+ *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
  * Callees:
- *     PspPropagateHandle @ 0x14066F1F0 (PspPropagateHandle.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
+ *     PspPropagateHandle @ 0x14060CD2C (PspPropagateHandle.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
  */
 
 __int64 __fastcall PspUpdateCreateInfo(int a1, __int64 a2, __int64 a3)
 {
   int v5; // edi
   __int64 v6; // rbx
-  unsigned __int8 PreviousMode; // r14
+  unsigned __int8 v7; // r14
   __int64 v8; // r15
   __int64 v9; // rcx
   int v10; // ecx
@@ -29,14 +29,14 @@ __int64 __fastcall PspUpdateCreateInfo(int a1, __int64 a2, __int64 a3)
   v5 = 0;
   v6 = *(_QWORD *)(a2 + 40);
   v20[0] = 0LL;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  v7 = KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
   v8 = 2LL;
   if ( (*(_BYTE *)(a2 + 8) & 2) == 0 )
     goto LABEL_14;
   v9 = (unsigned int)(a1 - 2);
   if ( !(_DWORD)v9 )
   {
-    LODWORD(v9) = PreviousMode;
+    LODWORD(v9) = v7;
     v5 = PspPropagateHandle(v9, a2 + 168, v20);
     if ( v5 >= 0 )
     {
@@ -56,7 +56,7 @@ LABEL_22:
   v11 = (unsigned int)(v10 - 2);
   if ( !(_DWORD)v11 )
   {
-    LODWORD(v11) = PreviousMode;
+    LODWORD(v11) = v7;
     v5 = PspPropagateHandle(v11, a2 + 192, v20);
     if ( v5 >= 0 )
     {
@@ -69,7 +69,7 @@ LABEL_22:
   {
     if ( (*(_DWORD *)(a2 + 4) & 0x20) != 0 )
     {
-      LOBYTE(v11) = PreviousMode;
+      LOBYTE(v11) = v7;
       v5 = PspPropagateHandle(v11, a2 + 168, v20);
       if ( v5 < 0 )
       {
@@ -77,7 +77,7 @@ LABEL_22:
       }
       else
       {
-        LOBYTE(v12) = PreviousMode;
+        LOBYTE(v12) = v7;
         v5 = PspPropagateHandle(v12, a2 + 184, (char *)v20 + 8);
         if ( v5 < 0 )
           *((_QWORD *)&v20[0] + 1) = 0LL;
@@ -119,7 +119,7 @@ LABEL_23:
   do
   {
     if ( *v19 )
-      ObCloseHandle(*v19, PreviousMode);
+      ObCloseHandle(*v19, v7);
     ++v19;
     --v8;
   }

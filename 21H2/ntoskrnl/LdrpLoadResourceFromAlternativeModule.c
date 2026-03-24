@@ -1,14 +1,14 @@
 /*
- * XREFs of LdrpLoadResourceFromAlternativeModule @ 0x1402D6FB0
+ * XREFs of LdrpLoadResourceFromAlternativeModule @ 0x1402A93F8
  * Callers:
- *     LdrpSearchResourceSection_U @ 0x14075717C (LdrpSearchResourceSection_U.c)
+ *     LdrpSearchResourceSection_U @ 0x14068DCE4 (LdrpSearchResourceSection_U.c)
  * Callees:
- *     LdrLoadAlternateResourceModuleEx @ 0x1402D708C (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpFindMessageInAlternateModule @ 0x1402D7C70 (LdrpFindMessageInAlternateModule.c)
- *     LdrpSearchResourceSection_U @ 0x14075717C (LdrpSearchResourceSection_U.c)
+ *     LdrpFindMessageInAlternateModule @ 0x1402A8B08 (LdrpFindMessageInAlternateModule.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1402A94D4 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpSearchResourceSection_U @ 0x14068DCE4 (LdrpSearchResourceSection_U.c)
  */
 
-__int64 __fastcall LdrpLoadResourceFromAlternativeModule(int a1, __int64 a2, int a3, int a4, _QWORD *a5)
+__int64 __fastcall LdrpLoadResourceFromAlternativeModule(int a1, __int64 a2, int a3, int a4, unsigned int **a5)
 {
   char v5; // si
   unsigned __int16 v7; // bx
@@ -34,7 +34,7 @@ __int64 __fastcall LdrpLoadResourceFromAlternativeModule(int a1, __int64 a2, int
     result = LdrpSearchResourceSection_U(v9, a2, 3, 33554480, (__int64)a5);
     if ( (v5 & 0x40) != 0 && (int)result >= 0 )
     {
-      result = LdrpFindMessageInAlternateModule(v10, *a5, 0, *(_DWORD *)(a2 + 24), 0);
+      result = LdrpFindMessageInAlternateModule(v10, *a5, 0LL, *(_DWORD *)(a2 + 24), 0);
       if ( (int)result < 0 )
         *a5 = 0LL;
     }

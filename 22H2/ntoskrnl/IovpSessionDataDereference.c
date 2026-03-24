@@ -1,12 +1,12 @@
 /*
- * XREFs of IovpSessionDataDereference @ 0x140ADEFB4
+ * XREFs of IovpSessionDataDereference @ 0x1409E1940
  * Callers:
- *     IovpLocalCompletionRoutine @ 0x140AC2B60 (IovpLocalCompletionRoutine.c)
- *     IovpCallDriver2 @ 0x140ACD6CC (IovpCallDriver2.c)
- *     IovpCompleteRequest2 @ 0x140ACDAFC (IovpCompleteRequest2.c)
+ *     IovpLocalCompletionRoutine @ 0x1409C56D0 (IovpLocalCompletionRoutine.c)
+ *     IovpCallDriver2 @ 0x1409D0154 (IovpCallDriver2.c)
+ *     IovpCompleteRequest2 @ 0x1409D0600 (IovpCompleteRequest2.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1402B6B40 (ExFreeToNPagedLookasideList.c)
- *     VfUtilFreePoolDispatchLevel @ 0x1405CE3B0 (VfUtilFreePoolDispatchLevel.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252644 (ExFreeToNPagedLookasideList.c)
+ *     VfUtilFreePoolDispatchLevel @ 0x1405A0680 (VfUtilFreePoolDispatchLevel.c)
  */
 
 void __fastcall IovpSessionDataDereference(struct _SLIST_ENTRY *Entry)

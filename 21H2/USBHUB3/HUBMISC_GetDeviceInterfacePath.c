@@ -1,13 +1,13 @@
 /*
- * XREFs of HUBMISC_GetDeviceInterfacePath @ 0x1C00309D4
+ * XREFs of HUBMISC_GetDeviceInterfacePath @ 0x1C0030334
  * Callers:
- *     HUBFDO_CreateDeviceInterfaceForBillboard @ 0x1C000E6E0 (HUBFDO_CreateDeviceInterfaceForBillboard.c)
- *     HUBDRIVER_EtwRundownUsbDevice @ 0x1C0073A54 (HUBDRIVER_EtwRundownUsbDevice.c)
- *     HUBFDO_IoctlGetNodeConnectionName @ 0x1C0076BFC (HUBFDO_IoctlGetNodeConnectionName.c)
- *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0079110 (HUBPDO_EvtDevicePrepareHardware.c)
+ *     HUBFDO_CreateDeviceInterfaceForBillboard @ 0x1C000E2E0 (HUBFDO_CreateDeviceInterfaceForBillboard.c)
+ *     HUBDRIVER_EtwRundownUsbDevice @ 0x1C0072970 (HUBDRIVER_EtwRundownUsbDevice.c)
+ *     HUBFDO_IoctlGetNodeConnectionName @ 0x1C007585C (HUBFDO_IoctlGetNodeConnectionName.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0077CC0 (HUBPDO_EvtDevicePrepareHardware.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0001C04 (WPP_RECORDER_SF_d.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0001B50 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBMISC_GetDeviceInterfacePath(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, __int64 a5)
@@ -41,15 +41,13 @@ __int64 __fastcall HUBMISC_GetDeviceInterfacePath(__int64 a1, __int64 a2, _QWORD
            a1,
            a4,
            *a3);
-    if ( v9 >= 0 )
-      return (unsigned int)v9;
   }
   else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     v11 = v9;
-    WPP_RECORDER_SF_d(a5, 2u, 5u, 0x62u, (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids, v11);
+    WPP_RECORDER_SF_d(a5, 2u, 5u, 0x62u, (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids, v11);
   }
-  if ( *a3 )
+  if ( v9 < 0 && *a3 )
   {
     (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1664))(WdfDriverGlobals);
     *a3 = 0LL;

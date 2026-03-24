@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ProcessDesktopSwitch@OUTPUTDUPL_MGR@@QEAAXI@Z @ 0x1C01E9500
+ * XREFs of ?ProcessDesktopSwitch@OUTPUTDUPL_MGR@@QEAAXI@Z @ 0x1C015C9C0
  * Callers:
  *     <none>
  * Callees:
- *     ?MoveContextToPendingDestroyList@OUTPUTDUPL_MGR@@QEAAXIPEAVDXGDEVICE@@HHW4_DXGK_DIAG_OUTPUTDUPL_DESTROY_REASON@@@Z @ 0x1C019F49C (-MoveContextToPendingDestroyList@OUTPUTDUPL_MGR@@QEAAXIPEAVDXGDEVICE@@HHW4_DXGK_DIAG_OUTPUTDUPL_.c)
+ *     ?MoveContextToPendingDestroyList@OUTPUTDUPL_MGR@@QEAAXIPEAVDXGDEVICE@@HHW4_DXGK_DIAG_OUTPUTDUPL_DESTROY_REASON@@@Z @ 0x1C015CAD4 (-MoveContextToPendingDestroyList@OUTPUTDUPL_MGR@@QEAAXIPEAVDXGDEVICE@@HHW4_DXGK_DIAG_OUTPUTDUPL_.c)
  */
 
-void __fastcall OUTPUTDUPL_MGR::ProcessDesktopSwitch(struct _KTHREAD **this, unsigned int a2)
+void __fastcall OUTPUTDUPL_MGR::ProcessDesktopSwitch(OUTPUTDUPL_MGR *this, __int64 a2)
 {
-  if ( a2 < *((_DWORD *)this + 19) )
-    OUTPUTDUPL_MGR::MoveContextToPendingDestroyList(this, a2, 0LL, 0, 0, 4);
+  if ( (unsigned int)a2 < *((_DWORD *)this + 13) )
+    OUTPUTDUPL_MGR::MoveContextToPendingDestroyList(this, a2, 0LL, 0LL, 0, 4);
 }

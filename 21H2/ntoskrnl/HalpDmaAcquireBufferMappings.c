@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpDmaAcquireBufferMappings @ 0x140456CC6
+ * XREFs of HalpDmaAcquireBufferMappings @ 0x1404C65A8
  * Callers:
- *     HalpDmaFreeMapRegisters @ 0x14045746C (HalpDmaFreeMapRegisters.c)
- *     HalpDmaSyncMapBuffers @ 0x140457A42 (HalpDmaSyncMapBuffers.c)
- *     HalpDmaZeroMapBuffers @ 0x140513F84 (HalpDmaZeroMapBuffers.c)
+ *     HalpDmaFreeMapRegisters @ 0x1404C7AB8 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaSyncMapBuffers @ 0x1404C81F4 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaZeroMapBuffers @ 0x1404C88D4 (HalpDmaZeroMapBuffers.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
- *     KxAcquireQueuedSpinLock @ 0x1403119F0 (KxAcquireQueuedSpinLock.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x1403D7610 (MmMapLockedPagesWithReservedMapping.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403C8A70 (MmMapLockedPagesWithReservedMapping.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
  */
 
 unsigned __int64 __fastcall HalpDmaAcquireBufferMappings(__int64 a1, _QWORD *a2, unsigned int a3, __int64 a4)
 {
   unsigned __int64 result; // rax
   __int64 v5; // rsi
-  int v6; // ecx
+  unsigned int v6; // ecx
   _QWORD *v8; // r14
   _QWORD *v9; // rdx
   __int64 Number; // rcx
@@ -48,29 +48,25 @@ unsigned __int64 __fastcall HalpDmaAcquireBufferMappings(__int64 a1, _QWORD *a2,
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( a3 )
   {
-    while ( 1 )
+    do
     {
       result = a2[6] & 0xFFFFFFFFFFFFF000uLL;
       if ( !result )
         break;
       a2 = (_QWORD *)a2[1];
-      if ( ++v6 >= a3 )
-        goto LABEL_4;
+      ++v6;
     }
+    while ( v6 < a3 );
   }
-  else
+  if ( v6 == a3 )
   {
-LABEL_4:
-    if ( v6 == a3 )
-    {
-      *(_QWORD *)a4 = 0LL;
-      return result;
-    }
+    *(_QWORD *)a4 = 0LL;
+    return result;
   }
   v9 = v8;
   Number = KeGetCurrentPrcb()->Number;
   v11 = (unsigned int)Number;
-  v12 = *(struct _MDL **)(qword_140C5A860 + 8 * Number);
+  v12 = *(struct _MDL **)(qword_140C53F20 + 8 * Number);
   v13 = 0;
   v14 = v12 + 1;
   if ( (_DWORD)v5 )
@@ -93,14 +89,14 @@ LABEL_4:
   v12->StartVa = 0LL;
   v17 = 1;
   v12->ByteOffset = 0;
-  v18 = byte_140C5A858 == 0;
+  v18 = byte_140C53F18 == 0;
   v12->ByteCount = v13 << 12;
   if ( !v18 )
   {
-    v16 = *(PSLIST_ENTRY *)(qword_140C5A868 + 8 * v11);
+    v16 = *(PSLIST_ENTRY *)(qword_140C53F28 + 8 * v11);
     goto LABEL_32;
   }
-  v19 = RtlpInterlockedPopEntrySList(&stru_140D01AD0);
+  v19 = RtlpInterlockedPopEntrySList(&stru_140CF68A0);
   if ( v19 )
   {
     *((_DWORD *)&v19[1].Next + 3) = 0;
@@ -111,7 +107,7 @@ LABEL_31:
     *(_QWORD *)(a4 + 32) = v16 + 2;
     KxAcquireQueuedSpinLock(a4 + 24, (volatile __int64 *)&v16[2]);
 LABEL_32:
-    result = (unsigned __int64)MmMapLockedPagesWithReservedMapping(v16[1].Next, 0x446C6148u, v12, MmCached);
+    result = (unsigned __int64)MmMapLockedPagesWithReservedMapping(v16[1].Next, 0x206C6148u, v12, MmCached);
     v20 = result;
     if ( !result )
       KeBugCheckEx(0xACu, 0x1000uLL, 0xEF02uLL, 0LL, 0LL);
@@ -122,13 +118,13 @@ LABEL_32:
   if ( !result )
   {
     LockHandle.LockQueue.Next = 0LL;
-    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)&qword_140CFCED0;
-    KxAcquireQueuedSpinLock((__int64)&LockHandle, &qword_140CFCED0);
+    LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)&qword_140CF2790;
+    KxAcquireQueuedSpinLock((__int64)&LockHandle, &qword_140CF2790);
     v23 = 1;
-    v24 = *(_DWORD *)(*(_QWORD *)qword_140C5A868 + 24LL);
-    if ( (unsigned int)dword_140D01AE8 > 1 )
+    v24 = *(_DWORD *)(*(_QWORD *)qword_140C53F28 + 24LL);
+    if ( (unsigned int)dword_140CF68B8 > 1 )
     {
-      v25 = (__int64 *)(qword_140C5A868 + 8);
+      v25 = (__int64 *)(qword_140C53F28 + 8);
       do
       {
         v26 = *v25;
@@ -143,10 +139,10 @@ LABEL_32:
         if ( v24 >= v27 )
           v24 = v27;
       }
-      while ( v23 < dword_140D01AE8 );
+      while ( v23 < dword_140CF68B8 );
     }
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-    v16 = *(PSLIST_ENTRY *)(qword_140C5A868 + 8LL * (unsigned int)v16);
+    v16 = *(PSLIST_ENTRY *)(qword_140C53F28 + 8LL * (unsigned int)v16);
     goto LABEL_31;
   }
   v17 = 0;

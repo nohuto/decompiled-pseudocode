@@ -4,11 +4,11 @@
  *     PopWriteHiberImage @ 0x14056A4C8 (PopWriteHiberImage.c)
  *     PopCompressCallback @ 0x14056A5D0 (PopCompressCallback.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1401210B0 (MmGetPhysicalAddress.c)
- *     IoAddTriageDumpDataBlock @ 0x140191CCC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PopInternalAddToDumpFile @ 0x1402D3224 (PopInternalAddToDumpFile.c)
+ *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
  *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
  *     PopGetIoLocation @ 0x14056A930 (PopGetIoLocation.c)
  *     ConsumerGetBuffer @ 0x14056A988 (ConsumerGetBuffer.c)
@@ -126,7 +126,7 @@ char __fastcall PopRequestWrite(ULONG_PTR BugCheckParameter3, __int64 a2, unsign
     v23 = v41;
     *(_QWORD *)(i + 384) = Buffer;
     *(_QWORD *)(i + 360) = v23;
-    if ( v22 + v14 > qword_140417A30 )
+    if ( v22 + v14 > qword_140417830 )
     {
       PopCheckpointSystemSleep(0x16u);
       if ( (unsigned int)(*(_DWORD *)(i + 184) - 4) <= 1 )
@@ -135,7 +135,7 @@ char __fastcall PopRequestWrite(ULONG_PTR BugCheckParameter3, __int64 a2, unsign
       IoAddTriageDumpDataBlock((int)&NumberOfPhysicalPages, v34 + 8);
       PopRecordHibernateDiagnosticInfo(i);
       IoAddTriageDumpDataBlock((int)&PopHibernateDiagnosticInfo, 128);
-      KeBugCheckEx(0xA0u, 0xBuLL, qword_140417A30, *(unsigned int *)(i + 184), RemainingHibernateRangeDataSize);
+      KeBugCheckEx(0xA0u, 0xBuLL, qword_140417830, *(unsigned int *)(i + 184), RemainingHibernateRangeDataSize);
     }
     PopHiberChecksumHiberFileData(i, 1, v22, Buffer, v23);
     *(_QWORD *)v6 = 0LL;

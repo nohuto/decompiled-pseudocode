@@ -1,57 +1,57 @@
 /*
- * XREFs of ?EnsureSceneCompositor@CSceneResourceManager@@AEAAJXZ @ 0x1801BCA48
+ * XREFs of ?EnsureSceneCompositor@CSceneResourceManager@@AEAAJXZ @ 0x180168124
  * Callers:
- *     ?PreRender@CComposition@@IEAAJXZ @ 0x18004F2D0 (-PreRender@CComposition@@IEAAJXZ.c)
+ *     ?PreRender@CComposition@@IEAAJXZ @ 0x180072020 (-PreRender@CComposition@@IEAAJXZ.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180034B30 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18003D734 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
- *     ??$_Emplace_reallocate@AEBQEAVIDeviceResourceNotify@@@?$vector@PEAVIDeviceResourceNotify@@V?$allocator@PEAVIDeviceResourceNotify@@@std@@@std@@QEAAPEAPEAVIDeviceResourceNotify@@QEAPEAV2@AEBQEAV2@@Z @ 0x1800B9B84 (--$_Emplace_reallocate@AEBQEAVIDeviceResourceNotify@@@-$vector@PEAVIDeviceResourceNotify@@V-$all.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetDXGIFactory@CDisplayManager@@QEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x1800CEB40 (-GetDXGIFactory@CDisplayManager@@QEAAJPEAPEAUIDXGIFactory5@@@Z.c)
- *     ?GetPrimaryAdapterLuid@CDisplayManager@@QEAA?AU_LUID@@XZ @ 0x1800CEB6C (-GetPrimaryAdapterLuid@CDisplayManager@@QEAA-AU_LUID@@XZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memset_0 @ 0x1801100E8 (memset_0.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_SpatialComposition@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1801BD4C8 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_SpatialComposition@@@details@wil@@QEAAX_N.c)
- *     ?reset@?$com_ptr_t@VCD3DVidMemOnlyTexture@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1801BD62C (-reset@-$com_ptr_t@VCD3DVidMemOnlyTexture@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     ?reset@?$unique_storage@U?$resource_policy@PEAUHINSTANCE__@@P6AHPEAU1@@Z$1?FreeLibrary@@YAH0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@QEAAXPEAUHINSTANCE__@@@Z @ 0x1801BD650 (-reset@-$unique_storage@U-$resource_policy@PEAUHINSTANCE__@@P6AHPEAU1@@Z$1-FreeLibrary@@YAH0@ZU-.c)
- *     ?GetDefaultDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z @ 0x180285EB8 (-GetDefaultDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z.c)
- *     ?Create@CExternalD3DRenderer@@SAJPEAVCD3DDevice@@PEAUIUnknown@@PEAPEAV1@@Z @ 0x180287F88 (-Create@CExternalD3DRenderer@@SAJPEAVCD3DDevice@@PEAUIUnknown@@PEAPEAV1@@Z.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?GetDXGIFactory@CDisplayManager@@QEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x180030F08 (-GetDXGIFactory@CDisplayManager@@QEAAJPEAPEAUIDXGIFactory5@@@Z.c)
+ *     ?GetPrimaryAdapterLuid@CDisplayManager@@QEAA?AU_LUID@@XZ @ 0x180030F34 (-GetPrimaryAdapterLuid@CDisplayManager@@QEAA-AU_LUID@@XZ.c)
+ *     ??$_Emplace_reallocate@PEBUShaderLinkingBody@@@?$vector@PEBUShaderLinkingBody@@V?$allocator@PEBUShaderLinkingBody@@@std@@@std@@QEAAPEAPEBUShaderLinkingBody@@QEAPEBU2@$$QEAPEBU2@@Z @ 0x180045444 (--$_Emplace_reallocate@PEBUShaderLinkingBody@@@-$vector@PEBUShaderLinkingBody@@V-$allocator@PEBU.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18005F710 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     ?reset@?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x18005FFF0 (-reset@-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     memset_0 @ 0x1800E7F5C (memset_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_SpatialComposition@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1801688A4 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_SpatialComposition@@@details@wil@@QEAAX_N.c)
+ *     ?reset@?$com_ptr_t@VCD3DVidMemOnlyTexture@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1801689A0 (-reset@-$com_ptr_t@VCD3DVidMemOnlyTexture@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?reset@?$unique_storage@U?$resource_policy@PEAUHINSTANCE__@@P6AHPEAU1@@Z$1?FreeLibrary@@YAH0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@QEAAXPEAUHINSTANCE__@@@Z @ 0x1801689C4 (-reset@-$unique_storage@U-$resource_policy@PEAUHINSTANCE__@@P6AHPEAU1@@Z$1-FreeLibrary@@YAH0@ZU-.c)
+ *     ?GetDefaultDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z @ 0x1802388F8 (-GetDefaultDevice@CDeviceManager@@QEAAJPEAPEAVCD3DDevice@@@Z.c)
+ *     ?Create@CExternalD3DRenderer@@SAJPEAVCD3DDevice@@PEAUIUnknown@@PEAPEAV1@@Z @ 0x180238B48 (-Create@CExternalD3DRenderer@@SAJPEAVCD3DDevice@@PEAUIUnknown@@PEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall CSceneResourceManager::EnsureSceneCompositor(CSceneResourceManager *this, __int64 a2)
 {
   unsigned int v3; // ebx
-  HMODULE *v4; // r15
+  HMODULE v4; // rcx
   HMODULE LibraryW; // rax
   CDisplayManager *v6; // rcx
-  FARPROC ProcAddress; // r13
+  FARPROC ProcAddress; // r12
   __int64 v8; // rcx
   struct IDXGIFactory5 *v9; // rbx
   unsigned int v10; // esi
   struct IDXGIFactory5Vtbl *lpVtbl; // rax
-  bool v12; // r12
+  bool v12; // r15
   CSceneResourceManager *v13; // rcx
   CDisplayManager *v14; // rcx
-  struct _LUID PrimaryAdapterLuid; // rax
-  struct _LUID v16; // rdx
-  CD3DDevice *v17; // rcx
+  struct _LUID PrimaryAdapterLuid; // rcx
+  CDeviceManager *v16; // rcx
   int Device; // eax
-  __int64 v19; // rcx
-  struct CD3DDevice **v20; // rsi
-  CD3DDevice *v21; // rcx
+  __int64 v18; // rcx
+  struct CD3DDevice **v19; // rsi
+  CDeviceManager *v20; // rcx
   int DefaultDevice; // eax
+  __int64 v22; // rcx
   __int64 v23; // rcx
-  __int64 v24; // rcx
-  int v25; // eax
-  __int64 v26; // rcx
-  int v27; // eax
+  int v24; // eax
+  __int64 v25; // rcx
+  int v26; // eax
+  __int64 v27; // rcx
   __int64 v28; // rcx
-  __int64 v29; // rcx
-  _BYTE *v30; // rdx
-  _QWORD *v31; // rsi
-  _QWORD *i; // rdi
+  _BYTE *v29; // rdx
+  _QWORD *v30; // r15
+  __int64 v31; // r12
+  unsigned __int64 v32; // rsi
   struct IUnknown *v34; // [rsp+38h] [rbp-D0h] BYREF
   CSceneResourceManager *v35; // [rsp+40h] [rbp-C8h] BYREF
   struct IDXGIFactory5 *v36; // [rsp+48h] [rbp-C0h] BYREF
@@ -72,174 +72,183 @@ __int64 __fastcall CSceneResourceManager::EnsureSceneCompositor(CSceneResourceMa
   _BYTE v51[296]; // [rsp+98h] [rbp-70h] BYREF
   struct _LUID v52; // [rsp+1C0h] [rbp+B8h]
 
-  v3 = 0;
   LOBYTE(a2) = 1;
+  v3 = 0;
   wil::details::FeatureImpl<__WilFeatureTraits_Feature_SpatialComposition>::ReportUsage(
     &`wil::Feature<__WilFeatureTraits_Feature_SpatialComposition>::GetImpl'::`2'::impl,
     a2);
-  if ( *((_BYTE *)this + 80) )
-    return v3;
-  v4 = (HMODULE *)((char *)this + 16);
-  if ( !*((_QWORD *)this + 2) )
+  if ( !*((_BYTE *)this + 64) )
   {
-    LibraryW = LoadLibraryW(L"DwmScene.dll");
-    wil::details::unique_storage<wil::details::resource_policy<HINSTANCE__ *,int (*)(HINSTANCE__ *),&int FreeLibrary(HINSTANCE__ *),wistd::integral_constant<unsigned __int64,0>,HINSTANCE__ *,HINSTANCE__ *,0,std::nullptr_t>>::reset(
-      (char *)this + 16,
-      LibraryW);
-  }
-  if ( !*v4 )
-  {
-    *((_BYTE *)this + 80) = 1;
-    return v3;
-  }
-  if ( *((_QWORD *)this + 3) )
-    return v3;
-  ProcAddress = GetProcAddress(*v4, "CreateDwmSceneRenderer");
-  if ( !ProcAddress )
-  {
-    v3 = -2147418113;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)v6, 0LL, 0, -2147418113, 0x5Bu, 0LL);
-LABEL_45:
-    *((_BYTE *)this + 80) = 1;
+    v4 = (HMODULE)*((_QWORD *)this + 2);
+    if ( !v4 )
+    {
+      LibraryW = LoadLibraryW(L"DwmScene.dll");
+      wil::details::unique_storage<wil::details::resource_policy<HINSTANCE__ *,int (*)(HINSTANCE__ *),&int FreeLibrary(HINSTANCE__ *),wistd::integral_constant<unsigned __int64,0>,HINSTANCE__ *,HINSTANCE__ *,0,std::nullptr_t>>::reset(
+        (char *)this + 16,
+        LibraryW);
+      v4 = (HMODULE)*((_QWORD *)this + 2);
+      if ( !v4 )
+      {
+        *((_BYTE *)this + 64) = 1;
+        return v3;
+      }
+    }
+    if ( *((_QWORD *)this + 3) )
+      return v3;
+    ProcAddress = GetProcAddress(v4, "CreateDwmSceneRenderer");
+    if ( !ProcAddress )
+    {
+      v3 = -2147418113;
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)v6, 0LL, 0, -2147418113, 0x57u, 0LL);
+      goto LABEL_41;
+    }
+    if ( CCommonRegistryData::m_fSceneForceNonPrimaryDisplayAdapter )
+    {
+      v36 = 0LL;
+      if ( (int)CDisplayManager::GetDXGIFactory(v6, &v36) >= 0 )
+      {
+        v9 = v36;
+        v10 = 0;
+        v35 = 0LL;
+        while ( 1 )
+        {
+          lpVtbl = v9->lpVtbl;
+          v47 = &v35;
+          v48 = 0LL;
+          v49 = 1;
+          v12 = ((int (__fastcall *)(struct IDXGIFactory5 *, _QWORD, CSceneResourceManager **))lpVtbl->EnumAdapters1)(
+                  v9,
+                  v10,
+                  &v48) >= 0;
+          if ( v49 )
+          {
+            v13 = *v47;
+            *v47 = v48;
+            if ( v13 )
+              (*(void (__fastcall **)(CSceneResourceManager *))(*(_QWORD *)v13 + 16LL))(v13);
+          }
+          if ( !v12 )
+            break;
+          memset_0(v51, 0, 0x138uLL);
+          if ( (*(int (__fastcall **)(CSceneResourceManager *, _BYTE *))(*(_QWORD *)v35 + 80LL))(v35, v51) >= 0 )
+          {
+            PrimaryAdapterLuid = CDisplayManager::GetPrimaryAdapterLuid(v14, &v50);
+            if ( v52.LowPart != *(_DWORD *)PrimaryAdapterLuid.LowPart
+              || v52.HighPart != *(_DWORD *)(*(_QWORD *)&PrimaryAdapterLuid + 4LL) )
+            {
+              wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset((CD3DDevice **)this + 4);
+              Device = CDeviceManager::GetDevice(v16, v52, (struct CD3DDevice **)this + 4);
+              v3 = Device;
+              if ( Device < 0 )
+              {
+                MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, Device, 0x69u, 0LL);
+                wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v35);
+                wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v36);
+                goto LABEL_40;
+              }
+              break;
+            }
+          }
+          ++v10;
+        }
+        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v35);
+      }
+      v19 = (struct CD3DDevice **)((char *)this + 32);
+      if ( !*((_QWORD *)this + 4) )
+      {
+        v3 = -2147467259;
+        MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147467259, 0x73u, 0LL);
+        wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v36);
+        goto LABEL_41;
+      }
+      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v36);
+    }
+    else
+    {
+      v19 = (struct CD3DDevice **)((char *)this + 32);
+      wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::reset((CD3DDevice **)this + 4);
+      DefaultDevice = CDeviceManager::GetDefaultDevice(v20, (struct CD3DDevice **)this + 4);
+      v3 = DefaultDevice;
+      if ( DefaultDevice < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v22, 0LL, 0, DefaultDevice, 0x78u, 0LL);
+        goto LABEL_40;
+      }
+    }
+    v23 = *((_QWORD *)*v19 + 74);
+    v38 = CCommonRegistryData::Scene::ImageProcessingMinWidth;
+    v39 = CCommonRegistryData::Scene::ImageProcessingMinHeight;
+    v40 = CCommonRegistryData::Scene::ImageProcessingResizeGrowth;
+    v42 = CCommonRegistryData::Scene::MsaaQualityMode;
+    v43 = CCommonRegistryData::Scene::EnableBloom;
+    v44 = CCommonRegistryData::Scene::EnableImageProcessing;
+    v45 = CCommonRegistryData::Scene::ImageProcessing8bit;
+    v46 = CCommonRegistryData::Scene::EnableShadow;
+    v37 = v23;
+    v41 = CCommonRegistryData::m_flSceneImageProcessingResizeThreshold;
+    v34 = 0LL;
+    v24 = ((__int64 (__fastcall *)(__int64 *, GUID *, struct IUnknown **))ProcAddress)(
+            &v37,
+            &GUID_c459639d_0878_4eb7_ade9_3655c96fa73a,
+            &v34);
+    v3 = v24;
+    if ( v24 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v24, 0x88u, 0LL);
+    }
+    else
+    {
+      wil::com_ptr_t<CD3DVidMemOnlyTexture,wil::err_returncode_policy>::reset((char *)this + 24);
+      v26 = CExternalD3DRenderer::Create(*v19, v34, (struct CExternalD3DRenderer **)this + 3);
+      v3 = v26;
+      if ( v26 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0x8Au, 0LL);
+      }
+      else
+      {
+        v28 = *((_QWORD *)this + 3) + 88LL;
+        v35 = this;
+        v29 = *(_BYTE **)(v28 + 8);
+        if ( *(_BYTE **)(v28 + 16) == v29 )
+        {
+          std::vector<ShaderLinkingBody const *>::_Emplace_reallocate<ShaderLinkingBody const *>(
+            (const void **)v28,
+            v29,
+            &v35);
+        }
+        else
+        {
+          *(_QWORD *)v29 = this;
+          *(_QWORD *)(v28 + 8) += 8LL;
+        }
+        v30 = (_QWORD *)*((_QWORD *)this + 5);
+        v31 = 0LL;
+        v32 = (unsigned __int64)(*((_QWORD *)this + 6) - (_QWORD)v30 + 7LL) >> 3;
+        if ( (unsigned __int64)v30 > *((_QWORD *)this + 6) )
+          v32 = 0LL;
+        if ( v32 )
+        {
+          do
+          {
+            (**(void (__fastcall ***)(_QWORD, struct IUnknown *))*v30)(*v30, v34);
+            ++v31;
+            ++v30;
+          }
+          while ( v31 != v32 );
+        }
+      }
+    }
+    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v34);
+LABEL_40:
+    if ( (v3 & 0x80000000) == 0 )
+      return v3;
+LABEL_41:
+    *((_BYTE *)this + 64) = 1;
     wil::com_ptr_t<CD3DVidMemOnlyTexture,wil::err_returncode_policy>::reset((char *)this + 24);
     wil::details::unique_storage<wil::details::resource_policy<HINSTANCE__ *,int (*)(HINSTANCE__ *),&int FreeLibrary(HINSTANCE__ *),wistd::integral_constant<unsigned __int64,0>,HINSTANCE__ *,HINSTANCE__ *,0,std::nullptr_t>>::reset(
       (char *)this + 16,
       0LL);
-    return v3;
   }
-  if ( CCommonRegistryData::m_fSceneForceNonPrimaryDisplayAdapter )
-  {
-    v36 = 0LL;
-    if ( (int)CDisplayManager::GetDXGIFactory(v6, &v36) >= 0 )
-    {
-      v9 = v36;
-      v10 = 0;
-      v35 = 0LL;
-      while ( 1 )
-      {
-        lpVtbl = v9->lpVtbl;
-        v47 = &v35;
-        v48 = 0LL;
-        v49 = 1;
-        v12 = ((int (__fastcall *)(struct IDXGIFactory5 *, _QWORD, CSceneResourceManager **))lpVtbl->EnumAdapters1)(
-                v9,
-                v10,
-                &v48) >= 0;
-        if ( v49 )
-        {
-          v13 = *v47;
-          *v47 = v48;
-          if ( v13 )
-            (*(void (__fastcall **)(CSceneResourceManager *))(*(_QWORD *)v13 + 16LL))(v13);
-        }
-        if ( !v12 )
-          break;
-        memset_0(v51, 0, 0x138uLL);
-        if ( (*(int (__fastcall **)(CSceneResourceManager *, _BYTE *))(*(_QWORD *)v35 + 80LL))(v35, v51) >= 0 )
-        {
-          PrimaryAdapterLuid = CDisplayManager::GetPrimaryAdapterLuid(v14, &v50);
-          v16 = v52;
-          if ( v52.LowPart != *(_DWORD *)PrimaryAdapterLuid.LowPart
-            || v52.HighPart != *(_DWORD *)(*(_QWORD *)&PrimaryAdapterLuid + 4LL) )
-          {
-            v17 = (CD3DDevice *)*((_QWORD *)this + 4);
-            *((_QWORD *)this + 4) = 0LL;
-            if ( v17 )
-            {
-              CD3DDevice::Release(v17);
-              v16 = v52;
-            }
-            Device = CDeviceManager::GetDevice((CDeviceManager *)&g_DeviceManager, v16, (struct CD3DDevice **)this + 4);
-            v3 = Device;
-            if ( Device < 0 )
-            {
-              MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, Device, 0x6Du, 0LL);
-              wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v35);
-              goto LABEL_27;
-            }
-            break;
-          }
-        }
-        ++v10;
-      }
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v35);
-    }
-    v20 = (struct CD3DDevice **)((char *)this + 32);
-    if ( !*((_QWORD *)this + 4) )
-    {
-      v3 = -2147467259;
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147467259, 0x77u, 0LL);
-LABEL_27:
-      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v36);
-      goto LABEL_45;
-    }
-    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v36);
-  }
-  else
-  {
-    v20 = (struct CD3DDevice **)((char *)this + 32);
-    v21 = (CD3DDevice *)*((_QWORD *)this + 4);
-    *((_QWORD *)this + 4) = 0LL;
-    if ( v21 )
-      CD3DDevice::Release(v21);
-    DefaultDevice = CDeviceManager::GetDefaultDevice(v21, (struct CD3DDevice **)this + 4);
-    v3 = DefaultDevice;
-    if ( DefaultDevice < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0, DefaultDevice, 0x7Cu, 0LL);
-      goto LABEL_45;
-    }
-  }
-  v24 = *((_QWORD *)*v20 + 69);
-  v38 = CCommonRegistryData::Scene::ImageProcessingMinWidth;
-  v39 = CCommonRegistryData::Scene::ImageProcessingMinHeight;
-  v40 = CCommonRegistryData::Scene::ImageProcessingResizeGrowth;
-  v42 = CCommonRegistryData::Scene::MsaaQualityMode;
-  v43 = CCommonRegistryData::Scene::EnableBloom;
-  v44 = CCommonRegistryData::Scene::EnableImageProcessing;
-  v45 = CCommonRegistryData::Scene::ImageProcessing8bit;
-  v46 = CCommonRegistryData::Scene::EnableShadow;
-  v41 = CCommonRegistryData::m_flSceneImageProcessingResizeThreshold;
-  v37 = v24;
-  v34 = 0LL;
-  v25 = ((__int64 (__fastcall *)(__int64 *, GUID *, struct IUnknown **))ProcAddress)(
-          &v37,
-          &GUID_c459639d_0878_4eb7_ade9_3655c96fa73a,
-          &v34);
-  v3 = v25;
-  if ( v25 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0, v25, 0x8Cu, 0LL);
-    goto LABEL_43;
-  }
-  wil::com_ptr_t<CD3DVidMemOnlyTexture,wil::err_returncode_policy>::reset((char *)this + 24);
-  v27 = CExternalD3DRenderer::Create(*v20, v34, (struct CExternalD3DRenderer **)this + 3);
-  v3 = v27;
-  if ( v27 < 0 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v28, 0LL, 0, v27, 0x8Eu, 0LL);
-LABEL_43:
-    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v34);
-    goto LABEL_45;
-  }
-  v29 = *((_QWORD *)this + 3) + 72LL;
-  v35 = this;
-  v30 = *(_BYTE **)(v29 + 8);
-  if ( v30 == *(_BYTE **)(v29 + 16) )
-  {
-    std::vector<IDeviceResourceNotify *>::_Emplace_reallocate<IDeviceResourceNotify * const &>(
-      (const void **)v29,
-      v30,
-      &v35);
-  }
-  else
-  {
-    *(_QWORD *)v30 = this;
-    *(_QWORD *)(v29 + 8) += 8LL;
-  }
-  v31 = (_QWORD *)*((_QWORD *)this + 6);
-  for ( i = (_QWORD *)*((_QWORD *)this + 5); i != v31; ++i )
-    (**(void (__fastcall ***)(_QWORD, struct IUnknown *))*i)(*i, v34);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v34);
   return v3;
 }

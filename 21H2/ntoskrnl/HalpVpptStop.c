@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpVpptStop @ 0x14050D650
+ * XREFs of HalpVpptStop @ 0x1404C0B90
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140252344 (HalpAcquireHighLevelLock.c)
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpVpptUpdatePhysicalTimer @ 0x14050D91C (HalpVpptUpdatePhysicalTimer.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x1404C0E54 (HalpVpptUpdatePhysicalTimer.c)
  */
 
 __int64 __fastcall HalpVpptStop(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall HalpVpptStop(__int64 a1)
   _DWORD *SchedulerAssist; // r9
   bool v11; // zf
 
-  byte_140C4C7D8 = HalpAcquireHighLevelLock(&qword_140C4C7D0);
+  byte_140C4A6F8 = HalpAcquireHighLevelLock(&qword_140C4A6F0);
   if ( *(_BYTE *)(a1 + 24) )
   {
     v2 = *(_QWORD **)a1;
@@ -36,11 +36,8 @@ __int64 __fastcall HalpVpptStop(__int64 a1)
     v2[1] = v3;
     if ( v3 == v2 )
     {
-      if ( *(_DWORD *)(*(_QWORD *)&HalpVpptPhysicalTimer + 228LL) != 3 )
-      {
-        InternalData = HalpTimerGetInternalData(*(__int64 *)&HalpVpptPhysicalTimer);
-        (*(void (__fastcall **)(__int64))(v6 + 136))(InternalData);
-      }
+      InternalData = HalpTimerGetInternalData(*(__int64 *)&HalpVpptPhysicalTimer);
+      (*(void (__fastcall **)(__int64))(v6 + 136))(InternalData);
     }
     else if ( v4 )
     {
@@ -49,8 +46,8 @@ __int64 __fastcall HalpVpptStop(__int64 a1)
   }
   *(_DWORD *)(a1 + 20) = 0;
   *(_BYTE *)(a1 + 24) = 0;
-  v7 = (unsigned __int8)byte_140C4C7D8;
-  KxReleaseSpinLock(&qword_140C4C7D0);
+  v7 = (unsigned __int8)byte_140C4A6F8;
+  KxReleaseSpinLock(&qword_140C4A6F0);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

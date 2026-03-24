@@ -1,13 +1,13 @@
 /*
- * XREFs of CcReleaseByteRangeFromWrite @ 0x14028A258
+ * XREFs of CcReleaseByteRangeFromWrite @ 0x1402F40EC
  * Callers:
- *     CcNotifyOfMappedWriteComplete @ 0x1402590D8 (CcNotifyOfMappedWriteComplete.c)
- *     CcFlushCachePriv @ 0x140283030 (CcFlushCachePriv.c)
+ *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x1402D0220 (CcNotifyOfMappedWriteComplete.c)
  * Callees:
- *     CcUnpinFileDataEx @ 0x14028A370 (CcUnpinFileDataEx.c)
- *     CcSetDirtyPinnedData @ 0x14029D3D0 (CcSetDirtyPinnedData.c)
- *     CcSetDirtyInMask @ 0x14029D860 (CcSetDirtyInMask.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
+ *     CcSetDirtyPinnedData @ 0x1402F9310 (CcSetDirtyPinnedData.c)
+ *     CcSetDirtyInMask @ 0x140336470 (CcSetDirtyInMask.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcReleaseByteRangeFromWrite(__int64 a1, __int64 *a2, unsigned int a3, _WORD *a4, char a5)
@@ -27,7 +27,7 @@ __int64 __fastcall CcReleaseByteRangeFromWrite(__int64 a1, __int64 *a2, unsigned
   if ( a4 )
   {
     if ( *a4 != 765 )
-      KeBugCheckEx(0x34u, 0x155FuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+      KeBugCheckEx(0x34u, 0x14B5uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
     do
     {
       v10 = v6[2];
@@ -57,7 +57,7 @@ __int64 __fastcall CcReleaseByteRangeFromWrite(__int64 a1, __int64 *a2, unsigned
         else
           v13 = v7;
         if ( v13 > 0x2000000 )
-          KeBugCheckEx(0x34u, 0x154CuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+          KeBugCheckEx(0x34u, 0x14A2uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
         CcSetDirtyInMask(a1, &v14, v13, 0LL);
         result = v13;
         v12 += v13;

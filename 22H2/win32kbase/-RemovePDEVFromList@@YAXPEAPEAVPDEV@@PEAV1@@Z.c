@@ -1,36 +1,34 @@
 /*
- * XREFs of ?RemovePDEVFromList@@YAXPEAPEAVPDEV@@PEAV1@@Z @ 0x1C00C29F0
+ * XREFs of ?RemovePDEVFromList@@YAXPEAPEAVPDEV@@PEAV1@@Z @ 0x1C00AD4E8
  * Callers:
- *     ?vDelete@XDCOBJ@@QEAAXK@Z @ 0x1C0044560 (-vDelete@XDCOBJ@@QEAAXK@Z.c)
- *     ?vUnreferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C005B180 (-vUnreferencePdev@PDEVOBJ@@QEAAXXZ.c)
- *     _lambda_792d576b28627a5f7e8ec309c675ba6b_::operator() @ 0x1C00D182C (_lambda_792d576b28627a5f7e8ec309c675ba6b_--operator().c)
- *     ??0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@PEAUtagDEVINFO@@HKK@Z @ 0x1C0154FD0 (--0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@.c)
+ *     ?vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z @ 0x1C0022D50 (-vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z.c)
+ *     ??0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@PEAUtagDEVINFO@@HKK@Z @ 0x1C00B9020 (--0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@.c)
+ *     _lambda_45072801a0d31dffc7965423336b068f_::operator() @ 0x1C00C8860 (_lambda_45072801a0d31dffc7965423336b068f_--operator().c)
  * Callees:
  *     <none>
  */
 
 void __fastcall RemovePDEVFromList(struct PDEV **a1, struct PDEV *a2)
 {
-  struct PDEV *v4; // r8
-  struct PDEV *v5; // rax
+  struct PDEV *v2; // r8
+  struct PDEV *v3; // rax
 
-  SGDGetSessionState(a1);
-  v4 = *a1;
+  v2 = *a1;
   if ( *a1 == a2 )
   {
     *a1 = *(struct PDEV **)a2;
   }
-  else if ( v4 )
+  else if ( v2 )
   {
     while ( 1 )
     {
-      v5 = *(struct PDEV **)v4;
-      if ( *(struct PDEV **)v4 == a2 )
+      v3 = *(struct PDEV **)v2;
+      if ( *(struct PDEV **)v2 == a2 )
         break;
-      v4 = *(struct PDEV **)v4;
-      if ( !v5 )
+      v2 = *(struct PDEV **)v2;
+      if ( !v3 )
         return;
     }
-    *(_QWORD *)v4 = *(_QWORD *)a2;
+    *(_QWORD *)v2 = *(_QWORD *)a2;
   }
 }

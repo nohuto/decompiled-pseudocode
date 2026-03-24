@@ -1,22 +1,22 @@
 /*
- * XREFs of PnprGetPluginDriverImagePath @ 0x140965EE8
+ * XREFs of PnprGetPluginDriverImagePath @ 0x1408AD76C
  * Callers:
- *     PnprLoadPluginDriver @ 0x140966618 (PnprLoadPluginDriver.c)
+ *     PnprLoadPluginDriver @ 0x1408ADE98 (PnprLoadPluginDriver.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     wcscpy_s @ 0x1403DF730 (wcscpy_s.c)
- *     wcsncat_s @ 0x1403DF7C0 (wcsncat_s.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041A980 (ZwQueryValueKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEF60 (_PnpCtxGetCachedContextBaseKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     wcscpy_s @ 0x1403D7B70 (wcscpy_s.c)
+ *     wcsncat_s @ 0x1403D7C00 (wcsncat_s.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403F9D00 (ZwQueryValueKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406BB5E8 (_PnpCtxGetCachedContextBaseKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnprGetPluginDriverImagePath(PUNICODE_STRING DestinationString)
 {
-  __int64 Pool2; // rdi
+  wchar_t *PoolWithTag; // rdi
   int CachedContextBaseKey; // ebx
   NTSTATUS v4; // eax
   __int64 v5; // rax
@@ -33,9 +33,9 @@ __int64 __fastcall PnprGetPluginDriverImagePath(PUNICODE_STRING DestinationStrin
   v15 = 0LL;
   ResultLength = 0;
   KeyHandle = 0LL;
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   DestinationStringa = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   ValueName = 0LL;
   CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*(__int64 *)&PiPnpRtlCtx, 4, (__int64)&v15);
   if ( CachedContextBaseKey >= 0 )
@@ -54,31 +54,32 @@ __int64 __fastcall PnprGetPluginDriverImagePath(PUNICODE_STRING DestinationStrin
       CachedContextBaseKey = v4;
       if ( v4 == -2147483643 || v4 == -1073741789 )
       {
-        Pool2 = ExAllocatePool2(256LL, ResultLength, 1366322768LL);
-        if ( Pool2 )
+        PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, ResultLength, 0x51706E50u);
+        if ( PoolWithTag )
         {
           CachedContextBaseKey = ZwQueryValueKey(
                                    KeyHandle,
                                    &ValueName,
                                    KeyValuePartialInformation,
-                                   (PVOID)Pool2,
+                                   PoolWithTag,
                                    ResultLength,
                                    &ResultLength);
           if ( CachedContextBaseKey >= 0 )
           {
-            if ( (unsigned int)(*(_DWORD *)(Pool2 + 4) - 1) > 1 || (v5 = *(unsigned int *)(Pool2 + 8), (v5 & 1) != 0) )
+            if ( (unsigned int)(*((_DWORD *)PoolWithTag + 1) - 1) > 1
+              || (v5 = *((unsigned int *)PoolWithTag + 2), (v5 & 1) != 0) )
             {
               CachedContextBaseKey = -1073741811;
             }
             else
             {
               v6 = (unsigned __int64)(v5 + 26) >> 1;
-              v7 = (wchar_t *)ExAllocatePool2(256LL, 2 * v6, 1366322768LL);
+              v7 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 2 * v6, 0x51706E50u);
               v8 = v7;
               if ( DestinationString )
               {
                 wcscpy_s(v7, v6, L"\\systemroot\\");
-                wcsncat_s(v8, v6, (const wchar_t *)(Pool2 + 12), (unsigned __int64)*(unsigned int *)(Pool2 + 8) >> 1);
+                wcsncat_s(v8, v6, PoolWithTag + 6, (unsigned __int64)*((unsigned int *)PoolWithTag + 2) >> 1);
                 RtlInitUnicodeString(DestinationString, v8);
               }
               else
@@ -103,7 +104,7 @@ __int64 __fastcall PnprGetPluginDriverImagePath(PUNICODE_STRING DestinationStrin
   }
   if ( KeyHandle )
     ZwClose(KeyHandle);
-  if ( Pool2 )
-    ExFreePoolWithTag((PVOID)Pool2, 0x51706E50u);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0x51706E50u);
   return (unsigned int)CachedContextBaseKey;
 }

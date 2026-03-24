@@ -1,14 +1,14 @@
 /*
- * XREFs of ??1DXGTRACKEDWORKLOADBYHANDLE@@QEAA@XZ @ 0x1C0344A1C
+ * XREFs of ??1DXGTRACKEDWORKLOADBYHANDLE@@QEAA@XZ @ 0x1C02BC4E8
  * Callers:
- *     NtDxgkDestroyTrackedWorkload @ 0x1C03462F0 (NtDxgkDestroyTrackedWorkload.c)
- *     NtDxgkGetAvailableTrackedWorkloadIndex @ 0x1C0346710 (NtDxgkGetAvailableTrackedWorkloadIndex.c)
- *     NtDxgkGetTrackedWorkloadStatistics @ 0x1C0346A50 (NtDxgkGetTrackedWorkloadStatistics.c)
- *     NtDxgkResetTrackedWorkloadStatistics @ 0x1C0346D70 (NtDxgkResetTrackedWorkloadStatistics.c)
- *     NtDxgkUpdateTrackedWorkload @ 0x1C0346F60 (NtDxgkUpdateTrackedWorkload.c)
+ *     NtDxgkDestroyTrackedWorkload @ 0x1C02BD690 (NtDxgkDestroyTrackedWorkload.c)
+ *     NtDxgkGetAvailableTrackedWorkloadIndex @ 0x1C02BDAB0 (NtDxgkGetAvailableTrackedWorkloadIndex.c)
+ *     NtDxgkGetTrackedWorkloadStatistics @ 0x1C02BDDF0 (NtDxgkGetTrackedWorkloadStatistics.c)
+ *     NtDxgkResetTrackedWorkloadStatistics @ 0x1C02BE160 (NtDxgkResetTrackedWorkloadStatistics.c)
+ *     NtDxgkUpdateTrackedWorkload @ 0x1C02BE360 (NtDxgkUpdateTrackedWorkload.c)
  * Callees:
- *     ?Release@DXGTRACKEDWORKLOAD@@QEAA_JXZ @ 0x1C005A228 (-Release@DXGTRACKEDWORKLOAD@@QEAA_JXZ.c)
- *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C01668C0 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?Release@DXGTRACKEDWORKLOAD@@QEAA_JXZ @ 0x1C004E198 (-Release@DXGTRACKEDWORKLOAD@@QEAA_JXZ.c)
+ *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C00E49F4 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
  */
 
 void __fastcall DXGTRACKEDWORKLOADBYHANDLE::~DXGTRACKEDWORKLOADBYHANDLE(DXGTRACKEDWORKLOAD **this)

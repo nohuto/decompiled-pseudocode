@@ -1,13 +1,13 @@
 /*
- * XREFs of Crashdump_InitializeWithoutControllerReset @ 0x1C004C98C
+ * XREFs of Crashdump_InitializeWithoutControllerReset @ 0x1C0049EB4
  * Callers:
- *     Crashdump_Initialize @ 0x1C004C250 (Crashdump_Initialize.c)
+ *     Crashdump_Initialize @ 0x1C0049740 (Crashdump_Initialize.c)
  * Callees:
- *     Crashdump_Register_PrepareForHibernate @ 0x1C004D914 (Crashdump_Register_PrepareForHibernate.c)
- *     Crashdump_EventRing_PrepareForHibernate @ 0x1C004E80C (Crashdump_EventRing_PrepareForHibernate.c)
- *     Crashdump_Command_PrepareForDump @ 0x1C004E978 (Crashdump_Command_PrepareForDump.c)
- *     Crashdump_Command_TestCommandRingOperation @ 0x1C004EDF4 (Crashdump_Command_TestCommandRingOperation.c)
- *     Crashdump_UsbDevice_PrepareForHibernate @ 0x1C00505E0 (Crashdump_UsbDevice_PrepareForHibernate.c)
+ *     Crashdump_Register_PrepareForHibernate @ 0x1C004AE60 (Crashdump_Register_PrepareForHibernate.c)
+ *     Crashdump_EventRing_PrepareForHibernate @ 0x1C004BD38 (Crashdump_EventRing_PrepareForHibernate.c)
+ *     Crashdump_Command_PrepareForDump @ 0x1C004BE98 (Crashdump_Command_PrepareForDump.c)
+ *     Crashdump_Command_TestCommandRingOperation @ 0x1C004C328 (Crashdump_Command_TestCommandRingOperation.c)
+ *     Crashdump_UsbDevice_PrepareForHibernate @ 0x1C004DB10 (Crashdump_UsbDevice_PrepareForHibernate.c)
  */
 
 __int64 __fastcall Crashdump_InitializeWithoutControllerReset(char *Address)
@@ -39,7 +39,7 @@ __int64 __fastcall Crashdump_InitializeWithoutControllerReset(char *Address)
     (unsigned int)(376 * *((_DWORD *)Address + 134)),
     0x43434858u);
   PoSetHiberRange(0LL, 0x10000u, *(PVOID *)Address, 0x90uLL, 0x43434858u);
-  PoSetHiberRange(0LL, 0x10000u, *((PVOID *)Address + 77), 0x370uLL, 0x43434858u);
+  PoSetHiberRange(0LL, 0x10000u, *((PVOID *)Address + 77), 0x338uLL, 0x43434858u);
   PoSetHiberRange(0LL, 0x10000u, *((PVOID *)Address + 22), 0x58uLL, 0x43434858u);
   **(_DWORD **)(*(_QWORD *)Address + 32LL) &= ~0x400u;
   _InterlockedOr(v9, 0);

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CConversionSwapChain@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x18010A4F0
+ * XREFs of ?GetPixelFormatInfo@CConversionSwapChain@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x1800F7D80
  * Callers:
  *     <none>
  * Callees:

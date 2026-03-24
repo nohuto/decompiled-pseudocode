@@ -1,16 +1,16 @@
 /*
- * XREFs of McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTransfer @ 0x1C0049348
+ * XREFs of McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTransfer @ 0x1C001A5E8
  * Callers:
- *     Etw_ControllerRundown @ 0x1C0014B40 (Etw_ControllerRundown.c)
+ *     Etw_ControllerRundown @ 0x1C0014964 (Etw_ControllerRundown.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C00351EC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0034F4C (McGenEventWrite_EtwWriteTransfer.c)
  */
 
-NTSTATUS __fastcall McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTransfer(
+__int64 __fastcall McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,
-        const GUID *a3,
+        __int64 a3,
         __int64 a4,
         char a5,
         char a6,
@@ -60,7 +60,7 @@ NTSTATUS __fastcall McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTr
   int v48; // ecx
   const char *v49; // rcx
   int v50; // eax
-  struct _EVENT_DATA_DESCRIPTOR v52; // [rsp+30h] [rbp-D0h] BYREF
+  _BYTE v52[16]; // [rsp+30h] [rbp-D0h] BYREF
   __int64 *v53; // [rsp+40h] [rbp-C0h]
   __int64 v54; // [rsp+48h] [rbp-B8h]
   char *v55; // [rsp+50h] [rbp-B0h]
@@ -263,10 +263,5 @@ NTSTATUS __fastcall McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTr
   v125 = 4LL;
   v127 = 44LL;
   v129 = 64LL;
-  return McGenEventWrite_EtwWriteTransfer(
-           (__int64)v49,
-           &USBXHCI_ETW_EVENT_RUNDOWN_CONTROLLER_INFORMATION_V4,
-           a3,
-           0x26u,
-           &v52);
+  return McGenEventWrite_EtwWriteTransfer(v49, &USBXHCI_ETW_EVENT_RUNDOWN_CONTROLLER_INFORMATION_V4, a3, 38LL, v52);
 }

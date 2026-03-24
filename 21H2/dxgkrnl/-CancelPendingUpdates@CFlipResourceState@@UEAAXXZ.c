@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CancelPendingUpdates@CFlipResourceState@@UEAAXXZ @ 0x1C00207E0
+ * XREFs of ?CancelPendingUpdates@CFlipResourceState@@UEAAXXZ @ 0x1C001BBD0
  * Callers:
  *     <none>
  * Callees:

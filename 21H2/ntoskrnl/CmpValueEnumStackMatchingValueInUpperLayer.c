@@ -1,26 +1,22 @@
 /*
- * XREFs of CmpValueEnumStackMatchingValueInUpperLayer @ 0x14065B030
+ * XREFs of CmpValueEnumStackMatchingValueInUpperLayer @ 0x14087BAD4
  * Callers:
- *     CmpValueEnumStackAdvance @ 0x14065AED8 (CmpValueEnumStackAdvance.c)
+ *     CmpValueEnumStackAdvance @ 0x140729C54 (CmpValueEnumStackAdvance.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x14069F434 (CmpValueEnumStackGetEntryAtLayerHeight.c)
- *     CmpFindNameInListCellWithStatus @ 0x140722280 (CmpFindNameInListCellWithStatus.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     CmpFindNameInListCellWithStatus @ 0x140666030 (CmpFindNameInListCellWithStatus.c)
+ *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x140729F90 (CmpValueEnumStackGetEntryAtLayerHeight.c)
  */
 
-__int64 __fastcall CmpValueEnumStackMatchingValueInUpperLayer(
-        __int64 a1,
-        unsigned __int16 a2,
-        unsigned __int16 *a3,
-        char *a4)
+__int64 __fastcall CmpValueEnumStackMatchingValueInUpperLayer(__int64 a1, __int16 a2, unsigned __int16 *a3, char *a4)
 {
   unsigned __int16 v8; // bp
   int v9; // ebp
   char v10; // bl
-  ULONG_PTR *EntryAtLayerHeight; // rax
+  __int64 EntryAtLayerHeight; // rax
   __int64 result; // rax
   UNICODE_STRING v13; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v14; // [rsp+78h] [rbp+10h] BYREF
+  int v14; // [rsp+78h] [rbp+10h] BYREF
 
   v13 = 0LL;
   RtlInitUnicodeString(&v13, 0LL);
@@ -30,10 +26,17 @@ __int64 __fastcall CmpValueEnumStackMatchingValueInUpperLayer(
   v13.Length = a3[1];
   v10 = 0;
   v13.MaximumLength = v13.Length;
-  while ( ++a2 <= *(_WORD *)(a1 + 12) )
+  while ( ++a2 <= *(__int16 *)(a1 + 12) )
   {
-    EntryAtLayerHeight = (ULONG_PTR *)CmpValueEnumStackGetEntryAtLayerHeight(a1, a2);
-    result = CmpFindNameInListCellWithStatus(*EntryAtLayerHeight, v9, 0LL, (__int64)&v14);
+    EntryAtLayerHeight = CmpValueEnumStackGetEntryAtLayerHeight(a1, a2);
+    result = CmpFindNameInListCellWithStatus(
+               *(_QWORD *)EntryAtLayerHeight,
+               *(unsigned int **)(EntryAtLayerHeight + 8),
+               *(_DWORD *)(EntryAtLayerHeight + 24),
+               &v13,
+               v9,
+               0LL,
+               &v14);
     if ( (int)result >= 0 )
     {
       v10 = 1;

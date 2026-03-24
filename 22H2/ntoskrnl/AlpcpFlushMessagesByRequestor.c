@@ -1,96 +1,88 @@
 /*
- * XREFs of AlpcpFlushMessagesByRequestor @ 0x14077940C
+ * XREFs of AlpcpFlushMessagesByRequestor @ 0x1406971A4
  * Callers:
- *     AlpcpFlushMessagesPort @ 0x140718960 (AlpcpFlushMessagesPort.c)
+ *     AlpcpFlushMessagesPort @ 0x1405E2314 (AlpcpFlushMessagesPort.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     AlpcpUnlockMessage @ 0x14071BF28 (AlpcpUnlockMessage.c)
- *     AlpcpReferenceBlob @ 0x140739030 (AlpcpReferenceBlob.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14073A344 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpCancelMessage @ 0x14077971C (AlpcpCancelMessage.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
+ *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
+ *     AlpcpReferenceBlob @ 0x1406D97D4 (AlpcpReferenceBlob.c)
  */
 
-signed __int32 __fastcall AlpcpFlushMessagesByRequestor(__int64 a1, volatile signed __int64 *a2, ULONG_PTR *a3, int a4)
+char __fastcall AlpcpFlushMessagesByRequestor(__int64 a1, __int64 a2, ULONG_PTR *a3, unsigned int a4)
 {
   __int64 v8; // rax
-  ULONG_PTR i; // rsi
-  int v10; // edi
-  int v11; // edi
-  volatile signed __int64 *v12; // rdi
-  volatile signed __int64 *v14; // r14
-  __int64 v15; // rax
+  ULONG_PTR i; // rdi
+  volatile signed __int64 *v10; // rdi
+  volatile signed __int64 *v12; // rbp
+  __int64 v13; // rax
 
-  if ( a4 == 1 || a4 == 2 )
+  if ( a4 <= 2 )
   {
-    v8 = 17LL;
-  }
-  else if ( a4 == 3 )
-  {
-    v8 = 22LL;
+    v8 = 136LL;
   }
   else
   {
-    v8 = 25LL;
+    v8 = 176LL;
+    if ( a4 != 3 )
+      v8 = 200LL;
   }
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&a2[v8], 0LL);
-LABEL_7:
+  ExAcquirePushLockExclusiveEx(v8 + a2, 0LL);
+LABEL_5:
   for ( i = *a3; (ULONG_PTR *)i != a3; i = *(_QWORD *)i )
   {
-    if ( *(_QWORD *)(i + 24) == a1 || (*(_DWORD *)(i + 40) & 0x10000) != 0 )
+    if ( *(_QWORD *)(i + 24) == a1 || (*(_DWORD *)(i + 40) & 0x8000) != 0 )
     {
       AlpcpReferenceBlob(i);
-      if ( a4 == 1 || a4 == 2 )
+      if ( a4 > 2 )
       {
-        v14 = a2 + 17;
-      }
-      else if ( a4 == 3 )
-      {
-        v14 = a2 + 22;
+        if ( a4 == 3 )
+          v12 = (volatile signed __int64 *)(a2 + 176);
+        else
+          v12 = (volatile signed __int64 *)(a2 + 200);
       }
       else
       {
-        v14 = a2 + 25;
+        v12 = (volatile signed __int64 *)(a2 + 136);
       }
-      if ( (_InterlockedExchangeAdd64(v14, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(v14);
-      KeAbPostRelease((ULONG_PTR)v14);
+      if ( (_InterlockedExchangeAdd64(v12, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(v12);
+      KeAbPostRelease((ULONG_PTR)v12);
       AlpcpLockForCachedReferenceBlob(i);
       --*(_WORD *)(i - 30);
       if ( *(_QWORD *)(i + 24) == a1 )
-        AlpcpCancelMessage(a2, i, 0x10000LL);
+        AlpcpCancelMessage(a2, i, 0x10000);
       else
         AlpcpUnlockMessage(i);
-      if ( a4 == 1 || a4 == 2 )
+      if ( a4 > 2 )
       {
-        v15 = 17LL;
-      }
-      else if ( a4 == 3 )
-      {
-        v15 = 22LL;
+        v13 = 176LL;
+        if ( a4 != 3 )
+          v13 = 200LL;
       }
       else
       {
-        v15 = 25LL;
+        v13 = 136LL;
       }
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)&a2[v15], 0LL);
-      goto LABEL_7;
+      ExAcquirePushLockExclusiveEx(v13 + a2, 0LL);
+      goto LABEL_5;
     }
   }
-  v10 = a4 - 1;
-  if ( v10 && (v11 = v10 - 1) != 0 )
+  if ( a4 > 2 )
   {
-    if ( v11 == 1 )
-      v12 = a2 + 22;
+    if ( a4 == 3 )
+      v10 = (volatile signed __int64 *)(a2 + 176);
     else
-      v12 = a2 + 25;
+      v10 = (volatile signed __int64 *)(a2 + 200);
   }
   else
   {
-    v12 = a2 + 17;
+    v10 = (volatile signed __int64 *)(a2 + 136);
   }
-  if ( (_InterlockedExchangeAdd64(v12, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v12);
-  return KeAbPostRelease((ULONG_PTR)v12);
+  if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v10);
+  return KeAbPostRelease((ULONG_PTR)v10);
 }

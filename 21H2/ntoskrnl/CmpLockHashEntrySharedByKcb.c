@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLockHashEntrySharedByKcb @ 0x14071BADC
+ * XREFs of CmpLockHashEntrySharedByKcb @ 0x1405EC238
  * Callers:
- *     CmpPerformCompleteKcbCacheLookup @ 0x1407350A0 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1406FC410 (CmpPerformCompleteKcbCacheLookup.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     CmpReferenceHive @ 0x14071BBD8 (CmpReferenceHive.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     CmpReferenceHive @ 0x1405EC2A8 (CmpReferenceHive.c)
  */
 
 __int64 __fastcall CmpLockHashEntrySharedByKcb(ULONG_PTR BugCheckParameter4)
@@ -18,7 +18,7 @@ __int64 __fastcall CmpLockHashEntrySharedByKcb(ULONG_PTR BugCheckParameter4)
   v2 = *(_QWORD *)(BugCheckParameter4 + 32);
   v3 = (unsigned int)(101027 * (*(_DWORD *)(BugCheckParameter4 + 16) ^ (*(_DWORD *)(BugCheckParameter4 + 16) >> 9)));
   ExAcquirePushLockSharedEx(
-    *(_QWORD *)(v2 + 1648) + 24 * ((unsigned int)(*(_DWORD *)(v2 + 1656) - 1) & (v3 ^ (v3 >> 9))),
+    *(_QWORD *)(v2 + 1640) + 24 * ((unsigned int)(*(_DWORD *)(v2 + 1648) - 1) & (v3 ^ (v3 >> 9))),
     0LL);
   result = CmpReferenceHive(v2);
   if ( !(_BYTE)result )

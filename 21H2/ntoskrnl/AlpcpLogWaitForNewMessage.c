@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpLogWaitForNewMessage @ 0x140967C94
+ * XREFs of AlpcpLogWaitForNewMessage @ 0x1408C3ED8
  * Callers:
- *     AlpcpReceiveMessagePort @ 0x1407A8B00 (AlpcpReceiveMessagePort.c)
+ *     AlpcpReceiveMessagePort @ 0x1405E8BC0 (AlpcpReceiveMessagePort.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     AlpcpGetPortNameInformation @ 0x140966EA8 (AlpcpGetPortNameInformation.c)
- *     AlpcpInvokeLogCallbacks @ 0x140967908 (AlpcpInvokeLogCallbacks.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     AlpcpGetPortNameInformation @ 0x1408C3048 (AlpcpGetPortNameInformation.c)
+ *     AlpcpInvokeLogCallbacks @ 0x1408C3B4C (AlpcpInvokeLogCallbacks.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall AlpcpLogWaitForNewMessage(__int64 a1)
 {
   const void **v1; // rbx
   unsigned int v3; // esi
-  _DWORD *Pool2; // rax
+  _DWORD *PoolWithTag; // rax
   _DWORD *v5; // rdi
   __int128 v6; // xmm0
   unsigned int v7; // [rsp+40h] [rbp+8h] BYREF
@@ -32,11 +32,11 @@ void __fastcall AlpcpLogWaitForNewMessage(__int64 a1)
     v1 = v8;
     v3 = *(unsigned __int16 *)v8 + 30;
   }
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, v3, 1699507265LL);
-  v5 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v3, 0x654C6C41u);
+  v5 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memset(Pool2, 0, v3);
+    memset(PoolWithTag, 0, v3);
     v1 = v8;
     v6 = *(_OWORD *)&KeGetCurrentThread()[1].CycleTime;
     v5[4] = 4;

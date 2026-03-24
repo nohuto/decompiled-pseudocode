@@ -1,17 +1,22 @@
 /*
- * XREFs of ?ContentAdded@CHolographicFrameProcessor@@UEAAJPEAUIFlipPropertySet@@PEAPEAUIFlipContentCallback@@@Z @ 0x1802AE940
+ * XREFs of ?ContentAdded@CHolographicFrameProcessor@@UEAAJPEAUIFlipPropertySet@@PEAPEAUIFlipContentCallback@@@Z @ 0x18025C590
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CHolographicFrameProcessor::ContentAdded(
-        void (__fastcall ***this)(char *),
+        CHolographicFrameProcessor *this,
         struct IFlipPropertySet *a2,
         struct IFlipContentCallback **a3)
 {
-  *a3 = (struct IFlipContentCallback *)((unsigned __int64)(this + 1) & ((unsigned __int128)-(__int128)(unsigned __int64)(this - 3) >> 64));
-  (**(this - 3))((char *)this - 24);
+  unsigned __int64 v3; // r9
+  void (__fastcall ***v4)(_QWORD); // rcx
+
+  v3 = (unsigned __int64)this + 8;
+  v4 = (void (__fastcall ***)(_QWORD))((char *)this - 24);
+  *a3 = (struct IFlipContentCallback *)(v3 & ((unsigned __int128)-(__int128)(unsigned __int64)v4 >> 64));
+  (**v4)(v4);
   return 0LL;
 }

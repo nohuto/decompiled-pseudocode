@@ -1,19 +1,19 @@
 /*
- * XREFs of ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C015E6A0
+ * XREFs of ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C0141930
  * Callers:
  *     <none>
  * Callees:
- *     ?bRenderLddmDriver@PDEVOBJ@@QEAAHXZ @ 0x1C0033B80 (-bRenderLddmDriver@PDEVOBJ@@QEAAHXZ.c)
- *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C003F908 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
- *     HmgDecrementShareReferenceCountEx @ 0x1C00421F0 (HmgDecrementShareReferenceCountEx.c)
- *     EngFreeMem @ 0x1C0077DB0 (EngFreeMem.c)
- *     ?bAllowShareAccess@PDEVOBJ@@QEAAHXZ @ 0x1C0089ED0 (-bAllowShareAccess@PDEVOBJ@@QEAAHXZ.c)
- *     EngAllocMem @ 0x1C0090F40 (EngAllocMem.c)
- *     ?vReferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C0097060 (-vReferencePdev@PDEVOBJ@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?pRenderAdapter@PDEVOBJ@@QEAAPEAXXZ @ 0x1C015F028 (-pRenderAdapter@PDEVOBJ@@QEAAPEAXXZ.c)
- *     bIntersect @ 0x1C015F0D0 (bIntersect.c)
+ *     ?vReferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C00123D0 (-vReferencePdev@PDEVOBJ@@QEAAXXZ.c)
+ *     ?bRenderLddmDriver@PDEVOBJ@@QEAAHXZ @ 0x1C00124D0 (-bRenderLddmDriver@PDEVOBJ@@QEAAHXZ.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C002BA18 (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C002F680 (HmgDecrementShareReferenceCountEx.c)
+ *     ?bAllowShareAccess@PDEVOBJ@@QEAAHXZ @ 0x1C003A570 (-bAllowShareAccess@PDEVOBJ@@QEAAHXZ.c)
+ *     EngAllocMem @ 0x1C007BAC0 (EngAllocMem.c)
+ *     EngFreeMem @ 0x1C007E1D0 (EngFreeMem.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?pRenderAdapter@PDEVOBJ@@QEAAPEAXXZ @ 0x1C0142228 (-pRenderAdapter@PDEVOBJ@@QEAAPEAXXZ.c)
+ *     bIntersect @ 0x1C01422D0 (bIntersect.c)
  */
 
 struct HDEV__ *__fastcall MulEnablePDEV(
@@ -27,434 +27,419 @@ struct HDEV__ *__fastcall MulEnablePDEV(
         struct tagDEVINFO *a8,
         HDEV a9)
 {
-  HDEV v9; // rdi
-  int v10; // ebx
-  struct _GDIINFO *v12; // r12
+  int v9; // r12d
+  struct _GDIINFO *v10; // rbx
+  __int64 **v12; // r14
   struct HDEV__ *v13; // rsi
-  __int64 v14; // rcx
+  __int64 v14; // rdx
   char *v15; // r13
-  __int64 v16; // rax
-  int v17; // edi
+  unsigned int v16; // r9d
+  __int64 v17; // r8
   __int64 v18; // rbx
-  __int64 v19; // r14
+  _OWORD *v19; // rcx
   int v20; // eax
-  _OWORD *v21; // rcx
-  __int64 v22; // r8
-  __int64 v23; // rdx
-  struct _GDIINFO *v24; // rax
-  __int128 v25; // xmm1
-  _DWORD *v26; // rdx
+  __int64 v21; // rdx
+  struct _GDIINFO *v22; // rax
+  __int128 v23; // xmm1
+  __int128 v24; // xmm1
+  struct tagDEVINFO *v25; // rcx
+  _OWORD *v26; // rax
   __int128 v27; // xmm1
-  struct tagDEVINFO *v28; // rcx
-  _OWORD *v29; // rax
-  __int128 v30; // xmm1
-  __int64 v31; // rcx
-  char **v32; // rax
-  __int64 v33; // rax
-  char *v34; // r14
-  __int64 v35; // rax
-  _QWORD *v36; // rbx
+  int v28; // eax
+  __int128 v29; // xmm0
+  __int64 v30; // rax
+  __int64 *v31; // r14
+  __int64 v32; // rax
+  char *v33; // rbx
+  int v34; // ecx
+  unsigned int v35; // r9d
+  int v36; // ecx
   int v37; // ecx
   int v38; // ecx
-  int v39; // ecx
-  int v40; // eax
-  unsigned int v41; // ebx
-  struct tagDEVINFO *v42; // rdx
-  __int64 v43; // r12
-  int v44; // eax
-  __int64 v45; // rbx
-  bool v46; // zf
+  unsigned int v39; // r12d
+  struct tagDEVINFO *v40; // rdx
+  int v41; // eax
+  __int64 v42; // r12
+  __int64 v43; // rbx
+  bool v44; // zf
+  signed __int32 v45; // ett
+  __int64 v46; // rax
   signed __int32 v47; // ett
-  __int64 v48; // rax
-  signed __int32 v49; // ett
+  int v48; // ecx
+  __int64 v49; // rbx
   __int64 v50; // rcx
-  __int64 v51; // rbx
-  int *v52; // rcx
-  int v53; // r8d
-  int v54; // edx
-  _DWORD *v55; // rdx
-  _DWORD *v56; // r8
-  int v57; // eax
-  signed __int32 v59; // ett
-  __int64 v60; // rdx
-  unsigned int v61; // r14d
-  unsigned int v62; // r12d
-  _QWORD *v63; // r13
-  void *v64; // rsi
-  __int64 v65; // rdx
-  __int64 v66; // rbx
+  int v51; // r8d
+  int v52; // edx
+  _DWORD *v53; // rdx
+  _DWORD *v54; // r8
+  int v55; // eax
+  signed __int32 v56; // ett
+  __int64 v57; // rdx
+  unsigned int v58; // ebx
+  _QWORD *v59; // r12
+  unsigned int v60; // r14d
+  void *v61; // rsi
+  __int64 v62; // rdx
+  signed __int32 v63; // ett
+  __int64 v64; // r9
+  int v65; // eax
+  signed __int32 v66; // ett
   signed __int32 v67; // ett
-  signed __int32 v68; // ett
-  signed __int32 v69; // ett
-  __int64 v70; // rcx
-  signed __int32 v71; // ett
+  __int64 v68; // rcx
+  __int64 v69; // r9
+  signed __int32 v70; // ett
+  int v71; // eax
   signed __int32 v72; // ett
-  signed __int32 v73; // ett
+  int v74; // edx
+  signed __int32 v75; // ett
   unsigned int i; // r8d
-  __int64 v75; // rdx
-  __int64 v76; // rax
-  int v77; // [rsp+58h] [rbp-B0h]
-  __int64 v78; // [rsp+60h] [rbp-A8h] BYREF
-  __int64 v79; // [rsp+68h] [rbp-A0h]
-  struct tagDEVINFO *v80; // [rsp+70h] [rbp-98h]
-  PVOID pv; // [rsp+78h] [rbp-90h]
-  __int64 v82; // [rsp+80h] [rbp-88h] BYREF
-  int *v83; // [rsp+88h] [rbp-80h] BYREF
-  char **v84; // [rsp+90h] [rbp-78h]
-  struct _GDIINFO *v85; // [rsp+98h] [rbp-70h]
-  __int64 v86; // [rsp+A0h] [rbp-68h]
-  struct HDEV__ *v87; // [rsp+A8h] [rbp-60h]
-  void *v88; // [rsp+B0h] [rbp-58h]
-  char *v89; // [rsp+B8h] [rbp-50h] BYREF
+  __int64 v77; // rdx
+  __int64 v78; // rax
+  __int64 v79; // [rsp+28h] [rbp-A9h] BYREF
+  int v80; // [rsp+30h] [rbp-A1h]
+  unsigned int v81; // [rsp+34h] [rbp-9Dh]
+  __int64 v82; // [rsp+38h] [rbp-99h] BYREF
+  struct tagDEVINFO *v83; // [rsp+40h] [rbp-91h]
+  PVOID pv; // [rsp+48h] [rbp-89h]
+  __int64 v85; // [rsp+50h] [rbp-81h] BYREF
+  struct _GDIINFO *v86; // [rsp+58h] [rbp-79h]
+  __int64 **v87; // [rsp+60h] [rbp-71h]
+  char *v88; // [rsp+70h] [rbp-61h]
+  __int64 *v89; // [rsp+78h] [rbp-59h] BYREF
 
-  v9 = a9;
-  v10 = -1;
-  v86 = 0LL;
-  LODWORD(v78) = 0;
-  v88 = 0LL;
-  v12 = a6;
-  v80 = a8;
-  v85 = a6;
-  v83 = (int *)a9;
-  LODWORD(v79) = -1;
+  v9 = -1;
+  v10 = a6;
+  v83 = a8;
+  v86 = a6;
+  v80 = -1;
+  v82 = 0LL;
+  LODWORD(v79) = 0;
   if ( !a9 )
     return 0LL;
-  v84 = &v89;
-  v87 = (struct HDEV__ *)EngAllocMem(1u, 80 * *(_DWORD *)&a1->dmDeviceName[10] + 112, 0x76645647u);
-  v13 = v87;
-  if ( !v87 )
+  v12 = &v89;
+  v88 = (char *)EngAllocMem(1u, 80 * *(_DWORD *)&a1->dmDeviceName[10] + 112, 0x76645647u);
+  v13 = (struct HDEV__ *)v88;
+  if ( !v88 )
     return 0LL;
   pv = EngAllocMem(1u, 8 * *(_DWORD *)&a1->dmDeviceName[10], 0x73647647u);
   if ( !pv )
-    goto LABEL_62;
-  v15 = (char *)(v87 + 28);
-  *(_DWORD *)(v87 + 4) = *(_DWORD *)(struct HDEV__ *)&a1->dmDeviceName[10];
+  {
+LABEL_86:
+    EngFreeMem(v13);
+    return 0LL;
+  }
+  v15 = v88 + 112;
+  *((_DWORD *)v88 + 4) = *(_DWORD *)&a1->dmDeviceName[10];
+  v16 = 0;
+  *((_QWORD *)v13 + 4) = a9;
   *((_DWORD *)v13 + 18) = 0x7FFFFFFF;
   *((_DWORD *)v13 + 19) = 0x7FFFFFFF;
   *((_DWORD *)v13 + 20) = 0x80000000;
   *((_DWORD *)v13 + 21) = 0x80000000;
-  v16 = 0LL;
-  *((_QWORD *)v13 + 4) = a9;
-  v77 = 0;
+  v81 = 0;
   if ( *(_DWORD *)&a1->dmDeviceName[10] )
   {
-    v17 = -1;
-    do
+    while ( 1 )
     {
-      v82 = 56 * v16;
-      v18 = *(_QWORD *)&a1->dmDeviceName[28 * v16 + 20];
-      v19 = *(_QWORD *)(SGDGetSessionState(v14) + 24);
-      if ( *(_QWORD *)(v18 + 2552) == -4LL && !*(_DWORD *)(v19 + 3252) )
+      v17 = 28LL * v16;
+      v18 = *(_QWORD *)&a1->dmDeviceName[v17 + 20];
+      if ( (*(_DWORD *)(*(_QWORD *)(v18 + 2576) + 160LL) & 4) != 0 )
       {
-        DbgkWerCaptureLiveKernelDump(L"NTGDI", 400LL, 38LL, v18, a1, 0LL, 0LL, 0LL, 0);
-        *(_DWORD *)(v19 + 3252) = 1;
-      }
-      if ( (*(_DWORD *)(*(_QWORD *)(v18 + 2552) + 160LL) & 4) != 0 )
-      {
-        v20 = *(_DWORD *)(v18 + 2140);
-        v21 = (_OWORD *)(v18 + 2104);
-        v22 = 2LL;
-        v86 = v18;
-        v23 = 2LL;
-        LODWORD(v78) = v20 & 0x100;
-        v24 = v12;
+        v19 = (_OWORD *)(v18 + 2136);
+        v20 = *(_DWORD *)(v18 + 2172) & 0x100;
+        v82 = *(_QWORD *)&a1->dmDeviceName[v17 + 20];
+        LODWORD(v79) = v20;
+        v21 = 2LL;
+        v22 = v86;
         do
         {
-          *(_OWORD *)&v24->ulVersion = *v21;
-          *(_OWORD *)&v24->ulHorzRes = v21[1];
-          *(_OWORD *)&v24->ulNumColors = v21[2];
-          *(_OWORD *)&v24->flTextCaps = v21[3];
-          *(_OWORD *)&v24->ulAspectX = v21[4];
-          *(_OWORD *)&v24->yStyleStep = v21[5];
-          *(_OWORD *)&v24->szlPhysSize.cx = v21[6];
-          v24 = (struct _GDIINFO *)((char *)v24 + 128);
-          v25 = v21[7];
-          v21 += 8;
-          *(_OWORD *)&v24[-1].flShadeBlend = v25;
-          --v23;
+          *(_OWORD *)&v22->ulVersion = *v19;
+          *(_OWORD *)&v22->ulHorzRes = v19[1];
+          *(_OWORD *)&v22->ulNumColors = v19[2];
+          *(_OWORD *)&v22->flTextCaps = v19[3];
+          *(_OWORD *)&v22->ulAspectX = v19[4];
+          *(_OWORD *)&v22->yStyleStep = v19[5];
+          *(_OWORD *)&v22->szlPhysSize.cx = v19[6];
+          v22 = (struct _GDIINFO *)((char *)v22 + 128);
+          v23 = v19[7];
+          v19 += 8;
+          *(_OWORD *)&v22[-1].flShadeBlend = v23;
+          --v21;
         }
-        while ( v23 );
-        v26 = (_DWORD *)(v18 + 1792);
-        *(_OWORD *)&v24->ulVersion = *v21;
-        *(_OWORD *)&v24->ulHorzRes = v21[1];
-        *(_OWORD *)&v24->ulNumColors = v21[2];
-        v27 = v21[3];
-        v28 = v80;
-        *(_OWORD *)&v24->flTextCaps = v27;
-        v29 = (_OWORD *)(v18 + 1792);
+        while ( v21 );
+        v14 = 2LL;
+        *(_OWORD *)&v22->ulVersion = *v19;
+        *(_OWORD *)&v22->ulHorzRes = v19[1];
+        *(_OWORD *)&v22->ulNumColors = v19[2];
+        v24 = v19[3];
+        v25 = v83;
+        *(_OWORD *)&v22->flTextCaps = v24;
+        v26 = (_OWORD *)(v18 + 1824);
         do
         {
-          *(_OWORD *)v28 = *v29;
-          *((_OWORD *)v28 + 1) = v29[1];
-          *((_OWORD *)v28 + 2) = v29[2];
-          *((_OWORD *)v28 + 3) = v29[3];
-          *((_OWORD *)v28 + 4) = v29[4];
-          *((_OWORD *)v28 + 5) = v29[5];
-          *((_OWORD *)v28 + 6) = v29[6];
-          v28 = (struct tagDEVINFO *)((char *)v28 + 128);
-          v30 = v29[7];
-          v29 += 8;
-          *((_OWORD *)v28 - 1) = v30;
-          --v22;
+          *(_OWORD *)v25 = *v26;
+          *((_OWORD *)v25 + 1) = v26[1];
+          *((_OWORD *)v25 + 2) = v26[2];
+          *((_OWORD *)v25 + 3) = v26[3];
+          *((_OWORD *)v25 + 4) = v26[4];
+          *((_OWORD *)v25 + 5) = v26[5];
+          *((_OWORD *)v25 + 6) = v26[6];
+          v25 = (struct tagDEVINFO *)((char *)v25 + 128);
+          v27 = v26[7];
+          v26 += 8;
+          *((_OWORD *)v25 - 1) = v27;
+          --v14;
         }
-        while ( v22 );
-        *(_OWORD *)v28 = *v29;
-        *((_OWORD *)v28 + 1) = v29[1];
-        *((_OWORD *)v28 + 2) = v29[2];
-        *((_QWORD *)v28 + 6) = *((_QWORD *)v29 + 6);
+        while ( v14 );
+        *(_OWORD *)v25 = *v26;
+        *((_OWORD *)v25 + 1) = v26[1];
+        *((_OWORD *)v25 + 2) = v26[2];
+        *((_QWORD *)v25 + 6) = *((_QWORD *)v26 + 6);
       }
-      else
-      {
-        v26 = (_DWORD *)(v18 + 1792);
-      }
-      v17 &= *v26;
-      v31 = v82;
-      LODWORD(v79) = *(_DWORD *)(v18 + 2096) & v79;
-      v32 = v84;
-      *v84 = v15;
-      v32[1] = v15;
-      *((_DWORD *)v15 + 4) = v77;
-      *(_OWORD *)(v15 + 28) = *(_OWORD *)((char *)&a1->dmDeviceName[28] + v31);
-      v33 = *(_QWORD *)((char *)&a1->dmDeviceName[20] + v31);
-      *((_QWORD *)v15 + 6) = v33;
-      *((_QWORD *)v15 + 7) = v33;
-      PDEVOBJ::vReferencePdev((PDEVOBJ *)(v15 + 56));
-      v34 = v89;
-      *((_DWORD *)v15 + 18) = -*(_DWORD *)(v18 + 2560);
-      *((_DWORD *)v15 + 19) = -*(_DWORD *)(v18 + 2564);
-      v35 = *(_QWORD *)(v18 + 2528);
-      v36 = v34;
+      v9 &= *(_DWORD *)(v18 + 1824);
+      v28 = *(_DWORD *)(v18 + 2128) & v80;
+      *v12 = (__int64 *)v15;
+      v12[1] = (__int64 *)v15;
+      *((_DWORD *)v15 + 4) = v16;
+      v29 = *(_OWORD *)&a1->dmDeviceName[v17 + 28];
+      v80 = v28;
+      *(_OWORD *)(v15 + 28) = v29;
+      v30 = *(_QWORD *)&a1->dmDeviceName[v17 + 20];
+      *((_QWORD *)v15 + 6) = v30;
+      *((_QWORD *)v15 + 7) = v30;
+      PDEVOBJ::vReferencePdev((PDEVOBJ *)(v15 + 56), v14, v17 * 2);
+      v31 = v89;
+      *((_DWORD *)v15 + 18) = -*(_DWORD *)(v18 + 2584);
+      *((_DWORD *)v15 + 19) = -*(_DWORD *)(v18 + 2588);
+      v32 = *(_QWORD *)(v18 + 2552);
+      v33 = (char *)v31;
       *((_DWORD *)v15 + 5) = 1;
-      *((_QWORD *)v15 + 8) = (v35 + 24) & -(__int64)(v35 != 0);
-      if ( v34 != v15 )
+      *((_QWORD *)v15 + 8) = (v32 + 24) & -(__int64)(v32 != 0);
+      if ( v31 != (__int64 *)v15 )
       {
         do
         {
-          if ( (unsigned int)bIntersect((char *)v36 + 28, v15 + 28) )
+          if ( (unsigned int)bIntersect(v33 + 28, v15 + 28) )
           {
-            *(_DWORD *)(*((_QWORD *)v15 + 7) + 1792LL) |= 0x8000000u;
+            *(_DWORD *)(*((_QWORD *)v15 + 7) + 1824LL) |= 0x8000000u;
             *((_DWORD *)v15 + 5) = 0;
           }
-          v36 = (_QWORD *)*v36;
+          v33 = *(char **)v33;
         }
-        while ( v36 != (_QWORD *)v15 );
-        v13 = v87;
+        while ( v33 != v15 );
       }
-      v37 = *((_DWORD *)v13 + 18);
-      v12 = v85;
-      if ( v37 >= *((_DWORD *)v15 + 7) )
-        v37 = *((_DWORD *)v15 + 7);
-      v84 = (char **)v15;
-      *((_DWORD *)v13 + 18) = v37;
-      v38 = *((_DWORD *)v13 + 19);
-      if ( v38 >= *((_DWORD *)v15 + 8) )
-        v38 = *((_DWORD *)v15 + 8);
-      *((_DWORD *)v13 + 19) = v38;
-      v39 = *((_DWORD *)v13 + 20);
-      if ( v39 <= *((_DWORD *)v15 + 9) )
-        v39 = *((_DWORD *)v15 + 9);
-      *((_DWORD *)v13 + 20) = v39;
-      v40 = *((_DWORD *)v15 + 10);
-      v14 = *((unsigned int *)v13 + 21);
-      if ( (int)v14 <= v40 )
-        v14 = (unsigned int)v40;
-      v16 = (unsigned int)(v77 + 1);
-      *((_DWORD *)v13 + 21) = v14;
+      v34 = *((_DWORD *)v13 + 18);
+      v35 = v81;
+      if ( v34 >= *((_DWORD *)v15 + 7) )
+        v34 = *((_DWORD *)v15 + 7);
+      v87 = (__int64 **)v15;
+      *((_DWORD *)v13 + 18) = v34;
+      v36 = *((_DWORD *)v13 + 19);
+      if ( v36 >= *((_DWORD *)v15 + 8) )
+        v36 = *((_DWORD *)v15 + 8);
+      *((_DWORD *)v13 + 19) = v36;
+      v37 = *((_DWORD *)v13 + 20);
+      if ( v37 <= *((_DWORD *)v15 + 9) )
+        v37 = *((_DWORD *)v15 + 9);
+      *((_DWORD *)v13 + 20) = v37;
+      v38 = *((_DWORD *)v13 + 21);
+      if ( v38 <= *((_DWORD *)v15 + 10) )
+        v38 = *((_DWORD *)v15 + 10);
+      v16 = v35 + 1;
       v15 += 80;
-      v77 = v16;
+      *((_DWORD *)v13 + 21) = v38;
+      v81 = v16;
+      if ( v16 >= *(_DWORD *)&a1->dmDeviceName[10] )
+        break;
+      v12 = v87;
     }
-    while ( (unsigned int)v16 < *(_DWORD *)&a1->dmDeviceName[10] );
-    v10 = v17;
-    v9 = (HDEV)v83;
+    v10 = v86;
   }
   else
   {
-    v34 = v89;
+    v31 = v89;
   }
-  v41 = v10 & 0xFFFEE7FF;
-  v42 = v80;
-  v12->ulHorzSize = -v12->ulHorzSize;
-  v12->ulVertSize = -v12->ulVertSize;
-  v43 = v86;
-  v44 = v41 | 0x80020;
-  if ( !(_DWORD)v78 )
-    v44 = v41;
-  *(_DWORD *)v42 = v44;
-  *((_DWORD *)v42 + 76) = v79;
-  v13[16] = *(_DWORD *)(struct HDEV__ *)((int)v42 + 284);
-  *(_QWORD *)v13 = v34;
-  *((_QWORD *)v13 + 1) = v34;
-  *((_QWORD *)v13 + 5) = v43;
-  if ( !v34 )
+  v39 = v9 & 0xFFFEE7FF;
+  v40 = v83;
+  v10->ulHorzSize = -v10->ulHorzSize;
+  v10->ulVertSize = -v10->ulVertSize;
+  v41 = v39 | 0x80020;
+  if ( !(_DWORD)v79 )
+    v41 = v39;
+  *(_DWORD *)v40 = v41;
+  v42 = v82;
+  *((_DWORD *)v40 + 76) = v80;
+  v13[16] = *(_DWORD *)(struct HDEV__ *)((int)v40 + 284);
+  *(_QWORD *)v13 = v31;
+  *((_QWORD *)v13 + 1) = v31;
+  *((_QWORD *)v13 + 5) = v42;
+  while ( v31 )
   {
-LABEL_65:
-    v9[640] = v13[18];
-    v9[641] = v13[19];
-    *((_DWORD *)v9 + 422) = *((_DWORD *)v13 + 20) - *((_DWORD *)v13 + 18);
-    *((_DWORD *)v9 + 423) = *((_DWORD *)v13 + 21) - *((_DWORD *)v13 + 19);
-    _m_prefetchw(v9 + 10);
-    do
-      v59 = *((_DWORD *)v9 + 10);
-    while ( v59 != _InterlockedCompareExchange((volatile signed __int32 *)v9 + 10, v59 | 0x20000, v59) );
-    v60 = *(unsigned int *)&a1->dmDeviceName[10];
-    v61 = 0;
-    v62 = 0;
-    v63 = pv;
-    if ( (_DWORD)v60 )
-    {
-      v64 = v88;
-      do
-      {
-        v65 = 28LL * v62;
-        v66 = *(_QWORD *)&a1->dmDeviceName[v65 + 20];
-        v78 = v66;
-        if ( (*(_DWORD *)(v66 + 1792) & 0x8000000) != 0 )
-        {
-          _m_prefetchw(v9 + 10);
-          do
-            v67 = *((_DWORD *)v9 + 10);
-          while ( v67 != _InterlockedCompareExchange((volatile signed __int32 *)v9 + 10, v67 | 0x1000000, v67) );
-          v66 = v78;
-          if ( (*(_DWORD *)(v78 + 2096) & 0x1000) != 0 )
-          {
-            _m_prefetchw(v9 + 10);
-            do
-              v68 = *((_DWORD *)v9 + 10);
-            while ( v68 != _InterlockedCompareExchange((volatile signed __int32 *)v9 + 10, v68 | 0x2000000, v68) );
-            *((_DWORD *)v9 + 524) |= 0x1000u;
-            v66 = v78;
-          }
-          if ( (*(_DWORD *)(v66 + 2096) & 0x8000) != 0 )
-          {
-            _m_prefetchw(v9 + 10);
-            do
-              v69 = *((_DWORD *)v9 + 10);
-            while ( v69 != _InterlockedCompareExchange((volatile signed __int32 *)v9 + 10, v69 | 0x20000000, v69) );
-            v66 = v78;
-          }
-          v70 = v61++;
-          v63[v70] = *(_QWORD *)&a1->dmDeviceName[v65 + 20];
-        }
-        if ( !(unsigned int)PDEVOBJ::bRenderLddmDriver((PDEVOBJ *)&v78) && *(_DWORD *)(v66 + 2588) != 5 )
-        {
-          _m_prefetchw(v9 + 10);
-          do
-            v71 = *((_DWORD *)v9 + 10);
-          while ( v71 != _InterlockedCompareExchange((volatile signed __int32 *)v9 + 10, v71 | 0x8000000, v71) );
-          v66 = v78;
-        }
-        if ( ((_DWORD)v9[10] & 0x4000000) == 0 && ((*(_DWORD *)(v66 + 2096) & 0x8000) == 0 || !*(_QWORD *)(v66 + 2744)) )
-        {
-          if ( !v64 || PDEVOBJ::pRenderAdapter((PDEVOBJ *)&v78) == v64 )
-          {
-            v64 = PDEVOBJ::pRenderAdapter((PDEVOBJ *)&v78);
-          }
-          else
-          {
-            _m_prefetchw(v9 + 10);
-            do
-              v72 = *((_DWORD *)v9 + 10);
-            while ( v72 != _InterlockedCompareExchange((volatile signed __int32 *)v9 + 10, v72 | 0x4000000, v72) );
-          }
-        }
-        if ( ((_DWORD)v9[10] & 0x40000000) == 0 && !PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v78) )
-        {
-          _m_prefetchw(v9 + 10);
-          do
-            v73 = *((_DWORD *)v9 + 10);
-          while ( v73 != _InterlockedCompareExchange((volatile signed __int32 *)v9 + 10, v73 | 0x40000000, v73) );
-        }
-        v60 = *(unsigned int *)&a1->dmDeviceName[10];
-        ++v62;
-      }
-      while ( v62 < (unsigned int)v60 );
-      v13 = v87;
-    }
-    for ( i = 0; i < (unsigned int)v60; ++i )
-    {
-      v75 = *(_QWORD *)&a1->dmDeviceName[28 * i + 20];
-      if ( (*(_DWORD *)(v75 + 1792) & 0x8000000) == 0 )
-      {
-        v76 = v61++;
-        v63[v76] = v75;
-      }
-      v60 = *(unsigned int *)&a1->dmDeviceName[10];
-    }
-    if ( qword_1C0294430 )
-      qword_1C0294430(v9, v60, v63);
-    return v13;
-  }
-  while ( 1 )
-  {
-    v45 = *((_QWORD *)v34 + 6);
-    v46 = v34 == *(char **)v13;
-    _m_prefetchw((const void *)(v45 + 40));
-    if ( v46 )
+    v43 = v31[6];
+    v44 = v31 == *(__int64 **)v13;
+    _m_prefetchw((const void *)(v43 + 40));
+    if ( v44 )
     {
       do
-        v47 = *(_DWORD *)(v45 + 40);
-      while ( v47 != _InterlockedCompareExchange((volatile signed __int32 *)(v45 + 40), v47 | 0x10000000, v47) );
-      v48 = 0LL;
+        v45 = *(_DWORD *)(v43 + 40);
+      while ( v45 != _InterlockedCompareExchange((volatile signed __int32 *)(v43 + 40), v45 | 0x10000000, v45) );
+      v46 = 0LL;
     }
     else
     {
       do
-        v49 = *(_DWORD *)(v45 + 40);
-      while ( v49 != _InterlockedCompareExchange((volatile signed __int32 *)(v45 + 40), v49 & 0xEFFFFFFF, v49) );
-      v48 = *(_QWORD *)(*(_QWORD *)v13 + 48LL);
+        v47 = *(_DWORD *)(v43 + 40);
+      while ( v47 != _InterlockedCompareExchange((volatile signed __int32 *)(v43 + 40), v47 & 0xEFFFFFFF, v47) );
+      v46 = *(_QWORD *)(*(_QWORD *)v13 + 48LL);
     }
-    *(_QWORD *)(v45 + 32) = v48;
-    if ( v45 == v43 )
+    *(_QWORD *)(v43 + 32) = v46;
+    if ( v43 == v42 )
     {
-      *((_DWORD *)v34 + 6) = 0;
-      goto LABEL_55;
+      *((_DWORD *)v31 + 6) = 0;
     }
-    v50 = (unsigned int)(*(_DWORD *)(v45 + 2076) - *((_DWORD *)v13 + 16));
-    *((_DWORD *)v34 + 6) = v50;
-    if ( !(_DWORD)v50 )
-      break;
-LABEL_53:
-    if ( *((_DWORD *)v34 + 6) )
+    else
     {
-      *(_DWORD *)&a1->dmDeviceName[8] |= 1u;
-      *(_DWORD *)(*(_QWORD *)(SGDGetSessionState(v50) + 24) + 3248LL) = 1;
+      v48 = *(_DWORD *)(v43 + 2108) - *((_DWORD *)v13 + 16);
+      *((_DWORD *)v31 + 6) = v48;
+      if ( !v48 )
+      {
+        EPALOBJ::EPALOBJ((EPALOBJ *)&v85, *((HPALETTE *)v40 + 37));
+        EPALOBJ::EPALOBJ((EPALOBJ *)&v82, *(HPALETTE *)(v43 + 2120));
+        v49 = v85;
+        v50 = v82;
+        if ( !v85 )
+        {
+          if ( v82 )
+          {
+            HmgDecrementShareReferenceCountEx(v82, 0LL);
+LABEL_83:
+            if ( v49 )
+              HmgDecrementShareReferenceCountEx(v49, 0LL);
+          }
+          EngFreeMem(pv);
+          goto LABEL_86;
+        }
+        if ( !v82 )
+          goto LABEL_83;
+        v51 = *(_DWORD *)(v82 + 24) & 0x1F;
+        v52 = *(_DWORD *)(v85 + 24) & 0x1F;
+        *((_DWORD *)v31 + 6) = v52 != v51;
+        if ( v52 == v51 && (*(_DWORD *)(v49 + 24) & 0x1F) == 2 )
+        {
+          v53 = *(_DWORD **)(v50 + 112);
+          v54 = *(_DWORD **)(v49 + 112);
+          if ( *v54 != *v53 || v54[1] != v53[1] || (v55 = 0, v54[2] != v53[2]) )
+            v55 = 1;
+          *((_DWORD *)v31 + 6) = v55;
+        }
+        HmgDecrementShareReferenceCountEx(v50, 0LL);
+        HmgDecrementShareReferenceCountEx(v49, 0LL);
+        v48 = *((_DWORD *)v31 + 6);
+        v40 = v83;
+      }
+      if ( v48 )
+      {
+        *(_DWORD *)&a1->dmDeviceName[8] |= 1u;
+        gbMultiMonMismatchColor = 1;
+      }
     }
-LABEL_55:
-    v34 = *(char **)v34;
-    if ( !v34 )
-      goto LABEL_65;
-    v42 = v80;
+    v31 = (__int64 *)*v31;
   }
-  EPALOBJ::EPALOBJ((EPALOBJ *)&v82, *((HPALETTE *)v42 + 37));
-  EPALOBJ::EPALOBJ((EPALOBJ *)&v83, *(HPALETTE *)(v45 + 2088));
-  v51 = v82;
-  v52 = v83;
-  if ( v82 )
+  a9[646] = v13[18];
+  a9[647] = v13[19];
+  *((_DWORD *)a9 + 430) = *((_DWORD *)v13 + 20) - *((_DWORD *)v13 + 18);
+  *((_DWORD *)a9 + 431) = *((_DWORD *)v13 + 21) - *((_DWORD *)v13 + 19);
+  _m_prefetchw(a9 + 10);
+  do
+    v56 = *((_DWORD *)a9 + 10);
+  while ( v56 != _InterlockedCompareExchange((volatile signed __int32 *)a9 + 10, v56 | 0x20000, v56) );
+  v57 = *(unsigned int *)&a1->dmDeviceName[10];
+  v58 = 0;
+  v59 = pv;
+  v60 = 0;
+  if ( (_DWORD)v57 )
   {
-    if ( !v83 )
-      goto LABEL_59;
-    v53 = v83[6] & 0x1F;
-    v54 = *(_DWORD *)(v82 + 24) & 0x1F;
-    *((_DWORD *)v34 + 6) = v54 != v53;
-    if ( v54 == v53 && (*(_DWORD *)(v51 + 24) & 0x1F) == 2 )
+    v61 = 0LL;
+    do
     {
-      v55 = (_DWORD *)*((_QWORD *)v52 + 14);
-      v56 = *(_DWORD **)(v51 + 112);
-      if ( *v56 != *v55 || v56[1] != v55[1] || (v57 = 0, v56[2] != v55[2]) )
-        v57 = 1;
-      *((_DWORD *)v34 + 6) = v57;
+      v62 = 28LL * v60;
+      v79 = *(_QWORD *)&a1->dmDeviceName[v62 + 20];
+      if ( (*(_DWORD *)(v79 + 1824) & 0x8000000) != 0 )
+      {
+        _m_prefetchw(a9 + 10);
+        do
+          v63 = *((_DWORD *)a9 + 10);
+        while ( v63 != _InterlockedCompareExchange((volatile signed __int32 *)a9 + 10, v63 | 0x1000000, v63) );
+        v64 = v79;
+        v65 = *(_DWORD *)(v79 + 2128);
+        if ( (v65 & 0x1000) != 0 )
+        {
+          _m_prefetchw(a9 + 10);
+          do
+            v66 = *((_DWORD *)a9 + 10);
+          while ( v66 != _InterlockedCompareExchange((volatile signed __int32 *)a9 + 10, v66 | 0x2000000, v66) );
+          *((_DWORD *)a9 + 532) |= 0x1000u;
+          v65 = *(_DWORD *)(v64 + 2128);
+        }
+        if ( (v65 & 0x8000) != 0 )
+        {
+          _m_prefetchw(a9 + 10);
+          do
+            v67 = *((_DWORD *)a9 + 10);
+          while ( v67 != _InterlockedCompareExchange((volatile signed __int32 *)a9 + 10, v67 | 0x20000000, v67) );
+        }
+        v68 = v58++;
+        v59[v68] = *(_QWORD *)&a1->dmDeviceName[v62 + 20];
+      }
+      if ( !(unsigned int)PDEVOBJ::bRenderLddmDriver((PDEVOBJ *)&v79) && *(_DWORD *)(v69 + 2612) != 5 )
+      {
+        _m_prefetchw(a9 + 10);
+        do
+          v70 = *((_DWORD *)a9 + 10);
+        while ( v70 != _InterlockedCompareExchange((volatile signed __int32 *)a9 + 10, v70 | 0x8000000, v70) );
+        v69 = v79;
+      }
+      v71 = *((_DWORD *)a9 + 10);
+      if ( (v71 & 0x4000000) == 0 && ((*(_DWORD *)(v69 + 2128) & 0x8000) == 0 || !*(_QWORD *)(v69 + 2768)) )
+      {
+        if ( !v61 || PDEVOBJ::pRenderAdapter((PDEVOBJ *)&v79) == v61 )
+        {
+          v61 = PDEVOBJ::pRenderAdapter((PDEVOBJ *)&v79);
+          v71 = v74;
+        }
+        else
+        {
+          _m_prefetchw(a9 + 10);
+          do
+            v72 = *((_DWORD *)a9 + 10);
+          while ( v72 != _InterlockedCompareExchange((volatile signed __int32 *)a9 + 10, v72 | 0x4000000, v72) );
+          v71 = *((_DWORD *)a9 + 10);
+        }
+      }
+      if ( (v71 & 0x40000000) == 0 && !PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v79) )
+      {
+        _m_prefetchw(a9 + 10);
+        do
+          v75 = *((_DWORD *)a9 + 10);
+        while ( v75 != _InterlockedCompareExchange((volatile signed __int32 *)a9 + 10, v75 | 0x40000000, v75) );
+      }
+      v57 = *(unsigned int *)&a1->dmDeviceName[10];
+      ++v60;
     }
-    HmgDecrementShareReferenceCountEx(v52, 0LL);
-    HmgDecrementShareReferenceCountEx((int *)v51, 0LL);
-    goto LABEL_53;
+    while ( v60 < (unsigned int)v57 );
+    v13 = (struct HDEV__ *)v88;
   }
-  if ( v83 )
-    HmgDecrementShareReferenceCountEx(v83, 0LL);
-LABEL_59:
-  if ( v51 )
-    HmgDecrementShareReferenceCountEx((int *)v51, 0LL);
-  EngFreeMem(pv);
-LABEL_62:
-  EngFreeMem(v13);
-  return 0LL;
+  for ( i = 0; i < (unsigned int)v57; ++i )
+  {
+    v77 = *(_QWORD *)&a1->dmDeviceName[28 * i + 20];
+    if ( (*(_DWORD *)(v77 + 1824) & 0x8000000) == 0 )
+    {
+      v78 = v58++;
+      v59[v78] = v77;
+    }
+    v57 = *(unsigned int *)&a1->dmDeviceName[10];
+  }
+  if ( qword_1C0255020 )
+    qword_1C0255020(a9, v57, v59);
+  return v13;
 }

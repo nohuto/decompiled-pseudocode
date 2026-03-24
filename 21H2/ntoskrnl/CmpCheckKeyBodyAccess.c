@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpCheckKeyBodyAccess @ 0x1407F7AD0
+ * XREFs of CmpCheckKeyBodyAccess @ 0x1405D961C
  * Callers:
- *     CmpVEPerformOpenAccessCheck @ 0x1406B6444 (CmpVEPerformOpenAccessCheck.c)
- *     CmpDoAccessCheckOnKCB @ 0x140916788 (CmpDoAccessCheckOnKCB.c)
+ *     CmpVEPerformOpenAccessCheck @ 0x1405D94F8 (CmpVEPerformOpenAccessCheck.c)
+ *     CmpDoAccessCheckOnKCB @ 0x14086FE0C (CmpDoAccessCheckOnKCB.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     SeAccessCheck @ 0x1402F9C80 (SeAccessCheck.c)
- *     SeOpenObjectAuditAlarm @ 0x140669A30 (SeOpenObjectAuditAlarm.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x140669A90 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeAppendPrivileges @ 0x1406A8AD0 (SeAppendPrivileges.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x140721BF0 (CmpGetSecurityCacheEntryForKcbStack.c)
- *     SeLockSubjectContext @ 0x140722AE0 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x140723F40 (SeUnlockSubjectContext.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1407C05F4 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140AB45A0 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
+ *     SeOpenObjectAuditAlarm @ 0x1405D99E0 (SeOpenObjectAuditAlarm.c)
+ *     SeAppendPrivileges @ 0x1405D9A40 (SeAppendPrivileges.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1405ECE20 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405EF460 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x140665D30 (CmpStartKcbStackForTopLayerKcb.c)
+ *     SeLockSubjectContext @ 0x1406F5E30 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x1406F5E90 (SeUnlockSubjectContext.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x1406FC600 (CmpIsKeyDeletedForKeyBody.c)
  */
 
 BOOLEAN __fastcall CmpCheckKeyBodyAccess(
@@ -45,7 +45,7 @@ BOOLEAN __fastcall CmpCheckKeyBodyAccess(
     AccessStatus = -1073741444;
     goto LABEL_13;
   }
-  AccessStatus = CmpStartKcbStackForTopLayerKcb((__int64)&v18, Object[1]);
+  AccessStatus = CmpStartKcbStackForTopLayerKcb(&v18, Object[1]);
   v9 = AccessStatus;
   if ( AccessStatus < 0 )
   {
@@ -53,7 +53,7 @@ LABEL_13:
     v11 = 0;
     goto LABEL_10;
   }
-  v10 = (void *)(CmpGetSecurityCacheEntryForKcbStack((__int64)&v18, ObjectCreated, 0LL) + 32);
+  v10 = (void *)(CmpGetSecurityCacheEntryForKcbStack(&v18, ObjectCreated, 0LL) + 32);
   SeLockSubjectContext(&AccessState->SubjectSecurityContext);
   v11 = SeAccessCheck(
           v10,

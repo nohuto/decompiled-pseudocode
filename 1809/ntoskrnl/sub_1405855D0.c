@@ -4,10 +4,10 @@
  *     sub_140585FE0 @ 0x140585FE0 (sub_140585FE0.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  *     PnpGetSystemPdoList @ 0x140585678 (PnpGetSystemPdoList.c)
  *     sub_1405872BC @ 0x1405872BC (sub_1405872BC.c)
- *     IoGetDeviceObjectPointer @ 0x140661EB0 (IoGetDeviceObjectPointer.c)
+ *     IoGetDeviceObjectPointer @ 0x140661E90 (IoGetDeviceObjectPointer.c)
  */
 
 __int64 __fastcall sub_1405855D0(__int64 a1)

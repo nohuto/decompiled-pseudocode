@@ -1,17 +1,17 @@
 /*
- * XREFs of NtGdiOpenDCW @ 0x1C005A5E0
+ * XREFs of NtGdiOpenDCW @ 0x1C0022E50
  * Callers:
  *     <none>
  * Callees:
- *     PopThreadGuardedObject @ 0x1C003CB00 (PopThreadGuardedObject.c)
- *     UserGetDesktopDC @ 0x1C005A7D0 (UserGetDesktopDC.c)
- *     AllocFreeTmpBuffer @ 0x1C005AB80 (AllocFreeTmpBuffer.c)
- *     FreeTmpBuffer @ 0x1C005AD30 (FreeTmpBuffer.c)
- *     hdcOpenDCW @ 0x1C005ADC0 (hdcOpenDCW.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     ?CaptureDEVMODEW@@YAPEAU_devicemodeW@@REAU1@@Z @ 0x1C0158750 (-CaptureDEVMODEW@@YAPEAU_devicemodeW@@REAU1@@Z.c)
- *     ?CaptureDriverInfo2W@@YAPEAU_DRIVER_INFO_2W@@PEAU1@@Z @ 0x1C0158840 (-CaptureDriverInfo2W@@YAPEAU_DRIVER_INFO_2W@@PEAU1@@Z.c)
+ *     UserGetDesktopDC @ 0x1C0021AE0 (UserGetDesktopDC.c)
+ *     hdcOpenDCW @ 0x1C0022A00 (hdcOpenDCW.c)
+ *     AllocFreeTmpBuffer @ 0x1C0023990 (AllocFreeTmpBuffer.c)
+ *     FreeTmpBuffer @ 0x1C0023BF0 (FreeTmpBuffer.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     PopThreadGuardedObject @ 0x1C002D4F0 (PopThreadGuardedObject.c)
+ *     ?CaptureDEVMODEW@@YAPEAU_devicemodeW@@REAU1@@Z @ 0x1C007A540 (-CaptureDEVMODEW@@YAPEAU_devicemodeW@@REAU1@@Z.c)
+ *     ?CaptureDriverInfo2W@@YAPEAU_DRIVER_INFO_2W@@PEAU1@@Z @ 0x1C007A620 (-CaptureDriverInfo2W@@YAPEAU_DRIVER_INFO_2W@@PEAU1@@Z.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall NtGdiOpenDCW(
@@ -19,27 +19,27 @@ __int64 __fastcall NtGdiOpenDCW(
         struct _devicemodeW *a2,
         __int64 a3,
         unsigned int a4,
-        __int64 a5,
+        int a5,
         int a6,
-        __int64 a7,
+        void *a7,
         struct _DRIVER_INFO_2W *a8,
-        __int64 a9)
+        ULONG64 a9)
 {
-  __int64 v11; // r14
+  HDC v12; // r14
   unsigned int v13; // ecx
   char *v14; // r15
-  size_t v15; // rdi
+  size_t v15; // rbx
   void *v16; // rsi
-  int v17; // edi
+  int v17; // ebx
   int v18; // eax
-  struct _devicemodeW *v19; // [rsp+60h] [rbp-48h]
-  struct _DRIVER_INFO_2W *v20; // [rsp+68h] [rbp-40h]
+  struct _devicemodeW *v20; // [rsp+60h] [rbp-48h]
+  HDEV v21; // [rsp+68h] [rbp-40h]
 
-  v11 = 0LL;
-  v19 = 0LL;
+  v12 = 0LL;
   v20 = 0LL;
+  v21 = 0LL;
   if ( !a1 )
-    return UserGetDesktopDC(a4);
+    return UserGetDesktopDC(a4, 0LL, 1);
   v13 = *a1;
   v14 = (char *)*((_QWORD *)a1 + 1);
   if ( *a1 )
@@ -58,7 +58,7 @@ __int64 __fastcall NtGdiOpenDCW(
   {
     v16 = 0LL;
   }
-  if ( !a2 || (v19 = CaptureDEVMODEW(a2)) != 0LL )
+  if ( !a2 || (v20 = CaptureDEVMODEW(a2)) != 0LL )
   {
     v17 = 1;
     v18 = 1;
@@ -68,23 +68,21 @@ __int64 __fastcall NtGdiOpenDCW(
     v18 = 0;
     v17 = 1;
   }
-  if ( !v18 || a8 && (v20 = CaptureDriverInfo2W(a8)) == 0LL )
+  if ( !v18 || a8 && (v21 = (HDEV)CaptureDriverInfo2W(a8)) == 0LL )
     v17 = 0;
   if ( v17 )
-    v11 = hdcOpenDCW((PCWSTR)v16, a7, 0LL, (__int64)v20, a9, a6);
+    v12 = hdcOpenDCW((unsigned __int16 *)v16, v20, a4, a5, a7, 0LL, v21, a9, a6);
   if ( v16 )
-    FreeTmpBuffer(v16, a2);
-  if ( v19 )
-  {
-    PopThreadGuardedObject(&v19[-1].dmICMMethod);
-    if ( v19 != (struct _devicemodeW *)32 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, &v19[-1].dmICMMethod);
-  }
+    FreeTmpBuffer(v16);
   if ( v20 )
   {
-    PopThreadGuardedObject((_QWORD *)v20 - 4);
-    if ( v20 != (struct _DRIVER_INFO_2W *)32 )
-      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (char *)v20 - 32);
+    PopThreadGuardedObject(&v20[-1].dmICMMethod);
+    Win32FreePool(&v20[-1].dmICMMethod);
   }
-  return v11;
+  if ( v21 )
+  {
+    PopThreadGuardedObject(v21 - 8);
+    Win32FreePool(v21 - 8);
+  }
+  return (__int64)v12;
 }

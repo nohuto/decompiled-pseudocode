@@ -1,10 +1,10 @@
 /*
- * XREFs of IsIAMThread @ 0x1C003B1AC
+ * XREFs of IsIAMThread @ 0x1C003CE58
  * Callers:
- *     IsAdaptiveQueueDetachExempted @ 0x1C0006E7C (IsAdaptiveQueueDetachExempted.c)
- *     NtUserSetActivationFilter @ 0x1C0011E00 (NtUserSetActivationFilter.c)
- *     ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x1C003AFE4 (-_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z.c)
- *     ?HandleIAMHotKey@@YAHQEBUtagHOTKEY@@@Z @ 0x1C01C00EC (-HandleIAMHotKey@@YAHQEBUtagHOTKEY@@@Z.c)
+ *     NtUserSetActivationFilter @ 0x1C00080B0 (NtUserSetActivationFilter.c)
+ *     IsAdaptiveQueueDetachExempted @ 0x1C003CDA0 (IsAdaptiveQueueDetachExempted.c)
+ *     ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x1C00D7420 (-_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z.c)
+ *     ?HandleIAMHotKey@@YAHQEBUtagHOTKEY@@@Z @ 0x1C01EA720 (-HandleIAMHotKey@@YAHQEBUtagHOTKEY@@@Z.c)
  * Callees:
  *     <none>
  */

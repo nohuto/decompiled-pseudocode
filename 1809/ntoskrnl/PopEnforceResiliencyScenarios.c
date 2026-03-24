@@ -1,5 +1,5 @@
 /*
- * XREFs of PopEnforceResiliencyScenarios @ 0x1406E2084
+ * XREFs of PopEnforceResiliencyScenarios @ 0x1406E2064
  * Callers:
  *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
@@ -10,8 +10,8 @@
  *     PoFxSendSystemLatencyUpdate @ 0x140005DA8 (PoFxSendSystemLatencyUpdate.c)
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
  *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     KeSetMaxDynamicTickDuration @ 0x14028F044 (KeSetMaxDynamicTickDuration.c)
- *     PopEnsureCoalescingWorkerWillRun @ 0x1402DB8B0 (PopEnsureCoalescingWorkerWillRun.c)
+ *     KeSetMaxDynamicTickDuration @ 0x14028F144 (KeSetMaxDynamicTickDuration.c)
+ *     PopEnsureCoalescingWorkerWillRun @ 0x1402DB9B0 (PopEnsureCoalescingWorkerWillRun.c)
  */
 
 void __fastcall PopEnforceResiliencyScenarios(int *a1)
@@ -37,7 +37,7 @@ LABEL_12:
       KeSetMaxDynamicTickDuration(PopMaxDynamicTickDurationOriginalValue);
       PopDeepSleepEnforced = 0;
       PopDeepSleepSetDisengageReason(0);
-      if ( !byte_140418254 )
+      if ( !byte_140418234 )
         PopDeepSleepSetDisengageReason(1u);
     }
     goto LABEL_6;

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtReplacePartitionUnit @ 0x14032C4A0
+ * XREFs of NtReplacePartitionUnit @ 0x14032C5A0
  * Callers:
  *     <none>
  * Callees:
@@ -8,8 +8,8 @@
  *     PiControlMakeUserModeCallersCopy @ 0x140597F3C (PiControlMakeUserModeCallersCopy.c)
  *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14059AC4C (PnpDeviceObjectFromDeviceInstanceWithTag.c)
  *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     IoReplacePartitionUnit @ 0x140824660 (IoReplacePartitionUnit.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     IoReplacePartitionUnit @ 0x140824640 (IoReplacePartitionUnit.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall NtReplacePartitionUnit(unsigned __int64 a1, unsigned __int64 a2, int a3)

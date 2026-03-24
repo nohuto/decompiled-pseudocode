@@ -1,35 +1,19 @@
 /*
- * XREFs of ??0EngModeState@@QEAA@XZ @ 0x1C0273538
+ * XREFs of ??0EngModeState@@QEAA@XZ @ 0x1C016B1A8
  * Callers:
- *     W32kCddClipRegion @ 0x1C0275990 (W32kCddClipRegion.c)
+ *     W32kCddClipRegion @ 0x1C0278210 (W32kCddClipRegion.c)
  * Callees:
- *     <none>
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
  */
 
 EngModeState *__fastcall EngModeState::EngModeState(EngModeState *this)
 {
-  struct _KTHREAD *CurrentThread; // rbp
-  __int64 v3; // rdi
-  __int64 CurrentThreadProcess; // rax
-  __int64 *ThreadWin32Thread; // rax
+  __int64 ThreadWin32Thread; // rax
 
   *(_QWORD *)this = 0LL;
-  CurrentThread = KeGetCurrentThread();
-  v3 = 0LL;
-  if ( !(unsigned __int8)KeIsAttachedProcess()
-    || (CurrentThreadProcess = PsGetCurrentThreadProcess(),
-        gSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
-  {
-    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
-    if ( ThreadWin32Thread )
-      v3 = *ThreadWin32Thread;
-    *(_QWORD *)this = v3;
-    if ( v3 )
-      *(_DWORD *)(v3 + 328) |= 0x10u;
-  }
-  else
-  {
-    *(_QWORD *)this = 0LL;
-  }
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  *(_QWORD *)this = ThreadWin32Thread;
+  if ( ThreadWin32Thread )
+    *(_DWORD *)(ThreadWin32Thread + 328) |= 0x20u;
   return this;
 }

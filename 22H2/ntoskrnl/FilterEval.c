@@ -1,19 +1,29 @@
 /*
- * XREFs of FilterEval @ 0x140788970
+ * XREFs of FilterEval @ 0x1406AC424
  * Callers:
- *     PiDqQueryEvaluateFilter @ 0x140788864 (PiDqQueryEvaluateFilter.c)
- *     ConstraintEval @ 0x1407FB848 (ConstraintEval.c)
- *     ValidFilter @ 0x1407FBFE0 (ValidFilter.c)
+ *     ValidFilter @ 0x1406A6D7C (ValidFilter.c)
+ *     ConstraintEval @ 0x1406A710C (ConstraintEval.c)
+ *     PiDqQueryEvaluateFilter @ 0x1406AC504 (PiDqQueryEvaluateFilter.c)
  * Callees:
- *     FilterEvalStrict @ 0x14078A088 (FilterEvalStrict.c)
- *     FilterEvalImpliedAnd @ 0x14078DB48 (FilterEvalImpliedAnd.c)
+ *     FilterEvalImpliedAnd @ 0x1406A81E8 (FilterEvalImpliedAnd.c)
+ *     FilterEvalStrict @ 0x1406A8D24 (FilterEvalStrict.c)
  */
 
-__int64 __fastcall FilterEval(int a1, int a2, int a3, _DWORD *a4, __int64 a5)
+__int64 __fastcall FilterEval(
+        __int64 (__fastcall *a1)(__int64, unsigned int *, unsigned int *, unsigned int *, __int64 *),
+        __int64 a2,
+        unsigned int a3,
+        _DWORD *a4,
+        _DWORD *a5)
 {
   if ( !a3 )
     return 3221225485LL;
   if ( (*a4 & 0xFF00000) != 0 )
-    return FilterEvalStrict(a1, a2, a3, (_DWORD)a4, a5);
-  return FilterEvalImpliedAnd(a1, a2, a3, (_DWORD)a4, a5);
+    return FilterEvalStrict(a1, a2, a3, (__int64)a4, a5);
+  return FilterEvalImpliedAnd(
+           (__int64 (__fastcall *)(__int64, __int64, unsigned int *, unsigned int *, _QWORD *))a1,
+           a2,
+           a3,
+           (__int64)a4,
+           a5);
 }

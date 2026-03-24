@@ -1,9 +1,9 @@
 /*
- * XREFs of LkmdTelInsertTriageDataBlock @ 0x14065565C
+ * XREFs of LkmdTelInsertTriageDataBlock @ 0x1405CAB08
  * Callers:
- *     WheapReportLiveDump @ 0x140A09E34 (WheapReportLiveDump.c)
+ *     WheapReportLiveDump @ 0x14095E294 (WheapReportLiveDump.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
+ *     memmove @ 0x140413F40 (memmove.c)
  */
 
 __int64 __fastcall LkmdTelInsertTriageDataBlock(__int64 *a1, const void *a2, unsigned int a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MmEnumerateBadPages @ 0x1405C5B98
+ * XREFs of MmEnumerateBadPages @ 0x14056475C
  * Callers:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmEnumerateBadPages(_QWORD *a1)
@@ -15,23 +15,26 @@ __int64 __fastcall MmEnumerateBadPages(_QWORD *a1)
   __int64 v2; // rbx
   unsigned __int64 v3; // rbx
   _QWORD *Pool; // rax
-  _QWORD *v5; // rsi
+  _QWORD *v5; // rdi
   _QWORD *v6; // r15
-  unsigned __int64 v7; // rdi
+  unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v11; // eax
   bool v12; // zf
   __int64 i; // rax
-  unsigned __int8 v15; // al
-  struct _KPRCB *v16; // r9
-  int v17; // eax
+  unsigned __int64 v15; // rbx
+  unsigned __int8 v16; // al
+  struct _KPRCB *v17; // r9
   _DWORD *v18; // r8
+  int v19; // eax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   *a1 = 0LL;
-  v2 = qword_140C56900;
-  if ( qword_140C56900 )
+  v2 = qword_140C51D80;
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  if ( qword_140C51D80 )
   {
     while ( 1 )
     {
@@ -41,23 +44,24 @@ __int64 __fastcall MmEnumerateBadPages(_QWORD *a1)
       if ( !Pool )
         return 3221225626LL;
       v6 = Pool;
-      v7 = ExAcquireSpinLockExclusive(&dword_140C56920);
-      if ( qword_140C56900 < v3 )
+      KeAcquireInStackQueuedSpinLock(qword_140C51DA0, &LockHandle);
+      if ( qword_140C51D80 < v3 )
       {
-        if ( qword_140C56900 )
+        if ( qword_140C51D80 )
           break;
       }
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C56920);
+      KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+      OldIrql = LockHandle.OldIrql;
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+          if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+            v11 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
             v12 = (v11 & SchedulerAssist[5]) == 0;
             SchedulerAssist[5] &= v11;
             if ( v12 )
@@ -65,34 +69,35 @@ __int64 __fastcall MmEnumerateBadPages(_QWORD *a1)
           }
         }
       }
-      __writecr8(v7);
+      __writecr8(OldIrql);
       ExFreePoolWithTag(v5, 0);
-      v2 = qword_140C56900;
-      if ( !qword_140C56900 )
+      v2 = qword_140C51D80;
+      if ( !qword_140C51D80 )
         return 0LL;
     }
-    *v5 = qword_140C56900;
-    for ( i = qword_140C56910; i != 0x3FFFFFFFFFLL; i = *(_QWORD *)(48 * i - 0x220000000000LL) & 0xFFFFFFFFFFLL )
+    *v5 = qword_140C51D80;
+    for ( i = qword_140C51D90; i != 0xFFFFFFFFFLL; i = *(_QWORD *)(48 * i - 0x58000000000LL) & 0xFFFFFFFFFLL )
       *++v6 = i;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C56920);
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    v15 = LockHandle.OldIrql;
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v15 = KeGetCurrentIrql();
-        if ( v15 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v15 >= 2u )
+        v16 = KeGetCurrentIrql();
+        if ( v16 <= 0xFu && LockHandle.OldIrql <= 0xFu && v16 >= 2u )
         {
-          v16 = KeGetCurrentPrcb();
-          v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-          v18 = v16->SchedulerAssist;
-          v12 = (v17 & v18[5]) == 0;
-          v18[5] &= v17;
+          v17 = KeGetCurrentPrcb();
+          v18 = v17->SchedulerAssist;
+          v19 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v12 = (v19 & v18[5]) == 0;
+          v18[5] &= v19;
           if ( v12 )
-            KiRemoveSystemWorkPriorityKick((__int64)v16);
+            KiRemoveSystemWorkPriorityKick((__int64)v17);
         }
       }
     }
-    __writecr8(v7);
+    __writecr8(v15);
     *a1 = v5;
   }
   return 0LL;

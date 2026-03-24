@@ -1,58 +1,24 @@
 /*
- * XREFs of DxgkDdiQueryMitigatedRanges @ 0x1C0359D8C
+ * XREFs of DxgkDdiQueryMitigatedRanges @ 0x1C0231524
  * Callers:
- *     DpiFdoDispatchIoctl @ 0x1C01E6840 (DpiFdoDispatchIoctl.c)
+ *     DpiFdoDispatchIoctl @ 0x1C02C8F20 (DpiFdoDispatchIoctl.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005BFAC (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
- *     ?QueryMitigatedRanges@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_QUERYMITIGATEDRANGES@@@Z @ 0x1C0358398 (-QueryMitigatedRanges@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_QUERYMITIGATEDRA.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C00400A4 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?QueryMitigatedRanges@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_QUERYMITIGATEDRANGES@@@Z @ 0x1C0230424 (-QueryMitigatedRanges@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_QUERYMITIGATEDRA.c)
  */
 
-__int64 __fastcall DxgkDdiQueryMitigatedRanges(_QWORD *a1, int a2, __int64 a3)
+__int64 __fastcall DxgkDdiQueryMitigatedRanges(_QWORD *a1, int a2, unsigned int *a3)
 {
-  __int64 MitigatedRanges; // rsi
-  unsigned __int64 v6; // r14
-  __int64 v7; // rdi
-  unsigned int v9; // [rsp+28h] [rbp-30h]
-  int v10; // [rsp+30h] [rbp-28h]
+  unsigned int MitigatedRanges; // ebx
+  unsigned int v7; // [rsp+28h] [rbp-20h]
+  unsigned int v8; // [rsp+30h] [rbp-18h]
 
-  MitigatedRanges = (int)ADAPTER_RENDER::QueryMitigatedRanges(a1[350], a2, (unsigned int *)a3);
+  MitigatedRanges = ADAPTER_RENDER::QueryMitigatedRanges(a1[338], a2, a3);
   if ( bTracingEnabled )
   {
-    v10 = *(_DWORD *)(a3 + 4);
-    v9 = *(_DWORD *)a3;
-    VgpuTrace(1, MitigatedRanges, a1, L"DxgkDdiQueryMitigatedRanges", (wchar_t *)L"%d %d", v9, v10);
-    DxgkLogInternalTriageEvent(
-      (__int64)a1,
-      196615,
-      *(_DWORD *)a3,
-      (__int64)L"Queried %1 ranges to mitigate on BAR %2, returning %3",
-      *(unsigned int *)(a3 + 8),
-      *(unsigned int *)(a3 + 4),
-      MitigatedRanges,
-      0LL,
-      0LL);
-    v6 = 0LL;
-    if ( *(_DWORD *)(a3 + 8) )
-    {
-      v7 = 0LL;
-      do
-      {
-        DxgkLogInternalTriageEvent(
-          (__int64)a1,
-          196615,
-          *(_DWORD *)a3,
-          (__int64)L"Mitigating range starting at base page %1 and extending %2 page(s)",
-          *(_QWORD *)(*(_QWORD *)(a3 + 16) + v7),
-          *(unsigned int *)(*(_QWORD *)(a3 + 16) + v7 + 8),
-          0LL,
-          0LL,
-          0LL);
-        v7 += 16LL;
-        ++v6;
-      }
-      while ( v6 < *(unsigned int *)(a3 + 8) );
-    }
+    v8 = a3[1];
+    v7 = *a3;
+    VgpuTrace(1, MitigatedRanges, a1, L"DxgkDdiQueryMitigatedRanges", (wchar_t *)L"%d %d", v7, v8);
   }
-  return (unsigned int)MitigatedRanges;
+  return MitigatedRanges;
 }

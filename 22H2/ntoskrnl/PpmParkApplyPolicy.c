@@ -1,422 +1,359 @@
 /*
- * XREFs of PpmParkApplyPolicy @ 0x140390A80
+ * XREFs of PpmParkApplyPolicy @ 0x1403C18E4
  * Callers:
- *     PpmParkRegisterParking @ 0x14038FD40 (PpmParkRegisterParking.c)
- *     PpmParkSetLpiCap @ 0x14059D31C (PpmParkSetLpiCap.c)
- *     PpmReapplyPerfPolicy @ 0x14082E210 (PpmReapplyPerfPolicy.c)
- *     PpmRegisterPerfStates @ 0x14083009C (PpmRegisterPerfStates.c)
- *     PpmParkApplyForcedMask @ 0x140999F04 (PpmParkApplyForcedMask.c)
- *     PpmParkClearForcedMask @ 0x14099A004 (PpmParkClearForcedMask.c)
+ *     PpmParkRegisterParking @ 0x1403C10C0 (PpmParkRegisterParking.c)
+ *     PpmParkSetLpiCap @ 0x14057D954 (PpmParkSetLpiCap.c)
+ *     PpmRegisterPerfStates @ 0x1407BA4A0 (PpmRegisterPerfStates.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BAEC0 (PpmReapplyPerfPolicy.c)
+ *     PpmParkApplyForcedMask @ 0x1408F92F4 (PpmParkApplyForcedMask.c)
+ *     PpmParkClearForcedMask @ 0x1408F93F4 (PpmParkClearForcedMask.c)
  * Callees:
- *     PpmConvertTime @ 0x1402553F0 (PpmConvertTime.c)
- *     KeEnumerateNextProcessor @ 0x140257190 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257210 (KeGetPrcb.c)
- *     PpmEventSoftParkRankListChanged @ 0x140391114 (PpmEventSoftParkRankListChanged.c)
- *     KeUpdateSoftParkRankList @ 0x14039116C (KeUpdateSoftParkRankList.c)
- *     PpmParkEvalualteSmtUnparkPolicy @ 0x14039130C (PpmParkEvalualteSmtUnparkPolicy.c)
- *     memset @ 0x140435400 (memset.c)
- *     PpmEventParkNodeCapChange @ 0x14059AB6C (PpmEventParkNodeCapChange.c)
- *     PpmEventParkNodeParkHintChanged @ 0x14059AD88 (PpmEventParkNodeParkHintChanged.c)
+ *     KeGetPrcb @ 0x140228DF0 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402293C0 (KeEnumerateNextProcessor.c)
+ *     PpmConvertTime @ 0x14034523C (PpmConvertTime.c)
+ *     PpmEventParkNodeCapChange @ 0x140579B1C (PpmEventParkNodeCapChange.c)
+ *     PpmEventParkNodeParkHintChanged @ 0x140579D28 (PpmEventParkNodeParkHintChanged.c)
  */
 
-__int64 __fastcall PpmParkApplyPolicy(__int64 a1)
+ULONGLONG PpmParkApplyPolicy()
 {
-  __int64 result; // rax
-  unsigned int v2; // r15d
-  __int64 *v3; // r12
-  __int64 v4; // rax
-  __int64 *v5; // r14
-  __int64 v6; // r13
-  char v7; // r11
-  char v8; // cl
-  unsigned int v9; // r8d
-  int v10; // edi
-  int v11; // ebp
-  unsigned int v12; // ett
-  __int64 v13; // r9
-  unsigned __int16 v14; // cx
-  unsigned int v15; // r10d
+  ULONGLONG result; // rax
+  int v1; // ebx
+  __int64 *v2; // r13
+  __int64 v3; // r15
+  unsigned int v4; // r8d
+  int v5; // esi
+  int v6; // r14d
+  unsigned int v7; // ett
+  __int64 v8; // r9
+  unsigned __int16 v9; // cx
+  unsigned int v10; // r10d
+  int v11; // edx
+  __int64 v12; // rdi
+  char v13; // r9
+  unsigned __int8 v14; // cl
+  int v15; // r8d
   unsigned __int8 v16; // dl
-  __int64 v17; // rbx
-  int v18; // r8d
-  unsigned __int8 v19; // dl
-  __int64 v20; // rsi
-  __int64 v21; // rdx
-  __int64 v22; // rbp
-  __int64 *v23; // rdi
-  unsigned __int8 *v24; // r14
-  char *v25; // rax
-  int v26; // r8d
-  unsigned __int8 v27; // r10
-  int v28; // eax
-  unsigned __int8 v29; // r11
-  unsigned __int8 v30; // r12
-  unsigned __int8 v31; // cl
-  char v32; // cl
-  unsigned __int8 v33; // cl
-  __int16 v34; // ax
+  __int64 v17; // r8
+  _QWORD *v18; // r10
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  unsigned int v21; // eax
+  __int64 v22; // r13
+  int v23; // r9d
+  unsigned int v24; // r11d
+  unsigned __int8 v25; // r11
+  unsigned int v26; // r12d
+  unsigned __int8 v27; // r12
+  char v28; // cl
+  unsigned __int8 v29; // cl
+  __int16 v30; // ax
   __int64 Prcb; // rax
-  __int64 v36; // rcx
-  __int64 v37; // rdx
+  unsigned __int16 v32; // si
+  __int64 v33; // rdi
+  __int64 v34; // r8
+  char v35; // cl
+  unsigned __int8 v36; // cl
+  unsigned __int8 v37; // cl
   char v38; // cl
   char v39; // al
-  __int64 v40; // rdx
-  char v41; // cl
-  char v42; // al
-  unsigned int i; // edx
-  __int64 v44; // rax
-  unsigned int v45; // edx
-  __int64 v46; // rax
-  char v47; // al
-  __int64 v48; // rdx
-  char v49; // cl
-  char v50; // al
-  unsigned __int16 j; // dx
+  char v40; // cl
+  char v41; // al
+  char v42; // cl
+  char v43; // al
+  char v44; // cl
+  char v45; // al
+  unsigned __int16 v46; // dx
+  __int64 v47; // rcx
+  unsigned __int8 v48; // r9
+  int v49; // r10d
+  unsigned __int8 v50; // al
+  unsigned __int16 v51; // dx
   __int64 v52; // rcx
   unsigned __int8 v53; // r9
-  unsigned __int8 v54; // al
-  unsigned __int16 v55; // dx
-  __int64 v56; // rcx
-  unsigned __int8 v57; // r9
-  unsigned __int8 v58; // al
-  unsigned __int16 v59; // si
-  __int64 v60; // rbx
-  _BYTE *v61; // rdi
-  __int64 v62; // r8
-  char v63; // al
-  void *v64; // rbx
+  int v54; // r10d
+  unsigned __int8 v55; // al
+  char v56; // al
   struct _KPRCB *CurrentPrcb; // rax
-  unsigned __int64 v66; // r8
-  unsigned int v67; // [rsp+20h] [rbp-A8h] BYREF
-  int v68; // [rsp+24h] [rbp-A4h]
-  int v69; // [rsp+28h] [rbp-A0h]
-  int v70; // [rsp+2Ch] [rbp-9Ch]
-  unsigned int v71; // [rsp+30h] [rbp-98h]
-  unsigned int v72; // [rsp+34h] [rbp-94h]
-  __int64 v73; // [rsp+38h] [rbp-90h]
-  __int64 v74; // [rsp+40h] [rbp-88h]
-  __int64 v75; // [rsp+48h] [rbp-80h]
-  __int64 v76; // [rsp+50h] [rbp-78h]
-  __int64 *v77; // [rsp+58h] [rbp-70h]
-  __int128 v78; // [rsp+60h] [rbp-68h] BYREF
-  __int64 v79; // [rsp+70h] [rbp-58h]
-  __int64 *v80; // [rsp+78h] [rbp-50h]
-  char v81; // [rsp+D0h] [rbp+8h]
-  char v82; // [rsp+D8h] [rbp+10h]
-  unsigned __int8 v83; // [rsp+E0h] [rbp+18h]
-  unsigned __int16 v84; // [rsp+E8h] [rbp+20h]
+  ULONGLONG v58; // r8
+  unsigned __int16 v59; // [rsp+20h] [rbp-49h]
+  unsigned int v60; // [rsp+24h] [rbp-45h]
+  unsigned int v61; // [rsp+28h] [rbp-41h] BYREF
+  int v62; // [rsp+2Ch] [rbp-3Dh]
+  unsigned int v63; // [rsp+30h] [rbp-39h]
+  unsigned int v64; // [rsp+34h] [rbp-35h]
+  __int64 v65; // [rsp+38h] [rbp-31h]
+  __int64 v66; // [rsp+48h] [rbp-21h]
+  _QWORD *v67; // [rsp+50h] [rbp-19h]
+  __int64 v68; // [rsp+58h] [rbp-11h]
+  __int64 *v69; // [rsp+60h] [rbp-9h]
+  __int128 v70; // [rsp+68h] [rbp-1h] BYREF
+  __int64 v71; // [rsp+78h] [rbp+Fh]
+  char v72; // [rsp+D0h] [rbp+67h]
+  unsigned __int8 v73; // [rsp+D8h] [rbp+6Fh]
+  __int16 v74; // [rsp+E0h] [rbp+77h] BYREF
+  __int16 v75; // [rsp+E8h] [rbp+7Fh]
 
   result = 0LL;
-  v2 = 0;
-  v78 = 0LL;
-  v79 = 0LL;
-  v67 = 0;
-  if ( !PpmParkNodes )
+  v1 = 0;
+  v70 = 0LL;
+  v71 = 0LL;
+  v61 = 0;
+  if ( PpmParkNodes )
   {
-    KeSoftParkedQueueThreshold = 0;
-    return result;
-  }
-  v3 = PpmCurrentProfile;
-  v4 = 55LL * dword_140C3D90C;
-  v80 = PpmCurrentProfile;
-  v5 = &PpmCurrentProfile[v4 + 5];
-  v75 = v4 * 8;
-  v77 = v5;
-  LOBYTE(a1) = BYTE6(PpmCurrentProfile[v4 + 59]);
-  PpmParkEvalualteSmtUnparkPolicy(a1);
-  v81 = 0;
-  LODWORD(v6) = 64;
-  if ( *(_QWORD *)(KeGetPrcb(0) + 33968) )
-  {
-    v7 = 0;
-  }
-  else
-  {
-    v7 = 1;
-    v8 = PpmParkInitialClass1UnParkCount;
-    v81 = 1;
-    if ( (unsigned int)PpmParkInitialClass1UnParkCount > 0x40 )
-      v8 = 64;
-    LOBYTE(v6) = v8;
-  }
-  v9 = PpmParkNumNodes;
-  v10 = PpmParkLpiCap;
-  v11 = PpmParkThermalCap;
-  v68 = v6;
-  v12 = PpmParkLpiCap / (unsigned int)PpmParkNumNodes;
-  v13 = v12 - v12 % (unsigned __int8)PpmParkGranularity;
-  v72 = v12 - v12 % (unsigned __int8)PpmParkGranularity;
-  result = PpmParkThermalCap / (unsigned int)PpmParkNumNodes / (unsigned __int8)PpmParkGranularity;
-  v14 = 0;
-  v15 = PpmParkThermalCap / (unsigned int)PpmParkNumNodes
-      - PpmParkThermalCap / (unsigned int)PpmParkNumNodes % (unsigned __int8)PpmParkGranularity;
-  v84 = 0;
-  v71 = v15;
-  if ( PpmParkNumNodes )
-  {
-    while ( 1 )
+    v2 = &PpmCurrentProfile[342 * dword_140C2334C];
+    v69 = v2;
+    v75 = *((_WORD *)v2 + 90);
+    v74 = *((_WORD *)v2 + 91);
+    LODWORD(v3) = 64;
+    if ( !*(_QWORD *)(KeGetPrcb(0) + 33128) )
     {
-      v16 = v13;
-      v17 = PpmParkNodes + 192LL * v14;
-      v18 = *(unsigned __int8 *)(v17 + 10);
-      if ( (unsigned __int8)v13 > v18 - (unsigned __int8)PpmParkGranularity )
-        v16 = v18 - PpmParkGranularity;
-      *(_BYTE *)(v17 + 112) = v16;
-      v10 -= v16;
-      v19 = v15;
-      v69 = v10;
-      if ( (unsigned __int8)v15 > v18 - (unsigned __int8)PpmParkGranularity )
-        v19 = v18 - PpmParkGranularity;
-      v20 = v17 + 184;
-      v11 -= v19;
-      *(_BYTE *)(v17 + 114) = v19;
-      v70 = v11;
-      v21 = 0LL;
-      v82 = 0;
-      v76 = 0LL;
-      v74 = 0LL;
-      if ( *(_BYTE *)(v17 + 11) )
+      v35 = PpmParkInitialClass1UnParkCount;
+      if ( (unsigned int)PpmParkInitialClass1UnParkCount > 0x40 )
+        v35 = 64;
+      HIBYTE(v75) = 0;
+      LOBYTE(v3) = v35;
+    }
+    v4 = PpmParkNumNodes;
+    v5 = PpmParkLpiCap;
+    v6 = PpmParkThermalCap;
+    v62 = v3;
+    v59 = 0;
+    v7 = PpmParkLpiCap / (unsigned int)PpmParkNumNodes;
+    v8 = v7 - v7 % (unsigned __int8)PpmParkGranularity;
+    v64 = v7 - v7 % (unsigned __int8)PpmParkGranularity;
+    result = PpmParkThermalCap / (unsigned int)PpmParkNumNodes / (unsigned __int8)PpmParkGranularity;
+    v9 = 0;
+    v10 = PpmParkThermalCap / (unsigned int)PpmParkNumNodes
+        - PpmParkThermalCap / (unsigned int)PpmParkNumNodes % (unsigned __int8)PpmParkGranularity;
+    v63 = v10;
+    if ( PpmParkNumNodes )
+    {
+      do
       {
-        v22 = v75;
-        v23 = v77;
+        v11 = (unsigned __int8)v8;
+        v12 = PpmParkNodes + 272LL * v9;
+        v13 = PpmParkGranularity;
+        v14 = *(_BYTE *)(v12 + 6);
+        v15 = v14 - (unsigned __int8)PpmParkGranularity;
+        if ( v11 > v15 )
+          LOBYTE(v11) = v14 - PpmParkGranularity;
+        *(_BYTE *)(v12 + 134) = v11;
+        v5 -= (unsigned __int8)v11;
+        v16 = v10;
+        if ( (unsigned __int8)v10 > v15 )
+          v16 = v14 - v13;
+        v6 -= v16;
+        *(_BYTE *)(v12 + 136) = v16;
+        v72 = 0;
+        v17 = v12 - (_QWORD)&v74;
+        v65 = 0LL;
+        v18 = (_QWORD *)(v12 + 56);
+        v68 = v12 - (_QWORD)&v74;
+        v19 = 0LL;
+        v66 = 0LL;
+        v20 = 0LL;
+        v60 = 0;
+        v21 = 0;
+        v67 = (_QWORD *)(v12 + 56);
+        v22 = 0LL;
         do
         {
-          v24 = (unsigned __int8 *)(*(_QWORD *)v20 + 104LL * v2);
-          if ( v2 )
-            v25 = (char *)v3 + v22 + 41;
-          else
-            v25 = (char *)v23;
-          v26 = (unsigned __int8)v25[142];
-          v27 = *((_BYTE *)v23 + (v2 != 0) + 140);
-          if ( v7 && v2 )
-            v27 = 0;
-          v28 = *v24;
-          if ( (_BYTE)v28 )
+          v23 = *((unsigned __int8 *)&v74 + v22 + v17 + 128);
+          if ( (_BYTE)v23 )
           {
-            v29 = (v28 - (unsigned __int8)((v28 * v26 + 50) / 0x64u)) % (unsigned __int8)PpmParkGranularity
-                + (v28 * v26 + 50) / 0x64u;
-            v30 = (v28 - (unsigned __int8)((v28 * (unsigned int)v27 + 50) / 0x64)) % (unsigned __int8)PpmParkGranularity
-                + (v28 * (unsigned int)v27 + 50) / 0x64;
-            if ( v2 )
+            v24 = (v23 * (unsigned int)*((unsigned __int8 *)&v74 + v22) + 50) / 0x64;
+            v25 = (v23 - (unsigned __int8)v24) % (unsigned __int8)PpmParkGranularity + v24;
+            v26 = (v23 * (unsigned int)*((unsigned __int8 *)&v75 + v22) + 50) / 0x64;
+            v27 = (v23 - (unsigned __int8)v26) % (unsigned __int8)PpmParkGranularity + v26;
+            if ( v60 )
             {
-              v31 = (v28 - (unsigned __int8)((v28 * v26 + 50) / 0x64u)) % (unsigned __int8)PpmParkGranularity
-                  + (v28 * v26 + 50) / 0x64u;
-              if ( v29 >= (unsigned __int8)v6 )
-                v31 = v6;
-              v29 = v31;
+              v36 = v25;
+              if ( v25 >= (unsigned __int8)v3 )
+                v36 = v3;
+              v25 = v36;
             }
-            if ( v30 )
+            if ( v27 )
             {
-              v32 = (v28 - (unsigned __int8)((v28 * (unsigned int)v27 + 50) / 0x64))
-                  % (unsigned __int8)PpmParkGranularity
-                  + (v28 * (unsigned int)v27 + 50) / 0x64;
-              if ( (unsigned __int8)PpmParkGranularity > v30 )
-                v32 = PpmParkGranularity;
-              v30 = v32;
+              v28 = v27;
+              if ( (unsigned __int8)PpmParkGranularity > v27 )
+                v28 = PpmParkGranularity;
+              v27 = v28;
             }
-            v33 = v30;
-            if ( v29 >= v30 )
-              v33 = v29;
-            v34 = *(_WORD *)(v17 + 4);
-            v73 = 0LL;
-            *(_QWORD *)&v78 = 0LL;
-            v83 = v33;
-            *((_QWORD *)&v78 + 1) = *((_QWORD *)v24 + 2);
-            LOWORD(v79) = v34;
-            if ( !(unsigned int)KeEnumerateNextProcessor(&v67, (unsigned __int16 **)&v78) )
+            v29 = v27;
+            v3 = 0LL;
+            *(_QWORD *)&v70 = 0LL;
+            if ( v25 >= v27 )
+              v29 = v25;
+            v30 = *(_WORD *)(v12 + 4);
+            v73 = v29;
+            *((_QWORD *)&v70 + 1) = *(v18 - 5);
+            LOWORD(v71) = v30;
+            while ( !(unsigned int)KeEnumerateNextProcessor(&v61, (unsigned __int16 **)&v70) )
             {
-              v6 = v73;
-              do
-              {
-                Prcb = KeGetPrcb(v67);
-                if ( *(_BYTE *)(Prcb + 34124) )
-                  v6 |= *(_QWORD *)(Prcb + 200);
-              }
-              while ( !(unsigned int)KeEnumerateNextProcessor(&v67, (unsigned __int16 **)&v78) );
-              v22 = v75;
-              v73 = v6;
-              LOBYTE(v6) = v68;
+              Prcb = KeGetPrcb(v61);
+              if ( *(_BYTE *)(Prcb + 33276) )
+                v3 |= *(_QWORD *)(Prcb + 200);
             }
-            v21 = *((_QWORD *)v24 + 3) | v76;
-            v7 = v81;
-            v36 = v73 | v74;
-            v82 += v30;
-            *((_QWORD *)v24 + 3) = v73;
-            v24[1] = v30;
-            v3 = v80;
-            v24[2] = v83;
-            v76 = v21;
-            v74 = v36;
+            v18 = v67;
+            v20 = v3 | v66;
+            v19 = *v67 | v65;
+            v72 += v27;
+            v17 = v68;
+            *v67 = v3;
+            LOBYTE(v3) = v62;
+            *(_BYTE *)(v12 + v22 + 132) = v73;
+            v21 = v60;
+            *(_BYTE *)(v12 + v22 + 130) = v27;
+            v65 = v19;
+            v66 = v20;
           }
-          else
-          {
-            v36 = v74;
-          }
-          ++v2;
+          ++v21;
+          ++v18;
+          ++v22;
+          v60 = v21;
+          v67 = v18;
         }
-        while ( v2 < *(unsigned __int8 *)(v17 + 11) );
-        v10 = v69;
-        v11 = v70;
-        if ( v21 != v36 )
-          PpmEventParkNodeParkHintChanged(*(unsigned __int16 *)(v17 + 4), *(_QWORD *)(v17 + 16), v36, 0LL);
-        v2 = 0;
-        if ( v82 )
-          goto LABEL_49;
-      }
-      else
-      {
-        v2 = 0;
-      }
-      v37 = *(_QWORD *)v20;
-      *(_BYTE *)(v37 + 1) = PpmParkGranularity;
-      v38 = PpmParkGranularity;
-      if ( (unsigned __int8)PpmParkGranularity <= *(_BYTE *)(v37 + 2) )
-        v38 = *(_BYTE *)(v37 + 2);
-      *(_BYTE *)(v37 + 2) = v38;
-LABEL_49:
-      if ( PpmHeteroPolicy == 2 )
-      {
-        *(_BYTE *)(v17 + 120) |= 4u;
-        v39 = 1;
-        v40 = *(_QWORD *)v20;
-        if ( *(_BYTE *)(*(_QWORD *)v20 + 1LL) > 1u )
-          v39 = *(_BYTE *)(*(_QWORD *)v20 + 1LL);
-        v41 = *(_BYTE *)(v40 + 2);
-        *(_BYTE *)(v40 + 1) = v39;
-        v42 = 1;
-        if ( (unsigned __int8)v41 > 1u )
-          v42 = v41;
-        *(_BYTE *)(v40 + 2) = v42;
-        for ( i = 1; i < *(unsigned __int8 *)(v17 + 11); *(_DWORD *)(*(_QWORD *)v20 + 104 * v44 + 1) = 0 )
-          v44 = i++;
-      }
-      else if ( PpmHeteroPolicy == 3 && *(_BYTE *)(v17 + 121) )
-      {
-        *(_BYTE *)(v17 + 120) |= 2u;
-        v45 = 0;
-        if ( *(_BYTE *)(v17 + 11) > 1u )
+        while ( v21 < 2 );
+        if ( v19 != v20 )
+          PpmEventParkNodeParkHintChanged(*(unsigned __int16 *)(v12 + 4), *(_QWORD *)(v12 + 8), v20);
+        if ( !v72 )
         {
-          do
-          {
-            v46 = v45++;
-            *(_DWORD *)(*(_QWORD *)v20 + 104 * v46 + 1) = 0;
-          }
-          while ( v45 + 1 < *(unsigned __int8 *)(v17 + 11) );
+          v37 = PpmParkGranularity;
+          *(_BYTE *)(v12 + 130) = PpmParkGranularity;
+          if ( v37 <= *(_BYTE *)(v12 + 132) )
+            v37 = *(_BYTE *)(v12 + 132);
+          *(_BYTE *)(v12 + 132) = v37;
         }
-        v47 = 1;
-        v48 = *(_QWORD *)v20 + 104LL * v45;
-        if ( *(_BYTE *)(v48 + 1) > 1u )
-          v47 = *(_BYTE *)(v48 + 1);
-        v49 = *(_BYTE *)(v48 + 2);
-        *(_BYTE *)(v48 + 1) = v47;
-        v50 = 1;
-        if ( (unsigned __int8)v49 > 1u )
-          v50 = v49;
-        *(_BYTE *)(v48 + 2) = v50;
+        if ( PpmHeteroPolicy == 2 )
+        {
+          v38 = *(_BYTE *)(v12 + 130);
+          v39 = 1;
+          *(_BYTE *)(v12 + 139) = 0;
+          *(_BYTE *)(v12 + 131) = 0;
+          if ( (unsigned __int8)v38 > 1u )
+            v39 = v38;
+          *(_BYTE *)(v12 + 133) = 0;
+          v40 = *(_BYTE *)(v12 + 132);
+          *(_BYTE *)(v12 + 130) = v39;
+          v41 = 1;
+          if ( (unsigned __int8)v40 > 1u )
+            v41 = v40;
+          *(_BYTE *)(v12 + 132) = v41;
+          *(_BYTE *)(v12 + 146) |= 4u;
+        }
+        else if ( PpmHeteroPolicy == 3 && *(_BYTE *)(v12 + 129) )
+        {
+          v42 = *(_BYTE *)(v12 + 131);
+          v43 = 1;
+          *(_BYTE *)(v12 + 138) = 0;
+          *(_BYTE *)(v12 + 130) = 0;
+          if ( (unsigned __int8)v42 > 1u )
+            v43 = v42;
+          *(_BYTE *)(v12 + 132) = 0;
+          v44 = *(_BYTE *)(v12 + 133);
+          *(_BYTE *)(v12 + 131) = v43;
+          v45 = 1;
+          if ( (unsigned __int8)v44 > 1u )
+            v45 = v44;
+          *(_BYTE *)(v12 + 146) |= 2u;
+          *(_BYTE *)(v12 + 133) = v45;
+        }
+        v4 = PpmParkNumNodes;
+        v9 = v59 + 1;
+        LOBYTE(v10) = v63;
+        v8 = v64;
+        result = ++v59;
       }
-      v9 = PpmParkNumNodes;
-      v14 = v84 + 1;
-      LOBYTE(v15) = v71;
-      v13 = v72;
-      v7 = v81;
-      result = ++v84;
-      if ( v84 >= (unsigned int)PpmParkNumNodes )
+      while ( v59 < (unsigned int)PpmParkNumNodes );
+      v2 = v69;
+    }
+    do
+    {
+LABEL_30:
+      if ( !v5 )
+        goto LABEL_31;
+      v46 = 0;
+    }
+    while ( !v4 );
+    while ( v5 )
+    {
+      v47 = PpmParkNodes + 272LL * v46;
+      v48 = *(_BYTE *)(v47 + 6);
+      if ( v48 )
       {
-        v5 = v77;
+        v49 = (unsigned __int8)PpmParkGranularity;
+        v50 = PpmParkGranularity + *(_BYTE *)(v47 + 134);
+        if ( v50 < v48 )
+        {
+          *(_BYTE *)(v47 + 134) = v50;
+          v5 -= v49;
+        }
+      }
+      result = ++v46;
+      if ( v46 >= v4 )
+        goto LABEL_30;
+    }
+LABEL_31:
+    while ( v6 )
+    {
+      v51 = 0;
+      if ( v4 )
+      {
+        while ( v6 )
+        {
+          v52 = PpmParkNodes + 272LL * v51;
+          v53 = *(_BYTE *)(v52 + 6);
+          if ( v53 )
+          {
+            v54 = (unsigned __int8)PpmParkGranularity;
+            v55 = PpmParkGranularity + *(_BYTE *)(v52 + 136);
+            if ( v55 < v53 )
+            {
+              *(_BYTE *)(v52 + 136) = v55;
+              v6 -= v54;
+            }
+          }
+          result = ++v51;
+          if ( v51 >= v4 )
+            goto LABEL_31;
+        }
         break;
       }
     }
-  }
-  while ( v10 )
-  {
-    for ( j = 0; j < v9; result = j )
+    v32 = 0;
+    if ( v4 )
     {
-      if ( !v10 )
-        goto LABEL_82;
-      v52 = PpmParkNodes + 192LL * j;
-      v53 = *(_BYTE *)(v52 + 10);
-      if ( v53 )
+      do
       {
-        v54 = *(_BYTE *)(v52 + 112) + PpmParkGranularity;
-        if ( v54 < v53 )
+        v33 = PpmParkNodes + 272LL * v32;
+        v34 = *(unsigned __int8 *)(v33 + 134);
+        if ( *(unsigned __int8 *)(v33 + 135) != *(unsigned __int8 *)(v33 + 6) - (_DWORD)v34
+          || *(unsigned __int8 *)(v33 + 137) != *(unsigned __int8 *)(v33 + 6) - *(unsigned __int8 *)(v33 + 136) )
         {
-          *(_BYTE *)(v52 + 112) = v54;
-          v10 -= (unsigned __int8)PpmParkGranularity;
+          LOBYTE(v8) = *(_BYTE *)(v33 + 136);
+          PpmEventParkNodeCapChange(*(unsigned __int16 *)(v33 + 4), *(_QWORD *)(v33 + 8), v34, v8);
+          v56 = *(_BYTE *)(v33 + 6) - *(_BYTE *)(v33 + 134);
+          *(_BYTE *)(v33 + 137) = *(_BYTE *)(v33 + 6) - *(_BYTE *)(v33 + 136);
+          *(_BYTE *)(v33 + 135) = v56;
         }
+        result = ++v32;
       }
-      ++j;
+      while ( v32 < (unsigned int)PpmParkNumNodes );
     }
-  }
-LABEL_82:
-  while ( v11 )
-  {
-    v55 = 0;
-    if ( v9 )
+    if ( *((_DWORD *)v2 + 46) )
     {
-      while ( v11 )
-      {
-        v56 = PpmParkNodes + 192LL * v55;
-        v57 = *(_BYTE *)(v56 + 10);
-        if ( v57 )
-        {
-          v58 = PpmParkGranularity + *(_BYTE *)(v56 + 114);
-          if ( v58 < v57 )
-          {
-            *(_BYTE *)(v56 + 114) = v58;
-            v11 -= (unsigned __int8)PpmParkGranularity;
-          }
-        }
-        result = ++v55;
-        if ( v55 >= v9 )
-          goto LABEL_82;
-      }
-      break;
+      CurrentPrcb = KeGetCurrentPrcb();
+      v58 = *((unsigned int *)v2 + 46);
+      PpmParkSoftParkingEnabled = 1;
+      result = PpmConvertTime(1000000LL * CurrentPrcb->MHz, 1000000LL, v58);
+      v1 = result;
     }
-  }
-  v59 = 0;
-  if ( v9 )
-  {
-    do
+    else
     {
-      v60 = PpmParkNodes + 192LL * v59;
-      v61 = (_BYTE *)(v60 + 114);
-      v62 = *(unsigned __int8 *)(v60 + 112);
-      if ( *(unsigned __int8 *)(v60 + 113) != *(unsigned __int8 *)(v60 + 10) - (_DWORD)v62
-        || *(unsigned __int8 *)(v60 + 115) != *(unsigned __int8 *)(v60 + 10) - (unsigned __int8)*v61 )
-      {
-        LOBYTE(v13) = *v61;
-        PpmEventParkNodeCapChange(*(unsigned __int16 *)(v60 + 4), *(_QWORD *)(v60 + 16), v62, v13);
-        v63 = *(_BYTE *)(v60 + 10) - *(_BYTE *)(v60 + 112);
-        *(_BYTE *)(v60 + 115) = *(_BYTE *)(v60 + 10) - *v61;
-        *(_BYTE *)(v60 + 113) = v63;
-      }
-      result = ++v59;
-    }
-    while ( v59 < (unsigned int)PpmParkNumNodes );
-  }
-  if ( *((_DWORD *)v5 + 36) )
-  {
-    CurrentPrcb = KeGetCurrentPrcb();
-    v66 = *((unsigned int *)v5 + 36);
-    PpmParkSoftParkingEnabled = 1;
-    result = PpmConvertTime(1000000LL * CurrentPrcb->MHz, 0xF4240uLL, v66);
-    KeSoftParkedQueueThreshold = result;
-  }
-  else
-  {
-    PpmParkSoftParkingEnabled = 0;
-    KeSoftParkedQueueThreshold = 0;
-    if ( PpmParkNewSoftParkRankList )
-    {
-      v64 = PpmParkOldSoftParkRankList;
-      if ( PpmParkOldSoftParkRankList )
-      {
-        memset(PpmParkNewSoftParkRankList, 255, 4LL * (unsigned int)KeMaximumProcessors);
-        memset(v64, 255, 4LL * (unsigned int)KeMaximumProcessors);
-        KeUpdateSoftParkRankList();
-        return PpmEventSoftParkRankListChanged();
-      }
+      PpmParkSoftParkingEnabled = 0;
     }
   }
+  KeSoftParkedQueueThreshold = v1;
   return result;
 }

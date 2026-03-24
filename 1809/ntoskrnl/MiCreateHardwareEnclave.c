@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCreateHardwareEnclave @ 0x140859BB0
+ * XREFs of MiCreateHardwareEnclave @ 0x140859B90
  * Callers:
- *     MiCreateEnclave @ 0x140859AC8 (MiCreateEnclave.c)
+ *     MiCreateEnclave @ 0x140859AA8 (MiCreateEnclave.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     MiGetVmPartition @ 0x1402B4480 (MiGetVmPartition.c)
- *     MiGetEnclavePage @ 0x1402BDC48 (MiGetEnclavePage.c)
- *     MiInitializeEnclavePfn @ 0x1402BDF30 (MiInitializeEnclavePfn.c)
- *     MiReserveEnclavePages @ 0x1402BE6D8 (MiReserveEnclavePages.c)
- *     KeCreateEnclave @ 0x1408438A0 (KeCreateEnclave.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiGetVmPartition @ 0x1402B4580 (MiGetVmPartition.c)
+ *     MiGetEnclavePage @ 0x1402BDD48 (MiGetEnclavePage.c)
+ *     MiInitializeEnclavePfn @ 0x1402BE030 (MiInitializeEnclavePfn.c)
+ *     MiReserveEnclavePages @ 0x1402BE7D8 (MiReserveEnclavePages.c)
+ *     KeCreateEnclave @ 0x140843880 (KeCreateEnclave.c)
  */
 
 __int64 __fastcall MiCreateHardwareEnclave(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)

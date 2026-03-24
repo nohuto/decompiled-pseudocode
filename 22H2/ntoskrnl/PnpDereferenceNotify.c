@@ -1,51 +1,51 @@
 /*
- * XREFs of PnpDereferenceNotify @ 0x14078F938
+ * XREFs of PnpDereferenceNotify @ 0x14071B5F8
  * Callers:
- *     PnpUnregisterPlugPlayNotification @ 0x14032041C (PnpUnregisterPlugPlayNotification.c)
- *     PnpNotifyTargetDeviceChange @ 0x14078386C (PnpNotifyTargetDeviceChange.c)
- *     PnpProcessDeferredRegistrations @ 0x140787054 (PnpProcessDeferredRegistrations.c)
- *     PnpNotifyDeviceClassChange @ 0x14078F790 (PnpNotifyDeviceClassChange.c)
- *     PnpNotifyHwProfileChange @ 0x14095674C (PnpNotifyHwProfileChange.c)
- *     PipKsrNotifyDrivers @ 0x14096D3F0 (PipKsrNotifyDrivers.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x14037F3E0 (PnpUnregisterPlugPlayNotification.c)
+ *     PnpProcessDeferredRegistrations @ 0x140634E08 (PnpProcessDeferredRegistrations.c)
+ *     PnpNotifyTargetDeviceChange @ 0x14071AD38 (PnpNotifyTargetDeviceChange.c)
+ *     PnpNotifyDeviceClassChange @ 0x140739A78 (PnpNotifyDeviceClassChange.c)
+ *     PnpNotifyHwProfileChange @ 0x14089FB18 (PnpNotifyHwProfileChange.c)
+ *     PipKsrNotifyDrivers @ 0x1408B2FC8 (PipKsrNotifyDrivers.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExDeleteResourceLite @ 0x1402A8CA0 (ExDeleteResourceLite.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExDeleteResourceLite @ 0x140275720 (ExDeleteResourceLite.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PnpDereferenceNotify(PVOID P)
+void __fastcall PnpDereferenceNotify(PVOID **P)
 {
-  PVOID *v3; // rcx
-  PVOID *v4; // rax
-  void *v5; // rcx
-  void *v6; // rcx
+  PVOID *v3; // rax
+  PVOID *v4; // rcx
+  struct _DMA_ADAPTER *v5; // rcx
+  PVOID *v6; // rcx
 
   if ( (*((_WORD *)P + 28))-- == 1 )
   {
-    v3 = *(PVOID **)P;
-    if ( v3[1] != P || (v4 = (PVOID *)*((_QWORD *)P + 1), *v4 != P) )
+    v3 = *P;
+    if ( (*P)[1] != P || (v4 = P[1], *v4 != P) )
       __fastfail(3u);
     *v4 = v3;
     v3[1] = v4;
-    ObfDereferenceObject(*((PVOID *)P + 6));
+    HalPutDmaAdapter((PADAPTER_OBJECT)P[6]);
     if ( *((_DWORD *)P + 4) == 3 )
     {
-      v6 = (void *)*((_QWORD *)P + 11);
-      if ( v6 )
+      v5 = (struct _DMA_ADAPTER *)P[11];
+      if ( v5 )
       {
-        ObfDereferenceObject(v6);
-        *((_QWORD *)P + 11) = 0LL;
+        HalPutDmaAdapter(v5);
+        P[11] = 0LL;
       }
     }
-    v5 = (void *)*((_QWORD *)P + 3);
-    if ( v5 )
+    v6 = P[3];
+    if ( v6 )
     {
-      ZwClose(v5);
-      *((_QWORD *)P + 3) = 0LL;
+      ZwClose(v6);
+      P[3] = 0LL;
     }
-    ExDeleteResourceLite(*((PERESOURCE *)P + 9));
-    ExFreePoolWithTag(*((PVOID *)P + 9), 0x56706E50u);
+    ExDeleteResourceLite((PERESOURCE)P[9]);
+    ExFreePoolWithTag(P[9], 0x56706E50u);
     ExFreePoolWithTag(P, 0);
   }
 }

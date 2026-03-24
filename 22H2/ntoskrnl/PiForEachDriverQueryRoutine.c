@@ -1,27 +1,26 @@
 /*
- * XREFs of PiForEachDriverQueryRoutine @ 0x1407D0004
+ * XREFs of PiForEachDriverQueryRoutine @ 0x140748748
  * Callers:
- *     PpForEachDeviceInstanceDriver @ 0x1407CFCF8 (PpForEachDeviceInstanceDriver.c)
+ *     PpForEachDeviceInstanceDriver @ 0x140748444 (PpForEachDeviceInstanceDriver.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlULongSub @ 0x140368988 (RtlULongSub.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     RtlULongSub @ 0x1402E6B44 (RtlULongSub.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall PiForEachDriverQueryRoutine(int a1, const WCHAR *a2, ULONG a3, __int64 a4, __int64 a5)
+__int64 __fastcall PiForEachDriverQueryRoutine(int a1, const WCHAR *a2, ULONG a3, _QWORD *a4)
 {
-  ULONG v6; // r10d
-  const WCHAR *v7; // rbx
+  ULONG v5; // r10d
+  const WCHAR *v6; // rbx
   __int64 result; // rax
-  __int64 v9; // rsi
-  __int64 v10; // rdi
-  __int64 v11; // rdi
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
-  ULONG pulResult; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v8; // rdi
+  __int64 v9; // rdi
+  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  ULONG pulResult; // [rsp+50h] [rbp+18h] BYREF
 
   pulResult = a3;
-  v6 = a3;
-  v7 = a2;
+  v5 = a3;
+  v6 = a2;
   DestinationString = 0LL;
   result = 0LL;
   if ( (a1 == 1 || a1 == 7) && a3 > 2 )
@@ -29,37 +28,28 @@ __int64 __fastcall PiForEachDriverQueryRoutine(int a1, const WCHAR *a2, ULONG a3
     if ( a1 == 1 )
     {
       RtlInitUnicodeString(&DestinationString, a2);
-      return (*(__int64 (__fastcall **)(_QWORD, UNICODE_STRING *, __int64, _QWORD))(a5 + 8))(
-               *(_QWORD *)a5,
-               &DestinationString,
-               a4,
-               *(_QWORD *)(a5 + 16));
+      return ((__int64 (__fastcall *)(_QWORD, UNICODE_STRING *, _QWORD))a4[1])(*a4, &DestinationString, a4[2]);
     }
     else if ( *a2 )
     {
-      v9 = a5;
       while ( 1 )
       {
-        v10 = -1LL;
+        v8 = -1LL;
         do
-          ++v10;
-        while ( v7[v10] );
-        v11 = v10 + 1;
-        if ( RtlULongSub(v6, 2 * v11, &pulResult) < 0 )
+          ++v8;
+        while ( v6[v8] );
+        v9 = v8 + 1;
+        if ( RtlULongSub(v5, 2 * v9, &pulResult) < 0 )
           break;
-        RtlInitUnicodeString(&DestinationString, v7);
-        result = (*(__int64 (__fastcall **)(_QWORD, UNICODE_STRING *, __int64, _QWORD))(v9 + 8))(
-                   *(_QWORD *)v9,
-                   &DestinationString,
-                   a4,
-                   *(_QWORD *)(v9 + 16));
+        RtlInitUnicodeString(&DestinationString, v6);
+        result = ((__int64 (__fastcall *)(_QWORD, UNICODE_STRING *, _QWORD))a4[1])(*a4, &DestinationString, a4[2]);
         if ( (int)result >= 0 )
         {
-          v6 = pulResult;
+          v5 = pulResult;
           if ( pulResult >= 2 )
           {
-            v7 += v11;
-            if ( *v7 )
+            v6 += v9;
+            if ( *v6 )
               continue;
           }
         }

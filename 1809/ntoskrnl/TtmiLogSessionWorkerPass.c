@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionWorkerPass @ 0x1408856E8
+ * XREFs of TtmiLogSessionWorkerPass @ 0x1408856C8
  * Callers:
- *     TtmpSessionWorker @ 0x1408810E0 (TtmpSessionWorker.c)
+ *     TtmpSessionWorker @ 0x1408810C0 (TtmpSessionWorker.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void TtmiLogSessionWorkerPass()
@@ -37,7 +37,7 @@ void TtmiLogSessionWorkerPass()
       v8 = 4LL;
       v10 = 4LL;
       v12 = 4LL;
-      TlgWrite(&stru_14096D820, &unk_140372176, 0LL, 0LL, 5u, &pData);
+      TlgWrite(&stru_14096D820, &unk_140372347, 0LL, 0LL, 5u, &pData);
     }
   }
 }

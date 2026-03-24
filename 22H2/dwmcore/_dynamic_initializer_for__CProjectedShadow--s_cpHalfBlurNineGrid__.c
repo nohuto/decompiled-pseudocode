@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CProjectedShadow::s_cpHalfBlurNineGrid__ @ 0x180002980
+ * XREFs of _dynamic_initializer_for__CProjectedShadow::s_cpHalfBlurNineGrid__ @ 0x180002380
  * Callers:
  *     <none>
  * Callees:

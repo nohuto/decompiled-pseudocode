@@ -1,40 +1,41 @@
 /*
- * XREFs of ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046AF56
+ * XREFs of ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5D30
  * Callers:
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140312010 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1402610E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
  * Callees:
- *     TRY_ACQUIRE_EXLOCK_EXCLUSIVE @ 0x140312038 (TRY_ACQUIRE_EXLOCK_EXCLUSIVE.c)
- *     PerfLogSpinLockAcquire @ 0x140600D74 (PerfLogSpinLockAcquire.c)
+ *     PerfLogSpinLockAcquire @ 0x1405AB314 (PerfLogSpinLockAcquire.c)
  */
 
 __int64 __fastcall ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented(volatile signed __int32 *a1)
 {
-  int v1; // ebx
-  int v2; // edi
-  unsigned __int64 v3; // rax
-  __int64 result; // rax
-  __int64 v5; // r9
-  char v6; // r10
-  int v7; // r11d
-  unsigned __int64 v8; // rax
+  struct _KPRCB *CurrentPrcb; // r8
+  int v2; // r11d
+  char v3; // r9
+  unsigned __int64 v4; // rax
+  int InterruptCount; // r10d
+  __int64 v7; // rax
 
-  v1 = 0;
-  v2 = (int)a1;
+  CurrentPrcb = KeGetCurrentPrcb();
+  v2 = 0;
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
   {
-    v3 = __rdtsc();
-    v1 = v3;
+    v3 = 1;
+    v4 = __rdtsc();
+    InterruptCount = CurrentPrcb->InterruptCount;
+    v2 = v4;
   }
-  result = TRY_ACQUIRE_EXLOCK_EXCLUSIVE(a1);
-  if ( (_DWORD)result )
+  else
   {
-    ++*(_DWORD *)(v5 + 35008);
-    if ( v6 )
-    {
-      v8 = __rdtsc();
-      PerfLogSpinLockAcquire(v2, v8, v8 - v1, 0, v7, 3);
-    }
-    return 1LL;
+    v3 = 0;
+    InterruptCount = 0;
   }
-  return result;
+  if ( _InterlockedCompareExchange(a1, 0x80000000, 0) )
+    return 0LL;
+  ++CurrentPrcb->SynchCounters.SpinLockAcquireCount;
+  if ( v3 )
+  {
+    v7 = __rdtsc();
+    PerfLogSpinLockAcquire((__int64)a1, v7, v7 - v2, 0, InterruptCount, 3);
+  }
+  return 1LL;
 }

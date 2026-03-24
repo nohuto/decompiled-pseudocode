@@ -1,37 +1,32 @@
 /*
- * XREFs of ?bEnsureAuxCacheBuffer@RFONTOBJ@@QEAAHK@Z @ 0x1C02D45AC
+ * XREFs of ?bEnsureAuxCacheBuffer@RFONTOBJ@@QEAAHK@Z @ 0x1C02D5ADC
  * Callers:
- *     ?bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z @ 0x1C001B4D8 (-bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z.c)
- *     ?bInsertPathLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@@Z @ 0x1C02D4914 (-bInsertPathLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@@Z.c)
+ *     ?bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z @ 0x1C009AF78 (-bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z.c)
+ *     ?bInsertPathLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@@Z @ 0x1C02D5E48 (-bInsertPathLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@@Z.c)
  * Callees:
- *     <none>
+ *     PALLOCMEM2 @ 0x1C009FE48 (PALLOCMEM2.c)
  */
 
 __int64 __fastcall RFONTOBJ::bEnsureAuxCacheBuffer(RFONTOBJ *this, unsigned int a2)
 {
-  __int64 v4; // rbx
-  __int64 v5; // rcx
-  __int64 v6; // rcx
-  __int64 v7; // rax
+  __int64 v3; // rsi
+  void *v4; // rcx
+  __int64 v5; // rax
 
-  v4 = a2;
+  v3 = a2;
   if ( *(_QWORD *)(*(_QWORD *)this + 624LL) < (unsigned __int64)a2 )
   {
-    v5 = *(_QWORD *)(*(_QWORD *)this + 616LL);
-    if ( v5 )
-      Win32FreePool(v5);
-    if ( a2 )
-      v6 = Win32AllocPoolZInit(v4, 1667326791LL);
-    else
-      v6 = 0LL;
-    *(_QWORD *)(*(_QWORD *)this + 616LL) = v6;
-    v7 = *(_QWORD *)this;
+    v4 = *(void **)(*(_QWORD *)this + 616LL);
+    if ( v4 )
+      Win32FreePool(v4);
+    *(_QWORD *)(*(_QWORD *)this + 616LL) = PALLOCMEM2((unsigned int)v3, 1667326791LL, 1);
+    v5 = *(_QWORD *)this;
     if ( !*(_QWORD *)(*(_QWORD *)this + 616LL) )
     {
-      *(_QWORD *)(v7 + 624) = 0LL;
+      *(_QWORD *)(v5 + 624) = 0LL;
       return 0LL;
     }
-    *(_QWORD *)(v7 + 624) = v4;
+    *(_QWORD *)(v5 + 624) = v3;
   }
   return 1LL;
 }

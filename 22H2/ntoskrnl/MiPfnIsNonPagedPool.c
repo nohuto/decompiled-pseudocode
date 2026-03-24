@@ -1,18 +1,17 @@
 /*
- * XREFs of MiPfnIsNonPagedPool @ 0x1406418B8
+ * XREFs of MiPfnIsNonPagedPool @ 0x140544C70
  * Callers:
- *     MiIsPfnLocked @ 0x14036B39C (MiIsPfnLocked.c)
+ *     MiIsPfnLocked @ 0x140380A58 (MiIsPfnLocked.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140284750 (MiGetSystemRegionType.c)
+ *     MiGetSystemRegionType @ 0x1402CB040 (MiGetSystemRegionType.c)
+ *     MI_PFN_IS_PROTO @ 0x1403F3F48 (MI_PFN_IS_PROTO.c)
  */
 
-__int64 __fastcall MiPfnIsNonPagedPool(__int64 a1)
+_BOOL8 __fastcall MiPfnIsNonPagedPool(__int64 a1)
 {
-  unsigned int v1; // ebx
+  __int64 v2; // rcx
 
-  v1 = 0;
-  if ( *(__int64 *)(a1 + 40) < 0 || (unsigned int)MiGetSystemRegionType((__int64)(*(_QWORD *)(a1 + 8) << 25) >> 16) != 5 )
-    return 0LL;
-  LOBYTE(v1) = (*(_BYTE *)(a1 + 34) & 7) == 6;
-  return v1;
+  return !MI_PFN_IS_PROTO(a1)
+      && (unsigned int)MiGetSystemRegionType((__int64)(*(_QWORD *)(v2 + 8) << 25) >> 16) == 5
+      && (*(_BYTE *)(a1 + 34) & 7) == 6;
 }

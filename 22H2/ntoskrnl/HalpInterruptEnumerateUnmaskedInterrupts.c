@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpInterruptEnumerateUnmaskedInterrupts @ 0x1405040F0
+ * XREFs of HalpInterruptEnumerateUnmaskedInterrupts @ 0x1404BB1A0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x14037D1C8 (HalpAcquireHighLevelLock.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpInterruptEnumerateUnmaskedSecondaryInterrupts @ 0x14051A198 (HalpInterruptEnumerateUnmaskedSecondaryInterrupts.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378990 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpInterruptEnumerateUnmaskedSecondaryInterrupts @ 0x1404D0F30 (HalpInterruptEnumerateUnmaskedSecondaryInterrupts.c)
  */
 
 __int64 __fastcall HalpInterruptEnumerateUnmaskedInterrupts(
@@ -18,26 +18,23 @@ __int64 __fastcall HalpInterruptEnumerateUnmaskedInterrupts(
 {
   unsigned int v4; // r8d
   unsigned int v5; // ebx
-  char v6; // di
+  char v6; // bp
   unsigned __int8 v7; // al
   ULONG_PTR *v8; // r12
   unsigned __int64 v9; // r13
-  ULONG_PTR *v10; // r9
+  ULONG_PTR *v10; // r8
   ULONG_PTR *v11; // rax
   ULONG_PTR *v12; // r15
-  ULONG_PTR *v13; // rsi
-  int v14; // ebp
-  int v15; // ecx
-  int v16; // r8d
-  _DWORD *v17; // rdx
-  int v18; // ecx
+  ULONG_PTR *v13; // rdi
+  int v14; // r14d
+  _DWORD *v15; // rdx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v22; // eax
-  bool v23; // zf
-  ULONG_PTR *v27; // [rsp+80h] [rbp+18h]
-  ULONG_PTR *v28; // [rsp+88h] [rbp+20h]
+  int v19; // eax
+  bool v20; // zf
+  ULONG_PTR *v24; // [rsp+80h] [rbp+18h]
+  ULONG_PTR *v25; // [rsp+88h] [rbp+20h]
 
   v4 = (unsigned __int16)a3[1];
   if ( *a3 && v4 >= 0x20 )
@@ -50,12 +47,12 @@ __int64 __fastcall HalpInterruptEnumerateUnmaskedInterrupts(
     v9 = v7;
     while ( v8 != &HalpRegisteredInterruptControllers )
     {
+      v24 = v8;
       v10 = v8;
-      v27 = v8;
       v8 = (ULONG_PTR *)*v8;
-      v11 = v10 + 33;
-      v12 = (ULONG_PTR *)v10[33];
-      v28 = v10 + 33;
+      v11 = v10 + 30;
+      v12 = (ULONG_PTR *)v10[30];
+      v25 = v10 + 30;
       while ( v12 != v11 )
       {
         v13 = v12;
@@ -65,47 +62,46 @@ __int64 __fastcall HalpInterruptEnumerateUnmaskedInterrupts(
           v14 = *((_DWORD *)v13 + 5);
           if ( v14 < *((_DWORD *)v13 + 6) )
           {
-            v15 = *((_DWORD *)v13 + 5);
             do
             {
-              v16 = v14 - v15;
-              v17 = (_DWORD *)(v13[5] + 56LL * (unsigned int)(v14 - v15));
-              if ( (v17[3] & 1) != 0 )
+              v15 = (_DWORD *)(v13[5] + 56LL * (unsigned int)(v14 - *((_DWORD *)v13 + 5)));
+              if ( (v15[3] & 1) != 0 )
               {
-                v18 = *((_DWORD *)v13 + 7);
+                *((_DWORD *)a3 + 4) = *((_DWORD *)v13 + 7) + v14 - *((_DWORD *)v13 + 5);
                 a3[2] = 0;
-                *((_DWORD *)a3 + 4) = v16 + v18;
-                *((_DWORD *)a3 + 2) = v17[2];
-                *((_DWORD *)a3 + 3) = *v17;
-                *((_QWORD *)a3 + 3) = v10[46];
+                *((_DWORD *)a3 + 2) = v15[2];
+                *((_DWORD *)a3 + 3) = *v15;
+                *((_QWORD *)a3 + 3) = v10[43];
                 v6 = a1(a2, a3);
                 if ( !v6 )
                   goto LABEL_16;
-                v15 = *((_DWORD *)v13 + 5);
-                v10 = v27;
+                v10 = v24;
               }
               ++v14;
             }
             while ( v14 < *((_DWORD *)v13 + 6) );
-            v11 = v28;
+            v11 = v25;
           }
         }
       }
     }
 LABEL_16:
-    KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
+    KxReleaseSpinLock(&HalpInterruptLock);
     if ( KiIrqlFlags )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-        v23 = (v22 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v22;
-        if ( v23 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+          v20 = (v19 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v19;
+          if ( v20 )
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
       }
     }
     __writecr8(v9);

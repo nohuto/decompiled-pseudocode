@@ -1,194 +1,179 @@
 /*
- * XREFs of ?xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z @ 0x1C02243DC
+ * XREFs of ?xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z @ 0x1C023E3AC
  * Callers:
- *     xxxDrawAnimatedRects @ 0x1C0224A30 (xxxDrawAnimatedRects.c)
+ *     xxxDrawAnimatedRects @ 0x1C023EA44 (xxxDrawAnimatedRects.c)
  * Callees:
- *     GreCreateCompatibleBitmapInternal @ 0x1C0057310 (GreCreateCompatibleBitmapInternal.c)
- *     GetWindowBorders @ 0x1C00C6A7C (GetWindowBorders.c)
- *     GetDpiForSystem @ 0x1C00EDB80 (GetDpiForSystem.c)
- *     GetDpiDependentMetric @ 0x1C00F0DA0 (GetDpiDependentMetric.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _WindowFromDC @ 0x1C01BDF48 (_WindowFromDC.c)
- *     ?SaveScreen@@YA_KPEAUtagWND@@K_KHHHH@Z @ 0x1C02242FC (-SaveScreen@@YA_KPEAUtagWND@@K_KHHHH@Z.c)
- *     xxxDrawCaptionTemp @ 0x1C022C094 (xxxDrawCaptionTemp.c)
+ *     GetDpiDependentMetric @ 0x1C0061430 (GetDpiDependentMetric.c)
+ *     GetDpiForSystem @ 0x1C0063C1C (GetDpiForSystem.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C00AADE8 (GreCreateCompatibleBitmapInternal.c)
+ *     GetWindowBorders @ 0x1C00DCF9C (GetWindowBorders.c)
+ *     _WindowFromDC @ 0x1C010059C (_WindowFromDC.c)
+ *     xxxDrawCaptionTemp @ 0x1C0158B14 (xxxDrawCaptionTemp.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ?SaveScreen@@YA_KPEAUtagWND@@K_KHHHH@Z @ 0x1C023E2CC (-SaveScreen@@YA_KPEAUtagWND@@K_KHHHH@Z.c)
  */
 
-void __fastcall xxxAnimateCaption(struct tagWND *a1, __int64 *a2, struct tagRECT *a3, struct tagRECT *a4)
+void __fastcall xxxAnimateCaption(struct tagWND *a1, HDC a2, struct tagRECT *a3, struct tagRECT *a4)
 {
-  __int64 v8; // rcx
-  int DpiForSystem; // eax
-  int v10; // ebx
+  __int64 v7; // rcx
+  unsigned int DpiForSystem; // eax
+  LONG v9; // ebx
   HDC CompatibleDC; // rdi
-  LONG left; // ecx
-  LONG top; // eax
-  LONG v14; // ebp
-  LONG v15; // r14d
-  int v16; // r15d
-  int v17; // esi
-  int WindowBorders; // r12d
-  __int64 v19; // rcx
-  int v20; // eax
+  LONG top; // ebp
+  LONG left; // r15d
+  int v13; // r13d
+  int v14; // esi
+  int WindowBorders; // r14d
+  __int64 v16; // rcx
+  unsigned int v17; // eax
   int DpiDependentMetric; // eax
-  int v22; // edx
-  unsigned int v23; // edx
-  struct tagWND *v24; // r12
+  int v19; // edx
+  unsigned int v20; // edx
+  __int64 ThreadWin32Thread; // rax
+  unsigned int v22; // eax
+  __int64 v23; // rcx
+  __int64 v24; // r14
   int v25; // eax
-  __int64 v26; // rdx
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  __int64 v29; // r9
-  __int64 v30; // rdx
-  __int64 v31; // rcx
-  __int64 v32; // r8
-  int v33; // eax
-  __int64 v34; // rcx
-  __int64 v35; // rdx
-  int v36; // r15d
+  __int64 v26; // rcx
+  __int64 v27; // rdx
+  int v28; // r13d
   __int64 i; // rax
-  int v38; // r8d
-  unsigned int v39; // ecx
-  unsigned __int16 v40; // cx
-  __int64 v41; // rdx
-  __int64 v42; // rcx
-  __int64 v43; // r8
-  __int64 v44; // r9
-  __int64 v45; // rdx
-  __int64 v46; // rcx
-  __int64 v47; // r8
-  unsigned __int64 v48; // [rsp+60h] [rbp-C8h]
-  int v49; // [rsp+68h] [rbp-C0h]
-  LONG v50; // [rsp+6Ch] [rbp-BCh]
-  int v51; // [rsp+6Ch] [rbp-BCh]
-  LONG v52; // [rsp+70h] [rbp-B8h]
-  int v53; // [rsp+70h] [rbp-B8h]
-  unsigned __int64 v54; // [rsp+74h] [rbp-B4h]
-  const struct tagWND *v56; // [rsp+80h] [rbp-A8h]
-  int v57; // [rsp+80h] [rbp-A8h]
-  unsigned __int64 v59; // [rsp+88h] [rbp-A0h]
-  unsigned __int64 v61; // [rsp+90h] [rbp-98h]
-  __int64 v62; // [rsp+98h] [rbp-90h]
+  int v30; // r8d
+  unsigned int v31; // ecx
+  unsigned __int16 v32; // cx
+  __int64 v33; // rcx
+  __int64 v34; // rcx
+  LONG v35; // [rsp+60h] [rbp-C8h]
+  int v36; // [rsp+60h] [rbp-C8h]
+  LONG v37; // [rsp+64h] [rbp-C4h]
+  int v38; // [rsp+64h] [rbp-C4h]
+  int v39; // [rsp+68h] [rbp-C0h]
+  int v40; // [rsp+6Ch] [rbp-BCh]
+  int v41; // [rsp+70h] [rbp-B8h]
+  int v42; // [rsp+74h] [rbp-B4h]
+  int v44; // [rsp+78h] [rbp-B0h]
+  int v46; // [rsp+80h] [rbp-A8h]
+  struct tagWND *v47; // [rsp+88h] [rbp-A0h]
+  unsigned __int64 v49; // [rsp+90h] [rbp-98h]
+  __int64 v50; // [rsp+98h] [rbp-90h]
   __int64 CompatibleBitmapInternal; // [rsp+A0h] [rbp-88h]
-  __int128 v64; // [rsp+A8h] [rbp-80h] BYREF
-  __int64 v65; // [rsp+B8h] [rbp-70h]
-  _DWORD v66[2]; // [rsp+C0h] [rbp-68h] BYREF
-  unsigned int v67; // [rsp+C8h] [rbp-60h]
-  int v68; // [rsp+CCh] [rbp-5Ch]
+  _QWORD v52[3]; // [rsp+A8h] [rbp-80h] BYREF
+  struct tagRECT v53; // [rsp+C0h] [rbp-68h] BYREF
 
-  v65 = 0LL;
-  v67 = 0;
-  v64 = 0LL;
-  v56 = WindowFromDC(a2);
-  if ( v56 )
+  v53.right = 0;
+  v52[2] = 0LL;
+  v47 = WindowFromDC(a2);
+  if ( v47 )
   {
-    DpiForSystem = GetDpiForSystem(v8);
-    v10 = GetDpiDependentMetric(2, DpiForSystem) - 1;
+    DpiForSystem = GetDpiForSystem(v7);
+    v9 = GetDpiDependentMetric(2LL, DpiForSystem) - 1;
     if ( !gProtocolType && (*(_DWORD *)(gpsi + 2236LL) & 2) == 0 )
     {
-      CompatibleDC = (HDC)GreCreateCompatibleDC(ghdcMem);
+      CompatibleDC = (HDC)GreCreateCompatibleDC(*(_QWORD *)ghdcMem);
       if ( CompatibleDC )
       {
-        left = a4->left;
-        top = a4->top;
-        v14 = a3->top;
-        v15 = a3->left;
-        v16 = a4->right - a4->left;
-        v50 = left;
-        v17 = a3->right - a3->left;
-        v52 = top;
+        top = a3->top;
+        left = a3->left;
+        v13 = a4->right - a4->left;
+        v14 = a3->right - a3->left;
+        v35 = a4->left;
+        v37 = a4->top;
         WindowBorders = GetWindowBorders(
                           *(unsigned int *)(*((_QWORD *)a1 + 5) + 28LL),
-                          *(unsigned int *)(*((_QWORD *)a1 + 5) + 24LL));
-        v20 = GetDpiForSystem(v19);
-        DpiDependentMetric = GetDpiDependentMetric(2, v20);
-        v22 = 2 * WindowBorders;
-        if ( a3->bottom - v14 > DpiDependentMetric )
+                          *(_DWORD *)(*((_QWORD *)a1 + 5) + 24LL));
+        v17 = GetDpiForSystem(v16);
+        DpiDependentMetric = GetDpiDependentMetric(2LL, v17);
+        v19 = 2 * WindowBorders;
+        if ( a3->bottom - top > DpiDependentMetric )
         {
-          v15 += WindowBorders;
-          v14 += WindowBorders;
-          v17 -= v22;
+          left += WindowBorders;
+          top += WindowBorders;
+          v14 -= v19;
         }
-        if ( a4->bottom - v52 > DpiDependentMetric )
+        if ( a4->bottom - v37 > DpiDependentMetric )
         {
-          v50 += WindowBorders;
-          v52 += WindowBorders;
-          v16 -= v22;
+          v35 += WindowBorders;
+          v37 += WindowBorders;
+          v13 -= v19;
         }
-        v66[1] = v10;
-        v66[0] = 0;
-        v23 = v16;
-        v68 = 2 * v10;
-        if ( v17 > v16 )
-          v23 = v17;
-        v49 = v15;
-        v67 = v23;
-        v48 = __PAIR64__(v14, v17);
+        v53.left = 0;
+        v20 = v13;
+        v53.top = v9;
+        v53.bottom = 2 * v9;
+        if ( v14 > v13 )
+          v20 = v14;
+        v41 = left;
+        v53.right = v20;
+        v40 = top;
+        v39 = v14;
         CompatibleBitmapInternal = GreCreateCompatibleBitmapInternal(
-                                     *(_QWORD *)(gpDispInfo + 56LL),
-                                     v23,
-                                     2 * v10,
+                                     *(HDC *)(gpDispInfo + 56LL),
+                                     v20,
+                                     2 * v9,
                                      0,
                                      0LL,
                                      0LL);
-        v24 = v56;
-        v62 = GreSelectBitmap(CompatibleDC, CompatibleBitmapInternal);
-        ThreadLock(v56, &v64);
-        if ( gbDisableAlpha || (v25 = 45, ((unsigned int)gpdwCPUserPreferencesMask & 0x80000010) != 0x80000010) )
-          v25 = 13;
-        xxxDrawCaptionTemp(a1, CompatibleDC, v66, 0LL, 0LL, 0LL, v25);
+        v50 = GreSelectBitmap(CompatibleDC, CompatibleBitmapInternal);
+        ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+        v52[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+        *(_QWORD *)(ThreadWin32Thread + 416) = v52;
+        v52[1] = v47;
+        HMLockObject(v47);
+        if ( gbDisableAlpha || (v22 = 45, ((unsigned int)gpdwCPUserPreferencesMask & 0x80000010) != 0x80000010) )
+          v22 = 13;
+        xxxDrawCaptionTemp((__int64)a1, CompatibleDC, &v53, 0LL, 0LL, 0LL, v22);
+        if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+          KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
         EnterRenderBlock();
-        UserSessionSwitchLeaveCrit(v27, v26, v28, v29);
-        EnterSharedCrit(v31, v30, v32);
+        UserSessionSwitchLeaveCrit(v23);
+        EnterSharedCrit(0LL, 1LL);
         EnterSharedRenderCrit();
-        v59 = SaveScreen(v56, 0, 0LL, v15, v14, v17, v10);
-        if ( v59
-          || (v33 = NtGdiBitBltInternal((__int64)CompatibleDC, 0, 0, v17, v10, (HDC)a2, v15, v14, 13369376, 0, 0),
-              v35 = 0LL,
-              v33) )
+        v24 = SaveScreen(v47, 0, 0LL, left, top, v14, v9);
+        if ( v24
+          || (v25 = NtGdiBitBltInternal(CompatibleDC, 0, 0, v14, v9, a2, left, top, 13369376, 0, 0), v27 = 0LL, v25) )
         {
-          v51 = v50 - v15;
-          v53 = v52 - v14;
-          v36 = v16 - v17;
-          v61 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
-          NtGdiBitBltInternal((__int64)a2, v15, v14, v17, v10, CompatibleDC, 0, v10, 13369376, 0, 0);
+          v36 = v35 - left;
+          v38 = v37 - top;
+          v28 = v13 - v14;
+          v49 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+          NtGdiBitBltInternal(a2, left, top, v14, v9, CompatibleDC, 0, v9, 13369376, 0, 0);
           for ( i = MEMORY[0xFFFFF78000000320]; ; i = MEMORY[0xFFFFF78000000320] )
           {
-            v40 = ((i * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) - v61;
-            if ( v40 > 0xFAu )
+            v32 = ((i * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24) - v49;
+            if ( v32 > 0xFAu )
               break;
-            v38 = v40;
-            v39 = (int)((unsigned __int64)(274877907LL * (v51 * v40 + 125)) >> 32) >> 4;
-            v57 = v15 + (v39 >> 31) + v39;
-            HIDWORD(v54) = v14 + (v53 * v38 + 125) / 250;
-            LODWORD(v54) = v17 + (v36 * v38 + 125) / 250;
+            v30 = v32;
+            v31 = (int)((unsigned __int64)(274877907LL * (v36 * v32 + 125)) >> 32) >> 4;
+            v44 = left + (v31 >> 31) + v31;
+            v46 = top + (v38 * v30 + 125) / 250;
+            v42 = v14 + (v28 * v30 + 125) / 250;
             UserSleep(1LL);
-            if ( v59 )
-            {
-              SaveScreen(v24, 1u, v59, v49, SHIDWORD(v48), v48, v10);
-              v48 = v54;
-              v49 = v57;
-              v59 = SaveScreen(v24, 0, 0LL, v57, SHIDWORD(v54), v54, v10);
-            }
+            if ( v24 )
+              SaveScreen(v47, 1u, v24, v41, v40, v39, v9);
             else
-            {
-              NtGdiBitBltInternal((__int64)a2, v49, SHIDWORD(v48), v48, v10, CompatibleDC, 0, 0, 13369376, 0, 0);
-              v48 = v54;
-              v49 = v57;
-              NtGdiBitBltInternal((__int64)CompatibleDC, 0, 0, v54, v10, (HDC)a2, v57, SHIDWORD(v54), 13369376, 0, 0);
-            }
-            NtGdiBitBltInternal((__int64)a2, v57, SHIDWORD(v54), v54, v10, CompatibleDC, 0, v10, 13369376, 0, 0);
+              NtGdiBitBltInternal(a2, v41, v40, v39, v9, CompatibleDC, 0, 0, 13369376, 0, 0);
+            v41 = v44;
+            v40 = v46;
+            v39 = v42;
+            if ( v24 )
+              v24 = SaveScreen(v47, 0, 0LL, v44, v46, v42, v9);
+            else
+              NtGdiBitBltInternal(CompatibleDC, 0, 0, v42, v9, a2, v44, v46, 13369376, 0, 0);
+            NtGdiBitBltInternal(a2, v44, v46, v42, v9, CompatibleDC, 0, v9, 13369376, 0, 0);
           }
-          if ( v59 )
-            SaveScreen(v24, 1u, v59, v49, SHIDWORD(v48), v48, v10);
+          if ( v24 )
+            SaveScreen(v47, 1u, v24, v41, v40, v39, v9);
           else
-            NtGdiBitBltInternal((__int64)a2, v49, SHIDWORD(v48), v48, v10, CompatibleDC, 0, 0, 13369376, 0, 0);
+            NtGdiBitBltInternal(a2, v41, v40, v39, v9, CompatibleDC, 0, 0, 13369376, 0, 0);
         }
-        LeaveRenderBlock(v34, v35);
+        LeaveRenderBlock(v26, v27);
         LeaveRenderCrit();
-        UserSessionSwitchLeaveCrit(v42, v41, v43, v44);
-        EnterCrit(1LL, 0LL);
-        ThreadUnlock1(v46, v45, v47);
-        GreSelectBitmap(CompatibleDC, v62);
+        UserSessionSwitchLeaveCrit(v33);
+        EnterCrit(0LL, 1LL);
+        ThreadUnlock1(v34);
+        GreSelectBitmap(CompatibleDC, v50);
         GreDeleteObject(CompatibleBitmapInternal);
         GreDeleteDC(CompatibleDC);
       }

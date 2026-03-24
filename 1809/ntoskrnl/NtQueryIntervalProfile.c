@@ -1,9 +1,9 @@
 /*
- * XREFs of NtQueryIntervalProfile @ 0x1406D6BD0
+ * XREFs of NtQueryIntervalProfile @ 0x1406D6BB0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryIntervalProfile @ 0x1406D6C34 (KeQueryIntervalProfile.c)
+ *     KeQueryIntervalProfile @ 0x1406D6C14 (KeQueryIntervalProfile.c)
  */
 
 NTSTATUS __stdcall NtQueryIntervalProfile(KPROFILE_SOURCE ProfileSource, PULONG Interval)

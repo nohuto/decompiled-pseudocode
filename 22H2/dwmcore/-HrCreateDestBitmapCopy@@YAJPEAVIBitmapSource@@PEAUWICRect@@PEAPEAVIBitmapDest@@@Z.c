@@ -1,69 +1,59 @@
 /*
- * XREFs of ?HrCreateDestBitmapCopy@@YAJPEAVIBitmapSource@@PEAUWICRect@@PEAPEAVIBitmapDest@@@Z @ 0x1802B589C
+ * XREFs of ?HrCreateDestBitmapCopy@@YAJPEAVIBitmapSource@@PEAUWICRect@@PEAPEAVIBitmapDest@@@Z @ 0x18019BFC4
  * Callers:
- *     ?FormatConvertLock@CSecondaryD2DBitmap@@IEAAJPEAVIBitmapLock@@PEAPEAV2@@Z @ 0x1802B5548 (-FormatConvertLock@CSecondaryD2DBitmap@@IEAAJPEAVIBitmapLock@@PEAPEAV2@@Z.c)
+ *     ?FormatConvertLock@CSecondaryD2DBitmap@@IEAAJPEAVIBitmapLock@@PEAPEAV2@@Z @ 0x18019BBC0 (-FormatConvertLock@CSecondaryD2DBitmap@@IEAAJPEAVIBitmapLock@@PEAPEAV2@@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x180034880 (--2@YAPEAX_K@Z.c)
- *     ??0CSystemMemoryBitmap@@QEAA@XZ @ 0x1800A7F74 (--0CSystemMemoryBitmap@@QEAA@XZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?HrInit@CSystemMemoryBitmap@@QEAAJPEAVIBitmapSource@@PEAUWICRect@@_N@Z @ 0x1802814A0 (-HrInit@CSystemMemoryBitmap@@QEAAJPEAVIBitmapSource@@PEAUWICRect@@_N@Z.c)
- *     ??$ReleaseInterfaceNoNULL@VCSystemMemoryBitmap@@@@YAXPEAVCSystemMemoryBitmap@@@Z @ 0x18029F25C (--$ReleaseInterfaceNoNULL@VCSystemMemoryBitmap@@@@YAXPEAVCSystemMemoryBitmap@@@Z.c)
+ *     ??0CSystemMemoryBitmap@@QEAA@XZ @ 0x180031FCC (--0CSystemMemoryBitmap@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062AA8 (--2@YAPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?HrInit@CSystemMemoryBitmap@@QEAAJPEAVIBitmapSource@@PEAUWICRect@@_N@Z @ 0x1802175F8 (-HrInit@CSystemMemoryBitmap@@QEAAJPEAVIBitmapSource@@PEAUWICRect@@_N@Z.c)
  */
 
 __int64 __fastcall HrCreateDestBitmapCopy(struct IBitmapSource *a1, struct WICRect *a2, struct IBitmapDest **a3)
 {
   CSystemMemoryBitmap *v5; // rax
   __int64 v6; // rcx
-  CSystemMemoryBitmap *v7; // rax
-  CSystemMemoryBitmap *v8; // rsi
-  __int64 v9; // rcx
-  struct WICRect *v10; // r8
+  CSystemMemoryBitmap *v7; // rdi
+  unsigned int v8; // ebx
+  struct WICRect *v9; // r8
+  bool v10; // r9
   int v11; // eax
-  unsigned int v12; // ebx
-  __int64 (__fastcall ***v13)(_QWORD, GUID *, struct IBitmapDest **); // rcx
-  int v14; // r9d
-  unsigned int v16; // [rsp+20h] [rbp-18h]
+  __int64 v12; // rcx
+  int v13; // eax
+  __int64 v14; // rcx
 
   *a3 = 0LL;
-  v5 = (CSystemMemoryBitmap *)operator new(0xD8uLL);
-  if ( !v5 )
+  v5 = (CSystemMemoryBitmap *)operator new(0x140uLL);
+  if ( v5 )
+    v7 = CSystemMemoryBitmap::CSystemMemoryBitmap(v5, 1);
+  else
+    v7 = 0LL;
+  if ( v7 )
   {
-    v8 = 0LL;
-    goto LABEL_9;
+    (*(void (__fastcall **)(CSystemMemoryBitmap *))(*(_QWORD *)v7 + 8LL))(v7);
+    v11 = CSystemMemoryBitmap::HrInit(v7, a1, v9, v10);
+    v8 = v11;
+    if ( v11 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x6Au, 0LL);
+    }
+    else
+    {
+      v13 = (**(__int64 (__fastcall ***)(CSystemMemoryBitmap *, GUID *, struct IBitmapDest **))v7)(
+              v7,
+              &GUID_14d094dc_1246_4784_b811_74305a3ecec8,
+              a3);
+      v8 = v13;
+      if ( v13 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x6Du, 0LL);
+    }
+    (*(void (__fastcall **)(CSystemMemoryBitmap *))(*(_QWORD *)v7 + 16LL))(v7);
   }
-  v7 = CSystemMemoryBitmap::CSystemMemoryBitmap(v5, 1);
-  v8 = v7;
-  if ( !v7 )
+  else
   {
-LABEL_9:
-    v12 = -2147024882;
-    v14 = -2147024882;
-    v16 = 101;
-    goto LABEL_10;
+    v8 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2147024882, 0x65u, 0LL);
   }
-  v9 = (__int64)v7 + *(int *)(*((_QWORD *)v7 + 1) + 4LL) + 8;
-  (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 8LL))(v9);
-  v11 = CSystemMemoryBitmap::HrInit(v8, a1, v10);
-  v12 = v11;
-  if ( v11 < 0 )
-  {
-    v16 = 106;
-    goto LABEL_6;
-  }
-  v13 = (__int64 (__fastcall ***)(_QWORD, GUID *, struct IBitmapDest **))((char *)v8
-                                                                        + *(int *)(*((_QWORD *)v8 + 1) + 4LL)
-                                                                        + 8);
-  v11 = (**v13)(v13, &GUID_14d094dc_1246_4784_b811_74305a3ecec8, a3);
-  v12 = v11;
-  if ( v11 < 0 )
-  {
-    v16 = 109;
-LABEL_6:
-    v14 = v11;
-LABEL_10:
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, v14, v16, 0LL);
-  }
-  ReleaseInterfaceNoNULL<CSystemMemoryBitmap>((__int64)v8);
-  return v12;
+  return v8;
 }

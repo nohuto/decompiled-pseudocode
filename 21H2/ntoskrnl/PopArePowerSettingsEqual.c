@@ -1,9 +1,9 @@
 /*
- * XREFs of PopArePowerSettingsEqual @ 0x140751840
+ * XREFs of PopArePowerSettingsEqual @ 0x14067AD38
  * Callers:
- *     PopSetPowerSettingValue @ 0x14075140C (PopSetPowerSettingValue.c)
+ *     PopSetPowerSettingValue @ 0x14067A8D8 (PopSetPowerSettingValue.c)
  * Callees:
- *     RtlCompareMemory @ 0x14042A1E0 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
  */
 
 bool __fastcall PopArePowerSettingsEqual(__int64 a1, const void *a2, unsigned int a3)

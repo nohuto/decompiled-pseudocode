@@ -1,20 +1,20 @@
 /*
- * XREFs of VfTargetEtwRegister @ 0x140ACC648
+ * XREFs of VfTargetEtwRegister @ 0x1409D6F74
  * Callers:
- *     VerifierEtwRegister @ 0x140AE4FC0 (VerifierEtwRegister.c)
- *     VerifierEtwRegisterClassicProvider @ 0x140AE5000 (VerifierEtwRegisterClassicProvider.c)
+ *     VerifierEtwRegister @ 0x1409E7EB0 (VerifierEtwRegister.c)
+ *     VerifierEtwRegisterClassicProvider @ 0x1409E7EF0 (VerifierEtwRegisterClassicProvider.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x14020A004 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x14020A374 (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x140465E48 (VfAvlInitializeLockContext.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     VfAvlCleanupLockContext @ 0x140372304 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14037E564 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x1405A2514 (VfAvlInitializeLockContext.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall VfTargetEtwRegister(__int64 a1, unsigned __int64 a2)
 {
   int v4; // edi
-  _QWORD *Pool2; // rbx
+  _QWORD *PoolWithTag; // rbx
   _QWORD *v6; // rax
   __int64 v7; // rax
   __int64 v8; // rax
@@ -25,7 +25,7 @@ void __fastcall VfTargetEtwRegister(__int64 a1, unsigned __int64 a2)
   if ( !VfSafeMode )
   {
     v4 = 0;
-    Pool2 = (_QWORD *)ExAllocatePool2(64LL, 0x20uLL, 0x54456656u);
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x54456656u);
     VfAvlInitializeLockContext((__int64)&v10, 0);
     v6 = VfAvlLookupTreeNode((__int64 *)&ViTargetDriversAvl, (__int64)&v10, a2, 1LL);
     if ( v6 )
@@ -33,19 +33,19 @@ void __fastcall VfTargetEtwRegister(__int64 a1, unsigned __int64 a2)
       v7 = v6[7];
       if ( v7 )
       {
-        if ( Pool2 )
+        if ( PoolWithTag )
         {
           v8 = v7 + 16;
-          Pool2[2] = a1;
-          Pool2[3] = a2;
+          PoolWithTag[2] = a1;
+          PoolWithTag[3] = a2;
           v9 = *(_QWORD **)(v8 + 8);
           if ( *v9 != v8 )
             __fastfail(3u);
-          *Pool2 = v8;
+          *PoolWithTag = v8;
           v4 = 1;
-          Pool2[1] = v9;
-          *v9 = Pool2;
-          *(_QWORD *)(v8 + 8) = Pool2;
+          PoolWithTag[1] = v9;
+          *v9 = PoolWithTag;
+          *(_QWORD *)(v8 + 8) = PoolWithTag;
         }
         else
         {
@@ -56,8 +56,8 @@ void __fastcall VfTargetEtwRegister(__int64 a1, unsigned __int64 a2)
     VfAvlCleanupLockContext((__int64)&v10);
     if ( !v4 )
     {
-      if ( Pool2 )
-        ExFreePoolWithTag(Pool2, 0x54456656u);
+      if ( PoolWithTag )
+        ExFreePoolWithTag(PoolWithTag, 0x54456656u);
     }
   }
 }

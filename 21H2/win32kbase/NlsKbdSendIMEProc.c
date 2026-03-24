@@ -1,14 +1,14 @@
 /*
- * XREFs of NlsKbdSendIMEProc @ 0x1C01EB944
+ * XREFs of NlsKbdSendIMEProc @ 0x1C01ABFAC
  * Callers:
- *     ?NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EAEA0 (-NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsConvOrNonConvProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB140 (-NlsConvOrNonConvProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB260 (-NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsKanaEventProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB3A0 (-NlsKanaEventProc@@YAHPEAUtagKE@@_KK@Z.c)
- *     ?NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01EB450 (-NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB4A0 (-NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsConvOrNonConvProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB740 (-NlsConvOrNonConvProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB860 (-NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsKanaEventProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01AB9A0 (-NlsKanaEventProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C01ABA50 (-NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
  * Callees:
- *     NlsKbdSendIMENotificationBase @ 0x1C00BA3A0 (NlsKbdSendIMENotificationBase.c)
- *     ApiSetEditionGetAppImeCompatFlags @ 0x1C0207B74 (ApiSetEditionGetAppImeCompatFlags.c)
+ *     NlsKbdSendIMENotificationBase @ 0x1C00A88E0 (NlsKbdSendIMENotificationBase.c)
+ *     ApiSetEditionGetAppImeCompatFlags @ 0x1C01CB85C (ApiSetEditionGetAppImeCompatFlags.c)
  */
 
 void __fastcall NlsKbdSendIMEProc(int a1, int a2)

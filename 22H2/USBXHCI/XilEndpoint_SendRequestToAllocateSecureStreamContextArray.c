@@ -1,11 +1,11 @@
 /*
- * XREFs of XilEndpoint_SendRequestToAllocateSecureStreamContextArray @ 0x1C0039150
+ * XREFs of XilEndpoint_SendRequestToAllocateSecureStreamContextArray @ 0x1C0037698
  * Callers:
- *     XilEndpoint_AllocateStreamContextArray @ 0x1C0038ADC (XilEndpoint_AllocateStreamContextArray.c)
+ *     XilEndpoint_AllocateStreamContextArray @ 0x1C003701C (XilEndpoint_AllocateStreamContextArray.c)
  * Callees:
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
- *     __security_check_cookie @ 0x1C001E870 (__security_check_cookie.c)
- *     SecureChannel_SendRequestSynchronously @ 0x1C0052370 (SecureChannel_SendRequestSynchronously.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C004F688 (SecureChannel_SendRequestSynchronously.c)
  */
 
 __int64 __fastcall XilEndpoint_SendRequestToAllocateSecureStreamContextArray(
@@ -30,7 +30,7 @@ __int64 __fastcall XilEndpoint_SendRequestToAllocateSecureStreamContextArray(
   __int128 v21; // [rsp+78h] [rbp+Fh]
   __int64 v22; // [rsp+88h] [rbp+1Fh]
 
-  LODWORD(v17) = 0;
+  v17 = 0LL;
   v4 = a1[4];
   v16 = 0LL;
   v8 = *(_QWORD *)(*(_QWORD *)v4 + 112LL);
@@ -76,7 +76,7 @@ LABEL_4:
       v12,
       13,
       v11,
-      (__int64)&WPP_21ddac9bc1473b1039e66530083bb77c_Traceguids,
+      (__int64)&WPP_539d53059a2e35bc1c6dc9c85d9f465f_Traceguids,
       v14,
       v15);
   }

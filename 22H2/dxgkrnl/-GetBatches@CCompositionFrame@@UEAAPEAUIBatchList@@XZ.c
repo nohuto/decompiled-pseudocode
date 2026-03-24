@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBatches@CCompositionFrame@@UEAAPEAUIBatchList@@XZ @ 0x1C001A0F0
+ * XREFs of ?GetBatches@CCompositionFrame@@UEAAPEAUIBatchList@@XZ @ 0x1C001B8D0
  * Callers:
  *     <none>
  * Callees:
@@ -10,7 +10,7 @@ struct IBatchList *__fastcall CCompositionFrame::GetBatches(CCompositionFrame *t
 {
   struct IBatchList *result; // rax
 
-  result = (struct IBatchList *)*((_QWORD *)this + 13);
-  *((_QWORD *)this + 13) = 0LL;
+  result = (struct IBatchList *)*((_QWORD *)this + 12);
+  *((_QWORD *)this + 12) = 0LL;
   return result;
 }

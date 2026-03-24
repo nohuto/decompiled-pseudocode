@@ -1,30 +1,25 @@
 /*
- * XREFs of HvUnlockHiveFlusherExclusive @ 0x140AF668C
+ * XREFs of HvUnlockHiveFlusherExclusive @ 0x14071D558
  * Callers:
- *     CmpRecheckHiveVolumePolicy @ 0x1402F634C (CmpRecheckHiveVolumePolicy.c)
- *     CmShutdownSystem1 @ 0x140615C34 (CmShutdownSystem1.c)
- *     CmpUnlockKcbStackFlusherLocksExclusive @ 0x1406163C4 (CmpUnlockKcbStackFlusherLocksExclusive.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
- *     CmpFlushHive @ 0x140753398 (CmpFlushHive.c)
- *     CmpTransMgrPrepare @ 0x140768FAC (CmpTransMgrPrepare.c)
- *     HvpFinishPrimaryWrite @ 0x1407D9C94 (HvpFinishPrimaryWrite.c)
- *     CmpTransMgrSyncHive @ 0x1407E7F30 (CmpTransMgrSyncHive.c)
- *     CmpLoadHiveThread @ 0x1408283D0 (CmpLoadHiveThread.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x140828CF4 (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140828D7C (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     CmpWaitOnHiveWriteQueue @ 0x140860638 (CmpWaitOnHiveWriteQueue.c)
- *     CmDumpKeyToFile @ 0x140A0AB54 (CmDumpKeyToFile.c)
- *     CmSaveMergedKeys @ 0x140A0BE34 (CmSaveMergedKeys.c)
- *     CmpBlockTwoHiveWrites @ 0x140A13908 (CmpBlockTwoHiveWrites.c)
- *     CmpUnblockHiveWrites @ 0x140A13A24 (CmpUnblockHiveWrites.c)
- *     CmpUnblockTwoHiveWrites @ 0x140A13ADC (CmpUnblockTwoHiveWrites.c)
- *     CmReplaceKey @ 0x140A157A4 (CmReplaceKey.c)
- *     CmpFlushBackupHive @ 0x140A1A998 (CmpFlushBackupHive.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x140361750 (CmpRecheckHiveVolumePolicy.c)
+ *     CmpUnlockKcbStackFlusherLocksExclusive @ 0x14036B664 (CmpUnlockKcbStackFlusherLocksExclusive.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
+ *     CmpDoParseKey @ 0x140646890 (CmpDoParseKey.c)
+ *     CmpTransMgrPrepare @ 0x140768324 (CmpTransMgrPrepare.c)
+ *     CmpLoadHiveThread @ 0x14079F180 (CmpLoadHiveThread.c)
+ *     CmReplaceKey @ 0x14086DA18 (CmReplaceKey.c)
+ *     CmSaveMergedKeys @ 0x14087CAE0 (CmSaveMergedKeys.c)
  * Callees:
- *     CmSiRWLockReleaseExclusive @ 0x140747848 (CmSiRWLockReleaseExclusive.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
  */
 
-signed __int32 __fastcall HvUnlockHiveFlusherExclusive(__int64 a1)
+char __fastcall HvUnlockHiveFlusherExclusive(__int64 a1)
 {
-  return CmSiRWLockReleaseExclusive((volatile signed __int64 *)(a1 + 72));
+  ULONG_PTR v1; // rbx
+
+  v1 = a1 + 72;
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 72));
+  return KeAbPostRelease(v1);
 }

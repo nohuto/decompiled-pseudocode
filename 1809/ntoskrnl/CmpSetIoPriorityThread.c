@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpSetIoPriorityThread @ 0x14013ADF8
+ * XREFs of CmpSetIoPriorityThread @ 0x14013AE18
  * Callers:
  *     CmpDoFileWrite @ 0x1405B3A60 (CmpDoFileWrite.c)
  * Callees:
- *     PsSetIoPriorityThread @ 0x1400DEF38 (PsSetIoPriorityThread.c)
+ *     PsSetIoPriorityThread @ 0x1400DEF58 (PsSetIoPriorityThread.c)
  */
 
 __int64 __fastcall CmpSetIoPriorityThread(__int64 a1, unsigned int a2)

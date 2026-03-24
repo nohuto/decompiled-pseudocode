@@ -1,9 +1,9 @@
 /*
- * XREFs of CmRegUtilWstrValueSetFullBuffer @ 0x1C0398714
+ * XREFs of CmRegUtilWstrValueSetFullBuffer @ 0x1C02C5D5C
  * Callers:
- *     PpRegStateUpdateStackCreationSettings @ 0x1C0397FDC (PpRegStateUpdateStackCreationSettings.c)
+ *     PpRegStateUpdateStackCreationSettings @ 0x1C02C5658 (PpRegStateUpdateStackCreationSettings.c)
  * Callees:
- *     WdmlibRtlInitUnicodeStringEx @ 0x1C005DF44 (WdmlibRtlInitUnicodeStringEx.c)
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C0050BBC (WdmlibRtlInitUnicodeStringEx.c)
  */
 
 int __fastcall CmRegUtilWstrValueSetFullBuffer(__int64 a1, __int64 a2, __int64 a3, __int64 a4, ULONG DataSize)

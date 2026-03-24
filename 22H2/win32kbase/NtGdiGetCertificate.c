@@ -1,57 +1,53 @@
 /*
- * XREFs of NtGdiGetCertificate @ 0x1C015C720
+ * XREFs of NtGdiGetCertificate @ 0x1C0140720
  * Callers:
  *     <none>
  * Callees:
- *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
- *     AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList @ 0x1C00BF7E0 (AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     CallMonitor @ 0x1C01516F0 (CallMonitor.c)
- *     GetCertificateLengthAndMonitorPDO @ 0x1C015BA9C (GetCertificateLengthAndMonitorPDO.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C0037600 (UserSessionSwitchLeaveCrit.c)
+ *     AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList @ 0x1C00B49C0 (AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList.c)
+ *     CallMonitor @ 0x1C00C08B0 (CallMonitor.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     GetCertificateLengthAndMonitorPDO @ 0x1C014027C (GetCertificateLengthAndMonitorPDO.c)
  */
 
-__int64 __fastcall NtGdiGetCertificate(__int64 a1, unsigned int a2, volatile void *a3, unsigned int a4)
+__int64 __fastcall NtGdiGetCertificate(struct _UNICODE_STRING *a1, int a2, volatile void *a3, unsigned int a4)
 {
   __int64 result; // rax
   unsigned int v8; // ebx
-  void *Pool2; // rsi
-  __int64 v10; // rdx
+  PVOID PoolWithTag; // rsi
   int CertificateLengthAndMonitorPDO; // edi
-  __int64 v12; // r8
-  __int64 v13; // r9
-  PVOID v14; // rcx
-  SIZE_T Length; // [rsp+30h] [rbp-38h] BYREF
+  SIZE_T NumberOfBytes; // [rsp+30h] [rbp-38h] BYREF
   PVOID Object[3]; // [rsp+38h] [rbp-30h] BYREF
-  unsigned int InputBuffer; // [rsp+78h] [rbp+10h] BYREF
+  int InputBuffer; // [rsp+78h] [rbp+10h] BYREF
 
   InputBuffer = a2;
   result = AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList();
   v8 = 0;
   if ( (int)result >= 0 )
   {
-    LODWORD(Length) = 0;
+    LODWORD(NumberOfBytes) = 0;
     Object[0] = 0LL;
-    Pool2 = 0LL;
-    CertificateLengthAndMonitorPDO = GetCertificateLengthAndMonitorPDO(a1, InputBuffer, &Length, Object);
+    PoolWithTag = 0LL;
+    CertificateLengthAndMonitorPDO = GetCertificateLengthAndMonitorPDO(a1, InputBuffer, &NumberOfBytes, Object);
     if ( CertificateLengthAndMonitorPDO >= 0 )
     {
-      if ( a4 >= (unsigned int)Length )
+      if ( a4 >= (unsigned int)NumberOfBytes )
       {
-        Pool2 = (void *)ExAllocatePool2(258LL, (unsigned int)Length, 1297108807LL);
-        Object[1] = Pool2;
-        if ( Pool2 )
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x4D504F47u);
+        Object[1] = PoolWithTag;
+        if ( PoolWithTag )
         {
           CertificateLengthAndMonitorPDO = CallMonitor(
                                              (PDEVICE_OBJECT)Object[0],
                                              0x232487u,
                                              &InputBuffer,
                                              4u,
-                                             Pool2,
-                                             Length);
+                                             PoolWithTag,
+                                             NumberOfBytes);
           if ( CertificateLengthAndMonitorPDO >= 0 )
           {
-            ProbeForWrite(a3, (unsigned int)Length, 1u);
-            memmove((void *)a3, Pool2, (unsigned int)Length);
+            ProbeForWrite(a3, (unsigned int)NumberOfBytes, 1u);
+            memmove((void *)a3, PoolWithTag, (unsigned int)NumberOfBytes);
           }
         }
         else
@@ -64,12 +60,11 @@ __int64 __fastcall NtGdiGetCertificate(__int64 a1, unsigned int a2, volatile voi
         CertificateLengthAndMonitorPDO = -1071774450;
       }
     }
-    v14 = Object[0];
     if ( Object[0] )
       ObfDereferenceObject(Object[0]);
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0x4D504F47u);
-    UserSessionSwitchLeaveCrit((__int64)v14, v10, v12, v13);
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0x4D504F47u);
+    UserSessionSwitchLeaveCrit();
     if ( CertificateLengthAndMonitorPDO < 0 )
       return (unsigned int)CertificateLengthAndMonitorPDO;
     return v8;

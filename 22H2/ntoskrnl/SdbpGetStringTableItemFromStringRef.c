@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpGetStringTableItemFromStringRef @ 0x1407581C4
+ * XREFs of SdbpGetStringTableItemFromStringRef @ 0x140755E40
  * Callers:
- *     SdbpGetMappedStringFromTable @ 0x1407578F8 (SdbpGetMappedStringFromTable.c)
+ *     SdbpGetMappedStringFromTable @ 0x140755DF0 (SdbpGetMappedStringFromTable.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbGetTagFromTagID @ 0x140758190 (SdbGetTagFromTagID.c)
- *     RtlRunOnceExecuteOnce @ 0x1407582A0 (RtlRunOnceExecuteOnce.c)
+ *     RtlRunOnceExecuteOnce @ 0x14066F550 (RtlRunOnceExecuteOnce.c)
+ *     AslLogCallPrintf @ 0x140755754 (AslLogCallPrintf.c)
+ *     SdbGetTagFromTagID @ 0x140759BE4 (SdbGetTagFromTagID.c)
  */
 
 __int64 __fastcall SdbpGetStringTableItemFromStringRef(
@@ -57,7 +57,7 @@ __int64 __fastcall SdbpGetStringTableItemFromStringRef(
     Ptr = Parameter;
   }
   v9 = v12 + a2;
-  if ( (unsigned __int16)SdbGetTagFromTagID((__int64)Ptr, v12 + a2) == 0x8801 )
+  if ( (unsigned __int16)SdbGetTagFromTagID(Ptr, (unsigned int)(v12 + a2), a3, a4) == 0x8801 )
   {
     v11 = 0;
   }

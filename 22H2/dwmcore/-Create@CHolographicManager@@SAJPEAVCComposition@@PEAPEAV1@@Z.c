@@ -1,14 +1,13 @@
 /*
- * XREFs of ?Create@CHolographicManager@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x18010229C
+ * XREFs of ?Create@CHolographicManager@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x1800B666C
  * Callers:
- *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800AEC50 (-Initialize@CComposition@@MEAAJXZ.c)
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800B46F0 (-Initialize@CComposition@@MEAAJXZ.c)
  * Callees:
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038D40 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DBB94 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ??0CHolographicManager@@AEAA@PEAVCComposition@@@Z @ 0x18010232C (--0CHolographicManager@@AEAA@PEAVCComposition@@@Z.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?Release@CDrawListEntry@@UEAAKXZ @ 0x1800522A0 (-Release@CDrawListEntry@@UEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F7D8 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??0CHolographicManager@@AEAA@PEAVCComposition@@@Z @ 0x1800B670C (--0CHolographicManager@@AEAA@PEAVCComposition@@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CHolographicManager::Create(struct CComposition *a1, struct CHolographicManager **a2)
@@ -17,9 +16,9 @@ __int64 __fastcall CHolographicManager::Create(struct CComposition *a1, struct C
   CHolographicManager *v5; // rax
   __int64 v6; // rcx
   CHolographicManager *v7; // rdi
+  int v8; // ebx
   HANDLE Event; // rax
-  __int64 v9; // rcx
-  unsigned int v10; // ebx
+  __int64 v10; // rcx
   void *retaddr; // [rsp+38h] [rbp+0h]
 
   v4 = (CHolographicManager *)DefaultHeap::AllocClear(0xF8uLL);
@@ -29,25 +28,26 @@ __int64 __fastcall CHolographicManager::Create(struct CComposition *a1, struct C
   v7 = v5;
   if ( v5 )
   {
-    CMILRefCountImpl::AddReference((CHolographicManager *)((char *)v5 + 16));
+    _InterlockedIncrement((volatile signed __int32 *)v5 + 4);
+    v8 = -2147467259;
     Event = CreateEventExW(0LL, 0LL, 0, 0x1F0003u);
     *((_QWORD *)v7 + 29) = Event;
     if ( Event )
+      v8 = 0;
+    if ( v8 < 0 )
     {
-      v10 = 0;
-      *a2 = v7;
+      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v8, 0x1Au, 0LL);
+      CDrawListEntry::Release((CHolographicManager *)((char *)v7 + 8));
     }
     else
     {
-      v10 = -2147467259;
-      MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147467259, 0x1Au, 0LL);
-      CMILRefCountBaseT<IMILRefCount>::InternalRelease((volatile signed __int32 *)v7 + 2);
+      *a2 = v7;
     }
   }
   else
   {
-    v10 = -2147024882;
+    v8 = -2147024882;
     MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2147024882, 0x16u, 0LL);
   }
-  return v10;
+  return (unsigned int)v8;
 }

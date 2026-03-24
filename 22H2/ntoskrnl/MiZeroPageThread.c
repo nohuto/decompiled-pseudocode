@@ -1,105 +1,60 @@
 /*
- * XREFs of MiZeroPageThread @ 0x1403AF9A0
+ * XREFs of MiZeroPageThread @ 0x1403CA4D0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KeWaitForMultipleObjects @ 0x140310FC0 (KeWaitForMultipleObjects.c)
- *     ZwWaitForSingleObject @ 0x14041A720 (ZwWaitForSingleObject.c)
- *     ObCloseHandle @ 0x14076BDA0 (ObCloseHandle.c)
- *     MiCreatePerNodeZeroingConductor @ 0x14085F7B8 (MiCreatePerNodeZeroingConductor.c)
+ *     MiZeroPage @ 0x140232C80 (MiZeroPage.c)
+ *     MiInitializeColorTable @ 0x1403ABB3C (MiInitializeColorTable.c)
+ *     MiZeroBootLargePages @ 0x1403CA524 (MiZeroBootLargePages.c)
+ *     MiDeleteZeroThreadContext @ 0x14054FB54 (MiDeleteZeroThreadContext.c)
+ *     MiGetPagesToZero @ 0x14054FC8C (MiGetPagesToZero.c)
+ *     MiSetZeroPageThreadPriority @ 0x14054FDF4 (MiSetZeroPageThreadPriority.c)
+ *     MiWaitForFreePagesToZero @ 0x14054FECC (MiWaitForFreePagesToZero.c)
  */
 
-NTSTATUS __fastcall MiZeroPageThread(__int64 a1)
+__int64 __fastcall MiZeroPageThread(ULONG_PTR *a1)
 {
-  void *v2; // r15
-  unsigned int v3; // r14d
-  void *v4; // r12
-  int v5; // ecx
-  _QWORD *v6; // rax
-  __int64 v7; // r8
-  int v8; // esi
-  unsigned int v9; // ebx
-  __int64 i; // rbp
-  NTSTATUS result; // eax
-  unsigned int v12; // ebx
-  __int64 v13; // rdi
-  HANDLE *v14; // rdi
-  HANDLE v15; // rsi
-  PVOID Object[2]; // [rsp+40h] [rbp-98h] BYREF
-  struct _KWAIT_BLOCK WaitBlockArray; // [rsp+50h] [rbp-88h] BYREF
+  __int64 result; // rax
+  _DWORD *v3; // r14
+  unsigned int v4; // ebx
+  struct _KTHREAD *CurrentThread; // rbp
+  unsigned int v6; // r12d
+  int v7; // eax
+  unsigned int i; // esi
+  __int64 v9; // [rsp+50h] [rbp+8h] BYREF
 
-  v2 = (void *)(a1 + 104);
-  v3 = 1;
-  v4 = (void *)(a1 + 128);
-  do
+  if ( a1 != &MiSystemPartition || (result = MiZeroBootLargePages(), (int)result < 0) )
   {
-    v5 = 0;
-    if ( KeNumberNodes )
+    v3 = (_DWORD *)a1[805];
+    v4 = 0;
+    v3[67] = -1;
+    MiInitializeColorTable(v3 + 62, 0);
+    CurrentThread = KeGetCurrentThread();
+    v9 = 0LL;
+    *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) |= 0x400u;
+    v6 = MiSetZeroPageThreadPriority(a1, CurrentThread, 0LL);
+    while ( 1 )
     {
-      v6 = (_QWORD *)(*(_QWORD *)(a1 + 16) + 23168LL);
-      v7 = (unsigned __int16)KeNumberNodes;
-      do
+      v7 = MiWaitForFreePagesToZero(a1, &v9, v4);
+      if ( v7 == -1 )
+        break;
+      if ( v4 != v7 )
       {
-        if ( !*v6 && *(v6 - 42) )
-        {
-          *v6 = 1LL;
-          ++v5;
-        }
-        v6 += 3176;
-        --v7;
+        v4 = v7;
+        MiInitializeColorTable(v3 + 62, v7);
       }
-      while ( v7 );
-      if ( v5 )
+      for ( i = 0; i <= 3; ++i )
       {
-        if ( v3 )
-        {
-          v8 = 1;
-          *(_DWORD *)(a1 + 16484) = v5 + 2 * v5 + 1;
-        }
-        else
-        {
-          v8 = 0;
-        }
-        v9 = 0;
-        for ( i = *(_QWORD *)(a1 + 16); v9 < (unsigned __int16)KeNumberNodes; i += 25408LL )
-        {
-          if ( *(_QWORD *)(i + 23168) == 1LL && (int)MiCreatePerNodeZeroingConductor(a1, v9, v3) < 0 )
-          {
-            *(_QWORD *)(i + 23168) = 0LL;
-            if ( v8 )
-              v8 += 3;
-          }
-          ++v9;
-        }
-        if ( v8 && _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 16484), -v8) == v8 )
-          KeSetEvent((PRKEVENT)(a1 + 16488), 0, 0);
+        if ( (unsigned int)MiGetPagesToZero(a1, v3, i) )
+          break;
       }
+      if ( i <= 3 )
+        MiZeroPage((__int64)v3, (__int64)a1);
     }
-    Object[0] = v2;
-    Object[1] = v4;
-    v3 = 0;
-    result = KeWaitForMultipleObjects(2u, Object, WaitAny, WrFreePage, 0, 0, 0LL, &WaitBlockArray);
-  }
-  while ( result );
-  v12 = 0;
-  v13 = *(_QWORD *)(a1 + 16);
-  if ( KeNumberNodes )
-  {
-    v14 = (HANDLE *)(v13 + 23168);
-    do
-    {
-      v15 = *v14;
-      if ( *v14 )
-      {
-        ZwWaitForSingleObject(*v14, 0, 0LL);
-        ObCloseHandle(v15, 0);
-      }
-      result = (unsigned __int16)KeNumberNodes;
-      v14 += 3176;
-      ++v12;
-    }
-    while ( v12 < (unsigned __int16)KeNumberNodes );
+    MiSetZeroPageThreadPriority(a1, CurrentThread, v6);
+    *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) &= ~0x400u;
+    result = MiDeleteZeroThreadContext(v3);
+    a1[805] = 0LL;
   }
   return result;
 }

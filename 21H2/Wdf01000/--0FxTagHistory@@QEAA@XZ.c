@@ -1,5 +1,5 @@
 /*
- * XREFs of ??0FxTagHistory@@QEAA@XZ @ 0x1C000BC90
+ * XREFs of ??0FxTagHistory@@QEAA@XZ @ 0x1C000DBD0
  * Callers:
  *     <none>
  * Callees:

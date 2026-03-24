@@ -1,16 +1,17 @@
 /*
- * XREFs of ?wil_details_GetNtDllModuleHandle@@YAPEAUHINSTANCE__@@XZ @ 0x180029E50
+ * XREFs of ?wil_details_GetNtDllModuleHandle@@YAPEAUHINSTANCE__@@XZ @ 0x1800DA714
  * Callers:
- *     ?wil_details_NtUpdateWnfStateData@@YAJPEBU__WIL__WNF_STATE_NAME@@PEBXKPEBU__WIL__WNF_TYPE_ID@@1KK@Z @ 0x18001A258 (-wil_details_NtUpdateWnfStateData@@YAJPEBU__WIL__WNF_STATE_NAME@@PEBXKPEBU__WIL__WNF_TYPE_ID@@1K.c)
- *     ?RtlDllShutdownInProgress@details@wil@@YAEXZ @ 0x180029AB0 (-RtlDllShutdownInProgress@details@wil@@YAEXZ.c)
- *     ?RtlDisownModuleHeapAllocation@details@wil@@YAJPEAX0@Z @ 0x180029B10 (-RtlDisownModuleHeapAllocation@details@wil@@YAJPEAX0@Z.c)
- *     ?wil_RtlStagingConfig_QueryFeatureState@@YAHPEAUwil_FeatureState@@IHPEAH@Z @ 0x180029CD8 (-wil_RtlStagingConfig_QueryFeatureState@@YAHPEAUwil_FeatureState@@IHPEAH@Z.c)
- *     ?wil_details_RtlRegisterFeatureConfigurationChangeNotification@@YAJP6AXPEAX@Z0PEA_KPEAPEAX@Z @ 0x180029DC8 (-wil_details_RtlRegisterFeatureConfigurationChangeNotification@@YAJP6AXPEAX@Z0PEA_KPEAPEAX@Z.c)
- *     ?wil_details_NtQueryWnfStateData@@YAJPEBU__WIL__WNF_STATE_NAME@@PEBU__WIL__WNF_TYPE_ID@@PEBXPEAKPEAX3@Z @ 0x18002A324 (-wil_details_NtQueryWnfStateData@@YAJPEBU__WIL__WNF_STATE_NAME@@PEBU__WIL__WNF_TYPE_ID@@PEBXPEAK.c)
- *     ?FormatNtStatusMsg@details@wil@@YAXJPEAGK@Z @ 0x180177C00 (-FormatNtStatusMsg@details@wil@@YAXJPEAGK@Z.c)
- *     ?RtlNtStatusToDosErrorNoTeb@details@wil@@YAKJ@Z @ 0x180178780 (-RtlNtStatusToDosErrorNoTeb@details@wil@@YAKJ@Z.c)
- *     ?UnregisterWilFeatureConfigurationChange@details@wil@@YAXPEAX@Z @ 0x180178B40 (-UnregisterWilFeatureConfigurationChange@details@wil@@YAXPEAX@Z.c)
- *     ?wil_RtlStagingConfig_RecordFeatureUsage@@YAJIIH@Z @ 0x180178F7C (-wil_RtlStagingConfig_RecordFeatureUsage@@YAJIIH@Z.c)
+ *     ?RtlDllShutdownInProgress@details@wil@@YAEXZ @ 0x1800DA640 (-RtlDllShutdownInProgress@details@wil@@YAEXZ.c)
+ *     ?RtlDisownModuleHeapAllocation@details@wil@@YAJPEAX0@Z @ 0x1800DA6A0 (-RtlDisownModuleHeapAllocation@details@wil@@YAJPEAX0@Z.c)
+ *     ?UnsubscribeWilWnf@details@wil@@YAXPEAU__WIL__WNF_USER_SUBSCRIPTION@@@Z @ 0x1800E6AA0 (-UnsubscribeWilWnf@details@wil@@YAXPEAU__WIL__WNF_USER_SUBSCRIPTION@@@Z.c)
+ *     ?UnregisterWilFeatureConfigurationChange@details@wil@@YAXPEAX@Z @ 0x1800E6B00 (-UnregisterWilFeatureConfigurationChange@details@wil@@YAXPEAX@Z.c)
+ *     wil_RtlStagingConfig_QueryFeatureState @ 0x1800E9528 (wil_RtlStagingConfig_QueryFeatureState.c)
+ *     wil_RtlStagingConfig_RecordFeatureUsage @ 0x1800E9648 (wil_RtlStagingConfig_RecordFeatureUsage.c)
+ *     wil_details_NtQueryWnfStateData @ 0x1800E981C (wil_details_NtQueryWnfStateData.c)
+ *     wil_details_NtUpdateWnfStateData @ 0x1800E98A4 (wil_details_NtUpdateWnfStateData.c)
+ *     wil_details_RtlRegisterFeatureConfigurationChangeNotification @ 0x1800E9AB4 (wil_details_RtlRegisterFeatureConfigurationChangeNotification.c)
+ *     wil_details_RtlSubscribeWnfStateChangeNotification @ 0x1800E9B30 (wil_details_RtlSubscribeWnfStateChangeNotification.c)
+ *     ?RtlNtStatusToDosErrorNoTeb@details@wil@@YAKJ@Z @ 0x18014E7D0 (-RtlNtStatusToDosErrorNoTeb@details@wil@@YAKJ@Z.c)
  * Callees:
  *     <none>
  */

@@ -1,96 +1,102 @@
 /*
- * XREFs of RtlCountRequiredHotPatchAddressTableEntries @ 0x140A76278
+ * XREFs of RtlCountRequiredHotPatchAddressTableEntries @ 0x14091ACF8
  * Callers:
- *     MiPrepareToHotPatchImage @ 0x140A3A978 (MiPrepareToHotPatchImage.c)
+ *     MiPrepareToHotPatchImage @ 0x1408CD688 (MiPrepareToHotPatchImage.c)
  * Callees:
- *     RtlGetHotPatchSize @ 0x14067AD28 (RtlGetHotPatchSize.c)
- *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x14067AF7C (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
+ *     RtlGetHotPatchSize @ 0x14058FC4C (RtlGetHotPatchSize.c)
+ *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x1409B2C50 (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
  */
 
 __int64 __fastcall RtlCountRequiredHotPatchAddressTableEntries(
         __int64 a1,
         unsigned int a2,
-        __int64 a3,
-        unsigned __int64 a4,
-        unsigned int a5,
-        _DWORD *a6,
-        unsigned int *a7,
-        char a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11,
-        __int64 a12,
-        _DWORD *a13)
+        unsigned int a3,
+        _DWORD *a4,
+        int *a5,
+        char a6,
+        __int64 a7,
+        __int64 a8,
+        _DWORD *a9)
 {
-  int v14; // ebx
+  unsigned __int64 v10; // r14
+  int v12; // ebx
   unsigned int HotPatchSize; // eax
-  __int64 v18; // r9
-  unsigned int *v19; // r10
-  __int64 v20; // rdi
-  __int64 v21; // r8
-  int v22; // edx
-  bool v23; // al
-  bool v24; // cl
-  __int64 v25; // rcx
-  char *v26; // rcx
-  _BYTE *v27; // rdx
-  unsigned int v28; // eax
-  __int64 v29; // r10
-  int v30; // r11d
+  int *v14; // r9
+  __int64 v15; // rdi
+  int v16; // r10d
+  bool v17; // dl
+  int *v18; // r8
+  bool v19; // cl
+  __int64 v20; // rcx
+  unsigned int *v21; // rdx
+  __int64 v22; // rcx
+  unsigned __int64 v23; // rax
+  __int64 v24; // r9
+  unsigned __int64 v25; // r10
+  int v26; // r11d
 
-  v14 = 0;
-  HotPatchSize = RtlGetHotPatchSize(a6);
-  v19 = a7;
-  v20 = HotPatchSize;
-  if ( !*a7 )
+  v10 = a3;
+  v12 = 0;
+  HotPatchSize = RtlGetHotPatchSize(a4);
+  v14 = a5;
+  v15 = HotPatchSize;
+  v16 = *a5;
+  if ( !*a5 )
   {
-LABEL_20:
-    *a13 = v14;
+LABEL_23:
+    *a9 = v12;
     return 0LL;
   }
   while ( 1 )
   {
-    v21 = (__int64)v19;
-    v22 = *v19;
-    if ( a8 )
-      v23 = v22 < 0;
+    v17 = 0;
+    v18 = v14;
+    if ( a6 )
+    {
+      if ( v16 < 0 )
+        v17 = 1;
+    }
     else
-      v23 = v22 >= 0;
-    ++v19;
-    v24 = 0;
-    if ( (v22 & 0xFC000) == 0x1C000 )
-      v24 = v23;
-    if ( v24 )
+    {
+      v17 = v16 >= 0;
+    }
+    v19 = 0;
+    ++v14;
+    if ( (v16 & 0xFC000) == 0x1C000 )
+      v19 = v17;
+    if ( v19 )
       break;
-    v19 = (unsigned int *)(v21 + 4 * ((v22 & 0xFFF) * (unsigned int)v20 + 1LL));
-LABEL_19:
-    if ( !*v19 )
-      goto LABEL_20;
+    v14 = &v18[(v16 & 0xFFF) * (unsigned int)v15 + 1];
+LABEL_22:
+    v16 = *v14;
+    if ( !*v14 )
+      goto LABEL_23;
   }
-  if ( (v22 & 0xFFF) == 0 )
-    goto LABEL_19;
+  if ( (v16 & 0xFFF) == 0 )
+    goto LABEL_22;
   while ( 1 )
   {
-    v25 = *v19;
-    if ( (unsigned int)v25 < 0x10 || (int)v25 + 2 > a2 )
+    v20 = (unsigned int)*v14;
+    if ( (unsigned int)v20 < 0x10 || (int)v20 + 2 > a2 )
       return 3221225595LL;
-    v26 = (char *)(a1 + v25);
-    v27 = 0LL;
-    if ( (_DWORD)v20 != 2 )
-      v27 = v19 + 2;
-    v28 = RtlpCheckFunctionPatchAppliedInOriginalImage(v26, v27, v21, v18, a4);
-    if ( v28 == -1 )
+    v21 = 0LL;
+    v22 = a1 + v20;
+    if ( (_DWORD)v15 != 2 )
+      v21 = (unsigned int *)(v14 + 2);
+    v23 = RtlpCheckFunctionPatchAppliedInOriginalImage(v22, v21, v18);
+    if ( v23 == -1LL )
       return 3221225595LL;
-    if ( v28 == -2 )
+    if ( v23 )
     {
-      ++v14;
+      if ( v23 < v25 || v23 - v25 >= v10 )
+        return 3221225507LL;
     }
-    else if ( v28 >= a5 )
+    else
     {
-      return 3221225507LL;
+      ++v12;
     }
-    v19 = (unsigned int *)(v29 + 4 * v20);
-    if ( v30 == 1 )
-      goto LABEL_19;
+    v14 = (int *)(v24 + 4 * v15);
+    if ( v26 == 1 )
+      goto LABEL_22;
   }
 }

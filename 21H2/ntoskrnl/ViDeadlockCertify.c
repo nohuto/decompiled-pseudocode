@@ -1,7 +1,7 @@
 /*
- * XREFs of ViDeadlockCertify @ 0x140A99098
+ * XREFs of ViDeadlockCertify @ 0x1409DEE7C
  * Callers:
- *     ViDeadlockAnalyze @ 0x140A98E28 (ViDeadlockAnalyze.c)
+ *     ViDeadlockAnalyze @ 0x1409DEB94 (ViDeadlockAnalyze.c)
  * Callees:
  *     <none>
  */
@@ -45,55 +45,60 @@ __int64 __fastcall ViDeadlockCertify(unsigned __int64 a1, __int64 a2)
     {
       v8 = 1;
       if ( (unsigned int)v3 <= 1 )
-        return 1LL;
-      while ( 1 )
       {
-        v9 = *((_QWORD *)ViDeadlockGlobals + v8 + 4108);
-        if ( *(_QWORD *)(*(_QWORD *)(*((_QWORD *)ViDeadlockGlobals + v8 + 4109) + 56LL) + 8LL) == *(_QWORD *)(*(_QWORD *)(v9 + 56) + 8LL)
-          && (*(_DWORD *)(v9 + 72) & 2) != 0 )
+LABEL_31:
+        if ( (unsigned int)v3 <= 1 )
+          return 1LL;
+        while ( 1 )
         {
-          break;
+          v3 = (unsigned int)(v3 - 1);
+          v10 = (_QWORD *)**((_QWORD **)ViDeadlockGlobals + v3 + 4109);
+          if ( v10 )
+            break;
+LABEL_39:
+          if ( (unsigned int)v3 <= 1 )
+            return 1LL;
         }
-        if ( ++v8 >= (unsigned int)v3 )
+        while ( 1 )
         {
-          while ( 1 )
-          {
-            v3 = (unsigned int)(v3 - 1);
-            v10 = (_QWORD *)**((_QWORD **)ViDeadlockGlobals + v3 + 4109);
-            if ( v10 )
-              break;
+          LODWORD(v11) = v3 - 1;
+          if ( (_DWORD)v3 != 1 )
+            break;
 LABEL_38:
-            if ( (unsigned int)v3 <= 1 )
-              return 1LL;
-          }
-          while ( 1 )
-          {
-            LODWORD(v11) = v3 - 1;
-            if ( (_DWORD)v3 != 1 )
-              break;
+          v10 = (_QWORD *)*v10;
+          if ( !v10 )
+            goto LABEL_39;
+        }
+        while ( 1 )
+        {
+          v11 = (unsigned int)(v11 - 1);
+          v12 = (_QWORD *)**((_QWORD **)ViDeadlockGlobals + v11 + 4109);
+          if ( v12 )
+            break;
 LABEL_37:
-            v10 = (_QWORD *)*v10;
-            if ( !v10 )
-              goto LABEL_38;
-          }
-          while ( 1 )
+          if ( !(_DWORD)v11 )
+            goto LABEL_38;
+        }
+        while ( *(_QWORD *)(v12[7] + 8LL) != *(_QWORD *)(v10[7] + 8LL) )
+        {
+          v12 = (_QWORD *)*v12;
+          if ( !v12 )
+            goto LABEL_37;
+        }
+        ++*((_DWORD *)ViDeadlockGlobals + 8207);
+      }
+      else
+      {
+        while ( 1 )
+        {
+          v9 = *((_QWORD *)ViDeadlockGlobals + v8 + 4108);
+          if ( *(_QWORD *)(*(_QWORD *)(*((_QWORD *)ViDeadlockGlobals + v8 + 4109) + 56LL) + 8LL) == *(_QWORD *)(*(_QWORD *)(v9 + 56) + 8LL)
+            && (*(_DWORD *)(v9 + 72) & 2) != 0 )
           {
-            v11 = (unsigned int)(v11 - 1);
-            v12 = (_QWORD *)**((_QWORD **)ViDeadlockGlobals + v11 + 4109);
-            if ( v12 )
-              break;
-LABEL_36:
-            if ( !(_DWORD)v11 )
-              goto LABEL_37;
+            break;
           }
-          while ( *(_QWORD *)(v12[7] + 8LL) != *(_QWORD *)(v10[7] + 8LL) )
-          {
-            v12 = (_QWORD *)*v12;
-            if ( !v12 )
-              goto LABEL_36;
-          }
-          ++*((_DWORD *)ViDeadlockGlobals + 8207);
-          return 0LL;
+          if ( ++v8 >= (unsigned int)v3 )
+            goto LABEL_31;
         }
       }
     }

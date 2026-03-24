@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlSparseArrayElementFindCapped @ 0x1402FDEE0
+ * XREFs of RtlSparseArrayElementFindCapped @ 0x1402FDFE0
  * Callers:
  *     RtlpHpVaMgrCtxFree @ 0x140008234 (RtlpHpVaMgrCtxFree.c)
  * Callees:

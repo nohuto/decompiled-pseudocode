@@ -1,29 +1,33 @@
 /*
- * XREFs of IoInitializeTimer @ 0x140862A40
+ * XREFs of IoInitializeTimer @ 0x1407D3DA0
  * Callers:
- *     DifIoInitializeTimerWrapper @ 0x1405DFFD0 (DifIoInitializeTimerWrapper.c)
+ *     <none>
  * Callees:
- *     ExInterlockedInsertTailList @ 0x14028C180 (ExInterlockedInsertTailList.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExInterlockedInsertTailList @ 0x1402F86D0 (ExInterlockedInsertTailList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoInitializeTimer(PDEVICE_OBJECT DeviceObject, PIO_TIMER_ROUTINE TimerRoutine, PVOID Context)
 {
-  PIO_TIMER Timer; // rax
+  char *Timer; // rax
 
-  Timer = DeviceObject->Timer;
+  Timer = (char *)DeviceObject->Timer;
   if ( Timer )
     goto LABEL_4;
-  Timer = (PIO_TIMER)ExAllocatePool2(64LL, 48LL, 1767141193LL);
+  Timer = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x69546F49u);
   if ( Timer )
   {
-    Timer->DeviceObject = DeviceObject;
-    Timer->Type = 9;
-    DeviceObject->Timer = Timer;
+    *(_QWORD *)(Timer + 2) = 0LL;
+    *(_QWORD *)(Timer + 10) = 0LL;
+    *(_DWORD *)(Timer + 18) = 0;
+    *((_WORD *)Timer + 11) = 0;
+    *(_WORD *)Timer = 9;
+    *((_QWORD *)Timer + 5) = DeviceObject;
+    DeviceObject->Timer = (PIO_TIMER)Timer;
 LABEL_4:
-    Timer->TimerRoutine = (void (__fastcall *)(_DEVICE_OBJECT *, void *))TimerRoutine;
-    Timer->Context = Context;
-    ExInterlockedInsertTailList(&IopTimerQueueHead, &Timer->TimerList, &IopTimerLock);
+    *((_QWORD *)Timer + 3) = TimerRoutine;
+    *((_QWORD *)Timer + 4) = Context;
+    ExInterlockedInsertTailList(&IopTimerQueueHead, (PLIST_ENTRY)(Timer + 8), &IopTimerLock);
     return 0;
   }
   return -1073741670;

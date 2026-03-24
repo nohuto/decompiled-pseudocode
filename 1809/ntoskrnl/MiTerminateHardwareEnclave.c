@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTerminateHardwareEnclave @ 0x14085A7E4
+ * XREFs of MiTerminateHardwareEnclave @ 0x14085A7C4
  * Callers:
- *     MiDeleteEnclavePages @ 0x14085A0E8 (MiDeleteEnclavePages.c)
- *     MiTerminateEnclave @ 0x14085A740 (MiTerminateEnclave.c)
+ *     MiDeleteEnclavePages @ 0x14085A0C8 (MiDeleteEnclavePages.c)
+ *     MiTerminateEnclave @ 0x14085A720 (MiTerminateEnclave.c)
  * Callees:
  *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiDecommitHardwareEnclavePages @ 0x1402BD0D4 (MiDecommitHardwareEnclavePages.c)
+ *     MiDecommitHardwareEnclavePages @ 0x1402BD1D4 (MiDecommitHardwareEnclavePages.c)
  */
 
 __int64 __fastcall MiTerminateHardwareEnclave(__int64 a1, __int64 a2)

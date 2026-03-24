@@ -1,9 +1,9 @@
 /*
- * XREFs of MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1400D94BC
+ * XREFs of MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1400D94DC
  * Callers:
- *     MiRelocateImageAgain @ 0x14064F5C0 (MiRelocateImageAgain.c)
- *     MiRelocateImage @ 0x14064FEE4 (MiRelocateImage.c)
- *     MiCaptureSecureImageBaseAddress @ 0x14085C13C (MiCaptureSecureImageBaseAddress.c)
+ *     MiRelocateImageAgain @ 0x14064F5A0 (MiRelocateImageAgain.c)
+ *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
+ *     MiCaptureSecureImageBaseAddress @ 0x14085C11C (MiCaptureSecureImageBaseAddress.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  */

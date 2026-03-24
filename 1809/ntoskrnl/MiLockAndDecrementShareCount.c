@@ -1,5 +1,5 @@
 /*
- * XREFs of MiLockAndDecrementShareCount @ 0x140118088
+ * XREFs of MiLockAndDecrementShareCount @ 0x1401180A8
  * Callers:
  *     MmFreeIndependentPages @ 0x140001010 (MmFreeIndependentPages.c)
  *     MiIssueHardFault @ 0x14001BCD0 (MiIssueHardFault.c)
@@ -9,20 +9,20 @@
  *     MiDemoteCombinedPte @ 0x14006C200 (MiDemoteCombinedPte.c)
  *     MiResolveProtoCombine @ 0x14007BF74 (MiResolveProtoCombine.c)
  *     MiOutPageSingleKernelStack @ 0x14007FAB0 (MiOutPageSingleKernelStack.c)
- *     MiMakeSystemCachePteValid @ 0x1400D7A60 (MiMakeSystemCachePteValid.c)
- *     MiCreateSharedZeroPages @ 0x1401091A0 (MiCreateSharedZeroPages.c)
- *     KiOutSwapProcesses @ 0x14010B430 (KiOutSwapProcesses.c)
- *     MiReleaseInPageRefs @ 0x140117F88 (MiReleaseInPageRefs.c)
- *     MiDecommitLargePoolVa @ 0x14015B2C0 (MiDecommitLargePoolVa.c)
- *     MiHandleForkTransitionPte @ 0x1402CA018 (MiHandleForkTransitionPte.c)
- *     MiMarkBootGuardPage @ 0x140729A8C (MiMarkBootGuardPage.c)
- *     MiDeletePfnBitMaps @ 0x14085F530 (MiDeletePfnBitMaps.c)
+ *     MiMakeSystemCachePteValid @ 0x1400D7A80 (MiMakeSystemCachePteValid.c)
+ *     MiCreateSharedZeroPages @ 0x1401091C0 (MiCreateSharedZeroPages.c)
+ *     KiOutSwapProcesses @ 0x14010B450 (KiOutSwapProcesses.c)
+ *     MiReleaseInPageRefs @ 0x140117FA8 (MiReleaseInPageRefs.c)
+ *     MiDecommitLargePoolVa @ 0x14015B2E0 (MiDecommitLargePoolVa.c)
+ *     MiHandleForkTransitionPte @ 0x1402CA118 (MiHandleForkTransitionPte.c)
+ *     MiMarkBootGuardPage @ 0x140729A6C (MiMarkBootGuardPage.c)
+ *     MiDeletePfnBitMaps @ 0x14085F510 (MiDeletePfnBitMaps.c)
  *     MiFreeBootDriverPage @ 0x1409B83FC (MiFreeBootDriverPage.c)
- *     MiReturnDriverLoadPages @ 0x1409F7790 (MiReturnDriverLoadPages.c)
+ *     MiReturnDriverLoadPages @ 0x1409F77A0 (MiReturnDriverLoadPages.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiLockAndDecrementShareCount(ULONG_PTR a1, char a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwCancelTimer @ 0x14041B2C0
+ * XREFs of ZwCancelTimer @ 0x1403FA640
  * Callers:
- *     DifZwCancelTimerWrapper @ 0x1405EDC90 (DifZwCancelTimerWrapper.c)
+ *     <none>
  * Callees:
  *     <none>
  */

@@ -1,35 +1,36 @@
 /*
- * XREFs of UserAddAtomEx @ 0x1C0098030
+ * XREFs of UserAddAtomEx @ 0x1C0082AC0
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     ?LkdForAtomAdditionFailure@@YAXPEAXJ@Z @ 0x1C014EE00 (-LkdForAtomAdditionFailure@@YAXPEAXJ@Z.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     ?LkdForAtomAdditionFailure@@YAXPEAXJ@Z @ 0x1C0138E0C (-LkdForAtomAdditionFailure@@YAXPEAXJ@Z.c)
  */
 
-__int64 __fastcall UserAddAtomEx(__int64 a1, int a2, unsigned int a3)
+__int64 __fastcall UserAddAtomEx(__int64 a1, int a2)
 {
-  PRTL_ATOM_TABLE v3; // rdi
-  int v5; // ebx
+  PRTL_ATOM_TABLE v2; // rdi
+  int v4; // ebx
   __int64 result; // rax
-  ULONG v7; // eax
+  ULONG v6; // eax
+  __int64 v7; // rdx
   RTL_ATOM v8; // [rsp+48h] [rbp+20h] BYREF
 
-  v3 = UserAtomTableHandle;
+  v2 = UserAtomTableHandle;
   v8 = 0;
-  v5 = RtlAddAtomToAtomTableEx(UserAtomTableHandle, a1, &v8, a3);
-  if ( (int)(v5 + 0x80000000) >= 0 && v5 != -1073741773 )
+  v4 = RtlAddAtomToAtomTableEx(UserAtomTableHandle, a1, &v8);
+  if ( (int)(v4 + 0x80000000) >= 0 && v4 != -1073741773 )
   {
-    LkdForAtomAdditionFailure(v3, v5);
-    v7 = RtlNtStatusToDosError(v5);
-    UserSetLastError(v7);
+    LkdForAtomAdditionFailure(v2, v4);
+    v6 = RtlNtStatusToDosError(v4);
+    UserSetLastError(v6, v7);
   }
   result = v8;
   if ( v8 )
   {
     if ( a2 )
     {
-      RtlPinAtomInAtomTable(v3, v8);
+      RtlPinAtomInAtomTable(v2, v8);
       return v8;
     }
   }

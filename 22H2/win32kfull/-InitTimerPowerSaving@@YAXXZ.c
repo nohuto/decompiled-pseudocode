@@ -1,7 +1,7 @@
 /*
- * XREFs of ?InitTimerPowerSaving@@YAXXZ @ 0x1C003CF3C
+ * XREFs of ?InitTimerPowerSaving@@YAXXZ @ 0x1C00097D0
  * Callers:
- *     RawInputThread @ 0x1C003F070 (RawInputThread.c)
+ *     RawInputThread @ 0x1C0009A50 (RawInputThread.c)
  * Callees:
  *     <none>
  */

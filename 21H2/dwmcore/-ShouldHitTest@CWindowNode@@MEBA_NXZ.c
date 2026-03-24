@@ -1,8 +1,7 @@
 /*
- * XREFs of ?ShouldHitTest@CWindowNode@@MEBA_NXZ @ 0x180063140
+ * XREFs of ?ShouldHitTest@CWindowNode@@MEBA_NXZ @ 0x1800C7F10
  * Callers:
- *     ?HitTestContent@CWindowNode@@UEAAJ_NAEBUD2D_POINT_2F@@PEA_N@Z @ 0x180062E10 (-HitTestContent@CWindowNode@@UEAAJ_NAEBUD2D_POINT_2F@@PEA_N@Z.c)
- *     ?GetContentBounds@CWindowNode@@UEAAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180062FA0 (-GetContentBounds@CWindowNode@@UEAAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@.c)
+ *     ?HitTestContent@CWindowNode@@UEAAJ_NAEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800C7B90 (-HitTestContent@CWindowNode@@UEAAJ_NAEBUD2D_POINT_2F@@PEA_N@Z.c)
  * Callees:
  *     <none>
  */
@@ -13,6 +12,6 @@ bool __fastcall CWindowNode::ShouldHitTest(CWindowNode *this)
 
   result = 0;
   if ( !*((_BYTE *)this + 914) )
-    return *((_QWORD *)this + 91) != 0LL;
+    return *((_QWORD *)this + 77) != 0LL;
   return result;
 }

@@ -1,50 +1,39 @@
 /*
- * XREFs of PnpDisableDevice @ 0x1409589C8
+ * XREFs of PnpDisableDevice @ 0x1408A1DDC
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
- *     PnpIsDeviceInstanceEnabled @ 0x1407D8E64 (PnpIsDeviceInstanceEnabled.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
+ *     PnpIsDeviceInstanceEnabled @ 0x14075240C (PnpIsDeviceInstanceEnabled.c)
  * Callees:
- *     PipClearDevNodeProblem @ 0x14086966C (PipClearDevNodeProblem.c)
- *     PipSetDevNodeProblem @ 0x1408697BC (PipSetDevNodeProblem.c)
- *     IopReleaseDeviceResources @ 0x140869C4C (IopReleaseDeviceResources.c)
- *     IopRemoveDevice @ 0x140869E38 (IopRemoveDevice.c)
- *     PiIrpQueryRemoveDevice @ 0x14096D1CC (PiIrpQueryRemoveDevice.c)
+ *     PiIrpQueryRemoveDevice @ 0x14073463C (PiIrpQueryRemoveDevice.c)
+ *     PipClearDevNodeProblem @ 0x140735BFC (PipClearDevNodeProblem.c)
+ *     IopReleaseDeviceResources @ 0x14074B5CC (IopReleaseDeviceResources.c)
+ *     IopRemoveDevice @ 0x14074B778 (IopRemoveDevice.c)
+ *     PipSetDevNodeProblem @ 0x14074C18C (PipSetDevNodeProblem.c)
  */
 
 void __fastcall PnpDisableDevice(__int64 a1, int a2)
 {
-  switch ( *(_DWORD *)(a1 + 300) )
+  int v2; // eax
+
+  v2 = *(_DWORD *)(a1 + 300);
+  if ( v2 >= 769 )
   {
-    case 0x301:
-    case 0x302:
-    case 0x303:
-    case 0x304:
-      goto LABEL_4;
-    case 0x305:
-    case 0x306:
-    case 0x307:
-    case 0x308:
-    case 0x309:
-    case 0x30A:
-    case 0x30B:
-    case 0x30C:
-    case 0x30D:
-    case 0x30E:
-    case 0x30F:
-      if ( (int)PiIrpQueryRemoveDevice(*(PDEVICE_OBJECT *)(a1 + 32)) >= 0 )
-      {
-LABEL_4:
-        IopRemoveDevice(*(PDEVICE_OBJECT *)(a1 + 32), 2);
-        IopReleaseDeviceResources((__int64 *)a1, 1);
-      }
-      else
-      {
-        IopRemoveDevice(*(PDEVICE_OBJECT *)(a1 + 32), 3);
-      }
-      break;
-    default:
-      break;
+    if ( v2 <= 770 )
+      goto LABEL_6;
+    if ( v2 > 781 )
+      goto LABEL_7;
+    if ( (int)PiIrpQueryRemoveDevice(*(PDEVICE_OBJECT *)(a1 + 32), 0LL) >= 0 )
+    {
+LABEL_6:
+      IopRemoveDevice(*(PDEVICE_OBJECT *)(a1 + 32), 2);
+      IopReleaseDeviceResources(a1, 1);
+    }
+    else
+    {
+      IopRemoveDevice(*(PDEVICE_OBJECT *)(a1 + 32), 3);
+    }
   }
+LABEL_7:
   if ( (*(_DWORD *)(a1 + 396) & 0x6000) != 0 )
     PipClearDevNodeProblem(a1);
   PipSetDevNodeProblem(a1, a2, 0);

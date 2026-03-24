@@ -1,8 +1,8 @@
 /*
- * XREFs of ?ClearWaitHandles@CManipulationManager@@KAXXZ @ 0x18019E078
+ * XREFs of ?ClearWaitHandles@CManipulationManager@@KAXXZ @ 0x1802247F0
  * Callers:
- *     ?Initialize@CManipulationManager@@IEAAJXZ @ 0x1800CB574 (-Initialize@CManipulationManager@@IEAAJXZ.c)
- *     ?ShutDownManipulationThread@CManipulationManager@@IEAAXXZ @ 0x1801A17BC (-ShutDownManipulationThread@CManipulationManager@@IEAAXXZ.c)
+ *     ?Initialize@CManipulationManager@@IEAAJXZ @ 0x1800B5898 (-Initialize@CManipulationManager@@IEAAJXZ.c)
+ *     ?ShutDownManipulationThread@CManipulationManager@@IEAAXXZ @ 0x1802272CC (-ShutDownManipulationThread@CManipulationManager@@IEAAXXZ.c)
  * Callees:
  *     <none>
  */

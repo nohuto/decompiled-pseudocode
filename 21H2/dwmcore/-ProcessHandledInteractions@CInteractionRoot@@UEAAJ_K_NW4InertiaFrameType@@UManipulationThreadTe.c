@@ -1,5 +1,5 @@
 /*
- * XREFs of ?ProcessHandledInteractions@CInteractionRoot@@UEAAJ_K_NW4InertiaFrameType@@UManipulationThreadTelemetryData@@PEAW4PointerResult@@@Z @ 0x180183980
+ * XREFs of ?ProcessHandledInteractions@CInteractionRoot@@UEAAJ_K_NW4InertiaFrameType@@UManipulationThreadTelemetryData@@PEAW4PointerResult@@@Z @ 0x1802352C0
  * Callers:
  *     <none>
  * Callees:

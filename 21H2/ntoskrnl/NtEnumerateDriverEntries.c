@@ -1,22 +1,22 @@
 /*
- * XREFs of NtEnumerateDriverEntries @ 0x1409FFD10
+ * XREFs of NtEnumerateDriverEntries @ 0x140953960
  * Callers:
  *     <none>
  * Callees:
- *     ExUnlockUserBuffer @ 0x140231450 (ExUnlockUserBuffer.c)
- *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ExLockUserBuffer @ 0x1406A904C (ExLockUserBuffer.c)
- *     SeSinglePrivilegeCheck @ 0x140722A80 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x14073A2B0 (ProbeForWrite.c)
- *     IoEnumerateEnvironmentVariablesEx @ 0x14093E3C0 (IoEnumerateEnvironmentVariablesEx.c)
- *     ExpSafeWcslen @ 0x1409FD474 (ExpSafeWcslen.c)
- *     ExpTranslateDriverEntryNameToId @ 0x1409FE4F8 (ExpTranslateDriverEntryNameToId.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExUnlockUserBuffer @ 0x1402997FC (ExUnlockUserBuffer.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ExLockUserBuffer @ 0x140683180 (ExLockUserBuffer.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x1408998EC (IoEnumerateEnvironmentVariablesEx.c)
+ *     ExpSafeWcslen @ 0x1409510D0 (ExpSafeWcslen.c)
+ *     ExpTranslateDriverEntryNameToId @ 0x140952140 (ExpTranslateDriverEntryNameToId.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2)
@@ -71,7 +71,7 @@ __int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2
   v40 = 0LL;
   P = 0LL;
   v4 = 0LL;
-  if ( dword_140C15C70 != 2 )
+  if ( dword_140C19850 != 2 )
     return 3221225474LL;
   if ( (Address & 0xFFFFFFFFFFFFFFFCuLL) != Address )
     return 3221225485LL;
@@ -119,7 +119,7 @@ __int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2
       LODWORD(NumberOfBytes) = 0;
     }
     ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( v13 || !(_DWORD)NumberOfBytes )
       goto LABEL_53;
     v15 = v4;

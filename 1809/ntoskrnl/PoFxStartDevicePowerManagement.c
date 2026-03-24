@@ -1,23 +1,23 @@
 /*
- * XREFs of PoFxStartDevicePowerManagement @ 0x14018BCB0
+ * XREFs of PoFxStartDevicePowerManagement @ 0x14018BCD0
  * Callers:
- *     PoFxEnableDStateReporting @ 0x140869050 (PoFxEnableDStateReporting.c)
+ *     PoFxEnableDStateReporting @ 0x140869030 (PoFxEnableDStateReporting.c)
  *     PoFxRegisterDebugger @ 0x1409DF33C (PoFxRegisterDebugger.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     PoFxActivateComponent @ 0x1400FE070 (PoFxActivateComponent.c)
- *     PopFxIdleComponent @ 0x1400FECEC (PopFxIdleComponent.c)
- *     PopFxIncrementDeviceSleepCount @ 0x140155CE0 (PopFxIncrementDeviceSleepCount.c)
- *     PopFxActivateDevice @ 0x14015A088 (PopFxActivateDevice.c)
- *     PopPepDeviceStarted @ 0x14018BE10 (PopPepDeviceStarted.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     PopDiagTraceFxDeviceStartPowerManagement @ 0x140750DDC (PopDiagTraceFxDeviceStartPowerManagement.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     PoFxActivateComponent @ 0x1400FE090 (PoFxActivateComponent.c)
+ *     PopFxIdleComponent @ 0x1400FED0C (PopFxIdleComponent.c)
+ *     PopFxIncrementDeviceSleepCount @ 0x140155D00 (PopFxIncrementDeviceSleepCount.c)
+ *     PopFxActivateDevice @ 0x14015A0A8 (PopFxActivateDevice.c)
+ *     PopPepDeviceStarted @ 0x14018BE30 (PopPepDeviceStarted.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PopDiagTraceFxDeviceStartPowerManagement @ 0x140750DBC (PopDiagTraceFxDeviceStartPowerManagement.c)
  */
 
 void __fastcall PoFxStartDevicePowerManagement(ULONG_PTR BugCheckParameter2)

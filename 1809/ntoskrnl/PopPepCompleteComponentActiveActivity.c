@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPepCompleteComponentActiveActivity @ 0x1400FFE90
+ * XREFs of PopPepCompleteComponentActiveActivity @ 0x1400FFEB0
  * Callers:
  *     <none>
  * Callees:
- *     PopPepTryPowerDownComponent @ 0x1400FFF04 (PopPepTryPowerDownComponent.c)
- *     PopPepUpdateIdleState @ 0x1400FFF44 (PopPepUpdateIdleState.c)
- *     PopPepComponentGetResidencyIdleState @ 0x140100050 (PopPepComponentGetResidencyIdleState.c)
+ *     PopPepTryPowerDownComponent @ 0x1400FFF24 (PopPepTryPowerDownComponent.c)
+ *     PopPepUpdateIdleState @ 0x1400FFF64 (PopPepUpdateIdleState.c)
+ *     PopPepComponentGetResidencyIdleState @ 0x140100070 (PopPepComponentGetResidencyIdleState.c)
  */
 
 void __fastcall PopPepCompleteComponentActiveActivity(__int64 a1, __int64 a2)

@@ -1,1 +1,69 @@
-/*\n * XREFs of MouseAddDevice @ 0x1C000C590\n * Callers:\n *     <none>\n * Callees:\n *     MouseAddDeviceEx @ 0x1C000C6E0 (MouseAddDeviceEx.c)\n *     MouCreateClassObject @ 0x1C000CA40 (MouCreateClassObject.c)\n */\n\n__int64 __fastcall MouseAddDevice(struct _DRIVER_OBJECT *IoObject, PDEVICE_OBJECT PhysicalDeviceObject)\n{\n  __int64 result; // rax\n  __int64 v5; // rbx\n  PDEVICE_OBJECT v6; // rax\n  NTSTATUS v7; // esi\n  _DWORD *ErrorLogEntry; // rax\n\n  result = MouCreateClassObject(IoObject, 0);\n  if ( (int)result >= 0 )\n  {\n    v5 = MEMORY[0x40];\n    v6 = IoAttachDeviceToDeviceStack(0LL, PhysicalDeviceObject);\n    *(_QWORD *)(v5 + 16) = v6;\n    if ( v6 )\n    {\n      *(_QWORD *)(v5 + 24) = PhysicalDeviceObject;\n      *(_WORD *)(v5 + 64) = 1;\n      *(_DWORD *)(v5 + 172) = 1;\n      *(_DWORD *)(v5 + 176) = 1;\n      PoSetPowerState(0LL, DevicePowerState, (POWER_STATE)1);\n      *(_QWORD *)(v5 + 268) = 0LL;\n      *(_BYTE *)(v5 + 345) = 0;\n      *(_QWORD *)(v5 + 280) = 0LL;\n      *(_BYTE *)(v5 + 288) = 0;\n      *(_QWORD *)(v5 + 296) = 0LL;\n      *(_DWORD *)(v5 + 304) = 0;\n      MEMORY[0x30] |= 0x2000u;\n      MEMORY[0x30] &= ~0x80u;\n      v7 = IoRegisterDeviceInterface(PhysicalDeviceObject, &GUID_DEVINTERFACE_MOUSE, 0LL, (PUNICODE_STRING)(v5 + 88));\n      if ( v7 < 0 )\n      {\n        IoDetachDevice(*(PDEVICE_OBJECT *)(v5 + 16));\n        *(_QWORD *)(v5 + 16) = 0LL;\n        IoDeleteDevice(0LL);\n      }\n      else\n      {\n        return (unsigned int)MouseAddDeviceEx(v5, 0LL, 0LL);\n      }\n      return (unsigned int)v7;\n    }\n    else\n    {\n      ErrorLogEntry = IoAllocateErrorLogEntry(IoObject, 0x30u);\n      if ( ErrorLogEntry )\n      {\n        ErrorLogEntry[3] = -1073414129;\n        *ErrorLogEntry = 0;\n        *((_QWORD *)ErrorLogEntry + 3) = 0LL;\n        ErrorLogEntry[4] = 0;\n        ErrorLogEntry[5] = -1073741667;\n        IoWriteErrorLogEntry(ErrorLogEntry);\n      }\n      IoDeleteDevice(0LL);\n      return 3221225629LL;\n    }\n  }\n  return result;\n}\n
+/*
+ * XREFs of MouseAddDevice @ 0x1C000C590
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MouseAddDeviceEx @ 0x1C000C6E0 (MouseAddDeviceEx.c)
+ *     MouCreateClassObject @ 0x1C000CA40 (MouCreateClassObject.c)
+ */
+
+__int64 __fastcall MouseAddDevice(struct _DRIVER_OBJECT *IoObject, PDEVICE_OBJECT PhysicalDeviceObject)
+{
+  __int64 result; // rax
+  __int64 v5; // rbx
+  PDEVICE_OBJECT v6; // rax
+  NTSTATUS v7; // esi
+  _DWORD *ErrorLogEntry; // rax
+
+  result = MouCreateClassObject(IoObject, 0);
+  if ( (int)result >= 0 )
+  {
+    v5 = MEMORY[0x40];
+    v6 = IoAttachDeviceToDeviceStack(0LL, PhysicalDeviceObject);
+    *(_QWORD *)(v5 + 16) = v6;
+    if ( v6 )
+    {
+      *(_QWORD *)(v5 + 24) = PhysicalDeviceObject;
+      *(_WORD *)(v5 + 64) = 1;
+      *(_DWORD *)(v5 + 172) = 1;
+      *(_DWORD *)(v5 + 176) = 1;
+      PoSetPowerState(0LL, DevicePowerState, (POWER_STATE)1);
+      *(_QWORD *)(v5 + 268) = 0LL;
+      *(_BYTE *)(v5 + 345) = 0;
+      *(_QWORD *)(v5 + 280) = 0LL;
+      *(_BYTE *)(v5 + 288) = 0;
+      *(_QWORD *)(v5 + 296) = 0LL;
+      *(_DWORD *)(v5 + 304) = 0;
+      MEMORY[0x30] |= 0x2000u;
+      MEMORY[0x30] &= ~0x80u;
+      v7 = IoRegisterDeviceInterface(PhysicalDeviceObject, &GUID_DEVINTERFACE_MOUSE, 0LL, (PUNICODE_STRING)(v5 + 88));
+      if ( v7 < 0 )
+      {
+        IoDetachDevice(*(PDEVICE_OBJECT *)(v5 + 16));
+        *(_QWORD *)(v5 + 16) = 0LL;
+        IoDeleteDevice(0LL);
+      }
+      else
+      {
+        return (unsigned int)MouseAddDeviceEx(v5, 0LL, 0LL);
+      }
+      return (unsigned int)v7;
+    }
+    else
+    {
+      ErrorLogEntry = IoAllocateErrorLogEntry(IoObject, 0x30u);
+      if ( ErrorLogEntry )
+      {
+        ErrorLogEntry[3] = -1073414129;
+        *ErrorLogEntry = 0;
+        *((_QWORD *)ErrorLogEntry + 3) = 0LL;
+        ErrorLogEntry[4] = 0;
+        ErrorLogEntry[5] = -1073741667;
+        IoWriteErrorLogEntry(ErrorLogEntry);
+      }
+      IoDeleteDevice(0LL);
+      return 3221225629LL;
+    }
+  }
+  return result;
+}

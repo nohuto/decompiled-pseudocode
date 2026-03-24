@@ -1,24 +1,24 @@
 /*
- * XREFs of ?EnsureHDR10MetaData@CFlipExBuffer@@IEAAJXZ @ 0x1C0078D80
+ * XREFs of ?EnsureHDR10MetaData@CFlipExBuffer@@IEAAJXZ @ 0x1C0066E64
  * Callers:
- *     ?UpdateAttributes@CFlipExBuffer@@IEAA_NAEBVCFlipToken@@@Z @ 0x1C0016BC0 (-UpdateAttributes@CFlipExBuffer@@IEAA_NAEBVCFlipToken@@@Z.c)
- *     ?UpdateAttributes@CCompositionSwapchainBuffer@@IEAA_NAEBVCFlipContentToken@@@Z @ 0x1C00832C4 (-UpdateAttributes@CCompositionSwapchainBuffer@@IEAA_NAEBVCFlipContentToken@@@Z.c)
+ *     ?UpdateAttributes@CFlipExBuffer@@IEAA_NAEBVCFlipToken@@@Z @ 0x1C0015B70 (-UpdateAttributes@CFlipExBuffer@@IEAA_NAEBVCFlipToken@@@Z.c)
+ *     ?UpdateAttributes@CCompositionSwapchainBuffer@@IEAA_NAEBVCFlipContentToken@@@Z @ 0x1C0067664 (-UpdateAttributes@CCompositionSwapchainBuffer@@IEAA_NAEBVCFlipContentToken@@@Z.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
  */
 
-__int64 __fastcall CFlipExBuffer::EnsureHDR10MetaData(CFlipExBuffer *this, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall CFlipExBuffer::EnsureHDR10MetaData(CFlipExBuffer *this)
 {
-  unsigned int v4; // ebx
-  __int64 v6; // rax
+  unsigned int v1; // ebx
+  PVOID v3; // rax
 
-  v4 = 0;
-  if ( !*((_QWORD *)this + 46) )
+  v1 = 0;
+  if ( !*((_QWORD *)this + 42) )
   {
-    v6 = operator new[](0x48uLL, 0x624D5343u, 260LL, a4);
-    *((_QWORD *)this + 46) = v6;
-    if ( !v6 )
+    v3 = operator new[](0x48uLL, 0x624D5343u, PagedPoolSession);
+    *((_QWORD *)this + 42) = v3;
+    if ( !v3 )
       return (unsigned int)-1073741801;
   }
-  return v4;
+  return v1;
 }

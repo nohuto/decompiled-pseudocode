@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierInitialization @ 0x1C0392010
+ * XREFs of VerifierInitialization @ 0x1C0394F90
  * Callers:
  *     <none>
  * Callees:
@@ -26,11 +26,11 @@ __int64 VerifierInitialization()
     {
       v0 = 1;
       v2 = VerifierFlags & 0xFFFFFFF7;
-      dword_1C032BFCC = 1;
+      dword_1C0330C9C = 1;
       goto LABEL_4;
     }
     GreBootTime.QuadPart = MEMORY[0xFFFFF78000000014];
-    if ( MmAddVerifierThunks(&off_1C02DF950, 0xF0u) >= 0 )
+    if ( MmAddVerifierThunks(&off_1C02E3D90, 0xF0u) >= 0 )
       v0 = 1;
   }
   v2 = VerifierFlags;

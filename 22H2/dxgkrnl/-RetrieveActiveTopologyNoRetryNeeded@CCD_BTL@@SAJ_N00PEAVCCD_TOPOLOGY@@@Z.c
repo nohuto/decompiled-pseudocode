@@ -1,12 +1,11 @@
 /*
- * XREFs of ?RetrieveActiveTopologyNoRetryNeeded@CCD_BTL@@SAJ_N00PEAVCCD_TOPOLOGY@@@Z @ 0x1C03BCB0C
+ * XREFs of ?RetrieveActiveTopologyNoRetryNeeded@CCD_BTL@@SAJ_N00PEAVCCD_TOPOLOGY@@@Z @ 0x1C02ED8BC
  * Callers:
- *     ?GetUnusedVidpnSourceId@@YAIPEAVCCD_TOPOLOGY@@AEBU_LUID@@@Z @ 0x1C02FAC08 (-GetUnusedVidpnSourceId@@YAIPEAVCCD_TOPOLOGY@@AEBU_LUID@@@Z.c)
+ *     ?GetUnusedVidpnSourceId@@YAIPEAVCCD_TOPOLOGY@@AEBU_LUID@@@Z @ 0x1C029666C (-GetUnusedVidpnSourceId@@YAIPEAVCCD_TOPOLOGY@@AEBU_LUID@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z @ 0x1C017D4B8 (-RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z.c)
- *     ?Clear@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C017FC38 (-Clear@CCD_TOPOLOGY@@QEAAXXZ.c)
- *     ?Reserve@CCD_TOPOLOGY@@QEAAGG@Z @ 0x1C0180C44 (-Reserve@CCD_TOPOLOGY@@QEAAGG@Z.c)
+ *     ?RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z @ 0x1C013A304 (-RetrieveActive@CCD_TOPOLOGY@@QEAAJ_N00PEAG@Z.c)
+ *     ?Clear@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C013CEB4 (-Clear@CCD_TOPOLOGY@@QEAAXXZ.c)
+ *     ?Reserve@CCD_TOPOLOGY@@QEAAGG@Z @ 0x1C013DEF0 (-Reserve@CCD_TOPOLOGY@@QEAAGG@Z.c)
  */
 
 __int64 __fastcall CCD_BTL::RetrieveActiveTopologyNoRetryNeeded(
@@ -15,52 +14,37 @@ __int64 __fastcall CCD_BTL::RetrieveActiveTopologyNoRetryNeeded(
         char a3,
         struct CCD_TOPOLOGY *a4)
 {
-  __int64 v5; // r8
-  __int64 v6; // r9
-  unsigned __int16 v7; // bx
-  __int64 result; // rax
-  int v9; // esi
-  unsigned __int16 i; // [rsp+70h] [rbp+18h] BYREF
+  unsigned __int16 v5; // bx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  int v10; // ebx
+  __int64 v11; // rax
+  __int64 v12; // rax
+  unsigned __int16 v14; // [rsp+50h] [rbp+18h] BYREF
 
-  LOBYTE(i) = a3;
+  LOBYTE(v14) = a3;
   CCD_TOPOLOGY::Clear(a4);
-  v7 = 8;
-  for ( i = 8; ; v7 = i )
+  v5 = 8;
+  v14 = 8;
+  while ( (unsigned __int16)CCD_TOPOLOGY::Reserve(a4, v5) >= v5 )
   {
-    if ( (unsigned __int16)CCD_TOPOLOGY::Reserve(a4, v7, v5, v6) < v7 )
-    {
-      WdLogSingleEntry1(2LL, v7);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to reserve the memory for active topology. (RequiredPathsCount = %I64u)",
-        v7,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      v9 = -1073741801;
-      goto LABEL_8;
-    }
-    result = CCD_TOPOLOGY::RetrieveActive(a4, 1, 0, 1, &i);
-    v9 = result;
-    if ( (_DWORD)result != -1073741789 )
-      break;
+    v10 = CCD_TOPOLOGY::RetrieveActive(a4, 1, 0, 1, &v14);
+    if ( v10 != -1073741789 )
+      goto LABEL_6;
+    v5 = v14;
   }
-  if ( (int)result >= 0 )
-    return result;
-LABEL_8:
-  WdLogSingleEntry1(2LL, v9);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"Unable to retrieve active topology. (Status = 0x%I64x)",
-    v9,
-    0LL,
-    0LL,
-    0LL,
-    0LL);
-  return (unsigned int)v9;
+  v11 = WdLogNewEntry5_WdError(v7, v6);
+  *(_QWORD *)(v11 + 24) = v5;
+  WdLogEvent5_WdError(v11);
+  v10 = -1073741801;
+LABEL_6:
+  if ( v10 < 0 )
+  {
+    v12 = WdLogNewEntry5_WdError(v9, v8);
+    *(_QWORD *)(v12 + 24) = v10;
+    WdLogEvent5_WdError(v12);
+  }
+  return (unsigned int)v10;
 }

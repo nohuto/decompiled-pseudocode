@@ -1,21 +1,22 @@
 /*
- * XREFs of ??0XLATEMEMOBJ@@QEAA@VXEPALOBJ@@0@Z @ 0x1C02DC0D4
+ * XREFs of ??0XLATEMEMOBJ@@QEAA@VXEPALOBJ@@0@Z @ 0x1C02BED2C
  * Callers:
- *     NtGdiUpdateColors @ 0x1C02D2A60 (NtGdiUpdateColors.c)
+ *     NtGdiUpdateColors @ 0x1C02B7DC0 (NtGdiUpdateColors.c)
  * Callees:
- *     ?pCreateXlate@@YAPEAVXLATE@@K@Z @ 0x1C02DCA50 (-pCreateXlate@@YAPEAVXLATE@@K@Z.c)
- *     ?vCheckForTrivial@XLATE@@QEAAXXZ @ 0x1C02DCC04 (-vCheckForTrivial@XLATE@@QEAAXXZ.c)
+ *     ?pCreateXlate@@YAPEAVXLATE@@K@Z @ 0x1C02BF31C (-pCreateXlate@@YAPEAVXLATE@@K@Z.c)
+ *     ?vCheckForTrivial@XLATE@@QEAAXXZ @ 0x1C02BF44C (-vCheckForTrivial@XLATE@@QEAAXXZ.c)
  */
 
 XLATE **__fastcall XLATEMEMOBJ::XLATEMEMOBJ(XLATE **a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebp
   struct XLATE *Xlate; // rax
-  unsigned int v8; // ecx
-  XLATE *i; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rax
+  unsigned int v8; // edx
+  XLATE *v9; // rcx
+  __int64 i; // r8
+  __int64 v11; // rdx
+  __int64 v12; // r9
+  __int64 v13; // rax
 
   v4 = 0;
   *a1 = 0LL;
@@ -27,20 +28,25 @@ XLATE **__fastcall XLATEMEMOBJ::XLATEMEMOBJ(XLATE **a1, __int64 a2, __int64 a3)
     v8 = 0;
     *((_QWORD *)*a1 + 6) = a2;
     *((_QWORD *)*a1 + 7) = a3;
-    for ( i = *a1; v8 < *((_DWORD *)*a1 + 3); ++v8 )
-      *((_DWORD *)i + v8 + 21) = v8;
-    v10 = *(_QWORD *)(a3 + 88);
-    v11 = *(_QWORD *)(a3 + 80);
+    v9 = *a1;
+    for ( i = (__int64)*a1 + 84; v8 < *((_DWORD *)*a1 + 3); v9 = *a1 )
+    {
+      *(_DWORD *)(i + 4LL * v8) = v8;
+      ++v8;
+    }
+    v11 = *(_QWORD *)(a3 + 88);
+    v12 = *(_QWORD *)(a3 + 80);
     if ( *(_DWORD *)(a3 + 28) )
     {
       do
       {
-        v12 = v4++;
-        *((_DWORD *)i + *(unsigned __int8 *)(v12 + v10 + 4) + 21) = *(unsigned __int8 *)(v12 + v11 + 4);
+        v13 = v4++;
+        *(_DWORD *)(i + 4LL * *(unsigned __int8 *)(v11 + v13 + 4)) = *(unsigned __int8 *)(v12 + v13 + 4);
       }
       while ( v4 < *(_DWORD *)(a3 + 28) );
+      v9 = *a1;
     }
-    XLATE::vCheckForTrivial(*a1);
+    XLATE::vCheckForTrivial(v9);
   }
   return a1;
 }

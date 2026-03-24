@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBDSM_CheckingIfDeviceShouldBeDisarmedForWakeOnResume @ 0x1C0023DA0
+ * XREFs of HUBDSM_CheckingIfDeviceShouldBeDisarmedForWakeOnResume @ 0x1C00215C0
  * Callers:
  *     <none>
  * Callees:

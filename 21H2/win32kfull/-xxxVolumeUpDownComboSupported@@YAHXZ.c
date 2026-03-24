@@ -1,7 +1,7 @@
 /*
- * XREFs of ?xxxVolumeUpDownComboSupported@@YAHXZ @ 0x1C01E5B64
+ * XREFs of ?xxxVolumeUpDownComboSupported@@YAHXZ @ 0x1C01EAF18
  * Callers:
- *     ?xxxHandleVolumeUpDownCombo@@YAXXZ @ 0x1C01E5AC8 (-xxxHandleVolumeUpDownCombo@@YAXXZ.c)
+ *     ?xxxHandleVolumeUpDownCombo@@YAXXZ @ 0x1C01EAE7C (-xxxHandleVolumeUpDownCombo@@YAXXZ.c)
  * Callees:
  *     <none>
  */

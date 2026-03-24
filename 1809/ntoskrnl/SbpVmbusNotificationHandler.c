@@ -1,9 +1,9 @@
 /*
- * XREFs of SbpVmbusNotificationHandler @ 0x140905CF0
+ * XREFs of SbpVmbusNotificationHandler @ 0x140905CD0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
  */
 
 __int64 __fastcall SbpVmbusNotificationHandler(__int64 a1)

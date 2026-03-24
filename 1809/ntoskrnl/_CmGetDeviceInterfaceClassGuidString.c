@@ -2,7 +2,7 @@
  * XREFs of _CmGetDeviceInterfaceClassGuidString @ 0x14059AE1C
  * Callers:
  *     _CmGetDeviceInterfaceClassGuid @ 0x14059ADB0 (_CmGetDeviceInterfaceClassGuid.c)
- *     _CmCreateDeviceInterfaceWorker @ 0x1407047BC (_CmCreateDeviceInterfaceWorker.c)
+ *     _CmCreateDeviceInterfaceWorker @ 0x14070479C (_CmCreateDeviceInterfaceWorker.c)
  * Callees:
  *     _CmGetDeviceInterfaceSubkeyPath @ 0x1405C65E8 (_CmGetDeviceInterfaceSubkeyPath.c)
  */

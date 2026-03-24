@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetSurfaceTransform@CRadialGradientEffect@@UEBAAEBUD2D_MATRIX_3X2_F@@I@Z @ 0x1800FCDF0
+ * XREFs of ?GetSurfaceTransform@CRadialGradientEffect@@UEBAAEBUD2D_MATRIX_3X2_F@@I@Z @ 0x1800E3C20
  * Callers:
  *     <none>
  * Callees:

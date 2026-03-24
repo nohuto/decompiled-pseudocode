@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceAppPowerMessage @ 0x14098C864
+ * XREFs of PopDiagTraceAppPowerMessage @ 0x140778874
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PsLookupProcessByProcessId @ 0x1406FA420 (PsLookupProcessByProcessId.c)
+ *     EtwEventEnabled @ 0x14021BEF0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     PsLookupProcessByProcessId @ 0x140625CA0 (PsLookupProcessByProcessId.c)
  */
 
 void __fastcall PopDiagTraceAppPowerMessage(HANDLE *a1)
@@ -35,7 +35,7 @@ void __fastcall PopDiagTraceAppPowerMessage(HANDLE *a1)
     v3 = Process;
     if ( v2 >= 0 )
     {
-      v4 = (unsigned __int16 *)Process[1].ActiveProcessors.StaticBitmap[2];
+      v4 = (unsigned __int16 *)Process[1].ActiveProcessors.Bitmap[2];
       v7 = *(_DWORD *)a1;
       v6 = *v4 >> 1;
       UserData.Ptr = (ULONGLONG)&v7;

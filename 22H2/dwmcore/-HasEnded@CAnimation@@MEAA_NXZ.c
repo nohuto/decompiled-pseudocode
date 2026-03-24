@@ -1,17 +1,19 @@
 /*
- * XREFs of ?HasEnded@CAnimation@@MEAA_NXZ @ 0x1800E9BF0
+ * XREFs of ?HasEnded@CAnimation@@MEAA_NXZ @ 0x1800CE800
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char __fastcall CAnimation::HasEnded(CAnimation *this)
+bool __fastcall CAnimation::HasEnded(CAnimation *this)
 {
-  char result; // al
+  bool result; // al
 
+  if ( (*((_BYTE *)this + 112) & 2) != 0 )
+    return 1;
   result = 0;
-  if ( *((_BYTE *)this + 121) || !*((_QWORD *)this + 16) )
+  if ( !*((_QWORD *)this + 15) )
     return 1;
   return result;
 }

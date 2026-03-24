@@ -1,10 +1,10 @@
 /*
- * XREFs of ExQueryPoolBlockSize @ 0x140193990
+ * XREFs of ExQueryPoolBlockSize @ 0x1401939B0
  * Callers:
  *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
  * Callees:
  *     ExIsSpecialPoolAddress @ 0x14000E140 (ExIsSpecialPoolAddress.c)
- *     ExpGetBilledProcess @ 0x14011F3D8 (ExpGetBilledProcess.c)
+ *     ExpGetBilledProcess @ 0x14011F3F8 (ExpGetBilledProcess.c)
  */
 
 SIZE_T __stdcall ExQueryPoolBlockSize(PVOID PoolBlock, PBOOLEAN QuotaCharged)

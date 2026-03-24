@@ -1,9 +1,9 @@
 /*
- * XREFs of CitLastInputUpdate @ 0x1C0010D00
+ * XREFs of CitLastInputUpdate @ 0x1C0049BB0
  * Callers:
- *     ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C00BFBB0 (-UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z.c)
+ *     UserPowerInfoCallout @ 0x1C004FC50 (UserPowerInfoCallout.c)
  * Callees:
- *     ?CitpLastInputUpdate@@YAXGI@Z @ 0x1C0010D88 (-CitpLastInputUpdate@@YAXGI@Z.c)
+ *     ?CitpLastInputUpdate@@YAXGI@Z @ 0x1C0049C44 (-CitpLastInputUpdate@@YAXGI@Z.c)
  */
 
 void __fastcall CitLastInputUpdate(int a1, unsigned int a2, __int64 a3, char a4)
@@ -35,37 +35,18 @@ void __fastcall CitLastInputUpdate(int a1, unsigned int a2, __int64 a3, char a4)
             if ( v10 )
             {
               if ( v10 == 4 )
-              {
-                if ( (a4 & 8) != 0 )
-                  v5 = 0x4000;
-                else
-                  v5 = 256;
-              }
+                v5 = (a4 & 8) != 0 ? 0x4000 : 256;
               else
-              {
                 v5 = 0;
-              }
             }
             else
             {
-              v5 = 8;
-              if ( (a4 & 8) != 0 )
-              {
-                v5 = 0x2000;
-              }
-              else if ( a4 < 0 )
-              {
-                v5 = 0x8000;
-              }
+              v5 = (a4 & 8) != 0 ? 0x2000 : 8;
             }
-          }
-          else if ( (a4 & 8) != 0 )
-          {
-            v5 = 4096;
           }
           else
           {
-            v5 = 4;
+            v5 = (a4 & 8) != 0 ? 4096 : 4;
           }
         }
         else
@@ -78,13 +59,9 @@ void __fastcall CitLastInputUpdate(int a1, unsigned int a2, __int64 a3, char a4)
         v5 = 16;
       }
     }
-    else if ( (a4 & 8) != 0 )
-    {
-      v5 = 2048;
-    }
     else
     {
-      v5 = 2;
+      v5 = (a4 & 8) != 0 ? 2048 : 2;
     }
   }
   else if ( (a4 & 0x40) != 0 )
@@ -93,9 +70,7 @@ void __fastcall CitLastInputUpdate(int a1, unsigned int a2, __int64 a3, char a4)
   }
   else
   {
-    v5 = 1024;
-    if ( (a4 & 8) == 0 )
-      v5 = 1;
+    v5 = (a4 & 8) != 0 ? 1024 : 1;
   }
   CitpLastInputUpdate(v5, a2);
 }

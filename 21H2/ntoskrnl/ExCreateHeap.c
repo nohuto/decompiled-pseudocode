@@ -1,31 +1,24 @@
 /*
- * XREFs of ExCreateHeap @ 0x14036F5D4
+ * XREFs of ExCreateHeap @ 0x14039D748
  * Callers:
- *     ExInitializeSessionHeapManager @ 0x14036EEAC (ExInitializeSessionHeapManager.c)
- *     ExInitializePoolHeapManagement @ 0x1403C3FA0 (ExInitializePoolHeapManagement.c)
- *     ExInitializePagedHeaps @ 0x1403C41C8 (ExInitializePagedHeaps.c)
+ *     ExInitializeSessionHeapManager @ 0x14039D5C4 (ExInitializeSessionHeapManager.c)
+ *     ExInitializePoolHeapManagement @ 0x1403C3924 (ExInitializePoolHeapManagement.c)
+ *     ExInitializePagedHeaps @ 0x1403C3B30 (ExInitializePagedHeaps.c)
  * Callees:
- *     RtlpHpHeapCreate @ 0x14036F620 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x14037AF24 (RtlpHpHeapCreate.c)
  */
 
 __int64 __fastcall ExCreateHeap(__int128 *a1, __int64 a2, __int64 *a3)
 {
-  __int64 v4; // rax
-  unsigned int v5; // ecx
-  __int128 v7; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v4; // rcx
+  __int64 result; // rax
+  __int128 v6; // [rsp+20h] [rbp-18h] BYREF
 
-  v7 = *a1;
-  v4 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64 *, __int128 *))RtlpHpHeapCreate)((unsigned int)a2, a2, a3, &v7);
-  v5 = 0;
-  if ( v4 )
-  {
-    *a3 = v4;
-    *(_BYTE *)(v4 + 333) |= 0x10u;
-    *(_BYTE *)(v4 + 525) |= 0x10u;
-  }
-  else
-  {
-    return (unsigned int)-1073741801;
-  }
-  return v5;
+  v6 = *a1;
+  v4 = RtlpHpHeapCreate(a2, a2, (__int64)a3, &v6);
+  result = 0LL;
+  if ( !v4 )
+    return 3221225495LL;
+  *a3 = v4;
+  return result;
 }

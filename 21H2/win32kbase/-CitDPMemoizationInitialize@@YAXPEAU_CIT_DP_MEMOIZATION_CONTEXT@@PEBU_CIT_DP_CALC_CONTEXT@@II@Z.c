@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CitDPMemoizationInitialize@@YAXPEAU_CIT_DP_MEMOIZATION_CONTEXT@@PEBU_CIT_DP_CALC_CONTEXT@@II@Z @ 0x1C023EFBC
+ * XREFs of ?CitDPMemoizationInitialize@@YAXPEAU_CIT_DP_MEMOIZATION_CONTEXT@@PEBU_CIT_DP_CALC_CONTEXT@@II@Z @ 0x1C01FD2E4
  * Callers:
- *     ?CitpDPDataLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C023F4AC (-CitpDPDataLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpDPDataLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C01FD7E4 (-CitpDPDataLog@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
  * Callees:
- *     ?CitpDPBucketToHistogram@@YAIPEBU_CIT_DP_CALC_CONTEXT@@I@Z @ 0x1C023F36C (-CitpDPBucketToHistogram@@YAIPEBU_CIT_DP_CALC_CONTEXT@@I@Z.c)
- *     ?CitpDPSampleBitWithProbability@@YAEN@Z @ 0x1C023FC00 (-CitpDPSampleBitWithProbability@@YAEN@Z.c)
+ *     ?CitpDPBucketToHistogram@@YAIPEBU_CIT_DP_CALC_CONTEXT@@I@Z @ 0x1C01FD694 (-CitpDPBucketToHistogram@@YAIPEBU_CIT_DP_CALC_CONTEXT@@I@Z.c)
+ *     ?CitpDPSampleBitWithProbability@@YAEN@Z @ 0x1C01FDF6C (-CitpDPSampleBitWithProbability@@YAEN@Z.c)
  */
 
 void __fastcall CitDPMemoizationInitialize(

@@ -1,87 +1,100 @@
 /*
- * XREFs of BmlGetMonitorModePreference @ 0x1C01D0EB0
+ * XREFs of BmlGetMonitorModePreference @ 0x1C013C34C
  * Callers:
- *     ?BmlGetTargetModePreferenceOnMonitor@@YA?AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARGETMODE@@EPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C01D0A50 (-BmlGetTargetModePreferenceOnMonitor@@YA-AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARG.c)
- *     BmlFillPreferredMonitorMode @ 0x1C01D0BD0 (BmlFillPreferredMonitorMode.c)
+ *     BmlFillPreferredMonitorMode @ 0x1C013BEB8 (BmlFillPreferredMonitorMode.c)
+ *     ?BmlGetTargetModePreferenceOnMonitor@@YA?AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARGETMODE@@EPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C013C09C (-BmlGetTargetModePreferenceOnMonitor@@YA-AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARG.c)
  * Callees:
- *     ?DivideAndRound@DMMVIDEOSIGNALMODE@@SA_K_K0@Z @ 0x1C0013758 (-DivideAndRound@DMMVIDEOSIGNALMODE@@SA_K_K0@Z.c)
- *     BmlGetMonitorModeVSyncPreference @ 0x1C01D0F38 (BmlGetMonitorModeVSyncPreference.c)
- *     BmlIsLowResAnalogTvOutput @ 0x1C01D0FA0 (BmlIsLowResAnalogTvOutput.c)
- *     BmlIsEDIDCapableOutputTechonology @ 0x1C01D0FC4 (BmlIsEDIDCapableOutputTechonology.c)
+ *     ?DivideAndRound@DMMVIDEOSIGNALMODE@@SA_K_K0@Z @ 0x1C001A2FC (-DivideAndRound@DMMVIDEOSIGNALMODE@@SA_K_K0@Z.c)
+ *     BmlGetMonitorModeVSyncPreference @ 0x1C013C3E8 (BmlGetMonitorModeVSyncPreference.c)
+ *     BmlIsLowResAnalogTvOutput @ 0x1C013C560 (BmlIsLowResAnalogTvOutput.c)
  */
 
-__int64 __fastcall BmlGetMonitorModePreference(__int64 a1, int a2, __int64 a3)
+__int64 __fastcall BmlGetMonitorModePreference(unsigned int *a1, int a2, __int64 a3)
 {
-  int v3; // ecx
+  unsigned int *v3; // r9
   int v4; // ecx
-  int v5; // edx
+  int v5; // ecx
+  int v6; // ecx
   int v7; // ecx
-  int v8; // ecx
-  __int64 v9; // rcx
-  __int64 v10; // r9
-  __int64 v11; // r9
+  int v8; // eax
+  int v10; // edx
+  int v11; // edx
   int v12; // edx
-  int v13; // edx
-  __int64 v14; // r9
+  __int64 v13; // r9
+  int v14; // edx
   int v15; // edx
   int v16; // edx
-  int v17; // edx
 
-  v3 = *(_DWORD *)(a1 + 84) - 1;
-  if ( !v3 )
+  v3 = a1;
+  v4 = a1[21] - 1;
+  if ( v4 )
   {
-    if ( !(unsigned __int8)BmlIsLowResAnalogTvOutput(a3) )
-      return BmlGetMonitorModeVSyncPreference(v11);
-    if ( (unsigned int)DMMVIDEOSIGNALMODE::DivideAndRound(*(unsigned int *)(v11 + 28), *(unsigned int *)(v11 + 32)) != 60 )
-      return 0LL;
-    goto LABEL_30;
-  }
-  v4 = v3 - 1;
-  if ( !v4 )
-  {
-    v5 = a2 - 1;
-    if ( !v5 )
-      return 6LL;
-    v12 = v5 - 1;
-    if ( !v12 )
-      return 6LL;
-    v13 = v12 - 1;
-    if ( !v13 )
-      return 6LL;
-    if ( v13 == 1 )
-      return 8LL;
-    return 0xFFFFFFFFLL;
-  }
-  v7 = v4 - 1;
-  if ( v7 )
-  {
-    v8 = v7 - 1;
-    if ( !v8 )
-      return 5LL;
-    if ( v8 != 1 )
-      return 0xFFFFFFFFLL;
-    if ( !(unsigned __int8)BmlIsEDIDCapableOutputTechonology(a3) && *(_DWORD *)(v10 + 88) == 1 )
-      return 11LL;
-    if ( !(unsigned __int8)BmlIsLowResAnalogTvOutput(v9) )
-      return BmlGetMonitorModeVSyncPreference(v11);
-    if ( (unsigned int)DMMVIDEOSIGNALMODE::DivideAndRound(*(unsigned int *)(v11 + 28), *(unsigned int *)(v11 + 32)) != 60 )
-      return 7LL;
-LABEL_30:
-    if ( *(_DWORD *)(v14 + 20) == 800 && *(_DWORD *)(v14 + 24) == 600 )
-      return 4LL;
+    v5 = v4 - 1;
+    if ( v5 )
+    {
+      v6 = v5 - 1;
+      if ( v6 )
+      {
+        v7 = v6 - 1;
+        if ( !v7 )
+          return 5LL;
+        if ( v7 == 1 )
+        {
+          v8 = *(_DWORD *)(a3 + 80);
+          if ( (v8 == 0x80000000
+             || v8 == -1
+             || v8 > 0 && (v8 <= 3 || v8 == 6 || v8 > 7 && (v8 <= 9 || v8 > 10 && v8 <= 14)))
+            && v3[22] == 1 )
+          {
+            return 11LL;
+          }
+          if ( v8 == -1 || v8 > 0 && (v8 <= 3 || v8 == 14) )
+          {
+            if ( (unsigned int)DMMVIDEOSIGNALMODE::DivideAndRound(v3[7], v3[8]) != 60 )
+              return 7LL;
+            goto LABEL_41;
+          }
+          return BmlGetMonitorModeVSyncPreference(v3);
+        }
+      }
+      else
+      {
+        v14 = a2 - 1;
+        if ( !v14 )
+          return 9LL;
+        v15 = v14 - 1;
+        if ( !v15 )
+          return 9LL;
+        v16 = v15 - 1;
+        if ( !v16 )
+          return 9LL;
+        if ( v16 == 1 )
+          return 10LL;
+      }
+    }
     else
-      return 3LL;
-  }
-  v15 = a2 - 1;
-  if ( !v15 )
-    return 9LL;
-  v16 = v15 - 1;
-  if ( !v16 )
-    return 9LL;
-  v17 = v16 - 1;
-  if ( !v17 )
-    return 9LL;
-  if ( v17 != 1 )
+    {
+      v10 = a2 - 1;
+      if ( !v10 )
+        return 6LL;
+      v11 = v10 - 1;
+      if ( !v11 )
+        return 6LL;
+      v12 = v11 - 1;
+      if ( !v12 )
+        return 6LL;
+      if ( v12 == 1 )
+        return 8LL;
+    }
     return 0xFFFFFFFFLL;
-  return 10LL;
+  }
+  if ( !(unsigned __int8)BmlIsLowResAnalogTvOutput(a3) )
+    return BmlGetMonitorModeVSyncPreference(v3);
+  if ( (unsigned int)DMMVIDEOSIGNALMODE::DivideAndRound(v3[7], v3[8]) != 60 )
+    return 0LL;
+LABEL_41:
+  if ( *(_DWORD *)(v13 + 20) == 800 && *(_DWORD *)(v13 + 24) == 600 )
+    return 4LL;
+  else
+    return 3LL;
 }

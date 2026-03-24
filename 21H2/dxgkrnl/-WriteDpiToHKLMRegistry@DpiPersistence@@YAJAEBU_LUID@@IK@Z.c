@@ -1,12 +1,11 @@
 /*
- * XREFs of ?WriteDpiToHKLMRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z @ 0x1C02FA47C
+ * XREFs of ?WriteDpiToHKLMRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z @ 0x1C02A9668
  * Callers:
- *     DxgkUpdateGdiInfo @ 0x1C01D4920 (DxgkUpdateGdiInfo.c)
+ *     DxgkUpdateGdiInfo @ 0x1C0148B60 (DxgkUpdateGdiInfo.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     ?WriteDwordToParticularRegValue@DpiPersistence@@YAJAEBU_UNICODE_STRING@@00QEBGK@Z @ 0x1C01D62B8 (-WriteDwordToParticularRegValue@DpiPersistence@@YAJAEBU_UNICODE_STRING@@00QEBGK@Z.c)
- *     ?AllocateMonitorSetIdFromAdapterSource@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@@Z @ 0x1C01D698C (-AllocateMonitorSetIdFromAdapterSource@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ?WriteDwordToParticularRegValue@DpiPersistence@@YAJAEBU_UNICODE_STRING@@00QEBGK@Z @ 0x1C0146DA8 (-WriteDwordToParticularRegValue@DpiPersistence@@YAJAEBU_UNICODE_STRING@@00QEBGK@Z.c)
+ *     ?AllocateMonitorSetIdFromAdapterSource@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@@Z @ 0x1C01472F0 (-AllocateMonitorSetIdFromAdapterSource@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@@Z.c)
  */
 
 __int64 __fastcall DpiPersistence::WriteDpiToHKLMRegistry(
@@ -15,40 +14,35 @@ __int64 __fastcall DpiPersistence::WriteDpiToHKLMRegistry(
         int a3,
         struct _UNICODE_STRING *a4)
 {
-  __int64 v5; // rdi
+  __int64 v5; // rbx
   const struct _UNICODE_STRING *v6; // r9
   int v7; // eax
-  unsigned __int16 *v9; // [rsp+20h] [rbp-68h]
-  struct _UNICODE_STRING v10; // [rsp+50h] [rbp-38h] BYREF
-  struct _UNICODE_STRING v11; // [rsp+60h] [rbp-28h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+70h] [rbp-18h] BYREF
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  unsigned __int16 *v12; // [rsp+20h] [rbp-48h]
+  struct _UNICODE_STRING v13; // [rsp+30h] [rbp-38h] BYREF
+  struct _UNICODE_STRING v14; // [rsp+40h] [rbp-28h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-18h] BYREF
 
-  v10 = 0LL;
-  LODWORD(v5) = DpiPersistence::AllocateMonitorSetIdFromAdapterSource(this, a2, &v10, a4);
+  v13 = 0LL;
+  LODWORD(v5) = DpiPersistence::AllocateMonitorSetIdFromAdapterSource(this, a2, &v13, a4);
   if ( (int)v5 >= 0 )
   {
     DestinationString = 0LL;
-    v11 = 0LL;
+    v14 = 0LL;
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System");
-    RtlInitUnicodeString(&v11, L"CurrentControlSet\\Control\\GraphicsDrivers\\ScaleFactors");
-    LODWORD(v9) = a3;
-    v7 = DpiPersistence::WriteDwordToParticularRegValue(&DestinationString, &v11, &v10, v6, v9);
+    RtlInitUnicodeString(&v14, L"CurrentControlSet\\Control\\GraphicsDrivers\\ScaleFactors");
+    LODWORD(v12) = a3;
+    v7 = DpiPersistence::WriteDwordToParticularRegValue(&DestinationString, &v14, &v13, v6, v12);
     v5 = v7;
     if ( v7 < 0 )
     {
-      WdLogSingleEntry1(2LL, v7);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to write DPI value to HKLM. (Status = 0x%I64x)",
-        v5,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
+      v10 = WdLogNewEntry5_WdError(v9, v8);
+      *(_QWORD *)(v10 + 24) = v5;
+      WdLogEvent5_WdError(v10);
     }
   }
-  operator delete[](v10.Buffer);
+  operator delete[](v13.Buffer);
   return (unsigned int)v5;
 }

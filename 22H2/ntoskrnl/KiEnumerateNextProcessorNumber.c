@@ -1,8 +1,9 @@
 /*
- * XREFs of KiEnumerateNextProcessorNumber @ 0x140305C5C
+ * XREFs of KiEnumerateNextProcessorNumber @ 0x1402284B0
  * Callers:
- *     KeGenericProcessorCallback @ 0x140305A04 (KeGenericProcessorCallback.c)
- *     PoExecuteIdleCheck @ 0x1403CB450 (PoExecuteIdleCheck.c)
+ *     PoExecuteIdleCheck @ 0x140227E10 (PoExecuteIdleCheck.c)
+ *     KeGenericProcessorCallback @ 0x14035C6D8 (KeGenericProcessorCallback.c)
+ *     PpmIdleSelectStates @ 0x140394E80 (PpmIdleSelectStates.c)
  * Callees:
  *     <none>
  */
@@ -10,31 +11,34 @@
 __int64 __fastcall KiEnumerateNextProcessorNumber(__int64 a1, unsigned __int16 **a2)
 {
   unsigned int v3; // r9d
-  unsigned __int64 i; // r8
+  unsigned __int64 v4; // r8
   unsigned __int64 v5; // rcx
   __int64 result; // rax
-  unsigned __int16 v7; // ax
 
   if ( *a2 )
     v3 = **a2;
   else
     v3 = *((unsigned __int16 *)a2 + 8) + 1;
-  for ( i = (unsigned __int64)a2[1]; ; a2[1] = (unsigned __int16 *)i )
+  v4 = (unsigned __int64)a2[1];
+  if ( v4 )
   {
-    if ( i )
-    {
-      _BitScanForward64(&v5, i);
-      *(_BYTE *)(a1 + 2) = v5;
-      *(_WORD *)a1 = *((_WORD *)a2 + 8);
-      result = 0LL;
-      a2[1] = (unsigned __int16 *)(i & ~(1LL << v5));
-      return result;
-    }
-    v7 = *((_WORD *)a2 + 8) + 1;
-    *((_WORD *)a2 + 8) = v7;
-    if ( v7 >= v3 )
-      break;
-    i = *(_QWORD *)&(*a2)[4 * v7 + 4];
+LABEL_4:
+    _BitScanForward64(&v5, v4);
+    *(_BYTE *)(a1 + 2) = v5;
+    *(_WORD *)a1 = *((_WORD *)a2 + 8);
+    result = 0LL;
+    a2[1] = (unsigned __int16 *)(v4 & ~(1LL << v5));
   }
-  return 3221226021LL;
+  else
+  {
+    while ( (unsigned __int16)++*((_WORD *)a2 + 8) < v3 )
+    {
+      v4 = *(_QWORD *)&(*a2)[4 * *((unsigned __int16 *)a2 + 8) + 4];
+      a2[1] = (unsigned __int16 *)v4;
+      if ( v4 )
+        goto LABEL_4;
+    }
+    return 3221226021LL;
+  }
+  return result;
 }

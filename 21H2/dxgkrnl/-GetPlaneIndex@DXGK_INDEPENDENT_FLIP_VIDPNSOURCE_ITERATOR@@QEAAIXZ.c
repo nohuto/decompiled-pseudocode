@@ -1,26 +1,22 @@
 /*
- * XREFs of ?GetPlaneIndex@DXGK_INDEPENDENT_FLIP_VIDPNSOURCE_ITERATOR@@QEAAIXZ @ 0x1C0008B00
+ * XREFs of ?GetPlaneIndex@DXGK_INDEPENDENT_FLIP_VIDPNSOURCE_ITERATOR@@QEAAIXZ @ 0x1C001DA98
  * Callers:
- *     DxgkSetIndependentFlipMode @ 0x1C0161E30 (DxgkSetIndependentFlipMode.c)
+ *     DxgkSetIndependentFlipMode @ 0x1C0174948 (DxgkSetIndependentFlipMode.c)
  * Callees:
- *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0046D24 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     <none>
  */
 
 __int64 __fastcall DXGK_INDEPENDENT_FLIP_VIDPNSOURCE_ITERATOR::GetPlaneIndex(
-        DXGK_INDEPENDENT_FLIP_VIDPNSOURCE_ITERATOR *this)
+        DXGK_INDEPENDENT_FLIP_VIDPNSOURCE_ITERATOR *this,
+        __int64 a2)
 {
-  int v3; // edx
-  int v4; // ecx
-  int v5; // r8d
+  __int64 v4; // rax
 
   if ( !*(_DWORD *)this )
   {
-    WdLogSingleEntry1(1LL, 1878LL);
-    if ( bTracingEnabled )
-    {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80000000LL) != 0 )
-        McTemplateK0zqqzxxxxx_EtwWriteTransfer(v4, v3, v5, 0, 2, -1, (__int64)L"vidPnSourceMask != 0", 86, 0, 0, 0, 0);
-    }
+    v4 = WdLogNewEntry5_WdAssertion(this, a2);
+    *(_QWORD *)(v4 + 24) = 1819LL;
+    WdLogEvent5_WdAssertion(v4);
   }
   return *(unsigned int *)(*((_QWORD *)this + 2) + 4LL * *((unsigned int *)this + 2));
 }

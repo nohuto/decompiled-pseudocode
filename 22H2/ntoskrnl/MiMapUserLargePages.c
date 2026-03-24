@@ -1,394 +1,268 @@
 /*
- * XREFs of MiMapUserLargePages @ 0x140668E30
+ * XREFs of MiMapUserLargePages @ 0x14055E670
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiReserveUserMemory @ 0x14071F450 (MiReserveUserMemory.c)
- *     MiCopyLargeVad @ 0x140A493BC (MiCopyLargeVad.c)
+ *     MiMapViewOfImageSection @ 0x14061D2D0 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x140637BF0 (MiReserveUserMemory.c)
+ *     MiCopyLargeVad @ 0x1408D9D70 (MiCopyLargeVad.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     MiMakeSystemAddressValid @ 0x140277310 (MiMakeSystemAddressValid.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A1D0 (MiUnlockWorkingSetExclusive.c)
- *     MiWorkingSetIsContended @ 0x1402E69F0 (MiWorkingSetIsContended.c)
- *     MiInitializeLargePfnList @ 0x1402E8F98 (MiInitializeLargePfnList.c)
- *     MiUnlockPageTableInternal @ 0x1403193E0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x140333AD0 (KeShouldYieldProcessor.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiComputePreferredNode @ 0x140617800 (MiComputePreferredNode.c)
- *     MiLogPerfMemoryRangeEvent @ 0x14061D8E8 (MiLogPerfMemoryRangeEvent.c)
- *     MiFlushGraphicsPtes @ 0x140626498 (MiFlushGraphicsPtes.c)
- *     MiLockWorkingSetForLargeMapping @ 0x1406501B8 (MiLockWorkingSetForLargeMapping.c)
- *     MiCreateLargePfnList @ 0x140667A5C (MiCreateLargePfnList.c)
- *     MiDemotePfnListChain @ 0x140667FB4 (MiDemotePfnListChain.c)
- *     MiInsertLargeUserMapping @ 0x140668B60 (MiInsertLargeUserMapping.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14021CAA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiWorkingSetIsContended @ 0x14028BE50 (MiWorkingSetIsContended.c)
+ *     MiMakeSystemAddressValid @ 0x14028EA10 (MiMakeSystemAddressValid.c)
+ *     MiGetLargestPageIndex @ 0x140323300 (MiGetLargestPageIndex.c)
+ *     MiUnlockPageTable @ 0x1403B6600 (MiUnlockPageTable.c)
+ *     MiInitializeLargeUserBasePfn @ 0x1403F72A0 (MiInitializeLargeUserBasePfn.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x14053155C (MiLogPerfMemoryRangeEvent.c)
+ *     MiShouldYieldProcessor @ 0x140536918 (MiShouldYieldProcessor.c)
+ *     MiInitPerfMemoryFlags @ 0x140544998 (MiInitPerfMemoryFlags.c)
+ *     MiComputePreferredNode @ 0x140547AB8 (MiComputePreferredNode.c)
+ *     MiLockWorkingSetForLargeMapping @ 0x14054F718 (MiLockWorkingSetForLargeMapping.c)
+ *     MiCreateLargePfnList @ 0x14055DE3C (MiCreateLargePfnList.c)
+ *     MiDemotePfnListChain @ 0x14055E158 (MiDemotePfnListChain.c)
+ *     MiInsertLargeUserMapping @ 0x14055E4B8 (MiInsertLargeUserMapping.c)
  */
 
-__int64 __fastcall MiMapUserLargePages(__int64 a1, int a2, char a3, __int64 *a4)
+__int64 __fastcall MiMapUserLargePages(__int64 a1)
 {
-  unsigned __int64 v8; // r8
-  int v9; // edi
-  __int64 v10; // rdx
-  unsigned __int64 v11; // r13
-  unsigned __int64 v12; // r13
-  __int64 v13; // rax
-  int v14; // eax
-  unsigned int v15; // r12d
-  __int64 v16; // rdx
-  __int64 v17; // r9
-  unsigned __int64 v18; // r10
+  int v2; // ebx
+  __int64 v3; // r15
+  unsigned __int64 v4; // rsi
+  unsigned __int64 v5; // r14
+  __int64 *v6; // r8
+  char v7; // r10
   __int64 result; // rax
-  __int64 v20; // r8
-  __int64 v21; // r14
-  unsigned __int64 v22; // rax
-  unsigned __int64 v23; // rsi
-  __int64 v24; // rcx
-  __int64 v25; // r9
-  KIRQL v26; // r15
-  ULONG_PTR v27; // rbx
-  unsigned __int64 v28; // r10
-  unsigned __int64 v29; // r11
-  unsigned int v30; // esi
-  unsigned __int64 v31; // rcx
-  unsigned int v32; // edx
-  _QWORD **v33; // r10
-  _QWORD *v34; // rcx
-  _QWORD *v35; // rax
-  __int64 v36; // rax
-  _QWORD *v37; // rax
-  __int64 v38; // rdx
-  _QWORD **v39; // r8
-  ULONG_PTR v40; // r14
-  __int64 v41; // rcx
-  __int64 v42; // rbx
-  int v43; // ecx
-  KIRQL v44; // al
-  unsigned __int64 v45; // rbx
-  unsigned __int64 v46; // rax
-  unsigned __int64 v47; // r9
-  unsigned __int64 v48; // rax
-  unsigned __int64 v49; // rax
-  unsigned __int64 v50; // r8
-  __int64 v51; // rdx
-  _QWORD *v52; // rcx
-  _QWORD *v53; // rax
-  _QWORD ***v54; // rax
-  __int64 v55; // rax
-  unsigned __int64 v56; // rbx
-  __int64 v57; // rbx
-  unsigned int v58; // [rsp+50h] [rbp-B0h]
-  int v59; // [rsp+54h] [rbp-ACh]
-  int v60; // [rsp+58h] [rbp-A8h]
-  unsigned int v61; // [rsp+5Ch] [rbp-A4h]
-  _QWORD *v62; // [rsp+60h] [rbp-A0h] BYREF
-  _QWORD ***v63; // [rsp+68h] [rbp-98h]
-  int v64; // [rsp+70h] [rbp-90h]
-  int v65; // [rsp+74h] [rbp-8Ch]
-  int v66; // [rsp+78h] [rbp-88h]
-  unsigned __int64 v67; // [rsp+80h] [rbp-80h]
-  unsigned __int64 v68; // [rsp+88h] [rbp-78h]
-  ULONG_PTR v69; // [rsp+90h] [rbp-70h]
-  unsigned __int64 *v70; // [rsp+98h] [rbp-68h]
-  unsigned __int64 v71; // [rsp+A0h] [rbp-60h]
-  unsigned int v72; // [rsp+A8h] [rbp-58h]
-  __int64 v73; // [rsp+B0h] [rbp-50h]
-  _QWORD **v74; // [rsp+B8h] [rbp-48h]
-  unsigned __int64 v75; // [rsp+C0h] [rbp-40h]
-  __int64 v76; // [rsp+C8h] [rbp-38h]
-  __int64 v77; // [rsp+D0h] [rbp-30h]
-  _KPROCESS *Process; // [rsp+D8h] [rbp-28h]
-  unsigned __int64 v79; // [rsp+E0h] [rbp-20h]
-  __int64 v80; // [rsp+E8h] [rbp-18h] BYREF
-  __int128 v81; // [rsp+F0h] [rbp-10h]
-  _QWORD v82[12]; // [rsp+100h] [rbp+0h] BYREF
+  unsigned int v9; // ecx
+  unsigned __int64 v10; // r10
+  unsigned __int64 v11; // rdx
+  __int64 v12; // rax
+  unsigned int v13; // r12d
+  unsigned int LargestPageIndex; // r8d
+  unsigned __int8 v15; // di
+  unsigned __int64 v16; // rbp
+  ULONG_PTR v17; // r13
+  unsigned __int64 v18; // r9
+  unsigned int v19; // esi
+  bool i; // cc
+  unsigned __int64 v21; // rcx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  ULONG_PTR v24; // r14
+  __int64 v25; // rcx
+  int v26; // r13d
+  __int64 v27; // rdx
+  int v28; // eax
+  unsigned int inited; // eax
+  int v30; // [rsp+30h] [rbp-B8h]
+  unsigned int v31; // [rsp+34h] [rbp-B4h]
+  int v32; // [rsp+38h] [rbp-B0h]
+  int v33; // [rsp+3Ch] [rbp-ACh]
+  unsigned int v34; // [rsp+40h] [rbp-A8h]
+  ULONG_PTR BugCheckParameter1; // [rsp+48h] [rbp-A0h]
+  _DWORD *v36; // [rsp+50h] [rbp-98h]
+  unsigned __int64 v37; // [rsp+58h] [rbp-90h]
+  _KPROCESS *Process; // [rsp+60h] [rbp-88h]
+  _QWORD *v39; // [rsp+68h] [rbp-80h]
+  __int64 v40; // [rsp+78h] [rbp-70h]
+  unsigned __int64 v41; // [rsp+80h] [rbp-68h]
+  unsigned __int64 v42; // [rsp+88h] [rbp-60h]
+  _QWORD v43[11]; // [rsp+90h] [rbp-58h] BYREF
+  int v45; // [rsp+108h] [rbp+20h]
 
-  v77 = a1;
-  memset(v82, 0, sizeof(v82));
-  v8 = *(unsigned int *)(a1 + 48);
-  v66 = *(_DWORD *)(a1 + 48) & 0x2200000;
-  v81 = 0LL;
-  if ( a2 )
-    v9 = a2 - 1;
-  else
-    v9 = MiComputePreferredNode(a1);
-  v10 = *(unsigned __int8 *)(a1 + 32);
-  v11 = (unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32;
+  memset(v43, 0, 32);
+  v2 = MiComputePreferredNode(a1);
+  v33 = v2;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v70 = &Process[1].ActiveProcessors.StaticBitmap[26];
-  v12 = (((*(unsigned int *)(a1 + 28) | v11) << 12) | 0xFFF) + 1;
-  v75 = (*(unsigned int *)(a1 + 24) | (unsigned __int64)(v10 << 32)) << 12;
-  v13 = (v8 >> 19) & 3;
-  v79 = (v12 - v75) >> 12;
-  if ( LODWORD(MiVadPageSizes[v13]) == 16 )
+  v3 = (__int64)&Process[1].ActiveProcessorsPadding[6];
+  v4 = (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) << 12;
+  v37 = v4;
+  v5 = (((*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32)) << 12) | 0xFFF) + 1;
+  v41 = v5;
+  v42 = (v5 - v4) >> 12;
+  result = MiCreateLargePfnList(a1, v42, v7, v6, (char *)v43);
+  if ( (int)result < 0 )
+    return result;
+  v9 = *(_DWORD *)(a1 + 48);
+  v10 = 0x140000000uLL;
+  v11 = v9;
+  v12 = (v9 >> 18) & 3;
+  if ( LODWORD(MiVadPageSizes[v12]) == 16 )
   {
-    v14 = 2;
-    v15 = 2;
+    v13 = 2;
+LABEL_4:
+    LargestPageIndex = v13;
+    goto LABEL_8;
   }
-  else if ( (v8 & 0xA00000) == 0xA00000 )
+  if ( (v9 & 0x500000) == 0x500000 )
   {
-    v14 = MiVadPageIndices[v13];
-    v15 = v14;
+    v13 = MiVadPageIndices[v12];
+    goto LABEL_4;
   }
-  else
+  v13 = 1;
+  LargestPageIndex = MiGetLargestPageIndex();
+LABEL_8:
+  v32 = 0;
+  v45 = 0;
+  v15 = 17;
+  v30 = 0;
+  v16 = 0LL;
+  v31 = LargestPageIndex;
+  v17 = 0LL;
+  v18 = v4;
+  v36 = (_DWORD *)v4;
+  v34 = *(_DWORD *)(v10 + 4 * ((v11 >> 7) & 0x1F) + 98544);
+  BugCheckParameter1 = ((v4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  if ( v4 >= v5 )
+    goto LABEL_61;
+  do
   {
-    v14 = 1;
-    v15 = (((unsigned __int64)KeFeatureBits >> 37) & 1) == 0;
-  }
-  v61 = v14;
-  MiInitializeLargePfnList(v82);
-  v80 = a1;
-  result = MiCreateLargePfnList((__int64)&v80, v16, v18, v17, a2, a3, a4, 0, v82);
-  if ( (int)result >= 0 )
-  {
-    v21 = v75;
-    v22 = *(unsigned int *)(a1 + 48);
-    v65 = 0;
-    v23 = 0LL;
-    v60 = 0;
-    v24 = 0LL;
-    v59 = 0;
-    v25 = 0LL;
-    v26 = 17;
-    v71 = 0LL;
-    v27 = 0LL;
-    v69 = 0LL;
-    v28 = v75;
-    v58 = 0;
-    v72 = MmMakeProtectNotWriteCopy[(v22 >> 7) & 0x1F];
-    v63 = (_QWORD ***)&v62;
-    v62 = &v62;
-    v67 = v75;
-    v29 = ((v75 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v68 = v29;
-    if ( v75 < v12 )
+    v19 = LargestPageIndex;
+    for ( i = LargestPageIndex <= v13; i; i = v19 <= v13 )
     {
-      while ( 1 )
+      v21 = *(_QWORD *)(v10 + 8LL * v19 + 111840) << 12;
+      if ( !(v18 % v21) && v5 - v18 >= v21 )
       {
-        v30 = v15;
-        if ( v15 <= v61 )
+        LODWORD(v22) = v19;
+        if ( v43[v19] )
         {
-          while ( 1 )
+LABEL_17:
+          if ( (unsigned int)v22 <= v13 )
           {
-            v31 = MiLargePageSizes[v30] << 12;
-            if ( !(v28 % v31) && v12 - v28 >= v31 )
-              break;
-            if ( ++v30 > v61 )
-              goto LABEL_22;
+            v19 = v22;
+            break;
           }
-          v32 = v30;
-          do
-          {
-            if ( (_QWORD *)v82[3 * v32] != &v82[3 * v32] )
-              break;
-            ++v32;
-          }
-          while ( v32 <= v61 );
-          if ( v32 > v61 )
-          {
-            MiDemotePfnListChain((__int64)v82, v30);
-            v25 = v58;
-            v29 = v68;
-          }
-          else
-          {
-            v30 = v32;
-          }
-        }
-LABEL_22:
-        v33 = (_QWORD **)&v82[3 * v30];
-        v76 = 3LL * v30;
-        v34 = *v33;
-        v74 = v33;
-        if ( (_QWORD **)v34[1] != v33 )
-          goto LABEL_79;
-        v35 = (_QWORD *)*v34;
-        if ( *(_QWORD **)(*v34 + 8LL) != v34 )
-          goto LABEL_79;
-        *v33 = v35;
-        v35[1] = v33;
-        v36 = MiLargePageSizes[v30];
-        --v82[3 * v30 + 2];
-        v73 = v36;
-        v37 = v63;
-        v38 = 16LL;
-        if ( v30 != 2 )
-          v38 = 1LL;
-        v64 = v38;
-        if ( *v63 != &v62 )
-LABEL_79:
-          __fastfail(3u);
-        v34[1] = v63;
-        v39 = &v62;
-        *v34 = &v62;
-        v40 = v29;
-        *v37 = v34;
-        v63 = (_QWORD ***)v34;
-        if ( v30 < 2 )
-        {
-          v41 = 2 - v30;
-          do
-          {
-            v40 = ((v40 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-            --v41;
-          }
-          while ( v41 );
-          v33 = v74;
-          v25 = v58;
-        }
-        if ( v60 || ((v40 ^ v27) & 0xFFFFFFFFFFFFF000uLL) != 0 )
-          break;
-LABEL_57:
-        v45 = 0LL;
-        v46 = (v73 << 12) + v67;
-        v67 = v46;
-        if ( v46 < v12 )
-        {
-          v47 = v12 - v46;
-          if ( ((v40 + 8) & 0xFFF) != 0 )
-            v48 = 512LL - (((unsigned int)(v40 + 8) >> 3) & 0x1FF);
-          else
-            v48 = 0LL;
-          v49 = (v73 * (v48 / (unsigned int)v38)) << 12;
-          if ( v49 > v47 )
-            v49 = v47;
-          v50 = v49 / (v73 << 12);
-          if ( v50 )
-          {
-            v51 = v76;
-            do
-            {
-              v52 = *v33;
-              if ( *v33 == v33 )
-                break;
-              if ( (_QWORD **)v52[1] != v33 )
-                goto LABEL_79;
-              v53 = (_QWORD *)*v52;
-              if ( *(_QWORD **)(*v52 + 8LL) != v52 )
-                goto LABEL_79;
-              *v33 = v53;
-              v53[1] = v33;
-              v54 = v63;
-              --v82[v51 + 2];
-              if ( *v54 != &v62 )
-                goto LABEL_79;
-              v52[1] = v54;
-              *v52 = &v62;
-              ++v45;
-              *v54 = (_QWORD **)v52;
-              v63 = (_QWORD ***)v52;
-            }
-            while ( v45 < v50 );
-          }
-        }
-        MiInsertLargeUserMapping(v77, v29, &v62, v30, v72);
-        v55 = v73 * v45;
-        v56 = v45 + 1;
-        v67 += v55 << 12;
-        if ( v69 )
-        {
-          v58 += v56 * v64;
         }
         else
         {
-          v69 = v40;
-          v58 = v56 * v64;
+          while ( 1 )
+          {
+            v22 = (unsigned int)(v22 + 1);
+            if ( (unsigned int)v22 > v13 )
+              break;
+            if ( v43[v22] )
+              goto LABEL_17;
+          }
         }
-        v68 += 8 * v73 * v56;
-        v65 += v56;
-        if ( (v65 & 0xF) == 0 && MiWorkingSetIsContended((__int64)v70) || KeShouldYieldProcessor() )
-          v60 = 1;
-        v28 = v67;
-        v27 = v40;
-        v25 = v58;
-        if ( v67 >= v12 )
-        {
-          v23 = v71;
-          v21 = v75;
-          v24 = v69;
-          goto LABEL_81;
-        }
-        v29 = v68;
+        MiDemotePfnListChain((__int64)v43, v19, v19, (_DWORD *)v18);
+        v10 = 0x140000000uLL;
+        break;
       }
-      if ( v66 == 35651584 && (_DWORD)v25 )
-      {
-        MiFlushGraphicsPtes(v69, (unsigned int)v25);
-        v69 = 0LL;
-      }
-      v42 = (__int64)v70;
-      if ( v71 )
-      {
-        MiUnlockPageTableInternal((__int64)v70, v71);
-        v71 = 0LL;
-      }
-      v43 = v59;
-      if ( v60 )
-        goto LABEL_41;
-      if ( v59 == 1 )
-      {
-        if ( v30 )
-          goto LABEL_41;
-      }
-      else if ( !v30 )
-      {
-LABEL_41:
-        v60 = 0;
-        if ( v26 != 17 )
-        {
-          if ( v59 == 1 )
-            MiUnlockWorkingSetExclusive(v42, v26, (__int64)v39, v25);
-          else
-            MiUnlockWorkingSetShared(v42, v26);
-          v26 = 17;
-        }
-LABEL_49:
-        if ( !v30 )
-        {
-          v59 = 1;
-          v26 = MiLockWorkingSetForLargeMapping(v42, v38, v9);
-        }
-        if ( v26 == 17 )
-        {
-          v59 = 0;
-          v44 = MiLockWorkingSetShared(v42);
-          v43 = 0;
-          v26 = v44;
-          goto LABEL_55;
-        }
-        v43 = v59;
-LABEL_54:
-        if ( v43 )
-        {
-LABEL_56:
-          MiMakeSystemAddressValid(v40, 0LL, v9 + 1, v26, v43);
-          v33 = v74;
-          LODWORD(v38) = v64;
-          v29 = v68;
-          goto LABEL_57;
-        }
-LABEL_55:
-        v71 = ((v40 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-        goto LABEL_56;
-      }
-      if ( v26 != 17 )
-        goto LABEL_54;
-      goto LABEL_49;
+      ++v19;
     }
-LABEL_81:
-    if ( v66 == 35651584 && (_DWORD)v25 )
-      MiFlushGraphicsPtes(v24, (unsigned int)v25);
-    v57 = (__int64)v70;
-    if ( v23 )
-      MiUnlockPageTableInternal((__int64)v70, v23);
-    if ( v26 != 17 )
+    v23 = v19;
+    v39 = (_QWORD *)v43[v19];
+    v43[v19] = *v39;
+    v24 = BugCheckParameter1;
+    v40 = *(_QWORD *)(v10 + 8LL * v19 + 111840);
+    if ( v19 < 2 )
     {
-      if ( v59 == 1 )
-        MiUnlockWorkingSetExclusive(v57, v26, v20, v25);
-      else
-        MiUnlockWorkingSetShared(v57, v26);
+      v25 = 2 - v19;
+      do
+      {
+        v24 = ((v24 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+        --v25;
+      }
+      while ( v25 );
+      v2 = v33;
     }
-    if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
-      MiLogPerfMemoryRangeEvent(v21, LODWORD(Process[1].Header.WaitListHead.Flink), 0x1Bu, v79);
-    return 0LL;
+    if ( ((v24 ^ v17) & 0xFFFFFFFFFFFFF000uLL) != 0 )
+    {
+      if ( v16 )
+      {
+        MiUnlockPageTable(v3, v16);
+        v16 = 0LL;
+      }
+      v26 = v30;
+      v27 = 1LL;
+      if ( v30 == 1 )
+      {
+        if ( v19 )
+        {
+          v28 = 1;
+          v45 = 1;
+        }
+        else
+        {
+          v28 = v45;
+        }
+      }
+      else
+      {
+        v28 = v45;
+        if ( !v19 )
+          v28 = 1;
+        v45 = v28;
+      }
+      if ( v28 )
+      {
+        v45 = 0;
+        if ( v15 == 17 )
+          goto LABEL_41;
+        if ( v30 == 1 )
+          MiUnlockWorkingSetExclusive(v3, v15);
+        else
+          MiUnlockWorkingSetShared(v3, v15);
+        v15 = 17;
+        v27 = 1LL;
+      }
+      if ( v15 != 17 )
+      {
+LABEL_45:
+        if ( !v26 )
+          v16 = ((v24 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+        MiMakeSystemAddressValid(v24, 0LL, v2 + 1, v15, v26);
+        goto LABEL_48;
+      }
+LABEL_41:
+      if ( !v19 )
+      {
+        v30 = 1;
+        v26 = 1;
+        v15 = MiLockWorkingSetForLargeMapping(v3, 1LL, v2);
+      }
+      if ( v15 == 17 )
+      {
+        v26 = 0;
+        v30 = 0;
+        v15 = MiLockWorkingSetShared(v3, v27, v23, (_DWORD *)v18);
+      }
+      goto LABEL_45;
+    }
+LABEL_48:
+    MiInitializeLargeUserBasePfn((__int64)v39, BugCheckParameter1, (unsigned __int64)Process, (_DWORD *)v18);
+    MiInsertLargeUserMapping(a1, BugCheckParameter1, (__int64)(v39 + 0xB000000000LL) / 48, v19, v34);
+    v36 += 1024 * v40;
+    BugCheckParameter1 += 8 * v40;
+    if ( (++v32 & 0xF) == 0 && MiWorkingSetIsContended(v3) || MiShouldYieldProcessor() )
+    {
+      v17 = 0LL;
+      v45 = 1;
+    }
+    else
+    {
+      v17 = v24;
+    }
+    v5 = v41;
+    v10 = 0x140000000uLL;
+    v18 = (unsigned __int64)v36;
+    LargestPageIndex = v31;
   }
-  return result;
+  while ( (unsigned __int64)v36 < v41 );
+  if ( v16 )
+    MiUnlockPageTable(v3, v16);
+  if ( v15 != 17 )
+  {
+    if ( v30 == 1 )
+      MiUnlockWorkingSetExclusive(v3, v15);
+    else
+      MiUnlockWorkingSetShared(v3, v15);
+  }
+  v4 = v37;
+LABEL_61:
+  if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
+  {
+    inited = MiInitPerfMemoryFlags(1, 13);
+    MiLogPerfMemoryRangeEvent(v4, (__int64)Process, inited, v42);
+  }
+  return 0LL;
 }

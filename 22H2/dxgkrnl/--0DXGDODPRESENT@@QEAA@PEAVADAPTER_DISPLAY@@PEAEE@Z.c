@@ -1,22 +1,22 @@
 /*
- * XREFs of ??0DXGDODPRESENT@@QEAA@PEAVADAPTER_DISPLAY@@PEAEE@Z @ 0x1C0226A60
+ * XREFs of ??0DXGDODPRESENT@@QEAA@PEAVADAPTER_DISPLAY@@PEAEE@Z @ 0x1C019D524
  * Callers:
- *     ?DxgkpCreateDodPresent@@YAPEAVDXGDODPRESENT@@PEAVADAPTER_DISPLAY@@E@Z @ 0x1C02269D0 (-DxgkpCreateDodPresent@@YAPEAVDXGDODPRESENT@@PEAVADAPTER_DISPLAY@@E@Z.c)
+ *     ?DxgkpCreateDodPresent@@YAPEAVDXGDODPRESENT@@PEAVADAPTER_DISPLAY@@E@Z @ 0x1C019D488 (-DxgkpCreateDodPresent@@YAPEAVDXGDODPRESENT@@PEAVADAPTER_DISPLAY@@E@Z.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
- *     ??0BLTQUEUE@@QEAA@PEAVDXGDODPRESENT@@IPEAU_KEVENT@@E@Z @ 0x1C01DDC80 (--0BLTQUEUE@@QEAA@PEAVDXGDODPRESENT@@IPEAU_KEVENT@@E@Z.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     ??0BLTQUEUE@@QEAA@PEAVDXGDODPRESENT@@IPEAU_KEVENT@@E@Z @ 0x1C01637A4 (--0BLTQUEUE@@QEAA@PEAVDXGDODPRESENT@@IPEAU_KEVENT@@E@Z.c)
  */
 
 DXGDODPRESENT *__fastcall DXGDODPRESENT::DXGDODPRESENT(
         DXGDODPRESENT *this,
         struct ADAPTER_DISPLAY *a2,
         BLTQUEUE *a3,
-        unsigned __int8 a4)
+        char a4)
 {
   unsigned int v4; // edi
 
   v4 = 0;
-  *(_DWORD *)this = *((_DWORD *)a2 + 24);
+  *(_DWORD *)this = *((_DWORD *)a2 + 20);
   *((_QWORD *)this + 11) = a2;
   *((_QWORD *)this + 10) = 0LL;
   *((_BYTE *)this + 96) = a4;
@@ -24,7 +24,7 @@ DXGDODPRESENT *__fastcall DXGDODPRESENT::DXGDODPRESENT(
   *((_QWORD *)this + 13) = 0LL;
   *((_QWORD *)this + 14) = 0LL;
   *((_DWORD *)this + 30) = 0;
-  *((_DWORD *)this + 31) = 66;
+  *((_DWORD *)this + 31) = 53;
   *((_DWORD *)this + 34) = 0;
   *((_DWORD *)this + 35) = 0;
   memset((char *)this + 16, 0, 0x40uLL);
@@ -33,9 +33,9 @@ DXGDODPRESENT *__fastcall DXGDODPRESENT::DXGDODPRESENT(
   {
     do
     {
-      BLTQUEUE::BLTQUEUE(a3, this, v4, (struct _KEVENT *)(4000LL * v4 + *((_QWORD *)a2 + 16) + 904LL), a4);
+      BLTQUEUE::BLTQUEUE(a3, this, v4, (struct _KEVENT *)(3968LL * v4 + *((_QWORD *)a2 + 14) + 912LL), a4);
       ++v4;
-      a3 = (BLTQUEUE *)((char *)a3 + 2920);
+      a3 = (BLTQUEUE *)((char *)a3 + 2904);
     }
     while ( v4 < *(_DWORD *)this );
   }

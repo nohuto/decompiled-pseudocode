@@ -1,5 +1,5 @@
 /*
- * XREFs of MiIdealClusterPage @ 0x1402C6B14
+ * XREFs of MiIdealClusterPage @ 0x1402C6C14
  * Callers:
  *     MiHandleTransitionFault @ 0x14003B680 (MiHandleTransitionFault.c)
  * Callees:
@@ -21,16 +21,16 @@
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
  *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     MiCopyPage @ 0x1400B1C30 (MiCopyPage.c)
- *     MiReleaseFreshPage @ 0x1400E0FE4 (MiReleaseFreshPage.c)
- *     MiReleaseNonPagedResources @ 0x1400E18C8 (MiReleaseNonPagedResources.c)
- *     MiReturnPfnReferenceCount @ 0x14013B790 (MiReturnPfnReferenceCount.c)
- *     MiAcquireNonPagedResources @ 0x14013DA0C (MiAcquireNonPagedResources.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memcmp @ 0x1401961E0 (memcmp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiArePageContentsZero @ 0x1402BF668 (MiArePageContentsZero.c)
- *     MiSwapHardFaultPage @ 0x1402CFE5C (MiSwapHardFaultPage.c)
+ *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
+ *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
+ *     MiReleaseNonPagedResources @ 0x1400E18E8 (MiReleaseNonPagedResources.c)
+ *     MiReturnPfnReferenceCount @ 0x14013B7B0 (MiReturnPfnReferenceCount.c)
+ *     MiAcquireNonPagedResources @ 0x14013DA2C (MiAcquireNonPagedResources.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memcmp @ 0x140196200 (memcmp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiArePageContentsZero @ 0x1402BF768 (MiArePageContentsZero.c)
+ *     MiSwapHardFaultPage @ 0x1402CFF5C (MiSwapHardFaultPage.c)
  */
 
 volatile signed __int32 *__fastcall MiIdealClusterPage(

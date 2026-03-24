@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerCreateReferencePage @ 0x1403A3D48
+ * XREFs of HalpTimerCreateReferencePage @ 0x1403B0964
  * Callers:
- *     HalpInitializeTimers @ 0x1403A39D4 (HalpInitializeTimers.c)
+ *     HalpInitializeTimers @ 0x1403B07C8 (HalpInitializeTimers.c)
  * Callees:
- *     HalpMmAllocateMemoryInternal @ 0x14037E158 (HalpMmAllocateMemoryInternal.c)
- *     RtlUdiv128 @ 0x1403A3DD0 (RtlUdiv128.c)
- *     memset @ 0x140435400 (memset.c)
+ *     RtlUdiv128 @ 0x1403B09F0 (RtlUdiv128.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BAC58 (HalpMmAllocateMemoryInternal.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 HalpTimerCreateReferencePage()
@@ -16,7 +16,7 @@ __int64 HalpTimerCreateReferencePage()
 
   if ( *(_DWORD *)(HalpPerformanceCounter + 228) != 5 )
     return 0LL;
-  MemoryInternal = (void *)HalpMmAllocateMemoryInternal(4096, 1u);
+  MemoryInternal = (void *)HalpMmAllocateMemoryInternal(4096LL, 1LL);
   HalpTimerReferencePage = MemoryInternal;
   v1 = MemoryInternal;
   if ( MemoryInternal )

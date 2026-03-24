@@ -1,12 +1,12 @@
 /*
- * XREFs of ?DrainListLocked@FxDisposeList@@AEAAXPEAE@Z @ 0x1C006AB4C
+ * XREFs of ?DrainListLocked@FxDisposeList@@AEAAXPEAE@Z @ 0x1C00551AC
  * Callers:
- *     ?WaitForEmpty@FxDisposeList@@QEAAXXZ @ 0x1C006ABC8 (-WaitForEmpty@FxDisposeList@@QEAAXXZ.c)
- *     ?_WorkItemThunk@FxDisposeList@@CAXPEAX@Z @ 0x1C006AC70 (-_WorkItemThunk@FxDisposeList@@CAXPEAX@Z.c)
+ *     ?WaitForEmpty@FxDisposeList@@QEAAXXZ @ 0x1C00552B4 (-WaitForEmpty@FxDisposeList@@QEAAXXZ.c)
+ *     ?_WorkItemThunk@FxDisposeList@@CAXPEAX@Z @ 0x1C0055410 (-_WorkItemThunk@FxDisposeList@@CAXPEAX@Z.c)
  * Callees:
- *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
- *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
- *     ?DeferredDisposeWorkItem@FxObject@@AEAAXXZ @ 0x1C006E300 (-DeferredDisposeWorkItem@FxObject@@AEAAXXZ.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?DeferredDisposeWorkItem@FxObject@@AEAAXXZ @ 0x1C005B3B8 (-DeferredDisposeWorkItem@FxObject@@AEAAXXZ.c)
  */
 
 void __fastcall FxDisposeList::DrainListLocked(FxDisposeList *this, unsigned __int8 *PreviousIrql)

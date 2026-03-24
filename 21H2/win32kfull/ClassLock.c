@@ -1,45 +1,62 @@
 /*
- * XREFs of ClassLock @ 0x1C00F56D8
+ * XREFs of ClassLock @ 0x1C0101110
  * Callers:
- *     xxxCreateWindowEx @ 0x1C0043E80 (xxxCreateWindowEx.c)
- *     xxxSetClassData @ 0x1C0115230 (xxxSetClassData.c)
- *     xxxRecreateSmallIcons @ 0x1C0158A28 (xxxRecreateSmallIcons.c)
- *     ?xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z @ 0x1C01E3498 (-xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00751E0 (xxxCreateWindowEx.c)
+ *     xxxSetClassData @ 0x1C00FC29C (xxxSetClassData.c)
+ *     ?xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z @ 0x1C01E8E2C (-xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z.c)
+ *     xxxRecreateSmallIcons @ 0x1C024343C (xxxRecreateSmallIcons.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
+ *     <none>
  */
 
 __int64 __fastcall ClassLock(__int64 a1, _QWORD *a2)
 {
-  int v3; // ecx
+  __int64 v3; // rcx
   __int64 v5; // rdx
-  __int64 ThreadWin32Thread; // rax
+  struct _KTHREAD *CurrentThread; // rbp
+  __int64 v7; // rsi
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 *ThreadWin32Thread; // rax
   __int64 result; // rax
-  int v8; // eax
+  int v13; // eax
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v16; // rcx
+  __int64 CurrentThreadProcess; // rax
 
-  v3 = *(_DWORD *)(a1 + 72);
-  if ( v3 < 131068 )
+  v3 = *(unsigned int *)(a1 + 72);
+  if ( (int)v3 >= 131068 )
+    return 0LL;
+  v5 = *(_QWORD *)(a1 + 56);
+  *(_DWORD *)(a1 + 72) = v3 + 1;
+  if ( a1 == v5 )
+    goto LABEL_3;
+  v13 = *(_DWORD *)(v5 + 72);
+  if ( v13 >= 131068 )
   {
-    v5 = *(_QWORD *)(a1 + 56);
-    *(_DWORD *)(a1 + 72) = v3 + 1;
-    if ( a1 == v5 )
-    {
-LABEL_3:
-      ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-      *a2 = *(_QWORD *)(ThreadWin32Thread + 16);
-      *(_QWORD *)(ThreadWin32Thread + 16) = a2;
-      a2[2] = ClassUnlockWorker;
-      result = 1LL;
-      a2[1] = a1;
-      return result;
-    }
-    v8 = *(_DWORD *)(v5 + 72);
-    if ( v8 < 131068 )
-    {
-      *(_DWORD *)(v5 + 72) = v8 + 1;
-      goto LABEL_3;
-    }
     *(_DWORD *)(a1 + 72) = v3;
+    return 0LL;
   }
-  return 0LL;
+  *(_DWORD *)(v5 + 72) = v13 + 1;
+LABEL_3:
+  CurrentThread = KeGetCurrentThread();
+  v7 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(v3)
+    || (CurrentProcess = PsGetCurrentProcess(v9, v8, v10),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v16),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v7 = *ThreadWin32Thread;
+  }
+  *a2 = *(_QWORD *)(v7 + 16);
+  *(_QWORD *)(v7 + 16) = a2;
+  a2[2] = ClassUnlockWorker;
+  result = 1LL;
+  a2[1] = a1;
+  return result;
 }

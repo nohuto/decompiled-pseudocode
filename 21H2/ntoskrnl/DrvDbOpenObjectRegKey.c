@@ -1,152 +1,136 @@
 /*
- * XREFs of DrvDbOpenObjectRegKey @ 0x1407827F0
+ * XREFs of DrvDbOpenObjectRegKey @ 0x140640410
  * Callers:
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x1406C1FDC (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbGetDeviceIdMappedProperty @ 0x140785234 (DrvDbGetDeviceIdMappedProperty.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x1407886D0 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbOpenDriverPackageRegKey @ 0x140788A34 (DrvDbOpenDriverPackageRegKey.c)
- *     DrvDbOpenDriverInfFileRegKey @ 0x140789AA4 (DrvDbOpenDriverInfFileRegKey.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x14081D0F0 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbCreateDatabaseNode @ 0x1408274C4 (DrvDbCreateDatabaseNode.c)
- *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x140A2E2C4 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
- *     DrvDbGetObjectDatabaseNodeName @ 0x140A2EE50 (DrvDbGetObjectDatabaseNodeName.c)
- *     DrvDbOpenDeviceIdRegKey @ 0x140A2F540 (DrvDbOpenDeviceIdRegKey.c)
- *     DrvDbOpenDriverFileRegKey @ 0x140A2F588 (DrvDbOpenDriverFileRegKey.c)
+ *     DrvDbOpenDriverInfFileRegKey @ 0x14063B014 (DrvDbOpenDriverInfFileRegKey.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x14063B8BC (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbOpenDriverPackageRegKey @ 0x14063EB9C (DrvDbOpenDriverPackageRegKey.c)
+ *     DrvDbGetDeviceIdMappedProperty @ 0x1406C4158 (DrvDbGetDeviceIdMappedProperty.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x14072DDF8 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbOpenDeviceIdRegKey @ 0x140735174 (DrvDbOpenDeviceIdRegKey.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x140735830 (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbCreateDatabaseNode @ 0x1407A4268 (DrvDbCreateDatabaseNode.c)
+ *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x14097D3A4 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
+ *     DrvDbGetObjectDatabaseNodeName @ 0x14097DE60 (DrvDbGetObjectDatabaseNodeName.c)
+ *     DrvDbOpenDriverFileRegKey @ 0x14097E558 (DrvDbOpenDriverFileRegKey.c)
  * Callees:
- *     _PnpCtxRegCreateTree @ 0x140772AA0 (_PnpCtxRegCreateTree.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1407829F8 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     DrvDbReleaseDatabaseNodeBaseKey @ 0x140782BB0 (DrvDbReleaseDatabaseNodeBaseKey.c)
- *     DrvDbGetObjectDatabaseNode @ 0x140784454 (DrvDbGetObjectDatabaseNode.c)
+ *     _PnpCtxRegCreateTree @ 0x14063E278 (_PnpCtxRegCreateTree.c)
+ *     DrvDbGetObjectDatabaseNode @ 0x14063ECFC (DrvDbGetObjectDatabaseNode.c)
+ *     DrvDbReleaseDatabaseNodeBaseKey @ 0x1406405FC (DrvDbReleaseDatabaseNodeBaseKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x140640698 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14064081C (_PnpCtxRegOpenKey.c)
  */
 
-__int64 DrvDbOpenObjectRegKey(__int64 *a1, __int64 *a2, unsigned int a3, ...)
+__int64 DrvDbOpenObjectRegKey(__int64 *a1, const UNICODE_STRING *a2, unsigned int a3, ...)
 {
   int ObjectDatabaseNode; // eax
   __int64 v7; // r8
-  __int64 *v8; // rdi
+  const UNICODE_STRING *v8; // rdi
   int Tree; // ebx
-  int v10; // eax
-  __int64 v11; // rcx
-  __int64 *v13; // r14
+  const UNICODE_STRING *i; // r14
+  int v11; // eax
+  __int64 v12; // r8
   int v14; // eax
   __int64 v15; // rcx
-  __int64 v16; // r8
-  bool v17; // sf
-  int v18; // eax
-  __int64 v19; // [rsp+40h] [rbp-10h] BYREF
-  __int64 *v20; // [rsp+48h] [rbp-8h] BYREF
-  __int64 v22; // [rsp+98h] [rbp+48h] BYREF
+  int v16; // eax
+  __int64 v17; // [rsp+40h] [rbp-10h] BYREF
+  const UNICODE_STRING *v18; // [rsp+48h] [rbp-8h] BYREF
+  wchar_t *v20; // [rsp+98h] [rbp+48h] BYREF
   va_list va; // [rsp+98h] [rbp+48h]
-  __int64 v24; // [rsp+A0h] [rbp+50h]
-  __int64 v25; // [rsp+A8h] [rbp+58h]
-  __int64 v26; // [rsp+B0h] [rbp+60h]
-  _DWORD *v27; // [rsp+B8h] [rbp+68h]
-  __int64 **v28; // [rsp+C0h] [rbp+70h]
+  __int64 v22; // [rsp+A0h] [rbp+50h]
+  __int64 v23; // [rsp+A8h] [rbp+58h]
+  __int64 v24; // [rsp+B0h] [rbp+60h]
+  _DWORD *v25; // [rsp+B8h] [rbp+68h]
+  const UNICODE_STRING **v26; // [rsp+C0h] [rbp+70h]
   va_list va1; // [rsp+C8h] [rbp+78h] BYREF
 
   va_start(va1, a3);
   va_start(va, a3);
+  v20 = va_arg(va1, wchar_t *);
   v22 = va_arg(va1, _QWORD);
+  v23 = va_arg(va1, _QWORD);
   v24 = va_arg(va1, _QWORD);
-  v25 = va_arg(va1, _QWORD);
-  v26 = va_arg(va1, _QWORD);
-  v27 = va_arg(va1, _DWORD *);
-  v28 = va_arg(va1, __int64 **);
-  v19 = 0LL;
-  v20 = 0LL;
-  ObjectDatabaseNode = DrvDbGetObjectDatabaseNode(a1, v22, (__int64 *)va, &v20);
-  v8 = v20;
+  v25 = va_arg(va1, _DWORD *);
+  v26 = va_arg(va1, const UNICODE_STRING **);
+  v17 = 0LL;
+  v18 = 0LL;
+  ObjectDatabaseNode = DrvDbGetObjectDatabaseNode((__int64)a1, v20, (wchar_t **)va, &v18);
+  v8 = v18;
   Tree = ObjectDatabaseNode;
   if ( ObjectDatabaseNode < 0 )
-    goto LABEL_9;
-  if ( v20 || (v8 = a2) != 0LL )
+    goto LABEL_12;
+  if ( !v18 )
   {
-    v10 = DrvDbAcquireDatabaseNodeBaseKey(a1, v8, a3, &v19);
-    Tree = v10;
-    if ( v10 < 0 )
+    v8 = a2;
+    if ( !a2 )
     {
-      if ( v10 == -1073740697 )
-        Tree = -1073741772;
+      for ( i = (const UNICODE_STRING *)a1[2];
+            i != (const UNICODE_STRING *)(a1 + 2);
+            i = *(const UNICODE_STRING **)&i->Length )
+      {
+        v8 = i;
+        v11 = DrvDbAcquireDatabaseNodeBaseKey(a1, i, a3, &v17);
+        Tree = v11;
+        if ( v11 == -1073740697 )
+        {
+          Tree = -1073741772;
+        }
+        else
+        {
+          if ( v11 < 0 )
+            break;
+          Tree = PnpCtxRegOpenKey(*a1, v17, (_DWORD)v20, 0, v22, v24);
+          DrvDbReleaseDatabaseNodeBaseKey(a1, i, v12, v17);
+          v17 = 0LL;
+          if ( Tree != -1073741772 )
+            goto LABEL_9;
+        }
+      }
+      if ( Tree == -1073741772 )
+      {
+        if ( !(_BYTE)v23 )
+          goto LABEL_12;
+        v8 = (const UNICODE_STRING *)a1[4];
+        v16 = DrvDbAcquireDatabaseNodeBaseKey(a1, v8, a3, &v17);
+        Tree = v16;
+        if ( v16 < 0 )
+        {
+          if ( v16 == -1073740697 )
+            Tree = -1073741662;
+          goto LABEL_12;
+        }
+        Tree = PnpCtxRegCreateTree(*a1);
+        if ( Tree < 0 )
+          goto LABEL_12;
+      }
+LABEL_9:
+      if ( Tree >= 0 && v26 )
+        *v26 = v8;
+      goto LABEL_12;
+    }
+  }
+  v14 = DrvDbAcquireDatabaseNodeBaseKey(a1, v8, a3, &v17);
+  Tree = v14;
+  if ( v14 >= 0 )
+  {
+    v15 = *a1;
+    if ( (_BYTE)v23 )
+    {
+      Tree = PnpCtxRegCreateTree(v15);
     }
     else
     {
-      v11 = *a1;
-      if ( !(_BYTE)v25 )
-      {
-        if ( v11 )
-          v11 = *(_QWORD *)(v11 + 224);
-        Tree = SysCtxRegOpenKey(v11, v19, v22, 0, v24, v26);
-        if ( Tree < 0 )
-          goto LABEL_9;
-        if ( v27 )
-          *v27 = 2;
-LABEL_20:
-        if ( v28 )
-          *v28 = v8;
-        goto LABEL_9;
-      }
-      Tree = PnpCtxRegCreateTree(v11);
-      v17 = Tree < 0;
-LABEL_19:
-      if ( !v17 )
-        goto LABEL_20;
+      Tree = PnpCtxRegOpenKey(v15, v17, (_DWORD)v20, 0, v22, v24);
+      if ( Tree < 0 )
+        goto LABEL_12;
+      if ( v25 )
+        *v25 = 2;
     }
+    goto LABEL_9;
   }
-  else
-  {
-    v13 = (__int64 *)a1[2];
-    if ( v13 == a1 + 2 )
-      goto LABEL_20;
-    do
-    {
-      v8 = v13;
-      v14 = DrvDbAcquireDatabaseNodeBaseKey(a1, v13, a3, &v19);
-      Tree = v14;
-      if ( v14 == -1073740697 )
-      {
-        Tree = -1073741772;
-      }
-      else
-      {
-        if ( v14 < 0 )
-          break;
-        if ( *a1 )
-          v15 = *(_QWORD *)(*a1 + 224);
-        else
-          v15 = 0LL;
-        Tree = SysCtxRegOpenKey(v15, v19, v22, 0, v24, v26);
-        DrvDbReleaseDatabaseNodeBaseKey(a1, v13, v16, v19);
-        v19 = 0LL;
-        if ( Tree != -1073741772 )
-          goto LABEL_18;
-      }
-      v13 = (__int64 *)*v13;
-    }
-    while ( v13 != a1 + 2 );
-    if ( Tree == -1073741772 && (_BYTE)v25 )
-    {
-      v8 = (__int64 *)a1[5];
-      v18 = DrvDbAcquireDatabaseNodeBaseKey(a1, v8, a3, &v19);
-      Tree = v18;
-      if ( v18 >= 0 )
-      {
-        Tree = PnpCtxRegCreateTree(*a1);
-        if ( Tree >= 0 )
-        {
-LABEL_18:
-          v17 = Tree < 0;
-          goto LABEL_19;
-        }
-      }
-      else if ( v18 == -1073740697 )
-      {
-        Tree = -1073741662;
-      }
-    }
-  }
-LABEL_9:
-  if ( v19 )
-    DrvDbReleaseDatabaseNodeBaseKey(a1, v8, v7, v19);
+  if ( v14 == -1073740697 )
+    Tree = -1073741772;
+LABEL_12:
+  if ( v17 )
+    DrvDbReleaseDatabaseNodeBaseKey(a1, v8, v7, v17);
   return (unsigned int)Tree;
 }

@@ -1,43 +1,38 @@
 /*
- * XREFs of PopDirectedDripsQueryEnabledMitigations @ 0x140858820
+ * XREFs of PopDirectedDripsQueryEnabledMitigations @ 0x1407CBFE4
  * Callers:
- *     PopDirectedDripsEngage @ 0x1405C9C94 (PopDirectedDripsEngage.c)
- *     PopDirectedDripsInitializePhase3 @ 0x140B270C4 (PopDirectedDripsInitializePhase3.c)
+ *     PopDirectedDripsEngage @ 0x1405688B4 (PopDirectedDripsEngage.c)
+ *     PopDirectedDripsInitializePhase3 @ 0x140A6DC48 (PopDirectedDripsInitializePhase3.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1402D6B0C (wil_details_FeatureReporting_ReportUsageToService.c)
- *     PopDirectedDripsQueryPs4Support @ 0x1408588DC (PopDirectedDripsQueryPs4Support.c)
- *     PopDirectedDripsQueryRegistryValues @ 0x140858994 (PopDirectedDripsQueryRegistryValues.c)
+ *     Feature_DirectedFx__private_ReportDeviceUsage @ 0x1403F8148 (Feature_DirectedFx__private_ReportDeviceUsage.c)
+ *     PopDirectedDripsQueryPs4Support @ 0x1407CC07C (PopDirectedDripsQueryPs4Support.c)
+ *     PopDirectedDripsQueryRegistryValues @ 0x1407CC134 (PopDirectedDripsQueryRegistryValues.c)
  */
 
-__int64 (__fastcall *__fastcall PopDirectedDripsQueryEnabledMitigations(
-        __int64 a1))(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD)
+void __fastcall PopDirectedDripsQueryEnabledMitigations(__int64 a1)
 {
   char v1; // si
   char v2; // di
-  __int64 (__fastcall *result)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD); // rax
-  unsigned int v5; // ebx
+  unsigned int v4; // ebx
   int Ps4Support; // eax
-  int v7; // [rsp+30h] [rbp-28h]
-  unsigned int v8; // [rsp+60h] [rbp+8h] BYREF
+  unsigned int v6; // [rsp+40h] [rbp+8h] BYREF
 
-  v8 = 0;
+  v6 = 0;
   v1 = 0;
   v2 = 0;
-  result = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD))PopDirectedDripsQueryRegistryValues(
-                                                                                                     a1,
-                                                                                                     &v8);
-  v5 = v8;
-  if ( (v8 & 1) != 0 )
+  PopDirectedDripsQueryRegistryValues(a1, &v6);
+  v4 = v6;
+  if ( (v6 & 1) != 0 )
   {
     v1 = 1;
-    v5 = v8 & 0xFFFFFFFE;
+    v4 = v6 & 0xFFFFFFFE;
   }
-  if ( (v5 & 2) != 0 )
+  if ( (v4 & 2) != 0 )
   {
     v2 = 1;
-    v5 &= ~2u;
+    v4 &= ~2u;
   }
-  if ( (v5 & 8) == 0 )
+  if ( (v4 & 8) == 0 )
   {
     Ps4Support = PopDirectedDripsQueryPs4Support();
     if ( Ps4Support == 1 )
@@ -48,19 +43,11 @@ __int64 (__fastcall *__fastcall PopDirectedDripsQueryEnabledMitigations(
     {
       v2 = 0;
     }
-    result = wil_details_FeatureReporting_ReportUsageToService(
-               (__int64)&Feature_DirectedFx__private_reporting,
-               0x12F004Eu,
-               0,
-               0,
-               (__int64)&Feature_PdttSupport_logged_traits,
-               0,
-               v7);
+    Feature_DirectedFx__private_ReportDeviceUsage();
   }
   if ( v1 )
-    v5 |= 1u;
+    v4 |= 1u;
   if ( v2 )
-    v5 |= 2u;
-  *(_DWORD *)(a1 + 48) = v5;
-  return result;
+    v4 |= 2u;
+  *(_DWORD *)(a1 + 48) = v4;
 }

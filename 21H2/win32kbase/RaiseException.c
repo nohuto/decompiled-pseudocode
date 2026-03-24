@@ -1,17 +1,16 @@
 /*
- * XREFs of RaiseException @ 0x1C00DE150
+ * XREFs of RaiseException @ 0x1C00CF200
  * Callers:
- *     _raise_exc_ex @ 0x1C00DE240 (_raise_exc_ex.c)
+ *     _raise_exc_ex @ 0x1C00CF2F0 (_raise_exc_ex.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     RtlRaiseException_0 @ 0x1C00DE5EA (RtlRaiseException_0.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     RtlRaiseException_0 @ 0x1C00CF6C4 (RtlRaiseException_0.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
-void __fastcall RaiseException(DWORD a1, char a2, unsigned int a3, const void *a4)
+void __fastcall RaiseException(DWORD a1, char a2, DWORD a3, const void *a4)
 {
-  DWORD v8; // eax
   _EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-C8h] BYREF
 
   memset(&ExceptionRecord.NumberParameters + 1, 0, 0x7CuLL);
@@ -21,12 +20,11 @@ void __fastcall RaiseException(DWORD a1, char a2, unsigned int a3, const void *a
   *(_QWORD *)&ExceptionRecord.ExceptionFlags = a2 & 1;
   if ( a4 )
   {
-    v8 = 15;
-    if ( a3 <= 0xF )
-      v8 = a3;
-    ExceptionRecord.NumberParameters = v8;
-    if ( v8 )
-      memmove(ExceptionRecord.ExceptionInformation, a4, 8LL * v8);
+    if ( a3 > 0xF )
+      a3 = 15;
+    ExceptionRecord.NumberParameters = a3;
+    if ( a3 )
+      memmove(ExceptionRecord.ExceptionInformation, a4, 8LL * a3);
   }
   else
   {

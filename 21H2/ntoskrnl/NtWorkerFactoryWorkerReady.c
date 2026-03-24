@@ -1,13 +1,13 @@
 /*
- * XREFs of NtWorkerFactoryWorkerReady @ 0x140240160
+ * XREFs of NtWorkerFactoryWorkerReady @ 0x1402B9980
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall NtWorkerFactoryWorkerReady(void *a1)
@@ -38,16 +38,16 @@ __int64 __fastcall NtWorkerFactoryWorkerReady(void *a1)
   {
     v2 = Object;
     KeAcquireInStackQueuedSpinLock(*((PKSPIN_LOCK *)Object + 2), &LockHandle);
-    v3 = v2[100];
+    v3 = v2[76];
     if ( v3 )
     {
-      v2[100] = v3 - 1;
-      v4 = v2[98];
+      v2[76] = v3 - 1;
+      v4 = v2[74];
       if ( v4 )
       {
-        ++v2[96];
-        ++v2[97];
-        v2[98] = v4 - 1;
+        ++v2[72];
+        ++v2[73];
+        v2[74] = v4 - 1;
       }
       else
       {

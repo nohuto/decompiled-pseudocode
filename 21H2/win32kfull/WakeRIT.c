@@ -1,14 +1,13 @@
 /*
- * XREFs of WakeRIT @ 0x1C00FD22C
+ * XREFs of WakeRIT @ 0x1C010BE30
  * Callers:
- *     xxxUpdatePerUserSystemParameters @ 0x1C00B8188 (xxxUpdatePerUserSystemParameters.c)
- *     EditionActivateMitInput @ 0x1C00FCD90 (EditionActivateMitInput.c)
- *     EditionDeactivateMitInput @ 0x1C00FCE60 (EditionDeactivateMitInput.c)
- *     WakeRITForShutdown @ 0x1C00FCFF0 (WakeRITForShutdown.c)
- *     _EnableSessionForMMCSS @ 0x1C00FD080 (_EnableSessionForMMCSS.c)
- *     EditionInitiateMouseEventProcessing @ 0x1C00FD1C0 (EditionInitiateMouseEventProcessing.c)
- *     EditionIVSyncForeground @ 0x1C01CED10 (EditionIVSyncForeground.c)
- *     WakeRITForConfigSwitch @ 0x1C01D4470 (WakeRITForConfigSwitch.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C0026814 (xxxUpdatePerUserSystemParameters.c)
+ *     EditionActivateMitInput @ 0x1C010B9D0 (EditionActivateMitInput.c)
+ *     EditionDeactivateMitInput @ 0x1C010BA90 (EditionDeactivateMitInput.c)
+ *     WakeRITForShutdown @ 0x1C010BBE0 (WakeRITForShutdown.c)
+ *     _EnableSessionForMMCSS @ 0x1C010BC30 (_EnableSessionForMMCSS.c)
+ *     EditionInitiateMouseEventProcessing @ 0x1C010BD70 (EditionInitiateMouseEventProcessing.c)
+ *     WakeRITForConfigSwitch @ 0x1C01D9D80 (WakeRITForConfigSwitch.c)
  * Callees:
  *     <none>
  */

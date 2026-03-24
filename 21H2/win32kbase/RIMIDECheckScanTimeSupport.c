@@ -1,11 +1,11 @@
 /*
- * XREFs of RIMIDECheckScanTimeSupport @ 0x1C019B04C
+ * XREFs of RIMIDECheckScanTimeSupport @ 0x1C01672C0
  * Callers:
- *     RIMIDECreatePointerDeviceInfo @ 0x1C019B9FC (RIMIDECreatePointerDeviceInfo.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C0167958 (RIMIDECreatePointerDeviceInfo.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
- *     rimHidP_GetSpecificValueCaps @ 0x1C018E898 (rimHidP_GetSpecificValueCaps.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF780 (memset.c)
+ *     rimHidP_GetSpecificValueCaps @ 0x1C0163618 (rimHidP_GetSpecificValueCaps.c)
  */
 
 int __fastcall RIMIDECheckScanTimeSupport(__int64 a1, struct _HIDP_PREPARSED_DATA *a2)
@@ -22,8 +22,8 @@ int __fastcall RIMIDECheckScanTimeSupport(__int64 a1, struct _HIDP_PREPARSED_DAT
     result = v6.LogicalMax;
     if ( v6.LogicalMin < v6.LogicalMax && v6.LogicalMin >= 0 && v6.LogicalMax >= 0xFFFF )
     {
-      *(_DWORD *)(a1 + 360) |= 0x80u;
-      *(_DWORD *)(a1 + 888) = result;
+      *(_DWORD *)(a1 + 312) |= 0x80u;
+      *(_DWORD *)(a1 + 840) = result;
     }
   }
   return result;

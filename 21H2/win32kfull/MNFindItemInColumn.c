@@ -1,9 +1,9 @@
 /*
- * XREFs of MNFindItemInColumn @ 0x1C024D6D8
+ * XREFs of MNFindItemInColumn @ 0x1C0250708
  * Callers:
- *     xxxMNKeyDown @ 0x1C0231A20 (xxxMNKeyDown.c)
+ *     xxxMNKeyDown @ 0x1C0238A98 (xxxMNKeyDown.c)
  * Callees:
- *     MNFindNextValidItem @ 0x1C024D7E8 (MNFindNextValidItem.c)
+ *     MNFindNextValidItem @ 0x1C0250818 (MNFindNextValidItem.c)
  */
 
 __int64 __fastcall MNFindItemInColumn(__int64 a1, int a2, __int64 a3, int a4)

@@ -1,7 +1,7 @@
 /*
- * XREFs of KeQueryUnbiasedInterruptTimePrecise @ 0x140105B30
+ * XREFs of KeQueryUnbiasedInterruptTimePrecise @ 0x140105B50
  * Callers:
- *     IoDiskIoAttributionQuery @ 0x1401053C4 (IoDiskIoAttributionQuery.c)
+ *     IoDiskIoAttributionQuery @ 0x1401053E4 (IoDiskIoAttributionQuery.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,17 @@
 /*
- * XREFs of ACPIBuildPowerResourceRequest @ 0x1C000E0EC
+ * XREFs of ACPIBuildPowerResourceRequest @ 0x1C002DF88
  * Callers:
- *     OSNotifyCreatePowerResource @ 0x1C0032A34 (OSNotifyCreatePowerResource.c)
+ *     OSNotifyCreatePowerResource @ 0x1C002DF34 (OSNotifyCreatePowerResource.c)
  * Callees:
- *     memset @ 0x1C0002180 (memset.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1C001C8A4 (ExAllocateFromNPagedLookasideList.c)
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall ACPIBuildPowerResourceRequest(__int64 a1)
 {
   PVOID v2; // rax
   __int64 v3; // rbx
-  __int64 *v5; // rax
+  __int64 *v4; // rax
 
   v2 = ExAllocateFromNPagedLookasideList(&BuildRequestLookAsideList);
   v3 = (__int64)v2;
@@ -25,13 +26,13 @@ __int64 __fastcall ACPIBuildPowerResourceRequest(__int64 a1)
   KeAcquireSpinLockAtDpcLevel(&AcpiBuildQueueLock);
   if ( AcpiTableLoadDelta )
     *(_DWORD *)(v3 + 20) |= 0x40u;
-  v5 = (__int64 *)qword_1C006F4B8;
-  if ( *(__int64 **)qword_1C006F4B8 != &AcpiBuildQueueList )
+  v4 = (__int64 *)qword_1C0082418;
+  if ( *(__int64 **)qword_1C0082418 != &AcpiBuildQueueList )
     __fastfail(3u);
   *(_QWORD *)v3 = &AcpiBuildQueueList;
-  *(_QWORD *)(v3 + 8) = v5;
-  *v5 = v3;
-  qword_1C006F4B8 = v3;
+  *(_QWORD *)(v3 + 8) = v4;
+  *v4 = v3;
+  qword_1C0082418 = v3;
   KeReleaseSpinLockFromDpcLevel(&AcpiBuildQueueLock);
   return 259LL;
 }

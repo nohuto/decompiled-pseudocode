@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ReturnProcessedBatch@CApplicationChannel@DirectComposition@@QEAAXPEAVCBatch@2@@Z @ 0x1C0081BE0
+ * XREFs of ?ReturnProcessedBatch@CApplicationChannel@DirectComposition@@QEAAXPEAVCBatch@2@@Z @ 0x1C0056C80
  * Callers:
- *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C0080AA4 (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
- *     ?ConfirmFrame@CConnection@DirectComposition@@QEAAJPEAUtagCOMPOSITION_CONFIRM_FRAME_INFO@@@Z @ 0x1C0081570 (-ConfirmFrame@CConnection@DirectComposition@@QEAAJPEAUtagCOMPOSITION_CONFIRM_FRAME_INFO@@@Z.c)
+ *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C00568CC (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
+ *     NtDCompositionConfirmFrame @ 0x1C0056920 (NtDCompositionConfirmFrame.c)
  * Callees:
- *     ?ReleaseHandle@CLinearObjectTableBase@DirectComposition@@QEAAXI@Z @ 0x1C00143F4 (-ReleaseHandle@CLinearObjectTableBase@DirectComposition@@QEAAXI@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     Win32FreePool @ 0x1C002ADC0 (Win32FreePool.c)
+ *     ?ReleaseHandle@CLinearObjectTableBase@DirectComposition@@QEAAXI@Z @ 0x1C005FC8C (-ReleaseHandle@CLinearObjectTableBase@DirectComposition@@QEAAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DirectComposition::CApplicationChannel::ReturnProcessedBatch(
@@ -17,13 +17,14 @@ void __fastcall DirectComposition::CApplicationChannel::ReturnProcessedBatch(
   bool v5; // zf
   ULONGLONG v6; // rcx
   ULONGLONG Region; // rsi
-  int v8; // edi
+  unsigned int v8; // edi
   struct _ERESOURCE *v9; // rbx
+  LARGE_INTEGER *Alignment; // rbx
 
   Next = a2[6].Next;
   if ( Next )
     ObfDereferenceObject(Next);
-  LOBYTE(a2[2].Next) &= ~0x20u;
+  LOBYTE(a2[2].Next) &= ~0x10u;
   v5 = HIDWORD(a2[1].Next) == 6;
   a2[6].Next = 0LL;
   if ( v5 )
@@ -38,9 +39,7 @@ void __fastcall DirectComposition::CApplicationChannel::ReturnProcessedBatch(
       v8);
     ExReleaseResourceLite(*(PERESOURCE *)(Region + 72));
     KeLeaveCriticalRegion();
-    NSInstrumentation::CLeakTrackingAllocator::Free(
-      (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
-      a2);
+    Win32FreePool((__int64)a2);
     (*(void (__fastcall **)(union _SLIST_HEADER *, __int64))(this->Alignment + 32))(this, 1LL);
   }
   else
@@ -51,6 +50,12 @@ void __fastcall DirectComposition::CApplicationChannel::ReturnProcessedBatch(
       KeSetEvent(*(PRKEVENT *)(v6 + 8), 1, 0);
     if ( ((__int64)a2[2].Next & 8) != 0 )
       *((_BYTE *)&this[15].Header8 + 2) = 0;
+    if ( (this[15].Alignment & 0x400) != 0 )
+    {
+      Alignment = (LARGE_INTEGER *)this[45].Alignment;
+      Alignment[8].LowPart = (DWORD)a2[1].Next;
+      Alignment[7] = KeQueryPerformanceCounter(0LL);
+    }
     ExpInterlockedPushEntrySList(this + 12, a2);
     KeSetEvent(*(PRKEVENT *)(this[13].Region + 8), 1, 0);
   }

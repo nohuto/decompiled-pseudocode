@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetSize@CDxHandleBitmapRealization@@UEBA?AUD2D_SIZE_U@@XZ @ 0x1800D4190
+ * XREFs of ?GetSize@CDxHandleBitmapRealization@@UEBA?AUD2D_SIZE_U@@XZ @ 0x1800C4780
  * Callers:
- *     ?GetSize@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA?AUD2D_SIZE_U@@XZ @ 0x18010B8F0 (-GetSize@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA-AUD2D_SIZE_U@@XZ.c)
- *     ?GetSize@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBA?AUD2D_SIZE_U@@XZ @ 0x18010B910 (-GetSize@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBA-AUD2D_SIZE_U@@XZ.c)
- *     ?GetSize@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA?AUD2D_SIZE_U@@XZ @ 0x18010BFF0 (-GetSize@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA-AUD2D_SIZE_U@@XZ.c)
- *     ?GetSize@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA?AUD2D_SIZE_U@@XZ @ 0x18010C290 (-GetSize@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?GetSize@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA?AUD2D_SIZE_U@@XZ @ 0x1800F8B60 (-GetSize@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?GetSize@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBA?AUD2D_SIZE_U@@XZ @ 0x1800F8B70 (-GetSize@CDxHandleBitmapRealization@@$4PPPPPPPM@CA@EBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?GetSize@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA?AUD2D_SIZE_U@@XZ @ 0x1800F8E20 (-GetSize@CDxHandleBitmapRealization@@$4PPPPPPPM@DA@EBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?GetSize@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA?AUD2D_SIZE_U@@XZ @ 0x1800F8FE0 (-GetSize@CDxHandleBitmapRealization@@$4PPPPPPPM@GI@EBA-AUD2D_SIZE_U@@XZ.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
 struct D2D_SIZE_U __fastcall CDxHandleBitmapRealization::GetSize(CDxHandleBitmapRealization *this, _DWORD *a2)

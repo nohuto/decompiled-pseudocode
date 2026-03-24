@@ -1,9 +1,10 @@
 /*
- * XREFs of NtRIMDeviceIoControl @ 0x1C0180010
+ * XREFs of NtRIMDeviceIoControl @ 0x1C0153150
  * Callers:
  *     <none>
  * Callees:
- *     RIMDeviceIoControl @ 0x1C0043640 (RIMDeviceIoControl.c)
+ *     RIMDeviceIoControl @ 0x1C0051E70 (RIMDeviceIoControl.c)
+ *     ApiSetEditionIsUsermodeRIMAccessAllowed @ 0x1C0055718 (ApiSetEditionIsUsermodeRIMAccessAllowed.c)
  */
 
 __int64 __fastcall NtRIMDeviceIoControl(
@@ -19,6 +20,8 @@ __int64 __fastcall NtRIMDeviceIoControl(
 {
   SIZE_T Length; // [rsp+30h] [rbp-38h]
 
+  if ( !(unsigned int)ApiSetEditionIsUsermodeRIMAccessAllowed() )
+    return 3221225506LL;
   LODWORD(Length) = a7;
   return RIMDeviceIoControl(a1, a2, a3, a4, a5, Address, Length, a8, 0LL, 0, a9, 1);
 }

@@ -1,28 +1,25 @@
 /*
- * XREFs of VfNotifyVerifierExtensions @ 0x140A89F08
+ * XREFs of VfNotifyVerifierExtensions @ 0x1409C8A88
  * Callers:
- *     VfDriverLoadSucceeded @ 0x140A7C224 (VfDriverLoadSucceeded.c)
- *     VfNotifyVerifierOfEvent @ 0x140A81780 (VfNotifyVerifierOfEvent.c)
- *     VfSuspectApplyDifVolatileVerification @ 0x140A9A468 (VfSuspectApplyDifVolatileVerification.c)
- *     VfSuspectDriversLoadCallback @ 0x140A9A8F8 (VfSuspectDriversLoadCallback.c)
- *     VfSuspectDriversUnloadCallback @ 0x140A9ACE0 (VfSuspectDriversUnloadCallback.c)
- *     VfSuspectRemoveDifVolatileVerification @ 0x140A9AEC0 (VfSuspectRemoveDifVolatileVerification.c)
- *     ViLogAndLoadXdv @ 0x140B536A4 (ViLogAndLoadXdv.c)
+ *     VfNotifyVerifierOfEvent @ 0x1409C6050 (VfNotifyVerifierOfEvent.c)
+ *     VfSuspectDriversLoadCallback @ 0x1409D9B98 (VfSuspectDriversLoadCallback.c)
+ *     VfSuspectDriversUnloadCallback @ 0x1409D9FBC (VfSuspectDriversUnloadCallback.c)
+ *     ViLogAndLoadXdv @ 0x140A938F4 (ViLogAndLoadXdv.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VfNotifyVerifierExtensions(int a1, __int64 a2)
 {
   __int64 result; // rax
-  _DWORD v3[2]; // [rsp+20h] [rbp-30h] BYREF
-  _BYTE v4[20]; // [rsp+28h] [rbp-28h]
-  __int64 v5; // [rsp+3Ch] [rbp-14h]
+  __int128 v3; // [rsp+20h] [rbp-38h] BYREF
+  __int128 v4; // [rsp+30h] [rbp-28h]
+  __int64 v5; // [rsp+40h] [rbp-18h]
 
   result = 0LL;
-  v3[1] = 0;
   v5 = 0LL;
-  *(_OWORD *)&v4[4] = 0LL;
+  v3 = 0LL;
+  v4 = 0LL;
   if ( ViFnXdvNotifyExtensions )
   {
     if ( a1 )
@@ -30,19 +27,18 @@ __int64 __fastcall VfNotifyVerifierExtensions(int a1, __int64 a2)
       result = (unsigned int)(a1 - 1);
       if ( (unsigned int)result > 1 )
         return result;
-      v3[0] = a1;
-      *(_QWORD *)v4 = a2 + 88;
-      *(_QWORD *)&v4[8] = *(_QWORD *)(a2 + 48);
-      *(_DWORD *)&v4[16] = *(_DWORD *)(a2 + 64);
-      LODWORD(v5) = *(_DWORD *)(a2 + 156);
-      HIDWORD(v5) = *(_DWORD *)(a2 + 120);
+      LODWORD(v3) = a1;
+      *((_QWORD *)&v3 + 1) = a2 + 88;
+      *(_QWORD *)&v4 = *(_QWORD *)(a2 + 48);
+      DWORD2(v4) = *(_DWORD *)(a2 + 64);
+      HIDWORD(v4) = *(_DWORD *)(a2 + 156);
+      LODWORD(v5) = *(_DWORD *)(a2 + 120);
     }
     else
     {
-      v3[0] = 0;
-      *(_DWORD *)v4 = a2;
+      DWORD2(v3) = a2;
     }
-    return ((__int64 (__fastcall *)(_DWORD *))ViFnXdvNotifyExtensions)(v3);
+    return ((__int64 (__fastcall *)(__int128 *))ViFnXdvNotifyExtensions)(&v3);
   }
   return result;
 }

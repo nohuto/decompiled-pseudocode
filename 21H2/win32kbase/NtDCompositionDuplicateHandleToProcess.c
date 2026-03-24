@@ -1,38 +1,39 @@
 /*
- * XREFs of NtDCompositionDuplicateHandleToProcess @ 0x1C02115B0
+ * XREFs of NtDCompositionDuplicateHandleToProcess @ 0x1C01D23F0
  * Callers:
  *     <none>
  * Callees:
- *     UserIsCurrentProcessDwm @ 0x1C0014970 (UserIsCurrentProcessDwm.c)
- *     ?ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z @ 0x1C0093FC8 (-ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memset @ 0x1C00DE6C0 (memset.c)
+ *     UserIsCurrentProcessDwm @ 0x1C00478C0 (UserIsCurrentProcessDwm.c)
+ *     ?ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z @ 0x1C0082BC4 (-ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF780 (memset.c)
  */
 
-__int64 __fastcall NtDCompositionDuplicateHandleToProcess(_OWORD *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall NtDCompositionDuplicateHandleToProcess(_OWORD *a1, __int64 a2, _QWORD *a3)
 {
-  void *v5; // r14
-  int v7; // edi
+  void *v4; // r15
+  int v6; // edi
   int ProcessInformation; // [rsp+40h] [rbp-128h] BYREF
   void *ProcessHandle; // [rsp+48h] [rbp-120h] BYREF
-  PVOID v11; // [rsp+50h] [rbp-118h] BYREF
-  PVOID Object; // [rsp+58h] [rbp-110h] BYREF
-  PVOID v13; // [rsp+60h] [rbp-108h] BYREF
-  struct _CLIENT_ID ClientId; // [rsp+68h] [rbp-100h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-F0h] BYREF
+  HANDLE Handle; // [rsp+50h] [rbp-118h] BYREF
+  PVOID v11; // [rsp+58h] [rbp-110h] BYREF
+  PVOID Object; // [rsp+60h] [rbp-108h] BYREF
+  PVOID v13; // [rsp+68h] [rbp-100h] BYREF
+  struct _CLIENT_ID ClientId; // [rsp+70h] [rbp-F8h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-E8h] BYREF
   ULONG_PTR BugCheckParameter1[16]; // [rsp+B0h] [rbp-B8h] BYREF
 
-  v5 = (void *)(int)a2;
-  v7 = -1073741790;
-  if ( !UserIsCurrentProcessDwm((__int64)a1, a2, a3, a4) )
-    return (unsigned int)v7;
-  if ( (_DWORD)v5 != -1414746709 || a3 )
+  v4 = (void *)(int)a2;
+  v6 = -1073741790;
+  if ( !UserIsCurrentProcessDwm((__int64)a1, a2) )
+    return (unsigned int)v6;
+  if ( (_DWORD)v4 != -1414746709 || a3 )
   {
     v13 = 0LL;
-    v7 = CompositionObject::ResolveHandle(a1, 1u, 1, 1, &v13);
-    if ( v7 < 0 )
-      v7 = CompositionObject::ResolveHandle(a1, 1u, 1, 3, &v13);
-    if ( v7 >= 0 )
+    v6 = CompositionObject::ResolveHandle(a1, 1u, 1, 1, &v13);
+    if ( v6 < 0 )
+      v6 = CompositionObject::ResolveHandle(a1, 1u, 1, 3, &v13);
+    if ( v6 >= 0 )
     {
       ProcessHandle = 0LL;
       *(_QWORD *)&ObjectAttributes.Length = 48LL;
@@ -41,25 +42,32 @@ __int64 __fastcall NtDCompositionDuplicateHandleToProcess(_OWORD *a1, __int64 a2
       ObjectAttributes.ObjectName = 0LL;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
       ClientId.UniqueThread = 0LL;
-      ClientId.UniqueProcess = v5;
-      v7 = ZwOpenProcess(&ProcessHandle, 0x40u, &ObjectAttributes, &ClientId);
-      if ( v7 >= 0 )
+      ClientId.UniqueProcess = v4;
+      v6 = ZwOpenProcess(&ProcessHandle, 0x40u, &ObjectAttributes, &ClientId);
+      if ( v6 >= 0 )
       {
         ProcessInformation = 0;
-        v7 = ZwQueryInformationProcess(ProcessHandle, ProcessSessionInformation, &ProcessInformation, 4u, 0LL);
-        if ( v7 >= 0 && (unsigned int)PsGetCurrentProcessSessionId() != ProcessInformation )
-          v7 = -1073741790;
-        if ( v7 >= 0 )
+        v6 = ZwQueryInformationProcess(ProcessHandle, ProcessSessionInformation, &ProcessInformation, 4u, 0LL);
+        if ( v6 >= 0 && (unsigned int)PsGetCurrentProcessSessionId() != ProcessInformation )
+          v6 = -1073741790;
+        if ( v6 >= 0 )
         {
           Object = 0LL;
-          v7 = ObReferenceObjectByHandleWithTag(ProcessHandle, 0x40u, 0LL, 0, 0, &Object, 0LL);
-          if ( v7 >= 0 )
+          v6 = ObReferenceObjectByHandleWithTag(ProcessHandle, 0x40u, 0LL, 0, 0, &Object, 0LL);
+          if ( v6 >= 0 )
           {
             v11 = 0LL;
-            v7 = ObReferenceObjectByHandleWithTag((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0x40u, 0LL, 0, 0, &v11, 0LL);
-            if ( v7 >= 0 )
+            v6 = ObReferenceObjectByHandleWithTag((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0x40u, 0LL, 0, 0, &v11, 0LL);
+            if ( v6 >= 0 )
             {
-              v7 = ObDuplicateObject(v11, a1, Object, a3, 0x80000000, 0, 2, 1);
+              Handle = (HANDLE)-1LL;
+              v6 = ObDuplicateObject(v11, a1, Object, &Handle, 0x80000000, 0, 2, 1);
+              if ( v6 >= 0 )
+              {
+                if ( (unsigned __int64)a3 >= MmUserProbeAddress )
+                  a3 = (_QWORD *)MmUserProbeAddress;
+                *a3 = Handle;
+              }
               ObfDereferenceObjectWithTag(v11, 0);
             }
             ObfDereferenceObjectWithTag(Object, 0);
@@ -69,7 +77,7 @@ __int64 __fastcall NtDCompositionDuplicateHandleToProcess(_OWORD *a1, __int64 a2
       }
       ObfDereferenceObject(v13);
     }
-    return (unsigned int)v7;
+    return (unsigned int)v6;
   }
   if ( !PsGetVersion(0LL, 0LL, 0LL, 0LL) )
   {

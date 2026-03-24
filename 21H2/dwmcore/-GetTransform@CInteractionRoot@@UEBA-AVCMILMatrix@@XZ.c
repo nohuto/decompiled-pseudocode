@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetTransform@CInteractionRoot@@UEBA?AVCMILMatrix@@XZ @ 0x180111910
+ * XREFs of ?GetTransform@CInteractionRoot@@UEBA?AVCMILMatrix@@XZ @ 0x180234670
  * Callers:
  *     <none>
  * Callees:
@@ -8,7 +8,7 @@
 
 __int64 __fastcall CInteractionRoot::GetTransform(__int64 a1, __int64 a2)
 {
-  char v2; // al
+  __int64 result; // rax
 
   *(_QWORD *)a2 = 1065353216LL;
   *(_QWORD *)(a2 + 8) = 0LL;
@@ -19,9 +19,8 @@ __int64 __fastcall CInteractionRoot::GetTransform(__int64 a1, __int64 a2)
   *(_QWORD *)(a2 + 40) = 1065353216LL;
   *(_QWORD *)(a2 + 48) = 0LL;
   *(_DWORD *)(a2 + 56) = 0;
+  result = a2;
   *(_DWORD *)(a2 + 60) = 1065353216;
-  v2 = *(_BYTE *)(a2 + 65) & 0xD7;
-  *(_BYTE *)(a2 + 64) = 85;
-  *(_BYTE *)(a2 + 65) = v2 | 0x17;
-  return a2;
+  *(_WORD *)(a2 + 64) = 32085;
+  return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of UsbhLanguageSupported @ 0x1C0050350
+ * XREFs of UsbhLanguageSupported @ 0x1C005193C
  * Callers:
- *     UsbhGetProductIdString @ 0x1C004FF10 (UsbhGetProductIdString.c)
+ *     UsbhGetProductIdString @ 0x1C00514DC (UsbhGetProductIdString.c)
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002EFC8 (WPP_RECORDER_SF_d.c)
  */
 
 char __fastcall UsbhLanguageSupported(__int64 a1, __int64 a2, unsigned __int16 a3)
@@ -33,7 +33,7 @@ char __fastcall UsbhLanguageSupported(__int64 a1, __int64 a2, unsigned __int16 a
               0,
               1u,
               0x14u,
-              (__int64)&WPP_864ab6fa16ac30e9f4a04b6140161349_Traceguids,
+              (__int64)&WPP_702859756c5835a51fae8c331fd03d9d_Traceguids,
               v3);
           }
           return 1;
@@ -51,7 +51,7 @@ char __fastcall UsbhLanguageSupported(__int64 a1, __int64 a2, unsigned __int16 a
         0,
         1u,
         0x15u,
-        (__int64)&WPP_864ab6fa16ac30e9f4a04b6140161349_Traceguids);
+        (__int64)&WPP_702859756c5835a51fae8c331fd03d9d_Traceguids);
 LABEL_15:
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
@@ -61,7 +61,7 @@ LABEL_15:
           0,
           1u,
           0x16u,
-          (__int64)&WPP_864ab6fa16ac30e9f4a04b6140161349_Traceguids,
+          (__int64)&WPP_702859756c5835a51fae8c331fd03d9d_Traceguids,
           v3);
     }
   }

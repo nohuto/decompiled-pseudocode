@@ -1,145 +1,136 @@
 /*
- * XREFs of NVMeControllerRemove @ 0x1C000E23C
+ * XREFs of NVMeControllerRemove @ 0x1C000E434
  * Callers:
- *     NVMeHwAdapterControl @ 0x1C0003550 (NVMeHwAdapterControl.c)
+ *     NVMeHwAdapterControl @ 0x1C0006080 (NVMeHwAdapterControl.c)
  * Callees:
- *     NVMeControllerDeleteLocalCommandPool @ 0x1C0004338 (NVMeControllerDeleteLocalCommandPool.c)
- *     memset @ 0x1C0004B80 (memset.c)
- *     AdminQueuesFreeResources @ 0x1C00094DC (AdminQueuesFreeResources.c)
- *     FreeMsiInfo @ 0x1C0009A38 (FreeMsiInfo.c)
- *     FreeProcessorGroupInfo @ 0x1C0009AAC (FreeProcessorGroupInfo.c)
- *     FreeProcessorInfo @ 0x1C0009AF8 (FreeProcessorInfo.c)
- *     IoQueuesFreeResources @ 0x1C000AE84 (IoQueuesFreeResources.c)
- *     NVMeDisableThrottling @ 0x1C000ED24 (NVMeDisableThrottling.c)
- *     NVMeFreeDmaBuffer @ 0x1C000EEA4 (NVMeFreeDmaBuffer.c)
- *     NVMeFreeHostMemoryBuffer @ 0x1C000EF00 (NVMeFreeHostMemoryBuffer.c)
- *     NVMePowerCleanUp @ 0x1C000FCA4 (NVMePowerCleanUp.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
+ *     memset @ 0x1C0008040 (memset.c)
+ *     AdminQueuesFreeResources @ 0x1C000B248 (AdminQueuesFreeResources.c)
+ *     FreeMsiInfo @ 0x1C000B5A0 (FreeMsiInfo.c)
+ *     FreeProcessorGroupInfo @ 0x1C000B614 (FreeProcessorGroupInfo.c)
+ *     FreeProcessorInfo @ 0x1C000B660 (FreeProcessorInfo.c)
+ *     IoQueuesFreeResources @ 0x1C000C684 (IoQueuesFreeResources.c)
+ *     NVMeDisableThrottling @ 0x1C000E930 (NVMeDisableThrottling.c)
+ *     NVMeFreeHostMemoryBuffer @ 0x1C000EA6C (NVMeFreeHostMemoryBuffer.c)
+ *     NVMePowerCleanUp @ 0x1C000FE54 (NVMePowerCleanUp.c)
  */
 
 char __fastcall NVMeControllerRemove(__int64 a1)
 {
-  __int64 v1; // rbp
-  unsigned int v2; // kr00_4
-  unsigned int v3; // esi
-  unsigned int v5; // r15d
-  int v6; // ebx
+  __int64 v1; // rsi
+  unsigned __int128 v3; // rax
+  __int64 v4; // r8
+  unsigned __int64 v5; // r9
+  unsigned int v6; // edi
   unsigned int v7; // eax
   unsigned __int64 v8; // rcx
   unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // rbp
+  __int64 v10; // rsi
   unsigned int v11; // r10d
   unsigned __int64 v12; // rcx
   unsigned __int64 v13; // r9
-  int v14; // eax
-  unsigned __int64 v15; // r9
-  __int64 v16; // r8
-  unsigned int i; // r14d
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int64 v17; // rdx
   __int64 v18; // r8
-  __int64 v19; // r8
-  int v20; // eax
-  unsigned int j; // r14d
-  int v22; // eax
-  signed __int32 v24[14]; // [rsp+0h] [rbp-38h] BYREF
+  __int64 v19; // r9
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  __int64 v23; // rdx
+  __int64 v24; // r8
+  __int64 v25; // r9
+  __int64 v26; // r9
+  unsigned int i; // ebp
+  __int64 v28; // r8
+  __int64 v29; // r9
+  __int64 v30; // r8
+  int v31; // eax
+  signed __int32 v33[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 1840);
-  v2 = *(_DWORD *)(a1 + 212);
-  *(_DWORD *)(a1 + 32) &= 0xFFFFFDFE;
-  v3 = 0;
-  v5 = v2 / 0xA;
-  LOBYTE(v6) = 0;
+  v1 = *(_QWORD *)(a1 + 1624);
+  *(_DWORD *)(a1 + 24) &= ~1u;
   NVMePowerCleanUp();
-  if ( *(_QWORD *)(a1 + 4000) )
+  v6 = 0;
+  if ( *(_QWORD *)(a1 + 3784) )
     NVMeFreeHostMemoryBuffer(a1);
   v7 = *(_DWORD *)(v1 + 88);
   if ( v7 )
   {
+    v4 = v7;
+    v5 = 0x346DC5D63886594BLL;
     v8 = 10000 * (v7 / 0x2710uLL);
     v9 = v8 + 10000;
     if ( v7 == v8 )
       v9 = v7;
-    v10 = v9 / 0x2710;
+    v3 = v9 * (unsigned __int128)0x346DC5D63886594BuLL;
+    v10 = *((_QWORD *)&v3 + 1) >> 11;
   }
   else
   {
     LODWORD(v10) = 500;
   }
-  v11 = *(unsigned __int8 *)(a1 + 55);
+  v11 = *(unsigned __int8 *)(a1 + 47);
   if ( (_BYTE)v11 )
   {
+    v4 = (unsigned int)v10;
     v12 = 100 * ((unsigned int)v10 / 0x64uLL);
     v13 = v12 + 100;
     if ( (unsigned int)v10 == v12 )
       v13 = (unsigned int)v10;
-    v14 = *(unsigned __int8 *)(a1 + 55);
-    v15 = v13 / 0x64;
-    if ( (unsigned int)v15 > v11 )
-      v14 = v15;
-    LODWORD(v10) = 100 * v14;
+    *((_QWORD *)&v3 + 1) = (v13 * (unsigned __int128)0x47AE147AE147AE15uLL) >> 64;
+    LODWORD(v3) = *(unsigned __int8 *)(a1 + 47);
+    v5 = v13 / 0x64;
+    if ( (unsigned int)v5 > v11 )
+      LODWORD(v3) = v5;
+    LODWORD(v10) = 100 * v3;
   }
-  IoQueuesFreeResources(a1);
-  AdminQueuesFreeResources(a1);
-  NVMeFreeDmaBuffer(a1, 4096LL, a1 + 3992, *(_QWORD *)(a1 + 4216));
-  NVMeFreeDmaBuffer(a1, 512LL, a1 + 4208, *(_QWORD *)(a1 + 4224));
-  v16 = *(_QWORD *)(a1 + 4264);
-  if ( v16 )
-    StorPortExtendedFunction(1LL, a1, v16);
-  FreeProcessorInfo(a1);
-  FreeProcessorGroupInfo(a1);
-  FreeMsiInfo(a1);
+  IoQueuesFreeResources(a1, *((__int64 *)&v3 + 1), v4, v5);
+  AdminQueuesFreeResources(a1, v14, v15, v16);
+  NVMeFreeDmaBuffer(a1, 4096LL, (__int64 *)(a1 + 3776), *(_QWORD *)(a1 + 4000));
+  NVMeFreeDmaBuffer(a1, 512LL, (__int64 *)(a1 + 3992), *(_QWORD *)(a1 + 4008));
+  FreeProcessorInfo(a1, v17, v18, v19);
+  FreeProcessorGroupInfo(a1, v20, v21, v22);
+  FreeMsiInfo(a1, v23, v24, v25);
   NVMeDisableThrottling(a1);
-  if ( !*(_BYTE *)(a1 + 20) )
+  if ( !*(_BYTE *)(a1 + 16) )
   {
-    for ( i = 0; i < *(_DWORD *)(a1 + 232); ++i )
+    for ( i = 0; i < *(_DWORD *)(a1 + 208); ++i )
     {
-      v18 = *(_QWORD *)(a1 + 8LL * i + 1952);
-      if ( v18 )
-        StorPortExtendedFunction(1LL, a1, v18);
+      v28 = *(_QWORD *)(a1 + 8LL * i + 1736);
+      if ( v28 )
+        StorPortExtendedFunction(1LL, a1, v28, v26);
     }
   }
-  memset((void *)(a1 + 1952), 0, 0x7F8uLL);
-  v19 = *(_QWORD *)(a1 + 4088);
-  *(_DWORD *)(a1 + 220) = 0;
-  if ( v19 )
+  memset((void *)(a1 + 1736), 0, 0x7F8uLL);
+  v30 = *(_QWORD *)(a1 + 3872);
+  *(_DWORD *)(a1 + 196) = 0;
+  if ( v30 )
   {
-    StorPortExtendedFunction(1LL, a1, v19);
-    *(_QWORD *)(a1 + 4088) = 0LL;
+    StorPortExtendedFunction(1LL, a1, v30, v29);
+    *(_QWORD *)(a1 + 3872) = 0LL;
   }
-  NVMeControllerDeleteLocalCommandPool(a1);
-  if ( (*(_DWORD *)(a1 + 32) & 0x8000) != 0 )
+  if ( (*(_DWORD *)(a1 + 24) & 0x1000) != 0 )
   {
-    v20 = *(unsigned __int8 *)(a1 + 150);
-    if ( !(_BYTE)v20 )
+    v31 = *(unsigned __int8 *)(a1 + 144);
+    if ( !(_BYTE)v31 )
       return 1;
-    if ( (unsigned int)v10 <= 100 * v20 )
-      LODWORD(v10) = 100 * v20;
+    if ( (unsigned int)v10 <= 100 * v31 )
+      LODWORD(v10) = 100 * v31;
   }
-  *(_DWORD *)(*(_QWORD *)(a1 + 184) + 20LL) = *(_DWORD *)(*(_QWORD *)(a1 + 184) + 20LL) & 0xFFFF3FFF | 0x4000;
-  _InterlockedOr(v24, 0);
-  for ( j = 0; j < (unsigned int)v10; ++j )
+  *(_DWORD *)(*(_QWORD *)(a1 + 160) + 20LL) = *(_DWORD *)(*(_QWORD *)(a1 + 160) + 20LL) & 0xFFFF3FFF | 0x4000;
+  _InterlockedOr(v33, 0);
+  if ( (_DWORD)v10 )
   {
-    v6 = *(_DWORD *)(*(_QWORD *)(a1 + 184) + 28LL);
-    if ( (v6 & 0xC) == 8 )
-      break;
-    StorPortExtendedFunction(81LL, a1, 10000LL);
-  }
-  if ( (*(_DWORD *)(a1 + 64) & 0x2000) != 0 && (*(_BYTE *)(a1 + 12) & 2) != 0 && (v6 & 1) != 0 )
-  {
-    *(_DWORD *)(*(_QWORD *)(a1 + 184) + 20LL) &= ~1u;
-    _InterlockedOr(v24, 0);
-    v22 = *(_DWORD *)(*(_QWORD *)(a1 + 184) + 28LL);
-    if ( !v5 )
-      v5 = 3000;
     do
     {
-      if ( (v22 & 1) == 0 )
+      if ( (*(_DWORD *)(*(_QWORD *)(a1 + 160) + 28LL) & 0xC) == 8 )
         break;
-      if ( *(_QWORD *)(*(_QWORD *)(a1 + 184) + 40LL) == -1LL )
-        break;
-      StorPortExtendedFunction(81LL, a1, 10000LL);
-      ++v3;
-      v22 = *(_DWORD *)(*(_QWORD *)(a1 + 184) + 28LL);
+      StorPortExtendedFunction(81LL, a1, 10000LL, v29);
+      ++v6;
     }
-    while ( v3 < v5 );
+    while ( v6 < (unsigned int)v10 );
   }
   return 1;
 }

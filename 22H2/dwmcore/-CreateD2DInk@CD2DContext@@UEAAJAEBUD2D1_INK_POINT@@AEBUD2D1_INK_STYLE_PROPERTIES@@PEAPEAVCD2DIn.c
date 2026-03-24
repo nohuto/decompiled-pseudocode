@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CreateD2DInk@CD2DContext@@UEAAJAEBUD2D1_INK_POINT@@AEBUD2D1_INK_STYLE_PROPERTIES@@PEAPEAVCD2DInk@@@Z @ 0x1802865C0
+ * XREFs of ?CreateD2DInk@CD2DContext@@UEAAJAEBUD2D1_INK_POINT@@AEBUD2D1_INK_STYLE_PROPERTIES@@PEAPEAVCD2DInk@@@Z @ 0x18023B080
  * Callers:
- *     ?CreateResource@CInk@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DInk@@@Z @ 0x18022F474 (-CreateResource@CInk@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DInk@@@Z.c)
+ *     ?CreateResource@CInk@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DInk@@@Z @ 0x1801C4BFC (-CreateResource@CInk@@QEAAJPEAVCD3DDevice@@PEAPEAVCD2DInk@@@Z.c)
  * Callees:
- *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180074FA0 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?Create@CD2DInk@@SAJPEAVCD2DResourceManager@@PEAUID2D1Ink@@PEAUID2D1InkStyle@@PEAPEAV1@@Z @ 0x18029CC6C (-Create@CD2DInk@@SAJPEAVCD2DResourceManager@@PEAUID2D1Ink@@PEAUID2D1InkStyle@@PEAPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z @ 0x180078718 (-TranslateDXGIorD3DErrorInContext@CD3DDevice@@QEAAJJW4Enum@DXGIFunctionContext@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Create@CD2DInk@@SAJPEAVCD2DResourceManager@@PEAUID2D1Ink@@PEAUID2D1InkStyle@@PEAPEAV1@@Z @ 0x18024CB4C (-Create@CD2DInk@@SAJPEAVCD2DResourceManager@@PEAUID2D1Ink@@PEAUID2D1InkStyle@@PEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall CD2DContext::CreateD2DInk(
@@ -26,48 +26,48 @@ __int64 __fastcall CD2DContext::CreateD2DInk(
   struct ID2D1Ink *v16; // [rsp+50h] [rbp+8h] BYREF
 
   v16 = 0LL;
-  v4 = (__int64)this + 1072;
+  v4 = (__int64)this + 1112;
   v15 = 0LL;
   v6 = this == 0LL;
-  v7 = 1088LL;
+  v7 = 1128LL;
   if ( v6 )
-    v4 = 1088LL;
+    v4 = 1128LL;
   v10 = *(_DWORD *)v4;
   if ( *(int *)v4 < 0 )
   {
     v12 = *(_DWORD *)v4;
-    v14 = 337;
+    v14 = 319;
   }
   else
   {
-    v11 = (*(__int64 (__fastcall **)(_QWORD, const struct D2D1_INK_STYLE_PROPERTIES *, struct ID2D1InkStyle **))(**((_QWORD **)this + 25) + 768LL))(
-            *((_QWORD *)this + 25),
+    v11 = (*(__int64 (__fastcall **)(_QWORD, const struct D2D1_INK_STYLE_PROPERTIES *, struct ID2D1InkStyle **))(**((_QWORD **)this + 30) + 768LL))(
+            *((_QWORD *)this + 30),
             a3,
             &v15);
     v10 = v11;
     if ( v11 < 0 )
     {
-      v14 = 339;
+      v14 = 321;
     }
     else
     {
-      v11 = (*(__int64 (__fastcall **)(_QWORD, const struct D2D1_INK_POINT *, struct ID2D1Ink **))(**((_QWORD **)this + 25)
+      v11 = (*(__int64 (__fastcall **)(_QWORD, const struct D2D1_INK_POINT *, struct ID2D1Ink **))(**((_QWORD **)this + 30)
                                                                                                  + 760LL))(
-              *((_QWORD *)this + 25),
+              *((_QWORD *)this + 30),
               a2,
               &v16);
       v10 = v11;
       if ( v11 < 0 )
       {
-        v14 = 341;
+        v14 = 323;
       }
       else
       {
-        v11 = CD2DInk::Create(*((struct CD2DResourceManager **)this + 21), v16, v15, a4);
+        v11 = CD2DInk::Create(*((struct CD2DResourceManager **)this + 26), v16, v15, a4);
         v10 = v11;
         if ( v11 >= 0 )
           goto LABEL_13;
-        v14 = 343;
+        v14 = 325;
       }
     }
     v12 = v11;

@@ -1,16 +1,16 @@
 /*
- * XREFs of InitOnceScanIndexes @ 0x14067CFE0
+ * XREFs of InitOnceScanIndexes @ 0x14067CFC0
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401D1780 (memset.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     SdbGetTagFromTagID @ 0x1405C82BC (SdbGetTagFromTagID.c)
- *     SdbReadDWORDTag @ 0x14067CDB8 (SdbReadDWORDTag.c)
- *     SdbFindNextTag @ 0x14067CE6C (SdbFindNextTag.c)
- *     SdbReadWORDTag @ 0x14067CEEC (SdbReadWORDTag.c)
- *     SdbFindFirstTag @ 0x14067D1A0 (SdbFindFirstTag.c)
- *     SdbGetFirstChild @ 0x14067D404 (SdbGetFirstChild.c)
- *     AslLogCallPrintf @ 0x140680C80 (AslLogCallPrintf.c)
+ *     SdbReadDWORDTag @ 0x14067CD98 (SdbReadDWORDTag.c)
+ *     SdbFindNextTag @ 0x14067CE4C (SdbFindNextTag.c)
+ *     SdbReadWORDTag @ 0x14067CECC (SdbReadWORDTag.c)
+ *     SdbFindFirstTag @ 0x14067D180 (SdbFindFirstTag.c)
+ *     SdbGetFirstChild @ 0x14067D3E4 (SdbGetFirstChild.c)
+ *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall InitOnceScanIndexes(PRTL_RUN_ONCE a1, _DWORD *a2, PVOID *a3)

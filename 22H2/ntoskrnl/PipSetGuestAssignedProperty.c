@@ -1,9 +1,9 @@
 /*
- * XREFs of PipSetGuestAssignedProperty @ 0x14096F158
+ * XREFs of PipSetGuestAssignedProperty @ 0x1408B4554
  * Callers:
- *     PiUpdateGuestAssignedState @ 0x140792AD8 (PiUpdateGuestAssignedState.c)
+ *     PiUpdateGuestAssignedState @ 0x14074614C (PiUpdateGuestAssignedState.c)
  * Callees:
- *     _PnpSetObjectProperty @ 0x14079708C (_PnpSetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x1407420C4 (_PnpSetObjectProperty.c)
  */
 
 __int64 __fastcall PipSetGuestAssignedProperty(__int64 a1, char a2)

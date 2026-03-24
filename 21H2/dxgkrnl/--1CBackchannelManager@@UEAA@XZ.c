@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1CBackchannelManager@@UEAA@XZ @ 0x1C0080E20
+ * XREFs of ??1CBackchannelManager@@UEAA@XZ @ 0x1C006D88C
  * Callers:
- *     ??_GCBackchannelManager@@UEAAPEAXI@Z @ 0x1C0080C30 (--_GCBackchannelManager@@UEAAPEAXI@Z.c)
- *     ??_GCDWMBackchannelManager@@UEAAPEAXI@Z @ 0x1C0080C80 (--_GCDWMBackchannelManager@@UEAAPEAXI@Z.c)
+ *     ??_GCBackchannelManager@@UEAAPEAXI@Z @ 0x1C006D660 (--_GCBackchannelManager@@UEAAPEAXI@Z.c)
+ *     ??_GCDWMBackchannelManager@@UEAAPEAXI@Z @ 0x1C006D6B0 (--_GCDWMBackchannelManager@@UEAAPEAXI@Z.c)
  * Callees:
- *     ?Clear@CBackchannelManager@@QEAAXXZ @ 0x1C0080E58 (-Clear@CBackchannelManager@@QEAAXXZ.c)
+ *     ?Clear@CBackchannelManager@@QEAAXXZ @ 0x1C006D8C4 (-Clear@CBackchannelManager@@QEAAXXZ.c)
  */
 
 void __fastcall CBackchannelManager::~CBackchannelManager(PVOID *this)

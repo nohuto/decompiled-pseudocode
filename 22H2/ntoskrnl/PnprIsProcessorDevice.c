@@ -1,19 +1,19 @@
 /*
- * XREFs of PnprIsProcessorDevice @ 0x1409664A8
+ * XREFs of PnprIsProcessorDevice @ 0x1408ADD28
  * Callers:
- *     PnprAddDeviceResources @ 0x140965600 (PnprAddDeviceResources.c)
+ *     PnprAddDeviceResources @ 0x1408ACE30 (PnprAddDeviceResources.c)
  * Callees:
- *     HalGetProcessorIdByNtNumber @ 0x140383D00 (HalGetProcessorIdByNtNumber.c)
- *     IoGetDeviceInterfaces @ 0x1406878A0 (IoGetDeviceInterfaces.c)
- *     IoGetDevicePropertyData @ 0x1407914F0 (IoGetDevicePropertyData.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     HalGetProcessorIdByNtNumber @ 0x140376FC0 (HalGetProcessorIdByNtNumber.c)
+ *     IoGetDeviceInterfaces @ 0x14069C660 (IoGetDeviceInterfaces.c)
+ *     IoGetDevicePropertyData @ 0x1406B2E60 (IoGetDevicePropertyData.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-char __fastcall PnprIsProcessorDevice(PDEVICE_OBJECT Pdo, char a2, unsigned int *a3, void *a4)
+char __fastcall PnprIsProcessorDevice(PDEVICE_OBJECT Pdo, char a2, ULONG *a3, _DWORD *a4)
 {
   char v4; // bl
-  unsigned int v7; // edi
-  unsigned int Data; // [rsp+40h] [rbp-10h] BYREF
+  ULONG v8; // edi
+  ULONG Data; // [rsp+40h] [rbp-10h] BYREF
   ULONG RequiredSize; // [rsp+44h] [rbp-Ch] BYREF
   PZZWSTR SymbolicLinkList; // [rsp+48h] [rbp-8h] BYREF
   ULONG Type; // [rsp+78h] [rbp+28h] BYREF
@@ -33,10 +33,10 @@ char __fastcall PnprIsProcessorDevice(PDEVICE_OBJECT Pdo, char a2, unsigned int 
         if ( IoGetDevicePropertyData(Pdo, &PROCESSOR_NUMBER_PKEY, 0, 0, 4u, &Data, &RequiredSize, &Type) >= 0
           && Type == 7 )
         {
-          v7 = Data;
-          if ( (int)HalGetProcessorIdByNtNumber(Data) >= 0 )
+          v8 = Data;
+          if ( HalGetProcessorIdByNtNumber(Data, a4) >= 0 )
           {
-            *a3 = v7;
+            *a3 = v8;
             return 1;
           }
         }

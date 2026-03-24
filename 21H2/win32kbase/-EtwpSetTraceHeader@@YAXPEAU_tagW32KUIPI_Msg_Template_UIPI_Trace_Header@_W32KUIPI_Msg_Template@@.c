@@ -1,13 +1,13 @@
 /*
- * XREFs of ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1C003D340
+ * XREFs of ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1C004B390
  * Callers:
- *     EtwTraceUIPIInputError @ 0x1C003D190 (EtwTraceUIPIInputError.c)
- *     EtwTraceUIPIHandleValidationError @ 0x1C003D540 (EtwTraceUIPIHandleValidationError.c)
- *     EtwTraceUIPIMsgError @ 0x1C00408B0 (EtwTraceUIPIMsgError.c)
- *     EtwTraceUIPISystemError @ 0x1C0040CB0 (EtwTraceUIPISystemError.c)
- *     EtwTraceUIPIClipboardError @ 0x1C014EE90 (EtwTraceUIPIClipboardError.c)
- *     EtwTraceUIPIEventHookError @ 0x1C014EFD0 (EtwTraceUIPIEventHookError.c)
- *     EtwTraceUIPIHookError @ 0x1C014F100 (EtwTraceUIPIHookError.c)
+ *     EtwTraceUIPISystemError @ 0x1C004B090 (EtwTraceUIPISystemError.c)
+ *     EtwTraceUIPIInputError @ 0x1C004B150 (EtwTraceUIPIInputError.c)
+ *     EtwTraceUIPIHandleValidationError @ 0x1C004B214 (EtwTraceUIPIHandleValidationError.c)
+ *     EtwTraceUIPIMsgError @ 0x1C004B6C0 (EtwTraceUIPIMsgError.c)
+ *     EtwTraceUIPIClipboardError @ 0x1C0124250 (EtwTraceUIPIClipboardError.c)
+ *     EtwTraceUIPIEventHookError @ 0x1C0124340 (EtwTraceUIPIEventHookError.c)
+ *     EtwTraceUIPIHookError @ 0x1C0124440 (EtwTraceUIPIHookError.c)
  * Callees:
  *     <none>
  */

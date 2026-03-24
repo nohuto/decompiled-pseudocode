@@ -1,12 +1,12 @@
 /*
- * XREFs of CommonBuffer_WorkItem @ 0x1C00078D0
+ * XREFs of CommonBuffer_WorkItem @ 0x1C0015DF0
  * Callers:
  *     <none>
  * Callees:
- *     XilCoreCommonBuffer_PreAllocateBuffers @ 0x1C0007998 (XilCoreCommonBuffer_PreAllocateBuffers.c)
- *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C000B4C0 (XilCoreCommonBuffer_AcquireBuffers.c)
- *     _guard_dispatch_icall_nop @ 0x1C0020270 (_guard_dispatch_icall_nop.c)
- *     WPP_RECORDER_SF_qqd @ 0x1C0032338 (WPP_RECORDER_SF_qqd.c)
+ *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C0009B00 (XilCoreCommonBuffer_AcquireBuffers.c)
+ *     XilCoreCommonBuffer_PreAllocateBuffers @ 0x1C0015EB8 (XilCoreCommonBuffer_PreAllocateBuffers.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_qqd @ 0x1C00307D8 (WPP_RECORDER_SF_qqd.c)
  */
 
 void __fastcall CommonBuffer_WorkItem(PVOID IoObject, char *Context, PIO_WORKITEM IoWorkItem)
@@ -79,13 +79,13 @@ LABEL_16:
     *((_QWORD *)&v19 + 1) = &v19;
     *(_QWORD *)&v19 = &v19;
     v15 = XilCoreCommonBuffer_AcquireBuffers(
-            (int)Context + 88,
+            (__int64)(Context + 88),
             *((_DWORD *)v11 + 6),
             *((_DWORD *)v11 + 7),
-            (unsigned int)&v19,
+            (int)&v19,
             v11[2],
             *((_DWORD *)v11 + 8),
-            (__int64)&v20);
+            &v20);
     ((void (__fastcall *)(__int64 *, _QWORD, __int128 *))v11[5])(v11, v15, &v19);
   }
   XilCoreCommonBuffer_PreAllocateBuffers(Context + 88);

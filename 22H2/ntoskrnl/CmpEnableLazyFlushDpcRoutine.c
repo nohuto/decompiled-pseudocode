@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpEnableLazyFlushDpcRoutine @ 0x1403C63E0
+ * XREFs of CmpEnableLazyFlushDpcRoutine @ 0x1402F2BE0
  * Callers:
  *     <none>
  * Callees:
- *     CmpEnableLazyFlush @ 0x1403B41C8 (CmpEnableLazyFlush.c)
- *     _local_unwind @ 0x1403D8EB0 (_local_unwind.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiCustomAccessRoutine4 @ 0x14042B190 (KiCustomAccessRoutine4.c)
- *     memset @ 0x140435400 (memset.c)
+ *     CmpEnableLazyFlush @ 0x1403A6D08 (CmpEnableLazyFlush.c)
+ *     _local_unwind @ 0x1403D1490 (_local_unwind.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine4 @ 0x1404092D0 (KiCustomAccessRoutine4.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 void __fastcall CmpEnableLazyFlushDpcRoutine(
@@ -16,22 +16,22 @@ void __fastcall CmpEnableLazyFlushDpcRoutine(
         unsigned __int64 SystemArgument1,
         unsigned __int64 SystemArgument2)
 {
-  _DWORD v8[56]; // [rsp+0h] [rbp-108h] BYREF
-  _DWORD *v9; // [rsp+E0h] [rbp-28h]
+  _DWORD v8[64]; // [rsp+0h] [rbp-128h] BYREF
+  _DWORD *v9; // [rsp+100h] [rbp-28h]
 
   v9 = v8;
-  memset(&v8[32], 0, 0x5DuLL);
+  memset(&v8[40], 0, 0x5DuLL);
   if ( DeferredContext >> 47 != -1 && DeferredContext >> 47 != 0 )
   {
     v8[12] = 0;
     Dpc->Type = 0;
     Dpc->DeferredContext = (PVOID)(SystemArgument2 >> 8);
-    *(_QWORD *)((char *)&v8[53] + 1) = SystemArgument1;
-    *(_QWORD *)((char *)&v8[41] + 1) = __ROL8__(DeferredContext, SystemArgument1);
-    *(_QWORD *)((char *)&v8[43] + 1) = __ROR8__(Dpc, SystemArgument1);
+    *(_QWORD *)((char *)&v8[61] + 1) = SystemArgument1;
+    *(_QWORD *)((char *)&v8[49] + 1) = __ROL8__(DeferredContext, SystemArgument1);
+    *(_QWORD *)((char *)&v8[51] + 1) = __ROR8__(Dpc, SystemArgument1);
     Dpc->SystemArgument1 = (PVOID)((unsigned __int64)Dpc->SystemArgument1 ^ SystemArgument2);
     Dpc->SystemArgument2 = (PVOID)((unsigned __int64)Dpc->SystemArgument2 ^ SystemArgument1);
     KiCustomAccessRoutine4(DeferredContext);
   }
-  CmpEnableLazyFlush(1);
+  CmpEnableLazyFlush(1LL);
 }

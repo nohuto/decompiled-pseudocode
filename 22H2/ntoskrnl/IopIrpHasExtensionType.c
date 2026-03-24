@@ -1,40 +1,44 @@
 /*
- * XREFs of IopIrpHasExtensionType @ 0x140290158
+ * XREFs of IopIrpHasExtensionType @ 0x1402E6690
  * Callers:
- *     IopFreeCopyObjectsFromIrp @ 0x14028F090 (IopFreeCopyObjectsFromIrp.c)
- *     IopFreeIrpExtension @ 0x14028FCF8 (IopFreeIrpExtension.c)
- *     IoMakeAssociatedIrpPriv @ 0x14028FDE8 (IoMakeAssociatedIrpPriv.c)
- *     IoGetFsTrackOffsetState @ 0x1402900F0 (IoGetFsTrackOffsetState.c)
- *     IoPropagateActivityIdToThread @ 0x140290120 (IoPropagateActivityIdToThread.c)
- *     IoReuseIrp @ 0x1402902B0 (IoReuseIrp.c)
- *     IoIsKernelPagingRead @ 0x140350F40 (IoIsKernelPagingRead.c)
- *     IoSetGenericIrpExtension @ 0x1403925A0 (IoSetGenericIrpExtension.c)
- *     IoGetFsZeroingOffset @ 0x1403ABEA0 (IoGetFsZeroingOffset.c)
- *     IopPerfCompleteRequest @ 0x14045F2FE (IopPerfCompleteRequest.c)
- *     IoClearAdapterCryptoEngineExtension @ 0x140558D20 (IoClearAdapterCryptoEngineExtension.c)
- *     IoClearFsTrackOffsetState @ 0x140558D70 (IoClearFsTrackOffsetState.c)
- *     IoGetAdapterCryptoEngineExtension @ 0x140558DA0 (IoGetAdapterCryptoEngineExtension.c)
- *     IoGetCopyInformationExtension @ 0x140558DE0 (IoGetCopyInformationExtension.c)
- *     IoSetFsZeroingOffset @ 0x140558EE0 (IoSetFsZeroingOffset.c)
- *     IoSetFsZeroingOffsetRequired @ 0x140558F20 (IoSetFsZeroingOffsetRequired.c)
+ *     IopFreeIrpExtension @ 0x1402E5F78 (IopFreeIrpExtension.c)
+ *     IoMakeAssociatedIrpPriv @ 0x1402E6098 (IoMakeAssociatedIrpPriv.c)
+ *     IoPropagateActivityIdToThread @ 0x1402E6390 (IoPropagateActivityIdToThread.c)
+ *     IoGetFsTrackOffsetState @ 0x1402E63D0 (IoGetFsTrackOffsetState.c)
+ *     IoReuseIrp @ 0x1402E6400 (IoReuseIrp.c)
+ *     IoIsKernelPagingRead @ 0x140313A90 (IoIsKernelPagingRead.c)
+ *     IoSetGenericIrpExtension @ 0x140379B90 (IoSetGenericIrpExtension.c)
+ *     IoGetCopyInformationExtension @ 0x1403F0BA0 (IoGetCopyInformationExtension.c)
+ *     IopFreeCopyObjectsFromIrp @ 0x1403F11A4 (IopFreeCopyObjectsFromIrp.c)
+ *     IoClearAdapterCryptoEngineExtension @ 0x140507770 (IoClearAdapterCryptoEngineExtension.c)
+ *     IoClearFsTrackOffsetState @ 0x1405077C0 (IoClearFsTrackOffsetState.c)
+ *     IoGetAdapterCryptoEngineExtension @ 0x1405077F0 (IoGetAdapterCryptoEngineExtension.c)
+ *     IoGetFsZeroingOffset @ 0x140507830 (IoGetFsZeroingOffset.c)
+ *     IoSetFsZeroingOffset @ 0x140507930 (IoSetFsZeroingOffset.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x140507970 (IoSetFsZeroingOffsetRequired.c)
+ *     IopPerfCompleteRequest @ 0x140507D14 (IopPerfCompleteRequest.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int8 __fastcall IopIrpHasExtensionType(__int64 a1, unsigned int a2)
+char __fastcall IopIrpHasExtensionType(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rax
-  char v3; // r8
-  int v4; // eax
+  int v3; // eax
 
   v2 = *(_QWORD *)(a1 + 200);
-  v3 = 0;
   if ( *(char *)(a1 + 71) < 0 )
-    return a2 == 2;
-  if ( v2 )
   {
-    v4 = *(unsigned __int16 *)(v2 + 2);
-    return _bittest(&v4, a2);
+    if ( a2 != 2 )
+      return 0;
   }
-  return v3;
+  else
+  {
+    if ( !v2 )
+      return 0;
+    v3 = *(unsigned __int16 *)(v2 + 2);
+    if ( !_bittest(&v3, a2) )
+      return 0;
+  }
+  return 1;
 }

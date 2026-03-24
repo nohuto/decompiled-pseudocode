@@ -1,22 +1,22 @@
 /*
- * XREFs of KeFlushSingleCurrentTb @ 0x140156EB8
+ * XREFs of KeFlushSingleCurrentTb @ 0x140156ED8
  * Callers:
- *     MiDbgReleaseAddress @ 0x1402BAD0C (MiDbgReleaseAddress.c)
- *     MiDbgTranslatePhysicalAddress @ 0x1402BADF8 (MiDbgTranslatePhysicalAddress.c)
- *     MiDbgUnTranslatePhysicalAddress @ 0x1402BB1A4 (MiDbgUnTranslatePhysicalAddress.c)
- *     MiDbgWriteCheck @ 0x1402BB284 (MiDbgWriteCheck.c)
- *     MmReadProcessPageTables @ 0x1402BB79C (MmReadProcessPageTables.c)
+ *     MiDbgReleaseAddress @ 0x1402BAE0C (MiDbgReleaseAddress.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x1402BAEF8 (MiDbgTranslatePhysicalAddress.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x1402BB2A4 (MiDbgUnTranslatePhysicalAddress.c)
+ *     MiDbgWriteCheck @ 0x1402BB384 (MiDbgWriteCheck.c)
+ *     MmReadProcessPageTables @ 0x1402BB89C (MmReadProcessPageTables.c)
  *     MmInvalidateDumpAddresses @ 0x14056D630 (MmInvalidateDumpAddresses.c)
  * Callees:
- *     KiIsSecureProcessFlush @ 0x1400EDAD4 (KiIsSecureProcessFlush.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetUserTbFlushPending @ 0x1401BD110 (KiSetUserTbFlushPending.c)
- *     HvlFlushRangeListTb @ 0x140279548 (HvlFlushRangeListTb.c)
- *     KiPrepareFlushCurrentAffinity @ 0x140293D38 (KiPrepareFlushCurrentAffinity.c)
- *     KiPrepareFlushParameters @ 0x140293DA8 (KiPrepareFlushParameters.c)
- *     VmFlushTb @ 0x14030B5F0 (VmFlushTb.c)
- *     ExFlushTb @ 0x14031D1F8 (ExFlushTb.c)
+ *     KiIsSecureProcessFlush @ 0x1400EDAF4 (KiIsSecureProcessFlush.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetUserTbFlushPending @ 0x1401BD130 (KiSetUserTbFlushPending.c)
+ *     HvlFlushRangeListTb @ 0x140279648 (HvlFlushRangeListTb.c)
+ *     KiPrepareFlushCurrentAffinity @ 0x140293E38 (KiPrepareFlushCurrentAffinity.c)
+ *     KiPrepareFlushParameters @ 0x140293EA8 (KiPrepareFlushParameters.c)
+ *     VmFlushTb @ 0x14030B6F0 (VmFlushTb.c)
+ *     ExFlushTb @ 0x14031D2F8 (ExFlushTb.c)
  */
 
 __int64 __fastcall KeFlushSingleCurrentTb(unsigned __int64 a1, unsigned int a2)

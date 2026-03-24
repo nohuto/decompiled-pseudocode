@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipGetGuidSecurityDescriptor @ 0x140782C4C
+ * XREFs of WmipGetGuidSecurityDescriptor @ 0x14063FB18
  * Callers:
- *     WmipCreateGuidObject @ 0x140782F2C (WmipCreateGuidObject.c)
+ *     WmipCreateGuidObject @ 0x14063F798 (WmipCreateGuidObject.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlLengthSecurityDescriptor @ 0x1407254F0 (RtlLengthSecurityDescriptor.c)
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
- *     RtlGetPersistedStateLocation @ 0x140782DD0 (RtlGetPersistedStateLocation.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlGetPersistedStateLocation @ 0x14063F9C0 (RtlGetPersistedStateLocation.c)
+ *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
+ *     RtlLengthSecurityDescriptor @ 0x1406600D0 (RtlLengthSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipGetGuidSecurityDescriptor(__int64 a1, PVOID *a2)
@@ -31,15 +31,15 @@ __int64 __fastcall WmipGetGuidSecurityDescriptor(__int64 a1, PVOID *a2)
   PoolWithTag = 0LL;
   memset(v13, 0, 0xA8uLL);
   LODWORD(v13[8]) = 0;
-  v13[0] = WmipSDRegistryQueryRoutine;
+  v13[0] = &WmipSDRegistryQueryRoutine;
   LODWORD(v13[4]) = 3;
   v13[3] = SecurityDescriptor;
   v13[2] = *(_QWORD *)(a1 + 8);
   v13[10] = &P;
-  v13[7] = WmipSDRegistryQueryRoutine;
+  v13[7] = &WmipSDRegistryQueryRoutine;
   LODWORD(v13[11]) = 3;
   v13[9] = L"00000000-0000-0000-0000-000000000000";
-  RegistryValues = RtlpQueryRegistryValues(2, L"WMI\\Security", (__int64)v13, 0LL);
+  RegistryValues = RtlpQueryRegistryValues(2LL, L"WMI\\Security", v13, 0LL);
   *a2 = 0LL;
   if ( RegistryValues < 0 )
     goto LABEL_14;
@@ -51,7 +51,14 @@ __int64 __fastcall WmipGetGuidSecurityDescriptor(__int64 a1, PVOID *a2)
       if ( !PoolWithTag )
         return 3221225626LL;
     }
-    PersistedStateLocation = RtlGetPersistedStateLocation(L"ETWSecurityPath", PoolWithTag, v4, (__int64)&v10);
+    PersistedStateLocation = RtlGetPersistedStateLocation(
+                               L"ETWSecurityPath",
+                               0LL,
+                               0LL,
+                               0,
+                               PoolWithTag,
+                               v4,
+                               (unsigned int *)&v10);
     if ( PersistedStateLocation != -2147483643 )
       break;
     if ( PoolWithTag )
@@ -73,7 +80,7 @@ __int64 __fastcall WmipGetGuidSecurityDescriptor(__int64 a1, PVOID *a2)
       v13[12] = &P;
       LODWORD(v13[13]) = RtlLengthSecurityDescriptor(P);
     }
-    RtlpQueryRegistryValues(0, (const WCHAR *)PoolWithTag, (__int64)v13, 0LL);
+    RtlpQueryRegistryValues(0LL, PoolWithTag, v13, 0LL);
   }
   if ( SecurityDescriptor[0] )
   {

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?lSizeDDA@@YAJPEAU_PLGDDA@@@Z @ 0x1C02D6BE8
+ * XREFs of ?lSizeDDA@@YAJPEAU_PLGDDA@@@Z @ 0x1C02D8198
  * Callers:
- *     EngPlgBlt @ 0x1C028A2A0 (EngPlgBlt.c)
+ *     EngPlgBlt @ 0x1C028C5F0 (EngPlgBlt.c)
  * Callees:
- *     ?bSubOverflow@@YAHJJ@Z @ 0x1C0134BF8 (-bSubOverflow@@YAHJJ@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     ?bAddOverflow@@YAHJJ@Z @ 0x1C02D4B98 (-bAddOverflow@@YAHJJ@Z.c)
+ *     ?bSubOverflow@@YAHJJ@Z @ 0x1C014782C (-bSubOverflow@@YAHJJ@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     ?bAddOverflow@@YAHJJ@Z @ 0x1C02D60D4 (-bAddOverflow@@YAHJJ@Z.c)
  */
 
 __int64 __fastcall lSizeDDA(struct _PLGDDA *a1)

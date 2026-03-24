@@ -1,14 +1,14 @@
 /*
- * XREFs of XilCoreDeviceSlot_SetDeviceContext @ 0x1C0010670
+ * XREFs of XilCoreDeviceSlot_SetDeviceContext @ 0x1C000F6C4
  * Callers:
- *     XilDeviceSlot_SetDeviceContext @ 0x1C00105E0 (XilDeviceSlot_SetDeviceContext.c)
+ *     XilDeviceSlot_SetDeviceContext @ 0x1C000F634 (XilDeviceSlot_SetDeviceContext.c)
  * Callees:
- *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C000154C (XilUsbDevice_GetDeviceContextBufferVA.c)
- *     WPP_RECORDER_SF_qdi @ 0x1C0010768 (WPP_RECORDER_SF_qdi.c)
- *     XilUsbDevice_GetDeviceContextBufferLA @ 0x1C0010814 (XilUsbDevice_GetDeviceContextBufferLA.c)
- *     WPP_RECORDER_SF_dq @ 0x1C0010E7C (WPP_RECORDER_SF_dq.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     WPP_RECORDER_SF_sds @ 0x1C003609C (WPP_RECORDER_SF_sds.c)
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C00057C4 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     WPP_RECORDER_SF_qdi @ 0x1C000F7BC (WPP_RECORDER_SF_qdi.c)
+ *     XilUsbDevice_GetDeviceContextBufferLA @ 0x1C000F868 (XilUsbDevice_GetDeviceContextBufferLA.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0010CB0 (WPP_RECORDER_SF_dq.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0035E5C (WPP_RECORDER_SF_sds.c)
  */
 
 __int64 __fastcall XilCoreDeviceSlot_SetDeviceContext(
@@ -70,7 +70,7 @@ LABEL_4:
         v20,
         10,
         12,
-        (__int64)&WPP_cb7a5c278baa3da630509d7564b04261_Traceguids,
+        (__int64)&WPP_57b4ec5b2a77395746dfb5e96c966fbd_Traceguids,
         v5,
         *(_QWORD *)(v16 + 8 * v5));
     }

@@ -1,30 +1,30 @@
 /*
- * XREFs of KsepPoolFreePaged @ 0x140209EA8
+ * XREFs of KsepPoolFreePaged @ 0x140371F04
  * Callers:
- *     KseAddHardwareId @ 0x140693960 (KseAddHardwareId.c)
- *     KsepEngineGetShimsFromRegistry @ 0x1406945C4 (KsepEngineGetShimsFromRegistry.c)
- *     KsepStringFree @ 0x1406948CC (KsepStringFree.c)
- *     KsepDbFreeDriverShims @ 0x140694D3C (KsepDbFreeDriverShims.c)
- *     KseDriverUnloadImage @ 0x140697128 (KseDriverUnloadImage.c)
- *     KseRegisterShimEx @ 0x14080ACB0 (KseRegisterShimEx.c)
- *     KsepGetLoadedModulesList @ 0x14080AEDC (KsepGetLoadedModulesList.c)
- *     KsepCacheDeviceInsertData @ 0x14080B2A8 (KsepCacheDeviceInsertData.c)
- *     KsepSdbBootRelease @ 0x140845904 (KsepSdbBootRelease.c)
- *     KsepCacheInitialize @ 0x1408462B4 (KsepCacheInitialize.c)
- *     KsepRegistryQuerySZ @ 0x14084646C (KsepRegistryQuerySZ.c)
- *     KsepDbGetShimInfo @ 0x140856450 (KsepDbGetShimInfo.c)
- *     KsepStringSplitMultiString @ 0x14085AEAC (KsepStringSplitMultiString.c)
- *     KsepResolveApplicableShimsForDriver @ 0x14085BCB0 (KsepResolveApplicableShimsForDriver.c)
- *     KsepSdbBootInitialize @ 0x140861F18 (KsepSdbBootInitialize.c)
- *     KsepDbQueryRegistryDeviceDataList @ 0x140976DF8 (KsepDbQueryRegistryDeviceDataList.c)
- *     KseUnregisterShim @ 0x140977150 (KseUnregisterShim.c)
- *     KsepCacheDeviceFree @ 0x140977750 (KsepCacheDeviceFree.c)
- *     KsepCacheUninitialize @ 0x140977840 (KsepCacheUninitialize.c)
- *     KsepRegistryEnumValue @ 0x140977ADC (KsepRegistryEnumValue.c)
- *     KsepRegistryQueryKeyInformation @ 0x140977BD8 (KsepRegistryQueryKeyInformation.c)
- *     KsepRegistryQueryValue @ 0x140977CCC (KsepRegistryQueryValue.c)
+ *     KsepDbFreeDriverShims @ 0x140758720 (KsepDbFreeDriverShims.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x14075AF3C (KsepEngineGetShimsFromRegistry.c)
+ *     KsepStringFree @ 0x14075AFF0 (KsepStringFree.c)
+ *     KseAddHardwareId @ 0x14075EE8C (KseAddHardwareId.c)
+ *     KseDriverUnloadImage @ 0x140772BB4 (KseDriverUnloadImage.c)
+ *     KsepSdbBootRelease @ 0x1407BD4C8 (KsepSdbBootRelease.c)
+ *     KseRegisterShimEx @ 0x1407BDC00 (KseRegisterShimEx.c)
+ *     KsepGetLoadedModulesList @ 0x1407BDF54 (KsepGetLoadedModulesList.c)
+ *     KsepCacheInitialize @ 0x1407BEF40 (KsepCacheInitialize.c)
+ *     KsepRegistryQuerySZ @ 0x1407BF100 (KsepRegistryQuerySZ.c)
+ *     KsepCacheDeviceInsertData @ 0x1407CC610 (KsepCacheDeviceInsertData.c)
+ *     KsepSdbBootInitialize @ 0x1407D1DF8 (KsepSdbBootInitialize.c)
+ *     KsepDbGetShimInfo @ 0x1408BF86C (KsepDbGetShimInfo.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x1408BFB10 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KseUnregisterShim @ 0x1408BFE70 (KseUnregisterShim.c)
+ *     KsepResolveApplicableShimsForDriver @ 0x1408C0684 (KsepResolveApplicableShimsForDriver.c)
+ *     KsepStringSplitMultiString @ 0x1408C0E74 (KsepStringSplitMultiString.c)
+ *     KsepCacheDeviceFree @ 0x1408C1090 (KsepCacheDeviceFree.c)
+ *     KsepCacheUninitialize @ 0x1408C1180 (KsepCacheUninitialize.c)
+ *     KsepRegistryEnumValue @ 0x1408C145C (KsepRegistryEnumValue.c)
+ *     KsepRegistryQueryKeyInformation @ 0x1408C1558 (KsepRegistryQueryKeyInformation.c)
+ *     KsepRegistryQueryValue @ 0x1408C161C (KsepRegistryQueryValue.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KsepPoolFreePaged(void *a1)
@@ -32,6 +32,6 @@ void __fastcall KsepPoolFreePaged(void *a1)
   if ( a1 )
   {
     ExFreePoolWithTag(a1, 0x6145534Bu);
-    _InterlockedIncrement(&dword_140C407C4);
+    _InterlockedIncrement(&dword_140C2AA84);
   }
 }

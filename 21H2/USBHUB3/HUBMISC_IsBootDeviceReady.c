@@ -1,11 +1,11 @@
 /*
- * XREFs of HUBMISC_IsBootDeviceReady @ 0x1C0030C48
+ * XREFs of HUBMISC_IsBootDeviceReady @ 0x1C00305AC
  * Callers:
- *     HUBBOOT_IsBootDeviceReady @ 0x1C003DC70 (HUBBOOT_IsBootDeviceReady.c)
+ *     HUBBOOT_IsBootDeviceReady @ 0x1C003D5F0 (HUBBOOT_IsBootDeviceReady.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     HUBHTX_GetPortStatusForBootDevice @ 0x1C00062B4 (HUBHTX_GetPortStatusForBootDevice.c)
- *     HUBMISC_PerformPostSurpriseRemovalRecoveryActionsIfBootDevice @ 0x1C0030E98 (HUBMISC_PerformPostSurpriseRemovalRecoveryActionsIfBootDevice.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     HUBHTX_GetPortStatusForBootDevice @ 0x1C0006034 (HUBHTX_GetPortStatusForBootDevice.c)
+ *     HUBMISC_PerformPostSurpriseRemovalRecoveryActionsIfBootDevice @ 0x1C00307FC (HUBMISC_PerformPostSurpriseRemovalRecoveryActionsIfBootDevice.c)
  */
 
 char __fastcall HUBMISC_IsBootDeviceReady(__int64 a1)
@@ -27,7 +27,7 @@ char __fastcall HUBMISC_IsBootDeviceReady(__int64 a1)
       v3 = 101;
       v4 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL);
 LABEL_25:
-      WPP_RECORDER_SF_(v4, 4u, 5u, v3, (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids);
+      WPP_RECORDER_SF_(v4, 4u, 5u, v3, (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
     }
 LABEL_26:
     _InterlockedAnd((volatile signed __int32 *)(*(_QWORD *)(a1 + 8) + 1336LL), 0xFFFFFFF7);
@@ -92,7 +92,7 @@ LABEL_26:
 LABEL_29:
   v7 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL);
 LABEL_30:
-  WPP_RECORDER_SF_(v7, 4u, 5u, v5, (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids);
+  WPP_RECORDER_SF_(v7, 4u, 5u, v5, (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
 LABEL_31:
   if ( _InterlockedExchange((volatile __int32 *)(a1 + 2240), 1) == 1 )
   {
@@ -102,7 +102,7 @@ LABEL_31:
         4u,
         5u,
         0x6Du,
-        (__int64)&WPP_f631619360663f684a1deb181f774097_Traceguids);
+        (__int64)&WPP_fa1f6120722133e233e88879adbd68f0_Traceguids);
     return 1;
   }
   return v1;

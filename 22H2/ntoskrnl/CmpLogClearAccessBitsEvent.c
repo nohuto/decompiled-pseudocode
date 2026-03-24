@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogClearAccessBitsEvent @ 0x140A0FBD0
+ * XREFs of CmpLogClearAccessBitsEvent @ 0x14068C734
  * Callers:
- *     CmpClearKeyAccessBits @ 0x140885EBC (CmpClearKeyAccessBits.c)
+ *     CmpClearKeyAccessBits @ 0x14068C5CC (CmpClearKeyAccessBits.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14025D4F0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CmpLogClearAccessBitsEvent(unsigned __int16 *a1, int a2, int a3)
@@ -38,7 +38,7 @@ NTSTATUS __fastcall CmpLogClearAccessBitsEvent(unsigned __int16 *a1, int a2, int
     v9 = 0;
     v11 = 4LL;
     v13 = 4LL;
-    return EtwWrite(EtwKernelProvRegHandle, &REG_EVENT_CLEAR_ACCESS, 0LL, 4u, &UserData);
+    return EtwWrite(EtwKernelProvRegHandle, &HAL_ETW_EVENT_IOMMU_FAULT_INIT, 0LL, 4u, &UserData);
   }
   return result;
 }

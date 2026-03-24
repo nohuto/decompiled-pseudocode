@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepAddSecurityAttributeValueToLists @ 0x140204AE4
+ * XREFs of AuthzBasepAddSecurityAttributeValueToLists @ 0x140250E90
  * Callers:
- *     AuthzBasepAddSecurityAttributeValues @ 0x140204954 (AuthzBasepAddSecurityAttributeValues.c)
- *     AuthzBasepDuplicateSecurityAttributes @ 0x140204B30 (AuthzBasepDuplicateSecurityAttributes.c)
- *     AuthzBasepDeleteAllSecurityAttributeValues @ 0x140376790 (AuthzBasepDeleteAllSecurityAttributeValues.c)
- *     AuthzBasepDeleteSecurityAttributeValues @ 0x14064A300 (AuthzBasepDeleteSecurityAttributeValues.c)
+ *     AuthzBasepAddSecurityAttributeValues @ 0x140250CE4 (AuthzBasepAddSecurityAttributeValues.c)
+ *     AuthzBasepDeleteAllSecurityAttributeValues @ 0x1402C9764 (AuthzBasepDeleteAllSecurityAttributeValues.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1403560E0 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     AuthzBasepDeleteSecurityAttributeValues @ 0x1405C1294 (AuthzBasepDeleteSecurityAttributeValues.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ void __fastcall AuthzBasepAddSecurityAttributeValueToLists(__int64 a1, __int64 a
     v5 = *(_QWORD **)(a1 + 104);
     v6 = (_QWORD *)(a2 + 16);
     if ( *v5 != a1 + 96 )
-      goto FatalListEntryError_0;
+      goto FatalListEntryError_1;
     *v6 = a1 + 96;
     *(_QWORD *)(a2 + 24) = v5;
     *v5 = v6;
@@ -41,7 +41,7 @@ void __fastcall AuthzBasepAddSecurityAttributeValueToLists(__int64 a1, __int64 a
       ++*(_DWORD *)(a1 + 60);
       return;
     }
-FatalListEntryError_0:
+FatalListEntryError_1:
     __fastfail(3u);
   }
 }

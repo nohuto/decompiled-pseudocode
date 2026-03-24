@@ -1,63 +1,63 @@
 /*
- * XREFs of CmpDoAccessCheckOnKCB @ 0x140A18FDC
+ * XREFs of CmpDoAccessCheckOnKCB @ 0x14086FE5C
  * Callers:
- *     CmpVEExecuteCreateLogic @ 0x1407BA9F4 (CmpVEExecuteCreateLogic.c)
+ *     CmpVEExecuteCreateLogic @ 0x140685510 (CmpVEExecuteCreateLogic.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x14020BB20 (PsGetCurrentThreadProcess.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepDeleteAccessState @ 0x140232250 (SepDeleteAccessState.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     SeCreateAccessStateEx @ 0x1406C2F50 (SeCreateAccessStateEx.c)
- *     ObCreateObjectEx @ 0x140730870 (ObCreateObjectEx.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     CmpCheckKeyBodyAccess @ 0x140A1B198 (CmpCheckKeyBodyAccess.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     PsGetCurrentThreadProcess @ 0x140316F60 (PsGetCurrentThreadProcess.c)
+ *     SepDeleteAccessState @ 0x140345670 (SepDeleteAccessState.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpCheckKeyBodyAccess @ 0x1405D961C (CmpCheckKeyBodyAccess.c)
+ *     ObCreateObjectEx @ 0x140651EA0 (ObCreateObjectEx.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     SeCreateAccessStateEx @ 0x1406DA6C0 (SeCreateAccessStateEx.c)
  */
 
-char __fastcall CmpDoAccessCheckOnKCB(__int64 a1, __int64 a2, int a3, char a4)
+BOOLEAN __fastcall CmpDoAccessCheckOnKCB(_DMA_OPERATIONS *a1, __int64 a2, ACCESS_MASK a3, char a4)
 {
-  char v6; // si
-  _QWORD *v8; // r14
+  BOOLEAN v7; // si
+  PADAPTER_OBJECT v9; // r14
   struct _KTHREAD *CurrentThread; // rdi
-  _DWORD *v10; // rbx
+  GENERIC_MAPPING *v11; // rbx
   struct _KPROCESS *CurrentThreadProcess; // rax
-  PVOID v12; // rcx
-  char v13; // bl
-  __int64 v14; // [rsp+20h] [rbp-E0h]
-  __int64 v15; // [rsp+50h] [rbp-B0h] BYREF
-  PVOID Object; // [rsp+58h] [rbp-A8h] BYREF
-  struct _SECURITY_SUBJECT_CONTEXT v17[5]; // [rsp+60h] [rbp-A0h] BYREF
-  _QWORD v18[28]; // [rsp+100h] [rbp+0h] BYREF
+  PADAPTER_OBJECT v13; // rcx
+  BOOLEAN v14; // bl
+  char *v15; // [rsp+20h] [rbp-E0h]
+  PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp-B0h] BYREF
+  ACCESS_MASK v17; // [rsp+58h] [rbp-A8h]
+  NTSTATUS AccessState[41]; // [rsp+5Ch] [rbp-A4h] BYREF
+  _QWORD v19[28]; // [rsp+100h] [rbp+0h] BYREF
 
-  LODWORD(v15) = a3;
-  memset(v17, 0, sizeof(v17));
-  memset(v18, 0, sizeof(v18));
-  v6 = 0;
-  Object = 0LL;
-  if ( (int)ObCreateObjectEx(a4, CmKeyObjectType, 0LL, a4, v14, 112, 0, 0, &Object, 0LL) < 0 )
+  v17 = a3;
+  memset(&AccessState[1], 0, 0xA0uLL);
+  memset(v19, 0, sizeof(v19));
+  v7 = 0;
+  DmaAdapter = 0LL;
+  if ( (int)ObCreateObjectEx(a4, CmKeyObjectType, 0, a4, v15, 104, 0, 0, &DmaAdapter, 0LL) < 0 )
     return 0;
-  v8 = Object;
-  *((_QWORD *)Object + 7) = 0LL;
-  v8[8] = 0LL;
-  *(_DWORD *)v8 = 1803104306;
-  v8[1] = 0LL;
-  *((_DWORD *)v8 + 12) = 0;
-  v8[10] = v8 + 9;
-  v8[9] = v8 + 9;
+  v9 = DmaAdapter;
+  DmaAdapter[3].DmaOperations = 0LL;
+  *(_QWORD *)&v9[4].Version = 0LL;
+  *(_DWORD *)&v9->Version = 1803104306;
+  v9->DmaOperations = 0LL;
+  *(_DWORD *)&v9[3].Version = 0;
+  *(_QWORD *)&v9[5].Version = (char *)v9 + 72;
+  v9[4].DmaOperations = (_DMA_OPERATIONS *)&v9[4].DmaOperations;
   CurrentThread = KeGetCurrentThread();
-  v10 = (_DWORD *)CmKeyObjectType + 19;
+  v11 = (GENERIC_MAPPING *)((char *)CmKeyObjectType + 76);
   CurrentThreadProcess = PsGetCurrentThreadProcess();
-  LODWORD(v15) = SeCreateAccessStateEx(CurrentThread, CurrentThreadProcess, v17, v18, v15, v10);
-  if ( (int)v15 >= 0 )
+  AccessState[0] = SeCreateAccessStateEx(CurrentThread, CurrentThreadProcess, &AccessState[1], v19, v17, v11);
+  if ( AccessState[0] >= 0 )
   {
-    v12 = Object;
-    v8[1] = a1;
-    v13 = CmpCheckKeyBodyAccess(v12, (__int64)&v15);
-    SepDeleteAccessState((__int64)v17);
-    SeReleaseSubjectContext(&v17[1]);
-    v8[1] = 0LL;
-    v6 = v13;
+    v13 = DmaAdapter;
+    v9->DmaOperations = a1;
+    v14 = CmpCheckKeyBodyAccess(v13, a2, (PACCESS_STATE)&AccessState[1], a4, AccessState);
+    SepDeleteAccessState((__int64)&AccessState[1]);
+    SeReleaseSubjectContext((PSECURITY_SUBJECT_CONTEXT)&AccessState[9]);
+    v9->DmaOperations = 0LL;
+    v7 = v14;
   }
-  ObfDereferenceObject(Object);
-  return v6;
+  HalPutDmaAdapter(DmaAdapter);
+  return v7;
 }

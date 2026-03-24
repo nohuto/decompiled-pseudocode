@@ -1,24 +1,24 @@
 /*
- * XREFs of WdipSemMarkNextTimedOutInstanceForDeletion @ 0x1407DAE70
+ * XREFs of WdipSemMarkNextTimedOutInstanceForDeletion @ 0x140699060
  * Callers:
- *     WdipTimeoutCheckRoutine @ 0x1407DADC0 (WdipTimeoutCheckRoutine.c)
+ *     WdipTimeoutCheckRoutine @ 0x140698FB0 (WdipTimeoutCheckRoutine.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
  */
 
 __int64 *__fastcall WdipSemMarkNextTimedOutInstanceForDeletion(__int64 **a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  __int64 *v3; // rbx
+  __int64 *v2; // rbx
   __int64 *v4; // rdx
   __int64 *v6; // rcx
 
   CurrentThread = KeGetCurrentThread();
-  v3 = 0LL;
+  v2 = 0LL;
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C34E98, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C1A758, 0LL);
   if ( a1 )
   {
     v4 = *a1;
@@ -29,12 +29,12 @@ __int64 *__fastcall WdipSemMarkNextTimedOutInstanceForDeletion(__int64 **a1)
       if ( ++*((_DWORD *)v6 + 10) >= 0xAu && *(_BYTE *)(v6[4] + 1176) && !*((_DWORD *)v6 + 11) )
       {
         *((_DWORD *)v6 + 11) = 1;
-        v3 = v6;
+        v2 = v6;
         break;
       }
     }
   }
-  ExReleasePushLockEx((__int64 *)&qword_140C34E98, 0LL);
+  ExReleasePushLockEx((ULONG_PTR)&qword_140C1A758, 0LL);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return v3;
+  return v2;
 }

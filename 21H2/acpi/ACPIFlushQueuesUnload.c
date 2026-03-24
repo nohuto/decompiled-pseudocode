@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIFlushQueuesUnload @ 0x1C004B5F8
+ * XREFs of ACPIFlushQueuesUnload @ 0x1C004C8A8
  * Callers:
- *     ACPIFlushDeviceQueueCallback @ 0x1C004B5A0 (ACPIFlushDeviceQueueCallback.c)
- *     ACPITableUnload @ 0x1C0060860 (ACPITableUnload.c)
+ *     ACPIFlushDeviceQueueCallback @ 0x1C004C850 (ACPIFlushDeviceQueueCallback.c)
+ *     ACPITableUnload @ 0x1C005FA70 (ACPITableUnload.c)
  * Callees:
- *     ACPIDeviceInternalSynchronizeRequest @ 0x1C0007924 (ACPIDeviceInternalSynchronizeRequest.c)
- *     ACPIBuildSpecialSynchronizationRequest @ 0x1C001CB58 (ACPIBuildSpecialSynchronizationRequest.c)
+ *     ACPIBuildSpecialSynchronizationRequest @ 0x1C001C75C (ACPIBuildSpecialSynchronizationRequest.c)
+ *     ACPIDeviceInternalSynchronizeRequest @ 0x1C001C8E8 (ACPIDeviceInternalSynchronizeRequest.c)
  */
 
 __int64 __fastcall ACPIFlushQueuesUnload(_QWORD *a1, __int64 a2, int a3)

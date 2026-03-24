@@ -1,50 +1,53 @@
 /*
- * XREFs of ?SetBufferProperty@CRemoteRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00D40B0
+ * XREFs of ?SetBufferProperty@CRemoteRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00C4830
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     ?IsValidRect@@YA_NAEBUtagRECT@@@Z @ 0x1C00AB4CC (-IsValidRect@@YA_NAEBUtagRECT@@@Z.c)
  */
 
 __int64 __fastcall DirectComposition::CRemoteRenderTargetMarshaler::SetBufferProperty(
-        __m128 *this,
+        DirectComposition::CRemoteRenderTargetMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
-        const __m128i *a4,
+        struct tagRECT *a4,
         unsigned __int64 a5,
         bool *a6)
 {
-  unsigned int v6; // edx
-  int v7; // r8d
-  __m128 v8; // xmm1
-  float v9; // xmm2_4
-  __int64 v11; // rax
+  bool *v6; // r11
+  unsigned int v7; // edx
+  int v8; // r8d
+  struct tagRECT v9; // xmm6
+  __int64 v10; // r10
+  __int64 v12; // rax
+  struct tagRECT v13; // [rsp+20h] [rbp-28h] BYREF
 
-  v6 = 0;
+  v6 = a6;
+  v7 = 0;
   *a6 = 0;
-  v7 = a3 - 2;
-  if ( !v7 )
+  v8 = a3 - 2;
+  if ( !v8 )
   {
-    if ( a5 == 8 && !this[4].m128_i32[0] && !this[4].m128_i32[1] )
+    if ( a5 == 8 && !*((_DWORD *)this + 14) && !*((_DWORD *)this + 15) )
     {
-      v11 = a4->m128i_i64[0];
-      this[1].m128_i32[0] |= 0x20u;
-      this[4].m128_u64[0] = v11;
-      goto LABEL_7;
+      v12 = *(_QWORD *)&a4->left;
+      *((_DWORD *)this + 4) |= 0x20u;
+      *((_QWORD *)this + 7) = v12;
+      goto LABEL_6;
     }
     return (unsigned int)-1073741811;
   }
-  if ( v7 != 1 )
+  if ( v8 != 1 )
     return (unsigned int)-1073741811;
   if ( a5 != 16 )
     return (unsigned int)-1073741811;
-  v8 = (__m128)_mm_loadu_si128(a4);
-  LODWORD(v9) = _mm_shuffle_ps(v8, v8, 85).m128_u32[0];
-  if ( _mm_shuffle_ps(v8, v8, 170).m128_f32[0] < v8.m128_f32[0] || _mm_shuffle_ps(v8, v8, 255).m128_f32[0] < v9 )
+  v9 = *a4;
+  v13 = *a4;
+  if ( !IsValidRect(&v13) )
     return (unsigned int)-1073741811;
-  this[1].m128_i32[0] |= 0x80u;
-  this[5] = v8;
-LABEL_7:
-  *a6 = 1;
-  return v6;
+  *(_DWORD *)(v10 + 16) |= 0x80u;
+  *(struct tagRECT *)(v10 + 72) = v9;
+LABEL_6:
+  *v6 = 1;
+  return v7;
 }

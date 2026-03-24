@@ -1,7 +1,7 @@
 /*
- * XREFs of KiMceDispatch @ 0x140ACCDF0
+ * XREFs of KiMceDispatch @ 0x140A0BEA0
  * Callers:
- *     KiMceLinkage @ 0x140AD2320 (KiMceLinkage.c)
+ *     KiMceLinkage @ 0x140A112A0 (KiMceLinkage.c)
  * Callees:
  *     <none>
  */
@@ -57,23 +57,23 @@ __int64 __fastcall KiMceDispatch(_QWORD *a1, unsigned int a2)
   v11 = 4096;
   if ( Number == v10 )
   {
-    if ( (*(_DWORD *)(v7 + 2396) & 0x20000) == 0 )
+    if ( (*(_DWORD *)(v7 + 2452) & 0x20000) == 0 )
     {
-      **(_QWORD **)(v7 + 1176) = 0xA3A03F5891C8B4E8uLL;
-      **(_QWORD **)(v7 + 1184) = 0LL;
-      **(_QWORD **)(v7 + 1192) = 0LL;
-      **(_QWORD **)(v7 + 1200) = 0LL;
+      **(_QWORD **)(v7 + 1216) = 0xA3A03F5891C8B4E8uLL;
+      **(_QWORD **)(v7 + 1224) = 0LL;
+      **(_QWORD **)(v7 + 1232) = 0LL;
+      **(_QWORD **)(v7 + 1240) = 0LL;
     }
     v12 = 1;
     v13 = (unsigned __int64 *)(StackBase + 36);
-    while ( 1 )
+    do
     {
       v14 = *v13;
       if ( *v13 )
       {
-        v15 = *(_BYTE *)(v7 + 2115);
+        v15 = *(_BYTE *)(v7 + 2171);
         v16 = a1[3];
-        v17 = *(unsigned int *)(v7 + 2172);
+        v17 = *(unsigned int *)(v7 + 2228);
         if ( (v15 & 8) != 0 )
           v17 = 464LL;
         if ( v16 <= v14 && v16 > v14 - v17 )
@@ -81,29 +81,26 @@ __int64 __fastcall KiMceDispatch(_QWORD *a1, unsigned int a2)
         if ( (v15 & 8) != 0 )
         {
           v18 = *(_QWORD *)(v14 + 8);
-          if ( v16 <= v18 && v16 > v18 - (unsigned int)(*(_DWORD *)(v7 + 2172) - 32) )
+          if ( v16 <= v18 && v16 > v18 - (unsigned int)(*(_DWORD *)(v7 + 2228) - 32) )
             break;
         }
       }
       ++v12;
       ++v13;
-      if ( v12 >= 8 )
+    }
+    while ( v12 < 8 );
+    if ( v12 == 8 && *a1 - (_QWORD)v8 < 0x1000uLL )
+    {
+      v19 = (_QWORD *)a1[3];
+      if ( *v19 == v7 + 2201 )
       {
-        if ( v12 == 8 && *a1 - (_QWORD)v8 < 0x1000uLL )
-        {
-          v19 = (_QWORD *)a1[3];
-          if ( *v19 == v7 + 2145 )
-          {
-            *a1 = *v19;
-            a1[3] = v19 + 1;
-          }
-        }
-        break;
+        *a1 = *v19;
+        a1[3] = v19 + 1;
       }
     }
     v20 = 4;
-    *(_QWORD *)(v7 + 2150) = 0xC3C3C3C3C3C3C3C3uLL;
-    v21 = (_BYTE *)(v7 + 2158);
+    *(_QWORD *)(v7 + 2206) = 0xC3C3C3C3C3C3C3C3uLL;
+    v21 = (_BYTE *)(v7 + 2214);
     do
     {
       *v21++ = -61;
@@ -132,6 +129,6 @@ __int64 __fastcall KiMceDispatch(_QWORD *a1, unsigned int a2)
       v8 = (_QWORD *)((char *)v8 + 1);
     }
   }
-  *(_QWORD *)(v6 + 5136) = v7 + 2114;
+  *(_QWORD *)(v6 + 5136) = v7 + 2170;
   return v28;
 }

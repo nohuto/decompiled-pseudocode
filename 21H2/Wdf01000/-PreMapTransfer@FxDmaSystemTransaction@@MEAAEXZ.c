@@ -1,11 +1,11 @@
 /*
- * XREFs of ?PreMapTransfer@FxDmaSystemTransaction@@MEAAEXZ @ 0x1C00588A0
+ * XREFs of ?PreMapTransfer@FxDmaSystemTransaction@@MEAAEXZ @ 0x1C0035C60
  * Callers:
  *     <none>
  * Callees:
- *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
- *     WPP_IFR_SF_qqq @ 0x1C0030348 (WPP_IFR_SF_qqq.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qqq @ 0x1C0032C78 (WPP_IFR_SF_qqq.c)
  */
 
 char __fastcall FxDmaSystemTransaction::PreMapTransfer(FxDmaSystemTransaction *this)
@@ -15,9 +15,9 @@ char __fastcall FxDmaSystemTransaction::PreMapTransfer(FxDmaSystemTransaction *t
   const void *_a3; // rax
   const void *_a1; // rdx
   _FX_DRIVER_GLOBALS *v6; // r10
-  unsigned __int64 ObjectHandleUnchecked; // rsi
-  unsigned __int64 v8; // rax
-  __int64 (__fastcall *v9)(unsigned __int64, unsigned __int64); // r11
+  unsigned __int64 ObjectHandleUnchecked; // rax
+  __int64 v8; // rdx
+  __int64 (__fastcall *v9)(unsigned __int64, __int64, void *, _MDL *, unsigned __int64, unsigned __int64); // r11
 
   v2 = 1;
   if ( this->m_ConfigureChannelFunction.Method )
@@ -36,10 +36,16 @@ char __fastcall FxDmaSystemTransaction::PreMapTransfer(FxDmaSystemTransaction *t
         this->m_ConfigureChannelContext,
         _a3);
     }
-    ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked(this->m_DmaEnabler->FxDmaPacketTransaction::FxDmaTransactionBase::m_DeviceBase);
-    v8 = FxObject::GetObjectHandleUnchecked(this);
+    FxObject::GetObjectHandleUnchecked(this->m_DmaEnabler->FxDmaPacketTransaction::FxDmaTransactionBase::m_DeviceBase);
+    ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked(this);
     if ( v9 )
-      return v9(v8, ObjectHandleUnchecked);
+      return v9(
+               ObjectHandleUnchecked,
+               v8,
+               this->m_ConfigureChannelContext,
+               this->m_CurrentFragmentMdl,
+               this->m_CurrentFragmentOffset,
+               this->m_CurrentFragmentLength);
   }
   return v2;
 }

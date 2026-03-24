@@ -1,11 +1,11 @@
 /*
- * XREFs of ?xxxEndGetWidnowTrackInfoAsync@@YAXPEAUtagWND@@@Z @ 0x1C004A870
+ * XREFs of ?xxxEndGetWidnowTrackInfoAsync@@YAXPEAUtagWND@@@Z @ 0x1C011C64C
  * Callers:
- *     xxxProcessEventMessage @ 0x1C0125270 (xxxProcessEventMessage.c)
+ *     xxxProcessEventMessage @ 0x1C00C15B8 (xxxProcessEventMessage.c)
  * Callees:
- *     ?TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z @ 0x1C004A958 (-TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z.c)
- *     xxxInitSendValidateMinMaxInfoEx @ 0x1C00ED180 (xxxInitSendValidateMinMaxInfoEx.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     xxxInitSendValidateMinMaxInfoEx @ 0x1C0064CA0 (xxxInitSendValidateMinMaxInfoEx.c)
+ *     ?TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z @ 0x1C011C6B0 (-TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 void __fastcall xxxEndGetWidnowTrackInfoAsync(struct tagWND *a1)
@@ -16,6 +16,6 @@ void __fastcall xxxEndGetWidnowTrackInfoAsync(struct tagWND *a1)
 
   v4 = 0LL;
   memset(v3, 0, sizeof(v3));
-  xxxInitSendValidateMinMaxInfoEx(a1);
+  xxxInitSendValidateMinMaxInfoEx(a1, (__int64)v3, 0LL, 0);
   NotifyShell::TrackedWindowTrackingInfo(a1, (struct tagWND *)v3, v2);
 }

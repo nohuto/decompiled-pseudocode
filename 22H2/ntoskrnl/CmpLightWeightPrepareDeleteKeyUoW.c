@@ -1,113 +1,108 @@
 /*
- * XREFs of CmpLightWeightPrepareDeleteKeyUoW @ 0x140A29058
+ * XREFs of CmpLightWeightPrepareDeleteKeyUoW @ 0x14087F660
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140A1C95C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x14066EB84 (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CF0C (CmpAllocatePool.c)
- *     HvpGetCellPaged @ 0x1406E0200 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0310 (HvpReleaseCellPaged.c)
- *     CmpMarkKeyDirty @ 0x14070B510 (CmpMarkKeyDirty.c)
- *     CmpRemoveSubKeyFromList @ 0x14070BDD0 (CmpRemoveSubKeyFromList.c)
- *     CmpCleanupDiscardReplaceContext @ 0x140710830 (CmpCleanupDiscardReplaceContext.c)
- *     HvpMarkCellDirty @ 0x1407474B0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1407D99F0 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FE0A0 (HvpGetCellFlat.c)
- *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A20004 (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A27FB4 (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightCreateModificationData @ 0x140A28AA8 (CmpLightWeightCreateModificationData.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F50 (CmpAllocateTransientPoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     CmpMarkKeyDirty @ 0x1406E3088 (CmpMarkKeyDirty.c)
+ *     CmpRemoveSubKeyFromList @ 0x1406E4460 (CmpRemoveSubKeyFromList.c)
+ *     CmpCleanupDiscardReplaceContext @ 0x1406E4EF0 (CmpCleanupDiscardReplaceContext.c)
+ *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140876448 (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     HvMarkCellDirty @ 0x14087BD38 (HvMarkCellDirty.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14087EB14 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightCreateModificationData @ 0x14087F25C (CmpLightWeightCreateModificationData.c)
  */
 
-__int64 __fastcall CmpLightWeightPrepareDeleteKeyUoW(__int64 *a1, __int64 a2)
+__int64 __fastcall CmpLightWeightPrepareDeleteKeyUoW(
+        __int64 *a1,
+        __int64 a2,
+        __int64 a3,
+        struct _LOOKASIDE_LIST_EX *a4)
 {
   struct _PRIVILEGE_SET *v4; // rsi
-  ULONG_PTR v5; // rbp
-  unsigned int *v6; // rdi
-  int v7; // eax
-  int v8; // ebx
-  ULONG_PTR v9; // r12
-  __int64 CellFlat; // rax
-  __int64 v11; // rax
-  __int64 Pool; // rax
-  __int64 v13; // rdx
-  _QWORD *v14; // rax
-  unsigned int *v16; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v17; // [rsp+70h] [rbp+18h] BYREF
+  ULONG_PTR v7; // r14
+  unsigned int *v8; // rdi
+  int v9; // eax
+  int v10; // ebx
+  unsigned __int64 v11; // r15
+  struct _LOOKASIDE_LIST_EX *v12; // r9
+  __int64 v13; // rax
+  _QWORD *TransientPoolWithTag; // rax
+  __int64 v15; // rdx
+  _QWORD *v16; // rax
+  unsigned int *v18; // [rsp+50h] [rbp+8h] BYREF
+  int v19; // [rsp+60h] [rbp+18h] BYREF
+  int v20; // [rsp+64h] [rbp+1Ch]
 
-  v17 = 0xFFFFFFFFLL;
+  v19 = -1;
+  v20 = 0;
   v4 = 0LL;
-  v5 = *(_QWORD *)(a1[6] + 32);
-  v6 = *(unsigned int **)(a1[10] + 104);
-  v16 = v6;
-  if ( v6 )
+  v7 = *(_QWORD *)(a1[6] + 32);
+  v8 = *(unsigned int **)(a1[10] + 104);
+  v18 = v8;
+  if ( v8 )
   {
-    ++*v6;
+    ++*v8;
+LABEL_5:
+    v11 = *(unsigned int *)(a1[6] + 40);
+    if ( !(*(__int64 (__fastcall **)(ULONG_PTR, unsigned __int64, int *))(v7 + 8))(v7, v11, &v19) )
+    {
+LABEL_6:
+      v10 = -1073741670;
+      goto LABEL_18;
+    }
+    (*(void (__fastcall **)(ULONG_PTR, int *))(v7 + 16))(v7, &v19);
+    if ( !CmpMarkKeyDirty(v7, (unsigned int)v11, 0)
+      || !HvMarkCellDirty(v7, *(unsigned int *)(*(_QWORD *)(a1[6] + 72) + 40LL), 0) )
+    {
+      v10 = -1073741443;
+      goto LABEL_18;
+    }
+    v13 = *(_QWORD *)(a1[6] + 192);
+    if ( !v13 || *(_QWORD *)(v13 + 32) == v13 + 32 )
+      goto LABEL_24;
+    TransientPoolWithTag = CmpAllocateTransientPoolWithTag(PagedPool, 0x20uLL, 0x31374D43u, v12);
+    v4 = (struct _PRIVILEGE_SET *)TransientPoolWithTag;
+    if ( !TransientPoolWithTag )
+      goto LABEL_6;
+    *TransientPoolWithTag = 0LL;
+    v15 = (__int64)TransientPoolWithTag;
+    *((_DWORD *)TransientPoolWithTag + 3) = 0;
+    TransientPoolWithTag[3] = 0LL;
+    *((_DWORD *)TransientPoolWithTag + 2) = -1073741823;
+    v16 = TransientPoolWithTag + 2;
+    v16[1] = v16;
+    *v16 = v16;
+    v10 = CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers(a1[6], v15);
+    if ( v10 >= 0 )
+    {
+LABEL_24:
+      if ( CmpRemoveSubKeyFromList(v7, (int *)&v8[(v11 >> 31) + 3], v11) )
+      {
+        --v8[(v11 >> 31) + 1];
+        v10 = 0;
+        a1[13] = (__int64)v8;
+        a1[14] = (__int64)v4;
+        return (unsigned int)v10;
+      }
+      v10 = -1073741670;
+    }
+    if ( v4 )
+    {
+      CmpCleanupDiscardReplaceContext(v4, a2);
+      CmSiFreeMemory(v4);
+    }
+    goto LABEL_18;
   }
-  else
-  {
-    v7 = CmpLightWeightCreateModificationData((__int64)a1, &v16);
-    v6 = v16;
-    v8 = v7;
-    if ( v7 < 0 )
-      goto LABEL_23;
-  }
-  v9 = *(unsigned int *)(a1[6] + 40);
-  if ( (*(_BYTE *)(v5 + 140) & 1) != 0 )
-    CellFlat = HvpGetCellFlat(v5, v9, &v17);
-  else
-    CellFlat = HvpGetCellPaged(v5, v9, (unsigned int *)&v17);
-  if ( !CellFlat )
-  {
-LABEL_9:
-    v8 = -1073741670;
-    goto LABEL_23;
-  }
-  if ( (*(_BYTE *)(v5 + 140) & 1) != 0 )
-    HvpReleaseCellFlat(v5, &v17);
-  else
-    HvpReleaseCellPaged(v5, (unsigned int *)&v17);
-  v8 = CmpMarkKeyDirty(v5, (unsigned int)v9, 0);
-  if ( v8 < 0 )
-    goto LABEL_23;
-  v8 = HvpMarkCellDirty(v5, *(unsigned int *)(*(_QWORD *)(a1[6] + 72) + 40LL), 0);
-  if ( v8 < 0 )
-    goto LABEL_23;
-  v11 = *(_QWORD *)(a1[6] + 192);
-  if ( v11 && *(_QWORD *)(v11 + 32) != v11 + 32 )
-  {
-    Pool = CmpAllocatePool(256LL, 32LL, 825707843LL);
-    v4 = (struct _PRIVILEGE_SET *)Pool;
-    if ( !Pool )
-      goto LABEL_9;
-    *(_QWORD *)Pool = 0LL;
-    v13 = Pool;
-    *(_DWORD *)(Pool + 12) = 0;
-    *(_QWORD *)(Pool + 24) = 0LL;
-    *(_DWORD *)(Pool + 8) = -1073741823;
-    v14 = (_QWORD *)(Pool + 16);
-    v14[1] = v14;
-    *v14 = v14;
-    v8 = CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers(a1[6], v13);
-    if ( v8 < 0 )
-      goto LABEL_22;
-  }
-  if ( CmpRemoveSubKeyFromList(v5, &v6[(v9 >> 31) + 3], v9) )
-  {
-    --v6[(v9 >> 31) + 1];
-    v8 = 0;
-    a1[13] = (__int64)v6;
-    a1[14] = (__int64)v4;
-    return (unsigned int)v8;
-  }
-  v8 = -1073741670;
-  if ( v4 )
-  {
-LABEL_22:
-    CmpCleanupDiscardReplaceContext(v4, a2);
-    CmSiFreeMemory(v4);
-  }
-LABEL_23:
-  if ( v6 )
-    CmpLightWeightCleanupModifyKeyDataUoW(v5, v6);
-  return (unsigned int)v8;
+  v9 = CmpLightWeightCreateModificationData((__int64)a1, &v18, a3, a4);
+  v8 = v18;
+  v10 = v9;
+  if ( v9 >= 0 )
+    goto LABEL_5;
+LABEL_18:
+  if ( v8 )
+    CmpLightWeightCleanupModifyKeyDataUoW(v7, v8);
+  return (unsigned int)v10;
 }

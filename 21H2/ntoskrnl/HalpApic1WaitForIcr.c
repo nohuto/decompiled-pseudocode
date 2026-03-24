@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpApic1WaitForIcr @ 0x1403B68C0
+ * XREFs of HalpApic1WaitForIcr @ 0x1403A76C0
  * Callers:
  *     <none>
  * Callees:

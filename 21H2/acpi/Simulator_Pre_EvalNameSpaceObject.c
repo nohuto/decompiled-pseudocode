@@ -1,11 +1,12 @@
 /*
- * XREFs of Simulator_Pre_EvalNameSpaceObject @ 0x1C00652C8
+ * XREFs of Simulator_Pre_EvalNameSpaceObject @ 0x1C0064048
  * Callers:
- *     AMLIEvalNameSpaceObject @ 0x1C000B894 (AMLIEvalNameSpaceObject.c)
+ *     ACPIGet @ 0x1C0003E70 (ACPIGet.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
  * Callees:
- *     Simulator_AllocAndInitTestData @ 0x1C0064AA0 (Simulator_AllocAndInitTestData.c)
- *     Simulator_Copy_Arguments @ 0x1C0064C68 (Simulator_Copy_Arguments.c)
- *     Simulator_TestNotify @ 0x1C0065540 (Simulator_TestNotify.c)
+ *     Simulator_AllocAndInitTestData @ 0x1C006381C (Simulator_AllocAndInitTestData.c)
+ *     Simulator_Copy_Arguments @ 0x1C00639E8 (Simulator_Copy_Arguments.c)
+ *     Simulator_TestNotify @ 0x1C00642C0 (Simulator_TestNotify.c)
  */
 
 __int64 __fastcall Simulator_Pre_EvalNameSpaceObject(
@@ -17,14 +18,14 @@ __int64 __fastcall Simulator_Pre_EvalNameSpaceObject(
         __int64 a6)
 {
   __int64 v7; // rsi
-  void *inited; // rax
+  PVOID inited; // rax
   int v11; // ecx
   __int64 v12; // rdx
   _DWORD *v13; // rcx
-  _SLIST_ENTRY *v14; // rax
-  _SLIST_ENTRY *v16; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v14; // rax
+  __int64 v16[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v16 = 0LL;
+  v16[0] = 0LL;
   v7 = a3;
   inited = Simulator_AllocAndInitTestData();
   *(_QWORD *)a6 = inited;
@@ -32,11 +33,11 @@ __int64 __fastcall Simulator_Pre_EvalNameSpaceObject(
   {
     v12 = *a4;
     *a5 = *a4;
-    v11 = Simulator_Copy_Arguments(v7, v12, &v16);
+    v11 = Simulator_Copy_Arguments(v7, v12, v16);
     if ( v11 >= 0 )
     {
       v13 = *(_DWORD **)a6;
-      v14 = v16;
+      v14 = v16[0];
       *v13 = 1;
       v13[1] = 1;
       v13[2] = 1;

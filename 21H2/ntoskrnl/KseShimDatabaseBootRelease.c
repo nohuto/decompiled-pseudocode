@@ -1,20 +1,21 @@
 /*
- * XREFs of KseShimDatabaseBootRelease @ 0x14084DB84
+ * XREFs of KseShimDatabaseBootRelease @ 0x1407BCC60
  * Callers:
- *     PnpCompleteSystemStartProcess @ 0x1403D2178 (PnpCompleteSystemStartProcess.c)
- *     KseShimDatabaseClose @ 0x14075C588 (KseShimDatabaseClose.c)
+ *     PnpCompleteSystemStartProcess @ 0x1403C3418 (PnpCompleteSystemStartProcess.c)
+ *     KseShimDatabaseClose @ 0x140758D88 (KseShimDatabaseClose.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     KsepSdbBootRelease @ 0x14084DC30 (KsepSdbBootRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KsepSdbBootRelease @ 0x1407BCD08 (KsepSdbBootRelease.c)
  */
 
-void KseShimDatabaseBootRelease()
+_QWORD *KseShimDatabaseBootRelease()
 {
   struct _KTHREAD *CurrentThread; // rax
   int v1; // eax
+  char v2; // bl
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -24,14 +25,15 @@ void KseShimDatabaseBootRelease()
     v1 = KsepShimDbRefCount;
     if ( !KsepShimDbRefCount || (--KsepShimDbRefCount, v1 == 1) )
     {
-      KsepSdbBootRelease(&KsepShimDb);
-      KsepSdbBootRelease(&unk_140C2A698);
+      KsepSdbBootRelease(KsepShimDb);
+      KsepSdbBootRelease(qword_140C2AEF8);
       KsepShimDbHandle = 0LL;
       KsepShimDbDuringBoot = 0;
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&KsepShimDbLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+  v2 = _InterlockedExchangeAdd64((volatile signed __int64 *)&KsepShimDbLock, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v2 & 2) != 0 && (v2 & 4) == 0 )
     ExfTryToWakePushLock(&KsepShimDbLock);
   KeAbPostRelease((ULONG_PTR)&KsepShimDbLock);
-  KeLeaveCriticalRegion();
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

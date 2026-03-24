@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_SettingHubConfiguration @ 0x1C0009500
+ * XREFs of HUBHSM_SettingHubConfiguration @ 0x1C0009200
  * Callers:
  *     <none>
  * Callees:
- *     HUBPARENT_SetHubConfiguration @ 0x1C0006F04 (HUBPARENT_SetHubConfiguration.c)
+ *     HUBPARENT_SetHubConfiguration @ 0x1C0006C64 (HUBPARENT_SetHubConfiguration.c)
  */
 
 __int64 __fastcall HUBHSM_SettingHubConfiguration(__int64 a1)

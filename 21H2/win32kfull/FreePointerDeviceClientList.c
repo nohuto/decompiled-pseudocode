@@ -1,7 +1,7 @@
 /*
- * XREFs of FreePointerDeviceClientList @ 0x1C00F1140
+ * XREFs of FreePointerDeviceClientList @ 0x1C000A8D0
  * Callers:
- *     InitializePointerDevicesPresenceState @ 0x1C00F10E0 (InitializePointerDevicesPresenceState.c)
+ *     InitializePointerDevicesPresenceState @ 0x1C000A870 (InitializePointerDevicesPresenceState.c)
  * Callees:
  *     <none>
  */

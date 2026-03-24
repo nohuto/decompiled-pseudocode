@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReturnWsToExpansionList @ 0x1400F3364
+ * XREFs of MiReturnWsToExpansionList @ 0x1400F3384
  * Callers:
  *     MiProcessWorkingSets @ 0x14006CED0 (MiProcessWorkingSets.c)
- *     MiAllowWorkingSetExpansion @ 0x1400F32F4 (MiAllowWorkingSetExpansion.c)
- *     KiInSwapProcesses @ 0x14010B320 (KiInSwapProcesses.c)
- *     MiEmptyTargetedWorkingSet @ 0x1402B2ED8 (MiEmptyTargetedWorkingSet.c)
+ *     MiAllowWorkingSetExpansion @ 0x1400F3314 (MiAllowWorkingSetExpansion.c)
+ *     KiInSwapProcesses @ 0x14010B340 (KiInSwapProcesses.c)
+ *     MiEmptyTargetedWorkingSet @ 0x1402B2FD8 (MiEmptyTargetedWorkingSet.c)
  * Callees:
- *     KeSignalGate @ 0x140127690 (KeSignalGate.c)
+ *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
  */
 
 _QWORD *__fastcall MiReturnWsToExpansionList(__int64 a1, int a2)

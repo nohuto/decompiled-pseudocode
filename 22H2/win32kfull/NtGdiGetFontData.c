@@ -1,57 +1,45 @@
 /*
- * XREFs of NtGdiGetFontData @ 0x1C007E840
+ * XREFs of NtGdiGetFontData @ 0x1C009B410
  * Callers:
  *     <none>
  * Callees:
- *     ?ulGetFontData@@YAKPEAUHDC__@@KKPEAXKW4EntryPoint@RFONTOBJ@@@Z @ 0x1C007E98C (-ulGetFontData@@YAKPEAUHDC__@@KKPEAXKW4EntryPoint@RFONTOBJ@@@Z.c)
- *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C00F8AA8 (--1EUDCCountRegion@@QEAA@XZ.c)
- *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C00FA9A0 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     ulGetFontData @ 0x1C009B358 (ulGetFontData.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
-__int64 __fastcall NtGdiGetFontData(__int64 a1, unsigned int a2, unsigned int a3, void *a4, unsigned int a5)
+__int64 __fastcall NtGdiGetFontData(HDC a1, unsigned int a2, unsigned int a3, char *a4, unsigned int a5)
 {
-  const void *v9; // rdi
+  _BYTE *v9; // rdi
   unsigned int FontData; // ebx
-  __int64 v11; // rax
-  __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  ULONG64 v16; // rax
-  _BYTE v17[56]; // [rsp+38h] [rbp-50h] BYREF
+  char *v11; // rdx
 
   v9 = 0LL;
   FontData = -1;
-  if ( !a5 )
+  if ( a5 )
   {
-    v11 = SGDGetSessionState(a1);
-    EUDCCountRegion::EUDCCountRegion((EUDCCountRegion *)v17, *(struct Gre::Full::SESSION_GLOBALS **)(v11 + 32));
-    FontData = ulGetFontData(a1, a2, a3, 0LL, 0);
-LABEL_3:
-    EUDCCountRegion::~EUDCCountRegion((EUDCCountRegion *)v17);
-    return FontData;
-  }
-  if ( a5 <= 0x2710000 )
-    v9 = (const void *)AllocFreeTmpBuffer(a5);
-  if ( v9 )
-  {
-    v13 = SGDGetSessionState(a1);
-    EUDCCountRegion::EUDCCountRegion((EUDCCountRegion *)v17, *(struct Gre::Full::SESSION_GLOBALS **)(v13 + 32));
-    FontData = ulGetFontData(a1, a2, a3, v9, a5);
-    if ( FontData != -1 )
+    if ( a5 <= 0x2710000 )
+      v9 = (_BYTE *)AllocFreeTmpBuffer(a5);
+    if ( v9 )
     {
-      if ( FontData > a5 )
-        FontData = -1;
+      FontData = ulGetFontData(a1, a2, a3, v9, a5);
       if ( FontData != -1 )
       {
-        v16 = (ULONG64)a4 + FontData;
-        if ( v16 > MmUserProbeAddress || v16 <= (unsigned __int64)a4 )
-          *(_BYTE *)MmUserProbeAddress = 0;
-        memmove(a4, v9, FontData);
+        if ( FontData > a5 )
+          FontData = -1;
+        if ( FontData != -1 )
+        {
+          v11 = &a4[FontData];
+          if ( (unsigned __int64)v11 > MmUserProbeAddress || v11 <= a4 )
+            *(_BYTE *)MmUserProbeAddress = 0;
+          memmove(a4, v9, FontData);
+        }
       }
+      FreeTmpBuffer(v9);
     }
-    FreeTmpBuffer(v9, v14, v15);
-    goto LABEL_3;
+  }
+  else
+  {
+    return (unsigned int)ulGetFontData(a1, a2, a3, 0LL, 0);
   }
   return FontData;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Release@BufferingMessageCallHost@BamoImpl@Microsoft@@WBA@EAAKXZ @ 0x180105470
+ * XREFs of ?Release@BufferingMessageCallHost@BamoImpl@Microsoft@@WBA@EAAKXZ @ 0x1800F4940
  * Callers:
  *     <none>
  * Callees:

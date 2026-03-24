@@ -1,35 +1,32 @@
 /*
- * XREFs of PREALLOCMEM2 @ 0x1C00B7D9C
+ * XREFs of PREALLOCMEM2 @ 0x1C01324E0
  * Callers:
- *     ??$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z @ 0x1C00A2A1C (--$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z.c)
- *     ??$AllocAndCopyRegistryEntries@U_FONTMAPPERFAMILYFALLBACK@@$0EGEGENEH@@@YAJPEAKPEAPEAU_FONTMAPPERFAMILYFALLBACK@@0PEBU0@@Z @ 0x1C02A6A6C (--$AllocAndCopyRegistryEntries@U_FONTMAPPERFAMILYFALLBACK@@$0EGEGENEH@@@YAJPEAKPEAPEAU_FONTMAPPE.c)
- *     vInitFontSubTable @ 0x1C03B4F40 (vInitFontSubTable.c)
- *     vInitFontMapperFamilyFallbackTable @ 0x1C03B5100 (vInitFontMapperFamilyFallbackTable.c)
+ *     ??$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z @ 0x1C01191CC (--$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z.c)
+ *     ??$AllocAndCopyRegistryEntries@U_FONTMAPPERFAMILYFALLBACK@@$0EGEGENEH@@@YAJPEAKPEAPEAU_FONTMAPPERFAMILYFALLBACK@@0PEBU0@@Z @ 0x1C029D958 (--$AllocAndCopyRegistryEntries@U_FONTMAPPERFAMILYFALLBACK@@$0EGEGENEH@@@YAJPEAKPEAPEAU_FONTMAPPE.c)
+ *     vInitFontSubTable @ 0x1C0393D50 (vInitFontSubTable.c)
+ *     vInitFontMapperFamilyFallbackTable @ 0x1C0393F00 (vInitFontMapperFamilyFallbackTable.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     PALLOCMEM2 @ 0x1C009FDB8 (PALLOCMEM2.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-char *__fastcall PREALLOCMEM2(void *Src, unsigned int a2, __int64 a3, __int64 a4)
+char *__fastcall PREALLOCMEM2(void *Src, unsigned int a2, unsigned int a3, unsigned int a4)
 {
-  unsigned int v4; // esi
   __int64 v5; // rbx
   char *v7; // rax
   char *v8; // rdi
 
-  v4 = a3;
   v5 = a2;
-  if ( !(_DWORD)a3 )
-    return 0LL;
-  v7 = (char *)Win32AllocPool((unsigned int)a3, (unsigned int)a4, a3, a4);
+  v7 = (char *)PALLOCMEM2(a3, a4, 0);
   v8 = v7;
   if ( v7 )
   {
-    if ( (unsigned int)v5 >= v4 )
-      v5 = v4;
+    if ( (unsigned int)v5 >= a3 )
+      v5 = a3;
     memmove(v7, Src, (unsigned int)v5);
     Win32FreePool(Src);
-    memset_0(&v8[v5], 0, v4 - (unsigned int)v5);
+    memset(&v8[v5], 0, a3 - (unsigned int)v5);
   }
   return v8;
 }

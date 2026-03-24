@@ -1,12 +1,12 @@
 /*
- * XREFs of PspGetMemoryPartitionImplicit @ 0x140682A98
+ * XREFs of PspGetMemoryPartitionImplicit @ 0x140613FA4
  * Callers:
- *     PspGetMemoryPartitionContext @ 0x14066F440 (PspGetMemoryPartitionContext.c)
+ *     PspGetMemoryPartitionContext @ 0x14060CF80 (PspGetMemoryPartitionContext.c)
  * Callees:
- *     PsGetEffectiveServerSilo @ 0x14020A3D0 (PsGetEffectiveServerSilo.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     PspUnlockJobChain @ 0x140682B74 (PspUnlockJobChain.c)
- *     PspLockJobChain @ 0x140682C34 (PspLockJobChain.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     PsGetEffectiveServerSilo @ 0x1403621B0 (PsGetEffectiveServerSilo.c)
+ *     PspUnlockJobChain @ 0x140616110 (PspUnlockJobChain.c)
+ *     PspLockJobChain @ 0x140616240 (PspLockJobChain.c)
  */
 
 __int64 __fastcall PspGetMemoryPartitionImplicit(__int64 a1, __int16 a2, _QWORD *a3)
@@ -26,7 +26,7 @@ __int64 __fastcall PspGetMemoryPartitionImplicit(__int64 a1, __int16 a2, _QWORD 
   }
   else
   {
-    for ( EffectiveServerSilo = a1; EffectiveServerSilo; EffectiveServerSilo = *(_QWORD *)(EffectiveServerSilo + 1264) )
+    for ( EffectiveServerSilo = a1; EffectiveServerSilo; EffectiveServerSilo = *(_QWORD *)(EffectiveServerSilo + 1072) )
     {
       if ( (*(_DWORD *)(EffectiveServerSilo + 256) & 0x1000) == 0
         && ((*(_DWORD *)(EffectiveServerSilo + 256) & 0x800) == 0 || (a2 & 1) == 0) )
@@ -34,7 +34,7 @@ __int64 __fastcall PspGetMemoryPartitionImplicit(__int64 a1, __int16 a2, _QWORD 
         break;
       }
     }
-    if ( (a2 & 1) != 0 && EffectiveServerSilo == a1 && (*(_DWORD *)(EffectiveServerSilo + 1512) & 0x40000000) == 0 )
+    if ( (a2 & 1) != 0 && EffectiveServerSilo == a1 && (*(_DWORD *)(EffectiveServerSilo + 1320) & 0x40000000) == 0 )
     {
       v5 = -1073741790;
       goto LABEL_11;
@@ -42,7 +42,7 @@ __int64 __fastcall PspGetMemoryPartitionImplicit(__int64 a1, __int16 a2, _QWORD 
   }
   if ( EffectiveServerSilo )
   {
-    v9 = *(_QWORD *)(EffectiveServerSilo + 1752);
+    v9 = *(_QWORD *)(EffectiveServerSilo + 1560);
     if ( v9 == -1 )
     {
       v5 = -1073740682;
@@ -51,8 +51,8 @@ __int64 __fastcall PspGetMemoryPartitionImplicit(__int64 a1, __int16 a2, _QWORD 
     {
       if ( v9 )
       {
-        ObfReferenceObjectWithTag(*(PVOID *)(EffectiveServerSilo + 1752), 0x624A7350u);
-        v9 = *(_QWORD *)(EffectiveServerSilo + 1752);
+        ObfReferenceObjectWithTag(*(PVOID *)(EffectiveServerSilo + 1560), 0x624A7350u);
+        v9 = *(_QWORD *)(EffectiveServerSilo + 1560);
       }
       *a3 = v9;
     }

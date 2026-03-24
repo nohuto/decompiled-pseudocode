@@ -1,5 +1,5 @@
 /*
- * XREFs of ACPIIommuGetDeviceProperties @ 0x1C007A540
+ * XREFs of ACPIIommuGetDeviceProperties @ 0x1C0090410
  * Callers:
  *     <none>
  * Callees:

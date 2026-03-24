@@ -1,28 +1,23 @@
 /*
- * XREFs of InitRotationManager @ 0x1C00BD710
+ * XREFs of InitRotationManager @ 0x1C01366B0
  * Callers:
  *     <none>
  * Callees:
- *     <none>
+ *     Feature_BrokeredDisplays_RotMgr__private_ReportDeviceUsage @ 0x1C0166594 (Feature_BrokeredDisplays_RotMgr__private_ReportDeviceUsage.c)
  */
 
 __int64 InitRotationManager()
 {
-  _QWORD *Pool2; // rcx
-  __int64 result; // rax
+  _DWORD *PoolWithTag; // rax
 
-  Pool2 = (_QWORD *)ExAllocatePool2(256LL, 16LL, 1836347989LL);
-  result = 0LL;
-  if ( Pool2 )
+  Feature_BrokeredDisplays_RotMgr__private_ReportDeviceUsage();
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x6D747255u);
+  if ( PoolWithTag )
   {
-    Pool2[1] = 0LL;
-    *Pool2 = &CLegacyRotationMgr::`vftable';
-    P = Pool2;
+    PoolWithTag[3] = 0;
+    PoolWithTag[2] = 0;
+    *(_QWORD *)PoolWithTag = &CLegacyRotationMgr::`vftable';
   }
-  else
-  {
-    P = 0LL;
-    return 3221225495LL;
-  }
-  return result;
+  P = PoolWithTag;
+  return PoolWithTag == 0LL ? 0xC0000017 : 0;
 }

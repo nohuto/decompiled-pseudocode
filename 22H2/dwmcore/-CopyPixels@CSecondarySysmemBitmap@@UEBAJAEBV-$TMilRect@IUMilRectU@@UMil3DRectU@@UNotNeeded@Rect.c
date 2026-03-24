@@ -1,13 +1,13 @@
 /*
- * XREFs of ?CopyPixels@CSecondarySysmemBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x1802B7B60
+ * XREFs of ?CopyPixels@CSecondarySysmemBitmap@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x18019C0C0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003E7E0 (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
- *     ?CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z @ 0x1800A6E28 (-CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z.c)
- *     ?DoesContain@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x1800A8890 (-DoesContain@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
- *     ?IsEmpty@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x1800A88E0 (-IsEmpty@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?DoesContain@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x18003A95C (-DoesContain@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z.c)
+ *     ?IsEmpty@?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x18003A9AC (-IsEmpty@-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z @ 0x18003BC58 (-CopyPixelsHelper@CBitmap@@SAJW4DXGI_FORMAT@@IIIIPEAEII1@Z.c)
+ *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003C06C (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
  */
 
 __int64 __fastcall CSecondarySysmemBitmap::CopyPixels(
@@ -17,43 +17,39 @@ __int64 __fastcall CSecondarySysmemBitmap::CopyPixels(
         unsigned int a4,
         unsigned __int8 *a5)
 {
-  _DWORD *v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r10
-  int v11; // ebx
+  _DWORD *v9; // rdx
+  __int64 v10; // rcx
   unsigned __int8 PixelFormatSize; // al
-  _DWORD *v13; // rdx
-  unsigned int v14; // r9d
-  unsigned int v15; // ecx
-  __int64 v16; // r10
-  int v17; // eax
-  __int64 v18; // rcx
-  unsigned int v19; // ebx
+  _DWORD *v12; // rdx
+  unsigned int v13; // r9d
+  unsigned int v14; // ecx
+  int v15; // eax
+  __int64 v16; // rcx
+  unsigned int v17; // ebx
 
-  if ( !TMilRect<unsigned int,MilRectU,Mil3DRectU,RectUniqueness::NotNeeded>::DoesContain(a1 + 32, (__int64)a2)
-    || TMilRect<unsigned int,MilRectU,Mil3DRectU,RectUniqueness::NotNeeded>::IsEmpty(v8) )
+  if ( !TMilRect<unsigned int,MilRectU,Mil3DRectU,RectUniqueness::NotNeeded>::DoesContain(a1 + 24, (__int64)a2)
+    || TMilRect<unsigned int,MilRectU,Mil3DRectU,RectUniqueness::NotNeeded>::IsEmpty(v9) )
   {
-    v19 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024809, 0x64u, 0LL);
+    v17 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, -2147024809, 0x64u, 0LL);
   }
   else
   {
-    v11 = *(_DWORD *)(v10 + 132);
-    PixelFormatSize = GetPixelFormatSize(v11);
-    v15 = v14 * v13[1] + *v13 * (PixelFormatSize >> 3);
-    v17 = CBitmap::CopyPixelsHelper(
-            v11,
-            v13[2] - *a2,
-            v13[3] - v13[1],
-            v14,
-            *(_DWORD *)(v16 + 152) - v15,
-            (unsigned __int8 *)(*(_QWORD *)(v16 + 144) + v15),
+    PixelFormatSize = GetPixelFormatSize(*(_DWORD *)(a1 + 124));
+    v14 = v13 * v12[1] + *v12 * (PixelFormatSize >> 3);
+    v15 = CBitmap::CopyPixelsHelper(
+            (enum DXGI_FORMAT)*(_DWORD *)(a1 + 124),
+            v12[2] - *a2,
+            v12[3] - v12[1],
+            v13,
+            *(_DWORD *)(a1 + 144) - v14,
+            (unsigned __int8 *)(*(_QWORD *)(a1 + 136) + v14),
             a3,
             a4,
             a5);
-    v19 = v17;
-    if ( v17 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v18, 0LL, 0, v17, 0x74u, 0LL);
+    v17 = v15;
+    if ( v15 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x74u, 0LL);
   }
-  return v19;
+  return v17;
 }

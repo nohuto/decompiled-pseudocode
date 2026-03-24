@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpVolumeContextSendDeviceUsageNotification @ 0x140759760
+ * XREFs of CmpVolumeContextSendDeviceUsageNotification @ 0x140759740
  * Callers:
- *     CmpHandlePageFileOpenNotification @ 0x140759604 (CmpHandlePageFileOpenNotification.c)
+ *     CmpHandlePageFileOpenNotification @ 0x1407595E4 (CmpHandlePageFileOpenNotification.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PiPagePathSetState @ 0x14075C1FC (PiPagePathSetState.c)
+ *     PiPagePathSetState @ 0x14075C1DC (PiPagePathSetState.c)
  */
 
 __int64 __fastcall CmpVolumeContextSendDeviceUsageNotification(__int64 a1)

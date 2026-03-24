@@ -1,351 +1,360 @@
 /*
- * XREFs of _CmDeleteDeviceWorker @ 0x140A6244C
+ * XREFs of _CmDeleteDeviceWorker @ 0x14072D948
  * Callers:
- *     _CmDeleteDevice @ 0x140A61510 (_CmDeleteDevice.c)
+ *     _CmDeleteDevice @ 0x14072C75C (_CmDeleteDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     _CmGetDeviceRegProp @ 0x1406CD50C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     _PnpGetObjectProperty @ 0x1406D02A0 (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x14079708C (_PnpSetObjectProperty.c)
- *     _CmSetDeviceMappedProperty @ 0x140799F80 (_CmSetDeviceMappedProperty.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x14079B574 (_CmGetDeviceContainerIdFromBase.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1407D1EB8 (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     _CmGetDeviceMappedPropertyKeys @ 0x14080C738 (_CmGetDeviceMappedPropertyKeys.c)
- *     _CmGetMatchingDeviceList @ 0x14082B7E4 (_CmGetMatchingDeviceList.c)
- *     _CmDeleteDeviceInterface @ 0x140A6163C (_CmDeleteDeviceInterface.c)
- *     _CmDeleteDeviceRegKey @ 0x140A61E2C (_CmDeleteDeviceRegKey.c)
- *     _CmRemoveDeviceFromContainer @ 0x140A646AC (_CmRemoveDeviceFromContainer.c)
- *     _CmRaiseDeleteEvent @ 0x140A65658 (_CmRaiseDeleteEvent.c)
- *     _CmRemovePanelDevice @ 0x140A66C30 (_CmRemovePanelDevice.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x140694D10 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     _PnpGetObjectProperty @ 0x1406B095C (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceRegProp @ 0x1406BA24C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     _CmDeleteDeviceInterface @ 0x14072C884 (_CmDeleteDeviceInterface.c)
+ *     _CmRemoveDeviceFromContainer @ 0x14072C9AC (_CmRemoveDeviceFromContainer.c)
+ *     _CmDeleteDeviceRegKey @ 0x14072DE2C (_CmDeleteDeviceRegKey.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x14072E88C (_CmGetDeviceMappedPropertyKeys.c)
+ *     _CmRaiseDeleteEvent @ 0x14072EA60 (_CmRaiseDeleteEvent.c)
+ *     _CmSetDeviceMappedProperty @ 0x1407369EC (_CmSetDeviceMappedProperty.c)
+ *     _PnpSetObjectProperty @ 0x1407420C4 (_PnpSetObjectProperty.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x14075A16C (_CmGetDeviceContainerIdFromBase.c)
+ *     _CmGetMatchingDeviceList @ 0x1407737D0 (_CmGetMatchingDeviceList.c)
+ *     _CmRemovePanelDevice @ 0x140978AE8 (_CmRemovePanelDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmDeleteDeviceWorker(__int64 a1, const WCHAR *a2, __int16 a3)
+__int64 __fastcall CmDeleteDeviceWorker(__int64 a1, __int64 a2, __int16 a3)
 {
-  _WORD *v5; // r15
-  _WORD *v6; // r12
-  void *Pool2; // rsi
-  unsigned int v8; // r14d
-  int DeviceContainerIdFromBase; // ebx
+  int v5; // esi
+  PVOID v6; // r14
+  PVOID PoolWithTag; // r13
+  int v8; // ebx
+  int v9; // edi
   int DeviceRegProp; // eax
-  __int64 v11; // r14
   int ObjectProperty; // eax
-  int i; // eax
-  _WORD *v14; // rdi
-  int MatchingFilteredDeviceInterfaceList; // eax
-  unsigned __int64 v16; // rbx
-  __int64 v17; // rax
-  int j; // eax
-  _WORD *v19; // rdi
-  int MatchingDeviceList; // eax
-  unsigned __int64 v21; // rbx
-  __int64 v22; // rax
-  int *v23; // r14
-  unsigned int v24; // edi
-  int v25; // eax
-  PVOID v26; // r14
-  int k; // eax
-  unsigned int v28; // edi
+  int MatchingFilteredDeviceInterfaceList; // ebx
+  _WORD *i; // rbx
+  __int64 v14; // rax
+  PVOID v15; // rsi
+  unsigned int v16; // eax
+  int MatchingDeviceList; // ebx
+  _OWORD *v18; // r14
+  unsigned int v19; // esi
+  int v20; // eax
+  int v21; // r9d
+  int v22; // r14d
+  int DeviceMappedPropertyKeys; // eax
+  unsigned int v24; // esi
+  unsigned __int64 v25; // r14
+  int v26; // ebx
+  int v27; // eax
   unsigned __int64 v29; // rbx
-  unsigned int v30; // r14d
-  unsigned int v31; // edi
-  int v32; // eax
-  const WCHAR *v33; // rdi
-  int v35; // [rsp+40h] [rbp-C0h]
-  unsigned int v36; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v37; // [rsp+64h] [rbp-9Ch] BYREF
-  unsigned int v38; // [rsp+68h] [rbp-98h] BYREF
-  unsigned int v39; // [rsp+6Ch] [rbp-94h] BYREF
+  unsigned __int64 v30; // rbx
+  _WORD *j; // rbx
+  __int64 v32; // rax
+  PVOID v33; // [rsp+20h] [rbp-E0h]
+  unsigned int v34; // [rsp+28h] [rbp-D8h]
+  SIZE_T NumberOfBytes; // [rsp+60h] [rbp-A0h] BYREF
+  unsigned int v36; // [rsp+68h] [rbp-98h] BYREF
+  unsigned int v37; // [rsp+6Ch] [rbp-94h] BYREF
   HANDLE Handle; // [rsp+70h] [rbp-90h] BYREF
-  const WCHAR *v41; // [rsp+78h] [rbp-88h]
-  PVOID P; // [rsp+80h] [rbp-80h]
-  _DWORD v43[4]; // [rsp+88h] [rbp-78h] BYREF
-  int v44; // [rsp+98h] [rbp-68h] BYREF
-  _OWORD v45[2]; // [rsp+A0h] [rbp-60h] BYREF
-  wchar_t v46[40]; // [rsp+C0h] [rbp-40h] BYREF
-  wchar_t v47[40]; // [rsp+110h] [rbp+10h] BYREF
+  int v39; // [rsp+78h] [rbp-88h] BYREF
+  PVOID v40; // [rsp+80h] [rbp-80h]
+  int v41; // [rsp+88h] [rbp-78h] BYREF
+  PVOID v42; // [rsp+90h] [rbp-70h]
+  PVOID P; // [rsp+98h] [rbp-68h]
+  _OWORD v44[2]; // [rsp+A0h] [rbp-60h] BYREF
+  _BYTE v45[80]; // [rsp+C0h] [rbp-40h] BYREF
+  _BYTE v46[80]; // [rsp+110h] [rbp+10h] BYREF
 
-  v41 = a2;
   Handle = 0LL;
-  v5 = 0LL;
-  v38 = 0;
+  v5 = 0;
+  P = 0LL;
   v6 = 0LL;
-  v39 = 0;
-  Pool2 = 0LL;
-  v44 = 0;
+  v42 = 0LL;
+  PoolWithTag = 0LL;
   v8 = 0;
   v36 = 0;
-  v43[0] = 0;
-  P = 0LL;
+  v41 = 0;
+  NumberOfBytes = 0LL;
+  v39 = 0;
+  v40 = 0LL;
   if ( a3 )
     return (unsigned int)-1073741811;
-  DeviceContainerIdFromBase = CmOpenDeviceRegKey(a1, (__int64)a2, 16, 0, 33619970, 0, (__int64)&Handle, 0LL);
-  if ( DeviceContainerIdFromBase >= 0 )
+  v9 = CmOpenDeviceRegKey(a1, a2, 16, 0, 33619970, 0, (__int64)&Handle, 0LL);
+  if ( v9 < 0 )
+    goto LABEL_51;
+  LODWORD(NumberOfBytes) = 78;
+  DeviceRegProp = CmGetDeviceRegProp(
+                    a1,
+                    a2,
+                    (__int64)Handle,
+                    37,
+                    (__int64)&v41,
+                    (__int64)v45,
+                    (__int64)&NumberOfBytes,
+                    0);
+  if ( DeviceRegProp < 0 )
   {
-    v36 = 78;
-    DeviceRegProp = CmGetDeviceRegProp(
-                      a1,
-                      (__int64)a2,
-                      (__int64)Handle,
-                      37,
-                      (__int64)&v44,
-                      (__int64)v46,
-                      (__int64)&v36,
-                      0);
-    DeviceContainerIdFromBase = DeviceRegProp;
-    if ( DeviceRegProp < 0 )
+    if ( DeviceRegProp == -1073741275 )
+      goto LABEL_6;
+LABEL_67:
+    v9 = DeviceRegProp;
+    goto LABEL_51;
+  }
+  DeviceRegProp = CmGetDeviceContainerIdFromBase(a1, a2, v45, v46);
+  if ( DeviceRegProp < 0 )
+    goto LABEL_67;
+  DeviceRegProp = CmRemoveDeviceFromContainer(a1, (__int64)v46, (__int64)v45, a2);
+  if ( DeviceRegProp < 0 )
+    goto LABEL_67;
+LABEL_6:
+  while ( 1 )
+  {
+    ObjectProperty = PnpGetObjectProperty(
+                       a1,
+                       a2,
+                       1LL,
+                       (__int64)Handle,
+                       0LL,
+                       (__int64)&DEVPKEY_Device_PanelId,
+                       (__int64)&v39,
+                       (__int64)PoolWithTag,
+                       v8,
+                       (__int64)&NumberOfBytes,
+                       0);
+    if ( ObjectProperty != -1073741789 )
+      break;
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
+    v8 = NumberOfBytes;
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x52504E50u);
+    if ( !PoolWithTag )
     {
-      if ( DeviceRegProp == -1073741275 )
-        goto LABEL_9;
-      goto LABEL_88;
-    }
-    DeviceContainerIdFromBase = CmGetDeviceContainerIdFromBase(a1, (__int64)a2, v46, v47);
-    if ( DeviceContainerIdFromBase >= 0 )
-    {
-      DeviceContainerIdFromBase = CmRemoveDeviceFromContainer(a1, v47, v46, a2);
-      if ( DeviceContainerIdFromBase >= 0 )
-      {
-LABEL_9:
-        while ( 1 )
-        {
-          v35 = v8;
-          v11 = (__int64)a2;
-          ObjectProperty = PnpGetObjectProperty(
-                             a1,
-                             (__int64)a2,
-                             1LL,
-                             (__int64)Handle,
-                             0LL,
-                             (__int64)&DEVPKEY_Device_PanelId,
-                             (__int64)v43,
-                             (__int64)Pool2,
-                             v35,
-                             (__int64)&v36,
-                             0);
-          DeviceContainerIdFromBase = ObjectProperty;
-          if ( ObjectProperty != -1073741789 )
-            break;
-          if ( Pool2 )
-            ExFreePoolWithTag(Pool2, 0);
-          v8 = v36;
-          Pool2 = (void *)ExAllocatePool2(256LL, v36, 1380994640LL);
-          if ( !Pool2 )
-          {
-            DeviceContainerIdFromBase = -1073741801;
-            goto LABEL_86;
-          }
-        }
-        if ( ObjectProperty < 0 )
-        {
-          if ( ObjectProperty == -1073741275 )
-            goto LABEL_22;
-        }
-        else if ( v43[0] != 18 || v36 < 2 || *((_WORD *)Pool2 + ((unsigned __int64)v36 >> 1) - 1) )
-        {
-          DeviceContainerIdFromBase = -1073741823;
-        }
-        else
-        {
-          DeviceContainerIdFromBase = CmRemovePanelDevice(a1, Pool2, a2);
-          if ( DeviceContainerIdFromBase >= 0 )
-          {
-LABEL_22:
-            for ( i = 0; ; i = v38 )
-            {
-              v14 = v5;
-              MatchingFilteredDeviceInterfaceList = CmGetMatchingFilteredDeviceInterfaceList(
-                                                      a1,
-                                                      0LL,
-                                                      v11,
-                                                      0,
-                                                      0LL,
-                                                      0LL,
-                                                      (__int64)v5,
-                                                      i,
-                                                      (__int64)&v38,
-                                                      0);
-              DeviceContainerIdFromBase = MatchingFilteredDeviceInterfaceList;
-              if ( MatchingFilteredDeviceInterfaceList != -1073741789 )
-                break;
-              v16 = 2LL * v38;
-              if ( v16 > 0xFFFFFFFF )
-              {
-                DeviceContainerIdFromBase = -1073741811;
-                goto LABEL_82;
-              }
-              if ( v5 )
-                ExFreePoolWithTag(v5, 0);
-              v5 = (_WORD *)ExAllocatePool2(256LL, (unsigned int)v16, 1380994640LL);
-              if ( !v5 )
-              {
-                DeviceContainerIdFromBase = -1073741801;
-                goto LABEL_82;
-              }
-            }
-            if ( !MatchingFilteredDeviceInterfaceList )
-            {
-              if ( v38 && *v5 )
-              {
-                do
-                {
-                  CmDeleteDeviceInterface(a1, (__int64)v14, 0);
-                  v17 = -1LL;
-                  do
-                    ++v17;
-                  while ( v14[v17] );
-                  v14 += v17 + 1;
-                }
-                while ( *v14 );
-              }
-              for ( j = 0; ; j = v39 )
-              {
-                v19 = v6;
-                MatchingDeviceList = CmGetMatchingDeviceList(
-                                       a1,
-                                       (__int64)&CmMatchLastKnownParentCallback,
-                                       v11,
-                                       (__int64)v6,
-                                       j,
-                                       (__int64)&v39,
-                                       0);
-                DeviceContainerIdFromBase = MatchingDeviceList;
-                if ( MatchingDeviceList != -1073741789 )
-                  break;
-                v21 = 2LL * v39;
-                if ( v21 > 0xFFFFFFFF )
-                {
-LABEL_45:
-                  DeviceContainerIdFromBase = -1073741811;
-                  goto LABEL_80;
-                }
-                if ( v6 )
-                  ExFreePoolWithTag(v6, 0);
-                v6 = (_WORD *)ExAllocatePool2(256LL, (unsigned int)v21, 1380994640LL);
-                if ( !v6 )
-                {
-LABEL_44:
-                  DeviceContainerIdFromBase = -1073741801;
-                  goto LABEL_80;
-                }
-              }
-              if ( !MatchingDeviceList )
-              {
-                if ( v39 && *v6 )
-                {
-                  do
-                  {
-                    PnpSetObjectProperty(
-                      a1,
-                      (__int64)v19,
-                      1u,
-                      0LL,
-                      0LL,
-                      (__int64)DEVPKEY_Device_LastKnownParent,
-                      0,
-                      0LL,
-                      0,
-                      0);
-                    v22 = -1LL;
-                    do
-                      ++v22;
-                    while ( v19[v22] );
-                    v19 += v22 + 1;
-                  }
-                  while ( *v19 );
-                }
-                v23 = (int *)v45;
-                v24 = 0;
-                v45[0] = _mm_load_si128((const __m128i *)&_xmm);
-                v45[1] = _mm_load_si128((const __m128i *)&_xmm);
-                while ( 1 )
-                {
-                  v25 = CmDeleteDeviceRegKey(a1, (__int64)v41, *v23, 0);
-                  DeviceContainerIdFromBase = v25;
-                  if ( v25 )
-                  {
-                    if ( v25 != -1073741772 && v25 != -1073741811 && v25 != -1073741637 )
-                      break;
-                  }
-                  ++v24;
-                  ++v23;
-                  if ( v24 >= 8 )
-                    goto LABEL_60;
-                }
-                if ( v25 < 0 )
-                  goto LABEL_80;
-LABEL_60:
-                P = 0LL;
-                v26 = 0LL;
-                v37 = 0;
-                for ( k = CmGetDeviceMappedPropertyKeys(a1, (__int64)v41, (__int64)Handle, 1, 0LL, 0, &v37);
-                      ;
-                      k = CmGetDeviceMappedPropertyKeys(a1, (__int64)v41, (__int64)Handle, 1, (__int64)P, v28, &v37) )
-                {
-                  DeviceContainerIdFromBase = k;
-                  if ( k != -1073741789 )
-                    break;
-                  v28 = v37;
-                  v29 = 20LL * v37;
-                  if ( v29 > 0xFFFFFFFF )
-                    goto LABEL_45;
-                  if ( v26 )
-                    ExFreePoolWithTag(v26, 0);
-                  P = (PVOID)ExAllocatePool2(256LL, (unsigned int)v29, 1380994640LL);
-                  v26 = P;
-                  if ( !P )
-                    goto LABEL_44;
-                }
-                P = v26;
-                if ( !k || (P = v26, k == -1073741275) )
-                {
-                  v30 = v37;
-                  v31 = 0;
-                  if ( !v37 )
-                    goto LABEL_78;
-                  while ( 1 )
-                  {
-                    v32 = CmSetDeviceMappedProperty(a1, v41, (__int64)Handle, 0LL, (__int64)P + 20 * v31, 0, 0LL, 0);
-                    DeviceContainerIdFromBase = v32;
-                    if ( v32 )
-                    {
-                      if ( v32 != -1073741275 && v32 != -1073741790 && v32 != -1073741802 && v32 != -1073741637 )
-                        break;
-                    }
-                    if ( ++v31 >= v30 )
-                      goto LABEL_78;
-                  }
-                  if ( v32 >= 0 )
-                  {
-LABEL_78:
-                    v33 = v41;
-                    DeviceContainerIdFromBase = CmDeleteDeviceRegKey(a1, (__int64)v41, 16, 0);
-                    if ( DeviceContainerIdFromBase >= 0 )
-                      CmRaiseDeleteEvent(a1, v33, 1LL);
-                  }
-                }
-              }
-LABEL_80:
-              if ( v6 )
-                ExFreePoolWithTag(v6, 0);
-            }
-LABEL_82:
-            if ( v5 )
-              ExFreePoolWithTag(v5, 0);
-            if ( P )
-              ExFreePoolWithTag(P, 0);
-          }
-        }
-LABEL_86:
-        if ( Pool2 )
-          ExFreePoolWithTag(Pool2, 0);
-      }
+      ObjectProperty = -1073741801;
+      break;
     }
   }
+  if ( ObjectProperty < 0 )
+  {
+    if ( ObjectProperty == -1073741275 )
+      goto LABEL_9;
+LABEL_78:
+    v9 = ObjectProperty;
+    goto LABEL_49;
+  }
+  if ( v39 != 18
+    || (unsigned int)NumberOfBytes < 2
+    || *((_WORD *)PoolWithTag + ((unsigned __int64)(unsigned int)NumberOfBytes >> 1) - 1) )
+  {
+    v9 = -1073741823;
+    goto LABEL_49;
+  }
+  ObjectProperty = CmRemovePanelDevice(a1, PoolWithTag, a2);
+  if ( ObjectProperty < 0 )
+    goto LABEL_78;
+  while ( 1 )
+  {
+LABEL_9:
+    MatchingFilteredDeviceInterfaceList = CmGetMatchingFilteredDeviceInterfaceList(
+                                            a1,
+                                            0LL,
+                                            a2,
+                                            0,
+                                            0LL,
+                                            0LL,
+                                            (__int64)v6,
+                                            v5,
+                                            (__int64)&NumberOfBytes + 4,
+                                            0);
+    if ( MatchingFilteredDeviceInterfaceList != -1073741789 )
+      goto LABEL_10;
+    v29 = 2LL * HIDWORD(NumberOfBytes);
+    if ( v29 > 0xFFFFFFFF )
+    {
+      MatchingFilteredDeviceInterfaceList = -1073741811;
+      goto LABEL_63;
+    }
+    if ( v6 )
+      ExFreePoolWithTag(v6, 0);
+    P = ExAllocatePoolWithTag(PagedPool, (unsigned int)v29, 0x52504E50u);
+    v6 = P;
+    if ( !P )
+      break;
+    v5 = HIDWORD(NumberOfBytes);
+  }
+  MatchingFilteredDeviceInterfaceList = -1073741801;
+LABEL_10:
+  if ( MatchingFilteredDeviceInterfaceList )
+  {
+LABEL_63:
+    v9 = MatchingFilteredDeviceInterfaceList;
+    goto LABEL_45;
+  }
+  if ( HIDWORD(NumberOfBytes) )
+  {
+    for ( i = v6; *i; i += v14 + 1 )
+    {
+      CmDeleteDeviceInterface(a1, (__int64)i, 0);
+      v14 = -1LL;
+      do
+        ++v14;
+      while ( i[v14] );
+    }
+  }
+  v15 = v42;
+  v16 = 0;
+  while ( 2 )
+  {
+    MatchingDeviceList = CmGetMatchingDeviceList(
+                           a1,
+                           (unsigned int)CmMatchLastKnownParentCallback,
+                           a2,
+                           (_DWORD)v15,
+                           v16,
+                           (__int64)&v36,
+                           0);
+    if ( MatchingDeviceList != -1073741789 )
+      goto LABEL_18;
+    v30 = 2LL * v36;
+    if ( v30 > 0xFFFFFFFF )
+    {
+      MatchingDeviceList = -1073741811;
+      goto LABEL_88;
+    }
+    if ( v15 )
+      ExFreePoolWithTag(v15, 0);
+    v42 = ExAllocatePoolWithTag(PagedPool, (unsigned int)v30, 0x52504E50u);
+    v15 = v42;
+    if ( v42 )
+    {
+      v16 = v36;
+      continue;
+    }
+    break;
+  }
+  MatchingDeviceList = -1073741801;
+LABEL_18:
+  if ( MatchingDeviceList )
+  {
 LABEL_88:
+    v9 = MatchingDeviceList;
+    goto LABEL_43;
+  }
+  if ( v36 )
+  {
+    for ( j = v15; *j; j += v32 + 1 )
+    {
+      PnpSetObjectProperty(a1, (_DWORD)j, 1, 0LL, (__int64)DEVPKEY_Device_LastKnownParent, 0, 0LL, 0, 0);
+      v32 = -1LL;
+      do
+        ++v32;
+      while ( j[v32] );
+    }
+  }
+  v18 = v44;
+  v19 = 0;
+  v44[0] = _mm_load_si128((const __m128i *)&_xmm);
+  v44[1] = _mm_load_si128((const __m128i *)&_xmm);
+  while ( 1 )
+  {
+    v20 = CmDeleteDeviceRegKey(a1, a2);
+    if ( v20 )
+    {
+      if ( v20 != -1073741637 && v20 != -1073741772 && v20 != -1073741811 )
+        break;
+    }
+    ++v19;
+    v18 = (_OWORD *)((char *)v18 + 4);
+    if ( v19 >= 8 )
+      goto LABEL_24;
+  }
+  v9 = v20;
+LABEL_24:
+  if ( v9 >= 0 )
+  {
+    v40 = 0LL;
+    v22 = 0;
+    v34 = 0;
+    v33 = 0LL;
+    v37 = 0;
+    while ( 1 )
+    {
+      LOBYTE(v21) = 1;
+      DeviceMappedPropertyKeys = CmGetDeviceMappedPropertyKeys(
+                                   a1,
+                                   a2,
+                                   (_DWORD)Handle,
+                                   v21,
+                                   (__int64)v33,
+                                   v34,
+                                   (__int64)&v37);
+      if ( DeviceMappedPropertyKeys != -1073741789 )
+        break;
+      v24 = v37;
+      v25 = 20LL * v37;
+      if ( v25 > 0xFFFFFFFF )
+      {
+        DeviceMappedPropertyKeys = -1073741811;
+        goto LABEL_65;
+      }
+      if ( v40 )
+        ExFreePoolWithTag(v40, 0);
+      v40 = ExAllocatePoolWithTag(PagedPool, (unsigned int)v25, 0x52504E50u);
+      v22 = (int)v40;
+      if ( !v40 )
+      {
+        DeviceMappedPropertyKeys = -1073741801;
+        goto LABEL_35;
+      }
+      v34 = v24;
+      v33 = v40;
+    }
+    v24 = v37;
+LABEL_35:
+    if ( DeviceMappedPropertyKeys && DeviceMappedPropertyKeys != -1073741275 )
+    {
+LABEL_65:
+      v9 = DeviceMappedPropertyKeys;
+      goto LABEL_43;
+    }
+    v26 = 0;
+    if ( v24 )
+    {
+      while ( 1 )
+      {
+        v27 = CmSetDeviceMappedProperty(a1, a2, v22 + 20 * v26, 0, 0LL, 0);
+        if ( v27 )
+        {
+          if ( v27 != -1073741790 && v27 != -1073741275 && v27 != -1073741637 && v27 != -1073741802 )
+            break;
+        }
+        if ( ++v26 >= v24 )
+          goto LABEL_40;
+      }
+      v9 = v27;
+    }
+LABEL_40:
+    if ( v9 >= 0 )
+    {
+      v9 = CmDeleteDeviceRegKey(a1, a2);
+      if ( v9 >= 0 )
+        CmRaiseDeleteEvent(a1, a2, 1LL);
+    }
+  }
+LABEL_43:
+  if ( v42 )
+    ExFreePoolWithTag(v42, 0);
+LABEL_45:
+  if ( P )
+    ExFreePoolWithTag(P, 0);
+  if ( v40 )
+    ExFreePoolWithTag(v40, 0);
+LABEL_49:
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
+LABEL_51:
   if ( Handle )
     ZwClose(Handle);
-  return (unsigned int)DeviceContainerIdFromBase;
+  return (unsigned int)v9;
 }

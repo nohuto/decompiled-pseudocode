@@ -1,69 +1,45 @@
 /*
- * XREFs of ?DestroyTtmDevice@DXGSESSIONMGR@@QEAAXPEAX@Z @ 0x1C0354F30
+ * XREFs of ?DestroyTtmDevice@DXGSESSIONMGR@@QEAAXPEAX@Z @ 0x1C029EEF8
  * Callers:
- *     ?_DestroyTtmDevice@DXGMONITOR@@QEAAXXZ @ 0x1C03C9490 (-_DestroyTtmDevice@DXGMONITOR@@QEAAXXZ.c)
+ *     ?_DestroyTtmDevice@DXGMONITOR@@QEAAXXZ @ 0x1C02F930C (-_DestroyTtmDevice@DXGMONITOR@@QEAAXXZ.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z @ 0x1C001CBA8 (--0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z.c)
- *     ?QueueSerializedWorkItem@CSERIALIZEDWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z @ 0x1C0210808 (-QueueSerializedWorkItem@CSERIALIZEDWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z.c)
+ *     ?QueueSerializedWorkItem@CSERIALIZEDWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z @ 0x1C0185940 (-QueueSerializedWorkItem@CSERIALIZEDWORKQUEUE@@QEAAJP6AXPEAX@Z0@Z.c)
  */
 
 void __fastcall DXGSESSIONMGR::DestroyTtmDevice(CSERIALIZEDWORKQUEUE ***this, char *a2)
 {
-  bool v4; // zf
-  __int64 v5; // rcx
-  int v6; // eax
-  __int64 v7; // rbx
-  __int64 v8; // [rsp+50h] [rbp-18h] BYREF
-  char v9; // [rsp+58h] [rbp-10h]
+  char *v4; // rbx
+  int v5; // eax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rbx
+  _QWORD *v9; // rax
 
   if ( a2 && *((_DWORD *)a2 + 10) == 1299018836 )
   {
-    DXGAUTOPUSHLOCKFASTEXCLUSIVE::DXGAUTOPUSHLOCKFASTEXCLUSIVE(
-      (DXGAUTOPUSHLOCKFASTEXCLUSIVE *)&v8,
-      (struct DXGPUSHLOCKFAST *)(a2 + 888));
-    v4 = v9 == 0;
+    v4 = a2 + 888;
+    KeEnterCriticalRegion();
+    ExAcquirePushLockExclusiveEx(v4, 0LL);
     a2[912] = 1;
-    if ( !v4 )
-    {
-      v5 = v8;
-      *(_QWORD *)(v8 + 8) = 0LL;
-      ExReleasePushLockExclusiveEx(v5, 0LL);
-      KeLeaveCriticalRegion();
-    }
-    v6 = CSERIALIZEDWORKQUEUE::QueueSerializedWorkItem(
+    *((_QWORD *)v4 + 1) = 0LL;
+    ExReleasePushLockExclusiveEx(v4, 0LL);
+    KeLeaveCriticalRegion();
+    v5 = CSERIALIZEDWORKQUEUE::QueueSerializedWorkItem(
            this + 47,
            (void (*)(void *))DXGSESSIONMGR::DestroyTtmDeviceWorker,
            a2);
-    if ( v6 < 0 )
-    {
-      v7 = v6;
-      WdLogSingleEntry3(2LL, *((unsigned int *)a2 + 20), *((_QWORD *)a2 + 8), v6);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"Failed to queue a Serialized work item to destroy TTM device for target 0x%I64x on adapter 0x%I64x, (St"
-                  "atus = 0x%I64x).",
-        *((unsigned int *)a2 + 20),
-        *((_QWORD *)a2 + 8),
-        v7,
-        0LL,
-        0LL);
-    }
+    v8 = v5;
+    if ( v5 >= 0 )
+      return;
+    v9 = (_QWORD *)WdLogNewEntry5_WdError(v7, v6);
+    v9[3] = *((unsigned int *)a2 + 20);
+    v9[4] = *((_QWORD *)a2 + 8);
+    v9[5] = v8;
   }
   else
   {
-    WdLogSingleEntry1(2LL, a2);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified invalid TTM device 0x%I64x.",
-      (__int64)a2,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v9 = (_QWORD *)WdLogNewEntry5_WdError(this, a2);
+    v9[3] = a2;
   }
+  WdLogEvent5_WdError(v9);
 }

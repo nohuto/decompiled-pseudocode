@@ -1,31 +1,35 @@
 /*
- * XREFs of ?ReleaseAllBuffers@CCompositionSurface@@IEAA_NXZ @ 0x1C001430C
+ * XREFs of ?ReleaseAllBuffers@CCompositionSurface@@IEAA_NXZ @ 0x1C001306C
  * Callers:
- *     ?Bind@CCompositionSurface@@QEAAJAEBUCSM_BUFFER_INFO@@_N111PEA_K@Z @ 0x1C000F134 (-Bind@CCompositionSurface@@QEAAJAEBUCSM_BUFFER_INFO@@_N111PEA_K@Z.c)
- *     ?UnBind@CCompositionSurface@@QEAAJ_N@Z @ 0x1C0010820 (-UnBind@CCompositionSurface@@QEAAJ_N@Z.c)
- *     ?Delete@CCompositionSurface@@MEAAJPEAX@Z @ 0x1C00142E0 (-Delete@CCompositionSurface@@MEAAJPEAX@Z.c)
+ *     ?Bind@CCompositionSurface@@QEAAJAEBUCSM_BUFFER_INFO@@_N1PEA_K@Z @ 0x1C0011D7C (-Bind@CCompositionSurface@@QEAAJAEBUCSM_BUFFER_INFO@@_N1PEA_K@Z.c)
+ *     ?UnBind@CCompositionSurface@@QEAAJ_N@Z @ 0x1C0012858 (-UnBind@CCompositionSurface@@QEAAJ_N@Z.c)
+ *     ?Delete@CCompositionSurface@@MEAAJPEAX@Z @ 0x1C0013040 (-Delete@CCompositionSurface@@MEAAJPEAX@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ?DisableCascadedSignaling@CFlipExBuffer@@QEAAXXZ @ 0x1C001330C (-DisableCascadedSignaling@CFlipExBuffer@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?FromBuffer@CFlipExBuffer@@SAPEAV1@PEAVCCompositionBuffer@@@Z @ 0x1C0066240 (-FromBuffer@CFlipExBuffer@@SAPEAV1@PEAVCCompositionBuffer@@@Z.c)
  */
 
 char __fastcall CCompositionSurface::ReleaseAllBuffers(CCompositionSurface *this)
 {
-  char v1; // si
+  char v1; // bp
   CCompositionSurface **v3; // rbx
   CCompositionSurface **v4; // rax
   CCompositionSurface *v5; // rcx
-  CCompositionSurface *v6; // rcx
+  struct CCompositionBuffer *v6; // rsi
+  CCompositionSurface *v7; // rcx
+  CFlipExBuffer *v9; // rax
 
   v1 = 0;
-  if ( *((_DWORD *)this + 22) )
+  if ( *((_DWORD *)this + 20) )
   {
-    v3 = (CCompositionSurface **)((char *)this + 72);
-    v4 = (CCompositionSurface **)*((_QWORD *)this + 9);
-    if ( v4[1] != (CCompositionSurface *)((char *)this + 72) )
-      goto LABEL_13;
+    v3 = (CCompositionSurface **)((char *)this + 64);
+    v4 = (CCompositionSurface **)*((_QWORD *)this + 8);
+    if ( v4[1] != (CCompositionSurface *)((char *)this + 64) )
+      goto LABEL_14;
     v5 = *v4;
     if ( *((CCompositionSurface ***)*v4 + 1) != v4 )
-      goto LABEL_13;
+      goto LABEL_14;
     *v3 = v5;
     *((_QWORD *)v5 + 1) = v3;
     if ( v4 != v3 )
@@ -33,24 +37,31 @@ char __fastcall CCompositionSurface::ReleaseAllBuffers(CCompositionSurface *this
       v1 = 1;
       while ( 1 )
       {
-        if ( v4 != (CCompositionSurface **)24 )
-          (*(void (__fastcall **)(CCompositionSurface **, __int64))*(v4 - 3))(v4 - 3, 1LL);
+        v6 = (struct CCompositionBuffer *)(v4 - 3);
+        if ( *((_QWORD *)this + 12)
+          && (*(unsigned int (__fastcall **)(CCompositionSurface **))(*(_QWORD *)v6 + 8LL))(v4 - 3) == 2 )
+        {
+          v9 = CFlipExBuffer::FromBuffer(v6);
+          CFlipExBuffer::DisableCascadedSignaling(v9);
+        }
+        if ( v6 )
+          (**(void (__fastcall ***)(struct CCompositionBuffer *, __int64))v6)(v6, 1LL);
         v4 = (CCompositionSurface **)*v3;
         if ( *((CCompositionSurface ***)*v3 + 1) != v3 )
           break;
-        v6 = *v4;
+        v7 = *v4;
         if ( *((CCompositionSurface ***)*v4 + 1) != v4 )
           break;
-        *v3 = v6;
-        *((_QWORD *)v6 + 1) = v3;
+        *v3 = v7;
+        *((_QWORD *)v7 + 1) = v3;
         if ( v4 == v3 )
-          goto LABEL_11;
+          goto LABEL_12;
       }
-LABEL_13:
+LABEL_14:
       __fastfail(3u);
     }
-LABEL_11:
-    *((_DWORD *)this + 22) = 0;
+LABEL_12:
+    *((_DWORD *)this + 20) = 0;
   }
   return v1;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of DpiFdoGetDeviceFileObject @ 0x1C0389628
+ * XREFs of DpiFdoGetDeviceFileObject @ 0x1C02CA0FC
  * Callers:
- *     DpiIndirectCbSendMessage @ 0x1C03929B0 (DpiIndirectCbSendMessage.c)
+ *     DpiIndirectCbSendMessage @ 0x1C02D5750 (DpiIndirectCbSendMessage.c)
  * Callees:
  *     <none>
  */

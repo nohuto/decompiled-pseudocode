@@ -1,81 +1,88 @@
 /*
- * XREFs of AslPathCombine @ 0x140A15B1C
+ * XREFs of AslPathCombine @ 0x140968814
  * Callers:
- *     SdbpGetPathAppPatchPreRS3 @ 0x1406498D0 (SdbpGetPathAppPatchPreRS3.c)
- *     SdbpGetPathCustomSdbPreRS3 @ 0x140649A60 (SdbpGetPathCustomSdbPreRS3.c)
- *     SdbpGetPathAppPatch @ 0x140A13EC0 (SdbpGetPathAppPatch.c)
- *     SdbpGetPathAppraiser @ 0x140A13FC0 (SdbpGetPathAppraiser.c)
- *     SdbpGetPathCustomSdb @ 0x140A14110 (SdbpGetPathCustomSdb.c)
- *     AslEnvGetSysNativeDirPathForGuestBuf @ 0x140A17ABC (AslEnvGetSysNativeDirPathForGuestBuf.c)
- *     AslEnvGetSystem32DirPathBuf @ 0x140A17D10 (AslEnvGetSystem32DirPathBuf.c)
+ *     SdbpGetPathAppPatchPreRS3 @ 0x1405C0850 (SdbpGetPathAppPatchPreRS3.c)
+ *     SdbpGetPathCustomSdbPreRS3 @ 0x1405C09D0 (SdbpGetPathCustomSdbPreRS3.c)
+ *     SdbpGetPathAppPatch @ 0x140966F60 (SdbpGetPathAppPatch.c)
+ *     SdbpGetPathAppraiser @ 0x140967050 (SdbpGetPathAppraiser.c)
+ *     SdbpGetPathCustomSdb @ 0x140967190 (SdbpGetPathCustomSdb.c)
+ *     AslEnvGetSysNativeDirPathForGuestBuf @ 0x14096A2E4 (AslEnvGetSysNativeDirPathForGuestBuf.c)
+ *     AslEnvGetSystem32DirPathBuf @ 0x14096A550 (AslEnvGetSystem32DirPathBuf.c)
  * Callees:
- *     RtlStringCchCatW @ 0x1402D87F0 (RtlStringCchCatW.c)
- *     RtlStringCchCopyW @ 0x1402E0200 (RtlStringCchCopyW.c)
- *     RtlStringCchLengthW @ 0x1402E0AC4 (RtlStringCchLengthW.c)
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
+ *     RtlStringCchLengthW @ 0x140264E74 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x1403716A0 (RtlStringCchCopyW.c)
+ *     RtlStringCchCatW @ 0x140371960 (RtlStringCchCatW.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
  */
 
-__int64 __fastcall AslPathCombine(
-        NTSTRSAFE_PCWSTR pszSrc,
-        NTSTRSAFE_PCWSTR a2,
-        NTSTRSAFE_PWSTR pszDest,
-        size_t cchDest)
+__int64 __fastcall AslPathCombine(NTSTRSAFE_PCWSTR pszSrc, __int64 a2, wchar_t *a3, size_t a4)
 {
-  NTSTATUS v9; // ebx
-  unsigned int v10; // r11d
-  const wchar_t *v11; // r15
-  unsigned int v12; // r11d
-  unsigned int v13; // r11d
-  unsigned int v14; // eax
+  NTSTATUS v8; // ebx
+  const wchar_t *v9; // r11
+  const wchar_t *v10; // r11
+  const wchar_t *v11; // r8
+  size_t v12; // rdx
+  const wchar_t *v13; // r15
+  unsigned int v14; // ebp
+  unsigned int v15; // eax
   size_t pcchLength[7]; // [rsp+30h] [rbp-38h] BYREF
-  size_t v16; // [rsp+88h] [rbp+20h] BYREF
+  size_t v17; // [rsp+88h] [rbp+20h] BYREF
 
   pcchLength[0] = 0LL;
-  v16 = 0LL;
-  if ( !cchDest )
+  v17 = 0LL;
+  if ( !a4 )
     return 3221225507LL;
-  v9 = RtlStringCchLengthW(pszSrc, 0x7FFFFFFFuLL, pcchLength);
-  if ( v9 < 0 )
+  v8 = RtlStringCchLengthW(pszSrc, 0x7FFFFFFFuLL, pcchLength);
+  if ( v8 < 0 )
     goto LABEL_23;
-  v9 = RtlStringCchLengthW(a2, v10, &v16);
-  if ( v9 < 0 )
+  v8 = RtlStringCchLengthW(v9, 0x7FFFFFFFuLL, &v17);
+  if ( v8 < 0 )
     goto LABEL_23;
   if ( pcchLength[0] )
   {
-    if ( v16 )
+    v11 = pszSrc;
+    v12 = a4;
+    if ( v17 )
     {
-      v11 = a2 + 1;
-      v12 = (pszSrc[pcchLength[0] - 1] == 92) + 1;
-      if ( *a2 != 92 )
-        v12 = pszSrc[pcchLength[0] - 1] == 92;
-      if ( v12 <= 1 )
-        v11 = a2;
-      v9 = RtlStringCchCopyW(pszDest, cchDest, pszSrc);
-      if ( v9 >= 0 )
+      v13 = v10 + 1;
+      v14 = (pszSrc[pcchLength[0] - 1] == 92) + 1;
+      if ( *v10 != 92 )
+        v14 = pszSrc[pcchLength[0] - 1] == 92;
+      if ( v14 <= 1 )
+        v13 = v10;
+      v8 = RtlStringCchCopyW(a3, a4, pszSrc);
+      if ( v8 < 0 )
+        goto LABEL_23;
+      v15 = v14 - 1;
+      if ( v14 <= 1 )
+        v15 = v14;
+      if ( !v15 )
       {
-        v14 = v13 - 1;
-        if ( v13 <= 1 )
-          v14 = v13;
-        if ( v14 || (v9 = RtlStringCchCatW(pszDest, cchDest, L"\\"), v9 >= 0) )
-        {
-          v9 = RtlStringCchCatW(pszDest, cchDest, v11);
-          if ( v9 >= 0 )
-            return 0;
-        }
+        v8 = RtlStringCchCatW(a3, a4, L"\\");
+        if ( v8 < 0 )
+          goto LABEL_23;
       }
+      v8 = RtlStringCchCatW(a3, a4, v13);
+      if ( v8 < 0 )
+        goto LABEL_23;
+      v8 = 0;
+LABEL_22:
+      if ( v8 >= 0 )
+        return (unsigned int)v8;
 LABEL_23:
       AslLogCallPrintf(1LL);
-      return (unsigned int)v9;
+      return (unsigned int)v8;
     }
-    a2 = pszSrc;
-LABEL_11:
-    v9 = RtlStringCchCopyW(pszDest, cchDest, a2);
-    if ( v9 >= 0 )
-      return (unsigned int)v9;
-    goto LABEL_23;
+LABEL_9:
+    v8 = RtlStringCchCopyW(a3, v12, v11);
+    goto LABEL_22;
   }
-  if ( v16 )
-    goto LABEL_11;
-  *pszDest = 0;
+  if ( v17 )
+  {
+    v11 = v10;
+    v12 = a4;
+    goto LABEL_9;
+  }
+  *a3 = 0;
   return 0;
 }

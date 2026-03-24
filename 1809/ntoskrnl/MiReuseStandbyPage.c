@@ -1,8 +1,8 @@
 /*
- * XREFs of MiReuseStandbyPage @ 0x1402C0EA0
+ * XREFs of MiReuseStandbyPage @ 0x1402C0FA0
  * Callers:
  *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
- *     MiSwapNumaStandbyPage @ 0x1402C0F10 (MiSwapNumaStandbyPage.c)
+ *     MiSwapNumaStandbyPage @ 0x1402C1010 (MiSwapNumaStandbyPage.c)
  * Callees:
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
  *     MiRestoreTransitionPte @ 0x140081010 (MiRestoreTransitionPte.c)

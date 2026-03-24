@@ -5,8 +5,8 @@
  *     VfFreeMemoryNotification @ 0x140925CB8 (VfFreeMemoryNotification.c)
  *     VfFreePoolNotification @ 0x140937E9C (VfFreePoolNotification.c)
  * Callees:
- *     ViDeadlockRemoveMemoryRangeResources @ 0x14030B17C (ViDeadlockRemoveMemoryRangeResources.c)
- *     ViDeadlockRemoveMemoryRangeThreads @ 0x14030B2DC (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x14030B27C (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x14030B3DC (ViDeadlockRemoveMemoryRangeThreads.c)
  *     ViDeadlockCanProceed @ 0x14093CD18 (ViDeadlockCanProceed.c)
  */
 

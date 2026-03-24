@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmGetExitSamplingCountdown @ 0x14032C214
+ * XREFs of PpmGetExitSamplingCountdown @ 0x14034AA60
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402C52F0 (PpmIdleExecuteTransition.c)
- *     PoFxSendSystemLatencyUpdate @ 0x14032C150 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmIdleExecuteTransition @ 0x140222470 (PpmIdleExecuteTransition.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x14034A828 (PoFxSendSystemLatencyUpdate.c)
  * Callees:
  *     <none>
  */
@@ -15,11 +15,8 @@ __int64 PpmGetExitSamplingCountdown()
   v0 = PpmExitLatencySamplingPercentage;
   result = 0LL;
   if ( (unsigned int)PpmExitLatencySamplingPercentage > 0x64 )
-  {
     v0 = 100;
-    return 0x64 / v0;
-  }
-  if ( PpmExitLatencySamplingPercentage )
+  if ( v0 )
     return 0x64 / v0;
   return result;
 }

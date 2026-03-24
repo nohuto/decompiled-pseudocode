@@ -1,13 +1,13 @@
 /*
- * XREFs of ?LogCheckMutiplaneOverlaySupport@@YAXJHIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXIPEAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@PEAVADAPTER_RENDER@@@Z @ 0x1C022FE7C
+ * XREFs of ?LogCheckMutiplaneOverlaySupport@@YAXJHIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXIPEAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@PEAVADAPTER_RENDER@@@Z @ 0x1C02560D0
  * Callers:
- *     ?CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C02E7664 (-CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CH.c)
- *     ?CheckMultiPlaneOverlaySupport3@DXGDEVICE@@QEAAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@IPEAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@_NPEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C02E7DE0 (-CheckMultiPlaneOverlaySupport3@DXGDEVICE@@QEAAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@.c)
+ *     ?CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C0253194 (-CheckMultiPlaneOverlayInternal3@@YAJIPEAVADAPTER_RENDER@@PEAVADAPTER_DISPLAY@@PEAHPEAUD3DKMT_CH.c)
+ *     ?CheckMultiPlaneOverlaySupport3@DXGDEVICE@@QEAAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@IPEAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@_NPEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C0253958 (-CheckMultiPlaneOverlaySupport3@DXGDEVICE@@QEAAJIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@.c)
  * Callees:
- *     McTemplateK0qqddddddddq_EtwWriteTransfer @ 0x1C0049CFC (McTemplateK0qqddddddddq_EtwWriteTransfer.c)
- *     McTemplateK0qqqddddddddddddqqqqqq_EtwWriteTransfer @ 0x1C0049E14 (McTemplateK0qqqddddddddddddqqqqqq_EtwWriteTransfer.c)
- *     McTemplateK0qqqqqq_EtwWriteTransfer @ 0x1C004A01C (McTemplateK0qqqqqq_EtwWriteTransfer.c)
- *     ?IsYUVAllocation@@YAHPEAXPEAVADAPTER_RENDER@@@Z @ 0x1C02EB994 (-IsYUVAllocation@@YAHPEAXPEAVADAPTER_RENDER@@@Z.c)
+ *     McTemplateK0qqddddddddq_EtwWriteTransfer @ 0x1C0043800 (McTemplateK0qqddddddddq_EtwWriteTransfer.c)
+ *     McTemplateK0qqqddddddddddddqqqqqq_EtwWriteTransfer @ 0x1C0043918 (McTemplateK0qqqddddddddddddqqqqqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqqqqq_EtwWriteTransfer @ 0x1C0043B20 (McTemplateK0qqqqqq_EtwWriteTransfer.c)
+ *     ?IsYUVAllocation@@YAHPEAXPEAVADAPTER_RENDER@@@Z @ 0x1C0255C7C (-IsYUVAllocation@@YAHPEAXPEAVADAPTER_RENDER@@@Z.c)
  */
 
 void __fastcall LogCheckMutiplaneOverlaySupport(
@@ -20,7 +20,7 @@ void __fastcall LogCheckMutiplaneOverlaySupport(
         struct _D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE **a7,
         struct ADAPTER_RENDER *a8)
 {
-  __int64 v9; // rdi
+  __int64 v9; // rbx
   int v10; // r12d
   char v11; // r15
   float v12; // xmm2_4
@@ -30,16 +30,16 @@ void __fastcall LogCheckMutiplaneOverlaySupport(
   __int64 v16; // r8
   float v17; // xmm3_4
   struct _D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 **v18; // r11
-  __int64 v19; // rbx
+  __int64 v19; // rdi
   float v20; // xmm1_4
   __int64 v22; // rbp
   int *v23; // rcx
-  void **v24; // rbx
+  void **v24; // rdi
   signed __int64 v25; // rsi
   __int64 v26; // r8
   unsigned int *v27; // r14
   _DWORD *v28; // rdx
-  int v29; // [rsp+28h] [rbp-C0h]
+  int v29; // [rsp+28h] [rbp-B0h]
 
   v9 = a3;
   v10 = a2;
@@ -89,7 +89,7 @@ void __fastcall LogCheckMutiplaneOverlaySupport(
     }
     if ( v10 )
     {
-      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+      if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
         McTemplateK0qqqqqq_EtwWriteTransfer(
           (__int64)pPlaneAttributes,
           &EventCheckMultiPlaneOverlaySuccess,
@@ -101,7 +101,7 @@ void __fastcall LogCheckMutiplaneOverlaySupport(
           v16,
           0);
     }
-    else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+    else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     {
       McTemplateK0qqqqqq_EtwWriteTransfer(
         (__int64)pPlaneAttributes,
@@ -119,7 +119,7 @@ void __fastcall LogCheckMutiplaneOverlaySupport(
       v22 = a6;
       do
       {
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
         {
           v23 = (int *)*a7;
           McTemplateK0qqddddddddq_EtwWriteTransfer(
@@ -153,7 +153,7 @@ void __fastcall LogCheckMutiplaneOverlaySupport(
         v27 = *(unsigned int **)((char *)v24 + v25);
         if ( *v24 )
           v26 = (unsigned int)IsYUVAllocation(*v24, a8);
-        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
         {
           v28 = (_DWORD *)*((_QWORD *)v27 + 3);
           McTemplateK0qqqddddddddddddqqqqqq_EtwWriteTransfer(

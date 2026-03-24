@@ -1,59 +1,21 @@
 /*
- * XREFs of GreIncQuotaCount @ 0x1C003C4A0
+ * XREFs of GreIncQuotaCount @ 0x1C009B7C0
  * Callers:
- *     GreSetDCOwnerEx @ 0x1C004BDD0 (GreSetDCOwnerEx.c)
+ *     GreSetDCOwnerEx @ 0x1C0038F20 (GreSetDCOwnerEx.c)
+ *     HMChangeOwnerPheProcessWorker @ 0x1C009B668 (HMChangeOwnerPheProcessWorker.c)
  * Callees:
- *     ?HmgpIncProcessHandleCountEx@@YAXPEAU_W32PROCESS@@@Z @ 0x1C0040000 (-HmgpIncProcessHandleCountEx@@YAXPEAU_W32PROCESS@@@Z.c)
- *     McTemplateK0pqz_EtwWriteTransfer @ 0x1C016BC08 (McTemplateK0pqz_EtwWriteTransfer.c)
- *     McTemplateK0pz_EtwWriteTransfer @ 0x1C016BCC0 (McTemplateK0pz_EtwWriteTransfer.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C003A090 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C003A1E0 (GreAcquireHmgrSemaphore.c)
+ *     ?HmgpIncProcessHandleCountEx@@YAXPEAU_W32PROCESS@@@Z @ 0x1C00C9B64 (-HmgpIncProcessHandleCountEx@@YAXPEAU_W32PROCESS@@@Z.c)
  */
 
-__int64 __fastcall GreIncQuotaCount(struct _W32PROCESS *a1)
+__int64 __fastcall GreIncQuotaCount(struct _W32PROCESS *a1, int a2, int a3)
 {
-  __int64 v2; // rcx
-  __int64 v3; // rdi
-  struct _ERESOURCE *v4; // rbx
-  __int64 v5; // rbx
-  int v6; // edx
-  __int64 v7; // rcx
-  int v8; // r8d
-  __int64 v9; // rcx
-  __int64 v10; // rbx
-  __int64 v11; // rdi
-  __int64 v12; // rcx
-  __int64 result; // rax
-  int v14; // r8d
-  __int64 v15; // rcx
-  struct _ERESOURCE *v16; // rcx
+  __int64 v4; // rdx
+  int v5; // ecx
+  int v6; // r8d
 
-  v3 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  v4 = *(struct _ERESOURCE **)(v3 + 1912);
-  if ( v4 )
-  {
-    PsEnterPriorityRegion();
-    ExEnterCriticalRegionAndAcquireResourceExclusive(v4);
-  }
-  v5 = *(_QWORD *)(v3 + 1912);
-  v7 = *(_QWORD *)(SGDGetSessionState(v2) + 24);
-  if ( *(_DWORD *)(v7 + 180) && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
-    McTemplateK0pqz_EtwWriteTransfer(v7, v6, v8, v5, 17, (__int64)L"GreBaseGlobals.hsemHmgr");
+  GreAcquireHmgrSemaphore((__int64)a1, a2, a3);
   HmgpIncProcessHandleCountEx(a1);
-  v10 = *(_QWORD *)(SGDGetSessionState(v9) + 24);
-  v11 = *(_QWORD *)(v10 + 1912);
-  result = SGDGetSessionState(v12);
-  v15 = *(_QWORD *)(result + 24);
-  if ( *(_DWORD *)(v15 + 180) && (Microsoft_Windows_Win32kEnableBits & 0x10) != 0 )
-    result = McTemplateK0pz_EtwWriteTransfer(
-               v15,
-               (unsigned int)&LockRelease,
-               v14,
-               v11,
-               (__int64)L"GreBaseGlobals.hsemHmgr");
-  v16 = *(struct _ERESOURCE **)(v10 + 1912);
-  if ( v16 )
-  {
-    ExReleaseResourceAndLeaveCriticalRegion(v16);
-    return PsLeavePriorityRegion();
-  }
-  return result;
+  return GreReleaseHmgrSemaphore(v5, v4, v6);
 }

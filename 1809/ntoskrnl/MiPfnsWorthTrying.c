@@ -2,15 +2,15 @@
  * XREFs of MiPfnsWorthTrying @ 0x14009A7B0
  * Callers:
  *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiFindRebuildCandidate @ 0x1402CE198 (MiFindRebuildCandidate.c)
- *     MiScrubNode @ 0x1402CF5C8 (MiScrubNode.c)
- *     MmRelocatePfnList @ 0x14085F328 (MmRelocatePfnList.c)
+ *     MiFindRebuildCandidate @ 0x1402CE298 (MiFindRebuildCandidate.c)
+ *     MiScrubNode @ 0x1402CF6C8 (MiScrubNode.c)
+ *     MmRelocatePfnList @ 0x14085F308 (MmRelocatePfnList.c)
  * Callees:
  *     MiPfnLargeBitSet @ 0x14009AB50 (MiPfnLargeBitSet.c)
  *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
  *     MiActivePageClaimCandidate @ 0x14009CA50 (MiActivePageClaimCandidate.c)
- *     MiGetLeafPfnBuddy @ 0x14015E8B4 (MiGetLeafPfnBuddy.c)
- *     MiClusterVadFull @ 0x1402C6028 (MiClusterVadFull.c)
+ *     MiGetLeafPfnBuddy @ 0x14015E8D4 (MiGetLeafPfnBuddy.c)
+ *     MiClusterVadFull @ 0x1402C6128 (MiClusterVadFull.c)
  */
 
 __int64 __fastcall MiPfnsWorthTrying(__int16 *a1, unsigned __int64 a2, __int64 a3, int a4, _DWORD *a5)

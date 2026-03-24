@@ -1,5 +1,5 @@
 /*
- * XREFs of ExRegisterExtension @ 0x1407273E0
+ * XREFs of ExRegisterExtension @ 0x1407273C0
  * Callers:
  *     <none>
  * Callees:
@@ -9,10 +9,10 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     ExpFindHost @ 0x140727734 (ExpFindHost.c)
- *     ExpDereferenceHost @ 0x1408D6FA8 (ExpDereferenceHost.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExpFindHost @ 0x140727714 (ExpFindHost.c)
+ *     ExpDereferenceHost @ 0x1408D6F88 (ExpDereferenceHost.c)
  */
 
 __int64 __fastcall ExRegisterExtension(__int64 *a1, int a2, unsigned __int16 *a3)

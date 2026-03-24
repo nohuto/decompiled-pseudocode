@@ -1,9 +1,9 @@
 /*
- * XREFs of ??4?$ComPtr@VCCachedWindowBackgroundTreatment@@@WRL@Microsoft@@QEAAAEAV012@PEAVCCachedWindowBackgroundTreatment@@@Z @ 0x18000B9D8
+ * XREFs of ??4?$ComPtr@VCCachedWindowBackgroundTreatment@@@WRL@Microsoft@@QEAAAEAV012@PEAVCCachedWindowBackgroundTreatment@@@Z @ 0x18001053C
  * Callers:
- *     ?Create@CCachedWindowBackgroundTreatment@@SAJPEAVCWindowBackgroundTreatment@@PEAVIBitmapRealization@@AEBVCMILMatrix@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@AEBU_D3DCOLORVALUE@@PEAPEAV1@@Z @ 0x18000B8C0 (-Create@CCachedWindowBackgroundTreatment@@SAJPEAVCWindowBackgroundTreatment@@PEAVIBitmapRealizat.c)
+ *     ?Create@CCachedWindowBackgroundTreatment@@SAJPEAVCWindowBackgroundTreatment@@PEAVIBitmapRealization@@AEBVCMILMatrix@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@AEBU_D3DCOLORVALUE@@PEAPEAV1@@Z @ 0x180010428 (-Create@CCachedWindowBackgroundTreatment@@SAJPEAVCWindowBackgroundTreatment@@PEAVIBitmapRealizat.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 _QWORD *__fastcall Microsoft::WRL::ComPtr<CCachedWindowBackgroundTreatment>::operator=(
@@ -12,11 +12,14 @@ _QWORD *__fastcall Microsoft::WRL::ComPtr<CCachedWindowBackgroundTreatment>::ope
 {
   void (__fastcall ***v4)(_QWORD); // rcx
 
-  if ( (void (__fastcall ***)(_QWORD))*a1 != a2 )
+  v4 = (void (__fastcall ***)(_QWORD))*a1;
+  if ( v4 != a2 )
   {
     if ( a2 )
+    {
       (**a2)(a2);
-    v4 = (void (__fastcall ***)(_QWORD))*a1;
+      v4 = (void (__fastcall ***)(_QWORD))*a1;
+    }
     *a1 = a2;
     if ( v4 )
       (*v4)[1](v4);

@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbhWmiInsufficentBandwidth @ 0x1C0049A40
+ * XREFs of UsbhWmiInsufficentBandwidth @ 0x1C004AE10
  * Callers:
  *     <none>
  * Callees:
- *     Log @ 0x1C0009F20 (Log.c)
- *     UsbhGetPortData @ 0x1C000F370 (UsbhGetPortData.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhGetPortData @ 0x1C0016CA0 (UsbhGetPortData.c)
  */
 
 __int64 __fastcall UsbhWmiInsufficentBandwidth(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 a5)

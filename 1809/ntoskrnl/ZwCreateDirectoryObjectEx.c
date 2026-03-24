@@ -1,10 +1,10 @@
 /*
- * XREFs of ZwCreateDirectoryObjectEx @ 0x1401B95B0
+ * XREFs of ZwCreateDirectoryObjectEx @ 0x1401B95D0
  * Callers:
- *     ObpInitializeRootNamespace @ 0x14072BC8C (ObpInitializeRootNamespace.c)
- *     MiCreatePartitionNamespace @ 0x14072BE28 (MiCreatePartitionNamespace.c)
- *     ObpCreateDosDevicesDirectory @ 0x14072C0C8 (ObpCreateDosDevicesDirectory.c)
- *     ObCreateSiloRootDirectory @ 0x140905F10 (ObCreateSiloRootDirectory.c)
+ *     ObpInitializeRootNamespace @ 0x14072BC6C (ObpInitializeRootNamespace.c)
+ *     MiCreatePartitionNamespace @ 0x14072BE08 (MiCreatePartitionNamespace.c)
+ *     ObpCreateDosDevicesDirectory @ 0x14072C0A8 (ObpCreateDosDevicesDirectory.c)
+ *     ObCreateSiloRootDirectory @ 0x140905EF0 (ObCreateSiloRootDirectory.c)
  * Callees:
  *     <none>
  */

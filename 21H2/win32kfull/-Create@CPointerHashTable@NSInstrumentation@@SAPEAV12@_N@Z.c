@@ -1,45 +1,48 @@
 /*
- * XREFs of ?Create@CPointerHashTable@NSInstrumentation@@SAPEAV12@_N@Z @ 0x1C00F7548
+ * XREFs of ?Create@CPointerHashTable@NSInstrumentation@@SAPEAV12@_N@Z @ 0x1C00F4370
  * Callers:
- *     ?Initialize@UmfdAllocation@@SA_NXZ @ 0x1C00F74F0 (-Initialize@UmfdAllocation@@SA_NXZ.c)
+ *     ?Initialize@UmfdAllocation@@SA_NXZ @ 0x1C00F4244 (-Initialize@UmfdAllocation@@SA_NXZ.c)
+ *     ?InitializePointerHashTable@CLeakTrackingAllocator@NSInstrumentation@@AEAAXPEAPEAVCPointerHashTable@2@_N@Z @ 0x1C02DE120 (-InitializePointerHashTable@CLeakTrackingAllocator@NSInstrumentation@@AEAAXPEAPEAVCPointerHashTa.c)
  * Callees:
- *     ?Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C011D7C0 (-Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z.c)
- *     memset @ 0x1C0160540 (memset.c)
+ *     ?Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C0132850 (-Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z.c)
+ *     memset @ 0x1C016E780 (memset.c)
  */
 
-struct NSInstrumentation::CPointerHashTable *__fastcall NSInstrumentation::CPointerHashTable::Create()
+struct NSInstrumentation::CPointerHashTable *__fastcall NSInstrumentation::CPointerHashTable::Create(char a1)
 {
-  __int64 Pool2; // rax
-  __int64 v1; // rbx
-  void *v2; // rax
+  _QWORD *PoolWithTag; // rax
+  _QWORD *v3; // rbx
+  PVOID v4; // rax
+  char v5; // al
   struct NSInstrumentation::CPointerHashTable *result; // rax
 
-  Pool2 = ExAllocatePool2(262LL, 56LL, 944337749LL);
-  v1 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPoolSession, 0x38uLL, 0x38497355u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    *(_QWORD *)(Pool2 + 32) = 0LL;
-    *(_DWORD *)(Pool2 + 40) = 0;
-    *(_DWORD *)(Pool2 + 44) = 0;
-    *(_DWORD *)(Pool2 + 48) = 0;
-    *(_BYTE *)(Pool2 + 52) &= ~1u;
-    *(_DWORD *)(Pool2 + 24) = 0;
-    *(_DWORD *)(Pool2 + 28) = 0;
-    *(_QWORD *)Pool2 = 0LL;
-    *(_DWORD *)(Pool2 + 16) = 0;
-    v2 = (void *)ExAllocatePool2(262LL, 4096LL, 944337749LL);
-    *(_QWORD *)(v1 + 32) = v2;
-    if ( v2 )
+    PoolWithTag[4] = 0LL;
+    *((_DWORD *)PoolWithTag + 10) = 0;
+    *((_DWORD *)PoolWithTag + 11) = 0;
+    *((_DWORD *)PoolWithTag + 12) = 0;
+    *((_BYTE *)PoolWithTag + 52) &= ~1u;
+    *((_DWORD *)PoolWithTag + 6) = 0;
+    *((_DWORD *)PoolWithTag + 7) = 0;
+    *PoolWithTag = 0LL;
+    *((_DWORD *)PoolWithTag + 4) = 0;
+    v4 = ExAllocatePoolWithTag(PagedPoolSession, 0x1000uLL, 0x38497355u);
+    v3[4] = v4;
+    if ( v4 )
     {
-      memset(v2, 0, 0x1000uLL);
-      *(_DWORD *)(v1 + 48) = 0;
-      result = (struct NSInstrumentation::CPointerHashTable *)v1;
-      *(_BYTE *)(v1 + 52) &= ~1u;
-      *(_DWORD *)(v1 + 40) = 256;
-      *(_DWORD *)(v1 + 44) = 8;
+      memset(v4, 0, 0x1000uLL);
+      v5 = *((_BYTE *)v3 + 52);
+      *((_DWORD *)v3 + 12) = 0;
+      *((_DWORD *)v3 + 10) = 256;
+      *((_BYTE *)v3 + 52) = a1 | v5 & 0xFE;
+      result = (struct NSInstrumentation::CPointerHashTable *)v3;
+      *((_DWORD *)v3 + 11) = 8;
       return result;
     }
-    NSInstrumentation::CPointerHashTable::Destroy((PVOID)v1);
+    NSInstrumentation::CPointerHashTable::Destroy(v3);
   }
   return 0LL;
 }

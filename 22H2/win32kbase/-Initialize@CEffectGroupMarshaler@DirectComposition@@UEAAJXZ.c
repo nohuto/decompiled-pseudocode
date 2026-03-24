@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CEffectGroupMarshaler@DirectComposition@@UEAAJXZ @ 0x1C000F3D0
+ * XREFs of ?Initialize@CEffectGroupMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00B3B30
  * Callers:
  *     <none>
  * Callees:

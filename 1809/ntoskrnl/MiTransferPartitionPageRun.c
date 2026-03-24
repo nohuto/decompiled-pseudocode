@@ -1,22 +1,22 @@
 /*
- * XREFs of MiTransferPartitionPageRun @ 0x1402D25F8
+ * XREFs of MiTransferPartitionPageRun @ 0x1402D26F8
  * Callers:
- *     MiActOnPartitionNodePages @ 0x1402D0018 (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x1402D0118 (MiActOnPartitionNodePages.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiUnlinkFreeOrZeroedPage @ 0x140039AD0 (MiUnlinkFreeOrZeroedPage.c)
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
  *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4C0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReleaseNonPagedResources @ 0x1400E18C8 (MiReleaseNonPagedResources.c)
- *     KeShouldYieldProcessor @ 0x1400F9CC0 (KeShouldYieldProcessor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiAcquireNonPagedResourcesForce @ 0x1402A60F0 (MiAcquireNonPagedResourcesForce.c)
- *     MiUnlinkPageFromBadList @ 0x1402BFD00 (MiUnlinkPageFromBadList.c)
- *     MiMoveLargeFreePage @ 0x1402CC844 (MiMoveLargeFreePage.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReleaseNonPagedResources @ 0x1400E18E8 (MiReleaseNonPagedResources.c)
+ *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiAcquireNonPagedResourcesForce @ 0x1402A61F0 (MiAcquireNonPagedResourcesForce.c)
+ *     MiUnlinkPageFromBadList @ 0x1402BFE00 (MiUnlinkPageFromBadList.c)
+ *     MiMoveLargeFreePage @ 0x1402CC944 (MiMoveLargeFreePage.c)
  */
 
 __int64 __fastcall MiTransferPartitionPageRun(__int64 a1, unsigned __int16 *a2, ULONG_PTR a3, __int64 a4, KIRQL a5)

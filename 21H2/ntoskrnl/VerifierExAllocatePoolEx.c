@@ -1,17 +1,36 @@
 /*
- * XREFs of VerifierExAllocatePoolEx @ 0x140A902F0
+ * XREFs of VerifierExAllocatePoolEx @ 0x1409D4C50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     VfCheckPoolType @ 0x140A82F58 (VfCheckPoolType.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     VfCheckPoolType @ 0x1409C7D64 (VfCheckPoolType.c)
  */
 
-__int64 __fastcall VerifierExAllocatePoolEx(int a1, __int64 a2, int a3)
+PVOID __fastcall VerifierExAllocatePoolEx(
+        __int32 PoolType,
+        SIZE_T NumberOfBytes,
+        ULONG Tag,
+        PLOOKASIDE_LIST_EX Lookaside)
 {
-  __int64 retaddr; // [rsp+58h] [rbp+0h]
+  __int64 retaddr; // [rsp+48h] [rbp+0h]
 
-  if ( (MmVerifierData & 0x2000000) != 0 )
-    VfCheckPoolType(a1, retaddr, 0);
-  return pXdvExAllocatePoolWithTagPriority(a1 | 0x80u, 0, a2, a3, 32, 0LL, 0, retaddr, (__int64)VfHandlePoolAlloc);
+  if ( (MmVerifierData & 0x400000) == 0 || (MmVerifierData & 1) != 0 )
+  {
+    VfCheckPoolType(PoolType, retaddr, Tag);
+    return (PVOID)pXdvExAllocatePoolWithTagPriority(
+                    PoolType | 0x80u,
+                    NumberOfBytes,
+                    Tag,
+                    32,
+                    retaddr,
+                    (__int64)VeAllocatePoolWithTagPriority);
+  }
+  else
+  {
+    if ( (MmVerifierData & 0x2000000) != 0 )
+      VfCheckPoolType(PoolType, retaddr, 0);
+    return CmpAllocateTransientPoolWithTag((POOL_TYPE)PoolType, NumberOfBytes, Tag, Lookaside);
+  }
 }

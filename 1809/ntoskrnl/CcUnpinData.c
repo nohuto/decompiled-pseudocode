@@ -4,8 +4,8 @@
  *     CcUnpinData @ 0x1405DEDF0 (CcUnpinData.c)
  *     CcPinRead @ 0x1406383B0 (CcPinRead.c)
  *     CcPinMappedData @ 0x1406385A0 (CcPinMappedData.c)
- *     CcPreparePinWrite @ 0x14069FDB0 (CcPreparePinWrite.c)
- *     CcUnpinDataForThread @ 0x1407E8880 (CcUnpinDataForThread.c)
+ *     CcPreparePinWrite @ 0x14069FD90 (CcPreparePinWrite.c)
+ *     CcUnpinDataForThread @ 0x1407E8860 (CcUnpinDataForThread.c)
  * Callees:
  *     CcUnpinFileDataEx @ 0x140020910 (CcUnpinFileDataEx.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

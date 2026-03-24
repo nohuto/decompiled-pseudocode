@@ -1,39 +1,24 @@
 /*
- * XREFs of ExpWorkQueueManagerStart @ 0x14084A6D0
+ * XREFs of ExpWorkQueueManagerStart @ 0x1407C29A4
  * Callers:
- *     ExpPartitionStart @ 0x14084A628 (ExpPartitionStart.c)
- *     ExpNodeHotAddProcessorWorker @ 0x140A00880 (ExpNodeHotAddProcessorWorker.c)
+ *     ExpPartitionStart @ 0x1407C28F4 (ExpPartitionStart.c)
+ *     ExpNodeHotAddProcessorWorker @ 0x140955DA0 (ExpNodeHotAddProcessorWorker.c)
  * Callees:
- *     ExpPartitionCreateSystemThread @ 0x1406835FC (ExpPartitionCreateSystemThread.c)
+ *     ExpPartitionCreateSystemThread @ 0x1406FD8D8 (ExpPartitionCreateSystemThread.c)
  */
 
-__int64 __fastcall ExpWorkQueueManagerStart(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall ExpWorkQueueManagerStart(__int64 a1, __int64 a2, int a3)
 {
-  int SystemThread; // ecx
-  __int64 v7; // [rsp+20h] [rbp-38h]
-  __int64 v8; // [rsp+60h] [rbp+8h] BYREF
+  unsigned int SystemThread; // ecx
 
-  v8 = 0LL;
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 264), 1LL, 0LL) )
   {
     return 0;
   }
   else
   {
-    SystemThread = ExpPartitionCreateSystemThread(
-                     *(_QWORD *)a1,
-                     *(_QWORD *)(a1 + 8),
-                     a3,
-                     a4,
-                     v7,
-                     (__int64)ExpWorkQueueManagerThread,
-                     a1,
-                     a1 + 276,
-                     (__int64)&v8);
-    if ( SystemThread < 0 )
-      _InterlockedExchange64((volatile __int64 *)(a1 + 264), 0LL);
-    else
-      _InterlockedExchange64((volatile __int64 *)(a1 + 264), v8);
+    SystemThread = ExpPartitionCreateSystemThread(*(_QWORD *)a1, *(_QWORD *)(a1 + 8), a3);
+    _InterlockedExchange64((volatile __int64 *)(a1 + 264), 0LL);
   }
-  return (unsigned int)SystemThread;
+  return SystemThread;
 }

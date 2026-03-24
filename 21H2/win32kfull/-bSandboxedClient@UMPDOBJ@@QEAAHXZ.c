@@ -1,8 +1,8 @@
 /*
- * XREFs of ?bSandboxedClient@UMPDOBJ@@QEAAHXZ @ 0x1C015E364
+ * XREFs of ?bSandboxedClient@UMPDOBJ@@QEAAHXZ @ 0x1C016BD0C
  * Callers:
- *     ?FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ @ 0x1C029165C (-FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ.c)
- *     ?UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z @ 0x1C02AA350 (-UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z.c)
+ *     ?FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ @ 0x1C0293B0C (-FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ.c)
+ *     ?UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z @ 0x1C02ABC00 (-UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z.c)
  * Callees:
  *     <none>
  */

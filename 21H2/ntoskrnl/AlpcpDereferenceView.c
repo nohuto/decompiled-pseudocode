@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpDereferenceView @ 0x140965B94
+ * XREFs of AlpcpDereferenceView @ 0x1408C1BA4
  * Callers:
- *     AlpcpMapLegacyPortView @ 0x14066C1DC (AlpcpMapLegacyPortView.c)
- *     AlpcpLocateSectionView @ 0x1407A4858 (AlpcpLocateSectionView.c)
+ *     AlpcpLocateSectionView @ 0x14066209C (AlpcpLocateSectionView.c)
+ *     AlpcpMapLegacyPortView @ 0x1406D2148 (AlpcpMapLegacyPortView.c)
  * Callees:
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
  */
 
-unsigned __int64 __fastcall AlpcpDereferenceView(ULONG_PTR a1)
+void __fastcall AlpcpDereferenceView(ULONG_PTR a1)
 {
-  return AlpcpDereferenceBlobEx(a1, 1);
+  AlpcpDereferenceBlobEx(a1, 1);
 }

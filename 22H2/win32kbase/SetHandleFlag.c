@@ -1,11 +1,11 @@
 /*
- * XREFs of SetHandleFlag @ 0x1C0096560
+ * XREFs of SetHandleFlag @ 0x1C00482B0
  * Callers:
- *     CloseProtectedHandle @ 0x1C0096518 (CloseProtectedHandle.c)
+ *     CloseProtectedHandle @ 0x1C0048268 (CloseProtectedHandle.c)
  * Callees:
- *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FB14 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C002A9C0 (Win32AllocPoolWithQuotaZInit.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 __int64 __fastcall SetHandleFlag(unsigned int a1, int a2, int a3)
@@ -14,56 +14,47 @@ __int64 __fastcall SetHandleFlag(unsigned int a1, int a2, int a3)
   ULONG v5; // edi
   __int64 v6; // rcx
   __int64 CurrentProcessWin32Process; // rax
-  unsigned __int64 v8; // rdx
-  NSInstrumentation::CLeakTrackingAllocator *v9; // rcx
-  struct _RTL_BITMAP *v10; // rbx
-  ULONG v11; // eax
-  ULONG *QuotaZInit; // rax
-  ULONG *v14; // r14
-  PULONG Buffer; // rdx
-  char *v16; // rdx
+  unsigned int *v8; // rbx
+  ULONG v9; // eax
+  ULONG *v11; // rax
+  ULONG *v12; // r14
+  const void *v13; // rdx
 
   v4 = 1;
   v5 = a2 + 2 * (a1 >> 2) + (a1 >> 2);
   ExEnterCriticalRegionAndAcquireFastMutexUnsafe(gpHandleFlagsMutex);
   CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v6);
-  if ( CurrentProcessWin32Process && *(_QWORD *)CurrentProcessWin32Process )
+  if ( CurrentProcessWin32Process )
   {
-    v10 = (struct _RTL_BITMAP *)(CurrentProcessWin32Process + 712);
-    v11 = *(_DWORD *)(CurrentProcessWin32Process + 712);
+    v8 = (unsigned int *)(CurrentProcessWin32Process + 720);
+    v9 = *(_DWORD *)(CurrentProcessWin32Process + 720);
     if ( a3 )
     {
-      if ( v5 >= v11 )
+      if ( v5 >= v9 )
       {
-        QuotaZInit = (ULONG *)NSInstrumentation::CLeakTrackingAllocator::AllocateQuotaZInit(
-                                v9,
-                                v8,
-                                (unsigned __int64)((v5 + 32) & 0xFFFFFFE0) >> 3,
-                                0x69707355u);
-        v14 = QuotaZInit;
-        if ( !QuotaZInit )
+        v11 = (ULONG *)Win32AllocPoolWithQuotaZInit((unsigned __int64)((v5 + 32) & 0xFFFFFFE0) >> 3, 0x69707355u);
+        v12 = v11;
+        if ( !v11 )
         {
           v4 = 0;
-          goto LABEL_6;
+          goto LABEL_5;
         }
-        Buffer = v10->Buffer;
-        if ( Buffer )
+        v13 = (const void *)*((_QWORD *)v8 + 1);
+        if ( v13 )
         {
-          memmove(QuotaZInit, Buffer, (unsigned __int64)v10->SizeOfBitMap >> 3);
-          v16 = (char *)v10->Buffer;
-          if ( v16 )
-            NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v16);
+          memmove(v11, v13, (unsigned __int64)*v8 >> 3);
+          Win32FreePool(*((_QWORD *)v8 + 1));
         }
-        RtlInitializeBitMap(v10, v14, (v5 + 32) & 0xFFFFFFE0);
+        RtlInitializeBitMap((PRTL_BITMAP)v8, v12, (v5 + 32) & 0xFFFFFFE0);
       }
-      RtlSetBits(v10, v5, 1u);
+      RtlSetBits((PRTL_BITMAP)v8, v5, 1u);
     }
-    else if ( v5 < v11 )
+    else if ( v5 < v9 )
     {
-      RtlClearBits(v10, v5, 1u);
+      RtlClearBits((PRTL_BITMAP)v8, v5, 1u);
     }
   }
-LABEL_6:
+LABEL_5:
   ExReleaseFastMutexUnsafeAndLeaveCriticalRegion(gpHandleFlagsMutex);
   return v4;
 }

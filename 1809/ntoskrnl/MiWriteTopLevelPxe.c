@@ -1,17 +1,17 @@
 /*
- * XREFs of MiWriteTopLevelPxe @ 0x140170930
+ * XREFs of MiWriteTopLevelPxe @ 0x140170950
  * Callers:
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
  *     MiDeleteVa @ 0x140069700 (MiDeleteVa.c)
  *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
- *     MiMapNewSession @ 0x140715F58 (MiMapNewSession.c)
+ *     MiMapNewSession @ 0x140715F38 (MiMapNewSession.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiWriteTopLevelPxe(__int64 *a1, __int64 a2)

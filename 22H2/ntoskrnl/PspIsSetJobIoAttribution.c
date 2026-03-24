@@ -1,10 +1,10 @@
 /*
- * XREFs of PspIsSetJobIoAttribution @ 0x1407D8A58
+ * XREFs of PspIsSetJobIoAttribution @ 0x14065DAC0
  * Callers:
- *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
- *     PspSetJobIoAttribution @ 0x1407D8864 (PspSetJobIoAttribution.c)
+ *     PspSetJobIoAttribution @ 0x14065D8D0 (PspSetJobIoAttribution.c)
+ *     PspAssignProcessToJob @ 0x14071E800 (PspAssignProcessToJob.c)
  * Callees:
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406A3448 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140618450 (PspEnumJobsAndProcessesInJobHierarchy.c)
  */
 
 char __fastcall PspIsSetJobIoAttribution(_QWORD *a1, __int64 a2, char a3)
@@ -12,13 +12,13 @@ char __fastcall PspIsSetJobIoAttribution(_QWORD *a1, __int64 a2, char a3)
   __int64 v3; // rax
   char v4; // bl
 
-  v3 = a1[161];
+  v3 = a1[134];
   v4 = 0;
   while ( v3 )
   {
-    if ( *(_DWORD *)(v3 + 1564) )
+    if ( *(_DWORD *)(v3 + 1348) )
       return 1;
-    v3 = *(_QWORD *)(v3 + 1288);
+    v3 = *(_QWORD *)(v3 + 1072);
   }
   if ( !a3
     && (int)PspEnumJobsAndProcessesInJobHierarchy(a1, (int)PspIsSetJobIoAttributionJobPreCallback, 0, 0, (__int64)a1, 5) < 0 )

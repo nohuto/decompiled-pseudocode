@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlUnicodeStringToAnsiString @ 0x14067BAF0
+ * XREFs of RtlUnicodeStringToAnsiString @ 0x14067BAD0
  * Callers:
- *     DbgUnicodeStringToAnsiString @ 0x1400F4A5C (DbgUnicodeStringToAnsiString.c)
+ *     DbgUnicodeStringToAnsiString @ 0x1400F4A7C (DbgUnicodeStringToAnsiString.c)
  *     ExpSystemErrorHandler2 @ 0x14057E930 (ExpSystemErrorHandler2.c)
- *     EtwpBuildProcessEvent @ 0x14066CA4C (EtwpBuildProcessEvent.c)
- *     MmGetSystemRoutineAddress @ 0x14067B8B0 (MmGetSystemRoutineAddress.c)
- *     ExpQueryModuleInformation @ 0x14067B930 (ExpQueryModuleInformation.c)
- *     AslStringUpcaseToMultiByteN @ 0x14067C40C (AslStringUpcaseToMultiByteN.c)
- *     ObCreateObjectTypeEx @ 0x1407289FC (ObCreateObjectTypeEx.c)
- *     ExpConvertLdrEntryToModuleInfo @ 0x1407488B8 (ExpConvertLdrEntryToModuleInfo.c)
- *     KsepGetModuleInfoByName @ 0x140848BAC (KsepGetModuleInfoByName.c)
- *     NtQuerySystemEnvironmentValue @ 0x1408D4FA0 (NtQuerySystemEnvironmentValue.c)
- *     NtSetSystemEnvironmentValue @ 0x1408D58E0 (NtSetSystemEnvironmentValue.c)
+ *     EtwpBuildProcessEvent @ 0x14066CA2C (EtwpBuildProcessEvent.c)
+ *     MmGetSystemRoutineAddress @ 0x14067B890 (MmGetSystemRoutineAddress.c)
+ *     ExpQueryModuleInformation @ 0x14067B910 (ExpQueryModuleInformation.c)
+ *     AslStringUpcaseToMultiByteN @ 0x14067C3EC (AslStringUpcaseToMultiByteN.c)
+ *     ObCreateObjectTypeEx @ 0x1407289DC (ObCreateObjectTypeEx.c)
+ *     ExpConvertLdrEntryToModuleInfo @ 0x140748898 (ExpConvertLdrEntryToModuleInfo.c)
+ *     KsepGetModuleInfoByName @ 0x140848B8C (KsepGetModuleInfoByName.c)
+ *     NtQuerySystemEnvironmentValue @ 0x1408D4F80 (NtQuerySystemEnvironmentValue.c)
+ *     NtSetSystemEnvironmentValue @ 0x1408D58C0 (NtSetSystemEnvironmentValue.c)
  *     ViThunkAdjustExportAddressIfHooked @ 0x140936C04 (ViThunkAdjustExportAddressIfHooked.c)
  *     HdlspProcessDumpCommand @ 0x14094CB74 (HdlspProcessDumpCommand.c)
  *     IopReassignSystemRoot @ 0x1409DB7D0 (IopReassignSystemRoot.c)
  * Callees:
- *     CountUnicodeToUTF8 @ 0x14013224C (CountUnicodeToUTF8.c)
+ *     CountUnicodeToUTF8 @ 0x14013226C (CountUnicodeToUTF8.c)
  *     ExFreePool @ 0x14034D780 (ExFreePool.c)
- *     ExpAllocateStringRoutine @ 0x1406B2120 (ExpAllocateStringRoutine.c)
- *     RtlUnicodeToUTF8N @ 0x1406BF670 (RtlUnicodeToUTF8N.c)
+ *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
+ *     RtlUnicodeToUTF8N @ 0x1406BF650 (RtlUnicodeToUTF8N.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringToAnsiString(

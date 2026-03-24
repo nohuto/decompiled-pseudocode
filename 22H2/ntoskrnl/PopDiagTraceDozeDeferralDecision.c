@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceDozeDeferralDecision @ 0x14098E9E8
+ * XREFs of PopDiagTraceDozeDeferralDecision @ 0x1408E9F50
  * Callers:
- *     PopDeferDoze @ 0x14098B6C4 (PopDeferDoze.c)
+ *     PopDeferDoze @ 0x1408F0498 (PopDeferDoze.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140212E84 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025F340 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14025FE1C (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x14034B79C (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceDozeDeferralDecision(
@@ -66,15 +66,15 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
   __int64 v53; // [rsp+168h] [rbp+68h]
 
   v7 = a1;
-  if ( (unsigned int)dword_140C03950 > 5 )
+  if ( (unsigned int)dword_140C02228 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C03950, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
     {
       v18 = v7;
       v26 = &v18;
       v27 = 4LL;
       v28 = &v19;
-      v22 = qword_140C3CEE0;
+      v22 = qword_140C23B00;
       v30 = &v22;
       v32 = &v23;
       v24 = a5;
@@ -96,13 +96,13 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
       v42 = &v13;
       v14 = PopPlatformRole;
       v44 = &v14;
-      v21 = (unsigned __int8)byte_140C3DAD4;
+      v21 = (unsigned __int8)byte_140C233F4;
       v46 = &v21;
-      v15 = byte_140C3DAD3;
+      v15 = byte_140C233F3;
       v48 = &v15;
-      v16 = BYTE8(xmmword_140C3DAF0);
+      v16 = byte_140C23418;
       v50 = &v16;
-      v17 = qword_140C3DB00;
+      v17 = qword_140C23420;
       v52 = &v17;
       v41 = 1LL;
       v43 = 1LL;
@@ -112,8 +112,8 @@ void __fastcall PopDiagTraceDozeDeferralDecision(
       v51 = 1LL;
       v53 = 1LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03950,
-        (unsigned __int8 *)byte_14002E19D,
+        (__int64)&dword_140C02228,
+        (unsigned __int8 *)&word_140027ACE,
         0LL,
         0LL,
         0x11u,

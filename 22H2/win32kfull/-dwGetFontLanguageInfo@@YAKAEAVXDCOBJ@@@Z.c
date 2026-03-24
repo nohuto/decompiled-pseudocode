@@ -1,59 +1,59 @@
 /*
- * XREFs of ?dwGetFontLanguageInfo@@YAKAEAVXDCOBJ@@@Z @ 0x1C028E30C
+ * XREFs of ?dwGetFontLanguageInfo@@YAKAEAVXDCOBJ@@@Z @ 0x1C028AC44
  * Callers:
- *     NtGdiGetDCDword @ 0x1C0090040 (NtGdiGetDCDword.c)
+ *     NtGdiGetDCDword @ 0x1C00FA520 (NtGdiGetDCDword.c)
  * Callees:
- *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C0076E28 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
- *     ?bGetDeviceFonts@PDEVOBJ@@QEAAHXZ @ 0x1C00BDC38 (-bGetDeviceFonts@PDEVOBJ@@QEAAHXZ.c)
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00FA95C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?ppfeMapFont@LFONTOBJ@@QEAAPEAVPFE@@AEAVXDCOBJ@@PEAKPEAU_POINTL@@1H@Z @ 0x1C010F190 (-ppfeMapFont@LFONTOBJ@@QEAAPEAVPFE@@AEAVXDCOBJ@@PEAKPEAU_POINTL@@1H@Z.c)
- *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C01110BC (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009029C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?ppfeMapFont@LFONTOBJ@@QEAAPEAVPFE@@AEAVXDCOBJ@@PEAKPEAU_POINTL@@1H@Z @ 0x1C0097A10 (-ppfeMapFont@LFONTOBJ@@QEAAPEAVPFE@@AEAVXDCOBJ@@PEAKPEAU_POINTL@@1H@Z.c)
+ *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C009B854 (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C009B920 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
+ *     ?bGetDeviceFonts@PDEVOBJ@@QEAAHXZ @ 0x1C013008C (-bGetDeviceFonts@PDEVOBJ@@QEAAHXZ.c)
  */
 
-__int64 __fastcall dwGetFontLanguageInfo(DC **a1)
+__int64 __fastcall dwGetFontLanguageInfo(struct XDCOBJ *a1)
 {
   unsigned int v2; // edi
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  Gre::Base *v5; // rcx
-  struct PFE *v6; // rax
-  __int64 v7; // rcx
-  struct _POINTL v9; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v10; // [rsp+38h] [rbp-8h] BYREF
-  unsigned int v11; // [rsp+60h] [rbp+20h] BYREF
-  unsigned int v12; // [rsp+68h] [rbp+28h] BYREF
-  struct LFONT *v13; // [rsp+70h] [rbp+30h] BYREF
-  __int64 v14; // [rsp+78h] [rbp+38h] BYREF
+  __int64 v3; // rax
+  struct PFE *v4; // rax
+  __int64 v5; // rcx
+  struct _POINTL v7; // [rsp+30h] [rbp-10h] BYREF
+  __int64 v8; // [rsp+38h] [rbp-8h] BYREF
+  unsigned int v9; // [rsp+60h] [rbp+20h] BYREF
+  unsigned int v10; // [rsp+68h] [rbp+28h] BYREF
+  struct LFONT *v11; // [rsp+70h] [rbp+30h] BYREF
+  __int64 v12; // [rsp+78h] [rbp+38h] BYREF
 
   v2 = 0x8000;
-  v3 = *((_QWORD *)*a1 + 6);
-  v14 = v3;
+  v3 = *(_QWORD *)(*(_QWORD *)a1 + 48LL);
+  v12 = v3;
   if ( v3 )
   {
     if ( (*(_DWORD *)(v3 + 40) & 0x40) == 0 )
-      PDEVOBJ::bGetDeviceFonts((PDEVOBJ *)&v14);
-    LFONTOBJ::LFONTOBJ((LFONTOBJ *)&v13, *(struct HLFONT__ **)(*((_QWORD *)*a1 + 122) + 296LL), (struct PDEVOBJ *)&v14);
-    if ( v13 )
+      PDEVOBJ::bGetDeviceFonts((PDEVOBJ *)&v12);
+    LFONTOBJ::LFONTOBJ(
+      (LFONTOBJ *)&v11,
+      *(struct HLFONT__ **)(*(_QWORD *)(*(_QWORD *)a1 + 976LL) + 296LL),
+      (struct PDEVOBJ *)&v12);
+    if ( v11 )
     {
-      if ( UmfdHostLifeTimeManager::WaitForSessionRasterizerInitialization(v4) >= 0 )
+      if ( UmfdHostLifeTimeManager::WaitForSessionRasterizerInitialization() >= 0 )
       {
-        v10 = *((_QWORD *)Gre::Base::Globals(v5) + 6);
-        GreAcquireSemaphore(v10);
-        v12 = 0;
-        v11 = 0;
-        v9 = 0LL;
-        v6 = LFONTOBJ::ppfeMapFont((LFONTOBJ *)&v13, a1, &v12, &v9, &v11, 0);
-        if ( v6 )
+        v8 = ghsemPublicPFT;
+        GreAcquireSemaphore(ghsemPublicPFT);
+        v10 = 0;
+        v9 = 0;
+        v7 = 0LL;
+        v4 = LFONTOBJ::ppfeMapFont((LFONTOBJ *)&v11, a1, &v10, &v7, &v9, 0);
+        if ( v4 )
         {
-          v7 = *((_QWORD *)v6 + 4);
-          v2 = *(_DWORD *)(v7 + 164) != 0 ? 8 : 0;
-          if ( (*(_DWORD *)(v7 + 48) & 0x80000001) != 0 )
+          v5 = *((_QWORD *)v4 + 4);
+          v2 = *(_DWORD *)(v5 + 164) != 0 ? 8 : 0;
+          if ( (*(_DWORD *)(v5 + 48) & 0x80000001) != 0 )
             v2 |= 0x40000u;
         }
-        SEMOBJ::vUnlock((SEMOBJ *)&v10);
+        SEMOBJ::vUnlock((SEMOBJ *)&v8);
       }
-      if ( v13 )
-        DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT(v13);
+      DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT(v11);
     }
   }
   return v2;

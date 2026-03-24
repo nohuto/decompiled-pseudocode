@@ -1,19 +1,19 @@
 /*
- * XREFs of PopGetSettingValue @ 0x1407EC720
+ * XREFs of PopGetSettingValue @ 0x140685A84
  * Callers:
- *     NtPowerInformation @ 0x140784430 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1406F05C0 (NtPowerInformation.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     PsGetProcessSessionIdEx @ 0x14036F3B0 (PsGetProcessSessionIdEx.c)
- *     PopFindPowerSettingConfiguration @ 0x14078339C (PopFindPowerSettingConfiguration.c)
- *     PopMarshalSettingValues @ 0x1407EC7B4 (PopMarshalSettingValues.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     PsGetProcessSessionIdEx @ 0x140315400 (PsGetProcessSessionIdEx.c)
+ *     PopMarshalSettingValues @ 0x140685B18 (PopMarshalSettingValues.c)
+ *     PopFindPowerSettingConfiguration @ 0x1406F3B68 (PopFindPowerSettingConfiguration.c)
  */
 
-__int64 __fastcall PopGetSettingValue(_QWORD *a1, __int64 a2, int a3)
+__int64 __fastcall PopGetSettingValue(__int64 a1, __int64 a2, int a3)
 {
-  int ProcessSessionId; // eax
-  __int64 *PowerSettingConfiguration; // rax
+  unsigned int ProcessSessionId; // eax
+  __int64 PowerSettingConfiguration; // rax
   unsigned int v9; // [rsp+20h] [rbp-18h]
 
   ExAcquireFastMutex(&PopSettingLock);
@@ -22,12 +22,12 @@ __int64 __fastcall PopGetSettingValue(_QWORD *a1, __int64 a2, int a3)
   if ( PowerSettingConfiguration )
   {
     v9 = PopMarshalSettingValues(PowerSettingConfiguration, a2 + 4, (unsigned int)(a3 - 4), a2);
-    ExReleaseFastMutex(&PopSettingLock);
+    KeReleaseGuardedMutex(&PopSettingLock);
     return v9;
   }
   else
   {
-    ExReleaseFastMutex(&PopSettingLock);
+    KeReleaseGuardedMutex(&PopSettingLock);
     return 3221225485LL;
   }
 }

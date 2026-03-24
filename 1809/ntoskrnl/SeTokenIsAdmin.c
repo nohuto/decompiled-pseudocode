@@ -1,12 +1,12 @@
 /*
  * XREFs of SeTokenIsAdmin @ 0x1405BBCD0
  * Callers:
- *     SepMandatorySubProcessToken @ 0x1400D9E74 (SepMandatorySubProcessToken.c)
- *     IoComputeRedirectionTrustLevel @ 0x1401B41F0 (IoComputeRedirectionTrustLevel.c)
+ *     SepMandatorySubProcessToken @ 0x1400D9E94 (SepMandatorySubProcessToken.c)
+ *     IoComputeRedirectionTrustLevel @ 0x1401B4210 (IoComputeRedirectionTrustLevel.c)
  *     PspIsContextAdmin @ 0x1405B96B4 (PspIsContextAdmin.c)
  *     PspDisablePrimaryTokenExchange @ 0x1405F7498 (PspDisablePrimaryTokenExchange.c)
- *     IopParseDevice @ 0x14063CD00 (IopParseDevice.c)
- *     EtwpCoverageUserIsAdmin @ 0x1406E26D4 (EtwpCoverageUserIsAdmin.c)
+ *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
+ *     EtwpCoverageUserIsAdmin @ 0x1406E26B4 (EtwpCoverageUserIsAdmin.c)
  * Callees:
  *     SepSidInToken @ 0x140013310 (SepSidInToken.c)
  *     SeTokenIsRestricted @ 0x140013360 (SeTokenIsRestricted.c)

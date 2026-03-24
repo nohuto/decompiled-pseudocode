@@ -1,16 +1,16 @@
 /*
- * XREFs of ?EnsureClientInfo@CVisualTree@@MEAAXXZ @ 0x1800CB530
+ * XREFs of ?EnsureClientInfo@CVisualTree@@MEAAXXZ @ 0x1800C61E0
  * Callers:
  *     <none>
  * Callees:
- *     ?UpdateClientBounds@CVisualTree@@IEAAXXZ @ 0x1800CB560 (-UpdateClientBounds@CVisualTree@@IEAAXXZ.c)
+ *     ?UpdateClientBounds@CVisualTree@@IEAAXXZ @ 0x1800C6210 (-UpdateClientBounds@CVisualTree@@IEAAXXZ.c)
  */
 
 void __fastcall CVisualTree::EnsureClientInfo(CVisualTree *this)
 {
-  if ( *((_BYTE *)this + 4712) )
+  if ( *((_BYTE *)this + 5893) )
   {
     CVisualTree::UpdateClientBounds(this);
-    *((_BYTE *)this + 4712) = 0;
+    *((_BYTE *)this + 5893) = 0;
   }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ?CreateCompleted@CFlipContentToken@@SAJ_KPEAVCompositionSurfaceObject@@PEAPEAV1@@Z @ 0x1C0089F74
+ * XREFs of ?CreateCompleted@CFlipContentToken@@SAJ_KPEAVCompositionSurfaceObject@@PEAPEAV1@@Z @ 0x1C006FD24
  * Callers:
- *     ?CreateUpdateTokens@CContentResourceState@@QEAAJPEAVCEndpointResourceStateManager@@PEAVCFlipPropertySet@@_NAEAU_LIST_ENTRY@@@Z @ 0x1C0088844 (-CreateUpdateTokens@CContentResourceState@@QEAAJPEAVCEndpointResourceStateManager@@PEAVCFlipProp.c)
+ *     ?CreateUpdateTokens@CContentResourceState@@QEAAJPEAVCEndpointResourceStateManager@@PEAVCFlipPropertySet@@AEAU_LIST_ENTRY@@@Z @ 0x1C006E7D4 (-CreateUpdateTokens@CContentResourceState@@QEAAJPEAVCEndpointResourceStateManager@@PEAVCFlipProp.c)
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000A400 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ??0CFlipContentToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z @ 0x1C0089E04 (--0CFlipContentToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0003A2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ??0CFlipContentToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z @ 0x1C006FC10 (--0CFlipContentToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z.c)
  */
 
 __int64 __fastcall CFlipContentToken::CreateCompleted(
@@ -14,23 +14,29 @@ __int64 __fastcall CFlipContentToken::CreateCompleted(
         struct CFlipContentToken **a3)
 {
   CFlipContentToken *v6; // rax
-  CFlipContentToken *v7; // rax
-  struct CFlipContentToken *v8; // rbx
-  int v9; // edi
+  struct CFlipContentToken *v7; // rbx
+  int v8; // edi
 
   *a3 = 0LL;
-  v6 = (CFlipContentToken *)operator new[](0x140uLL, 0x6F744D54u, 256LL);
-  if ( v6 && (v7 = CFlipContentToken::CFlipContentToken(v6, a1, a2), (v8 = v7) != 0LL) )
+  v6 = (CFlipContentToken *)operator new[](0x130uLL, 0x6F744D54u, PagedPool);
+  if ( v6 )
+    v7 = CFlipContentToken::CFlipContentToken(v6, a1, a2);
+  else
+    v7 = 0LL;
+  if ( v7 )
   {
-    v9 = (*(__int64 (__fastcall **)(CFlipContentToken *, __int64))(*(_QWORD *)v7 + 8LL))(v7, 2LL);
-    if ( v9 < 0 )
-      (**(void (__fastcall ***)(struct CFlipContentToken *, __int64))v8)(v8, 1LL);
-    else
-      *a3 = v8;
+    v8 = (*(__int64 (__fastcall **)(struct CFlipContentToken *, __int64))(*(_QWORD *)v7 + 8LL))(v7, 2LL);
+    if ( v8 >= 0 )
+    {
+      *a3 = v7;
+      v7 = 0LL;
+    }
+    if ( v7 )
+      (**(void (__fastcall ***)(struct CFlipContentToken *, __int64))v7)(v7, 1LL);
   }
   else
   {
     return (unsigned int)-1073741801;
   }
-  return (unsigned int)v9;
+  return (unsigned int)v8;
 }

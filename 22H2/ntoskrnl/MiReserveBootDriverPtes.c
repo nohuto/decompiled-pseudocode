@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReserveBootDriverPtes @ 0x140B613CC
+ * XREFs of MiReserveBootDriverPtes @ 0x140A67334
  * Callers:
- *     MiInitializeDriverPtes @ 0x140B60F90 (MiInitializeDriverPtes.c)
+ *     MiInitializeDriverPtes @ 0x140A66EF8 (MiInitializeDriverPtes.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14025A5D0 (MiAllocatePool.c)
+ *     RtlSetBits @ 0x1402D9750 (RtlSetBits.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiReserveBootDriverPtes(unsigned __int64 a1, int a2)
@@ -14,56 +14,53 @@ __int64 __fastcall MiReserveBootDriverPtes(unsigned __int64 a1, int a2)
   __int64 v3; // rbp
   __int64 v4; // rcx
   const void **v5; // rbx
-  unsigned __int64 v6; // r10
-  unsigned __int64 v7; // r14
-  __int64 v8; // r9
-  unsigned __int64 v9; // r8
+  unsigned __int64 v6; // r14
+  __int64 v7; // r9
+  unsigned __int64 v8; // r10
   __int64 result; // rax
-  unsigned int v11; // r12d
-  RTL_BITMAP *v12; // rsi
-  unsigned int *v13; // rax
+  unsigned int v10; // r12d
+  RTL_BITMAP *v11; // rsi
+  unsigned int *v12; // rax
 
-  v3 = ((dword_140C6997C & 0xFFF) != 0) + a2 + ((unsigned int)dword_140C6997C >> 12);
+  v3 = ((dword_140C4CCB0 & 0xFFF) != 0) + a2 + ((unsigned int)dword_140C4CCB0 >> 12);
   v4 = (__int64)(a1 << 25) >> 16;
   if ( v4 != PsHalImageBase && v4 != PsNtosImageBase )
-    v3 = (unsigned int)(dword_140C65944 + v3);
-  v5 = (const void **)qword_140C65A40;
-  v6 = a1 + 8 * v3;
-  v7 = a1 & 0xFFFFFFFFFFFFF000uLL;
-  if ( qword_140C65A40 )
+    v3 = (unsigned int)(dword_140C4CC4C + v3);
+  v5 = (const void **)qword_140C4CD30;
+  v6 = a1 & 0xFFFFFFFFFFFFF000uLL;
+  if ( qword_140C4CD30 )
   {
-    v8 = *((_QWORD *)qword_140C65A40 + 1);
-    v9 = v8 + 8LL * *((unsigned int *)qword_140C65A40 + 4);
-    if ( v6 <= v9 )
+    v7 = *((_QWORD *)qword_140C4CD30 + 1);
+    v8 = v7 + 8LL * *((unsigned int *)qword_140C4CD30 + 4);
+    if ( a1 + 8 * v3 <= v8 )
     {
-      RtlSetBits((PRTL_BITMAP)qword_140C65A40 + 1, (__int64)(a1 - v8) >> 3, v3);
+      RtlSetBits((PRTL_BITMAP)qword_140C4CD30 + 1, (__int64)(a1 - v7) >> 3, v3);
       return 1LL;
     }
-    if ( a1 >= v9 )
-      v5 = 0LL;
-    else
-      v7 = *((_QWORD *)qword_140C65A40 + 1);
+    v5 = (const void **)((unsigned __int64)qword_140C4CD30 & -(__int64)(a1 < v8));
+    if ( v5 )
+      v6 = *(_QWORD *)(((unsigned __int64)qword_140C4CD30 & -(__int64)(a1 < v8)) + 8);
   }
-  v11 = (__int64)(((v6 + 4088) & 0xFFFFFFFFFFFFF000uLL) - v7) >> 3;
-  result = (__int64)MiAllocatePool(64, ((unsigned __int64)v11 >> 3) + 40, 0x70446D4Du);
-  v12 = (RTL_BITMAP *)result;
+  v10 = (__int64)(((a1 + 4088 + 8 * v3) & 0xFFFFFFFFFFFFF000uLL) - v6) >> 3;
+  result = (__int64)MiAllocatePool(64, ((unsigned __int64)v10 >> 3) + 40, 0x70446D4Du);
+  v11 = (RTL_BITMAP *)result;
   if ( result )
   {
-    *(_DWORD *)(result + 16) = v11;
-    v13 = (unsigned int *)(result + 40);
-    v12[1].Buffer = v13;
+    *(_DWORD *)(result + 16) = v10;
+    v12 = (unsigned int *)(result + 40);
+    v11[1].Buffer = v12;
     if ( v5 )
     {
-      memmove(v13, v5[3], (unsigned __int64)*((unsigned int *)v5 + 4) >> 3);
-      qword_140C65A40 = (PVOID)*v5;
+      memmove(v12, v5[3], (unsigned __int64)*((unsigned int *)v5 + 4) >> 3);
+      qword_140C4CD30 = (PVOID)*v5;
       ExFreePoolWithTag(v5, 0);
     }
-    RtlSetBits(v12 + 1, (__int64)(a1 - v7) >> 3, v3);
-    v12[2].SizeOfBitMap = 0;
-    *(&v12[2].SizeOfBitMap + 1) = 1;
-    v12->Buffer = (unsigned int *)v7;
-    *(_QWORD *)&v12->SizeOfBitMap = qword_140C65A40;
-    qword_140C65A40 = v12;
+    RtlSetBits(v11 + 1, (__int64)(a1 - v6) >> 3, v3);
+    v11[2].SizeOfBitMap = 0;
+    *(&v11[2].SizeOfBitMap + 1) = 1;
+    v11->Buffer = (unsigned int *)v6;
+    *(_QWORD *)&v11->SizeOfBitMap = qword_140C4CD30;
+    qword_140C4CD30 = v11;
     return 1LL;
   }
   return result;

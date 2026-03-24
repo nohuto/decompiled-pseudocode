@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CLegacyAnimationTriggerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0229810
+ * XREFs of ?SetBufferProperty@CLegacyAnimationTriggerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E9AD0
  * Callers:
  *     <none>
  * Callees:
@@ -25,7 +25,7 @@ __int64 __fastcall DirectComposition::CLegacyAnimationTriggerMarshaler::SetBuffe
   {
     if ( a5 == 8 )
     {
-      *((_QWORD *)this + 8) = *a4;
+      *((_QWORD *)this + 7) = *a4;
     }
     else if ( a5 )
     {

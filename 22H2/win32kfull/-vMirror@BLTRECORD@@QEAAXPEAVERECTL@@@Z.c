@@ -1,27 +1,30 @@
 /*
- * XREFs of ?vMirror@BLTRECORD@@QEAAXPEAVERECTL@@@Z @ 0x1C00DCB40
+ * XREFs of ?vMirror@BLTRECORD@@QEAAXPEAVERECTL@@@Z @ 0x1C00B8D4C
  * Callers:
- *     ?bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C00DC33C (-bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
- *     ?bStretch@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z @ 0x1C0293610 (-bStretch@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z.c)
+ *     ?bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C00B853C (-bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ *     ?bStretch@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z @ 0x1C028F7E0 (-bStretch@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall BLTRECORD::vMirror(BLTRECORD *this, struct ERECTL *a2)
 {
-  int v2; // r8d
-  int v3; // ecx
+  int v2; // eax
+  int v3; // r8d
+  int v4; // ecx
 
-  if ( (*((_DWORD *)this + 53) & 8) != 0 )
+  v2 = *((_DWORD *)this + 55);
+  if ( (v2 & 8) != 0 )
   {
-    v2 = *(_DWORD *)a2;
+    v3 = *(_DWORD *)a2;
     *(_DWORD *)a2 = *((_DWORD *)a2 + 2);
-    *((_DWORD *)a2 + 2) = v2;
+    *((_DWORD *)a2 + 2) = v3;
+    v2 = *((_DWORD *)this + 55);
   }
-  if ( (*((_DWORD *)this + 53) & 0x10) != 0 )
+  if ( (v2 & 0x10) != 0 )
   {
-    v3 = *((_DWORD *)a2 + 1);
+    v4 = *((_DWORD *)a2 + 1);
     *((_DWORD *)a2 + 1) = *((_DWORD *)a2 + 3);
-    *((_DWORD *)a2 + 3) = v3;
+    *((_DWORD *)a2 + 3) = v4;
   }
 }

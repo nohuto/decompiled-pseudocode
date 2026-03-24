@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpTraceDatabaseAllocate @ 0x1405EE240
+ * XREFs of RtlpTraceDatabaseAllocate @ 0x14058EC80
  * Callers:
- *     RtlTraceDatabaseCreate @ 0x1405EDE80 (RtlTraceDatabaseCreate.c)
- *     RtlpTraceDatabaseInternalAdd @ 0x1405EE268 (RtlpTraceDatabaseInternalAdd.c)
+ *     RtlTraceDatabaseCreate @ 0x14058E8C0 (RtlTraceDatabaseCreate.c)
+ *     RtlpTraceDatabaseInternalAdd @ 0x14058ECA8 (RtlpTraceDatabaseInternalAdd.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall RtlpTraceDatabaseAllocate(SIZE_T NumberOfBytes, char a2, ULONG a3)

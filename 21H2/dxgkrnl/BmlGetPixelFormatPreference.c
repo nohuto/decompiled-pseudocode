@@ -1,46 +1,34 @@
 /*
- * XREFs of BmlGetPixelFormatPreference @ 0x1C01B2AFC
+ * XREFs of BmlGetPixelFormatPreference @ 0x1C0139928
  * Callers:
- *     BmlCompareSourceModes @ 0x1C01B26E0 (BmlCompareSourceModes.c)
+ *     BmlCompareSourceModes @ 0x1C01397F8 (BmlCompareSourceModes.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall BmlGetPixelFormatPreference(int a1, int a2)
+__int64 __fastcall BmlGetPixelFormatPreference(__int64 a1, __int64 a2)
 {
-  bool v3; // zf
-  unsigned int v4; // ecx
+  __int64 v3; // rax
 
-  if ( !a1 )
+  if ( !(_DWORD)a1 )
   {
-    WdLogSingleEntry0(1LL);
+    v3 = WdLogNewEntry5_WdAssertion(a1, a2);
+    WdLogEvent5_WdAssertion(v3);
     return 0xFFFFFFFFLL;
   }
-  if ( a1 <= 19 )
+  if ( (int)a1 <= 19 )
     return 0xFFFFFFFFLL;
-  if ( a1 <= 21 )
+  if ( (int)a1 <= 21 )
     return 4LL;
-  switch ( a1 )
+  if ( (_DWORD)a1 == 22 )
+    return 0xFFFFFFFFLL;
+  if ( (_DWORD)a1 == 32 )
+    return 1LL;
+  if ( (_DWORD)a1 != 23 )
   {
-    case 22:
-      return 0xFFFFFFFFLL;
-    case 32:
-      return 1LL;
-    case 35:
-      v3 = a2 == 1;
-      break;
-    case 23:
-      return 3LL;
-    case 41:
+    if ( (_DWORD)a1 == 41 )
       return 2LL;
-    case 113:
-      v3 = a2 == 2;
-      break;
-    default:
-      return 0xFFFFFFFFLL;
+    return 0xFFFFFFFFLL;
   }
-  v4 = 5;
-  if ( !v3 )
-    return (unsigned int)-1;
-  return v4;
+  return 3LL;
 }

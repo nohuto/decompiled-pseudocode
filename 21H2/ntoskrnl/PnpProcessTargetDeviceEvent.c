@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpProcessTargetDeviceEvent @ 0x14076C3C0
+ * XREFs of PnpProcessTargetDeviceEvent @ 0x14074B120
  * Callers:
- *     PnpDeviceEventWorker @ 0x1407D5E30 (PnpDeviceEventWorker.c)
+ *     PnpDeviceEventWorker @ 0x1406E78D0 (PnpDeviceEventWorker.c)
  * Callees:
- *     memcmp @ 0x1403E1D90 (memcmp.c)
- *     McTemplateK0z_EtwWriteTransfer @ 0x140561048 (McTemplateK0z_EtwWriteTransfer.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1407655BC (PnpProcessQueryRemoveAndEject.c)
- *     PiPnpRtlEndOperation @ 0x140779A50 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140779DC4 (PiPnpRtlBeginOperation.c)
- *     PiUEventNotifyUserMode @ 0x14078B2D4 (PiUEventNotifyUserMode.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x14050DAB4 (McTemplateK0z_EtwWriteTransfer.c)
+ *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
+ *     PiUEventNotifyUserMode @ 0x1406E675C (PiUEventNotifyUserMode.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
  */
 
 __int64 __fastcall PnpProcessTargetDeviceEvent(__int64 *a1)
@@ -40,7 +40,7 @@ __int64 __fastcall PnpProcessTargetDeviceEvent(__int64 *a1)
   if ( !v8 )
     v8 = *(_QWORD *)(v2 + 120) - *(_QWORD *)GUID_DEVICE_QUERY_AND_REMOVE.Data4;
   if ( !v8 )
-    goto LABEL_18;
+    goto LABEL_17;
   v9 = *v7 - *(_QWORD *)&GUID_DEVICE_EJECT.Data1;
   if ( *v7 == *(_QWORD *)&GUID_DEVICE_EJECT.Data1 )
     v9 = *(_QWORD *)(v2 + 120) - *(_QWORD *)GUID_DEVICE_EJECT.Data4;
@@ -61,15 +61,15 @@ __int64 __fastcall PnpProcessTargetDeviceEvent(__int64 *a1)
   }
   else
   {
-LABEL_18:
-    if ( (byte_140C0DD4B & 8) != 0 )
+LABEL_17:
+    if ( (byte_140C1327B & 8) != 0 )
       McTemplateK0z_EtwWriteTransfer(
         (__int64)v7,
         (const EVENT_DESCRIPTOR *)KMPnPEvt_DeviceRemoval_Start,
         v6,
         *(const wchar_t **)(v5 + 48));
     v1 = PnpProcessQueryRemoveAndEject(a1);
-    if ( (byte_140C0DD4B & 8) != 0 )
+    if ( (byte_140C1327B & 8) != 0 )
       McTemplateK0z_EtwWriteTransfer(
         v12,
         (const EVENT_DESCRIPTOR *)KMPnPEvt_DeviceRemoval_Stop,
@@ -77,6 +77,6 @@ LABEL_18:
         *(const wchar_t **)(v5 + 48));
   }
   if ( P )
-    PiPnpRtlEndOperation(P);
+    PiPnpRtlEndOperation((PVOID **)P);
   return v1;
 }

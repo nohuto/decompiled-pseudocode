@@ -1,10 +1,10 @@
 /*
- * XREFs of _lambda_85aa73a68ff66b421643f8c78198376d_::_lambda_invoker_cdecl_ @ 0x1C02CDAC0
+ * XREFs of _lambda_85aa73a68ff66b421643f8c78198376d_::_lambda_invoker_cdecl_ @ 0x1C02212C0
  * Callers:
  *     <none>
  * Callees:
- *     IsStartedIndirectDisplayDevice @ 0x1C0227EA8 (IsStartedIndirectDisplayDevice.c)
- *     _DxgkCheckAndUpdatePairingForNewAdapter_::_2_::AdapterArray::AddAdapter @ 0x1C02CDBC8 (_DxgkCheckAndUpdatePairingForNewAdapter_--_2_--AdapterArray--AddAdapter.c)
+ *     IsStartedIndirectDisplayDevice @ 0x1C019E2B8 (IsStartedIndirectDisplayDevice.c)
+ *     _DxgkCheckAndUpdatePairingForNewAdapter_::_2_::AdapterArray::AddAdapter @ 0x1C02213A4 (_DxgkCheckAndUpdatePairingForNewAdapter_--_2_--AdapterArray--AddAdapter.c)
  */
 
 __int64 __fastcall lambda_85aa73a68ff66b421643f8c78198376d_::_lambda_invoker_cdecl_(__int64 a1, __int64 a2)

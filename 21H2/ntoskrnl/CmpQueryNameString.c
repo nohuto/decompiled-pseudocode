@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpQueryNameString @ 0x140742C78
+ * XREFs of CmpQueryNameString @ 0x140716838
  * Callers:
- *     CmpTraceHiveMountBaseFileMounted @ 0x14068D648 (CmpTraceHiveMountBaseFileMounted.c)
- *     CmKtmNotification @ 0x140741CF0 (CmKtmNotification.c)
- *     CmpInitCmRM @ 0x140742E3C (CmpInitCmRM.c)
- *     CmpStartRMLog @ 0x14080C884 (CmpStartRMLog.c)
- *     CmpTraceHiveRestoreStart @ 0x140910DB8 (CmpTraceHiveRestoreStart.c)
- *     CmpAddRemoveRMLogContainer @ 0x14091BDB8 (CmpAddRemoveRMLogContainer.c)
+ *     CmKtmNotification @ 0x1406A36F0 (CmKtmNotification.c)
+ *     CmpInitCmRM @ 0x140716078 (CmpInitCmRM.c)
+ *     CmpTraceHiveMountBaseFileMounted @ 0x140723468 (CmpTraceHiveMountBaseFileMounted.c)
+ *     CmpStartRMLog @ 0x14077D4E4 (CmpStartRMLog.c)
+ *     CmpTraceHiveRestoreStart @ 0x14086AD10 (CmpTraceHiveRestoreStart.c)
+ *     CmpAddRemoveRMLogContainer @ 0x1408751D4 (CmpAddRemoveRMLogContainer.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     ExpAllocateStringRoutine @ 0x1406BE560 (ExpAllocateStringRoutine.c)
- *     ObQueryNameStringMode @ 0x1407103B0 (ObQueryNameStringMode.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CmpQueryNameString(void *a1, UNICODE_STRING *a2)
@@ -24,18 +24,18 @@ NTSTATUS __fastcall CmpQueryNameString(void *a1, UNICODE_STRING *a2)
   SIZE_T i; // rbp
   UNICODE_STRING *PoolWithTag; // rax
   UNICODE_STRING *v7; // rdi
-  int v8; // eax
+  int NameStringMode; // eax
   SIZE_T Length; // rcx
   wchar_t *StringRoutine; // rax
   NTSTATUS appended; // eax
   unsigned __int16 v12; // dx
   wchar_t *Buffer; // r8
   unsigned int v14; // [rsp+60h] [rbp+18h] BYREF
-  PVOID Object; // [rsp+68h] [rbp+20h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+68h] [rbp+20h] BYREF
 
   v14 = 0;
-  Object = 0LL;
-  result = ObReferenceObjectByHandle(a1, 1u, *(POBJECT_TYPE *)CmIoFileObjectType, 0, &Object, 0LL);
+  DmaAdapter = 0LL;
+  result = ObReferenceObjectByHandle(a1, 1u, *(POBJECT_TYPE *)CmIoFileObjectType, 0, (PVOID *)&DmaAdapter, 0LL);
   v4 = result;
   if ( result >= 0 )
   {
@@ -45,9 +45,9 @@ NTSTATUS __fastcall CmpQueryNameString(void *a1, UNICODE_STRING *a2)
       v7 = PoolWithTag;
       if ( !PoolWithTag )
         break;
-      v8 = ObQueryNameStringMode((char *)Object, (__int64)PoolWithTag, i, &v14, 0);
-      v4 = v8;
-      if ( v8 >= 0 )
+      NameStringMode = ObQueryNameStringMode((_DWORD)DmaAdapter, (_DWORD)PoolWithTag, i, (unsigned int)&v14, 0);
+      v4 = NameStringMode;
+      if ( NameStringMode >= 0 )
       {
         a2->Length = 0;
         Length = v7->Length;
@@ -81,11 +81,11 @@ LABEL_9:
           ExFreePoolWithTag(v7, 0);
         break;
       }
-      if ( v8 != -2147483643 || v14 <= (unsigned int)i )
+      if ( NameStringMode != -2147483643 || v14 <= (unsigned int)i )
         goto LABEL_9;
       ExFreePoolWithTag(v7, 0);
     }
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter(DmaAdapter);
     return v4;
   }
   return result;

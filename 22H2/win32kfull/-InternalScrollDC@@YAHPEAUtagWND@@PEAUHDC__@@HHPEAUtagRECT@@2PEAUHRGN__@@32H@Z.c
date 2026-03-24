@@ -1,24 +1,24 @@
 /*
- * XREFs of ?InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z @ 0x1C022E08C
+ * XREFs of ?InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z @ 0x1C00715B4
  * Callers:
- *     _ScrollDC @ 0x1C022EC60 (_ScrollDC.c)
- *     xxxScrollWindowEx @ 0x1C022EE20 (xxxScrollWindowEx.c)
+ *     xxxScrollWindowEx @ 0x1C00677EC (xxxScrollWindowEx.c)
+ *     _ScrollDC @ 0x1C00FCB24 (_ScrollDC.c)
  * Callees:
- *     GreTransformPoints @ 0x1C0006CF4 (GreTransformPoints.c)
- *     GreGetLayout @ 0x1C0024844 (GreGetLayout.c)
- *     UnionRect @ 0x1C00CF9E4 (UnionRect.c)
- *     IntersectRect @ 0x1C00D0330 (IntersectRect.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     GetDCOrgOnScreen @ 0x1C01BDC24 (GetDCOrgOnScreen.c)
- *     ?GetTrueClipRgn@@YAHPEAUHDC__@@PEAUHRGN__@@@Z @ 0x1C022DF9C (-GetTrueClipRgn@@YAHPEAUHDC__@@PEAUHRGN__@@@Z.c)
- *     SubtractRect @ 0x1C024B870 (SubtractRect.c)
+ *     GetDCOrgOnScreen @ 0x1C0042AB0 (GetDCOrgOnScreen.c)
+ *     GreGetLayout @ 0x1C0045F14 (GreGetLayout.c)
+ *     IntersectRect @ 0x1C00750C0 (IntersectRect.c)
+ *     NtGdiBitBltInternal @ 0x1C0088600 (NtGdiBitBltInternal.c)
+ *     GreTransformPoints @ 0x1C00FA30C (GreTransformPoints.c)
+ *     UnionRect @ 0x1C0104BAC (UnionRect.c)
+ *     SubtractRect @ 0x1C010AD68 (SubtractRect.c)
+ *     ?GetTrueClipRgn@@YAHPEAUHDC__@@PEAUHRGN__@@@Z @ 0x1C015D124 (-GetTrueClipRgn@@YAHPEAUHDC__@@PEAUHRGN__@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall InternalScrollDC(
         struct tagWND *a1,
         HDC a2,
-        unsigned int a3,
+        int a3,
         unsigned int a4,
         struct tagRECT *a5,
         struct tagRECT *a6,
@@ -28,451 +28,435 @@ __int64 __fastcall InternalScrollDC(
         int a10)
 {
   HRGN v10; // rbx
-  unsigned int v11; // edi
-  unsigned int v12; // r12d
-  __int64 v14; // r13
-  __int64 v15; // rcx
-  __int64 v16; // rdx
+  __int64 v13; // r13
+  __int64 v14; // rcx
   unsigned int ClipBox; // esi
+  __m128i *v16; // rcx
+  __m128i v17; // xmm6
   __int64 v18; // r8
-  __int64 v19; // r9
-  __m128i *v20; // rcx
-  __m128i v21; // xmm6
-  int v22; // ecx
-  __int32 v23; // ecx
-  int v24; // ecx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  __int64 v27; // r8
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  __int64 v31; // r8
-  __int64 v32; // r9
-  unsigned int v33; // eax
-  HRGN v34; // rdi
-  int v35; // eax
-  struct tagRECT v36; // xmm0
-  __int64 v37; // rdx
-  __int64 v38; // rcx
-  __int64 v39; // r8
-  __int64 v40; // r9
-  __int64 v41; // rax
-  __int64 v42; // rax
-  LONG v43; // edx
-  int v44; // r9d
-  LONG v45; // r8d
-  int v46; // r10d
-  __int64 v47; // r8
-  __int64 v48; // r9
-  __int64 v49; // rdx
-  __int64 v50; // rcx
-  __int64 v51; // r8
-  __int64 v52; // r9
-  __int64 v53; // rdx
-  __int64 v54; // rcx
-  __int64 v55; // r8
-  __int64 v56; // r9
-  int v57; // edi
-  int v58; // eax
-  __int64 v59; // rbx
-  HRGN EmptyRgn; // [rsp+60h] [rbp-A0h]
-  unsigned int v61; // [rsp+68h] [rbp-98h]
-  __int64 v62; // [rsp+70h] [rbp-90h]
-  HRGN v63; // [rsp+78h] [rbp-88h] BYREF
-  int v64; // [rsp+80h] [rbp-80h]
-  int v65; // [rsp+84h] [rbp-7Ch]
-  unsigned int v66; // [rsp+88h] [rbp-78h]
-  __int64 v67; // [rsp+90h] [rbp-70h]
-  __int64 v68; // [rsp+98h] [rbp-68h]
-  __int64 v69; // [rsp+A0h] [rbp-60h]
-  unsigned int v70; // [rsp+A8h] [rbp-58h]
-  struct tagRECT *v71; // [rsp+B0h] [rbp-50h]
-  struct _POINTL v72; // [rsp+B8h] [rbp-48h] BYREF
-  unsigned int v73; // [rsp+C0h] [rbp-40h]
-  unsigned int v74; // [rsp+C4h] [rbp-3Ch]
-  __m128i v75; // [rsp+D0h] [rbp-30h] BYREF
-  int v76[4]; // [rsp+E0h] [rbp-20h] BYREF
-  int v77[4]; // [rsp+F0h] [rbp-10h] BYREF
-  __int128 v78; // [rsp+100h] [rbp+0h] BYREF
-  struct tagRECT v79; // [rsp+110h] [rbp+10h] BYREF
-  __m128i v80; // [rsp+120h] [rbp+20h] BYREF
-  __int128 v81; // [rsp+130h] [rbp+30h] BYREF
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  HRGN v21; // rdi
+  int v23; // eax
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  struct tagRECT v27; // xmm0
+  __int64 v28; // rdi
+  int v29; // edx
+  int v30; // r9d
+  int v31; // r8d
+  int v32; // r10d
+  __int64 v33; // rbx
+  unsigned int v34; // eax
+  __int64 v35; // rdx
+  __int64 v36; // rcx
+  __int64 v37; // r8
+  __int64 v38; // rdx
+  __int64 v39; // rcx
+  __int64 v40; // r8
+  int v41; // edi
+  int v42; // ecx
+  __int32 v43; // ecx
+  int v44; // ecx
+  __int64 v45; // rax
+  __int64 v46; // rax
+  __int64 v47; // [rsp+60h] [rbp-A0h]
+  __int64 v49; // [rsp+70h] [rbp-90h]
+  HRGN v50; // [rsp+78h] [rbp-88h] BYREF
+  int v51; // [rsp+80h] [rbp-80h]
+  HRGN v52; // [rsp+88h] [rbp-78h]
+  __int64 v53; // [rsp+90h] [rbp-70h] BYREF
+  __int64 v54; // [rsp+98h] [rbp-68h]
+  __int64 EmptyRgn; // [rsp+A0h] [rbp-60h]
+  __int64 v56; // [rsp+A8h] [rbp-58h]
+  __int64 v57; // [rsp+B0h] [rbp-50h]
+  struct tagRECT *v58; // [rsp+B8h] [rbp-48h]
+  int v59; // [rsp+C0h] [rbp-40h]
+  int v60; // [rsp+C4h] [rbp-3Ch]
+  int v61; // [rsp+C8h] [rbp-38h]
+  unsigned int v62; // [rsp+CCh] [rbp-34h]
+  __m128i v63; // [rsp+D0h] [rbp-30h] BYREF
+  int v64[4]; // [rsp+E0h] [rbp-20h] BYREF
+  int v65[4]; // [rsp+F0h] [rbp-10h] BYREF
+  __int128 v66; // [rsp+100h] [rbp+0h] BYREF
+  struct tagRECT v67; // [rsp+110h] [rbp+10h] BYREF
+  __int128 v68; // [rsp+120h] [rbp+20h] BYREF
+  __m128i v69; // [rsp+130h] [rbp+30h]
 
   v10 = a8;
-  v71 = a5;
-  v11 = a4;
-  v12 = a3;
-  v80.m128i_i64[0] = (__int64)a6;
-  v14 = 0LL;
-  v63 = a7;
-  v78 = 0LL;
-  v61 = a4;
-  v75 = 0LL;
-  v81 = 0LL;
-  v66 = a3;
-  *(_OWORD *)v77 = 0LL;
-  v65 = 0;
-  v79 = 0LL;
-  EmptyRgn = 0LL;
-  *(_OWORD *)v76 = 0LL;
-  v15 = *(_QWORD *)(gpDispInfo + 40LL);
-  v67 = 0LL;
+  v58 = a5;
+  v13 = 0LL;
+  v50 = a7;
+  v66 = 0LL;
+  v63 = 0LL;
   v68 = 0LL;
-  v69 = 0LL;
-  v62 = 0LL;
-  v64 = 0;
-  if ( !(unsigned int)GreLockVisRgnSharedOrExclusive(v15) )
+  LODWORD(v54) = a3;
+  *(_OWORD *)v65 = 0LL;
+  LODWORD(v53) = 0;
+  v67 = 0LL;
+  v52 = 0LL;
+  *(_OWORD *)v64 = 0LL;
+  v14 = *(_QWORD *)(gpDispInfo + 40LL);
+  v47 = 0LL;
+  EmptyRgn = 0LL;
+  v56 = 0LL;
+  v49 = 0LL;
+  v51 = 0;
+  if ( !(unsigned int)GreLockVisRgnSharedOrExclusive(v14) )
     return 0LL;
-  ClipBox = GreGetClipBox(a2, &v78, 1LL);
+  ClipBox = GreGetClipBox(a2, &v66, 1LL);
   if ( !ClipBox )
-    goto LABEL_107;
-  v20 = (__m128i *)&v78;
-  if ( v71 )
-    v20 = (__m128i *)v71;
-  v21 = *v20;
-  v75 = *v20;
-  if ( v80.m128i_i64[0] )
-    v81 = *(_OWORD *)v80.m128i_i64[0];
-  LODWORD(v71) = v12;
-  v70 = v11;
+    goto LABEL_97;
+  v16 = (__m128i *)&v66;
+  if ( v58 )
+    v16 = (__m128i *)v58;
+  v17 = *v16;
+  v63 = *v16;
+  if ( a6 )
+    v68 = (__int128)*a6;
+  LODWORD(v57) = a4;
+  LODWORD(v58) = a3;
   if ( a10 )
   {
-    GreTransformPoints(a2, (struct _POINTL *)&v78, (struct _POINTFIX *)&v78, 2, 1);
-    GreTransformPoints(a2, (struct _POINTL *)&v75, (struct _POINTFIX *)&v75, 2, 1);
+    GreTransformPoints(a2, 1);
+    GreTransformPoints(a2, 1);
     if ( (GreGetLayout(a2) & 1) != 0 )
     {
-      v22 = v78;
-      LODWORD(v78) = DWORD2(v78);
-      DWORD2(v78) = v22;
-      v23 = v75.m128i_i32[0];
-      v75.m128i_i32[0] = v75.m128i_i32[2];
-      v75.m128i_i32[2] = v23;
-      v65 = 1;
+      v42 = v66;
+      LODWORD(v66) = DWORD2(v66);
+      DWORD2(v66) = v42;
+      v43 = v63.m128i_i32[0];
+      v63.m128i_i32[0] = v63.m128i_i32[2];
+      v63.m128i_i32[2] = v43;
+      LODWORD(v53) = 1;
     }
-    if ( v80.m128i_i64[0] )
+    if ( a6 )
     {
-      GreTransformPoints(a2, (struct _POINTL *)&v81, (struct _POINTFIX *)&v81, 2, 1);
-      if ( v65 )
+      GreTransformPoints(a2, 1);
+      if ( (_DWORD)v53 )
       {
-        v24 = v81;
-        LODWORD(v81) = DWORD2(v81);
-        DWORD2(v81) = v24;
+        v44 = v68;
+        LODWORD(v68) = DWORD2(v68);
+        DWORD2(v68) = v44;
       }
     }
-    v72.y = 0;
-    v72.x = 0;
-    v73 = v12;
-    v74 = v11;
-    GreTransformPoints(a2, &v72, (struct _POINTFIX *)&v72, 2, 1);
-    v12 = v73 - v72.x;
-    v11 = v74 - v72.y;
-    v21 = v75;
-    v61 = v74 - v72.y;
-    v66 = v73 - v72.x;
+    v60 = 0;
+    v59 = 0;
+    v62 = a4;
+    v61 = a3;
+    GreTransformPoints(a2, 1);
+    v17 = v63;
+    LODWORD(v54) = a3;
   }
   if ( ClipBox == 1 )
   {
-LABEL_23:
-    if ( !a8 || (unsigned int)SetEmptyRgn(a8) )
-    {
-      if ( a9 )
-        *a9 = 0LL;
-      GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
-      GreDeleteObject(EmptyRgn);
-      GreDeleteObject(v67);
-      GreDeleteObject(0LL);
-      GreDeleteObject(0LL);
-      GreDeleteObject(0LL);
-      GreDeleteObject(0LL);
-      return 1LL;
-    }
-    goto LABEL_107;
+    v21 = 0LL;
+    goto LABEL_23;
   }
   if ( ClipBox == 3 )
   {
-    EmptyRgn = (HRGN)CreateEmptyRgn(ClipBox - 1, v16, v18, v19);
-    if ( !(unsigned int)GetTrueClipRgn(a2, EmptyRgn, v25, v26) )
-      goto LABEL_107;
-    v21 = v75;
-    v27 = 1LL;
-    v64 = 1;
+    v52 = (HRGN)((__int64 (*)(void))CreateEmptyRgn)();
+    if ( !(unsigned int)GetTrueClipRgn(a2, v52) )
+      goto LABEL_97;
+    v17 = v63;
+    v18 = 1LL;
+    v51 = 1;
   }
   else
   {
-    v27 = 0LL;
+    v18 = 0LL;
   }
-  v28 = v12 + _mm_cvtsi128_si32(v21);
-  v77[0] = v28;
-  v77[2] = v12 + _mm_cvtsi128_si32(_mm_srli_si128(v21, 8));
-  v77[1] = v11 + _mm_cvtsi128_si32(_mm_srli_si128(v21, 4));
-  v29 = v11 + _mm_cvtsi128_si32(_mm_srli_si128(v21, 12));
-  v77[3] = v29;
-  if ( !v80.m128i_i64[0] )
+  v19 = (unsigned int)(a3 + _mm_cvtsi128_si32(v17));
+  v65[0] = v19;
+  v65[2] = a3 + _mm_cvtsi128_si32(_mm_srli_si128(v17, 8));
+  v65[1] = a4 + _mm_cvtsi128_si32(_mm_srli_si128(v17, 4));
+  v20 = a4 + _mm_cvtsi128_si32(_mm_srli_si128(v17, 12));
+  v65[3] = v20;
+  if ( !a6 )
   {
-LABEL_37:
+LABEL_28:
     if ( ClipBox != 2 )
-      goto LABEL_74;
-    goto LABEL_38;
-  }
-  if ( ClipBox == 2 && (unsigned __int64)v63 <= 1 )
-  {
-    if ( !(unsigned int)IntersectRect(&v78, (int *)&v78, (int *)&v81) )
-      goto LABEL_23;
-LABEL_38:
-    v34 = EmptyRgn;
-    goto LABEL_39;
-  }
-  if ( !(_DWORD)v27 )
-  {
-    EmptyRgn = (HRGN)CreateEmptyRgn(v29, v28, v27, v19);
-    if ( !(unsigned int)GetTrueClipRgn(a2, EmptyRgn, v31, v32) )
-      goto LABEL_107;
-    v64 = 1;
-  }
-  v67 = CreateEmptyRgn(v29, v28, v27, v19);
-  SetRectRgnIndirect(v67, &v81);
-  v33 = GreCombineRgn(EmptyRgn, v67, EmptyRgn, 1LL);
-  ClipBox = v33;
-  if ( !v33 )
-    goto LABEL_107;
-  v28 = v33 - 1;
-  if ( v33 == 1 )
-    goto LABEL_23;
-  if ( v33 != 2 )
-  {
-    v21 = v75;
-    goto LABEL_37;
-  }
-  v34 = EmptyRgn;
-  if ( !(unsigned int)GreGetRgnBox(EmptyRgn, &v78) )
-    goto LABEL_107;
-  v21 = v75;
-LABEL_39:
-  if ( (unsigned __int64)v63 <= 1 )
-  {
-    v80 = v21;
-    IntersectRect(v77, v77, (int *)&v78);
-    v35 = IntersectRect(&v75, v75.m128i_i32, (int *)&v78);
-    v65 = v35;
-    if ( v63 != (HRGN)1 )
     {
-      v76[0] = v12 + v75.m128i_i32[0];
-      v76[2] = v12 + v75.m128i_i32[2];
-      v76[1] = v61 + v75.m128i_i32[1];
-      v76[3] = v61 + v75.m128i_i32[3];
-      IntersectRect(v76, v76, v77);
-      v35 = v65;
-    }
-    if ( !v35 )
-    {
-      v36 = *(struct tagRECT *)v77;
-LABEL_52:
-      v79 = v36;
-LABEL_53:
-      if ( a9 )
-        *a9 = v36;
-      if ( !a8 || (unsigned int)SetRectRgnIndirect(a8, &v79) )
+LABEL_62:
+      if ( v51 || (v52 = (HRGN)CreateEmptyRgn(v20, v19, v18), (unsigned int)GetTrueClipRgn(a2, v52)) )
       {
-        ClipBox = 2;
-        if ( v79.left >= v79.right || v79.top >= v79.bottom )
-          ClipBox = 1;
-LABEL_69:
-        v43 = v76[0];
-        v44 = v76[2];
-        if ( v76[0] < v76[2] )
+        EmptyRgn = CreateEmptyRgn(v20, v19, v18);
+        SetRectRgnIndirect(EmptyRgn, &v63);
+        if ( (unsigned int)GreCombineRgn(EmptyRgn, EmptyRgn, v52, 1LL) )
         {
-          v45 = v76[1];
-          v46 = v76[3];
-          if ( v76[1] < v76[3] )
+          v56 = CreateEmptyRgn(v36, v35, v37);
+          SetRectRgnIndirect(v56, v65);
+          if ( (unsigned int)GreCombineRgn(v56, v56, v52, 1LL) )
           {
-            if ( a10 )
+            v41 = 1;
+            if ( v50 == (HRGN)1 )
+              goto LABEL_122;
+            v49 = CreateEmptyRgn(v39, v38, v40);
+            if ( (unsigned int)GreCombineRgn(v49, EmptyRgn, 0LL, 5LL) )
             {
-              GreTransformPoints(a2, (struct _POINTL *)v76, (struct _POINTFIX *)v76, 2, 0);
-              v46 = v76[3];
-              v44 = v76[2];
-              v45 = v76[1];
-              v43 = v76[0];
+              GreOffsetRgn(v49, (unsigned int)v54, a4);
+              v41 = GreCombineRgn(v49, v49, v56, 1LL);
+              if ( (unsigned __int64)v50 > 1 )
+              {
+                v13 = CreateEmptyRgn(v39, v38, v40);
+                if ( !v41 )
+                  goto LABEL_116;
+                if ( v41 != 1 )
+                {
+                  v53 = 0LL;
+                  GetDCOrgOnScreen((__int64)a2, &v53);
+                  GreCombineRgn(v13, v50, 0LL, 5LL);
+                  GreOffsetRgn(v13, (unsigned int)-(int)v53, (unsigned int)-HIDWORD(v53));
+                  v41 = GreCombineRgn(v49, v49, v13, 4LL);
+                }
+                if ( !v41 )
+                  goto LABEL_116;
+                if ( v41 != 1 )
+                {
+                  GreOffsetRgn(v13, (unsigned int)v54, a4);
+                  v41 = GreCombineRgn(v49, v49, v13, 4LL);
+                }
+              }
+              if ( v41 )
+              {
+LABEL_122:
+                if ( !a8 )
+                {
+                  if ( !a9 )
+                    goto LABEL_81;
+                  if ( !v13 )
+                    v13 = CreateEmptyRgn(v39, v38, v40);
+                  v10 = (HRGN)v13;
+                  if ( !v13 )
+                    goto LABEL_81;
+                }
+                ClipBox = GreCombineRgn(v10, v56, EmptyRgn, 2LL);
+                if ( ClipBox )
+                {
+                  if ( v41 != 1 )
+                    ClipBox = GreCombineRgn(v10, v10, v49, 4LL);
+                  if ( !a9 || (unsigned int)GreGetRgnBox(v10, a9) )
+                  {
+LABEL_81:
+                    if ( v41 != 1 )
+                    {
+                      v50 = 0LL;
+                      GreGetDCOrg(a2, &v50);
+                      v33 = v49;
+                      GreOffsetRgn(v49, (unsigned int)v50, HIDWORD(v50));
+                      GreSelectVisRgnShared(a2, v49, 4LL);
+                      if ( a10 )
+                        GreTransformPoints(a2, 0);
+                      NtGdiBitBltInternal(
+                        a2,
+                        v65[0],
+                        v65[1],
+                        v65[2] - v65[0],
+                        v65[3] - v65[1],
+                        (__int64)a2,
+                        v65[0] - (_DWORD)v58,
+                        v65[1] - v57,
+                        13369376,
+                        0,
+                        0);
+                      GreSelectVisRgnShared(a2, v49, 4LL);
+                      v28 = v47;
+                      goto LABEL_48;
+                    }
+                    v28 = v47;
+LABEL_47:
+                    v33 = v49;
+LABEL_48:
+                    if ( a10 && a9 )
+                      GreTransformPoints(a2, 0);
+                    GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
+                    GreDeleteObject(v52);
+                    GreDeleteObject(v28);
+                    GreDeleteObject(v13);
+                    GreDeleteObject(EmptyRgn);
+                    GreDeleteObject(v56);
+                    GreDeleteObject(v33);
+                    return ClipBox;
+                  }
+                }
+              }
             }
-            NtGdiBitBltInternal(
-              (__int64)a2,
-              v43,
-              v45,
-              v44 - v43,
-              v46 - v45,
-              a2,
-              v43 - (_DWORD)v71,
-              v45 - v70,
-              13369376,
-              0,
-              0);
           }
         }
-        goto LABEL_102;
       }
-LABEL_107:
-      GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
-      GreDeleteObject(EmptyRgn);
-      GreDeleteObject(v67);
-      GreDeleteObject(v14);
-      GreDeleteObject(v68);
-      GreDeleteObject(v69);
-      GreDeleteObject(v62);
-      return 0LL;
+LABEL_116:
+      v28 = v47;
+      goto LABEL_117;
     }
-    if ( (unsigned int)IntersectRect(&v79, v75.m128i_i32, v77) )
+LABEL_29:
+    if ( (unsigned __int64)v50 <= 1 )
     {
-      if ( !v12 || !v61 )
+      v69 = v17;
+      IntersectRect(v65, v65, &v66);
+      v23 = IntersectRect(&v63, &v63, &v66);
+      LODWORD(v53) = v23;
+      if ( v50 != (HRGN)1 )
       {
-        UnionRect(&v79, v75.m128i_i32, v77);
-        SubtractRect(&v79, &v79, v76);
-        v36 = v79;
-        goto LABEL_53;
+        v64[0] = a3 + v63.m128i_i32[0];
+        v64[2] = a3 + v63.m128i_i32[2];
+        v64[1] = a4 + v63.m128i_i32[1];
+        v64[3] = a4 + v63.m128i_i32[3];
+        IntersectRect(v64, v64, v65);
+        v23 = v53;
       }
-    }
-    else
-    {
-      v41 = v75.m128i_i64[0] - v80.m128i_i64[0];
-      if ( v75.m128i_i64[0] == v80.m128i_i64[0] )
-        v41 = v75.m128i_i64[1] - v80.m128i_i64[1];
-      if ( !v41 )
+      if ( v23 )
       {
-        v36 = (struct tagRECT)v75;
-        goto LABEL_52;
+        if ( (unsigned int)IntersectRect(&v67, &v63, v65) )
+        {
+          if ( a3 && a4 )
+            goto LABEL_105;
+          UnionRect(&v67, &v63, v65);
+          SubtractRect(&v67, &v67, v64);
+          v27 = v67;
+LABEL_36:
+          if ( a9 )
+            *a9 = v27;
+          if ( a8 && !(unsigned int)SetRectRgnIndirect(a8, &v67) )
+            goto LABEL_116;
+          ClipBox = 2;
+          if ( v67.left >= v67.right || v67.top >= v67.bottom )
+            ClipBox = 1;
+          goto LABEL_41;
+        }
+        v45 = v63.m128i_i64[0] - v69.m128i_i64[0];
+        if ( v63.m128i_i64[0] == v69.m128i_i64[0] )
+          v45 = v63.m128i_i64[1] - v69.m128i_i64[1];
+        if ( v45 )
+        {
+LABEL_105:
+          if ( a8 || a9 && (v13 = CreateEmptyRgn(v25, v24, v26), (v10 = (HRGN)v13) != 0LL) )
+          {
+            v46 = v47;
+            if ( !v47 )
+            {
+              v46 = CreateEmptyRgn(v25, v24, v26);
+              v47 = v46;
+            }
+            SetRectRgnIndirect(v46, &v63);
+            SetRectRgnIndirect(v10, v65);
+            v28 = v47;
+            if ( !(unsigned int)GreCombineRgn(v10, v10, v47, 2LL) )
+              goto LABEL_117;
+            SetRectRgnIndirect(v47, v64);
+            ClipBox = GreCombineRgn(v10, v10, v47, 4LL);
+            if ( !ClipBox || a9 && !(unsigned int)GreGetRgnBox(v10, a9) )
+              goto LABEL_117;
+            goto LABEL_42;
+          }
+LABEL_41:
+          v28 = v47;
+LABEL_42:
+          v29 = v64[0];
+          v30 = v64[2];
+          if ( v64[0] < v64[2] )
+          {
+            v31 = v64[1];
+            v32 = v64[3];
+            if ( v64[1] < v64[3] )
+            {
+              if ( a10 )
+              {
+                GreTransformPoints(a2, 0);
+                v32 = v64[3];
+                v30 = v64[2];
+                v31 = v64[1];
+                v29 = v64[0];
+              }
+              NtGdiBitBltInternal(
+                a2,
+                v29,
+                v31,
+                v30 - v29,
+                v32 - v31,
+                (__int64)a2,
+                v29 - (_DWORD)v58,
+                v31 - v57,
+                13369376,
+                0,
+                0);
+            }
+          }
+          goto LABEL_47;
+        }
+        v27 = (struct tagRECT)v63;
       }
-    }
-    if ( !a8 )
-    {
-      if ( !a9 )
-        goto LABEL_69;
-      v14 = CreateEmptyRgn(v38, v37, v39, v40);
-      v10 = (HRGN)v14;
-      if ( !v14 )
-        goto LABEL_69;
-    }
-    v42 = v67;
-    if ( !v67 )
-    {
-      v42 = CreateEmptyRgn(v38, v37, v39, v40);
-      v67 = v42;
-    }
-    SetRectRgnIndirect(v42, &v75);
-    SetRectRgnIndirect(v10, v77);
-    if ( (unsigned int)GreCombineRgn(v10, v10, v67, 2LL) )
-    {
-      SetRectRgnIndirect(v67, v76);
-      ClipBox = GreCombineRgn(v10, v10, v67, 4LL);
-      if ( ClipBox )
+      else
       {
-        if ( !a9 || (unsigned int)GreGetRgnBox(v10, a9) )
-          goto LABEL_69;
+        v27 = *(struct tagRECT *)v65;
       }
+      v67 = v27;
+      goto LABEL_36;
     }
-    goto LABEL_107;
+    goto LABEL_62;
   }
-LABEL_74:
-  if ( !v64 )
+  if ( (unsigned __int64)v50 <= 1 && ClipBox == 2 )
   {
-    EmptyRgn = (HRGN)CreateEmptyRgn(v29, v28, v27, v19);
-    if ( !(unsigned int)GetTrueClipRgn(a2, EmptyRgn, v47, v48) )
-      goto LABEL_107;
-  }
-  v68 = CreateEmptyRgn(v29, v28, v27, v19);
-  SetRectRgnIndirect(v68, &v75);
-  if ( !(unsigned int)GreCombineRgn(v68, v68, EmptyRgn, 1LL) )
-    goto LABEL_107;
-  v69 = CreateEmptyRgn(v50, v49, v51, v52);
-  SetRectRgnIndirect(v69, v77);
-  if ( !(unsigned int)GreCombineRgn(v69, v69, EmptyRgn, 1LL) )
-    goto LABEL_107;
-  v57 = 1;
-  if ( v63 == (HRGN)1 )
-    goto LABEL_87;
-  v62 = CreateEmptyRgn(v54, v53, v55, v56);
-  if ( !(unsigned int)GreCombineRgn(v62, v68, 0LL, 5LL) )
-    goto LABEL_107;
-  GreOffsetRgn(v62, v66, v61);
-  v57 = GreCombineRgn(v62, v62, v69, 1LL);
-  if ( (unsigned __int64)v63 <= 1 )
-    goto LABEL_86;
-  v14 = CreateEmptyRgn(v54, v53, v55, v56);
-  if ( !v57 )
-    goto LABEL_107;
-  if ( v57 != 1 )
-  {
-    v80.m128i_i64[0] = 0LL;
-    GetDCOrgOnScreen((__int64)a2, &v80);
-    GreCombineRgn(v14, v63, 0LL, 5LL);
-    GreOffsetRgn(v14, (unsigned int)-v80.m128i_i32[0], (unsigned int)-v80.m128i_i32[1]);
-    v58 = GreCombineRgn(v62, v62, v14, 4LL);
-    v57 = v58;
-    if ( !v58 )
-      goto LABEL_107;
-    if ( v58 != 1 )
+    if ( !(unsigned int)IntersectRect(&v66, &v66, &v68) )
     {
-      GreOffsetRgn(v14, v66, v61);
-      v57 = GreCombineRgn(v62, v62, v14, 4LL);
-LABEL_86:
-      if ( !v57 )
-        goto LABEL_107;
+      v21 = v52;
+      goto LABEL_23;
     }
+    goto LABEL_29;
   }
-LABEL_87:
-  if ( a8 )
-    goto LABEL_111;
+  if ( !(_DWORD)v18 )
+  {
+    v52 = (HRGN)((__int64 (*)(void))CreateEmptyRgn)();
+    v21 = v52;
+    if ( (unsigned int)GetTrueClipRgn(a2, v52) )
+    {
+      v51 = 1;
+      goto LABEL_57;
+    }
+LABEL_97:
+    v28 = 0LL;
+LABEL_117:
+    GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
+    GreDeleteObject(v52);
+    GreDeleteObject(v28);
+    GreDeleteObject(v13);
+    GreDeleteObject(EmptyRgn);
+    GreDeleteObject(v56);
+    GreDeleteObject(v49);
+    return 0LL;
+  }
+  v21 = v52;
+LABEL_57:
+  v47 = ((__int64 (*)(void))CreateEmptyRgn)();
+  SetRectRgnIndirect(v47, &v68);
+  v34 = GreCombineRgn(v21, v47, v21, 1LL);
+  ClipBox = v34;
+  if ( !v34 )
+    goto LABEL_116;
+  v19 = v34 - 1;
+  if ( v34 != 1 )
+  {
+    if ( v34 == 2 )
+    {
+      if ( !(unsigned int)GreGetRgnBox(v21, &v66) )
+        goto LABEL_116;
+      v17 = v63;
+      goto LABEL_29;
+    }
+    v17 = v63;
+    goto LABEL_28;
+  }
+LABEL_23:
+  if ( a8 && !(unsigned int)SetEmptyRgn(a8) )
+    goto LABEL_116;
   if ( a9 )
-  {
-    if ( !v14 )
-      v14 = CreateEmptyRgn(v54, v53, v55, v56);
-    v10 = (HRGN)v14;
-    if ( v14 )
-    {
-LABEL_111:
-      ClipBox = GreCombineRgn(v10, v69, v68, 2LL);
-      if ( !ClipBox )
-        goto LABEL_107;
-      if ( v57 != 1 )
-        ClipBox = GreCombineRgn(v10, v10, v62, 4LL);
-      if ( a9 && !(unsigned int)GreGetRgnBox(v10, a9) )
-        goto LABEL_107;
-    }
-  }
-  if ( v57 != 1 )
-  {
-    v63 = 0LL;
-    GreGetDCOrg(a2, &v63);
-    v59 = v62;
-    GreOffsetRgn(v62, (unsigned int)v63, HIDWORD(v63));
-    GreSelectVisRgnShared(a2, v62, 4LL);
-    if ( a10 )
-      GreTransformPoints(a2, (struct _POINTL *)v77, (struct _POINTFIX *)v77, 2, 0);
-    NtGdiBitBltInternal(
-      (__int64)a2,
-      v77[0],
-      v77[1],
-      v77[2] - v77[0],
-      v77[3] - v77[1],
-      a2,
-      v77[0] - (_DWORD)v71,
-      v77[1] - v70,
-      13369376,
-      0,
-      0);
-    GreSelectVisRgnShared(a2, v62, 4LL);
-    v34 = EmptyRgn;
-    goto LABEL_103;
-  }
-  v34 = EmptyRgn;
-LABEL_102:
-  v59 = v62;
-LABEL_103:
-  if ( a10 && a9 )
-    GreTransformPoints(a2, (struct _POINTL *)a9, (struct _POINTFIX *)a9, 2, 0);
+    *a9 = 0LL;
   GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
-  GreDeleteObject(v34);
-  GreDeleteObject(v67);
-  GreDeleteObject(v14);
-  GreDeleteObject(v68);
-  GreDeleteObject(v69);
-  GreDeleteObject(v59);
-  return ClipBox;
+  GreDeleteObject(v21);
+  GreDeleteObject(v47);
+  GreDeleteObject(0LL);
+  GreDeleteObject(0LL);
+  GreDeleteObject(0LL);
+  GreDeleteObject(0LL);
+  return 1LL;
 }

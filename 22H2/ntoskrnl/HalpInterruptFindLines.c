@@ -1,25 +1,25 @@
 /*
- * XREFs of HalpInterruptFindLines @ 0x14031FCA0
+ * XREFs of HalpInterruptFindLines @ 0x140378710
  * Callers:
- *     HalpInterruptFindControllerAndLineState @ 0x14031FC08 (HalpInterruptFindControllerAndLineState.c)
- *     HalpInterruptEnableNmi @ 0x14037BC04 (HalpInterruptEnableNmi.c)
- *     HalpInitializeDeferredErrorVector @ 0x14037C338 (HalpInitializeDeferredErrorVector.c)
- *     HalpInterruptEnablePerformanceEvents @ 0x14037C3A8 (HalpInterruptEnablePerformanceEvents.c)
- *     HalpConnectThermalInterrupt @ 0x14037C510 (HalpConnectThermalInterrupt.c)
- *     HalpInitializeCmciVector @ 0x14037C664 (HalpInitializeCmciVector.c)
- *     HalpInterruptSetRemappedLineStateInternal @ 0x14037CBF8 (HalpInterruptSetRemappedLineStateInternal.c)
- *     HalpInterruptSetLineState @ 0x14037CD5C (HalpInterruptSetLineState.c)
- *     HalpInterruptIsCmciSupported @ 0x1403AE720 (HalpInterruptIsCmciSupported.c)
- *     HalpInterruptGetHighestPriorityInterrupt @ 0x1403CFA90 (HalpInterruptGetHighestPriorityInterrupt.c)
- *     HalpInterruptSetDestinationInternal @ 0x1405044CC (HalpInterruptSetDestinationInternal.c)
- *     HalpInterruptIsDeferredErrorSupported @ 0x1405051C4 (HalpInterruptIsDeferredErrorSupported.c)
- *     HalpInterruptLineToGsi @ 0x140505230 (HalpInterruptLineToGsi.c)
- *     HalpInterruptRestoreClock @ 0x1405053F8 (HalpInterruptRestoreClock.c)
- *     HalFixInterruptLine @ 0x140521850 (HalFixInterruptLine.c)
- *     HalpInterruptUnmap @ 0x1409334A8 (HalpInterruptUnmap.c)
- *     HalpInterruptMaskAcpi @ 0x140A95448 (HalpInterruptMaskAcpi.c)
+ *     HalpInterruptGetHighestPriorityInterrupt @ 0x14030BF90 (HalpInterruptGetHighestPriorityInterrupt.c)
+ *     HalpInterruptSetDestinationInternal @ 0x1403784DC (HalpInterruptSetDestinationInternal.c)
+ *     HalpInterruptRestoreClock @ 0x1403861C8 (HalpInterruptRestoreClock.c)
+ *     HalpInterruptEnableNmi @ 0x1403A306C (HalpInterruptEnableNmi.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x1403A32A0 (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpInterruptSetLineState @ 0x1403A33F8 (HalpInterruptSetLineState.c)
+ *     HalpInitializeDeferredErrorVector @ 0x1403A3848 (HalpInitializeDeferredErrorVector.c)
+ *     HalpInitializeCmciVector @ 0x1403A38B8 (HalpInitializeCmciVector.c)
+ *     HalpInterruptSetRemappedLineStateInternal @ 0x1403CB0B4 (HalpInterruptSetRemappedLineStateInternal.c)
+ *     HalpInterruptIsCmciSupported @ 0x1403CF164 (HalpInterruptIsCmciSupported.c)
+ *     HalpInterruptFindControllerAndLineState @ 0x1404BB584 (HalpInterruptFindControllerAndLineState.c)
+ *     HalpInterruptIsDeferredErrorSupported @ 0x1404BC5E8 (HalpInterruptIsDeferredErrorSupported.c)
+ *     HalpInterruptLineToGsi @ 0x1404BC654 (HalpInterruptLineToGsi.c)
+ *     HalpConnectThermalInterrupt @ 0x1404D14F0 (HalpConnectThermalInterrupt.c)
+ *     HalFixInterruptLine @ 0x1404D76C4 (HalFixInterruptLine.c)
+ *     HalpInterruptUnmap @ 0x140760E58 (HalpInterruptUnmap.c)
+ *     HalpInterruptMaskAcpi @ 0x14099822C (HalpInterruptMaskAcpi.c)
  * Callees:
- *     HalpInterruptLookupController @ 0x14031FD00 (HalpInterruptLookupController.c)
+ *     HalpInterruptLookupController @ 0x140378770 (HalpInterruptLookupController.c)
  */
 
 _QWORD *__fastcall HalpInterruptFindLines(unsigned int *a1)
@@ -36,9 +36,9 @@ _QWORD *__fastcall HalpInterruptFindLines(unsigned int *a1)
   v1 = HalpInterruptLookupController(*a1);
   if ( !v1 )
     return 0LL;
-  v4 = (_QWORD *)(v1 + 264);
-  v5 = *(_QWORD **)(v1 + 264);
-  if ( v5 == (_QWORD *)(v1 + 264) )
+  v4 = (_QWORD *)(v1 + 240);
+  v5 = *(_QWORD **)(v1 + 240);
+  if ( v5 == (_QWORD *)(v1 + 240) )
     return 0LL;
   v6 = *(_DWORD *)(v2 + 4);
   while ( 1 )

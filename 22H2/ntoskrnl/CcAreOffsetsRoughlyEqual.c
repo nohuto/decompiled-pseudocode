@@ -1,7 +1,7 @@
 /*
- * XREFs of CcAreOffsetsRoughlyEqual @ 0x140329440
+ * XREFs of CcAreOffsetsRoughlyEqual @ 0x140279960
  * Callers:
- *     CcDetermineReadPattern @ 0x1403293BC (CcDetermineReadPattern.c)
+ *     CcDetermineReadPattern @ 0x1402798E8 (CcDetermineReadPattern.c)
  * Callees:
  *     <none>
  */

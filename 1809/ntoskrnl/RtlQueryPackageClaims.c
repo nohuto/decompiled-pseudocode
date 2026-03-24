@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlQueryPackageClaims @ 0x1400A5570
+ * XREFs of RtlQueryPackageClaims @ 0x1400A5590
  * Callers:
- *     RtlQueryPackageIdentity @ 0x1400A5010 (RtlQueryPackageIdentity.c)
- *     SepDesktopAppxSubProcessToken @ 0x1400DA000 (SepDesktopAppxSubProcessToken.c)
- *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x1402FED10 (SepVerifyDesktopAppPolicyOverrideCaller.c)
+ *     RtlQueryPackageIdentity @ 0x1400A5030 (RtlQueryPackageIdentity.c)
+ *     SepDesktopAppxSubProcessToken @ 0x1400DA020 (SepDesktopAppxSubProcessToken.c)
+ *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x1402FEE10 (SepVerifyDesktopAppPolicyOverrideCaller.c)
  *     SeQuerySigningPolicyWorker @ 0x14060A60C (SeQuerySigningPolicyWorker.c)
  * Callees:
- *     RtlpQueryPackageIdentityAttributes @ 0x1400A5B1C (RtlpQueryPackageIdentityAttributes.c)
- *     RtlStringCbPrintfExW @ 0x140128C98 (RtlStringCbPrintfExW.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     RtlpQueryPackageIdentityAttributes @ 0x1400A5B3C (RtlpQueryPackageIdentityAttributes.c)
+ *     RtlStringCbPrintfExW @ 0x140128CB8 (RtlStringCbPrintfExW.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
  */
 

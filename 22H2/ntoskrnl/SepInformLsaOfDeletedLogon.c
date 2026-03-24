@@ -1,36 +1,38 @@
 /*
- * XREFs of SepInformLsaOfDeletedLogon @ 0x14076D270
+ * XREFs of SepInformLsaOfDeletedLogon @ 0x1406F7E80
  * Callers:
- *     SepDeReferenceLogonSession @ 0x14076D310 (SepDeReferenceLogonSession.c)
+ *     SepDeReferenceLogonSession @ 0x1406F7CC4 (SepDeReferenceLogonSession.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     SepQueueWorkItem @ 0x140309480 (SepQueueWorkItem.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     SepQueueWorkItem @ 0x14034D010 (SepQueueWorkItem.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void __fastcall SepInformLsaOfDeletedLogon(__int64 *a1, void *a2, __int64 a3)
+void __fastcall SepInformLsaOfDeletedLogon(__int64 *a1, void *a2, _QWORD *a3)
 {
-  __int64 Pool2; // rbx
+  _QWORD *PoolWithTag; // rbx
   __int64 v6; // rax
 
-  Pool2 = a3;
-  if ( a3 || (Pool2 = ExAllocatePool2(256LL, 64LL, 2001495379LL)) != 0 )
+  PoolWithTag = a3;
+  if ( !a3 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x40uLL, 0x774C6553u);
+  if ( PoolWithTag )
   {
     v6 = *a1;
-    *(_QWORD *)(Pool2 + 40) = 0LL;
-    *(_DWORD *)(Pool2 + 48) = 0;
-    *(_DWORD *)(Pool2 + 20) = 0;
-    *(_QWORD *)(Pool2 + 24) = v6;
-    *(_DWORD *)(Pool2 + 32) = 3;
-    *(_DWORD *)(Pool2 + 36) = 8;
-    *(_DWORD *)(Pool2 + 16) = 1;
-    *(_QWORD *)(Pool2 + 56) = a2;
-    if ( !SepQueueWorkItem((__int64)&SepLsaDeletedLogonQueueInfo, Pool2, 0LL) )
+    PoolWithTag[5] = 0LL;
+    *((_DWORD *)PoolWithTag + 12) = 0;
+    *((_DWORD *)PoolWithTag + 5) = 0;
+    PoolWithTag[3] = v6;
+    *((_DWORD *)PoolWithTag + 8) = 3;
+    *((_DWORD *)PoolWithTag + 9) = 8;
+    *((_DWORD *)PoolWithTag + 4) = 1;
+    PoolWithTag[7] = a2;
+    if ( !SepQueueWorkItem((__int64)&SepLsaDeletedLogonQueueInfo, (__int64)PoolWithTag, 0LL) )
     {
       if ( a2 )
         ObfDereferenceObjectWithTag(a2, 0x734C6553u);
-      ExFreePoolWithTag((PVOID)Pool2, 0);
+      ExFreePoolWithTag(PoolWithTag, 0);
     }
   }
   else if ( a2 )

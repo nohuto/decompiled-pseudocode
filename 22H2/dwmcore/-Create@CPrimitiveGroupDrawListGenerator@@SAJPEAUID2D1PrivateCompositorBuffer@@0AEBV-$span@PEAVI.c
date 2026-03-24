@@ -1,16 +1,15 @@
 /*
- * XREFs of ?Create@CPrimitiveGroupDrawListGenerator@@SAJPEAUID2D1PrivateCompositorBuffer@@0AEBV?$span@PEAVIBitmapResource@@$0?0@gsl@@1AEBV?$span@PEAVCPrimitiveColor@@$0?0@4@PEAPEAV1@@Z @ 0x18001119C
+ * XREFs of ?Create@CPrimitiveGroupDrawListGenerator@@SAJPEAUID2D1PrivateCompositorBuffer@@0AEBV?$span@PEAVIBitmapResource@@$0?0@gsl@@1AEBV?$span@PEAVCPrimitiveColor@@$0?0@4@PEAPEAV1@@Z @ 0x180063240
  * Callers:
- *     ?CreateNewGenerator@CPrimitiveGroup@@AEAAJPEAPEAVCPrimitiveGroupDrawListGenerator@@@Z @ 0x180010DB4 (-CreateNewGenerator@CPrimitiveGroup@@AEAAJPEAPEAVCPrimitiveGroupDrawListGenerator@@@Z.c)
- *     ?CreateNewGeneratorForHeatMap@CPrimitiveGroup@@AEAAJPEAPEAVCPrimitiveGroupDrawListGenerator@@@Z @ 0x180248490 (-CreateNewGeneratorForHeatMap@CPrimitiveGroup@@AEAAJPEAPEAVCPrimitiveGroupDrawListGenerator@@@Z.c)
+ *     ?CreateNewGenerator@CPrimitiveGroup@@AEAAJPEAPEAVCPrimitiveGroupDrawListGenerator@@@Z @ 0x18009F4F8 (-CreateNewGenerator@CPrimitiveGroup@@AEAAJPEAPEAVCPrimitiveGroupDrawListGenerator@@@Z.c)
+ *     ?CreateNewGeneratorForHeatMap@CPrimitiveGroup@@AEAAJPEAPEAVCPrimitiveGroupDrawListGenerator@@@Z @ 0x1801E31B0 (-CreateNewGeneratorForHeatMap@CPrimitiveGroup@@AEAAJPEAPEAVCPrimitiveGroupDrawListGenerator@@@Z.c)
  * Callees:
- *     ?Initialize@CPrimitiveBuffer@@QEAAJPEAUID2D1PrivateCompositorBuffer@@@Z @ 0x180011344 (-Initialize@CPrimitiveBuffer@@QEAAJPEAUID2D1PrivateCompositorBuffer@@@Z.c)
- *     ?RealizeBitmaps@CPrimitiveGroupDrawListGenerator@@AEAAJXZ @ 0x1800113F8 (-RealizeBitmaps@CPrimitiveGroupDrawListGenerator@@AEAAJXZ.c)
- *     ?Initialize@CCommandBuffer@@QEAAJPEAUID2D1PrivateCompositorBuffer@@@Z @ 0x180011514 (-Initialize@CCommandBuffer@@QEAAJPEAUID2D1PrivateCompositorBuffer@@@Z.c)
- *     ??_GCPrimitiveBuffer@@QEAAPEAXI@Z @ 0x1800116B0 (--_GCPrimitiveBuffer@@QEAAPEAXI@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Initialize@CCommandBuffer@@QEAAJPEAUID2D1PrivateCompositorBuffer@@@Z @ 0x1800633A4 (-Initialize@CCommandBuffer@@QEAAJPEAUID2D1PrivateCompositorBuffer@@@Z.c)
+ *     ?Initialize@CPrimitiveBuffer@@QEAAJPEAUID2D1PrivateCompositorBuffer@@@Z @ 0x180063514 (-Initialize@CPrimitiveBuffer@@QEAAJPEAUID2D1PrivateCompositorBuffer@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??_GCPrimitiveBuffer@@QEAAPEAXI@Z @ 0x18026914C (--_GCPrimitiveBuffer@@QEAAPEAXI@Z.c)
  */
 
 __int64 __fastcall CPrimitiveGroupDrawListGenerator::Create(
@@ -19,116 +18,113 @@ __int64 __fastcall CPrimitiveGroupDrawListGenerator::Create(
         _OWORD *a3,
         _OWORD *a4,
         _OWORD *a5,
-        CPrimitiveGroupDrawListGenerator **a6)
+        _QWORD *a6)
 {
-  CPrimitiveGroupDrawListGenerator *v10; // rbx
-  CCommandBuffer *v11; // rax
-  CCommandBuffer *v12; // rdi
-  CPrimitiveBuffer *v13; // rax
-  unsigned int v14; // ecx
-  CPrimitiveBuffer *v15; // rsi
-  int v16; // eax
-  unsigned int v17; // ecx
-  unsigned int v18; // ebp
-  CPrimitiveGroupDrawListGenerator *v19; // rax
-  unsigned int v20; // ecx
-  unsigned int v22; // edx
-  unsigned int v23; // edx
-  unsigned int v24; // [rsp+20h] [rbp-48h]
+  CCommandBuffer *v10; // rax
+  CCommandBuffer *v11; // r14
+  CPrimitiveBuffer *v12; // rax
+  __int64 v13; // rcx
+  CPrimitiveBuffer *v14; // rsi
+  int v15; // eax
+  __int64 v16; // rcx
+  unsigned int v17; // edi
+  int v18; // eax
+  __int64 v19; // rcx
+  char *v20; // rax
+  __int64 v21; // rcx
+  void (__fastcall ***v22)(_QWORD); // rbx
+  unsigned int v24; // edx
 
-  v10 = 0LL;
-  v11 = (CCommandBuffer *)DefaultHeap::Alloc(0x10uLL);
-  v12 = v11;
+  v10 = (CCommandBuffer *)DefaultHeap::Alloc(0x10uLL);
+  v11 = v10;
+  if ( v10 )
+  {
+    *(_QWORD *)v10 = 0LL;
+    *((_DWORD *)v10 + 2) = 0;
+  }
+  else
+  {
+    v11 = 0LL;
+  }
+  v12 = (CPrimitiveBuffer *)DefaultHeap::Alloc(0x10uLL);
+  v14 = v12;
+  if ( v12 )
+  {
+    *(_QWORD *)v12 = 0LL;
+    *((_DWORD *)v12 + 2) = 0;
+  }
+  else
+  {
+    v14 = 0LL;
+  }
   if ( v11 )
   {
-    *(_QWORD *)v11 = 0LL;
-    *((_DWORD *)v11 + 2) = 0;
-  }
-  else
-  {
-    v12 = 0LL;
-  }
-  v13 = (CPrimitiveBuffer *)DefaultHeap::Alloc(0x10uLL);
-  v15 = v13;
-  if ( v13 )
-  {
-    *(_QWORD *)v13 = 0LL;
-    *((_DWORD *)v13 + 2) = 0;
-  }
-  else
-  {
-    v15 = 0LL;
-  }
-  if ( !v12 )
-  {
-    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2147024882, 0x99u, 0LL);
-    v18 = -2147024882;
-    if ( !v15 )
-      return v18;
-    goto LABEL_14;
-  }
-  if ( v15 )
-  {
-    v16 = CCommandBuffer::Initialize(v12, a1);
-    v18 = v16;
-    if ( v16 < 0 )
+    if ( v14 )
     {
-      v24 = 156;
-    }
-    else
-    {
-      v16 = CPrimitiveBuffer::Initialize(v15, a2);
-      v18 = v16;
-      if ( v16 < 0 )
+      v15 = CCommandBuffer::Initialize(v11, a1);
+      v17 = v15;
+      if ( v15 < 0 )
       {
-        v24 = 158;
+        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x9Du, 0LL);
       }
       else
       {
-        v19 = (CPrimitiveGroupDrawListGenerator *)DefaultHeap::Alloc(0x68uLL);
-        v10 = v19;
-        if ( !v19 )
+        v18 = CPrimitiveBuffer::Initialize(v14, a2);
+        v17 = v18;
+        if ( v18 < 0 )
         {
-          v18 = -2147024882;
-          v10 = 0LL;
-          MilInstrumentationCheckHR_MaybeFailFast(v20, 0LL, 0, -2147024882, 0xA5u, 0LL);
-          goto LABEL_14;
+          MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, v18, 0x9Fu, 0LL);
         }
-        *((_DWORD *)v19 + 2) = 0;
-        *(_QWORD *)v19 = &CPrimitiveGroupDrawListGenerator::`vftable';
-        *((_QWORD *)v19 + 2) = v12;
-        *((_QWORD *)v19 + 3) = v15;
-        *((_OWORD *)v19 + 2) = *a3;
-        *((_OWORD *)v19 + 3) = *a4;
-        *((_OWORD *)v19 + 4) = *a5;
-        *((_QWORD *)v19 + 10) = 0LL;
-        *((_QWORD *)v19 + 11) = 0LL;
-        *((_QWORD *)v19 + 12) = 0LL;
-        ++dword_1803E5ACC;
-        (**(void (__fastcall ***)(void *))v19)(v19);
-        v16 = CPrimitiveGroupDrawListGenerator::RealizeBitmaps(v10);
-        v18 = v16;
-        if ( v16 >= 0 )
+        else
         {
-          *a6 = v10;
-          return v18;
+          v20 = (char *)DefaultHeap::Alloc(0x80uLL);
+          v22 = (void (__fastcall ***)(_QWORD))v20;
+          if ( v20 )
+          {
+            *((_DWORD *)v20 + 2) = 0;
+            *((_DWORD *)v20 + 10) = 0;
+            *(_QWORD *)v20 = &CPrimitiveGroupDrawListGenerator::`vftable';
+            *((_QWORD *)v20 + 2) = v11;
+            *((_QWORD *)v20 + 3) = v14;
+            *(_OWORD *)(v20 + 56) = *a3;
+            *(_OWORD *)(v20 + 72) = *a4;
+            *(_OWORD *)(v20 + 88) = *a5;
+            *((_QWORD *)v20 + 13) = 0LL;
+            *((_QWORD *)v20 + 14) = 0LL;
+            *((_QWORD *)v20 + 15) = 0LL;
+            ++dword_18034735C;
+            *((_OWORD *)v20 + 2) = 0LL;
+            *((_QWORD *)v20 + 6) = 0LL;
+          }
+          else
+          {
+            v22 = 0LL;
+          }
+          if ( v22 )
+          {
+            (**v22)(v22);
+            *a6 = v22;
+            return v17;
+          }
+          v17 = -2147024882;
+          MilInstrumentationCheckHR_MaybeFailFast(v21, 0LL, 0, -2147024882, 0xA6u, 0LL);
         }
-        v24 = 166;
       }
     }
-    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, v24, 0LL);
-LABEL_14:
-    CPrimitiveBuffer::`scalar deleting destructor'(v15, v22);
-    if ( !v12 )
-      goto LABEL_15;
-    goto LABEL_20;
+    else
+    {
+      v17 = -2147024882;
+      MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2147024882, 0x9Bu, 0LL);
+    }
   }
-  v18 = -2147024882;
-  MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, -2147024882, 0x9Au, 0LL);
-LABEL_20:
-  CPrimitiveBuffer::`scalar deleting destructor'(v12, v23);
-LABEL_15:
-  if ( v10 )
-    (*(void (__fastcall **)(CPrimitiveGroupDrawListGenerator *))(*(_QWORD *)v10 + 8LL))(v10);
-  return v18;
+  else
+  {
+    v17 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, -2147024882, 0x9Au, 0LL);
+  }
+  if ( v14 )
+    CPrimitiveBuffer::`scalar deleting destructor'(v14, v24);
+  if ( v11 )
+    CPrimitiveBuffer::`scalar deleting destructor'(v11, v24);
+  return v17;
 }

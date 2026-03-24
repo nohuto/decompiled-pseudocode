@@ -1,63 +1,50 @@
 /*
- * XREFs of ?CreateUsermodeParameters@QueryTrueTypeTableRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C0075990
+ * XREFs of ?CreateUsermodeParameters@QueryTrueTypeTableRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C00A5FE0
  * Callers:
  *     <none>
  * Callees:
- *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C0075888 (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C00A658C (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
  */
 
 __int64 __fastcall QueryTrueTypeTableRequest::CreateUsermodeParameters(
         QueryTrueTypeTableRequest *this,
-        UmfdUMBuffer **a2,
+        struct UmfdTls *a2,
         void **a3)
 {
-  unsigned int v5; // edi
-  unsigned int v6; // esi
-  unsigned int v7; // eax
-  char v8; // al
-  unsigned int v9; // ecx
-  _DWORD *v10; // rax
-  __int64 v11; // rdx
+  unsigned int v5; // eax
+  unsigned int v6; // edi
+  char *v7; // rax
+  _DWORD *v8; // r8
+  __int64 v9; // rax
 
-  v5 = 0;
-  v6 = 0;
-  v7 = *((_DWORD *)this + 15);
-  if ( v7 + 7 < v7 )
-  {
-    v8 = 0;
-  }
-  else
-  {
-    v5 = (v7 + 7) & 0xFFFFFFF8;
-    v6 = 8;
-    v8 = 1;
-  }
-  if ( !v8 )
+  v5 = *((_DWORD *)this + 15);
+  if ( v5 + 7 < v5 )
     return 3221225495LL;
-  v9 = v5 + 2 * v6;
-  if ( v9 < v5 )
+  v6 = (v5 + 7) & 0xFFFFFFF8;
+  if ( v6 + 16 < v6 )
     return 3221225495LL;
-  if ( v9 >= 0xFFFFFFC8 )
+  if ( v6 + 16 >= 0xFFFFFFC8 )
     return 3221225495LL;
-  v10 = UmfdTls::CommitUMBuffer(a2, v9 + 56, 1);
-  if ( !v10 )
+  v7 = (char *)UmfdTls::CommitUMBuffer(a2, v6 + 72, 1);
+  v8 = v7;
+  if ( !v7 )
     return 3221225495LL;
-  *((_QWORD *)this + 12) = v10 + 14;
-  v11 = (__int64)v10 + v5 + 56;
-  *((_QWORD *)this + 13) = v11;
-  *((_QWORD *)this + 14) = v11 + v6;
+  *((_QWORD *)this + 12) = v7 + 56;
+  v9 = (__int64)&v7[v6 + 56];
+  *((_QWORD *)this + 13) = v9;
+  *((_QWORD *)this + 14) = v9 + 8;
   if ( !*((_QWORD *)this + 8) )
     *((_QWORD *)this + 12) = 0LL;
-  *(_QWORD *)v10 = **((_QWORD **)this + 5);
-  v10[2] = *((_DWORD *)this + 12);
-  v10[3] = *((_DWORD *)this + 13);
-  v10[4] = *((_DWORD *)this + 14);
-  *((_QWORD *)v10 + 3) = *((_QWORD *)this + 12);
-  v10[5] = *((_DWORD *)this + 15);
+  *(_QWORD *)v8 = **((_QWORD **)this + 5);
+  v8[2] = *((_DWORD *)this + 12);
+  v8[3] = *((_DWORD *)this + 13);
+  v8[4] = *((_DWORD *)this + 14);
+  *((_QWORD *)v8 + 3) = *((_QWORD *)this + 12);
+  v8[5] = *((_DWORD *)this + 15);
   if ( *((_QWORD *)this + 9) )
-    *((_QWORD *)v10 + 4) = *((_QWORD *)this + 13);
+    *((_QWORD *)v8 + 4) = *((_QWORD *)this + 13);
   if ( *((_QWORD *)this + 10) )
-    *((_QWORD *)v10 + 5) = *((_QWORD *)this + 14);
-  *a3 = v10;
+    *((_QWORD *)v8 + 5) = *((_QWORD *)this + 14);
+  *a3 = v8;
   return 0LL;
 }

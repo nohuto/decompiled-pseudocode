@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAdjustThreadTimer @ 0x140573898
+ * XREFs of KiAdjustThreadTimer @ 0x14051EFD4
  * Callers:
- *     KeAdjustTimerDelayProcess @ 0x14056C444 (KeAdjustTimerDelayProcess.c)
+ *     KeAdjustTimerDelayProcess @ 0x1405137CC (KeAdjustTimerDelayProcess.c)
  * Callees:
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
- *     KiSuspendThread @ 0x1402EE4D4 (KiSuspendThread.c)
- *     KiResumeThread @ 0x1402EF710 (KiResumeThread.c)
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KiResumeThread @ 0x1402798D0 (KiResumeThread.c)
+ *     KiSuspendThread @ 0x14027A324 (KiSuspendThread.c)
+ *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KiAdjustThreadTimer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -27,7 +27,8 @@ char __fastcall KiAdjustThreadTimer(__int64 a1, __int64 a2, __int64 a3, __int64 
   int v18; // eax
   __int64 v19; // rcx
   __int64 v20; // rax
-  int v21; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v21; // r9
+  int v22; // [rsp+50h] [rbp+8h] BYREF
 
   v4 = (volatile signed __int32 *)(a1 + 736);
   v6 = a4;
@@ -35,13 +36,13 @@ char __fastcall KiAdjustThreadTimer(__int64 a1, __int64 a2, __int64 a3, __int64 
   KiAcquireKobjectLockSafe((volatile signed __int32 *)(a1 + 736), a2, a3, a4);
   if ( *(char *)(a1 + 644) < 1 && (*(_DWORD *)(a1 + 120) & 0x4000) == 0 )
   {
-    result = KiSuspendThread(a1, a2, v11);
+    result = KiSuspendThread(a1, a2, v11, v12);
     if ( !result )
       goto LABEL_29;
     v9 = 1;
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  v21 = 0;
+  v22 = 0;
   while ( 1 )
   {
     SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -69,7 +70,7 @@ char __fastcall KiAdjustThreadTimer(__int64 a1, __int64 a2, __int64 a3, __int64 
       }
     }
     do
-      KeYieldProcessorEx(&v21, v10, v11, v12);
+      KeYieldProcessorEx(&v22, v10, v11, v12);
     while ( *(_QWORD *)(a1 + 64) );
   }
   if ( (*(_DWORD *)(a1 + 116) & 0x60000) == 0x60000 && (*(_BYTE *)(a1 + 257) & 1) == 0 )
@@ -92,7 +93,7 @@ char __fastcall KiAdjustThreadTimer(__int64 a1, __int64 a2, __int64 a3, __int64 
   *(_DWORD *)(a1 + 952) = v6;
   result = KiReleaseThreadLockSafe(a1);
   if ( v9 )
-    result = KiResumeThread(a1, a2, 0);
+    result = KiResumeThread(a1, a2, 0LL, v21);
 LABEL_29:
   _InterlockedAnd(v4, 0xFFFFFF7F);
   return result;

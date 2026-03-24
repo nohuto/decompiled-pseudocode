@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBDSM_DisablingEndpointsInControllerOHubStopOnDetach @ 0x1C001D170
+ * XREFs of HUBDSM_DisablingEndpointsInControllerOHubStopOnDetach @ 0x1C001CC30
  * Callers:
  *     <none>
  * Callees:
- *     HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl @ 0x1C0025D54 (HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl.c)
+ *     HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl @ 0x1C00258C8 (HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl.c)
  */
 
 __int64 __fastcall HUBDSM_DisablingEndpointsInControllerOHubStopOnDetach(__int64 a1)

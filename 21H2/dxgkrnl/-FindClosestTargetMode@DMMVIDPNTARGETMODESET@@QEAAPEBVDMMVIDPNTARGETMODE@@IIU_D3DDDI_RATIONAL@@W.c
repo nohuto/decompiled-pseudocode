@@ -1,10 +1,10 @@
 /*
- * XREFs of ?FindClosestTargetMode@DMMVIDPNTARGETMODESET@@QEAAPEBVDMMVIDPNTARGETMODE@@IIU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@EEE@Z @ 0x1C0069B04
+ * XREFs of ?FindClosestTargetMode@DMMVIDPNTARGETMODESET@@QEAAPEBVDMMVIDPNTARGETMODE@@IIU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@EEE@Z @ 0x1C005C9C8
  * Callers:
- *     ?FindClosestTargetMode@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJPEBU_D3DKMT_DISPLAYMODE@@QEAUD3DKMDT_HVIDPNTARGETMODESET__@@EEEPEAPEBU_D3DKMDT_VIDPN_TARGET_MODE@@@Z @ 0x1C03A1F60 (-FindClosestTargetMode@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJPEBU_D3DKMT_DISPLAYMODE@@.c)
+ *     ?FindClosestTargetMode@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJPEBU_D3DKMT_DISPLAYMODE@@QEAUD3DKMDT_HVIDPNTARGETMODESET__@@EEEPEAPEBU_D3DKMDT_VIDPN_TARGET_MODE@@@Z @ 0x1C02E2FC0 (-FindClosestTargetMode@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJPEBU_D3DKMT_DISPLAYMODE@@.c)
  * Callees:
- *     ?GetNextMode@DMMVIDPNSOURCEMODESET@@QEAAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z @ 0x1C0013010 (-GetNextMode@DMMVIDPNSOURCEMODESET@@QEAAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z.c)
- *     ?DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAE@Z @ 0x1C01BE360 (-DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDE.c)
+ *     ?GetNextMode@DMMVIDPNSOURCEMODESET@@QEAAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z @ 0x1C000A680 (-GetNextMode@DMMVIDPNSOURCEMODESET@@QEAAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z.c)
+ *     ?DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAE@Z @ 0x1C011FCF0 (-DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDE.c)
  */
 
 const struct DMMVIDPNTARGETMODE *__fastcall DMMVIDPNTARGETMODESET::FindClosestTargetMode(
@@ -12,7 +12,7 @@ const struct DMMVIDPNTARGETMODE *__fastcall DMMVIDPNTARGETMODESET::FindClosestTa
         unsigned int a2,
         unsigned int a3,
         struct _D3DDDI_RATIONAL a4,
-        enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING a5,
+        _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING a5,
         unsigned __int8 a6,
         unsigned __int8 a7,
         unsigned __int8 a8)
@@ -30,10 +30,12 @@ const struct DMMVIDPNTARGETMODE *__fastcall DMMVIDPNTARGETMODESET::FindClosestTa
   unsigned int v19; // ecx
   unsigned int v20; // r9d
   unsigned int v21; // ebx
-  unsigned int v23; // eax
-  struct _D3DDDI_RATIONAL v25; // [rsp+78h] [rbp+20h] BYREF
+  _QWORD *v23; // rax
+  enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING v24; // edx
+  _QWORD *v25; // rbx
+  struct _D3DDDI_RATIONAL v27; // [rsp+68h] [rbp+20h] BYREF
 
-  v25 = a4;
+  v27 = a4;
   v8 = a3;
   v9 = (DMMVIDPNTARGETMODESET *)*((_QWORD *)this + 6);
   v10 = -1;
@@ -50,7 +52,7 @@ const struct DMMVIDPNTARGETMODE *__fastcall DMMVIDPNTARGETMODESET::FindClosestTa
     if ( (!a7 || *((_DWORD *)NextMode + 21) == v12 && *((_DWORD *)NextMode + 22) == (_DWORD)v8)
       && (!a8 || (int)(*((_DWORD *)NextMode + 30) << 29) >> 29 == a5) )
     {
-      v16 = DmmMapVSyncFromRationalToInteger(&v25, a5, 0LL);
+      v16 = DmmMapVSyncFromRationalToInteger(&v27, a5, 0LL);
       v17 = DmmMapVSyncFromRationalToInteger(
               (const struct _D3DDDI_RATIONAL *)((char *)NextMode + 92),
               (enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING)((int)(*((_DWORD *)NextMode + 30) << 29) >> 29),
@@ -82,8 +84,14 @@ LABEL_18:
   if ( !v11 )
   {
 LABEL_23:
-    v23 = DmmMapVSyncFromRationalToInteger(&v25, a5, 0LL);
-    WdLogSingleEntry4(7LL, v12, v8, v23, this);
+    v23 = (_QWORD *)WdLogNewEntry5_WdDmmEvent();
+    v24 = a5;
+    v25 = v23;
+    v23[3] = v12;
+    v23[4] = v8;
+    v23[5] = DmmMapVSyncFromRationalToInteger(&v27, v24, 0LL);
+    v25[6] = this;
+    WdLogEvent5_WdDmmEvent(v25);
     return v11;
   }
   if ( a6 )
@@ -92,7 +100,7 @@ LABEL_23:
             (const struct _D3DDDI_RATIONAL *)((char *)v11 + 92),
             (enum _D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING)((int)(*((_DWORD *)v11 + 30) << 29) >> 29),
             0LL);
-    if ( v21 != DmmMapVSyncFromRationalToInteger(&v25, a5, 0LL) )
+    if ( v21 != DmmMapVSyncFromRationalToInteger(&v27, a5, 0LL) )
       return 0LL;
   }
   return v11;

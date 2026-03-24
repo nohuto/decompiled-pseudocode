@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFlushHyperSpace @ 0x140175F34
+ * XREFs of MiFlushHyperSpace @ 0x140175F54
  * Callers:
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MiChangePageAttributeBatch @ 0x1400823F0 (MiChangePageAttributeBatch.c)
- *     MiAllocateHyperSpace @ 0x1400B3A60 (MiAllocateHyperSpace.c)
- *     MiFlushCacheForAttributeChange @ 0x140138EA8 (MiFlushCacheForAttributeChange.c)
+ *     MiAllocateHyperSpace @ 0x1400B3A80 (MiAllocateHyperSpace.c)
+ *     MiFlushCacheForAttributeChange @ 0x140138EC8 (MiFlushCacheForAttributeChange.c)
  * Callees:
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 void MiFlushHyperSpace()

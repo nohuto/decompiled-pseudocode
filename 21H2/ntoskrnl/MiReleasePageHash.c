@@ -1,16 +1,15 @@
 /*
- * XREFs of MiReleasePageHash @ 0x1405BC988
+ * XREFs of MiReleasePageHash @ 0x14055D6C4
  * Callers:
- *     MiDeletePagefile @ 0x14096F074 (MiDeletePagefile.c)
+ *     MiDeletePagefile @ 0x1408D048C (MiDeletePagefile.c)
  * Callees:
- *     MiReleasePtes @ 0x1402BB6D0 (MiReleasePtes.c)
+ *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
  */
 
-char __fastcall MiReleasePageHash(unsigned __int64 a1, unsigned int a2)
+unsigned __int64 __fastcall MiReleasePageHash(unsigned __int64 a1, unsigned int a2)
 {
   return MiReleasePtes(
-           (__int64)&qword_140C534C0,
+           (__int64)&qword_140C4EF40,
            (_QWORD *)(((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL),
-           ((a2 * (unsigned __int64)(unsigned int)dword_140C531CC) >> 12)
-         + (((a2 * (unsigned __int64)(unsigned int)dword_140C531CC) & 0xFFF) != 0));
+           (unsigned int)((4 * (unsigned __int64)a2) >> 12) + (((4LL * a2) & 0xFFF) != 0));
 }

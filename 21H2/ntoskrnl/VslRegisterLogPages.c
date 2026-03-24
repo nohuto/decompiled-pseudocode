@@ -1,15 +1,15 @@
 /*
- * XREFs of VslRegisterLogPages @ 0x14054F010
+ * XREFs of VslRegisterLogPages @ 0x1404FD25C
  * Callers:
- *     PsIumResumeAfterHibernate @ 0x140399424 (PsIumResumeAfterHibernate.c)
+ *     PsIumResumeAfterHibernate @ 0x14038DDFC (PsIumResumeAfterHibernate.c)
  * Callees:
- *     HvlQueryVsmConnection @ 0x140294D28 (HvlQueryVsmConnection.c)
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     VslpUnlockPagesForTransfer @ 0x1403A0EB4 (VslpUnlockPagesForTransfer.c)
- *     VslpLockPagesForTransfer @ 0x1403A0F08 (VslpLockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x140277468 (HvlQueryVsmConnection.c)
+ *     VslpUnlockPagesForTransfer @ 0x140394074 (VslpUnlockPagesForTransfer.c)
+ *     VslpLockPagesForTransfer @ 0x1403940C8 (VslpLockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 VslRegisterLogPages()

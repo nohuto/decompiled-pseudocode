@@ -1,84 +1,70 @@
 /*
- * XREFs of IopDeleteFileObjectExtension @ 0x140203B8C
+ * XREFs of IopDeleteFileObjectExtension @ 0x140252C8C
  * Callers:
- *     IopDeleteFile @ 0x14072B630 (IopDeleteFile.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x140703760 (IopDeleteFile.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140203D88 (ExFreeToNPagedLookasideList.c)
- *     PsReleaseSiloHardReference @ 0x14020B0E0 (PsReleaseSiloHardReference.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObDereferenceObjectDeferDelete @ 0x140348920 (ObDereferenceObjectDeferDelete.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1403494F0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     IopCleanupNotifications @ 0x1403D87A8 (IopCleanupNotifications.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14066EF20 (FsRtlFreeExtraCreateParameter.c)
- *     PspAdjustKeepAliveCountProcess @ 0x1409AD954 (PspAdjustKeepAliveCountProcess.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     PsReleaseSiloHardReference @ 0x140200960 (PsReleaseSiloHardReference.c)
+ *     KeReleaseSpinLock @ 0x140229C10 (KeReleaseSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopCleanupNotifications @ 0x14037C458 (IopCleanupNotifications.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14060C9E0 (FsRtlFreeExtraCreateParameter.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x140907BD0 (PspAdjustKeepAliveCountProcess.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopDeleteFileObjectExtension(__int64 a1)
 {
-  _DWORD *v1; // rdi
-  __int64 i; // rsi
-  _QWORD *v4; // r15
-  _QWORD *v5; // rbx
+  _DWORD *v1; // r14
+  __int64 i; // rdi
+  _QWORD *v4; // rbx
+  _QWORD *v5; // rsi
   void *v6; // rcx
-  _QWORD *v7; // rbx
-  void *v8; // rcx
-  __int64 v9; // rbx
-  int v10; // eax
-  void *v11; // rcx
-  __int64 v12; // rax
+  _QWORD *v7; // rsi
+  struct _DMA_ADAPTER *v8; // rcx
+  int v9; // eax
+  _QWORD *v10; // rcx
+  ULONG v11; // edx
+  void *v12; // rcx
   void *v13; // rcx
-  _QWORD **v14; // r14
-  _QWORD *v15; // rbx
-  void *v16; // rcx
-  _BYTE *v17; // rbp
-  _QWORD *v18; // r14
-  unsigned __int64 v19; // r12
-  __int64 v20; // r9
-  unsigned __int8 CurrentIrql; // al
-  struct _KPRCB *CurrentPrcb; // r11
-  _DWORD *SchedulerAssist; // r10
-  int v24; // eax
-  bool v25; // zf
-  _QWORD *v26; // rcx
-  _QWORD *v27; // rbx
-  char v28; // [rsp+50h] [rbp+8h]
+  _QWORD *v14; // rsi
+  void *v15; // rcx
+  _BYTE *v16; // rbp
+  _QWORD *v17; // r15
+  KIRQL v18; // r12
+  __int64 v19; // r9
+  _QWORD *v20; // rcx
+  _QWORD *v21; // rbx
+  char v22; // [rsp+50h] [rbp+8h]
 
   v1 = *(_DWORD **)(a1 + 208);
   if ( v1 == IopRevocationExtension )
     return;
   for ( i = 0LL; i < 9; ++i )
   {
-    if ( !*(_QWORD *)&v1[2 * i + 2] )
+    v4 = *(_QWORD **)&v1[2 * i + 2];
+    if ( !v4 )
       continue;
     if ( i == 4 )
     {
-      v14 = (_QWORD **)*((_QWORD *)v1 + 5);
-      v15 = *v14;
-      while ( v15 != v14 )
+      v14 = (_QWORD *)*v4;
+      while ( v14 != v4 )
       {
-        v16 = v15;
-        v15 = (_QWORD *)*v15;
-        ExFreePoolWithTag(v16, 0);
+        v15 = v14;
+        v14 = (_QWORD *)*v14;
+        ExFreePoolWithTag(v15, 0);
       }
-LABEL_22:
-      ExFreePoolWithTag(*(PVOID *)&v1[2 * i + 2], 0);
-      continue;
+      goto LABEL_22;
     }
     if ( !i )
     {
-      v12 = *((_QWORD *)v1 + 1);
-      if ( v12 )
-      {
-        v13 = *(void **)(v12 + 8);
-        if ( v13 )
-          ObDereferenceObjectDeferDelete(v13);
-      }
+      v13 = (void *)v4[1];
+      if ( v13 )
+        ObDereferenceObjectDeferDelete(v13);
       goto LABEL_22;
     }
     if ( i != 5 )
@@ -86,7 +72,6 @@ LABEL_22:
       switch ( i )
       {
         case 1LL:
-          v4 = (_QWORD *)*((_QWORD *)v1 + 2);
           v5 = (_QWORD *)v4[2];
           while ( v5 )
           {
@@ -97,80 +82,67 @@ LABEL_22:
           v7 = (_QWORD *)v4[3];
           while ( v7 )
           {
-            v17 = (_BYTE *)v7[3];
-            v18 = v7;
+            v16 = (_BYTE *)v7[3];
+            v17 = v7;
             v7 = (_QWORD *)*v7;
-            v19 = KeAcquireSpinLockRaiseToDpc(&qword_140C47230);
-            v28 = v17[18];
-            if ( v17[16] == 1 )
-              v17[17] = 1;
+            v18 = KeAcquireSpinLockRaiseToDpc(&qword_140C45F70);
+            v22 = v16[18];
+            if ( v16[16] == 1 )
+              v16[17] = 1;
             else
-              ExFreePoolWithTag(v17, 0);
-            KxReleaseSpinLock(&qword_140C47230);
-            if ( KiIrqlFlags )
+              ExFreePoolWithTag(v16, 0);
+            KeReleaseSpinLock(&qword_140C45F70, v18);
+            if ( *((_DWORD *)v17 + 4) )
             {
-              if ( (KiIrqlFlags & 1) != 0 )
-              {
-                CurrentIrql = KeGetCurrentIrql();
-                if ( CurrentIrql <= 0xFu && (unsigned __int8)v19 <= 0xFu && CurrentIrql >= 2u )
-                {
-                  CurrentPrcb = KeGetCurrentPrcb();
-                  SchedulerAssist = CurrentPrcb->SchedulerAssist;
-                  v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v19 + 1));
-                  v25 = (v24 & SchedulerAssist[5]) == 0;
-                  SchedulerAssist[5] &= v24;
-                  if ( v25 )
-                    KiRemoveSystemWorkPriorityKick(CurrentPrcb);
-                }
-              }
+              LOBYTE(v19) = v22;
+              PspAdjustKeepAliveCountProcess(v17[1], 0xFFFFFFFFLL, a1, v19);
+              HalPutDmaAdapter((PADAPTER_OBJECT)v17[1]);
             }
-            __writecr8(v19);
-            if ( *((_DWORD *)v18 + 4) )
-            {
-              LOBYTE(v20) = v28;
-              PspAdjustKeepAliveCountProcess(v18[1], 0xFFFFFFFFLL, a1, v20);
-              ObfDereferenceObject((PVOID)v18[1]);
-            }
-            ExFreePoolWithTag(v18, 0);
+            ExFreePoolWithTag(v17, 0);
           }
-          v8 = (void *)v4[1];
+          v8 = (struct _DMA_ADAPTER *)v4[1];
           if ( v8 )
-            ObfDereferenceObject(v8);
+            HalPutDmaAdapter(v8);
           break;
         case 6LL:
-          ExFreeToNPagedLookasideList(&IopOplockFoExtLookasideList, *((PVOID *)v1 + 7));
+          ExFreeToNPagedLookasideList(&IopOplockFoExtLookasideList, v4);
           continue;
         case 2LL:
-          v26 = *(_QWORD **)(*((_QWORD *)v1 + 3) + 40LL);
-          if ( v26 )
+          v20 = (_QWORD *)v4[5];
+          if ( v20 )
           {
             do
             {
-              v27 = (_QWORD *)v26[5];
-              ExFreePoolWithTag(v26, 0);
-              v26 = v27;
+              v21 = (_QWORD *)v20[5];
+              ExFreePoolWithTag(v20, 0);
+              v20 = v21;
             }
-            while ( v27 );
+            while ( v21 );
           }
           break;
         case 7LL:
-          v9 = *((_QWORD *)v1 + 8);
-          v10 = *(_DWORD *)(v9 + 4);
-          if ( (v10 & 1) != 0 )
+          v9 = *((_DWORD *)v4 + 1);
+          if ( (v9 & 1) != 0 )
           {
-            v11 = *(void **)(v9 + 8);
-            *(_DWORD *)(v9 + 4) = v10 & 0xFFFFFFFE;
-            PsReleaseSiloHardReference(v11);
+            v12 = (void *)v4[1];
+            *((_DWORD *)v4 + 1) = v9 & 0xFFFFFFFE;
+            PsReleaseSiloHardReference(v12);
           }
-          ObDereferenceObjectDeferDeleteWithTag(*(PVOID *)(v9 + 8), 0x70536F49u);
+          v10 = (_QWORD *)v4[1];
+          v11 = 1884516169;
+LABEL_29:
+          ObfDereferenceObjectWithTag(v10, v11);
           break;
         case 8LL:
-          ObfDereferenceObjectWithTag(**((PVOID **)v1 + 9), 0x6F466F49u);
-          break;
+          v10 = (_QWORD *)*v4;
+          v11 = 1866886985;
+          goto LABEL_29;
       }
-      goto LABEL_22;
+LABEL_22:
+      ExFreePoolWithTag(*(PVOID *)&v1[2 * i + 2], 0);
+      continue;
     }
-    FsRtlFreeExtraCreateParameter(*((PVOID *)v1 + 6));
+    FsRtlFreeExtraCreateParameter(v4);
   }
   if ( (*v1 & 2) != 0 )
     IopCleanupNotifications(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL), a1);

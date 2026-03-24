@@ -1,21 +1,21 @@
 /*
- * XREFs of ViCtxCheckAndReleaseIsrState @ 0x140AA1C3C
+ * XREFs of ViCtxCheckAndReleaseIsrState @ 0x1409E4344
  * Callers:
- *     ViCtxIsr @ 0x140AA1E50 (ViCtxIsr.c)
- *     ViCtxIsrMessageBased @ 0x140AA1EB0 (ViCtxIsrMessageBased.c)
+ *     ViCtxIsr @ 0x1409E4560 (ViCtxIsr.c)
+ *     ViCtxIsrMessageBased @ 0x1409E45C0 (ViCtxIsrMessageBased.c)
  * Callees:
- *     RtlXSave @ 0x1402423D0 (RtlXSave.c)
- *     VfUtilDbgPrint @ 0x1405FDF9C (VfUtilDbgPrint.c)
- *     VfErrorStoreTriageInformation @ 0x140A92C94 (VfErrorStoreTriageInformation.c)
- *     ViCtxEqualExtendedState @ 0x140AA1D34 (ViCtxEqualExtendedState.c)
+ *     RtlXSave @ 0x1402C1160 (RtlXSave.c)
+ *     VfUtilDbgPrint @ 0x1405A06F4 (VfUtilDbgPrint.c)
+ *     VfErrorStoreTriageInformation @ 0x1409D81BC (VfErrorStoreTriageInformation.c)
+ *     ViCtxEqualExtendedState @ 0x1409E4440 (ViCtxEqualExtendedState.c)
  */
 
 __int64 __fastcall ViCtxCheckAndReleaseIsrState(__int64 a1, const void *a2, __int64 a3)
 {
   unsigned __int8 CurrentIrql; // al
   unsigned __int8 v6; // si
+  __int64 v7; // r8
   __int64 result; // rax
-  __int64 v8; // r8
   int v9; // eax
   __int64 v10; // r9
   __int64 v11; // rdx
@@ -25,12 +25,13 @@ __int64 __fastcall ViCtxCheckAndReleaseIsrState(__int64 a1, const void *a2, __in
   v6 = *(_BYTE *)(a1 + 8);
   *(_BYTE *)(a1 + 9) = CurrentIrql;
   if ( v6 != CurrentIrql
-    || (result = *(unsigned int *)(a1 + 4), (result & 2) != 0)
-    && (RtlXSave(*(_DWORD **)(a1 + 64), ViCtxXStateEnabledMask, a3),
-        v6 = *(_BYTE *)(a1 + 8),
-        LOBYTE(v8) = v6 == 0,
-        result = ViCtxEqualExtendedState(*(_QWORD *)(a1 + 32), *(_QWORD *)(a1 + 64), v8),
-        !(_BYTE)result) )
+    || ((*(_DWORD *)(a1 + 4) & 2) == 0
+      ? (result = 1LL)
+      : (RtlXSave(*(_DWORD **)(a1 + 64), ViCtxXStateEnabledMask, a3),
+         v6 = *(_BYTE *)(a1 + 8),
+         LOBYTE(v7) = v6 == 0,
+         result = (unsigned __int8)ViCtxEqualExtendedState(*(_QWORD *)(a1 + 32), *(_QWORD *)(a1 + 64), v7)),
+        !(_DWORD)result) )
   {
     v9 = *(unsigned __int8 *)(a1 + 9);
     if ( v6 == (_BYTE)v9 )

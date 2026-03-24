@@ -1,10 +1,10 @@
 /*
- * XREFs of HalBuildMdlFromScatterGatherListV3 @ 0x140511220
+ * XREFs of HalBuildMdlFromScatterGatherListV3 @ 0x1404C5B70
  * Callers:
  *     <none>
  * Callees:
- *     IoAllocateMdl @ 0x14029C7F0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x140349550 (IoFreeMdl.c)
+ *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
  */
 
 __int64 __fastcall HalBuildMdlFromScatterGatherListV3(__int64 a1, unsigned int *a2, struct _MDL *a3, struct _MDL **a4)
@@ -44,7 +44,7 @@ __int64 __fastcall HalBuildMdlFromScatterGatherListV3(__int64 a1, unsigned int *
 
   if ( !a3 )
     return 3221225485LL;
-  if ( *(_DWORD *)(a1 + 512) == 3 )
+  if ( *(_DWORD *)(a1 + 512) == 2 )
   {
     if ( !*(_BYTE *)(a1 + 437) )
       return 3221225474LL;

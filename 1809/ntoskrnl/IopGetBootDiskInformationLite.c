@@ -1,15 +1,15 @@
 /*
  * XREFs of IopGetBootDiskInformationLite @ 0x1409BDED8
  * Callers:
- *     IoGetBootDiskInformationLite @ 0x14072CAE0 (IoGetBootDiskInformationLite.c)
+ *     IoGetBootDiskInformationLite @ 0x14072CAC0 (IoGetBootDiskInformationLite.c)
  * Callees:
- *     IopVerifierExAllocatePool_0 @ 0x1400DD83C (IopVerifierExAllocatePool_0.c)
- *     RtlInitAnsiString @ 0x1400EED70 (RtlInitAnsiString.c)
- *     IopCheckDiskName @ 0x14017FB20 (IopCheckDiskName.c)
- *     IopAddBootDiskInformation @ 0x14017FD04 (IopAddBootDiskInformation.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     VhdiGetDiskParameters @ 0x1409F9128 (VhdiGetDiskParameters.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1400DD85C (IopVerifierExAllocatePool_0.c)
+ *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
+ *     IopCheckDiskName @ 0x14017FB40 (IopCheckDiskName.c)
+ *     IopAddBootDiskInformation @ 0x14017FD24 (IopAddBootDiskInformation.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     VhdiGetDiskParameters @ 0x1409F9138 (VhdiGetDiskParameters.c)
  */
 
 __int64 __fastcall IopGetBootDiskInformationLite(unsigned int **a1)

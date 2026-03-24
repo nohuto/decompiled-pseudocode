@@ -1,93 +1,96 @@
 /*
- * XREFs of MiReduceMappedFileReadBehind @ 0x140352D10
+ * XREFs of MiReduceMappedFileReadBehind @ 0x14031F27C
  * Callers:
- *     MiBuildMdlForMappedFileFault @ 0x1402DFD70 (MiBuildMdlForMappedFileFault.c)
+ *     MiBuildMdlForMappedFileFault @ 0x14023D740 (MiBuildMdlForMappedFileFault.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA20 (RtlClearBits.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
+ *     RtlClearBits @ 0x140206DC0 (RtlClearBits.c)
+ *     RtlSetBits @ 0x1402D9750 (RtlSetBits.c)
  */
 
 __int64 __fastcall MiReduceMappedFileReadBehind(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, int a3)
 {
-  unsigned int v4; // ebp
-  unsigned int v7; // ecx
-  unsigned int SizeOfBitMap; // r8d
-  unsigned int *Buffer; // r11
-  ULONG v10; // ebx
-  unsigned __int64 v11; // r10
-  unsigned int *v12; // rdx
+  unsigned int v4; // r14d
+  ULONG v7; // ebx
+  unsigned int SizeOfBitMap; // r9d
+  unsigned int *Buffer; // rdx
+  unsigned int *v10; // r10
+  unsigned int *v11; // r8
+  unsigned int v12; // edx
   int v13; // r9d
-  _DWORD *i; // rax
-  unsigned int v15; // r9d
-  __int64 v16; // rcx
-  ULONG v17; // edi
-  unsigned __int64 j; // rax
-  unsigned int v19; // ebx
-  unsigned int *v21; // rax
+  unsigned int i; // eax
+  ULONG v16; // esi
+  unsigned int *v17; // r8
 
   v4 = 0;
   RtlSetBits(BitMapHeader, StartingIndex, 1u);
   v7 = 0;
   if ( StartingIndex )
   {
-    do
+    while ( 1 )
     {
       SizeOfBitMap = BitMapHeader->SizeOfBitMap;
       if ( BitMapHeader->SizeOfBitMap <= v7 )
-        break;
+        goto LABEL_20;
       Buffer = BitMapHeader->Buffer;
-      v10 = 0;
-      v11 = (unsigned __int64)&Buffer[(unsigned __int64)(SizeOfBitMap - 1) >> 5];
-      v12 = &Buffer[(unsigned __int64)v7 >> 5];
-      v13 = ((1 << (v7 & 0x1F)) - 1) | *v12;
-      for ( i = v12 + 1; ; ++i )
+      v10 = &Buffer[(unsigned __int64)(SizeOfBitMap - 1) >> 5];
+      v11 = &Buffer[(unsigned __int64)v7 >> 5];
+      if ( v11 != v10 && (*v11 | *((_DWORD *)qword_1400127A0 + (v7 & 0x1F))) == 0xFFFFFFFF )
       {
-        v15 = ~v13;
-        if ( v15 )
-          break;
-        if ( (unsigned __int64)i > v11 )
-          goto LABEL_25;
-        v13 = *++v12;
+        v7 = v7 - (v7 & 0x1F) + 32;
+        for ( ++v11; v11 < v10 && *v11 == -1; ++v11 )
+          v7 += 32;
       }
-      _BitScanForward64((unsigned __int64 *)&v16, v15);
-      v17 = v16 + 32 * (v12 - Buffer);
-      if ( v17 > SizeOfBitMap )
+      for ( ; v7 < SizeOfBitMap; ++v7 )
       {
-LABEL_25:
-        v17 = BitMapHeader->SizeOfBitMap;
+        if ( !_bittest((const signed __int32 *)BitMapHeader->Buffer, v7) )
+          break;
+      }
+      v12 = 0;
+      if ( v11 == v10 )
         goto LABEL_14;
-      }
-      for ( j = ~(v15 | ((1 << v16) - 1)); ; j = *v21 )
+      v13 = v7 & 0x1F;
+      if ( (*v11 & ~*((_DWORD *)qword_1400127A0 + (v7 & 0x1F))) != 0 )
+        goto LABEL_14;
+      v12 = 32 - v13;
+      if ( v13 != 33 )
+        break;
+LABEL_18:
+      if ( v12 && v7 < StartingIndex )
       {
-        if ( (_DWORD)j )
+        v16 = a3 - v4;
+        if ( v12 <= a3 - v4 )
+          v16 = v12;
+        RtlSetBits(BitMapHeader, v7, v16);
+        v4 += v16;
+        if ( v4 != a3 )
         {
-          _BitScanForward64(&j, j);
-          goto LABEL_11;
+          v7 += v16;
+          if ( v7 < StartingIndex )
+            continue;
         }
-        v21 = v12 + 1;
-        if ( (unsigned __int64)(v12 + 1) > v11 )
-          break;
-        ++v12;
       }
-      LODWORD(j) = 32;
-LABEL_11:
-      v19 = j + 32 * (v12 - Buffer);
-      if ( v19 > SizeOfBitMap )
-        v19 = BitMapHeader->SizeOfBitMap;
-      v10 = v19 - v17;
-LABEL_14:
-      if ( !v10 || v17 >= StartingIndex )
-        break;
-      if ( v10 > a3 - v4 )
-        v10 = a3 - v4;
-      RtlSetBits(BitMapHeader, v17, v10);
-      v4 += v10;
-      if ( v4 == a3 )
-        break;
-      v7 = v17 + v10;
+      goto LABEL_20;
     }
-    while ( v17 + v10 < StartingIndex );
+    v17 = v11 + 1;
+    while ( v17 < v10 && !*v17 )
+    {
+      ++v17;
+      v12 += 32;
+      if ( v12 == -1 )
+        goto LABEL_18;
+    }
+LABEL_14:
+    for ( i = v12 + v7; i < BitMapHeader->SizeOfBitMap; ++v12 )
+    {
+      if ( _bittest((const signed __int32 *)BitMapHeader->Buffer, i) )
+        break;
+      if ( v12 == -1 )
+        break;
+      ++i;
+    }
+    goto LABEL_18;
   }
+LABEL_20:
   RtlClearBits(BitMapHeader, StartingIndex, 1u);
   return v4;
 }

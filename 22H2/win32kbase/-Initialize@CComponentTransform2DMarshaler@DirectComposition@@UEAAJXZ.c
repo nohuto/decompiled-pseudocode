@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CComponentTransform2DMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00AAD80
+ * XREFs of ?Initialize@CComponentTransform2DMarshaler@DirectComposition@@UEAAJXZ @ 0x1C009F460
  * Callers:
  *     <none>
  * Callees:

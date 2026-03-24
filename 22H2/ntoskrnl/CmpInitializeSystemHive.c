@@ -1,20 +1,21 @@
 /*
- * XREFs of CmpInitializeSystemHive @ 0x140B3AD38
+ * XREFs of CmpInitializeSystemHive @ 0x140A5AA10
  * Callers:
- *     CmpInitializePreloadedHives @ 0x140B3A054 (CmpInitializePreloadedHives.c)
+ *     CmpInitializePreloadedHives @ 0x140A5A924 (CmpInitializePreloadedHives.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     CmpLinkHiveToMaster @ 0x14068F84C (CmpLinkHiveToMaster.c)
- *     CmpCreateHive @ 0x14070247C (CmpCreateHive.c)
- *     CmpSetupLoggingState @ 0x140810C4C (CmpSetupLoggingState.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpLinkHiveToMaster @ 0x14071D600 (CmpLinkHiveToMaster.c)
+ *     CmpCreateHive @ 0x14071D9E8 (CmpCreateHive.c)
+ *     CmpSetupLoggingState @ 0x1407A74B8 (CmpSetupLoggingState.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2, __int64 a3)
 {
-  _OWORD *Pool2; // rdi
-  __int64 v6; // r8
+  _OWORD *PoolWithTag; // rax
+  _OWORD *v6; // rdi
   int v7; // eax
   int v8; // ecx
   int v9; // ebx
@@ -24,31 +25,30 @@ __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2, __int64 a3)
   v11 = a3;
   LOBYTE(v11) = 0;
   BugCheckParameter3 = 0LL;
-  Pool2 = (_OWORD *)ExAllocatePool2(256LL, 0x1B0uLL, 0x33394D43u);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1B0uLL, 0x33394D43u);
+  v6 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v6 = 18LL;
-    if ( CmBugcheckRecoveryEnabled )
-      v6 = 33554450LL;
+    memset(PoolWithTag, 0, 0x1B0uLL);
     v7 = CmpCreateHive(
            &BugCheckParameter3,
            1u,
-           v6,
+           18,
            2u,
            *(_QWORD *)(a1 + 168),
            0LL,
-           &CmpSystemFileName.Length,
+           (__int64)&CmpSystemFileName,
            5832712,
            0LL,
            0LL,
-           &v11,
-           (__int64)Pool2);
+           (__int64)&v11,
+           (__int64)v6);
     if ( v7 < 0 )
-      KeBugCheckEx(0x74u, 3uLL, 2uLL, (ULONG_PTR)Pool2, v7);
-    CmpSetupLoggingState(BugCheckParameter3, (unsigned int *)(*(_QWORD *)(a1 + 240) + 2916LL));
+      KeBugCheckEx(0x74u, 3uLL, 2uLL, (ULONG_PTR)v6, v7);
+    CmpSetupLoggingState(BugCheckParameter3, (unsigned int *)(*(_QWORD *)(a1 + 240) + 2884LL));
     if ( (_BYTE)v11 == 1 )
       CmpInitRmLogOnLoad = 1;
-    if ( CmpShareSystemHives )
+    if ( BYTE4(NlsMbCodePageTag) )
       *(_DWORD *)(BugCheckParameter3 + 160) |= 0x8000u;
     if ( CmStateSeparationEnabled && !CmStateSeparationDevMode )
     {
@@ -59,7 +59,7 @@ __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2, __int64 a3)
     CmpBootType = v8;
     if ( !CmSelfHeal )
     {
-      BYTE2(NlsMbOemCodePageTag) = 0;
+      BYTE3(NlsMbCodePageTag) = 0;
       if ( (v8 & 4) != 0 )
         KeBugCheckEx(0x74u, 3uLL, 3uLL, BugCheckParameter3, 0LL);
     }
@@ -68,20 +68,20 @@ __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2, __int64 a3)
            0LL,
            BugCheckParameter3,
            0,
-           dword_140C028E0,
+           dword_140C01180,
            0,
            0LL,
            a2,
            0LL,
            0LL,
            1,
-           Pool2);
+           v6);
     if ( v9 >= 0 )
     {
       v9 = 0;
-      qword_140C028D0 = BugCheckParameter3;
+      qword_140C01170 = BugCheckParameter3;
     }
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(v6, 0);
   }
   else
   {

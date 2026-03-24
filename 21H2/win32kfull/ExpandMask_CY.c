@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpandMask_CY @ 0x1C02638A0
+ * XREFs of ExpandMask_CY @ 0x1C02662F0
  * Callers:
  *     <none>
  * Callees:
- *     BltMask_CY @ 0x1C0263640 (BltMask_CY.c)
+ *     BltMask_CY @ 0x1C0266090 (BltMask_CY.c)
  */
 
 __int64 __fastcall ExpandMask_CY(__int64 a1)

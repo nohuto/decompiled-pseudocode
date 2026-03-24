@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCovSampCheckForSegments @ 0x1408A8E8C
+ * XREFs of EtwpCovSampCheckForSegments @ 0x140942C74
  * Callers:
- *     EtwpCovSampContextGetModule @ 0x1409F133C (EtwpCovSampContextGetModule.c)
+ *     EtwpCovSampContextGetModule @ 0x140943470 (EtwpCovSampContextGetModule.c)
  * Callees:
- *     towlower @ 0x1403DB140 (towlower.c)
+ *     towlower @ 0x1403D36A0 (towlower.c)
  */
 
 __int64 __fastcall EtwpCovSampCheckForSegments(unsigned __int64 *a1, unsigned __int64 *a2, unsigned int a3)

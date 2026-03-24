@@ -1,15 +1,15 @@
 /*
- * XREFs of KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x14018CA14
+ * XREFs of KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x14018CA34
  * Callers:
- *     KeUpdateThreadCpuSets @ 0x14018C82C (KeUpdateThreadCpuSets.c)
- *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x14018C9C8 (KiUpdateThreadCpuSetAffinitiesProcess.c)
+ *     KeUpdateThreadCpuSets @ 0x14018C84C (KeUpdateThreadCpuSets.c)
+ *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x14018C9E8 (KiUpdateThreadCpuSetAffinitiesProcess.c)
  * Callees:
  *     KiSendSoftwareInterrupt @ 0x140003AE4 (KiSendSoftwareInterrupt.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14010C3F0 (KiReleaseThreadLockSafe.c)
- *     KiUpdateThreadCpuSets @ 0x14018CAB4 (KiUpdateThreadCpuSets.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceIdealProcessor @ 0x14030FD0C (EtwTraceIdealProcessor.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
+ *     KiUpdateThreadCpuSets @ 0x14018CAD4 (KiUpdateThreadCpuSets.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceIdealProcessor @ 0x14030FE0C (EtwTraceIdealProcessor.c)
  */
 
 int __fastcall KiUpdateThreadCpuSetAffinitiesFromDpcLevel(__int64 a1, __int64 a2, __int64 a3)

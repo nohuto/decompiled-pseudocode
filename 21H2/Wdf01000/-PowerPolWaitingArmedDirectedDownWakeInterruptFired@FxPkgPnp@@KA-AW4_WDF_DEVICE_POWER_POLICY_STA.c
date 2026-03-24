@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PowerPolWaitingArmedDirectedDownWakeInterruptFired@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C000C030
+ * XREFs of ?PowerPolWaitingArmedDirectedDownWakeInterruptFired@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C000DF90
  * Callers:
  *     <none>
  * Callees:

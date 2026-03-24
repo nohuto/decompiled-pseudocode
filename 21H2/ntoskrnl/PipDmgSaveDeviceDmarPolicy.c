@@ -1,11 +1,11 @@
 /*
- * XREFs of PipDmgSaveDeviceDmarPolicy @ 0x140845D74
+ * XREFs of PipDmgSaveDeviceDmarPolicy @ 0x140771854
  * Callers:
- *     PiDmaGuardProcessPreAddDevice @ 0x1406E7CD4 (PiDmaGuardProcessPreAddDevice.c)
+ *     PiDmaGuardProcessPreAddDevice @ 0x14073E5A0 (PiDmaGuardProcessPreAddDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     _PnpSetObjectProperty @ 0x14077198C (_PnpSetObjectProperty.c)
- *     PnpTraceDmaGuardDevicePolicy @ 0x140845E14 (PnpTraceDmaGuardDevicePolicy.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _PnpSetObjectProperty @ 0x140745C24 (_PnpSetObjectProperty.c)
+ *     PnpTraceDmaGuardDevicePolicy @ 0x140771934 (PnpTraceDmaGuardDevicePolicy.c)
  */
 
 __int64 __fastcall PipDmgSaveDeviceDmarPolicy(__int64 a1, __int64 a2, unsigned int a3)
@@ -46,7 +46,7 @@ __int64 __fastcall PipDmgSaveDeviceDmarPolicy(__int64 a1, __int64 a2, unsigned i
       0);
   PnpTraceDmaGuardDevicePolicy(a1, v10);
   v8 = *(_QWORD *)(a1 + 720);
-  if ( v10 != 2 || !((unsigned __int8 (__fastcall *)(_QWORD, _QWORD))off_140C02088[0])(*(_QWORD *)v8, 0LL) )
+  if ( v10 != 2 || !((unsigned __int8 (__fastcall *)(_QWORD, _QWORD))off_140C00A38[0])(*(_QWORD *)v8, 0LL) )
     v7 = 0;
   *(_BYTE *)(v8 + 16) = v7 | *(_BYTE *)(v8 + 16) & 0xFE;
   return v3;

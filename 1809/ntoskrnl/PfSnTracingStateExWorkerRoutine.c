@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnTracingStateExWorkerRoutine @ 0x1406D0BA0
+ * XREFs of PfSnTracingStateExWorkerRoutine @ 0x1406D0B80
  * Callers:
  *     <none>
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

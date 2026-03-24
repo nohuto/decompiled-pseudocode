@@ -1,19 +1,25 @@
 /*
- * XREFs of EtwpReserveWithPebsIndex @ 0x14062F600
+ * XREFs of EtwpReserveWithPebsIndex @ 0x1405A9434
  * Callers:
- *     EtwpLogKernelEvent @ 0x1402AB170 (EtwpLogKernelEvent.c)
- *     EtwpLogContextSwapEvent @ 0x1403ABB10 (EtwpLogContextSwapEvent.c)
+ *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
+ *     EtwpLogContextSwapEvent @ 0x1403AEE10 (EtwpLogContextSwapEvent.c)
  * Callees:
- *     EtwpReserveTraceBuffer @ 0x1402ABBF0 (EtwpReserveTraceBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x1403506F0 (EtwpReserveTraceBuffer.c)
  */
 
-__int64 __fastcall EtwpReserveWithPebsIndex(__int64 a1, __int16 a2, int a3, __int64 a4, __int64 *a5, int a6)
+unsigned __int64 __fastcall EtwpReserveWithPebsIndex(
+        unsigned int *a1,
+        __int16 a2,
+        int a3,
+        __int64 a4,
+        signed __int64 *a5,
+        __int16 a6)
 {
   __int16 v6; // bx
-  __int64 result; // rax
+  unsigned __int64 result; // rax
 
   v6 = a3 + 24;
-  result = EtwpReserveTraceBuffer(a1, a3 + 24, a4, a5, a6);
+  result = EtwpReserveTraceBuffer(a1, (unsigned int)(a3 + 24), a4, a5, a6);
   if ( result )
   {
     *(_QWORD *)(result + 8) = *a5;

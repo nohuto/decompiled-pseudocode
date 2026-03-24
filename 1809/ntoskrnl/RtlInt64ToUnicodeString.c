@@ -3,7 +3,7 @@
  * Callers:
  *     ExpWnfComposeValueName @ 0x1405AAC5C (ExpWnfComposeValueName.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
  *     RtlLargeIntegerToChar @ 0x1405AAF90 (RtlLargeIntegerToChar.c)
  */

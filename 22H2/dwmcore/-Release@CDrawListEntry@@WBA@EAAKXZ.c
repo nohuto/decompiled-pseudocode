@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?Release@CDrawListEntry@@WBA@EAAKXZ @ 0x1800F5CB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CDrawListEntry::Release(__int64 a1)
+{
+  return CDrawListEntry::Release((CDrawListEntry *)(a1 - 16));
+}

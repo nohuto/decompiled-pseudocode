@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlCalculateLivedumpBufferSize @ 0x14027A5AC
+ * XREFs of HvlCalculateLivedumpBufferSize @ 0x14027A6AC
  * Callers:
- *     HvlCalculateLivedumpSize @ 0x1402776D0 (HvlCalculateLivedumpSize.c)
+ *     HvlCalculateLivedumpSize @ 0x1402777D0 (HvlCalculateLivedumpSize.c)
  * Callees:
  *     <none>
  */

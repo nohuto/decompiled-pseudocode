@@ -1,35 +1,35 @@
 /*
- * XREFs of ?_SetCloseDefault@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C0221E3C
+ * XREFs of ?_SetCloseDefault@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C0110D40
  * Callers:
- *     ?SetupFakeMDIAppStuff@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0221D74 (-SetupFakeMDIAppStuff@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
- *     xxxSetSysMenu @ 0x1C0222254 (xxxSetSysMenu.c)
+ *     xxxSetSysMenu @ 0x1C0046C70 (xxxSetSysMenu.c)
+ *     ?SetupFakeMDIAppStuff@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C023EF0C (-SetupFakeMDIAppStuff@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
  * Callees:
- *     _SetMenuDefaultItem @ 0x1C00A8D1C (_SetMenuDefaultItem.c)
+ *     _SetMenuDefaultItem @ 0x1C0110D7C (_SetMenuDefaultItem.c)
  */
 
-__int64 __fastcall _SetCloseDefault(__int64 **a1)
+__int64 __fastcall _SetCloseDefault(_QWORD **a1)
 {
-  __int64 v2; // rcx
+  _QWORD *v2; // rcx
   __int64 result; // rax
-  __int64 v4; // rcx
-  __int64 v5; // rcx
+  _QWORD *v4; // rcx
+  _QWORD *v5; // rcx
 
-  v2 = (__int64)a1[2];
+  v2 = a1[2];
   if ( !v2 )
-    v2 = **a1;
-  result = SetMenuDefaultItem(v2, 0xF060u, 0);
+    v2 = (_QWORD *)**a1;
+  result = SetMenuDefaultItem(v2, 61536LL, 0LL);
   if ( !(_DWORD)result )
   {
-    v4 = (__int64)a1[2];
+    v4 = a1[2];
     if ( !v4 )
-      v4 = **a1;
-    result = SetMenuDefaultItem(v4, 0x8060u, 0);
+      v4 = (_QWORD *)**a1;
+    result = SetMenuDefaultItem(v4, 32864LL, 0LL);
     if ( !(_DWORD)result )
     {
-      v5 = (__int64)a1[2];
+      v5 = a1[2];
       if ( !v5 )
-        v5 = **a1;
-      return SetMenuDefaultItem(v5, 0xC070u, 0);
+        v5 = (_QWORD *)**a1;
+      return SetMenuDefaultItem(v5, 49264LL, 0LL);
     }
   }
   return result;

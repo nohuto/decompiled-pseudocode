@@ -3,7 +3,7 @@
  * Callers:
  *     SepCopyAnonymousTokenAndSetSilo @ 0x1405828D0 (SepCopyAnonymousTokenAndSetSilo.c)
  *     NtSetInformationToken @ 0x1405BDAA0 (NtSetInformationToken.c)
- *     SepCopyClientTokenAndSetSilo @ 0x14089BCF0 (SepCopyClientTokenAndSetSilo.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x14089BCD0 (SepCopyClientTokenAndSetSilo.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
@@ -11,8 +11,8 @@
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     MmGetSessionObjectById @ 0x14007F244 (MmGetSessionObjectById.c)
  *     SepDereferenceLowBoxNumberEntry @ 0x1405DF038 (SepDereferenceLowBoxNumberEntry.c)
- *     SepSetTokenSessionById @ 0x14064FD9C (SepSetTokenSessionById.c)
- *     SepSetTokenLowboxNumber @ 0x14065C104 (SepSetTokenLowboxNumber.c)
+ *     SepSetTokenSessionById @ 0x14064FD7C (SepSetTokenSessionById.c)
+ *     SepSetTokenLowboxNumber @ 0x14065C0E4 (SepSetTokenLowboxNumber.c)
  */
 
 NTSTATUS __stdcall SeSetSessionIdToken(PACCESS_TOKEN Token, ULONG SessionId)

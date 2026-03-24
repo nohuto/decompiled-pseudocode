@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ProcessInput@Edgy@@YAHPEAXPEAPEAX@Z @ 0x1C016D560
+ * XREFs of ?ProcessInput@Edgy@@YAHPEAXPEAPEAX@Z @ 0x1C0207978
  * Callers:
- *     EditionEdgyProcessInput @ 0x1C0209060 (EditionEdgyProcessInput.c)
+ *     EditionEdgyProcessInput @ 0x1C0208C70 (EditionEdgyProcessInput.c)
  * Callees:
- *     ?_OnInput@Edgy@@YA?AUtagSTATE_TRANSITION_DATA@1@AEAUtagEDGY_DATA@@PEAX@Z @ 0x1C0208B8C (-_OnInput@Edgy@@YA-AUtagSTATE_TRANSITION_DATA@1@AEAUtagEDGY_DATA@@PEAX@Z.c)
+ *     ?_OnInput@Edgy@@YA?AUtagSTATE_TRANSITION_DATA@1@AEAUtagEDGY_DATA@@PEAX@Z @ 0x1C020877C (-_OnInput@Edgy@@YA-AUtagSTATE_TRANSITION_DATA@1@AEAUtagEDGY_DATA@@PEAX@Z.c)
  */
 
 __int64 __fastcall Edgy::ProcessInput(Edgy *this, _QWORD *a2, void **a3)

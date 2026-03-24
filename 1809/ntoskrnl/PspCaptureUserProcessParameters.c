@@ -2,17 +2,17 @@
  * XREFs of PspCaptureUserProcessParameters @ 0x140606D50
  * Callers:
  *     PspCaptureProcessParameters @ 0x140609028 (PspCaptureProcessParameters.c)
- *     PsCaptureUserProcessParameters @ 0x1406CEE10 (PsCaptureUserProcessParameters.c)
+ *     PsCaptureUserProcessParameters @ 0x1406CEDF0 (PsCaptureUserProcessParameters.c)
  * Callees:
  *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7650 (ExAllocatePoolWithQuotaTag.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     PspCopyUnicodeString @ 0x1406072B8 (PspCopyUnicodeString.c)
  *     PspCaptureAndValidateUnicodeString @ 0x140607328 (PspCaptureAndValidateUnicodeString.c)
  *     PspValidateEnvironmentBlock @ 0x1406073A0 (PspValidateEnvironmentBlock.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65E0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PspCaptureUserProcessParameters(_QWORD *a1, __int64 a2, char a3, __int64 a4)

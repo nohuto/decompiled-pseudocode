@@ -1,17 +1,17 @@
 /*
- * XREFs of KiLockExtendedServiceTable @ 0x14019F848
+ * XREFs of KiLockExtendedServiceTable @ 0x14019F868
  * Callers:
- *     KiLockServiceTable @ 0x1401738C4 (KiLockServiceTable.c)
+ *     KiLockServiceTable @ 0x1401738E4 (KiLockServiceTable.c)
  * Callees:
  *     MmIsSessionAddress @ 0x1400245B0 (MmIsSessionAddress.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     PsGetCurrentProcess @ 0x1400F1310 (PsGetCurrentProcess.c)
- *     RtlLookupFunctionTable @ 0x1401375C0 (RtlLookupFunctionTable.c)
- *     RtlpConvertFunctionEntry @ 0x140184F40 (RtlpConvertFunctionEntry.c)
- *     RtlCaptureImageExceptionValues @ 0x140192FB0 (RtlCaptureImageExceptionValues.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PsGetCurrentProcess @ 0x1400F1330 (PsGetCurrentProcess.c)
+ *     RtlLookupFunctionTable @ 0x1401375E0 (RtlLookupFunctionTable.c)
+ *     RtlpConvertFunctionEntry @ 0x140184F60 (RtlpConvertFunctionEntry.c)
+ *     RtlCaptureImageExceptionValues @ 0x140192FD0 (RtlCaptureImageExceptionValues.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  */
 
 __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULONG_PTR a2, unsigned int a3, int a4)

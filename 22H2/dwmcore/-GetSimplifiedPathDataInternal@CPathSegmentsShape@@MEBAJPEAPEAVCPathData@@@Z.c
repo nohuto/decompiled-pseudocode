@@ -1,50 +1,41 @@
 /*
- * XREFs of ?GetSimplifiedPathDataInternal@CPathSegmentsShape@@MEBAJPEAPEAVCPathData@@@Z @ 0x180015BA0
+ * XREFs of ?GetSimplifiedPathDataInternal@CPathSegmentsShape@@MEBAJPEAPEAVCPathData@@@Z @ 0x18025F590
  * Callers:
  *     <none>
  * Callees:
- *     ??4?$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x1800162D4 (--4-$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
- *     ?IsSimpleGeometry@CPathData@@QEBA_NXZ @ 0x1800167AC (-IsSimpleGeometry@CPathData@@QEBA_NXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E12E0 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?Simplify@CPathData@@QEBAJPEAPEAV1@@Z @ 0x180280558 (-Simplify@CPathData@@QEBAJPEAPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??4?$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x1800DBB00 (--4-$ComPtr@VCPathData@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?IsSimpleGeometry@CPathData@@QEBA_NXZ @ 0x180220CD4 (-IsSimpleGeometry@CPathData@@QEBA_NXZ.c)
+ *     ?Simplify@CPathData@@QEBAJPEAPEAV1@@Z @ 0x180220F7C (-Simplify@CPathData@@QEBAJPEAPEAV1@@Z.c)
  */
 
 __int64 __fastcall CPathSegmentsShape::GetSimplifiedPathDataInternal(CPathSegmentsShape *this, struct CPathData **a2)
 {
-  CPathData **v2; // rdi
+  __int64 *v2; // rdi
   unsigned int v3; // ebx
   CPathData *v4; // rcx
-  struct CPathData *v6; // rcx
-  CPathData *v8; // rbx
-  int v9; // eax
-  unsigned int v10; // ecx
-  struct CPathData *v11; // [rsp+40h] [rbp+8h] BYREF
+  int v6; // eax
+  __int64 v7; // rcx
+  struct CPathData *v9; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = (CPathData **)((char *)this + 16);
+  v2 = (__int64 *)((char *)this + 16);
   v3 = 0;
   v4 = (CPathData *)*((_QWORD *)this + 2);
-  v11 = 0LL;
+  v9 = 0LL;
   if ( CPathData::IsSimpleGeometry(v4) )
   {
-    Microsoft::WRL::ComPtr<CPathData>::operator=(&v11, v2);
-  }
-  else
-  {
-    v8 = *v2;
-    Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v11);
-    v9 = CPathData::Simplify(v8, &v11);
-    v3 = v9;
-    if ( v9 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x2Fu, 0LL);
-      goto LABEL_4;
-    }
-  }
-  v6 = v11;
-  v11 = 0LL;
-  *a2 = v6;
+    Microsoft::WRL::ComPtr<CPathData>::operator=((__int64 *)&v9, v2);
 LABEL_4:
-  Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v11);
+    *a2 = v9;
+    return v3;
+  }
+  v6 = CPathData::Simplify((CPathData *)*v2, &v9);
+  v3 = v6;
+  if ( v6 >= 0 )
+    goto LABEL_4;
+  MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x2Fu, 0LL);
+  if ( v9 )
+    (*(void (__fastcall **)(struct CPathData *))(*(_QWORD *)v9 + 16LL))(v9);
   return v3;
 }

@@ -1,42 +1,42 @@
 /*
- * XREFs of ExpTranslateBootEntryNameToId @ 0x14083FDB8
+ * XREFs of ExpTranslateBootEntryNameToId @ 0x1409520BC
  * Callers:
- *     NtEnumerateBootEntries @ 0x14083F840 (NtEnumerateBootEntries.c)
- *     ExpIsBootEntry @ 0x14083FD70 (ExpIsBootEntry.c)
+ *     ExpIsBootEntry @ 0x140950A20 (ExpIsBootEntry.c)
+ *     NtEnumerateBootEntries @ 0x140953360 (NtEnumerateBootEntries.c)
  * Callees:
- *     towlower @ 0x1403DB140 (towlower.c)
+ *     towlower @ 0x1403D36A0 (towlower.c)
  */
 
 __int64 __fastcall ExpTranslateBootEntryNameToId(wint_t *a1, int *a2)
 {
-  wint_t *v5; // r14
-  int v6; // edi
+  wint_t *v4; // r14
+  int v5; // edi
   unsigned int i; // esi
-  wint_t v8; // ax
-  int v9; // edi
+  wint_t v7; // ax
+  int v8; // edi
 
   if ( towlower(*a1) != 98 || towlower(a1[1]) != 111 || towlower(a1[2]) != 111 || towlower(a1[3]) != 116 )
     return 0LL;
-  v5 = a1 + 4;
-  v6 = 0;
+  v4 = a1 + 4;
+  v5 = 0;
   for ( i = 4; i < 8; ++i )
   {
-    v8 = towlower(*v5);
-    if ( (unsigned __int16)(v8 - 48) > 9u )
+    v7 = towlower(*v4);
+    if ( (unsigned __int16)(v7 - 48) > 9u )
     {
-      if ( (unsigned __int16)(v8 - 97) > 5u )
+      if ( (unsigned __int16)(v7 - 97) > 5u )
         return 0LL;
-      v9 = 16 * v6 - 87;
+      v8 = 16 * v5 - 87;
     }
     else
     {
-      v9 = 16 * v6 - 48;
+      v8 = 16 * v5 - 48;
     }
-    v6 = v8 + v9;
-    ++v5;
+    v5 = v7 + v8;
+    ++v4;
   }
   if ( a1[8] )
     return 0LL;
-  *a2 = v6;
+  *a2 = v5;
   return 1LL;
 }

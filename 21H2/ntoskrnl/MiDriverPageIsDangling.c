@@ -1,20 +1,21 @@
 /*
- * XREFs of MiDriverPageIsDangling @ 0x1405905CC
+ * XREFs of MiDriverPageIsDangling @ 0x1405357F4
  * Callers:
- *     MiDeleteSystemPagableVm @ 0x14027E810 (MiDeleteSystemPagableVm.c)
- *     MiWalkEntireImage @ 0x140336B30 (MiWalkEntireImage.c)
- *     MiDeleteValidSystemPage @ 0x14033BEC0 (MiDeleteValidSystemPage.c)
+ *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
+ *     MiDeleteSystemPagableVm @ 0x140305A80 (MiDeleteSystemPagableVm.c)
+ *     MiDeleteValidSystemPage @ 0x140328E20 (MiDeleteValidSystemPage.c)
  * Callees:
- *     <none>
+ *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
-__int64 __fastcall MiDriverPageIsDangling(__int64 a1)
+_BOOL8 __fastcall MiDriverPageIsDangling(__int64 a1)
 {
-  __int64 result; // rax
+  _BOOL8 result; // rax
+  __int64 v2; // rdx
 
-  result = qword_140C4F4D8;
-  if ( *(__int64 *)(a1 + 40) < 0 )
-    --*(_QWORD *)(qword_140C4F4D8 + 200);
-  --*(_QWORD *)(result + 208);
+  result = MI_PFN_IS_PROTO(a1);
+  if ( result )
+    --*(_QWORD *)(v2 + 200);
+  --*(_QWORD *)(v2 + 208);
   return result;
 }

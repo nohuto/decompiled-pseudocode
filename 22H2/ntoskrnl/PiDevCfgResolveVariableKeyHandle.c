@@ -1,476 +1,489 @@
 /*
- * XREFs of PiDevCfgResolveVariableKeyHandle @ 0x140961B9C
+ * XREFs of PiDevCfgResolveVariableKeyHandle @ 0x1408A9ADC
  * Callers:
- *     PiDevCfgResolveVariableKeyCopy @ 0x140961AC0 (PiDevCfgResolveVariableKeyCopy.c)
- *     PiDevCfgResolveVariableKeyValue @ 0x140962330 (PiDevCfgResolveVariableKeyValue.c)
+ *     PiDevCfgResolveVariableKeyCopy @ 0x1408A9A00 (PiDevCfgResolveVariableKeyCopy.c)
+ *     PiDevCfgResolveVariableKeyValue @ 0x1408AA2B0 (PiDevCfgResolveVariableKeyValue.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     PnpValidateRegistryString @ 0x1403CDBD4 (PnpValidateRegistryString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D93F0 (_wcsicmp.c)
- *     wcschr @ 0x1403DB2B0 (wcschr.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     _CmGetDeviceRegProp @ 0x1406CD50C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     PnpRegSzToString @ 0x1407C274C (PnpRegSzToString.c)
- *     _PnpCtxOpenContextBaseKey @ 0x14087D7F0 (_PnpCtxOpenContextBaseKey.c)
- *     PiDevCfgResolveVariable @ 0x14087F0D0 (PiDevCfgResolveVariable.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     PnpValidateRegistryString @ 0x14036E3FC (PnpValidateRegistryString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D19D0 (_wcsicmp.c)
+ *     wcschr @ 0x1403D3810 (wcschr.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     _CmGetDeviceRegProp @ 0x1406BA24C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     PnpRegSzToString @ 0x14073C4CC (PnpRegSzToString.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     PiDevCfgResolveVariable @ 0x14077B470 (PiDevCfgResolveVariable.c)
+ *     _PnpCtxOpenContextBaseKey @ 0x14077C808 (_PnpCtxOpenContextBaseKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableKeyHandle(_QWORD *a1, void *a2, _QWORD *a3)
 {
-  unsigned int v3; // edi
-  _QWORD *v5; // r13
+  unsigned int v5; // r13d
   NTSTATUS RegistryValue; // eax
-  unsigned int *v8; // r14
-  int DeviceRegProp; // ebx
-  const wchar_t **v10; // rsi
-  const wchar_t *v11; // rbx
+  unsigned int *v7; // r15
+  int DeviceRegProp; // edi
+  __int64 v9; // rbx
+  const wchar_t *v10; // rdi
+  const wchar_t **v11; // rsi
   __int64 v12; // rcx
-  wchar_t *v13; // rax
-  wchar_t **v14; // rdi
-  __int64 v15; // r8
-  __int64 v16; // rdx
-  int v17; // eax
+  WCHAR *v13; // rsi
+  wchar_t *v14; // rax
+  wchar_t **v15; // rbx
+  __int64 v16; // r8
+  __int64 v17; // rax
   int v18; // eax
-  const WCHAR *v19; // rsi
+  int v19; // edx
   NTSTATUS v20; // eax
-  const wchar_t *v21; // rdi
+  const wchar_t *v21; // rsi
   wchar_t *v22; // rax
-  unsigned int v23; // esi
-  char *v24; // r15
-  const wchar_t *v25; // r12
-  unsigned int v26; // r13d
-  wchar_t *v27; // rax
-  wchar_t *v28; // rsi
-  __int64 v29; // rdi
-  int v30; // edi
-  __int64 *v31; // r15
-  int v32; // eax
-  __int64 v33; // rcx
-  __int64 v34; // rdi
-  const wchar_t *v35; // rsi
+  PVOID PoolWithTag; // rax
+  const wchar_t *v24; // r12
+  unsigned int v25; // r13d
+  wchar_t *v26; // rax
+  wchar_t *v27; // rbx
+  __int64 v28; // rcx
+  int v29; // esi
+  int v30; // edx
+  _QWORD *v31; // r14
+  __int64 v32; // rcx
+  unsigned int v33; // eax
+  __int64 v34; // rdx
+  const wchar_t *v35; // rbx
   __int64 v36; // rax
-  bool v37; // zf
   unsigned int MaximumLength; // ebx
-  wchar_t *v39; // r12
-  unsigned int v40; // r13d
-  unsigned int v41; // ebx
-  const wchar_t *v42; // r15
-  wchar_t *v43; // rax
-  wchar_t *v44; // rsi
-  __int64 v45; // rax
-  const wchar_t *v46; // r9
-  unsigned int v47; // edi
-  __int64 v48; // rcx
-  __int64 v49; // rdi
-  const wchar_t *v50; // rsi
-  __int64 v51; // rax
-  UNICODE_STRING v52; // xmm0
-  unsigned int v53; // edx
-  _WORD *v54; // rcx
-  HANDLE v55; // rax
+  wchar_t *Buffer; // r13
+  unsigned int v39; // eax
+  const wchar_t *v40; // r12
+  wchar_t *v41; // rax
+  wchar_t *v42; // r14
+  __int64 v43; // rcx
+  const wchar_t *v44; // r9
+  unsigned int v45; // esi
+  __int64 v46; // rcx
+  unsigned int v47; // eax
+  __int64 v48; // rsi
+  const wchar_t *v49; // r14
+  __int64 v50; // rax
+  UNICODE_STRING v51; // xmm0
+  unsigned int v52; // edx
+  _WORD *v53; // rcx
+  HANDLE v54; // rax
   PVOID P; // [rsp+40h] [rbp-C0h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-B8h] BYREF
-  unsigned int v59; // [rsp+50h] [rbp-B0h]
-  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-A0h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-90h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned int v59; // [rsp+60h] [rbp-A0h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-98h] BYREF
+  _QWORD *v61; // [rsp+98h] [rbp-68h]
   int v62; // [rsp+A0h] [rbp-60h] BYREF
-  _DWORD v63[3]; // [rsp+A4h] [rbp-5Ch] BYREF
+  int v63; // [rsp+A4h] [rbp-5Ch] BYREF
+  const wchar_t *v64; // [rsp+A8h] [rbp-58h]
   UNICODE_STRING UnicodeString; // [rsp+B0h] [rbp-50h] BYREF
-  HANDLE v65; // [rsp+C0h] [rbp-40h] BYREF
-  PVOID Pool2; // [rsp+C8h] [rbp-38h]
+  PVOID v66; // [rsp+C0h] [rbp-40h]
+  HANDLE v67; // [rsp+C8h] [rbp-38h] BYREF
   HANDLE KeyHandle; // [rsp+D0h] [rbp-30h] BYREF
-  const wchar_t *v68; // [rsp+D8h] [rbp-28h]
-  _QWORD *v69; // [rsp+E0h] [rbp-20h]
-  _QWORD *v70; // [rsp+E8h] [rbp-18h]
-  _BYTE v71[76]; // [rsp+F0h] [rbp-10h] BYREF
-  __int16 v72; // [rsp+13Ch] [rbp+3Ch]
+  _QWORD *v69; // [rsp+D8h] [rbp-28h]
+  _BYTE v70[76]; // [rsp+E0h] [rbp-20h] BYREF
+  __int16 v71; // [rsp+12Ch] [rbp+2Ch]
 
-  v3 = 0;
-  v70 = a3;
+  v69 = a3;
   *a3 = 0LL;
-  v5 = a3;
-  v69 = a1;
+  v61 = a1;
   P = 0LL;
   Handle = 0LL;
   KeyHandle = 0LL;
-  v65 = 0LL;
+  v67 = 0LL;
   v62 = 0;
-  v63[0] = 0;
   DestinationString = 0LL;
-  Pool2 = 0LL;
+  v63 = 0;
+  v5 = 0;
+  v66 = 0LL;
   *(_QWORD *)&UnicodeString.Length = 0LL;
   UnicodeString.Buffer = 0LL;
   RegistryValue = IopGetRegistryValue(a2, L"KeyRoot", 0, &P);
-  v8 = (unsigned int *)P;
+  v7 = (unsigned int *)P;
   DeviceRegProp = RegistryValue;
-  if ( RegistryValue >= 0 )
+  if ( RegistryValue < 0 )
+    goto LABEL_105;
+  if ( !PnpValidateRegistryString(P) )
   {
-    if ( !PnpValidateRegistryString(P) )
-    {
 LABEL_3:
-      DeviceRegProp = -1073741823;
-      goto LABEL_102;
-    }
-    v10 = (const wchar_t **)&off_140A7A420;
-    v11 = (const wchar_t *)((char *)v8 + v8[2]);
-    while ( wcsicmp(*v10, v11) )
+    DeviceRegProp = -1073741823;
+    goto LABEL_105;
+  }
+  v9 = 0LL;
+  v10 = (const wchar_t *)((char *)v7 + v7[2]);
+  v11 = (const wchar_t **)&off_140985B30;
+  while ( wcsicmp(*v11, v10) )
+  {
+    v9 = (unsigned int)(v9 + 1);
+    v11 += 4;
+    if ( (unsigned int)v9 >= 7 )
+      goto LABEL_7;
+  }
+  v15 = &(&off_140985B30)[4 * v9];
+  if ( v15 )
+  {
+    v16 = *((unsigned int *)v15 + 4);
+    v13 = 0LL;
+    v17 = *a1;
+    if ( !(_DWORD)v16 )
     {
-      ++v3;
-      v10 += 4;
-      if ( v3 >= 7 )
-        goto LABEL_7;
-    }
-    v14 = &(&off_140A7A420)[4 * v3];
-    if ( v14 )
-    {
-      v15 = *((unsigned int *)v14 + 4);
-      v16 = *a1;
-      if ( !(_DWORD)v15 )
+      v19 = *((_DWORD *)v15 + 3);
+      if ( !v19 )
       {
-        v18 = *((_DWORD *)v14 + 3);
-        if ( !v18 )
-        {
-          DeviceRegProp = -1073741595;
-          goto LABEL_102;
-        }
-        if ( v18 == 7 )
-        {
-          v62 = 78;
-          DeviceRegProp = CmGetDeviceRegProp(
-                            *(__int64 *)&PiPnpRtlCtx,
-                            *(_QWORD *)(v16 + 48),
-                            0LL,
-                            9,
-                            (__int64)v63,
-                            (__int64)v71,
-                            (__int64)&v62,
-                            0);
-          if ( DeviceRegProp < 0 )
-            goto LABEL_102;
-          if ( v63[0] != 1 )
-            goto LABEL_3;
-          v72 = 0;
-          v19 = (const WCHAR *)v71;
-        }
-        else
-        {
-          v19 = v14[3];
-        }
-        DeviceRegProp = PnpCtxOpenContextBaseKey(v12, *((_DWORD *)v14 + 3), v15, 0x20019u, (__int64)&Handle);
-        if ( DeviceRegProp < 0 )
-          goto LABEL_102;
-        if ( v19 )
-        {
-          RtlInitUnicodeString(&DestinationString, v19);
-          ObjectAttributes.RootDirectory = Handle;
-          *(_QWORD *)&ObjectAttributes.Length = 48LL;
-          ObjectAttributes.ObjectName = &DestinationString;
-          *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-          DeviceRegProp = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
-          if ( DeviceRegProp < 0 )
-            goto LABEL_102;
-          ZwClose(Handle);
-          Handle = KeyHandle;
-        }
-LABEL_30:
-        ExFreePoolWithTag(v8, 0);
-        P = 0LL;
-        v20 = IopGetRegistryValue(a2, L"KeyPath", 0, &P);
-        v8 = (unsigned int *)P;
-        DeviceRegProp = v20;
-        if ( v20 < 0 )
-        {
-          if ( v20 != -1073741772 )
-            goto LABEL_102;
-          v55 = Handle;
-          DeviceRegProp = 0;
-          v65 = Handle;
-          Handle = 0LL;
-        }
-        else
-        {
-          if ( !PnpValidateRegistryString(P) )
-            goto LABEL_3;
-          v68 = (const wchar_t *)((char *)v8 + v8[2]);
-          v21 = v68;
-          v22 = wcschr(v68, 0x24u);
-          if ( !v22 )
-            goto LABEL_95;
-          v23 = 0;
-          do
-          {
-            ++v23;
-            v22 = wcschr(v22 + 1, 0x24u);
-          }
-          while ( v22 );
-          v59 = v23;
-          if ( v23 )
-          {
-            Pool2 = (PVOID)ExAllocatePool2(256LL, 8LL * v23, 1667526736LL);
-            v24 = (char *)Pool2;
-            if ( !Pool2 )
-              goto LABEL_37;
-            v25 = v21;
-            v26 = 0;
-            if ( *v21 )
-            {
-              do
-              {
-                if ( v26 >= v23 )
-                  break;
-                v27 = wcschr(v25, 0x5Cu);
-                v28 = v27;
-                if ( v27 )
-                {
-                  *v27 = 0;
-                  v29 = v27 - v25;
-                }
-                else
-                {
-                  v29 = -1LL;
-                  do
-                    ++v29;
-                  while ( v25[v29] );
-                }
-                v30 = 2 * v29;
-                if ( *v25 == 36 )
-                {
-                  v31 = (__int64 *)&v24[8 * v26];
-                  v32 = PiDevCfgResolveVariable((__int64)v69, v25 + 1, v31);
-                  DeviceRegProp = v32;
-                  if ( v32 < 0 )
-                  {
-                    if ( v32 != -1073741772 )
-                      goto LABEL_102;
-                    DeviceRegProp = 0;
-                  }
-                  else
-                  {
-                    v33 = *v31;
-                    if ( *(_DWORD *)(*v31 + 32) == 1 || *(_DWORD *)(*v31 + 32) == 2 )
-                    {
-                      v30 = *(_DWORD *)(v33 + 36) - 2;
-                    }
-                    else if ( *(_DWORD *)(*v31 + 32) == 7 )
-                    {
-                      v34 = -1LL;
-                      do
-                        ++v34;
-                      while ( *(_WORD *)(*(_QWORD *)(v33 + 40) + 2 * v34) );
-                      v30 = 2 * v34;
-                    }
-                  }
-                  v24 = (char *)Pool2;
-                  ++v26;
-                }
-                if ( (unsigned __int64)(v30 + (unsigned int)UnicodeString.MaximumLength) + 2 >= 0xFFFE )
-                {
-                  DeviceRegProp = -2147483643;
-                  goto LABEL_102;
-                }
-                UnicodeString.MaximumLength += v30 + 2;
-                if ( v28 )
-                {
-                  *v28 = 92;
-                  v35 = v28 + 1;
-                }
-                else
-                {
-                  v36 = -1LL;
-                  do
-                    ++v36;
-                  while ( v25[v36] );
-                  v35 = &v25[v36];
-                }
-                v37 = *v35 == 0;
-                v25 = v35;
-                v23 = v59;
-              }
-              while ( !v37 );
-              if ( DeviceRegProp < 0 )
-                goto LABEL_102;
-              v21 = v68;
-            }
-            MaximumLength = UnicodeString.MaximumLength;
-            UnicodeString.Length = UnicodeString.MaximumLength - 2;
-            v39 = (wchar_t *)ExAllocatePool2(256LL, UnicodeString.MaximumLength, 1667526736LL);
-            UnicodeString.Buffer = v39;
-            if ( !v39 )
-            {
-LABEL_37:
-              DeviceRegProp = -1073741670;
-              goto LABEL_102;
-            }
-            v40 = MaximumLength;
-            v41 = 0;
-            v42 = v21;
-            LODWORD(P) = 0;
-            if ( *v21 )
-            {
-              while ( v41 < v23 )
-              {
-                v43 = wcschr(v42, 0x5Cu);
-                v44 = v43;
-                if ( v43 )
-                {
-                  *v43 = 0;
-                  v45 = v43 - v42;
-                }
-                else
-                {
-                  v45 = -1LL;
-                  do
-                    ++v45;
-                  while ( v42[v45] );
-                }
-                v46 = v42;
-                if ( v42 != v21 )
-                {
-                  if ( v40 <= 2 )
-                    goto LABEL_3;
-                  *v39++ = 92;
-                  v40 -= 2;
-                }
-                v47 = 2 * v45;
-                if ( *v42 == 36 )
-                {
-                  LODWORD(P) = v41 + 1;
-                  v48 = *((_QWORD *)Pool2 + v41);
-                  if ( v48 )
-                  {
-                    if ( *(_DWORD *)(v48 + 32) == 1 || *(_DWORD *)(v48 + 32) == 2 )
-                    {
-                      v46 = *(const wchar_t **)(v48 + 40);
-                      v47 = *(_DWORD *)(v48 + 36) - 2;
-                    }
-                    else if ( *(_DWORD *)(v48 + 32) == 7 )
-                    {
-                      v46 = *(const wchar_t **)(v48 + 40);
-                      v49 = -1LL;
-                      do
-                        ++v49;
-                      while ( v46[v49] );
-                      v47 = 2 * v49;
-                    }
-                  }
-                }
-                if ( v40 <= v47 )
-                  goto LABEL_3;
-                memmove(v39, v46, v47);
-                v40 -= v47;
-                v39 += (unsigned __int64)v47 >> 1;
-                if ( v44 )
-                {
-                  *v44 = 92;
-                  v50 = v44 + 1;
-                }
-                else
-                {
-                  v51 = -1LL;
-                  do
-                    ++v51;
-                  while ( v42[v51] );
-                  v50 = &v42[v51];
-                }
-                v42 = v50;
-                if ( !*v50 )
-                  break;
-                v41 = (unsigned int)P;
-                v21 = v68;
-                v23 = v59;
-              }
-            }
-            if ( v40 != 2 )
-              goto LABEL_3;
-            v52 = UnicodeString;
-            v5 = v70;
-            *v39 = 0;
-            DestinationString = v52;
-          }
-          else
-          {
-LABEL_95:
-            v53 = v8[3];
-            v54 = (_WORD *)((char *)v8 + v8[2]);
-            LODWORD(P) = 0;
-            PnpRegSzToString(v54, v53, (int *)&P);
-            DestinationString.Length = (unsigned __int16)P;
-            DestinationString.MaximumLength = *((_WORD *)v8 + 6);
-            DestinationString.Buffer = (wchar_t *)((char *)v8 + v8[2]);
-          }
-          ObjectAttributes.RootDirectory = Handle;
-          *(_QWORD *)&ObjectAttributes.Length = 48LL;
-          ObjectAttributes.ObjectName = &DestinationString;
-          *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-          v65 = 0LL;
-          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-          DeviceRegProp = ZwOpenKey(&v65, 0x20019u, &ObjectAttributes);
-          if ( DeviceRegProp < 0 )
-            goto LABEL_102;
-          v55 = v65;
-        }
-        *v5 = v55;
-        goto LABEL_102;
+        DeviceRegProp = -1073741595;
+        goto LABEL_105;
       }
-      v17 = CmOpenDeviceRegKey(
-              *(__int64 *)&PiPnpRtlCtx,
-              *(_QWORD *)(v16 + 48),
-              v15,
-              0,
-              131097,
-              0,
-              (__int64)&Handle,
-              0LL);
-LABEL_29:
-      DeviceRegProp = v17;
-      if ( v17 < 0 )
-        goto LABEL_102;
-      goto LABEL_30;
+      if ( v19 == 7 )
+      {
+        v62 = 78;
+        DeviceRegProp = CmGetDeviceRegProp(
+                          *(__int64 *)&PiPnpRtlCtx,
+                          *(_QWORD *)(v17 + 48),
+                          0LL,
+                          9,
+                          (__int64)&v63,
+                          (__int64)v70,
+                          (__int64)&v62,
+                          0);
+        if ( DeviceRegProp < 0 )
+          goto LABEL_105;
+        if ( v63 != 1 )
+          goto LABEL_3;
+        v19 = *((_DWORD *)v15 + 3);
+        v71 = 0;
+        v13 = (WCHAR *)v70;
+      }
+      else
+      {
+        v13 = v15[3];
+      }
+      DeviceRegProp = PnpCtxOpenContextBaseKey(v12, v19, v16, 0x20019u, (__int64)&Handle);
+      if ( DeviceRegProp < 0 )
+        goto LABEL_105;
+      if ( v13 )
+      {
+        RtlInitUnicodeString(&DestinationString, v13);
+        ObjectAttributes.RootDirectory = Handle;
+        *(_QWORD *)&ObjectAttributes.Length = 48LL;
+        ObjectAttributes.ObjectName = &DestinationString;
+        *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+        v13 = 0LL;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        DeviceRegProp = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+        if ( DeviceRegProp < 0 )
+          goto LABEL_105;
+        ZwClose(Handle);
+        Handle = KeyHandle;
+      }
+      goto LABEL_31;
     }
+    v18 = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, *(_QWORD *)(v17 + 48), v16, 0, 131097, 0, (__int64)&Handle, 0LL);
+  }
+  else
+  {
 LABEL_7:
-    if ( !wcsicmp(v11, L"SYSTEM") )
+    v13 = 0LL;
+    if ( wcsicmp(v10, L"SYSTEM") )
+    {
+      if ( wcsicmp(v10, L"SOFTWARE") )
+      {
+        if ( wcsicmp(v10, L"HARDWARE") )
+        {
+          DeviceRegProp = -1073741772;
+          goto LABEL_105;
+        }
+        v14 = L"\\Registry\\Machine\\HARDWARE";
+      }
+      else
+      {
+        v14 = L"\\Registry\\Machine\\SOFTWARE";
+      }
+      *(_DWORD *)&DestinationString.Length = 3538996;
+    }
+    else
     {
       *(_DWORD *)&DestinationString.Length = 3276848;
-      v13 = L"\\Registry\\Machine\\SYSTEM";
-LABEL_28:
-      DestinationString.Buffer = v13;
-      *(_QWORD *)&ObjectAttributes.Length = 48LL;
-      ObjectAttributes.ObjectName = &DestinationString;
-      *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-      ObjectAttributes.RootDirectory = 0LL;
-      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-      v17 = ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes);
-      goto LABEL_29;
+      v14 = L"\\Registry\\Machine\\SYSTEM";
     }
-    if ( !wcsicmp(v11, L"SOFTWARE") )
-    {
-      v13 = L"\\Registry\\Machine\\SOFTWARE";
-LABEL_27:
-      *(_DWORD *)&DestinationString.Length = 3538996;
-      goto LABEL_28;
-    }
-    if ( !wcsicmp(v11, L"HARDWARE") )
-    {
-      v13 = L"\\Registry\\Machine\\HARDWARE";
-      goto LABEL_27;
-    }
-    DeviceRegProp = -1073741772;
+    DestinationString.Buffer = v14;
+    *(_QWORD *)&ObjectAttributes.Length = 48LL;
+    ObjectAttributes.ObjectName = &DestinationString;
+    *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+    ObjectAttributes.RootDirectory = 0LL;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v18 = ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes);
   }
-LABEL_102:
-  RtlFreeUnicodeString(&UnicodeString);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
-  if ( v8 )
-    ExFreePoolWithTag(v8, 0);
+  DeviceRegProp = v18;
+  if ( v18 < 0 )
+    goto LABEL_105;
+LABEL_31:
+  ExFreePoolWithTag(v7, 0);
+  P = v13;
+  v20 = IopGetRegistryValue(a2, L"KeyPath", 0, &P);
+  v7 = (unsigned int *)P;
+  DeviceRegProp = v20;
+  if ( v20 < 0 )
+  {
+    if ( v20 != -1073741772 )
+      goto LABEL_105;
+    v54 = Handle;
+    DeviceRegProp = (int)v13;
+    v67 = Handle;
+    Handle = v13;
+    goto LABEL_103;
+  }
+  if ( !PnpValidateRegistryString(P) )
+    goto LABEL_3;
+  v64 = (const wchar_t *)((char *)v7 + v7[2]);
+  v21 = v64;
+  v22 = wcschr(v64, 0x24u);
+  if ( !v22 )
+    goto LABEL_98;
+  do
+  {
+    ++v5;
+    v22 = wcschr(v22 + 1, 0x24u);
+  }
+  while ( v22 );
+  LODWORD(P) = v5;
+  if ( !v5 )
+  {
+LABEL_98:
+    v52 = v7[3];
+    v53 = (_WORD *)((char *)v7 + v7[2]);
+    LODWORD(P) = 0;
+    PnpRegSzToString(v53, v52, (int *)&P);
+    DestinationString.Length = (unsigned __int16)P;
+    DestinationString.MaximumLength = *((_WORD *)v7 + 6);
+    DestinationString.Buffer = (wchar_t *)((char *)v7 + v7[2]);
+LABEL_99:
+    ObjectAttributes.RootDirectory = Handle;
+    *(_QWORD *)&ObjectAttributes.Length = 48LL;
+    ObjectAttributes.ObjectName = &DestinationString;
+    *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    DeviceRegProp = ZwOpenKey(&v67, 0x20019u, &ObjectAttributes);
+    if ( DeviceRegProp < 0 )
+      goto LABEL_105;
+    v54 = v67;
+LABEL_103:
+    *v69 = v54;
+    goto LABEL_105;
+  }
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 8LL * v5, 0x63647050u);
+  v66 = PoolWithTag;
+  if ( !PoolWithTag )
+  {
+LABEL_37:
+    DeviceRegProp = -1073741670;
+    goto LABEL_105;
+  }
+  memset(PoolWithTag, 0, 8LL * v5);
+  v24 = v21;
+  v25 = 0;
+  if ( *v21 )
+  {
+    while ( v25 < (unsigned int)P )
+    {
+      v26 = wcschr(v24, 0x5Cu);
+      v27 = v26;
+      if ( v26 )
+      {
+        *v26 = 0;
+        v28 = v26 - v24;
+      }
+      else
+      {
+        v28 = -1LL;
+        do
+          ++v28;
+        while ( v24[v28] );
+      }
+      v29 = 2 * v28;
+      v30 = 2 * v28;
+      if ( *v24 == 36 )
+      {
+        v31 = (char *)v66 + 8 * v25;
+        DeviceRegProp = PiDevCfgResolveVariable((__int64)v61, v24 + 1, v31);
+        if ( DeviceRegProp < 0 )
+        {
+          if ( DeviceRegProp != -1073741772 )
+            break;
+          v30 = v29;
+          DeviceRegProp = 0;
+        }
+        else
+        {
+          v32 = *v31;
+          v30 = v29;
+          v33 = *(_DWORD *)(*v31 + 32LL);
+          if ( v33 )
+          {
+            if ( v33 <= 2 )
+            {
+              v30 = *(_DWORD *)(v32 + 36) - 2;
+            }
+            else
+            {
+              v30 = v29;
+              if ( v33 == 7 )
+              {
+                v34 = -1LL;
+                do
+                  ++v34;
+                while ( *(_WORD *)(*(_QWORD *)(v32 + 40) + 2 * v34) );
+                v30 = 2 * v34;
+              }
+            }
+          }
+        }
+        ++v25;
+      }
+      if ( (unsigned __int64)(v30 + (unsigned int)UnicodeString.MaximumLength) + 2 >= 0xFFFE )
+      {
+        DeviceRegProp = -2147483643;
+        break;
+      }
+      UnicodeString.MaximumLength += v30 + 2;
+      if ( v27 )
+      {
+        *v27 = 92;
+        v35 = v27 + 1;
+      }
+      else
+      {
+        v36 = -1LL;
+        do
+          ++v36;
+        while ( v24[v36] );
+        v35 = &v24[v36];
+      }
+      v24 = v35;
+      if ( !*v35 )
+        break;
+    }
+    v21 = v64;
+  }
+  if ( DeviceRegProp >= 0 )
+  {
+    MaximumLength = UnicodeString.MaximumLength;
+    UnicodeString.Length = UnicodeString.MaximumLength - 2;
+    UnicodeString.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, UnicodeString.MaximumLength, 0x63647050u);
+    Buffer = UnicodeString.Buffer;
+    if ( !UnicodeString.Buffer )
+      goto LABEL_37;
+    v39 = 0;
+    v40 = v21;
+    LODWORD(v61) = 0;
+    v59 = MaximumLength;
+    if ( *v21 )
+    {
+      while ( v39 < (unsigned int)P )
+      {
+        v41 = wcschr(v40, 0x5Cu);
+        v42 = v41;
+        if ( v41 )
+        {
+          *v41 = 0;
+          v43 = v41 - v40;
+        }
+        else
+        {
+          v43 = -1LL;
+          do
+            ++v43;
+          while ( v40[v43] );
+        }
+        v44 = v40;
+        if ( v40 != v21 )
+        {
+          if ( MaximumLength <= 2 )
+            goto LABEL_3;
+          *Buffer++ = 92;
+          MaximumLength -= 2;
+          v59 = MaximumLength;
+        }
+        v45 = 2 * v43;
+        if ( *v40 == 36 )
+        {
+          v46 = *((_QWORD *)v66 + (unsigned int)v61);
+          LODWORD(v61) = (_DWORD)v61 + 1;
+          if ( v46 )
+          {
+            v47 = *(_DWORD *)(v46 + 32);
+            if ( v47 )
+            {
+              if ( v47 <= 2 )
+              {
+                v44 = *(const wchar_t **)(v46 + 40);
+                v45 = *(_DWORD *)(v46 + 36) - 2;
+              }
+              else if ( v47 == 7 )
+              {
+                v44 = *(const wchar_t **)(v46 + 40);
+                v48 = -1LL;
+                do
+                  ++v48;
+                while ( v44[v48] );
+                v45 = 2 * v48;
+              }
+            }
+          }
+        }
+        if ( MaximumLength <= v45 )
+        {
+          DeviceRegProp = -1073741823;
+          break;
+        }
+        memmove(Buffer, v44, v45);
+        Buffer += (unsigned __int64)v45 >> 1;
+        MaximumLength = v59 - v45;
+        v59 -= v45;
+        if ( v42 )
+        {
+          *v42 = 92;
+          v49 = v42 + 1;
+        }
+        else
+        {
+          v50 = -1LL;
+          do
+            ++v50;
+          while ( v40[v50] );
+          v49 = &v40[v50];
+        }
+        v40 = v49;
+        if ( !*v49 )
+          break;
+        v39 = (unsigned int)v61;
+        v21 = v64;
+      }
+    }
+    if ( DeviceRegProp >= 0 )
+    {
+      if ( MaximumLength != 2 )
+        goto LABEL_3;
+      v51 = UnicodeString;
+      *Buffer = 0;
+      DestinationString = v51;
+      goto LABEL_99;
+    }
+  }
+LABEL_105:
+  RtlFreeAnsiString(&UnicodeString);
+  if ( v66 )
+    ExFreePoolWithTag(v66, 0);
+  if ( v7 )
+    ExFreePoolWithTag(v7, 0);
   if ( Handle )
     ZwClose(Handle);
   return (unsigned int)DeviceRegProp;

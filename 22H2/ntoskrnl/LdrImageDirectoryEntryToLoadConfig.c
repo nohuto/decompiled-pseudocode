@@ -1,40 +1,39 @@
 /*
- * XREFs of LdrImageDirectoryEntryToLoadConfig @ 0x1407D4B48
+ * XREFs of LdrImageDirectoryEntryToLoadConfig @ 0x14075C6CC
  * Callers:
- *     RtlGuardRestoreContext @ 0x14033FD9C (RtlGuardRestoreContext.c)
- *     RtlIsImageFullyRetpolined @ 0x14035F928 (RtlIsImageFullyRetpolined.c)
- *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x1403764F8 (RtlpCaptureRetpolineBinaryInfoForImage.c)
- *     RtlpCaptureDynamicRelocationTableRva @ 0x140376610 (RtlpCaptureDynamicRelocationTableRva.c)
- *     RtlGetImageBaseAndLoadConfig @ 0x1405B1E90 (RtlGetImageBaseAndLoadConfig.c)
- *     RtlGuardCheckLongJumpTarget @ 0x1405B1F78 (RtlGuardCheckLongJumpTarget.c)
- *     LdrpFetchAddressOfSecurityCookie @ 0x1407D4AAC (LdrpFetchAddressOfSecurityCookie.c)
- *     MiCaptureBootDriverRetpolineInfo @ 0x140830F70 (MiCaptureBootDriverRetpolineInfo.c)
+ *     RtlGuardCheckExceptionHandler @ 0x140340314 (RtlGuardCheckExceptionHandler.c)
+ *     RtlIsImageFullyRetpolined @ 0x140372608 (RtlIsImageFullyRetpolined.c)
+ *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x1403B6910 (RtlpCaptureRetpolineBinaryInfoForImage.c)
+ *     RtlpCaptureDynamicRelocationTableRva @ 0x1403B69BC (RtlpCaptureDynamicRelocationTableRva.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x1403F7F28 (RtlGetImageBaseAndLoadConfig.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x14058F388 (RtlGuardCheckLongJumpTarget.c)
+ *     LdrpFetchAddressOfSecurityCookie @ 0x14075C630 (LdrpFetchAddressOfSecurityCookie.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x1407A57C0 (MiCaptureBootDriverRetpolineInfo.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x140214A40 (RtlImageDirectoryEntryToData.c)
- *     RtlImageNtHeaderEx @ 0x140214B80 (RtlImageNtHeaderEx.c)
+ *     RtlImageDirectoryEntryToData @ 0x140252B30 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageNtHeaderEx @ 0x14029D010 (RtlImageNtHeaderEx.c)
+ *     RtlWow64GetEquivalentMachineCHPE @ 0x140344600 (RtlWow64GetEquivalentMachineCHPE.c)
  */
 
-_DWORD *__fastcall LdrImageDirectoryEntryToLoadConfig(unsigned __int64 a1)
+__int64 __fastcall LdrImageDirectoryEntryToLoadConfig(unsigned __int64 a1)
 {
-  __int64 v1; // rbx
-  int v3; // edx
-  _DWORD *v4; // rdx
+  int v2; // edx
+  _DWORD *v3; // r8
+  __int64 v4; // r8
   int v6; // [rsp+30h] [rbp+8h] BYREF
   __int64 v7; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = 0LL;
   v6 = 0;
   v7 = 0LL;
   RtlImageNtHeaderEx(1, a1, 0LL, &v7);
   if ( !a1 )
     return 0LL;
-  LOBYTE(v3) = 1;
-  v4 = (_DWORD *)RtlImageDirectoryEntryToData(a1, v3, 10, (int)&v6);
-  if ( a1 <= 0x7FFFFFFEFFFFLL && ((unsigned __int64)(v4 + 1) > 0x7FFFFFFF0000LL || v4 + 1 < v4) )
+  LOBYTE(v2) = 1;
+  v3 = (_DWORD *)RtlImageDirectoryEntryToData(a1, v2, 10, (int)&v6);
+  if ( a1 < 0x7FFFFFFEFFFFLL && ((unsigned __int64)(v3 + 1) > 0x7FFFFFFF0000LL || v3 + 1 < v3) )
     MEMORY[0x7FFFFFFF0000] = 0;
-  if ( !v4 || !v6 || v6 != *v4 )
-    return 0LL;
-  if ( *(_WORD *)(v7 + 4) == 0x8664 )
+  if ( v3 && v6 && v6 == *v3 && RtlWow64GetEquivalentMachineCHPE(*(_WORD *)(v7 + 4)) == -31132 )
     return v4;
-  return (_DWORD *)v1;
+  else
+    return 0LL;
 }

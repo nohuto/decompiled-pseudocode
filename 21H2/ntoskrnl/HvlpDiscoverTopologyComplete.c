@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpDiscoverTopologyComplete @ 0x140B4E6A0
+ * XREFs of HvlpDiscoverTopologyComplete @ 0x140A8F044
  * Callers:
- *     HvlPhase2Initialize @ 0x1403DE4F0 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x1403CF0B8 (HvlPhase2Initialize.c)
  * Callees:
- *     HvlpDiscoverTopologyWorker @ 0x1409312AC (HvlpDiscoverTopologyWorker.c)
+ *     HvlpDiscoverTopologyWorker @ 0x14088E868 (HvlpDiscoverTopologyWorker.c)
  */
 
 int *HvlpDiscoverTopologyComplete()
@@ -26,26 +26,26 @@ int *HvlpDiscoverTopologyComplete()
   v1 = 0;
   if ( (_DWORD)HvlpLogicalProcessorCount )
   {
-    v2 = dword_140D01AEC;
-    v3 = &dword_140D125E8;
-    v4 = dword_140D01AF0;
+    v2 = dword_140CF68BC;
+    v3 = &dword_140D042E8;
+    v4 = dword_140CF68C0;
     do
     {
       if ( v3[4] == -1 )
       {
         result = (int *)HvlpDiscoverTopologyWorker();
-        v2 = dword_140D01AEC;
-        v4 = dword_140D01AF0;
+        v2 = dword_140CF68BC;
+        v4 = dword_140CF68C0;
       }
       v5 = v3[2];
       v6 = v3[3];
       if ( v5 > v2 )
         v2 = v3[2];
-      dword_140D01AEC = v2;
+      dword_140CF68BC = v2;
       if ( v6 > v4 )
         v4 = v6;
       v7 = *((_BYTE *)v3 + 104) == 0;
-      dword_140D01AF0 = v4;
+      dword_140CF68C0 = v4;
       if ( !v7 )
       {
         v8 = 1;
@@ -53,7 +53,7 @@ int *HvlpDiscoverTopologyComplete()
         v9 = 1;
         if ( HvlpLogicalProcessorRegions == v3 - 2 )
           goto LABEL_19;
-        v10 = &unk_140D125F0;
+        v10 = &unk_140D042F0;
         do
         {
           if ( *((_BYTE *)v10 + 96) )

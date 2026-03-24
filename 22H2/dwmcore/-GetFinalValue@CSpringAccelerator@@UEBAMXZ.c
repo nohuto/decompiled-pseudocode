@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetFinalValue@CSpringAccelerator@@UEBAMXZ @ 0x180107410
+ * XREFs of ?GetFinalValue@CSpringAccelerator@@UEBAMXZ @ 0x1800E2B30
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 float __fastcall CSpringAccelerator::GetFinalValue(CSpringAccelerator *this)
 {
-  return *((float *)this + 9);
+  return *((float *)this + 11);
 }

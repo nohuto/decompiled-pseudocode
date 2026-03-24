@@ -1,20 +1,20 @@
 /*
- * XREFs of PipInitializeCoreDriversByGroup @ 0x140B10D98
+ * XREFs of PipInitializeCoreDriversByGroup @ 0x140A5D42C
  * Callers:
- *     PipInitializeCoreDriversAndElam @ 0x140B10CAC (PipInitializeCoreDriversAndElam.c)
+ *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     PnpUnlockDeviceActionQueue @ 0x140253DD4 (PnpUnlockDeviceActionQueue.c)
- *     PnpLockDeviceActionQueue @ 0x140253E78 (PnpLockDeviceActionQueue.c)
- *     PnpRequestDeviceAction @ 0x1402DCF44 (PnpRequestDeviceAction.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     IopGetDriverNameFromKeyNode @ 0x14067B694 (IopGetDriverNameFromKeyNode.c)
- *     IopOpenRegistryKeyEx @ 0x14082EF44 (IopOpenRegistryKeyEx.c)
- *     PnpWaitForEmptyDeviceEventQueue @ 0x14082EF8C (PnpWaitForEmptyDeviceEventQueue.c)
- *     PnpWaitForEmptyDeviceActionQueue @ 0x14082EFB8 (PnpWaitForEmptyDeviceActionQueue.c)
- *     PipApplyFunctionToServiceInstances @ 0x140851A60 (PipApplyFunctionToServiceInstances.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     HdlspKernelAddLogEntry @ 0x140AA9A28 (HdlspKernelAddLogEntry.c)
- *     PnpInitializeBootStartDriver @ 0x140B11D58 (PnpInitializeBootStartDriver.c)
+ *     PnpUnlockDeviceActionQueue @ 0x1402C6F4C (PnpUnlockDeviceActionQueue.c)
+ *     PnpLockDeviceActionQueue @ 0x1402C6FF0 (PnpLockDeviceActionQueue.c)
+ *     PnpRequestDeviceAction @ 0x140370854 (PnpRequestDeviceAction.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     IopGetDriverNameFromKeyNode @ 0x140742900 (IopGetDriverNameFromKeyNode.c)
+ *     IopOpenRegistryKeyEx @ 0x1407AC650 (IopOpenRegistryKeyEx.c)
+ *     PnpWaitForEmptyDeviceEventQueue @ 0x1407AC698 (PnpWaitForEmptyDeviceEventQueue.c)
+ *     PnpWaitForEmptyDeviceActionQueue @ 0x1407AC6C4 (PnpWaitForEmptyDeviceActionQueue.c)
+ *     PipApplyFunctionToServiceInstances @ 0x1407C0F30 (PipApplyFunctionToServiceInstances.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HdlspKernelAddLogEntry @ 0x1409EF9AC (HdlspKernelAddLogEntry.c)
+ *     PnpInitializeBootStartDriver @ 0x140A5E4B4 (PnpInitializeBootStartDriver.c)
  */
 
 void __fastcall PipInitializeCoreDriversByGroup(int a1, __int64 a2)
@@ -24,19 +24,18 @@ void __fastcall PipInitializeCoreDriversByGroup(int a1, __int64 a2)
   UNICODE_STRING **v5; // rdi
   UNICODE_STRING *v6; // rbx
   UNICODE_STRING *v7; // r14
-  NTSTATUS DriverNameFromKeyNode; // esi
+  int DriverNameFromKeyNode; // esi
   __int64 v9; // r15
   __int64 v10; // rcx
   __int64 v11; // r8
   char v12; // r9
   void *v13; // [rsp+20h] [rbp-40h]
   HANDLE v14; // [rsp+30h] [rbp-30h]
-  int v15; // [rsp+38h] [rbp-28h]
   PVOID P[2]; // [rsp+50h] [rbp-10h] BYREF
   HANDLE Handle; // [rsp+B0h] [rbp+50h] BYREF
-  __int64 v18; // [rsp+B8h] [rbp+58h] BYREF
+  __int64 v17; // [rsp+B8h] [rbp+58h]
 
-  v18 = 0LL;
+  v17 = 0LL;
   v2 = 0;
   Handle = 0LL;
   *(_OWORD *)P = 0LL;
@@ -84,13 +83,11 @@ void __fastcall PipInitializeCoreDriversByGroup(int a1, __int64 a2)
                                       *(_QWORD *)&v7[3].Length,
                                       a2 + 16,
                                       0,
-                                      v2,
-                                      v15,
-                                      (__int64)&v18);
+                                      v2);
             if ( DriverNameFromKeyNode >= 0 )
             {
-              v9 = v18;
-              if ( v18 )
+              v9 = v17;
+              if ( v17 )
               {
                 PnpLockDeviceActionQueue();
                 PipApplyFunctionToServiceInstances(

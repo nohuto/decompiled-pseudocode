@@ -1,69 +1,64 @@
 /*
- * XREFs of DrvDbSetDeviceIdDriverInfMatches @ 0x140A6CA68
+ * XREFs of DrvDbSetDeviceIdDriverInfMatches @ 0x1407285CC
  * Callers:
- *     DrvDbSetDeviceIdMappedProperty @ 0x140A6CDFC (DrvDbSetDeviceIdMappedProperty.c)
+ *     DrvDbSetDeviceIdMappedProperty @ 0x14072847C (DrvDbSetDeviceIdMappedProperty.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     wcschr @ 0x1403DB2B0 (wcschr.c)
- *     wcsncmp @ 0x1403DB3F0 (wcsncmp.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     _RegRtlSetValue @ 0x1407D4F54 (_RegRtlSetValue.c)
- *     _PnpCtxRegEnumValue @ 0x140877E74 (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x140877FDC (_PnpCtxRegQueryInfoKey.c)
- *     DrvDbSplitDeviceIdDriverInfMatch @ 0x14087DCB4 (DrvDbSplitDeviceIdDriverInfMatch.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     wcschr @ 0x1403D3810 (wcschr.c)
+ *     wcsncmp @ 0x1403D3940 (wcsncmp.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     _PnpCtxRegEnumValue @ 0x1406F9CD4 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406F9E0C (_PnpCtxRegQueryInfoKey.c)
+ *     DrvDbSplitDeviceIdDriverInfMatch @ 0x14073803C (DrvDbSplitDeviceIdDriverInfMatch.c)
+ *     _RegRtlSetValue @ 0x140768114 (_RegRtlSetValue.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbSetDeviceIdDriverInfMatches(__int64 a1, void *a2, const wchar_t *a3)
 {
   const wchar_t *v3; // rsi
   int inited; // ebx
-  unsigned int v6; // r12d
+  unsigned int v6; // r13d
   const wchar_t *v7; // rdi
   wchar_t *v8; // rax
   __int64 v9; // rax
   unsigned int v10; // eax
   __int64 v11; // rax
-  void *Pool2; // r14
-  ULONG v13; // r13d
+  PVOID PoolWithTag; // r14
+  ULONG v13; // r12d
   int v14; // eax
   const wchar_t *v15; // rdi
-  size_t v16; // r12
-  wchar_t v17; // ax
-  __int64 v18; // rax
-  ULONG v19; // r8d
-  int *v20; // r9
-  ULONG v21; // eax
-  __int64 v22; // rax
-  ULONG v23; // edi
-  ULONG v24; // esi
-  int v25; // eax
-  int v27; // [rsp+40h] [rbp-28h] BYREF
-  int v28; // [rsp+44h] [rbp-24h] BYREF
-  unsigned int v29; // [rsp+48h] [rbp-20h]
-  int v30; // [rsp+4Ch] [rbp-1Ch]
+  size_t v16; // r13
+  __int64 v17; // rax
+  wchar_t v18; // ax
+  __int64 v20; // rax
+  ULONG v21; // edi
+  ULONG v22; // esi
+  int v23; // eax
+  int v24; // [rsp+44h] [rbp-24h] BYREF
+  unsigned int v25; // [rsp+48h] [rbp-20h]
+  int v26; // [rsp+4Ch] [rbp-1Ch]
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-18h] BYREF
   unsigned int MaxCount; // [rsp+B0h] [rbp+48h] BYREF
   int MaxCount_4; // [rsp+B4h] [rbp+4Ch]
   HANDLE KeyHandle; // [rsp+B8h] [rbp+50h]
-  const wchar_t *v35; // [rsp+C0h] [rbp+58h]
-  ULONG v36; // [rsp+C8h] [rbp+60h] BYREF
+  const wchar_t *v31; // [rsp+C0h] [rbp+58h]
+  ULONG v32; // [rsp+C8h] [rbp+60h] BYREF
 
-  v35 = a3;
+  v31 = a3;
   KeyHandle = a2;
   MaxCount_4 = HIDWORD(a1);
   v3 = a3;
-  v36 = 0;
+  v32 = 0;
   MaxCount = 0;
-  v28 = 0;
-  v27 = 0;
-  v30 = PnpCtxRegQueryInfoKey(a1, a2, 0LL, 0LL, &v36, &MaxCount, 0LL);
-  inited = v30;
-  if ( v30 >= 0 )
+  v24 = 0;
+  v26 = PnpCtxRegQueryInfoKey(a1, a2, 0LL, 0LL, &v32, &MaxCount, 0LL);
+  inited = v26;
+  if ( v26 >= 0 )
   {
     v6 = MaxCount + 1;
-    v29 = MaxCount + 1;
+    v25 = MaxCount + 1;
     if ( v3 )
     {
       v7 = v3;
@@ -93,140 +88,131 @@ __int64 __fastcall DrvDbSetDeviceIdDriverInfMatches(__int64 a1, void *a2, const 
           v7 += v11 + 1;
         }
         while ( *v7 );
-        inited = v30;
-        v29 = v6;
+        inited = v26;
+        v25 = v6;
       }
-      Pool2 = (void *)ExAllocatePool2(256LL, 2LL * v6, 1111770192LL);
-      if ( !Pool2 )
-        return (unsigned int)-1073741801;
-      v13 = 0;
-      if ( v36 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 2LL * v6, 0x42444450u);
+      if ( PoolWithTag )
       {
-        while ( 1 )
+        v13 = 0;
+        if ( v32 )
         {
-          MaxCount = v6;
-          v14 = PnpCtxRegEnumValue(0LL, KeyHandle, v13, Pool2, &MaxCount, &v28, 0LL, 0LL);
-          inited = v14;
-          if ( v14 < 0 )
-            break;
-          if ( v28 == 3 || !v28 )
+          while ( 1 )
           {
-            v15 = v3;
-            if ( *v3 )
+            MaxCount = v6;
+            v14 = PnpCtxRegEnumValue(0LL, KeyHandle, v13, PoolWithTag, &MaxCount, &v24, 0LL, 0LL);
+            inited = v14;
+            if ( v14 < 0 )
+              break;
+            if ( v24 == 3 || !v24 )
             {
-              v16 = MaxCount;
-              do
+              v15 = v3;
+              if ( *v3 )
               {
-                if ( !wcsncmp(v15, (const wchar_t *)Pool2, v16) )
-                {
-                  v17 = v15[v16];
-                  if ( v17 == 92 || !v17 )
-                    break;
-                }
-                v18 = -1LL;
+                v16 = MaxCount;
                 do
-                  ++v18;
-                while ( v15[v18] );
-                v15 += v18 + 1;
+                {
+                  if ( !wcsncmp(v15, (const wchar_t *)PoolWithTag, v16) )
+                  {
+                    v18 = v15[v16];
+                    if ( v18 == 92 || !v18 )
+                      break;
+                  }
+                  v17 = -1LL;
+                  do
+                    ++v17;
+                  while ( v15[v17] );
+                  v15 += v17 + 1;
+                }
+                while ( *v15 );
+                v3 = v31;
+                v6 = v25;
               }
-              while ( *v15 );
-              v3 = v35;
-              v6 = v29;
-            }
-            if ( !*v15 )
-            {
-              DestinationString = 0LL;
-              inited = RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)Pool2);
-              if ( inited >= 0 )
-                inited = ZwDeleteValueKey(KeyHandle, &DestinationString);
-              if ( inited == -1073741772 )
+              if ( !*v15 )
               {
-                inited = 0;
-              }
-              else if ( inited < 0 )
-              {
-                goto LABEL_65;
+                DestinationString = 0LL;
+                inited = RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)PoolWithTag);
+                if ( inited >= 0 )
+                  inited = ZwDeleteValueKey(KeyHandle, &DestinationString);
+                if ( inited == -1073741772 )
+                {
+                  inited = 0;
+                }
+                else if ( inited < 0 )
+                {
+                  goto LABEL_28;
+                }
               }
             }
+            if ( ++v13 >= v32 )
+              goto LABEL_27;
           }
-          if ( ++v13 >= v36 )
+          if ( v14 == -2147483622 )
+            inited = 0;
+        }
+LABEL_27:
+        if ( inited >= 0 )
+        {
+          while ( *v3 )
           {
+            inited = DrvDbSplitDeviceIdDriverInfMatch(v3, (NTSTRSAFE_PWSTR)PoolWithTag, v6);
             if ( inited < 0 )
-              goto LABEL_65;
-            goto LABEL_48;
+              break;
+            inited = RegRtlSetValue(KeyHandle, 0);
+            if ( inited < 0 )
+              break;
+            v20 = -1LL;
+            do
+              ++v20;
+            while ( v3[v20] );
+            v3 += v20 + 1;
           }
         }
-        if ( v14 != -2147483622 )
-          goto LABEL_65;
-        inited = 0;
-      }
-LABEL_48:
-      while ( *v3 )
-      {
-        inited = DrvDbSplitDeviceIdDriverInfMatch(v3, (wchar_t *)Pool2, v6, (__int64)&v27);
-        if ( inited < 0 )
-          break;
-        if ( (_BYTE)v27 )
-        {
-          v19 = 3;
-          v20 = &v27;
-          v21 = 4;
-        }
-        else
-        {
-          v19 = 0;
-          v20 = 0LL;
-          v21 = 0;
-        }
-        inited = RegRtlSetValue(KeyHandle, (const WCHAR *)Pool2, v19, v20, v21);
-        if ( inited < 0 )
-          break;
-        v22 = -1LL;
-        do
-          ++v22;
-        while ( v3[v22] );
-        v3 += v22 + 1;
+LABEL_28:
+        ExFreePoolWithTag(PoolWithTag, 0);
+        return (unsigned int)inited;
       }
     }
     else
     {
-      v23 = v36;
-      if ( !v36 )
+      v21 = v32;
+      if ( !v32 )
         return 0;
-      Pool2 = (void *)ExAllocatePool2(256LL, 2LL * v6, 1111770192LL);
-      if ( !Pool2 )
-        return (unsigned int)-1073741801;
-      v24 = 0;
-      if ( v23 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 2LL * v6, 0x42444450u);
+      if ( PoolWithTag )
       {
-        while ( 1 )
+        v22 = 0;
+        if ( v21 )
         {
-          MaxCount = v6;
-          inited = PnpCtxRegEnumValue(0LL, a2, v24, Pool2, &MaxCount, 0LL, 0LL, 0LL);
-          if ( inited < 0 )
-            break;
-          DestinationString = 0LL;
-          inited = RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)Pool2);
-          if ( inited >= 0 )
-            inited = ZwDeleteValueKey(a2, &DestinationString);
-          if ( (int)(inited + 0x80000000) < 0 || inited == -1073741772 )
+          while ( 1 )
           {
-            v25 = 0;
-            if ( inited != -1073741772 )
-              v25 = inited;
-            ++v24;
-            inited = v25;
-            if ( v24 < v23 )
-              continue;
+            MaxCount = v6;
+            inited = PnpCtxRegEnumValue(0LL, a2, v22, PoolWithTag, &MaxCount, 0LL, 0LL, 0LL);
+            if ( inited < 0 )
+              break;
+            DestinationString = 0LL;
+            inited = RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)PoolWithTag);
+            if ( inited >= 0 )
+              inited = ZwDeleteValueKey(a2, &DestinationString);
+            if ( (int)(inited + 0x80000000) < 0 || inited == -1073741772 )
+            {
+              v23 = 0;
+              if ( inited != -1073741772 )
+                v23 = inited;
+              ++v22;
+              inited = v23;
+              if ( v22 < v21 )
+                continue;
+            }
+            goto LABEL_28;
           }
-          goto LABEL_65;
+          if ( inited == -2147483622 )
+            inited = 0;
         }
-        if ( inited == -2147483622 )
-          inited = 0;
+        goto LABEL_28;
       }
     }
-LABEL_65:
-    ExFreePoolWithTag(Pool2, 0);
+    return (unsigned int)-1073741801;
   }
   return (unsigned int)inited;
 }

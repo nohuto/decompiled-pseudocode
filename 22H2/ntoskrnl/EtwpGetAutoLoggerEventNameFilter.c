@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpGetAutoLoggerEventNameFilter @ 0x14084DB00
+ * XREFs of EtwpGetAutoLoggerEventNameFilter @ 0x1407C64DC
  * Callers:
- *     EtwpGetAutoLoggerProviderFilter @ 0x14080C0B0 (EtwpGetAutoLoggerProviderFilter.c)
+ *     EtwpGetAutoLoggerProviderFilter @ 0x140798578 (EtwpGetAutoLoggerProviderFilter.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1406C5A80 (RtlpQueryRegistryValues.c)
- *     RtlUnicodeToUTF8N @ 0x140758D10 (RtlUnicodeToUTF8N.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     RtlUnicodeToUTF8N @ 0x14069C740 (RtlUnicodeToUTF8N.c)
+ *     RtlpQueryRegistryValues @ 0x1406B9848 (RtlpQueryRegistryValues.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpGetAutoLoggerEventNameFilter(__int64 a1, __int64 a2, __int64 a3, PVOID *a4, _DWORD *a5)
@@ -22,19 +22,19 @@ void __fastcall EtwpGetAutoLoggerEventNameFilter(__int64 a1, __int64 a2, __int64
   __int64 v7; // rax
   WCHAR *v10; // rdi
   __int64 v11; // rcx
-  __int64 v12; // r13
-  wchar_t *Pool2; // rax
+  SIZE_T v12; // r13
+  wchar_t *PoolWithTag; // rax
   WCHAR *v14; // r14
   NTSTATUS v15; // ecx
   NTSTATUS v16; // eax
   __int64 v17; // r13
   HANDLE v18; // rax
   __int64 v19; // rax
-  __int64 v20; // rbx
+  SIZE_T v20; // rbx
   wchar_t *v21; // rax
   HANDLE v22; // rax
-  __int64 v23; // rax
-  __int64 v24; // rbx
+  char *v23; // rax
+  char *v24; // rbx
   const WCHAR *v25; // rdx
   __int64 v26; // r8
   __int64 v27; // rcx
@@ -47,36 +47,34 @@ void __fastcall EtwpGetAutoLoggerEventNameFilter(__int64 a1, __int64 a2, __int64
   HANDLE Handle; // [rsp+40h] [rbp-C0h] BYREF
   ULONG UTF8StringActualByteCount[2]; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-B0h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-A0h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-90h] BYREF
   __int64 v39; // [rsp+A0h] [rbp-60h]
   int v40; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 v41; // [rsp+B8h] [rbp-48h]
+  char *v41; // [rsp+B8h] [rbp-48h]
   int v42; // [rsp+C0h] [rbp-40h] BYREF
-  __int64 v43; // [rsp+C8h] [rbp-38h]
+  char *v43; // [rsp+C8h] [rbp-38h]
   int v44; // [rsp+D0h] [rbp-30h] BYREF
-  __int64 v45; // [rsp+D8h] [rbp-28h]
+  char *v45; // [rsp+D8h] [rbp-28h]
   int v46; // [rsp+E0h] [rbp-20h] BYREF
-  __int64 v47; // [rsp+E8h] [rbp-18h]
+  char *v47; // [rsp+E8h] [rbp-18h]
   int v48; // [rsp+F0h] [rbp-10h] BYREF
-  __int64 v49; // [rsp+F8h] [rbp-8h]
+  char *v49; // [rsp+F8h] [rbp-8h]
   int v50; // [rsp+100h] [rbp+0h] BYREF
   UNICODE_STRING *p_UnicodeString; // [rsp+108h] [rbp+8h]
   _QWORD v52[148]; // [rsp+200h] [rbp+100h] BYREF
 
   v39 = a2;
-  ObjectAttributes.SecurityDescriptor = 0LL;
-  LODWORD(ObjectAttributes.SecurityQualityOfService) = 0;
+  *(_QWORD *)UTF8StringActualByteCount = a1;
   v6 = -1LL;
   *a4 = 0LL;
   *a5 = 0;
   v7 = -1LL;
-  *(_QWORD *)UTF8StringActualByteCount = a1;
   KeyHandle = 0LL;
   Handle = 0LL;
-  v10 = 0LL;
-  memset(&ObjectAttributes, 0, 32);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   v32 = 0;
+  v10 = 0LL;
   DestinationString = 0LL;
   UnicodeString = 0LL;
   do
@@ -87,11 +85,11 @@ void __fastcall EtwpGetAutoLoggerEventNameFilter(__int64 a1, __int64 a2, __int64
     ++v11;
   while ( *(_WORD *)(a1 + 2 * v11) );
   v12 = (unsigned int)(2 * (v11 + v7) + 4);
-  Pool2 = (wchar_t *)ExAllocatePool2(256LL, v12, 1350005829LL);
-  v14 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v12, 0x50777445u);
+  v14 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    v15 = RtlStringCbPrintfW(Pool2, (unsigned int)v12, L"%ws\\%ws", *(_QWORD *)UTF8StringActualByteCount, a3);
+    v15 = RtlStringCbPrintfW(PoolWithTag, (unsigned int)v12, L"%ws\\%ws", *(_QWORD *)UTF8StringActualByteCount, a3);
     if ( v15 )
       goto LABEL_12;
     RtlInitUnicodeString(&DestinationString, v14);
@@ -117,7 +115,7 @@ void __fastcall EtwpGetAutoLoggerEventNameFilter(__int64 a1, __int64 a2, __int64
         ++v6;
       while ( *(_WORD *)(v39 + 2 * v6) );
       v20 = (unsigned int)(2 * (v6 + v19) + 4);
-      v21 = (wchar_t *)ExAllocatePool2(256LL, v20, 1350005829LL);
+      v21 = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v20, 0x50777445u);
       v10 = v21;
       if ( !v21 )
         goto LABEL_13;
@@ -137,15 +135,10 @@ void __fastcall EtwpGetAutoLoggerEventNameFilter(__int64 a1, __int64 a2, __int64
       Handle = v22;
     }
     if ( !KeyHandle && !Handle )
-    {
-LABEL_12:
-      if ( v15 >= 0 )
-        goto LABEL_15;
-      goto LABEL_13;
-    }
+      goto LABEL_12;
     *a5 = 4096;
-    v23 = ExAllocatePool2(256LL, 4096LL, 1350005829LL);
-    *a4 = (PVOID)v23;
+    v23 = (char *)ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x50777445u);
+    *a4 = v23;
     v24 = v23;
     if ( v23 )
     {
@@ -187,7 +180,7 @@ LABEL_12:
       p_UnicodeString = &UnicodeString;
       LODWORD(v52[39]) = 1;
       v50 = 1;
-      if ( (int)RtlpQueryRegistryValues(0x40000000LL, (const WCHAR *)KeyHandle, v52, 0LL) >= 0 )
+      if ( (int)RtlpQueryRegistryValues(0x40000000LL, (const WCHAR *)KeyHandle, (__int64)v52, 0LL) >= 0 )
       {
         v25 = (const WCHAR *)Handle;
         if ( Handle )
@@ -207,7 +200,7 @@ LABEL_12:
           while ( v26 );
           v52[40] = UnicodeString.Buffer;
           LODWORD(v52[41]) = UnicodeString.Length;
-          RtlpQueryRegistryValues(0x40000000LL, v25, v52, 0LL);
+          RtlpQueryRegistryValues(0x40000000LL, v25, (__int64)v52, 0LL);
         }
         Length = UnicodeString.Length;
         v30 = 0;
@@ -233,11 +226,10 @@ LABEL_12:
                 UnicodeString.Buffer,
                 Length + 2);
         if ( !v15 )
-        {
           *a5 = UTF8StringActualByteCount[0] + 20;
+LABEL_12:
+        if ( v15 >= 0 )
           goto LABEL_15;
-        }
-        goto LABEL_12;
       }
     }
   }
@@ -257,5 +249,5 @@ LABEL_15:
     ZwClose(Handle);
   if ( v10 )
     ExFreePoolWithTag(v10, 0);
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString(&UnicodeString);
 }

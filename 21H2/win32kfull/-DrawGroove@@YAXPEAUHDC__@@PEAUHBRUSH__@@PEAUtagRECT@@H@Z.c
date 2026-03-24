@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DrawGroove@@YAXPEAUHDC__@@PEAUHBRUSH__@@PEAUtagRECT@@H@Z @ 0x1C00C5B6C
+ * XREFs of ?DrawGroove@@YAXPEAUHDC__@@PEAUHBRUSH__@@PEAUtagRECT@@H@Z @ 0x1C015837C
  * Callers:
- *     DrawThumb2 @ 0x1C00C5BBC (DrawThumb2.c)
+ *     DrawThumb2 @ 0x1C0158244 (DrawThumb2.c)
  * Callees:
- *     DrawEdge @ 0x1C00C17C0 (DrawEdge.c)
- *     FillRect @ 0x1C00C1CEC (FillRect.c)
+ *     DrawEdge @ 0x1C00451E8 (DrawEdge.c)
+ *     FillRect @ 0x1C0045734 (FillRect.c)
  */
 
 void __fastcall DrawGroove(HDC a1, HBRUSH a2, struct tagRECT *a3, int a4)

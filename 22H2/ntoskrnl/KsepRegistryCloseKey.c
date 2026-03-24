@@ -1,10 +1,10 @@
 /*
- * XREFs of KsepRegistryCloseKey @ 0x1408465B8
+ * XREFs of KsepRegistryCloseKey @ 0x1407BEFF4
  * Callers:
- *     KsepEngineReadFlags @ 0x140B64DDC (KsepEngineReadFlags.c)
- *     KsepMatchInitBiosInfo @ 0x140B6519C (KsepMatchInitBiosInfo.c)
+ *     KsepMatchInitBiosInfo @ 0x140A6A22C (KsepMatchInitBiosInfo.c)
+ *     KsepEngineReadFlags @ 0x140A6A47C (KsepEngineReadFlags.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
  */
 
 NTSTATUS __fastcall KsepRegistryCloseKey(void *a1)
@@ -14,7 +14,7 @@ NTSTATUS __fastcall KsepRegistryCloseKey(void *a1)
   if ( a1 )
   {
     result = ZwClose(a1);
-    _InterlockedIncrement(dword_140C407DC);
+    _InterlockedIncrement(dword_140C2AA9C);
   }
   return result;
 }

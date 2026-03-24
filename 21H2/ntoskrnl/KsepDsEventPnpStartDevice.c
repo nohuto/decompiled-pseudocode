@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDsEventPnpStartDevice @ 0x14057EB28
+ * XREFs of KsepDsEventPnpStartDevice @ 0x1405282D8
  * Callers:
- *     KseDsCompletionHookForStartDevice @ 0x14057DF40 (KseDsCompletionHookForStartDevice.c)
+ *     KseDsCompletionHookForStartDevice @ 0x1405276F0 (KseDsCompletionHookForStartDevice.c)
  * Callees:
- *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall KsepDsEventPnpStartDevice(__int64 a1, __int64 a2, __int64 a3, int a4)

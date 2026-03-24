@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpSortedValueEnumStackAdvance @ 0x140800638
+ * XREFs of CmpSortedValueEnumStackAdvance @ 0x140800618
  * Callers:
- *     CmpGetValueCountForKeyNodeStack @ 0x14026C868 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x14026C968 (CmpGetValueCountForKeyNodeStack.c)
  * Callees:
- *     CmpSortedValueEnumStackAdvanceInternal @ 0x140800668 (CmpSortedValueEnumStackAdvanceInternal.c)
+ *     CmpSortedValueEnumStackAdvanceInternal @ 0x140800648 (CmpSortedValueEnumStackAdvanceInternal.c)
  */
 
 __int64 __fastcall CmpSortedValueEnumStackAdvance(void *a1)

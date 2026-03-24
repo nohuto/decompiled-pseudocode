@@ -1,45 +1,46 @@
 /*
- * XREFs of NtDeletePrivateNamespace @ 0x1407F8B60
+ * XREFs of NtDeletePrivateNamespace @ 0x1408DF5F0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObpRemoveNamespaceFromTable @ 0x1406BF4AC (ObpRemoveNamespaceFromTable.c)
- *     ObpVerifyCreatorAccessCheck @ 0x1406C0B60 (ObpVerifyCreatorAccessCheck.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObpRemoveNamespaceFromTable @ 0x1406A7F3C (ObpRemoveNamespaceFromTable.c)
+ *     ObpVerifyCreatorAccessCheck @ 0x1406E50F0 (ObpVerifyCreatorAccessCheck.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall NtDeletePrivateNamespace(void *a1)
 {
   NTSTATUS result; // eax
-  volatile signed __int32 *v2; // rbx
+  struct _DMA_ADAPTER *v2; // rbx
   int v3; // edi
-  PVOID Object; // [rsp+48h] [rbp+10h] BYREF
-  struct _OBJECT_HANDLE_INFORMATION v5; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v4; // rdx
+  PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp+10h] BYREF
+  struct _OBJECT_HANDLE_INFORMATION v6; // [rsp+50h] [rbp+18h] BYREF
 
-  v5 = 0LL;
-  Object = 0LL;
+  v6 = 0LL;
+  DmaAdapter = 0LL;
   result = ObReferenceObjectByHandle(
              a1,
              0x10000u,
              ObpDirectoryObjectType,
              KeGetCurrentThread()->PreviousMode,
-             &Object,
-             &v5);
+             (PVOID *)&DmaAdapter,
+             &v6);
   if ( result >= 0 )
   {
-    v2 = (volatile signed __int32 *)Object;
-    if ( *((_QWORD *)Object + 40) )
+    v2 = DmaAdapter;
+    if ( *(_QWORD *)&DmaAdapter[20].Version )
     {
-      v3 = ObpVerifyCreatorAccessCheck((__int64)Object + 392);
+      v3 = ObpVerifyCreatorAccessCheck(&DmaAdapter[24].DmaOperations);
       if ( v3 >= 0 )
-        v3 = ObpRemoveNamespaceFromTable(v2);
+        v3 = ObpRemoveNamespaceFromTable(v2, v4);
     }
     else
     {
       v3 = -1073741816;
     }
-    ObfDereferenceObject((PVOID)v2);
+    HalPutDmaAdapter(v2);
     return v3;
   }
   return result;

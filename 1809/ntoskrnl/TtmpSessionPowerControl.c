@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmpSessionPowerControl @ 0x140881038
+ * XREFs of TtmpSessionPowerControl @ 0x140881018
  * Callers:
- *     TtmpActivateSessionWorker @ 0x1408806E8 (TtmpActivateSessionWorker.c)
- *     TtmpDeactivateSessionWorker @ 0x1408808F0 (TtmpDeactivateSessionWorker.c)
+ *     TtmpActivateSessionWorker @ 0x1408806C8 (TtmpActivateSessionWorker.c)
+ *     TtmpDeactivateSessionWorker @ 0x1408808D0 (TtmpDeactivateSessionWorker.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     PoSessionPowerControl @ 0x140879298 (PoSessionPowerControl.c)
- *     TtmiLogSessionPowerControlStart @ 0x140885028 (TtmiLogSessionPowerControlStart.c)
- *     TtmiLogSessionPowerControlStop @ 0x14088511C (TtmiLogSessionPowerControlStop.c)
+ *     PoSessionPowerControl @ 0x140879278 (PoSessionPowerControl.c)
+ *     TtmiLogSessionPowerControlStart @ 0x140885008 (TtmiLogSessionPowerControlStart.c)
+ *     TtmiLogSessionPowerControlStop @ 0x1408850FC (TtmiLogSessionPowerControlStop.c)
  */
 
 __int64 __fastcall TtmpSessionPowerControl(int *a1, unsigned __int8 a2, unsigned int a3)

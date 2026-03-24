@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpInitializeSvm @ 0x140B720D0
+ * XREFs of ExpInitializeSvm @ 0x140A71BE4
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140B4D6E4 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140A3C2EC (ExpInitSystemPhase1.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 *ExpInitializeSvm()
 {
   unsigned int v0; // r8d
   bool v1; // zf
-  __int64 Pool2; // rax
-  char *v3; // rdx
-  unsigned int v4; // r9d
-  __int64 v5; // rax
-  __int64 v6; // rcx
-  _QWORD *v7; // rax
+  char *v2; // rdx
+  unsigned int i; // r9d
+  __int64 v4; // rax
+  __int64 v5; // rcx
+  _QWORD *v6; // rax
   __int64 *result; // rax
+  PVOID PoolWithTag; // rax
   unsigned int v9; // [rsp+40h] [rbp+8h] BYREF
 
   v9 = 0;
@@ -30,51 +30,40 @@ __int64 *ExpInitializeSvm()
   v1 = v9 == 1;
   if ( v9 > 1 )
   {
-    Pool2 = ExAllocatePool2(64LL, 104LL * v9, 0x76537845u);
+    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 104LL * v9, 0x76537845u);
     v0 = v9;
     v1 = v9 == 1;
-    ExpSvmWorkQueues = Pool2;
+    ExpSvmWorkQueues = (__int64)PoolWithTag;
   }
-  if ( v1 || (v3 = (char *)ExpSvmWorkQueues) == 0LL )
+  if ( v1 || (v2 = (char *)ExpSvmWorkQueues) == 0LL )
   {
-    v3 = (char *)&ExpSvmStaticWorkQueue;
+    v2 = (char *)&ExpSvmStaticWorkQueue;
     v0 = 1;
     ExpSvmWorkQueues = (__int64)&ExpSvmStaticWorkQueue;
-    v4 = 0;
-    ExpSvmNumberOfWorkQueues = 1;
   }
-  else
+  ExpSvmNumberOfWorkQueues = v0;
+  for ( i = 0; i < v0; *(_DWORD *)&v2[v5 + 96] = 0 )
   {
-    ExpSvmNumberOfWorkQueues = v0;
-    v4 = 0;
-    if ( !v0 )
-      goto LABEL_7;
+    v4 = i;
+    v5 = 104LL * i++;
+    *(_QWORD *)&v2[v5 + 16] = ExpSvmWorkerThread;
+    *(_QWORD *)&v2[v5 + 24] = v4;
+    *(_QWORD *)&v2[v5] = 0LL;
+    *(_QWORD *)&v2[v5 + 56] = ExpSvmDpcRoutine;
+    *(_DWORD *)&v2[v5 + 32] = 275;
+    *(_QWORD *)&v2[v5 + 64] = v4;
+    *(_QWORD *)&v2[v5 + 88] = 0LL;
+    *(_QWORD *)&v2[v5 + 48] = 0LL;
   }
-  do
-  {
-    v5 = v4;
-    v6 = 104LL * v4++;
-    *(_QWORD *)&v3[v6 + 16] = ExpSvmWorkerThread;
-    *(_QWORD *)&v3[v6 + 24] = v5;
-    *(_QWORD *)&v3[v6] = 0LL;
-    *(_QWORD *)&v3[v6 + 56] = ExpSvmDpcRoutine;
-    *(_DWORD *)&v3[v6 + 32] = 275;
-    *(_QWORD *)&v3[v6 + 64] = v5;
-    *(_QWORD *)&v3[v6 + 88] = 0LL;
-    *(_QWORD *)&v3[v6 + 48] = 0LL;
-    *(_DWORD *)&v3[v6 + 96] = 0;
-  }
-  while ( v4 < v0 );
-LABEL_7:
-  v7 = (_QWORD *)HalIommuDispatch;
+  v6 = (_QWORD *)HalIommuDispatch;
   *(_QWORD *)(HalIommuDispatch + 96) = ExpSvmFaultRoutine;
-  v7[13] = ExpSvmReferenceAsid;
-  v7[14] = ExpSvmDereferenceAsid;
-  v7[15] = ExpSvmServicePageFault;
-  result = &ExpAtsSvmDevices;
-  qword_140C2D478 = (__int64)&ExpAtsSvmDevices;
-  ExpAtsSvmDevices = (__int64)&ExpAtsSvmDevices;
-  qword_140C2D3D8 = 0LL;
-  ExpAtsSvmDeviceListLock = 0LL;
+  v6[13] = ExpSvmReferenceAsid;
+  v6[14] = ExpSvmDereferenceAsid;
+  v6[15] = ExpSvmServicePageFault;
+  result = &ExpSvmDevices;
+  qword_140C16928 = (__int64)&ExpSvmDevices;
+  ExpSvmDevices = (__int64)&ExpSvmDevices;
+  qword_140C16958 = 0LL;
+  ExpSvmDeviceListLock = 0LL;
   return result;
 }

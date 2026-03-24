@@ -1,12 +1,12 @@
 /*
- * XREFs of WPP_RECORDER_SF_LLqss @ 0x1C000E000
+ * XREFs of WPP_RECORDER_SF_LLqss @ 0x1C0020B00
  * Callers:
- *     ACPIBuildProcessDeviceGenericEval @ 0x1C000D330 (ACPIBuildProcessDeviceGenericEval.c)
- *     ACPIBuildProcessDeviceGenericEvalStrict @ 0x1C000E8F0 (ACPIBuildProcessDeviceGenericEvalStrict.c)
- *     ACPIBuildProcessDeviceFailure @ 0x1C004A780 (ACPIBuildProcessDeviceFailure.c)
- *     ACPIBuildProcessThermalZoneFailure @ 0x1C004AB30 (ACPIBuildProcessThermalZoneFailure.c)
+ *     ACPIBuildProcessDeviceGenericEval @ 0x1C001E890 (ACPIBuildProcessDeviceGenericEval.c)
+ *     ACPIBuildProcessDeviceGenericEvalStrict @ 0x1C001F290 (ACPIBuildProcessDeviceGenericEvalStrict.c)
+ *     ACPIBuildProcessDeviceFailure @ 0x1C004BDF0 (ACPIBuildProcessDeviceFailure.c)
+ *     ACPIBuildProcessThermalZoneFailure @ 0x1C004C030 (ACPIBuildProcessThermalZoneFailure.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_LLqss(
@@ -55,7 +55,7 @@ __int64 __fastcall WPP_RECORDER_SF_LLqss(
     pfnWppTraceMessage(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids,
+      &WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids,
       v14,
       &a6,
       4LL,
@@ -75,5 +75,5 @@ __int64 __fastcall WPP_RECORDER_SF_LLqss(
     while ( *(_BYTE *)(v11 + v13) );
   }
   LOWORD(v20) = v14;
-  return WppAutoLogTrace(a1, v15, 6LL, &WPP_bdd8eb048f7f3443c553fdc981a7d4a4_Traceguids, v20, &a6, 4LL, &a7);
+  return WppAutoLogTrace(a1, v15, 6LL, &WPP_b4b4781ea129315cb23d4156eeab8ce7_Traceguids, v20, &a6);
 }

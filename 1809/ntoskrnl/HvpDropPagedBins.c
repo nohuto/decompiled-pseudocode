@@ -1,18 +1,18 @@
 /*
- * XREFs of HvpDropPagedBins @ 0x1407365B4
+ * XREFs of HvpDropPagedBins @ 0x140736594
  * Callers:
- *     CmpMountPreloadedHives @ 0x140735800 (CmpMountPreloadedHives.c)
- *     CmpLoadHiveThread @ 0x140735B50 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407357E0 (CmpMountPreloadedHives.c)
+ *     CmpLoadHiveThread @ 0x140735B30 (CmpLoadHiveThread.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     HvpAllocateBin @ 0x1405A2540 (HvpAllocateBin.c)
  *     HvpPointMapEntriesToBuffer @ 0x1405A3F90 (HvpPointMapEntriesToBuffer.c)
  *     HvpMapEntryGetFreeBin @ 0x1405F9C1C (HvpMapEntryGetFreeBin.c)
  *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
  *     CmpReleaseGlobalQuota @ 0x1405FB668 (CmpReleaseGlobalQuota.c)
- *     HvpFreeBin @ 0x1406CFFB0 (HvpFreeBin.c)
- *     MmFreeBootRegistry @ 0x1407366F8 (MmFreeBootRegistry.c)
+ *     HvpFreeBin @ 0x1406CFF90 (HvpFreeBin.c)
+ *     MmFreeBootRegistry @ 0x1407366D8 (MmFreeBootRegistry.c)
  */
 
 __int64 __fastcall HvpDropPagedBins(ULONG_PTR BugCheckParameter2)

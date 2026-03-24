@@ -1,82 +1,84 @@
 /*
- * XREFs of MiFillMapFileInfo @ 0x14096CB14
+ * XREFs of MiFillMapFileInfo @ 0x1408C456C
  * Callers:
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1406F71A0 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     MiLogMapFileEvent @ 0x14096CDB8 (MiLogMapFileEvent.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x14061E590 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MiLogMapFileEvent @ 0x1408C4748 (MiLogMapFileEvent.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x140280D08 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140281750 (MiReferenceControlAreaFile.c)
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     MiGetProtoPteAddress @ 0x140319600 (MiGetProtoPteAddress.c)
- *     MiStartingOffset @ 0x1403342D0 (MiStartingOffset.c)
+ *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
+ *     MiStartingOffset @ 0x14031E410 (MiStartingOffset.c)
+ *     MiGetProtoPteAddress @ 0x140330B40 (MiGetProtoPteAddress.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     MiDereferenceControlAreaFile @ 0x1403571E4 (MiDereferenceControlAreaFile.c)
  */
 
 int __fastcall MiFillMapFileInfo(__int64 a1, __int64 a2)
 {
-  int v4; // r15d
-  unsigned __int64 v5; // rbp
-  __int64 v6; // r14
-  unsigned __int64 v7; // rsi
-  unsigned __int64 v8; // rax
+  unsigned __int64 *v3; // rdi
+  int v5; // r12d
+  unsigned __int64 v6; // rbp
+  __int64 v7; // r15
+  unsigned __int64 v8; // rsi
+  ULONG_PTR v9; // rax
   unsigned int SessionId; // eax
-  unsigned __int64 v10; // rcx
   unsigned __int64 v11; // rcx
-  __int64 v12; // rax
-  unsigned __int64 v13; // rcx
-  unsigned __int64 v14; // r8
-  __int64 v15; // rax
-  __int64 v17; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int64 v12; // rcx
+  __int64 v13; // rax
+  unsigned __int64 v14; // rcx
+  unsigned __int64 v15; // r8
+  __int64 v16; // rax
+  __int64 *v18; // [rsp+50h] [rbp+8h] BYREF
 
-  v17 = 0LL;
-  v4 = *(_DWORD *)(a1 + 48);
-  v5 = *(_QWORD *)(a1 + 112) & 0xFFFFFFFFFFFFFFFEuLL;
-  v6 = **(_QWORD **)(a1 + 72);
-  v7 = *(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32);
+  v3 = (unsigned __int64 *)(a2 + 16);
+  v18 = 0LL;
+  v5 = *(_DWORD *)(a1 + 48);
+  v6 = *(_QWORD *)(a1 + 112) & 0xFFFFFFFFFFFFFFFEuLL;
+  v7 = **(_QWORD **)(a1 + 72);
+  v8 = *(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32);
   *(_QWORD *)(a2 + 16) = 0LL;
-  if ( *(_QWORD *)(v6 + 64) )
+  if ( *(_QWORD *)(v7 + 64) )
   {
-    v8 = MiReferenceControlAreaFile(v6);
-    *(_QWORD *)(a2 + 8) = *(_QWORD *)(v8 + 24);
-    MiDereferenceControlAreaFile(v6, v8);
-    MiGetProtoPteAddress(a1, v7, 0, &v17);
-    SessionId = MmGetSessionIdEx(v5);
-    v10 = *(_QWORD *)(a2 + 16) ^ (MiStartingOffset(v17, *(_QWORD *)(a1 + 80), SessionId) ^ *(_QWORD *)(a2 + 16)) & 0xFFFFFFFFFFFFLL;
-    *(_QWORD *)(a2 + 16) = v10;
-    if ( (v4 & 0x70) == 0x20 )
+    v9 = MiReferenceControlAreaFile(v7);
+    *(_QWORD *)(a2 + 8) = *(_QWORD *)(v9 + 24);
+    MiDereferenceControlAreaFile(v7, v9);
+    MiGetProtoPteAddress(a1, v8, 0, &v18);
+    SessionId = MmGetSessionIdEx(v6);
+    v11 = *v3 ^ (MiStartingOffset(v18, *(_QWORD *)(a1 + 80), SessionId) ^ *v3) & 0xFFFFFFFFFFFFLL;
+    *v3 = v11;
+    if ( (v5 & 0x70) == 0x20 )
     {
       if ( (*(_DWORD *)(a1 + 48) & 0xF80) == 0x380 )
       {
-        v11 = v10 & 0xFF7FFFFFFFFFFFFFuLL;
-        v12 = 0x40000000000000LL;
+        v12 = v11 & 0xFF7FFFFFFFFFFFFFuLL;
+        v13 = 0x40000000000000LL;
       }
       else
       {
-        v11 = v10 & 0xFFBFFFFFFFFFFFFFuLL;
-        v12 = 0x80000000000000LL;
+        v12 = v11 & 0xFFBFFFFFFFFFFFFFuLL;
+        v13 = 0x80000000000000LL;
       }
-      v13 = v12 | v11;
+      v14 = v13 | v12;
     }
     else
     {
-      v13 = v10 & 0xFF3FFFFFFFFFFFFFuLL;
+      v14 = v11 & 0xFF3FFFFFFFFFFFFFuLL;
     }
-    *(_QWORD *)(a2 + 16) = v13;
   }
   else
   {
+    v14 = 0xC0000000000000LL;
     *(_QWORD *)(a2 + 8) = *(_QWORD *)(a1 + 80);
-    *(_QWORD *)(a2 + 16) = 0xC0000000000000LL;
   }
-  v14 = ((unsigned __int64)(*(_DWORD *)(a1 + 64) & 0x1000000) << 29) | *(_QWORD *)(a2 + 16) & 0xFFDFFFFFFFFFFFFFuLL;
-  *(_QWORD *)(a2 + 16) = v14;
-  *(_DWORD *)(a2 + 40) = *(_DWORD *)(v5 + 1088);
-  *(_QWORD *)a2 = v7 << 12;
+  *v3 = v14;
+  v15 = ((unsigned __int64)(*(_DWORD *)(a1 + 64) & 0x1000000) << 29) | *v3 & 0xFFDFFFFFFFFFFFFFuLL;
+  *v3 = v15;
+  *(_DWORD *)(a2 + 40) = *(_DWORD *)(v6 + 1088);
+  *(_QWORD *)a2 = v8 << 12;
   *(_QWORD *)(a2 + 24) = ((*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32))
                         - (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32))
                         + 1) << 12;
-  *(_QWORD *)(a2 + 16) = v14 ^ (v14 ^ ((unsigned __int64)*(unsigned int *)(a1 + 48) << 41)) & 0x1F000000000000LL;
-  v15 = *(unsigned int *)(a1 + 52);
-  LODWORD(v15) = v15 & 0x7FFFFFFF;
-  *(_QWORD *)(a2 + 32) = (v15 | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 31)) << 12;
-  return v15;
+  *v3 = v15 ^ (v15 ^ ((unsigned __int64)*(unsigned int *)(a1 + 48) << 41)) & 0x1F000000000000LL;
+  v16 = *(unsigned int *)(a1 + 52);
+  LODWORD(v16) = v16 & 0x7FFFFFFF;
+  *(_QWORD *)(a2 + 32) = (v16 | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 31)) << 12;
+  return v16;
 }

@@ -1,11 +1,10 @@
 /*
- * XREFs of ?TraceLoggingDrawMenuBarTempCalled@@YAXXZ @ 0x1C0201A44
+ * XREFs of ?TraceLoggingDrawMenuBarTempCalled@@YAXXZ @ 0x1C0224784
  * Callers:
- *     NtUserDrawMenuBarTemp @ 0x1C01CF1F0 (NtUserDrawMenuBarTemp.c)
+ *     NtUserDrawMenuBarTemp @ 0x1C01F8040 (NtUserDrawMenuBarTemp.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0040C00 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1C0041D94 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C01D1C24 (_tlgWriteTransfer_EtwWriteTransfer.c)
  */
 
 void TraceLoggingDrawMenuBarTempCalled(void)
@@ -16,21 +15,14 @@ void TraceLoggingDrawMenuBarTempCalled(void)
   int v3; // [rsp+60h] [rbp-18h]
   int v4; // [rsp+64h] [rbp-14h]
 
-  if ( (unsigned int)dword_1C0354098 > 5 )
+  if ( (unsigned int)dword_1C032A3D8 > 5
+    && (qword_1C032A3E8 & 0x200000000000LL) != 0
+    && (qword_1C032A3F0 & 0x200000000000LL) == qword_1C032A3F0 )
   {
-    if ( tlgKeywordOn((__int64)&dword_1C0354098, 0x200000000000LL) )
-    {
-      v4 = 0;
-      v2 = &v0;
-      v0 = 0x1000000LL;
-      v3 = 8;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_1C0354098,
-        (unsigned __int8 *)dword_1C031C88A,
-        0LL,
-        0LL,
-        3u,
-        &v1);
-    }
+    v0 = 0x1000000LL;
+    v2 = &v0;
+    v4 = 0;
+    v3 = 8;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C032A3D8, (unsigned __int8 *)dword_1C02F23C5, 0LL, 0LL, 3u, &v1);
   }
 }

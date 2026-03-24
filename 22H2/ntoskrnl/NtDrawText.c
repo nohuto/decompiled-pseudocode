@@ -1,13 +1,13 @@
 /*
- * XREFs of NtDrawText @ 0x140606790
+ * XREFs of NtDrawText @ 0x1405B2680
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435100 (memmove.c)
- *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     BgkDrawText @ 0x140AF200C (BgkDrawText.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     BgkDrawText @ 0x1409F63DC (BgkDrawText.c)
  */
 
 __int64 __fastcall NtDrawText(__int128 *a1)
@@ -18,8 +18,8 @@ __int64 __fastcall NtDrawText(__int128 *a1)
   __int64 v6; // rax
   int v7; // ecx
   const void *v8; // r14
-  unsigned __int64 v9; // rcx
-  void *Pool2; // rax
+  unsigned __int64 v9; // rax
+  PVOID PoolWithTag; // rax
   unsigned __int16 v11; // cx
   __int128 v12; // [rsp+20h] [rbp-28h] BYREF
   int v13; // [rsp+58h] [rbp+10h]
@@ -47,11 +47,11 @@ __int64 __fastcall NtDrawText(__int128 *a1)
   v9 = (unsigned __int64)v8 + HIWORD(v13);
   if ( v9 > 0x7FFFFFFF0000LL || v9 < (unsigned __int64)v8 )
     MEMORY[0x7FFFFFFF0000] = 0;
-  Pool2 = (void *)ExAllocatePool2(64LL, HIWORD(v13), 1735554131LL);
-  v3 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, HIWORD(v13), 0x67727453u);
+  v3 = PoolWithTag;
+  if ( PoolWithTag )
   {
-    memmove(Pool2, v8, HIWORD(v13));
+    memmove(PoolWithTag, v8, HIWORD(v13));
     *((_QWORD *)&v12 + 1) = v3;
     a1 = &v12;
 LABEL_17:

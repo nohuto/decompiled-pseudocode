@@ -1,8 +1,8 @@
 /*
- * XREFs of PopRecordHibernateDiagnosticInfo @ 0x140AA3B50
+ * XREFs of PopRecordHibernateDiagnosticInfo @ 0x1409B18A4
  * Callers:
- *     PopRequestWrite @ 0x140AA4070 (PopRequestWrite.c)
- *     PopWriteHiberPages @ 0x140AA5AA4 (PopWriteHiberPages.c)
+ *     PopWriteHiberPages @ 0x1409916A0 (PopWriteHiberPages.c)
+ *     PopRequestWrite @ 0x140994594 (PopRequestWrite.c)
  * Callees:
  *     <none>
  */
@@ -16,26 +16,26 @@ __int64 __fastcall PopRecordHibernateDiagnosticInfo(__int64 a1)
   __int64 v6; // rcx
 
   v1 = 0;
-  LOBYTE(PopHibernateDiagnosticInfo) = byte_140C3DAD6;
+  LOBYTE(PopHibernateDiagnosticInfo) = byte_140C233F6;
   v3 = 0;
-  qword_140C3E728 = qword_140C3D530;
+  qword_140C24328 = qword_140C24130;
   v4 = 0;
-  qword_140C3E730 = qword_140C3D538;
-  qword_140C3E738 = qword_140C3D558;
-  qword_140C3E740 = qword_140C3D548;
-  qword_140C3E748 = qword_140C3D540;
-  qword_140C3E750 = qword_140C3D560;
-  qword_140C3E758 = qword_140C3D550;
-  qword_140C3E760 = qword_140C3D568;
-  dword_140C3E768 = dword_140C3D570;
-  result = (unsigned int)dword_140C3D044;
-  dword_140C3E774 = dword_140C3D044;
-  for ( qword_140C3E76C = 0LL; v4 < *(_DWORD *)(a1 + 256); HIDWORD(qword_140C3E76C) = v3 )
+  qword_140C24330 = qword_140C24138;
+  qword_140C24338 = qword_140C24158;
+  qword_140C24340 = qword_140C24148;
+  qword_140C24348 = qword_140C24140;
+  qword_140C24350 = qword_140C24160;
+  qword_140C24358 = qword_140C24150;
+  qword_140C24360 = qword_140C24168;
+  dword_140C24368 = dword_140C24170;
+  result = (unsigned int)dword_140C23E84;
+  dword_140C24374 = dword_140C23E84;
+  for ( qword_140C2436C = 0LL; v4 < *(_DWORD *)(a1 + 256); HIDWORD(qword_140C2436C) = v3 )
   {
     v6 = v4++;
     v6 <<= 7;
     v1 += *(_DWORD *)(*(_QWORD *)(a1 + 264) + v6 + 120);
-    LODWORD(qword_140C3E76C) = v1;
+    LODWORD(qword_140C2436C) = v1;
     result = *(_QWORD *)(a1 + 264);
     v3 += *(_DWORD *)(result + v6 + 124);
   }

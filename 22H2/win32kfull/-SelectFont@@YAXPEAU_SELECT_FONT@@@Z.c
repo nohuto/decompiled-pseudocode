@@ -1,12 +1,12 @@
 /*
- * XREFs of ?SelectFont@@YAXPEAU_SELECT_FONT@@@Z @ 0x1C023F370
+ * XREFs of ?SelectFont@@YAXPEAU_SELECT_FONT@@@Z @ 0x1C0250620
  * Callers:
  *     <none>
  * Callees:
- *     GreSelectFontInternal @ 0x1C0119F34 (GreSelectFontInternal.c)
+ *     GreSelectFont @ 0x1C0045E80 (GreSelectFont.c)
  */
 
-void __fastcall SelectFont(struct _SELECT_FONT *a1)
+void __fastcall SelectFont(HDC *a1)
 {
-  GreSelectFontInternal(*(_QWORD *)a1, *((_QWORD *)a1 + 1), 1);
+  GreSelectFont(*a1);
 }

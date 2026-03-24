@@ -1,22 +1,23 @@
 /*
- * XREFs of IopValidateJunctionTarget @ 0x140946694
+ * XREFs of IopValidateJunctionTarget @ 0x140892F34
  * Callers:
- *     IopXxxControlFile @ 0x1406E5590 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x14064B730 (IopXxxControlFile.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IopReferenceFileObject @ 0x1403016DC (IopReferenceFileObject.c)
- *     FsRtlValidateReparsePointBuffer @ 0x140322190 (FsRtlValidateReparsePointBuffer.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     RtlPrefixUnicodeString @ 0x1406D9ED0 (RtlPrefixUnicodeString.c)
- *     IoVolumeDeviceToGuidPath @ 0x140701FE0 (IoVolumeDeviceToGuidPath.c)
- *     IoVolumeDeviceToDosName @ 0x14075B4A0 (IoVolumeDeviceToDosName.c)
- *     IopQueryXxxInformation @ 0x14075D79C (IopQueryXxxInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     IopReferenceFileObject @ 0x1402C90B0 (IopReferenceFileObject.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     IopVerifierExAllocatePoolWithQuota_0 @ 0x1402D26C0 (IopVerifierExAllocatePoolWithQuota_0.c)
+ *     FsRtlValidateReparsePointBuffer @ 0x140309A70 (FsRtlValidateReparsePointBuffer.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     IoVolumeDeviceToDosName @ 0x140620F70 (IoVolumeDeviceToDosName.c)
+ *     IopQueryXxxInformation @ 0x140633A38 (IopQueryXxxInformation.c)
+ *     IoVolumeDeviceToGuidPath @ 0x140721620 (IoVolumeDeviceToGuidPath.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopValidateJunctionTarget(
@@ -27,37 +28,38 @@ __int64 __fastcall IopValidateJunctionTarget(
         _QWORD *a5,
         unsigned int *a6)
 {
-  size_t v6; // rbx
-  void *v9; // r13
-  __int64 v10; // r14
-  ULONG v11; // r15d
-  struct _REPARSE_DATA_BUFFER *Pool2; // rax
+  SIZE_T v6; // rbx
+  void *v9; // r15
+  char *PoolWithTag; // r14
+  ULONG v11; // r12d
+  struct _REPARSE_DATA_BUFFER *PoolWithQuota_0; // rax
   const void *v13; // rdx
   size_t v14; // r8
   struct _REPARSE_DATA_BUFFER *v15; // rsi
   int appended; // ebx
-  PVOID *v17; // r15
+  _DMA_OPERATIONS *DmaOperations; // r13
   char v18; // r12
-  ULONG v19; // r15d
+  ULONG v19; // r12d
   int v20; // r8d
   unsigned int v21; // ebx
-  unsigned int v22; // r12d
+  unsigned int v22; // r13d
   unsigned int v23; // eax
   _OWORD *v24; // rax
-  _OWORD *v25; // r15
+  _OWORD *v25; // r12
   unsigned int Length; // ecx
   char v28; // [rsp+40h] [rbp-128h]
   UNICODE_STRING v29; // [rsp+50h] [rbp-118h] BYREF
   __int64 v30; // [rsp+60h] [rbp-108h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+68h] [rbp-100h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-F8h] BYREF
-  PVOID Object; // [rsp+80h] [rbp-E8h] BYREF
+  struct _REPARSE_DATA_BUFFER *v33; // [rsp+80h] [rbp-E8h]
   UNICODE_STRING String2; // [rsp+88h] [rbp-E0h] BYREF
-  int v34; // [rsp+98h] [rbp-D0h]
-  struct _REPARSE_DATA_BUFFER *v35; // [rsp+A0h] [rbp-C8h]
+  int v35; // [rsp+98h] [rbp-D0h]
+  _OWORD *v36; // [rsp+A0h] [rbp-C8h]
   HANDLE FileHandle; // [rsp+A8h] [rbp-C0h] BYREF
   UNICODE_STRING Destination; // [rsp+B0h] [rbp-B8h] BYREF
   UNICODE_STRING String1; // [rsp+C0h] [rbp-A8h] BYREF
-  UNICODE_STRING v39; // [rsp+D0h] [rbp-98h] BYREF
+  UNICODE_STRING v40; // [rsp+D0h] [rbp-98h] BYREF
   UNICODE_STRING Source; // [rsp+E0h] [rbp-88h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+F0h] [rbp-78h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+120h] [rbp-48h] BYREF
@@ -66,39 +68,42 @@ __int64 __fastcall IopValidateJunctionTarget(
   String2 = 0LL;
   *(_QWORD *)&Source.Length = 1572886LL;
   Source.Buffer = L"\\??\\Global\\";
-  *(_QWORD *)&v39.Length = 2359330LL;
-  v39.Buffer = L"\\??\\Global\\Volume";
+  *(_QWORD *)&v40.Length = 2359330LL;
+  v40.Buffer = L"\\??\\Global\\Volume";
   IoStatusBlock = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   Destination = 0LL;
   DestinationString = 0LL;
   *(_QWORD *)&String1.Length = 1441812LL;
   String1.Buffer = (wchar_t *)L"\\??\\Volume";
-  v35 = 0LL;
+  v33 = 0LL;
   v9 = 0LL;
+  v36 = 0LL;
   FileHandle = 0LL;
-  Object = 0LL;
-  v10 = 0LL;
+  DmaAdapter = 0LL;
+  PoolWithTag = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   if ( a1 == 590860 )
   {
     v11 = v6 - 32;
-    v34 = v6 - 32;
-    Pool2 = (struct _REPARSE_DATA_BUFFER *)ExAllocatePool2(99LL, (unsigned int)(v6 - 32), 1699901257LL);
+    v35 = v6 - 32;
+    PoolWithQuota_0 = (struct _REPARSE_DATA_BUFFER *)IopVerifierExAllocatePoolWithQuota_0(
+                                                       NonPagedPoolNx,
+                                                       (unsigned int)(v6 - 32));
     v13 = a2 + 2;
     v14 = (unsigned int)(v6 - 32);
   }
   else
   {
     v11 = v6;
-    v34 = v6;
-    Pool2 = (struct _REPARSE_DATA_BUFFER *)ExAllocatePool2(99LL, v6, 1699901257LL);
+    v35 = v6;
+    PoolWithQuota_0 = (struct _REPARSE_DATA_BUFFER *)IopVerifierExAllocatePoolWithQuota_0(NonPagedPoolNx, v6);
     v14 = v6;
     v13 = a2;
   }
-  v15 = Pool2;
-  v35 = Pool2;
-  memmove(Pool2, v13, v14);
+  v15 = PoolWithQuota_0;
+  v33 = PoolWithQuota_0;
+  memmove(PoolWithQuota_0, v13, v14);
   if ( v15->ReparseTag != -1610612733 )
     goto LABEL_5;
   appended = FsRtlValidateReparsePointBuffer(v11, v15);
@@ -115,48 +120,53 @@ __int64 __fastcall IopValidateJunctionTarget(
     appended = ZwOpenFile(&FileHandle, 0x120116u, &ObjectAttributes, &IoStatusBlock, 7u, 1u);
     if ( appended >= 0 )
     {
-      appended = IopReferenceFileObject(FileHandle, 0, 0, &Object, 0LL);
+      appended = IopReferenceFileObject(FileHandle, 0, 0, (PVOID *)&DmaAdapter, 0LL);
       if ( appended >= 0 )
       {
-        v17 = (PVOID *)Object;
-        if ( (*(_DWORD *)(*((_QWORD *)Object + 1) + 52LL) & 0x10) != 0 )
+        DmaOperations = DmaAdapter->DmaOperations;
+        if ( (HIDWORD(DmaOperations->FreeAdapterChannel) & 0x10) != 0 )
         {
 LABEL_5:
           appended = -1073741811;
-          goto LABEL_47;
+          goto LABEL_46;
         }
         v18 = 0;
         v28 = 0;
         if ( RtlPrefixUnicodeString(&String1, &String2, 1u)
-          || RtlPrefixUnicodeString(&v39, &String2, 1u)
-          || (appended = IoVolumeDeviceToDosName(v17[1], &DestinationString), appended < 0) )
+          || RtlPrefixUnicodeString(&v40, &String2, 1u)
+          || (appended = IoVolumeDeviceToDosName(DmaOperations, &DestinationString), appended < 0) )
         {
           v18 = 1;
           v28 = 1;
         }
         if ( v18 )
-          appended = IoVolumeDeviceToGuidPath((PDEVICE_OBJECT)v17[1], (__int64)&DestinationString);
+          appended = IoVolumeDeviceToGuidPath((PDEVICE_OBJECT)DmaAdapter->DmaOperations, (__int64)&DestinationString);
         if ( appended >= 0 )
         {
           v19 = String2.Length + 8;
           while ( 1 )
           {
-            v10 = ExAllocatePool2(64LL, v19, 1700032329LL);
-            if ( !v10 )
+            PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v19, 0x65546F49u);
+            *(_QWORD *)&v29.Length = PoolWithTag;
+            if ( !PoolWithTag )
+            {
+              appended = -1073741670;
               goto LABEL_46;
-            appended = IopQueryXxxInformation((struct _FILE_OBJECT *)Object, 9, v19, 0, (struct _IRP *)v10, &v30, 1);
+            }
+            appended = IopQueryXxxInformation(DmaAdapter, 9, v19, 0, (struct _IRP *)PoolWithTag, &v30, 1);
             if ( appended != -2147483643 )
               break;
-            v19 = *(_DWORD *)v10 + 8;
-            ExFreePoolWithTag((PVOID)v10, 0);
+            v19 = *(_DWORD *)PoolWithTag + 8;
+            ExFreePoolWithTag(PoolWithTag, 0);
+            *(_QWORD *)&v29.Length = 0LL;
           }
           if ( appended < 0 )
-            goto LABEL_47;
-          if ( !*(_DWORD *)v10 || *(_WORD *)(v10 + 4) != 92 )
+            goto LABEL_46;
+          if ( !*(_DWORD *)PoolWithTag || *((_WORD *)PoolWithTag + 2) != 92 )
             goto LABEL_5;
-          v20 = DestinationString.Length + *(_DWORD *)v10 + 14;
-          if ( !v18 )
-            v20 = DestinationString.Length + *(_DWORD *)v10 + 22;
+          v20 = DestinationString.Length + *(_DWORD *)PoolWithTag + 14;
+          if ( !v28 )
+            v20 = DestinationString.Length + *(_DWORD *)PoolWithTag + 22;
           v21 = v20 - 2;
           if ( DestinationString.Buffer[((unsigned __int64)DestinationString.Length >> 1) - 1] != 92 )
             v21 = v20;
@@ -166,14 +176,9 @@ LABEL_5:
           v23 = a4;
           if ( v22 > a4 )
             v23 = a3 + v21 - String2.Length;
-          v24 = (_OWORD *)ExAllocatePool2(65LL, v23, 1699901257LL);
+          v24 = IopVerifierExAllocatePoolWithQuota_0(NonPagedPoolNx, v23);
           v9 = v24;
-          if ( !v24 )
-          {
-LABEL_46:
-            appended = -1073741670;
-            goto LABEL_47;
-          }
+          v36 = v24;
           if ( a1 == 590860 )
           {
             *v24 = *a2;
@@ -205,8 +210,8 @@ LABEL_46:
             appended = RtlAppendUnicodeStringToString(&Destination, &v29);
             if ( appended >= 0 )
             {
-              v29.Buffer = (wchar_t *)(v10 + 4);
-              v29.Length = *(_WORD *)v10;
+              v29.Buffer = (wchar_t *)(PoolWithTag + 4);
+              v29.Length = *(_WORD *)PoolWithTag;
               v29.MaximumLength = v29.Length;
               appended = RtlAppendUnicodeStringToString(&Destination, &v29);
               if ( appended >= 0 )
@@ -238,17 +243,17 @@ LABEL_46:
       }
     }
   }
-LABEL_47:
+LABEL_46:
   if ( v9 )
     ExFreePoolWithTag(v9, 0);
   if ( v15 )
     ExFreePoolWithTag(v15, 0);
-  if ( v10 )
-    ExFreePoolWithTag((PVOID)v10, 0);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
   if ( DestinationString.Buffer )
     ExFreePoolWithTag(DestinationString.Buffer, 0);
-  if ( Object )
-    ObfDereferenceObject(Object);
+  if ( DmaAdapter )
+    HalPutDmaAdapter(DmaAdapter);
   if ( FileHandle )
     ZwClose(FileHandle);
   return (unsigned int)appended;

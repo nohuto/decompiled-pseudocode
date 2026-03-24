@@ -1,20 +1,19 @@
 /*
- * XREFs of CmpExpandPathInfo @ 0x140690E54
+ * XREFs of CmpExpandPathInfo @ 0x140679D00
  * Callers:
- *     CmpComputeComponentHashes @ 0x140690B10 (CmpComputeComponentHashes.c)
- *     CmpDoParseKey @ 0x1406E91B0 (CmpDoParseKey.c)
+ *     CmpComputeComponentHashes @ 0x1406493E0 (CmpComputeComponentHashes.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1404287F0 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140406FB0 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall CmpExpandPathInfo(__int64 a1)
 {
   struct _KPRCB *CurrentPrcb; // rbp
   _GENERAL_LOOKASIDE *P; // rsi
-  unsigned int v4; // edi
-  PSLIST_ENTRY v5; // rbx
+  unsigned int v4; // ebx
+  PSLIST_ENTRY v5; // rdi
   _GENERAL_LOOKASIDE *L; // rsi
   __int64 Size; // rdx
   void *(__fastcall *AllocateEx)(_POOL_TYPE, unsigned __int64, unsigned int, _LOOKASIDE_LIST_EX *); // rax
@@ -41,10 +40,6 @@ __int64 __fastcall CmpExpandPathInfo(__int64 a1)
         (v5 = (PSLIST_ENTRY)((__int64 (__fastcall *)(__int64, __int64, __int64))AllocateEx)(Type, Size, Tag)) != 0LL) )
   {
 LABEL_2:
-    LODWORD(v5->Next) = CurrentPrcb->Number;
-  }
-  if ( v5 )
-  {
     memset(v5, 0, 0x1E0uLL);
     *(_QWORD *)(a1 + 160) = v5;
   }

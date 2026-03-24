@@ -1,15 +1,15 @@
 /*
- * XREFs of ?InternalRelease@?$ComPtr@VCCompositionSurfaceBitmap@@@WRL@Microsoft@@IEAAKXZ @ 0x180223050
+ * XREFs of ?InternalRelease@?$ComPtr@VCCompositionSurfaceBitmap@@@WRL@Microsoft@@IEAAKXZ @ 0x1801B9180
  * Callers:
- *     ?ProcessSetSurfaces@CCompositionCubeMap@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONCUBEMAP_SETSURFACES@@PEBXI@Z @ 0x180223214 (-ProcessSetSurfaces@CCompositionCubeMap@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONCUBEM.c)
- *     ?ReleaseResources@CCompositionCubeMap@@AEAAXXZ @ 0x180223488 (-ReleaseResources@CCompositionCubeMap@@AEAAXXZ.c)
+ *     ?ProcessSetSurfaces@CCompositionCubeMap@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONCUBEMAP_SETSURFACES@@PEBXI@Z @ 0x1801B932C (-ProcessSetSurfaces@CCompositionCubeMap@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONCUBEM.c)
+ *     ?ReleaseResources@CCompositionCubeMap@@AEAAXXZ @ 0x1801B9564 (-ReleaseResources@CCompositionCubeMap@@AEAAXXZ.c)
  * Callees:
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078A28 (-InternalRelease@CResource@@IEAAKXZ.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
  */
 
-__int64 __fastcall Microsoft::WRL::ComPtr<CCompositionSurfaceBitmap>::InternalRelease(CResource **a1)
+__int64 __fastcall Microsoft::WRL::ComPtr<CCompositionSurfaceBitmap>::InternalRelease(CRenderTargetBitmap **a1)
 {
-  CResource *v1; // rdx
+  CRenderTargetBitmap *v1; // rdx
   __int64 result; // rax
 
   v1 = *a1;
@@ -17,7 +17,7 @@ __int64 __fastcall Microsoft::WRL::ComPtr<CCompositionSurfaceBitmap>::InternalRe
   if ( *a1 )
   {
     *a1 = 0LL;
-    return CResource::InternalRelease(v1);
+    return CRenderTargetBitmap::Release(v1);
   }
   return result;
 }

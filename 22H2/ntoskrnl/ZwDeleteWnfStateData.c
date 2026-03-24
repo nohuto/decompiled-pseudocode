@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwDeleteWnfStateData @ 0x14041C260
+ * XREFs of ZwDeleteWnfStateData @ 0x1403FB520
  * Callers:
  *     <none>
  * Callees:

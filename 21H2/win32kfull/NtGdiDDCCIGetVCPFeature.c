@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiDDCCIGetVCPFeature @ 0x1C026FE60
+ * XREFs of NtGdiDDCCIGetVCPFeature @ 0x1C0272260
  * Callers:
  *     <none>
  * Callees:
- *     ?DdcciGetVCPFeature@CMonitorAPI@@QEAAJPEAXKPEAW4_MC_VCP_CODE_TYPE@@PEAK2@Z @ 0x1C026F300 (-DdcciGetVCPFeature@CMonitorAPI@@QEAAJPEAXKPEAW4_MC_VCP_CODE_TYPE@@PEAK2@Z.c)
+ *     ?DdcciGetVCPFeature@CMonitorAPI@@QEAAJPEAXKPEAW4_MC_VCP_CODE_TYPE@@PEAK2@Z @ 0x1C02716E4 (-DdcciGetVCPFeature@CMonitorAPI@@QEAAJPEAXKPEAW4_MC_VCP_CODE_TYPE@@PEAK2@Z.c)
  */
 
 __int64 __fastcall NtGdiDDCCIGetVCPFeature(

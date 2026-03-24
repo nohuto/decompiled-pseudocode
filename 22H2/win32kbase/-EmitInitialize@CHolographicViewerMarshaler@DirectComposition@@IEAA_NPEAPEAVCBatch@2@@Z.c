@@ -1,12 +1,12 @@
 /*
- * XREFs of ?EmitInitialize@CHolographicViewerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0227118
+ * XREFs of ?EmitInitialize@CHolographicViewerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EE308
  * Callers:
- *     ?EmitUpdateCommands@CHolographicViewerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0227240 (-EmitUpdateCommands@CHolographicViewerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CHolographicViewerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EE430 (-EmitUpdateCommands@CHolographicViewerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     ReferenceDwmProcess @ 0x1C0086E90 (ReferenceDwmProcess.c)
- *     CheckOrAcquireDwmStateLock @ 0x1C0086ED4 (CheckOrAcquireDwmStateLock.c)
- *     GreUnlockDwmState @ 0x1C00870B0 (GreUnlockDwmState.c)
+ *     GreUnlockDwmState @ 0x1C0048E10 (GreUnlockDwmState.c)
+ *     ReferenceDwmProcess @ 0x1C004AA00 (ReferenceDwmProcess.c)
+ *     CheckOrAcquireDwmStateLock @ 0x1C004AA44 (CheckOrAcquireDwmStateLock.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CHolographicViewerMarshaler::EmitInitialize(
@@ -15,57 +15,52 @@ char __fastcall DirectComposition::CHolographicViewerMarshaler::EmitInitialize(
 {
   int v2; // eax
   char v3; // si
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  char v9; // bp
-  __int64 v10; // rax
-  __int64 v11; // rcx
-  void *v12; // rdi
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  char *v15; // rcx
-  char v17; // [rsp+38h] [rbp-20h]
-  void *v18; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v19; // [rsp+70h] [rbp+18h] BYREF
+  char v5; // bp
+  PVOID v6; // rax
+  void *v7; // rdi
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  char *v10; // rcx
+  char v12; // [rsp+38h] [rbp-20h]
+  void *v13; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v14; // [rsp+70h] [rbp+18h] BYREF
 
   v2 = *((_DWORD *)this + 15);
   v3 = 0;
   if ( v2 >= 0 && (v2 & 0x3F) == 0x3F )
   {
-    v18 = 0LL;
-    if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x44uLL, &v18) )
+    v13 = 0LL;
+    if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x44uLL, &v13) )
     {
-      v9 = CheckOrAcquireDwmStateLock(v6, v5, v7, v8);
-      v10 = ReferenceDwmProcess();
-      v12 = (void *)v10;
-      if ( v10 )
+      v5 = CheckOrAcquireDwmStateLock();
+      v6 = ReferenceDwmProcess();
+      v7 = v6;
+      if ( v6 )
       {
-        v13 = *((_QWORD *)this + 13);
-        v14 = *((_QWORD *)this + 16);
-        v19 = 0LL;
-        v17 = 0;
-        if ( (int)ObDuplicateObject(v14, v13, v10, &v19, 0, 0, 6, v17) >= 0 )
+        v8 = *((_QWORD *)this + 13);
+        v9 = *((_QWORD *)this + 16);
+        v14 = 0LL;
+        v12 = 0;
+        if ( (int)ObDuplicateObject(v9, v8, v6, &v14, 0, 0, 6, v12) >= 0 )
         {
-          v15 = (char *)v18;
+          v10 = (char *)v13;
           v3 = 1;
-          *(_DWORD *)v18 = 68;
-          *((_DWORD *)v15 + 1) = 177;
-          *((_DWORD *)v15 + 2) = *((_DWORD *)this + 8);
-          *((_DWORD *)v15 + 3) = *((_DWORD *)this + 16);
-          *((_DWORD *)v15 + 4) = *((_DWORD *)this + 17);
-          *(_QWORD *)(v15 + 20) = *(_QWORD *)((char *)this + 116);
-          *(_OWORD *)(v15 + 28) = *(_OWORD *)((char *)this + 76);
-          *((_DWORD *)v15 + 11) = *((_DWORD *)this + 18);
-          *(_QWORD *)(v15 + 52) = v19;
-          *((_DWORD *)v15 + 15) = *((_DWORD *)this + 31);
+          *(_DWORD *)v13 = 68;
+          *((_DWORD *)v10 + 1) = 185;
+          *((_DWORD *)v10 + 2) = *((_DWORD *)this + 6);
+          *((_DWORD *)v10 + 3) = *((_DWORD *)this + 16);
+          *((_DWORD *)v10 + 4) = *((_DWORD *)this + 17);
+          *(_QWORD *)(v10 + 20) = *(_QWORD *)((char *)this + 116);
+          *(_OWORD *)(v10 + 28) = *(_OWORD *)((char *)this + 76);
+          *((_DWORD *)v10 + 11) = *((_DWORD *)this + 18);
+          *(_QWORD *)(v10 + 52) = v14;
+          *((_DWORD *)v10 + 15) = *((_DWORD *)this + 31);
           *((_DWORD *)this + 15) |= 0x80000000;
         }
-        ObfDereferenceObject(v12);
+        ObfDereferenceObject(v7);
       }
-      if ( v9 )
-        GreUnlockDwmState(v11);
+      if ( v5 )
+        GreUnlockDwmState();
     }
   }
   return v3;

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?WaitForVSync@REMOTE_VSYNC@@QEAAJXZ @ 0x1C0160104
+ * XREFs of ?WaitForVSync@REMOTE_VSYNC@@QEAAJXZ @ 0x1C00DF700
  * Callers:
- *     DxgkWaitForVerticalBlankEventInternal @ 0x1C0177070 (DxgkWaitForVerticalBlankEventInternal.c)
+ *     ?DxgkWaitForVerticalBlankEventInternal@@YAJIIIIPEAPEAU_KEVENT@@@Z @ 0x1C0157380 (-DxgkWaitForVerticalBlankEventInternal@@YAJIIIIPEAPEAU_KEVENT@@@Z.c)
  * Callees:
- *     ?EnableVSyncEventSignaling@BLTQUEUE@@QEAAXXZ @ 0x1C016015C (-EnableVSyncEventSignaling@BLTQUEUE@@QEAAXXZ.c)
- *     ?EnsureEmulationRunning@REMOTE_VSYNC@@AEAAJXZ @ 0x1C01601B4 (-EnsureEmulationRunning@REMOTE_VSYNC@@AEAAJXZ.c)
+ *     ?EnableVSyncEventSignaling@BLTQUEUE@@QEAAXXZ @ 0x1C00DF758 (-EnableVSyncEventSignaling@BLTQUEUE@@QEAAXXZ.c)
+ *     ?EnsureEmulationRunning@REMOTE_VSYNC@@AEAAJXZ @ 0x1C00DF7B0 (-EnsureEmulationRunning@REMOTE_VSYNC@@AEAAJXZ.c)
  */
 
 NTSTATUS __fastcall REMOTE_VSYNC::WaitForVSync(BLTQUEUE **this)

@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaAddErrorSourceDeviceDriverV1 @ 0x1403D2680
+ * XREFs of WheaAddErrorSourceDeviceDriverV1 @ 0x1403BACD0
  * Callers:
  *     <none>
  * Callees:
- *     WheaAddErrorSourceDeviceDriver @ 0x14084E340 (WheaAddErrorSourceDeviceDriver.c)
+ *     WheaAddErrorSourceDeviceDriver @ 0x1407AF0F0 (WheaAddErrorSourceDeviceDriver.c)
  */
 
 __int64 __fastcall WheaAddErrorSourceDeviceDriverV1(__int64 a1, __int128 *a2, __int64 a3, int a4)

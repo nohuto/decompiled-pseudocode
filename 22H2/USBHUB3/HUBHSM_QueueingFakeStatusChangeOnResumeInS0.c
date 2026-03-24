@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBHSM_QueueingFakeStatusChangeOnResumeInS0 @ 0x1C0008C90
+ * XREFs of HUBHSM_QueueingFakeStatusChangeOnResumeInS0 @ 0x1C00084D0
  * Callers:
  *     <none>
  * Callees:
- *     HUBFDO_SignalPnpPowerEvent @ 0x1C000DFC4 (HUBFDO_SignalPnpPowerEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     HUBFDO_SignalPnpPowerEvent @ 0x1C000CDD4 (HUBFDO_SignalPnpPowerEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall HUBHSM_QueueingFakeStatusChangeOnResumeInS0(__int64 a1)

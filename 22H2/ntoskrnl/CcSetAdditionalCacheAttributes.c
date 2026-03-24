@@ -1,60 +1,70 @@
 /*
- * XREFs of CcSetAdditionalCacheAttributes @ 0x14034E110
+ * XREFs of CcSetAdditionalCacheAttributes @ 0x140302D40
  * Callers:
- *     CcSetAdditionalCacheAttributesEx @ 0x14034E000 (CcSetAdditionalCacheAttributesEx.c)
+ *     CcSetAdditionalCacheAttributesEx @ 0x140302C10 (CcSetAdditionalCacheAttributesEx.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260240 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260D40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14022E780 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcGetPartition @ 0x140293E80 (CcGetPartition.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402CDE30 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
+// local variable allocation has failed, the output may be wrong!
 void __stdcall CcSetAdditionalCacheAttributes(
         PFILE_OBJECT FileObject,
         BOOLEAN DisableReadAhead,
         BOOLEAN DisableWriteBehind)
 {
+  _DWORD *v3; // r9
+  PSECTION_OBJECT_POINTERS SectionObjectPointer; // rax
   _DWORD *SharedCacheMap; // rbx
-  int v6; // eax
-  unsigned int v7; // eax
-  unsigned int v8; // eax
+  __int64 Partition; // rax
+  int v9; // eax
+  unsigned int v10; // eax
+  unsigned int v11; // eax
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v13; // eax
-  bool v14; // zf
-  struct _KLOCK_QUEUE_HANDLE v15; // [rsp+30h] [rbp-28h] BYREF
+  int v16; // eax
+  bool v17; // zf
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
 
-  memset(&v15, 0, sizeof(v15));
-  SharedCacheMap = FileObject->SectionObjectPointer->SharedCacheMap;
+  SectionObjectPointer = FileObject->SectionObjectPointer;
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  SharedCacheMap = SectionObjectPointer->SharedCacheMap;
   if ( !SharedCacheMap[1] )
     KeBugCheckEx(0x34u, 0x5FuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(*((_QWORD *)SharedCacheMap + 67) + 768LL), &v15);
-  v6 = SharedCacheMap[38];
+  Partition = CcGetPartition((_QWORD *)SectionObjectPointer->SharedCacheMap, DisableReadAhead, DisableWriteBehind, v3);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(Partition + 128), &LockHandle);
+  v9 = SharedCacheMap[38];
   if ( DisableReadAhead )
-    v7 = v6 | 1;
+    v10 = v9 | 1;
   else
-    v7 = v6 & 0xFFFFFFFE;
+    v10 = v9 & 0xFFFFFFFE;
   if ( DisableWriteBehind )
-    v8 = v7 | 0x202;
+    v11 = v10 | 0x202;
   else
-    v8 = v7 & 0xFFFFFFFD;
-  SharedCacheMap[38] = v8;
-  KxReleaseQueuedSpinLock((volatile signed __int64 **)&v15);
-  OldIrql = v15.OldIrql;
+    v11 = v10 & 0xFFFFFFFD;
+  SharedCacheMap[38] = v11;
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v15.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v13 = ~(unsigned __int16)(-1LL << (v15.OldIrql + 1));
-      v14 = (v13 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v13;
-      if ( v14 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v16 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v17 = (v16 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v16;
+        if ( v17 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   __writecr8(OldIrql);

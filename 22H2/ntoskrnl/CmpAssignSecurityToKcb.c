@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpAssignSecurityToKcb @ 0x14076AF70
+ * XREFs of CmpAssignSecurityToKcb @ 0x1406E2F20
  * Callers:
- *     CmpCreateChild @ 0x1406D1020 (CmpCreateChild.c)
- *     CmpSetSecurityDescriptorInfo @ 0x14070CFC8 (CmpSetSecurityDescriptorInfo.c)
- *     CmpRebuildKcbCacheFromNode @ 0x14076ADCC (CmpRebuildKcbCacheFromNode.c)
- *     CmpAssignKeySecurity @ 0x1408593F0 (CmpAssignKeySecurity.c)
- *     CmRestoreKey @ 0x140A0ACF4 (CmRestoreKey.c)
- *     CmpDoBuildVirtualStack @ 0x140A1916C (CmpDoBuildVirtualStack.c)
- *     CmpLightWeightCommitAddKeyUoW @ 0x140A28074 (CmpLightWeightCommitAddKeyUoW.c)
- *     CmpLightWeightCommitSetSecDescUoW @ 0x140A287A0 (CmpLightWeightCommitSetSecDescUoW.c)
+ *     CmpCreateChild @ 0x1406E08C4 (CmpCreateChild.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x1406E2D94 (CmpRebuildKcbCacheFromNode.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1406E5AEC (CmpSetSecurityDescriptorInfo.c)
+ *     CmpAssignKeySecurity @ 0x1407D0370 (CmpAssignKeySecurity.c)
+ *     CmpDoBuildVirtualStack @ 0x14086FFEC (CmpDoBuildVirtualStack.c)
+ *     CmRestoreKey @ 0x14087BF80 (CmRestoreKey.c)
+ *     CmpLightWeightCommitAddKeyUoW @ 0x14087EB9C (CmpLightWeightCommitAddKeyUoW.c)
+ *     CmpLightWeightCommitSetSecDescUoW @ 0x14087F10C (CmpLightWeightCommitSetSecDescUoW.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndex @ 0x14022CFD0 (CmpFindSecurityCellCacheIndex.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     CmLockHiveSecurityShared @ 0x140AF60A0 (CmLockHiveSecurityShared.c)
- *     CmUnlockHiveSecurity @ 0x140AF6100 (CmUnlockHiveSecurity.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x140206E70 (CmpFindSecurityCellCacheIndex.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 char __fastcall CmpAssignSecurityToKcb(
@@ -23,10 +23,10 @@ char __fastcall CmpAssignSecurityToKcb(
         char a4,
         char a5)
 {
-  ULONG_PTR v6; // r14
+  ULONG_PTR v6; // rbp
   char v9; // di
   __int64 v10; // rsi
-  unsigned int v12; // [rsp+58h] [rbp+10h] BYREF
+  unsigned int v12; // [rsp+68h] [rbp+10h] BYREF
 
   v12 = 0;
   v6 = (unsigned int)BugCheckParameter4;
@@ -39,11 +39,11 @@ char __fastcall CmpAssignSecurityToKcb(
   {
     v10 = *(_QWORD *)(BugCheckParameter3 + 32);
     if ( !a4 )
-      CmLockHiveSecurityShared(*(_QWORD *)(BugCheckParameter3 + 32));
+      ExAcquirePushLockSharedEx(v10 + 1776, 0LL);
     if ( CmpFindSecurityCellCacheIndex(v10, v6, &v12) )
     {
       if ( !a3 )
-        *(_QWORD *)(BugCheckParameter3 + 88) = *(_QWORD *)(*(_QWORD *)(v10 + 1888) + 16LL * v12 + 8);
+        *(_QWORD *)(BugCheckParameter3 + 88) = *(_QWORD *)(*(_QWORD *)(v10 + 1880) + 16LL * v12 + 8);
     }
     else
     {
@@ -53,7 +53,7 @@ char __fastcall CmpAssignSecurityToKcb(
       v9 = 0;
     }
     if ( !a4 )
-      CmUnlockHiveSecurity(v10);
+      ExReleasePushLockEx(v10 + 1776, 0LL);
   }
   return v9;
 }

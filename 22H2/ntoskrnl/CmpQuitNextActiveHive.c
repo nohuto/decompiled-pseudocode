@@ -1,12 +1,14 @@
 /*
- * XREFs of CmpQuitNextActiveHive @ 0x140A26DF4
+ * XREFs of CmpQuitNextActiveHive @ 0x14072B22C
  * Callers:
- *     CmpLockKcbStackFlusherLocksExclusive @ 0x14061633C (CmpLockKcbStackFlusherLocksExclusive.c)
+ *     CmpLockKcbStackFlusherLocksExclusive @ 0x14036B7F8 (CmpLockKcbStackFlusherLocksExclusive.c)
+ *     CmpTransMgrPrepare @ 0x140768324 (CmpTransMgrPrepare.c)
+ *     CmpIsHiveAlreadyLoaded @ 0x14086E62C (CmpIsHiveAlreadyLoaded.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B270 (ExReleaseRundownProtection_0.c)
+ *     ExReleaseRundownProtection @ 0x140345500 (ExReleaseRundownProtection.c)
  */
 
 void __fastcall CmpQuitNextActiveHive(struct _EX_RUNDOWN_REF *a1)
 {
-  ExReleaseRundownProtection_0(a1 + 205);
+  ExReleaseRundownProtection(a1 + 204);
 }

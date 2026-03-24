@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPepComponentSetResidency @ 0x1403B36B4
+ * XREFs of PopPepComponentSetResidency @ 0x1405742C8
  * Callers:
- *     PoFxSetComponentResidency @ 0x1403B3620 (PoFxSetComponentResidency.c)
+ *     PoFxSetComponentResidency @ 0x140569190 (PoFxSetComponentResidency.c)
  * Callees:
- *     PopPepComponentGetResidencyIdleState @ 0x140310758 (PopPepComponentGetResidencyIdleState.c)
- *     PopPepUpdateIdleState @ 0x1403107D8 (PopPepUpdateIdleState.c)
- *     PopPepCountReadyActivities @ 0x140313874 (PopPepCountReadyActivities.c)
- *     PopPepRequestWork @ 0x1403138C0 (PopPepRequestWork.c)
- *     PopPepReleaseActivityLink @ 0x140313904 (PopPepReleaseActivityLink.c)
- *     PopPepLockActivityLink @ 0x140313988 (PopPepLockActivityLink.c)
- *     PopPepPromoteActivities @ 0x140313A80 (PopPepPromoteActivities.c)
+ *     PopPepCountReadyActivities @ 0x14026143C (PopPepCountReadyActivities.c)
+ *     PopPepReleaseActivityLink @ 0x140261488 (PopPepReleaseActivityLink.c)
+ *     PopPepRequestWork @ 0x1402614FC (PopPepRequestWork.c)
+ *     PopPepPromoteActivities @ 0x140261688 (PopPepPromoteActivities.c)
+ *     PopPepLockActivityLink @ 0x1402617D8 (PopPepLockActivityLink.c)
+ *     PopPepUpdateIdleState @ 0x140261D98 (PopPepUpdateIdleState.c)
+ *     PopPepComponentGetResidencyIdleState @ 0x140261EA4 (PopPepComponentGetResidencyIdleState.c)
  */
 
-void __fastcall PopPepComponentSetResidency(unsigned int *a1, int a2, unsigned __int64 a3)
+__int64 __fastcall PopPepComponentSetResidency(unsigned int *a1, int a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // rbx
   __int64 v5; // rdi
@@ -21,15 +21,15 @@ void __fastcall PopPepComponentSetResidency(unsigned int *a1, int a2, unsigned _
   char v8; // bp
   unsigned int ready; // ebx
   unsigned int v10; // eax
-  KIRQL v11; // [rsp+58h] [rbp+10h] BYREF
+  KIRQL v12; // [rsp+58h] [rbp+10h] BYREF
 
   v3 = 0LL;
-  v5 = (__int64)&a1[52 * a2 + 48];
-  v11 = 0;
+  v5 = (__int64)&a1[50 * a2 + 46];
+  v12 = 0;
   if ( a3 != -1LL )
     v3 = a3;
   ResidencyIdleState = PopPepComponentGetResidencyIdleState(v5, v3);
-  v7 = PopPepLockActivityLink((__int64)a1, (volatile LONG *)v5, 6u, 1u, &v11);
+  v7 = PopPepLockActivityLink((__int64)a1, (volatile LONG *)v5, 6u, 1u, &v12);
   *(_QWORD *)(v5 + 128) = v3;
   v8 = v7;
   *(_QWORD *)(v5 + 120) = v3;
@@ -40,7 +40,7 @@ void __fastcall PopPepComponentSetResidency(unsigned int *a1, int a2, unsigned _
     PopPepUpdateIdleState((__int64)a1, v5, 1);
     PopPepPromoteActivities((__int64)a1, v5, 2);
     v10 = PopPepCountReadyActivities(a1, v5, 2);
-    PopPepRequestWork((__int64)a1, ready, v10);
+    PopPepRequestWork(ready, v10);
   }
-  PopPepReleaseActivityLink((__int64)a1, (volatile LONG *)v5, v8, v11);
+  return PopPepReleaseActivityLink((__int64)a1, (volatile LONG *)v5, v8, v12);
 }

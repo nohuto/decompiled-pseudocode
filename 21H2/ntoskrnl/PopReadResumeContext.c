@@ -1,11 +1,12 @@
 /*
- * XREFs of PopReadResumeContext @ 0x14098F890
+ * XREFs of PopReadResumeContext @ 0x1408E7148
  * Callers:
- *     PopPowerInformationInternal @ 0x140751B78 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     PopReadPagesFromHiberFile @ 0x14098F634 (PopReadPagesFromHiberFile.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PopReadPagesFromHiberFile @ 0x1408E6EEC (PopReadPagesFromHiberFile.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopReadResumeContext(_DWORD *a1, _QWORD *a2)
@@ -13,22 +14,22 @@ __int64 __fastcall PopReadResumeContext(_DWORD *a1, _QWORD *a2)
   _DWORD *v2; // rdi
   int v5; // eax
   unsigned int *v6; // rsi
-  int v7; // ebx
+  int PagesFromHiberFile; // ebx
   int v8; // eax
   unsigned int v9; // edx
-  int PagesFromHiberFile; // eax
-  unsigned __int64 v11; // r8
-  unsigned __int64 v12; // rcx
-  unsigned __int64 v13; // rdx
-  unsigned int *v15; // [rsp+50h] [rbp+18h] BYREF
-  PVOID P; // [rsp+58h] [rbp+20h] BYREF
+  ULONGLONG v10; // rcx
+  unsigned __int64 v11; // rdx
+  ULONGLONG pullResult[5]; // [rsp+20h] [rbp-28h] BYREF
+  unsigned int *v14; // [rsp+60h] [rbp+18h] BYREF
+  PVOID P; // [rsp+68h] [rbp+20h] BYREF
 
   P = 0LL;
   v2 = 0LL;
-  v15 = 0LL;
+  pullResult[0] = 0LL;
+  v14 = 0LL;
   v5 = PopReadPagesFromHiberFile(0, 1u, &P);
   v6 = (unsigned int *)P;
-  v7 = v5;
+  PagesFromHiberFile = v5;
   if ( v5 >= 0 )
   {
     v8 = *(_DWORD *)P;
@@ -41,49 +42,50 @@ __int64 __fastcall PopReadResumeContext(_DWORD *a1, _QWORD *a2)
     {
       goto LABEL_8;
     }
-    v9 = *((_DWORD *)P + 242);
+    v9 = *((_DWORD *)P + 216);
     if ( !v9 )
       goto LABEL_8;
-    PagesFromHiberFile = PopReadPagesFromHiberFile(2u, v9, (PVOID *)&v15);
-    v2 = v15;
-    v7 = PagesFromHiberFile;
-    if ( PagesFromHiberFile < 0 )
-      goto LABEL_18;
-    v11 = (unsigned __int64)v6[242] << 12;
-    if ( !is_mul_ok(v6[242], 0x1000uLL) )
-      goto LABEL_12;
-    if ( *v15 != 1 )
-      goto LABEL_8;
-    v12 = v15[1];
-    if ( v12 > v11 )
-      goto LABEL_8;
-    v13 = 48LL * v15[2];
-    if ( v13 > 0xFFFFFFFF )
+    PagesFromHiberFile = PopReadPagesFromHiberFile(2u, v9, (PVOID *)&v14);
+    if ( PagesFromHiberFile < 0
+      || (PagesFromHiberFile = RtlULongLongMult(v6[216], 0x1000uLL, pullResult), PagesFromHiberFile < 0) )
     {
-LABEL_12:
-      v7 = -1073741675;
-      goto LABEL_18;
+      v2 = v14;
     }
-    v7 = 0;
-    if ( (unsigned int)v13 > (unsigned int)v12 )
+    else
     {
+      v2 = v14;
+      if ( *v14 != 1 )
+        goto LABEL_8;
+      v10 = v14[1];
+      if ( v10 > pullResult[0] )
+        goto LABEL_8;
+      v11 = 48LL * v14[2];
+      if ( v11 <= 0xFFFFFFFF )
+      {
+        PagesFromHiberFile = 0;
+        if ( (unsigned int)v11 <= (unsigned int)v10 )
+        {
+          memset((char *)v14 + v10, 0, pullResult[0] - v10);
+          *a1 = v2[1];
+          *a2 = v2;
+          goto LABEL_19;
+        }
 LABEL_8:
-      v7 = -1073741271;
-      goto LABEL_18;
+        PagesFromHiberFile = -1073741271;
+        goto LABEL_19;
+      }
+      PagesFromHiberFile = -1073741675;
     }
-    memset((char *)v15 + v12, 0, v11 - v12);
-    *a1 = v2[1];
-    *a2 = v2;
   }
-LABEL_18:
+LABEL_19:
   if ( v6 )
     ExFreePoolWithTag(v6, 0x206D654Du);
-  if ( v7 < 0 )
+  if ( PagesFromHiberFile < 0 )
   {
     if ( v2 )
       ExFreePoolWithTag(v2, 0x206D654Du);
     *a2 = 0LL;
     *a1 = 0;
   }
-  return (unsigned int)v7;
+  return (unsigned int)PagesFromHiberFile;
 }

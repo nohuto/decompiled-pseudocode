@@ -1,28 +1,28 @@
 /*
- * XREFs of PerfDiagpBootSystemProxyCallback @ 0x140864FC0
+ * XREFs of PerfDiagpBootSystemProxyCallback @ 0x1407CF4F0
  * Callers:
  *     <none>
  * Callees:
- *     PerfDiagpRequestState @ 0x14081C88C (PerfDiagpRequestState.c)
+ *     PerfDiagpRequestState @ 0x1407CF54C (PerfDiagpRequestState.c)
  */
 
 void __fastcall PerfDiagpBootSystemProxyCallback(
         LPCGUID SourceId,
-        ULONG ControlCode,
-        UCHAR Level,
+        __int64 ControlCode,
+        __int64 Level,
         ULONGLONG MatchAnyKeyword)
 {
-  int v4; // ecx
+  __int64 v4; // rcx
 
-  if ( ControlCode )
+  if ( (_DWORD)ControlCode )
   {
-    if ( Level != 85 )
+    if ( (_BYTE)Level != 85 )
       return;
-    v4 = 1;
+    v4 = 1LL;
   }
   else
   {
-    v4 = 2;
+    v4 = 2LL;
   }
-  PerfDiagpRequestState(v4);
+  PerfDiagpRequestState(v4, ControlCode, Level, MatchAnyKeyword);
 }

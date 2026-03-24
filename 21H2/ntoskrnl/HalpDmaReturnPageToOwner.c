@@ -1,40 +1,52 @@
 /*
- * XREFs of HalpDmaReturnPageToOwner @ 0x140457800
+ * XREFs of HalpDmaReturnPageToOwner @ 0x1404C7F4C
  * Callers:
- *     HalpDmaAllocateMapRegisters @ 0x140456F16 (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaFreeMapRegisters @ 0x14045746C (HalpDmaFreeMapRegisters.c)
- *     HalpDmaAllocateNewTranslationBuffer @ 0x140512EF0 (HalpDmaAllocateNewTranslationBuffer.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C68FC (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaAllocateNewTranslationBuffer @ 0x1404C6FD8 (HalpDmaAllocateNewTranslationBuffer.c)
+ *     HalpDmaFreeMapRegisters @ 0x1404C7AB8 (HalpDmaFreeMapRegisters.c)
  * Callees:
- *     HalpDmaReturnToContiguousPool @ 0x140457862 (HalpDmaReturnToContiguousPool.c)
- *     HalpDmaReturnToScatterPool @ 0x14045795A (HalpDmaReturnToScatterPool.c)
+ *     HalpDmaReturnToContiguousPool @ 0x1404C8014 (HalpDmaReturnToContiguousPool.c)
+ *     HalpDmaReturnToScatterPool @ 0x1404C810C (HalpDmaReturnToScatterPool.c)
  */
 
 __int64 __fastcall HalpDmaReturnPageToOwner(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v3; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rdx
+  __int64 v6; // rax
+  bool v7; // zf
 
   *(_QWORD *)(a3 + 56) = a3;
   if ( a1 )
   {
-    v3 = *(_QWORD *)(a3 + 48);
+    v5 = *(_QWORD *)(a3 + 48);
+    v6 = v5 & 4;
     if ( *(_BYTE *)(a1 + 434) )
     {
-      if ( (v3 & 4) == 0 )
-        return HalpDmaReturnToScatterPool(a1, a3, 0LL, a3);
+      if ( (v5 & 4) == 0 )
+      {
+        v4 = a3;
+        return HalpDmaReturnToScatterPool(a1, v4, 0LL, a3);
+      }
+      v7 = (v5 & 8) == 0;
       a1 = a2;
-      if ( (v3 & 8) != 0 )
-        return HalpDmaReturnToScatterPool(a1, a3, 0LL, a3);
+      v4 = a3;
+      if ( !v7 )
+        return HalpDmaReturnToScatterPool(a1, v4, 0LL, a3);
     }
-    else if ( (v3 & 4) != 0 )
+    else
     {
-      a1 = a2;
+      v4 = a3;
+      if ( v6 )
+        a1 = a2;
     }
   }
   else
   {
+    v4 = a3;
     a1 = a2;
     if ( (*(_BYTE *)(a3 + 48) & 8) != 0 )
-      return HalpDmaReturnToScatterPool(a1, a3, 0LL, a3);
+      return HalpDmaReturnToScatterPool(a1, v4, 0LL, a3);
   }
-  return HalpDmaReturnToContiguousPool(a1, a3, 0LL, a3);
+  return HalpDmaReturnToContiguousPool(a1, v4, 0LL);
 }

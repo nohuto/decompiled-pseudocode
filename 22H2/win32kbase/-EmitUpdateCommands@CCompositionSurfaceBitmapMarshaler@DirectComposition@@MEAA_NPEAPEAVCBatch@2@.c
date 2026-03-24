@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitUpdateCommands@CCompositionSurfaceBitmapMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00ABD10
+ * XREFs of ?EmitUpdateCommands@CCompositionSurfaceBitmapMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0065550
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CCompositionSurfaceBitmapMarshaler::EmitUpdateCommands(
@@ -26,8 +26,8 @@ char __fastcall DirectComposition::CCompositionSurfaceBitmapMarshaler::EmitUpdat
   *(_DWORD *)v7 = 28;
   *(_OWORD *)(v4 + 4) = 0LL;
   *(_QWORD *)(v4 + 20) = 0LL;
-  *((_DWORD *)v4 + 1) = 119;
-  *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
+  *((_DWORD *)v4 + 1) = 118;
+  *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
   *(_QWORD *)(v4 + 12) = v6;
   v4[20] = *((_BYTE *)this + 64);
   v4[21] = *((_BYTE *)this + 65);

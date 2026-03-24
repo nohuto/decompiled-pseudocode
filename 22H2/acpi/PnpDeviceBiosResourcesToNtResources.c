@@ -1,70 +1,69 @@
 /*
- * XREFs of PnpDeviceBiosResourcesToNtResources @ 0x1C003C2E4
+ * XREFs of PnpDeviceBiosResourcesToNtResources @ 0x1C0016B88
  * Callers:
- *     PnpBiosGetDeviceResourceList @ 0x1C008ED78 (PnpBiosGetDeviceResourceList.c)
+ *     PnpBiosGetDeviceResourceList @ 0x1C009C794 (PnpBiosGetDeviceResourceList.c)
  * Callees:
- *     PnpBiosResourcesToNtResources @ 0x1C008EFEC (PnpBiosResourcesToNtResources.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C009CF00 (PnpBiosResourcesToNtResources.c)
  */
 
 __int64 __fastcall PnpDeviceBiosResourcesToNtResources(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
-  __int64 v4; // rbx
+  __int64 v5; // rbx
   __int64 v6; // r8
-  __int64 v8; // rcx
-  int v9; // ebp
-  char v10; // di
-  KIRQL v11; // al
-  unsigned int v12; // ecx
-  unsigned __int64 v13; // rdx
-  __int64 v14; // r9
-  unsigned __int64 v15; // r8
+  bool v8; // zf
+  __int64 v9; // rcx
+  int v10; // ebp
+  char v11; // di
+  KIRQL v12; // al
+  unsigned int v14; // edx
+  unsigned __int64 v15; // rcx
+  __int64 v16; // r8
+  unsigned __int64 v17; // rax
+  char v18; // dl
 
-  v4 = a1;
+  v5 = a1;
   v6 = a3 | 2;
-  v8 = *(_QWORD *)(a1 + 768);
-  if ( (*(_QWORD *)(v4 + 8) & 0x10000000000LL) == 0 )
+  v8 = (*(_QWORD *)(a1 + 8) & 0x10000000000LL) == 0;
+  v9 = *(_QWORD *)(a1 + 728);
+  if ( v8 )
     v6 = a3;
-  v9 = PnpBiosResourcesToNtResources(v8, a2, v6, a4);
-  if ( v9 >= 0 && *(_QWORD *)a4 )
+  v10 = PnpBiosResourcesToNtResources(v9, a2, v6);
+  if ( v10 >= 0 && *(_QWORD *)a4 )
   {
-    v10 = 0;
-    v11 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
-    while ( !_bittest64((const signed __int64 *)(v4 + 8), 0x25u) )
+    v11 = 0;
+    v12 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
+    while ( (*(_QWORD *)(v5 + 8) & 0x2000000000LL) == 0 )
     {
-      v4 = *(_QWORD *)(v4 + 792);
-      if ( !v4 )
-        goto LABEL_10;
+      v5 = *(_QWORD *)(v5 + 752);
+      if ( !v5 )
+        goto LABEL_8;
     }
-    v10 = 1;
-LABEL_10:
-    KeReleaseSpinLock(&AcpiDeviceTreeLock, v11);
-    if ( v10 )
+    v11 = 1;
+LABEL_8:
+    KeReleaseSpinLock(&AcpiDeviceTreeLock, v12);
+    if ( v11 )
     {
-      v12 = *(_DWORD *)(*(_QWORD *)a4 + 28LL);
-      v13 = *(_QWORD *)a4 + 32LL;
-      if ( v12 )
+      v14 = *(_DWORD *)(*(_QWORD *)a4 + 28LL);
+      v15 = *(_QWORD *)a4 + 32LL;
+      if ( v14 )
       {
-        v14 = v12;
+        v16 = v14;
         do
         {
-          v15 = v13 + 8;
-          v13 += 8 + 32LL * *(unsigned int *)(v13 + 4);
-          while ( v15 < v13 )
+          v17 = v15 + 8;
+          v15 += 8 + 32LL * *(unsigned int *)(v15 + 4);
+          while ( v17 < v15 )
           {
-            if ( (*(_BYTE *)(v15 + 1) == 1
-               || *(_BYTE *)(v15 + 1) == 3
-               || (unsigned int)*(unsigned __int8 *)(v15 + 1) - 6 <= 1)
-              && *(_BYTE *)(v15 + 2) == 3 )
-            {
-              *(_BYTE *)(v15 + 2) = 1;
-            }
-            v15 += 32LL;
+            v18 = *(_BYTE *)(v17 + 1);
+            if ( (v18 == 1 || v18 == 3 || (unsigned __int8)(v18 - 6) <= 1u) && *(_BYTE *)(v17 + 2) == 3 )
+              *(_BYTE *)(v17 + 2) = 1;
+            v17 += 32LL;
           }
-          --v14;
+          --v16;
         }
-        while ( v14 );
+        while ( v16 );
       }
     }
   }
-  return (unsigned int)v9;
+  return (unsigned int)v10;
 }

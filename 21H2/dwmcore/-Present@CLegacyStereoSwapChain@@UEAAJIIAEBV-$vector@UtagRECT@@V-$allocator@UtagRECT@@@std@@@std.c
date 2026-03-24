@@ -1,37 +1,39 @@
 /*
- * XREFs of ?Present@CLegacyStereoSwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x180290A6C
+ * XREFs of ?Present@CLegacyStereoSwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x1800F262C
  * Callers:
- *     ?Present@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x18010A0D0 (-Present@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT.c)
+ *     ?Present@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x1800F7AC0 (-Present@CLegacyStereoSwapChain@@$4PPPPPPPM@A@EAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT.c)
  * Callees:
- *     ?PostPresent@CLegacySwapChain@@IEAAX_N0@Z @ 0x18001BF70 (-PostPresent@CLegacySwapChain@@IEAAX_N0@Z.c)
- *     ?Present@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIIPEAUIDXGIResource@@PEBUtagRECT@@I@Z @ 0x18001C148 (-Present@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIIPEAUIDXGIResource@@PEBUtagRECT@@I@Z.c)
- *     ?PrePresent@CLegacySwapChain@@IEAAX_N@Z @ 0x18001C21C (-PrePresent@CLegacySwapChain@@IEAAX_N@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     McTemplateU0qqq_EventWriteTransfer @ 0x180111C8E (McTemplateU0qqq_EventWriteTransfer.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Present@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIIPEAUIDXGIResource@@PEBUtagRECT@@I@Z @ 0x1800933DC (-Present@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@IIIPEAUIDXGIResource@@PEBUtagRECT@@I@Z.c)
+ *     ?PostPresent@CLegacySwapChain@@IEAAX_N@Z @ 0x1800C6074 (-PostPresent@CLegacySwapChain@@IEAAX_N@Z.c)
+ *     ?PrePresent@CLegacySwapChain@@IEAAX_N@Z @ 0x1800C8EC0 (-PrePresent@CLegacySwapChain@@IEAAX_N@Z.c)
+ *     McTemplateU0qqq_EventWriteTransfer @ 0x180152AF8 (McTemplateU0qqq_EventWriteTransfer.c)
  */
 
-__int64 __fastcall CLegacyStereoSwapChain::Present(__int64 a1, __int64 a2, char a3, __int64 a4, unsigned int a5)
+__int64 __fastcall CLegacyStereoSwapChain::Present(__int64 a1, unsigned int a2, char a3, __int64 a4, unsigned int a5)
 {
   CLegacySwapChain *v5; // r14
-  char v8; // bp
-  int v9; // eax
-  __int64 v10; // rcx
-  unsigned int v11; // ebx
+  int v8; // ebx
+  char v10; // bp
+  int v11; // eax
+  __int64 v12; // rcx
+  unsigned int v13; // ebx
 
-  v5 = (CLegacySwapChain *)(a1 - 424);
-  v8 = (a3 & 2) != 0;
-  CLegacySwapChain::PrePresent((CLegacySwapChain *)(a1 - 424), v8);
-  v9 = CD3DDevice::Present(*(CD3DDevice **)(a1 - 360), *(struct IDXGISwapChainDWM1 **)(a1 - 352));
-  v11 = v9;
-  if ( v9 < 0 )
+  v5 = (CLegacySwapChain *)(a1 - 376);
+  v8 = a3 & 2;
+  v10 = v8 != 0;
+  CLegacySwapChain::PrePresent((CLegacySwapChain *)(a1 - 376), v8 != 0);
+  v11 = CD3DDevice::Present(*(CD3DDevice **)(a1 - 312), *(struct IDXGISwapChainDWM1 **)(a1 - 304), a2, a3);
+  v13 = v11;
+  if ( v11 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, v9, 0x88u);
+    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x85u, 0LL);
   }
   else
   {
-    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x20) != 0 )
-      McTemplateU0qqq_EventWriteTransfer(v10, &EVTDESC_ETWGUID_PRESENT, a5, 0, a3);
-    CLegacySwapChain::PostPresent(v5, v8, v11 == 142213121);
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 2) != 0 )
+      McTemplateU0qqq_EventWriteTransfer(v12, (unsigned int)&EVTDESC_ETWGUID_PRESENT, a5, 0, a3);
+    CLegacySwapChain::PostPresent(v5, v10);
   }
-  return v11;
+  return v13;
 }

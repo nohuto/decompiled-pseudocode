@@ -1,10 +1,10 @@
 /*
- * XREFs of NtUserGetAutoRotationState @ 0x1C01CFF30
+ * XREFs of NtUserGetAutoRotationState @ 0x1C0008B80
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall NtUserGetAutoRotationState(_DWORD *a1)
@@ -27,7 +27,7 @@ __int64 __fastcall NtUserGetAutoRotationState(_DWORD *a1)
   }
   else
   {
-    UserSetLastError(87);
+    UserSetLastError(87LL);
   }
   LeaveCrit();
   return v2;

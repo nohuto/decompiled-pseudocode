@@ -1,108 +1,130 @@
 /*
- * XREFs of MiUnlockPageTableCharges @ 0x1402E2B40
+ * XREFs of MiUnlockPageTableCharges @ 0x140338DA8
  * Callers:
- *     MiCopyOnWrite @ 0x14026FC80 (MiCopyOnWrite.c)
- *     MiUnlockWsle @ 0x1402A25E0 (MiUnlockWsle.c)
- *     NtLockVirtualMemory @ 0x1402A3000 (NtLockVirtualMemory.c)
- *     MiProbeUnlockPage @ 0x1402CB170 (MiProbeUnlockPage.c)
- *     MiDemoteCombinedPte @ 0x1402F37B4 (MiDemoteCombinedPte.c)
- *     MiUnlockPhysicalPageByVa @ 0x14061CE40 (MiUnlockPhysicalPageByVa.c)
- *     MiUnlockPageTableRange @ 0x14064D250 (MiUnlockPageTableRange.c)
+ *     MiCopyOnWrite @ 0x14023EC70 (MiCopyOnWrite.c)
+ *     MmUnlockPages @ 0x1402443E0 (MmUnlockPages.c)
+ *     MiUnlockPageTableRange @ 0x14032A12C (MiUnlockPageTableRange.c)
+ *     MiUnlockWsle @ 0x140338C2C (MiUnlockWsle.c)
+ *     NtLockVirtualMemory @ 0x140339070 (NtLockVirtualMemory.c)
+ *     MiDemoteCombinedPte @ 0x14036ABB0 (MiDemoteCombinedPte.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     MiPfnShareCountIsZero @ 0x1402817A0 (MiPfnShareCountIsZero.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiIsLowestPageTablePage @ 0x140348E3C (MiIsLowestPageTablePage.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     MiReturnCommit @ 0x140298920 (MiReturnCommit.c)
+ *     MiPfnShareCountIsZero @ 0x1402A6820 (MiPfnShareCountIsZero.c)
+ *     MiIsLowestPageTablePage @ 0x140338FE4 (MiIsLowestPageTablePage.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
-void __fastcall MiUnlockPageTableCharges(ULONG_PTR BugCheckParameter2, int a2, __int64 a3, __int64 a4)
+void __fastcall MiUnlockPageTableCharges(__int64 BugCheckParameter2, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // rbp
-  int v6; // esi
-  unsigned __int64 v7; // rdi
-  __int64 v8; // r14
-  __int64 v9; // r15
-  __int64 v10; // r15
-  __int64 v11; // rdx
-  unsigned __int64 v12; // rdx
+  __int64 v4; // rsi
+  int IsLowestPageTablePage; // eax
+  int v7; // ebp
+  unsigned __int64 v8; // rdi
+  __int64 v9; // r14
+  __int64 v10; // r8
+  __int64 v11; // r15
+  __int64 v12; // r15
+  __int64 v13; // rdx
+  int IsZero; // eax
   struct _KPRCB *CurrentPrcb; // r8
   __int64 CachedResidentAvailable; // rdx
-  bool v15; // zf
-  signed __int32 v16; // eax
-  int v17; // [rsp+78h] [rbp+10h] BYREF
+  bool v17; // zf
+  signed __int32 v18; // eax
+  int v19; // [rsp+78h] [rbp+10h] BYREF
 
   v4 = 0LL;
-  if ( a2 == 2 )
+  if ( (_DWORD)a2 == 2 )
   {
-    v6 = 3;
-    if ( !(unsigned int)MiIsLowestPageTablePage() )
-      goto LABEL_37;
+    IsLowestPageTablePage = MiIsLowestPageTablePage();
+    v7 = 3;
   }
   else
   {
-    v6 = a2 != 0 ? 1 : 4;
+    if ( !(_DWORD)a2 )
+    {
+      v7 = 4;
+      goto LABEL_7;
+    }
+    IsLowestPageTablePage = 1;
+    v7 = 1;
   }
+  if ( !IsLowestPageTablePage )
+    goto LABEL_38;
+LABEL_7:
   if ( (*(_QWORD *)(BugCheckParameter2 + 24) & 0x3FFFFFFFFFFFFFFFuLL) < 0x10000 )
-LABEL_37:
+LABEL_38:
     KeBugCheckEx(
       0x1Au,
       0x41791uLL,
       BugCheckParameter2,
       *(_QWORD *)(BugCheckParameter2 + 8) | 0x8000000000000000uLL,
       *(_QWORD *)(BugCheckParameter2 + 24) & 0x3FFFFFFFFFFFFFFFLL);
-  v7 = 0LL;
   v8 = 0LL;
+  v9 = 0LL;
+  v10 = 0x7FFFFFFFFFFFFFFFLL;
   while ( 1 )
   {
-    v9 = *(_QWORD *)(BugCheckParameter2 + 40);
-    v17 = 0;
-    v10 = v9 & 0xFFFFFFFFFFLL;
-    while ( _interlockedbittestandset64((volatile signed __int32 *)(BugCheckParameter2 + 24), 0x3FuLL) )
+    v11 = *(_QWORD *)(BugCheckParameter2 + 40);
+    v19 = 0;
+    v12 = v11 & 0xFFFFFFFFFLL;
+    if ( _interlockedbittestandset64((volatile signed __int32 *)(BugCheckParameter2 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v17);
-      while ( *(__int64 *)(BugCheckParameter2 + 24) < 0 );
+      {
+        do
+          KeYieldProcessorEx(&v19, a2, v10, a4);
+        while ( *(__int64 *)(BugCheckParameter2 + 24) < 0 );
+      }
+      while ( _interlockedbittestandset64((volatile signed __int32 *)(BugCheckParameter2 + 24), 0x3FuLL) );
+      v10 = 0x7FFFFFFFFFFFFFFFLL;
     }
-    v11 = *(_QWORD *)(BugCheckParameter2 + 24) ^ ((*(_QWORD *)(BugCheckParameter2 + 24) - 0x10000LL) ^ *(_QWORD *)(BugCheckParameter2 + 24)) & 0x3FFFFFFFFFFFFFFFLL;
-    *(_QWORD *)(BugCheckParameter2 + 24) = v11;
-    v12 = v11 & 0x3FFFFFFFFFFFFFFFLL;
-    if ( v12 >= 0x10000 )
+    v13 = *(_QWORD *)(BugCheckParameter2 + 24) ^ ((*(_QWORD *)(BugCheckParameter2 + 24) - 0x10000LL) ^ *(_QWORD *)(BugCheckParameter2 + 24)) & 0x3FFFFFFFFFFFFFFFLL;
+    *(_QWORD *)(BugCheckParameter2 + 24) = v13;
+    a2 = v13 & 0x3FFFFFFFFFFFFFFFLL;
+    if ( a2 >= 0x10000 )
       break;
     if ( !v4 )
-      v4 = *(_QWORD *)(qword_140C674C8 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 43) & 0x3FFLL));
-    ++v7;
-    if ( !v12 && (unsigned int)MiPfnShareCountIsZero(BugCheckParameter2, 0LL, (_QWORD *)0x7FFFFFFFFFFFFFFFLL, a4) != 3 )
-      ++v8;
+      v4 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 39) & 0x3FFLL));
+    ++v8;
+    if ( !a2 )
+    {
+      IsZero = MiPfnShareCountIsZero(BugCheckParameter2, 0LL);
+      v10 = 0x7FFFFFFFFFFFFFFFLL;
+      if ( IsZero != 3 )
+        ++v9;
+    }
     _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( !--v6 )
-      goto LABEL_8;
-    BugCheckParameter2 = 48 * v10 - 0x220000000000LL;
+    if ( !--v7 )
+      goto LABEL_22;
+    BugCheckParameter2 = 48 * v12 - 0x58000000000LL;
   }
   _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-LABEL_8:
-  if ( v7 )
+LABEL_22:
+  if ( v8 )
   {
-    if ( (_UNKNOWN *)v4 == &MiSystemPartition )
+    if ( (ULONG_PTR *)v4 == &MiSystemPartition )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
       if ( (_DWORD)CachedResidentAvailable != -1 )
       {
-        if ( v7 + CachedResidentAvailable <= 0x100 && v7 < 0x80000 )
+        if ( v8 + CachedResidentAvailable <= 0x100 )
         {
           do
           {
-            v16 = _InterlockedCompareExchange(
+            if ( v8 >= 0x80000 )
+              break;
+            v18 = _InterlockedCompareExchange(
                     (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                    CachedResidentAvailable + v7,
+                    CachedResidentAvailable + v8,
                     CachedResidentAvailable);
-            v15 = (_DWORD)CachedResidentAvailable == v16;
-            LODWORD(CachedResidentAvailable) = v16;
-            if ( v15 )
-              goto LABEL_9;
+            v17 = (_DWORD)CachedResidentAvailable == v18;
+            LODWORD(CachedResidentAvailable) = v18;
+            if ( v17 )
+              goto LABEL_35;
           }
-          while ( v16 != -1 && v7 + v16 <= 0x100 );
+          while ( v18 != -1 && v8 + v18 <= 0x100 );
         }
         if ( (int)CachedResidentAvailable > 192
           && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
@@ -110,15 +132,14 @@ LABEL_8:
                                                   192,
                                                   CachedResidentAvailable) )
         {
-          v7 += (int)CachedResidentAvailable - 192;
+          v8 += (int)CachedResidentAvailable - 192;
         }
-        if ( !v7 )
-          goto LABEL_9;
       }
     }
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(v4 + 17280), v7);
+    if ( v8 )
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(v4 + 7168), v8);
   }
-LABEL_9:
-  if ( v8 )
-    MiReturnCommit(v4, v8);
+LABEL_35:
+  if ( v9 )
+    MiReturnCommit(v4, v9);
 }

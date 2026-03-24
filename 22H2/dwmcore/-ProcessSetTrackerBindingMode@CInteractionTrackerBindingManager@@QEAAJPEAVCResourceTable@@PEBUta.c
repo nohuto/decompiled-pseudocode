@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ProcessSetTrackerBindingMode@CInteractionTrackerBindingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKERBINDINGMANAGER_SETTRACKERBINDINGMODE@@@Z @ 0x180238750
+ * XREFs of ?ProcessSetTrackerBindingMode@CInteractionTrackerBindingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKERBINDINGMANAGER_SETTRACKERBINDINGMODE@@@Z @ 0x1801CF790
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x18009EFC0 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B76D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?AddOrUpdateTrackerBindings@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4InteractionTrackerBindingModeFlags@@@Z @ 0x1802372EC (-AddOrUpdateTrackerBindings@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4.c)
- *     ?BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteractionTracker@@PEAV2@W4InteractionTrackerBindingModeFlags@@@Z @ 0x180237A2C (-BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteracti.c)
- *     ?BringBoundTrackersStateInSync@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4InteractionTrackerBindingModeFlags@@@Z @ 0x180237CC8 (-BringBoundTrackersStateInSync@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800A3484 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801643CC (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?AddOrUpdateTrackerBindings@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4InteractionTrackerBindingModeFlags@@@Z @ 0x1801CE14C (-AddOrUpdateTrackerBindings@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4.c)
+ *     ?BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteractionTracker@@PEAV2@W4InteractionTrackerBindingModeFlags@@@Z @ 0x1801CE908 (-BringBoundTrackersPositionAndScaleInSync@CInteractionTrackerBindingManager@@QEAAXPEBVCInteracti.c)
+ *     ?BringBoundTrackersStateInSync@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@0W4InteractionTrackerBindingModeFlags@@@Z @ 0x1801CEB94 (-BringBoundTrackersStateInSync@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@.c)
  */
 
 __int64 __fastcall CInteractionTrackerBindingManager::ProcessSetTrackerBindingMode(
@@ -21,47 +21,56 @@ __int64 __fastcall CInteractionTrackerBindingManager::ProcessSetTrackerBindingMo
   __int64 v8; // rax
   int v9; // ebp
   CInteractionTracker *v10; // rdi
-  __int64 v11; // rcx
-  __int64 v12; // rcx
-  int v14; // [rsp+20h] [rbp-8h]
+  CInteractionTrackerBindingManager *v11; // rcx
+  CInteractionTrackerBindingManager *v12; // rcx
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
 
   v5 = *((_DWORD *)a3 + 2);
   if ( !v5 || !*((_DWORD *)a3 + 3) )
+  {
     wil::details::in1diag3::FailFast_Hr(
       retaddr,
-      84LL,
+      (void *)0x56,
       (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\interactiontrackerbindingmanager.cpp",
-      (const char *)0x88980403LL,
-      v14);
-  Resource = (_QWORD *)CResourceTable::GetResource((__int64)a2, v5, 0x5Au);
-  v8 = CResourceTable::GetResource((__int64)a2, *((_DWORD *)a3 + 3), 0x5Au);
+      (const char *)0x88980403LL);
+    JUMPOUT(0x1801CF904LL);
+  }
+  Resource = (_QWORD *)CResourceTable::GetResource((__int64)a2, v5, 0x58u);
+  v8 = CResourceTable::GetResource((__int64)a2, *((_DWORD *)a3 + 3), 0x58u);
   v9 = *((_DWORD *)a3 + 4);
   v10 = (CInteractionTracker *)v8;
   if ( !Resource || !v8 )
+  {
     wil::details::in1diag3::FailFast_Hr(
       retaddr,
-      59LL,
+      (void *)0x3D,
       (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\interactiontrackerbindingmanager.cpp",
-      (const char *)0x88980403LL,
-      v14);
-  if ( (CInteractionTrackerBindingManager *)Resource[80] != this )
-  {
-    if ( this )
-      (*(void (__fastcall **)(CInteractionTrackerBindingManager *))(*(_QWORD *)this + 8LL))(this);
-    v11 = Resource[80];
-    Resource[80] = this;
-    if ( v11 )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 16LL))(v11);
+      (const char *)0x88980403LL);
+    __debugbreak();
   }
-  if ( *((CInteractionTrackerBindingManager **)v10 + 80) != this )
+  v11 = (CInteractionTrackerBindingManager *)Resource[79];
+  if ( v11 != this )
   {
     if ( this )
+    {
       (*(void (__fastcall **)(CInteractionTrackerBindingManager *))(*(_QWORD *)this + 8LL))(this);
-    v12 = *((_QWORD *)v10 + 80);
-    *((_QWORD *)v10 + 80) = this;
+      v11 = (CInteractionTrackerBindingManager *)Resource[79];
+    }
+    Resource[79] = this;
+    if ( v11 )
+      (*(void (__fastcall **)(CInteractionTrackerBindingManager *))(*(_QWORD *)v11 + 16LL))(v11);
+  }
+  v12 = (CInteractionTrackerBindingManager *)*((_QWORD *)v10 + 79);
+  if ( v12 != this )
+  {
+    if ( this )
+    {
+      (*(void (__fastcall **)(CInteractionTrackerBindingManager *))(*(_QWORD *)this + 8LL))(this);
+      v12 = (CInteractionTrackerBindingManager *)*((_QWORD *)v10 + 79);
+    }
+    *((_QWORD *)v10 + 79) = this;
     if ( v12 )
-      (*(void (__fastcall **)(__int64))(*(_QWORD *)v12 + 16LL))(v12);
+      (*(void (__fastcall **)(CInteractionTrackerBindingManager *))(*(_QWORD *)v12 + 16LL))(v12);
   }
   CInteractionTrackerBindingManager::BringBoundTrackersStateInSync((int)this, (__int64)Resource, v10, v9);
   CInteractionTrackerBindingManager::BringBoundTrackersPositionAndScaleInSync(

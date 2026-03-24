@@ -1,16 +1,16 @@
 /*
- * XREFs of XmGetStringAddress @ 0x1403CC31C
+ * XREFs of XmGetStringAddress @ 0x1403C0DFC
  * Callers:
- *     XmStosOp @ 0x1403CC230 (XmStosOp.c)
- *     XmInsOp @ 0x140536000 (XmInsOp.c)
- *     XmOutsOp @ 0x140536090 (XmOutsOp.c)
- *     XmCmpsOp @ 0x1405362F0 (XmCmpsOp.c)
- *     XmLodsOp @ 0x140536510 (XmLodsOp.c)
- *     XmMovsOp @ 0x140536590 (XmMovsOp.c)
- *     XmScasOp @ 0x140536620 (XmScasOp.c)
+ *     XmStosOp @ 0x1403C0D10 (XmStosOp.c)
+ *     XmInsOp @ 0x1404E6320 (XmInsOp.c)
+ *     XmOutsOp @ 0x1404E63B0 (XmOutsOp.c)
+ *     XmCmpsOp @ 0x1404E6610 (XmCmpsOp.c)
+ *     XmLodsOp @ 0x1404E6830 (XmLodsOp.c)
+ *     XmMovsOp @ 0x1404E68B0 (XmMovsOp.c)
+ *     XmScasOp @ 0x1404E6940 (XmScasOp.c)
  * Callees:
- *     x86BiosTranslateAddress @ 0x1403A3520 (x86BiosTranslateAddress.c)
- *     longjmp @ 0x1403DF970 (longjmp.c)
+ *     x86BiosTranslateAddress @ 0x140397B50 (x86BiosTranslateAddress.c)
+ *     longjmp @ 0x1403D0670 (longjmp.c)
  */
 
 int *__fastcall XmGetStringAddress(__int64 a1, unsigned int a2, unsigned int a3)

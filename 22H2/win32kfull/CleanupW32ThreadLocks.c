@@ -1,9 +1,9 @@
 /*
- * XREFs of CleanupW32ThreadLocks @ 0x1C00A4B20
+ * XREFs of CleanupW32ThreadLocks @ 0x1C0114FD0
  * Callers:
  *     <none>
  * Callees:
- *     PopAndFreeW32ThreadLock @ 0x1C0062180 (PopAndFreeW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1530 (PopAndFreeW32ThreadLock.c)
  */
 
 __int64 __fastcall CleanupW32ThreadLocks(__int64 a1)

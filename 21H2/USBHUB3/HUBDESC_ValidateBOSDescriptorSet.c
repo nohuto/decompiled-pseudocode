@@ -1,17 +1,17 @@
 /*
- * XREFs of HUBDESC_ValidateBOSDescriptorSet @ 0x1C0039550
+ * XREFs of HUBDESC_ValidateBOSDescriptorSet @ 0x1C0038CD0
  * Callers:
- *     HUBDTX_ValidateAndCacheBOSDescriptor @ 0x1C0028588 (HUBDTX_ValidateAndCacheBOSDescriptor.c)
+ *     HUBDTX_ValidateAndCacheBOSDescriptor @ 0x1C00280E0 (HUBDTX_ValidateAndCacheBOSDescriptor.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C0002130 (WPP_RECORDER_SF_.c)
- *     WPP_RECORDER_SF_DD @ 0x1C0002204 (WPP_RECORDER_SF_DD.c)
- *     HUBMISC_LogTelemetryIfSuperSpeedDeviceWorkingInHighSpeedMode @ 0x1C002E5EC (HUBMISC_LogTelemetryIfSuperSpeedDeviceWorkingInHighSpeedMode.c)
- *     WPP_RECORDER_SF_Ddd @ 0x1C0032CA4 (WPP_RECORDER_SF_Ddd.c)
- *     HUBDESC_InternalValidateCommonDescriptorHeader @ 0x1C003323C (HUBDESC_InternalValidateCommonDescriptorHeader.c)
- *     HUBDESC_InternalValidateDeviceCapabilityDescriptor @ 0x1C0038C7C (HUBDESC_InternalValidateDeviceCapabilityDescriptor.c)
- *     HUBDESC_InternalValidateBOSDescriptor @ 0x1C00391A4 (HUBDESC_InternalValidateBOSDescriptor.c)
- *     _guard_dispatch_icall_nop @ 0x1C00437E0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0043B00 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001F54 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0002028 (WPP_RECORDER_SF_dD.c)
+ *     HUBMISC_LogTelemetryIfSuperSpeedDeviceWorkingInHighSpeedMode @ 0x1C002DF68 (HUBMISC_LogTelemetryIfSuperSpeedDeviceWorkingInHighSpeedMode.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C003243C (WPP_RECORDER_SF_ddd.c)
+ *     HUBDESC_InternalValidateCommonDescriptorHeader @ 0x1C00329D4 (HUBDESC_InternalValidateCommonDescriptorHeader.c)
+ *     HUBDESC_InternalValidateDeviceCapabilityDescriptor @ 0x1C0038400 (HUBDESC_InternalValidateDeviceCapabilityDescriptor.c)
+ *     HUBDESC_InternalValidateBOSDescriptor @ 0x1C0038930 (HUBDESC_InternalValidateBOSDescriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0042D40 (memset.c)
  */
 
 bool __fastcall HUBDESC_ValidateBOSDescriptorSet(
@@ -98,7 +98,7 @@ bool __fastcall HUBDESC_ValidateBOSDescriptorSet(
   {
     v24 = a14;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_DD(a14, 2u, 5u, 0xE8u, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids, v15, 5);
+      WPP_RECORDER_SF_dD(a14, 2u, 5u, 0xE8u, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v15, 5);
     (*(void (__fastcall **)(_QWORD, __int64))(v18 + 24))(*(_QWORD *)(v18 + 40), 23LL);
     goto LABEL_15;
   }
@@ -116,7 +116,7 @@ LABEL_15:
   {
     (*(void (__fastcall **)(_QWORD, __int64))(v18 + 24))(*(_QWORD *)(v18 + 40), 23LL);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_Ddd(v24, v27, v28, 0xE9u, v34);
+      WPP_RECORDER_SF_ddd(v24, v27, v28, 0xE9u, v34);
     LOWORD(v26) = *(_WORD *)(a2 + 2);
     v25 = 0;
   }
@@ -124,12 +124,12 @@ LABEL_15:
   {
     (*(void (__fastcall **)(_QWORD, __int64))(v18 + 32))(*(_QWORD *)(v18 + 40), 22LL);
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_DD(
+      WPP_RECORDER_SF_dD(
         v24,
         2u,
         5u,
         0xEAu,
-        (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids,
+        (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids,
         v15,
         *(unsigned __int16 *)(a2 + 2));
   }
@@ -175,7 +175,7 @@ LABEL_15:
         {
           LODWORD(v36) = v29[1];
           LODWORD(v35) = (_DWORD)v29 - a2;
-          WPP_RECORDER_SF_DD(v24, 2u, 5u, 0xEBu, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids, v35, v36);
+          WPP_RECORDER_SF_dD(v24, 2u, 5u, 0xEBu, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v35, v36);
         }
         (*(void (__fastcall **)(_QWORD, __int64))(v18 + 32))(*(_QWORD *)(v18 + 40), 28LL);
       }
@@ -194,7 +194,7 @@ LABEL_36:
     {
       LODWORD(v36) = *(unsigned __int8 *)(a2 + 4);
       LODWORD(v35) = v14;
-      WPP_RECORDER_SF_DD(v24, 2u, 5u, 0xECu, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids, v35, v36);
+      WPP_RECORDER_SF_dD(v24, 2u, 5u, 0xECu, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids, v35, v36);
     }
     (*(void (__fastcall **)(_QWORD, __int64))(v18 + 24))(*(_QWORD *)(v18 + 40), 25LL);
     v25 = 0;
@@ -208,7 +208,7 @@ LABEL_36:
   else if ( DWORD1(v37[0]) == 3 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(v24, 2u, 5u, 0xEDu, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids);
+      WPP_RECORDER_SF_(v24, 2u, 5u, 0xEDu, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
     (*(void (__fastcall **)(_QWORD, __int64))(v18 + 24))(*(_QWORD *)(v18 + 40), 26LL);
     v25 = 0;
   }
@@ -225,7 +225,7 @@ LABEL_36:
   {
 LABEL_55:
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      WPP_RECORDER_SF_(v24, 2u, 5u, 0xEEu, (__int64)&WPP_4c38247a76be3626caea66f1aba69131_Traceguids);
+      WPP_RECORDER_SF_(v24, 2u, 5u, 0xEEu, (__int64)&WPP_aa79356b1e693837079f99291824f69e_Traceguids);
   }
   return v25;
 }

@@ -1,18 +1,14 @@
 /*
- * XREFs of WPP_RECORDER_SF_qd @ 0x1C00031FC
+ * XREFs of WPP_RECORDER_SF_qd @ 0x1C0002BC4
  * Callers:
- *     HUBHTX_Get30PortChangeEvent @ 0x1C000569C (HUBHTX_Get30PortChangeEvent.c)
- *     HUBHSM_WaitingForOvercurrentToClear @ 0x1C0009300 (HUBHSM_WaitingForOvercurrentToClear.c)
- *     HUBUCX_EvtResetActionCompletion @ 0x1C00258F0 (HUBUCX_EvtResetActionCompletion.c)
- *     HUBMISC_IncrementEnumRetryCountAndCheckIfReachedMax @ 0x1C002E900 (HUBMISC_IncrementEnumRetryCountAndCheckIfReachedMax.c)
- *     HUBMISC_StartOverCurrentTimer @ 0x1C0032370 (HUBMISC_StartOverCurrentTimer.c)
- *     HUBMISC_StartD3ColdReconnectTimer @ 0x1C0032488 (HUBMISC_StartD3ColdReconnectTimer.c)
- *     TUNNEL_RegisterUsb4HostForPort @ 0x1C008C444 (TUNNEL_RegisterUsb4HostForPort.c)
- *     TUNNEL_UpdateUsb4HostPowerRelations @ 0x1C008DD18 (TUNNEL_UpdateUsb4HostPowerRelations.c)
- *     TUNNEL_AcquireUsb4HostPowerReference @ 0x1C008DED4 (TUNNEL_AcquireUsb4HostPowerReference.c)
- *     TUNNEL_ReleaseUsb4HostPowerReference @ 0x1C008E098 (TUNNEL_ReleaseUsb4HostPowerReference.c)
+ *     HUBHTX_Get30PortChangeEvent @ 0x1C0004FF8 (HUBHTX_Get30PortChangeEvent.c)
+ *     HUBHSM_WaitingForOvercurrentToClear @ 0x1C0008B30 (HUBHSM_WaitingForOvercurrentToClear.c)
+ *     HUBUCX_EvtResetActionCompletion @ 0x1C0022FE0 (HUBUCX_EvtResetActionCompletion.c)
+ *     HUBMISC_IncrementEnumRetryCountAndCheckIfReachedMax @ 0x1C002B840 (HUBMISC_IncrementEnumRetryCountAndCheckIfReachedMax.c)
+ *     HUBMISC_StartOverCurrentTimer @ 0x1C002F190 (HUBMISC_StartOverCurrentTimer.c)
+ *     HUBMISC_StartD3ColdReconnectTimer @ 0x1C002F2A8 (HUBMISC_StartD3ColdReconnectTimer.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0044B40 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0042A60 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_qd(__int64 a1, unsigned __int8 a2, unsigned int a3, unsigned __int16 a4, __int64 a5, ...)

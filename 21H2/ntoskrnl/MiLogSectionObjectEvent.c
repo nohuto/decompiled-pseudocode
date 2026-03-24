@@ -1,22 +1,22 @@
 /*
- * XREFs of MiLogSectionObjectEvent @ 0x14096C0AC
+ * XREFs of MiLogSectionObjectEvent @ 0x1408C7990
  * Callers:
- *     MiSectionDelete @ 0x1406FC070 (MiSectionDelete.c)
- *     MiCreateSection @ 0x1406FD4A0 (MiCreateSection.c)
+ *     MiSectionDelete @ 0x1406EAB00 (MiSectionDelete.c)
+ *     MiCreateSection @ 0x140705710 (MiCreateSection.c)
  * Callees:
- *     MiSectionControlArea @ 0x140287970 (MiSectionControlArea.c)
- *     MiLogPerfMemoryEvent @ 0x140583E7C (MiLogPerfMemoryEvent.c)
+ *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     MiLogPerfMemoryEvent @ 0x140530600 (MiLogPerfMemoryEvent.c)
  */
 
-void __fastcall MiLogSectionObjectEvent(__int64 a1)
+__int64 __fastcall MiLogSectionObjectEvent(__int64 a1)
 {
   unsigned __int64 v1; // rax
   __int64 v2; // rcx
   int v3; // r8d
-  _QWORD v4[3]; // [rsp+30h] [rbp-18h] BYREF
+  _QWORD v5[3]; // [rsp+30h] [rbp-18h] BYREF
 
   v1 = MiSectionControlArea(a1);
-  v4[0] = v2;
-  v4[1] = *(_QWORD *)(*(_QWORD *)v1 + 64LL);
-  MiLogPerfMemoryEvent(648 - (v3 != 0), 0x20400001u, (__int64)v4, 16, 4200706);
+  v5[0] = v2;
+  v5[1] = *(_QWORD *)(*(_QWORD *)v1 + 64LL);
+  return MiLogPerfMemoryEvent((v3 != 1) + 647, 0x20400001u, (__int64)v5, 16, 4200706);
 }

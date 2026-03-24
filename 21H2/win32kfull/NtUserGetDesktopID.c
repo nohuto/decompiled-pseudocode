@@ -1,64 +1,62 @@
 /*
- * XREFs of NtUserGetDesktopID @ 0x1C0103F30
+ * XREFs of NtUserGetDesktopID @ 0x1C0116870
  * Callers:
  *     <none>
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
-__int64 __fastcall NtUserGetDesktopID(__int64 a1, _QWORD *a2, __int64 a3)
+__int64 __fastcall NtUserGetDesktopID(int a1, _QWORD *a2)
 {
-  _QWORD *v3; // r14
-  int v4; // edi
-  int v5; // ebx
-  _QWORD ***v6; // rsi
-  __int64 v7; // rdx
-  __int64 v8; // rcx
+  int v4; // ebx
+  _QWORD ***v5; // rsi
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
   __int64 CurrentProcess; // rax
   __int64 v10; // rdx
   ULONG64 v11; // rcx
-  int v12; // edi
+  __int64 v12; // r8
   int v13; // edi
-  _QWORD *v15; // rax
+  int v14; // edi
+  _QWORD *v16; // rax
 
-  v3 = a2;
-  v4 = a1;
-  v5 = 0;
-  v6 = 0LL;
-  EnterSharedCrit(a1, a2, a3);
-  CurrentProcess = PsGetCurrentProcess(v8, v7);
+  v4 = 0;
+  v5 = 0LL;
+  EnterSharedCrit(0LL, 1LL);
+  CurrentProcess = PsGetCurrentProcess(v7, v6, v8);
   if ( !(unsigned int)IsProcessDwm(CurrentProcess) )
   {
-    UserSetLastError(5LL, v10);
+    UserSetLastError(5LL, v10, v12);
     goto LABEL_10;
   }
-  v12 = v4 - 1;
-  if ( v12 )
+  v13 = a1 - 1;
+  if ( v13 )
   {
-    v13 = v12 - 1;
-    if ( v13 )
+    v14 = v13 - 1;
+    if ( v14 )
     {
-      if ( v13 == 2 )
-        v6 = (_QWORD ***)grpdeskLogon;
+      if ( v14 == 2 )
+        v5 = (_QWORD ***)grpdeskLogon;
       goto LABEL_6;
     }
-    v15 = (_QWORD *)grpdeskIODefault;
+    v16 = (_QWORD *)grpdeskIODefault;
   }
   else
   {
-    v15 = (_QWORD *)grpdeskRitInput;
+    v16 = (_QWORD *)grpdeskRitInput;
   }
-  v6 = (_QWORD ***)*v15;
+  v5 = (_QWORD ***)*v16;
 LABEL_6:
-  if ( v6 )
+  if ( v5 )
   {
     v11 = MmUserProbeAddress;
-    if ( (unsigned __int64)v3 >= MmUserProbeAddress )
-      v3 = (_QWORD *)MmUserProbeAddress;
-    *v3 = **v6[1];
-    v5 = 1;
+    if ( (unsigned __int64)a2 >= MmUserProbeAddress )
+      a2 = (_QWORD *)MmUserProbeAddress;
+    *a2 = **v5[1];
+    v4 = 1;
   }
 LABEL_10:
   UserSessionSwitchLeaveCrit(v11);
-  return v5;
+  return v4;
 }

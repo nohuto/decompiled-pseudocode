@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmRemovePanelDeviceWorker @ 0x140A293B4
+ * XREFs of _CmRemovePanelDeviceWorker @ 0x140978BDC
  * Callers:
- *     _CmRemovePanelDevice @ 0x140A29270 (_CmRemovePanelDevice.c)
+ *     _CmRemovePanelDevice @ 0x140978A98 (_CmRemovePanelDevice.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x14041D2E0 (ZwDeleteValueKey.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1406994BC (_PnpCtxRegQueryInfoKey.c)
- *     _RegRtlDeleteTreeInternal @ 0x1406CB238 (_RegRtlDeleteTreeInternal.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1407720B8 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _SysCtxRegOpenKey @ 0x14077FFEC (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x14078014C (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406C484C (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1407460B4 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
  */
 
 __int64 __fastcall CmRemovePanelDeviceWorker(__int64 a1, __int64 a2, const WCHAR *a3, _BYTE *a4)
@@ -19,7 +19,7 @@ __int64 __fastcall CmRemovePanelDeviceWorker(__int64 a1, __int64 a2, const WCHAR
   __int64 v9; // rcx
   __int64 v10; // rcx
   __int64 v11; // rcx
-  int v12; // edx
+  HANDLE v12; // rdx
   __int64 v13; // rax
   __int64 v14; // r8
   HANDLE KeyHandle; // [rsp+40h] [rbp-20h] BYREF
@@ -33,44 +33,43 @@ __int64 __fastcall CmRemovePanelDeviceWorker(__int64 a1, __int64 a2, const WCHAR
   v19 = 0;
   *a4 = 0;
   CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(a1, 11, (__int64)&DestinationString);
-  if ( CachedContextBaseKey < 0
-    || (a1 ? (v9 = *(_QWORD *)(a1 + 224)) : (v9 = 0LL),
-        (CachedContextBaseKey = SysCtxRegOpenKey(v9, *(__int64 *)&DestinationString.Length, a2, 0, 1u, (__int64)&Handle),
-         CachedContextBaseKey < 0)
-     || (a1 ? (v10 = *(_QWORD *)(a1 + 224)) : (v10 = 0LL),
-         CachedContextBaseKey = SysCtxRegOpenKey(v10, (__int64)Handle, (__int64)L"Devices", 0, 3u, (__int64)&KeyHandle),
-         CachedContextBaseKey < 0)) )
-  {
-LABEL_23:
-    if ( CachedContextBaseKey == -1073741772 || CachedContextBaseKey == -1073741444 )
-      CachedContextBaseKey = 0;
-    goto LABEL_26;
-  }
-  DestinationString = 0LL;
-  CachedContextBaseKey = RtlInitUnicodeStringEx(&DestinationString, a3);
   if ( CachedContextBaseKey >= 0 )
-    CachedContextBaseKey = ZwDeleteValueKey(KeyHandle, &DestinationString);
-  if ( CachedContextBaseKey == -1073741772 || CachedContextBaseKey == -1073741444 || CachedContextBaseKey >= 0 )
   {
-    v12 = (int)KeyHandle;
-    *a4 = 1;
-    CachedContextBaseKey = PnpCtxRegQueryInfoKey(v11, v12, 0, 0, (__int64)&v19, 0LL, 0LL);
+    v9 = a1 ? *(_QWORD *)(a1 + 224) : 0LL;
+    CachedContextBaseKey = SysCtxRegOpenKey(v9, *(__int64 *)&DestinationString.Length, a2, 0, 1u, (__int64)&Handle);
     if ( CachedContextBaseKey >= 0 )
     {
-      if ( !v19 )
+      v10 = a1 ? *(_QWORD *)(a1 + 224) : 0LL;
+      CachedContextBaseKey = SysCtxRegOpenKey(v10, (__int64)Handle, (__int64)L"Devices", 0, 3u, (__int64)&KeyHandle);
+      if ( CachedContextBaseKey >= 0 )
       {
-        if ( a1 && (v13 = *(_QWORD *)(a1 + 224)) != 0 )
-          v14 = *(_QWORD *)(v13 + 8);
-        else
-          v14 = 0LL;
-        RegRtlDeleteTreeInternal((__int64)KeyHandle, 0LL, v14, 0);
+        DestinationString = 0LL;
+        CachedContextBaseKey = RtlInitUnicodeStringEx(&DestinationString, a3);
+        if ( CachedContextBaseKey >= 0 )
+          CachedContextBaseKey = ZwDeleteValueKey(KeyHandle, &DestinationString);
+        if ( CachedContextBaseKey == -1073741772 || CachedContextBaseKey == -1073741444 || CachedContextBaseKey >= 0 )
+        {
+          v12 = KeyHandle;
+          *a4 = 1;
+          CachedContextBaseKey = PnpCtxRegQueryInfoKey(v11, v12, 0LL, 0LL, &v19, 0LL, 0LL);
+          if ( CachedContextBaseKey >= 0 )
+          {
+            if ( !v19 )
+            {
+              if ( a1 && (v13 = *(_QWORD *)(a1 + 224)) != 0 )
+                v14 = *(_QWORD *)(v13 + 8);
+              else
+                v14 = 0LL;
+              RegRtlDeleteTreeInternal((char *)KeyHandle, 0LL, v14, 0);
+            }
+            PnpObjectRaisePropertyChangeEvent(a1, (__int64)a3, 1LL, 0LL, 0LL, (__int64)&DEVPKEY_Device_PanelId);
+          }
+        }
       }
-      PnpObjectRaisePropertyChangeEvent(a1, (__int64)a3, 1LL, 0LL, 0LL, (__int64)&DEVPKEY_Device_PanelId);
-      goto LABEL_26;
     }
-    goto LABEL_23;
   }
-LABEL_26:
+  if ( CachedContextBaseKey == -1073741772 || CachedContextBaseKey == -1073741444 )
+    CachedContextBaseKey = 0;
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( Handle )

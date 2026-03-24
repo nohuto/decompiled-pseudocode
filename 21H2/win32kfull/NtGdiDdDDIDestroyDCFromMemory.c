@@ -1,44 +1,44 @@
 /*
- * XREFs of NtGdiDdDDIDestroyDCFromMemory @ 0x1C01073E0
+ * XREFs of NtGdiDdDDIDestroyDCFromMemory @ 0x1C011ECA0
  * Callers:
  *     <none>
  * Callees:
- *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0026DCC (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0026E10 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
- *     ??1SURFREF@@QEAA@XZ @ 0x1C0027A2C (--1SURFREF@@QEAA@XZ.c)
- *     ??0SURFREF@@QEAA@XZ @ 0x1C026AD30 (--0SURFREF@@QEAA@XZ.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018C00 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0018F2C (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C0082FC8 (--1SURFREF@@QEAA@XZ.c)
+ *     ??0SURFREF@@QEAA@XZ @ 0x1C026CF90 (--0SURFREF@@QEAA@XZ.c)
+ *     ?bValid@SURFREF@@QEBAHXZ @ 0x1C026D1C4 (-bValid@SURFREF@@QEBAHXZ.c)
+ *     ?vAltCheckLockIgnoreStockBit@SURFREF@@QEAAXPEAUHSURF__@@@Z @ 0x1C02768D4 (-vAltCheckLockIgnoreStockBit@SURFREF@@QEAAXPEAUHSURF__@@@Z.c)
  */
 
 __int64 __fastcall NtGdiDdDDIDestroyDCFromMemory(ULONG64 a1)
 {
   int v1; // ebx
   __int64 v2; // rdx
-  __int64 v3; // rax
-  __int128 v5; // [rsp+20h] [rbp-48h]
+  DYNAMICMODECHANGESHARELOCK *v3; // rcx
+  HSURF v5[2]; // [rsp+20h] [rbp-48h]
   _BYTE v6[32]; // [rsp+30h] [rbp-38h] BYREF
   __int64 v7; // [rsp+50h] [rbp-18h]
   char v8; // [rsp+78h] [rbp+10h] BYREF
 
   if ( a1 >= MmUserProbeAddress )
     a1 = MmUserProbeAddress;
-  v5 = *(_OWORD *)a1;
-  if ( !*(_QWORD *)(a1 + 8) || !(_QWORD)v5 )
+  *(_OWORD *)v5 = *(_OWORD *)a1;
+  if ( !*(_QWORD *)(a1 + 8) || !v5[0] )
     return 3221225485LL;
   v1 = -1073741811;
   DYNAMICMODECHANGESHARELOCK::DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v8);
   SURFREF::SURFREF((SURFREF *)v6);
-  LOBYTE(v2) = 5;
-  v3 = HmgShareLockCheckIgnoreStockBit(*((_QWORD *)&v5 + 1), v2);
-  v7 = v3;
-  if ( v3 && *(_QWORD *)(v3 + 224) )
+  SURFREF::vAltCheckLockIgnoreStockBit((SURFREF *)v6, v5[1]);
+  if ( (unsigned int)SURFREF::bValid((SURFREF *)v6) && *(_QWORD *)(v7 + 224) )
     v1 = 0;
-  SURFREF::~SURFREF((SURFREF *)v6);
-  DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK((DYNAMICMODECHANGESHARELOCK *)&v8);
+  SURFREF::~SURFREF((SURFREF *)v6, v2);
+  DYNAMICMODECHANGESHARELOCK::~DYNAMICMODECHANGESHARELOCK(v3);
   if ( v1 >= 0 )
   {
-    if ( !(unsigned int)bDeleteDCInternal(v5, 0LL, 0LL) )
+    if ( !(unsigned int)bDeleteDCInternal(v5[0], 0LL, 0LL) )
       v1 = -1073741811;
-    if ( v1 >= 0 && !(unsigned int)bDeleteSurface(*((_QWORD *)&v5 + 1)) )
+    if ( v1 >= 0 && !(unsigned int)bDeleteSurface(v5[1]) )
       return (unsigned int)-1073741811;
   }
   return (unsigned int)v1;

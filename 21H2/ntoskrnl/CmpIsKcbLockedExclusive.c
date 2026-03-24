@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpIsKcbLockedExclusive @ 0x140736280
+ * XREFs of CmpIsKcbLockedExclusive @ 0x14066635C
  * Callers:
- *     CmpUnlockKcb @ 0x140AB4300 (CmpUnlockKcb.c)
+ *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
  * Callees:
  *     <none>
  */

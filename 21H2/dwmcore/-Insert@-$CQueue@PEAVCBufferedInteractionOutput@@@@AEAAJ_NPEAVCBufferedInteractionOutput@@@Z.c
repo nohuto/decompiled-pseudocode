@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Insert@?$CQueue@PEAVCBufferedInteractionOutput@@@@AEAAJ_NPEAVCBufferedInteractionOutput@@@Z @ 0x1802738B0
+ * XREFs of ?Insert@?$CQueue@PEAVCBufferedInteractionOutput@@@@AEAAJ_NPEAVCBufferedInteractionOutput@@@Z @ 0x180230B40
  * Callers:
- *     ?AddBufferedOutput@CInteractionContextWrapper@@AEAAJII_KPEBUINTERACTION_CONTEXT_OUTPUT@@@Z @ 0x180272C10 (-AddBufferedOutput@CInteractionContextWrapper@@AEAAJII_KPEBUINTERACTION_CONTEXT_OUTPUT@@@Z.c)
+ *     ?AddBufferedOutput@CInteractionContextWrapper@@AEAAJII_KPEBUINTERACTION_CONTEXT_OUTPUT@@@Z @ 0x18022FE74 (-AddBufferedOutput@CInteractionContextWrapper@@AEAAJII_KPEBUINTERACTION_CONTEXT_OUTPUT@@@Z.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
  */
 
 __int64 __fastcall CQueue<CBufferedInteractionOutput *>::Insert(__int64 a1, __int64 a2, __int64 a3)
@@ -20,7 +20,7 @@ __int64 __fastcall CQueue<CBufferedInteractionOutput *>::Insert(__int64 a1, __in
   if ( *(_BYTE *)(a1 + 20) )
   {
     v5 = -2147023781;
-    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, -2147023781, 0x97u);
+    MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2147023781, 0x97u, 0LL);
   }
   else
   {
@@ -28,6 +28,7 @@ __int64 __fastcall CQueue<CBufferedInteractionOutput *>::Insert(__int64 a1, __in
     if ( v7 )
     {
       *(_OWORD *)v7 = 0LL;
+      v7[2] = 0LL;
       v7[2] = a3;
       v9 = *(_QWORD **)(a1 + 8);
       if ( *v9 != a1 )
@@ -41,7 +42,7 @@ __int64 __fastcall CQueue<CBufferedInteractionOutput *>::Insert(__int64 a1, __in
     else
     {
       v5 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0LL, -2147024882, 0x9Cu);
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147024882, 0x9Cu, 0LL);
     }
   }
   LeaveCriticalSection((LPCRITICAL_SECTION)(a1 + 24));

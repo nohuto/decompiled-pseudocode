@@ -1,15 +1,16 @@
 /*
- * XREFs of MiFlowThroughInsertNode @ 0x14025A2B4
+ * XREFs of MiFlowThroughInsertNode @ 0x1402D006C
  * Callers:
- *     MiFinishMdlForMappedFileFault @ 0x14033DC30 (MiFinishMdlForMappedFileFault.c)
- *     MiResolvePageFileFault @ 0x1403927C4 (MiResolvePageFileFault.c)
- *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14059DB28 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
+ *     MiFinishMdlForMappedFileFault @ 0x14031A46C (MiFinishMdlForMappedFileFault.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14053FD78 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiCopyImageExtentContents @ 0x140540134 (MiCopyImageExtentContents.c)
  * Callees:
- *     MiGetPagingFileOffset @ 0x1402E76C0 (MiGetPagingFileOffset.c)
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14034FBE0 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
+ *     MiGetPagingFileOffset @ 0x1402712A0 (MiGetPagingFileOffset.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall MiFlowThroughInsertNode(__int64 a1, _QWORD *a2)
@@ -42,8 +43,8 @@ _QWORD *__fastcall MiFlowThroughInsertNode(__int64 a1, _QWORD *a2)
   }
   else
   {
-    PagingFileOffset = MiGetPagingFileOffset(&v22);
-    v9 = *(_QWORD *)(*(_QWORD *)(qword_140C51F48 + 8 * ((a2[5] >> 43) & 0x3FFLL)) + 8LL * (v2 >> 12) + 16736);
+    PagingFileOffset = MiGetPagingFileOffset((__int64)&v22);
+    v9 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * ((a2[5] >> 39) & 0x3FFLL)) + 8LL * (v2 >> 12) + 6944);
     *(_QWORD *)(a1 + 336) = v9;
     *(_QWORD *)(a1 + 344) = PagingFileOffset;
     v10 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v9 + 232));

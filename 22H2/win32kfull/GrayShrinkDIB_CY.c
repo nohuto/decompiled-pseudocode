@@ -1,20 +1,20 @@
 /*
- * XREFs of GrayShrinkDIB_CY @ 0x1C0262650
+ * XREFs of GrayShrinkDIB_CY @ 0x1C026AFC0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     GetFixupScan @ 0x1C0158C70 (GetFixupScan.c)
- *     AlphaBlendBGRF @ 0x1C025DB34 (AlphaBlendBGRF.c)
- *     MappingBGRF @ 0x1C0262D64 (MappingBGRF.c)
+ *     GetFixupScan @ 0x1C00C7690 (GetFixupScan.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     AlphaBlendBGRF @ 0x1C0266540 (AlphaBlendBGRF.c)
+ *     MappingBGRF @ 0x1C026B6C4 (MappingBGRF.c)
  */
 
 __int64 __fastcall GrayShrinkDIB_CY(_OWORD *a1)
 {
-  int *v1; // rdx
-  __int64 v2; // rax
+  __int64 v1; // rax
+  int *v2; // rdx
   __int128 v3; // xmm1
   __int128 v4; // xmm0
   __int128 v5; // xmm1
@@ -28,21 +28,21 @@ __int64 __fastcall GrayShrinkDIB_CY(_OWORD *a1)
   __int128 v13; // xmm1
   __int128 v14; // xmm0
   __int64 v15; // rdx
-  int *v16; // r12
+  int *v16; // r13
   int v17; // r8d
   size_t v18; // r15
   char *v19; // rsi
   char *v20; // rbx
   char *v21; // r14
-  unsigned __int8 *v22; // r9
-  unsigned __int8 *v23; // r13
+  char *v22; // r12
+  int v23; // ecx
   int *v24; // rcx
   int v25; // eax
   char *v26; // rdi
   void *FixupScan; // rax
   char *v28; // rdx
   __int64 v29; // rax
-  unsigned int v30; // r13d
+  unsigned int v30; // r12d
   int v31; // eax
   int v32; // edx
   unsigned __int8 *v33; // rdi
@@ -76,16 +76,16 @@ __int64 __fastcall GrayShrinkDIB_CY(_OWORD *a1)
   __int16 v61; // ax
   __int64 v62; // rax
   int v64; // [rsp+58h] [rbp-B0h]
-  BOOL v65; // [rsp+5Ch] [rbp-ACh]
-  unsigned __int8 *v66; // [rsp+60h] [rbp-A8h]
-  int v67; // [rsp+68h] [rbp-A0h]
-  size_t Size; // [rsp+70h] [rbp-98h]
-  unsigned __int16 *v69; // [rsp+78h] [rbp-90h]
-  __int64 v70; // [rsp+80h] [rbp-88h]
-  char *v71; // [rsp+88h] [rbp-80h]
+  int v65; // [rsp+5Ch] [rbp-ACh]
+  int v66; // [rsp+60h] [rbp-A8h]
+  size_t Size; // [rsp+68h] [rbp-A0h]
+  char *v68; // [rsp+70h] [rbp-98h]
+  unsigned __int8 *v69; // [rsp+78h] [rbp-90h]
+  unsigned __int16 *v70; // [rsp+80h] [rbp-88h]
+  __int64 v71; // [rsp+88h] [rbp-80h]
   char *v72; // [rsp+90h] [rbp-78h]
   char *v73; // [rsp+98h] [rbp-70h]
-  unsigned __int8 *v74; // [rsp+A0h] [rbp-68h]
+  char *v74; // [rsp+A0h] [rbp-68h]
   int v75[34]; // [rsp+A8h] [rbp-60h] BYREF
   __int64 v76; // [rsp+130h] [rbp+28h]
   int v77; // [rsp+138h] [rbp+30h]
@@ -93,7 +93,7 @@ __int64 __fastcall GrayShrinkDIB_CY(_OWORD *a1)
   void (__fastcall *v79)(int *, __int64, _WORD *); // [rsp+168h] [rbp+60h]
   void (__fastcall *v80)(int *, __int64, __int64, __int64, __int64, __int64, __int64, int, __int64); // [rsp+1B8h] [rbp+B0h]
   __int64 v81; // [rsp+1C0h] [rbp+B8h]
-  void (__fastcall *v82)(__int64, void *, char *, unsigned __int8 *, int); // [rsp+1C8h] [rbp+C0h]
+  void (__fastcall *v82)(__int64, void *, char *, char *, int); // [rsp+1C8h] [rbp+C0h]
   __int64 v83; // [rsp+1D8h] [rbp+D0h]
   __int64 v84; // [rsp+1E0h] [rbp+D8h]
   __int64 v85; // [rsp+1E8h] [rbp+E0h]
@@ -117,58 +117,57 @@ __int64 __fastcall GrayShrinkDIB_CY(_OWORD *a1)
   _WORD *v103; // [rsp+2E8h] [rbp+1E0h]
   int v104; // [rsp+2F8h] [rbp+1F0h]
 
-  v1 = v75;
-  v73 = 0LL;
-  v2 = 4LL;
+  v1 = 4LL;
+  v2 = v75;
   do
   {
     v3 = a1[1];
-    *(_OWORD *)v1 = *a1;
+    *(_OWORD *)v2 = *a1;
     v4 = a1[2];
-    *((_OWORD *)v1 + 1) = v3;
+    *((_OWORD *)v2 + 1) = v3;
     v5 = a1[3];
-    *((_OWORD *)v1 + 2) = v4;
+    *((_OWORD *)v2 + 2) = v4;
     v6 = a1[4];
-    *((_OWORD *)v1 + 3) = v5;
+    *((_OWORD *)v2 + 3) = v5;
     v7 = a1[5];
-    *((_OWORD *)v1 + 4) = v6;
+    *((_OWORD *)v2 + 4) = v6;
     v8 = a1[6];
-    *((_OWORD *)v1 + 5) = v7;
+    *((_OWORD *)v2 + 5) = v7;
     v9 = a1[7];
     a1 += 8;
-    *((_OWORD *)v1 + 6) = v8;
-    v1 += 32;
-    *((_OWORD *)v1 - 1) = v9;
-    --v2;
+    *((_OWORD *)v2 + 6) = v8;
+    v2 += 32;
+    *((_OWORD *)v2 - 1) = v9;
+    --v1;
   }
-  while ( v2 );
+  while ( v1 );
   v10 = *((_QWORD *)a1 + 10);
   v11 = a1[1];
-  *(_OWORD *)v1 = *a1;
+  *(_OWORD *)v2 = *a1;
   v12 = a1[2];
-  *((_OWORD *)v1 + 1) = v11;
+  *((_OWORD *)v2 + 1) = v11;
   v13 = a1[3];
-  *((_OWORD *)v1 + 2) = v12;
+  *((_OWORD *)v2 + 2) = v12;
   v14 = a1[4];
-  *((_OWORD *)v1 + 3) = v13;
-  *((_OWORD *)v1 + 4) = v14;
-  *((_QWORD *)v1 + 10) = v10;
+  *((_OWORD *)v2 + 3) = v13;
+  *((_OWORD *)v2 + 4) = v14;
+  *((_QWORD *)v2 + 10) = v10;
   v15 = v84;
   v16 = *(int **)(v84 + 32);
   v17 = *(unsigned __int16 *)(v84 + 14);
-  v70 = *(_QWORD *)(v84 + 24);
+  v71 = *(_QWORD *)(v84 + 24);
   v18 = 4 * v77;
-  Size = v18;
   v19 = (char *)(v16 + 512);
-  v71 = (char *)(v16 + 512);
+  Size = v18;
+  v72 = (char *)(v16 + 512);
   v20 = (char *)v16 + v18 + 2048;
-  v72 = v20;
   v21 = &v20[v18];
-  v73 = &v20[v18];
-  v22 = (unsigned __int8 *)&v20[Size + Size];
-  v66 = v22;
-  v23 = &v22[v77];
-  v74 = v23;
+  v73 = v20;
+  v22 = &v20[v18 + v18];
+  v74 = &v20[v18];
+  v69 = (unsigned __int8 *)v22;
+  v23 = 0;
+  v68 = &v22[v77];
   if ( v17 )
   {
     v24 = v16;
@@ -181,7 +180,7 @@ __int64 __fastcall GrayShrinkDIB_CY(_OWORD *a1)
     while ( v24 < v16 + 256 );
     v26 = &v20[v18 + v18];
     FixupScan = GetFixupScan((__int64)v75, v98);
-    v82(v83, FixupScan, v26, v23, 1);
+    v82(v83, FixupScan, v26, v68, 1);
     v28 = &v20[v18];
     do
     {
@@ -189,36 +188,37 @@ __int64 __fastcall GrayShrinkDIB_CY(_OWORD *a1)
       *(_DWORD *)v28 = v16[v29];
       v28 += 4;
     }
-    while ( v28 < &v21[v18] );
+    while ( v28 < v22 );
     v15 = v84;
-    v22 = v66;
+    v23 = 0;
     if ( !*(_WORD *)(v84 + 10) )
       v75[0] |= 0x20u;
   }
   v30 = 0;
-  v69 = *(unsigned __int16 **)(v15 + 40);
+  v70 = *(unsigned __int16 **)(v15 + 40);
   v31 = *(unsigned __int16 *)(v15 + 12);
   v32 = *(_DWORD *)(v15 + 16);
   v64 = v31;
   if ( v32 )
   {
-    v65 = v31 == 1;
+    LOBYTE(v23) = v31 == 1;
+    v65 = v23;
     do
     {
-      v67 = v32 - 1;
-      v33 = v22;
+      v33 = v69;
+      v66 = v32 - 1;
       v34 = GetFixupScan((__int64)v75, v98);
-      v82(v83, v34, (char *)v66, v74, 1);
+      v82(v83, v34, (char *)v69, v68, 1);
       v35 = &v21[v18];
       v36 = v21;
-      v37 = *v69++;
+      v37 = *v70++;
       if ( (v37 & 0x4000) != 0 )
       {
         v38 = v37 & 0x3FFF;
         v39 = v16;
         v40 = -v38;
-        v41 = *(_DWORD *)(v70 + 4) + (((__int16)v37 >> 15) & 1) - v38;
-        v42 = v38 - (*(_DWORD *)(v70 + 4) + (((__int16)v37 >> 15) & 1));
+        v41 = *(_DWORD *)(v71 + 4) + (((__int16)v37 >> 15) & 1) - v38;
+        v42 = v38 - (*(_DWORD *)(v71 + 4) + (((__int16)v37 >> 15) & 1));
         do
         {
           v40 += v38;
@@ -294,14 +294,14 @@ __int64 __fastcall GrayShrinkDIB_CY(_OWORD *a1)
         }
         v21 = v19;
         for ( i = 0LL; i < 2; ++i )
-          (&v71)[i] = (&v72)[i];
-        v20 = v72;
-        v73 = v19;
-        v19 = v71;
+          (&v72)[i] = (&v73)[i];
+        v20 = v73;
+        v74 = v19;
+        v19 = v72;
       }
       else
       {
-        v55 = v70 + ((v37 >> 5) & 0x400);
+        v55 = v71 + ((v37 >> 5) & 0x400);
         do
         {
           v56 = *v33++;
@@ -309,11 +309,10 @@ __int64 __fastcall GrayShrinkDIB_CY(_OWORD *a1)
         }
         while ( v36 < (_DWORD *)v35 );
       }
-      v32 = v67;
+      v32 = v66;
       v18 = Size;
-      v22 = v66;
     }
-    while ( v67 );
+    while ( v66 );
   }
   if ( v76 != v85 )
   {
@@ -333,7 +332,7 @@ __int64 __fastcall GrayShrinkDIB_CY(_OWORD *a1)
     v61 = v75[0];
     if ( SLOBYTE(v75[0]) < 0 )
     {
-      ((void (__fastcall *)(int *, _WORD *, char *, unsigned __int8 *))v79)(v75, v57, v58, v22);
+      ((void (__fastcall *)(int *, _WORD *))v79)(v75, v57);
       v61 = v75[0];
     }
     if ( (v61 & 0x800) != 0 )

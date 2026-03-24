@@ -1,73 +1,66 @@
 /*
- * XREFs of PopExecuteSystemIdleAction @ 0x1407A7420
+ * XREFs of PopExecuteSystemIdleAction @ 0x1408F0E44
  * Callers:
- *     PopSystemIdleWorker @ 0x1407A72B0 (PopSystemIdleWorker.c)
+ *     PopSystemIdleWorker @ 0x1408F1150 (PopSystemIdleWorker.c)
  * Callees:
- *     EtwWrite @ 0x140257780 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258300 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PopUpdatePdcSystemIdleState @ 0x1407A750C (PopUpdatePdcSystemIdleState.c)
+ *     PopExecutePowerAction @ 0x140775C28 (PopExecutePowerAction.c)
+ *     PopDiagTraceSystemIdleAction @ 0x1408EB78C (PopDiagTraceSystemIdleAction.c)
+ *     PopUpdatePdcSystemIdleState @ 0x1408F1268 (PopUpdatePdcSystemIdleState.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
-__int64 __fastcall PopExecuteSystemIdleAction(int a1, unsigned __int8 a2, __int64 a3)
+__int64 __fastcall PopExecuteSystemIdleAction(__int64 a1, unsigned __int8 a2, __int64 a3)
 {
-  int v3; // r14d
-  unsigned __int64 v6; // r15
-  __int64 v7; // rcx
+  int v5; // edi
+  unsigned __int64 v6; // rbp
   unsigned int updated; // ebx
-  bool v9; // zf
-  REGHANDLE v10; // rdi
-  int v12; // [rsp+30h] [rbp-50h] BYREF
-  unsigned int v13; // [rsp+38h] [rbp-48h] BYREF
-  int v14; // [rsp+40h] [rbp-40h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-38h] BYREF
-  unsigned int *v16; // [rsp+58h] [rbp-28h]
-  __int64 v17; // [rsp+60h] [rbp-20h]
-  int *v18; // [rsp+68h] [rbp-18h]
-  __int64 v19; // [rsp+70h] [rbp-10h]
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v11; // [rsp+30h] [rbp-38h] BYREF
+  int v12; // [rsp+38h] [rbp-30h]
+  __int128 v13; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v14; // [rsp+50h] [rbp-18h]
 
-  v3 = a2;
+  v13 = 0LL;
+  v14 = 0LL;
+  v5 = a1;
   v6 = MEMORY[0xFFFFF78000000008] / 0x989680uLL;
-  v7 = (unsigned int)(a1 - 1);
-  if ( (_DWORD)v7
-    && (v7 = (unsigned int)(v7 - 1), (_DWORD)v7)
-    && (v7 = (unsigned int)(v7 - 1), (_DWORD)v7)
-    && (v7 = (unsigned int)(v7 - 1), (_DWORD)v7) )
+  if ( (_DWORD)a1 == 1 )
   {
-    if ( (_DWORD)v7 != 1 )
+    LOBYTE(a1) = a2;
+    goto LABEL_10;
+  }
+  if ( (int)a1 <= 2 )
+    goto LABEL_8;
+  if ( (int)a1 > 4 )
+  {
+    if ( (_DWORD)a1 == 5 )
     {
-      updated = -1073741811;
-      goto LABEL_8;
+      a1 = 0LL;
+LABEL_10:
+      updated = PopUpdatePdcSystemIdleState(a1);
+      goto LABEL_11;
     }
-    v7 = 0LL;
-  }
-  else
-  {
-    LOBYTE(v7) = a2;
-  }
-  updated = PopUpdatePdcSystemIdleState(v7);
 LABEL_8:
-  *(_DWORD *)(a3 + 8) = a1;
-  v14 = a1;
-  v9 = PopDiagHandleRegistered == 0;
-  *(_QWORD *)a3 = v6;
-  *(_BYTE *)(a3 + 12) = v3;
-  *(_DWORD *)(a3 + 16) = updated;
-  v13 = updated;
-  if ( !v9 )
-  {
-    v10 = PopDiagHandle;
-    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SIDLE_UPDATE_NOTIFICATION_WORKER) )
-    {
-      v12 = v3;
-      UserData.Ptr = (ULONGLONG)&v12;
-      *(_QWORD *)&UserData.Size = 4LL;
-      v16 = &v13;
-      v17 = 4LL;
-      v18 = &v14;
-      v19 = 4LL;
-      EtwWrite(v10, &POP_ETW_EVENT_SIDLE_UPDATE_NOTIFICATION_WORKER, 0LL, 3u, &UserData);
-    }
+    updated = -1073741811;
+    goto LABEL_11;
   }
+  updated = 0;
+  if ( a2 )
+  {
+    *(_QWORD *)&v13 = 0x8000000007LL;
+    v12 = 0;
+    v11 = 0x8000002400000003uLL;
+    PopAcquirePolicyLock(a1);
+    PopExecutePowerAction((__int64)&v13, 0, &v11, 5, 1u);
+    PopReleasePolicyLock(v9, v8);
+  }
+LABEL_11:
+  *(_QWORD *)a3 = v6;
+  *(_DWORD *)(a3 + 8) = v5;
+  *(_BYTE *)(a3 + 12) = a2;
+  *(_DWORD *)(a3 + 16) = updated;
+  PopDiagTraceSystemIdleAction(v5, a2, updated);
   return updated;
 }

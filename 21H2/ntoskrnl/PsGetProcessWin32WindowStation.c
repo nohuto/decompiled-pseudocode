@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessWin32WindowStation @ 0x14024F340
+ * XREFs of PsGetProcessWin32WindowStation @ 0x1402C19B0
  * Callers:
  *     <none>
  * Callees:

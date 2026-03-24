@@ -1,9 +1,9 @@
 /*
- * XREFs of ?Release@CTokenManager@@UEAAJXZ @ 0x1C0002760
+ * XREFs of ?Release@CTokenManager@@UEAAJXZ @ 0x1C0017690
  * Callers:
  *     <none>
  * Callees:
- *     ??_GCTokenManager@@AEAAPEAXI@Z @ 0x1C0002790 (--_GCTokenManager@@AEAAPEAXI@Z.c)
+ *     ??_GCTokenManager@@AEAAPEAXI@Z @ 0x1C00176C0 (--_GCTokenManager@@AEAAPEAXI@Z.c)
  */
 
 __int64 __fastcall CTokenManager::Release(CTokenManager *this, unsigned int a2)

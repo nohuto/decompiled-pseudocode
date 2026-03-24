@@ -1,68 +1,57 @@
 /*
- * XREFs of PsLookupThreadByThreadId @ 0x1407A7D90
+ * XREFs of PsLookupThreadByThreadId @ 0x140625630
  * Callers:
- *     PsOpenThread @ 0x1406634A0 (PsOpenThread.c)
- *     PsLookupProcessThreadByCid @ 0x140663880 (PsLookupProcessThreadByCid.c)
- *     NtAlertThreadByThreadId @ 0x1407A7D20 (NtAlertThreadByThreadId.c)
- *     PfpServiceMainThreadBoostPrep @ 0x140808A98 (PfpServiceMainThreadBoostPrep.c)
+ *     NtAlertThreadByThreadId @ 0x140625C60 (NtAlertThreadByThreadId.c)
+ *     PsOpenThread @ 0x140625D00 (PsOpenThread.c)
+ *     PsLookupProcessThreadByCid @ 0x14069F110 (PsLookupProcessThreadByCid.c)
+ *     PfpServiceMainThreadBoostPrep @ 0x140779EF8 (PfpServiceMainThreadBoostPrep.c)
+ *     PspFindThreadForTeb @ 0x14090A100 (PspFindThreadForTeb.c)
+ *     PspRundownUmsThreadForApcDelivery @ 0x14090EBCC (PspRundownUmsThreadForApcDelivery.c)
  * Callees:
- *     IoThreadToProcess @ 0x1402321F0 (IoThreadToProcess.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x14024BA7C (ExfAcquireReleasePushLockExclusive.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     PsGetCurrentServerSilo @ 0x1402F61B0 (PsGetCurrentServerSilo.c)
- *     PsIsProcessInSilo @ 0x140300B74 (PsIsProcessInSilo.c)
- *     PspReferenceCidTableEntry @ 0x1407A8900 (PspReferenceCidTableEntry.c)
+ *     PsGetCurrentServerSilo @ 0x14025C9C0 (PsGetCurrentServerSilo.c)
+ *     PsIsProcessInSilo @ 0x14025CA38 (PsIsProcessInSilo.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x1402C3044 (ExfAcquireReleasePushLockExclusive.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     PspReferenceCidTableEntry @ 0x140625A50 (PspReferenceCidTableEntry.c)
  */
 
 NTSTATUS __stdcall PsLookupThreadByThreadId(HANDLE ThreadId, PETHREAD *Thread)
 {
   struct _KTHREAD *CurrentThread; // rsi
   PETHREAD *v3; // r14
-  struct _KTHREAD *v4; // rax
-  NTSTATUS v5; // ebx
-  struct _KTHREAD *v6; // rdi
-  __int64 CurrentServerSilo; // rax
-  bool v8; // zf
-  signed __int32 v10[10]; // [rsp+0h] [rbp-28h] BYREF
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rbx
+  __int64 CurrentServerSilo; // rdi
+  signed __int32 v9[10]; // [rsp+0h] [rbp-28h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v3 = Thread;
   --CurrentThread->SpecialApcDisable;
   LOBYTE(Thread) = 6;
-  v4 = (struct _KTHREAD *)PspReferenceCidTableEntry(ThreadId, Thread);
-  v5 = 0;
-  v6 = v4;
-  if ( v4 )
+  v6 = PspReferenceCidTableEntry(ThreadId, Thread);
+  if ( v6 )
   {
-    if ( IoThreadToProcess(v4) == PsIdleProcess )
-      goto LABEL_9;
-    if ( (*(_DWORD *)(&v6[1].SwapListEntry + 1) & 2) == 0 )
+    CurrentServerSilo = PsGetCurrentServerSilo(v5, v4);
+    if ( (*(_DWORD *)(v6 + 1296) & 2) == 0 )
     {
-      _InterlockedOr(v10, 0);
-      if ( ((__int64)v6[1].WaitBlockList & 1) != 0 )
-        ExfAcquireReleasePushLockExclusive((ULONG_PTR)&v6[1].WaitBlockList);
-      if ( (*(_DWORD *)(&v6[1].SwapListEntry + 1) & 2) == 0 )
-        goto LABEL_9;
+      _InterlockedOr(v9, 0);
+      if ( (*(_QWORD *)(v6 + 1280) & 1) != 0 )
+        ExfAcquireReleasePushLockExclusive(v6 + 1280);
+      if ( (*(_DWORD *)(v6 + 1296) & 2) == 0 )
+        goto LABEL_7;
     }
-    CurrentServerSilo = PsGetCurrentServerSilo();
-    if ( PsIsProcessInSilo(v6->Process, CurrentServerSilo) )
+    if ( !PsIsProcessInSilo(*(struct _KPROCESS **)(v6 + 544), CurrentServerSilo) )
     {
-      *v3 = v6;
-    }
-    else
-    {
-LABEL_9:
-      v5 = -1073741813;
-      ObfDereferenceObject(v6);
+LABEL_7:
+      HalPutDmaAdapter((PADAPTER_OBJECT)v6);
+      v6 = 0LL;
     }
   }
-  else
-  {
-    v5 = -1073741813;
-  }
-  v8 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v8 && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery();
-  return v5;
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  if ( !v6 )
+    return -1073741813;
+  *v3 = (PETHREAD)v6;
+  return 0;
 }

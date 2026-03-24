@@ -1,13 +1,13 @@
 /*
- * XREFs of ?DeleteSymbolicLink@FxDevice@@QEAAXXZ @ 0x1C002BB4C
+ * XREFs of ?DeleteSymbolicLink@FxDevice@@QEAAXXZ @ 0x1C0050620
  * Callers:
- *     ??1FxDevice@@UEAA@XZ @ 0x1C002B720 (--1FxDevice@@UEAA@XZ.c)
- *     ?Destroy@FxDevice@@QEAAXXZ @ 0x1C00302A8 (-Destroy@FxDevice@@QEAAXXZ.c)
- *     ?DeleteSymbolicLinkOverload@FxPkgPdo@@EEAAXE@Z @ 0x1C0083510 (-DeleteSymbolicLinkOverload@FxPkgPdo@@EEAAXE@Z.c)
- *     ?PnpEventPdoRemovedOverload@FxPkgPdo@@EEAA?AW4_WDF_DEVICE_PNP_STATE@@XZ @ 0x1C0083790 (-PnpEventPdoRemovedOverload@FxPkgPdo@@EEAA-AW4_WDF_DEVICE_PNP_STATE@@XZ.c)
- *     ?DeleteSymbolicLinkOverload@FxPkgFdo@@EEAAXE@Z @ 0x1C0089A50 (-DeleteSymbolicLinkOverload@FxPkgFdo@@EEAAXE@Z.c)
+ *     ?Destroy@FxDevice@@QEAAXXZ @ 0x1C005067C (-Destroy@FxDevice@@QEAAXXZ.c)
+ *     ??1FxDevice@@UEAA@XZ @ 0x1C0051420 (--1FxDevice@@UEAA@XZ.c)
+ *     ?DeleteSymbolicLinkOverload@FxPkgPdo@@EEAAXE@Z @ 0x1C0078FD0 (-DeleteSymbolicLinkOverload@FxPkgPdo@@EEAAXE@Z.c)
+ *     ?PnpEventPdoRemovedOverload@FxPkgPdo@@EEAA?AW4_WDF_DEVICE_PNP_STATE@@XZ @ 0x1C0079620 (-PnpEventPdoRemovedOverload@FxPkgPdo@@EEAA-AW4_WDF_DEVICE_PNP_STATE@@XZ.c)
+ *     ?DeleteSymbolicLinkOverload@FxPkgFdo@@EEAAXE@Z @ 0x1C0084230 (-DeleteSymbolicLinkOverload@FxPkgFdo@@EEAAXE@Z.c)
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
  */
 
 void __fastcall FxDevice::DeleteSymbolicLink(FxDevice *this)

@@ -1,19 +1,19 @@
 /*
- * XREFs of PspNotifyServerSiloTermination @ 0x1409B1F54
+ * XREFs of PspNotifyServerSiloTermination @ 0x14090B8E4
  * Callers:
- *     PspCompleteServerSiloShutdownDeferred @ 0x1409ABC00 (PspCompleteServerSiloShutdownDeferred.c)
+ *     PspCompleteServerSiloShutdownDeferred @ 0x140905F60 (PspCompleteServerSiloShutdownDeferred.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     PspGetServerSiloStatePointer @ 0x1405E0084 (PspGetServerSiloStatePointer.c)
- *     PspGetNextMonitor @ 0x1409B1D18 (PspGetNextMonitor.c)
- *     PspInvokeTerminateCallback @ 0x1409B1D40 (PspInvokeTerminateCallback.c)
- *     EtwTraceJobServerSiloStateChange @ 0x1409E24C0 (EtwTraceJobServerSiloStateChange.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     PspGetServerSiloStatePointer @ 0x140580FA8 (PspGetServerSiloStatePointer.c)
+ *     PspGetNextMonitor @ 0x14090B6A8 (PspGetNextMonitor.c)
+ *     PspInvokeTerminateCallback @ 0x14090B6D0 (PspInvokeTerminateCallback.c)
+ *     EtwTraceJobServerSiloStateChange @ 0x14093601C (EtwTraceJobServerSiloStateChange.c)
  */
 
-char __fastcall PspNotifyServerSiloTermination(__int64 a1)
+_QWORD *__fastcall PspNotifyServerSiloTermination(__int64 a1)
 {
   __int64 ServerSiloStatePointer; // rax
   struct _KTHREAD *CurrentThread; // rdx
@@ -41,5 +41,5 @@ char __fastcall PspNotifyServerSiloTermination(__int64 a1)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PspSiloMonitorLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&PspSiloMonitorLock);
   KeAbPostRelease((ULONG_PTR)&PspSiloMonitorLock);
-  return KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

@@ -1,18 +1,17 @@
 /*
- * XREFs of ObpCaptureObjectCreateInformation @ 0x1407CCD80
+ * XREFs of ObpCaptureObjectCreateInformation @ 0x140656440
  * Callers:
- *     ObReferenceObjectByNameEx @ 0x1406686C8 (ObReferenceObjectByNameEx.c)
- *     ObCreateObjectEx @ 0x14072B3B0 (ObCreateObjectEx.c)
- *     IopAllocRealFileObject @ 0x14072DDC0 (IopAllocRealFileObject.c)
- *     CmpCreateKeyBody @ 0x14072E210 (CmpCreateKeyBody.c)
- *     ObOpenObjectByNameEx @ 0x1407CAF90 (ObOpenObjectByNameEx.c)
- *     SepDuplicateToken @ 0x1407CDED0 (SepDuplicateToken.c)
+ *     ObReferenceObjectByNameEx @ 0x1405DE69C (ObReferenceObjectByNameEx.c)
+ *     ObOpenObjectByNameEx @ 0x140655CD0 (ObOpenObjectByNameEx.c)
+ *     CmpCreateKeyBody @ 0x1406FC690 (CmpCreateKeyBody.c)
+ *     IopAllocRealFileObject @ 0x1407030E0 (IopAllocRealFileObject.c)
+ *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
  * Callees:
- *     SeComputeQuotaInformationSize @ 0x140725930 (SeComputeQuotaInformationSize.c)
- *     SeReleaseSecurityDescriptor @ 0x1407B3DA0 (SeReleaseSecurityDescriptor.c)
- *     SeCaptureSecurityDescriptor @ 0x1407B3DD0 (SeCaptureSecurityDescriptor.c)
- *     ObpCaptureObjectName @ 0x1407CD000 (ObpCaptureObjectName.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
+ *     ObpCaptureObjectName @ 0x1406566B0 (ObpCaptureObjectName.c)
+ *     SeCaptureSecurityDescriptor @ 0x14065BB60 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x14065C750 (SeReleaseSecurityDescriptor.c)
+ *     SeComputeQuotaInformationSize @ 0x14065FBD0 (SeComputeQuotaInformationSize.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall ObpCaptureObjectCreateInformation(
@@ -23,14 +22,15 @@ __int64 __fastcall ObpCaptureObjectCreateInformation(
         __int64 a5,
         unsigned int a6)
 {
+  _OWORD *v6; // r15
   int v8; // eax
   __int64 v9; // r14
   __int64 v10; // r10
   __int64 v11; // rdi
   int v12; // r12d
-  __int64 *v14; // r13
-  void *v15; // rcx
-  unsigned int v16; // [rsp+34h] [rbp-64h] BYREF
+  _QWORD *v14; // r13
+  __int64 v15; // rcx
+  int v16; // [rsp+34h] [rbp-64h] BYREF
   int v17; // [rsp+38h] [rbp-60h]
   int v18; // [rsp+3Ch] [rbp-5Ch]
   __int64 v19; // [rsp+40h] [rbp-58h]
@@ -39,6 +39,7 @@ __int64 __fastcall ObpCaptureObjectCreateInformation(
   struct _KTHREAD *CurrentThread; // [rsp+60h] [rbp-38h]
   struct _KTHREAD *v23; // [rsp+68h] [rbp-30h]
 
+  v6 = a4;
   v16 = 0;
   *a4 = 0LL;
   *(_OWORD *)a5 = 0LL;
@@ -107,8 +108,9 @@ LABEL_18:
 LABEL_19:
   if ( v10 )
   {
-    v14 = (__int64 *)(a5 + 32);
-    v12 = SeCaptureSecurityDescriptor(v10, a1, 1, 1, (_QWORD *)(a5 + 32));
+    v14 = (_QWORD *)(a5 + 32);
+    LOBYTE(a4) = 1;
+    v12 = SeCaptureSecurityDescriptor(v10, a1, 1, (_DWORD)a4, a5 + 32);
     if ( v12 < 0 )
     {
       *v14 = 0LL;
@@ -135,7 +137,7 @@ LABEL_19:
 LABEL_21:
     if ( v9 )
     {
-      v12 = ObpCaptureObjectName(a1, v9, a4, a6);
+      v12 = ObpCaptureObjectName(a1, v9, v6, a6);
       if ( v12 >= 0 )
         return 0LL;
     }
@@ -147,10 +149,11 @@ LABEL_21:
     }
   }
 LABEL_33:
-  v15 = *(void **)(a5 + 32);
+  v15 = *(_QWORD *)(a5 + 32);
   if ( v15 )
   {
-    SeReleaseSecurityDescriptor(v15, *(_BYTE *)(a5 + 16), 1);
+    LOBYTE(a3) = 1;
+    SeReleaseSecurityDescriptor(v15, *(unsigned __int8 *)(a5 + 16), a3, a4);
     *(_QWORD *)(a5 + 32) = 0LL;
   }
   return (unsigned int)v12;

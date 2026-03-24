@@ -1,11 +1,10 @@
 /*
- * XREFs of ExSaFree @ 0x140360F40
+ * XREFs of ExSaFree @ 0x1403942DC
  * Callers:
- *     ExCleanupAutoExpandPushLock @ 0x1402A3D50 (ExCleanupAutoExpandPushLock.c)
- *     PspProcessDelete @ 0x1407E0F30 (PspProcessDelete.c)
+ *     ExCleanupAutoExpandPushLock @ 0x140296D80 (ExCleanupAutoExpandPushLock.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     ExpSaAllocatorFree @ 0x140360FD4 (ExpSaAllocatorFree.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExpSaAllocatorFree @ 0x140394354 (ExpSaAllocatorFree.c)
  */
 
 char __fastcall ExSaFree(unsigned int a1)
@@ -14,7 +13,6 @@ char __fastcall ExSaFree(unsigned int a1)
   unsigned int v2; // ecx
   struct _KTHREAD *CurrentThread; // rax
   ULONG_PTR v4; // rcx
-  struct _KTHREAD *v5; // rax
 
   v1 = (a1 >> 13) & 0x3FFFF;
   _BitScanReverse(&v2, v1);
@@ -25,12 +23,5 @@ char __fastcall ExSaFree(unsigned int a1)
                  + 16LL);
   --CurrentThread->SpecialApcDisable;
   ExpSaAllocatorFree(v4);
-  v5 = KeGetCurrentThread();
-  if ( v5->SpecialApcDisable++ == -1 )
-  {
-    v5 = (struct _KTHREAD *)((char *)v5 + 152);
-    if ( *(struct _KTHREAD **)&v5->Header.Lock != v5 )
-      LOBYTE(v5) = KiCheckForKernelApcDelivery();
-  }
-  return (char)v5;
+  return KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
 }

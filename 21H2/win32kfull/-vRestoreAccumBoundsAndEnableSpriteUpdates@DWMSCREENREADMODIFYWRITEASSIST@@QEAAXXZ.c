@@ -1,14 +1,14 @@
 /*
- * XREFs of ?vRestoreAccumBoundsAndEnableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ @ 0x1C029DC94
+ * XREFs of ?vRestoreAccumBoundsAndEnableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ @ 0x1C029F390
  * Callers:
- *     GrePolyPolyline @ 0x1C01363F0 (GrePolyPolyline.c)
- *     NtGdiRectangle @ 0x1C0136B50 (NtGdiRectangle.c)
- *     GrePolyPolygon @ 0x1C0137950 (GrePolyPolygon.c)
- *     NtGdiLineTo @ 0x1C0137EE0 (NtGdiLineTo.c)
- *     NtGdiInvertRgn @ 0x1C0138CF0 (NtGdiInvertRgn.c)
- *     GrePolyBezier @ 0x1C029ED10 (GrePolyBezier.c)
+ *     GrePolyPolyline @ 0x1C0142AB0 (GrePolyPolyline.c)
+ *     NtGdiRectangle @ 0x1C0143FC0 (NtGdiRectangle.c)
+ *     GrePolyPolygon @ 0x1C0144E20 (GrePolyPolygon.c)
+ *     NtGdiLineTo @ 0x1C01453C0 (NtGdiLineTo.c)
+ *     NtGdiInvertRgn @ 0x1C0149310 (NtGdiInvertRgn.c)
+ *     GrePolyBezier @ 0x1C02A0430 (GrePolyBezier.c)
  * Callees:
- *     ?vAccumulateTight@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C0138B80 (-vAccumulateTight@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
+ *     ?vAccumulateTight@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C01460E4 (-vAccumulateTight@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
  */
 
 void __fastcall DWMSCREENREADMODIFYWRITEASSIST::vRestoreAccumBoundsAndEnableSpriteUpdates(
@@ -16,7 +16,7 @@ void __fastcall DWMSCREENREADMODIFYWRITEASSIST::vRestoreAccumBoundsAndEnableSpri
 {
   DWMSCREENREADMODIFYWRITEASSIST *v1; // r8
   __int64 v2; // rdx
-  __int64 v3; // rcx
+  __int64 v3; // rax
   __int64 v4; // rax
   __int64 v5; // rcx
 
@@ -32,14 +32,14 @@ void __fastcall DWMSCREENREADMODIFYWRITEASSIST::vRestoreAccumBoundsAndEnableSpri
       *(_DWORD *)(*(_QWORD *)(v2 + 976) + 8LL) = *((_DWORD *)this + 14);
       *(_DWORD *)(*(_QWORD *)(v2 + 976) + 12LL) = *((_DWORD *)this + 15);
       v3 = *(_QWORD *)(**((_QWORD **)this + 3) + 976LL);
-      if ( *((_DWORD *)v1 + 17) )
+      if ( *((_DWORD *)this + 17) )
         *(_DWORD *)(v3 + 152) |= 0x100u;
       else
         *(_DWORD *)(v3 + 152) |= 0x200u;
     }
-    *(_BYTE *)(*(_QWORD *)(**((_QWORD **)v1 + 3) + 976LL) + 212LL) = *((_BYTE *)v1 + 32);
-    v4 = *(_QWORD *)(**((_QWORD **)v1 + 3) + 976LL);
-    v5 = *((_QWORD *)v1 + 5);
+    *(_BYTE *)(*(_QWORD *)(**((_QWORD **)this + 3) + 976LL) + 212LL) = *((_BYTE *)this + 32);
+    v4 = *(_QWORD *)(**((_QWORD **)this + 3) + 976LL);
+    v5 = *((_QWORD *)this + 5);
     if ( *(_QWORD *)(v4 + 160) != v5 )
     {
       *(_QWORD *)(v4 + 160) = v5;

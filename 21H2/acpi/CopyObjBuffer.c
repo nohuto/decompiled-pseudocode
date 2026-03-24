@@ -1,14 +1,15 @@
 /*
- * XREFs of CopyObjBuffer @ 0x1C0019958
+ * XREFs of CopyObjBuffer @ 0x1C0022C68
  * Callers:
- *     WriteObject @ 0x1C0017010 (WriteObject.c)
+ *     WriteObject @ 0x1C000AC60 (WriteObject.c)
+ *     ExprOp2_64 @ 0x1C0020F60 (ExprOp2_64.c)
  * Callees:
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     memset @ 0x1C0030080 (memset.c)
- *     AcpiDiagTraceAmlError @ 0x1C0047CA8 (AcpiDiagTraceAmlError.c)
- *     GetObjectTypeName @ 0x1C0066810 (GetObjectTypeName.c)
- *     LogError @ 0x1C0067B14 (LogError.c)
- *     PrintDebugMessage @ 0x1C00682B8 (PrintDebugMessage.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     memset @ 0x1C0032480 (memset.c)
+ *     GetObjectTypeName @ 0x1C0065458 (GetObjectTypeName.c)
  */
 
 __int64 __fastcall CopyObjBuffer(void *a1, size_t Size, __int64 a3)

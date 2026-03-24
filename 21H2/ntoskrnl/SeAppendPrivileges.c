@@ -1,36 +1,36 @@
 /*
- * XREFs of SeAppendPrivileges @ 0x1406A8AD0
+ * XREFs of SeAppendPrivileges @ 0x1405D9A40
  * Callers:
- *     IopCreateSecurityCheck @ 0x14024B8BC (IopCreateSecurityCheck.c)
- *     ObCheckObjectAccess @ 0x1406698A0 (ObCheckObjectAccess.c)
- *     ObCheckCreateObjectAccess @ 0x1406B6C50 (ObCheckCreateObjectAccess.c)
- *     ObpCheckTraverseAccess @ 0x1406CDC5C (ObpCheckTraverseAccess.c)
- *     ObpAdjustCreatorAccessState @ 0x1407227B0 (ObpAdjustCreatorAccessState.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     ObpCreateHandle @ 0x140731DA0 (ObpCreateHandle.c)
- *     CmpDoParseKey @ 0x1407362A0 (CmpDoParseKey.c)
- *     CmpCheckKeyBodyAccess @ 0x1407F7AD0 (CmpCheckKeyBodyAccess.c)
- *     CMFCheckAccess @ 0x140A03FB4 (CMFCheckAccess.c)
+ *     IopCreateSecurityCheck @ 0x140201880 (IopCreateSecurityCheck.c)
+ *     CmpCheckKeyBodyAccess @ 0x1405D961C (CmpCheckKeyBodyAccess.c)
+ *     ObCheckObjectAccess @ 0x1405D9860 (ObCheckObjectAccess.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x1405EC7E0 (CmpCheckOpenAccessOnKeyBody.c)
+ *     ObpAdjustCreatorAccessState @ 0x140662D98 (ObpAdjustCreatorAccessState.c)
+ *     ObCheckCreateObjectAccess @ 0x140662E90 (ObCheckCreateObjectAccess.c)
+ *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
+ *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     IopCheckBackupRestorePrivilege @ 0x140702EF0 (IopCheckBackupRestorePrivilege.c)
+ *     ObpCheckTraverseAccess @ 0x1408DD130 (ObpCheckTraverseAccess.c)
+ *     CMFCheckAccess @ 0x140958274 (CMFCheckAccess.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     SepConcatenatePrivileges @ 0x1409C6C34 (SepConcatenatePrivileges.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     SepConcatenatePrivileges @ 0x1405D9AA8 (SepConcatenatePrivileges.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall SeAppendPrivileges(PACCESS_STATE AccessState, PPRIVILEGE_SET Privileges)
 {
-  PVOID *AuxData; // r14
-  ULONG PrivilegeCount; // r9d
-  _DWORD *v6; // rbx
-  int v7; // r8d
-  unsigned int v8; // esi
-  int v10; // ecx
-  unsigned int v11; // esi
-  int v12; // eax
-  void *Pool2; // rbx
-  _DWORD *v14; // rdx
-  __int64 v15; // rdx
+  PVOID *AuxData; // rdi
+  ULONG PrivilegeCount; // r8d
+  _DWORD *v6; // rcx
+  int v7; // r9d
+  unsigned int v9; // ebx
+  int v10; // edx
+  int v11; // eax
+  PVOID PoolWithTag; // rsi
+  _DWORD *v13; // rdx
+  __int64 v14; // rdx
 
   AuxData = (PVOID *)AccessState->AuxData;
   PrivilegeCount = Privileges->PrivilegeCount;
@@ -38,53 +38,43 @@ NTSTATUS __stdcall SeAppendPrivileges(PACCESS_STATE AccessState, PPRIVILEGE_SET 
   v7 = *(_DWORD *)*AuxData;
   if ( v7 + Privileges->PrivilegeCount <= 3 )
   {
-    if ( v6 )
-    {
-      if ( v7 )
-        v8 = 12 * v7 + 8;
-      else
-        v8 = 8;
-    }
-    else
-    {
-      v8 = 0;
-    }
-    memmove((char *)v6 + v8, Privileges->Privilege, 12 * PrivilegeCount);
-    *v6 += Privileges->PrivilegeCount;
+    SepConcatenatePrivileges(v6, Privileges, Privileges);
     return 0;
   }
+  v9 = 8;
   if ( PrivilegeCount )
     v10 = 12 * PrivilegeCount + 8;
   else
     v10 = 8;
-  v11 = 0;
   if ( v6 )
   {
     if ( v7 )
-      v12 = 12 * v7 + 8;
+      v11 = 12 * v7 + 8;
     else
-      v12 = 8;
+      v11 = 8;
   }
   else
   {
-    v12 = 0;
+    v11 = 0;
   }
-  Pool2 = (void *)ExAllocatePool2(256LL, (unsigned int)(v10 + v12), 1917871443LL);
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)(v11 + v10), 0x72506553u);
+  if ( PoolWithTag )
   {
-    v14 = *AuxData;
+    v13 = *AuxData;
     if ( *AuxData )
     {
-      if ( *v14 )
-        v11 = 12 * *v14 + 8;
-      else
-        v11 = 8;
+      if ( *v13 )
+        v9 = 12 * *v13 + 8;
     }
-    memmove(Pool2, v14, v11);
-    SepConcatenatePrivileges(Pool2, v15, Privileges);
+    else
+    {
+      v9 = 0;
+    }
+    memmove(PoolWithTag, v13, v9);
+    SepConcatenatePrivileges(PoolWithTag, v14, Privileges);
     if ( AccessState->PrivilegesAllocated )
       ExFreePoolWithTag(*AuxData, 0);
-    *AuxData = Pool2;
+    *AuxData = PoolWithTag;
     AccessState->PrivilegesAllocated = 1;
     return 0;
   }

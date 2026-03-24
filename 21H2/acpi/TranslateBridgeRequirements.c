@@ -1,14 +1,14 @@
 /*
- * XREFs of TranslateBridgeRequirements @ 0x1C00B5560
+ * XREFs of TranslateBridgeRequirements @ 0x1C00B5F50
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall TranslateBridgeRequirements(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 *a5)
+__int64 __fastcall TranslateBridgeRequirements(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, PVOID *a5)
 {
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   PVOID *v9; // rdi
   unsigned int v10; // ebx
   ULONGLONG v11; // rax
@@ -25,10 +25,10 @@ __int64 __fastcall TranslateBridgeRequirements(__int64 a1, __int64 a2, __int64 a
 
   MinimumAddress = 0LL;
   MaximumAddress[0] = 0LL;
-  Pool2 = ExAllocatePool2(256LL, 32LL, 1383097153LL);
-  v9 = (PVOID *)a5;
-  *a5 = Pool2;
-  if ( Pool2 )
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x52706341u);
+  v9 = a5;
+  *a5 = PoolWithTag;
+  if ( PoolWithTag )
   {
     v11 = RtlIoDecodeMemIoResource((PIO_RESOURCE_DESCRIPTOR)a2, 0LL, &MinimumAddress, MaximumAddress);
     v12 = *(_DWORD *)(a1 + 8);

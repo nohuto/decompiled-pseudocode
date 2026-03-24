@@ -2,12 +2,12 @@
  * XREFs of CmConvertHandleToKernelHandle @ 0x1405B77C0
  * Callers:
  *     CmLoadDifferencingKey @ 0x1405B4DBC (CmLoadDifferencingKey.c)
- *     CmUnloadKey @ 0x140691E38 (CmUnloadKey.c)
- *     NtSaveMergedKeys @ 0x1407EA980 (NtSaveMergedKeys.c)
+ *     CmUnloadKey @ 0x140691E18 (CmUnloadKey.c)
+ *     NtSaveMergedKeys @ 0x1407EA960 (NtSaveMergedKeys.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x1406470E0 (ObOpenObjectByPointer.c)
+ *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
  */
 
 __int64 __fastcall CmConvertHandleToKernelHandle(

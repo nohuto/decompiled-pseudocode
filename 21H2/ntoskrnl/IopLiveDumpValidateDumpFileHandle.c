@@ -1,9 +1,9 @@
 /*
- * XREFs of IopLiveDumpValidateDumpFileHandle @ 0x14093D3A4
+ * XREFs of IopLiveDumpValidateDumpFileHandle @ 0x140898988
  * Callers:
- *     IopLiveDumpValidateParameters @ 0x14093D400 (IopLiveDumpValidateParameters.c)
+ *     IopLiveDumpValidateParameters @ 0x1408989E4 (IopLiveDumpValidateParameters.c)
  * Callees:
- *     ZwQueryInformationFile @ 0x14041B980 (ZwQueryInformationFile.c)
+ *     ZwQueryInformationFile @ 0x1403FA5C0 (ZwQueryInformationFile.c)
  */
 
 NTSTATUS __fastcall IopLiveDumpValidateDumpFileHandle(void *a1)

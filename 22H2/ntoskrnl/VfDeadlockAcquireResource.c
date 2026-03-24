@@ -1,101 +1,109 @@
 /*
- * XREFs of VfDeadlockAcquireResource @ 0x140AD7DAC
+ * XREFs of VfDeadlockAcquireResource @ 0x1409DD5D8
  * Callers:
- *     ViDeadlockExAcquireFastMutexUnsafe_Exit @ 0x140AD9FD0 (ViDeadlockExAcquireFastMutexUnsafe_Exit.c)
- *     ViDeadlockExAcquireFastMutex_Exit @ 0x140ADA010 (ViDeadlockExAcquireFastMutex_Exit.c)
- *     ViDeadlockExAcquireSharedStarveExclusive_Exit @ 0x140ADA050 (ViDeadlockExAcquireSharedStarveExclusive_Exit.c)
- *     ViDeadlockExEnterCriticalRegionAndAcquireResourceExclusive_Exit @ 0x140ADA090 (ViDeadlockExEnterCriticalRegionAndAcquireResourceExclusive_Exit.c)
- *     ViDeadlockExTryToAcquireFastMutex_Exit @ 0x140ADA130 (ViDeadlockExTryToAcquireFastMutex_Exit.c)
- *     ViDeadlockKeAcquireInStackQueuedSpinLockRaiseToSynch_Exit @ 0x140ADA2D0 (ViDeadlockKeAcquireInStackQueuedSpinLockRaiseToSynch_Exit.c)
- *     ViDeadlockKeAcquireSpinLockRaiseToDpc_Exit @ 0x140ADA310 (ViDeadlockKeAcquireSpinLockRaiseToDpc_Exit.c)
- *     ViDeadlockKeInitializeMutant_Exit @ 0x140ADA350 (ViDeadlockKeInitializeMutant_Exit.c)
- *     ViDeadlockKeTryToAcquireSpinLockAtDpcLevel_Exit @ 0x140ADA4C0 (ViDeadlockKeTryToAcquireSpinLockAtDpcLevel_Exit.c)
- *     ViDeadlockObjectAcquired @ 0x140ADA750 (ViDeadlockObjectAcquired.c)
+ *     VerifierKeAcquireInStackQueuedSpinLock @ 0x1409DA510 (VerifierKeAcquireInStackQueuedSpinLock.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1409DA560 (VerifierKeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockForDpc @ 0x1409DA730 (VerifierKeAcquireInStackQueuedSpinLockForDpc.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x1409DA830 (VerifierKeAcquireInStackQueuedSpinLockRaiseToSynch.c)
+ *     VerifierKeAcquireSpinLockAtDpcLevel @ 0x1409DA9A0 (VerifierKeAcquireSpinLockAtDpcLevel.c)
+ *     VerifierKeAcquireSpinLockRaiseToDpc @ 0x1409DAA10 (VerifierKeAcquireSpinLockRaiseToDpc.c)
+ *     VerifierKeInitializeMutant @ 0x1409DABE0 (VerifierKeInitializeMutant.c)
+ *     VerifierKeTryToAcquireSpinLockAtDpcLevel @ 0x1409DB870 (VerifierKeTryToAcquireSpinLockAtDpcLevel.c)
+ *     ViKeObjectAcquired @ 0x1409DC214 (ViKeObjectAcquired.c)
+ *     VerifierExAcquireResourceExclusiveLite @ 0x1409E1AF0 (VerifierExAcquireResourceExclusiveLite.c)
+ *     VerifierExAcquireResourceSharedLite @ 0x1409E1BC0 (VerifierExAcquireResourceSharedLite.c)
+ *     VerifierExAcquireSharedStarveExclusive @ 0x1409E1C90 (VerifierExAcquireSharedStarveExclusive.c)
+ *     VerifierExAcquireSharedWaitForExclusive @ 0x1409E1D60 (VerifierExAcquireSharedWaitForExclusive.c)
+ *     VerifierExEnterCriticalRegionAndAcquireResourceExclusive @ 0x1409E1FD0 (VerifierExEnterCriticalRegionAndAcquireResourceExclusive.c)
+ *     VerifierExEnterCriticalRegionAndAcquireResourceShared @ 0x1409E2070 (VerifierExEnterCriticalRegionAndAcquireResourceShared.c)
+ *     VerifierExEnterPriorityRegionAndAcquireResourceExclusive @ 0x1409E2110 (VerifierExEnterPriorityRegionAndAcquireResourceExclusive.c)
+ *     VerifierExEnterPriorityRegionAndAcquireResourceShared @ 0x1409E2190 (VerifierExEnterPriorityRegionAndAcquireResourceShared.c)
+ *     VerifierExAcquireFastMutex @ 0x1409E4720 (VerifierExAcquireFastMutex.c)
+ *     VerifierExAcquireFastMutexUnsafe @ 0x1409E4850 (VerifierExAcquireFastMutexUnsafe.c)
+ *     VerifierExTryToAcquireFastMutex @ 0x1409E4A40 (VerifierExTryToAcquireFastMutex.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140227700 (RtlCaptureStackBackTrace.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     VfReportIssueWithOptions @ 0x1405CFD90 (VfReportIssueWithOptions.c)
- *     ViLowerIrql @ 0x1405D1B48 (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x1405D1BC0 (ViRaiseIrqlToDpcLevel.c)
- *     ViDeadlockCanProceed @ 0x140AC179A (ViDeadlockCanProceed.c)
- *     ViDeadlockAddResource @ 0x140AD93DC (ViDeadlockAddResource.c)
- *     ViDeadlockAddThread @ 0x140AD9624 (ViDeadlockAddThread.c)
- *     ViDeadlockAllocate @ 0x140AD96E4 (ViDeadlockAllocate.c)
- *     ViDeadlockAnalyze @ 0x140AD9740 (ViDeadlockAnalyze.c)
- *     ViDeadlockCheckDuplicatesAmongChildren @ 0x140AD9BD4 (ViDeadlockCheckDuplicatesAmongChildren.c)
- *     ViDeadlockCheckDuplicatesAmongRoots @ 0x140AD9C54 (ViDeadlockCheckDuplicatesAmongRoots.c)
- *     ViDeadlockDetectionLock @ 0x140AD9DD8 (ViDeadlockDetectionLock.c)
- *     ViDeadlockDetectionUnlock @ 0x140AD9E10 (ViDeadlockDetectionUnlock.c)
- *     ViDeadlockFree @ 0x140ADA280 (ViDeadlockFree.c)
- *     ViDeadlockPreprocessOptions @ 0x140ADA830 (ViDeadlockPreprocessOptions.c)
- *     ViDeadlockRemoveThread @ 0x140ADAC20 (ViDeadlockRemoveThread.c)
- *     ViDeadlockSearchResource @ 0x140ADAD80 (ViDeadlockSearchResource.c)
- *     ViDeadlockSearchThread @ 0x140ADAE28 (ViDeadlockSearchThread.c)
- *     ViDeadlockSimilarNode @ 0x140ADAEB8 (ViDeadlockSimilarNode.c)
- *     ViDeadlockUpdateChildrenCount @ 0x140ADAF60 (ViDeadlockUpdateChildrenCount.c)
- *     ViIsThreadInsidePagingCodePaths @ 0x140ADAFA0 (ViIsThreadInsidePagingCodePaths.c)
+ *     RtlCaptureStackBackTrace @ 0x14021CDE0 (RtlCaptureStackBackTrace.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     VfReportIssueWithOptions @ 0x1405A1D34 (VfReportIssueWithOptions.c)
+ *     ViLowerIrql @ 0x1405A23F8 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x1405A2470 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockAddResource @ 0x1409DE848 (ViDeadlockAddResource.c)
+ *     ViDeadlockAddThread @ 0x1409DEA88 (ViDeadlockAddThread.c)
+ *     ViDeadlockAllocate @ 0x1409DEB48 (ViDeadlockAllocate.c)
+ *     ViDeadlockAnalyze @ 0x1409DEBA4 (ViDeadlockAnalyze.c)
+ *     ViDeadlockCanProceed @ 0x1409DEE18 (ViDeadlockCanProceed.c)
+ *     ViDeadlockCheckDuplicatesAmongChildren @ 0x1409DF0B0 (ViDeadlockCheckDuplicatesAmongChildren.c)
+ *     ViDeadlockCheckDuplicatesAmongRoots @ 0x1409DF130 (ViDeadlockCheckDuplicatesAmongRoots.c)
+ *     ViDeadlockDetectionLock @ 0x1409DF2BC (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x1409DF2F4 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockFree @ 0x1409DF5B8 (ViDeadlockFree.c)
+ *     ViDeadlockPreprocessOptions @ 0x1409DF828 (ViDeadlockPreprocessOptions.c)
+ *     ViDeadlockRemoveThread @ 0x1409DFBF8 (ViDeadlockRemoveThread.c)
+ *     ViDeadlockSearchResource @ 0x1409DFD40 (ViDeadlockSearchResource.c)
+ *     ViDeadlockSearchThread @ 0x1409DFDE8 (ViDeadlockSearchThread.c)
+ *     ViDeadlockSimilarNode @ 0x1409DFE78 (ViDeadlockSimilarNode.c)
+ *     ViDeadlockUpdateChildrenCount @ 0x1409DFF24 (ViDeadlockUpdateChildrenCount.c)
+ *     ViIsThreadInsidePagingCodePaths @ 0x1409DFF58 (ViIsThreadInsidePagingCodePaths.c)
  */
 
-PVOID __fastcall VfDeadlockAcquireResource(LONG *a1, int a2, __int64 a3, unsigned int a4, PVOID a5)
+PVOID __fastcall VfDeadlockAcquireResource(ULONG_PTR a1, int a2, __int64 a3, unsigned int a4, PVOID a5)
 {
-  ULONG_PTR v6; // rdi
+  ULONG_PTR v6; // r13
   PVOID result; // rax
-  void *v9; // r15
+  void *v9; // rdi
   __int64 v10; // r14
   USHORT v11; // ax
-  int v12; // ecx
+  unsigned int v12; // ecx
   __int64 v13; // rbx
   __int64 v14; // rax
-  unsigned int v15; // r10d
-  void *v16; // rsi
-  int v17; // edi
-  __int64 v18; // rax
-  __int64 v19; // r8
-  void *v20; // r11
-  int *v21; // rsi
-  int v22; // ecx
-  __int64 v23; // r13
-  __int64 v24; // rax
-  unsigned __int16 v25; // ax
-  __int64 v26; // rdx
-  __int64 v27; // r15
-  __int64 v28; // r9
-  int *v29; // rdi
-  int v30; // eax
-  int *v31; // r9
+  void *v15; // rsi
+  int v16; // r15d
+  __int64 v17; // rax
+  void *v18; // r11
+  int *v19; // rsi
+  __int64 v20; // r8
+  int v21; // ecx
+  __int64 v22; // r15
+  __int64 v23; // rax
+  unsigned __int16 v24; // ax
+  __int64 v25; // rdx
+  _QWORD *v26; // r9
+  int *v27; // rdi
+  _QWORD *v28; // r10
+  int v29; // eax
+  _QWORD *v30; // rcx
+  _QWORD *v31; // rbx
   int *v32; // r10
-  __int64 v33; // rdx
-  _QWORD *v34; // rdx
-  int v35; // ecx
-  __int64 v36; // rax
-  __int64 v37; // rdx
-  _QWORD *v38; // rax
-  int v39; // eax
-  _OWORD *v40; // rax
-  __int64 v41; // rax
-  _QWORD *v42; // rcx
-  _QWORD *v43; // rbx
+  int *v33; // r9
+  __int64 v34; // rdx
+  _QWORD *v35; // rdx
+  int v36; // ecx
+  _QWORD *v37; // rax
+  __int64 v38; // rcx
+  _QWORD *v39; // rax
+  __int64 v40; // r8
+  _QWORD *v41; // rdx
+  _OWORD *v42; // rax
+  __int64 v43; // rax
   unsigned __int8 v44; // [rsp+34h] [rbp-8Dh]
-  __int64 v45; // [rsp+38h] [rbp-89h]
+  PVOID v45; // [rsp+38h] [rbp-89h]
   PVOID v46; // [rsp+40h] [rbp-81h]
   PVOID Entry; // [rsp+50h] [rbp-71h] BYREF
   int v49; // [rsp+58h] [rbp-69h]
   PVOID v50; // [rsp+60h] [rbp-61h]
   int v51; // [rsp+68h] [rbp-59h]
-  int v52; // [rsp+6Ch] [rbp-55h]
-  PVOID v53; // [rsp+70h] [rbp-51h]
-  PVOID v54; // [rsp+78h] [rbp-49h] BYREF
-  __int64 v55; // [rsp+80h] [rbp-41h]
+  PVOID v52; // [rsp+70h] [rbp-51h]
+  PVOID v53; // [rsp+78h] [rbp-49h] BYREF
+  __int64 v54; // [rsp+80h] [rbp-41h]
   PVOID BackTrace[8]; // [rsp+90h] [rbp-31h] BYREF
 
   v6 = a2;
-  v52 = a2;
-  v55 = (__int64)a5;
+  v54 = (__int64)a5;
   result = memset(BackTrace, 0, sizeof(BackTrace));
   v49 = 0;
   v9 = 0LL;
-  v54 = 0LL;
+  v53 = 0LL;
   Entry = 0LL;
   if ( (_DWORD)v6 == 8 )
   {
@@ -122,8 +130,8 @@ PVOID __fastcall VfDeadlockAcquireResource(LONG *a1, int a2, __int64 a3, unsigne
   v50 = 0LL;
   v10 = 0LL;
   v51 = ViDeadlockResourceTypeInfo[v6];
-  v45 = ViDeadlockAllocate(3LL);
-  v53 = (PVOID)ViDeadlockAllocate(2LL);
+  v45 = (PVOID)ViDeadlockAllocate(3LL);
+  v52 = (PVOID)ViDeadlockAllocate(2LL);
   v46 = (PVOID)ViDeadlockAllocate(1LL);
   v11 = RtlCaptureStackBackTrace(2u, 8u, BackTrace, 0LL);
   v12 = v11;
@@ -131,262 +139,253 @@ PVOID __fastcall VfDeadlockAcquireResource(LONG *a1, int a2, __int64 a3, unsigne
   {
     BackTrace[0] = a5;
     v12 = 1;
-LABEL_12:
-    BackTrace[v12] = 0LL;
-    goto LABEL_13;
   }
-  if ( v11 < 8u )
-    goto LABEL_12;
-LABEL_13:
+  if ( v12 < 8 )
+    BackTrace[v12] = 0LL;
   v44 = ViRaiseIrqlToDpcLevel();
   ViDeadlockDetectionLock(1LL);
   v13 = MEMORY[0xFFFFF78000000320];
-  if ( !ViDeadlockDetectionEnabled || (v50 = v53, v53 = 0LL, !v50) )
+  if ( !ViDeadlockDetectionEnabled || (v50 = v52, v52 = 0LL, !v50) )
   {
-    v16 = v46;
-    goto LABEL_77;
+LABEL_50:
+    v15 = v46;
+    goto LABEL_51;
   }
   v10 = ViDeadlockSearchThread(a3);
-  if ( v10 )
+  if ( !v10 )
   {
-    v15 = 1;
-    goto LABEL_19;
-  }
-  v14 = ViDeadlockAddThread(a3, v45);
-  v45 = 0LL;
-  v10 = v14;
-  v15 = 1;
-  if ( v14 )
-  {
-    LODWORD(v9) = 1;
-LABEL_19:
-    if ( (_DWORD)v6 == 8 )
+    v14 = ViDeadlockAddThread(a3, v45);
+    v45 = 0LL;
+    v10 = v14;
+    if ( !v14 )
     {
-      *(_BYTE *)(v10 + 48) = 1;
-LABEL_21:
-      v16 = v46;
-      v17 = 0;
-LABEL_79:
-      v9 = (void *)v45;
-      goto LABEL_80;
+      v15 = v46;
+      v16 = 0;
+      goto LABEL_53;
     }
-    v18 = ViDeadlockSearchResource(a1, &Entry);
-    v20 = 0LL;
-    v21 = (int *)v18;
-    if ( v18 )
+    LODWORD(v9) = 1;
+  }
+  if ( (_DWORD)v6 != 8 )
+  {
+    v17 = ViDeadlockSearchResource(a1, &Entry, 1LL);
+    v18 = 0LL;
+    v19 = (int *)v17;
+    if ( !v17 )
     {
-LABEL_25:
-      v22 = *v21;
-      v15 = 1;
-      if ( *v21 != (_DWORD)v6 )
+      v15 = v46;
+      if ( !(unsigned int)ViDeadlockAddResource(a1, (__int64)&v53, (__int64)&Entry) )
       {
-        if ( ((unsigned int)(v6 - 3) > 1 || (unsigned int)(v22 - 3) > 1) && (v22 != 7 || (unsigned int)(v6 - 5) > 1) )
+        if ( (_DWORD)v9 )
         {
-          ViDeadlockPreprocessOptions(
-            byte_140C0DE6C,
-            "Acquiring lock 0x%p using mismatched API for this lock type.",
-            (const void *)0x1008);
-          VfReportIssueWithOptions(0xC4u, 0x1008uLL, (ULONG_PTR)a1, *v21, v6, byte_140C0DE6C);
-LABEL_36:
-          v16 = v46;
-          v17 = 0;
-LABEL_78:
-          v15 = 1;
-          goto LABEL_79;
+          v16 = 1;
+          ViDeadlockRemoveThread(v10);
+          goto LABEL_52;
         }
-        *v21 = v6;
+LABEL_51:
+        v16 = 0;
+        goto LABEL_52;
       }
-      if ( (unsigned int)(v6 - 5) <= 1 )
-        v23 = *(_QWORD *)(v10 + 8);
-      else
-        v23 = *(_QWORD *)(v10 + 16);
-      v24 = *((_QWORD *)v21 + 2);
-      if ( v24 && v24 != v10 )
-        *((_WORD *)v21 + 3) = 0;
-      v25 = *((_WORD *)v21 + 3) + 1;
-      *((_QWORD *)v21 + 2) = v10;
-      *((_WORD *)v21 + 3) = v25;
-      if ( v23 )
+      v46 = 0LL;
+      v19 = (int *)ViDeadlockSearchResource(a1, &Entry, v20);
+      v18 = 0LL;
+    }
+    v21 = *v19;
+    if ( *v19 != (_DWORD)v6 )
+    {
+      if ( ((unsigned int)(v6 - 3) > 1 || (unsigned int)(v21 - 3) > 1) && (v21 != 7 || (unsigned int)(v6 - 5) > 1) )
       {
-        if ( v25 > 1u )
-        {
-          if ( (v51 & 1) != 0 )
-            goto LABEL_21;
-          ViDeadlockPreprocessOptions(
-            &dword_140C0DE70,
-            "Lock 0x%p doesn't support recursive acquire.",
-            (const void *)0x1000);
-          VfReportIssueWithOptions(0xC4u, 0x1000uLL, (ULONG_PTR)a1, (ULONG_PTR)v21, v10, &dword_140C0DE70);
-          goto LABEL_36;
-        }
-        v26 = a4;
-        v27 = v23 + 8;
-        v28 = *(_QWORD *)(v23 + 8);
-        while ( v28 != v27 )
-        {
-          v29 = (int *)(v28 - 24);
-          if ( (unsigned int)ViDeadlockSimilarNode(a1, v26, v28 - 24) )
-          {
-            ViDeadlockCheckDuplicatesAmongChildren(v23, v29, &Entry);
-            goto LABEL_65;
-          }
-        }
-        if ( !*((_WORD *)v21 + 2)
-          || (_DWORD)v26
-          || (v30 = ViDeadlockAnalyze((_DWORD)a1, v23, v15, 0, v55), v20 = 0LL, v15 = 1, !v30) )
-        {
-          v31 = v21 + 6;
-LABEL_59:
-          v29 = (int *)v50;
-          v50 = v20;
-          *((_QWORD *)v29 + 9) = 0LL;
-          *((_QWORD *)v29 + 8) = v20;
-          v34 = v29 + 6;
-          *((_QWORD *)v29 + 10) = v20;
-          *((_QWORD *)v29 + 18) = v20;
-          *(_QWORD *)v29 = v23;
-          *((_QWORD *)v29 + 7) = v21;
-          v35 = *((_DWORD *)ViDeadlockGlobals + 8201);
-          *((_QWORD *)v29 + 2) = v29 + 2;
-          *((_QWORD *)v29 + 1) = v29 + 2;
-          *((_QWORD *)v29 + 4) = v29 + 6;
-          *((_QWORD *)v29 + 3) = v29 + 6;
-          v29[18] = 2 * (v15 & a4 | (4 * v35));
-          if ( v49 == (_DWORD)v20 )
-          {
-            v36 = *(_QWORD *)v27;
-            if ( *(_QWORD *)(*(_QWORD *)v27 + 8LL) != v27 )
-              goto LABEL_63;
-            *v34 = v36;
-            *((_QWORD *)v29 + 4) = v27;
-            *(_QWORD *)(v36 + 8) = v34;
-            *(_QWORD *)v27 = v34;
-            ViDeadlockUpdateChildrenCount(v23, v15, v19, v31);
-          }
-          v37 = *(_QWORD *)v31;
-          v38 = v29 + 10;
-          if ( *(int **)(*(_QWORD *)v31 + 8LL) != v31 )
-LABEL_63:
-            __fastfail(3u);
-          *v38 = v37;
-          *((_QWORD *)v29 + 6) = v31;
-          *(_QWORD *)(v37 + 8) = v38;
-          *(_QWORD *)v31 = v38;
-          *((_WORD *)v21 + 2) += v15;
-          if ( (unsigned __int16)v21[1] > 0xFFF0u )
-            ViDeadlockState |= 0x20u;
-LABEL_69:
-          v39 = v52;
-          v29[18] |= v15;
-          *((_QWORD *)v29 + 8) = v10;
-          if ( v39 - 5 <= v15 )
-            *(_QWORD *)(v10 + 8) = v29;
-          else
-            *(_QWORD *)(v10 + 16) = v29;
-          *(_DWORD *)(v10 + 40) += v15;
-          v40 = *(_OWORD **)v29;
-          if ( *(_QWORD *)v29 )
-          {
-            *((_OWORD *)v29 + 9) = v40[5];
-            *((_OWORD *)v29 + 10) = v40[6];
-            *((_OWORD *)v29 + 11) = v40[7];
-            *((_OWORD *)v29 + 12) = v40[8];
-          }
-          v41 = *((_QWORD *)v29 + 7);
-          *((_OWORD *)v29 + 5) = *(_OWORD *)BackTrace;
-          *((_OWORD *)v29 + 6) = *(_OWORD *)&BackTrace[2];
-          *((_OWORD *)v29 + 7) = *(_OWORD *)&BackTrace[4];
-          *((_OWORD *)v29 + 8) = *(_OWORD *)&BackTrace[6];
-          *(_OWORD *)(v41 + 120) = *((_OWORD *)v29 + 5);
-          *(_OWORD *)(v41 + 136) = *((_OWORD *)v29 + 6);
-          *(_OWORD *)(v41 + 152) = *((_OWORD *)v29 + 7);
-          *(_OWORD *)(v41 + 168) = *((_OWORD *)v29 + 8);
-          goto LABEL_21;
-        }
+        ViDeadlockPreprocessOptions(
+          byte_140C12F3C,
+          "Acquiring lock 0x%p using mismatched API for this lock type.",
+          (const void *)0x1008);
+        VfReportIssueWithOptions(0xC4u, 0x1008uLL, a1, *v19, v6, byte_140C12F3C);
+        goto LABEL_35;
       }
-      else
+      *v19 = v6;
+    }
+    if ( (unsigned int)(v6 - 5) <= 1 )
+      v22 = *(_QWORD *)(v10 + 8);
+    else
+      v22 = *(_QWORD *)(v10 + 16);
+    v23 = *((_QWORD *)v19 + 2);
+    if ( v23 && v23 != v10 )
+      *((_WORD *)v19 + 3) = 0;
+    v24 = *((_WORD *)v19 + 3) + 1;
+    *((_QWORD *)v19 + 2) = v10;
+    *((_WORD *)v19 + 3) = v24;
+    if ( v22 )
+    {
+      if ( v24 > 1u )
       {
-        v31 = v21 + 6;
-        v32 = (int *)*((_QWORD *)v21 + 3);
-        if ( v32 == v21 + 6 )
-        {
-LABEL_58:
-          v15 = 1;
-          v27 = 8LL;
-          v49 = 1;
-          goto LABEL_59;
-        }
-        v33 = a4;
+        if ( (v51 & 1) != 0 )
+          goto LABEL_20;
+        ViDeadlockPreprocessOptions(
+          &dword_140C12F40,
+          "Lock 0x%p doesn't support recursive acquire.",
+          (const void *)0x1000);
+        VfReportIssueWithOptions(0xC4u, 0x1000uLL, a1, (ULONG_PTR)v19, v10, &dword_140C12F40);
+LABEL_35:
+        v15 = v46;
+        v16 = 0;
+        goto LABEL_52;
+      }
+      v25 = a4;
+      v26 = *(_QWORD **)(v22 + 8);
+      if ( v26 != (_QWORD *)(v22 + 8) )
+      {
         while ( 1 )
         {
-          v29 = v32 - 10;
-          v32 = *(int **)v32;
-          if ( *(void **)v29 == v20 )
+          v27 = (int *)(v26 - 3);
+          if ( (unsigned int)ViDeadlockSimilarNode(a1, v25, v26 - 3, *v26) )
+            break;
+          if ( v26 == v28 )
+            goto LABEL_47;
+        }
+        ViDeadlockCheckDuplicatesAmongChildren(v22, v27, &Entry);
+        goto LABEL_85;
+      }
+LABEL_47:
+      if ( *((_WORD *)v19 + 2) )
+      {
+        if ( !(_DWORD)v25 )
+        {
+          v29 = ViDeadlockAnalyze(a1, v22, 1, 0, v54);
+          v18 = 0LL;
+          if ( v29 )
+            goto LABEL_50;
+        }
+      }
+    }
+    else
+    {
+      v32 = v19 + 6;
+      v33 = (int *)*((_QWORD *)v19 + 3);
+      if ( v33 != v19 + 6 )
+      {
+        v34 = a4;
+        while ( 1 )
+        {
+          v27 = v33 - 10;
+          v33 = *(int **)v33;
+          if ( *(void **)v27 == v18 )
           {
-            if ( (unsigned int)ViDeadlockSimilarNode(a1, v33, v29) )
+            if ( (unsigned int)ViDeadlockSimilarNode(a1, v34, v27, v33) )
               break;
           }
-          if ( v32 == v31 )
-            goto LABEL_58;
+          if ( v33 == v32 )
+            goto LABEL_76;
         }
-        ViDeadlockCheckDuplicatesAmongRoots(v29, &Entry);
-LABEL_65:
-        v15 = 1;
-        if ( v29 )
-          goto LABEL_69;
+        ViDeadlockCheckDuplicatesAmongRoots(v27, &Entry);
+        goto LABEL_85;
       }
-      v16 = v46;
-      v17 = 0;
-      goto LABEL_79;
+LABEL_76:
+      v49 = 1;
     }
-    v16 = v46;
-    if ( (unsigned int)ViDeadlockAddResource((int)a1, (__int64)&v54, (__int64)&Entry) )
+    v27 = (int *)v50;
+    v50 = v18;
+    *((_QWORD *)v27 + 9) = 0LL;
+    *((_QWORD *)v27 + 8) = v18;
+    v35 = v27 + 6;
+    *((_QWORD *)v27 + 10) = v18;
+    *((_QWORD *)v27 + 18) = v18;
+    *(_QWORD *)v27 = v22;
+    *((_QWORD *)v27 + 7) = v19;
+    v36 = *((_DWORD *)ViDeadlockGlobals + 8201);
+    *((_QWORD *)v27 + 2) = v27 + 2;
+    *((_QWORD *)v27 + 1) = v27 + 2;
+    *((_QWORD *)v27 + 4) = v27 + 6;
+    *((_QWORD *)v27 + 3) = v27 + 6;
+    v27[18] = 2 * (a4 & 1 | (4 * v36));
+    if ( v49 == (_DWORD)v18 )
     {
-      v46 = 0LL;
-      v21 = (int *)ViDeadlockSearchResource(a1, &Entry);
-      v20 = 0LL;
-      goto LABEL_25;
+      v37 = (_QWORD *)(v22 + 8);
+      v38 = *(_QWORD *)(v22 + 8);
+      if ( *(_QWORD *)(v38 + 8) != v22 + 8 )
+        goto LABEL_81;
+      *v35 = v38;
+      *((_QWORD *)v27 + 4) = v37;
+      *(_QWORD *)(v38 + 8) = v35;
+      *v37 = v35;
+      ViDeadlockUpdateChildrenCount(v22, 1LL);
     }
-    if ( (_DWORD)v9 )
+    v39 = v19 + 6;
+    v40 = *((_QWORD *)v19 + 3);
+    v41 = v27 + 10;
+    if ( *(int **)(v40 + 8) == v19 + 6 )
     {
-      v17 = 1;
-      ViDeadlockRemoveThread(v10);
-      v15 = 1;
-      goto LABEL_79;
+      *v41 = v40;
+      *((_QWORD *)v27 + 6) = v39;
+      *(_QWORD *)(v40 + 8) = v41;
+      *v39 = v41;
+      ++*((_WORD *)v19 + 2);
+      if ( (unsigned __int16)v19[1] > 0xFFF0u )
+        ViDeadlockState |= 0x20u;
+LABEL_85:
+      if ( v27 )
+      {
+        v27[18] |= 1u;
+        *((_QWORD *)v27 + 8) = v10;
+        if ( (unsigned int)(v6 - 5) <= 1 )
+          *(_QWORD *)(v10 + 8) = v27;
+        else
+          *(_QWORD *)(v10 + 16) = v27;
+        ++*(_DWORD *)(v10 + 40);
+        v42 = *(_OWORD **)v27;
+        if ( *(_QWORD *)v27 )
+        {
+          *((_OWORD *)v27 + 9) = v42[5];
+          *((_OWORD *)v27 + 10) = v42[6];
+          *((_OWORD *)v27 + 11) = v42[7];
+          *((_OWORD *)v27 + 12) = v42[8];
+        }
+        v43 = *((_QWORD *)v27 + 7);
+        *((_OWORD *)v27 + 5) = *(_OWORD *)BackTrace;
+        *((_OWORD *)v27 + 6) = *(_OWORD *)&BackTrace[2];
+        *((_OWORD *)v27 + 7) = *(_OWORD *)&BackTrace[4];
+        *((_OWORD *)v27 + 8) = *(_OWORD *)&BackTrace[6];
+        *(_OWORD *)(v43 + 120) = *((_OWORD *)v27 + 5);
+        *(_OWORD *)(v43 + 136) = *((_OWORD *)v27 + 6);
+        *(_OWORD *)(v43 + 152) = *((_OWORD *)v27 + 7);
+        *(_OWORD *)(v43 + 168) = *((_OWORD *)v27 + 8);
+      }
+      goto LABEL_20;
     }
-LABEL_77:
-    v17 = 0;
-    goto LABEL_78;
+LABEL_81:
+    __fastfail(3u);
   }
-  v16 = v46;
-  v17 = 0;
-LABEL_80:
+  *(_BYTE *)(v10 + 48) = 1;
+LABEL_20:
+  v15 = v46;
+  v16 = 0;
+LABEL_52:
+  v9 = v45;
+LABEL_53:
   if ( MEMORY[0xFFFFF78000000320] - v13 > *(_QWORD *)ViDeadlockGlobals )
     *(_QWORD *)ViDeadlockGlobals = MEMORY[0xFFFFF78000000320] - v13;
-  ViDeadlockDetectionUnlock(v15);
+  ViDeadlockDetectionUnlock(1LL);
   ViLowerIrql(v44);
-  v42 = Entry;
+  v30 = Entry;
   if ( Entry )
   {
     do
     {
-      v43 = (_QWORD *)*v42;
-      ViDeadlockFree(v42);
-      v42 = v43;
+      v31 = (_QWORD *)*v30;
+      ViDeadlockFree(v30);
+      v30 = v31;
     }
-    while ( v43 );
+    while ( v31 );
   }
-  if ( v54 )
-    ViDeadlockFree(v54);
-  if ( v17 )
+  if ( v53 )
+    ViDeadlockFree(v53);
+  if ( v16 )
     ViDeadlockFree((PVOID)v10);
   if ( v50 )
     ViDeadlockFree(v50);
-  if ( v16 )
-    ViDeadlockFree(v16);
-  result = v53;
-  if ( v53 )
-    result = (PVOID)ViDeadlockFree(v53);
+  if ( v15 )
+    ViDeadlockFree(v15);
+  result = v52;
+  if ( v52 )
+    result = (PVOID)ViDeadlockFree(v52);
   if ( v9 )
     return (PVOID)ViDeadlockFree(v9);
   return result;

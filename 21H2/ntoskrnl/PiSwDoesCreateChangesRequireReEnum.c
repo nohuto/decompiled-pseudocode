@@ -1,11 +1,11 @@
 /*
- * XREFs of PiSwDoesCreateChangesRequireReEnum @ 0x14095353C
+ * XREFs of PiSwDoesCreateChangesRequireReEnum @ 0x1408AE90C
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x140765DC0 (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074DBB8 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     _wcsicmp @ 0x1403E1490 (_wcsicmp.c)
- *     memcmp @ 0x1403E1D90 (memcmp.c)
- *     PnpCompareMultiSz @ 0x140957E34 (PnpCompareMultiSz.c)
+ *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
+ *     memcmp @ 0x1403D29E0 (memcmp.c)
+ *     PnpCompareMultiSz @ 0x1408B2284 (PnpCompareMultiSz.c)
  */
 
 char __fastcall PiSwDoesCreateChangesRequireReEnum(__int64 a1, __int64 a2)

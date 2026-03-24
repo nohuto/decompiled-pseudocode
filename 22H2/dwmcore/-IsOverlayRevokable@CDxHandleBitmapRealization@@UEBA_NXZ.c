@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOverlayRevokable@CDxHandleBitmapRealization@@UEBA_NXZ @ 0x180108D30
+ * XREFs of ?IsOverlayRevokable@CDxHandleBitmapRealization@@UEBA_NXZ @ 0x1800E3850
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CDxHandleBitmapRealization::IsOverlayRevokable(CDxHandleBitmapRealization *this)
 {
-  return *((_BYTE *)this + 33);
+  return *((_BYTE *)this + 37);
 }

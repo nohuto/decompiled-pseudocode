@@ -1,13 +1,13 @@
 /*
- * XREFs of VidSchiSetNextRunPacket @ 0x1C0014620
+ * XREFs of VidSchiSetNextRunPacket @ 0x1C0013EB4
  * Callers:
- *     VidSchiCompleteRewindPacket @ 0x1C00143C8 (VidSchiCompleteRewindPacket.c)
- *     VidSchiReadCommandFromContextQueue @ 0x1C003B38C (VidSchiReadCommandFromContextQueue.c)
+ *     VidSchiCompleteRewindPacket @ 0x1C0013C74 (VidSchiCompleteRewindPacket.c)
+ *     VidSchiReadCommandFromContextQueue @ 0x1C0030744 (VidSchiReadCommandFromContextQueue.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall VidSchiSetNextRunPacket(__int64 a1, __int64 a2)
+void __fastcall VidSchiSetNextRunPacket(__int64 a1, __int64 a2)
 {
   int v2; // r10d
   unsigned int v4; // eax
@@ -15,9 +15,7 @@ __int64 __fastcall VidSchiSetNextRunPacket(__int64 a1, __int64 a2)
   unsigned int v6; // ecx
   int v7; // eax
   unsigned int v8; // eax
-  __int64 result; // rax
-  int v10; // r10d
-  unsigned int v11; // eax
+  unsigned int v9; // r10d
 
   v2 = 0;
   *(_QWORD *)(a1 + 648) = a2;
@@ -37,16 +35,12 @@ __int64 __fastcall VidSchiSetNextRunPacket(__int64 a1, __int64 a2)
     *(_DWORD *)(a1 + 644) = v8;
     if ( *(_DWORD *)(a2 + 48) == 6 )
       v2 = 8;
-    result = v8 & 0xFFFFFFF7;
-    v10 = result | v2;
+    v9 = v8 & 0xFFFFFFF7 | v2;
   }
   else
   {
-    v11 = *(_DWORD *)(a1 + 644) & 0xFFFFFFF8;
-    *(_DWORD *)(a1 + 644) = v11;
-    result = v11 & 0xFFFFFFF7;
-    v10 = result;
+    *(_DWORD *)(a1 + 644) &= 0xFFFFFFF8;
+    v9 = *(_DWORD *)(a1 + 644) & 0xFFFFFFF7;
   }
-  *(_DWORD *)(a1 + 644) = v10;
-  return result;
+  *(_DWORD *)(a1 + 644) = v9;
 }

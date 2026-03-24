@@ -1,9 +1,9 @@
 /*
- * XREFs of CreateSharedVisualReferenceControllerMarshaler @ 0x1C0239020
+ * XREFs of CreateSharedVisualReferenceControllerMarshaler @ 0x1C01F8590
  * Callers:
  *     <none>
  * Callees:
- *     ?Create@CSharedVisualReferenceControllerMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C0238D5C (-Create@CSharedVisualReferenceControllerMarshaler@DirectComposition@@SAJPEBVCSharedSystemResourc.c)
+ *     ?Create@CSharedVisualReferenceControllerMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C01F83B4 (-Create@CSharedVisualReferenceControllerMarshaler@DirectComposition@@SAJPEBVCSharedSystemResourc.c)
  */
 
 __int64 __fastcall CreateSharedVisualReferenceControllerMarshaler(

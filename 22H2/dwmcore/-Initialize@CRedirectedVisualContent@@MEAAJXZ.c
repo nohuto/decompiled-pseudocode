@@ -1,26 +1,26 @@
 /*
- * XREFs of ?Initialize@CRedirectedVisualContent@@MEAAJXZ @ 0x18001C940
+ * XREFs of ?Initialize@CRedirectedVisualContent@@MEAAJXZ @ 0x1800DC8A0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z @ 0x18003A5F4 (-GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z.c)
- *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18004A8DC (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z @ 0x18003DF38 (-GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18009D9B0 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CRedirectedVisualContent::Initialize(struct CResource **this)
 {
   int v2; // eax
-  unsigned int v3; // ecx
+  __int64 v3; // rcx
   int VisualTree; // ebx
   CVisual *v5; // rcx
-  struct CVisualTree *v6; // rcx
-  struct CVisualTree **v8; // [rsp+30h] [rbp-28h]
+  __int64 v6; // rcx
+  __int64 *v8; // [rsp+30h] [rbp-28h]
   struct CVisualTree *v9; // [rsp+38h] [rbp-20h] BYREF
   char v10; // [rsp+40h] [rbp-18h]
 
-  v2 = CResource::RegisterNotifier((CResource *)this, this[9]);
+  v2 = CResource::RegisterNotifier((CResource *)this, this[8]);
   VisualTree = v2;
   if ( v2 < 0 )
   {
@@ -28,20 +28,20 @@ __int64 __fastcall CRedirectedVisualContent::Initialize(struct CResource **this)
   }
   else
   {
-    v5 = this[9];
+    v5 = this[8];
     v9 = 0LL;
-    v8 = this + 10;
+    v8 = (__int64 *)(this + 9);
     v10 = 1;
-    VisualTree = CVisual::GetVisualTree(v5, &v9, 1);
+    VisualTree = CVisual::GetVisualTree(v5, &v9);
     if ( v10 )
     {
       v6 = *v8;
-      *v8 = v9;
+      *v8 = (__int64)v9;
       if ( v6 )
-        (*(void (__fastcall **)(struct CVisualTree *))(*(_QWORD *)v6 + 16LL))(v6);
+        (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
     }
     if ( VisualTree < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast((unsigned int)v6, 0LL, 0, VisualTree, 0x26u, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, VisualTree, 0x26u, 0LL);
   }
   return (unsigned int)VisualTree;
 }

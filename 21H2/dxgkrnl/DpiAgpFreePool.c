@@ -1,9 +1,9 @@
 /*
- * XREFs of DpiAgpFreePool @ 0x1C03952B0
+ * XREFs of DpiAgpFreePool @ 0x1C02D6AD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DpiAgpFreePool(__int64 a1, void *a2)
@@ -15,8 +15,9 @@ __int64 __fastcall DpiAgpFreePool(__int64 a1, void *a2)
   unsigned int *v7; // rdx
   unsigned int *v8; // rax
   void *v9; // rcx
-  unsigned int *v11; // rcx
-  void **v12; // rax
+  __int64 v10; // rax
+  unsigned int *v12; // rcx
+  void **v13; // rax
 
   v2 = 0;
   v4 = 0;
@@ -59,11 +60,11 @@ __int64 __fastcall DpiAgpFreePool(__int64 a1, void *a2)
       0LL);
     IoFreeMdl(*((PMDL *)v6 + 6));
     (*(void (__fastcall **)(_QWORD, _QWORD))(v5 + 720))(*(_QWORD *)(v5 + 680), *((_QWORD *)v6 + 3));
-    v11 = *(unsigned int **)v6;
-    if ( *(unsigned int **)(*(_QWORD *)v6 + 8LL) != v6 || (v12 = (void **)*((_QWORD *)v6 + 1), *v12 != v6) )
+    v12 = *(unsigned int **)v6;
+    if ( *(unsigned int **)(*(_QWORD *)v6 + 8LL) != v6 || (v13 = (void **)*((_QWORD *)v6 + 1), *v13 != v6) )
       __fastfail(3u);
-    *v12 = v11;
-    *((_QWORD *)v11 + 1) = v12;
+    *v13 = v12;
+    *((_QWORD *)v12 + 1) = v13;
     ExFreePoolWithTag(v6, 0x74727044u);
   }
 LABEL_11:
@@ -72,7 +73,9 @@ LABEL_11:
   {
 LABEL_12:
     v2 = -1073741811;
-    WdLogSingleEntry1(2LL, -1073741811LL);
+    v10 = WdLogNewEntry5_WdError(a1, a2);
+    *(_QWORD *)(v10 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v10);
   }
   return v2;
 }

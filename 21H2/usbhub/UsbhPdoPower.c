@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhPdoPower @ 0x1C001D420
+ * XREFs of UsbhPdoPower @ 0x1C001B290
  * Callers:
  *     <none>
  * Callees:
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
- *     Usbh_HubDeferIrpProcessing @ 0x1C003BF80 (Usbh_HubDeferIrpProcessing.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002EAB8 (UsbhTrapFatal_Dbg.c)
+ *     Usbh_HubDeferIrpProcessing @ 0x1C003D238 (Usbh_HubDeferIrpProcessing.c)
  */
 
 __int64 __fastcall UsbhPdoPower(ULONG_PTR a1, IRP *a2)
@@ -73,5 +73,5 @@ LABEL_23:
     IofCompleteRequest(a2, 0);
     return Status;
   }
-  return (unsigned int)off_1C005D858[2 * v9](a1, (ULONG_PTR)a2);
+  return (unsigned int)off_1C005F168[2 * v9](a1, (ULONG_PTR)a2);
 }

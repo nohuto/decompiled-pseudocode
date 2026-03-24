@@ -1,0 +1,15 @@
+/*
+ * XREFs of VfUtilIsSpecialPoolAddress @ 0x1409C68F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExIsSpecialPoolAddress @ 0x1405BA000 (ExIsSpecialPoolAddress.c)
+ */
+
+__int64 __fastcall VfUtilIsSpecialPoolAddress(ULONG_PTR a1)
+{
+  if ( a1 )
+    return ExIsSpecialPoolAddress(a1);
+  else
+    return 0LL;
+}

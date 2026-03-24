@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmGetInstallerClassRegProp @ 0x14069B694
+ * XREFs of _CmGetInstallerClassRegProp @ 0x14073BC38
  * Callers:
- *     PnpCallDriverQueryServiceHelper @ 0x14068C158 (PnpCallDriverQueryServiceHelper.c)
- *     PipGetRegistrySecurityWithFallback @ 0x14069A82C (PipGetRegistrySecurityWithFallback.c)
- *     PipGetRegistryDwordWithFallback @ 0x14069AD64 (PipGetRegistryDwordWithFallback.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14069B554 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _CmGetDeviceRegPropWorker @ 0x1406CD68C (_CmGetDeviceRegPropWorker.c)
- *     PiPnpRtlCmActionCallback @ 0x140789030 (PiPnpRtlCmActionCallback.c)
- *     PiCMGetRegistryProperty @ 0x1407C0E04 (PiCMGetRegistryProperty.c)
- *     PpForEachDeviceInstanceDriver @ 0x1407CFCF8 (PpForEachDeviceInstanceDriver.c)
- *     _CmServiceFilterCallback @ 0x140A65210 (_CmServiceFilterCallback.c)
+ *     PiCMGetRegistryProperty @ 0x14068DA00 (PiCMGetRegistryProperty.c)
+ *     PiPnpRtlCmActionCallback @ 0x1406AE700 (PiPnpRtlCmActionCallback.c)
+ *     _CmGetDeviceRegPropWorker @ 0x1406BA3CC (_CmGetDeviceRegPropWorker.c)
+ *     PipGetRegistrySecurityWithFallback @ 0x14073AB68 (PipGetRegistrySecurityWithFallback.c)
+ *     PipGetRegistryDwordWithFallback @ 0x14073B19C (PipGetRegistryDwordWithFallback.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073BA4C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     PnpCallDriverQueryServiceHelper @ 0x14073E7AC (PnpCallDriverQueryServiceHelper.c)
+ *     PpForEachDeviceInstanceDriver @ 0x140748444 (PpForEachDeviceInstanceDriver.c)
+ *     _CmServiceFilterCallback @ 0x140977290 (_CmServiceFilterCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     _CmGetInstallerClassRegPropWorker @ 0x14069B808 (_CmGetInstallerClassRegPropWorker.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     _CmGetInstallerClassRegPropWorker @ 0x14073BDAC (_CmGetInstallerClassRegPropWorker.c)
  */
 
 __int64 __fastcall CmGetInstallerClassRegProp(

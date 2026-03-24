@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0RawMouseEvent@CMouseProcessor@@QEAA@XZ @ 0x1C0096AB0
+ * XREFs of ??0RawMouseEvent@CMouseProcessor@@QEAA@XZ @ 0x1C0043770
  * Callers:
- *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C0052A60 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C00423C4 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ CMouseProcessor::RawMouseEvent *__fastcall CMouseProcessor::RawMouseEvent::RawMo
 {
   CMouseProcessor::RawMouseEvent *result; // rax
 
-  *(_QWORD *)this = 0LL;
+  *(_DWORD *)this = 0;
   *((_QWORD *)this + 1) = 0LL;
   *((_QWORD *)this + 2) = 0LL;
   *((_DWORD *)this + 7) = 0;

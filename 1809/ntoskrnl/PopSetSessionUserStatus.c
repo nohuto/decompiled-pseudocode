@@ -1,19 +1,19 @@
 /*
- * XREFs of PopSetSessionUserStatus @ 0x1406DC9D8
+ * XREFs of PopSetSessionUserStatus @ 0x1406DC9B8
  * Callers:
- *     PopConsoleSessionPassiveInput @ 0x1406DC3C0 (PopConsoleSessionPassiveInput.c)
- *     PopRemoteSessionActiveInput @ 0x1406DC4B4 (PopRemoteSessionActiveInput.c)
- *     PopSessionInputChange @ 0x1406DC520 (PopSessionInputChange.c)
- *     PopSessionDisconnected @ 0x1406E1F6C (PopSessionDisconnected.c)
- *     PopCheckConsoleTimeouts @ 0x140878CB4 (PopCheckConsoleTimeouts.c)
- *     PopInputDisabled @ 0x140878E98 (PopInputDisabled.c)
+ *     PopConsoleSessionPassiveInput @ 0x1406DC3A0 (PopConsoleSessionPassiveInput.c)
+ *     PopRemoteSessionActiveInput @ 0x1406DC494 (PopRemoteSessionActiveInput.c)
+ *     PopSessionInputChange @ 0x1406DC500 (PopSessionInputChange.c)
+ *     PopSessionDisconnected @ 0x1406E1F4C (PopSessionDisconnected.c)
+ *     PopCheckConsoleTimeouts @ 0x140878C94 (PopCheckConsoleTimeouts.c)
+ *     PopInputDisabled @ 0x140878E78 (PopInputDisabled.c)
  * Callees:
- *     PopPrintEx @ 0x14014240C (PopPrintEx.c)
+ *     PopPrintEx @ 0x14014242C (PopPrintEx.c)
  *     PopSetPowerSettingValue @ 0x14058B338 (PopSetPowerSettingValue.c)
- *     PopDiagTraceSessionStates @ 0x1406DC770 (PopDiagTraceSessionStates.c)
- *     PopEvaluateGlobalUserStatus @ 0x1406DCAB8 (PopEvaluateGlobalUserStatus.c)
- *     PopPrintUserActivityPresence @ 0x1406DCBE8 (PopPrintUserActivityPresence.c)
- *     PopExtendConnectionState @ 0x140761D5C (PopExtendConnectionState.c)
+ *     PopDiagTraceSessionStates @ 0x1406DC750 (PopDiagTraceSessionStates.c)
+ *     PopEvaluateGlobalUserStatus @ 0x1406DCA98 (PopEvaluateGlobalUserStatus.c)
+ *     PopPrintUserActivityPresence @ 0x1406DCBC8 (PopPrintUserActivityPresence.c)
+ *     PopExtendConnectionState @ 0x140761D3C (PopExtendConnectionState.c)
  */
 
 __int64 __fastcall PopSetSessionUserStatus(unsigned int a1, unsigned int a2)

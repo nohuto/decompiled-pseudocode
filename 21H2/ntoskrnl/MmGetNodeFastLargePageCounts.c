@@ -1,10 +1,10 @@
 /*
- * XREFs of MmGetNodeFastLargePageCounts @ 0x14057F740
+ * XREFs of MmGetNodeFastLargePageCounts @ 0x140547D00
  * Callers:
- *     VmpAccessFaultBatchResolve @ 0x1409D9B98 (VmpAccessFaultBatchResolve.c)
+ *     VmpAccessFaultBatchResolve @ 0x14092F2C8 (VmpAccessFaultBatchResolve.c)
  * Callees:
- *     MiPartitionObjectToPartition @ 0x140264ED0 (MiPartitionObjectToPartition.c)
- *     PsDereferencePartition @ 0x1403606C4 (PsDereferencePartition.c)
+ *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
+ *     MiPartitionObjectToPartition @ 0x1402E5F80 (MiPartitionObjectToPartition.c)
  */
 
 unsigned __int64 __fastcall MmGetNodeFastLargePageCounts(__int64 a1, unsigned int a2)
@@ -34,10 +34,10 @@ unsigned __int64 __fastcall MmGetNodeFastLargePageCounts(__int64 a1, unsigned in
   while ( (unsigned int)v3 < 3 );
   if ( (_DWORD)v3 == 3 )
     return 0LL;
-  v5 = MiPartitionObjectToPartition((ULONG_PTR **)0xFFFFFFFFFFFFFFFFLL, 0LL, &v10);
+  v5 = MiPartitionObjectToPartition((ULONG_PTR **)0xFFFFFFFFFFFFFFFFLL, 0, &v10);
   if ( !v5 )
     return 0LL;
-  v6 = (_QWORD *)(v5[2] + 24512 * v2 + 1072LL * (unsigned int)v3);
+  v6 = (_QWORD *)(v5[2] + 4544 * v2 + 1072LL * (unsigned int)v3);
   v7 = &MiLargePageSizes[v3];
   for ( i = ((unsigned __int64)*v7 >> 9) * (*v6 + v6[1]); (_DWORD)v3; LODWORD(v3) = v3 - 1 )
   {

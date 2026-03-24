@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgpInsertDebugPrintCallback @ 0x1402EC950
+ * XREFs of DbgpInsertDebugPrintCallback @ 0x1402ECA50
  * Callers:
- *     DbgSetDebugPrintCallback @ 0x1402EC8F0 (DbgSetDebugPrintCallback.c)
+ *     DbgSetDebugPrintCallback @ 0x1402EC9F0 (DbgSetDebugPrintCallback.c)
  * Callees:
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

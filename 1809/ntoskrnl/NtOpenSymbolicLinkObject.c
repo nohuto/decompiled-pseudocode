@@ -1,7 +1,7 @@
 /*
- * XREFs of NtOpenSymbolicLinkObject @ 0x140691BD0
+ * XREFs of NtOpenSymbolicLinkObject @ 0x140691BB0
  * Callers:
- *     AdtpInitializeDriveLetters @ 0x140737754 (AdtpInitializeDriveLetters.c)
+ *     AdtpInitializeDriveLetters @ 0x140737734 (AdtpInitializeDriveLetters.c)
  *     IopReassignSystemRoot @ 0x1409DB7D0 (IopReassignSystemRoot.c)
  * Callees:
  *     PsGetCurrentSilo @ 0x14004D350 (PsGetCurrentSilo.c)

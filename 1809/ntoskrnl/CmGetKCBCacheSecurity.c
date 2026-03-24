@@ -5,7 +5,7 @@
  *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405D8920 (CmpGetSecurityCacheEntryForKcbStack.c)
  * Callees:
  *     CmEqualTrans @ 0x1405A94E8 (CmEqualTrans.c)
- *     CmListGetPrevElement @ 0x1406C060C (CmListGetPrevElement.c)
+ *     CmListGetPrevElement @ 0x1406C05EC (CmListGetPrevElement.c)
  */
 
 __int64 __fastcall CmGetKCBCacheSecurity(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

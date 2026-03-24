@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpPreserveMdlList @ 0x1408CA314
+ * XREFs of EtwpPreserveMdlList @ 0x1408CA2F4
  * Callers:
- *     EtwpPreserveLogger @ 0x1408CA0EC (EtwpPreserveLogger.c)
+ *     EtwpPreserveLogger @ 0x1408CA0CC (EtwpPreserveLogger.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?xxxMNDoScroll@@YAHAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@IH@Z @ 0x1C0215F70
+ * XREFs of ?xxxMNDoScroll@@YAHAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@IH@Z @ 0x1C0235BEC
  * Callers:
- *     xxxMNButtonDown @ 0x1C0216BE8 (xxxMNButtonDown.c)
- *     xxxMNDoubleClick @ 0x1C02179AC (xxxMNDoubleClick.c)
- *     xxxMNSelectItem @ 0x1C0219AA0 (xxxMNSelectItem.c)
- *     xxxMenuWindowProc @ 0x1C021A810 (xxxMenuWindowProc.c)
+ *     xxxMNButtonDown @ 0x1C0236CBC (xxxMNButtonDown.c)
+ *     xxxMNDoubleClick @ 0x1C0237DB8 (xxxMNDoubleClick.c)
+ *     xxxMNSelectItem @ 0x1C023A5BC (xxxMNSelectItem.c)
+ *     xxxMenuWindowProc @ 0x1C023B5E0 (xxxMenuWindowProc.c)
  * Callees:
- *     FindTimer @ 0x1C003BF24 (FindTimer.c)
- *     _SetTimer @ 0x1C01C0A94 (_SetTimer.c)
- *     xxxMNSetTop @ 0x1C021A1D4 (xxxMNSetTop.c)
+ *     FindTimer @ 0x1C000B5AC (FindTimer.c)
+ *     _SetTimer @ 0x1C01EACC8 (_SetTimer.c)
+ *     xxxMNSetTop @ 0x1C023AFB8 (xxxMNSetTop.c)
  */
 
 __int64 __fastcall xxxMNDoScroll(__int64 a1, unsigned int a2, int a3)

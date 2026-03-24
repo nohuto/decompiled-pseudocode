@@ -1,12 +1,12 @@
 /*
- * XREFs of imp_WdfCollectionGetItem @ 0x1C0001550
+ * XREFs of imp_WdfCollectionGetItem @ 0x1C0003490
  * Callers:
  *     <none>
  * Callees:
- *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0005DAC (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
- *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C006CA68 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
- *     ?Lock@FxVerifierLock@@QEAAXPEAEE@Z @ 0x1C006D914 (-Lock@FxVerifierLock@@QEAAXPEAEE@Z.c)
- *     ?Unlock@FxVerifierLock@@QEAAXEE@Z @ 0x1C006DC28 (-Unlock@FxVerifierLock@@QEAAXEE@Z.c)
+ *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0003F34 (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0059258 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?Lock@FxVerifierLock@@QEAAXPEAEE@Z @ 0x1C005A978 (-Lock@FxVerifierLock@@QEAAXPEAEE@Z.c)
+ *     ?Unlock@FxVerifierLock@@QEAAXEE@Z @ 0x1C005AC78 (-Unlock@FxVerifierLock@@QEAAXEE@Z.c)
  */
 
 unsigned __int64 __fastcall imp_WdfCollectionGetItem(
@@ -29,7 +29,7 @@ unsigned __int64 __fastcall imp_WdfCollectionGetItem(
   pCollection = 0LL;
   irql = 0;
   if ( !Collection )
-    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], WDF_INVALID_HANDLE, 0LL, 0x100EuLL);
+    FxVerifierBugCheckWorker((_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName, WDF_INVALID_HANDLE, 0LL, 0x100EuLL);
   LOWORD(Offset) = 0;
   v6 = (FxCollection *)(~Collection & 0xFFFFFFFFFFFFFFF8uLL);
   if ( (Collection & 1) != 0 )
@@ -56,20 +56,20 @@ unsigned __int64 __fastcall imp_WdfCollectionGetItem(
     v7 = KeAcquireSpinLockRaiseToDpc(&v6->m_NPLock.m_Lock);
   }
   if ( Index >= pCollection->m_Count )
-    goto LABEL_12;
+    goto LABEL_20;
   v8 = 0;
   Flink = pCollection->m_ListHead.Flink;
   if ( Flink == &pCollection->m_ListHead )
-    goto LABEL_12;
+    goto LABEL_20;
   while ( v8 != Index )
   {
     Flink = Flink->Flink;
     ++v8;
     if ( Flink == &pCollection->m_ListHead )
-      goto LABEL_12;
+      goto LABEL_20;
   }
   if ( Flink == (_LIST_ENTRY *)8 )
-LABEL_12:
+LABEL_20:
     Blink = 0LL;
   else
     Blink = Flink[-1].Blink;

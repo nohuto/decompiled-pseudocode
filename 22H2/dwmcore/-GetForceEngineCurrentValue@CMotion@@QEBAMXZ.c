@@ -1,18 +1,18 @@
 /*
- * XREFs of ?GetForceEngineCurrentValue@CMotion@@QEBAMXZ @ 0x18026EC50
+ * XREFs of ?GetForceEngineCurrentValue@CMotion@@QEBAMXZ @ 0x18020E49C
  * Callers:
- *     ?GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x180232888 (-GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
+ *     ?GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x1801C94D0 (-GetCurrentValue@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 float __fastcall CMotion::GetForceEngineCurrentValue(CMotion *this)
 {
   _BYTE v2[24]; // [rsp+20h] [rbp-28h] BYREF
 
-  return *(float *)((*(__int64 (__fastcall **)(_QWORD, _BYTE *))(**((_QWORD **)this + 12) + 32LL))(
-                      *((_QWORD *)this + 12),
+  return *(float *)((*(__int64 (__fastcall **)(_QWORD, _BYTE *))(**((_QWORD **)this + 17) + 32LL))(
+                      *((_QWORD *)this + 17),
                       v2)
                   + 4);
 }

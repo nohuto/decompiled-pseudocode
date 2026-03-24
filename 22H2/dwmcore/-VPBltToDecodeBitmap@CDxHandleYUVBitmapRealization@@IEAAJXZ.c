@@ -1,108 +1,88 @@
 /*
- * XREFs of ?VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ @ 0x1802B498C
+ * XREFs of ?VPBltToDecodeBitmap@CDxHandleYUVBitmapRealization@@IEAAJXZ @ 0x1802664C8
  * Callers:
- *     ?GetDeviceTexture@CDxHandleYUVBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180135C2A (-GetDeviceTexture@CDxHandleYUVBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTextur.c)
- *     ?GetD2DBitmap@CDxHandleYUVBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x1802B4030 (-GetD2DBitmap@CDxHandleYUVBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@.c)
+ *     ?GetD2DBitmap@CDxHandleYUVBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x180265964 (-GetD2DBitmap@CDxHandleYUVBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@.c)
+ *     ?GetDeviceTexture@CDxHandleYUVBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180265CEC (-GetDeviceTexture@CDxHandleYUVBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTextur.c)
  * Callees:
- *     ?IsDXGIColorSpaceRec2020@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x180082964 (-IsDXGIColorSpaceRec2020@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     ?CalcDecodedSourceRectAndTransform@CDxHandleYUVBitmapRealization@@IEBAXPEAVCMILMatrix@@PEAV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@1@Z @ 0x18011B59C (-CalcDecodedSourceRectAndTransform@CDxHandleYUVBitmapRealization@@IEBAXPEAVCMILMatrix@@PEAV-$TMi.c)
- *     ?GetAdapterLuid@CDxHandleYUVBitmapRealization@@UEBA?AU_LUID@@XZ @ 0x180135BFA (-GetAdapterLuid@CDxHandleYUVBitmapRealization@@UEBA-AU_LUID@@XZ.c)
- *     ?IsHardwareProtected@CDxHandleYUVBitmapRealization@@UEBA_NXZ @ 0x18013634C (-IsHardwareProtected@CDxHandleYUVBitmapRealization@@UEBA_NXZ.c)
- *     ?GetDevice@CDxHandleYUVBitmapRealization@@UEBAPEAVCD3DDevice@@XZ @ 0x1802B43A8 (-GetDevice@CDxHandleYUVBitmapRealization@@UEBAPEAVCD3DDevice@@XZ.c)
- *     ?EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@@Z @ 0x1802B4E4C (-EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInf.c)
- *     ?VideoProcessorBlt@CDecodeBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagRECT@@W4_D3DDDI_ROTATION@@PEAUDXGI_HDR_METADATA_HDR10@@2@Z @ 0x1802B5030 (-VideoProcessorBlt@CDecodeBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagREC.c)
+ *     ?IsDXGIColorSpaceRec2020@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x180030900 (-IsDXGIColorSpaceRec2020@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetAdapterLuid@CDxHandleYUVBitmapRealization@@UEBA?AU_LUID@@XZ @ 0x180265934 (-GetAdapterLuid@CDxHandleYUVBitmapRealization@@UEBA-AU_LUID@@XZ.c)
+ *     ?GetDevice@CDxHandleYUVBitmapRealization@@UEBAPEAVCD3DDevice@@XZ @ 0x180265CD0 (-GetDevice@CDxHandleYUVBitmapRealization@@UEBAPEAVCD3DDevice@@XZ.c)
+ *     ?IsHardwareProtected@CDxHandleYUVBitmapRealization@@UEBA_NXZ @ 0x180266174 (-IsHardwareProtected@CDxHandleYUVBitmapRealization@@UEBA_NXZ.c)
+ *     ?EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@@Z @ 0x18026666C (-EnsureTargetBitmap@CDecodeBitmap@@QEAAJAEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInf.c)
+ *     ?VideoProcessorBlt@CDecodeBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagRECT@@W4_D3DDDI_ROTATION@@PEAUDXGI_HDR_METADATA_HDR10@@2@Z @ 0x180266850 (-VideoProcessorBlt@CDecodeBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagREC.c)
  */
 
 __int64 __fastcall CDxHandleYUVBitmapRealization::VPBltToDecodeBitmap(CDxHandleYUVBitmapRealization *this)
 {
-  bool v1; // zf
+  CDxHandleYUVBitmapRealization *v1; // rbx
   int v3; // eax
   bool IsHardwareProtected; // al
   int v5; // ecx
-  int v6; // eax
-  __int64 v7; // rcx
-  unsigned int v8; // edi
-  int v9; // eax
-  __int64 v10; // rcx
-  struct D2D_SIZE_U v12[2]; // [rsp+48h] [rbp-69h] BYREF
-  __m128i v13; // [rsp+58h] [rbp-59h] BYREF
-  __int64 v14; // [rsp+68h] [rbp-49h] BYREF
-  int v15; // [rsp+70h] [rbp-41h]
-  int v16; // [rsp+74h] [rbp-3Dh]
-  int v17; // [rsp+78h] [rbp-39h]
-  bool v18; // [rsp+7Ch] [rbp-35h]
-  _BYTE v19[64]; // [rsp+88h] [rbp-29h] BYREF
-  int v20; // [rsp+C8h] [rbp+17h]
-  __int128 v21; // [rsp+D8h] [rbp+27h] BYREF
-  __m128i v22; // [rsp+E8h] [rbp+37h] BYREF
+  CDecodeBitmap *v6; // rcx
+  int v7; // eax
+  __int64 v8; // rcx
+  unsigned int v9; // ebx
+  int v10; // eax
+  __int64 v11; // rcx
+  __int64 v13; // [rsp+40h] [rbp-30h] BYREF
+  int v14; // [rsp+48h] [rbp-28h]
+  __int64 v15; // [rsp+50h] [rbp-20h] BYREF
+  int v16; // [rsp+58h] [rbp-18h]
+  int v17; // [rsp+5Ch] [rbp-14h]
+  int v18; // [rsp+60h] [rbp-10h]
+  bool v19; // [rsp+64h] [rbp-Ch]
+  struct D2D_SIZE_U v20; // [rsp+80h] [rbp+10h] BYREF
 
-  v1 = (*((_DWORD *)this + 58) & 0x4000) == 0;
-  v21 = 0LL;
-  if ( v1 )
-  {
-    v21 = *(_OWORD *)((char *)this + 148);
-    v22 = *(__m128i *)((char *)this + 216);
-    v12[0] = *(struct D2D_SIZE_U *)((char *)this + 208);
-  }
-  else
-  {
-    v20 = 0;
-    v13 = 0uLL;
-    v12[0] = 0LL;
-    v12[1] = 0LL;
-    CDxHandleYUVBitmapRealization::CalcDecodedSourceRectAndTransform(this, (CMILMatrix *)v19, &v13, v12);
-    v21 = *(_OWORD *)&v12[0].width;
-    v22 = v13;
-    v12[0].width = _mm_cvtsi128_si32(_mm_srli_si128(v13, 8)) - _mm_cvtsi128_si32(v13);
-    v12[0].height = _mm_cvtsi128_si32(_mm_srli_si128(v13, 12)) - _mm_cvtsi128_si32(_mm_srli_si128(v13, 4));
-  }
-  CDxHandleYUVBitmapRealization::GetAdapterLuid((CDxHandleYUVBitmapRealization *)((char *)this + 480), &v14);
-  v3 = *((_DWORD *)this + 70);
+  v1 = (CDxHandleYUVBitmapRealization *)((char *)this + 456);
+  v20 = *(struct D2D_SIZE_U *)((char *)this + 188);
+  CDxHandleYUVBitmapRealization::GetAdapterLuid((CDxHandleYUVBitmapRealization *)((char *)this + 456), &v15);
+  v3 = *((_DWORD *)this + 62);
   v17 = 0;
-  v15 = v3;
-  v16 = 0;
-  IsHardwareProtected = CDxHandleYUVBitmapRealization::IsHardwareProtected((CDxHandleYUVBitmapRealization *)((char *)this + 480));
-  v5 = *((_DWORD *)this + 36);
-  v18 = IsHardwareProtected;
-  if ( IsDXGIColorSpaceRec2020(v5)
-    && *((int *)CDxHandleYUVBitmapRealization::GetDevice((CDxHandleYUVBitmapRealization *)((char *)this + 480)) + 146) >= 40960 )
+  v18 = 0;
+  v16 = v3;
+  IsHardwareProtected = CDxHandleYUVBitmapRealization::IsHardwareProtected(v1);
+  v5 = *((_DWORD *)this + 35);
+  v19 = IsHardwareProtected;
+  if ( IsDXGIColorSpaceRec2020(v5) && *((int *)CDxHandleYUVBitmapRealization::GetDevice(v1) + 156) >= 40960 )
   {
-    v17 = (int)FLOAT_1_0;
-    v13.m128i_i64[0] = 0x30000000ALL;
-    v13.m128i_i32[2] = 1;
+    v18 = (int)FLOAT_1_0;
+    LODWORD(v13) = 10;
+    v14 = 1;
   }
   else
   {
-    v13.m128i_i32[0] = 28;
-    *(__int64 *)((char *)v13.m128i_i64 + 4) = 3LL;
+    v14 = 0;
+    LODWORD(v13) = 28;
   }
-  v6 = CDecodeBitmap::EnsureTargetBitmap(
-         *((CDecodeBitmap **)this + 36),
-         v12,
+  v6 = (CDecodeBitmap *)*((_QWORD *)this + 32);
+  HIDWORD(v13) = 3;
+  v7 = CDecodeBitmap::EnsureTargetBitmap(
+         v6,
+         &v20,
          (const struct PixelFormatInfo *)&v13,
-         (const struct RenderTargetInfo *)&v14);
-  v8 = v6;
-  if ( v6 < 0 )
+         (const struct RenderTargetInfo *)&v15);
+  v9 = v7;
+  if ( v7 < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x2A7u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x1E4u, 0LL);
   }
   else
   {
-    v9 = CDecodeBitmap::VideoProcessorBlt(
-           *((_QWORD *)this + 36) + 120LL,
-           *(_QWORD *)(*((_QWORD *)this + 47) + 96LL),
-           *((unsigned int *)this + 68),
-           *((unsigned int *)this + 36),
-           &v21,
-           1,
-           0LL,
-           &v22,
-           *(_QWORD *)v12);
-    v8 = v9;
-    if ( v9 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v9, 0x2B6u, 0LL);
+    v10 = CDecodeBitmap::VideoProcessorBlt(
+            *((_QWORD *)this + 32) + 120LL,
+            *(_QWORD *)(*((_QWORD *)this + 43) + 112LL),
+            *((unsigned int *)this + 60),
+            *((unsigned int *)this + 35),
+            (char *)this + 144,
+            1,
+            0LL,
+            (char *)this + 196,
+            v13,
+            v14);
+    v9 = v10;
+    if ( v10 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x1F3u, 0LL);
   }
-  return v8;
+  return v9;
 }

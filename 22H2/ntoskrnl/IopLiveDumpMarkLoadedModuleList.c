@@ -1,48 +1,37 @@
 /*
- * XREFs of IopLiveDumpMarkLoadedModuleList @ 0x140A9BC3C
+ * XREFs of IopLiveDumpMarkLoadedModuleList @ 0x1409ACD5C
  * Callers:
- *     IopLiveDumpMarkRequiredDumpData @ 0x140A9BE64 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x1409ACF2C (IopLiveDumpMarkRequiredDumpData.c)
  * Callees:
- *     MmIsSessionAddress @ 0x1402BC7B0 (MmIsSessionAddress.c)
- *     MmAddRangeToCrashDump @ 0x1406301B0 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140538518 (MmAddRangeToCrashDump.c)
  */
 
-__int64 __fastcall IopLiveDumpMarkLoadedModuleList(__int64 a1)
+__int64 __fastcall IopLiveDumpMarkLoadedModuleList(__int64 (__fastcall **a1)(_QWORD, __int64, __int64))
 {
-  int v2; // ebp
   __int64 result; // rax
-  unsigned int v4; // edi
   PVOID *i; // rbx
 
-  v2 = HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000;
   result = MmAddRangeToCrashDump(a1, (unsigned __int64)&PsLoadedModuleList, 16LL);
-  v4 = result;
   if ( (int)result >= 0 )
   {
     for ( i = (PVOID *)PsLoadedModuleList; i != &PsLoadedModuleList; i = (PVOID *)*i )
     {
       result = MmAddRangeToCrashDump(a1, (unsigned __int64)i, 160LL);
       if ( (int)result < 0 )
-        return result;
+        break;
       result = MmAddRangeToCrashDump(a1, (unsigned __int64)i[12], *((unsigned __int16 *)i + 44));
       if ( (int)result < 0 )
-        return result;
+        break;
       result = MmAddRangeToCrashDump(a1, (unsigned __int64)i[10], *((unsigned __int16 *)i + 36));
       if ( (int)result < 0 )
-        return result;
+        break;
       result = MmAddRangeToCrashDump(a1, (unsigned __int64)i[5], 32LL);
-      v4 = result;
       if ( (int)result < 0 )
-        return result;
-      if ( !v2 || !MmIsSessionAddress((__int64)i[6]) )
-      {
-        result = MmAddRangeToCrashDump(a1, (unsigned __int64)i[6], *((unsigned int *)i + 16));
-        v4 = result;
-        if ( (int)result < 0 )
-          return result;
-      }
+        break;
+      result = MmAddRangeToCrashDump(a1, (unsigned __int64)i[6], *((unsigned int *)i + 16));
+      if ( (int)result < 0 )
+        break;
     }
-    return v4;
   }
   return result;
 }

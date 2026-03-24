@@ -1,107 +1,107 @@
 /*
- * XREFs of PopBootStatCheckIntegrity @ 0x14084E3B0
+ * XREFs of PopBootStatCheckIntegrity @ 0x1408F2344
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED5EC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1406F1BE4 (PopPowerInformationInternal.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
- *     PopBootStatAccessCheck @ 0x1407EC0D4 (PopBootStatAccessCheck.c)
- *     RtlUnlockBootStatusData @ 0x1407EC910 (RtlUnlockBootStatusData.c)
- *     RtlLockBootStatusData @ 0x1407EF310 (RtlLockBootStatusData.c)
- *     RtlCheckBootStatusIntegrity @ 0x14084E4F0 (RtlCheckBootStatusIntegrity.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00C10 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BCF0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlLockBootStatusData @ 0x14077F470 (RtlLockBootStatusData.c)
+ *     RtlUnlockBootStatusData @ 0x14078C5B0 (RtlUnlockBootStatusData.c)
+ *     PopBootStatAccessCheck @ 0x1407C1BDC (PopBootStatAccessCheck.c)
+ *     RtlCheckBootStatusIntegrity @ 0x140915430 (RtlCheckBootStatusIntegrity.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1)
 {
-  __int64 Pool2; // rdi
-  KPROCESSOR_MODE PreviousMode; // r14
-  struct _KTHREAD *CurrentThread; // rax
-  int v5; // esi
-  size_t v7; // rbx
-  size_t v8; // rax
+  char *PoolWithTag; // rdi
+  KPROCESSOR_MODE PreviousMode; // r15
+  int v4; // esi
+  size_t v5; // rbx
+  size_t v6; // rax
   __int64 i; // rbx
-  HANDLE Handle; // [rsp+28h] [rbp-50h] BYREF
-  __int64 v11; // [rsp+30h] [rbp-48h]
+  struct _KTHREAD *CurrentThread; // rax
+  HANDLE FileHandle; // [rsp+28h] [rbp-50h] BYREF
+  char *v11; // [rsp+30h] [rbp-48h]
   ULONGLONG pullResult; // [rsp+38h] [rbp-40h] BYREF
-  __int64 v13; // [rsp+40h] [rbp-38h]
+  volatile void **v13; // [rsp+40h] [rbp-38h]
   char v14; // [rsp+98h] [rbp+20h]
 
   pullResult = 0LL;
-  Pool2 = 0LL;
-  Handle = 0LL;
+  PoolWithTag = 0LL;
+  FileHandle = 0LL;
   v14 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v5 = RtlULongLongMult(*(unsigned int *)(a1 + 8), 0x18uLL, &pullResult);
-    if ( v5 < 0 )
-      goto LABEL_8;
-    v7 = pullResult;
-    Pool2 = ExAllocatePool2(256LL, pullResult, 544040269LL);
-    v11 = Pool2;
-    if ( !Pool2 )
+    v4 = RtlULongLongMult(*(unsigned int *)(a1 + 8), 0x18uLL, &pullResult);
+    if ( v4 < 0 )
+      goto LABEL_23;
+    v5 = pullResult;
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, pullResult, 0x206D654Du);
+    v11 = PoolWithTag;
+    if ( !PoolWithTag )
     {
-      v5 = -1073741670;
-      goto LABEL_8;
+      v4 = -1073741670;
+      goto LABEL_23;
     }
-    if ( v7 )
+    if ( v5 )
     {
-      v8 = *(_QWORD *)(a1 + 16);
-      if ( (v8 & 7) != 0 )
+      v6 = *(_QWORD *)(a1 + 16);
+      if ( (v6 & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( v8 + v7 > 0x7FFFFFFF0000LL || v8 + v7 < v8 )
+      if ( v6 + v5 > 0x7FFFFFFF0000LL || v6 + v5 < v6 )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
-    memmove((void *)Pool2, *(const void **)(a1 + 16), v7);
+    memmove(PoolWithTag, *(const void **)(a1 + 16), v5);
     for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 8); i = (unsigned int)(i + 1) )
     {
-      v13 = Pool2 + 24 * i;
-      ProbeForWrite(*(volatile void **)(v13 + 8), *(unsigned int *)(v13 + 16), 1u);
+      v13 = (volatile void **)&PoolWithTag[24 * i];
+      ProbeForWrite(v13[1], *((unsigned int *)v13 + 4), 1u);
     }
   }
   else
   {
-    Pool2 = *(_QWORD *)(a1 + 16);
-    v11 = Pool2;
+    PoolWithTag = *(char **)(a1 + 16);
+    v11 = PoolWithTag;
   }
   v14 = 1;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopBootStatLock, 0LL);
-  v5 = RtlLockBootStatusData(&Handle);
-  if ( v5 >= 0 )
+  v4 = RtlLockBootStatusData(&FileHandle);
+  if ( v4 >= 0 )
   {
-    if ( !PreviousMode || (v5 = PopBootStatAccessCheck(Handle, PreviousMode, 1u), v5 >= 0) )
+    if ( !PreviousMode || (v4 = PopBootStatAccessCheck(FileHandle, PreviousMode, 1u), v4 >= 0) )
     {
-      v5 = RtlCheckBootStatusIntegrity(Handle);
-      if ( v5 >= 0 )
+      v4 = RtlCheckBootStatusIntegrity(FileHandle);
+      if ( v4 >= 0 )
       {
-        if ( *(_DWORD *)(Pool2 + 16) )
-          **(_BYTE **)(Pool2 + 8) = 0;
+        if ( *((_DWORD *)PoolWithTag + 4) )
+          **((_BYTE **)PoolWithTag + 1) = 0;
         else
-          v5 = -1073741811;
+          v4 = -1073741811;
       }
     }
   }
-LABEL_8:
-  if ( Handle )
-    RtlUnlockBootStatusData(Handle);
+LABEL_23:
+  if ( FileHandle )
+    RtlUnlockBootStatusData(FileHandle);
   if ( v14 )
   {
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopBootStatLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&PopBootStatLock);
     KeAbPostRelease((ULONG_PTR)&PopBootStatLock);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  if ( PreviousMode && Pool2 )
-    ExFreePoolWithTag((PVOID)Pool2, 0);
-  return (unsigned int)v5;
+  if ( PreviousMode && PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
+  return (unsigned int)v4;
 }

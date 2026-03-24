@@ -1,13 +1,14 @@
 /*
- * XREFs of MmKernelVerifierEnabled @ 0x14046B2F2
+ * XREFs of MmKernelVerifierEnabled @ 0x1405303F8
  * Callers:
- *     VerifierExFreePool @ 0x140AC1100 (VerifierExFreePool.c)
- *     VerifierExFreePoolWithTag @ 0x140AC1170 (VerifierExFreePoolWithTag.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D45E0 (VeAllocatePoolWithTagPriority.c)
+ *     VerifierExFreePool @ 0x1409D51A0 (VerifierExFreePool.c)
+ *     VerifierExFreePoolWithTag @ 0x1409D5230 (VerifierExFreePoolWithTag.c)
  * Callees:
  *     <none>
  */
 
 __int64 MmKernelVerifierEnabled()
 {
-  return ((unsigned int)MiFlags >> 1) & 1;
+  return ((unsigned __int8)MiFlags >> 1) & 1;
 }

@@ -1,55 +1,62 @@
 /*
- * XREFs of ?NotifySharedPowerGraphicsFStateTransition@DXGGLOBAL@@QEAAXQEAXKIE@Z @ 0x1C00539A4
+ * XREFs of ?NotifySharedPowerGraphicsFStateTransition@DXGGLOBAL@@QEAAXQEAXKIE@Z @ 0x1C00466B4
  * Callers:
- *     DxgkNotifySharedPowerGraphicsFStateTransition @ 0x1C00540C8 (DxgkNotifySharedPowerGraphicsFStateTransition.c)
+ *     DxgkNotifySharedPowerGraphicsFStateTransition @ 0x1C0046D10 (DxgkNotifySharedPowerGraphicsFStateTransition.c)
  * Callees:
- *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000FA80 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007018 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DXGGLOBAL::NotifySharedPowerGraphicsFStateTransition(
         KSPIN_LOCK *this,
         void *const a2,
         unsigned int a3,
-        unsigned int a4,
+        __int64 a4,
         char a5)
 {
+  unsigned int v5; // r12d
   char v9; // si
   KSPIN_LOCK i; // rbx
-  KIRQL CurrentIrql; // al
-  __int64 v12; // r9
-  __int64 v13; // r15
-  KIRQL v14; // al
+  void (__fastcall *v11)(void *const, _QWORD, _QWORD, __int64, _QWORD); // rax
+  unsigned __int8 CurrentIrql; // r15
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  _QWORD *v15; // rax
+  unsigned __int8 v16; // cl
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-48h] BYREF
 
-  memset(&LockHandle, 0, sizeof(LockHandle));
+  v5 = a4;
   v9 = 0;
   if ( KeGetCurrentIrql() >= 2u )
   {
-    KeAcquireInStackQueuedSpinLockAtDpcLevel(this + 227, &LockHandle);
+    KeAcquireInStackQueuedSpinLockAtDpcLevel(this + 206, &LockHandle);
   }
-  else if ( (struct _KTHREAD *)this[229] != KeGetCurrentThread() )
+  else if ( (struct _KTHREAD *)this[208] != KeGetCurrentThread() )
   {
-    DXGPUSHLOCK::AcquireShared((DXGPUSHLOCK *)(this + 228));
+    DXGPUSHLOCK::AcquireShared((DXGPUSHLOCK *)(this + 207));
     v9 = 1;
   }
-  for ( i = this[232]; (KSPIN_LOCK *)i != this + 232 && i; i = *(_QWORD *)i )
+  for ( i = this[211]; (KSPIN_LOCK *)i != this + 211 && i; i = *(_QWORD *)i )
   {
-    if ( *(void *const *)(i + 32) == a2 && *(_QWORD *)(i + 56) )
+    if ( *(void *const *)(i + 32) == a2 )
     {
-      CurrentIrql = KeGetCurrentIrql();
-      LOBYTE(v12) = a5;
-      v13 = CurrentIrql;
-      (*(void (__fastcall **)(void *const, _QWORD, _QWORD, __int64, _QWORD))(i + 56))(
-        a2,
-        a3,
-        a4,
-        v12,
-        *(_QWORD *)(i + 24));
-      if ( (_BYTE)v13 != KeGetCurrentIrql() )
+      v11 = *(void (__fastcall **)(void *const, _QWORD, _QWORD, __int64, _QWORD))(i + 56);
+      if ( v11 )
       {
-        v14 = KeGetCurrentIrql();
-        WdLogSingleEntry5(0LL, 275LL, 16LL, this, v13, v14);
+        CurrentIrql = KeGetCurrentIrql();
+        LOBYTE(a4) = a5;
+        v11(a2, a3, v5, a4, *(_QWORD *)(i + 24));
+        if ( CurrentIrql != KeGetCurrentIrql() )
+        {
+          v15 = (_QWORD *)WdLogNewEntry5_WdCriticalError(v14, v13);
+          v15[3] = 275LL;
+          v15[4] = 16LL;
+          v15[5] = this;
+          v15[6] = CurrentIrql;
+          v16 = KeGetCurrentIrql();
+          v15[7] = v16;
+          WdLogEvent5_WdCriticalError(v15);
+        }
       }
     }
   }
@@ -59,7 +66,7 @@ void __fastcall DXGGLOBAL::NotifySharedPowerGraphicsFStateTransition(
   }
   else if ( v9 )
   {
-    ExReleasePushLockSharedEx(this + 228, 0LL);
+    ExReleasePushLockSharedEx(this + 207, 0LL);
     KeLeaveCriticalRegion();
   }
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ObpFreeWorkItemBlock @ 0x140862E20
+ * XREFs of ObpFreeWorkItemBlock @ 0x140862E00
  * Callers:
- *     ObpPushStackInfoQueue @ 0x140863560 (ObpPushStackInfoQueue.c)
+ *     ObpPushStackInfoQueue @ 0x140863540 (ObpPushStackInfoQueue.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

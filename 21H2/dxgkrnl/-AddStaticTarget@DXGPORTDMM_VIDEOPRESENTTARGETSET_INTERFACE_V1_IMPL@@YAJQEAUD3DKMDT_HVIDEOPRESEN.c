@@ -1,89 +1,129 @@
 /*
- * XREFs of ?AddStaticTarget@DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@PEBU_D3DKMDT_VIDEO_PRESENT_TARGET@@@Z @ 0x1C0213A20
+ * XREFs of ?AddStaticTarget@DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@PEBU_D3DKMDT_VIDEO_PRESENT_TARGET@@@Z @ 0x1C0197B70
  * Callers:
  *     <none>
  * Callees:
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000D514 (-Release@ReferenceCounted@@QEBA_KXZ.c)
- *     ??0DMMVIDEOPRESENTTARGET@@QEAA@QEAVDMMVIDEOPRESENTTARGETSET@@IW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@W4_DXGK_CHILD_DEVICE_HPD_AWARENESS@@W4_D3DKMDT_MONITOR_ORIENTATION_AWARENESS@@E@Z @ 0x1C0028A20 (--0DMMVIDEOPRESENTTARGET@@QEAA@QEAVDMMVIDEOPRESENTTARGETSET@@IW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY.c)
- *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDEOPRESENTTARGETSET@@PEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@@@SAPEAVDMMVIDEOPRESENTTARGETSET@@PEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@@Z @ 0x1C0028C44 (-GetFromHandle@-$ExposedViaHandle@VDMMVIDEOPRESENTTARGETSET@@PEAUD3DKMDT_HVIDEOPRESENTTARGETSET_.c)
- *     ?ReleaseDdiEnumerator@DMMVIDEOPRESENTTARGETSET@@QEAAJPEBU_D3DKMDT_VIDEO_PRESENT_TARGET@@@Z @ 0x1C0213B20 (-ReleaseDdiEnumerator@DMMVIDEOPRESENTTARGETSET@@QEAAJPEBU_D3DKMDT_VIDEO_PRESENT_TARGET@@@Z.c)
- *     ?AddTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C0213B60 (-AddTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJPEAVDMMVIDEOPRESENTTARGET@@@Z.c)
- *     ?Initialize@DMMVIDEOPRESENTTARGET@@QEAAJXZ @ 0x1C0213BB8 (-Initialize@DMMVIDEOPRESENTTARGET@@QEAAJXZ.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C00055D4 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ??0DMMVIDEOPRESENTTARGET@@QEAA@QEAVDMMVIDEOPRESENTTARGETSET@@IW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@W4_DXGK_CHILD_DEVICE_HPD_AWARENESS@@W4_D3DKMDT_MONITOR_ORIENTATION_AWARENESS@@E@Z @ 0x1C00231E0 (--0DMMVIDEOPRESENTTARGET@@QEAA@QEAVDMMVIDEOPRESENTTARGETSET@@IW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY.c)
+ *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDEOPRESENTTARGETSET@@PEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@@@SAPEAVDMMVIDEOPRESENTTARGETSET@@PEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@@Z @ 0x1C0023400 (-GetFromHandle@-$ExposedViaHandle@VDMMVIDEOPRESENTTARGETSET@@PEAUD3DKMDT_HVIDEOPRESENTTARGETSET_.c)
+ *     ?ReleaseDdiEnumerator@DMMVIDEOPRESENTTARGETSET@@QEAAJPEBU_D3DKMDT_VIDEO_PRESENT_TARGET@@@Z @ 0x1C0197C78 (-ReleaseDdiEnumerator@DMMVIDEOPRESENTTARGETSET@@QEAAJPEBU_D3DKMDT_VIDEO_PRESENT_TARGET@@@Z.c)
+ *     ?AddTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C0197CB8 (-AddTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJPEAVDMMVIDEOPRESENTTARGET@@@Z.c)
+ *     ?Initialize@DMMVIDEOPRESENTTARGET@@QEAAJXZ @ 0x1C0197D3C (-Initialize@DMMVIDEOPRESENTTARGET@@QEAAJXZ.c)
  */
 
 __int64 __fastcall DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL::AddStaticTarget(
         DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL *this,
         const struct _D3DKMDT_VIDEO_PRESENT_TARGET *a2,
-        const struct _D3DKMDT_VIDEO_PRESENT_TARGET *a3)
+        const struct _D3DKMDT_VIDEO_PRESENT_TARGET *a3,
+        __int64 a4)
 {
-  __int64 v5; // rax
-  DMMVIDEOPRESENTTARGETSET *v6; // rdi
-  __int64 v7; // r9
-  DMMVIDEOPRESENTTARGET *v8; // rax
-  DMMVIDEOPRESENTTARGET *v9; // rax
-  DMMVIDEOPRESENTTARGET *v10; // rbp
-  int v11; // eax
-  __int64 v12; // rsi
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  struct DMMVIDEOPRESENTTARGETSET *v11; // rdi
+  DMMVIDEOPRESENTTARGET *v12; // rax
   __int64 v13; // rdx
   __int64 v14; // rcx
-  _QWORD *v16; // rax
+  __int64 v15; // r8
+  __int64 v16; // r9
+  DMMVIDEOPRESENTTARGET *v17; // rsi
+  int v18; // eax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rbp
+  int v22; // eax
+  ReferenceCounted *v23; // rcx
+  __int64 v24; // rsi
+  __int64 v25; // rdx
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  __int64 v29; // r9
+  __int64 v31; // rax
+  __int64 v32; // rax
+  __int64 v33; // rax
+  __int64 v34; // rax
+  __int64 v35; // rdx
+  _QWORD *v36; // rax
 
-  v5 = WdLogNewEntry5_WdTrace(this, a2);
-  *(_QWORD *)(v5 + 24) = a2;
-  *(_QWORD *)(v5 + 32) = this;
+  v6 = WdLogNewEntry5_WdTrace(this, a2, a3, a4);
+  *(_QWORD *)(v6 + 24) = a2;
+  *(_QWORD *)(v6 + 32) = this;
   if ( a2 )
   {
-    v6 = (DMMVIDEOPRESENTTARGETSET *)ExposedViaHandle<DMMVIDEOPRESENTTARGETSET,D3DKMDT_HVIDEOPRESENTTARGETSET__ *>::GetFromHandle((__int64)this);
-    if ( v6 )
+    v11 = (struct DMMVIDEOPRESENTTARGETSET *)ExposedViaHandle<DMMVIDEOPRESENTTARGETSET,D3DKMDT_HVIDEOPRESENTTARGETSET__ *>::GetFromHandle((__int64)this);
+    if ( v11 )
     {
-      v8 = (DMMVIDEOPRESENTTARGET *)operator new[](0x268uLL, 0x4E506456u, 256LL, v7);
-      if ( v8
-        && (v9 = DMMVIDEOPRESENTTARGET::DMMVIDEOPRESENTTARGET(
-                   v8,
-                   v6,
-                   a2->Id,
-                   a2->VideoOutputTechnology,
-                   a2->VideoOutputHpdAwareness,
-                   a2->MonitorOrientationAwareness,
-                   a2->SupportsSdtvModes),
-            (v10 = v9) != 0LL) )
+      v12 = (DMMVIDEOPRESENTTARGET *)operator new[](0x268uLL, 0x4E506456u, PagedPool);
+      if ( v12 )
+        v17 = DMMVIDEOPRESENTTARGET::DMMVIDEOPRESENTTARGET(
+                v12,
+                v11,
+                a2->Id,
+                a2->VideoOutputTechnology,
+                a2->VideoOutputHpdAwareness,
+                a2->MonitorOrientationAwareness,
+                a2->SupportsSdtvModes);
+      else
+        v17 = 0LL;
+      if ( v17 )
       {
-        v11 = DMMVIDEOPRESENTTARGET::Initialize(v9);
-        LODWORD(v12) = v11;
-        if ( v11 < 0 )
+        v18 = DMMVIDEOPRESENTTARGET::Initialize(v17);
+        v21 = v18;
+        if ( v18 < 0 )
         {
-          WdLogSingleEntry2(2LL, a2->Id, v11);
-          ReferenceCounted::Release((DMMVIDEOPRESENTTARGET *)((char *)v10 + 64));
+          v34 = WdLogNewEntry5_WdError(v20, v19);
+          *(_QWORD *)(v34 + 24) = a2->Id;
+          *(_QWORD *)(v34 + 32) = v21;
+          WdLogEvent5_WdError(v34);
+          ReferenceCounted::Release((DMMVIDEOPRESENTTARGET *)((char *)v17 + 64), v35);
+          return (unsigned int)v21;
         }
         else
         {
-          v12 = (int)DMMVIDEOPRESENTTARGETSET::AddTarget(v6, v10);
-          ReferenceCounted::Release((DMMVIDEOPRESENTTARGET *)((char *)v10 + 64));
-          if ( (int)v12 >= 0 )
-            return DMMVIDEOPRESENTTARGETSET::ReleaseDdiEnumerator(v6, a2);
-          v16 = (_QWORD *)WdLogNewEntry5_WdTrace(v14, v13);
-          v16[3] = a2->Id;
-          v16[4] = v6;
-          v16[5] = v12;
+          v22 = DMMVIDEOPRESENTTARGETSET::AddTarget(v11, v17);
+          v23 = (DMMVIDEOPRESENTTARGET *)((char *)v17 + 64);
+          v24 = v22;
+          ReferenceCounted::Release(v23, v25);
+          if ( (int)v24 < 0 )
+          {
+            v36 = (_QWORD *)WdLogNewEntry5_WdTrace(v27, v26, v28, v29);
+            v36[3] = a2->Id;
+            v36[4] = v11;
+            v36[5] = v24;
+            return (unsigned int)v24;
+          }
+          else
+          {
+            return DMMVIDEOPRESENTTARGETSET::ReleaseDdiEnumerator(v11, a2);
+          }
         }
-        return (unsigned int)v12;
       }
       else
       {
-        WdLogSingleEntry1(6LL, v6);
+        v33 = WdLogNewEntry5_WdLowResource(v14, v13, v15, v16);
+        *(_QWORD *)(v33 + 24) = v11;
+        WdLogEvent5_WdLowResource(v33);
         return 3221225495LL;
       }
     }
     else
     {
-      WdLogSingleEntry1(2LL, this);
+      v32 = WdLogNewEntry5_WdError(v10, v9);
+      *(_QWORD *)(v32 + 24) = this;
+      WdLogEvent5_WdError(v32);
       return 3223192342LL;
     }
   }
   else
   {
-    WdLogSingleEntry2(2LL, 0LL, this);
+    v31 = WdLogNewEntry5_WdError(v8, v7);
+    *(_QWORD *)(v31 + 24) = 0LL;
+    *(_QWORD *)(v31 + 32) = this;
+    WdLogEvent5_WdError(v31);
     return 3223192325LL;
   }
 }

@@ -1,87 +1,69 @@
 /*
- * XREFs of ?Allocate@?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C00E96A4
+ * XREFs of ?Allocate@?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C00F9198
  * Callers:
- *     ??$UserAllocateIsolatedType@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ @ 0x1C0061260 (--$UserAllocateIsolatedType@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ.c)
+ *     ??$UserAllocateIsolatedType@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ @ 0x1C01681D0 (--$UserAllocateIsolatedType@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ.c)
  * Callees:
- *     ?Allocate@?$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C00E97F4 (-Allocate@-$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAPEAXXZ.c)
- *     ?Create@?$CSectionEntry@$0JAAA@$0JA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C00E99B4 (-Create@-$CSectionEntry@$0JAAA@$0JA@@NSInstrumentation@@SAPEAV12@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     ??1?$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ @ 0x1C01E33D4 (--1-$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ.c)
+ *     ?Allocate@?$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C00F9314 (-Allocate@-$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@QEAAPEAXXZ.c)
+ *     ?Create@?$CSectionEntry@$0JAAA@$0JA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C00F94D4 (-Create@-$CSectionEntry@$0JAAA@$0JA@@NSInstrumentation@@SAPEAV12@XZ.c)
+ *     ??1?$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ @ 0x1C01E8D28 (--1-$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ.c)
+ *     ?PlatformAllocateFromPagedLookasideList@NSInstrumentation@@YAPEAXPEAX@Z @ 0x1C02DD738 (-PlatformAllocateFromPagedLookasideList@NSInstrumentation@@YAPEAXPEAX@Z.c)
  */
 
-PSLIST_ENTRY __fastcall NSInstrumentation::CTypeIsolation<36864,144>::Allocate(__int64 a1)
+void *__fastcall NSInstrumentation::CTypeIsolation<36864,144>::Allocate(__int64 a1, void *a2)
 {
-  __int64 v2; // rbx
-  __int64 v3; // rbp
+  __int64 v3; // rbx
+  __int64 v4; // rbp
   _QWORD *i; // rsi
-  __int64 v5; // r14
-  PSLIST_ENTRY result; // rax
+  __int64 v6; // r14
   __int64 v7; // rax
   _QWORD *v8; // rsi
   __int64 v9; // rbx
   _QWORD *v10; // rcx
-  __int64 v11; // rbx
 
   if ( *(_BYTE *)(a1 + 36) )
+    return NSInstrumentation::PlatformAllocateFromPagedLookasideList(*(NSInstrumentation **)(a1 + 24), a2);
+  v3 = *(_QWORD *)(a1 + 16);
+  v4 = 0LL;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockSharedEx(v3, 0LL);
+  for ( i = *(_QWORD **)a1; i != (_QWORD *)a1; i = (_QWORD *)*i )
   {
-    v11 = *(_QWORD *)(a1 + 24);
-    ++*(_DWORD *)(v11 + 20);
-    result = ExpInterlockedPopEntrySList((PSLIST_HEADER)v11);
-    if ( !result )
+    v6 = NSInstrumentation::CSectionBitmapAllocator<36864,144>::Allocate(i[4]);
+    if ( v6 )
     {
-      ++*(_DWORD *)(v11 + 24);
-      return (PSLIST_ENTRY)(*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(v11 + 48))(
-                             *(unsigned int *)(v11 + 36),
-                             *(unsigned int *)(v11 + 44),
-                             *(unsigned int *)(v11 + 40));
+      ExReleasePushLockSharedEx(v3, 0LL);
+      KeLeaveCriticalRegion();
+      return (void *)v6;
     }
   }
-  else
+  ExReleasePushLockSharedEx(v3, 0LL);
+  KeLeaveCriticalRegion();
+  v7 = NSInstrumentation::CSectionEntry<36864,144>::Create();
+  v8 = (_QWORD *)v7;
+  if ( v7 )
   {
-    v2 = *(_QWORD *)(a1 + 16);
-    v3 = 0LL;
-    KeEnterCriticalRegion();
-    ExAcquirePushLockSharedEx(v2, 0LL);
-    for ( i = *(_QWORD **)a1; i != (_QWORD *)a1; i = (_QWORD *)*i )
+    v4 = NSInstrumentation::CSectionBitmapAllocator<36864,144>::Allocate(*(_QWORD *)(v7 + 32));
+    if ( v4 )
     {
-      v5 = NSInstrumentation::CSectionBitmapAllocator<36864,144>::Allocate(i[4]);
-      if ( v5 )
-      {
-        ExReleasePushLockSharedEx(v2, 0LL);
-        KeLeaveCriticalRegion();
-        return (PSLIST_ENTRY)v5;
-      }
+      v9 = *(_QWORD *)(a1 + 16);
+      KeEnterCriticalRegion();
+      ExAcquirePushLockExclusiveEx(v9, 0LL);
+      v10 = *(_QWORD **)(a1 + 8);
+      if ( *v10 != a1 )
+        __fastfail(3u);
+      v8[1] = v10;
+      *v8 = a1;
+      *v10 = v8;
+      *(_DWORD *)(a1 + 32) += 252;
+      *(_QWORD *)(a1 + 8) = v8;
+      ExReleasePushLockExclusiveEx(v9, 0LL);
+      KeLeaveCriticalRegion();
     }
-    ExReleasePushLockSharedEx(v2, 0LL);
-    KeLeaveCriticalRegion();
-    v7 = NSInstrumentation::CSectionEntry<36864,144>::Create();
-    v8 = (_QWORD *)v7;
-    if ( v7 )
+    else
     {
-      v3 = NSInstrumentation::CSectionBitmapAllocator<36864,144>::Allocate(*(_QWORD *)(v7 + 32));
-      if ( v3 )
-      {
-        v9 = *(_QWORD *)(a1 + 16);
-        KeEnterCriticalRegion();
-        ExAcquirePushLockExclusiveEx(v9, 0LL);
-        v10 = *(_QWORD **)(a1 + 8);
-        if ( *v10 != a1 )
-          __fastfail(3u);
-        v8[1] = v10;
-        *v8 = a1;
-        *v10 = v8;
-        *(_DWORD *)(a1 + 32) += 252;
-        *(_QWORD *)(a1 + 8) = v8;
-        ExReleasePushLockExclusiveEx(v9, 0LL);
-        KeLeaveCriticalRegion();
-      }
-      else
-      {
-        NSInstrumentation::CSectionEntry<24576,96>::~CSectionEntry<24576,96>(v8);
-        ExFreePoolWithTag(v8, 0);
-      }
+      NSInstrumentation::CSectionEntry<24576,96>::~CSectionEntry<24576,96>(v8);
+      ExFreePoolWithTag(v8, 0);
     }
-    return (PSLIST_ENTRY)v3;
   }
-  return result;
+  return (void *)v4;
 }

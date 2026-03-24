@@ -1,55 +1,45 @@
 /*
- * XREFs of RIMFreeHidDesc @ 0x1C01810B4
+ * XREFs of RIMFreeHidDesc @ 0x1C0057658
  * Callers:
- *     RIMFreeSpecificDevWorker @ 0x1C0071424 (RIMFreeSpecificDevWorker.c)
- *     RIMCreateHidDesc @ 0x1C007EF3C (RIMCreateHidDesc.c)
- *     RIMAllocateHidConfigDesc @ 0x1C017ECF8 (RIMAllocateHidConfigDesc.c)
- *     RIMAllocateHidDesc @ 0x1C017F574 (RIMAllocateHidDesc.c)
- *     RIMVirtAllocateHidDesc @ 0x1C0183828 (RIMVirtAllocateHidDesc.c)
- *     RIMVirtCreateHidDesc @ 0x1C0184200 (RIMVirtCreateHidDesc.c)
- *     RIMIDECreateHIDDesc @ 0x1C019399C (RIMIDECreateHIDDesc.c)
+ *     RIMAllocateHidDesc @ 0x1C0057F3C (RIMAllocateHidDesc.c)
+ *     RIMCreateHidDesc @ 0x1C00582E8 (RIMCreateHidDesc.c)
+ *     RIMFreeSpecificDevWorker @ 0x1C00BBC8C (RIMFreeSpecificDevWorker.c)
+ *     RIMAllocateHidConfigDesc @ 0x1C0160F50 (RIMAllocateHidConfigDesc.c)
+ *     RIMVirtAllocateHidDesc @ 0x1C0162838 (RIMVirtAllocateHidDesc.c)
+ *     RIMVirtCreateHidDesc @ 0x1C0162C3C (RIMVirtCreateHidDesc.c)
+ *     RIMIDECreateHIDDesc @ 0x1C016740C (RIMIDECreateHIDDesc.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_qDD @ 0x1C00365D0 (WPP_RECORDER_AND_TRACE_SF_qDD.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     WPP_RECORDER_SF_qDD @ 0x1C0057570 (WPP_RECORDER_SF_qDD.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
  */
 
-void __fastcall RIMFreeHidDesc(char *a1)
+void __fastcall RIMFreeHidDesc(__int64 a1)
 {
-  char v2; // dl
-  char *v3; // rdx
-  char *v4; // rdx
-  char *v5; // rdx
+  __int64 v2; // rcx
+  __int64 v3; // rcx
+  __int64 v4; // rcx
 
   if ( !a1 )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 560);
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) == 0
-    || (v2 = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-  {
-    v2 = 0;
-  }
-  if ( v2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_qDD(
-      (__int64)WPP_GLOBAL_Control->AttachedDevice,
-      v2,
-      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-      (__int64)gRimLog,
-      4u,
-      1u,
-      0x1Cu,
-      (__int64)&WPP_ee34c2b37e913f5a3c321c531693c890_Traceguids,
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 561LL);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qDD(
+      (_DWORD)gRimLog,
+      4,
+      1,
+      33,
+      (__int64)&WPP_6b998a37b7133a4d231c601f1b883849_Traceguids,
       a1,
-      *((unsigned __int16 *)a1 + 21),
-      *((unsigned __int16 *)a1 + 20));
-  v3 = (char *)*((_QWORD *)a1 + 3);
+      *(_WORD *)(a1 + 42),
+      *(_WORD *)(a1 + 40));
+  v2 = *(_QWORD *)(a1 + 24);
+  if ( v2 )
+    Win32FreePool(v2);
+  v3 = *(_QWORD *)(a1 + 16);
   if ( v3 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v3);
-  v4 = (char *)*((_QWORD *)a1 + 2);
+    Win32FreePool(v3);
+  v4 = *(_QWORD *)(a1 + 32);
   if ( v4 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v4);
-  v5 = (char *)*((_QWORD *)a1 + 4);
-  if ( v5 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v5);
-  NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, a1);
+    Win32FreePool(v4);
+  Win32FreePool(a1);
 }

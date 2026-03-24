@@ -1,11 +1,11 @@
 /*
- * XREFs of BmlCompareModeRegions @ 0x1C01B2B94
+ * XREFs of BmlCompareModeRegions @ 0x1C016C1D0
  * Callers:
- *     BmlCompareSourceModesWithContentRes @ 0x1C01B225C (BmlCompareSourceModesWithContentRes.c)
- *     BmlCompareSourceModes @ 0x1C01B26E0 (BmlCompareSourceModes.c)
- *     BmlCompareMonitorRegions @ 0x1C03AAF7C (BmlCompareMonitorRegions.c)
+ *     BmlCompareSourceModes @ 0x1C01397F8 (BmlCompareSourceModes.c)
+ *     BmlCompareMonitorRegions @ 0x1C02EB99C (BmlCompareMonitorRegions.c)
+ *     BmlCompareSourceModesWithContentRes @ 0x1C02EBA4C (BmlCompareSourceModesWithContentRes.c)
  * Callees:
- *     ??$BmlCompareValues@I@@YA?AW4BML_COMPARISON_RESULT@@II@Z @ 0x1C01B2BD8 (--$BmlCompareValues@I@@YA-AW4BML_COMPARISON_RESULT@@II@Z.c)
+ *     ??$BmlCompareValues@I@@YA?AW4BML_COMPARISON_RESULT@@II@Z @ 0x1C0139A28 (--$BmlCompareValues@I@@YA-AW4BML_COMPARISON_RESULT@@II@Z.c)
  */
 
 __int64 __fastcall BmlCompareModeRegions(unsigned int *a1, unsigned int *a2)
@@ -23,7 +23,7 @@ __int64 __fastcall BmlCompareModeRegions(unsigned int *a1, unsigned int *a2)
   v6 = v2 * v3;
   if ( v6 > v5 )
     return 1LL;
-  if ( v6 < v5 )
-    return 0xFFFFFFFFLL;
-  return BmlCompareValues<unsigned int>((unsigned int)v2, (unsigned int)v4);
+  if ( v6 >= v5 )
+    return BmlCompareValues<unsigned int>(v2, v4);
+  return 0xFFFFFFFFLL;
 }

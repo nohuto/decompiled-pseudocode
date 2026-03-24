@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCallbackReturn @ 0x1401C0370
+ * XREFs of NtCallbackReturn @ 0x1401C0390
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 NTSTATUS __stdcall NtCallbackReturn(PVOID Result, ULONG ResultLength, NTSTATUS Status)

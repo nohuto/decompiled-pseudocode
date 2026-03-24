@@ -1,66 +1,58 @@
 /*
- * XREFs of NtUserfnINPGESTURENOTIFYSTRUCT @ 0x1C0202C40
+ * XREFs of NtUserfnINPGESTURENOTIFYSTRUCT @ 0x1C02064A0
  * Callers:
  *     <none>
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall NtUserfnINPGESTURENOTIFYSTRUCT(
-        __int64 *a1,
-        unsigned int a2,
-        __int64 a3,
-        ULONG64 a4,
-        __int64 a5,
-        int a6)
+__int64 __fastcall NtUserfnINPGESTURENOTIFYSTRUCT(__int64 *a1, __int64 a2, __int64 a3, ULONG64 a4, __int64 a5, int a6)
 {
-  __int64 v10; // rbx
-  __int64 v11; // rcx
-  __int64 v12; // rax
-  __int64 v14; // [rsp+48h] [rbp-30h]
-  __int128 v15; // [rsp+50h] [rbp-28h] BYREF
-  __int64 v16; // [rsp+60h] [rbp-18h]
+  __int64 v6; // rbx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  __int64 v10; // [rsp+48h] [rbp-30h]
+  __int128 v11; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v12; // [rsp+60h] [rbp-18h]
 
-  v15 = 0LL;
-  v16 = 0LL;
-  W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  if ( a2 == 284 && a6 != 670 )
+  v11 = 0LL;
+  v12 = 0LL;
+  if ( (_DWORD)a2 == 284 && a6 != 670 )
   {
-    v10 = 0LL;
+    v6 = 0LL;
 LABEL_4:
-    v11 = 5LL;
+    v7 = 5LL;
     goto LABEL_5;
   }
   if ( a4 + 24 < a4 || a4 + 24 > MmUserProbeAddress )
     a4 = MmUserProbeAddress;
-  v14 = *(_QWORD *)(a4 + 16);
-  v15 = *(_OWORD *)a4;
-  v16 = v14;
-  v10 = 0LL;
-  if ( (_DWORD)v15 != 24 || !HIDWORD(v14) )
+  v10 = *(_QWORD *)(a4 + 16);
+  v11 = *(_OWORD *)a4;
+  v12 = v10;
+  v6 = 0LL;
+  if ( (_DWORD)v11 != 24 || !HIDWORD(v10) )
   {
-    v11 = 87LL;
+    v7 = 87LL;
     goto LABEL_5;
   }
-  if ( a2 == 284 )
+  if ( (_DWORD)a2 == 284 )
   {
-    v12 = 0LL;
+    v8 = 0LL;
     if ( a1 )
-      v12 = *a1;
-    if ( *((_QWORD *)&v15 + 1) != v12 )
+      v8 = *a1;
+    if ( *((_QWORD *)&v11 + 1) != v8 )
       goto LABEL_4;
   }
-  if ( !DWORD1(v15) )
-    return ((__int64 (__fastcall *)(__int64 *, _QWORD, __int64, __int128 *, __int64))mpFnidPfn[((_BYTE)a6 + 6) & 0x1F])(
+  if ( !DWORD1(v11) )
+    return ((__int64 (__fastcall *)(__int64 *, __int64, __int64, __int128 *, __int64))mpFnidPfn[((_BYTE)a6 + 6) & 0x1F])(
              a1,
              a2,
              a3,
-             &v15,
+             &v11,
              a5);
-  v11 = 1004LL;
+  v7 = 1004LL;
 LABEL_5:
-  UserSetLastError(v11, 284LL);
-  return v10;
+  UserSetLastError(v7, a2, a3);
+  return v6;
 }

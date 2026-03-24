@@ -1,16 +1,15 @@
 /*
- * XREFs of LinkLightShader @ 0x180018264
+ * XREFs of LinkLightShader @ 0x180019F44
  * Callers:
- *     AppendLights @ 0x18001845C (AppendLights.c)
+ *     AppendLights @ 0x180019D30 (AppendLights.c)
  * Callees:
- *     ?AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@@Z @ 0x1800355F0 (-AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V-$.c)
- *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x18003C050 (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     ?terminate@details@gsl@@YAXXZ @ 0x180190BB4 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@@Z @ 0x180048BD4 (-AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V-$.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall LinkLightShader(__int64 a1, _DWORD *a2, int a3, unsigned __int64 *a4, char a5, _WORD *a6)
+__int64 __fastcall LinkLightShader(__int64 a1, _DWORD *a2, int a3, unsigned __int64 *a4, char a5, unsigned __int16 *a6)
 {
   int v9; // ecx
   int appended; // eax
@@ -19,168 +18,173 @@ __int64 __fastcall LinkLightShader(__int64 a1, _DWORD *a2, int a3, unsigned __in
   _DWORD *v13; // rax
   int v14; // edi
   int v15; // edx
-  __int128 v17; // xmm0
-  unsigned __int64 v18; // rdx
+  __int128 v16; // xmm0
+  unsigned __int16 v17; // r10
+  unsigned __int64 v18; // r9
   unsigned __int64 v19; // r8
-  gsl::details *v20; // rcx
-  int v21; // edx
-  int v22; // edx
-  int v23; // edx
-  int v24; // r9d
-  unsigned int v25; // [rsp+20h] [rbp-59h]
-  __int128 v27; // [rsp+40h] [rbp-39h] BYREF
-  __int64 v28; // [rsp+50h] [rbp-29h] BYREF
-  __int128 v29; // [rsp+60h] [rbp-19h] BYREF
-  _WORD v30[8]; // [rsp+70h] [rbp-9h] BYREF
-  __int128 v31; // [rsp+80h] [rbp+7h] BYREF
+  unsigned int v20; // edx
+  __int64 v21; // rcx
+  __int16 v22; // ax
+  __int64 v23; // r9
+  int v25; // edx
+  int v26; // edx
+  unsigned int v27; // [rsp+20h] [rbp-49h]
+  __int128 v29; // [rsp+40h] [rbp-29h] BYREF
+  __int128 v30; // [rsp+50h] [rbp-19h] BYREF
+  _WORD v31[8]; // [rsp+60h] [rbp-9h] BYREF
+  int v32; // [rsp+70h] [rbp+7h] BYREF
+  unsigned __int16 v33; // [rsp+74h] [rbp+Bh]
+  int v34; // [rsp+76h] [rbp+Dh]
+  __int16 v35; // [rsp+7Ah] [rbp+11h]
 
-  if ( !a6 )
+  if ( a6 )
   {
-    v12 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024809, 0x39Du, 0LL);
-    return v12;
-  }
-  v9 = *(_DWORD *)(a1 + 80);
-  v31 = 0uLL;
-  v27 = 0uLL;
-  *(_DWORD *)(a1 + 80) = v9 + 1;
-  LOWORD(v9) = v9 | 0x600;
-  *a6 = v9;
-  appended = CShaderLinkingGraphBuilder::AppendNode(
-               a1,
-               (unsigned __int16)v9,
-               (unsigned int)&byte_18032C47F,
-               a3,
-               (__int64)"InitLightAccumulator",
-               (__int64)&v27);
-  v12 = appended;
-  if ( appended < 0 )
-  {
-    v25 = 930;
-    goto LABEL_37;
-  }
-  v13 = a2;
-  v14 = 0;
-  while ( 1 )
-  {
-    v11 = 4 * v14;
-    v15 = (*v13 >> (4 * v14)) & 0xF;
-    if ( v15 != 15 )
-      break;
-LABEL_5:
-    if ( (unsigned int)++v14 >= 3 )
-      return v12;
-  }
-  if ( !v15 )
-  {
-    if ( a5 )
+    v9 = *(_DWORD *)(a1 + 80);
+    v29 = 0LL;
+    *(_DWORD *)(a1 + 80) = v9 + 1;
+    LOWORD(v9) = v9 | 0x600;
+    *a6 = v9;
+    appended = CShaderLinkingGraphBuilder::AppendNode(
+                 a1,
+                 (unsigned __int16)v9,
+                 (unsigned int)&word_1802CE406,
+                 a3,
+                 (__int64)"InitLightAccumulator",
+                 (__int64)&v29);
+    v12 = appended;
+    if ( appended >= 0 )
     {
-      v17 = *(_OWORD *)"AmbientSceneLightingEffectLib";
-      strcpy((char *)v30, "tingEffectLib0");
+      v13 = a2;
+      v14 = 0;
+      while ( 1 )
+      {
+        v15 = (*v13 >> (4 * v14)) & 0xF;
+        if ( v15 == 15 )
+          goto LABEL_18;
+        if ( !v15 )
+        {
+          if ( a5 )
+          {
+            v16 = *(_OWORD *)"AmbientSceneLightingEffectLib";
+            strcpy((char *)v31, "tingEffectLib0");
+          }
+          else
+          {
+            v16 = *(_OWORD *)"AmbientLightingLib";
+            strcpy((char *)v31, "ib0");
+          }
+          goto LABEL_8;
+        }
+        v25 = v15 - 1;
+        if ( !v25 )
+        {
+          if ( a5 )
+          {
+            v16 = *(_OWORD *)"DistantSceneLightingEffectLib";
+            *(_WORD *)((char *)&v31[6] + 1) = (unsigned __int8)(v14 + 48);
+            qmemcpy(v31, "tingEffectLib", 13);
+          }
+          else
+          {
+            v16 = *(_OWORD *)"DistantLightingLib";
+            v31[0] = *(_WORD *)"ib";
+            v31[1] = (unsigned __int8)(v14 + 48);
+          }
+          goto LABEL_8;
+        }
+        v26 = v25 - 1;
+        if ( v26 )
+        {
+          if ( v26 != 1 )
+          {
+            v12 = -2147024809;
+            MilInstrumentationCheckHR_MaybeFailFast(4 * v14, 0LL, 0, -2147024809, 0x3AAu, 0LL);
+            return v12;
+          }
+          if ( a5 )
+          {
+            v16 = *(_OWORD *)"SpotSceneLightingEffectLib";
+            v31[5] = (unsigned __int8)(v14 + 48);
+            qmemcpy(v31, "gEffectLib", 10);
+LABEL_8:
+            v30 = v16;
+            goto LABEL_9;
+          }
+          HIBYTE(v30) = v14 + 48;
+          qmemcpy(&v30, "SpotLightingLib", 15);
+          LOBYTE(v31[0]) = 0;
+        }
+        else
+        {
+          if ( a5 )
+          {
+            v16 = *(_OWORD *)"PointSceneLightingEffectLib";
+            HIBYTE(v31[5]) = v14 + 48;
+            qmemcpy(v31, "ngEffectLib", 11);
+            LOBYTE(v31[6]) = 0;
+            goto LABEL_8;
+          }
+          v31[0] = (unsigned __int8)(v14 + 48);
+          v30 = *(_OWORD *)"PointLightingLib";
+        }
+LABEL_9:
+        v32 = 196610;
+        if ( v14 )
+          v32 = 327684;
+        v17 = *a6;
+        v18 = *a4;
+        v19 = 0LL;
+        v33 = *a6;
+        v34 = 0;
+        v20 = 3;
+        v35 = 0;
+        do
+        {
+          if ( (int)(v20 - 3) >= (__int64)v18 )
+            break;
+          if ( v19 >= v18 )
+            goto LABEL_36;
+          v21 = v20++;
+          v22 = *(_WORD *)(a4[1] + 2 * v19++);
+          *((_WORD *)&v32 + v21) = v22;
+        }
+        while ( v20 < 6 );
+        v23 = v18 + 3;
+        if ( v23 < 0 )
+        {
+LABEL_36:
+          ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
+          __debugbreak();
+        }
+        *(_QWORD *)&v29 = v23;
+        *((_QWORD *)&v29 + 1) = &v32;
+        appended = CShaderLinkingGraphBuilder::AppendNode(
+                     a1,
+                     v17,
+                     (unsigned int)&word_1802CE406,
+                     a3,
+                     (__int64)&v30,
+                     (__int64)&v29);
+        v12 = appended;
+        if ( appended < 0 )
+        {
+          v27 = 958;
+          goto LABEL_38;
+        }
+        v13 = a2;
+LABEL_18:
+        if ( (unsigned int)++v14 >= 3 )
+          return v12;
+      }
     }
-    else
-    {
-      v17 = *(_OWORD *)"AmbientLightingLib";
-      strcpy((char *)v30, "ib0");
-    }
-    goto LABEL_10;
-  }
-  v22 = v15 - 1;
-  if ( !v22 )
-  {
-    if ( a5 )
-    {
-      v17 = *(_OWORD *)"DistantSceneLightingEffectLib";
-      *(_WORD *)((char *)&v30[6] + 1) = (unsigned __int8)(v14 + 48);
-      qmemcpy(v30, "tingEffectLib", 13);
-    }
-    else
-    {
-      v17 = *(_OWORD *)"DistantLightingLib";
-      v30[0] = *(_WORD *)"ib";
-      v30[1] = (unsigned __int8)(v14 + 48);
-    }
-    goto LABEL_10;
-  }
-  v23 = v22 - 1;
-  if ( v23 )
-  {
-    if ( v23 != 1 )
-    {
-      v24 = -2147024809;
-      v12 = -2147024809;
-      v25 = 987;
-      goto LABEL_38;
-    }
-    if ( a5 )
-    {
-      v17 = *(_OWORD *)"SpotSceneLightingEffectLib";
-      v30[5] = (unsigned __int8)(v14 + 48);
-      qmemcpy(v30, "gEffectLib", 10);
-LABEL_10:
-      v29 = v17;
-      goto LABEL_11;
-    }
-    HIBYTE(v29) = v14 + 48;
-    qmemcpy(&v29, "SpotLightingLib", 15);
-    LOBYTE(v30[0]) = 0;
+    v27 = 881;
+LABEL_38:
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, appended, v27, 0LL);
   }
   else
   {
-    if ( a5 )
-    {
-      v17 = *(_OWORD *)"PointSceneLightingEffectLib";
-      HIBYTE(v30[5]) = v14 + 48;
-      qmemcpy(v30, "ngEffectLib", 11);
-      LOBYTE(v30[6]) = 0;
-      goto LABEL_10;
-    }
-    v30[0] = (unsigned __int8)(v14 + 48);
-    v29 = *(_OWORD *)"PointLightingLib";
+    v12 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2147024809, 0x36Cu, 0LL);
   }
-LABEL_11:
-  LODWORD(v31) = 196610;
-  if ( v14 )
-    LODWORD(v31) = 327684;
-  v18 = 0LL;
-  v19 = *a4;
-  WORD2(v31) = *a6;
-  *(_DWORD *)((char *)&v31 + 6) = 0;
-  WORD5(v31) = 0;
-  do
-  {
-    if ( v18 >= v19 )
-      break;
-    *((_WORD *)&v31 + v18 + 3) = *(_WORD *)(a4[1] + 2 * v18);
-    ++v18;
-  }
-  while ( v18 + 3 < 6 );
-  gsl::details::extent_type<-1>::extent_type<-1>(&v28, v19 + 3);
-  if ( v28 == -1 )
-  {
-    gsl::details::terminate(v20);
-    JUMPOUT(0x180018455LL);
-  }
-  v21 = (unsigned __int16)*a6;
-  *(_QWORD *)&v27 = v28;
-  *((_QWORD *)&v27 + 1) = &v31;
-  appended = CShaderLinkingGraphBuilder::AppendNode(
-               a1,
-               v21,
-               (unsigned int)&byte_18032C47F,
-               a3,
-               (__int64)&v29,
-               (__int64)&v27);
-  v12 = appended;
-  if ( appended >= 0 )
-  {
-    v13 = a2;
-    goto LABEL_5;
-  }
-  v25 = 1007;
-LABEL_37:
-  v24 = appended;
-LABEL_38:
-  MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v24, v25, 0LL);
   return v12;
 }

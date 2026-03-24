@@ -1,30 +1,29 @@
 /*
- * XREFs of HalpCmcPollProcessor @ 0x1403AAA5C
+ * XREFs of HalpCmcPollProcessor @ 0x1403A0B10
  * Callers:
- *     HalpCmciPollProcessor @ 0x1403AAA10 (HalpCmciPollProcessor.c)
- *     HalpCmcWorkerRoutine @ 0x140908680 (HalpCmcWorkerRoutine.c)
+ *     HalpCmciPollProcessor @ 0x1403A0AAC (HalpCmciPollProcessor.c)
+ *     HalpCmcWorkerRoutine @ 0x140864440 (HalpCmcWorkerRoutine.c)
  * Callees:
- *     KeQueryDpcWatchdogInformation @ 0x14021ACE0 (KeQueryDpcWatchdogInformation.c)
- *     HalpMcaReadErrorPresence @ 0x1403AACB4 (HalpMcaReadErrorPresence.c)
- *     HalpGetCpuVendor @ 0x1403AAE50 (HalpGetCpuVendor.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     HalpCmcIsDpcTimeRunningLow @ 0x1405062F4 (HalpCmcIsDpcTimeRunningLow.c)
- *     HalpCmcLogPollingTimeoutEvent @ 0x14050634C (HalpCmcLogPollingTimeoutEvent.c)
- *     HalpMcaClearError @ 0x140506CA4 (HalpMcaClearError.c)
- *     HalpMcaReadError @ 0x1405071C4 (HalpMcaReadError.c)
- *     HalpMcaReportError @ 0x14050745C (HalpMcaReportError.c)
+ *     KeQueryDpcWatchdogInformation @ 0x1402941D0 (KeQueryDpcWatchdogInformation.c)
+ *     HalpMcaReadErrorPresence @ 0x1403A0D98 (HalpMcaReadErrorPresence.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpCmcIsDpcTimeRunningLow @ 0x1404B99D4 (HalpCmcIsDpcTimeRunningLow.c)
+ *     HalpCmcLogPollingTimeoutEvent @ 0x1404B9A2C (HalpCmcLogPollingTimeoutEvent.c)
+ *     HalpMcaClearError @ 0x1404BA2E8 (HalpMcaClearError.c)
+ *     HalpMcaReadError @ 0x1404BA810 (HalpMcaReadError.c)
+ *     HalpMcaReportError @ 0x1404BAA90 (HalpMcaReportError.c)
  */
 
 __int64 __fastcall HalpCmcPollProcessor(__int64 a1, char a2, __int64 a3, __int64 a4)
 {
-  unsigned int v6; // esi
-  unsigned int v7; // r12d
+  unsigned int v4; // r14d
+  __int64 v5; // rcx
+  unsigned int v6; // r15d
   unsigned __int8 CurrentIrql; // di
-  __int64 v9; // rcx
   __int64 result; // rax
-  char v11; // r14
-  char v12; // r15
+  char v11; // si
+  char v12; // bp
   _DWORD *SchedulerAssist; // r9
   unsigned __int8 v14; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -32,32 +31,30 @@ __int64 __fastcall HalpCmcPollProcessor(__int64 a1, char a2, __int64 a3, __int64
   int v17; // eax
   bool v18; // zf
   __int64 v19; // rcx
-  __int64 v20; // rax
-  unsigned int v21; // ebp
-  __int64 v22; // rsi
-  unsigned __int8 v23; // al
-  struct _KPRCB *v24; // r10
-  _DWORD *v25; // r9
-  int v26; // eax
-  unsigned __int8 v27; // al
-  struct _KPRCB *v28; // r9
-  _DWORD *v29; // r8
-  int v30; // eax
-  char CpuVendor; // [rsp+31h] [rbp-57h]
-  int v33; // [rsp+34h] [rbp-54h] BYREF
-  __int64 v34; // [rsp+38h] [rbp-50h]
+  unsigned __int64 v20; // rax
+  __int64 v21; // rdx
+  unsigned __int8 v22; // al
+  struct _KPRCB *v23; // r10
+  _DWORD *v24; // r9
+  int v25; // eax
+  unsigned __int8 v26; // al
+  struct _KPRCB *v27; // r9
+  _DWORD *v28; // r8
+  int v29; // eax
+  int v31; // [rsp+34h] [rbp-54h] BYREF
+  __int64 v32; // [rsp+38h] [rbp-50h]
   _KDPC_WATCHDOG_INFORMATION WatchdogInformation; // [rsp+40h] [rbp-48h] BYREF
 
-  v33 = 0;
-  v34 = a1;
-  memset(&WatchdogInformation, 0, sizeof(WatchdogInformation));
+  v31 = 0;
+  v32 = a1;
+  v4 = 0;
+  v5 = 0LL;
   v6 = 0;
-  v7 = 0;
   CurrentIrql = 0;
-  CpuVendor = HalpGetCpuVendor();
+  memset(&WatchdogInformation, 0, sizeof(WatchdogInformation));
   while ( 1 )
   {
-    result = HalpMcaReadErrorPresence(v9, a3);
+    result = HalpMcaReadErrorPresence(v5, a3);
     if ( (int)result < 0 )
       break;
     v11 = 0;
@@ -106,7 +103,7 @@ __int64 __fastcall HalpCmcPollProcessor(__int64 a1, char a2, __int64 a3, __int64
     else
     {
 LABEL_22:
-      result = HalpMcaReadError(1, (int)v34 + 80, (unsigned int)&v33, 0, a3);
+      result = HalpMcaReadError(1, (int)v32 + 80, (unsigned int)&v31, 0, a3);
       if ( (int)result < 0 )
       {
         if ( a2 )
@@ -119,16 +116,16 @@ LABEL_22:
             {
               if ( (KiIrqlFlags & 1) != 0 )
               {
-                v27 = KeGetCurrentIrql();
-                if ( v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+                v26 = KeGetCurrentIrql();
+                if ( v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= 2u )
                 {
-                  v28 = KeGetCurrentPrcb();
-                  v29 = v28->SchedulerAssist;
-                  v30 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                  v18 = (v30 & v29[5]) == 0;
-                  v29[5] &= v30;
+                  v27 = KeGetCurrentPrcb();
+                  v28 = v27->SchedulerAssist;
+                  v29 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+                  v18 = (v29 & v28[5]) == 0;
+                  v28[5] &= v29;
                   if ( v18 )
-                    KiRemoveSystemWorkPriorityKick(v28);
+                    KiRemoveSystemWorkPriorityKick(v27);
                 }
               }
             }
@@ -138,17 +135,14 @@ LABEL_22:
         }
         break;
       }
-      v19 = v34;
-      if ( CpuVendor == 2 )
-        v20 = (*(_QWORD *)(v34 + 120) >> 38) & 0x7FFFLL;
-      else
-        LODWORD(v20) = 1;
-      *(_DWORD *)(v34 + 12) = 0;
-      v21 = v6 + v20;
-      v22 = v19 + 80;
-      *(_DWORD *)(v19 + 20) = v33;
-      HalpMcaReportError(v19, v19 + 80, a3);
-      HalpMcaClearError(v22, a3);
+      v19 = v32;
+      v20 = *(_QWORD *)(v32 + 120);
+      v21 = v32 + 80;
+      *(_DWORD *)(v32 + 12) = 0;
+      v4 += (v20 >> 38) & 0x7FFF;
+      *(_DWORD *)(v19 + 20) = v31;
+      HalpMcaReportError(v19, v21, a3);
+      HalpMcaClearError(v32 + 80, a3);
       if ( a2 )
       {
         if ( v11 )
@@ -159,35 +153,34 @@ LABEL_22:
           {
             if ( (KiIrqlFlags & 1) != 0 )
             {
-              v23 = KeGetCurrentIrql();
-              if ( v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
+              v22 = KeGetCurrentIrql();
+              if ( v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
               {
-                v24 = KeGetCurrentPrcb();
-                v25 = v24->SchedulerAssist;
-                v26 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                v18 = (v26 & v25[5]) == 0;
-                v25[5] &= v26;
+                v23 = KeGetCurrentPrcb();
+                v24 = v23->SchedulerAssist;
+                v25 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+                v18 = (v25 & v24[5]) == 0;
+                v24[5] &= v25;
                 if ( v18 )
-                  KiRemoveSystemWorkPriorityKick(v24);
+                  KiRemoveSystemWorkPriorityKick(v23);
               }
             }
           }
           __writecr8(CurrentIrql);
         }
       }
-      ++v7;
-      v6 = v21;
+      ++v6;
       if ( HalpCmcPollCount != -1 )
       {
         if ( HalpCmcPollCount )
         {
           result = (unsigned int)HalpCmcPollCount;
-          if ( v7 >= HalpCmcPollCount )
+          if ( v6 >= HalpCmcPollCount )
             break;
         }
       }
     }
-    v9 = 2LL;
+    v5 = 2LL;
     if ( KeGetCurrentIrql() >= 2u )
     {
       memset(&WatchdogInformation, 0, sizeof(WatchdogInformation));
@@ -195,14 +188,14 @@ LABEL_22:
       {
         if ( (unsigned __int8)HalpCmcIsDpcTimeRunningLow(&WatchdogInformation) )
         {
-          result = HalpCmcLogPollingTimeoutEvent(&WatchdogInformation, v7);
+          result = HalpCmcLogPollingTimeoutEvent(&WatchdogInformation, v6);
           break;
         }
       }
     }
   }
-  *(_DWORD *)(a4 + 164) = v6;
-  if ( v6 > *(_DWORD *)(a4 + 168) )
-    *(_DWORD *)(a4 + 168) = v6;
+  *(_DWORD *)(a4 + 156) = v4;
+  if ( v4 > *(_DWORD *)(a4 + 160) )
+    *(_DWORD *)(a4 + 160) = v4;
   return result;
 }

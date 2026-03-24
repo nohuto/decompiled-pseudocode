@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UpdatePointerAndDelayZoneInfo@DelayZoneTelemetry@@QEAAXW4CDelayZoneTelemetryContactArea@@UCDelayZonePanelTelemetryData@@PEBUtagPOINTER_INFO@@K@Z @ 0x1C01F7F88
+ * XREFs of ?UpdatePointerAndDelayZoneInfo@DelayZoneTelemetry@@QEAAXW4CDelayZoneTelemetryContactArea@@UCDelayZonePanelTelemetryData@@PEBUtagPOINTER_INFO@@K@Z @ 0x1C01BD724
  * Callers:
- *     ?ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01E625C (-ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z.c)
+ *     ?ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C01AD228 (-ProcessInput@DelayZonePalmRejection@@QEAA_NPEAX@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ?AddInputPanelRectToList@DelayZoneTelemetry@@AEAAXUtagRECT@@@Z @ 0x1C01F7AE8 (-AddInputPanelRectToList@DelayZoneTelemetry@@AEAAXUtagRECT@@@Z.c)
- *     ?HitTestInputPanelRegion@DelayZoneTelemetry@@AEAA_NUtagPOINT@@@Z @ 0x1C01F7CF0 (-HitTestInputPanelRegion@DelayZoneTelemetry@@AEAA_NUtagPOINT@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?AddInputPanelRectToList@DelayZoneTelemetry@@AEAAXUtagRECT@@@Z @ 0x1C01BD38C (-AddInputPanelRectToList@DelayZoneTelemetry@@AEAAXUtagRECT@@@Z.c)
+ *     ?HitTestInputPanelRegion@DelayZoneTelemetry@@AEAA_NUtagPOINT@@@Z @ 0x1C01BD494 (-HitTestInputPanelRegion@DelayZoneTelemetry@@AEAA_NUtagPOINT@@@Z.c)
  */
 
 void __fastcall DelayZoneTelemetry::UpdatePointerAndDelayZoneInfo(
@@ -26,9 +26,9 @@ void __fastcall DelayZoneTelemetry::UpdatePointerAndDelayZoneInfo(
   v11 = 6 * v9;
   *((_DWORD *)a1 + 12 * v9 + 517) = a3->left;
   *((_DWORD *)a1 + 12 * v9 + 518) = a3->top;
-  v12 = (int)qword_1C029CC80;
-  if ( qword_1C029CC80 )
-    v12 = qword_1C029CC80();
+  v12 = (int)qword_1C0258060;
+  if ( qword_1C0258060 )
+    v12 = qword_1C0258060();
   *((_DWORD *)a1 + 2 * v11 + 519) = v12;
   *((_DWORD *)a1 + 2 * v11 + 520) = a4->x;
   *((_DWORD *)a1 + 2 * v11 + 521) = a4[1].y;

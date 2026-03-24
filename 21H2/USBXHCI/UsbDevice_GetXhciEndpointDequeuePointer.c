@@ -1,10 +1,10 @@
 /*
- * XREFs of UsbDevice_GetXhciEndpointDequeuePointer @ 0x1C000BFCC
+ * XREFs of UsbDevice_GetXhciEndpointDequeuePointer @ 0x1C0010020
  * Callers:
- *     Endpoint_OnCancelStopCompletion @ 0x1C000BDE0 (Endpoint_OnCancelStopCompletion.c)
+ *     Endpoint_OnCancelStopCompletion @ 0x1C000FBA0 (Endpoint_OnCancelStopCompletion.c)
  * Callees:
- *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C000154C (XilUsbDevice_GetDeviceContextBufferVA.c)
- *     XilDeviceSlot_SendQueryEndpointContextInfoRequest @ 0x1C0036D28 (XilDeviceSlot_SendQueryEndpointContextInfoRequest.c)
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C00057C4 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     XilDeviceSlot_SendQueryEndpointContextInfoRequest @ 0x1C0036AE8 (XilDeviceSlot_SendQueryEndpointContextInfoRequest.c)
  */
 
 __int64 __fastcall UsbDevice_GetXhciEndpointDequeuePointer(__int64 a1, int a2)
@@ -28,7 +28,7 @@ __int64 __fastcall UsbDevice_GetXhciEndpointDequeuePointer(__int64 a1, int a2)
   }
   else
   {
-    if ( (*(_DWORD *)(*(_QWORD *)(v2 + 88) + 100LL) & 4) != 0 )
+    if ( (*(_DWORD *)(*(_QWORD *)(v2 + 88) + 104LL) & 4) != 0 )
     {
       DeviceContextBufferVA = XilUsbDevice_GetDeviceContextBufferVA(a1);
       v6 = (v8 << 6) + 72;

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExWakeTimersResume @ 0x1403982A0
+ * XREFs of ExWakeTimersResume @ 0x14038D480
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     ExpTimerResume @ 0x14025383C (ExpTimerResume.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     ExpTimerResume @ 0x1402C55BC (ExpTimerResume.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 ExWakeTimersResume()
@@ -15,11 +15,11 @@ __int64 ExWakeTimersResume()
   unsigned __int8 CurrentIrql; // di
   __int64 v1; // r15
   __int64 *v2; // rsi
-  __int64 *v3; // rbp
-  __int64 v4; // rax
   __int64 result; // rax
-  char v6; // bl
+  char v4; // bl
   _DWORD *SchedulerAssist; // r9
+  __int64 *v6; // rbp
+  __int64 v7; // rax
   unsigned __int8 v8; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *v10; // r9
@@ -37,16 +37,16 @@ __int64 ExWakeTimersResume()
   v2 = (__int64 *)ExpWakeTimerList;
   while ( v2 != &ExpWakeTimerList )
   {
-    v3 = v2 - 33;
+    v6 = v2 - 33;
     v2 = (__int64 *)*v2;
-    KxAcquireSpinLock((PKSPIN_LOCK)v3 + 8);
-    if ( v3[32] )
+    KxAcquireSpinLock((PKSPIN_LOCK)v6 + 8);
+    if ( v6[32] )
     {
-      v4 = v3[35];
-      if ( !v4 || (*(_DWORD *)(v4 + 632) & 8) == 0 )
-        ExpTimerResume((PKTIMER)v3, v1);
+      v7 = v6[35];
+      if ( !v7 || (*(_DWORD *)(v7 + 632) & 8) == 0 )
+        ExpTimerResume((PKTIMER)v6, v1);
     }
-    KxReleaseSpinLock((PKSPIN_LOCK)v3 + 8);
+    KxReleaseSpinLock((PKSPIN_LOCK)v6 + 8);
   }
   if ( KiIrqlFlags )
   {
@@ -67,8 +67,8 @@ __int64 ExWakeTimersResume()
   }
   result = CurrentIrql;
   __writecr8(CurrentIrql);
-  v6 = _InterlockedExchangeAdd64((volatile signed __int64 *)&ExpWakeTimerLock, 0xFFFFFFFFFFFFFFFFuLL);
-  if ( (v6 & 2) != 0 && (v6 & 4) == 0 )
+  v4 = _InterlockedExchangeAdd64((volatile signed __int64 *)&ExpWakeTimerLock, 0xFFFFFFFFFFFFFFFFuLL);
+  if ( (v4 & 2) != 0 && (v4 & 4) == 0 )
     return ExfTryToWakePushLock(&ExpWakeTimerLock);
   return result;
 }

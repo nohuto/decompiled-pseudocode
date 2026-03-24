@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpInitMap @ 0x14074EF80
+ * XREFs of HvpInitMap @ 0x14072336C
  * Callers:
- *     HvLoadHive @ 0x14074F254 (HvLoadHive.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x1408272D8 (HvpBuildMapForMemoryBackedHive.c)
+ *     HvLoadHive @ 0x140721B18 (HvLoadHive.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x1407B233C (HvpBuildMapForMemoryBackedHive.c)
  * Callees:
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     HvpFreeMap @ 0x1407E1348 (HvpFreeMap.c)
- *     HvpAllocateMap @ 0x1407E6CE8 (HvpAllocateMap.c)
+ *     SetFailureLocation @ 0x14031DB78 (SetFailureLocation.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HvpFreeMap @ 0x14069E438 (HvpFreeMap.c)
+ *     HvpAllocateMap @ 0x140724D80 (HvpAllocateMap.c)
  */
 
 __int64 __fastcall HvpInitMap(__int64 a1, __int64 a2)
@@ -16,19 +16,20 @@ __int64 __fastcall HvpInitMap(__int64 a1, __int64 a2)
   unsigned int v2; // r15d
   __int64 v3; // r12
   void *v4; // r13
-  void *v5; // r14
+  void *v5; // rbp
   unsigned int v7; // esi
   unsigned int v8; // eax
-  unsigned int v9; // ebp
+  unsigned int v9; // r14d
   __int64 v10; // rdx
   unsigned int v11; // esi
   __int64 (__fastcall *v12)(__int64, _QWORD, __int64); // rax
   void *v13; // rax
   void *v14; // rbx
-  _QWORD *v15; // rax
-  void *v16; // rsi
-  void *v18; // rax
-  unsigned int v19; // ebx
+  __int64 v15; // rsi
+  __int64 result; // rax
+  void *v17; // rax
+  unsigned int v18; // ebx
+  int v19; // r9d
   int v20; // [rsp+20h] [rbp-38h]
 
   v2 = 0;
@@ -38,7 +39,7 @@ __int64 __fastcall HvpInitMap(__int64 a1, __int64 a2)
   v7 = *(_DWORD *)(*(_QWORD *)(a1 + 64) + 40LL);
   if ( (v7 & 0xFFF) != 0 )
   {
-    v19 = -1073741492;
+    v18 = -1073741492;
     SetFailureLocation(v3, 0, 5, -1073741492, 0);
   }
   else
@@ -48,7 +49,7 @@ __int64 __fastcall HvpInitMap(__int64 a1, __int64 a2)
       v9 = (v8 - 1) >> 9;
     else
       v9 = 0;
-    *(_DWORD *)(a1 + 280) = v7;
+    *(_DWORD *)(a1 + 272) = v7;
     if ( *(_QWORD *)(a1 + 96) )
       goto LABEL_10;
     v2 = (v8 + 3) & 0xFFFFFFFC;
@@ -63,8 +64,7 @@ __int64 __fastcall HvpInitMap(__int64 a1, __int64 a2)
       if ( !v5 )
       {
         v19 = -1073741801;
-        SetFailureLocation(v3, 0, 5, -1073741801, 32);
-        goto LABEL_27;
+        goto LABEL_23;
       }
       memset(v4, 0, v2);
       memset(v5, 0, v2);
@@ -78,63 +78,61 @@ LABEL_10:
       v12 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64))(a1 + 24);
       if ( v9 )
       {
-        v18 = (void *)v12(0x2000LL, 0LL, 942820675LL);
-        v16 = v18;
-        if ( v18 )
+        v17 = (void *)v12(0x2000LL, 0LL, 942820675LL);
+        v15 = (__int64)v17;
+        if ( v17 )
         {
-          memset(v18, 0, 0x2000uLL);
-          if ( (unsigned __int8)HvpAllocateMap(a1, v16, 0LL, v9) )
+          memset(v17, 0, 0x2000uLL);
+          if ( (unsigned __int8)HvpAllocateMap(a1, v15, 0LL, v9) )
           {
-            v15 = (_QWORD *)(a1 + 296);
             v14 = 0LL;
             goto LABEL_13;
           }
-          v19 = -1073741670;
+          v18 = -1073741670;
           SetFailureLocation(v3, 0, 5, -1073741670, 64);
-          HvpFreeMap(a1, v16, 0LL, v9);
-          (*(void (__fastcall **)(void *, __int64))(a1 + 32))(v16, 0x2000LL);
-LABEL_26:
-          if ( !v4 )
-          {
-LABEL_30:
-            if ( v5 )
-            {
-              if ( *(void **)(a1 + 120) == v5 )
-                *(_QWORD *)(a1 + 120) = 0LL;
-              (*(void (__fastcall **)(void *, _QWORD))(a1 + 32))(v5, v2);
-            }
-            return v19;
-          }
+          HvpFreeMap(a1, v15, 0, v9);
+          (*(void (__fastcall **)(__int64, __int64))(a1 + 32))(v15, 0x2000LL);
+          goto LABEL_27;
+        }
+        v19 = -1073741670;
+        v20 = 48;
+LABEL_25:
+        v18 = v19;
+        SetFailureLocation(v3, 0, 5, v19, v20);
 LABEL_27:
+        if ( v4 )
+        {
           if ( *(void **)(a1 + 96) == v4 )
             *(_QWORD *)(a1 + 96) = 0LL;
           (*(void (__fastcall **)(void *, _QWORD))(a1 + 32))(v4, v2);
-          goto LABEL_30;
         }
-        v20 = 48;
-      }
-      else
-      {
-        v13 = (void *)v12(12288LL, 0LL, 909266243LL);
-        v14 = v13;
-        if ( v13 )
+        if ( v5 )
         {
-          memset(v13, 0, 0x3000uLL);
-          v15 = (_QWORD *)(a1 + 296);
-          v16 = (void *)(a1 + 296);
-LABEL_13:
-          *(_QWORD *)(a1 + 288) = v16;
-          *v15 = v14;
-          return 0LL;
+          if ( *(void **)(a1 + 120) == v5 )
+            *(_QWORD *)(a1 + 120) = 0LL;
+          (*(void (__fastcall **)(void *, _QWORD))(a1 + 32))(v5, v2);
         }
-        v20 = 32;
+        return v18;
+      }
+      v13 = (void *)v12(12288LL, 0LL, 909266243LL);
+      v14 = v13;
+      if ( v13 )
+      {
+        memset(v13, 0, 0x3000uLL);
+        v15 = a1 + 288;
+LABEL_13:
+        *(_QWORD *)(a1 + 280) = v15;
+        result = 0LL;
+        *(_QWORD *)(a1 + 288) = v14;
+        return result;
       }
       v19 = -1073741670;
-      SetFailureLocation(v3, 0, 5, -1073741670, v20);
-      goto LABEL_26;
+LABEL_23:
+      v20 = 32;
+      goto LABEL_25;
     }
-    v19 = -1073741801;
+    v18 = -1073741801;
     SetFailureLocation(v3, 0, 5, -1073741801, 16);
   }
-  return v19;
+  return v18;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vStrMirror08@@YAXPEAVSURFACE@@@Z @ 0x1C02E3200
+ * XREFs of ?vStrMirror08@@YAXPEAVSURFACE@@@Z @ 0x1C02C3470
  * Callers:
  *     <none>
  * Callees:
@@ -8,35 +8,32 @@
 
 void __fastcall vStrMirror08(struct SURFACE *a1)
 {
-  int v1; // r8d
-  char *v3; // r11
-  int v4; // ebx
+  char *v2; // r9
+  int v3; // r11d
   __int64 i; // rdi
+  char *v5; // rdx
   char *v6; // r10
-  char *v7; // rdx
-  __int64 v8; // r8
-  char v9; // cl
+  __int64 v7; // rbx
+  char v8; // cl
 
-  v1 = *((_DWORD *)a1 + 14);
-  v3 = (char *)*((_QWORD *)a1 + 10);
-  v4 = 0;
-  for ( i = (unsigned int)(v1 / 2); v4 < *((_DWORD *)a1 + 15); v3 += *((int *)a1 + 22) )
+  v2 = (char *)*((_QWORD *)a1 + 10);
+  v3 = 0;
+  for ( i = (unsigned int)(*((_DWORD *)a1 + 14) / 2); v3 < *((_DWORD *)a1 + 15); v2 += *((int *)a1 + 22) )
   {
-    v6 = &v3[v1 - 1];
-    v7 = v3;
+    v5 = v2;
+    v6 = &v2[*((int *)a1 + 14) - 1];
     if ( (int)i > 0 )
     {
-      v8 = i;
+      v7 = i;
       do
       {
-        v9 = *v7;
-        *v7++ = *v6;
-        *v6-- = v9;
-        --v8;
+        v8 = *v5;
+        *v5++ = *v6;
+        *v6-- = v8;
+        --v7;
       }
-      while ( v8 );
-      v1 = *((_DWORD *)a1 + 14);
+      while ( v7 );
     }
-    ++v4;
+    ++v3;
   }
 }

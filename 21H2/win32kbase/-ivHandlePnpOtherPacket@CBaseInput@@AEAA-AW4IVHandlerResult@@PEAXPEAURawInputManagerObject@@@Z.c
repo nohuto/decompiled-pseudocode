@@ -1,51 +1,44 @@
 /*
- * XREFs of ?ivHandlePnpOtherPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01EE8C0
+ * XREFs of ?ivHandlePnpOtherPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C01B8CE0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     ?wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C00384DC (-wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IH.c)
- *     RIMVirtQueueRimDevChangeAsyncWorkItem @ 0x1C01AB59C (RIMVirtQueueRimDevChangeAsyncWorkItem.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003CBE8 (WPP_RECORDER_SF_.c)
+ *     rimDoVirtRimDevChange @ 0x1C016D964 (rimDoVirtRimDevChange.c)
+ *     ??1CIVSerializer@@QEAA@XZ @ 0x1C01B3D5C (--1CIVSerializer@@QEAA@XZ.c)
  */
 
-__int64 __fastcall CBaseInput::ivHandlePnpOtherPacket(__int64 a1, __int64 a2, struct RawInputManagerObject *a3)
+__int64 __fastcall CBaseInput::ivHandlePnpOtherPacket(__int64 a1, __int64 a2, _QWORD *a3)
 {
-  struct RawInputManagerObject *v3; // rdi
   __int64 v4; // rbx
-  __int128 v5; // xmm6
-  int v6; // ebx
-  __int128 v8; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v5; // rcx
+  UNICODE_STRING v6; // xmm0
+  int v7; // r8d
+  UNICODE_STRING String1; // [rsp+30h] [rbp-58h] BYREF
+  _BYTE v10[16]; // [rsp+40h] [rbp-48h] BYREF
+  __int64 v11; // [rsp+50h] [rbp-38h]
+  __int64 v12; // [rsp+58h] [rbp-30h]
+  __int64 v13; // [rsp+60h] [rbp-28h]
+  __int64 v14; // [rsp+68h] [rbp-20h]
+  char v15; // [rsp+70h] [rbp-18h]
 
-  v3 = a3;
   v4 = a2;
-  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x800) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      (_DWORD)a3,
-      WPP_MAIN_CB.Queue.ListEntry.Flink,
-      4,
-      12,
-      34,
-      (__int64)&WPP_4c82548882e434c25d4dd8d26e311b60_Traceguids);
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_((_DWORD)gBaseLog, a2, 12, 38, (__int64)&WPP_2ccd359dbff93ea23c150f58e4d81fa3_Traceguids);
   }
-  *(_QWORD *)(v4 + 16) = v4 + (*(_QWORD *)(v4 + 16) & 0xFFFFFFFFFFFFFFFEuLL);
-  v5 = *(_OWORD *)(v4 + 8);
-  v6 = *(_DWORD *)v4;
-  wil_details_FeatureReporting_ReportUsageToService(
-    (__int64)&Feature_RIMVirtPnpQuickRelease__private_reporting,
-    30688442LL,
-    0LL,
-    0LL,
-    (const struct FEATURE_LOGGED_TRAITS *)&Feature_Vail_logged_traits,
-    1,
-    3);
-  v8 = v5;
-  RIMVirtQueueRimDevChangeAsyncWorkItem(v3, (__int64)&v8, v6);
+  v5 = *(_QWORD *)(v4 + 16);
+  v11 = v4;
+  v12 = 0LL;
+  v13 = 0LL;
+  *(_QWORD *)(v4 + 16) = v4 + (v5 & 0xFFFFFFFFFFFFFFFEuLL);
+  v6 = *(UNICODE_STRING *)(v4 + 8);
+  v7 = *(_DWORD *)v4;
+  v14 = 0LL;
+  String1 = v6;
+  v15 = 1;
+  rimDoVirtRimDevChange(a3, &String1, v7);
+  CIVSerializer::~CIVSerializer((CIVSerializer *)v10);
   return 1LL;
 }

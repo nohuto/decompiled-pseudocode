@@ -1,54 +1,48 @@
 /*
- * XREFs of KiFlushCurrentTbOnly @ 0x1403BDCC0
+ * XREFs of KiFlushCurrentTbOnly @ 0x140396D7C
  * Callers:
- *     KeFlushTb @ 0x140279850 (KeFlushTb.c)
- *     KeFlushCurrentTbOnly @ 0x14038A330 (KeFlushCurrentTbOnly.c)
+ *     KeFlushTb @ 0x14022FA90 (KeFlushTb.c)
+ *     KeFlushCurrentTbOnly @ 0x1403B6E38 (KeFlushCurrentTbOnly.c)
  * Callees:
- *     KiSetUserTbFlushPending @ 0x14041FAA0 (KiSetUserTbFlushPending.c)
+ *     KiSetUserTbFlushPending @ 0x1403FEB70 (KiSetUserTbFlushPending.c)
  */
 
-struct _KTHREAD *__fastcall KiFlushCurrentTbOnly(int a1, __int64 a2, __int64 a3)
+struct _KTHREAD *__fastcall KiFlushCurrentTbOnly(int a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned __int64 v3; // rax
+  unsigned __int64 v4; // rax
   struct _KTHREAD *result; // rax
   _KPROCESS *Process; // rcx
-  unsigned __int64 v6; // rcx
+  unsigned __int64 v7; // rcx
 
   if ( KiKvaShadow )
   {
-    if ( a1 != 1 && (!a1 || a1 == 2) )
-      goto LABEL_8;
-    if ( KiFlushPcid )
-      goto LABEL_4;
-    v6 = __readcr4();
-    if ( (v6 & 0x20080) != 0 )
+    if ( !a1 || a1 == 2 )
+      goto LABEL_7;
+  }
+  else if ( a1 && a1 <= 2 )
+  {
+    goto LABEL_7;
+  }
+  if ( !KiFlushPcid )
+  {
+    v7 = __readcr4();
+    if ( (v7 & 0x20080) != 0 )
     {
-LABEL_15:
-      result = (struct _KTHREAD *)(v6 ^ 0x80);
-      __writecr4(v6 ^ 0x80);
-      __writecr4(v6);
+      result = (struct _KTHREAD *)(v7 ^ 0x80);
+      __writecr4(v7 ^ 0x80);
+      __writecr4(v7);
       return result;
     }
-LABEL_8:
+LABEL_7:
     result = (struct _KTHREAD *)__readcr3();
     __writecr3((unsigned __int64)result);
     return result;
   }
-  if ( a1 && (unsigned int)(a1 - 1) < 2 )
-    goto LABEL_8;
-  if ( !KiFlushPcid )
-  {
-    v6 = __readcr4();
-    if ( (v6 & 0x20080) != 0 )
-      goto LABEL_15;
-    goto LABEL_8;
-  }
-LABEL_4:
-  v3 = __readcr3();
-  __writecr3(v3);
+  v4 = __readcr3();
+  __writecr3(v4);
   result = KeGetCurrentThread();
   Process = result->ApcState.Process;
   if ( !Process->AddressPolicy )
-    return (struct _KTHREAD *)KiSetUserTbFlushPending(Process, a2, a3);
+    return (struct _KTHREAD *)KiSetUserTbFlushPending(Process, 0LL, a3, a4);
   return result;
 }

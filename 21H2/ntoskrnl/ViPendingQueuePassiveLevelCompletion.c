@@ -1,13 +1,13 @@
 /*
- * XREFs of ViPendingQueuePassiveLevelCompletion @ 0x140A914C4
+ * XREFs of ViPendingQueuePassiveLevelCompletion @ 0x1409D5DE4
  * Callers:
- *     ViPendingDelayCompletion @ 0x140A91368 (ViPendingDelayCompletion.c)
+ *     ViPendingDelayCompletion @ 0x1409D5C78 (ViPendingDelayCompletion.c)
  * Callees:
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetPriorityThread @ 0x140344340 (KeSetPriorityThread.c)
- *     KeQueryPriorityThread @ 0x14035D5C0 (KeQueryPriorityThread.c)
- *     ViPendingTryReserveWorker @ 0x1405FF994 (ViPendingTryReserveWorker.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetPriorityThread @ 0x140257AE0 (KeSetPriorityThread.c)
+ *     KeQueryPriorityThread @ 0x1402DA450 (KeQueryPriorityThread.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     ViPendingTryReserveWorker @ 0x1405A1D10 (ViPendingTryReserveWorker.c)
  */
 
 __int64 __fastcall ViPendingQueuePassiveLevelCompletion(signed __int64 a1)
@@ -27,12 +27,12 @@ __int64 __fastcall ViPendingQueuePassiveLevelCompletion(signed __int64 a1)
   v5 = ViPendingTryReserveWorker(a1);
   if ( v5 == -1 )
   {
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return 0LL;
   }
   v7 = 48LL * v5;
   KeSetPriorityThread(*(PKTHREAD *)((char *)&ViPendingWorkers + v7), v4);
   KeSetEvent((PRKEVENT)((char *)&ViPendingWorkers + v7 + 16), 0, 0);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return 1LL;
 }

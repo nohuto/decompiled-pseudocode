@@ -1,309 +1,320 @@
 /*
- * XREFs of GreGetBoundsRect @ 0x1C0009A58
+ * XREFs of GreGetBoundsRect @ 0x1C00FC608
  * Callers:
- *     NtGdiGetBoundsRect @ 0x1C00099F0 (NtGdiGetBoundsRect.c)
+ *     NtGdiGetBoundsRect @ 0x1C00FC5A0 (NtGdiGetBoundsRect.c)
  * Callees:
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C0099E60 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00ABF38 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
- *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C00DA0C8 (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
- *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C00DC274 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00DCB64 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C00E0C40 (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
- *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C011B310 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
- *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C011BFB4 (--0DLODCOBJ@@QEAA@XZ.c)
- *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C011C01C (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C011C160 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013E000 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E920 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00AC9D8 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C00ACA04 (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
+ *     ??0DLODCOBJ@@QEAA@XZ @ 0x1C00B2904 (--0DLODCOBJ@@QEAA@XZ.c)
+ *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C00B2D5C (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C00B6050 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
+ *     ?bWrapped@ERECTL@@QEBAHXZ @ 0x1C00B7700 (-bWrapped@ERECTL@@QEBAHXZ.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FD8F4 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C01698C8 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ *     ??0?$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ @ 0x1C0169DAC (--0-$UnexpectedThreadTerminationHandler@VDCOBJ@@@@QEAA@XZ.c)
+ *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C016A038 (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C016A21C (--1MDCOBJ@@QEAA@XZ.c)
  */
 
 __int64 __fastcall GreGetBoundsRect(HDC a1, struct _POINTL *a2, __int16 a3)
 {
-  __int64 v5; // rdx
   unsigned int v6; // edi
-  struct tagRECT *v7; // rbx
+  char *v7; // rbx
   __m128i v8; // xmm1
-  __int64 v9; // rcx
-  int v10; // eax
-  LONG left; // r8d
-  LONG right; // r9d
-  int v13; // eax
-  LONG top; // ecx
-  LONG bottom; // r10d
-  __int128 v16; // xmm0
-  LONG v17; // ecx
+  char *v9; // rcx
+  LONG v10; // edx
+  signed __int32 v11; // r8d
+  int v12; // eax
+  LONG v13; // ecx
+  LONG v14; // r9d
+  LONG v15; // eax
+  LONG v16; // eax
+  LONG v17; // eax
   LONG v18; // eax
-  LONG v19; // edx
-  LONG v20; // r8d
+  __int128 v19; // xmm0
+  LONG v20; // ecx
   LONG v21; // eax
-  LONG v22; // r9d
-  LONG v23; // eax
+  LONG v22; // edx
+  LONG v23; // r8d
   LONG v24; // eax
-  LONG v25; // eax
+  LONG v25; // r9d
   LONG v26; // eax
   LONG v27; // eax
-  LONG v28; // edx
-  LONG v29; // r8d
-  LONG v30; // ecx
-  LONG v31; // eax
-  LONG v32; // eax
-  LONG v33; // r9d
+  LONG v28; // eax
+  LONG v29; // eax
+  LONG v30; // eax
+  LONG v31; // edx
+  LONG v32; // r8d
+  LONG v33; // ecx
   LONG v34; // eax
   LONG v35; // eax
-  LONG v36; // eax
+  LONG v36; // r9d
   LONG v37; // eax
   LONG v38; // eax
-  _QWORD v40[2]; // [rsp+20h] [rbp-99h] BYREF
-  _QWORD v41[2]; // [rsp+30h] [rbp-89h] BYREF
-  _BYTE v42[32]; // [rsp+40h] [rbp-79h] BYREF
-  _BYTE v43[32]; // [rsp+60h] [rbp-59h] BYREF
-  _QWORD v44[2]; // [rsp+80h] [rbp-39h] BYREF
-  _BYTE v45[64]; // [rsp+90h] [rbp-29h] BYREF
-  struct _POINTL v46[2]; // [rsp+D0h] [rbp+17h] BYREF
+  LONG v39; // eax
+  LONG v40; // eax
+  LONG v41; // eax
+  DC *v43; // [rsp+20h] [rbp-99h] BYREF
+  int v44; // [rsp+28h] [rbp-91h]
+  int v45; // [rsp+2Ch] [rbp-8Dh]
+  _BYTE v46[32]; // [rsp+30h] [rbp-89h] BYREF
+  _QWORD v47[2]; // [rsp+50h] [rbp-69h] BYREF
+  _BYTE v48[32]; // [rsp+60h] [rbp-59h] BYREF
+  _QWORD v49[2]; // [rsp+80h] [rbp-39h] BYREF
+  _BYTE v50[64]; // [rsp+90h] [rbp-29h] BYREF
+  struct _POINTL v51[2]; // [rsp+D0h] [rbp+17h] BYREF
   LONG x; // [rsp+E0h] [rbp+27h]
   LONG y; // [rsp+E4h] [rbp+2Bh]
-  LONG v49; // [rsp+E8h] [rbp+2Fh]
-  LONG v50; // [rsp+ECh] [rbp+33h]
+  LONG v54; // [rsp+E8h] [rbp+2Fh]
+  LONG v55; // [rsp+ECh] [rbp+33h]
 
-  DCOBJ::DCOBJ((DCOBJ *)v41, a1);
-  v5 = v41[0];
+  v43 = 0LL;
+  v44 = 0;
+  v45 = 0;
+  UnexpectedThreadTerminationHandler<DCOBJ>::UnexpectedThreadTerminationHandler<DCOBJ>(v46);
+  XDCOBJ::vLock((XDCOBJ *)&v43, a1);
   v6 = 3;
-  if ( !v41[0] )
+  if ( !v43 )
   {
     v6 = 0;
-    goto LABEL_97;
+    goto LABEL_99;
   }
   v7 = 0LL;
   if ( a3 < 0 )
   {
-    v7 = (struct tagRECT *)(v41[0] + 1064LL);
-LABEL_5:
-    if ( (unsigned int)IsRectEmptyInl(v7) )
-    {
-LABEL_6:
-      v6 = 1;
-      goto LABEL_97;
-    }
-    *(struct tagRECT *)&a2->x = *v7;
-    goto LABEL_95;
+    v7 = (char *)v43 + 1064;
+    if ( *((_DWORD *)v43 + 266) < *((_DWORD *)v43 + 268) && *((_DWORD *)v43 + 267) < *((_DWORD *)v43 + 269) )
+      goto LABEL_6;
+    goto LABEL_9;
   }
   if ( (a3 & 0x4000) != 0 )
   {
-    v7 = (struct tagRECT *)(v41[0] + 1080LL);
-    goto LABEL_5;
+    v7 = (char *)v43 + 1080;
+    if ( !ERECTL::bWrapped((DC *)((char *)v43 + 1080)) )
+    {
+LABEL_6:
+      *(_OWORD *)&a2->x = *(_OWORD *)v7;
+LABEL_97:
+      if ( (a3 & 1) != 0 )
+      {
+        *((_DWORD *)v7 + 1) = 0x7FFFFFFF;
+        *(_DWORD *)v7 = 0x7FFFFFFF;
+        *((_DWORD *)v7 + 3) = 0x80000000;
+        *((_DWORD *)v7 + 2) = 0x80000000;
+      }
+      goto LABEL_99;
+    }
+LABEL_9:
+    v6 = 1;
+    goto LABEL_99;
   }
-  if ( (unsigned int)IsRectEmptyInl((const struct tagRECT *)(v41[0] + 1096LL)) )
-    goto LABEL_6;
-  DLODCOBJ::DLODCOBJ((DLODCOBJ *)v44);
-  DEVLOCKOBJ::bLock((DEVLOCKOBJ *)v43, (struct XDCOBJ *)v41, 0);
-  if ( (v43[24] & 1) == 0 )
+  if ( ERECTL::bWrapped((DC *)((char *)v43 + 1096)) )
+    goto LABEL_9;
+  DLODCOBJ::DLODCOBJ((DLODCOBJ *)v49);
+  DEVLOCKOBJ::bLock((DEVLOCKOBJ *)v48, (struct XDCOBJ *)&v43, 0);
+  if ( (v48[24] & 1) == 0 )
   {
-    v6 = XDCOBJ::bFullScreen((XDCOBJ *)v41) != 0;
-    goto LABEL_92;
+    v6 = XDCOBJ::bFullScreen((XDCOBJ *)&v43) != 0;
+    goto LABEL_94;
   }
-  v8 = *(__m128i *)((char *)XDCOBJ::prgnEffRao((XDCOBJ *)v41) + 56);
-  v7 = (struct tagRECT *)(v41[0] + 1096LL);
-  v9 = *(_DWORD *)(v41[0] + 40LL) & 1;
-  v10 = *(_DWORD *)(v41[0] + 8 * v9 + 1016);
-  left = _mm_cvtsi128_si32(v8) - v10;
-  right = _mm_cvtsi128_si32(_mm_srli_si128(v8, 8)) - v10;
-  v13 = *(_DWORD *)(v41[0] + 8 * v9 + 1020);
-  top = _mm_cvtsi128_si32(_mm_srli_si128(v8, 4)) - v13;
-  bottom = _mm_cvtsi128_si32(_mm_srli_si128(v8, 12)) - v13;
-  if ( *(_DWORD *)(v41[0] + 1096LL) > left )
-    left = v7->left;
-  a2->x = left;
-  if ( v7->right < right )
-    right = v7->right;
-  a2[1].x = right;
-  if ( v7->top > top )
-    top = v7->top;
-  a2->y = top;
-  if ( v7->bottom < bottom )
-    bottom = v7->bottom;
-  a2[1].y = bottom;
-  EXFORMOBJ::vQuickInit((EXFORMOBJ *)v40, (struct XDCOBJ *)v41, 0x402u);
-  if ( !v40[0] )
-    goto LABEL_26;
-  if ( (*(_DWORD *)(v40[0] + 32LL) & 1) != 0 )
+  v8 = *((__m128i *)XDCOBJ::prgnEffRao(&v43) + 6);
+  v7 = (char *)v43 + 1096;
+  v9 = (char *)v43 + 1024;
+  if ( (*((_DWORD *)v43 + 10) & 1) == 0 )
+    v9 = (char *)v43 + 1016;
+  v10 = v8.m128i_i32[0] - *(_DWORD *)v9;
+  v11 = _mm_srli_si128(v8, 8).m128i_u32[0] - *(_DWORD *)v9;
+  v12 = *((_DWORD *)v9 + 1);
+  v13 = _mm_cvtsi128_si32(_mm_srli_si128(v8, 4)) - v12;
+  v14 = _mm_cvtsi128_si32(_mm_srli_si128(v8, 12)) - v12;
+  v15 = *(_DWORD *)v7;
+  if ( *(_DWORD *)v7 <= v10 )
+    v15 = v10;
+  a2->x = v15;
+  v16 = *((_DWORD *)v7 + 2);
+  if ( v16 >= v11 )
+    v16 = v11;
+  a2[1].x = v16;
+  v17 = *((_DWORD *)v7 + 1);
+  if ( v17 <= v13 )
+    v17 = v13;
+  a2->y = v17;
+  v18 = *((_DWORD *)v7 + 3);
+  if ( v18 >= v14 )
+    v18 = v14;
+  a2[1].y = v18;
+  EXFORMOBJ::vQuickInit((EXFORMOBJ *)v47, (struct XDCOBJ *)&v43, 0x402u);
+  if ( !v47[0] )
+    goto LABEL_28;
+  if ( (*(_DWORD *)(v47[0] + 32LL) & 1) != 0 )
   {
-    if ( (unsigned int)EXFORMOBJ::bXform((EXFORMOBJ *)v40, a2, 2uLL) )
-      goto LABEL_92;
-    goto LABEL_26;
+    if ( (unsigned int)EXFORMOBJ::bXform((EXFORMOBJ *)v47, a2, 2LL) )
+      goto LABEL_94;
+    goto LABEL_28;
   }
-  v16 = *(_OWORD *)&a2->x;
+  v19 = *(_OWORD *)&a2->x;
   x = a2->x;
   y = a2[1].y;
-  v49 = a2[1].x;
-  v50 = a2->y;
-  *(_OWORD *)&v46[0].x = v16;
-  if ( !(unsigned int)EXFORMOBJ::bXform((EXFORMOBJ *)v40, v46, 4uLL) )
+  v54 = a2[1].x;
+  v55 = a2->y;
+  *(_OWORD *)&v51[0].x = v19;
+  if ( !(unsigned int)EXFORMOBJ::bXform((EXFORMOBJ *)v47, v51, 4LL) )
   {
-LABEL_26:
+LABEL_28:
     v6 = 0;
-    goto LABEL_92;
+    goto LABEL_94;
   }
-  v17 = v46[1].x;
-  v18 = v46[1].x;
-  v19 = v46[0].x;
-  v20 = x;
-  if ( v46[0].x < v46[1].x )
-    v18 = v46[0].x;
-  if ( v18 >= x )
+  v20 = v51[1].x;
+  v21 = v51[1].x;
+  v22 = v51[0].x;
+  v23 = x;
+  if ( v51[0].x < v51[1].x )
+    v21 = v51[0].x;
+  if ( v21 >= x )
   {
-    v21 = x;
-  }
-  else
-  {
-    v21 = v46[1].x;
-    if ( v46[0].x < v46[1].x )
-      v21 = v46[0].x;
-  }
-  v22 = v49;
-  if ( v21 >= v49 )
-  {
-    v24 = v49;
+    v24 = x;
   }
   else
   {
-    v23 = v46[1].x;
-    if ( v46[0].x < v46[1].x )
-      v23 = v46[0].x;
-    if ( v23 >= x )
+    v24 = v51[1].x;
+    if ( v51[0].x < v51[1].x )
+      v24 = v51[0].x;
+  }
+  v25 = v54;
+  if ( v24 >= v54 )
+  {
+    v27 = v54;
+  }
+  else
+  {
+    v26 = v51[1].x;
+    if ( v51[0].x < v51[1].x )
+      v26 = v51[0].x;
+    if ( v26 >= x )
     {
-      v24 = x;
+      v27 = x;
     }
     else
     {
-      v24 = v46[1].x;
-      if ( v46[0].x < v46[1].x )
-        v24 = v46[0].x;
+      v27 = v51[1].x;
+      if ( v51[0].x < v51[1].x )
+        v27 = v51[0].x;
     }
   }
-  a2->x = v24;
-  v25 = v17;
-  if ( v19 > v17 )
-    v25 = v19;
-  if ( v25 <= v20 )
+  a2->x = v27;
+  v28 = v20;
+  if ( v22 > v20 )
+    v28 = v22;
+  if ( v28 <= v23 )
   {
-    v26 = v20;
+    v29 = v23;
   }
   else
   {
-    v26 = v17;
-    if ( v19 > v17 )
-      v26 = v19;
+    v29 = v20;
+    if ( v22 > v20 )
+      v29 = v22;
   }
-  if ( v26 <= v22 )
+  if ( v29 <= v25 )
   {
-    v17 = v22;
+    v20 = v25;
   }
   else
   {
-    v27 = v17;
-    if ( v19 > v17 )
-      v27 = v19;
-    if ( v27 <= v20 )
+    v30 = v20;
+    if ( v22 > v20 )
+      v30 = v22;
+    if ( v30 <= v23 )
     {
-      v17 = v20;
+      v20 = v23;
     }
-    else if ( v19 > v17 )
+    else if ( v22 > v20 )
     {
-      v17 = v19;
+      v20 = v22;
     }
   }
-  v28 = v46[0].y;
-  v29 = y;
-  a2[1].x = v17;
-  v30 = v46[1].y;
-  v31 = v46[1].y;
-  if ( v28 < v46[1].y )
-    v31 = v28;
-  if ( v31 >= v29 )
+  v31 = v51[0].y;
+  v32 = y;
+  a2[1].x = v20;
+  v33 = v51[1].y;
+  v34 = v51[1].y;
+  if ( v31 < v51[1].y )
+    v34 = v31;
+  if ( v34 >= v32 )
   {
-    v32 = v29;
+    v35 = v32;
   }
   else
   {
-    v32 = v46[1].y;
-    if ( v28 < v46[1].y )
-      v32 = v28;
+    v35 = v51[1].y;
+    if ( v31 < v51[1].y )
+      v35 = v31;
   }
-  v33 = v50;
-  if ( v32 >= v50 )
+  v36 = v55;
+  if ( v35 >= v55 )
   {
-    v35 = v50;
+    v38 = v55;
   }
   else
   {
-    v34 = v46[1].y;
-    if ( v28 < v46[1].y )
-      v34 = v28;
-    if ( v34 >= v29 )
+    v37 = v51[1].y;
+    if ( v31 < v51[1].y )
+      v37 = v31;
+    if ( v37 >= v32 )
     {
-      v35 = v29;
+      v38 = v32;
     }
     else
     {
-      v35 = v46[1].y;
-      if ( v28 < v46[1].y )
-        v35 = v28;
+      v38 = v51[1].y;
+      if ( v31 < v51[1].y )
+        v38 = v31;
     }
   }
-  a2->y = v35;
-  v36 = v30;
-  if ( v28 > v30 )
-    v36 = v28;
-  if ( v36 <= v29 )
+  a2->y = v38;
+  v39 = v33;
+  if ( v31 > v33 )
+    v39 = v31;
+  if ( v39 <= v32 )
   {
-    v37 = v29;
+    v40 = v32;
   }
   else
   {
-    v37 = v30;
-    if ( v28 > v30 )
-      v37 = v28;
+    v40 = v33;
+    if ( v31 > v33 )
+      v40 = v31;
   }
-  if ( v37 <= v33 )
+  if ( v40 <= v36 )
   {
-    v30 = v33;
+    v33 = v36;
   }
   else
   {
-    v38 = v30;
-    if ( v28 > v30 )
-      v38 = v28;
-    if ( v38 <= v29 )
+    v41 = v33;
+    if ( v31 > v33 )
+      v41 = v31;
+    if ( v41 <= v32 )
     {
-      v30 = v29;
+      v33 = v32;
     }
-    else if ( v28 > v30 )
+    else if ( v31 > v33 )
     {
-      v30 = v28;
+      v33 = v31;
     }
   }
-  a2[1].y = v30;
-LABEL_92:
-  DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)v43);
-  if ( v44[0] )
-    DLODCOBJ::vUnlock((DLODCOBJ *)v44);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v45);
-  v5 = v41[0];
+  a2[1].y = v33;
+LABEL_94:
+  DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)v48);
+  if ( v49[0] )
+    DLODCOBJ::vUnlock((DLODCOBJ *)v49);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v50);
   if ( v6 == 3 )
-  {
-LABEL_95:
-    if ( (a3 & 1) != 0 )
-    {
-      v7->top = 0x7FFFFFFF;
-      v7->left = 0x7FFFFFFF;
-      v7->bottom = 0x80000000;
-      v7->right = 0x80000000;
-      v5 = v41[0];
-    }
-  }
-LABEL_97:
-  if ( v5 )
-    XDCOBJ::vUnlockFast((XDCOBJ *)v41);
-  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v42);
+    goto LABEL_97;
+LABEL_99:
+  MDCOBJ::~MDCOBJ((MDCOBJ *)&v43);
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>(v46);
   return v6;
 }

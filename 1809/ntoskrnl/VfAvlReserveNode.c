@@ -1,14 +1,14 @@
 /*
- * XREFs of VfAvlReserveNode @ 0x1400F5830
+ * XREFs of VfAvlReserveNode @ 0x1400F5850
  * Callers:
- *     VfTargetDriversAdd @ 0x1400F5584 (VfTargetDriversAdd.c)
+ *     VfTargetDriversAdd @ 0x1400F55A4 (VfTargetDriversAdd.c)
  *     ViDevObjAdd @ 0x140934340 (ViDevObjAdd.c)
  *     VerifierIoInitializeRemoveLockEx @ 0x140934520 (VerifierIoInitializeRemoveLockEx.c)
  *     ViLookasideAdd @ 0x14093F00C (ViLookasideAdd.c)
  *     VerifierExInitializeResourceLite @ 0x14093FC40 (VerifierExInitializeResourceLite.c)
  * Callees:
  *     ExAllocateFromNPagedLookasideList @ 0x140018B38 (ExAllocateFromNPagedLookasideList.c)
- *     ViAvlNodeInitializeSessionId @ 0x1400F58B8 (ViAvlNodeInitializeSessionId.c)
+ *     ViAvlNodeInitializeSessionId @ 0x1400F58D8 (ViAvlNodeInitializeSessionId.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  */
 

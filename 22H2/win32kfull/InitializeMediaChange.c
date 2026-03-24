@@ -1,25 +1,23 @@
 /*
- * XREFs of InitializeMediaChange @ 0x1C00B97C0
+ * XREFs of InitializeMediaChange @ 0x1C0133510
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall InitializeMediaChange(HANDLE Handle)
 {
-  __int64 v2; // rcx
-  unsigned int v3; // ebx
-  NTSTATUS v4; // ebx
-  struct _FAST_MUTEX *v5; // rax
-  ULONG ResultLength; // [rsp+38h] [rbp-39h] BYREF
-  void *KeyHandle; // [rsp+40h] [rbp-31h] BYREF
-  PVOID Object; // [rsp+48h] [rbp-29h] BYREF
-  struct _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-21h] BYREF
-  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-11h] BYREF
-  _BYTE KeyValueInformation[4]; // [rsp+90h] [rbp+1Fh] BYREF
-  int v13; // [rsp+94h] [rbp+23h]
-  unsigned int v14; // [rsp+9Ch] [rbp+2Bh]
+  NTSTATUS v2; // ebx
+  struct _FAST_MUTEX *v3; // rax
+  ULONG ResultLength; // [rsp+30h] [rbp-39h] BYREF
+  void *KeyHandle; // [rsp+38h] [rbp-31h] BYREF
+  PVOID Object; // [rsp+40h] [rbp-29h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-21h] BYREF
+  struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-11h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+88h] [rbp+1Fh] BYREF
+  int v11; // [rsp+8Ch] [rbp+23h]
+  unsigned int v12; // [rsp+94h] [rbp+2Bh]
 
   KeyHandle = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
@@ -42,37 +40,35 @@ __int64 __fastcall InitializeMediaChange(HANDLE Handle)
            KeyValueInformation,
            0x28u,
            &ResultLength) >= 0
-      && v13 == 4 )
+      && v11 == 4 )
     {
-      gdwMaxRetries = v14;
+      gdwMaxRetries = v12;
     }
     ZwClose(KeyHandle);
   }
-  v3 = gdwMaxRetries;
-  *(_DWORD *)(SGDGetUserSessionState(v2) + 512) = v3;
   if ( gProtocolType )
   {
     return 0;
   }
   else
   {
-    qword_1C035E518 = (__int64)&gCDROMNotifyList;
+    qword_1C033A240 = (__int64)&gCDROMNotifyList;
     gCDROMNotifyList.Flink = &gCDROMNotifyList;
     Object = 0LL;
-    qword_1C035E528 = (__int64)&gMediaChangeList;
+    qword_1C033A250 = (__int64)&gMediaChangeList;
     gMediaChangeList.Flink = &gMediaChangeList;
-    v4 = ObReferenceObjectByHandle(Handle, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 0, &Object, 0LL);
+    v2 = ObReferenceObjectByHandle(Handle, 0x1F0003u, (POBJECT_TYPE)ExEventObjectType, 0, &Object, 0LL);
     gpEventMediaChange = Object;
-    if ( v4 >= 0 )
+    if ( v2 >= 0 )
     {
-      v5 = (struct _FAST_MUTEX *)Win32AllocPoolNonPagedZInit(56LL, 1886417749LL);
-      gMediaChangeMutex = v5;
-      if ( v5 )
+      v3 = (struct _FAST_MUTEX *)Win32AllocPoolNonPaged(56LL, 1886417749LL);
+      gMediaChangeMutex = v3;
+      if ( v3 )
       {
-        v5->Owner = 0LL;
-        v5->Count = 1;
-        v5->Contention = 0;
-        KeInitializeEvent(&v5->Event, SynchronizationEvent, 0);
+        v3->Owner = 0LL;
+        v3->Count = 1;
+        v3->Contention = 0;
+        KeInitializeEvent(&v3->Event, SynchronizationEvent, 0);
       }
       else
       {
@@ -80,5 +76,5 @@ __int64 __fastcall InitializeMediaChange(HANDLE Handle)
       }
     }
   }
-  return (unsigned int)v4;
+  return (unsigned int)v2;
 }

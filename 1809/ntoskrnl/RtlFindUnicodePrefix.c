@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlFindUnicodePrefix @ 0x1406A2780
+ * XREFs of RtlFindUnicodePrefix @ 0x1406A2760
  * Callers:
  *     <none>
  * Callees:
  *     RtlSplay @ 0x14008D660 (RtlSplay.c)
- *     CompareUnicodeStrings @ 0x1406A2890 (CompareUnicodeStrings.c)
- *     ComputeUnicodeNameLength @ 0x1406A29F0 (ComputeUnicodeNameLength.c)
+ *     CompareUnicodeStrings @ 0x1406A2870 (CompareUnicodeStrings.c)
+ *     ComputeUnicodeNameLength @ 0x1406A29D0 (ComputeUnicodeNameLength.c)
  */
 
 PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlFindUnicodePrefix(

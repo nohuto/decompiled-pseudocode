@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDispatchNotificationsToList @ 0x1406C0298
+ * XREFs of PopDispatchNotificationsToList @ 0x14067BFD4
  * Callers:
- *     PopDispatchNotifications @ 0x1406C0250 (PopDispatchNotifications.c)
+ *     PopDispatchNotifications @ 0x14067C320 (PopDispatchNotifications.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x14041F2A0 (ZwUpdateWnfStateData.c)
- *     PopMarshalSettingValues @ 0x1406C05A4 (PopMarshalSettingValues.c)
- *     PopFreeRegistration @ 0x1407EC1B0 (PopFreeRegistration.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
+ *     PopMarshalSettingValues @ 0x14067CAB8 (PopMarshalSettingValues.c)
+ *     PopFreeRegistration @ 0x140778E14 (PopFreeRegistration.c)
  */
 
 struct _KTHREAD *__fastcall PopDispatchNotificationsToList(__int64 **a1)

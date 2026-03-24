@@ -1,11 +1,11 @@
 /*
- * XREFs of ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C00F9694
+ * XREFs of ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C010EA68
  * Callers:
- *     NtGdiAddFontResourceW @ 0x1C00F9360 (NtGdiAddFontResourceW.c)
- *     NtGdiGetFontResourceInfoInternalW @ 0x1C02AD620 (NtGdiGetFontResourceInfoInternalW.c)
- *     NtGdiRemoveFontResourceW @ 0x1C02AE430 (NtGdiRemoveFontResourceW.c)
+ *     NtGdiAddFontResourceW @ 0x1C010E740 (NtGdiAddFontResourceW.c)
+ *     NtGdiGetFontResourceInfoInternalW @ 0x1C02AEEF0 (NtGdiGetFontResourceInfoInternalW.c)
+ *     NtGdiRemoveFontResourceW @ 0x1C02AFD40 (NtGdiRemoveFontResourceW.c)
  * Callees:
- *     cCapString @ 0x1C0014ABC (cCapString.c)
+ *     cCapString @ 0x1C00BBE54 (cCapString.c)
  */
 
 __int64 __fastcall bCheckAndCapThePath(unsigned __int16 *a1, WCHAR *a2, unsigned int a3, int a4)

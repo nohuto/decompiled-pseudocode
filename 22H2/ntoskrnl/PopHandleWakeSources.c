@@ -1,118 +1,128 @@
 /*
- * XREFs of PopHandleWakeSources @ 0x140AA0F1C
+ * XREFs of PopHandleWakeSources @ 0x140998400
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
+ *     PoBroadcastSystemState @ 0x140992AC4 (PoBroadcastSystemState.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     PopAcquireWakeSourceSpinLock @ 0x14058E45C (PopAcquireWakeSourceSpinLock.c)
- *     PopReleaseWakeSourceSpinLock @ 0x14058E730 (PopReleaseWakeSourceSpinLock.c)
- *     ExCopyWakeTimerInfo @ 0x14060B5A0 (ExCopyWakeTimerInfo.c)
- *     PopNewWakeSource @ 0x1409875F4 (PopNewWakeSource.c)
- *     PopUnlinkWakeSources @ 0x140987AFC (PopUnlinkWakeSources.c)
- *     PopCheckAttendedWake @ 0x140AA0E60 (PopCheckAttendedWake.c)
- *     PopCheckBatteryWake @ 0x140AA0ED0 (PopCheckBatteryWake.c)
- *     PopValidateRTCWake @ 0x140AA1594 (PopValidateRTCWake.c)
+ *     KiSetTimerEx @ 0x14025F5D0 (KiSetTimerEx.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     PopWakeInfoReference @ 0x14032D338 (PopWakeInfoReference.c)
+ *     KeInitializeTimerEx @ 0x140341AF0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1403446C0 (KeInitializeDpc.c)
+ *     PopReleaseWakeSourceSpinLock @ 0x14038B614 (PopReleaseWakeSourceSpinLock.c)
+ *     PopAcquireWakeSourceSpinLock @ 0x14038B648 (PopAcquireWakeSourceSpinLock.c)
+ *     ExCopyWakeTimerInfo @ 0x1405B5FB0 (ExCopyWakeTimerInfo.c)
+ *     PopFinalizeWakeInfo @ 0x140778834 (PopFinalizeWakeInfo.c)
+ *     PopNewWakeSource @ 0x1408E6B64 (PopNewWakeSource.c)
+ *     PopUnlinkWakeSources @ 0x1408E6D28 (PopUnlinkWakeSources.c)
+ *     PopValidateRTCWake @ 0x1409985EC (PopValidateRTCWake.c)
  */
 
-LONG PopHandleWakeSources()
+void PopHandleWakeSources()
 {
-  __int64 v0; // rdi
-  char v1; // dl
-  int v2; // ebp
-  _QWORD *v3; // rsi
-  int v4; // ecx
-  __int64 v5; // rbx
-  __int64 *v6; // rcx
-  __int64 v7; // rax
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
-  char v10; // [rsp+60h] [rbp+8h] BYREF
+  int v0; // esi
+  int v1; // edi
+  __int64 v2; // rbx
+  SIZE_T *v3; // rbp
+  _DWORD *v4; // rdi
+  _QWORD *v5; // rcx
+  __int64 *v6; // rax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-38h] BYREF
+  char v8; // [rsp+70h] [rbp+8h] BYREF
 
+  v0 = 0;
+  v8 = 0;
+  v1 = 4;
   memset(&LockHandle, 0, sizeof(LockHandle));
+  if ( (PopSimulate & 0x200000) == 0 && (PopFixedWakeSourceMask & 1) == 0 )
+  {
+    if ( (PopSimulate & 0x400000) == 0 && (PopFixedWakeSourceMask & 2) == 0 )
+    {
+      if ( (unsigned __int8)PopValidateRTCWake(&v8) && (PopSimulate & 0x100000) == 0 )
+        v0 = 4;
+    }
+    else
+    {
+      v0 = 2;
+    }
+  }
+  else
+  {
+    v0 = 1;
+  }
   PopAcquireWakeSourceSpinLock(&LockHandle);
-  v0 = PopCurrentWakeInfo;
-  PopWakeSourceWorkState = 3;
-  if ( !PopCurrentWakeInfo )
-    goto LABEL_33;
+  v2 = PopCurrentWakeInfo;
+  if ( PopCurrentWakeInfo && !v0 )
+    PopWakeInfoReference(PopCurrentWakeInfo);
+  PopReleaseWakeSourceSpinLock(&LockHandle);
+  if ( !v2 )
+  {
+    KeSetEvent(&PopWakeSourceAvailable, 0, 0);
+    return;
+  }
+  if ( !v0 )
+  {
+    KeInitializeDpc((PRKDPC)(v2 + 48), (PKDEFERRED_ROUTINE)PopWakeSourceTimeoutDpc, 0LL);
+    KeInitializeTimerEx((PKTIMER)(v2 + 112), NotificationTimer);
+    KiSetTimerEx(v2 + 112, -20000000LL, 0, 0, v2 + 48);
+    return;
+  }
+  if ( dword_140C23AA0 < 0 || (unsigned __int64)dword_140C23AA0 >= 3 )
+    v3 = 0LL;
+  else
+    v3 = (SIZE_T *)qword_140C23AB8[3 * dword_140C23AA0];
+  if ( v0 == 4 )
+  {
+    if ( (unsigned __int64)v3 <= 0xFFFFFFFFFFFFFFFCuLL )
+      v1 = (v8 != 0) + 2;
+  }
+  else
+  {
+    v1 = 1;
+  }
+  v4 = PopNewWakeSource(v1);
+  PopAcquireWakeSourceSpinLock(&LockHandle);
   PopCurrentWakeInfo = 0LL;
-  PopReleaseWakeSourceSpinLock((__int64)&LockHandle);
-  v1 = 0;
-  v10 = 0;
-  if ( (PopSimulate & 0x200000) != 0 || (PopFixedWakeSourceMask & 1) != 0 )
+  PopReleaseWakeSourceSpinLock(&LockHandle);
+  PopUnlinkWakeSources(v2);
+  if ( v4 )
   {
-    v2 = 1;
-    goto LABEL_9;
-  }
-  if ( (PopSimulate & 0x400000) != 0 || (PopFixedWakeSourceMask & 2) != 0 )
-  {
-    v2 = 2;
-    goto LABEL_9;
-  }
-  if ( (unsigned __int8)PopValidateRTCWake(&v10) && (PopSimulate & 0x100000) == 0 )
-  {
-    v1 = v10;
-    v2 = 4;
-LABEL_9:
-    if ( dword_140C3CE80 < 0 || (unsigned __int64)dword_140C3CE80 >= 3 )
-      v3 = 0LL;
-    else
-      v3 = (_QWORD *)qword_140C3CE98[3 * dword_140C3CE80];
-    if ( v2 == 4 )
+    if ( (unsigned int)(v4[4] - 2) <= 1 )
     {
-      if ( (unsigned __int64)v3 > 0xFFFFFFFFFFFFFFFCuLL )
-        v4 = 4;
-      else
-        v4 = (v1 != 0) + 2;
+      ExCopyWakeTimerInfo(v3, (_QWORD *)v4 + 3);
+    }
+    else if ( v3 == (SIZE_T *)-1LL )
+    {
+      v4[6] = 0;
+    }
+    else if ( v3 == (SIZE_T *)-2LL )
+    {
+      v4[6] = 1;
     }
     else
     {
-      v4 = 1;
+      if ( v3 == (SIZE_T *)-3LL )
+        v0 = 2;
+      v4[6] = v0;
     }
-    v5 = PopNewWakeSource(v4);
-    PopUnlinkWakeSources(v0);
-    if ( v5 )
-    {
-      if ( (unsigned int)(*(_DWORD *)(v5 + 16) - 2) <= 1 )
-      {
-        ExCopyWakeTimerInfo(v3, (_QWORD *)(v5 + 24));
-      }
-      else if ( v3 == (_QWORD *)-1LL )
-      {
-        *(_DWORD *)(v5 + 24) = 0;
-      }
-      else if ( v3 == (_QWORD *)-2LL )
-      {
-        *(_DWORD *)(v5 + 24) = 1;
-      }
-      else
-      {
-        if ( v3 == (_QWORD *)-3LL )
-          v2 = 2;
-        *(_DWORD *)(v5 + 24) = v2;
-      }
-      v6 = *(__int64 **)(v0 + 32);
-      if ( *v6 != v0 + 24 )
-LABEL_31:
-        __fastfail(3u);
-      *(_QWORD *)v5 = v0 + 24;
-      *(_QWORD *)(v5 + 8) = v6;
-      *v6 = v5;
-      *(_QWORD *)(v0 + 32) = v5;
-      *(_DWORD *)(v0 + 40) = 1;
-    }
+    v5 = *(_QWORD **)(v2 + 32);
+    if ( *v5 != v2 + 24 )
+LABEL_37:
+      __fastfail(3u);
+    *(_QWORD *)v4 = v2 + 24;
+    *((_QWORD *)v4 + 1) = v5;
+    *v5 = v4;
+    *(_QWORD *)(v2 + 32) = v4;
+    *(_DWORD *)(v2 + 40) = 1;
   }
   PopAcquireWakeSourceSpinLock(&LockHandle);
-  v7 = PopWakeInfoList;
-  if ( *(__int64 **)(PopWakeInfoList + 8) != &PopWakeInfoList )
-    goto LABEL_31;
+  v6 = (__int64 *)qword_140C24398;
+  if ( *(__int64 **)qword_140C24398 != &PopWakeInfoList )
+    goto LABEL_37;
   ++PopWakeInfoCount;
-  *(_QWORD *)v0 = PopWakeInfoList;
-  *(_QWORD *)(v0 + 8) = &PopWakeInfoList;
-  *(_QWORD *)(v7 + 8) = v0;
-  PopWakeInfoList = v0;
-  *(_BYTE *)(v0 + 80) = PopCheckAttendedWake(v0);
-  *(_BYTE *)(v0 + 81) = PopCheckBatteryWake(v0);
-LABEL_33:
-  PopWakeSourceWorkState = 4;
-  PopReleaseWakeSourceSpinLock((__int64)&LockHandle);
-  return KeSetEvent(&PopWakeSourceAvailable, 0, 0);
+  *(_QWORD *)v2 = &PopWakeInfoList;
+  *(_QWORD *)(v2 + 8) = v6;
+  *v6 = v2;
+  qword_140C24398 = v2;
+  PopReleaseWakeSourceSpinLock(&LockHandle);
+  PopFinalizeWakeInfo(v2);
 }

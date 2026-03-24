@@ -1,19 +1,19 @@
 /*
- * XREFs of PsGetNextProcessThread @ 0x140675900
+ * XREFs of PsGetNextProcessThread @ 0x1406758E0
  * Callers:
  *     NtSetInformationThread @ 0x1405E9EA0 (NtSetInformationThread.c)
- *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
- *     IopCancelIrpsInThreadListForCurrentProcess @ 0x140676134 (IopCancelIrpsInThreadListForCurrentProcess.c)
- *     PspTerminateAllThreads @ 0x140676204 (PspTerminateAllThreads.c)
- *     PspBoostJobIoPriorityCallback @ 0x14068D370 (PspBoostJobIoPriorityCallback.c)
- *     PsResumeProcess @ 0x1406C9E00 (PsResumeProcess.c)
- *     ExSwapinWorkerThreads @ 0x1406E033C (ExSwapinWorkerThreads.c)
- *     PsEnumProcessThreads @ 0x14072698C (PsEnumProcessThreads.c)
- *     DbgkpPostFakeThreadMessages @ 0x14080EDD8 (DbgkpPostFakeThreadMessages.c)
- *     DbgkpSetProcessDebugObject @ 0x14080F70C (DbgkpSetProcessDebugObject.c)
- *     PspWaitForUsermodeExit @ 0x14088B888 (PspWaitForUsermodeExit.c)
- *     PsSuspendProcess @ 0x14088CD10 (PsSuspendProcess.c)
- *     NtGetNextThread @ 0x14088E9B0 (NtGetNextThread.c)
+ *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
+ *     IopCancelIrpsInThreadListForCurrentProcess @ 0x140676114 (IopCancelIrpsInThreadListForCurrentProcess.c)
+ *     PspTerminateAllThreads @ 0x1406761E4 (PspTerminateAllThreads.c)
+ *     PspBoostJobIoPriorityCallback @ 0x14068D350 (PspBoostJobIoPriorityCallback.c)
+ *     PsResumeProcess @ 0x1406C9DE0 (PsResumeProcess.c)
+ *     ExSwapinWorkerThreads @ 0x1406E031C (ExSwapinWorkerThreads.c)
+ *     PsEnumProcessThreads @ 0x14072696C (PsEnumProcessThreads.c)
+ *     DbgkpPostFakeThreadMessages @ 0x14080EDB8 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpSetProcessDebugObject @ 0x14080F6EC (DbgkpSetProcessDebugObject.c)
+ *     PspWaitForUsermodeExit @ 0x14088B868 (PspWaitForUsermodeExit.c)
+ *     PsSuspendProcess @ 0x14088CCF0 (PsSuspendProcess.c)
+ *     NtGetNextThread @ 0x14088E990 (NtGetNextThread.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)

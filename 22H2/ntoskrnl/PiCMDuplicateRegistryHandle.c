@@ -1,14 +1,14 @@
 /*
- * XREFs of PiCMDuplicateRegistryHandle @ 0x1407BF28C
+ * XREFs of PiCMDuplicateRegistryHandle @ 0x1406A8C84
  * Callers:
- *     PiCMOpenDeviceInterfaceKey @ 0x140681D74 (PiCMOpenDeviceInterfaceKey.c)
- *     PiCMOpenDeviceKey @ 0x1407BEE44 (PiCMOpenDeviceKey.c)
- *     PiCMOpenClassKey @ 0x140860768 (PiCMOpenClassKey.c)
- *     PiCMOpenObjectKey @ 0x14086DE9C (PiCMOpenObjectKey.c)
+ *     PiCMOpenClassKey @ 0x1406A693C (PiCMOpenClassKey.c)
+ *     PiCMOpenDeviceKey @ 0x1406A8AF8 (PiCMOpenDeviceKey.c)
+ *     PiCMOpenObjectKey @ 0x1406AC6C0 (PiCMOpenObjectKey.c)
+ *     PiCMOpenDeviceInterfaceKey @ 0x1408B0BA4 (PiCMOpenDeviceInterfaceKey.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x1407379D0 (ObOpenObjectByPointer.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x140653F10 (ObOpenObjectByPointer.c)
  */
 
 __int64 __fastcall PiCMDuplicateRegistryHandle(
@@ -26,6 +26,6 @@ __int64 __fastcall PiCMDuplicateRegistryHandle(
   if ( v7 >= 0 )
     v7 = ObOpenObjectByPointer(Object, 0x440u, 0LL, a3, (POBJECT_TYPE)CmKeyObjectType, a4, Handle);
   if ( Object )
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
   return (unsigned int)v7;
 }

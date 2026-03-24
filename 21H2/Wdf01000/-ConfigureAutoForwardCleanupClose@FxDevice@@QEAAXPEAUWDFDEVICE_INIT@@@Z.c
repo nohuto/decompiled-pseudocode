@@ -1,7 +1,7 @@
 /*
- * XREFs of ?ConfigureAutoForwardCleanupClose@FxDevice@@QEAAXPEAUWDFDEVICE_INIT@@@Z @ 0x1C0024330
+ * XREFs of ?ConfigureAutoForwardCleanupClose@FxDevice@@QEAAXPEAUWDFDEVICE_INIT@@@Z @ 0x1C00518C8
  * Callers:
- *     ?Initialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0023D98 (-Initialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
+ *     ?Initialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0051FCC (-Initialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -22,30 +22,33 @@ void __fastcall FxDevice::ConfigureAutoForwardCleanupClose(FxDevice *this, WDFDE
       if ( Flink == WdfFalse )
       {
         if ( Blink[11].Flink )
-          goto LABEL_5;
+          goto LABEL_9;
       }
     }
     Blink = Blink->Blink;
   }
   if ( DeviceInit->FileObject.Set )
     Flink = DeviceInit->FileObject.AutoForwardCleanupClose;
-LABEL_5:
-  if ( Flink == WdfFalse )
-    goto LABEL_10;
-  v4 = Flink - 1;
-  if ( v4 )
+LABEL_9:
+  if ( Flink )
   {
-    if ( v4 != 1 )
-      return;
-    if ( DeviceInit->InitType == FxDeviceInitTypeFdo && DeviceInit->Fdo.Filter )
+    v4 = Flink - 1;
+    if ( v4 )
+    {
+      if ( v4 != 1 )
+        return;
+      if ( DeviceInit->InitType == FxDeviceInitTypeFdo && DeviceInit->Fdo.Filter )
+      {
+        this->m_AutoForwardCleanupClose = 1;
+        return;
+      }
+    }
+    else
     {
       this->m_AutoForwardCleanupClose = 1;
-      return;
+      if ( !this->m_Legacy )
+        return;
     }
-    goto LABEL_10;
   }
-  this->m_AutoForwardCleanupClose = 1;
-  if ( this->m_Legacy )
-LABEL_10:
-    this->m_AutoForwardCleanupClose = 0;
+  this->m_AutoForwardCleanupClose = 0;
 }

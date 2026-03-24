@@ -1,14 +1,14 @@
 /*
- * XREFs of ?UT_CaretSet@@YAHPEAUtagWND@@@Z @ 0x1C00726A8
+ * XREFs of ?UT_CaretSet@@YAHPEAUtagWND@@@Z @ 0x1C0069C9C
  * Callers:
- *     NtUserShowCaret @ 0x1C00725B0 (NtUserShowCaret.c)
- *     NtUserHideCaret @ 0x1C0072630 (NtUserHideCaret.c)
- *     zzzDestroyCaret @ 0x1C00C32AC (zzzDestroyCaret.c)
- *     zzzSetCaretPos @ 0x1C010A5AC (zzzSetCaretPos.c)
- *     zzzHideCaret @ 0x1C023AA44 (zzzHideCaret.c)
- *     zzzShowCaret @ 0x1C023AA6C (zzzShowCaret.c)
+ *     zzzSetCaretPos @ 0x1C002B4F0 (zzzSetCaretPos.c)
+ *     NtUserShowCaret @ 0x1C0069BA0 (NtUserShowCaret.c)
+ *     NtUserHideCaret @ 0x1C0069C20 (NtUserHideCaret.c)
+ *     zzzDestroyCaret @ 0x1C0113CB0 (zzzDestroyCaret.c)
+ *     zzzHideCaret @ 0x1C02418BC (zzzHideCaret.c)
+ *     zzzShowCaret @ 0x1C02418E4 (zzzShowCaret.c)
  * Callees:
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
  */
 
 _BOOL8 __fastcall UT_CaretSet(struct tagWND *a1)

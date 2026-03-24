@@ -1,14 +1,14 @@
 /*
- * XREFs of VslCallEnclave @ 0x14088151A
+ * XREFs of VslCallEnclave @ 0x14088EBF4
  * Callers:
- *     PsCallEnclave @ 0x1409B35D0 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x14090D1D0 (PsCallEnclave.c)
  * Callees:
- *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
- *     KeAlertThreadByThreadId @ 0x1402F5FD0 (KeAlertThreadByThreadId.c)
- *     MmProbeAndLockPages @ 0x140319E90 (MmProbeAndLockPages.c)
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     KeAlertThreadByThreadId @ 0x14025CA90 (KeAlertThreadByThreadId.c)
+ *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall VslCallEnclave(
@@ -23,7 +23,7 @@ __int64 __fastcall VslCallEnclave(
         _BYTE *a9)
 {
   __int64 CurrentThread; // rsi
-  int v12; // ebx
+  NTSTATUS v12; // ebx
   __int64 v13; // rdx
   __int64 v14; // r8
   _DWORD *v15; // r9
@@ -43,11 +43,11 @@ __int64 __fastcall VslCallEnclave(
   *(_DWORD *)&MemoryDescriptorList_44[8] = 0;
   CurrentThread = (__int64)KeGetCurrentThread();
   MemoryDescriptorList = 0LL;
-  MemoryDescriptorList_8 = 8 * (((unsigned __int16)((CurrentThread & 0xFFF) + 6383) >> 12) + 6);
+  MemoryDescriptorList_8 = 8 * (((unsigned __int16)((CurrentThread & 0xFFF) + 6295) >> 12) + 6);
   MemoryDescriptorList_10 = 0;
   MemoryDescriptorList_32 = CurrentThread & 0xFFFFFFFFFFFFF000uLL;
   *(_QWORD *)MemoryDescriptorList_44 = CurrentThread & 0xFFF;
-  MemoryDescriptorList_40 = 2288;
+  MemoryDescriptorList_40 = 2200;
   MmProbeAndLockPages((PMDL)&MemoryDescriptorList, 0, IoWriteAccess);
   LODWORD(v27[1]) = a4;
   HIDWORD(v27[1]) = *(_DWORD *)(a1 + 40);

@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpCtInitializeNotificationEvent @ 0x1409C22AC
+ * XREFs of RtlpCtInitializeNotificationEvent @ 0x14091960C
  * Callers:
- *     RtlpCtContextInit @ 0x1409C21C8 (RtlpCtContextInit.c)
+ *     RtlpCtContextInit @ 0x140919528 (RtlpCtContextInit.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpCtInitializeNotificationEvent(struct _KEVENT **a1)
 {
-  struct _KEVENT *Pool2; // rax
+  struct _KEVENT *PoolWithTag; // rax
 
-  Pool2 = (struct _KEVENT *)ExAllocatePool2(64LL, 24LL, 1735672676LL);
-  *a1 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (struct _KEVENT *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x67744364u);
+  *a1 = PoolWithTag;
+  if ( !PoolWithTag )
     return 3221225626LL;
-  KeInitializeEvent(Pool2, NotificationEvent, 0);
+  KeInitializeEvent(PoolWithTag, NotificationEvent, 0);
   return 0LL;
 }

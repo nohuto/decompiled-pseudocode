@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     IofCallDriver @ 0x1400B8DD0 (IofCallDriver.c)
- *     IofCompleteRequest @ 0x1400C10A0 (IofCompleteRequest.c)
- *     IoAcquireRemoveLockEx @ 0x1400FE2F0 (IoAcquireRemoveLockEx.c)
+ *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
+ *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     IoAcquireRemoveLockEx @ 0x1400FE310 (IoAcquireRemoveLockEx.c)
  */
 
 NTSTATUS __fastcall ViFilterDispatchGeneric(__int64 a1, IRP *a2)

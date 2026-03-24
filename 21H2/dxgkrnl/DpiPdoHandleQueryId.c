@@ -1,13 +1,13 @@
 /*
- * XREFs of DpiPdoHandleQueryId @ 0x1C0203310
+ * XREFs of DpiPdoHandleQueryId @ 0x1C01895D0
  * Callers:
  *     <none>
  * Callees:
- *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0013120 (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     DpiAppendNumberToString @ 0x1C02037FC (DpiAppendNumberToString.c)
- *     DpiAppendStringToString @ 0x1C0204A0C (DpiAppendStringToString.c)
+ *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C000C518 (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     DpiAppendNumberToString @ 0x1C0189AC4 (DpiAppendNumberToString.c)
+ *     DpiAppendStringToString @ 0x1C018AB50 (DpiAppendStringToString.c)
  */
 
 __int64 __fastcall DpiPdoHandleQueryId(__int64 a1, __int64 a2)
@@ -29,12 +29,20 @@ __int64 __fastcall DpiPdoHandleQueryId(__int64 a1, __int64 a2)
   void *v18; // rdi
   unsigned int v19; // esi
   PVOID PoolWithTag; // rax
-  int v21; // eax
-  __int64 v22; // r14
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // rax
-  __int64 v26; // rdx
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  __int64 v23; // r8
+  __int64 v24; // r9
+  int v25; // eax
+  __int64 v26; // r14
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // rax
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // rax
+  __int64 v33; // rdx
+  __int64 v34; // rax
   void *Src[2]; // [rsp+98h] [rbp+27h] BYREF
 
   v3 = *(_QWORD *)(a1 + 64);
@@ -119,50 +127,51 @@ LABEL_24:
     v18 = PoolWithTag;
     if ( !PoolWithTag )
     {
-      v4 = -1073741801LL;
-      v24 = 6LL;
-      goto LABEL_48;
+      LODWORD(v4) = -1073741801;
+      v34 = WdLogNewEntry5_WdLowResource(v22, v21, v23, v24);
+      *(_QWORD *)(v34 + 24) = -1073741801LL;
+      WdLogEvent5_WdLowResource(v34);
+      return (unsigned int)v4;
     }
     memset(PoolWithTag, 0, v19);
-    v21 = RtlStringCbPrintfW(
-            (unsigned __int16 *)v18,
+    v25 = RtlStringCbPrintfW(
+            (wchar_t *)v18,
             v19,
             L"VIDEO\\VEN_%04X&DEV_%04X&SUBSYS_%04X%04X&REV_%02X&%ws,VIDEO\\VEN_%04X&DEV_%04X&SUBSYS_%04X%04X&%ws,VIDEO\\VE"
              "N_%04X&DEV_%04X&%ws,VIDEO\\%ws,,");
-    v22 = v21;
+    v26 = v25;
   }
-  while ( v21 == -2147483643 );
-  if ( v21 < 0 )
+  while ( v25 == -2147483643 );
+  if ( v25 < 0 )
   {
     ExFreePoolWithTag(v18, 0);
     LODWORD(v4) = -1073741823;
-    v23 = v22;
-    v24 = 2LL;
-LABEL_49:
-    WdLogSingleEntry1(v24, v23);
+    v29 = WdLogNewEntry5_WdError(v28, v27);
+    *(_QWORD *)(v29 + 24) = v26;
+LABEL_40:
+    WdLogEvent5_WdError(v29);
     return (unsigned int)v4;
   }
   v4 = (int)DpiAppendStringToString((PCWSTR)v18, L",,", (PUNICODE_STRING)Src);
   ExFreePoolWithTag(v18, 0);
   if ( (int)v4 < 0 )
   {
-    v24 = 2LL;
-LABEL_48:
-    v23 = v4;
-    goto LABEL_49;
+    v29 = WdLogNewEntry5_WdError(v31, v30);
+    *(_QWORD *)(v29 + 24) = v4;
+    goto LABEL_40;
   }
   if ( LOWORD(Src[0]) >> 1 )
   {
-    v25 = 0LL;
-    v26 = LOWORD(Src[0]) >> 1;
+    v32 = 0LL;
+    v33 = LOWORD(Src[0]) >> 1;
     do
     {
-      if ( *(_WORD *)((char *)Src[1] + v25) == 44 )
-        *(_WORD *)((char *)Src[1] + v25) = 0;
-      v25 += 2LL;
-      --v26;
+      if ( *(_WORD *)((char *)Src[1] + v32) == 44 )
+        *(_WORD *)((char *)Src[1] + v32) = 0;
+      v32 += 2LL;
+      --v33;
     }
-    while ( v26 );
+    while ( v33 );
   }
 LABEL_12:
   v5 = 1;

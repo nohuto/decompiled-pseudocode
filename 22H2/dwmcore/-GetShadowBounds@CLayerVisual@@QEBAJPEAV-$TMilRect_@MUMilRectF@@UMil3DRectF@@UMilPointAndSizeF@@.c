@@ -1,49 +1,51 @@
 /*
- * XREFs of ?GetShadowBounds@CLayerVisual@@QEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800082A8
+ * XREFs of ?GetShadowBounds@CLayerVisual@@QEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180005088
  * Callers:
- *     ?CalcDeviceTransformDelta@CTreeEffectLayer@@EEAAJPEAVCDrawingContext@@PEAVCMILMatrix@@@Z @ 0x180007BE0 (-CalcDeviceTransformDelta@CTreeEffectLayer@@EEAAJPEAVCDrawingContext@@PEAVCMILMatrix@@@Z.c)
- *     ?CalcInversedWorldInputBoundsFromVisibleWorldOutputBounds@CLayerVisual@@UEAAJAEBVCMILMatrix@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@1PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@2@Z @ 0x180007FF0 (-CalcInversedWorldInputBoundsFromVisibleWorldOutputBounds@CLayerVisual@@UEAAJAEBVCMILMatrix@@AEB.c)
+ *     ?CalcDeviceTransformDelta@CTreeEffectLayer@@MEAAJPEAVCDrawingContext@@PEAVCMILMatrix@@@Z @ 0x1800050F0 (-CalcDeviceTransformDelta@CTreeEffectLayer@@MEAAJPEAVCDrawingContext@@PEAVCMILMatrix@@@Z.c)
+ *     ?CalcInversedWorldInputBoundsFromVisibleWorldOutputBounds@CLayerVisual@@UEAAJAEBVCMILMatrix@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@1PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@2@Z @ 0x180005C60 (-CalcInversedWorldInputBoundsFromVisibleWorldOutputBounds@CLayerVisual@@UEAAJAEBVCMILMatrix@@AEB.c)
  * Callees:
- *     ?GetMaskBounds@CLayerVisual@@QEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18000839C (-GetMaskBounds@CLayerVisual@@QEBAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UN.c)
- *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x18004B124 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
- *     ?Inflate@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXMM@Z @ 0x180075B5C (-Inflate@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXMM@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?GetRadius@CDropShadow@@QEBAMXZ @ 0x1800C5BD0 (-GetRadius@CDropShadow@@QEBAMXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x180058560 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Inflate@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXMM@Z @ 0x18006AEEC (-Inflate@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXMM@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?GetMaskBounds@CLayerVisual@@QEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801D2138 (-GetMaskBounds@CLayerVisual@@QEBAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UN.c)
  */
 
-__int64 __fastcall CLayerVisual::GetShadowBounds(__int64 a1, _OWORD *a2)
+__int64 __fastcall CLayerVisual::GetShadowBounds(CVisual *a1, __int128 *a2)
 {
+  __int128 v2; // xmm0
+  bool v5; // zf
   int MaskBounds; // eax
-  unsigned int v5; // ecx
-  unsigned int v6; // ebx
-  __int64 v7; // rcx
-  float v9[4]; // [rsp+30h] [rbp-30h]
-  __int128 v10; // [rsp+40h] [rbp-20h] BYREF
+  unsigned int v8; // ecx
+  unsigned int v9; // ebx
+  __int64 v10; // [rsp+30h] [rbp-30h]
+  __int128 v11; // [rsp+40h] [rbp-20h] BYREF
 
+  v2 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
   *a2 = TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::sc_rcEmpty;
-  if ( !*(_QWORD *)(a1 + 704) )
+  v5 = *((_QWORD *)a1 + 77) == 0LL;
+  v11 = v2;
+  if ( v5 )
     return 0LL;
-  v10 = 0LL;
-  MaskBounds = CLayerVisual::GetMaskBounds(a1, &v10);
-  v6 = MaskBounds;
+  v11 = 0LL;
+  MaskBounds = CLayerVisual::GetMaskBounds(a1);
+  v9 = MaskBounds;
   if ( MaskBounds < 0 )
   {
-    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, MaskBounds, 0x21Du, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, MaskBounds, 0x1EAu, 0LL);
   }
   else
   {
-    CDropShadow::GetRadius(*(CDropShadow **)(a1 + 704));
-    *(_QWORD *)v9 = *(_QWORD *)(v7 + 96);
-    if ( !(unsigned __int8)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty(&v10) )
+    v10 = *(_QWORD *)(*((_QWORD *)a1 + 77) + 104LL);
+    if ( !(unsigned __int8)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty(&v11) )
     {
-      TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::Inflate(&v10);
-      *((float *)&v10 + 1) = *((float *)&v10 + 1) + v9[1];
-      *(float *)&v10 = *(float *)&v10 + v9[0];
-      *((float *)&v10 + 2) = *((float *)&v10 + 2) + v9[0];
-      *((float *)&v10 + 3) = *((float *)&v10 + 3) + v9[1];
-      *a2 = v10;
+      TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::Inflate(&v11);
+      *((float *)&v11 + 1) = *((float *)&v11 + 1) + *((float *)&v10 + 1);
+      *(float *)&v11 = *(float *)&v11 + *(float *)&v10;
+      *((float *)&v11 + 2) = *((float *)&v11 + 2) + *(float *)&v10;
+      *((float *)&v11 + 3) = *((float *)&v11 + 3) + *((float *)&v10 + 1);
+      *a2 = v11;
     }
   }
-  return v6;
+  return v9;
 }

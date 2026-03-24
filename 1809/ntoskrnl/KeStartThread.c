@@ -1,25 +1,25 @@
 /*
- * XREFs of KeStartThread @ 0x1400D3994
+ * XREFs of KeStartThread @ 0x1400D39B4
  * Callers:
  *     KiInitializeIdleThread @ 0x140571E48 (KiInitializeIdleThread.c)
  *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
  * Callees:
  *     KiFreezeSingleThread @ 0x140002A34 (KiFreezeSingleThread.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC990 (KxAcquireQueuedSpinLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiUpdateThreadPriority @ 0x1400D0D20 (KiUpdateThreadPriority.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400D15A4 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiUpdateNodeAffinitizedFlag @ 0x1400D559C (KiUpdateNodeAffinitizedFlag.c)
- *     KiSelectIdealProcessor @ 0x1400D5648 (KiSelectIdealProcessor.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBDF0 (KiAcquireKobjectLockSafe.c)
- *     KeSelectNodeForAffinity @ 0x140115748 (KeSelectNodeForAffinity.c)
- *     KeFirstGroupAffinityEx @ 0x14012E210 (KeFirstGroupAffinityEx.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiExtendProcessAffinity @ 0x14029BF80 (KiExtendProcessAffinity.c)
- *     EtwTraceIdealProcessor @ 0x14030FD0C (EtwTraceIdealProcessor.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiUpdateThreadPriority @ 0x1400D0D40 (KiUpdateThreadPriority.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400D15C4 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x1400D55BC (KiUpdateNodeAffinitizedFlag.c)
+ *     KiSelectIdealProcessor @ 0x1400D5668 (KiSelectIdealProcessor.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
+ *     KeSelectNodeForAffinity @ 0x140115768 (KeSelectNodeForAffinity.c)
+ *     KeFirstGroupAffinityEx @ 0x14012E230 (KeFirstGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiExtendProcessAffinity @ 0x14029C080 (KiExtendProcessAffinity.c)
+ *     EtwTraceIdealProcessor @ 0x14030FE0C (EtwTraceIdealProcessor.c)
  */
 
 __int64 __fastcall KeStartThread(__int64 a1, unsigned __int64 *a2, unsigned int *a3)

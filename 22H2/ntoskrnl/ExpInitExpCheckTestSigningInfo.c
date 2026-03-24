@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpInitExpCheckTestSigningInfo @ 0x14060C290
+ * XREFs of ExpInitExpCheckTestSigningInfo @ 0x1405B6CA0
  * Callers:
  *     <none>
  * Callees:
- *     ZwQuerySystemInformation @ 0x14041AD60 (ZwQuerySystemInformation.c)
+ *     ZwQuerySystemInformation @ 0x1403FA0E0 (ZwQuerySystemInformation.c)
  */
 
 __int64 __fastcall ExpInitExpCheckTestSigningInfo(PRTL_RUN_ONCE RunOnce, PVOID Parameter, PVOID *Context)

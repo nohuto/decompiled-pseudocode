@@ -1,69 +1,40 @@
 /*
- * XREFs of Amd64DisableMonitoring @ 0x140529120
+ * XREFs of Amd64DisableMonitoring @ 0x1404DD7C0
  * Callers:
  *     <none>
  * Callees:
- *     Amd64ConfigureCounter @ 0x140528FD0 (Amd64ConfigureCounter.c)
- *     Amd64FreeCounter @ 0x140529400 (Amd64FreeCounter.c)
+ *     Amd64ConfigureCounter @ 0x1404DD74C (Amd64ConfigureCounter.c)
  */
 
 unsigned int __fastcall Amd64DisableMonitoring(int a1, unsigned int *a2)
 {
   unsigned int result; // eax
-  __int64 v4; // r8
-  __int64 v5; // rcx
-  __int64 v6; // rbx
-  signed __int64 v7; // rcx
-  bool v8; // cc
-  signed __int64 v9; // rcx
+  _DWORD *v3; // r8
+  unsigned int i; // ebx
+  unsigned __int64 v5; // rcx
+  __int64 v6; // rax
+  int v7; // r9d
 
   result = KeGetPcr()->Prcb.Number;
-  if ( HalpProfileInterface == &DefaultProfileInterface )
-  {
-    v4 = HalpCounterStatus;
-  }
-  else
-  {
-    v5 = HalpNumberOfCounters * result;
-    result = HalpCounterStatus;
-    v4 = HalpCounterStatus + 8 * v5;
-  }
+  v3 = (_DWORD *)(Amd64CounterStatus + ((unsigned __int64)result << 6));
   if ( a2 )
   {
-    v6 = *a2;
-    if ( a1 == 32 )
-      return result;
-    if ( (unsigned int)v6 >= Amd64NumberCoreCounters )
-    {
-      v7 = _InterlockedExchangeAdd64(
-             (volatile signed __int64 *)(*(_QWORD *)(*(_QWORD *)(v4 + 8 * v6) + 16LL) + 16LL),
-             0xFFFFFFFFFFFFFFFFuLL);
-      v8 = v7 <= 1;
-      v9 = v7 - 1;
-      if ( !v8 )
-        return _InterlockedExchangeAdd((volatile signed __int32 *)&KeGetCurrentPrcb()->HalReserved[2], 0xFFFFFFFE);
-      if ( v9 )
-        __fastfail(0xEu);
-    }
-LABEL_15:
-    Amd64ConfigureCounter(v6, 0, 0LL, 0LL, 0);
-    Amd64FreeCounter((unsigned int)v6);
-    return _InterlockedExchangeAdd((volatile signed __int32 *)&KeGetCurrentPrcb()->HalReserved[2], 0xFFFFFFFE);
+    i = *a2;
+LABEL_8:
+    Amd64ConfigureCounter(i, 0, 0, 0, 0);
+    v5 = Amd64CounterStatus + ((unsigned __int64)KeGetPcr()->Prcb.Number << 6);
+    v6 = 2LL * i;
+    *(_DWORD *)(v5 + 8 * v6 + 4) &= v7;
+    *(_DWORD *)(v5 + 8 * v6) = 3;
+    return _InterlockedExchangeAdd(&HalpPmuInUse, v7 - 2);
   }
-  result = Amd64NumberCounters;
-  LODWORD(v6) = 0;
-  if ( Amd64NumberCounters )
+  for ( i = 0; i < 4; ++i )
   {
-    do
-    {
-      if ( !*(_DWORD *)(*(_QWORD *)v4 + 24LL) && *(_DWORD *)(*(_QWORD *)v4 + 32LL) == a1 )
-        break;
-      LODWORD(v6) = v6 + 1;
-      v4 += 8LL;
-    }
-    while ( (unsigned int)v6 < Amd64NumberCounters );
+    if ( !*v3 && v3[1] == a1 )
+      break;
+    v3 += 4;
   }
-  if ( (_DWORD)v6 != Amd64NumberCounters )
-    goto LABEL_15;
+  if ( i != 4 )
+    goto LABEL_8;
   return result;
 }

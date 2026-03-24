@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializeDriverPtes @ 0x140B1A80C
+ * XREFs of MiInitializeDriverPtes @ 0x140A66EF8
  * Callers:
- *     MiInitializeDriverImages @ 0x140B05E40 (MiInitializeDriverImages.c)
+ *     MiInitializeDriverImages @ 0x140A4E6F4 (MiInitializeDriverImages.c)
  * Callees:
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     RtlAvlRemoveNode @ 0x1402C66C0 (RtlAvlRemoveNode.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402FDD20 (MI_IS_PHYSICAL_ADDRESS.c)
- *     RtlAvlInsertNodeEx @ 0x14030EFD0 (RtlAvlInsertNodeEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     MiReserveBootDriverPtes @ 0x140B1AC34 (MiReserveBootDriverPtes.c)
+ *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiReserveBootDriverPtes @ 0x140A67334 (MiReserveBootDriverPtes.c)
  */
 
 __int64 __fastcall MiInitializeDriverPtes(__int64 a1)
@@ -28,46 +28,48 @@ __int64 __fastcall MiInitializeDriverPtes(__int64 a1)
   _QWORD *v12; // rcx
   _QWORD *v13; // rax
   _QWORD *v14; // rcx
-  PVOID v15; // rsi
-  unsigned int v16; // edi
+  PVOID i; // rsi
+  unsigned int v16; // ebx
   unsigned int v17; // ebp
-  unsigned int v18; // r8d
+  unsigned int v18; // r9d
   unsigned int v19; // edx
-  int v20; // r9d
-  __int64 v21; // r10
-  unsigned int v22; // r11d
+  int v20; // r10d
+  __int64 v21; // r11
+  unsigned int v22; // edi
   unsigned int v23; // ecx
-  __int64 *v24; // rbx
-  __int64 i; // rdx
+  __int64 *v24; // rdx
+  __int64 j; // r8
   unsigned __int64 v26; // rax
-  unsigned int v27; // ebx
-  unsigned int v28; // ebp
-  unsigned int v29; // r11d
-  unsigned int v30; // r8d
-  unsigned int v31; // edx
-  int v32; // r9d
-  __int64 v33; // r14
-  unsigned int v34; // r10d
-  unsigned int v35; // ecx
-  _QWORD *v36; // rdi
-  __int64 j; // rdx
-  unsigned __int64 v38; // rax
-  unsigned __int64 v39; // r14
-  unsigned int v40; // ebp
-  unsigned int v41; // edx
-  unsigned __int64 *v42; // rax
-  unsigned __int64 *k; // rbx
-  unsigned __int64 *v44; // rcx
-  unsigned __int64 **v45; // rax
-  unsigned __int64 *v46; // rdi
-  unsigned __int64 *v47; // rcx
-  unsigned int v49; // edx
-  _QWORD *v50; // [rsp+68h] [rbp+10h] BYREF
+  unsigned int v27; // edx
+  __int64 v28; // rdi
+  unsigned int v29; // r14d
+  unsigned int v30; // ebp
+  unsigned int v31; // r9d
+  unsigned int v32; // edx
+  int v33; // r10d
+  __int64 v34; // rbx
+  unsigned int v35; // r11d
+  unsigned int v36; // ecx
+  _QWORD *v37; // rdx
+  __int64 k; // r8
+  unsigned __int64 v39; // rax
+  unsigned int v40; // edx
+  unsigned __int64 v41; // r14
+  int v42; // ebp
+  int v43; // edx
+  unsigned __int64 *v44; // rax
+  unsigned __int64 *m; // rbx
+  unsigned __int64 *v46; // rcx
+  unsigned __int64 **v47; // rax
+  unsigned __int64 *v48; // rdi
+  unsigned __int64 *v49; // rcx
+  unsigned int v51; // edx
+  _QWORD *v52; // [rsp+70h] [rbp+18h] BYREF
 
   v1 = 0LL;
   v2 = (_QWORD *)(a1 + 16);
   v3 = *(_QWORD **)(a1 + 16);
-  v50 = 0LL;
+  v52 = 0LL;
   while ( v3 != v2 )
   {
     if ( !(unsigned int)MI_IS_PHYSICAL_ADDRESS(v3[6]) )
@@ -103,8 +105,8 @@ __int64 __fastcall MiInitializeDriverPtes(__int64 a1)
           v1 = v10;
         }
       }
-      RtlAvlInsertNodeEx((unsigned __int64 *)&v50, (unsigned __int64)v1, v4, v6);
-      v1 = v50;
+      RtlAvlInsertNodeEx((unsigned __int64 *)&v52, (unsigned __int64)v1, v4, v6);
+      v1 = v52;
     }
     v3 = (_QWORD *)*v3;
   }
@@ -147,150 +149,145 @@ __int64 __fastcall MiInitializeDriverPtes(__int64 a1)
       }
     }
   }
-  v15 = qword_140C4F4E8[0];
-LABEL_28:
-  if ( v15 )
+  for ( i = qword_140C4CD30; i; i = *(PVOID *)i )
   {
     v16 = 0;
-    while ( 1 )
+    do
     {
-      v17 = *((_DWORD *)v15 + 4);
+      v17 = *((_DWORD *)i + 4);
       v18 = v16 < v17 ? v16 : 0;
       v19 = v17 - 1;
-      v20 = (*((_DWORD *)v15 + 6) & 4) != 0LL ? 0x20 : 0;
-      v21 = *((_QWORD *)v15 + 3) - ((*((_QWORD *)v15 + 3) & 4LL) != 0 ? 4 : 0);
+      v20 = (*((_DWORD *)i + 6) & 4) != 0LL ? 0x20 : 0;
+      v21 = *((_QWORD *)i + 3) - ((*((_QWORD *)i + 3) & 4LL) != 0 ? 4 : 0);
       while ( 1 )
       {
         v22 = v20 + v19;
         v23 = v20 + v18;
-        if ( v19 - v18 != -1 )
+        if ( v19 - v18 == -1 )
+          goto LABEL_65;
+        v24 = (__int64 *)(v21 + 8 * ((unsigned __int64)v23 >> 6));
+        for ( j = *v24 | ((1LL << (v23 & 0x3F)) - 1); j == -1; j = *v24 )
         {
-          v24 = (__int64 *)(v21 + 8 * ((unsigned __int64)v23 >> 6));
-          for ( i = *v24 | ((1LL << (v23 & 0x3F)) - 1); i == -1; i = *v24 )
-          {
-            if ( (unsigned __int64)++v24 > v21 + 8 * ((unsigned __int64)v22 >> 6) )
-              goto LABEL_63;
-          }
-          _BitScanForward64(&v26, ~i);
-          v27 = v26 + ((unsigned int)(((__int64)v24 - v21) >> 3) << 6);
-          if ( v27 <= v22 )
-            break;
+          if ( (unsigned __int64)++v24 > v21 + 8 * ((unsigned __int64)v22 >> 6) )
+            goto LABEL_65;
         }
-LABEL_63:
-        v27 = -1;
-LABEL_81:
+        _BitScanForward64(&v26, ~j);
+        v27 = v26 + ((unsigned int)(((__int64)v24 - v21) >> 3) << 6);
+        if ( v27 > v22 )
+        {
+LABEL_65:
+          v27 = -1;
+        }
+        else if ( v27 != -1 )
+        {
+          break;
+        }
         if ( !v18 )
-          goto LABEL_39;
-        v49 = v16 + 1;
+          break;
+        v51 = v16 + 1;
         if ( v16 + 1 > v17 )
-          v49 = *((_DWORD *)v15 + 4);
-        v19 = v49 - 1;
+          v51 = *((_DWORD *)i + 4);
+        v19 = v51 - 1;
         v18 = 0;
       }
+      v28 = v27 - v20;
       if ( v27 == -1 )
-        goto LABEL_81;
-      v27 -= v20;
-LABEL_39:
-      if ( v27 < v16 || v27 == -1 )
-        goto LABEL_57;
-      v28 = *((_DWORD *)v15 + 4);
-      v29 = v27 + 1;
-      v30 = v29 < v28 ? v29 : 0;
-      v31 = v28 - 1;
-      v32 = (*((_DWORD *)v15 + 6) & 4) != 0LL ? 0x20 : 0;
-      v33 = *((_QWORD *)v15 + 3) - ((*((_QWORD *)v15 + 3) & 4LL) != 0 ? 4 : 0);
-      while ( 2 )
-      {
-        v34 = v32 + v31;
-        v35 = v32 + v30;
-        if ( v31 - v30 == -1 )
-          goto LABEL_58;
-        v36 = (_QWORD *)(v33 + 8 * ((unsigned __int64)v35 >> 6));
-        for ( j = ~*v36 | ((1LL << (v35 & 0x3F)) - 1); j == -1; j = ~*v36 )
-        {
-          if ( (unsigned __int64)++v36 > v33 + 8 * ((unsigned __int64)v34 >> 6) )
-            goto LABEL_58;
-        }
-        _BitScanForward64(&v38, ~j);
-        v16 = v38 + ((unsigned int)(((__int64)v36 - v33) >> 3) << 6);
-        if ( v16 > v34 )
-        {
-LABEL_58:
-          v16 = -1;
-LABEL_59:
-          if ( !v30 )
-            goto LABEL_50;
-          v41 = v27 + 2;
-          if ( v27 + 2 > v28 )
-            v41 = *((_DWORD *)v15 + 4);
-          v31 = v41 - 1;
-          v30 = 0;
-          continue;
-        }
+        v28 = 0xFFFFFFFFLL;
+      if ( (unsigned int)v28 < v16 || (_DWORD)v28 == -1 )
         break;
+      v29 = *((_DWORD *)i + 4);
+      v30 = v28 + 1;
+      v31 = v30 < v29 ? v30 : 0;
+      v32 = v29 - 1;
+      v33 = (*((_DWORD *)i + 6) & 4) != 0LL ? 0x20 : 0;
+      v34 = *((_QWORD *)i + 3) - ((*((_QWORD *)i + 3) & 4LL) != 0 ? 4 : 0);
+      while ( 1 )
+      {
+        v35 = v33 + v32;
+        v36 = v33 + v31;
+        if ( v32 - v31 == -1 )
+          goto LABEL_60;
+        v37 = (_QWORD *)(v34 + 8 * ((unsigned __int64)v36 >> 6));
+        for ( k = ~*v37 | ((1LL << (v36 & 0x3F)) - 1); k == -1; k = ~*v37 )
+        {
+          if ( (unsigned __int64)++v37 > v34 + 8 * ((unsigned __int64)v35 >> 6) )
+            goto LABEL_60;
+        }
+        _BitScanForward64(&v39, ~k);
+        v40 = v39 + ((unsigned int)(((__int64)v37 - v34) >> 3) << 6);
+        if ( v40 > v35 )
+        {
+LABEL_60:
+          v40 = -1;
+        }
+        else if ( v40 != -1 )
+        {
+          break;
+        }
+        if ( !v31 )
+          break;
+        v43 = v28 + 2;
+        if ( (int)v28 + 2 > v29 )
+          v43 = *((_DWORD *)i + 4);
+        v32 = v43 - 1;
+        v31 = 0;
       }
-      if ( v16 == -1 )
-        goto LABEL_59;
-      v16 -= v32;
-LABEL_50:
-      if ( v16 < v29 || v16 == -1 )
-        v16 = *((_DWORD *)v15 + 4);
-      v39 = *((_QWORD *)v15 + 1) + 8LL * v27;
-      v40 = v16 - v27;
-      if ( v16 != v27 )
+      v16 = v40 - v33;
+      if ( v40 == -1 )
+        v16 = -1;
+      if ( v16 < v30 || v16 == -1 )
+        v16 = *((_DWORD *)i + 4);
+      v41 = *((_QWORD *)i + 1) + 8 * v28;
+      v42 = v16 - v28;
+      if ( v16 != (_DWORD)v28 )
       {
         do
         {
-          if ( MI_READ_PTE_LOCK_FREE(v39) )
-            _bittestandset(*((signed __int32 **)v15 + 3), v27);
-          ++v27;
-          v39 += 8LL;
-          --v40;
+          if ( MI_READ_PTE_LOCK_FREE(v41) )
+            _bittestandset(*((signed __int32 **)i + 3), v28);
+          LODWORD(v28) = v28 + 1;
+          v41 += 8LL;
+          --v42;
         }
-        while ( v40 );
-      }
-      if ( v16 >= *((_DWORD *)v15 + 4) )
-      {
-LABEL_57:
-        v15 = *(PVOID *)v15;
-        goto LABEL_28;
+        while ( v42 );
       }
     }
+    while ( v16 < *((_DWORD *)i + 4) );
   }
   if ( (KiSpeculationFeatures & 0x40000000000LL) != 0 )
-    qword_140C51980 = (unsigned __int64)(((__int64)((*((_QWORD *)qword_140C4F4E8[0] + 1) << 25)
-                                                  + ((unsigned __int64)*((unsigned int *)qword_140C4F4E8[0] + 4) << 28)) >> 16)
-                                       - qword_140C51988) >> 21;
-  v42 = v50;
-  k = 0LL;
-  while ( v42 )
+    qword_140C4E0F8 = (unsigned __int64)(((__int64)((*((_QWORD *)qword_140C4CD30 + 1) << 25)
+                                                  + ((unsigned __int64)*((unsigned int *)qword_140C4CD30 + 4) << 28)) >> 16)
+                                       - qword_140C4E100) >> 21;
+  v44 = v52;
+  m = 0LL;
+  while ( v44 )
   {
-    k = v42;
-    v42 = (unsigned __int64 *)*v42;
+    m = v44;
+    v44 = (unsigned __int64 *)*v44;
   }
-  while ( k )
+  while ( m )
   {
-    v45 = (unsigned __int64 **)k[1];
-    v46 = k;
-    v47 = k;
-    if ( v45 )
+    v47 = (unsigned __int64 **)m[1];
+    v48 = m;
+    v49 = m;
+    if ( v47 )
     {
-      v44 = *v45;
-      for ( k = (unsigned __int64 *)k[1]; v44; v44 = (unsigned __int64 *)*v44 )
-        k = v44;
+      v46 = *v47;
+      for ( m = (unsigned __int64 *)m[1]; v46; v46 = (unsigned __int64 *)*v46 )
+        m = v46;
     }
     else
     {
       while ( 1 )
       {
-        k = (unsigned __int64 *)(k[2] & 0xFFFFFFFFFFFFFFFCuLL);
-        if ( !k || (unsigned __int64 *)*k == v47 )
+        m = (unsigned __int64 *)(m[2] & 0xFFFFFFFFFFFFFFFCuLL);
+        if ( !m || (unsigned __int64 *)*m == v49 )
           break;
-        v47 = k;
+        v49 = m;
       }
     }
-    RtlAvlRemoveNode((unsigned __int64 *)&v50, v46);
-    ExFreePoolWithTag(v46, 0);
+    RtlAvlRemoveNode((unsigned __int64 *)&v52, v48);
+    ExFreePoolWithTag(v48, 0);
   }
   return 1LL;
 }

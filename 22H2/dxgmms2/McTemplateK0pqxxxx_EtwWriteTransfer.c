@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0pqxxxx_EtwWriteTransfer @ 0x1C003956C
+ * XREFs of McTemplateK0pqxxxx_EtwWriteTransfer @ 0x1C002E804
  * Callers:
- *     VidSchiUpdateLastCompletedPresentTimestamp @ 0x1C0006920 (VidSchiUpdateLastCompletedPresentTimestamp.c)
- *     ?VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C003785C (-VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ *     VidSchiUpdateLastCompletedPresentTimestamp @ 0x1C000D450 (VidSchiUpdateLastCompletedPresentTimestamp.c)
+ *     ?VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0014C24 (-VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C0019900 (__security_check_cookie.c)
- *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BD2C (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00178A0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0023ECC (McGenEventWrite_EtwWriteTransfer.c)
  */
 
 NTSTATUS McTemplateK0pqxxxx_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

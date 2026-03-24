@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pqhhhqqqqqqhhqhqqqqqqqssshhh_EtwWriteTransfer @ 0x1C0013360
+ * XREFs of McTemplateK0pqhhhqqqqqqhhqhqqqqqqqssshhh_EtwWriteTransfer @ 0x1C0012E5C
  * Callers:
- *     HUBPDO_ReportDeviceFailure @ 0x1C0019D50 (HUBPDO_ReportDeviceFailure.c)
+ *     HUBPDO_ReportDeviceFailure @ 0x1C0019800 (HUBPDO_ReportDeviceFailure.c)
  * Callees:
  *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001250 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0pqhhhqqqqqqhhqhqqqqqqqssshhh_EtwWriteTransfer(

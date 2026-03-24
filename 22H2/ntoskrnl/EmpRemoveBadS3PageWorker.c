@@ -1,9 +1,9 @@
 /*
- * XREFs of EmpRemoveBadS3PageWorker @ 0x14093CD90
+ * XREFs of EmpRemoveBadS3PageWorker @ 0x14088A5E0
  * Callers:
  *     <none>
  * Callees:
- *     WheaPersistBadPageToBcd @ 0x140611E00 (WheaPersistBadPageToBcd.c)
+ *     WheaPersistBadPageToBcd @ 0x1405BC690 (WheaPersistBadPageToBcd.c)
  */
 
 __int64 EmpRemoveBadS3PageWorker()

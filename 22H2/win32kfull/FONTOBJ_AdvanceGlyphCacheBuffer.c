@@ -1,9 +1,9 @@
 /*
- * XREFs of FONTOBJ_AdvanceGlyphCacheBuffer @ 0x1C0140088
+ * XREFs of FONTOBJ_AdvanceGlyphCacheBuffer @ 0x1C016CB28
  * Callers:
- *     ?CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z @ 0x1C007F180 (-CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z.c)
+ *     ?CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z @ 0x1C009ACB0 (-CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z.c)
  * Callees:
- *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C007F350 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C009AE74 (--1RFONTOBJ@@QEAA@XZ.c)
  */
 
 void __fastcall FONTOBJ_AdvanceGlyphCacheBuffer(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

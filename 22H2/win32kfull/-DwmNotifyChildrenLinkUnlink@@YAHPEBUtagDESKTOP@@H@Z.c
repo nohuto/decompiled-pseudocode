@@ -1,124 +1,144 @@
 /*
- * XREFs of ?DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z @ 0x1C0059F80
+ * XREFs of ?DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z @ 0x1C00E9948
  * Callers:
- *     DwmNotifyChildrenAddRemove @ 0x1C0059F3C (DwmNotifyChildrenAddRemove.c)
+ *     DwmNotifyChildrenAddRemove @ 0x1C00E9904 (DwmNotifyChildrenAddRemove.c)
  * Callees:
- *     DwmAsyncChildLink @ 0x1C005A26C (DwmAsyncChildLink.c)
- *     DwmAsyncChildUnlink @ 0x1C005A888 (DwmAsyncChildUnlink.c)
- *     DwmAsyncOwnerChange @ 0x1C00CCF70 (DwmAsyncOwnerChange.c)
- *     BuildHwndList @ 0x1C00D2540 (BuildHwndList.c)
- *     FreeHwndList @ 0x1C00D2E50 (FreeHwndList.c)
- *     HMValidateHandleNoSecure @ 0x1C00F212C (HMValidateHandleNoSecure.c)
+ *     DwmAsyncOwnerChange @ 0x1C0035C74 (DwmAsyncOwnerChange.c)
+ *     BuildHwndList @ 0x1C006CAC0 (BuildHwndList.c)
+ *     FreeHwndList @ 0x1C006DA20 (FreeHwndList.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ *     DwmAsyncChildLink @ 0x1C00E9C00 (DwmAsyncChildLink.c)
+ *     DwmAsyncChildUnlink @ 0x1C00E9CC4 (DwmAsyncChildUnlink.c)
  */
 
 __int64 __fastcall DwmNotifyChildrenLinkUnlink(const struct tagDESKTOP *a1, int a2)
 {
-  unsigned int v3; // ebp
-  int v4; // r12d
-  __int64 v5; // rax
-  __int64 v6; // rdx
-  __int64 v7; // r13
-  _QWORD *i; // r14
-  int v9; // esi
+  int v3; // r12d
+  unsigned int v4; // ebp
+  struct tagBWL *v5; // rax
+  struct tagBWL *v6; // r13
+  unsigned __int64 *i; // r14
+  __int64 v8; // rdx
+  __int64 v9; // rcx
   void *v10; // rax
-  __int64 v11; // rcx
-  void *v12; // rax
-  ShellWindowManagement *v13; // rcx
-  __int64 v14; // rax
-  __int64 v15; // rdx
-  __int64 v16; // r15
-  _QWORD *j; // r14
-  __int64 v18; // rax
-  __int64 v19; // rcx
-  int v20; // r13d
-  void *v21; // rax
-  __int64 v22; // rcx
-  void *v23; // rax
-  __int64 v25; // rax
-  __int64 v26; // rcx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 *v13; // rsi
+  int v14; // ebx
+  void *v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  _QWORD *v18; // rbx
+  void *v19; // rax
+  __int64 v20; // r9
+  int v21; // ebx
+  void *v22; // rax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 *v25; // rdi
+  _QWORD *v26; // rbx
   void *v27; // rax
-  __int64 v28; // rcx
-  void *v29; // rax
-  void *v30; // rax
-  void *v31; // rax
-  void *v32; // rax
-  int v33; // [rsp+70h] [rbp+8h]
+  __int64 v28; // r9
+  struct tagWND *v29; // rcx
+  struct tagBWL *v30; // rax
+  struct tagBWL *v31; // r15
+  unsigned __int64 *j; // r14
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 *v35; // rsi
+  int v36; // ebx
+  void *v37; // rax
+  __int64 v38; // rdx
+  __int64 v39; // rcx
+  _QWORD *v40; // rbx
+  void *v41; // rax
+  __int64 v42; // r9
+  void *v44; // rax
+  void *v45; // rax
 
-  v3 = 1;
-  v4 = a2;
-  v5 = BuildHwndList(*(ShellWindowManagement **)(*(_QWORD *)(*((_QWORD *)a1 + 1) + 24LL) + 112LL));
-  v7 = v5;
+  v3 = a2;
+  v4 = 1;
+  v5 = BuildHwndList(*(struct tagWND **)(*(_QWORD *)(*((_QWORD *)a1 + 1) + 24LL) + 112LL), 3, 0LL);
+  v6 = v5;
   if ( !v5 )
     return 0;
-  for ( i = (_QWORD *)(v5 + 32); *i != 1LL; ++i )
+  for ( i = (unsigned __int64 *)((char *)v5 + 32); *i != 1; ++i )
   {
-    LOBYTE(v6) = 1;
-    v25 = HMValidateHandleNoSecure(*i, v6);
-    if ( v25 )
+    v13 = (__int64 *)HMValidateHandleNoSecure(*i, 1);
+    if ( v13 )
     {
-      if ( v4 )
+      if ( v3 )
       {
-        v33 = *(_DWORD *)(*(_QWORD *)(v25 + 40) + 236LL);
-        v27 = (void *)ReferenceDwmApiPort(v26);
-        DwmAsyncChildLink(v27, v33);
-        v29 = (void *)ReferenceDwmApiPort(v28);
-        DwmAsyncOwnerChange(v29);
-        v4 = a2;
+        v14 = *(_DWORD *)(v13[5] + 236);
+        v15 = (void *)ReferenceDwmApiPort(v12, v11);
+        DwmAsyncChildLink(v15, v14);
+        v18 = (_QWORD *)v13[15];
+        if ( v18 )
+          v18 = (_QWORD *)*v18;
+        v19 = (void *)ReferenceDwmApiPort(v17, v16);
+        DwmAsyncOwnerChange(v19, *v13, (__int64)v18, v20);
+        v3 = a2;
       }
       else
       {
-        v32 = (void *)ReferenceDwmApiPort(v26);
-        DwmAsyncChildUnlink(v32);
+        v45 = (void *)ReferenceDwmApiPort(v12, v11);
+        DwmAsyncChildUnlink(v45);
       }
     }
   }
-  FreeHwndList(v7);
-  if ( v4 )
+  FreeHwndList(v6);
+  if ( v3 )
   {
-    v9 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 13) + 40LL) + 236LL);
-    v10 = (void *)ReferenceDwmApiPort(*(_QWORD *)(*((_QWORD *)a1 + 1) + 24LL));
-    DwmAsyncChildLink(v10, v9);
-    v12 = (void *)ReferenceDwmApiPort(v11);
-    DwmAsyncOwnerChange(v12);
+    v21 = *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 13) + 40LL) + 236LL);
+    v22 = (void *)ReferenceDwmApiPort(v9, v8);
+    DwmAsyncChildLink(v22, v21);
+    v25 = (__int64 *)*((_QWORD *)a1 + 13);
+    v26 = (_QWORD *)v25[15];
+    if ( v26 )
+      v26 = (_QWORD *)*v26;
+    v27 = (void *)ReferenceDwmApiPort(v24, v23);
+    DwmAsyncOwnerChange(v27, *v25, (__int64)v26, v28);
   }
   else
   {
-    v31 = (void *)ReferenceDwmApiPort(*(_QWORD *)(*((_QWORD *)a1 + 1) + 24LL));
-    DwmAsyncChildUnlink(v31);
+    v10 = (void *)ReferenceDwmApiPort(v9, v8);
+    DwmAsyncChildUnlink(v10);
   }
-  v13 = *(ShellWindowManagement **)(*((_QWORD *)a1 + 13) + 112LL);
-  if ( v13 )
+  v29 = *(struct tagWND **)(*((_QWORD *)a1 + 13) + 112LL);
+  if ( v29 )
   {
-    v14 = BuildHwndList(v13);
-    v16 = v14;
-    if ( v14 )
+    v30 = BuildHwndList(v29, 3, 0LL);
+    v31 = v30;
+    if ( v30 )
     {
-      for ( j = (_QWORD *)(v14 + 32); *j != 1LL; ++j )
+      for ( j = (unsigned __int64 *)((char *)v30 + 32); *j != 1; ++j )
       {
-        LOBYTE(v15) = 1;
-        v18 = HMValidateHandleNoSecure(*j, v15);
-        if ( v18 )
+        v35 = (__int64 *)HMValidateHandleNoSecure(*j, 1);
+        if ( v35 )
         {
-          if ( v4 )
+          if ( v3 )
           {
-            v20 = *(_DWORD *)(*(_QWORD *)(v18 + 40) + 236LL);
-            v21 = (void *)ReferenceDwmApiPort(v19);
-            DwmAsyncChildLink(v21, v20);
-            v23 = (void *)ReferenceDwmApiPort(v22);
-            DwmAsyncOwnerChange(v23);
-            v4 = a2;
+            v36 = *(_DWORD *)(v35[5] + 236);
+            v37 = (void *)ReferenceDwmApiPort(v34, v33);
+            DwmAsyncChildLink(v37, v36);
+            v40 = (_QWORD *)v35[15];
+            if ( v40 )
+              v40 = (_QWORD *)*v40;
+            v41 = (void *)ReferenceDwmApiPort(v39, v38);
+            DwmAsyncOwnerChange(v41, *v35, (__int64)v40, v42);
+            v3 = a2;
           }
           else
           {
-            v30 = (void *)ReferenceDwmApiPort(v19);
-            DwmAsyncChildUnlink(v30);
+            v44 = (void *)ReferenceDwmApiPort(v34, v33);
+            DwmAsyncChildUnlink(v44);
           }
         }
       }
-      FreeHwndList(v16);
-      return v3;
+      FreeHwndList(v31);
+      return v4;
     }
     return 0;
   }
-  return v3;
+  return v4;
 }

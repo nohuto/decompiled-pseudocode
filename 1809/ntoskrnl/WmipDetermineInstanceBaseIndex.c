@@ -1,7 +1,7 @@
 /*
- * XREFs of WmipDetermineInstanceBaseIndex @ 0x140707DA0
+ * XREFs of WmipDetermineInstanceBaseIndex @ 0x140707D80
  * Callers:
- *     WmipBuildInstanceSet @ 0x140707908 (WmipBuildInstanceSet.c)
+ *     WmipBuildInstanceSet @ 0x1407078E8 (WmipBuildInstanceSet.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PnpEventRemovedPdoWait@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C00848D0
+ * XREFs of ?PnpEventRemovedPdoWait@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007B0E0
  * Callers:
  *     <none>
  * Callees:

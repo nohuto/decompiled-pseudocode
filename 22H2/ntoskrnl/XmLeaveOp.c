@@ -1,9 +1,9 @@
 /*
- * XREFs of XmLeaveOp @ 0x140533EA0
+ * XREFs of XmLeaveOp @ 0x1404E6500
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmPopStack @ 0x1403B8E14 (XmPopStack.c)
+ *     XmPopStack @ 0x1403967BC (XmPopStack.c)
  */
 
 __int64 __fastcall XmLeaveOp(__int64 a1)

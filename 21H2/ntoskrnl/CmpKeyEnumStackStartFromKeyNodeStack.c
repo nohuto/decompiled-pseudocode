@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpKeyEnumStackStartFromKeyNodeStack @ 0x140920FCC
+ * XREFs of CmpKeyEnumStackStartFromKeyNodeStack @ 0x14087AD28
  * Callers:
- *     CmpGetSubKeyCountForKeyNodeStack @ 0x14069EE0C (CmpGetSubKeyCountForKeyNodeStack.c)
- *     CmpKeyEnumStackStartFromKcbStack @ 0x140920F1C (CmpKeyEnumStackStartFromKcbStack.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x14087A70C (CmpGetSubKeyCountForKeyNodeStack.c)
+ *     CmpKeyEnumStackStartFromKcbStack @ 0x14087AC78 (CmpKeyEnumStackStartFromKcbStack.c)
  * Callees:
- *     CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x14065BD24 (CmpKeyEnumStackBeginEnumerationForKeyNodeStack.c)
- *     CmpKeyEnumStackStart @ 0x14065C8A4 (CmpKeyEnumStackStart.c)
+ *     CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x140729D88 (CmpKeyEnumStackBeginEnumerationForKeyNodeStack.c)
+ *     CmpKeyEnumStackStart @ 0x14072A18C (CmpKeyEnumStackStart.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackStartFromKeyNodeStack(
         __int16 *a1,
-        unsigned __int16 *a2,
+        __int16 *a2,
         __int64 a3,
         struct _LOOKASIDE_LIST_EX *a4)
 {

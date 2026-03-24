@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCombineWorkingSetTail @ 0x1401226A0
+ * XREFs of MiCombineWorkingSetTail @ 0x1401226C0
  * Callers:
  *     MiCombinePte @ 0x140088F10 (MiCombinePte.c)
  * Callees:
- *     MiReleaseWalkLocks @ 0x140122778 (MiReleaseWalkLocks.c)
+ *     MiReleaseWalkLocks @ 0x140122798 (MiReleaseWalkLocks.c)
  *     MiProcessCrcList @ 0x14061F320 (MiProcessCrcList.c)
  */
 

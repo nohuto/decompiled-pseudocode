@@ -1,8 +1,8 @@
 /*
- * XREFs of ?GetMostImportantPathFromSource@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@I@Z @ 0x1C019E1E8
+ * XREFs of ?GetMostImportantPathFromSource@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@I@Z @ 0x1C012FA78
  * Callers:
- *     ?GetMostImportantVidPnPathTargetsFromSource@@YAJPEBVDMMVIDPNTOPOLOGY@@IQEAI@Z @ 0x1C019E1AC (-GetMostImportantVidPnPathTargetsFromSource@@YAJPEBVDMMVIDPNTOPOLOGY@@IQEAI@Z.c)
- *     ?DmmIsWaitingForPowerOn@@YAJPEAXIAEAE@Z @ 0x1C02332EC (-DmmIsWaitingForPowerOn@@YAJPEAXIAEAE@Z.c)
+ *     ?GetMostImportantVidPnPathTargetsFromSource@@YAJPEBVDMMVIDPNTOPOLOGY@@IQEAI@Z @ 0x1C012FA3C (-GetMostImportantVidPnPathTargetsFromSource@@YAJPEBVDMMVIDPNTOPOLOGY@@IQEAI@Z.c)
+ *     ?DmmIsWaitingForPowerOn@@YAJPEAXIAEAE@Z @ 0x1C01773DC (-DmmIsWaitingForPowerOn@@YAJPEAXIAEAE@Z.c)
  * Callees:
  *     <none>
  */

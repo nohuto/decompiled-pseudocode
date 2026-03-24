@@ -1,11 +1,11 @@
 /*
- * XREFs of ?WindowNodeSetBounds@CChannel@@UEAAJIAEBUtagRECT@@00@Z @ 0x180070870
+ * XREFs of ?WindowNodeSetBounds@CChannel@@UEAAJIAEBUtagRECT@@00@Z @ 0x18005EC00
  * Callers:
  *     <none>
  * Callees:
- *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18007333C (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005D6EC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x18005DBF8 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x18005E020 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
  */
 
 __int64 __fastcall CChannel::WindowNodeSetBounds(
@@ -19,13 +19,13 @@ __int64 __fastcall CChannel::WindowNodeSetBounds(
   __int128 v10; // xmm0
   unsigned int v11; // ebx
   _DWORD v13[16]; // [rsp+20h] [rbp-40h] BYREF
-  char *v14; // [rsp+80h] [rbp+20h] BYREF
+  struct _RTL_CRITICAL_SECTION *v14; // [rsp+80h] [rbp+20h] BYREF
 
-  v14 = (char *)this + 168;
+  v14 = (struct _RTL_CRITICAL_SECTION *)((char *)this + 168);
   EnterCriticalSection((LPCRITICAL_SECTION)((char *)this + 168));
-  CChannel::CheckHandle(this, a2, 204LL);
+  CChannel::CheckHandle((__int64)this, a2, 203);
   v9 = (__int128)*a4;
-  v13[0] = 444;
+  v13[0] = 447;
   memset(&v13[1], 0, 48);
   v13[1] = a2;
   v10 = (__int128)*a3;

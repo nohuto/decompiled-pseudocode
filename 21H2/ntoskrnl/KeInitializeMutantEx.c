@@ -1,12 +1,12 @@
 /*
- * XREFs of KeInitializeMutantEx @ 0x140261AC0
+ * XREFs of KeInitializeMutantEx @ 0x1402ED1C0
  * Callers:
- *     NtCreateMutant @ 0x1406F0080 (NtCreateMutant.c)
+ *     NtCreateMutant @ 0x1406DDC40 (NtCreateMutant.c)
  * Callees:
- *     KiInitializeMutant @ 0x140261ADC (KiInitializeMutant.c)
+ *     KiInitializeMutant @ 0x1402ED1DC (KiInitializeMutant.c)
  */
 
-__int64 __fastcall KeInitializeMutantEx(__int64 a1, __int64 a2, unsigned int a3)
+__int64 __fastcall KeInitializeMutantEx(ULONG_PTR a1)
 {
-  return KiInitializeMutant(a1, a2, 0LL, a3);
+  return KiInitializeMutant(a1);
 }

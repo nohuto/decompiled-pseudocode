@@ -1,15 +1,15 @@
 /*
- * XREFs of BiCreateMergedBootEntry @ 0x1408F2F98
+ * XREFs of BiCreateMergedBootEntry @ 0x1408F2F78
  * Callers:
- *     BiUpdateEfiEntry @ 0x1408F4BE8 (BiUpdateEfiEntry.c)
+ *     BiUpdateEfiEntry @ 0x1408F4BC8 (BiUpdateEfiEntry.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiGetDeviceFromEfiPath @ 0x1408F3B1C (BiGetDeviceFromEfiPath.c)
- *     BiGetFilePathFromEfiPath @ 0x1408F3CA8 (BiGetFilePathFromEfiPath.c)
- *     BiTranslateFilePath @ 0x1408F47A8 (BiTranslateFilePath.c)
+ *     BiGetDeviceFromEfiPath @ 0x1408F3AFC (BiGetDeviceFromEfiPath.c)
+ *     BiGetFilePathFromEfiPath @ 0x1408F3C88 (BiGetFilePathFromEfiPath.c)
+ *     BiTranslateFilePath @ 0x1408F4788 (BiTranslateFilePath.c)
  */
 
 __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, char *a2, _DWORD *a3, _WORD *a4, _QWORD *a5)

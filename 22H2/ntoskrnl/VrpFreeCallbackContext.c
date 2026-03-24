@@ -1,9 +1,9 @@
 /*
- * XREFs of VrpFreeCallbackContext @ 0x14068E690
+ * XREFs of VrpFreeCallbackContext @ 0x1405D481C
  * Callers:
- *     VrpPostOpenOrCreate @ 0x14068DF0C (VrpPostOpenOrCreate.c)
+ *     VrpPostOpenOrCreate @ 0x1405D4420 (VrpPostOpenOrCreate.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __fastcall VrpFreeCallbackContext(_QWORD *P)

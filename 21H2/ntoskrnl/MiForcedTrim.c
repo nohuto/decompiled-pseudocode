@@ -1,105 +1,114 @@
 /*
- * XREFs of MiForcedTrim @ 0x14037432C
+ * XREFs of MiForcedTrim @ 0x14036C520
  * Callers:
- *     MiSelfTrim @ 0x140374278 (MiSelfTrim.c)
+ *     MiPreUnlockWorkingSetShared @ 0x14036C210 (MiPreUnlockWorkingSetShared.c)
  * Callees:
- *     MiGetAvailablePagesBelowPriority @ 0x140266B40 (MiGetAvailablePagesBelowPriority.c)
- *     MiTrimWorkingSet @ 0x1403744D8 (MiTrimWorkingSet.c)
- *     MiForceAgeWorkingSet @ 0x140596904 (MiForceAgeWorkingSet.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14027191C (MiGetAvailablePagesBelowPriority.c)
+ *     MiTrimWorkingSet @ 0x140359EE4 (MiTrimWorkingSet.c)
+ *     MiForceAgeWorkingSet @ 0x14053B3C0 (MiForceAgeWorkingSet.c)
  */
 
 __int64 __fastcall MiForcedTrim(__int64 a1, char a2)
 {
-  __int64 v4; // rsi
-  _QWORD *v5; // rcx
-  __int64 v6; // r14
+  __int64 v2; // rdi
+  _QWORD *v4; // r14
+  __int64 v5; // r13
   __int64 AvailablePagesBelowPriority; // rax
-  __int64 v8; // r11
+  unsigned __int64 v7; // r11
+  unsigned __int64 v8; // r12
   unsigned __int64 v9; // r9
-  unsigned __int64 v10; // r10
-  unsigned __int64 v11; // r8
-  unsigned __int64 v12; // rcx
-  unsigned __int64 v13; // r12
-  unsigned __int64 v14; // r9
-  _QWORD *v15; // rcx
-  unsigned __int64 v16; // rbp
-  unsigned __int64 v17; // rdx
-  unsigned __int64 v18; // rdi
-  unsigned __int64 v20; // r8
-  unsigned __int64 v21; // rax
-  unsigned __int64 v22; // rcx
-  unsigned __int64 v23; // r8
-  unsigned int v24; // r9d
-  __int64 v25; // rax
+  unsigned __int64 v10; // rcx
+  unsigned __int64 v11; // r11
+  unsigned int v12; // ecx
+  unsigned __int64 v13; // rbp
+  unsigned __int64 v14; // rdx
+  _QWORD *v15; // rax
+  unsigned __int64 v16; // rsi
+  unsigned int v17; // r10d
+  char v18; // r14
+  unsigned __int64 v20; // rax
+  unsigned __int64 v21; // rcx
+  unsigned __int64 v22; // r9
+  __int64 v23; // rax
+  unsigned __int64 v24; // [rsp+70h] [rbp+8h]
 
-  v4 = 0LL;
-  v5 = *(_QWORD **)(qword_140C51F48 + 8LL * *(unsigned __int16 *)(a1 + 174));
-  v6 = v5[2075];
-  AvailablePagesBelowPriority = MiGetAvailablePagesBelowPriority(v5, 6u);
-  v9 = *(_QWORD *)(a1 + 144);
-  v10 = AvailablePagesBelowPriority;
-  v11 = *(_QWORD *)(v6 + 2400);
-  v12 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 32LL);
-  if ( v9 <= v12 )
+  v2 = 0LL;
+  v4 = *(_QWORD **)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a1 + 174));
+  v5 = v4[856];
+  AvailablePagesBelowPriority = MiGetAvailablePagesBelowPriority(v4, 6u);
+  v7 = *(_QWORD *)(a1 + 136);
+  v8 = AvailablePagesBelowPriority;
+  v9 = *(_QWORD *)(v5 + 2400);
+  v10 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 32LL);
+  if ( v7 <= v10 )
     return 0LL;
-  v13 = *(_QWORD *)(v8 + 16720);
-  v14 = v9 - v12;
+  v11 = v7 - v10;
+  v24 = v4[866];
+  v12 = 1;
+  v13 = 0LL;
+  v14 = (15 * v11 * (unsigned __int128)0x47AE147AE147AE15uLL) >> 64;
   v15 = (_QWORD *)(a1 + 48);
-  v16 = 0LL;
-  v17 = 1LL;
-  v18 = 15 * v14 / 0x64;
+  v16 = (v14 + ((15 * v11 - v14) >> 1)) >> 6;
   do
   {
-    v16 += *v15;
-    if ( v16 >= v18 )
+    v13 += *v15;
+    if ( v13 >= v16 )
       break;
-    v17 = (unsigned int)(v17 + 1);
+    ++v12;
     ++v15;
   }
-  while ( (unsigned int)v17 < 8 );
+  while ( v12 < 8 );
+  v17 = 7;
   if ( (*(_BYTE *)(a1 + 184) & 7) != 0 )
   {
-    v20 = 16 * v11;
-    v21 = v14;
-    v22 = v13 / 0xA;
-    if ( v20 <= v13 / 0xA )
-      v22 = v20;
-    if ( v14 >= v13 )
-      v21 = *(_QWORD *)(v8 + 16720);
-    v11 = v22 * (100 * v21 / v13) / 0x64;
-    v17 = v14 / 0xA;
-    if ( v11 > v14 / 0xA )
-      v11 = v14 / 0xA;
+    v20 = v4[866];
+    v21 = v24 / 0xA;
+    if ( v11 < v24 )
+      v20 = v11;
+    if ( 16 * v9 <= v21 )
+      v21 = 16 * v9;
+    v9 = v21 * (100 * v20 / v24) / 0x64;
+    v14 = v11 / 0xA;
+    if ( v9 > v11 / 0xA )
+      v9 = v11 / 0xA;
   }
-  if ( v10 < v11 )
+  if ( v8 >= v9 )
+    goto LABEL_7;
+  v22 = v9 - v8;
+  v14 = 0LL;
+  if ( v22 < 0x10 )
+    v22 = 16LL;
+  while ( 1 )
   {
-    v23 = v11 - v10;
-    v17 = 0LL;
-    if ( v23 < 0x10 )
-      v23 = 16LL;
-    v24 = 7;
-    while ( 1 )
-    {
-      v17 += *(_QWORD *)(a1 + 8LL * v24 + 40);
-      if ( v17 >= v23 )
-        break;
-      if ( --v24 == 1 )
-        goto LABEL_26;
-    }
-    v17 = v23;
+    v14 += *(_QWORD *)(a1 + 8LL * v17 + 40);
+    if ( v14 >= v22 )
+      break;
+    if ( --v17 == 1 )
+      goto LABEL_26;
+  }
+  v14 = v22;
 LABEL_26:
-    if ( v17 && ((*(_BYTE *)(a1 + 184) & 7) != 0 || v10 < *(_QWORD *)(v8 + 15944) >> 1) )
+  if ( v14 )
+  {
+    if ( (*(_BYTE *)(a1 + 184) & 7) == 0 )
+      v14 &= -(__int64)(v8 < v4[646] >> 1);
+    v18 = a2;
+    if ( v14 )
     {
-      LOBYTE(v23) = a2;
-      v25 = MiTrimWorkingSet(a1, v17, v23, v24, 121);
-      *(_QWORD *)(v6 + 2480) += v25;
-      v4 = v25;
+      v23 = MiTrimWorkingSet(a1, v14, a2, v17, 121);
+      *(_QWORD *)(v5 + 2480) += v23;
+      v2 = v23;
     }
   }
-  if ( v16 < v18 || (*(_DWORD *)(a1 + 4) & 0x3FFF) == 0 )
+  else
   {
-    LOBYTE(v17) = a2;
-    MiForceAgeWorkingSet(a1, v17);
+LABEL_7:
+    v18 = a2;
   }
-  return v4;
+  if ( v13 < v16 || (*(_DWORD *)(a1 + 4) & 0x3FFF) == 0 )
+  {
+    LOBYTE(v14) = v18;
+    MiForceAgeWorkingSet(a1, v14);
+  }
+  return v2;
 }

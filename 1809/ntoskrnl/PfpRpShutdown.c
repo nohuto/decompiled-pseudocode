@@ -1,7 +1,7 @@
 /*
- * XREFs of PfpRpShutdown @ 0x1408654D4
+ * XREFs of PfpRpShutdown @ 0x1408654B4
  * Callers:
- *     PfpParametersPropagate @ 0x140865904 (PfpParametersPropagate.c)
+ *     PfpParametersPropagate @ 0x1408658E4 (PfpParametersPropagate.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
@@ -9,7 +9,7 @@
  *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PfpRpControlRequestReset @ 0x14069E2F4 (PfpRpControlRequestReset.c)
+ *     PfpRpControlRequestReset @ 0x14069E2D4 (PfpRpControlRequestReset.c)
  */
 
 __int64 __fastcall PfpRpShutdown(__int64 a1)

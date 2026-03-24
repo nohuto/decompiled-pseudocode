@@ -1,12 +1,12 @@
 /*
- * XREFs of ?CollectRunningTime@DXGPROCESS@@QEAAJPEAVADAPTER_RENDER@@PEA_K@Z @ 0x1C0225370
+ * XREFs of ?CollectRunningTime@DXGPROCESS@@QEAAJPEAVADAPTER_RENDER@@PEA_K@Z @ 0x1C02844A0
  * Callers:
- *     ?ApplyCsFunctionAdapterCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C0334D90 (-ApplyCsFunctionAdapterCallback@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
+ *     ?ApplyCsFunctionAdapterCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C0284180 (-ApplyCsFunctionAdapterCallback@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     ?VidSchQueryProcessAdapterStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@PEAVDXGPROCESS@@PEAU_D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION@@@Z @ 0x1C004A3C4 (-VidSchQueryProcessAdapterStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@PEAVDXGPROCESS@@PEA.c)
- *     ?VidSchQueryProcessNodeStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@IPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION@@@Z @ 0x1C004A49C (-VidSchQueryProcessNodeStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@IPEAVDXGPROCESS@@PEAU_.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?VidSchQueryProcessAdapterStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@PEAVDXGPROCESS@@PEAU_D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION@@@Z @ 0x1C003F248 (-VidSchQueryProcessAdapterStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@PEAVDXGPROCESS@@PEA.c)
+ *     ?VidSchQueryProcessNodeStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@IPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION@@@Z @ 0x1C003F2D8 (-VidSchQueryProcessNodeStatistics@VIDSCH_EXPORT@@QEAAJPEAU_VIDSCH_GLOBAL@@IPEAVDXGPROCESS@@PEAU_.c)
  */
 
 __int64 __fastcall DXGPROCESS::CollectRunningTime(DXGPROCESS *this, struct ADAPTER_RENDER *a2, unsigned __int64 *a3)
@@ -18,12 +18,12 @@ __int64 __fastcall DXGPROCESS::CollectRunningTime(DXGPROCESS *this, struct ADAPT
   _DWORD v9[68]; // [rsp+30h] [rbp-258h] BYREF
   _QWORD v10[34]; // [rsp+140h] [rbp-148h] BYREF
 
-  v3 = (VIDSCH_EXPORT *)*((_QWORD *)a2 + 78);
-  v5 = (struct _VIDSCH_GLOBAL *)*((_QWORD *)a2 + 79);
+  v3 = (VIDSCH_EXPORT *)*((_QWORD *)a2 + 77);
+  v5 = (struct _VIDSCH_GLOBAL *)*((_QWORD *)a2 + 78);
   *a3 = 0LL;
   if ( !v3 )
     return 3221225858LL;
-  memset(v9, 0, sizeof(v9));
+  memset(v9, 0, 0x108uLL);
   memset(v10, 0, sizeof(v10));
   result = VIDSCH_EXPORT::VidSchQueryProcessAdapterStatistics(
              v3,

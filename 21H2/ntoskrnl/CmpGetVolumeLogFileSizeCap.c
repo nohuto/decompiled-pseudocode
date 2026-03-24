@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpGetVolumeLogFileSizeCap @ 0x1406DEB64
+ * XREFs of CmpGetVolumeLogFileSizeCap @ 0x1406BB76C
  * Callers:
- *     CmpOpenHiveFile @ 0x140713F8C (CmpOpenHiveFile.c)
+ *     CmpOpenHiveFile @ 0x1406718C8 (CmpOpenHiveFile.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQueryVolumeInformationFile @ 0x14041C080 (ZwQueryVolumeInformationFile.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQueryVolumeInformationFile @ 0x1403FACC0 (ZwQueryVolumeInformationFile.c)
  */
 
 __int64 __fastcall CmpGetVolumeLogFileSizeCap(void *a1)

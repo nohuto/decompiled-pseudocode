@@ -1,33 +1,28 @@
 /*
- * XREFs of IopIncrementVpbRefCount @ 0x140302780
+ * XREFs of IopIncrementVpbRefCount @ 0x14028F728
  * Callers:
- *     IopMountInitializeVpb @ 0x14028FBEC (IopMountInitializeVpb.c)
- *     IopReferenceVerifyVpb @ 0x140555BDC (IopReferenceVerifyVpb.c)
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
- *     IoCreateStreamFileObjectEx2 @ 0x1407681F0 (IoCreateStreamFileObjectEx2.c)
+ *     IopMountInitializeVpb @ 0x1402E6A90 (IopMountInitializeVpb.c)
+ *     IopReferenceVerifyVpb @ 0x140500C54 (IopReferenceVerifyVpb.c)
+ *     IopParseDevice @ 0x14064E680 (IopParseDevice.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x140719B60 (IoCreateStreamFileObjectEx2.c)
  * Callees:
- *     IopInterlockedIncrementUlong @ 0x1403027C4 (IopInterlockedIncrementUlong.c)
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     IopInterlockedIncrementUlong @ 0x14028F76C (IopInterlockedIncrementUlong.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IopIncrementVpbRefCount(ULONG_PTR BugCheckParameter2, char a2)
 {
-  _DWORD *v2; // rdi
+  _DWORD *v2; // rbx
   __int64 result; // rax
   __int64 v5; // rcx
   __int64 v6; // rcx
 
   v2 = (_DWORD *)(BugCheckParameter2 + 28);
   if ( a2 )
-  {
     result = IopInterlockedIncrementUlong(9uLL);
-  }
   else
-  {
-    result = (unsigned int)(*v2 + 1);
-    *v2 = result;
-  }
+    result = (unsigned int)++*v2;
   if ( (int)result <= 0 )
   {
     v5 = *(_QWORD *)(BugCheckParameter2 + 8);

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTimLogProhibitDynamicCode @ 0x1409E9FF4
+ * XREFs of EtwTimLogProhibitDynamicCode @ 0x14093BDC8
  * Callers:
- *     MiArbitraryCodeBlocked @ 0x14076C284 (MiArbitraryCodeBlocked.c)
+ *     MiArbitraryCodeBlocked @ 0x140629784 (MiArbitraryCodeBlocked.c)
  * Callees:
- *     EtwpTimLogMitigationForProcess @ 0x1409EB81C (EtwpTimLogMitigationForProcess.c)
+ *     EtwpTimLogMitigationForProcess @ 0x14093C694 (EtwpTimLogMitigationForProcess.c)
  */
 
 __int64 __fastcall EtwTimLogProhibitDynamicCode(unsigned int a1, __int64 a2)

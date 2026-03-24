@@ -1,14 +1,14 @@
 /*
- * XREFs of BiResolveLocateDevice @ 0x1408F11E0
+ * XREFs of BiResolveLocateDevice @ 0x1408F11C0
  * Callers:
- *     BiConvertRegistryDataToElement @ 0x1407140E8 (BiConvertRegistryDataToElement.c)
+ *     BiConvertRegistryDataToElement @ 0x1407140C8 (BiConvertRegistryDataToElement.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwQueryAttributesFile @ 0x1401B8910 (ZwQueryAttributesFile.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwQueryAttributesFile @ 0x1401B8930 (ZwQueryAttributesFile.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BcdGetElementData @ 0x1408F1004 (BcdGetElementData.c)
+ *     BcdGetElementData @ 0x1408F0FE4 (BcdGetElementData.c)
  */
 
 __int64 __fastcall BiResolveLocateDevice(__int64 a1, _DWORD *a2)

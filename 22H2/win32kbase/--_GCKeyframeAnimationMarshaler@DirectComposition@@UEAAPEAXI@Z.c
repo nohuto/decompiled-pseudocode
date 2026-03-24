@@ -1,22 +1,19 @@
 /*
- * XREFs of ??_GCKeyframeAnimationMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C0030460
+ * XREFs of ??_GCKeyframeAnimationMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C0021AA0
  * Callers:
  *     <none>
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ??1CBaseExpressionMarshaler@DirectComposition@@UEAA@XZ @ 0x1C0022430 (--1CBaseExpressionMarshaler@DirectComposition@@UEAA@XZ.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
  */
 
 DirectComposition::CKeyframeAnimationMarshaler *__fastcall DirectComposition::CKeyframeAnimationMarshaler::`scalar deleting destructor'(
         DirectComposition::CKeyframeAnimationMarshaler *this,
         char a2)
 {
-  void *v3; // rdx
-
-  v3 = (void *)*((_QWORD *)this + 11);
-  *(_QWORD *)this = &DirectComposition::CBaseExpressionMarshaler::`vftable';
-  if ( v3 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v3);
+  *(_QWORD *)this = &DirectComposition::CKeyframeAnimationMarshaler::`vftable';
+  DirectComposition::CBaseExpressionMarshaler::~CBaseExpressionMarshaler(this);
   if ( (a2 & 1) != 0 )
-    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, this);
+    Win32FreePool(this);
   return this;
 }

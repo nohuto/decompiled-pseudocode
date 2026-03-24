@@ -1,67 +1,83 @@
 /*
- * XREFs of KiStartThreadCycleAccumulation @ 0x1402B2D10
+ * XREFs of KiStartThreadCycleAccumulation @ 0x140230BD0
  * Callers:
- *     KiChooseTargetProcessor @ 0x1402392C0 (KiChooseTargetProcessor.c)
- *     KiSwapThread @ 0x14023F3D0 (KiSwapThread.c)
- *     KiRetireDpcList @ 0x1402459D0 (KiRetireDpcList.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x1402BACC8 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiIdleSchedule @ 0x1403072F0 (KiIdleSchedule.c)
- *     KiGroupSchedulingGenerationEnd @ 0x140308178 (KiGroupSchedulingGenerationEnd.c)
- *     KeUpdateTotalCyclesCurrentThread @ 0x140329C68 (KeUpdateTotalCyclesCurrentThread.c)
- *     PpmCheckCustomRun @ 0x14032B45C (PpmCheckCustomRun.c)
- *     KeUpdateThreadTag @ 0x140366580 (KeUpdateThreadTag.c)
- *     KiSelectIdleProcessor @ 0x140577744 (KiSelectIdleProcessor.c)
+ *     KeQueryTotalCycleTimeThread @ 0x14022E860 (KeQueryTotalCycleTimeThread.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14022F230 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiIdleSchedule @ 0x140256430 (KiIdleSchedule.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x14025923C (KiGroupSchedulingGenerationEnd.c)
+ *     KiSwapThread @ 0x1402C6D60 (KiSwapThread.c)
+ *     KeUpdateThreadTag @ 0x14036B8A0 (KeUpdateThreadTag.c)
  * Callees:
- *     PoGetFrequencyBucket @ 0x140249C00 (PoGetFrequencyBucket.c)
- *     HalRequestSoftwareInterrupt @ 0x140254BF0 (HalRequestSoftwareInterrupt.c)
- *     KiBeginCounterAccumulation @ 0x140574190 (KiBeginCounterAccumulation.c)
+ *     HalRequestSoftwareInterrupt @ 0x14035E9C0 (HalRequestSoftwareInterrupt.c)
+ *     KiBeginCounterAccumulation @ 0x14051BCF0 (KiBeginCounterAccumulation.c)
  */
 
-__int64 __fastcall KiStartThreadCycleAccumulation(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall KiStartThreadCycleAccumulation(__int64 a1, __int64 a2, char a3)
 {
-  char v3; // si
-  __int64 v4; // r10
+  unsigned __int64 v6; // r11
+  unsigned __int64 v7; // rdi
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // rax
+  unsigned int v11; // ecx
+  unsigned int v12; // edx
   __int64 result; // rax
-  __int64 v7; // rdi
-  __int64 FrequencyBucket; // r9
-  bool v9; // zf
-  __int64 v10; // r11
-  char v11; // cl
+  bool v14; // zf
+  __int64 v15; // rax
 
-  v3 = a3;
-  v4 = a2;
-  result = __rdtsc();
-  v7 = result;
-  FrequencyBucket = result - *(_QWORD *)(a1 + 33152) + *(_QWORD *)(a1 + 33400);
-  *(_QWORD *)(a1 + 33400) = FrequencyBucket;
-  if ( (*(_BYTE *)(a2 + 2) & 0x20) != 0 )
+  v6 = __rdtsc();
+  v7 = v6 - *(_QWORD *)(a1 + 32448);
+  *(_QWORD *)(a1 + 32568) += v7;
+  v8 = *(unsigned __int8 *)(a2 + 2);
+  if ( (v8 & 0x20) != 0 )
   {
-    FrequencyBucket = (unsigned int)PoGetFrequencyBucket(a1);
-    if ( KeHeteroSystem )
-      v11 = *(_BYTE *)(a1 + 34056);
+    v9 = *(_QWORD *)(a1 + 33128);
+    v10 = *(_QWORD *)(a1 + 33136);
+    if ( !v9 || !v10 )
+      goto LABEL_8;
+    if ( *(_BYTE *)(v10 + 100) )
+    {
+      v11 = *(_DWORD *)(v10 + 116);
+    }
     else
-      v11 = *(_BYTE *)(a1 + 34059);
-    result = 8LL;
-    if ( !v11 )
-      result = 0LL;
-    *(_QWORD *)(result + 16 * (FrequencyBucket + 2088) + a1) += v10;
+    {
+      v11 = *(_DWORD *)(v10 + 72);
+      if ( v11 >= *(_DWORD *)(v9 + 368) )
+        v11 = *(_DWORD *)(v9 + 368);
+    }
+    if ( v11 < 0x4B )
+      v12 = v11 / 0x19;
+    else
+LABEL_8:
+      v12 = 3;
+    *(_QWORD *)(a1 + 8 * (2LL * v12 + 4072 + *(unsigned __int8 *)(a1 + 33208))) += v7;
+    v8 = *(unsigned __int8 *)(a2 + 2);
   }
-  if ( (*(_BYTE *)(v4 + 2) & 0x40) != 0 )
+  if ( (v8 & 0x40) != 0 )
   {
-    result = *(_QWORD *)(v4 + 968);
-    if ( result )
-      *(_BYTE *)(result + 64) = 1;
+    v15 = *(_QWORD *)(a2 + 968);
+    if ( v15 )
+      *(_BYTE *)(v15 + 64) = 1;
   }
-  *(_QWORD *)(a1 + 33152) = v7;
-  if ( (*(_BYTE *)(v4 + 2) & 2) != 0 )
-    result = KiBeginCounterAccumulation(v4, 0LL, a3, FrequencyBucket);
-  v9 = *(_BYTE *)(a1 + 6) == 0;
+  *(_QWORD *)(a1 + 32448) = v6;
+  result = *(unsigned __int8 *)(a2 + 2);
+  if ( (result & 0x10) != 0 )
+  {
+    *(_QWORD *)(a1 + 32456) = v6;
+    result = *(unsigned __int8 *)(a2 + 2);
+  }
+  if ( (result & 2) != 0 )
+    result = KiBeginCounterAccumulation(a2, 0LL);
+  v14 = *(_BYTE *)(a1 + 6) == 0;
   *(_BYTE *)(a1 + 32) = 0;
-  if ( !v9 )
+  if ( !v14 )
   {
     *(_BYTE *)(a1 + 6) = 0;
-    if ( !v3 )
-      return HalRequestSoftwareInterrupt(2);
+    if ( !a3 )
+    {
+      LOBYTE(v8) = 2;
+      return HalRequestSoftwareInterrupt(v8);
+    }
   }
   return result;
 }

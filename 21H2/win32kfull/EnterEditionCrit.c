@@ -1,15 +1,15 @@
 /*
- * XREFs of EnterEditionCrit @ 0x1C0113280
+ * XREFs of EnterEditionCrit @ 0x1C0126120
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 EnterEditionCrit()
+__int64 __fastcall EnterEditionCrit(unsigned int a1)
 {
   if ( ExIsResourceAcquiredExclusiveLite(gpresUser) )
     return 1LL;
-  EnterCrit(1LL, 0LL);
+  EnterCrit(a1, 1LL);
   return 0LL;
 }

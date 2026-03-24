@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLogCommitRequestFailed @ 0x14097F2B0
+ * XREFs of MiLogCommitRequestFailed @ 0x1408D73E4
  * Callers:
- *     MiCommitRequestFailed @ 0x14097F250 (MiCommitRequestFailed.c)
+ *     MiCommitRequestFailed @ 0x1408D7384 (MiCommitRequestFailed.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x14024A9B0 (_tlgWriteEx_EtwWriteEx.c)
- *     PsGetProcessSessionId @ 0x14028AF60 (PsGetProcessSessionId.c)
- *     _tlgKeywordOn @ 0x1402A2000 (_tlgKeywordOn.c)
- *     MiGetProcessPartition @ 0x14032A72C (MiGetProcessPartition.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     PsQueryJobMemoryUsageByProcess @ 0x1409AFCD0 (PsQueryJobMemoryUsageByProcess.c)
+ *     MiGetProcessPartition @ 0x14021AD40 (MiGetProcessPartition.c)
+ *     PsGetProcessSessionId @ 0x140252EB0 (PsGetProcessSessionId.c)
+ *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PsQueryJobMemoryUsageByProcess @ 0x1409088B8 (PsQueryJobMemoryUsageByProcess.c)
  */
 
 char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
@@ -35,16 +35,16 @@ char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
   __int64 v26; // [rsp+90h] [rbp-78h] BYREF
   __int64 v27; // [rsp+98h] [rbp-70h] BYREF
   __int64 v28; // [rsp+A0h] [rbp-68h] BYREF
-  int v29; // [rsp+A8h] [rbp-60h] BYREF
-  __int16 ProcessSessionId; // [rsp+ACh] [rbp-5Ch]
-  __int16 v31; // [rsp+AEh] [rbp-5Ah]
-  __int64 v32; // [rsp+B0h] [rbp-58h]
-  struct _EVENT_DATA_DESCRIPTOR v33; // [rsp+B8h] [rbp-50h] BYREF
-  int *v34; // [rsp+D8h] [rbp-30h]
-  __int64 v35; // [rsp+E0h] [rbp-28h]
-  __int64 *v36; // [rsp+E8h] [rbp-20h]
-  __int64 v37; // [rsp+F0h] [rbp-18h]
-  __int64 *v38; // [rsp+F8h] [rbp-10h]
+  __int64 v29; // [rsp+A8h] [rbp-60h] BYREF
+  __int64 v30; // [rsp+B0h] [rbp-58h] BYREF
+  __int64 v31; // [rsp+B8h] [rbp-50h] BYREF
+  __int64 v32; // [rsp+C0h] [rbp-48h] BYREF
+  int v33; // [rsp+C8h] [rbp-40h] BYREF
+  __int16 ProcessSessionId; // [rsp+CCh] [rbp-3Ch]
+  __int16 v35; // [rsp+CEh] [rbp-3Ah]
+  __int64 v36; // [rsp+D0h] [rbp-38h]
+  struct _EVENT_DATA_DESCRIPTOR v37; // [rsp+D8h] [rbp-30h] BYREF
+  int *v38; // [rsp+F8h] [rbp-10h]
   __int64 v39; // [rsp+100h] [rbp-8h]
   __int64 *v40; // [rsp+108h] [rbp+0h]
   __int64 v41; // [rsp+110h] [rbp+8h]
@@ -66,13 +66,17 @@ char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
   __int64 v57; // [rsp+190h] [rbp+88h]
   __int64 *v58; // [rsp+198h] [rbp+90h]
   __int64 v59; // [rsp+1A0h] [rbp+98h]
+  __int64 *v60; // [rsp+1A8h] [rbp+A0h]
+  __int64 v61; // [rsp+1B0h] [rbp+A8h]
+  __int64 *v62; // [rsp+1B8h] [rbp+B0h]
+  __int64 v63; // [rsp+1C0h] [rbp+B8h]
 
   LOBYTE(v3) = 0;
-  v18 = 0LL;
-  v17 = 0LL;
   v19 = 0LL;
+  v18 = 0LL;
   v20 = 0LL;
-  if ( *(_QWORD *)&qword_140C53448 )
+  v21 = 0LL;
+  if ( *(_QWORD *)&qword_140C4EEE0 )
   {
     _m_prefetchw((const void *)(a1 + 2172));
     v3 = *(_DWORD *)(a1 + 2172);
@@ -84,57 +88,61 @@ char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
     while ( v7 != v3 );
     if ( (v3 & 0x400) == 0 )
     {
-      v29 = *(_DWORD *)(a1 + 1088);
+      v33 = *(_DWORD *)(a1 + 1088);
       ProcessSessionId = PsGetProcessSessionId(a1);
-      v31 = MEMORY[0xFFFFF780000002C4];
-      v32 = *(_QWORD *)(a1 + 1128);
+      v35 = MEMORY[0xFFFFF780000002C4];
+      v36 = *(_QWORD *)(a1 + 1128);
       v8 = *(_QWORD *)(a1 + 1384);
       v9 = *(_QWORD *)(a1 + 1600);
       v10 = *(_QWORD *)(a1 + 1608);
       v11 = *(_QWORD *)(v8 + 320);
       v12 = *(_QWORD *)(v8 + 256);
-      PsQueryJobMemoryUsageByProcess(a1, (unsigned int)&v17, (unsigned int)&v18, (unsigned int)&v19, (__int64)&v20);
+      PsQueryJobMemoryUsageByProcess(a1, (unsigned int)&v18, (unsigned int)&v19, (unsigned int)&v20, (__int64)&v21);
       LOBYTE(v3) = MiGetProcessPartition(a1);
-      if ( **(_DWORD **)&qword_140C53448 > 5u )
+      if ( **(_DWORD **)&qword_140C4EEE0 > 5u )
       {
-        LOBYTE(v3) = tlgKeywordOn(*(__int64 *)&qword_140C53448, 0x400000000000LL);
+        LOBYTE(v3) = tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 0x400000000000LL);
         if ( (_BYTE)v3 )
         {
-          v27 = v13;
-          v34 = &v29;
-          v35 = 16LL;
-          v36 = &v22;
+          v31 = v13;
+          v38 = &v33;
+          v39 = 16LL;
+          v40 = &v22;
           v22 = a2;
-          v38 = &v21;
-          v37 = 8LL;
-          v40 = &v23;
-          v42 = &v24;
-          v44 = &v25;
-          v46 = &v26;
-          v48 = &v17;
-          v50 = &v18;
-          v52 = &v19;
-          v54 = &v20;
-          v56 = &v27;
-          v58 = &v28;
-          LODWORD(v21) = a3;
-          v39 = 4LL;
-          v23 = v11;
+          v42 = &v17;
           v41 = 8LL;
-          v24 = v12;
-          v43 = 8LL;
-          v25 = v9;
+          v44 = &v23;
+          v46 = &v24;
+          v48 = &v25;
+          v50 = &v26;
+          v27 = v18;
+          v52 = &v27;
+          v28 = v19;
+          v54 = &v28;
+          v29 = v20;
+          v56 = &v29;
+          v30 = v21;
+          v58 = &v30;
+          v60 = &v31;
+          v62 = &v32;
+          LODWORD(v17) = a3;
+          v43 = 4LL;
+          v23 = v11;
           v45 = 8LL;
-          v26 = v10;
+          v24 = v12;
           v47 = 8LL;
+          v25 = v9;
           v49 = 8LL;
+          v26 = v10;
           v51 = 8LL;
           v53 = 8LL;
           v55 = 8LL;
           v57 = 8LL;
-          v28 = v15;
           v59 = 8LL;
-          LOBYTE(v3) = tlgWriteEx_EtwWriteEx(v14, (unsigned __int8 *)&byte_14002DAAF, 0LL, 1u, 0, 0, 0xFu, &v33);
+          v61 = 8LL;
+          v32 = v15;
+          v63 = 8LL;
+          LOBYTE(v3) = tlgWriteEx_EtwWriteEx(v14, (unsigned __int8 *)&word_1400267D6, 0LL, 1u, 0, 0, 0xFu, &v37);
         }
       }
     }

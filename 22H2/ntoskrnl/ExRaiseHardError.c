@@ -1,75 +1,71 @@
 /*
- * XREFs of ExRaiseHardError @ 0x140A00C30
+ * XREFs of ExRaiseHardError @ 0x140956160
  * Callers:
- *     CmpLoadHiveThread @ 0x1408283D0 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x1408632CC (CmpMountPreloadedHives.c)
- *     IopHardErrorThread @ 0x140944E40 (IopHardErrorThread.c)
- *     IopRaiseHardError @ 0x1409453D0 (IopRaiseHardError.c)
- *     IopRaiseInformationalHardError @ 0x140945670 (IopRaiseInformationalHardError.c)
- *     ExpExpirationThread @ 0x1409F7CC0 (ExpExpirationThread.c)
- *     NtRaiseHardError @ 0x140A01300 (NtRaiseHardError.c)
- *     CmpQuotaWarningWorker @ 0x140A0FDF0 (CmpQuotaWarningWorker.c)
- *     CmpDiskFullWarningWorker @ 0x140A11B70 (CmpDiskFullWarningWorker.c)
+ *     CmpLoadHiveThread @ 0x14079F180 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407AB024 (CmpMountPreloadedHives.c)
+ *     CmpQuotaWarningWorker @ 0x14086B8D0 (CmpQuotaWarningWorker.c)
+ *     CmpDiskFullWarningWorker @ 0x140876C70 (CmpDiskFullWarningWorker.c)
+ *     IopHardErrorThread @ 0x1408916B0 (IopHardErrorThread.c)
+ *     IopRaiseHardError @ 0x140891C50 (IopRaiseHardError.c)
+ *     IopRaiseInformationalHardError @ 0x140891EF0 (IopRaiseInformationalHardError.c)
+ *     ExpExpirationThread @ 0x14094B8F0 (ExpExpirationThread.c)
+ *     NtRaiseHardError @ 0x140956810 (NtRaiseHardError.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwAllocateVirtualMemory @ 0x14041A9A0 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x14041AA60 (ZwFreeVirtualMemory.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     memset @ 0x140435400 (memset.c)
- *     ExpRaiseHardError @ 0x140A00F68 (ExpRaiseHardError.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwAllocateVirtualMemory @ 0x1403F9D20 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1403F9DE0 (ZwFreeVirtualMemory.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExpRaiseHardError @ 0x140956478 (ExpRaiseHardError.c)
  */
 
 __int64 __fastcall ExRaiseHardError(int a1, unsigned int a2, int a3, char *a4, int a5, int *a6)
 {
-  __int64 v8; // rsi
+  __int64 v8; // rdi
   int *v9; // r15
   int v10; // r14d
-  ULONG_PTR v11; // rdi
+  ULONG_PTR v11; // rsi
   NTSTATUS v12; // ebx
   unsigned int v13; // edx
   char *v14; // r8
-  char *v15; // r15
-  char *v16; // r14
+  _QWORD *v15; // r14
+  char *v16; // rsi
   __int64 i; // rbx
-  __int64 v18; // rdi
-  __int64 v19; // rcx
-  int v22; // [rsp+48h] [rbp-160h] BYREF
-  ULONG_PTR RegionSize; // [rsp+50h] [rbp-158h] BYREF
-  PVOID BaseAddress; // [rsp+58h] [rbp-150h] BYREF
-  int v25; // [rsp+60h] [rbp-148h]
-  unsigned int v26; // [rsp+68h] [rbp-140h]
-  int v27; // [rsp+70h] [rbp-138h]
-  char *v28; // [rsp+78h] [rbp-130h]
-  int *v29; // [rsp+80h] [rbp-128h]
-  PVOID v30; // [rsp+88h] [rbp-120h]
-  const void *v31; // [rsp+90h] [rbp-118h]
-  __int64 v32; // [rsp+98h] [rbp-110h]
-  __int64 v33; // [rsp+A0h] [rbp-108h]
-  __int64 v34; // [rsp+A8h] [rbp-100h]
-  void **v35; // [rsp+B0h] [rbp-F8h]
-  _OWORD v36[2]; // [rsp+B8h] [rbp-F0h] BYREF
-  __int64 v37; // [rsp+D8h] [rbp-D0h]
-  _OWORD v38[2]; // [rsp+E0h] [rbp-C8h] BYREF
-  __int64 v39; // [rsp+100h] [rbp-A8h]
-  void *v40[10]; // [rsp+110h] [rbp-98h] BYREF
+  __int64 v18; // rcx
+  int v21; // [rsp+48h] [rbp-140h] BYREF
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp-138h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp-130h] BYREF
+  int v24; // [rsp+60h] [rbp-128h]
+  unsigned int v25; // [rsp+68h] [rbp-120h]
+  int v26; // [rsp+70h] [rbp-118h]
+  char *v27; // [rsp+78h] [rbp-110h]
+  int *v28; // [rsp+80h] [rbp-108h]
+  PVOID v29; // [rsp+88h] [rbp-100h]
+  const void *v30; // [rsp+90h] [rbp-F8h]
+  __int64 v31; // [rsp+98h] [rbp-F0h]
+  _OWORD v32[2]; // [rsp+A0h] [rbp-E8h] BYREF
+  __int64 v33; // [rsp+C0h] [rbp-C8h]
+  _OWORD v34[2]; // [rsp+C8h] [rbp-C0h] BYREF
+  __int64 v35; // [rsp+E8h] [rbp-A0h]
+  void *Src[10]; // [rsp+F0h] [rbp-98h] BYREF
 
   v8 = a2;
-  v25 = a1;
-  v26 = a2;
-  v27 = a3;
-  v31 = a4;
+  v24 = a1;
+  v25 = a2;
+  v26 = a3;
+  v30 = a4;
   v9 = a6;
-  v29 = a6;
+  v28 = a6;
   RegionSize = 0LL;
   v10 = 0;
-  v22 = 0;
+  v21 = 0;
   BaseAddress = 0LL;
-  memset(v38, 0, sizeof(v38));
-  v39 = 0LL;
-  memset(v36, 0, sizeof(v36));
-  v37 = 0LL;
+  memset(v34, 0, sizeof(v34));
+  v35 = 0LL;
+  memset(v32, 0, sizeof(v32));
+  v33 = 0LL;
   v11 = 80LL;
-  memset(v40, 0, sizeof(v40));
+  memset(Src, 0, sizeof(Src));
   if ( ExpTooLateForErrors )
   {
     v12 = 0;
@@ -83,8 +79,8 @@ __int64 __fastcall ExRaiseHardError(int a1, unsigned int a2, int a3, char *a4, i
   }
   if ( !a4 )
     goto LABEL_19;
-  memmove(v38, a4, 8 * v8);
-  memmove(v36, a4, 8 * v8);
+  memmove(v34, a4, 8 * v8);
+  memmove(v32, a4, 8 * v8);
   if ( !a3 )
     goto LABEL_19;
   RegionSize = 80LL;
@@ -107,36 +103,32 @@ __int64 __fastcall ExRaiseHardError(int a1, unsigned int a2, int a3, char *a4, i
   v12 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u);
   if ( v12 >= 0 )
   {
-    v15 = (char *)BaseAddress;
-    v30 = BaseAddress;
+    v15 = BaseAddress;
+    v29 = BaseAddress;
     v16 = (char *)BaseAddress + 80;
-    v28 = (char *)BaseAddress + 80;
+    v27 = (char *)BaseAddress + 80;
     for ( i = 0LL; (unsigned int)i < (unsigned int)v8; i = (unsigned int)(i + 1) )
     {
       if ( _bittest(&a3, i) )
       {
-        v34 = 8 * i;
+        v31 = (unsigned int)i;
+        *(_OWORD *)&Src[2 * (unsigned int)i] = *(_OWORD *)*(_QWORD *)&a4[8 * i];
+        v15[2 * (unsigned int)i + 1] = v16;
+        WORD1(v15[2 * (unsigned int)i]) = WORD1(Src[2 * (unsigned int)i]);
+        LOWORD(v15[2 * (unsigned int)i]) = Src[2 * (unsigned int)i];
+        memmove(v16, Src[2 * (unsigned int)i + 1], WORD1(Src[2 * (unsigned int)i]));
+        Src[2 * (unsigned int)i + 1] = v16;
+        v16 += WORD1(Src[2 * (unsigned int)i]);
+        v27 = v16;
         v18 = 2LL * (unsigned int)i;
-        v32 = v18 * 8;
-        v33 = v18 * 8;
-        v35 = &v40[v18];
-        *(_OWORD *)v35 = *(_OWORD *)*(_QWORD *)&a4[8 * i];
-        *(_QWORD *)&v15[v18 * 8 + 8] = v16;
-        *(_WORD *)&v15[v18 * 8 + 2] = WORD1(v40[v18]);
-        *(_WORD *)&v15[v18 * 8] = v40[v18];
-        memmove(v16, v40[v18 + 1], WORD1(v40[v18]));
-        v40[v18 + 1] = v16;
-        v16 += WORD1(v40[v18]);
-        v28 = v16;
-        v19 = v34;
-        *(_QWORD *)((char *)v38 + v34) = &v15[v33];
-        *(_QWORD *)((char *)v36 + v19) = v35;
+        *((_QWORD *)v34 + (unsigned int)i) = &v15[v18];
+        *((_QWORD *)v32 + (unsigned int)i) = &Src[v18];
       }
     }
-    v9 = v29;
+    v9 = v28;
 LABEL_19:
-    v12 = ExpRaiseHardError(a1, v8, a3, (unsigned int)v38, (__int64)v36, a5, (__int64)&v22);
-    v10 = v22;
+    v12 = ExpRaiseHardError(a1, v8, a3, (unsigned int)v34, (__int64)v32, a5, (__int64)&v21);
+    v10 = v21;
   }
 LABEL_20:
   *v9 = v10;

@@ -1,12 +1,12 @@
 /*
- * XREFs of RaspCreateSegmentList @ 0x1403863FC
+ * XREFs of RaspCreateSegmentList @ 0x1403AE450
  * Callers:
- *     RaspScanConvert @ 0x140385440 (RaspScanConvert.c)
+ *     RaspScanConvert @ 0x1403AD430 (RaspScanConvert.c)
  * Callees:
- *     RaspDestroySegmentList @ 0x1403851C0 (RaspDestroySegmentList.c)
- *     RaspInterpolatePoint @ 0x140386744 (RaspInterpolatePoint.c)
- *     RaspAllocateMemory @ 0x1403867CC (RaspAllocateMemory.c)
- *     memset @ 0x140435400 (memset.c)
+ *     RaspDestroySegmentList @ 0x1403AD25C (RaspDestroySegmentList.c)
+ *     RaspInterpolatePoint @ 0x1403AE7A0 (RaspInterpolatePoint.c)
+ *     RaspAllocateMemory @ 0x1403AE828 (RaspAllocateMemory.c)
+ *     memset @ 0x140413800 (memset.c)
  */
 
 __int64 __fastcall RaspCreateSegmentList(
@@ -17,214 +17,217 @@ __int64 __fastcall RaspCreateSegmentList(
         unsigned int *a5,
         __int64 a6)
 {
-  unsigned __int16 *v8; // r12
+  unsigned __int16 *v8; // r13
   unsigned int v9; // ebp
-  int v10; // edx
-  unsigned int v11; // r15d
-  int v12; // r9d
-  _BYTE *v13; // r10
-  unsigned int v14; // r11d
-  unsigned int v15; // r8d
-  void *Memory; // rax
-  __int64 v17; // r13
-  int v18; // esi
-  __int64 v19; // rbx
-  unsigned int v20; // edi
-  unsigned int v21; // r10d
-  unsigned int v22; // r14d
-  unsigned int v23; // r9d
-  unsigned int v24; // edx
-  int v25; // r8d
-  __int64 v26; // rbp
-  __int64 v27; // r9
+  unsigned int v10; // ebx
+  int v11; // edx
+  unsigned int v12; // r12d
+  int v13; // r9d
+  _BYTE *v14; // r10
+  unsigned int v15; // r11d
+  unsigned int v16; // r8d
+  char *Memory; // rax
+  char *v18; // r14
+  int v19; // ebp
+  char *v20; // rdi
+  unsigned int v21; // esi
+  unsigned int v22; // r10d
+  unsigned int v23; // r15d
+  unsigned int v24; // r9d
+  unsigned int v25; // edx
+  int v26; // r8d
+  __int64 v27; // r14
   __int64 v28; // rdx
-  bool v29; // zf
-  __int64 v30; // rax
-  char v31; // al
-  unsigned int v32; // ebx
+  __int64 v29; // rcx
+  __int64 v30; // r15
+  __int64 v31; // rax
+  __int64 v32; // rax
+  __int64 v33; // rax
   __int64 result; // rax
-  __int64 v34; // rdx
-  __int64 v35; // rcx
-  __int64 v36; // r14
-  __int64 v37; // rax
+  __int64 v35; // r9
+  __int64 v36; // rdx
+  char v37; // al
   __int64 v38; // rax
-  __int64 v39; // rax
-  int v40; // eax
-  unsigned int v41; // [rsp+20h] [rbp-48h]
+  char v39; // al
+  __int64 v40; // rax
+  int v41; // eax
+  unsigned int v42; // [rsp+20h] [rbp-48h]
+  __int64 v43; // [rsp+28h] [rbp-40h]
 
   if ( a3 < 2 )
     return 3221225485LL;
   v8 = *(unsigned __int16 **)(a1 + 26);
   v9 = a3 - 2;
-  v41 = a3 - 2;
   v10 = 0;
+  v42 = a3 - 2;
   v11 = 0;
   v12 = 0;
+  v13 = 0;
   if ( a3 == 2 )
-    goto LABEL_54;
-  v13 = (_BYTE *)(a2 + 16);
+    goto LABEL_53;
+  v14 = (_BYTE *)(a2 + 16);
   do
   {
-    v14 = v12 + 1;
-    v15 = v12 + 1;
-    if ( v12 == v8[v10] )
+    v15 = v13 + 1;
+    v16 = v13 + 1;
+    if ( v13 == v8[v11] )
     {
-      if ( v10 )
-        v15 = v8[v10 - 1] + 1;
+      if ( v11 )
+        v16 = v8[v11 - 1] + 1;
       else
-        v15 = 0;
-      ++v10;
-    }
-    if ( (*v13 & 1) != 0 || (*(_BYTE *)(17LL * v15 + a2 + 16) & 1) == 0 )
+        v16 = 0;
       ++v11;
-    v13 += 17;
-    ++v12;
+    }
+    if ( (*v14 & 1) != 0 || (*(_BYTE *)(17LL * v16 + a2 + 16) & 1) == 0 )
+      ++v12;
+    v14 += 17;
+    ++v13;
   }
-  while ( v14 < v9 );
-  if ( !v11 )
+  while ( v15 < v9 );
+  if ( !v12 )
   {
-LABEL_54:
+LABEL_53:
     *a4 = 0LL;
     result = 0LL;
-LABEL_55:
+LABEL_54:
     *a5 = 0;
     return result;
   }
-  Memory = (void *)RaspAllocateMemory(25LL * v11);
-  v17 = (__int64)Memory;
+  Memory = (char *)RaspAllocateMemory(25LL * v12);
+  v43 = (__int64)Memory;
+  v18 = Memory;
   if ( !Memory )
   {
     result = 3221225626LL;
-    goto LABEL_55;
+    goto LABEL_54;
   }
-  memset(Memory, 0, 25LL * v11);
-  v18 = 0;
-  v19 = v17 + 16;
-  v20 = 0;
+  memset(Memory, 0, 25LL * v12);
+  v19 = 0;
+  v20 = v18 + 16;
+  v21 = 0;
   while ( 1 )
   {
-    v21 = v20 + 1;
-    v22 = v20 + 1;
-    v23 = v20 - 1;
-    v24 = v20 + 2;
-    if ( v20 )
+    v22 = v21 + 1;
+    v23 = v21 + 1;
+    v24 = v21 - 1;
+    v25 = v21 + 2;
+    if ( v21 )
     {
-      if ( v18 && v20 == v8[v18 - 1] + 1 )
-        v23 = v8[v18];
+      if ( v19 && v21 == v8[v19 - 1] + 1 )
+        v24 = v8[v19];
     }
     else
     {
-      v23 = *v8;
+      v24 = *v8;
     }
-    v25 = v8[v18];
-    if ( v20 == v25 - 1 )
+    v26 = v8[v19];
+    if ( v21 == v26 - 1 )
     {
-      if ( v18 )
-        v24 = v8[v18 - 1] + 1;
+      if ( v19 )
+        v25 = v8[v19 - 1] + 1;
       else
-        v24 = 0;
+        v25 = 0;
     }
-    if ( v20 == v25 )
+    if ( v21 == v26 )
     {
-      if ( v18 )
+      if ( v19 )
       {
-        v40 = v8[v18 - 1];
-        v22 = v40 + 1;
-        v24 = v40 + 2;
+        v41 = v8[v19 - 1];
+        v23 = v41 + 1;
+        v25 = v41 + 2;
       }
       else
       {
-        v22 = 0;
-        v24 = 1;
+        v23 = 0;
+        v25 = 1;
       }
-      ++v18;
+      ++v19;
     }
-    v26 = a2 + 17LL * v20;
-    if ( (*(_BYTE *)(v26 + 16) & 1) != 0 )
+    v27 = a2 + 17LL * v21;
+    if ( (*(_BYTE *)(v27 + 16) & 1) != 0 )
     {
-      v27 = a2 + 17LL * v22;
-      if ( (*(_BYTE *)(v27 + 16) & 1) != 0 )
+      v35 = a2 + 17LL * v23;
+      if ( (*(_BYTE *)(v35 + 16) & 1) != 0 )
       {
-        *(_QWORD *)(v19 - 16) = v26;
-        *(_QWORD *)(v19 - 8) = v27;
-        *(_QWORD *)v19 = v27;
-        *(_BYTE *)(v19 + 8) = 1;
+        *((_QWORD *)v20 - 2) = v27;
+        *((_QWORD *)v20 - 1) = v35;
+        *(_QWORD *)v20 = v35;
+        v20[8] = 1;
       }
       else
       {
-        v28 = a2 + 17LL * v24;
-        v29 = (*(_BYTE *)(v28 + 16) & 1) == 0;
-        *(_QWORD *)(v19 - 16) = v26;
-        *(_QWORD *)(v19 - 8) = v27;
-        if ( v29 )
+        v36 = a2 + 17LL * v25;
+        v37 = *(_BYTE *)(v36 + 16);
+        *((_QWORD *)v20 - 2) = v27;
+        *((_QWORD *)v20 - 1) = v35;
+        if ( (v37 & 1) != 0 )
         {
-          v30 = RaspInterpolatePoint(v27, v28, a6);
-          *(_QWORD *)v19 = v30;
-          if ( !v30 )
-            break;
-          v21 = v20 + 1;
-          v31 = 4;
+          *(_QWORD *)v20 = v36;
+          v39 = 2;
         }
         else
         {
-          *(_QWORD *)v19 = v28;
-          v31 = 2;
+          v38 = RaspInterpolatePoint(v35, v36, a6);
+          *(_QWORD *)v20 = v38;
+          if ( !v38 )
+            break;
+          v22 = v21 + 1;
+          v39 = 4;
         }
-        *(_BYTE *)(v19 + 8) = v31;
-        if ( v22 > v20 )
+        v20[8] = v39;
+        if ( v23 > v21 )
         {
-          v20 = v21;
-          if ( v21 == v8[v18] )
-            ++v18;
+          v21 = v22;
+          if ( v22 == v8[v19] )
+            ++v19;
         }
       }
       goto LABEL_24;
     }
-    if ( !v20 && (*(_BYTE *)(17LL * v23 + a2 + 16) & 1) != 0
-      || v18 && v20 == v8[v18 - 1] + 1 && (*(_BYTE *)(17LL * v23 + a2 + 16) & 1) != 0 )
+    if ( !v21 && (*(_BYTE *)(17LL * v24 + a2 + 16) & 1) != 0
+      || v19 && v21 == v8[v19 - 1] + 1 && (*(_BYTE *)(17LL * v24 + a2 + 16) & 1) != 0 )
     {
       goto LABEL_25;
     }
-    v34 = a2 + 17LL * v20;
-    v35 = a2 + 17LL * v23;
-    v36 = a2 + 17LL * v22;
-    if ( (*(_BYTE *)(v36 + 16) & 1) != 0 )
+    v28 = a2 + 17LL * v21;
+    v29 = a2 + 17LL * v24;
+    v30 = a2 + 17LL * v23;
+    if ( (*(_BYTE *)(v30 + 16) & 1) != 0 )
     {
-      v39 = RaspInterpolatePoint(v35, v34, a6);
-      *(_QWORD *)(v19 - 16) = v39;
-      if ( !v39 )
+      v40 = RaspInterpolatePoint(v29, v28, a6);
+      *((_QWORD *)v20 - 2) = v40;
+      if ( !v40 )
         break;
-      *(_QWORD *)(v19 - 8) = v26;
-      *(_QWORD *)v19 = v36;
-      *(_BYTE *)(v19 + 8) = 3;
+      *((_QWORD *)v20 - 1) = v27;
+      *(_QWORD *)v20 = v30;
+      v20[8] = 3;
       goto LABEL_24;
     }
-    v37 = RaspInterpolatePoint(v35, v34, a6);
-    *(_QWORD *)(v19 - 16) = v37;
-    if ( !v37 )
+    v31 = RaspInterpolatePoint(v29, v28, a6);
+    *((_QWORD *)v20 - 2) = v31;
+    if ( !v31 )
       break;
-    *(_QWORD *)(v19 - 8) = v26;
-    v38 = RaspInterpolatePoint(v26, v36, a6);
-    *(_QWORD *)v19 = v38;
-    if ( !v38 )
+    *((_QWORD *)v20 - 1) = v27;
+    v32 = RaspInterpolatePoint(v27, v30, a6);
+    *(_QWORD *)v20 = v32;
+    if ( !v32 )
       break;
-    *(_BYTE *)(v19 + 8) = 5;
+    v20[8] = 5;
 LABEL_24:
-    v19 += 25LL;
+    v20 += 25;
 LABEL_25:
-    if ( ++v20 >= v41 )
+    if ( ++v21 >= v42 )
     {
-      v32 = 0;
+      v33 = v43;
       goto LABEL_27;
     }
   }
-  v32 = -1073741670;
-  RaspDestroySegmentList(v17, v11, a6);
-  v17 = 0LL;
-  v11 = 0;
+  RaspDestroySegmentList(v43, v12, a6);
+  v33 = 0LL;
+  v12 = 0;
+  v10 = -1073741670;
 LABEL_27:
-  *a5 = v11;
-  result = v32;
-  *a4 = v17;
-  return result;
+  *a5 = v12;
+  *a4 = v33;
+  return v10;
 }

@@ -1,111 +1,145 @@
 /*
- * XREFs of KiInitializeMutant @ 0x14033ABEC
+ * XREFs of KiInitializeMutant @ 0x14035FC1C
  * Callers:
- *     KeInitializeMutex @ 0x14033ABB0 (KeInitializeMutex.c)
- *     KeInitializeMutantEx @ 0x14033ABD0 (KeInitializeMutantEx.c)
- *     NtdllRunOnceInitMuiCrits @ 0x1403B5E10 (NtdllRunOnceInitMuiCrits.c)
- *     KeInitializeMutant @ 0x1403D6B30 (KeInitializeMutant.c)
- *     DifKeInitializeMutantWrapper @ 0x1405E34F0 (DifKeInitializeMutantWrapper.c)
- *     DifKeInitializeMutexWrapper @ 0x1405E3610 (DifKeInitializeMutexWrapper.c)
- *     sub_140B3C244 @ 0x140B3C244 (sub_140B3C244.c)
- *     WmipDriverEntry @ 0x140B3C550 (WmipDriverEntry.c)
- *     EtwpInitialize @ 0x140B4B150 (EtwpInitialize.c)
- *     ViInitSystemPhase0 @ 0x140B6A9C4 (ViInitSystemPhase0.c)
- *     PnpInitializeDeviceEvents @ 0x140B745DC (PnpInitializeDeviceEvents.c)
- *     EtwpInitializeRegistration @ 0x140B74B08 (EtwpInitializeRegistration.c)
- *     ExpProfileInitialization @ 0x140B754F4 (ExpProfileInitialization.c)
+ *     LdrpInitMuiCrits @ 0x140302204 (LdrpInitMuiCrits.c)
+ *     KeInitializeMutex @ 0x14035FBE0 (KeInitializeMutex.c)
+ *     KeInitializeMutantEx @ 0x14035FC00 (KeInitializeMutantEx.c)
+ *     KeInitializeMutant @ 0x140394E40 (KeInitializeMutant.c)
+ *     PnpInitializeDeviceEvents @ 0x140A5375C (PnpInitializeDeviceEvents.c)
+ *     sub_140A5B300 @ 0x140A5B300 (sub_140A5B300.c)
+ *     ViInitSystemPhase0 @ 0x140A6FAB8 (ViInitSystemPhase0.c)
+ *     EtwpInitializeRegistration @ 0x140A72644 (EtwpInitializeRegistration.c)
+ *     ExpProfileInitialization @ 0x140A72CB4 (ExpProfileInitialization.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeYieldProcessorEx @ 0x140242E20 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14024ABF0 (KeYieldProcessorEx.c)
+ *     KeAbPreAcquire @ 0x1402CA920 (KeAbPreAcquire.c)
+ *     KiReleaseThreadLockSafe @ 0x1402F1590 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-char __fastcall KiInitializeMutant(__int64 a1, char a2, char a3, char a4)
+__int64 __fastcall KiInitializeMutant(ULONG_PTR BugCheckParameter2, char a2, __int64 a3, _DWORD *SchedulerAssist)
 {
-  __int64 v8; // rax
+  char v5; // r13
+  __int64 v7; // rdx
+  char v8; // cl
+  __int64 result; // rax
   struct _KTHREAD *CurrentThread; // rbp
-  unsigned __int8 CurrentIrql; // si
+  unsigned __int8 CurrentIrql; // r14
+  struct _KPRCB *CurrentPrcb; // rsi
+  _DWORD *v13; // rcx
   struct _LIST_ENTRY *Blink; // rdx
-  struct _LIST_ENTRY *v12; // rax
-  _DWORD *SchedulerAssist; // r9
-  __int64 v14; // rax
-  unsigned __int8 v15; // al
-  struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v17; // r8
+  struct _LIST_ENTRY *v15; // rcx
+  int v16; // eax
+  _DWORD *v17; // rcx
   int v18; // eax
-  bool v19; // zf
-  int v21; // [rsp+58h] [rbp+10h] BYREF
+  unsigned __int8 v19; // al
+  struct _KPRCB *v20; // r9
+  _DWORD *v21; // r8
+  int v22; // eax
+  bool v23; // zf
+  int v24; // [rsp+58h] [rbp+10h] BYREF
+  char v25; // [rsp+60h] [rbp+18h]
 
-  *(_OWORD *)a1 = 0LL;
-  *(_OWORD *)(a1 + 16) = 0LL;
-  *(_OWORD *)(a1 + 32) = 0LL;
-  *(_QWORD *)(a1 + 48) = 0LL;
-  *(_BYTE *)a1 = 2;
+  v25 = a3;
+  *(_OWORD *)BugCheckParameter2 = 0LL;
+  v5 = (char)SchedulerAssist;
+  v7 = 2LL;
+  *(_OWORD *)(BugCheckParameter2 + 16) = 0LL;
+  *(_OWORD *)(BugCheckParameter2 + 32) = 0LL;
+  *(_QWORD *)(BugCheckParameter2 + 48) = 0LL;
+  *(_BYTE *)BugCheckParameter2 = 2;
   if ( a2 )
   {
     CurrentThread = KeGetCurrentThread();
-    *(_QWORD *)(a1 + 40) = CurrentThread;
+    *(_QWORD *)(BugCheckParameter2 + 40) = CurrentThread;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      LODWORD(v14) = 4;
-      if ( CurrentIrql != 2 )
-        v14 = (-1LL << (CurrentIrql + 1)) & 4;
-      SchedulerAssist[5] |= v14;
+      v7 = (-1LL << (CurrentIrql + 1)) & 4;
+      a3 = (unsigned int)v7 | SchedulerAssist[5];
+      SchedulerAssist[5] = a3;
     }
-    v21 = 0;
-    while ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentThread->ThreadLock, 0LL) )
+    CurrentPrcb = KeGetCurrentPrcb();
+    v24 = 0;
+    while ( 1 )
     {
+      v13 = CurrentPrcb->SchedulerAssist;
+      if ( v13 )
+      {
+        if ( CurrentPrcb->NestingLevel <= 1u )
+        {
+          v16 = v13[6];
+          v13[6] = v16 + 1;
+          if ( v16 == -1 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
+      }
+      if ( !_interlockedbittestandset64((volatile signed __int32 *)&CurrentThread->ThreadLock, 0LL) )
+        break;
+      v17 = CurrentPrcb->SchedulerAssist;
+      if ( v17 )
+      {
+        if ( CurrentPrcb->NestingLevel <= 1u )
+        {
+          v18 = v17[6] - 1;
+          v17[6] = v18;
+          if ( !v18 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
+      }
       do
-        KeYieldProcessorEx(&v21);
+        KeYieldProcessorEx(&v24, v7, a3, (__int64)SchedulerAssist);
       while ( CurrentThread->ThreadLock );
     }
     Blink = CurrentThread->MutantListHead.Blink;
-    v12 = (struct _LIST_ENTRY *)(a1 + 24);
+    v15 = (struct _LIST_ENTRY *)(BugCheckParameter2 + 24);
     if ( Blink->Flink != &CurrentThread->MutantListHead )
       __fastfail(3u);
-    v12->Flink = &CurrentThread->MutantListHead;
-    *(_QWORD *)(a1 + 32) = Blink;
-    Blink->Flink = v12;
-    CurrentThread->MutantListHead.Blink = v12;
-    CurrentThread->ThreadLock = 0LL;
+    v15->Flink = &CurrentThread->MutantListHead;
+    *(_QWORD *)(BugCheckParameter2 + 32) = Blink;
+    Blink->Flink = v15;
+    CurrentThread->MutantListHead.Blink = v15;
+    KiReleaseThreadLockSafe((__int64)CurrentThread);
     if ( KiIrqlFlags )
     {
-      v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      if ( (KiIrqlFlags & 1) != 0 )
       {
-        CurrentPrcb = KeGetCurrentPrcb();
-        v17 = CurrentPrcb->SchedulerAssist;
-        v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v19 = (v18 & v17[5]) == 0;
-        v17[5] &= v18;
-        if ( v19 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        v19 = KeGetCurrentIrql();
+        if ( v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+        {
+          v20 = KeGetCurrentPrcb();
+          v21 = v20->SchedulerAssist;
+          v22 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v23 = (v22 & v21[5]) == 0;
+          v21[5] &= v22;
+          if ( v23 )
+            KiRemoveSystemWorkPriorityKick(v20);
+        }
       }
     }
     __writecr8(CurrentIrql);
   }
   else
   {
-    *(_DWORD *)(a1 + 4) = 1;
+    *(_DWORD *)(BugCheckParameter2 + 4) = 1;
   }
-  *(_BYTE *)(a1 + 49) = a3;
-  *(_QWORD *)(a1 + 16) = a1 + 8;
-  *(_QWORD *)(a1 + 8) = a1 + 8;
-  LOBYTE(v8) = *(_BYTE *)(a1 + 48) & 0xFE;
-  *(_BYTE *)(a1 + 48) = v8;
-  if ( (a4 & 1) != 0 )
+  v8 = v25;
+  result = BugCheckParameter2 + 8;
+  *(_QWORD *)(BugCheckParameter2 + 16) = BugCheckParameter2 + 8;
+  *(_QWORD *)(BugCheckParameter2 + 8) = BugCheckParameter2 + 8;
+  *(_BYTE *)(BugCheckParameter2 + 48) &= ~1u;
+  *(_BYTE *)(BugCheckParameter2 + 49) = v8;
+  if ( (v5 & 1) != 0 )
   {
-    LOBYTE(v8) = v8 | 2;
-    *(_BYTE *)(a1 + 48) = v8;
+    *(_BYTE *)(BugCheckParameter2 + 48) |= 2u;
     if ( a2 )
     {
-      v8 = KeAbPreAcquire(a1, 0LL);
-      if ( v8 )
-        *(_BYTE *)(v8 + 18) = 1;
+      result = KeAbPreAcquire(BugCheckParameter2, 0LL, 1LL);
+      if ( result )
+        *(_BYTE *)(result + 26) |= 1u;
     }
   }
-  return v8;
+  return result;
 }

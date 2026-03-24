@@ -1,32 +1,32 @@
 /*
- * XREFs of ?GetScenarioName@CAnimationTracking@@AEAAPEBGPEAUAnimationScenarioRunningStatistics@1@PEAGK@Z @ 0x180076D84
+ * XREFs of ?GetScenarioName@CAnimationTracking@@AEAAPEBGPEAUAnimationScenarioRunningStatistics@1@PEAGK@Z @ 0x1800B1C08
  * Callers:
- *     ?StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z @ 0x1800745D0 (-StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z.c)
- *     ?UnrefAnimationScenario@CAnimationTracking@@QEAAXI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z @ 0x180076FE8 (-UnrefAnimationScenario@CAnimationTracking@@QEAAXI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z.c)
- *     ?RefAnimationScenario@CAnimationTracking@@QEAAJI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z @ 0x180077198 (-RefAnimationScenario@CAnimationTracking@@QEAAJI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z.c)
+ *     ?StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z @ 0x1800B0708 (-StopAnalyzingAnimationScenario@CAnimationTracking@@AEAAXIAEBUTelFrameInfo@1@@Z.c)
+ *     ?UnrefAnimationScenario@CAnimationTracking@@QEAAXI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z @ 0x1800B1558 (-UnrefAnimationScenario@CAnimationTracking@@QEAAXI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z.c)
+ *     ?RefAnimationScenario@CAnimationTracking@@QEAAJI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z @ 0x1800B1718 (-RefAnimationScenario@CAnimationTracking@@QEAAJI_KPEBU_GUID@@AEBUTelFrameInfo@1@@Z.c)
  * Callees:
- *     ?GuidToString@CAnimationTracking@@CAXAEBU_GUID@@PEAGK@Z @ 0x180076E08 (-GuidToString@CAnimationTracking@@CAXAEBU_GUID@@PEAGK@Z.c)
- *     ?ScenarioNameFromGuid@CAnimationTracking@@CAJAEBU_GUID@@PEAPEBG@Z @ 0x180076F24 (-ScenarioNameFromGuid@CAnimationTracking@@CAJAEBU_GUID@@PEAPEBG@Z.c)
+ *     ?ScenarioNameFromGuid@CAnimationTracking@@CAJAEBU_GUID@@PEAPEBG@Z @ 0x18006C458 (-ScenarioNameFromGuid@CAnimationTracking@@CAJAEBU_GUID@@PEAPEBG@Z.c)
+ *     ?GuidToString@CAnimationTracking@@CAXAEBU_GUID@@PEAGK@Z @ 0x1800B1E34 (-GuidToString@CAnimationTracking@@CAXAEBU_GUID@@PEAGK@Z.c)
  */
 
-const unsigned __int16 *__fastcall CAnimationTracking::GetScenarioName(
+unsigned __int16 *__fastcall CAnimationTracking::GetScenarioName(
         CAnimationTracking *this,
         struct CAnimationTracking::AnimationScenarioRunningStatistics *a2,
         unsigned __int16 *a3)
 {
-  unsigned int v4; // r8d
-  const struct _GUID *v5; // r9
-  __int64 v7; // rax
-  const unsigned __int16 *v8; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v4; // rax
+  unsigned int v6; // r8d
+  const struct _GUID *v7; // r9
+  unsigned __int16 *v8; // [rsp+30h] [rbp+8h] BYREF
 
-  v8 = (const unsigned __int16 *)this;
+  v8 = (unsigned __int16 *)this;
   if ( *(_DWORD *)a2 )
   {
-    v7 = *((_QWORD *)a2 + 20);
-    if ( v7 )
+    v4 = *((_QWORD *)a2 + 19);
+    if ( v4 )
     {
-      if ( *(_WORD *)(v7 + 34) )
-        return (const unsigned __int16 *)(v7 + *(unsigned __int16 *)(v7 + 34));
+      if ( *(_WORD *)(v4 + 34) )
+        return (unsigned __int16 *)(v4 + *(unsigned __int16 *)(v4 + 34));
       else
         return 0LL;
     }
@@ -38,10 +38,12 @@ const unsigned __int16 *__fastcall CAnimationTracking::GetScenarioName(
   else
   {
     v8 = 0LL;
-    if ( (int)CAnimationTracking::ScenarioNameFromGuid((const struct _GUID *)((char *)a2 + 4), &v8) >= 0 )
-      return v8;
+    if ( (int)CAnimationTracking::ScenarioNameFromGuid(
+                (const struct _GUID *)((char *)a2 + 4),
+                (const unsigned __int16 **)&v8) < 0 )
+      CAnimationTracking::GuidToString(v7, a3, v6);
     else
-      CAnimationTracking::GuidToString(v5, a3, v4);
+      return v8;
   }
   return a3;
 }

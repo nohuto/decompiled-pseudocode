@@ -1,129 +1,115 @@
 /*
- * XREFs of ValidateHwndEx @ 0x1C0045FD0
+ * XREFs of ValidateHwndEx @ 0x1C0039A90
  * Callers:
- *     ValidateHwnd @ 0x1C0045EC0 (ValidateHwnd.c)
- *     EtwTraceInputProcessDelay @ 0x1C0053680 (EtwTraceInputProcessDelay.c)
- *     UserGetDesktopDC @ 0x1C005A7D0 (UserGetDesktopDC.c)
- *     EtwTraceMessageCheckDelay @ 0x1C0089570 (EtwTraceMessageCheckDelay.c)
- *     UserIsWindowGdiScaled @ 0x1C009B0E0 (UserIsWindowGdiScaled.c)
- *     ??0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z @ 0x1C01B5044 (--0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z.c)
- *     ?IsEqualByWindowHandle@CInputDest@@QEBA_NPEAXW4HandleValidationType@1@@Z @ 0x1C01B5664 (-IsEqualByWindowHandle@CInputDest@@QEBA_NPEAXW4HandleValidationType@1@@Z.c)
- *     ?SetupFromInputDestAndWindow@CInputDest@@QEAA_NAEBV1@PEAUHWND__@@W4HandleValidationType@1@@Z @ 0x1C01B5824 (-SetupFromInputDestAndWindow@CInputDest@@QEAA_NAEBV1@PEAUHWND__@@W4HandleValidationType@1@@Z.c)
- *     ?GetPointerTransform@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUtagINPUT_TRANSFORM@@@Z @ 0x1C01CB6B4 (-GetPointerTransform@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUtagINPUT_TRANSFORM@@@Z.c)
+ *     UserGetDesktopDC @ 0x1C0021AE0 (UserGetDesktopDC.c)
+ *     NtUserGetDC @ 0x1C0036B40 (NtUserGetDC.c)
+ *     ValidateHwnd @ 0x1C0039A70 (ValidateHwnd.c)
+ *     UserIsWindowGdiScaled @ 0x1C0086940 (UserIsWindowGdiScaled.c)
+ *     ??0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z @ 0x1C0182920 (--0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z.c)
+ *     ?IsEqualByWindowHandle@CInputDest@@QEBA_NPEAXW4HandleValidationType@1@@Z @ 0x1C0182D20 (-IsEqualByWindowHandle@CInputDest@@QEBA_NPEAXW4HandleValidationType@1@@Z.c)
+ *     ?SetupFromInputDestAndWindow@CInputDest@@QEAA_NAEBV1@PEAUHWND__@@W4HandleValidationType@1@@Z @ 0x1C0182EC4 (-SetupFromInputDestAndWindow@CInputDest@@QEAA_NAEBV1@PEAUHWND__@@W4HandleValidationType@1@@Z.c)
+ *     ?GetPointerTransform@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUtagINPUT_TRANSFORM@@@Z @ 0x1C0195338 (-GetPointerTransform@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUtagINPUT_TRANSFORM@@@Z.c)
  * Callees:
- *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C00462E4 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
- *     UserSetLastError @ 0x1C005E3B4 (UserSetLastError.c)
- *     EtwTraceUIPIHandleValidationError @ 0x1C007476C (EtwTraceUIPIHandleValidationError.c)
- *     IsGetDesktopViewSupported @ 0x1C00B5124 (IsGetDesktopViewSupported.c)
- *     IsHandleEntrySecure @ 0x1C00CA4D4 (IsHandleEntrySecure.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     IsGetDesktopViewSupported @ 0x1C00065F8 (IsGetDesktopViewSupported.c)
+ *     EtwTraceUIPIHandleValidationError @ 0x1C0007EF4 (EtwTraceUIPIHandleValidationError.c)
+ *     UserSetLastError @ 0x1C0039D2C (UserSetLastError.c)
+ *     IsHandleEntrySecure @ 0x1C00943EC (IsHandleEntrySecure.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall ValidateHwndEx(__int64 a1, int a2, int a3)
 {
-  unsigned int v6; // r10d
-  char *v7; // r14
-  __int64 *v8; // rbx
-  __int16 v9; // ax
-  __int64 v10; // rbp
+  char *v6; // rsi
+  __int64 *v7; // r12
+  struct _KTHREAD *CurrentThread; // rbp
+  __int64 v9; // rdi
+  __int64 v10; // rdx
+  __int64 v11; // rcx
   __int64 *ThreadWin32Thread; // rax
-  __int64 v12; // rbx
-  __int64 v13; // r15
-  __int64 v14; // rdi
-  __int64 *v15; // rax
-  __int64 v16; // r9
-  __int64 v18; // rax
-  __int64 v19; // rcx
-  __int64 v20; // rdx
-  __int64 v21; // r8
-  int v22; // r10d
-  unsigned int v23; // edi
-  unsigned int v24; // esi
-  unsigned int *v25; // rax
+  __int64 v13; // rbx
+  __int64 v14; // rbp
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  unsigned int v18; // edx
+  unsigned int v19; // r8d
+  int v20; // r9d
+  int v21; // r10d
+  const struct tagPROCESSINFO *v22; // rdx
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 CurrentThreadProcess; // rax
 
   if ( (unsigned __int64)(unsigned __int16)a1 >= *((_QWORD *)gpsi + 1) )
-    goto LABEL_37;
-  v6 = dword_1C028FE70 * (unsigned __int16)a1;
-  v7 = (char *)qword_1C028FE68 + v6;
-  v8 = (__int64 *)((char *)gpKernelHandleTable + 24 * ((__int64)v6 >> 5));
-  v9 = WORD1(a1) & 0x7FFF;
-  if ( (WORD1(a1) & 0x7FFF) != *((_WORD *)v7 + 13) && v9 != 0x7FFF && (v9 || !PsGetCurrentProcessWow64Process()) )
-    goto LABEL_37;
-  if ( v7[24] != 1 )
-    goto LABEL_37;
-  if ( !IS_USERCRIT_OWNED_AT_ALL() )
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 151LL);
-  v10 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v10 = *ThreadWin32Thread;
-  v12 = *v8;
-  if ( v12
-    && (v13 = *(_QWORD *)(v12 + 16), (v7[25] & 1) == 0)
-    && (!a2
-     || v13 == v10
-     || *(_QWORD *)(v12 + 24) == *(_QWORD *)(v10 + 456)
-     || (*(_DWORD *)(v10 + 488) & 4) != 0
-     || (int)IsGetDesktopViewSupported() >= 0
-     && qword_1C02951F0
-     && ((__int64 (__fastcall *)(_QWORD, _QWORD))qword_1C02951F0)(*(_QWORD *)(v10 + 424), *(_QWORD *)(v12 + 24))) )
+    goto LABEL_25;
+  v6 = (char *)qword_1C024FA38 + (unsigned int)(unsigned __int16)a1 * dword_1C024FA40;
+  v7 = (__int64 *)((char *)gpKernelHandleTable
+                 + 24 * ((__int64)((unsigned int)(unsigned __int16)a1 * dword_1C024FA40) >> 5));
+  if ( WORD1(a1) != *((_WORD *)v6 + 13)
+    && WORD1(a1) != 0xFFFF
+    && (WORD1(a1) || !PsGetCurrentProcessWow64Process(0xFFFFLL)) )
   {
-    if ( a3 && *(_DWORD *)(*(_QWORD *)(v13 + 424) + 896LL) != 1 )
+    goto LABEL_25;
+  }
+  if ( v6[24] != 1 )
+    goto LABEL_25;
+  CurrentThread = KeGetCurrentThread();
+  v9 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess()
+    || (CurrentProcess = PsGetCurrentProcess(v11, v10),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v9 = *ThreadWin32Thread;
+  }
+  v13 = *v7;
+  if ( *v7
+    && (v14 = *(_QWORD *)(v13 + 16), (v6[25] & 1) == 0)
+    && (!a2
+     || v14 == v9
+     || *(_QWORD *)(v13 + 24) == *(_QWORD *)(v9 + 456)
+     || (*(_DWORD *)(v9 + 488) & 4) != 0
+     || (int)IsGetDesktopViewSupported() >= 0
+     && qword_1C0255D68
+     && qword_1C0255D68(*(_QWORD *)(v9 + 424), *(_QWORD *)(v13 + 24))) )
+  {
+    if ( a3 && *(_DWORD *)(*(_QWORD *)(v14 + 424) + 888LL) != 1 )
       a3 = 0;
-    if ( !IS_USERCRIT_OWNED_AT_ALL() )
-      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 151LL);
-    v14 = 0LL;
-    v15 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-    if ( v15 )
-      v14 = *v15;
-    if ( *(_DWORD *)(v14 + 1548) != 1 )
-      goto LABEL_41;
-    if ( !v13 )
-      goto LABEL_41;
-    v18 = *(_QWORD *)(v13 + 424);
-    v19 = *(_QWORD *)(v10 + 424);
-    if ( !UIPrivelegeIsolation::fEnforce )
-      goto LABEL_41;
-    v20 = *(unsigned int *)(v19 + 888);
-    v21 = *(unsigned int *)(v18 + 888);
-    if ( (unsigned int)v20 > (unsigned int)v21 )
-      goto LABEL_41;
-    if ( (_DWORD)v20 == (_DWORD)v21 )
+    if ( !gbValidateHandleForIL
+      || !v14
+      || (v16 = *(_QWORD *)(v14 + 424), v17 = *(_QWORD *)(v9 + 424), !UIPrivelegeIsolation::fEnforce)
+      || (v18 = *(_DWORD *)(v17 + 880), v19 = *(_DWORD *)(v16 + 880), v18 > v19)
+      || v18 == v19
+      && ((v20 = *(_DWORD *)(v17 + 884), v21 = *(_DWORD *)(v16 + 884), v20 == v21) || v20 == -1 || v21 == -1)
+      || a3
+      && v18 == v19
+      && (unsigned __int8)SeIsParentOfChildAppContainer(
+                            (unsigned int)gSessionId,
+                            *(unsigned int *)(v17 + 884),
+                            *(unsigned int *)(v16 + 884))
+      || (v22 = *(const struct tagPROCESSINFO **)(v14 + 424), *(PVOID *)v22 == gpepCSRSS) )
     {
-      v16 = *(unsigned int *)(v19 + 892);
-      v22 = *(_DWORD *)(v18 + 892);
-      if ( (_DWORD)v16 == v22 || (_DWORD)v16 == -1 || v22 == -1 )
-        goto LABEL_41;
-    }
-    if ( a3
-      && (_DWORD)v20 == (_DWORD)v21
-      && (v23 = *(_DWORD *)(v18 + 892),
-          v24 = *(_DWORD *)(v19 + 892),
-          v25 = (unsigned int *)SGDGetUserSessionState(v19, v20, v21, v16),
-          (unsigned __int8)SeIsParentOfChildAppContainer(*v25, v24, v23))
-      || **(PVOID **)(v13 + 424) == gpepCSRSS )
-    {
-LABEL_41:
-      if ( (*(_DWORD *)(v10 + 488) & 0x20000000) != 0
-        && (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v10 + 424) + 760LL) + 24LL) & 1) != 0
-        && !(unsigned int)IsHandleEntrySecure(a1, v7) )
+      if ( (*(_DWORD *)(v9 + 488) & 0x20000000) != 0
+        && (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v9 + 424) + 768LL) + 24LL) & 1) != 0
+        && !(unsigned int)IsHandleEntrySecure(a1, v6) )
       {
         UserSetLastError(1400LL);
         return 0LL;
       }
-      return v12;
+      return v13;
     }
     else
     {
-      EtwTraceUIPIHandleValidationError(*(struct tagPROCESSINFO **)(v10 + 424));
+      EtwTraceUIPIHandleValidationError(*(struct tagPROCESSINFO **)(v9 + 424), v22, a1, v6[24]);
       UserSetLastError(5LL);
       return 0LL;
     }
   }
   else
   {
-LABEL_37:
+LABEL_25:
     UserSetLastError(1400LL);
     return 0LL;
   }

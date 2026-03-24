@@ -1,24 +1,19 @@
 /*
- * XREFs of NtGdiGetEmbedFonts @ 0x1C02C2EA0
+ * XREFs of NtGdiGetEmbedFonts @ 0x1C02AE840
  * Callers:
  *     <none>
  * Callees:
- *     ?GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ @ 0x1C026A9A8 (-GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ.c)
+ *     ?GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ @ 0x1C0272128 (-GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ.c)
  */
 
-__int64 __fastcall NtGdiGetEmbedFonts(Gre::Base *a1)
+__int64 NtGdiGetEmbedFonts()
 {
-  __int64 v1; // rcx
-  __int64 result; // rax
-  _QWORD v3[3]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v0; // ecx
+  struct PFT **v2; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = *((_QWORD *)Gre::Base::Globals(a1) + 796);
-  result = 0LL;
-  v3[0] = v1;
-  if ( v1 )
-  {
-    if ( *(_DWORD *)(v1 + 28) )
-      return PUBLIC_PFTOBJ::GetEmbedFonts((PUBLIC_PFTOBJ *)v3);
-  }
-  return result;
+  v0 = 0;
+  v2 = gpPFTPrivate;
+  if ( gpPFTPrivate && *((_DWORD *)gpPFTPrivate + 7) )
+    return (unsigned int)PUBLIC_PFTOBJ::GetEmbedFonts(&v2);
+  return v0;
 }

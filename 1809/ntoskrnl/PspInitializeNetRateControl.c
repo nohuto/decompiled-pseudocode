@@ -3,7 +3,7 @@
  * Callers:
  *     PspInitPhase1 @ 0x1409AB320 (PspInitPhase1.c)
  * Callees:
- *     ExRegisterHost @ 0x1407275DC (ExRegisterHost.c)
+ *     ExRegisterHost @ 0x1407275BC (ExRegisterHost.c)
  */
 
 char __fastcall PspInitializeNetRateControl(__int64 a1, __int64 a2)

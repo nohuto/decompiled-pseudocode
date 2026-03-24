@@ -1,20 +1,18 @@
 /*
- * XREFs of RawInputRequestedForMouse @ 0x1C01AC670
+ * XREFs of RawInputRequestedForMouse @ 0x1C0031394
  * Callers:
- *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C014F34E (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
- *     EditionPostRawMouseInputMessage @ 0x1C014F920 (EditionPostRawMouseInputMessage.c)
- *     EditionHandleRawInputThrottlingTimer @ 0x1C01AC1B0 (EditionHandleRawInputThrottlingTimer.c)
+ *     EditionPostRawMouseInputMessage @ 0x1C0030DC0 (EditionPostRawMouseInputMessage.c)
+ *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C00313BC (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RawInputRequestedForMouse(__int64 a1)
+__int64 RawInputRequestedForMouse()
 {
-  __int64 v1; // rcx
-  unsigned int v2; // ebx
+  unsigned int v0; // ecx
 
-  v2 = 0;
-  if ( *(_DWORD *)(SGDGetUserSessionState(a1) + 16852) || *(_DWORD *)(SGDGetUserSessionState(v1) + 15956) )
+  v0 = 0;
+  if ( gHidCounters[1] || *(&WPP_MAIN_CB.AlignmentRequirement + 1) )
     return 1;
-  return v2;
+  return v0;
 }

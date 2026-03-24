@@ -1,12 +1,13 @@
 /*
- * XREFs of CmpLockHiveListExclusive @ 0x1406DEFFC
+ * XREFs of CmpLockHiveListExclusive @ 0x14071D2A4
  * Callers:
- *     CmpUnJoinClassOfTrust @ 0x140208994 (CmpUnJoinClassOfTrust.c)
- *     CmpLoadKeyCommon @ 0x14020AABC (CmpLoadKeyCommon.c)
- *     CmpJoinClassOfTrust @ 0x140256264 (CmpJoinClassOfTrust.c)
- *     CmpFinishSystemHivesLoad @ 0x140833B80 (CmpFinishSystemHivesLoad.c)
+ *     CmpJoinClassOfTrust @ 0x1402D3974 (CmpJoinClassOfTrust.c)
+ *     CmpUnJoinClassOfTrust @ 0x14036173C (CmpUnJoinClassOfTrust.c)
+ *     CmpLoadKeyCommon @ 0x14036195C (CmpLoadKeyCommon.c)
+ *     CmpCreateHive @ 0x14071E618 (CmpCreateHive.c)
+ *     CmpLoadHiveVolatile @ 0x14087CF5C (CmpLoadHiveVolatile.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void CmpLockHiveListExclusive()

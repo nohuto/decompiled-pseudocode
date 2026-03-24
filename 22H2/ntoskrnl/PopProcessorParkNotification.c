@@ -1,9 +1,9 @@
 /*
- * XREFs of PopProcessorParkNotification @ 0x14058CE20
+ * XREFs of PopProcessorParkNotification @ 0x14056E250
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopProcessorParkNotification(__int64 a1, __int64 a2)

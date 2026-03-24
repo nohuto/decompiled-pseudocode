@@ -1,91 +1,118 @@
 /*
- * XREFs of DxgkGetAdapterDefaultScaling @ 0x1C01D5E50
+ * XREFs of DxgkGetAdapterDefaultScaling @ 0x1C0149040
  * Callers:
- *     DxgkGetPathsModality @ 0x1C01AE940 (DxgkGetPathsModality.c)
- *     ?LoadTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEAVCCD_TOPOLOGY@@@Z @ 0x1C01B72F8 (-LoadTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEAVCCD_TOPOLOGY@@@Z.c)
- *     DxgkConvertDisplayConfigCScalingToDdiScaling @ 0x1C01D3DA0 (DxgkConvertDisplayConfigCScalingToDdiScaling.c)
- *     ?_FillPathDescriptor@CDS_JOURNAL@@CAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_ENTRY@1@_N2PEAVDXGADAPTER@@@Z @ 0x1C01D5B10 (-_FillPathDescriptor@CDS_JOURNAL@@CAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_ENTRY@1@_N2PEAVDXG.c)
- *     ?FillScalingIntent@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C01D5D78 (-FillScalingIntent@CCD_TOPOLOGY@@QEAAXXZ.c)
- *     ?MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C01D751C (-MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z.c)
+ *     DxgkGetPathsModality @ 0x1C01365A0 (DxgkGetPathsModality.c)
+ *     ?LoadTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEAVCCD_TOPOLOGY@@@Z @ 0x1C0146248 (-LoadTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEAVCCD_TOPOLOGY@@@Z.c)
+ *     ?_FillPathDescriptor@CDS_JOURNAL@@CAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_ENTRY@1@_N2PEAVDXGADAPTER@@@Z @ 0x1C0146954 (-_FillPathDescriptor@CDS_JOURNAL@@CAXPEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_ENTRY@1@_N2PEAVDXG.c)
+ *     ?MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C0148408 (-MakeCloneGroupDWMClipBoxValid@CCD_TOPOLOGY@@QEAAJI@Z.c)
+ *     ?FillScalingIntent@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C0148F5C (-FillScalingIntent@CCD_TOPOLOGY@@QEAAXXZ.c)
+ *     DxgkConvertDisplayConfigCScalingToDdiScaling @ 0x1C0149A80 (DxgkConvertDisplayConfigCScalingToDdiScaling.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C000BD00 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C000F13C (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3A0 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3FC (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
- *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C01A442C (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
- *     ?GetAdapterDefaultScaling@VIDPN_MGR@@QEBA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@XZ @ 0x1C01D3BBC (-GetAdapterDefaultScaling@VIDPN_MGR@@QEBA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@XZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004130 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007578 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007658 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ?Release@COREADAPTERACCESS@@QEAAXXZ @ 0x1C0007D38 (-Release@COREADAPTERACCESS@@QEAAXXZ.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00081AC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0009DE0 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C011F70C (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
+ *     ?GetAdapterDefaultScaling@VIDPN_MGR@@QEBA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@XZ @ 0x1C014A2E0 (-GetAdapterDefaultScaling@VIDPN_MGR@@QEBA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@XZ.c)
  */
 
-void __fastcall DxgkGetAdapterDefaultScaling(struct _LUID *a1, int *a2)
+void __fastcall DxgkGetAdapterDefaultScaling(struct _LUID *a1, enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING *a2)
 {
-  int AdapterDefaultScaling; // edi
+  enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING AdapterDefaultScaling; // esi
   DXGGLOBAL *Global; // rax
   struct DXGADAPTER *v6; // rax
-  struct DXGADAPTER *v7; // rbx
+  __int64 v7; // rdx
   __int64 v8; // rcx
-  char v9[8]; // [rsp+50h] [rbp-28h] BYREF
-  struct DXGADAPTER *v10; // [rsp+58h] [rbp-20h]
-  char v11; // [rsp+60h] [rbp-18h]
-  unsigned __int64 v12; // [rsp+80h] [rbp+8h] BYREF
+  __int64 v9; // r8
+  struct DXGADAPTER *v10; // rbx
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  int v13; // eax
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  __int64 v17; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // rdx
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rdx
+  __int64 v23; // rdi
+  _QWORD *v24; // rax
+  _QWORD *v25; // rax
+  unsigned __int64 v26[2]; // [rsp+20h] [rbp-C8h] BYREF
+  _BYTE v27[144]; // [rsp+30h] [rbp-B8h] BYREF
 
-  AdapterDefaultScaling = 3;
-  Global = DXGGLOBAL_GetGlobal();
-  v6 = DXGGLOBAL::ReferenceAdapterByLuid(Global, *a1, &v12);
-  v7 = v6;
-  if ( v6 && *((_QWORD *)v6 + 349) )
+  AdapterDefaultScaling = D3DKMDT_VPPS_STRETCHED;
+  Global = DXGGLOBAL::GetGlobal((__int64)a1, (__int64)a2);
+  v6 = DXGGLOBAL::ReferenceAdapterByLuid(Global, *a1, v26);
+  v10 = v6;
+  if ( v6 && *((_QWORD *)v6 + 337) )
   {
     if ( DXGADAPTER::IsCoreResourceSharedOwner(v6) )
     {
-      WdLogSingleEntry1(1LL, 8254LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        262146,
-        -1,
-        (__int64)L"Potentinal Deadlock code path, Please contact basevid",
-        8254LL,
-        0LL,
-        0LL,
-        0LL,
-        0LL);
-      EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(
-        (__int64 *)&v12,
-        *(_QWORD *)(*((_QWORD *)v7 + 349) + 104LL));
-      AdapterDefaultScaling = VIDPN_MGR::GetAdapterDefaultScaling(*(VIDPN_MGR **)(*((_QWORD *)v7 + 349) + 104LL));
-      DXGFASTMUTEX::Release((struct _KTHREAD **)(v12 + 40));
+      v21 = WdLogNewEntry5_WdAssertion(v12, v11);
+      *(_QWORD *)(v21 + 24) = 7805LL;
+      WdLogEvent5_WdAssertion(v21);
+      EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>((__int64 *)v26, *(_QWORD *)(*((_QWORD *)v10 + 337) + 88LL));
+      AdapterDefaultScaling = VIDPN_MGR::GetAdapterDefaultScaling(*(VIDPN_MGR **)(*((_QWORD *)v10 + 337) + 88LL));
+      DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v26[0] + 40), v22);
     }
     else
     {
-      v10 = v7;
-      v11 = 0;
-      DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v9);
-      if ( *((_DWORD *)v7 + 50) == 1 )
+      COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v27, v10, 0LL);
+      v13 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v27, 0LL);
+      if ( v13 < 0 )
       {
-        EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(
-          (__int64 *)&v12,
-          *(_QWORD *)(*((_QWORD *)v7 + 349) + 104LL));
-        v8 = *((_QWORD *)v7 + 349);
-        if ( *(_BYTE *)(v8 + 289) )
-          AdapterDefaultScaling = 4;
+        v23 = v13;
+        if ( v13 == -1073741130 )
+        {
+          v24 = (_QWORD *)WdLogNewEntry5_WdWarning(v15, v14, v16);
+          v24[3] = v23;
+          v24[4] = v10;
+          v24[5] = *((int *)v10 + 80);
+          v24[6] = *((unsigned int *)v10 + 79);
+          WdLogEvent5_WdWarning(v24);
+        }
         else
-          AdapterDefaultScaling = VIDPN_MGR::GetAdapterDefaultScaling(*(VIDPN_MGR **)(v8 + 104));
-        DXGFASTMUTEX::Release((struct _KTHREAD **)(v12 + 40));
+        {
+          v25 = (_QWORD *)WdLogNewEntry5_WdError(v15, v14);
+          v25[3] = v23;
+          v25[4] = v10;
+          v25[5] = *((int *)v10 + 80);
+          v25[6] = *((unsigned int *)v10 + 79);
+          WdLogEvent5_WdError(v25);
+        }
       }
       else
       {
-        WdLogSingleEntry3(3LL, v7, *((int *)v7 + 102), *((unsigned int *)v7 + 101));
+        EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(
+          (__int64 *)v26,
+          *(_QWORD *)(*((_QWORD *)v10 + 337) + 88LL));
+        v17 = *((_QWORD *)v10 + 337);
+        if ( *(_BYTE *)(v17 + 249) )
+          AdapterDefaultScaling = D3DKMDT_VPPS_ASPECTRATIOCENTEREDMAX;
+        else
+          AdapterDefaultScaling = VIDPN_MGR::GetAdapterDefaultScaling(*(VIDPN_MGR **)(v17 + 88));
+        COREADAPTERACCESS::Release((COREADAPTERACCESS *)v27);
+        DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v26[0] + 40), v18);
       }
-      if ( v11 )
-        DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v9);
+      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v27, v19);
     }
-    DXGADAPTER::ReleaseReference(v7);
+    DXGADAPTER::ReleaseReference(v10);
   }
   else
   {
-    WdLogSingleEntry2(3LL, a1->HighPart, a1->LowPart);
+    v20 = WdLogNewEntry5_WdWarning(v8, v7, v9);
+    *(_QWORD *)(v20 + 24) = a1->HighPart;
+    *(_QWORD *)(v20 + 32) = a1->LowPart;
+    WdLogEvent5_WdWarning(v20);
   }
   *a2 = AdapterDefaultScaling;
 }

@@ -1,39 +1,34 @@
 /*
- * XREFs of HalpTimerAlwaysOnClockInterrupt @ 0x140521AC0
+ * XREFs of HalpTimerAlwaysOnClockInterrupt @ 0x1404D47D0
  * Callers:
  *     <none>
  * Callees:
- *     HalpMcaQueueDpc @ 0x1402592CC (HalpMcaQueueDpc.c)
- *     HalpTimerGetInternalData @ 0x140303720 (HalpTimerGetInternalData.c)
- *     KeClockInterruptNotify @ 0x140305780 (KeClockInterruptNotify.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpScanForProfilingCorruption @ 0x14050BAC8 (HalpScanForProfilingCorruption.c)
- *     HalpTimerSwitchToNormalClock @ 0x14050C138 (HalpTimerSwitchToNormalClock.c)
- *     HalpTimerWatchdogTriggerSystemReset @ 0x14050EB80 (HalpTimerWatchdogTriggerSystemReset.c)
+ *     KeClockInterruptNotify @ 0x140221640 (KeClockInterruptNotify.c)
+ *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
+ *     HalpMcaQueueDpc @ 0x1402D06F8 (HalpMcaQueueDpc.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpTimerSwitchToNormalClock @ 0x1404BF678 (HalpTimerSwitchToNormalClock.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x1404C2760 (HalpTimerWatchdogTriggerSystemReset.c)
  */
 
 char __fastcall HalpTimerAlwaysOnClockInterrupt(__int64 a1)
 {
-  __int64 v1; // rdi
-  __int64 v2; // rbx
-  char v3; // di
+  __int64 v1; // rbx
+  unsigned __int8 v2; // di
   __int64 InternalData; // rax
-  __int64 v5; // r8
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int16 v9; // ax
-  _QWORD *v10; // rbx
+  __int64 v4; // r8
+  __int16 v5; // ax
+  __int64 CurrentPrcb; // rax
+  _QWORD *v7; // rbx
 
-  v2 = *(_QWORD *)(a1 + 136);
-  v3 = *(_BYTE *)(v2 + 41);
+  v1 = *(_QWORD *)(a1 + 136);
+  v2 = *(_BYTE *)(v1 + 41);
   InternalData = HalpTimerGetInternalData(HalpAlwaysOnTimer);
-  (*(void (__fastcall **)(__int64))(v5 + 120))(InternalData);
+  (*(void (__fastcall **)(__int64))(v4 + 120))(InternalData);
   if ( (KeGetCurrentPrcb()->PendingTickFlags & 2) != 0 )
   {
     HalpTimerSwitchToNormalClock(1);
-    LOBYTE(v6) = v3;
-    KeClockInterruptNotify(v2, v6, v7, v8);
+    KeClockInterruptNotify(v1, v2);
     if ( KeGetCurrentPrcb()->ClockOwner )
     {
       if ( (unsigned int)(*(_DWORD *)(HalpClockTimer + 60) - MEMORY[0xFFFFF78000000008]) > 0x47868C00 )
@@ -41,30 +36,27 @@ char __fastcall HalpTimerAlwaysOnClockInterrupt(__int64 a1)
         BYTE1(HalpClockWorkUnion) = 1;
         *(_DWORD *)(HalpClockTimer + 60) = MEMORY[0xFFFFF78000000008] + 1200000000;
       }
-      v9 = HalpClockWorkUnion;
+      v5 = HalpClockWorkUnion;
       if ( HalpClockWorkUnion && (_WORD)HalpClockWorkUnion )
       {
         LOWORD(HalpClockWorkUnion) = 0;
-        HalpMcaQueueDpc(v9, SHIBYTE(v9));
+        HalpMcaQueueDpc(v5, SHIBYTE(v5));
       }
-      if ( KeGetCurrentPrcb()->ClockOwner && HalpWatchdogTimer )
+      CurrentPrcb = (__int64)KeGetCurrentPrcb();
+      if ( *(_BYTE *)(CurrentPrcb + 33) && HalpWatchdogTimer )
       {
+        CurrentPrcb = MEMORY[0xFFFFF78000000008] - HalpTimerWatchdogLastReset;
         if ( MEMORY[0xFFFFF78000000008] - HalpTimerWatchdogLastReset > (unsigned __int64)HalpTimerWatchdogResetCount )
-          off_140C01F10[0]();
+          CurrentPrcb = off_140C008C0[0]();
         if ( HalpTimerWatchdogResetCount == -1 )
-          HalpTimerWatchdogTriggerSystemReset(0);
+          CurrentPrcb = HalpTimerWatchdogTriggerSystemReset(0);
       }
-      if ( SLODWORD(KeGetCurrentPrcb()->HalReserved[2]) > 0 && (KeGetCurrentPrcb()->HalReserved[2] & 1) == 0 )
+      LODWORD(CurrentPrcb) = KeGetPcr()->Prcb.Number;
+      v7 = (_QWORD *)(HalpCounterSetInfo + 24 * CurrentPrcb);
+      if ( (_QWORD *)*v7 != v7 && MEMORY[0xFFFFF78000000008] - v7[2] >= 0x4C4B40uLL )
       {
-        LODWORD(v1) = KeGetPcr()->Prcb.Number;
-        v10 = (_QWORD *)(HalpCounterSetInfo + 24 * v1);
-        if ( MEMORY[0xFFFFF78000000008] - v10[2] >= 0x4C4B40uLL )
-        {
-          if ( (_QWORD *)*v10 != v10 )
-            ((void (__fastcall *)(_QWORD, _QWORD))off_140C01E28[0])(0LL, 0LL);
-          HalpScanForProfilingCorruption(v1);
-          v10[2] = MEMORY[0xFFFFF78000000008];
-        }
+        ((void (__fastcall *)(_QWORD, _QWORD))off_140C007D8[0])(0LL, 0LL);
+        v7[2] = MEMORY[0xFFFFF78000000008];
       }
     }
   }

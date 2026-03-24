@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SearchForAndRemove@FxTransactionedList@@IEAAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C007236C
+ * XREFs of ?SearchForAndRemove@FxTransactionedList@@IEAAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C0062124
  * Callers:
- *     imp_WdfPdoRemoveEjectionRelationsPhysicalDevice @ 0x1C005B0C0 (imp_WdfPdoRemoveEjectionRelationsPhysicalDevice.c)
- *     imp_WdfDeviceClearRemovalRelationsDevices @ 0x1C00639C0 (imp_WdfDeviceClearRemovalRelationsDevices.c)
- *     imp_WdfDeviceRemoveDependentUsageDeviceObject @ 0x1C0063B70 (imp_WdfDeviceRemoveDependentUsageDeviceObject.c)
- *     imp_WdfDeviceRemoveRemovalRelationsPhysicalDevice @ 0x1C0063BE0 (imp_WdfDeviceRemoveRemovalRelationsPhysicalDevice.c)
- *     ?ClearEjectionDevicesList@FxPkgPdo@@QEAAXXZ @ 0x1C00834B0 (-ClearEjectionDevicesList@FxPkgPdo@@QEAAXXZ.c)
+ *     imp_WdfPdoRemoveEjectionRelationsPhysicalDevice @ 0x1C0038FA0 (imp_WdfPdoRemoveEjectionRelationsPhysicalDevice.c)
+ *     imp_WdfDeviceClearRemovalRelationsDevices @ 0x1C0048F50 (imp_WdfDeviceClearRemovalRelationsDevices.c)
+ *     imp_WdfDeviceRemoveDependentUsageDeviceObject @ 0x1C00491B0 (imp_WdfDeviceRemoveDependentUsageDeviceObject.c)
+ *     imp_WdfDeviceRemoveRemovalRelationsPhysicalDevice @ 0x1C0049220 (imp_WdfDeviceRemoveRemovalRelationsPhysicalDevice.c)
+ *     ?ClearEjectionDevicesList@FxPkgPdo@@QEAAXXZ @ 0x1C0078F70 (-ClearEjectionDevicesList@FxPkgPdo@@QEAAXXZ.c)
  * Callees:
- *     ?GetNextEntryLocked@FxTransactionedList@@IEAAPEAUFxTransactionedEntry@@PEAU2@@Z @ 0x1C0010C88 (-GetNextEntryLocked@FxTransactionedList@@IEAAPEAUFxTransactionedEntry@@PEAU2@@Z.c)
- *     ?RemoveLocked@FxTransactionedList@@IEAAEPEAUFxTransactionedEntry@@@Z @ 0x1C002BC38 (-RemoveLocked@FxTransactionedList@@IEAAEPEAUFxTransactionedEntry@@@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ *     ?GetNextEntryLocked@FxTransactionedList@@IEAAPEAUFxTransactionedEntry@@PEAU2@@Z @ 0x1C0016E48 (-GetNextEntryLocked@FxTransactionedList@@IEAAPEAUFxTransactionedEntry@@PEAU2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     ?RemoveLocked@FxTransactionedList@@IEAAEPEAUFxTransactionedEntry@@@Z @ 0x1C0062054 (-RemoveLocked@FxTransactionedList@@IEAAEPEAUFxTransactionedEntry@@@Z.c)
  */
 
 void __fastcall FxTransactionedList::SearchForAndRemove(
@@ -48,7 +48,7 @@ void __fastcall FxTransactionedList::SearchForAndRemove(
         i->Blink = i;
         i->Flink = i;
       }
-      goto $Done_54;
+      goto $Done_44;
     }
   }
   v9 = 0LL;
@@ -64,7 +64,7 @@ void __fastcall FxTransactionedList::SearchForAndRemove(
       break;
     }
   }
-$Done_54:
+$Done_44:
   LOBYTE(v10) = irql;
   this->ReleaseLock(this, FxDriverGlobals, v10);
   if ( v5 )

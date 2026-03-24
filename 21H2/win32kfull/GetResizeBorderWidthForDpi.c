@@ -1,22 +1,17 @@
 /*
- * XREFs of GetResizeBorderWidthForDpi @ 0x1C00BB5D8
+ * XREFs of GetResizeBorderWidthForDpi @ 0x1C00E0E90
  * Callers:
- *     GetWindowNCMetrics @ 0x1C006492C (GetWindowNCMetrics.c)
- *     xxxDrawCaptionBar @ 0x1C00BAE5C (xxxDrawCaptionBar.c)
+ *     xxxDrawCaptionBar @ 0x1C00DCE08 (xxxDrawCaptionBar.c)
+ *     GetWindowNCMetrics @ 0x1C00E0CB0 (GetWindowNCMetrics.c)
  * Callees:
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C00BBD80 (-GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z.c)
+ *     ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C004BA58 (-GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z.c)
+ *     GetAppCompatFlags2 @ 0x1C00E1310 (GetAppCompatFlags2.c)
  */
 
 __int64 __fastcall GetResizeBorderWidthForDpi(unsigned int a1)
 {
-  __int64 ThreadWin32Thread; // rax
-  unsigned int v3; // edx
+  int AppCompatFlags2; // eax
 
-  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-  if ( *(_DWORD *)(ThreadWin32Thread + 632) > 0x9900u )
-    v3 = 0;
-  else
-    v3 = *(_DWORD *)(ThreadWin32Thread + 648);
-  return GetResizeBorderWidthForDpiWithAppCompat2(a1, v3);
+  AppCompatFlags2 = GetAppCompatFlags2(39168LL);
+  return GetResizeBorderWidthForDpiWithAppCompat2(a1, AppCompatFlags2);
 }

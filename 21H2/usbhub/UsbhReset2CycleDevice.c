@@ -1,12 +1,12 @@
 /*
- * XREFs of UsbhReset2CycleDevice @ 0x1C004DB10
+ * XREFs of UsbhReset2CycleDevice @ 0x1C004EF20
  * Callers:
  *     <none>
  * Callees:
- *     UsbhCancelResetTimeout @ 0x1C000DCF0 (UsbhCancelResetTimeout.c)
- *     UsbhReleaseEnumBusLockEx @ 0x1C000FB0C (UsbhReleaseEnumBusLockEx.c)
- *     UsbhAssertBusLock @ 0x1C0035D6C (UsbhAssertBusLock.c)
- *     UsbhPortCycle @ 0x1C004CBE0 (UsbhPortCycle.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C00029EC (UsbhReleaseEnumBusLockEx.c)
+ *     UsbhCancelResetTimeout @ 0x1C0013AE0 (UsbhCancelResetTimeout.c)
+ *     UsbhAssertBusLock @ 0x1C0037028 (UsbhAssertBusLock.c)
+ *     UsbhPortCycle @ 0x1C004DFF0 (UsbhPortCycle.c)
  */
 
 __int64 __fastcall UsbhReset2CycleDevice(__int64 a1, __int64 a2, __int64 a3)

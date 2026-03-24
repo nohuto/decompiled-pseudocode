@@ -1,9 +1,9 @@
 /*
- * XREFs of VidMmGetTotalSegmentSize @ 0x1C00035D0
+ * XREFs of VidMmGetTotalSegmentSize @ 0x1C0001100
  * Callers:
  *     <none>
  * Callees:
- *     ?GetTotalSegmentSize@VIDMM_GLOBAL@@QEAAXIPEA_K00000@Z @ 0x1C008DDF0 (-GetTotalSegmentSize@VIDMM_GLOBAL@@QEAAXIPEA_K00000@Z.c)
+ *     ?GetTotalSegmentSize@VIDMM_GLOBAL@@QEAAXIPEA_K00000@Z @ 0x1C006308C (-GetTotalSegmentSize@VIDMM_GLOBAL@@QEAAXIPEA_K00000@Z.c)
  */
 
 void __fastcall VidMmGetTotalSegmentSize(

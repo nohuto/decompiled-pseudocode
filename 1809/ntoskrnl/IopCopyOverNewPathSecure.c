@@ -1,9 +1,9 @@
 /*
  * XREFs of IopCopyOverNewPathSecure @ 0x140581EF0
  * Callers:
- *     IopGraftName @ 0x1406AC28C (IopGraftName.c)
+ *     IopGraftName @ 0x1406AC26C (IopGraftName.c)
  * Callees:
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

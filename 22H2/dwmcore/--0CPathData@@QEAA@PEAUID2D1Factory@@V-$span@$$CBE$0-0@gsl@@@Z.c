@@ -1,53 +1,55 @@
 /*
- * XREFs of ??0CPathData@@QEAA@PEAUID2D1Factory@@V?$span@$$CBE$0?0@gsl@@@Z @ 0x1800ABB84
+ * XREFs of ??0CPathData@@QEAA@PEAUID2D1Factory@@V?$span@$$CBE$0?0@gsl@@@Z @ 0x180220408
  * Callers:
- *     ?Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z @ 0x18001548C (-Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z.c)
- *     ?ProcessSetPath@CPathGeometry@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PATHGEOMETRY_SETPATH@@@Z @ 0x1800ABA94 (-ProcessSetPath@CPathGeometry@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PATHGEOMETRY_SETPATH@@@Z.c)
- *     ?GetSimplifiedPathDataInternal@CShape@@MEBAJPEAPEAVCPathData@@@Z @ 0x1801B1D00 (-GetSimplifiedPathDataInternal@CShape@@MEBAJPEAPEAVCPathData@@@Z.c)
- *     ?ProcessSetPathData@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_SETPATHDATA@@PEBXI@Z @ 0x18023A0F0 (-ProcessSetPathData@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION.c)
- *     ?GetShapeDataCore@CLineGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x18023AE20 (-GetShapeDataCore@CLineGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
- *     ?Simplify@CPathData@@QEBAJPEAPEAV1@@Z @ 0x180280558 (-Simplify@CPathData@@QEBAJPEAPEAV1@@Z.c)
+ *     ?ProcessSetPathData@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_SETPATHDATA@@PEBXI@Z @ 0x1801D1520 (-ProcessSetPathData@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION.c)
+ *     ?GetShapeDataCore@CLineGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1801D3230 (-GetShapeDataCore@CLineGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?ProcessSetPath@CPathGeometry@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PATHGEOMETRY_SETPATH@@@Z @ 0x1801E2874 (-ProcessSetPath@CPathGeometry@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PATHGEOMETRY_SETPATH@@@Z.c)
+ *     ?Simplify@CPathData@@QEBAJPEAPEAV1@@Z @ 0x180220F7C (-Simplify@CPathData@@QEBAJPEAPEAV1@@Z.c)
+ *     ?GetSimplifiedPathDataInternal@CShape@@MEBAJPEAPEAVCPathData@@@Z @ 0x18025D890 (-GetSimplifiedPathDataInternal@CShape@@MEBAJPEAPEAVCPathData@@@Z.c)
+ *     ?Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z @ 0x18025EEE0 (-Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z.c)
  * Callees:
- *     ??$insert@V?$span_iterator@$$CBE@details@gsl@@$0A@@?$vector@EV?$allocator@E@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@E@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@E@std@@@std@@@1@V?$span_iterator@$$CBE@details@gsl@@1@Z @ 0x1800ABCD0 (--$insert@V-$span_iterator@$$CBE@details@gsl@@$0A@@-$vector@EV-$allocator@E@std@@@std@@QEAA-AV-$.c)
- *     ?reserve@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z @ 0x1800ABEC8 (-reserve@-$vector@EV-$allocator@E@std@@@std@@QEAAX_K@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?reserve@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z @ 0x1801F0558 (-reserve@-$vector@EV-$allocator@E@std@@@std@@QEAAX_K@Z.c)
+ *     ??$insert@V?$span_iterator@V?$span@$$CBE$0?0@gsl@@$0A@@details@gsl@@X@?$vector@EV?$allocator@E@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@E@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@E@std@@@std@@@1@V?$span_iterator@V?$span@$$CBE$0?0@gsl@@$0A@@details@gsl@@1@Z @ 0x1802202C4 (--$insert@V-$span_iterator@V-$span@$$CBE$0-0@gsl@@$0A@@details@gsl@@X@-$vector@EV-$allocator@E@s.c)
  */
 
-__int64 __fastcall CPathData::CPathData(__int64 a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall CPathData::CPathData(__int64 a1, __int64 a2, SIZE_T *a3)
 {
-  __int64 v3; // rsi
-  __int64 v6; // rbx
-  __int64 v7; // r8
-  _QWORD v9[4]; // [rsp+30h] [rbp-48h] BYREF
-  _QWORD v10[4]; // [rsp+50h] [rbp-28h] BYREF
-  char v11; // [rsp+80h] [rbp+8h] BYREF
+  _QWORD *v3; // rdi
+  SIZE_T v6; // rdx
+  SIZE_T v7; // rax
+  char *v8; // r8
+  _QWORD v10[2]; // [rsp+30h] [rbp-28h] BYREF
+  _QWORD v11[3]; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v12; // [rsp+60h] [rbp+8h] BYREF
 
-  v3 = a1 + 16;
   *(_DWORD *)(a1 + 8) = 0;
-  *(_QWORD *)a1 = &CPathData::`vftable';
-  *(_QWORD *)(a1 + 16) = 0LL;
+  v3 = (_QWORD *)(a1 + 24);
   *(_QWORD *)(a1 + 24) = 0LL;
   *(_QWORD *)(a1 + 32) = 0LL;
-  *(_QWORD *)(a1 + 40) = a2;
+  *(_QWORD *)(a1 + 40) = 0LL;
+  *(_QWORD *)a1 = &CPathData::`vftable'{for `CMILCOMBase'};
+  *(_QWORD *)(a1 + 16) = &CPathData::`vftable'{for `ID2D1GeometrySink'};
+  *(_QWORD *)(a1 + 48) = a2;
   if ( a2 )
     (*(void (__fastcall **)(__int64))(*(_QWORD *)a2 + 8LL))(a2);
-  *(_QWORD *)(a1 + 52) = 0LL;
-  *(_QWORD *)(a1 + 64) = 0LL;
-  *(_BYTE *)(a1 + 72) = 0;
   v6 = *a3;
-  std::vector<unsigned char>::reserve(v3, *a3);
-  v7 = *(_QWORD *)(a1 + 24);
-  v9[0] = a3[1];
-  v10[0] = v9[0];
-  v10[2] = v9[0];
-  v9[1] = v6 + v9[0];
-  v9[2] = v6 + v9[0];
-  v10[1] = v6 + v9[0];
-  std::vector<unsigned char>::insert<gsl::details::span_iterator<unsigned char const>,0>(
+  *(_DWORD *)(a1 + 60) = 0;
+  *(_DWORD *)(a1 + 64) = 0;
+  *(_QWORD *)(a1 + 72) = 0LL;
+  *(_BYTE *)(a1 + 80) = 0;
+  std::vector<unsigned char>::reserve(v3, v6);
+  v7 = *a3;
+  v11[1] = 0LL;
+  v8 = *(char **)(a1 + 32);
+  v10[1] = v7;
+  v10[0] = a3;
+  v11[0] = a3;
+  std::vector<unsigned char>::insert<gsl::details::span_iterator<gsl::span<unsigned char const,-1>,0>,void>(
     v3,
-    (unsigned int)&v11,
-    v7,
-    (unsigned int)v10,
-    (__int64)v9);
+    &v12,
+    v8,
+    v11,
+    v10);
   return a1;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenProcess @ 0x1406F3D80
+ * XREFs of NtOpenProcess @ 0x14070CD40
  * Callers:
- *     PfpSourceGetPrefetchSupport @ 0x14097EEF0 (PfpSourceGetPrefetchSupport.c)
+ *     PfpSourceGetPrefetchSupport @ 0x14070CBB0 (PfpSourceGetPrefetchSupport.c)
  * Callees:
- *     PsOpenProcess @ 0x1406F3DB0 (PsOpenProcess.c)
+ *     PsOpenProcess @ 0x1406D34F0 (PsOpenProcess.c)
  */
 
 NTSTATUS __stdcall NtOpenProcess(
@@ -16,10 +16,10 @@ NTSTATUS __stdcall NtOpenProcess(
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   return PsOpenProcess(
-           (_DWORD)ProcessHandle,
+           (unsigned __int64)ProcessHandle,
            DesiredAccess,
-           (_DWORD)ObjectAttributes,
-           (_DWORD)ClientId,
+           (__int64)ObjectAttributes,
+           ClientId,
            PreviousMode,
            PreviousMode);
 }

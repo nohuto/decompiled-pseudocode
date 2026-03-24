@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetStopValue@CNaturalAnimation@@AEAA?ATInternalValue@1@XZ @ 0x18023CF60
+ * XREFs of ?GetStopValue@CNaturalAnimation@@AEAA?ATInternalValue@1@XZ @ 0x1801D7E84
  * Callers:
- *     ?CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18023C17C (-CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z.c)
- *     ?ProcessSetBindingBroken@CNaturalAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETBINDINGBROKEN@@@Z @ 0x18023D720 (-ProcessSetBindingBroken@CNaturalAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSIO.c)
+ *     ?CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1801D717C (-CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?ProcessSetBindingBroken@CNaturalAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSION_SETBINDINGBROKEN@@@Z @ 0x1801D8630 (-ProcessSetBindingBroken@CNaturalAnimation@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_BASEEXPRESSIO.c)
  * Callees:
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CNaturalAnimation::GetStopValue(__int64 a1, __int64 a2)
@@ -15,7 +15,7 @@ __int64 __fastcall CNaturalAnimation::GetStopValue(__int64 a1, __int64 a2)
   int v5; // eax
   void *retaddr; // [rsp+28h] [rbp+0h]
 
-  v2 = *(_DWORD *)(a1 + 408);
+  v2 = *(_DWORD *)(a1 + 384);
   *(_QWORD *)a2 = 0LL;
   *(_DWORD *)(a2 + 8) = 0;
   if ( v2 )
@@ -25,19 +25,19 @@ __int64 __fastcall CNaturalAnimation::GetStopValue(__int64 a1, __int64 a2)
     {
       if ( v3 != 1 )
         ModuleFailFastForHRESULT(2147500037LL, retaddr);
-      v4 = *(_QWORD *)(a1 + 360);
-      v5 = *(_DWORD *)(a1 + 368);
+      v4 = *(_QWORD *)(a1 + 336);
+      v5 = *(_DWORD *)(a1 + 344);
     }
     else
     {
-      v4 = *(_QWORD *)(a1 + 336);
-      v5 = *(_DWORD *)(a1 + 344);
+      v4 = *(_QWORD *)(a1 + 312);
+      v5 = *(_DWORD *)(a1 + 320);
     }
   }
   else
   {
-    v4 = *(_QWORD *)(a1 + 348);
-    v5 = *(_DWORD *)(a1 + 356);
+    v4 = *(_QWORD *)(a1 + 324);
+    v5 = *(_DWORD *)(a1 + 332);
   }
   *(_QWORD *)a2 = v4;
   *(_DWORD *)(a2 + 8) = v5;

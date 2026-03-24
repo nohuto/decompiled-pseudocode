@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpUnblockTwoHiveWrites @ 0x1407F0A10
+ * XREFs of CmpUnblockTwoHiveWrites @ 0x1407F09F0
  * Callers:
- *     CmpVirtualBranchIsReplicated @ 0x1407F3DDC (CmpVirtualBranchIsReplicated.c)
- *     CmpVirtualPathPresent @ 0x1407F3F7C (CmpVirtualPathPresent.c)
+ *     CmpVirtualBranchIsReplicated @ 0x1407F3DBC (CmpVirtualBranchIsReplicated.c)
+ *     CmpVirtualPathPresent @ 0x1407F3F5C (CmpVirtualPathPresent.c)
  * Callees:
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)

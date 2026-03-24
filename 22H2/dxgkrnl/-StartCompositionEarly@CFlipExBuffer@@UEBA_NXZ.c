@@ -1,20 +1,17 @@
 /*
- * XREFs of ?StartCompositionEarly@CFlipExBuffer@@UEBA_NXZ @ 0x1C007EAF0
+ * XREFs of ?StartCompositionEarly@CFlipExBuffer@@UEBA_NXZ @ 0x1C0019450
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool __fastcall CFlipExBuffer::StartCompositionEarly(CFlipExBuffer *this)
+char __fastcall CFlipExBuffer::StartCompositionEarly(CFlipExBuffer *this)
 {
-  bool result; // al
+  char result; // al
 
   result = 0;
-  if ( *((_BYTE *)this + 627) )
-  {
-    if ( *((_BYTE *)this + 629) )
-      return *((_DWORD *)this + 96) == 0;
-  }
+  if ( *((_BYTE *)this + 571) && !*((_DWORD *)this + 88) && (*((_DWORD *)this + 60) == 2 || *((_BYTE *)this + 573)) )
+    return 1;
   return result;
 }

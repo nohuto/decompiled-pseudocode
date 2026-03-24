@@ -1,13 +1,13 @@
 /*
- * XREFs of VidSchiFlushPendingFlips @ 0x1C00AA2D4
+ * XREFs of VidSchiFlushPendingFlips @ 0x1C00CFDB8
  * Callers:
- *     VidSchiSetFlipDevice @ 0x1C000317C (VidSchiSetFlipDevice.c)
+ *     VidSchiSetFlipDevice @ 0x1C0011D1C (VidSchiSetFlipDevice.c)
  * Callees:
- *     memset @ 0x1C001DC40 (memset.c)
- *     VidSchiWaitFlushCompletion @ 0x1C009A288 (VidSchiWaitFlushCompletion.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     VidSchiWaitFlushCompletion @ 0x1C008207C (VidSchiWaitFlushCompletion.c)
  */
 
-char __fastcall VidSchiFlushPendingFlips(KSPIN_LOCK *a1, __int64 a2)
+char __fastcall VidSchiFlushPendingFlips(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi
   int *v5; // rdi
@@ -15,8 +15,8 @@ char __fastcall VidSchiFlushPendingFlips(KSPIN_LOCK *a1, __int64 a2)
   _QWORD v8[20]; // [rsp+28h] [rbp-E0h] BYREF
   _QWORD v9[20]; // [rsp+C8h] [rbp-40h] BYREF
 
-  v2 = a2 + 2992;
-  if ( *(_DWORD *)(a2 + 2992) )
+  v2 = a2 + 2344;
+  if ( *(_DWORD *)(a2 + 2344) )
   {
     memset(v8, 0, sizeof(v8));
     LODWORD(v8[4]) |= 0x10u;
@@ -24,9 +24,9 @@ char __fastcall VidSchiFlushPendingFlips(KSPIN_LOCK *a1, __int64 a2)
     v8[5] = v2;
     VidSchiWaitFlushCompletion(a1, (__int64)v8, 0x17u);
   }
-  v5 = (int *)(a2 + 2996);
+  v5 = (int *)(a2 + 2348);
   v6 = *v5;
-  if ( *v5 && !*((_BYTE *)a1 + 3008) )
+  if ( *v5 && !*(_BYTE *)(a1 + 2912) )
   {
     memset(v9, 0, sizeof(v9));
     LODWORD(v9[4]) |= 0x10u;

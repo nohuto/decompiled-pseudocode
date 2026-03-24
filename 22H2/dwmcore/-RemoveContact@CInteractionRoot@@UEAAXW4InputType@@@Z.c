@@ -1,12 +1,12 @@
 /*
- * XREFs of ?RemoveContact@CInteractionRoot@@UEAAXW4InputType@@@Z @ 0x1801A55E0
+ * XREFs of ?RemoveContact@CInteractionRoot@@UEAAXW4InputType@@@Z @ 0x1802350B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CInteractionRoot::RemoveContact(__int64 a1)
+void __fastcall CInteractionRoot::RemoveContact(__int64 a1, int a2)
 {
-  return CInteractionProcessor::RemoveContact(a1 + 24);
+  CInteractionProcessor::RemoveContact((_BYTE *)(a1 + 32), a2);
 }

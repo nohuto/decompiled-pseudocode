@@ -1,28 +1,27 @@
 /*
- * XREFs of ??$CreateWindowProp@VCInputQueueProp@@@CWindowProp@@SAJPEAPEAVCInputQueueProp@@@Z @ 0x1C00FF618
+ * XREFs of ??$CreateWindowProp@VCInputQueueProp@@@CWindowProp@@SAJPEAPEAVCInputQueueProp@@@Z @ 0x1C010B004
  * Callers:
- *     ?AttachInputQueueToWindow@@YAJPEAUtagWND@@PEAVIInputQueue@@@Z @ 0x1C00FF424 (-AttachInputQueueToWindow@@YAJPEAUtagWND@@PEAVIInputQueue@@@Z.c)
+ *     ?AttachInputQueueToWindow@@YAJPEAUtagWND@@PEAVIInputQueue@@@Z @ 0x1C010AE40 (-AttachInputQueueToWindow@@YAJPEAUtagWND@@PEAVIInputQueue@@@Z.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall CWindowProp::CreateWindowProp<CInputQueueProp>(__int64 *a1)
+__int64 __fastcall CWindowProp::CreateWindowProp<CInputQueueProp>(_QWORD *a1)
 {
   unsigned int v2; // ebx
-  __int64 v3; // rax
+  _QWORD *v3; // rax
 
   v2 = 0;
-  v3 = Win32AllocPoolZInit(56LL, 1902736213LL);
+  v3 = (_QWORD *)Win32AllocPoolZInit(48LL, 1902736213LL);
   if ( v3 )
   {
+    v3[1] = 0LL;
+    v3[4] = 0LL;
+    v3[5] = 0LL;
+    *v3 = &CInputQueueProp::`vftable';
+    v3[2] = 0LL;
+    v3[3] = 0LL;
     *a1 = v3;
-    *(_OWORD *)v3 = 0LL;
-    *(_OWORD *)(v3 + 16) = 0LL;
-    *(_OWORD *)(v3 + 32) = 0LL;
-    *(_QWORD *)(v3 + 48) = 0LL;
-    *(_QWORD *)v3 = &CInputQueueProp::`vftable';
-    *(_QWORD *)(v3 + 32) = 0LL;
-    *(_DWORD *)(v3 + 52) = 0;
   }
   else
   {

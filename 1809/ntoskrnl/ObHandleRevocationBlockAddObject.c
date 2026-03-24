@@ -1,5 +1,5 @@
 /*
- * XREFs of ObHandleRevocationBlockAddObject @ 0x1408611C0
+ * XREFs of ObHandleRevocationBlockAddObject @ 0x1408611A0
  * Callers:
  *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
  * Callees:
@@ -8,7 +8,7 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x14010DFA4 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x14010DFC4 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
  */
 
 void __fastcall ObHandleRevocationBlockAddObject(struct _EX_RUNDOWN_REF *a1, __int64 a2)

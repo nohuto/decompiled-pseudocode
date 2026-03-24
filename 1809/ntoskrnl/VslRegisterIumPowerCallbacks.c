@@ -5,7 +5,7 @@
  * Callees:
  *     PoRegisterPowerSettingCallback @ 0x140589EE0 (PoRegisterPowerSettingCallback.c)
  *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
- *     ExSubscribeWnfStateChange @ 0x1406BC490 (ExSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x1406BC470 (ExSubscribeWnfStateChange.c)
  */
 
 void VslRegisterIumPowerCallbacks()

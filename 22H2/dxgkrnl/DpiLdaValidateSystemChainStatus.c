@@ -1,22 +1,25 @@
 /*
- * XREFs of DpiLdaValidateSystemChainStatus @ 0x1C0225820
+ * XREFs of DpiLdaValidateSystemChainStatus @ 0x1C019CB18
  * Callers:
- *     DpiSessionCreateCallback @ 0x1C01EAE28 (DpiSessionCreateCallback.c)
+ *     DpiSessionCreateCallback @ 0x1C016DA90 (DpiSessionCreateCallback.c)
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0005C0C (DpiCheckForOutstandingD3Requests.c)
- *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C0015C20 (-AcquireMiniportListMutex@@YAXXZ.c)
- *     DpiEnableD3Requests @ 0x1C01987EC (DpiEnableD3Requests.c)
- *     DpiLdaValidateChainStatus @ 0x1C03A8E20 (DpiLdaValidateChainStatus.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000C8D0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001FC54 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiEnableD3Requests @ 0x1C00ECD4C (DpiEnableD3Requests.c)
+ *     ?DxgCreateLiveDumpWithWdLogs@@YAJK_K000E@Z @ 0x1C0221860 (-DxgCreateLiveDumpWithWdLogs@@YAJK_K000E@Z.c)
+ *     DpiLdaValidateChainStatus @ 0x1C02D8C20 (DpiLdaValidateChainStatus.c)
  */
 
 LONG DpiLdaValidateSystemChainStatus()
 {
   __int64 v0; // rdi
   __int64 v1; // rbx
-  struct _DEVICE_OBJECT *v3; // rcx
+  int v3; // eax
+  unsigned __int64 v4; // rbp
+  struct _DEVICE_OBJECT *v5; // rcx
 
   AcquireMiniportListMutex();
-  v0 = qword_1C01404C8;
+  v0 = qword_1C00B2B40;
   if ( *(_QWORD *)v0 != v0 )
   {
     do
@@ -33,11 +36,17 @@ LONG DpiLdaValidateSystemChainStatus()
             if ( *(_BYTE *)(v1 + 484) )
               DpiCheckForOutstandingD3Requests(v1);
             ExAcquireResourceSharedLite(*(PERESOURCE *)(v1 + 168), 1u);
-            if ( *(_DWORD *)(v1 + 504) && (int)DpiLdaValidateChainStatus(*(_QWORD *)(v1 + 24)) < 0 )
+            if ( *(_DWORD *)(v1 + 504) )
             {
-              v3 = *(struct _DEVICE_OBJECT **)(v1 + 152);
-              *(_BYTE *)(v1 + 232) = 1;
-              IoInvalidateDeviceState(v3);
+              v3 = DpiLdaValidateChainStatus(*(_QWORD *)(v1 + 24));
+              v4 = v3;
+              if ( v3 < 0 )
+              {
+                v5 = *(struct _DEVICE_OBJECT **)(v1 + 152);
+                *(_BYTE *)(v1 + 232) = 1;
+                IoInvalidateDeviceState(v5);
+                DxgCreateLiveDumpWithWdLogs(0x193u, 0x805uLL, v4, *(int *)(v1 + 236), *(int *)(v1 + 240), 0);
+              }
             }
             if ( *(_BYTE *)(v1 + 484) )
               DpiEnableD3Requests(*(_QWORD *)(v1 + 24));
@@ -51,8 +60,8 @@ LONG DpiLdaValidateSystemChainStatus()
       KeReleaseMutex((PRKMUTEX)(v0 + 72), 0);
       v0 = *(_QWORD *)v0;
     }
-    while ( *(_QWORD *)v0 != qword_1C01404C8 );
+    while ( *(_QWORD *)v0 != qword_1C00B2B40 );
   }
-  _InterlockedExchange64(&qword_1C01404D8, 0LL);
+  _InterlockedExchange64(&qword_1C00B2B50, 0LL);
   return KeReleaseMutex(Mutex, 0);
 }

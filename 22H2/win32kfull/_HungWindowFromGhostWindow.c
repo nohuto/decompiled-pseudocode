@@ -1,0 +1,33 @@
+/*
+ * XREFs of _HungWindowFromGhostWindow @ 0x1C0041468
+ * Callers:
+ *     GetMonitorMaxArea @ 0x1C00413D4 (GetMonitorMaxArea.c)
+ *     NtUserHungWindowFromGhostWindow @ 0x1C0128B30 (NtUserHungWindowFromGhostWindow.c)
+ * Callees:
+ *     IsWindowBeingDestroyed @ 0x1C003883C (IsWindowBeingDestroyed.c)
+ *     _GetProp @ 0x1C006B8F0 (_GetProp.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C368 (HMValidateHandleNoSecure.c)
+ */
+
+__int64 __fastcall HungWindowFromGhostWindow(__int64 a1)
+{
+  __int64 v2; // rbx
+  __int64 Prop; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rax
+
+  v2 = 0LL;
+  if ( (*(_WORD *)(*(_QWORD *)(a1 + 40) + 42LL) & 0x2FFF) == 0x2AA && !(unsigned int)IsWindowBeingDestroyed(a1) )
+  {
+    Prop = GetProp(a1, *(unsigned __int16 *)(gpsi + 900LL), 1LL);
+    if ( Prop || (Prop = GetProp(a1, *(unsigned __int16 *)(gpsi + 1378LL), 1LL)) != 0 )
+    {
+      LOBYTE(v5) = 1;
+      v6 = HMValidateHandleNoSecure(Prop, v5);
+      v2 = v6;
+      if ( v6 && (unsigned int)IsWindowBeingDestroyed(v6) )
+        return 0LL;
+    }
+  }
+  return v2;
+}

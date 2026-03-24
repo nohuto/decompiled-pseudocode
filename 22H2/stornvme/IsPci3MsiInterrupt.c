@@ -1,7 +1,7 @@
 /*
- * XREFs of IsPci3MsiInterrupt @ 0x1C000C1F4
+ * XREFs of IsPci3MsiInterrupt @ 0x1C000D1AC
  * Callers:
- *     NVMeControllerFilterResourceRequirements @ 0x1C000CE0C (NVMeControllerFilterResourceRequirements.c)
+ *     NVMeControllerFilterResouceRequirements @ 0x1C000D8AC (NVMeControllerFilterResouceRequirements.c)
  * Callees:
  *     <none>
  */

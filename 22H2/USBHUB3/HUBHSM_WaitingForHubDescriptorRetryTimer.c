@@ -1,5 +1,5 @@
 /*
- * XREFs of HUBHSM_WaitingForHubDescriptorRetryTimer @ 0x1C0009C10
+ * XREFs of HUBHSM_WaitingForHubDescriptorRetryTimer @ 0x1C0009450
  * Callers:
  *     <none>
  * Callees:

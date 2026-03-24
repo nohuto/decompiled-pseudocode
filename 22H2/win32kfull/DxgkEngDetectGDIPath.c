@@ -1,60 +1,64 @@
 /*
- * XREFs of DxgkEngDetectGDIPath @ 0x1C026FC50
+ * XREFs of DxgkEngDetectGDIPath @ 0x1C02770F0
  * Callers:
  *     <none>
  * Callees:
- *     ?InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z @ 0x1C026EBF0 (-InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z.c)
- *     ?OverlapCheck@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z @ 0x1C026EFD8 (-OverlapCheck@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z.c)
- *     ?StateFlags@PDEVOBJ@@QEBAKXZ @ 0x1C026F0AC (-StateFlags@PDEVOBJ@@QEBAKXZ.c)
+ *     ?InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z @ 0x1C0275DA4 (-InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z.c)
+ *     ?OverlapCheck@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z @ 0x1C027615C (-OverlapCheck@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z.c)
+ *     ?StateFlags@PDEVOBJ@@QEBAKXZ @ 0x1C0276234 (-StateFlags@PDEVOBJ@@QEBAKXZ.c)
  */
 
 __int64 __fastcall DxgkEngDetectGDIPath(__int64 a1, HDEV a2, HWND a3, HRGN a4)
 {
   unsigned int v9; // edi
-  HDEV i; // rcx
-  char v11; // al
-  unsigned int v12; // eax
-  __int64 v13; // rax
-  HDEV v14; // rbx
-  __int64 v16; // [rsp+48h] [rbp+10h] BYREF
+  HDEV i; // rbx
+  int v11; // eax
+  char v12; // al
+  unsigned int v13; // eax
+  HDEV v16; // [rsp+58h] [rbp+10h] BYREF
 
-  if ( (unsigned int)UserIsRemoteConnection(a1, a2) )
-    return 1LL;
-  if ( ((_DWORD)a2[10] & 0x20000) != 0 )
+  if ( (unsigned int)UserIsRemoteConnection(a1, a2, a3, a4) )
   {
-    v9 = 0;
-    for ( i = 0LL; ; i = v14 )
-    {
-      v13 = hdevEnumerateDisplayOnly(i);
-      v14 = (HDEV)v13;
-      if ( !v13 )
-        break;
-      v16 = v13;
-      if ( *(HDEV *)(v13 + 24) == a2 && (*(_DWORD *)(v13 + 40) & 0x20400) == 0 && !v9 )
-      {
-        v11 = PDEVOBJ::StateFlags((PDEVOBJ *)&v16);
-        if ( (v11 & 8) != 0 && (v11 & 1) != 0 )
-        {
-          v9 = 1;
-        }
-        else
-        {
-          if ( *(_QWORD *)(*((_QWORD *)v14 + 319) + 232LL) == a1 && *((_DWORD *)v14 + 532) > 8u )
-            v12 = InternalSpritesCollision(v14, a3, a4);
-          else
-            v12 = OverlapCheck(v14, a4);
-          v9 = v12;
-        }
-      }
-    }
-  }
-  else if ( *(_QWORD *)(*((_QWORD *)a2 + 319) + 232LL) == a1 && *((_DWORD *)a2 + 532) > 8u )
-  {
-    return (unsigned int)InternalSpritesCollision(a2, a3, a4);
+    return 1;
   }
   else
   {
-    return OverlapCheck(a2, a4);
+    if ( ((_DWORD)a2[10] & 0x20000) != 0 )
+    {
+      v9 = 0;
+      for ( i = (HDEV)hdevEnumerate(0LL); i; i = (HDEV)hdevEnumerate(i) )
+      {
+        v16 = i;
+        if ( *((HDEV *)i + 3) == a2 )
+        {
+          v11 = *((_DWORD *)i + 10);
+          if ( (v11 & 0x400) == 0 && (v11 & 0x20000) == 0 && !v9 )
+          {
+            v12 = PDEVOBJ::StateFlags((PDEVOBJ *)&v16);
+            if ( (v12 & 8) != 0 && (v12 & 1) != 0 )
+            {
+              v9 = 1;
+            }
+            else
+            {
+              if ( *(_QWORD *)(*((_QWORD *)i + 322) + 240LL) == a1 && *((_DWORD *)i + 540) > 8u )
+                v13 = InternalSpritesCollision(i, a3, a4);
+              else
+                v13 = OverlapCheck(i, a4);
+              v9 = v13;
+            }
+          }
+        }
+      }
+    }
+    else if ( *(_QWORD *)(*((_QWORD *)a2 + 322) + 240LL) == a1 && *((_DWORD *)a2 + 540) > 8u )
+    {
+      return (unsigned int)InternalSpritesCollision(a2, a3, a4);
+    }
+    else
+    {
+      return OverlapCheck(a2, a4);
+    }
+    return v9;
   }
-  return v9;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDqActionDataGetChangedProperties @ 0x1406DB264
+ * XREFs of PiDqActionDataGetChangedProperties @ 0x1406DB244
  * Callers:
  *     PiDqActionDataCreate @ 0x140591404 (PiDqActionDataCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195910 (_wcsicmp.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
  *     PnpFreeDevProperty @ 0x1405954EC (PnpFreeDevProperty.c)
  *     PiPnpRtlEndOperation @ 0x140595CA4 (PiPnpRtlEndOperation.c)
  *     PiPnpRtlBeginOperation @ 0x140596E08 (PiPnpRtlBeginOperation.c)
  *     PiDqPnPGetObjectProperty @ 0x1405972F0 (PiDqPnPGetObjectProperty.c)
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1406D98D0 (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     PiDqOpenObjectRegKey @ 0x1406D9C24 (PiDqOpenObjectRegKey.c)
- *     PiDqGrowPropertyArray @ 0x1406DB450 (PiDqGrowPropertyArray.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1406D98B0 (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PiDqOpenObjectRegKey @ 0x1406D9C04 (PiDqOpenObjectRegKey.c)
+ *     PiDqGrowPropertyArray @ 0x1406DB430 (PiDqGrowPropertyArray.c)
  */
 
 __int64 __fastcall PiDqActionDataGetChangedProperties(

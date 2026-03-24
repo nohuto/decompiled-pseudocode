@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsRectangles@CRectanglesShape@@UEBA_NPEAI@Z @ 0x1800D8E20
+ * XREFs of ?IsRectangles@CRectanglesShape@@UEBA_NPEAI@Z @ 0x1800C2420
  * Callers:
  *     <none>
  * Callees:

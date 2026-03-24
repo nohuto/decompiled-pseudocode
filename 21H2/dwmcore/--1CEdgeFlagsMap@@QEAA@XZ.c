@@ -1,68 +1,51 @@
 /*
- * XREFs of ??1CEdgeFlagsMap@@QEAA@XZ @ 0x1801E2F6C
+ * XREFs of ??1CEdgeFlagsMap@@QEAA@XZ @ 0x18019CBC8
  * Callers:
- *     ?AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@@Z @ 0x1800A81A0 (-AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAtt.c)
- *     ?GenerateDrawListPrimitive@CBrushDrawListGenerator@@AEBAJPEAUGenerateDrawListParameters@1@@Z @ 0x1800A8F20 (-GenerateDrawListPrimitive@CBrushDrawListGenerator@@AEBAJPEAUGenerateDrawListParameters@1@@Z.c)
- *     ?Insert@CDrawListEntryBuilder@@QEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@PEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800AC3C0 (-Insert@CDrawListEntryBuilder@@QEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc.c)
+ *     ?GenerateDrawListPrimitive@CBrushDrawListGenerator@@AEBAJPEAUGenerateDrawListParameters@1@@Z @ 0x180094B70 (-GenerateDrawListPrimitive@CBrushDrawListGenerator@@AEBAJPEAUGenerateDrawListParameters@1@@Z.c)
  * Callees:
- *     ?clear_region@?$vector_facade@UD2D_POINT_2F@@V?$buffer_impl@UD2D_POINT_2F@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800121BC (-clear_region@-$vector_facade@UD2D_POINT_2F@@V-$buffer_impl@UD2D_POINT_2F@@$0BA@$00Vliberal_expa.c)
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?clear_region@?$vector_facade@W4D2D1_EDGE_FLAGS@@V?$buffer_impl@W4D2D1_EDGE_FLAGS@@$0CI@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800D8B5C (-clear_region@-$vector_facade@W4D2D1_EDGE_FLAGS@@V-$buffer_impl@W4D2D1_EDGE_FLAGS@@$0CI@$00Vlibe.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
+ *     ?clear_region@?$vector_facade@PEAVIMonitorTarget@@V?$buffer_impl@PEAVIMonitorTarget@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180163E10 (-clear_region@-$vector_facade@PEAVIMonitorTarget@@V-$buffer_impl@PEAVIMonitorTarget@@$01$00Vlibe.c)
+ *     ?clear@?$vector_facade@UD2D_POINT_2F@@V?$buffer_impl@UD2D_POINT_2F@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x18019D360 (-clear@-$vector_facade@UD2D_POINT_2F@@V-$buffer_impl@UD2D_POINT_2F@@$0BA@$00Vliberal_expansion_p.c)
+ *     ?clear_region@?$vector_facade@W4D2D1_EDGE_FLAGS@@V?$buffer_impl@W4D2D1_EDGE_FLAGS@@$07$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x18019D454 (-clear_region@-$vector_facade@W4D2D1_EDGE_FLAGS@@V-$buffer_impl@W4D2D1_EDGE_FLAGS@@$07$00Vlibera.c)
  */
 
-void __fastcall CEdgeFlagsMap::~CEdgeFlagsMap(CEdgeFlagsMap *this)
+void __fastcall CEdgeFlagsMap::~CEdgeFlagsMap(CEdgeFlagsMap *this, __int64 a2)
 {
-  __int64 *v1; // rdi
-  __int64 *v3; // rcx
-  __int64 v4; // r8
-  CEdgeFlagsMap **v5; // rdi
+  __int64 *v2; // rbx
+  __int64 *v4; // rcx
+  unsigned __int64 v5; // r8
   CEdgeFlagsMap *v6; // rcx
-  __int64 v7; // r8
-  CEdgeFlagsMap *v8; // rcx
-  __int64 v9; // r8
+  CEdgeFlagsMap *v7; // rcx
 
-  v1 = (__int64 *)((char *)this + 240);
-  v3 = (__int64 *)*((_QWORD *)this + 30);
-  v4 = (v1[1] - (__int64)v3) >> 3;
-  if ( v4 )
+  v2 = (__int64 *)((char *)this + 240);
+  v4 = (__int64 *)*((_QWORD *)this + 30);
+  v5 = (v2[1] - (__int64)v4) >> 3;
+  if ( v5 )
   {
-    detail::vector_facade<D2D_POINT_2F,detail::buffer_impl<D2D_POINT_2F,16,1,detail::liberal_expansion_policy>>::clear_region(
-      v1,
-      0LL,
-      v4);
-    v3 = (__int64 *)*v1;
+    detail::vector_facade<IMonitorTarget *,detail::buffer_impl<IMonitorTarget *,2,1,detail::liberal_expansion_policy>>::clear_region(
+      v2,
+      a2,
+      v5);
+    v4 = (__int64 *)*v2;
   }
-  *v1 = 0LL;
-  if ( v3 == v1 + 3 )
-    v3 = 0LL;
-  DefaultHeap::Free(v3);
-  v5 = (CEdgeFlagsMap **)((char *)this + 88);
+  *v2 = 0LL;
+  if ( v4 == v2 + 3 )
+    v4 = 0LL;
+  operator delete(v4);
+  detail::vector_facade<D2D_POINT_2F,detail::buffer_impl<D2D_POINT_2F,16,1,detail::liberal_expansion_policy>>::clear((char *)this + 88);
   v6 = (CEdgeFlagsMap *)*((_QWORD *)this + 11);
-  v7 = (__int64)(*((_QWORD *)this + 12) - (_QWORD)v6) >> 3;
-  if ( v7 )
-  {
-    detail::vector_facade<D2D_POINT_2F,detail::buffer_impl<D2D_POINT_2F,16,1,detail::liberal_expansion_policy>>::clear_region(
-      (__int64 *)this + 11,
-      0LL,
-      v7);
-    v6 = *v5;
-  }
-  *v5 = 0LL;
+  *((_QWORD *)this + 11) = 0LL;
   if ( v6 == (CEdgeFlagsMap *)((char *)this + 112) )
     v6 = 0LL;
-  DefaultHeap::Free(v6);
-  v8 = *(CEdgeFlagsMap **)this;
-  v9 = (__int64)(*((_QWORD *)this + 1) - *(_QWORD *)this) >> 2;
-  if ( v9 )
+  operator delete(v6);
+  v7 = *(CEdgeFlagsMap **)this;
+  if ( (__int64)(*((_QWORD *)this + 1) - *(_QWORD *)this) >> 2 )
   {
-    detail::vector_facade<enum D2D1_EDGE_FLAGS,detail::buffer_impl<enum D2D1_EDGE_FLAGS,40,1,detail::liberal_expansion_policy>>::clear_region(
-      (__int64 *)this,
-      0LL,
-      v9);
-    v8 = *(CEdgeFlagsMap **)this;
+    detail::vector_facade<enum D2D1_EDGE_FLAGS,detail::buffer_impl<enum D2D1_EDGE_FLAGS,8,1,detail::liberal_expansion_policy>>::clear_region(this);
+    v7 = *(CEdgeFlagsMap **)this;
   }
   *(_QWORD *)this = 0LL;
-  if ( v8 == (CEdgeFlagsMap *)((char *)this + 24) )
-    v8 = 0LL;
-  DefaultHeap::Free(v8);
+  if ( v7 == (CEdgeFlagsMap *)((char *)this + 24) )
+    v7 = 0LL;
+  operator delete(v7);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopRecordSleepCheckpoint @ 0x1406DEFFC
+ * XREFs of PopRecordSleepCheckpoint @ 0x1406DEFDC
  * Callers:
  *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
  *     PopCheckShutdownMarker @ 0x1409DD374 (PopCheckShutdownMarker.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     RtlpSystemBootStatusRequest @ 0x14071C4F4 (RtlpSystemBootStatusRequest.c)
+ *     RtlpSystemBootStatusRequest @ 0x14071C4D4 (RtlpSystemBootStatusRequest.c)
  */
 
 __int64 __fastcall PopRecordSleepCheckpoint(char a1)

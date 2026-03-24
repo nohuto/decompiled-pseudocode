@@ -1,10 +1,10 @@
 /*
- * XREFs of GetProcessLuid @ 0x1C0018FF0
+ * XREFs of GetProcessLuid @ 0x1C000C950
  * Callers:
- *     ?InitPreviousUserString@@YAXXZ @ 0x1C0018F18 (-InitPreviousUserString@@YAXXZ.c)
- *     xxxUpdatePerUserAccessPackSettings @ 0x1C0060150 (xxxUpdatePerUserAccessPackSettings.c)
- *     xxxODI_ColorInit @ 0x1C0060DA0 (xxxODI_ColorInit.c)
- *     xxxInitProcessInfo @ 0x1C00C7AC8 (xxxInitProcessInfo.c)
+ *     ?InitPreviousUserString@@YAXXZ @ 0x1C000C880 (-InitPreviousUserString@@YAXXZ.c)
+ *     xxxUpdatePerUserAccessPackSettings @ 0x1C000DFA0 (xxxUpdatePerUserAccessPackSettings.c)
+ *     xxxODI_ColorInit @ 0x1C000EC60 (xxxODI_ColorInit.c)
+ *     xxxInitProcessInfo @ 0x1C00B88C4 (xxxInitProcessInfo.c)
  * Callees:
  *     <none>
  */
@@ -26,8 +26,12 @@ __int64 __fastcall GetProcessLuid(PETHREAD Thread, PLUID AuthenticationId)
   if ( !Thread )
     CurrentThread = KeGetCurrentThread();
   v4 = PsReferenceImpersonationToken(CurrentThread, &CopyOnOpen, &EffectiveOnly, &ImpersonationLevel);
-  if ( v4 && ImpersonationLevel >= SecurityImpersonation
-    || (ThreadProcess = PsGetThreadProcess(CurrentThread), (v4 = PsReferencePrimaryToken(ThreadProcess)) != 0LL) )
+  if ( !v4 || ImpersonationLevel < SecurityImpersonation )
+  {
+    ThreadProcess = PsGetThreadProcess(CurrentThread);
+    v4 = PsReferencePrimaryToken(ThreadProcess);
+  }
+  if ( v4 )
   {
     AuthenticationIdToken = SeQueryAuthenticationIdToken(v4, AuthenticationId);
     ObfDereferenceObject(v4);

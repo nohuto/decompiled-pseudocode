@@ -1,7 +1,7 @@
 /*
- * XREFs of ?PrepareLPCWSTR@SendProcessor@Calling@CoreMessaging@@AEAAJPEBGIHPEAI@Z @ 0x1C00A1890
+ * XREFs of ?PrepareLPCWSTR@SendProcessor@Calling@CoreMessaging@@AEAAJPEBGIHPEAI@Z @ 0x1C0099A08
  * Callers:
- *     ?ReadParameterSize@SendProcessor@Calling@CoreMessaging@@AEAAJPEAPEADHIIIPEAI@Z @ 0x1C00A16B0 (-ReadParameterSize@SendProcessor@Calling@CoreMessaging@@AEAAJPEAPEADHIIIPEAI@Z.c)
+ *     ?ReadParameterSize@SendProcessor@Calling@CoreMessaging@@AEAAJPEAPEADHIIIPEAI@Z @ 0x1C009984C (-ReadParameterSize@SendProcessor@Calling@CoreMessaging@@AEAAJPEAPEADHIIIPEAI@Z.c)
  * Callees:
  *     <none>
  */
@@ -38,6 +38,6 @@ LABEL_4:
       return 0LL;
     }
   }
-  *((_DWORD *)this + 30) = 7;
+  *((_DWORD *)this + 30) = 107;
   return 2147942487LL;
 }

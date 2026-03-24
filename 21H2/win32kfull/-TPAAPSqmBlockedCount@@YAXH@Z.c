@@ -1,7 +1,7 @@
 /*
- * XREFs of ?TPAAPSqmBlockedCount@@YAXH@Z @ 0x1C0212214
+ * XREFs of ?TPAAPSqmBlockedCount@@YAXH@Z @ 0x1C021373C
  * Callers:
- *     ?TPAAPShouldAllowNow@@YAHKHH@Z @ 0x1C02120D8 (-TPAAPShouldAllowNow@@YAHKHH@Z.c)
+ *     ?TPAAPShouldAllowNow@@YAHKHH@Z @ 0x1C0213600 (-TPAAPShouldAllowNow@@YAHKHH@Z.c)
  * Callees:
  *     <none>
  */

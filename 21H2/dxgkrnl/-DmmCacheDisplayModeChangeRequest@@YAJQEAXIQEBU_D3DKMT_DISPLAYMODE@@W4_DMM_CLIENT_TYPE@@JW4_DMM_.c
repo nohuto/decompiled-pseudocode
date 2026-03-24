@@ -1,72 +1,76 @@
 /*
- * XREFs of ?DmmCacheDisplayModeChangeRequest@@YAJQEAXIQEBU_D3DKMT_DISPLAYMODE@@W4_DMM_CLIENT_TYPE@@JW4_DMM_DISPMODECHANGE_TYPE@@QEBE@Z @ 0x1C01C5760
+ * XREFs of ?DmmCacheDisplayModeChangeRequest@@YAJQEAXIQEBU_D3DKMT_DISPLAYMODE@@W4_DMM_CLIENT_TYPE@@JW4_DMM_DISPMODECHANGE_TYPE@@QEBE@Z @ 0x1C014DCF0
  * Callers:
- *     DxgkSetDisplayMode @ 0x1C01C2EF0 (DxgkSetDisplayMode.c)
- *     ?SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_D3DDDI_ROTATION@@U_D3DKMT_SETDISPLAYMODE_FLAGS@@PEAIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01C4C30 (-SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_.c)
+ *     DxgkSetDisplayMode @ 0x1C014C630 (DxgkSetDisplayMode.c)
+ *     ?SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_D3DDDI_ROTATION@@U_D3DKMT_SETDISPLAYMODE_FLAGS@@PEAIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C014D6D4 (-SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000E420 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
- *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C000F13C (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
- *     ?CacheDisplayModeChangeRequest@VIDPN_MGR@@QEAAXIPEBU_D3DKMT_DISPLAYMODE@@W4_DMM_CLIENT_TYPE@@JW4_DMM_DISPMODECHANGE_TYPE@@IQEBE@Z @ 0x1C0013E30 (-CacheDisplayModeChangeRequest@VIDPN_MGR@@QEAAXIPEBU_D3DKMT_DISPLAYMODE@@W4_DMM_CLIENT_TYPE@@JW4.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002C60 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0004448 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C00081AC (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ *     ?CacheDisplayModeChangeRequest@VIDPN_MGR@@QEAAXIPEBU_D3DKMT_DISPLAYMODE@@W4_DMM_CLIENT_TYPE@@JW4_DMM_DISPMODECHANGE_TYPE@@IQEBE@Z @ 0x1C000D26C (-CacheDisplayModeChangeRequest@VIDPN_MGR@@QEAAXIPEBU_D3DKMT_DISPLAYMODE@@W4_DMM_CLIENT_TYPE@@JW4.c)
  */
 
-__int64 __fastcall DmmCacheDisplayModeChangeRequest(DXGADAPTER *a1, unsigned int a2, __int64 a3, __int64 a4, int a5)
+__int64 __fastcall DmmCacheDisplayModeChangeRequest(DXGADAPTER *a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
-  __int64 v8; // rax
-  __int64 v9; // rdi
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
+  unsigned int v6; // ebp
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rdi
+  __int64 v12; // rdx
+  __int64 v13; // rcx
   __int64 CurrentProcess; // rax
   __int64 ProcessImageFileName; // rax
-  __int64 v17; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v16; // rdx
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // [rsp+50h] [rbp+8h] BYREF
 
+  v6 = a2;
   if ( !a1 )
   {
-    WdLogSingleEntry1(2LL, 0LL);
+    v18 = WdLogNewEntry5_WdError(0LL, a2);
+    *(_QWORD *)(v18 + 24) = 0LL;
+LABEL_9:
+    WdLogEvent5_WdError(v18);
     return 3223191554LL;
   }
   if ( !DXGADAPTER::IsCoreResourceSharedOwner(a1) )
-    WdLogSingleEntry0(1LL);
-  v8 = *((_QWORD *)a1 + 349);
-  if ( !v8 )
   {
-    WdLogSingleEntry1(2LL, a1);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified adapter handle 0x%I64x is a render only adapter.",
-      (__int64)a1,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-    return 3223191554LL;
+    v19 = WdLogNewEntry5_WdAssertion(v9, v8);
+    WdLogEvent5_WdAssertion(v19);
   }
-  v9 = *(_QWORD *)(v8 + 104);
-  if ( v9 )
+  v10 = *((_QWORD *)a1 + 337);
+  if ( !v10 )
   {
-    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v17, *(_QWORD *)(v8 + 104));
-    CurrentProcess = PsGetCurrentProcess(v11, v10, v12, v13);
+    v18 = WdLogNewEntry5_WdError(v9, v8);
+    *(_QWORD *)(v18 + 24) = a1;
+    goto LABEL_9;
+  }
+  v11 = *(_QWORD *)(v10 + 88);
+  if ( v11 )
+  {
+    EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v21, *(_QWORD *)(v10 + 88));
+    CurrentProcess = PsGetCurrentProcess(v13, v12);
     ProcessImageFileName = PsGetProcessImageFileName(CurrentProcess);
     VIDPN_MGR::CacheDisplayModeChangeRequest(
-      v9,
-      a2,
+      v11,
+      v6,
       a3,
-      2LL,
+      2u,
       a5,
       3,
-      *(_DWORD *)(*((_QWORD *)a1 + 349) + 416LL),
+      *(_DWORD *)(*((_QWORD *)a1 + 337) + 368LL),
       ProcessImageFileName);
-    DXGFASTMUTEX::Release((struct _KTHREAD **)(v17 + 40));
+    DXGFASTMUTEX::Release(*(struct _KTHREAD ***)(v21 + 40), v16);
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry1(2LL, a1);
+    v20 = WdLogNewEntry5_WdError(v9, v8);
+    *(_QWORD *)(v20 + 24) = a1;
+    WdLogEvent5_WdError(v20);
     return 3223192373LL;
   }
 }

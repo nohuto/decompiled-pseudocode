@@ -1,77 +1,82 @@
 /*
- * XREFs of ?MultiUserGreCleanupEngResources@@YAXXZ @ 0x1C0077CD4
+ * XREFs of ?MultiUserGreCleanupEngResources@@YAXXZ @ 0x1C007E0FC
  * Callers:
- *     MultiUserNtGreCleanup @ 0x1C00A8AE8 (MultiUserNtGreCleanup.c)
+ *     MultiUserNtGreCleanup @ 0x1C007D498 (MultiUserNtGreCleanup.c)
  * Callees:
- *     EngFreeMem @ 0x1C0077DB0 (EngFreeMem.c)
- *     GreDeleteSemaphore @ 0x1C0077EE0 (GreDeleteSemaphore.c)
- *     GreDeleteSemaphoreNonTracked @ 0x1C00C4B38 (GreDeleteSemaphoreNonTracked.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     GreDeleteSemaphore @ 0x1C005C290 (GreDeleteSemaphore.c)
+ *     EngFreeMem @ 0x1C007E1D0 (EngFreeMem.c)
+ *     GreDeleteSemaphoreNonTracked @ 0x1C007E2B0 (GreDeleteSemaphoreNonTracked.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall MultiUserGreCleanupEngResources(__int64 a1)
+void MultiUserGreCleanupEngResources(void)
 {
-  __int64 v1; // rbx
-  _QWORD *v2; // rsi
+  int v0; // edx
+  struct _LIST_ENTRY *v1; // rbx
+  int Flink; // edx
   int v3; // edx
-  int v4; // edx
-  int v5; // edx
-  __int64 v6; // rdi
-  void *v7; // rcx
-  _QWORD *v8; // [rsp+30h] [rbp+8h]
+  int v4; // eax
+  int v5; // eax
 
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  if ( *(_QWORD *)(v1 + 3216) )
+  if ( MultiUserEngAllocListLock )
   {
-    v2 = (_QWORD *)(v1 + 3200);
     while ( 1 )
     {
       while ( 1 )
       {
-        v8 = (_QWORD *)*v2;
-        if ( (_QWORD *)*v2 == v2 )
+        if ( MultiUserGreEngAllocList.Flink == &MultiUserGreEngAllocList )
           goto LABEL_11;
-        v4 = *((_DWORD *)v8 + 4);
-        if ( v4 )
+        v1 = MultiUserGreEngAllocList.Flink + 2;
+        Flink = (int)MultiUserGreEngAllocList.Flink[1].Flink;
+        if ( Flink )
           break;
-        EngFreeMem(v8 + 4);
+        EngFreeMem(&MultiUserGreEngAllocList.Flink[2]);
       }
-      v3 = v4 - 1;
-      if ( v3 )
+      v0 = Flink - 1;
+      if ( v0 )
       {
-        v5 = v3 - 1;
-        if ( v5 )
+        v3 = v0 - 1;
+        if ( v3 )
         {
-          if ( v5 == 2 )
+          if ( v3 == 2 )
             goto LABEL_4;
         }
-        else if ( qword_1C0294910 && (int)qword_1C0294910() >= 0 )
+        else
         {
-          if ( qword_1C0294918 )
-            qword_1C0294918(v8 + 4);
+          if ( qword_1C0255500 )
+            v4 = qword_1C0255500();
+          else
+            v4 = -1073741637;
+          if ( v4 >= 0 )
+          {
+            if ( qword_1C0255508 )
+              qword_1C0255508(v1);
+          }
         }
       }
       else
       {
 LABEL_4:
-        GreDeleteSemaphore((PERESOURCE)(v8 + 4));
+        GreDeleteSemaphore((PERESOURCE)&MultiUserGreEngAllocList.Flink[2]);
       }
     }
   }
 LABEL_11:
-  if ( *(_QWORD *)(v1 + 3240) )
+  if ( GreEngLoadModuleAllocListLock )
   {
-    v6 = v1 + 3224;
-    while ( *(_QWORD *)v6 != v6 )
+    while ( GreEngLoadModuleAllocList.Flink != &GreEngLoadModuleAllocList )
     {
-      *(_DWORD *)(*(_QWORD *)v6 + 16LL) = 1;
-      if ( qword_1C0294920 && (int)qword_1C0294920() >= 0 && qword_1C0294928 )
-        qword_1C0294928(*(_QWORD *)v6 + 24LL);
+      LODWORD(GreEngLoadModuleAllocList.Flink[1].Flink) = 1;
+      if ( qword_1C0255510 )
+        v5 = qword_1C0255510();
+      else
+        v5 = -1073741637;
+      if ( v5 >= 0 && qword_1C0255518 )
+        qword_1C0255518(&GreEngLoadModuleAllocList.Flink[1].Blink);
     }
   }
-  GreDeleteSemaphoreNonTracked(*(PVOID *)(v1 + 3216));
-  v7 = *(void **)(v1 + 3240);
-  *(_QWORD *)(v1 + 3216) = 0LL;
-  GreDeleteSemaphoreNonTracked(v7);
-  *(_QWORD *)(v1 + 3240) = 0LL;
+  GreDeleteSemaphoreNonTracked(MultiUserEngAllocListLock);
+  MultiUserEngAllocListLock = 0LL;
+  GreDeleteSemaphoreNonTracked(GreEngLoadModuleAllocListLock);
+  GreEngLoadModuleAllocListLock = 0LL;
 }

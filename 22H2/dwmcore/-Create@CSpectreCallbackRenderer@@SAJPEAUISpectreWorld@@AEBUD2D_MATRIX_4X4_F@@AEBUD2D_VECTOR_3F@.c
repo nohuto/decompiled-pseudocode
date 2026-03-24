@@ -1,32 +1,30 @@
 /*
- * XREFs of ?Create@CSpectreCallbackRenderer@@SAJPEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@@MMV?$span@PEAVCCompositionLight@@$0?0@gsl@@PEAPEAV1@@Z @ 0x1801FDBB0
+ * XREFs of ?Create@CSpectreCallbackRenderer@@SAJPEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@@MMV?$span@PEAVCCompositionLight@@$0?0@gsl@@PEAPEAV1@@Z @ 0x18019EC00
  * Callers:
- *     ?DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMILMatrix@@@Z @ 0x1801D4794 (-DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMIL.c)
+ *     ?DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMILMatrix@@@Z @ 0x180175DC8 (-DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMIL.c)
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??0CSpectreCallbackRenderer@@AEAA@PEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@@MMV?$span@PEAVCCompositionLight@@$0?0@gsl@@@Z @ 0x1801FDA28 (--0CSpectreCallbackRenderer@@AEAA@PEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@@MM.c)
- *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCSpectreCallbackRenderer@@@Z @ 0x180271D94 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCSpectreCallbackRenderer@@@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CSpectreCallbackRenderer@@AEAA@PEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@@MMV?$span@PEAVCCompositionLight@@$0?0@gsl@@@Z @ 0x18019EAA8 (--0CSpectreCallbackRenderer@@AEAA@PEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@@MM.c)
+ *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCSpectreCallbackRenderer@@@Z @ 0x180210A3C (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCSpectreCallbackRenderer@@@Z.c)
  */
 
 __int64 __fastcall CSpectreCallbackRenderer::Create(
         struct CSpectreCallbackRenderer *a1,
-        _OWORD *a2,
+        __int128 *a2,
         __int64 a3,
         float a4,
         int a5,
         __int128 *a6,
         __int64 *a7)
 {
-  struct CObjectCache *ObjectCache; // r9
+  struct CObjectCache *ObjectCache; // rax
   unsigned int v11; // ebx
-  _QWORD *v12; // rax
+  _QWORD *v12; // r10
   int v13; // ecx
   __int64 v14; // rcx
   __int64 v15; // rax
-  __int64 v16; // rdi
-  __int128 v18; // [rsp+40h] [rbp-28h] BYREF
+  __int128 v17; // [rsp+40h] [rbp-28h] BYREF
 
   ObjectCache = CThreadContext::GetObjectCache(a1);
   v11 = 0;
@@ -38,20 +36,19 @@ __int64 __fastcall CSpectreCallbackRenderer::Create(
     *((_QWORD *)ObjectCache + 1) = *v12;
     *((_DWORD *)ObjectCache + 1) = v13 - 1;
   }
-  if ( (v12 || (v12 = DefaultHeap::Alloc(0x90uLL)) != 0LL)
-    && (v18 = *a6,
-        v15 = CSpectreCallbackRenderer::CSpectreCallbackRenderer(
-                (__int64)v12,
-                (__int64)a1,
-                a2,
-                a3,
-                SLODWORD(a4),
-                a5,
-                (__int64 *)&v18),
-        (v16 = v15) != 0) )
+  if ( v12 || (v12 = DefaultHeap::Alloc(0x90uLL)) != 0LL )
   {
-    CMILRefCountImpl::AddReference((CMILRefCountImpl *)(v15 + 16));
-    *a7 = v16;
+    v17 = *a6;
+    v15 = CSpectreCallbackRenderer::CSpectreCallbackRenderer((__int64)v12, (__int64)a1, a2, a3, SLODWORD(a4), a5, &v17);
+  }
+  else
+  {
+    v15 = 0LL;
+  }
+  if ( v15 )
+  {
+    _InterlockedIncrement((volatile signed __int32 *)(v15 + 16));
+    *a7 = v15;
   }
   else
   {

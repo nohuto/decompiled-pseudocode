@@ -1,155 +1,152 @@
 /*
- * XREFs of bDeleteAllFlEntry @ 0x1C0114C3C
+ * XREFs of bDeleteAllFlEntry @ 0x1C00A2390
  * Callers:
- *     GreEnableEUDC @ 0x1C008A748 (GreEnableEUDC.c)
+ *     GreEnableEUDC @ 0x1C00E9258 (GreEnableEUDC.c)
  * Callees:
- *     vLinkEudcPFEs @ 0x1C00827D0 (vLinkEudcPFEs.c)
- *     ?IsConcurrentEUDCOperationInProgress@@YA_NAEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C0089CBC (-IsConcurrentEUDCOperationInProgress@@YA_NAEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
- *     ?vUnlinkAllEudcFromRFONTList@@YAXXZ @ 0x1C008AA18 (-vUnlinkAllEudcFromRFONTList@@YAXXZ.c)
- *     vUnlinkAllEudcRFONTsAndPFEs @ 0x1C00A81E0 (vUnlinkAllEudcRFONTsAndPFEs.c)
- *     bUnloadEudcFont @ 0x1C0114E84 (bUnloadEudcFont.c)
+ *     bUnloadEudcFont @ 0x1C00A1D5C (bUnloadEudcFont.c)
+ *     vLinkEudcPFEs @ 0x1C00A3D9C (vLinkEudcPFEs.c)
+ *     vUnlinkAllEudcRFONTsAndPFEs @ 0x1C011E610 (vUnlinkAllEudcRFONTsAndPFEs.c)
+ *     ?vUnlinkAllEudcFromRFONTList@@YAXHH@Z @ 0x1C01358C0 (-vUnlinkAllEudcFromRFONTList@@YAXHH@Z.c)
  */
 
-__int64 __fastcall bDeleteAllFlEntry(__int64 a1)
+__int64 bDeleteAllFlEntry()
 {
-  __int64 v1; // rbx
-  Gre::Base *v2; // rcx
-  _QWORD *v3; // rdi
-  int v4; // r14d
-  __int64 v5; // rax
-  _QWORD *v6; // rcx
-  __int64 *v7; // r11
+  __int64 v0; // rcx
+  int v1; // edx
+  int v2; // ecx
+  _UNKNOWN **v3; // rbx
+  int v4; // eax
+  int v5; // esi
+  char v6; // di
+  _QWORD *v7; // rcx
   int v8; // r9d
-  _QWORD *v9; // r8
-  _QWORD *v10; // rdx
-  int v11; // eax
-  _QWORD *v12; // rax
-  _QWORD *v13; // rax
-  _QWORD *v14; // rdx
-  int v15; // eax
+  _QWORD *v9; // rdx
+  _QWORD *v10; // r8
+  int v11; // r11d
+  _QWORD *v12; // r11
+  _QWORD *v13; // r11
+  _QWORD *v14; // rax
+  void **v15; // rdx
   _QWORD *v16; // rbx
   __int64 v17; // rax
   _QWORD *v18; // rdi
   _QWORD *v19; // rcx
-  __int128 v21; // xmm0
-  _QWORD *v22; // [rsp+20h] [rbp-20h] BYREF
-  _QWORD **v23; // [rsp+28h] [rbp-18h]
-  __int128 v24; // [rsp+30h] [rbp-10h] BYREF
+  _QWORD *v21; // [rsp+20h] [rbp-20h] BYREF
+  _QWORD **v22; // [rsp+28h] [rbp-18h]
+  __int128 v23; // [rsp+30h] [rbp-10h] BYREF
 
-  v23 = &v22;
-  v22 = &v22;
-  v24 = 0LL;
-  v1 = *(_QWORD *)(SGDGetSessionState(a1) + 32);
-  GreAcquireSemaphore(*(_QWORD *)(v1 + 13272));
-  if ( IsConcurrentEUDCOperationInProgress((struct Gre::Full::SESSION_GLOBALS *)v1) )
+  v22 = &v21;
+  v21 = &v21;
+  v23 = 0LL;
+  GreAcquireSemaphore(ghsemEUDC1);
+  if ( gcEUDCCount > 0 )
   {
-    EtwTraceGreLockReleaseSemaphore(L"GreFullGlobals.hsemEUDC1");
-    GreReleaseSemaphoreInternal(*(_QWORD *)(v1 + 13272));
+    EngSetLastError(0xA7u);
+    EtwTraceGreLockReleaseSemaphore(L"ghsemEUDC1", ghsemEUDC1);
+    GreReleaseSemaphoreInternal(ghsemEUDC1);
     return 0LL;
   }
-  vUnlinkAllEudcRFONTsAndPFEs((Gre::Base *)1);
-  vUnlinkAllEudcFromRFONTList(v2);
-  if ( *(_QWORD *)(v1 + 13320) || *(_QWORD *)(v1 + 13328) )
+  else
   {
-    v21 = *(_OWORD *)(v1 + 13320);
-    *(_OWORD *)(v1 + 13320) = 0LL;
-    ++*(_DWORD *)(v1 + 13896);
-    v24 = v21;
-    *(_WORD *)(v1 + 13336) = 0;
-  }
-  v3 = *(_QWORD **)(v1 + 13912);
-  if ( v3 == (_QWORD *)(v1 + 13912) )
-    goto LABEL_23;
-  v4 = *(_DWORD *)(v1 + 13904);
-  do
-  {
-    v5 = *v3;
-    v6 = v3;
-    v7 = v3;
-    v8 = 0;
-    v3 = (_QWORD *)*v3;
-    v9 = (_QWORD *)v6[2];
-    if ( v9 == v6 + 2 )
+    vUnlinkAllEudcRFONTsAndPFEs(v0, 1LL);
+    vUnlinkAllEudcFromRFONTList(v2, v1);
+    if ( *(_OWORD *)&gappfeSysEUDC != 0LL )
     {
-LABEL_15:
-      if ( *(_QWORD **)(v5 + 8) != v6 || (v14 = (_QWORD *)v6[1], (_QWORD *)*v14 != v6) )
-LABEL_31:
-        __fastfail(3u);
-      *v14 = v5;
-      *(_QWORD *)(v5 + 8) = v14;
-      Win32FreePool(v6);
-      --*(_DWORD *)(v1 + 13904);
-      continue;
+      ++dword_1C033A0B4;
+      Dst = 0;
+      v23 = *(_OWORD *)&gappfeSysEUDC;
+      *(_OWORD *)&gappfeSysEUDC = 0LL;
     }
-    do
+    v3 = (_UNKNOWN **)off_1C032A378;
+    if ( off_1C032A378 != (_UNKNOWN *)&off_1C032A378 )
     {
-      v10 = v9;
-      v9 = (_QWORD *)*v9;
-      v11 = *((_DWORD *)v10 + 4);
-      if ( v11 )
+      v4 = dword_1C033A0B8;
+      v5 = dword_1C033A0B8;
+      v6 = dword_1C033A0BC;
+      do
       {
-        if ( v11 != 1 || (*(_DWORD *)(v1 + 13312) & 8) == 0 )
+        v7 = v3;
+        v8 = 0;
+        v3 = (_UNKNOWN **)*v3;
+        v9 = (_QWORD *)v7[2];
+        if ( v9 == v7 + 2 )
+          goto LABEL_15;
+        do
         {
-LABEL_36:
-          ++v8;
-          continue;
+          v10 = v9;
+          v9 = (_QWORD *)*v9;
+          v11 = *((_DWORD *)v10 + 4);
+          if ( !v11 && (v6 & 2) != 0 || v11 == 1 && (v6 & 8) != 0 )
+          {
+            if ( (_QWORD *)v9[1] != v10 )
+              goto LABEL_31;
+            v12 = (_QWORD *)v10[1];
+            if ( (_QWORD *)*v12 != v10 )
+              goto LABEL_31;
+            *v12 = v9;
+            v9[1] = v12;
+            v13 = v22;
+            if ( *v22 != &v21 )
+              goto LABEL_31;
+            v10[1] = v22;
+            *v10 = &v21;
+            *v13 = v10;
+            v22 = (_QWORD **)v10;
+          }
+          else
+          {
+            ++v8;
+          }
+        }
+        while ( v9 != v7 + 2 );
+        if ( v8 )
+        {
+          if ( *((_DWORD *)v7 + 25) != v8 )
+          {
+            ++*((_DWORD *)v7 + 26);
+            *((_DWORD *)v7 + 25) = v8;
+          }
+        }
+        else
+        {
+LABEL_15:
+          v14 = (_QWORD *)*v7;
+          if ( *(_QWORD **)(*v7 + 8LL) != v7 || (v15 = (void **)v7[1], *v15 != v7) )
+LABEL_31:
+            __fastfail(3u);
+          *v15 = v14;
+          v14[1] = v15;
+          Win32FreePool(v7);
+          v6 = dword_1C033A0BC;
+          v4 = --dword_1C033A0B8;
         }
       }
-      else if ( (*(_DWORD *)(v1 + 13312) & 2) == 0 )
-      {
-        goto LABEL_36;
-      }
-      if ( (_QWORD *)v9[1] != v10 )
-        goto LABEL_31;
-      v12 = (_QWORD *)v10[1];
-      if ( (_QWORD *)*v12 != v10 )
-        goto LABEL_31;
-      *v12 = v9;
-      v9[1] = v12;
-      v13 = v23;
-      if ( *v23 != &v22 )
-        goto LABEL_31;
-      v10[1] = v23;
-      *v10 = &v22;
-      *v13 = v10;
-      v23 = (_QWORD **)v10;
+      while ( v3 != &off_1C032A378 );
+      if ( v5 != v4 )
+        ++dword_1C033A0B0;
+      if ( v4 )
+        vLinkEudcPFEs(0LL);
     }
-    while ( v9 != v6 + 2 );
-    v5 = *v7;
-    if ( !v8 )
-      goto LABEL_15;
-    if ( *((_DWORD *)v6 + 25) != v8 )
+    EtwTraceGreLockReleaseSemaphore(L"ghsemEUDC1", ghsemEUDC1);
+    GreReleaseSemaphoreInternal(ghsemEUDC1);
+    if ( v23 != 0 )
+      bUnloadEudcFont((__int64)&v23);
+    v16 = v21;
+    while ( v16 != &v21 )
     {
-      ++*((_DWORD *)v6 + 26);
-      *((_DWORD *)v6 + 25) = v8;
+      v17 = *v16;
+      v18 = v16;
+      v16 = (_QWORD *)v17;
+      if ( *(_QWORD **)(v17 + 8) != v18 )
+        goto LABEL_31;
+      v19 = (_QWORD *)v18[1];
+      if ( (_QWORD *)*v19 != v18 )
+        goto LABEL_31;
+      *v19 = v17;
+      *(_QWORD *)(v17 + 8) = v19;
+      bUnloadEudcFont((__int64)(v18 + 4));
+      Win32FreePool(v18);
     }
+    return 1LL;
   }
-  while ( v3 != (_QWORD *)(v1 + 13912) );
-  v15 = *(_DWORD *)(v1 + 13904);
-  if ( v4 != v15 )
-    ++*(_DWORD *)(v1 + 13900);
-  if ( v15 )
-    vLinkEudcPFEs(0LL);
-LABEL_23:
-  EtwTraceGreLockReleaseSemaphore(L"GreFullGlobals.hsemEUDC1");
-  GreReleaseSemaphoreInternal(*(_QWORD *)(v1 + 13272));
-  if ( v24 != 0 )
-    bUnloadEudcFont(&v24);
-  v16 = v22;
-  while ( v16 != &v22 )
-  {
-    v17 = *v16;
-    v18 = v16;
-    v16 = (_QWORD *)v17;
-    if ( *(_QWORD **)(v17 + 8) != v18 )
-      goto LABEL_31;
-    v19 = (_QWORD *)v18[1];
-    if ( (_QWORD *)*v19 != v18 )
-      goto LABEL_31;
-    *v19 = v17;
-    *(_QWORD *)(v17 + 8) = v19;
-    bUnloadEudcFont(v18 + 4);
-    Win32FreePool(v18);
-  }
-  return 1LL;
 }

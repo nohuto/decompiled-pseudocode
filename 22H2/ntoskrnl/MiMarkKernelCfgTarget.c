@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMarkKernelCfgTarget @ 0x1402F7A50
+ * XREFs of MiMarkKernelCfgTarget @ 0x140322C5C
  * Callers:
- *     MmGetSystemRoutineAddress @ 0x140756D80 (MmGetSystemRoutineAddress.c)
- *     MiMarkKernelCfgAddressTakenImports @ 0x140A4402C (MiMarkKernelCfgAddressTakenImports.c)
+ *     MmGetSystemRoutineAddress @ 0x140699E80 (MmGetSystemRoutineAddress.c)
+ *     MiMarkKernelCfgAddressTakenImports @ 0x1408D7860 (MiMarkKernelCfgAddressTakenImports.c)
  * Callees:
- *     VslEnableKernelCfgTarget @ 0x140942254 (VslEnableKernelCfgTarget.c)
+ *     VslEnableKernelCfgTarget @ 0x14088F754 (VslEnableKernelCfgTarget.c)
  */
 
 __int64 MiMarkKernelCfgTarget()
 {
-  if ( (MiFlags & 0x40000) != 0 )
+  if ( (MiFlags & 0x80000) != 0 )
     VslEnableKernelCfgTarget();
   return 0LL;
 }

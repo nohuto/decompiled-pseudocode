@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpDispatchGetTerminalEvent @ 0x140881E4C
+ * XREFs of TtmpDispatchGetTerminalEvent @ 0x140881E2C
  * Callers:
- *     TtmDispatchApi @ 0x140881720 (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x140881700 (TtmDispatchApi.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     TtmiLogError @ 0x1407616FC (TtmiLogError.c)
- *     TtmiRetrieveEventFromQueue @ 0x140882444 (TtmiRetrieveEventFromQueue.c)
+ *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
+ *     TtmiRetrieveEventFromQueue @ 0x140882424 (TtmiRetrieveEventFromQueue.c)
  */
 
 __int64 __fastcall TtmpDispatchGetTerminalEvent(__int64 a1, __int64 a2)

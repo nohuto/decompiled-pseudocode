@@ -1,16 +1,16 @@
 /*
- * XREFs of ?vDisableSynchronizeNKAPC@@YAXPEAX00@Z @ 0x1C02A7C80
+ * XREFs of ?vDisableSynchronizeNKAPC@@YAXPEAX00@Z @ 0x1C029E680
  * Callers:
  *     <none>
  * Callees:
- *     ?vDisableTimers@@YAXK@Z @ 0x1C00B9780 (-vDisableTimers@@YAXK@Z.c)
+ *     ?vDisableTimers@@YAXK@Z @ 0x1C0127C30 (-vDisableTimers@@YAXK@Z.c)
  */
 
 void __fastcall vDisableSynchronizeNKAPC(void *a1, void *a2, void *a3)
 {
-  unsigned int v3; // ebx
+  char v3; // bl
 
-  v3 = (unsigned int)a1;
+  v3 = (char)a1;
   UserEnterUserCritSec(a1, a2, a3);
   vDisableTimers(v3);
   UserLeaveUserCritSec();

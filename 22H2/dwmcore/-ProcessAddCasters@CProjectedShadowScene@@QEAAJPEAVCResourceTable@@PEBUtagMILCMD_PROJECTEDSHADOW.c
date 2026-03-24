@@ -1,16 +1,15 @@
 /*
- * XREFs of ?ProcessAddCasters@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_ADDCASTERS@@PEBXI@Z @ 0x180004B5C
+ * XREFs of ?ProcessAddCasters@CProjectedShadowScene@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWSCENE_ADDCASTERS@@PEBXI@Z @ 0x18000D708
  * Callers:
- *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800A36DC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
  * Callees:
- *     ?FindCasterEntry@CProjectedShadowScene@@AEBAPEAUCasterEntry@1@PEBVCProjectedShadowCaster@@@Z @ 0x180004DF8 (-FindCasterEntry@CProjectedShadowScene@@AEBAPEAUCasterEntry@1@PEBVCProjectedShadowCaster@@@Z.c)
- *     ?RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ @ 0x180005C2C (-RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ.c)
- *     ??$?0AEAPEAVCProjectedShadowCaster@@@?$_List_node_emplace_op2@V?$allocator@U?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@@std@@@std@@QEAA@AEAV?$allocator@U?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@@1@AEAPEAVCProjectedShadowCaster@@@Z @ 0x1800074B8 (--$-0AEAPEAVCProjectedShadowCaster@@@-$_List_node_emplace_op2@V-$allocator@U-$_List_node@UCaster.c)
- *     ??1?$_List_node_emplace_op2@V?$allocator@U?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@@std@@@std@@QEAA@XZ @ 0x180007B64 (--1-$_List_node_emplace_op2@V-$allocator@U-$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@.c)
- *     ??$_Emplace_reallocate@AEBQEAVCProjectedShadowScene@@@?$vector@PEAVCProjectedShadowScene@@V?$allocator@PEAVCProjectedShadowScene@@@std@@@std@@QEAAPEAPEAVCProjectedShadowScene@@QEAPEAV2@AEBQEAV2@@Z @ 0x18001C180 (--$_Emplace_reallocate@AEBQEAVCProjectedShadowScene@@@-$vector@PEAVCProjectedShadowScene@@V-$all.c)
- *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x180049524 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?FindCasterEntry@CProjectedShadowScene@@AEBAPEAUCasterEntry@1@PEBVCProjectedShadowCaster@@@Z @ 0x18000CB3C (-FindCasterEntry@CProjectedShadowScene@@AEBAPEAUCasterEntry@1@PEBVCProjectedShadowCaster@@@Z.c)
+ *     ?RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ @ 0x18000CDB4 (-RequestRedrawAll@CProjectedShadowScene@@QEAAXXZ.c)
+ *     ??$_Insert@AEAPEAVCProjectedShadowCaster@@@?$list@UCasterEntry@CProjectedShadowScene@@V?$allocator@UCasterEntry@CProjectedShadowScene@@@std@@@std@@QEAAXV?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UCasterEntry@CProjectedShadowScene@@@std@@@std@@U_Iterator_base0@2@@1@AEAPEAVCProjectedShadowCaster@@@Z @ 0x18000D7EC (--$_Insert@AEAPEAVCProjectedShadowCaster@@@-$list@UCasterEntry@CProjectedShadowScene@@V-$allocat.c)
+ *     ??$_Emplace_reallocate@AEBU_LUID@@@?$vector@U_LUID@@V?$allocator@U_LUID@@@std@@@std@@QEAAPEAU_LUID@@QEAU2@AEBU2@@Z @ 0x18001C694 (--$_Emplace_reallocate@AEBU_LUID@@@-$vector@U_LUID@@V-$allocator@U_LUID@@@std@@@std@@QEAAPEAU_LU.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800A1010 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CProjectedShadowScene::ProcessAddCasters(
@@ -19,20 +18,15 @@ __int64 __fastcall CProjectedShadowScene::ProcessAddCasters(
         const struct tagMILCMD_PROJECTEDSHADOWSCENE_ADDCASTERS *a3,
         _DWORD *a4)
 {
-  unsigned int v4; // ebp
-  __int64 v5; // rsi
+  unsigned int v4; // edi
+  __int64 v5; // rbx
   struct CResource *ResourceWithoutType; // rax
   unsigned int v11; // ecx
-  const struct CProjectedShadowCaster *v12; // rbx
-  __int64 v13; // r15
-  _QWORD *v14; // rax
-  _QWORD *v15; // rcx
-  char *v16; // rcx
-  _QWORD *v17; // rdx
-  char v19[8]; // [rsp+30h] [rbp-48h] BYREF
-  _QWORD *v20; // [rsp+38h] [rbp-40h]
-  const struct CProjectedShadowCaster *v21; // [rsp+90h] [rbp+18h] BYREF
-  CProjectedShadowScene *v22; // [rsp+98h] [rbp+20h] BYREF
+  const struct CProjectedShadowCaster *v12; // r14
+  char *v13; // rcx
+  _QWORD *v14; // rdx
+  const struct CProjectedShadowCaster *v16; // [rsp+70h] [rbp+18h] BYREF
+  CProjectedShadowScene *v17; // [rsp+78h] [rbp+20h] BYREF
 
   v4 = 0;
   v5 = 0LL;
@@ -45,40 +39,28 @@ __int64 __fastcall CProjectedShadowScene::ProcessAddCasters(
       if ( !ResourceWithoutType
         || !(*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)ResourceWithoutType + 56LL))(
               ResourceWithoutType,
-              131LL) )
+              130LL) )
       {
         break;
       }
-      v21 = v12;
+      v16 = v12;
       if ( !CProjectedShadowScene::FindCasterEntry(this, v12) )
       {
-        v13 = *((_QWORD *)this + 8);
-        if ( *((_QWORD *)this + 9) == 0x1745D1745D1745DLL )
-          std::_Xlength_error("list too long");
-        std::_List_node_emplace_op2<std::allocator<std::_List_node<CProjectedShadowScene::CasterEntry,void *>>>::_List_node_emplace_op2<std::allocator<std::_List_node<CProjectedShadowScene::CasterEntry,void *>>>(
-          v19,
-          (char *)this + 64,
-          &v21);
-        v14 = v20;
-        ++*((_QWORD *)this + 9);
-        v15 = *(_QWORD **)(v13 + 8);
-        v20 = 0LL;
-        *v14 = v13;
-        v14[1] = v15;
-        *(_QWORD *)(v13 + 8) = v14;
-        *v15 = v14;
-        std::_List_node_emplace_op2<std::allocator<std::_List_node<CProjectedShadowScene::CasterEntry,void *>>>::~_List_node_emplace_op2<std::allocator<std::_List_node<CProjectedShadowScene::CasterEntry,void *>>>(v19);
-        v16 = (char *)v21 + 96;
-        v22 = this;
-        v17 = (_QWORD *)*((_QWORD *)v21 + 13);
-        if ( v17 == *((_QWORD **)v21 + 14) )
+        std::list<CProjectedShadowScene::CasterEntry>::_Insert<CProjectedShadowCaster * &>(
+          (char *)this + 56,
+          *((_QWORD *)this + 7),
+          &v16);
+        v13 = (char *)v16 + 88;
+        v17 = this;
+        v14 = (_QWORD *)*((_QWORD *)v16 + 12);
+        if ( *((_QWORD **)v16 + 13) == v14 )
         {
-          std::vector<CProjectedShadowScene *>::_Emplace_reallocate<CProjectedShadowScene * const &>(v16, v17, &v22);
+          std::vector<_LUID>::_Emplace_reallocate<_LUID const &>(v13, v14, &v17);
         }
         else
         {
-          *v17 = this;
-          *((_QWORD *)v16 + 1) += 8LL;
+          *v14 = this;
+          *((_QWORD *)v13 + 1) += 8LL;
         }
         CProjectedShadowScene::RequestRedrawAll(this);
       }

@@ -1,10 +1,10 @@
 /*
- * XREFs of NtCompareObjects @ 0x1406B5660
+ * XREFs of NtCompareObjects @ 0x14069D3E0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall NtCompareObjects(void *a1, void *a2)
@@ -12,22 +12,22 @@ NTSTATUS __fastcall NtCompareObjects(void *a1, void *a2)
   KPROCESSOR_MODE PreviousMode; // bl
   NTSTATUS result; // eax
   NTSTATUS v5; // ebx
-  PVOID Object; // [rsp+50h] [rbp+18h] BYREF
-  PVOID v7; // [rsp+58h] [rbp+20h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp+18h] BYREF
+  PVOID Object; // [rsp+58h] [rbp+20h] BYREF
 
-  Object = 0LL;
+  DmaAdapter = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  result = ObReferenceObjectByHandle(a1, 0, 0LL, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(a1, 0, 0LL, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
   if ( result >= 0 )
   {
-    v7 = 0LL;
-    v5 = ObReferenceObjectByHandle(a2, 0, 0LL, PreviousMode, &v7, 0LL);
+    Object = 0LL;
+    v5 = ObReferenceObjectByHandle(a2, 0, 0LL, PreviousMode, &Object, 0LL);
     if ( v5 >= 0 )
     {
-      v5 = v7 != Object ? 0xC00001AC : 0;
-      ObfDereferenceObject(v7);
+      v5 = Object != DmaAdapter ? 0xC00001AC : 0;
+      HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     }
-    ObfDereferenceObject(Object);
+    HalPutDmaAdapter(DmaAdapter);
     return v5;
   }
   return result;

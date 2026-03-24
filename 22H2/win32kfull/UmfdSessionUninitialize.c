@@ -1,42 +1,43 @@
 /*
- * XREFs of UmfdSessionUninitialize @ 0x1C00BA380
+ * XREFs of UmfdSessionUninitialize @ 0x1C0132320
  * Callers:
  *     <none>
  * Callees:
- *     ?Uninitialize@UmfdAllocation@@SAXXZ @ 0x1C00BA424 (-Uninitialize@UmfdAllocation@@SAXXZ.c)
- *     ?UmfdCallSessionUninitialize@@YAXXZ @ 0x1C00BA4B0 (-UmfdCallSessionUninitialize@@YAXXZ.c)
- *     ?SessionUninitialize@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C00BA50C (-SessionUninitialize@UmfdHostLifeTimeManager@@CAXXZ.c)
- *     ?IsSessionGlobalsAreaAllocated@Umfd@Gre@@YA_NXZ @ 0x1C00E5E54 (-IsSessionGlobalsAreaAllocated@Umfd@Gre@@YA_NXZ.c)
+ *     ?Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z @ 0x1C012E274 (-Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z.c)
+ *     ?SessionUninitialize@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C01323CC (-SessionUninitialize@UmfdHostLifeTimeManager@@CAXXZ.c)
+ *     ?Uninitialize@UmfdAllocation@@SAXXZ @ 0x1C013245C (-Uninitialize@UmfdAllocation@@SAXXZ.c)
  */
 
-void __fastcall UmfdSessionUninitialize(Gre::Umfd *a1)
+void UmfdSessionUninitialize()
 {
-  __int64 v1; // rcx
-  __int64 v2; // rcx
-  __int64 v3; // rdi
-  PVOID *v4; // rbx
-  __int64 v5; // rbx
-  void *v6; // rcx
+  __int64 v0; // rbx
+  __int64 v1; // rdi
+  void **v2; // rcx
+  PVOID v3; // rbx
 
-  if ( Gre::Umfd::IsSessionGlobalsAreaAllocated(a1) )
+  v0 = 0LL;
+  v1 = 4LL;
+  do
   {
-    UmfdCallSessionUninitialize();
-    UmfdAllocation::Uninitialize();
-    UmfdHostLifeTimeManager::SessionUninitialize();
-    v3 = *(_QWORD *)(SGDGetSessionState(v1) + 32);
-    v4 = *(PVOID **)(v3 + 23480);
-    if ( v4 )
+    if ( g_pUmfdClientPort[v0] )
+      g_pUmfdClientPort[v0] = 0LL;
+    v2 = (void **)g_pUmfdServerPort[v0];
+    if ( v2 )
     {
-      ExFreePoolWithTag(v4[6], 0);
-      ExFreePoolWithTag(v4, 0);
-      *(_QWORD *)(v3 + 23480) = 0LL;
+      CMultipleConsumerWorkQueue::Destroy(v2);
+      g_pUmfdServerPort[v0] = 0LL;
     }
-    v5 = SGDGetSessionState(v2);
-    v6 = *(void **)(v5 + 40);
-    if ( v6 )
-    {
-      EngFreeMem(v6);
-      *(_QWORD *)(v5 + 40) = 0LL;
-    }
+    ++v0;
+    --v1;
+  }
+  while ( v1 );
+  UmfdAllocation::Uninitialize();
+  UmfdHostLifeTimeManager::SessionUninitialize();
+  v3 = UmfdFontFileLookup;
+  if ( UmfdFontFileLookup )
+  {
+    ExFreePoolWithTag(*((PVOID *)UmfdFontFileLookup + 6), 0);
+    ExFreePoolWithTag(v3, 0);
+    UmfdFontFileLookup = 0LL;
   }
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of ??0CMutex@OPM@@QEAA@PEAJ@Z @ 0x1C00B8FC0
+ * XREFs of ??0CMutex@OPM@@QEAA@PEAJ@Z @ 0x1C00B09C0
  * Callers:
- *     ??0COPM@@QEAA@PEAJ@Z @ 0x1C00B8E34 (--0COPM@@QEAA@PEAJ@Z.c)
- *     ??0CMonitorPDO@OPM@@QEAA@AEAU_LUID@@KPEAJ@Z @ 0x1C0151000 (--0CMonitorPDO@OPM@@QEAA@AEAU_LUID@@KPEAJ@Z.c)
+ *     ??0COPM@@QEAA@PEAJ@Z @ 0x1C00B094C (--0COPM@@QEAA@PEAJ@Z.c)
+ *     ??0CMonitorPDO@OPM@@QEAA@AEAU_LUID@@KPEAJ@Z @ 0x1C00C0430 (--0CMonitorPDO@OPM@@QEAA@AEAU_LUID@@KPEAJ@Z.c)
  * Callees:
  *     <none>
  */
 
 OPM::CMutex *__fastcall OPM::CMutex::CMutex(OPM::CMutex *this, int *a2)
 {
-  struct _KMUTANT *Pool2; // rax
+  struct _KMUTANT *PoolWithTag; // rax
 
   *(_QWORD *)this = 0LL;
   if ( *a2 >= 0 )
   {
-    Pool2 = (struct _KMUTANT *)ExAllocatePool2(64LL, 56LL, 1297108807LL);
-    *(_QWORD *)this = Pool2;
-    if ( Pool2 )
-      KeInitializeMutex(Pool2, 0);
+    PoolWithTag = (struct _KMUTANT *)ExAllocatePoolWithTag((POOL_TYPE)512, 0x38uLL, 0x4D504F47u);
+    *(_QWORD *)this = PoolWithTag;
+    if ( PoolWithTag )
+      KeInitializeMutex(PoolWithTag, 0);
     else
       *a2 = -1073741801;
   }

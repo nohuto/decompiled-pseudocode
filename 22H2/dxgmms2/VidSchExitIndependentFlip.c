@@ -1,12 +1,12 @@
 /*
- * XREFs of VidSchExitIndependentFlip @ 0x1C003F860
+ * XREFs of VidSchExitIndependentFlip @ 0x1C00347C0
  * Callers:
  *     <none>
  * Callees:
- *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C00032E4 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
- *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00033A8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
- *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C000A370 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
- *     VidSchExitIndependentFlipInternal @ 0x1C003F95C (VidSchExitIndependentFlipInternal.c)
+ *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C000B050 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0011E50 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00128EC (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     VidSchExitIndependentFlipInternal @ 0x1C00348BC (VidSchExitIndependentFlipInternal.c)
  */
 
 __int64 __fastcall VidSchExitIndependentFlip(
@@ -39,7 +39,7 @@ __int64 __fastcall VidSchExitIndependentFlip(
     RtlCopyLuid(&DestinationLuid, a3);
     v18 = 0LL;
     v17 = 0;
-    v16[0] = a1 + 1728;
+    v16[0] = a1 + 1712;
     LOBYTE(a8) = 0;
     AcquireSpinLock::Acquire((Acquire *)v16);
     v15 = 0;

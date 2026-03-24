@@ -11,11 +11,11 @@
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     SepDereferenceLowBoxNumberEntry @ 0x1405DF038 (SepDereferenceLowBoxNumberEntry.c)
  *     SepDereferenceCachedHandlesEntry @ 0x1405DF178 (SepDereferenceCachedHandlesEntry.c)
- *     SepDeReferenceLogonSession @ 0x1406B3600 (SepDeReferenceLogonSession.c)
- *     SepModifyTokenPolicyCounter @ 0x14089BF2C (SepModifyTokenPolicyCounter.c)
- *     SepDeleteTokenUserAndGroups @ 0x1408A206C (SepDeleteTokenUserAndGroups.c)
- *     SepRemoveTokenLogonSession @ 0x1408A2B20 (SepRemoveTokenLogonSession.c)
- *     SepDeleteClaimAttributes @ 0x1408A3EB8 (SepDeleteClaimAttributes.c)
+ *     SepDeReferenceLogonSession @ 0x1406B35E0 (SepDeReferenceLogonSession.c)
+ *     SepModifyTokenPolicyCounter @ 0x14089BF0C (SepModifyTokenPolicyCounter.c)
+ *     SepDeleteTokenUserAndGroups @ 0x1408A204C (SepDeleteTokenUserAndGroups.c)
+ *     SepRemoveTokenLogonSession @ 0x1408A2B00 (SepRemoveTokenLogonSession.c)
+ *     SepDeleteClaimAttributes @ 0x1408A3E98 (SepDeleteClaimAttributes.c)
  */
 
 void __fastcall SepTokenDeleteMethod(__int64 a1)

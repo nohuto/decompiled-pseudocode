@@ -1,11 +1,11 @@
 /*
- * XREFs of MmQuerySessionWorkingSetInformation @ 0x1402B40E4
+ * XREFs of MmQuerySessionWorkingSetInformation @ 0x1402B41E4
  * Callers:
- *     EtwpLogSessionWorkingSetInfo @ 0x1408B85E4 (EtwpLogSessionWorkingSetInfo.c)
+ *     EtwpLogSessionWorkingSetInfo @ 0x1408B85C4 (EtwpLogSessionWorkingSetInfo.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmQuerySessionWorkingSetInformation(__int64 a1, _DWORD *a2)

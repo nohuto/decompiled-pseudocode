@@ -1,11 +1,12 @@
 /*
- * XREFs of BgSetBootGraphicsInformation @ 0x140AF2394
+ * XREFs of BgSetBootGraphicsInformation @ 0x1409F6684
  * Callers:
- *     BgkSetBootGraphicsInformation @ 0x140AF20F4 (BgkSetBootGraphicsInformation.c)
+ *     BgkSetBootGraphicsInformation @ 0x1409F64C4 (BgkSetBootGraphicsInformation.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x140384860 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403848B0 (BgpFwAcquireLock.c)
- *     BgpFwSetBootGraphicsInformation @ 0x140671E00 (BgpFwSetBootGraphicsInformation.c)
+ *     KeGetCurrentIrql @ 0x14021FA90 (KeGetCurrentIrql.c)
+ *     BgpFwReleaseLock @ 0x14039BBA8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039BBF8 (BgpFwAcquireLock.c)
+ *     BgpFwSetBootGraphicsInformation @ 0x1405C43D0 (BgpFwSetBootGraphicsInformation.c)
  */
 
 __int64 __fastcall BgSetBootGraphicsInformation(__int64 a1, __int64 a2)
@@ -18,7 +19,7 @@ __int64 __fastcall BgSetBootGraphicsInformation(__int64 a1, __int64 a2)
   if ( !a2 )
     return 3221225485LL;
   BgpFwAcquireLock();
-  if ( (dword_140C0E4B0 & 1) != 0 )
+  if ( (dword_140C134F0 & 1) != 0 )
     v5 = BgpFwSetBootGraphicsInformation(v4, a2);
   else
     v5 = -1073741823;

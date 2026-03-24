@@ -1,55 +1,55 @@
 /*
- * XREFs of xxxEmptyClipboard @ 0x1C00B935C
+ * XREFs of xxxEmptyClipboard @ 0x1C0123900
  * Callers:
- *     FreeWindowStation @ 0x1C00B91B0 (FreeWindowStation.c)
- *     NtUserEmptyClipboard @ 0x1C01CF2C0 (NtUserEmptyClipboard.c)
- *     xxxSnapWindow @ 0x1C02281E8 (xxxSnapWindow.c)
+ *     NtUserEmptyClipboard @ 0x1C01236A0 (NtUserEmptyClipboard.c)
+ *     FreeWindowStation @ 0x1C01236E0 (FreeWindowStation.c)
+ *     xxxSnapWindow @ 0x1C016040C (xxxSnapWindow.c)
  * Callees:
- *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C0018758 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
- *     PopAndFreeW32ThreadLock @ 0x1C0062180 (PopAndFreeW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     W32GetThreadWin32Thread @ 0x1C011E0CC (W32GetThreadWin32Thread.c)
- *     ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C01FC714 (-UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z.c)
- *     ?xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z @ 0x1C01FD6B0 (-xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C0030448 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E480 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1530 (PopAndFreeW32ThreadLock.c)
+ *     ?xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z @ 0x1C0123A94 (-xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z.c)
+ *     ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C015C768 (-UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z.c)
  */
 
-__int64 __fastcall xxxEmptyClipboard(void **Object)
+__int64 __fastcall xxxEmptyClipboard(struct tagCLIP **Object)
 {
-  __int64 v2; // rdx
   __int64 ThreadWin32Thread; // rsi
-  int v4; // r14d
-  struct tagCLIP *v5; // rdi
-  struct tagWINDOWSTATION *v7; // rax
-  int v8; // ebp
-  __int64 v9; // rcx
-  struct tagCLIP *v10; // rcx
+  int v3; // r14d
+  struct tagCLIP *v4; // rdi
+  struct tagWINDOWSTATION *v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  int v9; // ebp
+  __int64 v10; // rcx
   _QWORD v11[2]; // [rsp+20h] [rbp-38h] BYREF
   __int128 v12; // [rsp+30h] [rbp-28h] BYREF
   __int64 v13; // [rsp+40h] [rbp-18h]
 
   v12 = 0LL;
   v13 = 0LL;
-  ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
   if ( Object )
     goto LABEL_2;
-  v7 = CheckClipboardAccess();
-  Object = (void **)v7;
-  if ( !v7 )
+  v6 = CheckClipboardAccess();
+  Object = (struct tagCLIP **)v6;
+  if ( !v6 )
     return 0LL;
-  if ( *((_QWORD *)v7 + 10) != ThreadWin32Thread )
+  if ( *((_QWORD *)v6 + 10) != ThreadWin32Thread )
   {
-    UserSetLastError(1418LL);
+    UserSetLastError(1418LL, v7, v8);
     return 0LL;
   }
 LABEL_2:
   if ( ((_DWORD)Object[8] & 0x10) != 0 )
   {
-    v4 = 1;
+    v3 = 1;
   }
   else
   {
-    v4 = 0;
+    v3 = 0;
     if ( ThreadWin32Thread )
     {
       PushW32ThreadLock((__int64)Object, &v12, UserDereferenceObject);
@@ -57,32 +57,36 @@ LABEL_2:
       xxxSendClipboardMessage((struct tagWINDOWSTATION *)Object, 0x307u);
     }
   }
-  v5 = (struct tagCLIP *)Object[16];
-  if ( v5 )
+  v4 = Object[16];
+  if ( v4 )
   {
-    v8 = *((_DWORD *)Object + 34);
-    while ( v8 )
+    v9 = *((_DWORD *)Object + 34);
+    if ( v9 )
     {
-      v9 = *(unsigned __int16 *)v5;
-      --v8;
-      if ( (unsigned __int16)v9 >= 0xC000u )
-        UserDeleteAtom(v9, v2);
-      v10 = v5;
-      v5 = (struct tagCLIP *)((char *)v5 + 32);
-      UT_FreeCBFormat(v10);
+      do
+      {
+        v10 = *(unsigned __int16 *)v4;
+        --v9;
+        if ( (unsigned __int16)v10 >= 0xC000u )
+          UserDeleteAtom(v10);
+        UT_FreeCBFormat(v4);
+        v4 = (struct tagCLIP *)((char *)v4 + 32);
+      }
+      while ( v9 );
+      v4 = Object[16];
     }
-    Win32FreePool(Object[16]);
+    Win32FreePool(v4);
     Object[16] = 0LL;
     *((_DWORD *)Object + 34) = 0;
   }
   *((_DWORD *)Object + 16) |= 0x40u;
   v11[0] = Object + 14;
   v11[1] = Object[12];
-  HMAssignmentLock(v11, 0LL);
+  HMAssignmentLock(v11);
   ++*((_DWORD *)Object + 35);
   ++*((_DWORD *)Object + 36);
   *((_DWORD *)Object + 16) &= ~0x80u;
-  if ( !v4 )
+  if ( !v3 )
   {
     if ( ThreadWin32Thread )
       PopAndFreeW32ThreadLock((__int64)&v12);

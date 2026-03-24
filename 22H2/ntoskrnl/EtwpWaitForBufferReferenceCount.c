@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpWaitForBufferReferenceCount @ 0x1406BD91C
+ * XREFs of EtwpWaitForBufferReferenceCount @ 0x1406BDA1C
  * Callers:
- *     EtwpFlushActiveBuffers @ 0x1406BDE18 (EtwpFlushActiveBuffers.c)
- *     EtwpBufferingModeFlush @ 0x1408A7F08 (EtwpBufferingModeFlush.c)
+ *     EtwpFlushActiveBuffers @ 0x1406BC9F0 (EtwpFlushActiveBuffers.c)
+ *     EtwpBufferingModeFlush @ 0x14093D1D8 (EtwpBufferingModeFlush.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x1402467F0 (KeDelayExecutionThread.c)
+ *     KeDelayExecutionThread @ 0x140256CF0 (KeDelayExecutionThread.c)
  */
 
 __int64 __fastcall EtwpWaitForBufferReferenceCount(__int64 a1)

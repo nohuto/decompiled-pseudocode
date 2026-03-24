@@ -1,53 +1,55 @@
 /*
- * XREFs of DxgkpIsDrtEnabled @ 0x1C030A784
+ * XREFs of DxgkpIsDrtEnabled @ 0x1C0261DB8
  * Callers:
- *     DxgkEscape @ 0x1C01B43F0 (DxgkEscape.c)
- *     ?DxgkPinResourcesInternal@@YAJPEAU_D3DKMT_PINRESOURCES@@@Z @ 0x1C02E9B38 (-DxgkPinResourcesInternal@@YAJPEAU_D3DKMT_PINRESOURCES@@@Z.c)
- *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C0307E5C (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
- *     ?DxgEscapeEvict@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@@Z @ 0x1C030FF7C (-DxgEscapeEvict@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@@Z.c)
- *     ?InternalEscapeEnabled@@YAEXZ @ 0x1C0311AF8 (-InternalEscapeEnabled@@YAEXZ.c)
- *     ?DxgkpQueryTestInterface@@YAJPEAXIIW4_DXGKTEST_INTERFACE_TYPE@@@Z @ 0x1C035D8B4 (-DxgkpQueryTestInterface@@YAJPEAXIIW4_DXGKTEST_INTERFACE_TYPE@@@Z.c)
- *     DxgkpCheckProcessForVirtualMachineManagementAccess @ 0x1C036B268 (DxgkpCheckProcessForVirtualMachineManagementAccess.c)
+ *     DxgkEscape @ 0x1C0102F00 (DxgkEscape.c)
+ *     DxgkpCheckProcessForVirtualMachineManagementAccess @ 0x1C02327A4 (DxgkpCheckProcessForVirtualMachineManagementAccess.c)
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C025FCF4 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ *     ?DxgEscapeEvict@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@@Z @ 0x1C0267038 (-DxgEscapeEvict@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@@Z.c)
  * Callees:
- *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01B3460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01193F0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
  */
 
-char __fastcall DxgkpIsDrtEnabled(__int64 a1)
+char __fastcall DxgkpIsDrtEnabled(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   struct DXGPROCESS *Current; // rax
-  __int64 v3; // [rsp+30h] [rbp-19h] BYREF
-  int v4; // [rsp+38h] [rbp-11h]
-  const wchar_t *v5; // [rsp+40h] [rbp-9h]
-  int *v6; // [rsp+48h] [rbp-1h]
-  int v7; // [rsp+50h] [rbp+7h]
-  int *v8; // [rsp+58h] [rbp+Fh]
-  int v9; // [rsp+60h] [rbp+17h]
-  __int64 v10; // [rsp+68h] [rbp+1Fh]
-  int v11; // [rsp+70h] [rbp+27h]
-  __int128 v12; // [rsp+78h] [rbp+2Fh]
-  __int128 v13; // [rsp+88h] [rbp+3Fh]
-  __int64 v14; // [rsp+98h] [rbp+4Fh]
-  int v15; // [rsp+B0h] [rbp+67h] BYREF
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v8; // rax
+  __int64 v9; // [rsp+30h] [rbp-19h] BYREF
+  int v10; // [rsp+38h] [rbp-11h]
+  const wchar_t *v11; // [rsp+40h] [rbp-9h]
+  int *v12; // [rsp+48h] [rbp-1h]
+  int v13; // [rsp+50h] [rbp+7h]
+  int *v14; // [rsp+58h] [rbp+Fh]
+  int v15; // [rsp+60h] [rbp+17h]
+  __int64 v16; // [rsp+68h] [rbp+1Fh]
+  int v17; // [rsp+70h] [rbp+27h]
+  __int128 v18; // [rsp+78h] [rbp+2Fh]
+  __int128 v19; // [rsp+88h] [rbp+3Fh]
+  __int64 v20; // [rsp+98h] [rbp+4Fh]
+  int v21; // [rsp+B0h] [rbp+67h] BYREF
 
-  Current = DXGPROCESS::GetCurrent(a1);
-  if ( Current && (*((_DWORD *)Current + 106) & 0x1000) != 0 )
+  Current = DXGPROCESS::GetCurrent(a1, a2, a3, a4);
+  if ( Current && (*((_BYTE *)Current + 348) & 1) != 0 )
     return 1;
-  v15 = 0;
-  v3 = 0LL;
-  v10 = 0LL;
-  v5 = L"DRTTestEnable";
-  v11 = 0;
-  v14 = 0LL;
-  v6 = &v15;
-  v8 = &v15;
-  v4 = 288;
-  v7 = 67108868;
-  v9 = 4;
-  v12 = 0LL;
-  v13 = 0LL;
-  RtlQueryRegistryValuesEx(2LL, L"GraphicsDrivers", &v3, 0LL, 0LL);
-  if ( v15 == 1484026436 )
+  v21 = 0;
+  v9 = 0LL;
+  v16 = 0LL;
+  v11 = L"DRTTestEnable";
+  v17 = 0;
+  v20 = 0LL;
+  v12 = &v21;
+  v14 = &v21;
+  v10 = 288;
+  v13 = 67108868;
+  v15 = 4;
+  v18 = 0LL;
+  v19 = 0LL;
+  RtlQueryRegistryValuesEx(2LL, L"GraphicsDrivers", &v9, 0LL, 0LL);
+  if ( v21 == 1484026436 )
     return 1;
-  WdLogSingleEntry1(4LL, 51LL);
+  v8 = WdLogNewEntry5_WdEvent(v6, v5);
+  *(_QWORD *)(v8 + 24) = 51LL;
+  WdLogEvent5_WdEvent(v8);
   return 0;
 }

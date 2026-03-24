@@ -1,9 +1,11 @@
 /*
- * XREFs of ScaleDPIRect @ 0x1C006E034
+ * XREFs of ScaleDPIRect @ 0x1C0070BE8
  * Callers:
- *     LogicalToPhysicalDPIRect @ 0x1C006DD10 (LogicalToPhysicalDPIRect.c)
+ *     GetMonitorRectForDpi @ 0x1C006EE58 (GetMonitorRectForDpi.c)
+ *     LogicalToPhysicalDPIRect @ 0x1C0070720 (LogicalToPhysicalDPIRect.c)
+ *     PhysicalToLogicalDPIRect @ 0x1C0070860 (PhysicalToLogicalDPIRect.c)
  * Callees:
- *     EngMulDiv @ 0x1C006E450 (EngMulDiv.c)
+ *     EngMulDiv @ 0x1C0070E10 (EngMulDiv.c)
  */
 
 __int64 __fastcall ScaleDPIRect(

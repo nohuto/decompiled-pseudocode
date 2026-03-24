@@ -1,15 +1,15 @@
 /*
- * XREFs of BiCreateBootEntry @ 0x1408F2A38
+ * XREFs of BiCreateBootEntry @ 0x1408F2A18
  * Callers:
- *     BiCreateEfiEntry @ 0x1408F2DC0 (BiCreateEfiEntry.c)
+ *     BiCreateEfiEntry @ 0x1408F2DA0 (BiCreateEfiEntry.c)
  * Callees:
- *     swprintf_s @ 0x14019A340 (swprintf_s.c)
- *     memmove @ 0x1401D1440 (memmove.c)
+ *     swprintf_s @ 0x14019A360 (swprintf_s.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiGetKeyName @ 0x140713B6C (BiGetKeyName.c)
- *     BiGetElement @ 0x1408F1118 (BiGetElement.c)
- *     BiTranslateFilePath @ 0x1408F47A8 (BiTranslateFilePath.c)
+ *     BiGetKeyName @ 0x140713B4C (BiGetKeyName.c)
+ *     BiGetElement @ 0x1408F10F8 (BiGetElement.c)
+ *     BiTranslateFilePath @ 0x1408F4788 (BiTranslateFilePath.c)
  */
 
 __int64 __fastcall BiCreateBootEntry(void *a1, _QWORD *a2)

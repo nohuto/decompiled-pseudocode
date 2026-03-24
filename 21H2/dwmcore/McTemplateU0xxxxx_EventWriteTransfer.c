@@ -1,11 +1,12 @@
 /*
- * XREFs of McTemplateU0xxxxx_EventWriteTransfer @ 0x180112622
+ * XREFs of McTemplateU0xxxxx_EventWriteTransfer @ 0x18015455C
  * Callers:
- *     ?TraceTime@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18007BD4C (-TraceTime@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
- *     ?AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z @ 0x180081D5C (-AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18006FCF0 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ *     ?AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z @ 0x18009B798 (-AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z.c)
+ *     ?TraceTime@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x1800DF17C (-TraceTime@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
  * Callees:
- *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1800B23CC (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
  */
 
 ULONG McTemplateU0xxxxx_EventWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, ...)

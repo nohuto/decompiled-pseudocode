@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlInitializeTieringHeat @ 0x140850FF0
+ * XREFs of FsRtlInitializeTieringHeat @ 0x1407C682C
  * Callers:
- *     FsRtlInitSystem @ 0x140B693F0 (FsRtlInitSystem.c)
+ *     FsRtlInitSystem @ 0x140A6B9E0 (FsRtlInitSystem.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
+ *     ExInitializeResourceLite @ 0x14021CC10 (ExInitializeResourceLite.c)
  */
 
 NTSTATUS FsRtlInitializeTieringHeat()
 {
-  qword_140C5F628 = (__int64)&FsRtlTieringHeatData;
+  qword_140C47748 = (__int64)&FsRtlTieringHeatData;
   FsRtlTieringHeatData = (__int64)&FsRtlTieringHeatData;
-  return ExInitializeResourceLite(&stru_140C5F630);
+  return ExInitializeResourceLite(&Resource);
 }

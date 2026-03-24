@@ -1,12 +1,13 @@
 /*
- * XREFs of ?CheckForAbandondedTags@FxTagTracker@@QEAAXXZ @ 0x1C006E530
+ * XREFs of ?CheckForAbandondedTags@FxTagTracker@@QEAAXXZ @ 0x1C005B5F0
  * Callers:
- *     ?Release@FxRequest@@UEAAKPEAXJPEBD@Z @ 0x1C00013D0 (-Release@FxRequest@@UEAAKPEAXJPEBD@Z.c)
- *     ?ProcessDestroy@FxObject@@AEAAXXZ @ 0x1C000ACD0 (-ProcessDestroy@FxObject@@AEAAXXZ.c)
- *     ??1FxTagTracker@@QEAA@XZ @ 0x1C006E408 (--1FxTagTracker@@QEAA@XZ.c)
+ *     ?Release@FxRequest@@UEAAKPEAXJPEBD@Z @ 0x1C00021D0 (-Release@FxRequest@@UEAAKPEAXJPEBD@Z.c)
+ *     ?Release@FxObject@@UEAAKPEAXJPEBD@Z @ 0x1C0002940 (-Release@FxObject@@UEAAKPEAXJPEBD@Z.c)
+ *     ?ProcessDestroy@FxObject@@AEAAXXZ @ 0x1C0005034 (-ProcessDestroy@FxObject@@AEAAXXZ.c)
+ *     ??1FxTagTracker@@QEAA@XZ @ 0x1C005B4C0 (--1FxTagTracker@@QEAA@XZ.c)
  * Callees:
- *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
- *     WPP_IFR_SF_qqsd @ 0x1C006E98C (WPP_IFR_SF_qqsd.c)
+ *     WPP_IFR_SF_q @ 0x1C0013820 (WPP_IFR_SF_q.c)
+ *     WPP_IFR_SF_qqsd @ 0x1C005BA0C (WPP_IFR_SF_qqsd.c)
  */
 
 void __fastcall FxTagTracker::CheckForAbandondedTags(FxTagTracker *this)

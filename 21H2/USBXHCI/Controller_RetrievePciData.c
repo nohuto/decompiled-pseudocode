@@ -1,13 +1,13 @@
 /*
- * XREFs of Controller_RetrievePciData @ 0x1C007215C
+ * XREFs of Controller_RetrievePciData @ 0x1C006C900
  * Callers:
- *     Controller_Create @ 0x1C00702D4 (Controller_Create.c)
+ *     Controller_Create @ 0x1C006B314 (Controller_Create.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C0019CC0 (memset.c)
- *     Controller_PopulatePciDeviceInformation @ 0x1C007233C (Controller_PopulatePciDeviceInformation.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001B2C0 (memset.c)
+ *     Controller_PopulatePciDeviceInformation @ 0x1C006CAE0 (Controller_PopulatePciDeviceInformation.c)
  */
 
 __int64 __fastcall Controller_RetrievePciData(__int64 a1, int a2, __int64 a3, __int64 a4)
@@ -42,7 +42,7 @@ __int64 __fastcall Controller_RetrievePciData(__int64 a1, int a2, __int64 a3, __
   if ( v8 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
     LOBYTE(v9) = 2;
-    WPP_RECORDER_SF_d(a2, v9, 4, 134, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, v8);
+    WPP_RECORDER_SF_d(a2, v9, 4, 134, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v8);
   }
   v10 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64, __int64, unsigned int *, int *))(WdfFunctions_01023 + 648))(
           WdfDriverGlobals,
@@ -59,7 +59,7 @@ __int64 __fastcall Controller_RetrievePciData(__int64 a1, int a2, __int64 a3, __
     v16 = 135;
 LABEL_11:
     LOBYTE(v11) = 2;
-    WPP_RECORDER_SF_d(a2, v11, 4, v16, (__int64)&WPP_ff2e52b0a40430e0f7756a6ff2f45ac0_Traceguids, v10);
+    WPP_RECORDER_SF_d(a2, v11, 4, v16, (__int64)&WPP_4d8d366f5fa2386b8519f650eb4534ed_Traceguids, v10);
     return v12;
   }
   v13 = v20;

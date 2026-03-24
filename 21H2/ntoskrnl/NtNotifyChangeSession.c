@@ -1,20 +1,20 @@
 /*
- * XREFs of NtNotifyChangeSession @ 0x1406A91F0
+ * XREFs of NtNotifyChangeSession @ 0x140694DB0
  * Callers:
  *     <none>
  * Callees:
- *     ExNotifyCallback @ 0x140232770 (ExNotifyCallback.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
- *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
- *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
+ *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
+ *     ExNotifyCallback @ 0x1402B0640 (ExNotifyCallback.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall NtNotifyChangeSession(
@@ -25,19 +25,19 @@ NTSTATUS __fastcall NtNotifyChangeSession(
         unsigned int a5,
         int a6,
         char *Src,
-        size_t Size)
+        SIZE_T NumberOfBytes)
 {
-  size_t v11; // r12
+  SIZE_T v11; // r12
   KPROCESSOR_MODE PreviousMode; // al
   NTSTATUS result; // eax
-  _QWORD *v14; // r14
-  __int64 v15; // rcx
-  unsigned int v16; // eax
+  struct _DMA_ADAPTER *v14; // r14
+  _DMA_OPERATIONS *DmaOperations; // rcx
+  unsigned int ReadDmaCounter_high; // eax
   unsigned int v17; // eax
-  __int64 v18; // rax
+  _DMA_OPERATIONS *v18; // rax
   char *v19; // rbx
-  __int64 v20; // rax
-  char *Pool2; // rax
+  struct _WORK_QUEUE_ITEM *v20; // rax
+  char *PoolWithTag; // rax
   unsigned __int16 v22; // r12
   char *v23; // rax
   char v24; // [rsp+30h] [rbp-1A8h]
@@ -49,56 +49,56 @@ NTSTATUS __fastcall NtNotifyChangeSession(
   _OWORD Argument1[4]; // [rsp+60h] [rbp-178h] BYREF
   _BYTE v31[256]; // [rsp+A0h] [rbp-138h] BYREF
 
-  v11 = (unsigned int)Size;
+  v11 = (unsigned int)NumberOfBytes;
   v24 = 0;
   memset(Argument1, 0, sizeof(Argument1));
   v25 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v26 = PreviousMode;
-  if ( (unsigned int)Size > 0x100 )
+  if ( (unsigned int)NumberOfBytes > 0x100 )
     return -1073741580;
   Object = 0LL;
   result = ObReferenceObjectByHandle(Handle, 2u, MmSessionObjectType, PreviousMode, &Object, 0LL);
   v27 = result;
   if ( result < 0 )
     return result;
-  v14 = Object;
-  KeWaitForSingleObject((PVOID)(*((_QWORD *)Object + 3) + 856LL), Executive, 0, 0, 0LL);
-  v15 = v14[3];
-  v16 = *(_DWORD *)(v15 + 852);
-  if ( v16 == a2 )
+  v14 = (struct _DMA_ADAPTER *)Object;
+  KeWaitForSingleObject((PVOID)(*((_QWORD *)Object + 3) + 1024LL), Executive, 0, 0, 0LL);
+  DmaOperations = v14[1].DmaOperations;
+  ReadDmaCounter_high = HIDWORD(DmaOperations[3].ReadDmaCounter);
+  if ( ReadDmaCounter_high == a2 )
   {
-    v17 = v16 + 1;
+    v17 = ReadDmaCounter_high + 1;
 LABEL_5:
-    *(_DWORD *)(v15 + 852) = v17;
+    HIDWORD(DmaOperations[3].ReadDmaCounter) = v17;
     goto LABEL_6;
   }
-  if ( v16 <= a2 || v16 - a2 >= 0xFFFFFFFD )
+  if ( ReadDmaCounter_high <= a2 || ReadDmaCounter_high - a2 >= 0xFFFFFFFD )
   {
     Interval.QuadPart = -1000000LL;
     v22 = 0;
     do
     {
-      KeSetEvent((PRKEVENT)(v15 + 856), 0, 0);
+      KeSetEvent((PRKEVENT)&DmaOperations[3].GetScatterGatherList, 0, 0);
       KeDelayExecutionThread(0, 0, &Interval);
-      KeWaitForSingleObject((PVOID)(v14[3] + 856LL), Executive, 0, 0, 0LL);
+      KeWaitForSingleObject(&v14[1].DmaOperations[3].GetScatterGatherList, Executive, 0, 0, 0LL);
       ++v22;
-      v15 = v14[3];
+      DmaOperations = v14[1].DmaOperations;
     }
-    while ( v22 <= 0xAu && *(_DWORD *)(v15 + 852) != a2 );
+    while ( v22 <= 0xAu && HIDWORD(DmaOperations[3].ReadDmaCounter) != a2 );
     v17 = a2 + 1;
-    v11 = (unsigned int)Size;
+    v11 = (unsigned int)NumberOfBytes;
     goto LABEL_5;
   }
 LABEL_6:
-  v18 = v14[3];
+  v18 = v14[1].DmaOperations;
   if ( !a4 )
   {
-    KeSetEvent((PRKEVENT)(v18 + 856), 0, 0);
-    ObfDereferenceObject(v14);
+    KeSetEvent((PRKEVENT)&v18[3].GetScatterGatherList, 0, 0);
+    HalPutDmaAdapter(v14);
     return 0;
   }
-  *(_DWORD *)(v18 + 848) = a5;
+  LODWORD(v18[3].ReadDmaCounter) = a5;
   v19 = 0LL;
   if ( !(_DWORD)v11 )
     goto LABEL_8;
@@ -106,12 +106,12 @@ LABEL_6:
   {
     if ( (unsigned __int64)&Src[v11] > 0x7FFFFFFF0000LL || &Src[v11] < Src )
       MEMORY[0x7FFFFFFF0000] = 0;
-    Pool2 = (char *)ExAllocatePool2(256LL, v11, 1850961737LL);
-    v19 = Pool2;
-    if ( Pool2 )
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v11, 0x6E536F49u);
+    v19 = PoolWithTag;
+    if ( PoolWithTag )
     {
       v24 = 1;
-      memmove(Pool2, Src, v11);
+      memmove(PoolWithTag, Src, v11);
     }
     else
     {
@@ -119,12 +119,12 @@ LABEL_6:
       memmove(v31, Src, v11);
       v25 = 1;
     }
-    LODWORD(v11) = Size;
+    LODWORD(v11) = NumberOfBytes;
     goto LABEL_8;
   }
   if ( a4 - 1 > 1 )
   {
-    v23 = (char *)ExAllocatePool2(256LL, (unsigned int)v11, 1850961737LL);
+    v23 = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v11, 0x6E536F49u);
     v19 = v23;
     if ( v23 )
     {
@@ -142,23 +142,23 @@ LABEL_8:
   *((_QWORD *)&Argument1[3] + 1) = v14;
   if ( !v25 && a4 - 1 > 1 )
   {
-    v20 = ExAllocatePool2(64LL, 64LL, 1850961737LL);
+    v20 = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x6E536F49u);
     if ( v20 )
     {
-      *(_OWORD *)v20 = Argument1[0];
-      *(_OWORD *)(v20 + 16) = Argument1[1];
-      *(_OWORD *)(v20 + 32) = Argument1[2];
-      *(_OWORD *)(v20 + 48) = Argument1[3];
-      *(_QWORD *)(v20 + 16) = IopSessionChangeWorker;
-      *(_QWORD *)(v20 + 24) = v20;
-      *(_QWORD *)v20 = 0LL;
-      ExQueueWorkItem((PWORK_QUEUE_ITEM)v20, DelayedWorkQueue);
+      v20->List = (_LIST_ENTRY)Argument1[0];
+      *(_OWORD *)&v20->WorkerRoutine = Argument1[1];
+      v20[1].List = (_LIST_ENTRY)Argument1[2];
+      *(_OWORD *)&v20[1].WorkerRoutine = Argument1[3];
+      v20->WorkerRoutine = (void (__fastcall *)(void *))IopSessionChangeWorker;
+      v20->Parameter = v20;
+      v20->List.Flink = 0LL;
+      ExQueueWorkItem(v20, DelayedWorkQueue);
       return 0;
     }
   }
   ExNotifyCallback(IopSessionCallbackObject, Argument1, 0LL);
-  KeSetEvent((PRKEVENT)(v14[3] + 856LL), 0, 0);
-  ObfDereferenceObject(v14);
+  KeSetEvent((PRKEVENT)&v14[1].DmaOperations[3].GetScatterGatherList, 0, 0);
+  HalPutDmaAdapter(v14);
   if ( v19 )
   {
     if ( v24 == 1 )

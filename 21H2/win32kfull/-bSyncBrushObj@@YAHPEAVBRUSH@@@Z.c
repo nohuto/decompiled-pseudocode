@@ -1,9 +1,9 @@
 /*
- * XREFs of ?bSyncBrushObj@@YAHPEAVBRUSH@@@Z @ 0x1C01321C0
+ * XREFs of ?bSyncBrushObj@@YAHPEAVBRUSH@@@Z @ 0x1C0147EEC
  * Callers:
- *     NtGdiFillRgn @ 0x1C012E830 (NtGdiFillRgn.c)
- *     ?cjGetBrushOrPen@@YAJPEAXH0@Z @ 0x1C0132068 (-cjGetBrushOrPen@@YAJPEAXH0@Z.c)
- *     NtGdiFrameRgn @ 0x1C0132220 (NtGdiFrameRgn.c)
+ *     NtGdiFrameRgn @ 0x1C013EC70 (NtGdiFrameRgn.c)
+ *     ?cjGetBrushOrPen@@YAJPEAXH0@Z @ 0x1C01466F4 (-cjGetBrushOrPen@@YAJPEAXH0@Z.c)
+ *     NtGdiFillRgn @ 0x1C0146850 (NtGdiFillRgn.c)
  * Callees:
  *     <none>
  */

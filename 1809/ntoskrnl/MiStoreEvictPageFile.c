@@ -1,14 +1,14 @@
 /*
- * XREFs of MiStoreEvictPageFile @ 0x140137E48
+ * XREFs of MiStoreEvictPageFile @ 0x140137E68
  * Callers:
- *     MiStoreEvictThread @ 0x14018A3A0 (MiStoreEvictThread.c)
+ *     MiStoreEvictThread @ 0x14018A3C0 (MiStoreEvictThread.c)
  * Callees:
  *     RtlFindNextForwardRunClearCapped @ 0x14002B750 (RtlFindNextForwardRunClearCapped.c)
- *     ?SmpPageEvict@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z @ 0x14014B920 (-SmpPageEvict@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z.c)
- *     ?SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z @ 0x14014EF78 (-SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z.c)
- *     MiRefPageFileSpaceBitmaps @ 0x14014F8DC (MiRefPageFileSpaceBitmaps.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x14014FA88 (MiDerefPageFileSpaceBitmaps.c)
- *     MiStoreSetPageFileRunEvicted @ 0x140156E28 (MiStoreSetPageFileRunEvicted.c)
+ *     ?SmpPageEvict@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z @ 0x14014B940 (-SmpPageEvict@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@KPEAX@Z.c)
+ *     ?SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z @ 0x14014EF98 (-SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x14014F8FC (MiRefPageFileSpaceBitmaps.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x14014FAA8 (MiDerefPageFileSpaceBitmaps.c)
+ *     MiStoreSetPageFileRunEvicted @ 0x140156E48 (MiStoreSetPageFileRunEvicted.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  */
 

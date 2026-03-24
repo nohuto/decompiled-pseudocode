@@ -1,29 +1,29 @@
 /*
- * XREFs of KeSuspendClockTimerSafe @ 0x14056CC3C
+ * XREFs of KeSuspendClockTimerSafe @ 0x140513DF0
  * Callers:
- *     IopLiveDumpProcessCorralStateChange @ 0x140A677B8 (IopLiveDumpProcessCorralStateChange.c)
- *     PnprQuiesceProcessorDpc @ 0x140A687F0 (PnprQuiesceProcessorDpc.c)
- *     PnprQuiesceProcessors @ 0x140A68BE8 (PnprQuiesceProcessors.c)
+ *     IopLiveDumpProcessCorralStateChange @ 0x1409AD37C (IopLiveDumpProcessCorralStateChange.c)
+ *     PnprQuiesceProcessorDpc @ 0x1409AE390 (PnprQuiesceProcessorDpc.c)
+ *     PnprQuiesceProcessors @ 0x1409AE774 (PnprQuiesceProcessors.c)
  * Callees:
- *     ObGetCurrentIrql @ 0x140244120 (ObGetCurrentIrql.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 KeSuspendClockTimerSafe()
 {
-  unsigned __int8 CurrentIrql; // si
+  unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
-  struct _KPRCB *v2; // rdi
-  int v3; // r14d
+  struct _KPRCB *v2; // rbx
+  int v3; // ebp
   unsigned __int8 v4; // al
   struct _KPRCB *v5; // r9
   _DWORD *v6; // r8
   int v7; // eax
   bool v8; // zf
   __int64 result; // rax
-  struct _KPRCB *CurrentPrcb; // rdi
-  int v11; // esi
+  struct _KPRCB *CurrentPrcb; // rbx
+  int v11; // edi
 
   if ( ObGetCurrentIrql() >= 0xDu )
   {
@@ -32,12 +32,11 @@ __int64 KeSuspendClockTimerSafe()
     v11 = KiClockTimerOwner;
     if ( (CurrentPrcb->PendingTickFlags & 1) != 0 )
     {
-      result = off_140C01ED8[0]();
+      result = off_140C00888[0]();
       CurrentPrcb->PendingTickFlags &= ~1u;
-      CurrentPrcb->ClockTimerState.ClockActive = 0;
     }
     if ( CurrentPrcb->Number == v11 )
-      ++dword_140C2B148;
+      ++dword_140C31B88;
     if ( CurrentPrcb->ClockOwner )
       CurrentPrcb->ClockOwner = 0;
   }
@@ -54,12 +53,11 @@ __int64 KeSuspendClockTimerSafe()
     v3 = KiClockTimerOwner;
     if ( (v2->PendingTickFlags & 1) != 0 )
     {
-      off_140C01ED8[0]();
+      off_140C00888[0]();
       v2->PendingTickFlags &= ~1u;
-      v2->ClockTimerState.ClockActive = 0;
     }
     if ( v2->Number == v3 )
-      ++dword_140C2B148;
+      ++dword_140C31B88;
     if ( v2->ClockOwner )
       v2->ClockOwner = 0;
     if ( KiIrqlFlags )

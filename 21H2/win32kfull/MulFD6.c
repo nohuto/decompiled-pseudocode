@@ -1,14 +1,14 @@
 /*
- * XREFs of MulFD6 @ 0x1C00945F0
+ * XREFs of MulFD6 @ 0x1C001C0DC
  * Callers:
- *     ComputeRGBLUTAA @ 0x1C0094050 (ComputeRGBLUTAA.c)
- *     AdjustSrcDevGamma @ 0x1C00950A4 (AdjustSrcDevGamma.c)
- *     RaisePower @ 0x1C0095584 (RaisePower.c)
- *     ComputeInverseMatrix3x3 @ 0x1C0095B10 (ComputeInverseMatrix3x3.c)
- *     ComputeColorSpaceXForm @ 0x1C0095D6C (ComputeColorSpaceXForm.c)
- *     HT_CreateDeviceHalftoneInfo @ 0x1C0096118 (HT_CreateDeviceHalftoneInfo.c)
- *     CacheRGBToXYZ @ 0x1C025E6A4 (CacheRGBToXYZ.c)
- *     ComputeBGRMappingTable @ 0x1C025E794 (ComputeBGRMappingTable.c)
+ *     ComputeRGBLUTAA @ 0x1C001BB38 (ComputeRGBLUTAA.c)
+ *     AdjustSrcDevGamma @ 0x1C001CB90 (AdjustSrcDevGamma.c)
+ *     RaisePower @ 0x1C001F508 (RaisePower.c)
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C01126A8 (HT_CreateDeviceHalftoneInfo.c)
+ *     ComputeColorSpaceXForm @ 0x1C011B064 (ComputeColorSpaceXForm.c)
+ *     ComputeInverseMatrix3x3 @ 0x1C011B5BC (ComputeInverseMatrix3x3.c)
+ *     CacheRGBToXYZ @ 0x1C0261818 (CacheRGBToXYZ.c)
+ *     ComputeBGRMappingTable @ 0x1C0261908 (ComputeBGRMappingTable.c)
  * Callees:
  *     <none>
  */

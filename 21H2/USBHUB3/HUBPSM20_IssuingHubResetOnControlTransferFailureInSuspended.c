@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBPSM20_IssuingHubResetOnControlTransferFailureInSuspended @ 0x1C00118A0
+ * XREFs of HUBPSM20_IssuingHubResetOnControlTransferFailureInSuspended @ 0x1C0011490
  * Callers:
  *     <none>
  * Callees:
- *     HUBMUX_ReEnableInterruptTransfer @ 0x1C000FC1C (HUBMUX_ReEnableInterruptTransfer.c)
- *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C000FEC0 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
+ *     HUBMUX_ReEnableInterruptTransfer @ 0x1C000F800 (HUBMUX_ReEnableInterruptTransfer.c)
+ *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C000FAA4 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
  */
 
 __int64 __fastcall HUBPSM20_IssuingHubResetOnControlTransferFailureInSuspended(__int64 a1)

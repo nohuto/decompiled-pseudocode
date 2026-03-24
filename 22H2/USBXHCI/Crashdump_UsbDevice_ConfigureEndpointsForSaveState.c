@@ -1,11 +1,11 @@
 /*
- * XREFs of Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C0050060
+ * XREFs of Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C004D588
  * Callers:
- *     Crashdump_Cleanup @ 0x1C004BD10 (Crashdump_Cleanup.c)
+ *     Crashdump_Cleanup @ 0x1C0049210 (Crashdump_Cleanup.c)
  * Callees:
- *     Endpoint_GetDequeuePointer @ 0x1C000CF0C (Endpoint_GetDequeuePointer.c)
- *     Endpoint_GetMaxPrimaryStreams @ 0x1C000CF6C (Endpoint_GetMaxPrimaryStreams.c)
- *     Crashdump_Command_SendCommand @ 0x1C004EA8C (Crashdump_Command_SendCommand.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C0008334 (Endpoint_GetDequeuePointer.c)
+ *     Endpoint_GetMaxPrimaryStreams @ 0x1C0008394 (Endpoint_GetMaxPrimaryStreams.c)
+ *     Crashdump_Command_SendCommand @ 0x1C004BFB0 (Crashdump_Command_SendCommand.c)
  */
 
 __int64 __fastcall Crashdump_UsbDevice_ConfigureEndpointsForSaveState(__int64 a1)
@@ -13,10 +13,10 @@ __int64 __fastcall Crashdump_UsbDevice_ConfigureEndpointsForSaveState(__int64 a1
   int v2; // ebx
   unsigned int v3; // esi
   __int64 v4; // rdi
-  __int64 v5; // r9
+  __int64 v5; // r10
   __int64 DequeuePointer; // rax
   int v7; // edx
-  __int64 v8; // r9
+  __int64 v8; // r10
   __int128 v10; // [rsp+20h] [rbp-18h] BYREF
 
   v10 = 0LL;

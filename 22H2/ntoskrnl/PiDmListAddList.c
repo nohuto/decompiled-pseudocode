@@ -1,76 +1,78 @@
 /*
- * XREFs of PiDmListAddList @ 0x140882944
+ * XREFs of PiDmListAddList @ 0x14076E0B4
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140789030 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x1406AE700 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     PiDmGetObjectManagerForObjectType @ 0x1406D82BC (PiDmGetObjectManagerForObjectType.c)
- *     PiDmListAddObjectWorker @ 0x1407BEB6C (PiDmListAddObjectWorker.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x1402CB580 (ExReleasePushLockEx.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x1406AFB70 (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmListAddObjectWorker @ 0x1407352C0 (PiDmListAddObjectWorker.c)
  */
 
-void __fastcall PiDmListAddList(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
+_QWORD *__fastcall PiDmListAddList(__int64 a1, ULONG_PTR a2, __int64 a3, ULONG_PTR a4)
 {
-  __int64 *v5; // rdi
   struct _ERESOURCE *ObjectManagerForObjectType; // rax
-  unsigned __int64 v7; // r9
+  ULONG_PTR v7; // r9
   struct _KTHREAD *CurrentThread; // rcx
   struct _ERESOURCE *v9; // rbp
   _QWORD **v10; // r15
   struct _KTHREAD *v11; // rax
   _QWORD *i; // r14
-  struct _KTHREAD *v13; // rax
-  struct _KTHREAD *v14; // rax
+  ULONG_PTR v13; // rcx
+  struct _KTHREAD *v15; // rax
+  struct _KTHREAD *v16; // rax
 
-  v5 = (__int64 *)a2;
   ObjectManagerForObjectType = (struct _ERESOURCE *)PiDmGetObjectManagerForObjectType(*(_DWORD *)(a2 + 28));
   CurrentThread = KeGetCurrentThread();
   v9 = ObjectManagerForObjectType;
   v10 = (_QWORD **)(v7 + 88);
-  if ( (unsigned __int64)v5 >= v7 )
+  if ( a2 >= v7 )
   {
     --CurrentThread->KernelApcDisable;
-    if ( (unsigned __int64)v5 > v7 )
+    if ( a2 > v7 )
     {
-      ExAcquirePushLockSharedEx((ULONG_PTR)a4, 0LL);
-      v13 = KeGetCurrentThread();
-      --v13->KernelApcDisable;
+      ExAcquirePushLockSharedEx(a4, 0LL);
+      v15 = KeGetCurrentThread();
+      --v15->KernelApcDisable;
     }
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)v5, 0LL);
+    ExAcquirePushLockExclusiveEx(a2, 0LL);
   }
   else
   {
     --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)v5, 0LL);
+    ExAcquirePushLockExclusiveEx(a2, 0LL);
     v11 = KeGetCurrentThread();
     --v11->KernelApcDisable;
-    ExAcquirePushLockSharedEx((ULONG_PTR)a4, 0LL);
+    ExAcquirePushLockSharedEx(a4, 0LL);
   }
   for ( i = *v10; i != v10; i = (_QWORD *)*i )
   {
-    v14 = KeGetCurrentThread();
-    --v14->KernelApcDisable;
+    v16 = KeGetCurrentThread();
+    --v16->KernelApcDisable;
     ExAcquirePushLockSharedEx((ULONG_PTR)(i - 8), 0LL);
-    PiDmListAddObjectWorker(2, v9, (__int64)v5, (__int64)(i - 8), 0LL);
-    ExReleasePushLockEx(i - 8, 0LL);
-    KeLeaveCriticalRegion();
+    PiDmListAddObjectWorker(2, v9, a2, (__int64)(i - 8), 0LL);
+    ExReleasePushLockEx((ULONG_PTR)(i - 8), 0LL);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  if ( v5 >= a4 )
+  if ( a2 >= a4 )
   {
-    if ( v5 > a4 )
+    if ( a2 > a4 )
     {
-      ExReleasePushLockEx(v5, 0LL);
-      KeLeaveCriticalRegion();
-      v5 = a4;
+      ExReleasePushLockEx(a2, 0LL);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      v13 = a4;
+      goto LABEL_8;
     }
   }
   else
   {
     ExReleasePushLockEx(a4, 0LL);
-    KeLeaveCriticalRegion();
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  ExReleasePushLockEx(v5, 0LL);
-  KeLeaveCriticalRegion();
+  v13 = a2;
+LABEL_8:
+  ExReleasePushLockEx(v13, 0LL);
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

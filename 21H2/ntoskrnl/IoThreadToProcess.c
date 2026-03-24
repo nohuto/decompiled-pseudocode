@@ -1,23 +1,19 @@
 /*
- * XREFs of IoThreadToProcess @ 0x1402321F0
+ * XREFs of IoThreadToProcess @ 0x140205700
  * Callers:
- *     PsSyscallProviderDispatch @ 0x1406593C0 (PsSyscallProviderDispatch.c)
- *     AlpcpCaptureWorkOnBehalfAttribute @ 0x1406BCB64 (AlpcpCaptureWorkOnBehalfAttribute.c)
- *     PspSetContextThreadInternal @ 0x1407043D0 (PspSetContextThreadInternal.c)
- *     PspWow64SetContextThread @ 0x140705578 (PspWow64SetContextThread.c)
- *     NtSetInformationThread @ 0x14072EC80 (NtSetInformationThread.c)
- *     IopXxxControlFile @ 0x1407308F0 (IopXxxControlFile.c)
- *     AlpcpCreateSecurityContext @ 0x1407A74A4 (AlpcpCreateSecurityContext.c)
- *     PsLookupThreadByThreadId @ 0x1407A7D90 (PsLookupThreadByThreadId.c)
- *     PspThreadFromTicket @ 0x1407A87D0 (PspThreadFromTicket.c)
- *     AlpcpCaptureAttributes @ 0x1407AB790 (AlpcpCaptureAttributes.c)
- *     NtQueryInformationThread @ 0x1407BF670 (NtQueryInformationThread.c)
- *     DbgkQueueUserExceptionReport @ 0x14092972C (DbgkQueueUserExceptionReport.c)
- *     DbgkUserReportWorkRoutine @ 0x140929C60 (DbgkUserReportWorkRoutine.c)
- *     DbgkCaptureLiveDump @ 0x14092AC5C (DbgkCaptureLiveDump.c)
- *     NtAlpcImpersonateClientContainerOfPort @ 0x1409663D0 (NtAlpcImpersonateClientContainerOfPort.c)
- *     MiForceCrashForInvalidAccess @ 0x140967E00 (MiForceCrashForInvalidAccess.c)
- *     NtSetContextThread @ 0x1409B1A00 (NtSetContextThread.c)
+ *     AlpcpCaptureAttributes @ 0x1405E6290 (AlpcpCaptureAttributes.c)
+ *     NtQueryInformationThread @ 0x1405FB940 (NtQueryInformationThread.c)
+ *     PspSetContextThreadInternal @ 0x140647C9C (PspSetContextThreadInternal.c)
+ *     AlpcpCreateSecurityContext @ 0x1406605EC (AlpcpCreateSecurityContext.c)
+ *     AlpcpCaptureWorkOnBehalfAttribute @ 0x1406A15FC (AlpcpCaptureWorkOnBehalfAttribute.c)
+ *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
+ *     IopXxxControlFile @ 0x1406FE010 (IopXxxControlFile.c)
+ *     DbgkQueueUserExceptionReport @ 0x140886810 (DbgkQueueUserExceptionReport.c)
+ *     DbgkUserReportWorkRoutine @ 0x140886D50 (DbgkUserReportWorkRoutine.c)
+ *     DbgkCaptureLiveDump @ 0x140887D1C (DbgkCaptureLiveDump.c)
+ *     NtAlpcImpersonateClientContainerOfPort @ 0x1408C2530 (NtAlpcImpersonateClientContainerOfPort.c)
+ *     MiForceCrashForInvalidAccess @ 0x1408C42A4 (MiForceCrashForInvalidAccess.c)
+ *     NtSetContextThread @ 0x14090B370 (NtSetContextThread.c)
  * Callees:
  *     <none>
  */

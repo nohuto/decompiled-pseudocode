@@ -1,7 +1,7 @@
 /*
- * XREFs of PspSanitizeResourceLimits @ 0x140757ECC
+ * XREFs of PspSanitizeResourceLimits @ 0x140757EAC
  * Callers:
- *     PspReadUserQuotaLimits @ 0x14065A44C (PspReadUserQuotaLimits.c)
+ *     PspReadUserQuotaLimits @ 0x14065A42C (PspReadUserQuotaLimits.c)
  *     PsInitializeQuotaSystem @ 0x1409D7580 (PsInitializeQuotaSystem.c)
  * Callees:
  *     <none>

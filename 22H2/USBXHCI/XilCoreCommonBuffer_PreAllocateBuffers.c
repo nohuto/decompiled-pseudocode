@@ -1,10 +1,10 @@
 /*
- * XREFs of XilCoreCommonBuffer_PreAllocateBuffers @ 0x1C0007998
+ * XREFs of XilCoreCommonBuffer_PreAllocateBuffers @ 0x1C0015EB8
  * Callers:
- *     CommonBuffer_WorkItem @ 0x1C00078D0 (CommonBuffer_WorkItem.c)
+ *     CommonBuffer_WorkItem @ 0x1C0015DF0 (CommonBuffer_WorkItem.c)
  * Callees:
- *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0007A54 (XilCoreCommonBuffer_AllocateBuffers.c)
- *     WPP_RECORDER_SF_dd @ 0x1C0008508 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0015F74 (XilCoreCommonBuffer_AllocateBuffers.c)
  */
 
 void __fastcall XilCoreCommonBuffer_PreAllocateBuffers(__int64 a1)
@@ -34,7 +34,7 @@ void __fastcall XilCoreCommonBuffer_PreAllocateBuffers(__int64 a1)
             v5,
             8,
             15,
-            (__int64)&WPP_eecfbef36d1a35cfffa7ec1ff8c060f3_Traceguids,
+            (__int64)&WPP_a84c20f32b9f317edc0159cb83ba05a2_Traceguids,
             i,
             v4);
         }

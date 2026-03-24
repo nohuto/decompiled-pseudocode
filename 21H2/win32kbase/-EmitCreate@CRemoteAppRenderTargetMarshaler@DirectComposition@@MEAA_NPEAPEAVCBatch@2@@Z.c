@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitCreate@CRemoteAppRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022C6D0
+ * XREFs of ?EmitCreate@CRemoteAppRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01EC9B0
  * Callers:
  *     <none>
  * Callees:
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_2a72d71d6bc6cf47da08a39ed23406ed___ @ 0x1C022C508 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_2a72d71d6bc6cf47da08a39ed23406e.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_2a72d71d6bc6cf47da08a39ed23406ed___ @ 0x1C01EC7F4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_2a72d71d6bc6cf47da08a39ed23406e.c)
  */
 
 char __fastcall DirectComposition::CRemoteAppRenderTargetMarshaler::EmitCreate(

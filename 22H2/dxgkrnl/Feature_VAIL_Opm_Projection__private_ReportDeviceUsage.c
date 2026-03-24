@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_VAIL_Opm_Projection__private_ReportDeviceUsage @ 0x1C0026DE0
+ * XREFs of Feature_VAIL_Opm_Projection__private_ReportDeviceUsage @ 0x1C002684C
  * Callers:
- *     ?VmBusOpmRequest@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C03832B0 (-VmBusOpmRequest@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusOpmRequest@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0245690 (-VmBusOpmRequest@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C00245B0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0024828 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0024F04 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0025174 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_VAIL_Opm_Projection__private_ReportDeviceUsage()
@@ -14,7 +14,7 @@ void Feature_VAIL_Opm_Projection__private_ReportDeviceUsage()
   v0 = (unsigned int)Feature_VAIL_Opm_Projection__private_featureState;
   if ( (Feature_VAIL_Opm_Projection__private_featureState & 0x10) == 0 )
   {
-    LODWORD(v0) = Feature_VAIL_Opm_Projection__private_featureState | 1;
+    LODWORD(v0) = Feature_VAIL_Opm_Projection__private_featureState & 0xFFFFFFFE;
     wil_details_FeatureReporting_ReportUsageToService(
       (__int64)&Feature_VAIL_Opm_Projection__private_descriptor,
       v0,

@@ -1,13 +1,13 @@
 /*
- * XREFs of LoadWallpaperFilenameFromRegistry @ 0x1C011A528
+ * XREFs of LoadWallpaperFilenameFromRegistry @ 0x1C012EEF8
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C009EBF8 (xxxSystemParametersInfoWorker.c)
- *     xxxSetDeskWallpaper @ 0x1C011A1CC (xxxSetDeskWallpaper.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DD338 (xxxSystemParametersInfoWorker.c)
+ *     xxxSetDeskWallpaper @ 0x1C012EB9C (xxxSetDeskWallpaper.c)
  * Callees:
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C002393C (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?GetDefaultWallpaperName@@YAXPEAGI@Z @ 0x1C021CAD8 (-GetDefaultWallpaperName@@YAXPEAGI@Z.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0049A6C (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?GetDefaultWallpaperName@@YAXPEAGI@Z @ 0x1C02230E8 (-GetDefaultWallpaperName@@YAXPEAGI@Z.c)
  */
 
 __int64 __fastcall LoadWallpaperFilenameFromRegistry(__int64 a1, char *a2, unsigned int a3)
@@ -23,10 +23,10 @@ __int64 __fastcall LoadWallpaperFilenameFromRegistry(__int64 a1, char *a2, unsig
   *(_OWORD *)v7 = 0LL;
   v8 = 0LL;
   memset(Str2, 0, sizeof(Str2));
-  RtlLoadStringOrError(82LL, v7, 20LL, 0LL);
+  RtlLoadStringOrError(82LL, v7, 20LL);
   if ( !(unsigned int)FastGetProfileStringFromIDW(a1, 4LL, 67LL, v7, a2, v3, 8) )
     RtlStringCchCopyW(a2, v3, (char *)v7);
-  RtlLoadStringOrError(71LL, Str2, 40LL, 0LL);
+  RtlLoadStringOrError(71LL, Str2, 40LL);
   if ( !_wcsicmp((const wchar_t *)a2, Str2) )
     GetDefaultWallpaperName((unsigned __int16 *)a2, v3);
   return 1LL;

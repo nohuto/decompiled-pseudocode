@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CanCastTo@?$ImplementsHelper@U?$RuntimeClassFlags@$02@WRL@Microsoft@@$0A@U?$IReference@I@Foundation@Windows@@UIWeakReferenceSource@@VFtmBase@23@@Details@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAXPEA_N@Z @ 0x1802933E8
+ * XREFs of ?CanCastTo@?$ImplementsHelper@U?$RuntimeClassFlags@$02@WRL@Microsoft@@$0A@U?$IReference@I@Foundation@Windows@@UIWeakReferenceSource@@VFtmBase@23@@Details@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAXPEA_N@Z @ 0x1802432D4
  * Callers:
- *     ?QueryInterface@?$ValueReference@I@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180297A40 (-QueryInterface@-$ValueReference@I@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?QueryInterface@?$ValueReference@I@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180246F00 (-QueryInterface@-$ValueReference@I@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
  * Callees:
- *     ?CanCastTo@FtmBase@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180293454 (-CanCastTo@FtmBase@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAX@Z.c)
- *     ?InlineIsEqualGUID@@YAHAEBU_GUID@@0@Z @ 0x180296D68 (-InlineIsEqualGUID@@YAHAEBU_GUID@@0@Z.c)
+ *     ?CanCastTo@FtmBase@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180243340 (-CanCastTo@FtmBase@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?InlineIsEqualGUID@@YAHAEBU_GUID@@0@Z @ 0x18024608C (-InlineIsEqualGUID@@YAHAEBU_GUID@@0@Z.c)
  */
 
 __int64 __fastcall Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<3>,0,Windows::Foundation::IReference<unsigned int>,IWeakReferenceSource,Microsoft::WRL::FtmBase>::CanCastTo(

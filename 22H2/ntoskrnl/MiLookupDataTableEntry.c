@@ -1,45 +1,42 @@
 /*
- * XREFs of MiLookupDataTableEntry @ 0x1402136C0
+ * XREFs of MiLookupDataTableEntry @ 0x140358CCC
  * Callers:
- *     MmProtectDriverSection @ 0x14036E220 (MmProtectDriverSection.c)
- *     MmVerifyCallbackFunctionCheckFlags @ 0x14039FC2C (MmVerifyCallbackFunctionCheckFlags.c)
- *     MiReplaceImportEntry @ 0x14062C720 (MiReplaceImportEntry.c)
- *     MiShowBadMapper @ 0x14063112C (MiShowBadMapper.c)
- *     MmWriteSystemImageTracepoint @ 0x1406433DC (MmWriteSystemImageTracepoint.c)
- *     MiLogPinDriverAddress @ 0x1406ACDB8 (MiLogPinDriverAddress.c)
- *     MmIsDriverVerifyingByAddress @ 0x1406AD520 (MmIsDriverVerifyingByAddress.c)
- *     MmLockPagableDataSection @ 0x1406AD5B0 (MmLockPagableDataSection.c)
- *     MmPageEntireDriver @ 0x140701000 (MmPageEntireDriver.c)
- *     MiImagePagable @ 0x14070111C (MiImagePagable.c)
- *     MmChangeImageProtection @ 0x140723EB0 (MmChangeImageProtection.c)
- *     MmBackSystemImageWithPagefile @ 0x140871F6C (MmBackSystemImageWithPagefile.c)
- *     MmAddVerifierSpecialThunks @ 0x140A2D4A0 (MmAddVerifierSpecialThunks.c)
- *     MmAddVerifierThunks @ 0x140A2D5B0 (MmAddVerifierThunks.c)
- *     MmGetSectionRange @ 0x140A306E8 (MmGetSectionRange.c)
- *     MmGetImageRetpolineCodePage @ 0x140A34620 (MmGetImageRetpolineCodePage.c)
- *     MiCheckVerifierFunctionsCfgState @ 0x140A43F68 (MiCheckVerifierFunctionsCfgState.c)
- *     MmMarkImageForHiberPhase @ 0x140AAD02C (MmMarkImageForHiberPhase.c)
- *     MmApplyVerifierToRunningImage @ 0x140AE8F80 (MmApplyVerifierToRunningImage.c)
- *     MmReapplyBootPatchImports @ 0x140B750B4 (MmReapplyBootPatchImports.c)
- *     MmDiscardDriverSection @ 0x140B756B4 (MmDiscardDriverSection.c)
+ *     MiRemoveWsle @ 0x1402B9670 (MiRemoveWsle.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x1403AF0C0 (MmVerifyCallbackFunctionCheckFlags.c)
+ *     MiShowBadMapper @ 0x14052D12C (MiShowBadMapper.c)
+ *     MmReplaceImportEntry @ 0x14053585C (MmReplaceImportEntry.c)
+ *     MmWriteSystemImageTracepoint @ 0x14053F638 (MmWriteSystemImageTracepoint.c)
+ *     MiImagePagable @ 0x1406FE41C (MiImagePagable.c)
+ *     MmPageEntireDriver @ 0x1406FE4F0 (MmPageEntireDriver.c)
+ *     MmLockPagableDataSection @ 0x1406FE5A0 (MmLockPagableDataSection.c)
+ *     MmChangeImageProtection @ 0x1406FE6A0 (MmChangeImageProtection.c)
+ *     MmBackSystemImageWithPagefile @ 0x14078098C (MmBackSystemImageWithPagefile.c)
+ *     MiLogPinDriverAddress @ 0x1407B6A44 (MiLogPinDriverAddress.c)
+ *     MmGetImageRetpolineCodePage @ 0x1407CDAC0 (MmGetImageRetpolineCodePage.c)
+ *     MmIsDriverVerifyingByAddress @ 0x1407D2AF0 (MmIsDriverVerifyingByAddress.c)
+ *     MmAddVerifierSpecialThunks @ 0x1408C64E0 (MmAddVerifierSpecialThunks.c)
+ *     MmAddVerifierThunks @ 0x1408C6600 (MmAddVerifierThunks.c)
+ *     MmGetSectionRange @ 0x1408C8238 (MmGetSectionRange.c)
+ *     MmMarkImageForHiberPhase @ 0x1409B09F4 (MmMarkImageForHiberPhase.c)
+ *     MmDiscardDriverSection @ 0x140A92E70 (MmDiscardDriverSection.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     MmUnlockLoadedModuleListShared @ 0x1402A7C6C (MmUnlockLoadedModuleListShared.c)
- *     MmLockLoadedModuleListShared @ 0x140339800 (MmLockLoadedModuleListShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     MmUnlockLoadedModuleListShared @ 0x14029CDE4 (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x14029CF18 (MmLockLoadedModuleListShared.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
  */
 
-_QWORD *__fastcall MiLookupDataTableEntry(unsigned __int64 a1, int a2)
+__int64 __fastcall MiLookupDataTableEntry(unsigned __int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rsi
-  _QWORD *v5; // rax
+  _QWORD *v5; // rdx
   unsigned __int64 v6; // r8
-  _QWORD *v7; // rbx
+  __int64 v7; // rbx
   unsigned __int8 v9; // [rsp+38h] [rbp+10h] BYREF
 
-  v9 = 17;
   CurrentThread = 0LL;
+  v9 = 17;
   if ( a2 == 2 )
   {
     MmLockLoadedModuleListShared(&v9);
@@ -50,28 +47,22 @@ _QWORD *__fastcall MiLookupDataTableEntry(unsigned __int64 a1, int a2)
     --CurrentThread->KernelApcDisable;
     ExAcquireResourceSharedLite(&PsLoadedModuleResource, 1u);
   }
-  v5 = (_QWORD *)BugCheckParameter3;
-  if ( BugCheckParameter3 )
+  v5 = (_QWORD *)qword_140C4CD60;
+  while ( v5 )
   {
-    do
+    v6 = *(v5 - 23);
+    if ( a1 > v6 + (unsigned int)(*((_DWORD *)v5 - 42) - 1) )
     {
-      v6 = *(v5 - 23);
-      if ( a1 > v6 + (unsigned int)(*((_DWORD *)v5 - 42) - 1) )
-      {
-        v5 = (_QWORD *)v5[1];
-      }
-      else
-      {
-        if ( a1 >= v6 )
-          break;
-        v5 = (_QWORD *)*v5;
-      }
+      v5 = (_QWORD *)v5[1];
     }
-    while ( v5 );
+    else
+    {
+      if ( a1 >= v6 )
+        break;
+      v5 = (_QWORD *)*v5;
+    }
   }
-  v7 = v5 - 29;
-  if ( !v5 )
-    v7 = 0LL;
+  v7 = (unsigned __int64)(v5 - 29) & -(__int64)(v5 != 0LL);
   if ( a2 == 2 )
   {
     MmUnlockLoadedModuleListShared(v9);
@@ -79,7 +70,7 @@ _QWORD *__fastcall MiLookupDataTableEntry(unsigned __int64 a1, int a2)
   else if ( a2 == 1 )
   {
     ExReleaseResourceLite(&PsLoadedModuleResource);
-    KeLeaveCriticalRegionThread(CurrentThread);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
   }
   return v7;
 }

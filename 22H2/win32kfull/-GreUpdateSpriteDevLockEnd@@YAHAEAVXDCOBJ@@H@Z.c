@@ -1,282 +1,255 @@
 /*
- * XREFs of ?GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0107D28
+ * XREFs of ?GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z @ 0x1C00902E0
  * Callers:
- *     ?vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z @ 0x1C00AB168 (-vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z.c)
- *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C00F8B40 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
- *     GreStretchBltInternal @ 0x1C00FF3A0 (GreStretchBltInternal.c)
- *     NtGdiBitBltInternal @ 0x1C01042C0 (NtGdiBitBltInternal.c)
- *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C011C160 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
- *     ?vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C026BCA8 (-vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ.c)
+ *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C008AF30 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C008E920 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     GreSetDIBitsToDeviceInternal @ 0x1C00AF240 (GreSetDIBitsToDeviceInternal.c)
+ *     ?vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z @ 0x1C00FEEB4 (-vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z.c)
+ *     ?vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C0273044 (-vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ.c)
  * Callees:
- *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C0003828 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
- *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00541A0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
- *     GreUpdateSprite @ 0x1C00D5F08 (GreUpdateSprite.c)
- *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HHK@Z @ 0x1C00D8400 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
- *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00DA618 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
- *     ?GdiUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@@Z @ 0x1C0137A34 (-GdiUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HH@Z @ 0x1C00907A0 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C00B297C (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     GreUpdateSprite @ 0x1C00BE800 (GreUpdateSprite.c)
+ *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C00CE400 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00CEBA0 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     ?GdiUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@@Z @ 0x1C0165014 (-GdiUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
-__int64 __fastcall GreUpdateSpriteDevLockEnd(struct tagSIZE **a1, int a2)
+__int64 __fastcall GreUpdateSpriteDevLockEnd(HDC **a1, int a2)
 {
-  unsigned int updated; // r15d
-  HDEV HDEV; // r12
-  Gre::Base *v6; // rcx
-  struct Gre::Base::SESSION_GLOBALS *v7; // r13
-  Gre::Base *v8; // rcx
-  struct tagSIZE *v10; // r10
-  struct tagSIZE v11; // rax
-  struct tagSIZE *v12; // rax
-  HDC v13; // rdi
-  HWND v14; // r14
-  __int64 v15; // r10
-  struct tagRECT v16; // xmm0
-  LONG x; // r14d
-  HDEV v18; // r13
-  unsigned int v19; // r12d
-  int v20; // r14d
-  LONG *v21; // rdi
+  int v3; // r13d
+  unsigned int updated; // edi
+  HDEV v6; // rsi
+  HDC *v7; // r10
+  struct tagSIZE v8; // rax
+  HDC v9; // rdi
+  HWND v10; // r12
+  __int64 v12; // r10
+  __int64 v13; // rcx
+  struct tagRECT v14; // xmm0
+  unsigned int v15; // r12d
   unsigned int left; // eax
-  __int64 v23; // r9
-  LONG v24; // r10d
-  LONG top; // eax
-  LONG v26; // r8d
-  LONG right; // eax
-  LONG v28; // edx
+  struct tagRECT *v17; // r13
+  __int64 v18; // r9
+  LONG top; // r8d
+  LONG right; // edx
   LONG bottom; // eax
-  struct tagSIZE *v30; // rax
-  int v31; // eax
-  NTSTATUS v32; // eax
-  struct tagPOINT v33; // [rsp+80h] [rbp-80h] BYREF
-  struct tagSIZE v34; // [rsp+88h] [rbp-78h] BYREF
-  int v35; // [rsp+90h] [rbp-70h]
-  struct REGION *v36; // [rsp+98h] [rbp-68h] BYREF
-  struct tagPOINT v37; // [rsp+A0h] [rbp-60h] BYREF
-  HDEV v38; // [rsp+A8h] [rbp-58h] BYREF
-  struct Gre::Base::SESSION_GLOBALS *v39; // [rsp+B0h] [rbp-50h]
-  struct tagRECT v40; // [rsp+B8h] [rbp-48h] BYREF
-  __m256i Parameter; // [rsp+D0h] [rbp-30h] BYREF
-  __int64 v42; // [rsp+F0h] [rbp-10h]
-  struct tagSIZE *v43; // [rsp+F8h] [rbp-8h]
-  HDC v44; // [rsp+100h] [rbp+0h]
-  struct tagPOINT *v45; // [rsp+108h] [rbp+8h]
-  __int64 v46; // [rsp+110h] [rbp+10h]
-  struct tagRECT *v47; // [rsp+118h] [rbp+18h]
-  __int64 v48; // [rsp+120h] [rbp+20h]
-  int v49; // [rsp+128h] [rbp+28h]
-  int v50; // [rsp+12Ch] [rbp+2Ch]
-  int v51; // [rsp+130h] [rbp+30h]
-  int v52; // [rsp+134h] [rbp+34h]
-  __int64 v53; // [rsp+138h] [rbp+38h]
-  int v54; // [rsp+150h] [rbp+50h]
-  __int64 v55; // [rsp+160h] [rbp+60h]
-  unsigned int v56; // [rsp+170h] [rbp+70h] BYREF
-  _OWORD v57[20]; // [rsp+174h] [rbp+74h] BYREF
+  LONG v22; // ecx
+  NTSTATUS v23; // eax
+  int v24; // [rsp+88h] [rbp-80h]
+  struct tagSIZE v25; // [rsp+90h] [rbp-78h] BYREF
+  struct REGION *v26; // [rsp+98h] [rbp-70h] BYREF
+  __int64 HDEV; // [rsp+A0h] [rbp-68h] BYREF
+  struct tagRECT v28; // [rsp+A8h] [rbp-60h] BYREF
+  __m256i Parameter; // [rsp+B8h] [rbp-50h] BYREF
+  __int64 v30; // [rsp+D8h] [rbp-30h]
+  struct tagSIZE *v31; // [rsp+E0h] [rbp-28h]
+  HDC v32; // [rsp+E8h] [rbp-20h]
+  POINTL *v33; // [rsp+F0h] [rbp-18h]
+  __int64 v34; // [rsp+F8h] [rbp-10h]
+  struct tagRECT *v35; // [rsp+100h] [rbp-8h]
+  __int64 v36; // [rsp+108h] [rbp+0h]
+  int v37; // [rsp+110h] [rbp+8h]
+  int v38; // [rsp+114h] [rbp+Ch]
+  int v39; // [rsp+118h] [rbp+10h]
+  int v40; // [rsp+11Ch] [rbp+14h]
+  __int64 v41; // [rsp+120h] [rbp+18h]
+  int v42; // [rsp+138h] [rbp+30h]
+  __int64 v43; // [rsp+148h] [rbp+40h]
+  _DWORD v44[84]; // [rsp+158h] [rbp+50h] BYREF
 
-  v35 = a2;
+  v3 = 0;
   updated = 0;
-  HDEV = (HDEV)UserGetHDEV();
-  v38 = HDEV;
-  v39 = Gre::Base::Globals(v6);
-  v7 = v39;
-  if ( PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v38) )
+  HDEV = UserGetHDEV();
+  v6 = (HDEV)HDEV;
+  if ( PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&HDEV) )
   {
-    GreAcquireSemaphoreSharedInternal(*((_QWORD *)v7 + 14));
-    EtwTraceGreLockAcquireSemaphoreShared(L"GreBaseGlobals.hsemSprite", *((_QWORD *)v7 + 14));
+    GreAcquireSemaphoreSharedInternal(ghsemSprite);
+    EtwTraceGreLockAcquireSemaphoreShared(L"ghsemSprite", ghsemSprite);
   }
-  if ( *((_QWORD *)Gre::Base::Globals(v8) + 38) )
+  if ( g_pDwmState )
   {
-    if ( (unsigned int)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))GreGetBounds)(**a1, &v40, 4LL) )
+    if ( (unsigned int)GreGetBounds(**a1, &v28, 4LL) )
     {
-      v10 = *a1;
-      v11 = (*a1)[64];
-      v34 = v11;
-      v36 = (struct REGION *)v10[148];
-      if ( !v36 )
+      v7 = *a1;
+      v8 = (struct tagSIZE)(*a1)[64];
+      v25 = v8;
+      v26 = (struct REGION *)v7[149];
+      if ( !v26 )
       {
         EtwDevLockEndUpdate(
-          *(_QWORD *)&v10[59],
-          (unsigned int)v11.cx,
-          (unsigned int)v34.cy,
-          (unsigned int)v40.left,
-          v40.top,
-          v40.right,
-          v40.bottom);
-        v12 = *a1;
-        v33 = 0LL;
-        v13 = (HDC)*v12;
-        v14 = (HWND)v12[59];
+          v7[59],
+          (unsigned int)v8.cx,
+          (unsigned int)v25.cy,
+          (unsigned int)v28.left,
+          v28.top,
+          v28.right,
+          v28.bottom);
+        v9 = **a1;
+        v10 = (HWND)(*a1)[59];
         if ( (unsigned int)GreStackExpansionRequired(0x2000LL) )
         {
-          v44 = v13;
-          v43 = &v34;
-          v42 = 0LL;
-          v45 = &v33;
-          Parameter.m256i_i64[0] = (__int64)HDEV;
-          v47 = &v40;
-          v52 = v35;
-          Parameter.m256i_i64[1] = (__int64)v14;
+          Parameter.m256i_i64[0] = (__int64)v6;
+          v31 = &v25;
+          Parameter.m256i_i64[1] = (__int64)v10;
+          v35 = &v28;
+          v30 = 0LL;
+          v41 = 0LL;
           *(_OWORD *)&Parameter.m256i_u64[2] = 0LL;
-          v46 = 0LL;
-          v48 = 0LL;
-          v49 = 0;
-          v50 = 1075838976;
-          v51 = 1;
-          v53 = 0LL;
-          v32 = KeExpandKernelStackAndCalloutEx(GreUpdateSpriteCallout, &Parameter, 0x2000uLL, 1u, 0LL);
-          updated = HIDWORD(v53);
-          if ( v32 < 0 )
+          v32 = v9;
+          v33 = &gptlZero;
+          v34 = 0LL;
+          v36 = 0LL;
+          v37 = 0;
+          v38 = 1075838976;
+          v39 = 1;
+          v40 = a2;
+          v23 = KeExpandKernelStackAndCalloutEx(GreUpdateSpriteCallout, &Parameter, 0x2000uLL, 1u, 0LL);
+          updated = v41;
+          if ( v23 < 0 )
             updated = 0;
         }
         else
         {
           updated = GreUpdateSpriteInternal(
-                      HDEV,
-                      v14,
+                      v6,
+                      v10,
                       0LL,
                       0LL,
                       0LL,
-                      &v34,
-                      v13,
-                      &v33,
+                      &v25,
+                      v9,
+                      (struct tagPOINT *)&gptlZero,
                       0,
                       0LL,
                       0x40200000u,
-                      &v40,
+                      &v28,
                       0LL,
                       1,
-                      a2,
-                      0);
+                      a2);
         }
-        goto LABEL_5;
+        goto LABEL_8;
       }
-      if ( (unsigned int)RGNOBJ::iComplexity((RGNOBJ *)&v36) != 1 )
+      if ( (unsigned int)RGNOBJ::iComplexity((RGNOBJ *)&v26) != 1 )
       {
-        RGNOBJ::bOffset((RGNOBJ *)&v36, (struct _POINTL *)(v15 + 1016 + 8 * (*(_DWORD *)(v15 + 40) & 1LL)));
-        v48 = 0LL;
-        v49 = 0;
-        v54 = 1;
-        v55 = 0LL;
-        v45 = 0LL;
-        XCLIPOBJ::vSetup((XCLIPOBJ *)&Parameter, v36, (struct ERECTL *)&v40, 1);
-        memset_0(&v56, 0, 0x144uLL);
-        if ( !Parameter.m256i_i8[20] )
+        v13 = 1016LL;
+        if ( (*(_DWORD *)(v12 + 40) & 1) != 0 )
+          v13 = 1024LL;
+        RGNOBJ::bOffset((RGNOBJ *)&v26, (struct _POINTL *)(v12 + v13));
+        v36 = 0LL;
+        v37 = 0;
+        v42 = 1;
+        v43 = 0LL;
+        v33 = 0LL;
+        XCLIPOBJ::vSetup((XCLIPOBJ *)&Parameter, v26, (struct ERECTL *)&v28, 1);
+        memset(v44, 0, 0x144uLL);
+        switch ( Parameter.m256i_i8[20] )
         {
-          v16 = v40;
-          goto LABEL_17;
-        }
-        if ( Parameter.m256i_u8[20] == 1 )
-        {
-          v16 = *(struct tagRECT *)((char *)Parameter.m256i_i64 + 4);
+          case 1:
+            v14 = *(struct tagRECT *)((char *)Parameter.m256i_i64 + 4);
 LABEL_17:
-          x = 0;
-          v56 = 1;
-          v57[0] = v16;
-          v33.x = 0;
+            *(struct tagRECT *)&v44[1] = v14;
+            v44[0] = 1;
+            v24 = 0;
 LABEL_18:
-          updated = 1;
-          v18 = HDEV;
-          if ( x )
-            goto LABEL_35;
-          while ( 1 )
-          {
-            v19 = 0;
-            if ( v56 )
+            updated = 1;
+            if ( v3 )
+              goto LABEL_38;
+            while ( 1 )
             {
-              v20 = v35;
-              do
+              v15 = 0;
+              if ( v44[0] )
               {
-                v21 = (LONG *)&v57[v19];
-                left = v40.left;
-                v23 = (unsigned int)*v21;
-                if ( (int)v23 < v40.left )
+                do
                 {
-                  *v21 = v40.left;
-                  v23 = left;
+                  left = v28.left;
+                  v17 = (struct tagRECT *)&v44[4 * v15 + 1];
+                  v18 = (unsigned int)v17->left;
+                  if ( (int)v18 < v28.left )
+                  {
+                    v17->left = v28.left;
+                    v18 = left;
+                  }
+                  top = v17->top;
+                  if ( top < v28.top )
+                  {
+                    v17->top = v28.top;
+                    top = v44[4 * v15 + 2];
+                  }
+                  right = v17->right;
+                  if ( right > v28.right )
+                  {
+                    v17->right = v28.right;
+                    right = v44[4 * v15 + 3];
+                  }
+                  bottom = v17->bottom;
+                  v22 = v28.bottom;
+                  if ( bottom > v28.bottom )
+                  {
+                    v17->bottom = v28.bottom;
+                    bottom = v22;
+                  }
+                  EtwDevLockEndTightUpdate(
+                    (*a1)[59],
+                    (unsigned int)v25.cx,
+                    (unsigned int)v25.cy,
+                    v18,
+                    top,
+                    right,
+                    bottom);
+                  if ( !(unsigned int)GreUpdateSprite(
+                                        v6,
+                                        (HWND)(*a1)[59],
+                                        0LL,
+                                        0LL,
+                                        0LL,
+                                        &v25,
+                                        **a1,
+                                        (struct tagPOINT *)&gptlZero,
+                                        0,
+                                        0LL,
+                                        0x40200000u,
+                                        v17,
+                                        0LL,
+                                        1,
+                                        a2) )
+                    updated = 0;
+                  ++v15;
                 }
-                v24 = v21[1];
-                top = v40.top;
-                if ( v24 < v40.top )
-                {
-                  v21[1] = v40.top;
-                  v24 = top;
-                }
-                v26 = v21[2];
-                right = v40.right;
-                if ( v26 > v40.right )
-                {
-                  v21[2] = v40.right;
-                  v26 = right;
-                }
-                v28 = v21[3];
-                bottom = v40.bottom;
-                if ( v28 > v40.bottom )
-                {
-                  v21[3] = v40.bottom;
-                  v28 = bottom;
-                }
-                EtwDevLockEndTightUpdate(
-                  *(_QWORD *)&(*a1)[59],
-                  (unsigned int)v34.cx,
-                  (unsigned int)v34.cy,
-                  v23,
-                  v24,
-                  v26,
-                  v28);
-                v30 = *a1;
-                v37 = 0LL;
-                v31 = GreUpdateSprite(
-                        v18,
-                        *(HWND *)&v30[59],
-                        0LL,
-                        0LL,
-                        0LL,
-                        &v34,
-                        *(HDC *)v30,
-                        &v37,
-                        0,
-                        0LL,
-                        0x40200000u,
-                        (struct tagRECT *)&v57[v19++],
-                        0LL,
-                        1,
-                        v20,
-                        0);
-                updated &= -(v31 != 0);
+                while ( v15 < v44[0] );
+                v3 = v24;
               }
-              while ( v19 < v56 );
-              x = v33.x;
+              if ( !v3 )
+                break;
+LABEL_38:
+              v3 = XCLIPOBJ::bEnum((XCLIPOBJ *)&Parameter, 0x144u, v44, 0LL);
+              v24 = v3;
             }
-            if ( !x )
-              break;
-LABEL_35:
-            x = XCLIPOBJ::bEnum((XCLIPOBJ *)&Parameter, 0x144u, (char *)&v56, 0LL);
-            v33.x = x;
-          }
-          v7 = v39;
-          goto LABEL_5;
-        }
-        if ( Parameter.m256i_u8[20] == 3 )
-        {
-          v33.x = 1;
-          x = 1;
-          XCLIPOBJ::cEnumStart((XCLIPOBJ *)&Parameter, 0, 0, 4u, 0x14u);
-          goto LABEL_18;
+            break;
+          case 0:
+            v14 = v28;
+            goto LABEL_17;
+          case 3:
+            v3 = 1;
+            v24 = 1;
+            XCLIPOBJ::cEnumStart((XCLIPOBJ *)&Parameter, 0, 0, 4u, 0x14u);
+            goto LABEL_18;
         }
       }
     }
-LABEL_5:
-    REGION::vDeleteREGION(*(REGION **)&(*a1)[148]);
-    (*a1)[148] = 0LL;
-    goto LABEL_6;
+LABEL_8:
+    REGION::vDeleteREGION((REGION *)(*a1)[149]);
+    (*a1)[149] = 0LL;
+    goto LABEL_9;
   }
   GdiUpdateSpriteDevLockEnd((struct XDCOBJ *)a1);
-LABEL_6:
-  if ( PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&v38) )
+LABEL_9:
+  if ( PDEVOBJ::bAllowShareAccess((PDEVOBJ *)&HDEV) )
   {
-    EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemSprite");
-    GreReleaseSemaphoreInternal(*((_QWORD *)v7 + 14));
+    EtwTraceGreLockReleaseSemaphore(L"ghsemSprite", ghsemSprite);
+    GreReleaseSemaphoreInternal(ghsemSprite);
   }
   return updated;
 }

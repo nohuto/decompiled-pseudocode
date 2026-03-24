@@ -1,16 +1,13 @@
 /*
- * XREFs of ?GetCcdRawmodeFlag@@YAIXZ @ 0x1C0011FFC
+ * XREFs of ?GetCcdRawmodeFlag@@YAIXZ @ 0x1C00B409C
  * Callers:
- *     DrvSetDisplayConfig @ 0x1C0014230 (DrvSetDisplayConfig.c)
- *     ?DrvFunctionalizeBaseVidMode@@YAJAEBU_RETRY_MODE@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0161304 (-DrvFunctionalizeBaseVidMode@@YAJAEBU_RETRY_MODE@@PEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ *     DrvSetDisplayConfig @ 0x1C001A4C0 (DrvSetDisplayConfig.c)
+ *     ?DrvFunctionalizeBaseVidMode@@YAJAEBU_RETRY_MODE@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C01444D4 (-DrvFunctionalizeBaseVidMode@@YAJAEBU_RETRY_MODE@@PEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 GetCcdRawmodeFlag(void)
 {
-  __int64 DxgkWin32kInterface; // rax
-
-  DxgkWin32kInterface = DxDdGetDxgkWin32kInterface();
-  return (*(unsigned __int8 (**)(void))(DxgkWin32kInterface + 328))() != 0 ? 0x20000 : 0;
+  return (unsigned __int8)((__int64 (*)(void))qword_1C02509D8)() != 0 ? 0x20000 : 0;
 }

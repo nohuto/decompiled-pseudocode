@@ -1,5 +1,5 @@
 /*
- * XREFs of BgkDisplayProgressIndicator @ 0x1409FA84C
+ * XREFs of BgkDisplayProgressIndicator @ 0x1409FA85C
  * Callers:
  *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
  * Callees:

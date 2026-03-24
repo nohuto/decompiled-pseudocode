@@ -1,11 +1,11 @@
 /*
- * XREFs of ?UnboundedValueAtTime@CScaleMotion@@AEBAMM@Z @ 0x18026FD70
+ * XREFs of ?UnboundedValueAtTime@CScaleMotion@@AEBAMM@Z @ 0x18020F5B0
  * Callers:
- *     ?AdvanceInertiaToTimeDefault@CScaleMotion@@MEAAMXZ @ 0x18026FB30 (-AdvanceInertiaToTimeDefault@CScaleMotion@@MEAAMXZ.c)
- *     ?CalculateNaturalEndpoint@CScaleMotion@@MEBAMXZ @ 0x18026FB70 (-CalculateNaturalEndpoint@CScaleMotion@@MEBAMXZ.c)
+ *     ?AdvanceInertiaToTimeDefault@CScaleMotion@@MEAAMXZ @ 0x18020F400 (-AdvanceInertiaToTimeDefault@CScaleMotion@@MEAAMXZ.c)
+ *     ?CalculateNaturalEndpoint@CScaleMotion@@MEBAMXZ @ 0x18020F430 (-CalculateNaturalEndpoint@CScaleMotion@@MEBAMXZ.c)
  * Callees:
- *     logf_0 @ 0x18011B914 (logf_0.c)
- *     powf_0 @ 0x18011B92C (powf_0.c)
+ *     powf @ 0x1800E7F08 (powf.c)
+ *     logf_0 @ 0x1800F3FC3 (logf_0.c)
  */
 
 float __fastcall CScaleMotion::UnboundedValueAtTime(CScaleMotion *this, float a2)
@@ -16,6 +16,6 @@ float __fastcall CScaleMotion::UnboundedValueAtTime(CScaleMotion *this, float a2
     return (float)(a2 * *((float *)this + 12)) + *((float *)this + 11);
   if ( COERCE_FLOAT(*((_DWORD *)this + 8) & _xmm) < 0.0000011920929 || (*((_BYTE *)this + 8) & 1) == 0 )
     return *((float *)this + 11);
-  v4 = (float)(powf_0(*((float *)this + 8), a2) - 1.0) * *((float *)this + 12);
+  v4 = (float)(powf(*((float *)this + 8), a2) - 1.0) * *((float *)this + 12);
   return (float)(v4 / logf_0(*((float *)this + 8))) + *((float *)this + 11);
 }

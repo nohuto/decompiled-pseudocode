@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapGetErrorSourceFunction @ 0x1403C0934
+ * XREFs of WheapGetErrorSourceFunction @ 0x1403BAF90
  * Callers:
- *     WheapCallErrorSourceCorrect @ 0x1403C087C (WheapCallErrorSourceCorrect.c)
- *     WheapCallErrorSourceInitialize @ 0x1403C08BC (WheapCallErrorSourceInitialize.c)
- *     WheapReportBootError @ 0x1406433D0 (WheapReportBootError.c)
- *     WheaReportHwError @ 0x140643630 (WheaReportHwError.c)
- *     WheapAttemptArchitecturalErrorRecovery @ 0x140643CB4 (WheapAttemptArchitecturalErrorRecovery.c)
- *     WheapCallErrorSourceUninitialize @ 0x1406456B8 (WheapCallErrorSourceUninitialize.c)
+ *     WheapCallErrorSourceInitialize @ 0x1403BAE50 (WheapCallErrorSourceInitialize.c)
+ *     WheapCallErrorSourceCorrect @ 0x1403BAF50 (WheapCallErrorSourceCorrect.c)
+ *     WheapReportBootError @ 0x1405BAEC4 (WheapReportBootError.c)
+ *     WheapAttemptArchitecturalErrorRecovery @ 0x1405BB7D8 (WheapAttemptArchitecturalErrorRecovery.c)
+ *     WheapFillOutErrorRecord @ 0x1405BBA2C (WheapFillOutErrorRecord.c)
+ *     WheapCallErrorSourceUninitialize @ 0x1405BCCA0 (WheapCallErrorSourceUninitialize.c)
  * Callees:
  *     <none>
  */
@@ -15,8 +15,8 @@ __int64 __fastcall WheapGetErrorSourceFunction(__int64 a1, int a2, char a3)
 {
   __int64 v3; // r10
   signed __int32 i; // eax
-  int v5; // edx
-  __int64 v6; // rax
+  __int64 v5; // rax
+  int v7; // edx
   __int64 v8; // rax
   int v9; // edx
   int v10; // edx
@@ -30,10 +30,10 @@ __int64 __fastcall WheapGetErrorSourceFunction(__int64 a1, int a2, char a3)
 LABEL_8:
       if ( a2 )
       {
-        v5 = a2 - 1;
-        if ( v5 )
+        v7 = a2 - 1;
+        if ( v7 )
         {
-          v9 = v5 - 1;
+          v9 = v7 - 1;
           if ( v9 )
           {
             v10 = v9 - 1;
@@ -60,20 +60,20 @@ LABEL_8:
         }
         else
         {
-          v6 = *(int *)(a1 + 40);
-          if ( (_DWORD)v6 == 16 )
+          v8 = *(int *)(a1 + 40);
+          if ( (_DWORD)v8 == 16 )
             return *(_QWORD *)(a1 + 176);
           else
-            return *((_QWORD *)&WheapSourceConfiguration + 8 * v6 + 3);
+            return *((_QWORD *)&WheapSourceConfiguration + 8 * v8 + 3);
         }
       }
       else
       {
-        v8 = *(int *)(a1 + 40);
-        if ( (_DWORD)v8 == 16 )
+        v5 = *(int *)(a1 + 40);
+        if ( (_DWORD)v5 == 16 )
           return *(_QWORD *)(a1 + 192);
         else
-          return *((_QWORD *)&WheapSourceConfiguration + 8 * v8 + 2);
+          return *((_QWORD *)&WheapSourceConfiguration + 8 * v5 + 2);
       }
     }
     else if ( *(_DWORD *)(a1 + 108) != 3 )

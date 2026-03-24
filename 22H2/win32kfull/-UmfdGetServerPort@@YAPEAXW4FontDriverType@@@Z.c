@@ -1,21 +1,16 @@
 /*
- * XREFs of ?UmfdGetServerPort@@YAPEAXW4FontDriverType@@@Z @ 0x1C00A5A04
+ * XREFs of ?UmfdGetServerPort@@YAPEAXW4FontDriverType@@@Z @ 0x1C00F447C
  * Callers:
- *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00A5158 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
- *     ?UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00A5928 (-UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ.c)
+ *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F3398 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
+ *     ?UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F42D8 (-UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall UmfdGetServerPort(__int64 a1)
+__int64 __fastcall UmfdGetServerPort(unsigned int a1)
 {
-  __int64 v1; // rbx
-  __int64 v2; // rax
-
-  v1 = (int)a1;
-  v2 = SGDGetSessionState(a1);
-  if ( (unsigned int)v1 > 3 )
+  if ( a1 > 3 )
     return 0LL;
   else
-    return *(_QWORD *)(*(_QWORD *)(v2 + 40) + 8 * v1 + 48);
+    return g_pUmfdServerPort[a1];
 }

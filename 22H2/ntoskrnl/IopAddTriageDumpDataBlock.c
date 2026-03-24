@@ -1,10 +1,10 @@
 /*
- * XREFs of IopAddTriageDumpDataBlock @ 0x1403AC9E4
+ * XREFs of IopAddTriageDumpDataBlock @ 0x1403CC1A8
  * Callers:
- *     IoAddTriageDumpDataBlock @ 0x1403AC964 (IoAddTriageDumpDataBlock.c)
- *     IopAddRunTimeTriageDataBlocks @ 0x140552268 (IopAddRunTimeTriageDataBlocks.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC128 (IoAddTriageDumpDataBlock.c)
+ *     IopAddRunTimeTriageDataBlocks @ 0x1405037A4 (IopAddRunTimeTriageDataBlocks.c)
  * Callees:
- *     KiIsAddressRangeValid @ 0x1403A7C94 (KiIsAddressRangeValid.c)
+ *     KiIsAddressRangeValid @ 0x1403C9B9C (KiIsAddressRangeValid.c)
  */
 
 char __fastcall IopAddTriageDumpDataBlock(unsigned int a1, __int64 a2, unsigned int *a3, __int64 a4, unsigned int a5)
@@ -14,9 +14,9 @@ char __fastcall IopAddTriageDumpDataBlock(unsigned int a1, __int64 a2, unsigned 
   unsigned __int64 i; // rdx
   unsigned int v11; // r10d
   unsigned __int64 *j; // rax
-  unsigned __int64 v13; // rcx
-  unsigned int v14; // eax
-  unsigned __int64 *v15; // rcx
+  unsigned int v13; // eax
+  unsigned __int64 *v14; // rcx
+  unsigned __int64 v16; // rcx
 
   v6 = a4;
   if ( a5 - 1 > 0x3FFFE || !KiIsAddressRangeValid(a4, a5) )
@@ -27,17 +27,17 @@ char __fastcall IopAddTriageDumpDataBlock(unsigned int a1, __int64 a2, unsigned 
     v11 = 0;
     for ( j = *(unsigned __int64 **)(a2 + 8); v11 < *(_DWORD *)a2; j += 2 )
     {
-      v13 = j[1];
-      if ( v6 < v13 && i > *j )
+      v16 = j[1];
+      if ( v6 < v16 && i > *j )
       {
         if ( v6 < *j )
         {
-          if ( i <= v13 )
+          if ( i <= v16 )
             i = *j;
         }
         else
         {
-          if ( i <= v13 )
+          if ( i <= v16 )
             return 1;
           v6 = j[1];
         }
@@ -48,12 +48,12 @@ char __fastcall IopAddTriageDumpDataBlock(unsigned int a1, __int64 a2, unsigned 
   }
   if ( !a3 )
     return 0;
-  v14 = *a3;
+  v13 = *a3;
   if ( *a3 >= a3[1] )
     return 0;
-  v15 = (unsigned __int64 *)(*((_QWORD *)a3 + 1) + 16LL * v14);
-  *a3 = v14 + 1;
-  *v15 = v6;
-  v15[1] = i;
+  v14 = (unsigned __int64 *)(*((_QWORD *)a3 + 1) + 16LL * v13);
+  *a3 = v13 + 1;
+  *v14 = v6;
+  v14[1] = i;
   return 1;
 }

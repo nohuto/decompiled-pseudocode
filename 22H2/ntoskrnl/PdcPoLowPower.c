@@ -1,20 +1,20 @@
 /*
- * XREFs of PdcPoLowPower @ 0x1403AFAF0
+ * XREFs of PdcPoLowPower @ 0x1403CBFC0
  * Callers:
  *     <none>
  * Callees:
- *     PopSetPowerSettingValueAcDc @ 0x1407A7A80 (PopSetPowerSettingValueAcDc.c)
- *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1406F2C58 (PopSetPowerSettingValueAcDc.c)
+ *     PopReleasePolicyLock @ 0x140990044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PdcPoLowPower(__int64 a1, __int64 a2)
 {
-  int v3; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // rcx
 
-  v3 = (unsigned __int8)a1;
   PopAcquirePolicyLock(a1, a2);
-  PopSetPowerSettingValueAcDc(&GUID_LOW_POWER_EPOCH, 4LL, &v3);
-  PopReleasePolicyLock();
+  PopSetPowerSettingValueAcDc(&GUID_LOW_POWER_EPOCH);
+  PopReleasePolicyLock(v3, v2);
   return 0LL;
 }

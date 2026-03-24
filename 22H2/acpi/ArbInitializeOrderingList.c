@@ -1,19 +1,20 @@
 /*
- * XREFs of ArbInitializeOrderingList @ 0x1C00A1F50
+ * XREFs of ArbInitializeOrderingList @ 0x1C00A0590
  * Callers:
- *     ArbBuildAssignmentOrdering @ 0x1C00A125C (ArbBuildAssignmentOrdering.c)
+ *     ArbBuildAssignmentOrdering @ 0x1C009FF94 (ArbBuildAssignmentOrdering.c)
  * Callees:
- *     <none>
+ *     memset @ 0x1C0032480 (memset.c)
  */
 
 __int64 __fastcall ArbInitializeOrderingList(__int64 a1)
 {
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
 
-  Pool2 = ExAllocatePool2(256LL, 256LL, 1281520193LL);
-  *(_QWORD *)(a1 + 8) = Pool2;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x100uLL, 0x4C627241u);
+  *(_QWORD *)(a1 + 8) = PoolWithTag;
+  memset(PoolWithTag, 0, 0x100uLL);
   *(_WORD *)a1 = 0;
-  if ( Pool2 )
+  if ( *(_QWORD *)(a1 + 8) )
   {
     *(_WORD *)(a1 + 2) = 16;
     return 0LL;

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInitializeSidEx @ 0x1402EDED0
+ * XREFs of RtlInitializeSidEx @ 0x1402EDFD0
  * Callers:
- *     RtlCheckTokenMembershipEx @ 0x1400DCB10 (RtlCheckTokenMembershipEx.c)
+ *     RtlCheckTokenMembershipEx @ 0x1400DCB30 (RtlCheckTokenMembershipEx.c)
  * Callees:
- *     RtlInitializeSid @ 0x140655690 (RtlInitializeSid.c)
+ *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
  */
 
 NTSTATUS __fastcall RtlInitializeSidEx(_DWORD *a1, struct _SID_IDENTIFIER_AUTHORITY *a2, UCHAR a3, __int64 a4)

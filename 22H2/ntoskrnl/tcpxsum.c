@@ -1,9 +1,9 @@
 /*
- * XREFs of tcpxsum @ 0x140428440
+ * XREFs of tcpxsum @ 0x140406C70
  * Callers:
- *     PopHiberChecksumHiberFileData @ 0x140AA320C (PopHiberChecksumHiberFileData.c)
- *     PopWriteHeaderPages @ 0x140AA56A8 (PopWriteHeaderPages.c)
- *     PopWriteImageHeader @ 0x140AA5D58 (PopWriteImageHeader.c)
+ *     PopWriteHeaderPages @ 0x140991478 (PopWriteHeaderPages.c)
+ *     PopHiberChecksumHiberFileData @ 0x1409949E0 (PopHiberChecksumHiberFileData.c)
+ *     PopWriteImageHeader @ 0x1409B1E60 (PopWriteImageHeader.c)
  * Callees:
  *     <none>
  */

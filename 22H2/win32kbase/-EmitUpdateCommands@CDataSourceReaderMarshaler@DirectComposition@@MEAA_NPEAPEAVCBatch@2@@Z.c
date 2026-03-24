@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitUpdateCommands@CDataSourceReaderMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C022F330
+ * XREFs of ?EmitUpdateCommands@CDataSourceReaderMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F62F0
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CDataSourceReaderMarshaler::EmitUpdateCommands(
@@ -24,8 +24,8 @@ char __fastcall DirectComposition::CDataSourceReaderMarshaler::EmitUpdateCommand
       *(_DWORD *)v6 = 28;
       *(_OWORD *)(v4 + 4) = 0LL;
       *(_QWORD *)(v4 + 20) = 0LL;
-      *((_DWORD *)v4 + 1) = 125;
-      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 8);
+      *((_DWORD *)v4 + 1) = 129;
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
       *(_QWORD *)(v4 + 12) = *((_QWORD *)this + 7);
       *(_QWORD *)(v4 + 20) = *((_QWORD *)this + 8);
       *((_DWORD *)this + 4) &= ~0x20u;

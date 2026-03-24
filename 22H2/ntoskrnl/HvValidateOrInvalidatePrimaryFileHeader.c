@@ -1,93 +1,95 @@
 /*
- * XREFs of HvValidateOrInvalidatePrimaryFileHeader @ 0x14074DDCC
+ * XREFs of HvValidateOrInvalidatePrimaryFileHeader @ 0x140724ADC
  * Callers:
- *     CmpFlushHive @ 0x140753398 (CmpFlushHive.c)
- *     HvpPerformLogFileRecovery @ 0x14080093C (HvpPerformLogFileRecovery.c)
+ *     CmpFlushHive @ 0x14062A4F8 (CmpFlushHive.c)
+ *     HvpPerformLogFileRecovery @ 0x14087410C (HvpPerformLogFileRecovery.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     CmpFileFlushAndPurge @ 0x1407510D4 (CmpFileFlushAndPurge.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     HvpHeaderCheckSum @ 0x140AF6640 (HvpHeaderCheckSum.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     CmpFileFlushAndPurge @ 0x14071D008 (CmpFileFlushAndPurge.c)
+ *     HvpHeaderCheckSum @ 0x140723C78 (HvpHeaderCheckSum.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall HvValidateOrInvalidatePrimaryFileHeader(__int64 a1, __int64 a2, __int64 a3, char a4)
+__int64 __fastcall HvValidateOrInvalidatePrimaryFileHeader(__int64 a1, char a2, char a3, char a4)
 {
-  char v4; // bp
-  char v5; // r14
   int v7; // ebx
-  _DWORD *Pool2; // rsi
+  _DWORD *v8; // rdi
   int v9; // ecx
   int v10; // eax
   __int64 (__fastcall *v11)(__int64, _QWORD, _DWORD *, __int64, int); // rax
   int v12; // ebx
-  _OWORD *v14; // rax
-  _OWORD *v15; // rcx
-  __int128 v16; // xmm1
-  _DWORD v17[2]; // [rsp+30h] [rbp-28h] BYREF
-  _DWORD *v18; // [rsp+38h] [rbp-20h]
-  int v19; // [rsp+40h] [rbp-18h]
+  _DWORD *PoolWithTag; // rax
+  _OWORD *v15; // rax
+  __int64 v16; // rdx
+  _OWORD *v17; // rcx
+  __int128 v18; // xmm1
+  _DWORD v19[2]; // [rsp+30h] [rbp-28h] BYREF
+  _DWORD *v20; // [rsp+38h] [rbp-20h]
+  int v21; // [rsp+40h] [rbp-18h]
+  int v22; // [rsp+44h] [rbp-14h]
 
-  v17[1] = 0;
-  v4 = a3;
-  v5 = a2;
-  if ( *(_QWORD *)(a1 + 1544) )
+  v19[1] = 0;
+  v22 = 0;
+  if ( *(_QWORD *)(a1 + 1536) )
   {
     v7 = a4 & 1;
-    if ( (_BYTE)a3 )
+    if ( a3 )
     {
-      Pool2 = *(_DWORD **)(a1 + 1776);
+      v8 = *(_DWORD **)(a1 + 1768);
     }
     else
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(256LL, 4096LL, 1867074883LL);
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x1000uLL, 0x6F494D43u);
+      v8 = PoolWithTag;
+      if ( !PoolWithTag )
         return (unsigned int)-1073741801;
-      v14 = *(_OWORD **)(a1 + 64);
-      a2 = 4LL;
-      v15 = Pool2;
-      a3 = 128LL;
+      memset(PoolWithTag, 0, 0x1000uLL);
+      v15 = *(_OWORD **)(a1 + 64);
+      v16 = 4LL;
+      v17 = v8;
       do
       {
-        *v15 = *v14;
-        v15[1] = v14[1];
-        v15[2] = v14[2];
-        v15[3] = v14[3];
-        v15[4] = v14[4];
-        v15[5] = v14[5];
-        v15[6] = v14[6];
+        *v17 = *v15;
+        v17[1] = v15[1];
+        v17[2] = v15[2];
+        v17[3] = v15[3];
+        v17[4] = v15[4];
+        v17[5] = v15[5];
+        v17[6] = v15[6];
+        v17 += 8;
+        v18 = v15[7];
         v15 += 8;
-        v16 = v14[7];
-        v14 += 8;
-        *(v15 - 1) = v16;
-        --a2;
+        *(v17 - 1) = v18;
+        --v16;
       }
-      while ( a2 );
+      while ( v16 );
     }
-    v9 = *(_DWORD *)(a1 + 172);
+    v9 = *(_DWORD *)(a1 + 168);
     v10 = v9 - 1;
-    if ( v5 )
-      v10 = *(_DWORD *)(a1 + 172);
-    Pool2[2] = v10;
-    Pool2[1] = v9;
-    Pool2[127] = HvpHeaderCheckSum(Pool2, a2, a3);
+    if ( a2 )
+      v10 = *(_DWORD *)(a1 + 168);
+    v8[2] = v10;
+    v8[1] = v9;
+    v8[127] = HvpHeaderCheckSum(v8);
     v11 = *(__int64 (__fastcall **)(__int64, _QWORD, _DWORD *, __int64, int))(a1 + 40);
-    v17[0] = 0;
-    v18 = Pool2;
-    v19 = 4096;
-    v12 = v11(a1, 0LL, v17, 1LL, v7);
+    v19[0] = 0;
+    v20 = v8;
+    v21 = 4096;
+    v12 = v11(a1, 0LL, v19, 1LL, v7);
     if ( v12 >= 0 )
     {
-      v12 = CmpFileFlushAndPurge(a1, 0LL);
+      v12 = CmpFileFlushAndPurge(a1, 0);
       if ( v12 >= 0 )
       {
-        *(_BYTE *)(a1 + 194) = v5;
+        *(_BYTE *)(a1 + 190) = a2;
         v12 = 0;
-        *(_DWORD *)(a1 + 184) = Pool2[2];
+        *(_DWORD *)(a1 + 180) = v8[2];
       }
     }
-    if ( !v4 )
-      ExFreePoolWithTag(Pool2, 0);
+    if ( !a3 )
+      ExFreePoolWithTag(v8, 0);
   }
   else
   {

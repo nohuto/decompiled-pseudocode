@@ -1,25 +1,25 @@
 /*
- * XREFs of WmipSaveGuidSecurityDescriptor @ 0x14085FD20
+ * XREFs of WmipSaveGuidSecurityDescriptor @ 0x1407D2F74
  * Callers:
- *     WmipSecurityMethod @ 0x1407BE310 (WmipSecurityMethod.c)
+ *     WmipSecurityMethod @ 0x1406818F0 (WmipSecurityMethod.c)
  * Callees:
- *     RtlGetPersistedStateLocation @ 0x1406C5480 (RtlGetPersistedStateLocation.c)
- *     RtlLengthSecurityDescriptor @ 0x140710FF0 (RtlLengthSecurityDescriptor.c)
- *     RtlWriteRegistryValue @ 0x1407D4860 (RtlWriteRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlWriteRegistryValue @ 0x1406978F0 (RtlWriteRegistryValue.c)
+ *     RtlGetPersistedStateLocation @ 0x1406B87A0 (RtlGetPersistedStateLocation.c)
+ *     RtlLengthSecurityDescriptor @ 0x1406D8E90 (RtlLengthSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipSaveGuidSecurityDescriptor(__int64 a1, void *a2)
 {
-  void *Pool2; // rbx
+  PVOID PoolWithTag; // rbx
   ULONG ValueLength; // r14d
   unsigned int v6; // edi
   unsigned int PersistedStateLocation; // eax
   unsigned int v8; // edi
   __int64 v10; // [rsp+70h] [rbp+18h] BYREF
 
-  Pool2 = 0LL;
+  PoolWithTag = 0LL;
   ValueLength = RtlLengthSecurityDescriptor(a2);
   v6 = 0;
   LODWORD(v10) = 0;
@@ -27,8 +27,8 @@ __int64 __fastcall WmipSaveGuidSecurityDescriptor(__int64 a1, void *a2)
   {
     if ( v6 )
     {
-      Pool2 = (void *)ExAllocatePool2(256LL, v6, 1885957463LL);
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6, 0x70696D57u);
+      if ( !PoolWithTag )
         return 3221225626LL;
     }
     PersistedStateLocation = RtlGetPersistedStateLocation(
@@ -36,24 +36,24 @@ __int64 __fastcall WmipSaveGuidSecurityDescriptor(__int64 a1, void *a2)
                                0LL,
                                0LL,
                                0,
-                               Pool2,
+                               PoolWithTag,
                                v6,
                                (unsigned int *)&v10);
     v8 = PersistedStateLocation;
     if ( PersistedStateLocation != -2147483643 )
       break;
-    if ( Pool2 )
+    if ( PoolWithTag )
     {
-      ExFreePoolWithTag(Pool2, 0);
-      Pool2 = 0LL;
+      ExFreePoolWithTag(PoolWithTag, 0);
+      PoolWithTag = 0LL;
     }
     v6 = v10;
   }
   if ( !PersistedStateLocation )
-    v8 = RtlWriteRegistryValue(0, (PCWSTR)Pool2, *(PCWSTR *)(a1 + 8), 3u, a2, ValueLength);
+    v8 = RtlWriteRegistryValue(0, (PCWSTR)PoolWithTag, *(PCWSTR *)(a1 + 8), 3u, a2, ValueLength);
   if ( v8 == -1073741772 )
     v8 = RtlWriteRegistryValue(2u, L"WMI\\Security", *(PCWSTR *)(a1 + 8), 3u, a2, ValueLength);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
   return v8;
 }

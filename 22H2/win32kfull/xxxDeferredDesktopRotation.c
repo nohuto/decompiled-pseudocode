@@ -1,52 +1,43 @@
 /*
- * XREFs of xxxDeferredDesktopRotation @ 0x1C01F5E60
+ * XREFs of xxxDeferredDesktopRotation @ 0x1C021E100
  * Callers:
- *     xxxFreeWindow @ 0x1C00E8F70 (xxxFreeWindow.c)
- *     NtUserDeferredDesktopRotation @ 0x1C01CE580 (NtUserDeferredDesktopRotation.c)
+ *     xxxFreeWindow @ 0x1C007A720 (xxxFreeWindow.c)
  * Callees:
- *     xxxDesktopsRecalcAndBroadcastDisplayChange @ 0x1C004A500 (xxxDesktopsRecalcAndBroadcastDisplayChange.c)
- *     PopAndFreeW32ThreadLock @ 0x1C0062180 (PopAndFreeW32ThreadLock.c)
- *     PushW32ThreadLock @ 0x1C00621E0 (PushW32ThreadLock.c)
- *     ?UnlockAndRelease@CMonitorTopology@@SAXPEAPEAV1@PEAU_TL@@@Z @ 0x1C01EAE7C (-UnlockAndRelease@CMonitorTopology@@SAXPEAPEAV1@PEAU_TL@@@Z.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00BF9A0 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00BFA20 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00C1530 (PopAndFreeW32ThreadLock.c)
+ *     xxxDesktopsRecalcAndBroadcastDisplayChange @ 0x1C00FF670 (xxxDesktopsRecalcAndBroadcastDisplayChange.c)
  */
 
 __int64 xxxDeferredDesktopRotation()
 {
   _QWORD *v0; // rbx
-  __int64 *v1; // rax
-  __int64 v2; // rcx
-  int v3; // eax
-  struct CMonitorTopology *v4; // rdi
-  __int128 v6; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v7; // [rsp+40h] [rbp-28h]
-  __int128 v8; // [rsp+48h] [rbp-20h] BYREF
-  __int64 v9; // [rsp+58h] [rbp-10h]
-  struct CMonitorTopology *v10; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v1; // rdx
+  __int64 v2; // rdi
+  __int128 v4; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v5; // [rsp+30h] [rbp-28h]
+  __int128 v6; // [rsp+38h] [rbp-20h] BYREF
+  __int64 v7; // [rsp+48h] [rbp-10h]
 
   v0 = *(_QWORD **)(gptiCurrent + 456LL);
-  v1 = (__int64 *)v0[1];
-  if ( v1 )
+  v1 = v0[1];
+  if ( v1 && (*(_DWORD *)(*(_QWORD *)v1 + 64LL) & 2) != 0 )
   {
-    v2 = *v1;
-    v3 = *(_DWORD *)(*v1 + 64);
-    if ( (v3 & 2) != 0 )
-    {
-      *(_DWORD *)(v2 + 64) = v3 & 0xFFFFFFFD;
-      v4 = (struct CMonitorTopology *)v0[33];
-      v0[33] = 0LL;
-      v10 = v4;
-      v8 = 0LL;
-      v9 = 0LL;
-      v6 = 0LL;
-      v7 = 0LL;
-      if ( v4 )
-        PushW32ThreadLock((__int64)v4, &v8, (__int64)_lambda_209d4bad6fea09852d6c87e7361f85eb_::_lambda_invoker_cdecl_);
-      PushW32ThreadLock((__int64)v0, &v6, UserDereferenceObject);
-      ObfReferenceObject(v0);
-      xxxDesktopsRecalcAndBroadcastDisplayChange((__int64)v0, v4, *(_WORD *)(gpsi + 6996LL), 1u, 0LL);
-      PopAndFreeW32ThreadLock((__int64)&v6);
-      CMonitorTopology::UnlockAndRelease(&v10, (struct _TL *)&v8);
-    }
+    v2 = v0[33];
+    v0[33] = 0LL;
+    v6 = 0LL;
+    v7 = 0LL;
+    v4 = 0LL;
+    v5 = 0LL;
+    *(_DWORD *)(*(_QWORD *)v1 + 64LL) &= ~2u;
+    if ( v2 )
+      PushW32ThreadLock(v2, &v6, (__int64)Win32FreePool);
+    PushW32ThreadLock((__int64)v0, &v4, UserDereferenceObject);
+    ObfReferenceObject(v0);
+    xxxDesktopsRecalcAndBroadcastDisplayChange((__int64)v0, v2, *(_WORD *)(gpsi + 6996LL), 1u);
+    PopAndFreeW32ThreadLock((__int64)&v4);
+    if ( v2 )
+      PopAndFreeAlwaysW32ThreadLock((__int64)&v6);
   }
   return 0LL;
 }

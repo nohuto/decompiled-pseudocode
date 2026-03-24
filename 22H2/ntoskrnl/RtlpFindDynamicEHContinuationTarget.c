@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpFindDynamicEHContinuationTarget @ 0x1409C2B08
+ * XREFs of RtlpFindDynamicEHContinuationTarget @ 0x14091ABD8
  * Callers:
- *     RtlVerifyUserUnwindTarget @ 0x1409C28E0 (RtlVerifyUserUnwindTarget.c)
+ *     RtlVerifyUserUnwindTarget @ 0x14091A9E4 (RtlVerifyUserUnwindTarget.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     PspFindVsmEnclaveThread @ 0x1408A625C (PspFindVsmEnclaveThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x1402CBAC0 (KeLeaveCriticalRegion.c)
+ *     MiHotPatchImageTreeCompare @ 0x1408CA688 (MiHotPatchImageTreeCompare.c)
  */
 
 bool __fastcall RtlpFindDynamicEHContinuationTarget(unsigned __int64 a1)
@@ -16,20 +16,20 @@ bool __fastcall RtlpFindDynamicEHContinuationTarget(unsigned __int64 a1)
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v4; // rdi
   _QWORD *v5; // rbx
-  int VsmEnclaveThread; // eax
+  int v6; // eax
 
   Process = KeGetCurrentThread()->ApcState.Process;
   CurrentThread = KeGetCurrentThread();
-  v4 = (signed __int64 *)&Process[2].ThreadSeed[22];
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&Process[2].ThreadSeed[22], 0LL);
-  v5 = *(_QWORD **)&Process[2].ThreadSeed[18];
+  v4 = (signed __int64 *)&Process[2].ActiveProcessors.Bitmap[4];
+  ExAcquirePushLockSharedEx((ULONG_PTR)&Process[2].ActiveProcessors.Bitmap[4], 0LL);
+  v5 = (_QWORD *)Process[2].ActiveProcessors.Bitmap[3];
   while ( v5 )
   {
-    VsmEnclaveThread = PspFindVsmEnclaveThread(a1, (__int64)v5);
-    if ( VsmEnclaveThread >= 0 )
+    v6 = MiHotPatchImageTreeCompare(a1, (__int64)v5);
+    if ( v6 >= 0 )
     {
-      if ( VsmEnclaveThread <= 0 )
+      if ( v6 <= 0 )
         break;
       v5 = (_QWORD *)v5[1];
     }
@@ -41,6 +41,6 @@ bool __fastcall RtlpFindDynamicEHContinuationTarget(unsigned __int64 a1)
   if ( _InterlockedCompareExchange64(v4, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v4);
   KeAbPostRelease((ULONG_PTR)v4);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegion();
   return v5 != 0LL;
 }

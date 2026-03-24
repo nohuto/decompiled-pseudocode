@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUserGhostWindowFromHungWindow @ 0x1C00B4BB0
+ * XREFs of NtUserGhostWindowFromHungWindow @ 0x1C003B550
  * Callers:
  *     <none>
  * Callees:
- *     _GhostWindowFromHungWindow @ 0x1C00B4C0C (_GhostWindowFromHungWindow.c)
+ *     _GhostWindowFromHungWindow @ 0x1C003B5B0 (_GhostWindowFromHungWindow.c)
  */
 
 __int64 __fastcall NtUserGhostWindowFromHungWindow(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall NtUserGhostWindowFromHungWindow(__int64 a1)
   __int64 v7; // rbx
   __int64 *v8; // rax
 
-  EnterSharedCrit();
+  EnterSharedCrit(0LL, 1LL);
   v2 = ValidateHwnd(a1);
   v7 = 0LL;
   if ( v2 )

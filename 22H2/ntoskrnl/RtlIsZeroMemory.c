@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlIsZeroMemory @ 0x1405B03B0
+ * XREFs of RtlIsZeroMemory @ 0x14058D830
  * Callers:
- *     <none>
+ *     RtlNormalizeSecurityDescriptor @ 0x1402024F0 (RtlNormalizeSecurityDescriptor.c)
  * Callees:
  *     <none>
  */

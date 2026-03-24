@@ -1,21 +1,21 @@
 /*
- * XREFs of ?VmBusSendDuplicateHandle@DXG_HOST_GLOBAL_VMBUS@@QEAAJPEBU_DXGSHAREDALLOCOBJECT@@IPEAXKPEAUDXGKVMB_GUEST_TRANSACTION@@@Z @ 0x1C0376E78
+ * XREFs of ?VmBusSendDuplicateHandle@DXG_HOST_GLOBAL_VMBUS@@QEAAJPEBU_DXGSHAREDALLOCOBJECT@@IPEAXKPEAUDXGKVMB_GUEST_TRANSACTION@@@Z @ 0x1C0247CDC
  * Callers:
- *     ?DxgkpDuplicateHandleToVm@@YAJPEAU_D3DKMT_DUPLICATEHANDLE@@@Z @ 0x1C031BDD4 (-DxgkpDuplicateHandleToVm@@YAJPEAU_D3DKMT_DUPLICATEHANDLE@@@Z.c)
+ *     ?DxgkpDuplicateHandleToVm@@YAJPEAU_D3DKMT_DUPLICATEHANDLE@@@Z @ 0x1C02775CC (-DxgkpDuplicateHandleToVm@@YAJPEAU_D3DKMT_DUPLICATEHANDLE@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C000CD40 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
- *     ??_V@YAXPEAX@Z @ 0x1C000D990 (--_V@YAXPEAX@Z.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?VmBusSendAsyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C005DF24 (-VmBusSendAsyncMessage@DXG_VMBUS_CHANNEL_BASE@@QEAAJPEAEPEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z.c)
- *     ?DdiDescribeAllocation@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_DESCRIBEALLOCATION@@@Z @ 0x1C0179C10 (-DdiDescribeAllocation@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_DESCRIBEALLOCATION@@@Z.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0002CC0 (--_V@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0002D2C (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?VmBusSendAsyncMessage@@YAJPEAUVMBCHANNEL__@@PEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C00418FC (-VmBusSendAsyncMessage@@YAJPEAUVMBCHANNEL__@@PEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z.c)
+ *     ?DdiDescribeAllocation@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_DESCRIBEALLOCATION@@@Z @ 0x1C00F73E0 (-DdiDescribeAllocation@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_DESCRIBEALLOCATION@@@Z.c)
  */
 
 __int64 __fastcall DXG_HOST_GLOBAL_VMBUS::VmBusSendDuplicateHandle(
-        DXG_HOST_GLOBAL_VMBUS *this,
+        struct VMBCHANNEL__ **this,
         const struct _DXGSHAREDALLOCOBJECT *a2,
         int a3,
-        __int64 a4,
+        void *a4,
         unsigned int a5,
         struct DXGKVMB_GUEST_TRANSACTION *a6)
 {
@@ -28,30 +28,33 @@ __int64 __fastcall DXG_HOST_GLOBAL_VMBUS::VmBusSendDuplicateHandle(
   unsigned int v14; // edx
   unsigned int v15; // ecx
   unsigned int v16; // ebp
-  __int64 v17; // rax
-  __int64 v18; // rdi
-  ADAPTER_RENDER *v20; // r13
-  unsigned __int8 *v21; // r15
-  int v22; // r9d
+  char *v17; // rax
+  char *v18; // rdi
+  struct DXGKVMB_COMMAND_BASE *v20; // r15
+  int v21; // r10d
+  struct _MDL *v22; // r9
   __int64 v23; // r8
-  int v24; // edx
+  __int64 v24; // rdx
   __int64 v25; // rcx
-  __int64 v26; // rax
-  _DWORD *v27; // rcx
-  char *v28; // rdi
+  _DWORD *v26; // rcx
+  char *v27; // rdi
+  unsigned int v28; // eax
   unsigned int v29; // eax
-  unsigned int v30; // eax
-  _QWORD *v31; // rsi
-  char *v32; // rdi
-  __int64 v33; // rax
-  int v34; // eax
-  __int64 v35; // rdi
-  __int64 v36; // [rsp+50h] [rbp-48h]
-  __int64 v37; // [rsp+A8h] [rbp+10h]
+  _QWORD *j; // rsi
+  char *v31; // rdi
+  __int64 v32; // rax
+  int v33; // eax
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  __int64 v36; // rbx
+  __int64 v37; // rax
+  __int64 v38; // [rsp+20h] [rbp-48h]
+  ADAPTER_RENDER *v39; // [rsp+28h] [rbp-40h]
+  __int64 v40; // [rsp+78h] [rbp+10h]
 
   v7 = *((_QWORD *)a2 + 2);
-  v36 = *((_QWORD *)a2 + 3);
-  v37 = *((_QWORD *)a2 + 4);
+  v38 = *((_QWORD *)a2 + 3);
+  v40 = *((_QWORD *)a2 + 4);
   v9 = *(_DWORD *)(v7 + 128) + 92;
   if ( *(_DWORD *)(v7 + 128) >= 0xFFFFFFA4 )
     return 2147483653LL;
@@ -75,80 +78,70 @@ __int64 __fastcall DXG_HOST_GLOBAL_VMBUS::VmBusSendDuplicateHandle(
   v16 = v15 + 8;
   if ( v15 + 8 < v15 )
     return 2147483653LL;
-  v17 = operator new[](v16, 0x4B677844u, 64LL, a4);
+  v17 = (char *)operator new[](v16, 0x4B677844u, (POOL_TYPE)512);
   v18 = v17;
   if ( !v17 )
     return 3221225495LL;
-  v20 = *(ADAPTER_RENDER **)(v7 + 80);
-  v21 = (unsigned __int8 *)v17;
-  v22 = *(_DWORD *)(v7 + 132);
-  v23 = *(unsigned int *)(v7 + 112);
-  v24 = *(_DWORD *)(v7 + 128);
+  memset(v17, 0, v16);
+  v20 = (struct DXGKVMB_COMMAND_BASE *)v18;
+  v21 = *(_DWORD *)(v7 + 132);
+  v22 = (struct _MDL *)*(unsigned int *)(v7 + 112);
+  v23 = *(unsigned int *)(v7 + 128);
+  v24 = *(_QWORD *)(*(_QWORD *)(v7 + 80) + 16LL);
+  v39 = *(ADAPTER_RENDER **)(v7 + 80);
   v25 = *((_QWORD *)a6 + 2);
-  v26 = *((_QWORD *)v20 + 2);
   *(_QWORD *)v18 = 0LL;
-  *(_DWORD *)(v18 + 8) = 0;
-  *(_BYTE *)(v18 + 12) = 2;
-  *(_DWORD *)(v18 + 12) &= 0x1FFu;
-  *(_DWORD *)(v18 + 16) = 5;
-  *(_QWORD *)(v18 + 24) = *(_QWORD *)(v26 + 404);
-  *(_QWORD *)(v18 + 40) = a4;
-  *(_DWORD *)(v18 + 48) = a5;
-  *(_QWORD *)(v18 + 32) = v25;
-  v27 = (_DWORD *)(v18 + 80);
-  *(_DWORD *)(v18 + 56) = v37 != 0 ? a3 : 0;
-  *(_DWORD *)(v18 + 52) = a3;
-  *(_DWORD *)(v18 + 64) = v24;
-  *(_DWORD *)(v18 + 60) = v36 != 0 ? a3 : 0;
-  *(_DWORD *)(v18 + 68) = v23;
-  *(_DWORD *)(v18 + 72) = v22;
-  v28 = (char *)(v18 + 92);
-  *v27 = *(_DWORD *)(v7 + 12);
-  v27[1] = *(_DWORD *)(v7 + 128);
-  v27[2] = *(_DWORD *)(v7 + 112);
-  v29 = *(_DWORD *)(v7 + 128);
+  *((_DWORD *)v18 + 2) = 0;
+  *((_DWORD *)v18 + 3) = 2;
+  *((_DWORD *)v18 + 4) = 5;
+  *((_QWORD *)v18 + 3) = *(_QWORD *)(v24 + 316);
+  *((_QWORD *)v18 + 5) = a4;
+  *((_DWORD *)v18 + 12) = a5;
+  *((_QWORD *)v18 + 4) = v25;
+  v26 = v18 + 80;
+  *((_DWORD *)v18 + 14) = v40 != 0 ? a3 : 0;
+  *((_DWORD *)v18 + 13) = a3;
+  *((_DWORD *)v18 + 16) = v23;
+  *((_DWORD *)v18 + 15) = v38 != 0 ? a3 : 0;
+  *((_DWORD *)v18 + 17) = (_DWORD)v22;
+  *((_DWORD *)v18 + 18) = v21;
+  v27 = v18 + 92;
+  *v26 = *(_DWORD *)(v7 + 12);
+  v26[1] = *(_DWORD *)(v7 + 128);
+  v26[2] = *(_DWORD *)(v7 + 112);
+  v28 = *(_DWORD *)(v7 + 128);
+  if ( v28 )
+  {
+    memmove(v27, *(const void **)(v7 + 120), v28);
+    v27 += *(unsigned int *)(v7 + 128);
+  }
+  v29 = *(_DWORD *)(v7 + 112);
   if ( v29 )
   {
-    memmove(v28, *(const void **)(v7 + 120), v29);
-    v28 += *(unsigned int *)(v7 + 128);
+    memmove(v27, *(const void **)(v7 + 104), v29);
+    v27 += *(unsigned int *)(v7 + 112);
   }
-  v30 = *(_DWORD *)(v7 + 112);
-  if ( v30 )
+  for ( j = *v11; j != v11; v27 = &v31[v32] )
   {
-    memmove(v28, *(const void **)(v7 + 104), v30);
-    v28 += *(unsigned int *)(v7 + 112);
+    *(_DWORD *)v27 = *((_DWORD *)j - 11);
+    *((_DWORD *)v27 + 1) = *((_DWORD *)j - 2);
+    *((_QWORD *)v27 + 1) = *(j - 4);
+    ADAPTER_RENDER::DdiDescribeAllocation(v39, (struct _DXGKARG_DESCRIBEALLOCATION *)(v27 + 8), v23);
+    *((_QWORD *)v27 + 1) = 0LL;
+    v31 = v27 + 56;
+    memmove(v31, (const void *)*(j - 2), *((unsigned int *)j - 2));
+    v32 = *((unsigned int *)j - 2);
+    j = (_QWORD *)*j;
   }
-  v31 = *v11;
-  while ( v31 != v11 )
+  *(_QWORD *)v27 = 0LL;
+  v33 = VmBusSendAsyncMessage(*this, v20, v16, v22);
+  v36 = v33;
+  if ( v33 < 0 )
   {
-    *(_DWORD *)v28 = *((_DWORD *)v31 - 11);
-    *((_DWORD *)v28 + 1) = *((_DWORD *)v31 - 2);
-    *((_QWORD *)v28 + 1) = *(v31 - 4);
-    ADAPTER_RENDER::DdiDescribeAllocation(v20, (struct _DXGKARG_DESCRIBEALLOCATION *)(v28 + 8), v23);
-    *((_QWORD *)v28 + 1) = 0LL;
-    v32 = v28 + 56;
-    memmove(v32, (const void *)*(v31 - 2), *((unsigned int *)v31 - 2));
-    v33 = *((unsigned int *)v31 - 2);
-    v31 = (_QWORD *)*v31;
-    v28 = &v32[v33];
+    v37 = WdLogNewEntry5_WdError(v35, v34);
+    *(_QWORD *)(v37 + 24) = v36;
+    WdLogEvent5_WdError(v37);
   }
-  *(_QWORD *)v28 = 0LL;
-  v34 = DXG_VMBUS_CHANNEL_BASE::VmBusSendAsyncMessage(this, v21, (struct DXGKVMB_COMMAND_BASE *)v21, v16);
-  v35 = v34;
-  if ( v34 < 0 )
-  {
-    WdLogSingleEntry1(2LL, v34);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"VmBusSendAsyncMessage failed. 0x%I64x",
-      v35,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
-  }
-  operator delete[](v21);
-  return (unsigned int)v35;
+  operator delete[](v20);
+  return (unsigned int)v36;
 }

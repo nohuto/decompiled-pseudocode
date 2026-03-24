@@ -1,19 +1,19 @@
 /*
- * XREFs of TouchTargetingCreateContact @ 0x1C025C52C
+ * XREFs of TouchTargetingCreateContact @ 0x1C025F804
  * Callers:
- *     ?xxxPointerWindowHitTest@@YAPEAUHWND__@@PEAUtagTHREADINFO@@PEAUtagWND@@I_K_JUtagPOINT@@PEAHKPEBUtagPOINTEREVENTINT@@2PEAU4@@Z @ 0x1C0205774 (-xxxPointerWindowHitTest@@YAPEAUHWND__@@PEAUtagTHREADINFO@@PEAUtagWND@@I_K_JUtagPOINT@@PEAHKPEBU.c)
- *     EditionNeedsTouchTargeting @ 0x1C0206D20 (EditionNeedsTouchTargeting.c)
- *     xxxPerformTargetingWithinPwnd @ 0x1C020760C (xxxPerformTargetingWithinPwnd.c)
+ *     xxxPerformTargetingWithinPwnd @ 0x1C02177AC (xxxPerformTargetingWithinPwnd.c)
+ *     xxxPointerSpeedHitTest @ 0x1C02179DC (xxxPointerSpeedHitTest.c)
+ *     xxxPointerWindowHitTest @ 0x1C0217CF4 (xxxPointerWindowHitTest.c)
  * Callees:
- *     IntersectRect @ 0x1C004CD28 (IntersectRect.c)
- *     PtInRect @ 0x1C0077984 (PtInRect.c)
- *     ?_TTAdjustContactSide@@YAXJPEAJ0J@Z @ 0x1C025BC74 (-_TTAdjustContactSide@@YAXJPEAJ0J@Z.c)
+ *     PtInRect @ 0x1C004DEBC (PtInRect.c)
+ *     IntersectRect @ 0x1C0075160 (IntersectRect.c)
+ *     ?_TTAdjustContactSide@@YAXJPEAJ0J@Z @ 0x1C025F04C (-_TTAdjustContactSide@@YAXJPEAJ0J@Z.c)
  */
 
 __int64 __fastcall TouchTargetingCreateContact(__int64 a1, int *a2, __int64 a3, _DWORD *a4)
 {
   int *v4; // rdi
-  int v8; // r9d
+  unsigned int v8; // r9d
   unsigned int *v9; // rbp
   int *v10; // r12
   int *v11; // r8

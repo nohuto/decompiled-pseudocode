@@ -1,8 +1,8 @@
 /*
- * XREFs of GreSetLFONTOwner @ 0x1C007813C
+ * XREFs of GreSetLFONTOwner @ 0x1C00E28F0
  * Callers:
- *     CreateFontFromUserProfile @ 0x1C0078200 (CreateFontFromUserProfile.c)
- *     FinishStockFontReinit @ 0x1C00885B0 (FinishStockFontReinit.c)
+ *     CreateFontFromUserProfile @ 0x1C00E27E8 (CreateFontFromUserProfile.c)
+ *     FinishStockFontReinit @ 0x1C00E4E10 (FinishStockFontReinit.c)
  * Callees:
  *     <none>
  */

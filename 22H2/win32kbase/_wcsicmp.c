@@ -1,11 +1,11 @@
 /*
- * XREFs of _wcsicmp @ 0x1C00CE2D0
+ * XREFs of _wcsicmp @ 0x1C00C5714
  * Callers:
- *     ?LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z @ 0x1C0012434 (-LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z.c)
- *     ldevLoadDriver @ 0x1C0017300 (ldevLoadDriver.c)
- *     ?DrvGetDeviceConfigurationInformation@@YAXPEAUtagGRAPHICS_DEVICE@@PEAXH@Z @ 0x1C001D8F0 (-DrvGetDeviceConfigurationInformation@@YAXPEAUtagGRAPHICS_DEVICE@@PEAXH@Z.c)
- *     ?vFilterDriverHooks@PDEVOBJ@@QEAAXXZ @ 0x1C0064650 (-vFilterDriverHooks@PDEVOBJ@@QEAAXXZ.c)
- *     ldevLoadImage @ 0x1C00A5EA0 (ldevLoadImage.c)
+ *     ldevLoadDriver @ 0x1C0016970 (ldevLoadDriver.c)
+ *     ldevLoadImage @ 0x1C0016C50 (ldevLoadImage.c)
+ *     ?DrvGetDeviceConfigurationInformation@@YAXPEAUtagGRAPHICS_DEVICE@@PEAXH@Z @ 0x1C001BCCC (-DrvGetDeviceConfigurationInformation@@YAXPEAUtagGRAPHICS_DEVICE@@PEAXH@Z.c)
+ *     ?LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z @ 0x1C006A210 (-LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z.c)
+ *     ?vFilterDriverHooks@PDEVOBJ@@QEAAXXZ @ 0x1C00AEB4C (-vFilterDriverHooks@PDEVOBJ@@QEAAXXZ.c)
  * Callees:
  *     <none>
  */

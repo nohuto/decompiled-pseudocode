@@ -1,63 +1,70 @@
 /*
- * XREFs of KeQueryAffinityProcess @ 0x14034BB10
+ * XREFs of KeQueryAffinityProcess @ 0x14025C0A0
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     NtQueryInformationProcess @ 0x1406FCB40 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1406216C0 (NtQueryInformationProcess.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
- *     KiCopyAffinityEx @ 0x1402544A0 (KiCopyAffinityEx.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025ABF0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7AE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14029CE90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14029CF60 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KeQueryAffinityProcess(__int64 a1, __int64 a2, _DWORD *a3, _OWORD *a4, _WORD *a5)
+__int64 __fastcall KeQueryAffinityProcess(__int64 a1, _OWORD *a2, _DWORD *a3, __int64 a4)
 {
   unsigned __int8 CurrentIrql; // bl
+  _OWORD *v9; // r14
   __int64 result; // rax
   _DWORD *SchedulerAssist; // r9
-  __int64 v12; // rax
-  unsigned __int8 v13; // al
+  unsigned __int8 v12; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v15; // r8
-  int v16; // eax
-  bool v17; // zf
+  _DWORD *v14; // r8
+  int v15; // eax
+  bool v16; // zf
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    LODWORD(v12) = 4;
-    if ( CurrentIrql != 2 )
-      v12 = (-1LL << (CurrentIrql + 1)) & 4;
-    SchedulerAssist[5] |= v12;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
   ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-  KiCopyAffinityEx(a2, *(_WORD *)(a2 + 2), (unsigned __int16 *)(a1 + 80));
+  *a2 = *(_OWORD *)(a1 + 80);
+  a2[1] = *(_OWORD *)(a1 + 96);
+  a2[2] = *(_OWORD *)(a1 + 112);
+  a2[3] = *(_OWORD *)(a1 + 128);
+  a2[4] = *(_OWORD *)(a1 + 144);
+  a2[5] = *(_OWORD *)(a1 + 160);
+  a2[6] = *(_OWORD *)(a1 + 176);
+  v9 = a2 + 8;
+  *(v9 - 1) = *(_OWORD *)(a1 + 192);
+  *v9 = *(_OWORD *)(a1 + 208);
+  v9[1] = *(_OWORD *)(a1 + 224);
+  *((_QWORD *)v9 + 4) = *(_QWORD *)(a1 + 240);
   if ( a3 )
     *a3 = *(_DWORD *)(a1 + 636);
   if ( a4 )
   {
-    *a4 = *(_OWORD *)(a1 + 772);
-    a4[1] = *(_OWORD *)(a1 + 788);
-    a4[2] = *(_OWORD *)(a1 + 804);
-    a4[3] = *(_OWORD *)(a1 + 820);
+    *(_OWORD *)a4 = *(_OWORD *)(a1 + 772);
+    *(_OWORD *)(a4 + 16) = *(_OWORD *)(a1 + 788);
+    *(_QWORD *)(a4 + 32) = *(_QWORD *)(a1 + 804);
   }
-  if ( a5 )
-    *a5 = *(_WORD *)(a1 + 1040);
   ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
   if ( KiIrqlFlags )
   {
-    v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      v15 = CurrentPrcb->SchedulerAssist;
-      v16 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-      v17 = (v16 & v15[5]) == 0;
-      v15[5] &= v16;
-      if ( v17 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      v12 = KeGetCurrentIrql();
+      if ( v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        v14 = CurrentPrcb->SchedulerAssist;
+        v15 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v16 = (v15 & v14[5]) == 0;
+        v14[5] &= v15;
+        if ( v16 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
   result = CurrentIrql;

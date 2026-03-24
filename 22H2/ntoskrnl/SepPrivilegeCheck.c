@@ -1,13 +1,14 @@
 /*
- * XREFs of SepPrivilegeCheck @ 0x1402AF660
+ * XREFs of SepPrivilegeCheck @ 0x140345460
  * Callers:
- *     SepAccessCheckEx @ 0x140228864 (SepAccessCheckEx.c)
- *     SepAccessCheck @ 0x140232C80 (SepAccessCheck.c)
- *     SePrivilegePolicyCheck @ 0x1402B64C0 (SePrivilegePolicyCheck.c)
- *     NtPrivilegeCheck @ 0x1406BAE70 (NtPrivilegeCheck.c)
- *     SeCheckAuditPrivilege @ 0x1406C3678 (SeCheckAuditPrivilege.c)
- *     IopParseDevice @ 0x14072CDC0 (IopParseDevice.c)
- *     SePrivilegeCheck @ 0x14072F320 (SePrivilegeCheck.c)
+ *     SepAccessCheck @ 0x1402CFBA0 (SepAccessCheck.c)
+ *     SePrivilegePolicyCheck @ 0x140347420 (SePrivilegePolicyCheck.c)
+ *     SepAccessCheckEx @ 0x140373FA0 (SepAccessCheckEx.c)
+ *     NtPrivilegeCheck @ 0x140607FA0 (NtPrivilegeCheck.c)
+ *     SeCheckAuditPrivilege @ 0x1406279BC (SeCheckAuditPrivilege.c)
+ *     IopCheckBackupRestorePrivilege @ 0x140650630 (IopCheckBackupRestorePrivilege.c)
+ *     PfQuerySuperfetchInformation @ 0x1406CD5D0 (PfQuerySuperfetchInformation.c)
+ *     SePrivilegeCheck @ 0x1406CDD00 (SePrivilegeCheck.c)
  * Callees:
  *     <none>
  */
@@ -26,32 +27,40 @@ char __fastcall SepPrivilegeCheck(__int64 a1, __int64 a2, unsigned int a3, char 
   v5 = 0;
   v14 = 0LL;
   v13 = 0LL;
-  if ( !a5 )
-    return 1;
-  _InterlockedExchange64(&v14, *(_QWORD *)(a1 + 72));
-  _InterlockedExchange64(&v13, *(_QWORD *)(a1 + 64));
-  v7 = v14 & v13;
-  _InterlockedOr((volatile signed __int32 *)&v13, 0);
-  if ( a3 )
+  if ( a5 )
   {
-    v8 = (_DWORD *)(a2 + 8);
-    v9 = a3;
-    do
+    _InterlockedExchange64(&v14, *(_QWORD *)(a1 + 72));
+    _InterlockedExchange64(&v13, *(_QWORD *)(a1 + 64));
+    v7 = v14 & v13;
+    _InterlockedOr((volatile signed __int32 *)&v13, 0);
+    if ( a3 )
     {
-      v10 = *v8 & 0x7FFFFFFF;
-      v11 = _bittest64(&v7, (unsigned int)*(v8 - 2));
-      *v8 = v10;
-      if ( v11 )
+      v8 = (_DWORD *)(a2 + 8);
+      v9 = a3;
+      do
       {
-        *v8 = v10 | 0x80000000;
-        ++v5;
+        v10 = *v8 & 0x7FFFFFFF;
+        v11 = _bittest64(&v7, (unsigned int)*(v8 - 2));
+        *v8 = v10;
+        if ( v11 )
+        {
+          *v8 = v10 | 0x80000000;
+          ++v5;
+        }
+        v8 += 3;
+        --v9;
       }
-      v8 += 3;
-      --v9;
+      while ( v9 );
     }
-    while ( v9 );
+    if ( (a4 & 1) != 0 )
+    {
+      if ( v5 != a3 )
+        return 0;
+    }
+    else if ( !v5 )
+    {
+      return 0;
+    }
   }
-  if ( (a4 & 1) != 0 )
-    return v5 == a3;
-  return v5 != 0;
+  return 1;
 }

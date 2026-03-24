@@ -1,5 +1,5 @@
 /*
- * XREFs of PsIsComponentEnabled @ 0x14036AD60
+ * XREFs of PsIsComponentEnabled @ 0x1403F7BF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall PsIsComponentEnabled(int a1)
 {
-  return (a1 & *(_DWORD *)&KeGetCurrentThread()->ApcState.Process[2].IdealProcessor[2]) == 0;
+  return (a1 & KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[7]) == 0;
 }

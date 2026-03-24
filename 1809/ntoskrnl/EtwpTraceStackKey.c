@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpTraceStackKey @ 0x140315B14
+ * XREFs of EtwpTraceStackKey @ 0x140315C14
  * Callers:
- *     EtwpTraceStackWalk @ 0x14030F644 (EtwpTraceStackWalk.c)
+ *     EtwpTraceStackWalk @ 0x14030F744 (EtwpTraceStackWalk.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     EtwpLogKernelEvent @ 0x1400C71B0 (EtwpLogKernelEvent.c)
- *     KxTryToAcquireSpinLock @ 0x14011BAB4 (KxTryToAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53B0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
- *     memmove @ 0x1401D1440 (memmove.c)
- *     EtwpDereferenceStackEntry @ 0x140315864 (EtwpDereferenceStackEntry.c)
+ *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
+ *     KxTryToAcquireSpinLock @ 0x14011BAD4 (KxTryToAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
+ *     memmove @ 0x1401D1540 (memmove.c)
+ *     EtwpDereferenceStackEntry @ 0x140315964 (EtwpDereferenceStackEntry.c)
  */
 
 char __fastcall EtwpTraceStackKey(

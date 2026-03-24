@@ -1,10 +1,10 @@
 /*
- * XREFs of BltMask_CY @ 0x1C0263640
+ * XREFs of BltMask_CY @ 0x1C0266090
  * Callers:
- *     ExpandMask_CY @ 0x1C02638A0 (ExpandMask_CY.c)
+ *     ExpandMask_CY @ 0x1C02662F0 (ExpandMask_CY.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0160280 (memmove.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016E4B0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
  */
 
 __int64 __fastcall BltMask_CY(__int64 a1)

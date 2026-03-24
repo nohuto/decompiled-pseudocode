@@ -2,10 +2,10 @@
  * XREFs of MmSetAddressRangeModifiedEx @ 0x140086780
  * Callers:
  *     CcFlushCachePriv @ 0x14001EA90 (CcFlushCachePriv.c)
- *     CcZeroDataInCache @ 0x1400E07A4 (CcZeroDataInCache.c)
- *     CcPurgeAndClearCacheSection @ 0x1400E78D8 (CcPurgeAndClearCacheSection.c)
- *     MmSetAddressRangeModified @ 0x1401342E0 (MmSetAddressRangeModified.c)
- *     CcUnpinRepinnedBcb @ 0x140269CD0 (CcUnpinRepinnedBcb.c)
+ *     CcZeroDataInCache @ 0x1400E07C4 (CcZeroDataInCache.c)
+ *     CcPurgeAndClearCacheSection @ 0x1400E78F8 (CcPurgeAndClearCacheSection.c)
+ *     MmSetAddressRangeModified @ 0x140134300 (MmSetAddressRangeModified.c)
+ *     CcUnpinRepinnedBcb @ 0x140269DD0 (CcUnpinRepinnedBcb.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
@@ -18,13 +18,13 @@
  *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
  *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
  *     MiLockWorkingSetOptimal @ 0x140088344 (MiLockWorkingSetOptimal.c)
- *     MiGetSystemCacheReverseMap @ 0x1400ADF30 (MiGetSystemCacheReverseMap.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AD0 (MiInsertTbFlushEntry.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E50 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120EB0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSystemCacheReverseMap @ 0x1400ADF50 (MiGetSystemCacheReverseMap.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmSetAddressRangeModifiedEx(unsigned __int64 a1, __int64 a2)

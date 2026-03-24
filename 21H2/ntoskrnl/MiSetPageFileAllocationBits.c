@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSetPageFileAllocationBits @ 0x140389840
+ * XREFs of MiSetPageFileAllocationBits @ 0x1402D0BD8
  * Callers:
- *     MiFindFreePageFileSpace @ 0x14025F6B0 (MiFindFreePageFileSpace.c)
- *     MiGatherPagefilePages @ 0x14037AFC0 (MiGatherPagefilePages.c)
- *     MiFindPageFileWriteCluster @ 0x14037E048 (MiFindPageFileWriteCluster.c)
+ *     MiGatherPagefilePages @ 0x1402688A4 (MiGatherPagefilePages.c)
+ *     MiFindFreePageFileSpace @ 0x14026A714 (MiFindFreePageFileSpace.c)
+ *     MiFindPageFileWriteCluster @ 0x1402D1C28 (MiFindPageFileWriteCluster.c)
  * Callees:
- *     RtlSetBits @ 0x1402E4C80 (RtlSetBits.c)
+ *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
  */
 
 void __fastcall MiSetPageFileAllocationBits(__int64 a1, ULONG a2, ULONG a3)

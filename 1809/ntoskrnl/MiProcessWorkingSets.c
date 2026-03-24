@@ -1,7 +1,7 @@
 /*
  * XREFs of MiProcessWorkingSets @ 0x14006CED0
  * Callers:
- *     MiWorkingSetManager @ 0x1400EF594 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1400EF5B4 (MiWorkingSetManager.c)
  * Callees:
  *     MiLogProcessWorkingSetsStop @ 0x140012974 (MiLogProcessWorkingSetsStop.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
@@ -9,22 +9,22 @@
  *     MiTrimOrAgeWorkingSet @ 0x14006D580 (MiTrimOrAgeWorkingSet.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
  *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2AE0 (KeSetEvent.c)
- *     MiComputeSystemTrimCriteria @ 0x1400EEFB8 (MiComputeSystemTrimCriteria.c)
- *     MiReturnWsToExpansionList @ 0x1400F3364 (MiReturnWsToExpansionList.c)
- *     _TlgWriteEx @ 0x140100898 (_TlgWriteEx.c)
- *     MiDrainZeroLookasides @ 0x14011AC80 (MiDrainZeroLookasides.c)
- *     MiComputeAgingPercent @ 0x14011FE88 (MiComputeAgingPercent.c)
- *     KeSignalGate @ 0x140127690 (KeSignalGate.c)
- *     MiInitializeWorkingSetManagerParameters @ 0x140190DDC (MiInitializeWorkingSetManagerParameters.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeRetryOutswapProcess @ 0x14028E544 (KeRetryOutswapProcess.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290900 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1402909B8 (KiReleaseQueuedSpinLockInstrumented.c)
- *     MiCheckSystemTrimEndCriteria @ 0x1402B29EC (MiCheckSystemTrimEndCriteria.c)
- *     MiOrderTrimList @ 0x1402B3250 (MiOrderTrimList.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     MiComputeSystemTrimCriteria @ 0x1400EEFD8 (MiComputeSystemTrimCriteria.c)
+ *     MiReturnWsToExpansionList @ 0x1400F3384 (MiReturnWsToExpansionList.c)
+ *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
+ *     MiDrainZeroLookasides @ 0x14011ACA0 (MiDrainZeroLookasides.c)
+ *     MiComputeAgingPercent @ 0x14011FEA8 (MiComputeAgingPercent.c)
+ *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x140190DFC (MiInitializeWorkingSetManagerParameters.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRetryOutswapProcess @ 0x14028E644 (KeRetryOutswapProcess.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     MiCheckSystemTrimEndCriteria @ 0x1402B2AEC (MiCheckSystemTrimEndCriteria.c)
+ *     MiOrderTrimList @ 0x1402B3350 (MiOrderTrimList.c)
  */
 
 void __fastcall MiProcessWorkingSets(__int64 a1, __int64 a2)
@@ -169,7 +169,7 @@ void __fastcall MiProcessWorkingSets(__int64 a1, __int64 a2)
     v99 = 8LL;
     v101 = 8LL;
     v103 = 8LL;
-    TlgWriteEx(v39, &unk_14036DF28, v38, (ULONG)v39, v63, v64, 0xAu, &pData);
+    TlgWriteEx(v39, &unk_14036E038, v38, (ULONG)v39, v63, v64, 0xAu, &pData);
   }
   if ( (v6 & 5) != 0 )
     MiDrainZeroLookasides(v5, 0LL, 0LL, 0LL);

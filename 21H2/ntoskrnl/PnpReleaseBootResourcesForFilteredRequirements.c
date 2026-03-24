@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpReleaseBootResourcesForFilteredRequirements @ 0x1405611AC
+ * XREFs of PnpReleaseBootResourcesForFilteredRequirements @ 0x1403BDF0C
  * Callers:
- *     IopReleaseFilteredBootResources @ 0x140831280 (IopReleaseFilteredBootResources.c)
+ *     IopReleaseFilteredBootResources @ 0x140753138 (IopReleaseFilteredBootResources.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     IopFreeReqList @ 0x14082045C (IopFreeReqList.c)
- *     IopResourceRequirementsListToReqList @ 0x140820DCC (IopResourceRequirementsListToReqList.c)
- *     IopCallArbiter @ 0x140821830 (IopCallArbiter.c)
- *     PnpCmResourcesToIoResources @ 0x140821D18 (PnpCmResourcesToIoResources.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     IopResourceRequirementsListToReqList @ 0x140751854 (IopResourceRequirementsListToReqList.c)
+ *     IopCallArbiter @ 0x1407522E4 (IopCallArbiter.c)
+ *     IopFreeReqList @ 0x140753068 (IopFreeReqList.c)
+ *     PnpCmResourcesToIoResources @ 0x1407B48F0 (PnpCmResourcesToIoResources.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpReleaseBootResourcesForFilteredRequirements(__int64 *a1)
@@ -18,19 +18,19 @@ __int64 __fastcall PnpReleaseBootResourcesForFilteredRequirements(__int64 *a1)
   __int64 v4; // rbx
   __int64 v5; // rsi
   __int64 v6; // rdx
-  int v7; // ebx
-  void *v8; // rdx
-  __int64 v10; // rax
-  __int64 v11; // r15
-  __int64 v12; // rax
-  __int64 v13; // r14
-  __int64 *v14; // rcx
-  __int64 v15; // rax
-  __int64 v16; // r13
-  __int64 v17; // rsi
-  unsigned int v18; // r8d
-  __int64 v19; // rdx
-  __int64 v20; // rax
+  __int64 v7; // rax
+  int v8; // ebx
+  void *v9; // rdx
+  __int64 v10; // r15
+  __int64 v11; // rax
+  __int64 v12; // r14
+  __int64 *v13; // rcx
+  __int64 v14; // rax
+  __int64 v15; // r13
+  __int64 v16; // rsi
+  unsigned int v17; // r8d
+  __int64 i; // rdx
+  __int64 v19; // rax
   _QWORD *v21; // rax
   int v22; // eax
   __int64 v23; // rcx
@@ -47,101 +47,86 @@ __int64 __fastcall PnpReleaseBootResourcesForFilteredRequirements(__int64 *a1)
   else
     v5 = 0LL;
   v6 = *(_QWORD *)(v5 + 544);
-  if ( !v6 || (v10 = PnpCmResourcesToIoResources(v3, v6, 1LL), (v2 = (void *)v10) == 0LL) )
+  if ( !v6 || (v7 = PnpCmResourcesToIoResources(v3, v6, 1LL), (v2 = (void *)v7) == 0LL) )
   {
-    v7 = -1073741823;
-LABEL_6:
-    v8 = (void *)v26[4];
-    goto LABEL_7;
+    v8 = -1073741823;
+    goto LABEL_15;
   }
   HIDWORD(v26[1]) = 4;
-  v26[3] = v10;
+  v26[3] = v7;
   v26[0] = v4;
-  v7 = IopResourceRequirementsListToReqList(v26, &v26[4]);
-  if ( v7 < 0 )
-    goto LABEL_6;
-  v8 = (void *)v26[4];
-  if ( !v26[4] )
+  v8 = IopResourceRequirementsListToReqList(v26, &v26[4]);
+  if ( v8 < 0 )
   {
-LABEL_10:
-    ExFreePoolWithTag(v2, 0);
-    return (unsigned int)v7;
+LABEL_15:
+    v9 = (void *)v26[4];
+    goto LABEL_16;
   }
-  v11 = *(_QWORD *)(v26[4] + 40LL);
-  v7 = 0;
-  v12 = a1[4];
-  v13 = 0LL;
-  v14 = *(__int64 **)(v12 + 16);
-  v15 = *(_QWORD *)(v5 + 32);
-  v16 = *v14;
+  v9 = (void *)v26[4];
+  if ( !v26[4] )
+    goto LABEL_18;
+  v10 = *(_QWORD *)(v26[4] + 40LL);
+  v8 = 0;
+  v11 = a1[4];
+  v12 = 0LL;
+  v13 = *(__int64 **)(v11 + 16);
+  v14 = *(_QWORD *)(v5 + 32);
+  v15 = *v13;
   v25[6] = 0LL;
   v25[9] = 0LL;
-  v25[4] = v15;
+  v25[4] = v14;
   v25[5] = 4LL;
-  if ( *(_DWORD *)(v11 + 20) )
+  if ( *(_DWORD *)(v10 + 20) )
   {
-    while ( 1 )
+    do
     {
-      v17 = *(_QWORD *)(*(_QWORD *)(v11 + 8 * v13 + 24) + 288LL);
-      if ( v17 )
+      v16 = *(_QWORD *)(*(_QWORD *)(v10 + 8 * v12 + 24) + 288LL);
+      if ( v16 )
       {
-        v18 = *(_DWORD *)(v16 + 20);
-        v19 = 0LL;
-        if ( v18 )
+        v17 = *(_DWORD *)(v15 + 20);
+        for ( i = 0LL; (unsigned int)i < v17; i = (unsigned int)(i + 1) )
         {
-          while ( 1 )
-          {
-            v20 = *(_QWORD *)(*(_QWORD *)(v16 + 8 * v19 + 24) + 288LL);
-            if ( v20 )
-            {
-              if ( *(_BYTE *)(v17 + 16) == *(_BYTE *)(v20 + 16) )
-                break;
-            }
-            v19 = (unsigned int)(v19 + 1);
-            if ( (unsigned int)v19 >= v18 )
-              goto LABEL_21;
-          }
+          v19 = *(_QWORD *)(*(_QWORD *)(v15 + 8 * i + 24) + 288LL);
+          if ( v19 && *(_BYTE *)(v16 + 16) == *(_BYTE *)(v19 + 16) )
+            break;
         }
-        else
+        if ( (_DWORD)i == v17 )
         {
-LABEL_21:
-          if ( (_DWORD)v19 == v18 )
-          {
-            v25[1] = v25;
-            v25[0] = v25;
-            v21 = *(_QWORD **)(v17 + 48);
-            if ( *v21 != v17 + 40 )
-              goto LABEL_29;
-            v25[1] = *(_QWORD *)(v17 + 48);
-            v25[0] = v17 + 40;
-            *v21 = v25;
-            *(_QWORD *)(v17 + 48) = v25;
-            v22 = IopCallArbiter(v17, 0LL);
-            v23 = v25[0];
-            v7 = v22;
-            v24 = v25[1];
-            if ( *(_QWORD **)(v25[0] + 8LL) != v25 || *(_QWORD **)v25[1] != v25 )
-LABEL_29:
-              __fastfail(3u);
-            *(_QWORD *)v25[1] = v25[0];
-            *(_QWORD *)(v23 + 8) = v24;
-            if ( v7 < 0 )
-              goto LABEL_6;
-            v7 = IopCallArbiter(v17, 2LL);
-            if ( v7 < 0 )
-              goto LABEL_6;
-          }
+          v25[1] = v25;
+          v25[0] = v25;
+          v21 = *(_QWORD **)(v16 + 48);
+          if ( *v21 != v16 + 40 )
+            goto LABEL_27;
+          v25[1] = *(_QWORD *)(v16 + 48);
+          v25[0] = v16 + 40;
+          *v21 = v25;
+          *(_QWORD *)(v16 + 48) = v25;
+          v22 = IopCallArbiter(v16, 0LL);
+          v23 = v25[0];
+          v8 = v22;
+          v24 = v25[1];
+          if ( *(_QWORD **)(v25[0] + 8LL) != v25 || *(_QWORD **)v25[1] != v25 )
+LABEL_27:
+            __fastfail(3u);
+          *(_QWORD *)v25[1] = v25[0];
+          *(_QWORD *)(v23 + 8) = v24;
+          if ( v8 < 0 )
+            break;
+          v8 = IopCallArbiter(v16, 2LL);
+          if ( v8 < 0 )
+            break;
         }
       }
-      v13 = (unsigned int)(v13 + 1);
-      if ( (unsigned int)v13 >= *(_DWORD *)(v11 + 20) )
-        goto LABEL_6;
+      v12 = (unsigned int)(v12 + 1);
     }
+    while ( (unsigned int)v12 < *(_DWORD *)(v10 + 20) );
+    goto LABEL_15;
   }
-LABEL_7:
-  if ( v8 )
-    IopFreeReqList(v8);
+LABEL_16:
+  if ( v9 )
+    IopFreeReqList(v9);
+LABEL_18:
   if ( v2 )
-    goto LABEL_10;
-  return (unsigned int)v7;
+    ExFreePoolWithTag(v2, 0);
+  return (unsigned int)v8;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of PopGetLegacyPowerRequestFlags @ 0x140369870
+ * XREFs of PopGetLegacyPowerRequestFlags @ 0x140284054
  * Callers:
- *     PoRegisterSystemState @ 0x140201CD0 (PoRegisterSystemState.c)
- *     NtSetThreadExecutionState @ 0x1407EDD60 (NtSetThreadExecutionState.c)
+ *     PoRegisterSystemState @ 0x14056EF10 (PoRegisterSystemState.c)
+ *     NtSetThreadExecutionState @ 0x14067D5F0 (NtSetThreadExecutionState.c)
  * Callees:
  *     <none>
  */
@@ -19,13 +19,13 @@ int __fastcall PopGetLegacyPowerRequestFlags(_DWORD *a1, int a2, int *a3)
   if ( a1 )
   {
     v6 = -2147483646;
-    if ( !a1[10] )
+    if ( !a1[8] )
       v6 = 0x80000000;
     v7 = v6 | 1;
-    if ( !a1[11] )
+    if ( !a1[9] )
       v7 = v6;
     v5 = v7 | 0x40;
-    if ( !a1[12] )
+    if ( !a1[10] )
       v5 = v7;
     result = (a2 ^ v5) & 0x7FFFFFFF;
   }

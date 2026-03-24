@@ -1,178 +1,173 @@
 /*
- * XREFs of MiUpdateCfgSystemWideBitmapWorker @ 0x1406B19D0
+ * XREFs of MiUpdateCfgSystemWideBitmapWorker @ 0x140637780
  * Callers:
- *     MiUpdateCfgSystemWideBitmap @ 0x1406AB494 (MiUpdateCfgSystemWideBitmap.c)
+ *     MiUpdateCfgSystemWideBitmap @ 0x14066A9FC (MiUpdateCfgSystemWideBitmap.c)
  * Callees:
- *     MiRemoveFromSystemSpace @ 0x1402137A0 (MiRemoveFromSystemSpace.c)
- *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
- *     MiLocatePagefileSubsection @ 0x140273720 (MiLocatePagefileSubsection.c)
- *     RtlSetBitsEx @ 0x14028B2A0 (RtlSetBitsEx.c)
- *     MiSectionControlArea @ 0x14029F760 (MiSectionControlArea.c)
- *     RtlClearAllBitsEx @ 0x14033CFF0 (RtlClearAllBitsEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     memset @ 0x140435400 (memset.c)
- *     MiEliminateZeroPages @ 0x140696B90 (MiEliminateZeroPages.c)
- *     MiMapViewInSystemSpace @ 0x1406AD6A4 (MiMapViewInSystemSpace.c)
- *     MiChargeSegmentCommit @ 0x140748518 (MiChargeSegmentCommit.c)
- *     RtlEnumRvaListFirst @ 0x1407C163C (RtlEnumRvaListFirst.c)
+ *     MiGetAnyMultiplexedVm @ 0x14027D77C (MiGetAnyMultiplexedVm.c)
+ *     MiSectionControlArea @ 0x1402958E0 (MiSectionControlArea.c)
+ *     RtlSetBitsEx @ 0x140297080 (RtlSetBitsEx.c)
+ *     MiLocatePagefileSubsection @ 0x14029737C (MiLocatePagefileSubsection.c)
+ *     RtlClearAllBitsEx @ 0x14031AD10 (RtlClearAllBitsEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiChargeSegmentCommit @ 0x1406202F0 (MiChargeSegmentCommit.c)
+ *     MiMapViewInSystemSpace @ 0x140635F9C (MiMapViewInSystemSpace.c)
+ *     RtlEnumRvaListFirst @ 0x140684064 (RtlEnumRvaListFirst.c)
+ *     MmUnmapViewInSystemSpace @ 0x14068F560 (MmUnmapViewInSystemSpace.c)
+ *     MiEliminateZeroPages @ 0x1406BF340 (MiEliminateZeroPages.c)
  */
 
 __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
 {
   unsigned int v4; // r12d
-  ULONG_PTR v7; // r14
-  unsigned __int64 v8; // rbx
+  ULONG_PTR v7; // rbx
+  unsigned __int64 v8; // rdi
   __int64 result; // rax
   size_t v10; // r15
-  ULONG_PTR v11; // r13
+  unsigned __int64 v11; // r13
   unsigned __int64 v12; // rax
-  unsigned int *PagefileSubsection; // rax
-  _DWORD *v14; // rsi
-  unsigned int v15; // ebx
-  int v16; // r10d
-  unsigned __int8 *v17; // r8
-  __int64 v18; // r9
-  __int64 v19; // rcx
-  int v20; // edx
-  unsigned int v21; // r11d
-  int v22; // eax
-  unsigned int v23; // r8d
-  __int64 v24; // r9
-  __int64 v25; // rcx
-  int v26; // edx
+  __int64 *PagefileSubsection; // rax
+  __int64 v14; // r14
+  _DWORD *v15; // rdi
+  unsigned int v16; // r9d
+  int v17; // edx
+  unsigned __int64 v18; // rax
+  unsigned __int64 v19; // rax
+  unsigned __int8 *v20; // rax
+  __int64 v21; // r10
+  __int64 v22; // r8
+  int v23; // edx
+  unsigned int v24; // r8d
+  unsigned int v25; // r11d
+  int v26; // r10d
+  __int64 v27; // rdi
+  __int64 v28; // rax
+  int v29; // ecx
   char *AnyMultiplexedVm; // rax
-  unsigned __int64 v28; // r8
-  int *v29; // rax
-  int v30; // [rsp+30h] [rbp-41h] BYREF
-  unsigned __int64 v31[2]; // [rsp+38h] [rbp-39h] BYREF
-  ULONG_PTR BugCheckParameter1; // [rsp+48h] [rbp-29h] BYREF
-  _DWORD *v33; // [rsp+50h] [rbp-21h]
-  unsigned __int64 v34; // [rsp+58h] [rbp-19h]
-  unsigned __int64 v35; // [rsp+60h] [rbp-11h] BYREF
-  ULONG_PTR BugCheckParameter3; // [rsp+68h] [rbp-9h] BYREF
-  unsigned int v37; // [rsp+70h] [rbp-1h]
+  __int64 v31; // r9
+  int *v32; // rax
+  int v33; // [rsp+40h] [rbp-41h] BYREF
+  unsigned __int64 v34[2]; // [rsp+48h] [rbp-39h] BYREF
+  __int64 v35; // [rsp+58h] [rbp-29h]
+  PVOID MappedBase; // [rsp+60h] [rbp-21h] BYREF
+  _DWORD *v37; // [rsp+68h] [rbp-19h]
+  unsigned __int64 v38; // [rsp+70h] [rbp-11h] BYREF
+  ULONG_PTR BugCheckParameter3; // [rsp+78h] [rbp-9h] BYREF
+  unsigned int v40; // [rsp+80h] [rbp-1h]
 
   v4 = 0;
-  v33 = (_DWORD *)a2;
-  BugCheckParameter1 = 0LL;
-  v30 = 0;
+  v37 = (_DWORD *)a2;
+  MappedBase = 0LL;
+  v33 = 0;
   BugCheckParameter3 = 0LL;
-  v37 = 0;
+  v40 = 0;
   v7 = 0LL;
   if ( a2 )
-    v7 = *(_QWORD *)(a2 + 8);
+    v7 = *(_QWORD *)(a2 + 16);
   v8 = a3 >> 3;
-  v35 = a3 >> 3;
-  v31[0] = a4 >> 3;
-  v34 = (a4 >> 15) + ((((a3 >> 3) & 0xFFF) + 4095 + ((a4 >> 3) & 0xFFF)) >> 12);
-  result = MiMapViewInSystemSpace(a1, &BugCheckParameter1, v31, (__int64 *)&v35, 0LL, 0LL);
+  v38 = a3 >> 3;
+  v34[0] = a4 >> 3;
+  v35 = (a4 >> 15) + ((((a3 >> 3) & 0xFFF) + 4095 + ((a4 >> 3) & 0xFFF)) >> 12);
+  result = MiMapViewInSystemSpace(a1, (__int64)&unk_140C4CD68, &MappedBase, v34, &v38, 0LL, 0LL);
   if ( (int)result >= 0 )
   {
-    v10 = v31[0] - (unsigned __int16)v8;
-    v11 = BugCheckParameter1 | (unsigned __int16)v8;
+    v10 = v34[0] - (unsigned __int16)v8;
+    v11 = (unsigned __int64)MappedBase | (unsigned __int16)v8;
     v12 = MiSectionControlArea(a1);
-    v31[0] = v8 >> 12;
-    PagefileSubsection = MiLocatePagefileSubsection((unsigned int *)(v12 + 128), v31);
-    if ( (unsigned int)MiChargeSegmentCommit(PagefileSubsection, *((_QWORD *)PagefileSubsection + 1) + 8 * v31[0], v34) )
+    v34[0] = v8 >> 12;
+    PagefileSubsection = (__int64 *)MiLocatePagefileSubsection((unsigned int *)(v12 + 128), v34);
+    v14 = v35;
+    if ( (unsigned int)MiChargeSegmentCommit(PagefileSubsection, (__int64 *)(PagefileSubsection[1] + 8 * v34[0]), v35) )
     {
-      v14 = v33;
-      if ( v33 && (*v33 & 1) != 0 && v7 )
+      v15 = v37;
+      if ( v37 && (*v37 & 1) != 0 && v7 )
       {
-        v31[1] = v11;
-        v31[0] = a4;
-        RtlClearAllBitsEx((__int64)v31);
-        v15 = RtlEnumRvaListFirst(v7, &BugCheckParameter3, &v30);
-        if ( v15 )
+        v34[1] = v11;
+        v34[0] = a4;
+        RtlClearAllBitsEx((__int64)v34);
+        v16 = RtlEnumRvaListFirst(v7, &BugCheckParameter3, &v33);
+        if ( v16 )
         {
-          LOBYTE(v16) = v30;
-          while ( 1 )
+          LOBYTE(v17) = v33;
+          do
           {
-            if ( (v16 & 1) == 0 )
-              goto LABEL_15;
-            if ( (v15 & 0xF) == *((_WORD *)v14 + 2) )
+            if ( (v17 & 1) != 0 )
             {
-              if ( MmEnableControlFlowGuardXfg )
+              v18 = (unsigned __int64)v16 >> 4;
+              if ( (v16 & 0xF) == v15[1] )
               {
-                if ( (v16 & 8) != 0 )
-                  goto LABEL_14;
-              }
-              else if ( (v16 & 4) != 0 )
-              {
-LABEL_14:
-                _bittestandset64((signed __int64 *)v11, 2 * ((unsigned __int64)v15 >> 4) + 1);
-                goto LABEL_15;
-              }
-              _bittestandset64((signed __int64 *)v11, 2 * ((unsigned __int64)v15 >> 4));
-            }
-            else
-            {
-              RtlSetBitsEx((__int64)v31, 2 * ((unsigned __int64)v15 >> 4), 2uLL);
-            }
-LABEL_15:
-            ++HIDWORD(BugCheckParameter3);
-            v17 = (unsigned __int8 *)(v37 + *(_QWORD *)(v7 + 16));
-            v15 = BugCheckParameter3;
-            v18 = *(_QWORD *)(v7 + 24) - v37;
-            if ( v18 )
-            {
-              while ( 1 )
-              {
-                --v18;
-                v19 = *v17 >> 6;
-                v20 = *v17++ & 0x3F;
-                v15 += *((_DWORD *)RtlpRvaCompressionTableScales + v19) * v20;
-                if ( (_DWORD)v19 == 3 )
-                  break;
-                if ( !v18 )
-                  KeBugCheckEx(0x1Au, 0x43666720uLL, v7, (ULONG_PTR)&BugCheckParameter3, v15);
-              }
-              LODWORD(BugCheckParameter3) = v15;
-              LOBYTE(v16) = 0;
-              v37 = (_DWORD)v17 - *(_DWORD *)(v7 + 16);
-              v21 = *(_DWORD *)(v7 + 8);
-              if ( v21 <= 1 )
-              {
-                if ( v21 == 1 )
-                {
-                  v29 = *(int **)(v7 + 48);
-                  if ( v29 )
-                    v16 = *v29;
-                  else
-                    LOBYTE(v16) = 1;
-                }
+                v19 = 2 * v18;
+                if ( (v17 & 4) != 0 )
+                  ++v19;
+                _bittestandset64((signed __int64 *)v11, v19);
               }
               else
               {
-                v22 = 1;
-                v23 = 0;
-                v24 = 0LL;
-                do
-                {
-                  if ( _bittest64(*(const signed __int64 **)(v7 + 40), HIDWORD(BugCheckParameter3) * v21 + v23) )
-                  {
-                    v25 = *(_QWORD *)(v7 + 48);
-                    if ( v25 )
-                      v26 = *(_DWORD *)(v24 + v25);
-                    else
-                      LOBYTE(v26) = v22;
-                    LOBYTE(v16) = v26 | v16;
-                  }
-                  ++v23;
-                  v22 = __ROL4__(v22, 1);
-                  v24 += 4LL;
-                }
-                while ( v23 < v21 );
-                v14 = v33;
+                RtlSetBitsEx((__int64)v34, 2 * v18, 2uLL);
               }
-              if ( v15 )
-                continue;
             }
-            break;
+            ++HIDWORD(BugCheckParameter3);
+            v20 = (unsigned __int8 *)(v40 + *(_QWORD *)(v7 + 16));
+            v16 = BugCheckParameter3;
+            v21 = *(_QWORD *)(v7 + 24) - v40;
+            if ( !v21 )
+              break;
+            while ( 1 )
+            {
+              --v21;
+              v22 = *v20 >> 6;
+              v23 = *v20++ & 0x3F;
+              v16 += v23 * *((_DWORD *)RtlpRvaCompressionTableScales + v22);
+              if ( (_DWORD)v22 == 3 )
+                break;
+              if ( !v21 )
+                KeBugCheckEx(0x1Au, 0x43666720uLL, v7, (ULONG_PTR)&BugCheckParameter3, v16);
+            }
+            LODWORD(BugCheckParameter3) = v16;
+            LOBYTE(v17) = 0;
+            v40 = (_DWORD)v20 - *(_DWORD *)(v7 + 16);
+            v24 = *(_DWORD *)(v7 + 8);
+            if ( v24 <= 1 )
+            {
+              if ( v24 == 1 )
+              {
+                v32 = *(int **)(v7 + 48);
+                if ( v32 )
+                  v17 = *v32;
+                else
+                  LOBYTE(v17) = 1;
+              }
+            }
+            else
+            {
+              v25 = 0;
+              v26 = 1;
+              v27 = 0LL;
+              do
+              {
+                if ( _bittest64(*(const signed __int64 **)(v7 + 40), HIDWORD(BugCheckParameter3) * v24 + v25) )
+                {
+                  v28 = *(_QWORD *)(v7 + 48);
+                  if ( v28 )
+                    v29 = *(_DWORD *)(v27 + v28);
+                  else
+                    LOBYTE(v29) = v26;
+                  LOBYTE(v17) = v29 | v17;
+                }
+                ++v25;
+                v26 = __ROL4__(v26, 1);
+                v27 += 4LL;
+              }
+              while ( v25 < v24 );
+              v15 = v37;
+            }
           }
+          while ( v16 );
+          v14 = v35;
         }
         AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
-        MiEliminateZeroPages((__int64)AnyMultiplexedVm, v11 & 0xFFFFFFFFFFFFF000uLL, v28);
+        MiEliminateZeroPages(AnyMultiplexedVm, v11 & 0xFFFFFFFFFFFFF000uLL, v14 << 12, v31);
       }
       else
       {
@@ -183,7 +178,7 @@ LABEL_15:
     {
       v4 = -1073741523;
     }
-    MiRemoveFromSystemSpace(BugCheckParameter1, 1);
+    MmUnmapViewInSystemSpace(MappedBase);
     return v4;
   }
   return result;

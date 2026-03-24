@@ -1,9 +1,9 @@
 /*
- * XREFs of EmonPebsOverflowHandler @ 0x1405211B4
+ * XREFs of EmonPebsOverflowHandler @ 0x1404D402C
  * Callers:
- *     EmonOverflowHandler @ 0x140520920 (EmonOverflowHandler.c)
+ *     EmonOverflowHandler @ 0x1404D38A0 (EmonOverflowHandler.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall EmonPebsOverflowHandler()

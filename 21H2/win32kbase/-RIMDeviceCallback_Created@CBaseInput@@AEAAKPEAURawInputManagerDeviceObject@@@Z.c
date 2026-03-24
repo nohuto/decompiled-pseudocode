@@ -1,75 +1,59 @@
 /*
- * XREFs of ?RIMDeviceCallback_Created@CBaseInput@@AEAAKPEAURawInputManagerDeviceObject@@@Z @ 0x1C004DD80
+ * XREFs of ?RIMDeviceCallback_Created@CBaseInput@@AEAAKPEAURawInputManagerDeviceObject@@@Z @ 0x1C006A500
  * Callers:
  *     <none>
  * Callees:
- *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z @ 0x1C002DC3C (-LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z.c)
- *     isRootPartition @ 0x1C00384A0 (isRootPartition.c)
- *     ?wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C00384DC (-wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IH.c)
- *     HMCreateHandleForObject @ 0x1C004DE50 (HMCreateHandleForObject.c)
- *     RawInputManagerDeviceObjectReference @ 0x1C004DFA0 (RawInputManagerDeviceObjectReference.c)
- *     ?HMMarkObjectDestroyWorker@@YAHPEAX@Z @ 0x1C004E6D0 (-HMMarkObjectDestroyWorker@@YAHPEAX@Z.c)
- *     HMRemoveHandleForObject @ 0x1C0050440 (HMRemoveHandleForObject.c)
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
- *     ?SendRootPnpCreated@PnP@IVRootDeliver@@YAJPEAURawInputManagerDeviceObject@@AEBUCONTAINER_ID@@@Z @ 0x1C01F5528 (-SendRootPnpCreated@PnP@IVRootDeliver@@YAJPEAURawInputManagerDeviceObject@@AEBUCONTAINER_ID@@@Z.c)
- *     ?ContainerConnected@CIVChannel@@SA_NK@Z @ 0x1C01F6520 (-ContainerConnected@CIVChannel@@SA_NK@Z.c)
+ *     HMRemoveHandleForObject @ 0x1C0008390 (HMRemoveHandleForObject.c)
+ *     HMMarkObjectDestroy @ 0x1C00329F0 (HMMarkObjectDestroy.c)
+ *     isRootPartition @ 0x1C0041628 (isRootPartition.c)
+ *     HMCreateHandleForObject @ 0x1C006A5E0 (HMCreateHandleForObject.c)
+ *     RawInputManagerDeviceObjectReference @ 0x1C006A730 (RawInputManagerDeviceObjectReference.c)
+ *     Feature_InputVirtualization__private_ReportDeviceUsage @ 0x1C00CD3DC (Feature_InputVirtualization__private_ReportDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
+ *     ?SendRootPnpCreated@PnP@IVRootDeliver@@YAJPEAURawInputManagerDeviceObject@@AEBUCONTAINER_ID@@@Z @ 0x1C01BC3C0 (-SendRootPnpCreated@PnP@IVRootDeliver@@YAJPEAURawInputManagerDeviceObject@@AEBUCONTAINER_ID@@@Z.c)
  */
 
 __int64 __fastcall CBaseInput::RIMDeviceCallback_Created(CBaseInput *this, struct RawInputManagerDeviceObject *a2)
 {
-  struct RawInputManagerDeviceObject *v3; // rdi
+  struct RawInputManagerDeviceObject *v3; // rbx
   char *v4; // rcx
-  unsigned int v5; // ebx
-  __int64 v6; // rax
-  __int64 v7; // rsi
-  const struct tagDomLock *v8; // rcx
-  const struct CONTAINER_ID *v10; // r8
-  int v11; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v5; // rdi
+  const struct CONTAINER_ID *v6; // r8
+  int v8; // [rsp+38h] [rbp+10h] BYREF
 
   v3 = a2;
   v4 = (char *)a2 + 88;
-  v5 = 0;
   LOBYTE(a2) = 19;
-  v6 = HMCreateHandleForObject(v4, a2);
-  v7 = v6;
-  if ( v6 )
+  v5 = HMCreateHandleForObject(v4, a2);
+  if ( v5 )
   {
     if ( (*(unsigned __int8 (__fastcall **)(CBaseInput *, struct RawInputManagerDeviceObject *, __int64))(*(_QWORD *)this + 80LL))(
            this,
            v3,
-           v6) )
+           v5) )
     {
-      *(_QWORD *)(v7 + 56) = CBaseInput::_spDevList;
-      CBaseInput::_spDevList = (struct DEVICEINFO *)v7;
+      *(_QWORD *)(v5 + 56) = CBaseInput::_spDevList;
+      CBaseInput::_spDevList = (struct DEVICEINFO *)v5;
       RawInputManagerDeviceObjectReference(v3);
-      wil_details_FeatureReporting_ReportUsageToService(
-        (__int64)&Feature_InputVirtualization__private_reporting,
-        16291462LL,
-        0LL,
-        0LL,
-        (const struct FEATURE_LOGGED_TRAITS *)&Feature_KeyboardInputVirtualization_logged_traits,
-        1,
-        3);
-      if ( isRootPartition() && CIVChannel::ContainerConnected(*((_DWORD *)this + 318)) )
+      Feature_InputVirtualization__private_ReportDeviceUsage();
+      if ( isRootPartition() && *((_DWORD *)this + 314) )
       {
         if ( KeGetCurrentThread() == *(struct _KTHREAD **)(*((_QWORD *)v3 + 53) + 40LL) )
         {
-          v11 = 0;
-          IVRootDeliver::PnP::SendRootPnpCreated(v3, (struct RawInputManagerDeviceObject *)&v11, v10);
+          v8 = 0;
+          IVRootDeliver::PnP::SendRootPnpCreated(v3, (struct RawInputManagerDeviceObject *)&v8, v6);
         }
         else
         {
-          *((_DWORD *)v3 + 68) |= 0x80000000;
+          *((_DWORD *)v3 + 68) |= 0x20000000u;
         }
       }
-      return 1;
     }
     else
     {
-      LockRefactorStagingAssertOwned(v8);
-      HMMarkObjectDestroyWorker((void *)v7);
-      HMRemoveHandleForObject();
+      HMMarkObjectDestroy((_DWORD *)v5);
+      HMRemoveHandleForObject((_DWORD *)v5);
     }
   }
-  return v5;
+  return 0LL;
 }

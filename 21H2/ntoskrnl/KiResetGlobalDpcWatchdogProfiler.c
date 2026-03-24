@@ -1,30 +1,36 @@
 /*
- * XREFs of KiResetGlobalDpcWatchdogProfiler @ 0x140222280
+ * XREFs of KiResetGlobalDpcWatchdogProfiler @ 0x1402940C8
  * Callers:
- *     KeShouldYieldProcessor @ 0x140222100 (KeShouldYieldProcessor.c)
- *     KiDpcWatchdogCounterReset @ 0x1402221F4 (KiDpcWatchdogCounterReset.c)
- *     MiDecommitPages @ 0x1402CE240 (MiDecommitPages.c)
- *     KiExpireTimer2 @ 0x1402F2CA0 (KiExpireTimer2.c)
- *     KeAccumulateTicks @ 0x1403078A0 (KeAccumulateTicks.c)
- *     MiQueryAddressState @ 0x140318330 (MiQueryAddressState.c)
- *     MiWalkPageTablesRecursively @ 0x14031A5C0 (MiWalkPageTablesRecursively.c)
- *     MiGetPageChain @ 0x140323D70 (MiGetPageChain.c)
- *     KeRelaxTimingConstraints @ 0x140568560 (KeRelaxTimingConstraints.c)
+ *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
+ *     MiWalkPageTablesRecursively @ 0x14020BDA0 (MiWalkPageTablesRecursively.c)
+ *     MiGetPageChain @ 0x140212D10 (MiGetPageChain.c)
+ *     KeAccumulateTicks @ 0x140224410 (KeAccumulateTicks.c)
+ *     KiExpireTimer2 @ 0x14024B5C0 (KiExpireTimer2.c)
+ *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
+ *     KiDpcWatchdog @ 0x1402940A0 (KiDpcWatchdog.c)
+ *     MiQueryAddressState @ 0x14032F730 (MiQueryAddressState.c)
+ *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
+ *     KeRelaxTimingConstraints @ 0x140511F98 (KeRelaxTimingConstraints.c)
  * Callees:
- *     <none>
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall KiResetGlobalDpcWatchdogProfiler(__int64 a1)
+void *__fastcall KiResetGlobalDpcWatchdogProfiler(__int64 a1)
 {
-  __int64 v1; // rdx
-  __int64 result; // rax
+  void *v1; // r9
+  void *result; // rax
+  __int64 v3; // r8
 
-  v1 = *(_QWORD *)(a1 + 34984);
-  if ( v1 && *(_QWORD *)(a1 + 34992) != v1 )
+  v1 = *(void **)(a1 + 33960);
+  if ( v1 && *(void **)(a1 + 33968) != v1 )
   {
-    result = *(unsigned int *)(a1 + 32436);
-    if ( *(_DWORD *)(a1 + 32428) < (int)result )
-      *(_QWORD *)(a1 + 34992) = v1;
+    result = (void *)*(unsigned int *)(a1 + 31732);
+    if ( *(_DWORD *)(a1 + 31724) < (int)result )
+    {
+      v3 = (unsigned int)KiDpcWatchdogProfileArrayLength;
+      *(_QWORD *)(a1 + 33968) = v1;
+      return memset(v1, 0, 8 * v3);
+    }
   }
   return result;
 }

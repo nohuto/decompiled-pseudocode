@@ -1,9 +1,9 @@
 /*
- * XREFs of NVMeDirectiveCompletion @ 0x1C0022130
+ * XREFs of NVMeDirectiveCompletion @ 0x1C0018460
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C00053D0 (GetSrbExtension.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
  */
 
 __int64 __fastcall NVMeDirectiveCompletion(__int64 a1, __int64 a2)
@@ -21,16 +21,10 @@ __int64 __fastcall NVMeDirectiveCompletion(__int64 a1, __int64 a2)
     if ( *(_BYTE *)(v5 + 3) != 1 )
     {
       if ( *(_BYTE *)(a2 + 2) == 40 )
-      {
-        result = *(unsigned int *)(a2 + 52);
-        v8 = *(_BYTE *)(result + a2 + 10);
-      }
+        v8 = *(_BYTE *)(*(unsigned int *)(a2 + 52) + a2 + 10);
       else
-      {
         v8 = *(_BYTE *)(a2 + 7);
-      }
-      if ( *(_BYTE *)(a1 + 24) )
-        result = StorPortExtendedFunction(87LL, a1, *(_QWORD *)(a1 + 8LL * v8 + 1752), 0LL);
+      result = StorPortExtendedFunction(87LL, a1, *(_QWORD *)(a1 + 8LL * v8 + 1736), 0LL);
     }
     *(_BYTE *)(v6 + 4253) |= 8u;
   }

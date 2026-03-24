@@ -1,43 +1,43 @@
 /*
- * XREFs of ExpGetFirmwareEnvironmentVariable @ 0x1406875CC
+ * XREFs of ExpGetFirmwareEnvironmentVariable @ 0x140950804
  * Callers:
- *     NtQuerySystemEnvironmentValueEx @ 0x140687240 (NtQuerySystemEnvironmentValueEx.c)
- *     ExGetFirmwareEnvironmentVariable @ 0x1406874D0 (ExGetFirmwareEnvironmentVariable.c)
+ *     NtQuerySystemEnvironmentValueEx @ 0x1406A3220 (NtQuerySystemEnvironmentValueEx.c)
+ *     ExGetFirmwareEnvironmentVariable @ 0x1406A32F0 (ExGetFirmwareEnvironmentVariable.c)
  * Callees:
- *     ExUnlockUserBuffer @ 0x140206EC4 (ExUnlockUserBuffer.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     IoGetEnvironmentVariableEx @ 0x1406876A0 (IoGetEnvironmentVariableEx.c)
- *     ExLockUserBuffer @ 0x140687918 (ExLockUserBuffer.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402067A0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140206930 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExUnlockUserBuffer @ 0x1402EC94C (ExUnlockUserBuffer.c)
+ *     ExLockUserBuffer @ 0x1406605D0 (ExLockUserBuffer.c)
+ *     IoGetEnvironmentVariableEx @ 0x140899A9C (IoGetEnvironmentVariableEx.c)
  */
 
-__int64 __fastcall ExpGetFirmwareEnvironmentVariable(int a1, int a2, __int64 a3, unsigned int *a4, __int64 a5, char a6)
+__int64 __fastcall ExpGetFirmwareEnvironmentVariable(
+        const size_t *a1,
+        __int64 a2,
+        unsigned __int64 a3,
+        int *a4,
+        int *a5,
+        KPROCESSOR_MODE a6)
 {
-  int v7; // ebx
-  __int64 v8; // rdx
-  __int64 v9; // rax
   __int64 result; // rax
   struct _KTHREAD *CurrentThread; // rax
   unsigned int EnvironmentVariable; // ebx
-  PVOID P[3]; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v15; // [rsp+68h] [rbp+20h] BYREF
+  PVOID P; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v13; // [rsp+68h] [rbp+20h] BYREF
 
-  P[0] = 0LL;
-  v15 = 0LL;
-  v7 = (int)a4;
-  v8 = *a4;
-  v9 = a3;
-  if ( !(_DWORD)v8 || (LOBYTE(a3) = a6, result = ExLockUserBuffer(v9, v8, a3, 1LL, &v15, P), (int)result >= 0) )
+  P = 0LL;
+  v13 = 0LL;
+  if ( !*a4 || (result = ExLockUserBuffer(a3, *a4, a6, IoWriteAccess, &v13, (struct _MDL **)&P), (int)result >= 0) )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
-    EnvironmentVariable = IoGetEnvironmentVariableEx(a1, a2, v15, v7, a5);
+    EnvironmentVariable = IoGetEnvironmentVariableEx(a1, a2, v13, a4, a5);
     ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    if ( P[0] )
-      ExUnlockUserBuffer((struct _MDL *)P[0]);
+    if ( P )
+      ExUnlockUserBuffer((struct _MDL *)P);
     return EnvironmentVariable;
   }
   return result;

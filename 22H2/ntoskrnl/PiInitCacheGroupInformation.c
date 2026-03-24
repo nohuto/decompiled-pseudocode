@@ -1,13 +1,13 @@
 /*
- * XREFs of PiInitCacheGroupInformation @ 0x140B3F8E8
+ * XREFs of PiInitCacheGroupInformation @ 0x140A5CE20
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B42004 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     IopOpenRegistryKeyEx @ 0x1408135F0 (IopOpenRegistryKeyEx.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     PnpRegMultiSzToUnicodeStrings @ 0x140B3CFE4 (PnpRegMultiSzToUnicodeStrings.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     IopGetRegistryValue @ 0x14073EF38 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKeyEx @ 0x1407ACA90 (IopOpenRegistryKeyEx.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     PnpRegMultiSzToUnicodeStrings @ 0x140A5CF00 (PnpRegMultiSzToUnicodeStrings.c)
  */
 
 NTSTATUS PiInitCacheGroupInformation()
@@ -19,7 +19,7 @@ NTSTATUS PiInitCacheGroupInformation()
   PVOID v4; // rdi
   NTSTATUS v5; // eax
   UNICODE_STRING v6; // [rsp+20h] [rbp-10h] BYREF
-  unsigned int v7; // [rsp+60h] [rbp+30h] BYREF
+  int v7; // [rsp+60h] [rbp+30h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp+38h] BYREF
   PVOID P; // [rsp+70h] [rbp+40h] BYREF
   void *v10; // [rsp+78h] [rbp+48h] BYREF
@@ -43,7 +43,7 @@ NTSTATUS PiInitCacheGroupInformation()
     v4 = P;
     if ( *((_DWORD *)P + 1) == 7 && *((_DWORD *)P + 3) )
     {
-      v5 = PnpRegMultiSzToUnicodeStrings(P, (__int64 *)&v10, &v7);
+      v5 = PnpRegMultiSzToUnicodeStrings(P, &v10, &v7);
       v3 = v10;
       RegistryValue = v5;
       v0 = v7;

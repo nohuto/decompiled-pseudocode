@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxRegisterPluginEx @ 0x1402D8E98
+ * XREFs of PopFxRegisterPluginEx @ 0x1402D8F98
  * Callers:
- *     PoFxRegisterPluginEx @ 0x1402D71D0 (PoFxRegisterPluginEx.c)
- *     PoFxRegisterPlugin @ 0x140869350 (PoFxRegisterPlugin.c)
+ *     PoFxRegisterPluginEx @ 0x1402D72D0 (PoFxRegisterPluginEx.c)
+ *     PoFxRegisterPlugin @ 0x140869330 (PoFxRegisterPlugin.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     KeInitializeQueue @ 0x1401219B0 (KeInitializeQueue.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeInitializeQueue @ 0x1401219D0 (KeInitializeQueue.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PopFxCreateEmergencyWorkerThread @ 0x14075B5F4 (PopFxCreateEmergencyWorkerThread.c)
- *     PopDiagTraceFxPluginRegistration @ 0x140872D74 (PopDiagTraceFxPluginRegistration.c)
+ *     PopFxCreateEmergencyWorkerThread @ 0x14075B5D4 (PopFxCreateEmergencyWorkerThread.c)
+ *     PopDiagTraceFxPluginRegistration @ 0x140872D54 (PopDiagTraceFxPluginRegistration.c)
  */
 
 __int64 __fastcall PopFxRegisterPluginEx(unsigned __int16 *a1, __int64 a2, unsigned __int16 *a3)

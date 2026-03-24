@@ -1,8 +1,8 @@
 /*
- * XREFs of KiFlushCacheLines @ 0x140424FA0
+ * XREFs of KiFlushCacheLines @ 0x140402E00
  * Callers:
- *     KeInvalidateRangeAllCachesNoIpi @ 0x140268B50 (KeInvalidateRangeAllCachesNoIpi.c)
- *     KiFlushCacheLines @ 0x140424FA0 (KiFlushCacheLines.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x1403038F0 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     KiFlushCacheLines @ 0x140402E00 (KiFlushCacheLines.c)
  * Callees:
  *     <none>
  */

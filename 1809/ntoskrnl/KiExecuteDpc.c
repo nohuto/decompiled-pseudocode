@@ -1,13 +1,13 @@
 /*
- * XREFs of KiExecuteDpc @ 0x1401814D0
+ * XREFs of KiExecuteDpc @ 0x1401814F0
  * Callers:
  *     <none>
  * Callees:
- *     KiExecuteAllDpcs @ 0x1400C6D20 (KiExecuteAllDpcs.c)
- *     KeSetPriorityThread @ 0x1400CD850 (KeSetPriorityThread.c)
- *     KeWaitForGate @ 0x1400FA2E4 (KeWaitForGate.c)
- *     KiTryToEndDpcProcessing @ 0x14012F454 (KiTryToEndDpcProcessing.c)
- *     KiSetSystemAffinityThreadToProcessor @ 0x1401816F0 (KiSetSystemAffinityThreadToProcessor.c)
+ *     KiExecuteAllDpcs @ 0x1400C6D40 (KiExecuteAllDpcs.c)
+ *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
+ *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
+ *     KiTryToEndDpcProcessing @ 0x14012F474 (KiTryToEndDpcProcessing.c)
+ *     KiSetSystemAffinityThreadToProcessor @ 0x140181710 (KiSetSystemAffinityThreadToProcessor.c)
  */
 
 void __fastcall __noreturn KiExecuteDpc(__int64 a1)

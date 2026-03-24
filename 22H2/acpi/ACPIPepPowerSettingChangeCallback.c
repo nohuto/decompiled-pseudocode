@@ -1,10 +1,11 @@
 /*
- * XREFs of ACPIPepPowerSettingChangeCallback @ 0x1C008ADC0
+ * XREFs of ACPIPepPowerSettingChangeCallback @ 0x1C00B1260
  * Callers:
  *     <none>
  * Callees:
- *     ACPIPepQueueWorker @ 0x1C008AF18 (ACPIPepQueueWorker.c)
- *     PepPromoteNextNotificationState @ 0x1C008B160 (PepPromoteNextNotificationState.c)
+ *     ACPISetDeviceWorker @ 0x1C0013470 (ACPISetDeviceWorker.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     PepPromoteNextNotificationState @ 0x1C00B1574 (PepPromoteNextNotificationState.c)
  */
 
 __int64 __fastcall ACPIPepPowerSettingChangeCallback(
@@ -13,7 +14,7 @@ __int64 __fastcall ACPIPepPowerSettingChangeCallback(
         ULONG ValueLength,
         char *Context)
 {
-  char *v4; // rsi
+  struct _FAST_MUTEX *v4; // r14
   __int64 v9; // r8
   __int64 v10; // rax
   __int64 v11; // rcx
@@ -21,8 +22,12 @@ __int64 __fastcall ACPIPepPowerSettingChangeCallback(
   __int64 v13; // rcx
   __int64 v14; // rcx
   __int64 v15; // rcx
+  char NotificationState; // al
+  void *OutputBufferLength; // r9
+  __int128 InputBuffer; // [rsp+30h] [rbp-38h] BYREF
 
-  v4 = Context + 160;
+  v4 = (struct _FAST_MUTEX *)(Context + 184);
+  InputBuffer = 0LL;
   ExAcquireFastMutex((PFAST_MUTEX)(Context + 184));
   v10 = *(_QWORD *)&SettingGuid->Data1;
   v11 = *(_QWORD *)&GUID_PDC_IDLE_RESILIENCY_ENGAGED.Data1 - *(_QWORD *)&SettingGuid->Data1;
@@ -48,7 +53,7 @@ LABEL_13:
     v14 = *(_QWORD *)GUID_CONSOLE_DISPLAY_STATE.Data4 - *(_QWORD *)SettingGuid->Data4;
   if ( !v14 && ValueLength == 4 && Value )
   {
-    *((_DWORD *)v4 + 25) = *Value;
+    *((_DWORD *)Context + 65) = *Value;
   }
   else
   {
@@ -56,14 +61,22 @@ LABEL_13:
     if ( *(_QWORD *)&GUID_GLOBAL_USER_PRESENCE.Data1 == v10 )
       v15 = *(_QWORD *)GUID_GLOBAL_USER_PRESENCE.Data4 - *(_QWORD *)SettingGuid->Data4;
     if ( !v15 && ValueLength == 4 && Value )
-      *((_DWORD *)v4 + 26) = *Value;
+      *((_DWORD *)Context + 66) = *Value;
   }
-  if ( *((_DWORD *)v4 + 25) || (LOBYTE(v9) = 1, *((_DWORD *)v4 + 26) != 2) )
+  if ( *((_DWORD *)Context + 65) || (LOBYTE(v9) = 1, *((_DWORD *)Context + 66) != 2) )
     LOBYTE(v9) = 0;
   v12 = 1LL;
 LABEL_30:
-  if ( (unsigned __int8)PepPromoteNextNotificationState(Context, v12, v9, 0LL) )
-    ACPIPepQueueWorker(v4);
-  ExReleaseFastMutex((PFAST_MUTEX)(v4 + 24));
+  NotificationState = PepPromoteNextNotificationState(Context, v12, v9, 0LL);
+  if ( Context[256] == (_BYTE)OutputBufferLength && NotificationState )
+  {
+    Context[256] = 1;
+    LODWORD(InputBuffer) = 40;
+    DWORD2(InputBuffer) = (_DWORD)OutputBufferLength;
+    BYTE12(InputBuffer) = 1;
+    ZwPowerInformation(SystemPowerStateLogging|0x40, &InputBuffer, 0x10u, OutputBufferLength, (ULONG)OutputBufferLength);
+    ACPISetDeviceWorker((__int64)Context, 0);
+  }
+  ExReleaseFastMutex(v4);
   return 0LL;
 }

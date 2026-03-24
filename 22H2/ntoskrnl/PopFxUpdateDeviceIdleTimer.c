@@ -1,17 +1,17 @@
 /*
- * XREFs of PopFxUpdateDeviceIdleTimer @ 0x14036AC84
+ * XREFs of PopFxUpdateDeviceIdleTimer @ 0x1403C8054
  * Callers:
- *     PopFxProcessWork @ 0x140312454 (PopFxProcessWork.c)
- *     PoFxSetDeviceIdleTimeout @ 0x14036AC00 (PoFxSetDeviceIdleTimeout.c)
+ *     PopFxProcessWork @ 0x1402600A4 (PopFxProcessWork.c)
+ *     PoFxSetDeviceIdleTimeout @ 0x1403C7FD0 (PoFxSetDeviceIdleTimeout.c)
  * Callees:
- *     KeCancelTimer @ 0x140252980 (KeCancelTimer.c)
- *     PopFxScheduleDeviceIdleTimer @ 0x1403109FC (PopFxScheduleDeviceIdleTimer.c)
- *     PopDiagTraceFxDevicePowerRequirement @ 0x140312870 (PopDiagTraceFxDevicePowerRequirement.c)
- *     PopFxAddLogEntry @ 0x140312914 (PopFxAddLogEntry.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     KeCancelTimer @ 0x14025FAA0 (KeCancelTimer.c)
+ *     PopFxScheduleDeviceIdleTimer @ 0x14025FE4C (PopFxScheduleDeviceIdleTimer.c)
+ *     PopDiagTraceFxDevicePowerRequirement @ 0x140260470 (PopDiagTraceFxDevicePowerRequirement.c)
+ *     PopFxAddLogEntry @ 0x140260514 (PopFxAddLogEntry.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
-char __fastcall PopFxUpdateDeviceIdleTimer(__int64 a1)
+void __fastcall PopFxUpdateDeviceIdleTimer(__int64 a1)
 {
   signed __int32 v2; // eax
   signed __int32 v3; // ett
@@ -26,21 +26,17 @@ char __fastcall PopFxUpdateDeviceIdleTimer(__int64 a1)
   while ( v3 != v2 );
   if ( (v2 & 4) != 0 )
   {
-    LOBYTE(v2) = KeCancelTimer((PKTIMER)(a1 + 368));
-    if ( (_BYTE)v2 )
+    if ( KeCancelTimer((PKTIMER)(a1 + 368)) )
     {
       _InterlockedAnd((volatile signed __int32 *)(a1 + 32), 0xFFFFFFFB);
-      LOBYTE(v2) = PopFxScheduleDeviceIdleTimer(a1);
-      if ( !(_BYTE)v2 )
+      if ( !PopFxScheduleDeviceIdleTimer(a1) )
       {
         PopDiagTraceFxDevicePowerRequirement(*(_QWORD *)(a1 + 48), 0, 0);
         (*(void (__fastcall **)(_QWORD))(a1 + 144))(*(_QWORD *)(a1 + 192));
         _InterlockedOr((volatile signed __int32 *)(a1 + 32), 0x40u);
-        v2 = _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 40), 0xFFFFFFFF);
-        if ( v2 != 1 )
-          LOBYTE(v2) = (unsigned __int8)PopFxAddLogEntry(*(_QWORD *)(a1 + 48), 0, 17, 0LL);
+        if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 40), 0xFFFFFFFF) != 1 )
+          PopFxAddLogEntry(*(_QWORD *)(a1 + 48), 0, 17, 0LL);
       }
     }
   }
-  return v2;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?bGetNtoD@@YAHPEAU_FD_XFORM@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@PEAVDCOBJ@@QEAU_POINTL@@@Z @ 0x1C0017574
+ * XREFs of ?bGetNtoD@@YAHPEAU_FD_XFORM@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@PEAVDCOBJ@@QEAU_POINTL@@@Z @ 0x1C0062D7C
  * Callers:
- *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C00364E0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
- *     ?bSetFontXform@PFEOBJ@@QEAAHAEAVXDCOBJ@@PEAUtagLOGFONTW@@PEAU_FD_XFORM@@KKQEAU_POINTL@@AEAVIFIOBJ@@H@Z @ 0x1C0108D18 (-bSetFontXform@PFEOBJ@@QEAAHAEAVXDCOBJ@@PEAUtagLOGFONTW@@PEAU_FD_XFORM@@KKQEAU_POINTL@@AEAVIFIOB.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z @ 0x1C0093AC0 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HK@Z.c)
+ *     ?bSetFontXform@PFEOBJ@@QEAAHAEAVXDCOBJ@@PEAUtagLOGFONTW@@PEAU_FD_XFORM@@KKQEAU_POINTL@@AEAVIFIOBJ@@H@Z @ 0x1C00E8CD8 (-bSetFontXform@PFEOBJ@@QEAAHAEAVXDCOBJ@@PEAUtagLOGFONTW@@PEAU_FD_XFORM@@KKQEAU_POINTL@@AEAVIFIOB.c)
  * Callees:
- *     ?vGetNtoW@@YAXPEAVMATRIX@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@PEAVDCOBJ@@@Z @ 0x1C00172E8 (-vGetNtoW@@YAXPEAVMATRIX@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@PEAVDCOBJ@@@Z.c)
- *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00E47F8 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
+ *     ?vGetNtoW@@YAXPEAVMATRIX@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@PEAVDCOBJ@@@Z @ 0x1C0099C84 (-vGetNtoW@@YAXPEAVMATRIX@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@PEAVDCOBJ@@@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00FDC44 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
  */
 
 __int64 __fastcall bGetNtoD(
@@ -17,102 +17,102 @@ __int64 __fastcall bGetNtoD(
         struct _POINTL *const a5)
 {
   unsigned int v5; // edi
-  int v8; // ecx
-  __int64 v9; // r8
-  __m128 v10; // xmm0
-  __int16 v12; // r15
-  __int16 v13; // r13
-  int v14; // r14d
-  __int64 v15; // rcx
-  int v16; // ecx
+  int v9; // ecx
+  __int64 v10; // r8
+  __m128 v11; // xmm0
+  int v13; // edx
   __int64 lfOrientation; // rcx
-  int v18; // edx
-  int v19; // edx
-  int v20; // edx
+  __int64 v15; // rax
+  FLOATL v16; // eax
+  __int16 v17; // r15
+  __int16 v18; // r13
+  int v19; // r14d
+  __int64 v20; // rcx
+  int v21; // ecx
+  int v22; // edx
+  int v23; // edx
   __int64 y; // rax
-  __int64 v22; // rax
-  FLOATL v23; // eax
-  __int64 v24; // rax
+  __int64 v25; // rax
   __int64 x; // rax
-  __m128 *v27; // [rsp+28h] [rbp-69h] BYREF
-  int v28; // [rsp+34h] [rbp-5Dh]
-  float *v29; // [rsp+38h] [rbp-59h] BYREF
-  __m128 v30; // [rsp+48h] [rbp-49h] BYREF
-  int v31; // [rsp+68h] [rbp-29h]
-  _OWORD v32[2]; // [rsp+70h] [rbp-21h] BYREF
-  int v33; // [rsp+90h] [rbp-1h]
+  __m128 *v28; // [rsp+28h] [rbp-69h] BYREF
+  int v29; // [rsp+34h] [rbp-5Dh]
+  float *v30; // [rsp+38h] [rbp-59h] BYREF
+  __m128 v31; // [rsp+48h] [rbp-49h] BYREF
+  int v32; // [rsp+68h] [rbp-29h]
+  _OWORD v33[2]; // [rsp+70h] [rbp-21h] BYREF
+  int v34; // [rsp+90h] [rbp-1h]
 
-  v33 = 0;
+  v34 = 0;
   v5 = 0;
-  v31 = 0;
-  memset(v32, 0, sizeof(v32));
-  memset(&v30, 0, 32);
-  if ( !a5->x || (v8 = *(_DWORD *)(*(_QWORD *)a3 + 48LL), (v8 & 0x3000010) != 0) )
+  v32 = 0;
+  memset(v33, 0, sizeof(v33));
+  memset(&v31, 0, 32);
+  if ( !a5->x || (v9 = *(_DWORD *)(*(_QWORD *)a3 + 48LL), (v9 & 0x3000010) != 0) )
   {
-    vGetNtoW((struct MATRIX *)v32, a2, a3, a4);
-    v9 = *(_QWORD *)a4;
-    v27 = &v30;
-    v28 = 0;
-    if ( (*(_DWORD *)(*(_QWORD *)(v9 + 976) + 340LL) & 0x802) == 0x802 )
+    vGetNtoW((struct MATRIX *)v33, a2, a3, a4);
+    v10 = *(_QWORD *)a4;
+    v28 = &v31;
+    v29 = 0;
+    if ( (*(_DWORD *)(*(_QWORD *)(v10 + 976) + 340LL) & 0x802) == 0x802 )
     {
-      v10 = (__m128)v32[0];
+      v11 = (__m128)v33[0];
     }
     else
     {
-      if ( !EXFORMOBJ::bMultiply((EXFORMOBJ *)&v27, (struct MATRIX *)v32, (struct MATRIX *)(v9 + 320), 0) )
+      if ( !EXFORMOBJ::bMultiply((EXFORMOBJ *)&v28, (struct MATRIX *)v33, (struct MATRIX *)(v10 + 320), 0) )
         return v5;
-      v10 = _mm_mul_ps(v30, (__m128)_xmm);
+      v11 = _mm_mul_ps(v31, (__m128)_xmm);
     }
-    v30 = v10;
+    v31 = v11;
     v5 = 1;
-    LODWORD(a1->eXX) = v10.m128_i32[0];
-    *(_QWORD *)&a1->eXY = *(unsigned __int64 *)((char *)v30.m128_u64 + 4);
-    LODWORD(a1->eYY) = v30.m128_i32[3];
+    LODWORD(a1->eXX) = v11.m128_i32[0];
+    *(_QWORD *)&a1->eXY = *(unsigned __int64 *)((char *)v31.m128_u64 + 4);
+    LODWORD(a1->eYY) = v31.m128_i32[3];
     return v5;
   }
-  if ( (v8 & 0x200000) == 0 )
-    goto LABEL_23;
-  if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a4 + 976LL) + 340LL) & 0x802) == 0x802 )
+  v13 = 0;
+  if ( (v9 & 0x200000) != 0 )
   {
-    lfOrientation = (unsigned int)a2->lfOrientation;
-  }
-  else
-  {
-    EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v29, a4, 0x204u);
-    v12 = (*v29 > 0.0) - (*v29 < 0.0);
-    v13 = (v29[1] > 0.0) - (v29[1] < 0.0);
-    v14 = (__PAIR64__(v29[2] > 0.0, *((_DWORD *)v29 + 2)) - COERCE_UNSIGNED_INT(0.0)) >> 32;
-    v15 = (unsigned int)a2->lfOrientation;
-    if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a4 + 976LL) + 340LL) & 0x40) != 0 )
+    if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a4 + 976LL) + 340LL) & 0x802) == 0x802 )
     {
-      v14 = -v14;
-      v16 = 3600 - lNormAngle(v15);
+      lfOrientation = (unsigned int)a2->lfOrientation;
     }
     else
     {
-      v16 = lNormAngle(v15);
+      EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v30, a4, 0x204u);
+      v17 = (*v30 > 0.0) - (*v30 < 0.0);
+      v18 = (v30[1] > 0.0) - (v30[1] < 0.0);
+      v19 = (__PAIR64__(v30[2] > 0.0, *((_DWORD *)v30 + 2)) - COERCE_UNSIGNED_INT(0.0)) >> 32;
+      v20 = (unsigned int)a2->lfOrientation;
+      if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a4 + 976LL) + 340LL) & 0x40) != 0 )
+      {
+        v19 = -v19;
+        v21 = 3600 - lNormAngle(v20);
+      }
+      else
+      {
+        v21 = lNormAngle(v20);
+      }
+      lfOrientation = (v18 & 0x384) + (v19 & 0xA8C) + (v17 & 0x708u) + v21;
     }
-    lfOrientation = (v13 & 0x384) + (v14 & 0xA8C) + (v12 & 0x708u) + v16;
+    v13 = (int)lNormAngle(lfOrientation) / 900;
   }
-  v18 = (int)lNormAngle(lfOrientation) / 900;
-  if ( !v18 )
+  if ( v13 )
   {
-LABEL_23:
-    x = a5->x;
-    *(_QWORD *)&a1->eXY = 0LL;
-    a1->eXX = *((FLOATL *)&galFloat + x);
-    v23 = *((float *)&galFloatNeg + a5->y);
-LABEL_24:
-    a1->eYY = v23;
-    return 1LL;
-  }
-  v19 = v18 - 1;
-  if ( v19 )
-  {
-    v20 = v19 - 1;
-    if ( v20 )
+    v22 = v13 - 1;
+    if ( !v22 )
     {
-      if ( v20 == 1 )
+      x = a5->x;
+      a1->eXX = 0.0;
+      a1->eYY = 0.0;
+      a1->eYX = *((FLOATL *)&galFloatNeg + x);
+      a1->eXY = *((FLOATL *)&galFloatNeg + a5->y);
+      return 1LL;
+    }
+    v23 = v22 - 1;
+    if ( v23 )
+    {
+      if ( v23 == 1 )
       {
         y = a5->y;
         a1->eXX = 0.0;
@@ -122,16 +122,18 @@ LABEL_24:
       }
       return 1LL;
     }
-    v22 = a5->x;
+    v25 = a5->x;
     *(_QWORD *)&a1->eXY = 0LL;
-    a1->eXX = *((FLOATL *)&galFloatNeg + v22);
-    v23 = *((float *)&galFloat + a5->y);
-    goto LABEL_24;
+    a1->eXX = *((FLOATL *)&galFloatNeg + v25);
+    v16 = *((float *)&galFloat + a5->y);
   }
-  v24 = a5->x;
-  a1->eXX = 0.0;
-  a1->eYY = 0.0;
-  a1->eYX = *((FLOATL *)&galFloatNeg + v24);
-  a1->eXY = *((FLOATL *)&galFloatNeg + a5->y);
+  else
+  {
+    v15 = a5->x;
+    *(_QWORD *)&a1->eXY = 0LL;
+    a1->eXX = *((FLOATL *)&galFloat + v15);
+    v16 = *((float *)&galFloatNeg + a5->y);
+  }
+  a1->eYY = v16;
   return 1LL;
 }

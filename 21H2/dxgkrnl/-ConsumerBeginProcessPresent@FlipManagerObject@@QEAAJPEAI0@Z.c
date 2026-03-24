@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ConsumerBeginProcessPresent@FlipManagerObject@@QEAAJPEAI0@Z @ 0x1C0079C98
+ * XREFs of ?ConsumerBeginProcessPresent@FlipManagerObject@@QEAAJPEAI0@Z @ 0x1C00685E8
  * Callers:
- *     NtFlipObjectConsumerBeginProcessPresent @ 0x1C007A830 (NtFlipObjectConsumerBeginProcessPresent.c)
+ *     NtFlipObjectConsumerBeginProcessPresent @ 0x1C0069100 (NtFlipObjectConsumerBeginProcessPresent.c)
  * Callees:
- *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00069FC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
- *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0007EB4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
- *     ?ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z @ 0x1C007C744 (-ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000EEBC (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C0010CC4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z @ 0x1C006ACF4 (-ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z.c)
  */
 
 __int64 __fastcall FlipManagerObject::ConsumerBeginProcessPresent(

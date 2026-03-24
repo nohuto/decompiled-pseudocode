@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CRectangleGeometry::sc_CornerRadius__ @ 0x180002C40
+ * XREFs of _dynamic_initializer_for__CRectangleGeometry::sc_CornerRadius__ @ 0x1800025A0
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CRectangleGeometry::sc_CornerRadius__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E3168 = (unsigned __int64)CPropertyChangeResource::SetAnimatedProperty;
-  qword_1803E3178 = v1;
+  xmmword_180344B48 = (unsigned __int64)CPropertyChangeResource::SetAnimatedProperty;
+  qword_180344B58 = v1;
   return result;
 }

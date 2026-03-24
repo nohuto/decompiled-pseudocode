@@ -1,59 +1,56 @@
 /*
- * XREFs of PopPowerAggregatorRecordIntent @ 0x1407F2400
+ * XREFs of PopPowerAggregatorRecordIntent @ 0x140775F60
  * Callers:
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x1407F22AC (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140775E14 (PopPowerAggregatorHandleIntentUnsafe.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140303490 (RtlGetInterruptTimePrecise.c)
- *     PopPowerAggregatorDiagTraceHandleIntent @ 0x1407F2558 (PopPowerAggregatorDiagTraceHandleIntent.c)
- *     PopPowerAggregatorAllocateLogEntry @ 0x1407F27F4 (PopPowerAggregatorAllocateLogEntry.c)
- *     PopPowerAggregatorAreTargetStatesEqual @ 0x1407FCB80 (PopPowerAggregatorAreTargetStatesEqual.c)
+ *     KeQueryInterruptTimePrecise @ 0x1402BF150 (KeQueryInterruptTimePrecise.c)
+ *     PopPowerAggregatorDiagTraceHandleIntent @ 0x140382CA8 (PopPowerAggregatorDiagTraceHandleIntent.c)
+ *     PopPowerAggregatorAllocateLogEntry @ 0x1407762A8 (PopPowerAggregatorAllocateLogEntry.c)
+ *     PopPowerAggregatorAreTargetStatesEqual @ 0x1408EDFD4 (PopPowerAggregatorAreTargetStatesEqual.c)
  */
 
 unsigned __int64 __fastcall PopPowerAggregatorRecordIntent(
         __int64 a1,
         int a2,
-        _DWORD *a3,
+        int a3,
         int a4,
-        int a5,
-        __int64 a6,
-        __int64 a7,
-        int a8)
+        _OWORD *a5,
+        _OWORD *a6,
+        int a7)
 {
-  __int64 v8; // rsi
-  int v10; // r15d
-  __int64 v12; // rdi
-  int v14; // r12d
-  char *v15; // rbx
+  _OWORD *v7; // rsi
+  int v9; // r15d
+  _OWORD *v11; // rdi
+  char *v13; // rbx
   unsigned __int64 result; // rax
-  LARGE_INTEGER v17; // [rsp+60h] [rbp+8h] BYREF
+  __int128 v15; // xmm0
+  LARGE_INTEGER v16; // [rsp+60h] [rbp+8h] BYREF
 
-  v8 = a6;
-  v10 = a8;
-  v12 = a7;
-  v14 = a5;
-  PopPowerAggregatorDiagTraceHandleIntent(a2, a4, a5, a6, a7, a8);
-  v15 = (char *)&unk_140C20CF0 + 128 * (unsigned __int64)(((_BYTE)dword_140C20CE8 - 1) & 0x1F);
-  if ( *(_DWORD *)v15 != 1
-    || *((_DWORD *)v15 + 6) != a2
-    || *((_DWORD *)v15 + 9) != v14
-    || *((_DWORD *)v15 + 30) != v10
-    || !(unsigned __int8)PopPowerAggregatorAreTargetStatesEqual(v15 + 40, v8)
-    || !(unsigned __int8)PopPowerAggregatorAreTargetStatesEqual(v15 + 80, v12)
-    || (result = RtlGetInterruptTimePrecise(&v17) - *((_QWORD *)v15 + 1), result >= 0x2FAF080) )
+  v7 = a5;
+  v9 = a7;
+  v11 = a6;
+  PopPowerAggregatorDiagTraceHandleIntent(a2, a3, a4, (__int64)a5, (__int64)a6, a7);
+  v13 = (char *)&unk_140C218C0 + 144 * (((unsigned __int8)dword_140C218B8 - 1) & 0x1F);
+  if ( *(_DWORD *)v13 != 1
+    || *((_DWORD *)v13 + 6) != a2
+    || *((_DWORD *)v13 + 8) != a4
+    || *((_DWORD *)v13 + 34) != v9
+    || !(unsigned __int8)PopPowerAggregatorAreTargetStatesEqual(v13 + 40, v7)
+    || !(unsigned __int8)PopPowerAggregatorAreTargetStatesEqual(v13 + 88, v11)
+    || (result = KeQueryInterruptTimePrecise(&v16) - *((_QWORD *)v13 + 1), result >= 0x2FAF080) )
   {
     result = PopPowerAggregatorAllocateLogEntry(&PopPowerAggregatorContext, 1LL);
     *(_DWORD *)(result + 24) = a2;
-    if ( a3 )
-      *(_DWORD *)(result + 28) = *a3;
+    *(_DWORD *)(result + 28) = a3;
     *(_DWORD *)(result + 32) = a4;
-    *(_DWORD *)(result + 36) = v14;
-    *(_OWORD *)(result + 40) = *(_OWORD *)v8;
-    *(_OWORD *)(result + 56) = *(_OWORD *)(v8 + 16);
-    *(_QWORD *)(result + 72) = *(_QWORD *)(v8 + 32);
-    *(_OWORD *)(result + 80) = *(_OWORD *)v12;
-    *(_OWORD *)(result + 96) = *(_OWORD *)(v12 + 16);
-    *(_QWORD *)(result + 112) = *(_QWORD *)(v12 + 32);
-    *(_DWORD *)(result + 120) = v10;
+    *(_OWORD *)(result + 40) = *v7;
+    *(_OWORD *)(result + 56) = v7[1];
+    *(_OWORD *)(result + 72) = v7[2];
+    *(_OWORD *)(result + 88) = *v11;
+    *(_OWORD *)(result + 104) = v11[1];
+    v15 = v11[2];
+    *(_DWORD *)(result + 136) = v9;
+    *(_OWORD *)(result + 120) = v15;
   }
   return result;
 }

@@ -1,12 +1,11 @@
 /*
- * XREFs of EtwpPrepareHeader @ 0x140798D30
+ * XREFs of EtwpPrepareHeader @ 0x140644BC4
  * Callers:
- *     EtwpFileModeCompress @ 0x1403B4AB0 (EtwpFileModeCompress.c)
- *     EtwpAddLogHeader @ 0x1406F120C (EtwpAddLogHeader.c)
- *     EtwpFlushBuffer @ 0x140798C10 (EtwpFlushBuffer.c)
- *     EtwpBufferingModeFlush @ 0x1409E971C (EtwpBufferingModeFlush.c)
+ *     EtwpFlushBuffer @ 0x140644AFC (EtwpFlushBuffer.c)
+ *     EtwpAddLogHeader @ 0x1406E03E8 (EtwpAddLogHeader.c)
+ *     EtwpBufferingModeFlush @ 0x14093D188 (EtwpBufferingModeFlush.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
 __int64 __fastcall EtwpPrepareHeader(__int64 a1, __int64 a2, __int16 a3)
@@ -21,7 +20,7 @@ __int64 __fastcall EtwpPrepareHeader(__int64 a1, __int64 a2, __int16 a3)
   if ( a3 != 1 && v3 == 72 )
     return 2147483682LL;
   *(_WORD *)(a2 + 52) = a3 | 0x20;
-  if ( *(_QWORD *)(a1 + 800) || (a3 & 0x40) == 0 )
+  if ( *(_QWORD *)(a1 + 816) || (a3 & 0x40) == 0 )
   {
     v5 = *(unsigned int *)(a2 + 48);
     if ( *(_DWORD *)a2 - (int)v5 > 0 )

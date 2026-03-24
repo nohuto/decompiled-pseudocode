@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFinishPageFileExtension @ 0x140639B48
+ * XREFs of MiFinishPageFileExtension @ 0x140543530
  * Callers:
- *     MiAttemptPageFileExtension @ 0x140A326E4 (MiAttemptPageFileExtension.c)
+ *     MiAttemptPageFileExtension @ 0x1408D0354 (MiAttemptPageFileExtension.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA20 (RtlClearBits.c)
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D340 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402893A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUpdateReserveClusterInfo @ 0x140295308 (MiUpdateReserveClusterInfo.c)
- *     MiCoalescePageFileBitmapsCache @ 0x140295338 (MiCoalescePageFileBitmapsCache.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlClearBits @ 0x140206DC0 (RtlClearBits.c)
+ *     ExAcquireSpinLockExclusive @ 0x14021D020 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402BC410 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x140330EC0 (MiCoalescePageFileBitmapsCache.c)
+ *     MiUpdateReserveClusterInfo @ 0x1403BF6D8 (MiUpdateReserveClusterInfo.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall MiFinishPageFileExtension(__int64 a1, __int64 a2, __int64 a3)
+LONG __fastcall MiFinishPageFileExtension(__int64 a1, __int64 a2, __int64 a3)
 {
   volatile LONG *v3; // rbp
   KIRQL v7; // al
@@ -20,11 +20,10 @@ void __fastcall MiFinishPageFileExtension(__int64 a1, __int64 a2, __int64 a3)
   ULONG v9; // edi
   unsigned __int64 v10; // r15
   char v11; // bl
-  unsigned __int8 CurrentIrql; // al
+  LONG result; // eax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v15; // eax
-  bool v16; // zf
+  bool v15; // zf
 
   v3 = (volatile LONG *)(a2 + 232);
   v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a2 + 232));
@@ -42,21 +41,26 @@ void __fastcall MiFinishPageFileExtension(__int64 a1, __int64 a2, __int64 a3)
   MiCoalescePageFileBitmapsCache(a2, 0, v9);
   MiUpdateReserveClusterInfo(*(_QWORD *)(a2 + 248), 0LL, 0);
   ExReleaseSpinLockExclusiveFromDpcLevel(v3);
+  result = KiIrqlFlags;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
-      v16 = (v15 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v15;
-      if ( v16 )
-        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      result = KeGetCurrentIrql();
+      if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v10 <= 0xFu && (unsigned __int8)result >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));
+        v15 = (result & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= result;
+        if ( v15 )
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
     }
   }
   __writecr8(v10);
-  if ( v11 )
-    KeSetEvent((PRKEVENT)(a1 + 920), 0, 0);
+  if ( v11 == 1 )
+    return KeSetEvent((PRKEVENT)(a1 + 880), 0, 0);
+  return result;
 }

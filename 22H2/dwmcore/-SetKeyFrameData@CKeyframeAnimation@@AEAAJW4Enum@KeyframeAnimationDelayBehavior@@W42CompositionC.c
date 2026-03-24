@@ -1,117 +1,110 @@
 /*
- * XREFs of ?SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionColorSpace@@PEAUKeyframeData@@@Z @ 0x180055DB4
+ * XREFs of ?SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionColorSpace@@PEAUKeyframeData@@@Z @ 0x1800AABB8
  * Callers:
- *     ?ProcessSetKeyframeData@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_SETKEYFRAMEDATA@@@Z @ 0x180098158 (-ProcessSetKeyframeData@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMA.c)
- *     ?Initialize@CKeyframeAnimation@@QEAAJPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@CompositionColorSpace@@W4SubchannelMaskType@@E_KW44KeyframeAnimationDelayBehavior@@MW44KeyframeAnimationDirection@@MW44KeyframeAnimationStopBehavior@@IPEAUKeyframeData@@@Z @ 0x180239F08 (-Initialize@CKeyframeAnimation@@QEAAJPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@Comp.c)
+ *     ?ProcessSetKeyframeData@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_SETKEYFRAMEDATA@@@Z @ 0x1800AA154 (-ProcessSetKeyframeData@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMA.c)
+ *     ?Initialize@CKeyframeAnimation@@QEAAJPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@CompositionColorSpace@@W4SubchannelMaskType@@E_KW44KeyframeAnimationDelayBehavior@@MW44KeyframeAnimationDirection@@MW44KeyframeAnimationStopBehavior@@IPEAUKeyframeData@@@Z @ 0x1801D1280 (-Initialize@CKeyframeAnimation@@QEAAJPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@Comp.c)
  * Callees:
- *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038D40 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
- *     ??0KeyframeSequence@@QEAA@I@Z @ 0x180044C58 (--0KeyframeSequence@@QEAA@I@Z.c)
- *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x180055F08 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ?RemoveAllKeyFrames@KeyframeSequence@@AEAAXXZ @ 0x1800974D4 (-RemoveAllKeyFrames@KeyframeSequence@@AEAAXXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E12E0 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
- *     ?DetermineCoordinateSpace@CKeyframeAnimation@@CAJW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@CompositionColorSpace@@PEAW4KeyframeAnimationCoordinateSpace@@@Z @ 0x1800EAB54 (-DetermineCoordinateSpace@CKeyframeAnimation@@CAJW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@Composit.c)
- *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x18009F7D8 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?RemoveAllKeyFrames@KeyframeSequence@@AEAAXXZ @ 0x1800A9BF0 (-RemoveAllKeyFrames@KeyframeSequence@@AEAAXXZ.c)
+ *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x1800AAD18 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
+ *     ?DetermineCoordinateSpace@CKeyframeAnimation@@CAJW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@CompositionColorSpace@@PEAW4KeyframeAnimationCoordinateSpace@@@Z @ 0x1800ACADC (-DetermineCoordinateSpace@CKeyframeAnimation@@CAJW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@Composit.c)
+ *     ??4?$unique_ptr@VKeyframeSequence@@U?$default_delete@VKeyframeSequence@@@std@@@std@@QEAAAEAV01@$$QEAV01@@Z @ 0x1800ACB44 (--4-$unique_ptr@VKeyframeSequence@@U-$default_delete@VKeyframeSequence@@@std@@@std@@QEAAAEAV01@$.c)
+ *     ??0KeyframeSequence@@QEAA@I@Z @ 0x1800ACB84 (--0KeyframeSequence@@QEAA@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18020F8B4 (ModuleFailFastForHRESULT.c)
  */
 
 __int64 __fastcall CKeyframeAnimation::SetKeyFrameData(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4)
 {
   KeyframeSequence *v7; // rax
-  KeyframeSequence *v8; // rdi
-  KeyframeSequence **v9; // rax
-  KeyframeSequence *v10; // rsi
-  int v11; // eax
-  unsigned int v12; // ecx
-  __int64 v13; // r8
-  unsigned int v14; // edi
-  __int64 v15; // rsi
-  float v16; // xmm6_4
-  int v17; // ebp
-  __int64 v18; // rcx
-  KeyframeSequence *v20; // rcx
-  unsigned int v21; // [rsp+20h] [rbp-48h]
-  char v22; // [rsp+30h] [rbp-38h] BYREF
+  _QWORD *v8; // rbx
+  int v9; // eax
+  __int64 v10; // r8
+  unsigned int v11; // ebx
+  __int64 v12; // rbp
+  float v13; // xmm6_4
+  int v14; // r15d
+  __int64 v15; // rcx
+  __int64 v17; // rcx
+  int v18; // r9d
+  unsigned int v19; // [rsp+20h] [rbp-48h]
+  void *lpMem; // [rsp+30h] [rbp-38h] BYREF
   void *retaddr; // [rsp+68h] [rbp+0h]
-  int v24; // [rsp+78h] [rbp+10h] BYREF
+  int v22; // [rsp+78h] [rbp+10h] BYREF
 
   if ( a2 > 1 )
   {
-    v14 = -2003303421;
-    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, -2003303421, 0x247u, 0LL);
-    return v14;
+    v11 = -2003303421;
+    v18 = -2003303421;
+    v19 = 564;
+    goto LABEL_22;
   }
-  *(_DWORD *)(a1 + 568) = a2;
+  *(_DWORD *)(a1 + 536) = a2;
   v7 = (KeyframeSequence *)DefaultHeap::AllocClear(0x90uLL);
   if ( !v7 )
     ModuleFailFastForHRESULT(2147942414LL, retaddr);
-  v8 = KeyframeSequence::KeyframeSequence(v7, *(_DWORD *)(a1 + 368));
-  v9 = (KeyframeSequence **)(a1 + 392);
-  if ( (char *)(a1 + 392) == &v22 )
+  lpMem = KeyframeSequence::KeyframeSequence(v7, *(_DWORD *)(a1 + 336));
+  std::unique_ptr<KeyframeSequence>::operator=(a1 + 360, &lpMem);
+  v8 = lpMem;
+  if ( lpMem )
   {
-    if ( !v8 )
-      goto LABEL_5;
-    KeyframeSequence::RemoveAllKeyFrames(v8);
-    Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease((char *)v8 + 64);
-    v20 = v8;
-LABEL_19:
-    operator delete(v20);
-    goto LABEL_5;
+    KeyframeSequence::RemoveAllKeyFrames((KeyframeSequence *)lpMem);
+    v17 = v8[8];
+    if ( v17 )
+    {
+      v8[8] = 0LL;
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v17 + 16LL))(v17);
+    }
+    operator delete(v8);
   }
-  v10 = *v9;
-  *v9 = v8;
-  if ( v10 )
+  v9 = CKeyframeAnimation::DetermineCoordinateSpace(*(unsigned int *)(a1 + 144), a3, &v22);
+  v11 = v9;
+  if ( v9 < 0 )
   {
-    KeyframeSequence::RemoveAllKeyFrames(v10);
-    Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease((char *)v10 + 64);
-    v20 = v10;
-    goto LABEL_19;
-  }
-LABEL_5:
-  v11 = CKeyframeAnimation::DetermineCoordinateSpace(*(unsigned int *)(a1 + 152), a3, &v24);
-  v14 = v11;
-  if ( v11 < 0 )
-  {
-    v21 = 596;
+    v19 = 577;
+LABEL_20:
+    v18 = v9;
 LABEL_22:
-    MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, v21, 0LL);
-    return v14;
+    MilInstrumentationCheckHR_MaybeFailFast(a1, 0LL, 0, v18, v19, 0LL);
+    return v11;
   }
-  v15 = 0LL;
-  v16 = 0.0;
-  if ( *(_DWORD *)(a1 + 368) )
+  v12 = 0LL;
+  v13 = 0.0;
+  if ( *(_DWORD *)(a1 + 336) )
   {
-    v17 = v24;
+    v14 = v22;
     while ( 1 )
     {
-      if ( (_DWORD)v15 )
+      if ( (_DWORD)v12 )
       {
-        v18 = (unsigned int)v15;
-        v16 = fmaxf(v16 + 0.001, *(float *)(a4 + 48 * v15));
+        v15 = (unsigned int)v12;
+        v13 = fmaxf(v13 + 0.001, *(float *)(a4 + 48 * v12));
       }
       else
       {
-        v16 = 0.0;
-        v18 = 0LL;
+        v13 = 0.0;
+        v15 = 0LL;
       }
-      v11 = CKeyframeAnimation::AddKeyframeData(a1, (unsigned int)v15, v13, a4 + 48 * v18, v17);
-      v14 = v11;
-      if ( v11 < 0 )
+      v9 = CKeyframeAnimation::AddKeyframeData(a1, (unsigned int)v12, v10, a4 + 48 * v15, v14);
+      v11 = v9;
+      if ( v9 < 0 )
         break;
-      v15 = (unsigned int)(v15 + 1);
-      if ( (unsigned int)v15 >= *(_DWORD *)(a1 + 368) )
-        goto LABEL_12;
+      v12 = (unsigned int)(v12 + 1);
+      if ( (unsigned int)v12 >= *(_DWORD *)(a1 + 336) )
+        goto LABEL_11;
     }
-    v21 = 621;
-    goto LABEL_22;
+    v19 = 602;
+    goto LABEL_20;
   }
-LABEL_12:
-  *(_QWORD *)(a1 + 496) = 0LL;
-  *(_QWORD *)(a1 + 504) = 0LL;
-  *(_QWORD *)(a1 + 512) = 0LL;
-  *(_QWORD *)(a1 + 520) = 0LL;
+LABEL_11:
+  *(_QWORD *)(a1 + 464) = 0LL;
+  *(_QWORD *)(a1 + 472) = 0LL;
+  *(_QWORD *)(a1 + 480) = 0LL;
+  *(_QWORD *)(a1 + 488) = 0LL;
+  *(_DWORD *)(a1 + 500) = 0;
+  *(_DWORD *)(a1 + 528) = 0;
   *(_DWORD *)(a1 + 532) = 0;
-  *(_DWORD *)(a1 + 560) = 0;
-  *(_DWORD *)(a1 + 564) = 0;
-  return v14;
+  return v11;
 }

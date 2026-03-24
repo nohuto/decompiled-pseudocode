@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpSetQpcDeltaTracking @ 0x1405FC408
+ * XREFs of EtwpSetQpcDeltaTracking @ 0x1405AA6E8
  * Callers:
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x140711A40 (EtwpStartLogger.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall EtwpSetQpcDeltaTracking(__int64 a1)
 {
-  if ( (unsigned int)(*(_DWORD *)(a1 + 200) - 3) <= 1 )
+  if ( (unsigned int)(*(_DWORD *)(a1 + 216) - 3) <= 1 )
     return 3221225659LL;
-  _InterlockedOr((volatile signed __int32 *)(a1 + 816), 0x8000000u);
+  _InterlockedOr((volatile signed __int32 *)(a1 + 832), 0x8000000u);
   return 0LL;
 }

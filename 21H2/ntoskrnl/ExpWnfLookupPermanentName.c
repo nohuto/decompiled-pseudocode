@@ -1,32 +1,32 @@
 /*
- * XREFs of ExpWnfLookupPermanentName @ 0x14075A12C
+ * XREFs of ExpWnfLookupPermanentName @ 0x14062C1A8
  * Callers:
- *     ExpWnfCheckCrossScopeAccess @ 0x14075ADF8 (ExpWnfCheckCrossScopeAccess.c)
- *     NtQueryWnfStateNameInformation @ 0x140791110 (NtQueryWnfStateNameInformation.c)
- *     NtDeleteWnfStateName @ 0x1407920F0 (NtDeleteWnfStateName.c)
- *     ExpNtUpdateWnfStateData @ 0x140793B84 (ExpNtUpdateWnfStateData.c)
- *     NtQueryWnfStateData @ 0x140794AD0 (NtQueryWnfStateData.c)
- *     ExpWnfSubscribeWnfStateChange @ 0x14079982C (ExpWnfSubscribeWnfStateChange.c)
- *     ExpNtDeleteWnfStateData @ 0x14085EB0C (ExpNtDeleteWnfStateData.c)
+ *     NtDeleteWnfStateName @ 0x14060D3C0 (NtDeleteWnfStateName.c)
+ *     ExpNtUpdateWnfStateData @ 0x14060E5DC (ExpNtUpdateWnfStateData.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x14060EAF4 (ExpWnfSubscribeWnfStateChange.c)
+ *     NtQueryWnfStateData @ 0x14060EE80 (NtQueryWnfStateData.c)
+ *     ExpWnfCheckCrossScopeAccess @ 0x14062C0FC (ExpWnfCheckCrossScopeAccess.c)
+ *     NtQueryWnfStateNameInformation @ 0x1406A68E0 (NtQueryWnfStateNameInformation.c)
+ *     ExpNtDeleteWnfStateData @ 0x1407CD80C (ExpNtDeleteWnfStateData.c)
  * Callees:
- *     HalSystemVectorDispatchEntry @ 0x140203DC0 (HalSystemVectorDispatchEntry.c)
- *     PsDetachSiloFromCurrentThread @ 0x1402D7F90 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x1402D7FB0 (PsAttachSiloToCurrentThread.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x14041BA40 (ZwQueryValueKey.c)
- *     ExpWnfSpecializeSecurityDescriptor @ 0x14066FDE8 (ExpWnfSpecializeSecurityDescriptor.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x140715E20 (RtlValidRelativeSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x1407254F0 (RtlLengthSecurityDescriptor.c)
- *     ExpWnfGetNameStoreRegistryRoot @ 0x14075A30C (ExpWnfGetNameStoreRegistryRoot.c)
- *     ExpWnfComposeValueName @ 0x14075A480 (ExpWnfComposeValueName.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
+ *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     ExpWnfSpecializeSecurityDescriptor @ 0x140610CD8 (ExpWnfSpecializeSecurityDescriptor.c)
+ *     ExpWnfGetNameStoreRegistryRoot @ 0x14062C388 (ExpWnfGetNameStoreRegistryRoot.c)
+ *     ExpWnfComposeValueName @ 0x14062C4F0 (ExpWnfComposeValueName.c)
+ *     RtlLengthSecurityDescriptor @ 0x1406600D0 (RtlLengthSecurityDescriptor.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x14066DC80 (RtlValidRelativeSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfLookupPermanentName(unsigned __int64 a1, PSECURITY_DESCRIPTOR **a2)
 {
   PSECURITY_DESCRIPTOR *v4; // rdi
-  unsigned int v5; // ebx
+  __int64 v5; // rbx
   struct _LIST_ENTRY *v6; // rax
   struct _LIST_ENTRY *v7; // r14
   char v8; // r15
@@ -52,7 +52,7 @@ __int64 __fastcall ExpWnfLookupPermanentName(unsigned __int64 a1, PSECURITY_DESC
   ValueName.Buffer = (wchar_t *)&v23;
   ExpWnfComposeValueName(a1, &ValueName);
   v5 = (a1 >> 4) & 3;
-  if ( v5 )
+  if ( (_DWORD)v5 )
   {
     v7 = 0LL;
     v8 = 0;
@@ -63,66 +63,68 @@ __int64 __fastcall ExpWnfLookupPermanentName(unsigned __int64 a1, PSECURITY_DESC
     v7 = PsAttachSiloToCurrentThread(v6);
     v8 = 1;
   }
-  NameStoreRegistryRoot = ExpWnfGetNameStoreRegistryRoot(v5, &KeyHandle);
-  if ( NameStoreRegistryRoot < 0 )
-    goto LABEL_13;
-  v10 = 0LL;
-  for ( i = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, 0LL, 0, &ResultLength);
-        ;
-        i = ZwQueryValueKey(
-              KeyHandle,
-              &ValueName,
-              KeyValuePartialInformation,
-              PoolWithTag + 3,
-              ResultLength,
-              &ResultLength) )
+  NameStoreRegistryRoot = ExpWnfGetNameStoreRegistryRoot((unsigned int)v5, &KeyHandle);
+  if ( NameStoreRegistryRoot >= 0 )
   {
-    NameStoreRegistryRoot = i;
-    if ( i != -1073741789 )
-      break;
-    if ( v4 )
-      ExFreePoolWithTag(v4, 0x20666E57u);
-    PoolWithTag = (PSECURITY_DESCRIPTOR *)ExAllocatePoolWithTag(PagedPool, ResultLength + 24, 0x20666E57u);
-    v4 = PoolWithTag;
-    if ( !PoolWithTag )
+    v10 = 0LL;
+    for ( i = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, 0LL, 0, &ResultLength);
+          ;
+          i = ZwQueryValueKey(
+                KeyHandle,
+                &ValueName,
+                KeyValuePartialInformation,
+                PoolWithTag + 3,
+                ResultLength,
+                &ResultLength) )
     {
-      NameStoreRegistryRoot = -1073741670;
-      goto LABEL_13;
-    }
-    v10 = PoolWithTag + 3;
-  }
-  if ( i >= 0 )
-  {
-    if ( v10[1] == 3 )
-    {
-      v12 = (char *)(v10 + 3);
-      *(_OWORD *)v4 = 0LL;
-      v4[2] = 0LL;
-      v13 = v10[2];
-      v4[2] = v12;
-      if ( RtlValidRelativeSecurityDescriptor(v12, v13, 0) )
+      NameStoreRegistryRoot = i;
+      if ( i != -1073741789 )
+        break;
+      if ( v4 )
+        ExFreePoolWithTag(v4, 0x20666E57u);
+      PoolWithTag = (PSECURITY_DESCRIPTOR *)ExAllocatePoolWithTag(PagedPool, ResultLength + 24, 0x20666E57u);
+      v4 = PoolWithTag;
+      if ( !PoolWithTag )
       {
-        ExpWnfSpecializeSecurityDescriptor(v4[2]);
-        v14 = RtlLengthSecurityDescriptor(v4[2]);
-        v15 = v13 - v14;
-        v16 = &v12[v14];
-        if ( v15 >= 4 )
+        NameStoreRegistryRoot = -1073741670;
+        goto LABEL_20;
+      }
+      v10 = PoolWithTag + 3;
+    }
+    if ( i >= 0 )
+    {
+      if ( v10[1] == 3 )
+      {
+        v12 = (char *)(v10 + 3);
+        *(_OWORD *)v4 = 0LL;
+        v4[2] = 0LL;
+        v13 = v10[2];
+        v4[2] = v12;
+        if ( RtlValidRelativeSecurityDescriptor(v12, v13, 0) )
         {
-          v17 = v16 + 4;
-          *(_DWORD *)v4 = *(_DWORD *)v16;
-          NameStoreRegistryRoot = 0;
-          if ( v15 - 4 < 0x10 )
-            v17 = 0LL;
-          v4[1] = v17;
-          *a2 = v4;
-          goto LABEL_13;
+          ExpWnfSpecializeSecurityDescriptor(v4[2]);
+          v14 = RtlLengthSecurityDescriptor(v4[2]);
+          v15 = v13 - v14;
+          v16 = &v12[v14];
+          if ( v15 >= 4 )
+          {
+            v17 = v16 + 4;
+            *(_DWORD *)v4 = *(_DWORD *)v16;
+            NameStoreRegistryRoot = 0;
+            if ( v15 - 4 < 0x10 )
+              v17 = 0LL;
+            v4[1] = v17;
+            *a2 = v4;
+            goto LABEL_13;
+          }
         }
       }
+      NameStoreRegistryRoot = -1073741823;
     }
-    NameStoreRegistryRoot = -1073741823;
+LABEL_20:
+    if ( v4 )
+      ExFreePoolWithTag(v4, 0x20666E57u);
   }
-  if ( v4 )
-    ExFreePoolWithTag(v4, 0x20666E57u);
 LABEL_13:
   if ( v8 )
     PsDetachSiloFromCurrentThread(v7);

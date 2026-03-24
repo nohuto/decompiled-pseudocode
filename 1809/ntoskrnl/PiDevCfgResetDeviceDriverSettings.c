@@ -1,24 +1,24 @@
 /*
- * XREFs of PiDevCfgResetDeviceDriverSettings @ 0x14082E988
+ * XREFs of PiDevCfgResetDeviceDriverSettings @ 0x14082E968
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x1406E2E54 (PiDevCfgConfigureDevice.c)
- *     PpDevCfgProcessDeviceReset @ 0x1408321A0 (PpDevCfgProcessDeviceReset.c)
+ *     PiDevCfgConfigureDevice @ 0x1406E2E34 (PiDevCfgConfigureDevice.c)
+ *     PpDevCfgProcessDeviceReset @ 0x140832180 (PpDevCfgProcessDeviceReset.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8350 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
- *     ZwDeleteValueKey @ 0x1401B9B90 (ZwDeleteValueKey.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8370 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
  *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
  *     PnpIsNullGuid @ 0x1405901B0 (PnpIsNullGuid.c)
  *     _PnpOpenObjectRegKey @ 0x140597118 (_PnpOpenObjectRegKey.c)
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
  *     _CmOpenDeviceRegKey @ 0x1405C6EF0 (_CmOpenDeviceRegKey.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     PiDevCfgSetObjectProperty @ 0x1406E4D9C (PiDevCfgSetObjectProperty.c)
- *     _RegRtlDeleteTreeInternal @ 0x14070DC5C (_RegRtlDeleteTreeInternal.c)
- *     PiDevCfgResetDeviceKeys @ 0x14082EDA8 (PiDevCfgResetDeviceKeys.c)
+ *     PiDevCfgSetObjectProperty @ 0x1406E4D7C (PiDevCfgSetObjectProperty.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14070DC3C (_RegRtlDeleteTreeInternal.c)
+ *     PiDevCfgResetDeviceKeys @ 0x14082ED88 (PiDevCfgResetDeviceKeys.c)
  */
 
 __int64 __fastcall PiDevCfgResetDeviceDriverSettings(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, __int64 a5)
@@ -100,7 +100,7 @@ __int64 __fastcall PiDevCfgResetDeviceDriverSettings(__int64 a1, __int64 a2, _QW
     Source2 = 0LL;
     v40 = 0LL;
   }
-  v9 = &off_14090B1D8;
+  v9 = &off_14090B1B8;
   v10 = 2LL;
   v11 = 0;
   do

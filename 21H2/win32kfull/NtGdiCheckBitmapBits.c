@@ -1,74 +1,96 @@
 /*
- * XREFs of NtGdiCheckBitmapBits @ 0x1C02B4C30
+ * XREFs of NtGdiCheckBitmapBits @ 0x1C02B69D0
  * Callers:
  *     <none>
  * Callees:
- *     ?GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z @ 0x1C02B4434 (-GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z.c)
+ *     Feature_2249667896__private_IsEnabledDeviceUsage @ 0x1C016B1FC (Feature_2249667896__private_IsEnabledDeviceUsage.c)
+ *     ?GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z @ 0x1C02B61D8 (-GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z.c)
  */
 
-__int64 __fastcall NtGdiCheckBitmapBits(HDC a1, void *a2, char *a3, int a4, SIZE_T Size, int a6, int a7, char *Address)
+__int64 __fastcall NtGdiCheckBitmapBits(
+        HDC a1,
+        void *a2,
+        void *a3,
+        int a4,
+        unsigned int Size,
+        int a6,
+        int a7,
+        char *Address)
 {
-  unsigned int v11; // esi
-  unsigned __int64 v12; // rax
-  unsigned int v13; // ecx
-  char *v14; // r8
-  HANDLE v15; // r14
-  HANDLE v16; // rax
-  void *v17; // rdi
-  ULONG v19; // ecx
-  _DWORD v20[4]; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v21; // [rsp+50h] [rbp-38h]
-  int v22; // [rsp+58h] [rbp-30h]
-  int v23; // [rsp+5Ch] [rbp-2Ch]
+  unsigned int v10; // r14d
+  unsigned __int64 v11; // rax
+  unsigned int v12; // edi
+  ULONG64 v13; // rdx
+  HANDLE v14; // rsi
+  HANDLE v15; // rax
+  void *v16; // rdi
+  ULONG v18; // ecx
+  _DWORD v19[4]; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v20; // [rsp+50h] [rbp-48h]
+  int v21; // [rsp+58h] [rbp-40h]
+  int v22; // [rsp+5Ch] [rbp-3Ch]
 
-  v23 = 0;
-  v11 = 1;
+  v22 = 0;
+  v10 = 1;
   if ( a4 != 2 || a6 != 1 )
-    goto LABEL_24;
-  v12 = 3LL * (unsigned int)Size;
-  if ( v12 > 0xFFFFFFFF || (int)v12 + 3 < (unsigned int)v12 )
+    goto LABEL_31;
+  v11 = 3LL * Size;
+  if ( v11 > 0xFFFFFFFF || (int)v11 + 3 < (unsigned int)v11 )
   {
-    v19 = 534;
-LABEL_25:
-    EngSetLastError(v19);
+    v18 = 534;
+LABEL_32:
+    EngSetLastError(v18);
     return 0LL;
   }
-  v13 = (v12 + 3) & 0xFFFFFFFC;
-  if ( a7 != v13 )
+  v12 = (v11 + 3) & 0xFFFFFFFC;
+  if ( a7 != v12 )
   {
-LABEL_24:
-    v19 = 87;
-    goto LABEL_25;
+LABEL_31:
+    v18 = 87;
+    goto LABEL_32;
   }
-  v20[0] = 5;
-  v20[1] = Size;
-  v20[2] = 1;
-  v20[3] = (v12 + 3) & 0xFFFFFFFC;
-  v21 = 0LL;
-  v22 = 0;
-  if ( v13 )
+  v19[0] = 5;
+  v19[1] = Size;
+  v19[2] = 1;
+  v19[3] = (v11 + 3) & 0xFFFFFFFC;
+  v20 = 0LL;
+  v21 = 0;
+  if ( v12 )
   {
     if ( ((unsigned __int8)a3 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v14 = &a3[v13];
-    if ( (unsigned __int64)v14 > MmUserProbeAddress || v14 < a3 )
+    v13 = (ULONG64)a3 + v12;
+    if ( v13 > MmUserProbeAddress || v13 < (unsigned __int64)a3 )
       *(_BYTE *)MmUserProbeAddress = 0;
   }
-  if ( (_DWORD)Size
-    && ((unsigned __int64)&Address[(unsigned int)Size] > MmUserProbeAddress || &Address[(unsigned int)Size] < Address) )
-  {
+  if ( Size && ((unsigned __int64)&Address[Size] > MmUserProbeAddress || &Address[Size] < Address) )
     *(_BYTE *)MmUserProbeAddress = 0;
-  }
-  v15 = MmSecureVirtualMemory(a3, v13, 2u);
-  v16 = MmSecureVirtualMemory(Address, (unsigned int)Size, 4u);
-  v17 = v16;
-  if ( v15 )
+  if ( (unsigned int)Feature_2249667896__private_IsEnabledDeviceUsage() )
   {
-    if ( v16 )
-      v11 = GreCheckBitmapBits(a1, a2, (struct _DEVBITMAPINFO *)v20, a3, (unsigned __int8 *)Address);
-    MmUnsecureVirtualMemory(v15);
+    v14 = (HANDLE)GrepSecureVirtualMemory(a3, v12, 2LL);
+    v15 = (HANDLE)GrepSecureVirtualMemory(Address, Size, 4LL);
   }
-  if ( v17 )
-    MmUnsecureVirtualMemory(v17);
-  return v11;
+  else
+  {
+    v14 = MmSecureVirtualMemory(a3, v12, 2u);
+    v15 = MmSecureVirtualMemory(Address, Size, 4u);
+  }
+  v16 = v15;
+  if ( v14 )
+  {
+    if ( v15 )
+      v10 = GreCheckBitmapBits(a1, a2, (struct _DEVBITMAPINFO *)v19, a3, (unsigned __int8 *)Address);
+    if ( (unsigned int)Feature_2249667896__private_IsEnabledDeviceUsage() )
+      GrepUnsecureVirtualMemory(v14);
+    else
+      MmUnsecureVirtualMemory(v14);
+  }
+  if ( v16 )
+  {
+    if ( (unsigned int)Feature_2249667896__private_IsEnabledDeviceUsage() )
+      GrepUnsecureVirtualMemory(v16);
+    else
+      MmUnsecureVirtualMemory(v16);
+  }
+  return v10;
 }

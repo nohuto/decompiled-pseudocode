@@ -1,78 +1,91 @@
 /*
- * XREFs of ?OnZeroReferenceCount@BamoPrincipalImpl@BamoImpl@Microsoft@@EEAAXXZ @ 0x1801BAB20
+ * XREFs of ?OnZeroReferenceCount@BamoPrincipalImpl@BamoImpl@Microsoft@@EEAAXXZ @ 0x18017EC50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180177B90 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
- *     ?DisableLockDrops@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAXXZ @ 0x180196B30 (-DisableLockDrops@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAXXZ.c)
- *     ?EnableLockDrops@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAXXZ @ 0x180196E4C (-EnableLockDrops@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAXXZ.c)
- *     ?FreePrincipalItem@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAXI@Z @ 0x1801BA618 (-FreePrincipalItem@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAXI@Z.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x1800E9464 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ??0ConditionalDropAndReacquireLock@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@@Z @ 0x180165AA8 (--0ConditionalDropAndReacquireLock@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@@Z.c)
+ *     ?RemovePrincipal@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAXI@Z @ 0x18017EFC8 (-RemovePrincipal@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAXI@Z.c)
  */
 
 void __fastcall Microsoft::BamoImpl::BamoPrincipalImpl::OnZeroReferenceCount(
-        Microsoft::BamoImpl::BamoPrincipalImpl *this,
-        __int64 a2,
-        __int64 a3,
-        const char *a4)
+        Microsoft::BamoImpl::BamoPrincipalImpl *this)
 {
-  Microsoft::BamoImpl::BaseBamoConnectionImpl *v5; // rsi
-  __int64 v6; // r8
-  const char *v7; // r9
-  __int64 v8; // rdx
-  __int64 i; // rax
-  __int64 v10; // r9
-  __int64 j; // rcx
-  _QWORD *v12; // rdi
-  _QWORD *v13; // rbx
+  __int64 v1; // rax
+  struct Microsoft::BamoImpl::BaseBamoConnectionImpl *v3; // rdi
+  _QWORD *v4; // rax
+  __int64 v5; // r9
+  _QWORD *v6; // rdx
+  _QWORD *v7; // rsi
+  _QWORD *i; // rcx
+  __int64 v9; // r8
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // rbx
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v14; // [rsp+30h] [rbp+8h] BYREF
 
-  v5 = *(Microsoft::BamoImpl::BaseBamoConnectionImpl **)(*((_QWORD *)this + 2) + 32LL);
-  Microsoft::BamoImpl::BaseBamoConnectionImpl::DisableLockDrops(v5, a2, a3, a4);
-  v8 = *((unsigned int *)this + 6);
-  *((_DWORD *)this + 6) = 0;
-  if ( *((_QWORD *)v5 + 8) && (_DWORD)v8 )
-    Microsoft::BamoImpl::BaseBamoConnectionImpl::FreePrincipalItem(v5, v8);
-  for ( i = *((_QWORD *)this + 4); i; i = *(_QWORD *)(i + 48) )
+  v1 = *((_QWORD *)this + 2);
+  v3 = *(struct Microsoft::BamoImpl::BaseBamoConnectionImpl **)(v1 + 32);
+  if ( *((_QWORD *)v3 + 7) )
+    Microsoft::BamoImpl::BaseBamoConnectionImpl::RemovePrincipal(
+      *(Microsoft::BamoImpl::BaseBamoConnectionImpl **)(v1 + 32),
+      *((_DWORD *)this + 6));
+  v4 = (_QWORD *)*((_QWORD *)this + 4);
+  if ( v4 )
   {
-    v10 = *(_QWORD *)(i + 40);
-    v8 = 0LL;
-    for ( j = *(_QWORD *)(v10 + 56); j; j = *(_QWORD *)(j + 56) )
+    while ( 2 )
     {
-      if ( j == i )
+      v5 = v4[5];
+      v6 = 0LL;
+      v7 = (_QWORD *)v4[6];
+      for ( i = *(_QWORD **)(v5 + 48); i; i = (_QWORD *)i[7] )
       {
-        v6 = *(_QWORD *)(i + 56);
-        if ( v8 )
-          *(_QWORD *)(v8 + 56) = v6;
-        else
-          *(_QWORD *)(v10 + 56) = v6;
-        *(_QWORD *)(i + 56) = 0LL;
-        break;
+        if ( i == v4 )
+        {
+          v9 = v4[7];
+          if ( v6 )
+            v6[7] = v9;
+          else
+            *(_QWORD *)(v5 + 48) = v9;
+          v4[7] = 0LL;
+          break;
+        }
+        v6 = i;
       }
-      v8 = j;
+      if ( !i )
+      {
+        wil::details::in1diag3::_FailFast_Unexpected(
+          retaddr,
+          (void *)0x101,
+          (__int64)"onecore\\private\\mincore\\priv_sdk\\inc\\BamoPeer.inl",
+          (const char *)v5);
+        __debugbreak();
+      }
+      v10 = *((_QWORD *)this + 4);
+      *(_QWORD *)(v10 + 24) = 0LL;
+      *(_BYTE *)(v10 + 32) = 0;
+      (***((void (__fastcall ****)(_QWORD, _QWORD *))this + 4))(*((_QWORD *)this + 4), v6);
+      *((_QWORD *)this + 4) = v7;
+      if ( v7 )
+      {
+        v4 = v7;
+        continue;
+      }
+      break;
     }
-    v7 = (const char *)retaddr;
-    if ( !j )
-      wil::details::in1diag3::_FailFast_Unexpected(
-        retaddr,
-        258LL,
-        (__int64)"d:\\os\\tools\\BamoCodegen\\Inc\\BamoPeer.inl",
-        (const char *)retaddr);
-    *(_QWORD *)(i + 24) = 0LL;
-    *(_BYTE *)(i + 32) = 0;
   }
-  v12 = (_QWORD *)*((_QWORD *)this + 4);
-  *((_QWORD *)this + 4) = 0LL;
-  Microsoft::BamoImpl::BaseBamoConnectionImpl::EnableLockDrops(v5, v8, v6, v7);
-  if ( v12 )
+  Microsoft::BamoImpl::ConditionalDropAndReacquireLock::ConditionalDropAndReacquireLock(
+    (Microsoft::BamoImpl::ConditionalDropAndReacquireLock *)&v14,
+    v3);
+  v11 = (*(__int64 (__fastcall **)(Microsoft::BamoImpl::BamoPrincipalImpl *))(*(_QWORD *)this + 48LL))(this);
+  if ( v11 )
+    (*(void (__fastcall **)(__int64, __int64))(*(_QWORD *)v11 + 24LL))(v11, 1LL);
+  v12 = v14;
+  if ( v14 )
   {
-    do
-    {
-      v13 = (_QWORD *)v12[6];
-      v12[6] = 0LL;
-      (*(void (__fastcall **)(_QWORD *))(*v12 + 8LL))(v12);
-      v12 = v13;
-    }
-    while ( v13 );
+    EnterCriticalSection((LPCRITICAL_SECTION)(v14 + 128));
+    *(_DWORD *)(v12 + 168) = GetCurrentThreadId();
   }
 }

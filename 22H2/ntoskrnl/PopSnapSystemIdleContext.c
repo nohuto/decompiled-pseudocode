@@ -1,30 +1,30 @@
 /*
- * XREFs of PopSnapSystemIdleContext @ 0x140883E90
+ * XREFs of PopSnapSystemIdleContext @ 0x1408F101C
  * Callers:
- *     PopIdlePhaseWatchdogCallback @ 0x1403D51B0 (PopIdlePhaseWatchdogCallback.c)
- *     PopArmIdlePhaseWatchdog @ 0x140883D44 (PopArmIdlePhaseWatchdog.c)
+ *     PopIdlePhaseWatchdogCallback @ 0x140576510 (PopIdlePhaseWatchdogCallback.c)
+ *     PopArmIdlePhaseWatchdog @ 0x1408EFC58 (PopArmIdlePhaseWatchdog.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C2A0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C404 (PopAcquireRwLockExclusive.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     PopReleaseRwLock @ 0x140345294 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14034AAE4 (PopAcquireRwLockExclusive.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void __fastcall PopSnapSystemIdleContext(__int64 *a1, unsigned int *a2)
+void __fastcall PopSnapSystemIdleContext(_QWORD *a1, _DWORD *a2)
 {
-  __int64 Pool2; // rax
+  _OWORD *PoolWithTag; // rax
   __int64 v5; // rdx
   _OWORD *v6; // rcx
   int *v7; // rax
   __int128 v8; // xmm1
-  _DWORD *v9; // rcx
-  __int64 v10; // r8
-  unsigned int v11; // edx
+  _DWORD *v9; // r8
+  __int64 v10; // r9
+  unsigned __int64 v11; // rdx
 
   PopAcquireRwLockExclusive((ULONG_PTR)&PopSystemIdleLock);
-  Pool2 = ExAllocatePool2(256LL, 328LL, 1734960208LL);
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x148uLL, 0x67696450u);
   v5 = 2LL;
-  *a1 = Pool2;
-  v6 = (_OWORD *)Pool2;
+  *a1 = PoolWithTag;
+  v6 = PoolWithTag;
   v7 = &PopSystemIdleContext;
   do
   {
@@ -48,26 +48,26 @@ void __fastcall PopSnapSystemIdleContext(__int64 *a1, unsigned int *a2)
   v6[3] = *((_OWORD *)v7 + 3);
   *((_QWORD *)v6 + 8) = *((_QWORD *)v7 + 8);
   *a2 = 0;
-  if ( dword_140C09924 )
+  if ( dword_140C0F334 )
   {
-    v9 = &unk_140C0984C;
+    v9 = &unk_140C0F25C;
     v10 = 4LL;
     do
     {
-      if ( !*((_BYTE *)v9 - 4) )
+      if ( *((_BYTE *)v9 - 4) )
       {
         if ( *v9 )
         {
           if ( *v9 == 1 )
-            v11 = *(v9 - 3) - *(v9 - 5);
+            v11 = (*(_QWORD *)(v9 - 3) - *(_QWORD *)(v9 - 5)) / 0x989680uLL;
           else
-            v11 = -1;
+            LODWORD(v11) = -1;
         }
         else
         {
-          v11 = 0;
+          LODWORD(v11) = 0;
         }
-        if ( v11 > *a2 )
+        if ( (unsigned int)v11 > *a2 )
           *a2 = v11;
       }
       v9 += 14;
@@ -75,5 +75,5 @@ void __fastcall PopSnapSystemIdleContext(__int64 *a1, unsigned int *a2)
     }
     while ( v10 );
   }
-  PopReleaseRwLock(&PopSystemIdleLock);
+  PopReleaseRwLock((ULONG_PTR)&PopSystemIdleLock);
 }

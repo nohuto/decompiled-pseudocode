@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetSetBootStatusData @ 0x1406D66F0
+ * XREFs of RtlGetSetBootStatusData @ 0x14078A1D0
  * Callers:
- *     PopBootStatGet @ 0x1406D5F3C (PopBootStatGet.c)
- *     PopBootStatSet @ 0x1406D6228 (PopBootStatSet.c)
+ *     PopBootStatSet @ 0x14077F268 (PopBootStatSet.c)
+ *     PopBootStatGet @ 0x1407C1130 (PopBootStatGet.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     memset @ 0x140435E00 (memset.c)
- *     RtlpGetSetBootStatusData @ 0x1406D6860 (RtlpGetSetBootStatusData.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlpGetSetBootStatusData @ 0x14078A340 (RtlpGetSetBootStatusData.c)
  */
 
 __int64 __fastcall RtlGetSetBootStatusData(HANDLE FileHandle, char a2, int a3, _BYTE *a4, int a5, _DWORD *a6)
@@ -17,8 +17,8 @@ __int64 __fastcall RtlGetSetBootStatusData(HANDLE FileHandle, char a2, int a3, _
   _BYTE *v13; // rcx
   __int64 v14; // r8
   char v15; // al
-  __int64 v16; // [rsp+34h] [rbp-CCh] BYREF
-  _BYTE v17[192]; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v16; // [rsp+34h] [rbp-A5h] BYREF
+  _BYTE v17[176]; // [rsp+40h] [rbp-99h] BYREF
 
   LODWORD(v16) = 0;
   memset(v17, 0, sizeof(v17));
@@ -29,7 +29,7 @@ __int64 __fastcall RtlGetSetBootStatusData(HANDLE FileHandle, char a2, int a3, _
   result = RtlpGetSetBootStatusData(FileHandle, 1, 0LL);
   if ( (int)result >= 0 )
   {
-    result = RtlpGetSetBootStatusData(FileHandle, 192, 0LL);
+    result = RtlpGetSetBootStatusData(FileHandle, 176, 0LL);
     if ( (int)result >= 0 )
     {
       result = RtlpGetSetBootStatusData(FileHandle, a5, (__int64)&v16);

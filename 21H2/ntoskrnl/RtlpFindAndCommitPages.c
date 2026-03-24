@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpFindAndCommitPages @ 0x1405E9E8C
+ * XREFs of RtlpFindAndCommitPages @ 0x14058A938
  * Callers:
- *     RtlpExtendHeap @ 0x1405E9C3C (RtlpExtendHeap.c)
+ *     RtlpExtendHeap @ 0x14058A6B4 (RtlpExtendHeap.c)
  * Callees:
- *     RtlpHpHeapCheckCommitLimit @ 0x140351BF4 (RtlpHpHeapCheckCommitLimit.c)
- *     DbgPrint @ 0x140369BD0 (DbgPrint.c)
- *     ZwAllocateVirtualMemory @ 0x14041BA60 (ZwAllocateVirtualMemory.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     RtlpCreateUCREntry @ 0x1405E952C (RtlpCreateUCREntry.c)
- *     RtlpRemoveUCRBlock @ 0x1405EAE78 (RtlpRemoveUCRBlock.c)
- *     RtlpUpdateHeapRates @ 0x1405EB250 (RtlpUpdateHeapRates.c)
- *     RtlpLogHeapFailure @ 0x1405F1BBC (RtlpLogHeapFailure.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405F1C10 (RtlpAnalyzeHeapFailure.c)
- *     RtlpHeapHandleError @ 0x1405F1F34 (RtlpHeapHandleError.c)
- *     RtlpFindUCREntry @ 0x1405F2358 (RtlpFindUCREntry.c)
+ *     DbgPrint @ 0x140284160 (DbgPrint.c)
+ *     RtlpHpHeapCheckCommitLimit @ 0x14030AB40 (RtlpHpHeapCheckCommitLimit.c)
+ *     ZwAllocateVirtualMemory @ 0x1403FA6A0 (ZwAllocateVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RtlpCreateUCREntry @ 0x140589FA4 (RtlpCreateUCREntry.c)
+ *     RtlpRemoveUCRBlock @ 0x14058B848 (RtlpRemoveUCRBlock.c)
+ *     RtlpUpdateHeapRates @ 0x14058BC24 (RtlpUpdateHeapRates.c)
+ *     RtlpLogHeapFailure @ 0x14059356C (RtlpLogHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405935C0 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapHandleError @ 0x1405938E4 (RtlpHeapHandleError.c)
+ *     RtlpFindUCREntry @ 0x140593D10 (RtlpFindUCREntry.c)
  */
 
 unsigned __int64 __fastcall RtlpFindAndCommitPages(__int64 a1, ULONG_PTR *a2)
@@ -99,7 +99,7 @@ unsigned __int64 __fastcall RtlpFindAndCommitPages(__int64 a1, ULONG_PTR *a2)
   v17 = *a2;
   if ( v16 > *a2 || v16 + *(_QWORD *)(v5 + 32) == *(_QWORD *)(v9 + 72) )
   {
-    RtlpCreateUCREntry(a1, v9, *(_QWORD *)(v5 + 32) + v17 - 48, v16 - v17, v6, (__int64 *)a2);
+    RtlpCreateUCREntry(a1, v9, v17 - 48 + *(_QWORD *)(v5 + 32), v16 - v17, v6, (__int64 *)a2);
     *a2 *= 16LL;
   }
   else

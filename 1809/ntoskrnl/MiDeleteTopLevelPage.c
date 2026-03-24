@@ -7,7 +7,7 @@
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
  *     MiClearContainingMapping @ 0x140091AB4 (MiClearContainingMapping.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDeleteTopLevelPage(__int64 a1, __int64 a2)

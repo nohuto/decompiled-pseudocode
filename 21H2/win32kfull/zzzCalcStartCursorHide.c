@@ -1,15 +1,16 @@
 /*
- * XREFs of zzzCalcStartCursorHide @ 0x1C0073330
+ * XREFs of zzzCalcStartCursorHide @ 0x1C007FC90
  * Callers:
- *     zzzWakeInputIdle @ 0x1C00534E4 (zzzWakeInputIdle.c)
- *     xxxRealInternalGetMessage @ 0x1C0055460 (xxxRealInternalGetMessage.c)
- *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C006E60C (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
- *     _lambda_fa8dd67e252dc1cab0941e5eaeabf2c9_::operator() @ 0x1C00764F8 (_lambda_fa8dd67e252dc1cab0941e5eaeabf2c9_--operator().c)
- *     xxxGetInputEvent @ 0x1C00A5800 (xxxGetInputEvent.c)
- *     zzzShowStartGlass @ 0x1C01D9FDC (zzzShowStartGlass.c)
+ *     xxxHungAppDemon @ 0x1C0041780 (xxxHungAppDemon.c)
+ *     xxxGetInputEvent @ 0x1C00530F0 (xxxGetInputEvent.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055720 (xxxRealInternalGetMessage.c)
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C00588D0 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C0068330 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     zzzWakeInputIdle @ 0x1C00DA374 (zzzWakeInputIdle.c)
+ *     zzzShowStartGlass @ 0x1C01D3520 (zzzShowStartGlass.c)
  * Callees:
- *     ??0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C001F1E4 (--0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
- *     zzzUpdateCursorImage @ 0x1C00734A0 (zzzUpdateCursorImage.c)
+ *     zzzUpdateCursorImage @ 0x1C0080F20 (zzzUpdateCursorImage.c)
+ *     ??0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00A8434 (--0AutoSharedPushLock@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
  */
 
 __int64 __fastcall zzzCalcStartCursorHide(__int64 a1, __int64 a2)
@@ -21,7 +22,7 @@ __int64 __fastcall zzzCalcStartCursorHide(__int64 a1, __int64 a2)
   _DWORD *v8; // r10
   unsigned int v9; // r9d
   struct _W32PROCESS **v10; // r11
-  struct _KPROCESS *v11; // rbx
+  PVOID v11; // rbx
   bool v12; // bl
   struct _W32PROCESS *i; // rax
   __int64 v14; // [rsp+30h] [rbp+8h] BYREF
@@ -30,7 +31,7 @@ __int64 __fastcall zzzCalcStartCursorHide(__int64 a1, __int64 a2)
   v4 = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
   if ( a1 )
   {
-    v11 = *(struct _KPROCESS **)a1;
+    v11 = *(PVOID *)a1;
     AutoSharedPushLock::AutoSharedPushLock(
       (AutoSharedPushLock *)&v14,
       (struct _EX_PUSH_LOCK *)&UmfdHostLifeTimeManager::s_ReadyLock);
@@ -59,7 +60,7 @@ LABEL_24:
     *(_DWORD *)(a1 + 12) |= 4u;
     *(_DWORD *)(a1 + 24) = v4 + v3;
   }
-  HIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory) = 0;
+  *((_DWORD *)&WPP_MAIN_CB.DeviceQueue.1 + 1) = 0;
   v5 = &gpwpCalcFirst;
   v6 = gpwpCalcFirst;
   if ( gpwpCalcFirst )
@@ -71,8 +72,8 @@ LABEL_24:
       if ( (*((_DWORD *)v6 + 3) & 6) != 4 )
         break;
       v9 = *((_DWORD *)v6 + 6);
-      if ( HIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory) < v9 )
-        HIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory) = *((_DWORD *)v6 + 6);
+      if ( *((_DWORD *)&WPP_MAIN_CB.DeviceQueue.1 + 1) < v9 )
+        *((_DWORD *)&WPP_MAIN_CB.DeviceQueue.1 + 1) = *((_DWORD *)v6 + 6);
       v10 = (struct _W32PROCESS **)((char *)v6 + 32);
       v6 = (struct _W32PROCESS *)*((_QWORD *)v6 + 4);
       if ( (int)(v4 - v9) > 0 )
@@ -85,7 +86,7 @@ LABEL_24:
 LABEL_12:
       if ( !v6 )
       {
-        if ( HIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory) > (unsigned int)v4 )
+        if ( *((_DWORD *)&WPP_MAIN_CB.DeviceQueue.1 + 1) > (unsigned int)v4 )
           return zzzUpdateCursorImage(v6, a2, v5);
         goto LABEL_3;
       }
@@ -96,6 +97,6 @@ LABEL_11:
     goto LABEL_12;
   }
 LABEL_3:
-  HIDWORD(WPP_MAIN_CB.Dpc.ProcessorHistory) = 0;
+  *((_DWORD *)&WPP_MAIN_CB.DeviceQueue.1 + 1) = 0;
   return zzzUpdateCursorImage(v6, a2, v5);
 }

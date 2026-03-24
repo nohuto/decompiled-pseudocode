@@ -1,7 +1,7 @@
 /*
- * XREFs of Crashdump_Register_SaveStateForHybridSleep @ 0x1C004DD3C
+ * XREFs of Crashdump_Register_SaveStateForHybridSleep @ 0x1C004B278
  * Callers:
- *     Crashdump_Cleanup @ 0x1C004BD10 (Crashdump_Cleanup.c)
+ *     Crashdump_Cleanup @ 0x1C0049210 (Crashdump_Cleanup.c)
  * Callees:
  *     <none>
  */

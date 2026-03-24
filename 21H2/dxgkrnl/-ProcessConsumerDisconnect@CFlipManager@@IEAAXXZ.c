@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ProcessConsumerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C007E4B8
+ * XREFs of ?ProcessConsumerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C006BB10
  * Callers:
- *     ?DisconnectEndpoint@FlipManagerObject@@QEAAJ_N@Z @ 0x1C0079E0C (-DisconnectEndpoint@FlipManagerObject@@QEAAJ_N@Z.c)
- *     ?Close@CFlipManager@@MEAAJPEAU_EPROCESS@@PEAX_K2@Z @ 0x1C007C660 (-Close@CFlipManager@@MEAAJPEAU_EPROCESS@@PEAX_K2@Z.c)
+ *     ?DisconnectEndpoint@FlipManagerObject@@QEAAJ_N@Z @ 0x1C0068758 (-DisconnectEndpoint@FlipManagerObject@@QEAAJ_N@Z.c)
+ *     ?Close@CFlipManager@@MEAAJPEAU_EPROCESS@@PEAX_K2@Z @ 0x1C006AC10 (-Close@CFlipManager@@MEAAJPEAU_EPROCESS@@PEAX_K2@Z.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     ?FreeCurrentUpdates@CFlipManager@@AEAAXXZ @ 0x1C007D6F8 (-FreeCurrentUpdates@CFlipManager@@AEAAXXZ.c)
- *     ?FreeQueuedUpdates@CFlipManager@@AEAAXXZ @ 0x1C007D7EC (-FreeQueuedUpdates@CFlipManager@@AEAAXXZ.c)
- *     ?DestroyAllResourceStates@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C007F928 (-DestroyAllResourceStates@CEndpointResourceStateManager@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     ?FreeCurrentUpdates@CFlipManager@@AEAAXXZ @ 0x1C006B424 (-FreeCurrentUpdates@CFlipManager@@AEAAXXZ.c)
+ *     ?FreeQueuedUpdates@CFlipManager@@AEAAXXZ @ 0x1C006B498 (-FreeQueuedUpdates@CFlipManager@@AEAAXXZ.c)
+ *     ?DestroyAllResourceStates@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C006C618 (-DestroyAllResourceStates@CEndpointResourceStateManager@@QEAAXXZ.c)
  */
 
 void __fastcall CFlipManager::ProcessConsumerDisconnect(PRKEVENT *this)
@@ -42,8 +42,8 @@ void __fastcall CFlipManager::ProcessConsumerDisconnect(PRKEVENT *this)
     }
     while ( v6 != v2 );
   }
-  CEndpointResourceStateManager::DestroyAllResourceStates((CEndpointResourceStateManager *)(this + 13));
+  CEndpointResourceStateManager::DestroyAllResourceStates((CEndpointResourceStateManager *)(this + 11));
   CFlipManager::FreeQueuedUpdates((CFlipManager *)this);
-  KeResetEvent(this[36]);
+  KeResetEvent(this[26]);
   this[6] = 0LL;
 }

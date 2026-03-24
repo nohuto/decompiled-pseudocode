@@ -1,9 +1,9 @@
 /*
- * XREFs of SeUnregisterImageVerificationCallback @ 0x14089B6E0
+ * XREFs of SeUnregisterImageVerificationCallback @ 0x14089B6C0
  * Callers:
  *     <none>
  * Callees:
- *     ExUnregisterCallback @ 0x14016CED0 (ExUnregisterCallback.c)
+ *     ExUnregisterCallback @ 0x14016CEF0 (ExUnregisterCallback.c)
  */
 
 void __fastcall SeUnregisterImageVerificationCallback(void *a1)

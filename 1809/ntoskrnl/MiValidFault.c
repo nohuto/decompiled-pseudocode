@@ -1,5 +1,5 @@
 /*
- * XREFs of MiValidFault @ 0x1400B6DD0
+ * XREFs of MiValidFault @ 0x1400B6DF0
  * Callers:
  *     MiUserFault @ 0x140044870 (MiUserFault.c)
  * Callees:
@@ -8,18 +8,18 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiLockPageAndSetDirty @ 0x140086028 (MiLockPageAndSetDirty.c)
  *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MiCopyOnWrite @ 0x1400B45C0 (MiCopyOnWrite.c)
- *     MiUpdatePrefetchPriority @ 0x1400B71A0 (MiUpdatePrefetchPriority.c)
- *     MiCheckAndUpdateIoAttribution @ 0x1400DF0D4 (MiCheckAndUpdateIoAttribution.c)
- *     MiCheckSystemNxFault @ 0x1400E9468 (MiCheckSystemNxFault.c)
- *     KeFlushSingleTb @ 0x1400ECDD4 (KeFlushSingleTb.c)
- *     MiTbFlushType @ 0x1400EDB84 (MiTbFlushType.c)
- *     KeInvalidAccessAllowed @ 0x140117CEC (KeInvalidAccessAllowed.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     MiCanGrantExecute @ 0x1402BBA60 (MiCanGrantExecute.c)
- *     MiSetFaultPacketDirectives @ 0x1402BC640 (MiSetFaultPacketDirectives.c)
- *     MiValidVirtualizationFault @ 0x1402BC660 (MiValidVirtualizationFault.c)
- *     MiForceCrashForInvalidAccess @ 0x14084BEC4 (MiForceCrashForInvalidAccess.c)
+ *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
+ *     MiUpdatePrefetchPriority @ 0x1400B71C0 (MiUpdatePrefetchPriority.c)
+ *     MiCheckAndUpdateIoAttribution @ 0x1400DF0F4 (MiCheckAndUpdateIoAttribution.c)
+ *     MiCheckSystemNxFault @ 0x1400E9488 (MiCheckSystemNxFault.c)
+ *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
+ *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
+ *     KeInvalidAccessAllowed @ 0x140117D0C (KeInvalidAccessAllowed.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiCanGrantExecute @ 0x1402BBB60 (MiCanGrantExecute.c)
+ *     MiSetFaultPacketDirectives @ 0x1402BC740 (MiSetFaultPacketDirectives.c)
+ *     MiValidVirtualizationFault @ 0x1402BC760 (MiValidVirtualizationFault.c)
+ *     MiForceCrashForInvalidAccess @ 0x14084BEA4 (MiForceCrashForInvalidAccess.c)
  */
 
 __int64 __fastcall MiValidFault(__int64 a1, __int64 a2)

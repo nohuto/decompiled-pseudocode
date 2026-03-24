@@ -1,39 +1,42 @@
 /*
- * XREFs of xxxSwitchToThisWindow @ 0x1C00038F4
+ * XREFs of xxxSwitchToThisWindow @ 0x1C0007AA0
  * Callers:
- *     NtUserSwitchToThisWindow @ 0x1C0003830 (NtUserSwitchToThisWindow.c)
+ *     <none>
  * Callees:
- *     xxxSetWindowPos @ 0x1C0048A4C (xxxSetWindowPos.c)
- *     ThreadLock @ 0x1C0068634 (ThreadLock.c)
- *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C007BCDC (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
- *     ?IsThreadHung@@YAHPEBUtagTHREADINFO@@K@Z @ 0x1C00A93A4 (-IsThreadHung@@YAHPEBUtagTHREADINFO@@K@Z.c)
- *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00AC3EC (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
- *     _GetNextQueueWindow @ 0x1C01EE6BC (_GetNextQueueWindow.c)
+ *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C003B09C (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
+ *     IsThreadHung @ 0x1C003E194 (IsThreadHung.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C004FC70 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     xxxSetWindowPos @ 0x1C006BC54 (xxxSetWindowPos.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     _GetNextQueueWindow @ 0x1C01F3ED8 (_GetNextQueueWindow.c)
  */
 
 __int64 __fastcall xxxSwitchToThisWindow(struct tagTHREADINFO **a1, int a2)
 {
-  struct tagWND *v5; // rdi
+  __int64 v5; // rdi
   __int64 v6; // rcx
-  __int128 v7; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v8; // [rsp+50h] [rbp-18h]
+  __int64 ThreadWin32Thread; // rax
+  _QWORD v8[5]; // [rsp+40h] [rbp-28h] BYREF
 
   if ( gpqForeground )
   {
     if ( !a2 )
     {
-      v7 = 0LL;
-      v8 = 0LL;
-      v5 = *(struct tagWND **)(gpqForeground + 120LL);
+      v8[2] = 0LL;
+      v5 = *(_QWORD *)(gpqForeground + 120LL);
       if ( v5 )
       {
         if ( GetNextQueueWindow(v5, 0LL, 1LL) )
         {
-          v6 = *((_QWORD *)v5 + 5);
+          v6 = *(_QWORD *)(v5 + 40);
           if ( (*(_BYTE *)(v6 + 24) & 8) == 0 && (*(_BYTE *)(v6 + 20) & 0x20) == 0 )
           {
-            ThreadLock(v5, &v7);
-            xxxSetWindowPos(v5, 0, 0, 16403);
+            ThreadWin32Thread = W32GetThreadWin32Thread(KeGetCurrentThread());
+            v8[0] = *(_QWORD *)(ThreadWin32Thread + 416);
+            *(_QWORD *)(ThreadWin32Thread + 416) = v8;
+            v8[1] = v5;
+            HMLockObject(v5);
+            xxxSetWindowPos((struct tagWND *)v5, 0, 0, 16403);
             ThreadUnlock1();
           }
         }
@@ -41,7 +44,7 @@ __int64 __fastcall xxxSwitchToThisWindow(struct tagTHREADINFO **a1, int a2)
     }
   }
   xxxSetForegroundWindowWithOptions(a1, 2LL, 0LL);
-  if ( a2 && (*((_BYTE *)a1[5] + 31) & 0x20) != 0 && !(unsigned int)IsThreadHung(a1[2], 0) )
+  if ( a2 && (*((_BYTE *)a1[5] + 31) & 0x20) != 0 && !(unsigned int)IsThreadHung(a1[2], 0LL) )
     PostEventMessageEx(a1[2], *((struct tagQ **)a1[2] + 54), 7u, (struct tagWND *)a1, 0x112u, 0xF120uLL, 0LL, 0LL);
   return 1LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpViewMapMakeViewRangeReadOnly @ 0x14070AC14
+ * XREFs of HvpViewMapMakeViewRangeReadOnly @ 0x1407230D4
  * Callers:
- *     HvpViewMapSealRange @ 0x14070AB60 (HvpViewMapSealRange.c)
- *     HvpViewMapMigrateCOWData @ 0x140885494 (HvpViewMapMigrateCOWData.c)
+ *     HvpViewMapSealRange @ 0x140723020 (HvpViewMapSealRange.c)
+ *     HvpViewMapMigrateCOWData @ 0x140732D9C (HvpViewMapMigrateCOWData.c)
  * Callees:
- *     CmSiProtectViewOfSection @ 0x140296B88 (CmSiProtectViewOfSection.c)
+ *     CmSiProtectViewOfSection @ 0x140361F3C (CmSiProtectViewOfSection.c)
  */
 
 __int64 __fastcall HvpViewMapMakeViewRangeReadOnly(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

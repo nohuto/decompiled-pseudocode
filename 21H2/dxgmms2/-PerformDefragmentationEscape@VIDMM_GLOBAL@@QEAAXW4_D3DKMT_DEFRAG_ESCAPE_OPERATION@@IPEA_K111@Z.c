@@ -1,10 +1,10 @@
 /*
- * XREFs of ?PerformDefragmentationEscape@VIDMM_GLOBAL@@QEAAXW4_D3DKMT_DEFRAG_ESCAPE_OPERATION@@IPEA_K111@Z @ 0x1C00D8B04
+ * XREFs of ?PerformDefragmentationEscape@VIDMM_GLOBAL@@QEAAXW4_D3DKMT_DEFRAG_ESCAPE_OPERATION@@IPEA_K111@Z @ 0x1C00B1F74
  * Callers:
- *     ?Escape@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_D3DKMT_VIDMM_ESCAPE@@H@Z @ 0x1C00D672C (-Escape@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_D3DKMT_VIDMM_ESCAPE@@H@Z.c)
+ *     ?Escape@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_D3DKMT_VIDMM_ESCAPE@@H@Z @ 0x1C00AF5D4 (-Escape@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_D3DKMT_VIDMM_ESCAPE@@H@Z.c)
  * Callees:
- *     memset @ 0x1C001DC40 (memset.c)
- *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C00A6BA8 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
+ *     memset @ 0x1C0018EC0 (memset.c)
+ *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C008AB00 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
  */
 
 void __fastcall VIDMM_GLOBAL::PerformDefragmentationEscape(
@@ -29,13 +29,13 @@ void __fastcall VIDMM_GLOBAL::PerformDefragmentationEscape(
   if ( a2 <= 2 )
   {
     v8 = 0;
-    if ( !*((_DWORD *)this + 1754) )
+    if ( !*((_DWORD *)this + 1750) )
       return;
     while ( 1 )
     {
-      if ( (*(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 3) + 2680LL) + 344LL * v8 + 16) & 4) == 0 )
+      if ( (*(_DWORD *)(*(_QWORD *)(*((_QWORD *)this + 3) + 2584LL) + 360LL * v8 + 16) & 4) == 0 )
         goto LABEL_23;
-      v9 = *((_QWORD *)this + 5028) + 1584LL * v8;
+      v9 = *((_QWORD *)this + 5027) + 1584LL * v8;
       v10 = *(_DWORD *)(v9 + 20);
       v11 = v10 + *(_DWORD *)(v9 + 24);
       if ( v10 >= v11 )
@@ -77,16 +77,16 @@ void __fastcall VIDMM_GLOBAL::PerformDefragmentationEscape(
       }
       VIDMM_GLOBAL::QueueSystemCommandAndWait(v14, (struct _VIDMM_SYSTEM_COMMAND *)v15, 1);
 LABEL_23:
-      if ( ++v8 >= *((_DWORD *)this + 1754) )
+      if ( ++v8 >= *((_DWORD *)this + 1750) )
         return;
     }
   }
   if ( a2 <= 4 )
   {
-    for ( i = 0; i < *((_DWORD *)this + 1754); ++i )
+    for ( i = 0; i < *((_DWORD *)this + 1750); ++i )
     {
       v7 = *((_QWORD *)this + 3);
-      if ( (*(_DWORD *)(344LL * i + *(_QWORD *)(v7 + 2680) + 16) & 4) != 0 && (*(_DWORD *)(v7 + 2148) & 8) != 0 )
+      if ( (*(_DWORD *)(360LL * i + *(_QWORD *)(v7 + 2584) + 16) & 4) != 0 && (*(_DWORD *)(v7 + 2052) & 8) != 0 )
       {
         memset(v15, 0, 0x58uLL);
         LODWORD(v15[0]) = 126;

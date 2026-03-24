@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipInsertMofResource @ 0x14084E1F4
+ * XREFs of WmipInsertMofResource @ 0x1407BE4D4
  * Callers:
- *     WmipAddMofResource @ 0x14084E03C (WmipAddMofResource.c)
+ *     WmipAddMofResource @ 0x1407BE31C (WmipAddMofResource.c)
  * Callees:
- *     memmove @ 0x140435B40 (memmove.c)
- *     memset @ 0x140435E00 (memset.c)
- *     WmipReferenceEntry @ 0x140784160 (WmipReferenceEntry.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     WmipReferenceEntry @ 0x14063EBE4 (WmipReferenceEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WmipInsertMofResource(__int64 a1, ULONG_PTR a2)
@@ -17,8 +17,8 @@ __int64 __fastcall WmipInsertMofResource(__int64 a1, ULONG_PTR a2)
   unsigned int v6; // eax
   __int64 v7; // r8
   __int64 v8; // r9
-  __int64 v10; // r14
-  int v11; // r12d
+  int v10; // r12d
+  __int64 v11; // r14
   unsigned int v12; // r13d
   unsigned __int64 v13; // rax
   size_t v14; // r15
@@ -43,17 +43,17 @@ __int64 __fastcall WmipInsertMofResource(__int64 a1, ULONG_PTR a2)
         goto LABEL_6;
       }
       if ( ++v6 >= (unsigned int)v4 )
-        goto LABEL_8;
+        goto LABEL_6;
     }
   }
   else
   {
-LABEL_8:
+LABEL_6:
     if ( v6 == (_DWORD)v4 )
     {
-      v10 = 8 * v4;
+      v10 = v4 + 4;
       v17 = *(_QWORD *)(a1 + 72);
-      v11 = v4 + 4;
+      v11 = 8 * v4;
       v12 = -1;
       if ( (unsigned __int64)(8 * v4) <= 0xFFFFFFFF )
         v12 = 8 * v4;
@@ -70,10 +70,9 @@ LABEL_8:
       if ( v17 != a1 + 80 )
         ExFreePoolWithTag(*(PVOID *)(a1 + 72), 0);
       *(_QWORD *)(a1 + 72) = v16;
-      *(_QWORD *)&v16[v10] = a2;
-      *(_DWORD *)(a1 + 64) = v11;
+      *(_QWORD *)&v16[v11] = a2;
+      *(_DWORD *)(a1 + 64) = v10;
     }
-LABEL_6:
     WmipReferenceEntry(a2);
   }
   return v2;

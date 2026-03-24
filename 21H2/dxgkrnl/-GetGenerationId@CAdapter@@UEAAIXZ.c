@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetGenerationId@CAdapter@@UEAAIXZ @ 0x1C0020640
+ * XREFs of ?GetGenerationId@CAdapter@@UEAAIXZ @ 0x1C001BA40
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 __fastcall CAdapter::GetGenerationId(CAdapter *this)
 {
-  return *((unsigned int *)this + 24);
+  return *((unsigned int *)this + 22);
 }

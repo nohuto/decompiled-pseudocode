@@ -1,5 +1,5 @@
 /*
- * XREFs of ?CheckOcclusionState@CHolographicInteropTarget@@$4PPPPPPPM@A@EAAJXZ @ 0x180121760
+ * XREFs of ?CheckOcclusionState@CHolographicInteropTarget@@$4PPPPPPPM@A@EAAJXZ @ 0x1800F7D00
  * Callers:
  *     <none>
  * Callees:

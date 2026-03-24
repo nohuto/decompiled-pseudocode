@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwQueryInformationProcess @ 0x1401B8490
+ * XREFs of ZwQueryInformationProcess @ 0x1401B84B0
  * Callers:
- *     BiLogFileOwnerProcess @ 0x1403272F0 (BiLogFileOwnerProcess.c)
+ *     BiLogFileOwnerProcess @ 0x1403273F0 (BiLogFileOwnerProcess.c)
  * Callees:
  *     <none>
  */

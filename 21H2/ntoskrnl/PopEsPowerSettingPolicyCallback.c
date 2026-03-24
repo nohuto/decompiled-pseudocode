@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEsPowerSettingPolicyCallback @ 0x140864350
+ * XREFs of PopEsPowerSettingPolicyCallback @ 0x1407D4530
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1402935D0 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1402D66A8 (PopAcquireRwLockExclusive.c)
- *     PopEsQueueStateEvaluation @ 0x1407EEF7C (PopEsQueueStateEvaluation.c)
+ *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
+ *     PopEsQueueStateEvaluation @ 0x14077FFBC (PopEsQueueStateEvaluation.c)
  */
 
 __int64 __fastcall PopEsPowerSettingPolicyCallback(__int64 a1, _DWORD *a2, int a3)
@@ -20,16 +20,16 @@ __int64 __fastcall PopEsPowerSettingPolicyCallback(__int64 a1, _DWORD *a2, int a
     PopAcquireRwLockExclusive((ULONG_PTR)&PopEsLock);
     if ( *a2 == 1 )
     {
-      if ( !byte_140C23314 )
+      if ( !byte_140C23ED4 )
       {
         v5 = 1;
-        byte_140C23314 = 1;
+        byte_140C23ED4 = 1;
       }
     }
-    else if ( !*a2 && byte_140C23314 )
+    else if ( !*a2 && byte_140C23ED4 )
     {
       v5 = 1;
-      byte_140C23314 = 0;
+      byte_140C23ED4 = 0;
     }
     PopReleaseRwLock((ULONG_PTR)&PopEsLock);
     if ( v5 )

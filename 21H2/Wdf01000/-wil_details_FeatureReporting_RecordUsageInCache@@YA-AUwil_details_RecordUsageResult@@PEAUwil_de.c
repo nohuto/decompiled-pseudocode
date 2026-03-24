@@ -1,10 +1,10 @@
 /*
- * XREFs of ?wil_details_FeatureReporting_RecordUsageInCache@@YA?AUwil_details_RecordUsageResult@@PEAUwil_details_FeatureReportingCache@@W4wil_details_ServiceReportingKind@@II@Z @ 0x1C002E9E0
+ * XREFs of ?wil_details_FeatureReporting_RecordUsageInCache@@YA?AUwil_details_RecordUsageResult@@PEAUwil_details_FeatureReportingCache@@W4wil_details_ServiceReportingKind@@II@Z @ 0x1C001B690
  * Callers:
- *     ?wil_details_FeatureReporting_ReportUsageToServiceDirect@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1C002E8EC (-wil_details_FeatureReporting_ReportUsageToServiceDirect@@YAHPEAUwil_details_FeatureReportingCac.c)
+ *     ?wil_details_FeatureReporting_ReportUsageToServiceDirect@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_details_ServiceReportingKind@@I_K@Z @ 0x1C001B86C (-wil_details_FeatureReporting_ReportUsageToServiceDirect@@YAHPEAUwil_details_FeatureReportingCac.c)
  * Callees:
- *     ?wil_details_FeatureReporting_IncrementOpportunityInCache@@YAXPEAUwil_details_FeatureReportingCache@@W4wil_details_ServiceReportingKind@@IPEAUwil_details_RecordUsageResult@@@Z @ 0x1C006B588 (-wil_details_FeatureReporting_IncrementOpportunityInCache@@YAXPEAUwil_details_FeatureReportingCa.c)
- *     ?wil_details_FeatureReporting_IncrementUsageInCache@@YAXPEAUwil_details_FeatureReportingCache@@W4wil_details_ServiceReportingKind@@IPEAUwil_details_RecordUsageResult@@@Z @ 0x1C006B670 (-wil_details_FeatureReporting_IncrementUsageInCache@@YAXPEAUwil_details_FeatureReportingCache@@W.c)
+ *     ?wil_details_FeatureReporting_IncrementOpportunityInCache@@YAXPEAUwil_details_FeatureReportingCache@@W4wil_details_ServiceReportingKind@@IPEAUwil_details_RecordUsageResult@@@Z @ 0x1C001B4BC (-wil_details_FeatureReporting_IncrementOpportunityInCache@@YAXPEAUwil_details_FeatureReportingCa.c)
+ *     ?wil_details_FeatureReporting_IncrementUsageInCache@@YAXPEAUwil_details_FeatureReportingCache@@W4wil_details_ServiceReportingKind@@IPEAUwil_details_RecordUsageResult@@@Z @ 0x1C001B5A4 (-wil_details_FeatureReporting_IncrementUsageInCache@@YAXPEAUwil_details_FeatureReportingCache@@W.c)
  */
 
 wil_details_RecordUsageResult *__fastcall wil_details_FeatureReporting_RecordUsageInCache(
@@ -22,20 +22,20 @@ wil_details_RecordUsageResult *__fastcall wil_details_FeatureReporting_RecordUsa
   int v11; // ecx
   signed __int32 exchange; // eax
   signed __int32 v13; // ett
-  int v15; // ebx
-  unsigned __int32 v16; // eax
-  int v17; // edx
-  unsigned __int32 v18; // ett
+  int v14; // ebx
+  unsigned __int32 v15; // eax
+  int v16; // edx
+  unsigned __int32 v17; // ett
 
   v4 = 0;
   v6 = result;
   *(_OWORD *)&result->queueBackground = 0LL;
   *(_QWORD *)&result->ignoredUse = 0LL;
   if ( !kind )
-    goto LABEL_28;
+    goto LABEL_27;
   if ( kind == 1 )
   {
-LABEL_27:
+LABEL_26:
     wil_details_FeatureReporting_IncrementOpportunityInCache(
       reporting,
       (wil_details_ServiceReportingKind)kind,
@@ -44,7 +44,7 @@ LABEL_27:
     return v6;
   }
   if ( kind <= 1 )
-    goto LABEL_20;
+    goto LABEL_19;
   if ( kind <= 3 )
   {
 LABEL_8:
@@ -91,31 +91,31 @@ LABEL_8:
   }
   if ( kind == 4 )
   {
-LABEL_28:
+LABEL_27:
     wil_details_FeatureReporting_IncrementUsageInCache(reporting, (wil_details_ServiceReportingKind)kind, kind, result);
     return v6;
   }
   if ( kind == 5 )
-    goto LABEL_27;
+    goto LABEL_26;
   if ( (unsigned int)(kind - 6) <= 1 )
     goto LABEL_8;
-LABEL_20:
-  v15 = kind - 320;
+LABEL_19:
+  v14 = kind - 320;
   if ( (unsigned int)(kind - 320) < 0x40 )
   {
-    v16 = reporting->recorded.exchange;
+    v15 = reporting->recorded.exchange;
     do
     {
-      if ( (v16 & 0x10) == 0 || (v17 = 1, ((v16 >> 5) & 0x3F) != v15) )
-        v17 = 0;
-      result->ignoredUse = v17;
-      v18 = v16;
-      v16 = _InterlockedCompareExchange(
+      if ( (v15 & 0x10) == 0 || (v16 = 1, ((v15 >> 5) & 0x3F) != v14) )
+        v16 = 0;
+      result->ignoredUse = v16;
+      v17 = v15;
+      v15 = _InterlockedCompareExchange(
               (volatile signed __int32 *)&reporting->recorded,
-              (32 * (v15 & 0x3F)) | v16 & 0xFFFFF81F | 0x10,
-              v16);
+              (32 * (v14 & 0x3F)) | v15 & 0xFFFFF81F | 0x10,
+              v15);
     }
-    while ( v18 != v16 );
+    while ( v17 != v15 );
   }
   result->kindImmediate = kind;
   result->countImmediate = 1;

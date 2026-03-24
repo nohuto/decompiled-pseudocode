@@ -1,5 +1,5 @@
 /*
- * XREFs of _dynamic_initializer_for__CRectangleGeometry::sc_Right__ @ 0x180002D30
+ * XREFs of _dynamic_initializer_for__CRectangleGeometry::sc_Right__ @ 0x180002660
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 dynamic_initializer_for__CRectangleGeometry::sc_Right__()
 
   result = 0LL;
   LODWORD(v1) = 0;
-  xmmword_1803E30F8 = (unsigned __int64)CPropertyChangeResource::SetAnimatedProperty;
-  qword_1803E3108 = v1;
+  xmmword_180344AD8 = (unsigned __int64)CPropertyChangeResource::SetAnimatedProperty;
+  qword_180344AE8 = v1;
   return result;
 }

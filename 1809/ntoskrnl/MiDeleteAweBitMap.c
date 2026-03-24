@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDeleteAweBitMap @ 0x14084FCB8
+ * XREFs of MiDeleteAweBitMap @ 0x14084FC98
  * Callers:
- *     MiDeleteAweInfo @ 0x14084FD10 (MiDeleteAweInfo.c)
- *     MiResizeAweBitMap @ 0x140850214 (MiResizeAweBitMap.c)
+ *     MiDeleteAweInfo @ 0x14084FCF0 (MiDeleteAweInfo.c)
+ *     MiResizeAweBitMap @ 0x1408501F4 (MiResizeAweBitMap.c)
  * Callees:
  *     PsReturnProcessNonPagedPoolQuota @ 0x140068570 (PsReturnProcessNonPagedPoolQuota.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??0CLinearGradientBrush@@QEAA@PEAVCComposition@@@Z @ 0x1800B8760
+ * XREFs of ??0CLinearGradientBrush@@QEAA@PEAVCComposition@@@Z @ 0x1801D23FC
  * Callers:
- *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C6E4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
- *     ?EnsureDrawlistBrush@CLinearGradientLegacyMilBrush@@QEAAJXZ @ 0x18021EAC0 (-EnsureDrawlistBrush@CLinearGradientLegacyMilBrush@@QEAAJXZ.c)
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A2488 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?EnsureDrawlistBrush@CLinearGradientLegacyMilBrush@@QEAAJXZ @ 0x1801B5528 (-EnsureDrawlistBrush@CLinearGradientLegacyMilBrush@@QEAAJXZ.c)
  * Callees:
- *     ??0CGradientBrush@@IEAA@PEAVCComposition@@_N@Z @ 0x1800B86B8 (--0CGradientBrush@@IEAA@PEAVCComposition@@_N@Z.c)
+ *     ??0CGradientBrush@@IEAA@PEAVCComposition@@_N@Z @ 0x1801E6778 (--0CGradientBrush@@IEAA@PEAVCComposition@@_N@Z.c)
  */
 
 CLinearGradientBrush *__fastcall CLinearGradientBrush::CLinearGradientBrush(
@@ -14,23 +14,22 @@ CLinearGradientBrush *__fastcall CLinearGradientBrush::CLinearGradientBrush(
   __int64 v3; // rcx
   __int64 v4; // rcx
 
-  *((_QWORD *)this + 8) = &CLinearGradientBrush::`vbtable'{for `CContent'};
-  *((_QWORD *)this + 35) = &CGDIBitmapRealization::`vbtable'{for `IPixelFormat'};
-  *((_QWORD *)this + 34) = &IContent::`vftable'{for `IContent'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 35) + 4LL) + 280) = &COverlaySwapChainBase::`vftable'{for `IUnknown'};
-  CGradientBrush::CGradientBrush(this, a2);
-  *(_QWORD *)this = &CLinearGradientBrush::`vftable';
-  *((_QWORD *)this + 11) = &CLinearGradientBrush::`vftable'{for `IAtlasEntryOwner'};
-  *((_QWORD *)this + 12) = &CLinearGradientBrush::`vftable'{for `IDeviceResourceNotify'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 4LL) + 64) = &CLinearGradientBrush::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 8) + 8LL) + 64) = &CLinearGradientBrush::`vftable'{for `IContent'};
-  v3 = *(int *)(*((_QWORD *)this + 8) + 4LL);
-  *(_DWORD *)((char *)this + v3 + 60) = v3 - 192;
-  v4 = *(int *)(*((_QWORD *)this + 8) + 8LL);
-  *(_DWORD *)((char *)this + v4 + 60) = v4 - 208;
-  *((_QWORD *)this + 29) = 0LL;
-  *((_QWORD *)this + 30) = 1065353216LL;
-  *((_DWORD *)this + 59) = 0;
-  *((_DWORD *)this + 61) = 0;
+  *((_QWORD *)this + 7) = &CLinearGradientBrush::`vbtable'{for `CContent'};
+  *((_QWORD *)this + 29) = &CInk::`vbtable'{for `IContent'};
+  *((_QWORD *)this + 28) = &IContent::`vftable'{for `IContent'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 29) + 4LL) + 232) = &ILegacySwapChain::`vftable'{for `IUnknown'};
+  CGradientBrush::CGradientBrush(this, a2, 1);
+  *(_QWORD *)this = &CLinearGradientBrush::`vftable'{for `CBrush'};
+  *((_QWORD *)this + 10) = &CLinearGradientBrush::`vftable'{for `CGradientSource'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 4LL) + 56) = &CLinearGradientBrush::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 7) + 8LL) + 56) = &CLinearGradientBrush::`vftable'{for `IContent'};
+  v3 = *(int *)(*((_QWORD *)this + 7) + 4LL);
+  *(_DWORD *)((char *)this + v3 + 52) = v3 - 152;
+  v4 = *(int *)(*((_QWORD *)this + 7) + 8LL);
+  *(_DWORD *)((char *)this + v4 + 52) = v4 - 168;
+  *((_QWORD *)this + 23) = 0LL;
+  *((_QWORD *)this + 24) = 1065353216LL;
+  *((_DWORD *)this + 47) = 0;
+  *((_DWORD *)this + 49) = 0;
   return this;
 }

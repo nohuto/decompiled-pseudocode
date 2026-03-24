@@ -1,15 +1,20 @@
 /*
- * XREFs of rimExtractDigitizerPageButtonUsages @ 0x1C01A8DDC
+ * XREFs of rimExtractDigitizerPageButtonUsages @ 0x1C017A028
  * Callers:
- *     rimExtractPointerDeviceUsages @ 0x1C01A97C8 (rimExtractPointerDeviceUsages.c)
+ *     rimExtractPointerDeviceUsages @ 0x1C017A940 (rimExtractPointerDeviceUsages.c)
  * Callees:
- *     ?DbgPrintWarning@@YAXPEADZZ @ 0x1C0080044 (-DbgPrintWarning@@YAXPEADZZ.c)
- *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     rimHidP_GetUsages @ 0x1C00E0F34 (rimHidP_GetUsages.c)
+ *     ?DbgPrintWarning@@YAXPEADZZ @ 0x1C0058AB4 (-DbgPrintWarning@@YAXPEADZZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00CE808 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     rimHidP_GetUsages @ 0x1C0163674 (rimHidP_GetUsages.c)
  */
 
-__int64 __fastcall rimExtractDigitizerPageButtonUsages(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
+__int64 __fastcall rimExtractDigitizerPageButtonUsages(
+        __int64 a1,
+        struct _HIDP_PREPARSED_DATA *a2,
+        char *a3,
+        unsigned int a4,
+        __int64 a5)
 {
   void *v5; // r15
   __int64 v6; // rbx
@@ -20,17 +25,17 @@ __int64 __fastcall rimExtractDigitizerPageButtonUsages(__int64 a1, __int64 a2, _
   bool i; // si
   int v16; // eax
 
-  v5 = *(void **)(a1 + 816);
+  v5 = *(void **)(a1 + 768);
   v6 = a5;
-  v8 = *(_DWORD *)(a1 + 1040);
+  v8 = *(_DWORD *)(a1 + 984);
   LODWORD(a5) = v8;
   if ( !v5 )
   {
-    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 2852);
+    MicrosoftTelemetryAssertTriggeredArgsKM((int)"IXPTelAssert", 0x20000, 2798);
     v8 = a5;
   }
   memset(v5, 0, 2LL * v8);
-  Usages = rimHidP_GetUsages(v12, 13LL, *(unsigned __int16 *)(v6 + 58), (__int64)v5, (__int64)&a5, a2, a3, a4);
+  Usages = rimHidP_GetUsages(v12, 0xDu, *(_WORD *)(v6 + 58), (unsigned __int16 *)v5, (unsigned int *)&a5, a2, a3, a4);
   if ( Usages >= 0 )
   {
     v14 = 0;

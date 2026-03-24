@@ -1,16 +1,22 @@
 /*
- * XREFs of ?DxgkEngUnlockVisRgnApiExt@@YAXPEAUHDEV__@@@Z @ 0x1C01767D0
+ * XREFs of ?DxgkEngUnlockVisRgnApiExt@@YAXPEAUHDEV__@@@Z @ 0x1C014A520
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall DxgkEngUnlockVisRgnApiExt(HDEV a1)
 {
-  if ( qword_1C029AE00 && (int)qword_1C029AE00() >= 0 )
+  int v2; // eax
+
+  if ( qword_1C0256080 )
+    v2 = qword_1C0256080();
+  else
+    v2 = -1073741637;
+  if ( v2 >= 0 )
   {
-    if ( qword_1C029AE08 )
-      qword_1C029AE08(a1);
+    if ( qword_1C0256088 )
+      qword_1C0256088(a1);
   }
 }

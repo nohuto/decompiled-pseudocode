@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxInitializeWorkPool @ 0x14085070C
+ * XREFs of PopFxInitializeWorkPool @ 0x1407CB394
  * Callers:
- *     PopFxRegisterPluginEx @ 0x1403A85E8 (PopFxRegisterPluginEx.c)
- *     PoFxInitPowerManagement @ 0x140B68E5C (PoFxInitPowerManagement.c)
+ *     PopFxRegisterPluginEx @ 0x14056BE38 (PopFxRegisterPluginEx.c)
+ *     PoFxInitPowerManagement @ 0x140A6D6E0 (PoFxInitPowerManagement.c)
  * Callees:
- *     KeInitializeSemaphore @ 0x1402B32C0 (KeInitializeSemaphore.c)
- *     memset @ 0x140435400 (memset.c)
- *     PopFxCreateStaticWorkPoolThread @ 0x1408507C4 (PopFxCreateStaticWorkPoolThread.c)
+ *     KeInitializeSemaphore @ 0x1402D6DB0 (KeInitializeSemaphore.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopFxCreateEmergencyWorkerThread @ 0x1407CB440 (PopFxCreateEmergencyWorkerThread.c)
  */
 
 __int64 __fastcall PopFxInitializeWorkPool(struct _KSEMAPHORE *a1, __int64 a2)
@@ -15,8 +15,6 @@ __int64 __fastcall PopFxInitializeWorkPool(struct _KSEMAPHORE *a1, __int64 a2)
   struct _KSEMAPHORE *v5; // rbx
   LIST_ENTRY *p_WaitListHead; // rcx
   __int64 v7; // rdx
-  int v8; // ebx
-  __int64 result; // rax
 
   memset(&a1->Limit, 0, 0x118uLL);
   a1->Header.WaitListHead.Flink = 0LL;
@@ -43,14 +41,5 @@ __int64 __fastcall PopFxInitializeWorkPool(struct _KSEMAPHORE *a1, __int64 a2)
     --v7;
   }
   while ( v7 );
-  v8 = 0;
-  do
-  {
-    result = PopFxCreateStaticWorkPoolThread(a1);
-    if ( (int)result < 0 )
-      break;
-    ++v8;
-  }
-  while ( !v8 );
-  return result;
+  return PopFxCreateEmergencyWorkerThread(a1);
 }

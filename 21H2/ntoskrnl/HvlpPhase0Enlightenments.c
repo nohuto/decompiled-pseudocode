@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpPhase0Enlightenments @ 0x14054C654
+ * XREFs of HvlpPhase0Enlightenments @ 0x1404FA894
  * Callers:
- *     HvlRestoreEnlightenment @ 0x1405437A4 (HvlRestoreEnlightenment.c)
- *     HvlPhase0Initialize @ 0x140824AA0 (HvlPhase0Initialize.c)
+ *     HvlRestoreEnlightenment @ 0x1404F1E60 (HvlRestoreEnlightenment.c)
+ *     HvlPhase0Initialize @ 0x140796CFC (HvlPhase0Initialize.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HvlpGetRegister64 @ 0x14054BFF0 (HvlpGetRegister64.c)
- *     HvlpSetRegister64 @ 0x14054C0E0 (HvlpSetRegister64.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HvlpGetRegister64 @ 0x1404FA210 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x1404FA300 (HvlpSetRegister64.c)
  */
 
 __int64 __fastcall HvlpPhase0Enlightenments(__int64 a1)
@@ -27,7 +27,7 @@ __int64 __fastcall HvlpPhase0Enlightenments(__int64 a1)
   if ( (HvlpFlags & 2) != 0 )
   {
     v5 = v6 & 0xFFFFFFFFFFFFF000uLL;
-    v1 = (void *)((__int64 (__fastcall *)(unsigned __int64, __int64, __int64))qword_140C01D70)(
+    v1 = (void *)((__int64 (__fastcall *)(unsigned __int64, __int64, __int64))qword_140C00720)(
                    v6 & 0xFFFFFFFFFFFFF000uLL,
                    1LL,
                    4LL);
@@ -47,7 +47,7 @@ LABEL_5:
       v3 = v3 & 0xFFF | MmGetPhysicalAddress(HvlpReferenceTscPage).QuadPart & 0xFFFFFFFFFFFFF000uLL;
       goto LABEL_5;
     }
-    v1 = (void *)((__int64 (__fastcall *)(__int64, __int64, unsigned __int64 *))qword_140C01D68)(a1, 1LL, &v5);
+    v1 = (void *)((__int64 (__fastcall *)(__int64, __int64, unsigned __int64 *))qword_140C00718)(a1, 1LL, &v5);
     if ( v1 )
     {
       v3 = v5 ^ ((unsigned __int16)v5 ^ (unsigned __int16)v3) & 0xFFF;

@@ -1,50 +1,48 @@
 /*
- * XREFs of NVMeGetLogPageHealthInfoCompletion @ 0x1C0015D90
+ * XREFs of NVMeGetLogPageHealthInfoCompletion @ 0x1C0014B90
  * Callers:
  *     <none>
  * Callees:
- *     GetSrbExtension @ 0x1C0002298 (GetSrbExtension.c)
- *     GetSrbDataBuffer @ 0x1C0007C0C (GetSrbDataBuffer.c)
- *     NVMeFreeDmaBuffer @ 0x1C000EEA4 (NVMeFreeDmaBuffer.c)
- *     TemperatureFromKelvinToCelsius @ 0x1C001B784 (TemperatureFromKelvinToCelsius.c)
+ *     GetSrbExtension @ 0x1C0005A44 (GetSrbExtension.c)
+ *     NVMeFreeDmaBuffer @ 0x1C0005AAC (NVMeFreeDmaBuffer.c)
+ *     TemperatureFromKelvinToCelsius @ 0x1C001773C (TemperatureFromKelvinToCelsius.c)
  */
 
 __int64 __fastcall NVMeGetLogPageHealthInfoCompletion(__int64 a1, __int64 a2)
 {
-  __int64 v3; // rdx
+  __int64 v2; // rdx
   __int64 SrbExtension; // rbx
-  __int64 v5; // r8
-  __int64 *v6; // r10
-  __int64 v7; // r11
+  __int64 v4; // r11
+  __int64 *v5; // r10
+  __int64 v6; // rax
+  __int64 v7; // rcx
   __int64 v8; // rax
-  __int64 v9; // rcx
-  char v10; // al
-  __int64 v11; // r9
-  char v12; // al
-  __int64 v13; // r9
+  char v9; // al
+  __int64 v10; // r8
+  char v11; // al
+  __int64 v12; // r8
   __int64 result; // rax
-  __int64 v15; // [rsp+38h] [rbp+10h] BYREF
 
   SrbExtension = GetSrbExtension(a2);
-  v6 = (__int64 *)(SrbExtension + 4200);
-  if ( *(_BYTE *)(v3 + 3) == 1 )
+  v5 = (__int64 *)(SrbExtension + 4200);
+  v6 = *(_QWORD *)(SrbExtension + 4200);
+  if ( *(_BYTE *)(v2 + 3) == 1 )
   {
-    GetSrbDataBuffer(v5, &v15);
-    v9 = *(unsigned __int8 *)(v7 + 2);
+    v7 = *(unsigned __int8 *)(v6 + 2);
+    LOWORD(v7) = *(_WORD *)(v6 + 1);
     v8 = *(_QWORD *)(SrbExtension + 4232);
-    LOWORD(v9) = *(_WORD *)(v7 + 1);
     if ( v8 == 13 )
     {
-      v10 = TemperatureFromKelvinToCelsius(v9);
-      *(_BYTE *)(v11 + 9) = v10;
+      v9 = TemperatureFromKelvinToCelsius(v7);
+      *(_BYTE *)(v10 + 9) = v9;
     }
     else if ( v8 == 47 )
     {
-      v12 = TemperatureFromKelvinToCelsius(v9);
-      *(_BYTE *)(v13 + 10) = v12;
+      v11 = TemperatureFromKelvinToCelsius(v7);
+      *(_BYTE *)(v12 + 10) = v11;
     }
   }
-  result = NVMeFreeDmaBuffer(a1, *(unsigned int *)(SrbExtension + 4240), v6, *(_QWORD *)(SrbExtension + 4208));
+  result = NVMeFreeDmaBuffer(v4, *(unsigned int *)(SrbExtension + 4240), v5, *(_QWORD *)(SrbExtension + 4208));
   *(_DWORD *)(SrbExtension + 4240) = 0;
   *(_QWORD *)(SrbExtension + 4232) = 0LL;
   *(_BYTE *)(SrbExtension + 4253) |= 8u;

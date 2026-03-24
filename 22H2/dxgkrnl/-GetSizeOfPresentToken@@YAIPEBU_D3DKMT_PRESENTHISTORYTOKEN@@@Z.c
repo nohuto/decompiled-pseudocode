@@ -1,16 +1,17 @@
 /*
- * XREFs of ?GetSizeOfPresentToken@@YAIPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C033E3BC
+ * XREFs of ?GetSizeOfPresentToken@@YAIPEBU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C02804E4
  * Callers:
- *     ?SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYTOKENQUEUE@@PEAU_D3DKMT_PRESENTHISTORYTOKEN@@2PEAVCRefCountedBuffer@@II3K@Z @ 0x1C03765C8 (-SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYT.c)
+ *     ?SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYTOKENQUEUE@@PEAU_D3DKMT_PRESENTHISTORYTOKEN@@2PEAVCRefCountedBuffer@@II3K@Z @ 0x1C023B6F4 (-SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYT.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
+ *     <none>
  */
 
 __int64 __fastcall GetSizeOfPresentToken(const struct _D3DKMT_PRESENTHISTORYTOKEN *a1)
 {
-  int v1; // eax
+  __int64 v1; // rax
+  int v2; // eax
   D3DDDI_VIDEO_PRESENT_SOURCE_ID VidPnSourceId; // eax
-  __int64 v3; // rbx
+  __int64 v4; // rax
   UINT NumRects; // eax
   D3DDDI_FLIPINTERVAL_TYPE FlipInterval; // eax
 
@@ -19,22 +20,22 @@ __int64 __fastcall GetSizeOfPresentToken(const struct _D3DKMT_PRESENTHISTORYTOKE
     FlipInterval = a1->Token.Flip.FlipInterval;
     if ( (unsigned int)FlipInterval > 0x10 )
     {
-      v3 = 53LL;
-      WdLogSingleEntry1(1LL, 53LL);
+      v4 = WdLogNewEntry5_WdAssertion(a1, (unsigned int)(a1->Model - 1));
+      *(_QWORD *)(v4 + 24) = 53LL;
       goto LABEL_20;
     }
-    v1 = 16 * FlipInterval + 67;
+    v2 = 16 * FlipInterval + 67;
   }
   else if ( a1->Model == D3DKMT_PM_REDIRECTED_FLIP )
   {
     NumRects = a1->Token.Flip.DirtyRegions.NumRects;
     if ( NumRects > 0x10 )
     {
-      v3 = 63LL;
-      WdLogSingleEntry1(1LL, 63LL);
+      v4 = WdLogNewEntry5_WdAssertion(a1, (unsigned int)(a1->Model - 2));
+      *(_QWORD *)(v4 + 24) = 63LL;
       goto LABEL_20;
     }
-    v1 = 16 * NumRects + 831;
+    v2 = 16 * NumRects + 831;
   }
   else
   {
@@ -45,39 +46,31 @@ __int64 __fastcall GetSizeOfPresentToken(const struct _D3DKMT_PRESENTHISTORYTOKE
         || a1->Model == D3DKMT_PM_REDIRECTED_COMPOSITION
         || a1->Model == D3DKMT_PM_SURFACECOMPLETE )
       {
-        v1 = 31;
+        v2 = 31;
       }
       else if ( a1->Model == D3DKMT_PM_FLIPMANAGER )
       {
-        v1 = 47;
+        v2 = 47;
       }
       else
       {
-        WdLogSingleEntry1(1LL, 96LL);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          262146,
-          -1,
-          (__int64)L"Unknown type for present history token is found in queue.",
-          96LL,
-          0LL,
-          0LL,
-          0LL,
-          0LL);
-        v1 = 7;
+        v1 = WdLogNewEntry5_WdAssertion(a1, (unsigned int)(a1->Model - 8));
+        *(_QWORD *)(v1 + 24) = 96LL;
+        WdLogEvent5_WdAssertion(v1);
+        v2 = 7;
       }
-      return v1 & 0xFFFFFFF8;
+      return v2 & 0xFFFFFFF8;
     }
     VidPnSourceId = a1->Token.Flip.VidPnSourceId;
     if ( VidPnSourceId > 0x10 )
     {
-      v3 = 73LL;
-      WdLogSingleEntry1(1LL, 73LL);
+      v4 = WdLogNewEntry5_WdAssertion(a1, (unsigned int)(a1->Model - 3));
+      *(_QWORD *)(v4 + 24) = 73LL;
 LABEL_20:
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"FALSE", v3, 0LL, 0LL, 0LL, 0LL);
+      WdLogEvent5_WdAssertion(v4);
       return 0LL;
     }
-    v1 = 16 * VidPnSourceId + 51;
+    v2 = 16 * VidPnSourceId + 51;
   }
-  return v1 & 0xFFFFFFF8;
+  return v2 & 0xFFFFFFF8;
 }

@@ -1,21 +1,20 @@
 /*
- * XREFs of DpiValidateDeviceName @ 0x1C01D93B8
+ * XREFs of DpiValidateDeviceName @ 0x1C0149894
  * Callers:
- *     DxgkOpenAdapterFromDeviceName @ 0x1C01D7220 (DxgkOpenAdapterFromDeviceName.c)
+ *     DxgkOpenAdapterFromDeviceName @ 0x1C0145830 (DxgkOpenAdapterFromDeviceName.c)
  * Callees:
- *     <none>
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000C8D0 (-AcquireMiniportListMutex@@YAXXZ.c)
  */
 
 __int64 __fastcall DpiValidateDeviceName(PCUNICODE_STRING String1)
 {
   int v2; // ebp
-  __int64 v3; // rsi
-  __int64 *v4; // rdi
+  __int64 v3; // rdi
+  __int64 *v4; // rsi
 
   v2 = -1073741811;
-  KeWaitForSingleObject(Mutex, Executive, 0, 0, 0LL);
-  _InterlockedExchange64(&qword_1C01404D8, (__int64)KeGetCurrentThread());
-  v3 = qword_1C01404C8;
+  AcquireMiniportListMutex();
+  v3 = qword_1C00B2B40;
   if ( *(_QWORD *)v3 != v3 )
   {
     do
@@ -33,9 +32,8 @@ __int64 __fastcall DpiValidateDeviceName(PCUNICODE_STRING String1)
           if ( *((_DWORD *)v4 + 4) == 1953656900
             && *((_DWORD *)v4 + 5) == 2
             && (!RtlCompareUnicodeString(String1, (PCUNICODE_STRING)(v4 + 343), 1u)
-             || !RtlCompareUnicodeString(String1, (PCUNICODE_STRING)(v4 + 347), 1u)
-             || !RtlCompareUnicodeString(String1, (PCUNICODE_STRING)(v4 + 349), 1u)
-             || !RtlCompareUnicodeString(String1, (PCUNICODE_STRING)(v4 + 345), 1u)) )
+             || !RtlCompareUnicodeString(String1, (PCUNICODE_STRING)(v4 + 345), 1u)
+             || !RtlCompareUnicodeString(String1, (PCUNICODE_STRING)(v4 + 347), 1u)) )
           {
             v2 = 0;
           }
@@ -46,9 +44,9 @@ __int64 __fastcall DpiValidateDeviceName(PCUNICODE_STRING String1)
       KeReleaseMutex((PRKMUTEX)(v3 + 72), 0);
       v3 = *(_QWORD *)v3;
     }
-    while ( *(_QWORD *)v3 != qword_1C01404C8 );
+    while ( *(_QWORD *)v3 != qword_1C00B2B40 );
   }
-  _InterlockedExchange64(&qword_1C01404D8, 0LL);
+  _InterlockedExchange64(&qword_1C00B2B50, 0LL);
   KeReleaseMutex(Mutex, 0);
   return (unsigned int)v2;
 }

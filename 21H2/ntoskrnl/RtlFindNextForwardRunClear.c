@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlFindNextForwardRunClear @ 0x1402E1F90
+ * XREFs of RtlFindNextForwardRunClear @ 0x140267B70
  * Callers:
- *     HvpGenerateLogMetadata @ 0x1406881CC (HvpGenerateLogMetadata.c)
- *     MiFindDriverNonPagedSections @ 0x140760A2C (MiFindDriverNonPagedSections.c)
- *     HvpCountSetRangesInVector @ 0x14079878C (HvpCountSetRangesInVector.c)
- *     HalpIrtAllocateIndex @ 0x140909B14 (HalpIrtAllocateIndex.c)
- *     MiPrepareToHotPatchImage @ 0x140976880 (MiPrepareToHotPatchImage.c)
- *     PnprMirrorMarkedPages @ 0x140A6849C (PnprMirrorMarkedPages.c)
- *     PopGetRemainingHibernateRangeDataSize @ 0x140A6B37C (PopGetRemainingHibernateRangeDataSize.c)
- *     ViThunkSnapSharedExports @ 0x140A7BF74 (ViThunkSnapSharedExports.c)
+ *     HvpCountSetRangesInVector @ 0x1406463C4 (HvpCountSetRangesInVector.c)
+ *     HvpGenerateLogMetadata @ 0x1406464B8 (HvpGenerateLogMetadata.c)
+ *     MiFindDriverNonPagedSections @ 0x14075CA84 (MiFindDriverNonPagedSections.c)
+ *     HalpIrtAllocateIndex @ 0x140865984 (HalpIrtAllocateIndex.c)
+ *     MiPrepareToHotPatchImage @ 0x1408CD638 (MiPrepareToHotPatchImage.c)
+ *     PnprMirrorMarkedPages @ 0x1409AE02C (PnprMirrorMarkedPages.c)
+ *     PopGetRemainingHibernateRangeDataSize @ 0x1409B1294 (PopGetRemainingHibernateRangeDataSize.c)
+ *     ViThunkSnapSharedExports @ 0x1409C229C (ViThunkSnapSharedExports.c)
  * Callees:
  *     <none>
  */
@@ -36,7 +36,7 @@ ULONG __stdcall RtlFindNextForwardRunClear(PRTL_BITMAP BitMapHeader, ULONG FromI
   Buffer = BitMapHeader->Buffer;
   v8 = &Buffer[(unsigned __int64)(SizeOfBitMap - 1) >> 5];
   v9 = &Buffer[(unsigned __int64)v5 >> 5];
-  if ( v9 != v8 && (*v9 | *((_DWORD *)qword_140015FA0 + (v5 & 0x1F))) == 0xFFFFFFFF )
+  if ( v9 != v8 && (*v9 | *((_DWORD *)qword_140011C70 + (v5 & 0x1F))) == 0xFFFFFFFF )
   {
     v5 = v5 - (v5 & 0x1F) + 32;
     for ( ++v9; v9 < v8 && *v9 == -1; ++v9 )
@@ -51,7 +51,7 @@ ULONG __stdcall RtlFindNextForwardRunClear(PRTL_BITMAP BitMapHeader, ULONG FromI
   if ( v9 == v8 )
     goto LABEL_13;
   v11 = v5 & 0x1F;
-  if ( (*v9 & ~*((_DWORD *)qword_140015FA0 + (v5 & 0x1F))) != 0 )
+  if ( (*v9 & ~*((_DWORD *)qword_140011C70 + (v5 & 0x1F))) != 0 )
     goto LABEL_13;
   v10 = 32 - v11;
   if ( v11 != 33 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of PspComputeQuantumAndPriority @ 0x1406B63FC
+ * XREFs of PspComputeQuantumAndPriority @ 0x140707324
  * Callers:
- *     PspSetProcessPriorityByClass @ 0x14034FB38 (PspSetProcessPriorityByClass.c)
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspSetProcessPriorityByClass @ 0x14035AE4C (PspSetProcessPriorityByClass.c)
+ *     PspAllocateProcess @ 0x140703F08 (PspAllocateProcess.c)
  * Callees:
- *     MmSetMemoryPriorityProcess @ 0x1402235F0 (MmSetMemoryPriorityProcess.c)
- *     PspComputeQuantum @ 0x1406B64A8 (PspComputeQuantum.c)
+ *     MmSetMemoryPriorityProcess @ 0x14035B318 (MmSetMemoryPriorityProcess.c)
+ *     PspComputeQuantum @ 0x1407073CC (PspComputeQuantum.c)
  */
 
 __int64 __fastcall PspComputeQuantumAndPriority(__int64 a1, __int64 a2, _BYTE *a3, _DWORD *a4, _DWORD *a5)
@@ -20,14 +20,14 @@ __int64 __fastcall PspComputeQuantumAndPriority(__int64 a1, __int64 a2, _BYTE *a
     if ( !*(_BYTE *)(a1 + 1850) && (_DWORD)a2 == 1 )
     {
       *a5 = 1;
-      goto LABEL_4;
+      goto LABEL_9;
     }
     *a5 = 0;
   }
   if ( (_DWORD)a2 != 2 )
-LABEL_4:
+LABEL_9:
     MmSetMemoryPriorityProcess(a1, (_DWORD)a2 != 1 ? 0 : 2);
   LOBYTE(a2) = v7;
   *a3 = PspComputeQuantum(a1, a2);
-  return *(unsigned int *)&PspPriorityTable[2 * *(unsigned __int8 *)(a1 + 1463)];
+  return *((unsigned int *)PspPriorityTable + *(unsigned __int8 *)(a1 + 1463));
 }

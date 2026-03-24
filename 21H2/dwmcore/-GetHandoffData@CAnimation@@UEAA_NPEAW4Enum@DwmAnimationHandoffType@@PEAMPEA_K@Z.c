@@ -1,11 +1,10 @@
 /*
- * XREFs of ?GetHandoffData@CAnimation@@UEAA_NPEAW4Enum@DwmAnimationHandoffType@@PEAMPEA_K@Z @ 0x1800D7AD0
+ * XREFs of ?GetHandoffData@CAnimation@@UEAA_NPEAW4Enum@DwmAnimationHandoffType@@PEAMPEA_K@Z @ 0x1800C3C90
  * Callers:
  *     <none>
  * Callees:
- *     ?GetAnimationValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z @ 0x1800CD690 (-GetAnimationValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z.c)
- *     ?CheckAndSendHandoffPrevValueNotification@CAnimation@@AEAAXXZ @ 0x1800D7B4C (-CheckAndSendHandoffPrevValueNotification@CAnimation@@AEAAXXZ.c)
- *     ??$ReleaseInterface@VCAnimation@@@@YAXAEAPEAVCAnimation@@@Z @ 0x1802094FC (--$ReleaseInterface@VCAnimation@@@@YAXAEAPEAVCAnimation@@@Z.c)
+ *     ??$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z @ 0x1800C186C (--$ReleaseInterface@VCResource@@@@YAXAEAPEAVCResource@@@Z.c)
+ *     ?GetAnimationValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z @ 0x18021FFD0 (-GetAnimationValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z.c)
  */
 
 bool __fastcall CAnimation::GetHandoffData(
@@ -14,36 +13,53 @@ bool __fastcall CAnimation::GetHandoffData(
         float *a3,
         unsigned __int64 *a4)
 {
-  char *v4; // rsi
+  __int64 *v4; // rsi
   __int64 v6; // rcx
   bool AnimationValue; // di
   unsigned __int64 v12; // rax
   __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  _QWORD v16[2]; // [rsp+40h] [rbp-28h] BYREF
 
-  v4 = (char *)this + 128;
+  v4 = (__int64 *)((char *)this + 128);
   v6 = *((_QWORD *)this + 16);
   AnimationValue = 1;
-  if ( !v6 )
-    goto LABEL_2;
-  v12 = *((_QWORD *)this + 4);
-  if ( *(_QWORD *)(v6 + 144) > v12 )
-    goto LABEL_2;
+  if ( !v6 || (v12 = *((_QWORD *)this + 4), *(_QWORD *)(v6 + 136) > v12) )
+  {
+LABEL_2:
+    *(_DWORD *)a2 = *((_DWORD *)this + 28);
+    *a3 = *((float *)this + 34);
+    *a4 = *((_QWORD *)this + 15);
+    if ( (*((_BYTE *)this + 8) & 0x40) == 0 )
+    {
+      if ( *((_DWORD *)this + 49) )
+      {
+        v14 = *((unsigned int *)this + 48);
+        if ( (_DWORD)v14 )
+        {
+          v16[0] = *((unsigned int *)this + 49);
+          v15 = *((_QWORD *)this - 11);
+          v16[1] = v14;
+          CoreUICallSend(*(_QWORD *)(*(_QWORD *)(v15 + 1080) + 48LL), v16, 2LL, 1LL, 1, &unk_1802CE72B);
+          *((_BYTE *)this + 8) |= 0x40u;
+        }
+      }
+    }
+    return AnimationValue;
+  }
   v13 = *((_QWORD *)this + 18);
   if ( (*((_BYTE *)this + 8) & 0x20) == 0 )
     v13 += v12 - *((_QWORD *)this + 19);
   AnimationValue = CAnimationInterpolator::GetAnimationValue(
-                     (CAnimationInterpolator *)(v6 + 272),
+                     (CAnimationInterpolator *)(v6 + 264),
                      v13,
                      (float *)this + 34,
                      0LL);
   if ( AnimationValue )
   {
-    ReleaseInterface<CAnimation>(v4);
-LABEL_2:
-    *(_DWORD *)a2 = *((_DWORD *)this + 28);
-    *a3 = *((float *)this + 34);
-    *a4 = *((_QWORD *)this + 15);
-    CAnimation::CheckAndSendHandoffPrevValueNotification((CAnimation *)((char *)this - 112));
+    ReleaseInterface<CResource>(v4);
+    goto LABEL_2;
   }
   return AnimationValue;
 }

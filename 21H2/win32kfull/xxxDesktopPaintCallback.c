@@ -1,12 +1,12 @@
 /*
- * XREFs of xxxDesktopPaintCallback @ 0x1C0113C80
+ * XREFs of xxxDesktopPaintCallback @ 0x1C01311D0
  * Callers:
- *     NtUserPaintMonitor @ 0x1C01FAC30 (NtUserPaintMonitor.c)
+ *     NtUserPaintMonitor @ 0x1C01FFF30 (NtUserPaintMonitor.c)
  * Callees:
- *     GetStyleWindow @ 0x1C004CDA0 (GetStyleWindow.c)
- *     GetMonitorWorkRect @ 0x1C007CB4C (GetMonitorWorkRect.c)
- *     FillRect @ 0x1C00C1CEC (FillRect.c)
- *     ?PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z @ 0x1C021CC64 (-PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z.c)
+ *     GetMonitorWorkRect @ 0x1C0041430 (GetMonitorWorkRect.c)
+ *     FillRect @ 0x1C0045734 (FillRect.c)
+ *     GetStyleWindow @ 0x1C0071560 (GetStyleWindow.c)
+ *     ?PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z @ 0x1C0223290 (-PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z.c)
  */
 
 _BOOL8 __fastcall xxxDesktopPaintCallback(__int64 a1, HDC a2, const RECT *a3, __int64 a4)
@@ -16,30 +16,25 @@ _BOOL8 __fastcall xxxDesktopPaintCallback(__int64 a1, HDC a2, const RECT *a3, __
   __int64 v8; // rax
   __int64 v9; // r8
   __int64 v10; // rcx
-  __int64 v11; // rdx
+  BOOL v11; // ebx
   __int64 v12; // rcx
-  __int64 v13; // r8
-  BOOL v14; // ebx
-  __int64 v15; // rcx
-  __int64 v17; // rcx
-  __int64 v18; // rdx
+  BOOL v14; // eax
+  __int64 v15; // rax
+  int v16; // ecx
+  int v17; // edx
+  int v18; // ecx
   __int64 v19; // rcx
-  __int64 v20; // r8
-  __int64 v21; // rcx
-  __int64 v22; // rax
-  int v23; // ecx
-  int v24; // edx
-  int v25; // ecx
-  __int64 v26; // rdx
-  __int64 v27; // rax
-  struct tagRECT v28; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v29; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v20; // rcx
+  __int64 v21; // rax
+  __int64 v22; // rcx
+  struct tagRECT v23; // [rsp+30h] [rbp-28h] BYREF
+  __int128 v24; // [rsp+40h] [rbp-18h] BYREF
 
   v5 = 0;
   StyleWindow = 0LL;
   if ( *(_QWORD *)(a4 + 8) )
     a2 = *(HDC *)(a4 + 8);
-  v28 = *(struct tagRECT *)GetMonitorWorkRect((__int64)&v29, a1);
+  v23 = (struct tagRECT)*GetMonitorWorkRect(&v24, a1);
   if ( a2 )
   {
     GreLockVisRgnShared(*(_QWORD *)(gpDispInfo + 40LL));
@@ -55,55 +50,67 @@ _BOOL8 __fastcall xxxDesktopPaintCallback(__int64 a1, HDC a2, const RECT *a3, __
     GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40LL));
     if ( StyleWindow )
     {
-      v22 = *(_QWORD *)(StyleWindow + 40);
-      v23 = *(_DWORD *)(v22 + 88);
-      v24 = -*(_DWORD *)(v22 + 92);
-      v28.bottom -= *(_DWORD *)(v22 + 92);
-      v25 = -v23;
-      v28.left += v25;
-      v28.right += v25;
-      v28.top += v24;
+      v15 = *(_QWORD *)(StyleWindow + 40);
+      v16 = *(_DWORD *)(v15 + 88);
+      v17 = -*(_DWORD *)(v15 + 92);
+      v23.bottom -= *(_DWORD *)(v15 + 92);
+      v18 = -v16;
+      v23.left += v18;
+      v23.right += v18;
+      v23.top += v17;
     }
   }
-  if ( *(_DWORD *)(gpsi + 2164LL) || v5 )
+  if ( !*(_DWORD *)(gpsi + 2164LL) && !v5 )
   {
-    EnterRenderBlock();
-    UserSessionSwitchLeaveCrit(v10);
-    EnterSharedCrit(v12, v11, v13);
-    EnterSharedRenderCrit();
-    v14 = FillRect(a2, a3, ghbrBlack) != 0;
-    LeaveRenderBlock();
-    LeaveRenderCrit();
-    UserSessionSwitchLeaveCrit(v15);
-    EnterCrit(1LL, 0LL);
-    if ( v5 )
-      return v14;
-  }
-  else if ( gbDesktopLocked )
-  {
-    v14 = 0;
-  }
-  else
-  {
-    EnterRenderBlock();
-    UserSessionSwitchLeaveCrit(v17);
-    EnterSharedCrit(v19, v18, v20);
-    EnterSharedRenderCrit();
-    v14 = FillRect(a2, a3, *(HBRUSH *)(gpsi + 4704LL)) != 0;
-    LeaveRenderBlock();
-    LeaveRenderCrit();
-    UserSessionSwitchLeaveCrit(v21);
-    EnterCrit(1LL, 0LL);
-  }
-  if ( *(_DWORD *)(gpsi + 2164LL) )
-  {
-    v26 = *(_QWORD *)(gptiCurrent + 456LL);
-    if ( v26 )
-      v27 = *(_QWORD *)(*(_QWORD *)(v26 + 8) + 168LL);
+    if ( gbDesktopLocked )
+    {
+      v11 = 0;
+    }
     else
-      v27 = 0LL;
-    if ( !v27 )
-      PaintWatermark(a2, &v28);
+    {
+      if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+        KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+      EnterRenderBlock();
+      UserSessionSwitchLeaveCrit(v19);
+      EnterSharedCrit(0LL, 1LL);
+      EnterSharedRenderCrit();
+      v11 = FillRect(a2, a3, *(HBRUSH *)(gpsi + 4704LL)) != 0;
+      LeaveRenderBlock();
+      LeaveRenderCrit();
+      UserSessionSwitchLeaveCrit(v20);
+      EnterCrit(0LL, 1LL);
+    }
+    goto LABEL_20;
   }
-  return v14;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  EnterRenderBlock();
+  UserSessionSwitchLeaveCrit(v10);
+  EnterSharedCrit(0LL, 1LL);
+  EnterSharedRenderCrit();
+  v11 = FillRect(a2, a3, ghbrBlack) != 0;
+  LeaveRenderBlock();
+  LeaveRenderCrit();
+  UserSessionSwitchLeaveCrit(v12);
+  EnterCrit(0LL, 1LL);
+  if ( !v5 )
+  {
+LABEL_20:
+    if ( *(_DWORD *)(gpsi + 2164LL) )
+    {
+      v21 = *(_QWORD *)(gptiCurrent + 456LL);
+      if ( v21 )
+        v22 = *(_QWORD *)(*(_QWORD *)(v21 + 8) + 168LL);
+      else
+        v22 = 0LL;
+      v14 = v22 == 0;
+    }
+    else
+    {
+      v14 = 0;
+    }
+    if ( v14 )
+      PaintWatermark(a2, &v23);
+  }
+  return v11;
 }

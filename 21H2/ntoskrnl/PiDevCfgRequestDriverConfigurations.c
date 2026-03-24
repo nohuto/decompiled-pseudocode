@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDevCfgRequestDriverConfigurations @ 0x14094D7E8
+ * XREFs of PiDevCfgRequestDriverConfigurations @ 0x1408A7E6C
  * Callers:
- *     PiDevCfgProcessDevice @ 0x140747740 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgProcessDevice @ 0x140739D90 (PiDevCfgProcessDevice.c)
  * Callees:
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x140744E30 (PiDevCfgQueryDriverConfiguration.c)
- *     PiDevCfgSetObjectProperty @ 0x14077139C (PiDevCfgSetObjectProperty.c)
- *     PiDevCfgAppendMultiSz @ 0x14094A7D4 (PiDevCfgAppendMultiSz.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     PiDevCfgSetObjectProperty @ 0x1407452EC (PiDevCfgSetObjectProperty.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x14076BE54 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgAppendMultiSz @ 0x1408A4C8C (PiDevCfgAppendMultiSz.c)
  */
 
 __int64 __fastcall PiDevCfgRequestDriverConfigurations(__int64 a1, __int64 a2)
@@ -55,6 +55,6 @@ __int64 __fastcall PiDevCfgRequestDriverConfigurations(__int64 a1, __int64 a2)
     }
   }
 LABEL_13:
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeAnsiString(&UnicodeString);
   return (unsigned int)appended;
 }

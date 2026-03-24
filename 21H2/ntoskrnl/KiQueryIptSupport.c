@@ -1,16 +1,16 @@
 /*
- * XREFs of KiQueryIptSupport @ 0x140A69780
+ * XREFs of KiQueryIptSupport @ 0x1409AF6A0
  * Callers:
  *     <none>
  * Callees:
- *     KiXSavesManagesIpt @ 0x14057036C (KiXSavesManagesIpt.c)
+ *     KiXSavesManagesIpt @ 0x14051A604 (KiXSavesManagesIpt.c)
  */
 
 __int64 __fastcall KiQueryIptSupport(__int64 a1, __int64 a2)
 {
   _DWORD *v2; // rdx
-  _DWORD *v3; // r8
-  int v4; // r9d
+  _DWORD *v3; // rcx
+  int v4; // r8d
   int v5; // eax
 
   if ( a1 && a2 )

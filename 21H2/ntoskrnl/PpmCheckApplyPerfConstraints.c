@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmCheckApplyPerfConstraints @ 0x14099786C
+ * XREFs of PpmCheckApplyPerfConstraints @ 0x14077B31C
  * Callers:
- *     PpmRegisterPerfCap @ 0x1405CF800 (PpmRegisterPerfCap.c)
+ *     PpmRegisterPerfCap @ 0x140392AF0 (PpmRegisterPerfCap.c)
  * Callees:
- *     PpmCheckCustomRun @ 0x14022475C (PpmCheckCustomRun.c)
+ *     PpmCheckCustomRun @ 0x14037D0D8 (PpmCheckCustomRun.c)
  */
 
-void __fastcall PpmCheckApplyPerfConstraints(char a1)
+char __fastcall PpmCheckApplyPerfConstraints(char a1)
 {
-  PpmCheckCustomRun((a1 != 0) + 1);
+  return PpmCheckCustomRun((a1 != 0) + 1);
 }

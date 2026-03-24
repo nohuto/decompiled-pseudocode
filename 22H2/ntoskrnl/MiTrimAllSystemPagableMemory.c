@@ -1,40 +1,42 @@
 /*
- * XREFs of MiTrimAllSystemPagableMemory @ 0x140635300
+ * XREFs of MiTrimAllSystemPagableMemory @ 0x14053BF80
  * Callers:
- *     MmTrimAllSystemPagableMemory @ 0x1406356F0 (MmTrimAllSystemPagableMemory.c)
- *     MmVerifierTrimMemory @ 0x140AE90D0 (MmVerifierTrimMemory.c)
+ *     MmTrimAllSystemPagableMemory @ 0x14053C8D0 (MmTrimAllSystemPagableMemory.c)
+ *     MmVerifierTrimMemory @ 0x1409C5C14 (MmVerifierTrimMemory.c)
  * Callees:
- *     MiGetSessionVm @ 0x14020B13C (MiGetSessionVm.c)
- *     KeAreInterruptsEnabled @ 0x14022EBF0 (KeAreInterruptsEnabled.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F640 (KiCheckForKernelApcDelivery.c)
- *     MiEmptyTargetedWorkingSet @ 0x140634778 (MiEmptyTargetedWorkingSet.c)
- *     MiPurgePartitionStandby @ 0x1406515B0 (MiPurgePartitionStandby.c)
+ *     MiGetSessionVm @ 0x14029281C (MiGetSessionVm.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1402CB480 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAreInterruptsEnabled @ 0x1402D0E60 (KeAreInterruptsEnabled.c)
+ *     MiPurgePartitionStandby @ 0x140384914 (MiPurgePartitionStandby.c)
+ *     MiEmptyTargetedWorkingSet @ 0x14053B168 (MiEmptyTargetedWorkingSet.c)
  */
 
 __int64 __fastcall MiTrimAllSystemPagableMemory(int a1, int a2)
 {
   _DWORD *v2; // r14
-  _DWORD *v3; // rsi
   unsigned __int64 SessionVm; // rbx
+  _DWORD *v4; // rsi
   __int64 v6; // r12
   unsigned int v7; // r8d
   _DWORD *v8; // rdx
   _DWORD *v9; // rcx
-  unsigned int v11; // ebp
-  struct _KTHREAD *CurrentThread; // rdi
+  unsigned int v11; // edi
+  struct _KTHREAD *CurrentThread; // rbp
   int v13; // r13d
-  __int64 v14; // rcx
-  unsigned __int16 *v15; // rcx
+  __int64 v14; // r8
+  _DWORD *v15; // r9
+  __int64 v16; // rcx
+  ULONG_PTR *v17; // rcx
 
-  v2 = &unk_140C698E8;
-  v3 = &unk_140C69B00;
+  v2 = &unk_140C4EE68;
   SessionVm = 1LL;
+  v4 = &unk_140C4F000;
   v6 = 3LL;
   if ( !a1 )
   {
     v7 = 0;
-    v8 = &unk_140C698E8;
-    v9 = &unk_140C69B00;
+    v8 = &unk_140C4EE68;
+    v9 = &unk_140C4F000;
     do
     {
       SessionVm = (unsigned __int64)v9;
@@ -53,7 +55,7 @@ __int64 __fastcall MiTrimAllSystemPagableMemory(int a1, int a2)
   v11 = 0;
   CurrentThread = 0LL;
   v13 = 0;
-  if ( _InterlockedIncrement(&dword_140C698C8) <= 1 && KeAreInterruptsEnabled() )
+  if ( _InterlockedIncrement(&dword_140C4EE48) <= 1 && KeAreInterruptsEnabled() )
   {
     CurrentThread = KeGetCurrentThread();
     v13 = 1;
@@ -62,14 +64,14 @@ __int64 __fastcall MiTrimAllSystemPagableMemory(int a1, int a2)
     {
       do
       {
-        SessionVm = (unsigned __int64)v3;
-        if ( v3 && *v2 != v3[1] )
+        SessionVm = (unsigned __int64)v4;
+        if ( v4 && *v2 != v4[1] )
         {
           v11 = 1;
-          MiEmptyTargetedWorkingSet((__int64)v3);
-          *v2 = v3[1];
+          MiEmptyTargetedWorkingSet((__int64)v4);
+          *v2 = v4[1];
         }
-        v3 += 80;
+        v4 += 80;
         ++v2;
         --v6;
       }
@@ -78,40 +80,34 @@ __int64 __fastcall MiTrimAllSystemPagableMemory(int a1, int a2)
     }
     if ( a1 == 1 )
     {
-      SessionVm = (unsigned __int64)&CurrentThread->ApcState.Process[1].ActiveProcessors.StaticBitmap[26];
-      v14 = SessionVm;
+      SessionVm = (unsigned __int64)&CurrentThread->ApcState.Process[1].ActiveProcessorsPadding[6];
+      v16 = SessionVm;
     }
     else
     {
       if ( (CurrentThread->ApcState.Process[1].DirectoryTableBase & 0x1000000000000LL) == 0 )
       {
 LABEL_22:
-        if ( a2 && v11 )
+        if ( a2 == 1 && v11 == 1 )
         {
           if ( a1 == 1 )
-            v15 = *(unsigned __int16 **)(qword_140C674C8 + 8LL * *(unsigned __int16 *)(SessionVm + 174));
+            v17 = *(ULONG_PTR **)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(SessionVm + 174));
           else
-            v15 = MiSystemPartition;
-          MiPurgePartitionStandby(v15, 8LL);
+            v17 = &MiSystemPartition;
+          MiPurgePartitionStandby((__int64)v17, 8u, v14, v15);
         }
         goto LABEL_28;
       }
       SessionVm = MiGetSessionVm();
-      v14 = SessionVm;
+      v16 = SessionVm;
     }
-    MiEmptyTargetedWorkingSet(v14);
+    MiEmptyTargetedWorkingSet(v16);
     v11 = 1;
     goto LABEL_22;
   }
 LABEL_28:
-  _InterlockedAdd(&dword_140C698C8, 0xFFFFFFFF);
-  if ( v13 )
-  {
-    if ( CurrentThread->SpecialApcDisable++ == -1
-      && ($C71981A45BEB2B45F82C232A7085991E *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    {
-      KiCheckForKernelApcDelivery();
-    }
-  }
+  _InterlockedAdd(&dword_140C4EE48, 0xFFFFFFFF);
+  if ( v13 == 1 )
+    KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return v11;
 }

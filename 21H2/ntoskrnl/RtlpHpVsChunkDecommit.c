@@ -1,60 +1,55 @@
 /*
- * XREFs of RtlpHpVsChunkDecommit @ 0x14036E388
+ * XREFs of RtlpHpVsChunkDecommit @ 0x14033EBF0
  * Callers:
- *     RtlpHpVsChunkFree @ 0x14036E290 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsChunkFree @ 0x140340140 (RtlpHpVsChunkFree.c)
  * Callees:
- *     RtlpHpVsChunkComputeCost @ 0x14034D4E0 (RtlpHpVsChunkComputeCost.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x14034F7F0 (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpAcquireQueuedLockExclusive @ 0x14036E550 (RtlpHpAcquireQueuedLockExclusive.c)
- *     RtlpHpVsSubsegmentCommitPages @ 0x14036E5F0 (RtlpHpVsSubsegmentCommitPages.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x14021BB90 (RtlpHpVsSubsegmentCommitPages.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x14021D000 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x14033BA80 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsChunkComputeCost @ 0x1403403A0 (RtlpHpVsChunkComputeCost.c)
  */
 
-__int64 __fastcall RtlpHpVsChunkDecommit(__int64 a1, __int64 a2, __int64 a3, char a4, __int64 a5)
+__int64 __fastcall RtlpHpVsChunkDecommit(__int64 a1, __int64 a2, __int64 a3, char a4, _QWORD *a5)
 {
-  unsigned int v9; // r15d
-  unsigned __int64 v11; // rsi
-  unsigned __int64 v12; // rcx
-  int v13; // r12d
-  __int64 v14; // [rsp+30h] [rbp-28h] BYREF
-  unsigned __int64 v15[4]; // [rsp+38h] [rbp-20h] BYREF
+  unsigned __int64 v9; // r15
+  unsigned __int64 v10; // r14
+  unsigned __int64 v11; // rdx
+  int v13; // ebp
+  int v14; // [rsp+30h] [rbp-38h] BYREF
+  unsigned __int64 v15[6]; // [rsp+38h] [rbp-30h] BYREF
 
-  LODWORD(v14) = 0;
+  v14 = 0;
   v15[0] = 0LL;
-  v9 = 0;
-  RtlpHpVsChunkComputeCost(a3, a2, (unsigned int *)&v14, v15);
-  if ( (_DWORD)v14 )
+  RtlpHpVsChunkComputeCost(a3, a2, &v14, v15);
+  if ( !v14 )
+    return 0LL;
+  v9 = v15[0];
+  if ( !v15[0] )
+    return 0LL;
+  v10 = (0x101010101010101LL
+       * ((((v15[0] - ((v15[0] >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+         + (((v15[0] - ((v15[0] >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
+         + ((((v15[0] - ((v15[0] >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+           + (((v15[0] - ((v15[0] >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
+  if ( *(__int16 *)(a2 + 34) < 0 )
+    return 0LL;
+  if ( (*(_DWORD *)(a1 + 176) & 2) == 0 )
   {
-    if ( v15[0] )
-    {
-      v11 = (0x101010101010101LL
-           * ((((v15[0] - ((v15[0] >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-             + (((v15[0] - ((v15[0] >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
-             + ((((v15[0] - ((v15[0] >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-               + (((v15[0] - ((v15[0] >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
-      if ( *(__int16 *)(a2 + 34) >= 0 )
-      {
-        if ( (*(_DWORD *)(a1 + 176) & 2) != 0 )
-          goto LABEL_9;
-        v12 = *(_QWORD *)(a1 + 48) >> 7;
-        if ( v12 <= 8 )
-          v12 = 8LL;
-        if ( *(_QWORD *)(a1 + 56) + (unsigned __int64)(unsigned int)v11 > v12 )
-        {
-LABEL_9:
-          v9 = 1;
-          v14 = 0x1000000000000LL;
-          *(_BYTE *)(a3 + 6) = BYTE6(a3) ^ BYTE6(RtlpHpHeapGlobals) ^ 1;
-          *(_DWORD *)(a3 + 8) = (unsigned __int8)(RtlpHpHeapGlobals ^ a3 ^ ((unsigned int)(a3 - a2) >> 12)) | 0x200;
-          v13 = a4 & 1;
-          if ( !v13 )
-            RtlpHpReleaseQueuedLockExclusive(*(_DWORD *)(a1 + 8), a5);
-          RtlpHpVsSubsegmentCommitPages(a1, a2, v15[0], v11, 0);
-          if ( !v13 )
-            RtlpHpAcquireQueuedLockExclusive(a1, *(unsigned int *)(a1 + 8), a5);
-          *(_DWORD *)(a3 + 8) &= ~0x200u;
-        }
-      }
-    }
+    v11 = *(_QWORD *)(a1 + 48) >> 7;
+    if ( v11 <= 8 )
+      v11 = 8LL;
+    if ( *(_QWORD *)(a1 + 56) + (unsigned __int64)(unsigned int)v10 <= v11 )
+      return 0LL;
   }
-  return v9;
+  v15[0] = 0x1000000000000LL;
+  *(_BYTE *)(a3 + 6) = BYTE6(a3) ^ BYTE6(RtlpHpHeapGlobals) ^ 1;
+  *(_DWORD *)(a3 + 8) = (unsigned __int8)(RtlpHpHeapGlobals ^ a3 ^ ((unsigned int)(a3 - a2) >> 12)) | 0x200;
+  v13 = a4 & 1;
+  if ( !v13 )
+    RtlpHpReleaseQueuedLockExclusive(*(_DWORD *)(a1 + 8), (__int64)a5);
+  RtlpHpVsSubsegmentCommitPages(a1, a2, v9, v10, 0);
+  if ( !v13 )
+    RtlpHpAcquireQueuedLockExclusive((volatile LONG *)a1, *(_DWORD *)(a1 + 8), a5);
+  *(_DWORD *)(a3 + 8) &= ~0x200u;
+  return 1LL;
 }

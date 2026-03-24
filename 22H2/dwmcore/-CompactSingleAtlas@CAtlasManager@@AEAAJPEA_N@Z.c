@@ -1,34 +1,39 @@
 /*
- * XREFs of ?CompactSingleAtlas@CAtlasManager@@AEAAJPEA_N@Z @ 0x1800FB55C
+ * XREFs of ?CompactSingleAtlas@CAtlasManager@@AEAAJPEA_N@Z @ 0x18024BC10
  * Callers:
- *     ?CompactAtlases@CAtlasManager@@QEAAXXZ @ 0x180077E14 (-CompactAtlases@CAtlasManager@@QEAAXXZ.c)
+ *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180077800 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
  * Callees:
- *     ??1CAtlasTexture@@QEAA@XZ @ 0x1800185B8 (--1CAtlasTexture@@QEAA@XZ.c)
- *     ?PurgeAndNotify@CAtlasTexture@@QEAAXXZ @ 0x1800185F4 (-PurgeAndNotify@CAtlasTexture@@QEAAXXZ.c)
- *     ?CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z @ 0x1800186E4 (-CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z.c)
- *     ?Create@CAtlasTexture@@SAJPEAVCD3DDevice@@IPEAPEAV1@@Z @ 0x180024124 (-Create@CAtlasTexture@@SAJPEAVCD3DDevice@@IPEAPEAV1@@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?DetermineIdealAtlasSize@CAtlasManager@@CAII@Z @ 0x1800FB5C4 (-DetermineIdealAtlasSize@CAtlasManager@@CAII@Z.c)
- *     ??3@YAXPEAX_K@Z @ 0x18010F4B8 (--3@YAXPEAX_K@Z.c)
+ *     ?InternalRelease@?$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ @ 0x18001B570 (-InternalRelease@-$ComPtr@VIDeviceTexture@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x1800426C0 (--3@YAXPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ?DetermineIdealAtlasSize@CAtlasManager@@CAII@Z @ 0x18024BD7C (-DetermineIdealAtlasSize@CAtlasManager@@CAII@Z.c)
+ *     ?CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z @ 0x18024BFEC (-CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z.c)
+ *     ?Create@CAtlasTexture@@SAJPEAVCD3DDevice@@IPEAPEAV1@@Z @ 0x18024C1BC (-Create@CAtlasTexture@@SAJPEAVCD3DDevice@@IPEAPEAV1@@Z.c)
+ *     ?DestroyResources@CAtlasTexture@@AEAAXXZ @ 0x18024C2C4 (-DestroyResources@CAtlasTexture@@AEAAXXZ.c)
+ *     ?PurgeAndNotify@CAtlasTexture@@QEAAXXZ @ 0x18024C62C (-PurgeAndNotify@CAtlasTexture@@QEAAXXZ.c)
  */
 
 __int64 __fastcall CAtlasManager::CompactSingleAtlas(const struct CAtlasTexture ***this, bool *a2)
 {
   const struct CAtlasTexture **v2; // rsi
-  int v4; // ebx
+  int v4; // edi
   bool v5; // r14
   unsigned int v6; // eax
   __int64 v7; // r9
   unsigned int v8; // r8d
-  __int64 v10; // rcx
-  CAtlasTexture *v11; // rdi
+  struct CAtlasTexture *v9; // rcx
+  __int64 *v10; // rbx
+  void *v11; // rcx
   const struct CAtlasTexture *v12; // rdx
   CAtlasTexture *v13; // rcx
-  CAtlasTexture *v14; // rdi
-  struct CAtlasTexture *v15; // [rsp+38h] [rbp-18h] BYREF
-  char v16; // [rsp+40h] [rbp-10h]
-  unsigned int v17; // [rsp+80h] [rbp+30h] BYREF
-  CAtlasTexture *v18; // [rsp+88h] [rbp+38h]
+  __int64 *v14; // rbx
+  CAtlasTexture *v15; // rcx
+  void *v16; // rcx
+  struct CAtlasTexture *v18; // [rsp+38h] [rbp-18h] BYREF
+  char v19; // [rsp+40h] [rbp-10h]
+  unsigned int v20; // [rsp+80h] [rbp+30h] BYREF
+  CAtlasTexture *v21; // [rsp+88h] [rbp+38h]
 
   v2 = *this;
   v4 = 0;
@@ -36,40 +41,52 @@ __int64 __fastcall CAtlasManager::CompactSingleAtlas(const struct CAtlasTexture 
   v6 = CAtlasManager::DetermineIdealAtlasSize(*((_DWORD *)**this + 6) - *((_DWORD *)**this + 7));
   if ( v6 < v8 )
   {
+    v21 = 0LL;
     v18 = 0LL;
-    v15 = 0LL;
-    v16 = 1;
-    v4 = CAtlasTexture::Create((struct CD3DDevice *)(v7 - 512), v6, &v15);
-    if ( v16 )
+    v19 = 1;
+    v4 = CAtlasTexture::Create((struct CD3DDevice *)(v7 - 560), v6, &v18);
+    if ( v19 )
     {
-      v11 = v18;
-      v18 = v15;
-      if ( v11 )
+      v9 = v18;
+      v10 = (__int64 *)v21;
+      v21 = v18;
+      if ( v10 )
       {
-        CAtlasTexture::~CAtlasTexture(v11);
-        operator delete(v11, 0x28uLL);
+        *v10 = (__int64)&CAtlasTexture::`vftable';
+        CAtlasTexture::DestroyResources((CAtlasTexture *)v10);
+        v11 = (void *)v10[2];
+        if ( v11 )
+          operator delete(v11);
+        Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease(v10 + 1);
+        operator delete(v10);
       }
     }
     if ( v4 < 0 )
     {
-      MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v4, 0x7Bu, 0LL);
+      MilInstrumentationCheckHR_MaybeFailFast((__int64)v9, 0LL, 0, v4, 0x7Bu, 0LL);
     }
     else
     {
       v12 = *v2;
-      v17 = 0;
-      CAtlasTexture::CopyFrom(v18, v12, &v17);
+      v20 = 0;
+      CAtlasTexture::CopyFrom(v21, v12, &v20);
       v13 = *v2;
       v5 = 1;
-      *v2 = v18;
-      v18 = v13;
+      *v2 = v21;
+      v21 = v13;
       CAtlasTexture::PurgeAndNotify(v13);
     }
-    v14 = v18;
-    if ( v18 )
+    v14 = (__int64 *)v21;
+    if ( v21 )
     {
-      CAtlasTexture::~CAtlasTexture(v18);
-      operator delete(v14, 0x28uLL);
+      v15 = v21;
+      *(_QWORD *)v21 = &CAtlasTexture::`vftable';
+      CAtlasTexture::DestroyResources(v15);
+      v16 = (void *)v14[2];
+      if ( v16 )
+        operator delete(v16);
+      Microsoft::WRL::ComPtr<IDeviceTexture>::InternalRelease(v14 + 1);
+      operator delete(v14);
     }
   }
   *a2 = v5;

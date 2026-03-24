@@ -1,12 +1,12 @@
 /*
- * XREFs of AcpiArblibFreeArbiterInstance @ 0x1C0049B1C
+ * XREFs of AcpiArblibFreeArbiterInstance @ 0x1C00AD264
  * Callers:
- *     ACPIBuildPdo @ 0x1C0005FA8 (ACPIBuildPdo.c)
- *     AcpiArblibInitializeArbiter @ 0x1C0049B58 (AcpiArblibInitializeArbiter.c)
- *     ACPIDispatchIrpDepPdoQueryID @ 0x1C004CC70 (ACPIDispatchIrpDepPdoQueryID.c)
- *     ACPIInitResetDeviceExtension @ 0x1C0056F0C (ACPIInitResetDeviceExtension.c)
+ *     ACPIDispatchIrpDepPdoQueryID @ 0x1C00107D0 (ACPIDispatchIrpDepPdoQueryID.c)
+ *     ACPIBuildPdo @ 0x1C0011198 (ACPIBuildPdo.c)
+ *     ACPIInitResetDeviceExtension @ 0x1C002CF60 (ACPIInitResetDeviceExtension.c)
+ *     AcpiArblibInitializeArbiter @ 0x1C00AD2D4 (AcpiArblibInitializeArbiter.c)
  * Callees:
- *     ArbDeleteArbiterInstance @ 0x1C00B7724 (ArbDeleteArbiterInstance.c)
+ *     ArbDeleteArbiterInstance @ 0x1C00B7C24 (ArbDeleteArbiterInstance.c)
  */
 
 void __fastcall AcpiArblibFreeArbiterInstance(_BYTE *P)

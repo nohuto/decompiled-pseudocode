@@ -1,9 +1,9 @@
 /*
- * XREFs of ?EmitTransform@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0236408
+ * XREFs of ?EmitTransform@CCaptureControllerMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F5B58
  * Callers:
- *     ?EmitUpdateCommands@CCaptureControllerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0236490 (-EmitUpdateCommands@CCaptureControllerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CCaptureControllerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01F5BE0 (-EmitUpdateCommands@CCaptureControllerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0062BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
  */
 
 char __fastcall DirectComposition::CCaptureControllerMarshaler::EmitTransform(
@@ -24,13 +24,13 @@ char __fastcall DirectComposition::CCaptureControllerMarshaler::EmitTransform(
     *(_DWORD *)v7 = 16;
     *(_QWORD *)(v3 + 4) = 0LL;
     *((_DWORD *)v3 + 3) = 0;
-    *((_DWORD *)v3 + 1) = 36;
-    v4 = *((_DWORD *)this + 8);
+    *((_DWORD *)v3 + 1) = 37;
+    v4 = *((_DWORD *)this + 6);
     *((_DWORD *)v3 + 3) = 0;
     *((_DWORD *)v3 + 2) = v4;
-    v5 = *((_QWORD *)this + 11);
+    v5 = *((_QWORD *)this + 10);
     if ( v5 )
-      *((_DWORD *)v3 + 3) = *(_DWORD *)(v5 + 32);
+      *((_DWORD *)v3 + 3) = *(_DWORD *)(v5 + 24);
     *((_DWORD *)this + 4) &= ~0x100u;
     return 1;
   }

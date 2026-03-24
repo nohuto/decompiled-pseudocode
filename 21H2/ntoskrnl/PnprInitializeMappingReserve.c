@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprInitializeMappingReserve @ 0x1409525B4
+ * XREFs of PnprInitializeMappingReserve @ 0x1408ADB54
  * Callers:
- *     PnprAllocateMappingReserves @ 0x140951C58 (PnprAllocateMappingReserves.c)
+ *     PnprAllocateMappingReserves @ 0x1408AD17C (PnprAllocateMappingReserves.c)
  * Callees:
- *     IoAllocateMdl @ 0x14029C7F0 (IoAllocateMdl.c)
- *     MmAllocateMappingAddressEx @ 0x1407F9D50 (MmAllocateMappingAddressEx.c)
- *     MmFreeMappingAddress @ 0x1407FA560 (MmFreeMappingAddress.c)
+ *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
+ *     MmAllocateMappingAddressEx @ 0x1406AE4A0 (MmAllocateMappingAddressEx.c)
+ *     MmFreeMappingAddress @ 0x140768700 (MmFreeMappingAddress.c)
  */
 
 __int64 __fastcall PnprInitializeMappingReserve(__int16 a1, __int64 a2)
@@ -33,21 +33,21 @@ __int64 __fastcall PnprInitializeMappingReserve(__int16 a1, __int64 a2)
       return v4;
     }
     MmFreeMappingAddress(v6, 0x51706E50u);
-    v7 = 3936;
+    v7 = 3930;
   }
   else
   {
-    v7 = 3921;
+    v7 = 3915;
   }
   v8 = PnprContext;
   v4 = -1073741670;
-  v9 = *(_DWORD *)(PnprContext + 33272);
+  v9 = *(_DWORD *)(PnprContext + 20984);
   if ( !v9 )
     v9 = v7;
-  *(_DWORD *)(PnprContext + 33272) = v9;
-  v10 = *(_DWORD *)(v8 + 33276);
+  *(_DWORD *)(PnprContext + 20984) = v9;
+  v10 = *(_DWORD *)(v8 + 20988);
   if ( !v10 )
     v10 = 10;
-  *(_DWORD *)(v8 + 33276) = v10;
+  *(_DWORD *)(v8 + 20988) = v10;
   return v4;
 }

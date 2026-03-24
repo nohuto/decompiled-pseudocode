@@ -1,50 +1,45 @@
 /*
- * XREFs of WbProcessModuleUnload @ 0x1407E0A3C
+ * XREFs of WbProcessModuleUnload @ 0x140687400
  * Callers:
- *     WbDispatchOperation @ 0x140763928 (WbDispatchOperation.c)
+ *     WbDispatchOperation @ 0x1406C7BE4 (WbDispatchOperation.c)
  * Callees:
- *     WbAlloc @ 0x140763E98 (WbAlloc.c)
- *     WbInPlaceEncryptionUnloadModule @ 0x1407E0B20 (WbInPlaceEncryptionUnloadModule.c)
- *     WbHeapExecutionUnloadModule @ 0x1407E0C38 (WbHeapExecutionUnloadModule.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     WbInPlaceEncryptionUnloadModule @ 0x1406874E8 (WbInPlaceEncryptionUnloadModule.c)
+ *     WbHeapExecutionUnloadModule @ 0x1406875FC (WbHeapExecutionUnloadModule.c)
+ *     WbAlloc @ 0x1406C69C4 (WbAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WbProcessModuleUnload(__int64 a1, _QWORD *a2, unsigned int a3)
 {
   int v5; // edi
-  unsigned __int64 v6; // rax
-  _DWORD *v7; // rcx
-  _QWORD *v8; // rbx
-  PVOID P; // [rsp+58h] [rbp+20h] BYREF
+  _OWORD *v6; // rax
 
-  P = 0LL;
   if ( a3 >= 0x10 && *a2 == 9LL )
   {
-    v5 = WbAlloc(0x10u, &P);
+    v5 = WbAlloc(0x10uLL);
     if ( v5 >= 0 )
     {
-      v6 = a2[1];
-      if ( v6 + 16 > 0x7FFFFFFF0000LL || v6 + 16 < v6 )
-        MEMORY[0x7FFFFFFF0000] = 0;
-      v7 = P;
-      *(_OWORD *)P = *(_OWORD *)a2[1];
-      if ( *v7 )
+      v6 = (_OWORD *)a2[1];
+      if ( (unsigned __int64)(v6 + 1) > 0x7FFFFFFF0000LL || v6 + 1 < v6 )
       {
-        v5 = -1073741811;
+        MEMORY[0x7FFFFFFF0000] = 0;
+        v6 = (_OWORD *)a2[1];
+      }
+      MEMORY[0] = *v6;
+      if ( MEMORY[0] )
+      {
+        return (unsigned int)-1073741811;
       }
       else
       {
-        v8 = P;
-        WbHeapExecutionUnloadModule(a1, *((_QWORD *)P + 1));
-        WbInPlaceEncryptionUnloadModule(a1, v8[1]);
+        WbHeapExecutionUnloadModule(a1, MEMORY[8]);
+        WbInPlaceEncryptionUnloadModule(a1, MEMORY[8]);
       }
     }
   }
   else
   {
-    v5 = -1073741811;
+    return (unsigned int)-1073741811;
   }
-  if ( P )
-    ExFreePoolWithTag(P, 0);
   return (unsigned int)v5;
 }

@@ -1,39 +1,44 @@
 /*
- * XREFs of RIMRemoveHoldingFrame @ 0x1C019FFE4
+ * XREFs of RIMRemoveHoldingFrame @ 0x1C00082F0
  * Callers:
- *     RIMIDEAdoptOrphanedRimDevs @ 0x1C0075EB8 (RIMIDEAdoptOrphanedRimDevs.c)
- *     rimFreeSpecificDevFinal @ 0x1C00C350C (rimFreeSpecificDevFinal.c)
+ *     RIMFreeSpecificDev @ 0x1C0006104 (RIMFreeSpecificDev.c)
+ *     RIMIDEAdoptOrphanedRimDevs @ 0x1C00AC470 (RIMIDEAdoptOrphanedRimDevs.c)
  * Callees:
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     rimFindHoldingFrame @ 0x1C00E1BCA (rimFindHoldingFrame.c)
- *     rimReclaimHoldingFrame @ 0x1C01A1180 (rimReclaimHoldingFrame.c)
+ *     rimFindHoldingFrame @ 0x1C0008348 (rimFindHoldingFrame.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     rimReclaimHoldingFrame @ 0x1C0172980 (rimReclaimHoldingFrame.c)
  */
 
-char *__fastcall RIMRemoveHoldingFrame(__int64 a1, __int64 a2)
+__int64 __fastcall RIMRemoveHoldingFrame(__int64 a1, __int64 a2)
 {
-  char *result; // rax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  char *v7; // rbx
-  __int64 v8; // rdx
-  char **v9; // rax
-  NSInstrumentation::CLeakTrackingAllocator *v10; // rcx
+  char v4; // di
+  __int64 result; // rax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  _QWORD *v8; // rbx
+  __int64 v9; // rcx
+  _QWORD *v10; // rax
 
-  while ( 1 )
+  v4 = 1;
+  do
   {
-    result = (char *)rimFindHoldingFrame(a1, a2);
-    v7 = result;
-    if ( !result )
-      break;
-    rimReclaimHoldingFrame(v6, v5, result);
-    v8 = *(_QWORD *)v7;
-    v9 = (char **)*((_QWORD *)v7 + 1);
-    if ( *(char **)(*(_QWORD *)v7 + 8LL) != v7 || *v9 != v7 )
-      __fastfail(3u);
-    v10 = gpLeakTrackingAllocator;
-    *v9 = (char *)v8;
-    *(_QWORD *)(v8 + 8) = v9;
-    NSInstrumentation::CLeakTrackingAllocator::Free(v10, v7);
+    result = rimFindHoldingFrame(a1, a2);
+    v8 = (_QWORD *)result;
+    if ( result )
+    {
+      rimReclaimHoldingFrame(v7, v6, result);
+      v9 = *v8;
+      if ( *(_QWORD **)(*v8 + 8LL) != v8 || (v10 = (_QWORD *)v8[1], (_QWORD *)*v10 != v8) )
+        __fastfail(3u);
+      *v10 = v9;
+      *(_QWORD *)(v9 + 8) = v10;
+      result = Win32FreePool(v8);
+    }
+    else
+    {
+      v4 = 0;
+    }
   }
+  while ( v4 );
   return result;
 }

@@ -1,18 +1,19 @@
 /*
- * XREFs of PopFxConvertV1Components @ 0x140837C88
+ * XREFs of PopFxConvertV1Components @ 0x1407B5F3C
  * Callers:
- *     PoFxRegisterPrimaryDevice @ 0x140837A30 (PoFxRegisterPrimaryDevice.c)
- *     PoFxRegisterCoreDevice @ 0x140837B60 (PoFxRegisterCoreDevice.c)
- *     PoFxRegisterDevice @ 0x140837E20 (PoFxRegisterDevice.c)
+ *     PoFxRegisterCoreDevice @ 0x1407B4E00 (PoFxRegisterCoreDevice.c)
+ *     PoFxRegisterDevice @ 0x1407B4F30 (PoFxRegisterDevice.c)
+ *     PoFxRegisterPrimaryDevice @ 0x1408E4460 (PoFxRegisterPrimaryDevice.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE4C (RtlULongLongMult.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlULongLongMult @ 0x14024E708 (RtlULongLongMult.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void *__fastcall PopFxConvertV1Components(__int64 a1, unsigned int a2)
+char *__fastcall PopFxConvertV1Components(__int64 a1, unsigned int a2)
 {
-  __int64 v2; // rbx
+  char *v2; // r15
   ULONGLONG v3; // rdi
   unsigned int v5; // r10d
   unsigned int v6; // edx
@@ -21,22 +22,22 @@ void *__fastcall PopFxConvertV1Components(__int64 a1, unsigned int a2)
   unsigned int v9; // r10d
   ULONGLONG v10; // rsi
   unsigned __int64 v11; // rcx
-  unsigned __int64 v12; // r14
-  __int64 Pool2; // rax
-  void *v14; // r8
-  ULONGLONG v15; // r11
-  unsigned int v16; // esi
-  __int64 v17; // r9
-  __int64 i; // r10
+  size_t v12; // rbp
+  char *PoolWithTag; // rax
+  char *v14; // rbx
+  unsigned int v15; // r11d
+  char *v16; // r10
+  __int64 v17; // r8
+  char *v18; // r9
   __int128 v19; // xmm0
-  unsigned int v20; // r15d
+  __int64 v20; // r14
   __int64 v21; // rcx
-  __int64 v22; // rax
+  __int64 v22; // rdx
   ULONGLONG pullResult; // [rsp+60h] [rbp+18h] BYREF
 
+  pullResult = 0LL;
   v2 = 0LL;
   v3 = a2;
-  pullResult = 0LL;
   if ( a2 )
   {
     v5 = 0;
@@ -61,56 +62,63 @@ void *__fastcall PopFxConvertV1Components(__int64 a1, unsigned int a2)
             v12 = v10 + (unsigned int)v11;
             if ( v12 >= (unsigned int)v11 )
             {
-              Pool2 = ExAllocatePool2(64LL, v10 + (unsigned int)v11, 1297630800LL);
-              v14 = (void *)Pool2;
-              if ( Pool2 )
+              PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v10 + (unsigned int)v11, 0x4D584650u);
+              v14 = PoolWithTag;
+              if ( PoolWithTag )
               {
-                v15 = v10 + Pool2;
-                v16 = 0;
+                memset(PoolWithTag, 0, v12);
+                v15 = 0;
+                v16 = &v14[v10];
                 if ( (_DWORD)v3 )
                 {
                   v17 = a1 + 16;
-                  for ( i = Pool2 + 28; ; i += 56LL )
+                  v18 = v14 + 28;
+                  while ( 1 )
                   {
                     v19 = *(_OWORD *)(v17 - 16);
-                    *(_QWORD *)(i - 12) = 0LL;
-                    v20 = 0;
-                    *(_OWORD *)(i - 28) = v19;
-                    *(_DWORD *)i = *(_DWORD *)v17;
-                    *(_QWORD *)(i + 4) = v15;
-                    *(_DWORD *)(i - 4) = *(_DWORD *)(v17 + 4);
+                    *(_QWORD *)(v18 - 12) = 0LL;
+                    v20 = 0LL;
+                    *(_OWORD *)(v18 - 28) = v19;
+                    *(_DWORD *)v18 = *(_DWORD *)v17;
+                    *(_QWORD *)(v18 + 4) = v16;
+                    *((_DWORD *)v18 - 1) = *(_DWORD *)(v17 + 4);
                     if ( *(_DWORD *)v17 )
                       break;
 LABEL_15:
-                    ++v16;
+                    ++v15;
                     v17 += 32LL;
-                    if ( v16 >= (unsigned int)v3 )
-                      return v14;
+                    v18 += 56;
+                    if ( v15 >= (unsigned int)v3 )
+                      goto LABEL_16;
                   }
-                  while ( v15 - (unsigned __int64)v14 <= v12 - 24 )
+                  while ( v16 - v14 <= v12 - 24 )
                   {
                     v21 = *(_QWORD *)(v17 + 8);
-                    v22 = v20++;
-                    *(_DWORD *)(v15 + 16) = *(_DWORD *)(v21 + 24 * v22 + 16);
-                    *(_QWORD *)v15 = *(_QWORD *)(v21 + 24 * v22);
-                    *(_QWORD *)(v15 + 8) = *(_QWORD *)(v21 + 24 * v22 + 8);
-                    v15 += 24LL;
-                    if ( v20 >= *(_DWORD *)v17 )
+                    v22 = 3 * v20;
+                    v20 = (unsigned int)(v20 + 1);
+                    *((_DWORD *)v16 + 4) = *(_DWORD *)(v21 + 8 * v22 + 16);
+                    *(_QWORD *)v16 = *(_QWORD *)(v21 + 8 * v22);
+                    *((_QWORD *)v16 + 1) = *(_QWORD *)(v21 + 8 * v22 + 8);
+                    v16 += 24;
+                    if ( (unsigned int)v20 >= *(_DWORD *)v17 )
                       goto LABEL_15;
                   }
-                  ExFreePoolWithTag(v14, 0x4D584650u);
                 }
                 else
                 {
-                  return v14;
+LABEL_16:
+                  v2 = v14;
+                  v14 = 0LL;
                 }
+                if ( v14 )
+                  ExFreePoolWithTag(v14, 0x4D584650u);
               }
             }
           }
         }
-        return (void *)v2;
+        return v2;
       }
     }
   }
-  return (void *)v2;
+  return v2;
 }

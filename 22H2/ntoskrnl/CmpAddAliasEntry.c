@@ -1,29 +1,28 @@
 /*
- * XREFs of CmpAddAliasEntry @ 0x140B98E98
+ * XREFs of CmpAddAliasEntry @ 0x140A8E43C
  * Callers:
- *     CmpCreateHardwareProfiles @ 0x140B679AC (CmpCreateHardwareProfiles.c)
+ *     CmpCreateHardwareProfiles @ 0x140A58540 (CmpCreateHardwareProfiles.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1403C448C (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenKey @ 0x14041A8E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041AA40 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     CmpAddDockingInfo @ 0x140B67E3C (CmpAddDockingInfo.c)
+ *     RtlUnicodeStringPrintf @ 0x14036E45C (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F9C60 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403F9DC0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     CmpAddDockingInfo @ 0x140A589C8 (CmpAddDockingInfo.c)
  */
 
 __int64 __fastcall CmpAddAliasEntry(void *a1, __int64 a2, int a3)
 {
   unsigned int v5; // edi
   NTSTATUS v6; // ebx
-  NTSTATUS v7; // eax
   HANDLE Handle; // [rsp+40h] [rbp-C0h] BYREF
   ULONG Disposition; // [rsp+48h] [rbp-B8h] BYREF
   int Data; // [rsp+4Ch] [rbp-B4h] BYREF
   HANDLE KeyHandle; // [rsp+50h] [rbp-B0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-98h] BYREF
-  char v15; // [rsp+A0h] [rbp-60h] BYREF
+  char v14; // [rsp+A0h] [rbp-60h] BYREF
 
   ObjectAttributes.RootDirectory = a1;
   KeyHandle = 0LL;
@@ -45,35 +44,33 @@ __int64 __fastcall CmpAddAliasEntry(void *a1, __int64 a2, int a3)
     {
       *(_QWORD *)&DestinationString.Length = 0x1000000LL;
       ++v5;
-      DestinationString.Buffer = (wchar_t *)&v15;
+      DestinationString.Buffer = (wchar_t *)&v14;
       RtlUnicodeStringPrintf(&DestinationString, L"%04d", v5);
       ObjectAttributes.RootDirectory = KeyHandle;
       ObjectAttributes.Length = 48;
       ObjectAttributes.ObjectName = &DestinationString;
       ObjectAttributes.Attributes = 576;
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-      v7 = ZwOpenKey(&Handle, 0x2001Fu, &ObjectAttributes);
-      v6 = v7;
-      if ( v7 < 0 )
+      v6 = ZwOpenKey(&Handle, 0x2001Fu, &ObjectAttributes);
+      if ( v6 < 0 )
         break;
       ZwClose(Handle);
       if ( v5 >= 0xC8 )
-        goto LABEL_9;
+        goto LABEL_10;
     }
-    if ( v7 != -1073741772 )
-      goto LABEL_11;
-LABEL_9:
-    v6 = ZwCreateKey(&Handle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition);
-    if ( v6 >= 0 )
+    if ( v6 == -1073741772 )
+      v6 = 0;
+LABEL_10:
+    if ( v6 < 0 || (v6 = ZwCreateKey(&Handle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition), v6 < 0) )
+    {
+      Handle = 0LL;
+    }
+    else
     {
       CmpAddDockingInfo((__int64)Handle, a2);
       Data = a3;
       v6 = ZwSetValueKey(Handle, (PUNICODE_STRING)&CmpStrProfileNumberString, 0, 4u, &Data, 4u);
-      goto LABEL_12;
     }
-LABEL_11:
-    Handle = 0LL;
-LABEL_12:
     if ( KeyHandle )
       ZwClose(KeyHandle);
   }

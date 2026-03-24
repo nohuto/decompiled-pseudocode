@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpWatchdogBugcheckWatchCallback @ 0x140707130
+ * XREFs of PnpWatchdogBugcheckWatchCallback @ 0x140707110
  * Callers:
  *     <none>
  * Callees:
- *     PnpWatchdogBugcheckConfigure @ 0x14070EF0C (PnpWatchdogBugcheckConfigure.c)
+ *     PnpWatchdogBugcheckConfigure @ 0x14070EEEC (PnpWatchdogBugcheckConfigure.c)
  */
 
 __int64 __fastcall PnpWatchdogBugcheckWatchCallback(void *a1)

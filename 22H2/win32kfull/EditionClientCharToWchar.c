@@ -1,9 +1,9 @@
 /*
- * XREFs of EditionClientCharToWchar @ 0x1C01CBB80
+ * XREFs of EditionClientCharToWchar @ 0x1C01F54B0
  * Callers:
  *     <none>
  * Callees:
- *     xxxClientCharToWchar @ 0x1C02117B0 (xxxClientCharToWchar.c)
+ *     xxxClientCharToWchar @ 0x1C0231948 (xxxClientCharToWchar.c)
  */
 
 __int64 EditionClientCharToWchar()

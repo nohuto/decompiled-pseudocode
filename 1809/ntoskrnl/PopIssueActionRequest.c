@@ -1,16 +1,16 @@
 /*
- * XREFs of PopIssueActionRequest @ 0x1406DE870
+ * XREFs of PopIssueActionRequest @ 0x1406DE850
  * Callers:
- *     PopPolicyWorkerAction @ 0x1406DE6F0 (PopPolicyWorkerAction.c)
- *     PopPolicyWorkerActionPromote @ 0x1406E2690 (PopPolicyWorkerActionPromote.c)
+ *     PopPolicyWorkerAction @ 0x1406DE6D0 (PopPolicyWorkerAction.c)
+ *     PopPolicyWorkerActionPromote @ 0x1406E2670 (PopPolicyWorkerActionPromote.c)
  * Callees:
- *     PopSetSystemState @ 0x140177794 (PopSetSystemState.c)
- *     PpmEndHighPerfRequest @ 0x140177AE8 (PpmEndHighPerfRequest.c)
- *     PpmBeginHighPerfRequest @ 0x1401785A0 (PpmBeginHighPerfRequest.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     ZwSetSystemPowerState @ 0x1401BB5F0 (ZwSetSystemPowerState.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     PopSetSystemState @ 0x1401777B4 (PopSetSystemState.c)
+ *     PpmEndHighPerfRequest @ 0x140177B08 (PpmEndHighPerfRequest.c)
+ *     PpmBeginHighPerfRequest @ 0x1401785C0 (PpmBeginHighPerfRequest.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     ZwSetSystemPowerState @ 0x1401BB610 (ZwSetSystemPowerState.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
  *     PopAcquireAwaymodeLock @ 0x14056631C (PopAcquireAwaymodeLock.c)
@@ -18,25 +18,25 @@
  *     PfPowerActionNotify @ 0x140567F10 (PfPowerActionNotify.c)
  *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
  *     PopCheckpointSystemSleepUnsafe @ 0x14057E0E4 (PopCheckpointSystemSleepUnsafe.c)
- *     PopReadSystemAwayModePolicy @ 0x1406DD058 (PopReadSystemAwayModePolicy.c)
- *     PopDiagTracePowerTransitionStart @ 0x1406DD12C (PopDiagTracePowerTransitionStart.c)
- *     PopSetSleepMarker @ 0x1406DD1DC (PopSetSleepMarker.c)
- *     EtwShutdown @ 0x1406DD260 (EtwShutdown.c)
- *     PopDiagTracePowerTransitionTime @ 0x1406DD3FC (PopDiagTracePowerTransitionTime.c)
- *     PopDiagTracePerfTrackData @ 0x1406DD510 (PopDiagTracePerfTrackData.c)
- *     PopDiagTraceHiberStats @ 0x1406DD630 (PopDiagTraceHiberStats.c)
- *     PopDiagTracePowerTransitionEnd @ 0x1406DDAB4 (PopDiagTracePowerTransitionEnd.c)
- *     PoBlockConsoleSwitch @ 0x1406DDC30 (PoBlockConsoleSwitch.c)
- *     PopDispatchStateCallout @ 0x1406DDC80 (PopDispatchStateCallout.c)
- *     PopSuspendApps @ 0x1406DEBF0 (PopSuspendApps.c)
- *     PopSuspendServices @ 0x1406DEC58 (PopSuspendServices.c)
- *     PopResumeApps @ 0x1406DECC8 (PopResumeApps.c)
- *     PopResumeServices @ 0x1406DED60 (PopResumeServices.c)
- *     PopDispatchSuperfetchNotification @ 0x1406DEDF8 (PopDispatchSuperfetchNotification.c)
- *     PopSetSystemAwayMode @ 0x14086C100 (PopSetSystemAwayMode.c)
- *     PopScreenOff @ 0x14086F4B8 (PopScreenOff.c)
- *     PopTraceSleepCheckpointInitFailure @ 0x1408754C8 (PopTraceSleepCheckpointInitFailure.c)
- *     NtQueryEnvironmentVariableInfoEx @ 0x1408D4EF0 (NtQueryEnvironmentVariableInfoEx.c)
+ *     PopReadSystemAwayModePolicy @ 0x1406DD038 (PopReadSystemAwayModePolicy.c)
+ *     PopDiagTracePowerTransitionStart @ 0x1406DD10C (PopDiagTracePowerTransitionStart.c)
+ *     PopSetSleepMarker @ 0x1406DD1BC (PopSetSleepMarker.c)
+ *     EtwShutdown @ 0x1406DD240 (EtwShutdown.c)
+ *     PopDiagTracePowerTransitionTime @ 0x1406DD3DC (PopDiagTracePowerTransitionTime.c)
+ *     PopDiagTracePerfTrackData @ 0x1406DD4F0 (PopDiagTracePerfTrackData.c)
+ *     PopDiagTraceHiberStats @ 0x1406DD610 (PopDiagTraceHiberStats.c)
+ *     PopDiagTracePowerTransitionEnd @ 0x1406DDA94 (PopDiagTracePowerTransitionEnd.c)
+ *     PoBlockConsoleSwitch @ 0x1406DDC10 (PoBlockConsoleSwitch.c)
+ *     PopDispatchStateCallout @ 0x1406DDC60 (PopDispatchStateCallout.c)
+ *     PopSuspendApps @ 0x1406DEBD0 (PopSuspendApps.c)
+ *     PopSuspendServices @ 0x1406DEC38 (PopSuspendServices.c)
+ *     PopResumeApps @ 0x1406DECA8 (PopResumeApps.c)
+ *     PopResumeServices @ 0x1406DED40 (PopResumeServices.c)
+ *     PopDispatchSuperfetchNotification @ 0x1406DEDD8 (PopDispatchSuperfetchNotification.c)
+ *     PopSetSystemAwayMode @ 0x14086C0E0 (PopSetSystemAwayMode.c)
+ *     PopScreenOff @ 0x14086F498 (PopScreenOff.c)
+ *     PopTraceSleepCheckpointInitFailure @ 0x1408754A8 (PopTraceSleepCheckpointInitFailure.c)
+ *     NtQueryEnvironmentVariableInfoEx @ 0x1408D4ED0 (NtQueryEnvironmentVariableInfoEx.c)
  */
 
 __int64 __fastcall PopIssueActionRequest(char a1, POWER_ACTION a2, SYSTEM_POWER_STATE a3, int a4)
@@ -77,18 +77,18 @@ __int64 __fastcall PopIssueActionRequest(char a1, POWER_ACTION a2, SYSTEM_POWER_
   v31 = 0;
   PopAcquireAwaymodeLock();
   PopReadSystemAwayModePolicy();
-  if ( (byte_140418110 || byte_140418111)
+  if ( (byte_1404180D0 || byte_1404180D1)
     && a2 == PowerActionSleep
     && a3 < PowerSystemHibernate
     && (dword_140417714 & 0xFFFFFFFA) == 0
     && dword_140417714 != 1 )
   {
-    if ( !dword_140418118 )
+    if ( !dword_1404180D8 )
     {
-      if ( byte_140418111 )
+      if ( byte_1404180D1 )
       {
         if ( (PopSimulate & 0x4000000) != 0 )
-          PopSetSystemState(dword_140418118 + 4, dword_140418118 + 7);
+          PopSetSystemState(dword_1404180D8 + 4, dword_1404180D8 + 7);
       }
       else
       {
@@ -141,12 +141,12 @@ __int64 __fastcall PopIssueActionRequest(char a1, POWER_ACTION a2, SYSTEM_POWER_
     }
     else
     {
-      if ( !byte_140418254 || (BYTE8(PopBsdPowerTransitionAtBoot) & 0xF0) == 0 )
+      if ( !byte_140418234 || (BYTE8(PopBsdPowerTransitionAtBoot) & 0xF0) == 0 )
         goto LABEL_17;
       v22 = 1;
     }
     _InterlockedExchange(&PopSleepCheckpointStatus, v22);
-    if ( dword_140409DD0 != 2 )
+    if ( dword_140409D90 != 2 )
     {
       v23 = 3221225474LL;
       v24 = 8;

@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_qssdddd @ 0x1C0061408
+ * XREFs of WPP_RECORDER_SF_qssdddd @ 0x1C0060648
  * Callers:
- *     ACPIThermalRereadTemperature @ 0x1C0060F34 (ACPIThermalRereadTemperature.c)
+ *     ACPIThermalRereadTemperature @ 0x1C0060164 (ACPIThermalRereadTemperature.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall WPP_RECORDER_SF_qssdddd(
@@ -50,7 +50,7 @@ __int64 __fastcall WPP_RECORDER_SF_qssdddd(
     pfnWppTraceMessage(
       WPP_GLOBAL_Control->AttachedDevice,
       43LL,
-      &WPP_bf1c19637c3439bdfb442f7739d79163_Traceguids,
+      &WPP_18eab87a8b67317afec152b8fbe84dda_Traceguids,
       18LL,
       &a6,
       8LL,
@@ -70,5 +70,5 @@ __int64 __fastcall WPP_RECORDER_SF_qssdddd(
     while ( v9[v10] );
   }
   LOWORD(v17) = 18;
-  return WppAutoLogTrace(a1, 4LL, 16LL, &WPP_bf1c19637c3439bdfb442f7739d79163_Traceguids, v17, &a6);
+  return WppAutoLogTrace(a1, 4LL, 16LL, &WPP_18eab87a8b67317afec152b8fbe84dda_Traceguids, v17, &a6);
 }

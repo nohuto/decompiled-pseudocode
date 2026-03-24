@@ -1,8 +1,8 @@
 /*
- * XREFs of ?vSpRemovePresent@@YAXPEAUHDEV__@@PEAU_PRESENT@@@Z @ 0x1C0281508
+ * XREFs of ?vSpRemovePresent@@YAXPEAUHDEV__@@PEAU_PRESENT@@@Z @ 0x1C0284594
  * Callers:
- *     GreDeleteSpriteOverlapPresent @ 0x1C0060B00 (GreDeleteSpriteOverlapPresent.c)
- *     ?GreAddSpriteOverlapPresent@@YAHPEAUHDEV__@@PEAUHWND__@@@Z @ 0x1C027CAC4 (-GreAddSpriteOverlapPresent@@YAHPEAUHDEV__@@PEAUHWND__@@@Z.c)
+ *     GreDeleteSpriteOverlapPresent @ 0x1C007C2C0 (GreDeleteSpriteOverlapPresent.c)
+ *     ?GreAddSpriteOverlapPresent@@YAHPEAUHDEV__@@PEAUHWND__@@@Z @ 0x1C027F104 (-GreAddSpriteOverlapPresent@@YAHPEAUHDEV__@@PEAUHWND__@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -12,10 +12,10 @@ void __fastcall vSpRemovePresent(_QWORD *a1, struct _PRESENT *a2)
   __int64 v2; // rax
   _QWORD *v3; // rcx
 
-  v2 = a1[20];
+  v2 = a1[21];
   if ( (struct _PRESENT *)v2 == a2 )
   {
-    a1[20] = *((_QWORD *)a2 + 1);
+    a1[21] = *((_QWORD *)a2 + 1);
   }
   else
   {

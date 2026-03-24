@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmUpdatePlatformIdleAccounting @ 0x1402D6364
+ * XREFs of PpmUpdatePlatformIdleAccounting @ 0x1402D6464
  * Callers:
  *     PpmExitCoordinatedIdle @ 0x14005F330 (PpmExitCoordinatedIdle.c)
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?DropAllMouseInput@BufferedMouseInputList@CMouseProcessor@@QEAAXXZ @ 0x1C00C4824
+ * XREFs of ?DropAllMouseInput@BufferedMouseInputList@CMouseProcessor@@QEAAXXZ @ 0x1C00B5740
  * Callers:
- *     ?MasterInputThreadDeactivated@CMouseProcessor@@UEAAXXZ @ 0x1C00C47C0 (-MasterInputThreadDeactivated@CMouseProcessor@@UEAAXXZ.c)
- *     ?ResolveIdToMessage@BufferedMouseInputList@CMouseProcessor@@QEAAPEAUMouseInputMessage@2@_K@Z @ 0x1C01FC678 (-ResolveIdToMessage@BufferedMouseInputList@CMouseProcessor@@QEAAPEAUMouseInputMessage@2@_K@Z.c)
+ *     ?HandleMITTermination@CMouseProcessor@@AEAAXXZ @ 0x1C00B56AC (-HandleMITTermination@CMouseProcessor@@AEAAXXZ.c)
+ *     ?ResolveIdToMessage@BufferedMouseInputList@CMouseProcessor@@QEAAPEAUMouseInputMessage@2@_K@Z @ 0x1C01C2014 (-ResolveIdToMessage@BufferedMouseInputList@CMouseProcessor@@QEAAPEAUMouseInputMessage@2@_K@Z.c)
  * Callees:
- *     ??_GMouseInputMessage@CMouseProcessor@@QEAAPEAXI@Z @ 0x1C01F90B0 (--_GMouseInputMessage@CMouseProcessor@@QEAAPEAXI@Z.c)
+ *     ??_GMouseInputMessage@CMouseProcessor@@QEAAPEAXI@Z @ 0x1C01BE83C (--_GMouseInputMessage@CMouseProcessor@@QEAAPEAXI@Z.c)
  */
 
 void __fastcall CMouseProcessor::BufferedMouseInputList::DropAllMouseInput(

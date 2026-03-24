@@ -1,26 +1,24 @@
 /*
- * XREFs of EtwTraceRetrieveInputMessage @ 0x1C00A7A30
+ * XREFs of EtwTraceRetrieveInputMessage @ 0x1C0094FB0
  * Callers:
  *     <none>
  * Callees:
- *     ?GetCallbackCount@@YACXZ @ 0x1C00DEF46 (-GetCallbackCount@@YACXZ.c)
- *     McTemplateK0cpppqqq_EtwWriteTransfer @ 0x1C00DF5EE (McTemplateK0cpppqqq_EtwWriteTransfer.c)
+ *     W32GetThreadWin32Thread @ 0x1C002F9F0 (W32GetThreadWin32Thread.c)
+ *     McTemplateK0cpppqqq_EtwWriteTransfer @ 0x1C0124E70 (McTemplateK0cpppqqq_EtwWriteTransfer.c)
  */
 
-__int64 __fastcall EtwTraceRetrieveInputMessage(__int64 *a1, int a2)
+__int64 __fastcall EtwTraceRetrieveInputMessage(_QWORD *a1)
 {
   __int64 result; // rax
-  __int64 v4; // rbx
-  int v5; // r9d
-  int v6; // edx
-  int v7; // r8d
+  int v3; // r9d
+  int v4; // edx
+  int v5; // r8d
 
   result = MEMORY[0xFFFFF78000000320];
   if ( (Microsoft_Windows_Win32kEnableBits & 0x1000) != 0 )
   {
-    v4 = *a1;
-    LOBYTE(v5) = GetCallbackCount();
-    return McTemplateK0cpppqqq_EtwWriteTransfer(a2 != 0, v6, v7, v5, v4);
+    LOBYTE(v3) = *(_BYTE *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1248);
+    return McTemplateK0cpppqqq_EtwWriteTransfer(*a1, v4, v5, v3, *a1);
   }
   return result;
 }

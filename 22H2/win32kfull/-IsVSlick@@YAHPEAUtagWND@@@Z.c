@@ -1,30 +1,30 @@
 /*
- * XREFs of ?IsVSlick@@YAHPEAUtagWND@@@Z @ 0x1C021FEC0
+ * XREFs of ?IsVSlick@@YAHPEAUtagWND@@@Z @ 0x1C023D474
  * Callers:
- *     ?Is31TrayWindow@@YAHPEAUtagWND@@@Z @ 0x1C021FE60 (-Is31TrayWindow@@YAHPEAUtagWND@@@Z.c)
+ *     Is31TrayWindow @ 0x1C023D4F0 (Is31TrayWindow.c)
  * Callees:
- *     GetScreenRectForWindow @ 0x1C0157A74 (GetScreenRectForWindow.c)
+ *     GetScreenRectForWindow @ 0x1C025D46C (GetScreenRectForWindow.c)
  */
 
 _BOOL8 __fastcall IsVSlick(struct tagWND *a1)
 {
   __int64 v2; // rax
-  unsigned __int32 v3; // r8d
-  unsigned __int32 v4; // r9d
+  unsigned int v3; // r8d
+  unsigned int v4; // r9d
   _BOOL8 result; // rax
-  __m128i v6; // [rsp+20h] [rbp-28h]
-  __m128i v7; // [rsp+30h] [rbp-18h] BYREF
+  __int128 v6; // [rsp+20h] [rbp-28h]
+  _BYTE v7[24]; // [rsp+30h] [rbp-18h] BYREF
 
-  v6 = *GetScreenRectForWindow(&v7, a1);
+  v6 = *(_OWORD *)GetScreenRectForWindow(v7, a1);
   result = 0;
   if ( *(_DWORD *)*gpDispInfo == 1 )
   {
     v2 = *((_QWORD *)a1 + 5);
     v3 = *(_DWORD *)(v2 + 88);
-    if ( v3 > v6.m128i_i32[2] )
+    if ( v3 > DWORD2(v6) )
     {
       v4 = *(_DWORD *)(v2 + 92);
-      if ( v4 > v6.m128i_i32[3] && v4 == v6.m128i_i32[3] + 100 && v3 == v6.m128i_i32[2] + 100 )
+      if ( v4 > HIDWORD(v6) && v4 == HIDWORD(v6) + 100 && v3 == DWORD2(v6) + 100 )
         return 1;
     }
   }

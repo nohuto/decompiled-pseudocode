@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpGetRegistryNamespaceRootForSilo @ 0x14068E570
+ * XREFs of CmpGetRegistryNamespaceRootForSilo @ 0x14068E550
  * Callers:
- *     CmpParseKey @ 0x140641370 (CmpParseKey.c)
+ *     CmpParseKey @ 0x140641350 (CmpParseKey.c)
  * Callees:
- *     PsGetPermanentSiloContext @ 0x14010A080 (PsGetPermanentSiloContext.c)
- *     PsGetParentSilo @ 0x140886730 (PsGetParentSilo.c)
+ *     PsGetPermanentSiloContext @ 0x14010A0A0 (PsGetPermanentSiloContext.c)
+ *     PsGetParentSilo @ 0x140886710 (PsGetParentSilo.c)
  */
 
 __int64 __fastcall CmpGetRegistryNamespaceRootForSilo(__int64 ParentSilo)

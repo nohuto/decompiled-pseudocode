@@ -1,10 +1,10 @@
 /*
- * XREFs of ?CalculatePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C0056978
+ * XREFs of ?CalculatePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C004783C
  * Callers:
- *     ?RecordVSync@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C0056F04 (-RecordVSync@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ.c)
+ *     ?RecordVSync@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C0047CEC (-RecordVSync@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ.c)
  * Callees:
- *     ?CalculateIdealPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAII@Z @ 0x1C00568EC (-CalculateIdealPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAII@Z.c)
- *     ?RequestPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C0056FD4 (-RequestPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z.c)
+ *     ?CalculateIdealPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAII@Z @ 0x1C00477B0 (-CalculateIdealPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAII@Z.c)
+ *     ?RequestPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C0047DB0 (-RequestPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z.c)
  */
 
 void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::CalculatePState(
@@ -19,16 +19,16 @@ void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::CalculatePState(
 
   v2 = *(_DWORD **)this;
   v4 = *((_DWORD *)this + 14);
-  if ( a2 <= *(_DWORD *)(*(_QWORD *)this + 4320LL) )
+  if ( a2 <= *(_DWORD *)(*(_QWORD *)this + 4216LL) )
   {
-    if ( a2 > v2[1081] && v4 )
+    if ( a2 > v2[1055] && v4 )
       v4 = DXGPOWERSTATISTICSTRANSITIONENGINE::CalculateIdealPState(this, a2);
   }
   else
   {
     v4 = 0;
   }
-  if ( a2 >= v2[1082] || v4 >= **((_DWORD **)this + 2) - 1 )
+  if ( a2 >= v2[1056] || v4 >= **((_DWORD **)this + 2) - 1 )
     goto LABEL_12;
   v6 = *((_DWORD *)this + 20);
   v7 = *((_DWORD *)this + 21) + 1;
@@ -36,7 +36,7 @@ void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::CalculatePState(
   if ( a2 > v6 )
     v6 = a2;
   *((_DWORD *)this + 20) = v6;
-  if ( v7 >= v2[1084] )
+  if ( v7 >= v2[1058] )
   {
     v4 = DXGPOWERSTATISTICSTRANSITIONENGINE::CalculateIdealPState(this, v6);
 LABEL_12:

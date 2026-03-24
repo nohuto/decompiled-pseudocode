@@ -1,10 +1,10 @@
 /*
- * XREFs of DpiQueryAdapterRegistryInfo @ 0x1C03998C4
+ * XREFs of DpiQueryAdapterRegistryInfo @ 0x1C02C74F0
  * Callers:
- *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018FB80 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     ?DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C01309C0 (-DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
  * Callees:
- *     memset @ 0x1C0028640 (memset.c)
- *     DpiReadPnpRegistryValue @ 0x1C01FFF2C (DpiReadPnpRegistryValue.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     DpiReadPnpRegistryValue @ 0x1C0188F90 (DpiReadPnpRegistryValue.c)
  */
 
 __int64 __fastcall DpiQueryAdapterRegistryInfo(__int64 a1, char *a2)

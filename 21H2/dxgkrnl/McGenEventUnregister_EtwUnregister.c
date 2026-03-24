@@ -1,8 +1,8 @@
 /*
- * XREFs of McGenEventUnregister_EtwUnregister @ 0x1C0050E60
+ * XREFs of McGenEventUnregister_EtwUnregister @ 0x1C0044A54
  * Callers:
- *     DxgkEtwShutdown @ 0x1C0050E3C (DxgkEtwShutdown.c)
- *     ??1DXGGLOBAL@@EEAA@XZ @ 0x1C0308FE4 (--1DXGGLOBAL@@EEAA@XZ.c)
+ *     DxgkEtwShutdown @ 0x1C0044A30 (DxgkEtwShutdown.c)
+ *     ??1DXGGLOBAL@@AEAA@XZ @ 0x1C0268200 (--1DXGGLOBAL@@AEAA@XZ.c)
  * Callees:
  *     <none>
  */

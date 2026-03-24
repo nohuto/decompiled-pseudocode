@@ -1,43 +1,42 @@
 /*
- * XREFs of ?bDisposeSrcDco@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C002CE74
+ * XREFs of ?bDisposeSrcDco@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C02734E4
  * Callers:
- *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C003F250 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
- *     ?vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z @ 0x1C0275B60 (-vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z.c)
+ *     ?vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z @ 0x1C0278350 (-vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z.c)
  * Callees:
- *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C002CEF0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
- *     ?vClearRenderState@DEVLOCKBLTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C0040380 (-vClearRenderState@DEVLOCKBLTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
- *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C0113C20 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     ?vClearRenderState@DEVLOCKBLTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C008BB40 (-vClearRenderState@DEVLOCKBLTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C00ACCE0 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C01256A0 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
  */
 
-__int64 __fastcall DEVLOCKBLTOBJ::bDisposeSrcDco(DEVLOCKBLTOBJ *this)
+__int64 __fastcall DEVLOCKBLTOBJ::bDisposeSrcDco(DEVLOCKBLTOBJ *this, __int64 a2, __int64 a3)
 {
-  struct XDCOBJ *v1; // rdi
-  __int64 v3; // rcx
-  __int64 v4; // rdx
-  __int64 v5; // rbx
+  struct XDCOBJ *v3; // rdi
+  __int64 v5; // rcx
+  __int64 v6; // rdx
   __int64 v7; // rbx
+  __int64 v8; // rbx
   __int64 CurrentProcess; // rax
 
-  v1 = (DEVLOCKBLTOBJ *)((char *)this + 176);
-  v3 = *((_QWORD *)this + 22);
-  if ( v3 && *((_BYTE *)v1 + 49) )
+  v3 = (DEVLOCKBLTOBJ *)((char *)this + 176);
+  v5 = *((_QWORD *)this + 22);
+  if ( v5 && *((_BYTE *)v3 + 49) )
   {
-    v4 = *(_QWORD *)(v3 + 48);
+    v6 = *(_QWORD *)(v5 + 48);
     if ( (*((_DWORD *)this + 28) & 0x20) != 0 )
     {
-      *(_DWORD *)(v3 + 36) &= ~0x4000u;
-      DC::pSurface(*(DC **)v1, *(struct SURFACE **)(v4 + 2528));
+      *(_DWORD *)(v5 + 36) &= ~0x4000u;
+      DC::pSurface(*(DC **)v3, *(struct SURFACE **)(v6 + 2552));
     }
-    v5 = *((_QWORD *)this + 29);
-    if ( v5 )
+    v7 = *((_QWORD *)this + 29);
+    if ( v7 )
     {
-      v7 = *(_QWORD *)(v5 + 72);
-      CurrentProcess = PsGetCurrentProcess(v3, v4);
-      MmUnmapViewOfSection(CurrentProcess, v7);
+      v8 = *(_QWORD *)(v7 + 72);
+      CurrentProcess = PsGetCurrentProcess(v5, v6, a3);
+      MmUnmapViewOfSection(CurrentProcess, v8);
     }
-    DEVLOCKBLTOBJ::vClearRenderState(this, v1);
-    DLODCOBJ::vUnlock(v1);
-    *(_QWORD *)v1 = 0LL;
+    DEVLOCKBLTOBJ::vClearRenderState(this, v3);
+    DLODCOBJ::vUnlock(v3);
+    *(_QWORD *)v3 = 0LL;
   }
   return 1LL;
 }

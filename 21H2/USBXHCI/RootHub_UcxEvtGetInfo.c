@@ -1,12 +1,12 @@
 /*
- * XREFs of RootHub_UcxEvtGetInfo @ 0x1C0017280
+ * XREFs of RootHub_UcxEvtGetInfo @ 0x1C0017820
  * Callers:
  *     <none>
  * Callees:
- *     WPP_RECORDER_SF_DD @ 0x1C00043B8 (WPP_RECORDER_SF_DD.c)
- *     WPP_RECORDER_SF_d @ 0x1C0010010 (WPP_RECORDER_SF_d.c)
- *     __security_check_cookie @ 0x1C0018EB0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C0005520 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000F118 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0019F30 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall RootHub_UcxEvtGetInfo(__int64 a1, __int64 a2)
@@ -24,7 +24,7 @@ __int64 __fastcall RootHub_UcxEvtGetInfo(__int64 a1, __int64 a2)
   v3 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0061248);
+         off_1C0060248);
   v12 = 0LL;
   memset(v11, 0, sizeof(v11));
   LOWORD(v11[0]) = 40;
@@ -43,8 +43,8 @@ __int64 __fastcall RootHub_UcxEvtGetInfo(__int64 a1, __int64 a2)
         *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
         v5,
         11,
-        192,
-        (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
+        191,
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
         **((_DWORD **)&v11[0] + 1));
     }
     v6 = -1073741811;
@@ -63,12 +63,12 @@ __int64 __fastcall RootHub_UcxEvtGetInfo(__int64 a1, __int64 a2)
     {
       v10 = v7;
       LOBYTE(v7) = 4;
-      WPP_RECORDER_SF_DD(
+      WPP_RECORDER_SF_dd(
         *(_QWORD *)(*(_QWORD *)(v3 + 8) + 72LL),
         v7,
         11,
-        193,
-        (__int64)&WPP_6daf7e8d9b993c4f7f4c28abffa2458f_Traceguids,
+        192,
+        (__int64)&WPP_f43a94b2b62e338aeb45278c2677cd1d_Traceguids,
         v10,
         v8);
     }

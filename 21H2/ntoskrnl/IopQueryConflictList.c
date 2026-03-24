@@ -1,12 +1,12 @@
 /*
- * XREFs of IopQueryConflictList @ 0x14095F204
+ * XREFs of IopQueryConflictList @ 0x1408B9854
  * Callers:
- *     PiControlQueryConflictList @ 0x140959490 (PiControlQueryConflictList.c)
+ *     PiControlQueryConflictList @ 0x1408B3850 (PiControlQueryConflictList.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseSemaphore @ 0x1402D3440 (KeReleaseSemaphore.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     IopQueryConflictListInternal @ 0x14095F29C (IopQueryConflictListInternal.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     KeReleaseSemaphore @ 0x14029AC70 (KeReleaseSemaphore.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     IopQueryConflictListInternal @ 0x1408B98EC (IopQueryConflictListInternal.c)
  */
 
 __int64 __fastcall IopQueryConflictList(int a1, int a2, __int64 a3, int a4, int a5)
@@ -20,6 +20,6 @@ __int64 __fastcall IopQueryConflictList(int a1, int a2, __int64 a3, int a4, int 
   KeWaitForSingleObject(&PpRegistrySemaphore, DelayExecution, 0, 0, 0LL);
   ConflictListInternal = IopQueryConflictListInternal(a1, a2, v9, a4, a5);
   KeReleaseSemaphore(&PpRegistrySemaphore, 0, 1, 0);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return ConflictListInternal;
 }

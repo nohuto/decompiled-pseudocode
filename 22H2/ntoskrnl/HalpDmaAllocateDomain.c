@@ -1,223 +1,140 @@
 /*
- * XREFs of HalpDmaAllocateDomain @ 0x14038EB20
+ * XREFs of HalpDmaAllocateDomain @ 0x1403C6BB8
  * Callers:
- *     HalJoinDmaDomain @ 0x14038EA90 (HalJoinDmaDomain.c)
+ *     HalJoinDmaDomain @ 0x1403C6AE0 (HalJoinDmaDomain.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpDmaReferenceDomainObject @ 0x14038F4EC (HalpDmaReferenceDomainObject.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AB30 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A4F60 (HalpMmAllocCtxFree.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     memset @ 0x140435400 (memset.c)
- *     HalpDmaDereferenceDomainObject @ 0x140512868 (HalpDmaDereferenceDomainObject.c)
- *     HalpDmaGetReservedRegionsForHybridPassthroughDomain @ 0x1405129B8 (HalpDmaGetReservedRegionsForHybridPassthroughDomain.c)
- *     HalpDmaGetReservedRegionsForTranslateDomain @ 0x140512C48 (HalpDmaGetReservedRegionsForTranslateDomain.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C4B8 (HalpMmAllocCtxAlloc.c)
+ *     HalpDmaReferenceDomainObject @ 0x1403A0D14 (HalpDmaReferenceDomainObject.c)
+ *     HalpIommuAllocateDmaDomain @ 0x1403B3818 (HalpIommuAllocateDmaDomain.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     HalpDmaAddReservedRangesToDomain @ 0x1404C4950 (HalpDmaAddReservedRangesToDomain.c)
+ *     HalpDmaDereferenceDomainObject @ 0x1404C4A38 (HalpDmaDereferenceDomainObject.c)
+ *     HalpLaFreeState @ 0x1404DB104 (HalpLaFreeState.c)
+ *     HalpLaInitializeState @ 0x1404DB140 (HalpLaInitializeState.c)
  */
 
-ULONG_PTR __fastcall HalpDmaAllocateDomain(__int64 a1)
+__int64 __fastcall HalpDmaAllocateDomain(unsigned __int64 *a1, _QWORD *a2, unsigned int a3, char a4, __int64 a5)
 {
-  __int64 ReservedRegionsForTranslateDomain; // r12
-  int v2; // r14d
-  void *v4; // rax
-  ULONG_PTR v5; // rdi
-  KIRQL v6; // al
-  ULONG_PTR *v7; // rcx
-  unsigned __int64 v8; // rsi
-  unsigned __int64 v9; // r15
-  unsigned __int8 v10; // r8
-  bool v11; // zf
-  __int64 v12; // rdx
-  unsigned __int8 v13; // dl
-  unsigned __int8 v14; // cl
-  __int64 v15; // rax
-  char v16; // dl
-  int v17; // r8d
-  __int64 v18; // rcx
-  int v19; // r8d
-  unsigned int v20; // esi
-  __int64 v21; // r9
-  __int64 *v22; // r8
-  unsigned __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // r9
+  unsigned __int64 v5; // r12
+  int DmaDomain; // edi
+  char v9; // r15
+  void *v10; // rax
+  __int64 v11; // rbx
+  KIRQL v12; // al
+  __int64 *v13; // rcx
+  unsigned __int64 v14; // r14
+  unsigned __int64 v15; // rsi
+  bool v16; // zf
+  __int64 v17; // rcx
+  unsigned __int8 v18; // r8
+  char v19; // dl
+  char v20; // dl
+  __int64 v21; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v31; // eax
-  unsigned __int8 v32; // cl
-  unsigned __int64 v33; // [rsp+30h] [rbp-10h]
-  __int64 v34; // [rsp+38h] [rbp-8h]
-  __int16 v35; // [rsp+80h] [rbp+40h] BYREF
-  char v36; // [rsp+82h] [rbp+42h]
-  int v37; // [rsp+88h] [rbp+48h] BYREF
-  int v38; // [rsp+90h] [rbp+50h]
-  __int64 v39; // [rsp+98h] [rbp+58h] BYREF
+  int v26; // eax
 
-  v37 = 0;
-  v39 = 0LL;
-  ReservedRegionsForTranslateDomain = 0LL;
-  v2 = *(_DWORD *)(a1 + 520);
-  v35 = 0;
-  v36 = 0;
-  v33 = *(_QWORD *)(a1 + 144);
-  v4 = (void *)HalpMmAllocCtxAlloc(a1, 120LL);
-  v5 = (ULONG_PTR)v4;
-  if ( !v4 )
-    return v5;
-  memset(v4, 0, 0x78uLL);
-  v6 = KeAcquireSpinLockRaiseToDpc(&HalpDmaDomainListLock);
-  v7 = (ULONG_PTR *)qword_140C61EF8;
-  v8 = v6;
-  if ( *(__int64 **)qword_140C61EF8 != &HalpDmaDomainList )
+  v5 = *a1;
+  DmaDomain = 0;
+  v9 = 0;
+  v10 = (void *)HalpMmAllocCtxAlloc((__int64)a1, 136LL);
+  v11 = (__int64)v10;
+  if ( !v10 )
+    return v11;
+  memset(v10, 0, 0x88uLL);
+  v12 = KeAcquireSpinLockRaiseToDpc(&HalpDmaDomainListLock);
+  v13 = (__int64 *)qword_140C49E88;
+  v14 = v12;
+  if ( *(__int64 **)qword_140C49E88 != &HalpDmaDomainList )
     __fastfail(3u);
-  *(_QWORD *)(v5 + 8) = qword_140C61EF8;
-  *(_QWORD *)v5 = &HalpDmaDomainList;
-  *v7 = v5;
-  qword_140C61EF8 = v5;
-  KxReleaseSpinLock((volatile signed __int64 *)&HalpDmaDomainListLock);
-  v9 = -1LL;
+  *(_QWORD *)(v11 + 8) = qword_140C49E88;
+  *(_QWORD *)v11 = &HalpDmaDomainList;
+  *v13 = v11;
+  qword_140C49E88 = v11;
+  KxReleaseSpinLock(&HalpDmaDomainListLock);
+  v15 = -1LL;
   if ( KiIrqlFlags )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( (KiIrqlFlags & 1) != 0 )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v31 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-      v11 = (v31 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v31;
-      if ( v11 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
+        v16 = (v26 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v26;
+        if ( v16 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
     }
   }
-  __writecr8(v8);
-  HalpDmaReferenceDomainObject(v5);
-  v10 = HalpIommuDomainMaxInputBitWidth;
-  *(_BYTE *)(v5 + 32) = *(_BYTE *)(a1 + 445);
-  v34 = (-(__int64)(*(_BYTE *)(a1 + 153) != 0) & 0xFFFF0000LL) + 0x10000;
-  if ( v2 == 2 )
+  __writecr8(v14);
+  HalpDmaReferenceDomainObject(v11);
+  v16 = !_BitScanReverse64((unsigned __int64 *)&v17, HalpMaximumPhysicalMemoryAddress);
+  v18 = -1;
+  *(_BYTE *)(v11 + 32) = a4;
+  v19 = -1;
+  if ( !v16 )
+    v19 = v17;
+  if ( (unsigned __int8)v19 < 0x1Eu )
   {
-    v13 = v10;
-    goto LABEL_10;
-  }
-  v38 = 0;
-  v11 = !_BitScanReverse64((unsigned __int64 *)&v12, HalpMaximumPhysicalMemoryAddress);
-  if ( !v11 )
-  {
-    if ( (unsigned __int8)v12 < 0x1Eu )
-    {
-      v13 = 32;
-      goto LABEL_9;
-    }
-    if ( (unsigned __int8)v12 < 0x3Fu )
-    {
-      v13 = v12 + 2;
-      goto LABEL_9;
-    }
-  }
-  v13 = 64;
-LABEL_9:
-  if ( v2 )
-  {
-    v32 = v13;
-    if ( v13 > v10 )
-      v32 = v10;
-    v13 = v32;
-  }
+    v20 = 32;
 LABEL_10:
-  if ( v13 < 0x40u )
-    v9 = (1LL << v13) - 1;
-  v14 = -1;
-  if ( v9 > v33 )
-    v9 = v33;
-  v38 = 0;
-  v11 = !_BitScanReverse64((unsigned __int64 *)&v15, v9);
-  if ( !v11 )
-    v14 = v15;
-  v16 = 0;
-  v17 = v14;
-  v18 = *(_QWORD *)(a1 + 544);
-  v19 = v17 + 1;
-  v38 = v19;
-  if ( v18 )
-  {
-    if ( (*(int (__fastcall **)(__int64, __int64, int *, __int16 *))(HalpDmaIommuInterfaceFcnTable + 208))(
-           v18,
-           3LL,
-           &v37,
-           &v35) < 0 )
-      goto LABEL_52;
-    v16 = v35;
-    v19 = v38;
+    v15 = (1LL << v20) - 1;
+    goto LABEL_11;
   }
-  if ( !v2 )
+  if ( (unsigned __int8)v19 >= 0x3Fu )
+    v20 = 64;
+  else
+    v20 = v19 + 2;
+  if ( (unsigned __int8)v20 < 0x40u )
+    goto LABEL_10;
+LABEL_11:
+  if ( v15 <= v5 )
+    v5 = v15;
+  v16 = !_BitScanReverse64((unsigned __int64 *)&v21, v5);
+  if ( !v16 )
+    v18 = v21;
+  if ( a3 )
   {
-    v20 = 1;
-    v21 = 0LL;
-    v22 = 0LL;
-    v23 = 0LL;
-    goto LABEL_19;
+    if ( a3 == 2 )
+    {
+      if ( (int)HalpLaInitializeState((unsigned int)v18 + 1, v11 + 48) < 0 )
+      {
+LABEL_35:
+        HalpDmaDereferenceDomainObject(v11);
+        return 0LL;
+      }
+      *(_QWORD *)(v11 + 56) = 0LL;
+      v9 = 1;
+    }
+    DmaDomain = HalpIommuAllocateDmaDomain(a3, 1, (__int64 *)(v11 + 40));
+    if ( DmaDomain < 0 )
+      goto LABEL_33;
   }
-  if ( v2 == 1 || v2 == 2 )
+  *(_DWORD *)(v11 + 64) = a3;
+  *(_QWORD *)(v11 + 16) = v5;
+  *(_QWORD *)(v11 + 96) = 0LL;
+  *(_QWORD *)(v11 + 24) = *a2;
+  *(_QWORD *)(v11 + 80) = 0LL;
+  *(_QWORD *)(v11 + 88) = 0LL;
+  *(_QWORD *)(v11 + 120) = 0LL;
+  *(_QWORD *)(v11 + 112) = v11 + 104;
+  *(_QWORD *)(v11 + 104) = v11 + 104;
+  if ( a3 == 2 )
+    DmaDomain = HalpDmaAddReservedRangesToDomain(v11, a5);
+  if ( DmaDomain < 0 )
   {
-    v20 = 0;
-LABEL_45:
-    if ( v2 == 1 )
-      goto LABEL_48;
-    goto LABEL_46;
+LABEL_33:
+    if ( v9 )
+      HalpLaFreeState(*(_QWORD *)(v11 + 48));
+    goto LABEL_35;
   }
-  if ( v2 != 3 )
-  {
-    v20 = 4;
-    goto LABEL_45;
-  }
-  v20 = v16 != 0 ? 3 : 0;
-LABEL_46:
-  LODWORD(v39) = 1;
-  HIDWORD(v39) = v19;
-  if ( v2 == 3 )
-  {
-    ReservedRegionsForTranslateDomain = HalpDmaGetReservedRegionsForTranslateDomain(*(_QWORD *)(a1 + 536), v5 + 33);
-  }
-  else if ( v2 == 2 )
-  {
-    ReservedRegionsForTranslateDomain = HalpDmaGetReservedRegionsForHybridPassthroughDomain(*(_QWORD *)(a1 + 528));
-    v23 = 0xC000000000000000uLL;
-    goto LABEL_49;
-  }
-LABEL_48:
-  v23 = 0x8000000000000000uLL;
-LABEL_49:
-  v21 = ReservedRegionsForTranslateDomain;
-  v22 = &v39;
-LABEL_19:
-  if ( (*(int (__fastcall **)(_QWORD, unsigned __int64, __int64 *, __int64, ULONG_PTR))HalpDmaIommuInterfaceFcnTable)(
-         v20,
-         v23,
-         v22,
-         v21,
-         v5 + 40) >= 0 )
-  {
-    **(_QWORD **)(v5 + 40) = v5;
-    *(_QWORD *)(v5 + 80) = 0LL;
-    *(_QWORD *)(v5 + 24) = v34;
-    *(_DWORD *)(v5 + 48) = v2;
-    *(_QWORD *)(v5 + 16) = v9;
-    *(_QWORD *)(v5 + 64) = 0LL;
-    *(_QWORD *)(v5 + 72) = 0LL;
-    *(_QWORD *)(v5 + 104) = 0LL;
-    *(_QWORD *)(v5 + 96) = v5 + 88;
-    *(_QWORD *)(v5 + 88) = v5 + 88;
-    goto LABEL_21;
-  }
-LABEL_52:
-  HalpDmaDereferenceDomainObject(v5);
-  v5 = 0LL;
-LABEL_21:
-  if ( ReservedRegionsForTranslateDomain )
-    HalpMmAllocCtxFree(v24, ReservedRegionsForTranslateDomain, v25, v26);
-  return v5;
+  return v11;
 }

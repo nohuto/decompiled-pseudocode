@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Disconnect@CMessageConversationHost@@QEAAXXZ @ 0x1801B7624
+ * XREFs of ?Disconnect@CMessageConversationHost@@QEAAXXZ @ 0x180164348
  * Callers:
- *     ?Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800FCEE4 (-Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
- *     ?OnShutdown@CComposition@@QEAAXXZ @ 0x1801B4C44 (-OnShutdown@CComposition@@QEAAXXZ.c)
- *     ??_ECMessageConversationHost@@EEAAPEAXI@Z @ 0x1801B75D0 (--_ECMessageConversationHost@@EEAAPEAXI@Z.c)
+ *     ?Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800B3F44 (-Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
+ *     ?OnShutdown@CComposition@@QEAAXXZ @ 0x180155784 (-OnShutdown@CComposition@@QEAAXXZ.c)
+ *     ??_GCMessageConversationHost@@UEAAPEAXI@Z @ 0x1801642E0 (--_GCMessageConversationHost@@UEAAPEAXI@Z.c)
  * Callees:
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall CMessageConversationHost::Disconnect(CMessageConversationHost *this)
@@ -15,28 +15,28 @@ void __fastcall CMessageConversationHost::Disconnect(CMessageConversationHost *t
   __int64 v4; // rcx
   __int64 v5; // rcx
 
-  v2 = *((_QWORD *)this + 5);
+  v2 = *((_QWORD *)this + 6);
   if ( v2 )
   {
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v2 + 16LL))(v2);
-    *((_QWORD *)this + 5) = 0LL;
+    *((_QWORD *)this + 6) = 0LL;
   }
-  v3 = *((_QWORD *)this + 3);
+  v3 = *((_QWORD *)this + 4);
   if ( v3 )
   {
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v3 + 16LL))(v3);
-    *((_QWORD *)this + 3) = 0LL;
+    *((_QWORD *)this + 4) = 0LL;
   }
-  v4 = *((_QWORD *)this + 4);
+  v4 = *((_QWORD *)this + 5);
   if ( v4 )
   {
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
-    *((_QWORD *)this + 4) = 0LL;
+    *((_QWORD *)this + 5) = 0LL;
   }
-  v5 = *((_QWORD *)this + 2);
+  v5 = *((_QWORD *)this + 3);
   if ( v5 )
   {
     (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
-    *((_QWORD *)this + 2) = 0LL;
+    *((_QWORD *)this + 3) = 0LL;
   }
 }

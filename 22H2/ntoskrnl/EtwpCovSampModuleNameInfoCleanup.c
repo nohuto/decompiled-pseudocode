@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCovSampModuleNameInfoCleanup @ 0x1409F28B4
+ * XREFs of EtwpCovSampModuleNameInfoCleanup @ 0x140945468
  * Callers:
- *     EtwpCoverageSamplerQuery @ 0x1408AA478 (EtwpCoverageSamplerQuery.c)
- *     EtwpCovSampContextGetModule @ 0x1409F133C (EtwpCovSampContextGetModule.c)
- *     EtwpCovSampModuleCleanup @ 0x1409F2758 (EtwpCovSampModuleCleanup.c)
+ *     EtwpCovSampContextGetModule @ 0x140943470 (EtwpCovSampContextGetModule.c)
+ *     EtwpCovSampModuleCleanup @ 0x1409452C8 (EtwpCovSampModuleCleanup.c)
+ *     EtwpCoverageSamplerQuery @ 0x140946474 (EtwpCoverageSamplerQuery.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
  */
 
 void __fastcall EtwpCovSampModuleNameInfoCleanup(__int64 *a1)
@@ -26,7 +26,7 @@ void __fastcall EtwpCovSampModuleNameInfoCleanup(__int64 *a1)
     {
       UnicodeString.Buffer = (wchar_t *)(v2 & 0xFFFFFFFFFFFFFFF8uLL);
       *(_DWORD *)&UnicodeString.Length = 65537;
-      RtlFreeUnicodeString(&UnicodeString);
+      RtlFreeAnsiString(&UnicodeString);
     }
     *a1 = 0LL;
   }

@@ -1,16 +1,19 @@
 /*
- * XREFs of UsbhFdoWakePoComplete_Action @ 0x1C00074C0
+ * XREFs of UsbhFdoWakePoComplete_Action @ 0x1C000CA20
  * Callers:
  *     <none>
  * Callees:
- *     UsbhQueueWorkItemEx @ 0x1C0002868 (UsbhQueueWorkItemEx.c)
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     Log @ 0x1C0009F20 (Log.c)
- *     WPP_RECORDER_SF_ @ 0x1C002DB18 (WPP_RECORDER_SF_.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     UsbhQueueWorkItemEx @ 0x1C0017B0C (UsbhQueueWorkItemEx.c)
+ *     UsbhReleaseFdoPwrLock @ 0x1C0018364 (UsbhReleaseFdoPwrLock.c)
+ *     UsbhSetFdoPowerState @ 0x1C001CE0C (UsbhSetFdoPowerState.c)
+ *     GET_FDO_POWER_STATE @ 0x1C001CE84 (GET_FDO_POWER_STATE.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002EEF4 (WPP_RECORDER_SF_.c)
  */
 
 void __fastcall UsbhFdoWakePoComplete_Action(
-        __int64 DeviceObject,
+        PDEVICE_OBJECT DeviceObject,
         UCHAR MinorFunction,
         POWER_STATE PowerState,
         PVOID Context,
@@ -22,14 +25,14 @@ void __fastcall UsbhFdoWakePoComplete_Action(
   __int64 v9; // rbx
   KIRQL v10; // al
   int v11; // ecx
-  int Status; // r14d
+  unsigned int Status; // r14d
   int v13; // ebx
   __int64 v14; // rax
   __int64 v15; // rdx
-  __int64 v16; // rdx
-  __int64 v17; // rbx
-  __int64 v18; // rdx
-  __int64 v19; // rax
+  __int64 v16; // rbx
+  KIRQL v17; // dl
+  unsigned int v18; // eax
+  int v19; // eax
 
   v6 = FdoExt(DeviceObject);
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
@@ -54,20 +57,9 @@ void __fastcall UsbhFdoWakePoComplete_Action(
   *(_QWORD *)(v8 + 24) = KeGetCurrentThread();
   *(_QWORD *)(v9 + 1344) = v8;
   Status = IoStatus->Status;
-  if ( IoStatus->Status < 0 )
+  if ( IoStatus->Status >= 0 )
   {
-    KeSetEvent((PRKEVENT)(v6 + 4896), 0, 0);
-    FdoExt(*(_QWORD *)(v8 + 8));
-    v13 = *(_DWORD *)(FdoExt(*(_QWORD *)(v8 + 8)) + 4172);
-    v14 = FdoExt(DeviceObject);
-    v18 = ((unsigned __int8)*(_DWORD *)(v14 + 828) + 1) & 7;
-    *(_DWORD *)(v14 + 828) = v18;
-    v16 = 32 * v18;
-    *(_DWORD *)(v16 + v14 + 284) = 125;
-  }
-  else
-  {
-    Log(DeviceObject, 16, 1750548811, 0, 0LL);
+    Log((_DWORD)DeviceObject, 16, 1750548811, 0, 0LL);
     *(_DWORD *)(v6 + 2560) |= 0x20000u;
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
       WPP_RECORDER_SF_(
@@ -76,28 +68,42 @@ void __fastcall UsbhFdoWakePoComplete_Action(
         1,
         14,
         (__int64)&WPP_fe7d9686e7a73592f5b78ddce8c5363a_Traceguids);
-    FdoExt(*(_QWORD *)(v8 + 8));
-    if ( *(_DWORD *)(FdoExt(*(_QWORD *)(v8 + 8)) + 4172) == 201 )
+    if ( (unsigned int)GET_FDO_POWER_STATE(v8) == 201 )
     {
       v19 = FdoExt(DeviceObject);
-      Status = UsbhQueueWorkItemEx(DeviceObject, 1u, (int)UsbhSShResumeWorker, v19 + 1912, 0, 2001228627, 0LL);
+      Status = UsbhQueueWorkItemEx(
+                 (_DWORD)DeviceObject,
+                 1,
+                 (unsigned int)UsbhSShResumeWorker,
+                 v19 + 1912,
+                 0,
+                 2001228627,
+                 0LL);
     }
+    KeSetEvent((PRKEVENT)(v6 + 4896), 0, 0);
+    v18 = GET_FDO_POWER_STATE(v8);
+    UsbhSetFdoPowerState(DeviceObject, Status, v18, 122LL);
+    UsbhReleaseFdoPwrLock(DeviceObject, v8);
+  }
+  else
+  {
     KeSetEvent((PRKEVENT)(v6 + 4896), 0, 0);
     FdoExt(*(_QWORD *)(v8 + 8));
     v13 = *(_DWORD *)(FdoExt(*(_QWORD *)(v8 + 8)) + 4172);
     v14 = FdoExt(DeviceObject);
     v15 = ((unsigned __int8)*(_DWORD *)(v14 + 828) + 1) & 7;
     *(_DWORD *)(v14 + 828) = v15;
-    v16 = 32 * v15;
-    *(_DWORD *)(v16 + v14 + 284) = 122;
+    v15 *= 32LL;
+    *(_DWORD *)(v15 + v14 + 284) = 125;
+    *(_DWORD *)(v15 + v14 + 288) = *(_DWORD *)(v14 + 4172);
+    *(_DWORD *)(v15 + v14 + 292) = v13;
+    *(_DWORD *)(v15 + v14 + 296) = Status;
+    *(_DWORD *)(v14 + 4172) = v13;
+    v16 = FdoExt(DeviceObject);
+    FdoExt(*(_QWORD *)(v8 + 8));
+    *(_DWORD *)(v8 + 32) = 1734964085;
+    v17 = *(_BYTE *)(v16 + 5064);
+    *(_QWORD *)(v16 + 1344) = 0LL;
+    KeReleaseSpinLock((PKSPIN_LOCK)(v16 + 5056), v17);
   }
-  *(_DWORD *)(v16 + v14 + 288) = *(_DWORD *)(v14 + 4172);
-  *(_DWORD *)(v16 + v14 + 292) = v13;
-  *(_DWORD *)(v16 + v14 + 296) = Status;
-  *(_DWORD *)(v14 + 4172) = v13;
-  v17 = FdoExt(DeviceObject);
-  FdoExt(*(_QWORD *)(v8 + 8));
-  *(_DWORD *)(v8 + 32) = 1734964085;
-  *(_QWORD *)(v17 + 1344) = 0LL;
-  KeReleaseSpinLock((PKSPIN_LOCK)(v17 + 5056), *(_BYTE *)(v17 + 5064));
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of MmGetTotalCommitLimit @ 0x1400F0CF4
+ * XREFs of MmGetTotalCommitLimit @ 0x1400F0D14
  * Callers:
  *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     ExpQuerySystemPerformanceInformation @ 0x14066CFFC (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x14066CFDC (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     <none>
  */

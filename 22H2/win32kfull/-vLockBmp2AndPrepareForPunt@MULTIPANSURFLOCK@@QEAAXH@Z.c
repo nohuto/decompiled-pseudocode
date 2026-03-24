@@ -1,7 +1,7 @@
 /*
- * XREFs of ?vLockBmp2AndPrepareForPunt@MULTIPANSURFLOCK@@QEAAXH@Z @ 0x1C029D780
+ * XREFs of ?vLockBmp2AndPrepareForPunt@MULTIPANSURFLOCK@@QEAAXH@Z @ 0x1C02966EC
  * Callers:
- *     ??0MULTIPANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@1PEAU_RECTL@@2PEAHPEAU_CLIPOBJ@@@Z @ 0x1C029B2EC (--0MULTIPANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@1PEAU_RECTL@@2PEAHPEAU_CLIPOBJ@@@Z.c)
+ *     ??0MULTIPANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@1PEAU_RECTL@@2PEAHPEAU_CLIPOBJ@@@Z @ 0x1C02941D4 (--0MULTIPANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@1PEAU_RECTL@@2PEAHPEAU_CLIPOBJ@@@Z.c)
  * Callees:
  *     <none>
  */
@@ -19,6 +19,7 @@ void __fastcall MULTIPANSURFLOCK::vLockBmp2AndPrepareForPunt(MULTIPANSURFLOCK *t
   EngAcquireSemaphore(*(HSEMAPHORE *)(*(_QWORD *)(v5 + 32) + 776LL));
   dhsurf = (DHSURF)*((_QWORD *)this + 3);
   if ( !*((_DWORD *)dhsurf + 5) )
+  {
     EngModifySurface(
       *(HSURF *)(*((_QWORD *)this + 2) + 8LL),
       *(HDEV *)(*((_QWORD *)dhsurf + 4) + 48LL),
@@ -28,7 +29,9 @@ void __fastcall MULTIPANSURFLOCK::vLockBmp2AndPrepareForPunt(MULTIPANSURFLOCK *t
       *((PVOID *)dhsurf + 1),
       *((_DWORD *)dhsurf + 4),
       0LL);
-  ++*(_DWORD *)(*((_QWORD *)this + 3) + 20LL);
+    dhsurf = (DHSURF)*((_QWORD *)this + 3);
+  }
+  ++*((_DWORD *)dhsurf + 5);
   EngReleaseSemaphore(*(HSEMAPHORE *)(*(_QWORD *)(*((_QWORD *)this + 3) + 32LL) + 776LL));
   v7 = *(HSEMAPHORE *)(*((_QWORD *)this + 3) + 24LL);
   if ( a2 )

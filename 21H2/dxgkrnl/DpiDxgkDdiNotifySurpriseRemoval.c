@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiDxgkDdiNotifySurpriseRemoval @ 0x1C0396F08
+ * XREFs of DpiDxgkDdiNotifySurpriseRemoval @ 0x1C02D88B0
  * Callers:
- *     DpiFdoHandleDevicePower @ 0x1C01F0950 (DpiFdoHandleDevicePower.c)
- *     DpiFdoHandleSurpriseRemoval @ 0x1C0389F90 (DpiFdoHandleSurpriseRemoval.c)
+ *     DpiFdoHandleDevicePower @ 0x1C01771F0 (DpiFdoHandleDevicePower.c)
+ *     DpiFdoHandleSurpriseRemoval @ 0x1C02CAA20 (DpiFdoHandleSurpriseRemoval.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C0044D64 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C003A358 (McTemplateK0pqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall DpiDxgkDdiNotifySurpriseRemoval(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -18,9 +18,10 @@ __int64 __fastcall DpiDxgkDdiNotifySurpriseRemoval(__int64 a1, __int64 a2, __int
   __int64 v11; // rdx
   __int64 v12; // rcx
   __int64 v13; // r8
-  __int64 v14; // rax
-  __int64 v16; // [rsp+20h] [rbp-18h]
-  __int64 v17; // [rsp+28h] [rbp-10h]
+  __int64 v14; // r9
+  __int64 v15; // rax
+  __int64 v17; // [rsp+20h] [rbp-18h]
+  __int64 v18; // [rsp+28h] [rbp-10h]
 
   v4 = *(_BYTE *)(a3 + 3904);
   v6 = a4;
@@ -29,24 +30,24 @@ __int64 __fastcall DpiDxgkDdiNotifySurpriseRemoval(__int64 a1, __int64 a2, __int
     && *(_DWORD *)(a1 + 136) >= 0x300Du
     && (v9 = *(__int64 (__fastcall **)(__int64, _QWORD))(a1 + 792)) != 0LL )
   {
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     {
       McTemplateK0pqq_EtwWriteTransfer(a1, &EventEnterDdiNotifySurpriseRemoval, (__int64)v9, a2, a4, 0);
       v9 = *(__int64 (__fastcall **)(__int64, _QWORD))(a1 + 792);
     }
     v10 = v9(a2, (unsigned int)v6);
     v8 = v10;
-    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
     {
-      LODWORD(v17) = v10;
-      LODWORD(v16) = v6;
-      McTemplateK0pqq_EtwWriteTransfer(v12, &EventExitDdiNotifySurpriseRemoval, v13, a2, v16, v17);
+      LODWORD(v18) = v10;
+      LODWORD(v17) = v6;
+      McTemplateK0pqq_EtwWriteTransfer(v12, &EventExitDdiNotifySurpriseRemoval, v13, a2, v17, v18);
     }
-    v14 = WdLogNewEntry5_WdTrace(v12, v11);
-    *(_QWORD *)(v14 + 24) = a1;
-    *(_QWORD *)(v14 + 32) = v6;
-    *(_QWORD *)(v14 + 40) = v8;
-    *(_OWORD *)(v14 + 48) = 0LL;
+    v15 = WdLogNewEntry5_WdTrace(v12, v11, v13, v14);
+    *(_QWORD *)(v15 + 24) = a1;
+    *(_QWORD *)(v15 + 32) = v6;
+    *(_QWORD *)(v15 + 40) = v8;
+    *(_OWORD *)(v15 + 48) = 0LL;
   }
   else if ( (v4 & 0x10) != 0 )
   {

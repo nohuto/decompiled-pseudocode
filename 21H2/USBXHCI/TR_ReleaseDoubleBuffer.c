@@ -1,9 +1,8 @@
 /*
- * XREFs of TR_ReleaseDoubleBuffer @ 0x1C000E678
+ * XREFs of TR_ReleaseDoubleBuffer @ 0x1C000CA48
  * Callers:
- *     Control_Transfer_Complete @ 0x1C00062CC (Control_Transfer_Complete.c)
- *     Bulk_CompleteTransfers @ 0x1C000BAB8 (Bulk_CompleteTransfers.c)
- *     Bulk_Transfer_PrepareForCompletion @ 0x1C000E550 (Bulk_Transfer_PrepareForCompletion.c)
+ *     Bulk_CompleteTransfers @ 0x1C000C2F0 (Bulk_CompleteTransfers.c)
+ *     Bulk_Transfer_PrepareForCompletion @ 0x1C000C920 (Bulk_Transfer_PrepareForCompletion.c)
  * Callees:
  *     <none>
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of FsRtlAddToTunnelCacheEx @ 0x14079F1D0
+ * XREFs of FsRtlAddToTunnelCacheEx @ 0x1406689E0
  * Callers:
- *     FsRtlAddToTunnelCache @ 0x14093DAC0 (FsRtlAddToTunnelCache.c)
+ *     FsRtlAddToTunnelCache @ 0x14088B740 (FsRtlAddToTunnelCache.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B00 (ExAllocateFromNPagedLookasideList.c)
- *     FsRtlCompareNodeAndKey @ 0x140326C48 (FsRtlCompareNodeAndKey.c)
- *     FsRtlEmptyFreePoolList @ 0x140326CB0 (FsRtlEmptyFreePoolList.c)
- *     FsRtlFreeTunnelNode @ 0x140326D08 (FsRtlFreeTunnelNode.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     FsRtlPruneTunnelCache @ 0x14079F660 (FsRtlPruneTunnelCache.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140202C74 (ExAllocateFromNPagedLookasideList.c)
+ *     KeReleaseGuardedMutex @ 0x1402C9310 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402CA770 (ExAcquireFastMutex.c)
+ *     FsRtlCompareNodeAndKey @ 0x1402F81F8 (FsRtlCompareNodeAndKey.c)
+ *     FsRtlEmptyFreePoolList @ 0x1402F8264 (FsRtlEmptyFreePoolList.c)
+ *     FsRtlFreeTunnelNode @ 0x1402F82BC (FsRtlFreeTunnelNode.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     FsRtlPruneTunnelCache @ 0x140668D04 (FsRtlPruneTunnelCache.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall FsRtlAddToTunnelCacheEx(
-        PFAST_MUTEX FastMutex,
+char *__fastcall FsRtlAddToTunnelCacheEx(
+        PKGUARDED_MUTEX Mutex,
         unsigned __int64 a2,
         const UNICODE_STRING *a3,
         const UNICODE_STRING *a4,
@@ -23,60 +23,61 @@ __int64 __fastcall FsRtlAddToTunnelCacheEx(
         size_t Size,
         void *Src)
 {
-  __int64 v7; // rbp
-  int v9; // r14d
+  __int64 v7; // r14
+  int v9; // ebp
   const UNICODE_STRING *v10; // r15
-  const UNICODE_STRING *v11; // r13
-  PFAST_MUTEX v12; // rsi
-  __int64 result; // rax
+  const UNICODE_STRING *v11; // r12
+  PKGUARDED_MUTEX v12; // rsi
+  char *result; // rax
   int v14; // edi
   int v15; // ecx
   unsigned int v16; // edi
   char *v17; // rbx
-  PFAST_MUTEX v18; // r12
-  __int64 v19; // r14
+  PKGUARDED_MUTEX v18; // r13
+  __int64 v19; // rbp
   struct _FAST_MUTEX *v20; // rdi
   LONG v21; // eax
   __int64 v22; // rax
   struct _FAST_MUTEX *v23; // rdx
-  PFAST_MUTEX *v24; // rcx
+  PKGUARDED_MUTEX *v24; // rcx
   unsigned __int16 Length; // ax
   unsigned __int16 v26; // ax
-  char *v27; // rcx
-  _QWORD *v28; // rcx
-  _QWORD *v29; // rcx
+  unsigned __int16 v27; // cx
+  char *v28; // rcx
+  _QWORD *v29; // rax
   _QWORD *v30; // rcx
-  __int64 v31; // r8
-  _QWORD *v32; // rdx
-  __int64 v33; // rcx
-  char v34; // [rsp+20h] [rbp-68h]
-  char v35; // [rsp+28h] [rbp-60h]
-  __int64 v36[11]; // [rsp+30h] [rbp-58h] BYREF
-  int v41; // [rsp+B0h] [rbp+28h]
+  _QWORD *v31; // rcx
+  __int64 v32; // rcx
+  __int64 v33; // rdx
+  _QWORD *v34; // r8
+  char v35; // [rsp+20h] [rbp-68h]
+  char v36; // [rsp+24h] [rbp-64h]
+  __int64 v37[12]; // [rsp+28h] [rbp-60h] BYREF
+  int v42; // [rsp+B0h] [rbp+28h]
 
   v7 = 0LL;
-  v34 = 0;
+  v35 = 0;
   v9 = a5 & 2;
   v10 = a4;
   v11 = a3;
-  v41 = v9;
-  v12 = FastMutex;
-  result = a5 & 1;
-  v35 = result;
-  if ( !*(_DWORD *)((char *)&NlsMbCodePageTag + 2) )
+  v42 = v9;
+  v12 = Mutex;
+  result = (char *)(a5 & 1);
+  v36 = (char)result;
+  if ( !TunnelMaxEntries )
     return result;
   v14 = Size + a3->Length;
   v15 = a4->Length + 112;
-  v36[1] = (__int64)v36;
+  v37[1] = (__int64)v37;
   v16 = v15 + v14;
-  v36[0] = (__int64)v36;
+  v37[0] = (__int64)v37;
   if ( v16 > 0xB0 || (v17 = (char *)ExAllocateFromNPagedLookasideList(&TunnelLookasideList)) == 0LL )
   {
-    result = ExAllocatePool2(258LL, v16, 1349416276LL);
-    v17 = (char *)result;
+    result = (char *)ExAllocatePoolWithTag(PagedPool, v16, 0x506E7554u);
+    v17 = result;
     if ( !result )
       return result;
-    v34 = 1;
+    v35 = 1;
   }
   if ( !v9 )
     v11 = v10;
@@ -89,7 +90,7 @@ __int64 __fastcall FsRtlAddToTunnelCacheEx(
     do
     {
       v7 = v19;
-      v21 = FsRtlCompareNodeAndKey(v19, a2, v11, v35);
+      v21 = FsRtlCompareNodeAndKey(v19, a2, v11, v36);
       if ( v21 > 0 )
       {
         v22 = 8LL;
@@ -100,13 +101,13 @@ __int64 __fastcall FsRtlAddToTunnelCacheEx(
           break;
         v22 = 16LL;
       }
-      v20 = (struct _FAST_MUTEX *)(v19 + v22);
-      v19 = *(_QWORD *)(v19 + v22);
+      v20 = (struct _FAST_MUTEX *)(v22 + v19);
+      v19 = *(_QWORD *)(v22 + v19);
     }
     while ( v19 );
-    v12 = FastMutex;
+    v12 = Mutex;
     v10 = a4;
-    v18 = FastMutex + 1;
+    v18 = Mutex + 1;
   }
   *(_QWORD *)v17 = v17;
   *((_QWORD *)v17 + 1) = 0LL;
@@ -117,33 +118,39 @@ __int64 __fastcall FsRtlAddToTunnelCacheEx(
     {
       *((_QWORD *)v17 + 2) = *(_QWORD *)(*(_QWORD *)&v20->Count + 16LL);
       *((_QWORD *)v17 + 1) = *(_QWORD *)(*(_QWORD *)&v20->Count + 8LL);
-      v28 = *(_QWORD **)(*(_QWORD *)&v20->Count + 16LL);
-      if ( v28 )
-        *v28 = v17;
-      v29 = *(_QWORD **)(*(_QWORD *)&v20->Count + 8LL);
-      if ( v29 )
-        *v29 = v17;
-      v30 = **(_QWORD ***)&v20->Count;
-      if ( v30 == *(_QWORD **)&v20->Count )
+      v29 = *(_QWORD **)&v20->Count;
+      v30 = *(_QWORD **)(*(_QWORD *)&v20->Count + 16LL);
+      if ( v30 )
+      {
+        *v30 = v17;
+        v29 = *(_QWORD **)&v20->Count;
+      }
+      v31 = (_QWORD *)v29[1];
+      if ( v31 )
+      {
+        *v31 = v17;
+        v29 = *(_QWORD **)&v20->Count;
+      }
+      if ( (_QWORD *)*v29 == v29 )
       {
         *(_QWORD *)&v18->Count = v17;
       }
       else
       {
-        *(_QWORD *)v17 = v30;
-        v33 = **(_QWORD **)&v20->Count;
-        if ( *(_QWORD *)(v33 + 8) == *(_QWORD *)&v20->Count )
-          *(_QWORD *)(v33 + 8) = v17;
+        *(_QWORD *)v17 = *v29;
+        v32 = **(_QWORD **)&v20->Count;
+        if ( *(_QWORD *)(v32 + 8) == *(_QWORD *)&v20->Count )
+          *(_QWORD *)(v32 + 8) = v17;
         else
-          *(_QWORD *)(v33 + 16) = v17;
+          *(_QWORD *)(v32 + 16) = v17;
       }
-      v31 = *(_QWORD *)(v7 + 24);
-      if ( *(_QWORD *)(v31 + 8) != v7 + 24 || (v32 = *(_QWORD **)(v7 + 32), *v32 != v7 + 24) )
+      v33 = *(_QWORD *)(v7 + 24);
+      if ( *(_QWORD *)(v33 + 8) != v7 + 24 || (v34 = *(_QWORD **)(v7 + 32), *v34 != v7 + 24) )
 LABEL_39:
         __fastfail(3u);
-      *v32 = v31;
-      *(_QWORD *)(v31 + 8) = v32;
-      FsRtlFreeTunnelNode((char *)v7, v36);
+      *v34 = v33;
+      *(_QWORD *)(v33 + 8) = v34;
+      FsRtlFreeTunnelNode((char *)v7, v37);
       --LOWORD(v12[1].Event.Header.Lock);
     }
     else
@@ -158,8 +165,8 @@ LABEL_39:
   }
   v23 = (struct _FAST_MUTEX *)(v17 + 24);
   *((_QWORD *)v17 + 5) = MEMORY[0xFFFFF78000000014];
-  v24 = *(PFAST_MUTEX **)&v12[1].Contention;
-  if ( *v24 != (PFAST_MUTEX)&v12[1].Owner )
+  v24 = *(PKGUARDED_MUTEX **)&v12[1].Contention;
+  if ( *v24 != (PKGUARDED_MUTEX)&v12[1].Owner )
     goto LABEL_39;
   *(_QWORD *)&v23->Count = (char *)v12 + 64;
   *((_QWORD *)v17 + 4) = v24;
@@ -167,7 +174,7 @@ LABEL_39:
   *(_QWORD *)&v12[1].Contention = v23;
   ++LOWORD(v12[1].Event.Header.Lock);
   *((_QWORD *)v17 + 6) = a2;
-  *((_DWORD *)v17 + 14) = v41 != 0 ? 2 : 0;
+  *((_DWORD *)v17 + 14) = v42 != 0 ? 2 : 0;
   *((_QWORD *)v17 + 11) = v17 + 112;
   *((_QWORD *)v17 + 9) = &v17[a3->Length + 112];
   Length = a3->Length;
@@ -178,15 +185,19 @@ LABEL_39:
   *((_WORD *)v17 + 32) = v26;
   if ( a3->Length )
     memmove(v17 + 112, a3->Buffer, a3->Length);
+  v27 = v10->Length;
   if ( v10->Length )
+  {
     memmove(*((void **)v17 + 9), v10->Buffer, v10->Length);
-  v27 = &v17[a3->Length + 112 + v10->Length];
-  *((_QWORD *)v17 + 12) = v27;
+    v27 = v10->Length;
+  }
+  v28 = &v17[a3->Length + 112 + v27];
+  *((_QWORD *)v17 + 12) = v28;
   *((_DWORD *)v17 + 26) = Size;
-  memmove(v27, Src, (unsigned int)Size);
-  if ( v34 )
+  memmove(v28, Src, (unsigned int)Size);
+  if ( v35 )
     *((_DWORD *)v17 + 14) |= 1u;
-  FsRtlPruneTunnelCache(v12, v36);
-  ExReleaseFastMutex(v12);
-  return (__int64)FsRtlEmptyFreePoolList((_QWORD **)v36);
+  FsRtlPruneTunnelCache(v12, v37);
+  KeReleaseGuardedMutex(v12);
+  return (char *)FsRtlEmptyFreePoolList((_QWORD **)v37);
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlReleaseHeaderMutex @ 0x1402AE130
+ * XREFs of FsRtlReleaseHeaderMutex @ 0x140348BA0
  * Callers:
- *     FsRtlReleaseEofLock @ 0x140358CC0 (FsRtlReleaseEofLock.c)
- *     FsRtlpWaitForIoAtEof @ 0x14035D3E0 (FsRtlpWaitForIoAtEof.c)
+ *     FsRtlpWaitForIoAtEof @ 0x140290A2C (FsRtlpWaitForIoAtEof.c)
+ *     FsRtlReleaseEofLock @ 0x1402EEC80 (FsRtlReleaseEofLock.c)
  * Callees:
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExpReleaseFastMutexContended @ 0x140359548 (ExpReleaseFastMutexContended.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseFastMutexContended @ 0x1402F171C (ExpReleaseFastMutexContended.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall FsRtlReleaseHeaderMutex(__int64 a1, volatile signed __int32 *a2)
 {
   ULONG_PTR v2; // rbx
   unsigned __int64 v3; // rdi
-  unsigned __int32 v4; // eax
+  signed __int32 v4; // eax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -27,7 +27,7 @@ __int64 __fastcall FsRtlReleaseHeaderMutex(__int64 a1, volatile signed __int32 *
   *(_QWORD *)(v2 + 8) = 0LL;
   v4 = _InterlockedCompareExchange((volatile signed __int32 *)v2, 1, 0);
   if ( v4 )
-    ExpReleaseFastMutexContended(v2, v4);
+    ExpReleaseFastMutexContended((volatile signed __int32 *)v2, v4);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

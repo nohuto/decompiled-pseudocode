@@ -1,9 +1,9 @@
 /*
- * XREFs of PfpEventHandleOutOfBuffers @ 0x14024B820
+ * XREFs of PfpEventHandleOutOfBuffers @ 0x1402C9B20
  * Callers:
  *     <none>
  * Callees:
- *     PfFbBufferListAllocateTemporary @ 0x14024B844 (PfFbBufferListAllocateTemporary.c)
+ *     PfFbBufferListAllocateTemporary @ 0x1402C9B44 (PfFbBufferListAllocateTemporary.c)
  */
 
 __int64 __fastcall PfpEventHandleOutOfBuffers(struct _EX_RUNDOWN_REF *a1)
@@ -12,6 +12,6 @@ __int64 __fastcall PfpEventHandleOutOfBuffers(struct _EX_RUNDOWN_REF *a1)
 
   result = PfFbBufferListAllocateTemporary(a1);
   if ( (int)result < 0 )
-    ++DWORD1(xmmword_140C4EC70);
+    ++DWORD1(xmmword_140C4FED0);
   return result;
 }

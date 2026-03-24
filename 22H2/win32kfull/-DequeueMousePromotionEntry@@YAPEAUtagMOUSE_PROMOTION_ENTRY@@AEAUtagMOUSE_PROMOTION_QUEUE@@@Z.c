@@ -1,7 +1,7 @@
 /*
- * XREFs of ?DequeueMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C01F7C04
+ * XREFs of ?DequeueMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C021821C
  * Callers:
- *     ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x1C01F8818 (-xxxProcessMousePromotionQueue@@YAXXZ.c)
+ *     ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x1C0218E30 (-xxxProcessMousePromotionQueue@@YAXXZ.c)
  * Callees:
  *     <none>
  */

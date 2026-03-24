@@ -1,24 +1,21 @@
 /*
- * XREFs of ?bWorldMatrixInRange@@YAHPEAVMATRIX@@@Z @ 0x1C0017D38
+ * XREFs of ?bWorldMatrixInRange@@YAHPEAVMATRIX@@@Z @ 0x1C0095168
  * Callers:
- *     NtGdiModifyWorldTransform @ 0x1C0017DB0 (NtGdiModifyWorldTransform.c)
+ *     NtGdiModifyWorldTransform @ 0x1C0098390 (NtGdiModifyWorldTransform.c)
  * Callees:
- *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0017678 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C00986B8 (-bIsZero@EFLOAT@@QEBAHXZ.c)
  */
 
 __int64 __fastcall bWorldMatrixInRange(struct MATRIX *a1)
 {
   unsigned int v1; // r9d
   unsigned int v3; // edx
-  BOOL IsZero; // eax
+  __int64 v4; // rcx
   float *v5; // r8
-  float *v6; // r10
-  EFLOAT *v7; // r11
-  __int64 v8; // rcx
-  EFLOAT *v9; // rcx
-  EFLOAT *v10; // r10
-  unsigned int v11; // edx
-  float v12; // [rsp+38h] [rbp+10h] BYREF
+  EFLOAT *v6; // r11
+  EFLOAT *v7; // r10
+  unsigned int v8; // edx
+  float v9; // [rsp+38h] [rbp+10h] BYREF
 
   v1 = 1;
   if ( *((float *)a1 + 1) == 0.0 && *((float *)a1 + 2) == 0.0 )
@@ -27,18 +24,16 @@ __int64 __fastcall bWorldMatrixInRange(struct MATRIX *a1)
       return v1;
     return 0;
   }
-  IsZero = EFLOAT::bIsZero(a1);
-  v9 = (EFLOAT *)(v8 + 12);
-  if ( IsZero && EFLOAT::bIsZero(v9) )
+  if ( (unsigned int)EFLOAT::bIsZero(a1) && (unsigned int)EFLOAT::bIsZero((EFLOAT *)(v4 + 12)) )
   {
-    if ( EFLOAT::bIsZero(v7) || EFLOAT::bIsZero(v10) )
+    if ( (unsigned int)EFLOAT::bIsZero(v6) || (unsigned int)EFLOAT::bIsZero(v7) )
       return v3;
   }
   else
   {
-    v12 = (float)(*(float *)v9 * *v5) - (float)(*(float *)v7 * *v6);
-    if ( EFLOAT::bIsZero((EFLOAT *)&v12) )
-      return v11;
+    v9 = (float)(v5[3] * *v5) - (float)(*(float *)v6 * v5[2]);
+    if ( (unsigned int)EFLOAT::bIsZero((EFLOAT *)&v9) )
+      return v8;
   }
   return v1;
 }

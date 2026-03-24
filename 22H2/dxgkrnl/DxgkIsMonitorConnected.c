@@ -1,179 +1,156 @@
 /*
- * XREFs of DxgkIsMonitorConnected @ 0x1C02D2DF0
+ * XREFs of DxgkIsMonitorConnected @ 0x1C0224820
  * Callers:
- *     ?_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z @ 0x1C03C1AE0 (-_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z.c)
+ *     ?_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z @ 0x1C02EF524 (-_ConstructDefault@BTL_TOPOLOGY_CONSTRUCTOR@@AEAAJAEAI@Z.c)
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0002DEC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C00076A0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
- *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C0008100 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0008770 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     MonitorGetMonitorHandle @ 0x1C0183734 (MonitorGetMonitorHandle.c)
- *     MonitorGetUsageClass @ 0x1C0183844 (MonitorGetUsageClass.c)
- *     MonitorReleaseMonitorHandle @ 0x1C019DEB8 (MonitorReleaseMonitorHandle.c)
- *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C01AC934 (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
- *     MonitorIsMonitorConnected @ 0x1C01DCB78 (MonitorIsMonitorConnected.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0004EC0 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00051D8 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007DF0 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     MonitorIsMonitorConnected @ 0x1C00E67DC (MonitorIsMonitorConnected.c)
+ *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C0121C38 (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
+ *     MonitorGetMonitorHandle @ 0x1C0133530 (MonitorGetMonitorHandle.c)
+ *     MonitorReleaseMonitorHandle @ 0x1C0139140 (MonitorReleaseMonitorHandle.c)
+ *     MonitorGetUsageClass @ 0x1C0149F54 (MonitorGetUsageClass.c)
  */
 
-__int64 __fastcall DxgkIsMonitorConnected(struct _LUID a1, unsigned int a2, char a3, char a4, bool *a5)
+__int64 __fastcall DxgkIsMonitorConnected(struct _LUID a1, __int64 a2, unsigned __int8 a3, char a4, bool *a5)
 {
-  __int64 v6; // r14
+  __int64 v6; // r15
+  __int64 v9; // rax
   DXGGLOBAL *Global; // rax
-  DXGADAPTER *v10; // rax
-  __int64 v11; // rdi
-  __int64 LowPart; // rdi
-  __int64 HighPart; // rbx
-  const wchar_t *v14; // r9
+  DXGADAPTER *v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
   __int64 v15; // rsi
-  __int64 UsageClass; // r15
-  int v17; // eax
-  __int64 v18; // r8
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rax
+  __int64 v22; // rdx
+  __int64 UsageClass; // rdi
+  int v24; // eax
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  _QWORD *v27; // rax
+  __int64 v28; // rax
   int IsMonitorConnected; // eax
-  __int64 v20; // r8
-  const wchar_t *v21; // r9
+  __int64 v30; // rcx
   int MonitorHandle; // eax
-  __int64 v23; // r9
-  __int64 v24; // [rsp+28h] [rbp-D8h]
-  __int64 v25; // [rsp+30h] [rbp-D0h]
-  __int64 v26; // [rsp+38h] [rbp-C8h]
-  _BYTE v27[8]; // [rsp+50h] [rbp-B0h] BYREF
-  struct _LUID v28; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned __int64 v29[2]; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE v30[144]; // [rsp+70h] [rbp-90h] BYREF
+  __int64 HighPart; // rcx
+  __int64 v33; // rbx
+  __int64 v34; // rcx
+  __int64 v35; // [rsp+38h] [rbp-91h] BYREF
+  struct _LUID v36; // [rsp+40h] [rbp-89h] BYREF
+  unsigned __int64 v37[2]; // [rsp+48h] [rbp-81h] BYREF
+  _BYTE v38[144]; // [rsp+58h] [rbp-71h] BYREF
 
-  v27[0] = a4;
-  v6 = a2;
-  v28 = a1;
+  v6 = (unsigned int)a2;
+  v36 = a1;
   if ( !a5 )
   {
-    WdLogSingleEntry1(2LL, 9770LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specifies a NULL pHasMonitorConnected in DxgkIsMonitorConnected function.",
-      9770LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v9 = ((__int64 (__fastcall *)(_QWORD, _QWORD))WdLogNewEntry5_WdError)(a1, a2);
+    *(_QWORD *)(v9 + 24) = 9319LL;
+LABEL_3:
+    WdLogEvent5_WdError(v9);
     return 3221225485LL;
   }
   *a5 = 0;
-  Global = DXGGLOBAL::GetGlobal();
-  v10 = DXGGLOBAL::ReferenceAdapterByLuid(Global, a1, v29);
-  v11 = (__int64)v10;
-  if ( !v10 )
+  Global = DXGGLOBAL::GetGlobal(*(_QWORD *)&a1, a2);
+  v12 = DXGGLOBAL::ReferenceAdapterByLuid(Global, a1, v37);
+  v15 = (__int64)v12;
+  if ( !v12 )
   {
-    WdLogSingleEntry2(2LL, v28.HighPart, a1.LowPart);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to reference adapter by LUID (0x%I64x%08I64x) in DxgkIsMonitorConnected function.",
-      v28.HighPart,
-      a1.LowPart,
-      0LL,
-      0LL,
-      0LL);
-    return 3221225485LL;
+    v9 = WdLogNewEntry5_WdError(v14, v13);
+    *(_QWORD *)(v9 + 24) = v36.HighPart;
+    *(_QWORD *)(v9 + 32) = a1.LowPart;
+    goto LABEL_3;
   }
-  if ( DXGADAPTER::IsCoreResourceSharedOwner(v10) )
+  if ( DXGADAPTER::IsCoreResourceSharedOwner(v12) )
   {
-    WdLogSingleEntry1(1LL, 9791LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"!pAdapter->IsCoreResourceSharedOwner()",
-      9791LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v18 = WdLogNewEntry5_WdAssertion(v17, v16);
+    *(_QWORD *)(v18 + 24) = 9340LL;
+    WdLogEvent5_WdAssertion(v18);
   }
-  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v30, (struct DXGADAPTER *const)v11, 0LL);
-  DXGADAPTER::ReleaseReference((DXGADAPTER *)v11);
-  if ( !*(_QWORD *)(v11 + 2920) )
+  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v38, (struct DXGADAPTER *const)v15, 0LL);
+  DXGADAPTER::ReleaseReference((DXGADAPTER *)v15);
+  if ( *(_QWORD *)(v15 + 2696) )
   {
-    LowPart = a1.LowPart;
-    HighPart = v28.HighPart;
-    WdLogSingleEntry2(2LL, v28.HighPart, (unsigned int)LowPart);
-    v14 = L"Caller specified adapter (0x%I64x%08I64x) in DxgkIsMonitorConnected function is NOT a display adapter.";
-    v15 = 0LL;
-    LODWORD(UsageClass) = -1073741811;
-LABEL_12:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v14, HighPart, LowPart, v15, 0LL, 0LL);
-    goto LABEL_26;
-  }
-  v17 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v30, 0LL);
-  LODWORD(UsageClass) = v17;
-  if ( v17 < 0 )
-  {
-    LowPart = a1.LowPart;
-    HighPart = v28.HighPart;
-    v15 = v17;
-    WdLogSingleEntry3(2LL, v28.HighPart, (unsigned int)LowPart, v17);
-    v14 = L"Failed to acquire shared access on adapter luid (0x%I64x::0x%I64x) with status (0x%I64x)";
-    goto LABEL_12;
-  }
-  if ( !*(_BYTE *)(v11 + 2833) )
-  {
-    LOBYTE(v18) = a3;
-    IsMonitorConnected = MonitorIsMonitorConnected(v11, (unsigned int)v6, v18, a5);
-    UsageClass = IsMonitorConnected;
-    if ( IsMonitorConnected >= 0 )
+    v24 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v38, 0LL);
+    UsageClass = v24;
+    if ( v24 >= 0 )
     {
-      if ( !*a5 || v27[0] )
-        goto LABEL_26;
-      v29[0] = 0LL;
-      LOBYTE(v20) = a3;
-      MonitorHandle = MonitorGetMonitorHandle(v11, (unsigned int)v6, v20, DxgkIsMonitorConnected, v29);
+      if ( *(_BYTE *)(v15 + 2609) )
+      {
+        v28 = WdLogNewEntry5_WdEvent(v26, v25);
+        *(_QWORD *)(v28 + 24) = v36.HighPart;
+        *(_QWORD *)(v28 + 32) = a1.LowPart;
+        WdLogEvent5_WdEvent(v28);
+        LODWORD(UsageClass) = -1073741130;
+        goto LABEL_23;
+      }
+      IsMonitorConnected = MonitorIsMonitorConnected(v15, (unsigned int)v6, a3, a5);
+      UsageClass = IsMonitorConnected;
+      if ( IsMonitorConnected < 0 )
+        goto LABEL_18;
+      if ( !*a5 || a4 )
+        goto LABEL_23;
+      v37[0] = 0LL;
+      MonitorHandle = MonitorGetMonitorHandle(
+                        v15,
+                        (unsigned int)v6,
+                        a3,
+                        DxgkIsMonitorConnected,
+                        (struct HDXGMONITOR__ **)v37);
       UsageClass = MonitorHandle;
       if ( MonitorHandle >= 0 )
       {
-        v6 = v29[0];
-        v28.LowPart = 0;
-        v27[0] = 0;
-        UsageClass = (int)MonitorGetUsageClass(v29[0], &v28, v27);
-        MonitorReleaseMonitorHandle(v11, v6, DxgkIsMonitorConnected, v23);
+        v33 = v37[0];
+        v36.LowPart = 0;
+        LOBYTE(v35) = 0;
+        UsageClass = (int)MonitorGetUsageClass((struct HDXGMONITOR__ *)v37[0], &v36, &v35);
+        MonitorReleaseMonitorHandle(v15, v33, DxgkIsMonitorConnected);
         if ( (int)UsageClass >= 0 )
         {
-          *a5 = v28.LowPart == 0;
-          goto LABEL_26;
+          *a5 = v36.LowPart == 0;
+          goto LABEL_23;
         }
-        WdLogSingleEntry2(2LL, v6, UsageClass);
-        v21 = L"Failed to check monitor HMD state on monitor 0x%I64x with status (0x%I64x)";
-        v26 = 0LL;
-        v25 = 0LL;
-        v24 = UsageClass;
+        v27 = (_QWORD *)WdLogNewEntry5_WdError(v34, v22);
+        v27[3] = v33;
+        v27[4] = UsageClass;
       }
       else
       {
-        WdLogSingleEntry4(2LL, v6, v28.HighPart, a1.LowPart, MonitorHandle);
-        v21 = L"Failed to get monitor handle on target 0x%I64x from adapter 0x%I64x0x%I64x with status (0x%I64x)";
-        v26 = UsageClass;
-        v25 = a1.LowPart;
-        v24 = v28.HighPart;
+LABEL_18:
+        v27 = (_QWORD *)WdLogNewEntry5_WdError(v30, v22);
+        HighPart = v36.HighPart;
+        v27[3] = v6;
+        v27[4] = HighPart;
+        v27[5] = a1.LowPart;
+        v27[6] = UsageClass;
       }
     }
     else
     {
-      WdLogSingleEntry4(2LL, v6, v28.HighPart, a1.LowPart, IsMonitorConnected);
-      v21 = L"Failed to check monitor connectivity on target 0x%I64x from adapter 0x%I64x0x%I64x with status (0x%I64x)";
-      v26 = UsageClass;
-      v25 = a1.LowPart;
-      v24 = v28.HighPart;
+      v27 = (_QWORD *)WdLogNewEntry5_WdError(v26, v25);
+      v27[3] = v36.HighPart;
+      v27[4] = a1.LowPart;
+      v27[5] = UsageClass;
     }
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v21, v6, v24, v25, v26, 0LL);
-    goto LABEL_26;
+    WdLogEvent5_WdError(v27);
+    goto LABEL_23;
   }
-  WdLogSingleEntry2(4LL, v28.HighPart, a1.LowPart);
-  LODWORD(UsageClass) = -1073741130;
-LABEL_26:
-  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v30);
+  v21 = WdLogNewEntry5_WdError(v20, v19);
+  *(_QWORD *)(v21 + 24) = v36.HighPart;
+  *(_QWORD *)(v21 + 32) = a1.LowPart;
+  WdLogEvent5_WdError(v21);
+  LODWORD(UsageClass) = -1073741811;
+LABEL_23:
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v38, v22);
   return (unsigned int)UsageClass;
 }

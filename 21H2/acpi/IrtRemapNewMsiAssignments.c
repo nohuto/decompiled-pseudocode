@@ -1,11 +1,11 @@
 /*
- * XREFs of IrtRemapNewMsiAssignments @ 0x1C009C92C
+ * XREFs of IrtRemapNewMsiAssignments @ 0x1C0095CE0
  * Callers:
- *     IrqArbCommitAllocation @ 0x1C009A2E0 (IrqArbCommitAllocation.c)
+ *     IrqArbCommitAllocation @ 0x1C0093900 (IrqArbCommitAllocation.c)
  * Callees:
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
- *     PcisuppGetBusSlotNumber @ 0x1C009CA64 (PcisuppGetBusSlotNumber.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
+ *     PcisuppGetBusSlotNumber @ 0x1C0095E18 (PcisuppGetBusSlotNumber.c)
  */
 
 __int64 __fastcall IrtRemapNewMsiAssignments(__int64 a1)

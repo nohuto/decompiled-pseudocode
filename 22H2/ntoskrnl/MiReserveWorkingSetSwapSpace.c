@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReserveWorkingSetSwapSpace @ 0x140A43340
+ * XREFs of MiReserveWorkingSetSwapSpace @ 0x1406FAD78
  * Callers:
- *     MmOutSwapWorkingSet @ 0x140341B10 (MmOutSwapWorkingSet.c)
- *     MmOutSwapVirtualAddresses @ 0x140652CBC (MmOutSwapVirtualAddresses.c)
+ *     MmOutSwapVirtualAddresses @ 0x1403504CC (MmOutSwapVirtualAddresses.c)
+ *     MmOutSwapWorkingSet @ 0x140350FC0 (MmOutSwapWorkingSet.c)
  * Callees:
- *     memset @ 0x140435400 (memset.c)
- *     MiFreeReservationRuns @ 0x1407B76A8 (MiFreeReservationRuns.c)
- *     MiReserveWorkingSetSwapSpaceRuns @ 0x140A433FC (MiReserveWorkingSetSwapSpaceRuns.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     MiReserveWorkingSetSwapSpaceRuns @ 0x1406FAE00 (MiReserveWorkingSetSwapSpaceRuns.c)
+ *     MiFreeReservationRuns @ 0x1406FB270 (MiFreeReservationRuns.c)
  */
 
 __int64 __fastcall MiReserveWorkingSetSwapSpace(
@@ -17,36 +17,32 @@ __int64 __fastcall MiReserveWorkingSetSwapSpace(
         unsigned int a5,
         int a6)
 {
-  unsigned int *v8; // r8
-  unsigned int v9; // ebx
+  unsigned int v6; // edi
+  unsigned int *i; // r8
   unsigned int v10; // r9d
   int v11; // r9d
   __int64 result; // rax
 
-  v8 = *(unsigned int **)(a1 + 8LL * a4 + 17056);
-  v9 = a4;
-  if ( a4 == a5 )
-    goto LABEL_6;
-  v9 = a4;
-  if ( a5 == 16 )
-    goto LABEL_6;
-  v10 = *v8;
-  if ( (v8[51] & 0x20) != 0 )
-    v11 = v10 >> 1;
-  else
-    v11 = v10 - (v10 >> 6);
-  while ( 1 )
+  v6 = a4;
+  for ( i = *(unsigned int **)(a1 + 8LL * a4 + 6944); ; i = *(unsigned int **)(a1 + 8LL * a5 + 6944) )
   {
-    result = MiReserveWorkingSetSwapSpaceRuns(a1, a6, v9, v11, (__int64)a2);
+    if ( v6 == a5 || a5 == 16 )
+    {
+      v11 = 1;
+    }
+    else
+    {
+      v10 = *i;
+      v11 = (i[51] & 0x20) != 0 ? v10 >> 1 : v10 - (v10 >> 6);
+    }
+    result = MiReserveWorkingSetSwapSpaceRuns(a1, a6, v6, v11, (__int64)a2);
     if ( !result )
       break;
-    MiFreeReservationRuns(a1, (unsigned __int64)a2);
+    MiFreeReservationRuns(a1, a2);
     memset(a2, 0, 0x50uLL);
-    if ( v9 == a5 || a5 >= 0x10 )
+    if ( v6 == a5 || a5 >= 0x10 )
       return 3221226021LL;
-    v9 = a5;
-LABEL_6:
-    v11 = 1;
+    v6 = a5;
   }
   return result;
 }

@@ -1,55 +1,55 @@
 /*
- * XREFs of PsSwapProcessWorkingSet @ 0x1409AE75C
+ * XREFs of PsSwapProcessWorkingSet @ 0x140907A30
  * Callers:
- *     MmProcessWorkingSetControl @ 0x140A43584 (MmProcessWorkingSetControl.c)
+ *     MmProcessWorkingSetControl @ 0x140689770 (MmProcessWorkingSetControl.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D660 (ExAcquireResourceSharedLite.c)
- *     ExfReleasePushLockShared @ 0x1402BD830 (ExfReleasePushLockShared.c)
- *     PspChangeProcessExecutionState @ 0x1406A6C04 (PspChangeProcessExecutionState.c)
- *     PspRequestProcessExecutionState @ 0x1406A70B8 (PspRequestProcessExecutionState.c)
- *     PspComputeExecutionState @ 0x1406A70DC (PspComputeExecutionState.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x140271AF0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402CB240 (ExAcquirePushLockSharedEx.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402CC670 (ExAcquireResourceSharedLite.c)
+ *     PspRequestProcessExecutionState @ 0x140605920 (PspRequestProcessExecutionState.c)
+ *     PspChangeProcessExecutionState @ 0x140605D50 (PspChangeProcessExecutionState.c)
  */
 
 __int64 __fastcall PsSwapProcessWorkingSet(PEPROCESS Process, char a2)
 {
   struct _KTHREAD *CurrentThread; // r15
-  signed __int64 *p_Lock; // rdi
-  char v6; // bl
+  int v5; // edi
+  signed __int64 *p_Lock; // rbx
   unsigned __int64 v7; // r14
-  __int64 v8; // rsi
-  char v9; // dl
-  unsigned int v10; // ebx
+  unsigned int v8; // eax
+  int v9; // edi
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  _DWORD *v12; // r9
+  unsigned int v13; // ebx
 
   CurrentThread = KeGetCurrentThread();
-  p_Lock = (signed __int64 *)&Process[1].Header.Lock;
-  v6 = 0;
+  v5 = 0;
   --CurrentThread->KernelApcDisable;
+  p_Lock = (signed __int64 *)&Process[1].Header.Lock;
   ExAcquirePushLockSharedEx((ULONG_PTR)&Process[1], 0LL);
-  v7 = Process[1].Affinity.StaticBitmap[16];
+  v7 = Process[1].Affinity.Bitmap[16];
   if ( v7 )
   {
-    v8 = v7 + 56;
     ExAcquireResourceSharedLite((PERESOURCE)(v7 + 56), 1u);
-    v6 = PspComputeExecutionState();
+    v5 = *(_DWORD *)(v7 + 864) != 0 ? 2 : 0;
+    if ( *(_DWORD *)(v7 + 856) )
+      v5 = 1;
   }
-  else
-  {
-    v8 = 56LL;
-  }
-  v9 = v6 | 2;
+  v8 = v5 & 0xFFFFFFFD;
+  v9 = v5 | 2;
   if ( !a2 )
-    v9 = v6 & 0xFD;
+    v9 = v8;
   PspRequestProcessExecutionState((__int64)Process, v9, 1);
   if ( v7 )
-    ExReleaseResourceLite((PERESOURCE)v8);
+    ExReleaseResourceLite((PERESOURCE)(v7 + 56));
   if ( _InterlockedCompareExchange64(p_Lock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(p_Lock);
   KeAbPostRelease((ULONG_PTR)p_Lock);
-  v10 = PspChangeProcessExecutionState(Process);
+  v13 = PspChangeProcessExecutionState(Process, v10, v11, v12);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
-  return v10;
+  return v13;
 }

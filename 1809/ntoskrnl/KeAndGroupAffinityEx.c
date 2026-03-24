@@ -1,11 +1,11 @@
 /*
- * XREFs of KeAndGroupAffinityEx @ 0x14016A2B0
+ * XREFs of KeAndGroupAffinityEx @ 0x14016A2D0
  * Callers:
  *     PnpSetDeviceAffinityThread @ 0x14000EA6C (PnpSetDeviceAffinityThread.c)
- *     KeQueryLogicalProcessorRelationship @ 0x1400DBF90 (KeQueryLogicalProcessorRelationship.c)
- *     PpmEventDomainPerfStateChange @ 0x140178490 (PpmEventDomainPerfStateChange.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x1400DBFB0 (KeQueryLogicalProcessorRelationship.c)
+ *     PpmEventDomainPerfStateChange @ 0x1401784B0 (PpmEventDomainPerfStateChange.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeAndGroupAffinityEx(unsigned __int16 *a1, __int64 a2, char *a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiVaToSoftwareWsle @ 0x1402CB5A8
+ * XREFs of MiVaToSoftwareWsle @ 0x1402CB6A8
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AC4 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
  * Callees:
  *     <none>
  */

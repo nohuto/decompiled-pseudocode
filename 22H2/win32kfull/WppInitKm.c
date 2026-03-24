@@ -1,9 +1,9 @@
 /*
- * XREFs of WppInitKm @ 0x1C0399C2C
+ * XREFs of WppInitKm @ 0x1C037A974
  * Callers:
- *     EditionInitializeWppLogging @ 0x1C00B4B60 (EditionInitializeWppLogging.c)
+ *     EditionInitializeWppLogging @ 0x1C012DD20 (EditionInitializeWppLogging.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall WppInitKm(__int64 a1, __int64 a2)

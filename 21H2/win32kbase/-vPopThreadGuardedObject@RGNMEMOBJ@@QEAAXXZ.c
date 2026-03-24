@@ -1,5 +1,5 @@
 /*
- * XREFs of ?vPopThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C0023BA0
+ * XREFs of ?vPopThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C002BAF0
  * Callers:
  *     <none>
  * Callees:

@@ -1,13 +1,13 @@
 /*
- * XREFs of TextCopy @ 0x1C0095B3C
+ * XREFs of TextCopy @ 0x1C00FD05C
  * Callers:
- *     NtUserInternalGetWindowText @ 0x1C0095900 (NtUserInternalGetWindowText.c)
- *     xxxRealDefWindowProc @ 0x1C0108B10 (xxxRealDefWindowProc.c)
- *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C013BB08 (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
- *     _GetAltTabInfo @ 0x1C01CA124 (_GetAltTabInfo.c)
- *     xxxDrawCaptionTemp @ 0x1C022C094 (xxxDrawCaptionTemp.c)
+ *     xxxRealDefWindowProc @ 0x1C0049E28 (xxxRealDefWindowProc.c)
+ *     NtUserInternalGetWindowText @ 0x1C00FCE00 (NtUserInternalGetWindowText.c)
+ *     xxxDrawCaptionTemp @ 0x1C0158B14 (xxxDrawCaptionTemp.c)
+ *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C0168AB4 (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
+ *     _GetAltTabInfo @ 0x1C01F3784 (_GetAltTabInfo.c)
  * Callees:
- *     memmove @ 0x1C0141300 (memmove.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
  */
 
 __int64 __fastcall TextCopy(__int64 a1, char *a2, unsigned int a3)

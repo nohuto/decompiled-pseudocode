@@ -1,9 +1,9 @@
 /*
- * XREFs of Controller_AddControllerToGlobalControllerList @ 0x1C0015280
+ * XREFs of Controller_AddControllerToGlobalControllerList @ 0x1C0017A00
  * Callers:
- *     Controller_WdfEvtDeviceAdd @ 0x1C006D740 (Controller_WdfEvtDeviceAdd.c)
+ *     Controller_WdfEvtDeviceAdd @ 0x1C0070440 (Controller_WdfEvtDeviceAdd.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
  */
 
 void __fastcall Controller_AddControllerToGlobalControllerList(__int64 a1)
@@ -17,7 +17,7 @@ void __fastcall Controller_AddControllerToGlobalControllerList(__int64 a1)
     WdfDriverGlobals,
     *(_QWORD *)(a1 + 8),
     Controller_AddControllerToGlobalControllerList,
-    7472LL,
+    7452LL,
     "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\controller.c");
   v2 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(g_WdfDriverUsbXhciContext + 16));
   v3 = g_WdfDriverUsbXhciContext;

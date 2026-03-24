@@ -1,13 +1,13 @@
 /*
- * XREFs of IopReadDumpRegistry @ 0x1403CF9A0
+ * XREFs of IopReadDumpRegistry @ 0x1403BFF74
  * Callers:
- *     IoConfigureCrashDump @ 0x140551D58 (IoConfigureCrashDump.c)
- *     IopInitializeCrashDump @ 0x14084BE78 (IopInitializeCrashDump.c)
+ *     IoConfigureCrashDump @ 0x1403BFE04 (IoConfigureCrashDump.c)
+ *     IopInitializeCrashDump @ 0x1407B77E8 (IopInitializeCrashDump.c)
  * Callees:
- *     IopGetRegistryValue @ 0x14067B838 (IopGetRegistryValue.c)
- *     IopOpenRegistryKey @ 0x1406DE960 (IopOpenRegistryKey.c)
- *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
+ *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKey @ 0x140769AA4 (IopOpenRegistryKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall IopReadDumpRegistry(__int64 a1, _DWORD *a2)
@@ -34,18 +34,6 @@ NTSTATUS __fastcall IopReadDumpRegistry(__int64 a1, _DWORD *a2)
     {
       if ( MEMORY[0xC] )
         *a2 = *(_DWORD *)MEMORY[8];
-      ExFreePoolWithTag(0LL, 0);
-    }
-    if ( (int)IopGetRegistryValue(Handle) >= 0 )
-    {
-      if ( MEMORY[0xC] )
-        MinRemoveAllocSize = *(_DWORD *)MEMORY[8];
-      ExFreePoolWithTag(0LL, 0);
-    }
-    if ( (int)IopGetRegistryValue(Handle) >= 0 )
-    {
-      if ( MEMORY[0xC] )
-        UseRemovePagesArray = *(_DWORD *)MEMORY[8];
       ExFreePoolWithTag(0LL, 0);
     }
     return ObCloseHandle(Handle, 0);

@@ -1,32 +1,31 @@
 /*
- * XREFs of NtReplyWaitReceivePortEx @ 0x14071BAA0
+ * XREFs of NtReplyWaitReceivePortEx @ 0x1405EAA60
  * Callers:
- *     NtReplyWaitReceivePort @ 0x14071BA80 (NtReplyWaitReceivePort.c)
- *     NtListenPort @ 0x140864AC0 (NtListenPort.c)
+ *     NtReplyWaitReceivePort @ 0x1405EABC0 (NtReplyWaitReceivePort.c)
+ *     NtListenPort @ 0x1407D41A0 (NtListenPort.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     memset @ 0x140435400 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1406E6370 (ObReferenceObjectByHandle.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x14071B668 (AlpcpReplyLegacySynchronousRequest.c)
- *     AlpcpReceiveLegacyMessage @ 0x14071BC00 (AlpcpReceiveLegacyMessage.c)
- *     AlpcpCompleteDeferSignalRequest @ 0x14071BEEC (AlpcpCompleteDeferSignalRequest.c)
- *     AlpcpProbeForWriteMessageHeader @ 0x14071BFD8 (AlpcpProbeForWriteMessageHeader.c)
- *     AlpcpSendMessage @ 0x1407395B0 (AlpcpSendMessage.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x1405E1BDC (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
+ *     AlpcpReceiveLegacyMessage @ 0x1405EA7A0 (AlpcpReceiveLegacyMessage.c)
+ *     AlpcpCompleteDeferSignalRequest @ 0x1405EABDC (AlpcpCompleteDeferSignalRequest.c)
+ *     AlpcpProbeForWriteMessageHeader @ 0x1405EAC18 (AlpcpProbeForWriteMessageHeader.c)
+ *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, __int64 a2, unsigned __int64 a3, __int64 a4, __int64 a5)
+__int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, _QWORD *a2, __m256i *a3, unsigned __int64 a4, __int64 *a5)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r14
-  NTSTATUS v11; // ebx
-  __int64 v12; // r9
-  PVOID v13; // rdi
+  int v11; // ebx
+  struct _DMA_ADAPTER *v12; // rdi
   int v14; // eax
   PVOID Object; // [rsp+30h] [rbp-68h] BYREF
-  __int64 v17[8]; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v16[8]; // [rsp+40h] [rbp-58h] BYREF
 
-  memset(v17, 0, sizeof(v17));
+  memset(v16, 0, sizeof(v16));
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
@@ -36,28 +35,27 @@ __int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, __int64 a2, unsigned 
   v11 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v11 >= 0 )
   {
-    v13 = Object;
-    v17[0] = (__int64)Object;
-    LODWORD(v17[6]) = 0;
+    v12 = (struct _DMA_ADAPTER *)Object;
+    v16[0] = (__int64)Object;
+    LODWORD(v16[6]) = 0;
     if ( a3
       && ((*((_DWORD *)Object + 104) & 0x2000) == 0
-        ? (LODWORD(v17[6]) = 65541,
-           memset(&v17[3], 0, 24),
-           LOBYTE(v12) = PreviousMode,
-           v14 = AlpcpSendMessage(v17, a3, 0LL, v12))
-        : (LODWORD(v17[6]) = 4, memset(&v17[3], 0, 24), v14 = AlpcpReplyLegacySynchronousRequest(v17, a3, PreviousMode)),
+        ? (LODWORD(v16[6]) = 65541, memset(&v16[3], 0, 24), v14 = AlpcpSendMessage((__int64)v16, a3, 0LL, PreviousMode))
+        : (LODWORD(v16[6]) = 4,
+           memset(&v16[3], 0, 24),
+           v14 = AlpcpReplyLegacySynchronousRequest(v16, (unsigned __int64)a3, PreviousMode)),
           v11 = v14,
           v14 < 0) )
     {
-      ObfDereferenceObject(v13);
+      HalPutDmaAdapter(v12);
       if ( v11 == -1073740029 )
         v11 = -1073741769;
     }
     else
     {
-      v11 = AlpcpReceiveLegacyMessage(v17, a4, a5, a2);
-      AlpcpCompleteDeferSignalRequest(v17);
-      ObfDereferenceObject(v13);
+      v11 = AlpcpReceiveLegacyMessage(v16, a4, a5, a2);
+      AlpcpCompleteDeferSignalRequest(v16);
+      HalPutDmaAdapter(v12);
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());

@@ -1,9 +1,9 @@
 /*
- * XREFs of GetConditionToken @ 0x1409D083C
+ * XREFs of GetConditionToken @ 0x1409272E4
  * Callers:
- *     LocalGetConditionForString @ 0x1409D1D04 (LocalGetConditionForString.c)
+ *     LocalGetConditionForString @ 0x140927EF4 (LocalGetConditionForString.c)
  * Callees:
- *     GetOperatorIndexByName @ 0x1409D1048 (GetOperatorIndexByName.c)
+ *     GetOperatorIndexByName @ 0x140927AE8 (GetOperatorIndexByName.c)
  */
 
 char __fastcall GetConditionToken(wchar_t *a1, _DWORD *a2)

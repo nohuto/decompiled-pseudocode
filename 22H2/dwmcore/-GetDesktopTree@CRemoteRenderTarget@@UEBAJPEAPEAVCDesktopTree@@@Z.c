@@ -1,29 +1,29 @@
 /*
- * XREFs of ?GetDesktopTree@CRemoteRenderTarget@@UEBAJPEAPEAVCDesktopTree@@@Z @ 0x1801C4560
+ * XREFs of ?GetDesktopTree@CRemoteRenderTarget@@UEBAJPEAPEAVCDesktopTree@@@Z @ 0x18016E490
  * Callers:
  *     <none>
  * Callees:
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C07A0 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
  */
 
 __int64 __fastcall CRemoteRenderTarget::GetDesktopTree(CRemoteRenderTarget *this, struct CDesktopTree **a2)
 {
-  __int64 v2; // rcx
+  struct CDesktopTree *v2; // rcx
   unsigned int v3; // ebx
 
-  v2 = *((_QWORD *)this + 6);
+  v2 = (struct CDesktopTree *)*((_QWORD *)this + 5);
   v3 = 0;
   if ( v2 )
   {
-    *a2 = (struct CDesktopTree *)v2;
-    CMILRefCountImpl::AddReference((CMILRefCountImpl *)(v2 + 8));
+    *a2 = v2;
+    CMILCOMBase::InternalAddRef(v2);
   }
   else
   {
     *a2 = 0LL;
     v3 = -2003292412;
-    MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0, -2003292412, 0x76u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(0LL, 0LL, 0, -2003292412, 0x71u, 0LL);
   }
   return v3;
 }

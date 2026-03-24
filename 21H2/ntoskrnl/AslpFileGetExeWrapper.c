@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpFileGetExeWrapper @ 0x140A18CD0
+ * XREFs of AslpFileGetExeWrapper @ 0x14096AFB0
  * Callers:
- *     AslpFileGetPeExportNameExeWrapper @ 0x140A19614 (AslpFileGetPeExportNameExeWrapper.c)
+ *     AslpFileGetPeExportNameExeWrapper @ 0x14096B8E0 (AslpFileGetPeExportNameExeWrapper.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406E0C3C (AslLogCallPrintf.c)
- *     AslpFileGetImageNtHeader @ 0x140A193C4 (AslpFileGetImageNtHeader.c)
- *     AslpFileHasActiveMarkWrapper @ 0x140A19738 (AslpFileHasActiveMarkWrapper.c)
- *     AslpFileHasSecuromWrapper @ 0x140A19878 (AslpFileHasSecuromWrapper.c)
- *     AslpHasStarForceWrapper @ 0x140A19CEC (AslpHasStarForceWrapper.c)
+ *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslpFileGetImageNtHeader @ 0x14096B664 (AslpFileGetImageNtHeader.c)
+ *     AslpFileHasActiveMarkWrapper @ 0x14096BA04 (AslpFileHasActiveMarkWrapper.c)
+ *     AslpFileHasSecuromWrapper @ 0x14096BB44 (AslpFileHasSecuromWrapper.c)
+ *     AslpHasStarForceWrapper @ 0x14096BDF4 (AslpHasStarForceWrapper.c)
  */
 
 __int64 __fastcall AslpFileGetExeWrapper(_DWORD *a1, __int64 a2)
@@ -22,7 +22,7 @@ __int64 __fastcall AslpFileGetExeWrapper(_DWORD *a1, __int64 a2)
   v8 = 0LL;
   if ( *(_QWORD *)(a2 + 24) >= 0x100000000uLL )
     return 0LL;
-  ImageNtHeader = AslpFileGetImageNtHeader(&v8, a2);
+  ImageNtHeader = AslpFileGetImageNtHeader(&v8);
   if ( ImageNtHeader < 0 )
     goto LABEL_4;
   v6 = v8;

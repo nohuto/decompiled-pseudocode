@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Discard@CTokenBase@@UEAAXXZ @ 0x1C0020550
+ * XREFs of ?Discard@CTokenBase@@UEAAXXZ @ 0x1C001B9E0
  * Callers:
  *     <none>
  * Callees:

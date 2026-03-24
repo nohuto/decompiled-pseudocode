@@ -1,72 +1,74 @@
 /*
- * XREFs of PopDirectedDripsDiagBroadcastTreeBegin @ 0x14099DD70
+ * XREFs of PopDirectedDripsDiagBroadcastTreeBegin @ 0x1408F6B88
  * Callers:
- *     PopDirectedDripsBuildBroadcastTreePartial @ 0x14099FE48 (PopDirectedDripsBuildBroadcastTreePartial.c)
+ *     PopDirectedDripsBuildBroadcastTreePartial @ 0x1408F8D40 (PopDirectedDripsBuildBroadcastTreePartial.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
- *     PopDirectedDripsDiagGetDeviceActiveStamp @ 0x1405A0414 (PopDirectedDripsDiagGetDeviceActiveStamp.c)
- *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14099E17C (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExfTryToWakePushLock @ 0x140271BF0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402C9370 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1402CB080 (ExAcquirePushLockExclusiveEx.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     PopDirectedDripsDiagGetDeviceActiveStamp @ 0x14057C688 (PopDirectedDripsDiagGetDeviceActiveStamp.c)
+ *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x1408F6FA0 (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-signed __int32 __fastcall PopDirectedDripsDiagBroadcastTreeBegin(__int64 a1, int a2, __int64 *a3)
+char __fastcall PopDirectedDripsDiagBroadcastTreeBegin(__int64 a1, char a2, __int64 *a3)
 {
   __int64 DeviceDiagnostic; // rdi
-  PVOID *v7; // rax
-  int v8; // esi
+  int v7; // esi
+  PVOID *v8; // rax
   __int64 v9; // rbx
-  __int64 Pool2; // rax
+  PVOID PoolWithTag; // rax
   __int64 *v11; // rax
-  __int64 DeviceActiveStamp; // rax
-  int v13; // r14d
+  char v12; // al
 
   *a3 = 0LL;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopDirectedDripsDiagLock, 0LL);
   DeviceDiagnostic = *(_QWORD *)(a1 + 776);
   if ( DeviceDiagnostic || (DeviceDiagnostic = PopDirectedDripsDiagCreateDeviceDiagnostic(a1)) != 0 )
   {
-    if ( *(_DWORD *)(DeviceDiagnostic + 148) == -1 )
-      *(_DWORD *)(DeviceDiagnostic + 148) = dword_140C390E4++;
-    v7 = (PVOID *)PopDirectedDripsDiagSessionContext;
-    v8 = *(_DWORD *)(DeviceDiagnostic + 148);
+    v7 = *(_DWORD *)(DeviceDiagnostic + 148);
+    if ( v7 == -1 )
+    {
+      *(_DWORD *)(DeviceDiagnostic + 148) = dword_140C1EBC4++;
+      v7 = *(_DWORD *)(DeviceDiagnostic + 148);
+    }
+    v8 = (PVOID *)PopDirectedDripsDiagSessionContext;
     if ( PopDirectedDripsDiagSessionContext == &PopDirectedDripsDiagSessionContext )
       goto LABEL_9;
     do
     {
-      v9 = (__int64)v7;
-      if ( *((_DWORD *)v7 + 8) == v8 )
+      v9 = (__int64)v8;
+      if ( *((_DWORD *)v8 + 8) == v7 )
         break;
-      v7 = (PVOID *)*v7;
+      v8 = (PVOID *)*v8;
       v9 = 0LL;
     }
-    while ( v7 != &PopDirectedDripsDiagSessionContext );
+    while ( v8 != &PopDirectedDripsDiagSessionContext );
     if ( !v9 )
     {
 LABEL_9:
-      Pool2 = ExAllocatePool2(256LL, 232LL, 1734960208LL);
-      v9 = Pool2;
-      if ( !Pool2 )
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0xE8uLL, 0x67696450u);
+      v9 = (__int64)PoolWithTag;
+      if ( !PoolWithTag )
         goto LABEL_14;
-      *(_DWORD *)(Pool2 + 32) = v8;
-      *(_QWORD *)(Pool2 + 16) = DeviceDiagnostic;
-      v11 = (__int64 *)qword_140C38EC8;
-      if ( *(PVOID **)qword_140C38EC8 != &PopDirectedDripsDiagSessionContext )
+      memset(PoolWithTag, 0, 0xE8uLL);
+      *(_DWORD *)(v9 + 32) = v7;
+      *(_QWORD *)(v9 + 16) = DeviceDiagnostic;
+      v11 = (__int64 *)qword_140C1E9C8;
+      if ( *(PVOID **)qword_140C1E9C8 != &PopDirectedDripsDiagSessionContext )
         __fastfail(3u);
       *(_QWORD *)v9 = &PopDirectedDripsDiagSessionContext;
       *(_QWORD *)(v9 + 8) = v11;
       *v11 = v9;
-      qword_140C38EC8 = v9;
+      qword_140C1E9C8 = v9;
     }
-    DeviceActiveStamp = PopDirectedDripsDiagGetDeviceActiveStamp(*(_QWORD *)(a1 + 80));
-    v13 = (*(_DWORD *)(v9 + 40) ^ a2) & 0xF;
-    *(_QWORD *)(v9 + 48) = DeviceActiveStamp;
-    LODWORD(DeviceActiveStamp) = dword_140C390E8;
-    *(_DWORD *)(v9 + 40) ^= v13;
-    *(_DWORD *)(v9 + 36) = DeviceActiveStamp;
-    *(_DWORD *)(DeviceDiagnostic + 152) |= 0x60000u;
+    *(_QWORD *)(v9 + 48) = PopDirectedDripsDiagGetDeviceActiveStamp(*(_QWORD *)(a1 + 80));
+    *(_DWORD *)(v9 + 36) = dword_140C1EBC8;
+    v12 = a2 ^ *(_DWORD *)(v9 + 40);
     *a3 = v9;
+    *(_DWORD *)(v9 + 40) ^= v12 & 0xF;
+    *(_DWORD *)(DeviceDiagnostic + 152) |= 0x60000u;
   }
 LABEL_14:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopDirectedDripsDiagLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

@@ -1,139 +1,146 @@
 /*
- * XREFs of EmpParseTargetRules @ 0x140B563B0
+ * XREFs of EmpParseTargetRules @ 0x140A46ADC
  * Callers:
- *     EmpParseInfDatabase @ 0x140B551A0 (EmpParseInfDatabase.c)
+ *     EmpParseInfDatabase @ 0x140A455E8 (EmpParseInfDatabase.c)
  * Callees:
- *     EmpSearchTargetRuleList @ 0x14032D724 (EmpSearchTargetRuleList.c)
- *     EmpSearchRuleDatabase @ 0x14032D74C (EmpSearchRuleDatabase.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     CmpGetSectionLineIndexValueCount @ 0x140B55E34 (CmpGetSectionLineIndexValueCount.c)
- *     EmpInfParseGetGuidFromName @ 0x140B562B0 (EmpInfParseGetGuidFromName.c)
- *     EmpInfParseGetSectionLineCount @ 0x140B5635C (EmpInfParseGetSectionLineCount.c)
- *     EmpParseTargetRuleStringIndexList @ 0x140B565CC (EmpParseTargetRuleStringIndexList.c)
- *     CmpGetSectionLineIndex @ 0x140B56900 (CmpGetSectionLineIndex.c)
- *     CmpGetKeyName @ 0x140B56A20 (CmpGetKeyName.c)
+ *     EmpSearchRuleDatabase @ 0x14034AB74 (EmpSearchRuleDatabase.c)
+ *     EmpSearchTargetRuleList @ 0x14034ABAC (EmpSearchTargetRuleList.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmpGetSectionLineIndexValueCount @ 0x140A46534 (CmpGetSectionLineIndexValueCount.c)
+ *     EmpInfParseGetGuidFromName @ 0x140A469DC (EmpInfParseGetGuidFromName.c)
+ *     EmpInfParseGetSectionLineCount @ 0x140A46A88 (EmpInfParseGetSectionLineCount.c)
+ *     EmpParseTargetRuleStringIndexList @ 0x140A46D1C (EmpParseTargetRuleStringIndexList.c)
+ *     CmpGetSectionLineIndex @ 0x140A46FF4 (CmpGetSectionLineIndex.c)
+ *     CmpGetKeyName @ 0x140A47114 (CmpGetKeyName.c)
  */
 
 __int64 __fastcall EmpParseTargetRules(__int64 a1)
 {
   unsigned int v2; // ebx
-  unsigned int v3; // esi
+  unsigned int v3; // r13d
+  unsigned int v4; // ebp
   __int64 KeyName; // rax
-  _QWORD *v5; // rax
-  __int64 v6; // rdi
-  int v7; // ecx
-  int v8; // ebp
-  void *v9; // r14
-  _QWORD *v10; // r13
-  int v11; // r8d
-  unsigned int v12; // r12d
-  unsigned int v13; // r13d
-  unsigned int v14; // ebx
-  int SectionLineIndex; // eax
-  __int64 v16; // rax
-  void *Pool2; // rax
-  void *v19; // rcx
-  int v20; // [rsp+40h] [rbp-58h] BYREF
-  unsigned int SectionLineIndexValueCount; // [rsp+44h] [rbp-54h]
-  unsigned int v22; // [rsp+48h] [rbp-50h]
-  int GuidFromName; // [rsp+4Ch] [rbp-4Ch]
-  unsigned int SectionLineCount; // [rsp+50h] [rbp-48h]
-  GUID v25; // [rsp+58h] [rbp-40h] BYREF
+  _QWORD *v6; // rax
+  __int64 v7; // rdi
+  int v8; // ecx
+  int v9; // r15d
+  void *v10; // rsi
+  _QWORD *v11; // rax
+  int v12; // r8d
+  unsigned int v13; // r14d
+  PVOID v14; // rax
+  unsigned int v15; // r13d
+  unsigned int i; // ebx
+  __int64 SectionLineIndex; // rax
+  _QWORD *v18; // rax
+  PVOID PoolWithTag; // rax
+  _QWORD *v21; // r15
+  int v22; // [rsp+40h] [rbp-68h] BYREF
+  unsigned int SectionLineIndexValueCount; // [rsp+44h] [rbp-64h]
+  unsigned int SectionLineCount; // [rsp+48h] [rbp-60h]
+  _QWORD *v25; // [rsp+50h] [rbp-58h]
+  int GuidFromName; // [rsp+58h] [rbp-50h]
+  GUID v27; // [rsp+60h] [rbp-48h] BYREF
 
-  v25 = 0LL;
+  v27 = 0LL;
   v2 = 0;
   SectionLineCount = EmpInfParseGetSectionLineCount(a1, (__int64)"TargetRuleDef");
+  v3 = SectionLineCount;
   if ( SectionLineCount )
   {
-    v3 = 0;
+    v4 = 0;
     while ( 1 )
     {
       v2 = 0;
-      KeyName = CmpGetKeyName(a1, "TargetRuleDef", v3);
+      KeyName = CmpGetKeyName(a1, "TargetRuleDef", v4);
       if ( !KeyName )
-        goto LABEL_16;
-      GuidFromName = EmpInfParseGetGuidFromName(a1, (__int64)"RuleNameGuidDef", KeyName, &v25);
+        goto LABEL_17;
+      GuidFromName = EmpInfParseGetGuidFromName(a1, (__int64)"RuleNameGuidDef", KeyName, &v27);
       v2 = GuidFromName;
       if ( GuidFromName < 0 )
+        goto LABEL_17;
+      v6 = EmpSearchRuleDatabase(&v27);
+      v7 = (__int64)v6;
+      if ( !v6 )
+        goto LABEL_17;
+      v8 = *((_DWORD *)v6 + 10);
+      v9 = 0;
+      v10 = 0LL;
+      v22 = 0;
+      if ( !(*((_DWORD *)v6 + 11) + v8) )
         goto LABEL_16;
-      v5 = EmpSearchRuleDatabase(&v25);
-      v6 = (__int64)v5;
-      if ( !v5 )
-        goto LABEL_16;
-      v7 = *((_DWORD *)v5 + 10);
-      v8 = 0;
-      v9 = 0LL;
-      v20 = 0;
-      if ( !(*((_DWORD *)v5 + 11) + v7) )
-        goto LABEL_15;
-      SectionLineIndexValueCount = CmpGetSectionLineIndexValueCount(a1, (__int64)"TargetRuleDef", v3);
+      SectionLineIndexValueCount = CmpGetSectionLineIndexValueCount(a1, (__int64)"TargetRuleDef", v4);
       if ( SectionLineIndexValueCount )
         break;
-LABEL_16:
-      if ( ++v3 >= SectionLineCount )
+LABEL_17:
+      if ( ++v4 >= v3 )
         return v2;
     }
-    v10 = EmpSearchTargetRuleList(v6);
-    v12 = v11 * (*(_DWORD *)(v6 + 40) + *(_DWORD *)(v6 + 44));
-    if ( v10 )
+    v11 = EmpSearchTargetRuleList(v7);
+    v13 = v12 * (*(_DWORD *)(v7 + 44) + *(_DWORD *)(v7 + 40));
+    v25 = v11;
+    if ( v11 )
     {
-      v12 += *((_DWORD *)v10 + 6);
-      Pool2 = (void *)ExAllocatePool2(256LL, 4LL * v12, 0x74694D45u);
-      v9 = Pool2;
-      if ( !Pool2 )
+      v13 += *((_DWORD *)v11 + 6);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 4LL * v13, 0x74694D45u);
+      v10 = PoolWithTag;
+      if ( !PoolWithTag )
         return (unsigned int)-1073741670;
-      memmove(Pool2, (const void *)v10[2], 4LL * *((unsigned int *)v10 + 6));
-      v8 = *((_DWORD *)v10 + 6);
-      v19 = (void *)v10[2];
-      v20 = v8;
-      ExFreePoolWithTag(v19, 0x74694D45u);
+      memset(PoolWithTag, 0, 4LL * v13);
+      v21 = v25;
+      memmove(v10, (const void *)v25[2], 4LL * *((unsigned int *)v25 + 6));
+      v9 = *((_DWORD *)v21 + 6);
+      v22 = v9;
+      ExFreePoolWithTag((PVOID)v25[2], 0x74694D45u);
     }
     else
     {
-      v9 = (void *)ExAllocatePool2(256LL, 4LL * v12, 0x74694D45u);
-      if ( !v9 )
+      v14 = ExAllocatePoolWithTag(PagedPool, 4LL * v13, 0x74694D45u);
+      v10 = v14;
+      if ( !v14 )
         return (unsigned int)-1073741670;
+      memset(v14, 0, 4LL * v13);
+      v3 = SectionLineCount;
     }
-    v22 = 0;
-    v13 = SectionLineIndexValueCount;
+    LODWORD(v25) = 0;
     if ( SectionLineIndexValueCount )
     {
-      v14 = v22;
-      do
+      v15 = SectionLineIndexValueCount;
+      for ( i = (unsigned int)v25; i < v15; ++i )
       {
-        SectionLineIndex = CmpGetSectionLineIndex(a1, "TargetRuleDef", v3, v14);
+        SectionLineIndex = CmpGetSectionLineIndex(a1, "TargetRuleDef", v4, i);
         EmpParseTargetRuleStringIndexList(
           a1,
           SectionLineIndex,
-          *(_DWORD *)(v6 + 40),
-          *(_DWORD *)(v6 + 44),
-          (__int64)v9,
-          v12,
-          (__int64)&v20);
-        ++v14;
+          *(unsigned int *)(v7 + 40),
+          *(unsigned int *)(v7 + 44),
+          v10,
+          v13,
+          &v22);
       }
-      while ( v14 < v13 );
       v2 = GuidFromName;
-      v8 = v20;
+      v3 = SectionLineCount;
+      v9 = v22;
     }
-    if ( !v8 )
+    if ( !v9 )
     {
-      ExFreePoolWithTag(v9, 0x74694D45u);
-      goto LABEL_16;
+      ExFreePoolWithTag(v10, 0x74694D45u);
+      goto LABEL_17;
     }
-LABEL_15:
-    v16 = ExAllocatePool2(256LL, 0x28uLL, 0x74694D45u);
-    *(_DWORD *)v16 = 0;
+LABEL_16:
+    v18 = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x74694D45u);
+    *(_DWORD *)v18 = 0;
     ++EmpNumberOfTargetRules;
-    *(_QWORD *)(v16 + 8) = v6;
-    *(_QWORD *)(v16 + 16) = v9;
-    *(_DWORD *)(v16 + 24) = v8;
-    *(_QWORD *)(v16 + 32) = EmpTargetRuleListHead;
-    EmpTargetRuleListHead = v16 + 32;
-    goto LABEL_16;
+    v18[1] = v7;
+    v18[2] = v10;
+    *((_DWORD *)v18 + 6) = v9;
+    v18[4] = EmpTargetRuleListHead;
+    EmpTargetRuleListHead = (__int64)(v18 + 4);
+    goto LABEL_17;
   }
   return v2;
 }

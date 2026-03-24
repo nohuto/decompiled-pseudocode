@@ -1,25 +1,26 @@
 /*
- * XREFs of EmpClientRuleRegisterNotification @ 0x14092C834
+ * XREFs of EmpClientRuleRegisterNotification @ 0x140889DF4
  * Callers:
- *     EmClientRuleRegisterNotification @ 0x14092C810 (EmClientRuleRegisterNotification.c)
+ *     EmClientRuleRegisterNotification @ 0x140889DD0 (EmClientRuleRegisterNotification.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     EmpSearchTargetRuleList @ 0x1402DCBD4 (EmpSearchTargetRuleList.c)
- *     EmpSearchRuleDatabase @ 0x1402DCBFC (EmpSearchRuleDatabase.c)
- *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     EmpQueueRuleUpdateState @ 0x1403C45F0 (EmpQueueRuleUpdateState.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     EmpSearchRuleDatabase @ 0x140281B64 (EmpSearchRuleDatabase.c)
+ *     EmpSearchTargetRuleList @ 0x140281B9C (EmpSearchTargetRuleList.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     EmpQueueRuleUpdateState @ 0x1403B41C8 (EmpQueueRuleUpdateState.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EmpClientRuleRegisterNotification(PVOID Object, __int64 a2, unsigned int a3, _QWORD *a4)
 {
   __int64 v5; // r14
-  unsigned int v8; // edi
-  _QWORD *Pool2; // rsi
-  __int64 v10; // rax
+  _QWORD *PoolWithTag; // rsi
+  unsigned int v9; // edi
+  PVOID v10; // rax
   __int64 v11; // rbp
   __int64 v12; // r11
   _QWORD *v13; // rcx
@@ -27,105 +28,109 @@ __int64 __fastcall EmpClientRuleRegisterNotification(PVOID Object, __int64 a2, u
   volatile signed __int32 *v15; // rax
   __int64 v16; // r10
   __int64 v17; // r11
-  __int64 v18; // rdx
-  _QWORD *v19; // rcx
+  volatile signed __int32 *v18; // r9
+  __int64 v19; // r8
   _QWORD *v20; // rdx
-  char *v21; // rcx
-  void *v22; // r8
-  __int64 v23; // rax
-  __int64 v24; // r9
-  volatile signed __int32 *v25; // rdx
+  _QWORD *v21; // rax
+  char *v22; // rcx
+  char *v23; // r8
+  __int64 v24; // rax
+  __int64 v25; // r9
+  volatile signed __int32 *v26; // rdx
 
   v5 = a3;
-  v8 = 0;
+  PoolWithTag = 0LL;
+  v9 = 0;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&EmpDatabaseLock, 0LL);
   if ( a4 && (_DWORD)v5 && a2 )
   {
-    Pool2 = (_QWORD *)ExAllocatePool2(256LL, 24LL, 1818447173LL);
-    if ( Pool2 )
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x6C634D45u);
+    if ( !PoolWithTag )
     {
-      v10 = ExAllocatePool2(256LL, (unsigned int)(40 * v5), 1818447173LL);
-      Pool2[1] = v10;
-      if ( v10 )
+      v9 = -1073741670;
+      goto LABEL_33;
+    }
+    v10 = ExAllocatePoolWithTag(PagedPool, (unsigned int)(40 * v5), 0x6C634D45u);
+    PoolWithTag[1] = v10;
+    if ( !v10 )
+    {
+      v9 = -1073741670;
+      goto LABEL_23;
+    }
+    memset(v10, 0, (unsigned int)(40 * v5));
+    v11 = 0LL;
+    *((_DWORD *)PoolWithTag + 4) = v5;
+    while ( 1 )
+    {
+      v12 = (unsigned int)v11 + 2 * v11;
+      v13 = *(_QWORD **)(a2 + 8 * v12);
+      if ( !v13 || !*(_QWORD *)(a2 + 8 * v12 + 8) )
+        break;
+      v14 = EmpSearchRuleDatabase(v13);
+      if ( !v14 || (v15 = (volatile signed __int32 *)EmpSearchTargetRuleList((__int64)v14), (v18 = v15) == 0LL) )
       {
-        v11 = 0LL;
-        *((_DWORD *)Pool2 + 4) = v5;
-        do
-        {
-          v12 = (unsigned int)v11 + 2 * v11;
-          v13 = *(_QWORD **)(a2 + 8 * v12);
-          if ( !v13 || !*(_QWORD *)(a2 + 8 * v12 + 8) )
-          {
-            v8 = -1073741811;
-            goto LABEL_23;
-          }
-          v14 = EmpSearchRuleDatabase(v13);
-          if ( !v14 || (v15 = (volatile signed __int32 *)EmpSearchTargetRuleList((__int64)v14)) == 0LL )
-          {
-            v8 = -1073741275;
-            goto LABEL_23;
-          }
-          v18 = (unsigned int)v11 + 4 * v11;
-          *(_QWORD *)(Pool2[1] + 8 * v18) = v15;
-          *(_QWORD *)(Pool2[1] + 8 * v18 + 8) = *(_QWORD *)(a2 + 8 * v17 + 8);
-          *(_QWORD *)(Pool2[1] + 8 * v18 + 16) = *(_QWORD *)(a2 + 8 * v17 + 16);
-          v19 = (_QWORD *)(Pool2[1] + 24LL + 8 * v18);
-          v20 = *(_QWORD **)(v16 + 88);
-          if ( *v20 != v16 + 80 )
-            __fastfail(3u);
-          *v19 = v16 + 80;
-          v19[1] = v20;
-          *v20 = v19;
-          *(_QWORD *)(v16 + 88) = v19;
-          if ( _InterlockedIncrement(v15) == 1 )
-            EmpQueueRuleUpdateState(v16, 0LL);
-          v11 = (unsigned int)(v11 + 1);
-        }
-        while ( (unsigned int)v11 < (unsigned int)v5 );
+        v9 = -1073741275;
+        goto LABEL_23;
+      }
+      v19 = (unsigned int)v11 + 4 * v11;
+      *(_QWORD *)(PoolWithTag[1] + 8 * v19) = v15;
+      *(_QWORD *)(PoolWithTag[1] + 8 * v19 + 8) = *(_QWORD *)(a2 + 8 * v17 + 8);
+      *(_QWORD *)(PoolWithTag[1] + 8 * v19 + 16) = *(_QWORD *)(a2 + 8 * v17 + 16);
+      v20 = *(_QWORD **)(v16 + 88);
+      v21 = (_QWORD *)(PoolWithTag[1] + 24LL + 8 * v19);
+      if ( *v20 != v16 + 80 )
+        __fastfail(3u);
+      *v21 = v16 + 80;
+      v21[1] = v20;
+      *v20 = v21;
+      *(_QWORD *)(v16 + 88) = v21;
+      if ( _InterlockedIncrement(v18) == 1 )
+        EmpQueueRuleUpdateState(v16, 0LL);
+      v11 = (unsigned int)(v11 + 1);
+      if ( (unsigned int)v11 >= (unsigned int)v5 )
+      {
         if ( Object )
           ObfReferenceObject(Object);
-        *Pool2 = Object;
-        *a4 = Pool2;
+        *PoolWithTag = Object;
+        *a4 = PoolWithTag;
+        goto LABEL_33;
       }
-      else
-      {
-        v8 = -1073741670;
+    }
+  }
+  v9 = -1073741811;
 LABEL_23:
-        v21 = (char *)Pool2[1];
-        if ( v21 )
-        {
-          v22 = (void *)Pool2[1];
-          v23 = 0LL;
-          v24 = v5;
-          do
-          {
-            v25 = *(volatile signed __int32 **)&v21[v23];
-            if ( v25 )
-            {
-              _InterlockedAdd(v25, 0xFFFFFFFF);
-              v21 = (char *)Pool2[1];
-              v22 = v21;
-            }
-            v23 += 40LL;
-            --v24;
-          }
-          while ( v24 );
-          ExFreePoolWithTag(v22, 0x6C634D45u);
-        }
-        ExFreePoolWithTag(Pool2, 0x6C634D45u);
-      }
-    }
-    else
-    {
-      v8 = -1073741670;
-    }
-  }
-  else
+  if ( PoolWithTag )
   {
-    v8 = -1073741811;
+    v22 = (char *)PoolWithTag[1];
+    if ( v22 )
+    {
+      if ( (_DWORD)v5 )
+      {
+        v23 = (char *)PoolWithTag[1];
+        v24 = 0LL;
+        v25 = v5;
+        do
+        {
+          v26 = *(volatile signed __int32 **)&v22[v24];
+          if ( v26 )
+          {
+            _InterlockedAdd(v26, 0xFFFFFFFF);
+            v22 = (char *)PoolWithTag[1];
+            v23 = v22;
+          }
+          v24 += 40LL;
+          --v25;
+        }
+        while ( v25 );
+        v22 = v23;
+      }
+      ExFreePoolWithTag(v22, 0x6C634D45u);
+    }
+    ExFreePoolWithTag(PoolWithTag, 0x6C634D45u);
   }
+LABEL_33:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpDatabaseLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(&EmpDatabaseLock);
   KeAbPostRelease((ULONG_PTR)&EmpDatabaseLock);
-  return v8;
+  return v9;
 }

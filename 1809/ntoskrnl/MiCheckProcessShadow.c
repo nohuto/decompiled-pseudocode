@@ -10,14 +10,14 @@
  *     MiMakeHyperRangeAccessible @ 0x14006E3D0 (MiMakeHyperRangeAccessible.c)
  *     MiMoveDirtyBitsToPfns @ 0x140074A40 (MiMoveDirtyBitsToPfns.c)
  *     NtGetWriteWatch @ 0x140086AD0 (NtGetWriteWatch.c)
- *     MmCheckProcessShadow @ 0x140135BE0 (MmCheckProcessShadow.c)
- *     MmRemoveSystemCacheFromDump @ 0x1402AE5AC (MmRemoveSystemCacheFromDump.c)
+ *     MmCheckProcessShadow @ 0x140135C00 (MmCheckProcessShadow.c)
+ *     MmRemoveSystemCacheFromDump @ 0x1402AE6AC (MmRemoveSystemCacheFromDump.c)
  * Callees:
  *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
  *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     MiUnlockPageTableInternal @ 0x140104A70 (MiUnlockPageTableInternal.c)
- *     MiCheckRelevantKernelShadows @ 0x14012B0BC (MiCheckRelevantKernelShadows.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
+ *     MiCheckRelevantKernelShadows @ 0x14012B0DC (MiCheckRelevantKernelShadows.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCheckProcessShadow(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of ?vCharPos_G4@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEAJ@Z @ 0x1C02DAF88
+ * XREFs of ?vCharPos_G4@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEAJ@Z @ 0x1C02BE130
  * Callers:
- *     ?vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1C010DED0 (-vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
+ *     ?vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1C00951E0 (-vInit@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
  * Callees:
- *     bFToL @ 0x1C009BB20 (bFToL.c)
- *     ?bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C0111C28 (-bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
- *     ?bIs16@EFLOAT@@QEBAHXZ @ 0x1C02CF920 (-bIs16@EFLOAT@@QEBAHXZ.c)
- *     ?vGenWidths@@YAXPEAJ0AEAVEFLOAT@@1JJJJ@Z @ 0x1C02DB8A4 (-vGenWidths@@YAXPEAJ0AEAVEFLOAT@@1JJJJ@Z.c)
+ *     bFToL @ 0x1C00FB1E8 (bFToL.c)
+ *     ?bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z @ 0x1C0119460 (-bGetGlyphMetricsPlus@RFONTOBJ@@QEAAHKPEAU_GLYPHPOS@@PEAGPEAHPEAVXDCOBJ@@PEAVESTROBJ@@@Z.c)
+ *     ?bIs16@EFLOAT@@QEBAHXZ @ 0x1C014F130 (-bIs16@EFLOAT@@QEBAHXZ.c)
+ *     ?vGenWidths@@YAXPEAJ0AEAVEFLOAT@@1JJJJ@Z @ 0x1C02BE5B0 (-vGenWidths@@YAXPEAJ0AEAVEFLOAT@@1JJJJ@Z.c)
  */
 
 void __fastcall ESTROBJ::vCharPos_G4(ESTROBJ *this, struct XDCOBJ *a2, float **a3, LONG a4, LONG a5, int *a6)
@@ -22,73 +22,67 @@ void __fastcall ESTROBJ::vCharPos_G4(ESTROBJ *this, struct XDCOBJ *a2, float **a
   float v16; // xmm11_4
   BOOL v17; // eax
   struct _GLYPHPOS *v18; // r8
-  unsigned __int16 *v19; // r9
-  int v20; // r12d
-  int v21; // r13d
+  int v19; // r14d
+  unsigned __int16 *v20; // r9
+  int v21; // r15d
   __int64 v22; // r10
-  POINTL *p_ptl; // r14
-  unsigned int v24; // ebx
-  signed int v25; // edi
-  struct XDCOBJ *v26; // rdx
-  struct RFONTOBJ *v27; // rdx
-  RFONTOBJ *v28; // r11
-  int v29; // ecx
-  int *v30; // r14
-  int v31; // esi
-  int v32; // ebx
-  float v33; // xmm2_4
-  unsigned int v34; // r8d
-  int v35; // edx
-  int v36; // eax
-  int v37; // edx
-  int v38; // eax
-  int v39; // ecx
-  int v40; // ecx
-  unsigned int v41; // r8d
-  signed int v42; // edi
-  signed int v43; // ebx
-  int v44; // edx
-  int v45; // eax
-  int v46; // ecx
+  POINTL *p_ptl; // r13
+  int v24; // eax
+  struct XDCOBJ *v25; // rdx
+  struct RFONTOBJ *v26; // rdx
+  RFONTOBJ *v27; // r11
+  unsigned int i; // r12d
+  _DWORD *v29; // rdi
+  int v30; // ebx
+  float v31; // xmm2_4
+  unsigned int v32; // r8d
+  int v33; // edx
+  int v34; // eax
+  unsigned int v35; // r8d
+  int v36; // ecx
+  int v37; // eax
+  int v38; // edx
+  signed int v39; // ebx
+  int v40; // edx
+  int v41; // eax
+  int v42; // ecx
+  int v43; // ecx
+  signed int v44; // eax
+  unsigned int v45; // r8d
+  unsigned int v46; // r8d
   unsigned int v47; // r8d
-  int v48; // ecx
-  unsigned int v49; // r8d
-  unsigned int v50; // r8d
-  unsigned int v51; // r8d
+  unsigned int v48; // r8d
+  int v49; // eax
+  int *v50; // rbx
+  int v51; // ecx
   int v52; // eax
-  POINTL *v53; // r14
+  int v53; // ecx
   int v54; // eax
-  int *v55; // rdi
-  int v56; // ecx
-  int v57; // eax
+  unsigned int v55; // r8d
+  unsigned int v56; // r8d
+  unsigned int v57; // r8d
   int v58; // ecx
-  int v59; // eax
-  unsigned int v60; // r8d
-  unsigned int v61; // r8d
-  unsigned int v62; // r8d
-  unsigned int v63; // ecx
-  __int128 v64; // xmm0
-  struct XDCOBJ *v65; // [rsp+30h] [rbp-D8h]
-  int v66; // [rsp+48h] [rbp-C0h] BYREF
-  int v67; // [rsp+4Ch] [rbp-BCh] BYREF
-  unsigned int v68; // [rsp+50h] [rbp-B8h] BYREF
-  int v69; // [rsp+54h] [rbp-B4h]
-  signed int v70; // [rsp+58h] [rbp-B0h]
-  __int128 v71; // [rsp+60h] [rbp-A8h]
-  int v72; // [rsp+70h] [rbp-98h] BYREF
-  int v73; // [rsp+74h] [rbp-94h]
-  signed int v74; // [rsp+78h] [rbp-90h]
-  int v75; // [rsp+7Ch] [rbp-8Ch]
-  float v76; // [rsp+80h] [rbp-88h] BYREF
-  float v77; // [rsp+84h] [rbp-84h] BYREF
-  int v78; // [rsp+88h] [rbp-80h]
-  BOOL v79; // [rsp+8Ch] [rbp-7Ch]
-  BOOL v80; // [rsp+90h] [rbp-78h]
-  POINTL *v81; // [rsp+98h] [rbp-70h]
-  float v82; // [rsp+178h] [rbp+70h] BYREF
-  LONG v83; // [rsp+180h] [rbp+78h]
+  __int128 v59; // xmm0
+  struct XDCOBJ *v60; // [rsp+30h] [rbp-D8h]
+  int v61; // [rsp+48h] [rbp-C0h] BYREF
+  int v62; // [rsp+4Ch] [rbp-BCh] BYREF
+  float v63; // [rsp+50h] [rbp-B8h] BYREF
+  int v64; // [rsp+54h] [rbp-B4h] BYREF
+  int v65; // [rsp+58h] [rbp-B0h]
+  int v66; // [rsp+5Ch] [rbp-ACh]
+  int v67; // [rsp+60h] [rbp-A8h]
+  int v68; // [rsp+64h] [rbp-A4h]
+  signed int v69; // [rsp+68h] [rbp-A0h]
+  __int128 v70; // [rsp+70h] [rbp-98h]
+  float v71; // [rsp+80h] [rbp-88h] BYREF
+  float v72; // [rsp+84h] [rbp-84h] BYREF
+  int v73; // [rsp+88h] [rbp-80h]
+  BOOL v74; // [rsp+8Ch] [rbp-7Ch]
+  BOOL v75; // [rsp+90h] [rbp-78h]
+  float v76; // [rsp+168h] [rbp+60h] BYREF
+  LONG v77; // [rsp+170h] [rbp+68h]
 
-  v83 = a4;
+  v77 = a4;
   v6 = *a3;
   if ( !*((_DWORD *)*a3 + 160) )
   {
@@ -100,158 +94,136 @@ void __fastcall ESTROBJ::vCharPos_G4(ESTROBJ *this, struct XDCOBJ *a2, float **a
     v14 = v6[110];
     v15 = v6[104];
     v16 = v6[105];
-    v76 = v9;
-    v77 = v10;
-    v82 = v11;
-    v68 = LODWORD(v12);
-    v79 = EFLOAT::bIs16((EFLOAT *)&v82);
-    v17 = EFLOAT::bIs16((EFLOAT *)&v68);
+    v71 = v9;
+    v72 = v10;
+    v76 = v11;
+    v63 = v12;
+    v74 = EFLOAT::bIs16((EFLOAT *)&v76);
+    v17 = EFLOAT::bIs16((EFLOAT *)&v63);
     v18 = (struct _GLYPHPOS *)*((_QWORD *)this + 8);
-    v19 = (unsigned __int16 *)*((_QWORD *)this + 5);
-    v20 = 0;
-    v80 = v17;
+    v19 = 0;
+    v20 = (unsigned __int16 *)*((_QWORD *)this + 5);
     v21 = 0;
-    v73 = *(_DWORD *)(v22 + 316);
+    v75 = v17;
     p_ptl = &v18->ptl;
-    v78 = *(_DWORD *)(v22 + 320);
+    v66 = *(_DWORD *)(v22 + 316);
+    v24 = *(_DWORD *)(v22 + 320);
     v18->ptl.y = a5;
+    v73 = v24;
+    v69 = 0x80000000;
+    v67 = 0x80000000;
+    *(_QWORD *)((char *)&v70 + 4) = 0x8000000080000000uLL;
+    v60 = v25;
     v18->ptl.x = a4;
-    v24 = 0x80000000;
-    *(_QWORD *)&v71 = 0x800000007FFFFFFFuLL;
-    v25 = 0x80000000;
-    v82 = NAN;
-    v65 = v26;
-    v27 = (struct RFONTOBJ *)*(unsigned int *)this;
-    v72 = 0;
-    v81 = &v18->ptl;
-    v74 = 0x80000000;
-    *((_QWORD *)&v71 + 1) = 0x7FFFFFFF80000000LL;
-    v70 = 0x80000000;
-    v69 = 0;
-    v75 = 0;
-    v66 = 0;
-    if ( (unsigned int)RFONTOBJ::bGetGlyphMetricsPlus(v28, v27, v18, v19, &v66, v65, this) )
+    v26 = (struct RFONTOBJ *)*(unsigned int *)this;
+    v68 = 0x7FFFFFFF;
+    LODWORD(v70) = 0x7FFFFFFF;
+    v65 = 0x7FFFFFFF;
+    HIDWORD(v70) = 0x7FFFFFFF;
+    v64 = 0;
+    v76 = 0.0;
+    v63 = 0.0;
+    v61 = 0;
+    if ( (unsigned int)RFONTOBJ::bGetGlyphMetricsPlus(v27, v26, v18, v20, &v61, v60, this) )
     {
-      if ( v66 )
+      if ( v61 )
       {
         *((_DWORD *)this + 58) |= 2u;
         *((_QWORD *)this + 4) = *((_QWORD *)this + 8);
       }
-      v68 = 0;
-      if ( *(_DWORD *)this )
+      for ( i = 0; i < *(_DWORD *)this; a6 = v50 + 2 )
       {
-        v29 = LODWORD(v82);
-        do
+        v29 = (_DWORD *)p_ptl[-1];
+        v30 = v29[3];
+        vGenWidths(&v64, &v62, (struct EFLOAT *)&v72, (struct EFLOAT *)&v71, v30, v29[6], v29[7], v66);
+        v61 = 0;
+        v31 = (float)(v21 + v64);
+        bFToL(v31 * v10, &v61, 0);
+        v33 = v65;
+        if ( v19 + v61 + v73 < v65 )
+          v33 = v19 + v61 + v73;
+        v34 = v67;
+        v65 = v33;
+        HIDWORD(v70) = v33;
+        if ( v66 + v19 + v61 > v67 )
+          v34 = v66 + v19 + v61;
+        v61 = 0;
+        v67 = v34;
+        DWORD1(v70) = v34;
+        bFToL(v31 * v9, &v61, v32);
+        v36 = v29[4];
+        v38 = v30 >> 31;
+        v37 = v30;
+        v62 = 0;
+        v39 = v35 + 2;
+        v40 = v61 - __SPAIR64__(v38, v37) / (int)(v35 + 2);
+        v41 = v68;
+        v42 = v40 + v36 - 4;
+        if ( v42 < v68 )
+          v41 = v42;
+        v43 = v29[5] + v40 + 4;
+        v68 = v41;
+        LODWORD(v70) = v41;
+        v44 = v69;
+        if ( v43 > v69 )
+          v44 = v43;
+        v69 = v44;
+        DWORD2(v70) = v44;
+        bFToL(v31 * v13, &v62, v35);
+        v61 = 0;
+        bFToL((float)v19 * v15, &v61, v45);
+        p_ptl->x = v77 + v62 + v61 - v29[13] / v39;
+        v61 = 0;
+        bFToL(v31 * v14, &v61, v46);
+        v62 = 0;
+        bFToL((float)v19 * v16, &v62, v47);
+        v49 = v29[15] / v39;
+        v50 = a6;
+        v51 = v62 - v49;
+        v52 = LODWORD(v63);
+        p_ptl->y = a5 + v61 + v51;
+        v53 = v50[1] + LODWORD(v76);
+        v54 = *v50 + v52;
+        v63 = *(float *)&v54;
+        v76 = *(float *)&v53;
+        if ( v74 )
         {
-          v30 = (int *)p_ptl[-1];
-          v31 = v24;
-          v32 = v29;
-          vGenWidths(&v72, &v67, (struct EFLOAT *)&v77, (struct EFLOAT *)&v76, v30[3], v30[6], v30[7], v73);
-          v66 = 0;
-          v33 = (float)(v21 + v72);
-          bFToL(v33 * v10, &v66, 0);
-          v35 = LODWORD(v82);
-          v36 = v20 + v66 + v78;
-          if ( v36 < SLODWORD(v82) )
-            v35 = v20 + v66 + v78;
-          HIDWORD(v71) = v35;
-          v37 = v20 + v66 + v78;
-          if ( v36 >= v32 )
-            v37 = v32;
-          v38 = v20 + v66 + v73;
-          LODWORD(v82) = v37;
-          v39 = v70;
-          if ( v38 > v70 )
-            v39 = v20 + v66 + v73;
-          DWORD1(v71) = v39;
-          v40 = v20 + v66 + v73;
-          if ( v38 <= v25 )
-            v40 = v25;
-          v66 &= v34;
-          v70 = v40;
-          bFToL(v33 * v9, &v66, v34);
-          v42 = v41 + 2;
-          v43 = v74;
-          v44 = v66 - v30[3] / (int)(v41 + 2);
-          v45 = v71;
-          if ( v44 + v30[4] - 4 < (int)v71 )
-            v45 = v44 + v30[4] - 4;
-          v46 = v30[5] + v44 + 4;
-          LODWORD(v71) = v45;
-          if ( v46 > v74 )
-            v43 = v46;
-          DWORD2(v71) = v43;
-          v24 = v46;
-          if ( v46 <= v31 )
-            v24 = v31;
-          v67 = 0;
-          v74 = v24;
-          bFToL(v33 * v13, &v67, v41);
-          v66 = 0;
-          bFToL((float)v20 * v15, &v66, v47);
-          v48 = v66 - v30[13] / v42;
-          v66 = 0;
-          v81->x = v83 + v67 + v48;
-          bFToL(v33 * v14, &v66, v49);
-          v67 = 0;
-          bFToL((float)v20 * v16, &v67, v50);
-          v52 = v30[15];
-          v53 = v81;
-          v54 = v52 / v42;
-          v55 = a6;
-          v56 = v67 - v54;
-          v57 = v75;
-          v81->y = a5 + v66 + v56;
-          v58 = v55[1] + v69;
-          v59 = *v55 + v57;
-          v75 = v59;
-          v69 = v58;
-          if ( v79 )
-          {
-            v21 = 16 * v59;
-          }
-          else
-          {
-            v67 = 0;
-            bFToL((float)v59 * v11, &v67, v51);
-            v58 = v69;
-            v21 = v67;
-          }
-          if ( v80 )
-          {
-            v20 = 16 * v58;
-          }
-          else
-          {
-            v67 = 0;
-            bFToL((float)v58 * v12, &v67, 0);
-            v20 = v67;
-          }
-          v29 = LODWORD(v82);
-          p_ptl = v53 + 3;
-          a6 = v55 + 2;
-          v25 = v70;
-          ++v68;
-          v81 = p_ptl;
-          DWORD1(v71) = v70;
-          *((_QWORD *)&v71 + 1) = __PAIR64__(LODWORD(v82), v24);
+          v21 = 16 * v54;
         }
-        while ( v68 < *(_DWORD *)this );
+        else
+        {
+          v62 = 0;
+          bFToL((float)v54 * v11, &v62, v48);
+          v53 = LODWORD(v76);
+          v21 = v62;
+        }
+        if ( v75 )
+        {
+          v19 = 16 * v53;
+        }
+        else
+        {
+          v62 = 0;
+          bFToL((float)v53 * v12, &v62, 0);
+          v19 = v62;
+        }
+        ++i;
+        p_ptl += 3;
       }
-      v82 = 0.0;
-      bFToL((float)v21 * v13, (int *)&v82, 0);
-      v68 = 0;
-      bFToL((float)v20 * v15, (int *)&v68, v60);
-      *((_DWORD *)this + 20) = LODWORD(v82) + v68;
-      v82 = 0.0;
-      bFToL((float)v21 * v14, (int *)&v82, v61);
-      v68 = 0;
-      bFToL((float)v20 * v16, (int *)&v68, v62);
-      v63 = LODWORD(v82) + v68;
-      v64 = v71;
+      v76 = 0.0;
+      bFToL((float)v21 * v13, (int *)&v76, 0);
+      v63 = 0.0;
+      bFToL((float)v19 * v15, (int *)&v63, v55);
+      *((_DWORD *)this + 20) = LODWORD(v76) + LODWORD(v63);
+      v76 = 0.0;
+      bFToL((float)v21 * v14, (int *)&v76, v56);
+      v63 = 0.0;
+      bFToL((float)v19 * v16, (int *)&v63, v57);
+      v58 = LODWORD(v76) + LODWORD(v63);
+      v59 = v70;
       *((_DWORD *)this + 58) |= 4u;
-      *((_DWORD *)this + 21) = v63;
-      *((_OWORD *)this + 6) = v64;
+      *((_DWORD *)this + 21) = v58;
+      *((_OWORD *)this + 6) = v59;
     }
   }
 }

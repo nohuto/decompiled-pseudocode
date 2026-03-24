@@ -1,10 +1,9 @@
 /*
- * XREFs of ExInitializeLookasideListEx @ 0x140222430
+ * XREFs of ExInitializeLookasideListEx @ 0x140352410
  * Callers:
- *     CmpInitializeRegistryProcess @ 0x14080D05C (CmpInitializeRegistryProcess.c)
- *     CcInitializeCacheManager @ 0x140B4D188 (CcInitializeCacheManager.c)
+ *     CmpInitializeRegistryProcess @ 0x140799280 (CmpInitializeRegistryProcess.c)
  * Callees:
- *     ExInitializeLookasideListExInternal @ 0x140222240 (ExInitializeLookasideListExInternal.c)
+ *     ExInitializeLookasideListExInternal @ 0x140352460 (ExInitializeLookasideListExInternal.c)
  */
 
 NTSTATUS __stdcall ExInitializeLookasideListEx(
@@ -17,14 +16,5 @@ NTSTATUS __stdcall ExInitializeLookasideListEx(
         ULONG Tag,
         USHORT Depth)
 {
-  return ExInitializeLookasideListExInternal(
-           &Lookaside->L.ListHead,
-           (__int64 (__fastcall *)())Allocate,
-           (void (__stdcall *)(PPRIVILEGE_SET))Free,
-           PoolType,
-           Flags,
-           Size,
-           Tag,
-           Depth,
-           0);
+  return ExInitializeLookasideListExInternal(&Lookaside->L.ListHead, Flags, Size, Tag, Depth, 0);
 }

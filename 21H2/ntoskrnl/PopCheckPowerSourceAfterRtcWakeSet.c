@@ -1,10 +1,10 @@
 /*
- * XREFs of PopCheckPowerSourceAfterRtcWakeSet @ 0x1405D6D4C
+ * XREFs of PopCheckPowerSourceAfterRtcWakeSet @ 0x1405769B4
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     KeSetTimer2 @ 0x140353C40 (KeSetTimer2.c)
+ *     KeSetTimer2 @ 0x14022C550 (KeSetTimer2.c)
+ *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
  */
 
 _BOOL8 PopCheckPowerSourceAfterRtcWakeSet()

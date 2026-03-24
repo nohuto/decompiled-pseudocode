@@ -1,23 +1,25 @@
 /*
- * XREFs of KeAbCrossThreadDelete @ 0x1405757C0
+ * XREFs of KeAbCrossThreadDelete @ 0x140520E78
  * Callers:
- *     KeDeleteMutant @ 0x140234B28 (KeDeleteMutant.c)
+ *     KeDeleteMutant @ 0x1402AA058 (KeDeleteMutant.c)
  * Callees:
- *     KeGenericCallDpc @ 0x140217420 (KeGenericCallDpc.c)
- *     KiReleaseThreadLockSafe @ 0x140224100 (KiReleaseThreadLockSafe.c)
- *     MmGetSessionIdEx @ 0x140287F30 (MmGetSessionIdEx.c)
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
- *     KiAcquireThreadStateLock @ 0x140344DD0 (KiAcquireThreadStateLock.c)
- *     KiInsertQueueDpc @ 0x140345190 (KiInsertQueueDpc.c)
- *     KiReleaseThreadStateLock @ 0x14035D0F8 (KiReleaseThreadStateLock.c)
- *     KiAbCrossThreadRelease @ 0x14039CE58 (KiAbCrossThreadRelease.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
+ *     KiAcquireThreadStateLock @ 0x140230F40 (KiAcquireThreadStateLock.c)
+ *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiReleaseThreadStateLock @ 0x1402EA480 (KiReleaseThreadStateLock.c)
+ *     KeGenericCallDpc @ 0x1402ECF00 (KeGenericCallDpc.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     MmIsSessionAddress @ 0x140349110 (MmIsSessionAddress.c)
+ *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KiAbCrossThreadRelease @ 0x14038E850 (KiAbCrossThreadRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-char __fastcall KeAbCrossThreadDelete(__int64 a1, ULONG_PTR a2)
+char __fastcall KeAbCrossThreadDelete(unsigned __int64 a1, ULONG_PTR a2)
 {
-  __int64 v2; // rax
+  __int64 v4; // rax
   int v5; // ecx
   __int64 v6; // rdi
   __int64 SessionId; // r9
@@ -38,7 +40,7 @@ char __fastcall KeAbCrossThreadDelete(__int64 a1, ULONG_PTR a2)
   _DWORD *v22; // rcx
   int v23; // eax
   __int64 v24; // rcx
-  int v25; // r15d
+  int v25; // r12d
   unsigned __int8 v26; // al
   struct _KPRCB *v27; // r8
   _DWORD *v28; // rbx
@@ -57,68 +59,68 @@ char __fastcall KeAbCrossThreadDelete(__int64 a1, ULONG_PTR a2)
   __int128 Object; // [rsp+50h] [rbp-49h] BYREF
   __int128 v43; // [rsp+60h] [rbp-39h]
   __int128 v44; // [rsp+70h] [rbp-29h]
-  ULONG_PTR BugCheckParameter2[2]; // [rsp+80h] [rbp-19h] BYREF
-  __int128 v46; // [rsp+90h] [rbp-9h]
-  __int128 v47; // [rsp+A0h] [rbp+7h]
-  __int64 v48; // [rsp+B0h] [rbp+17h]
-  __int64 v49; // [rsp+B8h] [rbp+1Fh]
-  int v50; // [rsp+110h] [rbp+77h] BYREF
-  volatile signed __int64 *v51; // [rsp+118h] [rbp+7Fh] BYREF
+  ULONG_PTR BugCheckParameter2[14]; // [rsp+80h] [rbp-19h] BYREF
+  int v46; // [rsp+110h] [rbp+77h] BYREF
+  volatile signed __int64 *v47; // [rsp+118h] [rbp+7Fh] BYREF
 
-  v48 = 0LL;
-  LODWORD(v49) = 0;
-  LODWORD(v2) = *(unsigned __int8 *)(a2 + 792);
-  v5 = v2 | *(unsigned __int8 *)(a2 + 870);
-  v40 = 0LL;
-  v51 = 0LL;
   Object = 0LL;
   v43 = 0LL;
   v44 = 0LL;
-  *(_OWORD *)BugCheckParameter2 = 0LL;
-  v46 = 0LL;
+  memset(BugCheckParameter2, 0, 0x40uLL);
+  LODWORD(v4) = *(char *)(a2 + 792);
+  v5 = v4 | *(char *)(a2 + 870);
+  v40 = 0LL;
   v47 = 0LL;
   if ( v5 != 63 )
   {
     v6 = a1 & 0x7FFFFFFFFFFFFFFCLL;
-    if ( (unsigned __int64)(a1 - qword_140C50630) >= 0x8000000000LL )
-      SessionId = 0xFFFFFFFFLL;
-    else
+    if ( MmIsSessionAddress(a1) )
       SessionId = (unsigned int)MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-    LODWORD(v2) = *(unsigned __int8 *)(a2 + 792);
-    LODWORD(SchedulerAssist) = (v2 | *(unsigned __int8 *)(a2 + 870)) ^ 0x3F;
+    else
+      SessionId = 0xFFFFFFFFLL;
+    LODWORD(v4) = *(char *)(a2 + 792);
+    LODWORD(SchedulerAssist) = (v4 | *(char *)(a2 + 870)) ^ 0x3F;
     while ( 1 )
     {
       v16 = !_BitScanReverse((unsigned int *)&v17, SchedulerAssist);
       if ( v16 )
-        return v2;
+        return v4;
+      v9 = (__m128i *)(*(_QWORD *)(a2 + 800) + 96 * v17);
       SchedulerAssist = ~(1 << v17) & (unsigned int)SchedulerAssist;
-      v9 = (__m128i *)(96 * v17 + a2 + 1696);
-      v2 = v9->m128i_i64[0] & 0x7FFFFFFFFFFFFFFCLL;
-      if ( v2 == v6 )
+      v4 = v9[2].m128i_i64[0] & 0x7FFFFFFFFFFFFFFCLL;
+      if ( v4 == v6 )
       {
-        *(_QWORD *)&v11 = v9->m128i_i64[0];
-        *((_QWORD *)&v11 + 1) = _mm_srli_si128(*v9, 8).m128i_u64[0];
-        v12 = _InterlockedCompareExchange128(v9->m128i_i64, *((signed __int64 *)&v11 + 1), v11, (signed __int64 *)&v11);
+        *(_QWORD *)&v11 = v9[2].m128i_i64[0];
+        *((_QWORD *)&v11 + 1) = _mm_srli_si128(v9[2], 8).m128i_u64[0];
+        v12 = _InterlockedCompareExchange128(
+                v9[2].m128i_i64,
+                *((signed __int64 *)&v11 + 1),
+                v11,
+                (signed __int64 *)&v11);
+        LOBYTE(v4) = v11;
         v10 = *((_QWORD *)&v11 + 1);
         v13 = v11;
         v41 = v11;
         if ( v12
-          || (*(_QWORD *)&v14 = v9->m128i_i64[0],
-              *((_QWORD *)&v14 + 1) = _mm_srli_si128(*v9, 8).m128i_u64[0],
+          || (*(_QWORD *)&v14 = v9[2].m128i_i64[0],
+              *((_QWORD *)&v14 + 1) = _mm_srli_si128(v9[2], 8).m128i_u64[0],
               v15 = _InterlockedCompareExchange128(
-                      v9->m128i_i64,
+                      v9[2].m128i_i64,
                       *((signed __int64 *)&v14 + 1),
                       v14,
                       (signed __int64 *)&v14),
-              LOBYTE(v2) = v14,
+              LOBYTE(v4) = v14,
               v10 = *((_QWORD *)&v14 + 1),
               v13 = v14,
               v41 = v14,
               v15) )
         {
-          LOBYTE(v2) = v13 & 0xFC;
-          if ( (v13 & 0x7FFFFFFFFFFFFFFCLL) == v6 && v9[1].m128i_i8[2] && (_DWORD)v10 == (_DWORD)SessionId )
-            break;
+          if ( (v9[1].m128i_i8[10] & 1) != 0 )
+          {
+            LOBYTE(v4) = v13 & 0xFC;
+            if ( (v13 & 0x7FFFFFFFFFFFFFFCLL) == v6 && (_DWORD)v10 == (_DWORD)SessionId )
+              break;
+          }
         }
       }
     }
@@ -133,7 +135,7 @@ char __fastcall KeAbCrossThreadDelete(__int64 a1, ULONG_PTR a2)
         *(_DWORD *)(SchedulerAssist + 20) |= v10;
       }
       CurrentPrcb = KeGetCurrentPrcb();
-      v50 = 0;
+      v46 = 0;
       while ( 1 )
       {
         v20 = CurrentPrcb->SchedulerAssist;
@@ -161,13 +163,13 @@ char __fastcall KeAbCrossThreadDelete(__int64 a1, ULONG_PTR a2)
           }
         }
         do
-          KeYieldProcessorEx(&v50, v10, SchedulerAssist, SessionId);
+          KeYieldProcessorEx(&v46, v10, SchedulerAssist, SessionId);
         while ( *(_QWORD *)(a2 + 64) );
       }
-      if ( (unsigned __int8)KiAcquireThreadStateLock(a2, (__int64)&v40, (volatile signed __int32 **)&v51, SessionId) == 2 )
+      if ( (unsigned __int8)KiAcquireThreadStateLock(a2, &v40, (volatile signed __int32 **)&v47) == 2 )
       {
         v25 = *(_DWORD *)(a2 + 536);
-        KiReleaseThreadStateLock(v24, v40, v51);
+        KiReleaseThreadStateLock(v24, v40, v47);
         KiReleaseThreadLockSafe(a2);
         if ( KiIrqlFlags )
         {
@@ -187,11 +189,11 @@ char __fastcall KeAbCrossThreadDelete(__int64 a1, ULONG_PTR a2)
           }
         }
         __writecr8(CurrentIrql);
-        v49 = 0LL;
+        BugCheckParameter2[7] = 0LL;
         *(_QWORD *)&v43 = (char *)&Object + 8;
         *((_QWORD *)&Object + 1) = (char *)&Object + 8;
-        *((_QWORD *)&v46 + 1) = &KeAbCrossThreadDeleteDpcRoutine;
-        *(_QWORD *)&v47 = &Object;
+        BugCheckParameter2[3] = (ULONG_PTR)&KeAbCrossThreadDeleteDpcRoutine;
+        BugCheckParameter2[4] = (ULONG_PTR)&Object;
         *((_QWORD *)&v43 + 1) = a1;
         *(_QWORD *)&v44 = v9;
         *((_QWORD *)&v44 + 1) = a2;
@@ -199,15 +201,15 @@ char __fastcall KeAbCrossThreadDelete(__int64 a1, ULONG_PTR a2)
         BYTE2(Object) = 6;
         DWORD1(Object) = 0;
         LOWORD(BugCheckParameter2[0]) = 275;
-        *(_QWORD *)&v46 = 0LL;
-        WORD1(BugCheckParameter2[0]) = v25 + 2048;
+        BugCheckParameter2[2] = 0LL;
+        WORD1(BugCheckParameter2[0]) = v25 + 1280;
         KiInsertQueueDpc((ULONG_PTR)BugCheckParameter2, 0LL, 0LL, 0LL, 0);
         KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
         goto LABEL_58;
       }
       if ( *(_BYTE *)(a2 + 113) )
       {
-        KiReleaseThreadStateLock(v24, v40, v51);
+        KiReleaseThreadStateLock(v24, v40, v47);
         KiReleaseThreadLockSafe(a2);
         if ( KiIrqlFlags )
         {
@@ -231,7 +233,7 @@ char __fastcall KeAbCrossThreadDelete(__int64 a1, ULONG_PTR a2)
       }
       else
       {
-        KiReleaseThreadStateLock(v24, v40, v51);
+        KiReleaseThreadStateLock(v24, v40, v47);
         KiReleaseThreadLockSafe(a2);
         if ( KiIrqlFlags )
         {
@@ -253,10 +255,10 @@ char __fastcall KeAbCrossThreadDelete(__int64 a1, ULONG_PTR a2)
         __writecr8(CurrentIrql);
       }
     }
-    v9->m128i_i8[0] |= 1u;
+    v9[2].m128i_i8[0] |= 1u;
 LABEL_58:
     _InterlockedOr(v39, 0);
-    LOBYTE(v2) = KiAbCrossThreadRelease(a1, (__int64)v9, a2);
+    LOBYTE(v4) = KiAbCrossThreadRelease(a1, (__int64)v9, a2);
   }
-  return v2;
+  return v4;
 }

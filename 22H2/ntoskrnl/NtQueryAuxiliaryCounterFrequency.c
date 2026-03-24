@@ -1,10 +1,10 @@
 /*
- * XREFs of NtQueryAuxiliaryCounterFrequency @ 0x140A04590
+ * XREFs of NtQueryAuxiliaryCounterFrequency @ 0x14095ADB0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     ProbeForWrite @ 0x1406CD560 (ProbeForWrite.c)
  */
 
 __int64 __fastcall NtQueryAuxiliaryCounterFrequency(_QWORD *a1)
@@ -14,9 +14,9 @@ __int64 __fastcall NtQueryAuxiliaryCounterFrequency(_QWORD *a1)
 
   v3 = 0LL;
   if ( !KeGetCurrentThread()->PreviousMode )
-    return off_140C01D40[0]();
+    return off_140C00930[0]();
   ProbeForWrite(a1, 8uLL, 4u);
-  result = ((__int64 (__fastcall *)(__int64 *))off_140C01D40[0])(&v3);
+  result = ((__int64 (__fastcall *)(__int64 *))off_140C00930[0])(&v3);
   if ( (int)result >= 0 )
     *a1 = v3;
   return result;

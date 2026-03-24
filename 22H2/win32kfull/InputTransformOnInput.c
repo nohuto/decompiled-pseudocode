@@ -1,9 +1,9 @@
 /*
- * XREFs of InputTransformOnInput @ 0x1C0153B20
+ * XREFs of InputTransformOnInput @ 0x1C01F5360
  * Callers:
  *     <none>
  * Callees:
- *     ?OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z @ 0x1C0007A4C (-OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z.c)
+ *     ?OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z @ 0x1C010FF40 (-OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z.c)
  */
 
 __int64 __fastcall InputTransformOnInput(__int64 a1, struct tagWND *a2)

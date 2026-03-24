@@ -1,11 +1,10 @@
 /*
- * XREFs of NtOpenFile @ 0x1407D8800
+ * XREFs of NtOpenFile @ 0x14060B3C0
  * Callers:
- *     DifNtOpenFileWrapper @ 0x140617ED0 (DifNtOpenFileWrapper.c)
- *     PfSnGetPrefetchInstructions @ 0x1407D84EC (PfSnGetPrefetchInstructions.c)
- *     RtlpSysVolTakeOwnership @ 0x1409BB4D8 (RtlpSysVolTakeOwnership.c)
+ *     PfSnGetPrefetchInstructions @ 0x1406CEC28 (PfSnGetPrefetchInstructions.c)
+ *     RtlpSysVolTakeOwnership @ 0x140915E88 (RtlpSysVolTakeOwnership.c)
  * Callees:
- *     IopCreateFile @ 0x1407ADB90 (IopCreateFile.c)
+ *     IopCreateFile @ 0x14060B4C0 (IopCreateFile.c)
  */
 
 NTSTATUS __stdcall NtOpenFile(
@@ -16,21 +15,18 @@ NTSTATUS __stdcall NtOpenFile(
         ULONG ShareAccess,
         ULONG OpenOptions)
 {
-  size_t v7; // [rsp+50h] [rbp-38h]
-
-  LODWORD(v7) = 0;
   return IopCreateFile(
-           FileHandle,
+           (int)FileHandle,
            DesiredAccess,
-           (_SLIST_ENTRY *)ObjectAttributes,
-           (NTSTATUS *)&IoStatusBlock->0,
+           (int)ObjectAttributes,
+           (int)IoStatusBlock,
            0LL,
            0,
            ShareAccess,
-           1u,
+           1,
            OpenOptions,
            0LL,
-           v7,
+           0,
            0,
            0LL,
            0,

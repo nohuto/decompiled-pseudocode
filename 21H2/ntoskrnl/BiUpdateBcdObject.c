@@ -1,21 +1,21 @@
 /*
- * XREFs of BiUpdateBcdObject @ 0x140A20DF8
+ * XREFs of BiUpdateBcdObject @ 0x140972E90
  * Callers:
- *     BiBindEfiEntries @ 0x140A1E590 (BiBindEfiEntries.c)
+ *     BiBindEfiEntries @ 0x140970628 (BiBindEfiEntries.c)
  * Callees:
- *     RtlCompareMemory @ 0x14042A1E0 (RtlCompareMemory.c)
- *     BiMapEfiDeviceForSpaces @ 0x14064D064 (BiMapEfiDeviceForSpaces.c)
- *     BiDeleteElement @ 0x14080271C (BiDeleteElement.c)
- *     BcdSetElementDataWithFlags @ 0x140803250 (BcdSetElementDataWithFlags.c)
- *     BiSetRegistryValue @ 0x1408123B4 (BiSetRegistryValue.c)
- *     BcdOpenObject @ 0x140812B74 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140812D00 (BcdCloseObject.c)
- *     BcdGetElementDataWithFlags @ 0x140812D44 (BcdGetElementDataWithFlags.c)
- *     BiGetRegistryValue @ 0x140812F84 (BiGetRegistryValue.c)
- *     BiGetDeviceFromEfiPath @ 0x140A1FFC0 (BiGetDeviceFromEfiPath.c)
- *     BiGetFilePathFromEfiPath @ 0x140A20144 (BiGetFilePathFromEfiPath.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
+ *     BiMapEfiDeviceForSpaces @ 0x1405C3E74 (BiMapEfiDeviceForSpaces.c)
+ *     BiDeleteElement @ 0x14078319C (BiDeleteElement.c)
+ *     BcdOpenObject @ 0x140783A40 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140783BCC (BcdCloseObject.c)
+ *     BiGetRegistryValue @ 0x140783DF8 (BiGetRegistryValue.c)
+ *     BcdSetElementDataWithFlags @ 0x140783FDC (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x1407841C0 (BcdGetElementDataWithFlags.c)
+ *     BiSetRegistryValue @ 0x140784A64 (BiSetRegistryValue.c)
+ *     BiGetDeviceFromEfiPath @ 0x140972054 (BiGetDeviceFromEfiPath.c)
+ *     BiGetFilePathFromEfiPath @ 0x1409721D8 (BiGetFilePathFromEfiPath.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall BiUpdateBcdObject(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ __int64 __fastcall BiUpdateBcdObject(__int64 a1, __int64 a2)
   ULONG *v2; // rsi
   PVOID v4; // r13
   PVOID v5; // r14
-  GUID *PoolWithTag; // r15
+  PVOID PoolWithTag; // r15
   int v7; // eax
   void *v8; // rdi
   int v9; // ebx
@@ -66,7 +66,7 @@ __int64 __fastcall BiUpdateBcdObject(__int64 a1, __int64 a2)
   if ( v7 < 0 )
     goto LABEL_31;
   if ( (*(_DWORD *)(a2 + 48) & 2) != 0
-    && (int)BiGetRegistryValue((__int64)v28, L"FirmwareVariable", (__int64)L"Description", 3u, &Source2, &v23) >= 0 )
+    && (int)BiGetRegistryValue((__int64)v28, L"FirmwareVariable", (__int64)L"Description", 3, &Source2, &v23) >= 0 )
   {
     v10 = v2[1];
     if ( v10 == v23 && RtlCompareMemory(v2, Source2, v10) == v2[1] )
@@ -78,15 +78,10 @@ LABEL_8:
         ++v13;
       while ( v12[v13] );
       v14 = (unsigned int)(2 * v13 + 2);
-      ElementDataWithFlags = BcdGetElementDataWithFlags(
-                               (__int64)v8,
-                               0x12000004u,
-                               v11,
-                               0LL,
-                               (unsigned int *)&NumberOfBytes);
+      ElementDataWithFlags = BcdGetElementDataWithFlags((__int64)v8, 0x12000004u, v11, 0LL, &NumberOfBytes);
       if ( ElementDataWithFlags == -1073741789 )
       {
-        PoolWithTag = (GUID *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x4B444342u);
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x4B444342u);
         if ( !PoolWithTag )
         {
 LABEL_17:
@@ -130,8 +125,8 @@ LABEL_18:
                                  (__int64)v8,
                                  0x12000004u,
                                  v16,
-                                 PoolWithTag,
-                                 (unsigned int *)&NumberOfBytes);
+                                 (__int64)PoolWithTag,
+                                 &NumberOfBytes);
       }
       if ( ElementDataWithFlags >= 0
         && PoolWithTag
@@ -143,7 +138,7 @@ LABEL_18:
       goto LABEL_17;
     }
   }
-  v9 = BiSetRegistryValue((__int64)v8, L"FirmwareVariable", (__int64)L"Description", 3u, v2, v2[1]);
+  v9 = BiSetRegistryValue((__int64)v8, L"FirmwareVariable", L"Description", 3u, v2, v2[1]);
   if ( v9 >= 0 )
   {
     *(_DWORD *)(a2 + 48) |= 2u;

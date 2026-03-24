@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxAcpiRegisterDevice @ 0x1405DDFFC
+ * XREFs of PopFxAcpiRegisterDevice @ 0x14057E078
  * Callers:
- *     PopFxAcpiDispatchNotification @ 0x1405DDBE0 (PopFxAcpiDispatchNotification.c)
+ *     PopFxAcpiDispatchNotification @ 0x14057DC68 (PopFxAcpiDispatchNotification.c)
  * Callees:
- *     PopFxCreateDeviceCommon @ 0x1403BA410 (PopFxCreateDeviceCommon.c)
- *     PopFxDestroyDeviceCommon @ 0x1403DCBDC (PopFxDestroyDeviceCommon.c)
- *     PopFxInsertAcpiDevice @ 0x1405CC520 (PopFxInsertAcpiDevice.c)
- *     PopPluginAcpiNotificationStrict @ 0x1405DFA70 (PopPluginAcpiNotificationStrict.c)
+ *     PopFxCreateDeviceCommon @ 0x1403BF120 (PopFxCreateDeviceCommon.c)
+ *     PopFxDestroyDeviceCommon @ 0x1403CD734 (PopFxDestroyDeviceCommon.c)
+ *     PopFxInsertAcpiDevice @ 0x14056AD68 (PopFxInsertAcpiDevice.c)
+ *     PopPluginAcpiNotificationStrict @ 0x14057FB9C (PopPluginAcpiNotificationStrict.c)
  */
 
 __int64 __fastcall PopFxAcpiRegisterDevice(__int64 a1, ULONG_PTR a2, __int64 a3, PVOID **a4, _QWORD *a5)
 {
-  int DeviceCommon; // eax
+  int v8; // eax
   PVOID *v9; // rbx
-  unsigned int v10; // edi
+  int v10; // edi
   __int128 v11; // xmm1
   __int64 v12; // xmm0_8
   __int64 v13; // rdx
@@ -27,39 +27,44 @@ __int64 __fastcall PopFxAcpiRegisterDevice(__int64 a1, ULONG_PTR a2, __int64 a3,
   v19 = 0LL;
   *(_OWORD *)BugCheckParameter4 = 0LL;
   v18 = 0LL;
-  DeviceCommon = PopFxCreateDeviceCommon(a1, a2, a3, 4, (__int64 *)&P);
+  v8 = PopFxCreateDeviceCommon(a1, a2, a3, 4, &P);
   v9 = (PVOID *)P;
-  v10 = DeviceCommon;
-  if ( DeviceCommon >= 0 )
+  v10 = v8;
+  if ( v8 < 0 )
+    goto LABEL_7;
+  v11 = *(_OWORD *)(a3 + 16);
+  *(_OWORD *)BugCheckParameter4 = *(_OWORD *)a3;
+  v12 = *(_QWORD *)(a3 + 32);
+  *((_QWORD *)&v18 + 1) = *((_QWORD *)&v11 + 1);
+  *(_QWORD *)&v18 = P;
+  v19 = v12;
+  PopPluginAcpiNotificationStrict(a2, 3uLL, (ULONG_PTR)BugCheckParameter4);
+  if ( !*((_QWORD *)&v18 + 1) )
+    goto LABEL_5;
+  PopFxInsertAcpiDevice(v14, v13, (__int64)v9);
+  if ( *((_QWORD *)&v18 + 1) )
   {
-    v11 = *(_OWORD *)(a3 + 16);
-    *(_OWORD *)BugCheckParameter4 = *(_OWORD *)a3;
-    v12 = *(_QWORD *)(a3 + 32);
-    *((_QWORD *)&v18 + 1) = *((_QWORD *)&v11 + 1);
-    *(_QWORD *)&v18 = P;
-    v19 = v12;
-    PopPluginAcpiNotificationStrict(a2, 3uLL, (ULONG_PTR)BugCheckParameter4);
-    if ( *((_QWORD *)&v18 + 1) )
-    {
-      PopFxInsertAcpiDevice(v14, v13, (__int64)v9);
-      if ( *((_QWORD *)&v18 + 1) )
-      {
-        v9[10] = (PVOID)a2;
-        v9[11] = (PVOID)*((_QWORD *)&v18 + 1);
-        *a5 = *((_QWORD *)&v18 + 1);
-        *a4 = v9;
-        return v10;
-      }
-    }
+    v9[10] = (PVOID)a2;
+    v9[11] = (PVOID)*((_QWORD *)&v18 + 1);
+    *a5 = *((_QWORD *)&v18 + 1);
+    *a4 = v9;
+  }
+  else
+  {
+LABEL_5:
     v10 = -1073741823;
     *a4 = 0LL;
     *a5 = 0LL;
   }
-  if ( v9 )
+  if ( v10 < 0 )
   {
-    v9[10] = 0LL;
-    v9[11] = 0LL;
-    PopFxDestroyDeviceCommon(v9, 2);
+LABEL_7:
+    if ( v9 )
+    {
+      v9[10] = 0LL;
+      v9[11] = 0LL;
+      PopFxDestroyDeviceCommon(v9, 2);
+    }
   }
-  return v10;
+  return (unsigned int)v10;
 }

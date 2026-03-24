@@ -1,163 +1,169 @@
 /*
- * XREFs of NtUserSetWindowPos @ 0x1C0025580
+ * XREFs of NtUserSetWindowPos @ 0x1C006A660
  * Callers:
  *     <none>
  * Callees:
- *     ?ValidateHWNDIA@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z @ 0x1C002583C (-ValidateHWNDIA@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z.c)
- *     ConstrainWindowSize @ 0x1C002589C (ConstrainWindowSize.c)
- *     ConstrainWindowPos @ 0x1C00258D4 (ConstrainWindowPos.c)
- *     xxxSetWindowPos @ 0x1C0048A4C (xxxSetWindowPos.c)
- *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z @ 0x1C00699A0 (-xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z.c)
- *     ?WindowSubjectToBehavior@ShellWindowManagement@@YA_NPEBUtagWND@@K@Z @ 0x1C006A110 (-WindowSubjectToBehavior@ShellWindowManagement@@YA_NPEBUtagWND@@K@Z.c)
- *     UserSetLastError @ 0x1C007274C (UserSetLastError.c)
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00788F8 (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     ?ExtendedBehaviorEnabled@ShellWindowManagement@@YA_NK@Z @ 0x1C010DB58 (-ExtendedBehaviorEnabled@ShellWindowManagement@@YA_NK@Z.c)
- *     ?TransformSWPCoords@@YAXPEAUtagWND@@PEAH111I@Z @ 0x1C01F10CC (-TransformSWPCoords@@YAXPEAUtagWND@@PEAH111I@Z.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005BA00 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     ConstrainWindowPos @ 0x1C0066A90 (ConstrainWindowPos.c)
+ *     UserSetLastError @ 0x1C0069D40 (UserSetLastError.c)
+ *     ConstrainWindowSize @ 0x1C006A22C (ConstrainWindowSize.c)
+ *     ?ValidateHWNDIA@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z @ 0x1C006A984 (-ValidateHWNDIA@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z.c)
+ *     xxxSetWindowPos @ 0x1C006BC54 (xxxSetWindowPos.c)
+ *     ?TransformSWPCoords@@YAXPEAUtagWND@@PEAH111I@Z @ 0x1C01F6974 (-TransformSWPCoords@@YAXPEAUtagWND@@PEAH111I@Z.c)
  */
 
 __int64 __fastcall NtUserSetWindowPos(__int64 a1, HWND a2, int a3, int a4, int a5, int a6, unsigned int a7)
 {
-  int v9; // edi
-  __int64 v10; // rax
-  __int64 v11; // rcx
-  struct tagWND *v12; // rsi
-  unsigned int v13; // r15d
+  int v7; // edi
+  int v10; // r15d
+  __int64 v11; // rax
+  __int64 v12; // rcx
+  __int64 v13; // r14
   __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  struct tagWND *v17; // r14
-  __int64 v18; // rbx
-  __int64 *ThreadWin32Thread; // rax
+  __int64 v15; // r8
+  unsigned int v16; // r12d
+  __int64 v17; // rcx
+  struct tagWND *v18; // rsi
+  __int64 v19; // r13
   __int64 v20; // rdx
-  __int64 v21; // rbx
-  __int64 *v22; // rax
-  __int64 v23; // rcx
-  unsigned int v24; // ebx
-  __int64 v25; // rdx
-  __int64 v26; // rcx
-  __int64 v27; // r8
-  unsigned int v29; // r8d
+  __int64 v21; // rcx
+  __int64 v22; // r8
+  __int64 *ThreadWin32Thread; // rax
+  __int64 v24; // rcx
+  __int64 v25; // r13
+  __int64 v26; // rdx
+  __int64 v27; // rcx
+  __int64 v28; // r8
+  __int64 *v29; // rax
   __int64 v30; // rcx
-  bool v31; // al
-  __int64 v32; // rdx
-  int v33; // r8d
-  struct tagWND *v34; // [rsp+58h] [rbp-21h] BYREF
-  __int128 v35; // [rsp+60h] [rbp-19h] BYREF
-  __int64 v36; // [rsp+70h] [rbp-9h]
-  __int128 v37; // [rsp+78h] [rbp-1h] BYREF
-  __int64 v38; // [rsp+88h] [rbp+Fh]
-  int v39; // [rsp+D8h] [rbp+5Fh] BYREF
-  int v40; // [rsp+E0h] [rbp+67h] BYREF
+  unsigned int v31; // ebx
+  __int64 v32; // rcx
+  int v33; // ebx
+  __int64 v34; // rcx
+  __int64 v35; // rcx
+  __int64 v37; // rcx
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v40; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v42; // rax
+  int v43; // ebx
+  __int64 v44; // rcx
+  __int64 v45; // rax
+  struct tagWND *v46; // [rsp+48h] [rbp-41h] BYREF
+  struct _KTHREAD *CurrentThread; // [rsp+50h] [rbp-39h]
+  __int64 v48; // [rsp+58h] [rbp-31h]
+  __int128 v49; // [rsp+60h] [rbp-29h] BYREF
+  __int64 v50; // [rsp+70h] [rbp-19h]
+  __int128 v51; // [rsp+78h] [rbp-11h] BYREF
+  __int64 v52; // [rsp+88h] [rbp-1h]
+  int v53; // [rsp+E8h] [rbp+5Fh] BYREF
+  int v54; // [rsp+F0h] [rbp+67h] BYREF
 
-  v40 = a4;
-  v39 = a3;
-  v38 = 0LL;
-  v36 = 0LL;
-  v9 = 0;
-  v34 = 0LL;
-  v37 = 0LL;
-  v35 = 0LL;
-  EnterCrit(0LL, 0LL);
-  v10 = ValidateHwnd(a1);
-  v12 = (struct tagWND *)v10;
-  if ( v10 )
+  v54 = a4;
+  v53 = a3;
+  v7 = 0;
+  v46 = 0LL;
+  v52 = 0LL;
+  v50 = 0LL;
+  v10 = 1;
+  v51 = 0LL;
+  v49 = 0LL;
+  EnterCrit(0LL, 1LL);
+  v11 = ValidateHwnd(a1);
+  v13 = v11;
+  if ( v11 )
   {
-    v11 = (*(_WORD *)(*(_QWORD *)(v10 + 40) + 42LL) & 0x2FFFu) - 669;
-    if ( (v11 & 0xFFFFFFFD) != 0 )
+    v12 = (*(_WORD *)(*(_QWORD *)(v11 + 40) + 42LL) & 0x2FFFu) - 669;
+    if ( (v12 & 0xFFFFFFFD) != 0 )
     {
-      *(_QWORD *)&v35 = *(_QWORD *)(gptiCurrent + 416LL);
-      *(_QWORD *)(gptiCurrent + 416LL) = &v35;
-      *((_QWORD *)&v35 + 1) = v10;
-      HMLockObject(v10);
-      v13 = a7;
+      v48 = gptiCurrent;
+      *(_QWORD *)&v49 = *(_QWORD *)(gptiCurrent + 416LL);
+      *(_QWORD *)(gptiCurrent + 416LL) = &v49;
+      *((_QWORD *)&v49 + 1) = v11;
+      HMLockObject(v11);
+      v16 = a7;
       if ( (a7 & 0xFFFC9800) != 0 )
       {
-        v30 = 1004LL;
+        v37 = 1004LL;
       }
       else
       {
-        if ( !(unsigned int)ValidateHWNDIA(a2, &v34) )
+        if ( !(unsigned int)ValidateHWNDIA(a2, &v46) )
         {
-LABEL_24:
-          ThreadUnlock1(v15, v14, v16);
-          goto LABEL_25;
+LABEL_29:
+          ThreadUnlock1(v17);
+          goto LABEL_30;
         }
-        if ( *(char *)(*((_QWORD *)v12 + 5) + 20LL) >= 0 )
+        if ( *(char *)(*(_QWORD *)(v13 + 40) + 20LL) >= 0 )
         {
-          if ( (v13 & 2) == 0 )
-            ConstrainWindowPos(&v39, &v40);
-          if ( (v13 & 1) == 0 )
+          if ( (v16 & 2) == 0 )
+            ConstrainWindowPos(&v53, &v54);
+          if ( (v16 & 1) == 0 )
             ConstrainWindowSize(&a5, &a6);
-          v17 = v34;
-          if ( (unsigned __int64)v34 <= 1 || (unsigned __int64)v34 > 0xFFFFFFFFFFFFFFFDuLL )
-            v17 = 0LL;
-          v18 = 0LL;
-          ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-          if ( ThreadWin32Thread )
-            v18 = *ThreadWin32Thread;
-          if ( (*(_BYTE *)(*(_QWORD *)(v18 + 480) + 224LL) & 1) == 0 )
+          v18 = v46;
+          if ( (unsigned __int64)v46 <= 1 || (unsigned __int64)v46 > 0xFFFFFFFFFFFFFFFDuLL )
+            v18 = 0LL;
+          v19 = 0LL;
+          CurrentThread = KeGetCurrentThread();
+          if ( !(unsigned __int8)KeIsAttachedProcess(v17)
+            || (CurrentProcess = PsGetCurrentProcess(v21, v20, v22),
+                ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+                CurrentThreadProcess = PsGetCurrentThreadProcess(v40),
+                ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
           {
-            v21 = 0LL;
-            v22 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-            if ( v22 )
-              v21 = *v22;
-            if ( (*(_BYTE *)(*(_QWORD *)(v21 + 480) + 224LL) & 0x20) == 0 )
+            ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+            if ( ThreadWin32Thread )
+              v19 = *ThreadWin32Thread;
+          }
+          if ( (*(_BYTE *)(*(_QWORD *)(v19 + 480) + 224LL) & 1) == 0 )
+          {
+            v25 = 0LL;
+            CurrentThread = KeGetCurrentThread();
+            if ( !(unsigned __int8)KeIsAttachedProcess(v24)
+              || (v42 = PsGetCurrentProcess(v27, v26, v28),
+                  v43 = PsGetProcessSessionIdEx(v42),
+                  v45 = PsGetCurrentThreadProcess(v44),
+                  v43 == (unsigned int)PsGetProcessSessionIdEx(v45)) )
             {
-              v24 = *(_DWORD *)(*((_QWORD *)v12 + 5) + 288LL);
-              if ( (((unsigned __int16)(v24 >> 8) ^ (unsigned __int16)((unsigned int)W32GetCurrentThreadDpiAwarenessContext(
-                                                                                       v23,
-                                                                                       v20) >> 8)) & 0x1FF) != 0 )
-                TransformSWPCoords(v12, &v39, &v40, &a5, &a6, v13);
+              v29 = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+              if ( v29 )
+                v25 = *v29;
+            }
+            if ( (*(_BYTE *)(*(_QWORD *)(v25 + 480) + 224LL) & 0x20) == 0 )
+            {
+              v31 = *(_DWORD *)(*(_QWORD *)(v13 + 40) + 288LL);
+              if ( (((unsigned __int16)(v31 >> 8) ^ (unsigned __int16)((unsigned int)W32GetCurrentThreadDpiAwarenessContext(v30) >> 8)) & 0x1FF) != 0 )
+                goto LABEL_44;
+              v32 = *(unsigned int *)(*(_QWORD *)(v13 + 40) + 288LL);
+              if ( (*(_DWORD *)(*(_QWORD *)(v13 + 40) + 288LL) & 0xF) != 2 || (v33 = 1, (v32 & 0x20000000) == 0) )
+                v33 = 0;
+              if ( (W32GetCurrentThreadDpiAwarenessContext(v32) & 0xF) != 2
+                || (W32GetCurrentThreadDpiAwarenessContext(v34) & 0x20000000) == 0 )
+              {
+                v10 = 0;
+              }
+              if ( v33 != v10 )
+LABEL_44:
+                TransformSWPCoords((struct tagWND *)v13, &v53, &v54, &a5, &a6, v16);
             }
           }
-          if ( (v13 & 0x43) == 0x43
-            && (*(_BYTE *)(*((_QWORD *)v12 + 5) + 31LL) & 0x10) == 0
-            && ShellWindowManagement::ExtendedBehaviorEnabled((ShellWindowManagement *)0x1000000, v20)
-            && (v31 = ShellWindowManagement::WindowSubjectToBehavior(v12, (const struct tagWND *)1, v29)) )
-          {
-            if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-              || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200000) == 0
-              || (LOBYTE(v32) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
-            {
-              LOBYTE(v32) = 0;
-            }
-            if ( (_BYTE)v32 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-            {
-              LOBYTE(v33) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-              WPP_RECORDER_AND_TRACE_SF_q(
-                WPP_GLOBAL_Control->AttachedDevice,
-                v32,
-                v33,
-                10,
-                4,
-                22,
-                10,
-                (__int64)&WPP_1a1985ee69fe3ed3820bb61b1edf259e_Traceguids,
-                (char)v12);
-            }
-            LOBYTE(v32) = 5;
-            xxxShowWindowEx(v12, v32, 0LL);
-            v9 = 1;
-          }
-          else
-          {
-            *(_QWORD *)&v37 = *(_QWORD *)(gptiCurrent + 416LL);
-            *(_QWORD *)(gptiCurrent + 416LL) = &v37;
-            *((_QWORD *)&v37 + 1) = v17;
-            if ( v17 )
-              HMLockObject(v17);
-            v9 = xxxSetWindowPos(v12, a5, a6, v13);
-            ThreadUnlock1(v26, v25, v27);
-          }
-          goto LABEL_24;
+          *(_QWORD *)&v51 = *(_QWORD *)(v48 + 416);
+          *(_QWORD *)(v48 + 416) = &v51;
+          *((_QWORD *)&v51 + 1) = v18;
+          if ( v18 )
+            HMLockObject(v18);
+          v7 = xxxSetWindowPos((struct tagWND *)v13, a5, a6, v16);
+          ThreadUnlock1(v35);
+          goto LABEL_29;
         }
-        v30 = 87LL;
+        v37 = 87LL;
       }
-      UserSetLastError(v30);
-      goto LABEL_24;
+      UserSetLastError(v37, v14, v15);
+      goto LABEL_29;
     }
   }
-LABEL_25:
-  UserSessionSwitchLeaveCrit(v11);
-  return v9;
+LABEL_30:
+  UserSessionSwitchLeaveCrit(v12);
+  return v7;
 }

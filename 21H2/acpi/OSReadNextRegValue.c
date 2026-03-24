@@ -1,11 +1,11 @@
 /*
- * XREFs of OSReadNextRegValue @ 0x1C00B2790
+ * XREFs of OSReadNextRegValue @ 0x1C00B2EAC
  * Callers:
- *     AMLIAddNextNamespaceOverride @ 0x1C0065AA0 (AMLIAddNextNamespaceOverride.c)
+ *     AMLIAddNextNamespaceOverride @ 0x1C0064824 (AMLIAddNextNamespaceOverride.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     memmove @ 0x1C002FDC0 (memmove.c)
- *     WPP_RECORDER_SF_d @ 0x1C005E894 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     memmove @ 0x1C00321C0 (memmove.c)
+ *     WPP_RECORDER_SF_d @ 0x1C005DB8C (WPP_RECORDER_SF_d.c)
  */
 
 __int64 __fastcall OSReadNextRegValue(HANDLE KeyHandle, ULONG Index, void *a3, _DWORD *a4)
@@ -13,7 +13,7 @@ __int64 __fastcall OSReadNextRegValue(HANDLE KeyHandle, ULONG Index, void *a3, _
   NTSTATUS v8; // ebx
   NTSTATUS v9; // eax
   ULONG v10; // eax
-  unsigned __int16 *Pool2; // rax
+  unsigned __int16 *PoolWithTag; // rax
   unsigned __int16 *v12; // r14
   int MaximumLength; // esi
   PULONG ResultLength; // [rsp+28h] [rbp-28h]
@@ -41,11 +41,11 @@ __int64 __fastcall OSReadNextRegValue(HANDLE KeyHandle, ULONG Index, void *a3, _
         if ( Length <= 0x10 )
           v10 = 16;
         Length = v10;
-        Pool2 = (unsigned __int16 *)ExAllocatePool2(256LL, v10, 1299211073LL);
-        v12 = Pool2;
-        if ( Pool2 )
+        PoolWithTag = (unsigned __int16 *)ExAllocatePoolWithTag(PagedPool, v10, 0x4D706341u);
+        v12 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          v8 = ZwEnumerateValueKey(KeyHandle, Index, KeyValueBasicInformation, Pool2, Length, &Length);
+          v8 = ZwEnumerateValueKey(KeyHandle, Index, KeyValueBasicInformation, PoolWithTag, Length, &Length);
           if ( v8 >= 0 )
           {
             SourceString.Buffer = v12 + 6;
@@ -73,7 +73,7 @@ __int64 __fastcall OSReadNextRegValue(HANDLE KeyHandle, ULONG Index, void *a3, _
                 2u,
                 0x15u,
                 0x1Bu,
-                (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
+                (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
                 ResultLengtha,
                 *(_QWORD *)&DestinationString.Length,
                 DestinationString.Buffer);
@@ -89,7 +89,7 @@ __int64 __fastcall OSReadNextRegValue(HANDLE KeyHandle, ULONG Index, void *a3, _
             2u,
             0x15u,
             0x1Au,
-            (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids,
+            (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids,
             ResultLength,
             *(_QWORD *)&DestinationString.Length,
             DestinationString.Buffer,

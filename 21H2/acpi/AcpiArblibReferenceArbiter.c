@@ -1,7 +1,7 @@
 /*
- * XREFs of AcpiArblibReferenceArbiter @ 0x1C0001E80
+ * XREFs of AcpiArblibReferenceArbiter @ 0x1C000CA00
  * Callers:
- *     AcpiArblibEjectInterface @ 0x1C00ABEA0 (AcpiArblibEjectInterface.c)
+ *     AcpiArblibEjectInterface @ 0x1C00AD1AC (AcpiArblibEjectInterface.c)
  * Callees:
  *     <none>
  */

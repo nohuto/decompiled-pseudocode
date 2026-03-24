@@ -1,52 +1,50 @@
 /*
- * XREFs of VhdiInitializeBootDisk @ 0x140B9BD30
+ * XREFs of VhdiInitializeBootDisk @ 0x140A94990
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x14041A780 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwOpenFile @ 0x14041AD00 (ZwOpenFile.c)
- *     RtlCompareMemory @ 0x140429160 (RtlCompareMemory.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x1408100F0 (RtlCreateUnicodeStringFromAsciiz.c)
- *     IoGetConfigurationInformation @ 0x140875CF0 (IoGetConfigurationInformation.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     VhdiGetPartitionNumber @ 0x140B9BB10 (VhdiGetPartitionNumber.c)
- *     VhdiGetVolumeNumber @ 0x140B9BBAC (VhdiGetVolumeNumber.c)
- *     VhdiQueryVolumeVhdFilePath @ 0x140B9C020 (VhdiQueryVolumeVhdFilePath.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x1403F9B00 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FA080 (ZwOpenFile.c)
+ *     RtlCompareMemory @ 0x140407830 (RtlCompareMemory.c)
+ *     IoGetConfigurationInformation @ 0x140781A10 (IoGetConfigurationInformation.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x1407A7470 (RtlCreateUnicodeStringFromAsciiz.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     VhdiGetPartitionNumber @ 0x140A9477C (VhdiGetPartitionNumber.c)
+ *     VhdiGetVolumeNumber @ 0x140A94818 (VhdiGetVolumeNumber.c)
+ *     VhdiQueryVolumeVhdFilePath @ 0x140A951A8 (VhdiQueryVolumeVhdFilePath.c)
  */
 
 __int64 __fastcall VhdiInitializeBootDisk(__int64 a1, __int64 a2, UNICODE_STRING *a3)
 {
-  _QWORD *v3; // r14
-  const void *v4; // r15
-  _DWORD *v5; // r12
-  PCONFIGURATION_INFORMATION ConfigurationInformation; // rax
-  HANDLE v8; // rcx
-  _DWORD *v9; // rbx
-  unsigned int v10; // esi
-  ULONG DiskCount; // r13d
-  void *VolumeVhdFilePath; // rax
-  ULONG OutputBufferLength; // edi
-  _DWORD *OutputBuffer; // rax
-  NTSTATUS v15; // eax
-  int v16; // ecx
-  bool v17; // zf
-  unsigned int VolumeNumber; // edi
+  _QWORD *v3; // r12
+  const void *v4; // r13
+  int *v6; // rdi
+  char v7; // r15
+  unsigned int v8; // r14d
+  int inited; // ebx
+  ULONG_PTR VolumeVhdFilePath; // rax
+  ULONG OutputBufferLength; // esi
+  int *OutputBuffer; // rax
+  int v13; // ecx
+  bool v14; // zf
   HANDLE Handle; // [rsp+50h] [rbp-B0h] BYREF
-  int v20; // [rsp+58h] [rbp-A8h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+90h] [rbp-70h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+A0h] [rbp-60h] BYREF
-  wchar_t pszDest[64]; // [rsp+B0h] [rbp-50h] BYREF
+  int v16; // [rsp+58h] [rbp-A8h] BYREF
+  ULONG DiskCount; // [rsp+5Ch] [rbp-A4h]
+  _DWORD *v18; // [rsp+60h] [rbp-A0h]
+  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-98h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-88h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-78h] BYREF
+  wchar_t pszDest[64]; // [rsp+C0h] [rbp-40h] BYREF
 
-  v20 = 0;
+  v16 = 0;
   DestinationString = 0LL;
   IoStatusBlock = 0LL;
-  memset(&ObjectAttributes, 0, 44);
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   if ( !a1 )
     return 3221225485LL;
   if ( !a2 )
@@ -61,106 +59,105 @@ __int64 __fastcall VhdiInitializeBootDisk(__int64 a1, __int64 a2, UNICODE_STRING
     return 3221225485LL;
   if ( !*(_QWORD *)(a2 + 16) )
     return 3221225485LL;
-  v5 = *(_DWORD **)(a2 + 24);
-  if ( !v5 )
+  v18 = *(_DWORD **)(a2 + 24);
+  if ( !v18 )
     return 3221225485LL;
   if ( !RtlCreateUnicodeStringFromAsciiz(a3, *(const char **)(a1 + 184)) )
     return 3221225473LL;
-  ConfigurationInformation = IoGetConfigurationInformation();
-  v8 = 0LL;
-  v9 = 0LL;
-  v10 = 0;
-  DiskCount = ConfigurationInformation->DiskCount;
+  v6 = 0LL;
+  v7 = 0;
+  v8 = 0;
+  DiskCount = IoGetConfigurationInformation()->DiskCount;
   Handle = 0LL;
-  if ( DiskCount )
+  if ( !DiskCount )
+    goto LABEL_39;
+  while ( 1 )
   {
-    do
+    inited = RtlStringCbPrintfW(pszDest, 0x80uLL, L"\\Device\\Harddisk%d\\Partition0", v8);
+    if ( inited < 0 )
+      goto LABEL_35;
+    inited = RtlInitUnicodeStringEx(&DestinationString, pszDest);
+    if ( inited < 0 )
+      goto LABEL_35;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 576;
+    ObjectAttributes.ObjectName = &DestinationString;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( Handle )
     {
-      if ( RtlStringCbPrintfW(pszDest, 0x80uLL, L"\\Device\\Harddisk%d\\Partition0", v10) >= 0
-        && RtlInitUnicodeStringEx(&DestinationString, pszDest) >= 0 )
-      {
-        ObjectAttributes.RootDirectory = 0LL;
-        ObjectAttributes.Length = 48;
-        ObjectAttributes.Attributes = 576;
-        ObjectAttributes.ObjectName = &DestinationString;
-        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-        if ( Handle )
-        {
-          ZwClose(Handle);
-          Handle = 0LL;
-        }
-        if ( ZwOpenFile(&Handle, 0xC0100000, &ObjectAttributes, &IoStatusBlock, 3u, 0x20u) >= 0 )
-        {
-          VolumeVhdFilePath = (void *)VhdiQueryVolumeVhdFilePath(Handle);
-          if ( VolumeVhdFilePath )
-          {
-            ExFreePoolWithTag(VolumeVhdFilePath, 0x42646856u);
-          }
-          else
-          {
-            if ( v9 )
-              ExFreePoolWithTag(v9, 0);
-            for ( OutputBufferLength = 4096; ; OutputBufferLength *= 2 )
-            {
-              OutputBuffer = (_DWORD *)ExAllocatePool2(64LL, OutputBufferLength, 0x42646856u);
-              v9 = OutputBuffer;
-              if ( !OutputBuffer )
-                break;
-              v15 = ZwDeviceIoControlFile(
-                      Handle,
-                      0LL,
-                      0LL,
-                      0LL,
-                      &IoStatusBlock,
-                      0x70050u,
-                      0LL,
-                      0,
-                      OutputBuffer,
-                      OutputBufferLength);
-              if ( v15 != -1073741789 )
-              {
-                if ( v15 >= 0 )
-                {
-                  v16 = *(_DWORD *)v3;
-                  if ( *v9 == *(_DWORD *)v3 )
-                  {
-                    if ( v16 )
-                    {
-                      if ( v16 != 1 )
-                        break;
-                      v17 = RtlCompareMemory(v9 + 2, v4, 0x10uLL) == 16;
-                    }
-                    else
-                    {
-                      v17 = RtlCompareMemory(v9 + 2, v4, 4uLL) == 4;
-                    }
-                    if ( v17 && (int)VhdiGetPartitionNumber(v9, v3, &v20) >= 0 )
-                    {
-                      VolumeNumber = VhdiGetVolumeNumber((__int64)Handle, v10, v20, v5);
-                      goto LABEL_35;
-                    }
-                  }
-                }
-                break;
-              }
-              ExFreePoolWithTag(v9, 0);
-            }
-          }
-        }
-      }
-      ++v10;
+      ZwClose(Handle);
+      Handle = 0LL;
     }
-    while ( v10 < DiskCount );
-    v8 = Handle;
-  }
-  VolumeNumber = -1073741810;
-  if ( v9 )
-  {
+    inited = ZwOpenFile(&Handle, 0xC0100000, &ObjectAttributes, &IoStatusBlock, 3u, 0x20u);
+    if ( inited < 0 )
+      goto LABEL_35;
+    VolumeVhdFilePath = VhdiQueryVolumeVhdFilePath(Handle);
+    if ( !VolumeVhdFilePath )
+      break;
+    ExFreeHeapPool(VolumeVhdFilePath);
 LABEL_35:
-    ExFreePoolWithTag(v9, 0x42646856u);
-    v8 = Handle;
+    if ( ++v8 >= DiskCount )
+      goto LABEL_38;
   }
-  if ( v8 )
-    ZwClose(v8);
-  return VolumeNumber;
+  if ( v6 )
+    ExFreeHeapPool((ULONG_PTR)v6);
+  for ( OutputBufferLength = 4096; ; OutputBufferLength *= 2 )
+  {
+    OutputBuffer = (int *)ExAllocatePoolWithTag(NonPagedPoolNx, OutputBufferLength, 0x42646856u);
+    v6 = OutputBuffer;
+    if ( !OutputBuffer )
+      break;
+    inited = ZwDeviceIoControlFile(
+               Handle,
+               0LL,
+               0LL,
+               0LL,
+               &IoStatusBlock,
+               0x70050u,
+               0LL,
+               0,
+               OutputBuffer,
+               OutputBufferLength);
+    if ( inited != -1073741789 )
+      goto LABEL_25;
+    ExFreeHeapPool((ULONG_PTR)v6);
+  }
+  inited = -1073741801;
+LABEL_25:
+  if ( inited < 0 )
+    goto LABEL_35;
+  v13 = *(_DWORD *)v3;
+  if ( *v6 == *(_DWORD *)v3 )
+  {
+    if ( v13 )
+    {
+      if ( v13 != 1 )
+        goto LABEL_34;
+      v14 = RtlCompareMemory(v6 + 2, v4, 0x10uLL) == 16;
+    }
+    else
+    {
+      v14 = RtlCompareMemory(v6 + 2, v4, 4uLL) == 4;
+    }
+    if ( v14 )
+    {
+      inited = VhdiGetPartitionNumber(v6, v3, &v16);
+      if ( inited >= 0 )
+        v7 = 1;
+    }
+  }
+LABEL_34:
+  if ( !v7 )
+    goto LABEL_35;
+  inited = VhdiGetVolumeNumber((__int64)Handle, v8, v16, v18);
+LABEL_38:
+  if ( !v7 )
+LABEL_39:
+    inited = -1073741810;
+  if ( v6 )
+    ExFreeHeapPool((ULONG_PTR)v6);
+  if ( Handle )
+    ZwClose(Handle);
+  return (unsigned int)inited;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of ?Draw@CGenericInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18022D2B8
+ * XREFs of ?Draw@CGenericInk@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801C25A8
  * Callers:
- *     ?Draw@CGenericInk@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18011C320 (-Draw@CGenericInk@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ *     ?Draw@CGenericInk@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1800F4660 (-Draw@CGenericInk@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?PopLayerInternal@CDrawingContext@@AEAAJW4LayerType@CLayer@@@Z @ 0x18008D240 (-PopLayerInternal@CDrawingContext@@AEAAJW4LayerType@CLayer@@@Z.c)
- *     ?GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180090EF8 (-GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
- *     ?IsHDRTarget@CDrawingContext@@QEBA_NXZ @ 0x1800913BC (-IsHDRTarget@CDrawingContext@@QEBA_NXZ.c)
- *     ?Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z @ 0x1800B26B8 (-Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z.c)
- *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800C2F90 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FC824 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180100300 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
- *     ?TryRegisterSuperWetForDraw@CSuperWetInkManager@@QEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x1801CCD30 (-TryRegisterSuperWetForDraw@CSuperWetInkManager@@QEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@.c)
- *     ?PushGammaBlendLayer@CDrawingContext@@QEAAJAEBUMilPointAndSizeL@@@Z @ 0x1801D681C (-PushGammaBlendLayer@CDrawingContext@@QEAAJAEBUMilPointAndSizeL@@@Z.c)
- *     wil::details::lambda_call__lambda_34259e71d2ff4394552eb19e2662e2a9___::_lambda_call__lambda_34259e71d2ff4394552eb19e2662e2a9___ @ 0x18022CD28 (wil--details--lambda_call__lambda_34259e71d2ff4394552eb19e2662e2a9___--_lambda_call__lambda_3425.c)
- *     ?GetDirectInkWetStroke@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAUIDCompositionDirectInkWetStrokePartner@@@Z @ 0x18022DAC0 (-GetDirectInkWetStroke@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAUIDCompositionDirectInkWetStrokeP.c)
- *     ?AlignRectFToPointAndSizeL@@YAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUMilPointAndSizeL@@@Z @ 0x180273680 (-AlignRectFToPointAndSizeL@@YAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotN.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180025150 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?PopLayerInternal@CDrawingContext@@AEAAJW4LayerType@CLayer@@@Z @ 0x1800408BC (-PopLayerInternal@CDrawingContext@@AEAAJW4LayerType@CLayer@@@Z.c)
+ *     ?GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18006BD48 (-GetClipBoundsWorld@CDrawingContext@@QEBAXPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
+ *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x180086EA0 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E5D20 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     ?GetWorldTransform@CDrawingContext@@QEBAXPEAVCMILMatrix@@@Z @ 0x1800EB7D4 (-GetWorldTransform@CDrawingContext@@QEBAXPEAVCMILMatrix@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18014E3DC (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?DrawGenericInk@CDrawingContext@@UEAAJPEAUIDCompositionDirectInkWetStrokePartner@@_N@Z @ 0x180175370 (-DrawGenericInk@CDrawingContext@@UEAAJPEAUIDCompositionDirectInkWetStrokePartner@@_N@Z.c)
+ *     ?PushGammaBlendLayer@CDrawingContext@@QEAAJAEBUMilPointAndSizeL@@@Z @ 0x180177E90 (-PushGammaBlendLayer@CDrawingContext@@QEAAJAEBUMilPointAndSizeL@@@Z.c)
+ *     ?IsHDRTarget@CDrawingContext@@QEBA_NXZ @ 0x1801954CC (-IsHDRTarget@CDrawingContext@@QEBA_NXZ.c)
+ *     ?TryRegisterSuperWetForDraw@CSuperWetInkManager@@QEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x180195B74 (-TryRegisterSuperWetForDraw@CSuperWetInkManager@@QEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@.c)
+ *     ?GetDirectInkWetStroke@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAUIDCompositionDirectInkWetStrokePartner@@@Z @ 0x1801C2D24 (-GetDirectInkWetStroke@CGenericInk@@QEAAJPEAVCD3DDevice@@PEAPEAUIDCompositionDirectInkWetStrokeP.c)
+ *     ?AlignRectFToPointAndSizeL@@YAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUMilPointAndSizeL@@@Z @ 0x180211F54 (-AlignRectFToPointAndSizeL@@YAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotN.c)
  */
 
 __int64 __fastcall CGenericInk::Draw(
@@ -27,188 +27,176 @@ __int64 __fastcall CGenericInk::Draw(
         struct CDrawListCache *a4)
 {
   int DirectInkWetStroke; // eax
-  __int64 v6; // r8
-  unsigned int v7; // ebx
+  unsigned int v6; // edi
+  __int64 v7; // rdx
   struct IDCompositionDirectInkWetStrokePartner *v8; // rbx
   bool v9; // r15
   bool v10; // di
-  int v11; // edi
-  __int64 v12; // rdx
-  int v13; // esi
-  int v14; // eax
-  float v15; // xmm4_4
-  float v16; // xmm1_4
-  float v17; // xmm3_4
-  float v18; // xmm0_4
-  int v19; // eax
-  char v21; // [rsp+30h] [rbp-89h] BYREF
-  bool v22[7]; // [rsp+31h] [rbp-88h] BYREF
-  CDrawingContext *v23; // [rsp+38h] [rbp-81h] BYREF
-  struct IDCompositionDirectInkWetStrokePartner *v24; // [rsp+40h] [rbp-79h] BYREF
-  int v25; // [rsp+48h] [rbp-71h] BYREF
-  _BYTE v26[64]; // [rsp+50h] [rbp-69h] BYREF
-  int v27; // [rsp+90h] [rbp-29h]
-  __int128 v28; // [rsp+A0h] [rbp-19h] BYREF
-  __int128 v29; // [rsp+B0h] [rbp-9h] BYREF
-  char v30; // [rsp+C0h] [rbp+7h]
-  __int128 v31; // [rsp+C8h] [rbp+Fh] BYREF
-  __int128 v32; // [rsp+D8h] [rbp+1Fh] BYREF
+  int v11; // esi
+  int v12; // eax
+  float v13; // xmm4_4
+  float v14; // xmm1_4
+  float v15; // xmm2_4
+  float v16; // xmm0_4
+  int v17; // eax
+  bool v19[8]; // [rsp+30h] [rbp-89h] BYREF
+  CDrawingContext *v20; // [rsp+38h] [rbp-81h]
+  struct IDCompositionDirectInkWetStrokePartner *v21; // [rsp+40h] [rbp-79h] BYREF
+  int v22; // [rsp+48h] [rbp-71h] BYREF
+  _BYTE v23[64]; // [rsp+50h] [rbp-69h] BYREF
+  int v24; // [rsp+90h] [rbp-29h]
+  __int128 v25; // [rsp+A0h] [rbp-19h] BYREF
+  __int128 v26; // [rsp+B0h] [rbp-9h] BYREF
+  __int128 v27; // [rsp+C0h] [rbp+7h] BYREF
+  __int128 v28; // [rsp+D0h] [rbp+17h]
   wil::details::in1diag3 *retaddr; // [rsp+118h] [rbp+5Fh]
 
-  v24 = 0LL;
-  v23 = a2;
-  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v24);
+  v21 = 0LL;
+  v20 = a2;
+  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)&v21);
   DirectInkWetStroke = CGenericInk::GetDirectInkWetStroke(
-                         (CGenericInk *)((char *)this - 432),
-                         *((struct CD3DDevice **)v23 + 5),
-                         &v24);
-  v7 = DirectInkWetStroke;
+                         (CGenericInk *)((char *)this - 392),
+                         *((struct CD3DDevice **)v20 + 5),
+                         &v21);
+  v6 = DirectInkWetStroke;
   if ( DirectInkWetStroke < 0 )
   {
+    v7 = 184LL;
+LABEL_32:
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0xBA,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\genericink.cpp",
+      (void *)v7,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\genericink.cpp",
       (const char *)(unsigned int)DirectInkWetStroke);
     goto LABEL_41;
   }
-  v8 = v24;
+  v8 = v21;
   v9 = 0;
   v10 = 0;
-  v22[0] = 0;
-  v21 = 0;
+  v19[0] = 0;
+  v19[1] = 0;
   if ( CCommonRegistryData::GammaBlendPencil )
   {
-    v11 = (*(__int64 (__fastcall **)(struct IDCompositionDirectInkWetStrokePartner *, int *))(*(_QWORD *)v24 + 64LL))(
-            v24,
-            &v25);
-    if ( v11 < 0 )
+    DirectInkWetStroke = (*(__int64 (__fastcall **)(struct IDCompositionDirectInkWetStrokePartner *, int *))(*(_QWORD *)v21 + 64LL))(
+                           v21,
+                           &v22);
+    v6 = DirectInkWetStroke;
+    if ( DirectInkWetStroke < 0 )
     {
-      v12 = 196LL;
-LABEL_6:
-      wil::details::in1diag3::Return_Hr(
-        retaddr,
-        (void *)v12,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\genericink.cpp",
-        (const char *)(unsigned int)v11);
-      v7 = v11;
-      goto LABEL_41;
+      v7 = 194LL;
+      goto LABEL_32;
     }
-    v10 = v25 && CDrawingContext::IsHDRTarget(v23);
+    v10 = v22 && CDrawingContext::IsHDRTarget(v20);
   }
-  v13 = 0;
-  if ( *((_QWORD *)this - 43) )
+  v11 = 0;
+  if ( *((_QWORD *)this - 39) )
   {
-    v14 = CSuperWetInkManager::TryRegisterSuperWetForDraw(
-            *(CSuperWetInkManager **)(*((_QWORD *)this - 52) + 256LL),
-            (CGenericInk *)((char *)this - 432),
-            v23,
+    v12 = CSuperWetInkManager::TryRegisterSuperWetForDraw(
+            *(CSuperWetInkManager **)(*((_QWORD *)this - 47) + 128LL),
+            (struct CSuperWetSource *)(((unsigned __int64)this - 320) & -(__int64)(this != (CGenericInk *)392)),
+            v20,
             v10,
-            v22);
-    v9 = v22[0];
-    v13 = v14;
+            v19);
+    v9 = v19[0];
+    v11 = v12;
   }
   if ( v10 )
   {
-    v31 = 0LL;
-    v11 = (*(__int64 (__fastcall **)(struct IDCompositionDirectInkWetStrokePartner *, __int128 *))(*(_QWORD *)v8 + 32LL))(
-            v8,
-            &v31);
-    if ( v11 < 0 )
+    v27 = 0LL;
+    DirectInkWetStroke = (*(__int64 (__fastcall **)(struct IDCompositionDirectInkWetStrokePartner *, __int128 *))(*(_QWORD *)v8 + 32LL))(
+                           v8,
+                           &v27);
+    v6 = DirectInkWetStroke;
+    if ( DirectInkWetStroke < 0 )
     {
-      v12 = 214LL;
-      goto LABEL_6;
+      v7 = 212LL;
+      goto LABEL_32;
     }
-    v27 = 0;
-    v29 = v31;
+    v24 = 0;
+    v26 = v27;
+    v25 = 0LL;
     v28 = 0LL;
-    v32 = 0LL;
-    CMatrixStack::Top((CDrawingContext *)((char *)v23 + 400), (struct CMILMatrix *)v26);
-    CMILMatrix::Transform2DBoundsHelper<0>((CMILMatrix *)v26, (struct MilRectF *)&v29, (float *)&v28);
-    CDrawingContext::GetClipBoundsWorld((__int64)v23, (float *)&v32);
-    v15 = *(float *)&v28;
-    if ( *(float *)&v32 > *(float *)&v28 )
+    CDrawingContext::GetWorldTransform(v20, (struct CMILMatrix *)v23);
+    CMILMatrix::Transform2DBoundsHelper<0>((CMILMatrix *)v23, (__int64)&v26, (float *)&v25);
+    CDrawingContext::GetClipBoundsWorld((__int64)v20);
+    v13 = *(float *)&v25;
+    if ( *(float *)&v28 > *(float *)&v25 )
     {
-      LODWORD(v28) = v32;
-      v15 = *(float *)&v32;
+      LODWORD(v25) = v28;
+      v13 = *(float *)&v28;
     }
-    v16 = *((float *)&v28 + 1);
-    if ( *((float *)&v32 + 1) > *((float *)&v28 + 1) )
+    v14 = *((float *)&v25 + 1);
+    if ( *((float *)&v28 + 1) > *((float *)&v25 + 1) )
     {
-      DWORD1(v28) = DWORD1(v32);
-      v16 = *((float *)&v32 + 1);
+      DWORD1(v25) = DWORD1(v28);
+      v14 = *((float *)&v28 + 1);
     }
-    v17 = *((float *)&v28 + 2);
-    if ( *((float *)&v28 + 2) > *((float *)&v32 + 2) )
+    v15 = *((float *)&v25 + 2);
+    if ( *((float *)&v25 + 2) > *((float *)&v28 + 2) )
     {
-      DWORD2(v28) = DWORD2(v32);
-      v17 = *((float *)&v32 + 2);
+      DWORD2(v25) = DWORD2(v28);
+      v15 = *((float *)&v28 + 2);
     }
-    v18 = *((float *)&v28 + 3);
-    if ( *((float *)&v28 + 3) > *((float *)&v32 + 3) )
+    v16 = *((float *)&v25 + 3);
+    if ( *((float *)&v25 + 3) > *((float *)&v28 + 3) )
     {
-      HIDWORD(v28) = HIDWORD(v32);
-      v18 = *((float *)&v32 + 3);
+      HIDWORD(v25) = HIDWORD(v28);
+      v16 = *((float *)&v28 + 3);
     }
-    if ( v17 <= v15 || v18 <= v16 )
-      v28 = 0uLL;
-    v11 = AlignRectFToPointAndSizeL(&v28, &v29);
-    if ( v11 < 0 )
+    if ( v15 <= v13 || v16 <= v14 )
+      v25 = 0uLL;
+    DirectInkWetStroke = AlignRectFToPointAndSizeL(&v25, &v26);
+    v6 = DirectInkWetStroke;
+    if ( DirectInkWetStroke < 0 )
     {
-      v12 = 233LL;
-      goto LABEL_6;
+      v7 = 231LL;
+      goto LABEL_32;
     }
-    if ( SDWORD2(v29) > 0 && SHIDWORD(v29) > 0 )
+    if ( SDWORD2(v26) > 0 && SHIDWORD(v26) > 0 )
     {
-      v11 = CDrawingContext::PushGammaBlendLayer((struct IDeviceTarget **)v23, (const struct MilPointAndSizeL *)&v29);
-      if ( v11 < 0 )
+      DirectInkWetStroke = CDrawingContext::PushGammaBlendLayer(
+                             (struct IDeviceTarget **)v20,
+                             (const struct MilPointAndSizeL *)&v26);
+      v6 = DirectInkWetStroke;
+      if ( DirectInkWetStroke < 0 )
       {
-        v12 = 237LL;
-        goto LABEL_6;
+        v7 = 235LL;
+        goto LABEL_32;
       }
-      v21 = 1;
+      v19[1] = 1;
     }
   }
-  dword_1803E59F4 |= 1u;
-  *(_QWORD *)&v29 = &v21;
-  v30 = 1;
-  *((_QWORD *)&v29 + 1) = &v23;
-  LOBYTE(v6) = !v9;
-  v19 = (*(__int64 (__fastcall **)(char *, struct IDCompositionDirectInkWetStrokePartner *, __int64))(*((_QWORD *)v23 + 2) + 64LL))(
-          (char *)v23 + 16,
-          v8,
-          v6);
-  v7 = v19;
-  if ( v19 >= 0 )
+  dword_180347284 |= 1u;
+  v17 = CDrawingContext::DrawGenericInk((CDrawingContext *)((char *)v20 + 16), v8, !v9);
+  v6 = v17;
+  if ( v17 >= 0 )
   {
-    if ( v13 >= 0 )
+    if ( v11 >= 0 )
     {
       **((_DWORD **)this - 18) = 0;
-      if ( v21 )
-        CDrawingContext::PopLayerInternal((__int64)v23);
-      v7 = 0;
+      v6 = 0;
     }
     else
     {
       wil::details::in1diag3::Return_Hr(
         retaddr,
-        (void *)0x101,
-        (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\genericink.cpp",
-        (const char *)(unsigned int)v13);
-      wil::details::lambda_call__lambda_34259e71d2ff4394552eb19e2662e2a9___::_lambda_call__lambda_34259e71d2ff4394552eb19e2662e2a9___((__int64)&v29);
-      v7 = v13;
+        (void *)0xFF,
+        (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\genericink.cpp",
+        (const char *)(unsigned int)v11);
+      v6 = v11;
     }
   }
   else
   {
     wil::details::in1diag3::Return_Hr(
       retaddr,
-      (void *)0xFF,
-      (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\genericink.cpp",
-      (const char *)(unsigned int)v19);
-    wil::details::lambda_call__lambda_34259e71d2ff4394552eb19e2662e2a9___::_lambda_call__lambda_34259e71d2ff4394552eb19e2662e2a9___((__int64)&v29);
+      (void *)0xFD,
+      (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\genericink.cpp",
+      (const char *)(unsigned int)v17);
   }
+  if ( v19[1] )
+    CDrawingContext::PopLayerInternal((__int64)v20);
 LABEL_41:
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v24);
-  return v7;
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v21);
+  return v6;
 }

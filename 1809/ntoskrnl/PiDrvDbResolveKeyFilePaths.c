@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDrvDbResolveKeyFilePaths @ 0x14083EBA4
+ * XREFs of PiDrvDbResolveKeyFilePaths @ 0x14083EB84
  * Callers:
- *     PiDevCfgInitResolveContext @ 0x1406FA300 (PiDevCfgInitResolveContext.c)
+ *     PiDevCfgInitResolveContext @ 0x1406FA2E0 (PiDevCfgInitResolveContext.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
- *     PiDrvDbFindNode @ 0x14028B284 (PiDrvDbFindNode.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
+ *     PiDrvDbFindNode @ 0x14028B384 (PiDrvDbFindNode.c)
  *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
  *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     IopQueryRegistryKeySystemPath @ 0x140680164 (IopQueryRegistryKeySystemPath.c)
- *     PiDrvDbGetNodeSystemRoot @ 0x14083D6D8 (PiDrvDbGetNodeSystemRoot.c)
- *     PiDrvDbResolveFilePathKeyValues @ 0x14083E5DC (PiDrvDbResolveFilePathKeyValues.c)
+ *     IopQueryRegistryKeySystemPath @ 0x140680144 (IopQueryRegistryKeySystemPath.c)
+ *     PiDrvDbGetNodeSystemRoot @ 0x14083D6B8 (PiDrvDbGetNodeSystemRoot.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x14083E5BC (PiDrvDbResolveFilePathKeyValues.c)
  */
 
 __int64 __fastcall PiDrvDbResolveKeyFilePaths(HANDLE Handle)

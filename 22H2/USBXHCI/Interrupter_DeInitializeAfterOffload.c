@@ -1,13 +1,13 @@
 /*
- * XREFs of Interrupter_DeInitializeAfterOffload @ 0x1C003DBEC
+ * XREFs of Interrupter_DeInitializeAfterOffload @ 0x1C003B8B8
  * Callers:
- *     Controller_DecrementNumberOfEndpointsOffloaded @ 0x1C0032CE0 (Controller_DecrementNumberOfEndpointsOffloaded.c)
+ *     Controller_DecrementNumberOfEndpointsOffloaded @ 0x1C0031164 (Controller_DecrementNumberOfEndpointsOffloaded.c)
  * Callees:
- *     XilRegister_WriteUlong64 @ 0x1C0014CB8 (XilRegister_WriteUlong64.c)
- *     XilRegister_ReadUlong @ 0x1C00180F0 (XilRegister_ReadUlong.c)
- *     XilRegister_WriteUlong @ 0x1C0018478 (XilRegister_WriteUlong.c)
- *     WPP_RECORDER_SF_i @ 0x1C001C61C (WPP_RECORDER_SF_i.c)
- *     XilRegister_ReadUlong64 @ 0x1C003F238 (XilRegister_ReadUlong64.c)
+ *     XilRegister_ReadUlong @ 0x1C0013DA0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0013F1C (XilRegister_WriteUlong.c)
+ *     XilRegister_WriteUlong64 @ 0x1C00142E0 (XilRegister_WriteUlong64.c)
+ *     WPP_RECORDER_SF_i @ 0x1C00155A4 (WPP_RECORDER_SF_i.c)
+ *     XilRegister_ReadUlong64 @ 0x1C003CFDC (XilRegister_ReadUlong64.c)
  */
 
 __int64 __fastcall Interrupter_DeInitializeAfterOffload(__int64 a1)
@@ -120,8 +120,8 @@ LABEL_25:
       *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
       v20,
       9,
-      65,
-      (__int64)&WPP_89e87cee83d7332425398286600bed19_Traceguids,
+      64,
+      (__int64)&WPP_260d7188460d377ee27ff5eb6158db37_Traceguids,
       v22);
   }
   v23 = *(_QWORD *)(v2 + 24);

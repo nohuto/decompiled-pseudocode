@@ -1,20 +1,20 @@
 /*
- * XREFs of MiUpdateChargedWsles @ 0x1405B85A8
+ * XREFs of MiUpdateChargedWsles @ 0x14055C45C
  * Callers:
- *     MiDeleteVadBitmap @ 0x140693D80 (MiDeleteVadBitmap.c)
- *     MiComputeProcessUserVa @ 0x14070A9C0 (MiComputeProcessUserVa.c)
- *     MiReturnPageTablePageCommitment @ 0x1407B92D0 (MiReturnPageTablePageCommitment.c)
- *     MiCommitPageTablesForVad @ 0x1407BDB60 (MiCommitPageTablesForVad.c)
+ *     MiCommitPageTablesForVad @ 0x1405F91A0 (MiCommitPageTablesForVad.c)
+ *     MiDeleteVadBitmap @ 0x140682EB0 (MiDeleteVadBitmap.c)
+ *     MiReturnPageTablePageCommitment @ 0x1406EE990 (MiReturnPageTablePageCommitment.c)
+ *     MiComputeProcessUserVa @ 0x140711CC0 (MiComputeProcessUserVa.c)
  * Callees:
- *     MiGetSharedVm @ 0x140282AD0 (MiGetSharedVm.c)
+ *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
  */
 
-volatile signed __int64 *__fastcall MiUpdateChargedWsles(__int64 a1)
+LONG *__fastcall MiUpdateChargedWsles(__int64 a1)
 {
-  volatile signed __int64 *result; // rax
+  LONG *result; // rax
   unsigned __int64 v2; // rdx
 
-  result = (volatile signed __int64 *)MiGetSharedVm(a1);
-  _InterlockedExchangeAdd64(result + 6, v2);
+  result = MiGetSharedVm(a1);
+  _InterlockedExchangeAdd64((volatile signed __int64 *)result + 6, v2);
   return result;
 }

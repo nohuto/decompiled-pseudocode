@@ -1,9 +1,9 @@
 /*
- * XREFs of PfLogForegroundProcess @ 0x1400D73D0
+ * XREFs of PfLogForegroundProcess @ 0x1400D73F0
  * Callers:
  *     MiTrimOrAgeWorkingSet @ 0x14006D580 (MiTrimOrAgeWorkingSet.c)
  * Callees:
- *     PfLogEvent @ 0x1400D53D8 (PfLogEvent.c)
+ *     PfLogEvent @ 0x1400D53F8 (PfLogEvent.c)
  */
 
 __int64 __fastcall PfLogForegroundProcess(__int64 a1)

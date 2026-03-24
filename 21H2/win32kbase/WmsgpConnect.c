@@ -1,9 +1,9 @@
 /*
- * XREFs of WmsgpConnect @ 0x1C02C8A68
+ * XREFs of WmsgpConnect @ 0x1C027F818
  * Callers:
- *     _RegisterLogonProcess @ 0x1C00BDE70 (_RegisterLogonProcess.c)
+ *     _RegisterLogonProcess @ 0x1C00B19C0 (_RegisterLogonProcess.c)
  * Callees:
- *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C006AC74 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00ADCE4 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
  */
 
 __int64 __fastcall WmsgpConnect(_DWORD *a1)
@@ -20,7 +20,7 @@ __int64 __fastcall WmsgpConnect(_DWORD *a1)
     Template.StringEndpoint = &StringEndPoint;
     v1 = RpcBindingCreateW(&Template, &Security, &Options, &gWinLogonRpcHandle);
     if ( !v1 )
-      v1 = RpcBindingBind(0LL, gWinLogonRpcHandle, &unk_1C0245B80);
+      v1 = RpcBindingBind(0LL, gWinLogonRpcHandle, &unk_1C0205AC0);
   }
   if ( v1 && gWinLogonRpcHandle )
   {

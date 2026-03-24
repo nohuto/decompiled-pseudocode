@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpInitializeSvm @ 0x140B2E354
+ * XREFs of ExpInitializeSvm @ 0x140A71BE4
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140AFCEF0 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140A3CEBC (ExpInitSystemPhase1.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 *ExpInitializeSvm()
@@ -60,10 +60,10 @@ __int64 *ExpInitializeSvm()
   v6[13] = ExpSvmReferenceAsid;
   v6[14] = ExpSvmDereferenceAsid;
   v6[15] = ExpSvmServicePageFault;
-  result = &ExpAtsSvmDevices;
-  qword_140C11548 = (__int64)&ExpAtsSvmDevices;
-  ExpAtsSvmDevices = (__int64)&ExpAtsSvmDevices;
-  qword_140C11498 = 0LL;
-  ExpAtsSvmDeviceListLock = 0LL;
+  result = &ExpSvmDevices;
+  qword_140C16938 = (__int64)&ExpSvmDevices;
+  ExpSvmDevices = (__int64)&ExpSvmDevices;
+  qword_140C16918 = 0LL;
+  ExpSvmDeviceListLock = 0LL;
   return result;
 }

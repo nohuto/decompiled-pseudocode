@@ -1,5 +1,5 @@
 /*
- * XREFs of vSrcTranCopyS1D4 @ 0x1C028EFC0
+ * XREFs of vSrcTranCopyS1D4 @ 0x1C02912E0
  * Callers:
  *     <none>
  * Callees:
@@ -38,76 +38,74 @@ char __fastcall vSrcTranCopyS1D4(__int64 a1, int a2, int a3, __int64 a4, int a5,
   int v38; // edi
   unsigned __int64 v39; // rbp
   unsigned __int64 v40; // rax
-  __int64 v41; // r13
-  int v42; // eax
-  int v43; // edi
-  _BYTE *v44; // r8
-  _BYTE *v45; // rbp
-  __int64 v46; // r15
-  char v47; // r10
-  int v48; // ebx
-  char *v49; // r8
-  _BYTE *v50; // rdx
-  __int64 v51; // rbp
-  char *v52; // rsi
-  char v53; // r10
-  unsigned __int64 v54; // rbx
-  int v55; // edi
-  unsigned __int8 *v57; // [rsp+8h] [rbp-50h]
-  __int64 v58; // [rsp+10h] [rbp-48h]
-  __int64 v59; // [rsp+60h] [rbp+8h]
-  int v60; // [rsp+68h] [rbp+10h]
-  __int64 v61; // [rsp+78h] [rbp+20h]
+  int v41; // r13d
+  _BYTE *v42; // r8
+  _BYTE *v43; // rbp
+  __int64 v44; // r15
+  char v45; // r10
+  int v46; // ebx
+  char *v47; // r8
+  _BYTE *v48; // rdx
+  __int64 v49; // rbp
+  char *v50; // rsi
+  char v51; // di
+  unsigned int v52; // ebx
+  unsigned __int64 v53; // r10
+  unsigned __int8 *v55; // [rsp+8h] [rbp-50h]
+  __int64 v56; // [rsp+10h] [rbp-48h]
+  __int64 v57; // [rsp+60h] [rbp+8h]
+  int v58; // [rsp+68h] [rbp+10h]
+  __int64 v59; // [rsp+78h] [rbp+20h]
 
-  v61 = a4;
+  v59 = a4;
   v9 = a4;
   v11 = a5;
   v12 = a7;
   v13 = a2;
   v15 = a2 & 7;
   v16 = a9 | (16 * a9);
-  v60 = -1044736;
+  v58 = -1044736;
   a9 = a6 - a5 + a2;
   v17 = a3 * (__int64)a8;
   v18 = ((_BYTE)a6 - (_BYTE)a5 + (_BYTE)a2) & 7;
-  v59 = a3;
+  v57 = a3;
   v19 = (unsigned __int8 *)(a1 + ((__int64)(a2 + 7) >> 3));
   a8 = 8 - v15;
-  v57 = &v19[v17];
   v20 = v15 != 0 ? 8 - v15 : 0;
   LOBYTE(v21) = v18 + v20;
   v22 = a6 - a5 - (v18 + v20);
   if ( v22 > 0 )
   {
-    v23 = (_BYTE *)(v61 + ((__int64)(v20 + a5) >> 1));
+    v55 = &v19[v17];
+    v23 = (_BYTE *)(v59 + ((__int64)(v20 + a5) >> 1));
     v24 = a3 - (v22 >> 3);
     v25 = a7 - (v22 >> 1);
     v26 = (__int64)v22 >> 3;
-    v58 = v24;
+    v56 = v24;
     do
     {
       v27 = &v19[v26];
       do
       {
         v28 = *v19++;
-        *v23 = v16 & *((_BYTE *)&v60 + ((unsigned __int64)v28 >> 6)) | *v23 & ~*((_BYTE *)&v60
+        *v23 = v16 & *((_BYTE *)&v58 + ((unsigned __int64)v28 >> 6)) | *v23 & ~*((_BYTE *)&v58
                                                                                + ((unsigned __int64)v28 >> 6));
-        v29 = *((_BYTE *)&v60 + ((v28 >> 4) & 3));
+        v29 = *((_BYTE *)&v58 + ((v28 >> 4) & 3));
         v23[1] = v16 & v29 | v23[1] & ~v29;
-        v30 = *((_BYTE *)&v60 + (v28 & 3));
-        v23[2] = v16 & *((_BYTE *)&v60 + ((v28 >> 2) & 3)) | v23[2] & ~*((_BYTE *)&v60 + ((v28 >> 2) & 3));
+        v30 = *((_BYTE *)&v58 + (v28 & 3));
+        v23[2] = v16 & *((_BYTE *)&v58 + ((v28 >> 2) & 3)) | v23[2] & ~*((_BYTE *)&v58 + ((v28 >> 2) & 3));
         LOBYTE(v21) = v16 & v30 | v23[3] & ~v30;
         v23[3] = v21;
         v23 += 4;
       }
       while ( v19 != v27 );
-      v19 += v58;
+      v19 += v56;
       v23 += v25;
     }
-    while ( v19 != v57 );
+    while ( v19 != v55 );
     v12 = a7;
     v11 = a5;
-    v9 = v61;
+    v9 = v59;
   }
   if ( v15 )
   {
@@ -142,7 +140,7 @@ char __fastcall vSrcTranCopyS1D4(__int64 a1, int a2, int a3, __int64 a4, int a5,
             {
               v40 = (unsigned __int64)v36 >> 6;
               v36 *= 4;
-              *v37 = v16 & *((_BYTE *)&v60 + v40) | *v37 & ~*((_BYTE *)&v60 + v40);
+              *v37 = v16 & *((_BYTE *)&v58 + v40) | *v37 & ~*((_BYTE *)&v58 + v40);
               ++v37;
               --v39;
             }
@@ -154,89 +152,84 @@ char __fastcall vSrcTranCopyS1D4(__int64 a1, int a2, int a3, __int64 a4, int a5,
             LOBYTE(v21) = v16 ^ (v16 ^ *v37) & 0xF;
             *v37 = v21;
           }
-          v33 += v59;
+          v33 += v57;
           v31 += v34;
         }
         while ( v33 != v35 );
       }
       return v21;
     }
-    v41 = v59;
-    v42 = v12;
-    v43 = a8;
-    v44 = (_BYTE *)(a1 + (v13 >> 3));
-    LODWORD(v21) = v42 - ((9 - v15) >> 1);
-    v45 = &v44[v17];
-    v46 = (int)v21;
+    v41 = a8;
+    v42 = (_BYTE *)(a1 + (v13 >> 3));
+    LODWORD(v21) = v12 - ((9 - v15) >> 1);
+    v43 = &v42[v17];
+    v44 = (int)v21;
     do
     {
-      v47 = *v44 << v15;
-      v48 = v43;
-      if ( (v43 & 1) != 0 )
+      v45 = *v42 << v15;
+      v46 = v41;
+      if ( (v41 & 1) != 0 )
       {
-        if ( v47 < 0 )
+        if ( v45 < 0 )
         {
           LOBYTE(v21) = (v16 ^ *v31) & 0xF;
           *v31 ^= v21;
         }
-        v47 *= 2;
+        v45 *= 2;
         ++v31;
-        v48 = v43 - 1;
+        v46 = v41 - 1;
       }
-      for ( ; v48; v48 -= 2 )
+      for ( ; v46; v46 -= 2 )
       {
-        v21 = (unsigned __int64)(unsigned __int8)v47 >> 6;
-        v47 *= 4;
-        LOBYTE(v21) = v16 & *((_BYTE *)&v60 + v21) | *v31 & ~*((_BYTE *)&v60 + v21);
+        v21 = (unsigned __int64)(unsigned __int8)v45 >> 6;
+        v45 *= 4;
+        LOBYTE(v21) = v16 & *((_BYTE *)&v58 + v21) | *v31 & ~*((_BYTE *)&v58 + v21);
         *v31++ = v21;
       }
-      v44 += v59;
-      v31 += v46;
+      v42 += v57;
+      v31 += v44;
     }
-    while ( v44 != v45 );
+    while ( v42 != v43 );
     v12 = a7;
-  }
-  else
-  {
-    v41 = v59;
   }
   if ( v18 )
   {
-    v49 = (char *)(a1 + ((__int64)a9 >> 3));
-    v50 = (_BYTE *)(v61 + ((__int64)(int)(a6 - v18) >> 1));
+    v47 = (char *)(a1 + ((__int64)a9 >> 3));
+    v48 = (_BYTE *)(v59 + ((__int64)(int)(a6 - v18) >> 1));
     LODWORD(v21) = (v18 + 1) >> 1;
-    v51 = v12 - (int)v21;
-    v52 = &v49[v17];
+    v49 = v12 - (int)v21;
+    v50 = &v47[v17];
     do
     {
-      v53 = *v49;
-      if ( v18 < 2 )
-        goto LABEL_38;
-      v54 = (unsigned __int64)v18 >> 1;
-      v55 = v18 - 2 * v54;
-      do
+      v51 = *v47;
+      v52 = v18;
+      if ( v18 >= 2 )
       {
-        v21 = (unsigned __int64)(unsigned __int8)v53 >> 6;
-        v53 *= 4;
-        LOBYTE(v21) = v16 & *((_BYTE *)&v60 + v21) | *v50 & ~*((_BYTE *)&v60 + v21);
-        *v50++ = v21;
-        --v54;
-      }
-      while ( v54 );
-      if ( v55 )
-      {
-LABEL_38:
-        if ( v53 < 0 )
+        v53 = (unsigned __int64)v18 >> 1;
+        v52 = v18 - 2 * v53;
+        do
         {
-          LOBYTE(v21) = v16 ^ (v16 ^ *v50) & 0xF;
-          *v50 = v21;
+          v21 = (unsigned __int64)(unsigned __int8)v51 >> 6;
+          v51 *= 4;
+          LOBYTE(v21) = v16 & *((_BYTE *)&v58 + v21) | *v48 & ~*((_BYTE *)&v58 + v21);
+          *v48++ = v21;
+          --v53;
         }
-        ++v50;
+        while ( v53 );
       }
-      v49 += v41;
-      v50 += v51;
+      if ( v52 )
+      {
+        if ( v51 < 0 )
+        {
+          LOBYTE(v21) = v16 ^ (v16 ^ *v48) & 0xF;
+          *v48 = v21;
+        }
+        ++v48;
+      }
+      v47 += v57;
+      v48 += v49;
     }
-    while ( v49 != v52 );
+    while ( v47 != v50 );
   }
   return v21;
 }

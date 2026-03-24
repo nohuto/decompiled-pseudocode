@@ -1,53 +1,44 @@
 /*
- * XREFs of ?ProcessVSyncPhaseTimer@DXGADAPTER@@QEAAXI@Z @ 0x1C01973F8
+ * XREFs of ?ProcessVSyncPhaseTimer@DXGADAPTER@@QEAAXI@Z @ 0x1C0121E38
  * Callers:
- *     ?DxgkpProcessVSyncPhaseThread@@YAXPEAX@Z @ 0x1C01971E0 (-DxgkpProcessVSyncPhaseThread@@YAXPEAX@Z.c)
+ *     ?DxgkpProcessVSyncPhaseThread@@YAXPEAX@Z @ 0x1C0121D30 (-DxgkpProcessVSyncPhaseThread@@YAXPEAX@Z.c)
  * Callees:
- *     ?DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z @ 0x1C0005520 (-DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000381C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z @ 0x1C0007EC8 (-DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z.c)
  */
 
 void __fastcall DXGADAPTER::ProcessVSyncPhaseTimer(DXGADAPTER *this, unsigned int a2)
 {
-  __int64 v2; // rsi
-  char *v3; // rbx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  _DWORD *v7; // rcx
-  unsigned int v8; // r9d
-  int v9; // r9d
+  char *v2; // rbx
+  __int64 v3; // rsi
+  _DWORD *v5; // rcx
+  unsigned int v6; // r9d
+  bool v7; // al
 
-  v2 = a2;
-  v3 = (char *)this + 4160;
-  KeEnterCriticalRegion();
-  if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx(v3, 0LL) )
+  v2 = (char *)this + 3936;
+  v3 = a2;
+  DXGPUSHLOCK::AcquireExclusive((DXGADAPTER *)((char *)this + 3936));
+  v5 = (_DWORD *)*((_QWORD *)this + 486);
+  if ( (*((_DWORD *)this + 642) & 0x10) != 0 )
   {
-    if ( bTracingEnabled )
-    {
-      v9 = *((_DWORD *)v3 + 6);
-      if ( v9 != -1 && (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
-        McTemplateK0q_EtwWriteTransfer(v5, &EventBlockThread, v6, v9);
-    }
-    ExAcquirePushLockExclusiveEx(v3, 0LL);
+    v7 = v5[v3] == 1;
   }
-  *((_QWORD *)v3 + 1) = KeGetCurrentThread();
-  v7 = (_DWORD *)*((_QWORD *)this + 514);
-  if ( (*((_DWORD *)this + 698) & 0x10) != 0 )
+  else
   {
-    if ( v7[v2] == 1 )
-      goto LABEL_4;
-LABEL_8:
-    *((_QWORD *)v3 + 1) = 0LL;
-    ExReleasePushLockExclusiveEx(v3, 0LL);
+    if ( *v5 == 1 )
+      goto LABEL_3;
+    v7 = 0;
+  }
+  if ( !v7 )
+  {
+    *((_QWORD *)v2 + 1) = 0LL;
+    ExReleasePushLockExclusiveEx(v2, 0LL);
     KeLeaveCriticalRegion();
     return;
   }
-  if ( *v7 != 1 )
-    goto LABEL_8;
-LABEL_4:
-  v8 = -3;
-  if ( (*((_DWORD *)this + 698) & 0x10) != 0 )
-    v8 = v2;
-  LOBYTE(v6) = 1;
-  DXGADAPTER::DdiControlInterrupt2(this, (struct _DXGKARG_CONTROLINTERRUPT2)0x200000003LL, v6, v8);
+LABEL_3:
+  v6 = -3;
+  if ( (*((_DWORD *)this + 642) & 0x10) != 0 )
+    v6 = v3;
+  DXGADAPTER::DdiControlInterrupt2(this, (struct _DXGKARG_CONTROLINTERRUPT2)0x200000003LL, 1, v6);
 }

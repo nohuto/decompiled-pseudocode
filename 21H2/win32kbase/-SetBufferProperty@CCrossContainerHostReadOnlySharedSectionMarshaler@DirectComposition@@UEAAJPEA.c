@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SetBufferProperty@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0229240
+ * XREFs of ?SetBufferProperty@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E9510
  * Callers:
  *     <none>
  * Callees:
- *     ?IsReadyForMarshaling@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@AEAAJPEA_N@Z @ 0x1C02291CC (-IsReadyForMarshaling@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@AEAAJ.c)
- *     DirectComposition::SetGuidProperty @ 0x1C022929C (DirectComposition--SetGuidProperty.c)
+ *     ?IsReadyForMarshaling@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@AEAAJPEA_N@Z @ 0x1C01E949C (-IsReadyForMarshaling@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@AEAAJ.c)
+ *     DirectComposition::SetGuidProperty @ 0x1C01E956C (DirectComposition--SetGuidProperty.c)
  */
 
 __int64 __fastcall DirectComposition::CCrossContainerHostReadOnlySharedSectionMarshaler::SetBufferProperty(
@@ -25,11 +25,11 @@ __int64 __fastcall DirectComposition::CCrossContainerHostReadOnlySharedSectionMa
   {
     if ( a3 != 1 )
       return 3221225485LL;
-    v7 = 96LL;
+    v7 = 88LL;
   }
   else
   {
-    v7 = 80LL;
+    v7 = 72LL;
   }
   result = DirectComposition::SetGuidProperty(a4, a5, (char *)this + v7);
   if ( (int)result >= 0 )

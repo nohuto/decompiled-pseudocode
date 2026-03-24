@@ -1,33 +1,33 @@
 /*
- * XREFs of ??1CSuperWetSource@@UEAA@XZ @ 0x18019DE18
+ * XREFs of ??1CSuperWetSource@@UEAA@XZ @ 0x1801C39D4
  * Callers:
- *     ??1CGenericInk@@EEAA@XZ @ 0x180214FD8 (--1CGenericInk@@EEAA@XZ.c)
- *     ??1?$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@@@MEAA@XZ @ 0x180240AA8 (--1-$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@@@MEAA@XZ.c)
+ *     ??1CGenericInk@@UEAA@XZ @ 0x1801C24BC (--1CGenericInk@@UEAA@XZ.c)
+ *     ??_ECSuperWetSource@@UEAAPEAXI@Z @ 0x1801C3A30 (--_ECSuperWetSource@@UEAAPEAXI@Z.c)
+ *     ??1CSynchronousSuperWetInk@@UEAA@XZ @ 0x1801EF56C (--1CSynchronousSuperWetInk@@UEAA@XZ.c)
  * Callees:
- *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x1800B1804 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
- *     ?InternalRelease@?$ComPtr@VCGenericInkTipPointSource@@@WRL@Microsoft@@IEAAKXZ @ 0x1801A0C34 (-InternalRelease@-$ComPtr@VCGenericInkTipPointSource@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180042800 (--3@YAXPEAX_K@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x18005FB60 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x18009478C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CSuperWetSource::~CSuperWetSource(CSuperWetSource *this)
 {
   void *v2; // rcx
   void *v3; // rcx
-  CResource *v4; // rcx
+  CRenderTargetBitmap *v4; // rcx
 
-  v2 = (void *)*((_QWORD *)this + 15);
+  *(_QWORD *)this = &CSuperWetSource::`vftable';
+  v2 = (void *)*((_QWORD *)this + 4);
   if ( v2 )
-    DefaultHeap::Free(v2);
-  v3 = (void *)*((_QWORD *)this + 14);
+    operator delete(v2);
+  v3 = (void *)*((_QWORD *)this + 3);
   if ( v3 )
     operator delete(v3);
-  v4 = (CResource *)*((_QWORD *)this + 13);
+  v4 = (CRenderTargetBitmap *)*((_QWORD *)this + 2);
   if ( v4 )
   {
-    *((_QWORD *)this + 13) = 0LL;
-    CResource::InternalRelease(v4);
+    *((_QWORD *)this + 2) = 0LL;
+    CRenderTargetBitmap::Release(v4);
   }
-  Microsoft::WRL::ComPtr<CGenericInkTipPointSource>::InternalRelease((char *)this + 88);
-  CResource::~CResource(this);
+  Microsoft::WRL::ComPtr<CGenericInkTipPointSource>::InternalRelease((CDrawListEntry **)this + 1);
 }

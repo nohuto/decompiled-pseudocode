@@ -1,30 +1,25 @@
 /*
- * XREFs of ?D2DCombine@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x1800D2F7C
+ * XREFs of ?D2DCombine@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x18025D7A0
  * Callers:
- *     ?ComputeLayout@CSurfaceBrush@@QEBAJAEBUD2D_SIZE_F@@PEAULayoutData@CContent@@PEAPEAVCShape@@@Z @ 0x1800ABBF0 (-ComputeLayout@CSurfaceBrush@@QEBAJAEBUD2D_SIZE_F@@PEAULayoutData@CContent@@PEAPEAVCShape@@@Z.c)
- *     ?Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x1800AD884 (-Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
+ *     ?Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x180067BCC (-Combine@CShape@@SAJPEBV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
+ *     ?ComputeLayout@CSurfaceBrush@@QEBAJAEBUD2D_SIZE_F@@PEAULayoutData@CContent@@PEAPEAVCShape@@@Z @ 0x180086E90 (-ComputeLayout@CSurfaceBrush@@QEBAJAEBUD2D_SIZE_F@@PEAULayoutData@CContent@@PEAPEAVCShape@@@Z.c)
+ *     ?ComputeBrushClamp@CBrushDrawListGenerator@@CAJV?$span@PEBVCDrawListBrush@@$0?0@gsl@@KAEBVMatrix3x3@@PEAPEAVCShape@@@Z @ 0x180095690 (-ComputeBrushClamp@CBrushDrawListGenerator@@CAJV-$span@PEBVCDrawListBrush@@$0-0@gsl@@KAEBVMatrix.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180080A44 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCRectanglesShape@@@Z @ 0x18008B164 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCRectanglesShape@@@Z.c)
- *     ?GetD2DGeometry@CRectanglesShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z @ 0x1800D0B10 (-GetD2DGeometry@CRectanglesShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z.c)
- *     ??1CRectanglesShape@@UEAA@XZ @ 0x1800D324C (--1CRectanglesShape@@UEAA@XZ.c)
- *     ??0CRectanglesShape@@QEAA@XZ @ 0x1800D33F8 (--0CRectanglesShape@@QEAA@XZ.c)
- *     ??0CPolygonShape@@QEAA@PEAUID2D1Geometry@@@Z @ 0x1800D3448 (--0CPolygonShape@@QEAA@PEAUID2D1Geometry@@@Z.c)
- *     ?IsRectEmptyOrInvalid@@YA_NPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800D34DC (-IsRectEmptyOrInvalid@@YA_NPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeede.c)
- *     ?CreateCombinedGeometry@CD2DFactory@@QEAAJPEAUID2D1Geometry@@PEAUD2D_MATRIX_3X2_F@@01W4D2D1_COMBINE_MODE@@PEAPEAU2@@Z @ 0x1800D3514 (-CreateCombinedGeometry@CD2DFactory@@QEAAJPEAUID2D1Geometry@@PEAUD2D_MATRIX_3X2_F@@01W4D2D1_COMB.c)
- *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
- *     ??0CComplexShape@@QEAA@PEAUID2D1Geometry@@@Z @ 0x180191964 (--0CComplexShape@@QEAA@PEAUID2D1Geometry@@@Z.c)
+ *     ?GetD2DGeometry@CRectanglesShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z @ 0x180017470 (-GetD2DGeometry@CRectanglesShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z.c)
+ *     ??$ReleaseInterface@UID2D1Geometry@@@@YAXAEAPEAUID2D1Geometry@@@Z @ 0x180017840 (--$ReleaseInterface@UID2D1Geometry@@@@YAXAEAPEAUID2D1Geometry@@@Z.c)
+ *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCRectanglesShape@@@Z @ 0x180057D5C (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCRectanglesShape@@@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180059EE0 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?IsRectEmptyOrInvalid@@YA_NPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800605C0 (-IsRectEmptyOrInvalid@@YA_NPEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeede.c)
+ *     ??0CRectanglesShape@@QEAA@XZ @ 0x1800CC6E4 (--0CRectanglesShape@@QEAA@XZ.c)
+ *     ??1CRectanglesShape@@UEAA@XZ @ 0x1800E6104 (--1CRectanglesShape@@UEAA@XZ.c)
+ *     __security_check_cookie @ 0x1800E6E00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4800 (_guard_dispatch_icall_nop.c)
+ *     ?CreateCombinedGeometry@CD2DFactory@@QEAAJPEAUID2D1Geometry@@PEAUD2D_MATRIX_3X2_F@@01W4D2D1_COMBINE_MODE@@PEAPEAU2@@Z @ 0x18024AFAC (-CreateCombinedGeometry@CD2DFactory@@QEAAJPEAUID2D1Geometry@@PEAUD2D_MATRIX_3X2_F@@01W4D2D1_COMB.c)
+ *     ??0CComplexShape@@QEAA@PEAUID2D1Geometry@@@Z @ 0x18025DE84 (--0CComplexShape@@QEAA@PEAUID2D1Geometry@@@Z.c)
  */
 
-__int64 __fastcall CShape::D2DCombine(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        enum D2D1_COMBINE_MODE a5,
-        CRectanglesShape **a6)
+__int64 __fastcall CShape::D2DCombine(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, CComplexShape **a6)
 {
   int D2DGeometry; // eax
   __int64 v10; // rcx
@@ -32,53 +27,51 @@ __int64 __fastcall CShape::D2DCombine(
   enum D2D1_COMBINE_MODE v12; // eax
   struct D2D_MATRIX_3X2_F *v13; // rcx
   unsigned int v14; // xmm1_4
-  struct CRectanglesShape *v15; // rcx
-  CPolygonShape *v16; // rax
-  __int64 v17; // rcx
-  CPolygonShape *v18; // rax
+  int v15; // eax
+  __int64 v16; // rcx
+  struct CRectanglesShape *v17; // rcx
   struct CObjectCache *ObjectCache; // rdx
-  CRectanglesShape *v21; // rax
-  int v22; // r8d
-  __int64 v23; // rcx
-  CRectanglesShape *v24; // rax
-  CComplexShape *v25; // rax
-  __int64 v26; // rcx
-  CComplexShape *v27; // rax
-  unsigned int v28; // [rsp+20h] [rbp-E0h]
-  struct ID2D1Geometry *v29; // [rsp+40h] [rbp-C0h] BYREF
-  struct ID2D1Geometry *v30; // [rsp+48h] [rbp-B8h] BYREF
-  struct ID2D1Geometry *v31; // [rsp+50h] [rbp-B0h] BYREF
-  struct D2D_MATRIX_3X2_F v32; // [rsp+58h] [rbp-A8h] BYREF
-  __int128 v33; // [rsp+70h] [rbp-90h] BYREF
-  _BYTE v34[80]; // [rsp+80h] [rbp-80h] BYREF
-  _BYTE v35[80]; // [rsp+D0h] [rbp-30h] BYREF
+  CRectanglesShape *v19; // rax
+  int v20; // r8d
+  int v21; // r9d
+  CComplexShape *v22; // rax
+  unsigned int v24; // [rsp+20h] [rbp-E0h]
+  struct ID2D1Geometry *v25; // [rsp+40h] [rbp-C0h] BYREF
+  struct ID2D1Geometry *v26; // [rsp+48h] [rbp-B8h] BYREF
+  struct ID2D1Geometry *v27; // [rsp+50h] [rbp-B0h] BYREF
+  struct D2D_MATRIX_3X2_F v28; // [rsp+58h] [rbp-A8h] BYREF
+  __int128 v29; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE v30[80]; // [rsp+80h] [rbp-80h] BYREF
+  _BYTE v31[80]; // [rsp+D0h] [rbp-30h] BYREF
 
-  CRectanglesShape::CRectanglesShape((CRectanglesShape *)v35);
-  CRectanglesShape::CRectanglesShape((CRectanglesShape *)v34);
-  v30 = 0LL;
-  v31 = 0LL;
-  v29 = 0LL;
+  CRectanglesShape::CRectanglesShape((CRectanglesShape *)v31);
+  CRectanglesShape::CRectanglesShape((CRectanglesShape *)v30);
+  v26 = 0LL;
+  v27 = 0LL;
+  v25 = 0LL;
   if ( a1 )
   {
     D2DGeometry = (*(__int64 (__fastcall **)(__int64, _QWORD, struct ID2D1Geometry **))(*(_QWORD *)a1 + 24LL))(
                     a1,
                     0LL,
-                    &v30);
+                    &v26);
     v11 = D2DGeometry;
     if ( D2DGeometry < 0 )
     {
-      v28 = 528;
-      goto LABEL_50;
+      v24 = 439;
+LABEL_36:
+      v21 = D2DGeometry;
+      goto LABEL_37;
     }
   }
   else
   {
-    D2DGeometry = CRectanglesShape::GetD2DGeometry((CRectanglesShape *)v35, 0LL, &v30);
+    D2DGeometry = CRectanglesShape::GetD2DGeometry((CRectanglesShape *)v31, 0LL, &v26);
     v11 = D2DGeometry;
     if ( D2DGeometry < 0 )
     {
-      v28 = 532;
-      goto LABEL_50;
+      v24 = 443;
+      goto LABEL_36;
     }
   }
   if ( a3 )
@@ -86,26 +79,27 @@ __int64 __fastcall CShape::D2DCombine(
     D2DGeometry = (*(__int64 (__fastcall **)(__int64, _QWORD, struct ID2D1Geometry **))(*(_QWORD *)a3 + 24LL))(
                     a3,
                     0LL,
-                    &v31);
+                    &v27);
     v11 = D2DGeometry;
-    if ( D2DGeometry >= 0 )
-      goto LABEL_5;
-    v28 = 537;
-LABEL_50:
-    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0LL, D2DGeometry, v28);
-    goto LABEL_18;
+    if ( D2DGeometry < 0 )
+    {
+      v24 = 448;
+      goto LABEL_36;
+    }
   }
-  D2DGeometry = CRectanglesShape::GetD2DGeometry((CRectanglesShape *)v34, 0LL, &v31);
-  v11 = D2DGeometry;
-  if ( D2DGeometry < 0 )
+  else
   {
-    v28 = 541;
-    goto LABEL_50;
+    D2DGeometry = CRectanglesShape::GetD2DGeometry((CRectanglesShape *)v30, 0LL, &v27);
+    v11 = D2DGeometry;
+    if ( D2DGeometry < 0 )
+    {
+      v24 = 452;
+      goto LABEL_36;
+    }
   }
-LABEL_5:
   if ( a5 )
   {
-    if ( a5 == D2D1_COMBINE_MODE_INTERSECT )
+    if ( a5 == 1 )
       v12 = D2D1_COMBINE_MODE_INTERSECT;
     else
       v12 = D2D1_COMBINE_MODE_EXCLUDE;
@@ -116,104 +110,77 @@ LABEL_5:
   }
   if ( a4 )
   {
-    v13 = &v32;
+    v13 = &v28;
     v14 = *(_DWORD *)(a4 + 4);
-    v32.m11 = *(FLOAT *)a4;
-    *(_QWORD *)&v32.m[0][1] = __PAIR64__(*(_DWORD *)(a4 + 16), v14);
-    *(_QWORD *)&v32.m[1][1] = __PAIR64__(*(_DWORD *)(a4 + 48), *(_DWORD *)(a4 + 20));
-    v32.dy = *(FLOAT *)(a4 + 52);
+    v28.m11 = *(FLOAT *)a4;
+    *(_QWORD *)&v28.m[0][1] = __PAIR64__(*(_DWORD *)(a4 + 16), v14);
+    *(_QWORD *)&v28.m[1][1] = __PAIR64__(*(_DWORD *)(a4 + 48), *(_DWORD *)(a4 + 20));
+    v28.dy = *(FLOAT *)(a4 + 52);
   }
   else
   {
     v13 = 0LL;
   }
-  D2DGeometry = CD2DFactory::CreateCombinedGeometry((CD2DFactory *)v13, v30, 0LL, v31, v13, v12, &v29);
-  v11 = D2DGeometry;
-  if ( D2DGeometry < 0 )
+  v15 = CD2DFactory::CreateCombinedGeometry((CD2DFactory *)v13, v26, 0LL, v27, v13, v12, &v25);
+  v11 = v15;
+  if ( v15 < 0 )
   {
-    v28 = 549;
-    goto LABEL_50;
+    MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x1CCu, 0LL);
+    goto LABEL_38;
   }
-  D2DGeometry = (*(__int64 (__fastcall **)(struct ID2D1Geometry *, _QWORD, __int128 *))(*(_QWORD *)v29 + 32LL))(
-                  v29,
+  D2DGeometry = (*(__int64 (__fastcall **)(struct ID2D1Geometry *, _QWORD, __int128 *))(*(_QWORD *)v25 + 32LL))(
+                  v25,
                   0LL,
-                  &v33);
+                  &v29);
   v11 = D2DGeometry;
   if ( D2DGeometry < 0 )
   {
-    v28 = 553;
-    goto LABEL_50;
+    v24 = 466;
+    goto LABEL_36;
   }
-  *(_OWORD *)&v32.m11 = v33;
-  if ( (unsigned __int8)IsRectEmptyOrInvalid(&v32) )
+  *(_OWORD *)&v28.m11 = v29;
+  if ( !IsRectEmptyOrInvalid(&v28.m11) )
   {
-    ObjectCache = CThreadContext::GetObjectCache(v15);
-    v21 = 0LL;
-    v22 = *((_DWORD *)ObjectCache + 1);
+    v22 = (CComplexShape *)DefaultHeap::Alloc(0x18uLL);
+    if ( v22 )
+      v22 = CComplexShape::CComplexShape(v22, v25);
     if ( v22 )
     {
-      v21 = (CRectanglesShape *)*((_QWORD *)ObjectCache + 1);
-      *((_QWORD *)ObjectCache + 1) = *(_QWORD *)v21;
-      *((_DWORD *)ObjectCache + 1) = v22 - 1;
+      *a6 = v22;
+      goto LABEL_38;
     }
-    if ( v21 || (v21 = (CRectanglesShape *)DefaultHeap::Alloc(0x48uLL)) != 0LL )
-    {
-      v24 = CRectanglesShape::CRectanglesShape(v21);
-      *a6 = v24;
-      if ( v24 )
-        goto LABEL_18;
-    }
-    else
-    {
-      *a6 = 0LL;
-    }
+    v21 = -2147024882;
     v11 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v23, 0LL, 0LL, -2147024882, 0x22Eu);
+    v24 = 477;
+    goto LABEL_37;
   }
-  else if ( (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)a1 + 56LL))(a1)
-         && (*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)a3 + 56LL))(a3)
-         && (unsigned int)a5 <= D2D1_COMBINE_MODE_INTERSECT )
+  ObjectCache = CThreadContext::GetObjectCache(v17);
+  v19 = 0LL;
+  v20 = *((_DWORD *)ObjectCache + 1);
+  if ( v20 )
   {
-    v16 = (CPolygonShape *)DefaultHeap::Alloc(0x18uLL);
-    if ( v16 )
-    {
-      v18 = CPolygonShape::CPolygonShape(v16, v29);
-      *a6 = v18;
-      if ( v18 )
-        goto LABEL_18;
-    }
-    else
-    {
-      *a6 = 0LL;
-    }
-    v11 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0LL, -2147024882, 0x239u);
+    v19 = (CRectanglesShape *)*((_QWORD *)ObjectCache + 1);
+    *((_QWORD *)ObjectCache + 1) = *(_QWORD *)v19;
+    *((_DWORD *)ObjectCache + 1) = v20 - 1;
   }
-  else
+  if ( v19 || (v19 = (CRectanglesShape *)DefaultHeap::Alloc(0x48uLL)) != 0LL )
+    v19 = CRectanglesShape::CRectanglesShape(v19);
+  *a6 = v19;
+  if ( !v19 )
   {
-    v25 = (CComplexShape *)DefaultHeap::Alloc(0x18uLL);
-    if ( v25 )
-    {
-      v27 = CComplexShape::CComplexShape(v25, v29);
-      *a6 = v27;
-      if ( v27 )
-        goto LABEL_18;
-    }
-    else
-    {
-      *a6 = 0LL;
-    }
+    v21 = -2147024882;
     v11 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v26, 0LL, 0LL, -2147024882, 0x23Eu);
+    v24 = 472;
+LABEL_37:
+    MilInstrumentationCheckHR_MaybeFailFast(v10, 0LL, 0, v21, v24, 0LL);
   }
-LABEL_18:
-  if ( v29 )
-    (*(void (__fastcall **)(struct ID2D1Geometry *))(*(_QWORD *)v29 + 16LL))(v29);
-  if ( v30 )
-    (*(void (__fastcall **)(struct ID2D1Geometry *))(*(_QWORD *)v30 + 16LL))(v30);
-  if ( v31 )
-    (*(void (__fastcall **)(struct ID2D1Geometry *))(*(_QWORD *)v31 + 16LL))(v31);
-  CRectanglesShape::~CRectanglesShape((CRectanglesShape *)v34);
-  CRectanglesShape::~CRectanglesShape((CRectanglesShape *)v35);
+LABEL_38:
+  ReleaseInterface<ID2D1Geometry>((__int64 *)&v25);
+  if ( v26 )
+    (*(void (__fastcall **)(struct ID2D1Geometry *))(*(_QWORD *)v26 + 16LL))(v26);
+  if ( v27 )
+    (*(void (__fastcall **)(struct ID2D1Geometry *))(*(_QWORD *)v27 + 16LL))(v27);
+  CRectanglesShape::~CRectanglesShape((CRectanglesShape *)v30);
+  CRectanglesShape::~CRectanglesShape((CRectanglesShape *)v31);
   return v11;
 }

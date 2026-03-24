@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlIsFatDbcsLegal @ 0x1406B3E70
+ * XREFs of FsRtlIsFatDbcsLegal @ 0x1406B3E50
  * Callers:
- *     FsRtlIsFatDbcsLegal @ 0x1406B3E70 (FsRtlIsFatDbcsLegal.c)
+ *     FsRtlIsFatDbcsLegal @ 0x1406B3E50 (FsRtlIsFatDbcsLegal.c)
  * Callees:
- *     FsRtlIsFatDbcsLegal @ 0x1406B3E70 (FsRtlIsFatDbcsLegal.c)
- *     FsRtlDissectDbcs @ 0x140815930 (FsRtlDissectDbcs.c)
- *     FsRtlDoesDbcsContainWildCards @ 0x140815A20 (FsRtlDoesDbcsContainWildCards.c)
+ *     FsRtlIsFatDbcsLegal @ 0x1406B3E50 (FsRtlIsFatDbcsLegal.c)
+ *     FsRtlDissectDbcs @ 0x140815910 (FsRtlDissectDbcs.c)
+ *     FsRtlDoesDbcsContainWildCards @ 0x140815A00 (FsRtlDoesDbcsContainWildCards.c)
  */
 
 BOOLEAN __stdcall FsRtlIsFatDbcsLegal(
@@ -96,7 +96,7 @@ LABEL_4:
         {
           ++v16;
         }
-        else if ( (v17 & 0x80u) == 0 && (byte_14035C600[v17] & 9) == 0 )
+        else if ( (v17 & 0x80u) == 0 && (byte_14035C710[v17] & 9) == 0 )
         {
           return 0;
         }
@@ -123,7 +123,7 @@ LABEL_4:
       else
       {
         if ( (v9 & 0x80u) == 0
-          && ((unsigned __int8)(WildCardsPermissible != 0 ? 9 : 1) & byte_14035C600[(unsigned __int8)v7[v8]]) == 0 )
+          && ((unsigned __int8)(WildCardsPermissible != 0 ? 9 : 1) & byte_14035C710[(unsigned __int8)v7[v8]]) == 0 )
         {
           return 0;
         }

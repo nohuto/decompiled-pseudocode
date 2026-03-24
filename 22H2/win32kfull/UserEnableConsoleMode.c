@@ -1,5 +1,5 @@
 /*
- * XREFs of UserEnableConsoleMode @ 0x1C01C0E00
+ * XREFs of UserEnableConsoleMode @ 0x1C01EADE0
  * Callers:
  *     <none>
  * Callees:

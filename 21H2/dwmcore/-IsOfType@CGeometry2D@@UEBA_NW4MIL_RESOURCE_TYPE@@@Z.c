@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CGeometry2D@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A1360
+ * XREFs of ?IsOfType@CGeometry2D@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016F800
  * Callers:
  *     <none>
  * Callees:

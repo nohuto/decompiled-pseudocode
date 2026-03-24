@@ -1,14 +1,14 @@
 /*
- * XREFs of SmcCacheCleanup @ 0x1409D790C
+ * XREFs of SmcCacheCleanup @ 0x14092D3E8
  * Callers:
- *     SmcProcessCreateRequest @ 0x1409D4BC0 (SmcProcessCreateRequest.c)
- *     SmcCacheDelete @ 0x1409D7990 (SmcCacheDelete.c)
+ *     SmcProcessCreateRequest @ 0x14092A7E0 (SmcProcessCreateRequest.c)
+ *     SmcCacheDelete @ 0x14092D46C (SmcCacheDelete.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208AC0 (CmSiFreeMemory.c)
- *     StEtaCleanup @ 0x1402382D0 (StEtaCleanup.c)
- *     SmStoreDelete @ 0x1409D4850 (SmStoreDelete.c)
- *     SmKmFileInfoCleanup @ 0x1409D57BC (SmKmFileInfoCleanup.c)
- *     SmKmStoreFileDelete @ 0x1409D6C58 (SmKmStoreFileDelete.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     StEtaCleanup @ 0x14035B3B4 (StEtaCleanup.c)
+ *     SmStoreDelete @ 0x14092A480 (SmStoreDelete.c)
+ *     SmKmFileInfoCleanup @ 0x14092B278 (SmKmFileInfoCleanup.c)
+ *     SmKmStoreFileDelete @ 0x14092C73C (SmKmStoreFileDelete.c)
  */
 
 void __fastcall SmcCacheCleanup(__int64 a1)

@@ -1,37 +1,34 @@
 /*
- * XREFs of bLoadProcessHandleQuota @ 0x1C007BFF8
+ * XREFs of bLoadProcessHandleQuota @ 0x1C006C8C8
  * Callers:
- *     HmgCreate @ 0x1C007C9D4 (HmgCreate.c)
+ *     HmgCreate @ 0x1C006BCFC (HmgCreate.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C007C3E8 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgPr.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C004BCA0 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C013AB1C (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgPr.c)
  */
 
-__int64 __fastcall bLoadProcessHandleQuota(__int64 a1)
+__int64 bLoadProcessHandleQuota()
 {
-  unsigned int v1; // ebx
-  __int64 v2; // rdi
-  int v3; // r8d
-  int v4; // r8d
-  int v5; // r9d
+  unsigned int v0; // ebx
+  int v1; // r8d
+  int v2; // r9d
   ULONG ResultLength; // [rsp+30h] [rbp-39h] BYREF
-  int v8; // [rsp+34h] [rbp-35h] BYREF
+  int v5; // [rsp+34h] [rbp-35h] BYREF
   void *KeyHandle; // [rsp+38h] [rbp-31h] BYREF
-  __int64 v10; // [rsp+40h] [rbp-29h] BYREF
+  __int64 v7; // [rsp+40h] [rbp-29h] BYREF
   struct _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-21h] BYREF
   struct _UNICODE_STRING ValueName; // [rsp+58h] [rbp-11h] BYREF
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-1h] BYREF
   _BYTE KeyValueInformation[12]; // [rsp+98h] [rbp+2Fh] BYREF
-  __int64 v15; // [rsp+A4h] [rbp+3Bh]
+  __int64 v12; // [rsp+A4h] [rbp+3Bh]
 
-  v1 = 0;
+  v0 = 0;
+  gProcessHandleQuota = 10000;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  DestinationString = 0LL;
   KeyHandle = 0LL;
-  v2 = *(_QWORD *)(SGDGetSessionState(a1) + 24);
-  *(_DWORD *)(v2 + 2376) = 10000;
+  DestinationString = 0LL;
   RtlInitUnicodeString(
     &DestinationString,
     L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows");
@@ -47,25 +44,24 @@ __int64 __fastcall bLoadProcessHandleQuota(__int64 a1)
     RtlInitUnicodeString(&ValueName, L"GDIProcessHandleQuota");
     if ( ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, KeyValueInformation, 0x14u, &ResultLength) >= 0 )
     {
-      v3 = v15;
-      *(_DWORD *)(v2 + 2376) = v15;
-      if ( v3 < 0 || (unsigned int)v3 > *(_DWORD *)(v2 + 1904) )
-        *(_DWORD *)(v2 + 2376) = 10000;
-      if ( (unsigned int)dword_1C02883D8 > 5 && tlgKeywordOn((__int64)&dword_1C02883D8, 0x400000000000LL) )
+      gProcessHandleQuota = v12;
+      if ( (int)v12 < 0 || (unsigned int)v12 > gMaxGdiHandleCount )
+        gProcessHandleQuota = 10000;
+      if ( (unsigned int)dword_1C0249250 > 5 && tlgKeywordOn((__int64)&dword_1C0249250, 0x400000000000LL) )
       {
-        v10 = 0x1000000LL;
-        v8 = v4;
+        v7 = 0x1000000LL;
+        v5 = v1;
         _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>>(
-          (unsigned int)&dword_1C02883D8,
-          (unsigned int)&unk_1C0256F80,
-          v4,
-          v5,
-          (__int64)&v8,
-          (__int64)&v10);
+          (unsigned int)&dword_1C0249250,
+          (unsigned int)&unk_1C0219385,
+          v1,
+          v2,
+          (__int64)&v5,
+          (__int64)&v7);
       }
     }
-    v1 = 1;
+    v0 = 1;
     ZwClose(KeyHandle);
   }
-  return v1;
+  return v0;
 }

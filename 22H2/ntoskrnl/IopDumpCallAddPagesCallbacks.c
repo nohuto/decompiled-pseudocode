@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDumpCallAddPagesCallbacks @ 0x140552638
+ * XREFs of IopDumpCallAddPagesCallbacks @ 0x140503980
  * Callers:
- *     IoWriteCrashDump @ 0x1405513A0 (IoWriteCrashDump.c)
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055C90C (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IoWriteCrashDump @ 0x140502950 (IoWriteCrashDump.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14050B6D8 (IopAddLiveDumpPagesToPartialKernelDump.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     IoUpdateBugCheckProgressEnvVariable @ 0x1405510A4 (IoUpdateBugCheckProgressEnvVariable.c)
- *     IopAddPageDumpRange @ 0x140551FE8 (IopAddPageDumpRange.c)
- *     KeValidateBugCheckCallbackRecord @ 0x140569588 (KeValidateBugCheckCallbackRecord.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x140502860 (IoUpdateBugCheckProgressEnvVariable.c)
+ *     IopAddPageDumpRange @ 0x1405033D8 (IopAddPageDumpRange.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x140517AD8 (KeValidateBugCheckCallbackRecord.c)
  */
 
 char __fastcall IopDumpCallAddPagesCallbacks(int a1)
@@ -44,19 +44,14 @@ char __fastcall IopDumpCallAddPagesCallbacks(int a1)
         DWORD2(v6) = 0;
         v9 = 0;
         (*(void (__fastcall **)(__int64, __int64, __int128 *))(v3 + 16))(4LL, v3, &v6);
-        if ( v4 >= 0 && *((_QWORD *)&v7 + 1) )
-          v4 = IopAddPageDumpRange((__int64)&v6, &v9);
+        if ( v4 >= 0 )
+        {
+          if ( *((_QWORD *)&v7 + 1) )
+            v4 = IopAddPageDumpRange((__int64)&v6, &v9);
+        }
       }
       while ( v9 );
-      if ( v4 < 0 )
-      {
-        *(_BYTE *)(v3 + 45) = 3;
-        LOBYTE(v1) = 4;
-      }
-      else
-      {
-        LOBYTE(v1) = 3;
-      }
+      LOBYTE(v1) = (v4 < 0) + 3;
       *(_BYTE *)(v3 + 44) = (_BYTE)v1;
     }
     else if ( !v10 )

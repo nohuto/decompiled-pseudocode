@@ -1,5 +1,5 @@
 /*
- * XREFs of ??_EIBltQueueVSyncSource@@UEAAPEAXI@Z @ 0x1C006E820
+ * XREFs of ??_EIBltQueueVSyncSource@@UEAAPEAXI@Z @ 0x1C005F740
  * Callers:
  *     <none>
  * Callees:

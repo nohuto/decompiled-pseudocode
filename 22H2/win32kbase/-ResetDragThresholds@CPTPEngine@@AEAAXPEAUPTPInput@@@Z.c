@@ -1,20 +1,21 @@
 /*
- * XREFs of ?ResetDragThresholds@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C020282C
+ * XREFs of ?ResetDragThresholds@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C01C6F2C
  * Callers:
- *     ?DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z @ 0x1C01FF674 (-DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z.c)
- *     ?DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z @ 0x1C02008C8 (-DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z.c)
- *     ?ProcessTapsFor3orMoreContacts@CPTPEngine@@AEAAHPEAUPTPInput@@K@Z @ 0x1C02024F0 (-ProcessTapsFor3orMoreContacts@CPTPEngine@@AEAAHPEAUPTPInput@@K@Z.c)
- *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C02028C8 (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
+ *     ?DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z @ 0x1C01C3EF0 (-DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z.c)
+ *     ?DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z @ 0x1C01C50D4 (-DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z.c)
+ *     ?ProcessTapsFor3orMoreContacts@CPTPEngine@@AEAAHPEAUPTPInput@@K@Z @ 0x1C01C6BD8 (-ProcessTapsFor3orMoreContacts@CPTPEngine@@AEAAHPEAUPTPInput@@K@Z.c)
+ *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C01C6FCC (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
  * Callees:
- *     ?SetupDragRectsForContact@CPTPEngine@@AEAAXPEAUCContactState@@@Z @ 0x1C020430C (-SetupDragRectsForContact@CPTPEngine@@AEAAXPEAUCContactState@@@Z.c)
+ *     ?SetupDragRectsForContact@CPTPEngine@@AEAAXPEAUCContactState@@@Z @ 0x1C01C8A08 (-SetupDragRectsForContact@CPTPEngine@@AEAAXPEAUCContactState@@@Z.c)
  */
 
 void __fastcall CPTPEngine::ResetDragThresholds(CPTPEngine *this, struct PTPInput *a2)
 {
-  unsigned int v2; // esi
-  _QWORD *v5; // rbx
+  unsigned int v2; // ebx
+  _QWORD *v5; // rdi
   __int64 v6; // rcx
-  char *v7; // rdi
+  char *v7; // rsi
+  int v8; // eax
 
   v2 = 0;
   if ( *((_DWORD *)a2 + 12) )
@@ -23,16 +24,18 @@ void __fastcall CPTPEngine::ResetDragThresholds(CPTPEngine *this, struct PTPInpu
     do
     {
       v6 = (unsigned int)(*((_DWORD *)v5 - 9) % *((_DWORD *)this + 4));
-      v7 = (char *)this + 400 * v6 + 1208;
+      v7 = (char *)this + 392 * v6 + 1160;
+      v8 = *(_DWORD *)v7;
       if ( (*(_DWORD *)v7 & 1) != 0 )
       {
-        if ( (*(_DWORD *)v7 & 2) == 0 )
+        if ( (v8 & 2) == 0 )
         {
-          *((_QWORD *)v7 + 2) = *v5;
-          *((_QWORD *)v7 + 6) = *v5;
-          CPTPEngine::SetupDragRectsForContact(this, (CPTPEngine *)((char *)this + 400 * v6 + 1208));
+          *((_QWORD *)v7 + 1) = *v5;
+          *((_QWORD *)v7 + 5) = *v5;
+          CPTPEngine::SetupDragRectsForContact(this, (CPTPEngine *)((char *)this + 392 * v6 + 1160));
+          v8 = *(_DWORD *)v7;
         }
-        *(_DWORD *)v7 &= 0xFFF7FFFB;
+        *(_DWORD *)v7 = v8 & 0xFFFDFFFB;
       }
       ++v2;
       v5 += 12;

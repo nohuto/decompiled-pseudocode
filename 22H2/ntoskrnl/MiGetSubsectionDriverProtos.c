@@ -1,15 +1,18 @@
 /*
- * XREFs of MiGetSubsectionDriverProtos @ 0x1402A25C4
+ * XREFs of MiGetSubsectionDriverProtos @ 0x14027D460
  * Callers:
- *     MiCountSystemImageCommitment @ 0x14020ABD4 (MiCountSystemImageCommitment.c)
- *     MiIdentifyPfn @ 0x14023E4A0 (MiIdentifyPfn.c)
- *     MiCompleteProtoPteFault @ 0x140268AC0 (MiCompleteProtoPteFault.c)
- *     MiComputeImagePteIndex @ 0x1402A2524 (MiComputeImagePteIndex.c)
- *     MiStartingOffset @ 0x1402E2310 (MiStartingOffset.c)
- *     MiImageProtoChargedCommit @ 0x14035E5A8 (MiImageProtoChargedCommit.c)
- *     MiDeleteSessionDriverProtos @ 0x140682C1C (MiDeleteSessionDriverProtos.c)
- *     MiAddMappedPtes @ 0x1406AD7A0 (MiAddMappedPtes.c)
- *     MiPfAllocateMdls @ 0x1407465B0 (MiPfAllocateMdls.c)
+ *     MiCompleteProtoPteFault @ 0x140213D50 (MiCompleteProtoPteFault.c)
+ *     MiEmptyPageAccessLog @ 0x14025B4D0 (MiEmptyPageAccessLog.c)
+ *     MiComputeImagePteIndex @ 0x14027D3C0 (MiComputeImagePteIndex.c)
+ *     MiResolveMappedFileFault @ 0x140299B10 (MiResolveMappedFileFault.c)
+ *     MiStartingOffset @ 0x14029EAA0 (MiStartingOffset.c)
+ *     MiIdentifyPfn @ 0x1402C9940 (MiIdentifyPfn.c)
+ *     MiImageProtoChargedCommit @ 0x140379D10 (MiImageProtoChargedCommit.c)
+ *     MiCountSystemImageCommitment @ 0x14039E594 (MiCountSystemImageCommitment.c)
+ *     MiPfAllocateMdls @ 0x1406363C0 (MiPfAllocateMdls.c)
+ *     MiAddMappedPtes @ 0x140636970 (MiAddMappedPtes.c)
+ *     MiRevertRelocations @ 0x14066BE54 (MiRevertRelocations.c)
+ *     MiDeleteSessionDriverProtos @ 0x140779528 (MiDeleteSessionDriverProtos.c)
  * Callees:
  *     <none>
  */

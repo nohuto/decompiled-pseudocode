@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitUpdateCommands@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@EEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0223380
+ * XREFs of ?EmitUpdateCommands@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@EEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E9330
  * Callers:
  *     <none>
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     ?CreateDwmHandle@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@EEAAPEAXXZ @ 0x1C02232B0 (-CreateDwmHandle@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@EEAAPEAXXZ.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?CreateDwmHandle@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@EEAAPEAXXZ @ 0x1C01E9260 (-CreateDwmHandle@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@EEAAPEAXXZ.c)
  */
 
 char __fastcall DirectComposition::CCrossContainerHostReadOnlySharedSectionMarshaler::EmitUpdateCommands(
@@ -21,8 +21,8 @@ char __fastcall DirectComposition::CCrossContainerHostReadOnlySharedSectionMarsh
   *(_DWORD *)v5 = 28;
   *(_OWORD *)(v3 + 4) = 0LL;
   *(_QWORD *)(v3 + 20) = 0LL;
-  *((_DWORD *)v3 + 1) = 472;
-  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 8);
+  *((_DWORD *)v3 + 1) = 501;
+  *((_DWORD *)v3 + 2) = *((_DWORD *)this + 6);
   *(_QWORD *)(v3 + 12) = DirectComposition::CCrossContainerHostReadOnlySharedSectionMarshaler::CreateDwmHandle(this);
   *((_DWORD *)v3 + 5) = *((_DWORD *)this + 16);
   return 1;

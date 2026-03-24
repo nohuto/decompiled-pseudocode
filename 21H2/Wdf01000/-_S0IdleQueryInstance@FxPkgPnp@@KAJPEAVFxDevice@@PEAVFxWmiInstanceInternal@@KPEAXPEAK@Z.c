@@ -1,5 +1,5 @@
 /*
- * XREFs of ?_S0IdleQueryInstance@FxPkgPnp@@KAJPEAVFxDevice@@PEAVFxWmiInstanceInternal@@KPEAXPEAK@Z @ 0x1C000BE20
+ * XREFs of ?_S0IdleQueryInstance@FxPkgPnp@@KAJPEAVFxDevice@@PEAVFxWmiInstanceInternal@@KPEAXPEAK@Z @ 0x1C000DD60
  * Callers:
  *     <none>
  * Callees:

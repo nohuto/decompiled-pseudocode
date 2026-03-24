@@ -1,5 +1,5 @@
 /*
- * XREFs of ?Initialize@CInteractionMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00B8140
+ * XREFs of ?Initialize@CInteractionMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00A9430
  * Callers:
  *     <none>
  * Callees:

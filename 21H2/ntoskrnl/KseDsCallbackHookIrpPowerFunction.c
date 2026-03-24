@@ -1,11 +1,11 @@
 /*
- * XREFs of KseDsCallbackHookIrpPowerFunction @ 0x14057DE10
+ * XREFs of KseDsCallbackHookIrpPowerFunction @ 0x1405275C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     KsepDsEventDevicePowerIrp @ 0x14057E574 (KsepDsEventDevicePowerIrp.c)
- *     KsepDsEventSystemPowerIrp @ 0x14057EFCC (KsepDsEventSystemPowerIrp.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KsepDsEventDevicePowerIrp @ 0x140527D24 (KsepDsEventDevicePowerIrp.c)
+ *     KsepDsEventSystemPowerIrp @ 0x14052877C (KsepDsEventSystemPowerIrp.c)
  */
 
 __int64 __fastcall KseDsCallbackHookIrpPowerFunction(__int64 a1, __int64 a2)
@@ -29,13 +29,13 @@ __int64 __fastcall KseDsCallbackHookIrpPowerFunction(__int64 a1, __int64 a2)
     v3 = *((_DWORD *)v4 + 4);
     v5 = *((_DWORD *)v4 + 6);
     if ( v3 == 1 )
-      (*(void (__fastcall **)(__int64, __int64, __int64 (__fastcall *)(), _QWORD))(qword_140C049B8 + 8))(
+      (*(void (__fastcall **)(__int64, __int64, __int64 (__fastcall *)(), _QWORD))(qword_140C03248 + 8))(
         a1,
         a2,
         KseDsCompletionHookForPowerDevice,
         0LL);
   }
-  v9 = (*(__int64 (__fastcall **)(_QWORD))qword_140C049B8)(*(_QWORD *)(a1 + 8));
+  v9 = (*(__int64 (__fastcall **)(_QWORD))qword_140C03248)(*(_QWORD *)(a1 + 8));
   v10 = (*(__int64 (__fastcall **)(__int64, __int64))(v9 + 8 * v8 + 32))(a1, a2);
   v11 = v10;
   if ( (unsigned int)(v7 - 2) <= 1 )

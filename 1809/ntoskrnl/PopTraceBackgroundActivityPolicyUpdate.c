@@ -1,13 +1,13 @@
 /*
- * XREFs of PopTraceBackgroundActivityPolicyUpdate @ 0x1408750D8
+ * XREFs of PopTraceBackgroundActivityPolicyUpdate @ 0x1408750B8
  * Callers:
- *     PopBackgroundActivityPolicyCallback @ 0x1402D6AD0 (PopBackgroundActivityPolicyCallback.c)
+ *     PopBackgroundActivityPolicyCallback @ 0x1402D6BD0 (PopBackgroundActivityPolicyCallback.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD00 (EtwWrite.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceBackgroundActivityPolicyUpdate(int a1)
@@ -49,7 +49,7 @@ char __fastcall PopTraceBackgroundActivityPolicyUpdate(int a1)
       v7 = v3;
       v15 = 4;
       v18 = 4;
-      LOBYTE(v1) = TlgWrite(&pCallbackContext, &unk_14036FFF5, 0LL, 0LL, 4u, &pData);
+      LOBYTE(v1) = TlgWrite(&pCallbackContext, &unk_140370165, 0LL, 0LL, 4u, &pData);
     }
   }
   if ( PopDiagHandleRegistered )

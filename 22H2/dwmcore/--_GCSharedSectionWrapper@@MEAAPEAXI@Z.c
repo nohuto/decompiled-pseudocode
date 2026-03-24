@@ -1,28 +1,28 @@
 /*
- * XREFs of ??_GCSharedSectionWrapper@@MEAAPEAXI@Z @ 0x180251A50
+ * XREFs of ??_GCSharedSectionWrapper@@MEAAPEAXI@Z @ 0x1801EC7B0
  * Callers:
  *     <none>
  * Callees:
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078A28 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
- *     ??1CResource@@MEAA@XZ @ 0x18009A260 (--1CResource@@MEAA@XZ.c)
- *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801051B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
+ *     ??1CResource@@MEAA@XZ @ 0x1800A132C (--1CResource@@MEAA@XZ.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800E1B00 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
  */
 
 CSharedSectionWrapper *__fastcall CSharedSectionWrapper::`scalar deleting destructor'(
         CSharedSectionWrapper *this,
         char a2)
 {
-  CResource *v4; // rcx
+  CRenderTargetBitmap *v4; // rcx
 
-  v4 = (CResource *)*((_QWORD *)this + 8);
+  v4 = (CRenderTargetBitmap *)*((_QWORD *)this + 7);
   if ( v4 )
-    CResource::InternalRelease(v4);
+    CRenderTargetBitmap::Release(v4);
   CResource::~CResource(this);
   if ( (a2 & 1) != 0 )
   {
     if ( (a2 & 4) != 0 )
-      __global_delete(this);
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0x48);
     else
       operator delete(this);
   }

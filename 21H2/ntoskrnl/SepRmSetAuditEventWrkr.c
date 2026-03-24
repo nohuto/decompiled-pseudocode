@@ -1,9 +1,9 @@
 /*
- * XREFs of SepRmSetAuditEventWrkr @ 0x140854340
+ * XREFs of SepRmSetAuditEventWrkr @ 0x1407C4B90
  * Callers:
- *     SepRmCommandServerThread @ 0x14083B300 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x1407AD230 (SepRmCommandServerThread.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
  */
 
 char __fastcall SepRmSetAuditEventWrkr(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ char __fastcall SepRmSetAuditEventWrkr(__int64 a1, __int64 a2)
 
   v3 = 0;
   *(_DWORD *)(a2 + 40) = 0;
-  LOBYTE(v4) = PsIsCurrentThreadInServerSilo();
+  LOBYTE(v4) = PsIsCurrentThreadInServerSilo(a1, a2);
   if ( !(_BYTE)v4 )
   {
     v5 = SeAuditingStateByCategory;

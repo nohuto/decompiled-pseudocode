@@ -1,10 +1,10 @@
 /*
- * XREFs of ?TryRect@@YAHIHHHHPEAUtagRECT@@PEAUtagPOINT@@PEAUtagMONITOR@@@Z @ 0x1C0245B78
+ * XREFs of ?TryRect@@YAHIHHHHPEAUtagRECT@@PEAUtagPOINT@@PEAUtagMONITOR@@@Z @ 0x1C024A5C0
  * Callers:
- *     FindBestPos @ 0x1C0245C74 (FindBestPos.c)
+ *     FindBestPos @ 0x1C024A6B0 (FindBestPos.c)
  * Callees:
- *     IntersectRect @ 0x1C004CD28 (IntersectRect.c)
- *     GetMonitorWorkRect @ 0x1C007CB4C (GetMonitorWorkRect.c)
+ *     GetMonitorWorkRect @ 0x1C0041430 (GetMonitorWorkRect.c)
+ *     IntersectRect @ 0x1C0075160 (IntersectRect.c)
  */
 
 __int64 __fastcall TryRect(
@@ -17,19 +17,19 @@ __int64 __fastcall TryRect(
         struct tagPOINT *a7,
         struct tagMONITOR *a8)
 {
-  unsigned int v12; // r14d
+  unsigned int v12; // r15d
   int v13; // edi
   int v14; // edi
   bool v15; // cc
   bool v17; // cc
-  int v18[6]; // [rsp+20h] [rbp-18h] BYREF
+  __int128 v18; // [rsp+20h] [rbp-10h] BYREF
 
   v12 = 0;
-  *(_OWORD *)v18 = *(_OWORD *)GetMonitorWorkRect((__int64)v18, (__int64)a8);
+  v18 = *GetMonitorWorkRect(&v18, (__int64)a8);
   if ( !a1 )
   {
     right = a6->left - a4;
-    v17 = right < v18[0];
+    v17 = right < (int)v18;
 LABEL_11:
     if ( !v17 )
       goto LABEL_8;
@@ -39,7 +39,7 @@ LABEL_11:
   if ( !v13 )
   {
     bottom = a6->top - a5;
-    v17 = bottom < v18[1];
+    v17 = bottom < SDWORD1(v18);
     goto LABEL_11;
   }
   v14 = v13 - 1;
@@ -48,22 +48,22 @@ LABEL_11:
     if ( v14 != 1 )
     {
 LABEL_8:
-      v18[2] = right + a4;
-      v18[3] = bottom + a5;
-      v18[0] = right;
+      DWORD2(v18) = right + a4;
+      HIDWORD(v18) = bottom + a5;
+      LODWORD(v18) = right;
       a7->x = right;
       a7->y = bottom;
-      v18[1] = bottom;
-      LOBYTE(v12) = (unsigned int)IntersectRect(v18, v18, &a6->left) == 0;
+      DWORD1(v18) = bottom;
+      LOBYTE(v12) = (unsigned int)IntersectRect(&v18, (int *)&v18, &a6->left) == 0;
       return v12;
     }
     bottom = a6->bottom;
-    v15 = bottom + a5 <= v18[3];
+    v15 = bottom + a5 <= SHIDWORD(v18);
   }
   else
   {
     right = a6->right;
-    v15 = right + a4 <= v18[2];
+    v15 = right + a4 <= SDWORD2(v18);
   }
   if ( v15 )
     goto LABEL_8;

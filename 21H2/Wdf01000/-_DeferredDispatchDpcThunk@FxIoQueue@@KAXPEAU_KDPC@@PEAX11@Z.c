@@ -1,10 +1,10 @@
 /*
- * XREFs of ?_DeferredDispatchDpcThunk@FxIoQueue@@KAXPEAU_KDPC@@PEAX11@Z @ 0x1C0082280
+ * XREFs of ?_DeferredDispatchDpcThunk@FxIoQueue@@KAXPEAU_KDPC@@PEAX11@Z @ 0x1C00773B0
  * Callers:
  *     <none>
  * Callees:
- *     WPP_IFR_SF_ @ 0x1C0028B14 (WPP_IFR_SF_.c)
- *     ?DeferredDispatchRequestsFromDpc@FxIoQueue@@QEAAXXZ @ 0x1C0081A20 (-DeferredDispatchRequestsFromDpc@FxIoQueue@@QEAAXXZ.c)
+ *     WPP_IFR_SF_ @ 0x1C00325D4 (WPP_IFR_SF_.c)
+ *     ?DeferredDispatchRequestsFromDpc@FxIoQueue@@QEAAXXZ @ 0x1C0075F04 (-DeferredDispatchRequestsFromDpc@FxIoQueue@@QEAAXXZ.c)
  */
 
 void __fastcall FxIoQueue::_DeferredDispatchDpcThunk(

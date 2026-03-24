@@ -1,70 +1,70 @@
 /*
- * XREFs of _GetPointerDeviceRects @ 0x1C00AC894
+ * XREFs of _GetPointerDeviceRects @ 0x1C012282C
  * Callers:
- *     NtUserGetPointerDeviceRects @ 0x1C00AC770 (NtUserGetPointerDeviceRects.c)
- *     NtUserGetHimetricScaleFactorFromPixelLocation @ 0x1C01D18B0 (NtUserGetHimetricScaleFactorFromPixelLocation.c)
- *     ?CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z @ 0x1C01E72D0 (-CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z.c)
- *     ?ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C01E78EC (-ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z.c)
- *     ?_HitTestEdgyRegion@Edgy@@YA?AUtagHIT_TEST_RESULT@1@AEBUtagEDGY_DATA@@PEAXUtagPOINT@@W4tagPOINTER_DEVICE_TYPE@@H@Z @ 0x1C01E8368 (-_HitTestEdgyRegion@Edgy@@YA-AUtagHIT_TEST_RESULT@1@AEBUtagEDGY_DATA@@PEAXUtagPOINT@@W4tagPOINTE.c)
+ *     NtUserGetPointerDeviceRects @ 0x1C0122710 (NtUserGetPointerDeviceRects.c)
+ *     NtUserGetHimetricScaleFactorFromPixelLocation @ 0x1C01F96E0 (NtUserGetHimetricScaleFactorFromPixelLocation.c)
+ *     ?CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z @ 0x1C0206D88 (-CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z.c)
+ *     ?ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C02072B8 (-ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z.c)
+ *     ?_HitTestEdgyRegion@Edgy@@YA?AUtagHIT_TEST_RESULT@1@AEBUtagEDGY_DATA@@PEAXUtagPOINT@@W4tagPOINTER_DEVICE_TYPE@@H@Z @ 0x1C0207D7C (-_HitTestEdgyRegion@Edgy@@YA-AUtagHIT_TEST_RESULT@1@AEBUtagEDGY_DATA@@PEAXUtagPOINT@@W4tagPOINTE.c)
  * Callees:
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     MiPGetPhysicalRect @ 0x1C00AC944 (MiPGetPhysicalRect.c)
- *     GetScreenRect @ 0x1C00AC98C (GetScreenRect.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     VirtualizeMultiMonDigitizerSize @ 0x1C0151F42 (VirtualizeMultiMonDigitizerSize.c)
- *     EnsurePointerDeviceHasMonitor @ 0x1C0152DC0 (EnsurePointerDeviceHasMonitor.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C005B960 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     MiPGetPhysicalRect @ 0x1C01228DC (MiPGetPhysicalRect.c)
+ *     GetScreenRect @ 0x1C0122924 (GetScreenRect.c)
+ *     VirtualizeMultiMonDigitizerSize @ 0x1C01E5CA4 (VirtualizeMultiMonDigitizerSize.c)
+ *     EnsurePointerDeviceHasMonitor @ 0x1C01EE0F0 (EnsurePointerDeviceHasMonitor.c)
  */
 
 __int64 __fastcall GetPointerDeviceRects(__int64 a1, _OWORD *a2, _OWORD *a3)
 {
   unsigned int v6; // r14d
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v10; // rcx
+  __int64 v8; // rcx
+  __int64 v9; // rdx
   unsigned int CurrentThreadDpiAwarenessContext; // eax
-  int v12; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v13; // [rsp+28h] [rbp-18h] BYREF
-  _BYTE v14[16]; // [rsp+30h] [rbp-10h] BYREF
-  char v15; // [rsp+78h] [rbp+38h] BYREF
+  __int64 v11; // [rsp+20h] [rbp-20h] BYREF
+  _BYTE v12[8]; // [rsp+28h] [rbp-18h] BYREF
+  _BYTE v13[16]; // [rsp+30h] [rbp-10h] BYREF
+  int v14; // [rsp+78h] [rbp+38h] BYREF
 
-  v12 = 0;
-  v13 = 0LL;
+  v14 = 0;
+  v11 = 0LL;
   v6 = 1;
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v15);
-  if ( (unsigned int)ResolveMouseOrPointerDevice(a1, &v13, &v12) )
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v12);
+  if ( (unsigned int)ResolveMouseOrPointerDevice(a1, &v11, &v14) )
   {
-    if ( v12 )
+    if ( v14 )
     {
       if ( a3 )
-        *a3 = *(_OWORD *)GetScreenRect(v14);
+        *a3 = *(_OWORD *)GetScreenRect(v13);
       if ( a2 )
-        *a2 = *(_OWORD *)MiPGetPhysicalRect(v14);
+        *a2 = *(_OWORD *)MiPGetPhysicalRect(v13);
     }
     else
     {
-      EnsurePointerDeviceHasMonitor(v13);
-      v7 = v13;
+      EnsurePointerDeviceHasMonitor(v11);
+      v9 = v11;
       if ( a2 )
       {
-        *a2 = *(_OWORD *)(v13 + 176);
-        v10 = gpDispInfo;
-        if ( *(_DWORD *)*gpDispInfo > 1u && !*(_DWORD *)(*(_QWORD *)(v7 + 16) + 1336LL) && *(_DWORD *)(v7 + 24) != 7 )
+        *a2 = *(_OWORD *)(v11 + 176);
+        v8 = gpDispInfo;
+        if ( *(_DWORD *)*gpDispInfo > 1u && !*(_DWORD *)(*(_QWORD *)(v9 + 16) + 1344LL) && *(_DWORD *)(v9 + 24) != 7 )
         {
           VirtualizeMultiMonDigitizerSize(a2);
-          v7 = v13;
+          v9 = v11;
         }
       }
       if ( a3 )
       {
-        if ( *(_DWORD *)(*(_QWORD *)(v7 + 16) + 1336LL) )
+        if ( *(_DWORD *)(*(_QWORD *)(v9 + 16) + 1344LL) )
         {
-          *a3 = *(_OWORD *)(v7 + 160);
-          CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(v10);
+          *a3 = *(_OWORD *)(v9 + 160);
+          CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(v8);
           PhysicalToLogicalDPIRect(a3, a3, CurrentThreadDpiAwarenessContext, 0LL);
         }
         else
         {
-          *a3 = *(_OWORD *)GetScreenRect(v14);
+          *a3 = *(_OWORD *)GetScreenRect(v13);
         }
       }
     }
@@ -73,6 +73,6 @@ __int64 __fastcall GetPointerDeviceRects(__int64 a1, _OWORD *a2, _OWORD *a3)
   {
     v6 = 0;
   }
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v15, v7, v8);
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v12);
   return v6;
 }

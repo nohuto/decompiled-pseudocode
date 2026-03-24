@@ -1,36 +1,26 @@
 /*
- * XREFs of _anonymous_namespace_::WindowSizingUpdate @ 0x1C021DF6C
+ * XREFs of _anonymous_namespace_::WindowSizingUpdate @ 0x1C023D248
  * Callers:
- *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0122B94 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ *     ?PositioningChanged@NotifyShell@@YAXPEAUtagWND@@AEBUtagCVR@@@Z @ 0x1C006A944 (-PositioningChanged@NotifyShell@@YAXPEAUtagWND@@AEBUtagCVR@@@Z.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C00E4E9C (WPP_RECORDER_AND_TRACE_SF_q.c)
- *     _anonymous_namespace_::NotifyShellWindowPosChangedCommon @ 0x1C021D4D8 (_anonymous_namespace_--NotifyShellWindowPosChangedCommon.c)
+ *     WPP_RECORDER_SF_q @ 0x1C004F390 (WPP_RECORDER_SF_q.c)
+ *     _anonymous_namespace_::NotifyShellWindowPosChangedCommon @ 0x1C023D010 (_anonymous_namespace_--NotifyShellWindowPosChangedCommon.c)
  */
 
-__int64 __fastcall anonymous_namespace_::WindowSizingUpdate(const struct tagWND *a1)
+_UNKNOWN **__fastcall anonymous_namespace_::WindowSizingUpdate(unsigned __int64 *a1)
 {
-  __int64 result; // rax
-  char v3; // dl
+  char v1; // bl
+  int v2; // edx
+  int v3; // ecx
+  _UNKNOWN **result; // rax
 
-  result = *(unsigned int *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 672LL) + 324LL);
-  if ( (result & 1) != 0 )
+  v1 = (char)a1;
+  anonymous_namespace_::NotifyShellWindowPosChangedCommon(a1, 0, 1, 7);
+  result = &WPP_RECORDER_INITIALIZED;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    anonymous_namespace_::NotifyShellWindowPosChangedCommon(a1, 0, 1, 6);
-    v3 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-      && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-      && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-    result = (__int64)&WPP_RECORDER_INITIALIZED;
-    if ( v3 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-      return WPP_RECORDER_AND_TRACE_SF_q(
-               (__int64)WPP_GLOBAL_Control->AttachedDevice,
-               v3,
-               WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
-               10LL,
-               4u,
-               1u,
-               0xAu,
-               (__int64)&WPP_8ba1c0058de53c07630bf97a274bc62e_Traceguids,
-               a1);
+    LOBYTE(v2) = 4;
+    return (_UNKNOWN **)WPP_RECORDER_SF_q(v3, v2, 1, 10, (__int64)&WPP_df8d2832c9f0384c87c95eb8329d57df_Traceguids, v1);
   }
   return result;
 }

@@ -1,83 +1,73 @@
 /*
- * XREFs of ?DxgkpGetIndirectDisplayPairedAdapter@@YAJPEAVDXGADAPTER@@EAEAVDXGADAPTER_REFERENCE@@@Z @ 0x1C022F9AC
+ * XREFs of ?DxgkpGetIndirectDisplayPairedAdapter@@YAJPEAVDXGADAPTER@@EAEAVDXGADAPTER_REFERENCE@@@Z @ 0x1C02221A0
  * Callers:
- *     DxgkGetAdapterDeviceDesc @ 0x1C019BA70 (DxgkGetAdapterDeviceDesc.c)
- *     ?DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z @ 0x1C01C71F0 (-DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z.c)
- *     ?AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C021A2B8 (-AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CO.c)
- *     DxgkSetIndirectDisplayRenderAdapter @ 0x1C02D5BF8 (DxgkSetIndirectDisplayRenderAdapter.c)
+ *     ?DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z @ 0x1C0101E70 (-DxgkpGetPairingAdapters@@YAJPEAVDXGADAPTER@@IPEAPEAV1@PEA_K12E@Z.c)
+ *     DxgkGetAdapterDeviceDesc @ 0x1C011EB60 (DxgkGetAdapterDeviceDesc.c)
+ *     ?AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0194BDC (-AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CO.c)
+ *     DxgkSetIndirectDisplayRenderAdapter @ 0x1C0226DB8 (DxgkSetIndirectDisplayRenderAdapter.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C00074A8 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
- *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C0013C40 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
- *     ?GetPairedRenderAdapter@ADAPTER_DISPLAY@@QEBAXAEAVDXGADAPTER_REFERENCE@@PEAU_GUID@@@Z @ 0x1C003FF2C (-GetPairedRenderAdapter@ADAPTER_DISPLAY@@QEBAXAEAVDXGADAPTER_REFERENCE@@PEAU_GUID@@@Z.c)
- *     ?SetPairedRenderAdapter@ADAPTER_DISPLAY@@QEAAXPEAVDXGADAPTER@@PEBU_GUID@@@Z @ 0x1C0040AF8 (-SetPairedRenderAdapter@ADAPTER_DISPLAY@@QEAAXPEAVDXGADAPTER@@PEBU_GUID@@@Z.c)
- *     ?DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@PEAKAEAE@Z @ 0x1C01F3860 (-DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@PEAKAEAE@Z.c)
+ *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0019574 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ?GetPairedRenderAdapter@ADAPTER_DISPLAY@@QEBAXAEAVDXGADAPTER_REFERENCE@@PEAU_GUID@@@Z @ 0x1C0037850 (-GetPairedRenderAdapter@ADAPTER_DISPLAY@@QEBAXAEAVDXGADAPTER_REFERENCE@@PEAU_GUID@@@Z.c)
+ *     ?SetPairedRenderAdapter@ADAPTER_DISPLAY@@QEAAXPEAVDXGADAPTER@@PEBU_GUID@@@Z @ 0x1C003912C (-SetPairedRenderAdapter@ADAPTER_DISPLAY@@QEAAXPEAVDXGADAPTER@@PEBU_GUID@@@Z.c)
+ *     ?DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@EAEAE@Z @ 0x1C01778F8 (-DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@EAEAE@Z.c)
  */
 
-__int64 __fastcall DxgkpGetIndirectDisplayPairedAdapter(ADAPTER_DISPLAY **this, char a2, DXGADAPTER **a3)
+__int64 __fastcall DxgkpGetIndirectDisplayPairedAdapter(ADAPTER_DISPLAY **a1, char a2, DXGADAPTER **a3)
 {
-  const struct _GUID *v6; // rdi
-  struct _LUID *v7; // rdx
-  bool IsAdapterSessionized; // al
-  unsigned int *v9; // r8
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  const struct _GUID *v8; // rbx
+  __int64 v9; // r8
+  bool v10; // zf
   int DefaultRenderAdapterForSession; // eax
-  __int64 v11; // rbp
-  struct _LUID v13; // [rsp+50h] [rbp-28h] BYREF
-  unsigned __int8 v14; // [rsp+80h] [rbp+8h] BYREF
-  unsigned int v15; // [rsp+98h] [rbp+20h] BYREF
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rbp
+  __int64 v15; // rax
+  struct DXGADAPTER *v17; // rdx
+  __int64 v18; // rax
+  unsigned __int8 v19; // [rsp+40h] [rbp+8h] BYREF
+  struct _LUID v20; // [rsp+58h] [rbp+20h] BYREF
 
   DXGADAPTER_REFERENCE::Assign(a3, 0LL);
-  v6 = 0LL;
-  if ( this && (*((_DWORD *)this + 109) & 0x100) != 0 )
+  v8 = 0LL;
+  if ( a1 && (*((_DWORD *)a1 + 87) & 0x100) != 0 )
   {
-    ADAPTER_DISPLAY::GetPairedRenderAdapter(this[365], a3, 0LL);
-    if ( *a3 && a2 && (*((_DWORD *)*a3 + 50) != 1 || *((_BYTE *)*a3 + 2833)) )
+    ADAPTER_DISPLAY::GetPairedRenderAdapter(a1[337], a3, 0LL);
+    if ( !*a3 )
+      goto LABEL_9;
+    if ( a2 && (*((_DWORD *)*a3 + 50) != 1 || *((_BYTE *)*a3 + 2609)) )
       DXGADAPTER_REFERENCE::Assign(a3, 0LL);
     if ( !*a3 )
     {
-      v13 = 0LL;
-      v14 = 0;
-      v15 = 0;
-      IsAdapterSessionized = DXGADAPTER::IsAdapterSessionized((DXGADAPTER *)this, v7, &v15, 0LL);
-      v9 = &v15;
-      if ( !IsAdapterSessionized )
-        v9 = 0LL;
-      DefaultRenderAdapterForSession = DxgkpFindDefaultRenderAdapterForSession(&v13, a3, v9, (bool *)&v14);
-      v11 = DefaultRenderAdapterForSession;
+LABEL_9:
+      v10 = a1[550] == 0LL;
+      v20 = 0LL;
+      LOBYTE(v9) = !v10;
+      v19 = 0;
+      DefaultRenderAdapterForSession = DxgkpFindDefaultRenderAdapterForSession(&v20, a3, v9, (bool *)&v19);
+      v14 = DefaultRenderAdapterForSession;
       if ( DefaultRenderAdapterForSession < 0 )
       {
-        WdLogSingleEntry2(2LL, this, DefaultRenderAdapterForSession);
-        DxgkLogInternalTriageEvent(
-          0LL,
-          0x40000,
-          -1,
-          (__int64)L"Failed to find the render adapter for display only adapter 0x%I64x (Status = 0x%I64x).",
-          (__int64)this,
-          v11,
-          0LL,
-          0LL,
-          0LL);
-        return (unsigned int)v11;
+        v15 = WdLogNewEntry5_WdError(v13, v12);
+        *(_QWORD *)(v15 + 24) = a1;
+        *(_QWORD *)(v15 + 32) = v14;
+        WdLogEvent5_WdError(v15);
+        return (unsigned int)v14;
       }
-      if ( v14 )
-        v6 = (const struct _GUID *)((char *)*a3 + 308);
-      ADAPTER_DISPLAY::SetPairedRenderAdapter(this[365], *a3, v6);
+      v17 = *a3;
+      if ( v19 )
+        v8 = (const struct _GUID *)((char *)v17 + 300);
+      ADAPTER_DISPLAY::SetPairedRenderAdapter(a1[337], v17, v8);
     }
     return 0LL;
   }
   else
   {
-    WdLogSingleEntry2(2LL, this, -1073741811LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Caller specified adapter 0x%I64x is not an Indirect Display Adapter, returning 0x%I64x.",
-      (__int64)this,
-      -1073741811LL,
-      0LL,
-      0LL,
-      0LL);
+    v18 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v18 + 24) = a1;
+    *(_QWORD *)(v18 + 32) = -1073741811LL;
+    WdLogEvent5_WdError(v18);
     return 3221225485LL;
   }
 }

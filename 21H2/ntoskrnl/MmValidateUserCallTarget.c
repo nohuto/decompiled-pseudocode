@@ -1,19 +1,22 @@
 /*
- * XREFs of MmValidateUserCallTarget @ 0x14096ECCC
+ * XREFs of MmValidateUserCallTarget @ 0x1408D7E78
  * Callers:
- *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
- *     MmCheckForSafeExecution @ 0x140977FF8 (MmCheckForSafeExecution.c)
+ *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     MmCheckForSafeExecution @ 0x1408D0F40 (MmCheckForSafeExecution.c)
  * Callees:
- *     MiValidateUserCallTarget @ 0x14096EC0C (MiValidateUserCallTarget.c)
+ *     MiIsProcessCfgEnabled @ 0x14025B020 (MiIsProcessCfgEnabled.c)
+ *     MiValidateUserCallTarget @ 0x14070F21C (MiValidateUserCallTarget.c)
  */
 
-__int64 __fastcall MmValidateUserCallTarget(unsigned __int64 a1, int a2)
+__int64 MmValidateUserCallTarget()
 {
-  unsigned __int64 v2; // rax
+  int v0; // r8d
+  unsigned __int64 v1; // r9
 
-  v2 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28];
-  if ( *(_QWORD *)(v2 + 432) )
-    return MiValidateUserCallTarget(a1, v2 + 424 + (a2 != 0 ? 0x20 : 0));
+  if ( MiIsProcessCfgEnabled() )
+    return MiValidateUserCallTarget(
+             v1,
+             KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[8] + (v0 != 0 ? 472LL : 440LL));
   else
     return 1LL;
 }

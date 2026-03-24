@@ -3,9 +3,9 @@
  * Callers:
  *     PopEtProcessSnapshotUpdate @ 0x1405FC4C0 (PopEtProcessSnapshotUpdate.c)
  *     PopEtAggregateGet @ 0x1405FCD54 (PopEtAggregateGet.c)
- *     PopEtEnergyTrackerCleanupAggregates @ 0x14069CF74 (PopEtEnergyTrackerCleanupAggregates.c)
- *     PopEtProcessSnapshotCreate @ 0x14069F81C (PopEtProcessSnapshotCreate.c)
- *     PopEtEnergyTrackerCleanup @ 0x140877AC8 (PopEtEnergyTrackerCleanup.c)
+ *     PopEtEnergyTrackerCleanupAggregates @ 0x14069CF54 (PopEtEnergyTrackerCleanupAggregates.c)
+ *     PopEtProcessSnapshotCreate @ 0x14069F7FC (PopEtProcessSnapshotCreate.c)
+ *     PopEtEnergyTrackerCleanup @ 0x140877AA8 (PopEtEnergyTrackerCleanup.c)
  * Callees:
  *     PopEtAppIdDereference @ 0x140600278 (PopEtAppIdDereference.c)
  *     RtlInternEntryDereference @ 0x1406002A4 (RtlInternEntryDereference.c)

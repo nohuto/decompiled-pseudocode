@@ -1,34 +1,36 @@
 /*
- * XREFs of CmpAcceptBoot @ 0x1406EA1C8
+ * XREFs of CmpAcceptBoot @ 0x14078D570
  * Callers:
- *     NtInitializeRegistry @ 0x1406EA120 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x14078D500 (NtInitializeRegistry.c)
  * Callees:
- *     KvfCommitFeatureStates @ 0x14025D1A4 (KvfCommitFeatureStates.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1402DF580 (PsIsCurrentThreadInServerSilo.c)
- *     KeCommitSmtState @ 0x1403DCFAC (KeCommitSmtState.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     CmpUpdatePhaseAccessBit @ 0x14085ED9C (CmpUpdatePhaseAccessBit.c)
- *     CmpSaveBootControlSet @ 0x14090BC6C (CmpSaveBootControlSet.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
+ *     KvfCommitFeatureStates @ 0x1403A62DC (KvfCommitFeatureStates.c)
+ *     KeCommitSmtState @ 0x1403CD93C (KeCommitSmtState.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpUpdatePhaseAccessBit @ 0x1407CEF3C (CmpUpdatePhaseAccessBit.c)
+ *     CmpSaveBootControlSet @ 0x140867A80 (CmpSaveBootControlSet.c)
  */
 
 __int64 __fastcall CmpAcceptBoot(__int16 a1)
 {
-  unsigned int v2; // ebx
-  unsigned __int16 v4; // di
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  unsigned int v4; // ebx
+  unsigned __int16 v6; // di
 
   KvfCommitFeatureStates();
-  v2 = 0;
-  if ( !PsIsCurrentThreadInServerSilo() )
+  v4 = 0;
+  if ( !PsIsCurrentThreadInServerSilo(v3, v2) )
   {
-    if ( _InterlockedExchange(CmBootAcceptFirstTime, 0) )
+    if ( _InterlockedExchange(&CmBootAcceptFirstTime, 0) )
     {
-      v4 = a1 - 4096;
-      if ( v4 )
+      v6 = a1 - 4096;
+      if ( v6 )
       {
         KeCommitSmtState();
         if ( CmpLKGEnabled )
-          v2 = CmpSaveBootControlSet(v4);
-        off_140C02168[0]();
+          v4 = CmpSaveBootControlSet(v6);
+        off_140C00AF8[0]();
         CmpUpdatePhaseAccessBit();
       }
       else
@@ -41,5 +43,5 @@ __int64 __fastcall CmpAcceptBoot(__int16 a1)
       return (unsigned int)-1073741790;
     }
   }
-  return v2;
+  return v4;
 }

@@ -1,89 +1,70 @@
 /*
- * XREFs of xxxRemoteStopScreenUpdates @ 0x1C0130758
+ * XREFs of xxxRemoteStopScreenUpdates @ 0x1C01284B0
  * Callers:
- *     xxxRemoteDisconnect @ 0x1C0130984 (xxxRemoteDisconnect.c)
- *     xxxRemoteReconnect @ 0x1C0132780 (xxxRemoteReconnect.c)
- *     NtUserRemoteStopScreenUpdates @ 0x1C01D9DC0 (NtUserRemoteStopScreenUpdates.c)
- *     xxxRemotePassthruEnable @ 0x1C0204098 (xxxRemotePassthruEnable.c)
- *     xxxRemoteShadowSetup @ 0x1C0204290 (xxxRemoteShadowSetup.c)
- *     xxxRemoteShadowStop @ 0x1C0204350 (xxxRemoteShadowStop.c)
+ *     xxxRemoteDisconnect @ 0x1C01280E0 (xxxRemoteDisconnect.c)
+ *     xxxRemoteReconnect @ 0x1C0161DA0 (xxxRemoteReconnect.c)
+ *     NtUserRemoteStopScreenUpdates @ 0x1C0200A80 (NtUserRemoteStopScreenUpdates.c)
+ *     xxxRemotePassthruEnable @ 0x1C0226C60 (xxxRemotePassthruEnable.c)
+ *     xxxRemoteShadowSetup @ 0x1C0226DD0 (xxxRemoteShadowSetup.c)
+ *     xxxRemoteShadowStop @ 0x1C0226E50 (xxxRemoteShadowStop.c)
  * Callees:
- *     RemoteDisableScreen @ 0x1C0049DF8 (RemoteDisableScreen.c)
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
+ *     WPP_RECORDER_SF_ @ 0x1C004D9D8 (WPP_RECORDER_SF_.c)
+ *     RemoteDisableScreen @ 0x1C01286A0 (RemoteDisableScreen.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
  */
 
 // write access to const memory has been detected, the output may be wrong!
-__int64 __fastcall xxxRemoteStopScreenUpdates(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall xxxRemoteStopScreenUpdates(int a1, __int16 a2)
 {
-  PDEVICE_OBJECT v3; // rcx
-  __int64 v4; // r8
-  __int16 v5; // bx
-  unsigned __int16 v6; // dx
-  unsigned int v7; // ebx
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v11; // r8
-  _BYTE v12[8]; // [rsp+48h] [rbp-C0h] BYREF
-  GUID ActivityId; // [rsp+50h] [rbp-B8h] BYREF
-  int v14; // [rsp+60h] [rbp-A8h]
-  char v15; // [rsp+78h] [rbp-90h]
-  __int64 v16; // [rsp+88h] [rbp-80h]
-  int v17; // [rsp+98h] [rbp-70h] BYREF
-  __int128 v18; // [rsp+9Ch] [rbp-6Ch]
-  __int64 v19; // [rsp+ACh] [rbp-5Ch]
-  int v20; // [rsp+B4h] [rbp-54h]
-  int v21; // [rsp+B8h] [rbp-50h]
-  __int128 v22; // [rsp+BCh] [rbp-4Ch]
-  __int64 v23; // [rsp+CCh] [rbp-3Ch]
-  int v24; // [rsp+D4h] [rbp-34h]
-  int v25; // [rsp+D8h] [rbp-30h]
-  __int128 v26; // [rsp+DCh] [rbp-2Ch]
-  __int64 v27; // [rsp+ECh] [rbp-1Ch]
-  int v28; // [rsp+F4h] [rbp-14h]
-  int v29; // [rsp+F8h] [rbp-10h]
-  __int128 v30; // [rsp+FCh] [rbp-Ch]
-  __int64 v31; // [rsp+10Ch] [rbp+4h]
-  int v32; // [rsp+114h] [rbp+Ch]
-  int v33; // [rsp+118h] [rbp+10h]
-  __int128 v34; // [rsp+11Ch] [rbp+14h]
-  __int64 v35; // [rsp+12Ch] [rbp+24h]
-  int v36; // [rsp+134h] [rbp+2Ch]
-  int v37; // [rsp+138h] [rbp+30h]
-  __int128 v38; // [rsp+13Ch] [rbp+34h]
-  __int64 v39; // [rsp+14Ch] [rbp+44h]
-  int v40; // [rsp+154h] [rbp+4Ch]
+  __int16 v2; // di
+  unsigned __int16 v3; // dx
+  unsigned int v4; // edi
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v8; // r8
+  _QWORD v9[10]; // [rsp+38h] [rbp-D0h] BYREF
+  int v10; // [rsp+88h] [rbp-80h] BYREF
+  __int128 v11; // [rsp+8Ch] [rbp-7Ch]
+  __int64 v12; // [rsp+9Ch] [rbp-6Ch]
+  int v13; // [rsp+A4h] [rbp-64h]
+  int v14; // [rsp+A8h] [rbp-60h]
+  __int128 v15; // [rsp+ACh] [rbp-5Ch]
+  __int64 v16; // [rsp+BCh] [rbp-4Ch]
+  int v17; // [rsp+C4h] [rbp-44h]
+  int v18; // [rsp+C8h] [rbp-40h]
+  __int128 v19; // [rsp+CCh] [rbp-3Ch]
+  __int64 v20; // [rsp+DCh] [rbp-2Ch]
+  int v21; // [rsp+E4h] [rbp-24h]
+  int v22; // [rsp+E8h] [rbp-20h]
+  __int128 v23; // [rsp+ECh] [rbp-1Ch]
+  __int64 v24; // [rsp+FCh] [rbp-Ch]
+  int v25; // [rsp+104h] [rbp-4h]
+  int v26; // [rsp+108h] [rbp+0h]
+  __int128 v27; // [rsp+10Ch] [rbp+4h]
+  __int64 v28; // [rsp+11Ch] [rbp+14h]
+  int v29; // [rsp+124h] [rbp+1Ch]
+  int v30; // [rsp+128h] [rbp+20h]
+  __int128 v31; // [rsp+12Ch] [rbp+24h]
+  __int64 v32; // [rsp+13Ch] [rbp+34h]
+  int v33; // [rsp+144h] [rbp+3Ch]
 
-  v3 = WPP_GLOBAL_Control;
-  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) == 0
-    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 4u) )
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(a2) = 0;
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_(a1, a2, 9, 19, (__int64)&WPP_a65f4517be503488af1f6543f5ef864f_Traceguids);
   }
-  LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    WPP_RECORDER_AND_TRACE_SF_(
-      WPP_GLOBAL_Control->AttachedDevice,
-      a2,
-      a3,
-      19,
-      4,
-      3,
-      19,
-      (__int64)&WPP_38afe8d8a8303f1671169ac824553c0d_Traceguids);
   if ( !gbFreezeScreenUpdates )
   {
-    if ( (unsigned int)UserRemoteConnectedSessionUsingWddm(v3, a2, a3) )
+    if ( (unsigned int)UserRemoteConnectedSessionUsingWddm() )
     {
-      memset_0(v12, 0, 0x48uLL);
-      EtwActivityIdControl(3u, &ActivityId);
-      LOBYTE(v11) = 1;
-      v16 = MEMORY[0xFFFFF78000000014];
-      v14 = 65;
-      v15 = -1;
-      DrvSetMonitorPowerState(*(_QWORD *)(gpDispInfo + 16LL), 4LL, v11, v12);
+      memset(v9, 0, 0x48uLL);
+      EtwActivityIdControl(3u, (LPGUID)&v9[1]);
+      LOBYTE(v8) = 1;
+      v9[8] = MEMORY[0xFFFFF78000000014];
+      LODWORD(v9[3]) = 65;
+      LOBYTE(v9[6]) = -1;
+      DrvSetMonitorPowerState(*(_QWORD *)(gpDispInfo + 16LL), 4LL, v8, v9);
     }
     else
     {
@@ -91,46 +72,43 @@ __int64 __fastcall xxxRemoteStopScreenUpdates(__int64 a1, __int64 a2, __int64 a3
     }
     if ( gspdeskDisconnect )
     {
-      v5 = gwMKButtonState & ~gwMKCurrentButton;
-      v6 = (v5 ^ gwMKButtonState) & 1 | 2;
-      if ( (((unsigned __int8)v5 ^ gwMKButtonState) & 2) == 0 )
-        v6 = (v5 ^ gwMKButtonState) & 1;
-      if ( v6 )
-        ReleaseMouseButton(v6);
-      v17 = -2136735560;
-      v18 = 0LL;
-      v21 = -2119892808;
+      v2 = gwMKButtonState & ~gwMKCurrentButton;
+      v3 = (v2 ^ gwMKButtonState) & 1 | 2;
+      if ( (((unsigned __int8)v2 ^ gwMKButtonState) & 2) == 0 )
+        v3 = (v2 ^ gwMKButtonState) & 1;
+      if ( v3 )
+        ReleaseMouseButton(v3);
+      v10 = -2136735560;
+      v11 = 0LL;
+      v14 = -2119892808;
       gwMKButtonState &= ~gwMKCurrentButton;
+      v12 = 0LL;
+      v4 = 0;
+      v13 = 0;
+      v16 = 0LL;
+      v17 = 0;
+      v20 = 0LL;
+      v21 = 0;
+      v24 = 0LL;
+      v25 = 0;
+      v28 = 0LL;
+      v29 = 0;
+      v32 = 0LL;
+      v33 = 0;
+      v15 = 0LL;
+      v18 = -2136866659;
       v19 = 0LL;
-      v7 = 0;
-      v20 = 0;
+      v22 = -2120023907;
       v23 = 0LL;
-      v24 = 0;
+      v26 = -2136997718;
       v27 = 0LL;
-      v28 = 0;
+      v30 = -2120154954;
       v31 = 0LL;
-      v32 = 0;
-      v35 = 0LL;
-      v36 = 0;
-      v39 = 0LL;
-      v40 = 0;
-      v22 = 0LL;
-      v25 = -2136866659;
-      v26 = 0LL;
-      v29 = -2120023907;
-      v30 = 0LL;
-      v33 = -2136997718;
-      v34 = 0LL;
-      v37 = -2120154954;
-      v38 = 0LL;
       do
-      {
-        LOBYTE(v4) = 1;
-        xxxProcessKeyEvent(&v17 + 8 * (int)v7++, 0LL, v4, 0LL, 0LL, 0LL);
-      }
-      while ( v7 < 6 );
+        xxxProcessKeyEvent(&v10 + 8 * (int)v4++, 0LL, 1LL, 0LL, 0LL, 0LL);
+      while ( v4 < 6 );
       UpdateKeyLights(1LL);
-      RemoteDisableScreen(grpdeskRitInput, v8, v9, gbDesktopLocked);
+      RemoteDisableScreen(grpdeskRitInput, v5, v6, gbDesktopLocked);
       gbFreezeScreenUpdates = 1;
     }
   }

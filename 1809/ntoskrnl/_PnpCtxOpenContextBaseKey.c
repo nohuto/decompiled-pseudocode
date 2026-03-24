@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpCtxOpenContextBaseKey @ 0x1407062C0
+ * XREFs of _PnpCtxOpenContextBaseKey @ 0x1407062A0
  * Callers:
- *     PiCMOpenClassKey @ 0x1406A6D40 (PiCMOpenClassKey.c)
- *     PiDevCfgEnumDeviceKeys @ 0x1406FA0B8 (PiDevCfgEnumDeviceKeys.c)
- *     PiDevCfgResolveVariableKeyHandle @ 0x140830840 (PiDevCfgResolveVariableKeyHandle.c)
+ *     PiCMOpenClassKey @ 0x1406A6D20 (PiCMOpenClassKey.c)
+ *     PiDevCfgEnumDeviceKeys @ 0x1406FA098 (PiDevCfgEnumDeviceKeys.c)
+ *     PiDevCfgResolveVariableKeyHandle @ 0x140830820 (PiDevCfgResolveVariableKeyHandle.c)
  * Callees:
  *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
  *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
@@ -26,7 +26,7 @@ __int64 __fastcall PnpCtxOpenContextBaseKey(__int64 a1, int a2, __int64 a3, unsi
       v8 = *(_QWORD *)(v5 + 224);
     else
       v8 = 0LL;
-    v9 = SysCtxRegOpenKey(v8, v11, (__int64)&word_140766570, 0, a4, a5);
+    v9 = SysCtxRegOpenKey(v8, v11, (__int64)&word_140766550, 0, a4, a5);
     if ( v9 == -1073741444 )
     {
       return (unsigned int)-1073741595;

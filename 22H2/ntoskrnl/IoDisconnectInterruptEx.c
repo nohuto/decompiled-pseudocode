@@ -1,11 +1,11 @@
 /*
- * XREFs of IoDisconnectInterruptEx @ 0x14078E160
+ * XREFs of IoDisconnectInterruptEx @ 0x140760F90
  * Callers:
- *     DifIoDisconnectInterruptExWrapper @ 0x1405DF080 (DifIoDisconnectInterruptExWrapper.c)
+ *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
- *     IoDisconnectInterrupt @ 0x14078E6E0 (IoDisconnectInterrupt.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FD570 (KeBugCheckEx.c)
+ *     IoDisconnectInterrupt @ 0x140761030 (IoDisconnectInterrupt.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoDisconnectInterruptEx(PIO_DISCONNECT_INTERRUPT_PARAMETERS Parameters)

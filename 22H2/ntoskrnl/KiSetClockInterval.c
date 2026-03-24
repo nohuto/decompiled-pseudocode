@@ -1,15 +1,13 @@
 /*
- * XREFs of KiSetClockInterval @ 0x1403B1914
+ * XREFs of KiSetClockInterval @ 0x1402F045C
  * Callers:
- *     ExpUpdateTimerConfigurationWorker @ 0x1403C24A0 (ExpUpdateTimerConfigurationWorker.c)
- *     KiSetVirtualHeteroClockIntervalRequest @ 0x140462020 (KiSetVirtualHeteroClockIntervalRequest.c)
+ *     ExpUpdateTimerConfigurationWorker @ 0x1402F02B0 (ExpUpdateTimerConfigurationWorker.c)
+ *     KiSetVirtualHeteroClockIntervalRequest @ 0x1405208D4 (KiSetVirtualHeteroClockIntervalRequest.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x14024B910 (RtlRbRemoveNode.c)
- *     RtlRbInsertNodeEx @ 0x14024CCA0 (RtlRbInsertNodeEx.c)
- *     KiSetClockTimerKTimerDeadlines @ 0x1402C1C34 (KiSetClockTimerKTimerDeadlines.c)
- *     KiSetNextClockTickDueTime @ 0x1402C84E0 (KiSetNextClockTickDueTime.c)
- *     PoTraceSystemTimerResolutionKernel @ 0x140340704 (PoTraceSystemTimerResolutionKernel.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x1405700EC (KiSetClockIntervalToMinimumRequested.c)
+ *     RtlRbInsertNodeEx @ 0x1402C0B10 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x1402C1170 (RtlRbRemoveNode.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x1402F0908 (PoTraceSystemTimerResolutionKernel.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x1402F0984 (KiSetClockIntervalToMinimumRequested.c)
  */
 
 __int64 __fastcall KiSetClockInterval(unsigned int a1, char a2, unsigned __int64 a3)
@@ -17,49 +15,25 @@ __int64 __fastcall KiSetClockInterval(unsigned int a1, char a2, unsigned __int64
   __int64 v6; // rdx
   bool v7; // r8
   __int64 v8; // rax
-  unsigned int ClockTickDueTime; // eax
-  int v10; // edx
-  unsigned int v11; // ebx
+  unsigned int v9; // esi
+  __int64 v10; // r8
+  __int64 v11; // rdx
 
   if ( *(_BYTE *)(a3 + 24) )
     RtlRbRemoveNode((unsigned __int64 *)&KiClockIntervalRequests, a3);
   *(_DWORD *)(a3 + 28) = a1;
-  if ( (qword_140D0C538 & 1) != 0 )
-  {
-    if ( KiClockIntervalRequests )
-      v6 = KiClockIntervalRequests ^ (unsigned __int64)&KiClockIntervalRequests;
-    else
-      v6 = 0LL;
-  }
-  else
-  {
-    v6 = KiClockIntervalRequests;
-  }
+  v6 = KiClockIntervalRequests;
+  if ( (qword_140CEC388 & 1) != 0 && KiClockIntervalRequests )
+    v6 = (unsigned __int64)&KiClockIntervalRequests ^ KiClockIntervalRequests;
   v7 = 0;
   if ( v6 )
   {
     while ( 1 )
     {
-      if ( a1 >= *(_DWORD *)(v6 + 28) )
-      {
-        v8 = *(_QWORD *)(v6 + 8);
-        if ( (qword_140D0C538 & 1) != 0 )
-        {
-          if ( !v8 )
-            goto LABEL_16;
-          v8 ^= v6;
-        }
-        if ( !v8 )
-        {
-LABEL_16:
-          v7 = 1;
-          break;
-        }
-      }
-      else
+      if ( a1 < *(_DWORD *)(v6 + 28) )
       {
         v8 = *(_QWORD *)v6;
-        if ( (qword_140D0C538 & 1) != 0 )
+        if ( (qword_140CEC388 & 1) != 0 )
         {
           if ( !v8 )
             break;
@@ -68,25 +42,35 @@ LABEL_16:
         if ( !v8 )
           break;
       }
+      else
+      {
+        v8 = *(_QWORD *)(v6 + 8);
+        if ( (qword_140CEC388 & 1) != 0 )
+        {
+          if ( !v8 )
+            goto LABEL_18;
+          v8 ^= v6;
+        }
+        if ( !v8 )
+        {
+LABEL_18:
+          v7 = 1;
+          break;
+        }
+      }
       v6 = v8;
     }
   }
   RtlRbInsertNodeEx((unsigned __int64 *)&KiClockIntervalRequests, v6, v7, a3);
   *(_BYTE *)(a3 + 24) = 1;
+  v9 = KiSetClockIntervalToMinimumRequested();
   if ( a2 )
     KePseudoHrTimeIncrement = a1;
-  if ( KiClockTimerPerCpuTickScheduling )
+  v11 = *(unsigned int *)(a3 + 32);
+  if ( (_DWORD)v11 )
   {
-    KiSetClockTimerKTimerDeadlines((int)KeGetCurrentPrcb(), 0);
-    ClockTickDueTime = KiSetNextClockTickDueTime(1);
+    LOBYTE(v10) = 1;
+    PoTraceSystemTimerResolutionKernel(a1, v11, v10);
   }
-  else
-  {
-    ClockTickDueTime = KiSetClockIntervalToMinimumRequested();
-  }
-  v10 = *(_DWORD *)(a3 + 32);
-  v11 = ClockTickDueTime;
-  if ( v10 )
-    PoTraceSystemTimerResolutionKernel(a1, v10, 1);
-  return v11;
+  return v9;
 }

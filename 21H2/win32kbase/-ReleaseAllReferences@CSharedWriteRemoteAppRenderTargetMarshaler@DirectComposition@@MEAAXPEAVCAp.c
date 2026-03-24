@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ReleaseAllReferences@CSharedWriteRemoteAppRenderTargetMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C023A600
+ * XREFs of ?ReleaseAllReferences@CSharedWriteRemoteAppRenderTargetMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01F9280
  * Callers:
  *     <none>
  * Callees:
- *     ?ReleaseAllReferences@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C022C970 (-ReleaseAllReferences@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAAXPEAVCApplicatio.c)
+ *     ?ReleaseAllReferences@CRemoteAppRenderTargetMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01ECBF0 (-ReleaseAllReferences@CRemoteAppRenderTargetMarshaler@DirectComposition@@MEAAXPEAVCApplicationCh.c)
  */
 
 void __fastcall DirectComposition::CSharedWriteRemoteAppRenderTargetMarshaler::ReleaseAllReferences(
@@ -12,11 +12,11 @@ void __fastcall DirectComposition::CSharedWriteRemoteAppRenderTargetMarshaler::R
 {
   __int64 v4; // rcx
 
-  v4 = *((_QWORD *)this + 14);
+  v4 = *((_QWORD *)this + 12);
   if ( v4 )
   {
     ObfDereferenceObject((PVOID)(v4 - 24));
-    *((_QWORD *)this + 14) = 0LL;
+    *((_QWORD *)this + 12) = 0LL;
   }
-  DirectComposition::CHolographicExclusiveViewMarshaler::ReleaseAllReferences(this, a2);
+  DirectComposition::CRemoteAppRenderTargetMarshaler::ReleaseAllReferences(this, a2);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PsChargeProcessPagedPoolQuota @ 0x140696E20
+ * XREFs of PsChargeProcessPagedPoolQuota @ 0x140696E00
  * Callers:
  *     AlpcpChargePagedPoolQuota @ 0x140618460 (AlpcpChargePagedPoolQuota.c)
- *     ExpAllocateHandleTable @ 0x140696A84 (ExpAllocateHandleTable.c)
- *     ExpAllocateTablePagedPoolNoZero @ 0x140696DBC (ExpAllocateTablePagedPoolNoZero.c)
+ *     ExpAllocateHandleTable @ 0x140696A64 (ExpAllocateHandleTable.c)
+ *     ExpAllocateTablePagedPoolNoZero @ 0x140696D9C (ExpAllocateTablePagedPoolNoZero.c)
  * Callees:
  *     PspChargeQuota @ 0x14004D3A0 (PspChargeQuota.c)
  */

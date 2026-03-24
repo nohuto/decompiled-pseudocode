@@ -1,15 +1,15 @@
 /*
- * XREFs of ExIsResourceAcquiredSharedLite @ 0x1400B9AC0
+ * XREFs of ExIsResourceAcquiredSharedLite @ 0x1400B9AE0
  * Callers:
- *     CmpIsRegistryLockAcquired @ 0x1401B2F98 (CmpIsRegistryLockAcquired.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
  *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)
  *     FsRtlAcquireFileForCcFlushEx @ 0x1405DD0AC (FsRtlAcquireFileForCcFlushEx.c)
- *     CmpDoReOpenTransKey @ 0x14080761C (CmpDoReOpenTransKey.c)
+ *     CmpDoReOpenTransKey @ 0x1408075FC (CmpDoReOpenTransKey.c)
  * Callees:
  *     KeReleaseInStackQueuedSpinLock @ 0x14001F500 (KeReleaseInStackQueuedSpinLock.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
- *     ExpFastResourceLegacyIsAcquiredShared @ 0x14031B7DC (ExpFastResourceLegacyIsAcquiredShared.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExpFastResourceLegacyIsAcquiredShared @ 0x14031B8DC (ExpFastResourceLegacyIsAcquiredShared.c)
  */
 
 ULONG __stdcall ExIsResourceAcquiredSharedLite(PERESOURCE Resource)

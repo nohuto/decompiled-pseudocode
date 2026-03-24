@@ -1,36 +1,30 @@
 /*
- * XREFs of ?IoMmuMapAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00E3FE0
+ * XREFs of ?IoMmuMapAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00AF44C
  * Callers:
- *     ?CommitResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0086F90 (-CommitResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?CommitResource@VIDMM_SYSMEM_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0097600 (-CommitResource@VIDMM_SYSMEM_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
- *     ?MapToIommu@VIDMM_SEGMENT@@QEAAJXZ @ 0x1C00FD9AC (-MapToIommu@VIDMM_SEGMENT@@QEAAJXZ.c)
+ *     ?CommitResource@VIDMM_SYSMEM_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0066C20 (-CommitResource@VIDMM_SYSMEM_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?CommitResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0096DC0 (-CommitResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?MapAllocationsToIoMmu@VIDMM_SEGMENT@@QEAAJXZ @ 0x1C00C5FD0 (-MapAllocationsToIoMmu@VIDMM_SEGMENT@@QEAAJXZ.c)
  * Callees:
- *     ?SysMmGetLogicalAddress@@YA_KQEAX@Z @ 0x1C0005224 (-SysMmGetLogicalAddress@@YA_KQEAX@Z.c)
- *     ?VidMmGetFullMDL@@YAPEAU_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C00A2C48 (-VidMmGetFullMDL@@YAPEAU_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@@Z.c)
+ *     ?VidMmGetFullMDL@@YAPEAU_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C00867FC (-VidMmGetFullMDL@@YAPEAU_MDL@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAU_VIDMM_LOCAL_ALLOC@@@Z.c)
  */
 
-int __fastcall VIDMM_GLOBAL::IoMmuMapAllocation(VIDMM_GLOBAL *this, struct _VIDMM_GLOBAL_ALLOC *a2)
+__int64 __fastcall VIDMM_GLOBAL::IoMmuMapAllocation(VIDMM_GLOBAL *this, struct _VIDMM_GLOBAL_ALLOC *a2)
 {
-  struct _MDL *FullMDL; // rsi
-  int v6; // ebx
-  unsigned __int64 LogicalAddress; // rax
+  struct _MDL *FullMDL; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rax
 
-  if ( (*((_DWORD *)a2 + 18) & 0x400) != 0 )
-    return 0;
+  if ( (*((_DWORD *)a2 + 20) & 0x400) != 0 )
+    return 0LL;
   FullMDL = VidMmGetFullMDL(a2, 0LL);
   if ( FullMDL )
-  {
-    v6 = **((_DWORD **)a2 + 67);
-    LogicalAddress = SysMmGetLogicalAddress(*((void *const *)a2 + 66));
-    return SysMmMapIommuRange(
-             *(struct SYSMM_ADAPTER **)(*((_QWORD *)this + 3) + 224LL),
-             LogicalAddress,
+    return DpiMapIommuIdentityRange(
+             *(_QWORD *)(*((_QWORD *)this + 3) + 216LL),
              FullMDL,
-             (v6 & 0x10) != 0);
-  }
-  else
-  {
-    WdLogSingleEntry0(3LL);
-    return -1073741801;
-  }
+             (**((_DWORD **)a2 + 62) >> 4) & 1,
+             1LL,
+             a2);
+  v7 = WdLogNewEntry5_WdWarning(v6, 0LL);
+  WdLogEvent5_WdWarning(v7);
+  return 3221225495LL;
 }

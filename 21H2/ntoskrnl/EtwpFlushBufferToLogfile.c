@@ -1,89 +1,92 @@
 /*
- * XREFs of EtwpFlushBufferToLogfile @ 0x1406C1524
+ * XREFs of EtwpFlushBufferToLogfile @ 0x1406AB9A4
  * Callers:
- *     EtwpFlushBuffer @ 0x140798C10 (EtwpFlushBuffer.c)
- *     EtwpBufferingModeFlush @ 0x1409E971C (EtwpBufferingModeFlush.c)
+ *     EtwpFlushBuffer @ 0x140644AFC (EtwpFlushBuffer.c)
+ *     EtwpBufferingModeFlush @ 0x14093D188 (EtwpBufferingModeFlush.c)
  * Callees:
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     ZwWriteFile @ 0x14041B860 (ZwWriteFile.c)
- *     EtwpGenerateFileName @ 0x1407FC710 (EtwpGenerateFileName.c)
- *     EtwpEventWriteTemplateAdmin @ 0x1409E08A8 (EtwpEventWriteTemplateAdmin.c)
- *     EtwpEventWriteTemplateMaxFileSize @ 0x1409E0A0C (EtwpEventWriteTemplateMaxFileSize.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
+ *     EtwpGenerateFileName @ 0x1406ABAFC (EtwpGenerateFileName.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x140939B5C (EtwpEventWriteTemplateAdmin.c)
+ *     EtwpEventWriteTemplateMaxFileSize @ 0x140939CC0 (EtwpEventWriteTemplateMaxFileSize.c)
  */
 
 __int64 __fastcall EtwpFlushBufferToLogfile(__int64 a1, unsigned int *a2)
 {
   __int64 v2; // r9
   unsigned __int64 Length; // rbp
-  NTSTATUS v6; // edi
-  __int64 v7; // rcx
-  int v9; // r8d
-  unsigned __int64 v10; // rcx
+  __int64 v6; // r8
+  int v7; // ecx
+  NTSTATUS v8; // edi
+  __int64 v9; // rcx
   int v11; // edx
   int v12; // r8d
   int v13; // r8d
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-18h] BYREF
 
-  v2 = *(unsigned int *)(a1 + 292);
+  v2 = *(unsigned int *)(a1 + 308);
   Length = *a2;
   IoStatusBlock = 0LL;
   if ( (_DWORD)v2 )
   {
-    v9 = *(_DWORD *)(a1 + 12);
-    if ( (v9 & 1) != 0 && (v9 & 0x4000000) != 0 )
-      v10 = *(_QWORD *)(a1 + 216) + Length;
-    else
-      v10 = Length * *(unsigned int *)(a1 + 204);
-    if ( v10 >= v2 * ((-(__int64)((v9 & 0x2000) != 0) & 0xFFFFFFFFFFF00400uLL) + 0x100000) )
+    v6 = *(unsigned int *)(a1 + 220);
+    v7 = *(_DWORD *)(a1 + 12);
+    if ( Length * v6 >= v2 * ((-(__int64)((v7 & 0x2000) != 0) & 0xFFFFFFFFFFF00400uLL) + 0x100000) )
     {
-      if ( (v9 & 2) != 0 )
+      if ( (v7 & 2) != 0 )
       {
-        *(_QWORD *)(a1 + 216) = *(unsigned int *)(a1 + 4);
-        *(_DWORD *)(a1 + 204) = 1;
+        *(_QWORD *)(a1 + 232) = *(unsigned int *)(a1 + 4);
+        *(_DWORD *)(a1 + 220) = 1;
       }
       else
       {
-        if ( (v9 & 8) == 0 )
+        if ( (v7 & 8) == 0 )
         {
-          v6 = -1073741432;
-          if ( (*(_DWORD *)(a1 + 816) & 0x100) == 0 )
+          v8 = -1073741432;
+          if ( (*(_DWORD *)(a1 + 832) & 0x100) == 0 )
           {
-            _InterlockedOr((volatile signed __int32 *)(a1 + 816), 0x100u);
+            _InterlockedOr((volatile signed __int32 *)(a1 + 832), 0x100u);
             if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_MAX_FILE_SIZE_REACHED) )
-              EtwpEventWriteTemplateMaxFileSize(a1 + 152, v11, v12, a1 + 136, a1 + 152);
+              EtwpEventWriteTemplateMaxFileSize(a1 + 168, v11, v12, a1 + 152, a1 + 168);
           }
-          goto LABEL_20;
+          goto LABEL_16;
         }
-        if ( (*(_DWORD *)(a1 + 824) & 1) == 0 )
+        if ( (*(_DWORD *)(a1 + 836) & 1) == 0 )
         {
-          EtwpGenerateFileName(a1 + 168, a1 + 296, a1 + 184);
-          _InterlockedOr((volatile signed __int32 *)(a1 + 824), 1u);
+          EtwpGenerateFileName(a1 + 184, a1 + 312, a1 + 200);
+          _InterlockedOr((volatile signed __int32 *)(a1 + 836), 1u);
         }
       }
     }
   }
-  v6 = ZwWriteFile(*(HANDLE *)(a1 + 800), 0LL, 0LL, 0LL, &IoStatusBlock, a2, Length, (PLARGE_INTEGER)(a1 + 216), 0LL);
-  if ( v6 >= 0 )
+  v8 = ZwWriteFile(*(HANDLE *)(a1 + 816), 0LL, 0LL, 0LL, &IoStatusBlock, a2, Length, (PLARGE_INTEGER)(a1 + 232), 0LL);
+  if ( v8 < 0 )
   {
-    v7 = *(_QWORD *)(a1 + 1096);
-    *(_QWORD *)(a1 + 216) += Length;
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(v7 + 4136), Length);
-    ++*(_DWORD *)(a1 + 248);
-    ++*(_DWORD *)(a1 + 204);
-    return (unsigned int)v6;
+    if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_WRITE_FAILED) )
+      EtwpEventWriteTemplateAdmin(
+        a1 + 168,
+        (unsigned int)&ETW_EVENT_WRITE_FAILED,
+        v13,
+        a1 + 152,
+        a1 + 168,
+        v8,
+        *(_DWORD *)(a1 + 12));
   }
-  if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_WRITE_FAILED) )
-    EtwpEventWriteTemplateAdmin(
-      a1 + 152,
-      (unsigned int)&ETW_EVENT_WRITE_FAILED,
-      v13,
-      a1 + 136,
-      a1 + 152,
-      v6,
-      *(_DWORD *)(a1 + 12));
-LABEL_20:
-  _InterlockedIncrement((volatile signed __int32 *)(a1 + 252));
-  if ( v6 == -1073741670 )
+  else
+  {
+    v9 = *(_QWORD *)(a1 + 1080);
+    *(_QWORD *)(a1 + 232) += Length;
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(v9 + 4128), Length);
+  }
+  if ( v8 >= 0 )
+  {
+    ++*(_DWORD *)(a1 + 264);
+    ++*(_DWORD *)(a1 + 220);
+    return (unsigned int)v8;
+  }
+LABEL_16:
+  _InterlockedIncrement((volatile signed __int32 *)(a1 + 268));
+  if ( v8 == -1073741670 )
     return 0;
-  return (unsigned int)v6;
+  return (unsigned int)v8;
 }

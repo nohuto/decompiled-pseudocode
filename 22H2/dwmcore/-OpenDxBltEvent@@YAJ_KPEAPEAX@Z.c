@@ -1,25 +1,24 @@
 /*
- * XREFs of ?OpenDxBltEvent@@YAJ_KPEAPEAX@Z @ 0x180134C72
+ * XREFs of ?OpenDxBltEvent@@YAJ_KPEAPEAX@Z @ 0x18021BA3C
  * Callers:
- *     ?PostPresent@CGlobalSurfaceManager@@UEAAJ_N@Z @ 0x1800DEC60 (-PostPresent@CGlobalSurfaceManager@@UEAAJ_N@Z.c)
+ *     ?PostPresent@CGlobalSurfaceManager@@UEAAJ_N@Z @ 0x1800C3180 (-PostPresent@CGlobalSurfaceManager@@UEAAJ_N@Z.c)
  * Callees:
- *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1800AE9B8 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1800B2544 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 __int64 __fastcall OpenDxBltEvent(__int64 a1, void **a2)
 {
   BOOLEAN v4; // si
-  HRESULT v5; // eax
+  int v5; // eax
   __int64 v6; // rcx
   unsigned int v7; // ebx
   int v8; // r9d
   HANDLE v10; // rcx
   NTSTATUS v11; // ebx
-  NTSTATUS v12; // eax
-  int v13; // ebx
-  HANDLE v14; // rax
+  NTSTATUS v12; // ebx
+  HANDLE v13; // rax
   unsigned int RestartScan; // [rsp+20h] [rbp-E0h]
   HANDLE hObject; // [rsp+40h] [rbp-C0h] BYREF
   ULONG Context; // [rsp+48h] [rbp-B8h] BYREF
@@ -35,12 +34,12 @@ __int64 __fastcall OpenDxBltEvent(__int64 a1, void **a2)
   v7 = v5;
   if ( v5 >= 0 )
   {
-    while ( 1 )
+    do
     {
-      v14 = OpenEventW(2u, 0, SourceString);
-      if ( v14 )
+      v13 = OpenEventW(2u, 0, SourceString);
+      if ( v13 )
       {
-        *a2 = v14;
+        *a2 = v13;
         goto LABEL_5;
       }
       v10 = hObject;
@@ -68,24 +67,21 @@ __int64 __fastcall OpenDxBltEvent(__int64 a1, void **a2)
         {
           v7 = v11 | 0x10000000;
           RestartScan = 132;
-          goto LABEL_18;
+LABEL_19:
+          v8 = v7;
+          goto LABEL_4;
         }
         v10 = hObject;
       }
       v12 = NtQueryDirectoryObject(v10, Buffer, 0x228u, 1u, v4, &Context, 0LL);
-      v13 = v12;
       if ( v12 == -2147483622 )
-      {
-        v13 = -1073741772;
-LABEL_22:
-        v7 = v13 | 0x10000000;
-        RestartScan = 151;
-LABEL_18:
-        v8 = v7;
-        goto LABEL_4;
-      }
+        v12 = -1073741772;
       if ( v12 < 0 )
-        goto LABEL_22;
+      {
+        v7 = v12 | 0x10000000;
+        RestartScan = 151;
+        goto LABEL_19;
+      }
       v4 = 0;
       v5 = StringCchPrintfW(
              SourceString,
@@ -95,18 +91,18 @@ LABEL_18:
              L"DwmDxBltEvent_",
              a1);
       v7 = v5;
-      if ( v5 < 0 )
-      {
-        RestartScan = 163;
-        goto LABEL_3;
-      }
     }
+    while ( v5 >= 0 );
+    RestartScan = 163;
   }
-  RestartScan = 93;
+  else
+  {
+    RestartScan = 93;
+  }
 LABEL_3:
   v8 = v5;
 LABEL_4:
-  MilInstrumentationCheckHR_MaybeFailFast(v6, &dword_1803B9520, 3u, v8, RestartScan, 0LL);
+  MilInstrumentationCheckHR_MaybeFailFast(v6, &dword_180305CC0, 3u, v8, RestartScan, 0LL);
 LABEL_5:
   if ( hObject )
     CloseHandle(hObject);

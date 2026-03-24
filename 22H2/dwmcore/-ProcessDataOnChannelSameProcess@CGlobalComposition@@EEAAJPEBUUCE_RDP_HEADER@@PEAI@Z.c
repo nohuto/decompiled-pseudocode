@@ -1,12 +1,11 @@
 /*
- * XREFs of ?ProcessDataOnChannelSameProcess@CGlobalComposition@@EEAAJPEBUUCE_RDP_HEADER@@PEAI@Z @ 0x18009BAB0
+ * XREFs of ?ProcessDataOnChannelSameProcess@CGlobalComposition@@EEAAJPEBUUCE_RDP_HEADER@@PEAI@Z @ 0x1800A2010
  * Callers:
  *     <none>
  * Callees:
- *     ?ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z @ 0x18009F040 (-ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DBB94 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
- *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x18027C748 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z @ 0x1800A34F0 (-ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CGlobalComposition::ProcessDataOnChannelSameProcess(
@@ -14,169 +13,77 @@ __int64 __fastcall CGlobalComposition::ProcessDataOnChannelSameProcess(
         const struct UCE_RDP_HEADER *a2,
         unsigned int *a3)
 {
-  unsigned int v4; // eax
-  volatile signed __int32 *v7; // rsi
-  struct _SLIST_ENTRY *v8; // rdi
-  unsigned int v9; // ebp
+  volatile signed __int32 *v4; // rsi
+  struct _SLIST_ENTRY *v5; // rdi
+  unsigned int v8; // eax
+  __int64 v9; // rdx
+  __int64 v10; // rax
+  unsigned int v11; // ebp
   __int64 *Next; // rax
-  __int64 ***v11; // rcx
+  __int64 ***v13; // rcx
   struct _SLIST_ENTRY *i; // rbx
-  int v13; // eax
-  unsigned int v14; // ecx
-  __int64 v15; // rbx
-  DWORD TickCount; // eax
-  int v18; // eax
-  int v19; // ebx
-  BOOL v20; // eax
-  char v21; // cl
-  HANDLE CurrentThread; // rax
-  HANDLE CurrentProcess; // rax
-  unsigned int v24; // ecx
-  __int16 Response; // [rsp+98h] [rbp+10h] BYREF
-  unsigned int v26; // [rsp+A0h] [rbp+18h] BYREF
+  int v15; // eax
+  __int64 v16; // rcx
+  __int64 v17; // rbx
+  __int64 v19; // rcx
+  unsigned int v20; // [rsp+58h] [rbp+10h] BYREF
 
+  v4 = 0LL;
+  v5 = 0LL;
   *a3 = 0;
-  v4 = *((_DWORD *)a2 + 4);
-  if ( v4 < 0x10000
-    && v4 < *((_DWORD *)this + 116)
-    && (v7 = *(volatile signed __int32 **)(*((_QWORD *)this + 55) + 8LL * v4)) != 0LL )
+  v8 = *((_DWORD *)a2 + 4);
+  if ( v8 < 0x10000 && v8 < *((_DWORD *)this + 80) && (v9 = v8, v10 = *((_QWORD *)this + 37), *(_QWORD *)(v10 + 8 * v9)) )
   {
-    if ( *((int *)v7 + 2) < 0 && (IsDebuggerPresent() || (unsigned int)IsKernelDebuggerPresent()) )
+    v4 = *(volatile signed __int32 **)(v10 + 8 * v9);
+    _InterlockedIncrement(v4 + 2);
+    v5 = (struct _SLIST_ENTRY *)*((_QWORD *)a2 + 3);
+    v11 = 0;
+    if ( !v5 )
+      goto LABEL_14;
+    Next = (__int64 *)v5[2].Next;
+    if ( Next )
     {
-      while ( 1 )
-      {
-        v18 = IsKernelDebuggerPresent();
-        Response = 63;
-        v19 = v18;
-        if ( !v18 )
-        {
-          v20 = IsDebuggerPresent();
-          v21 = Response;
-          if ( v20 )
-            v21 = 103;
-          LOBYTE(Response) = v21;
-        }
-        DbgPrintEx(
-          0x65u,
-          0,
-          "\n*** Assertion failed: %ls%ls%ls\n***   %s%ls%sSource: `%ls:%ld`\n\n",
-          L"Tried to AddRef an object which has previously been freed (refcount went to 0).",
-          word_18033C310,
-          word_18033C310,
-          "Function: ",
-          L"CMILRefCountImpl::AddReference",
-          ", ",
-          L"onecoreuap\\windows\\dwm\\common\\shared\\refcountbase.cpp",
-          23);
-        if ( v19 )
-        {
-          DbgPrompt("Break, Go (continue), terminate Process, or terminate Thread (bgpt)? ", (PCH)&Response, 2u);
-        }
-        else
-        {
-          DbgPrintEx(
-            0x65u,
-            0,
-            "(No kernel debugger is present.) Respond with:\n"
-            "  g                    -- Go (continue)\n"
-            "  eb 0x%p 'p';g  -- terminate Process\n"
-            "  eb 0x%p 't';g  -- terminate Thread\n"
-            " or regular debugging.\n",
-            &Response,
-            &Response);
-          __debugbreak();
-        }
-        if ( (char)Response > 98 )
-        {
-          if ( (char)Response == 103 )
-            break;
-          if ( (char)Response == 105 )
-            goto LABEL_40;
-          if ( (char)Response != 112 )
-          {
-            if ( (char)Response != 116 )
-              goto LABEL_39;
-            goto LABEL_37;
-          }
-LABEL_38:
-          CurrentProcess = GetCurrentProcess();
-          TerminateProcess(CurrentProcess, 0xC0000001);
-LABEL_39:
-          DbgPrintEx(0x65u, 0, "Unrecognized response.\n");
-        }
-        else
-        {
-          if ( (char)Response == 98 || (char)Response == 66 )
-          {
-            __debugbreak();
-            break;
-          }
-          if ( (char)Response == 71 )
-            break;
-          if ( (char)Response != 73 )
-          {
-            if ( (char)Response != 80 )
-            {
-              if ( (char)Response != 84 )
-                goto LABEL_39;
-LABEL_37:
-              CurrentThread = GetCurrentThread();
-              TerminateThread(CurrentThread, 0xC0000001);
-              goto LABEL_39;
-            }
-            goto LABEL_38;
-          }
-LABEL_40:
-          DbgPrintEx(0x65u, 0, "'i' is only supported with debug builds.\n");
-        }
-      }
+      v13 = (__int64 ***)*((_QWORD *)&v5->Next + 1);
+      if ( *v13 != (__int64 **)v5 )
+        __fastfail(3u);
+      *Next = (__int64)v5;
+      Next[1] = (__int64)v13;
+      *v13 = (__int64 **)Next;
+      *((_QWORD *)&v5->Next + 1) = Next;
+      v5[2].Next = 0LL;
     }
-    _InterlockedIncrement(v7 + 2);
-    v8 = (struct _SLIST_ENTRY *)*((_QWORD *)a2 + 3);
-    v9 = 0;
-    if ( v8 )
+    for ( i = v5->Next; i != v5; i = i->Next )
     {
-      Next = (__int64 *)v8[2].Next;
-      if ( Next )
+      v15 = CComposition::ProcessCommandBatch(
+              this,
+              &i[1].Next + 1,
+              HIDWORD(i[1].Next),
+              (struct CChannelContext *)v4,
+              &v20);
+      v11 = v15;
+      if ( v15 < 0 )
       {
-        v11 = (__int64 ***)*((_QWORD *)&v8->Next + 1);
-        if ( *v11 != (__int64 **)v8 )
-          __fastfail(3u);
-        *Next = (__int64)v8;
-        Next[1] = (__int64)v11;
-        *v11 = (__int64 **)Next;
-        *((_QWORD *)&v8->Next + 1) = Next;
-        v8[2].Next = 0LL;
+        MilInstrumentationCheckHR_MaybeFailFast(v16, 0LL, 0, v15, 0x73u, 0LL);
+        break;
       }
-      for ( i = v8->Next; i != v8; i = i->Next )
-      {
-        v13 = CComposition::ProcessCommandBatch(
-                this,
-                &i[1].Next + 1,
-                HIDWORD(i[1].Next),
-                (struct CChannelContext *)v7,
-                &v26);
-        v9 = v13;
-        if ( v13 < 0 )
-        {
-          MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v13, 0x67u, 0LL);
-          break;
-        }
-        *a3 += v26;
-      }
-      v15 = *((_QWORD *)this + 83);
-      InterlockedPushEntrySList((PSLIST_HEADER)(v15 + 160), v8 + 4);
-      TickCount = GetTickCount();
-      *(_BYTE *)(v15 + 180) = 1;
-      *(_DWORD *)(v15 + 176) = TickCount;
+      *a3 += v20;
     }
-    CMILRefCountBaseT<IMILRefCount>::InternalRelease(v7);
   }
   else
   {
-    v9 = -2147024809;
-    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, -2147024809, 0x741u, 0LL);
-    MilInstrumentationCheckHR_MaybeFailFast(v24, 0LL, 0, -2147024809, 0x58u, 0LL);
+    v11 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2147024809, 0x76Cu, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v19, 0LL, 0, -2147024809, 0x64u, 0LL);
   }
-  return v9;
+  if ( v5 )
+  {
+    v17 = *((_QWORD *)this + 64);
+    InterlockedPushEntrySList((PSLIST_HEADER)(v17 + 192), v5 + 4);
+    *(_DWORD *)(v17 + 208) = GetTickCount();
+    *(_BYTE *)(v17 + 212) = 1;
+  }
+LABEL_14:
+  if ( v4 && _InterlockedExchangeAdd(v4 + 2, 0xFFFFFFFF) == 1 )
+    (*(void (__fastcall **)(volatile signed __int32 *, __int64))(*(_QWORD *)v4 + 16LL))(v4, 1LL);
+  return v11;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of IoDetachDevice @ 0x1400DCA30
+ * XREFs of IoDetachDevice @ 0x1400DCA50
  * Callers:
  *     ViFilterDispatchPnp @ 0x140943260 (ViFilterDispatchPnp.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF10 (KeAcquireQueuedSpinLock.c)
- *     IopCompleteUnloadOrDelete @ 0x1400DA8EC (IopCompleteUnloadOrDelete.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     IopCompleteUnloadOrDelete @ 0x1400DA90C (IopCompleteUnloadOrDelete.c)
  *     IovDetachDevice @ 0x1409241CC (IovDetachDevice.c)
  */
 

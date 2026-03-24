@@ -1,97 +1,102 @@
 /*
- * XREFs of ?Release@OUTPUTDUPL_SESSION_MGR@@QEAAXPEAU_EPROCESS@@PEAU_D3DKMT_OUTPUTDUPL_ACTIVE_CTX@@@Z @ 0x1C0323B94
+ * XREFs of ?Release@OUTPUTDUPL_SESSION_MGR@@QEAAXPEAU_EPROCESS@@PEAU_D3DKMT_OUTPUTDUPL_ACTIVE_CTX@@@Z @ 0x1C029C660
  * Callers:
- *     ?ReleaseSessionReference@OUTPUTDUPL_CONTEXT@@AEAAXPEAVDXGSESSIONDATA@@@Z @ 0x1C0328D38 (-ReleaseSessionReference@OUTPUTDUPL_CONTEXT@@AEAAXPEAVDXGSESSIONDATA@@@Z.c)
+ *     ?ReleaseSessionReference@OUTPUTDUPL_CONTEXT@@AEAAXPEAVDXGSESSIONDATA@@@Z @ 0x1C02A2D00 (-ReleaseSessionReference@OUTPUTDUPL_CONTEXT@@AEAAXPEAVDXGSESSIONDATA@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000C3F8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
- *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F574 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000F5FC (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
- *     memmove @ 0x1C002CD00 (memmove.c)
- *     ?TriggerLowBoxActiveContextWNF@OUTPUTDUPL_SESSION_MGR@@AEAAJXZ @ 0x1C03243D8 (-TriggerLowBoxActiveContextWNF@OUTPUTDUPL_SESSION_MGR@@AEAAJXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002848 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BF0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006910 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     memmove @ 0x1C0028C40 (memmove.c)
+ *     ?TriggerLowBoxActiveContextWNF@OUTPUTDUPL_SESSION_MGR@@AEAAJXZ @ 0x1C029CF24 (-TriggerLowBoxActiveContextWNF@OUTPUTDUPL_SESSION_MGR@@AEAAJXZ.c)
  */
 
 void __fastcall OUTPUTDUPL_SESSION_MGR::Release(
-        OUTPUTDUPL_SESSION_MGR *this,
+        struct DXGFASTMUTEX **this,
         struct _EPROCESS *a2,
         struct _D3DKMT_OUTPUTDUPL_ACTIVE_CTX *a3)
 {
-  unsigned int v6; // r8d
-  __int64 v7; // rsi
-  unsigned int v8; // eax
-  __int64 v9; // rcx
-  int v10; // edx
+  LONGLONG v6; // rdx
+  __int64 v7; // rcx
+  unsigned int v8; // r8d
+  __int64 v9; // rsi
+  unsigned int v10; // eax
   __int64 v11; // rbx
   __int128 v12; // rtt
   unsigned int v13; // r8d
   __int64 v14; // rdx
-  char *v15; // r10
-  _BYTE v16[16]; // [rsp+50h] [rbp-28h] BYREF
-  union _LARGE_INTEGER PerformanceFrequency; // [rsp+80h] [rbp+8h] BYREF
+  struct DXGFASTMUTEX **v15; // r10
+  __int64 v16; // rax
+  _BYTE v17[40]; // [rsp+20h] [rbp-28h] BYREF
+  union _LARGE_INTEGER PerformanceFrequency; // [rsp+50h] [rbp+8h] BYREF
 
-  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v16, (OUTPUTDUPL_SESSION_MGR *)((char *)this + 8), 0);
-  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v16);
-  v6 = *((_DWORD *)this + 1);
-  v7 = **((_QWORD **)this + 7);
-  v8 = 0;
-  if ( v6 )
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v17, this[1], 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v17);
+  v8 = *((_DWORD *)this + 1);
+  v9 = *(_QWORD *)this[2];
+  v10 = 0;
+  if ( v8 )
   {
     while ( 1 )
     {
-      v9 = 32LL * v8;
-      if ( a2 == *(struct _EPROCESS **)(v9 + v7 + 8) )
+      v7 = 32LL * v10;
+      if ( a2 == *(struct _EPROCESS **)(v7 + v9 + 8) )
       {
-        v10 = *(_DWORD *)(v9 + v7);
-        if ( v10 )
+        v6 = *(unsigned int *)(v7 + v9);
+        if ( (_DWORD)v6 )
           break;
       }
-      if ( ++v8 >= v6 )
+      if ( ++v10 >= v8 )
         goto LABEL_8;
     }
-    v11 = 32LL * v8;
-    *(_DWORD *)(v11 + v7) = v10 - 1;
-    if ( v10 == 1 )
+    v11 = 32LL * v10;
+    *(_DWORD *)(v11 + v9) = v6 - 1;
+    if ( (_DWORD)v6 == 1 )
     {
       PerformanceFrequency.QuadPart = 0LL;
-      v12 = (__int64)(*(_QWORD *)&KeQueryPerformanceCounter(&PerformanceFrequency) - *(_QWORD *)(v11 + v7 + 16));
-      *(_DWORD *)(v11 + v7 + 24) += v12 / PerformanceFrequency.QuadPart;
+      v12 = (__int64)(*(_QWORD *)&KeQueryPerformanceCounter(&PerformanceFrequency) - *(_QWORD *)(v11 + v9 + 16));
+      v6 = v12 % PerformanceFrequency.QuadPart;
+      *(_DWORD *)(v11 + v9 + 24) += v12 / PerformanceFrequency.QuadPart;
     }
   }
 LABEL_8:
   if ( a3 )
   {
-    v13 = *((_DWORD *)this + 32);
+    v13 = *((_DWORD *)this + 12);
     v14 = 0LL;
     if ( v13 )
     {
       while ( 1 )
       {
-        v15 = (char *)this + 24 * v14;
-        if ( *((_QWORD *)v15 + 17) == *(_QWORD *)a3
-          && *((_DWORD *)this + 6 * v14 + 38) == *((_DWORD *)a3 + 4)
-          && *((_DWORD *)this + 6 * v14 + 36) == *((_DWORD *)a3 + 2)
-          && *((_DWORD *)this + 6 * v14 + 37) == *((_DWORD *)a3 + 3) )
+        v15 = &this[3 * v14];
+        if ( v15[7] == *(struct DXGFASTMUTEX **)a3 )
         {
-          break;
+          v7 = 3 * v14;
+          if ( LODWORD(this[3 * v14 + 9]) == *((_DWORD *)a3 + 4)
+            && LODWORD(this[3 * v14 + 8]) == *((_DWORD *)a3 + 2)
+            && HIDWORD(this[3 * v14 + 8]) == *((_DWORD *)a3 + 3) )
+          {
+            break;
+          }
         }
         v14 = (unsigned int)(v14 + 1);
         if ( (unsigned int)v14 >= v13 )
           goto LABEL_15;
       }
       memmove(
-        v15 + 136,
-        (char *)this + 16 * (unsigned int)(v14 + 1) + 8 * (unsigned int)(v14 + 1) + 136,
+        v15 + 7,
+        &this[2 * (unsigned int)(v14 + 1) + 7] + (unsigned int)(v14 + 1),
         24LL * (v13 - (unsigned int)v14 - 1));
-      --*((_DWORD *)this + 32);
-      OUTPUTDUPL_SESSION_MGR::TriggerLowBoxActiveContextWNF(this);
+      --*((_DWORD *)this + 12);
+      OUTPUTDUPL_SESSION_MGR::TriggerLowBoxActiveContextWNF((OUTPUTDUPL_SESSION_MGR *)this);
     }
     else
     {
 LABEL_15:
-      WdLogSingleEntry1(1LL, 4300LL);
-      DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"bFound", 4300LL, 0LL, 0LL, 0LL, 0LL);
+      v16 = WdLogNewEntry5_WdAssertion(v7, v14);
+      *(_QWORD *)(v16 + 24) = 4343LL;
+      WdLogEvent5_WdAssertion(v16);
     }
   }
-  if ( v16[8] )
-    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v16);
+  if ( v17[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v17, v6);
 }

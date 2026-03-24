@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Color_RGBAfromHSLA@ColorSpaceHelpers@@YAXMMMMPEAM000@Z @ 0x180016128
+ * XREFs of ?Color_RGBAfromHSLA@ColorSpaceHelpers@@YAXMMMMPEAM000@Z @ 0x1800047B8
  * Callers:
- *     ?InterpolateHsl@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@11@Z @ 0x180015C0C (-InterpolateHsl@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@.c)
- *     ?ColorLerpHsl@CExpressionValueStack@@QEAAJXZ @ 0x180015DC4 (-ColorLerpHsl@CExpressionValueStack@@QEAAJXZ.c)
- *     ?ColorHsl@CExpressionValueStack@@QEAAJXZ @ 0x18025C9F0 (-ColorHsl@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?ColorLerpHsl@CExpressionValueStack@@QEAAJXZ @ 0x180004450 (-ColorLerpHsl@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?ColorHsl@CExpressionValueStack@@QEAAJXZ @ 0x1801FB834 (-ColorHsl@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?InterpolateHsl@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@11@Z @ 0x180206C08 (-InterpolateHsl@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@.c)
  * Callees:
- *     fmod_0 @ 0x18011B8E4 (fmod_0.c)
+ *     _o_fmod_0 @ 0x1800E7EE4 (_o_fmod_0.c)
  */
 
 void __fastcall ColorSpaceHelpers::Color_RGBAfromHSLA(
@@ -31,8 +31,7 @@ void __fastcall ColorSpaceHelpers::Color_RGBAfromHSLA(
   v10 = (float)(1.0 - COERCE_FLOAT(COERCE_UNSIGNED_INT((float)(a3 + a3) - 1.0) & _xmm)) * a2;
   v11 = a3 - (float)(v10 * 0.5);
   v12 = v11 + v10;
-  v13 = (float)((1.0 - COERCE_DOUBLE(COERCE_UNSIGNED_INT64(fmod_0(v8 / 1.047197551196598, 2.0) - 1.0) & _xmm)) * v10)
-      + v11;
+  v13 = (float)((1.0 - COERCE_DOUBLE(COERCE_UNSIGNED_INT64(o_fmod_0(this) - 1.0) & _xmm)) * v10) + v11;
   if ( v9 >= 1.047197551196598 )
   {
     if ( v9 < 2.094395102393195 )

@@ -1,46 +1,46 @@
 /*
- * XREFs of VidSchiSuspendFlipQueues @ 0x1C00ABA9C
+ * XREFs of VidSchiSuspendFlipQueues @ 0x1C00D0AF0
  * Callers:
- *     VidSchFlushPresentReferencesAndDisableOverlays @ 0x1C00AB9A0 (VidSchFlushPresentReferencesAndDisableOverlays.c)
- *     ?EnsureFlipQueuesSuspendedForMove@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00D6564 (-EnsureFlipQueuesSuspendedForMove@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?EnsureFlipQueuesSuspendedForMove@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00AF418 (-EnsureFlipQueuesSuspendedForMove@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     VidSchFlushPresentReferencesAndDisableOverlays @ 0x1C00D18D0 (VidSchFlushPresentReferencesAndDisableOverlays.c)
  * Callees:
- *     VidSchiFlushPendingHWSubmittedFlips @ 0x1C001C29C (VidSchiFlushPendingHWSubmittedFlips.c)
- *     VidSchiMarkFlipQueuesRunningStateOnPresentInfo @ 0x1C001C300 (VidSchiMarkFlipQueuesRunningStateOnPresentInfo.c)
+ *     VidSchiFlushPendingHWSubmittedFlips @ 0x1C002FA44 (VidSchiFlushPendingHWSubmittedFlips.c)
+ *     VidSchiMarkFlipQueuesRunningStateOnPresentInfo @ 0x1C002FCC8 (VidSchiMarkFlipQueuesRunningStateOnPresentInfo.c)
  */
 
-__int64 __fastcall VidSchiSuspendFlipQueues(unsigned int *a1, int a2)
+__int64 __fastcall VidSchiSuspendFlipQueues(__int64 a1, int a2)
 {
   __int64 result; // rax
   __int64 i; // rbx
-  __int64 v6; // rbx
-  __int64 v7; // rdx
+  __int64 v6; // rdx
+  __int64 v7; // rbx
   __int64 v8; // rdx
 
-  result = a1[10];
+  result = *(unsigned int *)(a1 + 40);
   for ( i = 0LL; (unsigned int)i < (unsigned int)result; i = (unsigned int)(i + 1) )
   {
     if ( _bittest(&a2, i) )
     {
-      v7 = *(_QWORD *)&a1[2 * i + 800];
-      if ( v7 )
-        VidSchiMarkFlipQueuesRunningStateOnPresentInfo((__int64)a1, v7, 0);
+      v6 = *(_QWORD *)(a1 + 8 * i + 3104);
+      if ( v6 )
+        VidSchiMarkFlipQueuesRunningStateOnPresentInfo(a1, v6, 0);
     }
-    result = a1[10];
+    result = *(unsigned int *)(a1 + 40);
   }
-  v6 = 0LL;
+  v7 = 0LL;
   if ( (_DWORD)result )
   {
     do
     {
-      if ( _bittest(&a2, v6) )
+      if ( _bittest(&a2, v7) )
       {
-        v8 = *(_QWORD *)&a1[2 * v6 + 800];
+        v8 = *(_QWORD *)(a1 + 8 * v7 + 3104);
         if ( v8 )
-          result = VidSchiFlushPendingHWSubmittedFlips((struct _VIDSCH_GLOBAL *)a1, v8);
+          result = VidSchiFlushPendingHWSubmittedFlips(a1, v8);
       }
-      v6 = (unsigned int)(v6 + 1);
+      v7 = (unsigned int)(v7 + 1);
     }
-    while ( (unsigned int)v6 < a1[10] );
+    while ( (unsigned int)v7 < *(_DWORD *)(a1 + 40) );
   }
   return result;
 }

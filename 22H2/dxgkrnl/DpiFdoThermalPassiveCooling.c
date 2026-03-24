@@ -1,25 +1,31 @@
 /*
- * XREFs of DpiFdoThermalPassiveCooling @ 0x1C03A3300
+ * XREFs of DpiFdoThermalPassiveCooling @ 0x1C02D4550
  * Callers:
- *     DxgkHandleThermalCoolingDrtEscape @ 0x1C03A3958 (DxgkHandleThermalCoolingDrtEscape.c)
+ *     DxgkHandleThermalCoolingDrtEscape @ 0x1C02D4BD4 (DxgkHandleThermalCoolingDrtEscape.c)
  * Callees:
- *     DpiCheckForOutstandingD3Requests @ 0x1C0005C0C (DpiCheckForOutstandingD3Requests.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     McTemplateK0pt_EtwWriteTransfer @ 0x1C0040F6C (McTemplateK0pt_EtwWriteTransfer.c)
- *     DpiReleaseCoreSyncAccessSafe @ 0x1C0198444 (DpiReleaseCoreSyncAccessSafe.c)
- *     DpiEnableD3Requests @ 0x1C01987EC (DpiEnableD3Requests.c)
- *     DpiAcquireCoreSyncAccessSafe @ 0x1C01988F0 (DpiAcquireCoreSyncAccessSafe.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001FC54 (DpiCheckForOutstandingD3Requests.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C003A380 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     DpiEnableD3Requests @ 0x1C00ECD4C (DpiEnableD3Requests.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C012E130 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C012E3AC (DpiAcquireCoreSyncAccessSafe.c)
  */
 
 void __fastcall DpiFdoThermalPassiveCooling(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rbx
   NTSTATUS v5; // eax
-  __int64 v6; // r8
-  __int64 v7; // [rsp+20h] [rbp-18h]
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rdi
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  __int64 v12; // [rsp+20h] [rbp-18h]
 
   v2 = *(_QWORD *)(a1 + 64);
   v5 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v2 + 64), DpiFdoThermalPassiveCooling, File, 1u, 0x20u);
+  v8 = v5;
   if ( v5 >= 0 )
   {
     KeEnterCriticalRegion();
@@ -28,26 +34,21 @@ void __fastcall DpiFdoThermalPassiveCooling(__int64 a1, unsigned int a2)
     ExAcquireResourceSharedLite(*(PERESOURCE *)(v2 + 168), 1u);
     if ( (int)DpiAcquireCoreSyncAccessSafe(a1, 0) < 0 )
     {
-      *(_BYTE *)(*(_QWORD *)(v2 + 4880) + 1LL) = 1;
+      *(_BYTE *)(*(_QWORD *)(v2 + 4936) + 1LL) = 1;
     }
     else
     {
-      if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
+      if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
       {
-        LODWORD(v7) = a2;
-        McTemplateK0pt_EtwWriteTransfer(
-          (REGHANDLE *)&DxgkControlGuid_Context,
-          &EventDpiFdoThermalPassiveCooling,
-          v6,
-          a1,
-          v7);
+        LODWORD(v12) = a2;
+        McTemplateK0pq_EtwWriteTransfer(v10, &EventDpiFdoThermalPassiveCooling, v11, a1, v12);
       }
-      (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(v2 + 4880) + 56LL))(
-        *(_QWORD *)(*(_QWORD *)(v2 + 4880) + 16LL),
+      (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(v2 + 4936) + 56LL))(
+        *(_QWORD *)(*(_QWORD *)(v2 + 4936) + 16LL),
         a2);
       DpiReleaseCoreSyncAccessSafe(a1, 0);
     }
-    *(_DWORD *)(*(_QWORD *)(v2 + 4880) + 4LL) = a2;
+    *(_DWORD *)(*(_QWORD *)(v2 + 4936) + 4LL) = a2;
     if ( *(_BYTE *)(v2 + 484) )
       DpiEnableD3Requests(*(_QWORD *)(v2 + 24));
     ExReleaseResourceLite(*(PERESOURCE *)(v2 + 168));
@@ -56,6 +57,8 @@ void __fastcall DpiFdoThermalPassiveCooling(__int64 a1, unsigned int a2)
   }
   else
   {
-    WdLogSingleEntry1(2LL, v5);
+    v9 = WdLogNewEntry5_WdError(v7, v6);
+    *(_QWORD *)(v9 + 24) = v8;
+    WdLogEvent5_WdError(v9);
   }
 }

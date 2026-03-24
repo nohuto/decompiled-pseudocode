@@ -1,7 +1,7 @@
 /*
- * XREFs of GetMouseKeyFlags @ 0x1C009CAB0
+ * XREFs of GetMouseKeyFlags @ 0x1C0093C50
  * Callers:
- *     GetPointerFlagsFromMouse @ 0x1C01499D0 (GetPointerFlagsFromMouse.c)
+ *     GetPointerFlagsFromMouse @ 0x1C011DE80 (GetPointerFlagsFromMouse.c)
  * Callees:
  *     <none>
  */

@@ -1,47 +1,52 @@
 /*
- * XREFs of ?SetDisplayConfigHandlePreferredScaling@@YAJPEAUD3DKMT_GETPATHSMODALITY@@PEAW4_DXGK_DIAG_SDC_STAGE@@@Z @ 0x1C0165220
+ * XREFs of ?SetDisplayConfigHandlePreferredScaling@@YAJPEAUD3DKMT_GETPATHSMODALITY@@PEAW4_DXGK_DIAG_SDC_STAGE@@@Z @ 0x1C01464AC
  * Callers:
- *     DrvSetDisplayConfig @ 0x1C0014230 (DrvSetDisplayConfig.c)
+ *     DrvSetDisplayConfig @ 0x1C001A4C0 (DrvSetDisplayConfig.c)
  * Callees:
- *     ?FreePathsModality@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0015818 (-FreePathsModality@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
- *     ?AllocPathsModality@@YAPEAUD3DKMT_GETPATHSMODALITY@@G@Z @ 0x1C0015CB0 (-AllocPathsModality@@YAPEAUD3DKMT_GETPATHSMODALITY@@G@Z.c)
- *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
- *     ?ConvertPreferredScalingToAdapterDefault@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C016078C (-ConvertPreferredScalingToAdapterDefault@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
- *     ?ReplacePreferredScaling@@YAJPEBUD3DKMT_GETPATHSMODALITY@@PEAU1@@Z @ 0x1C016464C (-ReplacePreferredScaling@@YAJPEBUD3DKMT_GETPATHSMODALITY@@PEAU1@@Z.c)
+ *     ?FreePathsModality@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C001A1A0 (-FreePathsModality@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ *     ?AllocPathsModality@@YAPEAUD3DKMT_GETPATHSMODALITY@@G@Z @ 0x1C009E9F4 (-AllocPathsModality@@YAPEAUD3DKMT_GETPATHSMODALITY@@G@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
+ *     ?ConvertPreferredScalingToAdapterDefault@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0143958 (-ConvertPreferredScalingToAdapterDefault@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ *     ?ReplacePreferredScaling@@YAJPEBUD3DKMT_GETPATHSMODALITY@@PEAU1@@Z @ 0x1C01459B4 (-ReplacePreferredScaling@@YAJPEBUD3DKMT_GETPATHSMODALITY@@PEAU1@@Z.c)
  */
 
 __int64 __fastcall SetDisplayConfigHandlePreferredScaling(
         struct D3DKMT_GETPATHSMODALITY *a1,
         enum _DXGK_DIAG_SDC_STAGE *a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
+  __int64 v3; // rcx
+  __int64 v5; // rax
   int v6; // edi
   int v7; // eax
-  __int64 DxgkWin32kInterface; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // rax
-  struct D3DKMT_GETPATHSMODALITY *v13; // [rsp+40h] [rbp+8h]
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  struct D3DKMT_GETPATHSMODALITY *v12; // [rsp+30h] [rbp+8h]
 
-  if ( !*((_WORD *)a1 + 10) )
-    WdLogSingleEntry0(1LL);
-  v13 = AllocPathsModality(*((_WORD *)a1 + 10));
-  if ( v13 )
+  v3 = *((unsigned __int16 *)a1 + 10);
+  if ( !(_WORD)v3 )
   {
-    DxgkWin32kInterface = DxDdGetDxgkWin32kInterface(v5, v4);
-    if ( (*(int (__fastcall **)(struct D3DKMT_GETPATHSMODALITY *, struct D3DKMT_GETPATHSMODALITY *))(DxgkWin32kInterface + 592))(
-           v13,
-           a1) < 0 )
-      WdLogSingleEntry0(1LL);
-    v11 = DxDdGetDxgkWin32kInterface(v10, v9);
-    if ( (*(int (__fastcall **)(__int64, struct D3DKMT_GETPATHSMODALITY *))(v11 + 144))(47LL, v13) < 0 )
+    v5 = WdLogNewEntry5_WdAssertion(v3, a2);
+    WdLogEvent5_WdAssertion(v5);
+    LOWORD(v3) = *((_WORD *)a1 + 10);
+  }
+  v12 = AllocPathsModality(v3);
+  if ( v12 )
+  {
+    if ( (int)((__int64 (__fastcall *)(struct D3DKMT_GETPATHSMODALITY *, struct D3DKMT_GETPATHSMODALITY *))qword_1C0250AE8)(
+                v12,
+                a1) < 0 )
+    {
+      v10 = WdLogNewEntry5_WdAssertion(v9, v8);
+      WdLogEvent5_WdAssertion(v10);
+    }
+    if ( (int)((__int64 (__fastcall *)(__int64, struct D3DKMT_GETPATHSMODALITY *))qword_1C0250920)(47LL, v12) < 0 )
     {
       ConvertPreferredScalingToAdapterDefault(a1);
     }
     else
     {
-      v6 = ReplacePreferredScaling(v13, (__int64)a1);
+      v6 = ReplacePreferredScaling((__int64)v12, (__int64)a1);
       if ( v6 < 0 )
       {
         v7 = 20;
@@ -56,6 +61,6 @@ __int64 __fastcall SetDisplayConfigHandlePreferredScaling(
 LABEL_10:
   *(_DWORD *)a2 = v7;
 LABEL_13:
-  FreePathsModality(v13, v4);
+  FreePathsModality(v12);
   return (unsigned int)v6;
 }

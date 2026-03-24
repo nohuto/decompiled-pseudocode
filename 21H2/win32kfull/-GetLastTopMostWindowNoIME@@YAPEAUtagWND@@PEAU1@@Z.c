@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetLastTopMostWindowNoIME@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00E9604
+ * XREFs of ?GetLastTopMostWindowNoIME@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0035B24
  * Callers:
- *     ?ImeSetTopmost@@YAXPEAUtagWND@@H0@Z @ 0x1C0062D18 (-ImeSetTopmost@@YAXPEAUtagWND@@H0@Z.c)
+ *     ImeSetTopmost @ 0x1C0035968 (ImeSetTopmost.c)
  * Callees:
- *     _GetDesktopWindow @ 0x1C006FF60 (_GetDesktopWindow.c)
+ *     _GetDesktopWindow @ 0x1C00704C0 (_GetDesktopWindow.c)
  */
 
 struct tagWND *__fastcall GetLastTopMostWindowNoIME(struct tagWND *a1)
@@ -17,7 +17,7 @@ struct tagWND *__fastcall GetLastTopMostWindowNoIME(struct tagWND *a1)
   _QWORD *v7; // r8
   __int64 v8; // rbx
 
-  DesktopWindow = GetDesktopWindow((__int64)a1);
+  DesktopWindow = GetDesktopWindow(a1);
   v3 = 0LL;
   if ( !DesktopWindow )
     return 0LL;

@@ -1,43 +1,46 @@
 /*
- * XREFs of MagpDecomposeDesktop @ 0x1C00982AC
+ * XREFs of MagpDecomposeDesktop @ 0x1C00EB5D4
  * Callers:
- *     zzzDecomposeDesktop @ 0x1C0097998 (zzzDecomposeDesktop.c)
+ *     zzzDecomposeDesktop @ 0x1C00EAD8C (zzzDecomposeDesktop.c)
  * Callees:
- *     MagpRevokeInputTransfrom @ 0x1C0098330 (MagpRevokeInputTransfrom.c)
- *     DwmAsyncMagnDestroy @ 0x1C0271EF8 (DwmAsyncMagnDestroy.c)
- *     DwmAsyncMagnSetDesktopColorTransform @ 0x1C0271FA8 (DwmAsyncMagnSetDesktopColorTransform.c)
- *     DwmAsyncMagnSetDesktopTransform @ 0x1C0272214 (DwmAsyncMagnSetDesktopTransform.c)
+ *     MagpRevokeInputTransfrom @ 0x1C00EB650 (MagpRevokeInputTransfrom.c)
+ *     DwmAsyncMagnDestroy @ 0x1C027442C (DwmAsyncMagnDestroy.c)
+ *     DwmAsyncMagnSetDesktopColorTransform @ 0x1C02744DC (DwmAsyncMagnSetDesktopColorTransform.c)
+ *     DwmAsyncMagnSetDesktopTransform @ 0x1C0274748 (DwmAsyncMagnSetDesktopTransform.c)
  */
 
 __int64 __fastcall MagpDecomposeDesktop(_QWORD *a1, __int64 a2)
 {
   __int64 result; // rax
-  _QWORD *i; // rdi
-  void *v6; // rax
-  void *v7; // rax
-  __int64 *j; // rbx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  _QWORD *i; // rsi
+  void *v8; // rax
   void *v9; // rax
+  __int64 *j; // rdi
+  void *v11; // rax
 
   result = MagpRevokeInputTransfrom();
   if ( *(_QWORD *)(a2 + 232) )
   {
-    v6 = (void *)ReferenceDwmApiPort();
-    result = DwmAsyncMagnSetDesktopColorTransform(v6);
+    v8 = (void *)ReferenceDwmApiPort(v6, v5);
+    result = DwmAsyncMagnSetDesktopColorTransform(v8);
   }
   if ( *(_QWORD *)(a2 + 224) )
   {
-    v7 = (void *)ReferenceDwmApiPort();
-    result = DwmAsyncMagnSetDesktopTransform(v7, 0);
+    v9 = (void *)ReferenceDwmApiPort(**(_QWORD **)(a2 + 8), v5);
+    result = DwmAsyncMagnSetDesktopTransform(v9, 0);
   }
   for ( i = (_QWORD *)*a1; i != a1; i = (_QWORD *)*i )
   {
     for ( j = (__int64 *)i[5]; j != i + 5; j = (__int64 *)*j )
     {
       *((_DWORD *)j + 4) |= 0x20u;
-      if ( j[3] != -1 )
+      result = j[3];
+      if ( result != -1 )
       {
-        v9 = (void *)ReferenceDwmApiPort();
-        result = DwmAsyncMagnDestroy(v9);
+        v11 = (void *)ReferenceDwmApiPort(**(_QWORD **)(a2 + 8), v5);
+        result = DwmAsyncMagnDestroy(v11);
       }
     }
   }

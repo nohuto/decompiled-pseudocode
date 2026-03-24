@@ -1,10 +1,10 @@
 /*
- * XREFs of ?dwSetLayout@DC@@QEAAKJK@Z @ 0x1C00C2B00
+ * XREFs of ?dwSetLayout@DC@@QEAAKJK@Z @ 0x1C0093EC0
  * Callers:
- *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C003B100 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
- *     GreSetLayout @ 0x1C00C2AA0 (GreSetLayout.c)
+ *     GreSetLayout @ 0x1C0093E60 (GreSetLayout.c)
+ *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C00CA320 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
  * Callees:
- *     ?MirrorWindowOrg@DC@@QEAAXXZ @ 0x1C015F740 (-MirrorWindowOrg@DC@@QEAAXXZ.c)
+ *     ?MirrorWindowOrg@DC@@QEAAXXZ @ 0x1C00BED84 (-MirrorWindowOrg@DC@@QEAAXXZ.c)
  */
 
 __int64 __fastcall DC::dwSetLayout(DC *this, int a2, int a3)
@@ -13,14 +13,14 @@ __int64 __fastcall DC::dwSetLayout(DC *this, int a2, int a3)
   DC *v4; // r10
   unsigned int v5; // r11d
   __int64 v7; // rcx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  int v10; // edx
-  int v11; // eax
-  unsigned int v12; // edx
-  __int64 v13; // [rsp+30h] [rbp+8h]
-  __int64 v14; // [rsp+30h] [rbp+8h]
-  __int64 v15; // [rsp+48h] [rbp+20h]
+  __int64 v8; // r8
+  int v9; // edx
+  int v10; // eax
+  unsigned int v11; // edx
+  __int64 v12; // rcx
+  __int64 v13; // [rsp+30h] [rbp+10h]
+  __int64 v14; // [rsp+30h] [rbp+10h]
+  __int64 v15; // [rsp+48h] [rbp+28h]
 
   v3 = *((_QWORD *)this + 122);
   v4 = this;
@@ -32,10 +32,13 @@ __int64 __fastcall DC::dwSetLayout(DC *this, int a2, int a3)
     v13 = *(_QWORD *)(v7 + 316);
     v15 = *(_QWORD *)(v7 + 324);
     if ( (a3 & 1) != 0 )
+    {
       *(_DWORD *)(v7 + 104) = 8;
+      v7 = *((_QWORD *)v4 + 122);
+    }
     LODWORD(v13) = -(int)v13;
     LODWORD(v15) = -(int)v15;
-    *(_QWORD *)(*((_QWORD *)v4 + 122) + 316LL) = v13;
+    *(_QWORD *)(v7 + 316) = v13;
     *(_QWORD *)(*((_QWORD *)v4 + 122) + 324LL) = v15;
     if ( a2 == -1 )
     {
@@ -43,24 +46,24 @@ __int64 __fastcall DC::dwSetLayout(DC *this, int a2, int a3)
     }
     else
     {
-      v8 = *((_QWORD *)v4 + 122);
-      HIDWORD(v14) = HIDWORD(*(_QWORD *)(v8 + 308));
-      LODWORD(v14) = a2 - *(_QWORD *)(v8 + 308);
-      *(_QWORD *)(v8 + 308) = v14;
+      v12 = *((_QWORD *)v4 + 122);
+      HIDWORD(v14) = HIDWORD(*(_QWORD *)(v12 + 308));
+      LODWORD(v14) = a2 - *(_QWORD *)(v12 + 308);
+      *(_QWORD *)(v12 + 308) = v14;
     }
-    v9 = *((_QWORD *)v4 + 122);
-    if ( (*(_BYTE *)(v9 + 272) & 6) != 6 )
+    v8 = *((_QWORD *)v4 + 122);
+    if ( (*(_BYTE *)(v8 + 272) & 6) != 6 )
     {
-      *(_DWORD *)(v9 + 272) ^= 2u;
-      v9 = *((_QWORD *)v4 + 122);
+      *(_DWORD *)(v8 + 272) ^= 2u;
+      v8 = *((_QWORD *)v4 + 122);
     }
-    v10 = *((_DWORD *)v4 + 62);
-    v11 = v10 | 4;
-    v12 = v10 & 0xFFFFFFFB;
+    v9 = *((_DWORD *)v4 + 62);
+    v10 = v9 | 4;
+    v11 = v9 & 0xFFFFFFFB;
     if ( (*((_DWORD *)v4 + 62) & 4) == 0 )
-      v12 = v11;
-    *((_DWORD *)v4 + 62) = v12;
-    *(_DWORD *)(v9 + 340) |= 0x4090u;
+      v11 = v10;
+    *((_DWORD *)v4 + 62) = v11;
+    *(_DWORD *)(v8 + 340) |= 0x4090u;
   }
   return v5;
 }

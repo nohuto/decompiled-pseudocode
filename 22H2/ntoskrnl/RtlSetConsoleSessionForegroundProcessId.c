@@ -1,25 +1,27 @@
 /*
- * XREFs of RtlSetConsoleSessionForegroundProcessId @ 0x1407EA1B0
+ * XREFs of RtlSetConsoleSessionForegroundProcessId @ 0x140695DF0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D390 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402D19C0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140361820 (PsGetCurrentServerSiloGlobals.c)
  */
 
-_QWORD *__fastcall RtlSetConsoleSessionForegroundProcessId(__int64 a1)
+_QWORD *__fastcall RtlSetConsoleSessionForegroundProcessId(__int64 a1, __int64 a2)
 {
+  __int64 v3; // rdx
+  __int64 v4; // rcx
   _QWORD *result; // rax
 
-  if ( PsIsCurrentThreadInServerSilo() )
+  if ( PsIsCurrentThreadInServerSilo(a1, a2) )
   {
-    result = PsGetCurrentServerSiloGlobals();
-    *(_QWORD *)(result[165] + 8LL) = a1;
+    result = PsGetCurrentServerSiloGlobals(v4, v3);
+    *(_QWORD *)(result[141] + 8LL) = a1;
   }
   else
   {
-    result = (_QWORD *)MmWriteableSharedUserData;
-    *(_QWORD *)(MmWriteableSharedUserData + 824) = a1;
+    result = (_QWORD *)a1;
+    MEMORY[0xFFFFF78000000338] = a1;
   }
   return result;
 }

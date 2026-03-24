@@ -1,9 +1,9 @@
 /*
- * XREFs of ??4CPointerInfoNode@@QEAAAEAU0@AEBU0@@Z @ 0x1C01BD2D4
+ * XREFs of ??4CPointerInfoNode@@QEAAAEAU0@AEBU0@@Z @ 0x1C018754C
  * Callers:
- *     ?CopyPTPPointerInputFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAU2@PEAX@Z @ 0x1C01C2E94 (-CopyPTPPointerInputFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAU2@PEAX@Z.c)
+ *     ?CopyPTPPointerInputFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAU2@PEAX@Z @ 0x1C018BFCC (-CopyPTPPointerInputFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAU2@PEAX@Z.c)
  * Callees:
- *     ??4CInputDest@@QEAAAEAV0@AEBV0@@Z @ 0x1C00449EC (--4CInputDest@@QEAAAEAV0@AEBV0@@Z.c)
+ *     ??4CInputDest@@QEAAAEAV0@AEBV0@@Z @ 0x1C009E41C (--4CInputDest@@QEAAAEAV0@AEBV0@@Z.c)
  */
 
 __int64 __fastcall CPointerInfoNode::operator=(__int64 a1, __int64 a2)
@@ -111,7 +111,7 @@ __int64 __fastcall CPointerInfoNode::operator=(__int64 a1, __int64 a2)
   *(_DWORD *)a1 = v30;
   v31 = v30 ^ (*(_DWORD *)a2 ^ v30) & 0x10000000;
   *(_DWORD *)a1 = v31;
-  v32 = v31 ^ (v31 ^ *(_DWORD *)a2) & 0x20000000;
+  v32 = v31 ^ (*(_DWORD *)a2 ^ v31) & 0x20000000;
   *(_DWORD *)a1 = v32;
   v33 = v32 ^ (v32 ^ *(_DWORD *)a2) & 0x40000000;
   *(_DWORD *)a1 = v33;
@@ -168,6 +168,5 @@ __int64 __fastcall CPointerInfoNode::operator=(__int64 a1, __int64 a2)
   *(_DWORD *)(a1 + 348) = *(_DWORD *)(a2 + 348);
   CInputDest::operator=(a1 + 352, a2 + 352);
   *(_DWORD *)(a1 + 472) = *(_DWORD *)(a2 + 472);
-  *(_DWORD *)(a1 + 476) = *(_DWORD *)(a2 + 476);
   return a1;
 }

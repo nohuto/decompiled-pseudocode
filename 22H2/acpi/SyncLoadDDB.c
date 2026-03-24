@@ -1,24 +1,24 @@
 /*
- * XREFs of SyncLoadDDB @ 0x1C00AB83C
+ * XREFs of SyncLoadDDB @ 0x1C00BE478
  * Callers:
- *     AMLILoadDDB @ 0x1C00AB134 (AMLILoadDDB.c)
+ *     AMLILoadDDB @ 0x1C00BE388 (AMLILoadDDB.c)
  * Callees:
- *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
- *     LogError @ 0x1C004E244 (LogError.c)
- *     PrintDebugMessage @ 0x1C004EB9C (PrintDebugMessage.c)
- *     RestartContext @ 0x1C0051308 (RestartContext.c)
- *     FreeContext @ 0x1C0053644 (FreeContext.c)
- *     GetThreadCurrentContext @ 0x1C0053800 (GetThreadCurrentContext.c)
+ *     RestartContext @ 0x1C0023DF0 (RestartContext.c)
+ *     GetThreadCurrentContext @ 0x1C0023FAC (GetThreadCurrentContext.c)
+ *     LogError @ 0x1C002A2EC (LogError.c)
+ *     AcpiDiagTraceAmlError @ 0x1C002B810 (AcpiDiagTraceAmlError.c)
+ *     PrintDebugMessage @ 0x1C002C540 (PrintDebugMessage.c)
+ *     FreeContext @ 0x1C0068074 (FreeContext.c)
  */
 
 __int64 __fastcall SyncLoadDDB(char *Entry)
 {
-  char v2; // si
-  unsigned int restarted; // ebx
+  char v2; // bp
   __int64 ThreadCurrentContext; // rbx
-  KIRQL v5; // r10
-  NTSTATUS v6; // eax
-  const void *v7; // rbp
+  KIRQL v4; // r10
+  unsigned int restarted; // ebx
+  NTSTATUS v7; // eax
+  const void *v8; // rbx
   __int128 v9; // [rsp+30h] [rbp-38h] BYREF
   struct _KEVENT Event; // [rsp+40h] [rbp-28h] BYREF
   int v11; // [rsp+78h] [rbp+10h] BYREF
@@ -30,61 +30,59 @@ __int64 __fastcall SyncLoadDDB(char *Entry)
     v2 = 1;
     _InterlockedIncrement(&gAllowInvalidReclaimMemoryMap);
   }
-  if ( KeGetCurrentIrql() < 2u )
+  if ( KeGetCurrentIrql() >= 2u )
   {
-    NewIrql = KeAcquireSpinLockRaiseToDpc(&SpinLock);
+    LogError(-1072431098);
+    AcpiDiagTraceAmlError((__int64)Entry, -1072431098);
+    PrintDebugMessage(184, 0LL, 0LL, 0LL, 0LL);
+    *((_QWORD *)Entry + 11) = 0LL;
+    restarted = -1072431098;
+    FreeContext(Entry);
+  }
+  else
+  {
+    byte_1C00827B0 = KeAcquireSpinLockRaiseToDpc(&SpinLock);
     ThreadCurrentContext = GetThreadCurrentContext();
-    KeReleaseSpinLock(&SpinLock, v5);
+    KeReleaseSpinLock(&SpinLock, v4);
     if ( ThreadCurrentContext )
     {
-      restarted = -1072431098;
       LogError(-1072431098);
       AcpiDiagTraceAmlError((__int64)Entry, -1072431098);
       PrintDebugMessage(182, 0LL, 0LL, 0LL, 0LL);
       *((_QWORD *)Entry + 11) = 0LL;
+      restarted = -1072431098;
       FreeContext(Entry);
     }
     else
     {
       v9 = 0LL;
-      memset(&Event, 0, 20);
+      memset(&Event, 0, sizeof(Event));
       KeInitializeEvent(&Event, SynchronizationEvent, 0);
       *((_DWORD *)Entry + 16) |= 0x200u;
       *((_QWORD *)Entry + 21) = EvalMethodComplete;
       *((_QWORD *)Entry + 23) = &v9;
       restarted = RestartContext((__int64)Entry, 0);
-      if ( restarted == 32772 )
+      while ( restarted == 32772 )
       {
-        while ( 1 )
+        v7 = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+        v8 = (const void *)v7;
+        if ( v7 )
         {
-          v6 = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
-          v7 = (const void *)v6;
-          if ( v6 )
-            break;
+          LogError(-1072431098);
+          AcpiDiagTraceAmlError((__int64)Entry, -1072431098);
+          PrintDebugMessage(183, v8, 0LL, 0LL, 0LL);
+          restarted = -1072431098;
+        }
+        else
+        {
           restarted = v9;
           if ( (_DWORD)v9 == 32771 )
             restarted = RestartContext(*((__int64 *)&v9 + 1), 0);
-          if ( restarted != 32772 )
-            goto LABEL_15;
         }
-        restarted = -1072431098;
-        LogError(-1072431098);
-        AcpiDiagTraceAmlError((__int64)Entry, -1072431098);
-        PrintDebugMessage(183, v7, 0LL, 0LL, 0LL);
       }
     }
-LABEL_15:
     if ( v2 )
       _InterlockedDecrement(&gAllowInvalidReclaimMemoryMap);
-  }
-  else
-  {
-    restarted = -1072431098;
-    LogError(-1072431098);
-    AcpiDiagTraceAmlError((__int64)Entry, -1072431098);
-    PrintDebugMessage(184, 0LL, 0LL, 0LL, 0LL);
-    *((_QWORD *)Entry + 11) = 0LL;
-    FreeContext(Entry);
   }
   return restarted;
 }

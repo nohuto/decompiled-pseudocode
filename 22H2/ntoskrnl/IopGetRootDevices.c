@@ -1,36 +1,36 @@
 /*
- * XREFs of IopGetRootDevices @ 0x1408144D8
+ * XREFs of IopGetRootDevices @ 0x14074E2DC
  * Callers:
- *     IopPnPDispatch @ 0x1407EB5A0 (IopPnPDispatch.c)
+ *     IopPnPDispatch @ 0x14074EF40 (IopPnPDispatch.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390C0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D3F0 (ExReleaseResourceLite.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE174 (_CmOpenDeviceRegKey.c)
- *     _CmGetMatchingFilteredDeviceList @ 0x1407C8218 (_CmGetMatchingFilteredDeviceList.c)
- *     IopInitializeDeviceInstanceKey @ 0x140814744 (IopInitializeDeviceInstanceKey.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402CB830 (HalPutDmaAdapter.c)
+ *     ExReleaseResourceLite @ 0x1402CBB00 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402CC2B0 (ExAcquireResourceExclusiveLite.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x140689F58 (_CmGetMatchingFilteredDeviceList.c)
+ *     _CmOpenDeviceRegKey @ 0x1406BA950 (_CmOpenDeviceRegKey.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14074E544 (IopInitializeDeviceInstanceKey.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetRootDevices(_QWORD *a1)
 {
-  void *Pool2; // rsi
+  _WORD *PoolWithTag; // rsi
   struct _KTHREAD *CurrentThread; // rax
   int inited; // ebx
-  unsigned int v5; // r14d
-  const WCHAR *v6; // rdi
+  unsigned int v5; // edi
   int MatchingFilteredDeviceList; // eax
+  const WCHAR *v7; // rdi
   __int64 v8; // rax
   __int64 v9; // rdi
   _DWORD *v10; // rax
   _DWORD *v11; // r14
   void *v12; // rdx
-  PVOID *v14; // r14
+  PADAPTER_OBJECT *v14; // r14
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-30h] BYREF
   __int128 v16; // [rsp+60h] [rbp-20h]
   void *Src; // [rsp+70h] [rbp-10h]
@@ -39,10 +39,10 @@ __int64 __fastcall IopGetRootDevices(_QWORD *a1)
 
   *a1 = 0LL;
   Handle = 0LL;
+  PoolWithTag = 0LL;
   v16 = 0LL;
-  Pool2 = 0LL;
   DestinationString = 0LL;
-  Src = (void *)ExAllocatePool2(256LL, 1024LL, 1684303952LL);
+  Src = ExAllocatePoolWithTag(PagedPool, 0x400uLL, 0x64647050u);
   if ( !Src )
     return 3221225626LL;
   CurrentThread = KeGetCurrentThread();
@@ -52,18 +52,15 @@ __int64 __fastcall IopGetRootDevices(_QWORD *a1)
   v18 = 2048;
   inited = -1073741789;
   v5 = 0;
-  do
+  while ( v5 < 5 )
   {
-    if ( v5 >= 5 )
-      goto LABEL_22;
-    if ( Pool2 )
-      ExFreePoolWithTag(Pool2, 0);
-    Pool2 = (void *)ExAllocatePool2(256LL, 2LL * v18, 1684303952LL);
-    v6 = (const WCHAR *)Pool2;
-    if ( !Pool2 )
+    if ( PoolWithTag )
+      ExFreePoolWithTag(PoolWithTag, 0);
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, 2LL * v18, 0x64647050u);
+    if ( !PoolWithTag )
     {
       inited = -1073741670;
-      goto LABEL_22;
+      break;
     }
     MatchingFilteredDeviceList = CmGetMatchingFilteredDeviceList(
                                    *(__int64 *)&PiPnpRtlCtx,
@@ -71,82 +68,91 @@ __int64 __fastcall IopGetRootDevices(_QWORD *a1)
                                    1,
                                    0LL,
                                    0LL,
-                                   (__int64)Pool2,
+                                   (__int64)PoolWithTag,
                                    v18,
                                    (__int64)&v18);
     ++v5;
     inited = MatchingFilteredDeviceList;
-  }
-  while ( MatchingFilteredDeviceList == -1073741789 );
-  if ( MatchingFilteredDeviceList >= 0 )
-  {
-    LODWORD(v16) = 0;
-    while ( *v6 )
+    if ( MatchingFilteredDeviceList != -1073741789 )
     {
-      inited = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)v6, 16, 0, 983103, 0, (__int64)&Handle, 0LL);
-      if ( inited < 0 )
-        goto LABEL_29;
-      inited = RtlInitUnicodeStringEx(&DestinationString, v6);
-      if ( inited >= 0 && !(unsigned int)IopInitializeDeviceInstanceKey(Handle, &DestinationString) )
-      {
-        ZwClose(Handle);
+      if ( MatchingFilteredDeviceList < 0 )
         break;
-      }
-      ZwClose(Handle);
-      if ( inited < 0 )
-        goto LABEL_29;
-      v8 = -1LL;
-      do
-        ++v8;
-      while ( v6[v8] );
-      v6 += v8 + 1;
-    }
-    inited = v16;
-    if ( (int)v16 >= 0 )
-    {
-      v9 = DWORD2(v16);
-      if ( DWORD2(v16) )
+      v7 = PoolWithTag;
+      LODWORD(v16) = 0;
+      if ( *PoolWithTag )
       {
-        v10 = (_DWORD *)ExAllocatePool2(256LL, 8LL * DWORD2(v16) + 16, 1684303952LL);
+        while ( 1 )
+        {
+          inited = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)v7, 16, 0, 983103, 0, (__int64)&Handle, 0LL);
+          if ( inited < 0 )
+            break;
+          inited = RtlInitUnicodeStringEx(&DestinationString, v7);
+          if ( inited >= 0 && !(unsigned int)IopInitializeDeviceInstanceKey(Handle) )
+          {
+            ZwClose(Handle);
+            goto LABEL_17;
+          }
+          ZwClose(Handle);
+          if ( inited < 0 )
+            break;
+          v8 = -1LL;
+          do
+            ++v8;
+          while ( v7[v8] );
+          v7 += v8 + 1;
+          if ( !*v7 )
+            goto LABEL_17;
+        }
+LABEL_31:
+        v9 = DWORD2(v16);
+        if ( !DWORD2(v16) )
+          goto LABEL_32;
+LABEL_21:
+        if ( inited >= 0 )
+          break;
+      }
+      else
+      {
+LABEL_17:
+        inited = v16;
+        if ( (int)v16 < 0 )
+          goto LABEL_31;
+        v9 = DWORD2(v16);
+        if ( !DWORD2(v16) )
+        {
+LABEL_32:
+          inited = -1073741823;
+          goto LABEL_21;
+        }
+        v10 = ExAllocatePoolWithTag(PagedPool, 8LL * DWORD2(v16) + 16, 0x64647050u);
         v11 = v10;
         if ( v10 )
         {
           v12 = Src;
           *v10 = v9;
-          memmove(v10 + 2, v12, 8 * v9);
+          memmove(v10 + 2, v12, 8LL * (unsigned int)v9);
           *a1 = v11;
-          goto LABEL_22;
+          goto LABEL_21;
         }
         inited = -1073741670;
-        goto LABEL_31;
       }
-LABEL_30:
-      inited = -1073741823;
-      goto LABEL_31;
-    }
-LABEL_29:
-    v9 = DWORD2(v16);
-    if ( !DWORD2(v16) )
-      goto LABEL_30;
-    if ( inited >= 0 )
-      goto LABEL_22;
-LABEL_31:
-    if ( (_DWORD)v9 )
-    {
-      v14 = (PVOID *)Src;
-      do
+      if ( (_DWORD)v9 )
       {
-        ObfDereferenceObject(*v14++);
-        --v9;
+        v14 = (PADAPTER_OBJECT *)Src;
+        do
+        {
+          HalPutDmaAdapter(*v14++);
+          --v9;
+        }
+        while ( v9 );
       }
-      while ( v9 );
+      break;
     }
   }
-LABEL_22:
   ExReleaseResourceLite(&PnpRegistryDeviceResource);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   ExFreePoolWithTag(Src, 0);
-  if ( Pool2 )
-    ExFreePoolWithTag(Pool2, 0);
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
   return (unsigned int)inited;
 }

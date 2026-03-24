@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetNextSibling@CInteraction@@EEBAPEAUIInteractionResource@@XZ @ 0x1801F2200
+ * XREFs of ?GetNextSibling@CInteraction@@EEBAPEAUIInteractionResource@@XZ @ 0x1800E2B40
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 struct IInteractionResource *__fastcall CInteraction::GetNextSibling(CInteraction *this)
 {
-  return (struct IInteractionResource *)((*((_QWORD *)this + 20) + 64LL) & -(__int64)(*((_QWORD *)this + 20) != 0LL));
+  return (struct IInteractionResource *)*((_QWORD *)this + 27);
 }

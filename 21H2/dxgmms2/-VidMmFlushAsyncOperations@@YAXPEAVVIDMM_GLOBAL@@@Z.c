@@ -1,5 +1,5 @@
 /*
- * XREFs of ?VidMmFlushAsyncOperations@@YAXPEAVVIDMM_GLOBAL@@@Z @ 0x1C002CD40
+ * XREFs of ?VidMmFlushAsyncOperations@@YAXPEAVVIDMM_GLOBAL@@@Z @ 0x1C00227E0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall VidMmFlushAsyncOperations(struct VIDMM_GLOBAL *a1)
 {
-  KeWaitForSingleObject((char *)a1 + 44408, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject((char *)a1 + 44400, Executive, 0, 0, 0LL);
 }

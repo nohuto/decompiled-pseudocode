@@ -1,37 +1,35 @@
 /*
- * XREFs of GetCertificateLengthAndMonitorPDO @ 0x1C015BA9C
+ * XREFs of GetCertificateLengthAndMonitorPDO @ 0x1C014027C
  * Callers:
- *     NtGdiGetCertificate @ 0x1C015C720 (NtGdiGetCertificate.c)
- *     NtGdiGetCertificateSize @ 0x1C015C9D0 (NtGdiGetCertificateSize.c)
+ *     NtGdiGetCertificate @ 0x1C0140720 (NtGdiGetCertificate.c)
+ *     NtGdiGetCertificateSize @ 0x1C0140880 (NtGdiGetCertificateSize.c)
  * Callees:
- *     CallMonitor @ 0x1C01516F0 (CallMonitor.c)
- *     DrvPVPGetFirstActiveMonitor @ 0x1C0167898 (DrvPVPGetFirstActiveMonitor.c)
+ *     CallMonitor @ 0x1C00C08B0 (CallMonitor.c)
+ *     DrvPVPGetFirstActiveMonitor @ 0x1C0147BA8 (DrvPVPGetFirstActiveMonitor.c)
  */
 
-__int64 __fastcall GetCertificateLengthAndMonitorPDO(__int64 a1, __int64 a2, void *a3, PVOID *a4)
+__int64 __fastcall GetCertificateLengthAndMonitorPDO(struct _UNICODE_STRING *a1, int a2, void *a3, _QWORD *a4)
 {
   __int64 result; // rax
   int v7; // edi
-  PVOID Object[3]; // [rsp+30h] [rbp-18h] BYREF
   int InputBuffer; // [rsp+58h] [rbp+10h] BYREF
 
   InputBuffer = a2;
-  Object[0] = 0LL;
-  result = DrvPVPGetFirstActiveMonitor(a1, a2, Object);
+  result = DrvPVPGetFirstActiveMonitor(a1);
   if ( (int)result >= 0 )
   {
-    v7 = CallMonitor((PDEVICE_OBJECT)Object[0], 0x232483u, &InputBuffer, 4u, a3, 4u);
+    v7 = CallMonitor(0LL, 0x232483u, &InputBuffer, 4u, a3, 4u);
     if ( v7 >= 0 )
     {
       if ( a4 )
-        *a4 = Object[0];
+        *a4 = 0LL;
       else
-        ObfDereferenceObject(Object[0]);
+        ObfDereferenceObject(0LL);
       return 0LL;
     }
     else
     {
-      ObfDereferenceObject(Object[0]);
+      ObfDereferenceObject(0LL);
       return (unsigned int)v7;
     }
   }

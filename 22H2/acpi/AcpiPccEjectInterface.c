@@ -1,116 +1,95 @@
 /*
- * XREFs of AcpiPccEjectInterface @ 0x1C0033D54
+ * XREFs of AcpiPccEjectInterface @ 0x1C0011A0C
  * Callers:
- *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
- *     ACPIRootIrpQueryInterface @ 0x1C00944E0 (ACPIRootIrpQueryInterface.c)
+ *     ACPIBusIrpQueryInterface @ 0x1C0010C50 (ACPIBusIrpQueryInterface.c)
+ *     ACPIRootIrpQueryInterface @ 0x1C0098F50 (ACPIRootIrpQueryInterface.c)
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
- *     PciConfigPinToLine @ 0x1C0001990 (PciConfigPinToLine.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     PciConfigPinToLine @ 0x1C000CA40 (PciConfigPinToLine.c)
  */
 
 __int64 __fastcall AcpiPccEjectInterface(ULONG_PTR a1, __int64 a2)
 {
   __int64 v2; // rsi
   __int64 DeviceExtension; // rax
-  unsigned int v5; // edi
-  __int64 v6; // rsi
-  __int64 v7; // rbx
-  __int64 v8; // rax
-  __int64 v9; // rcx
-  unsigned int v10; // eax
-  unsigned int v11; // r8d
-  KIRQL v12; // al
-  KIRQL v13; // r8
-  unsigned int v14; // ebp
-  __int64 v15; // rax
-  char v16; // al
-  int v17; // ecx
-  int v18; // ecx
+  __int64 v5; // rsi
+  bool v6; // zf
+  __int64 v7; // rax
+  __int64 v8; // rdi
+  unsigned int v9; // ebx
+  KIRQL v11; // dl
+  unsigned int v12; // ebp
+  __int64 v13; // rax
+  char v14; // al
+  int v15; // ecx
+  int v16; // ecx
 
   v2 = *(_QWORD *)(a2 + 184);
   DeviceExtension = ACPIInternalGetDeviceExtension(a1);
   if ( *(_WORD *)(v2 + 16) < 0x80u || !*(_WORD *)(v2 + 18) )
     return (unsigned int)-1073741811;
-  v6 = *(_QWORD *)(v2 + 24);
-  if ( _bittest64((const signed __int64 *)(DeviceExtension + 8), 0x24u) && *(_DWORD *)(v6 + 32) == -1 )
+  v5 = *(_QWORD *)(v2 + 24);
+  v6 = (*(_QWORD *)(DeviceExtension + 8) & 0x1000000000LL) == 0;
+  v7 = *(unsigned int *)(v5 + 32);
+  if ( v6 || (_DWORD)v7 != -1 )
   {
-    v7 = AcpiPccLegacySubspace;
+    if ( (unsigned int)v7 >= AcpiPccSubspaceCount )
+      return (unsigned int)-1073741637;
+    v8 = AcpiPccSubspaces + 648 * v7;
   }
   else
   {
-    v8 = *(unsigned int *)(v6 + 32);
-    if ( (unsigned int)v8 >= AcpiPccSubspaceCount )
-      return (unsigned int)-1073741637;
-    v7 = AcpiPccSubspaces + 656 * v8;
+    v8 = AcpiPccLegacySubspace;
   }
-  v5 = 0;
-  if ( !v7 )
+  v9 = 0;
+  if ( !v8 || *(_QWORD *)(v5 + 40) && (*(_DWORD *)(v8 + 4) & 1) == 0 )
     return (unsigned int)-1073741637;
-  if ( *(_BYTE *)v7 == 0xFF )
+  v11 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v8 + 640));
+  v12 = *(_DWORD *)(v8 + 4) & 0x1E;
+  if ( v12 == 4 )
   {
-    v9 = *(_QWORD *)(v7 + 40);
-    v10 = *(_DWORD *)(v9 + 16);
-    *(_DWORD *)(v7 + 8) = v10;
-    if ( v10 < 0x1F4 )
-      v10 = 500;
-    *(_DWORD *)(v7 + 12) = v10;
-    v11 = *(_DWORD *)(v9 + 20);
-    if ( v11 )
-      *(_DWORD *)(v7 + 16) = 0x1E8480 / v11;
-    if ( (*(_BYTE *)(v9 + 8) & 1) != 0 )
-      *(_DWORD *)(v7 + 4) |= 1u;
-  }
-  if ( *(_QWORD *)(v6 + 40) && (*(_DWORD *)(v7 + 4) & 1) == 0 )
-    return (unsigned int)-1073741637;
-  v12 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v7 + 648));
-  v13 = v12;
-  v14 = *(_DWORD *)(v7 + 4) & 0x1E;
-  if ( v14 == 4 )
-  {
-    if ( (unsigned __int8)(*(_BYTE *)v7 - 1) > 1u || (**(_WORD **)(v7 + 56) & 1) != 0 )
+    if ( (unsigned __int8)(*(_BYTE *)v8 - 1) > 1u || (**(_WORD **)(v8 + 56) & 1) != 0 )
     {
-      **(_WORD **)(v7 + 56) &= ~1u;
-      *(_DWORD *)(v7 + 4) = *(_DWORD *)(v7 + 4) & 0xFFFFFFE1 | 6;
-      v15 = *(_QWORD *)(v6 + 40);
-      if ( v15 )
+      *(_DWORD *)(v8 + 4) = *(_DWORD *)(v8 + 4) & 0xFFFFFFE1 | 6;
+      v13 = *(_QWORD *)(v5 + 40);
+      if ( v13 )
       {
-        *(_QWORD *)(v7 + 264) = v15;
-        *(_QWORD *)(v7 + 272) = *(_QWORD *)(v6 + 48);
-        v16 = *(_BYTE *)v7 + 1;
-        *(_QWORD *)(v7 + 280) = a1;
-        if ( (v16 & 0xFE) == 0 )
+        *(_QWORD *)(v8 + 264) = v13;
+        *(_QWORD *)(v8 + 272) = *(_QWORD *)(v5 + 48);
+        v14 = *(_BYTE *)v8 + 1;
+        *(_QWORD *)(v8 + 280) = a1;
+        if ( (v14 & 0xFE) == 0 )
           _InterlockedAdd(&AcpiPccSciReferenceCount, 1u);
       }
-      KeReleaseSpinLock((PKSPIN_LOCK)(v7 + 648), v13);
-      v17 = *(_DWORD *)(v6 + 84);
-      *(_QWORD *)(v6 + 16) = PciConfigPinToLine;
-      *(_QWORD *)(v6 + 24) = PciConfigPinToLine;
-      *(_DWORD *)v6 = 65664;
-      *(_QWORD *)(v6 + 8) = 0LL;
-      *(_QWORD *)(v6 + 56) = v7;
-      *(_DWORD *)(v6 + 64) = *(_DWORD *)(v7 + 8);
-      *(_DWORD *)(v6 + 68) = *(_DWORD *)(v7 + 16);
-      *(_QWORD *)(v6 + 72) = *(_QWORD *)(v7 + 24);
-      *(_DWORD *)(v6 + 80) = *(_DWORD *)(v7 + 32);
-      v18 = *(_DWORD *)(v7 + 4) ^ v17;
-      *(_QWORD *)(v6 + 88) = AcpiPccAcquireSubspace;
-      *(_DWORD *)(v6 + 84) ^= v18 & 1;
-      *(_QWORD *)(v6 + 96) = AcpiPccAcquireSubspaceAsync;
-      *(_QWORD *)(v6 + 104) = AcpiPccExecuteCommand;
-      *(_QWORD *)(v6 + 112) = AcpiPccExecuteCommandAsync;
-      *(_QWORD *)(v6 + 120) = AcpiPccReleaseSubspace;
+      KeReleaseSpinLock((PKSPIN_LOCK)(v8 + 640), v11);
+      v15 = *(_DWORD *)(v5 + 84);
+      *(_QWORD *)(v5 + 16) = PciConfigPinToLine;
+      *(_QWORD *)(v5 + 24) = PciConfigPinToLine;
+      *(_DWORD *)v5 = 65664;
+      *(_QWORD *)(v5 + 8) = 0LL;
+      *(_QWORD *)(v5 + 56) = v8;
+      *(_DWORD *)(v5 + 64) = *(_DWORD *)(v8 + 8);
+      *(_DWORD *)(v5 + 68) = *(_DWORD *)(v8 + 12);
+      *(_QWORD *)(v5 + 72) = *(_QWORD *)(v8 + 24);
+      *(_DWORD *)(v5 + 80) = *(_DWORD *)(v8 + 32);
+      v16 = *(_DWORD *)(v8 + 4) ^ v15;
+      *(_QWORD *)(v5 + 88) = AcpiPccAcquireSubspace;
+      *(_DWORD *)(v5 + 84) ^= v16 & 1;
+      *(_QWORD *)(v5 + 96) = AcpiPccAcquireSubspaceAsync;
+      *(_QWORD *)(v5 + 104) = AcpiPccExecuteCommand;
+      *(_QWORD *)(v5 + 112) = AcpiPccExecuteCommandAsync;
+      *(_QWORD *)(v5 + 120) = AcpiPccReleaseSubspace;
       PciConfigPinToLine();
     }
     else
     {
-      v5 = -1073740024;
-      KeReleaseSpinLock((PKSPIN_LOCK)(v7 + 648), v12);
+      return (unsigned int)-1073740024;
     }
   }
   else
   {
-    KeReleaseSpinLock((PKSPIN_LOCK)(v7 + 648), v12);
-    return v14 < 4 ? -1073741823 : -1073740024;
+    KeReleaseSpinLock((PKSPIN_LOCK)(v8 + 640), v11);
+    return v12 < 4 ? -1073741823 : -1073740024;
   }
-  return v5;
+  return v9;
 }

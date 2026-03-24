@@ -1,42 +1,39 @@
 /*
- * XREFs of xxxDWP_UpdateUIState @ 0x1C00FB224
+ * XREFs of xxxDWP_UpdateUIState @ 0x1C00E0EE4
  * Callers:
- *     xxxRealDefWindowProc @ 0x1C0067528 (xxxRealDefWindowProc.c)
- *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C00A3BCC (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C004639C (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ *     xxxRealDefWindowProc @ 0x1C0049EC8 (xxxRealDefWindowProc.c)
  * Callees:
- *     HMValidateHandleNoSecure @ 0x1C00407F4 (HMValidateHandleNoSecure.c)
- *     W32GetThreadWin32Thread @ 0x1C0041904 (W32GetThreadWin32Thread.c)
- *     xxxSendMessage @ 0x1C0050D34 (xxxSendMessage.c)
- *     SetOrClrWF @ 0x1C0069680 (SetOrClrWF.c)
- *     BuildHwndList @ 0x1C0071A90 (BuildHwndList.c)
- *     FreeHwndList @ 0x1C00722E0 (FreeHwndList.c)
- *     xxxSendNotifyMessage @ 0x1C00ACBA0 (xxxSendNotifyMessage.c)
+ *     xxxSendNotifyMessage @ 0x1C0040370 (xxxSendNotifyMessage.c)
+ *     SetOrClrWF @ 0x1C004DFA8 (SetOrClrWF.c)
+ *     xxxSendMessage @ 0x1C005D634 (xxxSendMessage.c)
+ *     BuildHwndList @ 0x1C006CB60 (BuildHwndList.c)
+ *     FreeHwndList @ 0x1C006DAC0 (FreeHwndList.c)
+ *     HMValidateHandleNoSecure @ 0x1C008C3F8 (HMValidateHandleNoSecure.c)
+ *     W32GetThreadWin32Thread @ 0x1C008E510 (W32GetThreadWin32Thread.c)
+ *     GetAppCompatFlags2 @ 0x1C00E1310 (GetAppCompatFlags2.c)
  */
 
-__int64 __fastcall xxxDWP_UpdateUIState(struct tagWND *a1, unsigned __int64 a2, __int64 a3)
+__int64 __fastcall xxxDWP_UpdateUIState(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
-  __int64 v3; // rdi
+  unsigned __int64 v3; // rdi
   unsigned __int64 v4; // rbx
   __int64 v6; // rbp
   int v7; // eax
   int v8; // eax
-  __int64 v9; // rax
-  ShellWindowManagement *v10; // r10
-  __int64 v12; // r14
-  struct tagBWL *v13; // rax
-  struct tagBWL *v14; // rbp
-  _QWORD *i; // rbx
-  struct tagWND *v16; // rsi
-  __int64 v17; // rax
-  __int64 v18; // rdx
-  __int64 v19; // rcx
-  __int64 v20; // r8
-  int v21; // ecx
-  int v22; // eax
+  struct tagWND *v9; // r9
+  __int64 v11; // r14
+  struct tagBWL *v12; // rax
+  struct tagBWL *v13; // rbp
+  unsigned __int64 *i; // rbx
+  __int64 v15; // rsi
   __int64 ThreadWin32Thread; // rax
-  int v24; // edi
-  __int128 v25; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v26; // [rsp+40h] [rbp-28h]
+  __int64 v17; // rcx
+  int v18; // ecx
+  int v19; // eax
+  int v20; // edi
+  __int128 v21; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v22; // [rsp+40h] [rbp-28h]
 
   v3 = a2;
   v4 = a2 >> 16;
@@ -48,18 +45,13 @@ __int64 __fastcall xxxDWP_UpdateUIState(struct tagWND *a1, unsigned __int64 a2, 
   {
     if ( (v7 & 0x80u) != 0 )
       return 0LL;
-    v22 = *(_DWORD *)(gpsi + 7004LL);
-    if ( (v22 & 0x20) != 0 )
-      return 0LL;
-    if ( v22 >= 0 )
-      return 0LL;
-    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-    if ( *(_DWORD *)(ThreadWin32Thread + 632) <= 0x400u && (*(_DWORD *)(ThreadWin32Thread + 648) & 2) != 0 )
+    v19 = *(_DWORD *)(gpsi + 7004LL);
+    if ( (v19 & 0x20) != 0 || v19 >= 0 || (GetAppCompatFlags2(1024LL) & 2) != 0 )
       return 0LL;
     LOBYTE(v4) = 3;
     v6 = (unsigned __int16)(((*gpsi & 0x40) != 0) + 1);
     v3 = v6 | 0x30000;
-LABEL_11:
+LABEL_10:
     if ( (unsigned __int16)v6 == 1 )
     {
       if ( (v4 & 2) != 0 )
@@ -67,8 +59,8 @@ LABEL_11:
       if ( (v4 & 1) != 0 )
         SetOrClrWF(1, a1, 0xB80u, 1);
       if ( (v4 & 4) == 0 )
-        goto LABEL_17;
-      v21 = 1;
+        goto LABEL_16;
+      v18 = 1;
     }
     else
     {
@@ -76,12 +68,12 @@ LABEL_11:
       {
         if ( (unsigned __int16)v6 == 3 )
         {
-          v24 = *gpsi & 0x40;
-          SetOrClrWF(v24 == 0, a1, 0xB80u, 1);
-          SetOrClrWF(v24 == 0, a1, 0xB40u, 1);
-          v3 = (v24 != 0) + 196609LL;
+          v20 = *gpsi & 0x40;
+          SetOrClrWF(v20 == 0, a1, 0xB80u, 1);
+          SetOrClrWF(v20 == 0, a1, 0xB40u, 1);
+          v3 = (v20 != 0) + 196609LL;
         }
-        goto LABEL_17;
+        goto LABEL_16;
       }
       if ( (v4 & 2) != 0 )
         SetOrClrWF(0, a1, 0xB40u, 1);
@@ -89,54 +81,53 @@ LABEL_11:
         SetOrClrWF(0, a1, 0xB80u, 1);
       if ( (v4 & 4) == 0 )
       {
-LABEL_17:
-        v10 = (ShellWindowManagement *)*((_QWORD *)a1 + 14);
-        if ( v10 )
+LABEL_16:
+        v9 = *(struct tagWND **)(a1 + 112);
+        if ( v9 )
         {
-          v26 = 0LL;
-          v25 = 0LL;
-          if ( gptiCurrent == gTermIO[2] || (v12 = 0LL, gptiCurrent == qword_1C0336E50) )
-            v12 = 1LL;
-          v13 = BuildHwndList(v10, (const struct tagWND *)2, 0LL, 1);
-          v14 = v13;
-          if ( v13 )
+          v22 = 0LL;
+          v21 = 0LL;
+          if ( gptiCurrent == gTermIO[2] || (v11 = 0LL, gptiCurrent == qword_1C0339FE0) )
+            v11 = 1LL;
+          v12 = BuildHwndList(v9, 2, 0LL);
+          v13 = v12;
+          if ( v12 )
           {
-            for ( i = (_QWORD *)((char *)v13 + 32); *i != 1LL; ++i )
+            for ( i = (unsigned __int64 *)((char *)v12 + 32); *i != 1; ++i )
             {
-              v16 = (struct tagWND *)HMValidateHandleNoSecure(*i, 1);
-              if ( v16 )
+              v15 = HMValidateHandleNoSecure(*i, 1);
+              if ( v15 )
               {
-                v17 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
-                *(_QWORD *)&v25 = *(_QWORD *)(v17 + 416);
-                *(_QWORD *)(v17 + 416) = &v25;
-                *((_QWORD *)&v25 + 1) = v16;
-                HMLockObject(v16);
-                if ( v12 )
-                  xxxSendNotifyMessage(v16, 0x128u, v3, 0LL, 1);
+                ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+                *(_QWORD *)&v21 = *(_QWORD *)(ThreadWin32Thread + 416);
+                *(_QWORD *)(ThreadWin32Thread + 416) = &v21;
+                *((_QWORD *)&v21 + 1) = v15;
+                HMLockObject(v15);
+                if ( v11 )
+                  xxxSendNotifyMessage(v15, 0x128u, v3, 0LL, 1);
                 else
-                  xxxSendMessage((ULONG_PTR)v16);
-                ThreadUnlock1(v19, v18, v20);
+                  xxxSendMessage(v15, 0x128u, v3, 0LL);
+                ThreadUnlock1(v17);
               }
             }
-            FreeHwndList(v14);
+            FreeHwndList(v13);
           }
         }
         return 0LL;
       }
-      v21 = 0;
+      v18 = 0;
     }
-    SetOrClrWF(v21, a1, 0xB04u, 1);
-    goto LABEL_17;
+    SetOrClrWF(v18, a1, 0xB04u, 1);
+    goto LABEL_16;
   }
   if ( (v7 & 0x80u) != 0
     || (v8 = *(_DWORD *)(gpsi + 7004LL), (v8 & 0x20) != 0)
     || v8 >= 0
-    || (v9 = W32GetThreadWin32Thread((__int64)KeGetCurrentThread()), *(_DWORD *)(v9 + 632) <= 0x400u)
-    && (*(_DWORD *)(v9 + 648) & 2) != 0 )
+    || (GetAppCompatFlags2(1024LL) & 2) != 0 )
   {
     LOWORD(v4) = v4 & 0xFFFC;
   }
   if ( (_WORD)v4 )
-    goto LABEL_11;
+    goto LABEL_10;
   return 0LL;
 }

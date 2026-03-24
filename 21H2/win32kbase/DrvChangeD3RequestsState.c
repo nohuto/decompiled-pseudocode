@@ -1,9 +1,9 @@
 /*
- * XREFs of DrvChangeD3RequestsState @ 0x1C00D3DB0
+ * XREFs of DrvChangeD3RequestsState @ 0x1C00C4534
  * Callers:
- *     PowerOnMonitor @ 0x1C007D2B0 (PowerOnMonitor.c)
+ *     PowerOnMonitor @ 0x1C00775A0 (PowerOnMonitor.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF710 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DrvChangeD3RequestsState(char a1, __int64 a2)
@@ -17,7 +17,7 @@ __int64 __fastcall DrvChangeD3RequestsState(char a1, __int64 a2)
       if ( (*((_DWORD *)i + 40) & 0x800000) != 0 )
       {
         LOBYTE(a2) = a1;
-        ((void (__fastcall *)(_QWORD, __int64))qword_1C02968F8)(*((_QWORD *)i + 30), a2);
+        ((void (__fastcall *)(_QWORD, __int64))qword_1C0251B28)(*((_QWORD *)i + 30), a2);
       }
     }
   }

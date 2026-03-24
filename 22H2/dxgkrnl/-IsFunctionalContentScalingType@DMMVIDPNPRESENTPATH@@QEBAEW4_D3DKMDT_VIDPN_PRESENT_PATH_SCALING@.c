@@ -1,37 +1,23 @@
 /*
- * XREFs of ?IsFunctionalContentScalingType@DMMVIDPNPRESENTPATH@@QEBAEW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C0001AC4
+ * XREFs of ?IsFunctionalContentScalingType@DMMVIDPNPRESENTPATH@@QEBAEW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C0006D30
  * Callers:
- *     ?IsFunctional@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C0001A18 (-IsFunctional@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
- *     ?GetDisplayModeFromPath@DMMVIDPNPRESENTPATH@@QEBAJ_NAEAU_DXGK_DISPLAYMODE_INFO@@@Z @ 0x1C016E078 (-GetDisplayModeFromPath@DMMVIDPNPRESENTPATH@@QEBAJ_NAEAU_DXGK_DISPLAYMODE_INFO@@@Z.c)
+ *     ?PinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z @ 0x1C0006C14 (-PinContentScaling@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@@Z.c)
+ *     ?IsFunctional@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C000B924 (-IsFunctional@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
+ *     ?GetDisplayModeFromPath@DMMVIDPNPRESENTPATH@@QEBAJAEAU_D3DKMT_DISPLAYMODE@@@Z @ 0x1C0151D24 (-GetDisplayModeFromPath@DMMVIDPNPRESENTPATH@@QEBAJAEAU_D3DKMT_DISPLAYMODE@@@Z.c)
  * Callees:
- *     ?IsDriverCustomScalingSupported@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C01B19CC (-IsDriverCustomScalingSupported@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
- *     ?IsDriverAspectRatioCenteredMaxSupported@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C01B1A30 (-IsDriverAspectRatioCenteredMaxSupported@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
+ *     ?IsDriverAspectRatioCenteredMaxSupported@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C011C33C (-IsDriverAspectRatioCenteredMaxSupported@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
+ *     ?IsDriverCustomScalingSupported@DMMVIDPNPRESENTPATH@@QEBAEXZ @ 0x1C011C398 (-IsDriverCustomScalingSupported@DMMVIDPNPRESENTPATH@@QEBAEXZ.c)
  */
 
-unsigned __int8 __fastcall DMMVIDPNPRESENTPATH::IsFunctionalContentScalingType(
-        DMMVIDPNPRESENTPATH *this,
-        enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING a2)
+unsigned __int8 __fastcall DMMVIDPNPRESENTPATH::IsFunctionalContentScalingType(DMMVIDPNPRESENTPATH *this, int a2)
 {
-  int v2; // edx
-  int v4; // edx
-  int v5; // edx
-  int v6; // edx
-  int v7; // edx
-
-  v2 = a2 - 1;
-  if ( !v2 )
+  if ( a2 <= 0 )
+    return 0;
+  if ( a2 <= 3 )
     return 1;
-  v4 = v2 - 1;
-  if ( !v4 )
-    return 1;
-  v5 = v4 - 1;
-  if ( !v5 )
-    return 1;
-  v6 = v5 - 1;
-  if ( !v6 )
+  if ( a2 == 4 )
     return DMMVIDPNPRESENTPATH::IsDriverAspectRatioCenteredMaxSupported(this);
-  v7 = v6 - 1;
-  if ( v7 )
-    return v7 == 250;
+  if ( a2 != 5 )
+    return a2 == 255;
   return DMMVIDPNPRESENTPATH::IsDriverCustomScalingSupported(this);
 }

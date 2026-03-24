@@ -1,11 +1,11 @@
 /*
- * XREFs of Crashdump_UcxEvtFreeDumpData @ 0x1C004AF60
+ * XREFs of Crashdump_UcxEvtFreeDumpData @ 0x1C004A4D0
  * Callers:
  *     <none>
  * Callees:
- *     CommonBuffer_ReleaseBuffer @ 0x1C000182C (CommonBuffer_ReleaseBuffer.c)
- *     _guard_dispatch_icall_nop @ 0x1C00199B0 (_guard_dispatch_icall_nop.c)
- *     Crashdump_FreeDeviceContext @ 0x1C004A1BC (Crashdump_FreeDeviceContext.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C0019D40 (CommonBuffer_ReleaseBuffer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001AFF0 (_guard_dispatch_icall_nop.c)
+ *     Crashdump_FreeDeviceContext @ 0x1C00496F4 (Crashdump_FreeDeviceContext.c)
  */
 
 ULONG __fastcall Crashdump_UcxEvtFreeDumpData(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ ULONG __fastcall Crashdump_UcxEvtFreeDumpData(__int64 a1, __int64 a2)
   v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
          WdfDriverGlobals,
          a1,
-         off_1C0061428);
+         off_1C0060428);
   v5 = *(_QWORD *)(a2 + 8);
   *(_QWORD *)(a2 + 8) = 0LL;
   if ( *(_QWORD *)(v4 + 424) == v5 )

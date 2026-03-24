@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIDockIrpQueryPower @ 0x1C00490D0
+ * XREFs of ACPIDockIrpQueryPower @ 0x1C004A630
  * Callers:
  *     <none>
  * Callees:
- *     ACPIInternalGetDeviceExtension @ 0x1C0001928 (ACPIInternalGetDeviceExtension.c)
- *     AMLIIsNamedChildPresent @ 0x1C000A410 (AMLIIsNamedChildPresent.c)
- *     WPP_RECORDER_SF_qqss @ 0x1C000E14C (WPP_RECORDER_SF_qqss.c)
- *     ACPIDispatchPowerIrpSuccess @ 0x1C0052450 (ACPIDispatchPowerIrpSuccess.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002D40 (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C001E288 (WPP_RECORDER_SF_qqss.c)
+ *     AMLIIsNamedChildPresent @ 0x1C001F220 (AMLIIsNamedChildPresent.c)
+ *     ACPIDispatchPowerIrpSuccess @ 0x1C0052EA0 (ACPIDispatchPowerIrpSuccess.c)
  */
 
 __int64 __fastcall ACPIDockIrpQueryPower(ULONG_PTR a1, IRP *a2)
@@ -26,13 +26,13 @@ __int64 __fastcall ACPIDockIrpQueryPower(ULONG_PTR a1, IRP *a2)
   if ( !v6 )
   {
     v7 = DeviceExtension[1];
-    v8 = (const char *)&unk_1C006FB8B;
-    CurrentStackLocation = (_IO_STACK_LOCATION *)&unk_1C006FB8B;
+    v8 = (const char *)&unk_1C00701BA;
+    CurrentStackLocation = (_IO_STACK_LOCATION *)&unk_1C00701BA;
     if ( (v7 & 0x200000000000LL) != 0 )
     {
-      v8 = (const char *)DeviceExtension[76];
+      v8 = (const char *)DeviceExtension[71];
       if ( (v7 & 0x400000000000LL) != 0 )
-        CurrentStackLocation = (_IO_STACK_LOCATION *)DeviceExtension[77];
+        CurrentStackLocation = (_IO_STACK_LOCATION *)DeviceExtension[72];
     }
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       WPP_RECORDER_SF_qqss(
@@ -50,7 +50,7 @@ __int64 __fastcall ACPIDockIrpQueryPower(ULONG_PTR a1, IRP *a2)
   v10 = a2->Tail.Overlay.CurrentStackLocation;
   if ( !v10->Parameters.Create.Options && v10->Parameters.Create.EaLength == 7 )
   {
-    CurrentStackLocation = *(_IO_STACK_LOCATION **)(v6 + 760);
+    CurrentStackLocation = *(_IO_STACK_LOCATION **)(v6 + 720);
     switch ( (v10->Parameters.Read.Length >> 8) & 0xF )
     {
       case 2u:

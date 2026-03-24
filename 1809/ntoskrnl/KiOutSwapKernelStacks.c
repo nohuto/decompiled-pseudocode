@@ -1,16 +1,16 @@
 /*
- * XREFs of KiOutSwapKernelStacks @ 0x14013CF98
+ * XREFs of KiOutSwapKernelStacks @ 0x14013CFB8
  * Callers:
- *     KeSwapProcessOrStack @ 0x14017FD80 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x14017FDA0 (KeSwapProcessOrStack.c)
  * Callees:
  *     KiDecrementProcessStackCount @ 0x1400174F0 (KiDecrementProcessStackCount.c)
  *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
  *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7900 (KeQueryActiveProcessorCountEx.c)
- *     KeEnumerateKernelStackSegments @ 0x14013D2C8 (KeEnumerateKernelStackSegments.c)
- *     KiWaitForContextSwap @ 0x14013D450 (KiWaitForContextSwap.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
+ *     KeEnumerateKernelStackSegments @ 0x14013D2E8 (KeEnumerateKernelStackSegments.c)
+ *     KiWaitForContextSwap @ 0x14013D470 (KiWaitForContextSwap.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KiOutSwapKernelStacks(__int64 a1, __int64 a2, __int64 a3)

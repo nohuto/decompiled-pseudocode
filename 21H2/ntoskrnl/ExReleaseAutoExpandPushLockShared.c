@@ -1,28 +1,29 @@
 /*
- * XREFs of ExReleaseAutoExpandPushLockShared @ 0x1402AFA70
+ * XREFs of ExReleaseAutoExpandPushLockShared @ 0x140290370
  * Callers:
- *     FsRtlLookupPerFileContext @ 0x140258F50 (FsRtlLookupPerFileContext.c)
- *     MiUnlockAweVadsShared @ 0x1405AC910 (MiUnlockAweVadsShared.c)
+ *     MiUnlockAweVadsShared @ 0x14054DFCC (MiUnlockAweVadsShared.c)
  * Callees:
- *     ExfReleasePushLockSharedEx @ 0x14021C64C (ExfReleasePushLockSharedEx.c)
- *     ExpTryExpandAutoExpandPushLock @ 0x140259E60 (ExpTryExpandAutoExpandPushLock.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     ExfReleasePushLockSharedEx @ 0x1402904F0 (ExfReleasePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExpTryExpandAutoExpandPushLock @ 0x140391104 (ExpTryExpandAutoExpandPushLock.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall ExReleaseAutoExpandPushLockShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
+unsigned __int64 __fastcall ExReleaseAutoExpandPushLockShared(
+        ULONG_PTR BugCheckParameter2,
+        ULONG_PTR BugCheckParameter1)
 {
   char v2; // bl
   ULONG_PTR v3; // rdi
   unsigned int v4; // esi
-  __int64 result; // rax
+  unsigned __int64 result; // rax
   unsigned int v6; // esi
   unsigned __int64 v7; // [rsp+60h] [rbp+18h] BYREF
 
   v2 = BugCheckParameter1;
   v7 = 0LL;
-  if ( (BugCheckParameter1 & 0xFFFFFFF8) != 0 || (BugCheckParameter2 & 2) != 0 && (BugCheckParameter1 & 2) != 0 )
+  if ( (BugCheckParameter1 & 0xFFFFFFFC) != 0 || (BugCheckParameter2 & 2) != 0 && (BugCheckParameter1 & 2) != 0 )
     KeBugCheckEx(0x152u, (unsigned int)BugCheckParameter1, BugCheckParameter2, 0LL, 0LL);
   v3 = BugCheckParameter2 & 0xFFFFFFFFFFFFFFFCuLL;
   if ( (BugCheckParameter2 & 1) != 0 )
@@ -53,7 +54,7 @@ LABEL_6:
     }
     if ( (v4 & ExpAeSamplingPeriodMask) == 0 )
     {
-      result = ExfReleasePushLockSharedEx((signed __int64 *)v3, &v7);
+      result = ExfReleasePushLockSharedEx(v3, &v7);
       if ( !v7 )
         goto LABEL_8;
       v6 = *(_DWORD *)(v3 + 12);
@@ -65,7 +66,7 @@ LABEL_6:
       v4 = result + v6;
       goto LABEL_6;
     }
-    ExfReleasePushLockSharedEx((signed __int64 *)v3, 0LL);
+    ExfReleasePushLockSharedEx(v3, 0LL);
     result = *(unsigned int *)(v3 + 12);
     if ( (unsigned int)result < 0x80000000 )
     {

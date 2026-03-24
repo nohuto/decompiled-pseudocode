@@ -1,24 +1,24 @@
 /*
- * XREFs of CmUpdateFeatureUsageSubscription @ 0x140A121EC
+ * XREFs of CmUpdateFeatureUsageSubscription @ 0x14086B518
  * Callers:
- *     NtSetSystemInformation @ 0x14075F340 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140707C50 (NtSetSystemInformation.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     SeAccessCheck @ 0x140231630 (SeAccessCheck.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     CmpAllocatePoolWithQuota @ 0x1406165E8 (CmpAllocatePoolWithQuota.c)
- *     SeCaptureSubjectContext @ 0x1407380C0 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x140738340 (SeReleaseSubjectContext.c)
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140A277C8 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
+ *     SeAccessCheck @ 0x140206720 (SeAccessCheck.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     CmpAllocatePoolWithQuotaTag @ 0x1404ECD50 (CmpAllocatePoolWithQuotaTag.c)
+ *     SeCaptureSubjectContext @ 0x1406CE8F0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1406CF6B0 (SeReleaseSubjectContext.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14087E0B0 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
  */
 
 __int64 __fastcall CmUpdateFeatureUsageSubscription(void *Src, size_t Size, KPROCESSOR_MODE AccessMode)
 {
-  size_t v4; // rsi
+  SIZE_T v4; // rsi
   struct _PRIVILEGE_SET *v6; // rdi
   BOOLEAN v7; // bl
   unsigned int updated; // ebx
-  struct _PRIVILEGE_SET *PoolWithQuota; // rax
+  struct _PRIVILEGE_SET *PoolWithQuotaTag; // rax
   __int64 PrivilegeCount; // rcx
   unsigned int v11; // eax
   ACCESS_MASK GrantedAccess[3]; // [rsp+54h] [rbp-44h] BYREF
@@ -51,12 +51,12 @@ __int64 __fastcall CmUpdateFeatureUsageSubscription(void *Src, size_t Size, KPRO
   }
   if ( (unsigned int)v4 < 4 )
     goto LABEL_4;
-  PoolWithQuota = (struct _PRIVILEGE_SET *)CmpAllocatePoolWithQuota(256LL, v4, 1665559875LL);
-  v6 = PoolWithQuota;
-  v14 = PoolWithQuota;
-  if ( PoolWithQuota )
+  PoolWithQuotaTag = (struct _PRIVILEGE_SET *)CmpAllocatePoolWithQuotaTag(1, v4, 0x63466D43u);
+  v6 = PoolWithQuotaTag;
+  v14 = PoolWithQuotaTag;
+  if ( PoolWithQuotaTag )
   {
-    memmove(PoolWithQuota, Src, v4);
+    memmove(PoolWithQuotaTag, Src, v4);
     PrivilegeCount = v6->PrivilegeCount;
     v11 = 20 * PrivilegeCount;
     if ( (unsigned __int64)(20 * PrivilegeCount) > 0xFFFFFFFF || v11 + 4 < v11 )

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFlushDataSection @ 0x14029E64C
+ * XREFs of MiFlushDataSection @ 0x1402E8F50
  * Callers:
- *     MiCreateImageFileMap @ 0x140707E70 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x1406D33F4 (MiCreateImageFileMap.c)
  * Callees:
- *     CcFlushCachePriv @ 0x140283030 (CcFlushCachePriv.c)
- *     MmFlushSection @ 0x140283C50 (MmFlushSection.c)
- *     MiLockSectionControlArea @ 0x14028494C (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
+ *     MmFlushSection @ 0x1402746FC (MmFlushSection.c)
+ *     MiLockSectionControlArea @ 0x140274944 (MiLockSectionControlArea.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFlushDataSection(__int64 a1, _DWORD *a2)
@@ -22,13 +22,13 @@ __int64 __fastcall MiFlushDataSection(__int64 a1, _DWORD *a2)
   struct _KPRCB *CurrentPrcb; // r10
   int v12; // eax
   bool v13; // zf
-  int v14[6]; // [rsp+30h] [rbp-18h] BYREF
+  __int128 v14; // [rsp+30h] [rbp-18h] BYREF
   KIRQL v15; // [rsp+50h] [rbp+8h] BYREF
 
   *a2 = 0;
   v15 = 0;
   v4 = *(_QWORD **)(a1 + 40);
-  *(_OWORD *)v14 = 0LL;
+  v14 = 0LL;
   result = MiLockSectionControlArea(v4, 1, &v15);
   if ( result )
   {
@@ -59,12 +59,12 @@ __int64 __fastcall MiFlushDataSection(__int64 a1, _DWORD *a2)
     v9 = *(_QWORD *)(a1 + 40);
     if ( v6 )
     {
-      CcFlushCachePriv(v9, &CcFlushForImageSection, 0, 0LL, 0, v14);
-      return (unsigned int)v14[0];
+      CcFlushCachePriv(v9, &CcFlushForImageSection, 0, 0LL, 0, &v14);
+      return (unsigned int)v14;
     }
     else
     {
-      return MmFlushSection(v9, 0LL, 0LL, SchedulerAssist, v14, 1);
+      return MmFlushSection(v9, 0LL, 0LL, SchedulerAssist, &v14, 1u);
     }
   }
   return result;

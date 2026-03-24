@@ -1,33 +1,31 @@
 /*
- * XREFs of ?EmitSetComments@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00250FC
+ * XREFs of ?EmitSetComments@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0065B34
  * Callers:
- *     ?EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0022A90 (-EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@.c)
+ *     ?EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00669D0 (-EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@.c)
  * Callees:
- *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C0022CDC (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
- *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C00264AC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
- *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C0026E54 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
+ *     Win32FreePool @ 0x1C002C230 (Win32FreePool.c)
+ *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C005C9DC (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C00668DC (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
  */
 
 char __fastcall DirectComposition::CAnimationLoggingManagerMarshaler::EmitSetComments(
         DirectComposition::CAnimationLoggingManagerMarshaler *this,
-        struct DirectComposition::CBatch **a2)
+        struct DirectComposition::CBatch ***a2)
 {
   unsigned int v2; // esi
-  unsigned int v4; // r15d
+  unsigned int v4; // ebp
   char v6; // di
-  __int64 v8; // rbp
-  struct DirectComposition::CWeakReferenceBase **v9; // r14
+  __int64 v8; // r12
+  _DWORD *v9; // r13
   int v10; // ecx
-  struct DirectComposition::CBatch *v11; // rax
-  unsigned __int64 v12; // r13
-  char *v13; // r9
-  void *v14; // rdx
-  size_t v15; // r8
+  struct DirectComposition::CBatch **v11; // rax
+  unsigned __int64 v12; // r14
+  char *v13; // rcx
+  size_t v14; // r8
   __int64 Src; // [rsp+60h] [rbp+8h] BYREF
-  void *v17; // [rsp+70h] [rbp+18h] BYREF
+  void *v16; // [rsp+70h] [rbp+18h] BYREF
 
   v2 = *((_DWORD *)this + 60);
   v4 = *((_DWORD *)this + 56);
@@ -37,45 +35,33 @@ char __fastcall DirectComposition::CAnimationLoggingManagerMarshaler::EmitSetCom
     v8 = *((unsigned int *)this + 60);
     while ( 1 )
     {
-      v9 = *(struct DirectComposition::CWeakReferenceBase ***)(*((_QWORD *)this + 29) * v8 + *((_QWORD *)this + 25));
-      v10 = 2 * *((_DWORD *)v9 + 2);
+      v9 = *(_DWORD **)(v8 * *((_QWORD *)this + 29) + *((_QWORD *)this + 25));
+      v10 = 2 * v9[2];
       if ( ((2 * *((_BYTE *)v9 + 8)) & 3) != 0 )
         v10 += 4 - ((2 * *((_BYTE *)v9 + 8)) & 3);
       v11 = *a2;
       v12 = (unsigned int)(v10 + 20);
       LODWORD(Src) = v10 + 20;
-      v17 = (void *)(4096LL - *(_QWORD *)(*((_QWORD *)v11 + 17) + 40LL));
-      if ( (unsigned __int64)v17 < v12
-        && (!DirectComposition::CBatch::AllocateNewFragment(a2, (unsigned __int64 *)&v17) || (unsigned __int64)v17 < v12) )
+      v16 = (void *)(4096LL - *((_QWORD *)v11[17] + 5));
+      if ( (unsigned __int64)v16 < v12
+        && (!DirectComposition::CBatch::AllocateNewFragment(a2, (unsigned __int64 *)&v16) || (unsigned __int64)v16 < v12) )
       {
         break;
       }
-      if ( *v9 && *((_QWORD *)*v9 + 2) )
-      {
-        v17 = 0LL;
-        DirectComposition::CBatch::EnsureBatchBuffer(a2, v12, &v17);
-        v13 = (char *)v17;
-        *(_DWORD *)v17 = Src;
-        *(_OWORD *)(v13 + 4) = 0LL;
-        *((_DWORD *)v13 + 1) = 14;
-        *((_DWORD *)v13 + 2) = *((_DWORD *)this + 8);
-        *((_DWORD *)v13 + 3) = *(_DWORD *)(*((_QWORD *)*v9 + 2) + 32LL);
-        *((_DWORD *)v13 + 4) = *((_DWORD *)v9 + 2);
-        memmove(v13 + 20, v9 + 2, 2LL * (_QWORD)v9[1]);
-      }
-      if ( *v9 )
-      {
-        DirectComposition::CApplicationChannel::ReleaseWeakReference(
-          *((DirectComposition::CApplicationChannel **)*a2 + 1),
-          *v9);
-        *v9 = 0LL;
-      }
-      v14 = *(void **)(*((_QWORD *)this + 29) * v8 + *((_QWORD *)this + 25));
-      if ( v14 )
-        NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v14);
-      v15 = *((_QWORD *)this + 29);
+      v16 = 0LL;
+      DirectComposition::CBatch::EnsureBatchBuffer(a2, v12, &v16);
+      v13 = (char *)v16;
+      *(_DWORD *)v16 = Src;
+      *(_OWORD *)(v13 + 4) = 0LL;
+      *((_DWORD *)v13 + 1) = 15;
+      *((_DWORD *)v13 + 2) = *((_DWORD *)this + 6);
+      *((_DWORD *)v13 + 3) = *v9;
+      *((_DWORD *)v13 + 4) = v9[2];
+      memmove(v13 + 20, v9 + 4, 2LL * *((_QWORD *)v9 + 1));
+      Win32FreePool(*(_QWORD *)(v8 * *((_QWORD *)this + 29) + *((_QWORD *)this + 25)));
+      v14 = *((_QWORD *)this + 29);
       Src = 0LL;
-      memmove((void *)(*((_QWORD *)this + 25) + v15 * v2), &Src, v15);
+      memmove((void *)(*((_QWORD *)this + 25) + v14 * v2), &Src, v14);
       ++*((_DWORD *)this + 60);
       ++v2;
       ++v8;

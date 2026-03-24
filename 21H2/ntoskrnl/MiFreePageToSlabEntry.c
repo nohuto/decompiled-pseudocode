@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreePageToSlabEntry @ 0x14023BF90
+ * XREFs of MiFreePageToSlabEntry @ 0x140375880
  * Callers:
- *     MiFreePageToSlabAllocator @ 0x14023BE50 (MiFreePageToSlabAllocator.c)
+ *     MiFreePageToSlabAllocator @ 0x140375730 (MiFreePageToSlabAllocator.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall MiFreePageToSlabEntry(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiFreePageToSlabEntry(unsigned int a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // r9d
   __int64 v5; // rbx
@@ -16,7 +16,7 @@ __int64 __fastcall MiFreePageToSlabEntry(__int64 a1, __int64 a2, __int64 a3)
   int v9; // r9d
   unsigned __int64 v10; // rax
 
-  v4 = -1431655765 * ((a1 + 0x220000000000LL) >> 4) - *(_DWORD *)(a2 + 24);
+  v4 = (int)a1 / 48 - *(_DWORD *)(a2 + 24);
   _InterlockedIncrement((volatile signed __int32 *)(a2 + 132));
   _InterlockedIncrement((volatile signed __int32 *)(a3 + 32));
   LOBYTE(a1) = 1;
@@ -33,20 +33,20 @@ LABEL_3:
   if ( !v9 )
     goto LABEL_12;
   _InterlockedAnd(v6++, ~(((1 << (32 - v9)) - 1) << v5));
-  LODWORD(a1) = 1 - (32 - v9);
-  if ( (unsigned int)a1 >= 0x20 )
+  a1 = 1 - (32 - v9);
+  if ( a1 >= 0x20 )
   {
-    v10 = (unsigned __int64)(unsigned int)a1 >> 5;
+    v10 = (unsigned __int64)a1 >> 5;
     do
     {
       *v6 = 0;
-      LODWORD(a1) = a1 - 32;
+      a1 -= 32;
       ++v6;
       --v10;
     }
     while ( v10 );
   }
-  if ( (_DWORD)a1 )
+  if ( a1 )
   {
 LABEL_12:
     v7 = -1 << a1;

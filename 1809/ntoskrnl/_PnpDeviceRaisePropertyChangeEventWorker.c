@@ -1,12 +1,12 @@
 /*
- * XREFs of _PnpDeviceRaisePropertyChangeEventWorker @ 0x1406E5BE0
+ * XREFs of _PnpDeviceRaisePropertyChangeEventWorker @ 0x1406E5BC0
  * Callers:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1406E5B04 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1406E5AE4 (_PnpObjectRaisePropertyChangeEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1401C5BB0 (RtlCompareMemory.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
  *     _PnpStringFromGuid @ 0x14059ACE4 (_PnpStringFromGuid.c)
  *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x14059ED20 (_CmGetMatchingFilteredDeviceInterfaceList.c)
@@ -182,7 +182,7 @@ LABEL_16:
       goto LABEL_19;
     if ( ObjectProperty < 0 )
       goto LABEL_70;
-    if ( RtlCompareMemory(&unk_140356A60, Source2, 0x10uLL) == 16 )
+    if ( RtlCompareMemory(&unk_140356B60, Source2, 0x10uLL) == 16 )
       goto LABEL_19;
     if ( PnpStringFromGuid(Source2, v50) < 0 )
     {

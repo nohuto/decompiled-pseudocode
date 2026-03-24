@@ -1,72 +1,69 @@
 /*
- * XREFs of xxxGetUpdateRgn @ 0x1C008B918
+ * XREFs of xxxGetUpdateRgn @ 0x1C010DC34
  * Callers:
- *     NtUserGetUpdateRgn @ 0x1C008B570 (NtUserGetUpdateRgn.c)
+ *     NtUserGetUpdateRgn @ 0x1C010DB60 (NtUserGetUpdateRgn.c)
  * Callees:
- *     MirrorRegion @ 0x1C002561C (MirrorRegion.c)
- *     IntersectWithParents @ 0x1C008BCA0 (IntersectWithParents.c)
- *     _GetDesktopWindow @ 0x1C00ECDE0 (_GetDesktopWindow.c)
- *     SetOrClrWF @ 0x1C00F2594 (SetOrClrWF.c)
- *     xxxSimpleDoSyncPaint @ 0x1C0118654 (xxxSimpleDoSyncPaint.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     SetOrClrWF @ 0x1C004DF08 (SetOrClrWF.c)
+ *     xxxSimpleDoSyncPaint @ 0x1C006D7A0 (xxxSimpleDoSyncPaint.c)
+ *     _GetDesktopWindow @ 0x1C0070420 (_GetDesktopWindow.c)
+ *     IntersectWithParents @ 0x1C0073078 (IntersectWithParents.c)
+ *     MirrorRegion @ 0x1C010DF9C (MirrorRegion.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall xxxGetUpdateRgn(struct tagWND *a1, unsigned __int64 a2, int a3)
+__int64 __fastcall xxxGetUpdateRgn(__int64 a1, __int64 a2, int a3)
 {
   __int64 v5; // rax
   int v6; // eax
-  __int64 v7; // rdx
-  unsigned int v8; // esi
+  unsigned int v7; // esi
   __int64 v9; // rdx
   int v10; // eax
   int v11; // ecx
   int v12; // eax
-  __int64 v14; // rdx
-  __int128 v15; // [rsp+20h] [rbp-20h] BYREF
+  __int128 v13; // [rsp+20h] [rbp-20h] BYREF
 
-  v15 = 0LL;
+  v13 = 0LL;
   if ( a3 )
-    xxxSimpleDoSyncPaint(a1);
-  SetOrClrWF(0LL, a1, 288LL, 1LL);
-  v5 = *((_QWORD *)a1 + 5);
+    xxxSimpleDoSyncPaint((struct tagWND *)a1);
+  SetOrClrWF(0, a1, 0x120u, 1);
+  v5 = *(_QWORD *)(a1 + 40);
   if ( *(_QWORD *)(v5 + 136) )
   {
-    v15 = *(_OWORD *)(v5 + 104);
-    v6 = IntersectWithParents(a1, &v15);
-    v7 = *((_QWORD *)a1 + 5);
-    if ( *(_QWORD *)(v7 + 136) == 1LL )
+    v13 = *(_OWORD *)(v5 + 104);
+    v6 = IntersectWithParents(a1, (int *)&v13);
+    if ( *(_QWORD *)(*(_QWORD *)(a1 + 40) + 136LL) == 1LL )
     {
       if ( v6 )
       {
-        v8 = 2;
-        if ( a1 != (struct tagWND *)GetDesktopWindow(a1, v7) )
+        v7 = 2;
+        if ( a1 != GetDesktopWindow(a1) )
         {
           v10 = *(_DWORD *)(v9 + 104);
           v11 = -*(_DWORD *)(v9 + 108);
-          HIDWORD(v15) -= *(_DWORD *)(v9 + 108);
+          HIDWORD(v13) -= *(_DWORD *)(v9 + 108);
           v12 = -v10;
-          LODWORD(v15) = v12 + v15;
-          DWORD2(v15) += v12;
-          DWORD1(v15) += v11;
+          LODWORD(v13) = v12 + v13;
+          DWORD2(v13) += v12;
+          DWORD1(v13) += v11;
         }
-        SetRectRgnIndirect(a2, &v15);
-LABEL_9:
-        MirrorRegion((__int64)a1, a2, 1);
-        return v8;
+        SetRectRgnIndirect(a2, &v13);
+        goto LABEL_8;
       }
     }
     else
     {
-      SetRectRgnIndirect(ghrgnInv2, &v15);
-      v8 = GreCombineRgn(a2, ghrgnInv2, *(_QWORD *)(*((_QWORD *)a1 + 5) + 136LL), 1LL);
-      if ( v8 >= 2 )
+      SetRectRgnIndirect(ghrgnInv2, &v13);
+      v7 = GreCombineRgn(a2, ghrgnInv2, *(_QWORD *)(*(_QWORD *)(a1 + 40) + 136LL), 1LL);
+      if ( v7 > 1 )
       {
-        if ( a1 != (struct tagWND *)GetDesktopWindow(a1, v14) )
+        if ( a1 != GetDesktopWindow(a1) )
           GreOffsetRgn(
             a2,
-            (unsigned int)-*(_DWORD *)(*((_QWORD *)a1 + 5) + 104LL),
-            (unsigned int)-*(_DWORD *)(*((_QWORD *)a1 + 5) + 108LL));
-        goto LABEL_9;
+            (unsigned int)-*(_DWORD *)(*(_QWORD *)(a1 + 40) + 104LL),
+            (unsigned int)-*(_DWORD *)(*(_QWORD *)(a1 + 40) + 108LL));
+LABEL_8:
+        MirrorRegion(a1, a2, 1LL);
+        return v7;
       }
     }
   }

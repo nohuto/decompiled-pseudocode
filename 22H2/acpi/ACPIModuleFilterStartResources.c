@@ -1,7 +1,7 @@
 /*
- * XREFs of ACPIModuleFilterStartResources @ 0x1C0017AD8
+ * XREFs of ACPIModuleFilterStartResources @ 0x1C004DFB8
  * Callers:
- *     ACPIBusIrpStartDevice @ 0x1C0081500 (ACPIBusIrpStartDevice.c)
+ *     ACPIBusIrpStartDevice @ 0x1C0090F10 (ACPIBusIrpStartDevice.c)
  * Callees:
  *     <none>
  */
@@ -16,21 +16,20 @@ __int64 __fastcall ACPIModuleFilterStartResources(__int64 a1, __int64 a2, __int6
 
   for ( i = 0; i < 2; ++i )
   {
-    while ( !i )
+    if ( i )
     {
-      if ( a2 )
-      {
-        v6 = a2 + 4;
-        goto LABEL_8;
-      }
-      i = 1;
+      if ( !a3 )
+        continue;
+      v6 = a3 + 4;
     }
-    if ( !a3 )
-      return 0LL;
-    v6 = a3 + 4;
-LABEL_8:
+    else
+    {
+      if ( !a2 )
+        continue;
+      v6 = a2 + 4;
+    }
     if ( !v6 )
-      break;
+      return 0LL;
     v7 = *(_DWORD *)(v6 + 12);
     if ( v7 )
     {

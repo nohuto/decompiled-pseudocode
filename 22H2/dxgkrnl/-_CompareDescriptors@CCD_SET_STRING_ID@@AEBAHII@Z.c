@@ -1,31 +1,31 @@
 /*
- * XREFs of ?_CompareDescriptors@CCD_SET_STRING_ID@@AEBAHII@Z @ 0x1C03BC5C0
+ * XREFs of ?_CompareDescriptors@CCD_SET_STRING_ID@@AEBAHII@Z @ 0x1C02F10C0
  * Callers:
- *     ?_ParseMonitorDescriptors@CCD_SET_STRING_ID@@AEAAXXZ @ 0x1C017DAC4 (-_ParseMonitorDescriptors@CCD_SET_STRING_ID@@AEAAXXZ.c)
+ *     ?_ParseMonitorDescriptors@CCD_SET_STRING_ID@@AEAAXXZ @ 0x1C013B008 (-_ParseMonitorDescriptors@CCD_SET_STRING_ID@@AEAAXXZ.c)
  * Callees:
- *     memcmp @ 0x1C0028100 (memcmp.c)
- *     ?_GetDescriptorLength@CCD_SET_STRING_ID@@AEBAGI@Z @ 0x1C017DC34 (-_GetDescriptorLength@CCD_SET_STRING_ID@@AEBAGI@Z.c)
+ *     memcmp @ 0x1C0028BC0 (memcmp.c)
+ *     ?_GetDescriptorLength@CCD_SET_STRING_ID@@AEBAGI@Z @ 0x1C013AF28 (-_GetDescriptorLength@CCD_SET_STRING_ID@@AEBAGI@Z.c)
  */
 
-int __fastcall CCD_SET_STRING_ID::_CompareDescriptors(CCD_SET_STRING_ID *this, unsigned int a2)
+int __fastcall CCD_SET_STRING_ID::_CompareDescriptors(CCD_SET_STRING_ID *this, unsigned int a2, unsigned int a3)
 {
-  __int64 v2; // rbx
-  CCD_SET_STRING_ID *v3; // r9
-  unsigned int v4; // r11d
+  __int64 v3; // rbx
+  __int64 v4; // rdi
+  CCD_SET_STRING_ID *v5; // r11
   unsigned __int16 DescriptorLength; // ax
-  __int64 v6; // r9
   size_t v7; // r10
   __int64 v8; // r11
 
-  v2 = a2;
+  v3 = a3;
+  v4 = a2;
   CCD_SET_STRING_ID::_GetDescriptorLength(this, a2);
-  DescriptorLength = CCD_SET_STRING_ID::_GetDescriptorLength(v3, v4);
+  DescriptorLength = CCD_SET_STRING_ID::_GetDescriptorLength(v5, v3);
   if ( (unsigned __int16)v7 < DescriptorLength )
     return -1;
   if ( (unsigned __int16)v7 <= DescriptorLength )
     return memcmp(
-             (const void *)(*(_QWORD *)(v6 + 16) + *(unsigned __int16 *)(*(_QWORD *)(v6 + 24) + 8 * v2)),
-             (const void *)(*(_QWORD *)(v6 + 16) + *(unsigned __int16 *)(*(_QWORD *)(v6 + 24) + 8 * v8)),
+             (const void *)(*(_QWORD *)(v8 + 16) + *(unsigned __int16 *)(*(_QWORD *)(v8 + 24) + 8 * v4)),
+             (const void *)(*(_QWORD *)(v8 + 16) + *(unsigned __int16 *)(*(_QWORD *)(v8 + 24) + 8 * v3)),
              v7);
   return 1;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?Create@CDxHandleStereoBitmapRealization@@SAHU_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAPEAVISwapChainRealization@@@Z @ 0x1802A4834
+ * XREFs of ?Create@CDxHandleStereoBitmapRealization@@SAHU_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAPEAVISwapChainRealization@@@Z @ 0x180264DF4
  * Callers:
- *     ?CreateNewRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@_NPEAPEAVISwapChainRealization@@@Z @ 0x180066C1C (-CreateNewRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@A.c)
+ *     ?CreateNewRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@_NPEAPEAVISwapChainRealization@@@Z @ 0x180038E4C (-CreateNewRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@A.c)
  * Callees:
- *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
- *     ?Initialize@CDxHandleBitmapRealization@@IEAAJXZ @ 0x180066E4C (-Initialize@CDxHandleBitmapRealization@@IEAAJXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18007E4F4 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ??0CDxHandleStereoBitmapRealization@@IEAA@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@@Z @ 0x1802A44F0 (--0CDxHandleStereoBitmapRealization@@IEAA@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION.c)
+ *     ?Initialize@CDxHandleBitmapRealization@@IEAAJXZ @ 0x180039068 (-Initialize@CDxHandleBitmapRealization@@IEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x18005FB60 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ??2@YAPEAX_K@Z @ 0x180062598 (--2@YAPEAX_K@Z.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C0950 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     ??0CDxHandleStereoBitmapRealization@@IEAA@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@@Z @ 0x180264AA4 (--0CDxHandleStereoBitmapRealization@@IEAA@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION.c)
  */
 
 __int64 __fastcall CDxHandleStereoBitmapRealization::Create(
@@ -19,40 +19,42 @@ __int64 __fastcall CDxHandleStereoBitmapRealization::Create(
 {
   CDxHandleStereoBitmapRealization *v8; // rax
   __int64 v9; // rcx
-  CDxHandleStereoBitmapRealization *v10; // rax
-  CDxHandleStereoBitmapRealization *v11; // rbx
+  CDxHandleStereoBitmapRealization *v10; // rdi
+  CRenderTargetBitmap *v11; // rbx
   int v12; // eax
   __int64 v13; // rcx
-  unsigned int v14; // edi
+  unsigned int v14; // esi
+  struct ISwapChainRealization *v15; // rdi
 
-  v8 = (CDxHandleStereoBitmapRealization *)operator new(0x260uLL);
-  if ( !v8 )
-  {
-    v11 = 0LL;
-    goto LABEL_7;
-  }
-  v10 = CDxHandleStereoBitmapRealization::CDxHandleStereoBitmapRealization(v8, a1, a2, a3);
+  v8 = (CDxHandleStereoBitmapRealization *)operator new(0x240uLL);
+  if ( v8 )
+    v10 = CDxHandleStereoBitmapRealization::CDxHandleStereoBitmapRealization(v8, a1, a2, a3);
+  else
+    v10 = 0LL;
   v11 = v10;
-  if ( !v10 )
+  if ( v10 )
   {
-LABEL_7:
+    CMILCOMBase::InternalAddRef(v10);
+    v12 = CDxHandleBitmapRealization::Initialize(v10);
+    v14 = v12;
+    if ( v12 >= 0 )
+    {
+      v11 = 0LL;
+      v15 = (CDxHandleStereoBitmapRealization *)((char *)v10 + 328);
+      goto LABEL_10;
+    }
+    MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x1Au, 0LL);
+    *((_QWORD *)v10 + 28) = 0LL;
+  }
+  else
+  {
     v14 = -2147024882;
-    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0LL, -2147024882, 0x18u);
-    goto LABEL_8;
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2147024882, 0x18u, 0LL);
   }
-  CMILRefCountImpl::AddReference((CDxHandleStereoBitmapRealization *)((char *)v10 + 8));
-  v12 = CDxHandleBitmapRealization::Initialize(v11);
-  v14 = v12;
-  if ( v12 >= 0 )
-  {
-    *a4 = (CDxHandleStereoBitmapRealization *)((char *)v11 + 360);
-    return v14;
-  }
-  MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0LL, v12, 0x1Au);
-  *((_QWORD *)v11 + 31) = 0LL;
-LABEL_8:
-  *a4 = 0LL;
+  v15 = 0LL;
+LABEL_10:
+  *a4 = v15;
   if ( v11 )
-    CMILRefCountBaseT<IUnknown>::InternalRelease((volatile signed __int32 *)v11);
+    CRenderTargetBitmap::Release(v11);
   return v14;
 }

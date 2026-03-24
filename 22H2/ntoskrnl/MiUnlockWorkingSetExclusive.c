@@ -1,150 +1,166 @@
 /*
- * XREFs of MiUnlockWorkingSetExclusive @ 0x14028A1D0
+ * XREFs of MiUnlockWorkingSetExclusive @ 0x14021CAA0
  * Callers:
- *     MiDeleteSessionAddressSpace @ 0x1402008EC (MiDeleteSessionAddressSpace.c)
- *     MiSessionRemoveImage @ 0x1402009A8 (MiSessionRemoveImage.c)
- *     MiCountSystemImageCommitment @ 0x14020ABD4 (MiCountSystemImageCommitment.c)
- *     MiSessionInsertImage @ 0x14020AE84 (MiSessionInsertImage.c)
- *     MmEnforceWorkingSetLimit @ 0x14020C05C (MmEnforceWorkingSetLimit.c)
- *     MiRemoveFromSystemSpace @ 0x1402137A0 (MiRemoveFromSystemSpace.c)
- *     MiInsertInSystemSpace @ 0x140213D30 (MiInsertInSystemSpace.c)
- *     MiRemoveSecureEntry @ 0x140217310 (MiRemoveSecureEntry.c)
- *     MmAccessFault @ 0x140235350 (MmAccessFault.c)
- *     MiUserFault @ 0x140235870 (MiUserFault.c)
- *     MiSystemFault @ 0x140261080 (MiSystemFault.c)
- *     MiCommitExistingVad @ 0x140276910 (MiCommitExistingVad.c)
- *     MiMakeSystemAddressValid @ 0x140277310 (MiMakeSystemAddressValid.c)
- *     MiDeletePagablePteRange @ 0x14027A040 (MiDeletePagablePteRange.c)
- *     MiGetVadWakeList @ 0x14028A050 (MiGetVadWakeList.c)
- *     MiDeleteProcessShadow @ 0x14029160C (MiDeleteProcessShadow.c)
- *     MiIssueHardFault @ 0x1402A0F90 (MiIssueHardFault.c)
- *     MiInsertVadEvent @ 0x1402E326C (MiInsertVadEvent.c)
- *     MmAdjustWorkingSetSizeEx @ 0x1402E9C78 (MmAdjustWorkingSetSizeEx.c)
- *     MiReleaseFaultState @ 0x1402EF2A0 (MiReleaseFaultState.c)
- *     MiPerformVadSplitting @ 0x14030B4C4 (MiPerformVadSplitting.c)
- *     MiReleaseWalkLocks @ 0x14033D09C (MiReleaseWalkLocks.c)
- *     MiOutSwapWorkingSet @ 0x140342224 (MiOutSwapWorkingSet.c)
- *     MiBeginProcessClean @ 0x140342310 (MiBeginProcessClean.c)
- *     MiUnlockFaultWorkingSet @ 0x140361DF4 (MiUnlockFaultWorkingSet.c)
- *     MiCleanWorkingSet @ 0x14036439C (MiCleanWorkingSet.c)
- *     MiDeleteCloneZombies @ 0x140367034 (MiDeleteCloneZombies.c)
- *     MiLocateOldestSecure @ 0x1403699EC (MiLocateOldestSecure.c)
- *     MiSetTrimWhileAgingState @ 0x14036A774 (MiSetTrimWhileAgingState.c)
- *     MiMapWithLargePages @ 0x14038CB94 (MiMapWithLargePages.c)
- *     MiFreeUnusedPfnPagesDpc @ 0x14038D050 (MiFreeUnusedPfnPagesDpc.c)
- *     MiDeleteBootRange @ 0x14038E378 (MiDeleteBootRange.c)
- *     MmStealTopLevelPage @ 0x1403D6DAC (MmStealTopLevelPage.c)
- *     MiClearCommitReleaseState @ 0x14061806C (MiClearCommitReleaseState.c)
- *     MiReAcquireOutSwappedProcessCommit @ 0x140618F78 (MiReAcquireOutSwappedProcessCommit.c)
- *     MiReleaseCommitForResetPages @ 0x140619158 (MiReleaseCommitForResetPages.c)
- *     MiReleaseOutSwappedProcessCommit @ 0x1406192E8 (MiReleaseOutSwappedProcessCommit.c)
- *     MmEnableProcessSvm @ 0x140619854 (MmEnableProcessSvm.c)
- *     MmReleaseCommitForMemResetPages @ 0x1406198B8 (MmReleaseCommitForMemResetPages.c)
- *     MmSetCommitReleaseEligibility @ 0x140619ADC (MmSetCommitReleaseEligibility.c)
- *     MiDeleteRotateAndStopFaults @ 0x140632628 (MiDeleteRotateAndStopFaults.c)
- *     MiRotateComplete @ 0x140632E3C (MiRotateComplete.c)
- *     MiWaitForRotateToComplete @ 0x140633C74 (MiWaitForRotateToComplete.c)
- *     MiMakeSecureExclusive @ 0x140633DD0 (MiMakeSecureExclusive.c)
- *     MiRemoveVadEvent @ 0x140633E78 (MiRemoveVadEvent.c)
- *     MiBeginHoldingDirtyFaults @ 0x140641C64 (MiBeginHoldingDirtyFaults.c)
- *     MiFinishHoldingDirtyFaults @ 0x140642638 (MiFinishHoldingDirtyFaults.c)
- *     MiCloneCaptureVadCommit @ 0x1406435E0 (MiCloneCaptureVadCommit.c)
- *     MiLockWorkingSetForLargeMapping @ 0x1406501B8 (MiLockWorkingSetForLargeMapping.c)
- *     MiBuildForkPte @ 0x140662270 (MiBuildForkPte.c)
- *     MiCloneVads @ 0x1406632E8 (MiCloneVads.c)
- *     MiCreateCloneChain @ 0x140663A8C (MiCreateCloneChain.c)
- *     MiCreateForkWsles @ 0x140663CE0 (MiCreateForkWsles.c)
- *     MiDoneWithThisPageGetAnother @ 0x140663FF4 (MiDoneWithThisPageGetAnother.c)
- *     MiDuplicateCloneLeaf @ 0x1406640F8 (MiDuplicateCloneLeaf.c)
- *     MiHandleForkTransitionPte @ 0x1406649B8 (MiHandleForkTransitionPte.c)
- *     MiLockDownWorkingSet @ 0x140665200 (MiLockDownWorkingSet.c)
- *     MiMapUserLargePages @ 0x140668E30 (MiMapUserLargePages.c)
- *     MiCreateInitialSystemWsles @ 0x140B48DF8 (MiCreateInitialSystemWsles.c)
+ *     MmAccessFault @ 0x14020D050 (MmAccessFault.c)
+ *     MiUserFault @ 0x14020D730 (MiUserFault.c)
+ *     MiCommitExistingVad @ 0x140218D50 (MiCommitExistingVad.c)
+ *     MiDeleteVad @ 0x14021BFB0 (MiDeleteVad.c)
+ *     MmEnforceWorkingSetLimit @ 0x140251A38 (MmEnforceWorkingSetLimit.c)
+ *     MiRemoveSecureEntry @ 0x14025AE40 (MiRemoveSecureEntry.c)
+ *     MiInsertVadEvent @ 0x14025B21C (MiInsertVadEvent.c)
+ *     MiInsertInSystemSpace @ 0x14027B460 (MiInsertInSystemSpace.c)
+ *     MiDeletePartialVad @ 0x14027DF5C (MiDeletePartialVad.c)
+ *     MiRemoveFromSystemSpace @ 0x1402854CC (MiRemoveFromSystemSpace.c)
+ *     MiDeleteProcessShadow @ 0x140285DE8 (MiDeleteProcessShadow.c)
+ *     MiMakeSystemAddressValid @ 0x14028EA10 (MiMakeSystemAddressValid.c)
+ *     MiReleaseFaultState @ 0x14028FB74 (MiReleaseFaultState.c)
+ *     MiUnlockSystemVa @ 0x14029277C (MiUnlockSystemVa.c)
+ *     MiInsertVad @ 0x1402969B0 (MiInsertVad.c)
+ *     MiFinishVadDeletion @ 0x140297440 (MiFinishVadDeletion.c)
+ *     MiFreePhysicalView @ 0x140298638 (MiFreePhysicalView.c)
+ *     MiGetVadWakeList @ 0x1402986A0 (MiGetVadWakeList.c)
+ *     MiDeletePagablePteRange @ 0x1402B79F0 (MiDeletePagablePteRange.c)
+ *     MiUnlockFaultWorkingSet @ 0x1402E3CBC (MiUnlockFaultWorkingSet.c)
+ *     MiRotateComplete @ 0x1402EB19C (MiRotateComplete.c)
+ *     MiDeleteRotateAndStopFaults @ 0x1402EB774 (MiDeleteRotateAndStopFaults.c)
+ *     MiReleaseWalkLocks @ 0x140302EB0 (MiReleaseWalkLocks.c)
+ *     MiSetTrimWhileAgingState @ 0x1403044BC (MiSetTrimWhileAgingState.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14031711C (MmAdjustWorkingSetSizeEx.c)
+ *     MiCleanWorkingSet @ 0x14031D4D4 (MiCleanWorkingSet.c)
+ *     MiMakeSecureExclusive @ 0x1403222F0 (MiMakeSecureExclusive.c)
+ *     MiDeleteCloneZombies @ 0x14032267C (MiDeleteCloneZombies.c)
+ *     MiWaitForRotateToComplete @ 0x14032BD70 (MiWaitForRotateToComplete.c)
+ *     MiBeginProcessClean @ 0x140350150 (MiBeginProcessClean.c)
+ *     MiOutSwapWorkingSet @ 0x140351618 (MiOutSwapWorkingSet.c)
+ *     MiLocateOldestSecure @ 0x14037DC38 (MiLocateOldestSecure.c)
+ *     MmStealTopLevelPage @ 0x140387ED8 (MmStealTopLevelPage.c)
+ *     MiDeleteSessionAddressSpace @ 0x140388EEC (MiDeleteSessionAddressSpace.c)
+ *     MiSessionRemoveImage @ 0x14038A8F8 (MiSessionRemoveImage.c)
+ *     MiCountSystemImageCommitment @ 0x14039E594 (MiCountSystemImageCommitment.c)
+ *     MiSessionInsertImage @ 0x1403A2274 (MiSessionInsertImage.c)
+ *     MiDeleteBootRange @ 0x1403B4B18 (MiDeleteBootRange.c)
+ *     MiMapWithLargePages @ 0x1403B848C (MiMapWithLargePages.c)
+ *     MiFreeUnusedPfnPagesDpc @ 0x1403B8FF0 (MiFreeUnusedPfnPagesDpc.c)
+ *     MiDeleteTopLevelSessionMapping @ 0x1403F3AC8 (MiDeleteTopLevelSessionMapping.c)
+ *     MiDeleteEmptyPageTableCommit @ 0x1403F4194 (MiDeleteEmptyPageTableCommit.c)
+ *     MiClearCommitReleaseState @ 0x14052B418 (MiClearCommitReleaseState.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x14052C2A8 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiReleaseCommitForResetPages @ 0x14052C494 (MiReleaseCommitForResetPages.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x14052C648 (MiReleaseOutSwappedProcessCommit.c)
+ *     MmEnableProcessSvm @ 0x14052CBD0 (MmEnableProcessSvm.c)
+ *     MmReleaseCommitForMemResetPages @ 0x14052CC34 (MmReleaseCommitForMemResetPages.c)
+ *     MmSetCommitReleaseEligibility @ 0x14052CE6C (MmSetCommitReleaseEligibility.c)
+ *     MiRemoveVadEvent @ 0x14053A6D4 (MiRemoveVadEvent.c)
+ *     MiBeginHoldingDirtyFaults @ 0x14053E170 (MiBeginHoldingDirtyFaults.c)
+ *     MiFinishHoldingDirtyFaults @ 0x14053EA44 (MiFinishHoldingDirtyFaults.c)
+ *     MiCloneCaptureVadCommit @ 0x140544F8C (MiCloneCaptureVadCommit.c)
+ *     MiLockWorkingSetForLargeMapping @ 0x14054F718 (MiLockWorkingSetForLargeMapping.c)
+ *     MiRemovePlaceholderVad @ 0x1405552A8 (MiRemovePlaceholderVad.c)
+ *     MiBuildForkPte @ 0x1405581FC (MiBuildForkPte.c)
+ *     MiCloneVads @ 0x140559268 (MiCloneVads.c)
+ *     MiCreateCloneChain @ 0x140559A00 (MiCreateCloneChain.c)
+ *     MiCreateForkWsles @ 0x140559CEC (MiCreateForkWsles.c)
+ *     MiDoneWithThisPageGetAnother @ 0x14055A078 (MiDoneWithThisPageGetAnother.c)
+ *     MiDuplicateCloneLeaf @ 0x14055A174 (MiDuplicateCloneLeaf.c)
+ *     MiHandleForkTransitionPte @ 0x14055A9A4 (MiHandleForkTransitionPte.c)
+ *     MiLockDownWorkingSet @ 0x14055B238 (MiLockDownWorkingSet.c)
+ *     MiMapUserLargePages @ 0x14055E670 (MiMapUserLargePages.c)
+ *     MiCreateInitialSystemWsles @ 0x140A4F20C (MiCreateInitialSystemWsles.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
- *     MiCheckProcessShadow @ 0x14023F0E0 (MiCheckProcessShadow.c)
- *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B12C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiDeleteDeferredCloneDescriptors @ 0x140663F7C (MiDeleteDeferredCloneDescriptors.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     MiUnlockWorkingSetShared @ 0x14020F750 (MiUnlockWorkingSetShared.c)
+ *     MiCheckProcessShadow @ 0x14020F840 (MiCheckProcessShadow.c)
+ *     MiLockWorkingSetShared @ 0x140219C70 (MiLockWorkingSetShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDeleteDeferredCloneDescriptors @ 0x14055A000 (MiDeleteDeferredCloneDescriptors.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5CCC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiUnlockWorkingSetExclusive(__int64 a1, unsigned __int8 a2, __int64 a3, __int64 a4)
+void __fastcall MiUnlockWorkingSetExclusive(__int64 a1, unsigned __int8 a2)
 {
-  int v5; // ebp
-  _QWORD *v6; // r14
-  unsigned __int64 v7; // r15
-  _DWORD *v8; // rdi
-  unsigned __int8 CurrentIrql; // cl
-  struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
-  int v12; // eax
-  bool v13; // zf
-  _QWORD *v14; // rdi
+  int v3; // esi
+  _QWORD *v4; // r14
+  unsigned __int64 v5; // rbp
+  LONG *v6; // rbx
+  __int64 v7; // r8
+  _DWORD *v8; // r9
+  struct _KPRCB *CurrentPrcb; // rcx
+  __int64 SchedulerAssist; // rdx
+  int v11; // eax
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *v13; // r10
+  int v14; // eax
+  bool v15; // zf
+  _QWORD *v16; // rbx
   void *retaddr; // [rsp+38h] [rbp+0h]
-  int v16; // [rsp+48h] [rbp+10h]
+  int v18; // [rsp+48h] [rbp+10h]
 
-  v5 = 0;
-  v6 = 0LL;
-  v16 = *(_DWORD *)(a1 + 184);
-  v7 = a2;
-  if ( (v16 & 7) == 2 )
-  {
-    v8 = &unk_140C6A280;
-  }
+  v3 = 0;
+  v4 = 0LL;
+  v18 = *(_DWORD *)(a1 + 184);
+  v5 = a2;
+  if ( (v18 & 7) == 2 )
+    v6 = &dword_140C4F780;
   else
+    v6 = (LONG *)(a1 + 192);
+  if ( (v18 & 7) == 0
+    && *(_QWORD *)(a1 + 16)
+    && *(_WORD *)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessorsPadding[8] + 368) )
   {
-    v8 = (_DWORD *)(a1 + 192);
-    if ( (v16 & 7) == 0 )
-    {
-      v8 = (_DWORD *)(a1 + 192);
-      if ( *(_QWORD *)(a1 + 16) )
-      {
-        v8 = (_DWORD *)(a1 + 192);
-        if ( *(_WORD *)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28] + 352) )
-        {
-          v6 = (_QWORD *)MiDeleteDeferredCloneDescriptors();
-          v8 = (_DWORD *)(a1 + 192);
-        }
-      }
-    }
+    v4 = (_QWORD *)MiDeleteDeferredCloneDescriptors();
   }
   if ( (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x400000) != 0 )
-    v5 = 1;
-  MiCheckProcessShadow(a1, 2u, a3, a4);
+    v3 = 1;
+  MiCheckProcessShadow(a1, 2u);
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
-    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v8, retaddr);
+    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v6, retaddr);
   else
-    *v8 = 0;
-  if ( KiIrqlFlags )
+    *v6 = 0;
+  CurrentPrcb = KeGetCurrentPrcb();
+  SchedulerAssist = (__int64)CurrentPrcb->SchedulerAssist;
+  if ( SchedulerAssist )
   {
-    CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( CurrentPrcb->NestingLevel <= 1u )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v13 = (v12 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v12;
-      if ( v13 )
+      v11 = *(_DWORD *)(SchedulerAssist + 24) - 1;
+      *(_DWORD *)(SchedulerAssist + 24) = v11;
+      if ( !v11 )
         KiRemoveSystemWorkPriorityKick(CurrentPrcb);
     }
   }
-  __writecr8(v7);
-  if ( v6 )
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      {
+        v13 = KeGetCurrentPrcb();
+        SchedulerAssist = -1LL << ((unsigned __int8)v5 + 1);
+        v8 = v13->SchedulerAssist;
+        v14 = ~(unsigned __int16)SchedulerAssist;
+        v15 = (v14 & v8[5]) == 0;
+        v7 = (unsigned int)v14 & v8[5];
+        v8[5] = v7;
+        if ( v15 )
+          KiRemoveSystemWorkPriorityKick(v13);
+      }
+    }
+  }
+  __writecr8(v5);
+  if ( v4 )
   {
     do
     {
-      v14 = (_QWORD *)*v6;
-      ExFreePoolWithTag(v6, 0);
-      v6 = v14;
+      v16 = (_QWORD *)*v4;
+      ExFreePoolWithTag(v4, 0);
+      v4 = v16;
     }
-    while ( v14 );
+    while ( v16 );
   }
-  if ( !v5 && ((*(_DWORD *)(a1 + 188) & 3) != 0 || (v16 & 0x10000000) != 0) )
+  if ( !v3 && ((v18 & 0x8000000) != 0 || (v18 & 0x4000000) != 0 || (v18 & 0x10000000) != 0) )
   {
-    MiLockWorkingSetShared(a1);
-    MiUnlockWorkingSetShared(a1, v7);
+    MiLockWorkingSetShared(a1, SchedulerAssist, v7, v8);
+    MiUnlockWorkingSetShared(a1, v5);
   }
 }

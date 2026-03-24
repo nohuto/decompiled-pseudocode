@@ -1,181 +1,325 @@
 /*
- * XREFs of SepCopyTokenAccessInformation @ 0x1406A293C
+ * XREFs of SepCopyTokenAccessInformation @ 0x1405DBD68
  * Callers:
- *     SeQueryInformationToken @ 0x14079F290 (SeQueryInformationToken.c)
- *     NtQueryInformationToken @ 0x1407B13E0 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
+ *     NtQueryInformationToken @ 0x140657DF0 (NtQueryInformationToken.c)
  * Callees:
- *     SeQueryMandatoryPolicyToken @ 0x14022B1FC (SeQueryMandatoryPolicyToken.c)
- *     RtlSidHashInitialize @ 0x1402E1660 (RtlSidHashInitialize.c)
- *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x1402ED7E0 (SepConvertTokenPrivilegesToLuidAndAttributes.c)
- *     Feature_1729178936__private_IsEnabled @ 0x14041A0D4 (Feature_1729178936__private_IsEnabled.c)
- *     memmove @ 0x140435B40 (memmove.c)
- *     RtlCopySidAndAttributesArray @ 0x14066A420 (RtlCopySidAndAttributesArray.c)
- *     AuthzBasepQueryInternalSecurityAttributesToken @ 0x1406A2E40 (AuthzBasepQueryInternalSecurityAttributesToken.c)
+ *     SeQueryMandatoryPolicyToken @ 0x140202A4C (SeQueryMandatoryPolicyToken.c)
+ *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x140252800 (SepConvertTokenPrivilegesToLuidAndAttributes.c)
+ *     RtlSidHashInitialize @ 0x140355DE0 (RtlSidHashInitialize.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     Feature_693672248__private_IsEnabledDeviceUsage @ 0x1403F8B20 (Feature_693672248__private_IsEnabledDeviceUsage.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlCopySidAndAttributesArray @ 0x1405DC280 (RtlCopySidAndAttributesArray.c)
+ *     AuthzBasepQueryInternalSecurityAttributesToken @ 0x1405DC544 (AuthzBasepQueryInternalSecurityAttributesToken.c)
  */
 
 __int64 __fastcall SepCopyTokenAccessInformation(
         __int64 a1,
         __int64 a2,
-        int a3,
+        unsigned int a3,
         int a4,
         unsigned int a5,
         unsigned int a6,
-        int a7,
-        int a8,
-        int a9,
-        int a10,
-        int a11,
-        int a12,
-        int a13,
+        unsigned int a7,
+        unsigned int a8,
+        unsigned int a9,
+        unsigned int a10,
+        unsigned int a11,
+        unsigned int a12,
+        unsigned int a13,
         char a14,
-        unsigned __int8 *a15)
+        unsigned __int8 *Src)
 {
-  int v18; // r15d
+  __int64 v18; // rbx
   __int64 v19; // rcx
-  __int64 v20; // rcx
-  char *v21; // rsi
-  int v22; // eax
-  ULONG v23; // r8d
-  __int64 v24; // rbp
-  char *DestinationSid; // rax
-  int IsEnabled; // eax
-  unsigned int v27; // edx
-  _QWORD *v28; // r8
-  _QWORD *v29; // rdi
-  char *v30; // rbp
-  unsigned int v31; // ecx
-  int v32; // eax
-  unsigned int v33; // edx
-  char *v34; // rdi
-  char *v35; // rbp
-  unsigned int v36; // ecx
-  int v37; // eax
-  unsigned int v38; // edx
-  char *v39; // rdi
-  char *v40; // rbp
-  unsigned __int8 *v41; // rdx
-  char *v42; // rdi
-  char *v43; // rdi
-  char *v44; // rdx
-  __int64 v46; // [rsp+70h] [rbp+8h] BYREF
+  char *v20; // rdi
+  int v21; // eax
+  unsigned int v22; // r8d
+  __int64 v23; // r15
+  int IsEnabledDeviceUsage; // eax
+  unsigned int v25; // edx
+  __int64 v26; // r12
+  __int64 *v27; // rcx
+  _OWORD *v28; // rcx
+  _OWORD *v29; // rax
+  __int64 v30; // rdx
+  __int128 v31; // xmm1
+  __int128 v32; // xmm0
+  __int128 v33; // xmm1
+  __int128 v34; // xmm0
+  __int128 v35; // xmm1
+  __int128 v36; // xmm0
+  __int128 v37; // xmm1
+  __int64 v38; // rbx
+  __int64 v39; // r15
+  int v40; // ecx
+  int v41; // eax
+  unsigned int v42; // edx
+  __int64 *v43; // rcx
+  _OWORD *v44; // rcx
+  __int64 v45; // rdx
+  _OWORD *v46; // rax
+  __int128 v47; // xmm1
+  __int128 v48; // xmm0
+  __int128 v49; // xmm1
+  __int128 v50; // xmm0
+  __int128 v51; // xmm1
+  __int128 v52; // xmm0
+  __int128 v53; // xmm1
+  __int64 v54; // rbx
+  __int64 v55; // r15
+  int v56; // ecx
+  int v57; // eax
+  unsigned int v58; // edx
+  __int64 *v59; // rcx
+  _OWORD *v60; // rcx
+  _OWORD *v61; // rax
+  __int128 v62; // xmm1
+  __int128 v63; // xmm0
+  __int128 v64; // xmm1
+  __int128 v65; // xmm0
+  __int128 v66; // xmm1
+  __int128 v67; // xmm0
+  __int128 v68; // xmm1
+  __int64 v69; // rax
+  char *v70; // rbx
+  char *v71; // r15
+  __int64 v72; // r15
+  char *v73; // rbx
+  int v74; // r8d
+  char *v75; // rbx
+  int v76; // eax
+  char *v77; // rdx
+  __int64 v79; // [rsp+40h] [rbp-C0h] BYREF
+  unsigned int v80; // [rsp+48h] [rbp-B8h]
+  unsigned int v81; // [rsp+4Ch] [rbp-B4h]
+  unsigned int v82; // [rsp+50h] [rbp-B0h]
+  unsigned int v83; // [rsp+54h] [rbp-ACh]
+  unsigned int v84; // [rsp+58h] [rbp-A8h]
+  unsigned int v85; // [rsp+5Ch] [rbp-A4h]
+  unsigned int v86; // [rsp+60h] [rbp-A0h]
+  unsigned int v87; // [rsp+64h] [rbp-9Ch]
+  int v88; // [rsp+68h] [rbp-98h]
+  __int64 v89; // [rsp+70h] [rbp-90h]
+  _QWORD v90[34]; // [rsp+80h] [rbp-80h] BYREF
 
+  v80 = a5;
+  v81 = a7;
+  v84 = a8;
+  v83 = a9;
+  v82 = a10;
+  v85 = a11;
+  v86 = a12;
+  v18 = a3;
+  v87 = a13;
+  v88 = a4;
+  memset(v90, 0, sizeof(v90));
+  Feature_693672248__private_IsEnabledDeviceUsage();
+  v89 = a2 + v18;
   *(_QWORD *)(a2 + 24) = *(_QWORD *)(a1 + 24);
   *(_DWORD *)(a2 + 32) = *(_DWORD *)(a1 + 192);
   *(_DWORD *)(a2 + 36) = *(_DWORD *)(a1 + 196);
   *(_DWORD *)(a2 + 44) = *(_DWORD *)(a1 + 200);
-  v18 = a2 + a3;
   SeQueryMandatoryPolicyToken(a1, (_DWORD *)(a2 + 40));
-  v20 = *(_QWORD *)(v19 + 1080);
-  v21 = 0LL;
-  v22 = 0;
-  if ( v20 )
-    v22 = *(_DWORD *)(v20 + 40);
-  v23 = a5 - a6;
-  v24 = a2 + 360;
-  *(_DWORD *)(a2 + 48) = v22;
+  v19 = *(_QWORD *)(a1 + 1080);
+  v20 = 0LL;
+  v21 = 0;
+  if ( v19 )
+    v21 = *(_DWORD *)(v19 + 40);
+  v22 = v80;
+  *(_DWORD *)(a2 + 48) = v21;
+  v23 = a2 + 360;
   *(_DWORD *)(a2 + 88) = *(_DWORD *)(a1 + 124);
-  DestinationSid = (char *)(a2 + 360 + a6);
   *(_QWORD *)(a2 + 96) = a2 + 360;
   *(_QWORD *)a2 = a2 + 88;
   RtlCopySidAndAttributesArray(
     *(_DWORD *)(a1 + 124),
     *(_QWORD *)(a1 + 152),
-    v23,
+    v22 - a6,
     a2 + 360,
-    DestinationSid,
-    &v46,
-    (ULONG *)&v46);
-  IsEnabled = Feature_1729178936__private_IsEnabled();
-  v27 = *(_DWORD *)(a1 + 124);
-  v28 = (_QWORD *)(a2 + 88);
-  if ( IsEnabled )
+    (void *)(a2 + 360 + a6),
+    (__int64)&v79,
+    (__int64)&v79);
+  IsEnabledDeviceUsage = Feature_693672248__private_IsEnabledDeviceUsage();
+  v25 = *(_DWORD *)(a1 + 124);
+  v26 = 2LL;
+  v27 = *(__int64 **)(a1 + 152);
+  if ( IsEnabledDeviceUsage )
   {
-    RtlSidHashInitialize(*(__int64 **)(a1 + 152), v27, v28);
-    *(_QWORD *)(a2 + 96) = v24;
+    RtlSidHashInitialize(v27, v25, v90);
+    memset((void *)(a2 + 92), 0, 0x10CuLL);
+    v28 = &v90[2];
+    *(_DWORD *)(a2 + 88) = v90[0];
+    v29 = (_OWORD *)(a2 + 104);
+    v30 = 2LL;
+    do
+    {
+      v31 = v28[1];
+      *v29 = *v28;
+      v32 = v28[2];
+      v29[1] = v31;
+      v33 = v28[3];
+      v29[2] = v32;
+      v34 = v28[4];
+      v29[3] = v33;
+      v35 = v28[5];
+      v29[4] = v34;
+      v36 = v28[6];
+      v29[5] = v35;
+      v37 = v28[7];
+      v28 += 8;
+      v29[6] = v36;
+      v29 += 8;
+      *(v29 - 1) = v37;
+      --v30;
+    }
+    while ( v30 );
   }
   else
   {
-    RtlSidHashInitialize((__int64 *)(a2 + 360), v27, v28);
+    RtlSidHashInitialize(v27, v25, (_QWORD *)(a2 + 88));
   }
-  v29 = (_QWORD *)(v24 + a5);
-  *(_DWORD *)v29 = *(_DWORD *)(a1 + 128);
-  v30 = (char *)(v29 + 34);
-  v29[1] = v29 + 34;
-  *(_QWORD *)(a2 + 8) = v29;
-  v31 = *(_DWORD *)(a1 + 128);
-  if ( v31 )
+  *(_QWORD *)(a2 + 96) = v23;
+  v38 = v23 + v80;
+  *(_DWORD *)v38 = *(_DWORD *)(a1 + 128);
+  v39 = v38 + 272;
+  *(_QWORD *)(v38 + 8) = v38 + 272;
+  *(_QWORD *)(a2 + 8) = v38;
+  v40 = *(_DWORD *)(a1 + 128);
+  if ( v40 )
   {
     RtlCopySidAndAttributesArray(
-      v31,
+      v40,
       *(_QWORD *)(a1 + 160),
-      a7 - a8,
-      (__int64)(v29 + 34),
-      &v30[a8],
-      &v46,
-      (ULONG *)&v46);
-    v32 = Feature_1729178936__private_IsEnabled();
-    v33 = *(_DWORD *)(a1 + 128);
-    if ( v32 )
+      v81 - v84,
+      v38 + 272,
+      (void *)(v39 + v84),
+      (__int64)&v79,
+      (__int64)&v79);
+    v41 = Feature_693672248__private_IsEnabledDeviceUsage();
+    v42 = *(_DWORD *)(a1 + 128);
+    v43 = *(__int64 **)(a1 + 160);
+    if ( v41 )
     {
-      RtlSidHashInitialize(*(__int64 **)(a1 + 160), v33, v29);
-      v29[1] = v30;
+      RtlSidHashInitialize(v43, v42, v90);
+      v44 = &v90[2];
+      *(_DWORD *)(v38 + 4) = 0;
+      v45 = 2LL;
+      *(_DWORD *)v38 = v90[0];
+      v46 = (_OWORD *)(v38 + 16);
+      do
+      {
+        v47 = v44[1];
+        *v46 = *v44;
+        v48 = v44[2];
+        v46[1] = v47;
+        v49 = v44[3];
+        v46[2] = v48;
+        v50 = v44[4];
+        v46[3] = v49;
+        v51 = v44[5];
+        v46[4] = v50;
+        v52 = v44[6];
+        v46[5] = v51;
+        v53 = v44[7];
+        v44 += 8;
+        v46[6] = v52;
+        v46 += 8;
+        *(v46 - 1) = v53;
+        --v45;
+      }
+      while ( v45 );
     }
     else
     {
-      RtlSidHashInitialize(v29 + 34, v33, v29);
+      RtlSidHashInitialize(v43, v42, (_QWORD *)v38);
     }
+    *(_QWORD *)(v38 + 8) = v39;
   }
-  v34 = &v30[a7];
-  *(_DWORD *)v34 = *(_DWORD *)(a1 + 800);
-  v35 = v34 + 272;
-  *((_QWORD *)v34 + 1) = v34 + 272;
-  *(_QWORD *)(a2 + 64) = v34;
-  v36 = *(_DWORD *)(a1 + 800);
-  if ( v36 )
+  v54 = v39 + v81;
+  *(_DWORD *)v54 = *(_DWORD *)(a1 + 800);
+  v55 = v54 + 272;
+  *(_QWORD *)(v54 + 8) = v54 + 272;
+  *(_QWORD *)(a2 + 64) = v54;
+  v56 = *(_DWORD *)(a1 + 800);
+  if ( v56 )
   {
     RtlCopySidAndAttributesArray(
-      v36,
+      v56,
       *(_QWORD *)(a1 + 792),
-      a10 - a11,
-      (__int64)(v34 + 272),
-      &v35[a11],
-      &v46,
-      (ULONG *)&v46);
-    v37 = Feature_1729178936__private_IsEnabled();
-    v38 = *(_DWORD *)(a1 + 800);
-    if ( v37 )
+      v82 - v85,
+      v54 + 272,
+      (void *)(v55 + v85),
+      (__int64)&v79,
+      (__int64)&v79);
+    v57 = Feature_693672248__private_IsEnabledDeviceUsage();
+    v58 = *(_DWORD *)(a1 + 800);
+    v59 = *(__int64 **)(a1 + 792);
+    if ( v57 )
     {
-      RtlSidHashInitialize(*(__int64 **)(a1 + 792), v38, v34);
-      *((_QWORD *)v34 + 1) = v35;
+      RtlSidHashInitialize(v59, v58, v90);
+      v60 = &v90[2];
+      *(_DWORD *)(v54 + 4) = 0;
+      *(_DWORD *)v54 = v90[0];
+      v61 = (_OWORD *)(v54 + 16);
+      do
+      {
+        v62 = v60[1];
+        *v61 = *v60;
+        v63 = v60[2];
+        v61[1] = v62;
+        v64 = v60[3];
+        v61[2] = v63;
+        v65 = v60[4];
+        v61[3] = v64;
+        v66 = v60[5];
+        v61[4] = v65;
+        v67 = v60[6];
+        v61[5] = v66;
+        v68 = v60[7];
+        v60 += 8;
+        v61[6] = v67;
+        v61 += 8;
+        *(v61 - 1) = v68;
+        --v26;
+      }
+      while ( v26 );
     }
     else
     {
-      RtlSidHashInitialize((__int64 *)v34 + 34, v38, v34);
+      RtlSidHashInitialize(v59, v58, (_QWORD *)v54);
     }
+    *(_QWORD *)(v54 + 8) = v55;
   }
-  v39 = &v35[a10];
-  v40 = 0LL;
-  if ( a9 )
+  v69 = v83;
+  v70 = (char *)(v55 + v82);
+  v71 = 0LL;
+  if ( v83 )
   {
-    v40 = v39;
-    memmove(v39, *(const void **)(a1 + 784), 4LL * *(unsigned __int8 *)(*(_QWORD *)(a1 + 784) + 1LL) + 8);
+    v71 = v70;
+    memmove(v70, *(const void **)(a1 + 784), 4LL * *(unsigned __int8 *)(*(_QWORD *)(a1 + 784) + 1LL) + 8);
+    v69 = v83;
   }
-  v41 = a15;
-  *(_QWORD *)(a2 + 56) = v40;
+  *(_QWORD *)(a2 + 56) = v71;
   if ( !a14 )
-    v41 = *(unsigned __int8 **)(a1 + 1104);
-  v42 = &v39[a9];
-  if ( a12 )
+    Src = *(unsigned __int8 **)(a1 + 1104);
+  v72 = v86;
+  v73 = &v70[v69];
+  if ( v86 )
   {
-    v21 = v42;
-    memmove(v42, v41, 4LL * v41[1] + 8);
+    v20 = v73;
+    memmove(v73, Src, 4LL * Src[1] + 8);
   }
-  v43 = &v42[a12];
-  *(_QWORD *)(a2 + 72) = v21;
-  AuthzBasepQueryInternalSecurityAttributesToken(*(_QWORD *)(a1 + 776), v43, (unsigned int)(v18 - (_DWORD)v43), &v46);
-  v44 = &v43[a13];
-  *(_QWORD *)(a2 + 80) = v43;
-  *(_DWORD *)v44 = a4;
-  *(_QWORD *)(a2 + 16) = v44;
-  return SepConvertTokenPrivilegesToLuidAndAttributes((_QWORD *)a1, (__int64)(v44 + 4));
+  v74 = v89;
+  v75 = &v73[v72];
+  *(_QWORD *)(a2 + 72) = v20;
+  AuthzBasepQueryInternalSecurityAttributesToken(*(_QWORD *)(a1 + 776), v75, (unsigned int)(v74 - (_DWORD)v75), &v79);
+  v76 = v88;
+  v77 = &v75[v87];
+  *(_QWORD *)(a2 + 80) = v75;
+  *(_DWORD *)v77 = v76;
+  *(_QWORD *)(a2 + 16) = v77;
+  return SepConvertTokenPrivilegesToLuidAndAttributes((_QWORD *)a1, (__int64)(v77 + 4));
 }

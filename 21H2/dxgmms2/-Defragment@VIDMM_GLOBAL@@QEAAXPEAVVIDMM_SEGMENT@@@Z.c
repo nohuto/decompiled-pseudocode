@@ -1,56 +1,64 @@
 /*
- * XREFs of ?Defragment@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_SEGMENT@@@Z @ 0x1C00D5E64
+ * XREFs of ?Defragment@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_SEGMENT@@@Z @ 0x1C00AEC0C
  * Callers:
- *     ?DefragmentSegment@VIDMM_WORKER_THREAD@@AEAAXPEAVVIDMM_SEGMENT@@@Z @ 0x1C00DDEDC (-DefragmentSegment@VIDMM_WORKER_THREAD@@AEAAXPEAVVIDMM_SEGMENT@@@Z.c)
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C008EC90 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
- *     ?GetActiveVprEnd@VIDMM_SEGMENT@@QEBA_KXZ @ 0x1C002DCD4 (-GetActiveVprEnd@VIDMM_SEGMENT@@QEBA_KXZ.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x1C002E3C0 (McTemplateK0p_EtwWriteTransfer.c)
- *     ?EndPreparation@VIDMM_GLOBAL@@IEAAXIPEAU_KEVENT@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C009F9F0 (-EndPreparation@VIDMM_GLOBAL@@IEAAXIPEAU_KEVENT@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z.c)
- *     ?StartPreparation@VIDMM_GLOBAL@@IEAAXIPEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@W4_VIDMM_OPERATION@@@Z @ 0x1C009FBA4 (-StartPreparation@VIDMM_GLOBAL@@IEAAXIPEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@W4_VIDMM_OPERATION@@@Z.c)
- *     ?FaultAllAllocations@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00A08E8 (-FaultAllAllocations@VIDMM_DEVICE@@QEAAXXZ.c)
- *     ?WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C00A2358 (-WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z.c)
- *     ?EnsureFlipQueuesSuspendedForMove@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00D6564 (-EnsureFlipQueuesSuspendedForMove@VIDMM_GLOBAL@@QEAAXXZ.c)
- *     ?PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00DDA2C (-PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
- *     ?OldDefragment@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00EB87C (-OldDefragment@VIDMM_SEGMENT@@QEAAXXZ.c)
- *     ?TrimAllMarkedForEvictionAllocations@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00ED324 (-TrimAllMarkedForEvictionAllocations@VIDMM_SEGMENT@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0018BF0 (_guard_dispatch_icall_nop.c)
+ *     ?GetActiveVprEnd@VIDMM_SEGMENT@@QEBA_KXZ @ 0x1C0023A68 (-GetActiveVprEnd@VIDMM_SEGMENT@@QEBA_KXZ.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0023FCC (McTemplateK0p_EtwWriteTransfer.c)
+ *     ?WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C006118C (-WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z.c)
+ *     ?EndPreparation@VIDMM_GLOBAL@@IEAAXIPEAU_KEVENT@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C0063FD0 (-EndPreparation@VIDMM_GLOBAL@@IEAAXIPEAU_KEVENT@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z.c)
+ *     ?StartPreparation@VIDMM_GLOBAL@@IEAAXIPEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@W4_VIDMM_OPERATION@@@Z @ 0x1C00640E4 (-StartPreparation@VIDMM_GLOBAL@@IEAAXIPEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@W4_VIDMM_OPERATION@@@Z.c)
+ *     ?FaultAllAllocations@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00741DC (-FaultAllAllocations@VIDMM_DEVICE@@QEAAXXZ.c)
+ *     ?EnsureFlipQueuesSuspendedForMove@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00AF418 (-EnsureFlipQueuesSuspendedForMove@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1C00B82A4 (-PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
+ *     ?OldDefragment@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00C7CC4 (-OldDefragment@VIDMM_SEGMENT@@QEAAXXZ.c)
+ *     ?TrimAllMarkedForEvictionAllocations@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00C97D0 (-TrimAllMarkedForEvictionAllocations@VIDMM_SEGMENT@@QEAAXXZ.c)
  */
 
 void __fastcall VIDMM_GLOBAL::Defragment(VIDMM_GLOBAL *this, struct VIDMM_SEGMENT *a2)
 {
   __int64 v4; // r8
-  __int64 v5; // rbx
-  __int64 v6; // r8
+  __int64 v5; // rax
+  __int64 v6; // rbx
+  __int64 v7; // r8
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  __int64 v10; // rax
   unsigned __int64 ActiveVprEnd; // rbx
-  struct VIDMM_SEGMENT *v8; // r14
-  char *v9; // rbx
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  _QWORD *v13; // r15
-  _QWORD *v14; // rbx
-  VIDMM_DEVICE *v15; // rbp
-  __int64 v16; // rcx
-  __int64 v17; // r8
+  __int64 v12; // rax
+  struct VIDMM_SEGMENT *v13; // r14
+  _QWORD **v14; // r15
+  _QWORD *v15; // r15
+  _QWORD *v16; // rbx
+  VIDMM_DEVICE *v17; // rbp
+  __int64 v18; // rcx
+  __int64 v19; // r8
 
   v4 = *(_QWORD *)(*(_QWORD *)this + 256LL);
-  *((_QWORD *)a2 + 62) = v4;
-  if ( (*((_DWORD *)this + 1764) & 0x4000) != 0 )
+  *((_QWORD *)a2 + 60) = v4;
+  if ( (*((_DWORD *)this + 1762) & 0x4000) != 0 )
   {
-    WdLogSingleEntry1(4LL, a2);
+    v5 = WdLogNewEntry5_WdEvent(this, a2);
+    *(_QWORD *)(v5 + 24) = a2;
+    WdLogEvent5_WdEvent(v5);
   }
   else
   {
-    v5 = *((unsigned int *)a2 + 95);
-    if ( (byte_1C006E942 & 0x40) != 0 )
+    v6 = *((unsigned int *)a2 + 95);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100000) != 0 )
       McTemplateK0p_EtwWriteTransfer((__int64)this, &EventVidMmStartDefragment, v4, this);
-    VIDMM_GLOBAL::StartPreparation((__int64)this, 0xFFFFFFFF, 0LL, 0LL, 1002);
-    v6 = *((_QWORD *)this + 3);
-    if ( (*(_DWORD *)(344 * v5 + *(_QWORD *)(v6 + 2680) + 16) & 4) != 0
-      && (*(_BYTE *)(v6 + 2148) & 8) != 0
-      && (*((_DWORD *)this + 1764) & 0x20000) == 0 )
+    VIDMM_GLOBAL::StartPreparation((__int64)this, 0xFFFFFFFFLL, 0LL, 0LL, 1002);
+    v7 = *((_QWORD *)this + 3);
+    v8 = 360 * v6;
+    v9 = *(unsigned int *)(360 * v6 + *(_QWORD *)(v7 + 2584) + 16);
+    if ( (v9 & 4) != 0
+      && (LOBYTE(v8) = (*(_BYTE *)(v7 + 2052) & 8) != 0,
+          ((unsigned __int8)v8 & ((*((_DWORD *)this + 1762) & 0x20000) == 0)) != 0) )
     {
-      WdLogSingleEntry1(4LL, a2);
+      v10 = WdLogNewEntry5_WdEvent(v8, v9);
+      *(_QWORD *)(v10 + 24) = a2;
+      WdLogEvent5_WdEvent(v10);
       VIDMM_GLOBAL::EnsureFlipQueuesSuspendedForMove(this);
       VIDMM_SEGMENT::TrimAllMarkedForEvictionAllocations(a2);
       if ( (*((_BYTE *)a2 + 82) & 1) != 0 )
@@ -72,27 +80,25 @@ void __fastcall VIDMM_GLOBAL::Defragment(VIDMM_GLOBAL *this, struct VIDMM_SEGMEN
     }
     else
     {
-      WdLogSingleEntry1(4LL, a2);
-      v8 = (struct VIDMM_SEGMENT *)*((_QWORD *)a2 + 17);
-      while ( v8 != (struct VIDMM_SEGMENT *)((char *)a2 + 136) )
+      v12 = WdLogNewEntry5_WdEvent(v8, v9);
+      *(_QWORD *)(v12 + 24) = a2;
+      WdLogEvent5_WdEvent(v12);
+      v13 = (struct VIDMM_SEGMENT *)*((_QWORD *)a2 + 17);
+      while ( v13 != (struct VIDMM_SEGMENT *)((char *)a2 + 136) )
       {
-        v9 = (char *)v8 - 24;
-        v8 = *(struct VIDMM_SEGMENT **)v8;
-        if ( !(unsigned __int8)PsIsSystemProcess(**(_QWORD **)v9)
-          && (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)v9 + 32LL) + 424LL) & 1) == 0 )
+        v14 = (_QWORD **)((char *)v13 - 24);
+        v13 = *(struct VIDMM_SEGMENT **)v13;
+        if ( !(unsigned __int8)PsIsSystemProcess(**v14) && !*(_BYTE *)((*v14)[4] + 344LL) )
         {
-          v13 = v9 + 40;
-          v14 = (_QWORD *)*((_QWORD *)v9 + 5);
-          while ( v14 != v13 )
+          v15 = v14 + 5;
+          v16 = (_QWORD *)*v15;
+          while ( v16 != v15 )
           {
-            v15 = (VIDMM_DEVICE *)v14[4];
-            v14 = (_QWORD *)*v14;
-            if ( *((_QWORD *)v15 + 3) )
-            {
-              if ( !*((_QWORD *)v15 + 24) )
-                VIDMM_DEVICE::PartiallySuspend(v15);
-              VIDMM_DEVICE::FaultAllAllocations(v15, v10, v11, v12);
-            }
+            v17 = (VIDMM_DEVICE *)v16[4];
+            v16 = (_QWORD *)*v16;
+            if ( !*((_QWORD *)v17 + 23) )
+              VIDMM_DEVICE::PartiallySuspend(v17);
+            VIDMM_DEVICE::FaultAllAllocations(v17);
           }
         }
       }
@@ -100,7 +106,7 @@ void __fastcall VIDMM_GLOBAL::Defragment(VIDMM_GLOBAL *this, struct VIDMM_SEGMEN
     }
     VIDMM_GLOBAL::EndPreparation(this, 0xFFFFFFFF, 0LL, 0, 0LL, 0LL);
     VIDMM_GLOBAL::WaitForAllPagingEnginesIdle(this, 0xFFFFFFFF);
-    if ( (byte_1C006E942 & 0x40) != 0 )
-      McTemplateK0p_EtwWriteTransfer(v16, &EventVidMmEndDefragment, v17, this);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100000) != 0 )
+      McTemplateK0p_EtwWriteTransfer(v18, &EventVidMmEndDefragment, v19, this);
   }
 }

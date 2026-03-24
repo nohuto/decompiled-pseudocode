@@ -1,21 +1,21 @@
 /*
- * XREFs of OSNotifyCreateProcessor @ 0x1C0005604
+ * XREFs of OSNotifyCreateProcessor @ 0x1C001622C
  * Callers:
- *     OSNotifyCreate @ 0x1C0009DF0 (OSNotifyCreate.c)
- *     ACPIBuildMissingChildren @ 0x1C004A3DC (ACPIBuildMissingChildren.c)
+ *     ACPIBuildMissingChildren @ 0x1C00174CC (ACPIBuildMissingChildren.c)
+ *     OSNotifyCreate @ 0x1C001D650 (OSNotifyCreate.c)
  * Callees:
- *     WPP_RECORDER_SF_D @ 0x1C0001C0C (WPP_RECORDER_SF_D.c)
- *     ACPIInitReferenceDeviceExtension @ 0x1C00056D8 (ACPIInitReferenceDeviceExtension.c)
- *     WPP_RECORDER_SF_qD @ 0x1C0007340 (WPP_RECORDER_SF_qD.c)
- *     AMLIGetParent @ 0x1C000A040 (AMLIGetParent.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     ACPIBuildProcessorExtension @ 0x1C001F0E0 (ACPIBuildProcessorExtension.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIBuildProcessorExtension @ 0x1C0016024 (ACPIBuildProcessorExtension.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C0017F20 (ACPIInitReferenceDeviceExtension.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     AMLIGetParent @ 0x1C001B348 (AMLIGetParent.c)
  */
 
 __int64 __fastcall OSNotifyCreateProcessor(__int64 a1, unsigned __int64 a2)
 {
   __int64 v4; // rsi
-  ULONG_PTR v5; // rbx
+  __int64 v5; // rbx
   int v6; // eax
   int v7; // edx
   unsigned int v8; // ebx

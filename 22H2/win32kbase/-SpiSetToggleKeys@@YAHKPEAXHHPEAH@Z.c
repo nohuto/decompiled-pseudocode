@@ -1,28 +1,25 @@
 /*
- * XREFs of ?SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z @ 0x1C014EBD4
+ * XREFs of ?SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z @ 0x1C0138C14
  * Callers:
- *     xxxSystemParametersInfo @ 0x1C0094FF0 (xxxSystemParametersInfo.c)
+ *     xxxSystemParametersInfo @ 0x1C000CD30 (xxxSystemParametersInfo.c)
  * Callees:
- *     ?SetAccessEnabledFlag@@YAXXZ @ 0x1C00A3090 (-SetAccessEnabledFlag@@YAXXZ.c)
- *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00AEFC4 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     memset @ 0x1C00D6A00 (memset.c)
- *     memmove @ 0x1C00D6F40 (memmove.c)
- *     FastWriteProfileValue @ 0x1C0135590 (FastWriteProfileValue.c)
- *     ApiSetEditionCallAccessibilityHook @ 0x1C0205B98 (ApiSetEditionCallAccessibilityHook.c)
- *     ApiSetEditionPostShellHookMessages @ 0x1C02075D0 (ApiSetEditionPostShellHookMessages.c)
+ *     ?SetAccessEnabledFlag@@YAXXZ @ 0x1C000D590 (-SetAccessEnabledFlag@@YAXXZ.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0068828 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
+ *     memmove @ 0x1C00CF9C0 (memmove.c)
+ *     FastWriteProfileValue @ 0x1C011DFA0 (FastWriteProfileValue.c)
  */
 
 __int64 __fastcall SpiSetToggleKeys(int a1, unsigned int *a2, int a3, unsigned int a4, int *a5)
 {
   unsigned int v9; // r9d
-  unsigned int v10; // r9d
-  __int64 v11; // rax
-  __int64 v12; // rcx
-  _QWORD v14[2]; // [rsp+30h] [rbp-88h] BYREF
-  unsigned __int16 v15[40]; // [rsp+40h] [rbp-78h] BYREF
+  unsigned int v10; // eax
+  int v11; // r9d
+  __int64 v12; // rax
+  wchar_t Dest[40]; // [rsp+30h] [rbp-78h] BYREF
 
-  memset(v15, 0, sizeof(v15));
+  memset(Dest, 0, sizeof(Dest));
   if ( (a1 & 0xFFFFFFF7) != 0 )
     return 0LL;
   if ( !a2 )
@@ -32,28 +29,25 @@ __int64 __fastcall SpiSetToggleKeys(int a1, unsigned int *a2, int a3, unsigned i
   v9 = a2[1];
   if ( (v9 & 0x3F) != v9 )
     return 0LL;
-  v10 = v9 | 2;
-  if ( (dword_1C02905BC & 2) == 0 )
-    v10 = a2[1] & 0xFFFFFFFD;
-  a2[1] = v10;
+  v10 = v9 & 0xFFFFFFFD;
+  v11 = v9 | 2;
+  if ( (dword_1C024F93C & 2) == 0 )
+    v11 = v10;
+  a2[1] = v11;
   if ( a3 )
   {
-    RtlStringCchPrintfW(v15, 40LL, L"%d");
-    v11 = -1LL;
+    RtlStringCchPrintfW(Dest, 40LL, L"%d");
+    v12 = -1LL;
     do
-      ++v11;
-    while ( v15[v11] );
-    a4 = (unsigned int)FastWriteProfileValue(0LL, 0x11u, (const WCHAR *)L"Flags", 1u, v15, 2 * (int)v11 + 2);
+      ++v12;
+    while ( Dest[v12] );
+    a4 = (unsigned int)FastWriteProfileValue(0LL, 0x11u, (const WCHAR *)L"Flags", 1u, Dest, 2 * (int)v12 + 2);
     *a5 = a4;
   }
   if ( !a4 )
     return 0LL;
-  v14[0] = 0LL;
-  memmove(v14, &gToggleKeys, (unsigned int)gToggleKeys);
   memmove(&gToggleKeys, a2, *a2);
-  LODWORD(gToggleKeys) = 8;
+  gToggleKeys = 8;
   SetAccessEnabledFlag();
-  ApiSetEditionCallAccessibilityHook(4LL);
-  ApiSetEditionPostShellHookMessages(v12, 4LL, v14, &gToggleKeys);
   return 1LL;
 }

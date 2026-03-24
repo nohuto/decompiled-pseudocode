@@ -1,19 +1,24 @@
 /*
- * XREFs of _CmGetDeviceInterfaceReferenceString @ 0x1407C5E58
+ * XREFs of _CmGetDeviceInterfaceReferenceString @ 0x14072C2C8
  * Callers:
- *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1406CA034 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
- *     IoGetDeviceInterfaceAlias @ 0x1407C5A60 (IoGetDeviceInterfaceAlias.c)
- *     PiSwCompleteCreate @ 0x14081BD64 (PiSwCompleteCreate.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1406B6A78 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
+ *     IoGetDeviceInterfaceAlias @ 0x14072BED0 (IoGetDeviceInterfaceAlias.c)
+ *     PiSwCompleteCreate @ 0x14074DC58 (PiSwCompleteCreate.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14022B258 (RtlStringCchCopyExW.c)
- *     wcschr @ 0x1403DB2B0 (wcschr.c)
- *     _CmValidateDeviceInterfaceName @ 0x1406CEA70 (_CmValidateDeviceInterfaceName.c)
+ *     RtlStringCchCopyExW @ 0x14032E518 (RtlStringCchCopyExW.c)
+ *     wcschr @ 0x1403D3810 (wcschr.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1406BA7AC (_CmValidateDeviceInterfaceName.c)
  */
 
-int __fastcall CmGetDeviceInterfaceReferenceString(__int64 a1, __int64 a2, wchar_t *a3, unsigned int a4, _DWORD *a5)
+__int64 __fastcall CmGetDeviceInterfaceReferenceString(
+        __int64 a1,
+        const WCHAR *a2,
+        wchar_t *a3,
+        unsigned int a4,
+        _DWORD *a5)
 {
-  size_t v5; // rdi
-  int result; // eax
+  size_t v5; // rsi
+  int v8; // ebx
   wchar_t *v9; // rax
   const wchar_t *v10; // r8
   wchar_t v11; // ax
@@ -22,10 +27,10 @@ int __fastcall CmGetDeviceInterfaceReferenceString(__int64 a1, __int64 a2, wchar
   unsigned __int64 v14; // rax
 
   v5 = a4;
-  result = CmValidateDeviceInterfaceName(a1, a2);
-  if ( result >= 0 )
+  v8 = CmValidateDeviceInterfaceName(a1, a2);
+  if ( v8 >= 0 )
   {
-    v9 = wcschr((const wchar_t *)(a2 + 8), 0x5Cu);
+    v9 = wcschr(a2 + 4, 0x5Cu);
     if ( v9 )
     {
       v10 = v9 + 1;
@@ -34,32 +39,38 @@ int __fastcall CmGetDeviceInterfaceReferenceString(__int64 a1, __int64 a2, wchar
       while ( v11 )
       {
         if ( v11 == 92 || v11 == 47 )
-          return -1073741767;
+        {
+          v8 = -1073741767;
+          break;
+        }
         v11 = *++v12;
       }
-      v13 = -1LL;
-      do
-        ++v13;
-      while ( v10[v13] );
-      v14 = v13 + 1;
-      if ( v14 > 0xFFFFFFFF )
+      if ( v8 >= 0 )
       {
-        return -1073741675;
-      }
-      else
-      {
-        if ( a5 )
-          *a5 = v14;
-        if ( (unsigned int)v14 > (unsigned int)v5 )
-          return -1073741789;
+        v13 = -1LL;
+        do
+          ++v13;
+        while ( v10[v13] );
+        v14 = v13 + 1;
+        if ( v14 > 0xFFFFFFFF )
+        {
+          return (unsigned int)-1073741675;
+        }
         else
-          return RtlStringCchCopyExW(a3, v5, v10, 0LL, 0LL, 0x900u);
+        {
+          if ( a5 )
+            *a5 = v14;
+          if ( (unsigned int)v14 > (unsigned int)v5 )
+            return (unsigned int)-1073741789;
+          else
+            return (unsigned int)RtlStringCchCopyExW(a3, v5, v10, 0LL, 0LL, 0x900u);
+        }
       }
     }
     else
     {
-      return -1073741772;
+      return (unsigned int)-1073741772;
     }
   }
-  return result;
+  return (unsigned int)v8;
 }

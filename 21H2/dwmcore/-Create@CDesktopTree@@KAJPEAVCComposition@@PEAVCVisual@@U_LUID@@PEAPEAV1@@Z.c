@@ -1,75 +1,76 @@
 /*
- * XREFs of ?Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z @ 0x1801F5F68
+ * XREFs of ?Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z @ 0x1801B22FC
  * Callers:
- *     ?SetRootVisual@CHolographicInteropTexture@@AEAAJPEAVCVisual@@@Z @ 0x18029C0F8 (-SetRootVisual@CHolographicInteropTexture@@AEAAJPEAVCVisual@@@Z.c)
+ *     ?SetRootVisual@CHolographicInteropTexture@@AEAAJPEAVCVisual@@@Z @ 0x180259B30 (-SetRootVisual@CHolographicInteropTexture@@AEAAJPEAVCVisual@@@Z.c)
  * Callees:
- *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180024060 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x1800B1804 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x1800B2E40 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?Initialize@CDesktopTree@@MEAAJXZ @ 0x1800C6AC0 (-Initialize@CDesktopTree@@MEAAJXZ.c)
- *     ??0CDesktopTree@@IEAA@PEAVCComposition@@@Z @ 0x1800DF880 (--0CDesktopTree@@IEAA@PEAVCComposition@@@Z.c)
- *     ?SetRootVisual@CDesktopTree@@AEAAJPEAVCVisual@@@Z @ 0x1800F7A0C (-SetRootVisual@CDesktopTree@@AEAAJPEAVCVisual@@@Z.c)
- *     ?SetLuid@CDesktopTree@@AEAAJU_LUID@@@Z @ 0x1800F7C5C (-SetLuid@CDesktopTree@@AEAAJU_LUID@@@Z.c)
- *     ??2CDesktopTree@@KAPEAX_K@Z @ 0x1800F8D30 (--2CDesktopTree@@KAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D440 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x18005FB60 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C0950 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     ?Initialize@CDesktopTree@@MEAAJXZ @ 0x1800D87C0 (-Initialize@CDesktopTree@@MEAAJXZ.c)
+ *     ?SetLuid@CDesktopTree@@AEAAJU_LUID@@@Z @ 0x1800DDA84 (-SetLuid@CDesktopTree@@AEAAJU_LUID@@@Z.c)
+ *     ??0CDesktopTree@@IEAA@PEAVCComposition@@@Z @ 0x1800DFA78 (--0CDesktopTree@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?SetRootVisual@CDesktopTree@@AEAAJPEAVCVisual@@@Z @ 0x1800DFB54 (-SetRootVisual@CDesktopTree@@AEAAJPEAVCVisual@@@Z.c)
+ *     ??2CDesktopTree@@KAPEAX_K@Z @ 0x1800E05B4 (--2CDesktopTree@@KAPEAX_K@Z.c)
  */
 
-__int64 __fastcall CDesktopTree::Create(struct CComposition *a1, CVisual **a2, struct _LUID a3, struct _LUID **a4)
+__int64 __fastcall CDesktopTree::Create(
+        struct CComposition *a1,
+        struct CVisual *a2,
+        struct _LUID a3,
+        struct CDesktopTree **a4)
 {
   CDesktopTree *v8; // rax
-  CDesktopTree *v9; // rax
-  CResource *v10; // rbx
-  struct _LUID *v11; // rsi
-  int v12; // eax
-  unsigned int v13; // edi
-  __int64 v14; // rdx
-  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v9; // rcx
+  CMILCOMBase *v10; // rsi
+  int v11; // eax
+  unsigned int v12; // edi
+  int v13; // r9d
+  unsigned int v15; // [rsp+20h] [rbp-18h]
 
   v8 = (CDesktopTree *)CDesktopTree::operator new();
   if ( v8 )
-  {
-    v9 = CDesktopTree::CDesktopTree(v8, a1);
-    v10 = v9;
-    v11 = (struct _LUID *)v9;
-    if ( v9 )
-      CMILRefCountImpl::AddReference((CDesktopTree *)((char *)v9 + 8));
-  }
+    v10 = CDesktopTree::CDesktopTree(v8, a1);
   else
-  {
-    v11 = 0LL;
     v10 = 0LL;
-  }
-  v12 = CDesktopTree::SetLuid(v11, a3);
-  v13 = v12;
-  if ( v12 >= 0 )
+  if ( v10 )
   {
-    v12 = CDesktopTree::Initialize((CDesktopTree *)v11);
-    v13 = v12;
-    if ( v12 >= 0 )
+    CMILCOMBase::InternalAddRef(v10);
+    v11 = CDesktopTree::Initialize(v10);
+    v12 = v11;
+    if ( v11 < 0 )
     {
-      v12 = CDesktopTree::SetRootVisual((CVisual **)v11, a2);
-      v13 = v12;
-      if ( v12 >= 0 )
-      {
-        *a4 = v11;
-        return 0;
-      }
-      v14 = 26LL;
+      v15 = 23;
     }
     else
     {
-      v14 = 24LL;
+      v11 = CDesktopTree::SetLuid(v10, a3);
+      v12 = v11;
+      if ( v11 < 0 )
+      {
+        v15 = 24;
+      }
+      else
+      {
+        v11 = CDesktopTree::SetRootVisual((CComposition ***)v10, a2);
+        v12 = v11;
+        if ( v11 >= 0 )
+        {
+          *a4 = v10;
+          return v12;
+        }
+        v15 = 25;
+      }
     }
+    v13 = v11;
   }
   else
   {
-    v14 = 22LL;
+    v12 = -2147024882;
+    v13 = -2147024882;
+    v15 = 21;
   }
-  wil::details::in1diag3::Return_Hr(
-    retaddr,
-    (void *)v14,
-    (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\desktoptree.cpp",
-    (const char *)(unsigned int)v12);
+  MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v13, v15, 0LL);
   if ( v10 )
-    CResource::InternalRelease(v10);
-  return v13;
+    CRenderTargetBitmap::Release(v10);
+  return v12;
 }

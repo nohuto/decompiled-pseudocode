@@ -1,146 +1,134 @@
 /*
- * XREFs of ObpSetDeviceMap @ 0x14069B8FC
+ * XREFs of ObpSetDeviceMap @ 0x1406BD6D4
  * Callers:
- *     SeGetTokenDeviceMap @ 0x14069CC40 (SeGetTokenDeviceMap.c)
- *     ObpSetSiloDeviceMap @ 0x14082C6E0 (ObpSetSiloDeviceMap.c)
- *     ObSetProcessDeviceMap @ 0x140986CD4 (ObSetProcessDeviceMap.c)
+ *     SeGetTokenDeviceMap @ 0x140692CBC (SeGetTokenDeviceMap.c)
+ *     ObpSetSiloDeviceMap @ 0x1407A102C (ObpSetSiloDeviceMap.c)
+ *     ObSetProcessDeviceMap @ 0x1408DF68C (ObSetProcessDeviceMap.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140204738 (PsGetServerSiloGlobals.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ObpDeleteDeviceMap @ 0x14069C07C (ObpDeleteDeviceMap.c)
- *     ObDereferenceDeviceMap @ 0x14069C9C0 (ObDereferenceDeviceMap.c)
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObpCloseHandle @ 0x14061ABC0 (ObpCloseHandle.c)
+ *     ObfDereferenceDeviceMap @ 0x140625534 (ObfDereferenceDeviceMap.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-NTSTATUS __fastcall ObpSetDeviceMap(PVOID Object, __int64 a2, void *a3, KPROCESSOR_MODE a4, char a5, __int64 *a6)
+NTSTATUS __fastcall ObpSetDeviceMap(
+        struct _DMA_ADAPTER *Object,
+        __int64 a2,
+        void *a3,
+        KPROCESSOR_MODE a4,
+        char a5,
+        struct _DMA_ADAPTER ***a6)
 {
-  __int64 v6; // rbx
   NTSTATUS result; // eax
-  PVOID v10; // rsi
-  __int64 Pool2; // rax
-  __int64 v12; // rdi
-  NTSTATUS v13; // r15d
-  _QWORD *v14; // rsi
-  char *ServerSiloGlobals; // rax
+  struct _DMA_ADAPTER *v9; // rdi
+  struct _DMA_ADAPTER **PoolWithTag; // rax
+  struct _DMA_ADAPTER **v11; // rbx
+  NTSTATUS v12; // ebp
+  void *v13; // rbp
+  unsigned __int64 *v14; // rdi
+  void ***ServerSiloGlobals; // rax
   struct _KTHREAD *CurrentThread; // rcx
-  _QWORD *v17; // r15
-  volatile signed __int64 *v18; // rbp
-  PVOID v19; // rcx
-  __int64 *v20; // rdx
-  __int64 v21; // rax
-  unsigned __int64 v22; // rdx
-  struct _KTHREAD *v23; // rax
-  bool v24; // zf
-  int v25; // ebx
+  void ***v17; // rsi
+  struct _DMA_ADAPTER *v18; // rcx
+  __int64 v19; // rax
+  struct _DMA_ADAPTER *v20; // rdx
+  int v21; // ebx
+  struct _DMA_ADAPTER *v22; // rcx
   PVOID Objecta; // [rsp+40h] [rbp-28h] BYREF
 
-  v6 = 0LL;
   Objecta = 0LL;
   result = ObReferenceObjectByHandle(a3, 2u, ObpDirectoryObjectType, a4, &Objecta, 0LL);
   if ( result < 0 )
     return result;
-  v10 = Objecta;
+  v9 = (struct _DMA_ADAPTER *)Objecta;
   if ( (a5 & 4) == 0 && (*((_DWORD *)Objecta + 84) & 4) != 0 )
   {
-    v25 = -1073741811;
-LABEL_37:
-    ObfDereferenceObject(v10);
-    return v25;
+    v21 = -1073741811;
+LABEL_25:
+    HalPutDmaAdapter(v9);
+    return v21;
   }
-  Pool2 = ExAllocatePool2(256LL, 296LL, 1833198159LL);
-  v12 = Pool2;
-  if ( !Pool2 )
+  PoolWithTag = (struct _DMA_ADAPTER **)ExAllocatePoolWithTag(PagedPool, 0x48uLL, 0x6D44624Fu);
+  v11 = PoolWithTag;
+  if ( !PoolWithTag )
   {
-    v25 = -1073741670;
-    goto LABEL_37;
+    v21 = -1073741670;
+    goto LABEL_25;
   }
-  *(_QWORD *)(Pool2 + 240) = 1LL;
-  *(_QWORD *)Pool2 = v10;
-  v13 = ObOpenObjectByPointer(v10, 0x200u, 0LL, 0xF000Fu, ObpDirectoryObjectType, 0, (PHANDLE)(Pool2 + 248));
-  if ( v13 < 0 )
+  memset(PoolWithTag, 0, 0x48uLL);
+  *((_DWORD *)v11 + 6) = 1;
+  *v11 = v9;
+  v12 = ObOpenObjectByPointer(v9, 0x200u, 0LL, 0xF000Fu, ObpDirectoryObjectType, 0, (PHANDLE)v11 + 2);
+  if ( v12 < 0 )
   {
-    ObfDereferenceObject(v10);
-    ExFreePoolWithTag((PVOID)v12, 0x6D44624Fu);
-    return v13;
+    HalPutDmaAdapter(v9);
+    ExFreePoolWithTag(v11, 0x6D44624Fu);
+    return v12;
   }
   else
   {
     if ( Object )
     {
       ObfReferenceObjectWithTag(Object, 0x6D44624Fu);
-      *(_QWORD *)(v12 + 16) = Object;
+      v11[8] = Object;
     }
+    v13 = 0LL;
     v14 = 0LL;
-    ServerSiloGlobals = (char *)PsGetServerSiloGlobals((__int64)Object);
+    ServerSiloGlobals = (void ***)PsGetServerSiloGlobals((__int64)Object);
     CurrentThread = KeGetCurrentThread();
     v17 = ServerSiloGlobals;
     --CurrentThread->SpecialApcDisable;
-    v18 = (volatile signed __int64 *)(ServerSiloGlobals + 120);
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)(ServerSiloGlobals + 120), 0LL);
-    v19 = Objecta;
-    v20 = (__int64 *)((char *)Objecta + 304);
-    v21 = *((_QWORD *)Objecta + 38);
-    if ( v21 )
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)(ServerSiloGlobals + 15), 0LL);
+    v18 = (struct _DMA_ADAPTER *)Objecta;
+    v19 = *((_QWORD *)Objecta + 38);
+    if ( v19 )
     {
-      v14 = (_QWORD *)v12;
-      v12 = *((_QWORD *)Objecta + 38);
-      if ( _InterlockedExchangeAdd64((volatile signed __int64 *)(v21 + 240), 1uLL) <= 0 )
-        __fastfail(0xEu);
+      v14 = (unsigned __int64 *)v11;
+      v11 = (struct _DMA_ADAPTER **)*((_QWORD *)Objecta + 38);
+      _InterlockedIncrement((volatile signed __int32 *)(v19 + 24));
     }
     else
     {
       if ( (a5 & 1) != 0 )
-      {
-        if ( _InterlockedExchangeAdd64((volatile signed __int64 *)(v12 + 240), 0x10uLL) <= 0 )
-          __fastfail(0xEu);
-        v19 = Objecta;
-        *v17 = v12 + 15;
-      }
-      *v20 = v12;
+        *v17 = (void **)v11;
+      *(_QWORD *)&v18[19].Version = v11;
       if ( (a5 & 2) != 0 )
       {
-        v22 = *v17 & 0xFFFFFFFFFFFFFFF0uLL;
-        if ( v19 != *(PVOID *)v22 )
-        {
-          *(_QWORD *)(v12 + 8) = *(_QWORD *)v22;
-          if ( _InterlockedExchangeAdd64((volatile signed __int64 *)(v22 + 240), 1uLL) <= 0 )
-            __fastfail(0xEu);
-          *(_QWORD *)(v12 + 24) = v22;
-        }
+        v20 = (struct _DMA_ADAPTER *)**v17;
+        if ( v18 != v20 )
+          v11[1] = v20;
       }
     }
     if ( a2 )
     {
-      if ( _InterlockedExchangeAdd64((volatile signed __int64 *)(v12 + 240), 0x10uLL) <= 0 )
-        __fastfail(0xEu);
-      v6 = _InterlockedExchange64((volatile __int64 *)(a2 + 1416), (v12 | 0xF) & -(__int64)(v12 != 0));
+      v13 = *(void **)(a2 + 1416);
+      *(_QWORD *)(a2 + 1416) = v11;
     }
-    if ( (_InterlockedExchangeAdd64(v18, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v17 + 15);
-    KeAbPostRelease((ULONG_PTR)(v17 + 15));
-    v23 = KeGetCurrentThread();
-    v24 = v23->SpecialApcDisable++ == -1;
-    if ( v24 && ($CEA84C04E3712D858E5667A507841A2A *)v23->ApcState.ApcListHead[0].Flink != &v23->152 )
-      KiCheckForKernelApcDelivery();
+    ExReleasePushLockEx((ULONG_PTR)(v17 + 15), 0LL);
+    KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
     if ( v14 )
     {
-      --v14[30];
-      ObpDeleteDeviceMap(v14);
+      ObpCloseHandle(v14[2], 0);
+      HalPutDmaAdapter((PADAPTER_OBJECT)Objecta);
+      v22 = v11[8];
+      if ( v22 )
+        ObfDereferenceObjectWithTag(v22, 0x6D44624Fu);
+      ExFreePoolWithTag(v14, 0x6D44624Fu);
     }
-    if ( v6 )
-      ObDereferenceDeviceMap((PVOID)(v6 & 0xFFFFFFFFFFFFFFF0uLL));
+    if ( v13 )
+      ObfDereferenceDeviceMap(v13);
     if ( a6 )
-      *a6 = v12;
-    else
-      ObDereferenceDeviceMap((PVOID)v12);
+      *a6 = v11;
     return 0;
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of XilCoreUsbDevice_FreeResources @ 0x1C0052EC4
+ * XREFs of XilCoreUsbDevice_FreeResources @ 0x1C00501A4
  * Callers:
- *     XilCoreUsbDevice_Create @ 0x1C001BA78 (XilCoreUsbDevice_Create.c)
- *     XilUsbDevice_FreeResources @ 0x1C004804C (XilUsbDevice_FreeResources.c)
+ *     XilCoreUsbDevice_Create @ 0x1C001651C (XilCoreUsbDevice_Create.c)
+ *     XilUsbDevice_FreeResources @ 0x1C00456D4 (XilUsbDevice_FreeResources.c)
  * Callees:
- *     CommonBuffer_ReleaseBuffer @ 0x1C001E7A4 (CommonBuffer_ReleaseBuffer.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C0019D40 (CommonBuffer_ReleaseBuffer.c)
  */
 
 void __fastcall XilCoreUsbDevice_FreeResources(_QWORD *a1)

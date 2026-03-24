@@ -3,7 +3,7 @@
  * Callers:
  *     ExpHwidAuthenticateHardwareId @ 0x140586410 (ExpHwidAuthenticateHardwareId.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
  *     RtlHashUnicodeString @ 0x140598BE0 (RtlHashUnicodeString.c)
  */
 

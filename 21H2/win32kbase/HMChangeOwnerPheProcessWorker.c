@@ -1,18 +1,19 @@
 /*
- * XREFs of HMChangeOwnerPheProcessWorker @ 0x1C00AC568
+ * XREFs of HMChangeOwnerPheProcessWorker @ 0x1C009A8A8
  * Callers:
- *     ?DestroyProcessesObjects@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C002D828 (-DestroyProcessesObjects@@YAXPEAUtagPROCESSINFO@@@Z.c)
- *     HMChangeOwnerProcess @ 0x1C00AC540 (HMChangeOwnerProcess.c)
- *     HMChangeOwnerPheProcess @ 0x1C0141560 (HMChangeOwnerPheProcess.c)
+ *     ?DestroyProcessesObjects@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C0033190 (-DestroyProcessesObjects@@YAXPEAUtagPROCESSINFO@@@Z.c)
+ *     HMChangeOwnerProcess @ 0x1C009A860 (HMChangeOwnerProcess.c)
+ *     HMChangeOwnerPheProcess @ 0x1C0113C50 (HMChangeOwnerPheProcess.c)
+ *     HMChangeOwnerProcessWorker @ 0x1C0113C90 (HMChangeOwnerProcessWorker.c)
  * Callees:
- *     ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C002DB2C (-GetEtwUserHandleType@@YA-AW4EtwUserHandleType@@E@Z.c)
- *     GreAcquireHmgrSemaphore @ 0x1C002DF20 (GreAcquireHmgrSemaphore.c)
- *     GreReleaseHmgrSemaphore @ 0x1C002E900 (GreReleaseHmgrSemaphore.c)
- *     GreIncQuotaCount @ 0x1C00AC6C0 (GreIncQuotaCount.c)
- *     EtwTraceUserUpdateHandleOwner @ 0x1C00AC6E8 (EtwTraceUserUpdateHandleOwner.c)
+ *     ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C00334BC (-GetEtwUserHandleType@@YA-AW4EtwUserHandleType@@E@Z.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C0038C20 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0038D70 (GreAcquireHmgrSemaphore.c)
+ *     GreIncQuotaCount @ 0x1C009AA00 (GreIncQuotaCount.c)
+ *     EtwTraceUserUpdateHandleOwner @ 0x1C009AA28 (EtwTraceUserUpdateHandleOwner.c)
  */
 
-__int64 __fastcall HMChangeOwnerPheProcessWorker(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall HMChangeOwnerPheProcessWorker(__int64 a1, __int64 a2, int a3)
 {
   _QWORD *v3; // r15
   __int64 v6; // rax
@@ -34,7 +35,7 @@ __int64 __fastcall HMChangeOwnerPheProcessWorker(__int64 a1, __int64 a2, __int64
   __int64 result; // rax
 
   v3 = gpKernelHandleTable;
-  v6 = (unsigned int)((a1 - (__int64)qword_1C0294B68) >> 5);
+  v6 = (unsigned int)((a1 - (__int64)qword_1C024FD58) >> 5);
   v7 = 3 * v6;
   v8 = *((_QWORD *)gpKernelHandleTable + 3 * v6 + 1);
   v9 = *((_QWORD *)gpKernelHandleTable + 3 * v6);
@@ -64,7 +65,7 @@ __int64 __fastcall HMChangeOwnerPheProcessWorker(__int64 a1, __int64 a2, __int64
     }
   }
   *(_DWORD *)(v9 + 16) = 0;
-  if ( (*((_BYTE *)&unk_1C024AF4C + 24 * *(unsigned __int8 *)(a1 + 24)) & 4) != 0 )
+  if ( (*((_BYTE *)&unk_1C020A46C + 24 * *(unsigned __int8 *)(a1 + 24)) & 4) != 0 )
     *(_QWORD *)(v9 + 24) = *(_QWORD *)(a2 + 424);
   v3[v7 + 1] = *(_QWORD *)(a2 + 424);
   ProcessId = PsGetProcessId(**(PEPROCESS **)(a2 + 424));

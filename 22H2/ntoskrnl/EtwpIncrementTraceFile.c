@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpIncrementTraceFile @ 0x1409E7FE0
+ * XREFs of EtwpIncrementTraceFile @ 0x140934C34
  * Callers:
- *     NtTraceControl @ 0x140725C40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpGenerateFileName @ 0x1407E9820 (EtwpGenerateFileName.c)
- *     EtwpSynchronizeWithLogger @ 0x1407F5FE0 (EtwpSynchronizeWithLogger.c)
- *     EtwpValidateLoggerInfo @ 0x1407F90BC (EtwpValidateLoggerInfo.c)
- *     EtwpAcquireLoggerContext @ 0x1407F90F4 (EtwpAcquireLoggerContext.c)
- *     EtwpGetLoggerInfoFromContext @ 0x1407F91F0 (EtwpGetLoggerInfoFromContext.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206F80 (KeLeaveCriticalRegionThread.c)
+ *     EtwpGenerateFileName @ 0x14068EAAC (EtwpGenerateFileName.c)
+ *     EtwpSynchronizeWithLogger @ 0x14069BD8C (EtwpSynchronizeWithLogger.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BC818 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContext @ 0x140712790 (EtwpAcquireLoggerContext.c)
+ *     EtwpValidateLoggerInfo @ 0x1407128B4 (EtwpValidateLoggerInfo.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x1407129F4 (EtwpGetLoggerInfoFromContext.c)
  */
 
 __int64 __fastcall EtwpIncrementTraceFile(__int64 a1, _DWORD *a2)
@@ -35,17 +35,17 @@ __int64 __fastcall EtwpIncrementTraceFile(__int64 a1, _DWORD *a2)
       if ( (*(_DWORD *)(v9 + 12) & 8) != 0 )
       {
         v8 = v9;
-        if ( (*(_DWORD *)(v9 + 824) & 1) != 0
-          || (EtwpSynchronizeWithLogger(v9, 4u),
-              EtwpGenerateFileName(
-                (unsigned __int16 *)(v8 + 168),
-                (volatile signed __int32 *)(v8 + 296),
-                (UNICODE_STRING *)(v8 + 184)),
-              LoggerInfoFromContext = EtwpSynchronizeWithLogger(v8, 1u),
-              LoggerInfoFromContext >= 0) )
+        if ( (*(_DWORD *)(v9 + 836) & 1) == 0 )
         {
-          LoggerInfoFromContext = EtwpGetLoggerInfoFromContext((__int64)a2, v8);
+          EtwpSynchronizeWithLogger(v9, 4u);
+          EtwpGenerateFileName(
+            (unsigned __int16 *)(v8 + 184),
+            (volatile signed __int32 *)(v8 + 312),
+            (UNICODE_STRING *)(v8 + 200));
+          LoggerInfoFromContext = EtwpSynchronizeWithLogger(v8, 1u);
         }
+        if ( LoggerInfoFromContext >= 0 )
+          LoggerInfoFromContext = EtwpGetLoggerInfoFromContext((__int64)a2, v8);
       }
       else
       {

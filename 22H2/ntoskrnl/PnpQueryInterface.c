@@ -1,29 +1,29 @@
 /*
- * XREFs of PnpQueryInterface @ 0x1407FD8F0
+ * XREFs of PnpQueryInterface @ 0x1407653A4
  * Callers:
- *     PnprQueryReplaceFeatures @ 0x140563148 (PnprQueryReplaceFeatures.c)
- *     PiProcessNewDeviceNode @ 0x140795C58 (PiProcessNewDeviceNode.c)
- *     PiIommuGetInterface @ 0x1407FD204 (PiIommuGetInterface.c)
- *     PnpGetDeviceLocationStrings @ 0x1407FD2B8 (PnpGetDeviceLocationStrings.c)
- *     PiGetDmaAdapterFromBusInterface @ 0x140829C88 (PiGetDmaAdapterFromBusInterface.c)
- *     IoQueryInterface @ 0x14082A2D0 (IoQueryInterface.c)
- *     IopQueryInterfaceRecurseUp @ 0x14082A320 (IopQueryInterfaceRecurseUp.c)
- *     PnprIdentifyUnits @ 0x14096610C (PnprIdentifyUnits.c)
- *     IopQueryBusResourceUpdateInterface @ 0x14096CF88 (IopQueryBusResourceUpdateInterface.c)
- *     PiProcessDriversLoadedOnSecureDevice @ 0x14096F5B8 (PiProcessDriversLoadedOnSecureDevice.c)
- *     PipUnprotectDevice @ 0x14096F688 (PipUnprotectDevice.c)
+ *     PnprQueryReplaceFeatures @ 0x14050F578 (PnprQueryReplaceFeatures.c)
+ *     PiProcessNewDeviceNode @ 0x140740930 (PiProcessNewDeviceNode.c)
+ *     PiGetDmaAdapterFromBusInterface @ 0x1407644B8 (PiGetDmaAdapterFromBusInterface.c)
+ *     IopQueryInterfaceRecurseUp @ 0x1407649A8 (IopQueryInterfaceRecurseUp.c)
+ *     IoQueryInterface @ 0x140764BB0 (IoQueryInterface.c)
+ *     PiIommuGetInterface @ 0x140764C98 (PiIommuGetInterface.c)
+ *     PnpGetDeviceLocationStrings @ 0x140764D44 (PnpGetDeviceLocationStrings.c)
+ *     PnprIdentifyUnits @ 0x1408AD98C (PnprIdentifyUnits.c)
+ *     IopQueryBusResourceUpdateInterface @ 0x1408B2BD0 (IopQueryBusResourceUpdateInterface.c)
+ *     PiProcessDriversLoadedOnSecureDevice @ 0x1408B5474 (PiProcessDriversLoadedOnSecureDevice.c)
+ *     PipUnprotectDevice @ 0x1408B5544 (PipUnprotectDevice.c)
  * Callees:
- *     IofCallDriver @ 0x14022EF10 (IofCallDriver.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5D0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x140302C00 (IoGetAttachedDeviceReferenceWithTag.c)
- *     memset @ 0x140435400 (memset.c)
- *     IopBuildSynchronousFsdRequest @ 0x1407FDA70 (IopBuildSynchronousFsdRequest.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CB850 (ObfDereferenceObjectWithTag.c)
+ *     IofCallDriver @ 0x1402D2170 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1402D40A0 (KeInitializeEvent.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x1403616F0 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     IopBuildSynchronousFsdRequest @ 0x1406FF1D0 (IopBuildSynchronousFsdRequest.c)
  */
 
 __int64 __fastcall PnpQueryInterface(
-        _QWORD *Object,
+        PDEVICE_OBJECT DeviceObject,
         ULONG_PTR a2,
         USHORT a3,
         USHORT a4,
@@ -36,7 +36,6 @@ __int64 __fastcall PnpQueryInterface(
   unsigned int v13; // ebx
   __int128 v15; // [rsp+40h] [rbp-38h] BYREF
   struct _KEVENT Event; // [rsp+50h] [rbp-28h] BYREF
-  __int64 retaddr; // [rsp+78h] [rbp+0h]
 
   memset(&Event, 0, sizeof(Event));
   v15 = 0LL;
@@ -46,16 +45,15 @@ __int64 __fastcall PnpQueryInterface(
   *a6 = a4;
   a6[1] = a3;
   KeInitializeEvent(&Event, NotificationEvent, 0);
-  AttachedDeviceReferenceWithTag = (struct _DEVICE_OBJECT *)IoGetAttachedDeviceReferenceWithTag(Object, 0x49706E50u);
+  AttachedDeviceReferenceWithTag = IoGetAttachedDeviceReferenceWithTag(DeviceObject, 0x49706E50u);
   v11 = (IRP *)IopBuildSynchronousFsdRequest(
-                 27,
-                 (_DWORD)AttachedDeviceReferenceWithTag,
-                 0,
+                 0x1Bu,
+                 (__int64)AttachedDeviceReferenceWithTag,
+                 0LL,
                  0,
                  0LL,
                  (__int64)&Event,
-                 (__int64)&v15,
-                 retaddr);
+                 (__int64)&v15);
   if ( v11 )
   {
     CurrentStackLocation = v11->Tail.Overlay.CurrentStackLocation;

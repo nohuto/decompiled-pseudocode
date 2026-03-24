@@ -1,1 +1,30 @@
-/*\n * XREFs of __security_check_cookie @ 0x1C0007290\n * Callers:\n *     KeyboardStart @ 0x1C0001F70 (KeyboardStart.c)\n *     KbdClassTraceLoggingDeniedCreateForReadWithSFAC @ 0x1C0005A40 (KbdClassTraceLoggingDeniedCreateForReadWithSFAC.c)\n *     __GSHandlerCheckCommon @ 0x1C000714C (__GSHandlerCheckCommon.c)\n *     KeyboardClassFindMorePorts @ 0x1C000E010 (KeyboardClassFindMorePorts.c)\n *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C000EA78 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)\n *     KbdCreateClassObject @ 0x1C000FD50 (KbdCreateClassObject.c)\n *     KeyboardClassGetWaitWakeEnableState @ 0x1C00102E0 (KeyboardClassGetWaitWakeEnableState.c)\n *     DriverEntry @ 0x1C0011080 (DriverEntry.c)\n *     KbdConfiguration @ 0x1C00119A0 (KbdConfiguration.c)\n * Callees:\n *     <none>\n */\n\nvoid __cdecl _security_check_cookie(uintptr_t StackCookie)\n{\n  __int64 v1; // rcx\n\n  if ( StackCookie != _security_cookie )\nReportFailure:\n    _report_gsfailure(StackCookie);\n  v1 = __ROL8__(StackCookie, 16);\n  if ( (_WORD)v1 )\n  {\n    StackCookie = __ROR8__(v1, 16);\n    goto ReportFailure;\n  }\n}\n
+/*
+ * XREFs of __security_check_cookie @ 0x1C0007290
+ * Callers:
+ *     KeyboardStart @ 0x1C0001F70 (KeyboardStart.c)
+ *     KbdClassTraceLoggingDeniedCreateForReadWithSFAC @ 0x1C0005A40 (KbdClassTraceLoggingDeniedCreateForReadWithSFAC.c)
+ *     __GSHandlerCheckCommon @ 0x1C000714C (__GSHandlerCheckCommon.c)
+ *     KeyboardClassFindMorePorts @ 0x1C000E010 (KeyboardClassFindMorePorts.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C000EA78 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     KbdCreateClassObject @ 0x1C000FD50 (KbdCreateClassObject.c)
+ *     KeyboardClassGetWaitWakeEnableState @ 0x1C00102E0 (KeyboardClassGetWaitWakeEnableState.c)
+ *     DriverEntry @ 0x1C0011080 (DriverEntry.c)
+ *     KbdConfiguration @ 0x1C00119A0 (KbdConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
+void __cdecl _security_check_cookie(uintptr_t StackCookie)
+{
+  __int64 v1; // rcx
+
+  if ( StackCookie != _security_cookie )
+ReportFailure:
+    _report_gsfailure(StackCookie);
+  v1 = __ROL8__(StackCookie, 16);
+  if ( (_WORD)v1 )
+  {
+    StackCookie = __ROR8__(v1, 16);
+    goto ReportFailure;
+  }
+}

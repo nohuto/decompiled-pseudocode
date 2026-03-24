@@ -1,13 +1,14 @@
 /*
- * XREFs of ?ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x180178414
+ * XREFs of ?ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x18014E1C4
  * Callers:
- *     ??1FeatureStateData@details_abi@wil@@QEAA@XZ @ 0x180177858 (--1FeatureStateData@details_abi@wil@@QEAA@XZ.c)
- *     ?Release@?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAXXZ @ 0x180178664 (-Release@-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAXXZ.c)
+ *     ??1FeatureStateManager@details@wil@@QEAA@XZ @ 0x1800E61D0 (--1FeatureStateManager@details@wil@@QEAA@XZ.c)
+ *     ??_G?$ProcessLocalStorage@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAPEAXI@Z @ 0x1800E6C8C (--_G-$ProcessLocalStorage@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAPEAXI@Z.c)
+ *     ??_G?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAPEAXI@Z @ 0x18014CFB0 (--_G-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAPEAXI@Z.c)
  * Callees:
- *     ??0UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x180028B68 (--0UsageIndexes@details_abi@wil@@QEAA@XZ.c)
- *     ??1UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x1800296E4 (--1UsageIndexes@details_abi@wil@@QEAA@XZ.c)
- *     ?Record@UsageIndexes@details_abi@wil@@QEAAXXZ @ 0x180029744 (-Record@UsageIndexes@details_abi@wil@@QEAAXXZ.c)
- *     ?RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z @ 0x1800297D4 (-RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z.c)
+ *     ??1UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x1800AEC7C (--1UsageIndexes@details_abi@wil@@QEAA@XZ.c)
+ *     ?Record@UsageIndexes@details_abi@wil@@QEAAXXZ @ 0x1800AECD8 (-Record@UsageIndexes@details_abi@wil@@QEAAXXZ.c)
+ *     ?RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z @ 0x1800AED68 (-RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z.c)
+ *     ??0UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x1800AEDB8 (--0UsageIndexes@details_abi@wil@@QEAA@XZ.c)
  */
 
 void __fastcall wil::details_abi::FeatureStateData::ProcessShutdown(

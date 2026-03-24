@@ -1,5 +1,5 @@
 /*
- * XREFs of ?SetBufferProperty@CColorGradientStopMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00AF590
+ * XREFs of ?SetBufferProperty@CColorGradientStopMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01E6370
  * Callers:
  *     <none>
  * Callees:

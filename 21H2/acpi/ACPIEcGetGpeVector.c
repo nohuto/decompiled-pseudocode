@@ -1,12 +1,12 @@
 /*
- * XREFs of ACPIEcGetGpeVector @ 0x1C00AD6A4
+ * XREFs of ACPIEcGetGpeVector @ 0x1C00AEA1C
  * Callers:
- *     ACPIEcStartDeviceWorker @ 0x1C0053300 (ACPIEcStartDeviceWorker.c)
+ *     ACPIEcStartDeviceWorker @ 0x1C0053C40 (ACPIEcStartDeviceWorker.c)
  * Callees:
- *     AMLIGetNamedChild @ 0x1C000B060 (AMLIGetNamedChild.c)
- *     AMLIDereferenceHandleEx @ 0x1C000B860 (AMLIDereferenceHandleEx.c)
- *     AMLIEvalNameSpaceObject @ 0x1C000B894 (AMLIEvalNameSpaceObject.c)
- *     AMLIFreeDataBuffs @ 0x1C001C758 (AMLIFreeDataBuffs.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     AMLIFreeDataBuffs @ 0x1C001D940 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
  */
 
 __int64 __fastcall ACPIEcGetGpeVector(__int64 a1)
@@ -23,8 +23,8 @@ __int64 __fastcall ACPIEcGetGpeVector(__int64 a1)
   v7 = 0LL;
   v5 = 0LL;
   v6 = 0LL;
-  v4 = AMLIEvalNameSpaceObject(v2, (__int64)&v5, 0, 0LL);
-  AMLIDereferenceHandleEx((volatile signed __int32 *)v2);
+  v4 = AMLIEvalNameSpaceObject((unsigned __int64 *)v2, (__int64)&v5, 0, 0LL);
+  AMLIDereferenceHandleEx((__int64)v2);
   if ( v4 >= 0 )
   {
     if ( WORD1(v5) != 1 )

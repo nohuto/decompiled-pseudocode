@@ -1,14 +1,11 @@
 /*
- * XREFs of ObReferenceObjectByPointerWithTag @ 0x1402A48C0
+ * XREFs of ObReferenceObjectByPointerWithTag @ 0x140356710
  * Callers:
- *     DifObReferenceObjectByPointerWithTagWrapper @ 0x1406185E0 (DifObReferenceObjectByPointerWithTagWrapper.c)
- *     DifObReferenceObjectByPointerWrapper @ 0x140618730 (DifObReferenceObjectByPointerWrapper.c)
- *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     NtOpenProcessTokenEx @ 0x1407279B0 (NtOpenProcessTokenEx.c)
- *     IoRegisterPlugPlayNotification @ 0x140768390 (IoRegisterPlugPlayNotification.c)
+ *     IoRegisterPlugPlayNotification @ 0x1406C4890 (IoRegisterPlugPlayNotification.c)
+ *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x1405C5EC8 (ObpPushStackInfo.c)
+ *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x140564D28 (ObpPushStackInfo.c)
  */
 
 NTSTATUS __stdcall ObReferenceObjectByPointerWithTag(
@@ -18,26 +15,21 @@ NTSTATUS __stdcall ObReferenceObjectByPointerWithTag(
         KPROCESSOR_MODE AccessMode,
         ULONG Tag)
 {
-  volatile signed __int64 *v5; // rdi
   signed __int64 BugCheckParameter4; // rbx
 
   if ( !ObjectType )
   {
     if ( !AccessMode )
-    {
-      v5 = (volatile signed __int64 *)((char *)Object - 48);
       goto LABEL_3;
-    }
     return -1073741788;
   }
-  v5 = (volatile signed __int64 *)((char *)Object - 48);
-  if ( ((unsigned __int8)ObHeaderCookie ^ (unsigned __int8)(*((char *)Object - 24) ^ ((unsigned __int16)((_WORD)Object - 48) >> 8))) != ObjectType->Index )
+  if ( (POBJECT_TYPE)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)] != ObjectType )
     return -1073741788;
 LABEL_3:
   if ( ObpTraceFlags )
-    ObpPushStackInfo((_DWORD)v5);
-  BugCheckParameter4 = _InterlockedIncrement64(v5);
+    ObpPushStackInfo((_DWORD)Object - 48);
+  BugCheckParameter4 = _InterlockedIncrement64((volatile signed __int64 *)Object - 6);
   if ( BugCheckParameter4 <= 1 )
-    KeBugCheckEx(0x18u, 0LL, (ULONG_PTR)(v5 + 6), 0x10uLL, BugCheckParameter4);
+    KeBugCheckEx(0x18u, 0LL, (ULONG_PTR)Object, 0x10uLL, BugCheckParameter4);
   return 0;
 }

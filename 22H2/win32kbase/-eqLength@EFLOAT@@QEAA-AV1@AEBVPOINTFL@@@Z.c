@@ -1,14 +1,14 @@
 /*
- * XREFs of ?eqLength@EFLOAT@@QEAA?AV1@AEBVPOINTFL@@@Z @ 0x1C00B2DD0
+ * XREFs of ?eqLength@EFLOAT@@QEAA?AV1@AEBVPOINTFL@@@Z @ 0x1C0094520
  * Callers:
- *     ?bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z @ 0x1C01523F0 (-bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z.c)
+ *     ?bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z @ 0x1C013CAC0 (-bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z.c)
  * Callees:
- *     ?vSqrt@EFLOAT@@QEAAXXZ @ 0x1C00A21E0 (-vSqrt@EFLOAT@@QEAAXXZ.c)
+ *     ?vSqrt@EFLOAT@@QEAAXXZ @ 0x1C008142C (-vSqrt@EFLOAT@@QEAAXXZ.c)
  */
 
 _DWORD *__fastcall EFLOAT::eqLength(EFLOAT *a1, _DWORD *a2, float *a3)
 {
-  float v4; // xmm2_4
+  float v4; // xmm4_4
   _DWORD *result; // rax
 
   v4 = *a3;

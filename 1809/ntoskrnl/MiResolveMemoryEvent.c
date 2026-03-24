@@ -1,9 +1,9 @@
 /*
- * XREFs of MiResolveMemoryEvent @ 0x1406D1E50
+ * XREFs of MiResolveMemoryEvent @ 0x1406D1E30
  * Callers:
  *     <none>
  * Callees:
- *     MiGetThreadPartition @ 0x14013DB40 (MiGetThreadPartition.c)
+ *     MiGetThreadPartition @ 0x14013DB60 (MiGetThreadPartition.c)
  *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
  */
 

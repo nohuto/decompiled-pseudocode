@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpSetTimer @ 0x140374AC0
+ * XREFs of ExpSetTimer @ 0x140376AF0
  * Callers:
- *     NtSetTimer @ 0x1403749A0 (NtSetTimer.c)
+ *     NtSetTimer @ 0x1403769A0 (NtSetTimer.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExpSetTimerObject2 @ 0x1402D594C (ExpSetTimerObject2.c)
- *     ExpSetTimerObject @ 0x1402E33D0 (ExpSetTimerObject.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
+ *     ExpSetTimerObject @ 0x140249420 (ExpSetTimerObject.c)
+ *     ExpSetTimerObject2 @ 0x14028026C (ExpSetTimerObject2.c)
+ *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall ExpSetTimer(
         void *a1,
         KPROCESSOR_MODE a2,
         __int64 *a3,
-        _DWORD *a4,
+        volatile signed __int32 *a4,
         __int64 a5,
         __int64 a6,
         char a7,
@@ -44,7 +44,7 @@ NTSTATUS __fastcall ExpSetTimer(
     }
     else if ( v14 == ExTimerObjectType )
     {
-      return ExpSetTimerObject((__int64)Object, a2, a3, a4, a5, a6, a7, a8, a9, a10);
+      return ExpSetTimerObject((ULONG_PTR)Object, a2, a3, a4, a5, a6, a7, a8, a9, a10);
     }
     else
     {

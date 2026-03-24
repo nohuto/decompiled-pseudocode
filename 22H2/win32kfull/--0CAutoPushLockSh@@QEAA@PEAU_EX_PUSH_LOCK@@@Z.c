@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0CAutoPushLockSh@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00AC2EC
+ * XREFs of ??0CAutoPushLockSh@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C0111AA4
  * Callers:
- *     EditionAllowProcessLaunchForegroundPolicy @ 0x1C0016EF0 (EditionAllowProcessLaunchForegroundPolicy.c)
- *     FreezeThawTimers @ 0x1C00A2740 (FreezeThawTimers.c)
- *     _anonymous_namespace_::HasLegacyForegroundActivateRight @ 0x1C00AC170 (_anonymous_namespace_--HasLegacyForegroundActivateRight.c)
- *     InternalSetTimer @ 0x1C00E6510 (InternalSetTimer.c)
- *     ?GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z @ 0x1C0153928 (-GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z.c)
+ *     InternalSetTimer @ 0x1C0080790 (InternalSetTimer.c)
+ *     FreezeThawTimers @ 0x1C01106A0 (FreezeThawTimers.c)
+ *     SetProcessTimerDelay @ 0x1C01EAB30 (SetProcessTimerDelay.c)
+ *     ?GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z @ 0x1C01F506C (-GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z.c)
+ *     ?IsProcessPriorityByClassBackground@PriorityBoost@@YA_NPEBUtagPROCESSINFO@@@Z @ 0x1C0222FE4 (-IsProcessPriorityByClassBackground@PriorityBoost@@YA_NPEBUtagPROCESSINFO@@@Z.c)
  * Callees:
  *     <none>
  */

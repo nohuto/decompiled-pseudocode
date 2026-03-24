@@ -1,10 +1,10 @@
 /*
- * XREFs of ?EmitData@CColorMatrixEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C020F320
+ * XREFs of ?EmitData@CColorMatrixEffectMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E0550
  * Callers:
- *     ?EmitUpdateCommands@CColorMatrixEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C020F3E0 (-EmitUpdateCommands@CColorMatrixEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CColorMatrixEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E0610 (-EmitUpdateCommands@CColorMatrixEffectMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
  * Callees:
- *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002BC70 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
- *     memset @ 0x1C00D6A00 (memset.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0063BD8 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     memset @ 0x1C00CF8C0 (memset.c)
  */
 
 bool __fastcall DirectComposition::CColorMatrixEffectMarshaler::EmitData(
@@ -23,8 +23,8 @@ bool __fastcall DirectComposition::CColorMatrixEffectMarshaler::EmitData(
   *(_DWORD *)v6 = 100;
   v4 = v3 + 4;
   memset(v3 + 4, 0, 0x60uLL);
-  *(_DWORD *)v4 = 458;
-  *((_DWORD *)v4 + 1) = *((_DWORD *)this + 8);
+  *(_DWORD *)v4 = 477;
+  *((_DWORD *)v4 + 1) = *((_DWORD *)this + 6);
   *((_DWORD *)v4 + 22) = *((_DWORD *)this + 48);
   *((_DWORD *)v4 + 23) = *((_DWORD *)this + 49);
   result = 1;

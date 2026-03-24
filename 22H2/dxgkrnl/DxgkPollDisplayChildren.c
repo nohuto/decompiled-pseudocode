@@ -1,9 +1,9 @@
 /*
- * XREFs of DxgkPollDisplayChildren @ 0x1C02D3F30
+ * XREFs of DxgkPollDisplayChildren @ 0x1C0225790
  * Callers:
  *     <none>
  * Callees:
- *     DxgkPollDisplayChildrenInternal @ 0x1C02D3F50 (DxgkPollDisplayChildrenInternal.c)
+ *     DxgkPollDisplayChildrenInternal @ 0x1C02257B0 (DxgkPollDisplayChildrenInternal.c)
  */
 
 __int64 __fastcall DxgkPollDisplayChildren(__int64 a1, __int64 a2)

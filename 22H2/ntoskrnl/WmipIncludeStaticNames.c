@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipIncludeStaticNames @ 0x1409E0A34
+ * XREFs of WmipIncludeStaticNames @ 0x14093282C
  * Callers:
- *     WmipProcessEvent @ 0x14086B2E0 (WmipProcessEvent.c)
+ *     WmipProcessEvent @ 0x140757570 (WmipProcessEvent.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229624 (RtlStringCbPrintfW.c)
- *     WmipAlign @ 0x14022AE50 (WmipAlign.c)
- *     RtlStringCbCopyW @ 0x14022B024 (RtlStringCbCopyW.c)
- *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     RtlStringCbCatW @ 0x140370FC4 (RtlStringCbCatW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     WmipFindGEByGuid @ 0x1406C64B4 (WmipFindGEByGuid.c)
- *     WmipReferenceEntry @ 0x1406C693C (WmipReferenceEntry.c)
- *     WmipUnreferenceEntry @ 0x1406C7090 (WmipUnreferenceEntry.c)
- *     WmipStaticInstanceNameSize @ 0x1406C8078 (WmipStaticInstanceNameSize.c)
- *     WmipInsertStaticNames @ 0x1406C8104 (WmipInsertStaticNames.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     KeWaitForSingleObject @ 0x1402C5E00 (KeWaitForSingleObject.c)
+ *     RtlStringCbCopyW @ 0x14032E038 (RtlStringCbCopyW.c)
+ *     WmipAlign @ 0x14032E0C0 (WmipAlign.c)
+ *     RtlStringCbCatW @ 0x14032E278 (RtlStringCbCatW.c)
+ *     RtlStringCbPrintfW @ 0x140347B60 (RtlStringCbPrintfW.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     WmipInsertStaticNames @ 0x1406B1C50 (WmipInsertStaticNames.c)
+ *     WmipStaticInstanceNameSize @ 0x1406B1E2C (WmipStaticInstanceNameSize.c)
+ *     WmipUnreferenceEntry @ 0x1406B23F8 (WmipUnreferenceEntry.c)
+ *     WmipReferenceEntry @ 0x1406B79C4 (WmipReferenceEntry.c)
+ *     WmipFindGEByGuid @ 0x1406B7FB0 (WmipFindGEByGuid.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 int *__fastcall WmipIncludeStaticNames(int *Src, unsigned int a2)
@@ -30,18 +30,18 @@ int *__fastcall WmipIncludeStaticNames(int *Src, unsigned int a2)
   unsigned int v9; // edx
   unsigned int v10; // eax
   unsigned int v11; // edi
-  int *Pool2; // rax
+  int *PoolWithTag; // rax
   int *v13; // rsi
   __int64 v14; // rax
-  __int64 v15; // r15
-  const wchar_t *v16; // r15
+  __int64 v15; // r12
+  const wchar_t *v16; // r12
   __int64 v17; // rdi
   __int64 v18; // rax
   unsigned int v19; // r14d
   __int64 v20; // rax
   __int64 v21; // r13
   int *v22; // rax
-  _WORD *v23; // rbx
+  _WORD *v23; // r15
   int v24; // eax
   unsigned int v25; // r14d
   unsigned int v26; // eax
@@ -84,17 +84,15 @@ int *__fastcall WmipIncludeStaticNames(int *Src, unsigned int a2)
               if ( v10 <= -1 - v28 )
               {
                 v11 = v10 + v28;
-                Pool2 = (int *)ExAllocatePool2(256LL, v10 + v28, 1885957463LL);
-                v13 = Pool2;
-                if ( Pool2 )
+                PoolWithTag = (int *)ExAllocatePoolWithTag(PagedPool, v10 + v28, 0x70696D57u);
+                v13 = PoolWithTag;
+                if ( PoolWithTag )
                 {
-                  memmove(Pool2, v3, (unsigned int)*v3);
+                  memmove(PoolWithTag, v3, (unsigned int)*v3);
                   WmipInsertStaticNames(v13, v11, v4);
 LABEL_34:
                   v3 = v13;
-LABEL_42:
-                  WmipUnreferenceEntry((__int64)&WmipISChunkInfo, (volatile signed __int64 *)v4);
-                  return v3;
+                  goto LABEL_41;
                 }
               }
             }
@@ -132,7 +130,7 @@ LABEL_42:
                 v21 = v28;
                 if ( v19 <= ~v28 )
                 {
-                  v22 = (int *)ExAllocatePool2(256LL, v19 + v28, 1885957463LL);
+                  v22 = (int *)ExAllocatePoolWithTag(PagedPool, v19 + v28, 0x70696D57u);
                   v13 = v22;
                   if ( v22 )
                   {
@@ -178,7 +176,8 @@ LABEL_42:
   {
     v3[12] = 0;
   }
+LABEL_41:
   if ( v4 )
-    goto LABEL_42;
+    WmipUnreferenceEntry((__int64)&WmipISChunkInfo, (volatile signed __int64 *)v4);
   return v3;
 }

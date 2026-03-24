@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpMergeKeyValues @ 0x1407FDB00
+ * XREFs of CmpMergeKeyValues @ 0x1407FDAE0
  * Callers:
- *     CmpCopySyncTree2 @ 0x1407FCC24 (CmpCopySyncTree2.c)
- *     CmSaveMergedKeys @ 0x14080231C (CmSaveMergedKeys.c)
+ *     CmpCopySyncTree2 @ 0x1407FCC04 (CmpCopySyncTree2.c)
+ *     CmSaveMergedKeys @ 0x1408022FC (CmSaveMergedKeys.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
  *     CmpAddValueToListEx @ 0x1405AD8B0 (CmpAddValueToListEx.c)
  *     CmpInitializeValueNameString @ 0x1405AF46C (CmpInitializeValueNameString.c)
  *     CmpFindNameInList @ 0x1405D062C (CmpFindNameInList.c)
- *     CmpCopyValue @ 0x1407FD3A4 (CmpCopyValue.c)
- *     CmpSyncKeyValues @ 0x1407FE4FC (CmpSyncKeyValues.c)
+ *     CmpCopyValue @ 0x1407FD384 (CmpCopyValue.c)
+ *     CmpSyncKeyValues @ 0x1407FE4DC (CmpSyncKeyValues.c)
  */
 
 char __fastcall CmpMergeKeyValues(__int64 a1, __int64 a2, _DWORD *a3, ULONG_PTR a4, unsigned int a5, __int64 a6)

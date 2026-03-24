@@ -1,53 +1,68 @@
 /*
- * XREFs of HalpMapCR3Ex @ 0x140A54D70
+ * XREFs of HalpMapCR3Ex @ 0x14099A2A0
  * Callers:
- *     HalpMmBuildTiledMemoryMap @ 0x140A54CD8 (HalpMmBuildTiledMemoryMap.c)
+ *     HalpMmBuildTiledMemoryMap @ 0x14099A1BC (HalpMmBuildTiledMemoryMap.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14027B670 (MmGetPhysicalAddress.c)
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x1403B1F04 (HalpMmAllocCtxAlloc.c)
- *     HalpStoreFreeCr3 @ 0x1403B913C (HalpStoreFreeCr3.c)
- *     memset @ 0x140435E00 (memset.c)
+ *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
+ *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     HalpStoreFreeCr3 @ 0x1403A2414 (HalpStoreFreeCr3.c)
+ *     memset @ 0x140414200 (memset.c)
  */
 
-__int64 __fastcall HalpMapCR3Ex(__int64 BaseAddress, PHYSICAL_ADDRESS PhysicalAddress, PHYSICAL_ADDRESS *a3)
+__int64 __fastcall HalpMapCR3Ex(
+        unsigned __int64 BaseAddress,
+        PHYSICAL_ADDRESS PhysicalAddress,
+        __int64 a3,
+        unsigned int a4)
 {
-  unsigned __int64 v5; // r14
-  int v6; // ebp
-  __int64 *v7; // rsi
-  __int64 v8; // rdi
-  void *v9; // rax
-  __int64 v10; // rcx
+  int v7; // ebp
+  __int64 v8; // rcx
+  __int64 *v9; // rsi
+  __int64 v10; // rdi
+  void *v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rdx
 
-  v5 = BaseAddress;
-  v6 = 3;
-  v7 = (__int64 *)((char *)HalpCR3Root + 8 * (((unsigned __int64)BaseAddress >> 39) & 0x1FF));
+  v7 = 3;
+  v8 = *(_QWORD *)(HalpCR3Root + 8LL * a4);
+  v9 = (__int64 *)(v8 + 8 * ((BaseAddress >> 39) & 0x1FF));
   do
   {
-    v8 = *v7;
-    if ( !*v7 )
+    v10 = *v9;
+    if ( !*v9 )
     {
-      v9 = (void *)HalpMmAllocCtxAlloc(BaseAddress, 4096LL);
-      v8 = (__int64)v9;
-      if ( !v9 )
+      v11 = (void *)HalpMmAllocCtxAlloc(v8, 4096LL);
+      v10 = (__int64)v11;
+      if ( !v11 )
         return 3221225626LL;
-      memset(v9, 0, 0x1000uLL);
-      if ( (int)HalpStoreFreeCr3(v8) < 0 )
+      memset(v11, 0, 0x1000uLL);
+      if ( (int)HalpStoreFreeCr3(a4, v10) < 0 )
       {
-        HalpMmAllocCtxFree(v10, v8);
+        HalpMmAllocCtxFree(v13, v12);
         return 3221225626LL;
       }
-      *v7 = v8;
+      *v9 = v10;
     }
-    --v6;
-    BaseAddress = (unsigned int)(v6 + 8 * v6 + 12);
-    v7 = (__int64 *)(v8 + 8 * ((v5 >> (v6 + 8 * (unsigned __int8)v6 + 12)) & 0x1FF));
+    --v7;
+    v8 = (unsigned int)(v7 + 8 * v7 + 12);
+    v9 = (__int64 *)(v10 + 8 * ((BaseAddress >> (v7 + 8 * (unsigned __int8)v7 + 12)) & 0x1FF));
   }
-  while ( v6 );
+  while ( v7 );
   if ( !PhysicalAddress.QuadPart )
-    PhysicalAddress = MmGetPhysicalAddress((PVOID)v5);
-  *v7 = *v7 ^ (*v7 ^ PhysicalAddress.QuadPart) & 0xFFFFFFFFFF000LL | 3;
-  if ( a3 )
-    *a3 = MmGetPhysicalAddress(v7);
+    PhysicalAddress = MmGetPhysicalAddress((PVOID)BaseAddress);
+  v14 = 1LL;
+  v15 = *v9 ^ (PhysicalAddress.QuadPart ^ *v9) & 0xFFFFFFFFF000LL;
+  v16 = 2LL;
+  do
+  {
+    v15 |= v14++;
+    --v16;
+  }
+  while ( v16 );
+  *v9 = v15;
   return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIsProcessTerminationRequested @ 0x140245C68
+ * XREFs of KiIsProcessTerminationRequested @ 0x1402BDDA0
  * Callers:
- *     KiSchedulerApc @ 0x1402EFA40 (KiSchedulerApc.c)
- *     KiSchedulerApcTerminate @ 0x1406C2560 (KiSchedulerApcTerminate.c)
+ *     KiSchedulerApc @ 0x140279C00 (KiSchedulerApc.c)
+ *     KiSchedulerApcTerminate @ 0x1406A5600 (KiSchedulerApcTerminate.c)
  * Callees:
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall KiIsProcessTerminationRequested(__int64 a1, _DWORD *a2)

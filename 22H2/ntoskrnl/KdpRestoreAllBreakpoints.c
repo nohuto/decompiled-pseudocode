@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpRestoreAllBreakpoints @ 0x140AB6B28
+ * XREFs of KdpRestoreAllBreakpoints @ 0x1409BA598
  * Callers:
- *     KdEnableDebuggerWithLock @ 0x14056781C (KdEnableDebuggerWithLock.c)
+ *     KdEnableDebuggerWithLock @ 0x140510CBC (KdEnableDebuggerWithLock.c)
  * Callees:
- *     KdpLowRestoreBreakpoint @ 0x140AB6924 (KdpLowRestoreBreakpoint.c)
+ *     KdpLowRestoreBreakpoint @ 0x1409BA398 (KdpLowRestoreBreakpoint.c)
  */
 
 char KdpRestoreAllBreakpoints()
@@ -13,7 +13,7 @@ char KdpRestoreAllBreakpoints()
   int v2; // eax
 
   v0 = 0;
-  v1 = &unk_140C49940;
+  v1 = &unk_140C342A0;
   do
   {
     v2 = *v1 & 5;

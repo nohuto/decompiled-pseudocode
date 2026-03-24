@@ -1,100 +1,89 @@
 /*
- * XREFs of ?RemoveInteropTexture@CHolographicManager@@QEAAXPEAVCHolographicInteropTexture@@@Z @ 0x1802A6268
+ * XREFs of ?RemoveInteropTexture@CHolographicManager@@QEAAXPEAVCHolographicInteropTexture@@@Z @ 0x1802541DC
  * Callers:
- *     ?DetachFromChannel@CHolographicInteropTexture@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1802AAAC0 (-DetachFromChannel@CHolographicInteropTexture@@UEAAXPEAVCChannelContext@@_N@Z.c)
+ *     ?DetachFromChannel@CHolographicInteropTexture@@UEAAXPEAVCChannelContext@@_N@Z @ 0x180258A20 (-DetachFromChannel@CHolographicInteropTexture@@UEAAXPEAVCChannelContext@@_N@Z.c)
  * Callees:
- *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034CA4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
- *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078A28 (-InternalRelease@CResource@@IEAAKXZ.c)
- *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EventWriteTransfer @ 0x1800BB2A0 (_tlgWriteTransfer_EventWriteTransfer.c)
- *     ?IsEnabled@CompositorTracing@@SA_NE_K@Z @ 0x1800FB8E4 (-IsEnabled@CompositorTracing@@SA_NE_K@Z.c)
- *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800FB924 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     memmove_0 @ 0x18011B9A4 (memmove_0.c)
- *     ?erase@?$_Tree@V?$_Tmap_traits@IUStereoscopicSlateData@@U?$less@I@std@@V?$allocator@U?$pair@$$CBIUStereoscopicSlateData@@@std@@@3@$0A@@std@@@std@@QEAA_KAEBI@Z @ 0x1802A75B0 (-erase@-$_Tree@V-$_Tmap_traits@IUStereoscopicSlateData@@U-$less@I@std@@V-$allocator@U-$pair@$$CB.c)
- *     ?erase@?$_Tree@V?$_Tmap_traits@IUStereoscopicViewData@@U?$less@I@std@@V?$allocator@U?$pair@$$CBIUStereoscopicViewData@@@std@@@3@$0A@@std@@@std@@QEAA_KAEBI@Z @ 0x1802A76D0 (-erase@-$_Tree@V-$_Tmap_traits@IUStereoscopicViewData@@U-$less@I@std@@V-$allocator@U-$pair@$$CBI.c)
- *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x1802AC48C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x18005DBFC (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?IsEnabled@CompositorTracing@@SA_NE_K@Z @ 0x1800DB20C (-IsEnabled@CompositorTracing@@SA_NE_K@Z.c)
+ *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800DB230 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
+ *     memmove_0 @ 0x1800F4017 (memmove_0.c)
+ *     ?GetStereoscopicContentManager@CComposition@@QEAAPEAUIStereoscopicContentManager@@XZ @ 0x180155714 (-GetStereoscopicContentManager@CComposition@@QEAAPEAUIStereoscopicContentManager@@XZ.c)
+ *     ?DwmHolographicInteropTextureRemove_@CompositorTracing@@QEAAXI@Z @ 0x1802531B0 (-DwmHolographicInteropTextureRemove_@CompositorTracing@@QEAAXI@Z.c)
+ *     ?erase@?$_Tree@V?$_Tmap_traits@IUStereoscopicSlateData@@U?$less@I@std@@V?$allocator@U?$pair@$$CBIUStereoscopicSlateData@@@std@@@3@$0A@@std@@@std@@QEAA_KAEBI@Z @ 0x180255BE4 (-erase@-$_Tree@V-$_Tmap_traits@IUStereoscopicSlateData@@U-$less@I@std@@V-$allocator_ea_180255BE4.c)
+ *     ?erase@?$_Tree@V?$_Tmap_traits@IUStereoscopicViewData@@U?$less@I@std@@V?$allocator@U?$pair@$$CBIUStereoscopicViewData@@@std@@@3@$0A@@std@@@std@@QEAA_KAEBI@Z @ 0x180255D48 (-erase@-$_Tree@V-$_Tmap_traits@IUStereoscopicViewData@@U-$less@I@std@@V-$allocator@_ea_180255D48.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x18025A660 (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
  */
 
-void __fastcall CHolographicManager::RemoveInteropTexture(RTL_SRWLOCK *this, struct CHolographicInteropTexture *a2)
+void __fastcall CHolographicManager::RemoveInteropTexture(
+        CHolographicManager *this,
+        struct CHolographicInteropTexture *a2)
 {
   RTL_SRWLOCK *v2; // rbx
-  struct CHolographicInteropTexture **i; // rcx
-  CHolographicInteropTaskQueue *Ptr; // rcx
-  __int64 v7; // rdi
-  int v8; // eax
-  int v9; // edi
-  __int64 v10; // rcx
+  struct CHolographicInteropTexture **v5; // rcx
+  struct CHolographicInteropTexture **v6; // r8
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  CHolographicInteropTaskQueue *v9; // rcx
+  __int64 v10; // rdx
   __int64 v11; // rcx
-  _DWORD *v12; // rcx
-  __int64 v13; // rcx
-  int v14; // [rsp+40h] [rbp-9h] BYREF
-  struct _RTL_CRITICAL_SECTION *v15; // [rsp+48h] [rbp-1h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v16; // [rsp+50h] [rbp+7h] BYREF
-  int *v17; // [rsp+70h] [rbp+27h]
-  int v18; // [rsp+78h] [rbp+2Fh]
-  int v19; // [rsp+7Ch] [rbp+33h]
+  __int64 v12; // r8
+  struct IStereoscopicContentManager *StereoscopicContentManager; // rdi
+  int v14; // edi
+  __int64 v15; // rcx
+  CompositorTracing *v16; // rcx
+  int v17; // [rsp+50h] [rbp+8h] BYREF
+  struct _RTL_CRITICAL_SECTION *v18; // [rsp+60h] [rbp+18h] BYREF
 
-  v2 = this + 13;
-  AcquireSRWLockExclusive(this + 13);
-  for ( i = (struct CHolographicInteropTexture **)this[18].Ptr; i != this[19].Ptr; ++i )
+  v2 = (RTL_SRWLOCK *)((char *)this + 104);
+  AcquireSRWLockExclusive((PSRWLOCK)this + 13);
+  v5 = (struct CHolographicInteropTexture **)*((_QWORD *)this + 18);
+  v6 = (struct CHolographicInteropTexture **)*((_QWORD *)this + 19);
+  while ( v5 != v6 )
   {
-    if ( *i == a2 )
+    if ( *v5 == a2 )
     {
-      memmove_0(i, i + 1, (char *)this[19].Ptr - (char *)(i + 1));
-      this[19].Ptr = (char *)this[19].Ptr - 8;
-      Ptr = (CHolographicInteropTaskQueue *)this[6].Ptr;
-      if ( Ptr && LOBYTE(this[30].Ptr) )
+      memmove_0(v5, v5 + 1, (char *)v6 - (char *)(v5 + 1));
+      *((_QWORD *)this + 19) -= 8LL;
+      v9 = (CHolographicInteropTaskQueue *)*((_QWORD *)this + 6);
+      if ( v9 && *((_BYTE *)this + 240) )
         CHolographicInteropTaskQueue::PostMessageW(
-          Ptr,
+          v9,
           3u,
-          (struct IUnknown *)(((unsigned __int64)a2 + 80) & -(__int64)(a2 != 0LL)),
+          (struct IUnknown *)(((unsigned __int64)a2 + 72) & -(__int64)(a2 != 0LL)),
           0LL,
           0LL,
           0LL,
           0LL);
-      v7 = *((_QWORD *)this[3].Ptr + 34);
-      if ( v7 )
+      if ( CComposition::GetStereoscopicContentManager(*((CComposition **)this + 3), v7, v8) )
       {
-        v8 = *((_DWORD *)a2 + 56);
-        v15 = (struct _RTL_CRITICAL_SECTION *)(v7 + 96);
-        v14 = v8;
-        EnterCriticalSection((LPCRITICAL_SECTION)(v7 + 96));
+        StereoscopicContentManager = CComposition::GetStereoscopicContentManager(*((CComposition **)this + 3), v10, v12);
+        v17 = *((_DWORD *)a2 + 52);
+        v18 = (struct _RTL_CRITICAL_SECTION *)((char *)StereoscopicContentManager + 96);
+        EnterCriticalSection((LPCRITICAL_SECTION)((char *)StereoscopicContentManager + 96));
         std::_Tree<std::_Tmap_traits<unsigned int,StereoscopicSlateData,std::less<unsigned int>,std::allocator<std::pair<unsigned int const,StereoscopicSlateData>>,0>>::erase(
-          v7 + 328,
-          &v14);
-        CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v15);
-        v15 = (struct _RTL_CRITICAL_SECTION *)(v7 + 40);
-        EnterCriticalSection((LPCRITICAL_SECTION)(v7 + 40));
+          (char *)StereoscopicContentManager + 328,
+          &v17);
+        CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v18);
+        v18 = (struct _RTL_CRITICAL_SECTION *)((char *)StereoscopicContentManager + 40);
+        EnterCriticalSection((LPCRITICAL_SECTION)StereoscopicContentManager + 1);
         std::_Tree<std::_Tmap_traits<unsigned int,StereoscopicViewData,std::less<unsigned int>,std::allocator<std::pair<unsigned int const,StereoscopicViewData>>,0>>::erase(
-          v7 + 80,
-          &v14);
-        CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v15);
+          (char *)StereoscopicContentManager + 80,
+          &v17);
+        CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v18);
       }
-      v9 = *((_DWORD *)a2 + 56);
-      if ( CompositorTracing::IsEnabled((__int64)Ptr) )
+      v14 = *((_DWORD *)a2 + 52);
+      if ( CompositorTracing::IsEnabled(v11) )
       {
         wil::details::static_lazy<CompositorTracing>::get(
-          v10,
-          (void (__cdecl *)())_lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_);
-        v12 = (_DWORD *)wil::details::static_lazy<CompositorTracing>::get(
-                          v11,
-                          (void (__cdecl *)())_lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_)[1];
-        if ( *v12 > 4u )
-        {
-          if ( tlgKeywordOn((__int64)v12, 0x400000000000LL) )
-          {
-            v19 = 0;
-            v17 = &v14;
-            v14 = v9;
-            v18 = 4;
-            tlgWriteTransfer_EventWriteTransfer(v13, (unsigned __int8 *)dword_180382BC4, 0LL, 0LL, 3u, &v16);
-          }
-        }
+          v15,
+          _lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_);
+        CompositorTracing::DwmHolographicInteropTextureRemove_(v16, v14);
       }
-      CResource::InternalRelease(a2);
+      CRenderTargetBitmap::Release(a2);
       break;
     }
+    ++v5;
   }
   ReleaseSRWLockExclusive(v2);
 }

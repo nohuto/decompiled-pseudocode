@@ -1,40 +1,39 @@
 /*
- * XREFs of ACPIEcGetGpeVector @ 0x1C00835D4
+ * XREFs of ACPIEcGetGpeVector @ 0x1C00AEA1C
  * Callers:
- *     ACPIEcStartDeviceWorker @ 0x1C00256C0 (ACPIEcStartDeviceWorker.c)
+ *     ACPIEcStartDeviceWorker @ 0x1C0053C40 (ACPIEcStartDeviceWorker.c)
  * Callees:
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIEvalNameSpaceObject @ 0x1C0047BBC (AMLIEvalNameSpaceObject.c)
- *     AMLIFreeDataBuffs @ 0x1C00482E4 (AMLIFreeDataBuffs.c)
- *     AMLIGetNamedChild @ 0x1C00486B8 (AMLIGetNamedChild.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C000BCA0 (AMLIEvalNameSpaceObject.c)
+ *     AMLIFreeDataBuffs @ 0x1C001D940 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0020D50 (AMLIGetNamedChild.c)
  */
 
 __int64 __fastcall ACPIEcGetGpeVector(__int64 a1)
 {
   __int64 *v2; // rdi
   int v4; // esi
-  __int64 v5; // rdx
-  __int128 v6; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v7; // [rsp+30h] [rbp-28h]
-  __int64 v8; // [rsp+40h] [rbp-18h]
+  __int128 v5; // [rsp+20h] [rbp-38h] BYREF
+  __int128 v6; // [rsp+30h] [rbp-28h]
+  __int64 v7; // [rsp+40h] [rbp-18h]
 
-  v2 = AMLIGetNamedChild(*(_QWORD **)(a1 + 56), 1162889055);
+  v2 = AMLIGetNamedChild(*(__int64 **)(a1 + 56), 1162889055);
   if ( !v2 )
     return 3221225524LL;
-  v8 = 0LL;
-  v6 = 0LL;
   v7 = 0LL;
-  v4 = AMLIEvalNameSpaceObject(v2, (__int64)&v6, 0, 0LL);
-  AMLIDereferenceHandleEx((volatile signed __int32 *)v2, v5);
+  v5 = 0LL;
+  v6 = 0LL;
+  v4 = AMLIEvalNameSpaceObject((unsigned __int64 *)v2, (__int64)&v5, 0, 0LL);
+  AMLIDereferenceHandleEx((__int64)v2);
   if ( v4 >= 0 )
   {
-    if ( WORD1(v6) != 1 )
+    if ( WORD1(v5) != 1 )
     {
-      AMLIFreeDataBuffs((__int64)&v6);
+      AMLIFreeDataBuffs((__int64)&v5);
       return 3222536207LL;
     }
-    *(_DWORD *)(a1 + 48) = (unsigned __int8)v7;
-    AMLIFreeDataBuffs((__int64)&v6);
+    *(_DWORD *)(a1 + 48) = (unsigned __int8)v6;
+    AMLIFreeDataBuffs((__int64)&v5);
   }
   return (unsigned int)v4;
 }

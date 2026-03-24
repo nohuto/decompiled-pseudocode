@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringVPrintfWorkerW @ 0x1C006974C
+ * XREFs of RtlStringVPrintfWorkerW @ 0x1C000E1FC
  * Callers:
- *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0069710 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?RtlStringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ @ 0x1C000E0FC (-RtlStringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ.c)
  * Callees:
  *     <none>
  */
@@ -13,21 +13,25 @@ NTSTATUS __stdcall RtlStringVPrintfWorkerW(
         NTSTRSAFE_PCWSTR pszFormat,
         va_list argList)
 {
-  size_t v5; // rdi
-  NTSTATUS v7; // ebx
-  int v8; // eax
+  size_t v5; // rbx
+  NTSTATUS v8; // ebp
+  int v9; // eax
 
   v5 = cchDest - 1;
-  v7 = 0;
-  v8 = _vsnwprintf(pszDest, cchDest - 1, pszFormat, argList);
-  if ( v8 < 0 || v8 > v5 )
+  v8 = 0;
+  v9 = _vsnwprintf(pszDest, cchDest - 1, pszFormat, argList);
+  if ( v9 < 0 || v9 > v5 )
   {
-    pszDest[v5] = 0;
-    return -2147483643;
+    v8 = -2147483643;
   }
-  else if ( v8 == v5 )
+  else if ( v9 != v5 )
   {
-    pszDest[v5] = 0;
+    v5 = v9;
+    goto LABEL_5;
   }
-  return v7;
+  pszDest[v5] = 0;
+LABEL_5:
+  if ( pcchNewDestLength )
+    *pcchNewDestLength = v5;
+  return v8;
 }

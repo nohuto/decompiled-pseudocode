@@ -1,42 +1,39 @@
 /*
- * XREFs of ?ComputeBounds@CSpriteVectorShape@@QEAAXXZ @ 0x1800D992C
+ * XREFs of ?ComputeBounds@CSpriteVectorShape@@QEAAXXZ @ 0x1801ECE28
  * Callers:
- *     ??$Walk@VCShapeBoundingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeBoundingContext@@@Z @ 0x1800D9410 (--$Walk@VCShapeBoundingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeBoundingCo.c)
+ *     ??$Walk@VCShapeBoundingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeBoundingContext@@@Z @ 0x180260A1C (--$Walk@VCShapeBoundingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeBoundingCo.c)
  * Callees:
- *     ?EnsureStrokeStyleForBounds@CSpriteVectorShape@@AEAAJXZ @ 0x18001F358 (-EnsureStrokeStyleForBounds@CSpriteVectorShape@@AEAAJXZ.c)
- *     ?GetTightBounds@CShapePtr@@QEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x180045968 (-GetTightBounds@CShapePtr@@QEBAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNot.c)
- *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180061790 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
- *     ?Inflate@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXMM@Z @ 0x180075B5C (-Inflate@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXMM@Z.c)
- *     ?GetWidenedBounds@CShapePtr@@QEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@MPEAUID2D1StrokeStyle1@@PEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800D9A20 (-GetWidenedBounds@CShapePtr@@QEBAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UN.c)
- *     ?IsEmpty@CShapePtr@@QEBA_NXZ @ 0x1800D9B58 (-IsEmpty@CShapePtr@@QEBA_NXZ.c)
- *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800DC518 (-Release@CShapePtr@@QEAAXXZ.c)
+ *     ?IsEmpty@CShapePtr@@QEBA_NXZ @ 0x18001A758 (-IsEmpty@CShapePtr@@QEBA_NXZ.c)
+ *     ?GetTightBounds@CShapePtr@@QEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x180067E94 (-GetTightBounds@CShapePtr@@QEBAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNot.c)
+ *     ?GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x180087AD0 (-GetShapeData@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800C876C (-Release@CShapePtr@@QEAAXXZ.c)
+ *     ?EnsureStrokeStyleForBounds@CSpriteVectorShape@@AEAAJXZ @ 0x1801ED298 (-EnsureStrokeStyleForBounds@CSpriteVectorShape@@AEAAJXZ.c)
+ *     ?GetWidenedBounds@CShapePtr@@QEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@MPEAUID2D1StrokeStyle1@@PEBUD2D_MATRIX_3X2_F@@@Z @ 0x1801ED68C (-GetWidenedBounds@CShapePtr@@QEBAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UN.c)
  */
 
 void __fastcall CSpriteVectorShape::ComputeBounds(CSpriteVectorShape *this)
 {
   CGeometry *v2; // rcx
-  bool v3; // al
-  __int64 v4; // r8
-  __int64 v5; // r8
-  __int64 v6; // [rsp+30h] [rbp-18h] BYREF
-  char v7; // [rsp+38h] [rbp-10h]
+  __int64 v3; // r8
+  bool v4; // al
+  __int64 v5; // [rsp+30h] [rbp-18h] BYREF
+  char v6; // [rsp+38h] [rbp-10h]
 
-  *((_WORD *)this + 48) = 0;
-  v2 = (CGeometry *)*((_QWORD *)this + 15);
-  v6 = 0LL;
-  v7 = 0;
+  *((_WORD *)this + 44) = 0;
+  v2 = (CGeometry *)*((_QWORD *)this + 14);
+  v5 = 0LL;
+  v6 = 0;
   if ( v2 )
-    CGeometry::GetShapeData(v2, 0LL, (struct CShapePtr *)&v6);
-  if ( !CShapePtr::IsEmpty((CShapePtr *)&v6) )
+    CGeometry::GetShapeData(v2, 0LL, (struct CShapePtr *)&v5);
+  if ( !CShapePtr::IsEmpty((CShapePtr *)&v5) )
   {
-    if ( *((_QWORD *)this + 14) && (int)CSpriteVectorShape::EnsureStrokeStyleForBounds(this) >= 0 )
-      *((_BYTE *)this + 97) = (int)CShapePtr::GetWidenedBounds(&v6, (char *)this + 80, v5, *((_QWORD *)this + 16)) >= 0;
-    if ( *((_BYTE *)this + 97)
-      || *((_QWORD *)this + 13) && (v3 = (int)CShapePtr::GetTightBounds(&v6) >= 0, (*((_BYTE *)this + 97) = v3) != 0) )
+    if ( *((_QWORD *)this + 13) && (int)CSpriteVectorShape::EnsureStrokeStyleForBounds(this) >= 0 )
+      *((_BYTE *)this + 89) = (int)CShapePtr::GetWidenedBounds(&v5, (char *)this + 72, v3, *((_QWORD *)this + 15)) >= 0;
+    if ( *((_BYTE *)this + 89)
+      || *((_QWORD *)this + 12) && (v4 = (int)CShapePtr::GetTightBounds(&v5) >= 0, (*((_BYTE *)this + 89) = v4) != 0) )
     {
-      TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::Inflate((float *)this + 20, 0.25, 0.25);
-      *((_BYTE *)this + 97) = (int)CShapePtr::GetWidenedBounds(&v6, (char *)this + 144, v4, 0LL) >= 0;
+      *((_BYTE *)this + 89) = (int)CShapePtr::GetWidenedBounds(&v5, (char *)this + 136, v3, 0LL) >= 0;
     }
   }
-  CShapePtr::Release((CShapePtr *)&v6);
+  CShapePtr::Release((CShapePtr *)&v5);
 }

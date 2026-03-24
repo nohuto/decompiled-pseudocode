@@ -1,11 +1,11 @@
 /*
- * XREFs of ?EmitUpdateCommands@CShapeVisualMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021C410
+ * XREFs of ?EmitUpdateCommands@CShapeVisualMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E5DB0
  * Callers:
  *     <none>
  * Callees:
- *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0010FE0 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
- *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_296a34529ed03e363818ddfecdea776d___ @ 0x1C021C18C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_296a34529ed03e363818ddfecdea776.c)
- *     ?EmitShapes@CShapeVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C021C3B8 (-EmitShapes@CShapeVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061B40 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_296a34529ed03e363818ddfecdea776d___ @ 0x1C01E5B3C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_296a34529ed03e363818ddfecdea776.c)
+ *     ?EmitShapes@CShapeVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01E5D5C (-EmitShapes@CShapeVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
  */
 
 char __fastcall DirectComposition::CShapeVisualMarshaler::EmitUpdateCommands(
@@ -18,7 +18,7 @@ char __fastcall DirectComposition::CShapeVisualMarshaler::EmitUpdateCommands(
 
   if ( !DirectComposition::CVisualMarshaler::EmitUpdateCommands(this, a2) )
     return 0;
-  v4 = *((_DWORD *)this + 102);
+  v4 = *((_DWORD *)this + 98);
   v5 = 1;
   v7 = this;
   if ( (v4 & 1) != 0 )
@@ -28,7 +28,7 @@ char __fastcall DirectComposition::CShapeVisualMarshaler::EmitUpdateCommands(
             (struct DirectComposition::CBatch ***)a2,
             (__int64)&v7) )
       return 0;
-    *((_DWORD *)this + 102) &= ~1u;
+    *((_DWORD *)this + 98) &= ~1u;
   }
   if ( !DirectComposition::CShapeVisualMarshaler::EmitShapes(this, (struct DirectComposition::CBatch ***)a2) )
     return 0;

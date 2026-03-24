@@ -1,23 +1,24 @@
 /*
- * XREFs of MiGetVadMandatoryPageSize @ 0x1402EADF0
+ * XREFs of MiGetVadMandatoryPageSize @ 0x140298600
  * Callers:
- *     MiCaptureWriteWatchDirtyBit @ 0x1402170D0 (MiCaptureWriteWatchDirtyBit.c)
- *     MiMoveDirtyBitsToPfns @ 0x1402858F0 (MiMoveDirtyBitsToPfns.c)
- *     NtGetWriteWatch @ 0x1402EA260 (NtGetWriteWatch.c)
- *     NtResetWriteWatch @ 0x140747D40 (NtResetWriteWatch.c)
- *     MiCreateWriteWatchView @ 0x1407CD094 (MiCreateWriteWatchView.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x14025A9BC (MiCaptureWriteWatchDirtyBit.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140297B10 (MiMoveDirtyBitsToPfns.c)
+ *     NtGetWriteWatch @ 0x1402ACCE0 (NtGetWriteWatch.c)
+ *     NtResetWriteWatch @ 0x14063A770 (NtResetWriteWatch.c)
+ *     MiCreateWriteWatchView @ 0x140683D2C (MiCreateWriteWatchView.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int64 __fastcall MiGetVadMandatoryPageSize(__int64 a1)
+__int64 __fastcall MiGetVadMandatoryPageSize(__int64 a1)
 {
-  unsigned int v1; // edx
-  unsigned __int64 result; // rax
+  unsigned int v1; // eax
+  __int64 v2; // rcx
 
   v1 = *(_DWORD *)(a1 + 48);
-  result = MiVadPageSizes[(v1 >> 19) & 3];
-  if ( result < 0x200 && (v1 & 0x800000) == 0 )
+  v2 = (v1 >> 18) & 3;
+  if ( (unsigned __int64)MiVadPageSizes[v2] >= 0x200 || (v1 & 0x400000) != 0 )
+    return MiVadPageSizes[v2];
+  else
     return 1LL;
-  return result;
 }

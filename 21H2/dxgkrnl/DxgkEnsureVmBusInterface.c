@@ -1,35 +1,29 @@
 /*
- * XREFs of DxgkEnsureVmBusInterface @ 0x1C030D2CC
+ * XREFs of DxgkEnsureVmBusInterface @ 0x1C026C0D0
  * Callers:
- *     DpiFdoStartAdapterThread @ 0x1C01F4EF0 (DpiFdoStartAdapterThread.c)
+ *     DpiFdoStartAdapterThread @ 0x1C0199BE0 (DpiFdoStartAdapterThread.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
- *     ?EnsureVmBusInterface@DXGGLOBAL@@QEAAJXZ @ 0x1C0309F70 (-EnsureVmBusInterface@DXGGLOBAL@@QEAAJXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C00041C0 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?EnsureVmBusInterface@DXGGLOBAL@@QEAAJXZ @ 0x1C0269498 (-EnsureVmBusInterface@DXGGLOBAL@@QEAAJXZ.c)
  */
 
-__int64 DxgkEnsureVmBusInterface()
+__int64 __fastcall DxgkEnsureVmBusInterface(__int64 a1, __int64 a2)
 {
   DXGGLOBAL *Global; // rax
-  int v1; // eax
-  __int64 v2; // rdi
+  int v3; // eax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rbx
+  __int64 v7; // rax
 
-  Global = DXGGLOBAL_GetGlobal();
-  v1 = DXGGLOBAL::EnsureVmBusInterface(Global);
-  v2 = v1;
-  if ( v1 < 0 )
+  Global = DXGGLOBAL::GetGlobal(a1, a2);
+  v3 = DXGGLOBAL::EnsureVmBusInterface(Global);
+  v6 = v3;
+  if ( v3 < 0 )
   {
-    WdLogSingleEntry1(2LL, v1);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      0x40000,
-      -1,
-      (__int64)L"Failed to create global VM bus channel, returning 0x%I64x",
-      v2,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v7 = WdLogNewEntry5_WdError(v5, v4);
+    *(_QWORD *)(v7 + 24) = v6;
+    WdLogEvent5_WdError(v7);
   }
-  return (unsigned int)v2;
+  return (unsigned int)v6;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetDirection@CCompositionDistantLight@@UEBAAEBUfloat3@Numerics@Foundation@Windows@@XZ @ 0x1800FB3C0
+ * XREFs of ?GetDirection@CCompositionDistantLight@@UEBAAEBUfloat3@Numerics@Foundation@Windows@@XZ @ 0x1800E2A20
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 const struct Windows::Foundation::Numerics::float3 *__fastcall CCompositionDistantLight::GetDirection(
         CCompositionDistantLight *this)
 {
-  return (CCompositionDistantLight *)((char *)this + 280);
+  return (CCompositionDistantLight *)((char *)this + 272);
 }

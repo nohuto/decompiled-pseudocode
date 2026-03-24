@@ -1,318 +1,396 @@
 /*
- * XREFs of ?UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C0077200
+ * XREFs of ?UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00A7970
  * Callers:
- *     UmfdDispatchEscape @ 0x1C0076FE0 (UmfdDispatchEscape.c)
+ *     UmfdDispatchEscape @ 0x1C00A76B0 (UmfdDispatchEscape.c)
  * Callees:
- *     ?Create@UmfdTls@@CAPEAV1@XZ @ 0x1C00750A8 (-Create@UmfdTls@@CAPEAV1@XZ.c)
- *     ?UmfdCreateRequestContext@@YAPEAXXZ @ 0x1C0075D0C (-UmfdCreateRequestContext@@YAPEAXXZ.c)
- *     ?WaitForWorkItem@CWorkItemQueue@@QEBAPEAVCWorkItem@1@XZ @ 0x1C00B6E10 (-WaitForWorkItem@CWorkItemQueue@@QEBAPEAVCWorkItem@1@XZ.c)
- *     ?DequeueWorkItem@CWorkItemQueue@@QEBAPEAVCWorkItem@1@XZ @ 0x1C00B6EA0 (-DequeueWorkItem@CWorkItemQueue@@QEBAPEAVCWorkItem@1@XZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C0141260 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1C0141300 (memmove.c)
- *     ?Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ @ 0x1C0307468 (-Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ.c)
- *     ?Complete@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ @ 0x1C03074A0 (-Complete@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ.c)
- *     ?QueueWorkItem@CWorkItemQueue@@QEAA_NQEAVCWorkItem@1@@Z @ 0x1C03074D8 (-QueueWorkItem@CWorkItemQueue@@QEAA_NQEAVCWorkItem@1@@Z.c)
+ *     ?Create@UmfdTls@@CAPEAV1@XZ @ 0x1C013141C (-Create@UmfdTls@@CAPEAV1@XZ.c)
+ *     ?UmfdCreateRequestContext@@YAPEAXXZ @ 0x1C0135440 (-UmfdCreateRequestContext@@YAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C016DB10 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C016DB40 (memmove.c)
+ *     ?Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ @ 0x1C02DF014 (-Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ.c)
+ *     ?QueueWorkItem@CWorkItemQueue@@QEAA_NQEAVCWorkItem@1@@Z @ 0x1C02DF04C (-QueueWorkItem@CWorkItemQueue@@QEAA_NQEAVCWorkItem@1@@Z.c)
  */
 
-void __fastcall UmfdEscSendCompleteWaitReceive(struct tagUMFD_ESCAPE_ARGUMENT *a1)
+void __fastcall UmfdEscSendCompleteWaitReceive(volatile void **a1)
 {
-  struct tagUMFD_ESCAPE_ARGUMENT *v1; // r12
-  __int64 v2; // rbx
+  volatile void **v1; // r12
+  struct _KTHREAD *CurrentThread; // r14
+  __int64 v3; // rsi
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
   __int64 *ThreadWin32Thread; // rax
-  __int64 v4; // rax
-  __int64 v5; // rbx
-  __int64 *v6; // rax
-  __int64 v7; // rax
-  __int64 v8; // rcx
-  __int64 v9; // rsi
-  __int64 v10; // rbx
-  __int64 *v11; // rax
-  __int64 v12; // rcx
-  __int64 v13; // r15
-  int v14; // eax
-  __int64 v15; // rcx
-  union _SLIST_HEADER **v16; // rbx
-  __int64 *v17; // rsi
-  __int64 *RequestContext; // r13
-  __int64 v19; // r14
-  char v20; // al
-  PSLIST_ENTRY v21; // rax
-  __int64 v22; // r9
-  struct CWorkItemQueue::CWorkItem *v23; // rbx
-  CWorkItemQueue *v24; // rbx
-  PSLIST_ENTRY v25; // rax
-  unsigned int v26; // r12d
-  int v27; // r14d
-  __int64 v28; // rsi
-  __int64 *v29; // rax
-  __int64 v30; // rdx
-  __int64 v31; // rsi
-  __int64 v32; // r13
-  __int64 v33; // rbx
-  char v34; // r15
-  CWorkItemQueue *v35; // rcx
-  signed __int32 v36[8]; // [rsp+0h] [rbp-98h] BYREF
-  CWorkItemQueue *v37; // [rsp+30h] [rbp-68h]
-  _QWORD *v38; // [rsp+38h] [rbp-60h]
-  _QWORD *v39; // [rsp+40h] [rbp-58h]
-  int *v40; // [rsp+48h] [rbp-50h]
-  CWorkItemQueue **v42; // [rsp+A8h] [rbp+10h]
-  int v43; // [rsp+A8h] [rbp+10h]
-  __int64 v44; // [rsp+B0h] [rbp+18h] BYREF
-  __int64 v45; // [rsp+B8h] [rbp+20h] BYREF
+  struct UmfdTls *v8; // r15
+  __int64 v9; // rcx
+  struct _KTHREAD *v10; // r14
+  __int64 v11; // rsi
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 *v15; // rax
+  struct UmfdTls *v16; // rax
+  __int64 v17; // r14
+  struct _KTHREAD *v18; // r13
+  __int64 v19; // rsi
+  __int64 v20; // rdx
+  __int64 v21; // rcx
+  __int64 v22; // r8
+  __int64 *v23; // rax
+  struct UmfdTls *v24; // r13
+  int v25; // ecx
+  union _SLIST_HEADER **v26; // rbx
+  __int64 *v27; // r14
+  __int64 RequestContext; // rcx
+  __int64 v29; // rax
+  union _SLIST_HEADER *v30; // rsi
+  PSLIST_ENTRY v31; // rax
+  PSLIST_ENTRY v32; // rbx
+  unsigned int v33; // r12d
+  int v34; // esi
+  struct _KTHREAD *v35; // r14
+  __int64 v36; // rsi
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  __int64 v39; // r8
+  __int64 *v40; // rax
+  struct UmfdTls *v41; // rdx
+  __int64 v42; // rsi
+  int v43; // eax
+  __int64 v44; // r13
+  int v45; // ecx
+  __int64 v46; // rbx
+  char v47; // r14
+  PSLIST_ENTRY v48; // rax
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v51; // rcx
+  __int64 CurrentThreadProcess; // rax
+  __int64 v53; // rax
+  int v54; // ebx
+  __int64 v55; // rcx
+  __int64 v56; // rax
+  __int64 v57; // rax
+  int v58; // ebx
+  __int64 v59; // rcx
+  __int64 v60; // rax
+  __int64 v61; // rax
+  int v62; // ebx
+  __int64 v63; // rcx
+  __int64 v64; // rax
+  __int64 v65; // [rsp+30h] [rbp-78h] BYREF
+  __int64 v66; // [rsp+38h] [rbp-70h] BYREF
+  struct UmfdTls *v67; // [rsp+40h] [rbp-68h]
+  CWorkItemQueue **v68; // [rsp+48h] [rbp-60h]
+  __int64 v69; // [rsp+50h] [rbp-58h]
+  __int64 v70; // [rsp+58h] [rbp-50h]
+  int v72; // [rsp+C0h] [rbp+18h]
+  _QWORD *pv; // [rsp+C8h] [rbp+20h]
 
   v1 = a1;
-  v2 = 0LL;
-  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-  if ( ThreadWin32Thread )
-    v2 = *ThreadWin32Thread;
-  if ( v2 )
+  CurrentThread = KeGetCurrentThread();
+  v3 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(a1)
+    || (CurrentProcess = PsGetCurrentProcess(v5, v4, v6),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v51),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
   {
-    if ( !*(_QWORD *)(v2 + 352) )
-      *(_QWORD *)(v2 + 352) = UmfdTls::Create();
-    v4 = *(_QWORD *)(v2 + 352);
-    if ( v4 )
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v3 = *ThreadWin32Thread;
+  }
+  if ( v3 )
+  {
+    v8 = *(struct UmfdTls **)(v3 + 352);
+    v67 = v8;
+    if ( v8 || (v8 = UmfdTls::Create(), *(_QWORD *)(v3 + 352) = v8, (v67 = v8) != 0LL) )
     {
-      v38 = (_QWORD *)(v4 + 48);
-      *(_QWORD *)(v4 + 48) = 0LL;
-      v39 = (_QWORD *)(v4 + 40);
-      *(_QWORD *)(v4 + 40) = 0LL;
-      v40 = (int *)(v4 + 32);
-      if ( *(int *)(v4 + 32) >= 0 )
+      *((_QWORD *)v8 + 6) = 0LL;
+      *((_QWORD *)v8 + 5) = 0LL;
+      v9 = *((unsigned int *)v8 + 8);
+      if ( (int)v9 >= 0 )
       {
-        v5 = 0LL;
-        v6 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-        if ( v6 )
-          v5 = *v6;
-        if ( !v5 )
-          goto LABEL_85;
-        if ( !*(_QWORD *)(v5 + 352) )
-          *(_QWORD *)(v5 + 352) = UmfdTls::Create();
-        v7 = *(_QWORD *)(v5 + 352);
-        if ( !v7 )
-          goto LABEL_85;
-        v8 = *(_QWORD *)(v7 + 24);
-        if ( v8 && **(_QWORD **)v7 )
-          (*(void (__fastcall **)(__int64))(*(_QWORD *)v8 + 32LL))(v8);
-      }
-      v9 = *((int *)v1 + 10);
-      v10 = 0LL;
-      v11 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-      if ( v11 )
-        v10 = *v11;
-      if ( !v10 )
-        goto LABEL_85;
-      if ( !*(_QWORD *)(v10 + 352) )
-        *(_QWORD *)(v10 + 352) = UmfdTls::Create();
-      v13 = *(_QWORD *)(v10 + 352);
-      if ( !v13 )
-      {
-LABEL_85:
-        v27 = -1073741801;
-        goto LABEL_70;
-      }
-      if ( (unsigned int)v9 <= 3 )
-      {
-        v14 = *(_DWORD *)(v13 + 8);
-        if ( v14 == -1 )
+        v10 = KeGetCurrentThread();
+        v11 = 0LL;
+        if ( !(unsigned __int8)KeIsAttachedProcess(v9)
+          || (v53 = PsGetCurrentProcess(v13, v12, v14),
+              v54 = PsGetProcessSessionIdEx(v53),
+              v56 = PsGetCurrentThreadProcess(v55),
+              v54 == (unsigned int)PsGetProcessSessionIdEx(v56)) )
         {
-          *(_DWORD *)(v13 + 8) = v9;
-LABEL_26:
-          v15 = *(_QWORD *)(SGDGetSessionState(v12) + 40);
-          _mm_lfence();
-          v16 = *(union _SLIST_HEADER ***)(v15 + 8 * v9 + 48);
-          v42 = (CWorkItemQueue **)v16;
+          v15 = (__int64 *)PsGetThreadWin32Thread(v10);
+          if ( v15 )
+            v11 = *v15;
+        }
+        if ( !v11 )
+          goto LABEL_102;
+        v16 = *(struct UmfdTls **)(v11 + 352);
+        if ( !v16 )
+        {
+          v16 = UmfdTls::Create();
+          *(_QWORD *)(v11 + 352) = v16;
           if ( !v16 )
+            goto LABEL_102;
+        }
+        v9 = *((_QWORD *)v16 + 3);
+        if ( v9 && **(_QWORD **)v16 )
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 32LL))(v9);
+      }
+      v17 = *((int *)v1 + 10);
+      v18 = KeGetCurrentThread();
+      v19 = 0LL;
+      if ( !(unsigned __int8)KeIsAttachedProcess(v9)
+        || (v57 = PsGetCurrentProcess(v21, v20, v22),
+            v58 = PsGetProcessSessionIdEx(v57),
+            v60 = PsGetCurrentThreadProcess(v59),
+            v58 == (unsigned int)PsGetProcessSessionIdEx(v60)) )
+      {
+        v23 = (__int64 *)PsGetThreadWin32Thread(v18);
+        if ( v23 )
+          v19 = *v23;
+      }
+      if ( !v19
+        || (v24 = *(struct UmfdTls **)(v19 + 352)) == 0LL
+        && (v24 = UmfdTls::Create(), (*(_QWORD *)(v19 + 352) = v24) == 0LL) )
+      {
+LABEL_102:
+        v34 = -1073741801;
+        goto LABEL_77;
+      }
+      if ( (unsigned int)v17 <= 3 )
+      {
+        v25 = *((_DWORD *)v24 + 2);
+        if ( v25 == -1 )
+        {
+          *((_DWORD *)v24 + 2) = v17;
+LABEL_23:
+          _mm_lfence();
+          v26 = (union _SLIST_HEADER **)g_pUmfdServerPort[v17];
+          v68 = (CWorkItemQueue **)v26;
+          if ( !v26 )
           {
-LABEL_73:
-            v27 = -1073740032;
-            goto LABEL_70;
+            v34 = -1073740032;
+            goto LABEL_77;
           }
-          v17 = *(__int64 **)(v13 + 16);
-          if ( v17 )
+          v27 = (__int64 *)*((_QWORD *)v24 + 2);
+          if ( v27 )
           {
-            RequestContext = *(__int64 **)(v13 + 16);
+            RequestContext = *((_QWORD *)v24 + 2);
+            pv = (_QWORD *)RequestContext;
           }
           else
           {
-            RequestContext = UmfdCreateRequestContext();
+            RequestContext = (__int64)UmfdCreateRequestContext();
+            pv = (_QWORD *)RequestContext;
             if ( !RequestContext )
-              goto LABEL_85;
+              goto LABEL_102;
           }
-          v44 = 0LL;
-          v19 = 0LL;
-          if ( v17 )
+          v65 = 0LL;
+          v29 = 0LL;
+          if ( v27 )
           {
-            v19 = *v17;
-            if ( !*v17 )
+            v29 = *v27;
+            if ( !*v27 )
             {
-              v27 = -1073741811;
-              goto LABEL_68;
+              v34 = -1073741811;
+              goto LABEL_74;
             }
           }
           if ( RequestContext )
           {
-            if ( RequestContext != v17 && *RequestContext )
+            if ( (__int64 *)RequestContext != v27 && *(_QWORD *)RequestContext )
             {
-              v27 = -1073741811;
-              goto LABEL_68;
+              v34 = -1073741811;
+              goto LABEL_74;
             }
-            v20 = 15;
+            LOBYTE(RequestContext) = 15;
           }
           else
           {
-            v20 = 7;
+            RequestContext = 7LL;
           }
-          if ( v20 != 15 )
+          if ( (_BYTE)RequestContext != 15 )
           {
-            v27 = -1073741811;
-            goto LABEL_68;
+            v34 = -1073741811;
+            goto LABEL_74;
           }
-          if ( v19 )
+          if ( v29 )
           {
-            *v17 = 0LL;
-            KeResetEvent(*(PRKEVENT *)(*v16)->Region);
-            _InterlockedOr(v36, 0);
-            v21 = ExpInterlockedPopEntrySList(*v16 + 1);
-            v23 = (struct CWorkItemQueue::CWorkItem *)v21;
-            _InterlockedOr(v36, 0);
-            if ( v21 )
+            *(_DWORD *)(v29 + 8) = 3;
+            KeSetEvent(**(PRKEVENT **)(*(_QWORD *)(v29 + 40) + 8LL), 1, 0);
+            *v27 = 0LL;
+          }
+          v30 = *v26;
+          v31 = ExpInterlockedPopEntrySList(*v26 + 1);
+          v32 = v31;
+          if ( !v31 )
+          {
+            if ( LOBYTE(v30->Alignment) )
             {
-              *((_DWORD *)&v21->Next + 2) = 2;
-            }
-            else if ( !*(_BYTE *)*v42 )
-            {
-              *(_DWORD *)(v19 + 8) = 3;
-              v24 = *v42;
-              v37 = v24;
-              LOBYTE(v22) = 1;
-              if ( (unsigned int)WdSetEventAndWaitForSingleObject(
-                                   **(_QWORD **)(*(_QWORD *)(v19 + 40) + 8LL),
-                                   **((_QWORD **)v24 + 1),
-                                   6LL,
-                                   v22,
-                                   0LL) == 192 )
+LABEL_39:
+              if ( !v32 )
               {
-                KeSetEvent(**((PRKEVENT **)v24 + 1), 1, 0);
-                v23 = CWorkItemQueue::DequeueWorkItem(v24);
-                goto LABEL_41;
+LABEL_73:
+                v34 = -1073741823;
+                goto LABEL_74;
               }
-              v25 = ExpInterlockedPopEntrySList((PSLIST_HEADER)v24 + 1);
-              v23 = (struct CWorkItemQueue::CWorkItem *)v25;
-              _InterlockedOr(v36, 0);
-              if ( v25 )
+              v33 = *((_DWORD *)&v32[1].Next + 3);
+              if ( v33 <= 8 )
               {
-                *((_DWORD *)&v25->Next + 2) = 2;
-LABEL_41:
-                if ( !v23 )
+                *pv = v32;
+                memmove(&v65, v32[1].Next, v33);
+                v34 = 0;
+                if ( v33 == 8 )
                 {
-LABEL_67:
-                  v27 = -1073741823;
-                  goto LABEL_68;
-                }
-                v26 = *((_DWORD *)v23 + 7);
-                if ( v26 <= 8 )
-                {
-                  *RequestContext = (__int64)v23;
-                  memmove(&v44, *((const void **)v23 + 2), v26);
-                  v27 = 0;
-                  if ( v26 == 8 )
+                  if ( !v27 )
+                    *((_QWORD *)v24 + 2) = pv;
+                  *((_QWORD *)v24 + 3) = v65;
+LABEL_45:
+                  if ( v34 < 0 )
+                    goto LABEL_76;
+                  v69 = 0LL;
+                  v70 = 0LL;
+                  v35 = KeGetCurrentThread();
+                  v36 = 0LL;
+                  if ( !(unsigned __int8)KeIsAttachedProcess(RequestContext)
+                    || (v61 = PsGetCurrentProcess(v38, v37, v39),
+                        v62 = PsGetProcessSessionIdEx(v61),
+                        v64 = PsGetCurrentThreadProcess(v63),
+                        v62 == (unsigned int)PsGetProcessSessionIdEx(v64)) )
                   {
-                    if ( !v17 )
-                      *(_QWORD *)(v13 + 16) = RequestContext;
-                    *(_QWORD *)(v13 + 24) = v44;
+                    v40 = (__int64 *)PsGetThreadWin32Thread(v35);
+                    if ( v40 )
+                      v36 = *v40;
+                  }
+                  if ( !v36
+                    || (v41 = *(struct UmfdTls **)(v36 + 352)) == 0LL
+                    && (v41 = UmfdTls::Create(), (*(_QWORD *)(v36 + 352) = v41) == 0LL) )
+                  {
                     v1 = a1;
-LABEL_47:
-                    if ( v27 >= 0 )
+                    goto LABEL_102;
+                  }
+                  v42 = *((_QWORD *)v41 + 3);
+                  if ( !v42 )
+                  {
+                    v34 = -1073740032;
+                    v1 = a1;
+                    goto LABEL_77;
+                  }
+                  v66 = 0LL;
+                  v43 = (*(__int64 (__fastcall **)(__int64, struct UmfdTls *, __int64 *))(*(_QWORD *)v42 + 24LL))(
+                          v42,
+                          v41,
+                          &v66);
+                  if ( v43 < 0 )
+                  {
+                    v44 = v69;
+                    v45 = 0;
+                    v46 = v70;
+                    v47 = 0;
+                  }
+                  else
+                  {
+                    v44 = v66;
+                    v45 = *(_DWORD *)(v42 + 8);
+                    v46 = *(_QWORD *)(v42 + 24);
+                    v47 = *(_BYTE *)(v42 + 32);
+                  }
+                  v34 = v43;
+                  v72 = v45;
+                  if ( v43 < 0 )
+                  {
+LABEL_76:
+                    v1 = a1;
+                  }
+                  else
+                  {
+                    v1 = a1;
+                    ProbeForWrite(a1[1], 8uLL, 4u);
+                    ProbeForWrite(a1[2], 4uLL, 4u);
+                    ProbeForWrite(a1[4], 1uLL, 1u);
+                    *(_QWORD *)a1[1] = v44;
+                    *(_DWORD *)a1[2] = v72;
+                    *(_BYTE *)a1[4] = v47;
+                    if ( v47 )
                     {
-                      v28 = 0LL;
-                      v29 = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
-                      if ( v29 )
-                        v28 = *v29;
-                      if ( v28 )
-                      {
-                        if ( !*(_QWORD *)(v28 + 352) )
-                          *(_QWORD *)(v28 + 352) = UmfdTls::Create();
-                        v30 = *(_QWORD *)(v28 + 352);
-                        if ( v30 )
-                        {
-                          v31 = *(_QWORD *)(v30 + 24);
-                          if ( v31 )
-                          {
-                            v45 = 0LL;
-                            v27 = (*(__int64 (__fastcall **)(__int64, __int64, __int64 *))(*(_QWORD *)v31 + 24LL))(
-                                    v31,
-                                    v30,
-                                    &v45);
-                            if ( v27 >= 0 )
-                            {
-                              v32 = v45;
-                              v43 = *(_DWORD *)(v31 + 8);
-                              v33 = *(_QWORD *)(v31 + 24);
-                              v34 = *(_BYTE *)(v31 + 32);
-                              ProbeForWrite(*((volatile void **)v1 + 1), 8uLL, 4u);
-                              ProbeForWrite(*((volatile void **)v1 + 2), 4uLL, 4u);
-                              ProbeForWrite(*((volatile void **)v1 + 4), 1uLL, 1u);
-                              **((_QWORD **)v1 + 1) = v32;
-                              **((_DWORD **)v1 + 2) = v43;
-                              **((_BYTE **)v1 + 4) = v34;
-                              if ( v34 )
-                              {
-                                ProbeForWrite(*((volatile void **)v1 + 3), 8uLL, 4u);
-                                **((_QWORD **)v1 + 3) = v33;
-                              }
-                            }
-                            if ( v27 >= 0 )
-                              goto LABEL_59;
-                            goto LABEL_70;
-                          }
-                          goto LABEL_73;
-                        }
-                      }
-                      goto LABEL_85;
+                      ProbeForWrite(a1[3], 8uLL, 4u);
+                      *(_QWORD *)a1[3] = v46;
                     }
-LABEL_70:
-                    *v38 = 0LL;
-                    *v39 = 0LL;
-LABEL_59:
-                    *((_DWORD *)v1 + 2) = v27;
-                    *v40 = v27;
+                  }
+                  if ( v34 >= 0 )
+                  {
+LABEL_58:
+                    *((_DWORD *)v1 + 2) = v34;
+                    *((_DWORD *)v8 + 8) = v34;
                     return;
                   }
-                  v1 = a1;
-                  goto LABEL_67;
+LABEL_77:
+                  *((_QWORD *)v8 + 6) = 0LL;
+                  *((_QWORD *)v8 + 5) = 0LL;
+                  goto LABEL_58;
                 }
-                if ( CWorkItemQueue::QueueWorkItem(*v42, v23) )
-                {
-                  v27 = -1073741789;
-                }
-                else
-                {
-                  CMultipleConsumerWorkQueue::CWaitableWorkItem::Cancel(v23);
-                  v27 = -1073740032;
-                }
-                v1 = a1;
-LABEL_68:
-                if ( !v17 )
-                  EngFreeMem(RequestContext);
-                goto LABEL_47;
+                goto LABEL_73;
               }
-              v35 = v37;
-LABEL_61:
-              v23 = CWorkItemQueue::WaitForWorkItem(v35);
-              goto LABEL_41;
+              if ( CWorkItemQueue::QueueWorkItem(*v68, (struct CWorkItemQueue::CWorkItem *const)v32) )
+              {
+                v34 = -1073741789;
+              }
+              else
+              {
+                CMultipleConsumerWorkQueue::CWaitableWorkItem::Cancel((CMultipleConsumerWorkQueue::CWaitableWorkItem *)v32);
+                v34 = -1073740032;
+              }
+LABEL_74:
+              if ( !v27 )
+                EngFreeMem(pv);
+              goto LABEL_45;
             }
-            CMultipleConsumerWorkQueue::CWaitableWorkItem::Complete((CMultipleConsumerWorkQueue::CWaitableWorkItem *)v19);
-            goto LABEL_41;
+            while ( 1 )
+            {
+              if ( KeWaitForSingleObject(*(PVOID *)v30->Region, UserRequest, 1, 0, 0LL) == 192 )
+              {
+                KeSetEvent(*(PRKEVENT *)v30->Region, 1, 0);
+                v31 = ExpInterlockedPopEntrySList(v30 + 1);
+                v32 = v31;
+                if ( !v31 )
+                  goto LABEL_39;
+                goto LABEL_38;
+              }
+              v31 = ExpInterlockedPopEntrySList(v30 + 1);
+              v32 = v31;
+              if ( v31 )
+                goto LABEL_38;
+              if ( LOBYTE(v30->Alignment) )
+                break;
+              KeResetEvent(*(PRKEVENT *)v30->Region);
+              v48 = ExpInterlockedPopEntrySList(v30 + 1);
+              v32 = v48;
+              if ( v48 )
+              {
+                *((_DWORD *)&v48->Next + 2) = 2;
+                KeSetEvent(*(PRKEVENT *)v30->Region, 1, 0);
+                goto LABEL_39;
+              }
+              if ( LOBYTE(v30->Alignment) )
+              {
+                KeSetEvent(*(PRKEVENT *)v30->Region, 1, 0);
+                break;
+              }
+            }
+            v31 = ExpInterlockedPopEntrySList(v30 + 1);
+            v32 = v31;
+            if ( !v31 )
+              goto LABEL_39;
           }
-          v35 = (CWorkItemQueue *)*v16;
-          goto LABEL_61;
+LABEL_38:
+          *((_DWORD *)&v31->Next + 2) = 2;
+          goto LABEL_39;
         }
-        if ( v14 == (_DWORD)v9 )
-          goto LABEL_26;
+        if ( v25 == (_DWORD)v17 )
+          goto LABEL_23;
       }
-      v27 = -1073741811;
-      goto LABEL_70;
+      v34 = -1073741811;
+      goto LABEL_77;
     }
   }
   *((_DWORD *)v1 + 2) = -1073741801;

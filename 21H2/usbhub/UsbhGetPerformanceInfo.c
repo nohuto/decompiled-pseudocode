@@ -1,13 +1,13 @@
 /*
- * XREFs of UsbhGetPerformanceInfo @ 0x1C0048D38
+ * XREFs of UsbhGetPerformanceInfo @ 0x1C004A0C8
  * Callers:
- *     UsbhPdoQueryWmiDataBlock @ 0x1C0048EE0 (UsbhPdoQueryWmiDataBlock.c)
+ *     UsbhPdoQueryWmiDataBlock @ 0x1C004A270 (UsbhPdoQueryWmiDataBlock.c)
  * Callees:
- *     FdoExt @ 0x1C0008370 (FdoExt.c)
- *     PdoExt @ 0x1C000B490 (PdoExt.c)
- *     __security_check_cookie @ 0x1C001F330 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1C001F4F0 (_guard_dispatch_icall_nop.c)
- *     memset @ 0x1C001F800 (memset.c)
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     __security_check_cookie @ 0x1C001CF60 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001DE80 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001E180 (memset.c)
  */
 
 __int64 __fastcall UsbhGetPerformanceInfo(__int64 a1, _DWORD *a2, __int64 a3, _DWORD *a4, __int64 a5)

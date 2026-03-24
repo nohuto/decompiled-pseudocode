@@ -1,11 +1,11 @@
 /*
- * XREFs of ACPIRegDumpAcpiTables @ 0x1C00BC660
+ * XREFs of ACPIRegDumpAcpiTables @ 0x1C00BC580
  * Callers:
- *     ACPILoadProcessRSDT @ 0x1C00BD9F8 (ACPILoadProcessRSDT.c)
+ *     ACPILoadProcessRSDT @ 0x1C00BE744 (ACPILoadProcessRSDT.c)
  * Callees:
- *     WPP_RECORDER_SF_ @ 0x1C00234AC (WPP_RECORDER_SF_.c)
- *     __security_check_cookie @ 0x1C002F140 (__security_check_cookie.c)
- *     ACPIRegDumpAcpiTable @ 0x1C00BC7D4 (ACPIRegDumpAcpiTable.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001D78C (WPP_RECORDER_SF_.c)
+ *     __security_check_cookie @ 0x1C0031C80 (__security_check_cookie.c)
+ *     ACPIRegDumpAcpiTable @ 0x1C00BC6F4 (ACPIRegDumpAcpiTable.c)
  */
 
 _UNKNOWN **ACPIRegDumpAcpiTables()
@@ -33,7 +33,7 @@ _UNKNOWN **ACPIRegDumpAcpiTables()
                             4u,
                             0xBu,
                             0x24u,
-                            (__int64)&WPP_0ff02685c5363f18e09d8afa1fc83b4b_Traceguids);
+                            (__int64)&WPP_6006670290f3383f41c779ffdcc42ff2_Traceguids);
   if ( v0 )
     result = (_UNKNOWN **)ACPIRegDumpAcpiTable("DSDT", v0, v0[1]);
   if ( v1 )

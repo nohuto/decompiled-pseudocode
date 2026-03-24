@@ -1,27 +1,25 @@
 /*
- * XREFs of NtGdiGetOPMRandomNumber @ 0x1C015CBE0
+ * XREFs of NtGdiGetOPMRandomNumber @ 0x1C00BF060
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C00CDBD0 (__security_check_cookie.c)
- *     SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_RANDOM_NUMBER_ @ 0x1C015AE6C (SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_RANDOM_NUMBER_.c)
- *     ?GetRandomNumber@COPM@@QEAAJPEAXPEAU_DXGKMDT_OPM_RANDOM_NUMBER@@@Z @ 0x1C015BEBC (-GetRandomNumber@COPM@@QEAAJPEAXPEAU_DXGKMDT_OPM_RANDOM_NUMBER@@@Z.c)
+ *     SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_RANDOM_NUMBER_ @ 0x1C00BF0C0 (SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_RANDOM_NUMBER_.c)
+ *     ?GetRandomNumber@COPM@@QEAAJPEAXPEAU_DXGKMDT_OPM_RANDOM_NUMBER@@@Z @ 0x1C00BF2E0 (-GetRandomNumber@COPM@@QEAAJPEAXPEAU_DXGKMDT_OPM_RANDOM_NUMBER@@@Z.c)
+ *     __security_check_cookie @ 0x1C00C5400 (__security_check_cookie.c)
  */
 
-__int64 __fastcall NtGdiGetOPMRandomNumber(unsigned __int64 a1, _OWORD *a2)
+int __fastcall NtGdiGetOPMRandomNumber(COPM *a1, __int64 a2)
 {
-  __int64 v4; // rax
-  __int64 result; // rax
-  _DXGKMDT_OPM_RANDOM_NUMBER v6; // [rsp+20h] [rbp-28h] BYREF
+  int result; // eax
+  _DXGKMDT_OPM_RANDOM_NUMBER v4; // [rsp+20h] [rbp-28h] BYREF
 
-  v6 = 0LL;
-  v4 = SGDGetSessionState(a1);
-  result = COPM::GetRandomNumber(*(void ***)(*(_QWORD *)(v4 + 24) + 3824LL), a1, &v6);
-  if ( (int)result >= 0 )
+  v4 = 0LL;
+  result = COPM::GetRandomNumber(a1, a1, &v4);
+  if ( result >= 0 )
   {
-    result = SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_RANDOM_NUMBER_(a2, &v6);
-    if ( (int)result >= 0 )
-      return 0LL;
+    result = SafelyCopyKernelModeDataToUserModeData__DXGKMDT_OPM_RANDOM_NUMBER_(a2, &v4);
+    if ( result >= 0 )
+      return 0;
   }
   return result;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of KeAdjustInterruptTime @ 0x140398D58
+ * XREFs of KeAdjustInterruptTime @ 0x14038D81C
  * Callers:
- *     KiSetSystemTimeDpc @ 0x1403AD4F0 (KiSetSystemTimeDpc.c)
- *     xHalTscSynchronization @ 0x1405430C0 (xHalTscSynchronization.c)
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
+ *     KiSetSystemTimeDpc @ 0x14039DFB0 (KiSetSystemTimeDpc.c)
+ *     xHalTscSynchronization @ 0x1404F17D0 (xHalTscSynchronization.c)
+ *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140348830 (KeQueryActiveProcessorCountEx.c)
- *     KeIpiGenericCall @ 0x1403B4600 (KeIpiGenericCall.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
+ *     KeIpiGenericCall @ 0x1403A4B20 (KeIpiGenericCall.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
  */
 
 char __fastcall KeAdjustInterruptTime(__int64 a1, char a2)

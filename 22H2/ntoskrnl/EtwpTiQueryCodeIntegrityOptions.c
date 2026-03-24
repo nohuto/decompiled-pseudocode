@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTiQueryCodeIntegrityOptions @ 0x1407DF100
+ * XREFs of EtwpTiQueryCodeIntegrityOptions @ 0x14093C648
  * Callers:
- *     EtwTiLogDriverObjectLoad @ 0x1407DEFE8 (EtwTiLogDriverObjectLoad.c)
+ *     EtwTiLogDriverObjectLoad @ 0x140771E80 (EtwTiLogDriverObjectLoad.c)
  * Callees:
- *     ZwQuerySystemInformation @ 0x14041AD60 (ZwQuerySystemInformation.c)
+ *     ZwQuerySystemInformation @ 0x1403FA0E0 (ZwQuerySystemInformation.c)
  */
 
 __int64 __fastcall EtwpTiQueryCodeIntegrityOptions(_DWORD *a1)

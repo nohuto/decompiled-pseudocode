@@ -1,9 +1,9 @@
 /*
- * XREFs of IommuGetConfiguration @ 0x140B2B9A0
+ * XREFs of IommuGetConfiguration @ 0x140A6FE20
  * Callers:
  *     <none>
  * Callees:
- *     IommupGetSystemContext @ 0x1403DB0A0 (IommupGetSystemContext.c)
+ *     IommupGetSystemContext @ 0x1403CC014 (IommupGetSystemContext.c)
  */
 
 __int64 __fastcall IommuGetConfiguration(unsigned int a1, _DWORD *a2, unsigned int *a3, PVOID **a4)
@@ -19,8 +19,8 @@ __int64 __fastcall IommuGetConfiguration(unsigned int a1, _DWORD *a2, unsigned i
   {
     v9 = v4;
     v4 = (__int64 *)*v4;
-    if ( (v9[59] & 0x20) != 0 && *((_DWORD *)v9 + 128) < v6 )
-      v6 = *((_DWORD *)v9 + 128);
+    if ( (v9[57] & 0x20) != 0 && *((_DWORD *)v9 + 124) < v6 )
+      v6 = *((_DWORD *)v9 + 124);
   }
   *a2 = HalpIommuCount;
   *a3 = v6;

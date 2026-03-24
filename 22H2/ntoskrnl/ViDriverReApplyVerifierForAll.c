@@ -1,33 +1,31 @@
 /*
- * XREFs of ViDriverReApplyVerifierForAll @ 0x140ACB934
+ * XREFs of ViDriverReApplyVerifierForAll @ 0x1409C8B18
  * Callers:
- *     VfDriverInitSuccess @ 0x140ABE430 (VfDriverInitSuccess.c)
+ *     VfDriverInitSuccess @ 0x1409C27BC (VfDriverInitSuccess.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402AFF40 (KeReleaseMutex.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     VfDriverLock @ 0x140ACB73C (VfDriverLock.c)
- *     VfThunkApplyDriverAddedThunks @ 0x140ADC160 (VfThunkApplyDriverAddedThunks.c)
- *     VfSuspectDriversIsLoaded @ 0x140B97D64 (VfSuspectDriversIsLoaded.c)
+ *     KeReleaseMutex @ 0x14035F9C0 (KeReleaseMutex.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     VfDriverLock @ 0x1409C25C8 (VfDriverLock.c)
+ *     VfThunkApplyDriverAddedThunks @ 0x1409D8AB4 (VfThunkApplyDriverAddedThunks.c)
+ *     VfSuspectDriversIsLoaded @ 0x140A93DAC (VfSuspectDriversIsLoaded.c)
  */
 
-__int64 __fastcall ViDriverReApplyVerifierForAll(__int64 **a1)
+void __fastcall ViDriverReApplyVerifierForAll(__int64 **a1)
 {
-  unsigned int v1; // esi
   __int64 *i; // rbx
 
-  v1 = 0;
-  if ( !(_QWORD)ViVerifierDriverAddedThunkListHead )
-    return 0LL;
-  for ( i = *a1; i != (__int64 *)a1; i = (__int64 *)*i )
+  if ( ViVerifierDriverAddedThunkListHead )
   {
-    if ( !RtlEqualUnicodeString(&VfKernelImageName, (PCUNICODE_STRING)(i + 11), 1u) && (i[13] & 0x2000000) != 0 )
+    for ( i = *a1; i != (__int64 *)a1; i = (__int64 *)*i )
     {
-      VfDriverLock();
-      if ( (unsigned int)VfSuspectDriversIsLoaded(i + 11) )
-        v1 = VfThunkApplyDriverAddedThunks(i);
-      ViDriversLoadLockOwner = 0LL;
-      KeReleaseMutex(&ViDriversLoadLock, 0);
+      if ( !RtlEqualUnicodeString(&VfKernelImageName, (PCUNICODE_STRING)(i + 11), 1u) && (i[13] & 0x2000000) != 0 )
+      {
+        VfDriverLock();
+        if ( (unsigned int)VfSuspectDriversIsLoaded(i + 11) )
+          VfThunkApplyDriverAddedThunks(i);
+        ViDriversLoadLockOwner = 0LL;
+        KeReleaseMutex((PRKMUTEX)&ViDriversLoadLock, 0);
+      }
     }
   }
-  return v1;
 }

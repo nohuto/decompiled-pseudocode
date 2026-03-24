@@ -1,52 +1,53 @@
 /*
- * XREFs of ?ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C01C80AC
+ * XREFs of ?ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C014F550
  * Callers:
- *     DxgkDisplayOnOff @ 0x1C0162A00 (DxgkDisplayOnOff.c)
- *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01BBB3C (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
- *     ?DxgkCddDisable@@YAJIII@Z @ 0x1C01C1110 (-DxgkCddDisable@@YAJIII@Z.c)
- *     _lambda_940d064d943a20fd52938170853ed62c_::_lambda_invoker_cdecl_ @ 0x1C01C8EC0 (_lambda_940d064d943a20fd52938170853ed62c_--_lambda_invoker_cdecl_.c)
- *     ?ApplyCoreSyncAction@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_ACTION@@@Z @ 0x1C01EF9A0 (-ApplyCoreSyncAction@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_ACTION@@@Z.c)
- *     ?EnableMsBddFallback@DXGADAPTER@@QEAAXE@Z @ 0x1C02BB55C (-EnableMsBddFallback@DXGADAPTER@@QEAAXE@Z.c)
- *     ?Stop@ADAPTER_DISPLAY@@QEAAXE@Z @ 0x1C02C2C38 (-Stop@ADAPTER_DISPLAY@@QEAAXE@Z.c)
+ *     ?DxgkCddDisable@@YAJIII@Z @ 0x1C00E1F50 (-DxgkCddDisable@@YAJIII@Z.c)
+ *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0142C1C (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
+ *     DxgkDisplayOnOff @ 0x1C014ED50 (DxgkDisplayOnOff.c)
+ *     _lambda_940d064d943a20fd52938170853ed62c_::_lambda_invoker_cdecl_ @ 0x1C01504B0 (_lambda_940d064d943a20fd52938170853ed62c_--_lambda_invoker_cdecl_.c)
+ *     ?ApplyCoreSyncAction@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_ACTION@@@Z @ 0x1C01776D4 (-ApplyCoreSyncAction@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_ACTION@@@Z.c)
+ *     ?EnableMsBddFallback@DXGADAPTER@@QEAAXE@Z @ 0x1C020CC9C (-EnableMsBddFallback@DXGADAPTER@@QEAAXE@Z.c)
+ *     ?Stop@ADAPTER_DISPLAY@@QEAAXE@Z @ 0x1C0214EA8 (-Stop@ADAPTER_DISPLAY@@QEAAXE@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
- *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00131F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
- *     ?UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C01C44E0 (-UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z.c)
- *     ?DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C01C7E74 (-DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
- *     ?RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C01C8BD0 (-RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000B73C (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C013D14C (-UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z.c)
+ *     ?DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C014E000 (-DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
+ *     ?RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x1C014F414 (-RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z.c)
  */
 
 void __fastcall ADAPTER_DISPLAY::ReleaseAllVidPnSourceOwners(PERESOURCE **this, PERESOURCE **a2)
 {
-  struct ADAPTER_RENDER *v4; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  struct ADAPTER_RENDER *v9; // rcx
   unsigned int i; // edi
+  __int64 v11; // rax
+  __int64 v12; // rax
 
   if ( a2 && !DXGADAPTER::IsCoreResourceExclusiveOwner(a2[2]) )
   {
-    WdLogSingleEntry1(1LL, 3289LL);
-    DxgkLogInternalTriageEvent(
-      0LL,
-      262146,
-      -1,
-      (__int64)L"((!pRenderCore) || (pRenderCore->IsCoreResourceExclusiveOwner()))",
-      3289LL,
-      0LL,
-      0LL,
-      0LL,
-      0LL);
+    v11 = WdLogNewEntry5_WdAssertion(v5, v4);
+    *(_QWORD *)(v11 + 24) = 3175LL;
+    WdLogEvent5_WdAssertion(v11);
   }
   if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(this[2]) )
   {
-    WdLogSingleEntry1(1LL, 3290LL);
-    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceExclusiveOwner()", 3290LL, 0LL, 0LL, 0LL, 0LL);
+    v12 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v12 + 24) = 3176LL;
+    WdLogEvent5_WdAssertion(v12);
   }
-  WdLogSingleEntry1(4LL, this);
-  v4 = (struct ADAPTER_RENDER *)this[2][350];
-  if ( v4 && v4 == (struct ADAPTER_RENDER *)a2 )
+  v8 = WdLogNewEntry5_WdEvent(v7, v6);
+  *(_QWORD *)(v8 + 24) = this;
+  WdLogEvent5_WdEvent(v8);
+  v9 = (struct ADAPTER_RENDER *)this[2][338];
+  if ( v9 && v9 == (struct ADAPTER_RENDER *)a2 )
     ADAPTER_DISPLAY::DisableAllPrimaries(this, a2);
-  for ( i = 0; i < *((_DWORD *)this + 24); ++i )
+  for ( i = 0; i < *((_DWORD *)this + 20); ++i )
   {
-    if ( this[16][500 * i + 91] )
+    if ( this[14][496 * i + 86] )
     {
       ADAPTER_DISPLAY::RemoveVidPnOwnership((ADAPTER_DISPLAY *)this, i);
       ADAPTER_DISPLAY::UpdateGammaRamp((DXGADAPTER **)this, i);

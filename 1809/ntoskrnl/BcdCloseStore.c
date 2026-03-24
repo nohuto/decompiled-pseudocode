@@ -1,21 +1,21 @@
 /*
- * XREFs of BcdCloseStore @ 0x140711A28
+ * XREFs of BcdCloseStore @ 0x140711A08
  * Callers:
- *     WheaPersistOfflinedPage @ 0x1403204A4 (WheaPersistOfflinedPage.c)
- *     PopAllocateHiberContext @ 0x1406DF554 (PopAllocateHiberContext.c)
- *     PopFreeHiberContext @ 0x1406DFFC0 (PopFreeHiberContext.c)
- *     BiLoadSystemStore @ 0x140710E48 (BiLoadSystemStore.c)
- *     PoInitHiberServices @ 0x140745CB0 (PoInitHiberServices.c)
- *     SepSecureBootCorrectBcd @ 0x1408A3114 (SepSecureBootCorrectBcd.c)
+ *     WheaPersistOfflinedPage @ 0x1403205A4 (WheaPersistOfflinedPage.c)
+ *     PopAllocateHiberContext @ 0x1406DF534 (PopAllocateHiberContext.c)
+ *     PopFreeHiberContext @ 0x1406DFFA0 (PopFreeHiberContext.c)
+ *     BiLoadSystemStore @ 0x140710E28 (BiLoadSystemStore.c)
+ *     PoInitHiberServices @ 0x140745C90 (PoInitHiberServices.c)
+ *     SepSecureBootCorrectBcd @ 0x1408A30F4 (SepSecureBootCorrectBcd.c)
  * Callees:
- *     BiIsOfflineHandle @ 0x14016E59C (BiIsOfflineHandle.c)
- *     BiIsSynchFirmwareEntries @ 0x14016E66C (BiIsSynchFirmwareEntries.c)
- *     BiCloseStore @ 0x140710F68 (BiCloseStore.c)
- *     BiIsWinPEBoot @ 0x14071220C (BiIsWinPEBoot.c)
- *     BiIsSystemStore @ 0x1407127C8 (BiIsSystemStore.c)
- *     BiReleaseBcdSyncMutant @ 0x140713AF0 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x140713CA0 (BiAcquireBcdSyncMutant.c)
- *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
+ *     BiIsOfflineHandle @ 0x14016E5BC (BiIsOfflineHandle.c)
+ *     BiIsSynchFirmwareEntries @ 0x14016E68C (BiIsSynchFirmwareEntries.c)
+ *     BiCloseStore @ 0x140710F48 (BiCloseStore.c)
+ *     BiIsWinPEBoot @ 0x1407121EC (BiIsWinPEBoot.c)
+ *     BiIsSystemStore @ 0x1407127A8 (BiIsSystemStore.c)
+ *     BiReleaseBcdSyncMutant @ 0x140713AD0 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x140713C80 (BiAcquireBcdSyncMutant.c)
+ *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
  */
 
 __int64 __fastcall BcdCloseStore(__int64 a1)

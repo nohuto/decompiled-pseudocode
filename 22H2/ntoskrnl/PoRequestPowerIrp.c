@@ -1,9 +1,9 @@
 /*
- * XREFs of PoRequestPowerIrp @ 0x14028F0E0
+ * XREFs of PoRequestPowerIrp @ 0x140370550
  * Callers:
  *     <none>
  * Callees:
- *     PopRequestPowerIrp @ 0x14028F110 (PopRequestPowerIrp.c)
+ *     PopRequestPowerIrp @ 0x140370580 (PopRequestPowerIrp.c)
  */
 
 NTSTATUS __stdcall PoRequestPowerIrp(
@@ -14,12 +14,5 @@ NTSTATUS __stdcall PoRequestPowerIrp(
         PVOID Context,
         PIRP *Irp)
 {
-  return PopRequestPowerIrp(
-           (int)DeviceObject,
-           MinorFunction,
-           PowerState.SystemState,
-           (int)CompletionFunction,
-           (__int64)Context,
-           0,
-           (PIRP)Irp);
+  return PopRequestPowerIrp((_DWORD)DeviceObject, (__int64)Context, 0, (PIRP)Irp);
 }

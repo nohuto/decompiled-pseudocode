@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwReferenceSpinLockCounters @ 0x1409E9458
+ * XREFs of EtwReferenceSpinLockCounters @ 0x14093CEB0
  * Callers:
- *     KiSynchCounterSetCallback @ 0x140960D50 (KiSynchCounterSetCallback.c)
- *     KiSynchNumaCounterSetCallback @ 0x140960E60 (KiSynchNumaCounterSetCallback.c)
+ *     KiSynchCounterSetCallback @ 0x1408BAEA0 (KiSynchCounterSetCallback.c)
+ *     KiSynchNumaCounterSetCallback @ 0x1408BAFB0 (KiSynchNumaCounterSetCallback.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
- *     EtwpUpdateGlobalGroupMasks @ 0x1406D520C (EtwpUpdateGlobalGroupMasks.c)
+ *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x140797FD0 (EtwpUpdateGlobalGroupMasks.c)
  */
 
 LONG EtwReferenceSpinLockCounters()
@@ -17,7 +17,7 @@ LONG EtwReferenceSpinLockCounters()
   if ( ++EtwpSpinLockCountersCount == 1 )
   {
     v0 = EtwpHostSiloState;
-    *(_DWORD *)(EtwpHostSiloState + 4544) |= 0x200000u;
+    *(_DWORD *)(EtwpHostSiloState + 4520) |= 0x200000u;
     EtwpUpdateGlobalGroupMasks(v0, 0, 8u);
   }
   return KeReleaseMutex(&EtwpCrimsonMaskMutex, 0);

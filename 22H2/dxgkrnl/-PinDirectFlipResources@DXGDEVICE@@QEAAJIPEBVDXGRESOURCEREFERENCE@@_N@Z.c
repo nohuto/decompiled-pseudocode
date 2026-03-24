@@ -1,15 +1,14 @@
 /*
- * XREFs of ?PinDirectFlipResources@DXGDEVICE@@QEAAJIPEBVDXGRESOURCEREFERENCE@@_N@Z @ 0x1C02EBDB0
+ * XREFs of ?PinDirectFlipResources@DXGDEVICE@@QEAAJIPEBVDXGRESOURCEREFERENCE@@_N@Z @ 0x1C0172088
  * Callers:
- *     ?DxgkPinResourcesInternal@@YAJPEAU_D3DKMT_PINRESOURCES@@@Z @ 0x1C02E9B38 (-DxgkPinResourcesInternal@@YAJPEAU_D3DKMT_PINRESOURCES@@@Z.c)
+ *     ?DxgkPinResourcesInternal@@YAJPEAU_D3DKMT_PINRESOURCES@@@Z @ 0x1C0171530 (-DxgkPinResourcesInternal@@YAJPEAU_D3DKMT_PINRESOURCES@@@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
- *     ?DdiDescribeAllocation@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_DESCRIBEALLOCATION@@@Z @ 0x1C0171518 (-DdiDescribeAllocation@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_DESCRIBEALLOCATION@@@Z.c)
- *     ?InsertDirectFlipAllocationToList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z @ 0x1C02EB318 (-InsertDirectFlipAllocationToList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z.c)
- *     ?IsDirectFlipAllocationPinned@DXGDEVICE@@QEAAEPEBVDXGALLOCATION@@@Z @ 0x1C02EB8F4 (-IsDirectFlipAllocationPinned@DXGDEVICE@@QEAAEPEBVDXGALLOCATION@@@Z.c)
- *     ?RemoveDirectFlipAllocationFromList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z @ 0x1C02ECB20 (-RemoveDirectFlipAllocationFromList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z.c)
- *     ?ValidateDirectFlipResource@DXGDEVICE@@QEAAJPEAVDXGRESOURCE@@IIIW4_D3DDDIFORMAT@@I@Z @ 0x1C02EE1D8 (-ValidateDirectFlipResource@DXGDEVICE@@QEAAJPEAVDXGRESOURCE@@IIIW4_D3DDDIFORMAT@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
+ *     ?DdiDescribeAllocation@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_DESCRIBEALLOCATION@@@Z @ 0x1C0101520 (-DdiDescribeAllocation@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_DESCRIBEALLOCATION@@@Z.c)
+ *     ?RemoveDirectFlipAllocationFromList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z @ 0x1C0171FB0 (-RemoveDirectFlipAllocationFromList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z.c)
+ *     ?InsertDirectFlipAllocationToList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z @ 0x1C01722A8 (-InsertDirectFlipAllocationToList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z.c)
+ *     ?IsDirectFlipAllocationPinned@DXGDEVICE@@QEAAEPEBVDXGALLOCATION@@@Z @ 0x1C0172444 (-IsDirectFlipAllocationPinned@DXGDEVICE@@QEAAEPEBVDXGALLOCATION@@@Z.c)
+ *     ?ValidateDirectFlipResource@DXGDEVICE@@QEAAJPEAVDXGRESOURCE@@IIIW4_D3DDDIFORMAT@@I@Z @ 0x1C0172498 (-ValidateDirectFlipResource@DXGDEVICE@@QEAAJPEAVDXGRESOURCE@@IIIW4_D3DDDIFORMAT@@I@Z.c)
  */
 
 __int64 __fastcall DXGDEVICE::PinDirectFlipResources(
@@ -18,192 +17,200 @@ __int64 __fastcall DXGDEVICE::PinDirectFlipResources(
         const struct DXGRESOURCEREFERENCE *a3,
         char a4)
 {
-  unsigned int v4; // r13d
   ADAPTER_RENDER *v6; // rcx
   const struct DXGRESOURCEREFERENCE *v8; // r14
-  __int64 v9; // rbp
+  __int64 v9; // rsi
   unsigned int v10; // r12d
   unsigned int v11; // r12d
   int v12; // eax
-  unsigned int v13; // r9d
-  __int64 v14; // rdi
-  struct DXGRESOURCE *v15; // rdx
-  unsigned int v16; // ebx
-  unsigned int v18; // ebp
-  __int64 v19; // rbx
-  struct DXGRESOURCE **v20; // r15
-  int v21; // eax
-  struct DXGRESOURCE *v22; // r13
-  const struct DXGALLOCATION *v23; // rdx
-  __int64 v24; // rdx
-  unsigned int v25; // ecx
+  const struct DXGALLOCATION *v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rbx
+  __int64 Width; // r8
+  UINT Height; // r9d
+  enum _D3DDDIFORMAT Format; // r10d
+  unsigned int v19; // r15d
+  __int64 v20; // rsi
+  struct DXGRESOURCE **v21; // rbp
+  int v22; // eax
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  __int64 v27; // rcx
   unsigned int i; // r15d
-  struct DXGALLOCATION *v27; // rbx
-  unsigned int v28; // ebp
+  struct DXGALLOCATION *v29; // rsi
+  unsigned int v30; // ebp
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  _QWORD *v34; // rax
+  _QWORD *v35; // rax
+  __int64 v36; // rax
   struct DXGALLOCATION *j; // rbp
-  unsigned int v30; // [rsp+20h] [rbp-98h]
-  enum _D3DDDIFORMAT v31; // [rsp+28h] [rbp-90h]
-  struct _DXGKARG_DESCRIBEALLOCATION v32; // [rsp+50h] [rbp-68h] BYREF
+  __int64 v38; // rdx
+  __int64 v39; // rcx
+  __int64 v40; // rax
+  D3DDDIFORMAT v41; // [rsp+40h] [rbp-78h]
+  struct _DXGKARG_DESCRIBEALLOCATION v42; // [rsp+48h] [rbp-70h] BYREF
   union _LARGE_INTEGER Interval; // [rsp+C0h] [rbp+8h] BYREF
-  unsigned int v34; // [rsp+C8h] [rbp+10h]
+  UINT v44; // [rsp+D0h] [rbp+18h]
 
-  v34 = a2;
-  v4 = a2;
   v6 = (ADAPTER_RENDER *)*((_QWORD *)this + 2);
   v8 = a3;
   v9 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)a3 + 56LL) + 136LL) - 48LL;
   v10 = *(_DWORD *)(v9 + 4);
-  memset(&v32, 0, sizeof(v32));
+  memset(&v42, 0, sizeof(v42));
   v11 = (v10 >> 6) & 0xF;
-  v32.hAllocation = *(HANDLE *)(v9 + 16);
-  v12 = ADAPTER_RENDER::DdiDescribeAllocation(v6, &v32, (__int64)a3);
-  v14 = v12;
-  if ( v12 >= 0 )
+  v42.hAllocation = *(HANDLE *)(v9 + 16);
+  v12 = ADAPTER_RENDER::DdiDescribeAllocation(v6, &v42, (__int64)a3);
+  v15 = v12;
+  if ( v12 < 0 )
   {
-    if ( v11 < *((_DWORD *)this + 472) )
-    {
-      if ( !a4 || *((_DWORD *)this + 473) )
-      {
-        v18 = 0;
-        v19 = 0LL;
-        if ( v4 )
-        {
-          v20 = (struct DXGRESOURCE **)v8;
-          while ( 2 )
-          {
-            v21 = DXGDEVICE::ValidateDirectFlipResource(
-                    (DXGDEVICE *)*(unsigned int *)(*((_QWORD *)*v20 + 7) + 132LL),
-                    *v20,
-                    v11,
-                    v13,
-                    v30,
-                    v31,
-                    *(_DWORD *)(*((_QWORD *)*v20 + 7) + 132LL));
-            LODWORD(v14) = v21;
-            if ( v21 < 0 )
-            {
-              WdLogSingleEntry2(3LL, *((_QWORD *)v8 + v19), v21);
-              return (unsigned int)v14;
-            }
-            v22 = *v20;
-            v23 = (const struct DXGALLOCATION *)*((_QWORD *)*v20 + 3);
-            while ( v23 )
-            {
-              if ( DXGDEVICE::IsDirectFlipAllocationPinned(this, v23) )
-              {
-                v15 = v22;
-                goto LABEL_5;
-              }
-              v23 = *(const struct DXGALLOCATION **)(v24 + 64);
-              ++v18;
-            }
-            v4 = v34;
-            v19 = (unsigned int)(v19 + 1);
-            ++v20;
-            if ( (unsigned int)v19 < v34 )
-              continue;
-            break;
-          }
-        }
-        v25 = *((_DWORD *)this + v11 + 374);
-        if ( v25 + v18 <= 0x300 )
-        {
-          for ( i = 0; i < v4; v8 = (const struct DXGRESOURCEREFERENCE *)((char *)v8 + 8) )
-          {
-            if ( (int)v14 < 0 )
-              break;
-            v27 = *(struct DXGALLOCATION **)(*(_QWORD *)v8 + 24LL);
-            if ( v27 )
-            {
-              while ( (int)v14 >= 0 )
-              {
-                v28 = 0;
-                while ( 1 )
-                {
-                  LODWORD(v14) = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 760LL) + 8LL) + 216LL))(
-                                   *(_QWORD *)(*((_QWORD *)this + 2) + 768LL),
-                                   *((_QWORD *)v27 + 3),
-                                   0LL,
-                                   0LL,
-                                   0LL,
-                                   0LL);
-                  if ( (int)v14 >= 0 )
-                    break;
-                  Interval.QuadPart = -150LL;
-                  KeDelayExecutionThread(0, 0, &Interval);
-                  ++v28;
-                  LODWORD(v14) = -1071775488;
-                  if ( v28 >= 4 )
-                    goto LABEL_33;
-                }
-                if ( DXGDEVICE::InsertDirectFlipAllocationToList((struct _KTHREAD **)this, v11, v27) )
-                {
-                  v27 = (struct DXGALLOCATION *)*((_QWORD *)v27 + 8);
-                }
-                else
-                {
-                  LODWORD(v14) = -1071775488;
-                  (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 760LL) + 8LL)
-                                                         + 224LL))(
-                    *(_QWORD *)(*((_QWORD *)this + 2) + 768LL),
-                    *((_QWORD *)v27 + 3));
-                }
-LABEL_33:
-                if ( !v27 )
-                {
-                  if ( (int)v14 >= 0 )
-                    goto LABEL_41;
-                  break;
-                }
-              }
-              for ( j = *(struct DXGALLOCATION **)(*(_QWORD *)v8 + 24LL);
-                    j && j != v27;
-                    j = (struct DXGALLOCATION *)*((_QWORD *)j + 8) )
-              {
-                if ( !DXGDEVICE::RemoveDirectFlipAllocationFromList(this, v11, j) )
-                {
-                  WdLogSingleEntry1(1LL, 6859LL);
-                  DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"Removed", 6859LL, 0LL, 0LL, 0LL, 0LL);
-                }
-                (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 760LL) + 8LL)
-                                                       + 224LL))(
-                  *(_QWORD *)(*((_QWORD *)this + 2) + 768LL),
-                  *((_QWORD *)j + 3));
-              }
-            }
-LABEL_41:
-            ++i;
-          }
-          return (unsigned int)v14;
-        }
-        v16 = -1073741811;
-        WdLogSingleEntry4(3LL, v25, v18, 768LL, -1073741811LL);
-      }
-      else
-      {
-        v16 = -1073741790;
-        WdLogSingleEntry1(3LL, -1073741790LL);
-      }
-    }
-    else
-    {
-      v15 = *(struct DXGRESOURCE **)v8;
-LABEL_5:
-      v16 = -1073741811;
-      WdLogSingleEntry2(3LL, v15, -1073741811LL);
-    }
-    return v16;
+    v34 = (_QWORD *)WdLogNewEntry5_WdError(v14, v13);
+    v34[3] = v15;
+    v34[4] = this;
+    v34[5] = *(_QWORD *)(v9 + 16);
+    v34[6] = v9;
+    WdLogEvent5_WdError(v34);
   }
-  WdLogSingleEntry4(2LL, v12, this, *(_QWORD *)(v9 + 16), v9);
-  DxgkLogInternalTriageEvent(
-    0LL,
-    0x40000,
-    -1,
-    (__int64)L"ret = 0x%I64x Context 0x%I64x: DdiDescribeAllocation failed 0x%I64x 0x%I64x",
-    v14,
-    (__int64)this,
-    *(_QWORD *)(v9 + 16),
-    v9,
-    0LL);
-  return (unsigned int)v14;
+  else
+  {
+    Width = v42.Width;
+    Height = v42.Height;
+    Format = v42.Format;
+    Interval.LowPart = v42.Width;
+    v44 = v42.Height;
+    v41 = v42.Format;
+    if ( v11 >= *((_DWORD *)this + 464) )
+    {
+      v35 = (_QWORD *)WdLogNewEntry5_WdWarning(v14, v13, v42.Width);
+      v35[3] = *(_QWORD *)v8;
+LABEL_30:
+      v15 = -1073741811LL;
+LABEL_32:
+      v35[4] = v15;
+LABEL_34:
+      WdLogEvent5_WdWarning(v35);
+      return (unsigned int)v15;
+    }
+    if ( a4 && !*((_DWORD *)this + 465) )
+    {
+      v35 = (_QWORD *)WdLogNewEntry5_WdWarning(v14, v13, v42.Width);
+      LODWORD(v15) = -1073741790;
+      v35[3] = -1073741790LL;
+      goto LABEL_34;
+    }
+    v19 = 0;
+    v20 = 0LL;
+    if ( a2 )
+    {
+      v21 = (struct DXGRESOURCE **)v8;
+      while ( 1 )
+      {
+        v22 = DXGDEVICE::ValidateDirectFlipResource(
+                this,
+                *v21,
+                v11,
+                Width,
+                Height,
+                Format,
+                *(_DWORD *)(*((_QWORD *)*v21 + 7) + 132LL));
+        v15 = v22;
+        if ( v22 < 0 )
+          break;
+        v13 = (const struct DXGALLOCATION *)*((_QWORD *)*v21 + 3);
+        while ( v13 )
+        {
+          if ( DXGDEVICE::IsDirectFlipAllocationPinned(this, v13) )
+          {
+            v35 = (_QWORD *)WdLogNewEntry5_WdWarning(v26, v25, Width);
+            v35[3] = *((_QWORD *)v8 + v20);
+            goto LABEL_30;
+          }
+          v13 = *(const struct DXGALLOCATION **)(v25 + 64);
+          ++v19;
+        }
+        v20 = (unsigned int)(v20 + 1);
+        ++v21;
+        if ( (unsigned int)v20 >= a2 )
+          goto LABEL_12;
+        LODWORD(Width) = Interval.LowPart;
+        Height = v44;
+        Format = v41;
+      }
+      v35 = (_QWORD *)WdLogNewEntry5_WdWarning(v24, v23, Width);
+      v35[3] = *((_QWORD *)v8 + v20);
+      goto LABEL_32;
+    }
+LABEL_12:
+    v27 = v19 + *((_DWORD *)this + v11 + 366);
+    if ( (unsigned int)v27 > 0x300 )
+    {
+      v35 = (_QWORD *)WdLogNewEntry5_WdWarning(v27, v13, Width);
+      LODWORD(v15) = -1073741811;
+      v35[3] = *((unsigned int *)this + v11 + 366);
+      v35[4] = v19;
+      v35[5] = 768LL;
+      v35[6] = -1073741811LL;
+      goto LABEL_34;
+    }
+    for ( i = 0; i < a2; v8 = (const struct DXGRESOURCEREFERENCE *)((char *)v8 + 8) )
+    {
+      if ( (int)v15 < 0 )
+        break;
+      v29 = *(struct DXGALLOCATION **)(*(_QWORD *)v8 + 24LL);
+LABEL_16:
+      while ( v29 )
+      {
+        if ( (int)v15 < 0 )
+          goto LABEL_39;
+        v30 = 0;
+        while ( 1 )
+        {
+          LODWORD(v15) = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 640LL) + 8LL) + 232LL))(
+                           *(_QWORD *)(*((_QWORD *)this + 2) + 648LL),
+                           *((_QWORD *)v29 + 3),
+                           0LL,
+                           0LL,
+                           0LL,
+                           0LL);
+          if ( (int)v15 >= 0 )
+            break;
+          Interval.QuadPart = -150LL;
+          KeDelayExecutionThread(0, 0, &Interval);
+          ++v30;
+          LODWORD(v15) = -1071775488;
+          if ( v30 >= 4 )
+            goto LABEL_16;
+        }
+        if ( !DXGDEVICE::InsertDirectFlipAllocationToList(this, v11, v29) )
+        {
+          v36 = WdLogNewEntry5_WdAssertion(v32, v31);
+          *(_QWORD *)(v36 + 24) = 6728LL;
+          WdLogEvent5_WdAssertion(v36);
+        }
+        v29 = (struct DXGALLOCATION *)*((_QWORD *)v29 + 8);
+      }
+      if ( (int)v15 >= 0 )
+        goto LABEL_24;
+LABEL_39:
+      for ( j = *(struct DXGALLOCATION **)(*(_QWORD *)v8 + 24LL);
+            j && j != v29;
+            j = (struct DXGALLOCATION *)*((_QWORD *)j + 8) )
+      {
+        if ( !DXGDEVICE::RemoveDirectFlipAllocationFromList((struct _KTHREAD **)this, v11, j) )
+        {
+          v40 = WdLogNewEntry5_WdAssertion(v39, v38);
+          *(_QWORD *)(v40 + 24) = 6743LL;
+          WdLogEvent5_WdAssertion(v40);
+        }
+        (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 640LL) + 8LL) + 240LL))(
+          *(_QWORD *)(*((_QWORD *)this + 2) + 648LL),
+          *((_QWORD *)j + 3));
+      }
+LABEL_24:
+      ++i;
+    }
+  }
+  return (unsigned int)v15;
 }

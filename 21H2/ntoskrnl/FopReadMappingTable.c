@@ -1,129 +1,155 @@
 /*
- * XREFs of FopReadMappingTable @ 0x140B565BC
+ * XREFs of FopReadMappingTable @ 0x140A96050
  * Callers:
- *     FopInitializeFonts @ 0x140B56268 (FopInitializeFonts.c)
+ *     FopInitializeFonts @ 0x140A95F14 (FopInitializeFonts.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403A8CB4 (BgpFwFreeMemory.c)
- *     FioFwReadBytesAtOffset @ 0x1403A9E4C (FioFwReadBytesAtOffset.c)
- *     BgpFwAllocateMemory @ 0x1403AA2B8 (BgpFwAllocateMemory.c)
- *     FopFreeMappingTable @ 0x140AAED14 (FopFreeMappingTable.c)
- *     FopReadCmapTable @ 0x140B5678C (FopReadCmapTable.c)
+ *     BgpFwFreeMemory @ 0x14039BD60 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14039C584 (BgpFwAllocateMemory.c)
+ *     FioFwReadBytesAtOffset @ 0x1403B35FC (FioFwReadBytesAtOffset.c)
+ *     FopFreeMappingTable @ 0x1409F4308 (FopFreeMappingTable.c)
+ *     FopReadCmapTable @ 0x140A963B4 (FopReadCmapTable.c)
  */
 
 __int64 __fastcall FopReadMappingTable(__int64 a1, __int64 a2, __int64 *a3)
 {
-  int v4; // edi
-  int v6; // eax
-  __int64 v7; // r14
+  int v3; // edi
+  int v5; // eax
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  _DWORD *v8; // r9
+  __int64 v9; // r15
   int BytesAtOffset; // ebx
-  _DWORD *v9; // rax
-  unsigned int v10; // ecx
-  int v11; // ecx
-  int v12; // r13d
-  unsigned __int16 v13; // bx
-  unsigned __int16 v14; // si
+  _DWORD *v11; // rax
+  unsigned int v12; // ecx
+  int v13; // ecx
+  int v14; // r13d
+  unsigned __int16 v15; // r14
+  unsigned __int16 v16; // si
   __int64 Memory; // rax
-  __int64 v16; // rdi
-  _WORD *v17; // rax
-  _WORD *v18; // rbp
-  unsigned int v19; // esi
-  _WORD *v20; // rcx
-  __int64 v21; // rdx
-  int v22; // edx
-  __int64 v24; // [rsp+20h] [rbp-38h] BYREF
-  int v25; // [rsp+28h] [rbp-30h]
-  __int16 v26; // [rsp+2Ch] [rbp-2Ch]
-  __int64 v27; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v18; // rdi
+  int v19; // eax
+  unsigned int v20; // esi
+  _WORD *v21; // rax
+  _WORD *v22; // r14
+  unsigned int v23; // esi
+  _WORD *v24; // rcx
+  __int64 v26; // [rsp+20h] [rbp-10h] BYREF
+  int v27; // [rsp+28h] [rbp-8h]
+  __int16 v28; // [rsp+2Ch] [rbp-4h]
+  __int64 v30; // [rsp+88h] [rbp+58h] BYREF
 
-  v27 = 0LL;
-  v24 = 0LL;
-  v4 = a2;
-  v25 = 0;
-  v26 = 0;
-  v6 = FopReadCmapTable(a1, a2, &v27);
-  v7 = v27;
-  BytesAtOffset = v6;
-  if ( v6 < 0 )
-    goto LABEL_14;
-  v9 = (_DWORD *)(v27 + 4);
-  v10 = 0;
-  if ( !*(_WORD *)(v27 + 2) )
-    goto LABEL_18;
-  while ( *v9 != 65539 )
+  v30 = 0LL;
+  v3 = a2;
+  v26 = 0LL;
+  v27 = 0;
+  v28 = 0;
+  v5 = FopReadCmapTable(a1, a2, &v30);
+  v9 = v30;
+  BytesAtOffset = v5;
+  if ( v5 >= 0 )
   {
-    ++v10;
-    v9 += 2;
-    if ( v10 >= *(unsigned __int16 *)(v27 + 2) )
-      goto LABEL_18;
-  }
-  v11 = v9[1];
-  if ( !v11 )
-  {
-LABEL_18:
-    BytesAtOffset = -1073741275;
-    goto LABEL_14;
-  }
-  v12 = v11 + v4;
-  BytesAtOffset = FioFwReadBytesAtOffset(a1, v11 + v4, 0xEu, &v24);
-  if ( BytesAtOffset < 0 )
-    goto LABEL_14;
-  if ( __ROR2__(v24, 8) != 4 )
-  {
-    BytesAtOffset = -1073741701;
-    goto LABEL_14;
-  }
-  v13 = __ROR2__(WORD1(v24), 8);
-  v14 = __ROR2__(HIWORD(v24), 8);
-  Memory = BgpFwAllocateMemory(0x38uLL);
-  v16 = Memory;
-  if ( !Memory )
-  {
-    BytesAtOffset = -1073741801;
-    goto LABEL_14;
-  }
-  *(_OWORD *)Memory = 0LL;
-  *(_OWORD *)(Memory + 16) = 0LL;
-  *(_OWORD *)(Memory + 32) = 0LL;
-  *(_QWORD *)(Memory + 48) = 0LL;
-  *(_DWORD *)Memory = v14 >> 1;
-  v17 = (_WORD *)BgpFwAllocateMemory((unsigned int)v13 - 14);
-  v18 = v17;
-  if ( !v17 )
-  {
-    BytesAtOffset = -1073741801;
-    goto LABEL_22;
-  }
-  v19 = ((unsigned int)v13 - 14) >> 1;
-  *(_QWORD *)(v16 + 8) = v17;
-  BytesAtOffset = FioFwReadBytesAtOffset(a1, v12 + 14, 2 * v19, v17);
-  if ( BytesAtOffset < 0 )
-  {
-LABEL_22:
-    FopFreeMappingTable(v16);
-    goto LABEL_14;
-  }
-  if ( v19 )
-  {
-    v20 = v18;
-    v21 = v19;
-    do
+    v6 = *(unsigned __int16 *)(v30 + 2);
+    v11 = (_DWORD *)(v30 + 4);
+    v12 = 0;
+    if ( !*(_WORD *)(v30 + 2) )
+      goto LABEL_25;
+    v7 = 1LL;
+    while ( *v11 != 65539 )
     {
-      *v20 = __ROR2__(*v20, 8);
-      ++v20;
-      --v21;
+      ++v12;
+      v11 += 2;
+      if ( v12 >= (unsigned int)v6 )
+        goto LABEL_25;
     }
-    while ( v21 );
+    v13 = v11[1];
+    if ( !v13 )
+    {
+LABEL_25:
+      BytesAtOffset = -1073741275;
+      goto LABEL_21;
+    }
+    v14 = v13 + v3;
+    BytesAtOffset = FioFwReadBytesAtOffset(a1, v13 + v3, 0xEu, &v26);
+    if ( BytesAtOffset < 0 )
+    {
+      v16 = HIWORD(v26);
+      v15 = WORD1(v26);
+    }
+    else
+    {
+      if ( __ROR2__(v26, 8) != 4 )
+      {
+        BytesAtOffset = -1073741701;
+        goto LABEL_21;
+      }
+      v15 = __ROR2__(WORD1(v26), 8);
+      v16 = __ROR2__(HIWORD(v26), 8);
+      BytesAtOffset = 0;
+    }
+    if ( BytesAtOffset >= 0 )
+    {
+      Memory = BgpFwAllocateMemory(0x38uLL);
+      v18 = Memory;
+      if ( Memory )
+      {
+        *(_OWORD *)Memory = 0LL;
+        *(_OWORD *)(Memory + 16) = 0LL;
+        *(_OWORD *)(Memory + 32) = 0LL;
+        *(_QWORD *)(Memory + 48) = 0LL;
+        v19 = v16 >> 1;
+        v20 = v15 - 14;
+        *(_DWORD *)v18 = v19;
+        v21 = (_WORD *)BgpFwAllocateMemory(v20);
+        v22 = v21;
+        if ( v21 )
+        {
+          v23 = v20 >> 1;
+          *(_QWORD *)(v18 + 8) = v21;
+          BytesAtOffset = FioFwReadBytesAtOffset(a1, v14 + 14, 2 * v23, v21);
+          if ( BytesAtOffset >= 0 )
+          {
+            if ( v23 )
+            {
+              v24 = v22;
+              v6 = v23;
+              do
+              {
+                *v24 = __ROR2__(*v24, 8);
+                ++v24;
+                --v6;
+              }
+              while ( v6 );
+            }
+            BytesAtOffset = 0;
+          }
+          if ( BytesAtOffset >= 0 )
+          {
+            v6 = (unsigned int)(2 * *(_DWORD *)v18);
+            *(_QWORD *)(v18 + 24) = v22;
+            *(_QWORD *)(v18 + 16) = (char *)v22 + (unsigned int)(v6 + 2);
+            *(_QWORD *)(v18 + 32) = (char *)v22 + (unsigned int)(2 * v6 + 2);
+            *(_QWORD *)(v18 + 40) = (char *)v22 + (unsigned int)(v6 + 2 * (v6 + 1));
+            *(_QWORD *)(v18 + 48) = (char *)v22 + (unsigned int)(4 * v6 + 2);
+            *a3 = v18;
+            v18 = 0LL;
+            BytesAtOffset = 0;
+          }
+        }
+        else
+        {
+          BytesAtOffset = -1073741801;
+        }
+        if ( v18 )
+          FopFreeMappingTable(v18, v6, v7, v8);
+      }
+      else
+      {
+        BytesAtOffset = -1073741801;
+      }
+    }
   }
-  v22 = 2 * *(_DWORD *)v16;
-  *(_QWORD *)(v16 + 24) = v18;
-  *(_QWORD *)(v16 + 16) = (char *)v18 + (unsigned int)(v22 + 2);
-  *(_QWORD *)(v16 + 32) = (char *)v18 + (unsigned int)(2 * v22 + 2);
-  *(_QWORD *)(v16 + 40) = (char *)v18 + (unsigned int)(v22 + 2 * (v22 + 1));
-  *(_QWORD *)(v16 + 48) = (char *)v18 + (unsigned int)(4 * v22 + 2);
-  BytesAtOffset = 0;
-  *a3 = v16;
-LABEL_14:
-  if ( v7 )
-    BgpFwFreeMemory(v7);
+LABEL_21:
+  if ( v9 )
+    BgpFwFreeMemory(v9, v6, v7, v8);
   return (unsigned int)BytesAtOffset;
 }

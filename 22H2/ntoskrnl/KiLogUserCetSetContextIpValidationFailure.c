@@ -1,13 +1,14 @@
 /*
- * XREFs of KiLogUserCetSetContextIpValidationFailure @ 0x14057BF58
+ * XREFs of KiLogUserCetSetContextIpValidationFailure @ 0x1403F2378
  * Callers:
- *     KeVerifyContextIpForUserCet @ 0x14030DCDC (KeVerifyContextIpForUserCet.c)
+ *     KeVerifyContextIpForUserCet @ 0x1403F24AC (KeVerifyContextIpForUserCet.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x14028B240 (ExAcquireRundownProtection_0.c)
- *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x1402B7C00 (ExQueueWorkItem.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x14023E0C0 (ExQueueWorkItem.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     ExAcquireRundownProtection @ 0x1403459C0 (ExAcquireRundownProtection.c)
+ *     Feature_CET_User_Audit_Livedump__private_ReportDeviceUsage @ 0x1403F2198 (Feature_CET_User_Audit_Livedump__private_ReportDeviceUsage.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
  */
 
 void __fastcall KiLogUserCetSetContextIpValidationFailure(int a1, int a2, __int64 a3, unsigned __int8 a4)
@@ -36,9 +37,9 @@ void __fastcall KiLogUserCetSetContextIpValidationFailure(int a1, int a2, __int6
     Pool2 = ExAllocatePool2(256LL, 64LL, 1668508747LL);
     if ( Pool2 )
     {
-      if ( ExAcquireRundownProtection_0(Process + 139) )
+      if ( ExAcquireRundownProtection(Process + 139) )
       {
-        ObfReferenceObjectWithTag(Process, 0x746C6644u);
+        ObfReferenceObject(Process);
         *(_QWORD *)Pool2 = 0LL;
         *(_QWORD *)(Pool2 + 16) = KiLogUserCetSetContextIpValidationFailureWorker;
         *(_QWORD *)(Pool2 + 24) = Pool2;
@@ -54,5 +55,6 @@ void __fastcall KiLogUserCetSetContextIpValidationFailure(int a1, int a2, __int6
         ExFreePoolWithTag((PVOID)Pool2, 0);
       }
     }
+    Feature_CET_User_Audit_Livedump__private_ReportDeviceUsage();
   }
 }

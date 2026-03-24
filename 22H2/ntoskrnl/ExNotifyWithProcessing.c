@@ -1,63 +1,64 @@
 /*
- * XREFs of ExNotifyWithProcessing @ 0x14033BD60
+ * XREFs of ExNotifyWithProcessing @ 0x140307DA8
  * Callers:
- *     IopSessionChangeWorker @ 0x14033BCE0 (IopSessionChangeWorker.c)
- *     ExNotifyCallback @ 0x14033BD40 (ExNotifyCallback.c)
- *     HvlPhase2Initialize @ 0x1403B4610 (HvlPhase2Initialize.c)
- *     PoNotifySystemTimeSet @ 0x1403B5E38 (PoNotifySystemTimeSet.c)
- *     KiDynamicProcessorAddNotification @ 0x1405719C4 (KiDynamicProcessorAddNotification.c)
- *     ExRebootSystemForRecovery @ 0x1406066E4 (ExRebootSystemForRecovery.c)
- *     SepImageVerificationCallbackWorker @ 0x1407B4320 (SepImageVerificationCallbackWorker.c)
- *     PnpNotifyEarlyLaunchImageLoad @ 0x140B417A4 (PnpNotifyEarlyLaunchImageLoad.c)
- *     PnpNotifyEarlyLaunchStatusUpdate @ 0x140B41B20 (PnpNotifyEarlyLaunchStatusUpdate.c)
+ *     ExNotifyCallback @ 0x140307D90 (ExNotifyCallback.c)
+ *     IopSessionChangeWorker @ 0x1403A6120 (IopSessionChangeWorker.c)
+ *     PoNotifySystemTimeSet @ 0x1403A7104 (PoNotifySystemTimeSet.c)
+ *     HvlPhase2Initialize @ 0x1403CE9B8 (HvlPhase2Initialize.c)
+ *     KiDynamicProcessorAddNotification @ 0x140518D58 (KiDynamicProcessorAddNotification.c)
+ *     ExRebootSystemForRecovery @ 0x1405B2554 (ExRebootSystemForRecovery.c)
+ *     SepImageVerificationCallbackWorker @ 0x1407711B0 (SepImageVerificationCallbackWorker.c)
+ *     PnpNotifyEarlyLaunchImageLoad @ 0x140A5EB80 (PnpNotifyEarlyLaunchImageLoad.c)
+ *     PnpNotifyEarlyLaunchStatusUpdate @ 0x140A5EEE0 (PnpNotifyEarlyLaunchStatusUpdate.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5C0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x1402504E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250D60 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExpCallProcessing @ 0x14033BEA8 (ExpCallProcessing.c)
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402295E0 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x1402C3C30 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D89E0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExpCallProcessing @ 0x140307ED8 (ExpCallProcessing.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F2D04 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
  */
 
 void __fastcall ExNotifyWithProcessing(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  _QWORD *v5; // rbx
-  volatile signed __int64 *v8; // r15
+  _QWORD *v4; // rdi
+  KSPIN_LOCK *v8; // r14
   KIRQL v9; // al
-  _QWORD *v10; // r14
-  KIRQL v11; // r12
+  _QWORD *v10; // rbx
+  KIRQL v11; // si
   KIRQL v12; // al
-  unsigned __int8 CurrentIrql; // cl
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v16; // eax
   bool v17; // zf
-  unsigned __int8 v18; // cl
+  unsigned __int8 v18; // al
   struct _KPRCB *v19; // r9
   _DWORD *v20; // r8
   int v21; // eax
 
   if ( a1 )
   {
-    v5 = (_QWORD *)(a1 + 16);
-    if ( (_QWORD *)*v5 != v5 )
+    v4 = (_QWORD *)(a1 + 16);
+    if ( (_QWORD *)*v4 != v4 )
     {
-      v8 = (volatile signed __int64 *)(a1 + 8);
+      v8 = (KSPIN_LOCK *)(a1 + 8);
       v9 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 8));
-      v10 = (_QWORD *)*v5;
+      v10 = (_QWORD *)*v4;
       v11 = v9;
       if ( v9 == 2 )
       {
-        for ( ; v10 != v5; v10 = (_QWORD *)*v10 )
+        while ( v10 != v4 )
         {
           ExpCallProcessing(1, v10[4], a2, a3, a4);
           ((void (__fastcall *)(_QWORD, __int64, __int64))v10[3])(v10[4], a2, a3);
           ExpCallProcessing(0, v10[4], a2, a3, a4);
+          v10 = (_QWORD *)*v10;
         }
       }
       else
       {
-        for ( ; v10 != v5; v10 = (_QWORD *)*v10 )
+        while ( v10 != v4 )
         {
           if ( !*((_BYTE *)v10 + 44) )
           {
@@ -65,43 +66,50 @@ void __fastcall ExNotifyWithProcessing(__int64 a1, __int64 a2, __int64 a3, __int
             KxReleaseSpinLock(v8);
             if ( KiIrqlFlags )
             {
-              CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v11 <= 0xFu && CurrentIrql >= 2u )
+              if ( (KiIrqlFlags & 1) != 0 )
               {
-                CurrentPrcb = KeGetCurrentPrcb();
-                SchedulerAssist = CurrentPrcb->SchedulerAssist;
-                v16 = ~(unsigned __int16)(-1LL << (v11 + 1));
-                v17 = (v16 & SchedulerAssist[5]) == 0;
-                SchedulerAssist[5] &= v16;
-                if ( v17 )
-                  KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                CurrentIrql = KeGetCurrentIrql();
+                if ( CurrentIrql <= 0xFu && v11 <= 0xFu && CurrentIrql >= 2u )
+                {
+                  CurrentPrcb = KeGetCurrentPrcb();
+                  SchedulerAssist = CurrentPrcb->SchedulerAssist;
+                  v16 = ~(unsigned __int16)(-1LL << (v11 + 1));
+                  v17 = (v16 & SchedulerAssist[5]) == 0;
+                  SchedulerAssist[5] &= v16;
+                  if ( v17 )
+                    KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                }
               }
             }
             __writecr8(v11);
             ExpCallProcessing(1, v10[4], a2, a3, a4);
             ((void (__fastcall *)(_QWORD, __int64, __int64))v10[3])(v10[4], a2, a3);
             ExpCallProcessing(0, v10[4], a2, a3, a4);
-            v12 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)v8);
+            v12 = KeAcquireSpinLockRaiseToDpc(v8);
             --*((_DWORD *)v10 + 10);
             v11 = v12;
             if ( *((_BYTE *)v10 + 44) && !*((_DWORD *)v10 + 10) )
               KeSetEvent(&ExpCallbackEvent, 0, 0);
           }
+          v10 = (_QWORD *)*v10;
         }
       }
       KxReleaseSpinLock(v8);
       if ( KiIrqlFlags )
       {
-        v18 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v11 <= 0xFu && v18 >= 2u )
+        if ( (KiIrqlFlags & 1) != 0 )
         {
-          v19 = KeGetCurrentPrcb();
-          v20 = v19->SchedulerAssist;
-          v21 = ~(unsigned __int16)(-1LL << (v11 + 1));
-          v17 = (v21 & v20[5]) == 0;
-          v20[5] &= v21;
-          if ( v17 )
-            KiRemoveSystemWorkPriorityKick(v19);
+          v18 = KeGetCurrentIrql();
+          if ( v18 <= 0xFu && v11 <= 0xFu && v18 >= 2u )
+          {
+            v19 = KeGetCurrentPrcb();
+            v20 = v19->SchedulerAssist;
+            v21 = ~(unsigned __int16)(-1LL << (v11 + 1));
+            v17 = (v21 & v20[5]) == 0;
+            v20[5] &= v21;
+            if ( v17 )
+              KiRemoveSystemWorkPriorityKick(v19);
+          }
         }
       }
       __writecr8(v11);

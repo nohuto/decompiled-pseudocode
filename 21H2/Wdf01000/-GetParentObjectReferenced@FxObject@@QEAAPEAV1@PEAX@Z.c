@@ -1,10 +1,10 @@
 /*
- * XREFs of ?GetParentObjectReferenced@FxObject@@QEAAPEAV1@PEAX@Z @ 0x1C00194CC
+ * XREFs of ?GetParentObjectReferenced@FxObject@@QEAAPEAV1@PEAX@Z @ 0x1C005A01C
  * Callers:
- *     ?_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z @ 0x1C00193BC (-_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z.c)
- *     ?IsObjectDisposedOnRemove@FxUsbDevice@@QEAAEPEAVFxObject@@@Z @ 0x1C007D13C (-IsObjectDisposedOnRemove@FxUsbDevice@@QEAAEPEAVFxObject@@@Z.c)
+ *     ?_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z @ 0x1C0013F60 (-_SearchForDevice@FxDeviceBase@@SAPEAV1@PEAVFxObject@@PEAPEAVIFxHasCallbacks@@@Z.c)
+ *     ?IsObjectDisposedOnRemove@FxUsbDevice@@QEAAEPEAVFxObject@@@Z @ 0x1C00709A0 (-IsObjectDisposedOnRemove@FxUsbDevice@@QEAAEPEAVFxObject@@@Z.c)
  * Callees:
- *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C00196F8 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C000CA80 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
  */
 
 FxObject *__fastcall FxObject::GetParentObjectReferenced(FxObject *this, void *Tag)
@@ -16,15 +16,11 @@ FxObject *__fastcall FxObject::GetParentObjectReferenced(FxObject *this, void *T
   p_m_Lock = &this->m_SpinLock.m_Lock;
   v5 = KeAcquireSpinLockRaiseToDpc(&this->m_SpinLock.m_Lock);
   if ( this->m_ObjectState == 1 )
-  {
     m_ParentObject = this->m_ParentObject;
-    if ( m_ParentObject )
-      FxObject::AddRef(m_ParentObject, Tag, 1020, "minkernel\\wdf\\framework\\shared\\object\\fxobject.cpp");
-  }
   else
-  {
     m_ParentObject = 0LL;
-  }
+  if ( m_ParentObject )
+    FxObject::AddRef(m_ParentObject, Tag, 1020, "minkernel\\wdf\\framework\\shared\\object\\fxobject.cpp");
   KeReleaseSpinLock(p_m_Lock, v5);
   return m_ParentObject;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PnpEventFailedOwnHardware@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C0083DD0
+ * XREFs of ?PnpEventFailedOwnHardware@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C007A4C0
  * Callers:
  *     <none>
  * Callees:
- *     ?PnpReleaseHardware@FxPkgPnp@@IEAAJXZ @ 0x1C0084F24 (-PnpReleaseHardware@FxPkgPnp@@IEAAJXZ.c)
+ *     ?PnpReleaseHardware@FxPkgPnp@@IEAAJXZ @ 0x1C007C08C (-PnpReleaseHardware@FxPkgPnp@@IEAAJXZ.c)
  */
 
 __int64 __fastcall FxPkgPnp::PnpEventFailedOwnHardware(FxPkgPnp *This)

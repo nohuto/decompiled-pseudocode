@@ -1,7 +1,7 @@
 /*
- * XREFs of ?GetPixelFormatInfo@CHolographicInteropTarget@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800FC70C
+ * XREFs of ?GetPixelFormatInfo@CHolographicInteropTarget@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800E3810
  * Callers:
- *     ?GetPixelFormatInfo@CHolographicInteropTarget@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x18010AC10 (-GetPixelFormatInfo@CHolographicInteropTarget@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetPixelFormatInfo@CHolographicInteropTarget@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x1800F84E0 (-GetPixelFormatInfo@CHolographicInteropTarget@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ _DWORD *__fastcall CHolographicInteropTarget::GetPixelFormatInfo(__int64 a1, _DW
   int v2; // eax
   _DWORD *result; // rax
 
-  v2 = *(_DWORD *)(a1 - 64);
+  v2 = *(_DWORD *)(a1 - 60);
   a2[2] = 0;
   *a2 = v2;
   result = a2;

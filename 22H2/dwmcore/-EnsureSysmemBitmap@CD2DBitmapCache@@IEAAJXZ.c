@@ -1,69 +1,69 @@
 /*
- * XREFs of ?EnsureSysmemBitmap@CD2DBitmapCache@@IEAAJXZ @ 0x1800ED494
+ * XREFs of ?EnsureSysmemBitmap@CD2DBitmapCache@@IEAAJXZ @ 0x18003DA80
  * Callers:
- *     ?GetBitmapInternal@CD2DBitmapCache@@IEAAJU_LUID@@VDisplayId@@_NPEAPEAVID2DBitmap@@@Z @ 0x180033E90 (-GetBitmapInternal@CD2DBitmapCache@@IEAAJU_LUID@@VDisplayId@@_NPEAPEAVID2DBitmap@@@Z.c)
+ *     ?UpdateCachedBitmap@CD2DBitmapCache@@IEAAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCSecondaryD2DBitmap@@@Z @ 0x1800643FC (-UpdateCachedBitmap@CD2DBitmapCache@@IEAAJAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@Rec.c)
  * Callees:
- *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044D1C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
- *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007BB54 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ??0CSecondarySysmemBitmap@@IEAA@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@@Z @ 0x1800ED590 (--0CSecondarySysmemBitmap@@IEAA@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@@Z.c)
- *     ?Initialize@CSecondarySysmemBitmap@@IEAAJXZ @ 0x1800EE034 (-Initialize@CSecondarySysmemBitmap@@IEAAJXZ.c)
- *     ?InternalRelease@?$CMILRefCountBaseT@VID2DBitmapCacheSource@@@@IEAAKXZ @ 0x180100D40 (-InternalRelease@-$CMILRefCountBaseT@VID2DBitmapCacheSource@@@@IEAAKXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
- *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0CSecondarySysmemBitmap@@IEAA@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@@Z @ 0x18003D6E8 (--0CSecondarySysmemBitmap@@IEAA@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@@Z.c)
+ *     ?Initialize@CSecondarySysmemBitmap@@IEAAJXZ @ 0x18003D964 (-Initialize@CSecondarySysmemBitmap@@IEAAJXZ.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18005A210 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x180060070 (-Release@CRenderTargetBitmap@@UEAAKXZ.c)
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x1800C07A0 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall CD2DBitmapCache::EnsureSysmemBitmap(CD2DBitmapCache *this)
 {
-  unsigned int v1; // edi
+  int v1; // ebx
   __int64 (__fastcall ***v3)(_QWORD, _BYTE *); // rcx
   const struct PixelFormatInfo *v4; // rbx
   __int64 v5; // rax
   const struct D2D_SIZE_U *v6; // rdi
   CSecondarySysmemBitmap *v7; // rax
-  __int64 v8; // rcx
-  CSecondarySysmemBitmap *v9; // rax
-  CSecondarySysmemBitmap *v10; // rbx
-  int v11; // eax
-  __int64 v12; // rcx
-  __int64 v14; // rcx
-  int v15; // ebx
-  _BYTE v16[8]; // [rsp+30h] [rbp-28h] BYREF
-  _BYTE v17[16]; // [rsp+38h] [rbp-20h] BYREF
+  unsigned int v8; // ecx
+  CRenderTargetBitmap *v9; // rdi
+  int v10; // eax
+  unsigned int v11; // ecx
+  _BYTE v13[8]; // [rsp+30h] [rbp-28h] BYREF
+  _BYTE v14[16]; // [rsp+38h] [rbp-20h] BYREF
 
   v1 = 0;
-  if ( !*((_QWORD *)this + 5) )
+  if ( *((_QWORD *)this + 5) )
+    return (unsigned int)v1;
+  *((_QWORD *)this + 5) = 0LL;
+  v3 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(*((_QWORD *)this + 3)
+                                                 + 8LL
+                                                 + *(int *)(*(_QWORD *)(*((_QWORD *)this + 3) + 8LL) + 8LL));
+  v4 = (const struct PixelFormatInfo *)(**v3)(v3, v14);
+  v5 = (***((__int64 (__fastcall ****)(_QWORD, _BYTE *))this + 3))(*((_QWORD *)this + 3), v13);
+  *((_QWORD *)this + 5) = 0LL;
+  v6 = (const struct D2D_SIZE_U *)v5;
+  v7 = (CSecondarySysmemBitmap *)DefaultHeap::Alloc(0xD0uLL);
+  if ( v7 )
+    v9 = CSecondarySysmemBitmap::CSecondarySysmemBitmap(v7, v6, v4);
+  else
+    v9 = 0LL;
+  if ( !v9 )
   {
-    *((_QWORD *)this + 5) = 0LL;
-    v3 = (__int64 (__fastcall ***)(_QWORD, _BYTE *))(*((_QWORD *)this + 3)
-                                                   + 8LL
-                                                   + *(int *)(*(_QWORD *)(*((_QWORD *)this + 3) + 8LL) + 8LL));
-    v4 = (const struct PixelFormatInfo *)(**v3)(v3, v17);
-    v5 = (***((__int64 (__fastcall ****)(_QWORD, _BYTE *))this + 3))(*((_QWORD *)this + 3), v16);
-    *((_QWORD *)this + 5) = 0LL;
-    v6 = (const struct D2D_SIZE_U *)v5;
-    v7 = (CSecondarySysmemBitmap *)DefaultHeap::Alloc(0xC8uLL);
-    if ( v7 && (v9 = CSecondarySysmemBitmap::CSecondarySysmemBitmap(v7, v6, v4), (v10 = v9) != 0LL) )
-    {
-      CMILRefCountImpl::AddReference((CSecondarySysmemBitmap *)((char *)v9 + 16));
-      v11 = CSecondarySysmemBitmap::Initialize(v10);
-      v1 = v11;
-      if ( v11 >= 0 )
-      {
-        *((_QWORD *)this + 5) = v10;
-        return v1;
-      }
-      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x1Au, 0LL);
-      CMILRefCountBaseT<ID2DBitmapCacheSource>::InternalRelease(v10);
-      v15 = v1;
-    }
-    else
-    {
-      v1 = -2147024882;
-      v15 = -2147024882;
-      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147024882, 0x18u, 0LL);
-    }
-    MilInstrumentationCheckHR_MaybeFailFast(v14, 0LL, 0, v15, 0x12Bu, 0LL);
+    v1 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, -2147024882, 0x18u, 0LL);
+LABEL_13:
+    if ( v9 )
+      CRenderTargetBitmap::Release(v9);
+    goto LABEL_7;
   }
-  return v1;
+  CMILCOMBase::InternalAddRef(v9);
+  v10 = CSecondarySysmemBitmap::Initialize(v9);
+  v1 = v10;
+  if ( v10 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v10, 0x1Au, 0LL);
+    goto LABEL_13;
+  }
+  *((_QWORD *)this + 5) = v9;
+LABEL_7:
+  if ( v1 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v11, 0LL, 0, v1, 0x12Bu, 0LL);
+  return (unsigned int)v1;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlUnicodeStringValidateDestWorker @ 0x140208BA0
+ * XREFs of RtlUnicodeStringValidateDestWorker @ 0x14036F020
  * Callers:
- *     RtlUnicodeStringCopy @ 0x140208AD8 (RtlUnicodeStringCopy.c)
- *     RtlUnicodeStringPrintf @ 0x1402D17BC (RtlUnicodeStringPrintf.c)
- *     RtlUnicodeStringCopyString @ 0x1403C752C (RtlUnicodeStringCopyString.c)
- *     PopIdleWakeGenerateDescriptionString @ 0x14099B8FC (PopIdleWakeGenerateDescriptionString.c)
+ *     RtlUnicodeStringPrintf @ 0x14036EF9C (RtlUnicodeStringPrintf.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A72B0 (CmpFinishSystemHivesLoad.c)
+ *     IopDeviceRemovalForResetComplete @ 0x1408A0710 (IopDeviceRemovalForResetComplete.c)
+ *     PopIdleWakeGenerateDescriptionString @ 0x1408F41A0 (PopIdleWakeGenerateDescriptionString.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker @ 0x140208BE0 (RtlUnicodeStringValidateWorker.c)
+ *     RtlUnicodeStringValidateWorker_0 @ 0x140206D9C (RtlUnicodeStringValidateWorker_0.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringValidateDestWorker(
@@ -25,7 +25,7 @@ NTSTATUS __stdcall RtlUnicodeStringValidateDestWorker(
 
   *ppszDest = 0LL;
   *pcchDest = 0LL;
-  result = RtlUnicodeStringValidateWorker(DestinationString, (const size_t)ppszDest, (ULONG)pcchDest);
+  result = RtlUnicodeStringValidateWorker_0(DestinationString, (const size_t)ppszDest, (ULONG)pcchDest);
   if ( result >= 0 )
   {
     if ( v7 )

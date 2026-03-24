@@ -1,9 +1,9 @@
 /*
- * XREFs of ??0CGlobalMit@@IEAA@PEAVCComposition@@@Z @ 0x1800CC1B4
+ * XREFs of ??0CGlobalMit@@IEAA@PEAVCComposition@@@Z @ 0x1800B512C
  * Callers:
- *     ?Create@CGlobalMit@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x1800CC100 (-Create@CGlobalMit@@SAJPEAVCComposition@@PEAPEAV1@@Z.c)
+ *     ?Create@CGlobalMit@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x1800B5078 (-Create@CGlobalMit@@SAJPEAVCComposition@@PEAPEAV1@@Z.c)
  * Callees:
- *     ??0CMmcssTask@@QEAA@XZ @ 0x1800CC928 (--0CMmcssTask@@QEAA@XZ.c)
+ *     ??0CMmcssTask@@QEAA@XZ @ 0x1800B5C08 (--0CMmcssTask@@QEAA@XZ.c)
  */
 
 CGlobalMit *__fastcall CGlobalMit::CGlobalMit(CGlobalMit *this, struct CComposition *a2)

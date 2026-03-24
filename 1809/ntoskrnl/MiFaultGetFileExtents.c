@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFaultGetFileExtents @ 0x1402BBD04
+ * XREFs of MiFaultGetFileExtents @ 0x1402BBE04
  * Callers:
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  * Callees:
  *     MiFreeInPageSupportBlock @ 0x14002DC80 (MiFreeInPageSupportBlock.c)
  *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC640 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReleaseFaultCharges @ 0x140131934 (MiReleaseFaultCharges.c)
- *     MiRetainSubsection @ 0x140131E68 (MiRetainSubsection.c)
- *     MiDereferenceControlArea @ 0x14013B55C (MiDereferenceControlArea.c)
- *     MiReleaseFaultSynchronization @ 0x1402BC5CC (MiReleaseFaultSynchronization.c)
- *     MiAllocateFileExtents @ 0x1408521D0 (MiAllocateFileExtents.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReleaseFaultCharges @ 0x140131954 (MiReleaseFaultCharges.c)
+ *     MiRetainSubsection @ 0x140131E88 (MiRetainSubsection.c)
+ *     MiDereferenceControlArea @ 0x14013B57C (MiDereferenceControlArea.c)
+ *     MiReleaseFaultSynchronization @ 0x1402BC6CC (MiReleaseFaultSynchronization.c)
+ *     MiAllocateFileExtents @ 0x1408521B0 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiFaultGetFileExtents(__int64 a1, __int64 a2)

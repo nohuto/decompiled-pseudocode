@@ -1,17 +1,17 @@
 /*
- * XREFs of ObGetSiloRootDirectoryPath @ 0x140A73EB4
+ * XREFs of ObGetSiloRootDirectoryPath @ 0x14098085C
  * Callers:
- *     NtQueryInformationJobObject @ 0x1406A1130 (NtQueryInformationJobObject.c)
- *     PspConvertSiloToServerSilo @ 0x1409ACC94 (PspConvertSiloToServerSilo.c)
+ *     NtQueryInformationJobObject @ 0x140616CE0 (NtQueryInformationJobObject.c)
+ *     PspConvertSiloToServerSilo @ 0x1409060A4 (PspConvertSiloToServerSilo.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     PsGetCurrentSilo @ 0x14022E220 (PsGetCurrentSilo.c)
- *     RtlCopyUnicodeString @ 0x1402AEFA0 (RtlCopyUnicodeString.c)
- *     PsGetPermanentSiloContext @ 0x14031C660 (PsGetPermanentSiloContext.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     PsGetParentSilo @ 0x1406831E0 (PsGetParentSilo.c)
- *     RtlIntegerToUnicodeString @ 0x1407CF660 (RtlIntegerToUnicodeString.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlCopyUnicodeString @ 0x1402D3C70 (RtlCopyUnicodeString.c)
+ *     PsGetPermanentSiloContext @ 0x1402EDF20 (PsGetPermanentSiloContext.c)
+ *     PsGetCurrentSilo @ 0x140345940 (PsGetCurrentSilo.c)
+ *     RtlAppendUnicodeStringToString @ 0x1403480C0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     RtlIntegerToUnicodeString @ 0x1406F6350 (RtlIntegerToUnicodeString.c)
+ *     PsGetParentSilo @ 0x140905B40 (PsGetParentSilo.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 int __fastcall ObGetSiloRootDirectoryPath(__int64 a1, UNICODE_STRING *a2)
@@ -20,7 +20,7 @@ int __fastcall ObGetSiloRootDirectoryPath(__int64 a1, UNICODE_STRING *a2)
   struct _LIST_ENTRY *ParentSilo; // rbx
   ULONG v6; // ecx
   unsigned int v7; // ebx
-  __int64 Pool2; // rax
+  wchar_t *PoolWithTag; // rax
   UNICODE_STRING String; // [rsp+20h] [rbp-40h] BYREF
   UNICODE_STRING Source; // [rsp+30h] [rbp-30h] BYREF
   char v11; // [rsp+40h] [rbp-20h] BYREF
@@ -37,7 +37,7 @@ int __fastcall ObGetSiloRootDirectoryPath(__int64 a1, UNICODE_STRING *a2)
     *(_QWORD *)&String.Length = 1441792LL;
     String.Buffer = (wchar_t *)&v11;
     if ( a1 )
-      v6 = *(_DWORD *)(a1 + 1452);
+      v6 = *(_DWORD *)(a1 + 1236);
     result = RtlIntegerToUnicodeString(v6, 0xAu, &String);
     if ( result >= 0 )
     {
@@ -49,9 +49,9 @@ int __fastcall ObGetSiloRootDirectoryPath(__int64 a1, UNICODE_STRING *a2)
       }
       else
       {
-        Pool2 = ExAllocatePool2(256LL, v7, 1833853519LL);
-        a2->Buffer = (wchar_t *)Pool2;
-        if ( !Pool2 )
+        PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v7, 0x6D4E624Fu);
+        a2->Buffer = PoolWithTag;
+        if ( !PoolWithTag )
           return -1073741670;
         a2->Length = 0;
         a2->MaximumLength = v7;

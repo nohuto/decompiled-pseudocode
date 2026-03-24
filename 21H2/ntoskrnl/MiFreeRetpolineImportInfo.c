@@ -1,58 +1,53 @@
 /*
- * XREFs of MiFreeRetpolineImportInfo @ 0x1408601A8
+ * XREFs of MiFreeRetpolineImportInfo @ 0x1407CDF54
  * Callers:
- *     MiUnloadSystemImage @ 0x1406F4FB8 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
  * Callees:
- *     MiSectionControlArea @ 0x140287970 (MiSectionControlArea.c)
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     MiWalkEntireImage @ 0x140336B30 (MiWalkEntireImage.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     VslFreeSecureImageIat @ 0x140550458 (VslFreeSecureImageIat.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     VslFreeSecureImageIat @ 0x1404FE7E8 (VslFreeSecureImageIat.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeRetpolineImportInfo(__int64 a1)
 {
-  unsigned __int64 v1; // rax
-  struct _KTHREAD *CurrentThread; // rsi
-  ULONG_PTR v3; // r14
-  __int64 v4; // rdi
-  volatile signed __int64 *v5; // rbp
-  __int64 v6; // rcx
-  void *v7; // rdi
-  bool v8; // zf
-  __int64 v9; // rax
+  struct _KTHREAD *CurrentThread; // rbp
+  ULONG_PTR v2; // r14
+  __int64 v3; // rdi
+  volatile signed __int64 *v4; // rsi
+  __int64 v5; // rcx
+  void *v6; // rdi
+  __int64 v7; // rax
 
+  CurrentThread = KeGetCurrentThread();
   if ( *(_QWORD *)(a1 + 112) )
   {
-    v1 = MiSectionControlArea(*(_QWORD *)(a1 + 112));
-    CurrentThread = KeGetCurrentThread();
-    v3 = v1;
-    v4 = *(_QWORD *)(*(_QWORD *)(v1 + 96) + 32LL);
+    v2 = MiSectionControlArea(*(_QWORD *)(a1 + 112));
+    v3 = *(_QWORD *)(*(_QWORD *)(v2 + 96) + 32LL);
     --CurrentThread->SpecialApcDisable;
-    v5 = (volatile signed __int64 *)(v4 + 24);
-    ExAcquirePushLockExclusiveEx(v4 + 24, 0LL);
-    v6 = *(_QWORD *)(v4 + 88);
-    v7 = *(void **)(v6 + 16);
-    *(_QWORD *)(v6 + 16) = 0LL;
-    if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(v5);
-    KeAbPostRelease((ULONG_PTR)v5);
-    v8 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v8 && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery();
-    if ( (MiFlags & 0x8000) != 0 )
-      VslFreeSecureImageIat(*(_QWORD *)(*(_QWORD *)(v3 + 96) + 56LL));
-    MiWalkEntireImage(v3, qword_140C4F428, 0x10u, 0xFFFFFFFF);
+    v4 = (volatile signed __int64 *)(v3 + 24);
+    ExAcquirePushLockExclusiveEx(v3 + 24, 0LL);
+    v5 = *(_QWORD *)(v3 + 96);
+    v6 = *(void **)(v5 + 16);
+    *(_QWORD *)(v5 + 16) = 0LL;
+    if ( (_InterlockedExchangeAdd64(v4, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(v4);
+    KeAbPostRelease((ULONG_PTR)v4);
+    KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+    if ( (MiFlags & 0x10000) != 0 )
+      VslFreeSecureImageIat(*(_QWORD *)(*(_QWORD *)(v2 + 96) + 56LL));
+    MiWalkEntireImage(v2, qword_140C4CC70, 16, 0xFFFFFFFF);
   }
   else
   {
-    v9 = *(_QWORD *)(a1 + 320);
-    v7 = *(void **)(v9 + 16);
-    *(_QWORD *)(v9 + 16) = 0LL;
+    v7 = *(_QWORD *)(a1 + 296);
+    v6 = *(void **)(v7 + 16);
+    *(_QWORD *)(v7 + 16) = 0LL;
   }
-  if ( v7 )
-    ExFreePoolWithTag(v7, 0);
+  if ( v6 )
+    ExFreePoolWithTag(v6, 0);
 }

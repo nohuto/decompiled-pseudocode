@@ -1,14 +1,14 @@
 /*
- * XREFs of MiExtendDynamicBitMap @ 0x14018FA70
+ * XREFs of MiExtendDynamicBitMap @ 0x14018FA90
  * Callers:
- *     MiObtainDynamicVa @ 0x1400F696C (MiObtainDynamicVa.c)
+ *     MiObtainDynamicVa @ 0x1400F698C (MiObtainDynamicVa.c)
  * Callees:
  *     MiSplitBitmapPages @ 0x1400265A8 (MiSplitBitmapPages.c)
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC740 (KxReleaseQueuedSpinLock.c)
- *     MiReclaimSystemVa @ 0x1400F7258 (MiReclaimSystemVa.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AD8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
+ *     MiReclaimSystemVa @ 0x1400F7278 (MiReclaimSystemVa.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiExtendDynamicBitMap(__int64 *a1, unsigned __int64 *a2, unsigned int a3)

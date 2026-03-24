@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCaptureImageExceptionValues @ 0x140192FB0
+ * XREFs of RtlCaptureImageExceptionValues @ 0x140192FD0
  * Callers:
- *     KiLockExtendedServiceTable @ 0x14019F848 (KiLockExtendedServiceTable.c)
+ *     KiLockExtendedServiceTable @ 0x14019F868 (KiLockExtendedServiceTable.c)
  *     KiVerifyXcpt15 @ 0x14098E2F0 (KiVerifyXcpt15.c)
  *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
  * Callees:
- *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C50 (RtlpImageDirectoryEntryToDataEx.c)
+ *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C70 (RtlpImageDirectoryEntryToDataEx.c)
  */
 
 __int64 __fastcall RtlCaptureImageExceptionValues(unsigned __int64 a1, __int64 *a2, int a3)

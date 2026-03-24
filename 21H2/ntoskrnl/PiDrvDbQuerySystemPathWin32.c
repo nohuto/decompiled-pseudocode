@@ -1,43 +1,44 @@
 /*
- * XREFs of PiDrvDbQuerySystemPathWin32 @ 0x14095D038
+ * XREFs of PiDrvDbQuerySystemPathWin32 @ 0x1408B6D68
  * Callers:
- *     PiDrvDbResolveFilePathKeyValues @ 0x14095D488 (PiDrvDbResolveFilePathKeyValues.c)
+ *     PiDrvDbRegisterNode @ 0x1407A3878 (PiDrvDbRegisterNode.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x1408B71B8 (PiDrvDbResolveFilePathKeyValues.c)
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     RtlAppendUnicodeStringToString @ 0x1402DFA30 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ZwOpenFile @ 0x14041BDC0 (ZwOpenFile.c)
- *     memset @ 0x140435E00 (memset.c)
- *     PiDrvDbFindNode @ 0x140564D60 (PiDrvDbFindNode.c)
- *     RtlDuplicateUnicodeString @ 0x1406A9D20 (RtlDuplicateUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1406BE560 (ExpAllocateStringRoutine.c)
- *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
- *     IoQueryFileDosDeviceName @ 0x14070F660 (IoQueryFileDosDeviceName.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     RtlPrefixUnicodeString @ 0x14077F870 (RtlPrefixUnicodeString.c)
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
- *     PiDrvDbGetNodeSystemRoot @ 0x14095BFCC (PiDrvDbGetNodeSystemRoot.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403FA580 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     PiDrvDbFindNode @ 0x14051017C (PiDrvDbFindNode.c)
+ *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     IoQueryFileDosDeviceName @ 0x140620460 (IoQueryFileDosDeviceName.c)
+ *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
+ *     RtlDuplicateUnicodeString @ 0x14068B130 (RtlDuplicateUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     PiDrvDbGetNodeSystemRoot @ 0x1408B5F14 (PiDrvDbGetNodeSystemRoot.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDrvDbQuerySystemPathWin32(UNICODE_STRING *String2, PUNICODE_STRING StringOut)
 {
-  PVOID v4; // r15
+  struct _DMA_ADAPTER *v4; // r15
   POBJECT_NAME_INFORMATION v5; // r14
   NTSTATUS v6; // eax
   int Node; // ebx
   NTSTATUS v8; // eax
   unsigned __int16 Length; // di
   unsigned __int16 v10; // di
+  unsigned __int16 v11; // di
   wchar_t *Buffer; // r8
-  wchar_t *v12; // rdx
-  unsigned __int16 v13; // cx
-  bool v14; // zf
-  unsigned __int16 v15; // cx
-  unsigned __int64 v16; // rax
-  wchar_t *v17; // rcx
-  unsigned __int16 v18; // di
+  wchar_t *v13; // rdx
+  unsigned __int16 v14; // cx
+  bool v15; // zf
+  unsigned __int16 v16; // cx
+  unsigned __int64 v17; // rax
+  wchar_t *v18; // rcx
   int v19; // eax
   const UNICODE_STRING *v20; // rbx
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-D0h] BYREF
@@ -79,7 +80,7 @@ __int64 __fastcall PiDrvDbQuerySystemPathWin32(UNICODE_STRING *String2, PUNICODE
   {
     Object = 0LL;
     v6 = ObReferenceObjectByHandle(FileHandle, 0x80u, (POBJECT_TYPE)IoFileObjectType, 0, &Object, 0LL);
-    v4 = Object;
+    v4 = (struct _DMA_ADAPTER *)Object;
     Node = v6;
     if ( v6 >= 0 )
     {
@@ -91,48 +92,48 @@ __int64 __fastcall PiDrvDbQuerySystemPathWin32(UNICODE_STRING *String2, PUNICODE
     }
     goto LABEL_39;
   }
+  Length = String2->Length;
   if ( String2->Length >= 0x16u && RtlPrefixUnicodeString(&PiDrvDbSystemRootNt, String2, 1u) )
   {
     RtlInitUnicodeString(&String2a, L"SYSTEM");
-    Length = String2->Length;
+    v10 = String2->Length;
     if ( String2->Length > 0x18u && String2->Buffer[11] == 92 )
     {
       v24.Buffer = String2->Buffer + 11;
-      v10 = Length - 22;
+      v11 = v10 - 22;
 LABEL_18:
-      v24.Length = v10;
-      v24.MaximumLength = v10 + 2;
+      v24.Length = v11;
+      v24.MaximumLength = v11 + 2;
       goto LABEL_21;
     }
   }
-  else if ( String2->Length > 0x26u
-         && RtlPrefixUnicodeString(&PiDrvDbDriverStoreNodesRoot, String2, 1u)
-         && (Buffer = String2->Buffer, Buffer[18] == 92) )
+  else if ( Length > 0x1Cu
+         && RtlPrefixUnicodeString(&PiDrvDbDriverStoresRoot, String2, 1u)
+         && (Buffer = String2->Buffer, Buffer[13] == 92) )
   {
-    v12 = Buffer + 19;
-    v13 = 0;
-    v14 = Buffer[19] == 92;
-    String2a.Buffer = Buffer + 19;
-    if ( !v14 )
+    v13 = Buffer + 14;
+    v14 = 0;
+    v15 = Buffer[14] == 92;
+    String2a.Buffer = Buffer + 14;
+    if ( !v15 )
     {
       do
       {
-        if ( !v12[v13] )
+        if ( !v13[v14] )
           break;
-        ++v13;
+        ++v14;
       }
-      while ( v12[v13] != 92 );
+      while ( v13[v14] != 92 );
     }
-    v15 = 2 * v13;
-    v16 = (unsigned __int64)v15 >> 1;
-    String2a.Length = v15;
-    String2a.MaximumLength = v15;
-    v17 = &v12[v16];
-    if ( *v17 == 92 )
+    v16 = 2 * v14;
+    v17 = (unsigned __int64)v16 >> 1;
+    String2a.Length = v16;
+    String2a.MaximumLength = v16;
+    v18 = &v13[v17];
+    if ( *v18 == 92 )
     {
-      v18 = String2->Length;
-      v24.Buffer = &v12[v16];
-      v10 = v18 - 2 * (v17 - Buffer);
+      v24.Buffer = &v13[v17];
+      v11 = Length - 2 * (v18 - Buffer);
       goto LABEL_18;
     }
   }
@@ -140,7 +141,7 @@ LABEL_18:
   {
     RtlInitUnicodeString(&String2a, L"SYSTEM");
   }
-  v10 = v24.Length;
+  v11 = v24.Length;
 LABEL_21:
   Node = PiDrvDbFindNode(&String2a, (__int64 *)&Object);
   if ( Node < 0 )
@@ -149,7 +150,7 @@ LABEL_21:
   if ( (v19 & 1) != 0 )
   {
     RtlInitUnicodeString(&Source, L"C:\\Windows");
-    DestinationString.MaximumLength = v10 + Source.Length + 2;
+    DestinationString.MaximumLength = v11 + Source.Length + 2;
     DestinationString.Buffer = (wchar_t *)ExpAllocateStringRoutine(DestinationString.MaximumLength);
     if ( !DestinationString.Buffer )
       goto LABEL_24;
@@ -163,7 +164,7 @@ LABEL_21:
       LODWORD(v30[1]) = 292;
       v30[2] = L"InstRootDrive";
       v30[3] = &v31;
-      Node = RtlpQueryRegistryValues(2, L"WinPE", (__int64)v30, 0LL);
+      Node = RtlpQueryRegistryValues(2LL, L"WinPE", (__int64)v30, 0LL);
       if ( Node < 0 || (unsigned int)(v31 - 65) > 0x19 )
       {
         Node = 0;
@@ -186,7 +187,7 @@ LABEL_21:
     if ( Node < 0 )
       goto LABEL_39;
     v20 = v26;
-    DestinationString.MaximumLength = v26->Length + v10 + 2;
+    DestinationString.MaximumLength = v26->Length + v11 + 2;
     DestinationString.Buffer = (wchar_t *)ExpAllocateStringRoutine(DestinationString.MaximumLength);
     if ( !DestinationString.Buffer )
     {
@@ -198,17 +199,17 @@ LABEL_24:
     if ( Node < 0 )
       goto LABEL_39;
   }
-  if ( v10 <= 2u || (Node = RtlAppendUnicodeStringToString(&DestinationString, &v24), Node >= 0) )
+  if ( v11 <= 2u || (Node = RtlAppendUnicodeStringToString(&DestinationString, &v24), Node >= 0) )
   {
     *StringOut = DestinationString;
     RtlInitUnicodeString(&DestinationString, 0LL);
   }
 LABEL_39:
-  RtlFreeUnicodeString(&DestinationString);
+  RtlFreeAnsiString(&DestinationString);
   if ( v5 )
     ExFreePoolWithTag(v5, 0);
   if ( v4 )
-    ObfDereferenceObject(v4);
+    HalPutDmaAdapter(v4);
   if ( FileHandle )
     ZwClose(FileHandle);
   return (unsigned int)Node;

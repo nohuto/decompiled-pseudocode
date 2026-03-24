@@ -1,54 +1,56 @@
 /*
- * XREFs of ?HdrPowerPolicyChangeCallout@DXGGLOBAL@@QEAAXXZ @ 0x1C031361C
+ * XREFs of ?HdrPowerPolicyChangeCallout@DXGGLOBAL@@QEAAXXZ @ 0x1C026A5A8
  * Callers:
- *     ?AdvancedColorPowerSettingsCallback@DXGGLOBAL@@SAJPEBU_GUID@@PEAXK1@Z @ 0x1C0216750 (-AdvancedColorPowerSettingsCallback@DXGGLOBAL@@SAJPEBU_GUID@@PEAXK1@Z.c)
+ *     ?AdvancedColorPowerSettingsCallback@DXGGLOBAL@@SAJPEBU_GUID@@PEAXK1@Z @ 0x1C019E7E0 (-AdvancedColorPowerSettingsCallback@DXGGLOBAL@@SAJPEBU_GUID@@PEAXK1@Z.c)
  * Callees:
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ?AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z @ 0x1C0007174 (-AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z.c)
- *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000B330 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     memset @ 0x1C0028640 (memset.c)
- *     DxgkReleaseSessionModeChangeLock @ 0x1C019D2BC (DxgkReleaseSessionModeChangeLock.c)
- *     DxgkRequestAsyncDisplaySwitchCallout @ 0x1C0316170 (DxgkRequestAsyncDisplaySwitchCallout.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0004F50 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z @ 0x1C000A3B8 (-AcquireModeChangeLock@DXGSESSIONMODECHANGELOCK@@QEAAJE@Z.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     memset @ 0x1C0028FC0 (memset.c)
+ *     DxgkReleaseSessionModeChangeLock @ 0x1C0120374 (DxgkReleaseSessionModeChangeLock.c)
+ *     DxgkRequestAsyncDisplaySwitchCallout @ 0x1C026CA30 (DxgkRequestAsyncDisplaySwitchCallout.c)
  */
 
 void __fastcall DXGGLOBAL::HdrPowerPolicyChangeCallout(DXGGLOBAL *this)
 {
   int v1; // eax
-  __int64 v2; // rbx
-  const wchar_t *v3; // r9
-  int v4; // eax
-  _BYTE v5[16]; // [rsp+50h] [rbp-78h] BYREF
-  _QWORD v6[10]; // [rsp+60h] [rbp-68h] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v4; // rbx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  int v7; // eax
+  __int64 v8; // rax
+  _BYTE v9[16]; // [rsp+20h] [rbp-78h] BYREF
+  _QWORD v10[10]; // [rsp+30h] [rbp-68h] BYREF
 
-  v5[0] = 0;
-  v1 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)v5, 1);
+  v9[0] = 0;
+  v1 = DXGSESSIONMODECHANGELOCK::AcquireModeChangeLock((DXGSESSIONMODECHANGELOCK *)v9, 1);
+  v4 = v1;
   if ( v1 < 0 )
   {
-    v2 = v1;
-    WdLogSingleEntry1(2LL, v1);
-    v3 = L"Failed to acquire session mode change lock exclusively (Status = 0x%I64x)";
-LABEL_6:
-    DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v3, v2, 0LL, 0LL, 0LL, 0LL);
-    goto LABEL_8;
-  }
-  if ( *(_DWORD *)(*((_QWORD *)DXGGLOBAL::GetGlobal() + 118) + 144LL) != -1 )
-  {
-    memset(v6, 0, 0x48uLL);
-    EtwActivityIdControl(3u, (LPGUID)&v6[1]);
-    v6[8] = MEMORY[0xFFFFF78000000014];
-    LODWORD(v6[3]) = 63;
-    LOBYTE(v6[6]) = -1;
-    v4 = DxgkRequestAsyncDisplaySwitchCallout(0LL, (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v6, 0x200000000uLL);
-    if ( v4 >= 0 )
-      goto LABEL_8;
-    v2 = v4;
-    WdLogSingleEntry1(2LL, v4);
-    v3 = L"Failed DxgkRequestAsyncDisplaySwitchCallout for HDR power policy change(Status = 0x%I64x).";
+LABEL_4:
+    v8 = WdLogNewEntry5_WdError(v3, v2);
+    *(_QWORD *)(v8 + 24) = v4;
+    WdLogEvent5_WdError(v8);
     goto LABEL_6;
   }
-  *((_DWORD *)DXGGLOBAL::GetGlobal() + 76196) = 1;
-LABEL_8:
-  if ( v5[0] )
-    DxgkReleaseSessionModeChangeLock();
+  v6 = *((_QWORD *)DXGGLOBAL::GetGlobal(v3, v2) + 102);
+  if ( *(_DWORD *)(v6 + 128) != -1 )
+  {
+    memset(v10, 0, 0x48uLL);
+    EtwActivityIdControl(3u, (LPGUID)&v10[1]);
+    v10[8] = MEMORY[0xFFFFF78000000014];
+    LODWORD(v10[3]) = 63;
+    LOBYTE(v10[6]) = -1;
+    v7 = DxgkRequestAsyncDisplaySwitchCallout(0LL, (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v10, 0x200000000uLL);
+    v4 = v7;
+    if ( v7 >= 0 )
+      goto LABEL_6;
+    goto LABEL_4;
+  }
+  *((_DWORD *)DXGGLOBAL::GetGlobal(v6, v5) + 76142) = 1;
+LABEL_6:
+  if ( v9[0] )
+    DxgkReleaseSessionModeChangeLock(v3, v2);
 }

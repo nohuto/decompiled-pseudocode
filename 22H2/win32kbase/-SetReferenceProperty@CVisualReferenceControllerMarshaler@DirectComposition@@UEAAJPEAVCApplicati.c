@@ -1,29 +1,30 @@
 /*
- * XREFs of ?SetReferenceProperty@CVisualReferenceControllerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C00B3C60
+ * XREFs of ?SetReferenceProperty@CVisualReferenceControllerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0095F80
  * Callers:
  *     <none>
  * Callees:
- *     ?SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicationChannel@2@PEAPEAV?$CWeakReference@VCResourceMarshaler@DirectComposition@@@2@PEAV12@W4Optionality@12@W4MIL_RESOURCE_TYPE@@PEAKKW4MarshalingFlagSemantic@12@PEA_N@Z @ 0x1C0028EBC (-SetReferencePropertyHelper@CResourceMarshaler@DirectComposition@@KAJPEAVCApplicationChannel@2@P.c)
+ *     ?SetVisual@CVisualReferenceControllerMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAVCVisualMarshaler@2@PEA_N@Z @ 0x1C0095FFC (-SetVisual@CVisualReferenceControllerMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00CF870 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall DirectComposition::CVisualReferenceControllerMarshaler::SetReferenceProperty(
+int __fastcall DirectComposition::CVisualReferenceControllerMarshaler::SetReferenceProperty(
         DirectComposition::CVisualReferenceControllerMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,
         int a3,
         struct DirectComposition::CResourceMarshaler *a4,
         bool *a5)
 {
-  if ( a3 )
-    return 3221225485LL;
+  *a5 = 0;
+  if ( a3
+    || a4
+    && !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4 + 96LL))(
+          a4,
+          195LL) )
+  {
+    return -1073741811;
+  }
   else
-    return DirectComposition::CResourceMarshaler::SetReferencePropertyHelper(
-             a2,
-             (struct DirectComposition::CWeakReferenceBase **)this + 7,
-             (unsigned int *)a4,
-             (__int64)a4,
-             0xC4u,
-             (int *)this + 4,
-             0,
-             0,
-             a5);
+  {
+    return DirectComposition::CVisualReferenceControllerMarshaler::SetVisual(this, a2, a4, a5);
+  }
 }

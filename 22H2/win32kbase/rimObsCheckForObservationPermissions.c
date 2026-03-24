@@ -1,135 +1,110 @@
 /*
- * XREFs of rimObsCheckForObservationPermissions @ 0x1C01AD668
+ * XREFs of rimObsCheckForObservationPermissions @ 0x1C017DDB4
  * Callers:
- *     NtRIMAddInputObserver @ 0x1C01749F0 (NtRIMAddInputObserver.c)
- *     NtRIMUpdateInputObserverRegistration @ 0x1C0175770 (NtRIMUpdateInputObserverRegistration.c)
+ *     NtRIMAddInputObserver @ 0x1C0152EE0 (NtRIMAddInputObserver.c)
+ *     NtRIMUpdateInputObserverRegistration @ 0x1C01546C0 (NtRIMUpdateInputObserverRegistration.c)
  * Callees:
- *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
- *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C00744D4 (WPP_RECORDER_AND_TRACE_SF_d.c)
- *     RIMIsTestSigningOn @ 0x1C01A35C4 (RIMIsTestSigningOn.c)
- *     ?rimIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z @ 0x1C01AC51C (-rimIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003E058 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0047F78 (WPP_RECORDER_SF_d.c)
+ *     ?rimIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z @ 0x1C017D070 (-rimIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z.c)
+ *     RIMIsTestSigningOn @ 0x1C018137C (RIMIsTestSigningOn.c)
  */
 
-__int64 __fastcall rimObsCheckForObservationPermissions(char a1)
+__int64 __fastcall rimObsCheckForObservationPermissions(__int64 a1, __int64 a2)
 {
-  int v1; // ebx
   int v2; // edi
-  int v3; // esi
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
+  int v3; // ebx
+  int v4; // esi
+  __int64 v5; // rdx
+  __int64 v6; // rcx
   struct _EPROCESS *CurrentProcess; // rax
   int v8; // edx
-  int v9; // r8d
-  PDEVICE_OBJECT v10; // rcx
-  __int16 v11; // r9
-  int v12; // r9d
-  PDEVICE_OBJECT v13; // rcx
-  char v14; // dl
-  char v15; // r8
-  unsigned __int16 v16; // r10
-  struct _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-18h] BYREF
-  char v19; // [rsp+70h] [rbp+8h] BYREF
+  int v9; // r9d
+  int v10; // ecx
+  int v11; // r9d
+  struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  char v14; // [rsp+50h] [rbp+8h] BYREF
 
-  v1 = a1 & 2;
   v2 = a1 & 1;
-  v3 = RIMIsTestSigningOn();
-  CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(v5, v4, v6);
-  if ( !(unsigned int)rimIsProcessLocalSystem(CurrentProcess) )
+  v3 = a1 & 2;
+  v4 = RIMIsTestSigningOn(a1, a2);
+  CurrentProcess = (struct _EPROCESS *)PsGetCurrentProcess(v6, v5);
+  if ( (unsigned int)rimIsProcessLocalSystem(CurrentProcess) )
   {
-    if ( !v3 )
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v8) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-      if ( (_BYTE)v8 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      v9 = 73;
+LABEL_21:
+      LOBYTE(v8) = 4;
+      WPP_RECORDER_SF_(
+        WPP_MAIN_CB.Queue.ListEntry.Flink,
+        v8,
+        23,
+        v9,
+        (__int64)&WPP_6fc7381aee0e372bb3b376f4de323b29_Traceguids);
+      return 1LL;
+    }
+    return 1LL;
+  }
+  if ( !v4 )
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v8) = 3;
+      WPP_RECORDER_SF_(
+        WPP_MAIN_CB.Queue.ListEntry.Flink,
+        v8,
+        23,
+        74,
+        (__int64)&WPP_6fc7381aee0e372bb3b376f4de323b29_Traceguids);
+    }
+    return 0LL;
+  }
+  v14 = 0;
+  DestinationString = 0LL;
+  if ( v2 )
+  {
+    RtlInitUnicodeString(&DestinationString, L"inputObservation");
+    v10 = RtlCapabilityCheck(0LL, &DestinationString, &v14);
+    if ( v10 < 0 || !v14 )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        LOBYTE(v9) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        WPP_RECORDER_AND_TRACE_SF_(
-          WPP_GLOBAL_Control->AttachedDevice,
-          v8,
-          v9,
+        v11 = 75;
+LABEL_17:
+        LOBYTE(v8) = 3;
+        WPP_RECORDER_SF_d(
           WPP_MAIN_CB.Queue.ListEntry.Flink,
-          3,
-          1,
-          75,
-          (__int64)&WPP_c696d146d7263bd817038d8ba47edda4_Traceguids);
+          v8,
+          23,
+          v11,
+          (__int64)&WPP_6fc7381aee0e372bb3b376f4de323b29_Traceguids,
+          v10,
+          *(_QWORD *)&DestinationString.Length,
+          DestinationString.Buffer);
+        return 0LL;
       }
       return 0LL;
     }
-    v19 = 0;
-    DestinationString = 0LL;
-    if ( !v2
-      || (RtlInitUnicodeString(&DestinationString, L"inputObservation"),
-          v12 = RtlCapabilityCheck(0LL, &DestinationString, &v19),
-          v12 >= 0)
-      && v19 )
-    {
-      if ( !v1
-        || (RtlInitUnicodeString(&DestinationString, L"inputSuppression"),
-            v12 = RtlCapabilityCheck(0LL, &DestinationString, &v19),
-            v12 >= 0)
-        && v19 )
-      {
-        v10 = WPP_GLOBAL_Control;
-        LOBYTE(v8) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-                  && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-                  && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-        LOBYTE(v9) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-        if ( !(_BYTE)v8 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-          return 1LL;
-        v11 = 78;
-        goto LABEL_51;
-      }
-      v13 = WPP_GLOBAL_Control;
-      v14 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-         && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-         && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-      v15 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( !v14 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        return 0LL;
-      v16 = 77;
-    }
-    else
-    {
-      v13 = WPP_GLOBAL_Control;
-      v14 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-         && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-         && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
-      v15 = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-      if ( !v14 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-        return 0LL;
-      v16 = 76;
-    }
-    WPP_RECORDER_AND_TRACE_SF_d(
-      (__int64)v13->AttachedDevice,
-      v14,
-      v15,
-      (__int64)WPP_MAIN_CB.Queue.ListEntry.Flink,
-      3u,
-      1u,
-      v16,
-      (__int64)&WPP_c696d146d7263bd817038d8ba47edda4_Traceguids,
-      v12);
-    return 0LL;
   }
-  v10 = WPP_GLOBAL_Control;
-  LOBYTE(v8) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
-            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
-            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
-  LOBYTE(v9) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
-  if ( !(_BYTE)v8 && WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
-    return 1LL;
-  v11 = 74;
-LABEL_51:
-  WPP_RECORDER_AND_TRACE_SF_(
-    v10->AttachedDevice,
-    v8,
-    v9,
-    WPP_MAIN_CB.Queue.ListEntry.Flink,
-    4,
-    1,
-    v11,
-    (__int64)&WPP_c696d146d7263bd817038d8ba47edda4_Traceguids);
+  if ( v3 )
+  {
+    RtlInitUnicodeString(&DestinationString, L"inputSuppression");
+    v10 = RtlCapabilityCheck(0LL, &DestinationString, &v14);
+    if ( v10 < 0 || !v14 )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v11 = 76;
+        goto LABEL_17;
+      }
+      return 0LL;
+    }
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v9 = 77;
+    goto LABEL_21;
+  }
   return 1LL;
 }

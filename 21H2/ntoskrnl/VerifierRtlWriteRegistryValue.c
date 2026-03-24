@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierRtlWriteRegistryValue @ 0x140A8F860
+ * XREFs of VerifierRtlWriteRegistryValue @ 0x1409D3DC0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierRtlWriteRegistryValue(__int64 a1, __int64 a2)

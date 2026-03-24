@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpIrtExtendRemappingRange @ 0x140909EB0
+ * XREFs of HalpIrtExtendRemappingRange @ 0x140865D28
  * Callers:
- *     HalpInitializeInterruptRemappingBspLate @ 0x1409098C0 (HalpInitializeInterruptRemappingBspLate.c)
- *     HalpIrtAllocateIndex @ 0x140909B14 (HalpIrtAllocateIndex.c)
+ *     HalpInitializeInterruptRemappingBspLate @ 0x140865730 (HalpInitializeInterruptRemappingBspLate.c)
+ *     HalpIrtAllocateIndex @ 0x140865984 (HalpIrtAllocateIndex.c)
  * Callees:
- *     RtlClearAllBits @ 0x14020AE80 (RtlClearAllBits.c)
- *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
+ *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     RtlClearAllBits @ 0x140362270 (RtlClearAllBits.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpIrtExtendRemappingRange(unsigned int a1)
 {
   unsigned int v1; // ebx
   __int64 v2; // rdi
-  unsigned int *Pool2; // rbp
-  char v4; // si
+  char v3; // si
+  unsigned int *PoolWithTag; // rbp
   RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   v1 = 0;
@@ -28,23 +28,26 @@ __int64 __fastcall HalpIrtExtendRemappingRange(unsigned int a1)
   }
   else
   {
-    Pool2 = (unsigned int *)ExAllocatePool2(256LL, 4 * ((unsigned int)(HalpIrtEntriesPerRange + 31) >> 5), 1768710472LL);
-    if ( Pool2 )
+    v3 = 1;
+    PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(
+                                    PagedPool,
+                                    4 * ((unsigned int)(HalpIrtEntriesPerRange + 31) >> 5),
+                                    0x206C6148u);
+    if ( PoolWithTag )
     {
       BitMapHeader.SizeOfBitMap = HalpIrtEntriesPerRange;
-      v4 = 1;
-      BitMapHeader.Buffer = Pool2;
+      BitMapHeader.Buffer = PoolWithTag;
       RtlClearAllBits(&BitMapHeader);
       ExAcquireFastMutex(&HalpIrtLock);
       if ( !*((_QWORD *)&HalpIrtRanges.Buffer + 2 * v2) )
       {
         ++HalpIrtAllocatedRanges;
-        v4 = 0;
+        v3 = 0;
         *(&HalpIrtRanges + v2) = BitMapHeader;
       }
       KeReleaseGuardedMutex(&HalpIrtLock);
-      if ( v4 )
-        ExFreePoolWithTag(Pool2, 0);
+      if ( v3 )
+        ExFreePoolWithTag(PoolWithTag, 0);
     }
     else
     {

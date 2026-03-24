@@ -1,8 +1,8 @@
 /*
- * XREFs of ?QueueMousePromotionEntry@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z @ 0x1C0213DC0
+ * XREFs of ?QueueMousePromotionEntry@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z @ 0x1C02190A8
  * Callers:
- *     ?CancelAutoPromotion@@YAXXZ @ 0x1C0213458 (-CancelAutoPromotion@@YAXXZ.c)
- *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C021424C (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
+ *     ?CancelAutoPromotion@@YAXXZ @ 0x1C02185AC (-CancelAutoPromotion@@YAXXZ.c)
+ *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C0219628 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
  * Callees:
  *     <none>
  */
@@ -18,12 +18,12 @@ void __fastcall QueueMousePromotionEntry(struct tagMOUSE_PROMOTION_QUEUE *a1, st
   else
     *(_QWORD *)a1 = a2;
   *((_QWORD *)a1 + 1) = a2;
-  if ( a1 == (struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C0335D10 )
+  if ( a1 == (struct tagMOUSE_PROMOTION_QUEUE *)&qword_1C033AB50 )
   {
-    xmmword_1C0335D20 = *(_OWORD *)qword_1C0335D18;
-    xmmword_1C0335D30 = *(_OWORD *)(qword_1C0335D18 + 16);
-    v3 = *(_OWORD *)(qword_1C0335D18 + 32);
-    *(_QWORD *)&xmmword_1C0335D20 = 0LL;
-    xmmword_1C0335D40 = v3;
+    xmmword_1C033AB60 = *(_OWORD *)qword_1C033AB58;
+    xmmword_1C033AB70 = *(_OWORD *)(qword_1C033AB58 + 16);
+    v3 = *(_OWORD *)(qword_1C033AB58 + 32);
+    *(_QWORD *)&xmmword_1C033AB60 = 0LL;
+    xmmword_1C033AB80 = v3;
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of ?Destroy@CObjectCache@@QEAAXXZ @ 0x180271C28
+ * XREFs of ?Destroy@CObjectCache@@QEAAXXZ @ 0x180210920
  * Callers:
- *     ??1CThreadContext@@AEAA@XZ @ 0x180271B08 (--1CThreadContext@@AEAA@XZ.c)
- *     ?DestroyObjectCaches@CThreadContext@@SAXXZ @ 0x180271C68 (-DestroyObjectCaches@CThreadContext@@SAXXZ.c)
+ *     ??1CThreadContext@@AEAA@XZ @ 0x180210850 (--1CThreadContext@@AEAA@XZ.c)
+ *     ?DestroyObjectCaches@CThreadContext@@SAXXZ @ 0x180210960 (-DestroyObjectCaches@CThreadContext@@SAXXZ.c)
  * Callees:
- *     ??3@YAXPEAX@Z @ 0x1800895A4 (--3@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x180094C0C (--3@YAXPEAX@Z.c)
  */
 
 void __fastcall CObjectCache::Destroy(CObjectCache *this)

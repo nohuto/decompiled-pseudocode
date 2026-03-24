@@ -1,28 +1,28 @@
 /*
- * XREFs of ExFreeCacheAwarePushLock @ 0x140609980
+ * XREFs of ExFreeCacheAwarePushLock @ 0x1405B3D70
  * Callers:
- *     ExAllocateCacheAwarePushLock @ 0x1403A7860 (ExAllocateCacheAwarePushLock.c)
+ *     ExAllocateCacheAwarePushLock @ 0x1403C8090 (ExAllocateCacheAwarePushLock.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x1402C2150 (ExFreeHeapPool.c)
  */
 
-void __fastcall ExFreeCacheAwarePushLock(PVOID *P)
+PSLIST_ENTRY __fastcall ExFreeCacheAwarePushLock(ULONG_PTR *BugCheckParameter2)
 {
-  PVOID *v2; // rsi
+  ULONG_PTR *v2; // rsi
   unsigned __int64 v3; // rbx
 
-  if ( *P )
+  if ( *BugCheckParameter2 )
   {
-    v2 = P;
-    v3 = (-(__int64)(*((_BYTE *)*P + 8) != 0) & 0xFFFFFFFFFFFFFFE1uLL) + 32;
+    v2 = BugCheckParameter2;
+    v3 = (-(__int64)(*(_BYTE *)(*BugCheckParameter2 + 8) != 0) & 0xFFFFFFFFFFFFFFE1uLL) + 32;
     do
     {
       if ( *v2 )
-        ExFreePoolWithTag(*v2, 0);
+        ExFreeHeapPool(*v2);
       ++v2;
       --v3;
     }
     while ( v3 );
   }
-  ExFreePoolWithTag(P, 0);
+  return ExFreeHeapPool((ULONG_PTR)BugCheckParameter2);
 }

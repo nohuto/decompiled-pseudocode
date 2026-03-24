@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlpHpSegMgrRelease @ 0x14036843C
+ * XREFs of RtlpHpSegMgrRelease @ 0x140389B54
  * Callers:
- *     RtlpHpSegMgrAllocate @ 0x140362540 (RtlpHpSegMgrAllocate.c)
- *     RtlpHpSegSegmentFree @ 0x14036808C (RtlpHpSegSegmentFree.c)
+ *     RtlpHpSegMgrAllocate @ 0x1402A4D14 (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpSegSegmentFree @ 0x140389ACC (RtlpHpSegSegmentFree.c)
  * Callees:
- *     RtlpHpSegMgrCommit @ 0x140351880 (RtlpHpSegMgrCommit.c)
- *     RtlpHpQueryVA @ 0x140362864 (RtlpHpQueryVA.c)
- *     RtlpHpFreeVA @ 0x140363E50 (RtlpHpFreeVA.c)
- *     RtlpHpSegMgrVaCtxFree @ 0x140367E68 (RtlpHpSegMgrVaCtxFree.c)
+ *     RtlpHpQueryVA @ 0x1402A5CA4 (RtlpHpQueryVA.c)
+ *     RtlpHpFreeVA @ 0x1402FA770 (RtlpHpFreeVA.c)
+ *     RtlpHpSegMgrCommit @ 0x14030A610 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x140594C30 (RtlpHpSegMgrVaCtxFree.c)
  */
 
-char __fastcall RtlpHpSegMgrRelease(__int64 a1, unsigned __int64 a2, int a3)
+char __fastcall RtlpHpSegMgrRelease(__int64 a1, __int64 a2, int a3)
 {
-  unsigned __int64 v3; // rbx
+  __int64 v3; // rbx
   unsigned __int64 v4; // rdi
-  unsigned __int64 v6; // rax
+  __int64 v6; // rax
   _WORD *v7; // r14
   unsigned __int64 v8; // r15
   unsigned int v9; // edi
   __int128 v11; // [rsp+40h] [rbp-10h] BYREF
   unsigned __int64 v12; // [rsp+80h] [rbp+30h] BYREF
   _WORD *v13; // [rsp+88h] [rbp+38h] BYREF
-  unsigned __int64 v14; // [rsp+98h] [rbp+48h] BYREF
+  __int64 v14; // [rsp+98h] [rbp+48h] BYREF
 
   LODWORD(v6) = *(_DWORD *)a1;
   v3 = a2;
@@ -32,17 +32,17 @@ char __fastcall RtlpHpSegMgrRelease(__int64 a1, unsigned __int64 a2, int a3)
   v12 = v4;
   if ( !(_BYTE)v6 )
   {
-LABEL_12:
+LABEL_2:
     if ( v3 )
     {
       v11 = *(_OWORD *)(a1 + 40);
-      LOBYTE(v6) = RtlpHpFreeVA(&v14, &v12, 0x8000LL, &v11);
+      LOBYTE(v6) = RtlpHpFreeVA((unsigned __int64 *)&v14, &v12, 0x8000LL, &v11);
     }
     return v6;
   }
   if ( v4 >= 0x200000 )
   {
-LABEL_8:
+LABEL_10:
     v11 = *(_OWORD *)(a1 + 40);
     LOBYTE(v6) = RtlpHpQueryVA(v3, &v11, &v13, 0LL);
     v7 = v13;
@@ -60,7 +60,7 @@ LABEL_8:
       }
       while ( (unsigned __int64)v7 < v8 );
     }
-    goto LABEL_12;
+    goto LABEL_2;
   }
   if ( a3 > 0 )
     RtlpHpSegMgrCommit(a1, a2, 0, (unsigned int)v4 >> 12, -a3, 0x4000, 0);
@@ -70,7 +70,7 @@ LABEL_8:
   if ( v6 )
   {
     v4 = v12;
-    goto LABEL_8;
+    goto LABEL_10;
   }
   return v6;
 }

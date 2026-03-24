@@ -1,5 +1,5 @@
 /*
- * XREFs of ?PowerPolStartedIdleCapableTimerCanceledForSleep@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C000E680
+ * XREFs of ?PowerPolStartedIdleCapableTimerCanceledForSleep@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C00872C0
  * Callers:
  *     <none>
  * Callees:

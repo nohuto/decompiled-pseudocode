@@ -1,14 +1,14 @@
 /*
- * XREFs of _strnicmp @ 0x1403E1240
+ * XREFs of _strnicmp @ 0x1403D1E80
  * Callers:
- *     MiResolveImageReferences @ 0x140757FFC (MiResolveImageReferences.c)
- *     CmpPreserveSystemHiveData @ 0x14091FEFC (CmpPreserveSystemHiveData.c)
- *     EmpInfParseGetValueFromSectionAndKeyName @ 0x140B0D360 (EmpInfParseGetValueFromSectionAndKeyName.c)
- *     CmpProcessForSimpleStringSub @ 0x140B0D514 (CmpProcessForSimpleStringSub.c)
- *     CmpAppendSection @ 0x140B18FFC (CmpAppendSection.c)
- *     IopStoreArcInformation @ 0x140B2CF90 (IopStoreArcInformation.c)
+ *     MiResolveImageReferences @ 0x14075D20C (MiResolveImageReferences.c)
+ *     CmpPreserveSystemHiveData @ 0x14087966C (CmpPreserveSystemHiveData.c)
+ *     EmpInfParseGetValueFromSectionAndKeyName @ 0x140A4706C (EmpInfParseGetValueFromSectionAndKeyName.c)
+ *     CmpProcessForSimpleStringSub @ 0x140A4722C (CmpProcessForSimpleStringSub.c)
+ *     IopStoreArcInformation @ 0x140A5D274 (IopStoreArcInformation.c)
+ *     CmpAppendSection @ 0x140A6273C (CmpAppendSection.c)
  * Callees:
- *     __ascii_strnicmp @ 0x1403E11DC (__ascii_strnicmp.c)
+ *     __ascii_strnicmp @ 0x1403D1E1C (__ascii_strnicmp.c)
  */
 
 int __cdecl strnicmp(const char *Str1, const char *Str2, size_t MaxCount)

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtGdiUnrealizeObject @ 0x1C02AEB60
+ * XREFs of NtGdiUnrealizeObject @ 0x1C02B0400
  * Callers:
  *     <none>
  * Callees:
- *     GreUnrealizeObject @ 0x1C02B66F8 (GreUnrealizeObject.c)
+ *     GreUnrealizeObject @ 0x1C02B85B8 (GreUnrealizeObject.c)
  */
 
 __int64 __fastcall NtGdiUnrealizeObject(HPALETTE a1)

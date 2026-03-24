@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpDelayFreeCmRm @ 0x140693150
+ * XREFs of CmpDelayFreeCmRm @ 0x140693130
  * Callers:
- *     CmpRunDownCmRM @ 0x140692FD4 (CmpRunDownCmRM.c)
+ *     CmpRunDownCmRM @ 0x140692FB4 (CmpRunDownCmRM.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)

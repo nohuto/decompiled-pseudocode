@@ -1,37 +1,46 @@
 /*
- * XREFs of MonitorGetAdvancedColorMetadataOverride @ 0x1C03B0488
+ * XREFs of MonitorGetAdvancedColorMetadataOverride @ 0x1C02F3938
  * Callers:
- *     ?PopulateHDRMetadataFromDisplay@@YAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAPEAEPEAW4_D3DDDI_HDR_METADATA_TYPE@@PEAI@Z @ 0x1C01A07B0 (-PopulateHDRMetadataFromDisplay@@YAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAPEAEPEAW4_D3DDDI.c)
- *     ?PopulateHDRMetadataFromDisplay@@YAJIPEAVADAPTER_DISPLAY@@PEAU_D3DDDI_HDR_METADATA_HDR10@@PEAW4_D3DDDI_HDR_METADATA_TYPE@@@Z @ 0x1C0224BB0 (-PopulateHDRMetadataFromDisplay@@YAJIPEAVADAPTER_DISPLAY@@PEAU_D3DDDI_HDR_METADATA_HDR10@@PEAW4_.c)
+ *     ?PopulateHDRMetadataFromDisplay@@YAJIPEAVADAPTER_DISPLAY@@PEAU_D3DDDI_HDR_METADATA_HDR10@@PEAW4_D3DDDI_HDR_METADATA_TYPE@@@Z @ 0x1C00DC900 (-PopulateHDRMetadataFromDisplay@@YAJIPEAVADAPTER_DISPLAY@@PEAU_D3DDDI_HDR_METADATA_HDR10@@PEAW4_.c)
+ *     ?PopulateHDRMetadataFromDisplay@@YAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAPEAEPEAW4_D3DDDI_HDR_METADATA_TYPE@@PEAI@Z @ 0x1C02A4050 (-PopulateHDRMetadataFromDisplay@@YAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAPEAEPEAW4_D3DDDI.c)
  * Callees:
- *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C0010D08 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0009A04 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
  */
 
-__int64 __fastcall MonitorGetAdvancedColorMetadataOverride(__int64 a1, __int64 a2)
+__int64 __fastcall MonitorGetAdvancedColorMetadataOverride(struct HDXGMONITOR__ *a1, __int64 a2)
 {
-  unsigned int v3; // ebx
-  __int64 v4; // rax
-  struct _ERESOURCE *v5; // rcx
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  __int64 result; // rax
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  struct DXGMONITOR *v6; // rdi
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  struct DXGMONITOR *v11; // [rsp+30h] [rbp+8h] BYREF
 
   if ( !a1 || !a2 )
     return 3221225485LL;
-  MONITOR_MGR::AcquireMonitorShared(&v7, a1);
-  if ( v7 )
+  v11 = 0LL;
+  result = MONITOR_MGR::_GetMonitorFromHandle(a1, &v11);
+  if ( (int)result >= 0 )
   {
-    v4 = *(_QWORD *)(v7 + 224);
-    v5 = (struct _ERESOURCE *)(v7 + 24);
-    *(_OWORD *)a2 = *(_OWORD *)(v4 + 400);
-    *(_QWORD *)(a2 + 16) = *(_QWORD *)(v4 + 416);
-    *(_DWORD *)(a2 + 24) = *(_DWORD *)(v4 + 424);
-    v3 = 0;
-    ExReleaseResourceLite(v5);
+    v6 = v11;
+    if ( !v11 )
+    {
+      v7 = WdLogNewEntry5_WdAssertion(v5, v4);
+      WdLogEvent5_WdAssertion(v7);
+      v10 = WdLogNewEntry5_WdAssertion(v9, v8);
+      WdLogEvent5_WdAssertion(v10);
+    }
+    KeEnterCriticalRegion();
+    ExAcquireResourceSharedLite((PERESOURCE)((char *)v6 + 296), 1u);
+    *(_OWORD *)a2 = *((_OWORD *)v6 + 48);
+    *(_QWORD *)(a2 + 16) = *((_QWORD *)v6 + 98);
+    *(_DWORD *)(a2 + 24) = *((_DWORD *)v6 + 198);
+    ExReleaseResourceLite((PERESOURCE)((char *)v6 + 296));
     KeLeaveCriticalRegion();
+    return 0LL;
   }
-  else
-  {
-    v3 = -1073741275;
-    WdLogSingleEntry1(2LL, -1073741275LL);
-  }
-  return v3;
+  return result;
 }

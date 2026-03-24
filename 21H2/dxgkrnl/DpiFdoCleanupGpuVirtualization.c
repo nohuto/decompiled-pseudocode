@@ -1,11 +1,11 @@
 /*
- * XREFs of DpiFdoCleanupGpuVirtualization @ 0x1C0388D24
+ * XREFs of DpiFdoCleanupGpuVirtualization @ 0x1C02C8930
  * Callers:
- *     DpiFdoInitializeGpuVirtualization @ 0x1C01F7F8C (DpiFdoInitializeGpuVirtualization.c)
- *     DpiFdoStartAdapter @ 0x1C01FB06C (DpiFdoStartAdapter.c)
- *     DpiFdoResetFdo @ 0x1C038B234 (DpiFdoResetFdo.c)
+ *     DpiFdoInitializeGpuVirtualization @ 0x1C017CB90 (DpiFdoInitializeGpuVirtualization.c)
+ *     DpiFdoStartAdapter @ 0x1C018071C (DpiFdoStartAdapter.c)
+ *     DpiFdoResetFdo @ 0x1C02CBC74 (DpiFdoResetFdo.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028C00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (__fastcall *__fastcall DpiFdoCleanupGpuVirtualization(__int64 a1))(_QWORD)
@@ -92,33 +92,33 @@ __int64 (__fastcall *__fastcall DpiFdoCleanupGpuVirtualization(__int64 a1))(_QWO
       *(_QWORD *)(a1 + 2864) = 0LL;
     }
   }
-  v9 = *(void (__fastcall **)(_QWORD))(a1 + 5032);
+  v9 = *(void (__fastcall **)(_QWORD))(a1 + 5104);
   if ( v9 )
   {
-    v9(*(_QWORD *)(a1 + 5016));
-    *(_BYTE *)(a1 + 5000) = 0;
-    *(_QWORD *)(a1 + 5032) = 0LL;
+    v9(*(_QWORD *)(a1 + 5088));
+    *(_BYTE *)(a1 + 5072) = 0;
+    *(_QWORD *)(a1 + 5104) = 0LL;
   }
-  v10 = *(void (__fastcall **)(_QWORD))(a1 + 4904);
+  v10 = *(void (__fastcall **)(_QWORD))(a1 + 4976);
   if ( v10 )
   {
-    v10(*(_QWORD *)(a1 + 4888));
-    *(_BYTE *)(a1 + 4872) = 0;
-    *(_QWORD *)(a1 + 4904) = 0LL;
+    v10(*(_QWORD *)(a1 + 4960));
+    *(_BYTE *)(a1 + 4944) = 0;
+    *(_QWORD *)(a1 + 4976) = 0LL;
   }
-  v11 = *(void (__fastcall **)(_QWORD))(a1 + 5168);
+  v11 = *(void (__fastcall **)(_QWORD))(a1 + 5240);
   if ( v11 )
   {
-    v11(*(_QWORD *)(a1 + 5152));
-    *(_BYTE *)(a1 + 5136) = 0;
-    *(_QWORD *)(a1 + 5168) = 0LL;
+    v11(*(_QWORD *)(a1 + 5224));
+    *(_BYTE *)(a1 + 5208) = 0;
+    *(_QWORD *)(a1 + 5240) = 0LL;
   }
-  result = *(__int64 (__fastcall **)(_QWORD))(a1 + 5224);
+  result = *(__int64 (__fastcall **)(_QWORD))(a1 + 5296);
   if ( result )
   {
-    result = (__int64 (__fastcall *)(_QWORD))result(*(_QWORD *)(a1 + 5208));
-    *(_BYTE *)(a1 + 5192) = 0;
-    *(_QWORD *)(a1 + 5224) = 0LL;
+    result = (__int64 (__fastcall *)(_QWORD))result(*(_QWORD *)(a1 + 5280));
+    *(_BYTE *)(a1 + 5264) = 0;
+    *(_QWORD *)(a1 + 5296) = 0LL;
   }
   return result;
 }

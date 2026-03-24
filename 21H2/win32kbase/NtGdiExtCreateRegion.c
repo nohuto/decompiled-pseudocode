@@ -1,14 +1,14 @@
 /*
- * XREFs of NtGdiExtCreateRegion @ 0x1C0030EC0
+ * XREFs of NtGdiExtCreateRegion @ 0x1C0022660
  * Callers:
  *     <none>
  * Callees:
- *     AllocFreeTmpBuffer @ 0x1C002FCF0 (AllocFreeTmpBuffer.c)
- *     FreeTmpBuffer @ 0x1C0030FE0 (FreeTmpBuffer.c)
- *     GreExtCreateRegion @ 0x1C00311B0 (GreExtCreateRegion.c)
- *     ?ProbeAndConvertXFORM@@YAHPEAU_XFORML@@0@Z @ 0x1C00338A0 (-ProbeAndConvertXFORM@@YAHPEAU_XFORML@@0@Z.c)
- *     __security_check_cookie @ 0x1C00D59D0 (__security_check_cookie.c)
- *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ?ProbeAndConvertXFORM@@YAHPEAU_XFORML@@0@Z @ 0x1C0022420 (-ProbeAndConvertXFORM@@YAHPEAU_XFORML@@0@Z.c)
+ *     AllocFreeTmpBuffer @ 0x1C0022520 (AllocFreeTmpBuffer.c)
+ *     FreeTmpBuffer @ 0x1C0022780 (FreeTmpBuffer.c)
+ *     GreExtCreateRegion @ 0x1C0022DA0 (GreExtCreateRegion.c)
+ *     __security_check_cookie @ 0x1C00C5070 (__security_check_cookie.c)
+ *     memmove @ 0x1C00CF880 (memmove.c)
  */
 
 __int64 __fastcall NtGdiExtCreateRegion(struct _XFORML *a1, size_t Size, char *Src)

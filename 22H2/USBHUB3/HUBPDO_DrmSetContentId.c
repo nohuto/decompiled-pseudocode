@@ -1,7 +1,7 @@
 /*
- * XREFs of HUBPDO_DrmSetContentId @ 0x1C0015B8C
+ * XREFs of HUBPDO_DrmSetContentId @ 0x1C00146BC
  * Callers:
- *     KsPropertyHandleDrmSetContentId @ 0x1C008E3E8 (KsPropertyHandleDrmSetContentId.c)
+ *     KsPropertyHandleDrmSetContentId @ 0x1C0085DAC (KsPropertyHandleDrmSetContentId.c)
  * Callees:
  *     <none>
  */

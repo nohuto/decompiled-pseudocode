@@ -1,9 +1,9 @@
 /*
- * XREFs of WPP_RECORDER_SF_dDDq @ 0x1C00237A0
+ * XREFs of WPP_RECORDER_SF_dDDq @ 0x1C000F2A8
  * Callers:
- *     IrqTranslateResources @ 0x1C009A040 (IrqTranslateResources.c)
+ *     IrqTranslateResources @ 0x1C0093510 (IrqTranslateResources.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0032180 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 WPP_RECORDER_SF_dDDq(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
@@ -42,5 +42,13 @@ __int64 WPP_RECORDER_SF_dDDq(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int
       8LL,
       0LL);
   LOWORD(v7) = 10;
-  return WppAutoLogTrace(a1, 4LL, 20LL, &WPP_119e37890ca137f7027eb68f3315a26a_Traceguids, v7, (__int64 *)va);
+  return WppAutoLogTrace(
+           a1,
+           4LL,
+           20LL,
+           &WPP_119e37890ca137f7027eb68f3315a26a_Traceguids,
+           v7,
+           (__int64 *)va,
+           4LL,
+           (__int64 *)va1);
 }

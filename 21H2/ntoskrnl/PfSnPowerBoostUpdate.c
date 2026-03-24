@@ -1,10 +1,10 @@
 /*
- * XREFs of PfSnPowerBoostUpdate @ 0x1406E191C
+ * XREFs of PfSnPowerBoostUpdate @ 0x1406C5874
  * Callers:
- *     PfSnPowerBoost @ 0x1406E18A0 (PfSnPowerBoost.c)
- *     PfSnPowerBoostWorker @ 0x140989000 (PfSnPowerBoostWorker.c)
+ *     PfSnPowerBoost @ 0x1406C58FC (PfSnPowerBoost.c)
+ *     PfSnPowerBoostWorker @ 0x14078ECA0 (PfSnPowerBoostWorker.c)
  * Callees:
- *     ExpNtUpdateWnfStateData @ 0x140793B84 (ExpNtUpdateWnfStateData.c)
+ *     ExpNtUpdateWnfStateData @ 0x14060E5DC (ExpNtUpdateWnfStateData.c)
  */
 
 __int64 __fastcall PfSnPowerBoostUpdate(int a1)
@@ -15,12 +15,12 @@ __int64 __fastcall PfSnPowerBoostUpdate(int a1)
   int v4; // [rsp+5Ch] [rbp+14h]
 
   result = (unsigned int)-a1;
-  v2 = _InterlockedExchangeAdd(&dword_140C54794, a1 != 0 ? 1 : -1);
+  v2 = _InterlockedExchangeAdd(&dword_140C50554, a1 != 0 ? 1 : -1);
   if ( !v2 && a1 || v2 == 1 && !a1 )
   {
     v4 = -1;
     v3 = (2 * (_BYTE)a1) & 2 | 1;
-    return ExpNtUpdateWnfStateData((unsigned int)&WNF_SEB_APP_LAUNCH_PREFETCH, (unsigned int)&v3, 8, 0, 0LL, 0, 0, 1);
+    return ExpNtUpdateWnfStateData((__int64)&WNF_SEB_APP_LAUNCH_PREFETCH, (__int64)&v3, 8u, 0LL, 0LL, 0, 0, 1);
   }
   return result;
 }

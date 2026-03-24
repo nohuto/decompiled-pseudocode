@@ -1,14 +1,14 @@
 /*
- * XREFs of SmcCacheCreatePrepare @ 0x1408ABC5C
+ * XREFs of SmcCacheCreatePrepare @ 0x1408ABC3C
  * Callers:
- *     SmcProcessCreateRequest @ 0x1408ABD28 (SmcProcessCreateRequest.c)
+ *     SmcProcessCreateRequest @ 0x1408ABD08 (SmcProcessCreateRequest.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     SmRegistrationCtxStart @ 0x14076114C (SmRegistrationCtxStart.c)
- *     SmcCacheManagerStart @ 0x1408AEB20 (SmcCacheManagerStart.c)
+ *     SmRegistrationCtxStart @ 0x14076112C (SmRegistrationCtxStart.c)
+ *     SmcCacheManagerStart @ 0x1408AEB00 (SmcCacheManagerStart.c)
  */
 
 __int64 __fastcall SmcCacheCreatePrepare(__int64 a1)

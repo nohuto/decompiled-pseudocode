@@ -1,39 +1,40 @@
 /*
- * XREFs of XmGroup1General @ 0x1403B8A70
+ * XREFs of XmGroup1General @ 0x140396740
  * Callers:
- *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140396B08 (XmEmulateStream.c)
  * Callees:
- *     XmEvaluateAddressSpecifier @ 0x1403B8BCC (XmEvaluateAddressSpecifier.c)
- *     XmGetRegisterAddress @ 0x1403B8DE4 (XmGetRegisterAddress.c)
- *     XmSetSourceValue @ 0x1403B8E60 (XmSetSourceValue.c)
- *     XmSetDataType @ 0x1403B8E88 (XmSetDataType.c)
- *     XmSetDestinationValue @ 0x1403B8F08 (XmSetDestinationValue.c)
+ *     XmSetSourceValue @ 0x140396808 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x140396898 (XmSetDestinationValue.c)
+ *     XmEvaluateAddressSpecifier @ 0x140396914 (XmEvaluateAddressSpecifier.c)
+ *     XmGetRegisterAddress @ 0x140396C98 (XmGetRegisterAddress.c)
+ *     XmSetDataType @ 0x140396CC8 (XmSetDataType.c)
  */
 
 __int64 __fastcall XmGroup1General(__int64 a1)
 {
   __int64 result; // rax
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  __int64 v5; // r9
   __int64 RegisterAddress; // rax
-  __int64 v4; // r9
-  __int64 v5; // rcx
-  unsigned int v6; // [rsp+38h] [rbp+10h] BYREF
+  unsigned int v7; // [rsp+38h] [rbp+10h] BYREF
 
-  v6 = 0;
-  XmSetDataType(a1);
-  result = XmEvaluateAddressSpecifier(a1, &v6);
+  v7 = 0;
+  XmSetDataType();
+  result = XmEvaluateAddressSpecifier(a1, &v7);
   if ( result )
   {
     if ( (*(_DWORD *)(a1 + 112) & 2) != 0 )
     {
-      RegisterAddress = XmGetRegisterAddress(a1, v6);
+      RegisterAddress = XmGetRegisterAddress(a1, v7);
       XmSetDestinationValue(a1, RegisterAddress);
     }
     else
     {
       XmSetDestinationValue(a1, result);
-      v4 = XmGetRegisterAddress(v5, v6);
+      v5 = XmGetRegisterAddress(v3, v7);
     }
-    XmSetSourceValue(a1, v4);
+    XmSetSourceValue(a1, v5, v4, v5);
     return 1LL;
   }
   return result;

@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_EFxTimer@@UEAAPEAXI@Z @ 0x1C001B320
+ * XREFs of ??_EFxTimer@@UEAAPEAXI@Z @ 0x1C00543A0
  * Callers:
  *     <none>
  * Callees:
- *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005F0C (-FxPoolFree@@YAXPEAX@Z.c)
- *     ??1FxTimer@@UEAA@XZ @ 0x1C00186F8 (--1FxTimer@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxTimer@@UEAA@XZ @ 0x1C0054330 (--1FxTimer@@UEAA@XZ.c)
  */
 
 FxTimer *__fastcall FxTimer::`vector deleting destructor'(FxTimer *this, __int64 a2)

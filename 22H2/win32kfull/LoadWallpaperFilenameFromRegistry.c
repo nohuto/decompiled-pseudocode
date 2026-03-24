@@ -1,18 +1,18 @@
 /*
- * XREFs of LoadWallpaperFilenameFromRegistry @ 0x1C00BA680
+ * XREFs of LoadWallpaperFilenameFromRegistry @ 0x1C012EB48
  * Callers:
- *     xxxSystemParametersInfoWorker @ 0x1C0043D70 (xxxSystemParametersInfoWorker.c)
- *     xxxSetDeskWallpaper @ 0x1C0049544 (xxxSetDeskWallpaper.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C00DCFE8 (xxxSystemParametersInfoWorker.c)
+ *     xxxSetDeskWallpaper @ 0x1C012E7EC (xxxSetDeskWallpaper.c)
  * Callees:
- *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0048AB8 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     memset_0 @ 0x1C0141600 (memset_0.c)
- *     ?GetDefaultWallpaperName@@YAXPEAGI@Z @ 0x1C0200CF4 (-GetDefaultWallpaperName@@YAXPEAGI@Z.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C00499CC (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     memset @ 0x1C016DE00 (memset.c)
+ *     ?GetDefaultWallpaperName@@YAXPEAGI@Z @ 0x1C0222B28 (-GetDefaultWallpaperName@@YAXPEAGI@Z.c)
  */
 
-__int64 __fastcall LoadWallpaperFilenameFromRegistry(__int64 a1, unsigned __int16 *a2, unsigned int a3)
+__int64 __fastcall LoadWallpaperFilenameFromRegistry(__int64 a1, char *a2, unsigned int a3)
 {
-  size_t v3; // rsi
+  __int64 v3; // rsi
   unsigned __int16 v7[8]; // [rsp+40h] [rbp-A8h] BYREF
   __int128 v8; // [rsp+50h] [rbp-98h]
   __int64 v9; // [rsp+60h] [rbp-88h]
@@ -22,12 +22,12 @@ __int64 __fastcall LoadWallpaperFilenameFromRegistry(__int64 a1, unsigned __int1
   v9 = 0LL;
   *(_OWORD *)v7 = 0LL;
   v8 = 0LL;
-  memset_0(Str2, 0, sizeof(Str2));
-  RtlLoadStringOrError(82LL, v7);
+  memset(Str2, 0, sizeof(Str2));
+  RtlLoadStringOrError(82LL, v7, 20LL);
   if ( !(unsigned int)FastGetProfileStringFromIDW(a1, 4LL, 67LL, v7, a2, v3, 8) )
-    RtlStringCchCopyW(a2, v3, (size_t *)v7);
-  RtlLoadStringOrError(71LL, Str2);
-  if ( !_wcsicmp(a2, Str2) )
-    GetDefaultWallpaperName(a2, v3);
+    RtlStringCchCopyW(a2, v3, (char *)v7);
+  RtlLoadStringOrError(71LL, Str2, 40LL);
+  if ( !_wcsicmp((const wchar_t *)a2, Str2) )
+    GetDefaultWallpaperName((unsigned __int16 *)a2, v3);
   return 1LL;
 }

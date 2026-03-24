@@ -1,10 +1,10 @@
 /*
- * XREFs of ?ReleaseResources@FxDmaEnabler@@AEAAXXZ @ 0x1C005562C
+ * XREFs of ?ReleaseResources@FxDmaEnabler@@AEAAXXZ @ 0x1C003258C
  * Callers:
- *     ?Initialize@FxDmaEnabler@@QEAAJPEAU_WDF_DMA_ENABLER_CONFIG@@PEAVFxDeviceBase@@@Z @ 0x1C002D7CC (-Initialize@FxDmaEnabler@@QEAAJPEAU_WDF_DMA_ENABLER_CONFIG@@PEAVFxDeviceBase@@@Z.c)
- *     ?Dispose@FxDmaEnabler@@UEAAEXZ @ 0x1C00554E0 (-Dispose@FxDmaEnabler@@UEAAEXZ.c)
+ *     ?Dispose@FxDmaEnabler@@UEAAEXZ @ 0x1C0031DA0 (-Dispose@FxDmaEnabler@@UEAAEXZ.c)
+ *     ?Initialize@FxDmaEnabler@@QEAAJPEAU_WDF_DMA_ENABLER_CONFIG@@PEAVFxDeviceBase@@@Z @ 0x1C0031E10 (-Initialize@FxDmaEnabler@@QEAAJPEAU_WDF_DMA_ENABLER_CONFIG@@PEAVFxDeviceBase@@@Z.c)
  * Callees:
- *     ?FreeResources@FxDmaEnabler@@AEAAXPEAU_FxDmaDescription@@@Z @ 0x1C005551C (-FreeResources@FxDmaEnabler@@AEAAXPEAU_FxDmaDescription@@@Z.c)
+ *     ?FreeResources@FxDmaEnabler@@AEAAXPEAU_FxDmaDescription@@@Z @ 0x1C0031DDC (-FreeResources@FxDmaEnabler@@AEAAXPEAU_FxDmaDescription@@@Z.c)
  */
 
 void __fastcall FxDmaEnabler::ReleaseResources(FxDmaEnabler *this)

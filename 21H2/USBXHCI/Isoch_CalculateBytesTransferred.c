@@ -1,9 +1,9 @@
 /*
- * XREFs of Isoch_CalculateBytesTransferred @ 0x1C0041BD0
+ * XREFs of Isoch_CalculateBytesTransferred @ 0x1C0040C80
  * Callers:
- *     Isoch_FindTrbMatch @ 0x1C00424C0 (Isoch_FindTrbMatch.c)
+ *     Isoch_FindTrbMatch @ 0x1C00415C0 (Isoch_FindTrbMatch.c)
  * Callees:
- *     Isoch_ProcessSegment @ 0x1C00428A4 (Isoch_ProcessSegment.c)
+ *     Isoch_ProcessSegment @ 0x1C00419A4 (Isoch_ProcessSegment.c)
  */
 
 __int64 __fastcall Isoch_CalculateBytesTransferred(int a1, __int64 a2, int a3)

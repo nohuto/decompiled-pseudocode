@@ -1,10 +1,10 @@
 /*
- * XREFs of KseDsCallbackHookIrpPnpFunction @ 0x1405810E0
+ * XREFs of KseDsCallbackHookIrpPnpFunction @ 0x140527450
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
- *     KsepDsEventPnpIrp @ 0x140581DAC (KsepDsEventPnpIrp.c)
+ *     _guard_dispatch_icall @ 0x140407C30 (_guard_dispatch_icall.c)
+ *     KsepDsEventPnpIrp @ 0x14052811C (KsepDsEventPnpIrp.c)
  */
 
 __int64 __fastcall KseDsCallbackHookIrpPnpFunction(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ __int64 __fastcall KseDsCallbackHookIrpPnpFunction(__int64 a1, __int64 a2)
   {
     v7 = KseDsCompletionHookForStartDevice;
 LABEL_5:
-    (*(void (__fastcall **)(__int64, __int64, __int64 (__fastcall *)(), _QWORD))(qword_140C04828 + 8))(a1, a2, v7, 0LL);
+    (*(void (__fastcall **)(__int64, __int64, __int64 (__fastcall *)(), _QWORD))(qword_140C03248 + 8))(a1, a2, v7, 0LL);
     goto LABEL_6;
   }
   if ( v5 == 4 )
@@ -32,7 +32,7 @@ LABEL_5:
     goto LABEL_5;
   }
 LABEL_6:
-  v8 = (*(__int64 (__fastcall **)(_QWORD))qword_140C04828)(*(_QWORD *)(a1 + 8));
+  v8 = (*(__int64 (__fastcall **)(_QWORD))qword_140C03248)(*(_QWORD *)(a1 + 8));
   v9 = (*(__int64 (__fastcall **)(__int64, __int64))(v8 + 8 * v6 + 32))(a1, a2);
   KsepDsEventPnpIrp(*(_QWORD *)(a1 + 8), a1, a2, v5, v9);
   return v9;

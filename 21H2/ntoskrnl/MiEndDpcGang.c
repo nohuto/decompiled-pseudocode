@@ -1,10 +1,10 @@
 /*
- * XREFs of MiEndDpcGang @ 0x1405C041C
+ * XREFs of MiEndDpcGang @ 0x140560498
  * Callers:
- *     MiHugePageOperation @ 0x140586E78 (MiHugePageOperation.c)
- *     MiAllocateFastLargePagesForMdl @ 0x140589518 (MiAllocateFastLargePagesForMdl.c)
+ *     MiHugePageOperation @ 0x140532F78 (MiHugePageOperation.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x140533CE4 (MiAllocateFastLargePagesForMdl.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiEndDpcGang(__int64 a1)

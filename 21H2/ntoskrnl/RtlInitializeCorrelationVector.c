@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlInitializeCorrelationVector @ 0x1409BB840
+ * XREFs of RtlInitializeCorrelationVector @ 0x1409161F0
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     RtlpBase64Encode @ 0x1409BB9B0 (RtlpBase64Encode.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     RtlpBase64Encode @ 0x140916358 (RtlpBase64Encode.c)
  */
 
 __int64 __fastcall RtlInitializeCorrelationVector(char *a1, char a2, __int64 a3)

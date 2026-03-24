@@ -1,9 +1,9 @@
 /*
- * XREFs of PopComputeWatchdogTimeout @ 0x14028ECD8
+ * XREFs of PopComputeWatchdogTimeout @ 0x140397EAC
  * Callers:
- *     PopDiagTraceIrpFinishTelemetry @ 0x14028E474 (PopDiagTraceIrpFinishTelemetry.c)
- *     PopEnableIrpWatchdog @ 0x14028EB98 (PopEnableIrpWatchdog.c)
- *     PoQueryWatchdogTime @ 0x1403191F0 (PoQueryWatchdogTime.c)
+ *     PoQueryWatchdogTime @ 0x140306E10 (PoQueryWatchdogTime.c)
+ *     PopDiagTraceIrpFinishTelemetry @ 0x14037A79C (PopDiagTraceIrpFinishTelemetry.c)
+ *     PopEnableIrpWatchdog @ 0x140397E0C (PopEnableIrpWatchdog.c)
  * Callees:
  *     <none>
  */

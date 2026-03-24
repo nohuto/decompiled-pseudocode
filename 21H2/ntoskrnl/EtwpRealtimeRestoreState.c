@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpRealtimeRestoreState @ 0x1408570CC
+ * XREFs of EtwpRealtimeRestoreState @ 0x1407C89FC
  * Callers:
- *     EtwpRealtimeCreateLogfile @ 0x14079AADC (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeCreateLogfile @ 0x140681844 (EtwpRealtimeCreateLogfile.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x1402E1C80 (EtwpQueryUsedProcessorCount.c)
- *     EtwEventEnabled @ 0x14030F640 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ZwReadFile @ 0x14041B820 (ZwReadFile.c)
- *     ZwWriteFile @ 0x14041B860 (ZwWriteFile.c)
- *     ZwQueryInformationFile @ 0x14041B980 (ZwQueryInformationFile.c)
- *     memset @ 0x140435E00 (memset.c)
- *     EtwpEventWriteTemplateBackingFile @ 0x1409E0968 (EtwpEventWriteTemplateBackingFile.c)
+ *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140265E58 (EtwpQueryUsedProcessorCount.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1403FA460 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x1403FA5C0 (ZwQueryInformationFile.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     EtwpEventWriteTemplateBackingFile @ 0x140939C1C (EtwpEventWriteTemplateBackingFile.c)
  */
 
 NTSTATUS __fastcall EtwpRealtimeRestoreState(__int64 a1)
@@ -38,7 +38,7 @@ NTSTATUS __fastcall EtwpRealtimeRestoreState(__int64 a1)
   IoStatusBlock = 0LL;
   memset(Buffer, 0, 0x48uLL);
   result = ZwQueryInformationFile(
-             *(HANDLE *)(a1 + 360),
+             *(HANDLE *)(a1 + 376),
              &IoStatusBlock,
              &FileInformation,
              0x18u,
@@ -49,62 +49,62 @@ NTSTATUS __fastcall EtwpRealtimeRestoreState(__int64 a1)
       return 0;
     if ( *((__int64 *)&FileInformation + 1) < 72 )
       return -1073741566;
-    v3 = *(void **)(a1 + 360);
+    v3 = *(void **)(a1 + 376);
     ByteOffset.QuadPart = 0LL;
     result = ZwReadFile(v3, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0x48u, &ByteOffset, 0LL);
+    if ( result < 0 )
+      return result;
+    result = IoStatusBlock.Status;
+    if ( IoStatusBlock.Status < 0 )
+      return result;
+    if ( IoStatusBlock.Information != 72 )
+      return -1073741807;
+    if ( LODWORD(Buffer[0]) != 1933995090 )
+      return -1073741566;
+    if ( DWORD2(Buffer[0]) != 1 )
+      return -1073741566;
+    UsedProcessorCount = EtwpQueryUsedProcessorCount(a1);
+    if ( HIDWORD(Buffer[0]) != UsedProcessorCount )
+      return -1073741566;
+    if ( !LODWORD(Buffer[2]) )
+      return -1073741566;
+    if ( *((__int64 *)&Buffer[2] + 1) > *((__int64 *)&Buffer[3] + 1) )
+      return -1073741566;
+    if ( *(__int64 *)&Buffer[3] > *((__int64 *)&Buffer[3] + 1) )
+      return -1073741566;
+    if ( *(_QWORD *)&Buffer[3] == *((_QWORD *)&Buffer[2] + 1) )
+      return -1073741566;
+    if ( *((_QWORD *)&Buffer[3] + 1) < 0x48uLL )
+      return -1073741566;
+    v5 = *(_QWORD *)(a1 + 432);
+    if ( *((__int64 *)&Buffer[3] + 1) > v5
+      || *(_QWORD *)&Buffer[4] > (unsigned __int64)v5
+      || *((__int64 *)&FileInformation + 1) < *((__int64 *)&Buffer[3] + 1) )
+    {
+      return -1073741566;
+    }
+    v6 = *(void **)(a1 + 376);
+    LODWORD(Buffer[0]) = 0;
+    result = ZwWriteFile(v6, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0x48u, &ByteOffset, 0LL);
     if ( result >= 0 )
     {
-      result = IoStatusBlock.Status;
-      if ( IoStatusBlock.Status >= 0 )
+      v7 = *(_QWORD *)&Buffer[4];
+      v8 = (unsigned int)(*(_DWORD *)(a1 + 4) * *(_DWORD *)(a1 + 252));
+      v9 = Buffer[1];
+      *(_DWORD *)(a1 + 440) = Buffer[2];
+      *(_QWORD *)(a1 + 408) = *((_QWORD *)&Buffer[2] + 1);
+      *(_QWORD *)(a1 + 400) = *(_QWORD *)&Buffer[3];
+      *(_QWORD *)(a1 + 416) = *((_QWORD *)&Buffer[3] + 1);
+      v10 = *(_QWORD *)(a1 + 432) - v7;
+      *(_QWORD *)(a1 + 424) = v7;
+      *(_OWORD *)(a1 + 448) = v9;
+      if ( v10 <= v8 && *(int *)(a1 + 16) >= 0 )
       {
-        if ( IoStatusBlock.Information != 72 )
-          return -1073741807;
-        if ( LODWORD(Buffer[0]) == 1933995090 && DWORD2(Buffer[0]) == 1 )
-        {
-          UsedProcessorCount = EtwpQueryUsedProcessorCount(a1);
-          if ( HIDWORD(Buffer[0]) == UsedProcessorCount )
-          {
-            if ( LODWORD(Buffer[2]) )
-            {
-              if ( *((__int64 *)&Buffer[2] + 1) <= *((__int64 *)&Buffer[3] + 1)
-                && *(__int64 *)&Buffer[3] <= *((__int64 *)&Buffer[3] + 1)
-                && *(_QWORD *)&Buffer[3] != *((_QWORD *)&Buffer[2] + 1)
-                && *((_QWORD *)&Buffer[3] + 1) >= 0x48uLL )
-              {
-                v5 = *(_QWORD *)(a1 + 416);
-                if ( *((__int64 *)&Buffer[3] + 1) <= v5
-                  && *(_QWORD *)&Buffer[4] <= (unsigned __int64)v5
-                  && *((__int64 *)&FileInformation + 1) >= *((__int64 *)&Buffer[3] + 1) )
-                {
-                  v6 = *(void **)(a1 + 360);
-                  LODWORD(Buffer[0]) = 0;
-                  result = ZwWriteFile(v6, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 0x48u, &ByteOffset, 0LL);
-                  if ( result < 0 )
-                    return result;
-                  v7 = *(_QWORD *)&Buffer[4];
-                  v8 = (unsigned int)(*(_DWORD *)(a1 + 4) * *(_DWORD *)(a1 + 236));
-                  v9 = Buffer[1];
-                  *(_DWORD *)(a1 + 424) = Buffer[2];
-                  *(_QWORD *)(a1 + 392) = *((_QWORD *)&Buffer[2] + 1);
-                  *(_QWORD *)(a1 + 384) = *(_QWORD *)&Buffer[3];
-                  *(_QWORD *)(a1 + 400) = *((_QWORD *)&Buffer[3] + 1);
-                  v10 = *(_QWORD *)(a1 + 416) - v7;
-                  *(_QWORD *)(a1 + 408) = v7;
-                  *(_OWORD *)(a1 + 432) = v9;
-                  if ( v10 <= v8 && *(int *)(a1 + 16) >= 0 )
-                  {
-                    _InterlockedExchange((volatile __int32 *)(a1 + 16), -1073741432);
-                    if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_BACKING_FILE_FULL) )
-                      EtwpEventWriteTemplateBackingFile(v12, v11, v13, a1 + 136);
-                  }
-                  return 0;
-                }
-              }
-            }
-          }
-        }
-        return -1073741566;
+        _InterlockedExchange((volatile __int32 *)(a1 + 16), -1073741432);
+        if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_BACKING_FILE_FULL) )
+          EtwpEventWriteTemplateBackingFile(v12, v11, v13, a1 + 152);
       }
+      return 0;
     }
   }
   return result;

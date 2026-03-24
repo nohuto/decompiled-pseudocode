@@ -1,20 +1,20 @@
 /*
- * XREFs of ??1CCaptureRenderTarget@@MEAA@XZ @ 0x1801EC5B0
+ * XREFs of ??1CCaptureRenderTarget@@MEAA@XZ @ 0x180187254
  * Callers:
- *     ??_GCCaptureRenderTarget@@MEAAPEAXI@Z @ 0x1801C2C40 (--_GCCaptureRenderTarget@@MEAAPEAXI@Z.c)
- *     ??1CVirtualMonitorCaptureRenderTarget@@MEAA@XZ @ 0x1801EE3EC (--1CVirtualMonitorCaptureRenderTarget@@MEAA@XZ.c)
+ *     ??_GCCaptureRenderTarget@@MEAAPEAXI@Z @ 0x18016C9A0 (--_GCCaptureRenderTarget@@MEAAPEAXI@Z.c)
+ *     ??1CVirtualMonitorCaptureRenderTarget@@MEAA@XZ @ 0x1801882EC (--1CVirtualMonitorCaptureRenderTarget@@MEAA@XZ.c)
  * Callees:
- *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800047F0 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180034B30 (-Release@CD3DDevice@@UEAAKXZ.c)
- *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CF54 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
- *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E247C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
- *     ?_Tidy@?$vector@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@AEAAXXZ @ 0x1800FE1D8 (-_Tidy@-$vector@V-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V-$allocator@V-$c.c)
- *     ??$_Destroy_range@V?$allocator@UDXGIResourceRenderTargetBitmapPair@CCaptureRenderTarget@@@std@@@std@@YAXPEAUDXGIResourceRenderTargetBitmapPair@CCaptureRenderTarget@@QEAU12@AEAV?$allocator@UDXGIResourceRenderTargetBitmapPair@CCaptureRenderTarget@@@0@@Z @ 0x1801BE328 (--$_Destroy_range@V-$allocator@UDXGIResourceRenderTargetBitmapPair@CCaptureRenderTarget@@@std@@@.c)
- *     ??$_Destroy_range@V?$allocator@V?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@@std@@@std@@YAXPEAV?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@QEAV12@AEAV?$allocator@V?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@@0@@Z @ 0x1801BE3A8 (--$_Destroy_range@V-$allocator@V-$unique_any_t@V-$unique_storage@U-$handle_null_resource_policy@.c)
- *     ?ReleaseFlipResources@CCaptureRenderTarget@@IEAAXXZ @ 0x1801EDA28 (-ReleaseFlipResources@CCaptureRenderTarget@@IEAAXXZ.c)
- *     ?ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ @ 0x1801EDA78 (-ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ.c)
- *     ?SetController@CCaptureRenderTarget@@QEAAXPEAVCCaptureController@@@Z @ 0x1801EE074 (-SetController@CCaptureRenderTarget@@QEAAXPEAVCCaptureController@@@Z.c)
- *     ?clear@?$vector@V?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@V?$allocator@V?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@@std@@@std@@QEAAXXZ @ 0x1801EE3C0 (-clear@-$vector@V-$unique_any_t@V-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-Cl.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18002D180 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C8C9C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?_Tidy@?$vector@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@AEAAXXZ @ 0x1800D91D0 (-_Tidy@-$vector@V-$com_ptr_t@UIDXGIResource@@Uerr_returncode_policy@wil@@@wil@@V-$allocator@V-$c.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F4030 (_guard_dispatch_icall_nop.c)
+ *     ??1?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180163D5C (--1-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??$_Destroy_range@V?$allocator@UDXGIResourceRenderTargetBitmapPair@CCaptureRenderTarget@@@std@@@std@@YAXPEAUDXGIResourceRenderTargetBitmapPair@CCaptureRenderTarget@@0AEAV?$allocator@UDXGIResourceRenderTargetBitmapPair@CCaptureRenderTarget@@@0@@Z @ 0x180168D74 (--$_Destroy_range@V-$allocator@UDXGIResourceRenderTargetBitmapPair@CCaptureRenderTarget@@@std@@@.c)
+ *     ??$_Destroy_range@V?$allocator@V?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@@std@@@std@@YAXPEAV?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@0AEAV?$allocator@V?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@@0@@Z @ 0x180168E28 (--$_Destroy_range@V-$allocator@V-$unique_any_t@V-$unique_storage@U-$handle_null_resource_policy@.c)
+ *     ?ReleaseFlipResources@CCaptureRenderTarget@@IEAAXXZ @ 0x180187C68 (-ReleaseFlipResources@CCaptureRenderTarget@@IEAAXXZ.c)
+ *     ?ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ @ 0x180187CB8 (-ReleaseRenderingResources@CCaptureRenderTarget@@IEAAXXZ.c)
+ *     ?SetController@CCaptureRenderTarget@@QEAAXPEAVCCaptureController@@@Z @ 0x180187F84 (-SetController@CCaptureRenderTarget@@QEAAXPEAVCCaptureController@@@Z.c)
+ *     ?clear@?$vector@V?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@V?$allocator@V?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@@std@@@std@@QEAAXXZ @ 0x180188294 (-clear@-$vector@V-$unique_any_t@V-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-Cl.c)
  */
 
 void __fastcall CCaptureRenderTarget::~CCaptureRenderTarget(CCaptureRenderTarget *this)
@@ -22,77 +22,82 @@ void __fastcall CCaptureRenderTarget::~CCaptureRenderTarget(CCaptureRenderTarget
   __int64 v2; // rcx
   __int64 v3; // rcx
   HANDLE **v4; // rdi
-  HANDLE *v5; // rcx
-  char *v6; // rcx
-  char *v7; // rcx
-  __int64 v8; // rcx
-  CD3DDevice *v9; // rcx
+  void *v5; // rsi
+  HANDLE *v6; // rsi
+  __int64 v7; // rcx
+  char *v8; // rcx
+  __int64 v9; // rcx
+  __int64 v10; // rcx
+  char *v11; // rcx
+  void *v12; // rdi
 
   *(_QWORD *)this = &CCaptureRenderTarget::`vftable'{for `COffScreenRenderTarget'};
-  *((_QWORD *)this + 9) = &CIndirectSwapchainRenderTarget::`vftable'{for `IVisualTreeClient'};
-  *((_QWORD *)this + 233) = &CCaptureRenderTarget::`vftable'{for `IDeviceResourceNotify'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 10) + 4LL) + 80) = &CCaptureRenderTarget::`vftable'{for `IUnknown'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 10) + 8LL) + 80) = &CCaptureRenderTarget::`vftable'{for `IPixelFormat'};
-  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 10) + 12LL) + 80) = &CCaptureRenderTarget::`vftable'{for `IRenderTarget'};
-  v2 = *(int *)(*((_QWORD *)this + 10) + 4LL);
-  *(_DWORD *)((char *)this + v2 + 76) = v2 - 1992;
-  v3 = *(int *)(*((_QWORD *)this + 10) + 8LL);
-  *(_DWORD *)((char *)this + v3 + 76) = v3 - 2008;
-  *(_DWORD *)((char *)this + *(int *)(*((_QWORD *)this + 10) + 12LL) + 76) = *(_DWORD *)(*((_QWORD *)this + 10) + 12LL)
-                                                                           - 2032;
+  *((_QWORD *)this + 8) = &CCaptureRenderTarget::`vftable'{for `IVisualTreeClient'};
+  *((_QWORD *)this + 235) = &CCaptureRenderTarget::`vftable'{for `IDeviceResourceNotify'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 4LL) + 72) = &CCaptureRenderTarget::`vftable'{for `IUnknown'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 8LL) + 72) = &CCaptureRenderTarget::`vftable'{for `IPixelFormat'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 12LL) + 72) = &CCaptureRenderTarget::`vftable'{for `IRenderTarget'};
+  v2 = *(int *)(*((_QWORD *)this + 9) + 4LL);
+  *(_DWORD *)((char *)this + v2 + 68) = v2 - 2024;
+  v3 = *(int *)(*((_QWORD *)this + 9) + 8LL);
+  *(_DWORD *)((char *)this + v3 + 68) = v3 - 2040;
+  *(_DWORD *)((char *)this + *(int *)(*((_QWORD *)this + 9) + 12LL) + 68) = *(_DWORD *)(*((_QWORD *)this + 9) + 12LL)
+                                                                          - 2064;
   CCaptureRenderTarget::SetController(this, 0LL);
   CCaptureRenderTarget::ReleaseFlipResources(this);
-  v4 = (HANDLE **)((char *)this + 2016);
-  std::vector<wil::unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>>::clear((char *)this + 2016);
+  v4 = (HANDLE **)((char *)this + 2032);
+  std::vector<wil::unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>>::clear((char *)this + 2032);
   CCaptureRenderTarget::ReleaseRenderingResources(this);
-  v5 = (HANDLE *)*((_QWORD *)this + 255);
+  v5 = (void *)*((_QWORD *)this + 257);
   if ( v5 )
   {
     std::_Destroy_range<std::allocator<wil::unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>>>(
-      v5,
-      *((HANDLE **)this + 256));
-    std::_Deallocate<16,0>(
-      *((void **)this + 255),
-      (*((_QWORD *)this + 257) - *((_QWORD *)this + 255)) & 0xFFFFFFFFFFFFFFF8uLL);
-    *((_QWORD *)this + 255) = 0LL;
-    *((_QWORD *)this + 256) = 0LL;
+      *((HANDLE **)this + 257),
+      *((HANDLE **)this + 258));
+    std::_Deallocate<16,0>(v5, (*((_QWORD *)this + 259) - (_QWORD)v5) & 0xFFFFFFFFFFFFFFF8uLL);
     *((_QWORD *)this + 257) = 0LL;
+    *((_QWORD *)this + 258) = 0LL;
+    *((_QWORD *)this + 259) = 0LL;
   }
+  v6 = *v4;
   if ( *v4 )
   {
     std::_Destroy_range<std::allocator<wil::unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>>>(
       *v4,
-      *((HANDLE **)this + 253));
-    std::_Deallocate<16,0>(*v4, (*((_QWORD *)this + 254) - *((_QWORD *)this + 252)) & 0xFFFFFFFFFFFFFFF8uLL);
+      *((HANDLE **)this + 255));
+    std::_Deallocate<16,0>(v6, (*((_QWORD *)this + 256) - (_QWORD)v6) & 0xFFFFFFFFFFFFFFF8uLL);
     *v4 = 0LL;
-    *((_QWORD *)this + 253) = 0LL;
-    *((_QWORD *)this + 254) = 0LL;
+    *((_QWORD *)this + 255) = 0LL;
+    *((_QWORD *)this + 256) = 0LL;
   }
-  std::vector<wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy>>::_Tidy((__int64)this + 1992);
-  v6 = (char *)*((_QWORD *)this + 248);
-  if ( (unsigned __int64)(v6 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-    CloseHandle(v6);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 247);
-  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 246);
-  v7 = (char *)*((_QWORD *)this + 245);
-  if ( (unsigned __int64)(v7 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-    CloseHandle(v7);
-  wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)this + 243);
-  v8 = *((_QWORD *)this + 239);
-  if ( v8 )
+  std::vector<wil::com_ptr_t<IDXGIResource,wil::err_returncode_policy>>::_Tidy((__int64)this + 2008);
+  v7 = *((_QWORD *)this + 250);
+  if ( v7 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+  v8 = (char *)*((_QWORD *)this + 249);
+  if ( (unsigned __int64)(v8 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    CloseHandle(v8);
+  v9 = *((_QWORD *)this + 248);
+  if ( v9 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
+  v10 = *((_QWORD *)this + 247);
+  if ( v10 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v10 + 16LL))(v10);
+  v11 = (char *)*((_QWORD *)this + 246);
+  if ( (unsigned __int64)(v11 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    CloseHandle(v11);
+  wil::com_ptr_t<CD2DBitmap,wil::err_returncode_policy>::~com_ptr_t<CD2DBitmap,wil::err_returncode_policy>((__int64 *)this + 244);
+  v12 = (void *)*((_QWORD *)this + 240);
+  if ( v12 )
   {
     std::_Destroy_range<std::allocator<CCaptureRenderTarget::DXGIResourceRenderTargetBitmapPair>>(
-      v8,
-      *((_QWORD *)this + 240));
-    std::_Deallocate<16,0>(
-      *((void **)this + 239),
-      8 * ((__int64)(*((_QWORD *)this + 241) - *((_QWORD *)this + 239)) >> 3));
-    *((_QWORD *)this + 239) = 0LL;
+      *((_QWORD *)this + 240),
+      *((_QWORD *)this + 241));
+    std::_Deallocate<16,0>(v12, (*((_QWORD *)this + 242) - (_QWORD)v12) & 0xFFFFFFFFFFFFFFF0uLL);
     *((_QWORD *)this + 240) = 0LL;
     *((_QWORD *)this + 241) = 0LL;
+    *((_QWORD *)this + 242) = 0LL;
   }
-  v9 = (CD3DDevice *)*((_QWORD *)this + 234);
-  if ( v9 )
-    CD3DDevice::Release(v9);
+  wil::com_ptr_t<CD3DDevice,wil::err_returncode_policy>::~com_ptr_t<CD3DDevice,wil::err_returncode_policy>((CD3DDevice **)this + 236);
   COffScreenRenderTarget::~COffScreenRenderTarget(this);
 }

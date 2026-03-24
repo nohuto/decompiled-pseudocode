@@ -1,13 +1,14 @@
 /*
- * XREFs of ?PushStateToPrincipalOnPlaceholderProxyReset@BamoDataProviderProxyImpl@BamoImpl@@UEAAXXZ @ 0x1801BF4B0
+ * XREFs of ?PushStateToPrincipalOnPlaceholderProxyReset@BamoDataProviderProxyImpl@BamoImpl@@UEAAXXZ @ 0x180193E70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
+// attributes: thunk
 void __fastcall BamoImpl::BamoDataProviderProxyImpl::PushStateToPrincipalOnPlaceholderProxyReset(
         BamoImpl::BamoDataProviderProxyImpl *this)
 {
-  (*(void (__fastcall **)(BamoImpl::BamoDataProviderProxyImpl *))(*(_QWORD *)this + 80LL))(this);
+  BamoImpl::BamoDataProviderProxyImpl::UpdateNumberOfReadersRemoteCache(this);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiEnclsDebugRead @ 0x14041F5E0
+ * XREFs of KiEnclsDebugRead @ 0x1403FE700
  * Callers:
- *     KeDebugReadEnclaveMemory @ 0x1409745D4 (KeDebugReadEnclaveMemory.c)
+ *     KeDebugReadEnclaveMemory @ 0x1408BB61C (KeDebugReadEnclaveMemory.c)
  * Callees:
  *     <none>
  */

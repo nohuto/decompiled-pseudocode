@@ -1,125 +1,73 @@
 /*
- * XREFs of IopFreeIrpExtension @ 0x14020B888
+ * XREFs of IopFreeIrpExtension @ 0x1402ED7A0
  * Callers:
- *     IoSetActivityIdIrp @ 0x14020C120 (IoSetActivityIdIrp.c)
- *     IopfCompleteRequest @ 0x1402B59D0 (IopfCompleteRequest.c)
- *     IopFreeIrp @ 0x140348640 (IopFreeIrp.c)
- *     IoCleanupIrp @ 0x14039D770 (IoCleanupIrp.c)
- *     IopCopyCompleteReadIrp @ 0x140417DE0 (IopCopyCompleteReadIrp.c)
- *     IopFreeCopyObjectsFromDataBuffer @ 0x140418218 (IopFreeCopyObjectsFromDataBuffer.c)
- *     IoClearAdapterCryptoEngineExtension @ 0x140559250 (IoClearAdapterCryptoEngineExtension.c)
- *     IoClearFsTrackOffsetState @ 0x1405592A0 (IoClearFsTrackOffsetState.c)
- *     IopPerfCompleteRequest @ 0x140559770 (IopPerfCompleteRequest.c)
+ *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
+ *     IopCompleteRequest @ 0x140342B20 (IopCompleteRequest.c)
+ *     IopFreeIrp @ 0x140353570 (IopFreeIrp.c)
+ *     IoSetActivityIdIrp @ 0x140379200 (IoSetActivityIdIrp.c)
+ *     IoCleanupIrp @ 0x140392310 (IoCleanupIrp.c)
+ *     IopCopyCompleteReadIrp @ 0x1403F16B0 (IopCopyCompleteReadIrp.c)
+ *     IopFreeCopyObjectsFromDataBuffer @ 0x1403F1B00 (IopFreeCopyObjectsFromDataBuffer.c)
+ *     IoClearAdapterCryptoEngineExtension @ 0x140507AF0 (IoClearAdapterCryptoEngineExtension.c)
+ *     IoClearFsTrackOffsetState @ 0x140507B40 (IoClearFsTrackOffsetState.c)
+ *     IopPerfCompleteRequest @ 0x140508094 (IopPerfCompleteRequest.c)
  * Callees:
- *     IopIrpHasExtensionType @ 0x14020C0F0 (IopIrpHasExtensionType.c)
- *     IopFreeCopyObjectsFromIrp @ 0x1404182AC (IopFreeCopyObjectsFromIrp.c)
- *     FeatureServicing_40851744_EnableKey @ 0x14065863C (FeatureServicing_40851744_EnableKey.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     IopIrpHasExtensionType @ 0x1402EDEC0 (IopIrpHasExtensionType.c)
+ *     IopFreeCopyObjectsFromIrp @ 0x1403F1B94 (IopFreeCopyObjectsFromIrp.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 (__fastcall *__fastcall IopFreeIrpExtension(__int64 a1, int a2, char a3))()
 {
-  int v6; // ecx
-  __int64 v7; // rdi
-  char v8; // al
-  __int64 (__fastcall *v9)(); // rbp
+  char v3; // al
+  __int64 v4; // rsi
+  __int64 (__fastcall *v8)(); // rbp
+  __int64 v9; // rcx
   int v10; // eax
   int v11; // eax
-  int v13; // eax
 
-  if ( EnableFeatureServicing_40851744 == 1 )
+  v3 = *(_BYTE *)(a1 + 71);
+  v4 = *(_QWORD *)(a1 + 200);
+  v8 = 0LL;
+  if ( v3 >= 0 )
   {
-    v6 = 1;
-  }
-  else if ( EnableFeatureServicing_40851744 )
-  {
-    v6 = (unsigned __int8)FeatureServicing_40851744_EnableKey();
+    if ( v4 )
+    {
+      if ( (a2 == 5 || a2 == -1) && (unsigned __int8)IopIrpHasExtensionType(a1, 5LL) )
+        *(_QWORD *)(v4 + 40) = 0LL;
+      if ( a2 != 9 && a2 != -1 )
+        goto LABEL_16;
+      if ( (unsigned __int8)IopIrpHasExtensionType(a1, 9LL) )
+      {
+        v10 = *(_DWORD *)(v9 + 16);
+        if ( (v10 & 0x200) != 0 )
+        {
+          IopFreeCopyObjectsFromIrp();
+          *(_BYTE *)(a1 + 65) = 1;
+        }
+        else if ( (v10 & 0x100) != 0 )
+        {
+          v8 = IopCopyCompleteReadIrp;
+        }
+      }
+      if ( a2 == -1 )
+        LOWORD(v11) = 0;
+      else
+LABEL_16:
+        v11 = *(unsigned __int16 *)(v4 + 2) & ~(1 << a2);
+      *(_WORD *)(v4 + 2) = v11;
+      if ( !(_WORD)v11 && (*(_BYTE *)(a1 + 71) & 0x40) != 0 && a3 )
+      {
+        ExFreePoolWithTag((PVOID)v4, 0x58707249u);
+        *(_BYTE *)(a1 + 71) &= ~0x40u;
+        *(_QWORD *)(a1 + 200) = 0LL;
+      }
+    }
   }
   else
   {
-    v6 = 0;
-  }
-  v7 = *(_QWORD *)(a1 + 200);
-  v8 = *(_BYTE *)(a1 + 71);
-  if ( v6 )
-  {
-    v9 = 0LL;
-    if ( v8 < 0 )
-    {
-      *(_BYTE *)(a1 + 71) = v8 & 0x7F;
-LABEL_28:
-      *(_QWORD *)(a1 + 200) = 0LL;
-      return v9;
-    }
-    if ( v7 )
-    {
-      if ( (a2 == 5 || a2 == -1) && (unsigned __int8)IopIrpHasExtensionType(a1, 5LL) )
-        *(_QWORD *)(v7 + 40) = 0LL;
-      if ( a2 == 9 || a2 == -1 )
-      {
-        if ( (unsigned __int8)IopIrpHasExtensionType(a1, 9LL) )
-        {
-          v10 = *(_DWORD *)(a1 + 16);
-          if ( (v10 & 0x200) != 0 )
-          {
-            IopFreeCopyObjectsFromIrp();
-            *(_BYTE *)(a1 + 65) = 1;
-          }
-          else if ( (v10 & 0x100) != 0 )
-          {
-            v9 = IopCopyCompleteReadIrp;
-          }
-        }
-        if ( a2 == -1 )
-        {
-          *(_WORD *)(v7 + 2) = 0;
-          goto LABEL_25;
-        }
-      }
-      v11 = *(unsigned __int16 *)(v7 + 2) & ~(1 << a2);
-      *(_WORD *)(v7 + 2) = v11;
-      if ( !(_WORD)v11 )
-      {
-LABEL_25:
-        if ( (*(_BYTE *)(a1 + 71) & 0x40) == 0 || !a3 )
-          return v9;
-        ExFreePoolWithTag((PVOID)v7, 0x58707249u);
-        *(_BYTE *)(a1 + 71) &= ~0x40u;
-        goto LABEL_28;
-      }
-    }
-    return v9;
-  }
-  if ( v8 < 0 )
-  {
-    *(_BYTE *)(a1 + 71) = v8 & 0x7F;
-LABEL_44:
     *(_QWORD *)(a1 + 200) = 0LL;
-    return 0LL;
+    *(_BYTE *)(a1 + 71) = v3 & 0x7F;
   }
-  if ( v7 )
-  {
-    if ( a2 == -1 )
-    {
-      if ( (unsigned __int8)IopIrpHasExtensionType(a1, 5LL) )
-        *(_QWORD *)(v7 + 40) = 0LL;
-      *(_WORD *)(v7 + 2) = 0;
-    }
-    else
-    {
-      v13 = *(unsigned __int16 *)(v7 + 2) & ~(1 << a2);
-      *(_WORD *)(v7 + 2) = v13;
-      if ( a2 == 5 )
-        *(_QWORD *)(v7 + 40) = 0LL;
-      if ( (_WORD)v13 )
-        return 0LL;
-    }
-    if ( (*(_BYTE *)(a1 + 71) & 0x40) != 0 && a3 )
-    {
-      ExFreePoolWithTag((PVOID)v7, 0x58707249u);
-      *(_BYTE *)(a1 + 71) &= ~0x40u;
-      goto LABEL_44;
-    }
-  }
-  return 0LL;
+  return v8;
 }

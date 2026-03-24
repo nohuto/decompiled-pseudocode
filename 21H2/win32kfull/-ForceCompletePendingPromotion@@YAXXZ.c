@@ -1,14 +1,14 @@
 /*
- * XREFs of ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C02137B0
+ * XREFs of ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C02189B8
  * Callers:
- *     xxxRealInternalGetMessage @ 0x1C0055460 (xxxRealInternalGetMessage.c)
- *     xxxCleanupThreadPointerInputInfo @ 0x1C00F3A00 (xxxCleanupThreadPointerInputInfo.c)
- *     ?ResetMousePromotionInfo@@YAXGG@Z @ 0x1C0213E18 (-ResetMousePromotionInfo@@YAXGG@Z.c)
- *     ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C0214458 (-xxxPromotePointer@PointerPromotion@@YAHGKK@Z.c)
+ *     xxxRealInternalGetMessage @ 0x1C0055720 (xxxRealInternalGetMessage.c)
+ *     xxxCleanupThreadPointerInputInfo @ 0x1C00FD920 (xxxCleanupThreadPointerInputInfo.c)
+ *     ?ResetMousePromotionInfo@@YAXGG@Z @ 0x1C0219100 (-ResetMousePromotionInfo@@YAXGG@Z.c)
+ *     ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C0219834 (-xxxPromotePointer@PointerPromotion@@YAHGKK@Z.c)
  * Callees:
- *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0213BC0 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
- *     ?ResetPendingPromotion@@YAXXZ @ 0x1C0213EA4 (-ResetPendingPromotion@@YAXXZ.c)
- *     ?ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0213F58 (-ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
+ *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0218DC8 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
+ *     ?ResetPendingPromotion@@YAXXZ @ 0x1C021918C (-ResetPendingPromotion@@YAXXZ.c)
+ *     ?ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C0219240 (-ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
  */
 
 void ForceCompletePendingPromotion(void)
@@ -21,15 +21,15 @@ void ForceCompletePendingPromotion(void)
 
   v4 = 0LL;
   v3 = 0LL;
-  v0 = word_1C0335D70;
-  v2 = ((dword_1C0335D80 != 0) + 16842753) | (dword_1C0335D84 != 0 ? 0x2000000 : 0);
-  if ( !ValidatePointerPromotion(word_1C0335D70, dword_1C0335D74, &v2, &v4, &v3) )
+  v0 = word_1C033ABB0;
+  v2 = ((dword_1C033ABC0 != 0) + 16842753) | (dword_1C033ABC4 != 0 ? 0x2000000 : 0);
+  if ( !ValidatePointerPromotion(word_1C033ABB0, dword_1C033ABB4, &v2, &v4, &v3) )
     goto LABEL_5;
   v1 = v3;
   if ( v3 )
   {
     *((_DWORD *)v3 + 11) |= 0x20u;
-    v0 = word_1C0335D70;
+    v0 = word_1C033ABB0;
   }
   if ( !PromotePointerInternal(v0, v2, v4, v1) )
 LABEL_5:

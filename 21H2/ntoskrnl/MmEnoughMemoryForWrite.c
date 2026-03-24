@@ -1,12 +1,12 @@
 /*
- * XREFs of MmEnoughMemoryForWrite @ 0x140284860
+ * XREFs of MmEnoughMemoryForWrite @ 0x140274618
  * Callers:
- *     CcCanIWriteStreamEx @ 0x1402844A0 (CcCanIWriteStreamEx.c)
+ *     CcCanIWriteStreamEx @ 0x1403134D0 (CcCanIWriteStreamEx.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x14028494C (MiLockSectionControlArea.c)
- *     MiSufficientAvailablePages @ 0x140285380 (MiSufficientAvailablePages.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockSectionControlArea @ 0x140274944 (MiLockSectionControlArea.c)
+ *     MiSufficientAvailablePages @ 0x140275470 (MiSufficientAvailablePages.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MmEnoughMemoryForWrite(__int64 a1)
@@ -34,21 +34,19 @@ char __fastcall MmEnoughMemoryForWrite(__int64 a1)
     if ( !v4 )
       return 1;
     v3 = v12;
-    v5 = *(ULONG_PTR **)(qword_140C51F48 + 8LL * (*(_WORD *)(v4 + 60) & 0x3FF));
+    v5 = *(ULONG_PTR **)(qword_140C4E648 + 8LL * (*(_WORD *)(v4 + 60) & 0x3FF));
   }
   else
   {
     v5 = &MiSystemPartition;
   }
-  if ( (unsigned int)MiSufficientAvailablePages(v5, (_BYTE)dword_140D051DC != 0 ? 0x4000LL : 450LL) )
+  if ( (unsigned int)MiSufficientAvailablePages(v5, (_BYTE)dword_140CFB19C != 0 ? 0x4000LL : 450LL) )
   {
     v2 = 1;
   }
-  else
+  else if ( v5[936] < v5[950] + 800 )
   {
-    if ( v5[2160] < v5[2188] + 800 )
-      v2 = (unsigned int)MiSufficientAvailablePages(v5, 80LL) != 0;
-    v3 = v12;
+    v2 = (unsigned int)MiSufficientAvailablePages(v5, 80LL) != 0;
   }
   if ( v3 != 17 )
   {

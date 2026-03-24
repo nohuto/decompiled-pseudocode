@@ -6,8 +6,8 @@
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     CmpFreeTransientPoolWithTag @ 0x140017768 (CmpFreeTransientPoolWithTag.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     RtlLengthSecurityDescriptorStrict @ 0x1401B5E94 (RtlLengthSecurityDescriptorStrict.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlLengthSecurityDescriptorStrict @ 0x1401B5EB4 (RtlLengthSecurityDescriptorStrict.c)
  *     RtlFindUnicodeSubstring @ 0x1405B8440 (RtlFindUnicodeSubstring.c)
  *     CmpConstructNameWithStatus @ 0x1405D73A0 (CmpConstructNameWithStatus.c)
  */
@@ -86,7 +86,7 @@ __int64 __fastcall CmpTraceSecurityChanging(__int64 a1, __int64 a2, int a3, __in
         v36 = v16;
         v37 = a5;
         v38[1] = 0;
-        TlgWrite(&stru_1403FFAA0, &unk_14036BDCB, 0LL, 0LL, 0xBu, &pData);
+        TlgWrite(&stru_1403FFAA0, &unk_14036BEDB, 0LL, 0LL, 0xBu, &pData);
       }
     }
     v11 = 0;

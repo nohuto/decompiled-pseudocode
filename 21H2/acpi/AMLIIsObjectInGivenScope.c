@@ -1,9 +1,9 @@
 /*
- * XREFs of AMLIIsObjectInGivenScope @ 0x1C001CF54
+ * XREFs of AMLIIsObjectInGivenScope @ 0x1C0029E24
  * Callers:
- *     ACPIIoctlEvalPreProcessingV1Ex @ 0x1C001BAFC (ACPIIoctlEvalPreProcessingV1Ex.c)
- *     ACPIIoctlGetDeviceSpecificData @ 0x1C002B560 (ACPIIoctlGetDeviceSpecificData.c)
- *     ACPIIoctlEvalPreProcessingV2Ex @ 0x1C00584B0 (ACPIIoctlEvalPreProcessingV2Ex.c)
+ *     ACPIIoctlEvalPreProcessingV1Ex @ 0x1C0029BB4 (ACPIIoctlEvalPreProcessingV1Ex.c)
+ *     ACPIIoctlGetDeviceSpecificData @ 0x1C002C6AC (ACPIIoctlGetDeviceSpecificData.c)
+ *     ACPIIoctlEvalPreProcessingV2Ex @ 0x1C0057CE8 (ACPIIoctlEvalPreProcessingV2Ex.c)
  * Callees:
  *     <none>
  */
@@ -23,11 +23,11 @@ __int64 __fastcall AMLIIsObjectInGivenScope(__int64 a1, _QWORD *a2)
     {
       v6 = *(_QWORD *)(v6 + 16);
       if ( !v6 )
-        goto LABEL_4;
+        goto LABEL_6;
     }
     v4 = 0;
   }
-LABEL_4:
+LABEL_6:
   ExReleaseSpinLockShared(&ACPINamespaceLock, v5);
   return v4;
 }

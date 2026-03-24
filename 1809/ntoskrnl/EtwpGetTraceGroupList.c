@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpGetTraceGroupList @ 0x1408B5DF8
+ * XREFs of EtwpGetTraceGroupList @ 0x1408B5DD8
  * Callers:
  *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
  * Callees:

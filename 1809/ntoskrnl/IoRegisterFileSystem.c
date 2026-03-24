@@ -1,15 +1,15 @@
 /*
- * XREFs of IoRegisterFileSystem @ 0x14070D140
+ * XREFs of IoRegisterFileSystem @ 0x14070D120
  * Callers:
  *     RawInitialize @ 0x1409D3DD0 (RawInitialize.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B7990 (KiLeaveCriticalRegionUnsafe.c)
- *     IopIncrementDeviceObjectRefCount @ 0x1400B8820 (IopIncrementDeviceObjectRefCount.c)
- *     IopSetFsRegistrationInProgress @ 0x14016C520 (IopSetFsRegistrationInProgress.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     FsRtlSetDriverBacking @ 0x14070D2E0 (FsRtlSetDriverBacking.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     IopIncrementDeviceObjectRefCount @ 0x1400B8840 (IopIncrementDeviceObjectRefCount.c)
+ *     IopSetFsRegistrationInProgress @ 0x14016C540 (IopSetFsRegistrationInProgress.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     FsRtlSetDriverBacking @ 0x14070D2C0 (FsRtlSetDriverBacking.c)
  */
 
 void __stdcall IoRegisterFileSystem(PDEVICE_OBJECT DeviceObject)

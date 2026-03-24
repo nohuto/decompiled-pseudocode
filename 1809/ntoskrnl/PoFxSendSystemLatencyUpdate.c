@@ -2,10 +2,10 @@
  * XREFs of PoFxSendSystemLatencyUpdate @ 0x140005DA8
  * Callers:
  *     PoNotifyVSyncChange @ 0x140005D70 (PoNotifyVSyncChange.c)
- *     PopDeepSleepEvaluateCallback @ 0x1402E3710 (PopDeepSleepEvaluateCallback.c)
+ *     PopDeepSleepEvaluateCallback @ 0x1402E3810 (PopDeepSleepEvaluateCallback.c)
  *     PopCheckResiliencyScenarios @ 0x140589E14 (PopCheckResiliencyScenarios.c)
- *     PopEnforceResiliencyScenarios @ 0x1406E2084 (PopEnforceResiliencyScenarios.c)
- *     PopWnfFullscreenVideoCallback @ 0x140868F50 (PopWnfFullscreenVideoCallback.c)
+ *     PopEnforceResiliencyScenarios @ 0x1406E2064 (PopEnforceResiliencyScenarios.c)
+ *     PopWnfFullscreenVideoCallback @ 0x140868F30 (PopWnfFullscreenVideoCallback.c)
  *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
  * Callees:
  *     PopFxGetLatencyLimitWithoutResiliency @ 0x140005E34 (PopFxGetLatencyLimitWithoutResiliency.c)
@@ -13,7 +13,7 @@
  *     PoFxSystemLatencyNotify @ 0x140005EEC (PoFxSystemLatencyNotify.c)
  *     PopDiagTraceSystemLatencyUpdate @ 0x140005F88 (PopDiagTraceSystemLatencyUpdate.c)
  *     PpmGetExitSamplingCountdown @ 0x140005FFC (PpmGetExitSamplingCountdown.c)
- *     KeFlushProcessWriteBuffers @ 0x1400ECFD8 (KeFlushProcessWriteBuffers.c)
+ *     KeFlushProcessWriteBuffers @ 0x1400ECFF8 (KeFlushProcessWriteBuffers.c)
  */
 
 __int64 PoFxSendSystemLatencyUpdate()
@@ -25,7 +25,7 @@ __int64 PoFxSendSystemLatencyUpdate()
   __int64 v4; // rcx
   signed __int32 v5[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  if ( byte_140418254 && (!PopDeepSleepIsEnabled && PopPdcIdleResiliency || PopDeepSleepIsEngaged) )
+  if ( byte_140418234 && (!PopDeepSleepIsEnabled && PopPdcIdleResiliency || PopDeepSleepIsEngaged) )
     LatencyLimitWithoutResiliency = dword_14054034C;
   else
     LatencyLimitWithoutResiliency = PopFxGetLatencyLimitWithoutResiliency();

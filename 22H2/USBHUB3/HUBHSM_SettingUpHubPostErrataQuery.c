@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBHSM_SettingUpHubPostErrataQuery @ 0x1C00090E0
+ * XREFs of HUBHSM_SettingUpHubPostErrataQuery @ 0x1C0008910
  * Callers:
  *     <none>
  * Callees:
- *     HUBFDO_SetupHubPostErrataQuery @ 0x1C000EF38 (HUBFDO_SetupHubPostErrataQuery.c)
+ *     HUBFDO_SetupHubPostErrataQuery @ 0x1C000DD70 (HUBFDO_SetupHubPostErrataQuery.c)
  */
 
 __int64 __fastcall HUBHSM_SettingUpHubPostErrataQuery(__int64 a1)

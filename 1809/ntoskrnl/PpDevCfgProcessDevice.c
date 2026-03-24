@@ -1,9 +1,9 @@
 /*
- * XREFs of PpDevCfgProcessDevice @ 0x1408316D0
+ * XREFs of PpDevCfgProcessDevice @ 0x1408316B0
  * Callers:
- *     IopInitializeDeviceInstanceKey @ 0x1406DA66C (IopInitializeDeviceInstanceKey.c)
+ *     IopInitializeDeviceInstanceKey @ 0x1406DA64C (IopInitializeDeviceInstanceKey.c)
  * Callees:
- *     PiDevCfgProcessDevice @ 0x1406F4444 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgProcessDevice @ 0x1406F4424 (PiDevCfgProcessDevice.c)
  */
 
 __int64 __fastcall PpDevCfgProcessDevice(__int64 a1, __int64 a2, char a3)

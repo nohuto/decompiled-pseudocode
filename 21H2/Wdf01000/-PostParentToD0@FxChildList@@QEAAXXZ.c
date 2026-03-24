@@ -1,9 +1,9 @@
 /*
- * XREFs of ?PostParentToD0@FxChildList@@QEAAXXZ @ 0x1C0018090
+ * XREFs of ?PostParentToD0@FxChildList@@QEAAXXZ @ 0x1C0010908
  * Callers:
- *     ?PowerPolicyPostParentToD0ToChildren@FxPkgPnp@@AEAAXXZ @ 0x1C0018020 (-PowerPolicyPostParentToD0ToChildren@FxPkgPnp@@AEAAXXZ.c)
+ *     ?PowerPolicyPostParentToD0ToChildren@FxPkgPnp@@AEAAXXZ @ 0x1C0010898 (-PowerPolicyPostParentToD0ToChildren@FxPkgPnp@@AEAAXXZ.c)
  * Callees:
- *     ?PowerProcessEvent@FxPkgPnp@@QEAAXW4FxPowerEvent@@E@Z @ 0x1C00158AC (-PowerProcessEvent@FxPkgPnp@@QEAAXW4FxPowerEvent@@E@Z.c)
+ *     ?PowerProcessEvent@FxPkgPnp@@QEAAXW4FxPowerEvent@@E@Z @ 0x1C0011530 (-PowerProcessEvent@FxPkgPnp@@QEAAXW4FxPowerEvent@@E@Z.c)
  */
 
 void __fastcall FxChildList::PostParentToD0(FxChildList *this)
@@ -30,7 +30,7 @@ void __fastcall FxChildList::PostParentToD0(FxChildList *this)
       {
         Blink = v6[40].Blink;
         if ( BYTE4(Blink[111].Flink) )
-          FxPkgPnp::PowerProcessEvent((FxPkgPnp *)Blink, 0x100u, 0);
+          FxPkgPnp::PowerProcessEvent((FxPkgPnp *)Blink, PowerParentToD0, 0);
       }
     }
     Flink = Flink->Flink;

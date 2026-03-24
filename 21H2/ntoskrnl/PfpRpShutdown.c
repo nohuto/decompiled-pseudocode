@@ -1,15 +1,15 @@
 /*
- * XREFs of PfpRpShutdown @ 0x140988CC0
+ * XREFs of PfpRpShutdown @ 0x1408E0698
  * Callers:
- *     PfpParametersPropagate @ 0x140989028 (PfpParametersPropagate.c)
+ *     PfpParametersPropagate @ 0x1408E0AD4 (PfpParametersPropagate.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402F0990 (ExWaitForRundownProtectionRelease.c)
- *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     PfpRpControlRequestReset @ 0x140988C68 (PfpRpControlRequestReset.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     PfpRpControlRequestReset @ 0x1407C5A90 (PfpRpControlRequestReset.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpRpShutdown(__int64 a1)
@@ -17,12 +17,12 @@ __int64 __fastcall PfpRpShutdown(__int64 a1)
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v3; // rcx
   _QWORD *v4; // rdx
-  unsigned __int64 v5; // rsi
+  unsigned __int64 v5; // rdi
   unsigned __int64 *v6; // rcx
   unsigned __int64 v7; // rdx
-  void *v8; // r9
+  void *v8; // r10
   unsigned __int64 *v9; // rcx
-  unsigned __int64 *i; // rdx
+  unsigned __int64 *i; // rcx
   void *v11; // rcx
   __int64 v13; // [rsp+40h] [rbp+8h]
 
@@ -39,46 +39,7 @@ __int64 __fastcall PfpRpShutdown(__int64 a1)
     if ( (*v3 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
       v5 = *v3;
     if ( (v5 & 1) == 0 )
-    {
-LABEL_20:
-      while ( v5 )
-      {
-        v8 = (void *)v5;
-        v13 = *(_QWORD *)(v5 + 8) & (-1LL << (*(_DWORD *)(a1 + 4) & 0x1F));
-        v9 = (unsigned __int64 *)v5;
-        v5 = *(_QWORD *)v5;
-        if ( (v5 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
-          v5 = *v9;
-        if ( (v5 & 1) != 0 )
-        {
-          for ( i = (unsigned __int64 *)(*(_QWORD *)(a1 + 8)
-                                       + 8LL
-                                       + 8LL
-                                       * ((37
-                                         * (BYTE6(v13)
-                                          + 37
-                                          * (BYTE5(v13)
-                                           + 37
-                                           * (BYTE4(v13)
-                                            + 37
-                                            * (BYTE3(v13)
-                                             + 37
-                                             * (BYTE2(v13) + 37 * (BYTE1(v13) + 37 * ((unsigned __int8)v13 + 11623883)))))))
-                                         + HIBYTE(v13)) & (unsigned int)((*(_DWORD *)(a1 + 4) >> 5) - 1)));
-                (unsigned __int64)i < *(_QWORD *)(a1 + 8) + 8 * ((unsigned __int64)*(unsigned int *)(a1 + 4) >> 5);
-                ++i )
-          {
-            v5 = *i;
-            if ( (*i & 1) == 0 )
-              goto LABEL_19;
-          }
-          v5 = 0LL;
-        }
-LABEL_19:
-        ExFreePoolWithTag(v8, 0);
-      }
-      goto LABEL_21;
-    }
+      goto LABEL_20;
     v4 = *(_QWORD **)(a1 + 8);
   }
   v6 = v3 + 1;
@@ -90,7 +51,44 @@ LABEL_19:
       goto LABEL_20;
     ++v6;
   }
-LABEL_21:
+  v5 = 0LL;
+LABEL_20:
+  while ( v5 )
+  {
+    v8 = (void *)v5;
+    v13 = *(_QWORD *)(v5 + 8) & (-1LL << (*(_DWORD *)(a1 + 4) & 0x1F));
+    v9 = (unsigned __int64 *)v5;
+    v5 = *(_QWORD *)v5;
+    if ( (v5 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
+      v5 = *v9;
+    if ( (v5 & 1) != 0 )
+    {
+      for ( i = (unsigned __int64 *)(*(_QWORD *)(a1 + 8)
+                                   + 8LL
+                                   * ((37
+                                     * (BYTE6(v13)
+                                      + 37
+                                      * (BYTE5(v13)
+                                       + 37
+                                       * (BYTE4(v13)
+                                        + 37
+                                        * (BYTE3(v13)
+                                         + 37
+                                         * (BYTE2(v13) + 37 * (BYTE1(v13) + 37 * ((unsigned __int8)v13 + 11623883)))))))
+                                     + HIBYTE(v13)) & (unsigned int)((*(_DWORD *)(a1 + 4) >> 5) - 1))
+                                   + 8);
+            (unsigned __int64)i < *(_QWORD *)(a1 + 8) + 8 * ((unsigned __int64)*(unsigned int *)(a1 + 4) >> 5);
+            ++i )
+      {
+        v5 = *i;
+        if ( (*i & 1) == 0 )
+          goto LABEL_19;
+      }
+      v5 = 0LL;
+    }
+LABEL_19:
+    ExFreePoolWithTag(v8, 0);
+  }
   v11 = *(void **)(a1 + 8);
   if ( v11 )
     ExFreePoolWithTag(v11, 0);

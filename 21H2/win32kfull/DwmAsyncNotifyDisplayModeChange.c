@@ -1,5 +1,5 @@
 /*
- * XREFs of DwmAsyncNotifyDisplayModeChange @ 0x1C011B2E0
+ * XREFs of DwmAsyncNotifyDisplayModeChange @ 0x1C012E360
  * Callers:
  *     <none>
  * Callees:
@@ -17,7 +17,7 @@ __int64 __fastcall DwmAsyncNotifyDisplayModeChange(PVOID Object)
   _InterlockedIncrement64(&g_cDWMWindowUniqueness);
   if ( Object )
   {
-    v6 = 1073741879;
+    v6 = 1073741878;
     v5 = 0LL;
     memset(v4, 0, sizeof(v4));
     LODWORD(v4[0]) = 2883588;

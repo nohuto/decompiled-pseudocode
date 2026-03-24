@@ -1,13 +1,13 @@
 /*
- * XREFs of ExReleaseAutoExpandPushLockShared @ 0x1401073F0
+ * XREFs of ExReleaseAutoExpandPushLockShared @ 0x140107410
  * Callers:
- *     MiUnlockAweVadsShared @ 0x1402B1FE0 (MiUnlockAweVadsShared.c)
+ *     MiUnlockAweVadsShared @ 0x1402B20E0 (MiUnlockAweVadsShared.c)
  * Callees:
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfReleasePushLockSharedEx @ 0x14010756C (ExfReleasePushLockSharedEx.c)
- *     ExpTryExpandAutoExpandPushLock @ 0x1401674D8 (ExpTryExpandAutoExpandPushLock.c)
- *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ExfReleasePushLockSharedEx @ 0x14010758C (ExfReleasePushLockSharedEx.c)
+ *     ExpTryExpandAutoExpandPushLock @ 0x1401674F8 (ExpTryExpandAutoExpandPushLock.c)
+ *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExReleaseAutoExpandPushLockShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)

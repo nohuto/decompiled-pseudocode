@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SendMouseLatencyTelemetryRandomPick@MousePerfSummary@@AEAAXXZ @ 0x1C00E95A0
+ * XREFs of ?SendMouseLatencyTelemetryRandomPick@MousePerfSummary@@AEAAXXZ @ 0x1C01C2ED0
  * Callers:
- *     ?CollectMousePerfTelemetry@MousePerfSummary@@QEAAXAEBU_MousePerf@@@Z @ 0x1C0038074 (-CollectMousePerfTelemetry@MousePerfSummary@@QEAAXAEBU_MousePerf@@@Z.c)
+ *     ?CollectMousePerfTelemetry@MousePerfSummary@@QEAAXAEBU_MousePerf@@@Z @ 0x1C0041978 (-CollectMousePerfTelemetry@MousePerfSummary@@QEAAXAEBU_MousePerf@@@Z.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1C002A380 (_tlgKeywordOn.c)
- *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@3333333333@Z @ 0x1C01FE860 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@@-$_.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@3333333333@Z @ 0x1C00012BC (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@@-$_.c)
+ *     _tlgKeywordOn @ 0x1C004A640 (_tlgKeywordOn.c)
  */
 
 void __fastcall MousePerfSummary::SendMouseLatencyTelemetryRandomPick(LARGE_INTEGER *this)
 {
   LARGE_INTEGER PerformanceCounter; // rdi
-  int v3; // ecx
-  int v4; // r8d
-  int v5; // r9d
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  __int64 v5; // r9
   LARGE_INTEGER v6; // [rsp+90h] [rbp-9h] BYREF
   LARGE_INTEGER v7; // [rsp+98h] [rbp-1h] BYREF
   LARGE_INTEGER v8; // [rsp+A0h] [rbp+7h] BYREF
@@ -30,24 +30,24 @@ void __fastcall MousePerfSummary::SendMouseLatencyTelemetryRandomPick(LARGE_INTE
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
   if ( (unsigned __int64)(1000 * (PerformanceCounter.QuadPart - this[63].QuadPart)) / gliQpcFreq.QuadPart > 0x1B7740 )
   {
-    if ( (unsigned int)dword_1C028D610 > 5 && tlgKeywordOn((__int64)&dword_1C028D610, 0x400000000000LL) )
+    if ( (unsigned int)dword_1C024A170 > 5 && tlgKeywordOn((__int64)&dword_1C024A170, 0x400000000000LL) )
     {
-      v16 = this[76];
-      v17 = this[75];
-      v18 = this[74];
-      v6 = this[73];
-      v7 = this[72];
-      v8 = this[71];
-      v9 = this[70];
-      v10 = this[69];
-      v11 = this[68];
-      v12 = this[67];
-      HighPart = this[77].HighPart;
-      LowPart = (int)this[77].LowPart;
+      v16 = this[75];
+      v17 = this[74];
+      v18 = this[73];
+      v6 = this[72];
+      v7 = this[71];
+      v8 = this[70];
+      v9 = this[69];
+      v10 = this[68];
+      v11 = this[67];
+      v12 = this[66];
+      HighPart = this[76].HighPart;
+      LowPart = (int)this[76].LowPart;
       v14[0] = 0x2000000LL;
       _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
         v3,
-        (unsigned int)&unk_1C02640AE,
+        (int)&unk_1C0221030,
         v4,
         v5,
         (__int64)v14,
@@ -64,8 +64,8 @@ void __fastcall MousePerfSummary::SendMouseLatencyTelemetryRandomPick(LARGE_INTE
         (__int64)&v17,
         (__int64)&v16);
     }
-    this[65].QuadPart = 0LL;
+    this[64].QuadPart = 0LL;
     this[63] = PerformanceCounter;
-    LOBYTE(this[66].LowPart) = 0;
+    LOBYTE(this[65].LowPart) = 0;
   }
 }

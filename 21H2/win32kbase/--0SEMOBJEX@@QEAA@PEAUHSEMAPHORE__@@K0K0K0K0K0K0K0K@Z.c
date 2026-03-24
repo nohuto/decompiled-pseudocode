@@ -1,11 +1,11 @@
 /*
- * XREFs of ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C00D4C28
+ * XREFs of ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C00C2FB0
  * Callers:
- *     HDXDrvEscape @ 0x1C00D4960 (HDXDrvEscape.c)
- *     GreDrvConnect @ 0x1C016C570 (GreDrvConnect.c)
+ *     HDXDrvEscape @ 0x1C00C2D00 (HDXDrvEscape.c)
+ *     GreDrvConnect @ 0x1C013F280 (GreDrvConnect.c)
  * Callees:
- *     EngAcquireSemaphore @ 0x1C002DF70 (EngAcquireSemaphore.c)
- *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0087C00 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EngAcquireSemaphore @ 0x1C0038DC0 (EngAcquireSemaphore.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C007DB70 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
  */
 
 SEMOBJEX *__fastcall SEMOBJEX::SEMOBJEX(
@@ -14,15 +14,22 @@ SEMOBJEX *__fastcall SEMOBJEX::SEMOBJEX(
         __int64 a3,
         HSEMAPHORE a4,
         unsigned int a5,
-        HSEMAPHORE hsem,
+        HSEMAPHORE a6,
         unsigned int a7,
-        HSEMAPHORE a8,
+        HSEMAPHORE hsem,
         unsigned int a9,
         HSEMAPHORE a10,
         unsigned int a11,
         HSEMAPHORE a12,
         unsigned int a13)
 {
+  HSEMAPHORE v13; // rdi
+  HSEMAPHORE v15; // rcx
+  HSEMAPHORE v16; // rsi
+
+  v13 = ghsemDCVisRgn;
+  v15 = ghsemDynamicModeChange;
+  v16 = ghsemGreLock;
   *((_QWORD *)this + 7) = 0LL;
   *((_QWORD *)this + 6) = 0LL;
   *((_QWORD *)this + 5) = 0LL;
@@ -35,29 +42,29 @@ SEMOBJEX *__fastcall SEMOBJEX::SEMOBJEX(
   *((_QWORD *)this + 10) = 0LL;
   *((_QWORD *)this + 9) = 0LL;
   *((_QWORD *)this + 8) = 0LL;
-  if ( a2 )
+  if ( v15 )
   {
-    *(_QWORD *)this = a2;
+    *(_QWORD *)this = v15;
     *((_DWORD *)this + 16) = 1;
-    EngAcquireSemaphore(a2);
+    EngAcquireSemaphore(v15);
     EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"hSem1", *(_QWORD *)this, *((_DWORD *)this + 16));
-    if ( a4 )
+    if ( v16 )
     {
-      *((_QWORD *)this + 1) = a4;
+      *((_QWORD *)this + 1) = v16;
       *((_DWORD *)this + 17) = 2;
-      EngAcquireSemaphore(a4);
+      EngAcquireSemaphore(v16);
       EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"hSem2", *((_QWORD *)this + 1), *((_DWORD *)this + 17));
-      if ( hsem )
+      if ( v13 )
       {
-        *((_QWORD *)this + 2) = hsem;
+        *((_QWORD *)this + 2) = v13;
         *((_DWORD *)this + 18) = 3;
-        EngAcquireSemaphore(hsem);
+        EngAcquireSemaphore(v13);
         EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"hSem3", *((_QWORD *)this + 2), *((_DWORD *)this + 18));
-        if ( a8 )
+        if ( hsem )
         {
           *((_DWORD *)this + 19) = a9;
-          *((_QWORD *)this + 3) = a8;
-          EngAcquireSemaphore(a8);
+          *((_QWORD *)this + 3) = hsem;
+          EngAcquireSemaphore(hsem);
           EtwTraceGreLockAcquireSemaphoreExclusive((__int64)L"hSem4", *((_QWORD *)this + 3), *((_DWORD *)this + 19));
           if ( a10 )
           {

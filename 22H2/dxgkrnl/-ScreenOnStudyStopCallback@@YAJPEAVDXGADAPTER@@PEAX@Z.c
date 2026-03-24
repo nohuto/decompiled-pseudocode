@@ -1,9 +1,9 @@
 /*
- * XREFs of ?ScreenOnStudyStopCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C001BF90
+ * XREFs of ?ScreenOnStudyStopCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C0020340
  * Callers:
  *     <none>
  * Callees:
- *     LogMonitorOnOffTelemetry @ 0x1C01F6890 (LogMonitorOnOffTelemetry.c)
+ *     LogMonitorOnOffTelemetry @ 0x1C017A470 (LogMonitorOnOffTelemetry.c)
  */
 
 __int64 __fastcall ScreenOnStudyStopCallback(struct DXGADAPTER *a1, void *a2, __int64 a3)

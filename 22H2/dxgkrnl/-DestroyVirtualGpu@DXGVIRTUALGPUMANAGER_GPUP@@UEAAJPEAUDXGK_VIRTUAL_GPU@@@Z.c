@@ -1,35 +1,30 @@
 /*
- * XREFs of ?DestroyVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAUDXGK_VIRTUAL_GPU@@@Z @ 0x1C0371500
+ * XREFs of ?DestroyVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAUDXGK_VIRTUAL_GPU@@@Z @ 0x1C02379D0
  * Callers:
  *     <none>
  * Callees:
- *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008140 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
- *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0028CD0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall DXGVIRTUALGPUMANAGER_GPUP::DestroyVirtualGpu(
         DXGVIRTUALGPUMANAGER_GPUP *this,
         struct DXGK_VIRTUAL_GPU *a2)
 {
-  __int64 v2; // r14
-  _QWORD *v3; // rbx
-  __int64 v6; // rdx
-  _QWORD *v7; // rax
+  __int64 v2; // rsi
+  char *v3; // r8
+  __int64 v5; // rax
+  char **v7; // rcx
 
   v2 = *((unsigned int *)a2 + 6);
-  v3 = (_QWORD *)((char *)a2 + 120);
+  v3 = (char *)a2 + 120;
   --*((_DWORD *)this + 4);
-  if ( *((_QWORD *)a2 + 15) )
+  v5 = *((_QWORD *)a2 + 15);
+  if ( v5 )
   {
-    DXGPUSHLOCK::AcquireExclusive((DXGVIRTUALGPUMANAGER_GPUP *)((char *)this + 72));
-    v6 = *v3;
-    if ( *(_QWORD **)(*v3 + 8LL) != v3 || (v7 = (_QWORD *)v3[1], (_QWORD *)*v7 != v3) )
+    if ( *(char **)(v5 + 8) != v3 || (v7 = (char **)*((_QWORD *)a2 + 16), *v7 != v3) )
       __fastfail(3u);
-    *v7 = v6;
-    *(_QWORD *)(v6 + 8) = v7;
-    *((_QWORD *)this + 10) = 0LL;
-    ExReleasePushLockExclusiveEx((char *)this + 72, 0LL);
-    KeLeaveCriticalRegion();
+    *v7 = (char *)v5;
+    *(_QWORD *)(v5 + 8) = v7;
   }
   (*(void (__fastcall **)(struct DXGK_VIRTUAL_GPU *))(*(_QWORD *)a2 + 144LL))(a2);
   (*(void (__fastcall **)(struct DXGK_VIRTUAL_GPU *))(*(_QWORD *)a2 + 8LL))(a2);

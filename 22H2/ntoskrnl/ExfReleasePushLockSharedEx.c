@@ -1,12 +1,10 @@
 /*
- * XREFs of ExfReleasePushLockSharedEx @ 0x1403266F8
+ * XREFs of ExfReleasePushLockSharedEx @ 0x1402E7260
  * Callers:
- *     FsRtlLookupPerStreamContextInternal @ 0x140230340 (FsRtlLookupPerStreamContextInternal.c)
- *     ExReleaseAutoExpandPushLockShared @ 0x140230AB0 (ExReleaseAutoExpandPushLockShared.c)
- *     FsRtlLookupPerFileObjectContext @ 0x140326430 (FsRtlLookupPerFileObjectContext.c)
+ *     ExReleaseAutoExpandPushLockShared @ 0x1402E70E0 (ExReleaseAutoExpandPushLockShared.c)
  * Callees:
- *     ExpWakePushLock @ 0x1402BD960 (ExpWakePushLock.c)
- *     ExpAeStopMeasurement @ 0x1403267C4 (ExpAeStopMeasurement.c)
+ *     ExpWakePushLock @ 0x140271C20 (ExpWakePushLock.c)
+ *     ExpAeStopMeasurement @ 0x1402E735C (ExpAeStopMeasurement.c)
  */
 
 int __fastcall ExfReleasePushLockSharedEx(signed __int64 *a1, _QWORD *a2)

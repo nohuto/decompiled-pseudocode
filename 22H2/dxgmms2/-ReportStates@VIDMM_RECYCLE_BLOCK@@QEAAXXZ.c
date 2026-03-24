@@ -1,18 +1,18 @@
 /*
- * XREFs of ?ReportStates@VIDMM_RECYCLE_BLOCK@@QEAAXXZ @ 0x1C00C442A
+ * XREFs of ?ReportStates@VIDMM_RECYCLE_BLOCK@@QEAAXXZ @ 0x1C00C05C8
  * Callers:
- *     ?ReportBlockStates@VIDMM_RECYCLE_HEAP@@QEAAXXZ @ 0x1C00F62A4 (-ReportBlockStates@VIDMM_RECYCLE_HEAP@@QEAAXXZ.c)
+ *     ?ReportBlockStates@VIDMM_RECYCLE_HEAP@@QEAAXXZ @ 0x1C00C0400 (-ReportBlockStates@VIDMM_RECYCLE_HEAP@@QEAAXXZ.c)
  * Callees:
- *     McTemplateK0pppppppqq_EtwWriteTransfer @ 0x1C00320F0 (McTemplateK0pppppppqq_EtwWriteTransfer.c)
- *     McTemplateK0qxxx_EtwWriteTransfer @ 0x1C003228C (McTemplateK0qxxx_EtwWriteTransfer.c)
+ *     McTemplateK0pppppppqq_EtwWriteTransfer @ 0x1C0027E78 (McTemplateK0pppppppqq_EtwWriteTransfer.c)
+ *     McTemplateK0qpxp_EtwWriteTransfer @ 0x1C0028014 (McTemplateK0qpxp_EtwWriteTransfer.c)
  */
 
 void __fastcall VIDMM_RECYCLE_BLOCK::ReportStates(VIDMM_RECYCLE_BLOCK *this, __int64 a2, __int64 a3)
 {
   char *v3; // r14
-  char *i; // rsi
+  char *i; // rdi
   char *v6; // rbx
-  __int64 v7; // rcx
+  int v7; // eax
   __int64 v8; // rcx
   __int64 v9; // rcx
   __int64 v10; // [rsp+50h] [rbp-18h]
@@ -22,29 +22,26 @@ void __fastcall VIDMM_RECYCLE_BLOCK::ReportStates(VIDMM_RECYCLE_BLOCK *this, __i
   for ( i = (char *)*((_QWORD *)this + 9); i != v3; i = *(char **)i )
   {
     v6 = i - 120;
-    if ( *((_DWORD *)i - 14) == 1
-      || *((_DWORD *)i - 14) == 2
-      || *((_DWORD *)i - 14) == 3
-      || (unsigned int)(*((_DWORD *)i - 14) - 4) <= 1 )
+    v7 = *((_DWORD *)i - 14);
+    if ( v7 == 1 || v7 > 1 && v7 <= 5 )
     {
       if ( bTracingEnabled )
       {
-        v7 = *((_QWORD *)this + 4);
-        a2 = (unsigned int)(*(_DWORD *)v7 - 3) <= 3 ? *((_QWORD *)this + 7) : *((_QWORD *)v6 + 4);
-        a3 = *((_QWORD *)v6 + 5) - *((_QWORD *)v6 + 4);
-        v8 = *(_QWORD *)(*(_QWORD *)(v7 + 8) + 8LL);
-        if ( (byte_1C0076981 & 8) != 0 )
-          McTemplateK0qxxx_EtwWriteTransfer(
-            v8,
+        v8 = *((_QWORD *)this + 4);
+        a2 = (unsigned int)(*(_DWORD *)v8 - 3) > 3 ? *((_QWORD *)v6 + 4) : *((_QWORD *)this + 7);
+        a3 = *((_QWORD *)v6 + 4);
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200) != 0 )
+          McTemplateK0qpxp_EtwWriteTransfer(
+            *((_QWORD *)v6 + 5) - a3,
             &EventCreateProcessAllocationDetails,
             a3,
-            *(_DWORD *)(v8 + 8),
+            *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v8 + 8) + 8LL) + 8LL),
             (_BYTE)i - 120,
-            a3,
+            v6[40] - a3,
             a2);
       }
     }
-    if ( (byte_1C0076982 & 2) != 0 )
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
     {
       v9 = *((_QWORD *)this + 4);
       LODWORD(v11) = *((_DWORD *)v6 + 16);

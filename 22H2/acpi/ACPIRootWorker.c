@@ -1,10 +1,10 @@
 /*
- * XREFs of ACPIRootWorker @ 0x1C0094960
+ * XREFs of ACPIRootWorker @ 0x1C00B5360
  * Callers:
  *     <none>
  * Callees:
- *     OSCreateHandle @ 0x1C008DB64 (OSCreateHandle.c)
- *     OSWriteRegValue @ 0x1C008EC40 (OSWriteRegValue.c)
+ *     OSCreateHandle @ 0x1C0096D28 (OSCreateHandle.c)
+ *     OSWriteRegValue @ 0x1C0096E28 (OSWriteRegValue.c)
  */
 
 NTSTATUS __fastcall ACPIRootWorker(__int64 a1, char a2)

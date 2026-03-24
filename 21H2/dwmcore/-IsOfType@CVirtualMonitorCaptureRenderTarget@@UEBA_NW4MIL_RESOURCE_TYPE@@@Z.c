@@ -1,5 +1,5 @@
 /*
- * XREFs of ?IsOfType@CVirtualMonitorCaptureRenderTarget@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801A16C0
+ * XREFs of ?IsOfType@CVirtualMonitorCaptureRenderTarget@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18016FBF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool __fastcall CVirtualMonitorCaptureRenderTarget::IsOfType(__int64 a1, int a2)
 {
-  return a2 == 194 || a2 == 18 || a2 == 145 || a2 == 112;
+  return a2 == 194 || a2 == 17 || a2 == 146 || a2 == 112;
 }

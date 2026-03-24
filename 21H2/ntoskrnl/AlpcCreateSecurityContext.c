@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcCreateSecurityContext @ 0x1409662A0
+ * XREFs of AlpcCreateSecurityContext @ 0x1408C22C0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     AlpcpDereferenceBlobEx @ 0x1407A5A54 (AlpcpDereferenceBlobEx.c)
- *     AlpcpCreateSecurityContext @ 0x1407A74A4 (AlpcpCreateSecurityContext.c)
+ *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpCreateSecurityContext @ 0x1406605EC (AlpcpCreateSecurityContext.c)
+ *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall AlpcCreateSecurityContext(void *a1, struct _KTHREAD *a2, int a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rax
   int SecurityContext; // ebx
-  PVOID v8; // rdi
+  struct _DMA_ADAPTER *v8; // rdi
   struct _SECURITY_QUALITY_OF_SERVICE *v9; // r9
   ULONG_PTR v10; // rcx
   PVOID Object; // [rsp+30h] [rbp-18h] BYREF
@@ -33,7 +33,7 @@ __int64 __fastcall AlpcCreateSecurityContext(void *a1, struct _KTHREAD *a2, int 
     SecurityContext = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, 0, &Object, 0LL);
     if ( SecurityContext >= 0 )
     {
-      v8 = Object;
+      v8 = (struct _DMA_ADAPTER *)Object;
       if ( !a4 || (v9 = *(struct _SECURITY_QUALITY_OF_SERVICE **)(a4 + 8)) == 0LL )
         v9 = (struct _SECURITY_QUALITY_OF_SERVICE *)((char *)Object + 260);
       SecurityContext = AlpcpCreateSecurityContext((volatile signed __int64 *)Object, a2, 1, v9, BugCheckParameter2);
@@ -43,9 +43,9 @@ __int64 __fastcall AlpcCreateSecurityContext(void *a1, struct _KTHREAD *a2, int 
         *(_QWORD *)(a4 + 16) = *(_QWORD *)(BugCheckParameter2[0] + 8);
         AlpcpDereferenceBlobEx(v10, 1);
       }
-      ObfDereferenceObject(v8);
+      HalPutDmaAdapter(v8);
     }
   }
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return (unsigned int)SecurityContext;
 }

@@ -1,101 +1,174 @@
 /*
- * XREFs of MiSessionCreateInternal @ 0x1407F336C
+ * XREFs of MiSessionCreateInternal @ 0x140786C10
  * Callers:
- *     MiSessionCreate @ 0x1407F3718 (MiSessionCreate.c)
+ *     MiSessionCreate @ 0x14078620C (MiSessionCreate.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140204738 (PsGetServerSiloGlobals.c)
- *     MiReturnResident @ 0x140216E18 (MiReturnResident.c)
- *     MiChargeResident @ 0x1402821F4 (MiChargeResident.c)
- *     MiAllocatePool @ 0x1402828F0 (MiAllocatePool.c)
- *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     PsGetCurrentServerSilo @ 0x1402F61B0 (PsGetCurrentServerSilo.c)
- *     RtlGetInterruptTimePrecise @ 0x140303490 (RtlGetInterruptTimePrecise.c)
- *     EtwTraceKernelEvent @ 0x14035EDE4 (EtwTraceKernelEvent.c)
- *     MiMarkSessionMasterProcess @ 0x14036D9B8 (MiMarkSessionMasterProcess.c)
- *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     MiGetNewSessionId @ 0x1407F3534 (MiGetNewSessionId.c)
- *     MiFreeSessionId @ 0x14096DC98 (MiFreeSessionId.c)
- *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
+ *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
+ *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
+ *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
+ *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
+ *     MiChargeResident @ 0x14025A658 (MiChargeResident.c)
+ *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
+ *     PsGetCurrentServerSilo @ 0x14025C9C0 (PsGetCurrentServerSilo.c)
+ *     KeQueryInterruptTimePrecise @ 0x1402BF150 (KeQueryInterruptTimePrecise.c)
+ *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
+ *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
+ *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
+ *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlClearAllBits @ 0x140362270 (RtlClearAllBits.c)
+ *     MiMarkSessionMasterProcess @ 0x14039DE5C (MiMarkSessionMasterProcess.c)
+ *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     memmove @ 0x140413F40 (memmove.c)
+ *     MiMapNewSession @ 0x14078708C (MiMapNewSession.c)
+ *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
 {
-  void *v2; // rbp
-  _KPROCESS *Process; // r15
-  unsigned __int32 NewSessionId; // eax
-  unsigned __int32 v5; // esi
-  unsigned __int64 v6; // rdi
-  __int64 *Pool; // rbx
-  PVOID v8; // rax
-  int v9; // eax
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 Process; // rax
+  ULONG ClearBitsAndSet; // r14d
+  unsigned int v5; // edi
+  RTL_BITMAP *Pool; // rax
+  RTL_BITMAP *v7; // r14
+  __int64 v8; // r8
+  unsigned __int64 v9; // r9
+  ULONG_PTR v10; // rax
+  __int64 v11; // r9
+  _QWORD *v12; // r15
+  __int64 v13; // rdi
+  unsigned __int16 v14; // ax
+  int v15; // ecx
+  unsigned __int16 v16; // si
+  __int64 v17; // rax
+  __int64 v18; // r15
+  unsigned __int64 v19; // rcx
+  __int64 v20; // rcx
   void *CurrentServerSilo; // rax
-  LARGE_INTEGER v12; // [rsp+30h] [rbp-48h] BYREF
-  __int64 *v13; // [rsp+38h] [rbp-40h] BYREF
-  unsigned __int32 v14; // [rsp+40h] [rbp-38h]
-  int v15; // [rsp+44h] [rbp-34h]
-  __int64 **v16; // [rsp+48h] [rbp-30h] BYREF
-  int v17; // [rsp+50h] [rbp-28h]
-  int v18; // [rsp+54h] [rbp-24h]
+  __int64 v23; // [rsp+30h] [rbp-50h] BYREF
+  __int64 v24; // [rsp+38h] [rbp-48h]
+  __int64 v25; // [rsp+40h] [rbp-40h]
+  LARGE_INTEGER v26; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v27; // [rsp+50h] [rbp-30h] BYREF
+  ULONG v28; // [rsp+58h] [rbp-28h]
+  int v29; // [rsp+5Ch] [rbp-24h]
+  _QWORD v30[2]; // [rsp+60h] [rbp-20h] BYREF
 
-  v2 = 0LL;
-  Process = KeGetCurrentThread()->ApcState.Process;
-  NewSessionId = MiGetNewSessionId();
-  v5 = NewSessionId;
-  if ( NewSessionId == -1 )
-    return 3221225495LL;
-  v6 = NewSessionId != 0 ? 1024LL : 20LL;
-  if ( !(unsigned int)MiChargeResident(a1, v6, 0LL) )
+  CurrentThread = KeGetCurrentThread();
+  v24 = qword_140C4DDE0;
+  Process = (__int64)CurrentThread->ApcState.Process;
+  --CurrentThread->SpecialApcDisable;
+  v25 = Process;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4DDB8, 0LL);
+  ClearBitsAndSet = RtlFindClearBitsAndSet(qword_140C4EF10, 1u, 0);
+  if ( ClearBitsAndSet == -1 )
   {
-LABEL_15:
-    MiFreeSessionId(v5);
-    return 3221225495LL;
+    v5 = qword_140C4EF10->SizeOfBitMap + 128;
+    if ( v5 > 0x7FFFF )
+      v5 = 0x7FFFF;
+    Pool = (RTL_BITMAP *)MiAllocatePool(256, 8 * ((v5 >> 6) + ((v5 & 0x3F) != 0) + 2), 0x20206D4Du);
+    v7 = Pool;
+    if ( !Pool )
+      goto LABEL_21;
+    Pool->SizeOfBitMap = v5;
+    Pool->Buffer = &Pool[1].SizeOfBitMap;
+    RtlClearAllBits(Pool);
+    memmove(
+      v7->Buffer,
+      qword_140C4EF10->Buffer,
+      8 * (((unsigned __int64)qword_140C4EF10->SizeOfBitMap >> 6) + ((qword_140C4EF10->SizeOfBitMap & 0x3F) != 0)));
+    ExFreePoolWithTag(qword_140C4EF10, 0);
+    qword_140C4EF10 = v7;
+    ClearBitsAndSet = RtlFindClearBitsAndSet(v7, 1u, 0);
   }
-  Pool = (__int64 *)MiAllocatePool(64, 0x3C0uLL, 0x7353694Du);
-  if ( !Pool || (v8 = MiAllocatePool(64, 0x4000uLL, 0x7353694Du), (v2 = v8) == 0LL) )
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4DDB8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&qword_140C4DDB8);
+  KeAbPostRelease((ULONG_PTR)&qword_140C4DDB8);
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  if ( (unsigned int)MiChargeCommit((__int64)a1, 8uLL, 0) )
   {
-    MiReturnResident((__int64)a1, v6);
-    if ( Pool )
+    v10 = MiReservePtes((__int64)&qword_140C4EF40, 1u, v8, v9);
+    v12 = (_QWORD *)v10;
+    if ( v10 )
     {
-      ExFreePoolWithTag(Pool, 0);
-      if ( v2 )
-        ExFreePoolWithTag(v2, 0);
+      v13 = (__int64)(v10 << 25) >> 16;
+      if ( (unsigned int)MiChargeResident(a1, ClearBitsAndSet != 0 ? 1032LL : 28LL, 0LL, v11) )
+      {
+        v14 = MiMapNewSession(v13, *(unsigned __int16 *)a1);
+        v15 = PsDefaultSystemLocaleId;
+        v16 = v14;
+        *(_DWORD *)(v13 + 4) = 0;
+        *(_DWORD *)(v13 + 96) = v15;
+        *(_DWORD *)v13 = 1;
+        *(_DWORD *)(v13 + 8) = ClearBitsAndSet;
+        v17 = KeQueryInterruptTimePrecise(&v26);
+        v18 = v24;
+        v19 = v24;
+        *(_QWORD *)(v13 + 1056) = v17;
+        v23 = MI_READ_PTE_LOCK_FREE(8 * ((v19 >> 39) & 0x1FF) - 0x90482413000LL);
+        *(_QWORD *)(v13 + 32) = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v23) >> 12) & 0xFFFFFFFFFLL;
+        *(_WORD *)(v13 + 430) = *(_WORD *)a1;
+        v20 = _InterlockedIncrement64((volatile signed __int64 *)(a1[22] + 24));
+        if ( v20 <= 1 )
+          __fastfail(0xEu);
+        *(_QWORD *)(v13 + 368) = ClearBitsAndSet != 0 ? 1024LL : 20LL;
+        *(_DWORD *)(v13 + 256) = v16;
+        *(_QWORD *)(v13 + 40) = 8LL;
+        *(_QWORD *)(v13 + 48) = 8LL;
+        *(_QWORD *)(v13 + 816) = v23;
+        *(_QWORD *)(v13 + 24) = v13 + 16;
+        *(_QWORD *)(v13 + 16) = v13 + 16;
+        *(_QWORD *)(v13 + 824) = 0LL;
+        *(_QWORD *)(v13 + 88) = 0LL;
+        *(_QWORD *)(v13 + 856) = 0LL;
+        *(_DWORD *)(v13 + 12) = 1;
+        *(_QWORD *)(v13 + 224) = _InterlockedIncrement64(&PsNextSecurityDomain);
+        CurrentServerSilo = (void *)PsGetCurrentServerSilo(v20, 1LL);
+        *(_QWORD *)(v13 + 1048) = CurrentServerSilo;
+        if ( CurrentServerSilo )
+        {
+          ObfReferenceObjectWithTag(CurrentServerSilo, 0x73536D4Du);
+          _InterlockedCompareExchange(
+            *((volatile signed __int32 **)PsGetServerSiloGlobals(*(_QWORD *)(v13 + 1048)) + 141),
+            ClearBitsAndSet,
+            -1);
+        }
+        MiMarkSessionMasterProcess(v25, v13);
+        *(_DWORD *)(v13 + 904) = 4;
+        *(_QWORD *)(v13 + 896) = MiGetPteAddress(qword_140C4CDA0);
+        *(_QWORD *)(v13 + 912) = v18 + 220;
+        *(_DWORD *)(v13 + 908) = 1;
+        *(_QWORD *)(v13 + 928) = v13 + 856;
+        *(_BYTE *)(v13 + 440) = *(_BYTE *)(v13 + 440) & 0xF8 | 1;
+        if ( (DWORD1(PerfGlobalGroupMask) & 0x400000) != 0 )
+        {
+          v29 = 0;
+          v30[0] = &v27;
+          v28 = ClearBitsAndSet;
+          v27 = v13;
+          v30[1] = 12LL;
+          EtwTraceKernelEvent((int)v30, 1, 0x20400000u, 587, 4200451);
+        }
+        return 0LL;
+      }
     }
-    goto LABEL_15;
+    MiReturnCommit((__int64)a1, 8LL);
+    if ( v12 )
+      MiReleasePtes((__int64)&qword_140C4EF40, v12, 1u);
   }
-  Pool[112] = (__int64)v8;
-  v9 = PsDefaultSystemLocaleId;
-  *(_DWORD *)Pool = 1;
-  *((_DWORD *)Pool + 22) = v9;
-  *((_DWORD *)Pool + 2) = v5;
-  Pool[111] = RtlGetInterruptTimePrecise(&v12);
-  *((_WORD *)Pool + 183) = *(_WORD *)a1;
-  if ( _InterlockedIncrement64((volatile signed __int64 *)(a1[22] + 24)) <= 1 )
-    __fastfail(0xEu);
-  Pool[38] = v6;
-  Pool[94] = 0LL;
-  Pool[10] = 0LL;
-  Pool[3] = (__int64)(Pool + 2);
-  Pool[2] = (__int64)(Pool + 2);
-  *((_DWORD *)Pool + 3) = 1;
-  Pool[23] = _InterlockedIncrement64(&PsNextSecurityDomain);
-  CurrentServerSilo = (void *)PsGetCurrentServerSilo();
-  Pool[110] = (__int64)CurrentServerSilo;
-  if ( CurrentServerSilo )
-  {
-    ObfReferenceObjectWithTag(CurrentServerSilo, 0x73536D4Du);
-    _InterlockedCompareExchange(*((volatile signed __int32 **)PsGetServerSiloGlobals(Pool[110]) + 165), v5, -1);
-  }
-  MiMarkSessionMasterProcess((__int64)Process, (__int64)Pool);
-  *((_BYTE *)Pool + 376) = Pool[47] & 0xF8 | 1;
-  if ( (DWORD1(PerfGlobalGroupMask[0]) & 0x400000) != 0 )
-  {
-    v15 = 0;
-    v18 = 0;
-    v16 = &v13;
-    v14 = v5;
-    v13 = Pool;
-    v17 = 12;
-    EtwTraceKernelEvent((__int64)&v16, 1u, 0x20400000u, 0x24Bu, 0x401803u);
-  }
-  return 0LL;
+  --CurrentThread->SpecialApcDisable;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4DDB8, 0LL);
+  _bittestandreset((signed __int32 *)qword_140C4EF10->Buffer, ClearBitsAndSet);
+LABEL_21:
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4DDB8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&qword_140C4DDB8);
+  KeAbPostRelease((ULONG_PTR)&qword_140C4DDB8);
+  KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  return 3221225495LL;
 }

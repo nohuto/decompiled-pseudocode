@@ -1,80 +1,76 @@
 /*
- * XREFs of NtUserGetHimetricScaleFactorFromPixelLocation @ 0x1C01D18B0
+ * XREFs of NtUserGetHimetricScaleFactorFromPixelLocation @ 0x1C01F96E0
  * Callers:
  *     <none>
  * Callees:
- *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
- *     _GetPointerDeviceRects @ 0x1C00AC894 (_GetPointerDeviceRects.c)
- *     GetScreenRect @ 0x1C00AC98C (GetScreenRect.c)
- *     _MonitorFromPoint @ 0x1C00D03B0 (_MonitorFromPoint.c)
- *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
- *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
- *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
- *     GetHimetricScaleForMonitor @ 0x1C01B9C68 (GetHimetricScaleForMonitor.c)
+ *     _MonitorFromPoint @ 0x1C0042060 (_MonitorFromPoint.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0069A50 (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C0069AAC (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C0069CA0 (UserSetLastError.c)
+ *     _GetPointerDeviceRects @ 0x1C012282C (_GetPointerDeviceRects.c)
+ *     GetScreenRect @ 0x1C0122924 (GetScreenRect.c)
+ *     __security_check_cookie @ 0x1C01655A0 (__security_check_cookie.c)
+ *     GetHimetricScaleForMonitor @ 0x1C01E5164 (GetHimetricScaleForMonitor.c)
  */
 
 __int64 __fastcall NtUserGetHimetricScaleFactorFromPixelLocation(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)
 {
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  int v10; // edi
+  int v8; // edi
+  __int64 v9; // rdx
+  __int64 v10; // r8
   unsigned int v11; // esi
   int v12; // r14d
   __int64 v13; // rcx
   __int64 v14; // rax
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  _BYTE v20[4]; // [rsp+20h] [rbp-98h] BYREF
-  int v21; // [rsp+24h] [rbp-94h] BYREF
-  unsigned int v22[6]; // [rsp+28h] [rbp-90h] BYREF
-  _QWORD v23[3]; // [rsp+40h] [rbp-78h] BYREF
-  _BYTE v24[16]; // [rsp+58h] [rbp-60h] BYREF
-  __int128 v25; // [rsp+68h] [rbp-50h] BYREF
-  __int128 v26; // [rsp+78h] [rbp-40h]
+  __int64 v15; // rcx
+  int v17; // [rsp+20h] [rbp-98h] BYREF
+  unsigned int v18[5]; // [rsp+24h] [rbp-94h] BYREF
+  __int64 v19; // [rsp+38h] [rbp-80h] BYREF
+  _BYTE v20[16]; // [rsp+48h] [rbp-70h] BYREF
+  __m128i v21; // [rsp+58h] [rbp-60h] BYREF
+  __int128 v22; // [rsp+68h] [rbp-50h] BYREF
+  __m128i v23; // [rsp+78h] [rbp-40h]
 
-  EnterCrit(0LL, 0LL);
-  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)v20);
-  v25 = 0LL;
-  v23[0] = 0LL;
+  v8 = 1;
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v20);
+  v22 = 0LL;
+  v19 = 0LL;
   if ( !a1 || !a3 || !a4 )
     goto LABEL_18;
-  if ( !(unsigned int)ResolveMouseOrPointerDevice(a1, v23, 0LL) || *(_DWORD *)(v23[0] + 24LL) != 7 )
+  if ( !(unsigned int)ResolveMouseOrPointerDevice(a1, &v19, 0LL) || *(_DWORD *)(v19 + 24) != 7 )
   {
-    if ( (unsigned int)GetPointerDeviceRects(a1, 0LL, &v25) )
+    if ( (unsigned int)GetPointerDeviceRects(a1, 0LL, &v22) )
     {
-      v10 = 1;
       v11 = 1;
-      v22[0] = 1;
+      v18[0] = 1;
       v12 = 1;
-      v21 = 1;
+      v17 = 1;
       if ( *(_DWORD *)*gpDispInfo > 1u )
       {
-        v26 = *(_OWORD *)GetScreenRect((__int64)v24);
-        v13 = v25 - v26;
-        if ( (_QWORD)v25 == (_QWORD)v26 )
-          v13 = *((_QWORD *)&v25 + 1) - *((_QWORD *)&v26 + 1);
+        v23 = *GetScreenRect(&v21);
+        v13 = v22 - v23.m128i_i64[0];
+        if ( (_QWORD)v22 == v23.m128i_i64[0] )
+          v13 = *((_QWORD *)&v22 + 1) - v23.m128i_i64[1];
         if ( !v13 )
         {
           v14 = MonitorFromPoint(a2, 2u, 0);
-          GetHimetricScaleForMonitor(v14, &v21, v22);
-          v12 = v21;
-          v11 = v22[0];
+          GetHimetricScaleForMonitor(v14, &v17, v18);
+          v12 = v17;
+          v11 = v18[0];
         }
       }
       goto LABEL_13;
     }
 LABEL_18:
-    v10 = 0;
-    UserSetLastError(87);
+    v8 = 0;
+    UserSetLastError(87LL, v9, v10);
     goto LABEL_19;
   }
-  v10 = 1;
   v11 = 1;
-  v22[0] = 1;
+  v18[0] = 1;
   v12 = 1;
-  v21 = 1;
+  v17 = 1;
 LABEL_13:
   if ( (unsigned __int64)a3 >= MmUserProbeAddress )
     a3 = (_DWORD *)MmUserProbeAddress;
@@ -82,9 +78,9 @@ LABEL_13:
   if ( (unsigned __int64)a4 >= MmUserProbeAddress )
     a4 = (_DWORD *)MmUserProbeAddress;
   *a4 = v11;
-  v22[4] = 1;
+  v18[3] = 1;
 LABEL_19:
-  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)v20, v8, v9);
-  UserSessionSwitchLeaveCrit(v16, v15, v17, v18);
-  return v10;
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v20);
+  UserSessionSwitchLeaveCrit(v15);
+  return v8;
 }

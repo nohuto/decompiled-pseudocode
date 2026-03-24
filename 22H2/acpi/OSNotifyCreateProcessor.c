@@ -1,67 +1,67 @@
 /*
- * XREFs of OSNotifyCreateProcessor @ 0x1C0032ADC
+ * XREFs of OSNotifyCreateProcessor @ 0x1C001622C
  * Callers:
- *     ACPIBuildMissingChildren @ 0x1C000D8BC (ACPIBuildMissingChildren.c)
- *     OSNotifyCreate @ 0x1C0032600 (OSNotifyCreate.c)
+ *     ACPIBuildMissingChildren @ 0x1C00174CC (ACPIBuildMissingChildren.c)
+ *     OSNotifyCreate @ 0x1C001D650 (OSNotifyCreate.c)
  * Callees:
- *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
- *     ACPIBuildProcessorExtension @ 0x1C0012FA8 (ACPIBuildProcessorExtension.c)
- *     WPP_RECORDER_SF_qD @ 0x1C001B528 (WPP_RECORDER_SF_qD.c)
- *     ACPIInitReferenceDeviceExtension @ 0x1C002D5B4 (ACPIInitReferenceDeviceExtension.c)
- *     AMLIDereferenceHandleEx @ 0x1C0047B60 (AMLIDereferenceHandleEx.c)
- *     AMLIGetParent @ 0x1C0048744 (AMLIGetParent.c)
+ *     WPP_RECORDER_SF_D @ 0x1C0002B90 (WPP_RECORDER_SF_D.c)
+ *     AMLIDereferenceHandleEx @ 0x1C000BC6C (AMLIDereferenceHandleEx.c)
+ *     ACPIBuildProcessorExtension @ 0x1C0016024 (ACPIBuildProcessorExtension.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C0017F20 (ACPIInitReferenceDeviceExtension.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C00199A8 (WPP_RECORDER_SF_qD.c)
+ *     AMLIGetParent @ 0x1C001B348 (AMLIGetParent.c)
  */
 
-__int64 __fastcall OSNotifyCreateProcessor(volatile signed __int32 *a1, unsigned __int64 a2)
+__int64 __fastcall OSNotifyCreateProcessor(__int64 a1, unsigned __int64 a2)
 {
-  int v4; // edx
-  __int64 v5; // rsi
-  __int64 v6; // rbx
-  int v7; // eax
-  int v8; // edx
-  unsigned int v9; // ebx
-  __int64 v10; // rcx
+  __int64 v4; // rsi
+  __int64 v5; // rbx
+  int v6; // eax
+  int v7; // edx
+  unsigned int v8; // ebx
+  __int64 v9; // rcx
+  int v11; // [rsp+28h] [rbp-30h]
   __int64 v12; // [rsp+70h] [rbp+18h] BYREF
 
   v12 = 0LL;
-  v5 = AMLIGetParent(a1);
-  v6 = *(_QWORD *)(*(_QWORD *)v5 + 104LL);
-  if ( !v6 )
-    v6 = RootDeviceExtension;
+  v4 = AMLIGetParent();
+  v5 = *(_QWORD *)(*(_QWORD *)v4 + 104LL);
+  if ( !v5 )
+    v5 = RootDeviceExtension;
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v4) = 4;
-    WPP_RECORDER_SF_d(
-      WPP_GLOBAL_Control->DeviceExtension,
-      v4,
-      6,
-      17,
+    v11 = a1;
+    WPP_RECORDER_SF_D(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      4u,
+      6u,
+      0x11u,
       (__int64)&WPP_3b815367ceb5375a01194b74e08b1a28_Traceguids,
-      (char)a1);
+      v11);
   }
-  v7 = ACPIBuildProcessorExtension(a1, v6, &v12);
-  v9 = v7;
-  if ( v7 < 0 )
+  v6 = ACPIBuildProcessorExtension(a1, v5, &v12);
+  v8 = v6;
+  if ( v6 < 0 )
   {
     if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      LOBYTE(v8) = 2;
+      LOBYTE(v7) = 2;
       WPP_RECORDER_SF_qD(
         WPP_GLOBAL_Control->DeviceExtension,
-        v8,
+        v7,
         22,
         18,
         (__int64)&WPP_3b815367ceb5375a01194b74e08b1a28_Traceguids,
-        (char)a1,
-        v7);
+        a1,
+        v6);
     }
   }
   else
   {
     ACPIInitReferenceDeviceExtension(v12);
-    _InterlockedOr64((volatile signed __int64 *)(v10 + 8), a2);
-    v9 = 259;
+    _InterlockedOr64((volatile signed __int64 *)(v9 + 8), a2);
+    v8 = 259;
   }
-  AMLIDereferenceHandleEx(v5);
-  return v9;
+  AMLIDereferenceHandleEx(v4);
+  return v8;
 }

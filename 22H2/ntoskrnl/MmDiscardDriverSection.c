@@ -1,19 +1,19 @@
 /*
- * XREFs of MmDiscardDriverSection @ 0x140B756B4
+ * XREFs of MmDiscardDriverSection @ 0x140A92E70
  * Callers:
- *     KeFreeInitializationCode @ 0x140B18BF4 (KeFreeInitializationCode.c)
+ *     KeFreeInitializationCode @ 0x140A1BB5C (KeFreeInitializationCode.c)
  * Callees:
- *     MiLookupDataTableEntry @ 0x1402136C0 (MiLookupDataTableEntry.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140284790 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiSnapDriverRange @ 0x1407037A8 (MiSnapDriverRange.c)
- *     MiFreeInitializationCode @ 0x140703BAC (MiFreeInitializationCode.c)
- *     MmAcquireLoadLock @ 0x140704660 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x1407049E0 (MmReleaseLoadLock.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14029D260 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiLookupDataTableEntry @ 0x140358CCC (MiLookupDataTableEntry.c)
+ *     MmReleaseLoadLock @ 0x1406FE9E0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406FEA40 (MmAcquireLoadLock.c)
+ *     MiFreeInitializationCode @ 0x14075E45C (MiFreeInitializationCode.c)
+ *     MiSnapDriverRange @ 0x14075E738 (MiSnapDriverRange.c)
  */
 
 _QWORD *__fastcall MmDiscardDriverSection(unsigned __int64 a1)
 {
-  _QWORD *v2; // rdi
+  __int64 v2; // rdi
   unsigned __int64 v3; // rbx
   _QWORD *result; // rax
   unsigned __int64 v5; // rsi
@@ -24,16 +24,16 @@ _QWORD *__fastcall MmDiscardDriverSection(unsigned __int64 a1)
   v8 = 0LL;
   v7 = 0LL;
   v2 = MiLookupDataTableEntry(a1, 1);
-  v3 = v2[6];
+  v3 = *(_QWORD *)(v2 + 48);
   result = (_QWORD *)MI_IS_PHYSICAL_ADDRESS(v3);
   if ( !(_DWORD)result || v3 == PsNtosImageBase || v3 == PsHalImageBase )
   {
-    result = (_QWORD *)MiSnapDriverRange((__int64)v2, 0, 0, a1, &v7, (unsigned __int64 *)&v8);
+    result = (_QWORD *)MiSnapDriverRange(v2, 0, 0, a1, &v7, (unsigned __int64 *)&v8);
     v5 = v7;
     if ( v7 )
     {
       Lock = MmAcquireLoadLock();
-      MiFreeInitializationCode((unsigned __int64)v2, v5, v8, 0);
+      MiFreeInitializationCode(v2, v5, v8, 0);
       return MmReleaseLoadLock((__int64)Lock);
     }
   }

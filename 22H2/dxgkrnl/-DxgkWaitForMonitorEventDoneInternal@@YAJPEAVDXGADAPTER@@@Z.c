@@ -1,110 +1,105 @@
 /*
- * XREFs of ?DxgkWaitForMonitorEventDoneInternal@@YAJPEAVDXGADAPTER@@@Z @ 0x1C02CF4C0
+ * XREFs of ?DxgkWaitForMonitorEventDoneInternal@@YAJPEAVDXGADAPTER@@@Z @ 0x1C014E5F8
  * Callers:
- *     ?DxgkCddGetDisplayModeList@@YAJQEAXPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z @ 0x1C02DE490 (-DxgkCddGetDisplayModeList@@YAJQEAXPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z.c)
+ *     ?DxgkCddGetDisplayModeList@@YAJQEAXPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z @ 0x1C014E110 (-DxgkCddGetDisplayModeList@@YAJQEAXPEAU_D3DKMT_GETDISPLAYMODELIST@@@Z.c)
  * Callees:
- *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0002DEC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
- *     DxgkLogInternalTriageEvent @ 0x1C0004FC0 (DxgkLogInternalTriageEvent.c)
- *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C00074F0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
- *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0008770 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
- *     ?Release@COREADAPTERACCESS@@QEAAXXZ @ 0x1C000A924 (-Release@COREADAPTERACCESS@@QEAAXXZ.c)
- *     __security_check_cookie @ 0x1C0023E40 (__security_check_cookie.c)
- *     MonitorAcquireMonitorPendingEvent @ 0x1C03C397C (MonitorAcquireMonitorPendingEvent.c)
- *     MonitorReleaseMonitorPendingEvent @ 0x1C03C4854 (MonitorReleaseMonitorPendingEvent.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0007CC0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0007D7C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C0007DF0 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ?Release@COREADAPTERACCESS@@QEAAXXZ @ 0x1C000DA1C (-Release@COREADAPTERACCESS@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00248A0 (__security_check_cookie.c)
+ *     MonitorReleaseMonitorPendingEvent @ 0x1C014E738 (MonitorReleaseMonitorPendingEvent.c)
+ *     MonitorAcquireMonitorPendingEvent @ 0x1C014F7B8 (MonitorAcquireMonitorPendingEvent.c)
  */
 
-__int64 __fastcall DxgkWaitForMonitorEventDoneInternal(struct DXGADAPTER *this)
+__int64 __fastcall DxgkWaitForMonitorEventDoneInternal(struct DXGADAPTER *this, __int64 a2, __int64 a3)
 {
-  unsigned int v2; // ebx
-  int v3; // eax
-  void *v4; // rbx
-  __int64 v5; // rdi
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  int v7; // eax
+  __int64 v8; // rdx
+  void *v9; // rbx
+  __int64 v10; // rdi
+  __int64 v11; // rdx
+  __int64 v12; // rcx
   KPROCESSOR_MODE PreviousMode; // al
-  NTSTATUS v7; // eax
-  union _LARGE_INTEGER Timeout; // [rsp+58h] [rbp-B0h] BYREF
-  _BYTE v10[144]; // [rsp+60h] [rbp-A8h] BYREF
+  NTSTATUS v14; // eax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // rbx
+  __int64 v20; // rax
+  __int64 v21; // rax
+  __int64 v22; // rax
+  __int64 v23; // rax
+  __int64 v24; // rax
+  union _LARGE_INTEGER Timeout; // [rsp+38h] [rbp-B0h] BYREF
+  _BYTE v26[144]; // [rsp+40h] [rbp-A8h] BYREF
 
   if ( this )
   {
-    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v10, this, 0LL);
-    if ( *((_QWORD *)this + 365) )
+    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v26, this, 0LL);
+    if ( *((_QWORD *)this + 337) == v6 )
     {
-      v3 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v10, 0LL);
-      if ( v3 >= 0 )
-      {
-        v4 = (void *)*((_QWORD *)this + 27);
-        ObfReferenceObject(v4);
-        v5 = (int)MonitorAcquireMonitorPendingEvent(this);
-        ObfDereferenceObject(v4);
-        if ( (int)v5 >= 0 )
-        {
-          COREADAPTERACCESS::Release((COREADAPTERACCESS *)v10);
-          Timeout.QuadPart = -1000000LL;
-          PreviousMode = ExGetPreviousMode();
-          v7 = KeWaitForSingleObject((PVOID)0x18, UserRequest, PreviousMode, 0, &Timeout);
-          v5 = v7;
-          if ( v7 == 258 )
-          {
-            WdLogSingleEntry1(3LL, 2177LL);
-          }
-          else if ( v7 < 0 )
-          {
-            WdLogSingleEntry1(2LL, v7);
-            DxgkLogInternalTriageEvent(
-              0LL,
-              0x40000,
-              -1,
-              (__int64)L"Failed in waiting for pending monitor event (Status == 0x%I64x)!",
-              v5,
-              0LL,
-              0LL,
-              0LL,
-              0LL);
-          }
-          MonitorReleaseMonitorPendingEvent(0LL);
-        }
-        else
-        {
-          WdLogSingleEntry1(2LL, v5);
-          DxgkLogInternalTriageEvent(
-            0LL,
-            0x40000,
-            -1,
-            (__int64)L"Failed in acquiring monitor pending event (Status == 0x%I64x)!",
-            v5,
-            0LL,
-            0LL,
-            0LL,
-            0LL);
-        }
-        v2 = v5;
-      }
-      else
-      {
-        v2 = v3;
-      }
+      v21 = WdLogNewEntry5_WdError(v5, v4);
+      LODWORD(v18) = -1073741637;
+      *(_QWORD *)(v21 + 24) = this;
+      *(_QWORD *)(v21 + 32) = -1073741637LL;
+      WdLogEvent5_WdError(v21);
     }
     else
     {
-      v2 = -1073741637;
-      WdLogSingleEntry2(2LL, this, -1073741637LL);
-      DxgkLogInternalTriageEvent(
-        0LL,
-        0x40000,
-        -1,
-        (__int64)L"DxgkWaitForMonitorEventDoneInternal is called on a render only adapter 0x%I64x, returning 0x%I64x!",
-        (__int64)this,
-        -1073741637LL,
-        0LL,
-        0LL,
-        0LL);
+      v7 = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v26, 0LL);
+      if ( v7 < 0 )
+      {
+        LODWORD(v18) = v7;
+      }
+      else
+      {
+        v9 = (void *)*((_QWORD *)this + 27);
+        ObfReferenceObject(v9);
+        v10 = (int)MonitorAcquireMonitorPendingEvent(this);
+        ObfDereferenceObject(v9);
+        if ( (int)v10 < 0 )
+        {
+          v22 = WdLogNewEntry5_WdError(v12, v11);
+          *(_QWORD *)(v22 + 24) = v10;
+          WdLogEvent5_WdError(v22);
+          LODWORD(v18) = v10;
+        }
+        else
+        {
+          COREADAPTERACCESS::Release((COREADAPTERACCESS *)v26);
+          Timeout.QuadPart = -1000000LL;
+          PreviousMode = ExGetPreviousMode();
+          v14 = KeWaitForSingleObject((PVOID)0x18, UserRequest, PreviousMode, 0, &Timeout);
+          v18 = v14;
+          if ( v14 == 258 )
+          {
+            v23 = WdLogNewEntry5_WdWarning(v16, v15, v17);
+            *(_QWORD *)(v23 + 24) = 2124LL;
+            WdLogEvent5_WdWarning(v23);
+          }
+          else if ( v14 < 0 )
+          {
+            v24 = WdLogNewEntry5_WdError(v16, v15);
+            *(_QWORD *)(v24 + 24) = v18;
+            WdLogEvent5_WdError(v24);
+          }
+          MonitorReleaseMonitorPendingEvent(0LL);
+        }
+      }
     }
-    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v10);
+    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v26, v8);
   }
   else
   {
-    v2 = -1073741811;
-    WdLogSingleEntry2(3LL, -1073741811LL, 0LL);
+    v20 = WdLogNewEntry5_WdWarning(0LL, a2, a3);
+    LODWORD(v18) = -1073741811;
+    *(_QWORD *)(v20 + 32) = 0LL;
+    *(_QWORD *)(v20 + 24) = -1073741811LL;
+    WdLogEvent5_WdWarning(v20);
   }
-  return v2;
+  return (unsigned int)v18;
 }

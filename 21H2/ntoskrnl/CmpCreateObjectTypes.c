@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpCreateObjectTypes @ 0x140B2F824
+ * XREFs of CmpCreateObjectTypes @ 0x140A57F98
  * Callers:
- *     CmInitSystem1 @ 0x140B15F88 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
  * Callees:
- *     memset @ 0x140435E00 (memset.c)
- *     ObCreateObjectType @ 0x140824B10 (ObCreateObjectType.c)
+ *     memset @ 0x140414200 (memset.c)
+ *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
  */
 
 __int64 CmpCreateObjectTypes()
@@ -25,7 +25,7 @@ __int64 CmpCreateObjectTypes()
   v1[11] = CmpSecurityMethod;
   v1[12] = CmpQueryKeyName;
   v1[2] = 0x2003900020006LL;
-  LODWORD(v1[5]) = 112;
+  LODWORD(v1[5]) = 104;
   HIDWORD(v1[4]) = 1;
   HIDWORD(v1[0]) = 256;
   return ObCreateObjectType((const UNICODE_STRING *)&CmpKeyTypeNameString, (__int64)v1, 0LL, (__int64)&CmKeyObjectType);

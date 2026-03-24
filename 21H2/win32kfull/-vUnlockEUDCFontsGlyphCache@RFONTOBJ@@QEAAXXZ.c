@@ -1,10 +1,10 @@
 /*
- * XREFs of ?vUnlockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXXZ @ 0x1C0150FC4
+ * XREFs of ?vUnlockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXXZ @ 0x1C00E7C10
  * Callers:
- *     ?dtorHelper@RFONTOBJ@@QEAAXXZ @ 0x1C0150EF0 (-dtorHelper@RFONTOBJ@@QEAAXXZ.c)
+ *     ?dtorHelper@RFONTOBJ@@QEAAXXZ @ 0x1C00E7394 (-dtorHelper@RFONTOBJ@@QEAAXXZ.c)
  * Callees:
- *     ?vReleaseCache@RFONTOBJ@@QEAAXXZ @ 0x1C0019F14 (-vReleaseCache@RFONTOBJ@@QEAAXXZ.c)
- *     ??1RFONTTMPOBJ@@QEAA@XZ @ 0x1C015DA50 (--1RFONTTMPOBJ@@QEAA@XZ.c)
+ *     ?vReleaseCache@RFONTOBJ@@QEAAXXZ @ 0x1C009FEA4 (-vReleaseCache@RFONTOBJ@@QEAAXXZ.c)
+ *     ??1RFONTTMPOBJ@@QEAA@XZ @ 0x1C00E7CC8 (--1RFONTTMPOBJ@@QEAA@XZ.c)
  */
 
 void __fastcall RFONTOBJ::vUnlockEUDCFontsGlyphCache(RFONTOBJ *this)
@@ -15,18 +15,18 @@ void __fastcall RFONTOBJ::vUnlockEUDCFontsGlyphCache(RFONTOBJ *this)
   int v5; // eax
   __int64 v6; // rdi
   __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // rax
+  __int64 v8; // rax
+  __int64 v9; // rcx
   __int64 v10; // [rsp+30h] [rbp+10h] BYREF
 
   v2 = *(_QWORD *)this;
   v3 = *(_DWORD *)(v2 + 712);
   if ( (v3 & 0x80u) != 0 && (v3 & 0x100) == 0 )
   {
-    v8 = *(_QWORD *)(v2 + 720);
-    if ( v8 )
+    v9 = *(_QWORD *)(v2 + 720);
+    if ( v9 )
     {
-      if ( (unsigned int)GreIsSemaphoreOwnedByCurrentThread(*(_QWORD *)(v8 + 504)) )
+      if ( (unsigned int)GreIsSemaphoreOwnedByCurrentThread(*(_QWORD *)(v9 + 504)) )
       {
         v10 = *(_QWORD *)(*(_QWORD *)this + 720LL);
         RFONTOBJ::vReleaseCache((RFONTOBJ *)&v10);
@@ -45,10 +45,10 @@ void __fastcall RFONTOBJ::vUnlockEUDCFontsGlyphCache(RFONTOBJ *this)
       v7 = *(_QWORD *)this;
       do
       {
-        v9 = *(_QWORD *)(v4 + 744);
-        if ( *(_QWORD *)(v9 + 8 * v6) )
+        v8 = *(_QWORD *)(v4 + 744);
+        if ( *(_QWORD *)(v8 + 8 * v6) )
         {
-          v10 = *(_QWORD *)(v9 + 8 * v6);
+          v10 = *(_QWORD *)(v8 + 8 * v6);
           RFONTOBJ::vReleaseCache((RFONTOBJ *)&v10);
           RFONTTMPOBJ::~RFONTTMPOBJ((RFONTTMPOBJ *)&v10);
           v4 = *(_QWORD *)this;

@@ -1,19 +1,21 @@
 /*
- * XREFs of ?IsEmptyDrawing@CPrimitiveGroup@@UEBA_NXZ @ 0x1800B3470
+ * XREFs of ?IsEmptyDrawing@CPrimitiveGroup@@UEBA_NXZ @ 0x1800C47C0
  * Callers:
  *     <none>
  * Callees:
- *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x1800B3CA0 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     <none>
  */
 
 char __fastcall CPrimitiveGroup::IsEmptyDrawing(CPrimitiveGroup *this)
 {
-  char v1; // dl
+  char result; // al
 
-  if ( !*((_QWORD *)this + 62)
-    || (unsigned __int8)TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::IsEmpty((char *)this + 108) )
+  result = 0;
+  if ( !*((_QWORD *)this + 67)
+    || *((float *)this + 27) <= *((float *)this + 25)
+    || *((float *)this + 28) <= *((float *)this + 26) )
   {
     return 1;
   }
-  return v1;
+  return result;
 }

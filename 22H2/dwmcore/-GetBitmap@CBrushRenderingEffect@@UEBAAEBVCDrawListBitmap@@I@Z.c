@@ -1,5 +1,5 @@
 /*
- * XREFs of ?GetBitmap@CBrushRenderingEffect@@UEBAAEBVCDrawListBitmap@@I@Z @ 0x1801091E0
+ * XREFs of ?GetBitmap@CBrushRenderingEffect@@UEBAAEBVCDrawListBitmap@@I@Z @ 0x1800E3A30
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 const struct CDrawListBitmap *__fastcall CBrushRenderingEffect::GetBitmap(CBrushRenderingEffect *this, unsigned int a2)
 {
-  return (CBrushRenderingEffect *)((char *)this + 24 * a2 + 24);
+  return (CBrushRenderingEffect *)((char *)this + 48 * a2 + 24);
 }

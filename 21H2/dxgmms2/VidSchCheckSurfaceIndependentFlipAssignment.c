@@ -1,5 +1,5 @@
 /*
- * XREFs of VidSchCheckSurfaceIndependentFlipAssignment @ 0x1C00170B0
+ * XREFs of VidSchCheckSurfaceIndependentFlipAssignment @ 0x1C0016390
  * Callers:
  *     <none>
  * Callees:
@@ -30,7 +30,7 @@ _DWORD *__fastcall VidSchCheckSurfaceIndependentFlipAssignment(
   __int128 v23; // xmm7
   __int128 v24; // xmm6
   __int64 v25; // rbp
-  __int64 v26; // r8
+  int v26; // r8d
   char v27; // bl
   __int64 v28; // r14
   char v29; // di
@@ -63,74 +63,73 @@ _DWORD *__fastcall VidSchCheckSurfaceIndependentFlipAssignment(
   DestinationLuid = 0LL;
   RtlCopyLuid(&DestinationLuid, a3);
   v39 = 0LL;
-  v43 = *(_BYTE *)(a1 + 156);
-  v44 = 0;
+  v43 = *(_BYTE *)(a1 + 148);
   LODWORD(v20) = 0;
-  v41 = 0;
+  v44 = 0;
   v21 = 0LL;
+  v41 = 0;
   v22 = 0LL;
   v23 = 0LL;
   v24 = 0LL;
   v25 = 0LL;
-  memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1728), &LockHandle);
-  v26 = 0LL;
-  if ( *(int *)(a1 + 3512) >= 0 )
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1712), &LockHandle);
+  v26 = 0;
+  if ( *(int *)(a1 + 3408) >= 0 )
   {
-    v30 = *(_DWORD **)(a1 + 3328);
+    v30 = *(_DWORD **)(a1 + 3232);
     v31 = 0LL;
     while ( *v30 != DestinationLuid.LowPart || v30[1] != DestinationLuid.HighPart )
     {
-      v26 = (unsigned int)(v26 + 1);
+      ++v26;
       ++v31;
-      v30 += 40;
-      if ( v31 > *(int *)(a1 + 3512) )
+      v30 += 38;
+      if ( v31 > *(int *)(a1 + 3408) )
         goto LABEL_3;
     }
-    v32 = *(_QWORD *)(a1 + 3328) + 160 * v26;
+    v32 = *(_QWORD *)(a1 + 3232) + 152LL * v26;
     v15 = 1;
     for ( i = *(_DWORD *)(v32 + 16); (i & 1) == 0; i >>= 1 )
       v25 = (unsigned int)(v25 + 1);
-    v34 = *(_QWORD *)(a1 + 8 * v25 + 3200);
+    v34 = *(_QWORD *)(a1 + 8 * v25 + 3104);
     v35 = *(_DWORD *)(v32 + 112);
     v20 = *(unsigned int *)(v32 + 20);
-    v27 = *(_BYTE *)(v34 + 2952);
-    v23 = *(_OWORD *)(v34 + 2956);
-    v24 = *(_OWORD *)(v34 + 2972);
-    if ( (unsigned int)(v35 - 1) > 1 )
+    v27 = *(_BYTE *)(v34 + 2304);
+    v23 = *(_OWORD *)(v34 + 2308);
+    v24 = *(_OWORD *)(v34 + 2324);
+    if ( (unsigned int)(v35 - 1) <= 1 )
     {
-      if ( v35 == 3 && a4 != -1 )
+      if ( a4 == *(_QWORD *)(v32 + 8) || a4 == -1 )
       {
-        v36 = a4 == *(_QWORD *)(v32 + 8);
-        v29 = v43;
-        v28 = 0LL;
-        if ( v36 )
-          *a11 = 1;
-        goto LABEL_5;
-      }
-    }
-    else if ( a4 == *(_QWORD *)(v32 + 8) || a4 == -1 )
-    {
-      if ( *(_BYTE *)(v32 + 96) )
-      {
-        v28 = *(_QWORD *)(v32 + 88);
-        v29 = v43;
-        v44 = 1;
-        v41 = *(_BYTE *)(v32 + 108);
-        if ( v41 || v43 )
+        if ( *(_BYTE *)(v32 + 96) )
         {
-          v21 = *(_OWORD *)(280 * v20 + v34 + 144);
-          LODWORD(v39) = *(_DWORD *)(280 * v20 + v34 + 176);
-          v22 = *(_OWORD *)(280 * v20 + v34 + 160);
+          v28 = *(_QWORD *)(v32 + 88);
+          v29 = v43;
+          v44 = 1;
+          v41 = *(_BYTE *)(v32 + 108);
+          if ( v41 || v43 )
+          {
+            v21 = *(_OWORD *)(216 * v20 + v34 + 136);
+            LODWORD(v39) = *(_DWORD *)(216 * v20 + v34 + 168);
+            v22 = *(_OWORD *)(216 * v20 + v34 + 152);
+          }
+          goto LABEL_5;
         }
-        goto LABEL_5;
+        v44 = 0;
       }
-      v44 = 0;
+      else
+      {
+        *a10 = 1;
+        *a8 = v20;
+      }
     }
-    else
+    else if ( v35 == 3 && a4 != -1 )
     {
-      *a10 = 1;
-      *a8 = v20;
+      v36 = a4 == *(_QWORD *)(v32 + 8);
+      v29 = v43;
+      v28 = 0LL;
+      if ( v36 )
+        *a11 = 1;
+      goto LABEL_5;
     }
     v28 = 0LL;
   }

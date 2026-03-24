@@ -1,10 +1,10 @@
 /*
- * XREFs of ?MarkAllResourcesInvalid@CD2DResourceManager@@QEAAXXZ @ 0x180023E88
+ * XREFs of ?MarkAllResourcesInvalid@CD2DResourceManager@@QEAAXXZ @ 0x18002AA8C
  * Callers:
- *     ?DestroyDeviceResources@CD2DContext@@IEAAJXZ @ 0x1800225BC (-DestroyDeviceResources@CD2DContext@@IEAAJXZ.c)
+ *     ?DestroyDeviceResources@CD2DContext@@IEAAJXZ @ 0x18002CD60 (-DestroyDeviceResources@CD2DContext@@IEAAJXZ.c)
  * Callees:
- *     ?UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z @ 0x18006AB4C (-UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z.c)
- *     ?MarkInvalid@CD2DResource@@IEAAXXZ @ 0x1800FF534 (-MarkInvalid@CD2DResource@@IEAAXXZ.c)
+ *     ?MarkInvalid@CD2DResource@@IEAAXXZ @ 0x18002AAE8 (-MarkInvalid@CD2DResource@@IEAAXXZ.c)
+ *     ?UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z @ 0x18003A298 (-UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z.c)
  */
 
 void __fastcall CD2DResourceManager::MarkAllResourcesInvalid(CD2DResourceManager *this)

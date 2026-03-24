@@ -1,136 +1,121 @@
 /*
- * XREFs of PiProcessDriverInstance @ 0x1407C22B0
+ * XREFs of PiProcessDriverInstance @ 0x14073C510
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14022B740 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     ZwClose @ 0x14041A880 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041B2A0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     memmove @ 0x140435100 (memmove.c)
- *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140563E28 (McTemplateK0zzzd_EtwWriteTransfer.c)
- *     PipOpenServiceEnumKeys @ 0x14068E904 (PipOpenServiceEnumKeys.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     PiFindDevInstMatch @ 0x1407C2544 (PiFindDevInstMatch.c)
- *     PiRearrangeDeviceInstances @ 0x140883308 (PiRearrangeDeviceInstances.c)
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
+ *     RtlStringCchPrintfExW @ 0x14032EBA4 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F9C00 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FA620 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     memmove @ 0x140413540 (memmove.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     PiFindDevInstMatch @ 0x14073C2C4 (PiFindDevInstMatch.c)
+ *     PipOpenServiceEnumKeys @ 0x14073F08C (PipOpenServiceEnumKeys.c)
+ *     PiRearrangeDeviceInstances @ 0x140780F44 (PiRearrangeDeviceInstances.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiProcessDriverInstance(unsigned __int16 *a1, __int64 a2, const wchar_t *a3, char *a4)
+__int64 __fastcall PiProcessDriverInstance(const UNICODE_STRING *a1, __int64 a2, char *a3)
 {
-  NTSTATUS v8; // eax
-  __int64 v9; // r8
   int DevInstMatch; // ebx
-  NTSTRSAFE_PWSTR v11; // rdi
+  NTSTRSAFE_PWSTR v6; // rdi
   wchar_t *Buffer; // rax
-  char v13; // cl
-  void *v14; // r15
-  _WORD *v15; // rbx
-  unsigned __int64 v16; // r14
-  unsigned __int64 v17; // rsi
-  _WORD *Pool2; // rax
-  signed __int64 v19; // rax
-  int Data; // [rsp+40h] [rbp-39h] BYREF
+  char v8; // cl
+  wchar_t *v9; // r15
+  wchar_t *v10; // rbx
+  unsigned __int64 Length; // r14
+  unsigned __int64 v12; // rsi
+  wchar_t *PoolWithTag; // rax
+  signed __int64 v14; // rax
+  unsigned int Data; // [rsp+40h] [rbp-39h] BYREF
   UNICODE_STRING ValueName; // [rsp+48h] [rbp-31h] BYREF
-  int v23; // [rsp+58h] [rbp-21h] BYREF
+  wchar_t v18[4]; // [rsp+58h] [rbp-21h] BYREF
   NTSTRSAFE_PWSTR ppszDestEnd; // [rsp+60h] [rbp-19h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-11h] BYREF
   wchar_t pszDest[12]; // [rsp+78h] [rbp-1h] BYREF
 
   Data = 0;
-  v23 = 0;
+  *(_DWORD *)v18 = 0;
   ppszDestEnd = 0LL;
   UnicodeString = 0LL;
   ValueName = 0LL;
-  v8 = PipOpenServiceEnumKeys((UNICODE_STRING *)a2, 0xF003Fu, 0LL, (HANDLE *)&ppszDestEnd, 1);
-  DevInstMatch = v8;
-  if ( v8 >= 0 )
+  DevInstMatch = PipOpenServiceEnumKeys(a2, 983103LL, 0LL, &ppszDestEnd, 1);
+  if ( DevInstMatch >= 0 )
   {
-    v11 = ppszDestEnd;
-    DevInstMatch = PiFindDevInstMatch(
-                     (_DWORD)ppszDestEnd,
-                     (_DWORD)a1,
-                     (unsigned int)&Data,
-                     (unsigned int)&UnicodeString,
-                     (__int64)&v23);
+    v6 = ppszDestEnd;
+    DevInstMatch = PiFindDevInstMatch(ppszDestEnd, a1, &Data, (__int64)&UnicodeString, v18);
     if ( DevInstMatch < 0 )
     {
 LABEL_17:
-      ZwClose(v11);
+      ZwClose(v6);
       return (unsigned int)DevInstMatch;
     }
     Buffer = UnicodeString.Buffer;
-    v13 = *a4;
+    v8 = *a3;
     if ( UnicodeString.Buffer )
     {
-      if ( v13 )
+      if ( v8 )
       {
 LABEL_14:
         if ( Buffer )
-          RtlFreeUnicodeString(&UnicodeString);
+          RtlFreeAnsiString(&UnicodeString);
         goto LABEL_16;
       }
-      ZwDeleteValueKey(v11, &UnicodeString);
+      ZwDeleteValueKey(v6, &UnicodeString);
       if ( --Data )
-        PiRearrangeDeviceInstances(v11);
+        PiRearrangeDeviceInstances(v6);
     }
     else
     {
-      if ( !v13 )
+      if ( !v8 )
       {
 LABEL_16:
         DevInstMatch = 0;
         goto LABEL_17;
       }
-      v14 = (void *)*((_QWORD *)a1 + 1);
-      v15 = 0LL;
-      v16 = *a1;
-      v17 = v16 >> 1;
-      if ( *((_WORD *)v14 + (v16 >> 1) - 1) )
+      v9 = a1->Buffer;
+      v10 = 0LL;
+      Length = a1->Length;
+      v12 = Length >> 1;
+      if ( v9[(Length >> 1) - 1] )
       {
-        Pool2 = (_WORD *)ExAllocatePool2(256LL, v16 + 2, 538996816LL);
-        v15 = Pool2;
-        if ( Pool2 )
+        PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(
+                                   (POOL_TYPE)(LODWORD(UnicodeString.Buffer) + 1),
+                                   Length + 2,
+                                   0x20207050u);
+        v10 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          memmove(Pool2, v14, (unsigned int)v16);
-          LODWORD(v16) = v16 + 2;
-          v15[v17] = 0;
-          v14 = v15;
+          memmove(PoolWithTag, v9, (unsigned int)Length);
+          LODWORD(Length) = Length + 2;
+          v10[v12] = 0;
+          v9 = v10;
         }
       }
       ppszDestEnd = pszDest;
       RtlStringCchPrintfExW(pszDest, 0xAuLL, &ppszDestEnd, 0LL, 0, L"%u", Data);
-      v19 = ppszDestEnd - pszDest;
+      v14 = ppszDestEnd - pszDest;
       ValueName.MaximumLength = 20;
-      if ( (_DWORD)v19 == -1 )
+      if ( (_DWORD)v14 == -1 )
         ValueName.Length = 20;
       else
-        ValueName.Length = 2 * v19;
+        ValueName.Length = 2 * v14;
       ValueName.Buffer = pszDest;
-      ZwSetValueKey(v11, &ValueName, 0, 1u, v14, v16);
-      if ( v15 )
-        ExFreePoolWithTag(v15, 0);
+      ZwSetValueKey(v6, &ValueName, 0, 1u, v9, Length);
+      if ( v10 )
+        ExFreePoolWithTag(v10, 0);
       ++Data;
     }
     *(_DWORD *)&ValueName.Length = 786442;
     ValueName.Buffer = L"Count";
-    ZwSetValueKey(v11, &ValueName, 0, 4u, &Data, 4u);
+    ZwSetValueKey(v6, &ValueName, 0, 4u, &Data, 4u);
     ValueName.Buffer = L"NextInstance";
     *(_DWORD *)&ValueName.Length = 1703960;
-    ZwSetValueKey(v11, &ValueName, 0, 4u, &Data, 4u);
+    ZwSetValueKey(v6, &ValueName, 0, 4u, &Data, 4u);
     Buffer = UnicodeString.Buffer;
     goto LABEL_14;
   }
-  if ( *a4 && (byte_140C0E20B & 0x20) != 0 )
-    McTemplateK0zzzd_EtwWriteTransfer(
-      *(_QWORD *)(a2 + 8),
-      (const EVENT_DESCRIPTOR *)KMPnPEvt_ServiceOpenFailure,
-      v9,
-      *((const wchar_t **)a1 + 1),
-      *(const wchar_t **)(a2 + 8),
-      a3,
-      v8);
   return (unsigned int)DevInstMatch;
 }

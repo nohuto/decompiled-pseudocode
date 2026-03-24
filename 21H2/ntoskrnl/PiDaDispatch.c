@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDaDispatch @ 0x1406B8840
+ * XREFs of PiDaDispatch @ 0x14069D810
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     PiDqDispatch @ 0x140776650 (PiDqDispatch.c)
+ *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PiDqDispatch @ 0x14062EBF0 (PiDqDispatch.c)
  */
 
 __int64 __fastcall PiDaDispatch(__int64 a1, IRP *a2)
@@ -52,17 +52,17 @@ __int64 __fastcall PiDaDispatch(__int64 a1, IRP *a2)
         ++FsContext;
         v10 += 3LL;
         if ( v10 >= 15 )
-          goto LABEL_14;
+          goto LABEL_12;
       }
       if ( FsContext != -1LL )
       {
         FileObject->FsContext = (PVOID)FsContext;
         a2 = v3;
         a1 = v4;
-        return ((unsigned int (__fastcall *)(__int64, IRP *, IRP *))*(&funcs_1406B8888 + 3 * FsContext))(a1, a2, v3);
+        return ((unsigned int (__fastcall *)(__int64, IRP *, IRP *))*(&funcs_14069D858 + 3 * FsContext))(a1, a2, v3);
       }
     }
-LABEL_14:
+LABEL_12:
     v7 = -1073741811;
     v3->IoStatus.Status = -1073741811;
 LABEL_16:
@@ -76,5 +76,5 @@ LABEL_16:
     a2->IoStatus.Status = -1073741808;
     goto LABEL_16;
   }
-  return ((unsigned int (__fastcall *)(__int64, IRP *, IRP *))*(&funcs_1406B8888 + 3 * FsContext))(a1, a2, v3);
+  return ((unsigned int (__fastcall *)(__int64, IRP *, IRP *))*(&funcs_14069D858 + 3 * FsContext))(a1, a2, v3);
 }

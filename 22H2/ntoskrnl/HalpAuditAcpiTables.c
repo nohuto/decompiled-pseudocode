@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAuditAcpiTables @ 0x140B66DA8
+ * XREFs of HalpAuditAcpiTables @ 0x140A65350
  * Callers:
- *     HalpAcpiInitSystem @ 0x140A90C00 (HalpAcpiInitSystem.c)
+ *     HalpAcpiInitSystem @ 0x1409A0060 (HalpAcpiInitSystem.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
- *     HalpAuditEnumerateRsdts @ 0x140B930BC (HalpAuditEnumerateRsdts.c)
- *     HalpAuditQuerySlicAddresses @ 0x140B932CC (HalpAuditQuerySlicAddresses.c)
- *     HalpAuditSlicTables @ 0x140B93538 (HalpAuditSlicTables.c)
+ *     ExFreePoolWithTag @ 0x1409B4140 (ExFreePoolWithTag.c)
+ *     HalpAuditSlicTables @ 0x140A65410 (HalpAuditSlicTables.c)
+ *     HalpAuditQuerySlicAddresses @ 0x140A654C8 (HalpAuditQuerySlicAddresses.c)
+ *     HalpAuditEnumerateRsdts @ 0x140A65638 (HalpAuditEnumerateRsdts.c)
  */
 
 void __fastcall HalpAuditAcpiTables(__int64 a1)
@@ -14,7 +14,7 @@ void __fastcall HalpAuditAcpiTables(__int64 a1)
   int v1; // eax
   _DWORD *v2; // rbx
   int SlicAddresses; // edi
-  int v4; // esi
+  unsigned int v4; // esi
   unsigned int i; // edi
   void *v6; // rcx
   PVOID P; // [rsp+30h] [rbp+8h] BYREF
@@ -31,20 +31,17 @@ void __fastcall HalpAuditAcpiTables(__int64 a1)
       v4 = 0;
       if ( *((_DWORD *)P + 1) )
       {
-        while ( 1 )
+        do
         {
           SlicAddresses = HalpAuditQuerySlicAddresses(&v2[8 * v4 + 2]);
           if ( SlicAddresses < 0 )
             break;
-          if ( (unsigned int)++v4 >= v2[1] )
-            goto LABEL_7;
+          ++v4;
         }
+        while ( v4 < v2[1] );
       }
-      else
-      {
-LABEL_7:
+      if ( SlicAddresses >= 0 )
         HalpAuditSlicTables(v2);
-      }
     }
     HalpAuditStatus = SlicAddresses;
     if ( v2 )

@@ -1,64 +1,52 @@
 /*
- * XREFs of DrvDbSetRegValueMappedProperty @ 0x140866A64
+ * XREFs of DrvDbSetRegValueMappedProperty @ 0x140728234
  * Callers:
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x140866854 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbSetDeviceIdMappedProperty @ 0x140A6CDFC (DrvDbSetDeviceIdMappedProperty.c)
- *     DrvDbSetDriverFileMappedProperty @ 0x140A6CFBC (DrvDbSetDriverFileMappedProperty.c)
- *     DrvDbSetDriverInfFileMappedProperty @ 0x140A6D0F0 (DrvDbSetDriverInfFileMappedProperty.c)
- *     DrvDbSetDriverPackageMappedProperty @ 0x140A6D224 (DrvDbSetDriverPackageMappedProperty.c)
+ *     DrvDbSetDriverInfFileMappedProperty @ 0x140727B94 (DrvDbSetDriverInfFileMappedProperty.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x140727CD0 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbSetDriverPackageMappedProperty @ 0x140727E7C (DrvDbSetDriverPackageMappedProperty.c)
+ *     DrvDbSetDeviceIdMappedProperty @ 0x14072847C (DrvDbSetDeviceIdMappedProperty.c)
+ *     DrvDbSetDriverFileMappedProperty @ 0x14097E5F0 (DrvDbSetDriverFileMappedProperty.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6E0 (RtlInitUnicodeStringEx.c)
- *     ZwDeleteValueKey @ 0x14041C240 (ZwDeleteValueKey.c)
- *     _RegRtlSetValue @ 0x1407D4F54 (_RegRtlSetValue.c)
+ *     RtlInitUnicodeStringEx @ 0x14032EB60 (RtlInitUnicodeStringEx.c)
+ *     ZwDeleteValueKey @ 0x1403FB500 (ZwDeleteValueKey.c)
+ *     _RegRtlSetValue @ 0x140768114 (_RegRtlSetValue.c)
  */
 
-NTSTATUS __fastcall DrvDbSetRegValueMappedProperty(__int64 a1, void *a2, __int64 a3, int a4, int *a5, ULONG a6)
+NTSTATUS __fastcall DrvDbSetRegValueMappedProperty(__int64 a1, void *a2, __int64 a3, int a4, __int64 a5, ULONG a6)
 {
-  int v6; // ebx
-  int *v8; // r9
-  ULONG v9; // eax
+  ULONG v7; // eax
   NTSTATUS result; // eax
-  const WCHAR *v11; // rdx
+  const WCHAR *v9; // rdx
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
-  int v13; // [rsp+68h] [rbp+20h] BYREF
 
-  v6 = 0;
-  v13 = 0;
   if ( a4 )
   {
-    if ( a4 == 5 )
+    if ( a4 == 17 )
     {
-      if ( a6 == 2 )
-      {
-        v13 = *(unsigned __int16 *)a5;
-        goto LABEL_11;
-      }
+      if ( a6 == 1 )
+        goto LABEL_7;
     }
     else
     {
-      if ( a4 != 17 )
+      if ( a4 != 5 )
       {
-        v8 = a5;
-        v9 = a6;
-        return RegRtlSetValue(a2, *(const WCHAR **)(a3 + 16), *(_DWORD *)(a3 + 24), v8, v9);
+        v7 = a6;
+        return RegRtlSetValue(a2, v7);
       }
-      if ( a6 == 1 )
+      if ( a6 == 2 )
       {
-        LOBYTE(v6) = *(_BYTE *)a5 == 0xFF;
-        v13 = v6;
-LABEL_11:
-        v9 = 4;
-        v8 = &v13;
-        return RegRtlSetValue(a2, *(const WCHAR **)(a3 + 16), *(_DWORD *)(a3 + 24), v8, v9);
+LABEL_7:
+        v7 = 4;
+        return RegRtlSetValue(a2, v7);
       }
     }
     return -1073741811;
   }
   else
   {
-    v11 = *(const WCHAR **)(a3 + 16);
+    v9 = *(const WCHAR **)(a3 + 16);
     DestinationString = 0LL;
-    result = RtlInitUnicodeStringEx(&DestinationString, v11);
+    result = RtlInitUnicodeStringEx(&DestinationString, v9);
     if ( result >= 0 )
       result = ZwDeleteValueKey(a2, &DestinationString);
     if ( result == -1073741772 )

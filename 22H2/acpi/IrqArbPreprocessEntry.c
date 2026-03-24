@@ -1,5 +1,5 @@
 /*
- * XREFs of IrqArbPreprocessEntry @ 0x1C009D7B0
+ * XREFs of IrqArbPreprocessEntry @ 0x1C00A2100
  * Callers:
  *     <none>
  * Callees:
@@ -10,21 +10,25 @@ __int64 __fastcall IrqArbPreprocessEntry(__int64 a1, __int64 a2)
 {
   char v3; // r8
   char v4; // r8
-  __int64 Pool2; // rax
+  _OWORD *PoolWithTag; // rax
 
-  v3 = *(_BYTE *)(a2 + 66);
+  v3 = *(_BYTE *)(a2 + 66) & 0xCF;
   if ( (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a2 + 56) + 40LL) + 4LL) & 1) != 0 )
-    v4 = v3 & 0xCF | 0x20;
+    v4 = v3 | 0x20;
   else
-    v4 = v3 & 0xCF | 0x10;
+    v4 = v3 | 0x10;
   *(_BYTE *)(a2 + 66) = v4;
-  if ( (*(_BYTE *)(a2 + 64) & 0x10) == 0 )
+  if ( (*(_BYTE *)(a2 + 64) & 0x10) != 0 )
+    return 0LL;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x49706341u);
+  if ( PoolWithTag )
   {
-    Pool2 = ExAllocatePool2(256LL, 40LL, 1232102209LL);
-    if ( !Pool2 )
-      return 3221225626LL;
+    *PoolWithTag = 0LL;
+    PoolWithTag[1] = 0LL;
+    *((_QWORD *)PoolWithTag + 4) = 0LL;
     *(_WORD *)(a2 + 64) |= 0x10u;
-    *(_QWORD *)(a2 + 72) = Pool2;
+    *(_QWORD *)(a2 + 72) = PoolWithTag;
+    return 0LL;
   }
-  return 0LL;
+  return 3221225626LL;
 }

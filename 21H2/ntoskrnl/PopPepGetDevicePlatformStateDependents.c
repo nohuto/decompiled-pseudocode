@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPepGetDevicePlatformStateDependents @ 0x140395AE0
+ * XREFs of PopPepGetDevicePlatformStateDependents @ 0x14028452C
  * Callers:
- *     PopDiagTraceDeviceVerboseRundown @ 0x140804994 (PopDiagTraceDeviceVerboseRundown.c)
+ *     PopDiagTraceDeviceVerboseRundown @ 0x14067E3D8 (PopDiagTraceDeviceVerboseRundown.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1403127A0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140366580 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall PopPepGetDevicePlatformStateDependents(__int64 a1, _DWORD *a2)
@@ -40,16 +40,16 @@ char __fastcall PopPepGetDevicePlatformStateDependents(__int64 a1, _DWORD *a2)
     for ( i = 0; i < *(_DWORD *)(a1 + 180); ++i )
     {
       v10 = 0LL;
-      v11 = 208LL * i;
-      if ( *(_DWORD *)(v11 + a1 + 380) )
+      v11 = 200LL * i;
+      if ( *(_DWORD *)(v11 + a1 + 372) )
       {
         do
         {
           v12 = 3 * v10;
           v10 = (unsigned int)(v10 + 1);
-          *a2 |= *(_DWORD *)(*(_QWORD *)(v11 + a1 + 392) + 8 * v12 + 16);
+          *a2 |= *(_DWORD *)(*(_QWORD *)(v11 + a1 + 376) + 8 * v12 + 16);
         }
-        while ( (unsigned int)v10 < *(_DWORD *)(v11 + a1 + 380) );
+        while ( (unsigned int)v10 < *(_DWORD *)(v11 + a1 + 372) );
       }
     }
   }

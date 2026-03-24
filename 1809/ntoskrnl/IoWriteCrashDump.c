@@ -1,25 +1,25 @@
 /*
- * XREFs of IoWriteCrashDump @ 0x1402804AC
+ * XREFs of IoWriteCrashDump @ 0x1402805AC
  * Callers:
- *     KeBugCheck2 @ 0x140291090 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
  * Callees:
- *     KdCheckForDebugBreak @ 0x140144658 (KdCheckForDebugBreak.c)
- *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1780 (memset.c)
- *     IoFillTriageDumpBuffer @ 0x14027F794 (IoFillTriageDumpBuffer.c)
- *     IoSaveBugCheckProgress @ 0x140280120 (IoSaveBugCheckProgress.c)
- *     IoSetBugCheckProgressAndFlag @ 0x140280164 (IoSetBugCheckProgressAndFlag.c)
- *     IoUpdateBugCheckProgressEnvVariable @ 0x1402803BC (IoUpdateBugCheckProgressEnvVariable.c)
- *     IopDumpCallAddPagesCallbacks @ 0x1402810DC (IopDumpCallAddPagesCallbacks.c)
- *     IopDumpCallRemovePagesCallbacks @ 0x140281234 (IopDumpCallRemovePagesCallbacks.c)
- *     IopUpdateMinidumpContext @ 0x140281B68 (IopUpdateMinidumpContext.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x14028217C (IopWriteCapsuleTriageDumpToFirmware.c)
- *     IopWriteTriageDumpToFirmware @ 0x1402824BC (IopWriteTriageDumpToFirmware.c)
- *     MmGetDumpRange @ 0x1402AE208 (MmGetDumpRange.c)
- *     MmSnapTriageDumpInformation @ 0x1402AE6D0 (MmSnapTriageDumpInformation.c)
- *     RtlNumberOfSetBitsEx @ 0x1402EF070 (RtlNumberOfSetBitsEx.c)
- *     VfDisableHalVerifier @ 0x140309F88 (VfDisableHalVerifier.c)
+ *     KdCheckForDebugBreak @ 0x140144678 (KdCheckForDebugBreak.c)
+ *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1880 (memset.c)
+ *     IoFillTriageDumpBuffer @ 0x14027F894 (IoFillTriageDumpBuffer.c)
+ *     IoSaveBugCheckProgress @ 0x140280220 (IoSaveBugCheckProgress.c)
+ *     IoSetBugCheckProgressAndFlag @ 0x140280264 (IoSetBugCheckProgressAndFlag.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x1402804BC (IoUpdateBugCheckProgressEnvVariable.c)
+ *     IopDumpCallAddPagesCallbacks @ 0x1402811DC (IopDumpCallAddPagesCallbacks.c)
+ *     IopDumpCallRemovePagesCallbacks @ 0x140281334 (IopDumpCallRemovePagesCallbacks.c)
+ *     IopUpdateMinidumpContext @ 0x140281C68 (IopUpdateMinidumpContext.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x14028227C (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     IopWriteTriageDumpToFirmware @ 0x1402825BC (IopWriteTriageDumpToFirmware.c)
+ *     MmGetDumpRange @ 0x1402AE308 (MmGetDumpRange.c)
+ *     MmSnapTriageDumpInformation @ 0x1402AE7D0 (MmSnapTriageDumpInformation.c)
+ *     RtlNumberOfSetBitsEx @ 0x1402EF170 (RtlNumberOfSetBitsEx.c)
+ *     VfDisableHalVerifier @ 0x14030A088 (VfDisableHalVerifier.c)
  */
 
 char __fastcall IoWriteCrashDump(

@@ -1,10 +1,10 @@
 /*
- * XREFs of HUBWNF_PublishUsbPartnerDualRoleFeatures @ 0x1C0086CB4
+ * XREFs of HUBWNF_PublishUsbPartnerDualRoleFeatures @ 0x1C0085074
  * Callers:
- *     HUBDTX_ValidateAndCacheBOSDescriptor @ 0x1C0028588 (HUBDTX_ValidateAndCacheBOSDescriptor.c)
- *     HUBPDO_EvtDeviceReleaseHardware @ 0x1C0079DC0 (HUBPDO_EvtDeviceReleaseHardware.c)
+ *     HUBDTX_ValidateAndCacheBOSDescriptor @ 0x1C00280E0 (HUBDTX_ValidateAndCacheBOSDescriptor.c)
+ *     HUBPDO_EvtDeviceReleaseHardware @ 0x1C00788B0 (HUBPDO_EvtDeviceReleaseHardware.c)
  * Callees:
- *     __security_check_cookie @ 0x1C00435B0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1C00428D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HUBWNF_PublishUsbPartnerDualRoleFeatures(__int64 a1, char a2, int a3)

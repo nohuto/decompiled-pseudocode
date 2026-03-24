@@ -4,7 +4,7 @@
  *     IopReferenceFileObject @ 0x14008C7EC (IopReferenceFileObject.c)
  *     BuildQueryDirectoryIrp @ 0x1405FA710 (BuildQueryDirectoryIrp.c)
  * Callees:
- *     PsIsProcessAppContainer @ 0x1406B8208 (PsIsProcessAppContainer.c)
+ *     PsIsProcessAppContainer @ 0x1406B81E8 (PsIsProcessAppContainer.c)
  */
 
 bool __fastcall IopFileObjectRevoked(__int64 a1)

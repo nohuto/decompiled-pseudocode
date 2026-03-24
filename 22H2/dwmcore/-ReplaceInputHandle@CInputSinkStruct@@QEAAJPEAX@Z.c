@@ -1,12 +1,12 @@
 /*
- * XREFs of ?ReplaceInputHandle@CInputSinkStruct@@QEAAJPEAX@Z @ 0x1800E6138
+ * XREFs of ?ReplaceInputHandle@CInputSinkStruct@@QEAAJPEAX@Z @ 0x1800E124C
  * Callers:
- *     ?UpdateInputSink@CInteraction@@QEAAJPEAX@Z @ 0x1800E5F94 (-UpdateInputSink@CInteraction@@QEAAJPEAX@Z.c)
+ *     ?UpdateInputSink@CInteraction@@QEAAJPEAX@Z @ 0x1800E11C0 (-UpdateInputSink@CInteraction@@QEAAJPEAX@Z.c)
  * Callees:
- *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
- *     ?SetCompositionInputHandle@CInputSinkStruct@@AEAAXPEAX@Z @ 0x1800E6214 (-SetCompositionInputHandle@CInputSinkStruct@@AEAAXPEAX@Z.c)
- *     ?InitializeQueues@CInputSinkStruct@@AEAAXXZ @ 0x1800E627C (-InitializeQueues@CInputSinkStruct@@AEAAXXZ.c)
- *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18005D958 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InitializeQueues@CInputSinkStruct@@AEAAXXZ @ 0x1800E1328 (-InitializeQueues@CInputSinkStruct@@AEAAXXZ.c)
+ *     ?SetCompositionInputHandle@CInputSinkStruct@@AEAAXPEAX@Z @ 0x1800E143C (-SetCompositionInputHandle@CInputSinkStruct@@AEAAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1800E6B40 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CInputSinkStruct::ReplaceInputHandle(CInputSinkStruct *this, void *a2)

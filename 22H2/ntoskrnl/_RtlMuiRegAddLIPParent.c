@@ -1,11 +1,11 @@
 /*
- * XREFs of _RtlMuiRegAddLIPParent @ 0x140A751F4
+ * XREFs of _RtlMuiRegAddLIPParent @ 0x140981BB0
  * Callers:
- *     _RtlpMuiRegInitLIPLanguage @ 0x140A7570C (_RtlpMuiRegInitLIPLanguage.c)
+ *     _RtlpMuiRegInitLIPLanguage @ 0x1409820EC (_RtlpMuiRegInitLIPLanguage.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlCultureNameToLCID @ 0x140826300 (RtlCultureNameToLCID.c)
- *     RtlpMuiRegGetOrAddString @ 0x1408475F8 (RtlpMuiRegGetOrAddString.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlCultureNameToLCID @ 0x14078EC20 (RtlCultureNameToLCID.c)
+ *     RtlpMuiRegGetOrAddString @ 0x14078EEF4 (RtlpMuiRegGetOrAddString.c)
  */
 
 __int64 __fastcall RtlMuiRegAddLIPParent(__int64 a1, __int64 a2, unsigned int a3, WCHAR *a4)
@@ -13,9 +13,9 @@ __int64 __fastcall RtlMuiRegAddLIPParent(__int64 a1, __int64 a2, unsigned int a3
   __int64 v4; // rsi
   __int64 v8; // r8
   unsigned int v9; // edx
-  __int16 v10; // r10
+  __int16 v10; // r9
   __int64 v11; // rcx
-  int v12; // r9d
+  int v12; // r10d
   __int16 v13; // r11
   _WORD *v14; // r8
   int v15; // ecx

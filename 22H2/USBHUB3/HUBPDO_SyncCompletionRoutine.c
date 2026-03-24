@@ -1,9 +1,9 @@
 /*
- * XREFs of HUBPDO_SyncCompletionRoutine @ 0x1C0017520
+ * XREFs of HUBPDO_SyncCompletionRoutine @ 0x1C0016000
  * Callers:
  *     <none>
  * Callees:
- *     HUBPDO_GetUSBDErrorFromNTStatus @ 0x1C00154E8 (HUBPDO_GetUSBDErrorFromNTStatus.c)
+ *     HUBPDO_GetUSBDErrorFromNTStatus @ 0x1C001402C (HUBPDO_GetUSBDErrorFromNTStatus.c)
  */
 
 __int64 __fastcall HUBPDO_SyncCompletionRoutine(__int64 a1, __int64 a2, struct _KEVENT *a3)
@@ -11,6 +11,7 @@ __int64 __fastcall HUBPDO_SyncCompletionRoutine(__int64 a1, __int64 a2, struct _
   int v3; // ecx
   __int64 v5; // rax
   __int64 v6; // rbx
+  int USBDErrorFromNTStatus; // eax
 
   v3 = *(_DWORD *)(a2 + 48);
   if ( v3 < 0 )
@@ -20,7 +21,13 @@ __int64 __fastcall HUBPDO_SyncCompletionRoutine(__int64 a1, __int64 a2, struct _
     {
       v6 = *(_QWORD *)(v5 + 8);
       if ( !*(_DWORD *)(v6 + 4) )
-        *(_DWORD *)(v6 + 4) = HUBPDO_GetUSBDErrorFromNTStatus(v3);
+      {
+        if ( v3 == -1073741667 )
+          USBDErrorFromNTStatus = -1073713152;
+        else
+          USBDErrorFromNTStatus = HUBPDO_GetUSBDErrorFromNTStatus(v3);
+        *(_DWORD *)(v6 + 4) = USBDErrorFromNTStatus;
+      }
     }
   }
   KeSetEvent(a3, 0, 0);

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiGetSystemServiceTraceTable @ 0x140844B34
+ * XREFs of KiGetSystemServiceTraceTable @ 0x140844B14
  * Callers:
- *     KeSetSystemServiceCallback @ 0x140844980 (KeSetSystemServiceCallback.c)
+ *     KeSetSystemServiceCallback @ 0x140844960 (KeSetSystemServiceCallback.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1400BD690 (RtlRbInsertNodeEx.c)
- *     memset @ 0x1401D1780 (memset.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
+ *     memset @ 0x1401D1880 (memset.c)
  *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
  *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     KiSystemServiceTraceTableCompareFunction @ 0x140844C84 (KiSystemServiceTraceTableCompareFunction.c)
+ *     KiSystemServiceTraceTableCompareFunction @ 0x140844C64 (KiSystemServiceTraceTableCompareFunction.c)
  */
 
 __int64 KiGetSystemServiceTraceTable()
@@ -31,7 +31,7 @@ __int64 KiGetSystemServiceTraceTable()
     if ( PoolWithTag )
     {
       memset(PoolWithTag, 0, 0x8290uLL);
-      v3 = &off_14090E1D8;
+      v3 = &off_14090E1B8;
       v4 = 464LL;
       v5 = v1 + 40;
       do

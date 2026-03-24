@@ -1,248 +1,248 @@
 /*
- * XREFs of PiDevCfgLogDeviceConfigured @ 0x14087A140
+ * XREFs of PiDevCfgLogDeviceConfigured @ 0x140737538
  * Callers:
- *     PiDevCfgLogDeviceConfigured @ 0x14087A140 (PiDevCfgLogDeviceConfigured.c)
- *     PiDevCfgProcessDevice @ 0x14087A6C0 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgProcessDevice @ 0x140736238 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140737538 (PiDevCfgLogDeviceConfigured.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A92C (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1D0 (RtlInitUnicodeString.c)
- *     RtlTimeToTimeFields @ 0x14033B4B0 (RtlTimeToTimeFields.c)
- *     PnpDuplicateUnicodeString @ 0x1403CD820 (PnpDuplicateUnicodeString.c)
- *     PnpGetLogString @ 0x1403CDA48 (PnpGetLogString.c)
- *     RtlUnicodeStringPrintfEx @ 0x1403CDA68 (RtlUnicodeStringPrintfEx.c)
- *     McTemplateK0zzjzzztzdzztdz_EtwWriteTransfer @ 0x1403CDC34 (McTemplateK0zzjzzztzdzztdz_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
- *     memset @ 0x140435400 (memset.c)
- *     RtlUnicodeStringExHandleOtherFlags @ 0x14055F938 (RtlUnicodeStringExHandleOtherFlags.c)
- *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
- *     RtlEqualUnicodeString @ 0x1406DA3A0 (RtlEqualUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x14076F8E0 (RtlFreeUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1407C7520 (ExpAllocateStringRoutine.c)
- *     RtlCreateUnicodeString @ 0x1407FB710 (RtlCreateUnicodeString.c)
- *     PiDevCfgQueryObjectProperties @ 0x14086D134 (PiDevCfgQueryObjectProperties.c)
- *     PnpTraceDeviceConfig @ 0x1408793B0 (PnpTraceDeviceConfig.c)
- *     PiDevCfgLogDeviceConfigured @ 0x14087A140 (PiDevCfgLogDeviceConfigured.c)
+ *     RtlInitUnicodeString @ 0x140345530 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x140348150 (RtlStringCchPrintfW.c)
+ *     RtlTimeToTimeFields @ 0x14036DE60 (RtlTimeToTimeFields.c)
+ *     PnpGetLogString @ 0x14036DE78 (PnpGetLogString.c)
+ *     McTemplateK0zzjzzztzdzztdz_EtwWriteTransfer @ 0x14036E040 (McTemplateK0zzjzzztzdzztdz_EtwWriteTransfer.c)
+ *     RtlUnicodeStringPrintfEx @ 0x14036E520 (RtlUnicodeStringPrintfEx.c)
+ *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     RtlUnicodeStringExHandleOtherFlags @ 0x14050C398 (RtlUnicodeStringExHandleOtherFlags.c)
+ *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
+ *     ExpAllocateStringRoutine @ 0x140685CE0 (ExpAllocateStringRoutine.c)
+ *     RtlCreateUnicodeString @ 0x1406ED6B0 (RtlCreateUnicodeString.c)
+ *     RtlStringFromGUIDEx @ 0x1406F35C8 (RtlStringFromGUIDEx.c)
+ *     PnpTraceDeviceConfig @ 0x140736FCC (PnpTraceDeviceConfig.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140737538 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1407392E4 (PiDevCfgQueryObjectProperties.c)
  */
 
-void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, __int64 a6, int *a7)
+void __fastcall PiDevCfgLogDeviceConfigured(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        int a4,
+        int a5,
+        __int64 a6,
+        __int64 *a7)
 {
   __int64 v7; // rdi
-  void *v8; // r9
-  __int64 v9; // rdx
-  __int64 v10; // rcx
+  __int64 v8; // r13
+  __int64 v9; // r10
+  __int64 v10; // r9
+  __int64 v11; // rdx
   wchar_t *Buffer; // r8
-  int v12; // r12d
-  __int64 **v13; // r15
-  __int64 **v14; // rdx
-  char v15; // si
-  const wchar_t *v16; // rbx
-  __int64 v17; // r14
-  __int64 v18; // r15
-  __int64 v19; // rdx
-  int *v20; // rax
-  const wchar_t *v21; // rdx
-  const wchar_t *v22; // r8
-  const wchar_t *v23; // r9
-  const wchar_t *v24; // r10
-  __int64 v25; // r11
-  __int64 v26; // r13
-  __int64 **v27; // r14
-  __int64 **v28; // rax
-  wchar_t *v29; // r15
-  __int64 v30; // rsi
-  __int64 v31; // r14
-  wchar_t *v32; // rbx
-  wchar_t *v33; // r9
+  int v13; // r12d
+  __int64 **v14; // r15
+  __int64 **v15; // rdx
+  int v16; // r15d
+  char v17; // r14
+  __int64 *v18; // rbx
+  __int64 v19; // r8
+  __int64 v20; // rdx
+  int *v21; // rax
+  const wchar_t *v22; // rdx
+  const wchar_t *v23; // r8
+  const wchar_t *v24; // r9
+  const wchar_t *v25; // r10
+  const wchar_t *v26; // r11
+  __int64 v27; // r13
+  __int64 **v28; // r14
+  __int64 **v29; // rax
+  wchar_t *v30; // r12
+  __int64 v31; // r10
+  __int64 v32; // r11
+  wchar_t *v33; // r8
   __int64 v34; // rax
   __int64 v35; // rax
-  __int64 v36; // r14
-  unsigned __int16 Length; // cx
-  unsigned int v38; // r9d
-  __int64 v39; // rdx
-  int v40; // r8d
-  __int64 *v41; // rcx
-  __int64 v42; // rax
-  unsigned __int16 v43; // ax
+  __int64 v36; // r11
+  int v37; // r8d
+  __int64 *v38; // rcx
+  unsigned __int16 v39; // ax
   wchar_t *StringRoutine; // rax
-  UNICODE_STRING v45; // xmm0
-  __int64 *v46; // rsi
-  wchar_t *v47; // rcx
-  unsigned __int64 v48; // rax
-  int v49; // ebx
-  __int64 v50; // r9
-  size_t v51; // r8
-  __int64 v52; // r10
-  const wchar_t *v53; // rdx
-  wchar_t *v54; // r11
-  size_t v55; // r14
-  char v56; // si
-  const wchar_t *v57; // rbx
-  __int64 v58; // r14
-  __int64 v59; // r15
+  UNICODE_STRING v41; // xmm0
+  __int64 *v42; // rsi
+  wchar_t *v43; // r8
+  wchar_t *v44; // r9
+  size_t v45; // rdx
+  size_t v46; // rax
+  __int16 v47; // cx
+  __int64 v48; // r9
+  __int64 v49; // r14
+  const WCHAR *v50; // rcx
+  unsigned __int64 v51; // r10
+  int v52; // ebx
+  unsigned __int16 Length; // cx
+  unsigned int v54; // r9d
+  __int64 v55; // rdx
+  __int64 v56; // rax
+  char v57; // r14
+  __int64 *v58; // rbx
+  __int64 v59; // r8
   __int64 v60; // rdx
   int *v61; // rax
   const wchar_t *v62; // rdx
   const wchar_t *v63; // r8
   const wchar_t *v64; // r9
   const wchar_t *v65; // r10
-  __int64 v66; // r11
-  char v67; // si
-  const wchar_t *v68; // rbx
-  __int64 v69; // r14
-  __int64 v70; // r15
-  __int64 v71; // rdx
+  const wchar_t *v66; // r11
+  char v67; // r14
+  __int64 *v68; // rbx
+  __int64 v69; // r8
+  __int64 v70; // rdx
   int *LogString; // rax
-  const wchar_t *v73; // rdx
-  const wchar_t *v74; // r8
-  const wchar_t *v75; // r9
-  const wchar_t *v76; // r10
-  __int64 v77; // r11
-  char v78; // si
-  const wchar_t *v79; // rbx
-  __int64 v80; // r14
-  __int64 v81; // r15
-  __int64 v82; // rdx
-  int *v83; // rax
-  const wchar_t *v84; // rdx
-  const wchar_t *v85; // r8
-  const wchar_t *v86; // r9
-  const wchar_t *v87; // r10
-  __int64 v88; // r11
-  int v89; // ecx
-  unsigned __int16 v90; // si
-  wchar_t *v91; // rax
-  __int64 *v92; // rsi
-  unsigned int v93; // r15d
-  __int64 v94; // r9
-  void *v95; // r9
-  __int64 v96; // rdx
-  unsigned __int16 v97; // cx
-  unsigned int v98; // r8d
-  __int64 v99; // rdx
-  UNICODE_STRING *v100; // r8
-  UNICODE_STRING *v101; // rdx
-  const wchar_t *v102; // rcx
-  NTSTATUS v103; // ebx
-  unsigned __int16 v104; // dx
-  unsigned int v105; // r8d
-  unsigned __int64 v106; // rax
-  __int64 v107; // rcx
+  const wchar_t *v72; // rdx
+  const wchar_t *v73; // r8
+  const wchar_t *v74; // r9
+  const wchar_t *v75; // r10
+  const wchar_t *v76; // r11
+  char v77; // r14
+  __int64 *v78; // rbx
+  __int64 v79; // r8
+  __int64 v80; // rdx
+  int *v81; // rax
+  const wchar_t *v82; // rdx
+  const wchar_t *v83; // r8
+  const wchar_t *v84; // r9
+  const wchar_t *v85; // r10
+  const wchar_t *v86; // r11
+  int v87; // ecx
+  unsigned __int16 v88; // si
+  wchar_t *v89; // rax
+  __int64 *v90; // rsi
+  int v91; // r15d
+  int v92; // r9d
+  __int64 v93; // r9
+  __int64 v94; // rdx
+  unsigned __int16 v95; // cx
+  unsigned int v96; // r8d
+  __int64 v97; // rdx
+  UNICODE_STRING *v98; // r8
+  UNICODE_STRING *v99; // rdx
+  const wchar_t *v100; // rcx
+  NTSTATUS v101; // ebx
   wchar_t **ppszDestEnd; // [rsp+20h] [rbp-F0h]
   wchar_t **ppszDestEnda; // [rsp+20h] [rbp-F0h]
   size_t *pcchRemaining; // [rsp+28h] [rbp-E8h]
   size_t *pcchRemaininga; // [rsp+28h] [rbp-E8h]
   ULONG dwFlags[2]; // [rsp+30h] [rbp-E0h]
-  BOOL v113; // [rsp+90h] [rbp-80h]
+  BOOL v107; // [rsp+90h] [rbp-80h]
   TIME_FIELDS TimeFields; // [rsp+A0h] [rbp-70h] BYREF
-  int v115; // [rsp+B0h] [rbp-60h]
+  int v109; // [rsp+B0h] [rbp-60h]
   UNICODE_STRING UnicodeString; // [rsp+B8h] [rbp-58h] BYREF
-  __int64 v117; // [rsp+C8h] [rbp-48h]
-  UNICODE_STRING v118; // [rsp+D0h] [rbp-40h] BYREF
-  UNICODE_STRING v119; // [rsp+E0h] [rbp-30h] BYREF
-  UNICODE_STRING v120; // [rsp+F0h] [rbp-20h] BYREF
-  UNICODE_STRING v121; // [rsp+100h] [rbp-10h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+110h] [rbp+0h] BYREF
-  int v123; // [rsp+120h] [rbp+10h]
-  int v124; // [rsp+124h] [rbp+14h]
-  __int64 v125; // [rsp+128h] [rbp+18h]
-  UNICODE_STRING v126; // [rsp+130h] [rbp+20h] BYREF
-  UNICODE_STRING v127; // [rsp+140h] [rbp+30h] BYREF
-  wchar_t *v128; // [rsp+150h] [rbp+40h] BYREF
-  size_t v129; // [rsp+158h] [rbp+48h] BYREF
-  __int64 v130; // [rsp+160h] [rbp+50h]
-  __int64 v131; // [rsp+168h] [rbp+58h]
-  int *v132; // [rsp+170h] [rbp+60h]
-  UNICODE_STRING v133; // [rsp+178h] [rbp+68h] BYREF
-  UNICODE_STRING v134; // [rsp+188h] [rbp+78h] BYREF
-  size_t pcchNewDestLength; // [rsp+198h] [rbp+88h] BYREF
-  __int128 v136; // [rsp+1A0h] [rbp+90h] BYREF
-  _QWORD v137[20]; // [rsp+1B0h] [rbp+A0h] BYREF
+  UNICODE_STRING v111; // [rsp+D0h] [rbp-40h] BYREF
+  UNICODE_STRING v112; // [rsp+E0h] [rbp-30h] BYREF
+  UNICODE_STRING v113; // [rsp+F0h] [rbp-20h] BYREF
+  __int64 v114; // [rsp+100h] [rbp-10h]
+  UNICODE_STRING DestinationString; // [rsp+108h] [rbp-8h] BYREF
+  int v116; // [rsp+118h] [rbp+8h]
+  int v117; // [rsp+11Ch] [rbp+Ch]
+  __int64 v118; // [rsp+120h] [rbp+10h]
+  UNICODE_STRING v119; // [rsp+128h] [rbp+18h] BYREF
+  UNICODE_STRING v120; // [rsp+138h] [rbp+28h] BYREF
+  wchar_t *v121; // [rsp+148h] [rbp+38h] BYREF
+  size_t v122; // [rsp+150h] [rbp+40h] BYREF
+  size_t pcchNewDestLength; // [rsp+158h] [rbp+48h] BYREF
+  __int64 v124; // [rsp+160h] [rbp+50h]
+  __int64 v125; // [rsp+168h] [rbp+58h]
+  __int64 *v126; // [rsp+170h] [rbp+60h]
+  UNICODE_STRING v127; // [rsp+178h] [rbp+68h] BYREF
+  UNICODE_STRING v128; // [rsp+188h] [rbp+78h] BYREF
+  unsigned int v129[6]; // [rsp+198h] [rbp+88h] BYREF
+  _QWORD v130[20]; // [rsp+1B0h] [rbp+A0h] BYREF
   size_t pszDest[3]; // [rsp+250h] [rbp+140h] BYREF
-  size_t v139[6]; // [rsp+268h] [rbp+158h] BYREF
+  size_t v132[6]; // [rsp+268h] [rbp+158h] BYREF
 
-  v132 = a7;
-  v115 = a4;
-  v130 = a3;
-  v117 = a2;
+  v126 = a7;
+  v109 = a4;
+  v124 = a3;
+  v114 = a2;
   v7 = a3;
-  v125 = a1;
+  v118 = a1;
+  v8 = a2;
   *(_QWORD *)&DestinationString.Length = 0LL;
+  v9 = a1;
   DestinationString.Buffer = 0LL;
   *(_QWORD *)&UnicodeString.Length = 0LL;
   UnicodeString.Buffer = 0LL;
-  *(_QWORD *)&v127.Length = 0LL;
-  v127.Buffer = 0LL;
-  *(_QWORD *)&v121.Length = 0LL;
-  v121.Buffer = 0LL;
-  v113 = 1;
-  v131 = 0LL;
   *(_QWORD *)&v120.Length = 0LL;
   v120.Buffer = 0LL;
-  *(_QWORD *)&v126.Length = 0LL;
-  v126.Buffer = 0LL;
-  v124 = 0;
-  *(_QWORD *)&v118.Length = 0LL;
-  v118.Buffer = 0LL;
+  v107 = 1;
+  v125 = 0LL;
+  *(_QWORD *)&v113.Length = 0LL;
+  v113.Buffer = 0LL;
+  *(_QWORD *)&v119.Length = 0LL;
+  v119.Buffer = 0LL;
+  v117 = 0;
+  *(_QWORD *)&v111.Length = 0LL;
+  v111.Buffer = 0LL;
   TimeFields = 0LL;
-  v133 = 0LL;
-  v136 = 0LL;
-  v119 = 0LL;
-  v134 = 0LL;
-  if ( (byte_140C0E20A & 0x18) != 0x18 )
-    goto LABEL_41;
+  v127 = 0LL;
+  *(_OWORD *)v129 = 0LL;
+  v112 = 0LL;
+  v128 = 0LL;
+  if ( (byte_140C1327A & 0x18) != 0x18 )
+    goto LABEL_38;
   if ( a3 )
   {
-    memset(v137, 0, sizeof(v137));
-    v8 = *(void **)(v7 + 16);
-    v9 = *(_QWORD *)(v7 + 64);
-    v137[0] = &DEVPKEY_DriverPackage_OriginalInfName;
-    v137[2] = &DestinationString;
-    v137[5] = DEVPKEY_DriverPackage_DriverFlightIds;
-    v137[7] = &UnicodeString;
-    v137[10] = DEVPKEY_DriverPackage_SubmissionId;
-    v137[12] = &v127;
-    LODWORD(v137[1]) = 18;
-    HIDWORD(v137[3]) = 6;
-    LODWORD(v137[6]) = 8210;
-    HIDWORD(v137[8]) = 6;
-    LODWORD(v137[11]) = 18;
-    HIDWORD(v137[13]) = 6;
-    if ( (int)PiDevCfgQueryObjectProperties(v10, v9, 8u, v8, (__int64)v137, 3u) < 0 )
-      goto LABEL_41;
-    if ( SLODWORD(v137[4]) < 0 )
+    memset(v130, 0, sizeof(v130));
+    v10 = *(_QWORD *)(v7 + 16);
+    v11 = *(_QWORD *)(v7 + 64);
+    v130[0] = &DEVPKEY_DriverPackage_OriginalInfName;
+    v130[2] = &DestinationString;
+    v130[5] = DEVPKEY_DriverPackage_DriverFlightIds;
+    v130[7] = &UnicodeString;
+    v130[10] = DEVPKEY_DriverPackage_SubmissionId;
+    v130[12] = &v120;
+    LODWORD(v130[1]) = 18;
+    HIDWORD(v130[3]) = 6;
+    LODWORD(v130[6]) = 8210;
+    HIDWORD(v130[8]) = 6;
+    LODWORD(v130[11]) = 18;
+    HIDWORD(v130[13]) = 6;
+    if ( (int)PiDevCfgQueryObjectProperties(18, v11, 8, v10, (__int64)v130, 3) < 0 )
+      goto LABEL_38;
+    if ( SLODWORD(v130[4]) < 0 )
       RtlInitUnicodeString(&DestinationString, 0LL);
-    if ( SLODWORD(v137[9]) < 0 )
+    if ( SLODWORD(v130[9]) < 0 )
       RtlInitUnicodeString(&UnicodeString, 0LL);
     Buffer = UnicodeString.Buffer;
     if ( UnicodeString.Buffer && (Length = UnicodeString.Length, UnicodeString.Length > 4u) )
     {
-      v38 = 0;
+      v54 = 0;
       if ( (unsigned __int64)UnicodeString.Length >> 1 != 2 )
       {
-        v39 = 0LL;
+        v55 = 0LL;
         do
         {
-          if ( !Buffer[v39] )
+          if ( !Buffer[v55] )
           {
-            Buffer[v39] = 59;
+            Buffer[v55] = 59;
             Buffer = UnicodeString.Buffer;
             Length = UnicodeString.Length;
           }
-          v39 = ++v38;
+          v55 = ++v54;
         }
-        while ( v38 < ((unsigned __int64)Length >> 1) - 2 );
+        while ( v54 < ((unsigned __int64)Length >> 1) - 2 );
+        v8 = v114;
       }
       UnicodeString.Length = Length - 2;
     }
     else
     {
-      RtlFreeUnicodeString(&UnicodeString);
+      RtlFreeAnsiString(&UnicodeString);
       RtlInitUnicodeString(&UnicodeString, 0LL);
     }
-    if ( SLODWORD(v137[14]) < 0 )
-      RtlInitUnicodeString(&v127, 0LL);
+    if ( SLODWORD(v130[14]) < 0 )
+      RtlInitUnicodeString(&v120, 0LL);
     if ( DestinationString.Buffer )
-      v113 = RtlEqualUnicodeString((PCUNICODE_STRING)(v7 + 40), &DestinationString, 1u) != 0;
+      v107 = RtlEqualUnicodeString((PCUNICODE_STRING)(v7 + 40), &DestinationString, 1u) != 0;
     RtlTimeToTimeFields((PLARGE_INTEGER)(v7 + 112), &TimeFields);
     LODWORD(pcchRemaining) = TimeFields.Year;
     LODWORD(ppszDestEnd) = TimeFields.Day;
@@ -257,55 +257,55 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
     LODWORD(pcchRemaininga) = *(unsigned __int16 *)(v7 + 122);
     LODWORD(ppszDestEnda) = *(unsigned __int16 *)(v7 + 124);
     if ( RtlStringCchPrintfW(
-           (NTSTRSAFE_PWSTR)v139,
+           (NTSTRSAFE_PWSTR)v132,
            0x18uLL,
            L"%u.%u.%u.%u",
            (unsigned __int16)HIWORD(*(_DWORD *)(v7 + 124)),
            ppszDestEnda,
            pcchRemaininga,
            *(unsigned __int16 *)(v7 + 120)) < 0 )
-      LOWORD(v139[0]) = 0;
-    v12 = *(_DWORD *)(v7 + 108);
-    v13 = (__int64 **)(v7 + 224);
-    v14 = *(__int64 ***)(v7 + 224);
-    if ( v12 == -1 )
-      v12 = 0;
-    v123 = v12;
-    if ( v14 != v13 )
+      LOWORD(v132[0]) = 0;
+    v13 = *(_DWORD *)(v7 + 108);
+    v14 = (__int64 **)(v7 + 224);
+    v15 = *(__int64 ***)(v7 + 224);
+    if ( v13 == -1 )
+      v13 = 0;
+    v116 = v13;
+    if ( v15 != v14 )
     {
-      v40 = 0;
+      v37 = 0;
       do
       {
-        v41 = v14[22];
-        v40 += *((unsigned __int16 *)v14 + 20) + *((unsigned __int16 *)v14 + 36) + 22;
-        if ( v41 )
+        v38 = v15[22];
+        v37 += *((unsigned __int16 *)v15 + 20) + *((unsigned __int16 *)v15 + 36) + 22;
+        if ( v38 )
         {
-          v42 = -1LL;
+          v56 = -1LL;
           do
-            ++v42;
-          while ( *((_WORD *)v41 + v42) );
-          v40 += 2 * v42 + 2;
+            ++v56;
+          while ( *((_WORD *)v38 + v56) );
+          v37 += 2 * v56 + 2;
         }
-        v14 = (__int64 **)*v14;
+        v15 = (__int64 **)*v15;
       }
-      while ( v14 != v13 );
-      v43 = v40 + 2;
-      if ( (unsigned int)(v40 + 2) > 0xFFFE )
-        v43 = -2;
-      v120.MaximumLength = v43;
-      StringRoutine = (wchar_t *)ExpAllocateStringRoutine(v43);
-      v120.Buffer = StringRoutine;
+      while ( v15 != v14 );
+      v39 = v37 + 2;
+      if ( (unsigned int)(v37 + 2) > 0xFFFE )
+        v39 = -2;
+      v113.MaximumLength = v39;
+      StringRoutine = (wchar_t *)ExpAllocateStringRoutine(v39);
+      v113.Buffer = StringRoutine;
       if ( !StringRoutine )
-        goto LABEL_41;
-      v45 = v120;
+        goto LABEL_38;
+      v41 = v113;
       *StringRoutine = 0;
-      v46 = *v13;
-      TimeFields = (TIME_FIELDS)v45;
-      if ( v46 != (__int64 *)v13 )
+      v42 = *v14;
+      TimeFields = (TIME_FIELDS)v41;
+      if ( v42 != (__int64 *)v14 )
       {
         do
         {
-          if ( v46 != *v13 )
+          if ( v42 != *v14 )
           {
             if ( (TimeFields.Year & 1) != 0 )
               break;
@@ -315,473 +315,421 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
               break;
             if ( TimeFields.Month == -1 )
               break;
-            v47 = *(wchar_t **)&TimeFields.Minute;
+            v43 = *(wchar_t **)&TimeFields.Minute;
             if ( !*(_QWORD *)&TimeFields.Minute && (TimeFields.Year || TimeFields.Month) )
               break;
-            v48 = (unsigned __int64)(unsigned __int16)TimeFields.Month >> 1;
-            if ( v48 )
+            v44 = *(wchar_t **)&TimeFields.Minute;
+            v45 = (unsigned __int64)(unsigned __int16)TimeFields.Month >> 1;
+            v46 = 0LL;
+            v47 = v45;
+            if ( v45 )
             {
-              v49 = 0;
-              v50 = 0LL;
-              v51 = 0x7FFFLL;
-              v52 = *(_QWORD *)&TimeFields.Minute - (_QWORD)L" ";
-              v53 = L" ";
-              v54 = *(wchar_t **)&TimeFields.Minute;
-              v55 = (unsigned __int64)(unsigned __int16)TimeFields.Month >> 1;
-              while ( v51 )
+              v48 = 0x7FFFLL;
+              v49 = *(_QWORD *)&TimeFields.Minute - (_QWORD)L" ";
+              v50 = L" ";
+              v51 = (unsigned __int64)(unsigned __int16)TimeFields.Month >> 1;
+              v52 = 0;
+              do
               {
-                if ( *v53 )
-                {
-                  *(const wchar_t *)((char *)v53 + v52) = *v53;
-                  --v51;
-                  ++v53;
-                  ++v50;
-                  if ( --v48 )
-                    continue;
-                }
-                if ( !v48 && v51 && *v53 )
-                  v49 = -2147483643;
-                break;
+                if ( !v48 )
+                  break;
+                if ( !*v50 )
+                  break;
+                *(const WCHAR *)((char *)v50 + v49) = *v50;
+                --v48;
+                ++v50;
+                ++v46;
+                --v51;
               }
-              v47 = &v54[v50];
-              LOWORD(v48) = v55 - v50;
-              v128 = v47;
-              v129 = v55 - v50;
-              if ( v49 < 0 )
+              while ( v51 );
+              if ( !v51 && v48 && *v50 )
+                v52 = -2147483643;
+              pcchNewDestLength = v46;
+              v47 = v45 - v46;
+              v44 = &v43[v46];
+              v121 = v44;
+              v122 = v45 - v46;
+              if ( v52 < 0 )
               {
-                RtlUnicodeStringExHandleOtherFlags(v54, v55, v51, &pcchNewDestLength, &v128, &v129, 0x800u);
-                v47 = v128;
-                LOWORD(v48) = v129;
+                RtlUnicodeStringExHandleOtherFlags(v43, v45, (size_t)v43, &pcchNewDestLength, &v121, &v122, 0x800u);
+                v44 = v121;
+                v47 = v122;
+                LOWORD(v46) = pcchNewDestLength;
               }
             }
             else
             {
-              if ( !*(_QWORD *)&TimeFields.Minute )
-                break;
-              v49 = -2147483643;
+              v52 = *(_QWORD *)&TimeFields.Minute != 0LL ? -2147483643 : -1073741811;
             }
-            TimeFields.Year = 0;
-            TimeFields.Month = 2 * v48;
-            *(_QWORD *)&TimeFields.Minute = v47;
-            if ( v49 < 0 )
+            TimeFields.Year = 2 * v46;
+            if ( ((v52 + 0x80000000) & 0x80000000) != 0 || v52 == -2147483643 )
+            {
+              TimeFields.Year = 0;
+              TimeFields.Month = 2 * v47;
+              *(_QWORD *)&TimeFields.Minute = v44;
+            }
+            if ( v52 < 0 )
               break;
           }
-          dwFlags[0] = *((_DWORD *)v46 + 27);
+          dwFlags[0] = *((_DWORD *)v42 + 27);
           if ( RtlUnicodeStringPrintfEx(
                  (PUNICODE_STRING)&TimeFields,
                  (PUNICODE_STRING)&TimeFields,
                  0x800u,
                  L"%wZ:%wZ:%08X",
-                 v46 + 5,
-                 v46 + 9,
+                 v42 + 5,
+                 v42 + 9,
                  *(_QWORD *)dwFlags) < 0
-            || v46[22]
+            || v42[22]
             && RtlUnicodeStringPrintfEx(
                  (PUNICODE_STRING)&TimeFields,
                  (PUNICODE_STRING)&TimeFields,
                  0x800u,
                  L":%ws",
-                 v46[22]) < 0 )
+                 v42[22]) < 0 )
           {
             break;
           }
-          v46 = (__int64 *)*v46;
+          v42 = (__int64 *)*v42;
         }
-        while ( v46 != (__int64 *)v13 );
-        v7 = v130;
-        LOBYTE(v12) = v123;
+        while ( v42 != (__int64 *)v14 );
+        v7 = v124;
+        LOBYTE(v13) = v116;
+        v8 = v114;
       }
     }
-    LOBYTE(a4) = v115;
-    a1 = v125;
+    LOBYTE(a4) = v109;
+    v9 = v118;
   }
   else
   {
     LOWORD(pszDest[0]) = 0;
-    LOBYTE(v12) = 0;
-    LOWORD(v139[0]) = 0;
-    v113 = 0;
+    LOBYTE(v13) = 0;
+    LOWORD(v132[0]) = 0;
+    v107 = 0;
   }
+  v16 = a5;
   if ( a5 < 0 )
   {
     if ( a5 == -1073740959 )
     {
-      if ( (byte_140C0E20A & 0x20) != 0 )
+      if ( (byte_140C1327A & 0x20) != 0 )
       {
         v67 = a4 & 1;
-        if ( v7 && *(_DWORD *)(v7 + 108) != -1 || v7 )
-        {
-          v68 = *(const wchar_t **)(v7 + 48);
-          v69 = v7 + 272;
-          v70 = v7 + 88;
-        }
-        else
-        {
-          v69 = 0LL;
-          v68 = L"null";
-          v70 = 0LL;
-        }
-        PnpGetLogString(*(_QWORD *)(a1 + 16) + 40LL);
-        PnpGetLogString((__int64)&v120);
-        PnpGetLogString(v71);
+        v68 = (__int64 *)(v7 + 240);
+        if ( !v7 )
+          v68 = PiDevCfgNullGuid;
+        PnpGetLogString(*(_QWORD *)(v9 + 16) + 40LL);
+        PnpGetLogString((__int64)&v113);
+        PnpGetLogString(v69);
         PnpGetLogString(v70);
-        LogString = PnpGetLogString(v69);
+        LogString = PnpGetLogString((v7 + 272) & -(__int64)(v7 != 0));
         McTemplateK0zzjzzztzdzztdz_EtwWriteTransfer(
-          v113,
-          (const EVENT_DESCRIPTOR *)KMPnPEvt_DeviceConfig_Blocked,
-          (__int64)v74,
-          *(const wchar_t **)(v117 + 8),
-          v68,
-          v77,
-          (const wchar_t *)pszDest,
-          (const wchar_t *)v139,
-          (const wchar_t *)LogString,
-          v113,
-          v73,
-          v12,
-          v74,
+          v107,
+          (__int64)KMPnPEvt_DeviceConfig_Blocked,
+          (__int64)v73,
+          *(const wchar_t **)(v8 + 8),
           v76,
+          (__int64)v68,
+          (const wchar_t *)pszDest,
+          (const wchar_t *)v132,
+          (const wchar_t *)LogString,
+          v107,
+          v72,
+          v13,
+          v73,
+          v75,
           v67,
           97,
-          v75);
+          v74);
       }
     }
-    else if ( (byte_140C0E20A & 0x10) != 0 )
+    else if ( (byte_140C1327A & 0x10) != 0 )
     {
-      v78 = a4 & 1;
-      if ( v7 && *(_DWORD *)(v7 + 108) != -1 || v7 )
-      {
-        v79 = *(const wchar_t **)(v7 + 48);
-        v80 = v7 + 272;
-        v81 = v7 + 88;
-      }
-      else
-      {
-        v80 = 0LL;
-        v79 = L"null";
-        v81 = 0LL;
-      }
-      PnpGetLogString(*(_QWORD *)(a1 + 16) + 40LL);
-      PnpGetLogString((__int64)&v120);
-      PnpGetLogString(v82);
-      PnpGetLogString(v81);
-      v83 = PnpGetLogString(v80);
+      v77 = a4 & 1;
+      v78 = (__int64 *)(v7 + 240);
+      if ( !v7 )
+        v78 = PiDevCfgNullGuid;
+      PnpGetLogString(*(_QWORD *)(v9 + 16) + 40LL);
+      PnpGetLogString((__int64)&v113);
+      PnpGetLogString(v79);
+      PnpGetLogString(v80);
+      v81 = PnpGetLogString((v7 + 272) & -(__int64)(v7 != 0));
       McTemplateK0zzjzzztzdzztdz_EtwWriteTransfer(
-        v113,
-        (const EVENT_DESCRIPTOR *)KMPnPEvt_DeviceConfig_Failure,
-        (__int64)v85,
-        *(const wchar_t **)(v117 + 8),
-        v79,
-        v88,
+        v107,
+        (__int64)KMPnPEvt_DeviceConfig_Failure,
+        (__int64)v83,
+        *(const wchar_t **)(v8 + 8),
+        v86,
+        (__int64)v78,
         (const wchar_t *)pszDest,
-        (const wchar_t *)v139,
-        (const wchar_t *)v83,
-        v113,
-        v84,
-        v12,
+        (const wchar_t *)v132,
+        (const wchar_t *)v81,
+        v107,
+        v82,
+        v13,
+        v83,
         v85,
-        v87,
-        v78,
+        v77,
         a5,
-        v86);
+        v84);
     }
   }
   else if ( (a4 & 0x70) != 0 )
   {
-    if ( (byte_140C0E20A & 0x20) != 0 )
+    if ( (byte_140C1327A & 0x20) != 0 )
     {
-      v56 = a4 & 1;
-      if ( v7 && *(_DWORD *)(v7 + 108) != -1 || v7 )
-      {
-        v57 = *(const wchar_t **)(v7 + 48);
-        v58 = v7 + 272;
-        v59 = v7 + 88;
-      }
-      else
-      {
-        v58 = 0LL;
-        v57 = L"null";
-        v59 = 0LL;
-      }
-      PnpGetLogString(*(_QWORD *)(a1 + 16) + 40LL);
-      PnpGetLogString((__int64)&v120);
-      PnpGetLogString(v60);
+      v57 = a4 & 1;
+      v58 = (__int64 *)(v7 + 240);
+      if ( !v7 )
+        v58 = PiDevCfgNullGuid;
+      PnpGetLogString(*(_QWORD *)(v9 + 16) + 40LL);
+      PnpGetLogString((__int64)&v113);
       PnpGetLogString(v59);
-      v61 = PnpGetLogString(v58);
+      PnpGetLogString(v60);
+      v61 = PnpGetLogString((v7 + 272) & -(__int64)(v7 != 0));
       McTemplateK0zzjzzztzdzztdz_EtwWriteTransfer(
-        v113,
-        (const EVENT_DESCRIPTOR *)KMPnPEvt_DeviceConfig_RebootRequired,
+        v107,
+        (__int64)KMPnPEvt_DeviceConfig_RebootRequired,
         (__int64)v63,
-        *(const wchar_t **)(v117 + 8),
-        v57,
+        *(const wchar_t **)(v8 + 8),
         v66,
+        (__int64)v58,
         (const wchar_t *)pszDest,
-        (const wchar_t *)v139,
+        (const wchar_t *)v132,
         (const wchar_t *)v61,
-        v113,
+        v107,
         v62,
-        v12,
+        v13,
         v63,
         v65,
-        v56,
+        v57,
         a5,
         v64);
     }
   }
-  else if ( (byte_140C0E20A & 8) != 0 )
+  else if ( (byte_140C1327A & 8) != 0 )
   {
-    v15 = a4 & 1;
-    if ( v7 && *(_DWORD *)(v7 + 108) != -1 || v7 )
-    {
-      v16 = *(const wchar_t **)(v7 + 48);
-      v17 = v7 + 272;
-      v18 = v7 + 88;
-    }
-    else
-    {
-      v17 = 0LL;
-      v16 = L"null";
-      v18 = 0LL;
-    }
-    PnpGetLogString(*(_QWORD *)(a1 + 16) + 40LL);
-    PnpGetLogString((__int64)&v120);
+    v17 = a4 & 1;
+    v18 = (__int64 *)(v7 + 240);
+    if ( !v7 )
+      v18 = PiDevCfgNullGuid;
+    PnpGetLogString(*(_QWORD *)(v9 + 16) + 40LL);
+    PnpGetLogString((__int64)&v113);
     PnpGetLogString(v19);
-    PnpGetLogString(v18);
-    v20 = PnpGetLogString(v17);
+    PnpGetLogString(v20);
+    v21 = PnpGetLogString((v7 + 272) & -(__int64)(v7 != 0));
     McTemplateK0zzjzzztzdzztdz_EtwWriteTransfer(
-      v113,
-      (const EVENT_DESCRIPTOR *)&KMPnPEvt_DeviceConfig_Success,
-      (__int64)v22,
-      *(const wchar_t **)(v117 + 8),
-      v16,
-      v25,
+      v107,
+      (__int64)&KMPnPEvt_DeviceConfig_Success,
+      (__int64)v23,
+      *(const wchar_t **)(v8 + 8),
+      v26,
+      (__int64)v18,
       (const wchar_t *)pszDest,
-      (const wchar_t *)v139,
-      (const wchar_t *)v20,
-      v113,
-      v21,
-      v12,
+      (const wchar_t *)v132,
+      (const wchar_t *)v21,
+      v107,
       v22,
-      v24,
-      v15,
+      v13,
+      v23,
+      v25,
+      v17,
       a5,
-      v23);
+      v24);
   }
-  if ( !v7 )
-    goto LABEL_41;
-  v26 = a6;
-  v27 = (__int64 **)(v7 + 208);
-  v28 = *(__int64 ***)(v7 + 208);
-  if ( v28 != (__int64 **)(v7 + 208) )
+  if ( v7 )
   {
-    v89 = v124;
+    v27 = a6;
+    v28 = (__int64 **)(v7 + 208);
+    v29 = *(__int64 ***)(v7 + 208);
+    if ( v29 == (__int64 **)(v7 + 208) )
+      goto LABEL_30;
+    v87 = v117;
     do
     {
-      v28 = (__int64 **)*v28;
-      ++v89;
+      v29 = (__int64 **)*v29;
+      ++v87;
     }
-    while ( v28 != v27 );
-    if ( !v89 )
+    while ( v29 != v28 );
+    if ( !v87 )
     {
-      v29 = v118.Buffer;
-      goto LABEL_32;
-    }
-    v90 = 0x7FFF;
-    if ( (unsigned int)(1646 * v89 + 2) <= 0x7FFF )
-    {
-      v90 = 1646 * v89 + 2;
-      v118.MaximumLength = v90;
+LABEL_30:
+      v30 = v111.Buffer;
     }
     else
     {
-      v118.MaximumLength = 0x7FFF;
-    }
-    v118.Length = 0;
-    v91 = (wchar_t *)ExpAllocateStringRoutine(v90);
-    v118.Buffer = v91;
-    v29 = v91;
-    if ( !v91 )
-      goto LABEL_41;
-    memset(v91, 0, v90);
-    v118.MaximumLength = v90 - 2;
-    v92 = *v27;
-    TimeFields = (TIME_FIELDS)v118;
-    if ( v92 == (__int64 *)v27 )
-      goto LABEL_32;
-    v93 = v115 & 1;
-    do
-    {
-      v94 = v93 | 0x10;
-      if ( !*((_DWORD *)v92 + 101) )
-        v94 = v93;
-      PiDevCfgLogDeviceConfigured(v125, v117, v92, v94, a5, v26, v132);
-      memset(v137, 0, sizeof(v137));
-      v95 = (void *)v92[2];
-      v137[0] = &DEVPKEY_DriverPackage_OriginalInfName;
-      LODWORD(v137[1]) = 18;
-      v137[2] = &v133;
-      v137[5] = DEVPKEY_DriverPackage_ExtensionId;
-      v137[7] = &v136;
-      LODWORD(v137[16]) = 18;
-      v137[10] = DEVPKEY_DriverPackage_DriverFlightIds;
-      HIDWORD(v137[3]) = 6;
-      v137[12] = &v119;
-      v137[15] = DEVPKEY_DriverPackage_SubmissionId;
-      v137[17] = &v134;
-      v96 = v92[8];
-      LODWORD(v137[6]) = 13;
-      LODWORD(v137[8]) = 16;
-      LODWORD(v137[11]) = 8210;
-      HIDWORD(v137[13]) = 6;
-      HIDWORD(v137[18]) = 6;
-      if ( (int)PiDevCfgQueryObjectProperties(6LL, v96, 8u, v95, (__int64)v137, 4u) >= 0 )
+      v88 = 0x7FFF;
+      if ( (unsigned int)(1646 * v87 + 2) <= 0x7FFF )
       {
-        if ( SLODWORD(v137[4]) < 0 && !RtlCreateUnicodeString(&v133, (PCWSTR)v92[6]) )
-          RtlInitUnicodeString(&v133, 0LL);
-        if ( SLODWORD(v137[9]) < 0 || (int)RtlStringFromGUIDEx((unsigned int *)&v136, (__int64)&v126, 1) < 0 )
-          RtlInitUnicodeString(&v126, 0LL);
-        if ( SLODWORD(v137[14]) < 0 )
-          RtlInitUnicodeString(&v119, 0LL);
-        if ( v119.Buffer && (v97 = v119.Length, v119.Length > 4u) )
-        {
-          v98 = 0;
-          if ( (unsigned __int64)v119.Length >> 1 != 2 )
-          {
-            v99 = 0LL;
-            do
-            {
-              if ( !v119.Buffer[v99] )
-              {
-                v119.Buffer[v99] = 59;
-                v97 = v119.Length;
-              }
-              v99 = ++v98;
-            }
-            while ( v98 < ((unsigned __int64)v97 >> 1) - 2 );
-            v26 = a6;
-          }
-          v119.Length = v97 - 2;
-        }
-        else
-        {
-          RtlFreeUnicodeString(&v119);
-          RtlInitUnicodeString(&v119, 0LL);
-        }
-        if ( SLODWORD(v137[19]) < 0 )
-          RtlInitUnicodeString(&v134, 0LL);
-        v100 = &v134;
-        if ( !v134.Buffer )
-          v100 = (UNICODE_STRING *)&PiDevCfgEmptyString;
-        v101 = &v119;
-        v102 = L",";
-        if ( !v119.Buffer )
-          v101 = (UNICODE_STRING *)&PiDevCfgEmptyString;
-        if ( v92 == *v27 )
-          v102 = &word_1408882A0;
-        v103 = RtlUnicodeStringPrintfEx(
-                 (PUNICODE_STRING)&TimeFields,
-                 (PUNICODE_STRING)&TimeFields,
-                 0x800u,
-                 L"%ws%wZ:%wZ:%wZ:%wZ",
-                 v102,
-                 &v133,
-                 &v126,
-                 v101,
-                 v100);
-        RtlFreeUnicodeString(&v126);
-        RtlFreeUnicodeString(&v119);
-        RtlFreeUnicodeString(&v133);
-        RtlFreeUnicodeString(&v134);
-        if ( v103 < 0 )
-          break;
+        v88 = 1646 * v87 + 2;
+        v111.MaximumLength = v88;
       }
-      v92 = (__int64 *)*v92;
+      else
+      {
+        v111.MaximumLength = 0x7FFF;
+      }
+      v111.Length = 0;
+      v89 = (wchar_t *)ExpAllocateStringRoutine(v88);
+      v111.Buffer = v89;
+      v30 = v89;
+      if ( !v89 )
+        goto LABEL_38;
+      memset(v89, 0, v88);
+      v111.MaximumLength = v88 - 2;
+      v90 = *v28;
+      TimeFields = (TIME_FIELDS)v111;
+      if ( v90 != (__int64 *)v28 )
+      {
+        v91 = v109 & 1;
+        do
+        {
+          v92 = v91 | 0x10;
+          if ( !*((_DWORD *)v90 + 97) )
+            v92 = v91;
+          PiDevCfgLogDeviceConfigured(v118, v114, (_DWORD)v90, v92, a5, v27, (__int64)v126);
+          memset(v130, 0, sizeof(v130));
+          v93 = v90[2];
+          v130[0] = &DEVPKEY_DriverPackage_OriginalInfName;
+          LODWORD(v130[1]) = 18;
+          v130[2] = &v127;
+          v130[5] = DEVPKEY_DriverPackage_ExtensionId;
+          v130[7] = v129;
+          LODWORD(v130[16]) = 18;
+          v130[10] = DEVPKEY_DriverPackage_DriverFlightIds;
+          HIDWORD(v130[3]) = 6;
+          v130[12] = &v112;
+          v130[15] = DEVPKEY_DriverPackage_SubmissionId;
+          v130[17] = &v128;
+          v94 = v90[8];
+          LODWORD(v130[6]) = 13;
+          LODWORD(v130[8]) = 16;
+          LODWORD(v130[11]) = 8210;
+          HIDWORD(v130[13]) = 6;
+          HIDWORD(v130[18]) = 6;
+          if ( (int)PiDevCfgQueryObjectProperties(6, v94, 8, v93, (__int64)v130, 4) >= 0 )
+          {
+            if ( SLODWORD(v130[4]) < 0 && !RtlCreateUnicodeString(&v127, (PCWSTR)v90[6]) )
+              RtlInitUnicodeString(&v127, 0LL);
+            if ( SLODWORD(v130[9]) < 0 || (int)RtlStringFromGUIDEx(v129, (__int64)&v119, 1) < 0 )
+              RtlInitUnicodeString(&v119, 0LL);
+            if ( SLODWORD(v130[14]) < 0 )
+              RtlInitUnicodeString(&v112, 0LL);
+            if ( v112.Buffer && (v95 = v112.Length, v112.Length > 4u) )
+            {
+              v96 = 0;
+              if ( (unsigned __int64)v112.Length >> 1 != 2 )
+              {
+                v97 = 0LL;
+                do
+                {
+                  if ( !v112.Buffer[v97] )
+                  {
+                    v112.Buffer[v97] = 59;
+                    v95 = v112.Length;
+                  }
+                  v97 = ++v96;
+                }
+                while ( v96 < ((unsigned __int64)v95 >> 1) - 2 );
+                v27 = a6;
+              }
+              v112.Length = v95 - 2;
+            }
+            else
+            {
+              RtlFreeAnsiString(&v112);
+              RtlInitUnicodeString(&v112, 0LL);
+            }
+            if ( SLODWORD(v130[19]) < 0 )
+              RtlInitUnicodeString(&v128, 0LL);
+            v98 = &v128;
+            if ( !v128.Buffer )
+              v98 = (UNICODE_STRING *)&PiDevCfgEmptyString;
+            v99 = &v112;
+            v100 = L",";
+            if ( !v112.Buffer )
+              v99 = (UNICODE_STRING *)&PiDevCfgEmptyString;
+            if ( v90 == *v28 )
+              v100 = &word_1407D7A40;
+            v101 = RtlUnicodeStringPrintfEx(
+                     (PUNICODE_STRING)&TimeFields,
+                     (PUNICODE_STRING)&TimeFields,
+                     0x800u,
+                     L"%ws%wZ:%wZ:%wZ:%wZ",
+                     v100,
+                     &v127,
+                     &v119,
+                     v99,
+                     v98);
+            RtlFreeAnsiString(&v119);
+            RtlFreeAnsiString(&v112);
+            RtlFreeAnsiString(&v127);
+            RtlFreeAnsiString(&v128);
+            if ( v101 < 0 )
+              break;
+          }
+          v90 = (__int64 *)*v90;
+        }
+        while ( v90 != (__int64 *)v28 );
+        v7 = v124;
+        v16 = a5;
+        v30 = v111.Buffer;
+      }
     }
-    while ( v92 != (__int64 *)v27 );
-    v7 = v130;
-  }
-  v29 = v118.Buffer;
-LABEL_32:
-  v30 = 0LL;
-  if ( *(_QWORD *)(v117 + 32) )
-    v30 = *(_QWORD *)(v117 + 32);
-  if ( *(_QWORD *)(v117 + 48) && *(_WORD *)(v117 + 40) > 2u )
-  {
-    v31 = *(_QWORD *)(v117 + 48);
-    v34 = -1LL;
-    do
-      ++v34;
-    while ( *(_WORD *)(v31 + 2 * v34) );
-    while ( *(_WORD *)(v31 + 2 * v34 + 2) )
+    v31 = 0LL;
+    if ( *(_QWORD *)(v114 + 32) )
+      v31 = *(_QWORD *)(v114 + 32);
+    if ( *(_QWORD *)(v114 + 48) && *(_WORD *)(v114 + 40) > 2u )
     {
-      v35 = -1LL;
-      do
-        ++v35;
-      while ( *(_WORD *)(v31 + 2 * v35) );
-      v36 = v31 + 2 * v35;
+      v32 = *(_QWORD *)(v114 + 48);
       v34 = -1LL;
-      v31 = v36 + 2;
       do
         ++v34;
-      while ( *(_WORD *)(v31 + 2 * v34) );
-    }
-  }
-  else
-  {
-    v31 = v131;
-  }
-  v32 = DestinationString.Buffer;
-  if ( !DestinationString.Buffer )
-    v32 = *(wchar_t **)(v7 + 48);
-  if ( *(_QWORD *)(v7 + 392) && *(_WORD *)(v7 + 384) > 4u )
-  {
-    if ( !PnpDuplicateUnicodeString((__int64)&v121, v7 + 384) )
-      goto LABEL_41;
-    v104 = v121.Length;
-    v105 = 0;
-    v33 = v121.Buffer;
-    v106 = ((unsigned __int64)v121.Length >> 1) - 2;
-    if ( (unsigned __int64)v121.Length >> 1 != 2 )
-    {
-      v107 = 0LL;
-      do
+      while ( *(_WORD *)(v32 + 2 * v34) );
+      while ( *(_WORD *)(v32 + 2 * v34 + 2) )
       {
-        if ( !v33[v107] )
-          v33[v107] = 59;
-        v107 = ++v105;
+        v35 = -1LL;
+        do
+          ++v35;
+        while ( *(_WORD *)(v32 + 2 * v35) );
+        v36 = v32 + 2 * v35;
+        v34 = -1LL;
+        v32 = v36 + 2;
+        do
+          ++v34;
+        while ( *(_WORD *)(v32 + 2 * v34) );
       }
-      while ( v105 < v106 );
     }
-    v121.Length = v104 - 2;
+    else
+    {
+      v32 = v125;
+    }
+    v33 = DestinationString.Buffer;
+    if ( !DestinationString.Buffer )
+      v33 = *(wchar_t **)(v7 + 48);
+    PnpTraceDeviceConfig(
+      v118 + 40,
+      v31,
+      v32,
+      *(const size_t **)(v7 + 264),
+      (const size_t *)v33,
+      *(const size_t **)(v7 + 280),
+      pszDest,
+      v132,
+      (const size_t *)v120.Buffer,
+      (const size_t *)v30,
+      v107,
+      &UnicodeString.Length,
+      PnpSetupInProgress != 0,
+      (v109 & 0x70) != 0,
+      v27,
+      v16,
+      v126);
   }
-  else
-  {
-    v33 = v121.Buffer;
-  }
-  PnpTraceDeviceConfig(
-    v125 + 40,
-    v30,
-    v31,
-    *(const size_t **)(v7 + 264),
-    (const size_t *)v32,
-    *(const size_t **)(v7 + 280),
-    pszDest,
-    v139,
-    (const size_t *)v127.Buffer,
-    (const size_t *)v29,
-    (const size_t *)v33,
-    v113,
-    &UnicodeString.Length,
-    PnpSetupInProgress != 0,
-    (v115 & 0x70) != 0,
-    v26,
-    a5,
-    v132);
-LABEL_41:
-  RtlFreeUnicodeString(&DestinationString);
-  RtlFreeUnicodeString(&v120);
-  RtlFreeUnicodeString(&UnicodeString);
-  RtlFreeUnicodeString(&v118);
-  RtlFreeUnicodeString(&v127);
-  RtlFreeUnicodeString(&v121);
+LABEL_38:
+  RtlFreeAnsiString(&DestinationString);
+  RtlFreeAnsiString(&v113);
+  RtlFreeAnsiString(&UnicodeString);
+  RtlFreeAnsiString(&v111);
+  RtlFreeAnsiString(&v120);
 }

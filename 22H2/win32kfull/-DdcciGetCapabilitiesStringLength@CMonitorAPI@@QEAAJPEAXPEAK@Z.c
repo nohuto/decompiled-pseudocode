@@ -1,21 +1,24 @@
 /*
- * XREFs of ?DdcciGetCapabilitiesStringLength@CMonitorAPI@@QEAAJPEAXPEAK@Z @ 0x1C02695A4
+ * XREFs of ?DdcciGetCapabilitiesStringLength@CMonitorAPI@@QEAAJPEAXPEAK@Z @ 0x1C0270E7C
  * Callers:
- *     NtGdiDDCCIGetCapabilitiesStringLength @ 0x1C026A2A0 (NtGdiDDCCIGetCapabilitiesStringLength.c)
+ *     NtGdiDDCCIGetCapabilitiesStringLength @ 0x1C0271BA0 (NtGdiDDCCIGetCapabilitiesStringLength.c)
  * Callees:
- *     ?DdcciGetCapabilitiesStringLength@CPhysicalMonitorHandle@@QEAAJPEAK@Z @ 0x1C0269628 (-DdcciGetCapabilitiesStringLength@CPhysicalMonitorHandle@@QEAAJPEAK@Z.c)
- *     ?GetHandleObject@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysicalMonitorHandle@@@Z @ 0x1C0269E50 (-GetHandleObject@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysi.c)
+ *     ?DdcciGetCapabilitiesStringLength@CPhysicalMonitorHandle@@QEAAJPEAK@Z @ 0x1C0270F08 (-DdcciGetCapabilitiesStringLength@CPhysicalMonitorHandle@@QEAAJPEAK@Z.c)
+ *     ?GetHandleObject@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysicalMonitorHandle@@@Z @ 0x1C02717D4 (-GetHandleObject@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysi.c)
  */
 
 __int64 __fastcall CMonitorAPI::DdcciGetCapabilitiesStringLength(CMonitorAPI *this, void *a2, unsigned int *a3)
 {
+  char *v3; // rbx
   int HandleObject; // ebx
   CPhysicalMonitorHandle *v8; // [rsp+30h] [rbp+8h] BYREF
   char v9; // [rsp+48h] [rbp+20h] BYREF
 
-  OPM::CAutoMutex::CAutoMutex((OPM::CAutoMutex *)&v9, this);
+  v8 = this;
+  v3 = (char *)qword_1C033A068;
+  OPM::CAutoMutex::CAutoMutex((OPM::CAutoMutex *)&v9, (struct OPM::CMutex *)qword_1C033A068);
   v8 = 0LL;
-  HandleObject = OPM::CMonitorHandleTable<CPhysicalMonitorHandle,void *>::GetHandleObject((char *)this + 8, a2, &v8);
+  HandleObject = OPM::CMonitorHandleTable<CPhysicalMonitorHandle,void *>::GetHandleObject(v3 + 8, a2, &v8);
   if ( HandleObject >= 0 )
     HandleObject = CPhysicalMonitorHandle::DdcciGetCapabilitiesStringLength(v8, a3);
   OPM::CAutoMutex::~CAutoMutex((OPM::CAutoMutex *)&v9);

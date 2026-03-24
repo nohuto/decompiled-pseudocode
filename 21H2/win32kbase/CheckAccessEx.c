@@ -1,16 +1,15 @@
 /*
- * XREFs of CheckAccessEx @ 0x1C002FB20
+ * XREFs of CheckAccessEx @ 0x1C0042FA8
  * Callers:
- *     NtUserSetKeyboardState @ 0x1C0005830 (NtUserSetKeyboardState.c)
- *     _anonymous_namespace_::ValidateUIPI @ 0x1C0007E58 (_anonymous_namespace_--ValidateUIPI.c)
- *     ?IsHandleEntryAccessibleForIL@@YAHPEAU_HANDLEENTRY@@@Z @ 0x1C002DC7C (-IsHandleEntryAccessibleForIL@@YAHPEAU_HANDLEENTRY@@@Z.c)
- *     NtUserChangeDisplaySettings @ 0x1C00647B0 (NtUserChangeDisplaySettings.c)
- *     NtUserSetSysColors @ 0x1C00B8210 (NtUserSetSysColors.c)
- *     ?CanCallerAccessDestination@CInputDest@@QEBA_NXZ @ 0x1C00E7AFE (-CanCallerAccessDestination@CInputDest@@QEBA_NXZ.c)
- *     NtUserDisplayConfigSetDeviceInfo @ 0x1C01580E0 (NtUserDisplayConfigSetDeviceInfo.c)
- *     NtUserEnableTouchPad @ 0x1C0158800 (NtUserEnableTouchPad.c)
- *     NtUserSetDisplayConfig @ 0x1C0160660 (NtUserSetDisplayConfig.c)
- *     NtUserSetPrecisionTouchPadConfiguration @ 0x1C0162240 (NtUserSetPrecisionTouchPadConfiguration.c)
+ *     NtUserSetSysColors @ 0x1C000B8B0 (NtUserSetSysColors.c)
+ *     NtUserChangeDisplaySettings @ 0x1C00179C0 (NtUserChangeDisplaySettings.c)
+ *     ?IsHandleEntryAccessibleForIL@@YAHPEAU_HANDLEENTRY@@@Z @ 0x1C0042E54 (-IsHandleEntryAccessibleForIL@@YAHPEAU_HANDLEENTRY@@@Z.c)
+ *     _anonymous_namespace_::ValidateUIPI @ 0x1C00ADC2C (_anonymous_namespace_--ValidateUIPI.c)
+ *     NtUserDisplayConfigSetDeviceInfo @ 0x1C012D9E0 (NtUserDisplayConfigSetDeviceInfo.c)
+ *     NtUserEnableTouchPad @ 0x1C012DDF0 (NtUserEnableTouchPad.c)
+ *     NtUserSetDisplayConfig @ 0x1C0133430 (NtUserSetDisplayConfig.c)
+ *     NtUserSetPrecisionTouchPadConfiguration @ 0x1C0134510 (NtUserSetPrecisionTouchPadConfiguration.c)
+ *     ?CanCallerAccessDestination@CInputDest@@QEBA_NXZ @ 0x1C0182C94 (-CanCallerAccessDestination@CInputDest@@QEBA_NXZ.c)
  * Callees:
  *     <none>
  */

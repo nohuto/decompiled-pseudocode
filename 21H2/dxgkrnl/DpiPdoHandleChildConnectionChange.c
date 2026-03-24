@@ -1,221 +1,202 @@
 /*
- * XREFs of DpiPdoHandleChildConnectionChange @ 0x1C02164B8
+ * XREFs of DpiPdoHandleChildConnectionChange @ 0x1C0179B08
  * Callers:
- *     DxgkQueryConnectionChanges @ 0x1C0024C50 (DxgkQueryConnectionChanges.c)
- *     DpiFdoHandleTargetConnectionState @ 0x1C038A234 (DpiFdoHandleTargetConnectionState.c)
+ *     DxgkQueryConnectionChanges @ 0x1C0020690 (DxgkQueryConnectionChanges.c)
+ *     DpiFdoHandleTargetConnectionState @ 0x1C02CACE4 (DpiFdoHandleTargetConnectionState.c)
  * Callees:
- *     ?wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C000BD74 (-wil_details_FeatureReporting_ReportUsageToService@@YAXPEAUwil_details_FeatureReportingCache@@IH.c)
- *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C0011E60 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
- *     DpiFdoGetChildDescriptor @ 0x1C001E234 (DpiFdoGetChildDescriptor.c)
- *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
- *     memset @ 0x1C002CFC0 (memset.c)
- *     MonitorCancelSkippedDepartures @ 0x1C0157684 (MonitorCancelSkippedDepartures.c)
- *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01B32DC (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
- *     DxgkIsConsoleSessionDispBrokerEnabled @ 0x1C01E0760 (DxgkIsConsoleSessionDispBrokerEnabled.c)
- *     DpiPdoAddPdo @ 0x1C0205A28 (DpiPdoAddPdo.c)
- *     MonitorCreatePhysicalMonitor @ 0x1C0205ED8 (MonitorCreatePhysicalMonitor.c)
- *     MonitorNotifyDeviceNodeReady @ 0x1C020643C (MonitorNotifyDeviceNodeReady.c)
- *     DpiPdoRemovePdo @ 0x1C0397BD4 (DpiPdoRemovePdo.c)
- *     DpiPdoSetMonitorDriverInterfaceState @ 0x1C0397F40 (DpiPdoSetMonitorDriverInterfaceState.c)
- *     MonitorRemovePhysicalMonitor @ 0x1C03B0AD0 (MonitorRemovePhysicalMonitor.c)
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000A84C (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     DpiFdoGetChildDescriptor @ 0x1C001A270 (DpiFdoGetChildDescriptor.c)
+ *     __security_check_cookie @ 0x1C0024910 (__security_check_cookie.c)
+ *     memset @ 0x1C0028F00 (memset.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C013AB0C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DpiPdoAddPdo @ 0x1C0179C7C (DpiPdoAddPdo.c)
+ *     MonitorNotifyDeviceNodeReady @ 0x1C018F74C (MonitorNotifyDeviceNodeReady.c)
+ *     MonitorCreatePhysicalMonitor @ 0x1C019142C (MonitorCreatePhysicalMonitor.c)
+ *     DpiPdoRemovePdo @ 0x1C02D9630 (DpiPdoRemovePdo.c)
+ *     DpiPdoSetMonitorDriverInterfaceState @ 0x1C02D99E0 (DpiPdoSetMonitorDriverInterfaceState.c)
+ *     MonitorRemovePhysicalMonitor @ 0x1C02F4284 (MonitorRemovePhysicalMonitor.c)
  */
 
 __int64 __fastcall DpiPdoHandleChildConnectionChange(
         __int64 a1,
         unsigned int a2,
-        int a3,
+        unsigned int a3,
         unsigned __int8 a4,
         char a5,
         char a6,
-        BOOLEAN a7,
+        char a7,
         char a8,
-        __int64 a9,
-        __int64 a10)
+        struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a9)
 {
-  __int64 v11; // r14
-  __int64 v12; // r13
-  __int64 v13; // rdi
-  char v14; // bl
-  int v15; // eax
-  __int64 v16; // rdx
+  __int64 v10; // r15
+  __int64 v11; // rdi
+  unsigned __int8 v12; // bl
+  unsigned __int8 v13; // r13
   enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *ChildDescriptor; // rax
-  __int64 v18; // r8
-  __int64 v19; // r9
-  __int64 v20; // rsi
-  __int64 v21; // rbx
-  char v22; // r15
-  __int64 v23; // rdx
-  __int64 v24; // r13
-  bool v25; // r15
-  NTSTATUS v26; // eax
-  char *v27; // rcx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *v19; // rsi
+  __int64 v20; // rdx
+  int v21; // eax
+  __int64 v22; // rbx
+  __int64 v24; // rdx
+  int v25; // eax
+  __int64 v26; // rax
+  __int64 v27; // r15
+  NTSTATUS v28; // eax
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // r13
+  __int64 v32; // rax
+  void *v33; // rcx
   int PhysicalMonitor; // eax
-  int v29; // eax
-  int v30; // eax
-  int v31; // eax
-  bool v33; // [rsp+41h] [rbp-BFh] BYREF
-  unsigned __int8 v34; // [rsp+42h] [rbp-BEh]
-  __int64 v35; // [rsp+48h] [rbp-B8h]
-  int v36; // [rsp+50h] [rbp-B0h]
-  __int64 v37; // [rsp+58h] [rbp-A8h]
-  __int64 v38; // [rsp+60h] [rbp-A0h]
-  _DWORD v39[8]; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v40; // [rsp+90h] [rbp-70h]
-  int v41; // [rsp+98h] [rbp-68h]
-  int v42; // [rsp+9Ch] [rbp-64h]
-  int v43; // [rsp+A0h] [rbp-60h]
-  int v44; // [rsp+A4h] [rbp-5Ch]
-  unsigned int v45; // [rsp+A8h] [rbp-58h]
-  int v46; // [rsp+ACh] [rbp-54h]
-  __int64 v47; // [rsp+B0h] [rbp-50h]
-  _DWORD OutputBuffer[60]; // [rsp+C0h] [rbp-40h] BYREF
+  int v35; // eax
+  int v36; // eax
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  __int64 v39; // rbx
+  __int64 v40; // rax
+  ULONG OutputBufferLength; // [rsp+20h] [rbp-E0h]
+  int v42; // [rsp+28h] [rbp-D8h]
+  _DWORD v46[8]; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v47; // [rsp+70h] [rbp-90h]
+  int v48; // [rsp+78h] [rbp-88h]
+  int v49; // [rsp+7Ch] [rbp-84h]
+  int v50; // [rsp+80h] [rbp-80h]
+  int v51; // [rsp+84h] [rbp-7Ch]
+  unsigned int v52; // [rsp+88h] [rbp-78h]
+  int v53; // [rsp+8Ch] [rbp-74h]
+  __int64 v54; // [rsp+90h] [rbp-70h]
+  _DWORD OutputBuffer[60]; // [rsp+A0h] [rbp-60h] BYREF
 
-  v11 = a10;
-  v12 = a1;
-  v13 = *(_QWORD *)(a1 + 64);
-  v34 = a4;
-  v14 = a4;
-  v38 = a9;
-  v36 = a3;
-  v37 = a1;
-  v35 = a10;
+  v10 = a1;
+  v11 = *(_QWORD *)(a1 + 64);
+  v12 = a4;
+  v13 = a4;
   if ( !a8 )
   {
-    v42 = 0;
-    v41 = 0;
-    v40 = 0LL;
-    v15 = *(_DWORD *)(v13 + 24) & 0xFFFF00;
-    v45 = a2;
-    v16 = *(_QWORD *)(v13 + 5728);
-    v44 = v15 | 1;
-    v47 = *(_QWORD *)(v13 + 2672);
-    v39[0] = 30;
-    v39[1] = 72;
-    memset(&v39[2], 0, 24);
-    v43 = 39;
-    v46 = a4;
-    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v39, v16);
+    v49 = 0;
+    v48 = 0;
+    v47 = 0LL;
+    v24 = *(_QWORD *)(v11 + 5936);
+    v25 = *(_DWORD *)(v11 + 24) & 0xFFFF00;
+    v46[0] = 30;
+    v46[1] = 72;
+    v51 = v25 | 1;
+    v54 = *(_QWORD *)(v11 + 2672);
+    memset(&v46[2], 0, 24);
+    v50 = 39;
+    v52 = a2;
+    v53 = a4;
+    DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v46, v24);
   }
-  ChildDescriptor = (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)DpiFdoGetChildDescriptor(v13, a2);
-  v20 = (__int64)ChildDescriptor;
+  ChildDescriptor = (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY *)DpiFdoGetChildDescriptor(v11, a2);
+  v19 = ChildDescriptor;
   if ( !ChildDescriptor )
   {
-    v21 = -1073741810LL;
-LABEL_5:
-    WdLogSingleEntry1(2LL, v21);
-    return (unsigned int)v21;
+    v22 = -1073741810LL;
+    goto LABEL_18;
   }
   if ( !*((_QWORD *)ChildDescriptor + 6) )
   {
-    v22 = 0;
-    goto LABEL_29;
+    LOBYTE(v17) = 0;
+    goto LABEL_6;
   }
-  v22 = 1;
   if ( IsInternalVideoOutput(ChildDescriptor[1]) )
   {
-    v24 = *(_QWORD *)(v23 + 64);
-    if ( *(_BYTE *)(v20 + 66) == v14 )
+    v27 = *(_QWORD *)(v20 + 64);
+    if ( *((_BYTE *)v19 + 66) == v12 )
     {
-LABEL_27:
-      v12 = v37;
-      v14 = 1;
-      goto LABEL_29;
+LABEL_32:
+      v10 = a1;
+      v12 = 1;
+      goto LABEL_6;
     }
-    v25 = 0;
-    v33 = 0;
-    wil_details_FeatureReporting_ReportUsageToService(
-      (__int64)&Feature_OnlyHandlingLidSwitchInBroker__private_reporting,
-      0x187CF21u,
-      v18,
-      v19,
-      (const struct FEATURE_LOGGED_TRAITS *)&Feature_SupportComputeOnlyAdapters_logged_traits,
-      1);
-    if ( (int)DxgkIsConsoleSessionDispBrokerEnabled(&v33) >= 0 )
+    memset(OutputBuffer, 0, 0xE8uLL);
+    v28 = ZwPowerInformation(SystemPowerPolicyCurrent, 0LL, 0, OutputBuffer, 0xE8u);
+    v31 = v28;
+    if ( v28 < 0 )
     {
-      if ( !v33 )
+      OutputBuffer[7] = 0;
+      v32 = WdLogNewEntry5_WdError(v30, v29);
+      *(_QWORD *)(v32 + 24) = v31;
+      WdLogEvent5_WdError(v32);
+    }
+    v33 = *(void **)(v11 + 3896);
+    if ( v12 )
+    {
+      PhysicalMonitor = MonitorCreatePhysicalMonitor(v33, a2, *((struct _DEVICE_OBJECT **)v19 + 6), 1u, v12, a9);
+      v22 = PhysicalMonitor;
+      if ( PhysicalMonitor >= 0 )
       {
-LABEL_13:
-        memset(OutputBuffer, 0, 0xE8uLL);
-        v26 = ZwPowerInformation(SystemPowerPolicyCurrent, 0LL, 0, OutputBuffer, 0xE8u);
-        if ( v26 < 0 )
+        if ( *(_BYTE *)(v27 + 944) )
         {
-          v25 = 0;
-          WdLogSingleEntry1(2LL, v26);
+          MonitorNotifyDeviceNodeReady(*(DXGADAPTER **)(v11 + 3896), a2);
+          goto LABEL_29;
         }
-        else
-        {
-          v25 = OutputBuffer[7] != 0;
-        }
-LABEL_16:
-        v27 = *(char **)(v13 + 3896);
-        if ( v14 )
-        {
-          PhysicalMonitor = MonitorCreatePhysicalMonitor(
-                              v27,
-                              a2,
-                              *(struct _DEVICE_OBJECT **)(v20 + 48),
-                              1u,
-                              v14,
-                              0LL,
-                              (struct _DXGK_DISPLAY_SCENARIO_CONTEXT *)v35);
-          v21 = PhysicalMonitor;
-          if ( PhysicalMonitor < 0 )
-            goto LABEL_5;
-          if ( !*(_BYTE *)(v24 + 944) )
-            goto LABEL_26;
-          MonitorNotifyDeviceNodeReady(*(PERESOURCE **)(v13 + 3896), a2, *(_QWORD *)(v20 + 48));
-        }
-        else
-        {
-          v29 = MonitorRemovePhysicalMonitor(v27, a2);
-          v21 = v29;
-          if ( v29 < 0 )
-            goto LABEL_5;
-          if ( v25 || !*(_BYTE *)(v24 + 944) )
-            goto LABEL_26;
-        }
-        v30 = DpiPdoSetMonitorDriverInterfaceState(*(PVOID *)(v20 + 48));
-        if ( v30 < 0 )
-          WdLogSingleEntry1(3LL, v30);
-LABEL_26:
-        v11 = v35;
-        v22 = 1;
-        goto LABEL_27;
+        goto LABEL_31;
       }
-      v25 = 1;
-    }
-    if ( v33 )
-      goto LABEL_16;
-    goto LABEL_13;
-  }
-LABEL_29:
-  *(_BYTE *)(v20 + 66) = v34;
-  if ( v14 )
-    MonitorCancelSkippedDepartures(*(PERESOURCE **)(v13 + 3896), a2);
-  if ( v22 != v14 || v14 && a6 )
-  {
-    *(_BYTE *)(v20 + 65) = v14;
-    if ( v14 )
-    {
-      LOBYTE(v19) = a5;
-      v31 = DpiPdoAddPdo(v12, v20, (enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY)v36, v19, a6, a7, v38, v11);
     }
     else
     {
-      LOBYTE(v18) = 1;
-      v31 = DpiPdoRemovePdo(v12, v20, v18, v11);
+      v35 = MonitorRemovePhysicalMonitor(v33, a2, OutputBuffer[7] != 0, a9);
+      v22 = v35;
+      if ( v35 >= 0 )
+      {
+        if ( !OutputBuffer[7] && *(_BYTE *)(v27 + 944) )
+        {
+LABEL_29:
+          v36 = DpiPdoSetMonitorDriverInterfaceState(*((PVOID *)v19 + 6));
+          v39 = v36;
+          if ( v36 < 0 )
+          {
+            v40 = WdLogNewEntry5_WdWarning(v38, v37, v17);
+            *(_QWORD *)(v40 + 24) = v39;
+            WdLogEvent5_WdWarning(v40);
+          }
+        }
+LABEL_31:
+        LOBYTE(v17) = 1;
+        v13 = a4;
+        goto LABEL_32;
+      }
     }
-    LODWORD(v21) = v31;
-    if ( v31 >= 0 && v31 != 0x40000000 && v31 != 128 )
+LABEL_18:
+    v26 = WdLogNewEntry5_WdError(v16, v15);
+    *(_QWORD *)(v26 + 24) = v22;
+    WdLogEvent5_WdError(v26);
+    return (unsigned int)v22;
+  }
+LABEL_6:
+  *((_BYTE *)v19 + 66) = v13;
+  if ( (_BYTE)v17 != v12 || v12 && a6 )
+  {
+    *((_BYTE *)v19 + 65) = v12;
+    if ( v12 )
     {
-      _m_prefetchw((const void *)(v13 + 3644));
-      if ( (_InterlockedOr((volatile signed __int32 *)(v13 + 3644), 1u) & 1) == 0 )
-        IoInvalidateDeviceRelations(*(PDEVICE_OBJECT *)(v13 + 152), BusRelations);
+      LOBYTE(v18) = a5;
+      LOBYTE(v42) = a7;
+      LOBYTE(OutputBufferLength) = a6;
+      v21 = DpiPdoAddPdo(v10, v19, a3, v18, OutputBufferLength, v42, a9);
+    }
+    else
+    {
+      LOBYTE(v17) = 1;
+      v21 = DpiPdoRemovePdo(v10, v19, v17, a9);
+    }
+    LODWORD(v22) = v21;
+    if ( v21 >= 0 && v21 != 0x40000000 )
+    {
+      _m_prefetchw((const void *)(v11 + 3644));
+      if ( (_InterlockedOr((volatile signed __int32 *)(v11 + 3644), 1u) & 1) == 0 )
+        IoInvalidateDeviceRelations(*(PDEVICE_OBJECT *)(v11 + 152), BusRelations);
     }
   }
   else
   {
-    LODWORD(v21) = 0;
+    LODWORD(v22) = 0;
   }
-  return (unsigned int)v21;
+  return (unsigned int)v22;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of NtGdiMakeFontDir @ 0x1C02ADFA0
+ * XREFs of NtGdiMakeFontDir @ 0x1C02AF860
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x1C01593E0 (__report_rangecheckfailure.c)
- *     memmove @ 0x1C0160280 (memmove.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     GreMakeFontDir @ 0x1C02B99A8 (GreMakeFontDir.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1C0165DB0 (__report_rangecheckfailure.c)
+ *     memmove @ 0x1C016E4C0 (memmove.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     GreMakeFontDir @ 0x1C02BB588 (GreMakeFontDir.c)
  */
 
 __int64 __fastcall NtGdiMakeFontDir(unsigned int a1, _OWORD *a2, unsigned int a3, char *a4, unsigned int Size)

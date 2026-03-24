@@ -1,24 +1,24 @@
 /*
- * XREFs of NtDCompositionUpdatePointerCapture @ 0x1C02121D0
+ * XREFs of NtDCompositionUpdatePointerCapture @ 0x1C01D2B70
  * Callers:
  *     <none>
  * Callees:
- *     UserIsCurrentProcessDwm @ 0x1C0014970 (UserIsCurrentProcessDwm.c)
- *     ?UpdatePointerCapture@CInputManager@@SAJII@Z @ 0x1C023C5E0 (-UpdatePointerCapture@CInputManager@@SAJII@Z.c)
+ *     UserIsCurrentProcessDwm @ 0x1C00478C0 (UserIsCurrentProcessDwm.c)
+ *     ?UpdatePointerCapture@CInputManager@@SAJII@Z @ 0x1C01FA850 (-UpdatePointerCapture@CInputManager@@SAJII@Z.c)
  */
 
-__int64 __fastcall NtDCompositionUpdatePointerCapture(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall NtDCompositionUpdatePointerCapture(__int64 a1, __int64 a2)
 {
-  unsigned int v4; // ebx
-  unsigned int v5; // edi
+  unsigned int v2; // ebx
+  unsigned int v3; // edi
   unsigned int updated; // ebx
 
-  v4 = a2;
-  v5 = a1;
-  if ( UserIsCurrentProcessDwm(a1, a2, a3, a4) )
+  v2 = a2;
+  v3 = a1;
+  if ( UserIsCurrentProcessDwm(a1, a2) )
   {
     KeEnterCriticalRegion();
-    updated = CInputManager::UpdatePointerCapture(v5, v4);
+    updated = CInputManager::UpdatePointerCapture(v3, v2);
     KeLeaveCriticalRegion();
   }
   else

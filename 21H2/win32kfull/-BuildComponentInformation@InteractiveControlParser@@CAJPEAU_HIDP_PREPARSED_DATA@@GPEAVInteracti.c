@@ -1,13 +1,13 @@
 /*
- * XREFs of ?BuildComponentInformation@InteractiveControlParser@@CAJPEAU_HIDP_PREPARSED_DATA@@GPEAVInteractiveControlDevice@@@Z @ 0x1C0258664
+ * XREFs of ?BuildComponentInformation@InteractiveControlParser@@CAJPEAU_HIDP_PREPARSED_DATA@@GPEAVInteractiveControlDevice@@@Z @ 0x1C025B8DC
  * Callers:
- *     ?BuildDeviceCapabilities@InteractiveControlParser@@SAJPEAU_HIDP_PREPARSED_DATA@@PEAVInteractiveControlDevice@@@Z @ 0x1C0258A94 (-BuildDeviceCapabilities@InteractiveControlParser@@SAJPEAU_HIDP_PREPARSED_DATA@@PEAVInteractiveC.c)
+ *     ?BuildDeviceCapabilities@InteractiveControlParser@@SAJPEAU_HIDP_PREPARSED_DATA@@PEAVInteractiveControlDevice@@@Z @ 0x1C025BD0C (-BuildDeviceCapabilities@InteractiveControlParser@@SAJPEAU_HIDP_PREPARSED_DATA@@PEAVInteractiveC.c)
  * Callees:
- *     __security_check_cookie @ 0x1C01593A0 (__security_check_cookie.c)
- *     memset @ 0x1C0160540 (memset.c)
- *     ?SendDeviceIOControl@SimpleHapticsController@@QEAAJKPEAXK0KPEAK@Z @ 0x1C025798C (-SendDeviceIOControl@SimpleHapticsController@@QEAAJKPEAXK0KPEAK@Z.c)
- *     ?CreateAndLinkComponent@InteractiveControlParser@@CAJPEAU_HIDP_VALUE_CAPS@@HPEAU_INTERACTIVECTRL_CAPABILITIES@@PEAPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@@Z @ 0x1C0258CA4 (-CreateAndLinkComponent@InteractiveControlParser@@CAJPEAU_HIDP_VALUE_CAPS@@HPEAU_INTERACTIVECTRL.c)
- *     ?FreeComponentInformation@InteractiveControlParser@@CAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z @ 0x1C02590F4 (-FreeComponentInformation@InteractiveControlParser@@CAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z.c)
+ *     __security_check_cookie @ 0x1C0165D70 (__security_check_cookie.c)
+ *     memset @ 0x1C016E780 (memset.c)
+ *     ?SendDeviceIOControl@SimpleHapticsController@@QEAAJKPEAXK0KPEAK@Z @ 0x1C025AC1C (-SendDeviceIOControl@SimpleHapticsController@@QEAAJKPEAXK0KPEAK@Z.c)
+ *     ?CreateAndLinkComponent@InteractiveControlParser@@CAJPEAU_HIDP_VALUE_CAPS@@HPEAU_INTERACTIVECTRL_CAPABILITIES@@PEAPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@@Z @ 0x1C025BF1C (-CreateAndLinkComponent@InteractiveControlParser@@CAJPEAU_HIDP_VALUE_CAPS@@HPEAU_INTERACTIVECTRL.c)
+ *     ?FreeComponentInformation@InteractiveControlParser@@CAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z @ 0x1C025C36C (-FreeComponentInformation@InteractiveControlParser@@CAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z.c)
  */
 
 __int64 __fastcall InteractiveControlParser::BuildComponentInformation(
@@ -44,102 +44,103 @@ __int64 __fastcall InteractiveControlParser::BuildComponentInformation(
   *((_QWORD *)v3 + 14) = v3 + 112;
   SpecificValueCaps = HidP_GetSpecificValueCaps(HidP_Input, 0, 0, 0, 0LL, ValueCapsLength, PreparsedData);
   v9 = SpecificValueCaps;
-  if ( SpecificValueCaps && SpecificValueCaps != -1072627705 )
-    goto LABEL_31;
-  if ( !ValueCapsLength[0] )
-    goto LABEL_18;
-  ValueCaps = (struct _HIDP_VALUE_CAPS *)Win32AllocPoolZInit(72LL * ValueCapsLength[0], 1819440195LL);
-  if ( !ValueCaps )
+  if ( !SpecificValueCaps || SpecificValueCaps == -1072627705 )
   {
-    v9 = -1073741670;
+    if ( !ValueCapsLength[0] )
+      goto LABEL_18;
+    ValueCaps = (struct _HIDP_VALUE_CAPS *)Win32AllocPool(72LL * ValueCapsLength[0], 1819440195LL);
+    if ( !ValueCaps )
+    {
+      v9 = -1073741670;
 LABEL_32:
-    InteractiveControlParser::FreeComponentInformation((struct _INTERACTIVECTRL_CAPABILITIES *)v3);
-    return (unsigned int)v9;
-  }
-  if ( HidP_GetSpecificValueCaps(HidP_Input, 0, 0, 0, ValueCaps, ValueCapsLength, PreparsedData) < 0 )
-    goto LABEL_18;
-  if ( HidP_GetSpecificValueCaps(HidP_Feature, 1u, 0, 0x48u, &v21, &v18, PreparsedData) >= 0 )
-  {
-    v10 = (UCHAR *)Win32AllocPoolZInit(*((unsigned __int16 *)v3 + 6), 1819440195LL);
-    *v10 = v21.ReportID;
-    v11 = (SimpleHapticsController *)*((_QWORD *)a3 + 48);
-    if ( v11
-      && (int)SimpleHapticsController::SendDeviceIOControl(
-                v11,
-                0xB0192u,
-                0LL,
-                0LL,
-                v10,
-                *((unsigned __int16 *)v3 + 6),
-                &v20) >= 0 )
-    {
-      DbgPrintEx(0x4Du, 2u, "InteractiveControlParser::BuildComponentInformationFound Device Resolution Multiplier:\n");
-      DbgPrintEx(
-        0x4Du,
-        2u,
-        "InteractiveControlParser::BuildComponentInformation\tLogical Rnage = [%d - %d]\n",
-        v21.LogicalMin,
-        v21.LogicalMax);
-      DbgPrintEx(0x4Du, 2u, "InteractiveControlParser::BuildComponentInformation\tMultiplier Value = %d\n", 1);
+      InteractiveControlParser::FreeComponentInformation((struct _INTERACTIVECTRL_CAPABILITIES *)v3);
+      return (unsigned int)v9;
     }
-    Win32FreePool(v10);
-  }
-  v12 = 0;
-  if ( ValueCapsLength[0] )
-  {
-    while ( 1 )
+    if ( HidP_GetSpecificValueCaps(HidP_Input, 0, 0, 0, ValueCaps, ValueCapsLength, PreparsedData) < 0 )
+      goto LABEL_18;
+    if ( HidP_GetSpecificValueCaps(HidP_Feature, 1u, 0, 0x48u, &v21, &v18, PreparsedData) >= 0 )
     {
-      v9 = InteractiveControlParser::CreateAndLinkComponent(
-             &ValueCaps[v12],
-             0,
-             (struct _INTERACTIVECTRL_CAPABILITIES *)v3,
-             &v19);
-      if ( v9 < 0 )
-        break;
-      if ( v19 && ValueCaps[v12].LinkCollection == v21.LinkCollection )
-        *((_DWORD *)v19 + 31) = 1;
-      if ( ++v12 >= ValueCapsLength[0] )
-        goto LABEL_18;
-    }
-  }
-  else
-  {
-LABEL_18:
-    SpecificButtonCaps = HidP_GetSpecificButtonCaps(HidP_Input, 0, 0, 0, 0LL, ButtonCapsLength, PreparsedData);
-    v9 = SpecificButtonCaps;
-    if ( (!SpecificButtonCaps || SpecificButtonCaps == -1072627705) && ButtonCapsLength[0] )
-    {
-      v7 = (struct _HIDP_BUTTON_CAPS *)Win32AllocPoolZInit(72LL * ButtonCapsLength[0], 1819440195LL);
-      if ( v7 )
+      v10 = (UCHAR *)Win32AllocPool(*((unsigned __int16 *)v3 + 6), 1819440195LL);
+      *v10 = v21.ReportID;
+      v11 = (SimpleHapticsController *)*((_QWORD *)a3 + 48);
+      if ( v11
+        && (int)SimpleHapticsController::SendDeviceIOControl(
+                  v11,
+                  0xB0192u,
+                  0LL,
+                  0LL,
+                  v10,
+                  *((unsigned __int16 *)v3 + 6),
+                  &v20) >= 0 )
       {
-        v9 = HidP_GetSpecificButtonCaps(HidP_Input, 0, 0, 0, v7, ButtonCapsLength, PreparsedData);
-        if ( v9 >= 0 )
+        DbgPrintEx(
+          0x4Du,
+          2u,
+          "InteractiveControlParser::BuildComponentInformationFound Device Resolution Multiplier:\n");
+        DbgPrintEx(
+          0x4Du,
+          2u,
+          "InteractiveControlParser::BuildComponentInformation\tLogical Rnage = [%d - %d]\n",
+          v21.LogicalMin,
+          v21.LogicalMax);
+        DbgPrintEx(0x4Du, 2u, "InteractiveControlParser::BuildComponentInformation\tMultiplier Value = %d\n", 1);
+      }
+      Win32FreePool(v10);
+    }
+    v12 = 0;
+    if ( ValueCapsLength[0] )
+    {
+      while ( 1 )
+      {
+        v9 = InteractiveControlParser::CreateAndLinkComponent(
+               &ValueCaps[v12],
+               0,
+               (struct _INTERACTIVECTRL_CAPABILITIES *)v3,
+               &v19);
+        if ( v9 < 0 )
+          break;
+        if ( v19 && ValueCaps[v12].LinkCollection == v21.LinkCollection )
+          *((_DWORD *)v19 + 31) = 1;
+        if ( ++v12 >= ValueCapsLength[0] )
+          goto LABEL_18;
+      }
+    }
+    else
+    {
+LABEL_18:
+      SpecificButtonCaps = HidP_GetSpecificButtonCaps(HidP_Input, 0, 0, 0, 0LL, ButtonCapsLength, PreparsedData);
+      v9 = SpecificButtonCaps;
+      if ( (!SpecificButtonCaps || SpecificButtonCaps == -1072627705) && ButtonCapsLength[0] )
+      {
+        v7 = (struct _HIDP_BUTTON_CAPS *)Win32AllocPool(72LL * ButtonCapsLength[0], 1819440195LL);
+        if ( v7 )
         {
-          for ( i = 0; i < ButtonCapsLength[0]; ++i )
+          v9 = HidP_GetSpecificButtonCaps(HidP_Input, 0, 0, 0, v7, ButtonCapsLength, PreparsedData);
+          if ( v9 >= 0 )
           {
-            v9 = InteractiveControlParser::CreateAndLinkComponent(
-                   (struct _HIDP_VALUE_CAPS *)&v7[i],
-                   1,
-                   (struct _INTERACTIVECTRL_CAPABILITIES *)v3,
-                   &v19);
-            if ( v9 < 0 )
-              break;
+            for ( i = 0; i < ButtonCapsLength[0]; ++i )
+            {
+              v9 = InteractiveControlParser::CreateAndLinkComponent(
+                     (struct _HIDP_VALUE_CAPS *)&v7[i],
+                     1,
+                     (struct _INTERACTIVECTRL_CAPABILITIES *)v3,
+                     &v19);
+              if ( v9 < 0 )
+                break;
+            }
           }
         }
-      }
-      else
-      {
-        v9 = -1073741670;
+        else
+        {
+          v9 = -1073741670;
+        }
       }
     }
-    if ( !ValueCaps )
-      goto LABEL_29;
+    if ( ValueCaps )
+      Win32FreePool(ValueCaps);
+    if ( v7 )
+      Win32FreePool(v7);
   }
-  Win32FreePool(ValueCaps);
-LABEL_29:
-  if ( v7 )
-    Win32FreePool(v7);
-LABEL_31:
   if ( v9 < 0 )
     goto LABEL_32;
   return (unsigned int)v9;

@@ -1,10 +1,10 @@
 /*
- * XREFs of DxgkEngGetWindowGdiDpiScalingFactor @ 0x1C0176BB0
+ * XREFs of DxgkEngGetWindowGdiDpiScalingFactor @ 0x1C014A860
  * Callers:
  *     <none>
  * Callees:
- *     UserIsWindowGdiScaled @ 0x1C0094DF0 (UserIsWindowGdiScaled.c)
- *     GreGetScaledLogPixels @ 0x1C00CFD00 (GreGetScaledLogPixels.c)
+ *     UserIsWindowGdiScaled @ 0x1C0085A40 (UserIsWindowGdiScaled.c)
+ *     GreGetScaledLogPixels @ 0x1C00C0330 (GreGetScaledLogPixels.c)
  */
 
 __int64 __fastcall DxgkEngGetWindowGdiDpiScalingFactor(__int64 a1)

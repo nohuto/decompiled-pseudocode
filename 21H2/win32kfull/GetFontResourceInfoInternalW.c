@@ -1,12 +1,12 @@
 /*
- * XREFs of GetFontResourceInfoInternalW @ 0x1C02D9AD8
+ * XREFs of GetFontResourceInfoInternalW @ 0x1C02DB648
  * Callers:
- *     NtGdiGetFontResourceInfoInternalW @ 0x1C02AD620 (NtGdiGetFontResourceInfoInternalW.c)
+ *     NtGdiGetFontResourceInfoInternalW @ 0x1C02AEEF0 (NtGdiGetFontResourceInfoInternalW.c)
  * Callees:
- *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C001174C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
- *     ?pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z @ 0x1C0013CF0 (-pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z.c)
- *     ?QueryFontFile@PDEVOBJ@@QEAAJ_KKKPEAK@Z @ 0x1C010F888 (-QueryFontFile@PDEVOBJ@@QEAAJ_KKKPEAK@Z.c)
- *     vIFIMetricsToLogFontW @ 0x1C02A50C8 (vIFIMetricsToLogFontW.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C009032C (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z @ 0x1C00BBC28 (-pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z.c)
+ *     ?QueryFontFile@PDEVOBJ@@QEAAJ_KKKPEAK@Z @ 0x1C0125764 (-QueryFontFile@PDEVOBJ@@QEAAJ_KKKPEAK@Z.c)
+ *     vIFIMetricsToLogFontW @ 0x1C02A76AC (vIFIMetricsToLogFontW.c)
  */
 
 __int64 __fastcall GetFontResourceInfoInternalW(
@@ -41,16 +41,16 @@ __int64 __fastcall GetFontResourceInfoInternalW(
     if ( !v12 )
     {
       if ( a7 != 5 )
-        goto LABEL_43;
+        goto LABEL_45;
       if ( (_DWORD)v8 )
       {
         if ( !a6 || (unsigned int)v8 < 4 )
-          goto LABEL_43;
+          goto LABEL_45;
         *a6 = 1;
       }
-LABEL_41:
+LABEL_43:
       LODWORD(v11) = 1;
-      goto LABEL_42;
+      goto LABEL_44;
     }
   }
   switch ( a7 )
@@ -59,36 +59,37 @@ LABEL_41:
       if ( (_DWORD)v8 )
       {
         if ( (unsigned int)v8 < 4 )
-          goto LABEL_43;
+          goto LABEL_45;
         *a6 = *((_DWORD *)v12 + 52);
       }
-      goto LABEL_35;
+      goto LABEL_37;
     case 1:
       v16 = *((_QWORD *)v12 + 10);
       v19 = (struct _FONTHASH **)*((_QWORD *)v12 + 11);
       FontFile = PDEVOBJ::QueryFontFile((PDEVOBJ *)&v19, v16, 1u, 0, 0LL);
       if ( FontFile == -1 )
-        goto LABEL_43;
+        goto LABEL_45;
       if ( (_DWORD)v8 )
       {
         if ( FontFile > (unsigned int)v8 )
-          goto LABEL_43;
-        FontFile = PDEVOBJ::QueryFontFile((PDEVOBJ *)&v19, *((_QWORD *)v12 + 10), 1u, v8, a6);
-        if ( FontFile == -1 )
-          goto LABEL_43;
+          FontFile = -1;
+        else
+          FontFile = PDEVOBJ::QueryFontFile((PDEVOBJ *)&v19, *((_QWORD *)v12 + 10), 1u, v8, a6);
       }
+      if ( FontFile == -1 )
+        goto LABEL_45;
       v14 = FontFile;
-LABEL_31:
+LABEL_33:
       LODWORD(v11) = 1;
       *a5 = v14;
-      goto LABEL_43;
+      goto LABEL_45;
     case 2:
       v13 = *((unsigned int *)v12 + 52);
       v14 = 92 * v13;
       if ( (_DWORD)v8 )
       {
         if ( v8 < v14 )
-          goto LABEL_43;
+          goto LABEL_45;
         v15 = 0;
         if ( (_DWORD)v13 )
         {
@@ -102,34 +103,34 @@ LABEL_31:
         }
         v14 = v11;
       }
-      goto LABEL_31;
+      goto LABEL_33;
     case 3:
       if ( (_DWORD)v8 )
       {
         if ( !a6 || (unsigned int)v8 < 4 )
-          goto LABEL_43;
-        if ( *((_QWORD *)v12 + 11) == qword_1C033BDF8 && !*(_DWORD *)(*((_QWORD *)v12 + 10) + 8LL) )
+          goto LABEL_45;
+        if ( *((struct PDEV **)v12 + 11) == qword_1C0341AF0 && !*(_DWORD *)(*((_QWORD *)v12 + 10) + 8LL) )
           LODWORD(v11) = 1;
         *a6 = v11;
       }
-      goto LABEL_41;
+      goto LABEL_43;
   }
   if ( a7 != 5 )
   {
     EngSetLastError(0x57u);
-    goto LABEL_43;
+    goto LABEL_45;
   }
   if ( !(_DWORD)v8 )
-    goto LABEL_35;
+    goto LABEL_37;
   if ( a6 && (unsigned int)v8 >= 4 )
   {
     *a6 = 0;
-LABEL_35:
+LABEL_37:
     LODWORD(v11) = 1;
-LABEL_42:
+LABEL_44:
     *a5 = 4LL;
   }
-LABEL_43:
+LABEL_45:
   SEMOBJ::vUnlock((SEMOBJ *)&v20);
   return (unsigned int)v11;
 }

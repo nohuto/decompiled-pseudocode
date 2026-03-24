@@ -1,96 +1,58 @@
 /*
- * XREFs of ViHookDmaAdapter @ 0x140ACA520
+ * XREFs of ViHookDmaAdapter @ 0x1409CEE9C
  * Callers:
- *     VfGetDmaAdapter @ 0x140AC7560 (VfGetDmaAdapter.c)
+ *     VfGetDmaAdapter @ 0x1409CBE70 (VfGetDmaAdapter.c)
  * Callees:
- *     ObfReferenceObject @ 0x140233C20 (ObfReferenceObject.c)
- *     ExInterlockedInsertHeadList @ 0x1403519A0 (ExInterlockedInsertHeadList.c)
- *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
- *     ViAllocateContiguousMemory @ 0x140AC8A6C (ViAllocateContiguousMemory.c)
- *     ViCopyDeviceDescription @ 0x140AC97A0 (ViCopyDeviceDescription.c)
- *     ViGetAdapterSignature @ 0x140ACA010 (ViGetAdapterSignature.c)
+ *     ObfReferenceObject @ 0x1402CB940 (ObfReferenceObject.c)
+ *     ExInterlockedInsertHeadList @ 0x1402F8650 (ExInterlockedInsertHeadList.c)
+ *     memset @ 0x140413800 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ViAllocateContiguousMemory @ 0x1409CD3BC (ViAllocateContiguousMemory.c)
+ *     ViCopyDeviceDescription @ 0x1409CE0EC (ViCopyDeviceDescription.c)
+ *     ViGetAdapterInformationInternal @ 0x1409CE758 (ViGetAdapterInformationInternal.c)
  */
 
-__int64 __fastcall ViHookDmaAdapter(_WORD *Object, __int64 a2, int a3, __int64 a4, __int64 a5, char a6)
+struct _LIST_ENTRY *__fastcall ViHookDmaAdapter(struct _LIST_ENTRY *Object, __int64 a2, int a3, char a4)
 {
-  __int64 v10; // rcx
-  __int64 v11; // rbx
-  __int64 Pool2; // rax
-  _BYTE *v13; // rax
-  void *v14; // rax
+  struct _LIST_ENTRY *AdapterInformationInternal; // rbx
+  struct _LIST_ENTRY *PoolWithTag; // rax
 
-  if ( (unsigned int)ViGetAdapterSignature((__int64)Object) == 1634550870 )
+  AdapterInformationInternal = ViGetAdapterInformationInternal((ULONG_PTR)Object, 0);
+  if ( !AdapterInformationInternal )
   {
-    v11 = v10 - 16;
-    if ( v10 == 16 )
-      return v11;
-    goto LABEL_19;
+    PoolWithTag = (struct _LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x140uLL, 0x566C6148u);
+    AdapterInformationInternal = PoolWithTag;
+    if ( !PoolWithTag )
+      return AdapterInformationInternal;
+    memset(PoolWithTag, 0, 0x140uLL);
+    AdapterInformationInternal[1].Flink = Object;
+    ExInterlockedInsertHeadList(&ViAdapterList, AdapterInformationInternal, &qword_140D4A088);
+    ObfReferenceObject(Object);
+    AdapterInformationInternal[4].Blink = 0LL;
+    AdapterInformationInternal[4].Flink = (struct _LIST_ENTRY *)((char *)AdapterInformationInternal + 56);
+    AdapterInformationInternal[3].Blink = (struct _LIST_ENTRY *)((char *)AdapterInformationInternal + 56);
+    AdapterInformationInternal[6].Flink = 0LL;
+    AdapterInformationInternal[5].Blink = AdapterInformationInternal + 5;
+    AdapterInformationInternal[5].Flink = AdapterInformationInternal + 5;
+    AdapterInformationInternal[7].Blink = 0LL;
+    AdapterInformationInternal[7].Flink = (struct _LIST_ENTRY *)((char *)AdapterInformationInternal + 104);
+    AdapterInformationInternal[6].Blink = (struct _LIST_ENTRY *)((char *)AdapterInformationInternal + 104);
+    AdapterInformationInternal[9].Flink = 0LL;
+    AdapterInformationInternal[8].Blink = AdapterInformationInternal + 8;
+    AdapterInformationInternal[8].Flink = AdapterInformationInternal + 8;
+    ViCopyDeviceDescription((__int64)&AdapterInformationInternal[12], (unsigned int *)a2);
+    LODWORD(AdapterInformationInternal[9].Blink) = a3;
+    if ( *(_DWORD *)(a2 + 20) == 1 && *(_DWORD *)(a2 + 16) < 8u || !*(_BYTE *)(a2 + 4) )
+      BYTE2(AdapterInformationInternal[2].Flink) = 1;
+    AdapterInformationInternal[17].Blink = 0LL;
+    if ( *(_BYTE *)(a2 + 4) && *(_BYTE *)(a2 + 5) )
+      ViAllocateContiguousMemory((__int64)AdapterInformationInternal);
+    else
+      BYTE1(AdapterInformationInternal[2].Flink) = 1;
+    AdapterInformationInternal[3].Flink = Object->Blink;
+    Object->Blink = (struct _LIST_ENTRY *)&ViDmaOperations;
   }
-  Pool2 = ExAllocatePool2(64LL, 0x160uLL, 0x566C6148u);
-  v11 = Pool2;
-  if ( !Pool2 )
-    return v11;
-  *(_DWORD *)(Pool2 + 76) = 0;
-  ObfReferenceObject(Object);
-  *(_QWORD *)(v11 + 104) = 0LL;
-  *(_QWORD *)(v11 + 128) = 0LL;
-  *(_QWORD *)(v11 + 96) = v11 + 88;
-  *(_QWORD *)(v11 + 88) = v11 + 88;
-  *(_QWORD *)(v11 + 152) = 0LL;
-  *(_QWORD *)(v11 + 120) = v11 + 112;
-  *(_QWORD *)(v11 + 112) = v11 + 112;
-  *(_QWORD *)(v11 + 176) = 0LL;
-  *(_QWORD *)(v11 + 144) = v11 + 136;
-  *(_QWORD *)(v11 + 136) = v11 + 136;
-  *(_QWORD *)(v11 + 168) = v11 + 160;
-  *(_QWORD *)(v11 + 160) = v11 + 160;
-  ViCopyDeviceDescription(v11 + 224, (unsigned int *)a2);
-  *(_DWORD *)(v11 + 184) = a3;
-  if ( *(_DWORD *)(a2 + 20) == 1 && *(_DWORD *)(a2 + 16) < 8u )
-  {
-    v13 = (_BYTE *)(a2 + 4);
-  }
-  else
-  {
-    v13 = (_BYTE *)(a2 + 4);
-    if ( *(_BYTE *)(a2 + 4) )
-      goto LABEL_10;
-  }
-  *(_BYTE *)(v11 + 74) = 1;
-LABEL_10:
-  *(_QWORD *)(v11 + 312) = 0LL;
-  if ( *v13 && *(_BYTE *)(a2 + 5) )
-  {
-    if ( ViDoubleBufferDma )
-      ViAllocateContiguousMemory(v11);
-  }
-  else
-  {
-    *(_BYTE *)(v11 + 73) = 1;
-  }
-  *(_DWORD *)(v11 + 32) = 1634550870;
-  *(_QWORD *)(v11 + 40) = Object;
-  *(_WORD *)(v11 + 16) = *Object;
-  *(_WORD *)(v11 + 18) = 48;
-  *(_QWORD *)(v11 + 56) = v11 + 48;
-  *(_QWORD *)(v11 + 48) = v11 + 48;
-  if ( *(_QWORD *)(*((_QWORD *)Object + 1) + 248LL) )
-  {
-    *(_DWORD *)(v11 + 224) = 3;
-    v14 = &ViDmaOperationsV3;
-  }
-  else
-  {
-    v14 = &ViDmaOperationsV2;
-  }
-  *(_QWORD *)(v11 + 24) = v14;
-LABEL_19:
-  if ( a6 )
-  {
-    _InterlockedIncrement((volatile signed __int32 *)(v11 + 76));
-    *(_QWORD *)(v11 + 80) = a5;
-    *(_QWORD *)(v11 + 64) = a4;
-    ExInterlockedInsertHeadList(&ViAdapterList, (PLIST_ENTRY)v11, &qword_140C36990);
-  }
-  return v11;
+  if ( a4 )
+    _InterlockedIncrement((volatile signed __int32 *)&AdapterInformationInternal[2].Flink + 1);
+  return AdapterInformationInternal;
 }
